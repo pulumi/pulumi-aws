@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53recoveryreadiness.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ResourceSetResourceDnsTargetResourceTargetResourceR53Resource
      * Domain name that is targeted.
      * 
      */
-    private @Nullable UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private @Nullable String value_domainName;
+    private boolean unknown_domainName;
     public @Nullable String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("ResourceSetResourceDnsTargetResourceTargetResourceR53Resource.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'ResourceSetResourceDnsTargetResourceTargetResourceR53Resource.domainName' is not present");
     }
 
     /**
      * Resource record set ID that is targeted.
      * 
      */
-    private @Nullable UndeferrableValue<String> recordSetId;
-
+    @PolicyResourceProperty(name="recordSetId", flag="unknown_recordSetId")
+    private @Nullable String value_recordSetId;
+    private boolean unknown_recordSetId;
     public @Nullable String recordSetId() {
-        if (recordSetId == null) return null;
-        return recordSetId.getValue("ResourceSetResourceDnsTargetResourceTargetResourceR53Resource.recordSetId");
+        if (!unknown_recordSetId) return value_recordSetId;
+        throw new UndeferrableValueException("Value 'ResourceSetResourceDnsTargetResourceTargetResourceR53Resource.recordSetId' is not present");
     }
 
 }

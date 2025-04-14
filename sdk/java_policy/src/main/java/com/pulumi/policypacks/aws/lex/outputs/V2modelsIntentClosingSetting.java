@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentClosingSettingClosingResponse;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentClosingSettingConditional;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentClosingSettingNextStep;
@@ -17,44 +18,48 @@ public final class V2modelsIntentClosingSetting {
      * Whether an intent&#39;s closing response is used. When this field is false, the closing response isn&#39;t sent to the user. If the active field isn&#39;t specified, the default is true.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> active;
-
+    @PolicyResourceProperty(name="active", flag="unknown_active")
+    private @Nullable Boolean value_active;
+    private boolean unknown_active;
     public @Nullable Boolean active() {
-        if (active == null) return null;
-        return active.getValue("V2modelsIntentClosingSetting.active");
+        if (!unknown_active) return value_active;
+        throw new UndeferrableValueException("Value 'V2modelsIntentClosingSetting.active' is not present");
     }
 
     /**
      * Configuration block for response that Amazon Lex sends to the user when the intent is complete. See `closing_response`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentClosingSettingClosingResponse> closingResponse;
-
+    @PolicyResourceProperty(name="closingResponse", flag="unknown_closingResponse")
+    private @Nullable V2modelsIntentClosingSettingClosingResponse value_closingResponse;
+    private boolean unknown_closingResponse;
     public @Nullable V2modelsIntentClosingSettingClosingResponse closingResponse() {
-        if (closingResponse == null) return null;
-        return closingResponse.getValue("V2modelsIntentClosingSetting.closingResponse");
+        if (!unknown_closingResponse) return value_closingResponse;
+        throw new UndeferrableValueException("Value 'V2modelsIntentClosingSetting.closingResponse' is not present");
     }
 
     /**
      * Configuration block for list of conditional branches associated with the intent&#39;s closing response. These branches are executed when the `next_step` attribute is set to `EvalutateConditional`. See `conditional`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentClosingSettingConditional> conditional;
-
+    @PolicyResourceProperty(name="conditional", flag="unknown_conditional")
+    private @Nullable V2modelsIntentClosingSettingConditional value_conditional;
+    private boolean unknown_conditional;
     public @Nullable V2modelsIntentClosingSettingConditional conditional() {
-        if (conditional == null) return null;
-        return conditional.getValue("V2modelsIntentClosingSetting.conditional");
+        if (!unknown_conditional) return value_conditional;
+        throw new UndeferrableValueException("Value 'V2modelsIntentClosingSetting.conditional' is not present");
     }
 
     /**
      * Next step that the bot executes after playing the intent&#39;s closing response. See `next_step`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentClosingSettingNextStep> nextStep;
-
+    @PolicyResourceProperty(name="nextStep", flag="unknown_nextStep")
+    private @Nullable V2modelsIntentClosingSettingNextStep value_nextStep;
+    private boolean unknown_nextStep;
     public @Nullable V2modelsIntentClosingSettingNextStep nextStep() {
-        if (nextStep == null) return null;
-        return nextStep.getValue("V2modelsIntentClosingSetting.nextStep");
+        if (!unknown_nextStep) return value_nextStep;
+        throw new UndeferrableValueException("Value 'V2modelsIntentClosingSetting.nextStep' is not present");
     }
 
 }

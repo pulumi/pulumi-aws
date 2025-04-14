@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.efs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.efs.outputs.AccessPointPosixUser;
 import com.pulumi.policypacks.aws.efs.outputs.AccessPointRootDirectory;
@@ -19,73 +20,80 @@ public final class AccessPoint extends com.pulumi.resources.PolicyResourceOutput
      * ARN of the access point.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("AccessPoint.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'AccessPoint.arn' is not present");
     }
 
     /**
      * ARN of the file system.
      * 
      */
-    private UndeferrableValue<String> fileSystemArn;
-
+    @PolicyResourceProperty(name="fileSystemArn", flag="unknown_fileSystemArn")
+    private String value_fileSystemArn;
+    private boolean unknown_fileSystemArn;
     public String fileSystemArn() {
-        if (fileSystemArn == null) return null;
-        return fileSystemArn.getValue("AccessPoint.fileSystemArn");
+        if (!unknown_fileSystemArn) return value_fileSystemArn;
+        throw new UndeferrableValueException("Value 'AccessPoint.fileSystemArn' is not present");
     }
 
     /**
      * ID of the file system for which the access point is intended.
      * 
      */
-    private UndeferrableValue<String> fileSystemId;
-
+    @PolicyResourceProperty(name="fileSystemId", flag="unknown_fileSystemId")
+    private String value_fileSystemId;
+    private boolean unknown_fileSystemId;
     public String fileSystemId() {
-        if (fileSystemId == null) return null;
-        return fileSystemId.getValue("AccessPoint.fileSystemId");
+        if (!unknown_fileSystemId) return value_fileSystemId;
+        throw new UndeferrableValueException("Value 'AccessPoint.fileSystemId' is not present");
     }
 
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("AccessPoint.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'AccessPoint.ownerId' is not present");
     }
 
     /**
      * Operating system user and group applied to all file system requests made using the access point. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<AccessPointPosixUser> posixUser;
-
+    @PolicyResourceProperty(name="posixUser", flag="unknown_posixUser")
+    private @Nullable AccessPointPosixUser value_posixUser;
+    private boolean unknown_posixUser;
     public @Nullable AccessPointPosixUser posixUser() {
-        if (posixUser == null) return null;
-        return posixUser.getValue("AccessPoint.posixUser");
+        if (!unknown_posixUser) return value_posixUser;
+        throw new UndeferrableValueException("Value 'AccessPoint.posixUser' is not present");
     }
 
     /**
      * Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
      * 
      */
-    private UndeferrableValue<AccessPointRootDirectory> rootDirectory;
-
+    @PolicyResourceProperty(name="rootDirectory", flag="unknown_rootDirectory")
+    private AccessPointRootDirectory value_rootDirectory;
+    private boolean unknown_rootDirectory;
     public AccessPointRootDirectory rootDirectory() {
-        if (rootDirectory == null) return null;
-        return rootDirectory.getValue("AccessPoint.rootDirectory");
+        if (!unknown_rootDirectory) return value_rootDirectory;
+        throw new UndeferrableValueException("Value 'AccessPoint.rootDirectory' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AccessPoint.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AccessPoint.tags' is not present");
     }
 
     /**
@@ -96,11 +104,12 @@ public final class AccessPoint extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("AccessPoint.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'AccessPoint.tagsAll' is not present");
     }
 
 }

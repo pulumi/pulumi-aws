@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy {
      * Whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    private UndeferrableValue<Boolean> override;
-
+    @PolicyResourceProperty(name="override", flag="unknown_override")
+    private Boolean value_override;
+    private boolean unknown_override;
     public Boolean override() {
-        if (override == null) return null;
-        return override.getValue("ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy.override");
+        if (!unknown_override) return value_override;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy.override' is not present");
     }
 
     /**
      * The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
      * 
      */
-    private UndeferrableValue<String> referrerPolicy;
-
+    @PolicyResourceProperty(name="referrerPolicy", flag="unknown_referrerPolicy")
+    private String value_referrerPolicy;
+    private boolean unknown_referrerPolicy;
     public String referrerPolicy() {
-        if (referrerPolicy == null) return null;
-        return referrerPolicy.getValue("ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy.referrerPolicy");
+        if (!unknown_referrerPolicy) return value_referrerPolicy;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy.referrerPolicy' is not present");
     }
 
 }

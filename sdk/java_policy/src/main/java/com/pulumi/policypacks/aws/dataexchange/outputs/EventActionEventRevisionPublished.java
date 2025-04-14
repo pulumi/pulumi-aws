@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dataexchange.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -14,11 +15,12 @@ public final class EventActionEventRevisionPublished {
      * Changing this value will recreate the resource.
      * 
      */
-    private UndeferrableValue<String> dataSetId;
-
+    @PolicyResourceProperty(name="dataSetId", flag="unknown_dataSetId")
+    private String value_dataSetId;
+    private boolean unknown_dataSetId;
     public String dataSetId() {
-        if (dataSetId == null) return null;
-        return dataSetId.getValue("EventActionEventRevisionPublished.dataSetId");
+        if (!unknown_dataSetId) return value_dataSetId;
+        throw new UndeferrableValueException("Value 'EventActionEventRevisionPublished.dataSetId' is not present");
     }
 
 }

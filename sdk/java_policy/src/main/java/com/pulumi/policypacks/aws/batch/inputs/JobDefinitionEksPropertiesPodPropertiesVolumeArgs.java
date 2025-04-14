@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs;
 import com.pulumi.policypacks.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs;
 import com.pulumi.policypacks.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs;
@@ -13,36 +14,40 @@ import javax.annotation.Nullable;
 
 public final class JobDefinitionEksPropertiesPodPropertiesVolumeArgs {
 
-    private UndeferrableValue<JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs> emptyDir;
-
+    @PolicyResourceProperty(name="emptyDir", flag="unknown_emptyDir")
+    private JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs value_emptyDir;
+    private boolean unknown_emptyDir;
     public JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs emptyDir() {
-        if (emptyDir == null) return null;
-        return emptyDir.getValue("JobDefinitionEksPropertiesPodPropertiesVolumeArgs.emptyDir");
+        if (!unknown_emptyDir) return value_emptyDir;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesVolumeArgs.emptyDir' is not present");
     }
 
-    private UndeferrableValue<JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs> hostPath;
-
+    @PolicyResourceProperty(name="hostPath", flag="unknown_hostPath")
+    private JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs value_hostPath;
+    private boolean unknown_hostPath;
     public JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs hostPath() {
-        if (hostPath == null) return null;
-        return hostPath.getValue("JobDefinitionEksPropertiesPodPropertiesVolumeArgs.hostPath");
+        if (!unknown_hostPath) return value_hostPath;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesVolumeArgs.hostPath' is not present");
     }
 
     /**
      * Name of the job definition.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("JobDefinitionEksPropertiesPodPropertiesVolumeArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesVolumeArgs.name' is not present");
     }
 
-    private UndeferrableValue<JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs> secret;
-
+    @PolicyResourceProperty(name="secret", flag="unknown_secret")
+    private JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs value_secret;
+    private boolean unknown_secret;
     public JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs secret() {
-        if (secret == null) return null;
-        return secret.getValue("JobDefinitionEksPropertiesPodPropertiesVolumeArgs.secret");
+        if (!unknown_secret) return value_secret;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesVolumeArgs.secret' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.waf;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.waf.inputs.RegexMatchSetRegexMatchTupleArgs;
 import java.lang.String;
@@ -18,22 +19,24 @@ public final class RegexMatchSetArgs extends com.pulumi.resources.PolicyResource
      * The name or description of the Regex Match Set.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RegexMatchSetArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RegexMatchSetArgs.name' is not present");
     }
 
     /**
      * The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
      * 
      */
-    private UndeferrableValue<List<RegexMatchSetRegexMatchTupleArgs>> regexMatchTuples;
-
+    @PolicyResourceProperty(name="regexMatchTuples", flag="unknown_regexMatchTuples")
+    private List<RegexMatchSetRegexMatchTupleArgs> value_regexMatchTuples;
+    private boolean unknown_regexMatchTuples;
     public List<RegexMatchSetRegexMatchTupleArgs> regexMatchTuples() {
-        if (regexMatchTuples == null) return null;
-        return regexMatchTuples.getValue("RegexMatchSetArgs.regexMatchTuples");
+        if (!unknown_regexMatchTuples) return value_regexMatchTuples;
+        throw new UndeferrableValueException("Value 'RegexMatchSetArgs.regexMatchTuples' is not present");
     }
 
 }

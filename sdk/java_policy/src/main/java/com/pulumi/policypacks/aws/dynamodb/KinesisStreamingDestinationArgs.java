@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dynamodb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class KinesisStreamingDestinationArgs extends com.pulumi.resources.
      * Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
      * 
      */
-    private UndeferrableValue<String> approximateCreationDateTimePrecision;
-
+    @PolicyResourceProperty(name="approximateCreationDateTimePrecision", flag="unknown_approximateCreationDateTimePrecision")
+    private String value_approximateCreationDateTimePrecision;
+    private boolean unknown_approximateCreationDateTimePrecision;
     public String approximateCreationDateTimePrecision() {
-        if (approximateCreationDateTimePrecision == null) return null;
-        return approximateCreationDateTimePrecision.getValue("KinesisStreamingDestinationArgs.approximateCreationDateTimePrecision");
+        if (!unknown_approximateCreationDateTimePrecision) return value_approximateCreationDateTimePrecision;
+        throw new UndeferrableValueException("Value 'KinesisStreamingDestinationArgs.approximateCreationDateTimePrecision' is not present");
     }
 
     /**
      * The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
      * 
      */
-    private UndeferrableValue<String> streamArn;
-
+    @PolicyResourceProperty(name="streamArn", flag="unknown_streamArn")
+    private String value_streamArn;
+    private boolean unknown_streamArn;
     public String streamArn() {
-        if (streamArn == null) return null;
-        return streamArn.getValue("KinesisStreamingDestinationArgs.streamArn");
+        if (!unknown_streamArn) return value_streamArn;
+        throw new UndeferrableValueException("Value 'KinesisStreamingDestinationArgs.streamArn' is not present");
     }
 
     /**
      * The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
      * 
      */
-    private UndeferrableValue<String> tableName;
-
+    @PolicyResourceProperty(name="tableName", flag="unknown_tableName")
+    private String value_tableName;
+    private boolean unknown_tableName;
     public String tableName() {
-        if (tableName == null) return null;
-        return tableName.getValue("KinesisStreamingDestinationArgs.tableName");
+        if (!unknown_tableName) return value_tableName;
+        throw new UndeferrableValueException("Value 'KinesisStreamingDestinationArgs.tableName' is not present");
     }
 
 }

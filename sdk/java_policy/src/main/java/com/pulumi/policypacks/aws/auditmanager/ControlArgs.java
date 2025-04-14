@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.auditmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.auditmanager.inputs.ControlControlMappingSourceArgs;
 import java.lang.String;
@@ -19,22 +20,24 @@ public final class ControlArgs extends com.pulumi.resources.PolicyResourceInput 
      * Recommended actions to carry out if the control isn&#39;t fulfilled.
      * 
      */
-    private UndeferrableValue<String> actionPlanInstructions;
-
+    @PolicyResourceProperty(name="actionPlanInstructions", flag="unknown_actionPlanInstructions")
+    private String value_actionPlanInstructions;
+    private boolean unknown_actionPlanInstructions;
     public String actionPlanInstructions() {
-        if (actionPlanInstructions == null) return null;
-        return actionPlanInstructions.getValue("ControlArgs.actionPlanInstructions");
+        if (!unknown_actionPlanInstructions) return value_actionPlanInstructions;
+        throw new UndeferrableValueException("Value 'ControlArgs.actionPlanInstructions' is not present");
     }
 
     /**
      * Title of the action plan for remediating the control.
      * 
      */
-    private UndeferrableValue<String> actionPlanTitle;
-
+    @PolicyResourceProperty(name="actionPlanTitle", flag="unknown_actionPlanTitle")
+    private String value_actionPlanTitle;
+    private boolean unknown_actionPlanTitle;
     public String actionPlanTitle() {
-        if (actionPlanTitle == null) return null;
-        return actionPlanTitle.getValue("ControlArgs.actionPlanTitle");
+        if (!unknown_actionPlanTitle) return value_actionPlanTitle;
+        throw new UndeferrableValueException("Value 'ControlArgs.actionPlanTitle' is not present");
     }
 
     /**
@@ -43,55 +46,60 @@ public final class ControlArgs extends com.pulumi.resources.PolicyResourceInput 
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<List<ControlControlMappingSourceArgs>> controlMappingSources;
-
+    @PolicyResourceProperty(name="controlMappingSources", flag="unknown_controlMappingSources")
+    private List<ControlControlMappingSourceArgs> value_controlMappingSources;
+    private boolean unknown_controlMappingSources;
     public List<ControlControlMappingSourceArgs> controlMappingSources() {
-        if (controlMappingSources == null) return null;
-        return controlMappingSources.getValue("ControlArgs.controlMappingSources");
+        if (!unknown_controlMappingSources) return value_controlMappingSources;
+        throw new UndeferrableValueException("Value 'ControlArgs.controlMappingSources' is not present");
     }
 
     /**
      * Description of the control.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ControlArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ControlArgs.description' is not present");
     }
 
     /**
      * Name of the control.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ControlArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ControlArgs.name' is not present");
     }
 
     /**
      * A map of tags to assign to the control. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ControlArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ControlArgs.tags' is not present");
     }
 
     /**
      * Steps to follow to determine if the control is satisfied.
      * 
      */
-    private UndeferrableValue<String> testingInformation;
-
+    @PolicyResourceProperty(name="testingInformation", flag="unknown_testingInformation")
+    private String value_testingInformation;
+    private boolean unknown_testingInformation;
     public String testingInformation() {
-        if (testingInformation == null) return null;
-        return testingInformation.getValue("ControlArgs.testingInformation");
+        if (!unknown_testingInformation) return value_testingInformation;
+        throw new UndeferrableValueException("Value 'ControlArgs.testingInformation' is not present");
     }
 
 }

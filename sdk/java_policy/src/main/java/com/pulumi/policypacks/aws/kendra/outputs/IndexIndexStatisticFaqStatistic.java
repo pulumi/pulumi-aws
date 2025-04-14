@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class IndexIndexStatisticFaqStatistic {
      * The total number of FAQ questions and answers contained in the index.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> indexedQuestionAnswersCount;
-
+    @PolicyResourceProperty(name="indexedQuestionAnswersCount", flag="unknown_indexedQuestionAnswersCount")
+    private @Nullable Integer value_indexedQuestionAnswersCount;
+    private boolean unknown_indexedQuestionAnswersCount;
     public @Nullable Integer indexedQuestionAnswersCount() {
-        if (indexedQuestionAnswersCount == null) return null;
-        return indexedQuestionAnswersCount.getValue("IndexIndexStatisticFaqStatistic.indexedQuestionAnswersCount");
+        if (!unknown_indexedQuestionAnswersCount) return value_indexedQuestionAnswersCount;
+        throw new UndeferrableValueException("Value 'IndexIndexStatisticFaqStatistic.indexedQuestionAnswersCount' is not present");
     }
 
 }

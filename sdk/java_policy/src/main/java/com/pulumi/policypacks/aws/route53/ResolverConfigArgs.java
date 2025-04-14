@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class ResolverConfigArgs extends com.pulumi.resources.PolicyResourc
      * Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
      * 
      */
-    private UndeferrableValue<String> autodefinedReverseFlag;
-
+    @PolicyResourceProperty(name="autodefinedReverseFlag", flag="unknown_autodefinedReverseFlag")
+    private String value_autodefinedReverseFlag;
+    private boolean unknown_autodefinedReverseFlag;
     public String autodefinedReverseFlag() {
-        if (autodefinedReverseFlag == null) return null;
-        return autodefinedReverseFlag.getValue("ResolverConfigArgs.autodefinedReverseFlag");
+        if (!unknown_autodefinedReverseFlag) return value_autodefinedReverseFlag;
+        throw new UndeferrableValueException("Value 'ResolverConfigArgs.autodefinedReverseFlag' is not present");
     }
 
     /**
      * The ID of the VPC that the configuration is for.
      * 
      */
-    private UndeferrableValue<String> resourceId;
-
+    @PolicyResourceProperty(name="resourceId", flag="unknown_resourceId")
+    private String value_resourceId;
+    private boolean unknown_resourceId;
     public String resourceId() {
-        if (resourceId == null) return null;
-        return resourceId.getValue("ResolverConfigArgs.resourceId");
+        if (!unknown_resourceId) return value_resourceId;
+        throw new UndeferrableValueException("Value 'ResolverConfigArgs.resourceId' is not present");
     }
 
 }

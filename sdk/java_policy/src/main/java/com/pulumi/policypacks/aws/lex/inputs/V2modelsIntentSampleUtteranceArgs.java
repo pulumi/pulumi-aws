@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class V2modelsIntentSampleUtteranceArgs {
      * Sample utterance that Amazon Lex uses to build its machine-learning model to recognize intents.
      * 
      */
-    private UndeferrableValue<String> utterance;
-
+    @PolicyResourceProperty(name="utterance", flag="unknown_utterance")
+    private String value_utterance;
+    private boolean unknown_utterance;
     public String utterance() {
-        if (utterance == null) return null;
-        return utterance.getValue("V2modelsIntentSampleUtteranceArgs.utterance");
+        if (!unknown_utterance) return value_utterance;
+        throw new UndeferrableValueException("Value 'V2modelsIntentSampleUtteranceArgs.utterance' is not present");
     }
 
 }

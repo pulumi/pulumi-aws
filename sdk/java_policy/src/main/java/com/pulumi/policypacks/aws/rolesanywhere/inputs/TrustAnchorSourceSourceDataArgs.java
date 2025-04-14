@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rolesanywhere.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,18 +15,20 @@ public final class TrustAnchorSourceSourceDataArgs {
      * The ARN of an ACM Private Certificate Authority.
      * 
      */
-    private UndeferrableValue<String> acmPcaArn;
-
+    @PolicyResourceProperty(name="acmPcaArn", flag="unknown_acmPcaArn")
+    private String value_acmPcaArn;
+    private boolean unknown_acmPcaArn;
     public String acmPcaArn() {
-        if (acmPcaArn == null) return null;
-        return acmPcaArn.getValue("TrustAnchorSourceSourceDataArgs.acmPcaArn");
+        if (!unknown_acmPcaArn) return value_acmPcaArn;
+        throw new UndeferrableValueException("Value 'TrustAnchorSourceSourceDataArgs.acmPcaArn' is not present");
     }
 
-    private UndeferrableValue<String> x509CertificateData;
-
+    @PolicyResourceProperty(name="x509CertificateData", flag="unknown_x509CertificateData")
+    private String value_x509CertificateData;
+    private boolean unknown_x509CertificateData;
     public String x509CertificateData() {
-        if (x509CertificateData == null) return null;
-        return x509CertificateData.getValue("TrustAnchorSourceSourceDataArgs.x509CertificateData");
+        if (!unknown_x509CertificateData) return value_x509CertificateData;
+        throw new UndeferrableValueException("Value 'TrustAnchorSourceSourceDataArgs.x509CertificateData' is not present");
     }
 
 }

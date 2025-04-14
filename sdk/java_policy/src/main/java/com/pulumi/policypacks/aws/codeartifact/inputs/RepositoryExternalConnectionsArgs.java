@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codeartifact.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,25 +15,28 @@ public final class RepositoryExternalConnectionsArgs {
      * The name of the external connection associated with a repository.
      * 
      */
-    private UndeferrableValue<String> externalConnectionName;
-
+    @PolicyResourceProperty(name="externalConnectionName", flag="unknown_externalConnectionName")
+    private String value_externalConnectionName;
+    private boolean unknown_externalConnectionName;
     public String externalConnectionName() {
-        if (externalConnectionName == null) return null;
-        return externalConnectionName.getValue("RepositoryExternalConnectionsArgs.externalConnectionName");
+        if (!unknown_externalConnectionName) return value_externalConnectionName;
+        throw new UndeferrableValueException("Value 'RepositoryExternalConnectionsArgs.externalConnectionName' is not present");
     }
 
-    private UndeferrableValue<String> packageFormat;
-
+    @PolicyResourceProperty(name="packageFormat", flag="unknown_packageFormat")
+    private String value_packageFormat;
+    private boolean unknown_packageFormat;
     public String packageFormat() {
-        if (packageFormat == null) return null;
-        return packageFormat.getValue("RepositoryExternalConnectionsArgs.packageFormat");
+        if (!unknown_packageFormat) return value_packageFormat;
+        throw new UndeferrableValueException("Value 'RepositoryExternalConnectionsArgs.packageFormat' is not present");
     }
 
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("RepositoryExternalConnectionsArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'RepositoryExternalConnectionsArgs.status' is not present");
     }
 
 }

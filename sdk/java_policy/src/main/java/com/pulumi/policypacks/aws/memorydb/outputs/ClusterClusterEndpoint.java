@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.memorydb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ClusterClusterEndpoint {
      * DNS hostname of the node.
      * 
      */
-    private @Nullable UndeferrableValue<String> address;
-
+    @PolicyResourceProperty(name="address", flag="unknown_address")
+    private @Nullable String value_address;
+    private boolean unknown_address;
     public @Nullable String address() {
-        if (address == null) return null;
-        return address.getValue("ClusterClusterEndpoint.address");
+        if (!unknown_address) return value_address;
+        throw new UndeferrableValueException("Value 'ClusterClusterEndpoint.address' is not present");
     }
 
     /**
      * The port number on which each of the nodes accepts connections. Defaults to `6379`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable Integer value_port;
+    private boolean unknown_port;
     public @Nullable Integer port() {
-        if (port == null) return null;
-        return port.getValue("ClusterClusterEndpoint.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'ClusterClusterEndpoint.port' is not present");
     }
 
 }

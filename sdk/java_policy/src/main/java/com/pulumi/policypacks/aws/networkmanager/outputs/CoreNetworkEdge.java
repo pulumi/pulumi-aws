@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class CoreNetworkEdge {
      * ASN of a core network edge.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> asn;
-
+    @PolicyResourceProperty(name="asn", flag="unknown_asn")
+    private @Nullable Integer value_asn;
+    private boolean unknown_asn;
     public @Nullable Integer asn() {
-        if (asn == null) return null;
-        return asn.getValue("CoreNetworkEdge.asn");
+        if (!unknown_asn) return value_asn;
+        throw new UndeferrableValueException("Value 'CoreNetworkEdge.asn' is not present");
     }
 
     /**
      * Region where a core network edge is located.
      * 
      */
-    private @Nullable UndeferrableValue<String> edgeLocation;
-
+    @PolicyResourceProperty(name="edgeLocation", flag="unknown_edgeLocation")
+    private @Nullable String value_edgeLocation;
+    private boolean unknown_edgeLocation;
     public @Nullable String edgeLocation() {
-        if (edgeLocation == null) return null;
-        return edgeLocation.getValue("CoreNetworkEdge.edgeLocation");
+        if (!unknown_edgeLocation) return value_edgeLocation;
+        throw new UndeferrableValueException("Value 'CoreNetworkEdge.edgeLocation' is not present");
     }
 
     /**
      * Inside IP addresses used for core network edges.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> insideCidrBlocks;
-
+    @PolicyResourceProperty(name="insideCidrBlocks", flag="unknown_insideCidrBlocks")
+    private @Nullable List<String> value_insideCidrBlocks;
+    private boolean unknown_insideCidrBlocks;
     public @Nullable List<String> insideCidrBlocks() {
-        if (insideCidrBlocks == null) return null;
-        return insideCidrBlocks.getValue("CoreNetworkEdge.insideCidrBlocks");
+        if (!unknown_insideCidrBlocks) return value_insideCidrBlocks;
+        throw new UndeferrableValueException("Value 'CoreNetworkEdge.insideCidrBlocks' is not present");
     }
 
 }

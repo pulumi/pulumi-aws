@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class CustomModelTrainingDataConfigArgs {
      * The S3 URI where the training data is stored.
      * 
      */
-    private UndeferrableValue<String> s3Uri;
-
+    @PolicyResourceProperty(name="s3Uri", flag="unknown_s3Uri")
+    private String value_s3Uri;
+    private boolean unknown_s3Uri;
     public String s3Uri() {
-        if (s3Uri == null) return null;
-        return s3Uri.getValue("CustomModelTrainingDataConfigArgs.s3Uri");
+        if (!unknown_s3Uri) return value_s3Uri;
+        throw new UndeferrableValueException("Value 'CustomModelTrainingDataConfigArgs.s3Uri' is not present");
     }
 
 }

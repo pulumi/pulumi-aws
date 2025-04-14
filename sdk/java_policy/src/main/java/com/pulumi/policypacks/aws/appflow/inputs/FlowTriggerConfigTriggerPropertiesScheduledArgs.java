@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,66 +16,72 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs {
      * Whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
      * 
      */
-    private UndeferrableValue<String> dataPullMode;
-
+    @PolicyResourceProperty(name="dataPullMode", flag="unknown_dataPullMode")
+    private String value_dataPullMode;
+    private boolean unknown_dataPullMode;
     public String dataPullMode() {
-        if (dataPullMode == null) return null;
-        return dataPullMode.getValue("FlowTriggerConfigTriggerPropertiesScheduledArgs.dataPullMode");
+        if (!unknown_dataPullMode) return value_dataPullMode;
+        throw new UndeferrableValueException("Value 'FlowTriggerConfigTriggerPropertiesScheduledArgs.dataPullMode' is not present");
     }
 
     /**
      * Date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
      * 
      */
-    private UndeferrableValue<String> firstExecutionFrom;
-
+    @PolicyResourceProperty(name="firstExecutionFrom", flag="unknown_firstExecutionFrom")
+    private String value_firstExecutionFrom;
+    private boolean unknown_firstExecutionFrom;
     public String firstExecutionFrom() {
-        if (firstExecutionFrom == null) return null;
-        return firstExecutionFrom.getValue("FlowTriggerConfigTriggerPropertiesScheduledArgs.firstExecutionFrom");
+        if (!unknown_firstExecutionFrom) return value_firstExecutionFrom;
+        throw new UndeferrableValueException("Value 'FlowTriggerConfigTriggerPropertiesScheduledArgs.firstExecutionFrom' is not present");
     }
 
     /**
      * Scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
      * 
      */
-    private UndeferrableValue<String> scheduleEndTime;
-
+    @PolicyResourceProperty(name="scheduleEndTime", flag="unknown_scheduleEndTime")
+    private String value_scheduleEndTime;
+    private boolean unknown_scheduleEndTime;
     public String scheduleEndTime() {
-        if (scheduleEndTime == null) return null;
-        return scheduleEndTime.getValue("FlowTriggerConfigTriggerPropertiesScheduledArgs.scheduleEndTime");
+        if (!unknown_scheduleEndTime) return value_scheduleEndTime;
+        throw new UndeferrableValueException("Value 'FlowTriggerConfigTriggerPropertiesScheduledArgs.scheduleEndTime' is not present");
     }
 
     /**
      * Scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
      * 
      */
-    private UndeferrableValue<String> scheduleExpression;
-
+    @PolicyResourceProperty(name="scheduleExpression", flag="unknown_scheduleExpression")
+    private String value_scheduleExpression;
+    private boolean unknown_scheduleExpression;
     public String scheduleExpression() {
-        if (scheduleExpression == null) return null;
-        return scheduleExpression.getValue("FlowTriggerConfigTriggerPropertiesScheduledArgs.scheduleExpression");
+        if (!unknown_scheduleExpression) return value_scheduleExpression;
+        throw new UndeferrableValueException("Value 'FlowTriggerConfigTriggerPropertiesScheduledArgs.scheduleExpression' is not present");
     }
 
     /**
      * Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
      * 
      */
-    private UndeferrableValue<Integer> scheduleOffset;
-
+    @PolicyResourceProperty(name="scheduleOffset", flag="unknown_scheduleOffset")
+    private Integer value_scheduleOffset;
+    private boolean unknown_scheduleOffset;
     public Integer scheduleOffset() {
-        if (scheduleOffset == null) return null;
-        return scheduleOffset.getValue("FlowTriggerConfigTriggerPropertiesScheduledArgs.scheduleOffset");
+        if (!unknown_scheduleOffset) return value_scheduleOffset;
+        throw new UndeferrableValueException("Value 'FlowTriggerConfigTriggerPropertiesScheduledArgs.scheduleOffset' is not present");
     }
 
     /**
      * Scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
      * 
      */
-    private UndeferrableValue<String> scheduleStartTime;
-
+    @PolicyResourceProperty(name="scheduleStartTime", flag="unknown_scheduleStartTime")
+    private String value_scheduleStartTime;
+    private boolean unknown_scheduleStartTime;
     public String scheduleStartTime() {
-        if (scheduleStartTime == null) return null;
-        return scheduleStartTime.getValue("FlowTriggerConfigTriggerPropertiesScheduledArgs.scheduleStartTime");
+        if (!unknown_scheduleStartTime) return value_scheduleStartTime;
+        throw new UndeferrableValueException("Value 'FlowTriggerConfigTriggerPropertiesScheduledArgs.scheduleStartTime' is not present");
     }
 
     /**
@@ -84,11 +91,12 @@ public final class FlowTriggerConfigTriggerPropertiesScheduledArgs {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    private UndeferrableValue<String> timezone;
-
+    @PolicyResourceProperty(name="timezone", flag="unknown_timezone")
+    private String value_timezone;
+    private boolean unknown_timezone;
     public String timezone() {
-        if (timezone == null) return null;
-        return timezone.getValue("FlowTriggerConfigTriggerPropertiesScheduledArgs.timezone");
+        if (!unknown_timezone) return value_timezone;
+        throw new UndeferrableValueException("Value 'FlowTriggerConfigTriggerPropertiesScheduledArgs.timezone' is not present");
     }
 
 }

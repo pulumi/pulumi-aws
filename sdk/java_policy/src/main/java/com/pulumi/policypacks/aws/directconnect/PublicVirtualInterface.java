@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -19,128 +20,140 @@ public final class PublicVirtualInterface extends com.pulumi.resources.PolicyRes
      * The address family for the BGP peer. ` ipv4  ` or `ipv6`.
      * 
      */
-    private UndeferrableValue<String> addressFamily;
-
+    @PolicyResourceProperty(name="addressFamily", flag="unknown_addressFamily")
+    private String value_addressFamily;
+    private boolean unknown_addressFamily;
     public String addressFamily() {
-        if (addressFamily == null) return null;
-        return addressFamily.getValue("PublicVirtualInterface.addressFamily");
+        if (!unknown_addressFamily) return value_addressFamily;
+        throw new UndeferrableValueException("Value 'PublicVirtualInterface.addressFamily' is not present");
     }
 
     /**
      * The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
      * 
      */
-    private UndeferrableValue<String> amazonAddress;
-
+    @PolicyResourceProperty(name="amazonAddress", flag="unknown_amazonAddress")
+    private String value_amazonAddress;
+    private boolean unknown_amazonAddress;
     public String amazonAddress() {
-        if (amazonAddress == null) return null;
-        return amazonAddress.getValue("PublicVirtualInterface.amazonAddress");
+        if (!unknown_amazonAddress) return value_amazonAddress;
+        throw new UndeferrableValueException("Value 'PublicVirtualInterface.amazonAddress' is not present");
     }
 
-    private UndeferrableValue<String> amazonSideAsn;
-
+    @PolicyResourceProperty(name="amazonSideAsn", flag="unknown_amazonSideAsn")
+    private String value_amazonSideAsn;
+    private boolean unknown_amazonSideAsn;
     public String amazonSideAsn() {
-        if (amazonSideAsn == null) return null;
-        return amazonSideAsn.getValue("PublicVirtualInterface.amazonSideAsn");
+        if (!unknown_amazonSideAsn) return value_amazonSideAsn;
+        throw new UndeferrableValueException("Value 'PublicVirtualInterface.amazonSideAsn' is not present");
     }
 
     /**
      * The ARN of the virtual interface.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("PublicVirtualInterface.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'PublicVirtualInterface.arn' is not present");
     }
 
     /**
      * The Direct Connect endpoint on which the virtual interface terminates.
      * 
      */
-    private UndeferrableValue<String> awsDevice;
-
+    @PolicyResourceProperty(name="awsDevice", flag="unknown_awsDevice")
+    private String value_awsDevice;
+    private boolean unknown_awsDevice;
     public String awsDevice() {
-        if (awsDevice == null) return null;
-        return awsDevice.getValue("PublicVirtualInterface.awsDevice");
+        if (!unknown_awsDevice) return value_awsDevice;
+        throw new UndeferrableValueException("Value 'PublicVirtualInterface.awsDevice' is not present");
     }
 
     /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      * 
      */
-    private UndeferrableValue<Integer> bgpAsn;
-
+    @PolicyResourceProperty(name="bgpAsn", flag="unknown_bgpAsn")
+    private Integer value_bgpAsn;
+    private boolean unknown_bgpAsn;
     public Integer bgpAsn() {
-        if (bgpAsn == null) return null;
-        return bgpAsn.getValue("PublicVirtualInterface.bgpAsn");
+        if (!unknown_bgpAsn) return value_bgpAsn;
+        throw new UndeferrableValueException("Value 'PublicVirtualInterface.bgpAsn' is not present");
     }
 
     /**
      * The authentication key for BGP configuration.
      * 
      */
-    private UndeferrableValue<String> bgpAuthKey;
-
+    @PolicyResourceProperty(name="bgpAuthKey", flag="unknown_bgpAuthKey")
+    private String value_bgpAuthKey;
+    private boolean unknown_bgpAuthKey;
     public String bgpAuthKey() {
-        if (bgpAuthKey == null) return null;
-        return bgpAuthKey.getValue("PublicVirtualInterface.bgpAuthKey");
+        if (!unknown_bgpAuthKey) return value_bgpAuthKey;
+        throw new UndeferrableValueException("Value 'PublicVirtualInterface.bgpAuthKey' is not present");
     }
 
     /**
      * The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
      * 
      */
-    private UndeferrableValue<String> connectionId;
-
+    @PolicyResourceProperty(name="connectionId", flag="unknown_connectionId")
+    private String value_connectionId;
+    private boolean unknown_connectionId;
     public String connectionId() {
-        if (connectionId == null) return null;
-        return connectionId.getValue("PublicVirtualInterface.connectionId");
+        if (!unknown_connectionId) return value_connectionId;
+        throw new UndeferrableValueException("Value 'PublicVirtualInterface.connectionId' is not present");
     }
 
     /**
      * The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
      * 
      */
-    private UndeferrableValue<String> customerAddress;
-
+    @PolicyResourceProperty(name="customerAddress", flag="unknown_customerAddress")
+    private String value_customerAddress;
+    private boolean unknown_customerAddress;
     public String customerAddress() {
-        if (customerAddress == null) return null;
-        return customerAddress.getValue("PublicVirtualInterface.customerAddress");
+        if (!unknown_customerAddress) return value_customerAddress;
+        throw new UndeferrableValueException("Value 'PublicVirtualInterface.customerAddress' is not present");
     }
 
     /**
      * The name for the virtual interface.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PublicVirtualInterface.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PublicVirtualInterface.name' is not present");
     }
 
     /**
      * A list of routes to be advertised to the AWS network in this region.
      * 
      */
-    private UndeferrableValue<List<String>> routeFilterPrefixes;
-
+    @PolicyResourceProperty(name="routeFilterPrefixes", flag="unknown_routeFilterPrefixes")
+    private List<String> value_routeFilterPrefixes;
+    private boolean unknown_routeFilterPrefixes;
     public List<String> routeFilterPrefixes() {
-        if (routeFilterPrefixes == null) return null;
-        return routeFilterPrefixes.getValue("PublicVirtualInterface.routeFilterPrefixes");
+        if (!unknown_routeFilterPrefixes) return value_routeFilterPrefixes;
+        throw new UndeferrableValueException("Value 'PublicVirtualInterface.routeFilterPrefixes' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("PublicVirtualInterface.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'PublicVirtualInterface.tags' is not present");
     }
 
     /**
@@ -151,22 +164,24 @@ public final class PublicVirtualInterface extends com.pulumi.resources.PolicyRes
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("PublicVirtualInterface.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'PublicVirtualInterface.tagsAll' is not present");
     }
 
     /**
      * The VLAN ID.
      * 
      */
-    private UndeferrableValue<Integer> vlan;
-
+    @PolicyResourceProperty(name="vlan", flag="unknown_vlan")
+    private Integer value_vlan;
+    private boolean unknown_vlan;
     public Integer vlan() {
-        if (vlan == null) return null;
-        return vlan.getValue("PublicVirtualInterface.vlan");
+        if (!unknown_vlan) return value_vlan;
+        throw new UndeferrableValueException("Value 'PublicVirtualInterface.vlan' is not present");
     }
 
 }

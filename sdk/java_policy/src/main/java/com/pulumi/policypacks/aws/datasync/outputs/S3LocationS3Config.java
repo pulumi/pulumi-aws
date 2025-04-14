@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class S3LocationS3Config {
      * ARN of the IAM Role used to connect to the S3 Bucket.
      * 
      */
-    private UndeferrableValue<String> bucketAccessRoleArn;
-
+    @PolicyResourceProperty(name="bucketAccessRoleArn", flag="unknown_bucketAccessRoleArn")
+    private String value_bucketAccessRoleArn;
+    private boolean unknown_bucketAccessRoleArn;
     public String bucketAccessRoleArn() {
-        if (bucketAccessRoleArn == null) return null;
-        return bucketAccessRoleArn.getValue("S3LocationS3Config.bucketAccessRoleArn");
+        if (!unknown_bucketAccessRoleArn) return value_bucketAccessRoleArn;
+        throw new UndeferrableValueException("Value 'S3LocationS3Config.bucketAccessRoleArn' is not present");
     }
 
 }

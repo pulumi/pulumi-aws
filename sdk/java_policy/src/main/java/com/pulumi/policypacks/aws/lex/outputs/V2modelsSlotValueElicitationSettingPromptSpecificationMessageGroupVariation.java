@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage;
@@ -14,32 +15,36 @@ import javax.annotation.Nullable;
 
 public final class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation {
 
-    private @Nullable UndeferrableValue<List<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload>> customPayloads;
-
+    @PolicyResourceProperty(name="customPayloads", flag="unknown_customPayloads")
+    private @Nullable List<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload> value_customPayloads;
+    private boolean unknown_customPayloads;
     public @Nullable List<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload> customPayloads() {
-        if (customPayloads == null) return null;
-        return customPayloads.getValue("V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation.customPayloads");
+        if (!unknown_customPayloads) return value_customPayloads;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation.customPayloads' is not present");
     }
 
-    private @Nullable UndeferrableValue<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard> imageResponseCard;
-
+    @PolicyResourceProperty(name="imageResponseCard", flag="unknown_imageResponseCard")
+    private @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard value_imageResponseCard;
+    private boolean unknown_imageResponseCard;
     public @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard imageResponseCard() {
-        if (imageResponseCard == null) return null;
-        return imageResponseCard.getValue("V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation.imageResponseCard");
+        if (!unknown_imageResponseCard) return value_imageResponseCard;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation.imageResponseCard' is not present");
     }
 
-    private @Nullable UndeferrableValue<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage> plainTextMessage;
-
+    @PolicyResourceProperty(name="plainTextMessage", flag="unknown_plainTextMessage")
+    private @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage value_plainTextMessage;
+    private boolean unknown_plainTextMessage;
     public @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage plainTextMessage() {
-        if (plainTextMessage == null) return null;
-        return plainTextMessage.getValue("V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation.plainTextMessage");
+        if (!unknown_plainTextMessage) return value_plainTextMessage;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation.plainTextMessage' is not present");
     }
 
-    private @Nullable UndeferrableValue<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage> ssmlMessage;
-
+    @PolicyResourceProperty(name="ssmlMessage", flag="unknown_ssmlMessage")
+    private @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage value_ssmlMessage;
+    private boolean unknown_ssmlMessage;
     public @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage ssmlMessage() {
-        if (ssmlMessage == null) return null;
-        return ssmlMessage.getValue("V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation.ssmlMessage");
+        if (!unknown_ssmlMessage) return value_ssmlMessage;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation.ssmlMessage' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class CustomDomainAssociationCertificateValidationRecord {
      * Certificate CNAME record name.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("CustomDomainAssociationCertificateValidationRecord.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'CustomDomainAssociationCertificateValidationRecord.name' is not present");
     }
 
     /**
      * Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
      * 
      */
-    private @Nullable UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private @Nullable String value_status;
+    private boolean unknown_status;
     public @Nullable String status() {
-        if (status == null) return null;
-        return status.getValue("CustomDomainAssociationCertificateValidationRecord.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'CustomDomainAssociationCertificateValidationRecord.status' is not present");
     }
 
     /**
      * Record type, always `CNAME`.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("CustomDomainAssociationCertificateValidationRecord.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'CustomDomainAssociationCertificateValidationRecord.type' is not present");
     }
 
     /**
      * Certificate CNAME record value.
      * 
      */
-    private @Nullable UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private @Nullable String value_value;
+    private boolean unknown_value;
     public @Nullable String value() {
-        if (value == null) return null;
-        return value.getValue("CustomDomainAssociationCertificateValidationRecord.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'CustomDomainAssociationCertificateValidationRecord.value' is not present");
     }
 
 }

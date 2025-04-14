@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.outputs.AnalyticsConfigurationStorageClassAnalysisDataExport;
 
 
@@ -13,11 +14,12 @@ public final class AnalyticsConfigurationStorageClassAnalysis {
      * Data export configuration (documented below).
      * 
      */
-    private UndeferrableValue<AnalyticsConfigurationStorageClassAnalysisDataExport> dataExport;
-
+    @PolicyResourceProperty(name="dataExport", flag="unknown_dataExport")
+    private AnalyticsConfigurationStorageClassAnalysisDataExport value_dataExport;
+    private boolean unknown_dataExport;
     public AnalyticsConfigurationStorageClassAnalysisDataExport dataExport() {
-        if (dataExport == null) return null;
-        return dataExport.getValue("AnalyticsConfigurationStorageClassAnalysis.dataExport");
+        if (!unknown_dataExport) return value_dataExport;
+        throw new UndeferrableValueException("Value 'AnalyticsConfigurationStorageClassAnalysis.dataExport' is not present");
     }
 
 }

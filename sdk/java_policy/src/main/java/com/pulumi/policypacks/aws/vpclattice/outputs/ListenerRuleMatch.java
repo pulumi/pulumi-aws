@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.vpclattice.outputs.ListenerRuleMatchHttpMatch;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ListenerRuleMatch {
      * The HTTP criteria that a rule must match.
      * 
      */
-    private @Nullable UndeferrableValue<ListenerRuleMatchHttpMatch> httpMatch;
-
+    @PolicyResourceProperty(name="httpMatch", flag="unknown_httpMatch")
+    private @Nullable ListenerRuleMatchHttpMatch value_httpMatch;
+    private boolean unknown_httpMatch;
     public @Nullable ListenerRuleMatchHttpMatch httpMatch() {
-        if (httpMatch == null) return null;
-        return httpMatch.getValue("ListenerRuleMatch.httpMatch");
+        if (!unknown_httpMatch) return value_httpMatch;
+        throw new UndeferrableValueException("Value 'ListenerRuleMatch.httpMatch' is not present");
     }
 
 }

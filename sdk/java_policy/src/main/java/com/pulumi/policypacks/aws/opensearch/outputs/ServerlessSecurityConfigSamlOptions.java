@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class ServerlessSecurityConfigSamlOptions {
      * Group attribute for this SAML integration.
      * 
      */
-    private @Nullable UndeferrableValue<String> groupAttribute;
-
+    @PolicyResourceProperty(name="groupAttribute", flag="unknown_groupAttribute")
+    private @Nullable String value_groupAttribute;
+    private boolean unknown_groupAttribute;
     public @Nullable String groupAttribute() {
-        if (groupAttribute == null) return null;
-        return groupAttribute.getValue("ServerlessSecurityConfigSamlOptions.groupAttribute");
+        if (!unknown_groupAttribute) return value_groupAttribute;
+        throw new UndeferrableValueException("Value 'ServerlessSecurityConfigSamlOptions.groupAttribute' is not present");
     }
 
     /**
      * The XML IdP metadata file generated from your identity provider.
      * 
      */
-    private UndeferrableValue<String> metadata;
-
+    @PolicyResourceProperty(name="metadata", flag="unknown_metadata")
+    private String value_metadata;
+    private boolean unknown_metadata;
     public String metadata() {
-        if (metadata == null) return null;
-        return metadata.getValue("ServerlessSecurityConfigSamlOptions.metadata");
+        if (!unknown_metadata) return value_metadata;
+        throw new UndeferrableValueException("Value 'ServerlessSecurityConfigSamlOptions.metadata' is not present");
     }
 
     /**
      * Session timeout, in minutes. Minimum is 5 minutes and maximum is 720 minutes (12 hours). Default is 60 minutes.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> sessionTimeout;
-
+    @PolicyResourceProperty(name="sessionTimeout", flag="unknown_sessionTimeout")
+    private @Nullable Integer value_sessionTimeout;
+    private boolean unknown_sessionTimeout;
     public @Nullable Integer sessionTimeout() {
-        if (sessionTimeout == null) return null;
-        return sessionTimeout.getValue("ServerlessSecurityConfigSamlOptions.sessionTimeout");
+        if (!unknown_sessionTimeout) return value_sessionTimeout;
+        throw new UndeferrableValueException("Value 'ServerlessSecurityConfigSamlOptions.sessionTimeout' is not present");
     }
 
     /**
      * User attribute for this SAML integration.
      * 
      */
-    private @Nullable UndeferrableValue<String> userAttribute;
-
+    @PolicyResourceProperty(name="userAttribute", flag="unknown_userAttribute")
+    private @Nullable String value_userAttribute;
+    private boolean unknown_userAttribute;
     public @Nullable String userAttribute() {
-        if (userAttribute == null) return null;
-        return userAttribute.getValue("ServerlessSecurityConfigSamlOptions.userAttribute");
+        if (!unknown_userAttribute) return value_userAttribute;
+        throw new UndeferrableValueException("Value 'ServerlessSecurityConfigSamlOptions.userAttribute' is not present");
     }
 
 }

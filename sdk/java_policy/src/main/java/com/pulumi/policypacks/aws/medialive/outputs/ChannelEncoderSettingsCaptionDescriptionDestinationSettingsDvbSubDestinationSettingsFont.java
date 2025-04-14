@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDv
      * Key used to extract the password from EC2 Parameter store.
      * 
      */
-    private @Nullable UndeferrableValue<String> passwordParam;
-
+    @PolicyResourceProperty(name="passwordParam", flag="unknown_passwordParam")
+    private @Nullable String value_passwordParam;
+    private boolean unknown_passwordParam;
     public @Nullable String passwordParam() {
-        if (passwordParam == null) return null;
-        return passwordParam.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont.passwordParam");
+        if (!unknown_passwordParam) return value_passwordParam;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont.passwordParam' is not present");
     }
 
     /**
      * Path to a file accessible to the live stream.
      * 
      */
-    private UndeferrableValue<String> uri;
-
+    @PolicyResourceProperty(name="uri", flag="unknown_uri")
+    private String value_uri;
+    private boolean unknown_uri;
     public String uri() {
-        if (uri == null) return null;
-        return uri.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont.uri");
+        if (!unknown_uri) return value_uri;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont.uri' is not present");
     }
 
     /**
      * Username to be used.
      * 
      */
-    private @Nullable UndeferrableValue<String> username;
-
+    @PolicyResourceProperty(name="username", flag="unknown_username")
+    private @Nullable String value_username;
+    private boolean unknown_username;
     public @Nullable String username() {
-        if (username == null) return null;
-        return username.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont.username");
+        if (!unknown_username) return value_username;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont.username' is not present");
     }
 
 }

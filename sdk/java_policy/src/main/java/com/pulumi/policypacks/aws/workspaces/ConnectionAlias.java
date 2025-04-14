@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.workspaces;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.workspaces.outputs.ConnectionAliasTimeouts;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class ConnectionAlias extends com.pulumi.resources.PolicyResourceOu
      * The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as www.example.com.
      * 
      */
-    private UndeferrableValue<String> connectionString;
-
+    @PolicyResourceProperty(name="connectionString", flag="unknown_connectionString")
+    private String value_connectionString;
+    private boolean unknown_connectionString;
     public String connectionString() {
-        if (connectionString == null) return null;
-        return connectionString.getValue("ConnectionAlias.connectionString");
+        if (!unknown_connectionString) return value_connectionString;
+        throw new UndeferrableValueException("Value 'ConnectionAlias.connectionString' is not present");
     }
 
     /**
      * The identifier of the Amazon Web Services account that owns the connection alias.
      * 
      */
-    private UndeferrableValue<String> ownerAccountId;
-
+    @PolicyResourceProperty(name="ownerAccountId", flag="unknown_ownerAccountId")
+    private String value_ownerAccountId;
+    private boolean unknown_ownerAccountId;
     public String ownerAccountId() {
-        if (ownerAccountId == null) return null;
-        return ownerAccountId.getValue("ConnectionAlias.ownerAccountId");
+        if (!unknown_ownerAccountId) return value_ownerAccountId;
+        throw new UndeferrableValueException("Value 'ConnectionAlias.ownerAccountId' is not present");
     }
 
     /**
      * The current state of the connection alias.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("ConnectionAlias.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'ConnectionAlias.state' is not present");
     }
 
     /**
      * A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ConnectionAlias.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ConnectionAlias.tags' is not present");
     }
 
     /**
@@ -66,18 +71,20 @@ public final class ConnectionAlias extends com.pulumi.resources.PolicyResourceOu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ConnectionAlias.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ConnectionAlias.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<ConnectionAliasTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable ConnectionAliasTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable ConnectionAliasTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ConnectionAlias.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ConnectionAlias.timeouts' is not present");
     }
 
 }

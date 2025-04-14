@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2clientvpn;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,66 +17,72 @@ public final class Route extends com.pulumi.resources.PolicyResourceOutput {
      * The ID of the Client VPN endpoint.
      * 
      */
-    private UndeferrableValue<String> clientVpnEndpointId;
-
+    @PolicyResourceProperty(name="clientVpnEndpointId", flag="unknown_clientVpnEndpointId")
+    private String value_clientVpnEndpointId;
+    private boolean unknown_clientVpnEndpointId;
     public String clientVpnEndpointId() {
-        if (clientVpnEndpointId == null) return null;
-        return clientVpnEndpointId.getValue("Route.clientVpnEndpointId");
+        if (!unknown_clientVpnEndpointId) return value_clientVpnEndpointId;
+        throw new UndeferrableValueException("Value 'Route.clientVpnEndpointId' is not present");
     }
 
     /**
      * A brief description of the route.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Route.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Route.description' is not present");
     }
 
     /**
      * The IPv4 address range, in CIDR notation, of the route destination.
      * 
      */
-    private UndeferrableValue<String> destinationCidrBlock;
-
+    @PolicyResourceProperty(name="destinationCidrBlock", flag="unknown_destinationCidrBlock")
+    private String value_destinationCidrBlock;
+    private boolean unknown_destinationCidrBlock;
     public String destinationCidrBlock() {
-        if (destinationCidrBlock == null) return null;
-        return destinationCidrBlock.getValue("Route.destinationCidrBlock");
+        if (!unknown_destinationCidrBlock) return value_destinationCidrBlock;
+        throw new UndeferrableValueException("Value 'Route.destinationCidrBlock' is not present");
     }
 
     /**
      * Indicates how the Client VPN route was added. Will be `add-route` for routes created by this resource.
      * 
      */
-    private UndeferrableValue<String> origin;
-
+    @PolicyResourceProperty(name="origin", flag="unknown_origin")
+    private String value_origin;
+    private boolean unknown_origin;
     public String origin() {
-        if (origin == null) return null;
-        return origin.getValue("Route.origin");
+        if (!unknown_origin) return value_origin;
+        throw new UndeferrableValueException("Value 'Route.origin' is not present");
     }
 
     /**
      * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
      * 
      */
-    private UndeferrableValue<String> targetVpcSubnetId;
-
+    @PolicyResourceProperty(name="targetVpcSubnetId", flag="unknown_targetVpcSubnetId")
+    private String value_targetVpcSubnetId;
+    private boolean unknown_targetVpcSubnetId;
     public String targetVpcSubnetId() {
-        if (targetVpcSubnetId == null) return null;
-        return targetVpcSubnetId.getValue("Route.targetVpcSubnetId");
+        if (!unknown_targetVpcSubnetId) return value_targetVpcSubnetId;
+        throw new UndeferrableValueException("Value 'Route.targetVpcSubnetId' is not present");
     }
 
     /**
      * The type of the route.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("Route.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'Route.type' is not present");
     }
 
 }

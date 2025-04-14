@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -11,11 +12,12 @@ import javax.annotation.Nullable;
 
 public final class FirewallPolicyFirewallPolicyPolicyVariables {
 
-    private @Nullable UndeferrableValue<List<FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable>> ruleVariables;
-
+    @PolicyResourceProperty(name="ruleVariables", flag="unknown_ruleVariables")
+    private @Nullable List<FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable> value_ruleVariables;
+    private boolean unknown_ruleVariables;
     public @Nullable List<FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable> ruleVariables() {
-        if (ruleVariables == null) return null;
-        return ruleVariables.getValue("FirewallPolicyFirewallPolicyPolicyVariables.ruleVariables");
+        if (!unknown_ruleVariables) return value_ruleVariables;
+        throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicyPolicyVariables.ruleVariables' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class ApplicationSslConfigurationArgs {
      * The contents of the certificate&#39;s domain.crt file.
      * 
      */
-    private UndeferrableValue<String> certificate;
-
+    @PolicyResourceProperty(name="certificate", flag="unknown_certificate")
+    private String value_certificate;
+    private boolean unknown_certificate;
     public String certificate() {
-        if (certificate == null) return null;
-        return certificate.getValue("ApplicationSslConfigurationArgs.certificate");
+        if (!unknown_certificate) return value_certificate;
+        throw new UndeferrableValueException("Value 'ApplicationSslConfigurationArgs.certificate' is not present");
     }
 
     /**
      * Can be used to specify an intermediate certificate authority key or client authentication.
      * 
      */
-    private UndeferrableValue<String> chain;
-
+    @PolicyResourceProperty(name="chain", flag="unknown_chain")
+    private String value_chain;
+    private boolean unknown_chain;
     public String chain() {
-        if (chain == null) return null;
-        return chain.getValue("ApplicationSslConfigurationArgs.chain");
+        if (!unknown_chain) return value_chain;
+        throw new UndeferrableValueException("Value 'ApplicationSslConfigurationArgs.chain' is not present");
     }
 
     /**
      * The private key; the contents of the certificate&#39;s domain.key file.
      * 
      */
-    private UndeferrableValue<String> privateKey;
-
+    @PolicyResourceProperty(name="privateKey", flag="unknown_privateKey")
+    private String value_privateKey;
+    private boolean unknown_privateKey;
     public String privateKey() {
-        if (privateKey == null) return null;
-        return privateKey.getValue("ApplicationSslConfigurationArgs.privateKey");
+        if (!unknown_privateKey) return value_privateKey;
+        throw new UndeferrableValueException("Value 'ApplicationSslConfigurationArgs.privateKey' is not present");
     }
 
 }

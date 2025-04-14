@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageCustomPayload;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage;
@@ -17,44 +18,48 @@ public final class V2modelsIntentClosingSettingConditionalConditionalBranchRespo
      * Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageCustomPayload> customPayload;
-
+    @PolicyResourceProperty(name="customPayload", flag="unknown_customPayload")
+    private @Nullable V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageCustomPayload value_customPayload;
+    private boolean unknown_customPayload;
     public @Nullable V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageCustomPayload customPayload() {
-        if (customPayload == null) return null;
-        return customPayload.getValue("V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessage.customPayload");
+        if (!unknown_customPayload) return value_customPayload;
+        throw new UndeferrableValueException("Value 'V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessage.customPayload' is not present");
     }
 
     /**
      * Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard> imageResponseCard;
-
+    @PolicyResourceProperty(name="imageResponseCard", flag="unknown_imageResponseCard")
+    private @Nullable V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard value_imageResponseCard;
+    private boolean unknown_imageResponseCard;
     public @Nullable V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard imageResponseCard() {
-        if (imageResponseCard == null) return null;
-        return imageResponseCard.getValue("V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessage.imageResponseCard");
+        if (!unknown_imageResponseCard) return value_imageResponseCard;
+        throw new UndeferrableValueException("Value 'V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessage.imageResponseCard' is not present");
     }
 
     /**
      * Configuration block for a message in plain text format. See `plain_text_message`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage> plainTextMessage;
-
+    @PolicyResourceProperty(name="plainTextMessage", flag="unknown_plainTextMessage")
+    private @Nullable V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage value_plainTextMessage;
+    private boolean unknown_plainTextMessage;
     public @Nullable V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage plainTextMessage() {
-        if (plainTextMessage == null) return null;
-        return plainTextMessage.getValue("V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessage.plainTextMessage");
+        if (!unknown_plainTextMessage) return value_plainTextMessage;
+        throw new UndeferrableValueException("Value 'V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessage.plainTextMessage' is not present");
     }
 
     /**
      * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage> ssmlMessage;
-
+    @PolicyResourceProperty(name="ssmlMessage", flag="unknown_ssmlMessage")
+    private @Nullable V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage value_ssmlMessage;
+    private boolean unknown_ssmlMessage;
     public @Nullable V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage ssmlMessage() {
-        if (ssmlMessage == null) return null;
-        return ssmlMessage.getValue("V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessage.ssmlMessage");
+        if (!unknown_ssmlMessage) return value_ssmlMessage;
+        throw new UndeferrableValueException("Value 'V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessage.ssmlMessage' is not present");
     }
 
 }

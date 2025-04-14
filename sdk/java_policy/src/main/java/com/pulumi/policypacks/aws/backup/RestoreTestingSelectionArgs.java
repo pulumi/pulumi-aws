@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.backup.inputs.RestoreTestingSelectionProtectedResourceConditionsArgs;
 import java.lang.Integer;
@@ -20,88 +21,96 @@ public final class RestoreTestingSelectionArgs extends com.pulumi.resources.Poli
      * The ARN of the IAM role.
      * 
      */
-    private UndeferrableValue<String> iamRoleArn;
-
+    @PolicyResourceProperty(name="iamRoleArn", flag="unknown_iamRoleArn")
+    private String value_iamRoleArn;
+    private boolean unknown_iamRoleArn;
     public String iamRoleArn() {
-        if (iamRoleArn == null) return null;
-        return iamRoleArn.getValue("RestoreTestingSelectionArgs.iamRoleArn");
+        if (!unknown_iamRoleArn) return value_iamRoleArn;
+        throw new UndeferrableValueException("Value 'RestoreTestingSelectionArgs.iamRoleArn' is not present");
     }
 
     /**
      * The name of the backup restore testing selection.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RestoreTestingSelectionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RestoreTestingSelectionArgs.name' is not present");
     }
 
     /**
      * The ARNs for the protected resources.
      * 
      */
-    private UndeferrableValue<List<String>> protectedResourceArns;
-
+    @PolicyResourceProperty(name="protectedResourceArns", flag="unknown_protectedResourceArns")
+    private List<String> value_protectedResourceArns;
+    private boolean unknown_protectedResourceArns;
     public List<String> protectedResourceArns() {
-        if (protectedResourceArns == null) return null;
-        return protectedResourceArns.getValue("RestoreTestingSelectionArgs.protectedResourceArns");
+        if (!unknown_protectedResourceArns) return value_protectedResourceArns;
+        throw new UndeferrableValueException("Value 'RestoreTestingSelectionArgs.protectedResourceArns' is not present");
     }
 
     /**
      * The conditions for the protected resource.
      * 
      */
-    private UndeferrableValue<RestoreTestingSelectionProtectedResourceConditionsArgs> protectedResourceConditions;
-
+    @PolicyResourceProperty(name="protectedResourceConditions", flag="unknown_protectedResourceConditions")
+    private RestoreTestingSelectionProtectedResourceConditionsArgs value_protectedResourceConditions;
+    private boolean unknown_protectedResourceConditions;
     public RestoreTestingSelectionProtectedResourceConditionsArgs protectedResourceConditions() {
-        if (protectedResourceConditions == null) return null;
-        return protectedResourceConditions.getValue("RestoreTestingSelectionArgs.protectedResourceConditions");
+        if (!unknown_protectedResourceConditions) return value_protectedResourceConditions;
+        throw new UndeferrableValueException("Value 'RestoreTestingSelectionArgs.protectedResourceConditions' is not present");
     }
 
     /**
      * The type of the protected resource.
      * 
      */
-    private UndeferrableValue<String> protectedResourceType;
-
+    @PolicyResourceProperty(name="protectedResourceType", flag="unknown_protectedResourceType")
+    private String value_protectedResourceType;
+    private boolean unknown_protectedResourceType;
     public String protectedResourceType() {
-        if (protectedResourceType == null) return null;
-        return protectedResourceType.getValue("RestoreTestingSelectionArgs.protectedResourceType");
+        if (!unknown_protectedResourceType) return value_protectedResourceType;
+        throw new UndeferrableValueException("Value 'RestoreTestingSelectionArgs.protectedResourceType' is not present");
     }
 
     /**
      * Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
      * 
      */
-    private UndeferrableValue<Map<String,String>> restoreMetadataOverrides;
-
+    @PolicyResourceProperty(name="restoreMetadataOverrides", flag="unknown_restoreMetadataOverrides")
+    private Map<String,String> value_restoreMetadataOverrides;
+    private boolean unknown_restoreMetadataOverrides;
     public Map<String,String> restoreMetadataOverrides() {
-        if (restoreMetadataOverrides == null) return null;
-        return restoreMetadataOverrides.getValue("RestoreTestingSelectionArgs.restoreMetadataOverrides");
+        if (!unknown_restoreMetadataOverrides) return value_restoreMetadataOverrides;
+        throw new UndeferrableValueException("Value 'RestoreTestingSelectionArgs.restoreMetadataOverrides' is not present");
     }
 
     /**
      * The name of the restore testing plan.
      * 
      */
-    private UndeferrableValue<String> restoreTestingPlanName;
-
+    @PolicyResourceProperty(name="restoreTestingPlanName", flag="unknown_restoreTestingPlanName")
+    private String value_restoreTestingPlanName;
+    private boolean unknown_restoreTestingPlanName;
     public String restoreTestingPlanName() {
-        if (restoreTestingPlanName == null) return null;
-        return restoreTestingPlanName.getValue("RestoreTestingSelectionArgs.restoreTestingPlanName");
+        if (!unknown_restoreTestingPlanName) return value_restoreTestingPlanName;
+        throw new UndeferrableValueException("Value 'RestoreTestingSelectionArgs.restoreTestingPlanName' is not present");
     }
 
     /**
      * The amount of hours available to run a validation script on the data. Valid range is `1` to `168`.
      * 
      */
-    private UndeferrableValue<Integer> validationWindowHours;
-
+    @PolicyResourceProperty(name="validationWindowHours", flag="unknown_validationWindowHours")
+    private Integer value_validationWindowHours;
+    private boolean unknown_validationWindowHours;
     public Integer validationWindowHours() {
-        if (validationWindowHours == null) return null;
-        return validationWindowHours.getValue("RestoreTestingSelectionArgs.validationWindowHours");
+        if (!unknown_validationWindowHours) return value_validationWindowHours;
+        throw new UndeferrableValueException("Value 'RestoreTestingSelectionArgs.validationWindowHours' is not present");
     }
 
 }

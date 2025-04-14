@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,11 +12,12 @@ import javax.annotation.Nullable;
 
 public final class ChannelInputAttachmentInputSettingsCaptionSelector {
 
-    private @Nullable UndeferrableValue<String> languageCode;
-
+    @PolicyResourceProperty(name="languageCode", flag="unknown_languageCode")
+    private @Nullable String value_languageCode;
+    private boolean unknown_languageCode;
     public @Nullable String languageCode() {
-        if (languageCode == null) return null;
-        return languageCode.getValue("ChannelInputAttachmentInputSettingsCaptionSelector.languageCode");
+        if (!unknown_languageCode) return value_languageCode;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelector.languageCode' is not present");
     }
 
     /**
@@ -24,18 +26,20 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelector {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ChannelInputAttachmentInputSettingsCaptionSelector.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelector.name' is not present");
     }
 
-    private @Nullable UndeferrableValue<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings> selectorSettings;
-
+    @PolicyResourceProperty(name="selectorSettings", flag="unknown_selectorSettings")
+    private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings value_selectorSettings;
+    private boolean unknown_selectorSettings;
     public @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings selectorSettings() {
-        if (selectorSettings == null) return null;
-        return selectorSettings.getValue("ChannelInputAttachmentInputSettingsCaptionSelector.selectorSettings");
+        if (!unknown_selectorSettings) return value_selectorSettings;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelector.selectorSettings' is not present");
     }
 
 }

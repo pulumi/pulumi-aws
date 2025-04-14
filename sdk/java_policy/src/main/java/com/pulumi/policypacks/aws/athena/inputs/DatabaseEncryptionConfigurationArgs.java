@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.athena.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class DatabaseEncryptionConfigurationArgs {
      * Type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
      * 
      */
-    private UndeferrableValue<String> encryptionOption;
-
+    @PolicyResourceProperty(name="encryptionOption", flag="unknown_encryptionOption")
+    private String value_encryptionOption;
+    private boolean unknown_encryptionOption;
     public String encryptionOption() {
-        if (encryptionOption == null) return null;
-        return encryptionOption.getValue("DatabaseEncryptionConfigurationArgs.encryptionOption");
+        if (!unknown_encryptionOption) return value_encryptionOption;
+        throw new UndeferrableValueException("Value 'DatabaseEncryptionConfigurationArgs.encryptionOption' is not present");
     }
 
     /**
      * KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
      * 
      */
-    private UndeferrableValue<String> kmsKey;
-
+    @PolicyResourceProperty(name="kmsKey", flag="unknown_kmsKey")
+    private String value_kmsKey;
+    private boolean unknown_kmsKey;
     public String kmsKey() {
-        if (kmsKey == null) return null;
-        return kmsKey.getValue("DatabaseEncryptionConfigurationArgs.kmsKey");
+        if (!unknown_kmsKey) return value_kmsKey;
+        throw new UndeferrableValueException("Value 'DatabaseEncryptionConfigurationArgs.kmsKey' is not present");
     }
 
 }

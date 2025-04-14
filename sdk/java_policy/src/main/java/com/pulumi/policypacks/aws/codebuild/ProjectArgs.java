@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.codebuild.inputs.ProjectArtifactsArgs;
 import com.pulumi.policypacks.aws.codebuild.inputs.ProjectBuildBatchConfigArgs;
@@ -31,11 +32,12 @@ public final class ProjectArgs extends com.pulumi.resources.PolicyResourceInput 
      * Configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<ProjectArtifactsArgs> artifacts;
-
+    @PolicyResourceProperty(name="artifacts", flag="unknown_artifacts")
+    private ProjectArtifactsArgs value_artifacts;
+    private boolean unknown_artifacts;
     public ProjectArtifactsArgs artifacts() {
-        if (artifacts == null) return null;
-        return artifacts.getValue("ProjectArgs.artifacts");
+        if (!unknown_artifacts) return value_artifacts;
+        throw new UndeferrableValueException("Value 'ProjectArgs.artifacts' is not present");
     }
 
     /**
@@ -43,22 +45,24 @@ public final class ProjectArgs extends com.pulumi.resources.PolicyResourceInput 
      * `badge_url` attribute when enabled.
      * 
      */
-    private UndeferrableValue<Boolean> badgeEnabled;
-
+    @PolicyResourceProperty(name="badgeEnabled", flag="unknown_badgeEnabled")
+    private Boolean value_badgeEnabled;
+    private boolean unknown_badgeEnabled;
     public Boolean badgeEnabled() {
-        if (badgeEnabled == null) return null;
-        return badgeEnabled.getValue("ProjectArgs.badgeEnabled");
+        if (!unknown_badgeEnabled) return value_badgeEnabled;
+        throw new UndeferrableValueException("Value 'ProjectArgs.badgeEnabled' is not present");
     }
 
     /**
      * Defines the batch build options for the project.
      * 
      */
-    private UndeferrableValue<ProjectBuildBatchConfigArgs> buildBatchConfig;
-
+    @PolicyResourceProperty(name="buildBatchConfig", flag="unknown_buildBatchConfig")
+    private ProjectBuildBatchConfigArgs value_buildBatchConfig;
+    private boolean unknown_buildBatchConfig;
     public ProjectBuildBatchConfigArgs buildBatchConfig() {
-        if (buildBatchConfig == null) return null;
-        return buildBatchConfig.getValue("ProjectArgs.buildBatchConfig");
+        if (!unknown_buildBatchConfig) return value_buildBatchConfig;
+        throw new UndeferrableValueException("Value 'ProjectArgs.buildBatchConfig' is not present");
     }
 
     /**
@@ -67,22 +71,24 @@ public final class ProjectArgs extends com.pulumi.resources.PolicyResourceInput 
      * not available on the `Lambda` compute type.
      * 
      */
-    private UndeferrableValue<Integer> buildTimeout;
-
+    @PolicyResourceProperty(name="buildTimeout", flag="unknown_buildTimeout")
+    private Integer value_buildTimeout;
+    private boolean unknown_buildTimeout;
     public Integer buildTimeout() {
-        if (buildTimeout == null) return null;
-        return buildTimeout.getValue("ProjectArgs.buildTimeout");
+        if (!unknown_buildTimeout) return value_buildTimeout;
+        throw new UndeferrableValueException("Value 'ProjectArgs.buildTimeout' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<ProjectCacheArgs> cache;
-
+    @PolicyResourceProperty(name="cache", flag="unknown_cache")
+    private ProjectCacheArgs value_cache;
+    private boolean unknown_cache;
     public ProjectCacheArgs cache() {
-        if (cache == null) return null;
-        return cache.getValue("ProjectArgs.cache");
+        if (!unknown_cache) return value_cache;
+        throw new UndeferrableValueException("Value 'ProjectArgs.cache' is not present");
     }
 
     /**
@@ -90,22 +96,24 @@ public final class ProjectArgs extends com.pulumi.resources.PolicyResourceInput 
      * specified must be greater than 0 and less than the account concurrent running builds limit.
      * 
      */
-    private UndeferrableValue<Integer> concurrentBuildLimit;
-
+    @PolicyResourceProperty(name="concurrentBuildLimit", flag="unknown_concurrentBuildLimit")
+    private Integer value_concurrentBuildLimit;
+    private boolean unknown_concurrentBuildLimit;
     public Integer concurrentBuildLimit() {
-        if (concurrentBuildLimit == null) return null;
-        return concurrentBuildLimit.getValue("ProjectArgs.concurrentBuildLimit");
+        if (!unknown_concurrentBuildLimit) return value_concurrentBuildLimit;
+        throw new UndeferrableValueException("Value 'ProjectArgs.concurrentBuildLimit' is not present");
     }
 
     /**
      * Short description of the project.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ProjectArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ProjectArgs.description' is not present");
     }
 
     /**
@@ -113,22 +121,24 @@ public final class ProjectArgs extends com.pulumi.resources.PolicyResourceInput 
      * the build project&#39;s build output artifacts.
      * 
      */
-    private UndeferrableValue<String> encryptionKey;
-
+    @PolicyResourceProperty(name="encryptionKey", flag="unknown_encryptionKey")
+    private String value_encryptionKey;
+    private boolean unknown_encryptionKey;
     public String encryptionKey() {
-        if (encryptionKey == null) return null;
-        return encryptionKey.getValue("ProjectArgs.encryptionKey");
+        if (!unknown_encryptionKey) return value_encryptionKey;
+        throw new UndeferrableValueException("Value 'ProjectArgs.encryptionKey' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<ProjectEnvironmentArgs> environment;
-
+    @PolicyResourceProperty(name="environment", flag="unknown_environment")
+    private ProjectEnvironmentArgs value_environment;
+    private boolean unknown_environment;
     public ProjectEnvironmentArgs environment() {
-        if (environment == null) return null;
-        return environment.getValue("ProjectArgs.environment");
+        if (!unknown_environment) return value_environment;
+        throw new UndeferrableValueException("Value 'ProjectArgs.environment' is not present");
     }
 
     /**
@@ -136,33 +146,36 @@ public final class ProjectArgs extends com.pulumi.resources.PolicyResourceInput 
      * are documented below.
      * 
      */
-    private UndeferrableValue<List<ProjectFileSystemLocationArgs>> fileSystemLocations;
-
+    @PolicyResourceProperty(name="fileSystemLocations", flag="unknown_fileSystemLocations")
+    private List<ProjectFileSystemLocationArgs> value_fileSystemLocations;
+    private boolean unknown_fileSystemLocations;
     public List<ProjectFileSystemLocationArgs> fileSystemLocations() {
-        if (fileSystemLocations == null) return null;
-        return fileSystemLocations.getValue("ProjectArgs.fileSystemLocations");
+        if (!unknown_fileSystemLocations) return value_fileSystemLocations;
+        throw new UndeferrableValueException("Value 'ProjectArgs.fileSystemLocations' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<ProjectLogsConfigArgs> logsConfig;
-
+    @PolicyResourceProperty(name="logsConfig", flag="unknown_logsConfig")
+    private ProjectLogsConfigArgs value_logsConfig;
+    private boolean unknown_logsConfig;
     public ProjectLogsConfigArgs logsConfig() {
-        if (logsConfig == null) return null;
-        return logsConfig.getValue("ProjectArgs.logsConfig");
+        if (!unknown_logsConfig) return value_logsConfig;
+        throw new UndeferrableValueException("Value 'ProjectArgs.logsConfig' is not present");
     }
 
     /**
      * Project&#39;s name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ProjectArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ProjectArgs.name' is not present");
     }
 
     /**
@@ -170,11 +183,12 @@ public final class ProjectArgs extends com.pulumi.resources.PolicyResourceInput 
      * and `PRIVATE`. Default value is `PRIVATE`.
      * 
      */
-    private UndeferrableValue<String> projectVisibility;
-
+    @PolicyResourceProperty(name="projectVisibility", flag="unknown_projectVisibility")
+    private String value_projectVisibility;
+    private boolean unknown_projectVisibility;
     public String projectVisibility() {
-        if (projectVisibility == null) return null;
-        return projectVisibility.getValue("ProjectArgs.projectVisibility");
+        if (!unknown_projectVisibility) return value_projectVisibility;
+        throw new UndeferrableValueException("Value 'ProjectArgs.projectVisibility' is not present");
     }
 
     /**
@@ -182,11 +196,12 @@ public final class ProjectArgs extends com.pulumi.resources.PolicyResourceInput 
      * times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
      * 
      */
-    private UndeferrableValue<Integer> queuedTimeout;
-
+    @PolicyResourceProperty(name="queuedTimeout", flag="unknown_queuedTimeout")
+    private Integer value_queuedTimeout;
+    private boolean unknown_queuedTimeout;
     public Integer queuedTimeout() {
-        if (queuedTimeout == null) return null;
-        return queuedTimeout.getValue("ProjectArgs.queuedTimeout");
+        if (!unknown_queuedTimeout) return value_queuedTimeout;
+        throw new UndeferrableValueException("Value 'ProjectArgs.queuedTimeout' is not present");
     }
 
     /**
@@ -195,44 +210,48 @@ public final class ProjectArgs extends com.pulumi.resources.PolicyResourceInput 
      * `project_visibility` is `PUBLIC_READ`.
      * 
      */
-    private UndeferrableValue<String> resourceAccessRole;
-
+    @PolicyResourceProperty(name="resourceAccessRole", flag="unknown_resourceAccessRole")
+    private String value_resourceAccessRole;
+    private boolean unknown_resourceAccessRole;
     public String resourceAccessRole() {
-        if (resourceAccessRole == null) return null;
-        return resourceAccessRole.getValue("ProjectArgs.resourceAccessRole");
+        if (!unknown_resourceAccessRole) return value_resourceAccessRole;
+        throw new UndeferrableValueException("Value 'ProjectArgs.resourceAccessRole' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<List<ProjectSecondaryArtifactArgs>> secondaryArtifacts;
-
+    @PolicyResourceProperty(name="secondaryArtifacts", flag="unknown_secondaryArtifacts")
+    private List<ProjectSecondaryArtifactArgs> value_secondaryArtifacts;
+    private boolean unknown_secondaryArtifacts;
     public List<ProjectSecondaryArtifactArgs> secondaryArtifacts() {
-        if (secondaryArtifacts == null) return null;
-        return secondaryArtifacts.getValue("ProjectArgs.secondaryArtifacts");
+        if (!unknown_secondaryArtifacts) return value_secondaryArtifacts;
+        throw new UndeferrableValueException("Value 'ProjectArgs.secondaryArtifacts' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<List<ProjectSecondarySourceVersionArgs>> secondarySourceVersions;
-
+    @PolicyResourceProperty(name="secondarySourceVersions", flag="unknown_secondarySourceVersions")
+    private List<ProjectSecondarySourceVersionArgs> value_secondarySourceVersions;
+    private boolean unknown_secondarySourceVersions;
     public List<ProjectSecondarySourceVersionArgs> secondarySourceVersions() {
-        if (secondarySourceVersions == null) return null;
-        return secondarySourceVersions.getValue("ProjectArgs.secondarySourceVersions");
+        if (!unknown_secondarySourceVersions) return value_secondarySourceVersions;
+        throw new UndeferrableValueException("Value 'ProjectArgs.secondarySourceVersions' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<List<ProjectSecondarySourceArgs>> secondarySources;
-
+    @PolicyResourceProperty(name="secondarySources", flag="unknown_secondarySources")
+    private List<ProjectSecondarySourceArgs> value_secondarySources;
+    private boolean unknown_secondarySources;
     public List<ProjectSecondarySourceArgs> secondarySources() {
-        if (secondarySources == null) return null;
-        return secondarySources.getValue("ProjectArgs.secondarySources");
+        if (!unknown_secondarySources) return value_secondarySources;
+        throw new UndeferrableValueException("Value 'ProjectArgs.secondarySources' is not present");
     }
 
     /**
@@ -240,11 +259,12 @@ public final class ProjectArgs extends com.pulumi.resources.PolicyResourceInput 
      * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      * 
      */
-    private UndeferrableValue<String> serviceRole;
-
+    @PolicyResourceProperty(name="serviceRole", flag="unknown_serviceRole")
+    private String value_serviceRole;
+    private boolean unknown_serviceRole;
     public String serviceRole() {
-        if (serviceRole == null) return null;
-        return serviceRole.getValue("ProjectArgs.serviceRole");
+        if (!unknown_serviceRole) return value_serviceRole;
+        throw new UndeferrableValueException("Value 'ProjectArgs.serviceRole' is not present");
     }
 
     /**
@@ -253,11 +273,12 @@ public final class ProjectArgs extends com.pulumi.resources.PolicyResourceInput 
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<ProjectSourceArgs> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private ProjectSourceArgs value_source;
+    private boolean unknown_source;
     public ProjectSourceArgs source() {
-        if (source == null) return null;
-        return source.getValue("ProjectArgs.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'ProjectArgs.source' is not present");
     }
 
     /**
@@ -265,11 +286,12 @@ public final class ProjectArgs extends com.pulumi.resources.PolicyResourceInput 
      * version is used.
      * 
      */
-    private UndeferrableValue<String> sourceVersion;
-
+    @PolicyResourceProperty(name="sourceVersion", flag="unknown_sourceVersion")
+    private String value_sourceVersion;
+    private boolean unknown_sourceVersion;
     public String sourceVersion() {
-        if (sourceVersion == null) return null;
-        return sourceVersion.getValue("ProjectArgs.sourceVersion");
+        if (!unknown_sourceVersion) return value_sourceVersion;
+        throw new UndeferrableValueException("Value 'ProjectArgs.sourceVersion' is not present");
     }
 
     /**
@@ -278,22 +300,24 @@ public final class ProjectArgs extends com.pulumi.resources.PolicyResourceInput 
      * present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ProjectArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ProjectArgs.tags' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<ProjectVpcConfigArgs> vpcConfig;
-
+    @PolicyResourceProperty(name="vpcConfig", flag="unknown_vpcConfig")
+    private ProjectVpcConfigArgs value_vpcConfig;
+    private boolean unknown_vpcConfig;
     public ProjectVpcConfigArgs vpcConfig() {
-        if (vpcConfig == null) return null;
-        return vpcConfig.getValue("ProjectArgs.vpcConfig");
+        if (!unknown_vpcConfig) return value_vpcConfig;
+        throw new UndeferrableValueException("Value 'ProjectArgs.vpcConfig' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.glue.outputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
      * The configuration for an Iceberg orphan file deletion optimizer.
      * 
      */
-    private @Nullable UndeferrableValue<CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration> icebergConfiguration;
-
+    @PolicyResourceProperty(name="icebergConfiguration", flag="unknown_icebergConfiguration")
+    private @Nullable CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration value_icebergConfiguration;
+    private boolean unknown_icebergConfiguration;
     public @Nullable CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration icebergConfiguration() {
-        if (icebergConfiguration == null) return null;
-        return icebergConfiguration.getValue("CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration.icebergConfiguration");
+        if (!unknown_icebergConfiguration) return value_icebergConfiguration;
+        throw new UndeferrableValueException("Value 'CatalogTableOptimizerConfigurationOrphanFileDeletionConfiguration.icebergConfiguration' is not present");
     }
 
 }

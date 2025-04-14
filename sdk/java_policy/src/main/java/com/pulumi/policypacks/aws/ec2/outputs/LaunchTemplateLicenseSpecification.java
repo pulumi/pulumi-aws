@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class LaunchTemplateLicenseSpecification {
      * ARN of the license configuration.
      * 
      */
-    private UndeferrableValue<String> licenseConfigurationArn;
-
+    @PolicyResourceProperty(name="licenseConfigurationArn", flag="unknown_licenseConfigurationArn")
+    private String value_licenseConfigurationArn;
+    private boolean unknown_licenseConfigurationArn;
     public String licenseConfigurationArn() {
-        if (licenseConfigurationArn == null) return null;
-        return licenseConfigurationArn.getValue("LaunchTemplateLicenseSpecification.licenseConfigurationArn");
+        if (!unknown_licenseConfigurationArn) return value_licenseConfigurationArn;
+        throw new UndeferrableValueException("Value 'LaunchTemplateLicenseSpecification.licenseConfigurationArn' is not present");
     }
 
 }

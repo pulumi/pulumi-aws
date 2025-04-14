@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,44 +17,48 @@ public final class CustomerGatewayAssociation extends com.pulumi.resources.Polic
      * The Amazon Resource Name (ARN) of the customer gateway.
      * 
      */
-    private UndeferrableValue<String> customerGatewayArn;
-
+    @PolicyResourceProperty(name="customerGatewayArn", flag="unknown_customerGatewayArn")
+    private String value_customerGatewayArn;
+    private boolean unknown_customerGatewayArn;
     public String customerGatewayArn() {
-        if (customerGatewayArn == null) return null;
-        return customerGatewayArn.getValue("CustomerGatewayAssociation.customerGatewayArn");
+        if (!unknown_customerGatewayArn) return value_customerGatewayArn;
+        throw new UndeferrableValueException("Value 'CustomerGatewayAssociation.customerGatewayArn' is not present");
     }
 
     /**
      * The ID of the device.
      * 
      */
-    private UndeferrableValue<String> deviceId;
-
+    @PolicyResourceProperty(name="deviceId", flag="unknown_deviceId")
+    private String value_deviceId;
+    private boolean unknown_deviceId;
     public String deviceId() {
-        if (deviceId == null) return null;
-        return deviceId.getValue("CustomerGatewayAssociation.deviceId");
+        if (!unknown_deviceId) return value_deviceId;
+        throw new UndeferrableValueException("Value 'CustomerGatewayAssociation.deviceId' is not present");
     }
 
     /**
      * The ID of the global network.
      * 
      */
-    private UndeferrableValue<String> globalNetworkId;
-
+    @PolicyResourceProperty(name="globalNetworkId", flag="unknown_globalNetworkId")
+    private String value_globalNetworkId;
+    private boolean unknown_globalNetworkId;
     public String globalNetworkId() {
-        if (globalNetworkId == null) return null;
-        return globalNetworkId.getValue("CustomerGatewayAssociation.globalNetworkId");
+        if (!unknown_globalNetworkId) return value_globalNetworkId;
+        throw new UndeferrableValueException("Value 'CustomerGatewayAssociation.globalNetworkId' is not present");
     }
 
     /**
      * The ID of the link.
      * 
      */
-    private @Nullable UndeferrableValue<String> linkId;
-
+    @PolicyResourceProperty(name="linkId", flag="unknown_linkId")
+    private @Nullable String value_linkId;
+    private boolean unknown_linkId;
     public @Nullable String linkId() {
-        if (linkId == null) return null;
-        return linkId.getValue("CustomerGatewayAssociation.linkId");
+        if (!unknown_linkId) return value_linkId;
+        throw new UndeferrableValueException("Value 'CustomerGatewayAssociation.linkId' is not present");
     }
 
 }

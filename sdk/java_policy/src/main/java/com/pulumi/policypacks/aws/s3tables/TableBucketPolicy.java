@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3tables;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class TableBucketPolicy extends com.pulumi.resources.PolicyResource
      * Amazon Web Services resource-based policy document in JSON format.
      * 
      */
-    private UndeferrableValue<String> resourcePolicy;
-
+    @PolicyResourceProperty(name="resourcePolicy", flag="unknown_resourcePolicy")
+    private String value_resourcePolicy;
+    private boolean unknown_resourcePolicy;
     public String resourcePolicy() {
-        if (resourcePolicy == null) return null;
-        return resourcePolicy.getValue("TableBucketPolicy.resourcePolicy");
+        if (!unknown_resourcePolicy) return value_resourcePolicy;
+        throw new UndeferrableValueException("Value 'TableBucketPolicy.resourcePolicy' is not present");
     }
 
     /**
      * ARN referencing the Table Bucket that owns this policy.
      * 
      */
-    private UndeferrableValue<String> tableBucketArn;
-
+    @PolicyResourceProperty(name="tableBucketArn", flag="unknown_tableBucketArn")
+    private String value_tableBucketArn;
+    private boolean unknown_tableBucketArn;
     public String tableBucketArn() {
-        if (tableBucketArn == null) return null;
-        return tableBucketArn.getValue("TableBucketPolicy.tableBucketArn");
+        if (!unknown_tableBucketArn) return value_tableBucketArn;
+        throw new UndeferrableValueException("Value 'TableBucketPolicy.tableBucketArn' is not present");
     }
 
 }

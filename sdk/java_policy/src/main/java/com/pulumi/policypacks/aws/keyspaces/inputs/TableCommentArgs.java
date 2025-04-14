@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.keyspaces.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class TableCommentArgs {
      * A description of the table.
      * 
      */
-    private UndeferrableValue<String> message;
-
+    @PolicyResourceProperty(name="message", flag="unknown_message")
+    private String value_message;
+    private boolean unknown_message;
     public String message() {
-        if (message == null) return null;
-        return message.getValue("TableCommentArgs.message");
+        if (!unknown_message) return value_message;
+        throw new UndeferrableValueException("Value 'TableCommentArgs.message' is not present");
     }
 
 }

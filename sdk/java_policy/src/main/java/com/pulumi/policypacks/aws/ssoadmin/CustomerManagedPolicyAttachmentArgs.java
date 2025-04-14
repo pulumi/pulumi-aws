@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssoadmin;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ssoadmin.inputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class CustomerManagedPolicyAttachmentArgs extends com.pulumi.resour
      * Specifies the name and path of a customer managed policy. See below.
      * 
      */
-    private UndeferrableValue<CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs> customerManagedPolicyReference;
-
+    @PolicyResourceProperty(name="customerManagedPolicyReference", flag="unknown_customerManagedPolicyReference")
+    private CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs value_customerManagedPolicyReference;
+    private boolean unknown_customerManagedPolicyReference;
     public CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs customerManagedPolicyReference() {
-        if (customerManagedPolicyReference == null) return null;
-        return customerManagedPolicyReference.getValue("CustomerManagedPolicyAttachmentArgs.customerManagedPolicyReference");
+        if (!unknown_customerManagedPolicyReference) return value_customerManagedPolicyReference;
+        throw new UndeferrableValueException("Value 'CustomerManagedPolicyAttachmentArgs.customerManagedPolicyReference' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
      * 
      */
-    private UndeferrableValue<String> instanceArn;
-
+    @PolicyResourceProperty(name="instanceArn", flag="unknown_instanceArn")
+    private String value_instanceArn;
+    private boolean unknown_instanceArn;
     public String instanceArn() {
-        if (instanceArn == null) return null;
-        return instanceArn.getValue("CustomerManagedPolicyAttachmentArgs.instanceArn");
+        if (!unknown_instanceArn) return value_instanceArn;
+        throw new UndeferrableValueException("Value 'CustomerManagedPolicyAttachmentArgs.instanceArn' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Permission Set.
      * 
      */
-    private UndeferrableValue<String> permissionSetArn;
-
+    @PolicyResourceProperty(name="permissionSetArn", flag="unknown_permissionSetArn")
+    private String value_permissionSetArn;
+    private boolean unknown_permissionSetArn;
     public String permissionSetArn() {
-        if (permissionSetArn == null) return null;
-        return permissionSetArn.getValue("CustomerManagedPolicyAttachmentArgs.permissionSetArn");
+        if (!unknown_permissionSetArn) return value_permissionSetArn;
+        throw new UndeferrableValueException("Value 'CustomerManagedPolicyAttachmentArgs.permissionSetArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.apigatewayv2.outputs.ApiCorsConfiguration;
 import java.lang.Boolean;
@@ -19,11 +20,12 @@ public final class Api extends com.pulumi.resources.PolicyResourceOutput {
      * URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
      * 
      */
-    private UndeferrableValue<String> apiEndpoint;
-
+    @PolicyResourceProperty(name="apiEndpoint", flag="unknown_apiEndpoint")
+    private String value_apiEndpoint;
+    private boolean unknown_apiEndpoint;
     public String apiEndpoint() {
-        if (apiEndpoint == null) return null;
-        return apiEndpoint.getValue("Api.apiEndpoint");
+        if (!unknown_apiEndpoint) return value_apiEndpoint;
+        throw new UndeferrableValueException("Value 'Api.apiEndpoint' is not present");
     }
 
     /**
@@ -32,66 +34,72 @@ public final class Api extends com.pulumi.resources.PolicyResourceOutput {
      * Applicable for WebSocket APIs.
      * 
      */
-    private @Nullable UndeferrableValue<String> apiKeySelectionExpression;
-
+    @PolicyResourceProperty(name="apiKeySelectionExpression", flag="unknown_apiKeySelectionExpression")
+    private @Nullable String value_apiKeySelectionExpression;
+    private boolean unknown_apiKeySelectionExpression;
     public @Nullable String apiKeySelectionExpression() {
-        if (apiKeySelectionExpression == null) return null;
-        return apiKeySelectionExpression.getValue("Api.apiKeySelectionExpression");
+        if (!unknown_apiKeySelectionExpression) return value_apiKeySelectionExpression;
+        throw new UndeferrableValueException("Value 'Api.apiKeySelectionExpression' is not present");
     }
 
     /**
      * ARN of the API.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Api.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Api.arn' is not present");
     }
 
     /**
      * An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
      * 
      */
-    private @Nullable UndeferrableValue<String> body;
-
+    @PolicyResourceProperty(name="body", flag="unknown_body")
+    private @Nullable String value_body;
+    private boolean unknown_body;
     public @Nullable String body() {
-        if (body == null) return null;
-        return body.getValue("Api.body");
+        if (!unknown_body) return value_body;
+        throw new UndeferrableValueException("Value 'Api.body' is not present");
     }
 
     /**
      * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
      * 
      */
-    private @Nullable UndeferrableValue<ApiCorsConfiguration> corsConfiguration;
-
+    @PolicyResourceProperty(name="corsConfiguration", flag="unknown_corsConfiguration")
+    private @Nullable ApiCorsConfiguration value_corsConfiguration;
+    private boolean unknown_corsConfiguration;
     public @Nullable ApiCorsConfiguration corsConfiguration() {
-        if (corsConfiguration == null) return null;
-        return corsConfiguration.getValue("Api.corsConfiguration");
+        if (!unknown_corsConfiguration) return value_corsConfiguration;
+        throw new UndeferrableValueException("Value 'Api.corsConfiguration' is not present");
     }
 
     /**
      * Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
      * 
      */
-    private @Nullable UndeferrableValue<String> credentialsArn;
-
+    @PolicyResourceProperty(name="credentialsArn", flag="unknown_credentialsArn")
+    private @Nullable String value_credentialsArn;
+    private boolean unknown_credentialsArn;
     public @Nullable String credentialsArn() {
-        if (credentialsArn == null) return null;
-        return credentialsArn.getValue("Api.credentialsArn");
+        if (!unknown_credentialsArn) return value_credentialsArn;
+        throw new UndeferrableValueException("Value 'Api.credentialsArn' is not present");
     }
 
     /**
      * Description of the API. Must be less than or equal to 1024 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Api.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Api.description' is not present");
     }
 
     /**
@@ -100,11 +108,12 @@ public final class Api extends com.pulumi.resources.PolicyResourceOutput {
      * To require that clients use a custom domain name to invoke the API, disable the default endpoint.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> disableExecuteApiEndpoint;
-
+    @PolicyResourceProperty(name="disableExecuteApiEndpoint", flag="unknown_disableExecuteApiEndpoint")
+    private @Nullable Boolean value_disableExecuteApiEndpoint;
+    private boolean unknown_disableExecuteApiEndpoint;
     public @Nullable Boolean disableExecuteApiEndpoint() {
-        if (disableExecuteApiEndpoint == null) return null;
-        return disableExecuteApiEndpoint.getValue("Api.disableExecuteApiEndpoint");
+        if (!unknown_disableExecuteApiEndpoint) return value_disableExecuteApiEndpoint;
+        throw new UndeferrableValueException("Value 'Api.disableExecuteApiEndpoint' is not present");
     }
 
     /**
@@ -113,55 +122,60 @@ public final class Api extends com.pulumi.resources.PolicyResourceOutput {
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      * 
      */
-    private UndeferrableValue<String> executionArn;
-
+    @PolicyResourceProperty(name="executionArn", flag="unknown_executionArn")
+    private String value_executionArn;
+    private boolean unknown_executionArn;
     public String executionArn() {
-        if (executionArn == null) return null;
-        return executionArn.getValue("Api.executionArn");
+        if (!unknown_executionArn) return value_executionArn;
+        throw new UndeferrableValueException("Value 'Api.executionArn' is not present");
     }
 
     /**
      * Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> failOnWarnings;
-
+    @PolicyResourceProperty(name="failOnWarnings", flag="unknown_failOnWarnings")
+    private @Nullable Boolean value_failOnWarnings;
+    private boolean unknown_failOnWarnings;
     public @Nullable Boolean failOnWarnings() {
-        if (failOnWarnings == null) return null;
-        return failOnWarnings.getValue("Api.failOnWarnings");
+        if (!unknown_failOnWarnings) return value_failOnWarnings;
+        throw new UndeferrableValueException("Value 'Api.failOnWarnings' is not present");
     }
 
     /**
      * Name of the API. Must be less than or equal to 128 characters in length.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Api.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Api.name' is not present");
     }
 
     /**
      * API protocol. Valid values: `HTTP`, `WEBSOCKET`.
      * 
      */
-    private UndeferrableValue<String> protocolType;
-
+    @PolicyResourceProperty(name="protocolType", flag="unknown_protocolType")
+    private String value_protocolType;
+    private boolean unknown_protocolType;
     public String protocolType() {
-        if (protocolType == null) return null;
-        return protocolType.getValue("Api.protocolType");
+        if (!unknown_protocolType) return value_protocolType;
+        throw new UndeferrableValueException("Value 'Api.protocolType' is not present");
     }
 
     /**
      * Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
      * 
      */
-    private @Nullable UndeferrableValue<String> routeKey;
-
+    @PolicyResourceProperty(name="routeKey", flag="unknown_routeKey")
+    private @Nullable String value_routeKey;
+    private boolean unknown_routeKey;
     public @Nullable String routeKey() {
-        if (routeKey == null) return null;
-        return routeKey.getValue("Api.routeKey");
+        if (!unknown_routeKey) return value_routeKey;
+        throw new UndeferrableValueException("Value 'Api.routeKey' is not present");
     }
 
     /**
@@ -169,22 +183,24 @@ public final class Api extends com.pulumi.resources.PolicyResourceOutput {
      * Defaults to `$request.method $request.path`.
      * 
      */
-    private @Nullable UndeferrableValue<String> routeSelectionExpression;
-
+    @PolicyResourceProperty(name="routeSelectionExpression", flag="unknown_routeSelectionExpression")
+    private @Nullable String value_routeSelectionExpression;
+    private boolean unknown_routeSelectionExpression;
     public @Nullable String routeSelectionExpression() {
-        if (routeSelectionExpression == null) return null;
-        return routeSelectionExpression.getValue("Api.routeSelectionExpression");
+        if (!unknown_routeSelectionExpression) return value_routeSelectionExpression;
+        throw new UndeferrableValueException("Value 'Api.routeSelectionExpression' is not present");
     }
 
     /**
      * Map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Api.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Api.tags' is not present");
     }
 
     /**
@@ -195,11 +211,12 @@ public final class Api extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Api.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Api.tagsAll' is not present");
     }
 
     /**
@@ -208,22 +225,24 @@ public final class Api extends com.pulumi.resources.PolicyResourceOutput {
      * The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
      * 
      */
-    private @Nullable UndeferrableValue<String> target;
-
+    @PolicyResourceProperty(name="target", flag="unknown_target")
+    private @Nullable String value_target;
+    private boolean unknown_target;
     public @Nullable String target() {
-        if (target == null) return null;
-        return target.getValue("Api.target");
+        if (!unknown_target) return value_target;
+        throw new UndeferrableValueException("Value 'Api.target' is not present");
     }
 
     /**
      * Version identifier for the API. Must be between 1 and 64 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private @Nullable String value_version;
+    private boolean unknown_version;
     public @Nullable String version() {
-        if (version == null) return null;
-        return version.getValue("Api.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'Api.version' is not present");
     }
 
 }

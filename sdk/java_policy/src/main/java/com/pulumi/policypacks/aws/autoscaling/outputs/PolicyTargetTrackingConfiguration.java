@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.autoscaling.outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecification;
 import com.pulumi.policypacks.aws.autoscaling.outputs.PolicyTargetTrackingConfigurationPredefinedMetricSpecification;
 import java.lang.Boolean;
@@ -17,44 +18,48 @@ public final class PolicyTargetTrackingConfiguration {
      * Customized metric. Conflicts with `predefined_metric_specification`.
      * 
      */
-    private @Nullable UndeferrableValue<PolicyTargetTrackingConfigurationCustomizedMetricSpecification> customizedMetricSpecification;
-
+    @PolicyResourceProperty(name="customizedMetricSpecification", flag="unknown_customizedMetricSpecification")
+    private @Nullable PolicyTargetTrackingConfigurationCustomizedMetricSpecification value_customizedMetricSpecification;
+    private boolean unknown_customizedMetricSpecification;
     public @Nullable PolicyTargetTrackingConfigurationCustomizedMetricSpecification customizedMetricSpecification() {
-        if (customizedMetricSpecification == null) return null;
-        return customizedMetricSpecification.getValue("PolicyTargetTrackingConfiguration.customizedMetricSpecification");
+        if (!unknown_customizedMetricSpecification) return value_customizedMetricSpecification;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfiguration.customizedMetricSpecification' is not present");
     }
 
     /**
      * Whether scale in by the target tracking policy is disabled.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> disableScaleIn;
-
+    @PolicyResourceProperty(name="disableScaleIn", flag="unknown_disableScaleIn")
+    private @Nullable Boolean value_disableScaleIn;
+    private boolean unknown_disableScaleIn;
     public @Nullable Boolean disableScaleIn() {
-        if (disableScaleIn == null) return null;
-        return disableScaleIn.getValue("PolicyTargetTrackingConfiguration.disableScaleIn");
+        if (!unknown_disableScaleIn) return value_disableScaleIn;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfiguration.disableScaleIn' is not present");
     }
 
     /**
      * Predefined metric. Conflicts with `customized_metric_specification`.
      * 
      */
-    private @Nullable UndeferrableValue<PolicyTargetTrackingConfigurationPredefinedMetricSpecification> predefinedMetricSpecification;
-
+    @PolicyResourceProperty(name="predefinedMetricSpecification", flag="unknown_predefinedMetricSpecification")
+    private @Nullable PolicyTargetTrackingConfigurationPredefinedMetricSpecification value_predefinedMetricSpecification;
+    private boolean unknown_predefinedMetricSpecification;
     public @Nullable PolicyTargetTrackingConfigurationPredefinedMetricSpecification predefinedMetricSpecification() {
-        if (predefinedMetricSpecification == null) return null;
-        return predefinedMetricSpecification.getValue("PolicyTargetTrackingConfiguration.predefinedMetricSpecification");
+        if (!unknown_predefinedMetricSpecification) return value_predefinedMetricSpecification;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfiguration.predefinedMetricSpecification' is not present");
     }
 
     /**
      * Target value for the metric.
      * 
      */
-    private UndeferrableValue<Double> targetValue;
-
+    @PolicyResourceProperty(name="targetValue", flag="unknown_targetValue")
+    private Double value_targetValue;
+    private boolean unknown_targetValue;
     public Double targetValue() {
-        if (targetValue == null) return null;
-        return targetValue.getValue("PolicyTargetTrackingConfiguration.targetValue");
+        if (!unknown_targetValue) return value_targetValue;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfiguration.targetValue' is not present");
     }
 
 }

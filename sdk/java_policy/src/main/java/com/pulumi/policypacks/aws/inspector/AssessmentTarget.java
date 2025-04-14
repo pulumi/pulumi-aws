@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.inspector;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class AssessmentTarget extends com.pulumi.resources.PolicyResourceO
      * The target assessment ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("AssessmentTarget.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'AssessmentTarget.arn' is not present");
     }
 
     /**
      * The name of the assessment target.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AssessmentTarget.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AssessmentTarget.name' is not present");
     }
 
     /**
      * Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
      * 
      */
-    private @Nullable UndeferrableValue<String> resourceGroupArn;
-
+    @PolicyResourceProperty(name="resourceGroupArn", flag="unknown_resourceGroupArn")
+    private @Nullable String value_resourceGroupArn;
+    private boolean unknown_resourceGroupArn;
     public @Nullable String resourceGroupArn() {
-        if (resourceGroupArn == null) return null;
-        return resourceGroupArn.getValue("AssessmentTarget.resourceGroupArn");
+        if (!unknown_resourceGroupArn) return value_resourceGroupArn;
+        throw new UndeferrableValueException("Value 'AssessmentTarget.resourceGroupArn' is not present");
     }
 
 }

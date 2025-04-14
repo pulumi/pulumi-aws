@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class ChannelDestinationSetting {
      * Key used to extract the password from EC2 Parameter store.
      * 
      */
-    private @Nullable UndeferrableValue<String> passwordParam;
-
+    @PolicyResourceProperty(name="passwordParam", flag="unknown_passwordParam")
+    private @Nullable String value_passwordParam;
+    private boolean unknown_passwordParam;
     public @Nullable String passwordParam() {
-        if (passwordParam == null) return null;
-        return passwordParam.getValue("ChannelDestinationSetting.passwordParam");
+        if (!unknown_passwordParam) return value_passwordParam;
+        throw new UndeferrableValueException("Value 'ChannelDestinationSetting.passwordParam' is not present");
     }
 
     /**
      * Stream name RTMP destinations (URLs of type rtmp://)
      * 
      */
-    private @Nullable UndeferrableValue<String> streamName;
-
+    @PolicyResourceProperty(name="streamName", flag="unknown_streamName")
+    private @Nullable String value_streamName;
+    private boolean unknown_streamName;
     public @Nullable String streamName() {
-        if (streamName == null) return null;
-        return streamName.getValue("ChannelDestinationSetting.streamName");
+        if (!unknown_streamName) return value_streamName;
+        throw new UndeferrableValueException("Value 'ChannelDestinationSetting.streamName' is not present");
     }
 
     /**
      * A URL specifying a destination.
      * 
      */
-    private @Nullable UndeferrableValue<String> url;
-
+    @PolicyResourceProperty(name="url", flag="unknown_url")
+    private @Nullable String value_url;
+    private boolean unknown_url;
     public @Nullable String url() {
-        if (url == null) return null;
-        return url.getValue("ChannelDestinationSetting.url");
+        if (!unknown_url) return value_url;
+        throw new UndeferrableValueException("Value 'ChannelDestinationSetting.url' is not present");
     }
 
     /**
      * Username for destination.
      * 
      */
-    private @Nullable UndeferrableValue<String> username;
-
+    @PolicyResourceProperty(name="username", flag="unknown_username")
+    private @Nullable String value_username;
+    private boolean unknown_username;
     public @Nullable String username() {
-        if (username == null) return null;
-        return username.getValue("ChannelDestinationSetting.username");
+        if (!unknown_username) return value_username;
+        throw new UndeferrableValueException("Value 'ChannelDestinationSetting.username' is not present");
     }
 
 }

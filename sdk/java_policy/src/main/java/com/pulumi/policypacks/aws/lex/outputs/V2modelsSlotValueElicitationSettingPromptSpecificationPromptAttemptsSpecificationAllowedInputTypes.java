@@ -3,24 +3,27 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 
 
 public final class V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes {
 
-    private UndeferrableValue<Boolean> allowAudioInput;
-
+    @PolicyResourceProperty(name="allowAudioInput", flag="unknown_allowAudioInput")
+    private Boolean value_allowAudioInput;
+    private boolean unknown_allowAudioInput;
     public Boolean allowAudioInput() {
-        if (allowAudioInput == null) return null;
-        return allowAudioInput.getValue("V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes.allowAudioInput");
+        if (!unknown_allowAudioInput) return value_allowAudioInput;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes.allowAudioInput' is not present");
     }
 
-    private UndeferrableValue<Boolean> allowDtmfInput;
-
+    @PolicyResourceProperty(name="allowDtmfInput", flag="unknown_allowDtmfInput")
+    private Boolean value_allowDtmfInput;
+    private boolean unknown_allowDtmfInput;
     public Boolean allowDtmfInput() {
-        if (allowDtmfInput == null) return null;
-        return allowDtmfInput.getValue("V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes.allowDtmfInput");
+        if (!unknown_allowDtmfInput) return value_allowDtmfInput;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes.allowDtmfInput' is not present");
     }
 
 }

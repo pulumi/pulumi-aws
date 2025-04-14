@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class IndexingConfigurationThingIndexingConfigurationFilter {
      * List of shadow names that you select to index.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> namedShadowNames;
-
+    @PolicyResourceProperty(name="namedShadowNames", flag="unknown_namedShadowNames")
+    private @Nullable List<String> value_namedShadowNames;
+    private boolean unknown_namedShadowNames;
     public @Nullable List<String> namedShadowNames() {
-        if (namedShadowNames == null) return null;
-        return namedShadowNames.getValue("IndexingConfigurationThingIndexingConfigurationFilter.namedShadowNames");
+        if (!unknown_namedShadowNames) return value_namedShadowNames;
+        throw new UndeferrableValueException("Value 'IndexingConfigurationThingIndexingConfigurationFilter.namedShadowNames' is not present");
     }
 
 }

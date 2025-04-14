@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,88 +16,96 @@ public final class LaunchTemplatePlacementArgs {
      * The affinity setting for an instance on a Dedicated Host.
      * 
      */
-    private UndeferrableValue<String> affinity;
-
+    @PolicyResourceProperty(name="affinity", flag="unknown_affinity")
+    private String value_affinity;
+    private boolean unknown_affinity;
     public String affinity() {
-        if (affinity == null) return null;
-        return affinity.getValue("LaunchTemplatePlacementArgs.affinity");
+        if (!unknown_affinity) return value_affinity;
+        throw new UndeferrableValueException("Value 'LaunchTemplatePlacementArgs.affinity' is not present");
     }
 
     /**
      * The Availability Zone for the instance.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("LaunchTemplatePlacementArgs.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'LaunchTemplatePlacementArgs.availabilityZone' is not present");
     }
 
     /**
      * The name of the placement group for the instance.
      * 
      */
-    private UndeferrableValue<String> groupName;
-
+    @PolicyResourceProperty(name="groupName", flag="unknown_groupName")
+    private String value_groupName;
+    private boolean unknown_groupName;
     public String groupName() {
-        if (groupName == null) return null;
-        return groupName.getValue("LaunchTemplatePlacementArgs.groupName");
+        if (!unknown_groupName) return value_groupName;
+        throw new UndeferrableValueException("Value 'LaunchTemplatePlacementArgs.groupName' is not present");
     }
 
     /**
      * The ID of the Dedicated Host for the instance.
      * 
      */
-    private UndeferrableValue<String> hostId;
-
+    @PolicyResourceProperty(name="hostId", flag="unknown_hostId")
+    private String value_hostId;
+    private boolean unknown_hostId;
     public String hostId() {
-        if (hostId == null) return null;
-        return hostId.getValue("LaunchTemplatePlacementArgs.hostId");
+        if (!unknown_hostId) return value_hostId;
+        throw new UndeferrableValueException("Value 'LaunchTemplatePlacementArgs.hostId' is not present");
     }
 
     /**
      * The ARN of the Host Resource Group in which to launch instances.
      * 
      */
-    private UndeferrableValue<String> hostResourceGroupArn;
-
+    @PolicyResourceProperty(name="hostResourceGroupArn", flag="unknown_hostResourceGroupArn")
+    private String value_hostResourceGroupArn;
+    private boolean unknown_hostResourceGroupArn;
     public String hostResourceGroupArn() {
-        if (hostResourceGroupArn == null) return null;
-        return hostResourceGroupArn.getValue("LaunchTemplatePlacementArgs.hostResourceGroupArn");
+        if (!unknown_hostResourceGroupArn) return value_hostResourceGroupArn;
+        throw new UndeferrableValueException("Value 'LaunchTemplatePlacementArgs.hostResourceGroupArn' is not present");
     }
 
     /**
      * The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
      * 
      */
-    private UndeferrableValue<Integer> partitionNumber;
-
+    @PolicyResourceProperty(name="partitionNumber", flag="unknown_partitionNumber")
+    private Integer value_partitionNumber;
+    private boolean unknown_partitionNumber;
     public Integer partitionNumber() {
-        if (partitionNumber == null) return null;
-        return partitionNumber.getValue("LaunchTemplatePlacementArgs.partitionNumber");
+        if (!unknown_partitionNumber) return value_partitionNumber;
+        throw new UndeferrableValueException("Value 'LaunchTemplatePlacementArgs.partitionNumber' is not present");
     }
 
     /**
      * Reserved for future use.
      * 
      */
-    private UndeferrableValue<String> spreadDomain;
-
+    @PolicyResourceProperty(name="spreadDomain", flag="unknown_spreadDomain")
+    private String value_spreadDomain;
+    private boolean unknown_spreadDomain;
     public String spreadDomain() {
-        if (spreadDomain == null) return null;
-        return spreadDomain.getValue("LaunchTemplatePlacementArgs.spreadDomain");
+        if (!unknown_spreadDomain) return value_spreadDomain;
+        throw new UndeferrableValueException("Value 'LaunchTemplatePlacementArgs.spreadDomain' is not present");
     }
 
     /**
      * The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
      * 
      */
-    private UndeferrableValue<String> tenancy;
-
+    @PolicyResourceProperty(name="tenancy", flag="unknown_tenancy")
+    private String value_tenancy;
+    private boolean unknown_tenancy;
     public String tenancy() {
-        if (tenancy == null) return null;
-        return tenancy.getValue("LaunchTemplatePlacementArgs.tenancy");
+        if (!unknown_tenancy) return value_tenancy;
+        throw new UndeferrableValueException("Value 'LaunchTemplatePlacementArgs.tenancy' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamquery.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ScheduledQueryScheduleConfigurationArgs {
      * When to trigger the scheduled query run. This can be a cron expression or a rate expression.
      * 
      */
-    private UndeferrableValue<String> scheduleExpression;
-
+    @PolicyResourceProperty(name="scheduleExpression", flag="unknown_scheduleExpression")
+    private String value_scheduleExpression;
+    private boolean unknown_scheduleExpression;
     public String scheduleExpression() {
-        if (scheduleExpression == null) return null;
-        return scheduleExpression.getValue("ScheduledQueryScheduleConfigurationArgs.scheduleExpression");
+        if (!unknown_scheduleExpression) return value_scheduleExpression;
+        throw new UndeferrableValueException("Value 'ScheduledQueryScheduleConfigurationArgs.scheduleExpression' is not present");
     }
 
 }

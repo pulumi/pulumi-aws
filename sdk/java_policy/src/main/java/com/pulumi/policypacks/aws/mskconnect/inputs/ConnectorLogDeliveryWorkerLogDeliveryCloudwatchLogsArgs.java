@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mskconnect.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs {
      * Whether log delivery to Amazon CloudWatch Logs is enabled.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs.enabled' is not present");
     }
 
     /**
      * The name of the CloudWatch log group that is the destination for log delivery.
      * 
      */
-    private UndeferrableValue<String> logGroup;
-
+    @PolicyResourceProperty(name="logGroup", flag="unknown_logGroup")
+    private String value_logGroup;
+    private boolean unknown_logGroup;
     public String logGroup() {
-        if (logGroup == null) return null;
-        return logGroup.getValue("ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs.logGroup");
+        if (!unknown_logGroup) return value_logGroup;
+        throw new UndeferrableValueException("Value 'ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs.logGroup' is not present");
     }
 
 }

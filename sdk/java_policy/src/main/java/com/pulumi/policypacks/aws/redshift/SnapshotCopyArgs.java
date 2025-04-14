@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,11 +18,12 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.PolicyResourceI
      * Identifier of the source cluster.
      * 
      */
-    private UndeferrableValue<String> clusterIdentifier;
-
+    @PolicyResourceProperty(name="clusterIdentifier", flag="unknown_clusterIdentifier")
+    private String value_clusterIdentifier;
+    private boolean unknown_clusterIdentifier;
     public String clusterIdentifier() {
-        if (clusterIdentifier == null) return null;
-        return clusterIdentifier.getValue("SnapshotCopyArgs.clusterIdentifier");
+        if (!unknown_clusterIdentifier) return value_clusterIdentifier;
+        throw new UndeferrableValueException("Value 'SnapshotCopyArgs.clusterIdentifier' is not present");
     }
 
     /**
@@ -30,44 +32,48 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.PolicyResourceI
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> destinationRegion;
-
+    @PolicyResourceProperty(name="destinationRegion", flag="unknown_destinationRegion")
+    private String value_destinationRegion;
+    private boolean unknown_destinationRegion;
     public String destinationRegion() {
-        if (destinationRegion == null) return null;
-        return destinationRegion.getValue("SnapshotCopyArgs.destinationRegion");
+        if (!unknown_destinationRegion) return value_destinationRegion;
+        throw new UndeferrableValueException("Value 'SnapshotCopyArgs.destinationRegion' is not present");
     }
 
     /**
      * Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
      * 
      */
-    private UndeferrableValue<Integer> manualSnapshotRetentionPeriod;
-
+    @PolicyResourceProperty(name="manualSnapshotRetentionPeriod", flag="unknown_manualSnapshotRetentionPeriod")
+    private Integer value_manualSnapshotRetentionPeriod;
+    private boolean unknown_manualSnapshotRetentionPeriod;
     public Integer manualSnapshotRetentionPeriod() {
-        if (manualSnapshotRetentionPeriod == null) return null;
-        return manualSnapshotRetentionPeriod.getValue("SnapshotCopyArgs.manualSnapshotRetentionPeriod");
+        if (!unknown_manualSnapshotRetentionPeriod) return value_manualSnapshotRetentionPeriod;
+        throw new UndeferrableValueException("Value 'SnapshotCopyArgs.manualSnapshotRetentionPeriod' is not present");
     }
 
     /**
      * Number of days to retain automated snapshots in the destination region after they are copied from the source region.
      * 
      */
-    private UndeferrableValue<Integer> retentionPeriod;
-
+    @PolicyResourceProperty(name="retentionPeriod", flag="unknown_retentionPeriod")
+    private Integer value_retentionPeriod;
+    private boolean unknown_retentionPeriod;
     public Integer retentionPeriod() {
-        if (retentionPeriod == null) return null;
-        return retentionPeriod.getValue("SnapshotCopyArgs.retentionPeriod");
+        if (!unknown_retentionPeriod) return value_retentionPeriod;
+        throw new UndeferrableValueException("Value 'SnapshotCopyArgs.retentionPeriod' is not present");
     }
 
     /**
      * Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
      * 
      */
-    private UndeferrableValue<String> snapshotCopyGrantName;
-
+    @PolicyResourceProperty(name="snapshotCopyGrantName", flag="unknown_snapshotCopyGrantName")
+    private String value_snapshotCopyGrantName;
+    private boolean unknown_snapshotCopyGrantName;
     public String snapshotCopyGrantName() {
-        if (snapshotCopyGrantName == null) return null;
-        return snapshotCopyGrantName.getValue("SnapshotCopyArgs.snapshotCopyGrantName");
+        if (!unknown_snapshotCopyGrantName) return value_snapshotCopyGrantName;
+        throw new UndeferrableValueException("Value 'SnapshotCopyArgs.snapshotCopyGrantName' is not present");
     }
 
 }

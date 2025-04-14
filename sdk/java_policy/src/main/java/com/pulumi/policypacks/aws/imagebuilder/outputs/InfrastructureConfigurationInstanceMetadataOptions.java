@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class InfrastructureConfigurationInstanceMetadataOptions {
      * The number of hops that an instance can traverse to reach its destonation.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> httpPutResponseHopLimit;
-
+    @PolicyResourceProperty(name="httpPutResponseHopLimit", flag="unknown_httpPutResponseHopLimit")
+    private @Nullable Integer value_httpPutResponseHopLimit;
+    private boolean unknown_httpPutResponseHopLimit;
     public @Nullable Integer httpPutResponseHopLimit() {
-        if (httpPutResponseHopLimit == null) return null;
-        return httpPutResponseHopLimit.getValue("InfrastructureConfigurationInstanceMetadataOptions.httpPutResponseHopLimit");
+        if (!unknown_httpPutResponseHopLimit) return value_httpPutResponseHopLimit;
+        throw new UndeferrableValueException("Value 'InfrastructureConfigurationInstanceMetadataOptions.httpPutResponseHopLimit' is not present");
     }
 
     /**
      * Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
      * 
      */
-    private @Nullable UndeferrableValue<String> httpTokens;
-
+    @PolicyResourceProperty(name="httpTokens", flag="unknown_httpTokens")
+    private @Nullable String value_httpTokens;
+    private boolean unknown_httpTokens;
     public @Nullable String httpTokens() {
-        if (httpTokens == null) return null;
-        return httpTokens.getValue("InfrastructureConfigurationInstanceMetadataOptions.httpTokens");
+        if (!unknown_httpTokens) return value_httpTokens;
+        throw new UndeferrableValueException("Value 'InfrastructureConfigurationInstanceMetadataOptions.httpTokens' is not present");
     }
 
 }

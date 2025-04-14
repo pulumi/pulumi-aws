@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -16,44 +17,48 @@ public final class ReplicatorReplicationInfoListConsumerGroupReplication {
      * List of regular expression patterns indicating the consumer groups that should not be replicated.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> consumerGroupsToExcludes;
-
+    @PolicyResourceProperty(name="consumerGroupsToExcludes", flag="unknown_consumerGroupsToExcludes")
+    private @Nullable List<String> value_consumerGroupsToExcludes;
+    private boolean unknown_consumerGroupsToExcludes;
     public @Nullable List<String> consumerGroupsToExcludes() {
-        if (consumerGroupsToExcludes == null) return null;
-        return consumerGroupsToExcludes.getValue("ReplicatorReplicationInfoListConsumerGroupReplication.consumerGroupsToExcludes");
+        if (!unknown_consumerGroupsToExcludes) return value_consumerGroupsToExcludes;
+        throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListConsumerGroupReplication.consumerGroupsToExcludes' is not present");
     }
 
     /**
      * List of regular expression patterns indicating the consumer groups to copy.
      * 
      */
-    private UndeferrableValue<List<String>> consumerGroupsToReplicates;
-
+    @PolicyResourceProperty(name="consumerGroupsToReplicates", flag="unknown_consumerGroupsToReplicates")
+    private List<String> value_consumerGroupsToReplicates;
+    private boolean unknown_consumerGroupsToReplicates;
     public List<String> consumerGroupsToReplicates() {
-        if (consumerGroupsToReplicates == null) return null;
-        return consumerGroupsToReplicates.getValue("ReplicatorReplicationInfoListConsumerGroupReplication.consumerGroupsToReplicates");
+        if (!unknown_consumerGroupsToReplicates) return value_consumerGroupsToReplicates;
+        throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListConsumerGroupReplication.consumerGroupsToReplicates' is not present");
     }
 
     /**
      * Whether to periodically check for new consumer groups.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> detectAndCopyNewConsumerGroups;
-
+    @PolicyResourceProperty(name="detectAndCopyNewConsumerGroups", flag="unknown_detectAndCopyNewConsumerGroups")
+    private @Nullable Boolean value_detectAndCopyNewConsumerGroups;
+    private boolean unknown_detectAndCopyNewConsumerGroups;
     public @Nullable Boolean detectAndCopyNewConsumerGroups() {
-        if (detectAndCopyNewConsumerGroups == null) return null;
-        return detectAndCopyNewConsumerGroups.getValue("ReplicatorReplicationInfoListConsumerGroupReplication.detectAndCopyNewConsumerGroups");
+        if (!unknown_detectAndCopyNewConsumerGroups) return value_detectAndCopyNewConsumerGroups;
+        throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListConsumerGroupReplication.detectAndCopyNewConsumerGroups' is not present");
     }
 
     /**
      * Whether to periodically write the translated offsets to __consumer_offsets topic in target cluster.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> synchroniseConsumerGroupOffsets;
-
+    @PolicyResourceProperty(name="synchroniseConsumerGroupOffsets", flag="unknown_synchroniseConsumerGroupOffsets")
+    private @Nullable Boolean value_synchroniseConsumerGroupOffsets;
+    private boolean unknown_synchroniseConsumerGroupOffsets;
     public @Nullable Boolean synchroniseConsumerGroupOffsets() {
-        if (synchroniseConsumerGroupOffsets == null) return null;
-        return synchroniseConsumerGroupOffsets.getValue("ReplicatorReplicationInfoListConsumerGroupReplication.synchroniseConsumerGroupOffsets");
+        if (!unknown_synchroniseConsumerGroupOffsets) return value_synchroniseConsumerGroupOffsets;
+        throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListConsumerGroupReplication.synchroniseConsumerGroupOffsets' is not present");
     }
 
 }

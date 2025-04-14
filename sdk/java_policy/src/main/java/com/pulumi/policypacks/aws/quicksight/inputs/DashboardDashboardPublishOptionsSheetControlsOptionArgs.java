@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DashboardDashboardPublishOptionsSheetControlsOptionArgs {
      * Visibility state. Possibles values: EXPANDED, COLLAPSED.
      * 
      */
-    private UndeferrableValue<String> visibilityState;
-
+    @PolicyResourceProperty(name="visibilityState", flag="unknown_visibilityState")
+    private String value_visibilityState;
+    private boolean unknown_visibilityState;
     public String visibilityState() {
-        if (visibilityState == null) return null;
-        return visibilityState.getValue("DashboardDashboardPublishOptionsSheetControlsOptionArgs.visibilityState");
+        if (!unknown_visibilityState) return value_visibilityState;
+        throw new UndeferrableValueException("Value 'DashboardDashboardPublishOptionsSheetControlsOptionArgs.visibilityState' is not present");
     }
 
 }

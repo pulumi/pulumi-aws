@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.keyspaces.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class TableEncryptionSpecificationArgs {
      * The Amazon Resource Name (ARN) of the customer managed KMS key.
      * 
      */
-    private UndeferrableValue<String> kmsKeyIdentifier;
-
+    @PolicyResourceProperty(name="kmsKeyIdentifier", flag="unknown_kmsKeyIdentifier")
+    private String value_kmsKeyIdentifier;
+    private boolean unknown_kmsKeyIdentifier;
     public String kmsKeyIdentifier() {
-        if (kmsKeyIdentifier == null) return null;
-        return kmsKeyIdentifier.getValue("TableEncryptionSpecificationArgs.kmsKeyIdentifier");
+        if (!unknown_kmsKeyIdentifier) return value_kmsKeyIdentifier;
+        throw new UndeferrableValueException("Value 'TableEncryptionSpecificationArgs.kmsKeyIdentifier' is not present");
     }
 
     /**
      * The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("TableEncryptionSpecificationArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'TableEncryptionSpecificationArgs.type' is not present");
     }
 
 }

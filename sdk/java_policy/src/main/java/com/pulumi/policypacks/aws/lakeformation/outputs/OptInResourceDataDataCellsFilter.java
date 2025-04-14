@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class OptInResourceDataDataCellsFilter {
      * The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
      * 
      */
-    private @Nullable UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private @Nullable String value_databaseName;
+    private boolean unknown_databaseName;
     public @Nullable String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("OptInResourceDataDataCellsFilter.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'OptInResourceDataDataCellsFilter.databaseName' is not present");
     }
 
     /**
      * Name of the table.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("OptInResourceDataDataCellsFilter.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'OptInResourceDataDataCellsFilter.name' is not present");
     }
 
     /**
      * ID of the catalog to which the table belongs.
      * 
      */
-    private @Nullable UndeferrableValue<String> tableCatalogId;
-
+    @PolicyResourceProperty(name="tableCatalogId", flag="unknown_tableCatalogId")
+    private @Nullable String value_tableCatalogId;
+    private boolean unknown_tableCatalogId;
     public @Nullable String tableCatalogId() {
-        if (tableCatalogId == null) return null;
-        return tableCatalogId.getValue("OptInResourceDataDataCellsFilter.tableCatalogId");
+        if (!unknown_tableCatalogId) return value_tableCatalogId;
+        throw new UndeferrableValueException("Value 'OptInResourceDataDataCellsFilter.tableCatalogId' is not present");
     }
 
     /**
      * Name of the table.
      * 
      */
-    private @Nullable UndeferrableValue<String> tableName;
-
+    @PolicyResourceProperty(name="tableName", flag="unknown_tableName")
+    private @Nullable String value_tableName;
+    private boolean unknown_tableName;
     public @Nullable String tableName() {
-        if (tableName == null) return null;
-        return tableName.getValue("OptInResourceDataDataCellsFilter.tableName");
+        if (!unknown_tableName) return value_tableName;
+        throw new UndeferrableValueException("Value 'OptInResourceDataDataCellsFilter.tableName' is not present");
     }
 
 }

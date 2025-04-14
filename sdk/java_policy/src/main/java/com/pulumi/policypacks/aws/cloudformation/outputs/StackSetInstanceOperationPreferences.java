@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudformation.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -16,77 +17,84 @@ public final class StackSetInstanceOperationPreferences {
      * Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> concurrencyMode;
-
+    @PolicyResourceProperty(name="concurrencyMode", flag="unknown_concurrencyMode")
+    private @Nullable String value_concurrencyMode;
+    private boolean unknown_concurrencyMode;
     public @Nullable String concurrencyMode() {
-        if (concurrencyMode == null) return null;
-        return concurrencyMode.getValue("StackSetInstanceOperationPreferences.concurrencyMode");
+        if (!unknown_concurrencyMode) return value_concurrencyMode;
+        throw new UndeferrableValueException("Value 'StackSetInstanceOperationPreferences.concurrencyMode' is not present");
     }
 
     /**
      * Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> failureToleranceCount;
-
+    @PolicyResourceProperty(name="failureToleranceCount", flag="unknown_failureToleranceCount")
+    private @Nullable Integer value_failureToleranceCount;
+    private boolean unknown_failureToleranceCount;
     public @Nullable Integer failureToleranceCount() {
-        if (failureToleranceCount == null) return null;
-        return failureToleranceCount.getValue("StackSetInstanceOperationPreferences.failureToleranceCount");
+        if (!unknown_failureToleranceCount) return value_failureToleranceCount;
+        throw new UndeferrableValueException("Value 'StackSetInstanceOperationPreferences.failureToleranceCount' is not present");
     }
 
     /**
      * Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> failureTolerancePercentage;
-
+    @PolicyResourceProperty(name="failureTolerancePercentage", flag="unknown_failureTolerancePercentage")
+    private @Nullable Integer value_failureTolerancePercentage;
+    private boolean unknown_failureTolerancePercentage;
     public @Nullable Integer failureTolerancePercentage() {
-        if (failureTolerancePercentage == null) return null;
-        return failureTolerancePercentage.getValue("StackSetInstanceOperationPreferences.failureTolerancePercentage");
+        if (!unknown_failureTolerancePercentage) return value_failureTolerancePercentage;
+        throw new UndeferrableValueException("Value 'StackSetInstanceOperationPreferences.failureTolerancePercentage' is not present");
     }
 
     /**
      * Maximum number of accounts in which to perform this operation at one time.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxConcurrentCount;
-
+    @PolicyResourceProperty(name="maxConcurrentCount", flag="unknown_maxConcurrentCount")
+    private @Nullable Integer value_maxConcurrentCount;
+    private boolean unknown_maxConcurrentCount;
     public @Nullable Integer maxConcurrentCount() {
-        if (maxConcurrentCount == null) return null;
-        return maxConcurrentCount.getValue("StackSetInstanceOperationPreferences.maxConcurrentCount");
+        if (!unknown_maxConcurrentCount) return value_maxConcurrentCount;
+        throw new UndeferrableValueException("Value 'StackSetInstanceOperationPreferences.maxConcurrentCount' is not present");
     }
 
     /**
      * Maximum percentage of accounts in which to perform this operation at one time.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxConcurrentPercentage;
-
+    @PolicyResourceProperty(name="maxConcurrentPercentage", flag="unknown_maxConcurrentPercentage")
+    private @Nullable Integer value_maxConcurrentPercentage;
+    private boolean unknown_maxConcurrentPercentage;
     public @Nullable Integer maxConcurrentPercentage() {
-        if (maxConcurrentPercentage == null) return null;
-        return maxConcurrentPercentage.getValue("StackSetInstanceOperationPreferences.maxConcurrentPercentage");
+        if (!unknown_maxConcurrentPercentage) return value_maxConcurrentPercentage;
+        throw new UndeferrableValueException("Value 'StackSetInstanceOperationPreferences.maxConcurrentPercentage' is not present");
     }
 
     /**
      * Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
      * 
      */
-    private @Nullable UndeferrableValue<String> regionConcurrencyType;
-
+    @PolicyResourceProperty(name="regionConcurrencyType", flag="unknown_regionConcurrencyType")
+    private @Nullable String value_regionConcurrencyType;
+    private boolean unknown_regionConcurrencyType;
     public @Nullable String regionConcurrencyType() {
-        if (regionConcurrencyType == null) return null;
-        return regionConcurrencyType.getValue("StackSetInstanceOperationPreferences.regionConcurrencyType");
+        if (!unknown_regionConcurrencyType) return value_regionConcurrencyType;
+        throw new UndeferrableValueException("Value 'StackSetInstanceOperationPreferences.regionConcurrencyType' is not present");
     }
 
     /**
      * Order of the Regions in where you want to perform the stack operation.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> regionOrders;
-
+    @PolicyResourceProperty(name="regionOrders", flag="unknown_regionOrders")
+    private @Nullable List<String> value_regionOrders;
+    private boolean unknown_regionOrders;
     public @Nullable List<String> regionOrders() {
-        if (regionOrders == null) return null;
-        return regionOrders.getValue("StackSetInstanceOperationPreferences.regionOrders");
+        if (!unknown_regionOrders) return value_regionOrders;
+        throw new UndeferrableValueException("Value 'StackSetInstanceOperationPreferences.regionOrders' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class SpaceOwnershipSettingsArgs {
      * The user profile who is the owner of the private space.
      * 
      */
-    private UndeferrableValue<String> ownerUserProfileName;
-
+    @PolicyResourceProperty(name="ownerUserProfileName", flag="unknown_ownerUserProfileName")
+    private String value_ownerUserProfileName;
+    private boolean unknown_ownerUserProfileName;
     public String ownerUserProfileName() {
-        if (ownerUserProfileName == null) return null;
-        return ownerUserProfileName.getValue("SpaceOwnershipSettingsArgs.ownerUserProfileName");
+        if (!unknown_ownerUserProfileName) return value_ownerUserProfileName;
+        throw new UndeferrableValueException("Value 'SpaceOwnershipSettingsArgs.ownerUserProfileName' is not present");
     }
 
 }

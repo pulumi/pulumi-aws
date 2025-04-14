@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mskconnect.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ConnectorCapacityAutoscalingScaleInPolicy {
      * Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> cpuUtilizationPercentage;
-
+    @PolicyResourceProperty(name="cpuUtilizationPercentage", flag="unknown_cpuUtilizationPercentage")
+    private @Nullable Integer value_cpuUtilizationPercentage;
+    private boolean unknown_cpuUtilizationPercentage;
     public @Nullable Integer cpuUtilizationPercentage() {
-        if (cpuUtilizationPercentage == null) return null;
-        return cpuUtilizationPercentage.getValue("ConnectorCapacityAutoscalingScaleInPolicy.cpuUtilizationPercentage");
+        if (!unknown_cpuUtilizationPercentage) return value_cpuUtilizationPercentage;
+        throw new UndeferrableValueException("Value 'ConnectorCapacityAutoscalingScaleInPolicy.cpuUtilizationPercentage' is not present");
     }
 
 }

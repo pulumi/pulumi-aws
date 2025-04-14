@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.inputs.FlowTaskConnectorOperatorArgs;
 import java.lang.String;
 import java.util.List;
@@ -17,55 +18,60 @@ public final class FlowTaskArgs {
      * Operation to be performed on the provided source fields. See Connector Operator for details.
      * 
      */
-    private UndeferrableValue<List<FlowTaskConnectorOperatorArgs>> connectorOperators;
-
+    @PolicyResourceProperty(name="connectorOperators", flag="unknown_connectorOperators")
+    private List<FlowTaskConnectorOperatorArgs> value_connectorOperators;
+    private boolean unknown_connectorOperators;
     public List<FlowTaskConnectorOperatorArgs> connectorOperators() {
-        if (connectorOperators == null) return null;
-        return connectorOperators.getValue("FlowTaskArgs.connectorOperators");
+        if (!unknown_connectorOperators) return value_connectorOperators;
+        throw new UndeferrableValueException("Value 'FlowTaskArgs.connectorOperators' is not present");
     }
 
     /**
      * Field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
      * 
      */
-    private UndeferrableValue<String> destinationField;
-
+    @PolicyResourceProperty(name="destinationField", flag="unknown_destinationField")
+    private String value_destinationField;
+    private boolean unknown_destinationField;
     public String destinationField() {
-        if (destinationField == null) return null;
-        return destinationField.getValue("FlowTaskArgs.destinationField");
+        if (!unknown_destinationField) return value_destinationField;
+        throw new UndeferrableValueException("Value 'FlowTaskArgs.destinationField' is not present");
     }
 
     /**
      * Source fields to which a particular task is applied.
      * 
      */
-    private UndeferrableValue<List<String>> sourceFields;
-
+    @PolicyResourceProperty(name="sourceFields", flag="unknown_sourceFields")
+    private List<String> value_sourceFields;
+    private boolean unknown_sourceFields;
     public List<String> sourceFields() {
-        if (sourceFields == null) return null;
-        return sourceFields.getValue("FlowTaskArgs.sourceFields");
+        if (!unknown_sourceFields) return value_sourceFields;
+        throw new UndeferrableValueException("Value 'FlowTaskArgs.sourceFields' is not present");
     }
 
     /**
      * Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
      * 
      */
-    private UndeferrableValue<Map<String,String>> taskProperties;
-
+    @PolicyResourceProperty(name="taskProperties", flag="unknown_taskProperties")
+    private Map<String,String> value_taskProperties;
+    private boolean unknown_taskProperties;
     public Map<String,String> taskProperties() {
-        if (taskProperties == null) return null;
-        return taskProperties.getValue("FlowTaskArgs.taskProperties");
+        if (!unknown_taskProperties) return value_taskProperties;
+        throw new UndeferrableValueException("Value 'FlowTaskArgs.taskProperties' is not present");
     }
 
     /**
      * Particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
      * 
      */
-    private UndeferrableValue<String> taskType;
-
+    @PolicyResourceProperty(name="taskType", flag="unknown_taskType")
+    private String value_taskType;
+    private boolean unknown_taskType;
     public String taskType() {
-        if (taskType == null) return null;
-        return taskType.getValue("FlowTaskArgs.taskType");
+        if (!unknown_taskType) return value_taskType;
+        throw new UndeferrableValueException("Value 'FlowTaskArgs.taskType' is not present");
     }
 
 }

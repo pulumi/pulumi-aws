@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appautoscaling.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appautoscaling.outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification;
 import com.pulumi.policypacks.aws.appautoscaling.outputs.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification;
 import java.lang.Boolean;
@@ -18,66 +19,72 @@ public final class PolicyTargetTrackingScalingPolicyConfiguration {
      * Custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
      * 
      */
-    private @Nullable UndeferrableValue<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification> customizedMetricSpecification;
-
+    @PolicyResourceProperty(name="customizedMetricSpecification", flag="unknown_customizedMetricSpecification")
+    private @Nullable PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification value_customizedMetricSpecification;
+    private boolean unknown_customizedMetricSpecification;
     public @Nullable PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification customizedMetricSpecification() {
-        if (customizedMetricSpecification == null) return null;
-        return customizedMetricSpecification.getValue("PolicyTargetTrackingScalingPolicyConfiguration.customizedMetricSpecification");
+        if (!unknown_customizedMetricSpecification) return value_customizedMetricSpecification;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingScalingPolicyConfiguration.customizedMetricSpecification' is not present");
     }
 
     /**
      * Whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won&#39;t remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> disableScaleIn;
-
+    @PolicyResourceProperty(name="disableScaleIn", flag="unknown_disableScaleIn")
+    private @Nullable Boolean value_disableScaleIn;
+    private boolean unknown_disableScaleIn;
     public @Nullable Boolean disableScaleIn() {
-        if (disableScaleIn == null) return null;
-        return disableScaleIn.getValue("PolicyTargetTrackingScalingPolicyConfiguration.disableScaleIn");
+        if (!unknown_disableScaleIn) return value_disableScaleIn;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingScalingPolicyConfiguration.disableScaleIn' is not present");
     }
 
     /**
      * Predefined metric. See supported fields below.
      * 
      */
-    private @Nullable UndeferrableValue<PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification> predefinedMetricSpecification;
-
+    @PolicyResourceProperty(name="predefinedMetricSpecification", flag="unknown_predefinedMetricSpecification")
+    private @Nullable PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification value_predefinedMetricSpecification;
+    private boolean unknown_predefinedMetricSpecification;
     public @Nullable PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification predefinedMetricSpecification() {
-        if (predefinedMetricSpecification == null) return null;
-        return predefinedMetricSpecification.getValue("PolicyTargetTrackingScalingPolicyConfiguration.predefinedMetricSpecification");
+        if (!unknown_predefinedMetricSpecification) return value_predefinedMetricSpecification;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingScalingPolicyConfiguration.predefinedMetricSpecification' is not present");
     }
 
     /**
      * Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> scaleInCooldown;
-
+    @PolicyResourceProperty(name="scaleInCooldown", flag="unknown_scaleInCooldown")
+    private @Nullable Integer value_scaleInCooldown;
+    private boolean unknown_scaleInCooldown;
     public @Nullable Integer scaleInCooldown() {
-        if (scaleInCooldown == null) return null;
-        return scaleInCooldown.getValue("PolicyTargetTrackingScalingPolicyConfiguration.scaleInCooldown");
+        if (!unknown_scaleInCooldown) return value_scaleInCooldown;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingScalingPolicyConfiguration.scaleInCooldown' is not present");
     }
 
     /**
      * Amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> scaleOutCooldown;
-
+    @PolicyResourceProperty(name="scaleOutCooldown", flag="unknown_scaleOutCooldown")
+    private @Nullable Integer value_scaleOutCooldown;
+    private boolean unknown_scaleOutCooldown;
     public @Nullable Integer scaleOutCooldown() {
-        if (scaleOutCooldown == null) return null;
-        return scaleOutCooldown.getValue("PolicyTargetTrackingScalingPolicyConfiguration.scaleOutCooldown");
+        if (!unknown_scaleOutCooldown) return value_scaleOutCooldown;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingScalingPolicyConfiguration.scaleOutCooldown' is not present");
     }
 
     /**
      * Target value for the metric.
      * 
      */
-    private UndeferrableValue<Double> targetValue;
-
+    @PolicyResourceProperty(name="targetValue", flag="unknown_targetValue")
+    private Double value_targetValue;
+    private boolean unknown_targetValue;
     public Double targetValue() {
-        if (targetValue == null) return null;
-        return targetValue.getValue("PolicyTargetTrackingScalingPolicyConfiguration.targetValue");
+        if (!unknown_targetValue) return value_targetValue;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingScalingPolicyConfiguration.targetValue' is not present");
     }
 
 }

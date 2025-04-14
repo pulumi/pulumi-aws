@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
      * M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgs> m2tsSettings;
-
+    @PolicyResourceProperty(name="m2tsSettings", flag="unknown_m2tsSettings")
+    private ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgs value_m2tsSettings;
+    private boolean unknown_m2tsSettings;
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgs m2tsSettings() {
-        if (m2tsSettings == null) return null;
-        return m2tsSettings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs.m2tsSettings");
+        if (!unknown_m2tsSettings) return value_m2tsSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs.m2tsSettings' is not present");
     }
 
 }

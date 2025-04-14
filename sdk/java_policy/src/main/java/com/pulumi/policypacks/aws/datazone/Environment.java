@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.datazone.outputs.EnvironmentLastDeployment;
 import com.pulumi.policypacks.aws.datazone.outputs.EnvironmentProvisionedResource;
@@ -21,121 +22,132 @@ public final class Environment extends com.pulumi.resources.PolicyResourceOutput
      * The ID of the Amazon Web Services account where the environment exists
      * 
      */
-    private UndeferrableValue<String> accountIdentifier;
-
+    @PolicyResourceProperty(name="accountIdentifier", flag="unknown_accountIdentifier")
+    private String value_accountIdentifier;
+    private boolean unknown_accountIdentifier;
     public String accountIdentifier() {
-        if (accountIdentifier == null) return null;
-        return accountIdentifier.getValue("Environment.accountIdentifier");
+        if (!unknown_accountIdentifier) return value_accountIdentifier;
+        throw new UndeferrableValueException("Value 'Environment.accountIdentifier' is not present");
     }
 
     /**
      * The Amazon Web Services region where the environment exists.
      * 
      */
-    private UndeferrableValue<String> accountRegion;
-
+    @PolicyResourceProperty(name="accountRegion", flag="unknown_accountRegion")
+    private String value_accountRegion;
+    private boolean unknown_accountRegion;
     public String accountRegion() {
-        if (accountRegion == null) return null;
-        return accountRegion.getValue("Environment.accountRegion");
+        if (!unknown_accountRegion) return value_accountRegion;
+        throw new UndeferrableValueException("Value 'Environment.accountRegion' is not present");
     }
 
     /**
      * The blueprint with which the environment is created.
      * 
      */
-    private UndeferrableValue<String> blueprintIdentifier;
-
+    @PolicyResourceProperty(name="blueprintIdentifier", flag="unknown_blueprintIdentifier")
+    private String value_blueprintIdentifier;
+    private boolean unknown_blueprintIdentifier;
     public String blueprintIdentifier() {
-        if (blueprintIdentifier == null) return null;
-        return blueprintIdentifier.getValue("Environment.blueprintIdentifier");
+        if (!unknown_blueprintIdentifier) return value_blueprintIdentifier;
+        throw new UndeferrableValueException("Value 'Environment.blueprintIdentifier' is not present");
     }
 
     /**
      * The time the environment was created.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("Environment.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'Environment.createdAt' is not present");
     }
 
     /**
      * The user who created the environment.
      * 
      */
-    private UndeferrableValue<String> createdBy;
-
+    @PolicyResourceProperty(name="createdBy", flag="unknown_createdBy")
+    private String value_createdBy;
+    private boolean unknown_createdBy;
     public String createdBy() {
-        if (createdBy == null) return null;
-        return createdBy.getValue("Environment.createdBy");
+        if (!unknown_createdBy) return value_createdBy;
+        throw new UndeferrableValueException("Value 'Environment.createdBy' is not present");
     }
 
     /**
      * The description of the environment.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Environment.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Environment.description' is not present");
     }
 
     /**
      * The ID of the domain where the environment exists.
      * 
      */
-    private UndeferrableValue<String> domainIdentifier;
-
+    @PolicyResourceProperty(name="domainIdentifier", flag="unknown_domainIdentifier")
+    private String value_domainIdentifier;
+    private boolean unknown_domainIdentifier;
     public String domainIdentifier() {
-        if (domainIdentifier == null) return null;
-        return domainIdentifier.getValue("Environment.domainIdentifier");
+        if (!unknown_domainIdentifier) return value_domainIdentifier;
+        throw new UndeferrableValueException("Value 'Environment.domainIdentifier' is not present");
     }
 
     /**
      * The business glossary terms that can be used in this environment.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> glossaryTerms;
-
+    @PolicyResourceProperty(name="glossaryTerms", flag="unknown_glossaryTerms")
+    private @Nullable List<String> value_glossaryTerms;
+    private boolean unknown_glossaryTerms;
     public @Nullable List<String> glossaryTerms() {
-        if (glossaryTerms == null) return null;
-        return glossaryTerms.getValue("Environment.glossaryTerms");
+        if (!unknown_glossaryTerms) return value_glossaryTerms;
+        throw new UndeferrableValueException("Value 'Environment.glossaryTerms' is not present");
     }
 
     /**
      * The details of the last deployment of the environment.
      * 
      */
-    private UndeferrableValue<List<EnvironmentLastDeployment>> lastDeployments;
-
+    @PolicyResourceProperty(name="lastDeployments", flag="unknown_lastDeployments")
+    private List<EnvironmentLastDeployment> value_lastDeployments;
+    private boolean unknown_lastDeployments;
     public List<EnvironmentLastDeployment> lastDeployments() {
-        if (lastDeployments == null) return null;
-        return lastDeployments.getValue("Environment.lastDeployments");
+        if (!unknown_lastDeployments) return value_lastDeployments;
+        throw new UndeferrableValueException("Value 'Environment.lastDeployments' is not present");
     }
 
     /**
      * The name of the environment.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Environment.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Environment.name' is not present");
     }
 
     /**
      * The ID of the profile with which the environment is created.
      * 
      */
-    private UndeferrableValue<String> profileIdentifier;
-
+    @PolicyResourceProperty(name="profileIdentifier", flag="unknown_profileIdentifier")
+    private String value_profileIdentifier;
+    private boolean unknown_profileIdentifier;
     public String profileIdentifier() {
-        if (profileIdentifier == null) return null;
-        return profileIdentifier.getValue("Environment.profileIdentifier");
+        if (!unknown_profileIdentifier) return value_profileIdentifier;
+        throw new UndeferrableValueException("Value 'Environment.profileIdentifier' is not present");
     }
 
     /**
@@ -144,47 +156,52 @@ public final class Environment extends com.pulumi.resources.PolicyResourceOutput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> projectIdentifier;
-
+    @PolicyResourceProperty(name="projectIdentifier", flag="unknown_projectIdentifier")
+    private String value_projectIdentifier;
+    private boolean unknown_projectIdentifier;
     public String projectIdentifier() {
-        if (projectIdentifier == null) return null;
-        return projectIdentifier.getValue("Environment.projectIdentifier");
+        if (!unknown_projectIdentifier) return value_projectIdentifier;
+        throw new UndeferrableValueException("Value 'Environment.projectIdentifier' is not present");
     }
 
     /**
      * The provider of the environment.
      * 
      */
-    private UndeferrableValue<String> providerEnvironment;
-
+    @PolicyResourceProperty(name="providerEnvironment", flag="unknown_providerEnvironment")
+    private String value_providerEnvironment;
+    private boolean unknown_providerEnvironment;
     public String providerEnvironment() {
-        if (providerEnvironment == null) return null;
-        return providerEnvironment.getValue("Environment.providerEnvironment");
+        if (!unknown_providerEnvironment) return value_providerEnvironment;
+        throw new UndeferrableValueException("Value 'Environment.providerEnvironment' is not present");
     }
 
-    private UndeferrableValue<List<EnvironmentProvisionedResource>> provisionedResources;
-
+    @PolicyResourceProperty(name="provisionedResources", flag="unknown_provisionedResources")
+    private List<EnvironmentProvisionedResource> value_provisionedResources;
+    private boolean unknown_provisionedResources;
     public List<EnvironmentProvisionedResource> provisionedResources() {
-        if (provisionedResources == null) return null;
-        return provisionedResources.getValue("Environment.provisionedResources");
+        if (!unknown_provisionedResources) return value_provisionedResources;
+        throw new UndeferrableValueException("Value 'Environment.provisionedResources' is not present");
     }
 
-    private @Nullable UndeferrableValue<EnvironmentTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable EnvironmentTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable EnvironmentTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("Environment.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'Environment.timeouts' is not present");
     }
 
     /**
      * The user parameters that are used in the environment. See User Parameters for more information.
      * 
      */
-    private @Nullable UndeferrableValue<List<EnvironmentUserParameter>> userParameters;
-
+    @PolicyResourceProperty(name="userParameters", flag="unknown_userParameters")
+    private @Nullable List<EnvironmentUserParameter> value_userParameters;
+    private boolean unknown_userParameters;
     public @Nullable List<EnvironmentUserParameter> userParameters() {
-        if (userParameters == null) return null;
-        return userParameters.getValue("Environment.userParameters");
+        if (!unknown_userParameters) return value_userParameters;
+        throw new UndeferrableValueException("Value 'Environment.userParameters' is not present");
     }
 
 }

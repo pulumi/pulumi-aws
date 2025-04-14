@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.opsworks.inputs.PhpAppLayerCloudwatchConfigurationLogStreamArgs;
 import java.lang.Boolean;
 import java.util.List;
@@ -12,18 +13,20 @@ import javax.annotation.Nullable;
 
 public final class PhpAppLayerCloudwatchConfigurationArgs {
 
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("PhpAppLayerCloudwatchConfigurationArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'PhpAppLayerCloudwatchConfigurationArgs.enabled' is not present");
     }
 
-    private UndeferrableValue<List<PhpAppLayerCloudwatchConfigurationLogStreamArgs>> logStreams;
-
+    @PolicyResourceProperty(name="logStreams", flag="unknown_logStreams")
+    private List<PhpAppLayerCloudwatchConfigurationLogStreamArgs> value_logStreams;
+    private boolean unknown_logStreams;
     public List<PhpAppLayerCloudwatchConfigurationLogStreamArgs> logStreams() {
-        if (logStreams == null) return null;
-        return logStreams.getValue("PhpAppLayerCloudwatchConfigurationArgs.logStreams");
+        if (!unknown_logStreams) return value_logStreams;
+        throw new UndeferrableValueException("Value 'PhpAppLayerCloudwatchConfigurationArgs.logStreams' is not present");
     }
 
 }

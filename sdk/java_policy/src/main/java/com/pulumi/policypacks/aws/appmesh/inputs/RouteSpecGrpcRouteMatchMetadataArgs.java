@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.RouteSpecGrpcRouteMatchMetadataMatchArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class RouteSpecGrpcRouteMatchMetadataArgs {
      * If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> invert;
-
+    @PolicyResourceProperty(name="invert", flag="unknown_invert")
+    private Boolean value_invert;
+    private boolean unknown_invert;
     public Boolean invert() {
-        if (invert == null) return null;
-        return invert.getValue("RouteSpecGrpcRouteMatchMetadataArgs.invert");
+        if (!unknown_invert) return value_invert;
+        throw new UndeferrableValueException("Value 'RouteSpecGrpcRouteMatchMetadataArgs.invert' is not present");
     }
 
     /**
      * Data to match from the request.
      * 
      */
-    private UndeferrableValue<RouteSpecGrpcRouteMatchMetadataMatchArgs> match;
-
+    @PolicyResourceProperty(name="match", flag="unknown_match")
+    private RouteSpecGrpcRouteMatchMetadataMatchArgs value_match;
+    private boolean unknown_match;
     public RouteSpecGrpcRouteMatchMetadataMatchArgs match() {
-        if (match == null) return null;
-        return match.getValue("RouteSpecGrpcRouteMatchMetadataArgs.match");
+        if (!unknown_match) return value_match;
+        throw new UndeferrableValueException("Value 'RouteSpecGrpcRouteMatchMetadataArgs.match' is not present");
     }
 
     /**
      * Name of the route. Must be between 1 and 50 characters in length.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RouteSpecGrpcRouteMatchMetadataArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RouteSpecGrpcRouteMatchMetadataArgs.name' is not present");
     }
 
 }

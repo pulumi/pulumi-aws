@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -15,11 +16,12 @@ public final class VpcPeeringConnectionRequester {
      * private IP addresses when queried from instances in the peer VPC.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> allowRemoteVpcDnsResolution;
-
+    @PolicyResourceProperty(name="allowRemoteVpcDnsResolution", flag="unknown_allowRemoteVpcDnsResolution")
+    private @Nullable Boolean value_allowRemoteVpcDnsResolution;
+    private boolean unknown_allowRemoteVpcDnsResolution;
     public @Nullable Boolean allowRemoteVpcDnsResolution() {
-        if (allowRemoteVpcDnsResolution == null) return null;
-        return allowRemoteVpcDnsResolution.getValue("VpcPeeringConnectionRequester.allowRemoteVpcDnsResolution");
+        if (!unknown_allowRemoteVpcDnsResolution) return value_allowRemoteVpcDnsResolution;
+        throw new UndeferrableValueException("Value 'VpcPeeringConnectionRequester.allowRemoteVpcDnsResolution' is not present");
     }
 
 }

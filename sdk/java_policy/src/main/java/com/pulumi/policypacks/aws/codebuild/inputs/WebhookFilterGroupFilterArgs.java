@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class WebhookFilterGroupFilterArgs {
      * If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> excludeMatchedPattern;
-
+    @PolicyResourceProperty(name="excludeMatchedPattern", flag="unknown_excludeMatchedPattern")
+    private Boolean value_excludeMatchedPattern;
+    private boolean unknown_excludeMatchedPattern;
     public Boolean excludeMatchedPattern() {
-        if (excludeMatchedPattern == null) return null;
-        return excludeMatchedPattern.getValue("WebhookFilterGroupFilterArgs.excludeMatchedPattern");
+        if (!unknown_excludeMatchedPattern) return value_excludeMatchedPattern;
+        throw new UndeferrableValueException("Value 'WebhookFilterGroupFilterArgs.excludeMatchedPattern' is not present");
     }
 
     /**
      * For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED`, `WORKFLOW_JOB_QUEUED` works with GitHub &amp; GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
      * 
      */
-    private UndeferrableValue<String> pattern;
-
+    @PolicyResourceProperty(name="pattern", flag="unknown_pattern")
+    private String value_pattern;
+    private boolean unknown_pattern;
     public String pattern() {
-        if (pattern == null) return null;
-        return pattern.getValue("WebhookFilterGroupFilterArgs.pattern");
+        if (!unknown_pattern) return value_pattern;
+        throw new UndeferrableValueException("Value 'WebhookFilterGroupFilterArgs.pattern' is not present");
     }
 
     /**
      * The webhook filter group&#39;s type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`, `WORKFLOW_NAME`, `TAG_NAME`, `RELEASE_NAME`. At least one filter group must specify `EVENT` as its type.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("WebhookFilterGroupFilterArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'WebhookFilterGroupFilterArgs.type' is not present");
     }
 
 }

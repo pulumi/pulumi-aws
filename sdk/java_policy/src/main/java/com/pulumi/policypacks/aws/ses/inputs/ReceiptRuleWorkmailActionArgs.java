@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ses.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ReceiptRuleWorkmailActionArgs {
      * The ARN of the WorkMail organization
      * 
      */
-    private UndeferrableValue<String> organizationArn;
-
+    @PolicyResourceProperty(name="organizationArn", flag="unknown_organizationArn")
+    private String value_organizationArn;
+    private boolean unknown_organizationArn;
     public String organizationArn() {
-        if (organizationArn == null) return null;
-        return organizationArn.getValue("ReceiptRuleWorkmailActionArgs.organizationArn");
+        if (!unknown_organizationArn) return value_organizationArn;
+        throw new UndeferrableValueException("Value 'ReceiptRuleWorkmailActionArgs.organizationArn' is not present");
     }
 
     /**
      * The position of the action in the receipt rule
      * 
      */
-    private UndeferrableValue<Integer> position;
-
+    @PolicyResourceProperty(name="position", flag="unknown_position")
+    private Integer value_position;
+    private boolean unknown_position;
     public Integer position() {
-        if (position == null) return null;
-        return position.getValue("ReceiptRuleWorkmailActionArgs.position");
+        if (!unknown_position) return value_position;
+        throw new UndeferrableValueException("Value 'ReceiptRuleWorkmailActionArgs.position' is not present");
     }
 
     /**
      * The ARN of an SNS topic to notify
      * 
      */
-    private UndeferrableValue<String> topicArn;
-
+    @PolicyResourceProperty(name="topicArn", flag="unknown_topicArn")
+    private String value_topicArn;
+    private boolean unknown_topicArn;
     public String topicArn() {
-        if (topicArn == null) return null;
-        return topicArn.getValue("ReceiptRuleWorkmailActionArgs.topicArn");
+        if (!unknown_topicArn) return value_topicArn;
+        throw new UndeferrableValueException("Value 'ReceiptRuleWorkmailActionArgs.topicArn' is not present");
     }
 
 }

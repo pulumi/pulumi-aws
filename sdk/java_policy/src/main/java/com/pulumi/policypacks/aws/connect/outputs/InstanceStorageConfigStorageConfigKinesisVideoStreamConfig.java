@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.connect.outputs.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig;
 import java.lang.Integer;
 import java.lang.String;
@@ -15,33 +16,36 @@ public final class InstanceStorageConfigStorageConfigKinesisVideoStreamConfig {
      * The encryption configuration. Documented below.
      * 
      */
-    private UndeferrableValue<InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig> encryptionConfig;
-
+    @PolicyResourceProperty(name="encryptionConfig", flag="unknown_encryptionConfig")
+    private InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig value_encryptionConfig;
+    private boolean unknown_encryptionConfig;
     public InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig encryptionConfig() {
-        if (encryptionConfig == null) return null;
-        return encryptionConfig.getValue("InstanceStorageConfigStorageConfigKinesisVideoStreamConfig.encryptionConfig");
+        if (!unknown_encryptionConfig) return value_encryptionConfig;
+        throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigKinesisVideoStreamConfig.encryptionConfig' is not present");
     }
 
     /**
      * The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `&lt;prefix&gt;-connect-&lt;connect_instance_alias&gt;-contact-` since the API appends additional details to the `prefix`.
      * 
      */
-    private UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private String value_prefix;
+    private boolean unknown_prefix;
     public String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("InstanceStorageConfigStorageConfigKinesisVideoStreamConfig.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigKinesisVideoStreamConfig.prefix' is not present");
     }
 
     /**
      * The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0`, indicates that the stream does not persist data.
      * 
      */
-    private UndeferrableValue<Integer> retentionPeriodHours;
-
+    @PolicyResourceProperty(name="retentionPeriodHours", flag="unknown_retentionPeriodHours")
+    private Integer value_retentionPeriodHours;
+    private boolean unknown_retentionPeriodHours;
     public Integer retentionPeriodHours() {
-        if (retentionPeriodHours == null) return null;
-        return retentionPeriodHours.getValue("InstanceStorageConfigStorageConfigKinesisVideoStreamConfig.retentionPeriodHours");
+        if (!unknown_retentionPeriodHours) return value_retentionPeriodHours;
+        throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigKinesisVideoStreamConfig.retentionPeriodHours' is not present");
     }
 
 }

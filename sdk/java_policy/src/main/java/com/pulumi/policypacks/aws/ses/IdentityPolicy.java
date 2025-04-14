@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ses;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class IdentityPolicy extends com.pulumi.resources.PolicyResourceOut
      * Name or Amazon Resource Name (ARN) of the SES Identity.
      * 
      */
-    private UndeferrableValue<String> identity;
-
+    @PolicyResourceProperty(name="identity", flag="unknown_identity")
+    private String value_identity;
+    private boolean unknown_identity;
     public String identity() {
-        if (identity == null) return null;
-        return identity.getValue("IdentityPolicy.identity");
+        if (!unknown_identity) return value_identity;
+        throw new UndeferrableValueException("Value 'IdentityPolicy.identity' is not present");
     }
 
     /**
      * Name of the policy.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("IdentityPolicy.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'IdentityPolicy.name' is not present");
     }
 
     /**
      * JSON string of the policy.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("IdentityPolicy.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'IdentityPolicy.policy' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedpermissions.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.verifiedpermissions.inputs.PolicyDefinitionTemplateLinkedPrincipalArgs;
 import com.pulumi.policypacks.aws.verifiedpermissions.inputs.PolicyDefinitionTemplateLinkedResourceArgs;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class PolicyDefinitionTemplateLinkedArgs {
      * The ID of the template.
      * 
      */
-    private UndeferrableValue<String> policyTemplateId;
-
+    @PolicyResourceProperty(name="policyTemplateId", flag="unknown_policyTemplateId")
+    private String value_policyTemplateId;
+    private boolean unknown_policyTemplateId;
     public String policyTemplateId() {
-        if (policyTemplateId == null) return null;
-        return policyTemplateId.getValue("PolicyDefinitionTemplateLinkedArgs.policyTemplateId");
+        if (!unknown_policyTemplateId) return value_policyTemplateId;
+        throw new UndeferrableValueException("Value 'PolicyDefinitionTemplateLinkedArgs.policyTemplateId' is not present");
     }
 
     /**
      * The principal of the template linked policy.
      * 
      */
-    private UndeferrableValue<PolicyDefinitionTemplateLinkedPrincipalArgs> principal;
-
+    @PolicyResourceProperty(name="principal", flag="unknown_principal")
+    private PolicyDefinitionTemplateLinkedPrincipalArgs value_principal;
+    private boolean unknown_principal;
     public PolicyDefinitionTemplateLinkedPrincipalArgs principal() {
-        if (principal == null) return null;
-        return principal.getValue("PolicyDefinitionTemplateLinkedArgs.principal");
+        if (!unknown_principal) return value_principal;
+        throw new UndeferrableValueException("Value 'PolicyDefinitionTemplateLinkedArgs.principal' is not present");
     }
 
     /**
      * The resource of the template linked policy.
      * 
      */
-    private UndeferrableValue<PolicyDefinitionTemplateLinkedResourceArgs> resource;
-
+    @PolicyResourceProperty(name="resource", flag="unknown_resource")
+    private PolicyDefinitionTemplateLinkedResourceArgs value_resource;
+    private boolean unknown_resource;
     public PolicyDefinitionTemplateLinkedResourceArgs resource() {
-        if (resource == null) return null;
-        return resource.getValue("PolicyDefinitionTemplateLinkedArgs.resource");
+        if (!unknown_resource) return value_resource;
+        throw new UndeferrableValueException("Value 'PolicyDefinitionTemplateLinkedArgs.resource' is not present");
     }
 
 }

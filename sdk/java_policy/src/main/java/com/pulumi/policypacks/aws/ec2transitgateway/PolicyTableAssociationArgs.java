@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class PolicyTableAssociationArgs extends com.pulumi.resources.Polic
      * Identifier of EC2 Transit Gateway Attachment.
      * 
      */
-    private UndeferrableValue<String> transitGatewayAttachmentId;
-
+    @PolicyResourceProperty(name="transitGatewayAttachmentId", flag="unknown_transitGatewayAttachmentId")
+    private String value_transitGatewayAttachmentId;
+    private boolean unknown_transitGatewayAttachmentId;
     public String transitGatewayAttachmentId() {
-        if (transitGatewayAttachmentId == null) return null;
-        return transitGatewayAttachmentId.getValue("PolicyTableAssociationArgs.transitGatewayAttachmentId");
+        if (!unknown_transitGatewayAttachmentId) return value_transitGatewayAttachmentId;
+        throw new UndeferrableValueException("Value 'PolicyTableAssociationArgs.transitGatewayAttachmentId' is not present");
     }
 
     /**
      * Identifier of EC2 Transit Gateway Policy Table.
      * 
      */
-    private UndeferrableValue<String> transitGatewayPolicyTableId;
-
+    @PolicyResourceProperty(name="transitGatewayPolicyTableId", flag="unknown_transitGatewayPolicyTableId")
+    private String value_transitGatewayPolicyTableId;
+    private boolean unknown_transitGatewayPolicyTableId;
     public String transitGatewayPolicyTableId() {
-        if (transitGatewayPolicyTableId == null) return null;
-        return transitGatewayPolicyTableId.getValue("PolicyTableAssociationArgs.transitGatewayPolicyTableId");
+        if (!unknown_transitGatewayPolicyTableId) return value_transitGatewayPolicyTableId;
+        throw new UndeferrableValueException("Value 'PolicyTableAssociationArgs.transitGatewayPolicyTableId' is not present");
     }
 
 }

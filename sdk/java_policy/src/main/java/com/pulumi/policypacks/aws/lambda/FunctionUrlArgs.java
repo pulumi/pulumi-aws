@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lambda.inputs.FunctionUrlCorsArgs;
 import java.lang.String;
@@ -17,55 +18,60 @@ public final class FunctionUrlArgs extends com.pulumi.resources.PolicyResourceIn
      * The type of authentication that the function URL uses. Set to `&#34;AWS_IAM&#34;` to restrict access to authenticated IAM users only. Set to `&#34;NONE&#34;` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
      * 
      */
-    private UndeferrableValue<String> authorizationType;
-
+    @PolicyResourceProperty(name="authorizationType", flag="unknown_authorizationType")
+    private String value_authorizationType;
+    private boolean unknown_authorizationType;
     public String authorizationType() {
-        if (authorizationType == null) return null;
-        return authorizationType.getValue("FunctionUrlArgs.authorizationType");
+        if (!unknown_authorizationType) return value_authorizationType;
+        throw new UndeferrableValueException("Value 'FunctionUrlArgs.authorizationType' is not present");
     }
 
     /**
      * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
      * 
      */
-    private UndeferrableValue<FunctionUrlCorsArgs> cors;
-
+    @PolicyResourceProperty(name="cors", flag="unknown_cors")
+    private FunctionUrlCorsArgs value_cors;
+    private boolean unknown_cors;
     public FunctionUrlCorsArgs cors() {
-        if (cors == null) return null;
-        return cors.getValue("FunctionUrlArgs.cors");
+        if (!unknown_cors) return value_cors;
+        throw new UndeferrableValueException("Value 'FunctionUrlArgs.cors' is not present");
     }
 
     /**
      * The name (or ARN) of the Lambda function.
      * 
      */
-    private UndeferrableValue<String> functionName;
-
+    @PolicyResourceProperty(name="functionName", flag="unknown_functionName")
+    private String value_functionName;
+    private boolean unknown_functionName;
     public String functionName() {
-        if (functionName == null) return null;
-        return functionName.getValue("FunctionUrlArgs.functionName");
+        if (!unknown_functionName) return value_functionName;
+        throw new UndeferrableValueException("Value 'FunctionUrlArgs.functionName' is not present");
     }
 
     /**
      * Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
      * 
      */
-    private UndeferrableValue<String> invokeMode;
-
+    @PolicyResourceProperty(name="invokeMode", flag="unknown_invokeMode")
+    private String value_invokeMode;
+    private boolean unknown_invokeMode;
     public String invokeMode() {
-        if (invokeMode == null) return null;
-        return invokeMode.getValue("FunctionUrlArgs.invokeMode");
+        if (!unknown_invokeMode) return value_invokeMode;
+        throw new UndeferrableValueException("Value 'FunctionUrlArgs.invokeMode' is not present");
     }
 
     /**
      * The alias name or `&#34;$LATEST&#34;`.
      * 
      */
-    private UndeferrableValue<String> qualifier;
-
+    @PolicyResourceProperty(name="qualifier", flag="unknown_qualifier")
+    private String value_qualifier;
+    private boolean unknown_qualifier;
     public String qualifier() {
-        if (qualifier == null) return null;
-        return qualifier.getValue("FunctionUrlArgs.qualifier");
+        if (!unknown_qualifier) return value_qualifier;
+        throw new UndeferrableValueException("Value 'FunctionUrlArgs.qualifier' is not present");
     }
 
 }

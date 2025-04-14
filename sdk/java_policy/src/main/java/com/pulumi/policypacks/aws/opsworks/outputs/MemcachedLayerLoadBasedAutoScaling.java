@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.opsworks.outputs.MemcachedLayerLoadBasedAutoScalingDownscaling;
 import com.pulumi.policypacks.aws.opsworks.outputs.MemcachedLayerLoadBasedAutoScalingUpscaling;
 import java.lang.Boolean;
@@ -12,25 +13,28 @@ import javax.annotation.Nullable;
 
 public final class MemcachedLayerLoadBasedAutoScaling {
 
-    private @Nullable UndeferrableValue<MemcachedLayerLoadBasedAutoScalingDownscaling> downscaling;
-
+    @PolicyResourceProperty(name="downscaling", flag="unknown_downscaling")
+    private @Nullable MemcachedLayerLoadBasedAutoScalingDownscaling value_downscaling;
+    private boolean unknown_downscaling;
     public @Nullable MemcachedLayerLoadBasedAutoScalingDownscaling downscaling() {
-        if (downscaling == null) return null;
-        return downscaling.getValue("MemcachedLayerLoadBasedAutoScaling.downscaling");
+        if (!unknown_downscaling) return value_downscaling;
+        throw new UndeferrableValueException("Value 'MemcachedLayerLoadBasedAutoScaling.downscaling' is not present");
     }
 
-    private @Nullable UndeferrableValue<Boolean> enable;
-
+    @PolicyResourceProperty(name="enable", flag="unknown_enable")
+    private @Nullable Boolean value_enable;
+    private boolean unknown_enable;
     public @Nullable Boolean enable() {
-        if (enable == null) return null;
-        return enable.getValue("MemcachedLayerLoadBasedAutoScaling.enable");
+        if (!unknown_enable) return value_enable;
+        throw new UndeferrableValueException("Value 'MemcachedLayerLoadBasedAutoScaling.enable' is not present");
     }
 
-    private @Nullable UndeferrableValue<MemcachedLayerLoadBasedAutoScalingUpscaling> upscaling;
-
+    @PolicyResourceProperty(name="upscaling", flag="unknown_upscaling")
+    private @Nullable MemcachedLayerLoadBasedAutoScalingUpscaling value_upscaling;
+    private boolean unknown_upscaling;
     public @Nullable MemcachedLayerLoadBasedAutoScalingUpscaling upscaling() {
-        if (upscaling == null) return null;
-        return upscaling.getValue("MemcachedLayerLoadBasedAutoScaling.upscaling");
+        if (!unknown_upscaling) return value_upscaling;
+        throw new UndeferrableValueException("Value 'MemcachedLayerLoadBasedAutoScaling.upscaling' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dlm.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -16,32 +17,36 @@ public final class LifecyclePolicyPolicyDetailsScheduleFastRestoreRule {
      * The Availability Zones in which to enable fast snapshot restore.
      * 
      */
-    private UndeferrableValue<List<String>> availabilityZones;
-
+    @PolicyResourceProperty(name="availabilityZones", flag="unknown_availabilityZones")
+    private List<String> value_availabilityZones;
+    private boolean unknown_availabilityZones;
     public List<String> availabilityZones() {
-        if (availabilityZones == null) return null;
-        return availabilityZones.getValue("LifecyclePolicyPolicyDetailsScheduleFastRestoreRule.availabilityZones");
+        if (!unknown_availabilityZones) return value_availabilityZones;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleFastRestoreRule.availabilityZones' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> count;
-
+    @PolicyResourceProperty(name="count", flag="unknown_count")
+    private @Nullable Integer value_count;
+    private boolean unknown_count;
     public @Nullable Integer count() {
-        if (count == null) return null;
-        return count.getValue("LifecyclePolicyPolicyDetailsScheduleFastRestoreRule.count");
+        if (!unknown_count) return value_count;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleFastRestoreRule.count' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> interval;
-
+    @PolicyResourceProperty(name="interval", flag="unknown_interval")
+    private @Nullable Integer value_interval;
+    private boolean unknown_interval;
     public @Nullable Integer interval() {
-        if (interval == null) return null;
-        return interval.getValue("LifecyclePolicyPolicyDetailsScheduleFastRestoreRule.interval");
+        if (!unknown_interval) return value_interval;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleFastRestoreRule.interval' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> intervalUnit;
-
+    @PolicyResourceProperty(name="intervalUnit", flag="unknown_intervalUnit")
+    private @Nullable String value_intervalUnit;
+    private boolean unknown_intervalUnit;
     public @Nullable String intervalUnit() {
-        if (intervalUnit == null) return null;
-        return intervalUnit.getValue("LifecyclePolicyPolicyDetailsScheduleFastRestoreRule.intervalUnit");
+        if (!unknown_intervalUnit) return value_intervalUnit;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleFastRestoreRule.intervalUnit' is not present");
     }
 
 }

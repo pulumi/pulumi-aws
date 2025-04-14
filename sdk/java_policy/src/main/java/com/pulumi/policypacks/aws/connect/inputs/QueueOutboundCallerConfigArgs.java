@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class QueueOutboundCallerConfigArgs {
      * Specifies the caller ID name.
      * 
      */
-    private UndeferrableValue<String> outboundCallerIdName;
-
+    @PolicyResourceProperty(name="outboundCallerIdName", flag="unknown_outboundCallerIdName")
+    private String value_outboundCallerIdName;
+    private boolean unknown_outboundCallerIdName;
     public String outboundCallerIdName() {
-        if (outboundCallerIdName == null) return null;
-        return outboundCallerIdName.getValue("QueueOutboundCallerConfigArgs.outboundCallerIdName");
+        if (!unknown_outboundCallerIdName) return value_outboundCallerIdName;
+        throw new UndeferrableValueException("Value 'QueueOutboundCallerConfigArgs.outboundCallerIdName' is not present");
     }
 
     /**
      * Specifies the caller ID number.
      * 
      */
-    private UndeferrableValue<String> outboundCallerIdNumberId;
-
+    @PolicyResourceProperty(name="outboundCallerIdNumberId", flag="unknown_outboundCallerIdNumberId")
+    private String value_outboundCallerIdNumberId;
+    private boolean unknown_outboundCallerIdNumberId;
     public String outboundCallerIdNumberId() {
-        if (outboundCallerIdNumberId == null) return null;
-        return outboundCallerIdNumberId.getValue("QueueOutboundCallerConfigArgs.outboundCallerIdNumberId");
+        if (!unknown_outboundCallerIdNumberId) return value_outboundCallerIdNumberId;
+        throw new UndeferrableValueException("Value 'QueueOutboundCallerConfigArgs.outboundCallerIdNumberId' is not present");
     }
 
     /**
      * Specifies outbound whisper flow to be used during an outbound call.
      * 
      */
-    private UndeferrableValue<String> outboundFlowId;
-
+    @PolicyResourceProperty(name="outboundFlowId", flag="unknown_outboundFlowId")
+    private String value_outboundFlowId;
+    private boolean unknown_outboundFlowId;
     public String outboundFlowId() {
-        if (outboundFlowId == null) return null;
-        return outboundFlowId.getValue("QueueOutboundCallerConfigArgs.outboundFlowId");
+        if (!unknown_outboundFlowId) return value_outboundFlowId;
+        throw new UndeferrableValueException("Value 'QueueOutboundCallerConfigArgs.outboundFlowId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class MulticastGroupSource extends com.pulumi.resources.PolicyResou
      * The IP address assigned to the transit gateway multicast group.
      * 
      */
-    private UndeferrableValue<String> groupIpAddress;
-
+    @PolicyResourceProperty(name="groupIpAddress", flag="unknown_groupIpAddress")
+    private String value_groupIpAddress;
+    private boolean unknown_groupIpAddress;
     public String groupIpAddress() {
-        if (groupIpAddress == null) return null;
-        return groupIpAddress.getValue("MulticastGroupSource.groupIpAddress");
+        if (!unknown_groupIpAddress) return value_groupIpAddress;
+        throw new UndeferrableValueException("Value 'MulticastGroupSource.groupIpAddress' is not present");
     }
 
     /**
      * The group members&#39; network interface ID to register with the transit gateway multicast group.
      * 
      */
-    private UndeferrableValue<String> networkInterfaceId;
-
+    @PolicyResourceProperty(name="networkInterfaceId", flag="unknown_networkInterfaceId")
+    private String value_networkInterfaceId;
+    private boolean unknown_networkInterfaceId;
     public String networkInterfaceId() {
-        if (networkInterfaceId == null) return null;
-        return networkInterfaceId.getValue("MulticastGroupSource.networkInterfaceId");
+        if (!unknown_networkInterfaceId) return value_networkInterfaceId;
+        throw new UndeferrableValueException("Value 'MulticastGroupSource.networkInterfaceId' is not present");
     }
 
     /**
      * The ID of the transit gateway multicast domain.
      * 
      */
-    private UndeferrableValue<String> transitGatewayMulticastDomainId;
-
+    @PolicyResourceProperty(name="transitGatewayMulticastDomainId", flag="unknown_transitGatewayMulticastDomainId")
+    private String value_transitGatewayMulticastDomainId;
+    private boolean unknown_transitGatewayMulticastDomainId;
     public String transitGatewayMulticastDomainId() {
-        if (transitGatewayMulticastDomainId == null) return null;
-        return transitGatewayMulticastDomainId.getValue("MulticastGroupSource.transitGatewayMulticastDomainId");
+        if (!unknown_transitGatewayMulticastDomainId) return value_transitGatewayMulticastDomainId;
+        throw new UndeferrableValueException("Value 'MulticastGroupSource.transitGatewayMulticastDomainId' is not present");
     }
 
 }

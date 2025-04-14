@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupCustomResponseBody;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRule;
@@ -22,106 +23,116 @@ public final class RuleGroup extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN of the WAF rule group.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("RuleGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'RuleGroup.arn' is not present");
     }
 
     /**
      * The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
      * 
      */
-    private UndeferrableValue<Integer> capacity;
-
+    @PolicyResourceProperty(name="capacity", flag="unknown_capacity")
+    private Integer value_capacity;
+    private boolean unknown_capacity;
     public Integer capacity() {
-        if (capacity == null) return null;
-        return capacity.getValue("RuleGroup.capacity");
+        if (!unknown_capacity) return value_capacity;
+        throw new UndeferrableValueException("Value 'RuleGroup.capacity' is not present");
     }
 
     /**
      * Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<RuleGroupCustomResponseBody>> customResponseBodies;
-
+    @PolicyResourceProperty(name="customResponseBodies", flag="unknown_customResponseBodies")
+    private @Nullable List<RuleGroupCustomResponseBody> value_customResponseBodies;
+    private boolean unknown_customResponseBodies;
     public @Nullable List<RuleGroupCustomResponseBody> customResponseBodies() {
-        if (customResponseBodies == null) return null;
-        return customResponseBodies.getValue("RuleGroup.customResponseBodies");
+        if (!unknown_customResponseBodies) return value_customResponseBodies;
+        throw new UndeferrableValueException("Value 'RuleGroup.customResponseBodies' is not present");
     }
 
     /**
      * A friendly description of the rule group.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("RuleGroup.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'RuleGroup.description' is not present");
     }
 
-    private UndeferrableValue<String> lockToken;
-
+    @PolicyResourceProperty(name="lockToken", flag="unknown_lockToken")
+    private String value_lockToken;
+    private boolean unknown_lockToken;
     public String lockToken() {
-        if (lockToken == null) return null;
-        return lockToken.getValue("RuleGroup.lockToken");
+        if (!unknown_lockToken) return value_lockToken;
+        throw new UndeferrableValueException("Value 'RuleGroup.lockToken' is not present");
     }
 
     /**
      * A friendly name of the rule group.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RuleGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RuleGroup.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("RuleGroup.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'RuleGroup.namePrefix' is not present");
     }
 
     /**
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<RuleGroupRule>> rules;
-
+    @PolicyResourceProperty(name="rules", flag="unknown_rules")
+    private @Nullable List<RuleGroupRule> value_rules;
+    private boolean unknown_rules;
     public @Nullable List<RuleGroupRule> rules() {
-        if (rules == null) return null;
-        return rules.getValue("RuleGroup.rules");
+        if (!unknown_rules) return value_rules;
+        throw new UndeferrableValueException("Value 'RuleGroup.rules' is not present");
     }
 
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      * 
      */
-    private UndeferrableValue<String> scope;
-
+    @PolicyResourceProperty(name="scope", flag="unknown_scope")
+    private String value_scope;
+    private boolean unknown_scope;
     public String scope() {
-        if (scope == null) return null;
-        return scope.getValue("RuleGroup.scope");
+        if (!unknown_scope) return value_scope;
+        throw new UndeferrableValueException("Value 'RuleGroup.scope' is not present");
     }
 
     /**
      * An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RuleGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RuleGroup.tags' is not present");
     }
 
     /**
@@ -132,22 +143,24 @@ public final class RuleGroup extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("RuleGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'RuleGroup.tagsAll' is not present");
     }
 
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupVisibilityConfig> visibilityConfig;
-
+    @PolicyResourceProperty(name="visibilityConfig", flag="unknown_visibilityConfig")
+    private RuleGroupVisibilityConfig value_visibilityConfig;
+    private boolean unknown_visibilityConfig;
     public RuleGroupVisibilityConfig visibilityConfig() {
-        if (visibilityConfig == null) return null;
-        return visibilityConfig.getValue("RuleGroup.visibilityConfig");
+        if (!unknown_visibilityConfig) return value_visibilityConfig;
+        throw new UndeferrableValueException("Value 'RuleGroup.visibilityConfig' is not present");
     }
 
 }

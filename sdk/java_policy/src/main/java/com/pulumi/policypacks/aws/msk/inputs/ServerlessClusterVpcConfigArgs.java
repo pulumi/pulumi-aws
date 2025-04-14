@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ServerlessClusterVpcConfigArgs {
      * Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("ServerlessClusterVpcConfigArgs.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'ServerlessClusterVpcConfigArgs.securityGroupIds' is not present");
     }
 
     /**
      * A list of subnets in at least two different Availability Zones that host your client applications.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("ServerlessClusterVpcConfigArgs.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'ServerlessClusterVpcConfigArgs.subnetIds' is not present");
     }
 
 }

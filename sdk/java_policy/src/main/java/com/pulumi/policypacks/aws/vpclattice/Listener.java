@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.vpclattice.outputs.ListenerDefaultAction;
 import java.lang.Integer;
@@ -19,95 +20,104 @@ public final class Listener extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the listener.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Listener.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Listener.arn' is not present");
     }
 
     /**
      * Date and time that the listener was created, specified in ISO-8601 format.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("Listener.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'Listener.createdAt' is not present");
     }
 
     /**
      * Default action block for the default listener rule. Default action blocks are defined below.
      * 
      */
-    private UndeferrableValue<ListenerDefaultAction> defaultAction;
-
+    @PolicyResourceProperty(name="defaultAction", flag="unknown_defaultAction")
+    private ListenerDefaultAction value_defaultAction;
+    private boolean unknown_defaultAction;
     public ListenerDefaultAction defaultAction() {
-        if (defaultAction == null) return null;
-        return defaultAction.getValue("Listener.defaultAction");
+        if (!unknown_defaultAction) return value_defaultAction;
+        throw new UndeferrableValueException("Value 'Listener.defaultAction' is not present");
     }
 
-    private UndeferrableValue<String> lastUpdatedAt;
-
+    @PolicyResourceProperty(name="lastUpdatedAt", flag="unknown_lastUpdatedAt")
+    private String value_lastUpdatedAt;
+    private boolean unknown_lastUpdatedAt;
     public String lastUpdatedAt() {
-        if (lastUpdatedAt == null) return null;
-        return lastUpdatedAt.getValue("Listener.lastUpdatedAt");
+        if (!unknown_lastUpdatedAt) return value_lastUpdatedAt;
+        throw new UndeferrableValueException("Value 'Listener.lastUpdatedAt' is not present");
     }
 
     /**
      * Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
      * 
      */
-    private UndeferrableValue<String> listenerId;
-
+    @PolicyResourceProperty(name="listenerId", flag="unknown_listenerId")
+    private String value_listenerId;
+    private boolean unknown_listenerId;
     public String listenerId() {
-        if (listenerId == null) return null;
-        return listenerId.getValue("Listener.listenerId");
+        if (!unknown_listenerId) return value_listenerId;
+        throw new UndeferrableValueException("Value 'Listener.listenerId' is not present");
     }
 
     /**
      * Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Listener.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Listener.name' is not present");
     }
 
     /**
      * Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("Listener.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'Listener.port' is not present");
     }
 
     /**
      * Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("Listener.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'Listener.protocol' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
      * 
      */
-    private UndeferrableValue<String> serviceArn;
-
+    @PolicyResourceProperty(name="serviceArn", flag="unknown_serviceArn")
+    private String value_serviceArn;
+    private boolean unknown_serviceArn;
     public String serviceArn() {
-        if (serviceArn == null) return null;
-        return serviceArn.getValue("Listener.serviceArn");
+        if (!unknown_serviceArn) return value_serviceArn;
+        throw new UndeferrableValueException("Value 'Listener.serviceArn' is not present");
     }
 
     /**
@@ -115,22 +125,24 @@ public final class Listener extends com.pulumi.resources.PolicyResourceOutput {
      * &gt; **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
      * 
      */
-    private UndeferrableValue<String> serviceIdentifier;
-
+    @PolicyResourceProperty(name="serviceIdentifier", flag="unknown_serviceIdentifier")
+    private String value_serviceIdentifier;
+    private boolean unknown_serviceIdentifier;
     public String serviceIdentifier() {
-        if (serviceIdentifier == null) return null;
-        return serviceIdentifier.getValue("Listener.serviceIdentifier");
+        if (!unknown_serviceIdentifier) return value_serviceIdentifier;
+        throw new UndeferrableValueException("Value 'Listener.serviceIdentifier' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Listener.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Listener.tags' is not present");
     }
 
     /**
@@ -139,11 +151,12 @@ public final class Listener extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Listener.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Listener.tagsAll' is not present");
     }
 
 }

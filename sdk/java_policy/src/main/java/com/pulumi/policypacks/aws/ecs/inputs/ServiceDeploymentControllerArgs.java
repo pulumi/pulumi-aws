@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ServiceDeploymentControllerArgs {
      * Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`, `EXTERNAL`. Default: `ECS`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ServiceDeploymentControllerArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ServiceDeploymentControllerArgs.type' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudformation.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,99 +15,108 @@ public final class StackInstancesStackInstanceSummary {
      * Account ID in which the instance is deployed.
      * 
      */
-    private @Nullable UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private @Nullable String value_accountId;
+    private boolean unknown_accountId;
     public @Nullable String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("StackInstancesStackInstanceSummary.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'StackInstancesStackInstanceSummary.accountId' is not present");
     }
 
     /**
      * Detailed status of the stack instance. Values include `PENDING`, `RUNNING`, `SUCCEEDED`, `FAILED`, `CANCELLED`, `INOPERABLE`, `SKIPPED_SUSPENDED_ACCOUNT`, `FAILED_IMPORT`.
      * 
      */
-    private @Nullable UndeferrableValue<String> detailedStatus;
-
+    @PolicyResourceProperty(name="detailedStatus", flag="unknown_detailedStatus")
+    private @Nullable String value_detailedStatus;
+    private boolean unknown_detailedStatus;
     public @Nullable String detailedStatus() {
-        if (detailedStatus == null) return null;
-        return detailedStatus.getValue("StackInstancesStackInstanceSummary.detailedStatus");
+        if (!unknown_detailedStatus) return value_detailedStatus;
+        throw new UndeferrableValueException("Value 'StackInstancesStackInstanceSummary.detailedStatus' is not present");
     }
 
     /**
      * Status of the stack instance&#39;s actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs. Values include `DRIFTED`, `IN_SYNC`, `UNKNOWN`, `NOT_CHECKED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> driftStatus;
-
+    @PolicyResourceProperty(name="driftStatus", flag="unknown_driftStatus")
+    private @Nullable String value_driftStatus;
+    private boolean unknown_driftStatus;
     public @Nullable String driftStatus() {
-        if (driftStatus == null) return null;
-        return driftStatus.getValue("StackInstancesStackInstanceSummary.driftStatus");
+        if (!unknown_driftStatus) return value_driftStatus;
+        throw new UndeferrableValueException("Value 'StackInstancesStackInstanceSummary.driftStatus' is not present");
     }
 
     /**
      * Organization root ID or organizational unit (OU) IDs that you specified for `deployment_targets`.
      * 
      */
-    private @Nullable UndeferrableValue<String> organizationalUnitId;
-
+    @PolicyResourceProperty(name="organizationalUnitId", flag="unknown_organizationalUnitId")
+    private @Nullable String value_organizationalUnitId;
+    private boolean unknown_organizationalUnitId;
     public @Nullable String organizationalUnitId() {
-        if (organizationalUnitId == null) return null;
-        return organizationalUnitId.getValue("StackInstancesStackInstanceSummary.organizationalUnitId");
+        if (!unknown_organizationalUnitId) return value_organizationalUnitId;
+        throw new UndeferrableValueException("Value 'StackInstancesStackInstanceSummary.organizationalUnitId' is not present");
     }
 
     /**
      * Region that the stack instance is associated with.
      * 
      */
-    private @Nullable UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private @Nullable String value_region;
+    private boolean unknown_region;
     public @Nullable String region() {
-        if (region == null) return null;
-        return region.getValue("StackInstancesStackInstanceSummary.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'StackInstancesStackInstanceSummary.region' is not present");
     }
 
     /**
      * ID of the stack instance.
      * 
      */
-    private @Nullable UndeferrableValue<String> stackId;
-
+    @PolicyResourceProperty(name="stackId", flag="unknown_stackId")
+    private @Nullable String value_stackId;
+    private boolean unknown_stackId;
     public @Nullable String stackId() {
-        if (stackId == null) return null;
-        return stackId.getValue("StackInstancesStackInstanceSummary.stackId");
+        if (!unknown_stackId) return value_stackId;
+        throw new UndeferrableValueException("Value 'StackInstancesStackInstanceSummary.stackId' is not present");
     }
 
     /**
      * Name or unique ID of the stack set that the stack instance is associated with.
      * 
      */
-    private @Nullable UndeferrableValue<String> stackSetId;
-
+    @PolicyResourceProperty(name="stackSetId", flag="unknown_stackSetId")
+    private @Nullable String value_stackSetId;
+    private boolean unknown_stackSetId;
     public @Nullable String stackSetId() {
-        if (stackSetId == null) return null;
-        return stackSetId.getValue("StackInstancesStackInstanceSummary.stackSetId");
+        if (!unknown_stackSetId) return value_stackSetId;
+        throw new UndeferrableValueException("Value 'StackInstancesStackInstanceSummary.stackSetId' is not present");
     }
 
     /**
      * Status of the stack instance, in terms of its synchronization with its associated stack set. Values include `CURRENT`, `OUTDATED`, `INOPERABLE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private @Nullable String value_status;
+    private boolean unknown_status;
     public @Nullable String status() {
-        if (status == null) return null;
-        return status.getValue("StackInstancesStackInstanceSummary.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'StackInstancesStackInstanceSummary.status' is not present");
     }
 
     /**
      * Explanation for the specific status code assigned to this stack instance.
      * 
      */
-    private @Nullable UndeferrableValue<String> statusReason;
-
+    @PolicyResourceProperty(name="statusReason", flag="unknown_statusReason")
+    private @Nullable String value_statusReason;
+    private boolean unknown_statusReason;
     public @Nullable String statusReason() {
-        if (statusReason == null) return null;
-        return statusReason.getValue("StackInstancesStackInstanceSummary.statusReason");
+        if (!unknown_statusReason) return value_statusReason;
+        throw new UndeferrableValueException("Value 'StackInstancesStackInstanceSummary.statusReason' is not present");
     }
 
 }

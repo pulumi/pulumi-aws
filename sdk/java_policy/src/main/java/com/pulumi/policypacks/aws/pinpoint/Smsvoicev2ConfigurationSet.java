@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pinpoint;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,55 +18,60 @@ public final class Smsvoicev2ConfigurationSet extends com.pulumi.resources.Polic
      * ARN of the configuration set.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Smsvoicev2ConfigurationSet.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Smsvoicev2ConfigurationSet.arn' is not present");
     }
 
     /**
      * The default message type. Must either be &#34;TRANSACTIONAL&#34; or &#34;PROMOTIONAL&#34;
      * 
      */
-    private @Nullable UndeferrableValue<String> defaultMessageType;
-
+    @PolicyResourceProperty(name="defaultMessageType", flag="unknown_defaultMessageType")
+    private @Nullable String value_defaultMessageType;
+    private boolean unknown_defaultMessageType;
     public @Nullable String defaultMessageType() {
-        if (defaultMessageType == null) return null;
-        return defaultMessageType.getValue("Smsvoicev2ConfigurationSet.defaultMessageType");
+        if (!unknown_defaultMessageType) return value_defaultMessageType;
+        throw new UndeferrableValueException("Value 'Smsvoicev2ConfigurationSet.defaultMessageType' is not present");
     }
 
     /**
      * The default sender ID to use for this configuration set.
      * 
      */
-    private @Nullable UndeferrableValue<String> defaultSenderId;
-
+    @PolicyResourceProperty(name="defaultSenderId", flag="unknown_defaultSenderId")
+    private @Nullable String value_defaultSenderId;
+    private boolean unknown_defaultSenderId;
     public @Nullable String defaultSenderId() {
-        if (defaultSenderId == null) return null;
-        return defaultSenderId.getValue("Smsvoicev2ConfigurationSet.defaultSenderId");
+        if (!unknown_defaultSenderId) return value_defaultSenderId;
+        throw new UndeferrableValueException("Value 'Smsvoicev2ConfigurationSet.defaultSenderId' is not present");
     }
 
     /**
      * The name of the configuration set.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Smsvoicev2ConfigurationSet.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Smsvoicev2ConfigurationSet.name' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Smsvoicev2ConfigurationSet.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Smsvoicev2ConfigurationSet.tags' is not present");
     }
 
     /**
@@ -76,11 +82,12 @@ public final class Smsvoicev2ConfigurationSet extends com.pulumi.resources.Polic
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Smsvoicev2ConfigurationSet.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Smsvoicev2ConfigurationSet.tagsAll' is not present");
     }
 
 }

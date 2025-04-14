@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudsearch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DomainEndpointOptions {
      * Enables or disables the requirement that all requests to the domain arrive over HTTPS.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enforceHttps;
-
+    @PolicyResourceProperty(name="enforceHttps", flag="unknown_enforceHttps")
+    private @Nullable Boolean value_enforceHttps;
+    private boolean unknown_enforceHttps;
     public @Nullable Boolean enforceHttps() {
-        if (enforceHttps == null) return null;
-        return enforceHttps.getValue("DomainEndpointOptions.enforceHttps");
+        if (!unknown_enforceHttps) return value_enforceHttps;
+        throw new UndeferrableValueException("Value 'DomainEndpointOptions.enforceHttps' is not present");
     }
 
     /**
      * The minimum required TLS version. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DomainEndpointOptions.html) for valid values.
      * 
      */
-    private @Nullable UndeferrableValue<String> tlsSecurityPolicy;
-
+    @PolicyResourceProperty(name="tlsSecurityPolicy", flag="unknown_tlsSecurityPolicy")
+    private @Nullable String value_tlsSecurityPolicy;
+    private boolean unknown_tlsSecurityPolicy;
     public @Nullable String tlsSecurityPolicy() {
-        if (tlsSecurityPolicy == null) return null;
-        return tlsSecurityPolicy.getValue("DomainEndpointOptions.tlsSecurityPolicy");
+        if (!unknown_tlsSecurityPolicy) return value_tlsSecurityPolicy;
+        throw new UndeferrableValueException("Value 'DomainEndpointOptions.tlsSecurityPolicy' is not present");
     }
 
 }

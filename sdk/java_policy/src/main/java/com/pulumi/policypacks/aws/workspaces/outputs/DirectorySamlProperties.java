@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.workspaces.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class DirectorySamlProperties {
      * The relay state parameter name supported by the SAML 2.0 identity provider (IdP). Default `RelayState`.
      * 
      */
-    private @Nullable UndeferrableValue<String> relayStateParameterName;
-
+    @PolicyResourceProperty(name="relayStateParameterName", flag="unknown_relayStateParameterName")
+    private @Nullable String value_relayStateParameterName;
+    private boolean unknown_relayStateParameterName;
     public @Nullable String relayStateParameterName() {
-        if (relayStateParameterName == null) return null;
-        return relayStateParameterName.getValue("DirectorySamlProperties.relayStateParameterName");
+        if (!unknown_relayStateParameterName) return value_relayStateParameterName;
+        throw new UndeferrableValueException("Value 'DirectorySamlProperties.relayStateParameterName' is not present");
     }
 
     /**
      * Status of SAML 2.0 authentication. Default `DISABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private @Nullable String value_status;
+    private boolean unknown_status;
     public @Nullable String status() {
-        if (status == null) return null;
-        return status.getValue("DirectorySamlProperties.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'DirectorySamlProperties.status' is not present");
     }
 
     /**
      * The SAML 2.0 identity provider (IdP) user access URL.
      * 
      */
-    private @Nullable UndeferrableValue<String> userAccessUrl;
-
+    @PolicyResourceProperty(name="userAccessUrl", flag="unknown_userAccessUrl")
+    private @Nullable String value_userAccessUrl;
+    private boolean unknown_userAccessUrl;
     public @Nullable String userAccessUrl() {
-        if (userAccessUrl == null) return null;
-        return userAccessUrl.getValue("DirectorySamlProperties.userAccessUrl");
+        if (!unknown_userAccessUrl) return value_userAccessUrl;
+        throw new UndeferrableValueException("Value 'DirectorySamlProperties.userAccessUrl' is not present");
     }
 
 }

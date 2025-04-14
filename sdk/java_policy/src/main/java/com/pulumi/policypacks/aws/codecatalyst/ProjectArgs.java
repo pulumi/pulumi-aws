@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codecatalyst;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class ProjectArgs extends com.pulumi.resources.PolicyResourceInput 
      * The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ProjectArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ProjectArgs.description' is not present");
     }
 
     /**
@@ -29,22 +31,24 @@ public final class ProjectArgs extends com.pulumi.resources.PolicyResourceInput 
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> displayName;
-
+    @PolicyResourceProperty(name="displayName", flag="unknown_displayName")
+    private String value_displayName;
+    private boolean unknown_displayName;
     public String displayName() {
-        if (displayName == null) return null;
-        return displayName.getValue("ProjectArgs.displayName");
+        if (!unknown_displayName) return value_displayName;
+        throw new UndeferrableValueException("Value 'ProjectArgs.displayName' is not present");
     }
 
     /**
      * The name of the space.
      * 
      */
-    private UndeferrableValue<String> spaceName;
-
+    @PolicyResourceProperty(name="spaceName", flag="unknown_spaceName")
+    private String value_spaceName;
+    private boolean unknown_spaceName;
     public String spaceName() {
-        if (spaceName == null) return null;
-        return spaceName.getValue("ProjectArgs.spaceName");
+        if (!unknown_spaceName) return value_spaceName;
+        throw new UndeferrableValueException("Value 'ProjectArgs.spaceName' is not present");
     }
 
 }

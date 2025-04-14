@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -17,110 +18,120 @@ public final class MethodSettingsSettings {
      * Whether the cached responses are encrypted.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> cacheDataEncrypted;
-
+    @PolicyResourceProperty(name="cacheDataEncrypted", flag="unknown_cacheDataEncrypted")
+    private @Nullable Boolean value_cacheDataEncrypted;
+    private boolean unknown_cacheDataEncrypted;
     public @Nullable Boolean cacheDataEncrypted() {
-        if (cacheDataEncrypted == null) return null;
-        return cacheDataEncrypted.getValue("MethodSettingsSettings.cacheDataEncrypted");
+        if (!unknown_cacheDataEncrypted) return value_cacheDataEncrypted;
+        throw new UndeferrableValueException("Value 'MethodSettingsSettings.cacheDataEncrypted' is not present");
     }
 
     /**
      * Time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> cacheTtlInSeconds;
-
+    @PolicyResourceProperty(name="cacheTtlInSeconds", flag="unknown_cacheTtlInSeconds")
+    private @Nullable Integer value_cacheTtlInSeconds;
+    private boolean unknown_cacheTtlInSeconds;
     public @Nullable Integer cacheTtlInSeconds() {
-        if (cacheTtlInSeconds == null) return null;
-        return cacheTtlInSeconds.getValue("MethodSettingsSettings.cacheTtlInSeconds");
+        if (!unknown_cacheTtlInSeconds) return value_cacheTtlInSeconds;
+        throw new UndeferrableValueException("Value 'MethodSettingsSettings.cacheTtlInSeconds' is not present");
     }
 
     /**
      * Whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> cachingEnabled;
-
+    @PolicyResourceProperty(name="cachingEnabled", flag="unknown_cachingEnabled")
+    private @Nullable Boolean value_cachingEnabled;
+    private boolean unknown_cachingEnabled;
     public @Nullable Boolean cachingEnabled() {
-        if (cachingEnabled == null) return null;
-        return cachingEnabled.getValue("MethodSettingsSettings.cachingEnabled");
+        if (!unknown_cachingEnabled) return value_cachingEnabled;
+        throw new UndeferrableValueException("Value 'MethodSettingsSettings.cachingEnabled' is not present");
     }
 
     /**
      * Whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> dataTraceEnabled;
-
+    @PolicyResourceProperty(name="dataTraceEnabled", flag="unknown_dataTraceEnabled")
+    private @Nullable Boolean value_dataTraceEnabled;
+    private boolean unknown_dataTraceEnabled;
     public @Nullable Boolean dataTraceEnabled() {
-        if (dataTraceEnabled == null) return null;
-        return dataTraceEnabled.getValue("MethodSettingsSettings.dataTraceEnabled");
+        if (!unknown_dataTraceEnabled) return value_dataTraceEnabled;
+        throw new UndeferrableValueException("Value 'MethodSettingsSettings.dataTraceEnabled' is not present");
     }
 
     /**
      * Logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
      * 
      */
-    private @Nullable UndeferrableValue<String> loggingLevel;
-
+    @PolicyResourceProperty(name="loggingLevel", flag="unknown_loggingLevel")
+    private @Nullable String value_loggingLevel;
+    private boolean unknown_loggingLevel;
     public @Nullable String loggingLevel() {
-        if (loggingLevel == null) return null;
-        return loggingLevel.getValue("MethodSettingsSettings.loggingLevel");
+        if (!unknown_loggingLevel) return value_loggingLevel;
+        throw new UndeferrableValueException("Value 'MethodSettingsSettings.loggingLevel' is not present");
     }
 
     /**
      * Whether Amazon CloudWatch metrics are enabled for this method.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> metricsEnabled;
-
+    @PolicyResourceProperty(name="metricsEnabled", flag="unknown_metricsEnabled")
+    private @Nullable Boolean value_metricsEnabled;
+    private boolean unknown_metricsEnabled;
     public @Nullable Boolean metricsEnabled() {
-        if (metricsEnabled == null) return null;
-        return metricsEnabled.getValue("MethodSettingsSettings.metricsEnabled");
+        if (!unknown_metricsEnabled) return value_metricsEnabled;
+        throw new UndeferrableValueException("Value 'MethodSettingsSettings.metricsEnabled' is not present");
     }
 
     /**
      * Whether authorization is required for a cache invalidation request.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> requireAuthorizationForCacheControl;
-
+    @PolicyResourceProperty(name="requireAuthorizationForCacheControl", flag="unknown_requireAuthorizationForCacheControl")
+    private @Nullable Boolean value_requireAuthorizationForCacheControl;
+    private boolean unknown_requireAuthorizationForCacheControl;
     public @Nullable Boolean requireAuthorizationForCacheControl() {
-        if (requireAuthorizationForCacheControl == null) return null;
-        return requireAuthorizationForCacheControl.getValue("MethodSettingsSettings.requireAuthorizationForCacheControl");
+        if (!unknown_requireAuthorizationForCacheControl) return value_requireAuthorizationForCacheControl;
+        throw new UndeferrableValueException("Value 'MethodSettingsSettings.requireAuthorizationForCacheControl' is not present");
     }
 
     /**
      * Throttling burst limit. Default: `-1` (throttling disabled).
      * 
      */
-    private @Nullable UndeferrableValue<Integer> throttlingBurstLimit;
-
+    @PolicyResourceProperty(name="throttlingBurstLimit", flag="unknown_throttlingBurstLimit")
+    private @Nullable Integer value_throttlingBurstLimit;
+    private boolean unknown_throttlingBurstLimit;
     public @Nullable Integer throttlingBurstLimit() {
-        if (throttlingBurstLimit == null) return null;
-        return throttlingBurstLimit.getValue("MethodSettingsSettings.throttlingBurstLimit");
+        if (!unknown_throttlingBurstLimit) return value_throttlingBurstLimit;
+        throw new UndeferrableValueException("Value 'MethodSettingsSettings.throttlingBurstLimit' is not present");
     }
 
     /**
      * Throttling rate limit. Default: `-1` (throttling disabled).
      * 
      */
-    private @Nullable UndeferrableValue<Double> throttlingRateLimit;
-
+    @PolicyResourceProperty(name="throttlingRateLimit", flag="unknown_throttlingRateLimit")
+    private @Nullable Double value_throttlingRateLimit;
+    private boolean unknown_throttlingRateLimit;
     public @Nullable Double throttlingRateLimit() {
-        if (throttlingRateLimit == null) return null;
-        return throttlingRateLimit.getValue("MethodSettingsSettings.throttlingRateLimit");
+        if (!unknown_throttlingRateLimit) return value_throttlingRateLimit;
+        throw new UndeferrableValueException("Value 'MethodSettingsSettings.throttlingRateLimit' is not present");
     }
 
     /**
      * How to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
      * 
      */
-    private @Nullable UndeferrableValue<String> unauthorizedCacheControlHeaderStrategy;
-
+    @PolicyResourceProperty(name="unauthorizedCacheControlHeaderStrategy", flag="unknown_unauthorizedCacheControlHeaderStrategy")
+    private @Nullable String value_unauthorizedCacheControlHeaderStrategy;
+    private boolean unknown_unauthorizedCacheControlHeaderStrategy;
     public @Nullable String unauthorizedCacheControlHeaderStrategy() {
-        if (unauthorizedCacheControlHeaderStrategy == null) return null;
-        return unauthorizedCacheControlHeaderStrategy.getValue("MethodSettingsSettings.unauthorizedCacheControlHeaderStrategy");
+        if (!unknown_unauthorizedCacheControlHeaderStrategy) return value_unauthorizedCacheControlHeaderStrategy;
+        throw new UndeferrableValueException("Value 'MethodSettingsSettings.unauthorizedCacheControlHeaderStrategy' is not present");
     }
 
 }

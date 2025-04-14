@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chatbot;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.chatbot.outputs.SlackChannelConfigurationTimeouts;
 import java.lang.Boolean;
@@ -20,77 +21,84 @@ public final class SlackChannelConfiguration extends com.pulumi.resources.Policy
      * ARN of the Slack channel configuration.
      * 
      */
-    private UndeferrableValue<String> chatConfigurationArn;
-
+    @PolicyResourceProperty(name="chatConfigurationArn", flag="unknown_chatConfigurationArn")
+    private String value_chatConfigurationArn;
+    private boolean unknown_chatConfigurationArn;
     public String chatConfigurationArn() {
-        if (chatConfigurationArn == null) return null;
-        return chatConfigurationArn.getValue("SlackChannelConfiguration.chatConfigurationArn");
+        if (!unknown_chatConfigurationArn) return value_chatConfigurationArn;
+        throw new UndeferrableValueException("Value 'SlackChannelConfiguration.chatConfigurationArn' is not present");
     }
 
     /**
      * Name of the Slack channel configuration.
      * 
      */
-    private UndeferrableValue<String> configurationName;
-
+    @PolicyResourceProperty(name="configurationName", flag="unknown_configurationName")
+    private String value_configurationName;
+    private boolean unknown_configurationName;
     public String configurationName() {
-        if (configurationName == null) return null;
-        return configurationName.getValue("SlackChannelConfiguration.configurationName");
+        if (!unknown_configurationName) return value_configurationName;
+        throw new UndeferrableValueException("Value 'SlackChannelConfiguration.configurationName' is not present");
     }
 
     /**
      * List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
      * 
      */
-    private UndeferrableValue<List<String>> guardrailPolicyArns;
-
+    @PolicyResourceProperty(name="guardrailPolicyArns", flag="unknown_guardrailPolicyArns")
+    private List<String> value_guardrailPolicyArns;
+    private boolean unknown_guardrailPolicyArns;
     public List<String> guardrailPolicyArns() {
-        if (guardrailPolicyArns == null) return null;
-        return guardrailPolicyArns.getValue("SlackChannelConfiguration.guardrailPolicyArns");
+        if (!unknown_guardrailPolicyArns) return value_guardrailPolicyArns;
+        throw new UndeferrableValueException("Value 'SlackChannelConfiguration.guardrailPolicyArns' is not present");
     }
 
     /**
      * User-defined role that AWS Chatbot assumes. This is not the service-linked role.
      * 
      */
-    private UndeferrableValue<String> iamRoleArn;
-
+    @PolicyResourceProperty(name="iamRoleArn", flag="unknown_iamRoleArn")
+    private String value_iamRoleArn;
+    private boolean unknown_iamRoleArn;
     public String iamRoleArn() {
-        if (iamRoleArn == null) return null;
-        return iamRoleArn.getValue("SlackChannelConfiguration.iamRoleArn");
+        if (!unknown_iamRoleArn) return value_iamRoleArn;
+        throw new UndeferrableValueException("Value 'SlackChannelConfiguration.iamRoleArn' is not present");
     }
 
     /**
      * Logging levels include `ERROR`, `INFO`, or `NONE`.
      * 
      */
-    private UndeferrableValue<String> loggingLevel;
-
+    @PolicyResourceProperty(name="loggingLevel", flag="unknown_loggingLevel")
+    private String value_loggingLevel;
+    private boolean unknown_loggingLevel;
     public String loggingLevel() {
-        if (loggingLevel == null) return null;
-        return loggingLevel.getValue("SlackChannelConfiguration.loggingLevel");
+        if (!unknown_loggingLevel) return value_loggingLevel;
+        throw new UndeferrableValueException("Value 'SlackChannelConfiguration.loggingLevel' is not present");
     }
 
     /**
      * ID of the Slack channel. For example, `C07EZ1ABC23`.
      * 
      */
-    private UndeferrableValue<String> slackChannelId;
-
+    @PolicyResourceProperty(name="slackChannelId", flag="unknown_slackChannelId")
+    private String value_slackChannelId;
+    private boolean unknown_slackChannelId;
     public String slackChannelId() {
-        if (slackChannelId == null) return null;
-        return slackChannelId.getValue("SlackChannelConfiguration.slackChannelId");
+        if (!unknown_slackChannelId) return value_slackChannelId;
+        throw new UndeferrableValueException("Value 'SlackChannelConfiguration.slackChannelId' is not present");
     }
 
     /**
      * Name of the Slack channel.
      * 
      */
-    private UndeferrableValue<String> slackChannelName;
-
+    @PolicyResourceProperty(name="slackChannelName", flag="unknown_slackChannelName")
+    private String value_slackChannelName;
+    private boolean unknown_slackChannelName;
     public String slackChannelName() {
-        if (slackChannelName == null) return null;
-        return slackChannelName.getValue("SlackChannelConfiguration.slackChannelName");
+        if (!unknown_slackChannelName) return value_slackChannelName;
+        throw new UndeferrableValueException("Value 'SlackChannelConfiguration.slackChannelName' is not present");
     }
 
     /**
@@ -99,44 +107,48 @@ public final class SlackChannelConfiguration extends com.pulumi.resources.Policy
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> slackTeamId;
-
+    @PolicyResourceProperty(name="slackTeamId", flag="unknown_slackTeamId")
+    private String value_slackTeamId;
+    private boolean unknown_slackTeamId;
     public String slackTeamId() {
-        if (slackTeamId == null) return null;
-        return slackTeamId.getValue("SlackChannelConfiguration.slackTeamId");
+        if (!unknown_slackTeamId) return value_slackTeamId;
+        throw new UndeferrableValueException("Value 'SlackChannelConfiguration.slackTeamId' is not present");
     }
 
     /**
      * Name of the Slack team.
      * 
      */
-    private UndeferrableValue<String> slackTeamName;
-
+    @PolicyResourceProperty(name="slackTeamName", flag="unknown_slackTeamName")
+    private String value_slackTeamName;
+    private boolean unknown_slackTeamName;
     public String slackTeamName() {
-        if (slackTeamName == null) return null;
-        return slackTeamName.getValue("SlackChannelConfiguration.slackTeamName");
+        if (!unknown_slackTeamName) return value_slackTeamName;
+        throw new UndeferrableValueException("Value 'SlackChannelConfiguration.slackTeamName' is not present");
     }
 
     /**
      * ARNs of the SNS topics that deliver notifications to AWS Chatbot.
      * 
      */
-    private UndeferrableValue<List<String>> snsTopicArns;
-
+    @PolicyResourceProperty(name="snsTopicArns", flag="unknown_snsTopicArns")
+    private List<String> value_snsTopicArns;
+    private boolean unknown_snsTopicArns;
     public List<String> snsTopicArns() {
-        if (snsTopicArns == null) return null;
-        return snsTopicArns.getValue("SlackChannelConfiguration.snsTopicArns");
+        if (!unknown_snsTopicArns) return value_snsTopicArns;
+        throw new UndeferrableValueException("Value 'SlackChannelConfiguration.snsTopicArns' is not present");
     }
 
     /**
      * Map of tags assigned to the resource.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SlackChannelConfiguration.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SlackChannelConfiguration.tags' is not present");
     }
 
     /**
@@ -147,29 +159,32 @@ public final class SlackChannelConfiguration extends com.pulumi.resources.Policy
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("SlackChannelConfiguration.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'SlackChannelConfiguration.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<SlackChannelConfigurationTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable SlackChannelConfigurationTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable SlackChannelConfigurationTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("SlackChannelConfiguration.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'SlackChannelConfiguration.timeouts' is not present");
     }
 
     /**
      * Enables use of a user role requirement in your chat configuration.
      * 
      */
-    private UndeferrableValue<Boolean> userAuthorizationRequired;
-
+    @PolicyResourceProperty(name="userAuthorizationRequired", flag="unknown_userAuthorizationRequired")
+    private Boolean value_userAuthorizationRequired;
+    private boolean unknown_userAuthorizationRequired;
     public Boolean userAuthorizationRequired() {
-        if (userAuthorizationRequired == null) return null;
-        return userAuthorizationRequired.getValue("SlackChannelConfiguration.userAuthorizationRequired");
+        if (!unknown_userAuthorizationRequired) return value_userAuthorizationRequired;
+        throw new UndeferrableValueException("Value 'SlackChannelConfiguration.userAuthorizationRequired' is not present");
     }
 
 }

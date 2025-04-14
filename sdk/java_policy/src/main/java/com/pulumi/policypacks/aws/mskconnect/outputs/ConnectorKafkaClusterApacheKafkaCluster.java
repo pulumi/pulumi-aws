@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mskconnect.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.mskconnect.outputs.ConnectorKafkaClusterApacheKafkaClusterVpc;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class ConnectorKafkaClusterApacheKafkaCluster {
      * The bootstrap servers of the cluster.
      * 
      */
-    private UndeferrableValue<String> bootstrapServers;
-
+    @PolicyResourceProperty(name="bootstrapServers", flag="unknown_bootstrapServers")
+    private String value_bootstrapServers;
+    private boolean unknown_bootstrapServers;
     public String bootstrapServers() {
-        if (bootstrapServers == null) return null;
-        return bootstrapServers.getValue("ConnectorKafkaClusterApacheKafkaCluster.bootstrapServers");
+        if (!unknown_bootstrapServers) return value_bootstrapServers;
+        throw new UndeferrableValueException("Value 'ConnectorKafkaClusterApacheKafkaCluster.bootstrapServers' is not present");
     }
 
     /**
      * Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster. See `vpc` Block for details.
      * 
      */
-    private UndeferrableValue<ConnectorKafkaClusterApacheKafkaClusterVpc> vpc;
-
+    @PolicyResourceProperty(name="vpc", flag="unknown_vpc")
+    private ConnectorKafkaClusterApacheKafkaClusterVpc value_vpc;
+    private boolean unknown_vpc;
     public ConnectorKafkaClusterApacheKafkaClusterVpc vpc() {
-        if (vpc == null) return null;
-        return vpc.getValue("ConnectorKafkaClusterApacheKafkaCluster.vpc");
+        if (!unknown_vpc) return value_vpc;
+        throw new UndeferrableValueException("Value 'ConnectorKafkaClusterApacheKafkaCluster.vpc' is not present");
     }
 
 }

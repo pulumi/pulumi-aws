@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sns;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class TopicPolicyArgs extends com.pulumi.resources.PolicyResourceIn
      * The ARN of the SNS topic
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("TopicPolicyArgs.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'TopicPolicyArgs.arn' is not present");
     }
 
     /**
      * The fully-formed AWS policy as JSON.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("TopicPolicyArgs.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'TopicPolicyArgs.policy' is not present");
     }
 
 }

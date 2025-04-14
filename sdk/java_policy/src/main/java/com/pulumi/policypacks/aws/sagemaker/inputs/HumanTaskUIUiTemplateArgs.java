@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class HumanTaskUIUiTemplateArgs {
      * The content of the Liquid template for the worker user interface.
      * 
      */
-    private UndeferrableValue<String> content;
-
+    @PolicyResourceProperty(name="content", flag="unknown_content")
+    private String value_content;
+    private boolean unknown_content;
     public String content() {
-        if (content == null) return null;
-        return content.getValue("HumanTaskUIUiTemplateArgs.content");
+        if (!unknown_content) return value_content;
+        throw new UndeferrableValueException("Value 'HumanTaskUIUiTemplateArgs.content' is not present");
     }
 
     /**
      * The SHA-256 digest of the contents of the template.
      * 
      */
-    private UndeferrableValue<String> contentSha256;
-
+    @PolicyResourceProperty(name="contentSha256", flag="unknown_contentSha256")
+    private String value_contentSha256;
+    private boolean unknown_contentSha256;
     public String contentSha256() {
-        if (contentSha256 == null) return null;
-        return contentSha256.getValue("HumanTaskUIUiTemplateArgs.contentSha256");
+        if (!unknown_contentSha256) return value_contentSha256;
+        throw new UndeferrableValueException("Value 'HumanTaskUIUiTemplateArgs.contentSha256' is not present");
     }
 
     /**
      * The URL for the user interface template.
      * 
      */
-    private UndeferrableValue<String> url;
-
+    @PolicyResourceProperty(name="url", flag="unknown_url")
+    private String value_url;
+    private boolean unknown_url;
     public String url() {
-        if (url == null) return null;
-        return url.getValue("HumanTaskUIUiTemplateArgs.url");
+        if (!unknown_url) return value_url;
+        throw new UndeferrableValueException("Value 'HumanTaskUIUiTemplateArgs.url' is not present");
     }
 
 }

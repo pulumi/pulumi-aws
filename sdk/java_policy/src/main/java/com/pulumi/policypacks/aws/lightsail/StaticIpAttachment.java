@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class StaticIpAttachment extends com.pulumi.resources.PolicyResourc
      * The name of the Lightsail instance to attach the IP to
      * 
      */
-    private UndeferrableValue<String> instanceName;
-
+    @PolicyResourceProperty(name="instanceName", flag="unknown_instanceName")
+    private String value_instanceName;
+    private boolean unknown_instanceName;
     public String instanceName() {
-        if (instanceName == null) return null;
-        return instanceName.getValue("StaticIpAttachment.instanceName");
+        if (!unknown_instanceName) return value_instanceName;
+        throw new UndeferrableValueException("Value 'StaticIpAttachment.instanceName' is not present");
     }
 
     /**
      * The allocated static IP address
      * 
      */
-    private UndeferrableValue<String> ipAddress;
-
+    @PolicyResourceProperty(name="ipAddress", flag="unknown_ipAddress")
+    private String value_ipAddress;
+    private boolean unknown_ipAddress;
     public String ipAddress() {
-        if (ipAddress == null) return null;
-        return ipAddress.getValue("StaticIpAttachment.ipAddress");
+        if (!unknown_ipAddress) return value_ipAddress;
+        throw new UndeferrableValueException("Value 'StaticIpAttachment.ipAddress' is not present");
     }
 
     /**
      * The name of the allocated static IP
      * 
      */
-    private UndeferrableValue<String> staticIpName;
-
+    @PolicyResourceProperty(name="staticIpName", flag="unknown_staticIpName")
+    private String value_staticIpName;
+    private boolean unknown_staticIpName;
     public String staticIpName() {
-        if (staticIpName == null) return null;
-        return staticIpName.getValue("StaticIpAttachment.staticIpName");
+        if (!unknown_staticIpName) return value_staticIpName;
+        throw new UndeferrableValueException("Value 'StaticIpAttachment.staticIpName' is not present");
     }
 
 }

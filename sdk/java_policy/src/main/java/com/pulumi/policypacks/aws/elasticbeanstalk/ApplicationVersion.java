@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticbeanstalk;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,66 +19,72 @@ public final class ApplicationVersion extends com.pulumi.resources.PolicyResourc
      * Name of the Beanstalk Application the version is associated with.
      * 
      */
-    private UndeferrableValue<String> application;
-
+    @PolicyResourceProperty(name="application", flag="unknown_application")
+    private String value_application;
+    private boolean unknown_application;
     public String application() {
-        if (application == null) return null;
-        return application.getValue("ApplicationVersion.application");
+        if (!unknown_application) return value_application;
+        throw new UndeferrableValueException("Value 'ApplicationVersion.application' is not present");
     }
 
     /**
      * ARN assigned by AWS for this Elastic Beanstalk Application.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ApplicationVersion.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ApplicationVersion.arn' is not present");
     }
 
     /**
      * S3 bucket that contains the Application Version source bundle.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("ApplicationVersion.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'ApplicationVersion.bucket' is not present");
     }
 
     /**
      * Short description of the Application Version.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ApplicationVersion.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ApplicationVersion.description' is not present");
     }
 
     /**
      * On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> forceDelete;
-
+    @PolicyResourceProperty(name="forceDelete", flag="unknown_forceDelete")
+    private @Nullable Boolean value_forceDelete;
+    private boolean unknown_forceDelete;
     public @Nullable Boolean forceDelete() {
-        if (forceDelete == null) return null;
-        return forceDelete.getValue("ApplicationVersion.forceDelete");
+        if (!unknown_forceDelete) return value_forceDelete;
+        throw new UndeferrableValueException("Value 'ApplicationVersion.forceDelete' is not present");
     }
 
     /**
      * S3 object that is the Application Version source bundle.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("ApplicationVersion.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'ApplicationVersion.key' is not present");
     }
 
     /**
@@ -86,33 +93,36 @@ public final class ApplicationVersion extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ApplicationVersion.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ApplicationVersion.name' is not present");
     }
 
     /**
      * Pre-processes and validates the environment manifest (env.yaml ) and configuration files (*.config files in the .ebextensions folder) in the source bundle. Validating configuration files can identify issues prior to deploying the application version to an environment. You must turn processing on for application versions that you create using AWS CodeBuild or AWS CodeCommit. For application versions built from a source bundle in Amazon S3, processing is optional. It validates Elastic Beanstalk configuration files. It doesn’t validate your application’s configuration files, like proxy server or Docker configuration.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> process;
-
+    @PolicyResourceProperty(name="process", flag="unknown_process")
+    private @Nullable Boolean value_process;
+    private boolean unknown_process;
     public @Nullable Boolean process() {
-        if (process == null) return null;
-        return process.getValue("ApplicationVersion.process");
+        if (!unknown_process) return value_process;
+        throw new UndeferrableValueException("Value 'ApplicationVersion.process' is not present");
     }
 
     /**
      * Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ApplicationVersion.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ApplicationVersion.tags' is not present");
     }
 
     /**
@@ -123,11 +133,12 @@ public final class ApplicationVersion extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ApplicationVersion.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ApplicationVersion.tagsAll' is not present");
     }
 
 }

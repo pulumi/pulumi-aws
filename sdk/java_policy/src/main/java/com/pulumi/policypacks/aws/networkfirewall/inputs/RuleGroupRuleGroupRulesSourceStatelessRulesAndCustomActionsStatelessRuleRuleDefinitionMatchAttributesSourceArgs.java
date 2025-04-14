@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
      * An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
      * 
      */
-    private UndeferrableValue<String> addressDefinition;
-
+    @PolicyResourceProperty(name="addressDefinition", flag="unknown_addressDefinition")
+    private String value_addressDefinition;
+    private boolean unknown_addressDefinition;
     public String addressDefinition() {
-        if (addressDefinition == null) return null;
-        return addressDefinition.getValue("RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs.addressDefinition");
+        if (!unknown_addressDefinition) return value_addressDefinition;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs.addressDefinition' is not present");
     }
 
 }

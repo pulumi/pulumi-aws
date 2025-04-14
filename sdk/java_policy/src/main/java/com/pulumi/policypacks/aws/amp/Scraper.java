@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.amp;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.amp.outputs.ScraperDestination;
 import com.pulumi.policypacks.aws.amp.outputs.ScraperRoleConfiguration;
@@ -21,66 +22,72 @@ public final class Scraper extends com.pulumi.resources.PolicyResourceOutput {
      * a name to associate with the managed scraper. This is for your use, and does not need to be unique.
      * 
      */
-    private @Nullable UndeferrableValue<String> alias;
-
+    @PolicyResourceProperty(name="alias", flag="unknown_alias")
+    private @Nullable String value_alias;
+    private boolean unknown_alias;
     public @Nullable String alias() {
-        if (alias == null) return null;
-        return alias.getValue("Scraper.alias");
+        if (!unknown_alias) return value_alias;
+        throw new UndeferrableValueException("Value 'Scraper.alias' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the new scraper.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Scraper.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Scraper.arn' is not present");
     }
 
     /**
      * Configuration block for the managed scraper to send metrics to. See `destination`.
      * 
      */
-    private @Nullable UndeferrableValue<ScraperDestination> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private @Nullable ScraperDestination value_destination;
+    private boolean unknown_destination;
     public @Nullable ScraperDestination destination() {
-        if (destination == null) return null;
-        return destination.getValue("Scraper.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'Scraper.destination' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("Scraper.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'Scraper.roleArn' is not present");
     }
 
     /**
      * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `role_configuration` below.
      * 
      */
-    private @Nullable UndeferrableValue<ScraperRoleConfiguration> roleConfiguration;
-
+    @PolicyResourceProperty(name="roleConfiguration", flag="unknown_roleConfiguration")
+    private @Nullable ScraperRoleConfiguration value_roleConfiguration;
+    private boolean unknown_roleConfiguration;
     public @Nullable ScraperRoleConfiguration roleConfiguration() {
-        if (roleConfiguration == null) return null;
-        return roleConfiguration.getValue("Scraper.roleConfiguration");
+        if (!unknown_roleConfiguration) return value_roleConfiguration;
+        throw new UndeferrableValueException("Value 'Scraper.roleConfiguration' is not present");
     }
 
     /**
      * The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
      * 
      */
-    private UndeferrableValue<String> scrapeConfiguration;
-
+    @PolicyResourceProperty(name="scrapeConfiguration", flag="unknown_scrapeConfiguration")
+    private String value_scrapeConfiguration;
+    private boolean unknown_scrapeConfiguration;
     public String scrapeConfiguration() {
-        if (scrapeConfiguration == null) return null;
-        return scrapeConfiguration.getValue("Scraper.scrapeConfiguration");
+        if (!unknown_scrapeConfiguration) return value_scrapeConfiguration;
+        throw new UndeferrableValueException("Value 'Scraper.scrapeConfiguration' is not present");
     }
 
     /**
@@ -89,18 +96,20 @@ public final class Scraper extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private @Nullable UndeferrableValue<ScraperSource> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private @Nullable ScraperSource value_source;
+    private boolean unknown_source;
     public @Nullable ScraperSource source() {
-        if (source == null) return null;
-        return source.getValue("Scraper.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'Scraper.source' is not present");
     }
 
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Scraper.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Scraper.tags' is not present");
     }
 
     /**
@@ -109,18 +118,20 @@ public final class Scraper extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Scraper.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Scraper.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<ScraperTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable ScraperTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable ScraperTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("Scraper.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'Scraper.timeouts' is not present");
     }
 
 }

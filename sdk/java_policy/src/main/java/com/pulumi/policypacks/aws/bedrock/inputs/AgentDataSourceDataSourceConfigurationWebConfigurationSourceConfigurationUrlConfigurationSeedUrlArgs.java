@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceC
      * Seed or starting point URL. Must match the pattern `^https?://[A-Za-z0-9][^\s]*$`.
      * 
      */
-    private UndeferrableValue<String> url;
-
+    @PolicyResourceProperty(name="url", flag="unknown_url")
+    private String value_url;
+    private boolean unknown_url;
     public String url() {
-        if (url == null) return null;
-        return url.getValue("AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs.url");
+        if (!unknown_url) return value_url;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs.url' is not present");
     }
 
 }

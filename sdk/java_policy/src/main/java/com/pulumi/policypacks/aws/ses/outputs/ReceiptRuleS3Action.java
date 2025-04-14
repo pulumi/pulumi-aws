@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ses.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,66 +16,72 @@ public final class ReceiptRuleS3Action {
      * The name of the S3 bucket
      * 
      */
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("ReceiptRuleS3Action.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'ReceiptRuleS3Action.bucketName' is not present");
     }
 
     /**
      * The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
      * 
      */
-    private @Nullable UndeferrableValue<String> iamRoleArn;
-
+    @PolicyResourceProperty(name="iamRoleArn", flag="unknown_iamRoleArn")
+    private @Nullable String value_iamRoleArn;
+    private boolean unknown_iamRoleArn;
     public @Nullable String iamRoleArn() {
-        if (iamRoleArn == null) return null;
-        return iamRoleArn.getValue("ReceiptRuleS3Action.iamRoleArn");
+        if (!unknown_iamRoleArn) return value_iamRoleArn;
+        throw new UndeferrableValueException("Value 'ReceiptRuleS3Action.iamRoleArn' is not present");
     }
 
     /**
      * The ARN of the KMS key
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private @Nullable String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public @Nullable String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("ReceiptRuleS3Action.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'ReceiptRuleS3Action.kmsKeyArn' is not present");
     }
 
     /**
      * The key prefix of the S3 bucket
      * 
      */
-    private @Nullable UndeferrableValue<String> objectKeyPrefix;
-
+    @PolicyResourceProperty(name="objectKeyPrefix", flag="unknown_objectKeyPrefix")
+    private @Nullable String value_objectKeyPrefix;
+    private boolean unknown_objectKeyPrefix;
     public @Nullable String objectKeyPrefix() {
-        if (objectKeyPrefix == null) return null;
-        return objectKeyPrefix.getValue("ReceiptRuleS3Action.objectKeyPrefix");
+        if (!unknown_objectKeyPrefix) return value_objectKeyPrefix;
+        throw new UndeferrableValueException("Value 'ReceiptRuleS3Action.objectKeyPrefix' is not present");
     }
 
     /**
      * The position of the action in the receipt rule
      * 
      */
-    private UndeferrableValue<Integer> position;
-
+    @PolicyResourceProperty(name="position", flag="unknown_position")
+    private Integer value_position;
+    private boolean unknown_position;
     public Integer position() {
-        if (position == null) return null;
-        return position.getValue("ReceiptRuleS3Action.position");
+        if (!unknown_position) return value_position;
+        throw new UndeferrableValueException("Value 'ReceiptRuleS3Action.position' is not present");
     }
 
     /**
      * The ARN of an SNS topic to notify
      * 
      */
-    private @Nullable UndeferrableValue<String> topicArn;
-
+    @PolicyResourceProperty(name="topicArn", flag="unknown_topicArn")
+    private @Nullable String value_topicArn;
+    private boolean unknown_topicArn;
     public @Nullable String topicArn() {
-        if (topicArn == null) return null;
-        return topicArn.getValue("ReceiptRuleS3Action.topicArn");
+        if (!unknown_topicArn) return value_topicArn;
+        throw new UndeferrableValueException("Value 'ReceiptRuleS3Action.topicArn' is not present");
     }
 
 }

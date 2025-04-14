@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudformation.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class StackSetInstanceStackInstanceSummary {
      * Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
      * 
      */
-    private @Nullable UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private @Nullable String value_accountId;
+    private boolean unknown_accountId;
     public @Nullable String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("StackSetInstanceStackInstanceSummary.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'StackSetInstanceStackInstanceSummary.accountId' is not present");
     }
 
     /**
      * Organizational unit ID in which the stack is deployed.
      * 
      */
-    private @Nullable UndeferrableValue<String> organizationalUnitId;
-
+    @PolicyResourceProperty(name="organizationalUnitId", flag="unknown_organizationalUnitId")
+    private @Nullable String value_organizationalUnitId;
+    private boolean unknown_organizationalUnitId;
     public @Nullable String organizationalUnitId() {
-        if (organizationalUnitId == null) return null;
-        return organizationalUnitId.getValue("StackSetInstanceStackInstanceSummary.organizationalUnitId");
+        if (!unknown_organizationalUnitId) return value_organizationalUnitId;
+        throw new UndeferrableValueException("Value 'StackSetInstanceStackInstanceSummary.organizationalUnitId' is not present");
     }
 
     /**
      * Stack identifier.
      * 
      */
-    private @Nullable UndeferrableValue<String> stackId;
-
+    @PolicyResourceProperty(name="stackId", flag="unknown_stackId")
+    private @Nullable String value_stackId;
+    private boolean unknown_stackId;
     public @Nullable String stackId() {
-        if (stackId == null) return null;
-        return stackId.getValue("StackSetInstanceStackInstanceSummary.stackId");
+        if (!unknown_stackId) return value_stackId;
+        throw new UndeferrableValueException("Value 'StackSetInstanceStackInstanceSummary.stackId' is not present");
     }
 
 }

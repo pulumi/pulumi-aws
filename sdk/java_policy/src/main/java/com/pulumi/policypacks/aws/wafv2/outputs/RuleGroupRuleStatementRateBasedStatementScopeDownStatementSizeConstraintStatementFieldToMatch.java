@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies;
@@ -27,143 +28,156 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSiz
      * Inspect all query arguments.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments> allQueryArguments;
-
+    @PolicyResourceProperty(name="allQueryArguments", flag="unknown_allQueryArguments")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments value_allQueryArguments;
+    private boolean unknown_allQueryArguments;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments allQueryArguments() {
-        if (allQueryArguments == null) return null;
-        return allQueryArguments.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.allQueryArguments");
+        if (!unknown_allQueryArguments) return value_allQueryArguments;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.allQueryArguments' is not present");
     }
 
     /**
      * Inspect the request body, which immediately follows the request headers.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody> body;
-
+    @PolicyResourceProperty(name="body", flag="unknown_body")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody value_body;
+    private boolean unknown_body;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody body() {
-        if (body == null) return null;
-        return body.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.body");
+        if (!unknown_body) return value_body;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.body' is not present");
     }
 
     /**
      * Inspect the cookies in the web request. See Cookies below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies> cookies;
-
+    @PolicyResourceProperty(name="cookies", flag="unknown_cookies")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies value_cookies;
+    private boolean unknown_cookies;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies cookies() {
-        if (cookies == null) return null;
-        return cookies.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.cookies");
+        if (!unknown_cookies) return value_cookies;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.cookies' is not present");
     }
 
     /**
      * Inspect the request headers. See Header Order below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder>> headerOrders;
-
+    @PolicyResourceProperty(name="headerOrders", flag="unknown_headerOrders")
+    private @Nullable List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder> value_headerOrders;
+    private boolean unknown_headerOrders;
     public @Nullable List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderOrder> headerOrders() {
-        if (headerOrders == null) return null;
-        return headerOrders.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.headerOrders");
+        if (!unknown_headerOrders) return value_headerOrders;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.headerOrders' is not present");
     }
 
     /**
      * Inspect the request headers. See Headers below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader>> headers;
-
+    @PolicyResourceProperty(name="headers", flag="unknown_headers")
+    private @Nullable List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader> value_headers;
+    private boolean unknown_headers;
     public @Nullable List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader> headers() {
-        if (headers == null) return null;
-        return headers.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.headers");
+        if (!unknown_headers) return value_headers;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.headers' is not present");
     }
 
     /**
      * Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint> ja3Fingerprint;
-
+    @PolicyResourceProperty(name="ja3Fingerprint", flag="unknown_ja3Fingerprint")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint value_ja3Fingerprint;
+    private boolean unknown_ja3Fingerprint;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint ja3Fingerprint() {
-        if (ja3Fingerprint == null) return null;
-        return ja3Fingerprint.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.ja3Fingerprint");
+        if (!unknown_ja3Fingerprint) return value_ja3Fingerprint;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.ja3Fingerprint' is not present");
     }
 
     /**
      * Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint> ja4Fingerprint;
-
+    @PolicyResourceProperty(name="ja4Fingerprint", flag="unknown_ja4Fingerprint")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint value_ja4Fingerprint;
+    private boolean unknown_ja4Fingerprint;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa4Fingerprint ja4Fingerprint() {
-        if (ja4Fingerprint == null) return null;
-        return ja4Fingerprint.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.ja4Fingerprint");
+        if (!unknown_ja4Fingerprint) return value_ja4Fingerprint;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.ja4Fingerprint' is not present");
     }
 
     /**
      * Inspect the request body as JSON. See JSON Body for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody> jsonBody;
-
+    @PolicyResourceProperty(name="jsonBody", flag="unknown_jsonBody")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody value_jsonBody;
+    private boolean unknown_jsonBody;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody jsonBody() {
-        if (jsonBody == null) return null;
-        return jsonBody.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.jsonBody");
+        if (!unknown_jsonBody) return value_jsonBody;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.jsonBody' is not present");
     }
 
     /**
      * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod> method;
-
+    @PolicyResourceProperty(name="method", flag="unknown_method")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod value_method;
+    private boolean unknown_method;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod method() {
-        if (method == null) return null;
-        return method.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.method");
+        if (!unknown_method) return value_method;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.method' is not present");
     }
 
     /**
      * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString> queryString;
-
+    @PolicyResourceProperty(name="queryString", flag="unknown_queryString")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString value_queryString;
+    private boolean unknown_queryString;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString queryString() {
-        if (queryString == null) return null;
-        return queryString.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.queryString");
+        if (!unknown_queryString) return value_queryString;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.queryString' is not present");
     }
 
     /**
      * Inspect a single header. See Single Header below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader> singleHeader;
-
+    @PolicyResourceProperty(name="singleHeader", flag="unknown_singleHeader")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader value_singleHeader;
+    private boolean unknown_singleHeader;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader singleHeader() {
-        if (singleHeader == null) return null;
-        return singleHeader.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.singleHeader");
+        if (!unknown_singleHeader) return value_singleHeader;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.singleHeader' is not present");
     }
 
     /**
      * Inspect a single query argument. See Single Query Argument below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument> singleQueryArgument;
-
+    @PolicyResourceProperty(name="singleQueryArgument", flag="unknown_singleQueryArgument")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument value_singleQueryArgument;
+    private boolean unknown_singleQueryArgument;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument singleQueryArgument() {
-        if (singleQueryArgument == null) return null;
-        return singleQueryArgument.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.singleQueryArgument");
+        if (!unknown_singleQueryArgument) return value_singleQueryArgument;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.singleQueryArgument' is not present");
     }
 
     /**
      * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath> uriPath;
-
+    @PolicyResourceProperty(name="uriPath", flag="unknown_uriPath")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath value_uriPath;
+    private boolean unknown_uriPath;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath uriPath() {
-        if (uriPath == null) return null;
-        return uriPath.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.uriPath");
+        if (!unknown_uriPath) return value_uriPath;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch.uriPath' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -12,46 +13,52 @@ import javax.annotation.Nullable;
 
 public final class InstanceEbsBlockDeviceArgs {
 
-    private UndeferrableValue<Boolean> deleteOnTermination;
-
+    @PolicyResourceProperty(name="deleteOnTermination", flag="unknown_deleteOnTermination")
+    private Boolean value_deleteOnTermination;
+    private boolean unknown_deleteOnTermination;
     public Boolean deleteOnTermination() {
-        if (deleteOnTermination == null) return null;
-        return deleteOnTermination.getValue("InstanceEbsBlockDeviceArgs.deleteOnTermination");
+        if (!unknown_deleteOnTermination) return value_deleteOnTermination;
+        throw new UndeferrableValueException("Value 'InstanceEbsBlockDeviceArgs.deleteOnTermination' is not present");
     }
 
-    private UndeferrableValue<String> deviceName;
-
+    @PolicyResourceProperty(name="deviceName", flag="unknown_deviceName")
+    private String value_deviceName;
+    private boolean unknown_deviceName;
     public String deviceName() {
-        if (deviceName == null) return null;
-        return deviceName.getValue("InstanceEbsBlockDeviceArgs.deviceName");
+        if (!unknown_deviceName) return value_deviceName;
+        throw new UndeferrableValueException("Value 'InstanceEbsBlockDeviceArgs.deviceName' is not present");
     }
 
-    private UndeferrableValue<Integer> iops;
-
+    @PolicyResourceProperty(name="iops", flag="unknown_iops")
+    private Integer value_iops;
+    private boolean unknown_iops;
     public Integer iops() {
-        if (iops == null) return null;
-        return iops.getValue("InstanceEbsBlockDeviceArgs.iops");
+        if (!unknown_iops) return value_iops;
+        throw new UndeferrableValueException("Value 'InstanceEbsBlockDeviceArgs.iops' is not present");
     }
 
-    private UndeferrableValue<String> snapshotId;
-
+    @PolicyResourceProperty(name="snapshotId", flag="unknown_snapshotId")
+    private String value_snapshotId;
+    private boolean unknown_snapshotId;
     public String snapshotId() {
-        if (snapshotId == null) return null;
-        return snapshotId.getValue("InstanceEbsBlockDeviceArgs.snapshotId");
+        if (!unknown_snapshotId) return value_snapshotId;
+        throw new UndeferrableValueException("Value 'InstanceEbsBlockDeviceArgs.snapshotId' is not present");
     }
 
-    private UndeferrableValue<Integer> volumeSize;
-
+    @PolicyResourceProperty(name="volumeSize", flag="unknown_volumeSize")
+    private Integer value_volumeSize;
+    private boolean unknown_volumeSize;
     public Integer volumeSize() {
-        if (volumeSize == null) return null;
-        return volumeSize.getValue("InstanceEbsBlockDeviceArgs.volumeSize");
+        if (!unknown_volumeSize) return value_volumeSize;
+        throw new UndeferrableValueException("Value 'InstanceEbsBlockDeviceArgs.volumeSize' is not present");
     }
 
-    private UndeferrableValue<String> volumeType;
-
+    @PolicyResourceProperty(name="volumeType", flag="unknown_volumeType")
+    private String value_volumeType;
+    private boolean unknown_volumeType;
     public String volumeType() {
-        if (volumeType == null) return null;
-        return volumeType.getValue("InstanceEbsBlockDeviceArgs.volumeType");
+        if (!unknown_volumeType) return value_volumeType;
+        throw new UndeferrableValueException("Value 'InstanceEbsBlockDeviceArgs.volumeType' is not present");
     }
 
 }

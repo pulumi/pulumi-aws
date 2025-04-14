@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.outputs.DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DomainDefaultUserSettingsTensorBoardAppSettings {
      * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
      * 
      */
-    private @Nullable UndeferrableValue<DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec> defaultResourceSpec;
-
+    @PolicyResourceProperty(name="defaultResourceSpec", flag="unknown_defaultResourceSpec")
+    private @Nullable DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec value_defaultResourceSpec;
+    private boolean unknown_defaultResourceSpec;
     public @Nullable DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec defaultResourceSpec() {
-        if (defaultResourceSpec == null) return null;
-        return defaultResourceSpec.getValue("DomainDefaultUserSettingsTensorBoardAppSettings.defaultResourceSpec");
+        if (!unknown_defaultResourceSpec) return value_defaultResourceSpec;
+        throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsTensorBoardAppSettings.defaultResourceSpec' is not present");
     }
 
 }

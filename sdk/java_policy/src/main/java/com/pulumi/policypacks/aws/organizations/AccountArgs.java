@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.organizations;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class AccountArgs extends com.pulumi.resources.PolicyResourceInput 
      * If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
      * 
      */
-    private UndeferrableValue<Boolean> closeOnDeletion;
-
+    @PolicyResourceProperty(name="closeOnDeletion", flag="unknown_closeOnDeletion")
+    private Boolean value_closeOnDeletion;
+    private boolean unknown_closeOnDeletion;
     public Boolean closeOnDeletion() {
-        if (closeOnDeletion == null) return null;
-        return closeOnDeletion.getValue("AccountArgs.closeOnDeletion");
+        if (!unknown_closeOnDeletion) return value_closeOnDeletion;
+        throw new UndeferrableValueException("Value 'AccountArgs.closeOnDeletion' is not present");
     }
 
     /**
      * Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
      * 
      */
-    private UndeferrableValue<Boolean> createGovcloud;
-
+    @PolicyResourceProperty(name="createGovcloud", flag="unknown_createGovcloud")
+    private Boolean value_createGovcloud;
+    private boolean unknown_createGovcloud;
     public Boolean createGovcloud() {
-        if (createGovcloud == null) return null;
-        return createGovcloud.getValue("AccountArgs.createGovcloud");
+        if (!unknown_createGovcloud) return value_createGovcloud;
+        throw new UndeferrableValueException("Value 'AccountArgs.createGovcloud' is not present");
     }
 
     /**
      * Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
      * 
      */
-    private UndeferrableValue<String> email;
-
+    @PolicyResourceProperty(name="email", flag="unknown_email")
+    private String value_email;
+    private boolean unknown_email;
     public String email() {
-        if (email == null) return null;
-        return email.getValue("AccountArgs.email");
+        if (!unknown_email) return value_email;
+        throw new UndeferrableValueException("Value 'AccountArgs.email' is not present");
     }
 
     /**
      * If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
      * 
      */
-    private UndeferrableValue<String> iamUserAccessToBilling;
-
+    @PolicyResourceProperty(name="iamUserAccessToBilling", flag="unknown_iamUserAccessToBilling")
+    private String value_iamUserAccessToBilling;
+    private boolean unknown_iamUserAccessToBilling;
     public String iamUserAccessToBilling() {
-        if (iamUserAccessToBilling == null) return null;
-        return iamUserAccessToBilling.getValue("AccountArgs.iamUserAccessToBilling");
+        if (!unknown_iamUserAccessToBilling) return value_iamUserAccessToBilling;
+        throw new UndeferrableValueException("Value 'AccountArgs.iamUserAccessToBilling' is not present");
     }
 
     /**
@@ -64,44 +69,48 @@ public final class AccountArgs extends com.pulumi.resources.PolicyResourceInput 
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AccountArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AccountArgs.name' is not present");
     }
 
     /**
      * Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
      * 
      */
-    private UndeferrableValue<String> parentId;
-
+    @PolicyResourceProperty(name="parentId", flag="unknown_parentId")
+    private String value_parentId;
+    private boolean unknown_parentId;
     public String parentId() {
-        if (parentId == null) return null;
-        return parentId.getValue("AccountArgs.parentId");
+        if (!unknown_parentId) return value_parentId;
+        throw new UndeferrableValueException("Value 'AccountArgs.parentId' is not present");
     }
 
     /**
      * The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
      * 
      */
-    private UndeferrableValue<String> roleName;
-
+    @PolicyResourceProperty(name="roleName", flag="unknown_roleName")
+    private String value_roleName;
+    private boolean unknown_roleName;
     public String roleName() {
-        if (roleName == null) return null;
-        return roleName.getValue("AccountArgs.roleName");
+        if (!unknown_roleName) return value_roleName;
+        throw new UndeferrableValueException("Value 'AccountArgs.roleName' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AccountArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AccountArgs.tags' is not present");
     }
 
 }

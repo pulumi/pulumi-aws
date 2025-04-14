@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.macie2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.macie2.outputs.ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm;
 import com.pulumi.policypacks.aws.macie2.outputs.ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ClassificationJobS3JobDefinitionScopingExcludesAnd {
      * A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
      * 
      */
-    private @Nullable UndeferrableValue<ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm> simpleScopeTerm;
-
+    @PolicyResourceProperty(name="simpleScopeTerm", flag="unknown_simpleScopeTerm")
+    private @Nullable ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm value_simpleScopeTerm;
+    private boolean unknown_simpleScopeTerm;
     public @Nullable ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm simpleScopeTerm() {
-        if (simpleScopeTerm == null) return null;
-        return simpleScopeTerm.getValue("ClassificationJobS3JobDefinitionScopingExcludesAnd.simpleScopeTerm");
+        if (!unknown_simpleScopeTerm) return value_simpleScopeTerm;
+        throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionScopingExcludesAnd.simpleScopeTerm' is not present");
     }
 
     /**
      * A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
      * 
      */
-    private @Nullable UndeferrableValue<ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm> tagScopeTerm;
-
+    @PolicyResourceProperty(name="tagScopeTerm", flag="unknown_tagScopeTerm")
+    private @Nullable ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm value_tagScopeTerm;
+    private boolean unknown_tagScopeTerm;
     public @Nullable ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm tagScopeTerm() {
-        if (tagScopeTerm == null) return null;
-        return tagScopeTerm.getValue("ClassificationJobS3JobDefinitionScopingExcludesAnd.tagScopeTerm");
+        if (!unknown_tagScopeTerm) return value_tagScopeTerm;
+        throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionScopingExcludesAnd.tagScopeTerm' is not present");
     }
 
 }

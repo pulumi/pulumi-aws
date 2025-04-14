@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codedeploy.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codedeploy.inputs.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs;
 import com.pulumi.policypacks.aws.codedeploy.inputs.DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs;
 import com.pulumi.policypacks.aws.codedeploy.inputs.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs;
@@ -16,22 +17,24 @@ public final class DeploymentGroupBlueGreenDeploymentConfigArgs {
      * Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
      * 
      */
-    private UndeferrableValue<DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs> deploymentReadyOption;
-
+    @PolicyResourceProperty(name="deploymentReadyOption", flag="unknown_deploymentReadyOption")
+    private DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs value_deploymentReadyOption;
+    private boolean unknown_deploymentReadyOption;
     public DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs deploymentReadyOption() {
-        if (deploymentReadyOption == null) return null;
-        return deploymentReadyOption.getValue("DeploymentGroupBlueGreenDeploymentConfigArgs.deploymentReadyOption");
+        if (!unknown_deploymentReadyOption) return value_deploymentReadyOption;
+        throw new UndeferrableValueException("Value 'DeploymentGroupBlueGreenDeploymentConfigArgs.deploymentReadyOption' is not present");
     }
 
     /**
      * Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
      * 
      */
-    private UndeferrableValue<DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs> greenFleetProvisioningOption;
-
+    @PolicyResourceProperty(name="greenFleetProvisioningOption", flag="unknown_greenFleetProvisioningOption")
+    private DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs value_greenFleetProvisioningOption;
+    private boolean unknown_greenFleetProvisioningOption;
     public DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs greenFleetProvisioningOption() {
-        if (greenFleetProvisioningOption == null) return null;
-        return greenFleetProvisioningOption.getValue("DeploymentGroupBlueGreenDeploymentConfigArgs.greenFleetProvisioningOption");
+        if (!unknown_greenFleetProvisioningOption) return value_greenFleetProvisioningOption;
+        throw new UndeferrableValueException("Value 'DeploymentGroupBlueGreenDeploymentConfigArgs.greenFleetProvisioningOption' is not present");
     }
 
     /**
@@ -40,11 +43,12 @@ public final class DeploymentGroupBlueGreenDeploymentConfigArgs {
      * _Only one `blue_green_deployment_config` is allowed_.
      * 
      */
-    private UndeferrableValue<DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs> terminateBlueInstancesOnDeploymentSuccess;
-
+    @PolicyResourceProperty(name="terminateBlueInstancesOnDeploymentSuccess", flag="unknown_terminateBlueInstancesOnDeploymentSuccess")
+    private DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs value_terminateBlueInstancesOnDeploymentSuccess;
+    private boolean unknown_terminateBlueInstancesOnDeploymentSuccess;
     public DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs terminateBlueInstancesOnDeploymentSuccess() {
-        if (terminateBlueInstancesOnDeploymentSuccess == null) return null;
-        return terminateBlueInstancesOnDeploymentSuccess.getValue("DeploymentGroupBlueGreenDeploymentConfigArgs.terminateBlueInstancesOnDeploymentSuccess");
+        if (!unknown_terminateBlueInstancesOnDeploymentSuccess) return value_terminateBlueInstancesOnDeploymentSuccess;
+        throw new UndeferrableValueException("Value 'DeploymentGroupBlueGreenDeploymentConfigArgs.terminateBlueInstancesOnDeploymentSuccess' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class PipeTargetParametersBatchJobParametersDependsOnArgs {
      * The job ID of the AWS Batch job that&#39;s associated with this dependency.
      * 
      */
-    private UndeferrableValue<String> jobId;
-
+    @PolicyResourceProperty(name="jobId", flag="unknown_jobId")
+    private String value_jobId;
+    private boolean unknown_jobId;
     public String jobId() {
-        if (jobId == null) return null;
-        return jobId.getValue("PipeTargetParametersBatchJobParametersDependsOnArgs.jobId");
+        if (!unknown_jobId) return value_jobId;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParametersDependsOnArgs.jobId' is not present");
     }
 
     /**
      * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("PipeTargetParametersBatchJobParametersDependsOnArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParametersDependsOnArgs.type' is not present");
     }
 
 }

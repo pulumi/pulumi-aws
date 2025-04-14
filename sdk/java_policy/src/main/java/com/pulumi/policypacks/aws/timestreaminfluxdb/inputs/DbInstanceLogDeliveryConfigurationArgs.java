@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreaminfluxdb.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.timestreaminfluxdb.inputs.DbInstanceLogDeliveryConfigurationS3ConfigurationArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DbInstanceLogDeliveryConfigurationArgs {
      * Configuration for S3 bucket log delivery.
      * 
      */
-    private UndeferrableValue<DbInstanceLogDeliveryConfigurationS3ConfigurationArgs> s3Configuration;
-
+    @PolicyResourceProperty(name="s3Configuration", flag="unknown_s3Configuration")
+    private DbInstanceLogDeliveryConfigurationS3ConfigurationArgs value_s3Configuration;
+    private boolean unknown_s3Configuration;
     public DbInstanceLogDeliveryConfigurationS3ConfigurationArgs s3Configuration() {
-        if (s3Configuration == null) return null;
-        return s3Configuration.getValue("DbInstanceLogDeliveryConfigurationArgs.s3Configuration");
+        if (!unknown_s3Configuration) return value_s3Configuration;
+        throw new UndeferrableValueException("Value 'DbInstanceLogDeliveryConfigurationArgs.s3Configuration' is not present");
     }
 
 }

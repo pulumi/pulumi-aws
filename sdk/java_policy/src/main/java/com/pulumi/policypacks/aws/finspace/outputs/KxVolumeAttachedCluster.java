@@ -3,31 +3,35 @@
 
 package com.pulumi.policypacks.aws.finspace.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class KxVolumeAttachedCluster {
 
-    private UndeferrableValue<String> clusterName;
-
+    @PolicyResourceProperty(name="clusterName", flag="unknown_clusterName")
+    private String value_clusterName;
+    private boolean unknown_clusterName;
     public String clusterName() {
-        if (clusterName == null) return null;
-        return clusterName.getValue("KxVolumeAttachedCluster.clusterName");
+        if (!unknown_clusterName) return value_clusterName;
+        throw new UndeferrableValueException("Value 'KxVolumeAttachedCluster.clusterName' is not present");
     }
 
-    private UndeferrableValue<String> clusterStatus;
-
+    @PolicyResourceProperty(name="clusterStatus", flag="unknown_clusterStatus")
+    private String value_clusterStatus;
+    private boolean unknown_clusterStatus;
     public String clusterStatus() {
-        if (clusterStatus == null) return null;
-        return clusterStatus.getValue("KxVolumeAttachedCluster.clusterStatus");
+        if (!unknown_clusterStatus) return value_clusterStatus;
+        throw new UndeferrableValueException("Value 'KxVolumeAttachedCluster.clusterStatus' is not present");
     }
 
-    private UndeferrableValue<String> clusterType;
-
+    @PolicyResourceProperty(name="clusterType", flag="unknown_clusterType")
+    private String value_clusterType;
+    private boolean unknown_clusterType;
     public String clusterType() {
-        if (clusterType == null) return null;
-        return clusterType.getValue("KxVolumeAttachedCluster.clusterType");
+        if (!unknown_clusterType) return value_clusterType;
+        throw new UndeferrableValueException("Value 'KxVolumeAttachedCluster.clusterType' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs;
 import com.pulumi.policypacks.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs;
 import com.pulumi.policypacks.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs;
@@ -19,121 +20,132 @@ public final class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs {
      * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
-    private UndeferrableValue<Integer> bufferingInterval;
-
+    @PolicyResourceProperty(name="bufferingInterval", flag="unknown_bufferingInterval")
+    private Integer value_bufferingInterval;
+    private boolean unknown_bufferingInterval;
     public Integer bufferingInterval() {
-        if (bufferingInterval == null) return null;
-        return bufferingInterval.getValue("FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs.bufferingInterval");
+        if (!unknown_bufferingInterval) return value_bufferingInterval;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs.bufferingInterval' is not present");
     }
 
     /**
      * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
      * 
      */
-    private UndeferrableValue<Integer> bufferingSize;
-
+    @PolicyResourceProperty(name="bufferingSize", flag="unknown_bufferingSize")
+    private Integer value_bufferingSize;
+    private boolean unknown_bufferingSize;
     public Integer bufferingSize() {
-        if (bufferingSize == null) return null;
-        return bufferingSize.getValue("FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs.bufferingSize");
+        if (!unknown_bufferingSize) return value_bufferingSize;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs.bufferingSize' is not present");
     }
 
     /**
      * The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
-
+    @PolicyResourceProperty(name="cloudwatchLoggingOptions", flag="unknown_cloudwatchLoggingOptions")
+    private FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs value_cloudwatchLoggingOptions;
+    private boolean unknown_cloudwatchLoggingOptions;
     public FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs cloudwatchLoggingOptions() {
-        if (cloudwatchLoggingOptions == null) return null;
-        return cloudwatchLoggingOptions.getValue("FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs.cloudwatchLoggingOptions");
+        if (!unknown_cloudwatchLoggingOptions) return value_cloudwatchLoggingOptions;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs.cloudwatchLoggingOptions' is not present");
     }
 
     /**
      * The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
      * 
      */
-    private UndeferrableValue<String> collectionEndpoint;
-
+    @PolicyResourceProperty(name="collectionEndpoint", flag="unknown_collectionEndpoint")
+    private String value_collectionEndpoint;
+    private boolean unknown_collectionEndpoint;
     public String collectionEndpoint() {
-        if (collectionEndpoint == null) return null;
-        return collectionEndpoint.getValue("FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs.collectionEndpoint");
+        if (!unknown_collectionEndpoint) return value_collectionEndpoint;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs.collectionEndpoint' is not present");
     }
 
     /**
      * The Serverless offering for Amazon OpenSearch Service index name.
      * 
      */
-    private UndeferrableValue<String> indexName;
-
+    @PolicyResourceProperty(name="indexName", flag="unknown_indexName")
+    private String value_indexName;
+    private boolean unknown_indexName;
     public String indexName() {
-        if (indexName == null) return null;
-        return indexName.getValue("FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs.indexName");
+        if (!unknown_indexName) return value_indexName;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs.indexName' is not present");
     }
 
     /**
      * The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs> processingConfiguration;
-
+    @PolicyResourceProperty(name="processingConfiguration", flag="unknown_processingConfiguration")
+    private FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs value_processingConfiguration;
+    private boolean unknown_processingConfiguration;
     public FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs processingConfiguration() {
-        if (processingConfiguration == null) return null;
-        return processingConfiguration.getValue("FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs.processingConfiguration");
+        if (!unknown_processingConfiguration) return value_processingConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs.processingConfiguration' is not present");
     }
 
     /**
      * After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
      * 
      */
-    private UndeferrableValue<Integer> retryDuration;
-
+    @PolicyResourceProperty(name="retryDuration", flag="unknown_retryDuration")
+    private Integer value_retryDuration;
+    private boolean unknown_retryDuration;
     public Integer retryDuration() {
-        if (retryDuration == null) return null;
-        return retryDuration.getValue("FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs.retryDuration");
+        if (!unknown_retryDuration) return value_retryDuration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs.retryDuration' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs.roleArn' is not present");
     }
 
     /**
      * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
      * 
      */
-    private UndeferrableValue<String> s3BackupMode;
-
+    @PolicyResourceProperty(name="s3BackupMode", flag="unknown_s3BackupMode")
+    private String value_s3BackupMode;
+    private boolean unknown_s3BackupMode;
     public String s3BackupMode() {
-        if (s3BackupMode == null) return null;
-        return s3BackupMode.getValue("FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs.s3BackupMode");
+        if (!unknown_s3BackupMode) return value_s3BackupMode;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs.s3BackupMode' is not present");
     }
 
     /**
      * The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs> s3Configuration;
-
+    @PolicyResourceProperty(name="s3Configuration", flag="unknown_s3Configuration")
+    private FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs value_s3Configuration;
+    private boolean unknown_s3Configuration;
     public FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs s3Configuration() {
-        if (s3Configuration == null) return null;
-        return s3Configuration.getValue("FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs.s3Configuration");
+        if (!unknown_s3Configuration) return value_s3Configuration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs.s3Configuration' is not present");
     }
 
     /**
      * The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpc_config` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs> vpcConfig;
-
+    @PolicyResourceProperty(name="vpcConfig", flag="unknown_vpcConfig")
+    private FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs value_vpcConfig;
+    private boolean unknown_vpcConfig;
     public FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs vpcConfig() {
-        if (vpcConfig == null) return null;
-        return vpcConfig.getValue("FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs.vpcConfig");
+        if (!unknown_vpcConfig) return value_vpcConfig;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs.vpcConfig' is not present");
     }
 
 }

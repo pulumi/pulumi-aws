@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.vpclattice.inputs.ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs;
 import com.pulumi.policypacks.aws.vpclattice.inputs.ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs;
 import com.pulumi.policypacks.aws.vpclattice.inputs.ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs;
@@ -16,33 +17,36 @@ public final class ResourceConfigurationResourceConfigurationDefinitionArgs {
      * Resource DNS Configuration. See `arn_resource` Block for details.
      * 
      */
-    private UndeferrableValue<ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs> arnResource;
-
+    @PolicyResourceProperty(name="arnResource", flag="unknown_arnResource")
+    private ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs value_arnResource;
+    private boolean unknown_arnResource;
     public ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs arnResource() {
-        if (arnResource == null) return null;
-        return arnResource.getValue("ResourceConfigurationResourceConfigurationDefinitionArgs.arnResource");
+        if (!unknown_arnResource) return value_arnResource;
+        throw new UndeferrableValueException("Value 'ResourceConfigurationResourceConfigurationDefinitionArgs.arnResource' is not present");
     }
 
     /**
      * Resource DNS Configuration. See `dns_resource` Block for details.
      * 
      */
-    private UndeferrableValue<ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs> dnsResource;
-
+    @PolicyResourceProperty(name="dnsResource", flag="unknown_dnsResource")
+    private ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs value_dnsResource;
+    private boolean unknown_dnsResource;
     public ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs dnsResource() {
-        if (dnsResource == null) return null;
-        return dnsResource.getValue("ResourceConfigurationResourceConfigurationDefinitionArgs.dnsResource");
+        if (!unknown_dnsResource) return value_dnsResource;
+        throw new UndeferrableValueException("Value 'ResourceConfigurationResourceConfigurationDefinitionArgs.dnsResource' is not present");
     }
 
     /**
      * Resource DNS Configuration. See `ip_resource` Block for details.
      * 
      */
-    private UndeferrableValue<ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs> ipResource;
-
+    @PolicyResourceProperty(name="ipResource", flag="unknown_ipResource")
+    private ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs value_ipResource;
+    private boolean unknown_ipResource;
     public ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs ipResource() {
-        if (ipResource == null) return null;
-        return ipResource.getValue("ResourceConfigurationResourceConfigurationDefinitionArgs.ipResource");
+        if (!unknown_ipResource) return value_ipResource;
+        throw new UndeferrableValueException("Value 'ResourceConfigurationResourceConfigurationDefinitionArgs.ipResource' is not present");
     }
 
 }

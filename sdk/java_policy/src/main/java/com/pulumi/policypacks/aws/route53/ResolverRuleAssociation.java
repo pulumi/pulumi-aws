@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class ResolverRuleAssociation extends com.pulumi.resources.PolicyRe
      * A name for the association that you&#39;re creating between a resolver rule and a VPC.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ResolverRuleAssociation.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ResolverRuleAssociation.name' is not present");
     }
 
     /**
      * The ID of the resolver rule that you want to associate with the VPC.
      * 
      */
-    private UndeferrableValue<String> resolverRuleId;
-
+    @PolicyResourceProperty(name="resolverRuleId", flag="unknown_resolverRuleId")
+    private String value_resolverRuleId;
+    private boolean unknown_resolverRuleId;
     public String resolverRuleId() {
-        if (resolverRuleId == null) return null;
-        return resolverRuleId.getValue("ResolverRuleAssociation.resolverRuleId");
+        if (!unknown_resolverRuleId) return value_resolverRuleId;
+        throw new UndeferrableValueException("Value 'ResolverRuleAssociation.resolverRuleId' is not present");
     }
 
     /**
      * The ID of the VPC that you want to associate the resolver rule with.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("ResolverRuleAssociation.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'ResolverRuleAssociation.vpcId' is not present");
     }
 
 }

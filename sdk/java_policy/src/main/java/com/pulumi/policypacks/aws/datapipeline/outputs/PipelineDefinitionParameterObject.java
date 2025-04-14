@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datapipeline.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.datapipeline.outputs.PipelineDefinitionParameterObjectAttribute;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class PipelineDefinitionParameterObject {
      * Configuration block for attributes of the parameter object. See below
      * 
      */
-    private @Nullable UndeferrableValue<List<PipelineDefinitionParameterObjectAttribute>> attributes;
-
+    @PolicyResourceProperty(name="attributes", flag="unknown_attributes")
+    private @Nullable List<PipelineDefinitionParameterObjectAttribute> value_attributes;
+    private boolean unknown_attributes;
     public @Nullable List<PipelineDefinitionParameterObjectAttribute> attributes() {
-        if (attributes == null) return null;
-        return attributes.getValue("PipelineDefinitionParameterObject.attributes");
+        if (!unknown_attributes) return value_attributes;
+        throw new UndeferrableValueException("Value 'PipelineDefinitionParameterObject.attributes' is not present");
     }
 
     /**
      * ID of the parameter object.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("PipelineDefinitionParameterObject.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'PipelineDefinitionParameterObject.id' is not present");
     }
 
 }

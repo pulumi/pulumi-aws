@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class RiskConfigurationCompromisedCredentialsRiskConfigurationActio
      * The event action. Valid values are `BLOCK` or `NO_ACTION`.
      * 
      */
-    private UndeferrableValue<String> eventAction;
-
+    @PolicyResourceProperty(name="eventAction", flag="unknown_eventAction")
+    private String value_eventAction;
+    private boolean unknown_eventAction;
     public String eventAction() {
-        if (eventAction == null) return null;
-        return eventAction.getValue("RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs.eventAction");
+        if (!unknown_eventAction) return value_eventAction;
+        throw new UndeferrableValueException("Value 'RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs.eventAction' is not present");
     }
 
 }

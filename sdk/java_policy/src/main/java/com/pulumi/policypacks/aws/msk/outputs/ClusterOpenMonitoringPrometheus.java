@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.msk.outputs.ClusterOpenMonitoringPrometheusJmxExporter;
 import com.pulumi.policypacks.aws.msk.outputs.ClusterOpenMonitoringPrometheusNodeExporter;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ClusterOpenMonitoringPrometheus {
      * Configuration block for JMX Exporter. See below.
      * 
      */
-    private @Nullable UndeferrableValue<ClusterOpenMonitoringPrometheusJmxExporter> jmxExporter;
-
+    @PolicyResourceProperty(name="jmxExporter", flag="unknown_jmxExporter")
+    private @Nullable ClusterOpenMonitoringPrometheusJmxExporter value_jmxExporter;
+    private boolean unknown_jmxExporter;
     public @Nullable ClusterOpenMonitoringPrometheusJmxExporter jmxExporter() {
-        if (jmxExporter == null) return null;
-        return jmxExporter.getValue("ClusterOpenMonitoringPrometheus.jmxExporter");
+        if (!unknown_jmxExporter) return value_jmxExporter;
+        throw new UndeferrableValueException("Value 'ClusterOpenMonitoringPrometheus.jmxExporter' is not present");
     }
 
     /**
      * Configuration block for Node Exporter. See below.
      * 
      */
-    private @Nullable UndeferrableValue<ClusterOpenMonitoringPrometheusNodeExporter> nodeExporter;
-
+    @PolicyResourceProperty(name="nodeExporter", flag="unknown_nodeExporter")
+    private @Nullable ClusterOpenMonitoringPrometheusNodeExporter value_nodeExporter;
+    private boolean unknown_nodeExporter;
     public @Nullable ClusterOpenMonitoringPrometheusNodeExporter nodeExporter() {
-        if (nodeExporter == null) return null;
-        return nodeExporter.getValue("ClusterOpenMonitoringPrometheus.nodeExporter");
+        if (!unknown_nodeExporter) return value_nodeExporter;
+        throw new UndeferrableValueException("Value 'ClusterOpenMonitoringPrometheus.nodeExporter' is not present");
     }
 
 }

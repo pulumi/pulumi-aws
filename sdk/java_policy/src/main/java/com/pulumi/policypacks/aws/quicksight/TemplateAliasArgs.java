@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class TemplateAliasArgs extends com.pulumi.resources.PolicyResource
      * Display name of the template alias.
      * 
      */
-    private UndeferrableValue<String> aliasName;
-
+    @PolicyResourceProperty(name="aliasName", flag="unknown_aliasName")
+    private String value_aliasName;
+    private boolean unknown_aliasName;
     public String aliasName() {
-        if (aliasName == null) return null;
-        return aliasName.getValue("TemplateAliasArgs.aliasName");
+        if (!unknown_aliasName) return value_aliasName;
+        throw new UndeferrableValueException("Value 'TemplateAliasArgs.aliasName' is not present");
     }
 
     /**
      * AWS account ID.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("TemplateAliasArgs.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'TemplateAliasArgs.awsAccountId' is not present");
     }
 
     /**
      * ID of the template.
      * 
      */
-    private UndeferrableValue<String> templateId;
-
+    @PolicyResourceProperty(name="templateId", flag="unknown_templateId")
+    private String value_templateId;
+    private boolean unknown_templateId;
     public String templateId() {
-        if (templateId == null) return null;
-        return templateId.getValue("TemplateAliasArgs.templateId");
+        if (!unknown_templateId) return value_templateId;
+        throw new UndeferrableValueException("Value 'TemplateAliasArgs.templateId' is not present");
     }
 
     /**
@@ -52,11 +56,12 @@ public final class TemplateAliasArgs extends com.pulumi.resources.PolicyResource
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<Integer> templateVersionNumber;
-
+    @PolicyResourceProperty(name="templateVersionNumber", flag="unknown_templateVersionNumber")
+    private Integer value_templateVersionNumber;
+    private boolean unknown_templateVersionNumber;
     public Integer templateVersionNumber() {
-        if (templateVersionNumber == null) return null;
-        return templateVersionNumber.getValue("TemplateAliasArgs.templateVersionNumber");
+        if (!unknown_templateVersionNumber) return value_templateVersionNumber;
+        throw new UndeferrableValueException("Value 'TemplateAliasArgs.templateVersionNumber' is not present");
     }
 
 }

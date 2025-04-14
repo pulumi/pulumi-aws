@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.Integer;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ClusterServerlessv2ScalingConfigurationArgs {
      * Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
      * 
      */
-    private UndeferrableValue<Double> maxCapacity;
-
+    @PolicyResourceProperty(name="maxCapacity", flag="unknown_maxCapacity")
+    private Double value_maxCapacity;
+    private boolean unknown_maxCapacity;
     public Double maxCapacity() {
-        if (maxCapacity == null) return null;
-        return maxCapacity.getValue("ClusterServerlessv2ScalingConfigurationArgs.maxCapacity");
+        if (!unknown_maxCapacity) return value_maxCapacity;
+        throw new UndeferrableValueException("Value 'ClusterServerlessv2ScalingConfigurationArgs.maxCapacity' is not present");
     }
 
     /**
      * Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
      * 
      */
-    private UndeferrableValue<Double> minCapacity;
-
+    @PolicyResourceProperty(name="minCapacity", flag="unknown_minCapacity")
+    private Double value_minCapacity;
+    private boolean unknown_minCapacity;
     public Double minCapacity() {
-        if (minCapacity == null) return null;
-        return minCapacity.getValue("ClusterServerlessv2ScalingConfigurationArgs.minCapacity");
+        if (!unknown_minCapacity) return value_minCapacity;
+        throw new UndeferrableValueException("Value 'ClusterServerlessv2ScalingConfigurationArgs.minCapacity' is not present");
     }
 
     /**
      * Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
      * 
      */
-    private UndeferrableValue<Integer> secondsUntilAutoPause;
-
+    @PolicyResourceProperty(name="secondsUntilAutoPause", flag="unknown_secondsUntilAutoPause")
+    private Integer value_secondsUntilAutoPause;
+    private boolean unknown_secondsUntilAutoPause;
     public Integer secondsUntilAutoPause() {
-        if (secondsUntilAutoPause == null) return null;
-        return secondsUntilAutoPause.getValue("ClusterServerlessv2ScalingConfigurationArgs.secondsUntilAutoPause");
+        if (!unknown_secondsUntilAutoPause) return value_secondsUntilAutoPause;
+        throw new UndeferrableValueException("Value 'ClusterServerlessv2ScalingConfigurationArgs.secondsUntilAutoPause' is not present");
     }
 
 }

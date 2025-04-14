@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
      * 
      */
-    private UndeferrableValue<List<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn>> recordColumns;
-
+    @PolicyResourceProperty(name="recordColumns", flag="unknown_recordColumns")
+    private List<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn> value_recordColumns;
+    private boolean unknown_recordColumns;
     public List<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn> recordColumns() {
-        if (recordColumns == null) return null;
-        return recordColumns.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema.recordColumns");
+        if (!unknown_recordColumns) return value_recordColumns;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema.recordColumns' is not present");
     }
 
     /**
      * Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
      * 
      */
-    private @Nullable UndeferrableValue<String> recordEncoding;
-
+    @PolicyResourceProperty(name="recordEncoding", flag="unknown_recordEncoding")
+    private @Nullable String value_recordEncoding;
+    private boolean unknown_recordEncoding;
     public @Nullable String recordEncoding() {
-        if (recordEncoding == null) return null;
-        return recordEncoding.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema.recordEncoding");
+        if (!unknown_recordEncoding) return value_recordEncoding;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema.recordEncoding' is not present");
     }
 
     /**
      * Specifies the format of the records on the streaming source.
      * 
      */
-    private UndeferrableValue<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat> recordFormat;
-
+    @PolicyResourceProperty(name="recordFormat", flag="unknown_recordFormat")
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat value_recordFormat;
+    private boolean unknown_recordFormat;
     public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat recordFormat() {
-        if (recordFormat == null) return null;
-        return recordFormat.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema.recordFormat");
+        if (!unknown_recordFormat) return value_recordFormat;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema.recordFormat' is not present");
     }
 
 }

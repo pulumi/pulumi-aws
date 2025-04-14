@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dax.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,36 +12,40 @@ import javax.annotation.Nullable;
 
 public final class ClusterNode {
 
-    private @Nullable UndeferrableValue<String> address;
-
+    @PolicyResourceProperty(name="address", flag="unknown_address")
+    private @Nullable String value_address;
+    private boolean unknown_address;
     public @Nullable String address() {
-        if (address == null) return null;
-        return address.getValue("ClusterNode.address");
+        if (!unknown_address) return value_address;
+        throw new UndeferrableValueException("Value 'ClusterNode.address' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private @Nullable String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public @Nullable String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("ClusterNode.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'ClusterNode.availabilityZone' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private @Nullable String value_id;
+    private boolean unknown_id;
     public @Nullable String id() {
-        if (id == null) return null;
-        return id.getValue("ClusterNode.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'ClusterNode.id' is not present");
     }
 
     /**
      * The port used by the configuration endpoint
      * 
      */
-    private @Nullable UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable Integer value_port;
+    private boolean unknown_port;
     public @Nullable Integer port() {
-        if (port == null) return null;
-        return port.getValue("ClusterNode.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'ClusterNode.port' is not present");
     }
 
 }

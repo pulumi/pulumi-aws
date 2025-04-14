@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedpermissions.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class PolicyDefinitionTemplateLinkedResourceArgs {
      * The entity ID of the resource.
      * 
      */
-    private UndeferrableValue<String> entityId;
-
+    @PolicyResourceProperty(name="entityId", flag="unknown_entityId")
+    private String value_entityId;
+    private boolean unknown_entityId;
     public String entityId() {
-        if (entityId == null) return null;
-        return entityId.getValue("PolicyDefinitionTemplateLinkedResourceArgs.entityId");
+        if (!unknown_entityId) return value_entityId;
+        throw new UndeferrableValueException("Value 'PolicyDefinitionTemplateLinkedResourceArgs.entityId' is not present");
     }
 
     /**
      * The entity type of the resource.
      * 
      */
-    private UndeferrableValue<String> entityType;
-
+    @PolicyResourceProperty(name="entityType", flag="unknown_entityType")
+    private String value_entityType;
+    private boolean unknown_entityType;
     public String entityType() {
-        if (entityType == null) return null;
-        return entityType.getValue("PolicyDefinitionTemplateLinkedResourceArgs.entityType");
+        if (!unknown_entityType) return value_entityType;
+        throw new UndeferrableValueException("Value 'PolicyDefinitionTemplateLinkedResourceArgs.entityType' is not present");
     }
 
 }

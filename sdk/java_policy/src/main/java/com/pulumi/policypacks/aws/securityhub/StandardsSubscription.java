@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -27,11 +28,12 @@ public final class StandardsSubscription extends com.pulumi.resources.PolicyReso
      * | PCI DSS                                  | `arn:${var.partition}:securityhub:${var.region}::standards/pci-dss/v/3.2.1`                                  |
      * 
      */
-    private UndeferrableValue<String> standardsArn;
-
+    @PolicyResourceProperty(name="standardsArn", flag="unknown_standardsArn")
+    private String value_standardsArn;
+    private boolean unknown_standardsArn;
     public String standardsArn() {
-        if (standardsArn == null) return null;
-        return standardsArn.getValue("StandardsSubscription.standardsArn");
+        if (!unknown_standardsArn) return value_standardsArn;
+        throw new UndeferrableValueException("Value 'StandardsSubscription.standardsArn' is not present");
     }
 
 }

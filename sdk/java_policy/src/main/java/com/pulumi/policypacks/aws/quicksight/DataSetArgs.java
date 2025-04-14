@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.quicksight.inputs.DataSetColumnGroupArgs;
 import com.pulumi.policypacks.aws.quicksight.inputs.DataSetColumnLevelPermissionRuleArgs;
@@ -28,110 +29,120 @@ public final class DataSetArgs extends com.pulumi.resources.PolicyResourceInput 
      * AWS account ID.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("DataSetArgs.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'DataSetArgs.awsAccountId' is not present");
     }
 
     /**
      * Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
      * 
      */
-    private UndeferrableValue<List<DataSetColumnGroupArgs>> columnGroups;
-
+    @PolicyResourceProperty(name="columnGroups", flag="unknown_columnGroups")
+    private List<DataSetColumnGroupArgs> value_columnGroups;
+    private boolean unknown_columnGroups;
     public List<DataSetColumnGroupArgs> columnGroups() {
-        if (columnGroups == null) return null;
-        return columnGroups.getValue("DataSetArgs.columnGroups");
+        if (!unknown_columnGroups) return value_columnGroups;
+        throw new UndeferrableValueException("Value 'DataSetArgs.columnGroups' is not present");
     }
 
     /**
      * A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
      * 
      */
-    private UndeferrableValue<List<DataSetColumnLevelPermissionRuleArgs>> columnLevelPermissionRules;
-
+    @PolicyResourceProperty(name="columnLevelPermissionRules", flag="unknown_columnLevelPermissionRules")
+    private List<DataSetColumnLevelPermissionRuleArgs> value_columnLevelPermissionRules;
+    private boolean unknown_columnLevelPermissionRules;
     public List<DataSetColumnLevelPermissionRuleArgs> columnLevelPermissionRules() {
-        if (columnLevelPermissionRules == null) return null;
-        return columnLevelPermissionRules.getValue("DataSetArgs.columnLevelPermissionRules");
+        if (!unknown_columnLevelPermissionRules) return value_columnLevelPermissionRules;
+        throw new UndeferrableValueException("Value 'DataSetArgs.columnLevelPermissionRules' is not present");
     }
 
     /**
      * Identifier for the data set.
      * 
      */
-    private UndeferrableValue<String> dataSetId;
-
+    @PolicyResourceProperty(name="dataSetId", flag="unknown_dataSetId")
+    private String value_dataSetId;
+    private boolean unknown_dataSetId;
     public String dataSetId() {
-        if (dataSetId == null) return null;
-        return dataSetId.getValue("DataSetArgs.dataSetId");
+        if (!unknown_dataSetId) return value_dataSetId;
+        throw new UndeferrableValueException("Value 'DataSetArgs.dataSetId' is not present");
     }
 
     /**
      * The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
      * 
      */
-    private UndeferrableValue<DataSetDataSetUsageConfigurationArgs> dataSetUsageConfiguration;
-
+    @PolicyResourceProperty(name="dataSetUsageConfiguration", flag="unknown_dataSetUsageConfiguration")
+    private DataSetDataSetUsageConfigurationArgs value_dataSetUsageConfiguration;
+    private boolean unknown_dataSetUsageConfiguration;
     public DataSetDataSetUsageConfigurationArgs dataSetUsageConfiguration() {
-        if (dataSetUsageConfiguration == null) return null;
-        return dataSetUsageConfiguration.getValue("DataSetArgs.dataSetUsageConfiguration");
+        if (!unknown_dataSetUsageConfiguration) return value_dataSetUsageConfiguration;
+        throw new UndeferrableValueException("Value 'DataSetArgs.dataSetUsageConfiguration' is not present");
     }
 
     /**
      * The folder that contains fields and nested subfolders for your dataset. See field_folders.
      * 
      */
-    private UndeferrableValue<List<DataSetFieldFolderArgs>> fieldFolders;
-
+    @PolicyResourceProperty(name="fieldFolders", flag="unknown_fieldFolders")
+    private List<DataSetFieldFolderArgs> value_fieldFolders;
+    private boolean unknown_fieldFolders;
     public List<DataSetFieldFolderArgs> fieldFolders() {
-        if (fieldFolders == null) return null;
-        return fieldFolders.getValue("DataSetArgs.fieldFolders");
+        if (!unknown_fieldFolders) return value_fieldFolders;
+        throw new UndeferrableValueException("Value 'DataSetArgs.fieldFolders' is not present");
     }
 
     /**
      * Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
      * 
      */
-    private UndeferrableValue<String> importMode;
-
+    @PolicyResourceProperty(name="importMode", flag="unknown_importMode")
+    private String value_importMode;
+    private boolean unknown_importMode;
     public String importMode() {
-        if (importMode == null) return null;
-        return importMode.getValue("DataSetArgs.importMode");
+        if (!unknown_importMode) return value_importMode;
+        throw new UndeferrableValueException("Value 'DataSetArgs.importMode' is not present");
     }
 
     /**
      * Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
      * 
      */
-    private UndeferrableValue<List<DataSetLogicalTableMapArgs>> logicalTableMaps;
-
+    @PolicyResourceProperty(name="logicalTableMaps", flag="unknown_logicalTableMaps")
+    private List<DataSetLogicalTableMapArgs> value_logicalTableMaps;
+    private boolean unknown_logicalTableMaps;
     public List<DataSetLogicalTableMapArgs> logicalTableMaps() {
-        if (logicalTableMaps == null) return null;
-        return logicalTableMaps.getValue("DataSetArgs.logicalTableMaps");
+        if (!unknown_logicalTableMaps) return value_logicalTableMaps;
+        throw new UndeferrableValueException("Value 'DataSetArgs.logicalTableMaps' is not present");
     }
 
     /**
      * Display name for the dataset.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DataSetArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DataSetArgs.name' is not present");
     }
 
     /**
      * A set of resource permissions on the data source. Maximum of 64 items. See permissions.
      * 
      */
-    private UndeferrableValue<List<DataSetPermissionArgs>> permissions;
-
+    @PolicyResourceProperty(name="permissions", flag="unknown_permissions")
+    private List<DataSetPermissionArgs> value_permissions;
+    private boolean unknown_permissions;
     public List<DataSetPermissionArgs> permissions() {
-        if (permissions == null) return null;
-        return permissions.getValue("DataSetArgs.permissions");
+        if (!unknown_permissions) return value_permissions;
+        throw new UndeferrableValueException("Value 'DataSetArgs.permissions' is not present");
     }
 
     /**
@@ -140,55 +151,60 @@ public final class DataSetArgs extends com.pulumi.resources.PolicyResourceInput 
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<List<DataSetPhysicalTableMapArgs>> physicalTableMaps;
-
+    @PolicyResourceProperty(name="physicalTableMaps", flag="unknown_physicalTableMaps")
+    private List<DataSetPhysicalTableMapArgs> value_physicalTableMaps;
+    private boolean unknown_physicalTableMaps;
     public List<DataSetPhysicalTableMapArgs> physicalTableMaps() {
-        if (physicalTableMaps == null) return null;
-        return physicalTableMaps.getValue("DataSetArgs.physicalTableMaps");
+        if (!unknown_physicalTableMaps) return value_physicalTableMaps;
+        throw new UndeferrableValueException("Value 'DataSetArgs.physicalTableMaps' is not present");
     }
 
     /**
      * The refresh properties for the data set. **NOTE**: Only valid when `import_mode` is set to `SPICE`. See refresh_properties.
      * 
      */
-    private UndeferrableValue<DataSetRefreshPropertiesArgs> refreshProperties;
-
+    @PolicyResourceProperty(name="refreshProperties", flag="unknown_refreshProperties")
+    private DataSetRefreshPropertiesArgs value_refreshProperties;
+    private boolean unknown_refreshProperties;
     public DataSetRefreshPropertiesArgs refreshProperties() {
-        if (refreshProperties == null) return null;
-        return refreshProperties.getValue("DataSetArgs.refreshProperties");
+        if (!unknown_refreshProperties) return value_refreshProperties;
+        throw new UndeferrableValueException("Value 'DataSetArgs.refreshProperties' is not present");
     }
 
     /**
      * The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
      * 
      */
-    private UndeferrableValue<DataSetRowLevelPermissionDataSetArgs> rowLevelPermissionDataSet;
-
+    @PolicyResourceProperty(name="rowLevelPermissionDataSet", flag="unknown_rowLevelPermissionDataSet")
+    private DataSetRowLevelPermissionDataSetArgs value_rowLevelPermissionDataSet;
+    private boolean unknown_rowLevelPermissionDataSet;
     public DataSetRowLevelPermissionDataSetArgs rowLevelPermissionDataSet() {
-        if (rowLevelPermissionDataSet == null) return null;
-        return rowLevelPermissionDataSet.getValue("DataSetArgs.rowLevelPermissionDataSet");
+        if (!unknown_rowLevelPermissionDataSet) return value_rowLevelPermissionDataSet;
+        throw new UndeferrableValueException("Value 'DataSetArgs.rowLevelPermissionDataSet' is not present");
     }
 
     /**
      * The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
      * 
      */
-    private UndeferrableValue<DataSetRowLevelPermissionTagConfigurationArgs> rowLevelPermissionTagConfiguration;
-
+    @PolicyResourceProperty(name="rowLevelPermissionTagConfiguration", flag="unknown_rowLevelPermissionTagConfiguration")
+    private DataSetRowLevelPermissionTagConfigurationArgs value_rowLevelPermissionTagConfiguration;
+    private boolean unknown_rowLevelPermissionTagConfiguration;
     public DataSetRowLevelPermissionTagConfigurationArgs rowLevelPermissionTagConfiguration() {
-        if (rowLevelPermissionTagConfiguration == null) return null;
-        return rowLevelPermissionTagConfiguration.getValue("DataSetArgs.rowLevelPermissionTagConfiguration");
+        if (!unknown_rowLevelPermissionTagConfiguration) return value_rowLevelPermissionTagConfiguration;
+        throw new UndeferrableValueException("Value 'DataSetArgs.rowLevelPermissionTagConfiguration' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DataSetArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DataSetArgs.tags' is not present");
     }
 
 }

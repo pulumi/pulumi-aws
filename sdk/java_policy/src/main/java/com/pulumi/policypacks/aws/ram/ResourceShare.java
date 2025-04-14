@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ram;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -19,55 +20,60 @@ public final class ResourceShare extends com.pulumi.resources.PolicyResourceOutp
      * Indicates whether principals outside your organization can be associated with a resource share.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> allowExternalPrincipals;
-
+    @PolicyResourceProperty(name="allowExternalPrincipals", flag="unknown_allowExternalPrincipals")
+    private @Nullable Boolean value_allowExternalPrincipals;
+    private boolean unknown_allowExternalPrincipals;
     public @Nullable Boolean allowExternalPrincipals() {
-        if (allowExternalPrincipals == null) return null;
-        return allowExternalPrincipals.getValue("ResourceShare.allowExternalPrincipals");
+        if (!unknown_allowExternalPrincipals) return value_allowExternalPrincipals;
+        throw new UndeferrableValueException("Value 'ResourceShare.allowExternalPrincipals' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the resource share.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ResourceShare.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ResourceShare.arn' is not present");
     }
 
     /**
      * The name of the resource share.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ResourceShare.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ResourceShare.name' is not present");
     }
 
     /**
      * Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
      * 
      */
-    private UndeferrableValue<List<String>> permissionArns;
-
+    @PolicyResourceProperty(name="permissionArns", flag="unknown_permissionArns")
+    private List<String> value_permissionArns;
+    private boolean unknown_permissionArns;
     public List<String> permissionArns() {
-        if (permissionArns == null) return null;
-        return permissionArns.getValue("ResourceShare.permissionArns");
+        if (!unknown_permissionArns) return value_permissionArns;
+        throw new UndeferrableValueException("Value 'ResourceShare.permissionArns' is not present");
     }
 
     /**
      * A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ResourceShare.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ResourceShare.tags' is not present");
     }
 
     /**
@@ -78,11 +84,12 @@ public final class ResourceShare extends com.pulumi.resources.PolicyResourceOutp
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ResourceShare.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ResourceShare.tagsAll' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bcmdata.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,44 +14,48 @@ public final class ExportExportDestinationConfigurationS3DestinationS3OutputConf
      * Compression type for the data export. Valid values `GZIP`, `PARQUET`.
      * 
      */
-    private UndeferrableValue<String> compression;
-
+    @PolicyResourceProperty(name="compression", flag="unknown_compression")
+    private String value_compression;
+    private boolean unknown_compression;
     public String compression() {
-        if (compression == null) return null;
-        return compression.getValue("ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration.compression");
+        if (!unknown_compression) return value_compression;
+        throw new UndeferrableValueException("Value 'ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration.compression' is not present");
     }
 
     /**
      * File format for the data export. Valid values `TEXT_OR_CSV` or `PARQUET`.
      * 
      */
-    private UndeferrableValue<String> format;
-
+    @PolicyResourceProperty(name="format", flag="unknown_format")
+    private String value_format;
+    private boolean unknown_format;
     public String format() {
-        if (format == null) return null;
-        return format.getValue("ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration.format");
+        if (!unknown_format) return value_format;
+        throw new UndeferrableValueException("Value 'ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration.format' is not present");
     }
 
     /**
      * Output type for the data export. Valid value `CUSTOM`.
      * 
      */
-    private UndeferrableValue<String> outputType;
-
+    @PolicyResourceProperty(name="outputType", flag="unknown_outputType")
+    private String value_outputType;
+    private boolean unknown_outputType;
     public String outputType() {
-        if (outputType == null) return null;
-        return outputType.getValue("ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration.outputType");
+        if (!unknown_outputType) return value_outputType;
+        throw new UndeferrableValueException("Value 'ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration.outputType' is not present");
     }
 
     /**
      * The rule to follow when generating a version of the data export file. You have the choice to overwrite the previous version or to be delivered in addition to the previous versions. Overwriting exports can save on Amazon S3 storage costs. Creating new export versions allows you to track the changes in cost and usage data over time. Valid values `CREATE_NEW_REPORT` or `OVERWRITE_REPORT`.
      * 
      */
-    private UndeferrableValue<String> overwrite;
-
+    @PolicyResourceProperty(name="overwrite", flag="unknown_overwrite")
+    private String value_overwrite;
+    private boolean unknown_overwrite;
     public String overwrite() {
-        if (overwrite == null) return null;
-        return overwrite.getValue("ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration.overwrite");
+        if (!unknown_overwrite) return value_overwrite;
+        throw new UndeferrableValueException("Value 'ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration.overwrite' is not present");
     }
 
 }

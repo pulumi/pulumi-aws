@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class VpcIpv4CidrBlockAssociationArgs extends com.pulumi.resources.
      * The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
      * 
      */
-    private UndeferrableValue<String> cidrBlock;
-
+    @PolicyResourceProperty(name="cidrBlock", flag="unknown_cidrBlock")
+    private String value_cidrBlock;
+    private boolean unknown_cidrBlock;
     public String cidrBlock() {
-        if (cidrBlock == null) return null;
-        return cidrBlock.getValue("VpcIpv4CidrBlockAssociationArgs.cidrBlock");
+        if (!unknown_cidrBlock) return value_cidrBlock;
+        throw new UndeferrableValueException("Value 'VpcIpv4CidrBlockAssociationArgs.cidrBlock' is not present");
     }
 
     /**
      * The ID of an IPv4 IPAM pool you want to use for allocating this VPC&#39;s CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
      * 
      */
-    private UndeferrableValue<String> ipv4IpamPoolId;
-
+    @PolicyResourceProperty(name="ipv4IpamPoolId", flag="unknown_ipv4IpamPoolId")
+    private String value_ipv4IpamPoolId;
+    private boolean unknown_ipv4IpamPoolId;
     public String ipv4IpamPoolId() {
-        if (ipv4IpamPoolId == null) return null;
-        return ipv4IpamPoolId.getValue("VpcIpv4CidrBlockAssociationArgs.ipv4IpamPoolId");
+        if (!unknown_ipv4IpamPoolId) return value_ipv4IpamPoolId;
+        throw new UndeferrableValueException("Value 'VpcIpv4CidrBlockAssociationArgs.ipv4IpamPoolId' is not present");
     }
 
     /**
      * The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
      * 
      */
-    private UndeferrableValue<Integer> ipv4NetmaskLength;
-
+    @PolicyResourceProperty(name="ipv4NetmaskLength", flag="unknown_ipv4NetmaskLength")
+    private Integer value_ipv4NetmaskLength;
+    private boolean unknown_ipv4NetmaskLength;
     public Integer ipv4NetmaskLength() {
-        if (ipv4NetmaskLength == null) return null;
-        return ipv4NetmaskLength.getValue("VpcIpv4CidrBlockAssociationArgs.ipv4NetmaskLength");
+        if (!unknown_ipv4NetmaskLength) return value_ipv4NetmaskLength;
+        throw new UndeferrableValueException("Value 'VpcIpv4CidrBlockAssociationArgs.ipv4NetmaskLength' is not present");
     }
 
     /**
      * The ID of the VPC to make the association with.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("VpcIpv4CidrBlockAssociationArgs.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'VpcIpv4CidrBlockAssociationArgs.vpcId' is not present");
     }
 
 }

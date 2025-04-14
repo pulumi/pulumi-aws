@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsCon
      * The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
      * 
      */
-    private UndeferrableValue<List<String>> siteMaps;
-
+    @PolicyResourceProperty(name="siteMaps", flag="unknown_siteMaps")
+    private List<String> value_siteMaps;
+    private boolean unknown_siteMaps;
     public List<String> siteMaps() {
-        if (siteMaps == null) return null;
-        return siteMaps.getValue("DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration.siteMaps");
+        if (!unknown_siteMaps) return value_siteMaps;
+        throw new UndeferrableValueException("Value 'DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration.siteMaps' is not present");
     }
 
 }

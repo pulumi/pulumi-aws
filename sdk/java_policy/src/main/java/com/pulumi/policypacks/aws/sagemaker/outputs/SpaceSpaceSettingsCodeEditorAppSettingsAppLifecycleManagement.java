@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.outputs.SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement
      * Settings related to idle shutdown of Studio applications. See `idle_settings` Block below.
      * 
      */
-    private @Nullable UndeferrableValue<SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings> idleSettings;
-
+    @PolicyResourceProperty(name="idleSettings", flag="unknown_idleSettings")
+    private @Nullable SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings value_idleSettings;
+    private boolean unknown_idleSettings;
     public @Nullable SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings idleSettings() {
-        if (idleSettings == null) return null;
-        return idleSettings.getValue("SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement.idleSettings");
+        if (!unknown_idleSettings) return value_idleSettings;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement.idleSettings' is not present");
     }
 
 }

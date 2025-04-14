@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.licensemanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,11 +16,12 @@ public final class LicenseGrantAccepterArgs extends com.pulumi.resources.PolicyR
      * The ARN of the grant to accept.
      * 
      */
-    private UndeferrableValue<String> grantArn;
-
+    @PolicyResourceProperty(name="grantArn", flag="unknown_grantArn")
+    private String value_grantArn;
+    private boolean unknown_grantArn;
     public String grantArn() {
-        if (grantArn == null) return null;
-        return grantArn.getValue("LicenseGrantAccepterArgs.grantArn");
+        if (!unknown_grantArn) return value_grantArn;
+        throw new UndeferrableValueException("Value 'LicenseGrantAccepterArgs.grantArn' is not present");
     }
 
 }

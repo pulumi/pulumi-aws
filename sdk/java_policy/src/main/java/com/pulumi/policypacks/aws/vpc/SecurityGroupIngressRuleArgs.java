@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpc;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,110 +19,120 @@ public final class SecurityGroupIngressRuleArgs extends com.pulumi.resources.Pol
      * The source IPv4 CIDR range.
      * 
      */
-    private UndeferrableValue<String> cidrIpv4;
-
+    @PolicyResourceProperty(name="cidrIpv4", flag="unknown_cidrIpv4")
+    private String value_cidrIpv4;
+    private boolean unknown_cidrIpv4;
     public String cidrIpv4() {
-        if (cidrIpv4 == null) return null;
-        return cidrIpv4.getValue("SecurityGroupIngressRuleArgs.cidrIpv4");
+        if (!unknown_cidrIpv4) return value_cidrIpv4;
+        throw new UndeferrableValueException("Value 'SecurityGroupIngressRuleArgs.cidrIpv4' is not present");
     }
 
     /**
      * The source IPv6 CIDR range.
      * 
      */
-    private UndeferrableValue<String> cidrIpv6;
-
+    @PolicyResourceProperty(name="cidrIpv6", flag="unknown_cidrIpv6")
+    private String value_cidrIpv6;
+    private boolean unknown_cidrIpv6;
     public String cidrIpv6() {
-        if (cidrIpv6 == null) return null;
-        return cidrIpv6.getValue("SecurityGroupIngressRuleArgs.cidrIpv6");
+        if (!unknown_cidrIpv6) return value_cidrIpv6;
+        throw new UndeferrableValueException("Value 'SecurityGroupIngressRuleArgs.cidrIpv6' is not present");
     }
 
     /**
      * The security group rule description.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("SecurityGroupIngressRuleArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'SecurityGroupIngressRuleArgs.description' is not present");
     }
 
     /**
      * The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
      * 
      */
-    private UndeferrableValue<Integer> fromPort;
-
+    @PolicyResourceProperty(name="fromPort", flag="unknown_fromPort")
+    private Integer value_fromPort;
+    private boolean unknown_fromPort;
     public Integer fromPort() {
-        if (fromPort == null) return null;
-        return fromPort.getValue("SecurityGroupIngressRuleArgs.fromPort");
+        if (!unknown_fromPort) return value_fromPort;
+        throw new UndeferrableValueException("Value 'SecurityGroupIngressRuleArgs.fromPort' is not present");
     }
 
     /**
      * The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ip_protocol` is set to `-1`, it translates to all protocols, all port ranges, and `from_port` and `to_port` values should not be defined.
      * 
      */
-    private UndeferrableValue<String> ipProtocol;
-
+    @PolicyResourceProperty(name="ipProtocol", flag="unknown_ipProtocol")
+    private String value_ipProtocol;
+    private boolean unknown_ipProtocol;
     public String ipProtocol() {
-        if (ipProtocol == null) return null;
-        return ipProtocol.getValue("SecurityGroupIngressRuleArgs.ipProtocol");
+        if (!unknown_ipProtocol) return value_ipProtocol;
+        throw new UndeferrableValueException("Value 'SecurityGroupIngressRuleArgs.ipProtocol' is not present");
     }
 
     /**
      * The ID of the source prefix list.
      * 
      */
-    private UndeferrableValue<String> prefixListId;
-
+    @PolicyResourceProperty(name="prefixListId", flag="unknown_prefixListId")
+    private String value_prefixListId;
+    private boolean unknown_prefixListId;
     public String prefixListId() {
-        if (prefixListId == null) return null;
-        return prefixListId.getValue("SecurityGroupIngressRuleArgs.prefixListId");
+        if (!unknown_prefixListId) return value_prefixListId;
+        throw new UndeferrableValueException("Value 'SecurityGroupIngressRuleArgs.prefixListId' is not present");
     }
 
     /**
      * The source security group that is referenced in the rule.
      * 
      */
-    private UndeferrableValue<String> referencedSecurityGroupId;
-
+    @PolicyResourceProperty(name="referencedSecurityGroupId", flag="unknown_referencedSecurityGroupId")
+    private String value_referencedSecurityGroupId;
+    private boolean unknown_referencedSecurityGroupId;
     public String referencedSecurityGroupId() {
-        if (referencedSecurityGroupId == null) return null;
-        return referencedSecurityGroupId.getValue("SecurityGroupIngressRuleArgs.referencedSecurityGroupId");
+        if (!unknown_referencedSecurityGroupId) return value_referencedSecurityGroupId;
+        throw new UndeferrableValueException("Value 'SecurityGroupIngressRuleArgs.referencedSecurityGroupId' is not present");
     }
 
     /**
      * The ID of the security group.
      * 
      */
-    private UndeferrableValue<String> securityGroupId;
-
+    @PolicyResourceProperty(name="securityGroupId", flag="unknown_securityGroupId")
+    private String value_securityGroupId;
+    private boolean unknown_securityGroupId;
     public String securityGroupId() {
-        if (securityGroupId == null) return null;
-        return securityGroupId.getValue("SecurityGroupIngressRuleArgs.securityGroupId");
+        if (!unknown_securityGroupId) return value_securityGroupId;
+        throw new UndeferrableValueException("Value 'SecurityGroupIngressRuleArgs.securityGroupId' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SecurityGroupIngressRuleArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SecurityGroupIngressRuleArgs.tags' is not present");
     }
 
     /**
      * The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
      * 
      */
-    private UndeferrableValue<Integer> toPort;
-
+    @PolicyResourceProperty(name="toPort", flag="unknown_toPort")
+    private Integer value_toPort;
+    private boolean unknown_toPort;
     public Integer toPort() {
-        if (toPort == null) return null;
-        return toPort.getValue("SecurityGroupIngressRuleArgs.toPort");
+        if (!unknown_toPort) return value_toPort;
+        throw new UndeferrableValueException("Value 'SecurityGroupIngressRuleArgs.toPort' is not present");
     }
 
 }

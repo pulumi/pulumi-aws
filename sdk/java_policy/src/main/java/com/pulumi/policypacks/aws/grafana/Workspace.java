@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.grafana;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.grafana.outputs.WorkspaceNetworkAccessControl;
 import com.pulumi.policypacks.aws.grafana.outputs.WorkspaceVpcConfiguration;
@@ -20,143 +21,156 @@ public final class Workspace extends com.pulumi.resources.PolicyResourceOutput {
      * The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
      * 
      */
-    private UndeferrableValue<String> accountAccessType;
-
+    @PolicyResourceProperty(name="accountAccessType", flag="unknown_accountAccessType")
+    private String value_accountAccessType;
+    private boolean unknown_accountAccessType;
     public String accountAccessType() {
-        if (accountAccessType == null) return null;
-        return accountAccessType.getValue("Workspace.accountAccessType");
+        if (!unknown_accountAccessType) return value_accountAccessType;
+        throw new UndeferrableValueException("Value 'Workspace.accountAccessType' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Grafana workspace.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Workspace.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Workspace.arn' is not present");
     }
 
     /**
      * The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
      * 
      */
-    private UndeferrableValue<List<String>> authenticationProviders;
-
+    @PolicyResourceProperty(name="authenticationProviders", flag="unknown_authenticationProviders")
+    private List<String> value_authenticationProviders;
+    private boolean unknown_authenticationProviders;
     public List<String> authenticationProviders() {
-        if (authenticationProviders == null) return null;
-        return authenticationProviders.getValue("Workspace.authenticationProviders");
+        if (!unknown_authenticationProviders) return value_authenticationProviders;
+        throw new UndeferrableValueException("Value 'Workspace.authenticationProviders' is not present");
     }
 
     /**
      * The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
      * 
      */
-    private UndeferrableValue<String> configuration;
-
+    @PolicyResourceProperty(name="configuration", flag="unknown_configuration")
+    private String value_configuration;
+    private boolean unknown_configuration;
     public String configuration() {
-        if (configuration == null) return null;
-        return configuration.getValue("Workspace.configuration");
+        if (!unknown_configuration) return value_configuration;
+        throw new UndeferrableValueException("Value 'Workspace.configuration' is not present");
     }
 
     /**
      * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> dataSources;
-
+    @PolicyResourceProperty(name="dataSources", flag="unknown_dataSources")
+    private @Nullable List<String> value_dataSources;
+    private boolean unknown_dataSources;
     public @Nullable List<String> dataSources() {
-        if (dataSources == null) return null;
-        return dataSources.getValue("Workspace.dataSources");
+        if (!unknown_dataSources) return value_dataSources;
+        throw new UndeferrableValueException("Value 'Workspace.dataSources' is not present");
     }
 
     /**
      * The workspace description.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Workspace.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Workspace.description' is not present");
     }
 
     /**
      * The endpoint of the Grafana workspace.
      * 
      */
-    private UndeferrableValue<String> endpoint;
-
+    @PolicyResourceProperty(name="endpoint", flag="unknown_endpoint")
+    private String value_endpoint;
+    private boolean unknown_endpoint;
     public String endpoint() {
-        if (endpoint == null) return null;
-        return endpoint.getValue("Workspace.endpoint");
+        if (!unknown_endpoint) return value_endpoint;
+        throw new UndeferrableValueException("Value 'Workspace.endpoint' is not present");
     }
 
     /**
      * Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
      * 
      */
-    private UndeferrableValue<String> grafanaVersion;
-
+    @PolicyResourceProperty(name="grafanaVersion", flag="unknown_grafanaVersion")
+    private String value_grafanaVersion;
+    private boolean unknown_grafanaVersion;
     public String grafanaVersion() {
-        if (grafanaVersion == null) return null;
-        return grafanaVersion.getValue("Workspace.grafanaVersion");
+        if (!unknown_grafanaVersion) return value_grafanaVersion;
+        throw new UndeferrableValueException("Value 'Workspace.grafanaVersion' is not present");
     }
 
     /**
      * The Grafana workspace name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Workspace.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Workspace.name' is not present");
     }
 
     /**
      * Configuration for network access to your workspace.See Network Access Control below.
      * 
      */
-    private @Nullable UndeferrableValue<WorkspaceNetworkAccessControl> networkAccessControl;
-
+    @PolicyResourceProperty(name="networkAccessControl", flag="unknown_networkAccessControl")
+    private @Nullable WorkspaceNetworkAccessControl value_networkAccessControl;
+    private boolean unknown_networkAccessControl;
     public @Nullable WorkspaceNetworkAccessControl networkAccessControl() {
-        if (networkAccessControl == null) return null;
-        return networkAccessControl.getValue("Workspace.networkAccessControl");
+        if (!unknown_networkAccessControl) return value_networkAccessControl;
+        throw new UndeferrableValueException("Value 'Workspace.networkAccessControl' is not present");
     }
 
     /**
      * The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> notificationDestinations;
-
+    @PolicyResourceProperty(name="notificationDestinations", flag="unknown_notificationDestinations")
+    private @Nullable List<String> value_notificationDestinations;
+    private boolean unknown_notificationDestinations;
     public @Nullable List<String> notificationDestinations() {
-        if (notificationDestinations == null) return null;
-        return notificationDestinations.getValue("Workspace.notificationDestinations");
+        if (!unknown_notificationDestinations) return value_notificationDestinations;
+        throw new UndeferrableValueException("Value 'Workspace.notificationDestinations' is not present");
     }
 
     /**
      * The role name that the workspace uses to access resources through Amazon Organizations.
      * 
      */
-    private @Nullable UndeferrableValue<String> organizationRoleName;
-
+    @PolicyResourceProperty(name="organizationRoleName", flag="unknown_organizationRoleName")
+    private @Nullable String value_organizationRoleName;
+    private boolean unknown_organizationRoleName;
     public @Nullable String organizationRoleName() {
-        if (organizationRoleName == null) return null;
-        return organizationRoleName.getValue("Workspace.organizationRoleName");
+        if (!unknown_organizationRoleName) return value_organizationRoleName;
+        throw new UndeferrableValueException("Value 'Workspace.organizationRoleName' is not present");
     }
 
     /**
      * The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> organizationalUnits;
-
+    @PolicyResourceProperty(name="organizationalUnits", flag="unknown_organizationalUnits")
+    private @Nullable List<String> value_organizationalUnits;
+    private boolean unknown_organizationalUnits;
     public @Nullable List<String> organizationalUnits() {
-        if (organizationalUnits == null) return null;
-        return organizationalUnits.getValue("Workspace.organizationalUnits");
+        if (!unknown_organizationalUnits) return value_organizationalUnits;
+        throw new UndeferrableValueException("Value 'Workspace.organizationalUnits' is not present");
     }
 
     /**
@@ -165,51 +179,56 @@ public final class Workspace extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> permissionType;
-
+    @PolicyResourceProperty(name="permissionType", flag="unknown_permissionType")
+    private String value_permissionType;
+    private boolean unknown_permissionType;
     public String permissionType() {
-        if (permissionType == null) return null;
-        return permissionType.getValue("Workspace.permissionType");
+        if (!unknown_permissionType) return value_permissionType;
+        throw new UndeferrableValueException("Value 'Workspace.permissionType' is not present");
     }
 
     /**
      * The IAM role ARN that the workspace assumes.
      * 
      */
-    private @Nullable UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private @Nullable String value_roleArn;
+    private boolean unknown_roleArn;
     public @Nullable String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("Workspace.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'Workspace.roleArn' is not present");
     }
 
-    private UndeferrableValue<String> samlConfigurationStatus;
-
+    @PolicyResourceProperty(name="samlConfigurationStatus", flag="unknown_samlConfigurationStatus")
+    private String value_samlConfigurationStatus;
+    private boolean unknown_samlConfigurationStatus;
     public String samlConfigurationStatus() {
-        if (samlConfigurationStatus == null) return null;
-        return samlConfigurationStatus.getValue("Workspace.samlConfigurationStatus");
+        if (!unknown_samlConfigurationStatus) return value_samlConfigurationStatus;
+        throw new UndeferrableValueException("Value 'Workspace.samlConfigurationStatus' is not present");
     }
 
     /**
      * The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
      * 
      */
-    private @Nullable UndeferrableValue<String> stackSetName;
-
+    @PolicyResourceProperty(name="stackSetName", flag="unknown_stackSetName")
+    private @Nullable String value_stackSetName;
+    private boolean unknown_stackSetName;
     public @Nullable String stackSetName() {
-        if (stackSetName == null) return null;
-        return stackSetName.getValue("Workspace.stackSetName");
+        if (!unknown_stackSetName) return value_stackSetName;
+        throw new UndeferrableValueException("Value 'Workspace.stackSetName' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Workspace.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Workspace.tags' is not present");
     }
 
     /**
@@ -220,22 +239,24 @@ public final class Workspace extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Workspace.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Workspace.tagsAll' is not present");
     }
 
     /**
      * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
      * 
      */
-    private @Nullable UndeferrableValue<WorkspaceVpcConfiguration> vpcConfiguration;
-
+    @PolicyResourceProperty(name="vpcConfiguration", flag="unknown_vpcConfiguration")
+    private @Nullable WorkspaceVpcConfiguration value_vpcConfiguration;
+    private boolean unknown_vpcConfiguration;
     public @Nullable WorkspaceVpcConfiguration vpcConfiguration() {
-        if (vpcConfiguration == null) return null;
-        return vpcConfiguration.getValue("Workspace.vpcConfiguration");
+        if (!unknown_vpcConfiguration) return value_vpcConfiguration;
+        throw new UndeferrableValueException("Value 'Workspace.vpcConfiguration' is not present");
     }
 
 }

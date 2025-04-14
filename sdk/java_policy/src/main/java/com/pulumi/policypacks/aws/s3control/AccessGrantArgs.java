@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3control.inputs.AccessGrantAccessGrantsLocationConfigurationArgs;
 import com.pulumi.policypacks.aws.s3control.inputs.AccessGrantGranteeArgs;
@@ -19,73 +20,80 @@ public final class AccessGrantArgs extends com.pulumi.resources.PolicyResourceIn
      * See Location Configuration below for more details.
      * 
      */
-    private UndeferrableValue<AccessGrantAccessGrantsLocationConfigurationArgs> accessGrantsLocationConfiguration;
-
+    @PolicyResourceProperty(name="accessGrantsLocationConfiguration", flag="unknown_accessGrantsLocationConfiguration")
+    private AccessGrantAccessGrantsLocationConfigurationArgs value_accessGrantsLocationConfiguration;
+    private boolean unknown_accessGrantsLocationConfiguration;
     public AccessGrantAccessGrantsLocationConfigurationArgs accessGrantsLocationConfiguration() {
-        if (accessGrantsLocationConfiguration == null) return null;
-        return accessGrantsLocationConfiguration.getValue("AccessGrantArgs.accessGrantsLocationConfiguration");
+        if (!unknown_accessGrantsLocationConfiguration) return value_accessGrantsLocationConfiguration;
+        throw new UndeferrableValueException("Value 'AccessGrantArgs.accessGrantsLocationConfiguration' is not present");
     }
 
     /**
      * The ID of the S3 Access Grants location to with the access grant is giving access.
      * 
      */
-    private UndeferrableValue<String> accessGrantsLocationId;
-
+    @PolicyResourceProperty(name="accessGrantsLocationId", flag="unknown_accessGrantsLocationId")
+    private String value_accessGrantsLocationId;
+    private boolean unknown_accessGrantsLocationId;
     public String accessGrantsLocationId() {
-        if (accessGrantsLocationId == null) return null;
-        return accessGrantsLocationId.getValue("AccessGrantArgs.accessGrantsLocationId");
+        if (!unknown_accessGrantsLocationId) return value_accessGrantsLocationId;
+        throw new UndeferrableValueException("Value 'AccessGrantArgs.accessGrantsLocationId' is not present");
     }
 
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("AccessGrantArgs.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'AccessGrantArgs.accountId' is not present");
     }
 
     /**
      * See Grantee below for more details.
      * 
      */
-    private UndeferrableValue<AccessGrantGranteeArgs> grantee;
-
+    @PolicyResourceProperty(name="grantee", flag="unknown_grantee")
+    private AccessGrantGranteeArgs value_grantee;
+    private boolean unknown_grantee;
     public AccessGrantGranteeArgs grantee() {
-        if (grantee == null) return null;
-        return grantee.getValue("AccessGrantArgs.grantee");
+        if (!unknown_grantee) return value_grantee;
+        throw new UndeferrableValueException("Value 'AccessGrantArgs.grantee' is not present");
     }
 
     /**
      * The access grant&#39;s level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
      * 
      */
-    private UndeferrableValue<String> permission;
-
+    @PolicyResourceProperty(name="permission", flag="unknown_permission")
+    private String value_permission;
+    private boolean unknown_permission;
     public String permission() {
-        if (permission == null) return null;
-        return permission.getValue("AccessGrantArgs.permission");
+        if (!unknown_permission) return value_permission;
+        throw new UndeferrableValueException("Value 'AccessGrantArgs.permission' is not present");
     }
 
     /**
      * If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
      * 
      */
-    private UndeferrableValue<String> s3PrefixType;
-
+    @PolicyResourceProperty(name="s3PrefixType", flag="unknown_s3PrefixType")
+    private String value_s3PrefixType;
+    private boolean unknown_s3PrefixType;
     public String s3PrefixType() {
-        if (s3PrefixType == null) return null;
-        return s3PrefixType.getValue("AccessGrantArgs.s3PrefixType");
+        if (!unknown_s3PrefixType) return value_s3PrefixType;
+        throw new UndeferrableValueException("Value 'AccessGrantArgs.s3PrefixType' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AccessGrantArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AccessGrantArgs.tags' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appstream.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ImageBuilderDomainJoinInfoArgs {
      * Fully qualified name of the directory (for example, corp.example.com).
      * 
      */
-    private UndeferrableValue<String> directoryName;
-
+    @PolicyResourceProperty(name="directoryName", flag="unknown_directoryName")
+    private String value_directoryName;
+    private boolean unknown_directoryName;
     public String directoryName() {
-        if (directoryName == null) return null;
-        return directoryName.getValue("ImageBuilderDomainJoinInfoArgs.directoryName");
+        if (!unknown_directoryName) return value_directoryName;
+        throw new UndeferrableValueException("Value 'ImageBuilderDomainJoinInfoArgs.directoryName' is not present");
     }
 
     /**
      * Distinguished name of the organizational unit for computer accounts.
      * 
      */
-    private UndeferrableValue<String> organizationalUnitDistinguishedName;
-
+    @PolicyResourceProperty(name="organizationalUnitDistinguishedName", flag="unknown_organizationalUnitDistinguishedName")
+    private String value_organizationalUnitDistinguishedName;
+    private boolean unknown_organizationalUnitDistinguishedName;
     public String organizationalUnitDistinguishedName() {
-        if (organizationalUnitDistinguishedName == null) return null;
-        return organizationalUnitDistinguishedName.getValue("ImageBuilderDomainJoinInfoArgs.organizationalUnitDistinguishedName");
+        if (!unknown_organizationalUnitDistinguishedName) return value_organizationalUnitDistinguishedName;
+        throw new UndeferrableValueException("Value 'ImageBuilderDomainJoinInfoArgs.organizationalUnitDistinguishedName' is not present");
     }
 
 }

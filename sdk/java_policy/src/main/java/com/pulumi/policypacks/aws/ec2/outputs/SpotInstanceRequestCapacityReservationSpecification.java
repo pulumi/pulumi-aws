@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.outputs.SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class SpotInstanceRequestCapacityReservationSpecification {
      * Indicates the instance&#39;s Capacity Reservation preferences. Can be `&#34;open&#34;` or `&#34;none&#34;`. (Default: `&#34;open&#34;`).
      * 
      */
-    private @Nullable UndeferrableValue<String> capacityReservationPreference;
-
+    @PolicyResourceProperty(name="capacityReservationPreference", flag="unknown_capacityReservationPreference")
+    private @Nullable String value_capacityReservationPreference;
+    private boolean unknown_capacityReservationPreference;
     public @Nullable String capacityReservationPreference() {
-        if (capacityReservationPreference == null) return null;
-        return capacityReservationPreference.getValue("SpotInstanceRequestCapacityReservationSpecification.capacityReservationPreference");
+        if (!unknown_capacityReservationPreference) return value_capacityReservationPreference;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequestCapacityReservationSpecification.capacityReservationPreference' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class SpotInstanceRequestCapacityReservationSpecification {
      * For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
      * 
      */
-    private @Nullable UndeferrableValue<SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget> capacityReservationTarget;
-
+    @PolicyResourceProperty(name="capacityReservationTarget", flag="unknown_capacityReservationTarget")
+    private @Nullable SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget value_capacityReservationTarget;
+    private boolean unknown_capacityReservationTarget;
     public @Nullable SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget capacityReservationTarget() {
-        if (capacityReservationTarget == null) return null;
-        return capacityReservationTarget.getValue("SpotInstanceRequestCapacityReservationSpecification.capacityReservationTarget");
+        if (!unknown_capacityReservationTarget) return value_capacityReservationTarget;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequestCapacityReservationSpecification.capacityReservationTarget' is not present");
     }
 
 }

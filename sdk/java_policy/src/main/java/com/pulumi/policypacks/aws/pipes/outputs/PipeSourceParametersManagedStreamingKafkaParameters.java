@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.pipes.outputs.PipeSourceParametersManagedStreamingKafkaParametersCredentials;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,66 +17,72 @@ public final class PipeSourceParametersManagedStreamingKafkaParameters {
      * The maximum number of records to include in each batch. Maximum value of 10000.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> batchSize;
-
+    @PolicyResourceProperty(name="batchSize", flag="unknown_batchSize")
+    private @Nullable Integer value_batchSize;
+    private boolean unknown_batchSize;
     public @Nullable Integer batchSize() {
-        if (batchSize == null) return null;
-        return batchSize.getValue("PipeSourceParametersManagedStreamingKafkaParameters.batchSize");
+        if (!unknown_batchSize) return value_batchSize;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersManagedStreamingKafkaParameters.batchSize' is not present");
     }
 
     /**
      * The name of the destination queue to consume. Maximum value of 200.
      * 
      */
-    private @Nullable UndeferrableValue<String> consumerGroupId;
-
+    @PolicyResourceProperty(name="consumerGroupId", flag="unknown_consumerGroupId")
+    private @Nullable String value_consumerGroupId;
+    private boolean unknown_consumerGroupId;
     public @Nullable String consumerGroupId() {
-        if (consumerGroupId == null) return null;
-        return consumerGroupId.getValue("PipeSourceParametersManagedStreamingKafkaParameters.consumerGroupId");
+        if (!unknown_consumerGroupId) return value_consumerGroupId;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersManagedStreamingKafkaParameters.consumerGroupId' is not present");
     }
 
     /**
      * The credentials needed to access the resource. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<PipeSourceParametersManagedStreamingKafkaParametersCredentials> credentials;
-
+    @PolicyResourceProperty(name="credentials", flag="unknown_credentials")
+    private @Nullable PipeSourceParametersManagedStreamingKafkaParametersCredentials value_credentials;
+    private boolean unknown_credentials;
     public @Nullable PipeSourceParametersManagedStreamingKafkaParametersCredentials credentials() {
-        if (credentials == null) return null;
-        return credentials.getValue("PipeSourceParametersManagedStreamingKafkaParameters.credentials");
+        if (!unknown_credentials) return value_credentials;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersManagedStreamingKafkaParameters.credentials' is not present");
     }
 
     /**
      * The maximum length of a time to wait for events. Maximum value of 300.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maximumBatchingWindowInSeconds;
-
+    @PolicyResourceProperty(name="maximumBatchingWindowInSeconds", flag="unknown_maximumBatchingWindowInSeconds")
+    private @Nullable Integer value_maximumBatchingWindowInSeconds;
+    private boolean unknown_maximumBatchingWindowInSeconds;
     public @Nullable Integer maximumBatchingWindowInSeconds() {
-        if (maximumBatchingWindowInSeconds == null) return null;
-        return maximumBatchingWindowInSeconds.getValue("PipeSourceParametersManagedStreamingKafkaParameters.maximumBatchingWindowInSeconds");
+        if (!unknown_maximumBatchingWindowInSeconds) return value_maximumBatchingWindowInSeconds;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersManagedStreamingKafkaParameters.maximumBatchingWindowInSeconds' is not present");
     }
 
     /**
      * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
      * 
      */
-    private @Nullable UndeferrableValue<String> startingPosition;
-
+    @PolicyResourceProperty(name="startingPosition", flag="unknown_startingPosition")
+    private @Nullable String value_startingPosition;
+    private boolean unknown_startingPosition;
     public @Nullable String startingPosition() {
-        if (startingPosition == null) return null;
-        return startingPosition.getValue("PipeSourceParametersManagedStreamingKafkaParameters.startingPosition");
+        if (!unknown_startingPosition) return value_startingPosition;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersManagedStreamingKafkaParameters.startingPosition' is not present");
     }
 
     /**
      * The name of the topic that the pipe will read from. Maximum length of 249.
      * 
      */
-    private UndeferrableValue<String> topicName;
-
+    @PolicyResourceProperty(name="topicName", flag="unknown_topicName")
+    private String value_topicName;
+    private boolean unknown_topicName;
     public String topicName() {
-        if (topicName == null) return null;
-        return topicName.getValue("PipeSourceParametersManagedStreamingKafkaParameters.topicName");
+        if (!unknown_topicName) return value_topicName;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersManagedStreamingKafkaParameters.topicName' is not present");
     }
 
 }

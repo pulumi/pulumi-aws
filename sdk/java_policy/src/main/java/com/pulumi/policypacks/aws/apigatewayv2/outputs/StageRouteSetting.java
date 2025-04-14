@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -18,22 +19,24 @@ public final class StageRouteSetting {
      * Defaults to `false`. Supported only for WebSocket APIs.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> dataTraceEnabled;
-
+    @PolicyResourceProperty(name="dataTraceEnabled", flag="unknown_dataTraceEnabled")
+    private @Nullable Boolean value_dataTraceEnabled;
+    private boolean unknown_dataTraceEnabled;
     public @Nullable Boolean dataTraceEnabled() {
-        if (dataTraceEnabled == null) return null;
-        return dataTraceEnabled.getValue("StageRouteSetting.dataTraceEnabled");
+        if (!unknown_dataTraceEnabled) return value_dataTraceEnabled;
+        throw new UndeferrableValueException("Value 'StageRouteSetting.dataTraceEnabled' is not present");
     }
 
     /**
      * Whether detailed metrics are enabled for the route. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> detailedMetricsEnabled;
-
+    @PolicyResourceProperty(name="detailedMetricsEnabled", flag="unknown_detailedMetricsEnabled")
+    private @Nullable Boolean value_detailedMetricsEnabled;
+    private boolean unknown_detailedMetricsEnabled;
     public @Nullable Boolean detailedMetricsEnabled() {
-        if (detailedMetricsEnabled == null) return null;
-        return detailedMetricsEnabled.getValue("StageRouteSetting.detailedMetricsEnabled");
+        if (!unknown_detailedMetricsEnabled) return value_detailedMetricsEnabled;
+        throw new UndeferrableValueException("Value 'StageRouteSetting.detailedMetricsEnabled' is not present");
     }
 
     /**
@@ -41,44 +44,48 @@ public final class StageRouteSetting {
      * Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
      * 
      */
-    private @Nullable UndeferrableValue<String> loggingLevel;
-
+    @PolicyResourceProperty(name="loggingLevel", flag="unknown_loggingLevel")
+    private @Nullable String value_loggingLevel;
+    private boolean unknown_loggingLevel;
     public @Nullable String loggingLevel() {
-        if (loggingLevel == null) return null;
-        return loggingLevel.getValue("StageRouteSetting.loggingLevel");
+        if (!unknown_loggingLevel) return value_loggingLevel;
+        throw new UndeferrableValueException("Value 'StageRouteSetting.loggingLevel' is not present");
     }
 
     /**
      * Route key.
      * 
      */
-    private UndeferrableValue<String> routeKey;
-
+    @PolicyResourceProperty(name="routeKey", flag="unknown_routeKey")
+    private String value_routeKey;
+    private boolean unknown_routeKey;
     public String routeKey() {
-        if (routeKey == null) return null;
-        return routeKey.getValue("StageRouteSetting.routeKey");
+        if (!unknown_routeKey) return value_routeKey;
+        throw new UndeferrableValueException("Value 'StageRouteSetting.routeKey' is not present");
     }
 
     /**
      * Throttling burst limit for the route.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> throttlingBurstLimit;
-
+    @PolicyResourceProperty(name="throttlingBurstLimit", flag="unknown_throttlingBurstLimit")
+    private @Nullable Integer value_throttlingBurstLimit;
+    private boolean unknown_throttlingBurstLimit;
     public @Nullable Integer throttlingBurstLimit() {
-        if (throttlingBurstLimit == null) return null;
-        return throttlingBurstLimit.getValue("StageRouteSetting.throttlingBurstLimit");
+        if (!unknown_throttlingBurstLimit) return value_throttlingBurstLimit;
+        throw new UndeferrableValueException("Value 'StageRouteSetting.throttlingBurstLimit' is not present");
     }
 
     /**
      * Throttling rate limit for the route.
      * 
      */
-    private @Nullable UndeferrableValue<Double> throttlingRateLimit;
-
+    @PolicyResourceProperty(name="throttlingRateLimit", flag="unknown_throttlingRateLimit")
+    private @Nullable Double value_throttlingRateLimit;
+    private boolean unknown_throttlingRateLimit;
     public @Nullable Double throttlingRateLimit() {
-        if (throttlingRateLimit == null) return null;
-        return throttlingRateLimit.getValue("StageRouteSetting.throttlingRateLimit");
+        if (!unknown_throttlingRateLimit) return value_throttlingRateLimit;
+        throw new UndeferrableValueException("Value 'StageRouteSetting.throttlingRateLimit' is not present");
     }
 
 }

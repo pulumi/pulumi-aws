@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appautoscaling.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetri
      * Metric type.
      * 
      */
-    private UndeferrableValue<String> predefinedMetricType;
-
+    @PolicyResourceProperty(name="predefinedMetricType", flag="unknown_predefinedMetricType")
+    private String value_predefinedMetricType;
+    private boolean unknown_predefinedMetricType;
     public String predefinedMetricType() {
-        if (predefinedMetricType == null) return null;
-        return predefinedMetricType.getValue("PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification.predefinedMetricType");
+        if (!unknown_predefinedMetricType) return value_predefinedMetricType;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification.predefinedMetricType' is not present");
     }
 
     /**
      * Reserved for future use if the `predefined_metric_type` is not `ALBRequestCountPerTarget`. If the `predefined_metric_type` is `ALBRequestCountPerTarget`, you must specify this argument. Documentation can be found at: [AWS Predefined Scaling Metric Specification](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html). Must be less than or equal to 1023 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> resourceLabel;
-
+    @PolicyResourceProperty(name="resourceLabel", flag="unknown_resourceLabel")
+    private @Nullable String value_resourceLabel;
+    private boolean unknown_resourceLabel;
     public @Nullable String resourceLabel() {
-        if (resourceLabel == null) return null;
-        return resourceLabel.getValue("PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification.resourceLabel");
+        if (!unknown_resourceLabel) return value_resourceLabel;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification.resourceLabel' is not present");
     }
 
 }

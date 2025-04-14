@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.opensearch.inputs.ServerlessCollectionTimeoutsArgs;
 import java.lang.String;
@@ -18,11 +19,12 @@ public final class ServerlessCollectionArgs extends com.pulumi.resources.PolicyR
      * Description of the collection.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ServerlessCollectionArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ServerlessCollectionArgs.description' is not present");
     }
 
     /**
@@ -31,51 +33,56 @@ public final class ServerlessCollectionArgs extends com.pulumi.resources.PolicyR
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ServerlessCollectionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ServerlessCollectionArgs.name' is not present");
     }
 
     /**
      * Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      * 
      */
-    private UndeferrableValue<String> standbyReplicas;
-
+    @PolicyResourceProperty(name="standbyReplicas", flag="unknown_standbyReplicas")
+    private String value_standbyReplicas;
+    private boolean unknown_standbyReplicas;
     public String standbyReplicas() {
-        if (standbyReplicas == null) return null;
-        return standbyReplicas.getValue("ServerlessCollectionArgs.standbyReplicas");
+        if (!unknown_standbyReplicas) return value_standbyReplicas;
+        throw new UndeferrableValueException("Value 'ServerlessCollectionArgs.standbyReplicas' is not present");
     }
 
     /**
      * A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ServerlessCollectionArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ServerlessCollectionArgs.tags' is not present");
     }
 
-    private UndeferrableValue<ServerlessCollectionTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private ServerlessCollectionTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public ServerlessCollectionTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ServerlessCollectionArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ServerlessCollectionArgs.timeouts' is not present");
     }
 
     /**
      * Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ServerlessCollectionArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ServerlessCollectionArgs.type' is not present");
     }
 
 }

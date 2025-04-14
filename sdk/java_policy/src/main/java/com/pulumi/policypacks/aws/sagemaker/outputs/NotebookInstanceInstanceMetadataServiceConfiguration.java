@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class NotebookInstanceInstanceMetadataServiceConfiguration {
      * Indicates the minimum IMDS version that the notebook instance supports. When passed &#34;1&#34; is passed. This means that both IMDSv1 and IMDSv2 are supported. Valid values are `1` and `2`.
      * 
      */
-    private @Nullable UndeferrableValue<String> minimumInstanceMetadataServiceVersion;
-
+    @PolicyResourceProperty(name="minimumInstanceMetadataServiceVersion", flag="unknown_minimumInstanceMetadataServiceVersion")
+    private @Nullable String value_minimumInstanceMetadataServiceVersion;
+    private boolean unknown_minimumInstanceMetadataServiceVersion;
     public @Nullable String minimumInstanceMetadataServiceVersion() {
-        if (minimumInstanceMetadataServiceVersion == null) return null;
-        return minimumInstanceMetadataServiceVersion.getValue("NotebookInstanceInstanceMetadataServiceConfiguration.minimumInstanceMetadataServiceVersion");
+        if (!unknown_minimumInstanceMetadataServiceVersion) return value_minimumInstanceMetadataServiceVersion;
+        throw new UndeferrableValueException("Value 'NotebookInstanceInstanceMetadataServiceConfiguration.minimumInstanceMetadataServiceVersion' is not present");
     }
 
 }

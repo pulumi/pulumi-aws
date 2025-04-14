@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.gamelift.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class GameSessionQueuePlayerLatencyPolicy {
      * Maximum latency value that is allowed for any player.
      * 
      */
-    private UndeferrableValue<Integer> maximumIndividualPlayerLatencyMilliseconds;
-
+    @PolicyResourceProperty(name="maximumIndividualPlayerLatencyMilliseconds", flag="unknown_maximumIndividualPlayerLatencyMilliseconds")
+    private Integer value_maximumIndividualPlayerLatencyMilliseconds;
+    private boolean unknown_maximumIndividualPlayerLatencyMilliseconds;
     public Integer maximumIndividualPlayerLatencyMilliseconds() {
-        if (maximumIndividualPlayerLatencyMilliseconds == null) return null;
-        return maximumIndividualPlayerLatencyMilliseconds.getValue("GameSessionQueuePlayerLatencyPolicy.maximumIndividualPlayerLatencyMilliseconds");
+        if (!unknown_maximumIndividualPlayerLatencyMilliseconds) return value_maximumIndividualPlayerLatencyMilliseconds;
+        throw new UndeferrableValueException("Value 'GameSessionQueuePlayerLatencyPolicy.maximumIndividualPlayerLatencyMilliseconds' is not present");
     }
 
     /**
      * Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> policyDurationSeconds;
-
+    @PolicyResourceProperty(name="policyDurationSeconds", flag="unknown_policyDurationSeconds")
+    private @Nullable Integer value_policyDurationSeconds;
+    private boolean unknown_policyDurationSeconds;
     public @Nullable Integer policyDurationSeconds() {
-        if (policyDurationSeconds == null) return null;
-        return policyDurationSeconds.getValue("GameSessionQueuePlayerLatencyPolicy.policyDurationSeconds");
+        if (!unknown_policyDurationSeconds) return value_policyDurationSeconds;
+        throw new UndeferrableValueException("Value 'GameSessionQueuePlayerLatencyPolicy.policyDurationSeconds' is not present");
     }
 
 }

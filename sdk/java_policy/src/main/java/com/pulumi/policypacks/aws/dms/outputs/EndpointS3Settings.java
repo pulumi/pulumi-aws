@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dms.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,418 +17,456 @@ public final class EndpointS3Settings {
      * Whether to add column name information to the .csv output file. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> addColumnName;
-
+    @PolicyResourceProperty(name="addColumnName", flag="unknown_addColumnName")
+    private @Nullable Boolean value_addColumnName;
+    private boolean unknown_addColumnName;
     public @Nullable Boolean addColumnName() {
-        if (addColumnName == null) return null;
-        return addColumnName.getValue("EndpointS3Settings.addColumnName");
+        if (!unknown_addColumnName) return value_addColumnName;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.addColumnName' is not present");
     }
 
     /**
      * S3 object prefix.
      * 
      */
-    private @Nullable UndeferrableValue<String> bucketFolder;
-
+    @PolicyResourceProperty(name="bucketFolder", flag="unknown_bucketFolder")
+    private @Nullable String value_bucketFolder;
+    private boolean unknown_bucketFolder;
     public @Nullable String bucketFolder() {
-        if (bucketFolder == null) return null;
-        return bucketFolder.getValue("EndpointS3Settings.bucketFolder");
+        if (!unknown_bucketFolder) return value_bucketFolder;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.bucketFolder' is not present");
     }
 
     /**
      * S3 bucket name.
      * 
      */
-    private @Nullable UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private @Nullable String value_bucketName;
+    private boolean unknown_bucketName;
     public @Nullable String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("EndpointS3Settings.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.bucketName' is not present");
     }
 
     /**
      * Predefined (canned) access control list for objects created in an S3 bucket. Valid values include `none`, `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Default is `none`.
      * 
      */
-    private @Nullable UndeferrableValue<String> cannedAclForObjects;
-
+    @PolicyResourceProperty(name="cannedAclForObjects", flag="unknown_cannedAclForObjects")
+    private @Nullable String value_cannedAclForObjects;
+    private boolean unknown_cannedAclForObjects;
     public @Nullable String cannedAclForObjects() {
-        if (cannedAclForObjects == null) return null;
-        return cannedAclForObjects.getValue("EndpointS3Settings.cannedAclForObjects");
+        if (!unknown_cannedAclForObjects) return value_cannedAclForObjects;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.cannedAclForObjects' is not present");
     }
 
     /**
      * Whether to write insert and update operations to .csv or .parquet output files. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> cdcInsertsAndUpdates;
-
+    @PolicyResourceProperty(name="cdcInsertsAndUpdates", flag="unknown_cdcInsertsAndUpdates")
+    private @Nullable Boolean value_cdcInsertsAndUpdates;
+    private boolean unknown_cdcInsertsAndUpdates;
     public @Nullable Boolean cdcInsertsAndUpdates() {
-        if (cdcInsertsAndUpdates == null) return null;
-        return cdcInsertsAndUpdates.getValue("EndpointS3Settings.cdcInsertsAndUpdates");
+        if (!unknown_cdcInsertsAndUpdates) return value_cdcInsertsAndUpdates;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.cdcInsertsAndUpdates' is not present");
     }
 
     /**
      * Whether to write insert operations to .csv or .parquet output files. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> cdcInsertsOnly;
-
+    @PolicyResourceProperty(name="cdcInsertsOnly", flag="unknown_cdcInsertsOnly")
+    private @Nullable Boolean value_cdcInsertsOnly;
+    private boolean unknown_cdcInsertsOnly;
     public @Nullable Boolean cdcInsertsOnly() {
-        if (cdcInsertsOnly == null) return null;
-        return cdcInsertsOnly.getValue("EndpointS3Settings.cdcInsertsOnly");
+        if (!unknown_cdcInsertsOnly) return value_cdcInsertsOnly;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.cdcInsertsOnly' is not present");
     }
 
     /**
      * Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3. Default is `60`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> cdcMaxBatchInterval;
-
+    @PolicyResourceProperty(name="cdcMaxBatchInterval", flag="unknown_cdcMaxBatchInterval")
+    private @Nullable Integer value_cdcMaxBatchInterval;
+    private boolean unknown_cdcMaxBatchInterval;
     public @Nullable Integer cdcMaxBatchInterval() {
-        if (cdcMaxBatchInterval == null) return null;
-        return cdcMaxBatchInterval.getValue("EndpointS3Settings.cdcMaxBatchInterval");
+        if (!unknown_cdcMaxBatchInterval) return value_cdcMaxBatchInterval;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.cdcMaxBatchInterval' is not present");
     }
 
     /**
      * Minimum file size condition as defined in kilobytes to output a file to Amazon S3. Default is `32000`. **NOTE:** Previously, this setting was measured in megabytes but now represents kilobytes. Update configurations accordingly.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> cdcMinFileSize;
-
+    @PolicyResourceProperty(name="cdcMinFileSize", flag="unknown_cdcMinFileSize")
+    private @Nullable Integer value_cdcMinFileSize;
+    private boolean unknown_cdcMinFileSize;
     public @Nullable Integer cdcMinFileSize() {
-        if (cdcMinFileSize == null) return null;
-        return cdcMinFileSize.getValue("EndpointS3Settings.cdcMinFileSize");
+        if (!unknown_cdcMinFileSize) return value_cdcMinFileSize;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.cdcMinFileSize' is not present");
     }
 
     /**
      * Folder path of CDC files. For an S3 source, this setting is required if a task captures change data; otherwise, it&#39;s optional. If `cdc_path` is set, AWS DMS reads CDC files from this path and replicates the data changes to the target endpoint. Supported in AWS DMS versions 3.4.2 and later.
      * 
      */
-    private @Nullable UndeferrableValue<String> cdcPath;
-
+    @PolicyResourceProperty(name="cdcPath", flag="unknown_cdcPath")
+    private @Nullable String value_cdcPath;
+    private boolean unknown_cdcPath;
     public @Nullable String cdcPath() {
-        if (cdcPath == null) return null;
-        return cdcPath.getValue("EndpointS3Settings.cdcPath");
+        if (!unknown_cdcPath) return value_cdcPath;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.cdcPath' is not present");
     }
 
     /**
      * Set to compress target files. Default is `NONE`. Valid values are `GZIP` and `NONE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> compressionType;
-
+    @PolicyResourceProperty(name="compressionType", flag="unknown_compressionType")
+    private @Nullable String value_compressionType;
+    private boolean unknown_compressionType;
     public @Nullable String compressionType() {
-        if (compressionType == null) return null;
-        return compressionType.getValue("EndpointS3Settings.compressionType");
+        if (!unknown_compressionType) return value_compressionType;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.compressionType' is not present");
     }
 
     /**
      * Delimiter used to separate columns in the source files. Default is `,`.
      * 
      */
-    private @Nullable UndeferrableValue<String> csvDelimiter;
-
+    @PolicyResourceProperty(name="csvDelimiter", flag="unknown_csvDelimiter")
+    private @Nullable String value_csvDelimiter;
+    private boolean unknown_csvDelimiter;
     public @Nullable String csvDelimiter() {
-        if (csvDelimiter == null) return null;
-        return csvDelimiter.getValue("EndpointS3Settings.csvDelimiter");
+        if (!unknown_csvDelimiter) return value_csvDelimiter;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.csvDelimiter' is not present");
     }
 
     /**
      * String to use for all columns not included in the supplemental log.
      * 
      */
-    private @Nullable UndeferrableValue<String> csvNoSupValue;
-
+    @PolicyResourceProperty(name="csvNoSupValue", flag="unknown_csvNoSupValue")
+    private @Nullable String value_csvNoSupValue;
+    private boolean unknown_csvNoSupValue;
     public @Nullable String csvNoSupValue() {
-        if (csvNoSupValue == null) return null;
-        return csvNoSupValue.getValue("EndpointS3Settings.csvNoSupValue");
+        if (!unknown_csvNoSupValue) return value_csvNoSupValue;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.csvNoSupValue' is not present");
     }
 
     /**
      * String to as null when writing to the target.
      * 
      */
-    private @Nullable UndeferrableValue<String> csvNullValue;
-
+    @PolicyResourceProperty(name="csvNullValue", flag="unknown_csvNullValue")
+    private @Nullable String value_csvNullValue;
+    private boolean unknown_csvNullValue;
     public @Nullable String csvNullValue() {
-        if (csvNullValue == null) return null;
-        return csvNullValue.getValue("EndpointS3Settings.csvNullValue");
+        if (!unknown_csvNullValue) return value_csvNullValue;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.csvNullValue' is not present");
     }
 
     /**
      * Delimiter used to separate rows in the source files. Default is `\n`.
      * 
      */
-    private @Nullable UndeferrableValue<String> csvRowDelimiter;
-
+    @PolicyResourceProperty(name="csvRowDelimiter", flag="unknown_csvRowDelimiter")
+    private @Nullable String value_csvRowDelimiter;
+    private boolean unknown_csvRowDelimiter;
     public @Nullable String csvRowDelimiter() {
-        if (csvRowDelimiter == null) return null;
-        return csvRowDelimiter.getValue("EndpointS3Settings.csvRowDelimiter");
+        if (!unknown_csvRowDelimiter) return value_csvRowDelimiter;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.csvRowDelimiter' is not present");
     }
 
     /**
      * Output format for the files that AWS DMS uses to create S3 objects. Valid values are `csv` and `parquet`. Default is `csv`.
      * 
      */
-    private @Nullable UndeferrableValue<String> dataFormat;
-
+    @PolicyResourceProperty(name="dataFormat", flag="unknown_dataFormat")
+    private @Nullable String value_dataFormat;
+    private boolean unknown_dataFormat;
     public @Nullable String dataFormat() {
-        if (dataFormat == null) return null;
-        return dataFormat.getValue("EndpointS3Settings.dataFormat");
+        if (!unknown_dataFormat) return value_dataFormat;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.dataFormat' is not present");
     }
 
     /**
      * Size of one data page in bytes. Default is `1048576` (1 MiB).
      * 
      */
-    private @Nullable UndeferrableValue<Integer> dataPageSize;
-
+    @PolicyResourceProperty(name="dataPageSize", flag="unknown_dataPageSize")
+    private @Nullable Integer value_dataPageSize;
+    private boolean unknown_dataPageSize;
     public @Nullable Integer dataPageSize() {
-        if (dataPageSize == null) return null;
-        return dataPageSize.getValue("EndpointS3Settings.dataPageSize");
+        if (!unknown_dataPageSize) return value_dataPageSize;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.dataPageSize' is not present");
     }
 
     /**
      * Date separating delimiter to use during folder partitioning. Valid values are `SLASH`, `UNDERSCORE`, `DASH`, and `NONE`. Default is `SLASH`.
      * 
      */
-    private @Nullable UndeferrableValue<String> datePartitionDelimiter;
-
+    @PolicyResourceProperty(name="datePartitionDelimiter", flag="unknown_datePartitionDelimiter")
+    private @Nullable String value_datePartitionDelimiter;
+    private boolean unknown_datePartitionDelimiter;
     public @Nullable String datePartitionDelimiter() {
-        if (datePartitionDelimiter == null) return null;
-        return datePartitionDelimiter.getValue("EndpointS3Settings.datePartitionDelimiter");
+        if (!unknown_datePartitionDelimiter) return value_datePartitionDelimiter;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.datePartitionDelimiter' is not present");
     }
 
     /**
      * Partition S3 bucket folders based on transaction commit dates. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> datePartitionEnabled;
-
+    @PolicyResourceProperty(name="datePartitionEnabled", flag="unknown_datePartitionEnabled")
+    private @Nullable Boolean value_datePartitionEnabled;
+    private boolean unknown_datePartitionEnabled;
     public @Nullable Boolean datePartitionEnabled() {
-        if (datePartitionEnabled == null) return null;
-        return datePartitionEnabled.getValue("EndpointS3Settings.datePartitionEnabled");
+        if (!unknown_datePartitionEnabled) return value_datePartitionEnabled;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.datePartitionEnabled' is not present");
     }
 
     /**
      * Date format to use during folder partitioning. Use this parameter when `date_partition_enabled` is set to true. Valid values are `YYYYMMDD`, `YYYYMMDDHH`, `YYYYMM`, `MMYYYYDD`, and `DDMMYYYY`. Default is `YYYYMMDD`.
      * 
      */
-    private @Nullable UndeferrableValue<String> datePartitionSequence;
-
+    @PolicyResourceProperty(name="datePartitionSequence", flag="unknown_datePartitionSequence")
+    private @Nullable String value_datePartitionSequence;
+    private boolean unknown_datePartitionSequence;
     public @Nullable String datePartitionSequence() {
-        if (datePartitionSequence == null) return null;
-        return datePartitionSequence.getValue("EndpointS3Settings.datePartitionSequence");
+        if (!unknown_datePartitionSequence) return value_datePartitionSequence;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.datePartitionSequence' is not present");
     }
 
     /**
      * Maximum size in bytes of an encoded dictionary page of a column. Default is `1048576` (1 MiB).
      * 
      */
-    private @Nullable UndeferrableValue<Integer> dictPageSizeLimit;
-
+    @PolicyResourceProperty(name="dictPageSizeLimit", flag="unknown_dictPageSizeLimit")
+    private @Nullable Integer value_dictPageSizeLimit;
+    private boolean unknown_dictPageSizeLimit;
     public @Nullable Integer dictPageSizeLimit() {
-        if (dictPageSizeLimit == null) return null;
-        return dictPageSizeLimit.getValue("EndpointS3Settings.dictPageSizeLimit");
+        if (!unknown_dictPageSizeLimit) return value_dictPageSizeLimit;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.dictPageSizeLimit' is not present");
     }
 
     /**
      * Whether to enable statistics for Parquet pages and row groups. Default is `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enableStatistics;
-
+    @PolicyResourceProperty(name="enableStatistics", flag="unknown_enableStatistics")
+    private @Nullable Boolean value_enableStatistics;
+    private boolean unknown_enableStatistics;
     public @Nullable Boolean enableStatistics() {
-        if (enableStatistics == null) return null;
-        return enableStatistics.getValue("EndpointS3Settings.enableStatistics");
+        if (!unknown_enableStatistics) return value_enableStatistics;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.enableStatistics' is not present");
     }
 
     /**
      * Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. Default is `rle_dictionary`.
      * 
      */
-    private @Nullable UndeferrableValue<String> encodingType;
-
+    @PolicyResourceProperty(name="encodingType", flag="unknown_encodingType")
+    private @Nullable String value_encodingType;
+    private boolean unknown_encodingType;
     public @Nullable String encodingType() {
-        if (encodingType == null) return null;
-        return encodingType.getValue("EndpointS3Settings.encodingType");
+        if (!unknown_encodingType) return value_encodingType;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.encodingType' is not present");
     }
 
     /**
      * Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
      * 
      */
-    private @Nullable UndeferrableValue<String> encryptionMode;
-
+    @PolicyResourceProperty(name="encryptionMode", flag="unknown_encryptionMode")
+    private @Nullable String value_encryptionMode;
+    private boolean unknown_encryptionMode;
     public @Nullable String encryptionMode() {
-        if (encryptionMode == null) return null;
-        return encryptionMode.getValue("EndpointS3Settings.encryptionMode");
+        if (!unknown_encryptionMode) return value_encryptionMode;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.encryptionMode' is not present");
     }
 
     /**
      * JSON document that describes how AWS DMS should interpret the data.
      * 
      */
-    private @Nullable UndeferrableValue<String> externalTableDefinition;
-
+    @PolicyResourceProperty(name="externalTableDefinition", flag="unknown_externalTableDefinition")
+    private @Nullable String value_externalTableDefinition;
+    private boolean unknown_externalTableDefinition;
     public @Nullable String externalTableDefinition() {
-        if (externalTableDefinition == null) return null;
-        return externalTableDefinition.getValue("EndpointS3Settings.externalTableDefinition");
+        if (!unknown_externalTableDefinition) return value_externalTableDefinition;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.externalTableDefinition' is not present");
     }
 
     /**
      * Whether to integrate AWS Glue Data Catalog with an Amazon S3 target. See [Using AWS Glue Data Catalog with an Amazon S3 target for AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.GlueCatalog) for more information. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> glueCatalogGeneration;
-
+    @PolicyResourceProperty(name="glueCatalogGeneration", flag="unknown_glueCatalogGeneration")
+    private @Nullable Boolean value_glueCatalogGeneration;
+    private boolean unknown_glueCatalogGeneration;
     public @Nullable Boolean glueCatalogGeneration() {
-        if (glueCatalogGeneration == null) return null;
-        return glueCatalogGeneration.getValue("EndpointS3Settings.glueCatalogGeneration");
+        if (!unknown_glueCatalogGeneration) return value_glueCatalogGeneration;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.glueCatalogGeneration' is not present");
     }
 
     /**
      * When this value is set to `1`, DMS ignores the first row header in a .csv file. Default is `0`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> ignoreHeaderRows;
-
+    @PolicyResourceProperty(name="ignoreHeaderRows", flag="unknown_ignoreHeaderRows")
+    private @Nullable Integer value_ignoreHeaderRows;
+    private boolean unknown_ignoreHeaderRows;
     public @Nullable Integer ignoreHeaderRows() {
-        if (ignoreHeaderRows == null) return null;
-        return ignoreHeaderRows.getValue("EndpointS3Settings.ignoreHeaderRows");
+        if (!unknown_ignoreHeaderRows) return value_ignoreHeaderRows;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.ignoreHeaderRows' is not present");
     }
 
     /**
      * Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> includeOpForFullLoad;
-
+    @PolicyResourceProperty(name="includeOpForFullLoad", flag="unknown_includeOpForFullLoad")
+    private @Nullable Boolean value_includeOpForFullLoad;
+    private boolean unknown_includeOpForFullLoad;
     public @Nullable Boolean includeOpForFullLoad() {
-        if (includeOpForFullLoad == null) return null;
-        return includeOpForFullLoad.getValue("EndpointS3Settings.includeOpForFullLoad");
+        if (!unknown_includeOpForFullLoad) return value_includeOpForFullLoad;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.includeOpForFullLoad' is not present");
     }
 
     /**
      * Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. Default is `1048576` (1 GB).
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxFileSize;
-
+    @PolicyResourceProperty(name="maxFileSize", flag="unknown_maxFileSize")
+    private @Nullable Integer value_maxFileSize;
+    private boolean unknown_maxFileSize;
     public @Nullable Integer maxFileSize() {
-        if (maxFileSize == null) return null;
-        return maxFileSize.getValue("EndpointS3Settings.maxFileSize");
+        if (!unknown_maxFileSize) return value_maxFileSize;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.maxFileSize' is not present");
     }
 
     /**
      * Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> parquetTimestampInMillisecond;
-
+    @PolicyResourceProperty(name="parquetTimestampInMillisecond", flag="unknown_parquetTimestampInMillisecond")
+    private @Nullable Boolean value_parquetTimestampInMillisecond;
+    private boolean unknown_parquetTimestampInMillisecond;
     public @Nullable Boolean parquetTimestampInMillisecond() {
-        if (parquetTimestampInMillisecond == null) return null;
-        return parquetTimestampInMillisecond.getValue("EndpointS3Settings.parquetTimestampInMillisecond");
+        if (!unknown_parquetTimestampInMillisecond) return value_parquetTimestampInMillisecond;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.parquetTimestampInMillisecond' is not present");
     }
 
     /**
      * Version of the .parquet file format. Default is `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
      * 
      */
-    private @Nullable UndeferrableValue<String> parquetVersion;
-
+    @PolicyResourceProperty(name="parquetVersion", flag="unknown_parquetVersion")
+    private @Nullable String value_parquetVersion;
+    private boolean unknown_parquetVersion;
     public @Nullable String parquetVersion() {
-        if (parquetVersion == null) return null;
-        return parquetVersion.getValue("EndpointS3Settings.parquetVersion");
+        if (!unknown_parquetVersion) return value_parquetVersion;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.parquetVersion' is not present");
     }
 
     /**
      * Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdc_path`. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> preserveTransactions;
-
+    @PolicyResourceProperty(name="preserveTransactions", flag="unknown_preserveTransactions")
+    private @Nullable Boolean value_preserveTransactions;
+    private boolean unknown_preserveTransactions;
     public @Nullable Boolean preserveTransactions() {
-        if (preserveTransactions == null) return null;
-        return preserveTransactions.getValue("EndpointS3Settings.preserveTransactions");
+        if (!unknown_preserveTransactions) return value_preserveTransactions;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.preserveTransactions' is not present");
     }
 
     /**
      * For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> rfc4180;
-
+    @PolicyResourceProperty(name="rfc4180", flag="unknown_rfc4180")
+    private @Nullable Boolean value_rfc4180;
+    private boolean unknown_rfc4180;
     public @Nullable Boolean rfc4180() {
-        if (rfc4180 == null) return null;
-        return rfc4180.getValue("EndpointS3Settings.rfc4180");
+        if (!unknown_rfc4180) return value_rfc4180;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.rfc4180' is not present");
     }
 
     /**
      * Number of rows in a row group. Default is `10000`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> rowGroupLength;
-
+    @PolicyResourceProperty(name="rowGroupLength", flag="unknown_rowGroupLength")
+    private @Nullable Integer value_rowGroupLength;
+    private boolean unknown_rowGroupLength;
     public @Nullable Integer rowGroupLength() {
-        if (rowGroupLength == null) return null;
-        return rowGroupLength.getValue("EndpointS3Settings.rowGroupLength");
+        if (!unknown_rowGroupLength) return value_rowGroupLength;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.rowGroupLength' is not present");
     }
 
     /**
      * ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
      * 
      */
-    private @Nullable UndeferrableValue<String> serverSideEncryptionKmsKeyId;
-
+    @PolicyResourceProperty(name="serverSideEncryptionKmsKeyId", flag="unknown_serverSideEncryptionKmsKeyId")
+    private @Nullable String value_serverSideEncryptionKmsKeyId;
+    private boolean unknown_serverSideEncryptionKmsKeyId;
     public @Nullable String serverSideEncryptionKmsKeyId() {
-        if (serverSideEncryptionKmsKeyId == null) return null;
-        return serverSideEncryptionKmsKeyId.getValue("EndpointS3Settings.serverSideEncryptionKmsKeyId");
+        if (!unknown_serverSideEncryptionKmsKeyId) return value_serverSideEncryptionKmsKeyId;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.serverSideEncryptionKmsKeyId' is not present");
     }
 
     /**
      * ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
      * 
      */
-    private @Nullable UndeferrableValue<String> serviceAccessRoleArn;
-
+    @PolicyResourceProperty(name="serviceAccessRoleArn", flag="unknown_serviceAccessRoleArn")
+    private @Nullable String value_serviceAccessRoleArn;
+    private boolean unknown_serviceAccessRoleArn;
     public @Nullable String serviceAccessRoleArn() {
-        if (serviceAccessRoleArn == null) return null;
-        return serviceAccessRoleArn.getValue("EndpointS3Settings.serviceAccessRoleArn");
+        if (!unknown_serviceAccessRoleArn) return value_serviceAccessRoleArn;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.serviceAccessRoleArn' is not present");
     }
 
     /**
      * Column to add with timestamp information to the endpoint data for an Amazon S3 target.
      * 
      */
-    private @Nullable UndeferrableValue<String> timestampColumnName;
-
+    @PolicyResourceProperty(name="timestampColumnName", flag="unknown_timestampColumnName")
+    private @Nullable String value_timestampColumnName;
+    private boolean unknown_timestampColumnName;
     public @Nullable String timestampColumnName() {
-        if (timestampColumnName == null) return null;
-        return timestampColumnName.getValue("EndpointS3Settings.timestampColumnName");
+        if (!unknown_timestampColumnName) return value_timestampColumnName;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.timestampColumnName' is not present");
     }
 
     /**
      * Whether to use `csv_no_sup_value` for columns not included in the supplemental log.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> useCsvNoSupValue;
-
+    @PolicyResourceProperty(name="useCsvNoSupValue", flag="unknown_useCsvNoSupValue")
+    private @Nullable Boolean value_useCsvNoSupValue;
+    private boolean unknown_useCsvNoSupValue;
     public @Nullable Boolean useCsvNoSupValue() {
-        if (useCsvNoSupValue == null) return null;
-        return useCsvNoSupValue.getValue("EndpointS3Settings.useCsvNoSupValue");
+        if (!unknown_useCsvNoSupValue) return value_useCsvNoSupValue;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.useCsvNoSupValue' is not present");
     }
 
     /**
      * When set to true, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time. When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> useTaskStartTimeForFullLoadTimestamp;
-
+    @PolicyResourceProperty(name="useTaskStartTimeForFullLoadTimestamp", flag="unknown_useTaskStartTimeForFullLoadTimestamp")
+    private @Nullable Boolean value_useTaskStartTimeForFullLoadTimestamp;
+    private boolean unknown_useTaskStartTimeForFullLoadTimestamp;
     public @Nullable Boolean useTaskStartTimeForFullLoadTimestamp() {
-        if (useTaskStartTimeForFullLoadTimestamp == null) return null;
-        return useTaskStartTimeForFullLoadTimestamp.getValue("EndpointS3Settings.useTaskStartTimeForFullLoadTimestamp");
+        if (!unknown_useTaskStartTimeForFullLoadTimestamp) return value_useTaskStartTimeForFullLoadTimestamp;
+        throw new UndeferrableValueException("Value 'EndpointS3Settings.useTaskStartTimeForFullLoadTimestamp' is not present");
     }
 
 }

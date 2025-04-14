@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,198 +20,216 @@ public final class Vpc extends com.pulumi.resources.PolicyResourceOutput {
      * Amazon Resource Name (ARN) of VPC
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Vpc.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Vpc.arn' is not present");
     }
 
     /**
      * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> assignGeneratedIpv6CidrBlock;
-
+    @PolicyResourceProperty(name="assignGeneratedIpv6CidrBlock", flag="unknown_assignGeneratedIpv6CidrBlock")
+    private @Nullable Boolean value_assignGeneratedIpv6CidrBlock;
+    private boolean unknown_assignGeneratedIpv6CidrBlock;
     public @Nullable Boolean assignGeneratedIpv6CidrBlock() {
-        if (assignGeneratedIpv6CidrBlock == null) return null;
-        return assignGeneratedIpv6CidrBlock.getValue("Vpc.assignGeneratedIpv6CidrBlock");
+        if (!unknown_assignGeneratedIpv6CidrBlock) return value_assignGeneratedIpv6CidrBlock;
+        throw new UndeferrableValueException("Value 'Vpc.assignGeneratedIpv6CidrBlock' is not present");
     }
 
     /**
      * The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
      * 
      */
-    private UndeferrableValue<String> cidrBlock;
-
+    @PolicyResourceProperty(name="cidrBlock", flag="unknown_cidrBlock")
+    private String value_cidrBlock;
+    private boolean unknown_cidrBlock;
     public String cidrBlock() {
-        if (cidrBlock == null) return null;
-        return cidrBlock.getValue("Vpc.cidrBlock");
+        if (!unknown_cidrBlock) return value_cidrBlock;
+        throw new UndeferrableValueException("Value 'Vpc.cidrBlock' is not present");
     }
 
     /**
      * The ID of the network ACL created by default on VPC creation
      * 
      */
-    private UndeferrableValue<String> defaultNetworkAclId;
-
+    @PolicyResourceProperty(name="defaultNetworkAclId", flag="unknown_defaultNetworkAclId")
+    private String value_defaultNetworkAclId;
+    private boolean unknown_defaultNetworkAclId;
     public String defaultNetworkAclId() {
-        if (defaultNetworkAclId == null) return null;
-        return defaultNetworkAclId.getValue("Vpc.defaultNetworkAclId");
+        if (!unknown_defaultNetworkAclId) return value_defaultNetworkAclId;
+        throw new UndeferrableValueException("Value 'Vpc.defaultNetworkAclId' is not present");
     }
 
     /**
      * The ID of the route table created by default on VPC creation
      * 
      */
-    private UndeferrableValue<String> defaultRouteTableId;
-
+    @PolicyResourceProperty(name="defaultRouteTableId", flag="unknown_defaultRouteTableId")
+    private String value_defaultRouteTableId;
+    private boolean unknown_defaultRouteTableId;
     public String defaultRouteTableId() {
-        if (defaultRouteTableId == null) return null;
-        return defaultRouteTableId.getValue("Vpc.defaultRouteTableId");
+        if (!unknown_defaultRouteTableId) return value_defaultRouteTableId;
+        throw new UndeferrableValueException("Value 'Vpc.defaultRouteTableId' is not present");
     }
 
     /**
      * The ID of the security group created by default on VPC creation
      * 
      */
-    private UndeferrableValue<String> defaultSecurityGroupId;
-
+    @PolicyResourceProperty(name="defaultSecurityGroupId", flag="unknown_defaultSecurityGroupId")
+    private String value_defaultSecurityGroupId;
+    private boolean unknown_defaultSecurityGroupId;
     public String defaultSecurityGroupId() {
-        if (defaultSecurityGroupId == null) return null;
-        return defaultSecurityGroupId.getValue("Vpc.defaultSecurityGroupId");
+        if (!unknown_defaultSecurityGroupId) return value_defaultSecurityGroupId;
+        throw new UndeferrableValueException("Value 'Vpc.defaultSecurityGroupId' is not present");
     }
 
     /**
      * DHCP options id of the desired VPC.
      * 
      */
-    private UndeferrableValue<String> dhcpOptionsId;
-
+    @PolicyResourceProperty(name="dhcpOptionsId", flag="unknown_dhcpOptionsId")
+    private String value_dhcpOptionsId;
+    private boolean unknown_dhcpOptionsId;
     public String dhcpOptionsId() {
-        if (dhcpOptionsId == null) return null;
-        return dhcpOptionsId.getValue("Vpc.dhcpOptionsId");
+        if (!unknown_dhcpOptionsId) return value_dhcpOptionsId;
+        throw new UndeferrableValueException("Value 'Vpc.dhcpOptionsId' is not present");
     }
 
     /**
      * A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
      * 
      */
-    private UndeferrableValue<Boolean> enableDnsHostnames;
-
+    @PolicyResourceProperty(name="enableDnsHostnames", flag="unknown_enableDnsHostnames")
+    private Boolean value_enableDnsHostnames;
+    private boolean unknown_enableDnsHostnames;
     public Boolean enableDnsHostnames() {
-        if (enableDnsHostnames == null) return null;
-        return enableDnsHostnames.getValue("Vpc.enableDnsHostnames");
+        if (!unknown_enableDnsHostnames) return value_enableDnsHostnames;
+        throw new UndeferrableValueException("Value 'Vpc.enableDnsHostnames' is not present");
     }
 
     /**
      * A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enableDnsSupport;
-
+    @PolicyResourceProperty(name="enableDnsSupport", flag="unknown_enableDnsSupport")
+    private @Nullable Boolean value_enableDnsSupport;
+    private boolean unknown_enableDnsSupport;
     public @Nullable Boolean enableDnsSupport() {
-        if (enableDnsSupport == null) return null;
-        return enableDnsSupport.getValue("Vpc.enableDnsSupport");
+        if (!unknown_enableDnsSupport) return value_enableDnsSupport;
+        throw new UndeferrableValueException("Value 'Vpc.enableDnsSupport' is not present");
     }
 
     /**
      * Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
      * 
      */
-    private UndeferrableValue<Boolean> enableNetworkAddressUsageMetrics;
-
+    @PolicyResourceProperty(name="enableNetworkAddressUsageMetrics", flag="unknown_enableNetworkAddressUsageMetrics")
+    private Boolean value_enableNetworkAddressUsageMetrics;
+    private boolean unknown_enableNetworkAddressUsageMetrics;
     public Boolean enableNetworkAddressUsageMetrics() {
-        if (enableNetworkAddressUsageMetrics == null) return null;
-        return enableNetworkAddressUsageMetrics.getValue("Vpc.enableNetworkAddressUsageMetrics");
+        if (!unknown_enableNetworkAddressUsageMetrics) return value_enableNetworkAddressUsageMetrics;
+        throw new UndeferrableValueException("Value 'Vpc.enableNetworkAddressUsageMetrics' is not present");
     }
 
     /**
      * A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
      * 
      */
-    private @Nullable UndeferrableValue<String> instanceTenancy;
-
+    @PolicyResourceProperty(name="instanceTenancy", flag="unknown_instanceTenancy")
+    private @Nullable String value_instanceTenancy;
+    private boolean unknown_instanceTenancy;
     public @Nullable String instanceTenancy() {
-        if (instanceTenancy == null) return null;
-        return instanceTenancy.getValue("Vpc.instanceTenancy");
+        if (!unknown_instanceTenancy) return value_instanceTenancy;
+        throw new UndeferrableValueException("Value 'Vpc.instanceTenancy' is not present");
     }
 
     /**
      * The ID of an IPv4 IPAM pool you want to use for allocating this VPC&#39;s CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
      * 
      */
-    private @Nullable UndeferrableValue<String> ipv4IpamPoolId;
-
+    @PolicyResourceProperty(name="ipv4IpamPoolId", flag="unknown_ipv4IpamPoolId")
+    private @Nullable String value_ipv4IpamPoolId;
+    private boolean unknown_ipv4IpamPoolId;
     public @Nullable String ipv4IpamPoolId() {
-        if (ipv4IpamPoolId == null) return null;
-        return ipv4IpamPoolId.getValue("Vpc.ipv4IpamPoolId");
+        if (!unknown_ipv4IpamPoolId) return value_ipv4IpamPoolId;
+        throw new UndeferrableValueException("Value 'Vpc.ipv4IpamPoolId' is not present");
     }
 
     /**
      * The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> ipv4NetmaskLength;
-
+    @PolicyResourceProperty(name="ipv4NetmaskLength", flag="unknown_ipv4NetmaskLength")
+    private @Nullable Integer value_ipv4NetmaskLength;
+    private boolean unknown_ipv4NetmaskLength;
     public @Nullable Integer ipv4NetmaskLength() {
-        if (ipv4NetmaskLength == null) return null;
-        return ipv4NetmaskLength.getValue("Vpc.ipv4NetmaskLength");
+        if (!unknown_ipv4NetmaskLength) return value_ipv4NetmaskLength;
+        throw new UndeferrableValueException("Value 'Vpc.ipv4NetmaskLength' is not present");
     }
 
     /**
      * The association ID for the IPv6 CIDR block.
      * 
      */
-    private UndeferrableValue<String> ipv6AssociationId;
-
+    @PolicyResourceProperty(name="ipv6AssociationId", flag="unknown_ipv6AssociationId")
+    private String value_ipv6AssociationId;
+    private boolean unknown_ipv6AssociationId;
     public String ipv6AssociationId() {
-        if (ipv6AssociationId == null) return null;
-        return ipv6AssociationId.getValue("Vpc.ipv6AssociationId");
+        if (!unknown_ipv6AssociationId) return value_ipv6AssociationId;
+        throw new UndeferrableValueException("Value 'Vpc.ipv6AssociationId' is not present");
     }
 
     /**
      * IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
      * 
      */
-    private UndeferrableValue<String> ipv6CidrBlock;
-
+    @PolicyResourceProperty(name="ipv6CidrBlock", flag="unknown_ipv6CidrBlock")
+    private String value_ipv6CidrBlock;
+    private boolean unknown_ipv6CidrBlock;
     public String ipv6CidrBlock() {
-        if (ipv6CidrBlock == null) return null;
-        return ipv6CidrBlock.getValue("Vpc.ipv6CidrBlock");
+        if (!unknown_ipv6CidrBlock) return value_ipv6CidrBlock;
+        throw new UndeferrableValueException("Value 'Vpc.ipv6CidrBlock' is not present");
     }
 
     /**
      * By default when an IPv6 CIDR is assigned to a VPC a default ipv6_cidr_block_network_border_group will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
      * 
      */
-    private UndeferrableValue<String> ipv6CidrBlockNetworkBorderGroup;
-
+    @PolicyResourceProperty(name="ipv6CidrBlockNetworkBorderGroup", flag="unknown_ipv6CidrBlockNetworkBorderGroup")
+    private String value_ipv6CidrBlockNetworkBorderGroup;
+    private boolean unknown_ipv6CidrBlockNetworkBorderGroup;
     public String ipv6CidrBlockNetworkBorderGroup() {
-        if (ipv6CidrBlockNetworkBorderGroup == null) return null;
-        return ipv6CidrBlockNetworkBorderGroup.getValue("Vpc.ipv6CidrBlockNetworkBorderGroup");
+        if (!unknown_ipv6CidrBlockNetworkBorderGroup) return value_ipv6CidrBlockNetworkBorderGroup;
+        throw new UndeferrableValueException("Value 'Vpc.ipv6CidrBlockNetworkBorderGroup' is not present");
     }
 
     /**
      * IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
      * 
      */
-    private @Nullable UndeferrableValue<String> ipv6IpamPoolId;
-
+    @PolicyResourceProperty(name="ipv6IpamPoolId", flag="unknown_ipv6IpamPoolId")
+    private @Nullable String value_ipv6IpamPoolId;
+    private boolean unknown_ipv6IpamPoolId;
     public @Nullable String ipv6IpamPoolId() {
-        if (ipv6IpamPoolId == null) return null;
-        return ipv6IpamPoolId.getValue("Vpc.ipv6IpamPoolId");
+        if (!unknown_ipv6IpamPoolId) return value_ipv6IpamPoolId;
+        throw new UndeferrableValueException("Value 'Vpc.ipv6IpamPoolId' is not present");
     }
 
     /**
      * Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values are from `44` to `60` in increments of 4.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> ipv6NetmaskLength;
-
+    @PolicyResourceProperty(name="ipv6NetmaskLength", flag="unknown_ipv6NetmaskLength")
+    private @Nullable Integer value_ipv6NetmaskLength;
+    private boolean unknown_ipv6NetmaskLength;
     public @Nullable Integer ipv6NetmaskLength() {
-        if (ipv6NetmaskLength == null) return null;
-        return ipv6NetmaskLength.getValue("Vpc.ipv6NetmaskLength");
+        if (!unknown_ipv6NetmaskLength) return value_ipv6NetmaskLength;
+        throw new UndeferrableValueException("Value 'Vpc.ipv6NetmaskLength' is not present");
     }
 
     /**
@@ -219,33 +238,36 @@ public final class Vpc extends com.pulumi.resources.PolicyResourceOutput {
      * `aws.ec2.MainRouteTableAssociation`.
      * 
      */
-    private UndeferrableValue<String> mainRouteTableId;
-
+    @PolicyResourceProperty(name="mainRouteTableId", flag="unknown_mainRouteTableId")
+    private String value_mainRouteTableId;
+    private boolean unknown_mainRouteTableId;
     public String mainRouteTableId() {
-        if (mainRouteTableId == null) return null;
-        return mainRouteTableId.getValue("Vpc.mainRouteTableId");
+        if (!unknown_mainRouteTableId) return value_mainRouteTableId;
+        throw new UndeferrableValueException("Value 'Vpc.mainRouteTableId' is not present");
     }
 
     /**
      * The ID of the AWS account that owns the VPC.
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("Vpc.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'Vpc.ownerId' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Vpc.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Vpc.tags' is not present");
     }
 
     /**
@@ -256,11 +278,12 @@ public final class Vpc extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Vpc.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Vpc.tagsAll' is not present");
     }
 
 }

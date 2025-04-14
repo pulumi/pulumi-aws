@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.customerprofiles;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.customerprofiles.outputs.ProfileAddress;
 import com.pulumi.policypacks.aws.customerprofiles.outputs.ProfileBillingAddress;
@@ -21,99 +22,108 @@ public final class Profile extends com.pulumi.resources.PolicyResourceOutput {
      * A unique account number that you have given to the customer.
      * 
      */
-    private @Nullable UndeferrableValue<String> accountNumber;
-
+    @PolicyResourceProperty(name="accountNumber", flag="unknown_accountNumber")
+    private @Nullable String value_accountNumber;
+    private boolean unknown_accountNumber;
     public @Nullable String accountNumber() {
-        if (accountNumber == null) return null;
-        return accountNumber.getValue("Profile.accountNumber");
+        if (!unknown_accountNumber) return value_accountNumber;
+        throw new UndeferrableValueException("Value 'Profile.accountNumber' is not present");
     }
 
     /**
      * Any additional information relevant to the customer’s profile.
      * 
      */
-    private @Nullable UndeferrableValue<String> additionalInformation;
-
+    @PolicyResourceProperty(name="additionalInformation", flag="unknown_additionalInformation")
+    private @Nullable String value_additionalInformation;
+    private boolean unknown_additionalInformation;
     public @Nullable String additionalInformation() {
-        if (additionalInformation == null) return null;
-        return additionalInformation.getValue("Profile.additionalInformation");
+        if (!unknown_additionalInformation) return value_additionalInformation;
+        throw new UndeferrableValueException("Value 'Profile.additionalInformation' is not present");
     }
 
     /**
      * A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<ProfileAddress> address;
-
+    @PolicyResourceProperty(name="address", flag="unknown_address")
+    private @Nullable ProfileAddress value_address;
+    private boolean unknown_address;
     public @Nullable ProfileAddress address() {
-        if (address == null) return null;
-        return address.getValue("Profile.address");
+        if (!unknown_address) return value_address;
+        throw new UndeferrableValueException("Value 'Profile.address' is not present");
     }
 
     /**
      * A key value pair of attributes of a customer profile.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> attributes;
-
+    @PolicyResourceProperty(name="attributes", flag="unknown_attributes")
+    private @Nullable Map<String,String> value_attributes;
+    private boolean unknown_attributes;
     public @Nullable Map<String,String> attributes() {
-        if (attributes == null) return null;
-        return attributes.getValue("Profile.attributes");
+        if (!unknown_attributes) return value_attributes;
+        throw new UndeferrableValueException("Value 'Profile.attributes' is not present");
     }
 
     /**
      * A block that specifies the customer’s billing address. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<ProfileBillingAddress> billingAddress;
-
+    @PolicyResourceProperty(name="billingAddress", flag="unknown_billingAddress")
+    private @Nullable ProfileBillingAddress value_billingAddress;
+    private boolean unknown_billingAddress;
     public @Nullable ProfileBillingAddress billingAddress() {
-        if (billingAddress == null) return null;
-        return billingAddress.getValue("Profile.billingAddress");
+        if (!unknown_billingAddress) return value_billingAddress;
+        throw new UndeferrableValueException("Value 'Profile.billingAddress' is not present");
     }
 
     /**
      * The customer’s birth date.
      * 
      */
-    private @Nullable UndeferrableValue<String> birthDate;
-
+    @PolicyResourceProperty(name="birthDate", flag="unknown_birthDate")
+    private @Nullable String value_birthDate;
+    private boolean unknown_birthDate;
     public @Nullable String birthDate() {
-        if (birthDate == null) return null;
-        return birthDate.getValue("Profile.birthDate");
+        if (!unknown_birthDate) return value_birthDate;
+        throw new UndeferrableValueException("Value 'Profile.birthDate' is not present");
     }
 
     /**
      * The customer’s business email address.
      * 
      */
-    private @Nullable UndeferrableValue<String> businessEmailAddress;
-
+    @PolicyResourceProperty(name="businessEmailAddress", flag="unknown_businessEmailAddress")
+    private @Nullable String value_businessEmailAddress;
+    private boolean unknown_businessEmailAddress;
     public @Nullable String businessEmailAddress() {
-        if (businessEmailAddress == null) return null;
-        return businessEmailAddress.getValue("Profile.businessEmailAddress");
+        if (!unknown_businessEmailAddress) return value_businessEmailAddress;
+        throw new UndeferrableValueException("Value 'Profile.businessEmailAddress' is not present");
     }
 
     /**
      * The name of the customer’s business.
      * 
      */
-    private @Nullable UndeferrableValue<String> businessName;
-
+    @PolicyResourceProperty(name="businessName", flag="unknown_businessName")
+    private @Nullable String value_businessName;
+    private boolean unknown_businessName;
     public @Nullable String businessName() {
-        if (businessName == null) return null;
-        return businessName.getValue("Profile.businessName");
+        if (!unknown_businessName) return value_businessName;
+        throw new UndeferrableValueException("Value 'Profile.businessName' is not present");
     }
 
     /**
      * The customer’s business phone number.
      * 
      */
-    private @Nullable UndeferrableValue<String> businessPhoneNumber;
-
+    @PolicyResourceProperty(name="businessPhoneNumber", flag="unknown_businessPhoneNumber")
+    private @Nullable String value_businessPhoneNumber;
+    private boolean unknown_businessPhoneNumber;
     public @Nullable String businessPhoneNumber() {
-        if (businessPhoneNumber == null) return null;
-        return businessPhoneNumber.getValue("Profile.businessPhoneNumber");
+        if (!unknown_businessPhoneNumber) return value_businessPhoneNumber;
+        throw new UndeferrableValueException("Value 'Profile.businessPhoneNumber' is not present");
     }
 
     /**
@@ -122,143 +132,156 @@ public final class Profile extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("Profile.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'Profile.domainName' is not present");
     }
 
     /**
      * The customer’s email address, which has not been specified as a personal or business address.
      * 
      */
-    private @Nullable UndeferrableValue<String> emailAddress;
-
+    @PolicyResourceProperty(name="emailAddress", flag="unknown_emailAddress")
+    private @Nullable String value_emailAddress;
+    private boolean unknown_emailAddress;
     public @Nullable String emailAddress() {
-        if (emailAddress == null) return null;
-        return emailAddress.getValue("Profile.emailAddress");
+        if (!unknown_emailAddress) return value_emailAddress;
+        throw new UndeferrableValueException("Value 'Profile.emailAddress' is not present");
     }
 
     /**
      * The customer’s first name.
      * 
      */
-    private @Nullable UndeferrableValue<String> firstName;
-
+    @PolicyResourceProperty(name="firstName", flag="unknown_firstName")
+    private @Nullable String value_firstName;
+    private boolean unknown_firstName;
     public @Nullable String firstName() {
-        if (firstName == null) return null;
-        return firstName.getValue("Profile.firstName");
+        if (!unknown_firstName) return value_firstName;
+        throw new UndeferrableValueException("Value 'Profile.firstName' is not present");
     }
 
     /**
      * The gender with which the customer identifies.
      * 
      */
-    private @Nullable UndeferrableValue<String> genderString;
-
+    @PolicyResourceProperty(name="genderString", flag="unknown_genderString")
+    private @Nullable String value_genderString;
+    private boolean unknown_genderString;
     public @Nullable String genderString() {
-        if (genderString == null) return null;
-        return genderString.getValue("Profile.genderString");
+        if (!unknown_genderString) return value_genderString;
+        throw new UndeferrableValueException("Value 'Profile.genderString' is not present");
     }
 
     /**
      * The customer’s home phone number.
      * 
      */
-    private @Nullable UndeferrableValue<String> homePhoneNumber;
-
+    @PolicyResourceProperty(name="homePhoneNumber", flag="unknown_homePhoneNumber")
+    private @Nullable String value_homePhoneNumber;
+    private boolean unknown_homePhoneNumber;
     public @Nullable String homePhoneNumber() {
-        if (homePhoneNumber == null) return null;
-        return homePhoneNumber.getValue("Profile.homePhoneNumber");
+        if (!unknown_homePhoneNumber) return value_homePhoneNumber;
+        throw new UndeferrableValueException("Value 'Profile.homePhoneNumber' is not present");
     }
 
     /**
      * The customer’s last name.
      * 
      */
-    private @Nullable UndeferrableValue<String> lastName;
-
+    @PolicyResourceProperty(name="lastName", flag="unknown_lastName")
+    private @Nullable String value_lastName;
+    private boolean unknown_lastName;
     public @Nullable String lastName() {
-        if (lastName == null) return null;
-        return lastName.getValue("Profile.lastName");
+        if (!unknown_lastName) return value_lastName;
+        throw new UndeferrableValueException("Value 'Profile.lastName' is not present");
     }
 
     /**
      * A block that specifies the customer’s mailing address. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<ProfileMailingAddress> mailingAddress;
-
+    @PolicyResourceProperty(name="mailingAddress", flag="unknown_mailingAddress")
+    private @Nullable ProfileMailingAddress value_mailingAddress;
+    private boolean unknown_mailingAddress;
     public @Nullable ProfileMailingAddress mailingAddress() {
-        if (mailingAddress == null) return null;
-        return mailingAddress.getValue("Profile.mailingAddress");
+        if (!unknown_mailingAddress) return value_mailingAddress;
+        throw new UndeferrableValueException("Value 'Profile.mailingAddress' is not present");
     }
 
     /**
      * The customer’s middle name.
      * 
      */
-    private @Nullable UndeferrableValue<String> middleName;
-
+    @PolicyResourceProperty(name="middleName", flag="unknown_middleName")
+    private @Nullable String value_middleName;
+    private boolean unknown_middleName;
     public @Nullable String middleName() {
-        if (middleName == null) return null;
-        return middleName.getValue("Profile.middleName");
+        if (!unknown_middleName) return value_middleName;
+        throw new UndeferrableValueException("Value 'Profile.middleName' is not present");
     }
 
     /**
      * The customer’s mobile phone number.
      * 
      */
-    private @Nullable UndeferrableValue<String> mobilePhoneNumber;
-
+    @PolicyResourceProperty(name="mobilePhoneNumber", flag="unknown_mobilePhoneNumber")
+    private @Nullable String value_mobilePhoneNumber;
+    private boolean unknown_mobilePhoneNumber;
     public @Nullable String mobilePhoneNumber() {
-        if (mobilePhoneNumber == null) return null;
-        return mobilePhoneNumber.getValue("Profile.mobilePhoneNumber");
+        if (!unknown_mobilePhoneNumber) return value_mobilePhoneNumber;
+        throw new UndeferrableValueException("Value 'Profile.mobilePhoneNumber' is not present");
     }
 
     /**
      * The type of profile used to describe the customer.
      * 
      */
-    private @Nullable UndeferrableValue<String> partyTypeString;
-
+    @PolicyResourceProperty(name="partyTypeString", flag="unknown_partyTypeString")
+    private @Nullable String value_partyTypeString;
+    private boolean unknown_partyTypeString;
     public @Nullable String partyTypeString() {
-        if (partyTypeString == null) return null;
-        return partyTypeString.getValue("Profile.partyTypeString");
+        if (!unknown_partyTypeString) return value_partyTypeString;
+        throw new UndeferrableValueException("Value 'Profile.partyTypeString' is not present");
     }
 
     /**
      * The customer’s personal email address.
      * 
      */
-    private @Nullable UndeferrableValue<String> personalEmailAddress;
-
+    @PolicyResourceProperty(name="personalEmailAddress", flag="unknown_personalEmailAddress")
+    private @Nullable String value_personalEmailAddress;
+    private boolean unknown_personalEmailAddress;
     public @Nullable String personalEmailAddress() {
-        if (personalEmailAddress == null) return null;
-        return personalEmailAddress.getValue("Profile.personalEmailAddress");
+        if (!unknown_personalEmailAddress) return value_personalEmailAddress;
+        throw new UndeferrableValueException("Value 'Profile.personalEmailAddress' is not present");
     }
 
     /**
      * The customer’s phone number, which has not been specified as a mobile, home, or business number.
      * 
      */
-    private @Nullable UndeferrableValue<String> phoneNumber;
-
+    @PolicyResourceProperty(name="phoneNumber", flag="unknown_phoneNumber")
+    private @Nullable String value_phoneNumber;
+    private boolean unknown_phoneNumber;
     public @Nullable String phoneNumber() {
-        if (phoneNumber == null) return null;
-        return phoneNumber.getValue("Profile.phoneNumber");
+        if (!unknown_phoneNumber) return value_phoneNumber;
+        throw new UndeferrableValueException("Value 'Profile.phoneNumber' is not present");
     }
 
     /**
      * A block that specifies the customer’s shipping address. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<ProfileShippingAddress> shippingAddress;
-
+    @PolicyResourceProperty(name="shippingAddress", flag="unknown_shippingAddress")
+    private @Nullable ProfileShippingAddress value_shippingAddress;
+    private boolean unknown_shippingAddress;
     public @Nullable ProfileShippingAddress shippingAddress() {
-        if (shippingAddress == null) return null;
-        return shippingAddress.getValue("Profile.shippingAddress");
+        if (!unknown_shippingAddress) return value_shippingAddress;
+        throw new UndeferrableValueException("Value 'Profile.shippingAddress' is not present");
     }
 
 }

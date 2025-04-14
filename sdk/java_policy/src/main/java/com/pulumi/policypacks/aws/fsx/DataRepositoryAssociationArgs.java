@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.fsx.inputs.DataRepositoryAssociationS3Args;
 import java.lang.Boolean;
@@ -20,66 +21,72 @@ public final class DataRepositoryAssociationArgs extends com.pulumi.resources.Po
      * Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> batchImportMetaDataOnCreate;
-
+    @PolicyResourceProperty(name="batchImportMetaDataOnCreate", flag="unknown_batchImportMetaDataOnCreate")
+    private Boolean value_batchImportMetaDataOnCreate;
+    private boolean unknown_batchImportMetaDataOnCreate;
     public Boolean batchImportMetaDataOnCreate() {
-        if (batchImportMetaDataOnCreate == null) return null;
-        return batchImportMetaDataOnCreate.getValue("DataRepositoryAssociationArgs.batchImportMetaDataOnCreate");
+        if (!unknown_batchImportMetaDataOnCreate) return value_batchImportMetaDataOnCreate;
+        throw new UndeferrableValueException("Value 'DataRepositoryAssociationArgs.batchImportMetaDataOnCreate' is not present");
     }
 
     /**
      * The path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
      * 
      */
-    private UndeferrableValue<String> dataRepositoryPath;
-
+    @PolicyResourceProperty(name="dataRepositoryPath", flag="unknown_dataRepositoryPath")
+    private String value_dataRepositoryPath;
+    private boolean unknown_dataRepositoryPath;
     public String dataRepositoryPath() {
-        if (dataRepositoryPath == null) return null;
-        return dataRepositoryPath.getValue("DataRepositoryAssociationArgs.dataRepositoryPath");
+        if (!unknown_dataRepositoryPath) return value_dataRepositoryPath;
+        throw new UndeferrableValueException("Value 'DataRepositoryAssociationArgs.dataRepositoryPath' is not present");
     }
 
     /**
      * Set to true to delete files from the file system upon deleting this data repository association. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> deleteDataInFilesystem;
-
+    @PolicyResourceProperty(name="deleteDataInFilesystem", flag="unknown_deleteDataInFilesystem")
+    private Boolean value_deleteDataInFilesystem;
+    private boolean unknown_deleteDataInFilesystem;
     public Boolean deleteDataInFilesystem() {
-        if (deleteDataInFilesystem == null) return null;
-        return deleteDataInFilesystem.getValue("DataRepositoryAssociationArgs.deleteDataInFilesystem");
+        if (!unknown_deleteDataInFilesystem) return value_deleteDataInFilesystem;
+        throw new UndeferrableValueException("Value 'DataRepositoryAssociationArgs.deleteDataInFilesystem' is not present");
     }
 
     /**
      * The ID of the Amazon FSx file system to on which to create a data repository association.
      * 
      */
-    private UndeferrableValue<String> fileSystemId;
-
+    @PolicyResourceProperty(name="fileSystemId", flag="unknown_fileSystemId")
+    private String value_fileSystemId;
+    private boolean unknown_fileSystemId;
     public String fileSystemId() {
-        if (fileSystemId == null) return null;
-        return fileSystemId.getValue("DataRepositoryAssociationArgs.fileSystemId");
+        if (!unknown_fileSystemId) return value_fileSystemId;
+        throw new UndeferrableValueException("Value 'DataRepositoryAssociationArgs.fileSystemId' is not present");
     }
 
     /**
      * A path on the file system that points to a high-level directory (such as `/ns1/`) or subdirectory (such as `/ns1/subdir/`) that will be mapped 1-1 with `data_repository_path`. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path `/ns1/`, then you cannot link another data repository with file system path `/ns1/ns2`. This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
      * 
      */
-    private UndeferrableValue<String> fileSystemPath;
-
+    @PolicyResourceProperty(name="fileSystemPath", flag="unknown_fileSystemPath")
+    private String value_fileSystemPath;
+    private boolean unknown_fileSystemPath;
     public String fileSystemPath() {
-        if (fileSystemPath == null) return null;
-        return fileSystemPath.getValue("DataRepositoryAssociationArgs.fileSystemPath");
+        if (!unknown_fileSystemPath) return value_fileSystemPath;
+        throw new UndeferrableValueException("Value 'DataRepositoryAssociationArgs.fileSystemPath' is not present");
     }
 
     /**
      * For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
      * 
      */
-    private UndeferrableValue<Integer> importedFileChunkSize;
-
+    @PolicyResourceProperty(name="importedFileChunkSize", flag="unknown_importedFileChunkSize")
+    private Integer value_importedFileChunkSize;
+    private boolean unknown_importedFileChunkSize;
     public Integer importedFileChunkSize() {
-        if (importedFileChunkSize == null) return null;
-        return importedFileChunkSize.getValue("DataRepositoryAssociationArgs.importedFileChunkSize");
+        if (!unknown_importedFileChunkSize) return value_importedFileChunkSize;
+        throw new UndeferrableValueException("Value 'DataRepositoryAssociationArgs.importedFileChunkSize' is not present");
     }
 
     /**
@@ -87,22 +94,24 @@ public final class DataRepositoryAssociationArgs extends com.pulumi.resources.Po
      * The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
      * 
      */
-    private UndeferrableValue<DataRepositoryAssociationS3Args> s3;
-
+    @PolicyResourceProperty(name="s3", flag="unknown_s3")
+    private DataRepositoryAssociationS3Args value_s3;
+    private boolean unknown_s3;
     public DataRepositoryAssociationS3Args s3() {
-        if (s3 == null) return null;
-        return s3.getValue("DataRepositoryAssociationArgs.s3");
+        if (!unknown_s3) return value_s3;
+        throw new UndeferrableValueException("Value 'DataRepositoryAssociationArgs.s3' is not present");
     }
 
     /**
      * A map of tags to assign to the data repository association. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DataRepositoryAssociationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DataRepositoryAssociationArgs.tags' is not present");
     }
 
 }

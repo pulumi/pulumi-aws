@@ -3,17 +3,19 @@
 
 package com.pulumi.policypacks.aws.sesv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class ConfigurationSetEventDestinationEventDestinationPinpointDestination {
 
-    private UndeferrableValue<String> applicationArn;
-
+    @PolicyResourceProperty(name="applicationArn", flag="unknown_applicationArn")
+    private String value_applicationArn;
+    private boolean unknown_applicationArn;
     public String applicationArn() {
-        if (applicationArn == null) return null;
-        return applicationArn.getValue("ConfigurationSetEventDestinationEventDestinationPinpointDestination.applicationArn");
+        if (!unknown_applicationArn) return value_applicationArn;
+        throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestinationPinpointDestination.applicationArn' is not present");
     }
 
 }

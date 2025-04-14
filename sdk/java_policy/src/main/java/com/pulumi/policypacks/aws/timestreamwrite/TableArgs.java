@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamwrite;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.timestreamwrite.inputs.TableMagneticStoreWritePropertiesArgs;
 import com.pulumi.policypacks.aws.timestreamwrite.inputs.TableRetentionPropertiesArgs;
@@ -20,66 +21,72 @@ public final class TableArgs extends com.pulumi.resources.PolicyResourceInput {
      * The name of the Timestream database.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("TableArgs.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'TableArgs.databaseName' is not present");
     }
 
     /**
      * Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
      * 
      */
-    private UndeferrableValue<TableMagneticStoreWritePropertiesArgs> magneticStoreWriteProperties;
-
+    @PolicyResourceProperty(name="magneticStoreWriteProperties", flag="unknown_magneticStoreWriteProperties")
+    private TableMagneticStoreWritePropertiesArgs value_magneticStoreWriteProperties;
+    private boolean unknown_magneticStoreWriteProperties;
     public TableMagneticStoreWritePropertiesArgs magneticStoreWriteProperties() {
-        if (magneticStoreWriteProperties == null) return null;
-        return magneticStoreWriteProperties.getValue("TableArgs.magneticStoreWriteProperties");
+        if (!unknown_magneticStoreWriteProperties) return value_magneticStoreWriteProperties;
+        throw new UndeferrableValueException("Value 'TableArgs.magneticStoreWriteProperties' is not present");
     }
 
     /**
      * The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
      * 
      */
-    private UndeferrableValue<TableRetentionPropertiesArgs> retentionProperties;
-
+    @PolicyResourceProperty(name="retentionProperties", flag="unknown_retentionProperties")
+    private TableRetentionPropertiesArgs value_retentionProperties;
+    private boolean unknown_retentionProperties;
     public TableRetentionPropertiesArgs retentionProperties() {
-        if (retentionProperties == null) return null;
-        return retentionProperties.getValue("TableArgs.retentionProperties");
+        if (!unknown_retentionProperties) return value_retentionProperties;
+        throw new UndeferrableValueException("Value 'TableArgs.retentionProperties' is not present");
     }
 
     /**
      * The schema of the table. See Schema below for more details.
      * 
      */
-    private UndeferrableValue<TableSchemaArgs> schema;
-
+    @PolicyResourceProperty(name="schema", flag="unknown_schema")
+    private TableSchemaArgs value_schema;
+    private boolean unknown_schema;
     public TableSchemaArgs schema() {
-        if (schema == null) return null;
-        return schema.getValue("TableArgs.schema");
+        if (!unknown_schema) return value_schema;
+        throw new UndeferrableValueException("Value 'TableArgs.schema' is not present");
     }
 
     /**
      * The name of the Timestream table.
      * 
      */
-    private UndeferrableValue<String> tableName;
-
+    @PolicyResourceProperty(name="tableName", flag="unknown_tableName")
+    private String value_tableName;
+    private boolean unknown_tableName;
     public String tableName() {
-        if (tableName == null) return null;
-        return tableName.getValue("TableArgs.tableName");
+        if (!unknown_tableName) return value_tableName;
+        throw new UndeferrableValueException("Value 'TableArgs.tableName' is not present");
     }
 
     /**
      * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TableArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TableArgs.tags' is not present");
     }
 
 }

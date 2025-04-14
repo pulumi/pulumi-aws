@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,99 +18,108 @@ public final class KeySigningKey extends com.pulumi.resources.PolicyResourceOutp
      * A string used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
      * 
      */
-    private UndeferrableValue<String> digestAlgorithmMnemonic;
-
+    @PolicyResourceProperty(name="digestAlgorithmMnemonic", flag="unknown_digestAlgorithmMnemonic")
+    private String value_digestAlgorithmMnemonic;
+    private boolean unknown_digestAlgorithmMnemonic;
     public String digestAlgorithmMnemonic() {
-        if (digestAlgorithmMnemonic == null) return null;
-        return digestAlgorithmMnemonic.getValue("KeySigningKey.digestAlgorithmMnemonic");
+        if (!unknown_digestAlgorithmMnemonic) return value_digestAlgorithmMnemonic;
+        throw new UndeferrableValueException("Value 'KeySigningKey.digestAlgorithmMnemonic' is not present");
     }
 
     /**
      * An integer used to represent the delegation signer digest algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.3](https://tools.ietf.org/html/rfc8624#section-3.3).
      * 
      */
-    private UndeferrableValue<Integer> digestAlgorithmType;
-
+    @PolicyResourceProperty(name="digestAlgorithmType", flag="unknown_digestAlgorithmType")
+    private Integer value_digestAlgorithmType;
+    private boolean unknown_digestAlgorithmType;
     public Integer digestAlgorithmType() {
-        if (digestAlgorithmType == null) return null;
-        return digestAlgorithmType.getValue("KeySigningKey.digestAlgorithmType");
+        if (!unknown_digestAlgorithmType) return value_digestAlgorithmType;
+        throw new UndeferrableValueException("Value 'KeySigningKey.digestAlgorithmType' is not present");
     }
 
     /**
      * A cryptographic digest of a DNSKEY resource record (RR). DNSKEY records are used to publish the public key that resolvers can use to verify DNSSEC signatures that are used to secure certain kinds of information provided by the DNS system.
      * 
      */
-    private UndeferrableValue<String> digestValue;
-
+    @PolicyResourceProperty(name="digestValue", flag="unknown_digestValue")
+    private String value_digestValue;
+    private boolean unknown_digestValue;
     public String digestValue() {
-        if (digestValue == null) return null;
-        return digestValue.getValue("KeySigningKey.digestValue");
+        if (!unknown_digestValue) return value_digestValue;
+        throw new UndeferrableValueException("Value 'KeySigningKey.digestValue' is not present");
     }
 
     /**
      * A string that represents a DNSKEY record.
      * 
      */
-    private UndeferrableValue<String> dnskeyRecord;
-
+    @PolicyResourceProperty(name="dnskeyRecord", flag="unknown_dnskeyRecord")
+    private String value_dnskeyRecord;
+    private boolean unknown_dnskeyRecord;
     public String dnskeyRecord() {
-        if (dnskeyRecord == null) return null;
-        return dnskeyRecord.getValue("KeySigningKey.dnskeyRecord");
+        if (!unknown_dnskeyRecord) return value_dnskeyRecord;
+        throw new UndeferrableValueException("Value 'KeySigningKey.dnskeyRecord' is not present");
     }
 
     /**
      * A string that represents a delegation signer (DS) record.
      * 
      */
-    private UndeferrableValue<String> dsRecord;
-
+    @PolicyResourceProperty(name="dsRecord", flag="unknown_dsRecord")
+    private String value_dsRecord;
+    private boolean unknown_dsRecord;
     public String dsRecord() {
-        if (dsRecord == null) return null;
-        return dsRecord.getValue("KeySigningKey.dsRecord");
+        if (!unknown_dsRecord) return value_dsRecord;
+        throw new UndeferrableValueException("Value 'KeySigningKey.dsRecord' is not present");
     }
 
     /**
      * An integer that specifies how the key is used. For key-signing key (KSK), this value is always 257.
      * 
      */
-    private UndeferrableValue<Integer> flag;
-
+    @PolicyResourceProperty(name="flag", flag="unknown_flag")
+    private Integer value_flag;
+    private boolean unknown_flag;
     public Integer flag() {
-        if (flag == null) return null;
-        return flag.getValue("KeySigningKey.flag");
+        if (!unknown_flag) return value_flag;
+        throw new UndeferrableValueException("Value 'KeySigningKey.flag' is not present");
     }
 
     /**
      * Identifier of the Route 53 Hosted Zone.
      * 
      */
-    private UndeferrableValue<String> hostedZoneId;
-
+    @PolicyResourceProperty(name="hostedZoneId", flag="unknown_hostedZoneId")
+    private String value_hostedZoneId;
+    private boolean unknown_hostedZoneId;
     public String hostedZoneId() {
-        if (hostedZoneId == null) return null;
-        return hostedZoneId.getValue("KeySigningKey.hostedZoneId");
+        if (!unknown_hostedZoneId) return value_hostedZoneId;
+        throw new UndeferrableValueException("Value 'KeySigningKey.hostedZoneId' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
      * 
      */
-    private UndeferrableValue<String> keyManagementServiceArn;
-
+    @PolicyResourceProperty(name="keyManagementServiceArn", flag="unknown_keyManagementServiceArn")
+    private String value_keyManagementServiceArn;
+    private boolean unknown_keyManagementServiceArn;
     public String keyManagementServiceArn() {
-        if (keyManagementServiceArn == null) return null;
-        return keyManagementServiceArn.getValue("KeySigningKey.keyManagementServiceArn");
+        if (!unknown_keyManagementServiceArn) return value_keyManagementServiceArn;
+        throw new UndeferrableValueException("Value 'KeySigningKey.keyManagementServiceArn' is not present");
     }
 
     /**
      * An integer used to identify the DNSSEC record for the domain name. The process used to calculate the value is described in [RFC-4034 Appendix B](https://tools.ietf.org/rfc/rfc4034.txt).
      * 
      */
-    private UndeferrableValue<Integer> keyTag;
-
+    @PolicyResourceProperty(name="keyTag", flag="unknown_keyTag")
+    private Integer value_keyTag;
+    private boolean unknown_keyTag;
     public Integer keyTag() {
-        if (keyTag == null) return null;
-        return keyTag.getValue("KeySigningKey.keyTag");
+        if (!unknown_keyTag) return value_keyTag;
+        throw new UndeferrableValueException("Value 'KeySigningKey.keyTag' is not present");
     }
 
     /**
@@ -118,55 +128,60 @@ public final class KeySigningKey extends com.pulumi.resources.PolicyResourceOutp
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("KeySigningKey.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'KeySigningKey.name' is not present");
     }
 
     /**
      * The public key, represented as a Base64 encoding, as required by [RFC-4034 Page 5](https://tools.ietf.org/rfc/rfc4034.txt).
      * 
      */
-    private UndeferrableValue<String> publicKey;
-
+    @PolicyResourceProperty(name="publicKey", flag="unknown_publicKey")
+    private String value_publicKey;
+    private boolean unknown_publicKey;
     public String publicKey() {
-        if (publicKey == null) return null;
-        return publicKey.getValue("KeySigningKey.publicKey");
+        if (!unknown_publicKey) return value_publicKey;
+        throw new UndeferrableValueException("Value 'KeySigningKey.publicKey' is not present");
     }
 
     /**
      * A string used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
      * 
      */
-    private UndeferrableValue<String> signingAlgorithmMnemonic;
-
+    @PolicyResourceProperty(name="signingAlgorithmMnemonic", flag="unknown_signingAlgorithmMnemonic")
+    private String value_signingAlgorithmMnemonic;
+    private boolean unknown_signingAlgorithmMnemonic;
     public String signingAlgorithmMnemonic() {
-        if (signingAlgorithmMnemonic == null) return null;
-        return signingAlgorithmMnemonic.getValue("KeySigningKey.signingAlgorithmMnemonic");
+        if (!unknown_signingAlgorithmMnemonic) return value_signingAlgorithmMnemonic;
+        throw new UndeferrableValueException("Value 'KeySigningKey.signingAlgorithmMnemonic' is not present");
     }
 
     /**
      * An integer used to represent the signing algorithm. This value must follow the guidelines provided by [RFC-8624 Section 3.1](https://tools.ietf.org/html/rfc8624#section-3.1).
      * 
      */
-    private UndeferrableValue<Integer> signingAlgorithmType;
-
+    @PolicyResourceProperty(name="signingAlgorithmType", flag="unknown_signingAlgorithmType")
+    private Integer value_signingAlgorithmType;
+    private boolean unknown_signingAlgorithmType;
     public Integer signingAlgorithmType() {
-        if (signingAlgorithmType == null) return null;
-        return signingAlgorithmType.getValue("KeySigningKey.signingAlgorithmType");
+        if (!unknown_signingAlgorithmType) return value_signingAlgorithmType;
+        throw new UndeferrableValueException("Value 'KeySigningKey.signingAlgorithmType' is not present");
     }
 
     /**
      * Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private @Nullable String value_status;
+    private boolean unknown_status;
     public @Nullable String status() {
-        if (status == null) return null;
-        return status.getValue("KeySigningKey.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'KeySigningKey.status' is not present");
     }
 
 }

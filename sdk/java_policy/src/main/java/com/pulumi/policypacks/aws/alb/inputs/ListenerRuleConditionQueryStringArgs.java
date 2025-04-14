@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.alb.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ListenerRuleConditionQueryStringArgs {
      * Query string key pattern to match.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("ListenerRuleConditionQueryStringArgs.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'ListenerRuleConditionQueryStringArgs.key' is not present");
     }
 
     /**
      * Query string value pattern to match.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("ListenerRuleConditionQueryStringArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'ListenerRuleConditionQueryStringArgs.value' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,3300 +15,3600 @@ public final class ProviderEndpointArgs {
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> accessanalyzer;
-
+    @PolicyResourceProperty(name="accessanalyzer", flag="unknown_accessanalyzer")
+    private String value_accessanalyzer;
+    private boolean unknown_accessanalyzer;
     public String accessanalyzer() {
-        if (accessanalyzer == null) return null;
-        return accessanalyzer.getValue("ProviderEndpointArgs.accessanalyzer");
+        if (!unknown_accessanalyzer) return value_accessanalyzer;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.accessanalyzer' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> account;
-
+    @PolicyResourceProperty(name="account", flag="unknown_account")
+    private String value_account;
+    private boolean unknown_account;
     public String account() {
-        if (account == null) return null;
-        return account.getValue("ProviderEndpointArgs.account");
+        if (!unknown_account) return value_account;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.account' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> acm;
-
+    @PolicyResourceProperty(name="acm", flag="unknown_acm")
+    private String value_acm;
+    private boolean unknown_acm;
     public String acm() {
-        if (acm == null) return null;
-        return acm.getValue("ProviderEndpointArgs.acm");
+        if (!unknown_acm) return value_acm;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.acm' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> acmpca;
-
+    @PolicyResourceProperty(name="acmpca", flag="unknown_acmpca")
+    private String value_acmpca;
+    private boolean unknown_acmpca;
     public String acmpca() {
-        if (acmpca == null) return null;
-        return acmpca.getValue("ProviderEndpointArgs.acmpca");
+        if (!unknown_acmpca) return value_acmpca;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.acmpca' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> amg;
-
+    @PolicyResourceProperty(name="amg", flag="unknown_amg")
+    private String value_amg;
+    private boolean unknown_amg;
     public String amg() {
-        if (amg == null) return null;
-        return amg.getValue("ProviderEndpointArgs.amg");
+        if (!unknown_amg) return value_amg;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.amg' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> amp;
-
+    @PolicyResourceProperty(name="amp", flag="unknown_amp")
+    private String value_amp;
+    private boolean unknown_amp;
     public String amp() {
-        if (amp == null) return null;
-        return amp.getValue("ProviderEndpointArgs.amp");
+        if (!unknown_amp) return value_amp;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.amp' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> amplify;
-
+    @PolicyResourceProperty(name="amplify", flag="unknown_amplify")
+    private String value_amplify;
+    private boolean unknown_amplify;
     public String amplify() {
-        if (amplify == null) return null;
-        return amplify.getValue("ProviderEndpointArgs.amplify");
+        if (!unknown_amplify) return value_amplify;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.amplify' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> apigateway;
-
+    @PolicyResourceProperty(name="apigateway", flag="unknown_apigateway")
+    private String value_apigateway;
+    private boolean unknown_apigateway;
     public String apigateway() {
-        if (apigateway == null) return null;
-        return apigateway.getValue("ProviderEndpointArgs.apigateway");
+        if (!unknown_apigateway) return value_apigateway;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.apigateway' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> apigatewayv2;
-
+    @PolicyResourceProperty(name="apigatewayv2", flag="unknown_apigatewayv2")
+    private String value_apigatewayv2;
+    private boolean unknown_apigatewayv2;
     public String apigatewayv2() {
-        if (apigatewayv2 == null) return null;
-        return apigatewayv2.getValue("ProviderEndpointArgs.apigatewayv2");
+        if (!unknown_apigatewayv2) return value_apigatewayv2;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.apigatewayv2' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> appautoscaling;
-
+    @PolicyResourceProperty(name="appautoscaling", flag="unknown_appautoscaling")
+    private String value_appautoscaling;
+    private boolean unknown_appautoscaling;
     public String appautoscaling() {
-        if (appautoscaling == null) return null;
-        return appautoscaling.getValue("ProviderEndpointArgs.appautoscaling");
+        if (!unknown_appautoscaling) return value_appautoscaling;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.appautoscaling' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> appconfig;
-
+    @PolicyResourceProperty(name="appconfig", flag="unknown_appconfig")
+    private String value_appconfig;
+    private boolean unknown_appconfig;
     public String appconfig() {
-        if (appconfig == null) return null;
-        return appconfig.getValue("ProviderEndpointArgs.appconfig");
+        if (!unknown_appconfig) return value_appconfig;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.appconfig' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> appfabric;
-
+    @PolicyResourceProperty(name="appfabric", flag="unknown_appfabric")
+    private String value_appfabric;
+    private boolean unknown_appfabric;
     public String appfabric() {
-        if (appfabric == null) return null;
-        return appfabric.getValue("ProviderEndpointArgs.appfabric");
+        if (!unknown_appfabric) return value_appfabric;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.appfabric' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> appflow;
-
+    @PolicyResourceProperty(name="appflow", flag="unknown_appflow")
+    private String value_appflow;
+    private boolean unknown_appflow;
     public String appflow() {
-        if (appflow == null) return null;
-        return appflow.getValue("ProviderEndpointArgs.appflow");
+        if (!unknown_appflow) return value_appflow;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.appflow' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> appintegrations;
-
+    @PolicyResourceProperty(name="appintegrations", flag="unknown_appintegrations")
+    private String value_appintegrations;
+    private boolean unknown_appintegrations;
     public String appintegrations() {
-        if (appintegrations == null) return null;
-        return appintegrations.getValue("ProviderEndpointArgs.appintegrations");
+        if (!unknown_appintegrations) return value_appintegrations;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.appintegrations' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> appintegrationsservice;
-
+    @PolicyResourceProperty(name="appintegrationsservice", flag="unknown_appintegrationsservice")
+    private String value_appintegrationsservice;
+    private boolean unknown_appintegrationsservice;
     public String appintegrationsservice() {
-        if (appintegrationsservice == null) return null;
-        return appintegrationsservice.getValue("ProviderEndpointArgs.appintegrationsservice");
+        if (!unknown_appintegrationsservice) return value_appintegrationsservice;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.appintegrationsservice' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> applicationautoscaling;
-
+    @PolicyResourceProperty(name="applicationautoscaling", flag="unknown_applicationautoscaling")
+    private String value_applicationautoscaling;
+    private boolean unknown_applicationautoscaling;
     public String applicationautoscaling() {
-        if (applicationautoscaling == null) return null;
-        return applicationautoscaling.getValue("ProviderEndpointArgs.applicationautoscaling");
+        if (!unknown_applicationautoscaling) return value_applicationautoscaling;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.applicationautoscaling' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> applicationinsights;
-
+    @PolicyResourceProperty(name="applicationinsights", flag="unknown_applicationinsights")
+    private String value_applicationinsights;
+    private boolean unknown_applicationinsights;
     public String applicationinsights() {
-        if (applicationinsights == null) return null;
-        return applicationinsights.getValue("ProviderEndpointArgs.applicationinsights");
+        if (!unknown_applicationinsights) return value_applicationinsights;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.applicationinsights' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> applicationsignals;
-
+    @PolicyResourceProperty(name="applicationsignals", flag="unknown_applicationsignals")
+    private String value_applicationsignals;
+    private boolean unknown_applicationsignals;
     public String applicationsignals() {
-        if (applicationsignals == null) return null;
-        return applicationsignals.getValue("ProviderEndpointArgs.applicationsignals");
+        if (!unknown_applicationsignals) return value_applicationsignals;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.applicationsignals' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> appmesh;
-
+    @PolicyResourceProperty(name="appmesh", flag="unknown_appmesh")
+    private String value_appmesh;
+    private boolean unknown_appmesh;
     public String appmesh() {
-        if (appmesh == null) return null;
-        return appmesh.getValue("ProviderEndpointArgs.appmesh");
+        if (!unknown_appmesh) return value_appmesh;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.appmesh' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> appregistry;
-
+    @PolicyResourceProperty(name="appregistry", flag="unknown_appregistry")
+    private String value_appregistry;
+    private boolean unknown_appregistry;
     public String appregistry() {
-        if (appregistry == null) return null;
-        return appregistry.getValue("ProviderEndpointArgs.appregistry");
+        if (!unknown_appregistry) return value_appregistry;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.appregistry' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> apprunner;
-
+    @PolicyResourceProperty(name="apprunner", flag="unknown_apprunner")
+    private String value_apprunner;
+    private boolean unknown_apprunner;
     public String apprunner() {
-        if (apprunner == null) return null;
-        return apprunner.getValue("ProviderEndpointArgs.apprunner");
+        if (!unknown_apprunner) return value_apprunner;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.apprunner' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> appstream;
-
+    @PolicyResourceProperty(name="appstream", flag="unknown_appstream")
+    private String value_appstream;
+    private boolean unknown_appstream;
     public String appstream() {
-        if (appstream == null) return null;
-        return appstream.getValue("ProviderEndpointArgs.appstream");
+        if (!unknown_appstream) return value_appstream;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.appstream' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> appsync;
-
+    @PolicyResourceProperty(name="appsync", flag="unknown_appsync")
+    private String value_appsync;
+    private boolean unknown_appsync;
     public String appsync() {
-        if (appsync == null) return null;
-        return appsync.getValue("ProviderEndpointArgs.appsync");
+        if (!unknown_appsync) return value_appsync;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.appsync' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> athena;
-
+    @PolicyResourceProperty(name="athena", flag="unknown_athena")
+    private String value_athena;
+    private boolean unknown_athena;
     public String athena() {
-        if (athena == null) return null;
-        return athena.getValue("ProviderEndpointArgs.athena");
+        if (!unknown_athena) return value_athena;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.athena' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> auditmanager;
-
+    @PolicyResourceProperty(name="auditmanager", flag="unknown_auditmanager")
+    private String value_auditmanager;
+    private boolean unknown_auditmanager;
     public String auditmanager() {
-        if (auditmanager == null) return null;
-        return auditmanager.getValue("ProviderEndpointArgs.auditmanager");
+        if (!unknown_auditmanager) return value_auditmanager;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.auditmanager' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> autoscaling;
-
+    @PolicyResourceProperty(name="autoscaling", flag="unknown_autoscaling")
+    private String value_autoscaling;
+    private boolean unknown_autoscaling;
     public String autoscaling() {
-        if (autoscaling == null) return null;
-        return autoscaling.getValue("ProviderEndpointArgs.autoscaling");
+        if (!unknown_autoscaling) return value_autoscaling;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.autoscaling' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> autoscalingplans;
-
+    @PolicyResourceProperty(name="autoscalingplans", flag="unknown_autoscalingplans")
+    private String value_autoscalingplans;
+    private boolean unknown_autoscalingplans;
     public String autoscalingplans() {
-        if (autoscalingplans == null) return null;
-        return autoscalingplans.getValue("ProviderEndpointArgs.autoscalingplans");
+        if (!unknown_autoscalingplans) return value_autoscalingplans;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.autoscalingplans' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> backup;
-
+    @PolicyResourceProperty(name="backup", flag="unknown_backup")
+    private String value_backup;
+    private boolean unknown_backup;
     public String backup() {
-        if (backup == null) return null;
-        return backup.getValue("ProviderEndpointArgs.backup");
+        if (!unknown_backup) return value_backup;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.backup' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> batch;
-
+    @PolicyResourceProperty(name="batch", flag="unknown_batch")
+    private String value_batch;
+    private boolean unknown_batch;
     public String batch() {
-        if (batch == null) return null;
-        return batch.getValue("ProviderEndpointArgs.batch");
+        if (!unknown_batch) return value_batch;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.batch' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> bcmdataexports;
-
+    @PolicyResourceProperty(name="bcmdataexports", flag="unknown_bcmdataexports")
+    private String value_bcmdataexports;
+    private boolean unknown_bcmdataexports;
     public String bcmdataexports() {
-        if (bcmdataexports == null) return null;
-        return bcmdataexports.getValue("ProviderEndpointArgs.bcmdataexports");
+        if (!unknown_bcmdataexports) return value_bcmdataexports;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.bcmdataexports' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> beanstalk;
-
+    @PolicyResourceProperty(name="beanstalk", flag="unknown_beanstalk")
+    private String value_beanstalk;
+    private boolean unknown_beanstalk;
     public String beanstalk() {
-        if (beanstalk == null) return null;
-        return beanstalk.getValue("ProviderEndpointArgs.beanstalk");
+        if (!unknown_beanstalk) return value_beanstalk;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.beanstalk' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> bedrock;
-
+    @PolicyResourceProperty(name="bedrock", flag="unknown_bedrock")
+    private String value_bedrock;
+    private boolean unknown_bedrock;
     public String bedrock() {
-        if (bedrock == null) return null;
-        return bedrock.getValue("ProviderEndpointArgs.bedrock");
+        if (!unknown_bedrock) return value_bedrock;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.bedrock' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> bedrockagent;
-
+    @PolicyResourceProperty(name="bedrockagent", flag="unknown_bedrockagent")
+    private String value_bedrockagent;
+    private boolean unknown_bedrockagent;
     public String bedrockagent() {
-        if (bedrockagent == null) return null;
-        return bedrockagent.getValue("ProviderEndpointArgs.bedrockagent");
+        if (!unknown_bedrockagent) return value_bedrockagent;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.bedrockagent' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> billing;
-
+    @PolicyResourceProperty(name="billing", flag="unknown_billing")
+    private String value_billing;
+    private boolean unknown_billing;
     public String billing() {
-        if (billing == null) return null;
-        return billing.getValue("ProviderEndpointArgs.billing");
+        if (!unknown_billing) return value_billing;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.billing' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> budgets;
-
+    @PolicyResourceProperty(name="budgets", flag="unknown_budgets")
+    private String value_budgets;
+    private boolean unknown_budgets;
     public String budgets() {
-        if (budgets == null) return null;
-        return budgets.getValue("ProviderEndpointArgs.budgets");
+        if (!unknown_budgets) return value_budgets;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.budgets' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> ce;
-
+    @PolicyResourceProperty(name="ce", flag="unknown_ce")
+    private String value_ce;
+    private boolean unknown_ce;
     public String ce() {
-        if (ce == null) return null;
-        return ce.getValue("ProviderEndpointArgs.ce");
+        if (!unknown_ce) return value_ce;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.ce' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> chatbot;
-
+    @PolicyResourceProperty(name="chatbot", flag="unknown_chatbot")
+    private String value_chatbot;
+    private boolean unknown_chatbot;
     public String chatbot() {
-        if (chatbot == null) return null;
-        return chatbot.getValue("ProviderEndpointArgs.chatbot");
+        if (!unknown_chatbot) return value_chatbot;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.chatbot' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> chime;
-
+    @PolicyResourceProperty(name="chime", flag="unknown_chime")
+    private String value_chime;
+    private boolean unknown_chime;
     public String chime() {
-        if (chime == null) return null;
-        return chime.getValue("ProviderEndpointArgs.chime");
+        if (!unknown_chime) return value_chime;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.chime' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> chimesdkmediapipelines;
-
+    @PolicyResourceProperty(name="chimesdkmediapipelines", flag="unknown_chimesdkmediapipelines")
+    private String value_chimesdkmediapipelines;
+    private boolean unknown_chimesdkmediapipelines;
     public String chimesdkmediapipelines() {
-        if (chimesdkmediapipelines == null) return null;
-        return chimesdkmediapipelines.getValue("ProviderEndpointArgs.chimesdkmediapipelines");
+        if (!unknown_chimesdkmediapipelines) return value_chimesdkmediapipelines;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.chimesdkmediapipelines' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> chimesdkvoice;
-
+    @PolicyResourceProperty(name="chimesdkvoice", flag="unknown_chimesdkvoice")
+    private String value_chimesdkvoice;
+    private boolean unknown_chimesdkvoice;
     public String chimesdkvoice() {
-        if (chimesdkvoice == null) return null;
-        return chimesdkvoice.getValue("ProviderEndpointArgs.chimesdkvoice");
+        if (!unknown_chimesdkvoice) return value_chimesdkvoice;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.chimesdkvoice' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> cleanrooms;
-
+    @PolicyResourceProperty(name="cleanrooms", flag="unknown_cleanrooms")
+    private String value_cleanrooms;
+    private boolean unknown_cleanrooms;
     public String cleanrooms() {
-        if (cleanrooms == null) return null;
-        return cleanrooms.getValue("ProviderEndpointArgs.cleanrooms");
+        if (!unknown_cleanrooms) return value_cleanrooms;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.cleanrooms' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> cloud9;
-
+    @PolicyResourceProperty(name="cloud9", flag="unknown_cloud9")
+    private String value_cloud9;
+    private boolean unknown_cloud9;
     public String cloud9() {
-        if (cloud9 == null) return null;
-        return cloud9.getValue("ProviderEndpointArgs.cloud9");
+        if (!unknown_cloud9) return value_cloud9;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.cloud9' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> cloudcontrol;
-
+    @PolicyResourceProperty(name="cloudcontrol", flag="unknown_cloudcontrol")
+    private String value_cloudcontrol;
+    private boolean unknown_cloudcontrol;
     public String cloudcontrol() {
-        if (cloudcontrol == null) return null;
-        return cloudcontrol.getValue("ProviderEndpointArgs.cloudcontrol");
+        if (!unknown_cloudcontrol) return value_cloudcontrol;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.cloudcontrol' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> cloudcontrolapi;
-
+    @PolicyResourceProperty(name="cloudcontrolapi", flag="unknown_cloudcontrolapi")
+    private String value_cloudcontrolapi;
+    private boolean unknown_cloudcontrolapi;
     public String cloudcontrolapi() {
-        if (cloudcontrolapi == null) return null;
-        return cloudcontrolapi.getValue("ProviderEndpointArgs.cloudcontrolapi");
+        if (!unknown_cloudcontrolapi) return value_cloudcontrolapi;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.cloudcontrolapi' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> cloudformation;
-
+    @PolicyResourceProperty(name="cloudformation", flag="unknown_cloudformation")
+    private String value_cloudformation;
+    private boolean unknown_cloudformation;
     public String cloudformation() {
-        if (cloudformation == null) return null;
-        return cloudformation.getValue("ProviderEndpointArgs.cloudformation");
+        if (!unknown_cloudformation) return value_cloudformation;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.cloudformation' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> cloudfront;
-
+    @PolicyResourceProperty(name="cloudfront", flag="unknown_cloudfront")
+    private String value_cloudfront;
+    private boolean unknown_cloudfront;
     public String cloudfront() {
-        if (cloudfront == null) return null;
-        return cloudfront.getValue("ProviderEndpointArgs.cloudfront");
+        if (!unknown_cloudfront) return value_cloudfront;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.cloudfront' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> cloudfrontkeyvaluestore;
-
+    @PolicyResourceProperty(name="cloudfrontkeyvaluestore", flag="unknown_cloudfrontkeyvaluestore")
+    private String value_cloudfrontkeyvaluestore;
+    private boolean unknown_cloudfrontkeyvaluestore;
     public String cloudfrontkeyvaluestore() {
-        if (cloudfrontkeyvaluestore == null) return null;
-        return cloudfrontkeyvaluestore.getValue("ProviderEndpointArgs.cloudfrontkeyvaluestore");
+        if (!unknown_cloudfrontkeyvaluestore) return value_cloudfrontkeyvaluestore;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.cloudfrontkeyvaluestore' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> cloudhsm;
-
+    @PolicyResourceProperty(name="cloudhsm", flag="unknown_cloudhsm")
+    private String value_cloudhsm;
+    private boolean unknown_cloudhsm;
     public String cloudhsm() {
-        if (cloudhsm == null) return null;
-        return cloudhsm.getValue("ProviderEndpointArgs.cloudhsm");
+        if (!unknown_cloudhsm) return value_cloudhsm;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.cloudhsm' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> cloudhsmv2;
-
+    @PolicyResourceProperty(name="cloudhsmv2", flag="unknown_cloudhsmv2")
+    private String value_cloudhsmv2;
+    private boolean unknown_cloudhsmv2;
     public String cloudhsmv2() {
-        if (cloudhsmv2 == null) return null;
-        return cloudhsmv2.getValue("ProviderEndpointArgs.cloudhsmv2");
+        if (!unknown_cloudhsmv2) return value_cloudhsmv2;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.cloudhsmv2' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> cloudsearch;
-
+    @PolicyResourceProperty(name="cloudsearch", flag="unknown_cloudsearch")
+    private String value_cloudsearch;
+    private boolean unknown_cloudsearch;
     public String cloudsearch() {
-        if (cloudsearch == null) return null;
-        return cloudsearch.getValue("ProviderEndpointArgs.cloudsearch");
+        if (!unknown_cloudsearch) return value_cloudsearch;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.cloudsearch' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> cloudtrail;
-
+    @PolicyResourceProperty(name="cloudtrail", flag="unknown_cloudtrail")
+    private String value_cloudtrail;
+    private boolean unknown_cloudtrail;
     public String cloudtrail() {
-        if (cloudtrail == null) return null;
-        return cloudtrail.getValue("ProviderEndpointArgs.cloudtrail");
+        if (!unknown_cloudtrail) return value_cloudtrail;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.cloudtrail' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> cloudwatch;
-
+    @PolicyResourceProperty(name="cloudwatch", flag="unknown_cloudwatch")
+    private String value_cloudwatch;
+    private boolean unknown_cloudwatch;
     public String cloudwatch() {
-        if (cloudwatch == null) return null;
-        return cloudwatch.getValue("ProviderEndpointArgs.cloudwatch");
+        if (!unknown_cloudwatch) return value_cloudwatch;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.cloudwatch' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> cloudwatchevents;
-
+    @PolicyResourceProperty(name="cloudwatchevents", flag="unknown_cloudwatchevents")
+    private String value_cloudwatchevents;
+    private boolean unknown_cloudwatchevents;
     public String cloudwatchevents() {
-        if (cloudwatchevents == null) return null;
-        return cloudwatchevents.getValue("ProviderEndpointArgs.cloudwatchevents");
+        if (!unknown_cloudwatchevents) return value_cloudwatchevents;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.cloudwatchevents' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> cloudwatchevidently;
-
+    @PolicyResourceProperty(name="cloudwatchevidently", flag="unknown_cloudwatchevidently")
+    private String value_cloudwatchevidently;
+    private boolean unknown_cloudwatchevidently;
     public String cloudwatchevidently() {
-        if (cloudwatchevidently == null) return null;
-        return cloudwatchevidently.getValue("ProviderEndpointArgs.cloudwatchevidently");
+        if (!unknown_cloudwatchevidently) return value_cloudwatchevidently;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.cloudwatchevidently' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> cloudwatchlog;
-
+    @PolicyResourceProperty(name="cloudwatchlog", flag="unknown_cloudwatchlog")
+    private String value_cloudwatchlog;
+    private boolean unknown_cloudwatchlog;
     public String cloudwatchlog() {
-        if (cloudwatchlog == null) return null;
-        return cloudwatchlog.getValue("ProviderEndpointArgs.cloudwatchlog");
+        if (!unknown_cloudwatchlog) return value_cloudwatchlog;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.cloudwatchlog' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> cloudwatchlogs;
-
+    @PolicyResourceProperty(name="cloudwatchlogs", flag="unknown_cloudwatchlogs")
+    private String value_cloudwatchlogs;
+    private boolean unknown_cloudwatchlogs;
     public String cloudwatchlogs() {
-        if (cloudwatchlogs == null) return null;
-        return cloudwatchlogs.getValue("ProviderEndpointArgs.cloudwatchlogs");
+        if (!unknown_cloudwatchlogs) return value_cloudwatchlogs;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.cloudwatchlogs' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> cloudwatchobservabilityaccessmanager;
-
+    @PolicyResourceProperty(name="cloudwatchobservabilityaccessmanager", flag="unknown_cloudwatchobservabilityaccessmanager")
+    private String value_cloudwatchobservabilityaccessmanager;
+    private boolean unknown_cloudwatchobservabilityaccessmanager;
     public String cloudwatchobservabilityaccessmanager() {
-        if (cloudwatchobservabilityaccessmanager == null) return null;
-        return cloudwatchobservabilityaccessmanager.getValue("ProviderEndpointArgs.cloudwatchobservabilityaccessmanager");
+        if (!unknown_cloudwatchobservabilityaccessmanager) return value_cloudwatchobservabilityaccessmanager;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.cloudwatchobservabilityaccessmanager' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> cloudwatchrum;
-
+    @PolicyResourceProperty(name="cloudwatchrum", flag="unknown_cloudwatchrum")
+    private String value_cloudwatchrum;
+    private boolean unknown_cloudwatchrum;
     public String cloudwatchrum() {
-        if (cloudwatchrum == null) return null;
-        return cloudwatchrum.getValue("ProviderEndpointArgs.cloudwatchrum");
+        if (!unknown_cloudwatchrum) return value_cloudwatchrum;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.cloudwatchrum' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> codeartifact;
-
+    @PolicyResourceProperty(name="codeartifact", flag="unknown_codeartifact")
+    private String value_codeartifact;
+    private boolean unknown_codeartifact;
     public String codeartifact() {
-        if (codeartifact == null) return null;
-        return codeartifact.getValue("ProviderEndpointArgs.codeartifact");
+        if (!unknown_codeartifact) return value_codeartifact;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.codeartifact' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> codebuild;
-
+    @PolicyResourceProperty(name="codebuild", flag="unknown_codebuild")
+    private String value_codebuild;
+    private boolean unknown_codebuild;
     public String codebuild() {
-        if (codebuild == null) return null;
-        return codebuild.getValue("ProviderEndpointArgs.codebuild");
+        if (!unknown_codebuild) return value_codebuild;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.codebuild' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> codecatalyst;
-
+    @PolicyResourceProperty(name="codecatalyst", flag="unknown_codecatalyst")
+    private String value_codecatalyst;
+    private boolean unknown_codecatalyst;
     public String codecatalyst() {
-        if (codecatalyst == null) return null;
-        return codecatalyst.getValue("ProviderEndpointArgs.codecatalyst");
+        if (!unknown_codecatalyst) return value_codecatalyst;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.codecatalyst' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> codecommit;
-
+    @PolicyResourceProperty(name="codecommit", flag="unknown_codecommit")
+    private String value_codecommit;
+    private boolean unknown_codecommit;
     public String codecommit() {
-        if (codecommit == null) return null;
-        return codecommit.getValue("ProviderEndpointArgs.codecommit");
+        if (!unknown_codecommit) return value_codecommit;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.codecommit' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> codeconnections;
-
+    @PolicyResourceProperty(name="codeconnections", flag="unknown_codeconnections")
+    private String value_codeconnections;
+    private boolean unknown_codeconnections;
     public String codeconnections() {
-        if (codeconnections == null) return null;
-        return codeconnections.getValue("ProviderEndpointArgs.codeconnections");
+        if (!unknown_codeconnections) return value_codeconnections;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.codeconnections' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> codedeploy;
-
+    @PolicyResourceProperty(name="codedeploy", flag="unknown_codedeploy")
+    private String value_codedeploy;
+    private boolean unknown_codedeploy;
     public String codedeploy() {
-        if (codedeploy == null) return null;
-        return codedeploy.getValue("ProviderEndpointArgs.codedeploy");
+        if (!unknown_codedeploy) return value_codedeploy;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.codedeploy' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> codeguruprofiler;
-
+    @PolicyResourceProperty(name="codeguruprofiler", flag="unknown_codeguruprofiler")
+    private String value_codeguruprofiler;
+    private boolean unknown_codeguruprofiler;
     public String codeguruprofiler() {
-        if (codeguruprofiler == null) return null;
-        return codeguruprofiler.getValue("ProviderEndpointArgs.codeguruprofiler");
+        if (!unknown_codeguruprofiler) return value_codeguruprofiler;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.codeguruprofiler' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> codegurureviewer;
-
+    @PolicyResourceProperty(name="codegurureviewer", flag="unknown_codegurureviewer")
+    private String value_codegurureviewer;
+    private boolean unknown_codegurureviewer;
     public String codegurureviewer() {
-        if (codegurureviewer == null) return null;
-        return codegurureviewer.getValue("ProviderEndpointArgs.codegurureviewer");
+        if (!unknown_codegurureviewer) return value_codegurureviewer;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.codegurureviewer' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> codepipeline;
-
+    @PolicyResourceProperty(name="codepipeline", flag="unknown_codepipeline")
+    private String value_codepipeline;
+    private boolean unknown_codepipeline;
     public String codepipeline() {
-        if (codepipeline == null) return null;
-        return codepipeline.getValue("ProviderEndpointArgs.codepipeline");
+        if (!unknown_codepipeline) return value_codepipeline;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.codepipeline' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> codestarconnections;
-
+    @PolicyResourceProperty(name="codestarconnections", flag="unknown_codestarconnections")
+    private String value_codestarconnections;
+    private boolean unknown_codestarconnections;
     public String codestarconnections() {
-        if (codestarconnections == null) return null;
-        return codestarconnections.getValue("ProviderEndpointArgs.codestarconnections");
+        if (!unknown_codestarconnections) return value_codestarconnections;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.codestarconnections' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> codestarnotifications;
-
+    @PolicyResourceProperty(name="codestarnotifications", flag="unknown_codestarnotifications")
+    private String value_codestarnotifications;
+    private boolean unknown_codestarnotifications;
     public String codestarnotifications() {
-        if (codestarnotifications == null) return null;
-        return codestarnotifications.getValue("ProviderEndpointArgs.codestarnotifications");
+        if (!unknown_codestarnotifications) return value_codestarnotifications;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.codestarnotifications' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> cognitoidentity;
-
+    @PolicyResourceProperty(name="cognitoidentity", flag="unknown_cognitoidentity")
+    private String value_cognitoidentity;
+    private boolean unknown_cognitoidentity;
     public String cognitoidentity() {
-        if (cognitoidentity == null) return null;
-        return cognitoidentity.getValue("ProviderEndpointArgs.cognitoidentity");
+        if (!unknown_cognitoidentity) return value_cognitoidentity;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.cognitoidentity' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> cognitoidentityprovider;
-
+    @PolicyResourceProperty(name="cognitoidentityprovider", flag="unknown_cognitoidentityprovider")
+    private String value_cognitoidentityprovider;
+    private boolean unknown_cognitoidentityprovider;
     public String cognitoidentityprovider() {
-        if (cognitoidentityprovider == null) return null;
-        return cognitoidentityprovider.getValue("ProviderEndpointArgs.cognitoidentityprovider");
+        if (!unknown_cognitoidentityprovider) return value_cognitoidentityprovider;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.cognitoidentityprovider' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> cognitoidp;
-
+    @PolicyResourceProperty(name="cognitoidp", flag="unknown_cognitoidp")
+    private String value_cognitoidp;
+    private boolean unknown_cognitoidp;
     public String cognitoidp() {
-        if (cognitoidp == null) return null;
-        return cognitoidp.getValue("ProviderEndpointArgs.cognitoidp");
+        if (!unknown_cognitoidp) return value_cognitoidp;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.cognitoidp' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> comprehend;
-
+    @PolicyResourceProperty(name="comprehend", flag="unknown_comprehend")
+    private String value_comprehend;
+    private boolean unknown_comprehend;
     public String comprehend() {
-        if (comprehend == null) return null;
-        return comprehend.getValue("ProviderEndpointArgs.comprehend");
+        if (!unknown_comprehend) return value_comprehend;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.comprehend' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> computeoptimizer;
-
+    @PolicyResourceProperty(name="computeoptimizer", flag="unknown_computeoptimizer")
+    private String value_computeoptimizer;
+    private boolean unknown_computeoptimizer;
     public String computeoptimizer() {
-        if (computeoptimizer == null) return null;
-        return computeoptimizer.getValue("ProviderEndpointArgs.computeoptimizer");
+        if (!unknown_computeoptimizer) return value_computeoptimizer;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.computeoptimizer' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> config;
-
+    @PolicyResourceProperty(name="config", flag="unknown_config")
+    private String value_config;
+    private boolean unknown_config;
     public String config() {
-        if (config == null) return null;
-        return config.getValue("ProviderEndpointArgs.config");
+        if (!unknown_config) return value_config;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.config' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> configservice;
-
+    @PolicyResourceProperty(name="configservice", flag="unknown_configservice")
+    private String value_configservice;
+    private boolean unknown_configservice;
     public String configservice() {
-        if (configservice == null) return null;
-        return configservice.getValue("ProviderEndpointArgs.configservice");
+        if (!unknown_configservice) return value_configservice;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.configservice' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> connect;
-
+    @PolicyResourceProperty(name="connect", flag="unknown_connect")
+    private String value_connect;
+    private boolean unknown_connect;
     public String connect() {
-        if (connect == null) return null;
-        return connect.getValue("ProviderEndpointArgs.connect");
+        if (!unknown_connect) return value_connect;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.connect' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> connectcases;
-
+    @PolicyResourceProperty(name="connectcases", flag="unknown_connectcases")
+    private String value_connectcases;
+    private boolean unknown_connectcases;
     public String connectcases() {
-        if (connectcases == null) return null;
-        return connectcases.getValue("ProviderEndpointArgs.connectcases");
+        if (!unknown_connectcases) return value_connectcases;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.connectcases' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> controltower;
-
+    @PolicyResourceProperty(name="controltower", flag="unknown_controltower")
+    private String value_controltower;
+    private boolean unknown_controltower;
     public String controltower() {
-        if (controltower == null) return null;
-        return controltower.getValue("ProviderEndpointArgs.controltower");
+        if (!unknown_controltower) return value_controltower;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.controltower' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> costandusagereportservice;
-
+    @PolicyResourceProperty(name="costandusagereportservice", flag="unknown_costandusagereportservice")
+    private String value_costandusagereportservice;
+    private boolean unknown_costandusagereportservice;
     public String costandusagereportservice() {
-        if (costandusagereportservice == null) return null;
-        return costandusagereportservice.getValue("ProviderEndpointArgs.costandusagereportservice");
+        if (!unknown_costandusagereportservice) return value_costandusagereportservice;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.costandusagereportservice' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> costexplorer;
-
+    @PolicyResourceProperty(name="costexplorer", flag="unknown_costexplorer")
+    private String value_costexplorer;
+    private boolean unknown_costexplorer;
     public String costexplorer() {
-        if (costexplorer == null) return null;
-        return costexplorer.getValue("ProviderEndpointArgs.costexplorer");
+        if (!unknown_costexplorer) return value_costexplorer;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.costexplorer' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> costoptimizationhub;
-
+    @PolicyResourceProperty(name="costoptimizationhub", flag="unknown_costoptimizationhub")
+    private String value_costoptimizationhub;
+    private boolean unknown_costoptimizationhub;
     public String costoptimizationhub() {
-        if (costoptimizationhub == null) return null;
-        return costoptimizationhub.getValue("ProviderEndpointArgs.costoptimizationhub");
+        if (!unknown_costoptimizationhub) return value_costoptimizationhub;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.costoptimizationhub' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> cur;
-
+    @PolicyResourceProperty(name="cur", flag="unknown_cur")
+    private String value_cur;
+    private boolean unknown_cur;
     public String cur() {
-        if (cur == null) return null;
-        return cur.getValue("ProviderEndpointArgs.cur");
+        if (!unknown_cur) return value_cur;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.cur' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> customerprofiles;
-
+    @PolicyResourceProperty(name="customerprofiles", flag="unknown_customerprofiles")
+    private String value_customerprofiles;
+    private boolean unknown_customerprofiles;
     public String customerprofiles() {
-        if (customerprofiles == null) return null;
-        return customerprofiles.getValue("ProviderEndpointArgs.customerprofiles");
+        if (!unknown_customerprofiles) return value_customerprofiles;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.customerprofiles' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> databasemigration;
-
+    @PolicyResourceProperty(name="databasemigration", flag="unknown_databasemigration")
+    private String value_databasemigration;
+    private boolean unknown_databasemigration;
     public String databasemigration() {
-        if (databasemigration == null) return null;
-        return databasemigration.getValue("ProviderEndpointArgs.databasemigration");
+        if (!unknown_databasemigration) return value_databasemigration;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.databasemigration' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> databasemigrationservice;
-
+    @PolicyResourceProperty(name="databasemigrationservice", flag="unknown_databasemigrationservice")
+    private String value_databasemigrationservice;
+    private boolean unknown_databasemigrationservice;
     public String databasemigrationservice() {
-        if (databasemigrationservice == null) return null;
-        return databasemigrationservice.getValue("ProviderEndpointArgs.databasemigrationservice");
+        if (!unknown_databasemigrationservice) return value_databasemigrationservice;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.databasemigrationservice' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> databrew;
-
+    @PolicyResourceProperty(name="databrew", flag="unknown_databrew")
+    private String value_databrew;
+    private boolean unknown_databrew;
     public String databrew() {
-        if (databrew == null) return null;
-        return databrew.getValue("ProviderEndpointArgs.databrew");
+        if (!unknown_databrew) return value_databrew;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.databrew' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> dataexchange;
-
+    @PolicyResourceProperty(name="dataexchange", flag="unknown_dataexchange")
+    private String value_dataexchange;
+    private boolean unknown_dataexchange;
     public String dataexchange() {
-        if (dataexchange == null) return null;
-        return dataexchange.getValue("ProviderEndpointArgs.dataexchange");
+        if (!unknown_dataexchange) return value_dataexchange;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.dataexchange' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> datapipeline;
-
+    @PolicyResourceProperty(name="datapipeline", flag="unknown_datapipeline")
+    private String value_datapipeline;
+    private boolean unknown_datapipeline;
     public String datapipeline() {
-        if (datapipeline == null) return null;
-        return datapipeline.getValue("ProviderEndpointArgs.datapipeline");
+        if (!unknown_datapipeline) return value_datapipeline;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.datapipeline' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> datasync;
-
+    @PolicyResourceProperty(name="datasync", flag="unknown_datasync")
+    private String value_datasync;
+    private boolean unknown_datasync;
     public String datasync() {
-        if (datasync == null) return null;
-        return datasync.getValue("ProviderEndpointArgs.datasync");
+        if (!unknown_datasync) return value_datasync;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.datasync' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> datazone;
-
+    @PolicyResourceProperty(name="datazone", flag="unknown_datazone")
+    private String value_datazone;
+    private boolean unknown_datazone;
     public String datazone() {
-        if (datazone == null) return null;
-        return datazone.getValue("ProviderEndpointArgs.datazone");
+        if (!unknown_datazone) return value_datazone;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.datazone' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> dax;
-
+    @PolicyResourceProperty(name="dax", flag="unknown_dax")
+    private String value_dax;
+    private boolean unknown_dax;
     public String dax() {
-        if (dax == null) return null;
-        return dax.getValue("ProviderEndpointArgs.dax");
+        if (!unknown_dax) return value_dax;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.dax' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> deploy;
-
+    @PolicyResourceProperty(name="deploy", flag="unknown_deploy")
+    private String value_deploy;
+    private boolean unknown_deploy;
     public String deploy() {
-        if (deploy == null) return null;
-        return deploy.getValue("ProviderEndpointArgs.deploy");
+        if (!unknown_deploy) return value_deploy;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.deploy' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> detective;
-
+    @PolicyResourceProperty(name="detective", flag="unknown_detective")
+    private String value_detective;
+    private boolean unknown_detective;
     public String detective() {
-        if (detective == null) return null;
-        return detective.getValue("ProviderEndpointArgs.detective");
+        if (!unknown_detective) return value_detective;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.detective' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> devicefarm;
-
+    @PolicyResourceProperty(name="devicefarm", flag="unknown_devicefarm")
+    private String value_devicefarm;
+    private boolean unknown_devicefarm;
     public String devicefarm() {
-        if (devicefarm == null) return null;
-        return devicefarm.getValue("ProviderEndpointArgs.devicefarm");
+        if (!unknown_devicefarm) return value_devicefarm;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.devicefarm' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> devopsguru;
-
+    @PolicyResourceProperty(name="devopsguru", flag="unknown_devopsguru")
+    private String value_devopsguru;
+    private boolean unknown_devopsguru;
     public String devopsguru() {
-        if (devopsguru == null) return null;
-        return devopsguru.getValue("ProviderEndpointArgs.devopsguru");
+        if (!unknown_devopsguru) return value_devopsguru;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.devopsguru' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> directconnect;
-
+    @PolicyResourceProperty(name="directconnect", flag="unknown_directconnect")
+    private String value_directconnect;
+    private boolean unknown_directconnect;
     public String directconnect() {
-        if (directconnect == null) return null;
-        return directconnect.getValue("ProviderEndpointArgs.directconnect");
+        if (!unknown_directconnect) return value_directconnect;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.directconnect' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> directoryservice;
-
+    @PolicyResourceProperty(name="directoryservice", flag="unknown_directoryservice")
+    private String value_directoryservice;
+    private boolean unknown_directoryservice;
     public String directoryservice() {
-        if (directoryservice == null) return null;
-        return directoryservice.getValue("ProviderEndpointArgs.directoryservice");
+        if (!unknown_directoryservice) return value_directoryservice;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.directoryservice' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> dlm;
-
+    @PolicyResourceProperty(name="dlm", flag="unknown_dlm")
+    private String value_dlm;
+    private boolean unknown_dlm;
     public String dlm() {
-        if (dlm == null) return null;
-        return dlm.getValue("ProviderEndpointArgs.dlm");
+        if (!unknown_dlm) return value_dlm;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.dlm' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> dms;
-
+    @PolicyResourceProperty(name="dms", flag="unknown_dms")
+    private String value_dms;
+    private boolean unknown_dms;
     public String dms() {
-        if (dms == null) return null;
-        return dms.getValue("ProviderEndpointArgs.dms");
+        if (!unknown_dms) return value_dms;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.dms' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> docdb;
-
+    @PolicyResourceProperty(name="docdb", flag="unknown_docdb")
+    private String value_docdb;
+    private boolean unknown_docdb;
     public String docdb() {
-        if (docdb == null) return null;
-        return docdb.getValue("ProviderEndpointArgs.docdb");
+        if (!unknown_docdb) return value_docdb;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.docdb' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> docdbelastic;
-
+    @PolicyResourceProperty(name="docdbelastic", flag="unknown_docdbelastic")
+    private String value_docdbelastic;
+    private boolean unknown_docdbelastic;
     public String docdbelastic() {
-        if (docdbelastic == null) return null;
-        return docdbelastic.getValue("ProviderEndpointArgs.docdbelastic");
+        if (!unknown_docdbelastic) return value_docdbelastic;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.docdbelastic' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> drs;
-
+    @PolicyResourceProperty(name="drs", flag="unknown_drs")
+    private String value_drs;
+    private boolean unknown_drs;
     public String drs() {
-        if (drs == null) return null;
-        return drs.getValue("ProviderEndpointArgs.drs");
+        if (!unknown_drs) return value_drs;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.drs' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> ds;
-
+    @PolicyResourceProperty(name="ds", flag="unknown_ds")
+    private String value_ds;
+    private boolean unknown_ds;
     public String ds() {
-        if (ds == null) return null;
-        return ds.getValue("ProviderEndpointArgs.ds");
+        if (!unknown_ds) return value_ds;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.ds' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> dsql;
-
+    @PolicyResourceProperty(name="dsql", flag="unknown_dsql")
+    private String value_dsql;
+    private boolean unknown_dsql;
     public String dsql() {
-        if (dsql == null) return null;
-        return dsql.getValue("ProviderEndpointArgs.dsql");
+        if (!unknown_dsql) return value_dsql;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.dsql' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> dynamodb;
-
+    @PolicyResourceProperty(name="dynamodb", flag="unknown_dynamodb")
+    private String value_dynamodb;
+    private boolean unknown_dynamodb;
     public String dynamodb() {
-        if (dynamodb == null) return null;
-        return dynamodb.getValue("ProviderEndpointArgs.dynamodb");
+        if (!unknown_dynamodb) return value_dynamodb;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.dynamodb' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> ec2;
-
+    @PolicyResourceProperty(name="ec2", flag="unknown_ec2")
+    private String value_ec2;
+    private boolean unknown_ec2;
     public String ec2() {
-        if (ec2 == null) return null;
-        return ec2.getValue("ProviderEndpointArgs.ec2");
+        if (!unknown_ec2) return value_ec2;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.ec2' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> ecr;
-
+    @PolicyResourceProperty(name="ecr", flag="unknown_ecr")
+    private String value_ecr;
+    private boolean unknown_ecr;
     public String ecr() {
-        if (ecr == null) return null;
-        return ecr.getValue("ProviderEndpointArgs.ecr");
+        if (!unknown_ecr) return value_ecr;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.ecr' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> ecrpublic;
-
+    @PolicyResourceProperty(name="ecrpublic", flag="unknown_ecrpublic")
+    private String value_ecrpublic;
+    private boolean unknown_ecrpublic;
     public String ecrpublic() {
-        if (ecrpublic == null) return null;
-        return ecrpublic.getValue("ProviderEndpointArgs.ecrpublic");
+        if (!unknown_ecrpublic) return value_ecrpublic;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.ecrpublic' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> ecs;
-
+    @PolicyResourceProperty(name="ecs", flag="unknown_ecs")
+    private String value_ecs;
+    private boolean unknown_ecs;
     public String ecs() {
-        if (ecs == null) return null;
-        return ecs.getValue("ProviderEndpointArgs.ecs");
+        if (!unknown_ecs) return value_ecs;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.ecs' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> efs;
-
+    @PolicyResourceProperty(name="efs", flag="unknown_efs")
+    private String value_efs;
+    private boolean unknown_efs;
     public String efs() {
-        if (efs == null) return null;
-        return efs.getValue("ProviderEndpointArgs.efs");
+        if (!unknown_efs) return value_efs;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.efs' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> eks;
-
+    @PolicyResourceProperty(name="eks", flag="unknown_eks")
+    private String value_eks;
+    private boolean unknown_eks;
     public String eks() {
-        if (eks == null) return null;
-        return eks.getValue("ProviderEndpointArgs.eks");
+        if (!unknown_eks) return value_eks;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.eks' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> elasticache;
-
+    @PolicyResourceProperty(name="elasticache", flag="unknown_elasticache")
+    private String value_elasticache;
+    private boolean unknown_elasticache;
     public String elasticache() {
-        if (elasticache == null) return null;
-        return elasticache.getValue("ProviderEndpointArgs.elasticache");
+        if (!unknown_elasticache) return value_elasticache;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.elasticache' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> elasticbeanstalk;
-
+    @PolicyResourceProperty(name="elasticbeanstalk", flag="unknown_elasticbeanstalk")
+    private String value_elasticbeanstalk;
+    private boolean unknown_elasticbeanstalk;
     public String elasticbeanstalk() {
-        if (elasticbeanstalk == null) return null;
-        return elasticbeanstalk.getValue("ProviderEndpointArgs.elasticbeanstalk");
+        if (!unknown_elasticbeanstalk) return value_elasticbeanstalk;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.elasticbeanstalk' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> elasticloadbalancing;
-
+    @PolicyResourceProperty(name="elasticloadbalancing", flag="unknown_elasticloadbalancing")
+    private String value_elasticloadbalancing;
+    private boolean unknown_elasticloadbalancing;
     public String elasticloadbalancing() {
-        if (elasticloadbalancing == null) return null;
-        return elasticloadbalancing.getValue("ProviderEndpointArgs.elasticloadbalancing");
+        if (!unknown_elasticloadbalancing) return value_elasticloadbalancing;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.elasticloadbalancing' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> elasticloadbalancingv2;
-
+    @PolicyResourceProperty(name="elasticloadbalancingv2", flag="unknown_elasticloadbalancingv2")
+    private String value_elasticloadbalancingv2;
+    private boolean unknown_elasticloadbalancingv2;
     public String elasticloadbalancingv2() {
-        if (elasticloadbalancingv2 == null) return null;
-        return elasticloadbalancingv2.getValue("ProviderEndpointArgs.elasticloadbalancingv2");
+        if (!unknown_elasticloadbalancingv2) return value_elasticloadbalancingv2;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.elasticloadbalancingv2' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> elasticsearch;
-
+    @PolicyResourceProperty(name="elasticsearch", flag="unknown_elasticsearch")
+    private String value_elasticsearch;
+    private boolean unknown_elasticsearch;
     public String elasticsearch() {
-        if (elasticsearch == null) return null;
-        return elasticsearch.getValue("ProviderEndpointArgs.elasticsearch");
+        if (!unknown_elasticsearch) return value_elasticsearch;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.elasticsearch' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> elasticsearchservice;
-
+    @PolicyResourceProperty(name="elasticsearchservice", flag="unknown_elasticsearchservice")
+    private String value_elasticsearchservice;
+    private boolean unknown_elasticsearchservice;
     public String elasticsearchservice() {
-        if (elasticsearchservice == null) return null;
-        return elasticsearchservice.getValue("ProviderEndpointArgs.elasticsearchservice");
+        if (!unknown_elasticsearchservice) return value_elasticsearchservice;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.elasticsearchservice' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> elastictranscoder;
-
+    @PolicyResourceProperty(name="elastictranscoder", flag="unknown_elastictranscoder")
+    private String value_elastictranscoder;
+    private boolean unknown_elastictranscoder;
     public String elastictranscoder() {
-        if (elastictranscoder == null) return null;
-        return elastictranscoder.getValue("ProviderEndpointArgs.elastictranscoder");
+        if (!unknown_elastictranscoder) return value_elastictranscoder;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.elastictranscoder' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> elb;
-
+    @PolicyResourceProperty(name="elb", flag="unknown_elb")
+    private String value_elb;
+    private boolean unknown_elb;
     public String elb() {
-        if (elb == null) return null;
-        return elb.getValue("ProviderEndpointArgs.elb");
+        if (!unknown_elb) return value_elb;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.elb' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> elbv2;
-
+    @PolicyResourceProperty(name="elbv2", flag="unknown_elbv2")
+    private String value_elbv2;
+    private boolean unknown_elbv2;
     public String elbv2() {
-        if (elbv2 == null) return null;
-        return elbv2.getValue("ProviderEndpointArgs.elbv2");
+        if (!unknown_elbv2) return value_elbv2;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.elbv2' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> emr;
-
+    @PolicyResourceProperty(name="emr", flag="unknown_emr")
+    private String value_emr;
+    private boolean unknown_emr;
     public String emr() {
-        if (emr == null) return null;
-        return emr.getValue("ProviderEndpointArgs.emr");
+        if (!unknown_emr) return value_emr;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.emr' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> emrcontainers;
-
+    @PolicyResourceProperty(name="emrcontainers", flag="unknown_emrcontainers")
+    private String value_emrcontainers;
+    private boolean unknown_emrcontainers;
     public String emrcontainers() {
-        if (emrcontainers == null) return null;
-        return emrcontainers.getValue("ProviderEndpointArgs.emrcontainers");
+        if (!unknown_emrcontainers) return value_emrcontainers;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.emrcontainers' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> emrserverless;
-
+    @PolicyResourceProperty(name="emrserverless", flag="unknown_emrserverless")
+    private String value_emrserverless;
+    private boolean unknown_emrserverless;
     public String emrserverless() {
-        if (emrserverless == null) return null;
-        return emrserverless.getValue("ProviderEndpointArgs.emrserverless");
+        if (!unknown_emrserverless) return value_emrserverless;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.emrserverless' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> es;
-
+    @PolicyResourceProperty(name="es", flag="unknown_es")
+    private String value_es;
+    private boolean unknown_es;
     public String es() {
-        if (es == null) return null;
-        return es.getValue("ProviderEndpointArgs.es");
+        if (!unknown_es) return value_es;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.es' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> eventbridge;
-
+    @PolicyResourceProperty(name="eventbridge", flag="unknown_eventbridge")
+    private String value_eventbridge;
+    private boolean unknown_eventbridge;
     public String eventbridge() {
-        if (eventbridge == null) return null;
-        return eventbridge.getValue("ProviderEndpointArgs.eventbridge");
+        if (!unknown_eventbridge) return value_eventbridge;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.eventbridge' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> events;
-
+    @PolicyResourceProperty(name="events", flag="unknown_events")
+    private String value_events;
+    private boolean unknown_events;
     public String events() {
-        if (events == null) return null;
-        return events.getValue("ProviderEndpointArgs.events");
+        if (!unknown_events) return value_events;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.events' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> evidently;
-
+    @PolicyResourceProperty(name="evidently", flag="unknown_evidently")
+    private String value_evidently;
+    private boolean unknown_evidently;
     public String evidently() {
-        if (evidently == null) return null;
-        return evidently.getValue("ProviderEndpointArgs.evidently");
+        if (!unknown_evidently) return value_evidently;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.evidently' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> finspace;
-
+    @PolicyResourceProperty(name="finspace", flag="unknown_finspace")
+    private String value_finspace;
+    private boolean unknown_finspace;
     public String finspace() {
-        if (finspace == null) return null;
-        return finspace.getValue("ProviderEndpointArgs.finspace");
+        if (!unknown_finspace) return value_finspace;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.finspace' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> firehose;
-
+    @PolicyResourceProperty(name="firehose", flag="unknown_firehose")
+    private String value_firehose;
+    private boolean unknown_firehose;
     public String firehose() {
-        if (firehose == null) return null;
-        return firehose.getValue("ProviderEndpointArgs.firehose");
+        if (!unknown_firehose) return value_firehose;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.firehose' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> fis;
-
+    @PolicyResourceProperty(name="fis", flag="unknown_fis")
+    private String value_fis;
+    private boolean unknown_fis;
     public String fis() {
-        if (fis == null) return null;
-        return fis.getValue("ProviderEndpointArgs.fis");
+        if (!unknown_fis) return value_fis;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.fis' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> fms;
-
+    @PolicyResourceProperty(name="fms", flag="unknown_fms")
+    private String value_fms;
+    private boolean unknown_fms;
     public String fms() {
-        if (fms == null) return null;
-        return fms.getValue("ProviderEndpointArgs.fms");
+        if (!unknown_fms) return value_fms;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.fms' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> fsx;
-
+    @PolicyResourceProperty(name="fsx", flag="unknown_fsx")
+    private String value_fsx;
+    private boolean unknown_fsx;
     public String fsx() {
-        if (fsx == null) return null;
-        return fsx.getValue("ProviderEndpointArgs.fsx");
+        if (!unknown_fsx) return value_fsx;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.fsx' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> gamelift;
-
+    @PolicyResourceProperty(name="gamelift", flag="unknown_gamelift")
+    private String value_gamelift;
+    private boolean unknown_gamelift;
     public String gamelift() {
-        if (gamelift == null) return null;
-        return gamelift.getValue("ProviderEndpointArgs.gamelift");
+        if (!unknown_gamelift) return value_gamelift;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.gamelift' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> glacier;
-
+    @PolicyResourceProperty(name="glacier", flag="unknown_glacier")
+    private String value_glacier;
+    private boolean unknown_glacier;
     public String glacier() {
-        if (glacier == null) return null;
-        return glacier.getValue("ProviderEndpointArgs.glacier");
+        if (!unknown_glacier) return value_glacier;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.glacier' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> globalaccelerator;
-
+    @PolicyResourceProperty(name="globalaccelerator", flag="unknown_globalaccelerator")
+    private String value_globalaccelerator;
+    private boolean unknown_globalaccelerator;
     public String globalaccelerator() {
-        if (globalaccelerator == null) return null;
-        return globalaccelerator.getValue("ProviderEndpointArgs.globalaccelerator");
+        if (!unknown_globalaccelerator) return value_globalaccelerator;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.globalaccelerator' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> glue;
-
+    @PolicyResourceProperty(name="glue", flag="unknown_glue")
+    private String value_glue;
+    private boolean unknown_glue;
     public String glue() {
-        if (glue == null) return null;
-        return glue.getValue("ProviderEndpointArgs.glue");
+        if (!unknown_glue) return value_glue;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.glue' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> gluedatabrew;
-
+    @PolicyResourceProperty(name="gluedatabrew", flag="unknown_gluedatabrew")
+    private String value_gluedatabrew;
+    private boolean unknown_gluedatabrew;
     public String gluedatabrew() {
-        if (gluedatabrew == null) return null;
-        return gluedatabrew.getValue("ProviderEndpointArgs.gluedatabrew");
+        if (!unknown_gluedatabrew) return value_gluedatabrew;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.gluedatabrew' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> grafana;
-
+    @PolicyResourceProperty(name="grafana", flag="unknown_grafana")
+    private String value_grafana;
+    private boolean unknown_grafana;
     public String grafana() {
-        if (grafana == null) return null;
-        return grafana.getValue("ProviderEndpointArgs.grafana");
+        if (!unknown_grafana) return value_grafana;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.grafana' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> greengrass;
-
+    @PolicyResourceProperty(name="greengrass", flag="unknown_greengrass")
+    private String value_greengrass;
+    private boolean unknown_greengrass;
     public String greengrass() {
-        if (greengrass == null) return null;
-        return greengrass.getValue("ProviderEndpointArgs.greengrass");
+        if (!unknown_greengrass) return value_greengrass;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.greengrass' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> groundstation;
-
+    @PolicyResourceProperty(name="groundstation", flag="unknown_groundstation")
+    private String value_groundstation;
+    private boolean unknown_groundstation;
     public String groundstation() {
-        if (groundstation == null) return null;
-        return groundstation.getValue("ProviderEndpointArgs.groundstation");
+        if (!unknown_groundstation) return value_groundstation;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.groundstation' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> guardduty;
-
+    @PolicyResourceProperty(name="guardduty", flag="unknown_guardduty")
+    private String value_guardduty;
+    private boolean unknown_guardduty;
     public String guardduty() {
-        if (guardduty == null) return null;
-        return guardduty.getValue("ProviderEndpointArgs.guardduty");
+        if (!unknown_guardduty) return value_guardduty;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.guardduty' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> healthlake;
-
+    @PolicyResourceProperty(name="healthlake", flag="unknown_healthlake")
+    private String value_healthlake;
+    private boolean unknown_healthlake;
     public String healthlake() {
-        if (healthlake == null) return null;
-        return healthlake.getValue("ProviderEndpointArgs.healthlake");
+        if (!unknown_healthlake) return value_healthlake;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.healthlake' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> iam;
-
+    @PolicyResourceProperty(name="iam", flag="unknown_iam")
+    private String value_iam;
+    private boolean unknown_iam;
     public String iam() {
-        if (iam == null) return null;
-        return iam.getValue("ProviderEndpointArgs.iam");
+        if (!unknown_iam) return value_iam;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.iam' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> identitystore;
-
+    @PolicyResourceProperty(name="identitystore", flag="unknown_identitystore")
+    private String value_identitystore;
+    private boolean unknown_identitystore;
     public String identitystore() {
-        if (identitystore == null) return null;
-        return identitystore.getValue("ProviderEndpointArgs.identitystore");
+        if (!unknown_identitystore) return value_identitystore;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.identitystore' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> imagebuilder;
-
+    @PolicyResourceProperty(name="imagebuilder", flag="unknown_imagebuilder")
+    private String value_imagebuilder;
+    private boolean unknown_imagebuilder;
     public String imagebuilder() {
-        if (imagebuilder == null) return null;
-        return imagebuilder.getValue("ProviderEndpointArgs.imagebuilder");
+        if (!unknown_imagebuilder) return value_imagebuilder;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.imagebuilder' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> inspector;
-
+    @PolicyResourceProperty(name="inspector", flag="unknown_inspector")
+    private String value_inspector;
+    private boolean unknown_inspector;
     public String inspector() {
-        if (inspector == null) return null;
-        return inspector.getValue("ProviderEndpointArgs.inspector");
+        if (!unknown_inspector) return value_inspector;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.inspector' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> inspector2;
-
+    @PolicyResourceProperty(name="inspector2", flag="unknown_inspector2")
+    private String value_inspector2;
+    private boolean unknown_inspector2;
     public String inspector2() {
-        if (inspector2 == null) return null;
-        return inspector2.getValue("ProviderEndpointArgs.inspector2");
+        if (!unknown_inspector2) return value_inspector2;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.inspector2' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> inspectorv2;
-
+    @PolicyResourceProperty(name="inspectorv2", flag="unknown_inspectorv2")
+    private String value_inspectorv2;
+    private boolean unknown_inspectorv2;
     public String inspectorv2() {
-        if (inspectorv2 == null) return null;
-        return inspectorv2.getValue("ProviderEndpointArgs.inspectorv2");
+        if (!unknown_inspectorv2) return value_inspectorv2;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.inspectorv2' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> internetmonitor;
-
+    @PolicyResourceProperty(name="internetmonitor", flag="unknown_internetmonitor")
+    private String value_internetmonitor;
+    private boolean unknown_internetmonitor;
     public String internetmonitor() {
-        if (internetmonitor == null) return null;
-        return internetmonitor.getValue("ProviderEndpointArgs.internetmonitor");
+        if (!unknown_internetmonitor) return value_internetmonitor;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.internetmonitor' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> invoicing;
-
+    @PolicyResourceProperty(name="invoicing", flag="unknown_invoicing")
+    private String value_invoicing;
+    private boolean unknown_invoicing;
     public String invoicing() {
-        if (invoicing == null) return null;
-        return invoicing.getValue("ProviderEndpointArgs.invoicing");
+        if (!unknown_invoicing) return value_invoicing;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.invoicing' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> iot;
-
+    @PolicyResourceProperty(name="iot", flag="unknown_iot")
+    private String value_iot;
+    private boolean unknown_iot;
     public String iot() {
-        if (iot == null) return null;
-        return iot.getValue("ProviderEndpointArgs.iot");
+        if (!unknown_iot) return value_iot;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.iot' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> iotanalytics;
-
+    @PolicyResourceProperty(name="iotanalytics", flag="unknown_iotanalytics")
+    private String value_iotanalytics;
+    private boolean unknown_iotanalytics;
     public String iotanalytics() {
-        if (iotanalytics == null) return null;
-        return iotanalytics.getValue("ProviderEndpointArgs.iotanalytics");
+        if (!unknown_iotanalytics) return value_iotanalytics;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.iotanalytics' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> iotevents;
-
+    @PolicyResourceProperty(name="iotevents", flag="unknown_iotevents")
+    private String value_iotevents;
+    private boolean unknown_iotevents;
     public String iotevents() {
-        if (iotevents == null) return null;
-        return iotevents.getValue("ProviderEndpointArgs.iotevents");
+        if (!unknown_iotevents) return value_iotevents;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.iotevents' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> ivs;
-
+    @PolicyResourceProperty(name="ivs", flag="unknown_ivs")
+    private String value_ivs;
+    private boolean unknown_ivs;
     public String ivs() {
-        if (ivs == null) return null;
-        return ivs.getValue("ProviderEndpointArgs.ivs");
+        if (!unknown_ivs) return value_ivs;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.ivs' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> ivschat;
-
+    @PolicyResourceProperty(name="ivschat", flag="unknown_ivschat")
+    private String value_ivschat;
+    private boolean unknown_ivschat;
     public String ivschat() {
-        if (ivschat == null) return null;
-        return ivschat.getValue("ProviderEndpointArgs.ivschat");
+        if (!unknown_ivschat) return value_ivschat;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.ivschat' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> kafka;
-
+    @PolicyResourceProperty(name="kafka", flag="unknown_kafka")
+    private String value_kafka;
+    private boolean unknown_kafka;
     public String kafka() {
-        if (kafka == null) return null;
-        return kafka.getValue("ProviderEndpointArgs.kafka");
+        if (!unknown_kafka) return value_kafka;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.kafka' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> kafkaconnect;
-
+    @PolicyResourceProperty(name="kafkaconnect", flag="unknown_kafkaconnect")
+    private String value_kafkaconnect;
+    private boolean unknown_kafkaconnect;
     public String kafkaconnect() {
-        if (kafkaconnect == null) return null;
-        return kafkaconnect.getValue("ProviderEndpointArgs.kafkaconnect");
+        if (!unknown_kafkaconnect) return value_kafkaconnect;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.kafkaconnect' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> kendra;
-
+    @PolicyResourceProperty(name="kendra", flag="unknown_kendra")
+    private String value_kendra;
+    private boolean unknown_kendra;
     public String kendra() {
-        if (kendra == null) return null;
-        return kendra.getValue("ProviderEndpointArgs.kendra");
+        if (!unknown_kendra) return value_kendra;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.kendra' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> keyspaces;
-
+    @PolicyResourceProperty(name="keyspaces", flag="unknown_keyspaces")
+    private String value_keyspaces;
+    private boolean unknown_keyspaces;
     public String keyspaces() {
-        if (keyspaces == null) return null;
-        return keyspaces.getValue("ProviderEndpointArgs.keyspaces");
+        if (!unknown_keyspaces) return value_keyspaces;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.keyspaces' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> kinesis;
-
+    @PolicyResourceProperty(name="kinesis", flag="unknown_kinesis")
+    private String value_kinesis;
+    private boolean unknown_kinesis;
     public String kinesis() {
-        if (kinesis == null) return null;
-        return kinesis.getValue("ProviderEndpointArgs.kinesis");
+        if (!unknown_kinesis) return value_kinesis;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.kinesis' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> kinesisanalytics;
-
+    @PolicyResourceProperty(name="kinesisanalytics", flag="unknown_kinesisanalytics")
+    private String value_kinesisanalytics;
+    private boolean unknown_kinesisanalytics;
     public String kinesisanalytics() {
-        if (kinesisanalytics == null) return null;
-        return kinesisanalytics.getValue("ProviderEndpointArgs.kinesisanalytics");
+        if (!unknown_kinesisanalytics) return value_kinesisanalytics;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.kinesisanalytics' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> kinesisanalyticsv2;
-
+    @PolicyResourceProperty(name="kinesisanalyticsv2", flag="unknown_kinesisanalyticsv2")
+    private String value_kinesisanalyticsv2;
+    private boolean unknown_kinesisanalyticsv2;
     public String kinesisanalyticsv2() {
-        if (kinesisanalyticsv2 == null) return null;
-        return kinesisanalyticsv2.getValue("ProviderEndpointArgs.kinesisanalyticsv2");
+        if (!unknown_kinesisanalyticsv2) return value_kinesisanalyticsv2;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.kinesisanalyticsv2' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> kinesisvideo;
-
+    @PolicyResourceProperty(name="kinesisvideo", flag="unknown_kinesisvideo")
+    private String value_kinesisvideo;
+    private boolean unknown_kinesisvideo;
     public String kinesisvideo() {
-        if (kinesisvideo == null) return null;
-        return kinesisvideo.getValue("ProviderEndpointArgs.kinesisvideo");
+        if (!unknown_kinesisvideo) return value_kinesisvideo;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.kinesisvideo' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> kms;
-
+    @PolicyResourceProperty(name="kms", flag="unknown_kms")
+    private String value_kms;
+    private boolean unknown_kms;
     public String kms() {
-        if (kms == null) return null;
-        return kms.getValue("ProviderEndpointArgs.kms");
+        if (!unknown_kms) return value_kms;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.kms' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> lakeformation;
-
+    @PolicyResourceProperty(name="lakeformation", flag="unknown_lakeformation")
+    private String value_lakeformation;
+    private boolean unknown_lakeformation;
     public String lakeformation() {
-        if (lakeformation == null) return null;
-        return lakeformation.getValue("ProviderEndpointArgs.lakeformation");
+        if (!unknown_lakeformation) return value_lakeformation;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.lakeformation' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> lambda;
-
+    @PolicyResourceProperty(name="lambda", flag="unknown_lambda")
+    private String value_lambda;
+    private boolean unknown_lambda;
     public String lambda() {
-        if (lambda == null) return null;
-        return lambda.getValue("ProviderEndpointArgs.lambda");
+        if (!unknown_lambda) return value_lambda;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.lambda' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> launchwizard;
-
+    @PolicyResourceProperty(name="launchwizard", flag="unknown_launchwizard")
+    private String value_launchwizard;
+    private boolean unknown_launchwizard;
     public String launchwizard() {
-        if (launchwizard == null) return null;
-        return launchwizard.getValue("ProviderEndpointArgs.launchwizard");
+        if (!unknown_launchwizard) return value_launchwizard;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.launchwizard' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> lex;
-
+    @PolicyResourceProperty(name="lex", flag="unknown_lex")
+    private String value_lex;
+    private boolean unknown_lex;
     public String lex() {
-        if (lex == null) return null;
-        return lex.getValue("ProviderEndpointArgs.lex");
+        if (!unknown_lex) return value_lex;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.lex' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> lexmodelbuilding;
-
+    @PolicyResourceProperty(name="lexmodelbuilding", flag="unknown_lexmodelbuilding")
+    private String value_lexmodelbuilding;
+    private boolean unknown_lexmodelbuilding;
     public String lexmodelbuilding() {
-        if (lexmodelbuilding == null) return null;
-        return lexmodelbuilding.getValue("ProviderEndpointArgs.lexmodelbuilding");
+        if (!unknown_lexmodelbuilding) return value_lexmodelbuilding;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.lexmodelbuilding' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> lexmodelbuildingservice;
-
+    @PolicyResourceProperty(name="lexmodelbuildingservice", flag="unknown_lexmodelbuildingservice")
+    private String value_lexmodelbuildingservice;
+    private boolean unknown_lexmodelbuildingservice;
     public String lexmodelbuildingservice() {
-        if (lexmodelbuildingservice == null) return null;
-        return lexmodelbuildingservice.getValue("ProviderEndpointArgs.lexmodelbuildingservice");
+        if (!unknown_lexmodelbuildingservice) return value_lexmodelbuildingservice;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.lexmodelbuildingservice' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> lexmodels;
-
+    @PolicyResourceProperty(name="lexmodels", flag="unknown_lexmodels")
+    private String value_lexmodels;
+    private boolean unknown_lexmodels;
     public String lexmodels() {
-        if (lexmodels == null) return null;
-        return lexmodels.getValue("ProviderEndpointArgs.lexmodels");
+        if (!unknown_lexmodels) return value_lexmodels;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.lexmodels' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> lexmodelsv2;
-
+    @PolicyResourceProperty(name="lexmodelsv2", flag="unknown_lexmodelsv2")
+    private String value_lexmodelsv2;
+    private boolean unknown_lexmodelsv2;
     public String lexmodelsv2() {
-        if (lexmodelsv2 == null) return null;
-        return lexmodelsv2.getValue("ProviderEndpointArgs.lexmodelsv2");
+        if (!unknown_lexmodelsv2) return value_lexmodelsv2;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.lexmodelsv2' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> lexv2models;
-
+    @PolicyResourceProperty(name="lexv2models", flag="unknown_lexv2models")
+    private String value_lexv2models;
+    private boolean unknown_lexv2models;
     public String lexv2models() {
-        if (lexv2models == null) return null;
-        return lexv2models.getValue("ProviderEndpointArgs.lexv2models");
+        if (!unknown_lexv2models) return value_lexv2models;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.lexv2models' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> licensemanager;
-
+    @PolicyResourceProperty(name="licensemanager", flag="unknown_licensemanager")
+    private String value_licensemanager;
+    private boolean unknown_licensemanager;
     public String licensemanager() {
-        if (licensemanager == null) return null;
-        return licensemanager.getValue("ProviderEndpointArgs.licensemanager");
+        if (!unknown_licensemanager) return value_licensemanager;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.licensemanager' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> lightsail;
-
+    @PolicyResourceProperty(name="lightsail", flag="unknown_lightsail")
+    private String value_lightsail;
+    private boolean unknown_lightsail;
     public String lightsail() {
-        if (lightsail == null) return null;
-        return lightsail.getValue("ProviderEndpointArgs.lightsail");
+        if (!unknown_lightsail) return value_lightsail;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.lightsail' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> location;
-
+    @PolicyResourceProperty(name="location", flag="unknown_location")
+    private String value_location;
+    private boolean unknown_location;
     public String location() {
-        if (location == null) return null;
-        return location.getValue("ProviderEndpointArgs.location");
+        if (!unknown_location) return value_location;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.location' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> locationservice;
-
+    @PolicyResourceProperty(name="locationservice", flag="unknown_locationservice")
+    private String value_locationservice;
+    private boolean unknown_locationservice;
     public String locationservice() {
-        if (locationservice == null) return null;
-        return locationservice.getValue("ProviderEndpointArgs.locationservice");
+        if (!unknown_locationservice) return value_locationservice;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.locationservice' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> logs;
-
+    @PolicyResourceProperty(name="logs", flag="unknown_logs")
+    private String value_logs;
+    private boolean unknown_logs;
     public String logs() {
-        if (logs == null) return null;
-        return logs.getValue("ProviderEndpointArgs.logs");
+        if (!unknown_logs) return value_logs;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.logs' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> lookoutmetrics;
-
+    @PolicyResourceProperty(name="lookoutmetrics", flag="unknown_lookoutmetrics")
+    private String value_lookoutmetrics;
+    private boolean unknown_lookoutmetrics;
     public String lookoutmetrics() {
-        if (lookoutmetrics == null) return null;
-        return lookoutmetrics.getValue("ProviderEndpointArgs.lookoutmetrics");
+        if (!unknown_lookoutmetrics) return value_lookoutmetrics;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.lookoutmetrics' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> m2;
-
+    @PolicyResourceProperty(name="m2", flag="unknown_m2")
+    private String value_m2;
+    private boolean unknown_m2;
     public String m2() {
-        if (m2 == null) return null;
-        return m2.getValue("ProviderEndpointArgs.m2");
+        if (!unknown_m2) return value_m2;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.m2' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> macie2;
-
+    @PolicyResourceProperty(name="macie2", flag="unknown_macie2")
+    private String value_macie2;
+    private boolean unknown_macie2;
     public String macie2() {
-        if (macie2 == null) return null;
-        return macie2.getValue("ProviderEndpointArgs.macie2");
+        if (!unknown_macie2) return value_macie2;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.macie2' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> managedgrafana;
-
+    @PolicyResourceProperty(name="managedgrafana", flag="unknown_managedgrafana")
+    private String value_managedgrafana;
+    private boolean unknown_managedgrafana;
     public String managedgrafana() {
-        if (managedgrafana == null) return null;
-        return managedgrafana.getValue("ProviderEndpointArgs.managedgrafana");
+        if (!unknown_managedgrafana) return value_managedgrafana;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.managedgrafana' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> mediaconnect;
-
+    @PolicyResourceProperty(name="mediaconnect", flag="unknown_mediaconnect")
+    private String value_mediaconnect;
+    private boolean unknown_mediaconnect;
     public String mediaconnect() {
-        if (mediaconnect == null) return null;
-        return mediaconnect.getValue("ProviderEndpointArgs.mediaconnect");
+        if (!unknown_mediaconnect) return value_mediaconnect;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.mediaconnect' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> mediaconvert;
-
+    @PolicyResourceProperty(name="mediaconvert", flag="unknown_mediaconvert")
+    private String value_mediaconvert;
+    private boolean unknown_mediaconvert;
     public String mediaconvert() {
-        if (mediaconvert == null) return null;
-        return mediaconvert.getValue("ProviderEndpointArgs.mediaconvert");
+        if (!unknown_mediaconvert) return value_mediaconvert;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.mediaconvert' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> medialive;
-
+    @PolicyResourceProperty(name="medialive", flag="unknown_medialive")
+    private String value_medialive;
+    private boolean unknown_medialive;
     public String medialive() {
-        if (medialive == null) return null;
-        return medialive.getValue("ProviderEndpointArgs.medialive");
+        if (!unknown_medialive) return value_medialive;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.medialive' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> mediapackage;
-
+    @PolicyResourceProperty(name="mediapackage", flag="unknown_mediapackage")
+    private String value_mediapackage;
+    private boolean unknown_mediapackage;
     public String mediapackage() {
-        if (mediapackage == null) return null;
-        return mediapackage.getValue("ProviderEndpointArgs.mediapackage");
+        if (!unknown_mediapackage) return value_mediapackage;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.mediapackage' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> mediapackagev2;
-
+    @PolicyResourceProperty(name="mediapackagev2", flag="unknown_mediapackagev2")
+    private String value_mediapackagev2;
+    private boolean unknown_mediapackagev2;
     public String mediapackagev2() {
-        if (mediapackagev2 == null) return null;
-        return mediapackagev2.getValue("ProviderEndpointArgs.mediapackagev2");
+        if (!unknown_mediapackagev2) return value_mediapackagev2;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.mediapackagev2' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> mediapackagevod;
-
+    @PolicyResourceProperty(name="mediapackagevod", flag="unknown_mediapackagevod")
+    private String value_mediapackagevod;
+    private boolean unknown_mediapackagevod;
     public String mediapackagevod() {
-        if (mediapackagevod == null) return null;
-        return mediapackagevod.getValue("ProviderEndpointArgs.mediapackagevod");
+        if (!unknown_mediapackagevod) return value_mediapackagevod;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.mediapackagevod' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> mediastore;
-
+    @PolicyResourceProperty(name="mediastore", flag="unknown_mediastore")
+    private String value_mediastore;
+    private boolean unknown_mediastore;
     public String mediastore() {
-        if (mediastore == null) return null;
-        return mediastore.getValue("ProviderEndpointArgs.mediastore");
+        if (!unknown_mediastore) return value_mediastore;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.mediastore' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> memorydb;
-
+    @PolicyResourceProperty(name="memorydb", flag="unknown_memorydb")
+    private String value_memorydb;
+    private boolean unknown_memorydb;
     public String memorydb() {
-        if (memorydb == null) return null;
-        return memorydb.getValue("ProviderEndpointArgs.memorydb");
+        if (!unknown_memorydb) return value_memorydb;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.memorydb' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> mgn;
-
+    @PolicyResourceProperty(name="mgn", flag="unknown_mgn")
+    private String value_mgn;
+    private boolean unknown_mgn;
     public String mgn() {
-        if (mgn == null) return null;
-        return mgn.getValue("ProviderEndpointArgs.mgn");
+        if (!unknown_mgn) return value_mgn;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.mgn' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> mq;
-
+    @PolicyResourceProperty(name="mq", flag="unknown_mq")
+    private String value_mq;
+    private boolean unknown_mq;
     public String mq() {
-        if (mq == null) return null;
-        return mq.getValue("ProviderEndpointArgs.mq");
+        if (!unknown_mq) return value_mq;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.mq' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> msk;
-
+    @PolicyResourceProperty(name="msk", flag="unknown_msk")
+    private String value_msk;
+    private boolean unknown_msk;
     public String msk() {
-        if (msk == null) return null;
-        return msk.getValue("ProviderEndpointArgs.msk");
+        if (!unknown_msk) return value_msk;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.msk' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> mwaa;
-
+    @PolicyResourceProperty(name="mwaa", flag="unknown_mwaa")
+    private String value_mwaa;
+    private boolean unknown_mwaa;
     public String mwaa() {
-        if (mwaa == null) return null;
-        return mwaa.getValue("ProviderEndpointArgs.mwaa");
+        if (!unknown_mwaa) return value_mwaa;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.mwaa' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> neptune;
-
+    @PolicyResourceProperty(name="neptune", flag="unknown_neptune")
+    private String value_neptune;
+    private boolean unknown_neptune;
     public String neptune() {
-        if (neptune == null) return null;
-        return neptune.getValue("ProviderEndpointArgs.neptune");
+        if (!unknown_neptune) return value_neptune;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.neptune' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> neptunegraph;
-
+    @PolicyResourceProperty(name="neptunegraph", flag="unknown_neptunegraph")
+    private String value_neptunegraph;
+    private boolean unknown_neptunegraph;
     public String neptunegraph() {
-        if (neptunegraph == null) return null;
-        return neptunegraph.getValue("ProviderEndpointArgs.neptunegraph");
+        if (!unknown_neptunegraph) return value_neptunegraph;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.neptunegraph' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> networkfirewall;
-
+    @PolicyResourceProperty(name="networkfirewall", flag="unknown_networkfirewall")
+    private String value_networkfirewall;
+    private boolean unknown_networkfirewall;
     public String networkfirewall() {
-        if (networkfirewall == null) return null;
-        return networkfirewall.getValue("ProviderEndpointArgs.networkfirewall");
+        if (!unknown_networkfirewall) return value_networkfirewall;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.networkfirewall' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> networkmanager;
-
+    @PolicyResourceProperty(name="networkmanager", flag="unknown_networkmanager")
+    private String value_networkmanager;
+    private boolean unknown_networkmanager;
     public String networkmanager() {
-        if (networkmanager == null) return null;
-        return networkmanager.getValue("ProviderEndpointArgs.networkmanager");
+        if (!unknown_networkmanager) return value_networkmanager;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.networkmanager' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> networkmonitor;
-
+    @PolicyResourceProperty(name="networkmonitor", flag="unknown_networkmonitor")
+    private String value_networkmonitor;
+    private boolean unknown_networkmonitor;
     public String networkmonitor() {
-        if (networkmonitor == null) return null;
-        return networkmonitor.getValue("ProviderEndpointArgs.networkmonitor");
+        if (!unknown_networkmonitor) return value_networkmonitor;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.networkmonitor' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> oam;
-
+    @PolicyResourceProperty(name="oam", flag="unknown_oam")
+    private String value_oam;
+    private boolean unknown_oam;
     public String oam() {
-        if (oam == null) return null;
-        return oam.getValue("ProviderEndpointArgs.oam");
+        if (!unknown_oam) return value_oam;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.oam' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> opensearch;
-
+    @PolicyResourceProperty(name="opensearch", flag="unknown_opensearch")
+    private String value_opensearch;
+    private boolean unknown_opensearch;
     public String opensearch() {
-        if (opensearch == null) return null;
-        return opensearch.getValue("ProviderEndpointArgs.opensearch");
+        if (!unknown_opensearch) return value_opensearch;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.opensearch' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> opensearchingestion;
-
+    @PolicyResourceProperty(name="opensearchingestion", flag="unknown_opensearchingestion")
+    private String value_opensearchingestion;
+    private boolean unknown_opensearchingestion;
     public String opensearchingestion() {
-        if (opensearchingestion == null) return null;
-        return opensearchingestion.getValue("ProviderEndpointArgs.opensearchingestion");
+        if (!unknown_opensearchingestion) return value_opensearchingestion;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.opensearchingestion' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> opensearchserverless;
-
+    @PolicyResourceProperty(name="opensearchserverless", flag="unknown_opensearchserverless")
+    private String value_opensearchserverless;
+    private boolean unknown_opensearchserverless;
     public String opensearchserverless() {
-        if (opensearchserverless == null) return null;
-        return opensearchserverless.getValue("ProviderEndpointArgs.opensearchserverless");
+        if (!unknown_opensearchserverless) return value_opensearchserverless;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.opensearchserverless' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> opensearchservice;
-
+    @PolicyResourceProperty(name="opensearchservice", flag="unknown_opensearchservice")
+    private String value_opensearchservice;
+    private boolean unknown_opensearchservice;
     public String opensearchservice() {
-        if (opensearchservice == null) return null;
-        return opensearchservice.getValue("ProviderEndpointArgs.opensearchservice");
+        if (!unknown_opensearchservice) return value_opensearchservice;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.opensearchservice' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> opsworks;
-
+    @PolicyResourceProperty(name="opsworks", flag="unknown_opsworks")
+    private String value_opsworks;
+    private boolean unknown_opsworks;
     public String opsworks() {
-        if (opsworks == null) return null;
-        return opsworks.getValue("ProviderEndpointArgs.opsworks");
+        if (!unknown_opsworks) return value_opsworks;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.opsworks' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> organizations;
-
+    @PolicyResourceProperty(name="organizations", flag="unknown_organizations")
+    private String value_organizations;
+    private boolean unknown_organizations;
     public String organizations() {
-        if (organizations == null) return null;
-        return organizations.getValue("ProviderEndpointArgs.organizations");
+        if (!unknown_organizations) return value_organizations;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.organizations' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> osis;
-
+    @PolicyResourceProperty(name="osis", flag="unknown_osis")
+    private String value_osis;
+    private boolean unknown_osis;
     public String osis() {
-        if (osis == null) return null;
-        return osis.getValue("ProviderEndpointArgs.osis");
+        if (!unknown_osis) return value_osis;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.osis' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> outposts;
-
+    @PolicyResourceProperty(name="outposts", flag="unknown_outposts")
+    private String value_outposts;
+    private boolean unknown_outposts;
     public String outposts() {
-        if (outposts == null) return null;
-        return outposts.getValue("ProviderEndpointArgs.outposts");
+        if (!unknown_outposts) return value_outposts;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.outposts' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> paymentcryptography;
-
+    @PolicyResourceProperty(name="paymentcryptography", flag="unknown_paymentcryptography")
+    private String value_paymentcryptography;
+    private boolean unknown_paymentcryptography;
     public String paymentcryptography() {
-        if (paymentcryptography == null) return null;
-        return paymentcryptography.getValue("ProviderEndpointArgs.paymentcryptography");
+        if (!unknown_paymentcryptography) return value_paymentcryptography;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.paymentcryptography' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> pcaconnectorad;
-
+    @PolicyResourceProperty(name="pcaconnectorad", flag="unknown_pcaconnectorad")
+    private String value_pcaconnectorad;
+    private boolean unknown_pcaconnectorad;
     public String pcaconnectorad() {
-        if (pcaconnectorad == null) return null;
-        return pcaconnectorad.getValue("ProviderEndpointArgs.pcaconnectorad");
+        if (!unknown_pcaconnectorad) return value_pcaconnectorad;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.pcaconnectorad' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> pcs;
-
+    @PolicyResourceProperty(name="pcs", flag="unknown_pcs")
+    private String value_pcs;
+    private boolean unknown_pcs;
     public String pcs() {
-        if (pcs == null) return null;
-        return pcs.getValue("ProviderEndpointArgs.pcs");
+        if (!unknown_pcs) return value_pcs;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.pcs' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> pinpoint;
-
+    @PolicyResourceProperty(name="pinpoint", flag="unknown_pinpoint")
+    private String value_pinpoint;
+    private boolean unknown_pinpoint;
     public String pinpoint() {
-        if (pinpoint == null) return null;
-        return pinpoint.getValue("ProviderEndpointArgs.pinpoint");
+        if (!unknown_pinpoint) return value_pinpoint;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.pinpoint' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> pinpointsmsvoicev2;
-
+    @PolicyResourceProperty(name="pinpointsmsvoicev2", flag="unknown_pinpointsmsvoicev2")
+    private String value_pinpointsmsvoicev2;
+    private boolean unknown_pinpointsmsvoicev2;
     public String pinpointsmsvoicev2() {
-        if (pinpointsmsvoicev2 == null) return null;
-        return pinpointsmsvoicev2.getValue("ProviderEndpointArgs.pinpointsmsvoicev2");
+        if (!unknown_pinpointsmsvoicev2) return value_pinpointsmsvoicev2;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.pinpointsmsvoicev2' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> pipes;
-
+    @PolicyResourceProperty(name="pipes", flag="unknown_pipes")
+    private String value_pipes;
+    private boolean unknown_pipes;
     public String pipes() {
-        if (pipes == null) return null;
-        return pipes.getValue("ProviderEndpointArgs.pipes");
+        if (!unknown_pipes) return value_pipes;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.pipes' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> polly;
-
+    @PolicyResourceProperty(name="polly", flag="unknown_polly")
+    private String value_polly;
+    private boolean unknown_polly;
     public String polly() {
-        if (polly == null) return null;
-        return polly.getValue("ProviderEndpointArgs.polly");
+        if (!unknown_polly) return value_polly;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.polly' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> pricing;
-
+    @PolicyResourceProperty(name="pricing", flag="unknown_pricing")
+    private String value_pricing;
+    private boolean unknown_pricing;
     public String pricing() {
-        if (pricing == null) return null;
-        return pricing.getValue("ProviderEndpointArgs.pricing");
+        if (!unknown_pricing) return value_pricing;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.pricing' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> prometheus;
-
+    @PolicyResourceProperty(name="prometheus", flag="unknown_prometheus")
+    private String value_prometheus;
+    private boolean unknown_prometheus;
     public String prometheus() {
-        if (prometheus == null) return null;
-        return prometheus.getValue("ProviderEndpointArgs.prometheus");
+        if (!unknown_prometheus) return value_prometheus;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.prometheus' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> prometheusservice;
-
+    @PolicyResourceProperty(name="prometheusservice", flag="unknown_prometheusservice")
+    private String value_prometheusservice;
+    private boolean unknown_prometheusservice;
     public String prometheusservice() {
-        if (prometheusservice == null) return null;
-        return prometheusservice.getValue("ProviderEndpointArgs.prometheusservice");
+        if (!unknown_prometheusservice) return value_prometheusservice;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.prometheusservice' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> qbusiness;
-
+    @PolicyResourceProperty(name="qbusiness", flag="unknown_qbusiness")
+    private String value_qbusiness;
+    private boolean unknown_qbusiness;
     public String qbusiness() {
-        if (qbusiness == null) return null;
-        return qbusiness.getValue("ProviderEndpointArgs.qbusiness");
+        if (!unknown_qbusiness) return value_qbusiness;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.qbusiness' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> qldb;
-
+    @PolicyResourceProperty(name="qldb", flag="unknown_qldb")
+    private String value_qldb;
+    private boolean unknown_qldb;
     public String qldb() {
-        if (qldb == null) return null;
-        return qldb.getValue("ProviderEndpointArgs.qldb");
+        if (!unknown_qldb) return value_qldb;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.qldb' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> quicksight;
-
+    @PolicyResourceProperty(name="quicksight", flag="unknown_quicksight")
+    private String value_quicksight;
+    private boolean unknown_quicksight;
     public String quicksight() {
-        if (quicksight == null) return null;
-        return quicksight.getValue("ProviderEndpointArgs.quicksight");
+        if (!unknown_quicksight) return value_quicksight;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.quicksight' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> ram;
-
+    @PolicyResourceProperty(name="ram", flag="unknown_ram")
+    private String value_ram;
+    private boolean unknown_ram;
     public String ram() {
-        if (ram == null) return null;
-        return ram.getValue("ProviderEndpointArgs.ram");
+        if (!unknown_ram) return value_ram;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.ram' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> rbin;
-
+    @PolicyResourceProperty(name="rbin", flag="unknown_rbin")
+    private String value_rbin;
+    private boolean unknown_rbin;
     public String rbin() {
-        if (rbin == null) return null;
-        return rbin.getValue("ProviderEndpointArgs.rbin");
+        if (!unknown_rbin) return value_rbin;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.rbin' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> rds;
-
+    @PolicyResourceProperty(name="rds", flag="unknown_rds")
+    private String value_rds;
+    private boolean unknown_rds;
     public String rds() {
-        if (rds == null) return null;
-        return rds.getValue("ProviderEndpointArgs.rds");
+        if (!unknown_rds) return value_rds;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.rds' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> recyclebin;
-
+    @PolicyResourceProperty(name="recyclebin", flag="unknown_recyclebin")
+    private String value_recyclebin;
+    private boolean unknown_recyclebin;
     public String recyclebin() {
-        if (recyclebin == null) return null;
-        return recyclebin.getValue("ProviderEndpointArgs.recyclebin");
+        if (!unknown_recyclebin) return value_recyclebin;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.recyclebin' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> redshift;
-
+    @PolicyResourceProperty(name="redshift", flag="unknown_redshift")
+    private String value_redshift;
+    private boolean unknown_redshift;
     public String redshift() {
-        if (redshift == null) return null;
-        return redshift.getValue("ProviderEndpointArgs.redshift");
+        if (!unknown_redshift) return value_redshift;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.redshift' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> redshiftdata;
-
+    @PolicyResourceProperty(name="redshiftdata", flag="unknown_redshiftdata")
+    private String value_redshiftdata;
+    private boolean unknown_redshiftdata;
     public String redshiftdata() {
-        if (redshiftdata == null) return null;
-        return redshiftdata.getValue("ProviderEndpointArgs.redshiftdata");
+        if (!unknown_redshiftdata) return value_redshiftdata;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.redshiftdata' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> redshiftdataapiservice;
-
+    @PolicyResourceProperty(name="redshiftdataapiservice", flag="unknown_redshiftdataapiservice")
+    private String value_redshiftdataapiservice;
+    private boolean unknown_redshiftdataapiservice;
     public String redshiftdataapiservice() {
-        if (redshiftdataapiservice == null) return null;
-        return redshiftdataapiservice.getValue("ProviderEndpointArgs.redshiftdataapiservice");
+        if (!unknown_redshiftdataapiservice) return value_redshiftdataapiservice;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.redshiftdataapiservice' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> redshiftserverless;
-
+    @PolicyResourceProperty(name="redshiftserverless", flag="unknown_redshiftserverless")
+    private String value_redshiftserverless;
+    private boolean unknown_redshiftserverless;
     public String redshiftserverless() {
-        if (redshiftserverless == null) return null;
-        return redshiftserverless.getValue("ProviderEndpointArgs.redshiftserverless");
+        if (!unknown_redshiftserverless) return value_redshiftserverless;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.redshiftserverless' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> rekognition;
-
+    @PolicyResourceProperty(name="rekognition", flag="unknown_rekognition")
+    private String value_rekognition;
+    private boolean unknown_rekognition;
     public String rekognition() {
-        if (rekognition == null) return null;
-        return rekognition.getValue("ProviderEndpointArgs.rekognition");
+        if (!unknown_rekognition) return value_rekognition;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.rekognition' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> resiliencehub;
-
+    @PolicyResourceProperty(name="resiliencehub", flag="unknown_resiliencehub")
+    private String value_resiliencehub;
+    private boolean unknown_resiliencehub;
     public String resiliencehub() {
-        if (resiliencehub == null) return null;
-        return resiliencehub.getValue("ProviderEndpointArgs.resiliencehub");
+        if (!unknown_resiliencehub) return value_resiliencehub;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.resiliencehub' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> resourceexplorer2;
-
+    @PolicyResourceProperty(name="resourceexplorer2", flag="unknown_resourceexplorer2")
+    private String value_resourceexplorer2;
+    private boolean unknown_resourceexplorer2;
     public String resourceexplorer2() {
-        if (resourceexplorer2 == null) return null;
-        return resourceexplorer2.getValue("ProviderEndpointArgs.resourceexplorer2");
+        if (!unknown_resourceexplorer2) return value_resourceexplorer2;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.resourceexplorer2' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> resourcegroups;
-
+    @PolicyResourceProperty(name="resourcegroups", flag="unknown_resourcegroups")
+    private String value_resourcegroups;
+    private boolean unknown_resourcegroups;
     public String resourcegroups() {
-        if (resourcegroups == null) return null;
-        return resourcegroups.getValue("ProviderEndpointArgs.resourcegroups");
+        if (!unknown_resourcegroups) return value_resourcegroups;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.resourcegroups' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> resourcegroupstagging;
-
+    @PolicyResourceProperty(name="resourcegroupstagging", flag="unknown_resourcegroupstagging")
+    private String value_resourcegroupstagging;
+    private boolean unknown_resourcegroupstagging;
     public String resourcegroupstagging() {
-        if (resourcegroupstagging == null) return null;
-        return resourcegroupstagging.getValue("ProviderEndpointArgs.resourcegroupstagging");
+        if (!unknown_resourcegroupstagging) return value_resourcegroupstagging;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.resourcegroupstagging' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> resourcegroupstaggingapi;
-
+    @PolicyResourceProperty(name="resourcegroupstaggingapi", flag="unknown_resourcegroupstaggingapi")
+    private String value_resourcegroupstaggingapi;
+    private boolean unknown_resourcegroupstaggingapi;
     public String resourcegroupstaggingapi() {
-        if (resourcegroupstaggingapi == null) return null;
-        return resourcegroupstaggingapi.getValue("ProviderEndpointArgs.resourcegroupstaggingapi");
+        if (!unknown_resourcegroupstaggingapi) return value_resourcegroupstaggingapi;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.resourcegroupstaggingapi' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> rolesanywhere;
-
+    @PolicyResourceProperty(name="rolesanywhere", flag="unknown_rolesanywhere")
+    private String value_rolesanywhere;
+    private boolean unknown_rolesanywhere;
     public String rolesanywhere() {
-        if (rolesanywhere == null) return null;
-        return rolesanywhere.getValue("ProviderEndpointArgs.rolesanywhere");
+        if (!unknown_rolesanywhere) return value_rolesanywhere;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.rolesanywhere' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> route53;
-
+    @PolicyResourceProperty(name="route53", flag="unknown_route53")
+    private String value_route53;
+    private boolean unknown_route53;
     public String route53() {
-        if (route53 == null) return null;
-        return route53.getValue("ProviderEndpointArgs.route53");
+        if (!unknown_route53) return value_route53;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.route53' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> route53domains;
-
+    @PolicyResourceProperty(name="route53domains", flag="unknown_route53domains")
+    private String value_route53domains;
+    private boolean unknown_route53domains;
     public String route53domains() {
-        if (route53domains == null) return null;
-        return route53domains.getValue("ProviderEndpointArgs.route53domains");
+        if (!unknown_route53domains) return value_route53domains;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.route53domains' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> route53profiles;
-
+    @PolicyResourceProperty(name="route53profiles", flag="unknown_route53profiles")
+    private String value_route53profiles;
+    private boolean unknown_route53profiles;
     public String route53profiles() {
-        if (route53profiles == null) return null;
-        return route53profiles.getValue("ProviderEndpointArgs.route53profiles");
+        if (!unknown_route53profiles) return value_route53profiles;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.route53profiles' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> route53recoverycontrolconfig;
-
+    @PolicyResourceProperty(name="route53recoverycontrolconfig", flag="unknown_route53recoverycontrolconfig")
+    private String value_route53recoverycontrolconfig;
+    private boolean unknown_route53recoverycontrolconfig;
     public String route53recoverycontrolconfig() {
-        if (route53recoverycontrolconfig == null) return null;
-        return route53recoverycontrolconfig.getValue("ProviderEndpointArgs.route53recoverycontrolconfig");
+        if (!unknown_route53recoverycontrolconfig) return value_route53recoverycontrolconfig;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.route53recoverycontrolconfig' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> route53recoveryreadiness;
-
+    @PolicyResourceProperty(name="route53recoveryreadiness", flag="unknown_route53recoveryreadiness")
+    private String value_route53recoveryreadiness;
+    private boolean unknown_route53recoveryreadiness;
     public String route53recoveryreadiness() {
-        if (route53recoveryreadiness == null) return null;
-        return route53recoveryreadiness.getValue("ProviderEndpointArgs.route53recoveryreadiness");
+        if (!unknown_route53recoveryreadiness) return value_route53recoveryreadiness;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.route53recoveryreadiness' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> route53resolver;
-
+    @PolicyResourceProperty(name="route53resolver", flag="unknown_route53resolver")
+    private String value_route53resolver;
+    private boolean unknown_route53resolver;
     public String route53resolver() {
-        if (route53resolver == null) return null;
-        return route53resolver.getValue("ProviderEndpointArgs.route53resolver");
+        if (!unknown_route53resolver) return value_route53resolver;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.route53resolver' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> rum;
-
+    @PolicyResourceProperty(name="rum", flag="unknown_rum")
+    private String value_rum;
+    private boolean unknown_rum;
     public String rum() {
-        if (rum == null) return null;
-        return rum.getValue("ProviderEndpointArgs.rum");
+        if (!unknown_rum) return value_rum;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.rum' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> s3;
-
+    @PolicyResourceProperty(name="s3", flag="unknown_s3")
+    private String value_s3;
+    private boolean unknown_s3;
     public String s3() {
-        if (s3 == null) return null;
-        return s3.getValue("ProviderEndpointArgs.s3");
+        if (!unknown_s3) return value_s3;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.s3' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> s3api;
-
+    @PolicyResourceProperty(name="s3api", flag="unknown_s3api")
+    private String value_s3api;
+    private boolean unknown_s3api;
     public String s3api() {
-        if (s3api == null) return null;
-        return s3api.getValue("ProviderEndpointArgs.s3api");
+        if (!unknown_s3api) return value_s3api;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.s3api' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> s3control;
-
+    @PolicyResourceProperty(name="s3control", flag="unknown_s3control")
+    private String value_s3control;
+    private boolean unknown_s3control;
     public String s3control() {
-        if (s3control == null) return null;
-        return s3control.getValue("ProviderEndpointArgs.s3control");
+        if (!unknown_s3control) return value_s3control;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.s3control' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> s3outposts;
-
+    @PolicyResourceProperty(name="s3outposts", flag="unknown_s3outposts")
+    private String value_s3outposts;
+    private boolean unknown_s3outposts;
     public String s3outposts() {
-        if (s3outposts == null) return null;
-        return s3outposts.getValue("ProviderEndpointArgs.s3outposts");
+        if (!unknown_s3outposts) return value_s3outposts;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.s3outposts' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> s3tables;
-
+    @PolicyResourceProperty(name="s3tables", flag="unknown_s3tables")
+    private String value_s3tables;
+    private boolean unknown_s3tables;
     public String s3tables() {
-        if (s3tables == null) return null;
-        return s3tables.getValue("ProviderEndpointArgs.s3tables");
+        if (!unknown_s3tables) return value_s3tables;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.s3tables' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> sagemaker;
-
+    @PolicyResourceProperty(name="sagemaker", flag="unknown_sagemaker")
+    private String value_sagemaker;
+    private boolean unknown_sagemaker;
     public String sagemaker() {
-        if (sagemaker == null) return null;
-        return sagemaker.getValue("ProviderEndpointArgs.sagemaker");
+        if (!unknown_sagemaker) return value_sagemaker;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.sagemaker' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> scheduler;
-
+    @PolicyResourceProperty(name="scheduler", flag="unknown_scheduler")
+    private String value_scheduler;
+    private boolean unknown_scheduler;
     public String scheduler() {
-        if (scheduler == null) return null;
-        return scheduler.getValue("ProviderEndpointArgs.scheduler");
+        if (!unknown_scheduler) return value_scheduler;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.scheduler' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> schemas;
-
+    @PolicyResourceProperty(name="schemas", flag="unknown_schemas")
+    private String value_schemas;
+    private boolean unknown_schemas;
     public String schemas() {
-        if (schemas == null) return null;
-        return schemas.getValue("ProviderEndpointArgs.schemas");
+        if (!unknown_schemas) return value_schemas;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.schemas' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> sdb;
-
+    @PolicyResourceProperty(name="sdb", flag="unknown_sdb")
+    private String value_sdb;
+    private boolean unknown_sdb;
     public String sdb() {
-        if (sdb == null) return null;
-        return sdb.getValue("ProviderEndpointArgs.sdb");
+        if (!unknown_sdb) return value_sdb;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.sdb' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> secretsmanager;
-
+    @PolicyResourceProperty(name="secretsmanager", flag="unknown_secretsmanager")
+    private String value_secretsmanager;
+    private boolean unknown_secretsmanager;
     public String secretsmanager() {
-        if (secretsmanager == null) return null;
-        return secretsmanager.getValue("ProviderEndpointArgs.secretsmanager");
+        if (!unknown_secretsmanager) return value_secretsmanager;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.secretsmanager' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> securityhub;
-
+    @PolicyResourceProperty(name="securityhub", flag="unknown_securityhub")
+    private String value_securityhub;
+    private boolean unknown_securityhub;
     public String securityhub() {
-        if (securityhub == null) return null;
-        return securityhub.getValue("ProviderEndpointArgs.securityhub");
+        if (!unknown_securityhub) return value_securityhub;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.securityhub' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> securitylake;
-
+    @PolicyResourceProperty(name="securitylake", flag="unknown_securitylake")
+    private String value_securitylake;
+    private boolean unknown_securitylake;
     public String securitylake() {
-        if (securitylake == null) return null;
-        return securitylake.getValue("ProviderEndpointArgs.securitylake");
+        if (!unknown_securitylake) return value_securitylake;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.securitylake' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> serverlessapplicationrepository;
-
+    @PolicyResourceProperty(name="serverlessapplicationrepository", flag="unknown_serverlessapplicationrepository")
+    private String value_serverlessapplicationrepository;
+    private boolean unknown_serverlessapplicationrepository;
     public String serverlessapplicationrepository() {
-        if (serverlessapplicationrepository == null) return null;
-        return serverlessapplicationrepository.getValue("ProviderEndpointArgs.serverlessapplicationrepository");
+        if (!unknown_serverlessapplicationrepository) return value_serverlessapplicationrepository;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.serverlessapplicationrepository' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> serverlessapprepo;
-
+    @PolicyResourceProperty(name="serverlessapprepo", flag="unknown_serverlessapprepo")
+    private String value_serverlessapprepo;
+    private boolean unknown_serverlessapprepo;
     public String serverlessapprepo() {
-        if (serverlessapprepo == null) return null;
-        return serverlessapprepo.getValue("ProviderEndpointArgs.serverlessapprepo");
+        if (!unknown_serverlessapprepo) return value_serverlessapprepo;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.serverlessapprepo' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> serverlessrepo;
-
+    @PolicyResourceProperty(name="serverlessrepo", flag="unknown_serverlessrepo")
+    private String value_serverlessrepo;
+    private boolean unknown_serverlessrepo;
     public String serverlessrepo() {
-        if (serverlessrepo == null) return null;
-        return serverlessrepo.getValue("ProviderEndpointArgs.serverlessrepo");
+        if (!unknown_serverlessrepo) return value_serverlessrepo;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.serverlessrepo' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> servicecatalog;
-
+    @PolicyResourceProperty(name="servicecatalog", flag="unknown_servicecatalog")
+    private String value_servicecatalog;
+    private boolean unknown_servicecatalog;
     public String servicecatalog() {
-        if (servicecatalog == null) return null;
-        return servicecatalog.getValue("ProviderEndpointArgs.servicecatalog");
+        if (!unknown_servicecatalog) return value_servicecatalog;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.servicecatalog' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> servicecatalogappregistry;
-
+    @PolicyResourceProperty(name="servicecatalogappregistry", flag="unknown_servicecatalogappregistry")
+    private String value_servicecatalogappregistry;
+    private boolean unknown_servicecatalogappregistry;
     public String servicecatalogappregistry() {
-        if (servicecatalogappregistry == null) return null;
-        return servicecatalogappregistry.getValue("ProviderEndpointArgs.servicecatalogappregistry");
+        if (!unknown_servicecatalogappregistry) return value_servicecatalogappregistry;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.servicecatalogappregistry' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> servicediscovery;
-
+    @PolicyResourceProperty(name="servicediscovery", flag="unknown_servicediscovery")
+    private String value_servicediscovery;
+    private boolean unknown_servicediscovery;
     public String servicediscovery() {
-        if (servicediscovery == null) return null;
-        return servicediscovery.getValue("ProviderEndpointArgs.servicediscovery");
+        if (!unknown_servicediscovery) return value_servicediscovery;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.servicediscovery' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> servicequotas;
-
+    @PolicyResourceProperty(name="servicequotas", flag="unknown_servicequotas")
+    private String value_servicequotas;
+    private boolean unknown_servicequotas;
     public String servicequotas() {
-        if (servicequotas == null) return null;
-        return servicequotas.getValue("ProviderEndpointArgs.servicequotas");
+        if (!unknown_servicequotas) return value_servicequotas;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.servicequotas' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> ses;
-
+    @PolicyResourceProperty(name="ses", flag="unknown_ses")
+    private String value_ses;
+    private boolean unknown_ses;
     public String ses() {
-        if (ses == null) return null;
-        return ses.getValue("ProviderEndpointArgs.ses");
+        if (!unknown_ses) return value_ses;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.ses' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> sesv2;
-
+    @PolicyResourceProperty(name="sesv2", flag="unknown_sesv2")
+    private String value_sesv2;
+    private boolean unknown_sesv2;
     public String sesv2() {
-        if (sesv2 == null) return null;
-        return sesv2.getValue("ProviderEndpointArgs.sesv2");
+        if (!unknown_sesv2) return value_sesv2;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.sesv2' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> sfn;
-
+    @PolicyResourceProperty(name="sfn", flag="unknown_sfn")
+    private String value_sfn;
+    private boolean unknown_sfn;
     public String sfn() {
-        if (sfn == null) return null;
-        return sfn.getValue("ProviderEndpointArgs.sfn");
+        if (!unknown_sfn) return value_sfn;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.sfn' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> shield;
-
+    @PolicyResourceProperty(name="shield", flag="unknown_shield")
+    private String value_shield;
+    private boolean unknown_shield;
     public String shield() {
-        if (shield == null) return null;
-        return shield.getValue("ProviderEndpointArgs.shield");
+        if (!unknown_shield) return value_shield;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.shield' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> signer;
-
+    @PolicyResourceProperty(name="signer", flag="unknown_signer")
+    private String value_signer;
+    private boolean unknown_signer;
     public String signer() {
-        if (signer == null) return null;
-        return signer.getValue("ProviderEndpointArgs.signer");
+        if (!unknown_signer) return value_signer;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.signer' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> simpledb;
-
+    @PolicyResourceProperty(name="simpledb", flag="unknown_simpledb")
+    private String value_simpledb;
+    private boolean unknown_simpledb;
     public String simpledb() {
-        if (simpledb == null) return null;
-        return simpledb.getValue("ProviderEndpointArgs.simpledb");
+        if (!unknown_simpledb) return value_simpledb;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.simpledb' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> sns;
-
+    @PolicyResourceProperty(name="sns", flag="unknown_sns")
+    private String value_sns;
+    private boolean unknown_sns;
     public String sns() {
-        if (sns == null) return null;
-        return sns.getValue("ProviderEndpointArgs.sns");
+        if (!unknown_sns) return value_sns;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.sns' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> sqs;
-
+    @PolicyResourceProperty(name="sqs", flag="unknown_sqs")
+    private String value_sqs;
+    private boolean unknown_sqs;
     public String sqs() {
-        if (sqs == null) return null;
-        return sqs.getValue("ProviderEndpointArgs.sqs");
+        if (!unknown_sqs) return value_sqs;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.sqs' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> ssm;
-
+    @PolicyResourceProperty(name="ssm", flag="unknown_ssm")
+    private String value_ssm;
+    private boolean unknown_ssm;
     public String ssm() {
-        if (ssm == null) return null;
-        return ssm.getValue("ProviderEndpointArgs.ssm");
+        if (!unknown_ssm) return value_ssm;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.ssm' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> ssmcontacts;
-
+    @PolicyResourceProperty(name="ssmcontacts", flag="unknown_ssmcontacts")
+    private String value_ssmcontacts;
+    private boolean unknown_ssmcontacts;
     public String ssmcontacts() {
-        if (ssmcontacts == null) return null;
-        return ssmcontacts.getValue("ProviderEndpointArgs.ssmcontacts");
+        if (!unknown_ssmcontacts) return value_ssmcontacts;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.ssmcontacts' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> ssmincidents;
-
+    @PolicyResourceProperty(name="ssmincidents", flag="unknown_ssmincidents")
+    private String value_ssmincidents;
+    private boolean unknown_ssmincidents;
     public String ssmincidents() {
-        if (ssmincidents == null) return null;
-        return ssmincidents.getValue("ProviderEndpointArgs.ssmincidents");
+        if (!unknown_ssmincidents) return value_ssmincidents;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.ssmincidents' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> ssmquicksetup;
-
+    @PolicyResourceProperty(name="ssmquicksetup", flag="unknown_ssmquicksetup")
+    private String value_ssmquicksetup;
+    private boolean unknown_ssmquicksetup;
     public String ssmquicksetup() {
-        if (ssmquicksetup == null) return null;
-        return ssmquicksetup.getValue("ProviderEndpointArgs.ssmquicksetup");
+        if (!unknown_ssmquicksetup) return value_ssmquicksetup;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.ssmquicksetup' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> ssmsap;
-
+    @PolicyResourceProperty(name="ssmsap", flag="unknown_ssmsap")
+    private String value_ssmsap;
+    private boolean unknown_ssmsap;
     public String ssmsap() {
-        if (ssmsap == null) return null;
-        return ssmsap.getValue("ProviderEndpointArgs.ssmsap");
+        if (!unknown_ssmsap) return value_ssmsap;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.ssmsap' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> sso;
-
+    @PolicyResourceProperty(name="sso", flag="unknown_sso")
+    private String value_sso;
+    private boolean unknown_sso;
     public String sso() {
-        if (sso == null) return null;
-        return sso.getValue("ProviderEndpointArgs.sso");
+        if (!unknown_sso) return value_sso;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.sso' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> ssoadmin;
-
+    @PolicyResourceProperty(name="ssoadmin", flag="unknown_ssoadmin")
+    private String value_ssoadmin;
+    private boolean unknown_ssoadmin;
     public String ssoadmin() {
-        if (ssoadmin == null) return null;
-        return ssoadmin.getValue("ProviderEndpointArgs.ssoadmin");
+        if (!unknown_ssoadmin) return value_ssoadmin;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.ssoadmin' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> stepfunctions;
-
+    @PolicyResourceProperty(name="stepfunctions", flag="unknown_stepfunctions")
+    private String value_stepfunctions;
+    private boolean unknown_stepfunctions;
     public String stepfunctions() {
-        if (stepfunctions == null) return null;
-        return stepfunctions.getValue("ProviderEndpointArgs.stepfunctions");
+        if (!unknown_stepfunctions) return value_stepfunctions;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.stepfunctions' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> storagegateway;
-
+    @PolicyResourceProperty(name="storagegateway", flag="unknown_storagegateway")
+    private String value_storagegateway;
+    private boolean unknown_storagegateway;
     public String storagegateway() {
-        if (storagegateway == null) return null;
-        return storagegateway.getValue("ProviderEndpointArgs.storagegateway");
+        if (!unknown_storagegateway) return value_storagegateway;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.storagegateway' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> sts;
-
+    @PolicyResourceProperty(name="sts", flag="unknown_sts")
+    private String value_sts;
+    private boolean unknown_sts;
     public String sts() {
-        if (sts == null) return null;
-        return sts.getValue("ProviderEndpointArgs.sts");
+        if (!unknown_sts) return value_sts;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.sts' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> swf;
-
+    @PolicyResourceProperty(name="swf", flag="unknown_swf")
+    private String value_swf;
+    private boolean unknown_swf;
     public String swf() {
-        if (swf == null) return null;
-        return swf.getValue("ProviderEndpointArgs.swf");
+        if (!unknown_swf) return value_swf;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.swf' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> synthetics;
-
+    @PolicyResourceProperty(name="synthetics", flag="unknown_synthetics")
+    private String value_synthetics;
+    private boolean unknown_synthetics;
     public String synthetics() {
-        if (synthetics == null) return null;
-        return synthetics.getValue("ProviderEndpointArgs.synthetics");
+        if (!unknown_synthetics) return value_synthetics;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.synthetics' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> taxsettings;
-
+    @PolicyResourceProperty(name="taxsettings", flag="unknown_taxsettings")
+    private String value_taxsettings;
+    private boolean unknown_taxsettings;
     public String taxsettings() {
-        if (taxsettings == null) return null;
-        return taxsettings.getValue("ProviderEndpointArgs.taxsettings");
+        if (!unknown_taxsettings) return value_taxsettings;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.taxsettings' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> timestreaminfluxdb;
-
+    @PolicyResourceProperty(name="timestreaminfluxdb", flag="unknown_timestreaminfluxdb")
+    private String value_timestreaminfluxdb;
+    private boolean unknown_timestreaminfluxdb;
     public String timestreaminfluxdb() {
-        if (timestreaminfluxdb == null) return null;
-        return timestreaminfluxdb.getValue("ProviderEndpointArgs.timestreaminfluxdb");
+        if (!unknown_timestreaminfluxdb) return value_timestreaminfluxdb;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.timestreaminfluxdb' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> timestreamquery;
-
+    @PolicyResourceProperty(name="timestreamquery", flag="unknown_timestreamquery")
+    private String value_timestreamquery;
+    private boolean unknown_timestreamquery;
     public String timestreamquery() {
-        if (timestreamquery == null) return null;
-        return timestreamquery.getValue("ProviderEndpointArgs.timestreamquery");
+        if (!unknown_timestreamquery) return value_timestreamquery;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.timestreamquery' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> timestreamwrite;
-
+    @PolicyResourceProperty(name="timestreamwrite", flag="unknown_timestreamwrite")
+    private String value_timestreamwrite;
+    private boolean unknown_timestreamwrite;
     public String timestreamwrite() {
-        if (timestreamwrite == null) return null;
-        return timestreamwrite.getValue("ProviderEndpointArgs.timestreamwrite");
+        if (!unknown_timestreamwrite) return value_timestreamwrite;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.timestreamwrite' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> transcribe;
-
+    @PolicyResourceProperty(name="transcribe", flag="unknown_transcribe")
+    private String value_transcribe;
+    private boolean unknown_transcribe;
     public String transcribe() {
-        if (transcribe == null) return null;
-        return transcribe.getValue("ProviderEndpointArgs.transcribe");
+        if (!unknown_transcribe) return value_transcribe;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.transcribe' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> transcribeservice;
-
+    @PolicyResourceProperty(name="transcribeservice", flag="unknown_transcribeservice")
+    private String value_transcribeservice;
+    private boolean unknown_transcribeservice;
     public String transcribeservice() {
-        if (transcribeservice == null) return null;
-        return transcribeservice.getValue("ProviderEndpointArgs.transcribeservice");
+        if (!unknown_transcribeservice) return value_transcribeservice;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.transcribeservice' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> transfer;
-
+    @PolicyResourceProperty(name="transfer", flag="unknown_transfer")
+    private String value_transfer;
+    private boolean unknown_transfer;
     public String transfer() {
-        if (transfer == null) return null;
-        return transfer.getValue("ProviderEndpointArgs.transfer");
+        if (!unknown_transfer) return value_transfer;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.transfer' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> verifiedpermissions;
-
+    @PolicyResourceProperty(name="verifiedpermissions", flag="unknown_verifiedpermissions")
+    private String value_verifiedpermissions;
+    private boolean unknown_verifiedpermissions;
     public String verifiedpermissions() {
-        if (verifiedpermissions == null) return null;
-        return verifiedpermissions.getValue("ProviderEndpointArgs.verifiedpermissions");
+        if (!unknown_verifiedpermissions) return value_verifiedpermissions;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.verifiedpermissions' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> vpclattice;
-
+    @PolicyResourceProperty(name="vpclattice", flag="unknown_vpclattice")
+    private String value_vpclattice;
+    private boolean unknown_vpclattice;
     public String vpclattice() {
-        if (vpclattice == null) return null;
-        return vpclattice.getValue("ProviderEndpointArgs.vpclattice");
+        if (!unknown_vpclattice) return value_vpclattice;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.vpclattice' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> waf;
-
+    @PolicyResourceProperty(name="waf", flag="unknown_waf")
+    private String value_waf;
+    private boolean unknown_waf;
     public String waf() {
-        if (waf == null) return null;
-        return waf.getValue("ProviderEndpointArgs.waf");
+        if (!unknown_waf) return value_waf;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.waf' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> wafregional;
-
+    @PolicyResourceProperty(name="wafregional", flag="unknown_wafregional")
+    private String value_wafregional;
+    private boolean unknown_wafregional;
     public String wafregional() {
-        if (wafregional == null) return null;
-        return wafregional.getValue("ProviderEndpointArgs.wafregional");
+        if (!unknown_wafregional) return value_wafregional;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.wafregional' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> wafv2;
-
+    @PolicyResourceProperty(name="wafv2", flag="unknown_wafv2")
+    private String value_wafv2;
+    private boolean unknown_wafv2;
     public String wafv2() {
-        if (wafv2 == null) return null;
-        return wafv2.getValue("ProviderEndpointArgs.wafv2");
+        if (!unknown_wafv2) return value_wafv2;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.wafv2' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> wellarchitected;
-
+    @PolicyResourceProperty(name="wellarchitected", flag="unknown_wellarchitected")
+    private String value_wellarchitected;
+    private boolean unknown_wellarchitected;
     public String wellarchitected() {
-        if (wellarchitected == null) return null;
-        return wellarchitected.getValue("ProviderEndpointArgs.wellarchitected");
+        if (!unknown_wellarchitected) return value_wellarchitected;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.wellarchitected' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> worklink;
-
+    @PolicyResourceProperty(name="worklink", flag="unknown_worklink")
+    private String value_worklink;
+    private boolean unknown_worklink;
     public String worklink() {
-        if (worklink == null) return null;
-        return worklink.getValue("ProviderEndpointArgs.worklink");
+        if (!unknown_worklink) return value_worklink;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.worklink' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> workspaces;
-
+    @PolicyResourceProperty(name="workspaces", flag="unknown_workspaces")
+    private String value_workspaces;
+    private boolean unknown_workspaces;
     public String workspaces() {
-        if (workspaces == null) return null;
-        return workspaces.getValue("ProviderEndpointArgs.workspaces");
+        if (!unknown_workspaces) return value_workspaces;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.workspaces' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> workspacesweb;
-
+    @PolicyResourceProperty(name="workspacesweb", flag="unknown_workspacesweb")
+    private String value_workspacesweb;
+    private boolean unknown_workspacesweb;
     public String workspacesweb() {
-        if (workspacesweb == null) return null;
-        return workspacesweb.getValue("ProviderEndpointArgs.workspacesweb");
+        if (!unknown_workspacesweb) return value_workspacesweb;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.workspacesweb' is not present");
     }
 
     /**
      * Use this to override the default service endpoint URL
      * 
      */
-    private UndeferrableValue<String> xray;
-
+    @PolicyResourceProperty(name="xray", flag="unknown_xray")
+    private String value_xray;
+    private boolean unknown_xray;
     public String xray() {
-        if (xray == null) return null;
-        return xray.getValue("ProviderEndpointArgs.xray");
+        if (!unknown_xray) return value_xray;
+        throw new UndeferrableValueException("Value 'ProviderEndpointArgs.xray' is not present");
     }
 
 }

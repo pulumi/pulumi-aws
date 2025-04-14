@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.docdb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class GlobalClusterGlobalClusterMember {
      * Amazon Resource Name (ARN) of member DB Cluster.
      * 
      */
-    private @Nullable UndeferrableValue<String> dbClusterArn;
-
+    @PolicyResourceProperty(name="dbClusterArn", flag="unknown_dbClusterArn")
+    private @Nullable String value_dbClusterArn;
+    private boolean unknown_dbClusterArn;
     public @Nullable String dbClusterArn() {
-        if (dbClusterArn == null) return null;
-        return dbClusterArn.getValue("GlobalClusterGlobalClusterMember.dbClusterArn");
+        if (!unknown_dbClusterArn) return value_dbClusterArn;
+        throw new UndeferrableValueException("Value 'GlobalClusterGlobalClusterMember.dbClusterArn' is not present");
     }
 
     /**
      * Whether the member is the primary DB Cluster.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> isWriter;
-
+    @PolicyResourceProperty(name="isWriter", flag="unknown_isWriter")
+    private @Nullable Boolean value_isWriter;
+    private boolean unknown_isWriter;
     public @Nullable Boolean isWriter() {
-        if (isWriter == null) return null;
-        return isWriter.getValue("GlobalClusterGlobalClusterMember.isWriter");
+        if (!unknown_isWriter) return value_isWriter;
+        throw new UndeferrableValueException("Value 'GlobalClusterGlobalClusterMember.isWriter' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.gamelift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.gamelift.outputs.AliasRoutingStrategy;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class Alias extends com.pulumi.resources.PolicyResourceOutput {
      * Alias ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Alias.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Alias.arn' is not present");
     }
 
     /**
      * Description of the alias.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Alias.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Alias.description' is not present");
     }
 
     /**
      * Name of the alias.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Alias.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Alias.name' is not present");
     }
 
     /**
      * Specifies the fleet and/or routing type to use for the alias.
      * 
      */
-    private UndeferrableValue<AliasRoutingStrategy> routingStrategy;
-
+    @PolicyResourceProperty(name="routingStrategy", flag="unknown_routingStrategy")
+    private AliasRoutingStrategy value_routingStrategy;
+    private boolean unknown_routingStrategy;
     public AliasRoutingStrategy routingStrategy() {
-        if (routingStrategy == null) return null;
-        return routingStrategy.getValue("Alias.routingStrategy");
+        if (!unknown_routingStrategy) return value_routingStrategy;
+        throw new UndeferrableValueException("Value 'Alias.routingStrategy' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Alias.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Alias.tags' is not present");
     }
 
     /**
@@ -77,11 +83,12 @@ public final class Alias extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Alias.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Alias.tagsAll' is not present");
     }
 
 }

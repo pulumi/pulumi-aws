@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.athena;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.athena.inputs.DatabaseAclConfigurationArgs;
 import com.pulumi.policypacks.aws.athena.inputs.DatabaseEncryptionConfigurationArgs;
@@ -20,88 +21,96 @@ public final class DatabaseArgs extends com.pulumi.resources.PolicyResourceInput
      * That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
      * 
      */
-    private UndeferrableValue<DatabaseAclConfigurationArgs> aclConfiguration;
-
+    @PolicyResourceProperty(name="aclConfiguration", flag="unknown_aclConfiguration")
+    private DatabaseAclConfigurationArgs value_aclConfiguration;
+    private boolean unknown_aclConfiguration;
     public DatabaseAclConfigurationArgs aclConfiguration() {
-        if (aclConfiguration == null) return null;
-        return aclConfiguration.getValue("DatabaseArgs.aclConfiguration");
+        if (!unknown_aclConfiguration) return value_aclConfiguration;
+        throw new UndeferrableValueException("Value 'DatabaseArgs.aclConfiguration' is not present");
     }
 
     /**
      * Name of S3 bucket to save the results of the query execution.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("DatabaseArgs.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'DatabaseArgs.bucket' is not present");
     }
 
     /**
      * Description of the database.
      * 
      */
-    private UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private String value_comment;
+    private boolean unknown_comment;
     public String comment() {
-        if (comment == null) return null;
-        return comment.getValue("DatabaseArgs.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'DatabaseArgs.comment' is not present");
     }
 
     /**
      * Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
      * 
      */
-    private UndeferrableValue<DatabaseEncryptionConfigurationArgs> encryptionConfiguration;
-
+    @PolicyResourceProperty(name="encryptionConfiguration", flag="unknown_encryptionConfiguration")
+    private DatabaseEncryptionConfigurationArgs value_encryptionConfiguration;
+    private boolean unknown_encryptionConfiguration;
     public DatabaseEncryptionConfigurationArgs encryptionConfiguration() {
-        if (encryptionConfiguration == null) return null;
-        return encryptionConfiguration.getValue("DatabaseArgs.encryptionConfiguration");
+        if (!unknown_encryptionConfiguration) return value_encryptionConfiguration;
+        throw new UndeferrableValueException("Value 'DatabaseArgs.encryptionConfiguration' is not present");
     }
 
     /**
      * AWS account ID that you expect to be the owner of the Amazon S3 bucket.
      * 
      */
-    private UndeferrableValue<String> expectedBucketOwner;
-
+    @PolicyResourceProperty(name="expectedBucketOwner", flag="unknown_expectedBucketOwner")
+    private String value_expectedBucketOwner;
+    private boolean unknown_expectedBucketOwner;
     public String expectedBucketOwner() {
-        if (expectedBucketOwner == null) return null;
-        return expectedBucketOwner.getValue("DatabaseArgs.expectedBucketOwner");
+        if (!unknown_expectedBucketOwner) return value_expectedBucketOwner;
+        throw new UndeferrableValueException("Value 'DatabaseArgs.expectedBucketOwner' is not present");
     }
 
     /**
      * Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
      * 
      */
-    private UndeferrableValue<Boolean> forceDestroy;
-
+    @PolicyResourceProperty(name="forceDestroy", flag="unknown_forceDestroy")
+    private Boolean value_forceDestroy;
+    private boolean unknown_forceDestroy;
     public Boolean forceDestroy() {
-        if (forceDestroy == null) return null;
-        return forceDestroy.getValue("DatabaseArgs.forceDestroy");
+        if (!unknown_forceDestroy) return value_forceDestroy;
+        throw new UndeferrableValueException("Value 'DatabaseArgs.forceDestroy' is not present");
     }
 
     /**
      * Name of the database to create.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DatabaseArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DatabaseArgs.name' is not present");
     }
 
     /**
      * Key-value map of custom metadata properties for the database definition.
      * 
      */
-    private UndeferrableValue<Map<String,String>> properties;
-
+    @PolicyResourceProperty(name="properties", flag="unknown_properties")
+    private Map<String,String> value_properties;
+    private boolean unknown_properties;
     public Map<String,String> properties() {
-        if (properties == null) return null;
-        return properties.getValue("DatabaseArgs.properties");
+        if (!unknown_properties) return value_properties;
+        throw new UndeferrableValueException("Value 'DatabaseArgs.properties' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appstream.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -14,11 +15,12 @@ public final class StackUserSetting {
      * Valid values are `AUTO_TIME_ZONE_REDIRECTION`, `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`, `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, or `PRINTING_TO_LOCAL_DEVICE`.
      * 
      */
-    private UndeferrableValue<String> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private String value_action;
+    private boolean unknown_action;
     public String action() {
-        if (action == null) return null;
-        return action.getValue("StackUserSetting.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'StackUserSetting.action' is not present");
     }
 
     /**
@@ -26,11 +28,12 @@ public final class StackUserSetting {
      * Valid values are `ENABLED` or `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> permission;
-
+    @PolicyResourceProperty(name="permission", flag="unknown_permission")
+    private String value_permission;
+    private boolean unknown_permission;
     public String permission() {
-        if (permission == null) return null;
-        return permission.getValue("StackUserSetting.permission");
+        if (!unknown_permission) return value_permission;
+        throw new UndeferrableValueException("Value 'StackUserSetting.permission' is not present");
     }
 
 }

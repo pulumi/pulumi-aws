@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class RuleScope {
      * The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for `compliance_resource_types`.
      * 
      */
-    private @Nullable UndeferrableValue<String> complianceResourceId;
-
+    @PolicyResourceProperty(name="complianceResourceId", flag="unknown_complianceResourceId")
+    private @Nullable String value_complianceResourceId;
+    private boolean unknown_complianceResourceId;
     public @Nullable String complianceResourceId() {
-        if (complianceResourceId == null) return null;
-        return complianceResourceId.getValue("RuleScope.complianceResourceId");
+        if (!unknown_complianceResourceId) return value_complianceResourceId;
+        throw new UndeferrableValueException("Value 'RuleScope.complianceResourceId' is not present");
     }
 
     /**
      * A list of resource types of only those AWS resources that you want to trigger an evaluation for the ruleE.g., `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `compliance_resource_id`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> complianceResourceTypes;
-
+    @PolicyResourceProperty(name="complianceResourceTypes", flag="unknown_complianceResourceTypes")
+    private @Nullable List<String> value_complianceResourceTypes;
+    private boolean unknown_complianceResourceTypes;
     public @Nullable List<String> complianceResourceTypes() {
-        if (complianceResourceTypes == null) return null;
-        return complianceResourceTypes.getValue("RuleScope.complianceResourceTypes");
+        if (!unknown_complianceResourceTypes) return value_complianceResourceTypes;
+        throw new UndeferrableValueException("Value 'RuleScope.complianceResourceTypes' is not present");
     }
 
     /**
      * The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule.
      * 
      */
-    private @Nullable UndeferrableValue<String> tagKey;
-
+    @PolicyResourceProperty(name="tagKey", flag="unknown_tagKey")
+    private @Nullable String value_tagKey;
+    private boolean unknown_tagKey;
     public @Nullable String tagKey() {
-        if (tagKey == null) return null;
-        return tagKey.getValue("RuleScope.tagKey");
+        if (!unknown_tagKey) return value_tagKey;
+        throw new UndeferrableValueException("Value 'RuleScope.tagKey' is not present");
     }
 
     /**
      * The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule.
      * 
      */
-    private @Nullable UndeferrableValue<String> tagValue;
-
+    @PolicyResourceProperty(name="tagValue", flag="unknown_tagValue")
+    private @Nullable String value_tagValue;
+    private boolean unknown_tagValue;
     public @Nullable String tagValue() {
-        if (tagValue == null) return null;
-        return tagValue.getValue("RuleScope.tagValue");
+        if (!unknown_tagValue) return value_tagValue;
+        throw new UndeferrableValueException("Value 'RuleScope.tagValue' is not present");
     }
 
 }

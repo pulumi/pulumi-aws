@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appstream;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,77 +18,84 @@ public final class User extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the appstream user.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("User.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'User.arn' is not present");
     }
 
     /**
      * Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
      * 
      */
-    private UndeferrableValue<String> authenticationType;
-
+    @PolicyResourceProperty(name="authenticationType", flag="unknown_authenticationType")
+    private String value_authenticationType;
+    private boolean unknown_authenticationType;
     public String authenticationType() {
-        if (authenticationType == null) return null;
-        return authenticationType.getValue("User.authenticationType");
+        if (!unknown_authenticationType) return value_authenticationType;
+        throw new UndeferrableValueException("Value 'User.authenticationType' is not present");
     }
 
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the user was created.
      * 
      */
-    private UndeferrableValue<String> createdTime;
-
+    @PolicyResourceProperty(name="createdTime", flag="unknown_createdTime")
+    private String value_createdTime;
+    private boolean unknown_createdTime;
     public String createdTime() {
-        if (createdTime == null) return null;
-        return createdTime.getValue("User.createdTime");
+        if (!unknown_createdTime) return value_createdTime;
+        throw new UndeferrableValueException("Value 'User.createdTime' is not present");
     }
 
     /**
      * Whether the user in the user pool is enabled.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("User.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'User.enabled' is not present");
     }
 
     /**
      * First name, or given name, of the user.
      * 
      */
-    private @Nullable UndeferrableValue<String> firstName;
-
+    @PolicyResourceProperty(name="firstName", flag="unknown_firstName")
+    private @Nullable String value_firstName;
+    private boolean unknown_firstName;
     public @Nullable String firstName() {
-        if (firstName == null) return null;
-        return firstName.getValue("User.firstName");
+        if (!unknown_firstName) return value_firstName;
+        throw new UndeferrableValueException("Value 'User.firstName' is not present");
     }
 
     /**
      * Last name, or surname, of the user.
      * 
      */
-    private @Nullable UndeferrableValue<String> lastName;
-
+    @PolicyResourceProperty(name="lastName", flag="unknown_lastName")
+    private @Nullable String value_lastName;
+    private boolean unknown_lastName;
     public @Nullable String lastName() {
-        if (lastName == null) return null;
-        return lastName.getValue("User.lastName");
+        if (!unknown_lastName) return value_lastName;
+        throw new UndeferrableValueException("Value 'User.lastName' is not present");
     }
 
     /**
      * Send an email notification.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> sendEmailNotification;
-
+    @PolicyResourceProperty(name="sendEmailNotification", flag="unknown_sendEmailNotification")
+    private @Nullable Boolean value_sendEmailNotification;
+    private boolean unknown_sendEmailNotification;
     public @Nullable Boolean sendEmailNotification() {
-        if (sendEmailNotification == null) return null;
-        return sendEmailNotification.getValue("User.sendEmailNotification");
+        if (!unknown_sendEmailNotification) return value_sendEmailNotification;
+        throw new UndeferrableValueException("Value 'User.sendEmailNotification' is not present");
     }
 
     /**
@@ -96,11 +104,12 @@ public final class User extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> userName;
-
+    @PolicyResourceProperty(name="userName", flag="unknown_userName")
+    private String value_userName;
+    private boolean unknown_userName;
     public String userName() {
-        if (userName == null) return null;
-        return userName.getValue("User.userName");
+        if (!unknown_userName) return value_userName;
+        throw new UndeferrableValueException("Value 'User.userName' is not present");
     }
 
 }

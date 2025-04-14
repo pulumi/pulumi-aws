@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.neptune;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,66 +19,72 @@ public final class ClusterEndpointArgs extends com.pulumi.resources.PolicyResour
      * The identifier of the endpoint.
      * 
      */
-    private UndeferrableValue<String> clusterEndpointIdentifier;
-
+    @PolicyResourceProperty(name="clusterEndpointIdentifier", flag="unknown_clusterEndpointIdentifier")
+    private String value_clusterEndpointIdentifier;
+    private boolean unknown_clusterEndpointIdentifier;
     public String clusterEndpointIdentifier() {
-        if (clusterEndpointIdentifier == null) return null;
-        return clusterEndpointIdentifier.getValue("ClusterEndpointArgs.clusterEndpointIdentifier");
+        if (!unknown_clusterEndpointIdentifier) return value_clusterEndpointIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterEndpointArgs.clusterEndpointIdentifier' is not present");
     }
 
     /**
      * The DB cluster identifier of the DB cluster associated with the endpoint.
      * 
      */
-    private UndeferrableValue<String> clusterIdentifier;
-
+    @PolicyResourceProperty(name="clusterIdentifier", flag="unknown_clusterIdentifier")
+    private String value_clusterIdentifier;
+    private boolean unknown_clusterIdentifier;
     public String clusterIdentifier() {
-        if (clusterIdentifier == null) return null;
-        return clusterIdentifier.getValue("ClusterEndpointArgs.clusterIdentifier");
+        if (!unknown_clusterIdentifier) return value_clusterIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterEndpointArgs.clusterIdentifier' is not present");
     }
 
     /**
      * The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
      * 
      */
-    private UndeferrableValue<String> endpointType;
-
+    @PolicyResourceProperty(name="endpointType", flag="unknown_endpointType")
+    private String value_endpointType;
+    private boolean unknown_endpointType;
     public String endpointType() {
-        if (endpointType == null) return null;
-        return endpointType.getValue("ClusterEndpointArgs.endpointType");
+        if (!unknown_endpointType) return value_endpointType;
+        throw new UndeferrableValueException("Value 'ClusterEndpointArgs.endpointType' is not present");
     }
 
     /**
      * List of DB instance identifiers that aren&#39;t part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
      * 
      */
-    private UndeferrableValue<List<String>> excludedMembers;
-
+    @PolicyResourceProperty(name="excludedMembers", flag="unknown_excludedMembers")
+    private List<String> value_excludedMembers;
+    private boolean unknown_excludedMembers;
     public List<String> excludedMembers() {
-        if (excludedMembers == null) return null;
-        return excludedMembers.getValue("ClusterEndpointArgs.excludedMembers");
+        if (!unknown_excludedMembers) return value_excludedMembers;
+        throw new UndeferrableValueException("Value 'ClusterEndpointArgs.excludedMembers' is not present");
     }
 
     /**
      * List of DB instance identifiers that are part of the custom endpoint group.
      * 
      */
-    private UndeferrableValue<List<String>> staticMembers;
-
+    @PolicyResourceProperty(name="staticMembers", flag="unknown_staticMembers")
+    private List<String> value_staticMembers;
+    private boolean unknown_staticMembers;
     public List<String> staticMembers() {
-        if (staticMembers == null) return null;
-        return staticMembers.getValue("ClusterEndpointArgs.staticMembers");
+        if (!unknown_staticMembers) return value_staticMembers;
+        throw new UndeferrableValueException("Value 'ClusterEndpointArgs.staticMembers' is not present");
     }
 
     /**
      * A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ClusterEndpointArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ClusterEndpointArgs.tags' is not present");
     }
 
 }

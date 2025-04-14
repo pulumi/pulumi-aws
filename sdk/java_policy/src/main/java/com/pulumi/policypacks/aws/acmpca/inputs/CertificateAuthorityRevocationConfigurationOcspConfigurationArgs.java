@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.acmpca.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class CertificateAuthorityRevocationConfigurationOcspConfigurationA
      * Boolean value that specifies whether a custom OCSP responder is enabled.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("CertificateAuthorityRevocationConfigurationOcspConfigurationArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityRevocationConfigurationOcspConfigurationArgs.enabled' is not present");
     }
 
     /**
      * CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as &#34;http://&#34; or &#34;https://&#34;.
      * 
      */
-    private UndeferrableValue<String> ocspCustomCname;
-
+    @PolicyResourceProperty(name="ocspCustomCname", flag="unknown_ocspCustomCname")
+    private String value_ocspCustomCname;
+    private boolean unknown_ocspCustomCname;
     public String ocspCustomCname() {
-        if (ocspCustomCname == null) return null;
-        return ocspCustomCname.getValue("CertificateAuthorityRevocationConfigurationOcspConfigurationArgs.ocspCustomCname");
+        if (!unknown_ocspCustomCname) return value_ocspCustomCname;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityRevocationConfigurationOcspConfigurationArgs.ocspCustomCname' is not present");
     }
 
 }

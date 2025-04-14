@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class QueueOutboundCallerConfig {
      * Specifies the caller ID name.
      * 
      */
-    private @Nullable UndeferrableValue<String> outboundCallerIdName;
-
+    @PolicyResourceProperty(name="outboundCallerIdName", flag="unknown_outboundCallerIdName")
+    private @Nullable String value_outboundCallerIdName;
+    private boolean unknown_outboundCallerIdName;
     public @Nullable String outboundCallerIdName() {
-        if (outboundCallerIdName == null) return null;
-        return outboundCallerIdName.getValue("QueueOutboundCallerConfig.outboundCallerIdName");
+        if (!unknown_outboundCallerIdName) return value_outboundCallerIdName;
+        throw new UndeferrableValueException("Value 'QueueOutboundCallerConfig.outboundCallerIdName' is not present");
     }
 
     /**
      * Specifies the caller ID number.
      * 
      */
-    private @Nullable UndeferrableValue<String> outboundCallerIdNumberId;
-
+    @PolicyResourceProperty(name="outboundCallerIdNumberId", flag="unknown_outboundCallerIdNumberId")
+    private @Nullable String value_outboundCallerIdNumberId;
+    private boolean unknown_outboundCallerIdNumberId;
     public @Nullable String outboundCallerIdNumberId() {
-        if (outboundCallerIdNumberId == null) return null;
-        return outboundCallerIdNumberId.getValue("QueueOutboundCallerConfig.outboundCallerIdNumberId");
+        if (!unknown_outboundCallerIdNumberId) return value_outboundCallerIdNumberId;
+        throw new UndeferrableValueException("Value 'QueueOutboundCallerConfig.outboundCallerIdNumberId' is not present");
     }
 
     /**
      * Specifies outbound whisper flow to be used during an outbound call.
      * 
      */
-    private @Nullable UndeferrableValue<String> outboundFlowId;
-
+    @PolicyResourceProperty(name="outboundFlowId", flag="unknown_outboundFlowId")
+    private @Nullable String value_outboundFlowId;
+    private boolean unknown_outboundFlowId;
     public @Nullable String outboundFlowId() {
-        if (outboundFlowId == null) return null;
-        return outboundFlowId.getValue("QueueOutboundCallerConfig.outboundFlowId");
+        if (!unknown_outboundFlowId) return value_outboundFlowId;
+        throw new UndeferrableValueException("Value 'QueueOutboundCallerConfig.outboundFlowId' is not present");
     }
 
 }

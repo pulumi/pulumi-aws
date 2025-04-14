@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscalingplans.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.autoscalingplans.inputs.ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs;
 import com.pulumi.policypacks.aws.autoscalingplans.inputs.ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs;
 import com.pulumi.policypacks.aws.autoscalingplans.inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationArgs;
@@ -21,44 +22,48 @@ public final class ScalingPlanScalingInstructionArgs {
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedLoadMetricSpecification.html).
      * 
      */
-    private UndeferrableValue<ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs> customizedLoadMetricSpecification;
-
+    @PolicyResourceProperty(name="customizedLoadMetricSpecification", flag="unknown_customizedLoadMetricSpecification")
+    private ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs value_customizedLoadMetricSpecification;
+    private boolean unknown_customizedLoadMetricSpecification;
     public ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs customizedLoadMetricSpecification() {
-        if (customizedLoadMetricSpecification == null) return null;
-        return customizedLoadMetricSpecification.getValue("ScalingPlanScalingInstructionArgs.customizedLoadMetricSpecification");
+        if (!unknown_customizedLoadMetricSpecification) return value_customizedLoadMetricSpecification;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.customizedLoadMetricSpecification' is not present");
     }
 
     /**
      * Boolean controlling whether dynamic scaling by AWS Auto Scaling is disabled. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> disableDynamicScaling;
-
+    @PolicyResourceProperty(name="disableDynamicScaling", flag="unknown_disableDynamicScaling")
+    private Boolean value_disableDynamicScaling;
+    private boolean unknown_disableDynamicScaling;
     public Boolean disableDynamicScaling() {
-        if (disableDynamicScaling == null) return null;
-        return disableDynamicScaling.getValue("ScalingPlanScalingInstructionArgs.disableDynamicScaling");
+        if (!unknown_disableDynamicScaling) return value_disableDynamicScaling;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.disableDynamicScaling' is not present");
     }
 
     /**
      * Maximum capacity of the resource. The exception to this upper limit is if you specify a non-default setting for `predictive_scaling_max_capacity_behavior`.
      * 
      */
-    private UndeferrableValue<Integer> maxCapacity;
-
+    @PolicyResourceProperty(name="maxCapacity", flag="unknown_maxCapacity")
+    private Integer value_maxCapacity;
+    private boolean unknown_maxCapacity;
     public Integer maxCapacity() {
-        if (maxCapacity == null) return null;
-        return maxCapacity.getValue("ScalingPlanScalingInstructionArgs.maxCapacity");
+        if (!unknown_maxCapacity) return value_maxCapacity;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.maxCapacity' is not present");
     }
 
     /**
      * Minimum capacity of the resource.
      * 
      */
-    private UndeferrableValue<Integer> minCapacity;
-
+    @PolicyResourceProperty(name="minCapacity", flag="unknown_minCapacity")
+    private Integer value_minCapacity;
+    private boolean unknown_minCapacity;
     public Integer minCapacity() {
-        if (minCapacity == null) return null;
-        return minCapacity.getValue("ScalingPlanScalingInstructionArgs.minCapacity");
+        if (!unknown_minCapacity) return value_minCapacity;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.minCapacity' is not present");
     }
 
     /**
@@ -66,11 +71,12 @@ public final class ScalingPlanScalingInstructionArgs {
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedLoadMetricSpecification.html).
      * 
      */
-    private UndeferrableValue<ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs> predefinedLoadMetricSpecification;
-
+    @PolicyResourceProperty(name="predefinedLoadMetricSpecification", flag="unknown_predefinedLoadMetricSpecification")
+    private ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs value_predefinedLoadMetricSpecification;
+    private boolean unknown_predefinedLoadMetricSpecification;
     public ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs predefinedLoadMetricSpecification() {
-        if (predefinedLoadMetricSpecification == null) return null;
-        return predefinedLoadMetricSpecification.getValue("ScalingPlanScalingInstructionArgs.predefinedLoadMetricSpecification");
+        if (!unknown_predefinedLoadMetricSpecification) return value_predefinedLoadMetricSpecification;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.predefinedLoadMetricSpecification' is not present");
     }
 
     /**
@@ -78,88 +84,96 @@ public final class ScalingPlanScalingInstructionArgs {
      * Valid values: `SetForecastCapacityToMaxCapacity`, `SetMaxCapacityAboveForecastCapacity`, `SetMaxCapacityToForecastCapacity`.
      * 
      */
-    private UndeferrableValue<String> predictiveScalingMaxCapacityBehavior;
-
+    @PolicyResourceProperty(name="predictiveScalingMaxCapacityBehavior", flag="unknown_predictiveScalingMaxCapacityBehavior")
+    private String value_predictiveScalingMaxCapacityBehavior;
+    private boolean unknown_predictiveScalingMaxCapacityBehavior;
     public String predictiveScalingMaxCapacityBehavior() {
-        if (predictiveScalingMaxCapacityBehavior == null) return null;
-        return predictiveScalingMaxCapacityBehavior.getValue("ScalingPlanScalingInstructionArgs.predictiveScalingMaxCapacityBehavior");
+        if (!unknown_predictiveScalingMaxCapacityBehavior) return value_predictiveScalingMaxCapacityBehavior;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.predictiveScalingMaxCapacityBehavior' is not present");
     }
 
     /**
      * Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity.
      * 
      */
-    private UndeferrableValue<Integer> predictiveScalingMaxCapacityBuffer;
-
+    @PolicyResourceProperty(name="predictiveScalingMaxCapacityBuffer", flag="unknown_predictiveScalingMaxCapacityBuffer")
+    private Integer value_predictiveScalingMaxCapacityBuffer;
+    private boolean unknown_predictiveScalingMaxCapacityBuffer;
     public Integer predictiveScalingMaxCapacityBuffer() {
-        if (predictiveScalingMaxCapacityBuffer == null) return null;
-        return predictiveScalingMaxCapacityBuffer.getValue("ScalingPlanScalingInstructionArgs.predictiveScalingMaxCapacityBuffer");
+        if (!unknown_predictiveScalingMaxCapacityBuffer) return value_predictiveScalingMaxCapacityBuffer;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.predictiveScalingMaxCapacityBuffer' is not present");
     }
 
     /**
      * Predictive scaling mode. Valid values: `ForecastAndScale`, `ForecastOnly`.
      * 
      */
-    private UndeferrableValue<String> predictiveScalingMode;
-
+    @PolicyResourceProperty(name="predictiveScalingMode", flag="unknown_predictiveScalingMode")
+    private String value_predictiveScalingMode;
+    private boolean unknown_predictiveScalingMode;
     public String predictiveScalingMode() {
-        if (predictiveScalingMode == null) return null;
-        return predictiveScalingMode.getValue("ScalingPlanScalingInstructionArgs.predictiveScalingMode");
+        if (!unknown_predictiveScalingMode) return value_predictiveScalingMode;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.predictiveScalingMode' is not present");
     }
 
     /**
      * ID of the resource. This string consists of the resource type and unique identifier.
      * 
      */
-    private UndeferrableValue<String> resourceId;
-
+    @PolicyResourceProperty(name="resourceId", flag="unknown_resourceId")
+    private String value_resourceId;
+    private boolean unknown_resourceId;
     public String resourceId() {
-        if (resourceId == null) return null;
-        return resourceId.getValue("ScalingPlanScalingInstructionArgs.resourceId");
+        if (!unknown_resourceId) return value_resourceId;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.resourceId' is not present");
     }
 
     /**
      * Scalable dimension associated with the resource. Valid values: `autoscaling:autoScalingGroup:DesiredCapacity`, `dynamodb:index:ReadCapacityUnits`, `dynamodb:index:WriteCapacityUnits`, `dynamodb:table:ReadCapacityUnits`, `dynamodb:table:WriteCapacityUnits`, `ecs:service:DesiredCount`, `ec2:spot-fleet-request:TargetCapacity`, `rds:cluster:ReadReplicaCount`.
      * 
      */
-    private UndeferrableValue<String> scalableDimension;
-
+    @PolicyResourceProperty(name="scalableDimension", flag="unknown_scalableDimension")
+    private String value_scalableDimension;
+    private boolean unknown_scalableDimension;
     public String scalableDimension() {
-        if (scalableDimension == null) return null;
-        return scalableDimension.getValue("ScalingPlanScalingInstructionArgs.scalableDimension");
+        if (!unknown_scalableDimension) return value_scalableDimension;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.scalableDimension' is not present");
     }
 
     /**
      * Controls whether a resource&#39;s externally created scaling policies are kept or replaced. Valid values: `KeepExternalPolicies`, `ReplaceExternalPolicies`. Defaults to `KeepExternalPolicies`.
      * 
      */
-    private UndeferrableValue<String> scalingPolicyUpdateBehavior;
-
+    @PolicyResourceProperty(name="scalingPolicyUpdateBehavior", flag="unknown_scalingPolicyUpdateBehavior")
+    private String value_scalingPolicyUpdateBehavior;
+    private boolean unknown_scalingPolicyUpdateBehavior;
     public String scalingPolicyUpdateBehavior() {
-        if (scalingPolicyUpdateBehavior == null) return null;
-        return scalingPolicyUpdateBehavior.getValue("ScalingPlanScalingInstructionArgs.scalingPolicyUpdateBehavior");
+        if (!unknown_scalingPolicyUpdateBehavior) return value_scalingPolicyUpdateBehavior;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.scalingPolicyUpdateBehavior' is not present");
     }
 
     /**
      * Amount of time, in seconds, to buffer the run time of scheduled scaling actions when scaling out.
      * 
      */
-    private UndeferrableValue<Integer> scheduledActionBufferTime;
-
+    @PolicyResourceProperty(name="scheduledActionBufferTime", flag="unknown_scheduledActionBufferTime")
+    private Integer value_scheduledActionBufferTime;
+    private boolean unknown_scheduledActionBufferTime;
     public Integer scheduledActionBufferTime() {
-        if (scheduledActionBufferTime == null) return null;
-        return scheduledActionBufferTime.getValue("ScalingPlanScalingInstructionArgs.scheduledActionBufferTime");
+        if (!unknown_scheduledActionBufferTime) return value_scheduledActionBufferTime;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.scheduledActionBufferTime' is not present");
     }
 
     /**
      * Namespace of the AWS service. Valid values: `autoscaling`, `dynamodb`, `ecs`, `ec2`, `rds`.
      * 
      */
-    private UndeferrableValue<String> serviceNamespace;
-
+    @PolicyResourceProperty(name="serviceNamespace", flag="unknown_serviceNamespace")
+    private String value_serviceNamespace;
+    private boolean unknown_serviceNamespace;
     public String serviceNamespace() {
-        if (serviceNamespace == null) return null;
-        return serviceNamespace.getValue("ScalingPlanScalingInstructionArgs.serviceNamespace");
+        if (!unknown_serviceNamespace) return value_serviceNamespace;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.serviceNamespace' is not present");
     }
 
     /**
@@ -167,11 +181,12 @@ public final class ScalingPlanScalingInstructionArgs {
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_TargetTrackingConfiguration.html).
      * 
      */
-    private UndeferrableValue<List<ScalingPlanScalingInstructionTargetTrackingConfigurationArgs>> targetTrackingConfigurations;
-
+    @PolicyResourceProperty(name="targetTrackingConfigurations", flag="unknown_targetTrackingConfigurations")
+    private List<ScalingPlanScalingInstructionTargetTrackingConfigurationArgs> value_targetTrackingConfigurations;
+    private boolean unknown_targetTrackingConfigurations;
     public List<ScalingPlanScalingInstructionTargetTrackingConfigurationArgs> targetTrackingConfigurations() {
-        if (targetTrackingConfigurations == null) return null;
-        return targetTrackingConfigurations.getValue("ScalingPlanScalingInstructionArgs.targetTrackingConfigurations");
+        if (!unknown_targetTrackingConfigurations) return value_targetTrackingConfigurations;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionArgs.targetTrackingConfigurations' is not present");
     }
 
 }

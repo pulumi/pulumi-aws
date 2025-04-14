@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeouts
      * Number of seconds that can pass without any TCP traffic sent through the firewall before the firewall determines that the connection is idle. After the idle timeout passes, data packets are dropped, however, the next TCP SYN packet is considered a new flow and is processed by the firewall. Clients or targets can use TCP keepalive packets to reset the idle timeout. Default value: `350`.
      * 
      */
-    private UndeferrableValue<Integer> tcpIdleTimeoutSeconds;
-
+    @PolicyResourceProperty(name="tcpIdleTimeoutSeconds", flag="unknown_tcpIdleTimeoutSeconds")
+    private Integer value_tcpIdleTimeoutSeconds;
+    private boolean unknown_tcpIdleTimeoutSeconds;
     public Integer tcpIdleTimeoutSeconds() {
-        if (tcpIdleTimeoutSeconds == null) return null;
-        return tcpIdleTimeoutSeconds.getValue("FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs.tcpIdleTimeoutSeconds");
+        if (!unknown_tcpIdleTimeoutSeconds) return value_tcpIdleTimeoutSeconds;
+        throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs.tcpIdleTimeoutSeconds' is not present");
     }
 
 }

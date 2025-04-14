@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.budgets.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.budgets.outputs.BudgetActionDefinitionIamActionDefinition;
 import com.pulumi.policypacks.aws.budgets.outputs.BudgetActionDefinitionScpActionDefinition;
 import com.pulumi.policypacks.aws.budgets.outputs.BudgetActionDefinitionSsmActionDefinition;
@@ -16,33 +17,36 @@ public final class BudgetActionDefinition {
      * The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
      * 
      */
-    private @Nullable UndeferrableValue<BudgetActionDefinitionIamActionDefinition> iamActionDefinition;
-
+    @PolicyResourceProperty(name="iamActionDefinition", flag="unknown_iamActionDefinition")
+    private @Nullable BudgetActionDefinitionIamActionDefinition value_iamActionDefinition;
+    private boolean unknown_iamActionDefinition;
     public @Nullable BudgetActionDefinitionIamActionDefinition iamActionDefinition() {
-        if (iamActionDefinition == null) return null;
-        return iamActionDefinition.getValue("BudgetActionDefinition.iamActionDefinition");
+        if (!unknown_iamActionDefinition) return value_iamActionDefinition;
+        throw new UndeferrableValueException("Value 'BudgetActionDefinition.iamActionDefinition' is not present");
     }
 
     /**
      * The service control policies (SCPs) action definition details. See SCP Action Definition.
      * 
      */
-    private @Nullable UndeferrableValue<BudgetActionDefinitionScpActionDefinition> scpActionDefinition;
-
+    @PolicyResourceProperty(name="scpActionDefinition", flag="unknown_scpActionDefinition")
+    private @Nullable BudgetActionDefinitionScpActionDefinition value_scpActionDefinition;
+    private boolean unknown_scpActionDefinition;
     public @Nullable BudgetActionDefinitionScpActionDefinition scpActionDefinition() {
-        if (scpActionDefinition == null) return null;
-        return scpActionDefinition.getValue("BudgetActionDefinition.scpActionDefinition");
+        if (!unknown_scpActionDefinition) return value_scpActionDefinition;
+        throw new UndeferrableValueException("Value 'BudgetActionDefinition.scpActionDefinition' is not present");
     }
 
     /**
      * The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
      * 
      */
-    private @Nullable UndeferrableValue<BudgetActionDefinitionSsmActionDefinition> ssmActionDefinition;
-
+    @PolicyResourceProperty(name="ssmActionDefinition", flag="unknown_ssmActionDefinition")
+    private @Nullable BudgetActionDefinitionSsmActionDefinition value_ssmActionDefinition;
+    private boolean unknown_ssmActionDefinition;
     public @Nullable BudgetActionDefinitionSsmActionDefinition ssmActionDefinition() {
-        if (ssmActionDefinition == null) return null;
-        return ssmActionDefinition.getValue("BudgetActionDefinition.ssmActionDefinition");
+        if (!unknown_ssmActionDefinition) return value_ssmActionDefinition;
+        throw new UndeferrableValueException("Value 'BudgetActionDefinition.ssmActionDefinition' is not present");
     }
 
 }

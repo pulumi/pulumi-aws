@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cognito.inputs.UserPoolAccountRecoverySettingArgs;
 import com.pulumi.policypacks.aws.cognito.inputs.UserPoolAdminCreateUserConfigArgs;
@@ -34,132 +35,144 @@ public final class UserPoolArgs extends com.pulumi.resources.PolicyResourceInput
      * Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
      * 
      */
-    private UndeferrableValue<UserPoolAccountRecoverySettingArgs> accountRecoverySetting;
-
+    @PolicyResourceProperty(name="accountRecoverySetting", flag="unknown_accountRecoverySetting")
+    private UserPoolAccountRecoverySettingArgs value_accountRecoverySetting;
+    private boolean unknown_accountRecoverySetting;
     public UserPoolAccountRecoverySettingArgs accountRecoverySetting() {
-        if (accountRecoverySetting == null) return null;
-        return accountRecoverySetting.getValue("UserPoolArgs.accountRecoverySetting");
+        if (!unknown_accountRecoverySetting) return value_accountRecoverySetting;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.accountRecoverySetting' is not present");
     }
 
     /**
      * Configuration block for creating a new user profile. Detailed below.
      * 
      */
-    private UndeferrableValue<UserPoolAdminCreateUserConfigArgs> adminCreateUserConfig;
-
+    @PolicyResourceProperty(name="adminCreateUserConfig", flag="unknown_adminCreateUserConfig")
+    private UserPoolAdminCreateUserConfigArgs value_adminCreateUserConfig;
+    private boolean unknown_adminCreateUserConfig;
     public UserPoolAdminCreateUserConfigArgs adminCreateUserConfig() {
-        if (adminCreateUserConfig == null) return null;
-        return adminCreateUserConfig.getValue("UserPoolArgs.adminCreateUserConfig");
+        if (!unknown_adminCreateUserConfig) return value_adminCreateUserConfig;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.adminCreateUserConfig' is not present");
     }
 
     /**
      * Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
      * 
      */
-    private UndeferrableValue<List<String>> aliasAttributes;
-
+    @PolicyResourceProperty(name="aliasAttributes", flag="unknown_aliasAttributes")
+    private List<String> value_aliasAttributes;
+    private boolean unknown_aliasAttributes;
     public List<String> aliasAttributes() {
-        if (aliasAttributes == null) return null;
-        return aliasAttributes.getValue("UserPoolArgs.aliasAttributes");
+        if (!unknown_aliasAttributes) return value_aliasAttributes;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.aliasAttributes' is not present");
     }
 
     /**
      * Attributes to be auto-verified. Valid values: `email`, `phone_number`.
      * 
      */
-    private UndeferrableValue<List<String>> autoVerifiedAttributes;
-
+    @PolicyResourceProperty(name="autoVerifiedAttributes", flag="unknown_autoVerifiedAttributes")
+    private List<String> value_autoVerifiedAttributes;
+    private boolean unknown_autoVerifiedAttributes;
     public List<String> autoVerifiedAttributes() {
-        if (autoVerifiedAttributes == null) return null;
-        return autoVerifiedAttributes.getValue("UserPoolArgs.autoVerifiedAttributes");
+        if (!unknown_autoVerifiedAttributes) return value_autoVerifiedAttributes;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.autoVerifiedAttributes' is not present");
     }
 
     /**
      * When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
      * 
      */
-    private UndeferrableValue<String> deletionProtection;
-
+    @PolicyResourceProperty(name="deletionProtection", flag="unknown_deletionProtection")
+    private String value_deletionProtection;
+    private boolean unknown_deletionProtection;
     public String deletionProtection() {
-        if (deletionProtection == null) return null;
-        return deletionProtection.getValue("UserPoolArgs.deletionProtection");
+        if (!unknown_deletionProtection) return value_deletionProtection;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.deletionProtection' is not present");
     }
 
     /**
      * Configuration block for the user pool&#39;s device tracking. Detailed below.
      * 
      */
-    private UndeferrableValue<UserPoolDeviceConfigurationArgs> deviceConfiguration;
-
+    @PolicyResourceProperty(name="deviceConfiguration", flag="unknown_deviceConfiguration")
+    private UserPoolDeviceConfigurationArgs value_deviceConfiguration;
+    private boolean unknown_deviceConfiguration;
     public UserPoolDeviceConfigurationArgs deviceConfiguration() {
-        if (deviceConfiguration == null) return null;
-        return deviceConfiguration.getValue("UserPoolArgs.deviceConfiguration");
+        if (!unknown_deviceConfiguration) return value_deviceConfiguration;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.deviceConfiguration' is not present");
     }
 
     /**
      * Configuration block for configuring email. Detailed below.
      * 
      */
-    private UndeferrableValue<UserPoolEmailConfigurationArgs> emailConfiguration;
-
+    @PolicyResourceProperty(name="emailConfiguration", flag="unknown_emailConfiguration")
+    private UserPoolEmailConfigurationArgs value_emailConfiguration;
+    private boolean unknown_emailConfiguration;
     public UserPoolEmailConfigurationArgs emailConfiguration() {
-        if (emailConfiguration == null) return null;
-        return emailConfiguration.getValue("UserPoolArgs.emailConfiguration");
+        if (!unknown_emailConfiguration) return value_emailConfiguration;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.emailConfiguration' is not present");
     }
 
     /**
      * Configuration block for configuring email Multi-Factor Authentication (MFA); requires at least 2 `account_recovery_setting` entries; requires an `email_configuration` configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<UserPoolEmailMfaConfigurationArgs> emailMfaConfiguration;
-
+    @PolicyResourceProperty(name="emailMfaConfiguration", flag="unknown_emailMfaConfiguration")
+    private UserPoolEmailMfaConfigurationArgs value_emailMfaConfiguration;
+    private boolean unknown_emailMfaConfiguration;
     public UserPoolEmailMfaConfigurationArgs emailMfaConfiguration() {
-        if (emailMfaConfiguration == null) return null;
-        return emailMfaConfiguration.getValue("UserPoolArgs.emailMfaConfiguration");
+        if (!unknown_emailMfaConfiguration) return value_emailMfaConfiguration;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.emailMfaConfiguration' is not present");
     }
 
     /**
      * String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
      * 
      */
-    private UndeferrableValue<String> emailVerificationMessage;
-
+    @PolicyResourceProperty(name="emailVerificationMessage", flag="unknown_emailVerificationMessage")
+    private String value_emailVerificationMessage;
+    private boolean unknown_emailVerificationMessage;
     public String emailVerificationMessage() {
-        if (emailVerificationMessage == null) return null;
-        return emailVerificationMessage.getValue("UserPoolArgs.emailVerificationMessage");
+        if (!unknown_emailVerificationMessage) return value_emailVerificationMessage;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.emailVerificationMessage' is not present");
     }
 
     /**
      * String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
      * 
      */
-    private UndeferrableValue<String> emailVerificationSubject;
-
+    @PolicyResourceProperty(name="emailVerificationSubject", flag="unknown_emailVerificationSubject")
+    private String value_emailVerificationSubject;
+    private boolean unknown_emailVerificationSubject;
     public String emailVerificationSubject() {
-        if (emailVerificationSubject == null) return null;
-        return emailVerificationSubject.getValue("UserPoolArgs.emailVerificationSubject");
+        if (!unknown_emailVerificationSubject) return value_emailVerificationSubject;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.emailVerificationSubject' is not present");
     }
 
     /**
      * Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
      * 
      */
-    private UndeferrableValue<UserPoolLambdaConfigArgs> lambdaConfig;
-
+    @PolicyResourceProperty(name="lambdaConfig", flag="unknown_lambdaConfig")
+    private UserPoolLambdaConfigArgs value_lambdaConfig;
+    private boolean unknown_lambdaConfig;
     public UserPoolLambdaConfigArgs lambdaConfig() {
-        if (lambdaConfig == null) return null;
-        return lambdaConfig.getValue("UserPoolArgs.lambdaConfig");
+        if (!unknown_lambdaConfig) return value_lambdaConfig;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.lambdaConfig' is not present");
     }
 
     /**
      * Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
      * 
      */
-    private UndeferrableValue<String> mfaConfiguration;
-
+    @PolicyResourceProperty(name="mfaConfiguration", flag="unknown_mfaConfiguration")
+    private String value_mfaConfiguration;
+    private boolean unknown_mfaConfiguration;
     public String mfaConfiguration() {
-        if (mfaConfiguration == null) return null;
-        return mfaConfiguration.getValue("UserPoolArgs.mfaConfiguration");
+        if (!unknown_mfaConfiguration) return value_mfaConfiguration;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.mfaConfiguration' is not present");
     }
 
     /**
@@ -168,176 +181,192 @@ public final class UserPoolArgs extends com.pulumi.resources.PolicyResourceInput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("UserPoolArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.name' is not present");
     }
 
     /**
      * Configuration block for information about the user pool password policy. Detailed below.
      * 
      */
-    private UndeferrableValue<UserPoolPasswordPolicyArgs> passwordPolicy;
-
+    @PolicyResourceProperty(name="passwordPolicy", flag="unknown_passwordPolicy")
+    private UserPoolPasswordPolicyArgs value_passwordPolicy;
+    private boolean unknown_passwordPolicy;
     public UserPoolPasswordPolicyArgs passwordPolicy() {
-        if (passwordPolicy == null) return null;
-        return passwordPolicy.getValue("UserPoolArgs.passwordPolicy");
+        if (!unknown_passwordPolicy) return value_passwordPolicy;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.passwordPolicy' is not present");
     }
 
     /**
      * Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
      * 
      */
-    private UndeferrableValue<List<UserPoolSchemaArgs>> schemas;
-
+    @PolicyResourceProperty(name="schemas", flag="unknown_schemas")
+    private List<UserPoolSchemaArgs> value_schemas;
+    private boolean unknown_schemas;
     public List<UserPoolSchemaArgs> schemas() {
-        if (schemas == null) return null;
-        return schemas.getValue("UserPoolArgs.schemas");
+        if (!unknown_schemas) return value_schemas;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.schemas' is not present");
     }
 
     /**
      * Configuration block for information about the user pool sign in policy. Detailed below.
      * 
      */
-    private UndeferrableValue<UserPoolSignInPolicyArgs> signInPolicy;
-
+    @PolicyResourceProperty(name="signInPolicy", flag="unknown_signInPolicy")
+    private UserPoolSignInPolicyArgs value_signInPolicy;
+    private boolean unknown_signInPolicy;
     public UserPoolSignInPolicyArgs signInPolicy() {
-        if (signInPolicy == null) return null;
-        return signInPolicy.getValue("UserPoolArgs.signInPolicy");
+        if (!unknown_signInPolicy) return value_signInPolicy;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.signInPolicy' is not present");
     }
 
     /**
      * String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
      * 
      */
-    private UndeferrableValue<String> smsAuthenticationMessage;
-
+    @PolicyResourceProperty(name="smsAuthenticationMessage", flag="unknown_smsAuthenticationMessage")
+    private String value_smsAuthenticationMessage;
+    private boolean unknown_smsAuthenticationMessage;
     public String smsAuthenticationMessage() {
-        if (smsAuthenticationMessage == null) return null;
-        return smsAuthenticationMessage.getValue("UserPoolArgs.smsAuthenticationMessage");
+        if (!unknown_smsAuthenticationMessage) return value_smsAuthenticationMessage;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.smsAuthenticationMessage' is not present");
     }
 
     /**
      * Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
      * 
      */
-    private UndeferrableValue<UserPoolSmsConfigurationArgs> smsConfiguration;
-
+    @PolicyResourceProperty(name="smsConfiguration", flag="unknown_smsConfiguration")
+    private UserPoolSmsConfigurationArgs value_smsConfiguration;
+    private boolean unknown_smsConfiguration;
     public UserPoolSmsConfigurationArgs smsConfiguration() {
-        if (smsConfiguration == null) return null;
-        return smsConfiguration.getValue("UserPoolArgs.smsConfiguration");
+        if (!unknown_smsConfiguration) return value_smsConfiguration;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.smsConfiguration' is not present");
     }
 
     /**
      * String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
      * 
      */
-    private UndeferrableValue<String> smsVerificationMessage;
-
+    @PolicyResourceProperty(name="smsVerificationMessage", flag="unknown_smsVerificationMessage")
+    private String value_smsVerificationMessage;
+    private boolean unknown_smsVerificationMessage;
     public String smsVerificationMessage() {
-        if (smsVerificationMessage == null) return null;
-        return smsVerificationMessage.getValue("UserPoolArgs.smsVerificationMessage");
+        if (!unknown_smsVerificationMessage) return value_smsVerificationMessage;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.smsVerificationMessage' is not present");
     }
 
     /**
      * Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
      * 
      */
-    private UndeferrableValue<UserPoolSoftwareTokenMfaConfigurationArgs> softwareTokenMfaConfiguration;
-
+    @PolicyResourceProperty(name="softwareTokenMfaConfiguration", flag="unknown_softwareTokenMfaConfiguration")
+    private UserPoolSoftwareTokenMfaConfigurationArgs value_softwareTokenMfaConfiguration;
+    private boolean unknown_softwareTokenMfaConfiguration;
     public UserPoolSoftwareTokenMfaConfigurationArgs softwareTokenMfaConfiguration() {
-        if (softwareTokenMfaConfiguration == null) return null;
-        return softwareTokenMfaConfiguration.getValue("UserPoolArgs.softwareTokenMfaConfiguration");
+        if (!unknown_softwareTokenMfaConfiguration) return value_softwareTokenMfaConfiguration;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.softwareTokenMfaConfiguration' is not present");
     }
 
     /**
      * Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("UserPoolArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.tags' is not present");
     }
 
     /**
      * Configuration block for user attribute update settings. Detailed below.
      * 
      */
-    private UndeferrableValue<UserPoolUserAttributeUpdateSettingsArgs> userAttributeUpdateSettings;
-
+    @PolicyResourceProperty(name="userAttributeUpdateSettings", flag="unknown_userAttributeUpdateSettings")
+    private UserPoolUserAttributeUpdateSettingsArgs value_userAttributeUpdateSettings;
+    private boolean unknown_userAttributeUpdateSettings;
     public UserPoolUserAttributeUpdateSettingsArgs userAttributeUpdateSettings() {
-        if (userAttributeUpdateSettings == null) return null;
-        return userAttributeUpdateSettings.getValue("UserPoolArgs.userAttributeUpdateSettings");
+        if (!unknown_userAttributeUpdateSettings) return value_userAttributeUpdateSettings;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.userAttributeUpdateSettings' is not present");
     }
 
     /**
      * Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
      * 
      */
-    private UndeferrableValue<UserPoolUserPoolAddOnsArgs> userPoolAddOns;
-
+    @PolicyResourceProperty(name="userPoolAddOns", flag="unknown_userPoolAddOns")
+    private UserPoolUserPoolAddOnsArgs value_userPoolAddOns;
+    private boolean unknown_userPoolAddOns;
     public UserPoolUserPoolAddOnsArgs userPoolAddOns() {
-        if (userPoolAddOns == null) return null;
-        return userPoolAddOns.getValue("UserPoolArgs.userPoolAddOns");
+        if (!unknown_userPoolAddOns) return value_userPoolAddOns;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.userPoolAddOns' is not present");
     }
 
     /**
      * The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html), or tier. Valid values: `LITE`, `ESSENTIALS`, `PLUS`.
      * 
      */
-    private UndeferrableValue<String> userPoolTier;
-
+    @PolicyResourceProperty(name="userPoolTier", flag="unknown_userPoolTier")
+    private String value_userPoolTier;
+    private boolean unknown_userPoolTier;
     public String userPoolTier() {
-        if (userPoolTier == null) return null;
-        return userPoolTier.getValue("UserPoolArgs.userPoolTier");
+        if (!unknown_userPoolTier) return value_userPoolTier;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.userPoolTier' is not present");
     }
 
     /**
      * Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
      * 
      */
-    private UndeferrableValue<List<String>> usernameAttributes;
-
+    @PolicyResourceProperty(name="usernameAttributes", flag="unknown_usernameAttributes")
+    private List<String> value_usernameAttributes;
+    private boolean unknown_usernameAttributes;
     public List<String> usernameAttributes() {
-        if (usernameAttributes == null) return null;
-        return usernameAttributes.getValue("UserPoolArgs.usernameAttributes");
+        if (!unknown_usernameAttributes) return value_usernameAttributes;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.usernameAttributes' is not present");
     }
 
     /**
      * Configuration block for username configuration. Detailed below.
      * 
      */
-    private UndeferrableValue<UserPoolUsernameConfigurationArgs> usernameConfiguration;
-
+    @PolicyResourceProperty(name="usernameConfiguration", flag="unknown_usernameConfiguration")
+    private UserPoolUsernameConfigurationArgs value_usernameConfiguration;
+    private boolean unknown_usernameConfiguration;
     public UserPoolUsernameConfigurationArgs usernameConfiguration() {
-        if (usernameConfiguration == null) return null;
-        return usernameConfiguration.getValue("UserPoolArgs.usernameConfiguration");
+        if (!unknown_usernameConfiguration) return value_usernameConfiguration;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.usernameConfiguration' is not present");
     }
 
     /**
      * Configuration block for verification message templates. Detailed below.
      * 
      */
-    private UndeferrableValue<UserPoolVerificationMessageTemplateArgs> verificationMessageTemplate;
-
+    @PolicyResourceProperty(name="verificationMessageTemplate", flag="unknown_verificationMessageTemplate")
+    private UserPoolVerificationMessageTemplateArgs value_verificationMessageTemplate;
+    private boolean unknown_verificationMessageTemplate;
     public UserPoolVerificationMessageTemplateArgs verificationMessageTemplate() {
-        if (verificationMessageTemplate == null) return null;
-        return verificationMessageTemplate.getValue("UserPoolArgs.verificationMessageTemplate");
+        if (!unknown_verificationMessageTemplate) return value_verificationMessageTemplate;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.verificationMessageTemplate' is not present");
     }
 
     /**
      * Configuration block for web authn configuration. Detailed below.
      * 
      */
-    private UndeferrableValue<UserPoolWebAuthnConfigurationArgs> webAuthnConfiguration;
-
+    @PolicyResourceProperty(name="webAuthnConfiguration", flag="unknown_webAuthnConfiguration")
+    private UserPoolWebAuthnConfigurationArgs value_webAuthnConfiguration;
+    private boolean unknown_webAuthnConfiguration;
     public UserPoolWebAuthnConfigurationArgs webAuthnConfiguration() {
-        if (webAuthnConfiguration == null) return null;
-        return webAuthnConfiguration.getValue("UserPoolArgs.webAuthnConfiguration");
+        if (!unknown_webAuthnConfiguration) return value_webAuthnConfiguration;
+        throw new UndeferrableValueException("Value 'UserPoolArgs.webAuthnConfiguration' is not present");
     }
 
 }

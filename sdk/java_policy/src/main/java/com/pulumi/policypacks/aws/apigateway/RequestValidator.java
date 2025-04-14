@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class RequestValidator extends com.pulumi.resources.PolicyResourceO
      * Name of the request validator
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RequestValidator.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RequestValidator.name' is not present");
     }
 
     /**
      * ID of the associated Rest API
      * 
      */
-    private UndeferrableValue<String> restApi;
-
+    @PolicyResourceProperty(name="restApi", flag="unknown_restApi")
+    private String value_restApi;
+    private boolean unknown_restApi;
     public String restApi() {
-        if (restApi == null) return null;
-        return restApi.getValue("RequestValidator.restApi");
+        if (!unknown_restApi) return value_restApi;
+        throw new UndeferrableValueException("Value 'RequestValidator.restApi' is not present");
     }
 
     /**
      * Boolean whether to validate request body. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> validateRequestBody;
-
+    @PolicyResourceProperty(name="validateRequestBody", flag="unknown_validateRequestBody")
+    private @Nullable Boolean value_validateRequestBody;
+    private boolean unknown_validateRequestBody;
     public @Nullable Boolean validateRequestBody() {
-        if (validateRequestBody == null) return null;
-        return validateRequestBody.getValue("RequestValidator.validateRequestBody");
+        if (!unknown_validateRequestBody) return value_validateRequestBody;
+        throw new UndeferrableValueException("Value 'RequestValidator.validateRequestBody' is not present");
     }
 
     /**
      * Boolean whether to validate request parameters. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> validateRequestParameters;
-
+    @PolicyResourceProperty(name="validateRequestParameters", flag="unknown_validateRequestParameters")
+    private @Nullable Boolean value_validateRequestParameters;
+    private boolean unknown_validateRequestParameters;
     public @Nullable Boolean validateRequestParameters() {
-        if (validateRequestParameters == null) return null;
-        return validateRequestParameters.getValue("RequestValidator.validateRequestParameters");
+        if (!unknown_validateRequestParameters) return value_validateRequestParameters;
+        throw new UndeferrableValueException("Value 'RequestValidator.validateRequestParameters' is not present");
     }
 
 }

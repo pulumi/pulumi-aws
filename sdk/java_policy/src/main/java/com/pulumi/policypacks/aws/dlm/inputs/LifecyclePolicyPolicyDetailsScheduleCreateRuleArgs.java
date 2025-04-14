@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dlm.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,47 +16,52 @@ public final class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs {
      * The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `interval_unit`, and `times`.
      * 
      */
-    private UndeferrableValue<String> cronExpression;
-
+    @PolicyResourceProperty(name="cronExpression", flag="unknown_cronExpression")
+    private String value_cronExpression;
+    private boolean unknown_cronExpression;
     public String cronExpression() {
-        if (cronExpression == null) return null;
-        return cronExpression.getValue("LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs.cronExpression");
+        if (!unknown_cronExpression) return value_cronExpression;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs.cronExpression' is not present");
     }
 
-    private UndeferrableValue<Integer> interval;
-
+    @PolicyResourceProperty(name="interval", flag="unknown_interval")
+    private Integer value_interval;
+    private boolean unknown_interval;
     public Integer interval() {
-        if (interval == null) return null;
-        return interval.getValue("LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs.interval");
+        if (!unknown_interval) return value_interval;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs.interval' is not present");
     }
 
-    private UndeferrableValue<String> intervalUnit;
-
+    @PolicyResourceProperty(name="intervalUnit", flag="unknown_intervalUnit")
+    private String value_intervalUnit;
+    private boolean unknown_intervalUnit;
     public String intervalUnit() {
-        if (intervalUnit == null) return null;
-        return intervalUnit.getValue("LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs.intervalUnit");
+        if (!unknown_intervalUnit) return value_intervalUnit;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs.intervalUnit' is not present");
     }
 
     /**
      * Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
      * 
      */
-    private UndeferrableValue<String> location;
-
+    @PolicyResourceProperty(name="location", flag="unknown_location")
+    private String value_location;
+    private boolean unknown_location;
     public String location() {
-        if (location == null) return null;
-        return location.getValue("LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs.location");
+        if (!unknown_location) return value_location;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs.location' is not present");
     }
 
     /**
      * A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
      * 
      */
-    private UndeferrableValue<String> times;
-
+    @PolicyResourceProperty(name="times", flag="unknown_times")
+    private String value_times;
+    private boolean unknown_times;
     public String times() {
-        if (times == null) return null;
-        return times.getValue("LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs.times");
+        if (!unknown_times) return value_times;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs.times' is not present");
     }
 
 }

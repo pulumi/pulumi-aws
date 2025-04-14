@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.securityhub.inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class ConfigurationPolicyConfigurationPolicyArgs {
      * A list that defines which security standards are enabled in the configuration policy. It must be defined if `service_enabled` is set to true.
      * 
      */
-    private UndeferrableValue<List<String>> enabledStandardArns;
-
+    @PolicyResourceProperty(name="enabledStandardArns", flag="unknown_enabledStandardArns")
+    private List<String> value_enabledStandardArns;
+    private boolean unknown_enabledStandardArns;
     public List<String> enabledStandardArns() {
-        if (enabledStandardArns == null) return null;
-        return enabledStandardArns.getValue("ConfigurationPolicyConfigurationPolicyArgs.enabledStandardArns");
+        if (!unknown_enabledStandardArns) return value_enabledStandardArns;
+        throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicyArgs.enabledStandardArns' is not present");
     }
 
     /**
      * Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
      * 
      */
-    private UndeferrableValue<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs> securityControlsConfiguration;
-
+    @PolicyResourceProperty(name="securityControlsConfiguration", flag="unknown_securityControlsConfiguration")
+    private ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs value_securityControlsConfiguration;
+    private boolean unknown_securityControlsConfiguration;
     public ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs securityControlsConfiguration() {
-        if (securityControlsConfiguration == null) return null;
-        return securityControlsConfiguration.getValue("ConfigurationPolicyConfigurationPolicyArgs.securityControlsConfiguration");
+        if (!unknown_securityControlsConfiguration) return value_securityControlsConfiguration;
+        throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicyArgs.securityControlsConfiguration' is not present");
     }
 
     /**
      * Indicates whether Security Hub is enabled in the policy.
      * 
      */
-    private UndeferrableValue<Boolean> serviceEnabled;
-
+    @PolicyResourceProperty(name="serviceEnabled", flag="unknown_serviceEnabled")
+    private Boolean value_serviceEnabled;
+    private boolean unknown_serviceEnabled;
     public Boolean serviceEnabled() {
-        if (serviceEnabled == null) return null;
-        return serviceEnabled.getValue("ConfigurationPolicyConfigurationPolicyArgs.serviceEnabled");
+        if (!unknown_serviceEnabled) return value_serviceEnabled;
+        throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicyArgs.serviceEnabled' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codepipeline.outputs.PipelineStageBeforeEntryConditionRuleRuleTypeId;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,88 +19,96 @@ public final class PipelineStageBeforeEntryConditionRule {
      * The shell commands to run with your commands rule in CodePipeline. All commands are supported except multi-line formats.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> commands;
-
+    @PolicyResourceProperty(name="commands", flag="unknown_commands")
+    private @Nullable List<String> value_commands;
+    private boolean unknown_commands;
     public @Nullable List<String> commands() {
-        if (commands == null) return null;
-        return commands.getValue("PipelineStageBeforeEntryConditionRule.commands");
+        if (!unknown_commands) return value_commands;
+        throw new UndeferrableValueException("Value 'PipelineStageBeforeEntryConditionRule.commands' is not present");
     }
 
     /**
      * The action configuration fields for the rule. Configurations options for rule types and providers can be found in the [Rule structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> configuration;
-
+    @PolicyResourceProperty(name="configuration", flag="unknown_configuration")
+    private @Nullable Map<String,String> value_configuration;
+    private boolean unknown_configuration;
     public @Nullable Map<String,String> configuration() {
-        if (configuration == null) return null;
-        return configuration.getValue("PipelineStageBeforeEntryConditionRule.configuration");
+        if (!unknown_configuration) return value_configuration;
+        throw new UndeferrableValueException("Value 'PipelineStageBeforeEntryConditionRule.configuration' is not present");
     }
 
     /**
      * The list of the input artifacts fields for the rule, such as specifying an input file for the rule.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> inputArtifacts;
-
+    @PolicyResourceProperty(name="inputArtifacts", flag="unknown_inputArtifacts")
+    private @Nullable List<String> value_inputArtifacts;
+    private boolean unknown_inputArtifacts;
     public @Nullable List<String> inputArtifacts() {
-        if (inputArtifacts == null) return null;
-        return inputArtifacts.getValue("PipelineStageBeforeEntryConditionRule.inputArtifacts");
+        if (!unknown_inputArtifacts) return value_inputArtifacts;
+        throw new UndeferrableValueException("Value 'PipelineStageBeforeEntryConditionRule.inputArtifacts' is not present");
     }
 
     /**
      * The name of the rule that is created for the condition, such as `VariableCheck`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PipelineStageBeforeEntryConditionRule.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PipelineStageBeforeEntryConditionRule.name' is not present");
     }
 
     /**
      * The Region for the condition associated with the rule.
      * 
      */
-    private @Nullable UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private @Nullable String value_region;
+    private boolean unknown_region;
     public @Nullable String region() {
-        if (region == null) return null;
-        return region.getValue("PipelineStageBeforeEntryConditionRule.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'PipelineStageBeforeEntryConditionRule.region' is not present");
     }
 
     /**
      * The pipeline role ARN associated with the rule.
      * 
      */
-    private @Nullable UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private @Nullable String value_roleArn;
+    private boolean unknown_roleArn;
     public @Nullable String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("PipelineStageBeforeEntryConditionRule.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'PipelineStageBeforeEntryConditionRule.roleArn' is not present");
     }
 
     /**
      * The ID for the rule type, which is made up of the combined values for `category`, `owner`, `provider`, and `version`. Defined as an `rule_type_id` block below.
      * 
      */
-    private UndeferrableValue<PipelineStageBeforeEntryConditionRuleRuleTypeId> ruleTypeId;
-
+    @PolicyResourceProperty(name="ruleTypeId", flag="unknown_ruleTypeId")
+    private PipelineStageBeforeEntryConditionRuleRuleTypeId value_ruleTypeId;
+    private boolean unknown_ruleTypeId;
     public PipelineStageBeforeEntryConditionRuleRuleTypeId ruleTypeId() {
-        if (ruleTypeId == null) return null;
-        return ruleTypeId.getValue("PipelineStageBeforeEntryConditionRule.ruleTypeId");
+        if (!unknown_ruleTypeId) return value_ruleTypeId;
+        throw new UndeferrableValueException("Value 'PipelineStageBeforeEntryConditionRule.ruleTypeId' is not present");
     }
 
     /**
      * The action timeout for the rule.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> timeoutInMinutes;
-
+    @PolicyResourceProperty(name="timeoutInMinutes", flag="unknown_timeoutInMinutes")
+    private @Nullable Integer value_timeoutInMinutes;
+    private boolean unknown_timeoutInMinutes;
     public @Nullable Integer timeoutInMinutes() {
-        if (timeoutInMinutes == null) return null;
-        return timeoutInMinutes.getValue("PipelineStageBeforeEntryConditionRule.timeoutInMinutes");
+        if (!unknown_timeoutInMinutes) return value_timeoutInMinutes;
+        throw new UndeferrableValueException("Value 'PipelineStageBeforeEntryConditionRule.timeoutInMinutes' is not present");
     }
 
 }

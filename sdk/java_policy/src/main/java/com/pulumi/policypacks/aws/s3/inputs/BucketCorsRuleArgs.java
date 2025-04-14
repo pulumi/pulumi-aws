@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -16,55 +17,60 @@ public final class BucketCorsRuleArgs {
      * Specifies which headers are allowed.
      * 
      */
-    private UndeferrableValue<List<String>> allowedHeaders;
-
+    @PolicyResourceProperty(name="allowedHeaders", flag="unknown_allowedHeaders")
+    private List<String> value_allowedHeaders;
+    private boolean unknown_allowedHeaders;
     public List<String> allowedHeaders() {
-        if (allowedHeaders == null) return null;
-        return allowedHeaders.getValue("BucketCorsRuleArgs.allowedHeaders");
+        if (!unknown_allowedHeaders) return value_allowedHeaders;
+        throw new UndeferrableValueException("Value 'BucketCorsRuleArgs.allowedHeaders' is not present");
     }
 
     /**
      * Specifies which methods are allowed. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
      * 
      */
-    private UndeferrableValue<List<String>> allowedMethods;
-
+    @PolicyResourceProperty(name="allowedMethods", flag="unknown_allowedMethods")
+    private List<String> value_allowedMethods;
+    private boolean unknown_allowedMethods;
     public List<String> allowedMethods() {
-        if (allowedMethods == null) return null;
-        return allowedMethods.getValue("BucketCorsRuleArgs.allowedMethods");
+        if (!unknown_allowedMethods) return value_allowedMethods;
+        throw new UndeferrableValueException("Value 'BucketCorsRuleArgs.allowedMethods' is not present");
     }
 
     /**
      * Specifies which origins are allowed.
      * 
      */
-    private UndeferrableValue<List<String>> allowedOrigins;
-
+    @PolicyResourceProperty(name="allowedOrigins", flag="unknown_allowedOrigins")
+    private List<String> value_allowedOrigins;
+    private boolean unknown_allowedOrigins;
     public List<String> allowedOrigins() {
-        if (allowedOrigins == null) return null;
-        return allowedOrigins.getValue("BucketCorsRuleArgs.allowedOrigins");
+        if (!unknown_allowedOrigins) return value_allowedOrigins;
+        throw new UndeferrableValueException("Value 'BucketCorsRuleArgs.allowedOrigins' is not present");
     }
 
     /**
      * Specifies expose header in the response.
      * 
      */
-    private UndeferrableValue<List<String>> exposeHeaders;
-
+    @PolicyResourceProperty(name="exposeHeaders", flag="unknown_exposeHeaders")
+    private List<String> value_exposeHeaders;
+    private boolean unknown_exposeHeaders;
     public List<String> exposeHeaders() {
-        if (exposeHeaders == null) return null;
-        return exposeHeaders.getValue("BucketCorsRuleArgs.exposeHeaders");
+        if (!unknown_exposeHeaders) return value_exposeHeaders;
+        throw new UndeferrableValueException("Value 'BucketCorsRuleArgs.exposeHeaders' is not present");
     }
 
     /**
      * Specifies time in seconds that browser can cache the response for a preflight request.
      * 
      */
-    private UndeferrableValue<Integer> maxAgeSeconds;
-
+    @PolicyResourceProperty(name="maxAgeSeconds", flag="unknown_maxAgeSeconds")
+    private Integer value_maxAgeSeconds;
+    private boolean unknown_maxAgeSeconds;
     public Integer maxAgeSeconds() {
-        if (maxAgeSeconds == null) return null;
-        return maxAgeSeconds.getValue("BucketCorsRuleArgs.maxAgeSeconds");
+        if (!unknown_maxAgeSeconds) return value_maxAgeSeconds;
+        throw new UndeferrableValueException("Value 'BucketCorsRuleArgs.maxAgeSeconds' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs;
 
 
@@ -13,11 +14,12 @@ public final class SpaceSpaceSettingsCustomFileSystemArgs {
      * A custom file system in Amazon EFS. See `efs_file_system` Block below.
      * 
      */
-    private UndeferrableValue<SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs> efsFileSystem;
-
+    @PolicyResourceProperty(name="efsFileSystem", flag="unknown_efsFileSystem")
+    private SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs value_efsFileSystem;
+    private boolean unknown_efsFileSystem;
     public SpaceSpaceSettingsCustomFileSystemEfsFileSystemArgs efsFileSystem() {
-        if (efsFileSystem == null) return null;
-        return efsFileSystem.getValue("SpaceSpaceSettingsCustomFileSystemArgs.efsFileSystem");
+        if (!unknown_efsFileSystem) return value_efsFileSystem;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSettingsCustomFileSystemArgs.efsFileSystem' is not present");
     }
 
 }

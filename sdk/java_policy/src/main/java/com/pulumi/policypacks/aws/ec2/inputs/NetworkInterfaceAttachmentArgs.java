@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,33 +12,36 @@ import javax.annotation.Nullable;
 
 public final class NetworkInterfaceAttachmentArgs {
 
-    private UndeferrableValue<String> attachmentId;
-
+    @PolicyResourceProperty(name="attachmentId", flag="unknown_attachmentId")
+    private String value_attachmentId;
+    private boolean unknown_attachmentId;
     public String attachmentId() {
-        if (attachmentId == null) return null;
-        return attachmentId.getValue("NetworkInterfaceAttachmentArgs.attachmentId");
+        if (!unknown_attachmentId) return value_attachmentId;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceAttachmentArgs.attachmentId' is not present");
     }
 
     /**
      * Integer to define the devices index.
      * 
      */
-    private UndeferrableValue<Integer> deviceIndex;
-
+    @PolicyResourceProperty(name="deviceIndex", flag="unknown_deviceIndex")
+    private Integer value_deviceIndex;
+    private boolean unknown_deviceIndex;
     public Integer deviceIndex() {
-        if (deviceIndex == null) return null;
-        return deviceIndex.getValue("NetworkInterfaceAttachmentArgs.deviceIndex");
+        if (!unknown_deviceIndex) return value_deviceIndex;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceAttachmentArgs.deviceIndex' is not present");
     }
 
     /**
      * ID of the instance to attach to.
      * 
      */
-    private UndeferrableValue<String> instance;
-
+    @PolicyResourceProperty(name="instance", flag="unknown_instance")
+    private String value_instance;
+    private boolean unknown_instance;
     public String instance() {
-        if (instance == null) return null;
-        return instance.getValue("NetworkInterfaceAttachmentArgs.instance");
+        if (!unknown_instance) return value_instance;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceAttachmentArgs.instance' is not present");
     }
 
 }

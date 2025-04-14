@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
      * The configuration of the lambda function.
      * 
      */
-    private @Nullable UndeferrableValue<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration> transformationLambdaConfiguration;
-
+    @PolicyResourceProperty(name="transformationLambdaConfiguration", flag="unknown_transformationLambdaConfiguration")
+    private @Nullable AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration value_transformationLambdaConfiguration;
+    private boolean unknown_transformationLambdaConfiguration;
     public @Nullable AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfiguration transformationLambdaConfiguration() {
-        if (transformationLambdaConfiguration == null) return null;
-        return transformationLambdaConfiguration.getValue("AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction.transformationLambdaConfiguration");
+        if (!unknown_transformationLambdaConfiguration) return value_transformationLambdaConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction.transformationLambdaConfiguration' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,33 +14,36 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
      * The dissimilarity threshold for splitting chunks.
      * 
      */
-    private UndeferrableValue<Integer> breakpointPercentileThreshold;
-
+    @PolicyResourceProperty(name="breakpointPercentileThreshold", flag="unknown_breakpointPercentileThreshold")
+    private Integer value_breakpointPercentileThreshold;
+    private boolean unknown_breakpointPercentileThreshold;
     public Integer breakpointPercentileThreshold() {
-        if (breakpointPercentileThreshold == null) return null;
-        return breakpointPercentileThreshold.getValue("AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs.breakpointPercentileThreshold");
+        if (!unknown_breakpointPercentileThreshold) return value_breakpointPercentileThreshold;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs.breakpointPercentileThreshold' is not present");
     }
 
     /**
      * The buffer size.
      * 
      */
-    private UndeferrableValue<Integer> bufferSize;
-
+    @PolicyResourceProperty(name="bufferSize", flag="unknown_bufferSize")
+    private Integer value_bufferSize;
+    private boolean unknown_bufferSize;
     public Integer bufferSize() {
-        if (bufferSize == null) return null;
-        return bufferSize.getValue("AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs.bufferSize");
+        if (!unknown_bufferSize) return value_bufferSize;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs.bufferSize' is not present");
     }
 
     /**
      * The maximum number of tokens a chunk can contain.
      * 
      */
-    private UndeferrableValue<Integer> maxToken;
-
+    @PolicyResourceProperty(name="maxToken", flag="unknown_maxToken")
+    private Integer value_maxToken;
+    private boolean unknown_maxToken;
     public Integer maxToken() {
-        if (maxToken == null) return null;
-        return maxToken.getValue("AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs.maxToken");
+        if (!unknown_maxToken) return value_maxToken;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs.maxToken' is not present");
     }
 
 }

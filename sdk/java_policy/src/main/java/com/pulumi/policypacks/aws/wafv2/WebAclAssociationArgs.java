@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class WebAclAssociationArgs extends com.pulumi.resources.PolicyReso
      * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("WebAclAssociationArgs.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'WebAclAssociationArgs.resourceArn' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
      * 
      */
-    private UndeferrableValue<String> webAclArn;
-
+    @PolicyResourceProperty(name="webAclArn", flag="unknown_webAclArn")
+    private String value_webAclArn;
+    private boolean unknown_webAclArn;
     public String webAclArn() {
-        if (webAclArn == null) return null;
-        return webAclArn.getValue("WebAclAssociationArgs.webAclArn");
+        if (!unknown_webAclArn) return value_webAclArn;
+        throw new UndeferrableValueException("Value 'WebAclAssociationArgs.webAclArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.inputs.DataQualityJobDefinitionDataQualityAppSpecificationArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.DataQualityJobDefinitionDataQualityBaselineConfigArgs;
@@ -24,110 +25,120 @@ public final class DataQualityJobDefinitionArgs extends com.pulumi.resources.Pol
      * Specifies the container that runs the monitoring job. Fields are documented below.
      * 
      */
-    private UndeferrableValue<DataQualityJobDefinitionDataQualityAppSpecificationArgs> dataQualityAppSpecification;
-
+    @PolicyResourceProperty(name="dataQualityAppSpecification", flag="unknown_dataQualityAppSpecification")
+    private DataQualityJobDefinitionDataQualityAppSpecificationArgs value_dataQualityAppSpecification;
+    private boolean unknown_dataQualityAppSpecification;
     public DataQualityJobDefinitionDataQualityAppSpecificationArgs dataQualityAppSpecification() {
-        if (dataQualityAppSpecification == null) return null;
-        return dataQualityAppSpecification.getValue("DataQualityJobDefinitionArgs.dataQualityAppSpecification");
+        if (!unknown_dataQualityAppSpecification) return value_dataQualityAppSpecification;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionArgs.dataQualityAppSpecification' is not present");
     }
 
     /**
      * Configures the constraints and baselines for the monitoring job. Fields are documented below.
      * 
      */
-    private UndeferrableValue<DataQualityJobDefinitionDataQualityBaselineConfigArgs> dataQualityBaselineConfig;
-
+    @PolicyResourceProperty(name="dataQualityBaselineConfig", flag="unknown_dataQualityBaselineConfig")
+    private DataQualityJobDefinitionDataQualityBaselineConfigArgs value_dataQualityBaselineConfig;
+    private boolean unknown_dataQualityBaselineConfig;
     public DataQualityJobDefinitionDataQualityBaselineConfigArgs dataQualityBaselineConfig() {
-        if (dataQualityBaselineConfig == null) return null;
-        return dataQualityBaselineConfig.getValue("DataQualityJobDefinitionArgs.dataQualityBaselineConfig");
+        if (!unknown_dataQualityBaselineConfig) return value_dataQualityBaselineConfig;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionArgs.dataQualityBaselineConfig' is not present");
     }
 
     /**
      * A list of inputs for the monitoring job. Fields are documented below.
      * 
      */
-    private UndeferrableValue<DataQualityJobDefinitionDataQualityJobInputArgs> dataQualityJobInput;
-
+    @PolicyResourceProperty(name="dataQualityJobInput", flag="unknown_dataQualityJobInput")
+    private DataQualityJobDefinitionDataQualityJobInputArgs value_dataQualityJobInput;
+    private boolean unknown_dataQualityJobInput;
     public DataQualityJobDefinitionDataQualityJobInputArgs dataQualityJobInput() {
-        if (dataQualityJobInput == null) return null;
-        return dataQualityJobInput.getValue("DataQualityJobDefinitionArgs.dataQualityJobInput");
+        if (!unknown_dataQualityJobInput) return value_dataQualityJobInput;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionArgs.dataQualityJobInput' is not present");
     }
 
     /**
      * The output configuration for monitoring jobs. Fields are documented below.
      * 
      */
-    private UndeferrableValue<DataQualityJobDefinitionDataQualityJobOutputConfigArgs> dataQualityJobOutputConfig;
-
+    @PolicyResourceProperty(name="dataQualityJobOutputConfig", flag="unknown_dataQualityJobOutputConfig")
+    private DataQualityJobDefinitionDataQualityJobOutputConfigArgs value_dataQualityJobOutputConfig;
+    private boolean unknown_dataQualityJobOutputConfig;
     public DataQualityJobDefinitionDataQualityJobOutputConfigArgs dataQualityJobOutputConfig() {
-        if (dataQualityJobOutputConfig == null) return null;
-        return dataQualityJobOutputConfig.getValue("DataQualityJobDefinitionArgs.dataQualityJobOutputConfig");
+        if (!unknown_dataQualityJobOutputConfig) return value_dataQualityJobOutputConfig;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionArgs.dataQualityJobOutputConfig' is not present");
     }
 
     /**
      * Identifies the resources to deploy for a monitoring job. Fields are documented below.
      * 
      */
-    private UndeferrableValue<DataQualityJobDefinitionJobResourcesArgs> jobResources;
-
+    @PolicyResourceProperty(name="jobResources", flag="unknown_jobResources")
+    private DataQualityJobDefinitionJobResourcesArgs value_jobResources;
+    private boolean unknown_jobResources;
     public DataQualityJobDefinitionJobResourcesArgs jobResources() {
-        if (jobResources == null) return null;
-        return jobResources.getValue("DataQualityJobDefinitionArgs.jobResources");
+        if (!unknown_jobResources) return value_jobResources;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionArgs.jobResources' is not present");
     }
 
     /**
      * The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DataQualityJobDefinitionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionArgs.name' is not present");
     }
 
     /**
      * Specifies networking configuration for the monitoring job. Fields are documented below.
      * 
      */
-    private UndeferrableValue<DataQualityJobDefinitionNetworkConfigArgs> networkConfig;
-
+    @PolicyResourceProperty(name="networkConfig", flag="unknown_networkConfig")
+    private DataQualityJobDefinitionNetworkConfigArgs value_networkConfig;
+    private boolean unknown_networkConfig;
     public DataQualityJobDefinitionNetworkConfigArgs networkConfig() {
-        if (networkConfig == null) return null;
-        return networkConfig.getValue("DataQualityJobDefinitionArgs.networkConfig");
+        if (!unknown_networkConfig) return value_networkConfig;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionArgs.networkConfig' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("DataQualityJobDefinitionArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionArgs.roleArn' is not present");
     }
 
     /**
      * A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
      * 
      */
-    private UndeferrableValue<DataQualityJobDefinitionStoppingConditionArgs> stoppingCondition;
-
+    @PolicyResourceProperty(name="stoppingCondition", flag="unknown_stoppingCondition")
+    private DataQualityJobDefinitionStoppingConditionArgs value_stoppingCondition;
+    private boolean unknown_stoppingCondition;
     public DataQualityJobDefinitionStoppingConditionArgs stoppingCondition() {
-        if (stoppingCondition == null) return null;
-        return stoppingCondition.getValue("DataQualityJobDefinitionArgs.stoppingCondition");
+        if (!unknown_stoppingCondition) return value_stoppingCondition;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionArgs.stoppingCondition' is not present");
     }
 
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DataQualityJobDefinitionArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionArgs.tags' is not present");
     }
 
 }

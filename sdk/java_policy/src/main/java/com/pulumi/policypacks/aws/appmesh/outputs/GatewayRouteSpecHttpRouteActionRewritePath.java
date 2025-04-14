@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class GatewayRouteSpecHttpRouteActionRewritePath {
      * The exact path to match on.
      * 
      */
-    private UndeferrableValue<String> exact;
-
+    @PolicyResourceProperty(name="exact", flag="unknown_exact")
+    private String value_exact;
+    private boolean unknown_exact;
     public String exact() {
-        if (exact == null) return null;
-        return exact.getValue("GatewayRouteSpecHttpRouteActionRewritePath.exact");
+        if (!unknown_exact) return value_exact;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteActionRewritePath.exact' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.location;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.location.outputs.PlaceIndexDataSourceConfiguration;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class PlaceIndex extends com.pulumi.resources.PolicyResourceOutput 
      * The timestamp for when the place index resource was created in ISO 8601 format.
      * 
      */
-    private UndeferrableValue<String> createTime;
-
+    @PolicyResourceProperty(name="createTime", flag="unknown_createTime")
+    private String value_createTime;
+    private boolean unknown_createTime;
     public String createTime() {
-        if (createTime == null) return null;
-        return createTime.getValue("PlaceIndex.createTime");
+        if (!unknown_createTime) return value_createTime;
+        throw new UndeferrableValueException("Value 'PlaceIndex.createTime' is not present");
     }
 
     /**
      * Specifies the geospatial data provider for the new place index.
      * 
      */
-    private UndeferrableValue<String> dataSource;
-
+    @PolicyResourceProperty(name="dataSource", flag="unknown_dataSource")
+    private String value_dataSource;
+    private boolean unknown_dataSource;
     public String dataSource() {
-        if (dataSource == null) return null;
-        return dataSource.getValue("PlaceIndex.dataSource");
+        if (!unknown_dataSource) return value_dataSource;
+        throw new UndeferrableValueException("Value 'PlaceIndex.dataSource' is not present");
     }
 
     /**
      * Configuration block with the data storage option chosen for requesting Places. Detailed below.
      * 
      */
-    private UndeferrableValue<PlaceIndexDataSourceConfiguration> dataSourceConfiguration;
-
+    @PolicyResourceProperty(name="dataSourceConfiguration", flag="unknown_dataSourceConfiguration")
+    private PlaceIndexDataSourceConfiguration value_dataSourceConfiguration;
+    private boolean unknown_dataSourceConfiguration;
     public PlaceIndexDataSourceConfiguration dataSourceConfiguration() {
-        if (dataSourceConfiguration == null) return null;
-        return dataSourceConfiguration.getValue("PlaceIndex.dataSourceConfiguration");
+        if (!unknown_dataSourceConfiguration) return value_dataSourceConfiguration;
+        throw new UndeferrableValueException("Value 'PlaceIndex.dataSourceConfiguration' is not present");
     }
 
     /**
      * The optional description for the place index resource.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("PlaceIndex.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'PlaceIndex.description' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
      * 
      */
-    private UndeferrableValue<String> indexArn;
-
+    @PolicyResourceProperty(name="indexArn", flag="unknown_indexArn")
+    private String value_indexArn;
+    private boolean unknown_indexArn;
     public String indexArn() {
-        if (indexArn == null) return null;
-        return indexArn.getValue("PlaceIndex.indexArn");
+        if (!unknown_indexArn) return value_indexArn;
+        throw new UndeferrableValueException("Value 'PlaceIndex.indexArn' is not present");
     }
 
     /**
@@ -75,22 +81,24 @@ public final class PlaceIndex extends com.pulumi.resources.PolicyResourceOutput 
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> indexName;
-
+    @PolicyResourceProperty(name="indexName", flag="unknown_indexName")
+    private String value_indexName;
+    private boolean unknown_indexName;
     public String indexName() {
-        if (indexName == null) return null;
-        return indexName.getValue("PlaceIndex.indexName");
+        if (!unknown_indexName) return value_indexName;
+        throw new UndeferrableValueException("Value 'PlaceIndex.indexName' is not present");
     }
 
     /**
      * Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("PlaceIndex.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'PlaceIndex.tags' is not present");
     }
 
     /**
@@ -101,22 +109,24 @@ public final class PlaceIndex extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("PlaceIndex.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'PlaceIndex.tagsAll' is not present");
     }
 
     /**
      * The timestamp for when the place index resource was last update in ISO 8601.
      * 
      */
-    private UndeferrableValue<String> updateTime;
-
+    @PolicyResourceProperty(name="updateTime", flag="unknown_updateTime")
+    private String value_updateTime;
+    private boolean unknown_updateTime;
     public String updateTime() {
-        if (updateTime == null) return null;
-        return updateTime.getValue("PlaceIndex.updateTime");
+        if (!unknown_updateTime) return value_updateTime;
+        throw new UndeferrableValueException("Value 'PlaceIndex.updateTime' is not present");
     }
 
 }

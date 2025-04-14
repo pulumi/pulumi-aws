@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
      * Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
      * 
      */
-    private UndeferrableValue<String> groupId;
-
+    @PolicyResourceProperty(name="groupId", flag="unknown_groupId")
+    private String value_groupId;
+    private boolean unknown_groupId;
     public String groupId() {
-        if (groupId == null) return null;
-        return groupId.getValue("ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection.groupId");
+        if (!unknown_groupId) return value_groupId;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection.groupId' is not present");
     }
 
     /**
      * Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection.name' is not present");
     }
 
 }

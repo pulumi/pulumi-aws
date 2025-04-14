@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class PipeTargetParametersEcsTaskParametersCapacityProviderStrategy
      * The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used. Maximum value of 100,000.
      * 
      */
-    private UndeferrableValue<Integer> base;
-
+    @PolicyResourceProperty(name="base", flag="unknown_base")
+    private Integer value_base;
+    private boolean unknown_base;
     public Integer base() {
-        if (base == null) return null;
-        return base.getValue("PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs.base");
+        if (!unknown_base) return value_base;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs.base' is not present");
     }
 
     /**
      * The short name of the capacity provider. Maximum value of 255.
      * 
      */
-    private UndeferrableValue<String> capacityProvider;
-
+    @PolicyResourceProperty(name="capacityProvider", flag="unknown_capacityProvider")
+    private String value_capacityProvider;
+    private boolean unknown_capacityProvider;
     public String capacityProvider() {
-        if (capacityProvider == null) return null;
-        return capacityProvider.getValue("PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs.capacityProvider");
+        if (!unknown_capacityProvider) return value_capacityProvider;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs.capacityProvider' is not present");
     }
 
     /**
      * The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Maximum value of 1,000.
      * 
      */
-    private UndeferrableValue<Integer> weight;
-
+    @PolicyResourceProperty(name="weight", flag="unknown_weight")
+    private Integer value_weight;
+    private boolean unknown_weight;
     public Integer weight() {
-        if (weight == null) return null;
-        return weight.getValue("PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs.weight");
+        if (!unknown_weight) return value_weight;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs.weight' is not present");
     }
 
 }

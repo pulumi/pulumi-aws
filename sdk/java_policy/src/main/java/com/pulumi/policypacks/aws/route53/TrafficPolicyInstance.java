@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,66 +17,72 @@ public final class TrafficPolicyInstance extends com.pulumi.resources.PolicyReso
      * Amazon Resource Name (ARN) of the traffic policy instance.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("TrafficPolicyInstance.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'TrafficPolicyInstance.arn' is not present");
     }
 
     /**
      * ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
      * 
      */
-    private UndeferrableValue<String> hostedZoneId;
-
+    @PolicyResourceProperty(name="hostedZoneId", flag="unknown_hostedZoneId")
+    private String value_hostedZoneId;
+    private boolean unknown_hostedZoneId;
     public String hostedZoneId() {
-        if (hostedZoneId == null) return null;
-        return hostedZoneId.getValue("TrafficPolicyInstance.hostedZoneId");
+        if (!unknown_hostedZoneId) return value_hostedZoneId;
+        throw new UndeferrableValueException("Value 'TrafficPolicyInstance.hostedZoneId' is not present");
     }
 
     /**
      * Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TrafficPolicyInstance.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TrafficPolicyInstance.name' is not present");
     }
 
     /**
      * ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
      * 
      */
-    private UndeferrableValue<String> trafficPolicyId;
-
+    @PolicyResourceProperty(name="trafficPolicyId", flag="unknown_trafficPolicyId")
+    private String value_trafficPolicyId;
+    private boolean unknown_trafficPolicyId;
     public String trafficPolicyId() {
-        if (trafficPolicyId == null) return null;
-        return trafficPolicyId.getValue("TrafficPolicyInstance.trafficPolicyId");
+        if (!unknown_trafficPolicyId) return value_trafficPolicyId;
+        throw new UndeferrableValueException("Value 'TrafficPolicyInstance.trafficPolicyId' is not present");
     }
 
     /**
      * Version of the traffic policy
      * 
      */
-    private UndeferrableValue<Integer> trafficPolicyVersion;
-
+    @PolicyResourceProperty(name="trafficPolicyVersion", flag="unknown_trafficPolicyVersion")
+    private Integer value_trafficPolicyVersion;
+    private boolean unknown_trafficPolicyVersion;
     public Integer trafficPolicyVersion() {
-        if (trafficPolicyVersion == null) return null;
-        return trafficPolicyVersion.getValue("TrafficPolicyInstance.trafficPolicyVersion");
+        if (!unknown_trafficPolicyVersion) return value_trafficPolicyVersion;
+        throw new UndeferrableValueException("Value 'TrafficPolicyInstance.trafficPolicyVersion' is not present");
     }
 
     /**
      * TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
      * 
      */
-    private UndeferrableValue<Integer> ttl;
-
+    @PolicyResourceProperty(name="ttl", flag="unknown_ttl")
+    private Integer value_ttl;
+    private boolean unknown_ttl;
     public Integer ttl() {
-        if (ttl == null) return null;
-        return ttl.getValue("TrafficPolicyInstance.ttl");
+        if (!unknown_ttl) return value_ttl;
+        throw new UndeferrableValueException("Value 'TrafficPolicyInstance.ttl' is not present");
     }
 
 }

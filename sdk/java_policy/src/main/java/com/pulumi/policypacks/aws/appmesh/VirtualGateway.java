@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualGatewaySpec;
 import java.lang.String;
@@ -18,99 +19,108 @@ public final class VirtualGateway extends com.pulumi.resources.PolicyResourceOut
      * ARN of the virtual gateway.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("VirtualGateway.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'VirtualGateway.arn' is not present");
     }
 
     /**
      * Creation date of the virtual gateway.
      * 
      */
-    private UndeferrableValue<String> createdDate;
-
+    @PolicyResourceProperty(name="createdDate", flag="unknown_createdDate")
+    private String value_createdDate;
+    private boolean unknown_createdDate;
     public String createdDate() {
-        if (createdDate == null) return null;
-        return createdDate.getValue("VirtualGateway.createdDate");
+        if (!unknown_createdDate) return value_createdDate;
+        throw new UndeferrableValueException("Value 'VirtualGateway.createdDate' is not present");
     }
 
     /**
      * Last update date of the virtual gateway.
      * 
      */
-    private UndeferrableValue<String> lastUpdatedDate;
-
+    @PolicyResourceProperty(name="lastUpdatedDate", flag="unknown_lastUpdatedDate")
+    private String value_lastUpdatedDate;
+    private boolean unknown_lastUpdatedDate;
     public String lastUpdatedDate() {
-        if (lastUpdatedDate == null) return null;
-        return lastUpdatedDate.getValue("VirtualGateway.lastUpdatedDate");
+        if (!unknown_lastUpdatedDate) return value_lastUpdatedDate;
+        throw new UndeferrableValueException("Value 'VirtualGateway.lastUpdatedDate' is not present");
     }
 
     /**
      * Name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
      * 
      */
-    private UndeferrableValue<String> meshName;
-
+    @PolicyResourceProperty(name="meshName", flag="unknown_meshName")
+    private String value_meshName;
+    private boolean unknown_meshName;
     public String meshName() {
-        if (meshName == null) return null;
-        return meshName.getValue("VirtualGateway.meshName");
+        if (!unknown_meshName) return value_meshName;
+        throw new UndeferrableValueException("Value 'VirtualGateway.meshName' is not present");
     }
 
     /**
      * AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
-    private UndeferrableValue<String> meshOwner;
-
+    @PolicyResourceProperty(name="meshOwner", flag="unknown_meshOwner")
+    private String value_meshOwner;
+    private boolean unknown_meshOwner;
     public String meshOwner() {
-        if (meshOwner == null) return null;
-        return meshOwner.getValue("VirtualGateway.meshOwner");
+        if (!unknown_meshOwner) return value_meshOwner;
+        throw new UndeferrableValueException("Value 'VirtualGateway.meshOwner' is not present");
     }
 
     /**
      * Name to use for the virtual gateway. Must be between 1 and 255 characters in length.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("VirtualGateway.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'VirtualGateway.name' is not present");
     }
 
     /**
      * Resource owner&#39;s AWS account ID.
      * 
      */
-    private UndeferrableValue<String> resourceOwner;
-
+    @PolicyResourceProperty(name="resourceOwner", flag="unknown_resourceOwner")
+    private String value_resourceOwner;
+    private boolean unknown_resourceOwner;
     public String resourceOwner() {
-        if (resourceOwner == null) return null;
-        return resourceOwner.getValue("VirtualGateway.resourceOwner");
+        if (!unknown_resourceOwner) return value_resourceOwner;
+        throw new UndeferrableValueException("Value 'VirtualGateway.resourceOwner' is not present");
     }
 
     /**
      * Virtual gateway specification to apply.
      * 
      */
-    private UndeferrableValue<VirtualGatewaySpec> spec;
-
+    @PolicyResourceProperty(name="spec", flag="unknown_spec")
+    private VirtualGatewaySpec value_spec;
+    private boolean unknown_spec;
     public VirtualGatewaySpec spec() {
-        if (spec == null) return null;
-        return spec.getValue("VirtualGateway.spec");
+        if (!unknown_spec) return value_spec;
+        throw new UndeferrableValueException("Value 'VirtualGateway.spec' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VirtualGateway.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VirtualGateway.tags' is not present");
     }
 
     /**
@@ -121,11 +131,12 @@ public final class VirtualGateway extends com.pulumi.resources.PolicyResourceOut
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("VirtualGateway.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'VirtualGateway.tagsAll' is not present");
     }
 
 }

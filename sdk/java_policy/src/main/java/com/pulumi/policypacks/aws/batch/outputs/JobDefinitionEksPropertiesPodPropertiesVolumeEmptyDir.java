@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir {
      * Medium to store the volume. The default value is an empty string, which uses the storage of the node.
      * 
      */
-    private @Nullable UndeferrableValue<String> medium;
-
+    @PolicyResourceProperty(name="medium", flag="unknown_medium")
+    private @Nullable String value_medium;
+    private boolean unknown_medium;
     public @Nullable String medium() {
-        if (medium == null) return null;
-        return medium.getValue("JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir.medium");
+        if (!unknown_medium) return value_medium;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir.medium' is not present");
     }
 
     /**
      * Maximum size of the volume. By default, there&#39;s no maximum size defined.
      * 
      */
-    private UndeferrableValue<String> sizeLimit;
-
+    @PolicyResourceProperty(name="sizeLimit", flag="unknown_sizeLimit")
+    private String value_sizeLimit;
+    private boolean unknown_sizeLimit;
     public String sizeLimit() {
-        if (sizeLimit == null) return null;
-        return sizeLimit.getValue("JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir.sizeLimit");
+        if (!unknown_sizeLimit) return value_sizeLimit;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDir.sizeLimit' is not present");
     }
 
 }

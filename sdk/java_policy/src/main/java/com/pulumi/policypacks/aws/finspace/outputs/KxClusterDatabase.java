@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.finspace.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.finspace.outputs.KxClusterDatabaseCacheConfiguration;
 import java.lang.String;
 import java.util.List;
@@ -16,44 +17,48 @@ public final class KxClusterDatabase {
      * Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
      * 
      */
-    private @Nullable UndeferrableValue<List<KxClusterDatabaseCacheConfiguration>> cacheConfigurations;
-
+    @PolicyResourceProperty(name="cacheConfigurations", flag="unknown_cacheConfigurations")
+    private @Nullable List<KxClusterDatabaseCacheConfiguration> value_cacheConfigurations;
+    private boolean unknown_cacheConfigurations;
     public @Nullable List<KxClusterDatabaseCacheConfiguration> cacheConfigurations() {
-        if (cacheConfigurations == null) return null;
-        return cacheConfigurations.getValue("KxClusterDatabase.cacheConfigurations");
+        if (!unknown_cacheConfigurations) return value_cacheConfigurations;
+        throw new UndeferrableValueException("Value 'KxClusterDatabase.cacheConfigurations' is not present");
     }
 
     /**
      * A unique identifier of the changeset that is associated with the cluster.
      * 
      */
-    private @Nullable UndeferrableValue<String> changesetId;
-
+    @PolicyResourceProperty(name="changesetId", flag="unknown_changesetId")
+    private @Nullable String value_changesetId;
+    private boolean unknown_changesetId;
     public @Nullable String changesetId() {
-        if (changesetId == null) return null;
-        return changesetId.getValue("KxClusterDatabase.changesetId");
+        if (!unknown_changesetId) return value_changesetId;
+        throw new UndeferrableValueException("Value 'KxClusterDatabase.changesetId' is not present");
     }
 
     /**
      * Name of the KX database.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("KxClusterDatabase.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'KxClusterDatabase.databaseName' is not present");
     }
 
     /**
      * The name of the dataview to be used for caching historical data on disk. You cannot update to a different dataview name once a cluster is created. Use `lifecycle` `ignore_changes` for database to prevent any undesirable behaviors.
      * 
      */
-    private @Nullable UndeferrableValue<String> dataviewName;
-
+    @PolicyResourceProperty(name="dataviewName", flag="unknown_dataviewName")
+    private @Nullable String value_dataviewName;
+    private boolean unknown_dataviewName;
     public @Nullable String dataviewName() {
-        if (dataviewName == null) return null;
-        return dataviewName.getValue("KxClusterDatabase.dataviewName");
+        if (!unknown_dataviewName) return value_dataviewName;
+        throw new UndeferrableValueException("Value 'KxClusterDatabase.dataviewName' is not present");
     }
 
 }

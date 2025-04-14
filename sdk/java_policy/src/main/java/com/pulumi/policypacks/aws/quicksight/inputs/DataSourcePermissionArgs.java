@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,22 +15,24 @@ public final class DataSourcePermissionArgs {
      * Set of IAM actions to grant or revoke permissions on. Max of 16 items.
      * 
      */
-    private UndeferrableValue<List<String>> actions;
-
+    @PolicyResourceProperty(name="actions", flag="unknown_actions")
+    private List<String> value_actions;
+    private boolean unknown_actions;
     public List<String> actions() {
-        if (actions == null) return null;
-        return actions.getValue("DataSourcePermissionArgs.actions");
+        if (!unknown_actions) return value_actions;
+        throw new UndeferrableValueException("Value 'DataSourcePermissionArgs.actions' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the principal.
      * 
      */
-    private UndeferrableValue<String> principal;
-
+    @PolicyResourceProperty(name="principal", flag="unknown_principal")
+    private String value_principal;
+    private boolean unknown_principal;
     public String principal() {
-        if (principal == null) return null;
-        return principal.getValue("DataSourcePermissionArgs.principal");
+        if (!unknown_principal) return value_principal;
+        throw new UndeferrableValueException("Value 'DataSourcePermissionArgs.principal' is not present");
     }
 
 }

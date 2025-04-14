@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.inputs.AnalyticsApplicationReferenceDataSourcesS3Args;
 import com.pulumi.policypacks.aws.kinesis.inputs.AnalyticsApplicationReferenceDataSourcesSchemaArgs;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class AnalyticsApplicationReferenceDataSourcesArgs {
      * The ARN of the Kinesis Analytics Application.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("AnalyticsApplicationReferenceDataSourcesArgs.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesArgs.id' is not present");
     }
 
     /**
      * The S3 configuration for the reference data source. See S3 Reference below for more details.
      * 
      */
-    private UndeferrableValue<AnalyticsApplicationReferenceDataSourcesS3Args> s3;
-
+    @PolicyResourceProperty(name="s3", flag="unknown_s3")
+    private AnalyticsApplicationReferenceDataSourcesS3Args value_s3;
+    private boolean unknown_s3;
     public AnalyticsApplicationReferenceDataSourcesS3Args s3() {
-        if (s3 == null) return null;
-        return s3.getValue("AnalyticsApplicationReferenceDataSourcesArgs.s3");
+        if (!unknown_s3) return value_s3;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesArgs.s3' is not present");
     }
 
     /**
      * The Schema format of the data in the streaming source. See Source Schema below for more details.
      * 
      */
-    private UndeferrableValue<AnalyticsApplicationReferenceDataSourcesSchemaArgs> schema;
-
+    @PolicyResourceProperty(name="schema", flag="unknown_schema")
+    private AnalyticsApplicationReferenceDataSourcesSchemaArgs value_schema;
+    private boolean unknown_schema;
     public AnalyticsApplicationReferenceDataSourcesSchemaArgs schema() {
-        if (schema == null) return null;
-        return schema.getValue("AnalyticsApplicationReferenceDataSourcesArgs.schema");
+        if (!unknown_schema) return value_schema;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesArgs.schema' is not present");
     }
 
     /**
      * The in-application Table Name.
      * 
      */
-    private UndeferrableValue<String> tableName;
-
+    @PolicyResourceProperty(name="tableName", flag="unknown_tableName")
+    private String value_tableName;
+    private boolean unknown_tableName;
     public String tableName() {
-        if (tableName == null) return null;
-        return tableName.getValue("AnalyticsApplicationReferenceDataSourcesArgs.tableName");
+        if (!unknown_tableName) return value_tableName;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesArgs.tableName' is not present");
     }
 
 }

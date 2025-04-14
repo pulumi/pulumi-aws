@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class IntegrationTlsConfigArgs {
      * If you specify a server name, API Gateway uses it to verify the hostname on the integration&#39;s certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
      * 
      */
-    private UndeferrableValue<String> serverNameToVerify;
-
+    @PolicyResourceProperty(name="serverNameToVerify", flag="unknown_serverNameToVerify")
+    private String value_serverNameToVerify;
+    private boolean unknown_serverNameToVerify;
     public String serverNameToVerify() {
-        if (serverNameToVerify == null) return null;
-        return serverNameToVerify.getValue("IntegrationTlsConfigArgs.serverNameToVerify");
+        if (!unknown_serverNameToVerify) return value_serverNameToVerify;
+        throw new UndeferrableValueException("Value 'IntegrationTlsConfigArgs.serverNameToVerify' is not present");
     }
 
 }

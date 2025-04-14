@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.apprunner.outputs.ServiceEncryptionConfiguration;
 import com.pulumi.policypacks.aws.apprunner.outputs.ServiceHealthCheckConfiguration;
@@ -23,110 +24,120 @@ public final class Service extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the App Runner service.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Service.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Service.arn' is not present");
     }
 
     /**
      * ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
      * 
      */
-    private UndeferrableValue<String> autoScalingConfigurationArn;
-
+    @PolicyResourceProperty(name="autoScalingConfigurationArn", flag="unknown_autoScalingConfigurationArn")
+    private String value_autoScalingConfigurationArn;
+    private boolean unknown_autoScalingConfigurationArn;
     public String autoScalingConfigurationArn() {
-        if (autoScalingConfigurationArn == null) return null;
-        return autoScalingConfigurationArn.getValue("Service.autoScalingConfigurationArn");
+        if (!unknown_autoScalingConfigurationArn) return value_autoScalingConfigurationArn;
+        throw new UndeferrableValueException("Value 'Service.autoScalingConfigurationArn' is not present");
     }
 
     /**
      * An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ServiceEncryptionConfiguration> encryptionConfiguration;
-
+    @PolicyResourceProperty(name="encryptionConfiguration", flag="unknown_encryptionConfiguration")
+    private @Nullable ServiceEncryptionConfiguration value_encryptionConfiguration;
+    private boolean unknown_encryptionConfiguration;
     public @Nullable ServiceEncryptionConfiguration encryptionConfiguration() {
-        if (encryptionConfiguration == null) return null;
-        return encryptionConfiguration.getValue("Service.encryptionConfiguration");
+        if (!unknown_encryptionConfiguration) return value_encryptionConfiguration;
+        throw new UndeferrableValueException("Value 'Service.encryptionConfiguration' is not present");
     }
 
     /**
      * Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
      * 
      */
-    private UndeferrableValue<ServiceHealthCheckConfiguration> healthCheckConfiguration;
-
+    @PolicyResourceProperty(name="healthCheckConfiguration", flag="unknown_healthCheckConfiguration")
+    private ServiceHealthCheckConfiguration value_healthCheckConfiguration;
+    private boolean unknown_healthCheckConfiguration;
     public ServiceHealthCheckConfiguration healthCheckConfiguration() {
-        if (healthCheckConfiguration == null) return null;
-        return healthCheckConfiguration.getValue("Service.healthCheckConfiguration");
+        if (!unknown_healthCheckConfiguration) return value_healthCheckConfiguration;
+        throw new UndeferrableValueException("Value 'Service.healthCheckConfiguration' is not present");
     }
 
     /**
      * The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
      * 
      */
-    private UndeferrableValue<ServiceInstanceConfiguration> instanceConfiguration;
-
+    @PolicyResourceProperty(name="instanceConfiguration", flag="unknown_instanceConfiguration")
+    private ServiceInstanceConfiguration value_instanceConfiguration;
+    private boolean unknown_instanceConfiguration;
     public ServiceInstanceConfiguration instanceConfiguration() {
-        if (instanceConfiguration == null) return null;
-        return instanceConfiguration.getValue("Service.instanceConfiguration");
+        if (!unknown_instanceConfiguration) return value_instanceConfiguration;
+        throw new UndeferrableValueException("Value 'Service.instanceConfiguration' is not present");
     }
 
     /**
      * Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
      * 
      */
-    private UndeferrableValue<ServiceNetworkConfiguration> networkConfiguration;
-
+    @PolicyResourceProperty(name="networkConfiguration", flag="unknown_networkConfiguration")
+    private ServiceNetworkConfiguration value_networkConfiguration;
+    private boolean unknown_networkConfiguration;
     public ServiceNetworkConfiguration networkConfiguration() {
-        if (networkConfiguration == null) return null;
-        return networkConfiguration.getValue("Service.networkConfiguration");
+        if (!unknown_networkConfiguration) return value_networkConfiguration;
+        throw new UndeferrableValueException("Value 'Service.networkConfiguration' is not present");
     }
 
     /**
      * The observability configuration of your service. See Observability Configuration below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ServiceObservabilityConfiguration> observabilityConfiguration;
-
+    @PolicyResourceProperty(name="observabilityConfiguration", flag="unknown_observabilityConfiguration")
+    private @Nullable ServiceObservabilityConfiguration value_observabilityConfiguration;
+    private boolean unknown_observabilityConfiguration;
     public @Nullable ServiceObservabilityConfiguration observabilityConfiguration() {
-        if (observabilityConfiguration == null) return null;
-        return observabilityConfiguration.getValue("Service.observabilityConfiguration");
+        if (!unknown_observabilityConfiguration) return value_observabilityConfiguration;
+        throw new UndeferrableValueException("Value 'Service.observabilityConfiguration' is not present");
     }
 
     /**
      * An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
      * 
      */
-    private UndeferrableValue<String> serviceId;
-
+    @PolicyResourceProperty(name="serviceId", flag="unknown_serviceId")
+    private String value_serviceId;
+    private boolean unknown_serviceId;
     public String serviceId() {
-        if (serviceId == null) return null;
-        return serviceId.getValue("Service.serviceId");
+        if (!unknown_serviceId) return value_serviceId;
+        throw new UndeferrableValueException("Value 'Service.serviceId' is not present");
     }
 
     /**
      * Name of the service.
      * 
      */
-    private UndeferrableValue<String> serviceName;
-
+    @PolicyResourceProperty(name="serviceName", flag="unknown_serviceName")
+    private String value_serviceName;
+    private boolean unknown_serviceName;
     public String serviceName() {
-        if (serviceName == null) return null;
-        return serviceName.getValue("Service.serviceName");
+        if (!unknown_serviceName) return value_serviceName;
+        throw new UndeferrableValueException("Value 'Service.serviceName' is not present");
     }
 
     /**
      * Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
      * 
      */
-    private UndeferrableValue<String> serviceUrl;
-
+    @PolicyResourceProperty(name="serviceUrl", flag="unknown_serviceUrl")
+    private String value_serviceUrl;
+    private boolean unknown_serviceUrl;
     public String serviceUrl() {
-        if (serviceUrl == null) return null;
-        return serviceUrl.getValue("Service.serviceUrl");
+        if (!unknown_serviceUrl) return value_serviceUrl;
+        throw new UndeferrableValueException("Value 'Service.serviceUrl' is not present");
     }
 
     /**
@@ -135,33 +146,36 @@ public final class Service extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<ServiceSourceConfiguration> sourceConfiguration;
-
+    @PolicyResourceProperty(name="sourceConfiguration", flag="unknown_sourceConfiguration")
+    private ServiceSourceConfiguration value_sourceConfiguration;
+    private boolean unknown_sourceConfiguration;
     public ServiceSourceConfiguration sourceConfiguration() {
-        if (sourceConfiguration == null) return null;
-        return sourceConfiguration.getValue("Service.sourceConfiguration");
+        if (!unknown_sourceConfiguration) return value_sourceConfiguration;
+        throw new UndeferrableValueException("Value 'Service.sourceConfiguration' is not present");
     }
 
     /**
      * Current state of the App Runner service.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Service.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Service.status' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Service.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Service.tags' is not present");
     }
 
     /**
@@ -172,11 +186,12 @@ public final class Service extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Service.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Service.tagsAll' is not present");
     }
 
 }

@@ -3,25 +3,28 @@
 
 package com.pulumi.policypacks.aws.msk.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
 
 public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl {
 
-    private @Nullable UndeferrableValue<Boolean> iam;
-
+    @PolicyResourceProperty(name="iam", flag="unknown_iam")
+    private @Nullable Boolean value_iam;
+    private boolean unknown_iam;
     public @Nullable Boolean iam() {
-        if (iam == null) return null;
-        return iam.getValue("ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl.iam");
+        if (!unknown_iam) return value_iam;
+        throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl.iam' is not present");
     }
 
-    private @Nullable UndeferrableValue<Boolean> scram;
-
+    @PolicyResourceProperty(name="scram", flag="unknown_scram")
+    private @Nullable Boolean value_scram;
+    private boolean unknown_scram;
     public @Nullable Boolean scram() {
-        if (scram == null) return null;
-        return scram.getValue("ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl.scram");
+        if (!unknown_scram) return value_scram;
+        throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl.scram' is not present");
     }
 
 }

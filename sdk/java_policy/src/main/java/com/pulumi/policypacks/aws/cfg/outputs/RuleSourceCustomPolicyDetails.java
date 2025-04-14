@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class RuleSourceCustomPolicyDetails {
      * The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enableDebugLogDelivery;
-
+    @PolicyResourceProperty(name="enableDebugLogDelivery", flag="unknown_enableDebugLogDelivery")
+    private @Nullable Boolean value_enableDebugLogDelivery;
+    private boolean unknown_enableDebugLogDelivery;
     public @Nullable Boolean enableDebugLogDelivery() {
-        if (enableDebugLogDelivery == null) return null;
-        return enableDebugLogDelivery.getValue("RuleSourceCustomPolicyDetails.enableDebugLogDelivery");
+        if (!unknown_enableDebugLogDelivery) return value_enableDebugLogDelivery;
+        throw new UndeferrableValueException("Value 'RuleSourceCustomPolicyDetails.enableDebugLogDelivery' is not present");
     }
 
     /**
      * The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
      * 
      */
-    private UndeferrableValue<String> policyRuntime;
-
+    @PolicyResourceProperty(name="policyRuntime", flag="unknown_policyRuntime")
+    private String value_policyRuntime;
+    private boolean unknown_policyRuntime;
     public String policyRuntime() {
-        if (policyRuntime == null) return null;
-        return policyRuntime.getValue("RuleSourceCustomPolicyDetails.policyRuntime");
+        if (!unknown_policyRuntime) return value_policyRuntime;
+        throw new UndeferrableValueException("Value 'RuleSourceCustomPolicyDetails.policyRuntime' is not present");
     }
 
     /**
      * The policy definition containing the logic for your Config Custom Policy rule.
      * 
      */
-    private UndeferrableValue<String> policyText;
-
+    @PolicyResourceProperty(name="policyText", flag="unknown_policyText")
+    private String value_policyText;
+    private boolean unknown_policyText;
     public String policyText() {
-        if (policyText == null) return null;
-        return policyText.getValue("RuleSourceCustomPolicyDetails.policyText");
+        if (!unknown_policyText) return value_policyText;
+        throw new UndeferrableValueException("Value 'RuleSourceCustomPolicyDetails.policyText' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pinpoint;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,44 +18,48 @@ public final class Smsvoicev2ConfigurationSetArgs extends com.pulumi.resources.P
      * The default message type. Must either be &#34;TRANSACTIONAL&#34; or &#34;PROMOTIONAL&#34;
      * 
      */
-    private UndeferrableValue<String> defaultMessageType;
-
+    @PolicyResourceProperty(name="defaultMessageType", flag="unknown_defaultMessageType")
+    private String value_defaultMessageType;
+    private boolean unknown_defaultMessageType;
     public String defaultMessageType() {
-        if (defaultMessageType == null) return null;
-        return defaultMessageType.getValue("Smsvoicev2ConfigurationSetArgs.defaultMessageType");
+        if (!unknown_defaultMessageType) return value_defaultMessageType;
+        throw new UndeferrableValueException("Value 'Smsvoicev2ConfigurationSetArgs.defaultMessageType' is not present");
     }
 
     /**
      * The default sender ID to use for this configuration set.
      * 
      */
-    private UndeferrableValue<String> defaultSenderId;
-
+    @PolicyResourceProperty(name="defaultSenderId", flag="unknown_defaultSenderId")
+    private String value_defaultSenderId;
+    private boolean unknown_defaultSenderId;
     public String defaultSenderId() {
-        if (defaultSenderId == null) return null;
-        return defaultSenderId.getValue("Smsvoicev2ConfigurationSetArgs.defaultSenderId");
+        if (!unknown_defaultSenderId) return value_defaultSenderId;
+        throw new UndeferrableValueException("Value 'Smsvoicev2ConfigurationSetArgs.defaultSenderId' is not present");
     }
 
     /**
      * The name of the configuration set.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Smsvoicev2ConfigurationSetArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Smsvoicev2ConfigurationSetArgs.name' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Smsvoicev2ConfigurationSetArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Smsvoicev2ConfigurationSetArgs.tags' is not present");
     }
 
 }

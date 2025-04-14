@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3.inputs.BucketObjectLockConfigurationV2RuleArgs;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class BucketObjectLockConfigurationV2Args extends com.pulumi.resour
      * Name of the bucket.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("BucketObjectLockConfigurationV2Args.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'BucketObjectLockConfigurationV2Args.bucket' is not present");
     }
 
     /**
      * Account ID of the expected bucket owner.
      * 
      */
-    private UndeferrableValue<String> expectedBucketOwner;
-
+    @PolicyResourceProperty(name="expectedBucketOwner", flag="unknown_expectedBucketOwner")
+    private String value_expectedBucketOwner;
+    private boolean unknown_expectedBucketOwner;
     public String expectedBucketOwner() {
-        if (expectedBucketOwner == null) return null;
-        return expectedBucketOwner.getValue("BucketObjectLockConfigurationV2Args.expectedBucketOwner");
+        if (!unknown_expectedBucketOwner) return value_expectedBucketOwner;
+        throw new UndeferrableValueException("Value 'BucketObjectLockConfigurationV2Args.expectedBucketOwner' is not present");
     }
 
     /**
      * Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
      * 
      */
-    private UndeferrableValue<String> objectLockEnabled;
-
+    @PolicyResourceProperty(name="objectLockEnabled", flag="unknown_objectLockEnabled")
+    private String value_objectLockEnabled;
+    private boolean unknown_objectLockEnabled;
     public String objectLockEnabled() {
-        if (objectLockEnabled == null) return null;
-        return objectLockEnabled.getValue("BucketObjectLockConfigurationV2Args.objectLockEnabled");
+        if (!unknown_objectLockEnabled) return value_objectLockEnabled;
+        throw new UndeferrableValueException("Value 'BucketObjectLockConfigurationV2Args.objectLockEnabled' is not present");
     }
 
     /**
      * Configuration block for specifying the Object Lock rule for the specified object. See below.
      * 
      */
-    private UndeferrableValue<BucketObjectLockConfigurationV2RuleArgs> rule;
-
+    @PolicyResourceProperty(name="rule", flag="unknown_rule")
+    private BucketObjectLockConfigurationV2RuleArgs value_rule;
+    private boolean unknown_rule;
     public BucketObjectLockConfigurationV2RuleArgs rule() {
-        if (rule == null) return null;
-        return rule.getValue("BucketObjectLockConfigurationV2Args.rule");
+        if (!unknown_rule) return value_rule;
+        throw new UndeferrableValueException("Value 'BucketObjectLockConfigurationV2Args.rule' is not present");
     }
 
     /**
@@ -62,11 +67,12 @@ public final class BucketObjectLockConfigurationV2Args extends com.pulumi.resour
      * To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioningV2` resource.
      * 
      */
-    private UndeferrableValue<String> token;
-
+    @PolicyResourceProperty(name="token", flag="unknown_token")
+    private String value_token;
+    private boolean unknown_token;
     public String token() {
-        if (token == null) return null;
-        return token.getValue("BucketObjectLockConfigurationV2Args.token");
+        if (!unknown_token) return value_token;
+        throw new UndeferrableValueException("Value 'BucketObjectLockConfigurationV2Args.token' is not present");
     }
 
 }

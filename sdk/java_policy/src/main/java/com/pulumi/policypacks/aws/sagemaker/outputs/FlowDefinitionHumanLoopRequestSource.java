@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class FlowDefinitionHumanLoopRequestSource {
      * Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. Valid values are: `AWS/Rekognition/DetectModerationLabels/Image/V3` and `AWS/Textract/AnalyzeDocument/Forms/V1`.
      * 
      */
-    private UndeferrableValue<String> awsManagedHumanLoopRequestSource;
-
+    @PolicyResourceProperty(name="awsManagedHumanLoopRequestSource", flag="unknown_awsManagedHumanLoopRequestSource")
+    private String value_awsManagedHumanLoopRequestSource;
+    private boolean unknown_awsManagedHumanLoopRequestSource;
     public String awsManagedHumanLoopRequestSource() {
-        if (awsManagedHumanLoopRequestSource == null) return null;
-        return awsManagedHumanLoopRequestSource.getValue("FlowDefinitionHumanLoopRequestSource.awsManagedHumanLoopRequestSource");
+        if (!unknown_awsManagedHumanLoopRequestSource) return value_awsManagedHumanLoopRequestSource;
+        throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopRequestSource.awsManagedHumanLoopRequestSource' is not present");
     }
 
 }

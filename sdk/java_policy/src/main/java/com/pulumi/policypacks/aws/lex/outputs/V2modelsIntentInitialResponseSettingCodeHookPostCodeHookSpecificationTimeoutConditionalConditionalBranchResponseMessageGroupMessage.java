@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageCustomPayload;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage;
@@ -17,44 +18,48 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
      * Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageCustomPayload> customPayload;
-
+    @PolicyResourceProperty(name="customPayload", flag="unknown_customPayload")
+    private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageCustomPayload value_customPayload;
+    private boolean unknown_customPayload;
     public @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageCustomPayload customPayload() {
-        if (customPayload == null) return null;
-        return customPayload.getValue("V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage.customPayload");
+        if (!unknown_customPayload) return value_customPayload;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage.customPayload' is not present");
     }
 
     /**
      * Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard> imageResponseCard;
-
+    @PolicyResourceProperty(name="imageResponseCard", flag="unknown_imageResponseCard")
+    private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard value_imageResponseCard;
+    private boolean unknown_imageResponseCard;
     public @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCard imageResponseCard() {
-        if (imageResponseCard == null) return null;
-        return imageResponseCard.getValue("V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage.imageResponseCard");
+        if (!unknown_imageResponseCard) return value_imageResponseCard;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage.imageResponseCard' is not present");
     }
 
     /**
      * Configuration block for a message in plain text format. See `plain_text_message`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage> plainTextMessage;
-
+    @PolicyResourceProperty(name="plainTextMessage", flag="unknown_plainTextMessage")
+    private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage value_plainTextMessage;
+    private boolean unknown_plainTextMessage;
     public @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessage plainTextMessage() {
-        if (plainTextMessage == null) return null;
-        return plainTextMessage.getValue("V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage.plainTextMessage");
+        if (!unknown_plainTextMessage) return value_plainTextMessage;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage.plainTextMessage' is not present");
     }
 
     /**
      * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage> ssmlMessage;
-
+    @PolicyResourceProperty(name="ssmlMessage", flag="unknown_ssmlMessage")
+    private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage value_ssmlMessage;
+    private boolean unknown_ssmlMessage;
     public @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageSsmlMessage ssmlMessage() {
-        if (ssmlMessage == null) return null;
-        return ssmlMessage.getValue("V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage.ssmlMessage");
+        if (!unknown_ssmlMessage) return value_ssmlMessage;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage.ssmlMessage' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualRouterSpecListener;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class VirtualRouterSpec {
      * Currently only one listener is supported per virtual router.
      * 
      */
-    private @Nullable UndeferrableValue<List<VirtualRouterSpecListener>> listeners;
-
+    @PolicyResourceProperty(name="listeners", flag="unknown_listeners")
+    private @Nullable List<VirtualRouterSpecListener> value_listeners;
+    private boolean unknown_listeners;
     public @Nullable List<VirtualRouterSpecListener> listeners() {
-        if (listeners == null) return null;
-        return listeners.getValue("VirtualRouterSpec.listeners");
+        if (!unknown_listeners) return value_listeners;
+        throw new UndeferrableValueException("Value 'VirtualRouterSpec.listeners' is not present");
     }
 
 }

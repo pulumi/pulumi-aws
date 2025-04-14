@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dataexchange;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,44 +18,48 @@ public final class DataSetArgs extends com.pulumi.resources.PolicyResourceInput 
      * The type of asset that is added to a data set. Valid values include `API_GATEWAY_API`, `LAKE_FORMATION_DATA_PERMISSION`, `REDSHIFT_DATA_SHARE`, `S3_DATA_ACCESS`, `S3_SNAPSHOT`.
      * 
      */
-    private UndeferrableValue<String> assetType;
-
+    @PolicyResourceProperty(name="assetType", flag="unknown_assetType")
+    private String value_assetType;
+    private boolean unknown_assetType;
     public String assetType() {
-        if (assetType == null) return null;
-        return assetType.getValue("DataSetArgs.assetType");
+        if (!unknown_assetType) return value_assetType;
+        throw new UndeferrableValueException("Value 'DataSetArgs.assetType' is not present");
     }
 
     /**
      * A description for the data set.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("DataSetArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'DataSetArgs.description' is not present");
     }
 
     /**
      * The name of the data set.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DataSetArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DataSetArgs.name' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DataSetArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DataSetArgs.tags' is not present");
     }
 
 }

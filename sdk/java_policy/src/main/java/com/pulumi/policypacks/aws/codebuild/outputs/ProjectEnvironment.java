@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codebuild.outputs.ProjectEnvironmentEnvironmentVariable;
 import com.pulumi.policypacks.aws.codebuild.outputs.ProjectEnvironmentFleet;
 import com.pulumi.policypacks.aws.codebuild.outputs.ProjectEnvironmentRegistryCredential;
@@ -19,11 +20,12 @@ public final class ProjectEnvironment {
      * ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
      * 
      */
-    private @Nullable UndeferrableValue<String> certificate;
-
+    @PolicyResourceProperty(name="certificate", flag="unknown_certificate")
+    private @Nullable String value_certificate;
+    private boolean unknown_certificate;
     public @Nullable String certificate() {
-        if (certificate == null) return null;
-        return certificate.getValue("ProjectEnvironment.certificate");
+        if (!unknown_certificate) return value_certificate;
+        throw new UndeferrableValueException("Value 'ProjectEnvironment.certificate' is not present");
     }
 
     /**
@@ -35,33 +37,36 @@ public final class ProjectEnvironment {
      * be `BUILD_LAMBDA_XGB`.`
      * 
      */
-    private UndeferrableValue<String> computeType;
-
+    @PolicyResourceProperty(name="computeType", flag="unknown_computeType")
+    private String value_computeType;
+    private boolean unknown_computeType;
     public String computeType() {
-        if (computeType == null) return null;
-        return computeType.getValue("ProjectEnvironment.computeType");
+        if (!unknown_computeType) return value_computeType;
+        throw new UndeferrableValueException("Value 'ProjectEnvironment.computeType' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ProjectEnvironmentEnvironmentVariable>> environmentVariables;
-
+    @PolicyResourceProperty(name="environmentVariables", flag="unknown_environmentVariables")
+    private @Nullable List<ProjectEnvironmentEnvironmentVariable> value_environmentVariables;
+    private boolean unknown_environmentVariables;
     public @Nullable List<ProjectEnvironmentEnvironmentVariable> environmentVariables() {
-        if (environmentVariables == null) return null;
-        return environmentVariables.getValue("ProjectEnvironment.environmentVariables");
+        if (!unknown_environmentVariables) return value_environmentVariables;
+        throw new UndeferrableValueException("Value 'ProjectEnvironment.environmentVariables' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<ProjectEnvironmentFleet> fleet;
-
+    @PolicyResourceProperty(name="fleet", flag="unknown_fleet")
+    private @Nullable ProjectEnvironmentFleet value_fleet;
+    private boolean unknown_fleet;
     public @Nullable ProjectEnvironmentFleet fleet() {
-        if (fleet == null) return null;
-        return fleet.getValue("ProjectEnvironment.fleet");
+        if (!unknown_fleet) return value_fleet;
+        throw new UndeferrableValueException("Value 'ProjectEnvironment.fleet' is not present");
     }
 
     /**
@@ -72,11 +77,12 @@ public final class ProjectEnvironment {
      * `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
      * 
      */
-    private UndeferrableValue<String> image;
-
+    @PolicyResourceProperty(name="image", flag="unknown_image")
+    private String value_image;
+    private boolean unknown_image;
     public String image() {
-        if (image == null) return null;
-        return image.getValue("ProjectEnvironment.image");
+        if (!unknown_image) return value_image;
+        throw new UndeferrableValueException("Value 'ProjectEnvironment.image' is not present");
     }
 
     /**
@@ -85,11 +91,12 @@ public final class ProjectEnvironment {
      * credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
      * 
      */
-    private @Nullable UndeferrableValue<String> imagePullCredentialsType;
-
+    @PolicyResourceProperty(name="imagePullCredentialsType", flag="unknown_imagePullCredentialsType")
+    private @Nullable String value_imagePullCredentialsType;
+    private boolean unknown_imagePullCredentialsType;
     public @Nullable String imagePullCredentialsType() {
-        if (imagePullCredentialsType == null) return null;
-        return imagePullCredentialsType.getValue("ProjectEnvironment.imagePullCredentialsType");
+        if (!unknown_imagePullCredentialsType) return value_imagePullCredentialsType;
+        throw new UndeferrableValueException("Value 'ProjectEnvironment.imagePullCredentialsType' is not present");
     }
 
     /**
@@ -97,22 +104,24 @@ public final class ProjectEnvironment {
      * `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> privilegedMode;
-
+    @PolicyResourceProperty(name="privilegedMode", flag="unknown_privilegedMode")
+    private @Nullable Boolean value_privilegedMode;
+    private boolean unknown_privilegedMode;
     public @Nullable Boolean privilegedMode() {
-        if (privilegedMode == null) return null;
-        return privilegedMode.getValue("ProjectEnvironment.privilegedMode");
+        if (!unknown_privilegedMode) return value_privilegedMode;
+        throw new UndeferrableValueException("Value 'ProjectEnvironment.privilegedMode' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<ProjectEnvironmentRegistryCredential> registryCredential;
-
+    @PolicyResourceProperty(name="registryCredential", flag="unknown_registryCredential")
+    private @Nullable ProjectEnvironmentRegistryCredential value_registryCredential;
+    private boolean unknown_registryCredential;
     public @Nullable ProjectEnvironmentRegistryCredential registryCredential() {
-        if (registryCredential == null) return null;
-        return registryCredential.getValue("ProjectEnvironment.registryCredential");
+        if (!unknown_registryCredential) return value_registryCredential;
+        throw new UndeferrableValueException("Value 'ProjectEnvironment.registryCredential' is not present");
     }
 
     /**
@@ -122,11 +131,12 @@ public final class ProjectEnvironment {
      * the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ProjectEnvironment.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ProjectEnvironment.type' is not present");
     }
 
 }

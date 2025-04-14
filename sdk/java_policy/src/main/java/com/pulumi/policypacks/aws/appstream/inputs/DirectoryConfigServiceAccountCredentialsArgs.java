@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appstream.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class DirectoryConfigServiceAccountCredentialsArgs {
      * User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
      * 
      */
-    private UndeferrableValue<String> accountName;
-
+    @PolicyResourceProperty(name="accountName", flag="unknown_accountName")
+    private String value_accountName;
+    private boolean unknown_accountName;
     public String accountName() {
-        if (accountName == null) return null;
-        return accountName.getValue("DirectoryConfigServiceAccountCredentialsArgs.accountName");
+        if (!unknown_accountName) return value_accountName;
+        throw new UndeferrableValueException("Value 'DirectoryConfigServiceAccountCredentialsArgs.accountName' is not present");
     }
 
     /**
      * Password for the account.
      * 
      */
-    private UndeferrableValue<String> accountPassword;
-
+    @PolicyResourceProperty(name="accountPassword", flag="unknown_accountPassword")
+    private String value_accountPassword;
+    private boolean unknown_accountPassword;
     public String accountPassword() {
-        if (accountPassword == null) return null;
-        return accountPassword.getValue("DirectoryConfigServiceAccountCredentialsArgs.accountPassword");
+        if (!unknown_accountPassword) return value_accountPassword;
+        throw new UndeferrableValueException("Value 'DirectoryConfigServiceAccountCredentialsArgs.accountPassword' is not present");
     }
 
 }

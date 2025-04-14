@@ -3,17 +3,19 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class ResponseHeadersPolicyRemoveHeadersConfigItemArgs {
 
-    private UndeferrableValue<String> header;
-
+    @PolicyResourceProperty(name="header", flag="unknown_header")
+    private String value_header;
+    private boolean unknown_header;
     public String header() {
-        if (header == null) return null;
-        return header.getValue("ResponseHeadersPolicyRemoveHeadersConfigItemArgs.header");
+        if (!unknown_header) return value_header;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicyRemoveHeadersConfigItemArgs.header' is not present");
     }
 
 }

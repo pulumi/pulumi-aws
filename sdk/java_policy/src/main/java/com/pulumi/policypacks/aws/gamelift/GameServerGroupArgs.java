@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.gamelift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.gamelift.inputs.GameServerGroupAutoScalingPolicyArgs;
 import com.pulumi.policypacks.aws.gamelift.inputs.GameServerGroupInstanceDefinitionArgs;
@@ -18,11 +19,12 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:gamelift/gameServerGroup:GameServerGroup")
 public final class GameServerGroupArgs extends com.pulumi.resources.PolicyResourceInput {
 
-    private UndeferrableValue<GameServerGroupAutoScalingPolicyArgs> autoScalingPolicy;
-
+    @PolicyResourceProperty(name="autoScalingPolicy", flag="unknown_autoScalingPolicy")
+    private GameServerGroupAutoScalingPolicyArgs value_autoScalingPolicy;
+    private boolean unknown_autoScalingPolicy;
     public GameServerGroupAutoScalingPolicyArgs autoScalingPolicy() {
-        if (autoScalingPolicy == null) return null;
-        return autoScalingPolicy.getValue("GameServerGroupArgs.autoScalingPolicy");
+        if (!unknown_autoScalingPolicy) return value_autoScalingPolicy;
+        throw new UndeferrableValueException("Value 'GameServerGroupArgs.autoScalingPolicy' is not present");
     }
 
     /**
@@ -30,11 +32,12 @@ public final class GameServerGroupArgs extends com.pulumi.resources.PolicyResour
      * Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
      * 
      */
-    private UndeferrableValue<String> balancingStrategy;
-
+    @PolicyResourceProperty(name="balancingStrategy", flag="unknown_balancingStrategy")
+    private String value_balancingStrategy;
+    private boolean unknown_balancingStrategy;
     public String balancingStrategy() {
-        if (balancingStrategy == null) return null;
-        return balancingStrategy.getValue("GameServerGroupArgs.balancingStrategy");
+        if (!unknown_balancingStrategy) return value_balancingStrategy;
+        throw new UndeferrableValueException("Value 'GameServerGroupArgs.balancingStrategy' is not present");
     }
 
     /**
@@ -42,11 +45,12 @@ public final class GameServerGroupArgs extends com.pulumi.resources.PolicyResour
      * This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
      * 
      */
-    private UndeferrableValue<String> gameServerGroupName;
-
+    @PolicyResourceProperty(name="gameServerGroupName", flag="unknown_gameServerGroupName")
+    private String value_gameServerGroupName;
+    private boolean unknown_gameServerGroupName;
     public String gameServerGroupName() {
-        if (gameServerGroupName == null) return null;
-        return gameServerGroupName.getValue("GameServerGroupArgs.gameServerGroupName");
+        if (!unknown_gameServerGroupName) return value_gameServerGroupName;
+        throw new UndeferrableValueException("Value 'GameServerGroupArgs.gameServerGroupName' is not present");
     }
 
     /**
@@ -58,25 +62,28 @@ public final class GameServerGroupArgs extends com.pulumi.resources.PolicyResour
      * Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
      * 
      */
-    private UndeferrableValue<String> gameServerProtectionPolicy;
-
+    @PolicyResourceProperty(name="gameServerProtectionPolicy", flag="unknown_gameServerProtectionPolicy")
+    private String value_gameServerProtectionPolicy;
+    private boolean unknown_gameServerProtectionPolicy;
     public String gameServerProtectionPolicy() {
-        if (gameServerProtectionPolicy == null) return null;
-        return gameServerProtectionPolicy.getValue("GameServerGroupArgs.gameServerProtectionPolicy");
+        if (!unknown_gameServerProtectionPolicy) return value_gameServerProtectionPolicy;
+        throw new UndeferrableValueException("Value 'GameServerGroupArgs.gameServerProtectionPolicy' is not present");
     }
 
-    private UndeferrableValue<List<GameServerGroupInstanceDefinitionArgs>> instanceDefinitions;
-
+    @PolicyResourceProperty(name="instanceDefinitions", flag="unknown_instanceDefinitions")
+    private List<GameServerGroupInstanceDefinitionArgs> value_instanceDefinitions;
+    private boolean unknown_instanceDefinitions;
     public List<GameServerGroupInstanceDefinitionArgs> instanceDefinitions() {
-        if (instanceDefinitions == null) return null;
-        return instanceDefinitions.getValue("GameServerGroupArgs.instanceDefinitions");
+        if (!unknown_instanceDefinitions) return value_instanceDefinitions;
+        throw new UndeferrableValueException("Value 'GameServerGroupArgs.instanceDefinitions' is not present");
     }
 
-    private UndeferrableValue<GameServerGroupLaunchTemplateArgs> launchTemplate;
-
+    @PolicyResourceProperty(name="launchTemplate", flag="unknown_launchTemplate")
+    private GameServerGroupLaunchTemplateArgs value_launchTemplate;
+    private boolean unknown_launchTemplate;
     public GameServerGroupLaunchTemplateArgs launchTemplate() {
-        if (launchTemplate == null) return null;
-        return launchTemplate.getValue("GameServerGroupArgs.launchTemplate");
+        if (!unknown_launchTemplate) return value_launchTemplate;
+        throw new UndeferrableValueException("Value 'GameServerGroupArgs.launchTemplate' is not present");
     }
 
     /**
@@ -84,11 +91,12 @@ public final class GameServerGroupArgs extends com.pulumi.resources.PolicyResour
      * During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
      * 
      */
-    private UndeferrableValue<Integer> maxSize;
-
+    @PolicyResourceProperty(name="maxSize", flag="unknown_maxSize")
+    private Integer value_maxSize;
+    private boolean unknown_maxSize;
     public Integer maxSize() {
-        if (maxSize == null) return null;
-        return maxSize.getValue("GameServerGroupArgs.maxSize");
+        if (!unknown_maxSize) return value_maxSize;
+        throw new UndeferrableValueException("Value 'GameServerGroupArgs.maxSize' is not present");
     }
 
     /**
@@ -96,33 +104,36 @@ public final class GameServerGroupArgs extends com.pulumi.resources.PolicyResour
      * During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
      * 
      */
-    private UndeferrableValue<Integer> minSize;
-
+    @PolicyResourceProperty(name="minSize", flag="unknown_minSize")
+    private Integer value_minSize;
+    private boolean unknown_minSize;
     public Integer minSize() {
-        if (minSize == null) return null;
-        return minSize.getValue("GameServerGroupArgs.minSize");
+        if (!unknown_minSize) return value_minSize;
+        throw new UndeferrableValueException("Value 'GameServerGroupArgs.minSize' is not present");
     }
 
     /**
      * ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("GameServerGroupArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'GameServerGroupArgs.roleArn' is not present");
     }
 
     /**
      * Key-value map of resource tags
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("GameServerGroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'GameServerGroupArgs.tags' is not present");
     }
 
     /**
@@ -130,11 +141,12 @@ public final class GameServerGroupArgs extends com.pulumi.resources.PolicyResour
      * By default, all GameLift FleetIQ-supported Availability Zones are used.
      * 
      */
-    private UndeferrableValue<List<String>> vpcSubnets;
-
+    @PolicyResourceProperty(name="vpcSubnets", flag="unknown_vpcSubnets")
+    private List<String> value_vpcSubnets;
+    private boolean unknown_vpcSubnets;
     public List<String> vpcSubnets() {
-        if (vpcSubnets == null) return null;
-        return vpcSubnets.getValue("GameServerGroupArgs.vpcSubnets");
+        if (!unknown_vpcSubnets) return value_vpcSubnets;
+        throw new UndeferrableValueException("Value 'GameServerGroupArgs.vpcSubnets' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ssm.outputs.DocumentAttachmentsSource;
 import com.pulumi.policypacks.aws.ssm.outputs.DocumentParameter;
@@ -20,220 +21,240 @@ public final class Document extends com.pulumi.resources.PolicyResourceOutput {
      * The Amazon Resource Name (ARN) of the document.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Document.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Document.arn' is not present");
     }
 
     /**
      * One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<DocumentAttachmentsSource>> attachmentsSources;
-
+    @PolicyResourceProperty(name="attachmentsSources", flag="unknown_attachmentsSources")
+    private @Nullable List<DocumentAttachmentsSource> value_attachmentsSources;
+    private boolean unknown_attachmentsSources;
     public @Nullable List<DocumentAttachmentsSource> attachmentsSources() {
-        if (attachmentsSources == null) return null;
-        return attachmentsSources.getValue("Document.attachmentsSources");
+        if (!unknown_attachmentsSources) return value_attachmentsSources;
+        throw new UndeferrableValueException("Value 'Document.attachmentsSources' is not present");
     }
 
     /**
      * The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
      * 
      */
-    private UndeferrableValue<String> content;
-
+    @PolicyResourceProperty(name="content", flag="unknown_content")
+    private String value_content;
+    private boolean unknown_content;
     public String content() {
-        if (content == null) return null;
-        return content.getValue("Document.content");
+        if (!unknown_content) return value_content;
+        throw new UndeferrableValueException("Value 'Document.content' is not present");
     }
 
     /**
      * The date the document was created.
      * 
      */
-    private UndeferrableValue<String> createdDate;
-
+    @PolicyResourceProperty(name="createdDate", flag="unknown_createdDate")
+    private String value_createdDate;
+    private boolean unknown_createdDate;
     public String createdDate() {
-        if (createdDate == null) return null;
-        return createdDate.getValue("Document.createdDate");
+        if (!unknown_createdDate) return value_createdDate;
+        throw new UndeferrableValueException("Value 'Document.createdDate' is not present");
     }
 
     /**
      * The default version of the document.
      * 
      */
-    private UndeferrableValue<String> defaultVersion;
-
+    @PolicyResourceProperty(name="defaultVersion", flag="unknown_defaultVersion")
+    private String value_defaultVersion;
+    private boolean unknown_defaultVersion;
     public String defaultVersion() {
-        if (defaultVersion == null) return null;
-        return defaultVersion.getValue("Document.defaultVersion");
+        if (!unknown_defaultVersion) return value_defaultVersion;
+        throw new UndeferrableValueException("Value 'Document.defaultVersion' is not present");
     }
 
     /**
      * A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("Document.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Document.description' is not present");
     }
 
     /**
      * The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
      * 
      */
-    private @Nullable UndeferrableValue<String> documentFormat;
-
+    @PolicyResourceProperty(name="documentFormat", flag="unknown_documentFormat")
+    private @Nullable String value_documentFormat;
+    private boolean unknown_documentFormat;
     public @Nullable String documentFormat() {
-        if (documentFormat == null) return null;
-        return documentFormat.getValue("Document.documentFormat");
+        if (!unknown_documentFormat) return value_documentFormat;
+        throw new UndeferrableValueException("Value 'Document.documentFormat' is not present");
     }
 
     /**
      * The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
      * 
      */
-    private UndeferrableValue<String> documentType;
-
+    @PolicyResourceProperty(name="documentType", flag="unknown_documentType")
+    private String value_documentType;
+    private boolean unknown_documentType;
     public String documentType() {
-        if (documentType == null) return null;
-        return documentType.getValue("Document.documentType");
+        if (!unknown_documentType) return value_documentType;
+        throw new UndeferrableValueException("Value 'Document.documentType' is not present");
     }
 
     /**
      * The document version.
      * 
      */
-    private UndeferrableValue<String> documentVersion;
-
+    @PolicyResourceProperty(name="documentVersion", flag="unknown_documentVersion")
+    private String value_documentVersion;
+    private boolean unknown_documentVersion;
     public String documentVersion() {
-        if (documentVersion == null) return null;
-        return documentVersion.getValue("Document.documentVersion");
+        if (!unknown_documentVersion) return value_documentVersion;
+        throw new UndeferrableValueException("Value 'Document.documentVersion' is not present");
     }
 
     /**
      * The Sha256 or Sha1 hash created by the system when the document was created.
      * 
      */
-    private UndeferrableValue<String> hash;
-
+    @PolicyResourceProperty(name="hash", flag="unknown_hash")
+    private String value_hash;
+    private boolean unknown_hash;
     public String hash() {
-        if (hash == null) return null;
-        return hash.getValue("Document.hash");
+        if (!unknown_hash) return value_hash;
+        throw new UndeferrableValueException("Value 'Document.hash' is not present");
     }
 
     /**
      * The hash type of the document. Valid values: `Sha256`, `Sha1`.
      * 
      */
-    private UndeferrableValue<String> hashType;
-
+    @PolicyResourceProperty(name="hashType", flag="unknown_hashType")
+    private String value_hashType;
+    private boolean unknown_hashType;
     public String hashType() {
-        if (hashType == null) return null;
-        return hashType.getValue("Document.hashType");
+        if (!unknown_hashType) return value_hashType;
+        throw new UndeferrableValueException("Value 'Document.hashType' is not present");
     }
 
     /**
      * The latest version of the document.
      * 
      */
-    private UndeferrableValue<String> latestVersion;
-
+    @PolicyResourceProperty(name="latestVersion", flag="unknown_latestVersion")
+    private String value_latestVersion;
+    private boolean unknown_latestVersion;
     public String latestVersion() {
-        if (latestVersion == null) return null;
-        return latestVersion.getValue("Document.latestVersion");
+        if (!unknown_latestVersion) return value_latestVersion;
+        throw new UndeferrableValueException("Value 'Document.latestVersion' is not present");
     }
 
     /**
      * The name of the document.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Document.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Document.name' is not present");
     }
 
     /**
      * The Amazon Web Services user that created the document.
      * 
      */
-    private UndeferrableValue<String> owner;
-
+    @PolicyResourceProperty(name="owner", flag="unknown_owner")
+    private String value_owner;
+    private boolean unknown_owner;
     public String owner() {
-        if (owner == null) return null;
-        return owner.getValue("Document.owner");
+        if (!unknown_owner) return value_owner;
+        throw new UndeferrableValueException("Value 'Document.owner' is not present");
     }
 
     /**
      * One or more configuration blocks describing the parameters for the document. See `parameter` block below for details.
      * 
      */
-    private UndeferrableValue<List<DocumentParameter>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private List<DocumentParameter> value_parameters;
+    private boolean unknown_parameters;
     public List<DocumentParameter> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("Document.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'Document.parameters' is not present");
     }
 
     /**
      * Additional permissions to attach to the document. See Permissions below for details.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> permissions;
-
+    @PolicyResourceProperty(name="permissions", flag="unknown_permissions")
+    private @Nullable Map<String,String> value_permissions;
+    private boolean unknown_permissions;
     public @Nullable Map<String,String> permissions() {
-        if (permissions == null) return null;
-        return permissions.getValue("Document.permissions");
+        if (!unknown_permissions) return value_permissions;
+        throw new UndeferrableValueException("Value 'Document.permissions' is not present");
     }
 
     /**
      * The list of operating system (OS) platforms compatible with this SSM document. Valid values: `Windows`, `Linux`, `MacOS`.
      * 
      */
-    private UndeferrableValue<List<String>> platformTypes;
-
+    @PolicyResourceProperty(name="platformTypes", flag="unknown_platformTypes")
+    private List<String> value_platformTypes;
+    private boolean unknown_platformTypes;
     public List<String> platformTypes() {
-        if (platformTypes == null) return null;
-        return platformTypes.getValue("Document.platformTypes");
+        if (!unknown_platformTypes) return value_platformTypes;
+        throw new UndeferrableValueException("Value 'Document.platformTypes' is not present");
     }
 
     /**
      * The schema version of the document.
      * 
      */
-    private UndeferrableValue<String> schemaVersion;
-
+    @PolicyResourceProperty(name="schemaVersion", flag="unknown_schemaVersion")
+    private String value_schemaVersion;
+    private boolean unknown_schemaVersion;
     public String schemaVersion() {
-        if (schemaVersion == null) return null;
-        return schemaVersion.getValue("Document.schemaVersion");
+        if (!unknown_schemaVersion) return value_schemaVersion;
+        throw new UndeferrableValueException("Value 'Document.schemaVersion' is not present");
     }
 
     /**
      * The status of the SSM document. Valid values: `Creating`, `Active`, `Updating`, `Deleting`, `Failed`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Document.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Document.status' is not present");
     }
 
     /**
      * A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Document.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Document.tags' is not present");
     }
 
     /**
@@ -244,33 +265,36 @@ public final class Document extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Document.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Document.tagsAll' is not present");
     }
 
     /**
      * The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
      * 
      */
-    private @Nullable UndeferrableValue<String> targetType;
-
+    @PolicyResourceProperty(name="targetType", flag="unknown_targetType")
+    private @Nullable String value_targetType;
+    private boolean unknown_targetType;
     public @Nullable String targetType() {
-        if (targetType == null) return null;
-        return targetType.getValue("Document.targetType");
+        if (!unknown_targetType) return value_targetType;
+        throw new UndeferrableValueException("Value 'Document.targetType' is not present");
     }
 
     /**
      * The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can&#39;t be changed.
      * 
      */
-    private @Nullable UndeferrableValue<String> versionName;
-
+    @PolicyResourceProperty(name="versionName", flag="unknown_versionName")
+    private @Nullable String value_versionName;
+    private boolean unknown_versionName;
     public @Nullable String versionName() {
-        if (versionName == null) return null;
-        return versionName.getValue("Document.versionName");
+        if (!unknown_versionName) return value_versionName;
+        throw new UndeferrableValueException("Value 'Document.versionName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.networkmanager.outputs.ConnectPeerBgpOptions;
 import com.pulumi.policypacks.aws.networkmanager.outputs.ConnectPeerConfiguration;
@@ -20,102 +21,112 @@ public final class ConnectPeer extends com.pulumi.resources.PolicyResourceOutput
      * The ARN of the attachment.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ConnectPeer.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ConnectPeer.arn' is not present");
     }
 
     /**
      * The Connect peer BGP options.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectPeerBgpOptions> bgpOptions;
-
+    @PolicyResourceProperty(name="bgpOptions", flag="unknown_bgpOptions")
+    private @Nullable ConnectPeerBgpOptions value_bgpOptions;
+    private boolean unknown_bgpOptions;
     public @Nullable ConnectPeerBgpOptions bgpOptions() {
-        if (bgpOptions == null) return null;
-        return bgpOptions.getValue("ConnectPeer.bgpOptions");
+        if (!unknown_bgpOptions) return value_bgpOptions;
+        throw new UndeferrableValueException("Value 'ConnectPeer.bgpOptions' is not present");
     }
 
     /**
      * The configuration of the Connect peer.
      * 
      */
-    private UndeferrableValue<List<ConnectPeerConfiguration>> configurations;
-
+    @PolicyResourceProperty(name="configurations", flag="unknown_configurations")
+    private List<ConnectPeerConfiguration> value_configurations;
+    private boolean unknown_configurations;
     public List<ConnectPeerConfiguration> configurations() {
-        if (configurations == null) return null;
-        return configurations.getValue("ConnectPeer.configurations");
+        if (!unknown_configurations) return value_configurations;
+        throw new UndeferrableValueException("Value 'ConnectPeer.configurations' is not present");
     }
 
     /**
      * The ID of the connection attachment.
      * 
      */
-    private UndeferrableValue<String> connectAttachmentId;
-
+    @PolicyResourceProperty(name="connectAttachmentId", flag="unknown_connectAttachmentId")
+    private String value_connectAttachmentId;
+    private boolean unknown_connectAttachmentId;
     public String connectAttachmentId() {
-        if (connectAttachmentId == null) return null;
-        return connectAttachmentId.getValue("ConnectPeer.connectAttachmentId");
+        if (!unknown_connectAttachmentId) return value_connectAttachmentId;
+        throw new UndeferrableValueException("Value 'ConnectPeer.connectAttachmentId' is not present");
     }
 
-    private UndeferrableValue<String> connectPeerId;
-
+    @PolicyResourceProperty(name="connectPeerId", flag="unknown_connectPeerId")
+    private String value_connectPeerId;
+    private boolean unknown_connectPeerId;
     public String connectPeerId() {
-        if (connectPeerId == null) return null;
-        return connectPeerId.getValue("ConnectPeer.connectPeerId");
+        if (!unknown_connectPeerId) return value_connectPeerId;
+        throw new UndeferrableValueException("Value 'ConnectPeer.connectPeerId' is not present");
     }
 
     /**
      * A Connect peer core network address.
      * 
      */
-    private @Nullable UndeferrableValue<String> coreNetworkAddress;
-
+    @PolicyResourceProperty(name="coreNetworkAddress", flag="unknown_coreNetworkAddress")
+    private @Nullable String value_coreNetworkAddress;
+    private boolean unknown_coreNetworkAddress;
     public @Nullable String coreNetworkAddress() {
-        if (coreNetworkAddress == null) return null;
-        return coreNetworkAddress.getValue("ConnectPeer.coreNetworkAddress");
+        if (!unknown_coreNetworkAddress) return value_coreNetworkAddress;
+        throw new UndeferrableValueException("Value 'ConnectPeer.coreNetworkAddress' is not present");
     }
 
     /**
      * The ID of a core network.
      * 
      */
-    private UndeferrableValue<String> coreNetworkId;
-
+    @PolicyResourceProperty(name="coreNetworkId", flag="unknown_coreNetworkId")
+    private String value_coreNetworkId;
+    private boolean unknown_coreNetworkId;
     public String coreNetworkId() {
-        if (coreNetworkId == null) return null;
-        return coreNetworkId.getValue("ConnectPeer.coreNetworkId");
+        if (!unknown_coreNetworkId) return value_coreNetworkId;
+        throw new UndeferrableValueException("Value 'ConnectPeer.coreNetworkId' is not present");
     }
 
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("ConnectPeer.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'ConnectPeer.createdAt' is not present");
     }
 
     /**
      * The Region where the peer is located.
      * 
      */
-    private UndeferrableValue<String> edgeLocation;
-
+    @PolicyResourceProperty(name="edgeLocation", flag="unknown_edgeLocation")
+    private String value_edgeLocation;
+    private boolean unknown_edgeLocation;
     public String edgeLocation() {
-        if (edgeLocation == null) return null;
-        return edgeLocation.getValue("ConnectPeer.edgeLocation");
+        if (!unknown_edgeLocation) return value_edgeLocation;
+        throw new UndeferrableValueException("Value 'ConnectPeer.edgeLocation' is not present");
     }
 
     /**
      * The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> insideCidrBlocks;
-
+    @PolicyResourceProperty(name="insideCidrBlocks", flag="unknown_insideCidrBlocks")
+    private @Nullable List<String> value_insideCidrBlocks;
+    private boolean unknown_insideCidrBlocks;
     public @Nullable List<String> insideCidrBlocks() {
-        if (insideCidrBlocks == null) return null;
-        return insideCidrBlocks.getValue("ConnectPeer.insideCidrBlocks");
+        if (!unknown_insideCidrBlocks) return value_insideCidrBlocks;
+        throw new UndeferrableValueException("Value 'ConnectPeer.insideCidrBlocks' is not present");
     }
 
     /**
@@ -124,44 +135,48 @@ public final class ConnectPeer extends com.pulumi.resources.PolicyResourceOutput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> peerAddress;
-
+    @PolicyResourceProperty(name="peerAddress", flag="unknown_peerAddress")
+    private String value_peerAddress;
+    private boolean unknown_peerAddress;
     public String peerAddress() {
-        if (peerAddress == null) return null;
-        return peerAddress.getValue("ConnectPeer.peerAddress");
+        if (!unknown_peerAddress) return value_peerAddress;
+        throw new UndeferrableValueException("Value 'ConnectPeer.peerAddress' is not present");
     }
 
     /**
      * The state of the Connect peer.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("ConnectPeer.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'ConnectPeer.state' is not present");
     }
 
     /**
      * The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
-    private @Nullable UndeferrableValue<String> subnetArn;
-
+    @PolicyResourceProperty(name="subnetArn", flag="unknown_subnetArn")
+    private @Nullable String value_subnetArn;
+    private boolean unknown_subnetArn;
     public @Nullable String subnetArn() {
-        if (subnetArn == null) return null;
-        return subnetArn.getValue("ConnectPeer.subnetArn");
+        if (!unknown_subnetArn) return value_subnetArn;
+        throw new UndeferrableValueException("Value 'ConnectPeer.subnetArn' is not present");
     }
 
     /**
      * Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ConnectPeer.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ConnectPeer.tags' is not present");
     }
 
     /**
@@ -172,11 +187,12 @@ public final class ConnectPeer extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ConnectPeer.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ConnectPeer.tagsAll' is not present");
     }
 
 }

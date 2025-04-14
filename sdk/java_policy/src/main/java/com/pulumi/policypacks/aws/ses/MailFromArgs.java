@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ses;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,22 +17,24 @@ public final class MailFromArgs extends com.pulumi.resources.PolicyResourceInput
      * The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
      * 
      */
-    private UndeferrableValue<String> behaviorOnMxFailure;
-
+    @PolicyResourceProperty(name="behaviorOnMxFailure", flag="unknown_behaviorOnMxFailure")
+    private String value_behaviorOnMxFailure;
+    private boolean unknown_behaviorOnMxFailure;
     public String behaviorOnMxFailure() {
-        if (behaviorOnMxFailure == null) return null;
-        return behaviorOnMxFailure.getValue("MailFromArgs.behaviorOnMxFailure");
+        if (!unknown_behaviorOnMxFailure) return value_behaviorOnMxFailure;
+        throw new UndeferrableValueException("Value 'MailFromArgs.behaviorOnMxFailure' is not present");
     }
 
     /**
      * Verified domain name or email identity to generate DKIM tokens for.
      * 
      */
-    private UndeferrableValue<String> domain;
-
+    @PolicyResourceProperty(name="domain", flag="unknown_domain")
+    private String value_domain;
+    private boolean unknown_domain;
     public String domain() {
-        if (domain == null) return null;
-        return domain.getValue("MailFromArgs.domain");
+        if (!unknown_domain) return value_domain;
+        throw new UndeferrableValueException("Value 'MailFromArgs.domain' is not present");
     }
 
     /**
@@ -40,11 +43,12 @@ public final class MailFromArgs extends com.pulumi.resources.PolicyResourceInput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> mailFromDomain;
-
+    @PolicyResourceProperty(name="mailFromDomain", flag="unknown_mailFromDomain")
+    private String value_mailFromDomain;
+    private boolean unknown_mailFromDomain;
     public String mailFromDomain() {
-        if (mailFromDomain == null) return null;
-        return mailFromDomain.getValue("MailFromArgs.mailFromDomain");
+        if (!unknown_mailFromDomain) return value_mailFromDomain;
+        throw new UndeferrableValueException("Value 'MailFromArgs.mailFromDomain' is not present");
     }
 
 }

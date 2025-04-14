@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.imagebuilder.outputs.ImageOutputResourceAmi;
 import com.pulumi.policypacks.aws.imagebuilder.outputs.ImageOutputResourceContainer;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class ImageOutputResource {
      * Set of objects with each Amazon Machine Image (AMI) created.
      * 
      */
-    private @Nullable UndeferrableValue<List<ImageOutputResourceAmi>> amis;
-
+    @PolicyResourceProperty(name="amis", flag="unknown_amis")
+    private @Nullable List<ImageOutputResourceAmi> value_amis;
+    private boolean unknown_amis;
     public @Nullable List<ImageOutputResourceAmi> amis() {
-        if (amis == null) return null;
-        return amis.getValue("ImageOutputResource.amis");
+        if (!unknown_amis) return value_amis;
+        throw new UndeferrableValueException("Value 'ImageOutputResource.amis' is not present");
     }
 
     /**
      * Set of objects with each container image created and stored in the output repository.
      * 
      */
-    private @Nullable UndeferrableValue<List<ImageOutputResourceContainer>> containers;
-
+    @PolicyResourceProperty(name="containers", flag="unknown_containers")
+    private @Nullable List<ImageOutputResourceContainer> value_containers;
+    private boolean unknown_containers;
     public @Nullable List<ImageOutputResourceContainer> containers() {
-        if (containers == null) return null;
-        return containers.getValue("ImageOutputResource.containers");
+        if (!unknown_containers) return value_containers;
+        throw new UndeferrableValueException("Value 'ImageOutputResource.containers' is not present");
     }
 
 }

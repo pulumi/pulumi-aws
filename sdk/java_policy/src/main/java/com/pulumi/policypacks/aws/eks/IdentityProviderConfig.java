@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.eks.outputs.IdentityProviderConfigOidc;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class IdentityProviderConfig extends com.pulumi.resources.PolicyRes
      * Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("IdentityProviderConfig.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'IdentityProviderConfig.arn' is not present");
     }
 
     /**
      * Name of the EKS Cluster.
      * 
      */
-    private UndeferrableValue<String> clusterName;
-
+    @PolicyResourceProperty(name="clusterName", flag="unknown_clusterName")
+    private String value_clusterName;
+    private boolean unknown_clusterName;
     public String clusterName() {
-        if (clusterName == null) return null;
-        return clusterName.getValue("IdentityProviderConfig.clusterName");
+        if (!unknown_clusterName) return value_clusterName;
+        throw new UndeferrableValueException("Value 'IdentityProviderConfig.clusterName' is not present");
     }
 
     /**
      * Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
      * 
      */
-    private UndeferrableValue<IdentityProviderConfigOidc> oidc;
-
+    @PolicyResourceProperty(name="oidc", flag="unknown_oidc")
+    private IdentityProviderConfigOidc value_oidc;
+    private boolean unknown_oidc;
     public IdentityProviderConfigOidc oidc() {
-        if (oidc == null) return null;
-        return oidc.getValue("IdentityProviderConfig.oidc");
+        if (!unknown_oidc) return value_oidc;
+        throw new UndeferrableValueException("Value 'IdentityProviderConfig.oidc' is not present");
     }
 
     /**
      * Status of the EKS Identity Provider Configuration.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("IdentityProviderConfig.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'IdentityProviderConfig.status' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("IdentityProviderConfig.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'IdentityProviderConfig.tags' is not present");
     }
 
     /**
@@ -77,11 +83,12 @@ public final class IdentityProviderConfig extends com.pulumi.resources.PolicyRes
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("IdentityProviderConfig.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'IdentityProviderConfig.tagsAll' is not present");
     }
 
 }

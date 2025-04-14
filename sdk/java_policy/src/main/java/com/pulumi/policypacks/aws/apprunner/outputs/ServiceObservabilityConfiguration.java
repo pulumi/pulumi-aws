@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ServiceObservabilityConfiguration {
      * ARN of the observability configuration that is associated with the service. Specified only when `observability_enabled` is `true`.
      * 
      */
-    private @Nullable UndeferrableValue<String> observabilityConfigurationArn;
-
+    @PolicyResourceProperty(name="observabilityConfigurationArn", flag="unknown_observabilityConfigurationArn")
+    private @Nullable String value_observabilityConfigurationArn;
+    private boolean unknown_observabilityConfigurationArn;
     public @Nullable String observabilityConfigurationArn() {
-        if (observabilityConfigurationArn == null) return null;
-        return observabilityConfigurationArn.getValue("ServiceObservabilityConfiguration.observabilityConfigurationArn");
+        if (!unknown_observabilityConfigurationArn) return value_observabilityConfigurationArn;
+        throw new UndeferrableValueException("Value 'ServiceObservabilityConfiguration.observabilityConfigurationArn' is not present");
     }
 
     /**
      * When `true`, an observability configuration resource is associated with the service.
      * 
      */
-    private UndeferrableValue<Boolean> observabilityEnabled;
-
+    @PolicyResourceProperty(name="observabilityEnabled", flag="unknown_observabilityEnabled")
+    private Boolean value_observabilityEnabled;
+    private boolean unknown_observabilityEnabled;
     public Boolean observabilityEnabled() {
-        if (observabilityEnabled == null) return null;
-        return observabilityEnabled.getValue("ServiceObservabilityConfiguration.observabilityEnabled");
+        if (!unknown_observabilityEnabled) return value_observabilityEnabled;
+        throw new UndeferrableValueException("Value 'ServiceObservabilityConfiguration.observabilityEnabled' is not present");
     }
 
 }

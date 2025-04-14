@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class ExperimentTemplateActionTarget {
      * Target type. Valid values are `AutoScalingGroups` (EC2 Auto Scaling groups), `Buckets` (S3 Buckets), `Cluster` (EKS Cluster), `Clusters` (ECS Clusters), `DBInstances` (RDS DB Instances), `Instances` (EC2 Instances), `Nodegroups` (EKS Node groups), `Pods` (EKS Pods), `ReplicationGroups`(ElastiCache Redis Replication Groups), `Roles` (IAM Roles), `SpotInstances` (EC2 Spot Instances), `Subnets` (VPC Subnets), `Tables` (DynamoDB encrypted global tables), `Tasks` (ECS Tasks), `TransitGateways` (Transit gateways), `Volumes` (EBS Volumes). See the [documentation](https://docs.aws.amazon.com/fis/latest/userguide/actions.html#action-targets) for more details.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("ExperimentTemplateActionTarget.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateActionTarget.key' is not present");
     }
 
     /**
      * Target name, referencing a corresponding target.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("ExperimentTemplateActionTarget.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateActionTarget.value' is not present");
     }
 
 }

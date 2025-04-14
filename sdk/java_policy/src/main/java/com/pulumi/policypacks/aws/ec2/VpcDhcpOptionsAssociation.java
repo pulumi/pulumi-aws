@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class VpcDhcpOptionsAssociation extends com.pulumi.resources.Policy
      * The ID of the DHCP Options Set to associate to the VPC.
      * 
      */
-    private UndeferrableValue<String> dhcpOptionsId;
-
+    @PolicyResourceProperty(name="dhcpOptionsId", flag="unknown_dhcpOptionsId")
+    private String value_dhcpOptionsId;
+    private boolean unknown_dhcpOptionsId;
     public String dhcpOptionsId() {
-        if (dhcpOptionsId == null) return null;
-        return dhcpOptionsId.getValue("VpcDhcpOptionsAssociation.dhcpOptionsId");
+        if (!unknown_dhcpOptionsId) return value_dhcpOptionsId;
+        throw new UndeferrableValueException("Value 'VpcDhcpOptionsAssociation.dhcpOptionsId' is not present");
     }
 
     /**
      * The ID of the VPC to which we would like to associate a DHCP Options Set.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("VpcDhcpOptionsAssociation.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'VpcDhcpOptionsAssociation.vpcId' is not present");
     }
 
 }

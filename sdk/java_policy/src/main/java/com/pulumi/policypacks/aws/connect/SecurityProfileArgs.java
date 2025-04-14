@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,44 +19,48 @@ public final class SecurityProfileArgs extends com.pulumi.resources.PolicyResour
      * Specifies the description of the Security Profile.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("SecurityProfileArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'SecurityProfileArgs.description' is not present");
     }
 
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    private UndeferrableValue<String> instanceId;
-
+    @PolicyResourceProperty(name="instanceId", flag="unknown_instanceId")
+    private String value_instanceId;
+    private boolean unknown_instanceId;
     public String instanceId() {
-        if (instanceId == null) return null;
-        return instanceId.getValue("SecurityProfileArgs.instanceId");
+        if (!unknown_instanceId) return value_instanceId;
+        throw new UndeferrableValueException("Value 'SecurityProfileArgs.instanceId' is not present");
     }
 
     /**
      * Specifies the name of the Security Profile.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("SecurityProfileArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'SecurityProfileArgs.name' is not present");
     }
 
     /**
      * Specifies a list of permissions assigned to the security profile.
      * 
      */
-    private UndeferrableValue<List<String>> permissions;
-
+    @PolicyResourceProperty(name="permissions", flag="unknown_permissions")
+    private List<String> value_permissions;
+    private boolean unknown_permissions;
     public List<String> permissions() {
-        if (permissions == null) return null;
-        return permissions.getValue("SecurityProfileArgs.permissions");
+        if (!unknown_permissions) return value_permissions;
+        throw new UndeferrableValueException("Value 'SecurityProfileArgs.permissions' is not present");
     }
 
     /**
@@ -63,11 +68,12 @@ public final class SecurityProfileArgs extends com.pulumi.resources.PolicyResour
      * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SecurityProfileArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SecurityProfileArgs.tags' is not present");
     }
 
 }

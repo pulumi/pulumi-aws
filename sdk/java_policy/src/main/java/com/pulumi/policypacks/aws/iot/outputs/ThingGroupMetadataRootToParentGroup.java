@@ -3,25 +3,28 @@
 
 package com.pulumi.policypacks.aws.iot.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class ThingGroupMetadataRootToParentGroup {
 
-    private @Nullable UndeferrableValue<String> groupArn;
-
+    @PolicyResourceProperty(name="groupArn", flag="unknown_groupArn")
+    private @Nullable String value_groupArn;
+    private boolean unknown_groupArn;
     public @Nullable String groupArn() {
-        if (groupArn == null) return null;
-        return groupArn.getValue("ThingGroupMetadataRootToParentGroup.groupArn");
+        if (!unknown_groupArn) return value_groupArn;
+        throw new UndeferrableValueException("Value 'ThingGroupMetadataRootToParentGroup.groupArn' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> groupName;
-
+    @PolicyResourceProperty(name="groupName", flag="unknown_groupName")
+    private @Nullable String value_groupName;
+    private boolean unknown_groupName;
     public @Nullable String groupName() {
-        if (groupName == null) return null;
-        return groupName.getValue("ThingGroupMetadataRootToParentGroup.groupName");
+        if (!unknown_groupName) return value_groupName;
+        throw new UndeferrableValueException("Value 'ThingGroupMetadataRootToParentGroup.groupName' is not present");
     }
 
 }

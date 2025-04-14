@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DataLakeSettingsCreateDatabaseDefaultPermissionArgs {
      * List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, `DESCRIBE`, and `CREATE_TABLE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      * 
      */
-    private UndeferrableValue<List<String>> permissions;
-
+    @PolicyResourceProperty(name="permissions", flag="unknown_permissions")
+    private List<String> value_permissions;
+    private boolean unknown_permissions;
     public List<String> permissions() {
-        if (permissions == null) return null;
-        return permissions.getValue("DataLakeSettingsCreateDatabaseDefaultPermissionArgs.permissions");
+        if (!unknown_permissions) return value_permissions;
+        throw new UndeferrableValueException("Value 'DataLakeSettingsCreateDatabaseDefaultPermissionArgs.permissions' is not present");
     }
 
     /**
      * Principal who is granted permissions. To enforce metadata and underlying data access control only by IAM on new databases and tables set `principal` to `IAM_ALLOWED_PRINCIPALS` and `permissions` to `[&#34;ALL&#34;]`.
      * 
      */
-    private UndeferrableValue<String> principal;
-
+    @PolicyResourceProperty(name="principal", flag="unknown_principal")
+    private String value_principal;
+    private boolean unknown_principal;
     public String principal() {
-        if (principal == null) return null;
-        return principal.getValue("DataLakeSettingsCreateDatabaseDefaultPermissionArgs.principal");
+        if (!unknown_principal) return value_principal;
+        throw new UndeferrableValueException("Value 'DataLakeSettingsCreateDatabaseDefaultPermissionArgs.principal' is not present");
     }
 
 }

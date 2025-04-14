@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appstream;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appstream.outputs.DirectoryConfigServiceAccountCredentials;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class DirectoryConfig extends com.pulumi.resources.PolicyResourceOu
      * Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
      * 
      */
-    private UndeferrableValue<String> createdTime;
-
+    @PolicyResourceProperty(name="createdTime", flag="unknown_createdTime")
+    private String value_createdTime;
+    private boolean unknown_createdTime;
     public String createdTime() {
-        if (createdTime == null) return null;
-        return createdTime.getValue("DirectoryConfig.createdTime");
+        if (!unknown_createdTime) return value_createdTime;
+        throw new UndeferrableValueException("Value 'DirectoryConfig.createdTime' is not present");
     }
 
     /**
      * Fully qualified name of the directory.
      * 
      */
-    private UndeferrableValue<String> directoryName;
-
+    @PolicyResourceProperty(name="directoryName", flag="unknown_directoryName")
+    private String value_directoryName;
+    private boolean unknown_directoryName;
     public String directoryName() {
-        if (directoryName == null) return null;
-        return directoryName.getValue("DirectoryConfig.directoryName");
+        if (!unknown_directoryName) return value_directoryName;
+        throw new UndeferrableValueException("Value 'DirectoryConfig.directoryName' is not present");
     }
 
     /**
      * Distinguished names of the organizational units for computer accounts.
      * 
      */
-    private UndeferrableValue<List<String>> organizationalUnitDistinguishedNames;
-
+    @PolicyResourceProperty(name="organizationalUnitDistinguishedNames", flag="unknown_organizationalUnitDistinguishedNames")
+    private List<String> value_organizationalUnitDistinguishedNames;
+    private boolean unknown_organizationalUnitDistinguishedNames;
     public List<String> organizationalUnitDistinguishedNames() {
-        if (organizationalUnitDistinguishedNames == null) return null;
-        return organizationalUnitDistinguishedNames.getValue("DirectoryConfig.organizationalUnitDistinguishedNames");
+        if (!unknown_organizationalUnitDistinguishedNames) return value_organizationalUnitDistinguishedNames;
+        throw new UndeferrableValueException("Value 'DirectoryConfig.organizationalUnitDistinguishedNames' is not present");
     }
 
     /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
      * 
      */
-    private UndeferrableValue<DirectoryConfigServiceAccountCredentials> serviceAccountCredentials;
-
+    @PolicyResourceProperty(name="serviceAccountCredentials", flag="unknown_serviceAccountCredentials")
+    private DirectoryConfigServiceAccountCredentials value_serviceAccountCredentials;
+    private boolean unknown_serviceAccountCredentials;
     public DirectoryConfigServiceAccountCredentials serviceAccountCredentials() {
-        if (serviceAccountCredentials == null) return null;
-        return serviceAccountCredentials.getValue("DirectoryConfig.serviceAccountCredentials");
+        if (!unknown_serviceAccountCredentials) return value_serviceAccountCredentials;
+        throw new UndeferrableValueException("Value 'DirectoryConfig.serviceAccountCredentials' is not present");
     }
 
 }

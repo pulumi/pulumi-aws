@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -18,11 +19,12 @@ public final class ServerCertificateArgs extends com.pulumi.resources.PolicyReso
      * PEM-encoded format.
      * 
      */
-    private UndeferrableValue<String> certificateBody;
-
+    @PolicyResourceProperty(name="certificateBody", flag="unknown_certificateBody")
+    private String value_certificateBody;
+    private boolean unknown_certificateBody;
     public String certificateBody() {
-        if (certificateBody == null) return null;
-        return certificateBody.getValue("ServerCertificateArgs.certificateBody");
+        if (!unknown_certificateBody) return value_certificateBody;
+        throw new UndeferrableValueException("Value 'ServerCertificateArgs.certificateBody' is not present");
     }
 
     /**
@@ -31,22 +33,24 @@ public final class ServerCertificateArgs extends com.pulumi.resources.PolicyReso
      * of the chain.
      * 
      */
-    private UndeferrableValue<String> certificateChain;
-
+    @PolicyResourceProperty(name="certificateChain", flag="unknown_certificateChain")
+    private String value_certificateChain;
+    private boolean unknown_certificateChain;
     public String certificateChain() {
-        if (certificateChain == null) return null;
-        return certificateChain.getValue("ServerCertificateArgs.certificateChain");
+        if (!unknown_certificateChain) return value_certificateChain;
+        throw new UndeferrableValueException("Value 'ServerCertificateArgs.certificateChain' is not present");
     }
 
     /**
      * The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ServerCertificateArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ServerCertificateArgs.name' is not present");
     }
 
     /**
@@ -54,11 +58,12 @@ public final class ServerCertificateArgs extends com.pulumi.resources.PolicyReso
      * prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("ServerCertificateArgs.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'ServerCertificateArgs.namePrefix' is not present");
     }
 
     /**
@@ -68,22 +73,24 @@ public final class ServerCertificateArgs extends com.pulumi.resources.PolicyReso
      * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
      * 
      */
-    private UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private String value_path;
+    private boolean unknown_path;
     public String path() {
-        if (path == null) return null;
-        return path.getValue("ServerCertificateArgs.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'ServerCertificateArgs.path' is not present");
     }
 
     /**
      * The contents of the private key in PEM-encoded format.
      * 
      */
-    private UndeferrableValue<String> privateKey;
-
+    @PolicyResourceProperty(name="privateKey", flag="unknown_privateKey")
+    private String value_privateKey;
+    private boolean unknown_privateKey;
     public String privateKey() {
-        if (privateKey == null) return null;
-        return privateKey.getValue("ServerCertificateArgs.privateKey");
+        if (!unknown_privateKey) return value_privateKey;
+        throw new UndeferrableValueException("Value 'ServerCertificateArgs.privateKey' is not present");
     }
 
     /**
@@ -92,11 +99,12 @@ public final class ServerCertificateArgs extends com.pulumi.resources.PolicyReso
      * &gt; **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificate_body` contains only one certificate. All other certificates should go in `certificate_chain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ServerCertificateArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ServerCertificateArgs.tags' is not present");
     }
 
 }

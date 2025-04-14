@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.gamelift.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class FleetResourceCreationLimitPolicyArgs {
      * Maximum number of game sessions that an individual can create during the policy period.
      * 
      */
-    private UndeferrableValue<Integer> newGameSessionsPerCreator;
-
+    @PolicyResourceProperty(name="newGameSessionsPerCreator", flag="unknown_newGameSessionsPerCreator")
+    private Integer value_newGameSessionsPerCreator;
+    private boolean unknown_newGameSessionsPerCreator;
     public Integer newGameSessionsPerCreator() {
-        if (newGameSessionsPerCreator == null) return null;
-        return newGameSessionsPerCreator.getValue("FleetResourceCreationLimitPolicyArgs.newGameSessionsPerCreator");
+        if (!unknown_newGameSessionsPerCreator) return value_newGameSessionsPerCreator;
+        throw new UndeferrableValueException("Value 'FleetResourceCreationLimitPolicyArgs.newGameSessionsPerCreator' is not present");
     }
 
     /**
      * Time span used in evaluating the resource creation limit policy.
      * 
      */
-    private UndeferrableValue<Integer> policyPeriodInMinutes;
-
+    @PolicyResourceProperty(name="policyPeriodInMinutes", flag="unknown_policyPeriodInMinutes")
+    private Integer value_policyPeriodInMinutes;
+    private boolean unknown_policyPeriodInMinutes;
     public Integer policyPeriodInMinutes() {
-        if (policyPeriodInMinutes == null) return null;
-        return policyPeriodInMinutes.getValue("FleetResourceCreationLimitPolicyArgs.policyPeriodInMinutes");
+        if (!unknown_policyPeriodInMinutes) return value_policyPeriodInMinutes;
+        throw new UndeferrableValueException("Value 'FleetResourceCreationLimitPolicyArgs.policyPeriodInMinutes' is not present");
     }
 
 }

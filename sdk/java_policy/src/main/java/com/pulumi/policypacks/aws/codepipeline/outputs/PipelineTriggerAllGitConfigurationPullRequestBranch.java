@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class PipelineTriggerAllGitConfigurationPullRequestBranch {
      * A list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> excludes;
-
+    @PolicyResourceProperty(name="excludes", flag="unknown_excludes")
+    private @Nullable List<String> value_excludes;
+    private boolean unknown_excludes;
     public @Nullable List<String> excludes() {
-        if (excludes == null) return null;
-        return excludes.getValue("PipelineTriggerAllGitConfigurationPullRequestBranch.excludes");
+        if (!unknown_excludes) return value_excludes;
+        throw new UndeferrableValueException("Value 'PipelineTriggerAllGitConfigurationPullRequestBranch.excludes' is not present");
     }
 
     /**
      * A list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> includes;
-
+    @PolicyResourceProperty(name="includes", flag="unknown_includes")
+    private @Nullable List<String> value_includes;
+    private boolean unknown_includes;
     public @Nullable List<String> includes() {
-        if (includes == null) return null;
-        return includes.getValue("PipelineTriggerAllGitConfigurationPullRequestBranch.includes");
+        if (!unknown_includes) return value_includes;
+        throw new UndeferrableValueException("Value 'PipelineTriggerAllGitConfigurationPullRequestBranch.includes' is not present");
     }
 
 }

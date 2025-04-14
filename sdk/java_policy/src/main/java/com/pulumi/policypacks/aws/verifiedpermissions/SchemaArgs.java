@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedpermissions;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.verifiedpermissions.inputs.SchemaDefinitionArgs;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class SchemaArgs extends com.pulumi.resources.PolicyResourceInput {
      * The definition of the schema.
      * 
      */
-    private UndeferrableValue<SchemaDefinitionArgs> definition;
-
+    @PolicyResourceProperty(name="definition", flag="unknown_definition")
+    private SchemaDefinitionArgs value_definition;
+    private boolean unknown_definition;
     public SchemaDefinitionArgs definition() {
-        if (definition == null) return null;
-        return definition.getValue("SchemaArgs.definition");
+        if (!unknown_definition) return value_definition;
+        throw new UndeferrableValueException("Value 'SchemaArgs.definition' is not present");
     }
 
     /**
      * The ID of the Policy Store.
      * 
      */
-    private UndeferrableValue<String> policyStoreId;
-
+    @PolicyResourceProperty(name="policyStoreId", flag="unknown_policyStoreId")
+    private String value_policyStoreId;
+    private boolean unknown_policyStoreId;
     public String policyStoreId() {
-        if (policyStoreId == null) return null;
-        return policyStoreId.getValue("SchemaArgs.policyStoreId");
+        if (!unknown_policyStoreId) return value_policyStoreId;
+        throw new UndeferrableValueException("Value 'SchemaArgs.policyStoreId' is not present");
     }
 
 }

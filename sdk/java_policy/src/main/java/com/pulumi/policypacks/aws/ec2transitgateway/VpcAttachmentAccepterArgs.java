@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class VpcAttachmentAccepterArgs extends com.pulumi.resources.Policy
      * Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VpcAttachmentAccepterArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VpcAttachmentAccepterArgs.tags' is not present");
     }
 
     /**
      * The ID of the EC2 Transit Gateway Attachment to manage.
      * 
      */
-    private UndeferrableValue<String> transitGatewayAttachmentId;
-
+    @PolicyResourceProperty(name="transitGatewayAttachmentId", flag="unknown_transitGatewayAttachmentId")
+    private String value_transitGatewayAttachmentId;
+    private boolean unknown_transitGatewayAttachmentId;
     public String transitGatewayAttachmentId() {
-        if (transitGatewayAttachmentId == null) return null;
-        return transitGatewayAttachmentId.getValue("VpcAttachmentAccepterArgs.transitGatewayAttachmentId");
+        if (!unknown_transitGatewayAttachmentId) return value_transitGatewayAttachmentId;
+        throw new UndeferrableValueException("Value 'VpcAttachmentAccepterArgs.transitGatewayAttachmentId' is not present");
     }
 
     /**
      * Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.
      * 
      */
-    private UndeferrableValue<Boolean> transitGatewayDefaultRouteTableAssociation;
-
+    @PolicyResourceProperty(name="transitGatewayDefaultRouteTableAssociation", flag="unknown_transitGatewayDefaultRouteTableAssociation")
+    private Boolean value_transitGatewayDefaultRouteTableAssociation;
+    private boolean unknown_transitGatewayDefaultRouteTableAssociation;
     public Boolean transitGatewayDefaultRouteTableAssociation() {
-        if (transitGatewayDefaultRouteTableAssociation == null) return null;
-        return transitGatewayDefaultRouteTableAssociation.getValue("VpcAttachmentAccepterArgs.transitGatewayDefaultRouteTableAssociation");
+        if (!unknown_transitGatewayDefaultRouteTableAssociation) return value_transitGatewayDefaultRouteTableAssociation;
+        throw new UndeferrableValueException("Value 'VpcAttachmentAccepterArgs.transitGatewayDefaultRouteTableAssociation' is not present");
     }
 
     /**
      * Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. Default value: `true`.
      * 
      */
-    private UndeferrableValue<Boolean> transitGatewayDefaultRouteTablePropagation;
-
+    @PolicyResourceProperty(name="transitGatewayDefaultRouteTablePropagation", flag="unknown_transitGatewayDefaultRouteTablePropagation")
+    private Boolean value_transitGatewayDefaultRouteTablePropagation;
+    private boolean unknown_transitGatewayDefaultRouteTablePropagation;
     public Boolean transitGatewayDefaultRouteTablePropagation() {
-        if (transitGatewayDefaultRouteTablePropagation == null) return null;
-        return transitGatewayDefaultRouteTablePropagation.getValue("VpcAttachmentAccepterArgs.transitGatewayDefaultRouteTablePropagation");
+        if (!unknown_transitGatewayDefaultRouteTablePropagation) return value_transitGatewayDefaultRouteTablePropagation;
+        throw new UndeferrableValueException("Value 'VpcAttachmentAccepterArgs.transitGatewayDefaultRouteTablePropagation' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,18 +16,20 @@ public final class FleetSpotOptionsMaintenanceStrategiesCapacityRebalance {
      * The replacement strategy to use. Only available for fleets of `type` set to `maintain`. Valid values: `launch`.
      * 
      */
-    private @Nullable UndeferrableValue<String> replacementStrategy;
-
+    @PolicyResourceProperty(name="replacementStrategy", flag="unknown_replacementStrategy")
+    private @Nullable String value_replacementStrategy;
+    private boolean unknown_replacementStrategy;
     public @Nullable String replacementStrategy() {
-        if (replacementStrategy == null) return null;
-        return replacementStrategy.getValue("FleetSpotOptionsMaintenanceStrategiesCapacityRebalance.replacementStrategy");
+        if (!unknown_replacementStrategy) return value_replacementStrategy;
+        throw new UndeferrableValueException("Value 'FleetSpotOptionsMaintenanceStrategiesCapacityRebalance.replacementStrategy' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> terminationDelay;
-
+    @PolicyResourceProperty(name="terminationDelay", flag="unknown_terminationDelay")
+    private @Nullable Integer value_terminationDelay;
+    private boolean unknown_terminationDelay;
     public @Nullable Integer terminationDelay() {
-        if (terminationDelay == null) return null;
-        return terminationDelay.getValue("FleetSpotOptionsMaintenanceStrategiesCapacityRebalance.terminationDelay");
+        if (!unknown_terminationDelay) return value_terminationDelay;
+        throw new UndeferrableValueException("Value 'FleetSpotOptionsMaintenanceStrategiesCapacityRebalance.terminationDelay' is not present");
     }
 
 }

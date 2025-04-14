@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.backup.outputs.SelectionCondition;
 import com.pulumi.policypacks.aws.backup.outputs.SelectionSelectionTag;
@@ -19,77 +20,84 @@ public final class Selection extends com.pulumi.resources.PolicyResourceOutput {
      * Condition-based filters used to specify sets of resources for a backup plan. See below for details.
      * 
      */
-    private UndeferrableValue<List<SelectionCondition>> conditions;
-
+    @PolicyResourceProperty(name="conditions", flag="unknown_conditions")
+    private List<SelectionCondition> value_conditions;
+    private boolean unknown_conditions;
     public List<SelectionCondition> conditions() {
-        if (conditions == null) return null;
-        return conditions.getValue("Selection.conditions");
+        if (!unknown_conditions) return value_conditions;
+        throw new UndeferrableValueException("Value 'Selection.conditions' is not present");
     }
 
     /**
      * The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
      * 
      */
-    private UndeferrableValue<String> iamRoleArn;
-
+    @PolicyResourceProperty(name="iamRoleArn", flag="unknown_iamRoleArn")
+    private String value_iamRoleArn;
+    private boolean unknown_iamRoleArn;
     public String iamRoleArn() {
-        if (iamRoleArn == null) return null;
-        return iamRoleArn.getValue("Selection.iamRoleArn");
+        if (!unknown_iamRoleArn) return value_iamRoleArn;
+        throw new UndeferrableValueException("Value 'Selection.iamRoleArn' is not present");
     }
 
     /**
      * The display name of a resource selection document.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Selection.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Selection.name' is not present");
     }
 
     /**
      * An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
      * 
      */
-    private UndeferrableValue<List<String>> notResources;
-
+    @PolicyResourceProperty(name="notResources", flag="unknown_notResources")
+    private List<String> value_notResources;
+    private boolean unknown_notResources;
     public List<String> notResources() {
-        if (notResources == null) return null;
-        return notResources.getValue("Selection.notResources");
+        if (!unknown_notResources) return value_notResources;
+        throw new UndeferrableValueException("Value 'Selection.notResources' is not present");
     }
 
     /**
      * The backup plan ID to be associated with the selection of resources.
      * 
      */
-    private UndeferrableValue<String> planId;
-
+    @PolicyResourceProperty(name="planId", flag="unknown_planId")
+    private String value_planId;
+    private boolean unknown_planId;
     public String planId() {
-        if (planId == null) return null;
-        return planId.getValue("Selection.planId");
+        if (!unknown_planId) return value_planId;
+        throw new UndeferrableValueException("Value 'Selection.planId' is not present");
     }
 
     /**
      * An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> resources;
-
+    @PolicyResourceProperty(name="resources", flag="unknown_resources")
+    private @Nullable List<String> value_resources;
+    private boolean unknown_resources;
     public @Nullable List<String> resources() {
-        if (resources == null) return null;
-        return resources.getValue("Selection.resources");
+        if (!unknown_resources) return value_resources;
+        throw new UndeferrableValueException("Value 'Selection.resources' is not present");
     }
 
     /**
      * Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<SelectionSelectionTag>> selectionTags;
-
+    @PolicyResourceProperty(name="selectionTags", flag="unknown_selectionTags")
+    private @Nullable List<SelectionSelectionTag> value_selectionTags;
+    private boolean unknown_selectionTags;
     public @Nullable List<SelectionSelectionTag> selectionTags() {
-        if (selectionTags == null) return null;
-        return selectionTags.getValue("Selection.selectionTags");
+        if (!unknown_selectionTags) return value_selectionTags;
+        throw new UndeferrableValueException("Value 'Selection.selectionTags' is not present");
     }
 
 }

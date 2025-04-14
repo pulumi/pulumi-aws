@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ModelContainerImageConfigRepositoryAuthConfigArgs {
      * The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
      * 
      */
-    private UndeferrableValue<String> repositoryCredentialsProviderArn;
-
+    @PolicyResourceProperty(name="repositoryCredentialsProviderArn", flag="unknown_repositoryCredentialsProviderArn")
+    private String value_repositoryCredentialsProviderArn;
+    private boolean unknown_repositoryCredentialsProviderArn;
     public String repositoryCredentialsProviderArn() {
-        if (repositoryCredentialsProviderArn == null) return null;
-        return repositoryCredentialsProviderArn.getValue("ModelContainerImageConfigRepositoryAuthConfigArgs.repositoryCredentialsProviderArn");
+        if (!unknown_repositoryCredentialsProviderArn) return value_repositoryCredentialsProviderArn;
+        throw new UndeferrableValueException("Value 'ModelContainerImageConfigRepositoryAuthConfigArgs.repositoryCredentialsProviderArn' is not present");
     }
 
 }

@@ -3,28 +3,31 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog {
 
-    private UndeferrableValue<String> apiKey;
-
+    @PolicyResourceProperty(name="apiKey", flag="unknown_apiKey")
+    private String value_apiKey;
+    private boolean unknown_apiKey;
     public String apiKey() {
-        if (apiKey == null) return null;
-        return apiKey.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog.apiKey");
+        if (!unknown_apiKey) return value_apiKey;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog.apiKey' is not present");
     }
 
     /**
      * Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
      * 
      */
-    private UndeferrableValue<String> applicationKey;
-
+    @PolicyResourceProperty(name="applicationKey", flag="unknown_applicationKey")
+    private String value_applicationKey;
+    private boolean unknown_applicationKey;
     public String applicationKey() {
-        if (applicationKey == null) return null;
-        return applicationKey.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog.applicationKey");
+        if (!unknown_applicationKey) return value_applicationKey;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog.applicationKey' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -11,62 +12,68 @@ import javax.annotation.Nullable;
 
 public final class QuicksetupConfigurationManagerConfigurationDefinition {
 
-    private @Nullable UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private @Nullable String value_id;
+    private boolean unknown_id;
     public @Nullable String id() {
-        if (id == null) return null;
-        return id.getValue("QuicksetupConfigurationManagerConfigurationDefinition.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'QuicksetupConfigurationManagerConfigurationDefinition.id' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> localDeploymentAdministrationRoleArn;
-
+    @PolicyResourceProperty(name="localDeploymentAdministrationRoleArn", flag="unknown_localDeploymentAdministrationRoleArn")
+    private @Nullable String value_localDeploymentAdministrationRoleArn;
+    private boolean unknown_localDeploymentAdministrationRoleArn;
     public @Nullable String localDeploymentAdministrationRoleArn() {
-        if (localDeploymentAdministrationRoleArn == null) return null;
-        return localDeploymentAdministrationRoleArn.getValue("QuicksetupConfigurationManagerConfigurationDefinition.localDeploymentAdministrationRoleArn");
+        if (!unknown_localDeploymentAdministrationRoleArn) return value_localDeploymentAdministrationRoleArn;
+        throw new UndeferrableValueException("Value 'QuicksetupConfigurationManagerConfigurationDefinition.localDeploymentAdministrationRoleArn' is not present");
     }
 
     /**
      * Name of the IAM role used to deploy local configurations.
      * 
      */
-    private @Nullable UndeferrableValue<String> localDeploymentExecutionRoleName;
-
+    @PolicyResourceProperty(name="localDeploymentExecutionRoleName", flag="unknown_localDeploymentExecutionRoleName")
+    private @Nullable String value_localDeploymentExecutionRoleName;
+    private boolean unknown_localDeploymentExecutionRoleName;
     public @Nullable String localDeploymentExecutionRoleName() {
-        if (localDeploymentExecutionRoleName == null) return null;
-        return localDeploymentExecutionRoleName.getValue("QuicksetupConfigurationManagerConfigurationDefinition.localDeploymentExecutionRoleName");
+        if (!unknown_localDeploymentExecutionRoleName) return value_localDeploymentExecutionRoleName;
+        throw new UndeferrableValueException("Value 'QuicksetupConfigurationManagerConfigurationDefinition.localDeploymentExecutionRoleName' is not present");
     }
 
     /**
      * Parameters for the configuration definition type. Parameters for configuration definitions vary based the configuration type. See the [AWS API documentation](https://docs.aws.amazon.com/quick-setup/latest/APIReference/API_ConfigurationDefinitionInput.html) for a complete list of parameters for each configuration type.
      * 
      */
-    private UndeferrableValue<Map<String,String>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private Map<String,String> value_parameters;
+    private boolean unknown_parameters;
     public Map<String,String> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("QuicksetupConfigurationManagerConfigurationDefinition.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'QuicksetupConfigurationManagerConfigurationDefinition.parameters' is not present");
     }
 
     /**
      * Type of the Quick Setup configuration.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("QuicksetupConfigurationManagerConfigurationDefinition.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'QuicksetupConfigurationManagerConfigurationDefinition.type' is not present");
     }
 
     /**
      * Version of the Quick Setup type to use.
      * 
      */
-    private @Nullable UndeferrableValue<String> typeVersion;
-
+    @PolicyResourceProperty(name="typeVersion", flag="unknown_typeVersion")
+    private @Nullable String value_typeVersion;
+    private boolean unknown_typeVersion;
     public @Nullable String typeVersion() {
-        if (typeVersion == null) return null;
-        return typeVersion.getValue("QuicksetupConfigurationManagerConfigurationDefinition.typeVersion");
+        if (!unknown_typeVersion) return value_typeVersion;
+        throw new UndeferrableValueException("Value 'QuicksetupConfigurationManagerConfigurationDefinition.typeVersion' is not present");
     }
 
 }

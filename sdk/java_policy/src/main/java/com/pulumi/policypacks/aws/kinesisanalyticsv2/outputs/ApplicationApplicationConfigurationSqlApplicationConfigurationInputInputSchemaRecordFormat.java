@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
      * 
      */
-    private UndeferrableValue<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters> mappingParameters;
-
+    @PolicyResourceProperty(name="mappingParameters", flag="unknown_mappingParameters")
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters value_mappingParameters;
+    private boolean unknown_mappingParameters;
     public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters mappingParameters() {
-        if (mappingParameters == null) return null;
-        return mappingParameters.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat.mappingParameters");
+        if (!unknown_mappingParameters) return value_mappingParameters;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat.mappingParameters' is not present");
     }
 
     /**
      * The type of record format. Valid values: `CSV`, `JSON`.
      * 
      */
-    private UndeferrableValue<String> recordFormatType;
-
+    @PolicyResourceProperty(name="recordFormatType", flag="unknown_recordFormatType")
+    private String value_recordFormatType;
+    private boolean unknown_recordFormatType;
     public String recordFormatType() {
-        if (recordFormatType == null) return null;
-        return recordFormatType.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat.recordFormatType");
+        if (!unknown_recordFormatType) return value_recordFormatType;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat.recordFormatType' is not present");
     }
 
 }

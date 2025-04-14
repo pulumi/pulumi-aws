@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.datazone.inputs.DomainSingleSignOnArgs;
 import com.pulumi.policypacks.aws.datazone.inputs.DomainTimeoutsArgs;
@@ -20,11 +21,12 @@ public final class DomainArgs extends com.pulumi.resources.PolicyResourceInput {
      * Description of the Domain.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("DomainArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'DomainArgs.description' is not present");
     }
 
     /**
@@ -33,69 +35,76 @@ public final class DomainArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> domainExecutionRole;
-
+    @PolicyResourceProperty(name="domainExecutionRole", flag="unknown_domainExecutionRole")
+    private String value_domainExecutionRole;
+    private boolean unknown_domainExecutionRole;
     public String domainExecutionRole() {
-        if (domainExecutionRole == null) return null;
-        return domainExecutionRole.getValue("DomainArgs.domainExecutionRole");
+        if (!unknown_domainExecutionRole) return value_domainExecutionRole;
+        throw new UndeferrableValueException("Value 'DomainArgs.domainExecutionRole' is not present");
     }
 
     /**
      * ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
      * 
      */
-    private UndeferrableValue<String> kmsKeyIdentifier;
-
+    @PolicyResourceProperty(name="kmsKeyIdentifier", flag="unknown_kmsKeyIdentifier")
+    private String value_kmsKeyIdentifier;
+    private boolean unknown_kmsKeyIdentifier;
     public String kmsKeyIdentifier() {
-        if (kmsKeyIdentifier == null) return null;
-        return kmsKeyIdentifier.getValue("DomainArgs.kmsKeyIdentifier");
+        if (!unknown_kmsKeyIdentifier) return value_kmsKeyIdentifier;
+        throw new UndeferrableValueException("Value 'DomainArgs.kmsKeyIdentifier' is not present");
     }
 
     /**
      * Name of the Domain.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DomainArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DomainArgs.name' is not present");
     }
 
     /**
      * Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
      * 
      */
-    private UndeferrableValue<DomainSingleSignOnArgs> singleSignOn;
-
+    @PolicyResourceProperty(name="singleSignOn", flag="unknown_singleSignOn")
+    private DomainSingleSignOnArgs value_singleSignOn;
+    private boolean unknown_singleSignOn;
     public DomainSingleSignOnArgs singleSignOn() {
-        if (singleSignOn == null) return null;
-        return singleSignOn.getValue("DomainArgs.singleSignOn");
+        if (!unknown_singleSignOn) return value_singleSignOn;
+        throw new UndeferrableValueException("Value 'DomainArgs.singleSignOn' is not present");
     }
 
     /**
      * Whether to skip the deletion check for the Domain.
      * 
      */
-    private UndeferrableValue<Boolean> skipDeletionCheck;
-
+    @PolicyResourceProperty(name="skipDeletionCheck", flag="unknown_skipDeletionCheck")
+    private Boolean value_skipDeletionCheck;
+    private boolean unknown_skipDeletionCheck;
     public Boolean skipDeletionCheck() {
-        if (skipDeletionCheck == null) return null;
-        return skipDeletionCheck.getValue("DomainArgs.skipDeletionCheck");
+        if (!unknown_skipDeletionCheck) return value_skipDeletionCheck;
+        throw new UndeferrableValueException("Value 'DomainArgs.skipDeletionCheck' is not present");
     }
 
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DomainArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DomainArgs.tags' is not present");
     }
 
-    private UndeferrableValue<DomainTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private DomainTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public DomainTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("DomainArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'DomainArgs.timeouts' is not present");
     }
 
 }

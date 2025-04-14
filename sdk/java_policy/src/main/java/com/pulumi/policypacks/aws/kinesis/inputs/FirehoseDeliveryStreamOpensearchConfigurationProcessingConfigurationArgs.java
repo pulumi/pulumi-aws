@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArgs;
 import java.lang.Boolean;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationProcessingConfig
      * Enables or disables data processing.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs.enabled' is not present");
     }
 
     /**
      * Specifies the data processors as multiple blocks. See `processors` block below for details.
      * 
      */
-    private UndeferrableValue<List<FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArgs>> processors;
-
+    @PolicyResourceProperty(name="processors", flag="unknown_processors")
+    private List<FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArgs> value_processors;
+    private boolean unknown_processors;
     public List<FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArgs> processors() {
-        if (processors == null) return null;
-        return processors.getValue("FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs.processors");
+        if (!unknown_processors) return value_processors;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs.processors' is not present");
     }
 
 }

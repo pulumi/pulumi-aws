@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.autoscaling.outputs.GroupAvailabilityZoneDistribution;
 import com.pulumi.policypacks.aws.autoscaling.outputs.GroupInitialLifecycleHook;
@@ -28,77 +29,84 @@ public final class Group extends com.pulumi.resources.PolicyResourceOutput {
      * ARN for this Auto Scaling Group
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Group.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Group.arn' is not present");
     }
 
     /**
      * The instance capacity distribution across Availability Zones. See Availability Zone Distribution below for more details.
      * 
      */
-    private UndeferrableValue<GroupAvailabilityZoneDistribution> availabilityZoneDistribution;
-
+    @PolicyResourceProperty(name="availabilityZoneDistribution", flag="unknown_availabilityZoneDistribution")
+    private GroupAvailabilityZoneDistribution value_availabilityZoneDistribution;
+    private boolean unknown_availabilityZoneDistribution;
     public GroupAvailabilityZoneDistribution availabilityZoneDistribution() {
-        if (availabilityZoneDistribution == null) return null;
-        return availabilityZoneDistribution.getValue("Group.availabilityZoneDistribution");
+        if (!unknown_availabilityZoneDistribution) return value_availabilityZoneDistribution;
+        throw new UndeferrableValueException("Value 'Group.availabilityZoneDistribution' is not present");
     }
 
     /**
      * A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the `vpc_zone_identifier` attribute, or for attaching a network interface when an existing network interface ID is specified in a launch template. Conflicts with `vpc_zone_identifier`.
      * 
      */
-    private UndeferrableValue<List<String>> availabilityZones;
-
+    @PolicyResourceProperty(name="availabilityZones", flag="unknown_availabilityZones")
+    private List<String> value_availabilityZones;
+    private boolean unknown_availabilityZones;
     public List<String> availabilityZones() {
-        if (availabilityZones == null) return null;
-        return availabilityZones.getValue("Group.availabilityZones");
+        if (!unknown_availabilityZones) return value_availabilityZones;
+        throw new UndeferrableValueException("Value 'Group.availabilityZones' is not present");
     }
 
     /**
      * Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> capacityRebalance;
-
+    @PolicyResourceProperty(name="capacityRebalance", flag="unknown_capacityRebalance")
+    private @Nullable Boolean value_capacityRebalance;
+    private boolean unknown_capacityRebalance;
     public @Nullable Boolean capacityRebalance() {
-        if (capacityRebalance == null) return null;
-        return capacityRebalance.getValue("Group.capacityRebalance");
+        if (!unknown_capacityRebalance) return value_capacityRebalance;
+        throw new UndeferrableValueException("Value 'Group.capacityRebalance' is not present");
     }
 
     /**
      * Reserved.
      * 
      */
-    private @Nullable UndeferrableValue<String> context;
-
+    @PolicyResourceProperty(name="context", flag="unknown_context")
+    private @Nullable String value_context;
+    private boolean unknown_context;
     public @Nullable String context() {
-        if (context == null) return null;
-        return context.getValue("Group.context");
+        if (!unknown_context) return value_context;
+        throw new UndeferrableValueException("Value 'Group.context' is not present");
     }
 
     /**
      * Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
      * 
      */
-    private UndeferrableValue<Integer> defaultCooldown;
-
+    @PolicyResourceProperty(name="defaultCooldown", flag="unknown_defaultCooldown")
+    private Integer value_defaultCooldown;
+    private boolean unknown_defaultCooldown;
     public Integer defaultCooldown() {
-        if (defaultCooldown == null) return null;
-        return defaultCooldown.getValue("Group.defaultCooldown");
+        if (!unknown_defaultCooldown) return value_defaultCooldown;
+        throw new UndeferrableValueException("Value 'Group.defaultCooldown' is not present");
     }
 
     /**
      * Amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
      * 
      */
-    private @Nullable UndeferrableValue<Integer> defaultInstanceWarmup;
-
+    @PolicyResourceProperty(name="defaultInstanceWarmup", flag="unknown_defaultInstanceWarmup")
+    private @Nullable Integer value_defaultInstanceWarmup;
+    private boolean unknown_defaultInstanceWarmup;
     public @Nullable Integer defaultInstanceWarmup() {
-        if (defaultInstanceWarmup == null) return null;
-        return defaultInstanceWarmup.getValue("Group.defaultInstanceWarmup");
+        if (!unknown_defaultInstanceWarmup) return value_defaultInstanceWarmup;
+        throw new UndeferrableValueException("Value 'Group.defaultInstanceWarmup' is not present");
     }
 
     /**
@@ -107,33 +115,36 @@ public final class Group extends com.pulumi.resources.PolicyResourceOutput {
      * Capacity below.)
      * 
      */
-    private UndeferrableValue<Integer> desiredCapacity;
-
+    @PolicyResourceProperty(name="desiredCapacity", flag="unknown_desiredCapacity")
+    private Integer value_desiredCapacity;
+    private boolean unknown_desiredCapacity;
     public Integer desiredCapacity() {
-        if (desiredCapacity == null) return null;
-        return desiredCapacity.getValue("Group.desiredCapacity");
+        if (!unknown_desiredCapacity) return value_desiredCapacity;
+        throw new UndeferrableValueException("Value 'Group.desiredCapacity' is not present");
     }
 
     /**
      * The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `&#34;units&#34;`, `&#34;vcpu&#34;`, `&#34;memory-mib&#34;`.
      * 
      */
-    private @Nullable UndeferrableValue<String> desiredCapacityType;
-
+    @PolicyResourceProperty(name="desiredCapacityType", flag="unknown_desiredCapacityType")
+    private @Nullable String value_desiredCapacityType;
+    private boolean unknown_desiredCapacityType;
     public @Nullable String desiredCapacityType() {
-        if (desiredCapacityType == null) return null;
-        return desiredCapacityType.getValue("Group.desiredCapacityType");
+        if (!unknown_desiredCapacityType) return value_desiredCapacityType;
+        throw new UndeferrableValueException("Value 'Group.desiredCapacityType' is not present");
     }
 
     /**
      * List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> enabledMetrics;
-
+    @PolicyResourceProperty(name="enabledMetrics", flag="unknown_enabledMetrics")
+    private @Nullable List<String> value_enabledMetrics;
+    private boolean unknown_enabledMetrics;
     public @Nullable List<String> enabledMetrics() {
-        if (enabledMetrics == null) return null;
-        return enabledMetrics.getValue("Group.enabledMetrics");
+        if (!unknown_enabledMetrics) return value_enabledMetrics;
+        throw new UndeferrableValueException("Value 'Group.enabledMetrics' is not present");
     }
 
     /**
@@ -144,55 +155,60 @@ public final class Group extends com.pulumi.resources.PolicyResourceOutput {
      * behavior and potentially leaves resources dangling.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> forceDelete;
-
+    @PolicyResourceProperty(name="forceDelete", flag="unknown_forceDelete")
+    private @Nullable Boolean value_forceDelete;
+    private boolean unknown_forceDelete;
     public @Nullable Boolean forceDelete() {
-        if (forceDelete == null) return null;
-        return forceDelete.getValue("Group.forceDelete");
+        if (!unknown_forceDelete) return value_forceDelete;
+        throw new UndeferrableValueException("Value 'Group.forceDelete' is not present");
     }
 
     /**
      * Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> forceDeleteWarmPool;
-
+    @PolicyResourceProperty(name="forceDeleteWarmPool", flag="unknown_forceDeleteWarmPool")
+    private @Nullable Boolean value_forceDeleteWarmPool;
+    private boolean unknown_forceDeleteWarmPool;
     public @Nullable Boolean forceDeleteWarmPool() {
-        if (forceDeleteWarmPool == null) return null;
-        return forceDeleteWarmPool.getValue("Group.forceDeleteWarmPool");
+        if (!unknown_forceDeleteWarmPool) return value_forceDeleteWarmPool;
+        throw new UndeferrableValueException("Value 'Group.forceDeleteWarmPool' is not present");
     }
 
     /**
      * Time (in seconds) after instance comes into service before checking health.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> healthCheckGracePeriod;
-
+    @PolicyResourceProperty(name="healthCheckGracePeriod", flag="unknown_healthCheckGracePeriod")
+    private @Nullable Integer value_healthCheckGracePeriod;
+    private boolean unknown_healthCheckGracePeriod;
     public @Nullable Integer healthCheckGracePeriod() {
-        if (healthCheckGracePeriod == null) return null;
-        return healthCheckGracePeriod.getValue("Group.healthCheckGracePeriod");
+        if (!unknown_healthCheckGracePeriod) return value_healthCheckGracePeriod;
+        throw new UndeferrableValueException("Value 'Group.healthCheckGracePeriod' is not present");
     }
 
     /**
      * &#34;EC2&#34; or &#34;ELB&#34;. Controls how health checking is done.
      * 
      */
-    private UndeferrableValue<String> healthCheckType;
-
+    @PolicyResourceProperty(name="healthCheckType", flag="unknown_healthCheckType")
+    private String value_healthCheckType;
+    private boolean unknown_healthCheckType;
     public String healthCheckType() {
-        if (healthCheckType == null) return null;
-        return healthCheckType.getValue("Group.healthCheckType");
+        if (!unknown_healthCheckType) return value_healthCheckType;
+        throw new UndeferrableValueException("Value 'Group.healthCheckType' is not present");
     }
 
     /**
      * Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> ignoreFailedScalingActivities;
-
+    @PolicyResourceProperty(name="ignoreFailedScalingActivities", flag="unknown_ignoreFailedScalingActivities")
+    private @Nullable Boolean value_ignoreFailedScalingActivities;
+    private boolean unknown_ignoreFailedScalingActivities;
     public @Nullable Boolean ignoreFailedScalingActivities() {
-        if (ignoreFailedScalingActivities == null) return null;
-        return ignoreFailedScalingActivities.getValue("Group.ignoreFailedScalingActivities");
+        if (!unknown_ignoreFailedScalingActivities) return value_ignoreFailedScalingActivities;
+        throw new UndeferrableValueException("Value 'Group.ignoreFailedScalingActivities' is not present");
     }
 
     /**
@@ -205,22 +221,24 @@ public final class Group extends com.pulumi.resources.PolicyResourceOutput {
      * a new Auto Scaling Group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
      * 
      */
-    private @Nullable UndeferrableValue<List<GroupInitialLifecycleHook>> initialLifecycleHooks;
-
+    @PolicyResourceProperty(name="initialLifecycleHooks", flag="unknown_initialLifecycleHooks")
+    private @Nullable List<GroupInitialLifecycleHook> value_initialLifecycleHooks;
+    private boolean unknown_initialLifecycleHooks;
     public @Nullable List<GroupInitialLifecycleHook> initialLifecycleHooks() {
-        if (initialLifecycleHooks == null) return null;
-        return initialLifecycleHooks.getValue("Group.initialLifecycleHooks");
+        if (!unknown_initialLifecycleHooks) return value_initialLifecycleHooks;
+        throw new UndeferrableValueException("Value 'Group.initialLifecycleHooks' is not present");
     }
 
     /**
      * If this block is configured, add a instance maintenance policy to the specified Auto Scaling group. Defined below.
      * 
      */
-    private @Nullable UndeferrableValue<GroupInstanceMaintenancePolicy> instanceMaintenancePolicy;
-
+    @PolicyResourceProperty(name="instanceMaintenancePolicy", flag="unknown_instanceMaintenancePolicy")
+    private @Nullable GroupInstanceMaintenancePolicy value_instanceMaintenancePolicy;
+    private boolean unknown_instanceMaintenancePolicy;
     public @Nullable GroupInstanceMaintenancePolicy instanceMaintenancePolicy() {
-        if (instanceMaintenancePolicy == null) return null;
-        return instanceMaintenancePolicy.getValue("Group.instanceMaintenancePolicy");
+        if (!unknown_instanceMaintenancePolicy) return value_instanceMaintenancePolicy;
+        throw new UndeferrableValueException("Value 'Group.instanceMaintenancePolicy' is not present");
     }
 
     /**
@@ -229,33 +247,36 @@ public final class Group extends com.pulumi.resources.PolicyResourceOutput {
      * when this Auto Scaling Group is updated. Defined below.
      * 
      */
-    private @Nullable UndeferrableValue<GroupInstanceRefresh> instanceRefresh;
-
+    @PolicyResourceProperty(name="instanceRefresh", flag="unknown_instanceRefresh")
+    private @Nullable GroupInstanceRefresh value_instanceRefresh;
+    private boolean unknown_instanceRefresh;
     public @Nullable GroupInstanceRefresh instanceRefresh() {
-        if (instanceRefresh == null) return null;
-        return instanceRefresh.getValue("Group.instanceRefresh");
+        if (!unknown_instanceRefresh) return value_instanceRefresh;
+        throw new UndeferrableValueException("Value 'Group.instanceRefresh' is not present");
     }
 
     /**
      * Name of the launch configuration to use.
      * 
      */
-    private @Nullable UndeferrableValue<String> launchConfiguration;
-
+    @PolicyResourceProperty(name="launchConfiguration", flag="unknown_launchConfiguration")
+    private @Nullable String value_launchConfiguration;
+    private boolean unknown_launchConfiguration;
     public @Nullable String launchConfiguration() {
-        if (launchConfiguration == null) return null;
-        return launchConfiguration.getValue("Group.launchConfiguration");
+        if (!unknown_launchConfiguration) return value_launchConfiguration;
+        throw new UndeferrableValueException("Value 'Group.launchConfiguration' is not present");
     }
 
     /**
      * Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
      * 
      */
-    private UndeferrableValue<GroupLaunchTemplate> launchTemplate;
-
+    @PolicyResourceProperty(name="launchTemplate", flag="unknown_launchTemplate")
+    private GroupLaunchTemplate value_launchTemplate;
+    private boolean unknown_launchTemplate;
     public GroupLaunchTemplate launchTemplate() {
-        if (launchTemplate == null) return null;
-        return launchTemplate.getValue("Group.launchTemplate");
+        if (!unknown_launchTemplate) return value_launchTemplate;
+        throw new UndeferrableValueException("Value 'Group.launchTemplate' is not present");
     }
 
     /**
@@ -263,44 +284,48 @@ public final class Group extends com.pulumi.resources.PolicyResourceOutput {
      * group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead. To remove all load balancer attachments an empty list should be specified.
      * 
      */
-    private UndeferrableValue<List<String>> loadBalancers;
-
+    @PolicyResourceProperty(name="loadBalancers", flag="unknown_loadBalancers")
+    private List<String> value_loadBalancers;
+    private boolean unknown_loadBalancers;
     public List<String> loadBalancers() {
-        if (loadBalancers == null) return null;
-        return loadBalancers.getValue("Group.loadBalancers");
+        if (!unknown_loadBalancers) return value_loadBalancers;
+        throw new UndeferrableValueException("Value 'Group.loadBalancers' is not present");
     }
 
     /**
      * Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxInstanceLifetime;
-
+    @PolicyResourceProperty(name="maxInstanceLifetime", flag="unknown_maxInstanceLifetime")
+    private @Nullable Integer value_maxInstanceLifetime;
+    private boolean unknown_maxInstanceLifetime;
     public @Nullable Integer maxInstanceLifetime() {
-        if (maxInstanceLifetime == null) return null;
-        return maxInstanceLifetime.getValue("Group.maxInstanceLifetime");
+        if (!unknown_maxInstanceLifetime) return value_maxInstanceLifetime;
+        throw new UndeferrableValueException("Value 'Group.maxInstanceLifetime' is not present");
     }
 
     /**
      * Maximum size of the Auto Scaling Group.
      * 
      */
-    private UndeferrableValue<Integer> maxSize;
-
+    @PolicyResourceProperty(name="maxSize", flag="unknown_maxSize")
+    private Integer value_maxSize;
+    private boolean unknown_maxSize;
     public Integer maxSize() {
-        if (maxSize == null) return null;
-        return maxSize.getValue("Group.maxSize");
+        if (!unknown_maxSize) return value_maxSize;
+        throw new UndeferrableValueException("Value 'Group.maxSize' is not present");
     }
 
     /**
      * Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
      * 
      */
-    private @Nullable UndeferrableValue<String> metricsGranularity;
-
+    @PolicyResourceProperty(name="metricsGranularity", flag="unknown_metricsGranularity")
+    private @Nullable String value_metricsGranularity;
+    private boolean unknown_metricsGranularity;
     public @Nullable String metricsGranularity() {
-        if (metricsGranularity == null) return null;
-        return metricsGranularity.getValue("Group.metricsGranularity");
+        if (!unknown_metricsGranularity) return value_metricsGranularity;
+        throw new UndeferrableValueException("Value 'Group.metricsGranularity' is not present");
     }
 
     /**
@@ -310,11 +335,12 @@ public final class Group extends com.pulumi.resources.PolicyResourceOutput {
      * (See also Waiting for Capacity below.)
      * 
      */
-    private @Nullable UndeferrableValue<Integer> minElbCapacity;
-
+    @PolicyResourceProperty(name="minElbCapacity", flag="unknown_minElbCapacity")
+    private @Nullable Integer value_minElbCapacity;
+    private boolean unknown_minElbCapacity;
     public @Nullable Integer minElbCapacity() {
-        if (minElbCapacity == null) return null;
-        return minElbCapacity.getValue("Group.minElbCapacity");
+        if (!unknown_minElbCapacity) return value_minElbCapacity;
+        throw new UndeferrableValueException("Value 'Group.minElbCapacity' is not present");
     }
 
     /**
@@ -322,33 +348,36 @@ public final class Group extends com.pulumi.resources.PolicyResourceOutput {
      * (See also Waiting for Capacity below.)
      * 
      */
-    private UndeferrableValue<Integer> minSize;
-
+    @PolicyResourceProperty(name="minSize", flag="unknown_minSize")
+    private Integer value_minSize;
+    private boolean unknown_minSize;
     public Integer minSize() {
-        if (minSize == null) return null;
-        return minSize.getValue("Group.minSize");
+        if (!unknown_minSize) return value_minSize;
+        throw new UndeferrableValueException("Value 'Group.minSize' is not present");
     }
 
     /**
      * Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
      * 
      */
-    private UndeferrableValue<GroupMixedInstancesPolicy> mixedInstancesPolicy;
-
+    @PolicyResourceProperty(name="mixedInstancesPolicy", flag="unknown_mixedInstancesPolicy")
+    private GroupMixedInstancesPolicy value_mixedInstancesPolicy;
+    private boolean unknown_mixedInstancesPolicy;
     public GroupMixedInstancesPolicy mixedInstancesPolicy() {
-        if (mixedInstancesPolicy == null) return null;
-        return mixedInstancesPolicy.getValue("Group.mixedInstancesPolicy");
+        if (!unknown_mixedInstancesPolicy) return value_mixedInstancesPolicy;
+        throw new UndeferrableValueException("Value 'Group.mixedInstancesPolicy' is not present");
     }
 
     /**
      * Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `name_prefix`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Group.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Group.name' is not present");
     }
 
     /**
@@ -356,33 +385,36 @@ public final class Group extends com.pulumi.resources.PolicyResourceOutput {
      * prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("Group.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'Group.namePrefix' is not present");
     }
 
     /**
      * Name of the placement group into which you&#39;ll launch your instances, if any.
      * 
      */
-    private @Nullable UndeferrableValue<String> placementGroup;
-
+    @PolicyResourceProperty(name="placementGroup", flag="unknown_placementGroup")
+    private @Nullable String value_placementGroup;
+    private boolean unknown_placementGroup;
     public @Nullable String placementGroup() {
-        if (placementGroup == null) return null;
-        return placementGroup.getValue("Group.placementGroup");
+        if (!unknown_placementGroup) return value_placementGroup;
+        throw new UndeferrableValueException("Value 'Group.placementGroup' is not present");
     }
 
     /**
      * Predicted capacity of the group.
      * 
      */
-    private UndeferrableValue<Integer> predictedCapacity;
-
+    @PolicyResourceProperty(name="predictedCapacity", flag="unknown_predictedCapacity")
+    private Integer value_predictedCapacity;
+    private boolean unknown_predictedCapacity;
     public Integer predictedCapacity() {
-        if (predictedCapacity == null) return null;
-        return predictedCapacity.getValue("Group.predictedCapacity");
+        if (!unknown_predictedCapacity) return value_predictedCapacity;
+        throw new UndeferrableValueException("Value 'Group.predictedCapacity' is not present");
     }
 
     /**
@@ -393,22 +425,24 @@ public final class Group extends com.pulumi.resources.PolicyResourceOutput {
      * in the Amazon EC2 Auto Scaling User Guide.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> protectFromScaleIn;
-
+    @PolicyResourceProperty(name="protectFromScaleIn", flag="unknown_protectFromScaleIn")
+    private @Nullable Boolean value_protectFromScaleIn;
+    private boolean unknown_protectFromScaleIn;
     public @Nullable Boolean protectFromScaleIn() {
-        if (protectFromScaleIn == null) return null;
-        return protectFromScaleIn.getValue("Group.protectFromScaleIn");
+        if (!unknown_protectFromScaleIn) return value_protectFromScaleIn;
+        throw new UndeferrableValueException("Value 'Group.protectFromScaleIn' is not present");
     }
 
     /**
      * ARN of the service-linked role that the ASG will use to call other AWS services
      * 
      */
-    private UndeferrableValue<String> serviceLinkedRoleArn;
-
+    @PolicyResourceProperty(name="serviceLinkedRoleArn", flag="unknown_serviceLinkedRoleArn")
+    private String value_serviceLinkedRoleArn;
+    private boolean unknown_serviceLinkedRoleArn;
     public String serviceLinkedRoleArn() {
-        if (serviceLinkedRoleArn == null) return null;
-        return serviceLinkedRoleArn.getValue("Group.serviceLinkedRoleArn");
+        if (!unknown_serviceLinkedRoleArn) return value_serviceLinkedRoleArn;
+        throw new UndeferrableValueException("Value 'Group.serviceLinkedRoleArn' is not present");
     }
 
     /**
@@ -416,66 +450,72 @@ public final class Group extends com.pulumi.resources.PolicyResourceOutput {
      * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> suspendedProcesses;
-
+    @PolicyResourceProperty(name="suspendedProcesses", flag="unknown_suspendedProcesses")
+    private @Nullable List<String> value_suspendedProcesses;
+    private boolean unknown_suspendedProcesses;
     public @Nullable List<String> suspendedProcesses() {
-        if (suspendedProcesses == null) return null;
-        return suspendedProcesses.getValue("Group.suspendedProcesses");
+        if (!unknown_suspendedProcesses) return value_suspendedProcesses;
+        throw new UndeferrableValueException("Value 'Group.suspendedProcesses' is not present");
     }
 
     /**
      * Configuration block(s) containing resource tags. See Tag below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<GroupTag>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable List<GroupTag> value_tags;
+    private boolean unknown_tags;
     public @Nullable List<GroupTag> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Group.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Group.tags' is not present");
     }
 
     /**
      * Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
      * 
      */
-    private UndeferrableValue<List<String>> targetGroupArns;
-
+    @PolicyResourceProperty(name="targetGroupArns", flag="unknown_targetGroupArns")
+    private List<String> value_targetGroupArns;
+    private boolean unknown_targetGroupArns;
     public List<String> targetGroupArns() {
-        if (targetGroupArns == null) return null;
-        return targetGroupArns.getValue("Group.targetGroupArns");
+        if (!unknown_targetGroupArns) return value_targetGroupArns;
+        throw new UndeferrableValueException("Value 'Group.targetGroupArns' is not present");
     }
 
     /**
      * List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> terminationPolicies;
-
+    @PolicyResourceProperty(name="terminationPolicies", flag="unknown_terminationPolicies")
+    private @Nullable List<String> value_terminationPolicies;
+    private boolean unknown_terminationPolicies;
     public @Nullable List<String> terminationPolicies() {
-        if (terminationPolicies == null) return null;
-        return terminationPolicies.getValue("Group.terminationPolicies");
+        if (!unknown_terminationPolicies) return value_terminationPolicies;
+        throw new UndeferrableValueException("Value 'Group.terminationPolicies' is not present");
     }
 
     /**
      * Attaches one or more traffic sources to the specified Auto Scaling group.
      * 
      */
-    private UndeferrableValue<List<GroupTrafficSource>> trafficSources;
-
+    @PolicyResourceProperty(name="trafficSources", flag="unknown_trafficSources")
+    private List<GroupTrafficSource> value_trafficSources;
+    private boolean unknown_trafficSources;
     public List<GroupTrafficSource> trafficSources() {
-        if (trafficSources == null) return null;
-        return trafficSources.getValue("Group.trafficSources");
+        if (!unknown_trafficSources) return value_trafficSources;
+        throw new UndeferrableValueException("Value 'Group.trafficSources' is not present");
     }
 
     /**
      * List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
      * 
      */
-    private UndeferrableValue<List<String>> vpcZoneIdentifiers;
-
+    @PolicyResourceProperty(name="vpcZoneIdentifiers", flag="unknown_vpcZoneIdentifiers")
+    private List<String> value_vpcZoneIdentifiers;
+    private boolean unknown_vpcZoneIdentifiers;
     public List<String> vpcZoneIdentifiers() {
-        if (vpcZoneIdentifiers == null) return null;
-        return vpcZoneIdentifiers.getValue("Group.vpcZoneIdentifiers");
+        if (!unknown_vpcZoneIdentifiers) return value_vpcZoneIdentifiers;
+        throw new UndeferrableValueException("Value 'Group.vpcZoneIdentifiers' is not present");
     }
 
     /**
@@ -486,11 +526,12 @@ public final class Group extends com.pulumi.resources.PolicyResourceOutput {
      * the provider to skip all Capacity Waiting behavior.
      * 
      */
-    private @Nullable UndeferrableValue<String> waitForCapacityTimeout;
-
+    @PolicyResourceProperty(name="waitForCapacityTimeout", flag="unknown_waitForCapacityTimeout")
+    private @Nullable String value_waitForCapacityTimeout;
+    private boolean unknown_waitForCapacityTimeout;
     public @Nullable String waitForCapacityTimeout() {
-        if (waitForCapacityTimeout == null) return null;
-        return waitForCapacityTimeout.getValue("Group.waitForCapacityTimeout");
+        if (!unknown_waitForCapacityTimeout) return value_waitForCapacityTimeout;
+        throw new UndeferrableValueException("Value 'Group.waitForCapacityTimeout' is not present");
     }
 
     /**
@@ -501,11 +542,12 @@ public final class Group extends com.pulumi.resources.PolicyResourceOutput {
      * (See also Waiting for Capacity below.)
      * 
      */
-    private @Nullable UndeferrableValue<Integer> waitForElbCapacity;
-
+    @PolicyResourceProperty(name="waitForElbCapacity", flag="unknown_waitForElbCapacity")
+    private @Nullable Integer value_waitForElbCapacity;
+    private boolean unknown_waitForElbCapacity;
     public @Nullable Integer waitForElbCapacity() {
-        if (waitForElbCapacity == null) return null;
-        return waitForElbCapacity.getValue("Group.waitForElbCapacity");
+        if (!unknown_waitForElbCapacity) return value_waitForElbCapacity;
+        throw new UndeferrableValueException("Value 'Group.waitForElbCapacity' is not present");
     }
 
     /**
@@ -513,22 +555,24 @@ public final class Group extends com.pulumi.resources.PolicyResourceOutput {
      * to the specified Auto Scaling group. Defined below
      * 
      */
-    private @Nullable UndeferrableValue<GroupWarmPool> warmPool;
-
+    @PolicyResourceProperty(name="warmPool", flag="unknown_warmPool")
+    private @Nullable GroupWarmPool value_warmPool;
+    private boolean unknown_warmPool;
     public @Nullable GroupWarmPool warmPool() {
-        if (warmPool == null) return null;
-        return warmPool.getValue("Group.warmPool");
+        if (!unknown_warmPool) return value_warmPool;
+        throw new UndeferrableValueException("Value 'Group.warmPool' is not present");
     }
 
     /**
      * Current size of the warm pool.
      * 
      */
-    private UndeferrableValue<Integer> warmPoolSize;
-
+    @PolicyResourceProperty(name="warmPoolSize", flag="unknown_warmPoolSize")
+    private Integer value_warmPoolSize;
+    private boolean unknown_warmPoolSize;
     public Integer warmPoolSize() {
-        if (warmPoolSize == null) return null;
-        return warmPoolSize.getValue("Group.warmPoolSize");
+        if (!unknown_warmPoolSize) return value_warmPoolSize;
+        throw new UndeferrableValueException("Value 'Group.warmPoolSize' is not present");
     }
 
 }

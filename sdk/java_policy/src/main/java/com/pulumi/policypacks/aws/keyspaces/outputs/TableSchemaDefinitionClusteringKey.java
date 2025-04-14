@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.keyspaces.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class TableSchemaDefinitionClusteringKey {
      * The name of the clustering key column.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TableSchemaDefinitionClusteringKey.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TableSchemaDefinitionClusteringKey.name' is not present");
     }
 
     /**
      * The order modifier. Valid values: `ASC`, `DESC`.
      * 
      */
-    private UndeferrableValue<String> orderBy;
-
+    @PolicyResourceProperty(name="orderBy", flag="unknown_orderBy")
+    private String value_orderBy;
+    private boolean unknown_orderBy;
     public String orderBy() {
-        if (orderBy == null) return null;
-        return orderBy.getValue("TableSchemaDefinitionClusteringKey.orderBy");
+        if (!unknown_orderBy) return value_orderBy;
+        throw new UndeferrableValueException("Value 'TableSchemaDefinitionClusteringKey.orderBy' is not present");
     }
 
 }

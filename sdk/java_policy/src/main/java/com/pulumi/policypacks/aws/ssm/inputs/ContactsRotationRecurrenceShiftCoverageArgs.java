@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ssm.inputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,18 +17,20 @@ public final class ContactsRotationRecurrenceShiftCoverageArgs {
      * (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
      * 
      */
-    private UndeferrableValue<List<ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs>> coverageTimes;
-
+    @PolicyResourceProperty(name="coverageTimes", flag="unknown_coverageTimes")
+    private List<ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs> value_coverageTimes;
+    private boolean unknown_coverageTimes;
     public List<ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs> coverageTimes() {
-        if (coverageTimes == null) return null;
-        return coverageTimes.getValue("ContactsRotationRecurrenceShiftCoverageArgs.coverageTimes");
+        if (!unknown_coverageTimes) return value_coverageTimes;
+        throw new UndeferrableValueException("Value 'ContactsRotationRecurrenceShiftCoverageArgs.coverageTimes' is not present");
     }
 
-    private UndeferrableValue<String> mapBlockKey;
-
+    @PolicyResourceProperty(name="mapBlockKey", flag="unknown_mapBlockKey")
+    private String value_mapBlockKey;
+    private boolean unknown_mapBlockKey;
     public String mapBlockKey() {
-        if (mapBlockKey == null) return null;
-        return mapBlockKey.getValue("ContactsRotationRecurrenceShiftCoverageArgs.mapBlockKey");
+        if (!unknown_mapBlockKey) return value_mapBlockKey;
+        throw new UndeferrableValueException("Value 'ContactsRotationRecurrenceShiftCoverageArgs.mapBlockKey' is not present");
     }
 
 }

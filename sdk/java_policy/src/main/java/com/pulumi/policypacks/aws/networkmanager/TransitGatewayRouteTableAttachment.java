@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,132 +19,144 @@ public final class TransitGatewayRouteTableAttachment extends com.pulumi.resourc
      * Attachment Amazon Resource Name (ARN).
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("TransitGatewayRouteTableAttachment.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'TransitGatewayRouteTableAttachment.arn' is not present");
     }
 
     /**
      * The policy rule number associated with the attachment.
      * 
      */
-    private UndeferrableValue<Integer> attachmentPolicyRuleNumber;
-
+    @PolicyResourceProperty(name="attachmentPolicyRuleNumber", flag="unknown_attachmentPolicyRuleNumber")
+    private Integer value_attachmentPolicyRuleNumber;
+    private boolean unknown_attachmentPolicyRuleNumber;
     public Integer attachmentPolicyRuleNumber() {
-        if (attachmentPolicyRuleNumber == null) return null;
-        return attachmentPolicyRuleNumber.getValue("TransitGatewayRouteTableAttachment.attachmentPolicyRuleNumber");
+        if (!unknown_attachmentPolicyRuleNumber) return value_attachmentPolicyRuleNumber;
+        throw new UndeferrableValueException("Value 'TransitGatewayRouteTableAttachment.attachmentPolicyRuleNumber' is not present");
     }
 
     /**
      * The type of attachment.
      * 
      */
-    private UndeferrableValue<String> attachmentType;
-
+    @PolicyResourceProperty(name="attachmentType", flag="unknown_attachmentType")
+    private String value_attachmentType;
+    private boolean unknown_attachmentType;
     public String attachmentType() {
-        if (attachmentType == null) return null;
-        return attachmentType.getValue("TransitGatewayRouteTableAttachment.attachmentType");
+        if (!unknown_attachmentType) return value_attachmentType;
+        throw new UndeferrableValueException("Value 'TransitGatewayRouteTableAttachment.attachmentType' is not present");
     }
 
     /**
      * The ARN of the core network.
      * 
      */
-    private UndeferrableValue<String> coreNetworkArn;
-
+    @PolicyResourceProperty(name="coreNetworkArn", flag="unknown_coreNetworkArn")
+    private String value_coreNetworkArn;
+    private boolean unknown_coreNetworkArn;
     public String coreNetworkArn() {
-        if (coreNetworkArn == null) return null;
-        return coreNetworkArn.getValue("TransitGatewayRouteTableAttachment.coreNetworkArn");
+        if (!unknown_coreNetworkArn) return value_coreNetworkArn;
+        throw new UndeferrableValueException("Value 'TransitGatewayRouteTableAttachment.coreNetworkArn' is not present");
     }
 
     /**
      * The ID of the core network.
      * 
      */
-    private UndeferrableValue<String> coreNetworkId;
-
+    @PolicyResourceProperty(name="coreNetworkId", flag="unknown_coreNetworkId")
+    private String value_coreNetworkId;
+    private boolean unknown_coreNetworkId;
     public String coreNetworkId() {
-        if (coreNetworkId == null) return null;
-        return coreNetworkId.getValue("TransitGatewayRouteTableAttachment.coreNetworkId");
+        if (!unknown_coreNetworkId) return value_coreNetworkId;
+        throw new UndeferrableValueException("Value 'TransitGatewayRouteTableAttachment.coreNetworkId' is not present");
     }
 
     /**
      * The edge location for the peer.
      * 
      */
-    private UndeferrableValue<String> edgeLocation;
-
+    @PolicyResourceProperty(name="edgeLocation", flag="unknown_edgeLocation")
+    private String value_edgeLocation;
+    private boolean unknown_edgeLocation;
     public String edgeLocation() {
-        if (edgeLocation == null) return null;
-        return edgeLocation.getValue("TransitGatewayRouteTableAttachment.edgeLocation");
+        if (!unknown_edgeLocation) return value_edgeLocation;
+        throw new UndeferrableValueException("Value 'TransitGatewayRouteTableAttachment.edgeLocation' is not present");
     }
 
     /**
      * The ID of the attachment account owner.
      * 
      */
-    private UndeferrableValue<String> ownerAccountId;
-
+    @PolicyResourceProperty(name="ownerAccountId", flag="unknown_ownerAccountId")
+    private String value_ownerAccountId;
+    private boolean unknown_ownerAccountId;
     public String ownerAccountId() {
-        if (ownerAccountId == null) return null;
-        return ownerAccountId.getValue("TransitGatewayRouteTableAttachment.ownerAccountId");
+        if (!unknown_ownerAccountId) return value_ownerAccountId;
+        throw new UndeferrableValueException("Value 'TransitGatewayRouteTableAttachment.ownerAccountId' is not present");
     }
 
     /**
      * The ID of the peer for the attachment.
      * 
      */
-    private UndeferrableValue<String> peeringId;
-
+    @PolicyResourceProperty(name="peeringId", flag="unknown_peeringId")
+    private String value_peeringId;
+    private boolean unknown_peeringId;
     public String peeringId() {
-        if (peeringId == null) return null;
-        return peeringId.getValue("TransitGatewayRouteTableAttachment.peeringId");
+        if (!unknown_peeringId) return value_peeringId;
+        throw new UndeferrableValueException("Value 'TransitGatewayRouteTableAttachment.peeringId' is not present");
     }
 
     /**
      * The attachment resource ARN.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("TransitGatewayRouteTableAttachment.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'TransitGatewayRouteTableAttachment.resourceArn' is not present");
     }
 
     /**
      * The name of the segment attachment.
      * 
      */
-    private UndeferrableValue<String> segmentName;
-
+    @PolicyResourceProperty(name="segmentName", flag="unknown_segmentName")
+    private String value_segmentName;
+    private boolean unknown_segmentName;
     public String segmentName() {
-        if (segmentName == null) return null;
-        return segmentName.getValue("TransitGatewayRouteTableAttachment.segmentName");
+        if (!unknown_segmentName) return value_segmentName;
+        throw new UndeferrableValueException("Value 'TransitGatewayRouteTableAttachment.segmentName' is not present");
     }
 
     /**
      * The state of the attachment.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("TransitGatewayRouteTableAttachment.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'TransitGatewayRouteTableAttachment.state' is not present");
     }
 
     /**
      * Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TransitGatewayRouteTableAttachment.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TransitGatewayRouteTableAttachment.tags' is not present");
     }
 
     /**
@@ -154,22 +167,24 @@ public final class TransitGatewayRouteTableAttachment extends com.pulumi.resourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("TransitGatewayRouteTableAttachment.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'TransitGatewayRouteTableAttachment.tagsAll' is not present");
     }
 
     /**
      * The ARN of the transit gateway route table for the attachment.
      * 
      */
-    private UndeferrableValue<String> transitGatewayRouteTableArn;
-
+    @PolicyResourceProperty(name="transitGatewayRouteTableArn", flag="unknown_transitGatewayRouteTableArn")
+    private String value_transitGatewayRouteTableArn;
+    private boolean unknown_transitGatewayRouteTableArn;
     public String transitGatewayRouteTableArn() {
-        if (transitGatewayRouteTableArn == null) return null;
-        return transitGatewayRouteTableArn.getValue("TransitGatewayRouteTableAttachment.transitGatewayRouteTableArn");
+        if (!unknown_transitGatewayRouteTableArn) return value_transitGatewayRouteTableArn;
+        throw new UndeferrableValueException("Value 'TransitGatewayRouteTableAttachment.transitGatewayRouteTableArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.securityhub.inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs;
 import java.lang.String;
 import java.util.List;
@@ -15,22 +16,24 @@ public final class ConfigurationPolicyConfigurationPolicySecurityControlsConfigu
      * An object that specifies parameter values for a control in a configuration policy. See below.
      * 
      */
-    private UndeferrableValue<List<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private List<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs> value_parameters;
+    private boolean unknown_parameters;
     public List<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs.parameters' is not present");
     }
 
     /**
      * The ID of the security control. For more information see the [Security Hub controls reference] documentation.
      * 
      */
-    private UndeferrableValue<String> securityControlId;
-
+    @PolicyResourceProperty(name="securityControlId", flag="unknown_securityControlId")
+    private String value_securityControlId;
+    private boolean unknown_securityControlId;
     public String securityControlId() {
-        if (securityControlId == null) return null;
-        return securityControlId.getValue("ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs.securityControlId");
+        if (!unknown_securityControlId) return value_securityControlId;
+        throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs.securityControlId' is not present");
     }
 
 }

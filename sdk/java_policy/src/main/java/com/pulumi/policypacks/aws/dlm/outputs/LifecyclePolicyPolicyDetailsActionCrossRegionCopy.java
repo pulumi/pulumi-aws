@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dlm.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.dlm.outputs.LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration;
 import com.pulumi.policypacks.aws.dlm.outputs.LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule;
 import java.lang.String;
@@ -16,25 +17,28 @@ public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopy {
      * The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
      * 
      */
-    private UndeferrableValue<LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration> encryptionConfiguration;
-
+    @PolicyResourceProperty(name="encryptionConfiguration", flag="unknown_encryptionConfiguration")
+    private LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration value_encryptionConfiguration;
+    private boolean unknown_encryptionConfiguration;
     public LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration encryptionConfiguration() {
-        if (encryptionConfiguration == null) return null;
-        return encryptionConfiguration.getValue("LifecyclePolicyPolicyDetailsActionCrossRegionCopy.encryptionConfiguration");
+        if (!unknown_encryptionConfiguration) return value_encryptionConfiguration;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsActionCrossRegionCopy.encryptionConfiguration' is not present");
     }
 
-    private @Nullable UndeferrableValue<LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule> retainRule;
-
+    @PolicyResourceProperty(name="retainRule", flag="unknown_retainRule")
+    private @Nullable LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule value_retainRule;
+    private boolean unknown_retainRule;
     public @Nullable LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule retainRule() {
-        if (retainRule == null) return null;
-        return retainRule.getValue("LifecyclePolicyPolicyDetailsActionCrossRegionCopy.retainRule");
+        if (!unknown_retainRule) return value_retainRule;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsActionCrossRegionCopy.retainRule' is not present");
     }
 
-    private UndeferrableValue<String> target;
-
+    @PolicyResourceProperty(name="target", flag="unknown_target")
+    private String value_target;
+    private boolean unknown_target;
     public String target() {
-        if (target == null) return null;
-        return target.getValue("LifecyclePolicyPolicyDetailsActionCrossRegionCopy.target");
+        if (!unknown_target) return value_target;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsActionCrossRegionCopy.target' is not present");
     }
 
 }

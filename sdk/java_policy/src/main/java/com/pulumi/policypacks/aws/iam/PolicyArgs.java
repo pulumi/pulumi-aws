@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,66 +18,72 @@ public final class PolicyArgs extends com.pulumi.resources.PolicyResourceInput {
      * Description of the IAM policy.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("PolicyArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'PolicyArgs.description' is not present");
     }
 
     /**
      * Name of the policy. If omitted, the provider will assign a random, unique name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PolicyArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PolicyArgs.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("PolicyArgs.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'PolicyArgs.namePrefix' is not present");
     }
 
     /**
      * Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      * 
      */
-    private UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private String value_path;
+    private boolean unknown_path;
     public String path() {
-        if (path == null) return null;
-        return path.getValue("PolicyArgs.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'PolicyArgs.path' is not present");
     }
 
     /**
      * Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("PolicyArgs.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'PolicyArgs.policy' is not present");
     }
 
     /**
      * Map of resource tags for the IAM Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("PolicyArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'PolicyArgs.tags' is not present");
     }
 
 }

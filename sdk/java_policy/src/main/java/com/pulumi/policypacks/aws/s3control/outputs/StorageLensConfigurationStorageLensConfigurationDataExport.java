@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3control.outputs.StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics;
 import com.pulumi.policypacks.aws.s3control.outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExport {
      * Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics> cloudWatchMetrics;
-
+    @PolicyResourceProperty(name="cloudWatchMetrics", flag="unknown_cloudWatchMetrics")
+    private @Nullable StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics value_cloudWatchMetrics;
+    private boolean unknown_cloudWatchMetrics;
     public @Nullable StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics cloudWatchMetrics() {
-        if (cloudWatchMetrics == null) return null;
-        return cloudWatchMetrics.getValue("StorageLensConfigurationStorageLensConfigurationDataExport.cloudWatchMetrics");
+        if (!unknown_cloudWatchMetrics) return value_cloudWatchMetrics;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationDataExport.cloudWatchMetrics' is not present");
     }
 
     /**
      * The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination> s3BucketDestination;
-
+    @PolicyResourceProperty(name="s3BucketDestination", flag="unknown_s3BucketDestination")
+    private @Nullable StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination value_s3BucketDestination;
+    private boolean unknown_s3BucketDestination;
     public @Nullable StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination s3BucketDestination() {
-        if (s3BucketDestination == null) return null;
-        return s3BucketDestination.getValue("StorageLensConfigurationStorageLensConfigurationDataExport.s3BucketDestination");
+        if (!unknown_s3BucketDestination) return value_s3BucketDestination;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationDataExport.s3BucketDestination' is not present");
     }
 
 }

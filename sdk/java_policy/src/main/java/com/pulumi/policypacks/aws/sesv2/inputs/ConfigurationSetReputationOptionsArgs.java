@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ConfigurationSetReputationOptionsArgs {
      * The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
      * 
      */
-    private UndeferrableValue<String> lastFreshStart;
-
+    @PolicyResourceProperty(name="lastFreshStart", flag="unknown_lastFreshStart")
+    private String value_lastFreshStart;
+    private boolean unknown_lastFreshStart;
     public String lastFreshStart() {
-        if (lastFreshStart == null) return null;
-        return lastFreshStart.getValue("ConfigurationSetReputationOptionsArgs.lastFreshStart");
+        if (!unknown_lastFreshStart) return value_lastFreshStart;
+        throw new UndeferrableValueException("Value 'ConfigurationSetReputationOptionsArgs.lastFreshStart' is not present");
     }
 
     /**
      * If `true`, tracking of reputation metrics is enabled for the configuration set. If `false`, tracking of reputation metrics is disabled for the configuration set.
      * 
      */
-    private UndeferrableValue<Boolean> reputationMetricsEnabled;
-
+    @PolicyResourceProperty(name="reputationMetricsEnabled", flag="unknown_reputationMetricsEnabled")
+    private Boolean value_reputationMetricsEnabled;
+    private boolean unknown_reputationMetricsEnabled;
     public Boolean reputationMetricsEnabled() {
-        if (reputationMetricsEnabled == null) return null;
-        return reputationMetricsEnabled.getValue("ConfigurationSetReputationOptionsArgs.reputationMetricsEnabled");
+        if (!unknown_reputationMetricsEnabled) return value_reputationMetricsEnabled;
+        throw new UndeferrableValueException("Value 'ConfigurationSetReputationOptionsArgs.reputationMetricsEnabled' is not present");
     }
 
 }

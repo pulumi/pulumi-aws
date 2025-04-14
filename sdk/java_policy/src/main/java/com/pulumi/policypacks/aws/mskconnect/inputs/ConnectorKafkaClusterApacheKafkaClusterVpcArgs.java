@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mskconnect.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,22 +15,24 @@ public final class ConnectorKafkaClusterApacheKafkaClusterVpcArgs {
      * The security groups for the connector.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroups;
-
+    @PolicyResourceProperty(name="securityGroups", flag="unknown_securityGroups")
+    private List<String> value_securityGroups;
+    private boolean unknown_securityGroups;
     public List<String> securityGroups() {
-        if (securityGroups == null) return null;
-        return securityGroups.getValue("ConnectorKafkaClusterApacheKafkaClusterVpcArgs.securityGroups");
+        if (!unknown_securityGroups) return value_securityGroups;
+        throw new UndeferrableValueException("Value 'ConnectorKafkaClusterApacheKafkaClusterVpcArgs.securityGroups' is not present");
     }
 
     /**
      * The subnets for the connector.
      * 
      */
-    private UndeferrableValue<List<String>> subnets;
-
+    @PolicyResourceProperty(name="subnets", flag="unknown_subnets")
+    private List<String> value_subnets;
+    private boolean unknown_subnets;
     public List<String> subnets() {
-        if (subnets == null) return null;
-        return subnets.getValue("ConnectorKafkaClusterApacheKafkaClusterVpcArgs.subnets");
+        if (!unknown_subnets) return value_subnets;
+        throw new UndeferrableValueException("Value 'ConnectorKafkaClusterApacheKafkaClusterVpcArgs.subnets' is not present");
     }
 
 }

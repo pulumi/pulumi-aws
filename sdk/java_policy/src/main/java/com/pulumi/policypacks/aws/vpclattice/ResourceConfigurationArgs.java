@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.vpclattice.inputs.ResourceConfigurationResourceConfigurationDefinitionArgs;
 import com.pulumi.policypacks.aws.vpclattice.inputs.ResourceConfigurationTimeoutsArgs;
@@ -21,44 +22,48 @@ public final class ResourceConfigurationArgs extends com.pulumi.resources.Policy
      * Allow or Deny the association of this resource to a shareable service network.
      * 
      */
-    private UndeferrableValue<Boolean> allowAssociationToShareableServiceNetwork;
-
+    @PolicyResourceProperty(name="allowAssociationToShareableServiceNetwork", flag="unknown_allowAssociationToShareableServiceNetwork")
+    private Boolean value_allowAssociationToShareableServiceNetwork;
+    private boolean unknown_allowAssociationToShareableServiceNetwork;
     public Boolean allowAssociationToShareableServiceNetwork() {
-        if (allowAssociationToShareableServiceNetwork == null) return null;
-        return allowAssociationToShareableServiceNetwork.getValue("ResourceConfigurationArgs.allowAssociationToShareableServiceNetwork");
+        if (!unknown_allowAssociationToShareableServiceNetwork) return value_allowAssociationToShareableServiceNetwork;
+        throw new UndeferrableValueException("Value 'ResourceConfigurationArgs.allowAssociationToShareableServiceNetwork' is not present");
     }
 
     /**
      * Name for the Resource Configuration.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ResourceConfigurationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ResourceConfigurationArgs.name' is not present");
     }
 
     /**
      * Port ranges to access the Resource either single port `80` or range `80-81` range.
      * 
      */
-    private UndeferrableValue<List<String>> portRanges;
-
+    @PolicyResourceProperty(name="portRanges", flag="unknown_portRanges")
+    private List<String> value_portRanges;
+    private boolean unknown_portRanges;
     public List<String> portRanges() {
-        if (portRanges == null) return null;
-        return portRanges.getValue("ResourceConfigurationArgs.portRanges");
+        if (!unknown_portRanges) return value_portRanges;
+        throw new UndeferrableValueException("Value 'ResourceConfigurationArgs.portRanges' is not present");
     }
 
     /**
      * Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resource_configuration_group_id` is not.
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("ResourceConfigurationArgs.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'ResourceConfigurationArgs.protocol' is not present");
     }
 
     /**
@@ -67,62 +72,68 @@ public final class ResourceConfigurationArgs extends com.pulumi.resources.Policy
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<ResourceConfigurationResourceConfigurationDefinitionArgs> resourceConfigurationDefinition;
-
+    @PolicyResourceProperty(name="resourceConfigurationDefinition", flag="unknown_resourceConfigurationDefinition")
+    private ResourceConfigurationResourceConfigurationDefinitionArgs value_resourceConfigurationDefinition;
+    private boolean unknown_resourceConfigurationDefinition;
     public ResourceConfigurationResourceConfigurationDefinitionArgs resourceConfigurationDefinition() {
-        if (resourceConfigurationDefinition == null) return null;
-        return resourceConfigurationDefinition.getValue("ResourceConfigurationArgs.resourceConfigurationDefinition");
+        if (!unknown_resourceConfigurationDefinition) return value_resourceConfigurationDefinition;
+        throw new UndeferrableValueException("Value 'ResourceConfigurationArgs.resourceConfigurationDefinition' is not present");
     }
 
     /**
      * ID of Resource Configuration where `type` is `CHILD`.
      * 
      */
-    private UndeferrableValue<String> resourceConfigurationGroupId;
-
+    @PolicyResourceProperty(name="resourceConfigurationGroupId", flag="unknown_resourceConfigurationGroupId")
+    private String value_resourceConfigurationGroupId;
+    private boolean unknown_resourceConfigurationGroupId;
     public String resourceConfigurationGroupId() {
-        if (resourceConfigurationGroupId == null) return null;
-        return resourceConfigurationGroupId.getValue("ResourceConfigurationArgs.resourceConfigurationGroupId");
+        if (!unknown_resourceConfigurationGroupId) return value_resourceConfigurationGroupId;
+        throw new UndeferrableValueException("Value 'ResourceConfigurationArgs.resourceConfigurationGroupId' is not present");
     }
 
     /**
      * ID of the Resource Gateway used to access the resource. MUST be specified if `resource_configuration_group_id` is not.
      * 
      */
-    private UndeferrableValue<String> resourceGatewayIdentifier;
-
+    @PolicyResourceProperty(name="resourceGatewayIdentifier", flag="unknown_resourceGatewayIdentifier")
+    private String value_resourceGatewayIdentifier;
+    private boolean unknown_resourceGatewayIdentifier;
     public String resourceGatewayIdentifier() {
-        if (resourceGatewayIdentifier == null) return null;
-        return resourceGatewayIdentifier.getValue("ResourceConfigurationArgs.resourceGatewayIdentifier");
+        if (!unknown_resourceGatewayIdentifier) return value_resourceGatewayIdentifier;
+        throw new UndeferrableValueException("Value 'ResourceConfigurationArgs.resourceGatewayIdentifier' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ResourceConfigurationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ResourceConfigurationArgs.tags' is not present");
     }
 
-    private UndeferrableValue<ResourceConfigurationTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private ResourceConfigurationTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public ResourceConfigurationTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ResourceConfigurationArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ResourceConfigurationArgs.timeouts' is not present");
     }
 
     /**
      * Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ResourceConfigurationArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ResourceConfigurationArgs.type' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.comprehend.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.comprehend.inputs.DocumentClassifierInputDataConfigAugmentedManifestArgs;
 import java.lang.String;
 import java.util.List;
@@ -18,11 +19,12 @@ public final class DocumentClassifierInputDataConfigArgs {
      * See the `augmented_manifests` Configuration Block section below.
      * 
      */
-    private UndeferrableValue<List<DocumentClassifierInputDataConfigAugmentedManifestArgs>> augmentedManifests;
-
+    @PolicyResourceProperty(name="augmentedManifests", flag="unknown_augmentedManifests")
+    private List<DocumentClassifierInputDataConfigAugmentedManifestArgs> value_augmentedManifests;
+    private boolean unknown_augmentedManifests;
     public List<DocumentClassifierInputDataConfigAugmentedManifestArgs> augmentedManifests() {
-        if (augmentedManifests == null) return null;
-        return augmentedManifests.getValue("DocumentClassifierInputDataConfigArgs.augmentedManifests");
+        if (!unknown_augmentedManifests) return value_augmentedManifests;
+        throw new UndeferrableValueException("Value 'DocumentClassifierInputDataConfigArgs.augmentedManifests' is not present");
     }
 
     /**
@@ -30,11 +32,12 @@ public final class DocumentClassifierInputDataConfigArgs {
      * One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
      * 
      */
-    private UndeferrableValue<String> dataFormat;
-
+    @PolicyResourceProperty(name="dataFormat", flag="unknown_dataFormat")
+    private String value_dataFormat;
+    private boolean unknown_dataFormat;
     public String dataFormat() {
-        if (dataFormat == null) return null;
-        return dataFormat.getValue("DocumentClassifierInputDataConfigArgs.dataFormat");
+        if (!unknown_dataFormat) return value_dataFormat;
+        throw new UndeferrableValueException("Value 'DocumentClassifierInputDataConfigArgs.dataFormat' is not present");
     }
 
     /**
@@ -43,11 +46,12 @@ public final class DocumentClassifierInputDataConfigArgs {
      * Default is `|`.
      * 
      */
-    private UndeferrableValue<String> labelDelimiter;
-
+    @PolicyResourceProperty(name="labelDelimiter", flag="unknown_labelDelimiter")
+    private String value_labelDelimiter;
+    private boolean unknown_labelDelimiter;
     public String labelDelimiter() {
-        if (labelDelimiter == null) return null;
-        return labelDelimiter.getValue("DocumentClassifierInputDataConfigArgs.labelDelimiter");
+        if (!unknown_labelDelimiter) return value_labelDelimiter;
+        throw new UndeferrableValueException("Value 'DocumentClassifierInputDataConfigArgs.labelDelimiter' is not present");
     }
 
     /**
@@ -55,18 +59,20 @@ public final class DocumentClassifierInputDataConfigArgs {
      * Used if `data_format` is `COMPREHEND_CSV`.
      * 
      */
-    private UndeferrableValue<String> s3Uri;
-
+    @PolicyResourceProperty(name="s3Uri", flag="unknown_s3Uri")
+    private String value_s3Uri;
+    private boolean unknown_s3Uri;
     public String s3Uri() {
-        if (s3Uri == null) return null;
-        return s3Uri.getValue("DocumentClassifierInputDataConfigArgs.s3Uri");
+        if (!unknown_s3Uri) return value_s3Uri;
+        throw new UndeferrableValueException("Value 'DocumentClassifierInputDataConfigArgs.s3Uri' is not present");
     }
 
-    private UndeferrableValue<String> testS3Uri;
-
+    @PolicyResourceProperty(name="testS3Uri", flag="unknown_testS3Uri")
+    private String value_testS3Uri;
+    private boolean unknown_testS3Uri;
     public String testS3Uri() {
-        if (testS3Uri == null) return null;
-        return testS3Uri.getValue("DocumentClassifierInputDataConfigArgs.testS3Uri");
+        if (!unknown_testS3Uri) return value_testS3Uri;
+        throw new UndeferrableValueException("Value 'DocumentClassifierInputDataConfigArgs.testS3Uri' is not present");
     }
 
 }

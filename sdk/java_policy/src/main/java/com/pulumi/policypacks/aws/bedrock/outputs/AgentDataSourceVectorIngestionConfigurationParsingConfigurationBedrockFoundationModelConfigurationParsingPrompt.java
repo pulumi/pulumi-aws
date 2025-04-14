@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
      * Instructions for interpreting the contents of the document.
      * 
      */
-    private UndeferrableValue<String> parsingPromptString;
-
+    @PolicyResourceProperty(name="parsingPromptString", flag="unknown_parsingPromptString")
+    private String value_parsingPromptString;
+    private boolean unknown_parsingPromptString;
     public String parsingPromptString() {
-        if (parsingPromptString == null) return null;
-        return parsingPromptString.getValue("AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt.parsingPromptString");
+        if (!unknown_parsingPromptString) return value_parsingPromptString;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt.parsingPromptString' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.outputs.MonitoringScheduleMonitoringScheduleConfigScheduleConfig;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class MonitoringScheduleMonitoringScheduleConfig {
      * The name of the monitoring job definition to schedule.
      * 
      */
-    private UndeferrableValue<String> monitoringJobDefinitionName;
-
+    @PolicyResourceProperty(name="monitoringJobDefinitionName", flag="unknown_monitoringJobDefinitionName")
+    private String value_monitoringJobDefinitionName;
+    private boolean unknown_monitoringJobDefinitionName;
     public String monitoringJobDefinitionName() {
-        if (monitoringJobDefinitionName == null) return null;
-        return monitoringJobDefinitionName.getValue("MonitoringScheduleMonitoringScheduleConfig.monitoringJobDefinitionName");
+        if (!unknown_monitoringJobDefinitionName) return value_monitoringJobDefinitionName;
+        throw new UndeferrableValueException("Value 'MonitoringScheduleMonitoringScheduleConfig.monitoringJobDefinitionName' is not present");
     }
 
     /**
      * The type of the monitoring job definition to schedule. Valid values are `DataQuality`, `ModelQuality`, `ModelBias` or `ModelExplainability`
      * 
      */
-    private UndeferrableValue<String> monitoringType;
-
+    @PolicyResourceProperty(name="monitoringType", flag="unknown_monitoringType")
+    private String value_monitoringType;
+    private boolean unknown_monitoringType;
     public String monitoringType() {
-        if (monitoringType == null) return null;
-        return monitoringType.getValue("MonitoringScheduleMonitoringScheduleConfig.monitoringType");
+        if (!unknown_monitoringType) return value_monitoringType;
+        throw new UndeferrableValueException("Value 'MonitoringScheduleMonitoringScheduleConfig.monitoringType' is not present");
     }
 
     /**
      * Configures the monitoring schedule. Fields are documented below.
      * 
      */
-    private @Nullable UndeferrableValue<MonitoringScheduleMonitoringScheduleConfigScheduleConfig> scheduleConfig;
-
+    @PolicyResourceProperty(name="scheduleConfig", flag="unknown_scheduleConfig")
+    private @Nullable MonitoringScheduleMonitoringScheduleConfigScheduleConfig value_scheduleConfig;
+    private boolean unknown_scheduleConfig;
     public @Nullable MonitoringScheduleMonitoringScheduleConfigScheduleConfig scheduleConfig() {
-        if (scheduleConfig == null) return null;
-        return scheduleConfig.getValue("MonitoringScheduleMonitoringScheduleConfig.scheduleConfig");
+        if (!unknown_scheduleConfig) return value_scheduleConfig;
+        throw new UndeferrableValueException("Value 'MonitoringScheduleMonitoringScheduleConfig.scheduleConfig' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class AnalyticsApplicationInputsProcessingConfigurationLambda {
      * The ARN of the Lambda function.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("AnalyticsApplicationInputsProcessingConfigurationLambda.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsProcessingConfigurationLambda.resourceArn' is not present");
     }
 
     /**
      * The ARN of the IAM Role used to access the Lambda function.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("AnalyticsApplicationInputsProcessingConfigurationLambda.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsProcessingConfigurationLambda.roleArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.identitystore.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class UserEmailsArgs {
      * When `true`, this is the primary email associated with the user.
      * 
      */
-    private UndeferrableValue<Boolean> primary;
-
+    @PolicyResourceProperty(name="primary", flag="unknown_primary")
+    private Boolean value_primary;
+    private boolean unknown_primary;
     public Boolean primary() {
-        if (primary == null) return null;
-        return primary.getValue("UserEmailsArgs.primary");
+        if (!unknown_primary) return value_primary;
+        throw new UndeferrableValueException("Value 'UserEmailsArgs.primary' is not present");
     }
 
     /**
      * The type of email.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("UserEmailsArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'UserEmailsArgs.type' is not present");
     }
 
     /**
      * The email address. This value must be unique across the identity store.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("UserEmailsArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'UserEmailsArgs.value' is not present");
     }
 
 }

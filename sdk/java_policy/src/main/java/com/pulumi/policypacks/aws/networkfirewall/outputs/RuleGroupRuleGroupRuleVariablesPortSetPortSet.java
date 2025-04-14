@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class RuleGroupRuleGroupRuleVariablesPortSetPortSet {
      * Set of port ranges.
      * 
      */
-    private UndeferrableValue<List<String>> definitions;
-
+    @PolicyResourceProperty(name="definitions", flag="unknown_definitions")
+    private List<String> value_definitions;
+    private boolean unknown_definitions;
     public List<String> definitions() {
-        if (definitions == null) return null;
-        return definitions.getValue("RuleGroupRuleGroupRuleVariablesPortSetPortSet.definitions");
+        if (!unknown_definitions) return value_definitions;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRuleVariablesPortSetPortSet.definitions' is not present");
     }
 
 }

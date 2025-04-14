@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ResolverPipelineConfig {
      * A list of Function objects.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> functions;
-
+    @PolicyResourceProperty(name="functions", flag="unknown_functions")
+    private @Nullable List<String> value_functions;
+    private boolean unknown_functions;
     public @Nullable List<String> functions() {
-        if (functions == null) return null;
-        return functions.getValue("ResolverPipelineConfig.functions");
+        if (!unknown_functions) return value_functions;
+        throw new UndeferrableValueException("Value 'ResolverPipelineConfig.functions' is not present");
     }
 
 }

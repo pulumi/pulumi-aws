@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.vpclattice.outputs.ListenerDefaultActionForwardTargetGroup;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ListenerDefaultActionForward {
      * One or more target group blocks.
      * 
      */
-    private @Nullable UndeferrableValue<List<ListenerDefaultActionForwardTargetGroup>> targetGroups;
-
+    @PolicyResourceProperty(name="targetGroups", flag="unknown_targetGroups")
+    private @Nullable List<ListenerDefaultActionForwardTargetGroup> value_targetGroups;
+    private boolean unknown_targetGroups;
     public @Nullable List<ListenerDefaultActionForwardTargetGroup> targetGroups() {
-        if (targetGroups == null) return null;
-        return targetGroups.getValue("ListenerDefaultActionForward.targetGroups");
+        if (!unknown_targetGroups) return value_targetGroups;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionForward.targetGroups' is not present");
     }
 
 }

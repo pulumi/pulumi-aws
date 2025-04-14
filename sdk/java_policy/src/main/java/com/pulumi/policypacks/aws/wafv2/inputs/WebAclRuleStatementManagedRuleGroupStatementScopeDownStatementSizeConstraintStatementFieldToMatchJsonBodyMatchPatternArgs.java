@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,18 +17,20 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * An empty configuration block that is used for inspecting all headers.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs> all;
-
+    @PolicyResourceProperty(name="all", flag="unknown_all")
+    private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs value_all;
+    private boolean unknown_all;
     public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs all() {
-        if (all == null) return null;
-        return all.getValue("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgs.all");
+        if (!unknown_all) return value_all;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgs.all' is not present");
     }
 
-    private UndeferrableValue<List<String>> includedPaths;
-
+    @PolicyResourceProperty(name="includedPaths", flag="unknown_includedPaths")
+    private List<String> value_includedPaths;
+    private boolean unknown_includedPaths;
     public List<String> includedPaths() {
-        if (includedPaths == null) return null;
-        return includedPaths.getValue("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgs.includedPaths");
+        if (!unknown_includedPaths) return value_includedPaths;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgs.includedPaths' is not present");
     }
 
 }

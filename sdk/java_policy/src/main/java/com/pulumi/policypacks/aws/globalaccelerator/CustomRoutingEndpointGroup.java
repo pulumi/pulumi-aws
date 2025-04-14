@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.globalaccelerator;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.globalaccelerator.outputs.CustomRoutingEndpointGroupDestinationConfiguration;
 import com.pulumi.policypacks.aws.globalaccelerator.outputs.CustomRoutingEndpointGroupEndpointConfiguration;
@@ -19,55 +20,60 @@ public final class CustomRoutingEndpointGroup extends com.pulumi.resources.Polic
      * The Amazon Resource Name (ARN) of the custom routing endpoint group.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("CustomRoutingEndpointGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'CustomRoutingEndpointGroup.arn' is not present");
     }
 
     /**
      * The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
      * 
      */
-    private UndeferrableValue<List<CustomRoutingEndpointGroupDestinationConfiguration>> destinationConfigurations;
-
+    @PolicyResourceProperty(name="destinationConfigurations", flag="unknown_destinationConfigurations")
+    private List<CustomRoutingEndpointGroupDestinationConfiguration> value_destinationConfigurations;
+    private boolean unknown_destinationConfigurations;
     public List<CustomRoutingEndpointGroupDestinationConfiguration> destinationConfigurations() {
-        if (destinationConfigurations == null) return null;
-        return destinationConfigurations.getValue("CustomRoutingEndpointGroup.destinationConfigurations");
+        if (!unknown_destinationConfigurations) return value_destinationConfigurations;
+        throw new UndeferrableValueException("Value 'CustomRoutingEndpointGroup.destinationConfigurations' is not present");
     }
 
     /**
      * The list of endpoint objects. Fields documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<CustomRoutingEndpointGroupEndpointConfiguration>> endpointConfigurations;
-
+    @PolicyResourceProperty(name="endpointConfigurations", flag="unknown_endpointConfigurations")
+    private @Nullable List<CustomRoutingEndpointGroupEndpointConfiguration> value_endpointConfigurations;
+    private boolean unknown_endpointConfigurations;
     public @Nullable List<CustomRoutingEndpointGroupEndpointConfiguration> endpointConfigurations() {
-        if (endpointConfigurations == null) return null;
-        return endpointConfigurations.getValue("CustomRoutingEndpointGroup.endpointConfigurations");
+        if (!unknown_endpointConfigurations) return value_endpointConfigurations;
+        throw new UndeferrableValueException("Value 'CustomRoutingEndpointGroup.endpointConfigurations' is not present");
     }
 
     /**
      * The name of the AWS Region where the custom routing endpoint group is located.
      * 
      */
-    private UndeferrableValue<String> endpointGroupRegion;
-
+    @PolicyResourceProperty(name="endpointGroupRegion", flag="unknown_endpointGroupRegion")
+    private String value_endpointGroupRegion;
+    private boolean unknown_endpointGroupRegion;
     public String endpointGroupRegion() {
-        if (endpointGroupRegion == null) return null;
-        return endpointGroupRegion.getValue("CustomRoutingEndpointGroup.endpointGroupRegion");
+        if (!unknown_endpointGroupRegion) return value_endpointGroupRegion;
+        throw new UndeferrableValueException("Value 'CustomRoutingEndpointGroup.endpointGroupRegion' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the custom routing listener.
      * 
      */
-    private UndeferrableValue<String> listenerArn;
-
+    @PolicyResourceProperty(name="listenerArn", flag="unknown_listenerArn")
+    private String value_listenerArn;
+    private boolean unknown_listenerArn;
     public String listenerArn() {
-        if (listenerArn == null) return null;
-        return listenerArn.getValue("CustomRoutingEndpointGroup.listenerArn");
+        if (!unknown_listenerArn) return value_listenerArn;
+        throw new UndeferrableValueException("Value 'CustomRoutingEndpointGroup.listenerArn' is not present");
     }
 
 }

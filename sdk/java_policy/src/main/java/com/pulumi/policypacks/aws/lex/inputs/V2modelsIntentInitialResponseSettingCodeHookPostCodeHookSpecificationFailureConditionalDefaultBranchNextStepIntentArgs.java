@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
      * Name of the intent.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentArgs.name' is not present");
     }
 
     /**
      * Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren&#39;t overridden. See `slot`.
      * 
      */
-    private UndeferrableValue<List<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotArgs>> slots;
-
+    @PolicyResourceProperty(name="slots", flag="unknown_slots")
+    private List<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotArgs> value_slots;
+    private boolean unknown_slots;
     public List<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotArgs> slots() {
-        if (slots == null) return null;
-        return slots.getValue("V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentArgs.slots");
+        if (!unknown_slots) return value_slots;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentArgs.slots' is not present");
     }
 
 }

@@ -3,18 +3,20 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings;
 import javax.annotation.Nullable;
 
 
 public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings {
 
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings> nielsenWatermarksSettings;
-
+    @PolicyResourceProperty(name="nielsenWatermarksSettings", flag="unknown_nielsenWatermarksSettings")
+    private @Nullable ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings value_nielsenWatermarksSettings;
+    private boolean unknown_nielsenWatermarksSettings;
     public @Nullable ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings nielsenWatermarksSettings() {
-        if (nielsenWatermarksSettings == null) return null;
-        return nielsenWatermarksSettings.getValue("ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings.nielsenWatermarksSettings");
+        if (!unknown_nielsenWatermarksSettings) return value_nielsenWatermarksSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings.nielsenWatermarksSettings' is not present");
     }
 
 }

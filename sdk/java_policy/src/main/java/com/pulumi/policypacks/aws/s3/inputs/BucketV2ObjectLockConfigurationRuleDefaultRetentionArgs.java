@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs {
      * Number of days that you want to specify for the default retention period.
      * 
      */
-    private UndeferrableValue<Integer> days;
-
+    @PolicyResourceProperty(name="days", flag="unknown_days")
+    private Integer value_days;
+    private boolean unknown_days;
     public Integer days() {
-        if (days == null) return null;
-        return days.getValue("BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs.days");
+        if (!unknown_days) return value_days;
+        throw new UndeferrableValueException("Value 'BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs.days' is not present");
     }
 
     /**
      * Default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
      * 
      */
-    private UndeferrableValue<String> mode;
-
+    @PolicyResourceProperty(name="mode", flag="unknown_mode")
+    private String value_mode;
+    private boolean unknown_mode;
     public String mode() {
-        if (mode == null) return null;
-        return mode.getValue("BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs.mode");
+        if (!unknown_mode) return value_mode;
+        throw new UndeferrableValueException("Value 'BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs.mode' is not present");
     }
 
     /**
      * Number of years that you want to specify for the default retention period.
      * 
      */
-    private UndeferrableValue<Integer> years;
-
+    @PolicyResourceProperty(name="years", flag="unknown_years")
+    private Integer value_years;
+    private boolean unknown_years;
     public Integer years() {
-        if (years == null) return null;
-        return years.getValue("BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs.years");
+        if (!unknown_years) return value_years;
+        throw new UndeferrableValueException("Value 'BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs.years' is not present");
     }
 
 }

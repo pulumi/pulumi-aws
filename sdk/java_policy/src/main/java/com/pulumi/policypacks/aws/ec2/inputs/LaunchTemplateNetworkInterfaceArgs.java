@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.inputs.LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs;
 import com.pulumi.policypacks.aws.ec2.inputs.LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs;
 import java.lang.Integer;
@@ -18,242 +19,264 @@ public final class LaunchTemplateNetworkInterfaceArgs {
      * Associate a Carrier IP address with `eth0` for a new network interface. Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. Boolean value, can be left unset.
      * 
      */
-    private UndeferrableValue<String> associateCarrierIpAddress;
-
+    @PolicyResourceProperty(name="associateCarrierIpAddress", flag="unknown_associateCarrierIpAddress")
+    private String value_associateCarrierIpAddress;
+    private boolean unknown_associateCarrierIpAddress;
     public String associateCarrierIpAddress() {
-        if (associateCarrierIpAddress == null) return null;
-        return associateCarrierIpAddress.getValue("LaunchTemplateNetworkInterfaceArgs.associateCarrierIpAddress");
+        if (!unknown_associateCarrierIpAddress) return value_associateCarrierIpAddress;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceArgs.associateCarrierIpAddress' is not present");
     }
 
     /**
      * Associate a public ip address with the network interface. Boolean value, can be left unset.
      * 
      */
-    private UndeferrableValue<String> associatePublicIpAddress;
-
+    @PolicyResourceProperty(name="associatePublicIpAddress", flag="unknown_associatePublicIpAddress")
+    private String value_associatePublicIpAddress;
+    private boolean unknown_associatePublicIpAddress;
     public String associatePublicIpAddress() {
-        if (associatePublicIpAddress == null) return null;
-        return associatePublicIpAddress.getValue("LaunchTemplateNetworkInterfaceArgs.associatePublicIpAddress");
+        if (!unknown_associatePublicIpAddress) return value_associatePublicIpAddress;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceArgs.associatePublicIpAddress' is not present");
     }
 
     /**
      * The Connection Tracking Configuration for the network interface. See [Amazon EC2 security group connection tracking](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts)
      * 
      */
-    private UndeferrableValue<LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs> connectionTrackingSpecification;
-
+    @PolicyResourceProperty(name="connectionTrackingSpecification", flag="unknown_connectionTrackingSpecification")
+    private LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs value_connectionTrackingSpecification;
+    private boolean unknown_connectionTrackingSpecification;
     public LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs connectionTrackingSpecification() {
-        if (connectionTrackingSpecification == null) return null;
-        return connectionTrackingSpecification.getValue("LaunchTemplateNetworkInterfaceArgs.connectionTrackingSpecification");
+        if (!unknown_connectionTrackingSpecification) return value_connectionTrackingSpecification;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceArgs.connectionTrackingSpecification' is not present");
     }
 
     /**
      * Whether the network interface should be destroyed on instance termination.
      * 
      */
-    private UndeferrableValue<String> deleteOnTermination;
-
+    @PolicyResourceProperty(name="deleteOnTermination", flag="unknown_deleteOnTermination")
+    private String value_deleteOnTermination;
+    private boolean unknown_deleteOnTermination;
     public String deleteOnTermination() {
-        if (deleteOnTermination == null) return null;
-        return deleteOnTermination.getValue("LaunchTemplateNetworkInterfaceArgs.deleteOnTermination");
+        if (!unknown_deleteOnTermination) return value_deleteOnTermination;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceArgs.deleteOnTermination' is not present");
     }
 
     /**
      * Description of the network interface.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("LaunchTemplateNetworkInterfaceArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceArgs.description' is not present");
     }
 
     /**
      * The integer index of the network interface attachment.
      * 
      */
-    private UndeferrableValue<Integer> deviceIndex;
-
+    @PolicyResourceProperty(name="deviceIndex", flag="unknown_deviceIndex")
+    private Integer value_deviceIndex;
+    private boolean unknown_deviceIndex;
     public Integer deviceIndex() {
-        if (deviceIndex == null) return null;
-        return deviceIndex.getValue("LaunchTemplateNetworkInterfaceArgs.deviceIndex");
+        if (!unknown_deviceIndex) return value_deviceIndex;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceArgs.deviceIndex' is not present");
     }
 
     /**
      * Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
      * 
      */
-    private UndeferrableValue<LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs> enaSrdSpecification;
-
+    @PolicyResourceProperty(name="enaSrdSpecification", flag="unknown_enaSrdSpecification")
+    private LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs value_enaSrdSpecification;
+    private boolean unknown_enaSrdSpecification;
     public LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs enaSrdSpecification() {
-        if (enaSrdSpecification == null) return null;
-        return enaSrdSpecification.getValue("LaunchTemplateNetworkInterfaceArgs.enaSrdSpecification");
+        if (!unknown_enaSrdSpecification) return value_enaSrdSpecification;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceArgs.enaSrdSpecification' is not present");
     }
 
     /**
      * The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
      * 
      */
-    private UndeferrableValue<String> interfaceType;
-
+    @PolicyResourceProperty(name="interfaceType", flag="unknown_interfaceType")
+    private String value_interfaceType;
+    private boolean unknown_interfaceType;
     public String interfaceType() {
-        if (interfaceType == null) return null;
-        return interfaceType.getValue("LaunchTemplateNetworkInterfaceArgs.interfaceType");
+        if (!unknown_interfaceType) return value_interfaceType;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceArgs.interfaceType' is not present");
     }
 
     /**
      * The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
      * 
      */
-    private UndeferrableValue<Integer> ipv4AddressCount;
-
+    @PolicyResourceProperty(name="ipv4AddressCount", flag="unknown_ipv4AddressCount")
+    private Integer value_ipv4AddressCount;
+    private boolean unknown_ipv4AddressCount;
     public Integer ipv4AddressCount() {
-        if (ipv4AddressCount == null) return null;
-        return ipv4AddressCount.getValue("LaunchTemplateNetworkInterfaceArgs.ipv4AddressCount");
+        if (!unknown_ipv4AddressCount) return value_ipv4AddressCount;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceArgs.ipv4AddressCount' is not present");
     }
 
     /**
      * One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
      * 
      */
-    private UndeferrableValue<List<String>> ipv4Addresses;
-
+    @PolicyResourceProperty(name="ipv4Addresses", flag="unknown_ipv4Addresses")
+    private List<String> value_ipv4Addresses;
+    private boolean unknown_ipv4Addresses;
     public List<String> ipv4Addresses() {
-        if (ipv4Addresses == null) return null;
-        return ipv4Addresses.getValue("LaunchTemplateNetworkInterfaceArgs.ipv4Addresses");
+        if (!unknown_ipv4Addresses) return value_ipv4Addresses;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceArgs.ipv4Addresses' is not present");
     }
 
     /**
      * The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `ipv4_prefixes`
      * 
      */
-    private UndeferrableValue<Integer> ipv4PrefixCount;
-
+    @PolicyResourceProperty(name="ipv4PrefixCount", flag="unknown_ipv4PrefixCount")
+    private Integer value_ipv4PrefixCount;
+    private boolean unknown_ipv4PrefixCount;
     public Integer ipv4PrefixCount() {
-        if (ipv4PrefixCount == null) return null;
-        return ipv4PrefixCount.getValue("LaunchTemplateNetworkInterfaceArgs.ipv4PrefixCount");
+        if (!unknown_ipv4PrefixCount) return value_ipv4PrefixCount;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceArgs.ipv4PrefixCount' is not present");
     }
 
     /**
      * One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4_prefix_count`
      * 
      */
-    private UndeferrableValue<List<String>> ipv4Prefixes;
-
+    @PolicyResourceProperty(name="ipv4Prefixes", flag="unknown_ipv4Prefixes")
+    private List<String> value_ipv4Prefixes;
+    private boolean unknown_ipv4Prefixes;
     public List<String> ipv4Prefixes() {
-        if (ipv4Prefixes == null) return null;
-        return ipv4Prefixes.getValue("LaunchTemplateNetworkInterfaceArgs.ipv4Prefixes");
+        if (!unknown_ipv4Prefixes) return value_ipv4Prefixes;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceArgs.ipv4Prefixes' is not present");
     }
 
     /**
      * The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6_addresses`
      * 
      */
-    private UndeferrableValue<Integer> ipv6AddressCount;
-
+    @PolicyResourceProperty(name="ipv6AddressCount", flag="unknown_ipv6AddressCount")
+    private Integer value_ipv6AddressCount;
+    private boolean unknown_ipv6AddressCount;
     public Integer ipv6AddressCount() {
-        if (ipv6AddressCount == null) return null;
-        return ipv6AddressCount.getValue("LaunchTemplateNetworkInterfaceArgs.ipv6AddressCount");
+        if (!unknown_ipv6AddressCount) return value_ipv6AddressCount;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceArgs.ipv6AddressCount' is not present");
     }
 
     /**
      * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6_address_count`
      * 
      */
-    private UndeferrableValue<List<String>> ipv6Addresses;
-
+    @PolicyResourceProperty(name="ipv6Addresses", flag="unknown_ipv6Addresses")
+    private List<String> value_ipv6Addresses;
+    private boolean unknown_ipv6Addresses;
     public List<String> ipv6Addresses() {
-        if (ipv6Addresses == null) return null;
-        return ipv6Addresses.getValue("LaunchTemplateNetworkInterfaceArgs.ipv6Addresses");
+        if (!unknown_ipv6Addresses) return value_ipv6Addresses;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceArgs.ipv6Addresses' is not present");
     }
 
     /**
      * The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `ipv6_prefixes`
      * 
      */
-    private UndeferrableValue<Integer> ipv6PrefixCount;
-
+    @PolicyResourceProperty(name="ipv6PrefixCount", flag="unknown_ipv6PrefixCount")
+    private Integer value_ipv6PrefixCount;
+    private boolean unknown_ipv6PrefixCount;
     public Integer ipv6PrefixCount() {
-        if (ipv6PrefixCount == null) return null;
-        return ipv6PrefixCount.getValue("LaunchTemplateNetworkInterfaceArgs.ipv6PrefixCount");
+        if (!unknown_ipv6PrefixCount) return value_ipv6PrefixCount;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceArgs.ipv6PrefixCount' is not present");
     }
 
     /**
      * One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6_prefix_count`
      * 
      */
-    private UndeferrableValue<List<String>> ipv6Prefixes;
-
+    @PolicyResourceProperty(name="ipv6Prefixes", flag="unknown_ipv6Prefixes")
+    private List<String> value_ipv6Prefixes;
+    private boolean unknown_ipv6Prefixes;
     public List<String> ipv6Prefixes() {
-        if (ipv6Prefixes == null) return null;
-        return ipv6Prefixes.getValue("LaunchTemplateNetworkInterfaceArgs.ipv6Prefixes");
+        if (!unknown_ipv6Prefixes) return value_ipv6Prefixes;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceArgs.ipv6Prefixes' is not present");
     }
 
     /**
      * The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
      * 
      */
-    private UndeferrableValue<Integer> networkCardIndex;
-
+    @PolicyResourceProperty(name="networkCardIndex", flag="unknown_networkCardIndex")
+    private Integer value_networkCardIndex;
+    private boolean unknown_networkCardIndex;
     public Integer networkCardIndex() {
-        if (networkCardIndex == null) return null;
-        return networkCardIndex.getValue("LaunchTemplateNetworkInterfaceArgs.networkCardIndex");
+        if (!unknown_networkCardIndex) return value_networkCardIndex;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceArgs.networkCardIndex' is not present");
     }
 
     /**
      * The ID of the network interface to attach.
      * 
      */
-    private UndeferrableValue<String> networkInterfaceId;
-
+    @PolicyResourceProperty(name="networkInterfaceId", flag="unknown_networkInterfaceId")
+    private String value_networkInterfaceId;
+    private boolean unknown_networkInterfaceId;
     public String networkInterfaceId() {
-        if (networkInterfaceId == null) return null;
-        return networkInterfaceId.getValue("LaunchTemplateNetworkInterfaceArgs.networkInterfaceId");
+        if (!unknown_networkInterfaceId) return value_networkInterfaceId;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceArgs.networkInterfaceId' is not present");
     }
 
     /**
      * Whether the first IPv6 GUA will be made the primary IPv6 address.
      * 
      */
-    private UndeferrableValue<String> primaryIpv6;
-
+    @PolicyResourceProperty(name="primaryIpv6", flag="unknown_primaryIpv6")
+    private String value_primaryIpv6;
+    private boolean unknown_primaryIpv6;
     public String primaryIpv6() {
-        if (primaryIpv6 == null) return null;
-        return primaryIpv6.getValue("LaunchTemplateNetworkInterfaceArgs.primaryIpv6");
+        if (!unknown_primaryIpv6) return value_primaryIpv6;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceArgs.primaryIpv6' is not present");
     }
 
     /**
      * The primary private IPv4 address.
      * 
      */
-    private UndeferrableValue<String> privateIpAddress;
-
+    @PolicyResourceProperty(name="privateIpAddress", flag="unknown_privateIpAddress")
+    private String value_privateIpAddress;
+    private boolean unknown_privateIpAddress;
     public String privateIpAddress() {
-        if (privateIpAddress == null) return null;
-        return privateIpAddress.getValue("LaunchTemplateNetworkInterfaceArgs.privateIpAddress");
+        if (!unknown_privateIpAddress) return value_privateIpAddress;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceArgs.privateIpAddress' is not present");
     }
 
     /**
      * A list of security group IDs to associate.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroups;
-
+    @PolicyResourceProperty(name="securityGroups", flag="unknown_securityGroups")
+    private List<String> value_securityGroups;
+    private boolean unknown_securityGroups;
     public List<String> securityGroups() {
-        if (securityGroups == null) return null;
-        return securityGroups.getValue("LaunchTemplateNetworkInterfaceArgs.securityGroups");
+        if (!unknown_securityGroups) return value_securityGroups;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceArgs.securityGroups' is not present");
     }
 
     /**
      * The VPC Subnet ID to associate.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("LaunchTemplateNetworkInterfaceArgs.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceArgs.subnetId' is not present");
     }
 
 }

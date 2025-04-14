@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appsync.inputs.GraphQLApiAdditionalAuthenticationProviderArgs;
 import com.pulumi.policypacks.aws.appsync.inputs.GraphQLApiEnhancedMetricsConfigArgs;
@@ -26,88 +27,96 @@ public final class GraphQLApiArgs extends com.pulumi.resources.PolicyResourceInp
      * One or more additional authentication providers for the GraphQL API. See `additional_authentication_provider` Block for details.
      * 
      */
-    private UndeferrableValue<List<GraphQLApiAdditionalAuthenticationProviderArgs>> additionalAuthenticationProviders;
-
+    @PolicyResourceProperty(name="additionalAuthenticationProviders", flag="unknown_additionalAuthenticationProviders")
+    private List<GraphQLApiAdditionalAuthenticationProviderArgs> value_additionalAuthenticationProviders;
+    private boolean unknown_additionalAuthenticationProviders;
     public List<GraphQLApiAdditionalAuthenticationProviderArgs> additionalAuthenticationProviders() {
-        if (additionalAuthenticationProviders == null) return null;
-        return additionalAuthenticationProviders.getValue("GraphQLApiArgs.additionalAuthenticationProviders");
+        if (!unknown_additionalAuthenticationProviders) return value_additionalAuthenticationProviders;
+        throw new UndeferrableValueException("Value 'GraphQLApiArgs.additionalAuthenticationProviders' is not present");
     }
 
     /**
      * API type. Valid values are `GRAPHQL` or `MERGED`. A `MERGED` type requires `merged_api_execution_role_arn` to be set.
      * 
      */
-    private UndeferrableValue<String> apiType;
-
+    @PolicyResourceProperty(name="apiType", flag="unknown_apiType")
+    private String value_apiType;
+    private boolean unknown_apiType;
     public String apiType() {
-        if (apiType == null) return null;
-        return apiType.getValue("GraphQLApiArgs.apiType");
+        if (!unknown_apiType) return value_apiType;
+        throw new UndeferrableValueException("Value 'GraphQLApiArgs.apiType' is not present");
     }
 
     /**
      * Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
      * 
      */
-    private UndeferrableValue<String> authenticationType;
-
+    @PolicyResourceProperty(name="authenticationType", flag="unknown_authenticationType")
+    private String value_authenticationType;
+    private boolean unknown_authenticationType;
     public String authenticationType() {
-        if (authenticationType == null) return null;
-        return authenticationType.getValue("GraphQLApiArgs.authenticationType");
+        if (!unknown_authenticationType) return value_authenticationType;
+        throw new UndeferrableValueException("Value 'GraphQLApiArgs.authenticationType' is not present");
     }
 
     /**
      * Enables and controls the enhanced metrics feature. See `enhanced_metrics_config` Block for details.
      * 
      */
-    private UndeferrableValue<GraphQLApiEnhancedMetricsConfigArgs> enhancedMetricsConfig;
-
+    @PolicyResourceProperty(name="enhancedMetricsConfig", flag="unknown_enhancedMetricsConfig")
+    private GraphQLApiEnhancedMetricsConfigArgs value_enhancedMetricsConfig;
+    private boolean unknown_enhancedMetricsConfig;
     public GraphQLApiEnhancedMetricsConfigArgs enhancedMetricsConfig() {
-        if (enhancedMetricsConfig == null) return null;
-        return enhancedMetricsConfig.getValue("GraphQLApiArgs.enhancedMetricsConfig");
+        if (!unknown_enhancedMetricsConfig) return value_enhancedMetricsConfig;
+        throw new UndeferrableValueException("Value 'GraphQLApiArgs.enhancedMetricsConfig' is not present");
     }
 
     /**
      * Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
      * 
      */
-    private UndeferrableValue<String> introspectionConfig;
-
+    @PolicyResourceProperty(name="introspectionConfig", flag="unknown_introspectionConfig")
+    private String value_introspectionConfig;
+    private boolean unknown_introspectionConfig;
     public String introspectionConfig() {
-        if (introspectionConfig == null) return null;
-        return introspectionConfig.getValue("GraphQLApiArgs.introspectionConfig");
+        if (!unknown_introspectionConfig) return value_introspectionConfig;
+        throw new UndeferrableValueException("Value 'GraphQLApiArgs.introspectionConfig' is not present");
     }
 
     /**
      * Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
      * 
      */
-    private UndeferrableValue<GraphQLApiLambdaAuthorizerConfigArgs> lambdaAuthorizerConfig;
-
+    @PolicyResourceProperty(name="lambdaAuthorizerConfig", flag="unknown_lambdaAuthorizerConfig")
+    private GraphQLApiLambdaAuthorizerConfigArgs value_lambdaAuthorizerConfig;
+    private boolean unknown_lambdaAuthorizerConfig;
     public GraphQLApiLambdaAuthorizerConfigArgs lambdaAuthorizerConfig() {
-        if (lambdaAuthorizerConfig == null) return null;
-        return lambdaAuthorizerConfig.getValue("GraphQLApiArgs.lambdaAuthorizerConfig");
+        if (!unknown_lambdaAuthorizerConfig) return value_lambdaAuthorizerConfig;
+        throw new UndeferrableValueException("Value 'GraphQLApiArgs.lambdaAuthorizerConfig' is not present");
     }
 
     /**
      * Nested argument containing logging configuration. See `log_config` Block for details.
      * 
      */
-    private UndeferrableValue<GraphQLApiLogConfigArgs> logConfig;
-
+    @PolicyResourceProperty(name="logConfig", flag="unknown_logConfig")
+    private GraphQLApiLogConfigArgs value_logConfig;
+    private boolean unknown_logConfig;
     public GraphQLApiLogConfigArgs logConfig() {
-        if (logConfig == null) return null;
-        return logConfig.getValue("GraphQLApiArgs.logConfig");
+        if (!unknown_logConfig) return value_logConfig;
+        throw new UndeferrableValueException("Value 'GraphQLApiArgs.logConfig' is not present");
     }
 
     /**
      * ARN of the execution role when `api_type` is set to `MERGED`.
      * 
      */
-    private UndeferrableValue<String> mergedApiExecutionRoleArn;
-
+    @PolicyResourceProperty(name="mergedApiExecutionRoleArn", flag="unknown_mergedApiExecutionRoleArn")
+    private String value_mergedApiExecutionRoleArn;
+    private boolean unknown_mergedApiExecutionRoleArn;
     public String mergedApiExecutionRoleArn() {
-        if (mergedApiExecutionRoleArn == null) return null;
-        return mergedApiExecutionRoleArn.getValue("GraphQLApiArgs.mergedApiExecutionRoleArn");
+        if (!unknown_mergedApiExecutionRoleArn) return value_mergedApiExecutionRoleArn;
+        throw new UndeferrableValueException("Value 'GraphQLApiArgs.mergedApiExecutionRoleArn' is not present");
     }
 
     /**
@@ -116,22 +125,24 @@ public final class GraphQLApiArgs extends com.pulumi.resources.PolicyResourceInp
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("GraphQLApiArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'GraphQLApiArgs.name' is not present");
     }
 
     /**
      * Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
      * 
      */
-    private UndeferrableValue<GraphQLApiOpenidConnectConfigArgs> openidConnectConfig;
-
+    @PolicyResourceProperty(name="openidConnectConfig", flag="unknown_openidConnectConfig")
+    private GraphQLApiOpenidConnectConfigArgs value_openidConnectConfig;
+    private boolean unknown_openidConnectConfig;
     public GraphQLApiOpenidConnectConfigArgs openidConnectConfig() {
-        if (openidConnectConfig == null) return null;
-        return openidConnectConfig.getValue("GraphQLApiArgs.openidConnectConfig");
+        if (!unknown_openidConnectConfig) return value_openidConnectConfig;
+        throw new UndeferrableValueException("Value 'GraphQLApiArgs.openidConnectConfig' is not present");
     }
 
     /**
@@ -140,77 +151,84 @@ public final class GraphQLApiArgs extends com.pulumi.resources.PolicyResourceInp
      * Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
      * 
      */
-    private UndeferrableValue<Integer> queryDepthLimit;
-
+    @PolicyResourceProperty(name="queryDepthLimit", flag="unknown_queryDepthLimit")
+    private Integer value_queryDepthLimit;
+    private boolean unknown_queryDepthLimit;
     public Integer queryDepthLimit() {
-        if (queryDepthLimit == null) return null;
-        return queryDepthLimit.getValue("GraphQLApiArgs.queryDepthLimit");
+        if (!unknown_queryDepthLimit) return value_queryDepthLimit;
+        throw new UndeferrableValueException("Value 'GraphQLApiArgs.queryDepthLimit' is not present");
     }
 
     /**
      * The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
      * 
      */
-    private UndeferrableValue<Integer> resolverCountLimit;
-
+    @PolicyResourceProperty(name="resolverCountLimit", flag="unknown_resolverCountLimit")
+    private Integer value_resolverCountLimit;
+    private boolean unknown_resolverCountLimit;
     public Integer resolverCountLimit() {
-        if (resolverCountLimit == null) return null;
-        return resolverCountLimit.getValue("GraphQLApiArgs.resolverCountLimit");
+        if (!unknown_resolverCountLimit) return value_resolverCountLimit;
+        throw new UndeferrableValueException("Value 'GraphQLApiArgs.resolverCountLimit' is not present");
     }
 
     /**
      * Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
      * 
      */
-    private UndeferrableValue<String> schema;
-
+    @PolicyResourceProperty(name="schema", flag="unknown_schema")
+    private String value_schema;
+    private boolean unknown_schema;
     public String schema() {
-        if (schema == null) return null;
-        return schema.getValue("GraphQLApiArgs.schema");
+        if (!unknown_schema) return value_schema;
+        throw new UndeferrableValueException("Value 'GraphQLApiArgs.schema' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("GraphQLApiArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'GraphQLApiArgs.tags' is not present");
     }
 
     /**
      * Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
      * 
      */
-    private UndeferrableValue<GraphQLApiUserPoolConfigArgs> userPoolConfig;
-
+    @PolicyResourceProperty(name="userPoolConfig", flag="unknown_userPoolConfig")
+    private GraphQLApiUserPoolConfigArgs value_userPoolConfig;
+    private boolean unknown_userPoolConfig;
     public GraphQLApiUserPoolConfigArgs userPoolConfig() {
-        if (userPoolConfig == null) return null;
-        return userPoolConfig.getValue("GraphQLApiArgs.userPoolConfig");
+        if (!unknown_userPoolConfig) return value_userPoolConfig;
+        throw new UndeferrableValueException("Value 'GraphQLApiArgs.userPoolConfig' is not present");
     }
 
     /**
      * Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
      * 
      */
-    private UndeferrableValue<String> visibility;
-
+    @PolicyResourceProperty(name="visibility", flag="unknown_visibility")
+    private String value_visibility;
+    private boolean unknown_visibility;
     public String visibility() {
-        if (visibility == null) return null;
-        return visibility.getValue("GraphQLApiArgs.visibility");
+        if (!unknown_visibility) return value_visibility;
+        throw new UndeferrableValueException("Value 'GraphQLApiArgs.visibility' is not present");
     }
 
     /**
      * Whether tracing with X-ray is enabled. Defaults to false.
      * 
      */
-    private UndeferrableValue<Boolean> xrayEnabled;
-
+    @PolicyResourceProperty(name="xrayEnabled", flag="unknown_xrayEnabled")
+    private Boolean value_xrayEnabled;
+    private boolean unknown_xrayEnabled;
     public Boolean xrayEnabled() {
-        if (xrayEnabled == null) return null;
-        return xrayEnabled.getValue("GraphQLApiArgs.xrayEnabled");
+        if (!unknown_xrayEnabled) return value_xrayEnabled;
+        throw new UndeferrableValueException("Value 'GraphQLApiArgs.xrayEnabled' is not present");
     }
 
 }

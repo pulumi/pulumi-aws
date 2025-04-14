@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fis.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ExperimentTemplateExperimentOptionsArgs {
      * Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
      * 
      */
-    private UndeferrableValue<String> accountTargeting;
-
+    @PolicyResourceProperty(name="accountTargeting", flag="unknown_accountTargeting")
+    private String value_accountTargeting;
+    private boolean unknown_accountTargeting;
     public String accountTargeting() {
-        if (accountTargeting == null) return null;
-        return accountTargeting.getValue("ExperimentTemplateExperimentOptionsArgs.accountTargeting");
+        if (!unknown_accountTargeting) return value_accountTargeting;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateExperimentOptionsArgs.accountTargeting' is not present");
     }
 
     /**
      * Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
      * 
      */
-    private UndeferrableValue<String> emptyTargetResolutionMode;
-
+    @PolicyResourceProperty(name="emptyTargetResolutionMode", flag="unknown_emptyTargetResolutionMode")
+    private String value_emptyTargetResolutionMode;
+    private boolean unknown_emptyTargetResolutionMode;
     public String emptyTargetResolutionMode() {
-        if (emptyTargetResolutionMode == null) return null;
-        return emptyTargetResolutionMode.getValue("ExperimentTemplateExperimentOptionsArgs.emptyTargetResolutionMode");
+        if (!unknown_emptyTargetResolutionMode) return value_emptyTargetResolutionMode;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateExperimentOptionsArgs.emptyTargetResolutionMode' is not present");
     }
 
 }

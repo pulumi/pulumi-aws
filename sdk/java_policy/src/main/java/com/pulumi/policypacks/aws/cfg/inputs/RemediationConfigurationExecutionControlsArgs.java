@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cfg.inputs.RemediationConfigurationExecutionControlsSsmControlsArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class RemediationConfigurationExecutionControlsArgs {
      * Configuration block for SSM controls. See below.
      * 
      */
-    private UndeferrableValue<RemediationConfigurationExecutionControlsSsmControlsArgs> ssmControls;
-
+    @PolicyResourceProperty(name="ssmControls", flag="unknown_ssmControls")
+    private RemediationConfigurationExecutionControlsSsmControlsArgs value_ssmControls;
+    private boolean unknown_ssmControls;
     public RemediationConfigurationExecutionControlsSsmControlsArgs ssmControls() {
-        if (ssmControls == null) return null;
-        return ssmControls.getValue("RemediationConfigurationExecutionControlsArgs.ssmControls");
+        if (!unknown_ssmControls) return value_ssmControls;
+        throw new UndeferrableValueException("Value 'RemediationConfigurationExecutionControlsArgs.ssmControls' is not present");
     }
 
 }

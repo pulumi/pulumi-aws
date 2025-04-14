@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class ContactListTopicArgs {
      * Default subscription status to be applied to a contact if the contact has not noted their preference for subscribing to a topic.
      * 
      */
-    private UndeferrableValue<String> defaultSubscriptionStatus;
-
+    @PolicyResourceProperty(name="defaultSubscriptionStatus", flag="unknown_defaultSubscriptionStatus")
+    private String value_defaultSubscriptionStatus;
+    private boolean unknown_defaultSubscriptionStatus;
     public String defaultSubscriptionStatus() {
-        if (defaultSubscriptionStatus == null) return null;
-        return defaultSubscriptionStatus.getValue("ContactListTopicArgs.defaultSubscriptionStatus");
+        if (!unknown_defaultSubscriptionStatus) return value_defaultSubscriptionStatus;
+        throw new UndeferrableValueException("Value 'ContactListTopicArgs.defaultSubscriptionStatus' is not present");
     }
 
     /**
      * Description of what the topic is about, which the contact will see.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ContactListTopicArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ContactListTopicArgs.description' is not present");
     }
 
     /**
      * Name of the topic the contact will see.
      * 
      */
-    private UndeferrableValue<String> displayName;
-
+    @PolicyResourceProperty(name="displayName", flag="unknown_displayName")
+    private String value_displayName;
+    private boolean unknown_displayName;
     public String displayName() {
-        if (displayName == null) return null;
-        return displayName.getValue("ContactListTopicArgs.displayName");
+        if (!unknown_displayName) return value_displayName;
+        throw new UndeferrableValueException("Value 'ContactListTopicArgs.displayName' is not present");
     }
 
     /**
@@ -49,11 +53,12 @@ public final class ContactListTopicArgs {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> topicName;
-
+    @PolicyResourceProperty(name="topicName", flag="unknown_topicName")
+    private String value_topicName;
+    private boolean unknown_topicName;
     public String topicName() {
-        if (topicName == null) return null;
-        return topicName.getValue("ContactListTopicArgs.topicName");
+        if (!unknown_topicName) return value_topicName;
+        throw new UndeferrableValueException("Value 'ContactListTopicArgs.topicName' is not present");
     }
 
 }

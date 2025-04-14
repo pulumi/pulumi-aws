@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs;
@@ -17,44 +18,48 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
      * Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
      * 
      */
-    private UndeferrableValue<String> chunkingStrategy;
-
+    @PolicyResourceProperty(name="chunkingStrategy", flag="unknown_chunkingStrategy")
+    private String value_chunkingStrategy;
+    private boolean unknown_chunkingStrategy;
     public String chunkingStrategy() {
-        if (chunkingStrategy == null) return null;
-        return chunkingStrategy.getValue("AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs.chunkingStrategy");
+        if (!unknown_chunkingStrategy) return value_chunkingStrategy;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs.chunkingStrategy' is not present");
     }
 
     /**
      * Configurations for when you choose fixed-size chunking. Requires chunking_strategy as `FIXED_SIZE`. See `fixed_size_chunking_configuration` for details.
      * 
      */
-    private UndeferrableValue<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs> fixedSizeChunkingConfiguration;
-
+    @PolicyResourceProperty(name="fixedSizeChunkingConfiguration", flag="unknown_fixedSizeChunkingConfiguration")
+    private AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs value_fixedSizeChunkingConfiguration;
+    private boolean unknown_fixedSizeChunkingConfiguration;
     public AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs fixedSizeChunkingConfiguration() {
-        if (fixedSizeChunkingConfiguration == null) return null;
-        return fixedSizeChunkingConfiguration.getValue("AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs.fixedSizeChunkingConfiguration");
+        if (!unknown_fixedSizeChunkingConfiguration) return value_fixedSizeChunkingConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs.fixedSizeChunkingConfiguration' is not present");
     }
 
     /**
      * Configurations for when you choose hierarchical chunking. Requires chunking_strategy as `HIERARCHICAL`. See `hierarchical_chunking_configuration` for details.
      * 
      */
-    private UndeferrableValue<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs> hierarchicalChunkingConfiguration;
-
+    @PolicyResourceProperty(name="hierarchicalChunkingConfiguration", flag="unknown_hierarchicalChunkingConfiguration")
+    private AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs value_hierarchicalChunkingConfiguration;
+    private boolean unknown_hierarchicalChunkingConfiguration;
     public AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs hierarchicalChunkingConfiguration() {
-        if (hierarchicalChunkingConfiguration == null) return null;
-        return hierarchicalChunkingConfiguration.getValue("AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs.hierarchicalChunkingConfiguration");
+        if (!unknown_hierarchicalChunkingConfiguration) return value_hierarchicalChunkingConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs.hierarchicalChunkingConfiguration' is not present");
     }
 
     /**
      * Configurations for when you choose semantic chunking. Requires chunking_strategy as `SEMANTIC`. See `semantic_chunking_configuration` for details.
      * 
      */
-    private UndeferrableValue<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs> semanticChunkingConfiguration;
-
+    @PolicyResourceProperty(name="semanticChunkingConfiguration", flag="unknown_semanticChunkingConfiguration")
+    private AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs value_semanticChunkingConfiguration;
+    private boolean unknown_semanticChunkingConfiguration;
     public AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs semanticChunkingConfiguration() {
-        if (semanticChunkingConfiguration == null) return null;
-        return semanticChunkingConfiguration.getValue("AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs.semanticChunkingConfiguration");
+        if (!unknown_semanticChunkingConfiguration) return value_semanticChunkingConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs.semanticChunkingConfiguration' is not present");
     }
 
 }

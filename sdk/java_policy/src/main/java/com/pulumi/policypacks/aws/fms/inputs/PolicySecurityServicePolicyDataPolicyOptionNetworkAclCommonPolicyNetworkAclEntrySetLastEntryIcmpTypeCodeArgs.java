@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fms.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
      * An integer value containing ICMP code.
      * 
      */
-    private UndeferrableValue<Integer> code;
-
+    @PolicyResourceProperty(name="code", flag="unknown_code")
+    private Integer value_code;
+    private boolean unknown_code;
     public Integer code() {
-        if (code == null) return null;
-        return code.getValue("PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgs.code");
+        if (!unknown_code) return value_code;
+        throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgs.code' is not present");
     }
 
     /**
      * An integer value containing ICMP type.
      * 
      */
-    private UndeferrableValue<Integer> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private Integer value_type;
+    private boolean unknown_type;
     public Integer type() {
-        if (type == null) return null;
-        return type.getValue("PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgs.type' is not present");
     }
 
 }

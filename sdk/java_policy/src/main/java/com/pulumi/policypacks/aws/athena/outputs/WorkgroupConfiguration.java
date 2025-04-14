@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.athena.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.athena.outputs.WorkgroupConfigurationEngineVersion;
 import com.pulumi.policypacks.aws.athena.outputs.WorkgroupConfigurationResultConfiguration;
 import java.lang.Boolean;
@@ -18,77 +19,84 @@ public final class WorkgroupConfiguration {
      * Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> bytesScannedCutoffPerQuery;
-
+    @PolicyResourceProperty(name="bytesScannedCutoffPerQuery", flag="unknown_bytesScannedCutoffPerQuery")
+    private @Nullable Integer value_bytesScannedCutoffPerQuery;
+    private boolean unknown_bytesScannedCutoffPerQuery;
     public @Nullable Integer bytesScannedCutoffPerQuery() {
-        if (bytesScannedCutoffPerQuery == null) return null;
-        return bytesScannedCutoffPerQuery.getValue("WorkgroupConfiguration.bytesScannedCutoffPerQuery");
+        if (!unknown_bytesScannedCutoffPerQuery) return value_bytesScannedCutoffPerQuery;
+        throw new UndeferrableValueException("Value 'WorkgroupConfiguration.bytesScannedCutoffPerQuery' is not present");
     }
 
     /**
      * Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enforceWorkgroupConfiguration;
-
+    @PolicyResourceProperty(name="enforceWorkgroupConfiguration", flag="unknown_enforceWorkgroupConfiguration")
+    private @Nullable Boolean value_enforceWorkgroupConfiguration;
+    private boolean unknown_enforceWorkgroupConfiguration;
     public @Nullable Boolean enforceWorkgroupConfiguration() {
-        if (enforceWorkgroupConfiguration == null) return null;
-        return enforceWorkgroupConfiguration.getValue("WorkgroupConfiguration.enforceWorkgroupConfiguration");
+        if (!unknown_enforceWorkgroupConfiguration) return value_enforceWorkgroupConfiguration;
+        throw new UndeferrableValueException("Value 'WorkgroupConfiguration.enforceWorkgroupConfiguration' is not present");
     }
 
     /**
      * Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
      * 
      */
-    private @Nullable UndeferrableValue<WorkgroupConfigurationEngineVersion> engineVersion;
-
+    @PolicyResourceProperty(name="engineVersion", flag="unknown_engineVersion")
+    private @Nullable WorkgroupConfigurationEngineVersion value_engineVersion;
+    private boolean unknown_engineVersion;
     public @Nullable WorkgroupConfigurationEngineVersion engineVersion() {
-        if (engineVersion == null) return null;
-        return engineVersion.getValue("WorkgroupConfiguration.engineVersion");
+        if (!unknown_engineVersion) return value_engineVersion;
+        throw new UndeferrableValueException("Value 'WorkgroupConfiguration.engineVersion' is not present");
     }
 
     /**
      * Role used in a notebook session for accessing the user&#39;s resources.
      * 
      */
-    private @Nullable UndeferrableValue<String> executionRole;
-
+    @PolicyResourceProperty(name="executionRole", flag="unknown_executionRole")
+    private @Nullable String value_executionRole;
+    private boolean unknown_executionRole;
     public @Nullable String executionRole() {
-        if (executionRole == null) return null;
-        return executionRole.getValue("WorkgroupConfiguration.executionRole");
+        if (!unknown_executionRole) return value_executionRole;
+        throw new UndeferrableValueException("Value 'WorkgroupConfiguration.executionRole' is not present");
     }
 
     /**
      * Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> publishCloudwatchMetricsEnabled;
-
+    @PolicyResourceProperty(name="publishCloudwatchMetricsEnabled", flag="unknown_publishCloudwatchMetricsEnabled")
+    private @Nullable Boolean value_publishCloudwatchMetricsEnabled;
+    private boolean unknown_publishCloudwatchMetricsEnabled;
     public @Nullable Boolean publishCloudwatchMetricsEnabled() {
-        if (publishCloudwatchMetricsEnabled == null) return null;
-        return publishCloudwatchMetricsEnabled.getValue("WorkgroupConfiguration.publishCloudwatchMetricsEnabled");
+        if (!unknown_publishCloudwatchMetricsEnabled) return value_publishCloudwatchMetricsEnabled;
+        throw new UndeferrableValueException("Value 'WorkgroupConfiguration.publishCloudwatchMetricsEnabled' is not present");
     }
 
     /**
      * If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> requesterPaysEnabled;
-
+    @PolicyResourceProperty(name="requesterPaysEnabled", flag="unknown_requesterPaysEnabled")
+    private @Nullable Boolean value_requesterPaysEnabled;
+    private boolean unknown_requesterPaysEnabled;
     public @Nullable Boolean requesterPaysEnabled() {
-        if (requesterPaysEnabled == null) return null;
-        return requesterPaysEnabled.getValue("WorkgroupConfiguration.requesterPaysEnabled");
+        if (!unknown_requesterPaysEnabled) return value_requesterPaysEnabled;
+        throw new UndeferrableValueException("Value 'WorkgroupConfiguration.requesterPaysEnabled' is not present");
     }
 
     /**
      * Configuration block with result settings. See Result Configuration below.
      * 
      */
-    private @Nullable UndeferrableValue<WorkgroupConfigurationResultConfiguration> resultConfiguration;
-
+    @PolicyResourceProperty(name="resultConfiguration", flag="unknown_resultConfiguration")
+    private @Nullable WorkgroupConfigurationResultConfiguration value_resultConfiguration;
+    private boolean unknown_resultConfiguration;
     public @Nullable WorkgroupConfigurationResultConfiguration resultConfiguration() {
-        if (resultConfiguration == null) return null;
-        return resultConfiguration.getValue("WorkgroupConfiguration.resultConfiguration");
+        if (!unknown_resultConfiguration) return value_resultConfiguration;
+        throw new UndeferrableValueException("Value 'WorkgroupConfiguration.resultConfiguration' is not present");
     }
 
 }

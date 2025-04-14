@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.m2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.m2.inputs.ApplicationDefinitionArgs;
 import com.pulumi.policypacks.aws.m2.inputs.ApplicationTimeoutsArgs;
@@ -19,44 +20,48 @@ public final class ApplicationArgs extends com.pulumi.resources.PolicyResourceIn
      * The application definition for this application. You can specify either inline JSON or an S3 bucket location.
      * 
      */
-    private UndeferrableValue<ApplicationDefinitionArgs> definition;
-
+    @PolicyResourceProperty(name="definition", flag="unknown_definition")
+    private ApplicationDefinitionArgs value_definition;
+    private boolean unknown_definition;
     public ApplicationDefinitionArgs definition() {
-        if (definition == null) return null;
-        return definition.getValue("ApplicationArgs.definition");
+        if (!unknown_definition) return value_definition;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.definition' is not present");
     }
 
     /**
      * Description of the application.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ApplicationArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.description' is not present");
     }
 
     /**
      * Engine type must be `microfocus | bluage`.
      * 
      */
-    private UndeferrableValue<String> engineType;
-
+    @PolicyResourceProperty(name="engineType", flag="unknown_engineType")
+    private String value_engineType;
+    private boolean unknown_engineType;
     public String engineType() {
-        if (engineType == null) return null;
-        return engineType.getValue("ApplicationArgs.engineType");
+        if (!unknown_engineType) return value_engineType;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.engineType' is not present");
     }
 
     /**
      * KMS Key to use for the Application.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("ApplicationArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.kmsKeyId' is not present");
     }
 
     /**
@@ -65,40 +70,44 @@ public final class ApplicationArgs extends com.pulumi.resources.PolicyResourceIn
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ApplicationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.name' is not present");
     }
 
     /**
      * ARN of role for application to use to access AWS resources.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("ApplicationArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.roleArn' is not present");
     }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ApplicationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.tags' is not present");
     }
 
-    private UndeferrableValue<ApplicationTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private ApplicationTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public ApplicationTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ApplicationArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.timeouts' is not present");
     }
 
 }

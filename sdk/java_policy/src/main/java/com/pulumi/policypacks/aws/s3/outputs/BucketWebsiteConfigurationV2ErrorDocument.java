@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class BucketWebsiteConfigurationV2ErrorDocument {
      * Object key name to use when a 4XX class error occurs.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("BucketWebsiteConfigurationV2ErrorDocument.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2ErrorDocument.key' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.outputs.LaunchConfigurationEbsBlockDevice;
 import com.pulumi.policypacks.aws.ec2.outputs.LaunchConfigurationEphemeralBlockDevice;
@@ -22,88 +23,96 @@ public final class LaunchConfiguration extends com.pulumi.resources.PolicyResour
      * The Amazon Resource Name of the launch configuration.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("LaunchConfiguration.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'LaunchConfiguration.arn' is not present");
     }
 
     /**
      * Associate a public ip address with an instance in a VPC.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> associatePublicIpAddress;
-
+    @PolicyResourceProperty(name="associatePublicIpAddress", flag="unknown_associatePublicIpAddress")
+    private @Nullable Boolean value_associatePublicIpAddress;
+    private boolean unknown_associatePublicIpAddress;
     public @Nullable Boolean associatePublicIpAddress() {
-        if (associatePublicIpAddress == null) return null;
-        return associatePublicIpAddress.getValue("LaunchConfiguration.associatePublicIpAddress");
+        if (!unknown_associatePublicIpAddress) return value_associatePublicIpAddress;
+        throw new UndeferrableValueException("Value 'LaunchConfiguration.associatePublicIpAddress' is not present");
     }
 
     /**
      * Additional EBS block devices to attach to the instance. See Block Devices below for details.
      * 
      */
-    private UndeferrableValue<List<LaunchConfigurationEbsBlockDevice>> ebsBlockDevices;
-
+    @PolicyResourceProperty(name="ebsBlockDevices", flag="unknown_ebsBlockDevices")
+    private List<LaunchConfigurationEbsBlockDevice> value_ebsBlockDevices;
+    private boolean unknown_ebsBlockDevices;
     public List<LaunchConfigurationEbsBlockDevice> ebsBlockDevices() {
-        if (ebsBlockDevices == null) return null;
-        return ebsBlockDevices.getValue("LaunchConfiguration.ebsBlockDevices");
+        if (!unknown_ebsBlockDevices) return value_ebsBlockDevices;
+        throw new UndeferrableValueException("Value 'LaunchConfiguration.ebsBlockDevices' is not present");
     }
 
     /**
      * If true, the launched EC2 instance will be EBS-optimized.
      * 
      */
-    private UndeferrableValue<Boolean> ebsOptimized;
-
+    @PolicyResourceProperty(name="ebsOptimized", flag="unknown_ebsOptimized")
+    private Boolean value_ebsOptimized;
+    private boolean unknown_ebsOptimized;
     public Boolean ebsOptimized() {
-        if (ebsOptimized == null) return null;
-        return ebsOptimized.getValue("LaunchConfiguration.ebsOptimized");
+        if (!unknown_ebsOptimized) return value_ebsOptimized;
+        throw new UndeferrableValueException("Value 'LaunchConfiguration.ebsOptimized' is not present");
     }
 
     /**
      * Enables/disables detailed monitoring. This is enabled by default.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enableMonitoring;
-
+    @PolicyResourceProperty(name="enableMonitoring", flag="unknown_enableMonitoring")
+    private @Nullable Boolean value_enableMonitoring;
+    private boolean unknown_enableMonitoring;
     public @Nullable Boolean enableMonitoring() {
-        if (enableMonitoring == null) return null;
-        return enableMonitoring.getValue("LaunchConfiguration.enableMonitoring");
+        if (!unknown_enableMonitoring) return value_enableMonitoring;
+        throw new UndeferrableValueException("Value 'LaunchConfiguration.enableMonitoring' is not present");
     }
 
     /**
      * Customize Ephemeral (also known as &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<LaunchConfigurationEphemeralBlockDevice>> ephemeralBlockDevices;
-
+    @PolicyResourceProperty(name="ephemeralBlockDevices", flag="unknown_ephemeralBlockDevices")
+    private @Nullable List<LaunchConfigurationEphemeralBlockDevice> value_ephemeralBlockDevices;
+    private boolean unknown_ephemeralBlockDevices;
     public @Nullable List<LaunchConfigurationEphemeralBlockDevice> ephemeralBlockDevices() {
-        if (ephemeralBlockDevices == null) return null;
-        return ephemeralBlockDevices.getValue("LaunchConfiguration.ephemeralBlockDevices");
+        if (!unknown_ephemeralBlockDevices) return value_ephemeralBlockDevices;
+        throw new UndeferrableValueException("Value 'LaunchConfiguration.ephemeralBlockDevices' is not present");
     }
 
     /**
      * The name attribute of the IAM instance profile to associate with launched instances.
      * 
      */
-    private @Nullable UndeferrableValue<String> iamInstanceProfile;
-
+    @PolicyResourceProperty(name="iamInstanceProfile", flag="unknown_iamInstanceProfile")
+    private @Nullable String value_iamInstanceProfile;
+    private boolean unknown_iamInstanceProfile;
     public @Nullable String iamInstanceProfile() {
-        if (iamInstanceProfile == null) return null;
-        return iamInstanceProfile.getValue("LaunchConfiguration.iamInstanceProfile");
+        if (!unknown_iamInstanceProfile) return value_iamInstanceProfile;
+        throw new UndeferrableValueException("Value 'LaunchConfiguration.iamInstanceProfile' is not present");
     }
 
     /**
      * The EC2 image ID to launch.
      * 
      */
-    private UndeferrableValue<String> imageId;
-
+    @PolicyResourceProperty(name="imageId", flag="unknown_imageId")
+    private String value_imageId;
+    private boolean unknown_imageId;
     public String imageId() {
-        if (imageId == null) return null;
-        return imageId.getValue("LaunchConfiguration.imageId");
+        if (!unknown_imageId) return value_imageId;
+        throw new UndeferrableValueException("Value 'LaunchConfiguration.imageId' is not present");
     }
 
     /**
@@ -112,121 +121,132 @@ public final class LaunchConfiguration extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("LaunchConfiguration.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'LaunchConfiguration.instanceType' is not present");
     }
 
     /**
      * The key name that should be used for the instance.
      * 
      */
-    private UndeferrableValue<String> keyName;
-
+    @PolicyResourceProperty(name="keyName", flag="unknown_keyName")
+    private String value_keyName;
+    private boolean unknown_keyName;
     public String keyName() {
-        if (keyName == null) return null;
-        return keyName.getValue("LaunchConfiguration.keyName");
+        if (!unknown_keyName) return value_keyName;
+        throw new UndeferrableValueException("Value 'LaunchConfiguration.keyName' is not present");
     }
 
     /**
      * The metadata options for the instance.
      * 
      */
-    private UndeferrableValue<LaunchConfigurationMetadataOptions> metadataOptions;
-
+    @PolicyResourceProperty(name="metadataOptions", flag="unknown_metadataOptions")
+    private LaunchConfigurationMetadataOptions value_metadataOptions;
+    private boolean unknown_metadataOptions;
     public LaunchConfigurationMetadataOptions metadataOptions() {
-        if (metadataOptions == null) return null;
-        return metadataOptions.getValue("LaunchConfiguration.metadataOptions");
+        if (!unknown_metadataOptions) return value_metadataOptions;
+        throw new UndeferrableValueException("Value 'LaunchConfiguration.metadataOptions' is not present");
     }
 
     /**
      * The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LaunchConfiguration.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LaunchConfiguration.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("LaunchConfiguration.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'LaunchConfiguration.namePrefix' is not present");
     }
 
     /**
      * The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS&#39;s Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
      * 
      */
-    private @Nullable UndeferrableValue<String> placementTenancy;
-
+    @PolicyResourceProperty(name="placementTenancy", flag="unknown_placementTenancy")
+    private @Nullable String value_placementTenancy;
+    private boolean unknown_placementTenancy;
     public @Nullable String placementTenancy() {
-        if (placementTenancy == null) return null;
-        return placementTenancy.getValue("LaunchConfiguration.placementTenancy");
+        if (!unknown_placementTenancy) return value_placementTenancy;
+        throw new UndeferrableValueException("Value 'LaunchConfiguration.placementTenancy' is not present");
     }
 
     /**
      * Customize details about the root block device of the instance. See Block Devices below for details.
      * 
      */
-    private UndeferrableValue<LaunchConfigurationRootBlockDevice> rootBlockDevice;
-
+    @PolicyResourceProperty(name="rootBlockDevice", flag="unknown_rootBlockDevice")
+    private LaunchConfigurationRootBlockDevice value_rootBlockDevice;
+    private boolean unknown_rootBlockDevice;
     public LaunchConfigurationRootBlockDevice rootBlockDevice() {
-        if (rootBlockDevice == null) return null;
-        return rootBlockDevice.getValue("LaunchConfiguration.rootBlockDevice");
+        if (!unknown_rootBlockDevice) return value_rootBlockDevice;
+        throw new UndeferrableValueException("Value 'LaunchConfiguration.rootBlockDevice' is not present");
     }
 
     /**
      * A list of associated security group IDS.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> securityGroups;
-
+    @PolicyResourceProperty(name="securityGroups", flag="unknown_securityGroups")
+    private @Nullable List<String> value_securityGroups;
+    private boolean unknown_securityGroups;
     public @Nullable List<String> securityGroups() {
-        if (securityGroups == null) return null;
-        return securityGroups.getValue("LaunchConfiguration.securityGroups");
+        if (!unknown_securityGroups) return value_securityGroups;
+        throw new UndeferrableValueException("Value 'LaunchConfiguration.securityGroups' is not present");
     }
 
     /**
      * The maximum price to use for reserving spot instances.
      * 
      */
-    private @Nullable UndeferrableValue<String> spotPrice;
-
+    @PolicyResourceProperty(name="spotPrice", flag="unknown_spotPrice")
+    private @Nullable String value_spotPrice;
+    private boolean unknown_spotPrice;
     public @Nullable String spotPrice() {
-        if (spotPrice == null) return null;
-        return spotPrice.getValue("LaunchConfiguration.spotPrice");
+        if (!unknown_spotPrice) return value_spotPrice;
+        throw new UndeferrableValueException("Value 'LaunchConfiguration.spotPrice' is not present");
     }
 
     /**
      * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
      * 
      */
-    private @Nullable UndeferrableValue<String> userData;
-
+    @PolicyResourceProperty(name="userData", flag="unknown_userData")
+    private @Nullable String value_userData;
+    private boolean unknown_userData;
     public @Nullable String userData() {
-        if (userData == null) return null;
-        return userData.getValue("LaunchConfiguration.userData");
+        if (!unknown_userData) return value_userData;
+        throw new UndeferrableValueException("Value 'LaunchConfiguration.userData' is not present");
     }
 
     /**
      * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
      * 
      */
-    private @Nullable UndeferrableValue<String> userDataBase64;
-
+    @PolicyResourceProperty(name="userDataBase64", flag="unknown_userDataBase64")
+    private @Nullable String value_userDataBase64;
+    private boolean unknown_userDataBase64;
     public @Nullable String userDataBase64() {
-        if (userDataBase64 == null) return null;
-        return userDataBase64.getValue("LaunchConfiguration.userDataBase64");
+        if (!unknown_userDataBase64) return value_userDataBase64;
+        throw new UndeferrableValueException("Value 'LaunchConfiguration.userDataBase64' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.outputs.DomainDefaultSpaceSettings;
 import com.pulumi.policypacks.aws.sagemaker.outputs.DomainDefaultUserSettings;
@@ -22,187 +23,204 @@ public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
      * Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
      * 
      */
-    private @Nullable UndeferrableValue<String> appNetworkAccessType;
-
+    @PolicyResourceProperty(name="appNetworkAccessType", flag="unknown_appNetworkAccessType")
+    private @Nullable String value_appNetworkAccessType;
+    private boolean unknown_appNetworkAccessType;
     public @Nullable String appNetworkAccessType() {
-        if (appNetworkAccessType == null) return null;
-        return appNetworkAccessType.getValue("Domain.appNetworkAccessType");
+        if (!unknown_appNetworkAccessType) return value_appNetworkAccessType;
+        throw new UndeferrableValueException("Value 'Domain.appNetworkAccessType' is not present");
     }
 
     /**
      * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
      * 
      */
-    private @Nullable UndeferrableValue<String> appSecurityGroupManagement;
-
+    @PolicyResourceProperty(name="appSecurityGroupManagement", flag="unknown_appSecurityGroupManagement")
+    private @Nullable String value_appSecurityGroupManagement;
+    private boolean unknown_appSecurityGroupManagement;
     public @Nullable String appSecurityGroupManagement() {
-        if (appSecurityGroupManagement == null) return null;
-        return appSecurityGroupManagement.getValue("Domain.appSecurityGroupManagement");
+        if (!unknown_appSecurityGroupManagement) return value_appSecurityGroupManagement;
+        throw new UndeferrableValueException("Value 'Domain.appSecurityGroupManagement' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Domain.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Domain.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Domain.arn' is not present");
     }
 
     /**
      * The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
      * 
      */
-    private UndeferrableValue<String> authMode;
-
+    @PolicyResourceProperty(name="authMode", flag="unknown_authMode")
+    private String value_authMode;
+    private boolean unknown_authMode;
     public String authMode() {
-        if (authMode == null) return null;
-        return authMode.getValue("Domain.authMode");
+        if (!unknown_authMode) return value_authMode;
+        throw new UndeferrableValueException("Value 'Domain.authMode' is not present");
     }
 
     /**
      * The default space settings. See `default_space_settings` Block below.
      * 
      */
-    private @Nullable UndeferrableValue<DomainDefaultSpaceSettings> defaultSpaceSettings;
-
+    @PolicyResourceProperty(name="defaultSpaceSettings", flag="unknown_defaultSpaceSettings")
+    private @Nullable DomainDefaultSpaceSettings value_defaultSpaceSettings;
+    private boolean unknown_defaultSpaceSettings;
     public @Nullable DomainDefaultSpaceSettings defaultSpaceSettings() {
-        if (defaultSpaceSettings == null) return null;
-        return defaultSpaceSettings.getValue("Domain.defaultSpaceSettings");
+        if (!unknown_defaultSpaceSettings) return value_defaultSpaceSettings;
+        throw new UndeferrableValueException("Value 'Domain.defaultSpaceSettings' is not present");
     }
 
     /**
      * The default user settings. See `default_user_settings` Block below.
      * 
      */
-    private UndeferrableValue<DomainDefaultUserSettings> defaultUserSettings;
-
+    @PolicyResourceProperty(name="defaultUserSettings", flag="unknown_defaultUserSettings")
+    private DomainDefaultUserSettings value_defaultUserSettings;
+    private boolean unknown_defaultUserSettings;
     public DomainDefaultUserSettings defaultUserSettings() {
-        if (defaultUserSettings == null) return null;
-        return defaultUserSettings.getValue("Domain.defaultUserSettings");
+        if (!unknown_defaultUserSettings) return value_defaultUserSettings;
+        throw new UndeferrableValueException("Value 'Domain.defaultUserSettings' is not present");
     }
 
     /**
      * The domain name.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("Domain.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'Domain.domainName' is not present");
     }
 
     /**
      * The domain settings. See `domain_settings` Block below.
      * 
      */
-    private @Nullable UndeferrableValue<DomainDomainSettings> domainSettings;
-
+    @PolicyResourceProperty(name="domainSettings", flag="unknown_domainSettings")
+    private @Nullable DomainDomainSettings value_domainSettings;
+    private boolean unknown_domainSettings;
     public @Nullable DomainDomainSettings domainSettings() {
-        if (domainSettings == null) return null;
-        return domainSettings.getValue("Domain.domainSettings");
+        if (!unknown_domainSettings) return value_domainSettings;
+        throw new UndeferrableValueException("Value 'Domain.domainSettings' is not present");
     }
 
     /**
      * The ID of the Amazon Elastic File System (EFS) managed by this Domain.
      * 
      */
-    private UndeferrableValue<String> homeEfsFileSystemId;
-
+    @PolicyResourceProperty(name="homeEfsFileSystemId", flag="unknown_homeEfsFileSystemId")
+    private String value_homeEfsFileSystemId;
+    private boolean unknown_homeEfsFileSystemId;
     public String homeEfsFileSystemId() {
-        if (homeEfsFileSystemId == null) return null;
-        return homeEfsFileSystemId.getValue("Domain.homeEfsFileSystemId");
+        if (!unknown_homeEfsFileSystemId) return value_homeEfsFileSystemId;
+        throw new UndeferrableValueException("Value 'Domain.homeEfsFileSystemId' is not present");
     }
 
     /**
      * The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("Domain.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'Domain.kmsKeyId' is not present");
     }
 
     /**
      * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
      * 
      */
-    private @Nullable UndeferrableValue<DomainRetentionPolicy> retentionPolicy;
-
+    @PolicyResourceProperty(name="retentionPolicy", flag="unknown_retentionPolicy")
+    private @Nullable DomainRetentionPolicy value_retentionPolicy;
+    private boolean unknown_retentionPolicy;
     public @Nullable DomainRetentionPolicy retentionPolicy() {
-        if (retentionPolicy == null) return null;
-        return retentionPolicy.getValue("Domain.retentionPolicy");
+        if (!unknown_retentionPolicy) return value_retentionPolicy;
+        throw new UndeferrableValueException("Value 'Domain.retentionPolicy' is not present");
     }
 
     /**
      * The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
      * 
      */
-    private UndeferrableValue<String> securityGroupIdForDomainBoundary;
-
+    @PolicyResourceProperty(name="securityGroupIdForDomainBoundary", flag="unknown_securityGroupIdForDomainBoundary")
+    private String value_securityGroupIdForDomainBoundary;
+    private boolean unknown_securityGroupIdForDomainBoundary;
     public String securityGroupIdForDomainBoundary() {
-        if (securityGroupIdForDomainBoundary == null) return null;
-        return securityGroupIdForDomainBoundary.getValue("Domain.securityGroupIdForDomainBoundary");
+        if (!unknown_securityGroupIdForDomainBoundary) return value_securityGroupIdForDomainBoundary;
+        throw new UndeferrableValueException("Value 'Domain.securityGroupIdForDomainBoundary' is not present");
     }
 
     /**
      * The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
      * 
      */
-    private UndeferrableValue<String> singleSignOnApplicationArn;
-
+    @PolicyResourceProperty(name="singleSignOnApplicationArn", flag="unknown_singleSignOnApplicationArn")
+    private String value_singleSignOnApplicationArn;
+    private boolean unknown_singleSignOnApplicationArn;
     public String singleSignOnApplicationArn() {
-        if (singleSignOnApplicationArn == null) return null;
-        return singleSignOnApplicationArn.getValue("Domain.singleSignOnApplicationArn");
+        if (!unknown_singleSignOnApplicationArn) return value_singleSignOnApplicationArn;
+        throw new UndeferrableValueException("Value 'Domain.singleSignOnApplicationArn' is not present");
     }
 
     /**
      * The SSO managed application instance ID.
      * 
      */
-    private UndeferrableValue<String> singleSignOnManagedApplicationInstanceId;
-
+    @PolicyResourceProperty(name="singleSignOnManagedApplicationInstanceId", flag="unknown_singleSignOnManagedApplicationInstanceId")
+    private String value_singleSignOnManagedApplicationInstanceId;
+    private boolean unknown_singleSignOnManagedApplicationInstanceId;
     public String singleSignOnManagedApplicationInstanceId() {
-        if (singleSignOnManagedApplicationInstanceId == null) return null;
-        return singleSignOnManagedApplicationInstanceId.getValue("Domain.singleSignOnManagedApplicationInstanceId");
+        if (!unknown_singleSignOnManagedApplicationInstanceId) return value_singleSignOnManagedApplicationInstanceId;
+        throw new UndeferrableValueException("Value 'Domain.singleSignOnManagedApplicationInstanceId' is not present");
     }
 
     /**
      * The VPC subnets that Studio uses for communication.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("Domain.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'Domain.subnetIds' is not present");
     }
 
     /**
      * Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> tagPropagation;
-
+    @PolicyResourceProperty(name="tagPropagation", flag="unknown_tagPropagation")
+    private @Nullable String value_tagPropagation;
+    private boolean unknown_tagPropagation;
     public @Nullable String tagPropagation() {
-        if (tagPropagation == null) return null;
-        return tagPropagation.getValue("Domain.tagPropagation");
+        if (!unknown_tagPropagation) return value_tagPropagation;
+        throw new UndeferrableValueException("Value 'Domain.tagPropagation' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Domain.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Domain.tags' is not present");
     }
 
     /**
@@ -213,22 +231,24 @@ public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Domain.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Domain.tagsAll' is not present");
     }
 
     /**
      * The domain&#39;s URL.
      * 
      */
-    private UndeferrableValue<String> url;
-
+    @PolicyResourceProperty(name="url", flag="unknown_url")
+    private String value_url;
+    private boolean unknown_url;
     public String url() {
-        if (url == null) return null;
-        return url.getValue("Domain.url");
+        if (!unknown_url) return value_url;
+        throw new UndeferrableValueException("Value 'Domain.url' is not present");
     }
 
     /**
@@ -237,11 +257,12 @@ public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("Domain.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'Domain.vpcId' is not present");
     }
 
 }

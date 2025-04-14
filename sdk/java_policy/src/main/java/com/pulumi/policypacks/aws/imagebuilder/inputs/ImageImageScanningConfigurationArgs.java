@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.imagebuilder.inputs.ImageImageScanningConfigurationEcrConfigurationArgs;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ImageImageScanningConfigurationArgs {
      * Configuration block with ECR configuration. Detailed below.
      * 
      */
-    private UndeferrableValue<ImageImageScanningConfigurationEcrConfigurationArgs> ecrConfiguration;
-
+    @PolicyResourceProperty(name="ecrConfiguration", flag="unknown_ecrConfiguration")
+    private ImageImageScanningConfigurationEcrConfigurationArgs value_ecrConfiguration;
+    private boolean unknown_ecrConfiguration;
     public ImageImageScanningConfigurationEcrConfigurationArgs ecrConfiguration() {
-        if (ecrConfiguration == null) return null;
-        return ecrConfiguration.getValue("ImageImageScanningConfigurationArgs.ecrConfiguration");
+        if (!unknown_ecrConfiguration) return value_ecrConfiguration;
+        throw new UndeferrableValueException("Value 'ImageImageScanningConfigurationArgs.ecrConfiguration' is not present");
     }
 
     /**
      * Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> imageScanningEnabled;
-
+    @PolicyResourceProperty(name="imageScanningEnabled", flag="unknown_imageScanningEnabled")
+    private Boolean value_imageScanningEnabled;
+    private boolean unknown_imageScanningEnabled;
     public Boolean imageScanningEnabled() {
-        if (imageScanningEnabled == null) return null;
-        return imageScanningEnabled.getValue("ImageImageScanningConfigurationArgs.imageScanningEnabled");
+        if (!unknown_imageScanningEnabled) return value_imageScanningEnabled;
+        throw new UndeferrableValueException("Value 'ImageImageScanningConfigurationArgs.imageScanningEnabled' is not present");
     }
 
 }

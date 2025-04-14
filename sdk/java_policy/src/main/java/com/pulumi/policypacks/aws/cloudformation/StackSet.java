@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudformation;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudformation.outputs.StackSetAutoDeployment;
 import com.pulumi.policypacks.aws.cloudformation.outputs.StackSetManagedExecution;
@@ -21,154 +22,168 @@ public final class StackSet extends com.pulumi.resources.PolicyResourceOutput {
      * Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
      * 
      */
-    private @Nullable UndeferrableValue<String> administrationRoleArn;
-
+    @PolicyResourceProperty(name="administrationRoleArn", flag="unknown_administrationRoleArn")
+    private @Nullable String value_administrationRoleArn;
+    private boolean unknown_administrationRoleArn;
     public @Nullable String administrationRoleArn() {
-        if (administrationRoleArn == null) return null;
-        return administrationRoleArn.getValue("StackSet.administrationRoleArn");
+        if (!unknown_administrationRoleArn) return value_administrationRoleArn;
+        throw new UndeferrableValueException("Value 'StackSet.administrationRoleArn' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the StackSet.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("StackSet.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'StackSet.arn' is not present");
     }
 
     /**
      * Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
      * 
      */
-    private @Nullable UndeferrableValue<StackSetAutoDeployment> autoDeployment;
-
+    @PolicyResourceProperty(name="autoDeployment", flag="unknown_autoDeployment")
+    private @Nullable StackSetAutoDeployment value_autoDeployment;
+    private boolean unknown_autoDeployment;
     public @Nullable StackSetAutoDeployment autoDeployment() {
-        if (autoDeployment == null) return null;
-        return autoDeployment.getValue("StackSet.autoDeployment");
+        if (!unknown_autoDeployment) return value_autoDeployment;
+        throw new UndeferrableValueException("Value 'StackSet.autoDeployment' is not present");
     }
 
     /**
      * Specifies whether you are acting as an account administrator in the organization&#39;s management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
      * 
      */
-    private @Nullable UndeferrableValue<String> callAs;
-
+    @PolicyResourceProperty(name="callAs", flag="unknown_callAs")
+    private @Nullable String value_callAs;
+    private boolean unknown_callAs;
     public @Nullable String callAs() {
-        if (callAs == null) return null;
-        return callAs.getValue("StackSet.callAs");
+        if (!unknown_callAs) return value_callAs;
+        throw new UndeferrableValueException("Value 'StackSet.callAs' is not present");
     }
 
     /**
      * A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> capabilities;
-
+    @PolicyResourceProperty(name="capabilities", flag="unknown_capabilities")
+    private @Nullable List<String> value_capabilities;
+    private boolean unknown_capabilities;
     public @Nullable List<String> capabilities() {
-        if (capabilities == null) return null;
-        return capabilities.getValue("StackSet.capabilities");
+        if (!unknown_capabilities) return value_capabilities;
+        throw new UndeferrableValueException("Value 'StackSet.capabilities' is not present");
     }
 
     /**
      * Description of the StackSet.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("StackSet.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'StackSet.description' is not present");
     }
 
     /**
      * Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
      * 
      */
-    private UndeferrableValue<String> executionRoleName;
-
+    @PolicyResourceProperty(name="executionRoleName", flag="unknown_executionRoleName")
+    private String value_executionRoleName;
+    private boolean unknown_executionRoleName;
     public String executionRoleName() {
-        if (executionRoleName == null) return null;
-        return executionRoleName.getValue("StackSet.executionRoleName");
+        if (!unknown_executionRoleName) return value_executionRoleName;
+        throw new UndeferrableValueException("Value 'StackSet.executionRoleName' is not present");
     }
 
     /**
      * Configuration block to allow StackSets to perform non-conflicting operations concurrently and queues conflicting operations.
      * 
      */
-    private @Nullable UndeferrableValue<StackSetManagedExecution> managedExecution;
-
+    @PolicyResourceProperty(name="managedExecution", flag="unknown_managedExecution")
+    private @Nullable StackSetManagedExecution value_managedExecution;
+    private boolean unknown_managedExecution;
     public @Nullable StackSetManagedExecution managedExecution() {
-        if (managedExecution == null) return null;
-        return managedExecution.getValue("StackSet.managedExecution");
+        if (!unknown_managedExecution) return value_managedExecution;
+        throw new UndeferrableValueException("Value 'StackSet.managedExecution' is not present");
     }
 
     /**
      * Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("StackSet.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'StackSet.name' is not present");
     }
 
     /**
      * Preferences for how AWS CloudFormation performs a stack set update.
      * 
      */
-    private @Nullable UndeferrableValue<StackSetOperationPreferences> operationPreferences;
-
+    @PolicyResourceProperty(name="operationPreferences", flag="unknown_operationPreferences")
+    private @Nullable StackSetOperationPreferences value_operationPreferences;
+    private boolean unknown_operationPreferences;
     public @Nullable StackSetOperationPreferences operationPreferences() {
-        if (operationPreferences == null) return null;
-        return operationPreferences.getValue("StackSet.operationPreferences");
+        if (!unknown_operationPreferences) return value_operationPreferences;
+        throw new UndeferrableValueException("Value 'StackSet.operationPreferences' is not present");
     }
 
     /**
      * Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private @Nullable Map<String,String> value_parameters;
+    private boolean unknown_parameters;
     public @Nullable Map<String,String> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("StackSet.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'StackSet.parameters' is not present");
     }
 
     /**
      * Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> permissionModel;
-
+    @PolicyResourceProperty(name="permissionModel", flag="unknown_permissionModel")
+    private @Nullable String value_permissionModel;
+    private boolean unknown_permissionModel;
     public @Nullable String permissionModel() {
-        if (permissionModel == null) return null;
-        return permissionModel.getValue("StackSet.permissionModel");
+        if (!unknown_permissionModel) return value_permissionModel;
+        throw new UndeferrableValueException("Value 'StackSet.permissionModel' is not present");
     }
 
     /**
      * Unique identifier of the StackSet.
      * 
      */
-    private UndeferrableValue<String> stackSetId;
-
+    @PolicyResourceProperty(name="stackSetId", flag="unknown_stackSetId")
+    private String value_stackSetId;
+    private boolean unknown_stackSetId;
     public String stackSetId() {
-        if (stackSetId == null) return null;
-        return stackSetId.getValue("StackSet.stackSetId");
+        if (!unknown_stackSetId) return value_stackSetId;
+        throw new UndeferrableValueException("Value 'StackSet.stackSetId' is not present");
     }
 
     /**
      * Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("StackSet.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'StackSet.tags' is not present");
     }
 
     /**
@@ -179,33 +194,36 @@ public final class StackSet extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("StackSet.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'StackSet.tagsAll' is not present");
     }
 
     /**
      * String containing the CloudFormation template body. Maximum size: 51,200 bytes. Conflicts with `template_url`.
      * 
      */
-    private UndeferrableValue<String> templateBody;
-
+    @PolicyResourceProperty(name="templateBody", flag="unknown_templateBody")
+    private String value_templateBody;
+    private boolean unknown_templateBody;
     public String templateBody() {
-        if (templateBody == null) return null;
-        return templateBody.getValue("StackSet.templateBody");
+        if (!unknown_templateBody) return value_templateBody;
+        throw new UndeferrableValueException("Value 'StackSet.templateBody' is not present");
     }
 
     /**
      * String containing the location of a file containing the CloudFormation template body. The URL must point to a template that is located in an Amazon S3 bucket. Maximum location file size: 460,800 bytes. Conflicts with `template_body`.
      * 
      */
-    private @Nullable UndeferrableValue<String> templateUrl;
-
+    @PolicyResourceProperty(name="templateUrl", flag="unknown_templateUrl")
+    private @Nullable String value_templateUrl;
+    private boolean unknown_templateUrl;
     public @Nullable String templateUrl() {
-        if (templateUrl == null) return null;
-        return templateUrl.getValue("StackSet.templateUrl");
+        if (!unknown_templateUrl) return value_templateUrl;
+        throw new UndeferrableValueException("Value 'StackSet.templateUrl' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionArgs;
 import java.lang.Boolean;
@@ -17,55 +18,60 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      * The path of the account creation endpoint for your application. This is the page on your website that accepts the completed registration form for a new user. This page must accept POST requests.
      * 
      */
-    private UndeferrableValue<String> creationPath;
-
+    @PolicyResourceProperty(name="creationPath", flag="unknown_creationPath")
+    private String value_creationPath;
+    private boolean unknown_creationPath;
     public String creationPath() {
-        if (creationPath == null) return null;
-        return creationPath.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs.creationPath");
+        if (!unknown_creationPath) return value_creationPath;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs.creationPath' is not present");
     }
 
     /**
      * Whether or not to allow the use of regular expressions in the login page path.
      * 
      */
-    private UndeferrableValue<Boolean> enableRegexInPath;
-
+    @PolicyResourceProperty(name="enableRegexInPath", flag="unknown_enableRegexInPath")
+    private Boolean value_enableRegexInPath;
+    private boolean unknown_enableRegexInPath;
     public Boolean enableRegexInPath() {
-        if (enableRegexInPath == null) return null;
-        return enableRegexInPath.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs.enableRegexInPath");
+        if (!unknown_enableRegexInPath) return value_enableRegexInPath;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs.enableRegexInPath' is not present");
     }
 
     /**
      * The path of the account registration endpoint for your application. This is the page on your website that presents the registration form to new users. This page must accept GET text/html requests.
      * 
      */
-    private UndeferrableValue<String> registrationPagePath;
-
+    @PolicyResourceProperty(name="registrationPagePath", flag="unknown_registrationPagePath")
+    private String value_registrationPagePath;
+    private boolean unknown_registrationPagePath;
     public String registrationPagePath() {
-        if (registrationPagePath == null) return null;
-        return registrationPagePath.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs.registrationPagePath");
+        if (!unknown_registrationPagePath) return value_registrationPagePath;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs.registrationPagePath' is not present");
     }
 
     /**
      * The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. See `request_inspection` for more details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs> requestInspection;
-
+    @PolicyResourceProperty(name="requestInspection", flag="unknown_requestInspection")
+    private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs value_requestInspection;
+    private boolean unknown_requestInspection;
     public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs requestInspection() {
-        if (requestInspection == null) return null;
-        return requestInspection.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs.requestInspection");
+        if (!unknown_requestInspection) return value_requestInspection;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs.requestInspection' is not present");
     }
 
     /**
      * The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. Note that Response Inspection is available only on web ACLs that protect CloudFront distributions. See `response_inspection` for more details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionArgs> responseInspection;
-
+    @PolicyResourceProperty(name="responseInspection", flag="unknown_responseInspection")
+    private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionArgs value_responseInspection;
+    private boolean unknown_responseInspection;
     public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionArgs responseInspection() {
-        if (responseInspection == null) return null;
-        return responseInspection.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs.responseInspection");
+        if (!unknown_responseInspection) return value_responseInspection;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs.responseInspection' is not present");
     }
 
 }

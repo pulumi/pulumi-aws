@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.outputs.NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRange;
 import java.lang.String;
 import java.util.List;
@@ -12,46 +13,52 @@ import javax.annotation.Nullable;
 
 public final class NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule {
 
-    private @Nullable UndeferrableValue<String> cidr;
-
+    @PolicyResourceProperty(name="cidr", flag="unknown_cidr")
+    private @Nullable String value_cidr;
+    private boolean unknown_cidr;
     public @Nullable String cidr() {
-        if (cidr == null) return null;
-        return cidr.getValue("NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule.cidr");
+        if (!unknown_cidr) return value_cidr;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule.cidr' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> direction;
-
+    @PolicyResourceProperty(name="direction", flag="unknown_direction")
+    private @Nullable String value_direction;
+    private boolean unknown_direction;
     public @Nullable String direction() {
-        if (direction == null) return null;
-        return direction.getValue("NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule.direction");
+        if (!unknown_direction) return value_direction;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule.direction' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRange>> portRanges;
-
+    @PolicyResourceProperty(name="portRanges", flag="unknown_portRanges")
+    private @Nullable List<NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRange> value_portRanges;
+    private boolean unknown_portRanges;
     public @Nullable List<NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRange> portRanges() {
-        if (portRanges == null) return null;
-        return portRanges.getValue("NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule.portRanges");
+        if (!unknown_portRanges) return value_portRanges;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule.portRanges' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> prefixListId;
-
+    @PolicyResourceProperty(name="prefixListId", flag="unknown_prefixListId")
+    private @Nullable String value_prefixListId;
+    private boolean unknown_prefixListId;
     public @Nullable String prefixListId() {
-        if (prefixListId == null) return null;
-        return prefixListId.getValue("NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule.prefixListId");
+        if (!unknown_prefixListId) return value_prefixListId;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule.prefixListId' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private @Nullable String value_protocol;
+    private boolean unknown_protocol;
     public @Nullable String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule.protocol' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> securityGroupId;
-
+    @PolicyResourceProperty(name="securityGroupId", flag="unknown_securityGroupId")
+    private @Nullable String value_securityGroupId;
+    private boolean unknown_securityGroupId;
     public @Nullable String securityGroupId() {
-        if (securityGroupId == null) return null;
-        return securityGroupId.getValue("NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule.securityGroupId");
+        if (!unknown_securityGroupId) return value_securityGroupId;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule.securityGroupId' is not present");
     }
 
 }

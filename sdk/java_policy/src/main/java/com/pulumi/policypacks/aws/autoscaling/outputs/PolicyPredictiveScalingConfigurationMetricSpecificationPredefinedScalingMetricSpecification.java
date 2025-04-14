@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredef
      * Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
      * 
      */
-    private UndeferrableValue<String> predefinedMetricType;
-
+    @PolicyResourceProperty(name="predefinedMetricType", flag="unknown_predefinedMetricType")
+    private String value_predefinedMetricType;
+    private boolean unknown_predefinedMetricType;
     public String predefinedMetricType() {
-        if (predefinedMetricType == null) return null;
-        return predefinedMetricType.getValue("PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification.predefinedMetricType");
+        if (!unknown_predefinedMetricType) return value_predefinedMetricType;
+        throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification.predefinedMetricType' is not present");
     }
 
     /**
      * Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
      * 
      */
-    private @Nullable UndeferrableValue<String> resourceLabel;
-
+    @PolicyResourceProperty(name="resourceLabel", flag="unknown_resourceLabel")
+    private @Nullable String value_resourceLabel;
+    private boolean unknown_resourceLabel;
     public @Nullable String resourceLabel() {
-        if (resourceLabel == null) return null;
-        return resourceLabel.getValue("PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification.resourceLabel");
+        if (!unknown_resourceLabel) return value_resourceLabel;
+        throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification.resourceLabel' is not present");
     }
 
 }

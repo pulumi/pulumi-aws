@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.connect.inputs.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class InstanceStorageConfigStorageConfigS3ConfigArgs {
      * The S3 bucket name.
      * 
      */
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("InstanceStorageConfigStorageConfigS3ConfigArgs.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigS3ConfigArgs.bucketName' is not present");
     }
 
     /**
      * The S3 bucket prefix.
      * 
      */
-    private UndeferrableValue<String> bucketPrefix;
-
+    @PolicyResourceProperty(name="bucketPrefix", flag="unknown_bucketPrefix")
+    private String value_bucketPrefix;
+    private boolean unknown_bucketPrefix;
     public String bucketPrefix() {
-        if (bucketPrefix == null) return null;
-        return bucketPrefix.getValue("InstanceStorageConfigStorageConfigS3ConfigArgs.bucketPrefix");
+        if (!unknown_bucketPrefix) return value_bucketPrefix;
+        throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigS3ConfigArgs.bucketPrefix' is not present");
     }
 
     /**
      * The encryption configuration. Documented below.
      * 
      */
-    private UndeferrableValue<InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs> encryptionConfig;
-
+    @PolicyResourceProperty(name="encryptionConfig", flag="unknown_encryptionConfig")
+    private InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs value_encryptionConfig;
+    private boolean unknown_encryptionConfig;
     public InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs encryptionConfig() {
-        if (encryptionConfig == null) return null;
-        return encryptionConfig.getValue("InstanceStorageConfigStorageConfigS3ConfigArgs.encryptionConfig");
+        if (!unknown_encryptionConfig) return value_encryptionConfig;
+        throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigS3ConfigArgs.encryptionConfig' is not present");
     }
 
 }

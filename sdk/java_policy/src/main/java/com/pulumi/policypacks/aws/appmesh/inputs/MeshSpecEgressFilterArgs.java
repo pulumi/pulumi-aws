@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class MeshSpecEgressFilterArgs {
      * Egress filter type. By default, the type is `DROP_ALL`. Valid values are `ALLOW_ALL` and `DROP_ALL`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("MeshSpecEgressFilterArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'MeshSpecEgressFilterArgs.type' is not present");
     }
 
 }

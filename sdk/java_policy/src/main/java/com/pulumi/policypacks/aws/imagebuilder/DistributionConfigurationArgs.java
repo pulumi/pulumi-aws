@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.imagebuilder.inputs.DistributionConfigurationDistributionArgs;
 import java.lang.String;
@@ -19,11 +20,12 @@ public final class DistributionConfigurationArgs extends com.pulumi.resources.Po
      * Description of the distribution configuration.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("DistributionConfigurationArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationArgs.description' is not present");
     }
 
     /**
@@ -32,33 +34,36 @@ public final class DistributionConfigurationArgs extends com.pulumi.resources.Po
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<List<DistributionConfigurationDistributionArgs>> distributions;
-
+    @PolicyResourceProperty(name="distributions", flag="unknown_distributions")
+    private List<DistributionConfigurationDistributionArgs> value_distributions;
+    private boolean unknown_distributions;
     public List<DistributionConfigurationDistributionArgs> distributions() {
-        if (distributions == null) return null;
-        return distributions.getValue("DistributionConfigurationArgs.distributions");
+        if (!unknown_distributions) return value_distributions;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationArgs.distributions' is not present");
     }
 
     /**
      * Name of the distribution configuration.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DistributionConfigurationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationArgs.name' is not present");
     }
 
     /**
      * Key-value map of resource tags for the distribution configuration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DistributionConfigurationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationArgs.tags' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudfront.outputs.RealtimeLogConfigEndpoint;
 import java.lang.Integer;
@@ -18,55 +19,60 @@ public final class RealtimeLogConfig extends com.pulumi.resources.PolicyResource
      * The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("RealtimeLogConfig.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'RealtimeLogConfig.arn' is not present");
     }
 
     /**
      * The Amazon Kinesis data streams where real-time log data is sent.
      * 
      */
-    private UndeferrableValue<RealtimeLogConfigEndpoint> endpoint;
-
+    @PolicyResourceProperty(name="endpoint", flag="unknown_endpoint")
+    private RealtimeLogConfigEndpoint value_endpoint;
+    private boolean unknown_endpoint;
     public RealtimeLogConfigEndpoint endpoint() {
-        if (endpoint == null) return null;
-        return endpoint.getValue("RealtimeLogConfig.endpoint");
+        if (!unknown_endpoint) return value_endpoint;
+        throw new UndeferrableValueException("Value 'RealtimeLogConfig.endpoint' is not present");
     }
 
     /**
      * The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
      * 
      */
-    private UndeferrableValue<List<String>> fields;
-
+    @PolicyResourceProperty(name="fields", flag="unknown_fields")
+    private List<String> value_fields;
+    private boolean unknown_fields;
     public List<String> fields() {
-        if (fields == null) return null;
-        return fields.getValue("RealtimeLogConfig.fields");
+        if (!unknown_fields) return value_fields;
+        throw new UndeferrableValueException("Value 'RealtimeLogConfig.fields' is not present");
     }
 
     /**
      * The unique name to identify this real-time log configuration.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RealtimeLogConfig.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RealtimeLogConfig.name' is not present");
     }
 
     /**
      * The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
      * 
      */
-    private UndeferrableValue<Integer> samplingRate;
-
+    @PolicyResourceProperty(name="samplingRate", flag="unknown_samplingRate")
+    private Integer value_samplingRate;
+    private boolean unknown_samplingRate;
     public Integer samplingRate() {
-        if (samplingRate == null) return null;
-        return samplingRate.getValue("RealtimeLogConfig.samplingRate");
+        if (!unknown_samplingRate) return value_samplingRate;
+        throw new UndeferrableValueException("Value 'RealtimeLogConfig.samplingRate' is not present");
     }
 
 }

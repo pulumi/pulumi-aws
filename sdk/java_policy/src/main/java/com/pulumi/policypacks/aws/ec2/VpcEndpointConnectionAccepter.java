@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class VpcEndpointConnectionAccepter extends com.pulumi.resources.Po
      * AWS VPC Endpoint ID.
      * 
      */
-    private UndeferrableValue<String> vpcEndpointId;
-
+    @PolicyResourceProperty(name="vpcEndpointId", flag="unknown_vpcEndpointId")
+    private String value_vpcEndpointId;
+    private boolean unknown_vpcEndpointId;
     public String vpcEndpointId() {
-        if (vpcEndpointId == null) return null;
-        return vpcEndpointId.getValue("VpcEndpointConnectionAccepter.vpcEndpointId");
+        if (!unknown_vpcEndpointId) return value_vpcEndpointId;
+        throw new UndeferrableValueException("Value 'VpcEndpointConnectionAccepter.vpcEndpointId' is not present");
     }
 
     /**
      * AWS VPC Endpoint Service ID.
      * 
      */
-    private UndeferrableValue<String> vpcEndpointServiceId;
-
+    @PolicyResourceProperty(name="vpcEndpointServiceId", flag="unknown_vpcEndpointServiceId")
+    private String value_vpcEndpointServiceId;
+    private boolean unknown_vpcEndpointServiceId;
     public String vpcEndpointServiceId() {
-        if (vpcEndpointServiceId == null) return null;
-        return vpcEndpointServiceId.getValue("VpcEndpointConnectionAccepter.vpcEndpointServiceId");
+        if (!unknown_vpcEndpointServiceId) return value_vpcEndpointServiceId;
+        throw new UndeferrableValueException("Value 'VpcEndpointConnectionAccepter.vpcEndpointServiceId' is not present");
     }
 
     /**
      * State of the VPC Endpoint.
      * 
      */
-    private UndeferrableValue<String> vpcEndpointState;
-
+    @PolicyResourceProperty(name="vpcEndpointState", flag="unknown_vpcEndpointState")
+    private String value_vpcEndpointState;
+    private boolean unknown_vpcEndpointState;
     public String vpcEndpointState() {
-        if (vpcEndpointState == null) return null;
-        return vpcEndpointState.getValue("VpcEndpointConnectionAccepter.vpcEndpointState");
+        if (!unknown_vpcEndpointState) return value_vpcEndpointState;
+        throw new UndeferrableValueException("Value 'VpcEndpointConnectionAccepter.vpcEndpointState' is not present");
     }
 
 }

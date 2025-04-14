@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.opsworks.outputs.CustomLayerLoadBasedAutoScalingDownscaling;
 import com.pulumi.policypacks.aws.opsworks.outputs.CustomLayerLoadBasedAutoScalingUpscaling;
 import java.lang.Boolean;
@@ -16,33 +17,36 @@ public final class CustomLayerLoadBasedAutoScaling {
      * The downscaling settings, as defined below, used for load-based autoscaling
      * 
      */
-    private @Nullable UndeferrableValue<CustomLayerLoadBasedAutoScalingDownscaling> downscaling;
-
+    @PolicyResourceProperty(name="downscaling", flag="unknown_downscaling")
+    private @Nullable CustomLayerLoadBasedAutoScalingDownscaling value_downscaling;
+    private boolean unknown_downscaling;
     public @Nullable CustomLayerLoadBasedAutoScalingDownscaling downscaling() {
-        if (downscaling == null) return null;
-        return downscaling.getValue("CustomLayerLoadBasedAutoScaling.downscaling");
+        if (!unknown_downscaling) return value_downscaling;
+        throw new UndeferrableValueException("Value 'CustomLayerLoadBasedAutoScaling.downscaling' is not present");
     }
 
     /**
      * Whether load-based auto scaling is enabled for the layer.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enable;
-
+    @PolicyResourceProperty(name="enable", flag="unknown_enable")
+    private @Nullable Boolean value_enable;
+    private boolean unknown_enable;
     public @Nullable Boolean enable() {
-        if (enable == null) return null;
-        return enable.getValue("CustomLayerLoadBasedAutoScaling.enable");
+        if (!unknown_enable) return value_enable;
+        throw new UndeferrableValueException("Value 'CustomLayerLoadBasedAutoScaling.enable' is not present");
     }
 
     /**
      * The upscaling settings, as defined below, used for load-based autoscaling
      * 
      */
-    private @Nullable UndeferrableValue<CustomLayerLoadBasedAutoScalingUpscaling> upscaling;
-
+    @PolicyResourceProperty(name="upscaling", flag="unknown_upscaling")
+    private @Nullable CustomLayerLoadBasedAutoScalingUpscaling value_upscaling;
+    private boolean unknown_upscaling;
     public @Nullable CustomLayerLoadBasedAutoScalingUpscaling upscaling() {
-        if (upscaling == null) return null;
-        return upscaling.getValue("CustomLayerLoadBasedAutoScaling.upscaling");
+        if (!unknown_upscaling) return value_upscaling;
+        throw new UndeferrableValueException("Value 'CustomLayerLoadBasedAutoScaling.upscaling' is not present");
     }
 
 }

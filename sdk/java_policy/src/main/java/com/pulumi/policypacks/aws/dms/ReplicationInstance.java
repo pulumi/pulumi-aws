@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dms;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -20,99 +21,108 @@ public final class ReplicationInstance extends com.pulumi.resources.PolicyResour
      * The amount of storage (in gigabytes) to be initially allocated for the replication instance.
      * 
      */
-    private UndeferrableValue<Integer> allocatedStorage;
-
+    @PolicyResourceProperty(name="allocatedStorage", flag="unknown_allocatedStorage")
+    private Integer value_allocatedStorage;
+    private boolean unknown_allocatedStorage;
     public Integer allocatedStorage() {
-        if (allocatedStorage == null) return null;
-        return allocatedStorage.getValue("ReplicationInstance.allocatedStorage");
+        if (!unknown_allocatedStorage) return value_allocatedStorage;
+        throw new UndeferrableValueException("Value 'ReplicationInstance.allocatedStorage' is not present");
     }
 
     /**
      * Indicates that major version upgrades are allowed.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> allowMajorVersionUpgrade;
-
+    @PolicyResourceProperty(name="allowMajorVersionUpgrade", flag="unknown_allowMajorVersionUpgrade")
+    private @Nullable Boolean value_allowMajorVersionUpgrade;
+    private boolean unknown_allowMajorVersionUpgrade;
     public @Nullable Boolean allowMajorVersionUpgrade() {
-        if (allowMajorVersionUpgrade == null) return null;
-        return allowMajorVersionUpgrade.getValue("ReplicationInstance.allowMajorVersionUpgrade");
+        if (!unknown_allowMajorVersionUpgrade) return value_allowMajorVersionUpgrade;
+        throw new UndeferrableValueException("Value 'ReplicationInstance.allowMajorVersionUpgrade' is not present");
     }
 
     /**
      * Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> applyImmediately;
-
+    @PolicyResourceProperty(name="applyImmediately", flag="unknown_applyImmediately")
+    private @Nullable Boolean value_applyImmediately;
+    private boolean unknown_applyImmediately;
     public @Nullable Boolean applyImmediately() {
-        if (applyImmediately == null) return null;
-        return applyImmediately.getValue("ReplicationInstance.applyImmediately");
+        if (!unknown_applyImmediately) return value_applyImmediately;
+        throw new UndeferrableValueException("Value 'ReplicationInstance.applyImmediately' is not present");
     }
 
     /**
      * Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
      * 
      */
-    private UndeferrableValue<Boolean> autoMinorVersionUpgrade;
-
+    @PolicyResourceProperty(name="autoMinorVersionUpgrade", flag="unknown_autoMinorVersionUpgrade")
+    private Boolean value_autoMinorVersionUpgrade;
+    private boolean unknown_autoMinorVersionUpgrade;
     public Boolean autoMinorVersionUpgrade() {
-        if (autoMinorVersionUpgrade == null) return null;
-        return autoMinorVersionUpgrade.getValue("ReplicationInstance.autoMinorVersionUpgrade");
+        if (!unknown_autoMinorVersionUpgrade) return value_autoMinorVersionUpgrade;
+        throw new UndeferrableValueException("Value 'ReplicationInstance.autoMinorVersionUpgrade' is not present");
     }
 
     /**
      * The EC2 Availability Zone that the replication instance will be created in.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("ReplicationInstance.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'ReplicationInstance.availabilityZone' is not present");
     }
 
     /**
      * The engine version number of the replication instance.
      * 
      */
-    private UndeferrableValue<String> engineVersion;
-
+    @PolicyResourceProperty(name="engineVersion", flag="unknown_engineVersion")
+    private String value_engineVersion;
+    private boolean unknown_engineVersion;
     public String engineVersion() {
-        if (engineVersion == null) return null;
-        return engineVersion.getValue("ReplicationInstance.engineVersion");
+        if (!unknown_engineVersion) return value_engineVersion;
+        throw new UndeferrableValueException("Value 'ReplicationInstance.engineVersion' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      * 
      */
-    private UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("ReplicationInstance.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'ReplicationInstance.kmsKeyArn' is not present");
     }
 
     /**
      * Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> multiAz;
-
+    @PolicyResourceProperty(name="multiAz", flag="unknown_multiAz")
+    private Boolean value_multiAz;
+    private boolean unknown_multiAz;
     public Boolean multiAz() {
-        if (multiAz == null) return null;
-        return multiAz.getValue("ReplicationInstance.multiAz");
+        if (!unknown_multiAz) return value_multiAz;
+        throw new UndeferrableValueException("Value 'ReplicationInstance.multiAz' is not present");
     }
 
     /**
      * The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
      * 
      */
-    private UndeferrableValue<String> networkType;
-
+    @PolicyResourceProperty(name="networkType", flag="unknown_networkType")
+    private String value_networkType;
+    private boolean unknown_networkType;
     public String networkType() {
-        if (networkType == null) return null;
-        return networkType.getValue("ReplicationInstance.networkType");
+        if (!unknown_networkType) return value_networkType;
+        throw new UndeferrableValueException("Value 'ReplicationInstance.networkType' is not present");
     }
 
     /**
@@ -124,44 +134,48 @@ public final class ReplicationInstance extends com.pulumi.resources.PolicyResour
      * - Constraints: Minimum 30-minute window.
      * 
      */
-    private UndeferrableValue<String> preferredMaintenanceWindow;
-
+    @PolicyResourceProperty(name="preferredMaintenanceWindow", flag="unknown_preferredMaintenanceWindow")
+    private String value_preferredMaintenanceWindow;
+    private boolean unknown_preferredMaintenanceWindow;
     public String preferredMaintenanceWindow() {
-        if (preferredMaintenanceWindow == null) return null;
-        return preferredMaintenanceWindow.getValue("ReplicationInstance.preferredMaintenanceWindow");
+        if (!unknown_preferredMaintenanceWindow) return value_preferredMaintenanceWindow;
+        throw new UndeferrableValueException("Value 'ReplicationInstance.preferredMaintenanceWindow' is not present");
     }
 
     /**
      * Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
      * 
      */
-    private UndeferrableValue<Boolean> publiclyAccessible;
-
+    @PolicyResourceProperty(name="publiclyAccessible", flag="unknown_publiclyAccessible")
+    private Boolean value_publiclyAccessible;
+    private boolean unknown_publiclyAccessible;
     public Boolean publiclyAccessible() {
-        if (publiclyAccessible == null) return null;
-        return publiclyAccessible.getValue("ReplicationInstance.publiclyAccessible");
+        if (!unknown_publiclyAccessible) return value_publiclyAccessible;
+        throw new UndeferrableValueException("Value 'ReplicationInstance.publiclyAccessible' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the replication instance.
      * 
      */
-    private UndeferrableValue<String> replicationInstanceArn;
-
+    @PolicyResourceProperty(name="replicationInstanceArn", flag="unknown_replicationInstanceArn")
+    private String value_replicationInstanceArn;
+    private boolean unknown_replicationInstanceArn;
     public String replicationInstanceArn() {
-        if (replicationInstanceArn == null) return null;
-        return replicationInstanceArn.getValue("ReplicationInstance.replicationInstanceArn");
+        if (!unknown_replicationInstanceArn) return value_replicationInstanceArn;
+        throw new UndeferrableValueException("Value 'ReplicationInstance.replicationInstanceArn' is not present");
     }
 
     /**
      * The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
      * 
      */
-    private UndeferrableValue<String> replicationInstanceClass;
-
+    @PolicyResourceProperty(name="replicationInstanceClass", flag="unknown_replicationInstanceClass")
+    private String value_replicationInstanceClass;
+    private boolean unknown_replicationInstanceClass;
     public String replicationInstanceClass() {
-        if (replicationInstanceClass == null) return null;
-        return replicationInstanceClass.getValue("ReplicationInstance.replicationInstanceClass");
+        if (!unknown_replicationInstanceClass) return value_replicationInstanceClass;
+        throw new UndeferrableValueException("Value 'ReplicationInstance.replicationInstanceClass' is not present");
     }
 
     /**
@@ -173,55 +187,60 @@ public final class ReplicationInstance extends com.pulumi.resources.PolicyResour
      * - Cannot contain two consecutive hyphens.
      * 
      */
-    private UndeferrableValue<String> replicationInstanceId;
-
+    @PolicyResourceProperty(name="replicationInstanceId", flag="unknown_replicationInstanceId")
+    private String value_replicationInstanceId;
+    private boolean unknown_replicationInstanceId;
     public String replicationInstanceId() {
-        if (replicationInstanceId == null) return null;
-        return replicationInstanceId.getValue("ReplicationInstance.replicationInstanceId");
+        if (!unknown_replicationInstanceId) return value_replicationInstanceId;
+        throw new UndeferrableValueException("Value 'ReplicationInstance.replicationInstanceId' is not present");
     }
 
     /**
      * A list of the private IP addresses of the replication instance.
      * 
      */
-    private UndeferrableValue<List<String>> replicationInstancePrivateIps;
-
+    @PolicyResourceProperty(name="replicationInstancePrivateIps", flag="unknown_replicationInstancePrivateIps")
+    private List<String> value_replicationInstancePrivateIps;
+    private boolean unknown_replicationInstancePrivateIps;
     public List<String> replicationInstancePrivateIps() {
-        if (replicationInstancePrivateIps == null) return null;
-        return replicationInstancePrivateIps.getValue("ReplicationInstance.replicationInstancePrivateIps");
+        if (!unknown_replicationInstancePrivateIps) return value_replicationInstancePrivateIps;
+        throw new UndeferrableValueException("Value 'ReplicationInstance.replicationInstancePrivateIps' is not present");
     }
 
     /**
      * A list of the public IP addresses of the replication instance.
      * 
      */
-    private UndeferrableValue<List<String>> replicationInstancePublicIps;
-
+    @PolicyResourceProperty(name="replicationInstancePublicIps", flag="unknown_replicationInstancePublicIps")
+    private List<String> value_replicationInstancePublicIps;
+    private boolean unknown_replicationInstancePublicIps;
     public List<String> replicationInstancePublicIps() {
-        if (replicationInstancePublicIps == null) return null;
-        return replicationInstancePublicIps.getValue("ReplicationInstance.replicationInstancePublicIps");
+        if (!unknown_replicationInstancePublicIps) return value_replicationInstancePublicIps;
+        throw new UndeferrableValueException("Value 'ReplicationInstance.replicationInstancePublicIps' is not present");
     }
 
     /**
      * A subnet group to associate with the replication instance.
      * 
      */
-    private UndeferrableValue<String> replicationSubnetGroupId;
-
+    @PolicyResourceProperty(name="replicationSubnetGroupId", flag="unknown_replicationSubnetGroupId")
+    private String value_replicationSubnetGroupId;
+    private boolean unknown_replicationSubnetGroupId;
     public String replicationSubnetGroupId() {
-        if (replicationSubnetGroupId == null) return null;
-        return replicationSubnetGroupId.getValue("ReplicationInstance.replicationSubnetGroupId");
+        if (!unknown_replicationSubnetGroupId) return value_replicationSubnetGroupId;
+        throw new UndeferrableValueException("Value 'ReplicationInstance.replicationSubnetGroupId' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ReplicationInstance.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ReplicationInstance.tags' is not present");
     }
 
     /**
@@ -232,22 +251,24 @@ public final class ReplicationInstance extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ReplicationInstance.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ReplicationInstance.tagsAll' is not present");
     }
 
     /**
      * A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
      * 
      */
-    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
-
+    @PolicyResourceProperty(name="vpcSecurityGroupIds", flag="unknown_vpcSecurityGroupIds")
+    private List<String> value_vpcSecurityGroupIds;
+    private boolean unknown_vpcSecurityGroupIds;
     public List<String> vpcSecurityGroupIds() {
-        if (vpcSecurityGroupIds == null) return null;
-        return vpcSecurityGroupIds.getValue("ReplicationInstance.vpcSecurityGroupIds");
+        if (!unknown_vpcSecurityGroupIds) return value_vpcSecurityGroupIds;
+        throw new UndeferrableValueException("Value 'ReplicationInstance.vpcSecurityGroupIds' is not present");
     }
 
 }

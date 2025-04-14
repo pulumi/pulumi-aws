@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,44 +18,48 @@ public final class LogDestinationArgs extends com.pulumi.resources.PolicyResourc
      * A name for the log destination.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LogDestinationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LogDestinationArgs.name' is not present");
     }
 
     /**
      * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("LogDestinationArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'LogDestinationArgs.roleArn' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LogDestinationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LogDestinationArgs.tags' is not present");
     }
 
     /**
      * The ARN of the target Amazon Kinesis stream resource for the destination.
      * 
      */
-    private UndeferrableValue<String> targetArn;
-
+    @PolicyResourceProperty(name="targetArn", flag="unknown_targetArn")
+    private String value_targetArn;
+    private boolean unknown_targetArn;
     public String targetArn() {
-        if (targetArn == null) return null;
-        return targetArn.getValue("LogDestinationArgs.targetArn");
+        if (!unknown_targetArn) return value_targetArn;
+        throw new UndeferrableValueException("Value 'LogDestinationArgs.targetArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codegurureviewer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.codegurureviewer.inputs.RepositoryAssociationKmsKeyDetailsArgs;
 import com.pulumi.policypacks.aws.codegurureviewer.inputs.RepositoryAssociationRepositoryArgs;
@@ -19,11 +20,12 @@ public final class RepositoryAssociationArgs extends com.pulumi.resources.Policy
      * An object describing the KMS key to asssociate. Block is documented below.
      * 
      */
-    private UndeferrableValue<RepositoryAssociationKmsKeyDetailsArgs> kmsKeyDetails;
-
+    @PolicyResourceProperty(name="kmsKeyDetails", flag="unknown_kmsKeyDetails")
+    private RepositoryAssociationKmsKeyDetailsArgs value_kmsKeyDetails;
+    private boolean unknown_kmsKeyDetails;
     public RepositoryAssociationKmsKeyDetailsArgs kmsKeyDetails() {
-        if (kmsKeyDetails == null) return null;
-        return kmsKeyDetails.getValue("RepositoryAssociationArgs.kmsKeyDetails");
+        if (!unknown_kmsKeyDetails) return value_kmsKeyDetails;
+        throw new UndeferrableValueException("Value 'RepositoryAssociationArgs.kmsKeyDetails' is not present");
     }
 
     /**
@@ -32,18 +34,20 @@ public final class RepositoryAssociationArgs extends com.pulumi.resources.Policy
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<RepositoryAssociationRepositoryArgs> repository;
-
+    @PolicyResourceProperty(name="repository", flag="unknown_repository")
+    private RepositoryAssociationRepositoryArgs value_repository;
+    private boolean unknown_repository;
     public RepositoryAssociationRepositoryArgs repository() {
-        if (repository == null) return null;
-        return repository.getValue("RepositoryAssociationArgs.repository");
+        if (!unknown_repository) return value_repository;
+        throw new UndeferrableValueException("Value 'RepositoryAssociationArgs.repository' is not present");
     }
 
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RepositoryAssociationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RepositoryAssociationArgs.tags' is not present");
     }
 
 }

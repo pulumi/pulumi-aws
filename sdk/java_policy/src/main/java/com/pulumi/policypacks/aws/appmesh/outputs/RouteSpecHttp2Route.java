@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.RouteSpecHttp2RouteAction;
 import com.pulumi.policypacks.aws.appmesh.outputs.RouteSpecHttp2RouteMatch;
 import com.pulumi.policypacks.aws.appmesh.outputs.RouteSpecHttp2RouteRetryPolicy;
@@ -17,44 +18,48 @@ public final class RouteSpecHttp2Route {
      * Action to take if a match is determined.
      * 
      */
-    private UndeferrableValue<RouteSpecHttp2RouteAction> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private RouteSpecHttp2RouteAction value_action;
+    private boolean unknown_action;
     public RouteSpecHttp2RouteAction action() {
-        if (action == null) return null;
-        return action.getValue("RouteSpecHttp2Route.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'RouteSpecHttp2Route.action' is not present");
     }
 
     /**
      * Criteria for determining an HTTP request match.
      * 
      */
-    private UndeferrableValue<RouteSpecHttp2RouteMatch> match;
-
+    @PolicyResourceProperty(name="match", flag="unknown_match")
+    private RouteSpecHttp2RouteMatch value_match;
+    private boolean unknown_match;
     public RouteSpecHttp2RouteMatch match() {
-        if (match == null) return null;
-        return match.getValue("RouteSpecHttp2Route.match");
+        if (!unknown_match) return value_match;
+        throw new UndeferrableValueException("Value 'RouteSpecHttp2Route.match' is not present");
     }
 
     /**
      * Retry policy.
      * 
      */
-    private @Nullable UndeferrableValue<RouteSpecHttp2RouteRetryPolicy> retryPolicy;
-
+    @PolicyResourceProperty(name="retryPolicy", flag="unknown_retryPolicy")
+    private @Nullable RouteSpecHttp2RouteRetryPolicy value_retryPolicy;
+    private boolean unknown_retryPolicy;
     public @Nullable RouteSpecHttp2RouteRetryPolicy retryPolicy() {
-        if (retryPolicy == null) return null;
-        return retryPolicy.getValue("RouteSpecHttp2Route.retryPolicy");
+        if (!unknown_retryPolicy) return value_retryPolicy;
+        throw new UndeferrableValueException("Value 'RouteSpecHttp2Route.retryPolicy' is not present");
     }
 
     /**
      * Types of timeouts.
      * 
      */
-    private @Nullable UndeferrableValue<RouteSpecHttp2RouteTimeout> timeout;
-
+    @PolicyResourceProperty(name="timeout", flag="unknown_timeout")
+    private @Nullable RouteSpecHttp2RouteTimeout value_timeout;
+    private boolean unknown_timeout;
     public @Nullable RouteSpecHttp2RouteTimeout timeout() {
-        if (timeout == null) return null;
-        return timeout.getValue("RouteSpecHttp2Route.timeout");
+        if (!unknown_timeout) return value_timeout;
+        throw new UndeferrableValueException("Value 'RouteSpecHttp2Route.timeout' is not present");
     }
 
 }

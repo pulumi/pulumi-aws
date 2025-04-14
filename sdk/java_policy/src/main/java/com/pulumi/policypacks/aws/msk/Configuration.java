@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,66 +19,72 @@ public final class Configuration extends com.pulumi.resources.PolicyResourceOutp
      * Amazon Resource Name (ARN) of the configuration.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Configuration.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Configuration.arn' is not present");
     }
 
     /**
      * Description of the configuration.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Configuration.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Configuration.description' is not present");
     }
 
     /**
      * List of Apache Kafka versions which can use this configuration.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> kafkaVersions;
-
+    @PolicyResourceProperty(name="kafkaVersions", flag="unknown_kafkaVersions")
+    private @Nullable List<String> value_kafkaVersions;
+    private boolean unknown_kafkaVersions;
     public @Nullable List<String> kafkaVersions() {
-        if (kafkaVersions == null) return null;
-        return kafkaVersions.getValue("Configuration.kafkaVersions");
+        if (!unknown_kafkaVersions) return value_kafkaVersions;
+        throw new UndeferrableValueException("Value 'Configuration.kafkaVersions' is not present");
     }
 
     /**
      * Latest revision of the configuration.
      * 
      */
-    private UndeferrableValue<Integer> latestRevision;
-
+    @PolicyResourceProperty(name="latestRevision", flag="unknown_latestRevision")
+    private Integer value_latestRevision;
+    private boolean unknown_latestRevision;
     public Integer latestRevision() {
-        if (latestRevision == null) return null;
-        return latestRevision.getValue("Configuration.latestRevision");
+        if (!unknown_latestRevision) return value_latestRevision;
+        throw new UndeferrableValueException("Value 'Configuration.latestRevision' is not present");
     }
 
     /**
      * Name of the configuration.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Configuration.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Configuration.name' is not present");
     }
 
     /**
      * Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
      * 
      */
-    private UndeferrableValue<String> serverProperties;
-
+    @PolicyResourceProperty(name="serverProperties", flag="unknown_serverProperties")
+    private String value_serverProperties;
+    private boolean unknown_serverProperties;
     public String serverProperties() {
-        if (serverProperties == null) return null;
-        return serverProperties.getValue("Configuration.serverProperties");
+        if (!unknown_serverProperties) return value_serverProperties;
+        throw new UndeferrableValueException("Value 'Configuration.serverProperties' is not present");
     }
 
 }

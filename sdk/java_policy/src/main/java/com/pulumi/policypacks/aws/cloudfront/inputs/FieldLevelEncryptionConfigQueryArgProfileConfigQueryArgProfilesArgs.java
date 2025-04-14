@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.inputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -11,11 +12,12 @@ import javax.annotation.Nullable;
 
 public final class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs {
 
-    private UndeferrableValue<List<FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs>> items;
-
+    @PolicyResourceProperty(name="items", flag="unknown_items")
+    private List<FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs> value_items;
+    private boolean unknown_items;
     public List<FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs> items() {
-        if (items == null) return null;
-        return items.getValue("FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs.items");
+        if (!unknown_items) return value_items;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs.items' is not present");
     }
 
 }

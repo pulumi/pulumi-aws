@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class DomainNameMutualTlsAuthentication {
      * Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
      * 
      */
-    private UndeferrableValue<String> truststoreUri;
-
+    @PolicyResourceProperty(name="truststoreUri", flag="unknown_truststoreUri")
+    private String value_truststoreUri;
+    private boolean unknown_truststoreUri;
     public String truststoreUri() {
-        if (truststoreUri == null) return null;
-        return truststoreUri.getValue("DomainNameMutualTlsAuthentication.truststoreUri");
+        if (!unknown_truststoreUri) return value_truststoreUri;
+        throw new UndeferrableValueException("Value 'DomainNameMutualTlsAuthentication.truststoreUri' is not present");
     }
 
     /**
      * Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
      * 
      */
-    private @Nullable UndeferrableValue<String> truststoreVersion;
-
+    @PolicyResourceProperty(name="truststoreVersion", flag="unknown_truststoreVersion")
+    private @Nullable String value_truststoreVersion;
+    private boolean unknown_truststoreVersion;
     public @Nullable String truststoreVersion() {
-        if (truststoreVersion == null) return null;
-        return truststoreVersion.getValue("DomainNameMutualTlsAuthentication.truststoreVersion");
+        if (!unknown_truststoreVersion) return value_truststoreVersion;
+        throw new UndeferrableValueException("Value 'DomainNameMutualTlsAuthentication.truststoreVersion' is not present");
     }
 
 }

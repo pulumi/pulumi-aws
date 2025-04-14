@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.worklink.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class FleetIdentityProvider {
      * The SAML metadata document provided by the customer’s identity provider.
      * 
      */
-    private UndeferrableValue<String> samlMetadata;
-
+    @PolicyResourceProperty(name="samlMetadata", flag="unknown_samlMetadata")
+    private String value_samlMetadata;
+    private boolean unknown_samlMetadata;
     public String samlMetadata() {
-        if (samlMetadata == null) return null;
-        return samlMetadata.getValue("FleetIdentityProvider.samlMetadata");
+        if (!unknown_samlMetadata) return value_samlMetadata;
+        throw new UndeferrableValueException("Value 'FleetIdentityProvider.samlMetadata' is not present");
     }
 
     /**
      * The type of identity provider.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("FleetIdentityProvider.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'FleetIdentityProvider.type' is not present");
     }
 
 }

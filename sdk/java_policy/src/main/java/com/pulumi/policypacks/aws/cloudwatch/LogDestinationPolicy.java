@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class LogDestinationPolicy extends com.pulumi.resources.PolicyResou
      * The policy document. This is a JSON formatted string.
      * 
      */
-    private UndeferrableValue<String> accessPolicy;
-
+    @PolicyResourceProperty(name="accessPolicy", flag="unknown_accessPolicy")
+    private String value_accessPolicy;
+    private boolean unknown_accessPolicy;
     public String accessPolicy() {
-        if (accessPolicy == null) return null;
-        return accessPolicy.getValue("LogDestinationPolicy.accessPolicy");
+        if (!unknown_accessPolicy) return value_accessPolicy;
+        throw new UndeferrableValueException("Value 'LogDestinationPolicy.accessPolicy' is not present");
     }
 
     /**
      * A name for the subscription filter
      * 
      */
-    private UndeferrableValue<String> destinationName;
-
+    @PolicyResourceProperty(name="destinationName", flag="unknown_destinationName")
+    private String value_destinationName;
+    private boolean unknown_destinationName;
     public String destinationName() {
-        if (destinationName == null) return null;
-        return destinationName.getValue("LogDestinationPolicy.destinationName");
+        if (!unknown_destinationName) return value_destinationName;
+        throw new UndeferrableValueException("Value 'LogDestinationPolicy.destinationName' is not present");
     }
 
     /**
      * Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> forceUpdate;
-
+    @PolicyResourceProperty(name="forceUpdate", flag="unknown_forceUpdate")
+    private @Nullable Boolean value_forceUpdate;
+    private boolean unknown_forceUpdate;
     public @Nullable Boolean forceUpdate() {
-        if (forceUpdate == null) return null;
-        return forceUpdate.getValue("LogDestinationPolicy.forceUpdate");
+        if (!unknown_forceUpdate) return value_forceUpdate;
+        throw new UndeferrableValueException("Value 'LogDestinationPolicy.forceUpdate' is not present");
     }
 
 }

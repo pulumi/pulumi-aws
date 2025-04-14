@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafregional.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafregional.inputs.XssMatchSetXssMatchTupleFieldToMatchArgs;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class XssMatchSetXssMatchTupleArgs {
      * Specifies where in a web request to look for cross-site scripting attacks.
      * 
      */
-    private UndeferrableValue<XssMatchSetXssMatchTupleFieldToMatchArgs> fieldToMatch;
-
+    @PolicyResourceProperty(name="fieldToMatch", flag="unknown_fieldToMatch")
+    private XssMatchSetXssMatchTupleFieldToMatchArgs value_fieldToMatch;
+    private boolean unknown_fieldToMatch;
     public XssMatchSetXssMatchTupleFieldToMatchArgs fieldToMatch() {
-        if (fieldToMatch == null) return null;
-        return fieldToMatch.getValue("XssMatchSetXssMatchTupleArgs.fieldToMatch");
+        if (!unknown_fieldToMatch) return value_fieldToMatch;
+        throw new UndeferrableValueException("Value 'XssMatchSetXssMatchTupleArgs.fieldToMatch' is not present");
     }
 
     /**
      * Which text transformation, if any, to perform on the web request before inspecting the request for cross-site scripting attacks.
      * 
      */
-    private UndeferrableValue<String> textTransformation;
-
+    @PolicyResourceProperty(name="textTransformation", flag="unknown_textTransformation")
+    private String value_textTransformation;
+    private boolean unknown_textTransformation;
     public String textTransformation() {
-        if (textTransformation == null) return null;
-        return textTransformation.getValue("XssMatchSetXssMatchTupleArgs.textTransformation");
+        if (!unknown_textTransformation) return value_textTransformation;
+        throw new UndeferrableValueException("Value 'XssMatchSetXssMatchTupleArgs.textTransformation' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudtrail.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudtrail.outputs.EventDataStoreAdvancedEventSelectorFieldSelector;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class EventDataStoreAdvancedEventSelector {
      * Specifies the selector statements in an advanced event selector. Fields documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<EventDataStoreAdvancedEventSelectorFieldSelector>> fieldSelectors;
-
+    @PolicyResourceProperty(name="fieldSelectors", flag="unknown_fieldSelectors")
+    private @Nullable List<EventDataStoreAdvancedEventSelectorFieldSelector> value_fieldSelectors;
+    private boolean unknown_fieldSelectors;
     public @Nullable List<EventDataStoreAdvancedEventSelectorFieldSelector> fieldSelectors() {
-        if (fieldSelectors == null) return null;
-        return fieldSelectors.getValue("EventDataStoreAdvancedEventSelector.fieldSelectors");
+        if (!unknown_fieldSelectors) return value_fieldSelectors;
+        throw new UndeferrableValueException("Value 'EventDataStoreAdvancedEventSelector.fieldSelectors' is not present");
     }
 
     /**
      * Specifies the name of the advanced event selector.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("EventDataStoreAdvancedEventSelector.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'EventDataStoreAdvancedEventSelector.name' is not present");
     }
 
 }

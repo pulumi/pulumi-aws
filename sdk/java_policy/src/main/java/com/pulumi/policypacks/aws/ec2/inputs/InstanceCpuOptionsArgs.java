@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class InstanceCpuOptionsArgs {
      * Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
      * 
      */
-    private UndeferrableValue<String> amdSevSnp;
-
+    @PolicyResourceProperty(name="amdSevSnp", flag="unknown_amdSevSnp")
+    private String value_amdSevSnp;
+    private boolean unknown_amdSevSnp;
     public String amdSevSnp() {
-        if (amdSevSnp == null) return null;
-        return amdSevSnp.getValue("InstanceCpuOptionsArgs.amdSevSnp");
+        if (!unknown_amdSevSnp) return value_amdSevSnp;
+        throw new UndeferrableValueException("Value 'InstanceCpuOptionsArgs.amdSevSnp' is not present");
     }
 
     /**
      * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
      * 
      */
-    private UndeferrableValue<Integer> coreCount;
-
+    @PolicyResourceProperty(name="coreCount", flag="unknown_coreCount")
+    private Integer value_coreCount;
+    private boolean unknown_coreCount;
     public Integer coreCount() {
-        if (coreCount == null) return null;
-        return coreCount.getValue("InstanceCpuOptionsArgs.coreCount");
+        if (!unknown_coreCount) return value_coreCount;
+        throw new UndeferrableValueException("Value 'InstanceCpuOptionsArgs.coreCount' is not present");
     }
 
     /**
@@ -39,11 +42,12 @@ public final class InstanceCpuOptionsArgs {
      * For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
      * 
      */
-    private UndeferrableValue<Integer> threadsPerCore;
-
+    @PolicyResourceProperty(name="threadsPerCore", flag="unknown_threadsPerCore")
+    private Integer value_threadsPerCore;
+    private boolean unknown_threadsPerCore;
     public Integer threadsPerCore() {
-        if (threadsPerCore == null) return null;
-        return threadsPerCore.getValue("InstanceCpuOptionsArgs.threadsPerCore");
+        if (!unknown_threadsPerCore) return value_threadsPerCore;
+        throw new UndeferrableValueException("Value 'InstanceCpuOptionsArgs.threadsPerCore' is not present");
     }
 
 }

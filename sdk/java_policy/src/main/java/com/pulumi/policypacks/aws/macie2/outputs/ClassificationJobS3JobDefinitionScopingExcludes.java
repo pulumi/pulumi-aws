@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.macie2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.macie2.outputs.ClassificationJobS3JobDefinitionScopingExcludesAnd;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ClassificationJobS3JobDefinitionScopingExcludes {
      * An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
      * 
      */
-    private @Nullable UndeferrableValue<List<ClassificationJobS3JobDefinitionScopingExcludesAnd>> ands;
-
+    @PolicyResourceProperty(name="ands", flag="unknown_ands")
+    private @Nullable List<ClassificationJobS3JobDefinitionScopingExcludesAnd> value_ands;
+    private boolean unknown_ands;
     public @Nullable List<ClassificationJobS3JobDefinitionScopingExcludesAnd> ands() {
-        if (ands == null) return null;
-        return ands.getValue("ClassificationJobS3JobDefinitionScopingExcludes.ands");
+        if (!unknown_ands) return value_ands;
+        throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionScopingExcludes.ands' is not present");
     }
 
 }

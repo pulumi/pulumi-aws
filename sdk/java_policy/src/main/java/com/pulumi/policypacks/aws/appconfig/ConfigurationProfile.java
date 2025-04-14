@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appconfig;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appconfig.outputs.ConfigurationProfileValidator;
 import java.lang.String;
@@ -19,99 +20,108 @@ public final class ConfigurationProfile extends com.pulumi.resources.PolicyResou
      * Application ID. Must be between 4 and 7 characters in length.
      * 
      */
-    private UndeferrableValue<String> applicationId;
-
+    @PolicyResourceProperty(name="applicationId", flag="unknown_applicationId")
+    private String value_applicationId;
+    private boolean unknown_applicationId;
     public String applicationId() {
-        if (applicationId == null) return null;
-        return applicationId.getValue("ConfigurationProfile.applicationId");
+        if (!unknown_applicationId) return value_applicationId;
+        throw new UndeferrableValueException("Value 'ConfigurationProfile.applicationId' is not present");
     }
 
     /**
      * ARN of the AppConfig Configuration Profile.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ConfigurationProfile.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ConfigurationProfile.arn' is not present");
     }
 
     /**
      * The configuration profile ID.
      * 
      */
-    private UndeferrableValue<String> configurationProfileId;
-
+    @PolicyResourceProperty(name="configurationProfileId", flag="unknown_configurationProfileId")
+    private String value_configurationProfileId;
+    private boolean unknown_configurationProfileId;
     public String configurationProfileId() {
-        if (configurationProfileId == null) return null;
-        return configurationProfileId.getValue("ConfigurationProfile.configurationProfileId");
+        if (!unknown_configurationProfileId) return value_configurationProfileId;
+        throw new UndeferrableValueException("Value 'ConfigurationProfile.configurationProfileId' is not present");
     }
 
     /**
      * Description of the configuration profile. Can be at most 1024 characters.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ConfigurationProfile.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ConfigurationProfile.description' is not present");
     }
 
     /**
      * The identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyIdentifier;
-
+    @PolicyResourceProperty(name="kmsKeyIdentifier", flag="unknown_kmsKeyIdentifier")
+    private @Nullable String value_kmsKeyIdentifier;
+    private boolean unknown_kmsKeyIdentifier;
     public @Nullable String kmsKeyIdentifier() {
-        if (kmsKeyIdentifier == null) return null;
-        return kmsKeyIdentifier.getValue("ConfigurationProfile.kmsKeyIdentifier");
+        if (!unknown_kmsKeyIdentifier) return value_kmsKeyIdentifier;
+        throw new UndeferrableValueException("Value 'ConfigurationProfile.kmsKeyIdentifier' is not present");
     }
 
     /**
      * URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://&lt;Document_name&gt;` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://&lt;Parameter_name&gt;` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://&lt;bucket&gt;/&lt;objectKey&gt;`.
      * 
      */
-    private UndeferrableValue<String> locationUri;
-
+    @PolicyResourceProperty(name="locationUri", flag="unknown_locationUri")
+    private String value_locationUri;
+    private boolean unknown_locationUri;
     public String locationUri() {
-        if (locationUri == null) return null;
-        return locationUri.getValue("ConfigurationProfile.locationUri");
+        if (!unknown_locationUri) return value_locationUri;
+        throw new UndeferrableValueException("Value 'ConfigurationProfile.locationUri' is not present");
     }
 
     /**
      * Name for the configuration profile. Must be between 1 and 128 characters in length.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ConfigurationProfile.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ConfigurationProfile.name' is not present");
     }
 
     /**
      * ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
      * 
      */
-    private @Nullable UndeferrableValue<String> retrievalRoleArn;
-
+    @PolicyResourceProperty(name="retrievalRoleArn", flag="unknown_retrievalRoleArn")
+    private @Nullable String value_retrievalRoleArn;
+    private boolean unknown_retrievalRoleArn;
     public @Nullable String retrievalRoleArn() {
-        if (retrievalRoleArn == null) return null;
-        return retrievalRoleArn.getValue("ConfigurationProfile.retrievalRoleArn");
+        if (!unknown_retrievalRoleArn) return value_retrievalRoleArn;
+        throw new UndeferrableValueException("Value 'ConfigurationProfile.retrievalRoleArn' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ConfigurationProfile.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ConfigurationProfile.tags' is not present");
     }
 
     /**
@@ -122,33 +132,36 @@ public final class ConfigurationProfile extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ConfigurationProfile.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ConfigurationProfile.tagsAll' is not present");
     }
 
     /**
      * Type of configurations contained in the profile. Valid values: `AWS.AppConfig.FeatureFlags` and `AWS.Freeform`.  Default: `AWS.Freeform`.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("ConfigurationProfile.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ConfigurationProfile.type' is not present");
     }
 
     /**
      * Set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<ConfigurationProfileValidator>> validators;
-
+    @PolicyResourceProperty(name="validators", flag="unknown_validators")
+    private @Nullable List<ConfigurationProfileValidator> value_validators;
+    private boolean unknown_validators;
     public @Nullable List<ConfigurationProfileValidator> validators() {
-        if (validators == null) return null;
-        return validators.getValue("ConfigurationProfile.validators");
+        if (!unknown_validators) return value_validators;
+        throw new UndeferrableValueException("Value 'ConfigurationProfile.validators' is not present");
     }
 
 }

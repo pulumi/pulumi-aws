@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings;
@@ -15,337 +16,384 @@ import javax.annotation.Nullable;
 
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings {
 
-    private @Nullable UndeferrableValue<String> absentInputAudioBehavior;
-
+    @PolicyResourceProperty(name="absentInputAudioBehavior", flag="unknown_absentInputAudioBehavior")
+    private @Nullable String value_absentInputAudioBehavior;
+    private boolean unknown_absentInputAudioBehavior;
     public @Nullable String absentInputAudioBehavior() {
-        if (absentInputAudioBehavior == null) return null;
-        return absentInputAudioBehavior.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.absentInputAudioBehavior");
+        if (!unknown_absentInputAudioBehavior) return value_absentInputAudioBehavior;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.absentInputAudioBehavior' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> arib;
-
+    @PolicyResourceProperty(name="arib", flag="unknown_arib")
+    private @Nullable String value_arib;
+    private boolean unknown_arib;
     public @Nullable String arib() {
-        if (arib == null) return null;
-        return arib.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.arib");
+        if (!unknown_arib) return value_arib;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.arib' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> aribCaptionsPid;
-
+    @PolicyResourceProperty(name="aribCaptionsPid", flag="unknown_aribCaptionsPid")
+    private @Nullable String value_aribCaptionsPid;
+    private boolean unknown_aribCaptionsPid;
     public @Nullable String aribCaptionsPid() {
-        if (aribCaptionsPid == null) return null;
-        return aribCaptionsPid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.aribCaptionsPid");
+        if (!unknown_aribCaptionsPid) return value_aribCaptionsPid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.aribCaptionsPid' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> aribCaptionsPidControl;
-
+    @PolicyResourceProperty(name="aribCaptionsPidControl", flag="unknown_aribCaptionsPidControl")
+    private @Nullable String value_aribCaptionsPidControl;
+    private boolean unknown_aribCaptionsPidControl;
     public @Nullable String aribCaptionsPidControl() {
-        if (aribCaptionsPidControl == null) return null;
-        return aribCaptionsPidControl.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.aribCaptionsPidControl");
+        if (!unknown_aribCaptionsPidControl) return value_aribCaptionsPidControl;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.aribCaptionsPidControl' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> audioBufferModel;
-
+    @PolicyResourceProperty(name="audioBufferModel", flag="unknown_audioBufferModel")
+    private @Nullable String value_audioBufferModel;
+    private boolean unknown_audioBufferModel;
     public @Nullable String audioBufferModel() {
-        if (audioBufferModel == null) return null;
-        return audioBufferModel.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.audioBufferModel");
+        if (!unknown_audioBufferModel) return value_audioBufferModel;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.audioBufferModel' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> audioFramesPerPes;
-
+    @PolicyResourceProperty(name="audioFramesPerPes", flag="unknown_audioFramesPerPes")
+    private @Nullable Integer value_audioFramesPerPes;
+    private boolean unknown_audioFramesPerPes;
     public @Nullable Integer audioFramesPerPes() {
-        if (audioFramesPerPes == null) return null;
-        return audioFramesPerPes.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.audioFramesPerPes");
+        if (!unknown_audioFramesPerPes) return value_audioFramesPerPes;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.audioFramesPerPes' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> audioPids;
-
+    @PolicyResourceProperty(name="audioPids", flag="unknown_audioPids")
+    private @Nullable String value_audioPids;
+    private boolean unknown_audioPids;
     public @Nullable String audioPids() {
-        if (audioPids == null) return null;
-        return audioPids.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.audioPids");
+        if (!unknown_audioPids) return value_audioPids;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.audioPids' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> audioStreamType;
-
+    @PolicyResourceProperty(name="audioStreamType", flag="unknown_audioStreamType")
+    private @Nullable String value_audioStreamType;
+    private boolean unknown_audioStreamType;
     public @Nullable String audioStreamType() {
-        if (audioStreamType == null) return null;
-        return audioStreamType.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.audioStreamType");
+        if (!unknown_audioStreamType) return value_audioStreamType;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.audioStreamType' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> bitrate;
-
+    @PolicyResourceProperty(name="bitrate", flag="unknown_bitrate")
+    private @Nullable Integer value_bitrate;
+    private boolean unknown_bitrate;
     public @Nullable Integer bitrate() {
-        if (bitrate == null) return null;
-        return bitrate.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.bitrate");
+        if (!unknown_bitrate) return value_bitrate;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.bitrate' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> bufferModel;
-
+    @PolicyResourceProperty(name="bufferModel", flag="unknown_bufferModel")
+    private @Nullable String value_bufferModel;
+    private boolean unknown_bufferModel;
     public @Nullable String bufferModel() {
-        if (bufferModel == null) return null;
-        return bufferModel.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.bufferModel");
+        if (!unknown_bufferModel) return value_bufferModel;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.bufferModel' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> ccDescriptor;
-
+    @PolicyResourceProperty(name="ccDescriptor", flag="unknown_ccDescriptor")
+    private @Nullable String value_ccDescriptor;
+    private boolean unknown_ccDescriptor;
     public @Nullable String ccDescriptor() {
-        if (ccDescriptor == null) return null;
-        return ccDescriptor.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.ccDescriptor");
+        if (!unknown_ccDescriptor) return value_ccDescriptor;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.ccDescriptor' is not present");
     }
 
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings> dvbNitSettings;
-
+    @PolicyResourceProperty(name="dvbNitSettings", flag="unknown_dvbNitSettings")
+    private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings value_dvbNitSettings;
+    private boolean unknown_dvbNitSettings;
     public @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings dvbNitSettings() {
-        if (dvbNitSettings == null) return null;
-        return dvbNitSettings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.dvbNitSettings");
+        if (!unknown_dvbNitSettings) return value_dvbNitSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.dvbNitSettings' is not present");
     }
 
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings> dvbSdtSettings;
-
+    @PolicyResourceProperty(name="dvbSdtSettings", flag="unknown_dvbSdtSettings")
+    private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings value_dvbSdtSettings;
+    private boolean unknown_dvbSdtSettings;
     public @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings dvbSdtSettings() {
-        if (dvbSdtSettings == null) return null;
-        return dvbSdtSettings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.dvbSdtSettings");
+        if (!unknown_dvbSdtSettings) return value_dvbSdtSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.dvbSdtSettings' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> dvbSubPids;
-
+    @PolicyResourceProperty(name="dvbSubPids", flag="unknown_dvbSubPids")
+    private @Nullable String value_dvbSubPids;
+    private boolean unknown_dvbSubPids;
     public @Nullable String dvbSubPids() {
-        if (dvbSubPids == null) return null;
-        return dvbSubPids.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.dvbSubPids");
+        if (!unknown_dvbSubPids) return value_dvbSubPids;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.dvbSubPids' is not present");
     }
 
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings> dvbTdtSettings;
-
+    @PolicyResourceProperty(name="dvbTdtSettings", flag="unknown_dvbTdtSettings")
+    private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings value_dvbTdtSettings;
+    private boolean unknown_dvbTdtSettings;
     public @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings dvbTdtSettings() {
-        if (dvbTdtSettings == null) return null;
-        return dvbTdtSettings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.dvbTdtSettings");
+        if (!unknown_dvbTdtSettings) return value_dvbTdtSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.dvbTdtSettings' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> dvbTeletextPid;
-
+    @PolicyResourceProperty(name="dvbTeletextPid", flag="unknown_dvbTeletextPid")
+    private @Nullable String value_dvbTeletextPid;
+    private boolean unknown_dvbTeletextPid;
     public @Nullable String dvbTeletextPid() {
-        if (dvbTeletextPid == null) return null;
-        return dvbTeletextPid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.dvbTeletextPid");
+        if (!unknown_dvbTeletextPid) return value_dvbTeletextPid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.dvbTeletextPid' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> ebif;
-
+    @PolicyResourceProperty(name="ebif", flag="unknown_ebif")
+    private @Nullable String value_ebif;
+    private boolean unknown_ebif;
     public @Nullable String ebif() {
-        if (ebif == null) return null;
-        return ebif.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.ebif");
+        if (!unknown_ebif) return value_ebif;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.ebif' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> ebpAudioInterval;
-
+    @PolicyResourceProperty(name="ebpAudioInterval", flag="unknown_ebpAudioInterval")
+    private @Nullable String value_ebpAudioInterval;
+    private boolean unknown_ebpAudioInterval;
     public @Nullable String ebpAudioInterval() {
-        if (ebpAudioInterval == null) return null;
-        return ebpAudioInterval.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.ebpAudioInterval");
+        if (!unknown_ebpAudioInterval) return value_ebpAudioInterval;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.ebpAudioInterval' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> ebpLookaheadMs;
-
+    @PolicyResourceProperty(name="ebpLookaheadMs", flag="unknown_ebpLookaheadMs")
+    private @Nullable Integer value_ebpLookaheadMs;
+    private boolean unknown_ebpLookaheadMs;
     public @Nullable Integer ebpLookaheadMs() {
-        if (ebpLookaheadMs == null) return null;
-        return ebpLookaheadMs.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.ebpLookaheadMs");
+        if (!unknown_ebpLookaheadMs) return value_ebpLookaheadMs;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.ebpLookaheadMs' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> ebpPlacement;
-
+    @PolicyResourceProperty(name="ebpPlacement", flag="unknown_ebpPlacement")
+    private @Nullable String value_ebpPlacement;
+    private boolean unknown_ebpPlacement;
     public @Nullable String ebpPlacement() {
-        if (ebpPlacement == null) return null;
-        return ebpPlacement.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.ebpPlacement");
+        if (!unknown_ebpPlacement) return value_ebpPlacement;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.ebpPlacement' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> ecmPid;
-
+    @PolicyResourceProperty(name="ecmPid", flag="unknown_ecmPid")
+    private @Nullable String value_ecmPid;
+    private boolean unknown_ecmPid;
     public @Nullable String ecmPid() {
-        if (ecmPid == null) return null;
-        return ecmPid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.ecmPid");
+        if (!unknown_ecmPid) return value_ecmPid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.ecmPid' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> esRateInPes;
-
+    @PolicyResourceProperty(name="esRateInPes", flag="unknown_esRateInPes")
+    private @Nullable String value_esRateInPes;
+    private boolean unknown_esRateInPes;
     public @Nullable String esRateInPes() {
-        if (esRateInPes == null) return null;
-        return esRateInPes.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.esRateInPes");
+        if (!unknown_esRateInPes) return value_esRateInPes;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.esRateInPes' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> etvPlatformPid;
-
+    @PolicyResourceProperty(name="etvPlatformPid", flag="unknown_etvPlatformPid")
+    private @Nullable String value_etvPlatformPid;
+    private boolean unknown_etvPlatformPid;
     public @Nullable String etvPlatformPid() {
-        if (etvPlatformPid == null) return null;
-        return etvPlatformPid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.etvPlatformPid");
+        if (!unknown_etvPlatformPid) return value_etvPlatformPid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.etvPlatformPid' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> etvSignalPid;
-
+    @PolicyResourceProperty(name="etvSignalPid", flag="unknown_etvSignalPid")
+    private @Nullable String value_etvSignalPid;
+    private boolean unknown_etvSignalPid;
     public @Nullable String etvSignalPid() {
-        if (etvSignalPid == null) return null;
-        return etvSignalPid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.etvSignalPid");
+        if (!unknown_etvSignalPid) return value_etvSignalPid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.etvSignalPid' is not present");
     }
 
-    private @Nullable UndeferrableValue<Double> fragmentTime;
-
+    @PolicyResourceProperty(name="fragmentTime", flag="unknown_fragmentTime")
+    private @Nullable Double value_fragmentTime;
+    private boolean unknown_fragmentTime;
     public @Nullable Double fragmentTime() {
-        if (fragmentTime == null) return null;
-        return fragmentTime.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.fragmentTime");
+        if (!unknown_fragmentTime) return value_fragmentTime;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.fragmentTime' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> klv;
-
+    @PolicyResourceProperty(name="klv", flag="unknown_klv")
+    private @Nullable String value_klv;
+    private boolean unknown_klv;
     public @Nullable String klv() {
-        if (klv == null) return null;
-        return klv.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.klv");
+        if (!unknown_klv) return value_klv;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.klv' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> klvDataPids;
-
+    @PolicyResourceProperty(name="klvDataPids", flag="unknown_klvDataPids")
+    private @Nullable String value_klvDataPids;
+    private boolean unknown_klvDataPids;
     public @Nullable String klvDataPids() {
-        if (klvDataPids == null) return null;
-        return klvDataPids.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.klvDataPids");
+        if (!unknown_klvDataPids) return value_klvDataPids;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.klvDataPids' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> nielsenId3Behavior;
-
+    @PolicyResourceProperty(name="nielsenId3Behavior", flag="unknown_nielsenId3Behavior")
+    private @Nullable String value_nielsenId3Behavior;
+    private boolean unknown_nielsenId3Behavior;
     public @Nullable String nielsenId3Behavior() {
-        if (nielsenId3Behavior == null) return null;
-        return nielsenId3Behavior.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.nielsenId3Behavior");
+        if (!unknown_nielsenId3Behavior) return value_nielsenId3Behavior;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.nielsenId3Behavior' is not present");
     }
 
-    private @Nullable UndeferrableValue<Double> nullPacketBitrate;
-
+    @PolicyResourceProperty(name="nullPacketBitrate", flag="unknown_nullPacketBitrate")
+    private @Nullable Double value_nullPacketBitrate;
+    private boolean unknown_nullPacketBitrate;
     public @Nullable Double nullPacketBitrate() {
-        if (nullPacketBitrate == null) return null;
-        return nullPacketBitrate.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.nullPacketBitrate");
+        if (!unknown_nullPacketBitrate) return value_nullPacketBitrate;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.nullPacketBitrate' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> patInterval;
-
+    @PolicyResourceProperty(name="patInterval", flag="unknown_patInterval")
+    private @Nullable Integer value_patInterval;
+    private boolean unknown_patInterval;
     public @Nullable Integer patInterval() {
-        if (patInterval == null) return null;
-        return patInterval.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.patInterval");
+        if (!unknown_patInterval) return value_patInterval;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.patInterval' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> pcrControl;
-
+    @PolicyResourceProperty(name="pcrControl", flag="unknown_pcrControl")
+    private @Nullable String value_pcrControl;
+    private boolean unknown_pcrControl;
     public @Nullable String pcrControl() {
-        if (pcrControl == null) return null;
-        return pcrControl.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.pcrControl");
+        if (!unknown_pcrControl) return value_pcrControl;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.pcrControl' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> pcrPeriod;
-
+    @PolicyResourceProperty(name="pcrPeriod", flag="unknown_pcrPeriod")
+    private @Nullable Integer value_pcrPeriod;
+    private boolean unknown_pcrPeriod;
     public @Nullable Integer pcrPeriod() {
-        if (pcrPeriod == null) return null;
-        return pcrPeriod.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.pcrPeriod");
+        if (!unknown_pcrPeriod) return value_pcrPeriod;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.pcrPeriod' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> pcrPid;
-
+    @PolicyResourceProperty(name="pcrPid", flag="unknown_pcrPid")
+    private @Nullable String value_pcrPid;
+    private boolean unknown_pcrPid;
     public @Nullable String pcrPid() {
-        if (pcrPid == null) return null;
-        return pcrPid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.pcrPid");
+        if (!unknown_pcrPid) return value_pcrPid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.pcrPid' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> pmtInterval;
-
+    @PolicyResourceProperty(name="pmtInterval", flag="unknown_pmtInterval")
+    private @Nullable Integer value_pmtInterval;
+    private boolean unknown_pmtInterval;
     public @Nullable Integer pmtInterval() {
-        if (pmtInterval == null) return null;
-        return pmtInterval.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.pmtInterval");
+        if (!unknown_pmtInterval) return value_pmtInterval;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.pmtInterval' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> pmtPid;
-
+    @PolicyResourceProperty(name="pmtPid", flag="unknown_pmtPid")
+    private @Nullable String value_pmtPid;
+    private boolean unknown_pmtPid;
     public @Nullable String pmtPid() {
-        if (pmtPid == null) return null;
-        return pmtPid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.pmtPid");
+        if (!unknown_pmtPid) return value_pmtPid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.pmtPid' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> programNum;
-
+    @PolicyResourceProperty(name="programNum", flag="unknown_programNum")
+    private @Nullable Integer value_programNum;
+    private boolean unknown_programNum;
     public @Nullable Integer programNum() {
-        if (programNum == null) return null;
-        return programNum.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.programNum");
+        if (!unknown_programNum) return value_programNum;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.programNum' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> rateMode;
-
+    @PolicyResourceProperty(name="rateMode", flag="unknown_rateMode")
+    private @Nullable String value_rateMode;
+    private boolean unknown_rateMode;
     public @Nullable String rateMode() {
-        if (rateMode == null) return null;
-        return rateMode.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.rateMode");
+        if (!unknown_rateMode) return value_rateMode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.rateMode' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> scte27Pids;
-
+    @PolicyResourceProperty(name="scte27Pids", flag="unknown_scte27Pids")
+    private @Nullable String value_scte27Pids;
+    private boolean unknown_scte27Pids;
     public @Nullable String scte27Pids() {
-        if (scte27Pids == null) return null;
-        return scte27Pids.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.scte27Pids");
+        if (!unknown_scte27Pids) return value_scte27Pids;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.scte27Pids' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> scte35Control;
-
+    @PolicyResourceProperty(name="scte35Control", flag="unknown_scte35Control")
+    private @Nullable String value_scte35Control;
+    private boolean unknown_scte35Control;
     public @Nullable String scte35Control() {
-        if (scte35Control == null) return null;
-        return scte35Control.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.scte35Control");
+        if (!unknown_scte35Control) return value_scte35Control;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.scte35Control' is not present");
     }
 
     /**
      * PID from which to read SCTE-35 messages.
      * 
      */
-    private @Nullable UndeferrableValue<String> scte35Pid;
-
+    @PolicyResourceProperty(name="scte35Pid", flag="unknown_scte35Pid")
+    private @Nullable String value_scte35Pid;
+    private boolean unknown_scte35Pid;
     public @Nullable String scte35Pid() {
-        if (scte35Pid == null) return null;
-        return scte35Pid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.scte35Pid");
+        if (!unknown_scte35Pid) return value_scte35Pid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.scte35Pid' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> segmentationMarkers;
-
+    @PolicyResourceProperty(name="segmentationMarkers", flag="unknown_segmentationMarkers")
+    private @Nullable String value_segmentationMarkers;
+    private boolean unknown_segmentationMarkers;
     public @Nullable String segmentationMarkers() {
-        if (segmentationMarkers == null) return null;
-        return segmentationMarkers.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.segmentationMarkers");
+        if (!unknown_segmentationMarkers) return value_segmentationMarkers;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.segmentationMarkers' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> segmentationStyle;
-
+    @PolicyResourceProperty(name="segmentationStyle", flag="unknown_segmentationStyle")
+    private @Nullable String value_segmentationStyle;
+    private boolean unknown_segmentationStyle;
     public @Nullable String segmentationStyle() {
-        if (segmentationStyle == null) return null;
-        return segmentationStyle.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.segmentationStyle");
+        if (!unknown_segmentationStyle) return value_segmentationStyle;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.segmentationStyle' is not present");
     }
 
-    private @Nullable UndeferrableValue<Double> segmentationTime;
-
+    @PolicyResourceProperty(name="segmentationTime", flag="unknown_segmentationTime")
+    private @Nullable Double value_segmentationTime;
+    private boolean unknown_segmentationTime;
     public @Nullable Double segmentationTime() {
-        if (segmentationTime == null) return null;
-        return segmentationTime.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.segmentationTime");
+        if (!unknown_segmentationTime) return value_segmentationTime;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.segmentationTime' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> timedMetadataBehavior;
-
+    @PolicyResourceProperty(name="timedMetadataBehavior", flag="unknown_timedMetadataBehavior")
+    private @Nullable String value_timedMetadataBehavior;
+    private boolean unknown_timedMetadataBehavior;
     public @Nullable String timedMetadataBehavior() {
-        if (timedMetadataBehavior == null) return null;
-        return timedMetadataBehavior.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.timedMetadataBehavior");
+        if (!unknown_timedMetadataBehavior) return value_timedMetadataBehavior;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.timedMetadataBehavior' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> timedMetadataPid;
-
+    @PolicyResourceProperty(name="timedMetadataPid", flag="unknown_timedMetadataPid")
+    private @Nullable String value_timedMetadataPid;
+    private boolean unknown_timedMetadataPid;
     public @Nullable String timedMetadataPid() {
-        if (timedMetadataPid == null) return null;
-        return timedMetadataPid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.timedMetadataPid");
+        if (!unknown_timedMetadataPid) return value_timedMetadataPid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.timedMetadataPid' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> transportStreamId;
-
+    @PolicyResourceProperty(name="transportStreamId", flag="unknown_transportStreamId")
+    private @Nullable Integer value_transportStreamId;
+    private boolean unknown_transportStreamId;
     public @Nullable Integer transportStreamId() {
-        if (transportStreamId == null) return null;
-        return transportStreamId.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.transportStreamId");
+        if (!unknown_transportStreamId) return value_transportStreamId;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.transportStreamId' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> videoPid;
-
+    @PolicyResourceProperty(name="videoPid", flag="unknown_videoPid")
+    private @Nullable String value_videoPid;
+    private boolean unknown_videoPid;
     public @Nullable String videoPid() {
-        if (videoPid == null) return null;
-        return videoPid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.videoPid");
+        if (!unknown_videoPid) return value_videoPid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings.videoPid' is not present");
     }
 
 }

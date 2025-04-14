@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,11 +14,12 @@ public final class BucketReplicationConfigRuleDestinationMetricsEventThresholdAr
      * Time in minutes. Valid values: `15`.
      * 
      */
-    private UndeferrableValue<Integer> minutes;
-
+    @PolicyResourceProperty(name="minutes", flag="unknown_minutes")
+    private Integer value_minutes;
+    private boolean unknown_minutes;
     public Integer minutes() {
-        if (minutes == null) return null;
-        return minutes.getValue("BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs.minutes");
+        if (!unknown_minutes) return value_minutes;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs.minutes' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs;
@@ -26,143 +27,156 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAr
      * ARIB Destination Settings.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs> aribDestinationSettings;
-
+    @PolicyResourceProperty(name="aribDestinationSettings", flag="unknown_aribDestinationSettings")
+    private ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs value_aribDestinationSettings;
+    private boolean unknown_aribDestinationSettings;
     public ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs aribDestinationSettings() {
-        if (aribDestinationSettings == null) return null;
-        return aribDestinationSettings.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.aribDestinationSettings");
+        if (!unknown_aribDestinationSettings) return value_aribDestinationSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.aribDestinationSettings' is not present");
     }
 
     /**
      * Burn In Destination Settings. See Burn In Destination Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs> burnInDestinationSettings;
-
+    @PolicyResourceProperty(name="burnInDestinationSettings", flag="unknown_burnInDestinationSettings")
+    private ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs value_burnInDestinationSettings;
+    private boolean unknown_burnInDestinationSettings;
     public ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs burnInDestinationSettings() {
-        if (burnInDestinationSettings == null) return null;
-        return burnInDestinationSettings.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.burnInDestinationSettings");
+        if (!unknown_burnInDestinationSettings) return value_burnInDestinationSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.burnInDestinationSettings' is not present");
     }
 
     /**
      * DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs> dvbSubDestinationSettings;
-
+    @PolicyResourceProperty(name="dvbSubDestinationSettings", flag="unknown_dvbSubDestinationSettings")
+    private ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs value_dvbSubDestinationSettings;
+    private boolean unknown_dvbSubDestinationSettings;
     public ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs dvbSubDestinationSettings() {
-        if (dvbSubDestinationSettings == null) return null;
-        return dvbSubDestinationSettings.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.dvbSubDestinationSettings");
+        if (!unknown_dvbSubDestinationSettings) return value_dvbSubDestinationSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.dvbSubDestinationSettings' is not present");
     }
 
     /**
      * EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs> ebuTtDDestinationSettings;
-
+    @PolicyResourceProperty(name="ebuTtDDestinationSettings", flag="unknown_ebuTtDDestinationSettings")
+    private ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs value_ebuTtDDestinationSettings;
+    private boolean unknown_ebuTtDDestinationSettings;
     public ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs ebuTtDDestinationSettings() {
-        if (ebuTtDDestinationSettings == null) return null;
-        return ebuTtDDestinationSettings.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.ebuTtDDestinationSettings");
+        if (!unknown_ebuTtDDestinationSettings) return value_ebuTtDDestinationSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.ebuTtDDestinationSettings' is not present");
     }
 
     /**
      * Embedded Destination Settings.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs> embeddedDestinationSettings;
-
+    @PolicyResourceProperty(name="embeddedDestinationSettings", flag="unknown_embeddedDestinationSettings")
+    private ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs value_embeddedDestinationSettings;
+    private boolean unknown_embeddedDestinationSettings;
     public ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs embeddedDestinationSettings() {
-        if (embeddedDestinationSettings == null) return null;
-        return embeddedDestinationSettings.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.embeddedDestinationSettings");
+        if (!unknown_embeddedDestinationSettings) return value_embeddedDestinationSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.embeddedDestinationSettings' is not present");
     }
 
     /**
      * Embedded Plus SCTE20 Destination Settings.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs> embeddedPlusScte20DestinationSettings;
-
+    @PolicyResourceProperty(name="embeddedPlusScte20DestinationSettings", flag="unknown_embeddedPlusScte20DestinationSettings")
+    private ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs value_embeddedPlusScte20DestinationSettings;
+    private boolean unknown_embeddedPlusScte20DestinationSettings;
     public ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs embeddedPlusScte20DestinationSettings() {
-        if (embeddedPlusScte20DestinationSettings == null) return null;
-        return embeddedPlusScte20DestinationSettings.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.embeddedPlusScte20DestinationSettings");
+        if (!unknown_embeddedPlusScte20DestinationSettings) return value_embeddedPlusScte20DestinationSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.embeddedPlusScte20DestinationSettings' is not present");
     }
 
     /**
      * RTMP Caption Info Destination Settings.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs> rtmpCaptionInfoDestinationSettings;
-
+    @PolicyResourceProperty(name="rtmpCaptionInfoDestinationSettings", flag="unknown_rtmpCaptionInfoDestinationSettings")
+    private ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs value_rtmpCaptionInfoDestinationSettings;
+    private boolean unknown_rtmpCaptionInfoDestinationSettings;
     public ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs rtmpCaptionInfoDestinationSettings() {
-        if (rtmpCaptionInfoDestinationSettings == null) return null;
-        return rtmpCaptionInfoDestinationSettings.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.rtmpCaptionInfoDestinationSettings");
+        if (!unknown_rtmpCaptionInfoDestinationSettings) return value_rtmpCaptionInfoDestinationSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.rtmpCaptionInfoDestinationSettings' is not present");
     }
 
     /**
      * SCTE20 Plus Embedded Destination Settings.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs> scte20PlusEmbeddedDestinationSettings;
-
+    @PolicyResourceProperty(name="scte20PlusEmbeddedDestinationSettings", flag="unknown_scte20PlusEmbeddedDestinationSettings")
+    private ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs value_scte20PlusEmbeddedDestinationSettings;
+    private boolean unknown_scte20PlusEmbeddedDestinationSettings;
     public ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs scte20PlusEmbeddedDestinationSettings() {
-        if (scte20PlusEmbeddedDestinationSettings == null) return null;
-        return scte20PlusEmbeddedDestinationSettings.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.scte20PlusEmbeddedDestinationSettings");
+        if (!unknown_scte20PlusEmbeddedDestinationSettings) return value_scte20PlusEmbeddedDestinationSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.scte20PlusEmbeddedDestinationSettings' is not present");
     }
 
     /**
      * SCTE27 Destination Settings.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs> scte27DestinationSettings;
-
+    @PolicyResourceProperty(name="scte27DestinationSettings", flag="unknown_scte27DestinationSettings")
+    private ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs value_scte27DestinationSettings;
+    private boolean unknown_scte27DestinationSettings;
     public ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs scte27DestinationSettings() {
-        if (scte27DestinationSettings == null) return null;
-        return scte27DestinationSettings.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.scte27DestinationSettings");
+        if (!unknown_scte27DestinationSettings) return value_scte27DestinationSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.scte27DestinationSettings' is not present");
     }
 
     /**
      * SMPTE TT Destination Settings.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs> smpteTtDestinationSettings;
-
+    @PolicyResourceProperty(name="smpteTtDestinationSettings", flag="unknown_smpteTtDestinationSettings")
+    private ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs value_smpteTtDestinationSettings;
+    private boolean unknown_smpteTtDestinationSettings;
     public ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs smpteTtDestinationSettings() {
-        if (smpteTtDestinationSettings == null) return null;
-        return smpteTtDestinationSettings.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.smpteTtDestinationSettings");
+        if (!unknown_smpteTtDestinationSettings) return value_smpteTtDestinationSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.smpteTtDestinationSettings' is not present");
     }
 
     /**
      * Teletext Destination Settings.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs> teletextDestinationSettings;
-
+    @PolicyResourceProperty(name="teletextDestinationSettings", flag="unknown_teletextDestinationSettings")
+    private ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs value_teletextDestinationSettings;
+    private boolean unknown_teletextDestinationSettings;
     public ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs teletextDestinationSettings() {
-        if (teletextDestinationSettings == null) return null;
-        return teletextDestinationSettings.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.teletextDestinationSettings");
+        if (!unknown_teletextDestinationSettings) return value_teletextDestinationSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.teletextDestinationSettings' is not present");
     }
 
     /**
      * TTML Destination Settings. See TTML Destination Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs> ttmlDestinationSettings;
-
+    @PolicyResourceProperty(name="ttmlDestinationSettings", flag="unknown_ttmlDestinationSettings")
+    private ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs value_ttmlDestinationSettings;
+    private boolean unknown_ttmlDestinationSettings;
     public ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs ttmlDestinationSettings() {
-        if (ttmlDestinationSettings == null) return null;
-        return ttmlDestinationSettings.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.ttmlDestinationSettings");
+        if (!unknown_ttmlDestinationSettings) return value_ttmlDestinationSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.ttmlDestinationSettings' is not present");
     }
 
     /**
      * WebVTT Destination Settings. See WebVTT Destination Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs> webvttDestinationSettings;
-
+    @PolicyResourceProperty(name="webvttDestinationSettings", flag="unknown_webvttDestinationSettings")
+    private ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs value_webvttDestinationSettings;
+    private boolean unknown_webvttDestinationSettings;
     public ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs webvttDestinationSettings() {
-        if (webvttDestinationSettings == null) return null;
-        return webvttDestinationSettings.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.webvttDestinationSettings");
+        if (!unknown_webvttDestinationSettings) return value_webvttDestinationSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs.webvttDestinationSettings' is not present");
     }
 
 }

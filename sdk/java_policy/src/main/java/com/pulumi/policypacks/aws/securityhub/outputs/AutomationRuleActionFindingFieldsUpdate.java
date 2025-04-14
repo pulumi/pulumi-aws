@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.securityhub.outputs.AutomationRuleActionFindingFieldsUpdateNote;
 import com.pulumi.policypacks.aws.securityhub.outputs.AutomationRuleActionFindingFieldsUpdateRelatedFinding;
 import com.pulumi.policypacks.aws.securityhub.outputs.AutomationRuleActionFindingFieldsUpdateSeverity;
@@ -21,99 +22,108 @@ public final class AutomationRuleActionFindingFieldsUpdate {
      * The rule action updates the `Confidence` field of a finding.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> confidence;
-
+    @PolicyResourceProperty(name="confidence", flag="unknown_confidence")
+    private @Nullable Integer value_confidence;
+    private boolean unknown_confidence;
     public @Nullable Integer confidence() {
-        if (confidence == null) return null;
-        return confidence.getValue("AutomationRuleActionFindingFieldsUpdate.confidence");
+        if (!unknown_confidence) return value_confidence;
+        throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdate.confidence' is not present");
     }
 
     /**
      * The rule action updates the `Criticality` field of a finding.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> criticality;
-
+    @PolicyResourceProperty(name="criticality", flag="unknown_criticality")
+    private @Nullable Integer value_criticality;
+    private boolean unknown_criticality;
     public @Nullable Integer criticality() {
-        if (criticality == null) return null;
-        return criticality.getValue("AutomationRuleActionFindingFieldsUpdate.criticality");
+        if (!unknown_criticality) return value_criticality;
+        throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdate.criticality' is not present");
     }
 
     /**
      * A resource block that updates the note. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<AutomationRuleActionFindingFieldsUpdateNote> note;
-
+    @PolicyResourceProperty(name="note", flag="unknown_note")
+    private @Nullable AutomationRuleActionFindingFieldsUpdateNote value_note;
+    private boolean unknown_note;
     public @Nullable AutomationRuleActionFindingFieldsUpdateNote note() {
-        if (note == null) return null;
-        return note.getValue("AutomationRuleActionFindingFieldsUpdate.note");
+        if (!unknown_note) return value_note;
+        throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdate.note' is not present");
     }
 
     /**
      * A resource block that the rule action updates the `RelatedFindings` field of a finding. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleActionFindingFieldsUpdateRelatedFinding>> relatedFindings;
-
+    @PolicyResourceProperty(name="relatedFindings", flag="unknown_relatedFindings")
+    private @Nullable List<AutomationRuleActionFindingFieldsUpdateRelatedFinding> value_relatedFindings;
+    private boolean unknown_relatedFindings;
     public @Nullable List<AutomationRuleActionFindingFieldsUpdateRelatedFinding> relatedFindings() {
-        if (relatedFindings == null) return null;
-        return relatedFindings.getValue("AutomationRuleActionFindingFieldsUpdate.relatedFindings");
+        if (!unknown_relatedFindings) return value_relatedFindings;
+        throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdate.relatedFindings' is not present");
     }
 
     /**
      * A resource block that updates to the severity information for a finding. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<AutomationRuleActionFindingFieldsUpdateSeverity> severity;
-
+    @PolicyResourceProperty(name="severity", flag="unknown_severity")
+    private @Nullable AutomationRuleActionFindingFieldsUpdateSeverity value_severity;
+    private boolean unknown_severity;
     public @Nullable AutomationRuleActionFindingFieldsUpdateSeverity severity() {
-        if (severity == null) return null;
-        return severity.getValue("AutomationRuleActionFindingFieldsUpdate.severity");
+        if (!unknown_severity) return value_severity;
+        throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdate.severity' is not present");
     }
 
     /**
      * The rule action updates the `Types` field of a finding.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> types;
-
+    @PolicyResourceProperty(name="types", flag="unknown_types")
+    private @Nullable List<String> value_types;
+    private boolean unknown_types;
     public @Nullable List<String> types() {
-        if (types == null) return null;
-        return types.getValue("AutomationRuleActionFindingFieldsUpdate.types");
+        if (!unknown_types) return value_types;
+        throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdate.types' is not present");
     }
 
     /**
      * The rule action updates the `UserDefinedFields` field of a finding.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> userDefinedFields;
-
+    @PolicyResourceProperty(name="userDefinedFields", flag="unknown_userDefinedFields")
+    private @Nullable Map<String,String> value_userDefinedFields;
+    private boolean unknown_userDefinedFields;
     public @Nullable Map<String,String> userDefinedFields() {
-        if (userDefinedFields == null) return null;
-        return userDefinedFields.getValue("AutomationRuleActionFindingFieldsUpdate.userDefinedFields");
+        if (!unknown_userDefinedFields) return value_userDefinedFields;
+        throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdate.userDefinedFields' is not present");
     }
 
     /**
      * The rule action updates the `VerificationState` field of a finding. The allowed values are the following `UNKNOWN`, `TRUE_POSITIVE`, `FALSE_POSITIVE` and `BENIGN_POSITIVE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> verificationState;
-
+    @PolicyResourceProperty(name="verificationState", flag="unknown_verificationState")
+    private @Nullable String value_verificationState;
+    private boolean unknown_verificationState;
     public @Nullable String verificationState() {
-        if (verificationState == null) return null;
-        return verificationState.getValue("AutomationRuleActionFindingFieldsUpdate.verificationState");
+        if (!unknown_verificationState) return value_verificationState;
+        throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdate.verificationState' is not present");
     }
 
     /**
      * A resource block that is used to update information about the investigation into the finding. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<AutomationRuleActionFindingFieldsUpdateWorkflow> workflow;
-
+    @PolicyResourceProperty(name="workflow", flag="unknown_workflow")
+    private @Nullable AutomationRuleActionFindingFieldsUpdateWorkflow value_workflow;
+    private boolean unknown_workflow;
     public @Nullable AutomationRuleActionFindingFieldsUpdateWorkflow workflow() {
-        if (workflow == null) return null;
-        return workflow.getValue("AutomationRuleActionFindingFieldsUpdate.workflow");
+        if (!unknown_workflow) return value_workflow;
+        throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdate.workflow' is not present");
     }
 
 }

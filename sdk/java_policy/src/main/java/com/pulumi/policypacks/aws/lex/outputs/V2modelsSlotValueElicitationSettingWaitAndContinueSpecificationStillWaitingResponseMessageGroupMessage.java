@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayload;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCard;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessage;
@@ -14,32 +15,36 @@ import javax.annotation.Nullable;
 
 public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage {
 
-    private @Nullable UndeferrableValue<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayload>> customPayloads;
-
+    @PolicyResourceProperty(name="customPayloads", flag="unknown_customPayloads")
+    private @Nullable List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayload> value_customPayloads;
+    private boolean unknown_customPayloads;
     public @Nullable List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayload> customPayloads() {
-        if (customPayloads == null) return null;
-        return customPayloads.getValue("V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage.customPayloads");
+        if (!unknown_customPayloads) return value_customPayloads;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage.customPayloads' is not present");
     }
 
-    private @Nullable UndeferrableValue<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCard> imageResponseCard;
-
+    @PolicyResourceProperty(name="imageResponseCard", flag="unknown_imageResponseCard")
+    private @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCard value_imageResponseCard;
+    private boolean unknown_imageResponseCard;
     public @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCard imageResponseCard() {
-        if (imageResponseCard == null) return null;
-        return imageResponseCard.getValue("V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage.imageResponseCard");
+        if (!unknown_imageResponseCard) return value_imageResponseCard;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage.imageResponseCard' is not present");
     }
 
-    private @Nullable UndeferrableValue<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessage> plainTextMessage;
-
+    @PolicyResourceProperty(name="plainTextMessage", flag="unknown_plainTextMessage")
+    private @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessage value_plainTextMessage;
+    private boolean unknown_plainTextMessage;
     public @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessage plainTextMessage() {
-        if (plainTextMessage == null) return null;
-        return plainTextMessage.getValue("V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage.plainTextMessage");
+        if (!unknown_plainTextMessage) return value_plainTextMessage;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage.plainTextMessage' is not present");
     }
 
-    private @Nullable UndeferrableValue<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessage> ssmlMessage;
-
+    @PolicyResourceProperty(name="ssmlMessage", flag="unknown_ssmlMessage")
+    private @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessage value_ssmlMessage;
+    private boolean unknown_ssmlMessage;
     public @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessage ssmlMessage() {
-        if (ssmlMessage == null) return null;
-        return ssmlMessage.getValue("V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage.ssmlMessage");
+        if (!unknown_ssmlMessage) return value_ssmlMessage;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage.ssmlMessage' is not present");
     }
 
 }

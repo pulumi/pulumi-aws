@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,29 +12,32 @@ import javax.annotation.Nullable;
 
 public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings {
 
-    private @Nullable UndeferrableValue<Double> bitDepth;
-
+    @PolicyResourceProperty(name="bitDepth", flag="unknown_bitDepth")
+    private @Nullable Double value_bitDepth;
+    private boolean unknown_bitDepth;
     public @Nullable Double bitDepth() {
-        if (bitDepth == null) return null;
-        return bitDepth.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings.bitDepth");
+        if (!unknown_bitDepth) return value_bitDepth;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings.bitDepth' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> codingMode;
-
+    @PolicyResourceProperty(name="codingMode", flag="unknown_codingMode")
+    private @Nullable String value_codingMode;
+    private boolean unknown_codingMode;
     public @Nullable String codingMode() {
-        if (codingMode == null) return null;
-        return codingMode.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings.codingMode");
+        if (!unknown_codingMode) return value_codingMode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings.codingMode' is not present");
     }
 
     /**
      * Sample rate in Hz.
      * 
      */
-    private @Nullable UndeferrableValue<Double> sampleRate;
-
+    @PolicyResourceProperty(name="sampleRate", flag="unknown_sampleRate")
+    private @Nullable Double value_sampleRate;
+    private boolean unknown_sampleRate;
     public @Nullable Double sampleRate() {
-        if (sampleRate == null) return null;
-        return sampleRate.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings.sampleRate");
+        if (!unknown_sampleRate) return value_sampleRate;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings.sampleRate' is not present");
     }
 
 }

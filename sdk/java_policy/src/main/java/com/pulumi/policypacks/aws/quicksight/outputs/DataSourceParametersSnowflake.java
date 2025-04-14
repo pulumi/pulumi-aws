@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,33 +14,36 @@ public final class DataSourceParametersSnowflake {
      * The database to which to connect.
      * 
      */
-    private UndeferrableValue<String> database;
-
+    @PolicyResourceProperty(name="database", flag="unknown_database")
+    private String value_database;
+    private boolean unknown_database;
     public String database() {
-        if (database == null) return null;
-        return database.getValue("DataSourceParametersSnowflake.database");
+        if (!unknown_database) return value_database;
+        throw new UndeferrableValueException("Value 'DataSourceParametersSnowflake.database' is not present");
     }
 
     /**
      * The host to which to connect.
      * 
      */
-    private UndeferrableValue<String> host;
-
+    @PolicyResourceProperty(name="host", flag="unknown_host")
+    private String value_host;
+    private boolean unknown_host;
     public String host() {
-        if (host == null) return null;
-        return host.getValue("DataSourceParametersSnowflake.host");
+        if (!unknown_host) return value_host;
+        throw new UndeferrableValueException("Value 'DataSourceParametersSnowflake.host' is not present");
     }
 
     /**
      * The warehouse to which to connect.
      * 
      */
-    private UndeferrableValue<String> warehouse;
-
+    @PolicyResourceProperty(name="warehouse", flag="unknown_warehouse")
+    private String value_warehouse;
+    private boolean unknown_warehouse;
     public String warehouse() {
-        if (warehouse == null) return null;
-        return warehouse.getValue("DataSourceParametersSnowflake.warehouse");
+        if (!unknown_warehouse) return value_warehouse;
+        throw new UndeferrableValueException("Value 'DataSourceParametersSnowflake.warehouse' is not present");
     }
 
 }

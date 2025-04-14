@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codecommit.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,55 +16,60 @@ public final class TriggerTriggerArgs {
      * The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
      * 
      */
-    private UndeferrableValue<List<String>> branches;
-
+    @PolicyResourceProperty(name="branches", flag="unknown_branches")
+    private List<String> value_branches;
+    private boolean unknown_branches;
     public List<String> branches() {
-        if (branches == null) return null;
-        return branches.getValue("TriggerTriggerArgs.branches");
+        if (!unknown_branches) return value_branches;
+        throw new UndeferrableValueException("Value 'TriggerTriggerArgs.branches' is not present");
     }
 
     /**
      * Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
      * 
      */
-    private UndeferrableValue<String> customData;
-
+    @PolicyResourceProperty(name="customData", flag="unknown_customData")
+    private String value_customData;
+    private boolean unknown_customData;
     public String customData() {
-        if (customData == null) return null;
-        return customData.getValue("TriggerTriggerArgs.customData");
+        if (!unknown_customData) return value_customData;
+        throw new UndeferrableValueException("Value 'TriggerTriggerArgs.customData' is not present");
     }
 
     /**
      * The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
      * 
      */
-    private UndeferrableValue<String> destinationArn;
-
+    @PolicyResourceProperty(name="destinationArn", flag="unknown_destinationArn")
+    private String value_destinationArn;
+    private boolean unknown_destinationArn;
     public String destinationArn() {
-        if (destinationArn == null) return null;
-        return destinationArn.getValue("TriggerTriggerArgs.destinationArn");
+        if (!unknown_destinationArn) return value_destinationArn;
+        throw new UndeferrableValueException("Value 'TriggerTriggerArgs.destinationArn' is not present");
     }
 
     /**
      * The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
      * 
      */
-    private UndeferrableValue<List<String>> events;
-
+    @PolicyResourceProperty(name="events", flag="unknown_events")
+    private List<String> value_events;
+    private boolean unknown_events;
     public List<String> events() {
-        if (events == null) return null;
-        return events.getValue("TriggerTriggerArgs.events");
+        if (!unknown_events) return value_events;
+        throw new UndeferrableValueException("Value 'TriggerTriggerArgs.events' is not present");
     }
 
     /**
      * The name of the trigger.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TriggerTriggerArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TriggerTriggerArgs.name' is not present");
     }
 
 }

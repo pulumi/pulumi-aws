@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.outputs.NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponent;
 import java.lang.String;
 import java.util.List;
@@ -12,18 +13,20 @@ import javax.annotation.Nullable;
 
 public final class NetworkInsightsAnalysisReturnPathComponentAdditionalDetail {
 
-    private @Nullable UndeferrableValue<String> additionalDetailType;
-
+    @PolicyResourceProperty(name="additionalDetailType", flag="unknown_additionalDetailType")
+    private @Nullable String value_additionalDetailType;
+    private boolean unknown_additionalDetailType;
     public @Nullable String additionalDetailType() {
-        if (additionalDetailType == null) return null;
-        return additionalDetailType.getValue("NetworkInsightsAnalysisReturnPathComponentAdditionalDetail.additionalDetailType");
+        if (!unknown_additionalDetailType) return value_additionalDetailType;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentAdditionalDetail.additionalDetailType' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponent>> components;
-
+    @PolicyResourceProperty(name="components", flag="unknown_components")
+    private @Nullable List<NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponent> value_components;
+    private boolean unknown_components;
     public @Nullable List<NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponent> components() {
-        if (components == null) return null;
-        return components.getValue("NetworkInsightsAnalysisReturnPathComponentAdditionalDetail.components");
+        if (!unknown_components) return value_components;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentAdditionalDetail.components' is not present");
     }
 
 }

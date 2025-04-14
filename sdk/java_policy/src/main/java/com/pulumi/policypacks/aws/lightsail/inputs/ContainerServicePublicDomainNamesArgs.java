@@ -3,18 +3,20 @@
 
 package com.pulumi.policypacks.aws.lightsail.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lightsail.inputs.ContainerServicePublicDomainNamesCertificateArgs;
 import java.util.List;
 
 
 public final class ContainerServicePublicDomainNamesArgs {
 
-    private UndeferrableValue<List<ContainerServicePublicDomainNamesCertificateArgs>> certificates;
-
+    @PolicyResourceProperty(name="certificates", flag="unknown_certificates")
+    private List<ContainerServicePublicDomainNamesCertificateArgs> value_certificates;
+    private boolean unknown_certificates;
     public List<ContainerServicePublicDomainNamesCertificateArgs> certificates() {
-        if (certificates == null) return null;
-        return certificates.getValue("ContainerServicePublicDomainNamesArgs.certificates");
+        if (!unknown_certificates) return value_certificates;
+        throw new UndeferrableValueException("Value 'ContainerServicePublicDomainNamesArgs.certificates' is not present");
     }
 
 }

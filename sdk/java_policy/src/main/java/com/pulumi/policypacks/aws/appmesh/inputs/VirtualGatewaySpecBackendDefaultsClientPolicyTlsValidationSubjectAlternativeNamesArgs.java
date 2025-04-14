@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs;
 
 
@@ -13,11 +14,12 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSub
      * Criteria for determining a SAN&#39;s match.
      * 
      */
-    private UndeferrableValue<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs> match;
-
+    @PolicyResourceProperty(name="match", flag="unknown_match")
+    private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs value_match;
+    private boolean unknown_match;
     public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs match() {
-        if (match == null) return null;
-        return match.getValue("VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs.match");
+        if (!unknown_match) return value_match;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs.match' is not present");
     }
 
 }

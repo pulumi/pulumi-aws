@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
      * An empty configuration block that is used for inspecting all headers.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllArgs> all;
-
+    @PolicyResourceProperty(name="all", flag="unknown_all")
+    private WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllArgs value_all;
+    private boolean unknown_all;
     public WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllArgs all() {
-        if (all == null) return null;
-        return all.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArgs.all");
+        if (!unknown_all) return value_all;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArgs.all' is not present");
     }
 
     /**
      * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
      * 
      */
-    private UndeferrableValue<List<String>> excludedHeaders;
-
+    @PolicyResourceProperty(name="excludedHeaders", flag="unknown_excludedHeaders")
+    private List<String> value_excludedHeaders;
+    private boolean unknown_excludedHeaders;
     public List<String> excludedHeaders() {
-        if (excludedHeaders == null) return null;
-        return excludedHeaders.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArgs.excludedHeaders");
+        if (!unknown_excludedHeaders) return value_excludedHeaders;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArgs.excludedHeaders' is not present");
     }
 
     /**
      * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
      * 
      */
-    private UndeferrableValue<List<String>> includedHeaders;
-
+    @PolicyResourceProperty(name="includedHeaders", flag="unknown_includedHeaders")
+    private List<String> value_includedHeaders;
+    private boolean unknown_includedHeaders;
     public List<String> includedHeaders() {
-        if (includedHeaders == null) return null;
-        return includedHeaders.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArgs.includedHeaders");
+        if (!unknown_includedHeaders) return value_includedHeaders;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArgs.includedHeaders' is not present");
     }
 
 }

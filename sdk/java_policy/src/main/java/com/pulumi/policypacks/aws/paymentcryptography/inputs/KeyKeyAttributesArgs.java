@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.paymentcryptography.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.paymentcryptography.inputs.KeyKeyAttributesKeyModesOfUseArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class KeyKeyAttributesArgs {
      * Key algorithm to be use during creation of an AWS Payment Cryptography key.
      * 
      */
-    private UndeferrableValue<String> keyAlgorithm;
-
+    @PolicyResourceProperty(name="keyAlgorithm", flag="unknown_keyAlgorithm")
+    private String value_keyAlgorithm;
+    private boolean unknown_keyAlgorithm;
     public String keyAlgorithm() {
-        if (keyAlgorithm == null) return null;
-        return keyAlgorithm.getValue("KeyKeyAttributesArgs.keyAlgorithm");
+        if (!unknown_keyAlgorithm) return value_keyAlgorithm;
+        throw new UndeferrableValueException("Value 'KeyKeyAttributesArgs.keyAlgorithm' is not present");
     }
 
     /**
      * Type of AWS Payment Cryptography key to create.
      * 
      */
-    private UndeferrableValue<String> keyClass;
-
+    @PolicyResourceProperty(name="keyClass", flag="unknown_keyClass")
+    private String value_keyClass;
+    private boolean unknown_keyClass;
     public String keyClass() {
-        if (keyClass == null) return null;
-        return keyClass.getValue("KeyKeyAttributesArgs.keyClass");
+        if (!unknown_keyClass) return value_keyClass;
+        throw new UndeferrableValueException("Value 'KeyKeyAttributesArgs.keyClass' is not present");
     }
 
     /**
      * List of cryptographic operations that you can perform using the key.
      * 
      */
-    private UndeferrableValue<KeyKeyAttributesKeyModesOfUseArgs> keyModesOfUse;
-
+    @PolicyResourceProperty(name="keyModesOfUse", flag="unknown_keyModesOfUse")
+    private KeyKeyAttributesKeyModesOfUseArgs value_keyModesOfUse;
+    private boolean unknown_keyModesOfUse;
     public KeyKeyAttributesKeyModesOfUseArgs keyModesOfUse() {
-        if (keyModesOfUse == null) return null;
-        return keyModesOfUse.getValue("KeyKeyAttributesArgs.keyModesOfUse");
+        if (!unknown_keyModesOfUse) return value_keyModesOfUse;
+        throw new UndeferrableValueException("Value 'KeyKeyAttributesArgs.keyModesOfUse' is not present");
     }
 
     /**
      * Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
      * 
      */
-    private UndeferrableValue<String> keyUsage;
-
+    @PolicyResourceProperty(name="keyUsage", flag="unknown_keyUsage")
+    private String value_keyUsage;
+    private boolean unknown_keyUsage;
     public String keyUsage() {
-        if (keyUsage == null) return null;
-        return keyUsage.getValue("KeyKeyAttributesArgs.keyUsage");
+        if (!unknown_keyUsage) return value_keyUsage;
+        throw new UndeferrableValueException("Value 'KeyKeyAttributesArgs.keyUsage' is not present");
     }
 
 }

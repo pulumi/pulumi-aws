@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -18,150 +19,164 @@ public final class HostedTransitVirtualInterface extends com.pulumi.resources.Po
      * The address family for the BGP peer. ` ipv4  ` or `ipv6`.
      * 
      */
-    private UndeferrableValue<String> addressFamily;
-
+    @PolicyResourceProperty(name="addressFamily", flag="unknown_addressFamily")
+    private String value_addressFamily;
+    private boolean unknown_addressFamily;
     public String addressFamily() {
-        if (addressFamily == null) return null;
-        return addressFamily.getValue("HostedTransitVirtualInterface.addressFamily");
+        if (!unknown_addressFamily) return value_addressFamily;
+        throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.addressFamily' is not present");
     }
 
     /**
      * The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
      * 
      */
-    private UndeferrableValue<String> amazonAddress;
-
+    @PolicyResourceProperty(name="amazonAddress", flag="unknown_amazonAddress")
+    private String value_amazonAddress;
+    private boolean unknown_amazonAddress;
     public String amazonAddress() {
-        if (amazonAddress == null) return null;
-        return amazonAddress.getValue("HostedTransitVirtualInterface.amazonAddress");
+        if (!unknown_amazonAddress) return value_amazonAddress;
+        throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.amazonAddress' is not present");
     }
 
-    private UndeferrableValue<String> amazonSideAsn;
-
+    @PolicyResourceProperty(name="amazonSideAsn", flag="unknown_amazonSideAsn")
+    private String value_amazonSideAsn;
+    private boolean unknown_amazonSideAsn;
     public String amazonSideAsn() {
-        if (amazonSideAsn == null) return null;
-        return amazonSideAsn.getValue("HostedTransitVirtualInterface.amazonSideAsn");
+        if (!unknown_amazonSideAsn) return value_amazonSideAsn;
+        throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.amazonSideAsn' is not present");
     }
 
     /**
      * The ARN of the virtual interface.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("HostedTransitVirtualInterface.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.arn' is not present");
     }
 
     /**
      * The Direct Connect endpoint on which the virtual interface terminates.
      * 
      */
-    private UndeferrableValue<String> awsDevice;
-
+    @PolicyResourceProperty(name="awsDevice", flag="unknown_awsDevice")
+    private String value_awsDevice;
+    private boolean unknown_awsDevice;
     public String awsDevice() {
-        if (awsDevice == null) return null;
-        return awsDevice.getValue("HostedTransitVirtualInterface.awsDevice");
+        if (!unknown_awsDevice) return value_awsDevice;
+        throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.awsDevice' is not present");
     }
 
     /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      * 
      */
-    private UndeferrableValue<Integer> bgpAsn;
-
+    @PolicyResourceProperty(name="bgpAsn", flag="unknown_bgpAsn")
+    private Integer value_bgpAsn;
+    private boolean unknown_bgpAsn;
     public Integer bgpAsn() {
-        if (bgpAsn == null) return null;
-        return bgpAsn.getValue("HostedTransitVirtualInterface.bgpAsn");
+        if (!unknown_bgpAsn) return value_bgpAsn;
+        throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.bgpAsn' is not present");
     }
 
     /**
      * The authentication key for BGP configuration.
      * 
      */
-    private UndeferrableValue<String> bgpAuthKey;
-
+    @PolicyResourceProperty(name="bgpAuthKey", flag="unknown_bgpAuthKey")
+    private String value_bgpAuthKey;
+    private boolean unknown_bgpAuthKey;
     public String bgpAuthKey() {
-        if (bgpAuthKey == null) return null;
-        return bgpAuthKey.getValue("HostedTransitVirtualInterface.bgpAuthKey");
+        if (!unknown_bgpAuthKey) return value_bgpAuthKey;
+        throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.bgpAuthKey' is not present");
     }
 
     /**
      * The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
      * 
      */
-    private UndeferrableValue<String> connectionId;
-
+    @PolicyResourceProperty(name="connectionId", flag="unknown_connectionId")
+    private String value_connectionId;
+    private boolean unknown_connectionId;
     public String connectionId() {
-        if (connectionId == null) return null;
-        return connectionId.getValue("HostedTransitVirtualInterface.connectionId");
+        if (!unknown_connectionId) return value_connectionId;
+        throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.connectionId' is not present");
     }
 
     /**
      * The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
      * 
      */
-    private UndeferrableValue<String> customerAddress;
-
+    @PolicyResourceProperty(name="customerAddress", flag="unknown_customerAddress")
+    private String value_customerAddress;
+    private boolean unknown_customerAddress;
     public String customerAddress() {
-        if (customerAddress == null) return null;
-        return customerAddress.getValue("HostedTransitVirtualInterface.customerAddress");
+        if (!unknown_customerAddress) return value_customerAddress;
+        throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.customerAddress' is not present");
     }
 
     /**
      * Indicates whether jumbo frames (8500 MTU) are supported.
      * 
      */
-    private UndeferrableValue<Boolean> jumboFrameCapable;
-
+    @PolicyResourceProperty(name="jumboFrameCapable", flag="unknown_jumboFrameCapable")
+    private Boolean value_jumboFrameCapable;
+    private boolean unknown_jumboFrameCapable;
     public Boolean jumboFrameCapable() {
-        if (jumboFrameCapable == null) return null;
-        return jumboFrameCapable.getValue("HostedTransitVirtualInterface.jumboFrameCapable");
+        if (!unknown_jumboFrameCapable) return value_jumboFrameCapable;
+        throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.jumboFrameCapable' is not present");
     }
 
     /**
      * The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> mtu;
-
+    @PolicyResourceProperty(name="mtu", flag="unknown_mtu")
+    private @Nullable Integer value_mtu;
+    private boolean unknown_mtu;
     public @Nullable Integer mtu() {
-        if (mtu == null) return null;
-        return mtu.getValue("HostedTransitVirtualInterface.mtu");
+        if (!unknown_mtu) return value_mtu;
+        throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.mtu' is not present");
     }
 
     /**
      * The name for the virtual interface.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("HostedTransitVirtualInterface.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.name' is not present");
     }
 
     /**
      * The AWS account that will own the new virtual interface.
      * 
      */
-    private UndeferrableValue<String> ownerAccountId;
-
+    @PolicyResourceProperty(name="ownerAccountId", flag="unknown_ownerAccountId")
+    private String value_ownerAccountId;
+    private boolean unknown_ownerAccountId;
     public String ownerAccountId() {
-        if (ownerAccountId == null) return null;
-        return ownerAccountId.getValue("HostedTransitVirtualInterface.ownerAccountId");
+        if (!unknown_ownerAccountId) return value_ownerAccountId;
+        throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.ownerAccountId' is not present");
     }
 
     /**
      * The VLAN ID.
      * 
      */
-    private UndeferrableValue<Integer> vlan;
-
+    @PolicyResourceProperty(name="vlan", flag="unknown_vlan")
+    private Integer value_vlan;
+    private boolean unknown_vlan;
     public Integer vlan() {
-        if (vlan == null) return null;
-        return vlan.getValue("HostedTransitVirtualInterface.vlan");
+        if (!unknown_vlan) return value_vlan;
+        throw new UndeferrableValueException("Value 'HostedTransitVirtualInterface.vlan' is not present");
     }
 
 }

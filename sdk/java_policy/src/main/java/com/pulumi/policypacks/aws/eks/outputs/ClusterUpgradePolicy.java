@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ClusterUpgradePolicy {
      * Support type to use for the cluster. If the cluster is set to `EXTENDED`, it will enter extended support at the end of standard support. If the cluster is set to `STANDARD`, it will be automatically upgraded at the end of standard support. Valid values are `EXTENDED`, `STANDARD`
      * 
      */
-    private @Nullable UndeferrableValue<String> supportType;
-
+    @PolicyResourceProperty(name="supportType", flag="unknown_supportType")
+    private @Nullable String value_supportType;
+    private boolean unknown_supportType;
     public @Nullable String supportType() {
-        if (supportType == null) return null;
-        return supportType.getValue("ClusterUpgradePolicy.supportType");
+        if (!unknown_supportType) return value_supportType;
+        throw new UndeferrableValueException("Value 'ClusterUpgradePolicy.supportType' is not present");
     }
 
 }

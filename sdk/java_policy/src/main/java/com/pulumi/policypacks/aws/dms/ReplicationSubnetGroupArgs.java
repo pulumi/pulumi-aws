@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dms;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,44 +19,48 @@ public final class ReplicationSubnetGroupArgs extends com.pulumi.resources.Polic
      * Description for the subnet group.
      * 
      */
-    private UndeferrableValue<String> replicationSubnetGroupDescription;
-
+    @PolicyResourceProperty(name="replicationSubnetGroupDescription", flag="unknown_replicationSubnetGroupDescription")
+    private String value_replicationSubnetGroupDescription;
+    private boolean unknown_replicationSubnetGroupDescription;
     public String replicationSubnetGroupDescription() {
-        if (replicationSubnetGroupDescription == null) return null;
-        return replicationSubnetGroupDescription.getValue("ReplicationSubnetGroupArgs.replicationSubnetGroupDescription");
+        if (!unknown_replicationSubnetGroupDescription) return value_replicationSubnetGroupDescription;
+        throw new UndeferrableValueException("Value 'ReplicationSubnetGroupArgs.replicationSubnetGroupDescription' is not present");
     }
 
     /**
      * Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
      * 
      */
-    private UndeferrableValue<String> replicationSubnetGroupId;
-
+    @PolicyResourceProperty(name="replicationSubnetGroupId", flag="unknown_replicationSubnetGroupId")
+    private String value_replicationSubnetGroupId;
+    private boolean unknown_replicationSubnetGroupId;
     public String replicationSubnetGroupId() {
-        if (replicationSubnetGroupId == null) return null;
-        return replicationSubnetGroupId.getValue("ReplicationSubnetGroupArgs.replicationSubnetGroupId");
+        if (!unknown_replicationSubnetGroupId) return value_replicationSubnetGroupId;
+        throw new UndeferrableValueException("Value 'ReplicationSubnetGroupArgs.replicationSubnetGroupId' is not present");
     }
 
     /**
      * List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("ReplicationSubnetGroupArgs.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'ReplicationSubnetGroupArgs.subnetIds' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ReplicationSubnetGroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ReplicationSubnetGroupArgs.tags' is not present");
     }
 
 }

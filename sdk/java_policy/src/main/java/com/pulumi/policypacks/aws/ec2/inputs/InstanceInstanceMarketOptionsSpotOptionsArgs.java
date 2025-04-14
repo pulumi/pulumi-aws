@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class InstanceInstanceMarketOptionsSpotOptionsArgs {
      * The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
      * 
      */
-    private UndeferrableValue<String> instanceInterruptionBehavior;
-
+    @PolicyResourceProperty(name="instanceInterruptionBehavior", flag="unknown_instanceInterruptionBehavior")
+    private String value_instanceInterruptionBehavior;
+    private boolean unknown_instanceInterruptionBehavior;
     public String instanceInterruptionBehavior() {
-        if (instanceInterruptionBehavior == null) return null;
-        return instanceInterruptionBehavior.getValue("InstanceInstanceMarketOptionsSpotOptionsArgs.instanceInterruptionBehavior");
+        if (!unknown_instanceInterruptionBehavior) return value_instanceInterruptionBehavior;
+        throw new UndeferrableValueException("Value 'InstanceInstanceMarketOptionsSpotOptionsArgs.instanceInterruptionBehavior' is not present");
     }
 
     /**
      * The maximum hourly price that you&#39;re willing to pay for a Spot Instance.
      * 
      */
-    private UndeferrableValue<String> maxPrice;
-
+    @PolicyResourceProperty(name="maxPrice", flag="unknown_maxPrice")
+    private String value_maxPrice;
+    private boolean unknown_maxPrice;
     public String maxPrice() {
-        if (maxPrice == null) return null;
-        return maxPrice.getValue("InstanceInstanceMarketOptionsSpotOptionsArgs.maxPrice");
+        if (!unknown_maxPrice) return value_maxPrice;
+        throw new UndeferrableValueException("Value 'InstanceInstanceMarketOptionsSpotOptionsArgs.maxPrice' is not present");
     }
 
     /**
      * The Spot Instance request type. Valid values include `one-time`, `persistent`. Persistent Spot Instance requests are only supported when the instance interruption behavior is either hibernate or stop. The default is `one-time`.
      * 
      */
-    private UndeferrableValue<String> spotInstanceType;
-
+    @PolicyResourceProperty(name="spotInstanceType", flag="unknown_spotInstanceType")
+    private String value_spotInstanceType;
+    private boolean unknown_spotInstanceType;
     public String spotInstanceType() {
-        if (spotInstanceType == null) return null;
-        return spotInstanceType.getValue("InstanceInstanceMarketOptionsSpotOptionsArgs.spotInstanceType");
+        if (!unknown_spotInstanceType) return value_spotInstanceType;
+        throw new UndeferrableValueException("Value 'InstanceInstanceMarketOptionsSpotOptionsArgs.spotInstanceType' is not present");
     }
 
     /**
      * The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
      * 
      */
-    private UndeferrableValue<String> validUntil;
-
+    @PolicyResourceProperty(name="validUntil", flag="unknown_validUntil")
+    private String value_validUntil;
+    private boolean unknown_validUntil;
     public String validUntil() {
-        if (validUntil == null) return null;
-        return validUntil.getValue("InstanceInstanceMarketOptionsSpotOptionsArgs.validUntil");
+        if (!unknown_validUntil) return value_validUntil;
+        throw new UndeferrableValueException("Value 'InstanceInstanceMarketOptionsSpotOptionsArgs.validUntil' is not present");
     }
 
 }

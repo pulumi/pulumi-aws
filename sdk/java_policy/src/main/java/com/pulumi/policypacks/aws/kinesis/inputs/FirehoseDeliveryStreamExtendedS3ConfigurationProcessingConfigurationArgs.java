@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs;
 import java.lang.Boolean;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfig
      * Enables or disables data processing.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs.enabled' is not present");
     }
 
     /**
      * Specifies the data processors as multiple blocks. See `processors` block below for details.
      * 
      */
-    private UndeferrableValue<List<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs>> processors;
-
+    @PolicyResourceProperty(name="processors", flag="unknown_processors")
+    private List<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs> value_processors;
+    private boolean unknown_processors;
     public List<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs> processors() {
-        if (processors == null) return null;
-        return processors.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs.processors");
+        if (!unknown_processors) return value_processors;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs.processors' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.outputs.UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement;
 import com.pulumi.policypacks.aws.sagemaker.outputs.UserProfileUserSettingsCodeEditorAppSettingsCustomImage;
 import com.pulumi.policypacks.aws.sagemaker.outputs.UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec;
@@ -18,55 +19,60 @@ public final class UserProfileUserSettingsCodeEditorAppSettings {
      * Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
      * 
      */
-    private @Nullable UndeferrableValue<UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement> appLifecycleManagement;
-
+    @PolicyResourceProperty(name="appLifecycleManagement", flag="unknown_appLifecycleManagement")
+    private @Nullable UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement value_appLifecycleManagement;
+    private boolean unknown_appLifecycleManagement;
     public @Nullable UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagement appLifecycleManagement() {
-        if (appLifecycleManagement == null) return null;
-        return appLifecycleManagement.getValue("UserProfileUserSettingsCodeEditorAppSettings.appLifecycleManagement");
+        if (!unknown_appLifecycleManagement) return value_appLifecycleManagement;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsCodeEditorAppSettings.appLifecycleManagement' is not present");
     }
 
     /**
      * The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
      * 
      */
-    private @Nullable UndeferrableValue<String> builtInLifecycleConfigArn;
-
+    @PolicyResourceProperty(name="builtInLifecycleConfigArn", flag="unknown_builtInLifecycleConfigArn")
+    private @Nullable String value_builtInLifecycleConfigArn;
+    private boolean unknown_builtInLifecycleConfigArn;
     public @Nullable String builtInLifecycleConfigArn() {
-        if (builtInLifecycleConfigArn == null) return null;
-        return builtInLifecycleConfigArn.getValue("UserProfileUserSettingsCodeEditorAppSettings.builtInLifecycleConfigArn");
+        if (!unknown_builtInLifecycleConfigArn) return value_builtInLifecycleConfigArn;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsCodeEditorAppSettings.builtInLifecycleConfigArn' is not present");
     }
 
     /**
      * A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see Custom Image below.
      * 
      */
-    private @Nullable UndeferrableValue<List<UserProfileUserSettingsCodeEditorAppSettingsCustomImage>> customImages;
-
+    @PolicyResourceProperty(name="customImages", flag="unknown_customImages")
+    private @Nullable List<UserProfileUserSettingsCodeEditorAppSettingsCustomImage> value_customImages;
+    private boolean unknown_customImages;
     public @Nullable List<UserProfileUserSettingsCodeEditorAppSettingsCustomImage> customImages() {
-        if (customImages == null) return null;
-        return customImages.getValue("UserProfileUserSettingsCodeEditorAppSettings.customImages");
+        if (!unknown_customImages) return value_customImages;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsCodeEditorAppSettings.customImages' is not present");
     }
 
     /**
      * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
      * 
      */
-    private @Nullable UndeferrableValue<UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec> defaultResourceSpec;
-
+    @PolicyResourceProperty(name="defaultResourceSpec", flag="unknown_defaultResourceSpec")
+    private @Nullable UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec value_defaultResourceSpec;
+    private boolean unknown_defaultResourceSpec;
     public @Nullable UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec defaultResourceSpec() {
-        if (defaultResourceSpec == null) return null;
-        return defaultResourceSpec.getValue("UserProfileUserSettingsCodeEditorAppSettings.defaultResourceSpec");
+        if (!unknown_defaultResourceSpec) return value_defaultResourceSpec;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsCodeEditorAppSettings.defaultResourceSpec' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> lifecycleConfigArns;
-
+    @PolicyResourceProperty(name="lifecycleConfigArns", flag="unknown_lifecycleConfigArns")
+    private @Nullable List<String> value_lifecycleConfigArns;
+    private boolean unknown_lifecycleConfigArns;
     public @Nullable List<String> lifecycleConfigArns() {
-        if (lifecycleConfigArns == null) return null;
-        return lifecycleConfigArns.getValue("UserProfileUserSettingsCodeEditorAppSettings.lifecycleConfigArns");
+        if (!unknown_lifecycleConfigArns) return value_lifecycleConfigArns;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsCodeEditorAppSettings.lifecycleConfigArns' is not present");
     }
 
 }

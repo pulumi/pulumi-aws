@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.verifiedaccess.outputs.InstanceVerifiedAccessTrustProvider;
 import java.lang.Boolean;
@@ -20,73 +21,80 @@ public final class Instance extends com.pulumi.resources.PolicyResourceOutput {
      * The custom subdomain for the CIDR endpoints.
      * 
      */
-    private @Nullable UndeferrableValue<String> cidrEndpointsCustomSubdomain;
-
+    @PolicyResourceProperty(name="cidrEndpointsCustomSubdomain", flag="unknown_cidrEndpointsCustomSubdomain")
+    private @Nullable String value_cidrEndpointsCustomSubdomain;
+    private boolean unknown_cidrEndpointsCustomSubdomain;
     public @Nullable String cidrEndpointsCustomSubdomain() {
-        if (cidrEndpointsCustomSubdomain == null) return null;
-        return cidrEndpointsCustomSubdomain.getValue("Instance.cidrEndpointsCustomSubdomain");
+        if (!unknown_cidrEndpointsCustomSubdomain) return value_cidrEndpointsCustomSubdomain;
+        throw new UndeferrableValueException("Value 'Instance.cidrEndpointsCustomSubdomain' is not present");
     }
 
     /**
      * The time that the Verified Access Instance was created.
      * 
      */
-    private UndeferrableValue<String> creationTime;
-
+    @PolicyResourceProperty(name="creationTime", flag="unknown_creationTime")
+    private String value_creationTime;
+    private boolean unknown_creationTime;
     public String creationTime() {
-        if (creationTime == null) return null;
-        return creationTime.getValue("Instance.creationTime");
+        if (!unknown_creationTime) return value_creationTime;
+        throw new UndeferrableValueException("Value 'Instance.creationTime' is not present");
     }
 
     /**
      * A description for the AWS Verified Access Instance.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Instance.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Instance.description' is not present");
     }
 
     /**
      * Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> fipsEnabled;
-
+    @PolicyResourceProperty(name="fipsEnabled", flag="unknown_fipsEnabled")
+    private @Nullable Boolean value_fipsEnabled;
+    private boolean unknown_fipsEnabled;
     public @Nullable Boolean fipsEnabled() {
-        if (fipsEnabled == null) return null;
-        return fipsEnabled.getValue("Instance.fipsEnabled");
+        if (!unknown_fipsEnabled) return value_fipsEnabled;
+        throw new UndeferrableValueException("Value 'Instance.fipsEnabled' is not present");
     }
 
     /**
      * The time that the Verified Access Instance was last updated.
      * 
      */
-    private UndeferrableValue<String> lastUpdatedTime;
-
+    @PolicyResourceProperty(name="lastUpdatedTime", flag="unknown_lastUpdatedTime")
+    private String value_lastUpdatedTime;
+    private boolean unknown_lastUpdatedTime;
     public String lastUpdatedTime() {
-        if (lastUpdatedTime == null) return null;
-        return lastUpdatedTime.getValue("Instance.lastUpdatedTime");
+        if (!unknown_lastUpdatedTime) return value_lastUpdatedTime;
+        throw new UndeferrableValueException("Value 'Instance.lastUpdatedTime' is not present");
     }
 
-    private UndeferrableValue<List<String>> nameServers;
-
+    @PolicyResourceProperty(name="nameServers", flag="unknown_nameServers")
+    private List<String> value_nameServers;
+    private boolean unknown_nameServers;
     public List<String> nameServers() {
-        if (nameServers == null) return null;
-        return nameServers.getValue("Instance.nameServers");
+        if (!unknown_nameServers) return value_nameServers;
+        throw new UndeferrableValueException("Value 'Instance.nameServers' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Instance.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Instance.tags' is not present");
     }
 
     /**
@@ -95,22 +103,24 @@ public final class Instance extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Instance.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Instance.tagsAll' is not present");
     }
 
     /**
      * One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
      * 
      */
-    private UndeferrableValue<List<InstanceVerifiedAccessTrustProvider>> verifiedAccessTrustProviders;
-
+    @PolicyResourceProperty(name="verifiedAccessTrustProviders", flag="unknown_verifiedAccessTrustProviders")
+    private List<InstanceVerifiedAccessTrustProvider> value_verifiedAccessTrustProviders;
+    private boolean unknown_verifiedAccessTrustProviders;
     public List<InstanceVerifiedAccessTrustProvider> verifiedAccessTrustProviders() {
-        if (verifiedAccessTrustProviders == null) return null;
-        return verifiedAccessTrustProviders.getValue("Instance.verifiedAccessTrustProviders");
+        if (!unknown_verifiedAccessTrustProviders) return value_verifiedAccessTrustProviders;
+        throw new UndeferrableValueException("Value 'Instance.verifiedAccessTrustProviders' is not present");
     }
 
 }

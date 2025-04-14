@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kms;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,11 +20,12 @@ public final class ReplicaKey extends com.pulumi.resources.PolicyResourceOutput 
      * The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ReplicaKey.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ReplicaKey.arn' is not present");
     }
 
     /**
@@ -33,11 +35,12 @@ public final class ReplicaKey extends com.pulumi.resources.PolicyResourceOutput 
      * The default value is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> bypassPolicyLockoutSafetyCheck;
-
+    @PolicyResourceProperty(name="bypassPolicyLockoutSafetyCheck", flag="unknown_bypassPolicyLockoutSafetyCheck")
+    private @Nullable Boolean value_bypassPolicyLockoutSafetyCheck;
+    private boolean unknown_bypassPolicyLockoutSafetyCheck;
     public @Nullable Boolean bypassPolicyLockoutSafetyCheck() {
-        if (bypassPolicyLockoutSafetyCheck == null) return null;
-        return bypassPolicyLockoutSafetyCheck.getValue("ReplicaKey.bypassPolicyLockoutSafetyCheck");
+        if (!unknown_bypassPolicyLockoutSafetyCheck) return value_bypassPolicyLockoutSafetyCheck;
+        throw new UndeferrableValueException("Value 'ReplicaKey.bypassPolicyLockoutSafetyCheck' is not present");
     }
 
     /**
@@ -45,110 +48,120 @@ public final class ReplicaKey extends com.pulumi.resources.PolicyResourceOutput 
      * If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> deletionWindowInDays;
-
+    @PolicyResourceProperty(name="deletionWindowInDays", flag="unknown_deletionWindowInDays")
+    private @Nullable Integer value_deletionWindowInDays;
+    private boolean unknown_deletionWindowInDays;
     public @Nullable Integer deletionWindowInDays() {
-        if (deletionWindowInDays == null) return null;
-        return deletionWindowInDays.getValue("ReplicaKey.deletionWindowInDays");
+        if (!unknown_deletionWindowInDays) return value_deletionWindowInDays;
+        throw new UndeferrableValueException("Value 'ReplicaKey.deletionWindowInDays' is not present");
     }
 
     /**
      * A description of the KMS key.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ReplicaKey.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ReplicaKey.description' is not present");
     }
 
     /**
      * Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("ReplicaKey.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'ReplicaKey.enabled' is not present");
     }
 
     /**
      * The key ID of the replica key. Related multi-Region keys have the same key ID.
      * 
      */
-    private UndeferrableValue<String> keyId;
-
+    @PolicyResourceProperty(name="keyId", flag="unknown_keyId")
+    private String value_keyId;
+    private boolean unknown_keyId;
     public String keyId() {
-        if (keyId == null) return null;
-        return keyId.getValue("ReplicaKey.keyId");
+        if (!unknown_keyId) return value_keyId;
+        throw new UndeferrableValueException("Value 'ReplicaKey.keyId' is not present");
     }
 
     /**
      * A Boolean value that specifies whether key rotation is enabled. This is a shared property of multi-Region keys.
      * 
      */
-    private UndeferrableValue<Boolean> keyRotationEnabled;
-
+    @PolicyResourceProperty(name="keyRotationEnabled", flag="unknown_keyRotationEnabled")
+    private Boolean value_keyRotationEnabled;
+    private boolean unknown_keyRotationEnabled;
     public Boolean keyRotationEnabled() {
-        if (keyRotationEnabled == null) return null;
-        return keyRotationEnabled.getValue("ReplicaKey.keyRotationEnabled");
+        if (!unknown_keyRotationEnabled) return value_keyRotationEnabled;
+        throw new UndeferrableValueException("Value 'ReplicaKey.keyRotationEnabled' is not present");
     }
 
     /**
      * The type of key material in the KMS key. This is a shared property of multi-Region keys.
      * 
      */
-    private UndeferrableValue<String> keySpec;
-
+    @PolicyResourceProperty(name="keySpec", flag="unknown_keySpec")
+    private String value_keySpec;
+    private boolean unknown_keySpec;
     public String keySpec() {
-        if (keySpec == null) return null;
-        return keySpec.getValue("ReplicaKey.keySpec");
+        if (!unknown_keySpec) return value_keySpec;
+        throw new UndeferrableValueException("Value 'ReplicaKey.keySpec' is not present");
     }
 
     /**
      * The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
      * 
      */
-    private UndeferrableValue<String> keyUsage;
-
+    @PolicyResourceProperty(name="keyUsage", flag="unknown_keyUsage")
+    private String value_keyUsage;
+    private boolean unknown_keyUsage;
     public String keyUsage() {
-        if (keyUsage == null) return null;
-        return keyUsage.getValue("ReplicaKey.keyUsage");
+        if (!unknown_keyUsage) return value_keyUsage;
+        throw new UndeferrableValueException("Value 'ReplicaKey.keyUsage' is not present");
     }
 
     /**
      * The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("ReplicaKey.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'ReplicaKey.policy' is not present");
     }
 
     /**
      * The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
      * 
      */
-    private UndeferrableValue<String> primaryKeyArn;
-
+    @PolicyResourceProperty(name="primaryKeyArn", flag="unknown_primaryKeyArn")
+    private String value_primaryKeyArn;
+    private boolean unknown_primaryKeyArn;
     public String primaryKeyArn() {
-        if (primaryKeyArn == null) return null;
-        return primaryKeyArn.getValue("ReplicaKey.primaryKeyArn");
+        if (!unknown_primaryKeyArn) return value_primaryKeyArn;
+        throw new UndeferrableValueException("Value 'ReplicaKey.primaryKeyArn' is not present");
     }
 
     /**
      * A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ReplicaKey.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ReplicaKey.tags' is not present");
     }
 
     /**
@@ -159,11 +172,12 @@ public final class ReplicaKey extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ReplicaKey.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ReplicaKey.tagsAll' is not present");
     }
 
 }

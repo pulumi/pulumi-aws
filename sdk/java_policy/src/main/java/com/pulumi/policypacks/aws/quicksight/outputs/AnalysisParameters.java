@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.outputs.AnalysisParametersDateTimeParameter;
 import com.pulumi.policypacks.aws.quicksight.outputs.AnalysisParametersDecimalParameter;
 import com.pulumi.policypacks.aws.quicksight.outputs.AnalysisParametersIntegerParameter;
@@ -18,44 +19,48 @@ public final class AnalysisParameters {
      * A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
      * 
      */
-    private @Nullable UndeferrableValue<List<AnalysisParametersDateTimeParameter>> dateTimeParameters;
-
+    @PolicyResourceProperty(name="dateTimeParameters", flag="unknown_dateTimeParameters")
+    private @Nullable List<AnalysisParametersDateTimeParameter> value_dateTimeParameters;
+    private boolean unknown_dateTimeParameters;
     public @Nullable List<AnalysisParametersDateTimeParameter> dateTimeParameters() {
-        if (dateTimeParameters == null) return null;
-        return dateTimeParameters.getValue("AnalysisParameters.dateTimeParameters");
+        if (!unknown_dateTimeParameters) return value_dateTimeParameters;
+        throw new UndeferrableValueException("Value 'AnalysisParameters.dateTimeParameters' is not present");
     }
 
     /**
      * A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
      * 
      */
-    private @Nullable UndeferrableValue<List<AnalysisParametersDecimalParameter>> decimalParameters;
-
+    @PolicyResourceProperty(name="decimalParameters", flag="unknown_decimalParameters")
+    private @Nullable List<AnalysisParametersDecimalParameter> value_decimalParameters;
+    private boolean unknown_decimalParameters;
     public @Nullable List<AnalysisParametersDecimalParameter> decimalParameters() {
-        if (decimalParameters == null) return null;
-        return decimalParameters.getValue("AnalysisParameters.decimalParameters");
+        if (!unknown_decimalParameters) return value_decimalParameters;
+        throw new UndeferrableValueException("Value 'AnalysisParameters.decimalParameters' is not present");
     }
 
     /**
      * A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
      * 
      */
-    private @Nullable UndeferrableValue<List<AnalysisParametersIntegerParameter>> integerParameters;
-
+    @PolicyResourceProperty(name="integerParameters", flag="unknown_integerParameters")
+    private @Nullable List<AnalysisParametersIntegerParameter> value_integerParameters;
+    private boolean unknown_integerParameters;
     public @Nullable List<AnalysisParametersIntegerParameter> integerParameters() {
-        if (integerParameters == null) return null;
-        return integerParameters.getValue("AnalysisParameters.integerParameters");
+        if (!unknown_integerParameters) return value_integerParameters;
+        throw new UndeferrableValueException("Value 'AnalysisParameters.integerParameters' is not present");
     }
 
     /**
      * A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
      * 
      */
-    private @Nullable UndeferrableValue<List<AnalysisParametersStringParameter>> stringParameters;
-
+    @PolicyResourceProperty(name="stringParameters", flag="unknown_stringParameters")
+    private @Nullable List<AnalysisParametersStringParameter> value_stringParameters;
+    private boolean unknown_stringParameters;
     public @Nullable List<AnalysisParametersStringParameter> stringParameters() {
-        if (stringParameters == null) return null;
-        return stringParameters.getValue("AnalysisParameters.stringParameters");
+        if (!unknown_stringParameters) return value_stringParameters;
+        throw new UndeferrableValueException("Value 'AnalysisParameters.stringParameters' is not present");
     }
 
 }

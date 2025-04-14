@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class RegionSettings extends com.pulumi.resources.PolicyResourceOut
      * A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
      * 
      */
-    private UndeferrableValue<Map<String,Boolean>> resourceTypeManagementPreference;
-
+    @PolicyResourceProperty(name="resourceTypeManagementPreference", flag="unknown_resourceTypeManagementPreference")
+    private Map<String,Boolean> value_resourceTypeManagementPreference;
+    private boolean unknown_resourceTypeManagementPreference;
     public Map<String,Boolean> resourceTypeManagementPreference() {
-        if (resourceTypeManagementPreference == null) return null;
-        return resourceTypeManagementPreference.getValue("RegionSettings.resourceTypeManagementPreference");
+        if (!unknown_resourceTypeManagementPreference) return value_resourceTypeManagementPreference;
+        throw new UndeferrableValueException("Value 'RegionSettings.resourceTypeManagementPreference' is not present");
     }
 
     /**
      * A map of services along with the opt-in preferences for the Region.
      * 
      */
-    private UndeferrableValue<Map<String,Boolean>> resourceTypeOptInPreference;
-
+    @PolicyResourceProperty(name="resourceTypeOptInPreference", flag="unknown_resourceTypeOptInPreference")
+    private Map<String,Boolean> value_resourceTypeOptInPreference;
+    private boolean unknown_resourceTypeOptInPreference;
     public Map<String,Boolean> resourceTypeOptInPreference() {
-        if (resourceTypeOptInPreference == null) return null;
-        return resourceTypeOptInPreference.getValue("RegionSettings.resourceTypeOptInPreference");
+        if (!unknown_resourceTypeOptInPreference) return value_resourceTypeOptInPreference;
+        throw new UndeferrableValueException("Value 'RegionSettings.resourceTypeOptInPreference' is not present");
     }
 
 }

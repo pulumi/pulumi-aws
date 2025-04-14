@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.devicefarm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class ProjectArgs extends com.pulumi.resources.PolicyResourceInput 
      * Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
      * 
      */
-    private UndeferrableValue<Integer> defaultJobTimeoutMinutes;
-
+    @PolicyResourceProperty(name="defaultJobTimeoutMinutes", flag="unknown_defaultJobTimeoutMinutes")
+    private Integer value_defaultJobTimeoutMinutes;
+    private boolean unknown_defaultJobTimeoutMinutes;
     public Integer defaultJobTimeoutMinutes() {
-        if (defaultJobTimeoutMinutes == null) return null;
-        return defaultJobTimeoutMinutes.getValue("ProjectArgs.defaultJobTimeoutMinutes");
+        if (!unknown_defaultJobTimeoutMinutes) return value_defaultJobTimeoutMinutes;
+        throw new UndeferrableValueException("Value 'ProjectArgs.defaultJobTimeoutMinutes' is not present");
     }
 
     /**
      * The name of the project
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ProjectArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ProjectArgs.name' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ProjectArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ProjectArgs.tags' is not present");
     }
 
 }

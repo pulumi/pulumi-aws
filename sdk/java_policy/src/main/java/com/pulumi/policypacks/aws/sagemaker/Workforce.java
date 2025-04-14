@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.outputs.WorkforceCognitoConfig;
 import com.pulumi.policypacks.aws.sagemaker.outputs.WorkforceOidcConfig;
@@ -20,77 +21,84 @@ public final class Workforce extends com.pulumi.resources.PolicyResourceOutput {
      * The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Workforce.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Workforce.arn' is not present");
     }
 
     /**
      * Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
      * 
      */
-    private @Nullable UndeferrableValue<WorkforceCognitoConfig> cognitoConfig;
-
+    @PolicyResourceProperty(name="cognitoConfig", flag="unknown_cognitoConfig")
+    private @Nullable WorkforceCognitoConfig value_cognitoConfig;
+    private boolean unknown_cognitoConfig;
     public @Nullable WorkforceCognitoConfig cognitoConfig() {
-        if (cognitoConfig == null) return null;
-        return cognitoConfig.getValue("Workforce.cognitoConfig");
+        if (!unknown_cognitoConfig) return value_cognitoConfig;
+        throw new UndeferrableValueException("Value 'Workforce.cognitoConfig' is not present");
     }
 
     /**
      * Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
      * 
      */
-    private @Nullable UndeferrableValue<WorkforceOidcConfig> oidcConfig;
-
+    @PolicyResourceProperty(name="oidcConfig", flag="unknown_oidcConfig")
+    private @Nullable WorkforceOidcConfig value_oidcConfig;
+    private boolean unknown_oidcConfig;
     public @Nullable WorkforceOidcConfig oidcConfig() {
-        if (oidcConfig == null) return null;
-        return oidcConfig.getValue("Workforce.oidcConfig");
+        if (!unknown_oidcConfig) return value_oidcConfig;
+        throw new UndeferrableValueException("Value 'Workforce.oidcConfig' is not present");
     }
 
     /**
      * A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn&#39;t restricted to specific IP addresses. see Source Ip Config details below.
      * 
      */
-    private UndeferrableValue<WorkforceSourceIpConfig> sourceIpConfig;
-
+    @PolicyResourceProperty(name="sourceIpConfig", flag="unknown_sourceIpConfig")
+    private WorkforceSourceIpConfig value_sourceIpConfig;
+    private boolean unknown_sourceIpConfig;
     public WorkforceSourceIpConfig sourceIpConfig() {
-        if (sourceIpConfig == null) return null;
-        return sourceIpConfig.getValue("Workforce.sourceIpConfig");
+        if (!unknown_sourceIpConfig) return value_sourceIpConfig;
+        throw new UndeferrableValueException("Value 'Workforce.sourceIpConfig' is not present");
     }
 
     /**
      * The subdomain for your OIDC Identity Provider.
      * 
      */
-    private UndeferrableValue<String> subdomain;
-
+    @PolicyResourceProperty(name="subdomain", flag="unknown_subdomain")
+    private String value_subdomain;
+    private boolean unknown_subdomain;
     public String subdomain() {
-        if (subdomain == null) return null;
-        return subdomain.getValue("Workforce.subdomain");
+        if (!unknown_subdomain) return value_subdomain;
+        throw new UndeferrableValueException("Value 'Workforce.subdomain' is not present");
     }
 
     /**
      * The name of the Workforce (must be unique).
      * 
      */
-    private UndeferrableValue<String> workforceName;
-
+    @PolicyResourceProperty(name="workforceName", flag="unknown_workforceName")
+    private String value_workforceName;
+    private boolean unknown_workforceName;
     public String workforceName() {
-        if (workforceName == null) return null;
-        return workforceName.getValue("Workforce.workforceName");
+        if (!unknown_workforceName) return value_workforceName;
+        throw new UndeferrableValueException("Value 'Workforce.workforceName' is not present");
     }
 
     /**
      * configure a workforce using VPC. see Workforce VPC Config details below.
      * 
      */
-    private @Nullable UndeferrableValue<WorkforceWorkforceVpcConfig> workforceVpcConfig;
-
+    @PolicyResourceProperty(name="workforceVpcConfig", flag="unknown_workforceVpcConfig")
+    private @Nullable WorkforceWorkforceVpcConfig value_workforceVpcConfig;
+    private boolean unknown_workforceVpcConfig;
     public @Nullable WorkforceWorkforceVpcConfig workforceVpcConfig() {
-        if (workforceVpcConfig == null) return null;
-        return workforceVpcConfig.getValue("Workforce.workforceVpcConfig");
+        if (!unknown_workforceVpcConfig) return value_workforceVpcConfig;
+        throw new UndeferrableValueException("Value 'Workforce.workforceVpcConfig' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.athena;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.athena.outputs.CapacityReservationTimeouts;
 import java.lang.Integer;
@@ -19,55 +20,60 @@ public final class CapacityReservation extends com.pulumi.resources.PolicyResour
      * Number of data processing units currently allocated.
      * 
      */
-    private UndeferrableValue<Integer> allocatedDpus;
-
+    @PolicyResourceProperty(name="allocatedDpus", flag="unknown_allocatedDpus")
+    private Integer value_allocatedDpus;
+    private boolean unknown_allocatedDpus;
     public Integer allocatedDpus() {
-        if (allocatedDpus == null) return null;
-        return allocatedDpus.getValue("CapacityReservation.allocatedDpus");
+        if (!unknown_allocatedDpus) return value_allocatedDpus;
+        throw new UndeferrableValueException("Value 'CapacityReservation.allocatedDpus' is not present");
     }
 
     /**
      * ARN of the Capacity Reservation.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("CapacityReservation.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'CapacityReservation.arn' is not present");
     }
 
     /**
      * Name of the capacity reservation.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("CapacityReservation.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'CapacityReservation.name' is not present");
     }
 
     /**
      * Status of the capacity reservation.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("CapacityReservation.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'CapacityReservation.status' is not present");
     }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CapacityReservation.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CapacityReservation.tags' is not present");
     }
 
     /**
@@ -78,11 +84,12 @@ public final class CapacityReservation extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("CapacityReservation.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'CapacityReservation.tagsAll' is not present");
     }
 
     /**
@@ -91,18 +98,20 @@ public final class CapacityReservation extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<Integer> targetDpus;
-
+    @PolicyResourceProperty(name="targetDpus", flag="unknown_targetDpus")
+    private Integer value_targetDpus;
+    private boolean unknown_targetDpus;
     public Integer targetDpus() {
-        if (targetDpus == null) return null;
-        return targetDpus.getValue("CapacityReservation.targetDpus");
+        if (!unknown_targetDpus) return value_targetDpus;
+        throw new UndeferrableValueException("Value 'CapacityReservation.targetDpus' is not present");
     }
 
-    private @Nullable UndeferrableValue<CapacityReservationTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable CapacityReservationTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable CapacityReservationTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("CapacityReservation.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'CapacityReservation.timeouts' is not present");
     }
 
 }

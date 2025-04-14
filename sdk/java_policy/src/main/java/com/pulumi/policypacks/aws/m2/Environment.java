@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.m2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.m2.outputs.EnvironmentHighAvailabilityConfig;
 import com.pulumi.policypacks.aws.m2.outputs.EnvironmentStorageConfiguration;
@@ -18,80 +19,88 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:m2/environment:Environment")
 public final class Environment extends com.pulumi.resources.PolicyResourceOutput {
 
-    private @Nullable UndeferrableValue<Boolean> applyChangesDuringMaintenanceWindow;
-
+    @PolicyResourceProperty(name="applyChangesDuringMaintenanceWindow", flag="unknown_applyChangesDuringMaintenanceWindow")
+    private @Nullable Boolean value_applyChangesDuringMaintenanceWindow;
+    private boolean unknown_applyChangesDuringMaintenanceWindow;
     public @Nullable Boolean applyChangesDuringMaintenanceWindow() {
-        if (applyChangesDuringMaintenanceWindow == null) return null;
-        return applyChangesDuringMaintenanceWindow.getValue("Environment.applyChangesDuringMaintenanceWindow");
+        if (!unknown_applyChangesDuringMaintenanceWindow) return value_applyChangesDuringMaintenanceWindow;
+        throw new UndeferrableValueException("Value 'Environment.applyChangesDuringMaintenanceWindow' is not present");
     }
 
     /**
      * ARN of the Environment.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Environment.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Environment.arn' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Environment.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Environment.description' is not present");
     }
 
     /**
      * Engine type must be `microfocus` or `bluage`.
      * 
      */
-    private UndeferrableValue<String> engineType;
-
+    @PolicyResourceProperty(name="engineType", flag="unknown_engineType")
+    private String value_engineType;
+    private boolean unknown_engineType;
     public String engineType() {
-        if (engineType == null) return null;
-        return engineType.getValue("Environment.engineType");
+        if (!unknown_engineType) return value_engineType;
+        throw new UndeferrableValueException("Value 'Environment.engineType' is not present");
     }
 
     /**
      * The specific version of the engine for the Environment.
      * 
      */
-    private UndeferrableValue<String> engineVersion;
-
+    @PolicyResourceProperty(name="engineVersion", flag="unknown_engineVersion")
+    private String value_engineVersion;
+    private boolean unknown_engineVersion;
     public String engineVersion() {
-        if (engineVersion == null) return null;
-        return engineVersion.getValue("Environment.engineVersion");
+        if (!unknown_engineVersion) return value_engineVersion;
+        throw new UndeferrableValueException("Value 'Environment.engineVersion' is not present");
     }
 
     /**
      * The id of the Environment.
      * 
      */
-    private UndeferrableValue<String> environmentId;
-
+    @PolicyResourceProperty(name="environmentId", flag="unknown_environmentId")
+    private String value_environmentId;
+    private boolean unknown_environmentId;
     public String environmentId() {
-        if (environmentId == null) return null;
-        return environmentId.getValue("Environment.environmentId");
+        if (!unknown_environmentId) return value_environmentId;
+        throw new UndeferrableValueException("Value 'Environment.environmentId' is not present");
     }
 
     /**
      * Force update the environment even if applications are running.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> forceUpdate;
-
+    @PolicyResourceProperty(name="forceUpdate", flag="unknown_forceUpdate")
+    private @Nullable Boolean value_forceUpdate;
+    private boolean unknown_forceUpdate;
     public @Nullable Boolean forceUpdate() {
-        if (forceUpdate == null) return null;
-        return forceUpdate.getValue("Environment.forceUpdate");
+        if (!unknown_forceUpdate) return value_forceUpdate;
+        throw new UndeferrableValueException("Value 'Environment.forceUpdate' is not present");
     }
 
-    private @Nullable UndeferrableValue<EnvironmentHighAvailabilityConfig> highAvailabilityConfig;
-
+    @PolicyResourceProperty(name="highAvailabilityConfig", flag="unknown_highAvailabilityConfig")
+    private @Nullable EnvironmentHighAvailabilityConfig value_highAvailabilityConfig;
+    private boolean unknown_highAvailabilityConfig;
     public @Nullable EnvironmentHighAvailabilityConfig highAvailabilityConfig() {
-        if (highAvailabilityConfig == null) return null;
-        return highAvailabilityConfig.getValue("Environment.highAvailabilityConfig");
+        if (!unknown_highAvailabilityConfig) return value_highAvailabilityConfig;
+        throw new UndeferrableValueException("Value 'Environment.highAvailabilityConfig' is not present");
     }
 
     /**
@@ -100,106 +109,116 @@ public final class Environment extends com.pulumi.resources.PolicyResourceOutput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("Environment.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'Environment.instanceType' is not present");
     }
 
     /**
      * ARN of the KMS key to use for the Environment.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("Environment.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'Environment.kmsKeyId' is not present");
     }
 
     /**
      * ARN of the load balancer created by the Environment.
      * 
      */
-    private UndeferrableValue<String> loadBalancerArn;
-
+    @PolicyResourceProperty(name="loadBalancerArn", flag="unknown_loadBalancerArn")
+    private String value_loadBalancerArn;
+    private boolean unknown_loadBalancerArn;
     public String loadBalancerArn() {
-        if (loadBalancerArn == null) return null;
-        return loadBalancerArn.getValue("Environment.loadBalancerArn");
+        if (!unknown_loadBalancerArn) return value_loadBalancerArn;
+        throw new UndeferrableValueException("Value 'Environment.loadBalancerArn' is not present");
     }
 
     /**
      * Name of the runtime environment. Must be unique within the account.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Environment.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Environment.name' is not present");
     }
 
     /**
      * Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
      * 
      */
-    private UndeferrableValue<String> preferredMaintenanceWindow;
-
+    @PolicyResourceProperty(name="preferredMaintenanceWindow", flag="unknown_preferredMaintenanceWindow")
+    private String value_preferredMaintenanceWindow;
+    private boolean unknown_preferredMaintenanceWindow;
     public String preferredMaintenanceWindow() {
-        if (preferredMaintenanceWindow == null) return null;
-        return preferredMaintenanceWindow.getValue("Environment.preferredMaintenanceWindow");
+        if (!unknown_preferredMaintenanceWindow) return value_preferredMaintenanceWindow;
+        throw new UndeferrableValueException("Value 'Environment.preferredMaintenanceWindow' is not present");
     }
 
     /**
      * Allow applications deployed to this environment to be publicly accessible.
      * 
      */
-    private UndeferrableValue<Boolean> publiclyAccessible;
-
+    @PolicyResourceProperty(name="publiclyAccessible", flag="unknown_publiclyAccessible")
+    private Boolean value_publiclyAccessible;
+    private boolean unknown_publiclyAccessible;
     public Boolean publiclyAccessible() {
-        if (publiclyAccessible == null) return null;
-        return publiclyAccessible.getValue("Environment.publiclyAccessible");
+        if (!unknown_publiclyAccessible) return value_publiclyAccessible;
+        throw new UndeferrableValueException("Value 'Environment.publiclyAccessible' is not present");
     }
 
     /**
      * List of security group ids.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("Environment.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'Environment.securityGroupIds' is not present");
     }
 
-    private @Nullable UndeferrableValue<EnvironmentStorageConfiguration> storageConfiguration;
-
+    @PolicyResourceProperty(name="storageConfiguration", flag="unknown_storageConfiguration")
+    private @Nullable EnvironmentStorageConfiguration value_storageConfiguration;
+    private boolean unknown_storageConfiguration;
     public @Nullable EnvironmentStorageConfiguration storageConfiguration() {
-        if (storageConfiguration == null) return null;
-        return storageConfiguration.getValue("Environment.storageConfiguration");
+        if (!unknown_storageConfiguration) return value_storageConfiguration;
+        throw new UndeferrableValueException("Value 'Environment.storageConfiguration' is not present");
     }
 
     /**
      * List of subnet ids to deploy environment to.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("Environment.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'Environment.subnetIds' is not present");
     }
 
     /**
      * Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Environment.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Environment.tags' is not present");
     }
 
     /**
@@ -208,18 +227,20 @@ public final class Environment extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Environment.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Environment.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<EnvironmentTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable EnvironmentTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable EnvironmentTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("Environment.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'Environment.timeouts' is not present");
     }
 
 }

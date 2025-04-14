@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.EndpointConfigurationAsyncInferenceConfigClientConfigArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.EndpointConfigurationAsyncInferenceConfigOutputConfigArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class EndpointConfigurationAsyncInferenceConfigArgs {
      * Configures the behavior of the client used by Amazon SageMaker AI to interact with the model container during asynchronous inference.
      * 
      */
-    private UndeferrableValue<EndpointConfigurationAsyncInferenceConfigClientConfigArgs> clientConfig;
-
+    @PolicyResourceProperty(name="clientConfig", flag="unknown_clientConfig")
+    private EndpointConfigurationAsyncInferenceConfigClientConfigArgs value_clientConfig;
+    private boolean unknown_clientConfig;
     public EndpointConfigurationAsyncInferenceConfigClientConfigArgs clientConfig() {
-        if (clientConfig == null) return null;
-        return clientConfig.getValue("EndpointConfigurationAsyncInferenceConfigArgs.clientConfig");
+        if (!unknown_clientConfig) return value_clientConfig;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationAsyncInferenceConfigArgs.clientConfig' is not present");
     }
 
     /**
      * Specifies the configuration for asynchronous inference invocation outputs.
      * 
      */
-    private UndeferrableValue<EndpointConfigurationAsyncInferenceConfigOutputConfigArgs> outputConfig;
-
+    @PolicyResourceProperty(name="outputConfig", flag="unknown_outputConfig")
+    private EndpointConfigurationAsyncInferenceConfigOutputConfigArgs value_outputConfig;
+    private boolean unknown_outputConfig;
     public EndpointConfigurationAsyncInferenceConfigOutputConfigArgs outputConfig() {
-        if (outputConfig == null) return null;
-        return outputConfig.getValue("EndpointConfigurationAsyncInferenceConfigArgs.outputConfig");
+        if (!unknown_outputConfig) return value_outputConfig;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationAsyncInferenceConfigArgs.outputConfig' is not present");
     }
 
 }

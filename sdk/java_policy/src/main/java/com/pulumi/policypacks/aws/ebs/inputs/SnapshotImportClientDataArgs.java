@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ebs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class SnapshotImportClientDataArgs {
      * A user-defined comment about the disk upload.
      * 
      */
-    private UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private String value_comment;
+    private boolean unknown_comment;
     public String comment() {
-        if (comment == null) return null;
-        return comment.getValue("SnapshotImportClientDataArgs.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'SnapshotImportClientDataArgs.comment' is not present");
     }
 
     /**
      * The time that the disk upload ends.
      * 
      */
-    private UndeferrableValue<String> uploadEnd;
-
+    @PolicyResourceProperty(name="uploadEnd", flag="unknown_uploadEnd")
+    private String value_uploadEnd;
+    private boolean unknown_uploadEnd;
     public String uploadEnd() {
-        if (uploadEnd == null) return null;
-        return uploadEnd.getValue("SnapshotImportClientDataArgs.uploadEnd");
+        if (!unknown_uploadEnd) return value_uploadEnd;
+        throw new UndeferrableValueException("Value 'SnapshotImportClientDataArgs.uploadEnd' is not present");
     }
 
     /**
      * The size of the uploaded disk image, in GiB.
      * 
      */
-    private UndeferrableValue<Double> uploadSize;
-
+    @PolicyResourceProperty(name="uploadSize", flag="unknown_uploadSize")
+    private Double value_uploadSize;
+    private boolean unknown_uploadSize;
     public Double uploadSize() {
-        if (uploadSize == null) return null;
-        return uploadSize.getValue("SnapshotImportClientDataArgs.uploadSize");
+        if (!unknown_uploadSize) return value_uploadSize;
+        throw new UndeferrableValueException("Value 'SnapshotImportClientDataArgs.uploadSize' is not present");
     }
 
     /**
      * The time that the disk upload starts.
      * 
      */
-    private UndeferrableValue<String> uploadStart;
-
+    @PolicyResourceProperty(name="uploadStart", flag="unknown_uploadStart")
+    private String value_uploadStart;
+    private boolean unknown_uploadStart;
     public String uploadStart() {
-        if (uploadStart == null) return null;
-        return uploadStart.getValue("SnapshotImportClientDataArgs.uploadStart");
+        if (!unknown_uploadStart) return value_uploadStart;
+        throw new UndeferrableValueException("Value 'SnapshotImportClientDataArgs.uploadStart' is not present");
     }
 
 }

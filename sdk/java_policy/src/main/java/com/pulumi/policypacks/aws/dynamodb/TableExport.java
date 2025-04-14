@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dynamodb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.dynamodb.outputs.TableExportIncrementalExportSpecification;
 import java.lang.Integer;
@@ -18,66 +19,72 @@ public final class TableExport extends com.pulumi.resources.PolicyResourceOutput
      * ARN of the Table Export.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("TableExport.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'TableExport.arn' is not present");
     }
 
     /**
      * Billable size of the table export.
      * 
      */
-    private UndeferrableValue<Integer> billedSizeInBytes;
-
+    @PolicyResourceProperty(name="billedSizeInBytes", flag="unknown_billedSizeInBytes")
+    private Integer value_billedSizeInBytes;
+    private boolean unknown_billedSizeInBytes;
     public Integer billedSizeInBytes() {
-        if (billedSizeInBytes == null) return null;
-        return billedSizeInBytes.getValue("TableExport.billedSizeInBytes");
+        if (!unknown_billedSizeInBytes) return value_billedSizeInBytes;
+        throw new UndeferrableValueException("Value 'TableExport.billedSizeInBytes' is not present");
     }
 
     /**
      * Time at which the export task completed.
      * 
      */
-    private UndeferrableValue<String> endTime;
-
+    @PolicyResourceProperty(name="endTime", flag="unknown_endTime")
+    private String value_endTime;
+    private boolean unknown_endTime;
     public String endTime() {
-        if (endTime == null) return null;
-        return endTime.getValue("TableExport.endTime");
+        if (!unknown_endTime) return value_endTime;
+        throw new UndeferrableValueException("Value 'TableExport.endTime' is not present");
     }
 
     /**
      * Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
      * 
      */
-    private @Nullable UndeferrableValue<String> exportFormat;
-
+    @PolicyResourceProperty(name="exportFormat", flag="unknown_exportFormat")
+    private @Nullable String value_exportFormat;
+    private boolean unknown_exportFormat;
     public @Nullable String exportFormat() {
-        if (exportFormat == null) return null;
-        return exportFormat.getValue("TableExport.exportFormat");
+        if (!unknown_exportFormat) return value_exportFormat;
+        throw new UndeferrableValueException("Value 'TableExport.exportFormat' is not present");
     }
 
     /**
      * Status of the export - export can be in one of the following states `IN_PROGRESS`, `COMPLETED`, or `FAILED`.
      * 
      */
-    private UndeferrableValue<String> exportStatus;
-
+    @PolicyResourceProperty(name="exportStatus", flag="unknown_exportStatus")
+    private String value_exportStatus;
+    private boolean unknown_exportStatus;
     public String exportStatus() {
-        if (exportStatus == null) return null;
-        return exportStatus.getValue("TableExport.exportStatus");
+        if (!unknown_exportStatus) return value_exportStatus;
+        throw new UndeferrableValueException("Value 'TableExport.exportStatus' is not present");
     }
 
     /**
      * Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table&#39;s state at this point in time. Omitting this value will result in a snapshot from the current time.
      * 
      */
-    private UndeferrableValue<String> exportTime;
-
+    @PolicyResourceProperty(name="exportTime", flag="unknown_exportTime")
+    private String value_exportTime;
+    private boolean unknown_exportTime;
     public String exportTime() {
-        if (exportTime == null) return null;
-        return exportTime.getValue("TableExport.exportTime");
+        if (!unknown_exportTime) return value_exportTime;
+        throw new UndeferrableValueException("Value 'TableExport.exportTime' is not present");
     }
 
     /**
@@ -85,106 +92,116 @@ public final class TableExport extends com.pulumi.resources.PolicyResourceOutput
      * `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
      * 
      */
-    private UndeferrableValue<String> exportType;
-
+    @PolicyResourceProperty(name="exportType", flag="unknown_exportType")
+    private String value_exportType;
+    private boolean unknown_exportType;
     public String exportType() {
-        if (exportType == null) return null;
-        return exportType.getValue("TableExport.exportType");
+        if (!unknown_exportType) return value_exportType;
+        throw new UndeferrableValueException("Value 'TableExport.exportType' is not present");
     }
 
-    private @Nullable UndeferrableValue<TableExportIncrementalExportSpecification> incrementalExportSpecification;
-
+    @PolicyResourceProperty(name="incrementalExportSpecification", flag="unknown_incrementalExportSpecification")
+    private @Nullable TableExportIncrementalExportSpecification value_incrementalExportSpecification;
+    private boolean unknown_incrementalExportSpecification;
     public @Nullable TableExportIncrementalExportSpecification incrementalExportSpecification() {
-        if (incrementalExportSpecification == null) return null;
-        return incrementalExportSpecification.getValue("TableExport.incrementalExportSpecification");
+        if (!unknown_incrementalExportSpecification) return value_incrementalExportSpecification;
+        throw new UndeferrableValueException("Value 'TableExport.incrementalExportSpecification' is not present");
     }
 
     /**
      * Number of items exported.
      * 
      */
-    private UndeferrableValue<Integer> itemCount;
-
+    @PolicyResourceProperty(name="itemCount", flag="unknown_itemCount")
+    private Integer value_itemCount;
+    private boolean unknown_itemCount;
     public Integer itemCount() {
-        if (itemCount == null) return null;
-        return itemCount.getValue("TableExport.itemCount");
+        if (!unknown_itemCount) return value_itemCount;
+        throw new UndeferrableValueException("Value 'TableExport.itemCount' is not present");
     }
 
     /**
      * Name of the manifest file for the export task. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Manifest) for more information on this manifest file.
      * 
      */
-    private UndeferrableValue<String> manifestFilesS3Key;
-
+    @PolicyResourceProperty(name="manifestFilesS3Key", flag="unknown_manifestFilesS3Key")
+    private String value_manifestFilesS3Key;
+    private boolean unknown_manifestFilesS3Key;
     public String manifestFilesS3Key() {
-        if (manifestFilesS3Key == null) return null;
-        return manifestFilesS3Key.getValue("TableExport.manifestFilesS3Key");
+        if (!unknown_manifestFilesS3Key) return value_manifestFilesS3Key;
+        throw new UndeferrableValueException("Value 'TableExport.manifestFilesS3Key' is not present");
     }
 
     /**
      * Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
      * 
      */
-    private UndeferrableValue<String> s3Bucket;
-
+    @PolicyResourceProperty(name="s3Bucket", flag="unknown_s3Bucket")
+    private String value_s3Bucket;
+    private boolean unknown_s3Bucket;
     public String s3Bucket() {
-        if (s3Bucket == null) return null;
-        return s3Bucket.getValue("TableExport.s3Bucket");
+        if (!unknown_s3Bucket) return value_s3Bucket;
+        throw new UndeferrableValueException("Value 'TableExport.s3Bucket' is not present");
     }
 
     /**
      * ID of the AWS account that owns the bucket the export will be stored in.
      * 
      */
-    private UndeferrableValue<String> s3BucketOwner;
-
+    @PolicyResourceProperty(name="s3BucketOwner", flag="unknown_s3BucketOwner")
+    private String value_s3BucketOwner;
+    private boolean unknown_s3BucketOwner;
     public String s3BucketOwner() {
-        if (s3BucketOwner == null) return null;
-        return s3BucketOwner.getValue("TableExport.s3BucketOwner");
+        if (!unknown_s3BucketOwner) return value_s3BucketOwner;
+        throw new UndeferrableValueException("Value 'TableExport.s3BucketOwner' is not present");
     }
 
     /**
      * Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
      * 
      */
-    private UndeferrableValue<String> s3Prefix;
-
+    @PolicyResourceProperty(name="s3Prefix", flag="unknown_s3Prefix")
+    private String value_s3Prefix;
+    private boolean unknown_s3Prefix;
     public String s3Prefix() {
-        if (s3Prefix == null) return null;
-        return s3Prefix.getValue("TableExport.s3Prefix");
+        if (!unknown_s3Prefix) return value_s3Prefix;
+        throw new UndeferrableValueException("Value 'TableExport.s3Prefix' is not present");
     }
 
     /**
      * Type of encryption used on the bucket where export data will be stored. Valid values are: `AES256`, `KMS`.
      * 
      */
-    private UndeferrableValue<String> s3SseAlgorithm;
-
+    @PolicyResourceProperty(name="s3SseAlgorithm", flag="unknown_s3SseAlgorithm")
+    private String value_s3SseAlgorithm;
+    private boolean unknown_s3SseAlgorithm;
     public String s3SseAlgorithm() {
-        if (s3SseAlgorithm == null) return null;
-        return s3SseAlgorithm.getValue("TableExport.s3SseAlgorithm");
+        if (!unknown_s3SseAlgorithm) return value_s3SseAlgorithm;
+        throw new UndeferrableValueException("Value 'TableExport.s3SseAlgorithm' is not present");
     }
 
     /**
      * ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
      * 
      */
-    private @Nullable UndeferrableValue<String> s3SseKmsKeyId;
-
+    @PolicyResourceProperty(name="s3SseKmsKeyId", flag="unknown_s3SseKmsKeyId")
+    private @Nullable String value_s3SseKmsKeyId;
+    private boolean unknown_s3SseKmsKeyId;
     public @Nullable String s3SseKmsKeyId() {
-        if (s3SseKmsKeyId == null) return null;
-        return s3SseKmsKeyId.getValue("TableExport.s3SseKmsKeyId");
+        if (!unknown_s3SseKmsKeyId) return value_s3SseKmsKeyId;
+        throw new UndeferrableValueException("Value 'TableExport.s3SseKmsKeyId' is not present");
     }
 
     /**
      * Time at which the export task began.
      * 
      */
-    private UndeferrableValue<String> startTime;
-
+    @PolicyResourceProperty(name="startTime", flag="unknown_startTime")
+    private String value_startTime;
+    private boolean unknown_startTime;
     public String startTime() {
-        if (startTime == null) return null;
-        return startTime.getValue("TableExport.startTime");
+        if (!unknown_startTime) return value_startTime;
+        throw new UndeferrableValueException("Value 'TableExport.startTime' is not present");
     }
 
     /**
@@ -193,11 +210,12 @@ public final class TableExport extends com.pulumi.resources.PolicyResourceOutput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> tableArn;
-
+    @PolicyResourceProperty(name="tableArn", flag="unknown_tableArn")
+    private String value_tableArn;
+    private boolean unknown_tableArn;
     public String tableArn() {
-        if (tableArn == null) return null;
-        return tableArn.getValue("TableExport.tableArn");
+        if (!unknown_tableArn) return value_tableArn;
+        throw new UndeferrableValueException("Value 'TableExport.tableArn' is not present");
     }
 
 }

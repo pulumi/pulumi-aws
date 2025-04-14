@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appfabric.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appfabric.inputs.AppAuthorizationCredentialApiKeyCredentialArgs;
 import com.pulumi.policypacks.aws.appfabric.inputs.AppAuthorizationCredentialOauth2CredentialArgs;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class AppAuthorizationCredentialArgs {
      * Contains API key credential information.
      * 
      */
-    private UndeferrableValue<List<AppAuthorizationCredentialApiKeyCredentialArgs>> apiKeyCredentials;
-
+    @PolicyResourceProperty(name="apiKeyCredentials", flag="unknown_apiKeyCredentials")
+    private List<AppAuthorizationCredentialApiKeyCredentialArgs> value_apiKeyCredentials;
+    private boolean unknown_apiKeyCredentials;
     public List<AppAuthorizationCredentialApiKeyCredentialArgs> apiKeyCredentials() {
-        if (apiKeyCredentials == null) return null;
-        return apiKeyCredentials.getValue("AppAuthorizationCredentialArgs.apiKeyCredentials");
+        if (!unknown_apiKeyCredentials) return value_apiKeyCredentials;
+        throw new UndeferrableValueException("Value 'AppAuthorizationCredentialArgs.apiKeyCredentials' is not present");
     }
 
     /**
      * Contains OAuth2 client credential information.
      * 
      */
-    private UndeferrableValue<AppAuthorizationCredentialOauth2CredentialArgs> oauth2Credential;
-
+    @PolicyResourceProperty(name="oauth2Credential", flag="unknown_oauth2Credential")
+    private AppAuthorizationCredentialOauth2CredentialArgs value_oauth2Credential;
+    private boolean unknown_oauth2Credential;
     public AppAuthorizationCredentialOauth2CredentialArgs oauth2Credential() {
-        if (oauth2Credential == null) return null;
-        return oauth2Credential.getValue("AppAuthorizationCredentialArgs.oauth2Credential");
+        if (!unknown_oauth2Credential) return value_oauth2Credential;
+        throw new UndeferrableValueException("Value 'AppAuthorizationCredentialArgs.oauth2Credential' is not present");
     }
 
 }

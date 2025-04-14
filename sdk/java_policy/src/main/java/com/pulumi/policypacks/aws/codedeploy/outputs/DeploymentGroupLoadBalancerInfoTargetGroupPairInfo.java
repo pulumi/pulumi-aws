@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codedeploy.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codedeploy.outputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute;
 import com.pulumi.policypacks.aws.codedeploy.outputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup;
 import com.pulumi.policypacks.aws.codedeploy.outputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute;
@@ -17,33 +18,36 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfo {
      * Configuration block for the production traffic route (documented below).
      * 
      */
-    private UndeferrableValue<DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute> prodTrafficRoute;
-
+    @PolicyResourceProperty(name="prodTrafficRoute", flag="unknown_prodTrafficRoute")
+    private DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute value_prodTrafficRoute;
+    private boolean unknown_prodTrafficRoute;
     public DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute prodTrafficRoute() {
-        if (prodTrafficRoute == null) return null;
-        return prodTrafficRoute.getValue("DeploymentGroupLoadBalancerInfoTargetGroupPairInfo.prodTrafficRoute");
+        if (!unknown_prodTrafficRoute) return value_prodTrafficRoute;
+        throw new UndeferrableValueException("Value 'DeploymentGroupLoadBalancerInfoTargetGroupPairInfo.prodTrafficRoute' is not present");
     }
 
     /**
      * Configuration blocks for a target group within a target group pair (documented below).
      * 
      */
-    private UndeferrableValue<List<DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup>> targetGroups;
-
+    @PolicyResourceProperty(name="targetGroups", flag="unknown_targetGroups")
+    private List<DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup> value_targetGroups;
+    private boolean unknown_targetGroups;
     public List<DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup> targetGroups() {
-        if (targetGroups == null) return null;
-        return targetGroups.getValue("DeploymentGroupLoadBalancerInfoTargetGroupPairInfo.targetGroups");
+        if (!unknown_targetGroups) return value_targetGroups;
+        throw new UndeferrableValueException("Value 'DeploymentGroupLoadBalancerInfoTargetGroupPairInfo.targetGroups' is not present");
     }
 
     /**
      * Configuration block for the test traffic route (documented below).
      * 
      */
-    private @Nullable UndeferrableValue<DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute> testTrafficRoute;
-
+    @PolicyResourceProperty(name="testTrafficRoute", flag="unknown_testTrafficRoute")
+    private @Nullable DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute value_testTrafficRoute;
+    private boolean unknown_testTrafficRoute;
     public @Nullable DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute testTrafficRoute() {
-        if (testTrafficRoute == null) return null;
-        return testTrafficRoute.getValue("DeploymentGroupLoadBalancerInfoTargetGroupPairInfo.testTrafficRoute");
+        if (!unknown_testTrafficRoute) return value_testTrafficRoute;
+        throw new UndeferrableValueException("Value 'DeploymentGroupLoadBalancerInfoTargetGroupPairInfo.testTrafficRoute' is not present");
     }
 
 }

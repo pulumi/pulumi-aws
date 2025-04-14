@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.inputs.BucketReplicationConfigRuleDestinationAccessControlTranslationArgs;
 import com.pulumi.policypacks.aws.s3.inputs.BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs;
 import com.pulumi.policypacks.aws.s3.inputs.BucketReplicationConfigRuleDestinationMetricsArgs;
@@ -18,77 +19,84 @@ public final class BucketReplicationConfigRuleDestinationArgs {
      * Configuration block that specifies the overrides to use for object owners on replication. See below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `account` owner override configuration.
      * 
      */
-    private UndeferrableValue<BucketReplicationConfigRuleDestinationAccessControlTranslationArgs> accessControlTranslation;
-
+    @PolicyResourceProperty(name="accessControlTranslation", flag="unknown_accessControlTranslation")
+    private BucketReplicationConfigRuleDestinationAccessControlTranslationArgs value_accessControlTranslation;
+    private boolean unknown_accessControlTranslation;
     public BucketReplicationConfigRuleDestinationAccessControlTranslationArgs accessControlTranslation() {
-        if (accessControlTranslation == null) return null;
-        return accessControlTranslation.getValue("BucketReplicationConfigRuleDestinationArgs.accessControlTranslation");
+        if (!unknown_accessControlTranslation) return value_accessControlTranslation;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleDestinationArgs.accessControlTranslation' is not present");
     }
 
     /**
      * Account ID to specify the replica ownership. Must be used in conjunction with `access_control_translation` override configuration.
      * 
      */
-    private UndeferrableValue<String> account;
-
+    @PolicyResourceProperty(name="account", flag="unknown_account")
+    private String value_account;
+    private boolean unknown_account;
     public String account() {
-        if (account == null) return null;
-        return account.getValue("BucketReplicationConfigRuleDestinationArgs.account");
+        if (!unknown_account) return value_account;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleDestinationArgs.account' is not present");
     }
 
     /**
      * ARN of the bucket where you want Amazon S3 to store the results.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("BucketReplicationConfigRuleDestinationArgs.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleDestinationArgs.bucket' is not present");
     }
 
     /**
      * Configuration block that provides information about encryption. See below. If `source_selection_criteria` is specified, you must specify this element.
      * 
      */
-    private UndeferrableValue<BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs> encryptionConfiguration;
-
+    @PolicyResourceProperty(name="encryptionConfiguration", flag="unknown_encryptionConfiguration")
+    private BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs value_encryptionConfiguration;
+    private boolean unknown_encryptionConfiguration;
     public BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs encryptionConfiguration() {
-        if (encryptionConfiguration == null) return null;
-        return encryptionConfiguration.getValue("BucketReplicationConfigRuleDestinationArgs.encryptionConfiguration");
+        if (!unknown_encryptionConfiguration) return value_encryptionConfiguration;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleDestinationArgs.encryptionConfiguration' is not present");
     }
 
     /**
      * Configuration block that specifies replication metrics-related settings enabling replication metrics and events. See below.
      * 
      */
-    private UndeferrableValue<BucketReplicationConfigRuleDestinationMetricsArgs> metrics;
-
+    @PolicyResourceProperty(name="metrics", flag="unknown_metrics")
+    private BucketReplicationConfigRuleDestinationMetricsArgs value_metrics;
+    private boolean unknown_metrics;
     public BucketReplicationConfigRuleDestinationMetricsArgs metrics() {
-        if (metrics == null) return null;
-        return metrics.getValue("BucketReplicationConfigRuleDestinationArgs.metrics");
+        if (!unknown_metrics) return value_metrics;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleDestinationArgs.metrics' is not present");
     }
 
     /**
      * Configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. See below. Replication Time Control must be used in conjunction with `metrics`.
      * 
      */
-    private UndeferrableValue<BucketReplicationConfigRuleDestinationReplicationTimeArgs> replicationTime;
-
+    @PolicyResourceProperty(name="replicationTime", flag="unknown_replicationTime")
+    private BucketReplicationConfigRuleDestinationReplicationTimeArgs value_replicationTime;
+    private boolean unknown_replicationTime;
     public BucketReplicationConfigRuleDestinationReplicationTimeArgs replicationTime() {
-        if (replicationTime == null) return null;
-        return replicationTime.getValue("BucketReplicationConfigRuleDestinationArgs.replicationTime");
+        if (!unknown_replicationTime) return value_replicationTime;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleDestinationArgs.replicationTime' is not present");
     }
 
     /**
      * The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
      * 
      */
-    private UndeferrableValue<String> storageClass;
-
+    @PolicyResourceProperty(name="storageClass", flag="unknown_storageClass")
+    private String value_storageClass;
+    private boolean unknown_storageClass;
     public String storageClass() {
-        if (storageClass == null) return null;
-        return storageClass.getValue("BucketReplicationConfigRuleDestinationArgs.storageClass");
+        if (!unknown_storageClass) return value_storageClass;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleDestinationArgs.storageClass' is not present");
     }
 
 }

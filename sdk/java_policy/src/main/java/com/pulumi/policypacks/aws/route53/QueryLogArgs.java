@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class QueryLogArgs extends com.pulumi.resources.PolicyResourceInput
      * CloudWatch log group ARN to send query logs.
      * 
      */
-    private UndeferrableValue<String> cloudwatchLogGroupArn;
-
+    @PolicyResourceProperty(name="cloudwatchLogGroupArn", flag="unknown_cloudwatchLogGroupArn")
+    private String value_cloudwatchLogGroupArn;
+    private boolean unknown_cloudwatchLogGroupArn;
     public String cloudwatchLogGroupArn() {
-        if (cloudwatchLogGroupArn == null) return null;
-        return cloudwatchLogGroupArn.getValue("QueryLogArgs.cloudwatchLogGroupArn");
+        if (!unknown_cloudwatchLogGroupArn) return value_cloudwatchLogGroupArn;
+        throw new UndeferrableValueException("Value 'QueryLogArgs.cloudwatchLogGroupArn' is not present");
     }
 
     /**
      * Route53 hosted zone ID to enable query logs.
      * 
      */
-    private UndeferrableValue<String> zoneId;
-
+    @PolicyResourceProperty(name="zoneId", flag="unknown_zoneId")
+    private String value_zoneId;
+    private boolean unknown_zoneId;
     public String zoneId() {
-        if (zoneId == null) return null;
-        return zoneId.getValue("QueryLogArgs.zoneId");
+        if (!unknown_zoneId) return value_zoneId;
+        throw new UndeferrableValueException("Value 'QueryLogArgs.zoneId' is not present");
     }
 
 }

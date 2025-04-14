@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticbeanstalk;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.elasticbeanstalk.inputs.ApplicationAppversionLifecycleArgs;
 import java.lang.String;
@@ -14,44 +15,48 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:elasticbeanstalk/application:Application")
 public final class ApplicationArgs extends com.pulumi.resources.PolicyResourceInput {
 
-    private UndeferrableValue<ApplicationAppversionLifecycleArgs> appversionLifecycle;
-
+    @PolicyResourceProperty(name="appversionLifecycle", flag="unknown_appversionLifecycle")
+    private ApplicationAppversionLifecycleArgs value_appversionLifecycle;
+    private boolean unknown_appversionLifecycle;
     public ApplicationAppversionLifecycleArgs appversionLifecycle() {
-        if (appversionLifecycle == null) return null;
-        return appversionLifecycle.getValue("ApplicationArgs.appversionLifecycle");
+        if (!unknown_appversionLifecycle) return value_appversionLifecycle;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.appversionLifecycle' is not present");
     }
 
     /**
      * Short description of the application
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ApplicationArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.description' is not present");
     }
 
     /**
      * The name of the application, must be unique within your account
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ApplicationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.name' is not present");
     }
 
     /**
      * Key-value map of tags for the Elastic Beanstalk Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ApplicationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.tags' is not present");
     }
 
 }

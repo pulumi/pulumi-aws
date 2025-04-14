@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class MultiRegionAccessPointPolicyDetailsArgs {
      * The name of the Multi-Region Access Point.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("MultiRegionAccessPointPolicyDetailsArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'MultiRegionAccessPointPolicyDetailsArgs.name' is not present");
     }
 
     /**
@@ -26,11 +28,12 @@ public final class MultiRegionAccessPointPolicyDetailsArgs {
      * &gt; **NOTE:** When you update the `policy`, the update is first listed as the proposed policy. After the update is finished and all Regions have been updated, the proposed policy is listed as the established policy. If both policies have the same version number, the proposed policy is the established policy.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("MultiRegionAccessPointPolicyDetailsArgs.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'MultiRegionAccessPointPolicyDetailsArgs.policy' is not present");
     }
 
 }

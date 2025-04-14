@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.apigatewayv2.inputs.AuthorizerJwtConfigurationArgs;
 import java.lang.Boolean;
@@ -20,11 +21,12 @@ public final class AuthorizerArgs extends com.pulumi.resources.PolicyResourceInp
      * API identifier.
      * 
      */
-    private UndeferrableValue<String> apiId;
-
+    @PolicyResourceProperty(name="apiId", flag="unknown_apiId")
+    private String value_apiId;
+    private boolean unknown_apiId;
     public String apiId() {
-        if (apiId == null) return null;
-        return apiId.getValue("AuthorizerArgs.apiId");
+        if (!unknown_apiId) return value_apiId;
+        throw new UndeferrableValueException("Value 'AuthorizerArgs.apiId' is not present");
     }
 
     /**
@@ -32,11 +34,12 @@ public final class AuthorizerArgs extends com.pulumi.resources.PolicyResourceInp
      * Supported only for `REQUEST` authorizers.
      * 
      */
-    private UndeferrableValue<String> authorizerCredentialsArn;
-
+    @PolicyResourceProperty(name="authorizerCredentialsArn", flag="unknown_authorizerCredentialsArn")
+    private String value_authorizerCredentialsArn;
+    private boolean unknown_authorizerCredentialsArn;
     public String authorizerCredentialsArn() {
-        if (authorizerCredentialsArn == null) return null;
-        return authorizerCredentialsArn.getValue("AuthorizerArgs.authorizerCredentialsArn");
+        if (!unknown_authorizerCredentialsArn) return value_authorizerCredentialsArn;
+        throw new UndeferrableValueException("Value 'AuthorizerArgs.authorizerCredentialsArn' is not present");
     }
 
     /**
@@ -44,11 +47,12 @@ public final class AuthorizerArgs extends com.pulumi.resources.PolicyResourceInp
      * Valid values: `1.0`, `2.0`.
      * 
      */
-    private UndeferrableValue<String> authorizerPayloadFormatVersion;
-
+    @PolicyResourceProperty(name="authorizerPayloadFormatVersion", flag="unknown_authorizerPayloadFormatVersion")
+    private String value_authorizerPayloadFormatVersion;
+    private boolean unknown_authorizerPayloadFormatVersion;
     public String authorizerPayloadFormatVersion() {
-        if (authorizerPayloadFormatVersion == null) return null;
-        return authorizerPayloadFormatVersion.getValue("AuthorizerArgs.authorizerPayloadFormatVersion");
+        if (!unknown_authorizerPayloadFormatVersion) return value_authorizerPayloadFormatVersion;
+        throw new UndeferrableValueException("Value 'AuthorizerArgs.authorizerPayloadFormatVersion' is not present");
     }
 
     /**
@@ -57,11 +61,12 @@ public final class AuthorizerArgs extends com.pulumi.resources.PolicyResourceInp
      * Supported only for HTTP API Lambda authorizers.
      * 
      */
-    private UndeferrableValue<Integer> authorizerResultTtlInSeconds;
-
+    @PolicyResourceProperty(name="authorizerResultTtlInSeconds", flag="unknown_authorizerResultTtlInSeconds")
+    private Integer value_authorizerResultTtlInSeconds;
+    private boolean unknown_authorizerResultTtlInSeconds;
     public Integer authorizerResultTtlInSeconds() {
-        if (authorizerResultTtlInSeconds == null) return null;
-        return authorizerResultTtlInSeconds.getValue("AuthorizerArgs.authorizerResultTtlInSeconds");
+        if (!unknown_authorizerResultTtlInSeconds) return value_authorizerResultTtlInSeconds;
+        throw new UndeferrableValueException("Value 'AuthorizerArgs.authorizerResultTtlInSeconds' is not present");
     }
 
     /**
@@ -70,11 +75,12 @@ public final class AuthorizerArgs extends com.pulumi.resources.PolicyResourceInp
      * For HTTP APIs, specify `JWT` to use JSON Web Tokens.
      * 
      */
-    private UndeferrableValue<String> authorizerType;
-
+    @PolicyResourceProperty(name="authorizerType", flag="unknown_authorizerType")
+    private String value_authorizerType;
+    private boolean unknown_authorizerType;
     public String authorizerType() {
-        if (authorizerType == null) return null;
-        return authorizerType.getValue("AuthorizerArgs.authorizerType");
+        if (!unknown_authorizerType) return value_authorizerType;
+        throw new UndeferrableValueException("Value 'AuthorizerArgs.authorizerType' is not present");
     }
 
     /**
@@ -83,11 +89,12 @@ public final class AuthorizerArgs extends com.pulumi.resources.PolicyResourceInp
      * Supported only for `REQUEST` authorizers. Must be between 1 and 2048 characters in length.
      * 
      */
-    private UndeferrableValue<String> authorizerUri;
-
+    @PolicyResourceProperty(name="authorizerUri", flag="unknown_authorizerUri")
+    private String value_authorizerUri;
+    private boolean unknown_authorizerUri;
     public String authorizerUri() {
-        if (authorizerUri == null) return null;
-        return authorizerUri.getValue("AuthorizerArgs.authorizerUri");
+        if (!unknown_authorizerUri) return value_authorizerUri;
+        throw new UndeferrableValueException("Value 'AuthorizerArgs.authorizerUri' is not present");
     }
 
     /**
@@ -95,11 +102,12 @@ public final class AuthorizerArgs extends com.pulumi.resources.PolicyResourceInp
      * Supported only for HTTP APIs.
      * 
      */
-    private UndeferrableValue<Boolean> enableSimpleResponses;
-
+    @PolicyResourceProperty(name="enableSimpleResponses", flag="unknown_enableSimpleResponses")
+    private Boolean value_enableSimpleResponses;
+    private boolean unknown_enableSimpleResponses;
     public Boolean enableSimpleResponses() {
-        if (enableSimpleResponses == null) return null;
-        return enableSimpleResponses.getValue("AuthorizerArgs.enableSimpleResponses");
+        if (!unknown_enableSimpleResponses) return value_enableSimpleResponses;
+        throw new UndeferrableValueException("Value 'AuthorizerArgs.enableSimpleResponses' is not present");
     }
 
     /**
@@ -108,11 +116,12 @@ public final class AuthorizerArgs extends com.pulumi.resources.PolicyResourceInp
      * For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
      * 
      */
-    private UndeferrableValue<List<String>> identitySources;
-
+    @PolicyResourceProperty(name="identitySources", flag="unknown_identitySources")
+    private List<String> value_identitySources;
+    private boolean unknown_identitySources;
     public List<String> identitySources() {
-        if (identitySources == null) return null;
-        return identitySources.getValue("AuthorizerArgs.identitySources");
+        if (!unknown_identitySources) return value_identitySources;
+        throw new UndeferrableValueException("Value 'AuthorizerArgs.identitySources' is not present");
     }
 
     /**
@@ -120,22 +129,24 @@ public final class AuthorizerArgs extends com.pulumi.resources.PolicyResourceInp
      * Supported only for HTTP APIs.
      * 
      */
-    private UndeferrableValue<AuthorizerJwtConfigurationArgs> jwtConfiguration;
-
+    @PolicyResourceProperty(name="jwtConfiguration", flag="unknown_jwtConfiguration")
+    private AuthorizerJwtConfigurationArgs value_jwtConfiguration;
+    private boolean unknown_jwtConfiguration;
     public AuthorizerJwtConfigurationArgs jwtConfiguration() {
-        if (jwtConfiguration == null) return null;
-        return jwtConfiguration.getValue("AuthorizerArgs.jwtConfiguration");
+        if (!unknown_jwtConfiguration) return value_jwtConfiguration;
+        throw new UndeferrableValueException("Value 'AuthorizerArgs.jwtConfiguration' is not present");
     }
 
     /**
      * Name of the authorizer. Must be between 1 and 128 characters in length.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AuthorizerArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AuthorizerArgs.name' is not present");
     }
 
 }

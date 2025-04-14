@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class TagOptionResourceAssociationArgs extends com.pulumi.resources
      * Resource identifier.
      * 
      */
-    private UndeferrableValue<String> resourceId;
-
+    @PolicyResourceProperty(name="resourceId", flag="unknown_resourceId")
+    private String value_resourceId;
+    private boolean unknown_resourceId;
     public String resourceId() {
-        if (resourceId == null) return null;
-        return resourceId.getValue("TagOptionResourceAssociationArgs.resourceId");
+        if (!unknown_resourceId) return value_resourceId;
+        throw new UndeferrableValueException("Value 'TagOptionResourceAssociationArgs.resourceId' is not present");
     }
 
     /**
      * Tag Option identifier.
      * 
      */
-    private UndeferrableValue<String> tagOptionId;
-
+    @PolicyResourceProperty(name="tagOptionId", flag="unknown_tagOptionId")
+    private String value_tagOptionId;
+    private boolean unknown_tagOptionId;
     public String tagOptionId() {
-        if (tagOptionId == null) return null;
-        return tagOptionId.getValue("TagOptionResourceAssociationArgs.tagOptionId");
+        if (!unknown_tagOptionId) return value_tagOptionId;
+        throw new UndeferrableValueException("Value 'TagOptionResourceAssociationArgs.tagOptionId' is not present");
     }
 
 }

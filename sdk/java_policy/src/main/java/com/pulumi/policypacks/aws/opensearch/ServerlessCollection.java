@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.opensearch.outputs.ServerlessCollectionTimeouts;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class ServerlessCollection extends com.pulumi.resources.PolicyResou
      * Amazon Resource Name (ARN) of the collection.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ServerlessCollection.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ServerlessCollection.arn' is not present");
     }
 
     /**
      * Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
      * 
      */
-    private UndeferrableValue<String> collectionEndpoint;
-
+    @PolicyResourceProperty(name="collectionEndpoint", flag="unknown_collectionEndpoint")
+    private String value_collectionEndpoint;
+    private boolean unknown_collectionEndpoint;
     public String collectionEndpoint() {
-        if (collectionEndpoint == null) return null;
-        return collectionEndpoint.getValue("ServerlessCollection.collectionEndpoint");
+        if (!unknown_collectionEndpoint) return value_collectionEndpoint;
+        throw new UndeferrableValueException("Value 'ServerlessCollection.collectionEndpoint' is not present");
     }
 
     /**
      * Collection-specific endpoint used to access OpenSearch Dashboards.
      * 
      */
-    private UndeferrableValue<String> dashboardEndpoint;
-
+    @PolicyResourceProperty(name="dashboardEndpoint", flag="unknown_dashboardEndpoint")
+    private String value_dashboardEndpoint;
+    private boolean unknown_dashboardEndpoint;
     public String dashboardEndpoint() {
-        if (dashboardEndpoint == null) return null;
-        return dashboardEndpoint.getValue("ServerlessCollection.dashboardEndpoint");
+        if (!unknown_dashboardEndpoint) return value_dashboardEndpoint;
+        throw new UndeferrableValueException("Value 'ServerlessCollection.dashboardEndpoint' is not present");
     }
 
     /**
      * Description of the collection.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ServerlessCollection.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ServerlessCollection.description' is not present");
     }
 
     /**
      * The ARN of the Amazon Web Services KMS key used to encrypt the collection.
      * 
      */
-    private UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("ServerlessCollection.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'ServerlessCollection.kmsKeyArn' is not present");
     }
 
     /**
@@ -75,33 +81,36 @@ public final class ServerlessCollection extends com.pulumi.resources.PolicyResou
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ServerlessCollection.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ServerlessCollection.name' is not present");
     }
 
     /**
      * Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      * 
      */
-    private UndeferrableValue<String> standbyReplicas;
-
+    @PolicyResourceProperty(name="standbyReplicas", flag="unknown_standbyReplicas")
+    private String value_standbyReplicas;
+    private boolean unknown_standbyReplicas;
     public String standbyReplicas() {
-        if (standbyReplicas == null) return null;
-        return standbyReplicas.getValue("ServerlessCollection.standbyReplicas");
+        if (!unknown_standbyReplicas) return value_standbyReplicas;
+        throw new UndeferrableValueException("Value 'ServerlessCollection.standbyReplicas' is not present");
     }
 
     /**
      * A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ServerlessCollection.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ServerlessCollection.tags' is not present");
     }
 
     /**
@@ -110,29 +119,32 @@ public final class ServerlessCollection extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ServerlessCollection.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ServerlessCollection.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<ServerlessCollectionTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable ServerlessCollectionTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable ServerlessCollectionTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ServerlessCollection.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ServerlessCollection.timeouts' is not present");
     }
 
     /**
      * Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ServerlessCollection.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ServerlessCollection.type' is not present");
     }
 
 }

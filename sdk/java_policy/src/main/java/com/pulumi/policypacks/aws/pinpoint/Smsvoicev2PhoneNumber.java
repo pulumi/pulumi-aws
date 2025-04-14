@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pinpoint;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.pinpoint.outputs.Smsvoicev2PhoneNumberTimeouts;
 import java.lang.Boolean;
@@ -20,128 +21,140 @@ public final class Smsvoicev2PhoneNumber extends com.pulumi.resources.PolicyReso
      * ARN of the phone number.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Smsvoicev2PhoneNumber.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Smsvoicev2PhoneNumber.arn' is not present");
     }
 
     /**
      * By default this is set to `false`. When set to true the phone number can’t be deleted.
      * 
      */
-    private UndeferrableValue<Boolean> deletionProtectionEnabled;
-
+    @PolicyResourceProperty(name="deletionProtectionEnabled", flag="unknown_deletionProtectionEnabled")
+    private Boolean value_deletionProtectionEnabled;
+    private boolean unknown_deletionProtectionEnabled;
     public Boolean deletionProtectionEnabled() {
-        if (deletionProtectionEnabled == null) return null;
-        return deletionProtectionEnabled.getValue("Smsvoicev2PhoneNumber.deletionProtectionEnabled");
+        if (!unknown_deletionProtectionEnabled) return value_deletionProtectionEnabled;
+        throw new UndeferrableValueException("Value 'Smsvoicev2PhoneNumber.deletionProtectionEnabled' is not present");
     }
 
     /**
      * The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
      * 
      */
-    private UndeferrableValue<String> isoCountryCode;
-
+    @PolicyResourceProperty(name="isoCountryCode", flag="unknown_isoCountryCode")
+    private String value_isoCountryCode;
+    private boolean unknown_isoCountryCode;
     public String isoCountryCode() {
-        if (isoCountryCode == null) return null;
-        return isoCountryCode.getValue("Smsvoicev2PhoneNumber.isoCountryCode");
+        if (!unknown_isoCountryCode) return value_isoCountryCode;
+        throw new UndeferrableValueException("Value 'Smsvoicev2PhoneNumber.isoCountryCode' is not present");
     }
 
     /**
      * The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
      * 
      */
-    private UndeferrableValue<String> messageType;
-
+    @PolicyResourceProperty(name="messageType", flag="unknown_messageType")
+    private String value_messageType;
+    private boolean unknown_messageType;
     public String messageType() {
-        if (messageType == null) return null;
-        return messageType.getValue("Smsvoicev2PhoneNumber.messageType");
+        if (!unknown_messageType) return value_messageType;
+        throw new UndeferrableValueException("Value 'Smsvoicev2PhoneNumber.messageType' is not present");
     }
 
     /**
      * The monthly price, in US dollars, to lease the phone number.
      * 
      */
-    private UndeferrableValue<String> monthlyLeasingPrice;
-
+    @PolicyResourceProperty(name="monthlyLeasingPrice", flag="unknown_monthlyLeasingPrice")
+    private String value_monthlyLeasingPrice;
+    private boolean unknown_monthlyLeasingPrice;
     public String monthlyLeasingPrice() {
-        if (monthlyLeasingPrice == null) return null;
-        return monthlyLeasingPrice.getValue("Smsvoicev2PhoneNumber.monthlyLeasingPrice");
+        if (!unknown_monthlyLeasingPrice) return value_monthlyLeasingPrice;
+        throw new UndeferrableValueException("Value 'Smsvoicev2PhoneNumber.monthlyLeasingPrice' is not present");
     }
 
     /**
      * Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
      * 
      */
-    private UndeferrableValue<List<String>> numberCapabilities;
-
+    @PolicyResourceProperty(name="numberCapabilities", flag="unknown_numberCapabilities")
+    private List<String> value_numberCapabilities;
+    private boolean unknown_numberCapabilities;
     public List<String> numberCapabilities() {
-        if (numberCapabilities == null) return null;
-        return numberCapabilities.getValue("Smsvoicev2PhoneNumber.numberCapabilities");
+        if (!unknown_numberCapabilities) return value_numberCapabilities;
+        throw new UndeferrableValueException("Value 'Smsvoicev2PhoneNumber.numberCapabilities' is not present");
     }
 
     /**
      * The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
      * 
      */
-    private UndeferrableValue<String> numberType;
-
+    @PolicyResourceProperty(name="numberType", flag="unknown_numberType")
+    private String value_numberType;
+    private boolean unknown_numberType;
     public String numberType() {
-        if (numberType == null) return null;
-        return numberType.getValue("Smsvoicev2PhoneNumber.numberType");
+        if (!unknown_numberType) return value_numberType;
+        throw new UndeferrableValueException("Value 'Smsvoicev2PhoneNumber.numberType' is not present");
     }
 
     /**
      * The name of the opt-out list to associate with the phone number.
      * 
      */
-    private UndeferrableValue<String> optOutListName;
-
+    @PolicyResourceProperty(name="optOutListName", flag="unknown_optOutListName")
+    private String value_optOutListName;
+    private boolean unknown_optOutListName;
     public String optOutListName() {
-        if (optOutListName == null) return null;
-        return optOutListName.getValue("Smsvoicev2PhoneNumber.optOutListName");
+        if (!unknown_optOutListName) return value_optOutListName;
+        throw new UndeferrableValueException("Value 'Smsvoicev2PhoneNumber.optOutListName' is not present");
     }
 
     /**
      * The new phone number that was requested.
      * 
      */
-    private UndeferrableValue<String> phoneNumber;
-
+    @PolicyResourceProperty(name="phoneNumber", flag="unknown_phoneNumber")
+    private String value_phoneNumber;
+    private boolean unknown_phoneNumber;
     public String phoneNumber() {
-        if (phoneNumber == null) return null;
-        return phoneNumber.getValue("Smsvoicev2PhoneNumber.phoneNumber");
+        if (!unknown_phoneNumber) return value_phoneNumber;
+        throw new UndeferrableValueException("Value 'Smsvoicev2PhoneNumber.phoneNumber' is not present");
     }
 
     /**
      * Use this field to attach your phone number for an external registration process.
      * 
      */
-    private @Nullable UndeferrableValue<String> registrationId;
-
+    @PolicyResourceProperty(name="registrationId", flag="unknown_registrationId")
+    private @Nullable String value_registrationId;
+    private boolean unknown_registrationId;
     public @Nullable String registrationId() {
-        if (registrationId == null) return null;
-        return registrationId.getValue("Smsvoicev2PhoneNumber.registrationId");
+        if (!unknown_registrationId) return value_registrationId;
+        throw new UndeferrableValueException("Value 'Smsvoicev2PhoneNumber.registrationId' is not present");
     }
 
     /**
      * When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
      * 
      */
-    private UndeferrableValue<Boolean> selfManagedOptOutsEnabled;
-
+    @PolicyResourceProperty(name="selfManagedOptOutsEnabled", flag="unknown_selfManagedOptOutsEnabled")
+    private Boolean value_selfManagedOptOutsEnabled;
+    private boolean unknown_selfManagedOptOutsEnabled;
     public Boolean selfManagedOptOutsEnabled() {
-        if (selfManagedOptOutsEnabled == null) return null;
-        return selfManagedOptOutsEnabled.getValue("Smsvoicev2PhoneNumber.selfManagedOptOutsEnabled");
+        if (!unknown_selfManagedOptOutsEnabled) return value_selfManagedOptOutsEnabled;
+        throw new UndeferrableValueException("Value 'Smsvoicev2PhoneNumber.selfManagedOptOutsEnabled' is not present");
     }
 
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Smsvoicev2PhoneNumber.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Smsvoicev2PhoneNumber.tags' is not present");
     }
 
     /**
@@ -152,40 +165,44 @@ public final class Smsvoicev2PhoneNumber extends com.pulumi.resources.PolicyReso
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Smsvoicev2PhoneNumber.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Smsvoicev2PhoneNumber.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<Smsvoicev2PhoneNumberTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable Smsvoicev2PhoneNumberTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable Smsvoicev2PhoneNumberTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("Smsvoicev2PhoneNumber.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'Smsvoicev2PhoneNumber.timeouts' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the two way channel.
      * 
      */
-    private @Nullable UndeferrableValue<String> twoWayChannelArn;
-
+    @PolicyResourceProperty(name="twoWayChannelArn", flag="unknown_twoWayChannelArn")
+    private @Nullable String value_twoWayChannelArn;
+    private boolean unknown_twoWayChannelArn;
     public @Nullable String twoWayChannelArn() {
-        if (twoWayChannelArn == null) return null;
-        return twoWayChannelArn.getValue("Smsvoicev2PhoneNumber.twoWayChannelArn");
+        if (!unknown_twoWayChannelArn) return value_twoWayChannelArn;
+        throw new UndeferrableValueException("Value 'Smsvoicev2PhoneNumber.twoWayChannelArn' is not present");
     }
 
     /**
      * By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
      * 
      */
-    private UndeferrableValue<Boolean> twoWayChannelEnabled;
-
+    @PolicyResourceProperty(name="twoWayChannelEnabled", flag="unknown_twoWayChannelEnabled")
+    private Boolean value_twoWayChannelEnabled;
+    private boolean unknown_twoWayChannelEnabled;
     public Boolean twoWayChannelEnabled() {
-        if (twoWayChannelEnabled == null) return null;
-        return twoWayChannelEnabled.getValue("Smsvoicev2PhoneNumber.twoWayChannelEnabled");
+        if (!unknown_twoWayChannelEnabled) return value_twoWayChannelEnabled;
+        throw new UndeferrableValueException("Value 'Smsvoicev2PhoneNumber.twoWayChannelEnabled' is not present");
     }
 
 }

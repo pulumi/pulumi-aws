@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.customerprofiles.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.customerprofiles.inputs.DomainRuleBasedMatchingAttributeTypesSelectorArgs;
 import com.pulumi.policypacks.aws.customerprofiles.inputs.DomainRuleBasedMatchingConflictResolutionArgs;
 import com.pulumi.policypacks.aws.customerprofiles.inputs.DomainRuleBasedMatchingExportingConfigArgs;
@@ -21,84 +22,92 @@ public final class DomainRuleBasedMatchingArgs {
      * A block that configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles. Documented below.
      * 
      */
-    private UndeferrableValue<DomainRuleBasedMatchingAttributeTypesSelectorArgs> attributeTypesSelector;
-
+    @PolicyResourceProperty(name="attributeTypesSelector", flag="unknown_attributeTypesSelector")
+    private DomainRuleBasedMatchingAttributeTypesSelectorArgs value_attributeTypesSelector;
+    private boolean unknown_attributeTypesSelector;
     public DomainRuleBasedMatchingAttributeTypesSelectorArgs attributeTypesSelector() {
-        if (attributeTypesSelector == null) return null;
-        return attributeTypesSelector.getValue("DomainRuleBasedMatchingArgs.attributeTypesSelector");
+        if (!unknown_attributeTypesSelector) return value_attributeTypesSelector;
+        throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingArgs.attributeTypesSelector' is not present");
     }
 
     /**
      * A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
      * 
      */
-    private UndeferrableValue<DomainRuleBasedMatchingConflictResolutionArgs> conflictResolution;
-
+    @PolicyResourceProperty(name="conflictResolution", flag="unknown_conflictResolution")
+    private DomainRuleBasedMatchingConflictResolutionArgs value_conflictResolution;
+    private boolean unknown_conflictResolution;
     public DomainRuleBasedMatchingConflictResolutionArgs conflictResolution() {
-        if (conflictResolution == null) return null;
-        return conflictResolution.getValue("DomainRuleBasedMatchingArgs.conflictResolution");
+        if (!unknown_conflictResolution) return value_conflictResolution;
+        throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingArgs.conflictResolution' is not present");
     }
 
     /**
      * The flag that enables the rule-based matching process of duplicate profiles.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("DomainRuleBasedMatchingArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingArgs.enabled' is not present");
     }
 
     /**
      * A block that specifies the configuration for exporting Identity Resolution results. Documented below.
      * 
      */
-    private UndeferrableValue<DomainRuleBasedMatchingExportingConfigArgs> exportingConfig;
-
+    @PolicyResourceProperty(name="exportingConfig", flag="unknown_exportingConfig")
+    private DomainRuleBasedMatchingExportingConfigArgs value_exportingConfig;
+    private boolean unknown_exportingConfig;
     public DomainRuleBasedMatchingExportingConfigArgs exportingConfig() {
-        if (exportingConfig == null) return null;
-        return exportingConfig.getValue("DomainRuleBasedMatchingArgs.exportingConfig");
+        if (!unknown_exportingConfig) return value_exportingConfig;
+        throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingArgs.exportingConfig' is not present");
     }
 
     /**
      * A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natching_rules`. Documented below.
      * 
      */
-    private UndeferrableValue<List<DomainRuleBasedMatchingMatchingRuleArgs>> matchingRules;
-
+    @PolicyResourceProperty(name="matchingRules", flag="unknown_matchingRules")
+    private List<DomainRuleBasedMatchingMatchingRuleArgs> value_matchingRules;
+    private boolean unknown_matchingRules;
     public List<DomainRuleBasedMatchingMatchingRuleArgs> matchingRules() {
-        if (matchingRules == null) return null;
-        return matchingRules.getValue("DomainRuleBasedMatchingArgs.matchingRules");
+        if (!unknown_matchingRules) return value_matchingRules;
+        throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingArgs.matchingRules' is not present");
     }
 
     /**
      * Indicates the maximum allowed rule level for matching.
      * 
      */
-    private UndeferrableValue<Integer> maxAllowedRuleLevelForMatching;
-
+    @PolicyResourceProperty(name="maxAllowedRuleLevelForMatching", flag="unknown_maxAllowedRuleLevelForMatching")
+    private Integer value_maxAllowedRuleLevelForMatching;
+    private boolean unknown_maxAllowedRuleLevelForMatching;
     public Integer maxAllowedRuleLevelForMatching() {
-        if (maxAllowedRuleLevelForMatching == null) return null;
-        return maxAllowedRuleLevelForMatching.getValue("DomainRuleBasedMatchingArgs.maxAllowedRuleLevelForMatching");
+        if (!unknown_maxAllowedRuleLevelForMatching) return value_maxAllowedRuleLevelForMatching;
+        throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingArgs.maxAllowedRuleLevelForMatching' is not present");
     }
 
     /**
      * Indicates the maximum allowed rule level for merging.
      * 
      */
-    private UndeferrableValue<Integer> maxAllowedRuleLevelForMerging;
-
+    @PolicyResourceProperty(name="maxAllowedRuleLevelForMerging", flag="unknown_maxAllowedRuleLevelForMerging")
+    private Integer value_maxAllowedRuleLevelForMerging;
+    private boolean unknown_maxAllowedRuleLevelForMerging;
     public Integer maxAllowedRuleLevelForMerging() {
-        if (maxAllowedRuleLevelForMerging == null) return null;
-        return maxAllowedRuleLevelForMerging.getValue("DomainRuleBasedMatchingArgs.maxAllowedRuleLevelForMerging");
+        if (!unknown_maxAllowedRuleLevelForMerging) return value_maxAllowedRuleLevelForMerging;
+        throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingArgs.maxAllowedRuleLevelForMerging' is not present");
     }
 
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("DomainRuleBasedMatchingArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingArgs.status' is not present");
     }
 
 }

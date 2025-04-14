@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudtrail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudtrail.inputs.TrailAdvancedEventSelectorArgs;
 import com.pulumi.policypacks.aws.cloudtrail.inputs.TrailEventSelectorArgs;
@@ -22,132 +23,144 @@ public final class TrailArgs extends com.pulumi.resources.PolicyResourceInput {
      * Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `event_selector`.
      * 
      */
-    private UndeferrableValue<List<TrailAdvancedEventSelectorArgs>> advancedEventSelectors;
-
+    @PolicyResourceProperty(name="advancedEventSelectors", flag="unknown_advancedEventSelectors")
+    private List<TrailAdvancedEventSelectorArgs> value_advancedEventSelectors;
+    private boolean unknown_advancedEventSelectors;
     public List<TrailAdvancedEventSelectorArgs> advancedEventSelectors() {
-        if (advancedEventSelectors == null) return null;
-        return advancedEventSelectors.getValue("TrailArgs.advancedEventSelectors");
+        if (!unknown_advancedEventSelectors) return value_advancedEventSelectors;
+        throw new UndeferrableValueException("Value 'TrailArgs.advancedEventSelectors' is not present");
     }
 
     /**
      * Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
      * 
      */
-    private UndeferrableValue<String> cloudWatchLogsGroupArn;
-
+    @PolicyResourceProperty(name="cloudWatchLogsGroupArn", flag="unknown_cloudWatchLogsGroupArn")
+    private String value_cloudWatchLogsGroupArn;
+    private boolean unknown_cloudWatchLogsGroupArn;
     public String cloudWatchLogsGroupArn() {
-        if (cloudWatchLogsGroupArn == null) return null;
-        return cloudWatchLogsGroupArn.getValue("TrailArgs.cloudWatchLogsGroupArn");
+        if (!unknown_cloudWatchLogsGroupArn) return value_cloudWatchLogsGroupArn;
+        throw new UndeferrableValueException("Value 'TrailArgs.cloudWatchLogsGroupArn' is not present");
     }
 
     /**
      * Role for the CloudWatch Logs endpoint to assume to write to a user’s log group.
      * 
      */
-    private UndeferrableValue<String> cloudWatchLogsRoleArn;
-
+    @PolicyResourceProperty(name="cloudWatchLogsRoleArn", flag="unknown_cloudWatchLogsRoleArn")
+    private String value_cloudWatchLogsRoleArn;
+    private boolean unknown_cloudWatchLogsRoleArn;
     public String cloudWatchLogsRoleArn() {
-        if (cloudWatchLogsRoleArn == null) return null;
-        return cloudWatchLogsRoleArn.getValue("TrailArgs.cloudWatchLogsRoleArn");
+        if (!unknown_cloudWatchLogsRoleArn) return value_cloudWatchLogsRoleArn;
+        throw new UndeferrableValueException("Value 'TrailArgs.cloudWatchLogsRoleArn' is not present");
     }
 
     /**
      * Whether log file integrity validation is enabled. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> enableLogFileValidation;
-
+    @PolicyResourceProperty(name="enableLogFileValidation", flag="unknown_enableLogFileValidation")
+    private Boolean value_enableLogFileValidation;
+    private boolean unknown_enableLogFileValidation;
     public Boolean enableLogFileValidation() {
-        if (enableLogFileValidation == null) return null;
-        return enableLogFileValidation.getValue("TrailArgs.enableLogFileValidation");
+        if (!unknown_enableLogFileValidation) return value_enableLogFileValidation;
+        throw new UndeferrableValueException("Value 'TrailArgs.enableLogFileValidation' is not present");
     }
 
     /**
      * Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
      * 
      */
-    private UndeferrableValue<Boolean> enableLogging;
-
+    @PolicyResourceProperty(name="enableLogging", flag="unknown_enableLogging")
+    private Boolean value_enableLogging;
+    private boolean unknown_enableLogging;
     public Boolean enableLogging() {
-        if (enableLogging == null) return null;
-        return enableLogging.getValue("TrailArgs.enableLogging");
+        if (!unknown_enableLogging) return value_enableLogging;
+        throw new UndeferrableValueException("Value 'TrailArgs.enableLogging' is not present");
     }
 
     /**
      * Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advanced_event_selector`.
      * 
      */
-    private UndeferrableValue<List<TrailEventSelectorArgs>> eventSelectors;
-
+    @PolicyResourceProperty(name="eventSelectors", flag="unknown_eventSelectors")
+    private List<TrailEventSelectorArgs> value_eventSelectors;
+    private boolean unknown_eventSelectors;
     public List<TrailEventSelectorArgs> eventSelectors() {
-        if (eventSelectors == null) return null;
-        return eventSelectors.getValue("TrailArgs.eventSelectors");
+        if (!unknown_eventSelectors) return value_eventSelectors;
+        throw new UndeferrableValueException("Value 'TrailArgs.eventSelectors' is not present");
     }
 
     /**
      * Whether the trail is publishing events from global services such as IAM to the log files. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> includeGlobalServiceEvents;
-
+    @PolicyResourceProperty(name="includeGlobalServiceEvents", flag="unknown_includeGlobalServiceEvents")
+    private Boolean value_includeGlobalServiceEvents;
+    private boolean unknown_includeGlobalServiceEvents;
     public Boolean includeGlobalServiceEvents() {
-        if (includeGlobalServiceEvents == null) return null;
-        return includeGlobalServiceEvents.getValue("TrailArgs.includeGlobalServiceEvents");
+        if (!unknown_includeGlobalServiceEvents) return value_includeGlobalServiceEvents;
+        throw new UndeferrableValueException("Value 'TrailArgs.includeGlobalServiceEvents' is not present");
     }
 
     /**
      * Configuration block for identifying unusual operational activity. See details below.
      * 
      */
-    private UndeferrableValue<List<TrailInsightSelectorArgs>> insightSelectors;
-
+    @PolicyResourceProperty(name="insightSelectors", flag="unknown_insightSelectors")
+    private List<TrailInsightSelectorArgs> value_insightSelectors;
+    private boolean unknown_insightSelectors;
     public List<TrailInsightSelectorArgs> insightSelectors() {
-        if (insightSelectors == null) return null;
-        return insightSelectors.getValue("TrailArgs.insightSelectors");
+        if (!unknown_insightSelectors) return value_insightSelectors;
+        throw new UndeferrableValueException("Value 'TrailArgs.insightSelectors' is not present");
     }
 
     /**
      * Whether the trail is created in the current region or in all regions. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> isMultiRegionTrail;
-
+    @PolicyResourceProperty(name="isMultiRegionTrail", flag="unknown_isMultiRegionTrail")
+    private Boolean value_isMultiRegionTrail;
+    private boolean unknown_isMultiRegionTrail;
     public Boolean isMultiRegionTrail() {
-        if (isMultiRegionTrail == null) return null;
-        return isMultiRegionTrail.getValue("TrailArgs.isMultiRegionTrail");
+        if (!unknown_isMultiRegionTrail) return value_isMultiRegionTrail;
+        throw new UndeferrableValueException("Value 'TrailArgs.isMultiRegionTrail' is not present");
     }
 
     /**
      * Whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> isOrganizationTrail;
-
+    @PolicyResourceProperty(name="isOrganizationTrail", flag="unknown_isOrganizationTrail")
+    private Boolean value_isOrganizationTrail;
+    private boolean unknown_isOrganizationTrail;
     public Boolean isOrganizationTrail() {
-        if (isOrganizationTrail == null) return null;
-        return isOrganizationTrail.getValue("TrailArgs.isOrganizationTrail");
+        if (!unknown_isOrganizationTrail) return value_isOrganizationTrail;
+        throw new UndeferrableValueException("Value 'TrailArgs.isOrganizationTrail' is not present");
     }
 
     /**
      * KMS key ARN to use to encrypt the logs delivered by CloudTrail.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("TrailArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'TrailArgs.kmsKeyId' is not present");
     }
 
     /**
      * Name of the trail.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TrailArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TrailArgs.name' is not present");
     }
 
     /**
@@ -156,44 +169,48 @@ public final class TrailArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> s3BucketName;
-
+    @PolicyResourceProperty(name="s3BucketName", flag="unknown_s3BucketName")
+    private String value_s3BucketName;
+    private boolean unknown_s3BucketName;
     public String s3BucketName() {
-        if (s3BucketName == null) return null;
-        return s3BucketName.getValue("TrailArgs.s3BucketName");
+        if (!unknown_s3BucketName) return value_s3BucketName;
+        throw new UndeferrableValueException("Value 'TrailArgs.s3BucketName' is not present");
     }
 
     /**
      * S3 key prefix that follows the name of the bucket you have designated for log file delivery.
      * 
      */
-    private UndeferrableValue<String> s3KeyPrefix;
-
+    @PolicyResourceProperty(name="s3KeyPrefix", flag="unknown_s3KeyPrefix")
+    private String value_s3KeyPrefix;
+    private boolean unknown_s3KeyPrefix;
     public String s3KeyPrefix() {
-        if (s3KeyPrefix == null) return null;
-        return s3KeyPrefix.getValue("TrailArgs.s3KeyPrefix");
+        if (!unknown_s3KeyPrefix) return value_s3KeyPrefix;
+        throw new UndeferrableValueException("Value 'TrailArgs.s3KeyPrefix' is not present");
     }
 
     /**
      * Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
      * 
      */
-    private UndeferrableValue<String> snsTopicName;
-
+    @PolicyResourceProperty(name="snsTopicName", flag="unknown_snsTopicName")
+    private String value_snsTopicName;
+    private boolean unknown_snsTopicName;
     public String snsTopicName() {
-        if (snsTopicName == null) return null;
-        return snsTopicName.getValue("TrailArgs.snsTopicName");
+        if (!unknown_snsTopicName) return value_snsTopicName;
+        throw new UndeferrableValueException("Value 'TrailArgs.snsTopicName' is not present");
     }
 
     /**
      * Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TrailArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TrailArgs.tags' is not present");
     }
 
 }

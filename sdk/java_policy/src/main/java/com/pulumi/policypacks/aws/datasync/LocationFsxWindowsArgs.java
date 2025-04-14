@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,77 +19,84 @@ public final class LocationFsxWindowsArgs extends com.pulumi.resources.PolicyRes
      * The name of the Windows domain that the FSx for Windows server belongs to.
      * 
      */
-    private UndeferrableValue<String> domain;
-
+    @PolicyResourceProperty(name="domain", flag="unknown_domain")
+    private String value_domain;
+    private boolean unknown_domain;
     public String domain() {
-        if (domain == null) return null;
-        return domain.getValue("LocationFsxWindowsArgs.domain");
+        if (!unknown_domain) return value_domain;
+        throw new UndeferrableValueException("Value 'LocationFsxWindowsArgs.domain' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) for the FSx for Windows file system.
      * 
      */
-    private UndeferrableValue<String> fsxFilesystemArn;
-
+    @PolicyResourceProperty(name="fsxFilesystemArn", flag="unknown_fsxFilesystemArn")
+    private String value_fsxFilesystemArn;
+    private boolean unknown_fsxFilesystemArn;
     public String fsxFilesystemArn() {
-        if (fsxFilesystemArn == null) return null;
-        return fsxFilesystemArn.getValue("LocationFsxWindowsArgs.fsxFilesystemArn");
+        if (!unknown_fsxFilesystemArn) return value_fsxFilesystemArn;
+        throw new UndeferrableValueException("Value 'LocationFsxWindowsArgs.fsxFilesystemArn' is not present");
     }
 
     /**
      * The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
      * 
      */
-    private UndeferrableValue<String> password;
-
+    @PolicyResourceProperty(name="password", flag="unknown_password")
+    private String value_password;
+    private boolean unknown_password;
     public String password() {
-        if (password == null) return null;
-        return password.getValue("LocationFsxWindowsArgs.password");
+        if (!unknown_password) return value_password;
+        throw new UndeferrableValueException("Value 'LocationFsxWindowsArgs.password' is not present");
     }
 
     /**
      * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupArns;
-
+    @PolicyResourceProperty(name="securityGroupArns", flag="unknown_securityGroupArns")
+    private List<String> value_securityGroupArns;
+    private boolean unknown_securityGroupArns;
     public List<String> securityGroupArns() {
-        if (securityGroupArns == null) return null;
-        return securityGroupArns.getValue("LocationFsxWindowsArgs.securityGroupArns");
+        if (!unknown_securityGroupArns) return value_securityGroupArns;
+        throw new UndeferrableValueException("Value 'LocationFsxWindowsArgs.securityGroupArns' is not present");
     }
 
     /**
      * Subdirectory to perform actions as source or destination.
      * 
      */
-    private UndeferrableValue<String> subdirectory;
-
+    @PolicyResourceProperty(name="subdirectory", flag="unknown_subdirectory")
+    private String value_subdirectory;
+    private boolean unknown_subdirectory;
     public String subdirectory() {
-        if (subdirectory == null) return null;
-        return subdirectory.getValue("LocationFsxWindowsArgs.subdirectory");
+        if (!unknown_subdirectory) return value_subdirectory;
+        throw new UndeferrableValueException("Value 'LocationFsxWindowsArgs.subdirectory' is not present");
     }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LocationFsxWindowsArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LocationFsxWindowsArgs.tags' is not present");
     }
 
     /**
      * The user who has the permissions to access files and folders in the FSx for Windows file system.
      * 
      */
-    private UndeferrableValue<String> user;
-
+    @PolicyResourceProperty(name="user", flag="unknown_user")
+    private String value_user;
+    private boolean unknown_user;
     public String user() {
-        if (user == null) return null;
-        return user.getValue("LocationFsxWindowsArgs.user");
+        if (!unknown_user) return value_user;
+        throw new UndeferrableValueException("Value 'LocationFsxWindowsArgs.user' is not present");
     }
 
 }

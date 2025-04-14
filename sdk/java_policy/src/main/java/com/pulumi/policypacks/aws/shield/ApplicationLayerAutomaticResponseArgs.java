@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.shield;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.shield.inputs.ApplicationLayerAutomaticResponseTimeoutsArgs;
 import java.lang.String;
@@ -17,29 +18,32 @@ public final class ApplicationLayerAutomaticResponseArgs extends com.pulumi.reso
      * One of `COUNT` or `BLOCK`
      * 
      */
-    private UndeferrableValue<String> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private String value_action;
+    private boolean unknown_action;
     public String action() {
-        if (action == null) return null;
-        return action.getValue("ApplicationLayerAutomaticResponseArgs.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'ApplicationLayerAutomaticResponseArgs.action' is not present");
     }
 
     /**
      * ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("ApplicationLayerAutomaticResponseArgs.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'ApplicationLayerAutomaticResponseArgs.resourceArn' is not present");
     }
 
-    private UndeferrableValue<ApplicationLayerAutomaticResponseTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private ApplicationLayerAutomaticResponseTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public ApplicationLayerAutomaticResponseTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ApplicationLayerAutomaticResponseArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ApplicationLayerAutomaticResponseArgs.timeouts' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elastictranscoder.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class PipelineContentConfigArgs {
      * The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("PipelineContentConfigArgs.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'PipelineContentConfigArgs.bucket' is not present");
     }
 
     /**
      * The Amazon S3 storage class, `Standard` or `ReducedRedundancy`, that you want Elastic Transcoder to assign to the files and playlists that it stores in your Amazon S3 bucket.
      * 
      */
-    private UndeferrableValue<String> storageClass;
-
+    @PolicyResourceProperty(name="storageClass", flag="unknown_storageClass")
+    private String value_storageClass;
+    private boolean unknown_storageClass;
     public String storageClass() {
-        if (storageClass == null) return null;
-        return storageClass.getValue("PipelineContentConfigArgs.storageClass");
+        if (!unknown_storageClass) return value_storageClass;
+        throw new UndeferrableValueException("Value 'PipelineContentConfigArgs.storageClass' is not present");
     }
 
 }

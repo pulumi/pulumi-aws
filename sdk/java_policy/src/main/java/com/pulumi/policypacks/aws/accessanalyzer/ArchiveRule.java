@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.accessanalyzer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.accessanalyzer.outputs.ArchiveRuleFilter;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class ArchiveRule extends com.pulumi.resources.PolicyResourceOutput
      * Analyzer name.
      * 
      */
-    private UndeferrableValue<String> analyzerName;
-
+    @PolicyResourceProperty(name="analyzerName", flag="unknown_analyzerName")
+    private String value_analyzerName;
+    private boolean unknown_analyzerName;
     public String analyzerName() {
-        if (analyzerName == null) return null;
-        return analyzerName.getValue("ArchiveRule.analyzerName");
+        if (!unknown_analyzerName) return value_analyzerName;
+        throw new UndeferrableValueException("Value 'ArchiveRule.analyzerName' is not present");
     }
 
     /**
      * Filter criteria for the archive rule. See Filter for more details.
      * 
      */
-    private UndeferrableValue<List<ArchiveRuleFilter>> filters;
-
+    @PolicyResourceProperty(name="filters", flag="unknown_filters")
+    private List<ArchiveRuleFilter> value_filters;
+    private boolean unknown_filters;
     public List<ArchiveRuleFilter> filters() {
-        if (filters == null) return null;
-        return filters.getValue("ArchiveRule.filters");
+        if (!unknown_filters) return value_filters;
+        throw new UndeferrableValueException("Value 'ArchiveRule.filters' is not present");
     }
 
     /**
      * Rule name.
      * 
      */
-    private UndeferrableValue<String> ruleName;
-
+    @PolicyResourceProperty(name="ruleName", flag="unknown_ruleName")
+    private String value_ruleName;
+    private boolean unknown_ruleName;
     public String ruleName() {
-        if (ruleName == null) return null;
-        return ruleName.getValue("ArchiveRule.ruleName");
+        if (!unknown_ruleName) return value_ruleName;
+        throw new UndeferrableValueException("Value 'ArchiveRule.ruleName' is not present");
     }
 
 }

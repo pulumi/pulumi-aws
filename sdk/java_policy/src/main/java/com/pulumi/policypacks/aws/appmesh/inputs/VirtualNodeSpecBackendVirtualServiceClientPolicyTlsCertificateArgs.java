@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificat
      * Local file certificate.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs> file;
-
+    @PolicyResourceProperty(name="file", flag="unknown_file")
+    private VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs value_file;
+    private boolean unknown_file;
     public VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs file() {
-        if (file == null) return null;
-        return file.getValue("VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs.file");
+        if (!unknown_file) return value_file;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs.file' is not present");
     }
 
     /**
      * A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs> sds;
-
+    @PolicyResourceProperty(name="sds", flag="unknown_sds")
+    private VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs value_sds;
+    private boolean unknown_sds;
     public VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs sds() {
-        if (sds == null) return null;
-        return sds.getValue("VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs.sds");
+        if (!unknown_sds) return value_sds;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs.sds' is not present");
     }
 
 }

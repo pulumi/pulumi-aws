@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ImageImageScanningConfigurationEcrConfigurationArgs {
      * Set of tags for Image Builder to apply to the output container image that that Amazon Inspector scans.
      * 
      */
-    private UndeferrableValue<List<String>> containerTags;
-
+    @PolicyResourceProperty(name="containerTags", flag="unknown_containerTags")
+    private List<String> value_containerTags;
+    private boolean unknown_containerTags;
     public List<String> containerTags() {
-        if (containerTags == null) return null;
-        return containerTags.getValue("ImageImageScanningConfigurationEcrConfigurationArgs.containerTags");
+        if (!unknown_containerTags) return value_containerTags;
+        throw new UndeferrableValueException("Value 'ImageImageScanningConfigurationEcrConfigurationArgs.containerTags' is not present");
     }
 
     /**
      * The name of the container repository that Amazon Inspector scans to identify findings for your container images.
      * 
      */
-    private UndeferrableValue<String> repositoryName;
-
+    @PolicyResourceProperty(name="repositoryName", flag="unknown_repositoryName")
+    private String value_repositoryName;
+    private boolean unknown_repositoryName;
     public String repositoryName() {
-        if (repositoryName == null) return null;
-        return repositoryName.getValue("ImageImageScanningConfigurationEcrConfigurationArgs.repositoryName");
+        if (!unknown_repositoryName) return value_repositoryName;
+        throw new UndeferrableValueException("Value 'ImageImageScanningConfigurationEcrConfigurationArgs.repositoryName' is not present");
     }
 
 }

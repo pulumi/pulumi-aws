@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ivs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ivs.inputs.RecordingConfigurationDestinationConfigurationArgs;
 import com.pulumi.policypacks.aws.ivs.inputs.RecordingConfigurationThumbnailConfigurationArgs;
@@ -20,55 +21,60 @@ public final class RecordingConfigurationArgs extends com.pulumi.resources.Polic
      * Object containing destination configuration for where recorded video will be stored.
      * 
      */
-    private UndeferrableValue<RecordingConfigurationDestinationConfigurationArgs> destinationConfiguration;
-
+    @PolicyResourceProperty(name="destinationConfiguration", flag="unknown_destinationConfiguration")
+    private RecordingConfigurationDestinationConfigurationArgs value_destinationConfiguration;
+    private boolean unknown_destinationConfiguration;
     public RecordingConfigurationDestinationConfigurationArgs destinationConfiguration() {
-        if (destinationConfiguration == null) return null;
-        return destinationConfiguration.getValue("RecordingConfigurationArgs.destinationConfiguration");
+        if (!unknown_destinationConfiguration) return value_destinationConfiguration;
+        throw new UndeferrableValueException("Value 'RecordingConfigurationArgs.destinationConfiguration' is not present");
     }
 
     /**
      * Recording Configuration name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RecordingConfigurationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RecordingConfigurationArgs.name' is not present");
     }
 
     /**
      * If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
      * 
      */
-    private UndeferrableValue<Integer> recordingReconnectWindowSeconds;
-
+    @PolicyResourceProperty(name="recordingReconnectWindowSeconds", flag="unknown_recordingReconnectWindowSeconds")
+    private Integer value_recordingReconnectWindowSeconds;
+    private boolean unknown_recordingReconnectWindowSeconds;
     public Integer recordingReconnectWindowSeconds() {
-        if (recordingReconnectWindowSeconds == null) return null;
-        return recordingReconnectWindowSeconds.getValue("RecordingConfigurationArgs.recordingReconnectWindowSeconds");
+        if (!unknown_recordingReconnectWindowSeconds) return value_recordingReconnectWindowSeconds;
+        throw new UndeferrableValueException("Value 'RecordingConfigurationArgs.recordingReconnectWindowSeconds' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RecordingConfigurationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RecordingConfigurationArgs.tags' is not present");
     }
 
     /**
      * Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
      * 
      */
-    private UndeferrableValue<RecordingConfigurationThumbnailConfigurationArgs> thumbnailConfiguration;
-
+    @PolicyResourceProperty(name="thumbnailConfiguration", flag="unknown_thumbnailConfiguration")
+    private RecordingConfigurationThumbnailConfigurationArgs value_thumbnailConfiguration;
+    private boolean unknown_thumbnailConfiguration;
     public RecordingConfigurationThumbnailConfigurationArgs thumbnailConfiguration() {
-        if (thumbnailConfiguration == null) return null;
-        return thumbnailConfiguration.getValue("RecordingConfigurationArgs.thumbnailConfiguration");
+        if (!unknown_thumbnailConfiguration) return value_thumbnailConfiguration;
+        throw new UndeferrableValueException("Value 'RecordingConfigurationArgs.thumbnailConfiguration' is not present");
     }
 
 }

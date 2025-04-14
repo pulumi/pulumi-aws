@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.shield;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.shield.inputs.ProactiveEngagementEmergencyContactArgs;
 import java.lang.Boolean;
@@ -18,22 +19,24 @@ public final class ProactiveEngagementArgs extends com.pulumi.resources.PolicyRe
      * One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
      * 
      */
-    private UndeferrableValue<List<ProactiveEngagementEmergencyContactArgs>> emergencyContacts;
-
+    @PolicyResourceProperty(name="emergencyContacts", flag="unknown_emergencyContacts")
+    private List<ProactiveEngagementEmergencyContactArgs> value_emergencyContacts;
+    private boolean unknown_emergencyContacts;
     public List<ProactiveEngagementEmergencyContactArgs> emergencyContacts() {
-        if (emergencyContacts == null) return null;
-        return emergencyContacts.getValue("ProactiveEngagementArgs.emergencyContacts");
+        if (!unknown_emergencyContacts) return value_emergencyContacts;
+        throw new UndeferrableValueException("Value 'ProactiveEngagementArgs.emergencyContacts' is not present");
     }
 
     /**
      * Boolean value indicating if Proactive Engagement should be enabled or not.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("ProactiveEngagementArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'ProactiveEngagementArgs.enabled' is not present");
     }
 
 }

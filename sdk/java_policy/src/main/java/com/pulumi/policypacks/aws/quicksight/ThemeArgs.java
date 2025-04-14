@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.quicksight.inputs.ThemeConfigurationArgs;
 import com.pulumi.policypacks.aws.quicksight.inputs.ThemePermissionArgs;
@@ -20,22 +21,24 @@ public final class ThemeArgs extends com.pulumi.resources.PolicyResourceInput {
      * AWS account ID.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("ThemeArgs.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'ThemeArgs.awsAccountId' is not present");
     }
 
     /**
      * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
      * 
      */
-    private UndeferrableValue<String> baseThemeId;
-
+    @PolicyResourceProperty(name="baseThemeId", flag="unknown_baseThemeId")
+    private String value_baseThemeId;
+    private boolean unknown_baseThemeId;
     public String baseThemeId() {
-        if (baseThemeId == null) return null;
-        return baseThemeId.getValue("ThemeArgs.baseThemeId");
+        if (!unknown_baseThemeId) return value_baseThemeId;
+        throw new UndeferrableValueException("Value 'ThemeArgs.baseThemeId' is not present");
     }
 
     /**
@@ -44,66 +47,72 @@ public final class ThemeArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<ThemeConfigurationArgs> configuration;
-
+    @PolicyResourceProperty(name="configuration", flag="unknown_configuration")
+    private ThemeConfigurationArgs value_configuration;
+    private boolean unknown_configuration;
     public ThemeConfigurationArgs configuration() {
-        if (configuration == null) return null;
-        return configuration.getValue("ThemeArgs.configuration");
+        if (!unknown_configuration) return value_configuration;
+        throw new UndeferrableValueException("Value 'ThemeArgs.configuration' is not present");
     }
 
     /**
      * Display name of the theme.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ThemeArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ThemeArgs.name' is not present");
     }
 
     /**
      * A set of resource permissions on the theme. Maximum of 64 items. See permissions.
      * 
      */
-    private UndeferrableValue<List<ThemePermissionArgs>> permissions;
-
+    @PolicyResourceProperty(name="permissions", flag="unknown_permissions")
+    private List<ThemePermissionArgs> value_permissions;
+    private boolean unknown_permissions;
     public List<ThemePermissionArgs> permissions() {
-        if (permissions == null) return null;
-        return permissions.getValue("ThemeArgs.permissions");
+        if (!unknown_permissions) return value_permissions;
+        throw new UndeferrableValueException("Value 'ThemeArgs.permissions' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ThemeArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ThemeArgs.tags' is not present");
     }
 
     /**
      * Identifier of the theme.
      * 
      */
-    private UndeferrableValue<String> themeId;
-
+    @PolicyResourceProperty(name="themeId", flag="unknown_themeId")
+    private String value_themeId;
+    private boolean unknown_themeId;
     public String themeId() {
-        if (themeId == null) return null;
-        return themeId.getValue("ThemeArgs.themeId");
+        if (!unknown_themeId) return value_themeId;
+        throw new UndeferrableValueException("Value 'ThemeArgs.themeId' is not present");
     }
 
     /**
      * A description of the current theme version being created/updated.
      * 
      */
-    private UndeferrableValue<String> versionDescription;
-
+    @PolicyResourceProperty(name="versionDescription", flag="unknown_versionDescription")
+    private String value_versionDescription;
+    private boolean unknown_versionDescription;
     public String versionDescription() {
-        if (versionDescription == null) return null;
-        return versionDescription.getValue("ThemeArgs.versionDescription");
+        if (!unknown_versionDescription) return value_versionDescription;
+        throw new UndeferrableValueException("Value 'ThemeArgs.versionDescription' is not present");
     }
 
 }

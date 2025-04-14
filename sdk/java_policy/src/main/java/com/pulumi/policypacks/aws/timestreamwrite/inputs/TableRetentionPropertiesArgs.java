@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamwrite.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,22 +14,24 @@ public final class TableRetentionPropertiesArgs {
      * The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
      * 
      */
-    private UndeferrableValue<Integer> magneticStoreRetentionPeriodInDays;
-
+    @PolicyResourceProperty(name="magneticStoreRetentionPeriodInDays", flag="unknown_magneticStoreRetentionPeriodInDays")
+    private Integer value_magneticStoreRetentionPeriodInDays;
+    private boolean unknown_magneticStoreRetentionPeriodInDays;
     public Integer magneticStoreRetentionPeriodInDays() {
-        if (magneticStoreRetentionPeriodInDays == null) return null;
-        return magneticStoreRetentionPeriodInDays.getValue("TableRetentionPropertiesArgs.magneticStoreRetentionPeriodInDays");
+        if (!unknown_magneticStoreRetentionPeriodInDays) return value_magneticStoreRetentionPeriodInDays;
+        throw new UndeferrableValueException("Value 'TableRetentionPropertiesArgs.magneticStoreRetentionPeriodInDays' is not present");
     }
 
     /**
      * The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
      * 
      */
-    private UndeferrableValue<Integer> memoryStoreRetentionPeriodInHours;
-
+    @PolicyResourceProperty(name="memoryStoreRetentionPeriodInHours", flag="unknown_memoryStoreRetentionPeriodInHours")
+    private Integer value_memoryStoreRetentionPeriodInHours;
+    private boolean unknown_memoryStoreRetentionPeriodInHours;
     public Integer memoryStoreRetentionPeriodInHours() {
-        if (memoryStoreRetentionPeriodInHours == null) return null;
-        return memoryStoreRetentionPeriodInHours.getValue("TableRetentionPropertiesArgs.memoryStoreRetentionPeriodInHours");
+        if (!unknown_memoryStoreRetentionPeriodInHours) return value_memoryStoreRetentionPeriodInHours;
+        throw new UndeferrableValueException("Value 'TableRetentionPropertiesArgs.memoryStoreRetentionPeriodInHours' is not present");
     }
 
 }

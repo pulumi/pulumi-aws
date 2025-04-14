@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ClusterServiceConnectDefaults {
      * ARN of the `aws.servicediscovery.HttpNamespace` that&#39;s used when you create a service and don&#39;t specify a Service Connect configuration.
      * 
      */
-    private UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private String value_namespace;
+    private boolean unknown_namespace;
     public String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("ClusterServiceConnectDefaults.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'ClusterServiceConnectDefaults.namespace' is not present");
     }
 
 }

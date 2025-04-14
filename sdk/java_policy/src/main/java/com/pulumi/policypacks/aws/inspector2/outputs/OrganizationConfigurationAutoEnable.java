@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.inspector2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class OrganizationConfigurationAutoEnable {
      * Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
      * 
      */
-    private UndeferrableValue<Boolean> ec2;
-
+    @PolicyResourceProperty(name="ec2", flag="unknown_ec2")
+    private Boolean value_ec2;
+    private boolean unknown_ec2;
     public Boolean ec2() {
-        if (ec2 == null) return null;
-        return ec2.getValue("OrganizationConfigurationAutoEnable.ec2");
+        if (!unknown_ec2) return value_ec2;
+        throw new UndeferrableValueException("Value 'OrganizationConfigurationAutoEnable.ec2' is not present");
     }
 
     /**
      * Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
      * 
      */
-    private UndeferrableValue<Boolean> ecr;
-
+    @PolicyResourceProperty(name="ecr", flag="unknown_ecr")
+    private Boolean value_ecr;
+    private boolean unknown_ecr;
     public Boolean ecr() {
-        if (ecr == null) return null;
-        return ecr.getValue("OrganizationConfigurationAutoEnable.ecr");
+        if (!unknown_ecr) return value_ecr;
+        throw new UndeferrableValueException("Value 'OrganizationConfigurationAutoEnable.ecr' is not present");
     }
 
     /**
      * Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> lambda;
-
+    @PolicyResourceProperty(name="lambda", flag="unknown_lambda")
+    private @Nullable Boolean value_lambda;
+    private boolean unknown_lambda;
     public @Nullable Boolean lambda() {
-        if (lambda == null) return null;
-        return lambda.getValue("OrganizationConfigurationAutoEnable.lambda");
+        if (!unknown_lambda) return value_lambda;
+        throw new UndeferrableValueException("Value 'OrganizationConfigurationAutoEnable.lambda' is not present");
     }
 
     /**
      * Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> lambdaCode;
-
+    @PolicyResourceProperty(name="lambdaCode", flag="unknown_lambdaCode")
+    private @Nullable Boolean value_lambdaCode;
+    private boolean unknown_lambdaCode;
     public @Nullable Boolean lambdaCode() {
-        if (lambdaCode == null) return null;
-        return lambdaCode.getValue("OrganizationConfigurationAutoEnable.lambdaCode");
+        if (!unknown_lambdaCode) return value_lambdaCode;
+        throw new UndeferrableValueException("Value 'OrganizationConfigurationAutoEnable.lambdaCode' is not present");
     }
 
 }

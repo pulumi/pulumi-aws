@@ -3,24 +3,27 @@
 
 package com.pulumi.policypacks.aws.datazone.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class EnvironmentLastDeploymentFailureReason {
 
-    private UndeferrableValue<String> code;
-
+    @PolicyResourceProperty(name="code", flag="unknown_code")
+    private String value_code;
+    private boolean unknown_code;
     public String code() {
-        if (code == null) return null;
-        return code.getValue("EnvironmentLastDeploymentFailureReason.code");
+        if (!unknown_code) return value_code;
+        throw new UndeferrableValueException("Value 'EnvironmentLastDeploymentFailureReason.code' is not present");
     }
 
-    private UndeferrableValue<String> message;
-
+    @PolicyResourceProperty(name="message", flag="unknown_message")
+    private String value_message;
+    private boolean unknown_message;
     public String message() {
-        if (message == null) return null;
-        return message.getValue("EnvironmentLastDeploymentFailureReason.message");
+        if (!unknown_message) return value_message;
+        throw new UndeferrableValueException("Value 'EnvironmentLastDeploymentFailureReason.message' is not present");
     }
 
 }

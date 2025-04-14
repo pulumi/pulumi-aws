@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 
 
@@ -13,11 +14,12 @@ public final class LaunchTemplateHibernationOptionsArgs {
      * If set to `true`, the launched EC2 instance will hibernation enabled.
      * 
      */
-    private UndeferrableValue<Boolean> configured;
-
+    @PolicyResourceProperty(name="configured", flag="unknown_configured")
+    private Boolean value_configured;
+    private boolean unknown_configured;
     public Boolean configured() {
-        if (configured == null) return null;
-        return configured.getValue("LaunchTemplateHibernationOptionsArgs.configured");
+        if (!unknown_configured) return value_configured;
+        throw new UndeferrableValueException("Value 'LaunchTemplateHibernationOptionsArgs.configured' is not present");
     }
 
 }

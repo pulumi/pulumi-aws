@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.alb.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class LoadBalancerIpamPoolsArgs {
      * The ID of the IPv4 IPAM pool.
      * 
      */
-    private UndeferrableValue<String> ipv4IpamPoolId;
-
+    @PolicyResourceProperty(name="ipv4IpamPoolId", flag="unknown_ipv4IpamPoolId")
+    private String value_ipv4IpamPoolId;
+    private boolean unknown_ipv4IpamPoolId;
     public String ipv4IpamPoolId() {
-        if (ipv4IpamPoolId == null) return null;
-        return ipv4IpamPoolId.getValue("LoadBalancerIpamPoolsArgs.ipv4IpamPoolId");
+        if (!unknown_ipv4IpamPoolId) return value_ipv4IpamPoolId;
+        throw new UndeferrableValueException("Value 'LoadBalancerIpamPoolsArgs.ipv4IpamPoolId' is not present");
     }
 
 }

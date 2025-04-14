@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appautoscaling.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appautoscaling.inputs.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class PolicyStepScalingPolicyConfigurationArgs {
      * Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
      * 
      */
-    private UndeferrableValue<String> adjustmentType;
-
+    @PolicyResourceProperty(name="adjustmentType", flag="unknown_adjustmentType")
+    private String value_adjustmentType;
+    private boolean unknown_adjustmentType;
     public String adjustmentType() {
-        if (adjustmentType == null) return null;
-        return adjustmentType.getValue("PolicyStepScalingPolicyConfigurationArgs.adjustmentType");
+        if (!unknown_adjustmentType) return value_adjustmentType;
+        throw new UndeferrableValueException("Value 'PolicyStepScalingPolicyConfigurationArgs.adjustmentType' is not present");
     }
 
     /**
      * Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
      * 
      */
-    private UndeferrableValue<Integer> cooldown;
-
+    @PolicyResourceProperty(name="cooldown", flag="unknown_cooldown")
+    private Integer value_cooldown;
+    private boolean unknown_cooldown;
     public Integer cooldown() {
-        if (cooldown == null) return null;
-        return cooldown.getValue("PolicyStepScalingPolicyConfigurationArgs.cooldown");
+        if (!unknown_cooldown) return value_cooldown;
+        throw new UndeferrableValueException("Value 'PolicyStepScalingPolicyConfigurationArgs.cooldown' is not present");
     }
 
     /**
      * Aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
      * 
      */
-    private UndeferrableValue<String> metricAggregationType;
-
+    @PolicyResourceProperty(name="metricAggregationType", flag="unknown_metricAggregationType")
+    private String value_metricAggregationType;
+    private boolean unknown_metricAggregationType;
     public String metricAggregationType() {
-        if (metricAggregationType == null) return null;
-        return metricAggregationType.getValue("PolicyStepScalingPolicyConfigurationArgs.metricAggregationType");
+        if (!unknown_metricAggregationType) return value_metricAggregationType;
+        throw new UndeferrableValueException("Value 'PolicyStepScalingPolicyConfigurationArgs.metricAggregationType' is not present");
     }
 
     /**
      * Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
      * 
      */
-    private UndeferrableValue<Integer> minAdjustmentMagnitude;
-
+    @PolicyResourceProperty(name="minAdjustmentMagnitude", flag="unknown_minAdjustmentMagnitude")
+    private Integer value_minAdjustmentMagnitude;
+    private boolean unknown_minAdjustmentMagnitude;
     public Integer minAdjustmentMagnitude() {
-        if (minAdjustmentMagnitude == null) return null;
-        return minAdjustmentMagnitude.getValue("PolicyStepScalingPolicyConfigurationArgs.minAdjustmentMagnitude");
+        if (!unknown_minAdjustmentMagnitude) return value_minAdjustmentMagnitude;
+        throw new UndeferrableValueException("Value 'PolicyStepScalingPolicyConfigurationArgs.minAdjustmentMagnitude' is not present");
     }
 
     /**
@@ -107,11 +112,12 @@ public final class PolicyStepScalingPolicyConfigurationArgs {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    private UndeferrableValue<List<PolicyStepScalingPolicyConfigurationStepAdjustmentArgs>> stepAdjustments;
-
+    @PolicyResourceProperty(name="stepAdjustments", flag="unknown_stepAdjustments")
+    private List<PolicyStepScalingPolicyConfigurationStepAdjustmentArgs> value_stepAdjustments;
+    private boolean unknown_stepAdjustments;
     public List<PolicyStepScalingPolicyConfigurationStepAdjustmentArgs> stepAdjustments() {
-        if (stepAdjustments == null) return null;
-        return stepAdjustments.getValue("PolicyStepScalingPolicyConfigurationArgs.stepAdjustments");
+        if (!unknown_stepAdjustments) return value_stepAdjustments;
+        throw new UndeferrableValueException("Value 'PolicyStepScalingPolicyConfigurationArgs.stepAdjustments' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.scheduler.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ScheduleTargetEcsParametersPlacementConstraint {
      * A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is `distinctInstance`. For more information, see [Cluster query language](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html) in the Amazon ECS Developer Guide.
      * 
      */
-    private @Nullable UndeferrableValue<String> expression;
-
+    @PolicyResourceProperty(name="expression", flag="unknown_expression")
+    private @Nullable String value_expression;
+    private boolean unknown_expression;
     public @Nullable String expression() {
-        if (expression == null) return null;
-        return expression.getValue("ScheduleTargetEcsParametersPlacementConstraint.expression");
+        if (!unknown_expression) return value_expression;
+        throw new UndeferrableValueException("Value 'ScheduleTargetEcsParametersPlacementConstraint.expression' is not present");
     }
 
     /**
      * The type of constraint. One of: `distinctInstance`, `memberOf`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ScheduleTargetEcsParametersPlacementConstraint.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ScheduleTargetEcsParametersPlacementConstraint.type' is not present");
     }
 
 }

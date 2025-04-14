@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudfront.inputs.FieldLevelEncryptionConfigContentTypeProfileConfigArgs;
 import com.pulumi.policypacks.aws.cloudfront.inputs.FieldLevelEncryptionConfigQueryArgProfileConfigArgs;
@@ -18,33 +19,36 @@ public final class FieldLevelEncryptionConfigArgs extends com.pulumi.resources.P
      * An optional comment about the Field Level Encryption Config.
      * 
      */
-    private UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private String value_comment;
+    private boolean unknown_comment;
     public String comment() {
-        if (comment == null) return null;
-        return comment.getValue("FieldLevelEncryptionConfigArgs.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfigArgs.comment' is not present");
     }
 
     /**
      * Content Type Profile Config specifies when to forward content if a content type isn&#39;t recognized and profiles to use as by default in a request if a query argument doesn&#39;t specify a profile to use.
      * 
      */
-    private UndeferrableValue<FieldLevelEncryptionConfigContentTypeProfileConfigArgs> contentTypeProfileConfig;
-
+    @PolicyResourceProperty(name="contentTypeProfileConfig", flag="unknown_contentTypeProfileConfig")
+    private FieldLevelEncryptionConfigContentTypeProfileConfigArgs value_contentTypeProfileConfig;
+    private boolean unknown_contentTypeProfileConfig;
     public FieldLevelEncryptionConfigContentTypeProfileConfigArgs contentTypeProfileConfig() {
-        if (contentTypeProfileConfig == null) return null;
-        return contentTypeProfileConfig.getValue("FieldLevelEncryptionConfigArgs.contentTypeProfileConfig");
+        if (!unknown_contentTypeProfileConfig) return value_contentTypeProfileConfig;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfigArgs.contentTypeProfileConfig' is not present");
     }
 
     /**
      * Query Arg Profile Config that specifies when to forward content if a profile isn&#39;t found and the profile that can be provided as a query argument in a request.
      * 
      */
-    private UndeferrableValue<FieldLevelEncryptionConfigQueryArgProfileConfigArgs> queryArgProfileConfig;
-
+    @PolicyResourceProperty(name="queryArgProfileConfig", flag="unknown_queryArgProfileConfig")
+    private FieldLevelEncryptionConfigQueryArgProfileConfigArgs value_queryArgProfileConfig;
+    private boolean unknown_queryArgProfileConfig;
     public FieldLevelEncryptionConfigQueryArgProfileConfigArgs queryArgProfileConfig() {
-        if (queryArgProfileConfig == null) return null;
-        return queryArgProfileConfig.getValue("FieldLevelEncryptionConfigArgs.queryArgProfileConfig");
+        if (!unknown_queryArgProfileConfig) return value_queryArgProfileConfig;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfigArgs.queryArgProfileConfig' is not present");
     }
 
 }

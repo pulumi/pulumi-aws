@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.transfer.inputs.WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs;
 import com.pulumi.policypacks.aws.transfer.inputs.WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation
      * Specifies the details for the EFS file being copied.
      * 
      */
-    private UndeferrableValue<WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs> efsFileLocation;
-
+    @PolicyResourceProperty(name="efsFileLocation", flag="unknown_efsFileLocation")
+    private WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs value_efsFileLocation;
+    private boolean unknown_efsFileLocation;
     public WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs efsFileLocation() {
-        if (efsFileLocation == null) return null;
-        return efsFileLocation.getValue("WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgs.efsFileLocation");
+        if (!unknown_efsFileLocation) return value_efsFileLocation;
+        throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgs.efsFileLocation' is not present");
     }
 
     /**
      * Specifies the details for the S3 file being copied.
      * 
      */
-    private UndeferrableValue<WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs> s3FileLocation;
-
+    @PolicyResourceProperty(name="s3FileLocation", flag="unknown_s3FileLocation")
+    private WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs value_s3FileLocation;
+    private boolean unknown_s3FileLocation;
     public WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs s3FileLocation() {
-        if (s3FileLocation == null) return null;
-        return s3FileLocation.getValue("WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgs.s3FileLocation");
+        if (!unknown_s3FileLocation) return value_s3FileLocation;
+        throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgs.s3FileLocation' is not present");
     }
 
 }

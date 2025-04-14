@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.autoscaling.outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
      * Dimensions of the metric.
      * 
      */
-    private @Nullable UndeferrableValue<List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension>> dimensions;
-
+    @PolicyResourceProperty(name="dimensions", flag="unknown_dimensions")
+    private @Nullable List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension> value_dimensions;
+    private boolean unknown_dimensions;
     public @Nullable List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension> dimensions() {
-        if (dimensions == null) return null;
-        return dimensions.getValue("PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric.dimensions");
+        if (!unknown_dimensions) return value_dimensions;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric.dimensions' is not present");
     }
 
     /**
      * Name of the metric.
      * 
      */
-    private UndeferrableValue<String> metricName;
-
+    @PolicyResourceProperty(name="metricName", flag="unknown_metricName")
+    private String value_metricName;
+    private boolean unknown_metricName;
     public String metricName() {
-        if (metricName == null) return null;
-        return metricName.getValue("PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric.metricName");
+        if (!unknown_metricName) return value_metricName;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric.metricName' is not present");
     }
 
     /**
      * Namespace of the metric.
      * 
      */
-    private UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private String value_namespace;
+    private boolean unknown_namespace;
     public String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric.namespace' is not present");
     }
 
 }

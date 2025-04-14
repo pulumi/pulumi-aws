@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class VirtualNodeSpecBackendVirtualServiceArgs {
      * Client policy for the backend.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecBackendVirtualServiceClientPolicyArgs> clientPolicy;
-
+    @PolicyResourceProperty(name="clientPolicy", flag="unknown_clientPolicy")
+    private VirtualNodeSpecBackendVirtualServiceClientPolicyArgs value_clientPolicy;
+    private boolean unknown_clientPolicy;
     public VirtualNodeSpecBackendVirtualServiceClientPolicyArgs clientPolicy() {
-        if (clientPolicy == null) return null;
-        return clientPolicy.getValue("VirtualNodeSpecBackendVirtualServiceArgs.clientPolicy");
+        if (!unknown_clientPolicy) return value_clientPolicy;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendVirtualServiceArgs.clientPolicy' is not present");
     }
 
     /**
      * Name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
      * 
      */
-    private UndeferrableValue<String> virtualServiceName;
-
+    @PolicyResourceProperty(name="virtualServiceName", flag="unknown_virtualServiceName")
+    private String value_virtualServiceName;
+    private boolean unknown_virtualServiceName;
     public String virtualServiceName() {
-        if (virtualServiceName == null) return null;
-        return virtualServiceName.getValue("VirtualNodeSpecBackendVirtualServiceArgs.virtualServiceName");
+        if (!unknown_virtualServiceName) return value_virtualServiceName;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendVirtualServiceArgs.virtualServiceName' is not present");
     }
 
 }

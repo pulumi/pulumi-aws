@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.autoscaling.outputs.TrafficSourceAttachmentTrafficSource;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class TrafficSourceAttachment extends com.pulumi.resources.PolicyRe
      * The name of the Auto Scaling group.
      * 
      */
-    private UndeferrableValue<String> autoscalingGroupName;
-
+    @PolicyResourceProperty(name="autoscalingGroupName", flag="unknown_autoscalingGroupName")
+    private String value_autoscalingGroupName;
+    private boolean unknown_autoscalingGroupName;
     public String autoscalingGroupName() {
-        if (autoscalingGroupName == null) return null;
-        return autoscalingGroupName.getValue("TrafficSourceAttachment.autoscalingGroupName");
+        if (!unknown_autoscalingGroupName) return value_autoscalingGroupName;
+        throw new UndeferrableValueException("Value 'TrafficSourceAttachment.autoscalingGroupName' is not present");
     }
 
     /**
      * The unique identifiers of a traffic sources.
      * 
      */
-    private @Nullable UndeferrableValue<TrafficSourceAttachmentTrafficSource> trafficSource;
-
+    @PolicyResourceProperty(name="trafficSource", flag="unknown_trafficSource")
+    private @Nullable TrafficSourceAttachmentTrafficSource value_trafficSource;
+    private boolean unknown_trafficSource;
     public @Nullable TrafficSourceAttachmentTrafficSource trafficSource() {
-        if (trafficSource == null) return null;
-        return trafficSource.getValue("TrafficSourceAttachment.trafficSource");
+        if (!unknown_trafficSource) return value_trafficSource;
+        throw new UndeferrableValueException("Value 'TrafficSourceAttachment.trafficSource' is not present");
     }
 
 }

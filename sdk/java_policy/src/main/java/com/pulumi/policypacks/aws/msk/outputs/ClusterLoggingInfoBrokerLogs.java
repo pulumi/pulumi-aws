@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.msk.outputs.ClusterLoggingInfoBrokerLogsCloudwatchLogs;
 import com.pulumi.policypacks.aws.msk.outputs.ClusterLoggingInfoBrokerLogsFirehose;
 import com.pulumi.policypacks.aws.msk.outputs.ClusterLoggingInfoBrokerLogsS3;
@@ -12,25 +13,28 @@ import javax.annotation.Nullable;
 
 public final class ClusterLoggingInfoBrokerLogs {
 
-    private @Nullable UndeferrableValue<ClusterLoggingInfoBrokerLogsCloudwatchLogs> cloudwatchLogs;
-
+    @PolicyResourceProperty(name="cloudwatchLogs", flag="unknown_cloudwatchLogs")
+    private @Nullable ClusterLoggingInfoBrokerLogsCloudwatchLogs value_cloudwatchLogs;
+    private boolean unknown_cloudwatchLogs;
     public @Nullable ClusterLoggingInfoBrokerLogsCloudwatchLogs cloudwatchLogs() {
-        if (cloudwatchLogs == null) return null;
-        return cloudwatchLogs.getValue("ClusterLoggingInfoBrokerLogs.cloudwatchLogs");
+        if (!unknown_cloudwatchLogs) return value_cloudwatchLogs;
+        throw new UndeferrableValueException("Value 'ClusterLoggingInfoBrokerLogs.cloudwatchLogs' is not present");
     }
 
-    private @Nullable UndeferrableValue<ClusterLoggingInfoBrokerLogsFirehose> firehose;
-
+    @PolicyResourceProperty(name="firehose", flag="unknown_firehose")
+    private @Nullable ClusterLoggingInfoBrokerLogsFirehose value_firehose;
+    private boolean unknown_firehose;
     public @Nullable ClusterLoggingInfoBrokerLogsFirehose firehose() {
-        if (firehose == null) return null;
-        return firehose.getValue("ClusterLoggingInfoBrokerLogs.firehose");
+        if (!unknown_firehose) return value_firehose;
+        throw new UndeferrableValueException("Value 'ClusterLoggingInfoBrokerLogs.firehose' is not present");
     }
 
-    private @Nullable UndeferrableValue<ClusterLoggingInfoBrokerLogsS3> s3;
-
+    @PolicyResourceProperty(name="s3", flag="unknown_s3")
+    private @Nullable ClusterLoggingInfoBrokerLogsS3 value_s3;
+    private boolean unknown_s3;
     public @Nullable ClusterLoggingInfoBrokerLogsS3 s3() {
-        if (s3 == null) return null;
-        return s3.getValue("ClusterLoggingInfoBrokerLogs.s3");
+        if (!unknown_s3) return value_s3;
+        throw new UndeferrableValueException("Value 'ClusterLoggingInfoBrokerLogs.s3' is not present");
     }
 
 }

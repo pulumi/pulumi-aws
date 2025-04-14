@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.outputs.RefreshScheduleScheduleScheduleFrequencyRefreshOnDay;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class RefreshScheduleScheduleScheduleFrequency {
      * The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
      * 
      */
-    private UndeferrableValue<String> interval;
-
+    @PolicyResourceProperty(name="interval", flag="unknown_interval")
+    private String value_interval;
+    private boolean unknown_interval;
     public String interval() {
-        if (interval == null) return null;
-        return interval.getValue("RefreshScheduleScheduleScheduleFrequency.interval");
+        if (!unknown_interval) return value_interval;
+        throw new UndeferrableValueException("Value 'RefreshScheduleScheduleScheduleFrequency.interval' is not present");
     }
 
     /**
      * The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
      * 
      */
-    private @Nullable UndeferrableValue<RefreshScheduleScheduleScheduleFrequencyRefreshOnDay> refreshOnDay;
-
+    @PolicyResourceProperty(name="refreshOnDay", flag="unknown_refreshOnDay")
+    private @Nullable RefreshScheduleScheduleScheduleFrequencyRefreshOnDay value_refreshOnDay;
+    private boolean unknown_refreshOnDay;
     public @Nullable RefreshScheduleScheduleScheduleFrequencyRefreshOnDay refreshOnDay() {
-        if (refreshOnDay == null) return null;
-        return refreshOnDay.getValue("RefreshScheduleScheduleScheduleFrequency.refreshOnDay");
+        if (!unknown_refreshOnDay) return value_refreshOnDay;
+        throw new UndeferrableValueException("Value 'RefreshScheduleScheduleScheduleFrequency.refreshOnDay' is not present");
     }
 
     /**
      * The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
      * 
      */
-    private @Nullable UndeferrableValue<String> timeOfTheDay;
-
+    @PolicyResourceProperty(name="timeOfTheDay", flag="unknown_timeOfTheDay")
+    private @Nullable String value_timeOfTheDay;
+    private boolean unknown_timeOfTheDay;
     public @Nullable String timeOfTheDay() {
-        if (timeOfTheDay == null) return null;
-        return timeOfTheDay.getValue("RefreshScheduleScheduleScheduleFrequency.timeOfTheDay");
+        if (!unknown_timeOfTheDay) return value_timeOfTheDay;
+        throw new UndeferrableValueException("Value 'RefreshScheduleScheduleScheduleFrequency.timeOfTheDay' is not present");
     }
 
     /**
      * The timezone that you want the refresh schedule to use.
      * 
      */
-    private @Nullable UndeferrableValue<String> timezone;
-
+    @PolicyResourceProperty(name="timezone", flag="unknown_timezone")
+    private @Nullable String value_timezone;
+    private boolean unknown_timezone;
     public @Nullable String timezone() {
-        if (timezone == null) return null;
-        return timezone.getValue("RefreshScheduleScheduleScheduleFrequency.timezone");
+        if (!unknown_timezone) return value_timezone;
+        throw new UndeferrableValueException("Value 'RefreshScheduleScheduleScheduleFrequency.timezone' is not present");
     }
 
 }

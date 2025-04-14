@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.transfer.inputs.ServerEndpointDetailsArgs;
 import com.pulumi.policypacks.aws.transfer.inputs.ServerProtocolDetailsArgs;
@@ -23,154 +24,168 @@ public final class ServerArgs extends com.pulumi.resources.PolicyResourceInput {
      * The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
      * 
      */
-    private UndeferrableValue<String> certificate;
-
+    @PolicyResourceProperty(name="certificate", flag="unknown_certificate")
+    private String value_certificate;
+    private boolean unknown_certificate;
     public String certificate() {
-        if (certificate == null) return null;
-        return certificate.getValue("ServerArgs.certificate");
+        if (!unknown_certificate) return value_certificate;
+        throw new UndeferrableValueException("Value 'ServerArgs.certificate' is not present");
     }
 
     /**
      * The directory service ID of the directory service you want to connect to with an `identity_provider_type` of `AWS_DIRECTORY_SERVICE`.
      * 
      */
-    private UndeferrableValue<String> directoryId;
-
+    @PolicyResourceProperty(name="directoryId", flag="unknown_directoryId")
+    private String value_directoryId;
+    private boolean unknown_directoryId;
     public String directoryId() {
-        if (directoryId == null) return null;
-        return directoryId.getValue("ServerArgs.directoryId");
+        if (!unknown_directoryId) return value_directoryId;
+        throw new UndeferrableValueException("Value 'ServerArgs.directoryId' is not present");
     }
 
     /**
      * The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
      * 
      */
-    private UndeferrableValue<String> domain;
-
+    @PolicyResourceProperty(name="domain", flag="unknown_domain")
+    private String value_domain;
+    private boolean unknown_domain;
     public String domain() {
-        if (domain == null) return null;
-        return domain.getValue("ServerArgs.domain");
+        if (!unknown_domain) return value_domain;
+        throw new UndeferrableValueException("Value 'ServerArgs.domain' is not present");
     }
 
     /**
      * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` Block below for details.
      * 
      */
-    private UndeferrableValue<ServerEndpointDetailsArgs> endpointDetails;
-
+    @PolicyResourceProperty(name="endpointDetails", flag="unknown_endpointDetails")
+    private ServerEndpointDetailsArgs value_endpointDetails;
+    private boolean unknown_endpointDetails;
     public ServerEndpointDetailsArgs endpointDetails() {
-        if (endpointDetails == null) return null;
-        return endpointDetails.getValue("ServerArgs.endpointDetails");
+        if (!unknown_endpointDetails) return value_endpointDetails;
+        throw new UndeferrableValueException("Value 'ServerArgs.endpointDetails' is not present");
     }
 
     /**
      * The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn&#39;t accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
      * 
      */
-    private UndeferrableValue<String> endpointType;
-
+    @PolicyResourceProperty(name="endpointType", flag="unknown_endpointType")
+    private String value_endpointType;
+    private boolean unknown_endpointType;
     public String endpointType() {
-        if (endpointType == null) return null;
-        return endpointType.getValue("ServerArgs.endpointType");
+        if (!unknown_endpointType) return value_endpointType;
+        throw new UndeferrableValueException("Value 'ServerArgs.endpointType' is not present");
     }
 
     /**
      * A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identity_provider_type`.
      * 
      */
-    private UndeferrableValue<Boolean> forceDestroy;
-
+    @PolicyResourceProperty(name="forceDestroy", flag="unknown_forceDestroy")
+    private Boolean value_forceDestroy;
+    private boolean unknown_forceDestroy;
     public Boolean forceDestroy() {
-        if (forceDestroy == null) return null;
-        return forceDestroy.getValue("ServerArgs.forceDestroy");
+        if (!unknown_forceDestroy) return value_forceDestroy;
+        throw new UndeferrableValueException("Value 'ServerArgs.forceDestroy' is not present");
     }
 
     /**
      * The ARN for a lambda function to use for the Identity provider.
      * 
      */
-    private UndeferrableValue<String> function;
-
+    @PolicyResourceProperty(name="function", flag="unknown_function")
+    private String value_function;
+    private boolean unknown_function;
     public String function() {
-        if (function == null) return null;
-        return function.getValue("ServerArgs.function");
+        if (!unknown_function) return value_function;
+        throw new UndeferrableValueException("Value 'ServerArgs.function' is not present");
     }
 
     /**
      * RSA, ECDSA, or ED25519 private key (e.g., as generated by the `ssh-keygen -t rsa -b 2048 -N &#34;&#34; -m PEM -f my-new-server-key`, `ssh-keygen -t ecdsa -b 256 -N &#34;&#34; -m PEM -f my-new-server-key` or `ssh-keygen -t ed25519 -N &#34;&#34; -f my-new-server-key` commands).
      * 
      */
-    private UndeferrableValue<String> hostKey;
-
+    @PolicyResourceProperty(name="hostKey", flag="unknown_hostKey")
+    private String value_hostKey;
+    private boolean unknown_hostKey;
     public String hostKey() {
-        if (hostKey == null) return null;
-        return hostKey.getValue("ServerArgs.hostKey");
+        if (!unknown_hostKey) return value_hostKey;
+        throw new UndeferrableValueException("Value 'ServerArgs.hostKey' is not present");
     }
 
     /**
      * The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
      * 
      */
-    private UndeferrableValue<String> identityProviderType;
-
+    @PolicyResourceProperty(name="identityProviderType", flag="unknown_identityProviderType")
+    private String value_identityProviderType;
+    private boolean unknown_identityProviderType;
     public String identityProviderType() {
-        if (identityProviderType == null) return null;
-        return identityProviderType.getValue("ServerArgs.identityProviderType");
+        if (!unknown_identityProviderType) return value_identityProviderType;
+        throw new UndeferrableValueException("Value 'ServerArgs.identityProviderType' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
      * 
      */
-    private UndeferrableValue<String> invocationRole;
-
+    @PolicyResourceProperty(name="invocationRole", flag="unknown_invocationRole")
+    private String value_invocationRole;
+    private boolean unknown_invocationRole;
     public String invocationRole() {
-        if (invocationRole == null) return null;
-        return invocationRole.getValue("ServerArgs.invocationRole");
+        if (!unknown_invocationRole) return value_invocationRole;
+        throw new UndeferrableValueException("Value 'ServerArgs.invocationRole' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      * 
      */
-    private UndeferrableValue<String> loggingRole;
-
+    @PolicyResourceProperty(name="loggingRole", flag="unknown_loggingRole")
+    private String value_loggingRole;
+    private boolean unknown_loggingRole;
     public String loggingRole() {
-        if (loggingRole == null) return null;
-        return loggingRole.getValue("ServerArgs.loggingRole");
+        if (!unknown_loggingRole) return value_loggingRole;
+        throw new UndeferrableValueException("Value 'ServerArgs.loggingRole' is not present");
     }
 
     /**
      * Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
      * 
      */
-    private UndeferrableValue<String> postAuthenticationLoginBanner;
-
+    @PolicyResourceProperty(name="postAuthenticationLoginBanner", flag="unknown_postAuthenticationLoginBanner")
+    private String value_postAuthenticationLoginBanner;
+    private boolean unknown_postAuthenticationLoginBanner;
     public String postAuthenticationLoginBanner() {
-        if (postAuthenticationLoginBanner == null) return null;
-        return postAuthenticationLoginBanner.getValue("ServerArgs.postAuthenticationLoginBanner");
+        if (!unknown_postAuthenticationLoginBanner) return value_postAuthenticationLoginBanner;
+        throw new UndeferrableValueException("Value 'ServerArgs.postAuthenticationLoginBanner' is not present");
     }
 
     /**
      * Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
      * 
      */
-    private UndeferrableValue<String> preAuthenticationLoginBanner;
-
+    @PolicyResourceProperty(name="preAuthenticationLoginBanner", flag="unknown_preAuthenticationLoginBanner")
+    private String value_preAuthenticationLoginBanner;
+    private boolean unknown_preAuthenticationLoginBanner;
     public String preAuthenticationLoginBanner() {
-        if (preAuthenticationLoginBanner == null) return null;
-        return preAuthenticationLoginBanner.getValue("ServerArgs.preAuthenticationLoginBanner");
+        if (!unknown_preAuthenticationLoginBanner) return value_preAuthenticationLoginBanner;
+        throw new UndeferrableValueException("Value 'ServerArgs.preAuthenticationLoginBanner' is not present");
     }
 
     /**
      * The protocol settings that are configured for your server. See `protocol_details` Block below for details.
      * 
      */
-    private UndeferrableValue<ServerProtocolDetailsArgs> protocolDetails;
-
+    @PolicyResourceProperty(name="protocolDetails", flag="unknown_protocolDetails")
+    private ServerProtocolDetailsArgs value_protocolDetails;
+    private boolean unknown_protocolDetails;
     public ServerProtocolDetailsArgs protocolDetails() {
-        if (protocolDetails == null) return null;
-        return protocolDetails.getValue("ServerArgs.protocolDetails");
+        if (!unknown_protocolDetails) return value_protocolDetails;
+        throw new UndeferrableValueException("Value 'ServerArgs.protocolDetails' is not present");
     }
 
     /**
@@ -181,22 +196,24 @@ public final class ServerArgs extends com.pulumi.resources.PolicyResourceInput {
      * * `FTP`: Unencrypted file transfer
      * 
      */
-    private UndeferrableValue<List<String>> protocols;
-
+    @PolicyResourceProperty(name="protocols", flag="unknown_protocols")
+    private List<String> value_protocols;
+    private boolean unknown_protocols;
     public List<String> protocols() {
-        if (protocols == null) return null;
-        return protocols.getValue("ServerArgs.protocols");
+        if (!unknown_protocols) return value_protocols;
+        throw new UndeferrableValueException("Value 'ServerArgs.protocols' is not present");
     }
 
     /**
      * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
      * 
      */
-    private UndeferrableValue<ServerS3StorageOptionsArgs> s3StorageOptions;
-
+    @PolicyResourceProperty(name="s3StorageOptions", flag="unknown_s3StorageOptions")
+    private ServerS3StorageOptionsArgs value_s3StorageOptions;
+    private boolean unknown_s3StorageOptions;
     public ServerS3StorageOptionsArgs s3StorageOptions() {
-        if (s3StorageOptions == null) return null;
-        return s3StorageOptions.getValue("ServerArgs.s3StorageOptions");
+        if (!unknown_s3StorageOptions) return value_s3StorageOptions;
+        throw new UndeferrableValueException("Value 'ServerArgs.s3StorageOptions' is not present");
     }
 
     /**
@@ -219,66 +236,72 @@ public final class ServerArgs extends com.pulumi.resources.PolicyResourceInput {
      * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      * 
      */
-    private UndeferrableValue<String> securityPolicyName;
-
+    @PolicyResourceProperty(name="securityPolicyName", flag="unknown_securityPolicyName")
+    private String value_securityPolicyName;
+    private boolean unknown_securityPolicyName;
     public String securityPolicyName() {
-        if (securityPolicyName == null) return null;
-        return securityPolicyName.getValue("ServerArgs.securityPolicyName");
+        if (!unknown_securityPolicyName) return value_securityPolicyName;
+        throw new UndeferrableValueException("Value 'ServerArgs.securityPolicyName' is not present");
     }
 
     /**
      * For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
      * 
      */
-    private UndeferrableValue<String> sftpAuthenticationMethods;
-
+    @PolicyResourceProperty(name="sftpAuthenticationMethods", flag="unknown_sftpAuthenticationMethods")
+    private String value_sftpAuthenticationMethods;
+    private boolean unknown_sftpAuthenticationMethods;
     public String sftpAuthenticationMethods() {
-        if (sftpAuthenticationMethods == null) return null;
-        return sftpAuthenticationMethods.getValue("ServerArgs.sftpAuthenticationMethods");
+        if (!unknown_sftpAuthenticationMethods) return value_sftpAuthenticationMethods;
+        throw new UndeferrableValueException("Value 'ServerArgs.sftpAuthenticationMethods' is not present");
     }
 
     /**
      * A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
      * 
      */
-    private UndeferrableValue<List<String>> structuredLogDestinations;
-
+    @PolicyResourceProperty(name="structuredLogDestinations", flag="unknown_structuredLogDestinations")
+    private List<String> value_structuredLogDestinations;
+    private boolean unknown_structuredLogDestinations;
     public List<String> structuredLogDestinations() {
-        if (structuredLogDestinations == null) return null;
-        return structuredLogDestinations.getValue("ServerArgs.structuredLogDestinations");
+        if (!unknown_structuredLogDestinations) return value_structuredLogDestinations;
+        throw new UndeferrableValueException("Value 'ServerArgs.structuredLogDestinations' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ServerArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ServerArgs.tags' is not present");
     }
 
     /**
      * URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
      * 
      */
-    private UndeferrableValue<String> url;
-
+    @PolicyResourceProperty(name="url", flag="unknown_url")
+    private String value_url;
+    private boolean unknown_url;
     public String url() {
-        if (url == null) return null;
-        return url.getValue("ServerArgs.url");
+        if (!unknown_url) return value_url;
+        throw new UndeferrableValueException("Value 'ServerArgs.url' is not present");
     }
 
     /**
      * Specifies the workflow details. See `workflow_details` Block below for details.
      * 
      */
-    private UndeferrableValue<ServerWorkflowDetailsArgs> workflowDetails;
-
+    @PolicyResourceProperty(name="workflowDetails", flag="unknown_workflowDetails")
+    private ServerWorkflowDetailsArgs value_workflowDetails;
+    private boolean unknown_workflowDetails;
     public ServerWorkflowDetailsArgs workflowDetails() {
-        if (workflowDetails == null) return null;
-        return workflowDetails.getValue("ServerArgs.workflowDetails");
+        if (!unknown_workflowDetails) return value_workflowDetails;
+        throw new UndeferrableValueException("Value 'ServerArgs.workflowDetails' is not present");
     }
 
 }

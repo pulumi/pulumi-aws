@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class ImageVersionArgs extends com.pulumi.resources.PolicyResourceI
      * The registry path of the container image on which this image version is based.
      * 
      */
-    private UndeferrableValue<String> baseImage;
-
+    @PolicyResourceProperty(name="baseImage", flag="unknown_baseImage")
+    private String value_baseImage;
+    private boolean unknown_baseImage;
     public String baseImage() {
-        if (baseImage == null) return null;
-        return baseImage.getValue("ImageVersionArgs.baseImage");
+        if (!unknown_baseImage) return value_baseImage;
+        throw new UndeferrableValueException("Value 'ImageVersionArgs.baseImage' is not present");
     }
 
     /**
      * The name of the image. Must be unique to your account.
      * 
      */
-    private UndeferrableValue<String> imageName;
-
+    @PolicyResourceProperty(name="imageName", flag="unknown_imageName")
+    private String value_imageName;
+    private boolean unknown_imageName;
     public String imageName() {
-        if (imageName == null) return null;
-        return imageName.getValue("ImageVersionArgs.imageName");
+        if (!unknown_imageName) return value_imageName;
+        throw new UndeferrableValueException("Value 'ImageVersionArgs.imageName' is not present");
     }
 
 }

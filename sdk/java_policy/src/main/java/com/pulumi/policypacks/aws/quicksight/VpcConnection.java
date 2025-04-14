@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.quicksight.outputs.VpcConnectionTimeouts;
 import java.lang.String;
@@ -19,77 +20,84 @@ public final class VpcConnection extends com.pulumi.resources.PolicyResourceOutp
      * ARN of the VPC connection.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("VpcConnection.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'VpcConnection.arn' is not present");
     }
 
     /**
      * The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
      * 
      */
-    private UndeferrableValue<String> availabilityStatus;
-
+    @PolicyResourceProperty(name="availabilityStatus", flag="unknown_availabilityStatus")
+    private String value_availabilityStatus;
+    private boolean unknown_availabilityStatus;
     public String availabilityStatus() {
-        if (availabilityStatus == null) return null;
-        return availabilityStatus.getValue("VpcConnection.availabilityStatus");
+        if (!unknown_availabilityStatus) return value_availabilityStatus;
+        throw new UndeferrableValueException("Value 'VpcConnection.availabilityStatus' is not present");
     }
 
     /**
      * AWS account ID.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("VpcConnection.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'VpcConnection.awsAccountId' is not present");
     }
 
     /**
      * A list of IP addresses of DNS resolver endpoints for the VPC connection.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> dnsResolvers;
-
+    @PolicyResourceProperty(name="dnsResolvers", flag="unknown_dnsResolvers")
+    private @Nullable List<String> value_dnsResolvers;
+    private boolean unknown_dnsResolvers;
     public @Nullable List<String> dnsResolvers() {
-        if (dnsResolvers == null) return null;
-        return dnsResolvers.getValue("VpcConnection.dnsResolvers");
+        if (!unknown_dnsResolvers) return value_dnsResolvers;
+        throw new UndeferrableValueException("Value 'VpcConnection.dnsResolvers' is not present");
     }
 
     /**
      * The display name for the VPC connection.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("VpcConnection.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'VpcConnection.name' is not present");
     }
 
     /**
      * The IAM role to associate with the VPC connection.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("VpcConnection.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'VpcConnection.roleArn' is not present");
     }
 
     /**
      * A list of security group IDs for the VPC connection.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("VpcConnection.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'VpcConnection.securityGroupIds' is not present");
     }
 
     /**
@@ -98,22 +106,24 @@ public final class VpcConnection extends com.pulumi.resources.PolicyResourceOutp
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("VpcConnection.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'VpcConnection.subnetIds' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VpcConnection.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VpcConnection.tags' is not present");
     }
 
     /**
@@ -124,29 +134,32 @@ public final class VpcConnection extends com.pulumi.resources.PolicyResourceOutp
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("VpcConnection.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'VpcConnection.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<VpcConnectionTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable VpcConnectionTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable VpcConnectionTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("VpcConnection.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'VpcConnection.timeouts' is not present");
     }
 
     /**
      * The ID of the VPC connection.
      * 
      */
-    private UndeferrableValue<String> vpcConnectionId;
-
+    @PolicyResourceProperty(name="vpcConnectionId", flag="unknown_vpcConnectionId")
+    private String value_vpcConnectionId;
+    private boolean unknown_vpcConnectionId;
     public String vpcConnectionId() {
-        if (vpcConnectionId == null) return null;
-        return vpcConnectionId.getValue("VpcConnection.vpcConnectionId");
+        if (!unknown_vpcConnectionId) return value_vpcConnectionId;
+        throw new UndeferrableValueException("Value 'VpcConnection.vpcConnectionId' is not present");
     }
 
 }

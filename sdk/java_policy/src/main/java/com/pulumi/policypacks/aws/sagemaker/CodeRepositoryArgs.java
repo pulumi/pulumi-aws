@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.inputs.CodeRepositoryGitConfigArgs;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class CodeRepositoryArgs extends com.pulumi.resources.PolicyResourc
      * The name of the Code Repository (must be unique).
      * 
      */
-    private UndeferrableValue<String> codeRepositoryName;
-
+    @PolicyResourceProperty(name="codeRepositoryName", flag="unknown_codeRepositoryName")
+    private String value_codeRepositoryName;
+    private boolean unknown_codeRepositoryName;
     public String codeRepositoryName() {
-        if (codeRepositoryName == null) return null;
-        return codeRepositoryName.getValue("CodeRepositoryArgs.codeRepositoryName");
+        if (!unknown_codeRepositoryName) return value_codeRepositoryName;
+        throw new UndeferrableValueException("Value 'CodeRepositoryArgs.codeRepositoryName' is not present");
     }
 
     /**
      * Specifies details about the repository. see Git Config details below.
      * 
      */
-    private UndeferrableValue<CodeRepositoryGitConfigArgs> gitConfig;
-
+    @PolicyResourceProperty(name="gitConfig", flag="unknown_gitConfig")
+    private CodeRepositoryGitConfigArgs value_gitConfig;
+    private boolean unknown_gitConfig;
     public CodeRepositoryGitConfigArgs gitConfig() {
-        if (gitConfig == null) return null;
-        return gitConfig.getValue("CodeRepositoryArgs.gitConfig");
+        if (!unknown_gitConfig) return value_gitConfig;
+        throw new UndeferrableValueException("Value 'CodeRepositoryArgs.gitConfig' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CodeRepositoryArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CodeRepositoryArgs.tags' is not present");
     }
 
 }

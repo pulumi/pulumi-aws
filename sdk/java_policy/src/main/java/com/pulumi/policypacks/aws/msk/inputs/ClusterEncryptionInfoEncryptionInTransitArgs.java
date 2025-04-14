@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ClusterEncryptionInfoEncryptionInTransitArgs {
      * Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
      * 
      */
-    private UndeferrableValue<String> clientBroker;
-
+    @PolicyResourceProperty(name="clientBroker", flag="unknown_clientBroker")
+    private String value_clientBroker;
+    private boolean unknown_clientBroker;
     public String clientBroker() {
-        if (clientBroker == null) return null;
-        return clientBroker.getValue("ClusterEncryptionInfoEncryptionInTransitArgs.clientBroker");
+        if (!unknown_clientBroker) return value_clientBroker;
+        throw new UndeferrableValueException("Value 'ClusterEncryptionInfoEncryptionInTransitArgs.clientBroker' is not present");
     }
 
     /**
      * Whether data communication among broker nodes is encrypted. Default value: `true`.
      * 
      */
-    private UndeferrableValue<Boolean> inCluster;
-
+    @PolicyResourceProperty(name="inCluster", flag="unknown_inCluster")
+    private Boolean value_inCluster;
+    private boolean unknown_inCluster;
     public Boolean inCluster() {
-        if (inCluster == null) return null;
-        return inCluster.getValue("ClusterEncryptionInfoEncryptionInTransitArgs.inCluster");
+        if (!unknown_inCluster) return value_inCluster;
+        throw new UndeferrableValueException("Value 'ClusterEncryptionInfoEncryptionInTransitArgs.inCluster' is not present");
     }
 
 }

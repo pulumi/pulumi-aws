@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class DeviceAwsLocationArgs {
      * The Amazon Resource Name (ARN) of the subnet that the device is located in.
      * 
      */
-    private UndeferrableValue<String> subnetArn;
-
+    @PolicyResourceProperty(name="subnetArn", flag="unknown_subnetArn")
+    private String value_subnetArn;
+    private boolean unknown_subnetArn;
     public String subnetArn() {
-        if (subnetArn == null) return null;
-        return subnetArn.getValue("DeviceAwsLocationArgs.subnetArn");
+        if (!unknown_subnetArn) return value_subnetArn;
+        throw new UndeferrableValueException("Value 'DeviceAwsLocationArgs.subnetArn' is not present");
     }
 
     /**
      * The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
      * 
      */
-    private UndeferrableValue<String> zone;
-
+    @PolicyResourceProperty(name="zone", flag="unknown_zone")
+    private String value_zone;
+    private boolean unknown_zone;
     public String zone() {
-        if (zone == null) return null;
-        return zone.getValue("DeviceAwsLocationArgs.zone");
+        if (!unknown_zone) return value_zone;
+        throw new UndeferrableValueException("Value 'DeviceAwsLocationArgs.zone' is not present");
     }
 
 }

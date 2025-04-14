@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,11 +14,12 @@ public final class TaskDefinitionEphemeralStorageArgs {
      * The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
      * 
      */
-    private UndeferrableValue<Integer> sizeInGib;
-
+    @PolicyResourceProperty(name="sizeInGib", flag="unknown_sizeInGib")
+    private Integer value_sizeInGib;
+    private boolean unknown_sizeInGib;
     public Integer sizeInGib() {
-        if (sizeInGib == null) return null;
-        return sizeInGib.getValue("TaskDefinitionEphemeralStorageArgs.sizeInGib");
+        if (!unknown_sizeInGib) return value_sizeInGib;
+        throw new UndeferrableValueException("Value 'TaskDefinitionEphemeralStorageArgs.sizeInGib' is not present");
     }
 
 }

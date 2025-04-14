@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.finspace.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class KxDataviewSegmentConfiguration {
      * The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
      * 
      */
-    private UndeferrableValue<List<String>> dbPaths;
-
+    @PolicyResourceProperty(name="dbPaths", flag="unknown_dbPaths")
+    private List<String> value_dbPaths;
+    private boolean unknown_dbPaths;
     public List<String> dbPaths() {
-        if (dbPaths == null) return null;
-        return dbPaths.getValue("KxDataviewSegmentConfiguration.dbPaths");
+        if (!unknown_dbPaths) return value_dbPaths;
+        throw new UndeferrableValueException("Value 'KxDataviewSegmentConfiguration.dbPaths' is not present");
     }
 
     /**
      * Enables on-demand caching on the selected database path when a particular file or a column of the database is accessed. When on demand caching is **True**, dataviews perform minimal loading of files on the filesystem as needed. When it is set to **False**, everything is cached. The default value is **False**.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> onDemand;
-
+    @PolicyResourceProperty(name="onDemand", flag="unknown_onDemand")
+    private @Nullable Boolean value_onDemand;
+    private boolean unknown_onDemand;
     public @Nullable Boolean onDemand() {
-        if (onDemand == null) return null;
-        return onDemand.getValue("KxDataviewSegmentConfiguration.onDemand");
+        if (!unknown_onDemand) return value_onDemand;
+        throw new UndeferrableValueException("Value 'KxDataviewSegmentConfiguration.onDemand' is not present");
     }
 
     /**
      * The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
      * 
      */
-    private UndeferrableValue<String> volumeName;
-
+    @PolicyResourceProperty(name="volumeName", flag="unknown_volumeName")
+    private String value_volumeName;
+    private boolean unknown_volumeName;
     public String volumeName() {
-        if (volumeName == null) return null;
-        return volumeName.getValue("KxDataviewSegmentConfiguration.volumeName");
+        if (!unknown_volumeName) return value_volumeName;
+        throw new UndeferrableValueException("Value 'KxDataviewSegmentConfiguration.volumeName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation
      * Specifies the S3 bucket for the customer input file.
      * 
      */
-    private @Nullable UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private @Nullable String value_bucket;
+    private boolean unknown_bucket;
     public @Nullable String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation.bucket' is not present");
     }
 
     /**
      * The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
      * 
      */
-    private @Nullable UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private @Nullable String value_key;
+    private boolean unknown_key;
     public @Nullable String key() {
-        if (key == null) return null;
-        return key.getValue("WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation.key' is not present");
     }
 
 }

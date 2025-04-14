@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.costexplorer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class CostAllocationTagArgs extends com.pulumi.resources.PolicyReso
      * The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("CostAllocationTagArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'CostAllocationTagArgs.status' is not present");
     }
 
     /**
      * The key for the cost allocation tag.
      * 
      */
-    private UndeferrableValue<String> tagKey;
-
+    @PolicyResourceProperty(name="tagKey", flag="unknown_tagKey")
+    private String value_tagKey;
+    private boolean unknown_tagKey;
     public String tagKey() {
-        if (tagKey == null) return null;
-        return tagKey.getValue("CostAllocationTagArgs.tagKey");
+        if (!unknown_tagKey) return value_tagKey;
+        throw new UndeferrableValueException("Value 'CostAllocationTagArgs.tagKey' is not present");
     }
 
 }

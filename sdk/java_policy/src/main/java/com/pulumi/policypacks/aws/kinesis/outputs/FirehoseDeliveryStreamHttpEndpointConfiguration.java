@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions;
 import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration;
 import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration;
@@ -20,143 +21,156 @@ public final class FirehoseDeliveryStreamHttpEndpointConfiguration {
      * The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
      * 
      */
-    private @Nullable UndeferrableValue<String> accessKey;
-
+    @PolicyResourceProperty(name="accessKey", flag="unknown_accessKey")
+    private @Nullable String value_accessKey;
+    private boolean unknown_accessKey;
     public @Nullable String accessKey() {
-        if (accessKey == null) return null;
-        return accessKey.getValue("FirehoseDeliveryStreamHttpEndpointConfiguration.accessKey");
+        if (!unknown_accessKey) return value_accessKey;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfiguration.accessKey' is not present");
     }
 
     /**
      * Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300 (5 minutes).
      * 
      */
-    private @Nullable UndeferrableValue<Integer> bufferingInterval;
-
+    @PolicyResourceProperty(name="bufferingInterval", flag="unknown_bufferingInterval")
+    private @Nullable Integer value_bufferingInterval;
+    private boolean unknown_bufferingInterval;
     public @Nullable Integer bufferingInterval() {
-        if (bufferingInterval == null) return null;
-        return bufferingInterval.getValue("FirehoseDeliveryStreamHttpEndpointConfiguration.bufferingInterval");
+        if (!unknown_bufferingInterval) return value_bufferingInterval;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfiguration.bufferingInterval' is not present");
     }
 
     /**
      * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> bufferingSize;
-
+    @PolicyResourceProperty(name="bufferingSize", flag="unknown_bufferingSize")
+    private @Nullable Integer value_bufferingSize;
+    private boolean unknown_bufferingSize;
     public @Nullable Integer bufferingSize() {
-        if (bufferingSize == null) return null;
-        return bufferingSize.getValue("FirehoseDeliveryStreamHttpEndpointConfiguration.bufferingSize");
+        if (!unknown_bufferingSize) return value_bufferingSize;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfiguration.bufferingSize' is not present");
     }
 
     /**
      * The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions;
-
+    @PolicyResourceProperty(name="cloudwatchLoggingOptions", flag="unknown_cloudwatchLoggingOptions")
+    private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions value_cloudwatchLoggingOptions;
+    private boolean unknown_cloudwatchLoggingOptions;
     public @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions() {
-        if (cloudwatchLoggingOptions == null) return null;
-        return cloudwatchLoggingOptions.getValue("FirehoseDeliveryStreamHttpEndpointConfiguration.cloudwatchLoggingOptions");
+        if (!unknown_cloudwatchLoggingOptions) return value_cloudwatchLoggingOptions;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfiguration.cloudwatchLoggingOptions' is not present");
     }
 
     /**
      * The HTTP endpoint name.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("FirehoseDeliveryStreamHttpEndpointConfiguration.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfiguration.name' is not present");
     }
 
     /**
      * The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration> processingConfiguration;
-
+    @PolicyResourceProperty(name="processingConfiguration", flag="unknown_processingConfiguration")
+    private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration value_processingConfiguration;
+    private boolean unknown_processingConfiguration;
     public @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration processingConfiguration() {
-        if (processingConfiguration == null) return null;
-        return processingConfiguration.getValue("FirehoseDeliveryStreamHttpEndpointConfiguration.processingConfiguration");
+        if (!unknown_processingConfiguration) return value_processingConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfiguration.processingConfiguration' is not present");
     }
 
     /**
      * The request configuration.  See `request_configuration` block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration> requestConfiguration;
-
+    @PolicyResourceProperty(name="requestConfiguration", flag="unknown_requestConfiguration")
+    private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration value_requestConfiguration;
+    private boolean unknown_requestConfiguration;
     public @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration requestConfiguration() {
-        if (requestConfiguration == null) return null;
-        return requestConfiguration.getValue("FirehoseDeliveryStreamHttpEndpointConfiguration.requestConfiguration");
+        if (!unknown_requestConfiguration) return value_requestConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfiguration.requestConfiguration' is not present");
     }
 
     /**
      * Total amount of seconds Firehose spends on retries. This duration starts after the initial attempt fails, It does not include the time periods during which Firehose waits for acknowledgment from the specified destination after each attempt. Valid values between `0` and `7200`. Default is `300`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> retryDuration;
-
+    @PolicyResourceProperty(name="retryDuration", flag="unknown_retryDuration")
+    private @Nullable Integer value_retryDuration;
+    private boolean unknown_retryDuration;
     public @Nullable Integer retryDuration() {
-        if (retryDuration == null) return null;
-        return retryDuration.getValue("FirehoseDeliveryStreamHttpEndpointConfiguration.retryDuration");
+        if (!unknown_retryDuration) return value_retryDuration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfiguration.retryDuration' is not present");
     }
 
     /**
      * Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs. The pattern needs to be `arn:.*`.
      * 
      */
-    private @Nullable UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private @Nullable String value_roleArn;
+    private boolean unknown_roleArn;
     public @Nullable String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("FirehoseDeliveryStreamHttpEndpointConfiguration.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfiguration.roleArn' is not present");
     }
 
     /**
      * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
      * 
      */
-    private @Nullable UndeferrableValue<String> s3BackupMode;
-
+    @PolicyResourceProperty(name="s3BackupMode", flag="unknown_s3BackupMode")
+    private @Nullable String value_s3BackupMode;
+    private boolean unknown_s3BackupMode;
     public @Nullable String s3BackupMode() {
-        if (s3BackupMode == null) return null;
-        return s3BackupMode.getValue("FirehoseDeliveryStreamHttpEndpointConfiguration.s3BackupMode");
+        if (!unknown_s3BackupMode) return value_s3BackupMode;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfiguration.s3BackupMode' is not present");
     }
 
     /**
      * The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration> s3Configuration;
-
+    @PolicyResourceProperty(name="s3Configuration", flag="unknown_s3Configuration")
+    private FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration value_s3Configuration;
+    private boolean unknown_s3Configuration;
     public FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration s3Configuration() {
-        if (s3Configuration == null) return null;
-        return s3Configuration.getValue("FirehoseDeliveryStreamHttpEndpointConfiguration.s3Configuration");
+        if (!unknown_s3Configuration) return value_s3Configuration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfiguration.s3Configuration' is not present");
     }
 
     /**
      * The Secret Manager Configuration. See `secrets_manager_configuration` block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration> secretsManagerConfiguration;
-
+    @PolicyResourceProperty(name="secretsManagerConfiguration", flag="unknown_secretsManagerConfiguration")
+    private @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration value_secretsManagerConfiguration;
+    private boolean unknown_secretsManagerConfiguration;
     public @Nullable FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration secretsManagerConfiguration() {
-        if (secretsManagerConfiguration == null) return null;
-        return secretsManagerConfiguration.getValue("FirehoseDeliveryStreamHttpEndpointConfiguration.secretsManagerConfiguration");
+        if (!unknown_secretsManagerConfiguration) return value_secretsManagerConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfiguration.secretsManagerConfiguration' is not present");
     }
 
     /**
      * The HTTP endpoint URL to which Kinesis Firehose sends your data.
      * 
      */
-    private UndeferrableValue<String> url;
-
+    @PolicyResourceProperty(name="url", flag="unknown_url")
+    private String value_url;
+    private boolean unknown_url;
     public String url() {
-        if (url == null) return null;
-        return url.getValue("FirehoseDeliveryStreamHttpEndpointConfiguration.url");
+        if (!unknown_url) return value_url;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfiguration.url' is not present");
     }
 
 }

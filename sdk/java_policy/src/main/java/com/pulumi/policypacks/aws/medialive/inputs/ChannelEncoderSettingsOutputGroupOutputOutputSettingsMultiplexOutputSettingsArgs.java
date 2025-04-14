@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs;
 
 
@@ -13,11 +14,12 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiple
      * Destination is a multiplex. See Destination for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs value_destination;
+    private boolean unknown_destination;
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs destination() {
-        if (destination == null) return null;
-        return destination.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs.destination' is not present");
     }
 
 }

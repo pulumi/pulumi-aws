@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lightsail.outputs.ContainerServicePrivateRegistryAccessEcrImagePullerRole;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ContainerServicePrivateRegistryAccess {
      * Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ContainerServicePrivateRegistryAccessEcrImagePullerRole> ecrImagePullerRole;
-
+    @PolicyResourceProperty(name="ecrImagePullerRole", flag="unknown_ecrImagePullerRole")
+    private @Nullable ContainerServicePrivateRegistryAccessEcrImagePullerRole value_ecrImagePullerRole;
+    private boolean unknown_ecrImagePullerRole;
     public @Nullable ContainerServicePrivateRegistryAccessEcrImagePullerRole ecrImagePullerRole() {
-        if (ecrImagePullerRole == null) return null;
-        return ecrImagePullerRole.getValue("ContainerServicePrivateRegistryAccess.ecrImagePullerRole");
+        if (!unknown_ecrImagePullerRole) return value_ecrImagePullerRole;
+        throw new UndeferrableValueException("Value 'ContainerServicePrivateRegistryAccess.ecrImagePullerRole' is not present");
     }
 
 }

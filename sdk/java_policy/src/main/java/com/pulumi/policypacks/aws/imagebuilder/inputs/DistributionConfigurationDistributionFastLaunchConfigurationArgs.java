@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.imagebuilder.inputs.DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs;
 import com.pulumi.policypacks.aws.imagebuilder.inputs.DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs;
 import java.lang.Boolean;
@@ -18,55 +19,60 @@ public final class DistributionConfigurationDistributionFastLaunchConfigurationA
      * The owner account ID for the fast-launch enabled Windows AMI.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("DistributionConfigurationDistributionFastLaunchConfigurationArgs.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionFastLaunchConfigurationArgs.accountId' is not present");
     }
 
     /**
      * A Boolean that represents the current state of faster launching for the Windows AMI. Set to `true` to start using Windows faster launching, or `false` to stop using it.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("DistributionConfigurationDistributionFastLaunchConfigurationArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionFastLaunchConfigurationArgs.enabled' is not present");
     }
 
     /**
      * Configuration block for the launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots. Detailed below.
      * 
      */
-    private UndeferrableValue<DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs> launchTemplate;
-
+    @PolicyResourceProperty(name="launchTemplate", flag="unknown_launchTemplate")
+    private DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs value_launchTemplate;
+    private boolean unknown_launchTemplate;
     public DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs launchTemplate() {
-        if (launchTemplate == null) return null;
-        return launchTemplate.getValue("DistributionConfigurationDistributionFastLaunchConfigurationArgs.launchTemplate");
+        if (!unknown_launchTemplate) return value_launchTemplate;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionFastLaunchConfigurationArgs.launchTemplate' is not present");
     }
 
     /**
      * The maximum number of parallel instances that are launched for creating resources.
      * 
      */
-    private UndeferrableValue<Integer> maxParallelLaunches;
-
+    @PolicyResourceProperty(name="maxParallelLaunches", flag="unknown_maxParallelLaunches")
+    private Integer value_maxParallelLaunches;
+    private boolean unknown_maxParallelLaunches;
     public Integer maxParallelLaunches() {
-        if (maxParallelLaunches == null) return null;
-        return maxParallelLaunches.getValue("DistributionConfigurationDistributionFastLaunchConfigurationArgs.maxParallelLaunches");
+        if (!unknown_maxParallelLaunches) return value_maxParallelLaunches;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionFastLaunchConfigurationArgs.maxParallelLaunches' is not present");
     }
 
     /**
      * Configuration block for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled. Detailed below.
      * 
      */
-    private UndeferrableValue<DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs> snapshotConfiguration;
-
+    @PolicyResourceProperty(name="snapshotConfiguration", flag="unknown_snapshotConfiguration")
+    private DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs value_snapshotConfiguration;
+    private boolean unknown_snapshotConfiguration;
     public DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs snapshotConfiguration() {
-        if (snapshotConfiguration == null) return null;
-        return snapshotConfiguration.getValue("DistributionConfigurationDistributionFastLaunchConfigurationArgs.snapshotConfiguration");
+        if (!unknown_snapshotConfiguration) return value_snapshotConfiguration;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionFastLaunchConfigurationArgs.snapshotConfiguration' is not present");
     }
 
 }

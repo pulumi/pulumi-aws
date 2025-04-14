@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class DataSourceParametersAmazonElasticsearch {
      * The OpenSearch domain.
      * 
      */
-    private UndeferrableValue<String> domain;
-
+    @PolicyResourceProperty(name="domain", flag="unknown_domain")
+    private String value_domain;
+    private boolean unknown_domain;
     public String domain() {
-        if (domain == null) return null;
-        return domain.getValue("DataSourceParametersAmazonElasticsearch.domain");
+        if (!unknown_domain) return value_domain;
+        throw new UndeferrableValueException("Value 'DataSourceParametersAmazonElasticsearch.domain' is not present");
     }
 
 }

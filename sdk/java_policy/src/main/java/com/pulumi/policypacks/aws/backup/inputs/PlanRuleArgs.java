@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.backup.inputs.PlanRuleCopyActionArgs;
 import com.pulumi.policypacks.aws.backup.inputs.PlanRuleLifecycleArgs;
 import java.lang.Boolean;
@@ -20,110 +21,120 @@ public final class PlanRuleArgs {
      * The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
      * 
      */
-    private UndeferrableValue<Integer> completionWindow;
-
+    @PolicyResourceProperty(name="completionWindow", flag="unknown_completionWindow")
+    private Integer value_completionWindow;
+    private boolean unknown_completionWindow;
     public Integer completionWindow() {
-        if (completionWindow == null) return null;
-        return completionWindow.getValue("PlanRuleArgs.completionWindow");
+        if (!unknown_completionWindow) return value_completionWindow;
+        throw new UndeferrableValueException("Value 'PlanRuleArgs.completionWindow' is not present");
     }
 
     /**
      * Configuration block(s) with copy operation settings. Detailed below.
      * 
      */
-    private UndeferrableValue<List<PlanRuleCopyActionArgs>> copyActions;
-
+    @PolicyResourceProperty(name="copyActions", flag="unknown_copyActions")
+    private List<PlanRuleCopyActionArgs> value_copyActions;
+    private boolean unknown_copyActions;
     public List<PlanRuleCopyActionArgs> copyActions() {
-        if (copyActions == null) return null;
-        return copyActions.getValue("PlanRuleArgs.copyActions");
+        if (!unknown_copyActions) return value_copyActions;
+        throw new UndeferrableValueException("Value 'PlanRuleArgs.copyActions' is not present");
     }
 
     /**
      * Enable continuous backups for supported resources.
      * 
      */
-    private UndeferrableValue<Boolean> enableContinuousBackup;
-
+    @PolicyResourceProperty(name="enableContinuousBackup", flag="unknown_enableContinuousBackup")
+    private Boolean value_enableContinuousBackup;
+    private boolean unknown_enableContinuousBackup;
     public Boolean enableContinuousBackup() {
-        if (enableContinuousBackup == null) return null;
-        return enableContinuousBackup.getValue("PlanRuleArgs.enableContinuousBackup");
+        if (!unknown_enableContinuousBackup) return value_enableContinuousBackup;
+        throw new UndeferrableValueException("Value 'PlanRuleArgs.enableContinuousBackup' is not present");
     }
 
     /**
      * The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
      * 
      */
-    private UndeferrableValue<PlanRuleLifecycleArgs> lifecycle;
-
+    @PolicyResourceProperty(name="lifecycle", flag="unknown_lifecycle")
+    private PlanRuleLifecycleArgs value_lifecycle;
+    private boolean unknown_lifecycle;
     public PlanRuleLifecycleArgs lifecycle() {
-        if (lifecycle == null) return null;
-        return lifecycle.getValue("PlanRuleArgs.lifecycle");
+        if (!unknown_lifecycle) return value_lifecycle;
+        throw new UndeferrableValueException("Value 'PlanRuleArgs.lifecycle' is not present");
     }
 
     /**
      * Metadata that you can assign to help organize the resources that you create.
      * 
      */
-    private UndeferrableValue<Map<String,String>> recoveryPointTags;
-
+    @PolicyResourceProperty(name="recoveryPointTags", flag="unknown_recoveryPointTags")
+    private Map<String,String> value_recoveryPointTags;
+    private boolean unknown_recoveryPointTags;
     public Map<String,String> recoveryPointTags() {
-        if (recoveryPointTags == null) return null;
-        return recoveryPointTags.getValue("PlanRuleArgs.recoveryPointTags");
+        if (!unknown_recoveryPointTags) return value_recoveryPointTags;
+        throw new UndeferrableValueException("Value 'PlanRuleArgs.recoveryPointTags' is not present");
     }
 
     /**
      * An display name for a backup rule.
      * 
      */
-    private UndeferrableValue<String> ruleName;
-
+    @PolicyResourceProperty(name="ruleName", flag="unknown_ruleName")
+    private String value_ruleName;
+    private boolean unknown_ruleName;
     public String ruleName() {
-        if (ruleName == null) return null;
-        return ruleName.getValue("PlanRuleArgs.ruleName");
+        if (!unknown_ruleName) return value_ruleName;
+        throw new UndeferrableValueException("Value 'PlanRuleArgs.ruleName' is not present");
     }
 
     /**
      * A CRON expression specifying when AWS Backup initiates a backup job.
      * 
      */
-    private UndeferrableValue<String> schedule;
-
+    @PolicyResourceProperty(name="schedule", flag="unknown_schedule")
+    private String value_schedule;
+    private boolean unknown_schedule;
     public String schedule() {
-        if (schedule == null) return null;
-        return schedule.getValue("PlanRuleArgs.schedule");
+        if (!unknown_schedule) return value_schedule;
+        throw new UndeferrableValueException("Value 'PlanRuleArgs.schedule' is not present");
     }
 
     /**
      * The timezone in which the schedule expression is set. Default value: `&#34;Etc/UTC&#34;`.
      * 
      */
-    private UndeferrableValue<String> scheduleExpressionTimezone;
-
+    @PolicyResourceProperty(name="scheduleExpressionTimezone", flag="unknown_scheduleExpressionTimezone")
+    private String value_scheduleExpressionTimezone;
+    private boolean unknown_scheduleExpressionTimezone;
     public String scheduleExpressionTimezone() {
-        if (scheduleExpressionTimezone == null) return null;
-        return scheduleExpressionTimezone.getValue("PlanRuleArgs.scheduleExpressionTimezone");
+        if (!unknown_scheduleExpressionTimezone) return value_scheduleExpressionTimezone;
+        throw new UndeferrableValueException("Value 'PlanRuleArgs.scheduleExpressionTimezone' is not present");
     }
 
     /**
      * The amount of time in minutes before beginning a backup.
      * 
      */
-    private UndeferrableValue<Integer> startWindow;
-
+    @PolicyResourceProperty(name="startWindow", flag="unknown_startWindow")
+    private Integer value_startWindow;
+    private boolean unknown_startWindow;
     public Integer startWindow() {
-        if (startWindow == null) return null;
-        return startWindow.getValue("PlanRuleArgs.startWindow");
+        if (!unknown_startWindow) return value_startWindow;
+        throw new UndeferrableValueException("Value 'PlanRuleArgs.startWindow' is not present");
     }
 
     /**
      * The name of a logical container where backups are stored.
      * 
      */
-    private UndeferrableValue<String> targetVaultName;
-
+    @PolicyResourceProperty(name="targetVaultName", flag="unknown_targetVaultName")
+    private String value_targetVaultName;
+    private boolean unknown_targetVaultName;
     public String targetVaultName() {
-        if (targetVaultName == null) return null;
-        return targetVaultName.getValue("PlanRuleArgs.targetVaultName");
+        if (!unknown_targetVaultName) return value_targetVaultName;
+        throw new UndeferrableValueException("Value 'PlanRuleArgs.targetVaultName' is not present");
     }
 
 }

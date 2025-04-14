@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.iot.outputs.IndexingConfigurationThingGroupIndexingConfiguration;
 import com.pulumi.policypacks.aws.iot.outputs.IndexingConfigurationThingIndexingConfiguration;
@@ -16,22 +17,24 @@ public final class IndexingConfiguration extends com.pulumi.resources.PolicyReso
      * Thing group indexing configuration. See below.
      * 
      */
-    private UndeferrableValue<IndexingConfigurationThingGroupIndexingConfiguration> thingGroupIndexingConfiguration;
-
+    @PolicyResourceProperty(name="thingGroupIndexingConfiguration", flag="unknown_thingGroupIndexingConfiguration")
+    private IndexingConfigurationThingGroupIndexingConfiguration value_thingGroupIndexingConfiguration;
+    private boolean unknown_thingGroupIndexingConfiguration;
     public IndexingConfigurationThingGroupIndexingConfiguration thingGroupIndexingConfiguration() {
-        if (thingGroupIndexingConfiguration == null) return null;
-        return thingGroupIndexingConfiguration.getValue("IndexingConfiguration.thingGroupIndexingConfiguration");
+        if (!unknown_thingGroupIndexingConfiguration) return value_thingGroupIndexingConfiguration;
+        throw new UndeferrableValueException("Value 'IndexingConfiguration.thingGroupIndexingConfiguration' is not present");
     }
 
     /**
      * Thing indexing configuration. See below.
      * 
      */
-    private UndeferrableValue<IndexingConfigurationThingIndexingConfiguration> thingIndexingConfiguration;
-
+    @PolicyResourceProperty(name="thingIndexingConfiguration", flag="unknown_thingIndexingConfiguration")
+    private IndexingConfigurationThingIndexingConfiguration value_thingIndexingConfiguration;
+    private boolean unknown_thingIndexingConfiguration;
     public IndexingConfigurationThingIndexingConfiguration thingIndexingConfiguration() {
-        if (thingIndexingConfiguration == null) return null;
-        return thingIndexingConfiguration.getValue("IndexingConfiguration.thingIndexingConfiguration");
+        if (!unknown_thingIndexingConfiguration) return value_thingIndexingConfiguration;
+        throw new UndeferrableValueException("Value 'IndexingConfiguration.thingIndexingConfiguration' is not present");
     }
 
 }

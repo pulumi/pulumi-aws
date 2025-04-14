@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.outputs.SpotFleetRequestLaunchSpecification;
 import com.pulumi.policypacks.aws.ec2.outputs.SpotFleetRequestLaunchTemplateConfig;
@@ -25,29 +26,32 @@ public final class SpotFleetRequest extends com.pulumi.resources.PolicyResourceO
      * `lowestPrice`.
      * 
      */
-    private @Nullable UndeferrableValue<String> allocationStrategy;
-
+    @PolicyResourceProperty(name="allocationStrategy", flag="unknown_allocationStrategy")
+    private @Nullable String value_allocationStrategy;
+    private boolean unknown_allocationStrategy;
     public @Nullable String allocationStrategy() {
-        if (allocationStrategy == null) return null;
-        return allocationStrategy.getValue("SpotFleetRequest.allocationStrategy");
+        if (!unknown_allocationStrategy) return value_allocationStrategy;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.allocationStrategy' is not present");
     }
 
-    private UndeferrableValue<String> clientToken;
-
+    @PolicyResourceProperty(name="clientToken", flag="unknown_clientToken")
+    private String value_clientToken;
+    private boolean unknown_clientToken;
     public String clientToken() {
-        if (clientToken == null) return null;
-        return clientToken.getValue("SpotFleetRequest.clientToken");
+        if (!unknown_clientToken) return value_clientToken;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.clientToken' is not present");
     }
 
     /**
      * Reserved.
      * 
      */
-    private @Nullable UndeferrableValue<String> context;
-
+    @PolicyResourceProperty(name="context", flag="unknown_context")
+    private @Nullable String value_context;
+    private boolean unknown_context;
     public @Nullable String context() {
-        if (context == null) return null;
-        return context.getValue("SpotFleetRequest.context");
+        if (!unknown_context) return value_context;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.context' is not present");
     }
 
     /**
@@ -56,11 +60,12 @@ public final class SpotFleetRequest extends com.pulumi.resources.PolicyResourceO
      * request is decreased below the current size of the Spot fleet.
      * 
      */
-    private @Nullable UndeferrableValue<String> excessCapacityTerminationPolicy;
-
+    @PolicyResourceProperty(name="excessCapacityTerminationPolicy", flag="unknown_excessCapacityTerminationPolicy")
+    private @Nullable String value_excessCapacityTerminationPolicy;
+    private boolean unknown_excessCapacityTerminationPolicy;
     public @Nullable String excessCapacityTerminationPolicy() {
-        if (excessCapacityTerminationPolicy == null) return null;
-        return excessCapacityTerminationPolicy.getValue("SpotFleetRequest.excessCapacityTerminationPolicy");
+        if (!unknown_excessCapacityTerminationPolicy) return value_excessCapacityTerminationPolicy;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.excessCapacityTerminationPolicy' is not present");
     }
 
     /**
@@ -68,11 +73,12 @@ public final class SpotFleetRequest extends com.pulumi.resources.PolicyResourceO
      * capacity or also attempts to maintain it. Default is `maintain`.
      * 
      */
-    private @Nullable UndeferrableValue<String> fleetType;
-
+    @PolicyResourceProperty(name="fleetType", flag="unknown_fleetType")
+    private @Nullable String value_fleetType;
+    private boolean unknown_fleetType;
     public @Nullable String fleetType() {
-        if (fleetType == null) return null;
-        return fleetType.getValue("SpotFleetRequest.fleetType");
+        if (!unknown_fleetType) return value_fleetType;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.fleetType' is not present");
     }
 
     /**
@@ -82,11 +88,12 @@ public final class SpotFleetRequest extends com.pulumi.resources.PolicyResourceO
      * terminateInstancesWithExpiration.
      * 
      */
-    private UndeferrableValue<String> iamFleetRole;
-
+    @PolicyResourceProperty(name="iamFleetRole", flag="unknown_iamFleetRole")
+    private String value_iamFleetRole;
+    private boolean unknown_iamFleetRole;
     public String iamFleetRole() {
-        if (iamFleetRole == null) return null;
-        return iamFleetRole.getValue("SpotFleetRequest.iamFleetRole");
+        if (!unknown_iamFleetRole) return value_iamFleetRole;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.iamFleetRole' is not present");
     }
 
     /**
@@ -95,11 +102,12 @@ public final class SpotFleetRequest extends com.pulumi.resources.PolicyResourceO
      * `terminate`.
      * 
      */
-    private @Nullable UndeferrableValue<String> instanceInterruptionBehaviour;
-
+    @PolicyResourceProperty(name="instanceInterruptionBehaviour", flag="unknown_instanceInterruptionBehaviour")
+    private @Nullable String value_instanceInterruptionBehaviour;
+    private boolean unknown_instanceInterruptionBehaviour;
     public @Nullable String instanceInterruptionBehaviour() {
-        if (instanceInterruptionBehaviour == null) return null;
-        return instanceInterruptionBehaviour.getValue("SpotFleetRequest.instanceInterruptionBehaviour");
+        if (!unknown_instanceInterruptionBehaviour) return value_instanceInterruptionBehaviour;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.instanceInterruptionBehaviour' is not present");
     }
 
     /**
@@ -109,11 +117,12 @@ public final class SpotFleetRequest extends com.pulumi.resources.PolicyResourceO
      * the number of Spot pools that you specify.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> instancePoolsToUseCount;
-
+    @PolicyResourceProperty(name="instancePoolsToUseCount", flag="unknown_instancePoolsToUseCount")
+    private @Nullable Integer value_instancePoolsToUseCount;
+    private boolean unknown_instancePoolsToUseCount;
     public @Nullable Integer instancePoolsToUseCount() {
-        if (instancePoolsToUseCount == null) return null;
-        return instancePoolsToUseCount.getValue("SpotFleetRequest.instancePoolsToUseCount");
+        if (!unknown_instancePoolsToUseCount) return value_instancePoolsToUseCount;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.instancePoolsToUseCount' is not present");
     }
 
     /**
@@ -128,121 +137,132 @@ public final class SpotFleetRequest extends com.pulumi.resources.PolicyResourceO
      * a additional parameter `iam_instance_profile_arn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
      * 
      */
-    private @Nullable UndeferrableValue<List<SpotFleetRequestLaunchSpecification>> launchSpecifications;
-
+    @PolicyResourceProperty(name="launchSpecifications", flag="unknown_launchSpecifications")
+    private @Nullable List<SpotFleetRequestLaunchSpecification> value_launchSpecifications;
+    private boolean unknown_launchSpecifications;
     public @Nullable List<SpotFleetRequestLaunchSpecification> launchSpecifications() {
-        if (launchSpecifications == null) return null;
-        return launchSpecifications.getValue("SpotFleetRequest.launchSpecifications");
+        if (!unknown_launchSpecifications) return value_launchSpecifications;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.launchSpecifications' is not present");
     }
 
     /**
      * Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
      * 
      */
-    private @Nullable UndeferrableValue<List<SpotFleetRequestLaunchTemplateConfig>> launchTemplateConfigs;
-
+    @PolicyResourceProperty(name="launchTemplateConfigs", flag="unknown_launchTemplateConfigs")
+    private @Nullable List<SpotFleetRequestLaunchTemplateConfig> value_launchTemplateConfigs;
+    private boolean unknown_launchTemplateConfigs;
     public @Nullable List<SpotFleetRequestLaunchTemplateConfig> launchTemplateConfigs() {
-        if (launchTemplateConfigs == null) return null;
-        return launchTemplateConfigs.getValue("SpotFleetRequest.launchTemplateConfigs");
+        if (!unknown_launchTemplateConfigs) return value_launchTemplateConfigs;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.launchTemplateConfigs' is not present");
     }
 
     /**
      * A list of elastic load balancer names to add to the Spot fleet.
      * 
      */
-    private UndeferrableValue<List<String>> loadBalancers;
-
+    @PolicyResourceProperty(name="loadBalancers", flag="unknown_loadBalancers")
+    private List<String> value_loadBalancers;
+    private boolean unknown_loadBalancers;
     public List<String> loadBalancers() {
-        if (loadBalancers == null) return null;
-        return loadBalancers.getValue("SpotFleetRequest.loadBalancers");
+        if (!unknown_loadBalancers) return value_loadBalancers;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.loadBalancers' is not present");
     }
 
     /**
      * The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
      * 
      */
-    private @Nullable UndeferrableValue<String> onDemandAllocationStrategy;
-
+    @PolicyResourceProperty(name="onDemandAllocationStrategy", flag="unknown_onDemandAllocationStrategy")
+    private @Nullable String value_onDemandAllocationStrategy;
+    private boolean unknown_onDemandAllocationStrategy;
     public @Nullable String onDemandAllocationStrategy() {
-        if (onDemandAllocationStrategy == null) return null;
-        return onDemandAllocationStrategy.getValue("SpotFleetRequest.onDemandAllocationStrategy");
+        if (!unknown_onDemandAllocationStrategy) return value_onDemandAllocationStrategy;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.onDemandAllocationStrategy' is not present");
     }
 
     /**
      * The maximum amount per hour for On-Demand Instances that you&#39;re willing to pay. When the maximum amount you&#39;re willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
      * 
      */
-    private @Nullable UndeferrableValue<String> onDemandMaxTotalPrice;
-
+    @PolicyResourceProperty(name="onDemandMaxTotalPrice", flag="unknown_onDemandMaxTotalPrice")
+    private @Nullable String value_onDemandMaxTotalPrice;
+    private boolean unknown_onDemandMaxTotalPrice;
     public @Nullable String onDemandMaxTotalPrice() {
-        if (onDemandMaxTotalPrice == null) return null;
-        return onDemandMaxTotalPrice.getValue("SpotFleetRequest.onDemandMaxTotalPrice");
+        if (!unknown_onDemandMaxTotalPrice) return value_onDemandMaxTotalPrice;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.onDemandMaxTotalPrice' is not present");
     }
 
     /**
      * The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> onDemandTargetCapacity;
-
+    @PolicyResourceProperty(name="onDemandTargetCapacity", flag="unknown_onDemandTargetCapacity")
+    private @Nullable Integer value_onDemandTargetCapacity;
+    private boolean unknown_onDemandTargetCapacity;
     public @Nullable Integer onDemandTargetCapacity() {
-        if (onDemandTargetCapacity == null) return null;
-        return onDemandTargetCapacity.getValue("SpotFleetRequest.onDemandTargetCapacity");
+        if (!unknown_onDemandTargetCapacity) return value_onDemandTargetCapacity;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.onDemandTargetCapacity' is not present");
     }
 
     /**
      * Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> replaceUnhealthyInstances;
-
+    @PolicyResourceProperty(name="replaceUnhealthyInstances", flag="unknown_replaceUnhealthyInstances")
+    private @Nullable Boolean value_replaceUnhealthyInstances;
+    private boolean unknown_replaceUnhealthyInstances;
     public @Nullable Boolean replaceUnhealthyInstances() {
-        if (replaceUnhealthyInstances == null) return null;
-        return replaceUnhealthyInstances.getValue("SpotFleetRequest.replaceUnhealthyInstances");
+        if (!unknown_replaceUnhealthyInstances) return value_replaceUnhealthyInstances;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.replaceUnhealthyInstances' is not present");
     }
 
     /**
      * Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
      * 
      */
-    private @Nullable UndeferrableValue<SpotFleetRequestSpotMaintenanceStrategies> spotMaintenanceStrategies;
-
+    @PolicyResourceProperty(name="spotMaintenanceStrategies", flag="unknown_spotMaintenanceStrategies")
+    private @Nullable SpotFleetRequestSpotMaintenanceStrategies value_spotMaintenanceStrategies;
+    private boolean unknown_spotMaintenanceStrategies;
     public @Nullable SpotFleetRequestSpotMaintenanceStrategies spotMaintenanceStrategies() {
-        if (spotMaintenanceStrategies == null) return null;
-        return spotMaintenanceStrategies.getValue("SpotFleetRequest.spotMaintenanceStrategies");
+        if (!unknown_spotMaintenanceStrategies) return value_spotMaintenanceStrategies;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.spotMaintenanceStrategies' is not present");
     }
 
     /**
      * The maximum bid price per unit hour.
      * 
      */
-    private @Nullable UndeferrableValue<String> spotPrice;
-
+    @PolicyResourceProperty(name="spotPrice", flag="unknown_spotPrice")
+    private @Nullable String value_spotPrice;
+    private boolean unknown_spotPrice;
     public @Nullable String spotPrice() {
-        if (spotPrice == null) return null;
-        return spotPrice.getValue("SpotFleetRequest.spotPrice");
+        if (!unknown_spotPrice) return value_spotPrice;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.spotPrice' is not present");
     }
 
     /**
      * The state of the Spot fleet request.
      * 
      */
-    private UndeferrableValue<String> spotRequestState;
-
+    @PolicyResourceProperty(name="spotRequestState", flag="unknown_spotRequestState")
+    private String value_spotRequestState;
+    private boolean unknown_spotRequestState;
     public String spotRequestState() {
-        if (spotRequestState == null) return null;
-        return spotRequestState.getValue("SpotFleetRequest.spotRequestState");
+        if (!unknown_spotRequestState) return value_spotRequestState;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.spotRequestState' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SpotFleetRequest.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.tags' is not present");
     }
 
     /**
@@ -253,11 +273,12 @@ public final class SpotFleetRequest extends com.pulumi.resources.PolicyResourceO
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("SpotFleetRequest.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.tagsAll' is not present");
     }
 
     /**
@@ -266,33 +287,36 @@ public final class SpotFleetRequest extends com.pulumi.resources.PolicyResourceO
      * important to your application workload, such as vCPUs, memory, or I/O.
      * 
      */
-    private UndeferrableValue<Integer> targetCapacity;
-
+    @PolicyResourceProperty(name="targetCapacity", flag="unknown_targetCapacity")
+    private Integer value_targetCapacity;
+    private boolean unknown_targetCapacity;
     public Integer targetCapacity() {
-        if (targetCapacity == null) return null;
-        return targetCapacity.getValue("SpotFleetRequest.targetCapacity");
+        if (!unknown_targetCapacity) return value_targetCapacity;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.targetCapacity' is not present");
     }
 
     /**
      * The unit for the target capacity. This can only be done with `instance_requirements` defined
      * 
      */
-    private @Nullable UndeferrableValue<String> targetCapacityUnitType;
-
+    @PolicyResourceProperty(name="targetCapacityUnitType", flag="unknown_targetCapacityUnitType")
+    private @Nullable String value_targetCapacityUnitType;
+    private boolean unknown_targetCapacityUnitType;
     public @Nullable String targetCapacityUnitType() {
-        if (targetCapacityUnitType == null) return null;
-        return targetCapacityUnitType.getValue("SpotFleetRequest.targetCapacityUnitType");
+        if (!unknown_targetCapacityUnitType) return value_targetCapacityUnitType;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.targetCapacityUnitType' is not present");
     }
 
     /**
      * A list of `aws.alb.TargetGroup` ARNs, for use with Application Load Balancing.
      * 
      */
-    private UndeferrableValue<List<String>> targetGroupArns;
-
+    @PolicyResourceProperty(name="targetGroupArns", flag="unknown_targetGroupArns")
+    private List<String> value_targetGroupArns;
+    private boolean unknown_targetGroupArns;
     public List<String> targetGroupArns() {
-        if (targetGroupArns == null) return null;
-        return targetGroupArns.getValue("SpotFleetRequest.targetGroupArns");
+        if (!unknown_targetGroupArns) return value_targetGroupArns;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.targetGroupArns' is not present");
     }
 
     /**
@@ -301,11 +325,12 @@ public final class SpotFleetRequest extends com.pulumi.resources.PolicyResourceO
      * If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
      * 
      */
-    private @Nullable UndeferrableValue<String> terminateInstancesOnDelete;
-
+    @PolicyResourceProperty(name="terminateInstancesOnDelete", flag="unknown_terminateInstancesOnDelete")
+    private @Nullable String value_terminateInstancesOnDelete;
+    private boolean unknown_terminateInstancesOnDelete;
     public @Nullable String terminateInstancesOnDelete() {
-        if (terminateInstancesOnDelete == null) return null;
-        return terminateInstancesOnDelete.getValue("SpotFleetRequest.terminateInstancesOnDelete");
+        if (!unknown_terminateInstancesOnDelete) return value_terminateInstancesOnDelete;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.terminateInstancesOnDelete' is not present");
     }
 
     /**
@@ -313,33 +338,36 @@ public final class SpotFleetRequest extends com.pulumi.resources.PolicyResourceO
      * instances should be terminated when the Spot fleet request expires.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> terminateInstancesWithExpiration;
-
+    @PolicyResourceProperty(name="terminateInstancesWithExpiration", flag="unknown_terminateInstancesWithExpiration")
+    private @Nullable Boolean value_terminateInstancesWithExpiration;
+    private boolean unknown_terminateInstancesWithExpiration;
     public @Nullable Boolean terminateInstancesWithExpiration() {
-        if (terminateInstancesWithExpiration == null) return null;
-        return terminateInstancesWithExpiration.getValue("SpotFleetRequest.terminateInstancesWithExpiration");
+        if (!unknown_terminateInstancesWithExpiration) return value_terminateInstancesWithExpiration;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.terminateInstancesWithExpiration' is not present");
     }
 
     /**
      * The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
      * 
      */
-    private @Nullable UndeferrableValue<String> validFrom;
-
+    @PolicyResourceProperty(name="validFrom", flag="unknown_validFrom")
+    private @Nullable String value_validFrom;
+    private boolean unknown_validFrom;
     public @Nullable String validFrom() {
-        if (validFrom == null) return null;
-        return validFrom.getValue("SpotFleetRequest.validFrom");
+        if (!unknown_validFrom) return value_validFrom;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.validFrom' is not present");
     }
 
     /**
      * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
      * 
      */
-    private @Nullable UndeferrableValue<String> validUntil;
-
+    @PolicyResourceProperty(name="validUntil", flag="unknown_validUntil")
+    private @Nullable String value_validUntil;
+    private boolean unknown_validUntil;
     public @Nullable String validUntil() {
-        if (validUntil == null) return null;
-        return validUntil.getValue("SpotFleetRequest.validUntil");
+        if (!unknown_validUntil) return value_validUntil;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.validUntil' is not present");
     }
 
     /**
@@ -348,11 +376,12 @@ public final class SpotFleetRequest extends com.pulumi.resources.PolicyResourceO
      * timeout of 10m is reached.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> waitForFulfillment;
-
+    @PolicyResourceProperty(name="waitForFulfillment", flag="unknown_waitForFulfillment")
+    private @Nullable Boolean value_waitForFulfillment;
+    private boolean unknown_waitForFulfillment;
     public @Nullable Boolean waitForFulfillment() {
-        if (waitForFulfillment == null) return null;
-        return waitForFulfillment.getValue("SpotFleetRequest.waitForFulfillment");
+        if (!unknown_waitForFulfillment) return value_waitForFulfillment;
+        throw new UndeferrableValueException("Value 'SpotFleetRequest.waitForFulfillment' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class UserProfileUserSettingsJupyterLabAppSettingsEmrSettings {
      * An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> assumableRoleArns;
-
+    @PolicyResourceProperty(name="assumableRoleArns", flag="unknown_assumableRoleArns")
+    private @Nullable List<String> value_assumableRoleArns;
+    private boolean unknown_assumableRoleArns;
     public @Nullable List<String> assumableRoleArns() {
-        if (assumableRoleArns == null) return null;
-        return assumableRoleArns.getValue("UserProfileUserSettingsJupyterLabAppSettingsEmrSettings.assumableRoleArns");
+        if (!unknown_assumableRoleArns) return value_assumableRoleArns;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsJupyterLabAppSettingsEmrSettings.assumableRoleArns' is not present");
     }
 
     /**
      * An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> executionRoleArns;
-
+    @PolicyResourceProperty(name="executionRoleArns", flag="unknown_executionRoleArns")
+    private @Nullable List<String> value_executionRoleArns;
+    private boolean unknown_executionRoleArns;
     public @Nullable List<String> executionRoleArns() {
-        if (executionRoleArns == null) return null;
-        return executionRoleArns.getValue("UserProfileUserSettingsJupyterLabAppSettingsEmrSettings.executionRoleArns");
+        if (!unknown_executionRoleArns) return value_executionRoleArns;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsJupyterLabAppSettingsEmrSettings.executionRoleArns' is not present");
     }
 
 }

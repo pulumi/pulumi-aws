@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,55 +17,60 @@ public final class LogAccountPolicy extends com.pulumi.resources.PolicyResourceO
      * Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
      * 
      */
-    private UndeferrableValue<String> policyDocument;
-
+    @PolicyResourceProperty(name="policyDocument", flag="unknown_policyDocument")
+    private String value_policyDocument;
+    private boolean unknown_policyDocument;
     public String policyDocument() {
-        if (policyDocument == null) return null;
-        return policyDocument.getValue("LogAccountPolicy.policyDocument");
+        if (!unknown_policyDocument) return value_policyDocument;
+        throw new UndeferrableValueException("Value 'LogAccountPolicy.policyDocument' is not present");
     }
 
     /**
      * Name of the account policy.
      * 
      */
-    private UndeferrableValue<String> policyName;
-
+    @PolicyResourceProperty(name="policyName", flag="unknown_policyName")
+    private String value_policyName;
+    private boolean unknown_policyName;
     public String policyName() {
-        if (policyName == null) return null;
-        return policyName.getValue("LogAccountPolicy.policyName");
+        if (!unknown_policyName) return value_policyName;
+        throw new UndeferrableValueException("Value 'LogAccountPolicy.policyName' is not present");
     }
 
     /**
      * Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
      * 
      */
-    private UndeferrableValue<String> policyType;
-
+    @PolicyResourceProperty(name="policyType", flag="unknown_policyType")
+    private String value_policyType;
+    private boolean unknown_policyType;
     public String policyType() {
-        if (policyType == null) return null;
-        return policyType.getValue("LogAccountPolicy.policyType");
+        if (!unknown_policyType) return value_policyType;
+        throw new UndeferrableValueException("Value 'LogAccountPolicy.policyType' is not present");
     }
 
     /**
      * Currently defaults to and only accepts the value: `ALL`.
      * 
      */
-    private @Nullable UndeferrableValue<String> scope;
-
+    @PolicyResourceProperty(name="scope", flag="unknown_scope")
+    private @Nullable String value_scope;
+    private boolean unknown_scope;
     public @Nullable String scope() {
-        if (scope == null) return null;
-        return scope.getValue("LogAccountPolicy.scope");
+        if (!unknown_scope) return value_scope;
+        throw new UndeferrableValueException("Value 'LogAccountPolicy.scope' is not present");
     }
 
     /**
      * Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
      * 
      */
-    private @Nullable UndeferrableValue<String> selectionCriteria;
-
+    @PolicyResourceProperty(name="selectionCriteria", flag="unknown_selectionCriteria")
+    private @Nullable String value_selectionCriteria;
+    private boolean unknown_selectionCriteria;
     public @Nullable String selectionCriteria() {
-        if (selectionCriteria == null) return null;
-        return selectionCriteria.getValue("LogAccountPolicy.selectionCriteria");
+        if (!unknown_selectionCriteria) return value_selectionCriteria;
+        throw new UndeferrableValueException("Value 'LogAccountPolicy.selectionCriteria' is not present");
     }
 
 }

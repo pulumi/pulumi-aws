@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.resourceexplorer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.resourceexplorer.outputs.IndexTimeouts;
 import java.lang.String;
@@ -18,22 +19,24 @@ public final class Index extends com.pulumi.resources.PolicyResourceOutput {
      * Amazon Resource Name (ARN) of the Resource Explorer index.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Index.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Index.arn' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Index.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Index.tags' is not present");
     }
 
     /**
@@ -44,29 +47,32 @@ public final class Index extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Index.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Index.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<IndexTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable IndexTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable IndexTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("Index.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'Index.timeouts' is not present");
     }
 
     /**
      * The type of the index. Valid values: `AGGREGATOR`, `LOCAL`. To understand the difference between `LOCAL` and `AGGREGATOR`, see the [_AWS Resource Explorer User Guide_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html).
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("Index.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'Index.type' is not present");
     }
 
 }

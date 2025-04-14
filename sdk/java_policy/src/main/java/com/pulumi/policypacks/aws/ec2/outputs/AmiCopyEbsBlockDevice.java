@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class AmiCopyEbsBlockDevice {
      * support each created instance will be deleted once that instance is terminated.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> deleteOnTermination;
-
+    @PolicyResourceProperty(name="deleteOnTermination", flag="unknown_deleteOnTermination")
+    private @Nullable Boolean value_deleteOnTermination;
+    private boolean unknown_deleteOnTermination;
     public @Nullable Boolean deleteOnTermination() {
-        if (deleteOnTermination == null) return null;
-        return deleteOnTermination.getValue("AmiCopyEbsBlockDevice.deleteOnTermination");
+        if (!unknown_deleteOnTermination) return value_deleteOnTermination;
+        throw new UndeferrableValueException("Value 'AmiCopyEbsBlockDevice.deleteOnTermination' is not present");
     }
 
     /**
      * Path at which the device is exposed to created instances.
      * 
      */
-    private @Nullable UndeferrableValue<String> deviceName;
-
+    @PolicyResourceProperty(name="deviceName", flag="unknown_deviceName")
+    private @Nullable String value_deviceName;
+    private boolean unknown_deviceName;
     public @Nullable String deviceName() {
-        if (deviceName == null) return null;
-        return deviceName.getValue("AmiCopyEbsBlockDevice.deviceName");
+        if (!unknown_deviceName) return value_deviceName;
+        throw new UndeferrableValueException("Value 'AmiCopyEbsBlockDevice.deviceName' is not present");
     }
 
     /**
      * Boolean controlling whether the created EBS volumes will be encrypted. Can&#39;t be used with `snapshot_id`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> encrypted;
-
+    @PolicyResourceProperty(name="encrypted", flag="unknown_encrypted")
+    private @Nullable Boolean value_encrypted;
+    private boolean unknown_encrypted;
     public @Nullable Boolean encrypted() {
-        if (encrypted == null) return null;
-        return encrypted.getValue("AmiCopyEbsBlockDevice.encrypted");
+        if (!unknown_encrypted) return value_encrypted;
+        throw new UndeferrableValueException("Value 'AmiCopyEbsBlockDevice.encrypted' is not present");
     }
 
     /**
@@ -51,11 +55,12 @@ public final class AmiCopyEbsBlockDevice {
      * created volumes will support.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> iops;
-
+    @PolicyResourceProperty(name="iops", flag="unknown_iops")
+    private @Nullable Integer value_iops;
+    private boolean unknown_iops;
     public @Nullable Integer iops() {
-        if (iops == null) return null;
-        return iops.getValue("AmiCopyEbsBlockDevice.iops");
+        if (!unknown_iops) return value_iops;
+        throw new UndeferrableValueException("Value 'AmiCopyEbsBlockDevice.iops' is not present");
     }
 
     /**
@@ -64,11 +69,12 @@ public final class AmiCopyEbsBlockDevice {
      * &gt; **Note:** You can specify `encrypted` or `snapshot_id` but not both.
      * 
      */
-    private @Nullable UndeferrableValue<String> outpostArn;
-
+    @PolicyResourceProperty(name="outpostArn", flag="unknown_outpostArn")
+    private @Nullable String value_outpostArn;
+    private boolean unknown_outpostArn;
     public @Nullable String outpostArn() {
-        if (outpostArn == null) return null;
-        return outpostArn.getValue("AmiCopyEbsBlockDevice.outpostArn");
+        if (!unknown_outpostArn) return value_outpostArn;
+        throw new UndeferrableValueException("Value 'AmiCopyEbsBlockDevice.outpostArn' is not present");
     }
 
     /**
@@ -77,22 +83,24 @@ public final class AmiCopyEbsBlockDevice {
      * snapshot.
      * 
      */
-    private @Nullable UndeferrableValue<String> snapshotId;
-
+    @PolicyResourceProperty(name="snapshotId", flag="unknown_snapshotId")
+    private @Nullable String value_snapshotId;
+    private boolean unknown_snapshotId;
     public @Nullable String snapshotId() {
-        if (snapshotId == null) return null;
-        return snapshotId.getValue("AmiCopyEbsBlockDevice.snapshotId");
+        if (!unknown_snapshotId) return value_snapshotId;
+        throw new UndeferrableValueException("Value 'AmiCopyEbsBlockDevice.snapshotId' is not present");
     }
 
     /**
      * Throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> throughput;
-
+    @PolicyResourceProperty(name="throughput", flag="unknown_throughput")
+    private @Nullable Integer value_throughput;
+    private boolean unknown_throughput;
     public @Nullable Integer throughput() {
-        if (throughput == null) return null;
-        return throughput.getValue("AmiCopyEbsBlockDevice.throughput");
+        if (!unknown_throughput) return value_throughput;
+        throw new UndeferrableValueException("Value 'AmiCopyEbsBlockDevice.throughput' is not present");
     }
 
     /**
@@ -101,22 +109,24 @@ public final class AmiCopyEbsBlockDevice {
      * as the selected snapshot.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> volumeSize;
-
+    @PolicyResourceProperty(name="volumeSize", flag="unknown_volumeSize")
+    private @Nullable Integer value_volumeSize;
+    private boolean unknown_volumeSize;
     public @Nullable Integer volumeSize() {
-        if (volumeSize == null) return null;
-        return volumeSize.getValue("AmiCopyEbsBlockDevice.volumeSize");
+        if (!unknown_volumeSize) return value_volumeSize;
+        throw new UndeferrableValueException("Value 'AmiCopyEbsBlockDevice.volumeSize' is not present");
     }
 
     /**
      * Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
      * 
      */
-    private @Nullable UndeferrableValue<String> volumeType;
-
+    @PolicyResourceProperty(name="volumeType", flag="unknown_volumeType")
+    private @Nullable String value_volumeType;
+    private boolean unknown_volumeType;
     public @Nullable String volumeType() {
-        if (volumeType == null) return null;
-        return volumeType.getValue("AmiCopyEbsBlockDevice.volumeType");
+        if (!unknown_volumeType) return value_volumeType;
+        throw new UndeferrableValueException("Value 'AmiCopyEbsBlockDevice.volumeType' is not present");
     }
 
 }

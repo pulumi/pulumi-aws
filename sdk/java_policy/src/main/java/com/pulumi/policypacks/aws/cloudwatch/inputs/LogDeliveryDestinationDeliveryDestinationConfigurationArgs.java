@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class LogDeliveryDestinationDeliveryDestinationConfigurationArgs {
      * The ARN of the AWS destination that this delivery destination represents.
      * 
      */
-    private UndeferrableValue<String> destinationResourceArn;
-
+    @PolicyResourceProperty(name="destinationResourceArn", flag="unknown_destinationResourceArn")
+    private String value_destinationResourceArn;
+    private boolean unknown_destinationResourceArn;
     public String destinationResourceArn() {
-        if (destinationResourceArn == null) return null;
-        return destinationResourceArn.getValue("LogDeliveryDestinationDeliveryDestinationConfigurationArgs.destinationResourceArn");
+        if (!unknown_destinationResourceArn) return value_destinationResourceArn;
+        throw new UndeferrableValueException("Value 'LogDeliveryDestinationDeliveryDestinationConfigurationArgs.destinationResourceArn' is not present");
     }
 
 }

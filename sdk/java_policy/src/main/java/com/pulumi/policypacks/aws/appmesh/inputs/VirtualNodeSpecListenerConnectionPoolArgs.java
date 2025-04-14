@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecListenerConnectionPoolGrpcArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecListenerConnectionPoolHttp2Args;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecListenerConnectionPoolHttpArgs;
@@ -18,44 +19,48 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs {
      * Connection pool information for gRPC listeners.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecListenerConnectionPoolGrpcArgs> grpc;
-
+    @PolicyResourceProperty(name="grpc", flag="unknown_grpc")
+    private VirtualNodeSpecListenerConnectionPoolGrpcArgs value_grpc;
+    private boolean unknown_grpc;
     public VirtualNodeSpecListenerConnectionPoolGrpcArgs grpc() {
-        if (grpc == null) return null;
-        return grpc.getValue("VirtualNodeSpecListenerConnectionPoolArgs.grpc");
+        if (!unknown_grpc) return value_grpc;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerConnectionPoolArgs.grpc' is not present");
     }
 
     /**
      * Connection pool information for HTTP2 listeners.
      * 
      */
-    private UndeferrableValue<List<VirtualNodeSpecListenerConnectionPoolHttp2Args>> http2s;
-
+    @PolicyResourceProperty(name="http2s", flag="unknown_http2s")
+    private List<VirtualNodeSpecListenerConnectionPoolHttp2Args> value_http2s;
+    private boolean unknown_http2s;
     public List<VirtualNodeSpecListenerConnectionPoolHttp2Args> http2s() {
-        if (http2s == null) return null;
-        return http2s.getValue("VirtualNodeSpecListenerConnectionPoolArgs.http2s");
+        if (!unknown_http2s) return value_http2s;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerConnectionPoolArgs.http2s' is not present");
     }
 
     /**
      * Connection pool information for HTTP listeners.
      * 
      */
-    private UndeferrableValue<List<VirtualNodeSpecListenerConnectionPoolHttpArgs>> https;
-
+    @PolicyResourceProperty(name="https", flag="unknown_https")
+    private List<VirtualNodeSpecListenerConnectionPoolHttpArgs> value_https;
+    private boolean unknown_https;
     public List<VirtualNodeSpecListenerConnectionPoolHttpArgs> https() {
-        if (https == null) return null;
-        return https.getValue("VirtualNodeSpecListenerConnectionPoolArgs.https");
+        if (!unknown_https) return value_https;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerConnectionPoolArgs.https' is not present");
     }
 
     /**
      * Connection pool information for TCP listeners.
      * 
      */
-    private UndeferrableValue<List<VirtualNodeSpecListenerConnectionPoolTcpArgs>> tcps;
-
+    @PolicyResourceProperty(name="tcps", flag="unknown_tcps")
+    private List<VirtualNodeSpecListenerConnectionPoolTcpArgs> value_tcps;
+    private boolean unknown_tcps;
     public List<VirtualNodeSpecListenerConnectionPoolTcpArgs> tcps() {
-        if (tcps == null) return null;
-        return tcps.getValue("VirtualNodeSpecListenerConnectionPoolArgs.tcps");
+        if (!unknown_tcps) return value_tcps;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerConnectionPoolArgs.tcps' is not present");
     }
 
 }

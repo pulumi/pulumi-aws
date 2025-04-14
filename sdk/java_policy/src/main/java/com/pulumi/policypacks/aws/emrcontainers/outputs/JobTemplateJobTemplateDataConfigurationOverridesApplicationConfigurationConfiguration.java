@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emrcontainers.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesApplicationCo
      * The classification within a configuration.
      * 
      */
-    private @Nullable UndeferrableValue<String> classification;
-
+    @PolicyResourceProperty(name="classification", flag="unknown_classification")
+    private @Nullable String value_classification;
+    private boolean unknown_classification;
     public @Nullable String classification() {
-        if (classification == null) return null;
-        return classification.getValue("JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration.classification");
+        if (!unknown_classification) return value_classification;
+        throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration.classification' is not present");
     }
 
     /**
      * A set of properties specified within a configuration classification.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> properties;
-
+    @PolicyResourceProperty(name="properties", flag="unknown_properties")
+    private @Nullable Map<String,String> value_properties;
+    private boolean unknown_properties;
     public @Nullable Map<String,String> properties() {
-        if (properties == null) return null;
-        return properties.getValue("JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration.properties");
+        if (!unknown_properties) return value_properties;
+        throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration.properties' is not present");
     }
 
 }

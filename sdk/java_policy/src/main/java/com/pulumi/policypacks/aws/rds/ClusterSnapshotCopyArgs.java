@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.rds.inputs.ClusterSnapshotCopyTimeoutsArgs;
 import java.lang.Boolean;
@@ -20,77 +21,84 @@ public final class ClusterSnapshotCopyArgs extends com.pulumi.resources.PolicyRe
      * Whether to copy existing tags. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> copyTags;
-
+    @PolicyResourceProperty(name="copyTags", flag="unknown_copyTags")
+    private Boolean value_copyTags;
+    private boolean unknown_copyTags;
     public Boolean copyTags() {
-        if (copyTags == null) return null;
-        return copyTags.getValue("ClusterSnapshotCopyArgs.copyTags");
+        if (!unknown_copyTags) return value_copyTags;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopyArgs.copyTags' is not present");
     }
 
     /**
      * The Destination region to place snapshot copy.
      * 
      */
-    private UndeferrableValue<String> destinationRegion;
-
+    @PolicyResourceProperty(name="destinationRegion", flag="unknown_destinationRegion")
+    private String value_destinationRegion;
+    private boolean unknown_destinationRegion;
     public String destinationRegion() {
-        if (destinationRegion == null) return null;
-        return destinationRegion.getValue("ClusterSnapshotCopyArgs.destinationRegion");
+        if (!unknown_destinationRegion) return value_destinationRegion;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopyArgs.destinationRegion' is not present");
     }
 
     /**
      * KMS key ID.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("ClusterSnapshotCopyArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopyArgs.kmsKeyId' is not present");
     }
 
     /**
      * URL that contains a Signature Version 4 signed request.
      * 
      */
-    private UndeferrableValue<String> presignedUrl;
-
+    @PolicyResourceProperty(name="presignedUrl", flag="unknown_presignedUrl")
+    private String value_presignedUrl;
+    private boolean unknown_presignedUrl;
     public String presignedUrl() {
-        if (presignedUrl == null) return null;
-        return presignedUrl.getValue("ClusterSnapshotCopyArgs.presignedUrl");
+        if (!unknown_presignedUrl) return value_presignedUrl;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopyArgs.presignedUrl' is not present");
     }
 
     /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      * 
      */
-    private UndeferrableValue<List<String>> sharedAccounts;
-
+    @PolicyResourceProperty(name="sharedAccounts", flag="unknown_sharedAccounts")
+    private List<String> value_sharedAccounts;
+    private boolean unknown_sharedAccounts;
     public List<String> sharedAccounts() {
-        if (sharedAccounts == null) return null;
-        return sharedAccounts.getValue("ClusterSnapshotCopyArgs.sharedAccounts");
+        if (!unknown_sharedAccounts) return value_sharedAccounts;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopyArgs.sharedAccounts' is not present");
     }
 
     /**
      * Identifier of the source snapshot.
      * 
      */
-    private UndeferrableValue<String> sourceDbClusterSnapshotIdentifier;
-
+    @PolicyResourceProperty(name="sourceDbClusterSnapshotIdentifier", flag="unknown_sourceDbClusterSnapshotIdentifier")
+    private String value_sourceDbClusterSnapshotIdentifier;
+    private boolean unknown_sourceDbClusterSnapshotIdentifier;
     public String sourceDbClusterSnapshotIdentifier() {
-        if (sourceDbClusterSnapshotIdentifier == null) return null;
-        return sourceDbClusterSnapshotIdentifier.getValue("ClusterSnapshotCopyArgs.sourceDbClusterSnapshotIdentifier");
+        if (!unknown_sourceDbClusterSnapshotIdentifier) return value_sourceDbClusterSnapshotIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopyArgs.sourceDbClusterSnapshotIdentifier' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ClusterSnapshotCopyArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopyArgs.tags' is not present");
     }
 
     /**
@@ -99,18 +107,20 @@ public final class ClusterSnapshotCopyArgs extends com.pulumi.resources.PolicyRe
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> targetDbClusterSnapshotIdentifier;
-
+    @PolicyResourceProperty(name="targetDbClusterSnapshotIdentifier", flag="unknown_targetDbClusterSnapshotIdentifier")
+    private String value_targetDbClusterSnapshotIdentifier;
+    private boolean unknown_targetDbClusterSnapshotIdentifier;
     public String targetDbClusterSnapshotIdentifier() {
-        if (targetDbClusterSnapshotIdentifier == null) return null;
-        return targetDbClusterSnapshotIdentifier.getValue("ClusterSnapshotCopyArgs.targetDbClusterSnapshotIdentifier");
+        if (!unknown_targetDbClusterSnapshotIdentifier) return value_targetDbClusterSnapshotIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopyArgs.targetDbClusterSnapshotIdentifier' is not present");
     }
 
-    private UndeferrableValue<ClusterSnapshotCopyTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private ClusterSnapshotCopyTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public ClusterSnapshotCopyTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ClusterSnapshotCopyArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopyArgs.timeouts' is not present");
     }
 
 }

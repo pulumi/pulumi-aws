@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ssm.outputs.PatchBaselineApprovalRule;
 import com.pulumi.policypacks.aws.ssm.outputs.PatchBaselineGlobalFilter;
@@ -22,88 +23,96 @@ public final class PatchBaseline extends com.pulumi.resources.PolicyResourceOutp
      * Set of rules used to include patches in the baseline. Up to 10 approval rules can be specified. See `approval_rule` below.
      * 
      */
-    private @Nullable UndeferrableValue<List<PatchBaselineApprovalRule>> approvalRules;
-
+    @PolicyResourceProperty(name="approvalRules", flag="unknown_approvalRules")
+    private @Nullable List<PatchBaselineApprovalRule> value_approvalRules;
+    private boolean unknown_approvalRules;
     public @Nullable List<PatchBaselineApprovalRule> approvalRules() {
-        if (approvalRules == null) return null;
-        return approvalRules.getValue("PatchBaseline.approvalRules");
+        if (!unknown_approvalRules) return value_approvalRules;
+        throw new UndeferrableValueException("Value 'PatchBaseline.approvalRules' is not present");
     }
 
     /**
      * List of explicitly approved patches for the baseline. Cannot be specified with `approval_rule`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> approvedPatches;
-
+    @PolicyResourceProperty(name="approvedPatches", flag="unknown_approvedPatches")
+    private @Nullable List<String> value_approvedPatches;
+    private boolean unknown_approvedPatches;
     public @Nullable List<String> approvedPatches() {
-        if (approvedPatches == null) return null;
-        return approvedPatches.getValue("PatchBaseline.approvedPatches");
+        if (!unknown_approvedPatches) return value_approvedPatches;
+        throw new UndeferrableValueException("Value 'PatchBaseline.approvedPatches' is not present");
     }
 
     /**
      * Compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> approvedPatchesComplianceLevel;
-
+    @PolicyResourceProperty(name="approvedPatchesComplianceLevel", flag="unknown_approvedPatchesComplianceLevel")
+    private @Nullable String value_approvedPatchesComplianceLevel;
+    private boolean unknown_approvedPatchesComplianceLevel;
     public @Nullable String approvedPatchesComplianceLevel() {
-        if (approvedPatchesComplianceLevel == null) return null;
-        return approvedPatchesComplianceLevel.getValue("PatchBaseline.approvedPatchesComplianceLevel");
+        if (!unknown_approvedPatchesComplianceLevel) return value_approvedPatchesComplianceLevel;
+        throw new UndeferrableValueException("Value 'PatchBaseline.approvedPatchesComplianceLevel' is not present");
     }
 
     /**
      * Whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> approvedPatchesEnableNonSecurity;
-
+    @PolicyResourceProperty(name="approvedPatchesEnableNonSecurity", flag="unknown_approvedPatchesEnableNonSecurity")
+    private @Nullable Boolean value_approvedPatchesEnableNonSecurity;
+    private boolean unknown_approvedPatchesEnableNonSecurity;
     public @Nullable Boolean approvedPatchesEnableNonSecurity() {
-        if (approvedPatchesEnableNonSecurity == null) return null;
-        return approvedPatchesEnableNonSecurity.getValue("PatchBaseline.approvedPatchesEnableNonSecurity");
+        if (!unknown_approvedPatchesEnableNonSecurity) return value_approvedPatchesEnableNonSecurity;
+        throw new UndeferrableValueException("Value 'PatchBaseline.approvedPatchesEnableNonSecurity' is not present");
     }
 
     /**
      * ARN of the baseline.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("PatchBaseline.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'PatchBaseline.arn' is not present");
     }
 
     /**
      * Description of the patch baseline.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("PatchBaseline.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'PatchBaseline.description' is not present");
     }
 
     /**
      * Set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT`, `CLASSIFICATION`, `MSRC_SEVERITY`, and `PATCH_ID`.
      * 
      */
-    private @Nullable UndeferrableValue<List<PatchBaselineGlobalFilter>> globalFilters;
-
+    @PolicyResourceProperty(name="globalFilters", flag="unknown_globalFilters")
+    private @Nullable List<PatchBaselineGlobalFilter> value_globalFilters;
+    private boolean unknown_globalFilters;
     public @Nullable List<PatchBaselineGlobalFilter> globalFilters() {
-        if (globalFilters == null) return null;
-        return globalFilters.getValue("PatchBaseline.globalFilters");
+        if (!unknown_globalFilters) return value_globalFilters;
+        throw new UndeferrableValueException("Value 'PatchBaseline.globalFilters' is not present");
     }
 
     /**
      * JSON definition of the baseline.
      * 
      */
-    private UndeferrableValue<String> json;
-
+    @PolicyResourceProperty(name="json", flag="unknown_json")
+    private String value_json;
+    private boolean unknown_json;
     public String json() {
-        if (json == null) return null;
-        return json.getValue("PatchBaseline.json");
+        if (!unknown_json) return value_json;
+        throw new UndeferrableValueException("Value 'PatchBaseline.json' is not present");
     }
 
     /**
@@ -112,66 +121,72 @@ public final class PatchBaseline extends com.pulumi.resources.PolicyResourceOutp
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PatchBaseline.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PatchBaseline.name' is not present");
     }
 
     /**
      * Operating system the patch baseline applies to. Valid values are `ALMA_LINUX`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `AMAZON_LINUX_2022`, `AMAZON_LINUX_2023`, `CENTOS`, `DEBIAN`, `MACOS`, `ORACLE_LINUX`, `RASPBIAN`, `REDHAT_ENTERPRISE_LINUX`, `ROCKY_LINUX`, `SUSE`, `UBUNTU`, and `WINDOWS`. The default value is `WINDOWS`.
      * 
      */
-    private @Nullable UndeferrableValue<String> operatingSystem;
-
+    @PolicyResourceProperty(name="operatingSystem", flag="unknown_operatingSystem")
+    private @Nullable String value_operatingSystem;
+    private boolean unknown_operatingSystem;
     public @Nullable String operatingSystem() {
-        if (operatingSystem == null) return null;
-        return operatingSystem.getValue("PatchBaseline.operatingSystem");
+        if (!unknown_operatingSystem) return value_operatingSystem;
+        throw new UndeferrableValueException("Value 'PatchBaseline.operatingSystem' is not present");
     }
 
     /**
      * List of rejected patches.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> rejectedPatches;
-
+    @PolicyResourceProperty(name="rejectedPatches", flag="unknown_rejectedPatches")
+    private @Nullable List<String> value_rejectedPatches;
+    private boolean unknown_rejectedPatches;
     public @Nullable List<String> rejectedPatches() {
-        if (rejectedPatches == null) return null;
-        return rejectedPatches.getValue("PatchBaseline.rejectedPatches");
+        if (!unknown_rejectedPatches) return value_rejectedPatches;
+        throw new UndeferrableValueException("Value 'PatchBaseline.rejectedPatches' is not present");
     }
 
     /**
      * Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
      * 
      */
-    private UndeferrableValue<String> rejectedPatchesAction;
-
+    @PolicyResourceProperty(name="rejectedPatchesAction", flag="unknown_rejectedPatchesAction")
+    private String value_rejectedPatchesAction;
+    private boolean unknown_rejectedPatchesAction;
     public String rejectedPatchesAction() {
-        if (rejectedPatchesAction == null) return null;
-        return rejectedPatchesAction.getValue("PatchBaseline.rejectedPatchesAction");
+        if (!unknown_rejectedPatchesAction) return value_rejectedPatchesAction;
+        throw new UndeferrableValueException("Value 'PatchBaseline.rejectedPatchesAction' is not present");
     }
 
     /**
      * Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
      * 
      */
-    private @Nullable UndeferrableValue<List<PatchBaselineSource>> sources;
-
+    @PolicyResourceProperty(name="sources", flag="unknown_sources")
+    private @Nullable List<PatchBaselineSource> value_sources;
+    private boolean unknown_sources;
     public @Nullable List<PatchBaselineSource> sources() {
-        if (sources == null) return null;
-        return sources.getValue("PatchBaseline.sources");
+        if (!unknown_sources) return value_sources;
+        throw new UndeferrableValueException("Value 'PatchBaseline.sources' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("PatchBaseline.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'PatchBaseline.tags' is not present");
     }
 
     /**
@@ -182,11 +197,12 @@ public final class PatchBaseline extends com.pulumi.resources.PolicyResourceOutp
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("PatchBaseline.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'PatchBaseline.tagsAll' is not present");
     }
 
 }

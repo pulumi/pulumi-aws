@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sesv2.outputs.ConfigurationSetEventDestinationEventDestination;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class ConfigurationSetEventDestination extends com.pulumi.resources
      * The name of the configuration set.
      * 
      */
-    private UndeferrableValue<String> configurationSetName;
-
+    @PolicyResourceProperty(name="configurationSetName", flag="unknown_configurationSetName")
+    private String value_configurationSetName;
+    private boolean unknown_configurationSetName;
     public String configurationSetName() {
-        if (configurationSetName == null) return null;
-        return configurationSetName.getValue("ConfigurationSetEventDestination.configurationSetName");
+        if (!unknown_configurationSetName) return value_configurationSetName;
+        throw new UndeferrableValueException("Value 'ConfigurationSetEventDestination.configurationSetName' is not present");
     }
 
     /**
      * A name that identifies the event destination within the configuration set.
      * 
      */
-    private UndeferrableValue<ConfigurationSetEventDestinationEventDestination> eventDestination;
-
+    @PolicyResourceProperty(name="eventDestination", flag="unknown_eventDestination")
+    private ConfigurationSetEventDestinationEventDestination value_eventDestination;
+    private boolean unknown_eventDestination;
     public ConfigurationSetEventDestinationEventDestination eventDestination() {
-        if (eventDestination == null) return null;
-        return eventDestination.getValue("ConfigurationSetEventDestination.eventDestination");
+        if (!unknown_eventDestination) return value_eventDestination;
+        throw new UndeferrableValueException("Value 'ConfigurationSetEventDestination.eventDestination' is not present");
     }
 
     /**
      * An object that defines the event destination. See `event_destination` Block for details.
      * 
      */
-    private UndeferrableValue<String> eventDestinationName;
-
+    @PolicyResourceProperty(name="eventDestinationName", flag="unknown_eventDestinationName")
+    private String value_eventDestinationName;
+    private boolean unknown_eventDestinationName;
     public String eventDestinationName() {
-        if (eventDestinationName == null) return null;
-        return eventDestinationName.getValue("ConfigurationSetEventDestination.eventDestinationName");
+        if (!unknown_eventDestinationName) return value_eventDestinationName;
+        throw new UndeferrableValueException("Value 'ConfigurationSetEventDestination.eventDestinationName' is not present");
     }
 
 }

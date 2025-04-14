@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs {
      * A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see `custom_image` Block below.
      * 
      */
-    private UndeferrableValue<List<DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgs>> customImages;
-
+    @PolicyResourceProperty(name="customImages", flag="unknown_customImages")
+    private List<DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgs> value_customImages;
+    private boolean unknown_customImages;
     public List<DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgs> customImages() {
-        if (customImages == null) return null;
-        return customImages.getValue("DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs.customImages");
+        if (!unknown_customImages) return value_customImages;
+        throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs.customImages' is not present");
     }
 
     /**
      * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
      * 
      */
-    private UndeferrableValue<DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
-
+    @PolicyResourceProperty(name="defaultResourceSpec", flag="unknown_defaultResourceSpec")
+    private DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs value_defaultResourceSpec;
+    private boolean unknown_defaultResourceSpec;
     public DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs defaultResourceSpec() {
-        if (defaultResourceSpec == null) return null;
-        return defaultResourceSpec.getValue("DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs.defaultResourceSpec");
+        if (!unknown_defaultResourceSpec) return value_defaultResourceSpec;
+        throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs.defaultResourceSpec' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
      * 
      */
-    private UndeferrableValue<List<String>> lifecycleConfigArns;
-
+    @PolicyResourceProperty(name="lifecycleConfigArns", flag="unknown_lifecycleConfigArns")
+    private List<String> value_lifecycleConfigArns;
+    private boolean unknown_lifecycleConfigArns;
     public List<String> lifecycleConfigArns() {
-        if (lifecycleConfigArns == null) return null;
-        return lifecycleConfigArns.getValue("DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs.lifecycleConfigArns");
+        if (!unknown_lifecycleConfigArns) return value_lifecycleConfigArns;
+        throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs.lifecycleConfigArns' is not present");
     }
 
 }

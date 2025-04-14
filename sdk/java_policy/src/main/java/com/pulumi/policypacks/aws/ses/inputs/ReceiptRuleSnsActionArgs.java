@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ses.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ReceiptRuleSnsActionArgs {
      * The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
      * 
      */
-    private UndeferrableValue<String> encoding;
-
+    @PolicyResourceProperty(name="encoding", flag="unknown_encoding")
+    private String value_encoding;
+    private boolean unknown_encoding;
     public String encoding() {
-        if (encoding == null) return null;
-        return encoding.getValue("ReceiptRuleSnsActionArgs.encoding");
+        if (!unknown_encoding) return value_encoding;
+        throw new UndeferrableValueException("Value 'ReceiptRuleSnsActionArgs.encoding' is not present");
     }
 
     /**
      * The position of the action in the receipt rule
      * 
      */
-    private UndeferrableValue<Integer> position;
-
+    @PolicyResourceProperty(name="position", flag="unknown_position")
+    private Integer value_position;
+    private boolean unknown_position;
     public Integer position() {
-        if (position == null) return null;
-        return position.getValue("ReceiptRuleSnsActionArgs.position");
+        if (!unknown_position) return value_position;
+        throw new UndeferrableValueException("Value 'ReceiptRuleSnsActionArgs.position' is not present");
     }
 
     /**
      * The ARN of an SNS topic to notify
      * 
      */
-    private UndeferrableValue<String> topicArn;
-
+    @PolicyResourceProperty(name="topicArn", flag="unknown_topicArn")
+    private String value_topicArn;
+    private boolean unknown_topicArn;
     public String topicArn() {
-        if (topicArn == null) return null;
-        return topicArn.getValue("ReceiptRuleSnsActionArgs.topicArn");
+        if (!unknown_topicArn) return value_topicArn;
+        throw new UndeferrableValueException("Value 'ReceiptRuleSnsActionArgs.topicArn' is not present");
     }
 
 }

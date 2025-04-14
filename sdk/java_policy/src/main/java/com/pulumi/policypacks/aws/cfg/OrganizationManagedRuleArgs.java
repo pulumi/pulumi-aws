@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,110 +18,120 @@ public final class OrganizationManagedRuleArgs extends com.pulumi.resources.Poli
      * Description of the rule
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("OrganizationManagedRuleArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'OrganizationManagedRuleArgs.description' is not present");
     }
 
     /**
      * List of AWS account identifiers to exclude from the rule
      * 
      */
-    private UndeferrableValue<List<String>> excludedAccounts;
-
+    @PolicyResourceProperty(name="excludedAccounts", flag="unknown_excludedAccounts")
+    private List<String> value_excludedAccounts;
+    private boolean unknown_excludedAccounts;
     public List<String> excludedAccounts() {
-        if (excludedAccounts == null) return null;
-        return excludedAccounts.getValue("OrganizationManagedRuleArgs.excludedAccounts");
+        if (!unknown_excludedAccounts) return value_excludedAccounts;
+        throw new UndeferrableValueException("Value 'OrganizationManagedRuleArgs.excludedAccounts' is not present");
     }
 
     /**
      * A string in JSON format that is passed to the AWS Config Rule Lambda Function
      * 
      */
-    private UndeferrableValue<String> inputParameters;
-
+    @PolicyResourceProperty(name="inputParameters", flag="unknown_inputParameters")
+    private String value_inputParameters;
+    private boolean unknown_inputParameters;
     public String inputParameters() {
-        if (inputParameters == null) return null;
-        return inputParameters.getValue("OrganizationManagedRuleArgs.inputParameters");
+        if (!unknown_inputParameters) return value_inputParameters;
+        throw new UndeferrableValueException("Value 'OrganizationManagedRuleArgs.inputParameters' is not present");
     }
 
     /**
      * The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
      * 
      */
-    private UndeferrableValue<String> maximumExecutionFrequency;
-
+    @PolicyResourceProperty(name="maximumExecutionFrequency", flag="unknown_maximumExecutionFrequency")
+    private String value_maximumExecutionFrequency;
+    private boolean unknown_maximumExecutionFrequency;
     public String maximumExecutionFrequency() {
-        if (maximumExecutionFrequency == null) return null;
-        return maximumExecutionFrequency.getValue("OrganizationManagedRuleArgs.maximumExecutionFrequency");
+        if (!unknown_maximumExecutionFrequency) return value_maximumExecutionFrequency;
+        throw new UndeferrableValueException("Value 'OrganizationManagedRuleArgs.maximumExecutionFrequency' is not present");
     }
 
     /**
      * The name of the rule
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("OrganizationManagedRuleArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'OrganizationManagedRuleArgs.name' is not present");
     }
 
     /**
      * Identifier of the AWS resource to evaluate
      * 
      */
-    private UndeferrableValue<String> resourceIdScope;
-
+    @PolicyResourceProperty(name="resourceIdScope", flag="unknown_resourceIdScope")
+    private String value_resourceIdScope;
+    private boolean unknown_resourceIdScope;
     public String resourceIdScope() {
-        if (resourceIdScope == null) return null;
-        return resourceIdScope.getValue("OrganizationManagedRuleArgs.resourceIdScope");
+        if (!unknown_resourceIdScope) return value_resourceIdScope;
+        throw new UndeferrableValueException("Value 'OrganizationManagedRuleArgs.resourceIdScope' is not present");
     }
 
     /**
      * List of types of AWS resources to evaluate
      * 
      */
-    private UndeferrableValue<List<String>> resourceTypesScopes;
-
+    @PolicyResourceProperty(name="resourceTypesScopes", flag="unknown_resourceTypesScopes")
+    private List<String> value_resourceTypesScopes;
+    private boolean unknown_resourceTypesScopes;
     public List<String> resourceTypesScopes() {
-        if (resourceTypesScopes == null) return null;
-        return resourceTypesScopes.getValue("OrganizationManagedRuleArgs.resourceTypesScopes");
+        if (!unknown_resourceTypesScopes) return value_resourceTypesScopes;
+        throw new UndeferrableValueException("Value 'OrganizationManagedRuleArgs.resourceTypesScopes' is not present");
     }
 
     /**
      * Identifier of an available AWS Config Managed Rule to call. For available values, see the [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) documentation
      * 
      */
-    private UndeferrableValue<String> ruleIdentifier;
-
+    @PolicyResourceProperty(name="ruleIdentifier", flag="unknown_ruleIdentifier")
+    private String value_ruleIdentifier;
+    private boolean unknown_ruleIdentifier;
     public String ruleIdentifier() {
-        if (ruleIdentifier == null) return null;
-        return ruleIdentifier.getValue("OrganizationManagedRuleArgs.ruleIdentifier");
+        if (!unknown_ruleIdentifier) return value_ruleIdentifier;
+        throw new UndeferrableValueException("Value 'OrganizationManagedRuleArgs.ruleIdentifier' is not present");
     }
 
     /**
      * Tag key of AWS resources to evaluate
      * 
      */
-    private UndeferrableValue<String> tagKeyScope;
-
+    @PolicyResourceProperty(name="tagKeyScope", flag="unknown_tagKeyScope")
+    private String value_tagKeyScope;
+    private boolean unknown_tagKeyScope;
     public String tagKeyScope() {
-        if (tagKeyScope == null) return null;
-        return tagKeyScope.getValue("OrganizationManagedRuleArgs.tagKeyScope");
+        if (!unknown_tagKeyScope) return value_tagKeyScope;
+        throw new UndeferrableValueException("Value 'OrganizationManagedRuleArgs.tagKeyScope' is not present");
     }
 
     /**
      * Tag value of AWS resources to evaluate
      * 
      */
-    private UndeferrableValue<String> tagValueScope;
-
+    @PolicyResourceProperty(name="tagValueScope", flag="unknown_tagValueScope")
+    private String value_tagValueScope;
+    private boolean unknown_tagValueScope;
     public String tagValueScope() {
-        if (tagValueScope == null) return null;
-        return tagValueScope.getValue("OrganizationManagedRuleArgs.tagValueScope");
+        if (!unknown_tagValueScope) return value_tagValueScope;
+        throw new UndeferrableValueException("Value 'OrganizationManagedRuleArgs.tagValueScope' is not present");
     }
 
 }

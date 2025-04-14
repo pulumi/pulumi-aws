@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,121 +19,132 @@ public final class SiteToSiteVpnAttachment extends com.pulumi.resources.PolicyRe
      * The ARN of the attachment.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("SiteToSiteVpnAttachment.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'SiteToSiteVpnAttachment.arn' is not present");
     }
 
     /**
      * The policy rule number associated with the attachment.
      * 
      */
-    private UndeferrableValue<Integer> attachmentPolicyRuleNumber;
-
+    @PolicyResourceProperty(name="attachmentPolicyRuleNumber", flag="unknown_attachmentPolicyRuleNumber")
+    private Integer value_attachmentPolicyRuleNumber;
+    private boolean unknown_attachmentPolicyRuleNumber;
     public Integer attachmentPolicyRuleNumber() {
-        if (attachmentPolicyRuleNumber == null) return null;
-        return attachmentPolicyRuleNumber.getValue("SiteToSiteVpnAttachment.attachmentPolicyRuleNumber");
+        if (!unknown_attachmentPolicyRuleNumber) return value_attachmentPolicyRuleNumber;
+        throw new UndeferrableValueException("Value 'SiteToSiteVpnAttachment.attachmentPolicyRuleNumber' is not present");
     }
 
     /**
      * The type of attachment.
      * 
      */
-    private UndeferrableValue<String> attachmentType;
-
+    @PolicyResourceProperty(name="attachmentType", flag="unknown_attachmentType")
+    private String value_attachmentType;
+    private boolean unknown_attachmentType;
     public String attachmentType() {
-        if (attachmentType == null) return null;
-        return attachmentType.getValue("SiteToSiteVpnAttachment.attachmentType");
+        if (!unknown_attachmentType) return value_attachmentType;
+        throw new UndeferrableValueException("Value 'SiteToSiteVpnAttachment.attachmentType' is not present");
     }
 
     /**
      * The ARN of a core network.
      * 
      */
-    private UndeferrableValue<String> coreNetworkArn;
-
+    @PolicyResourceProperty(name="coreNetworkArn", flag="unknown_coreNetworkArn")
+    private String value_coreNetworkArn;
+    private boolean unknown_coreNetworkArn;
     public String coreNetworkArn() {
-        if (coreNetworkArn == null) return null;
-        return coreNetworkArn.getValue("SiteToSiteVpnAttachment.coreNetworkArn");
+        if (!unknown_coreNetworkArn) return value_coreNetworkArn;
+        throw new UndeferrableValueException("Value 'SiteToSiteVpnAttachment.coreNetworkArn' is not present");
     }
 
     /**
      * The ID of a core network for the VPN attachment.
      * 
      */
-    private UndeferrableValue<String> coreNetworkId;
-
+    @PolicyResourceProperty(name="coreNetworkId", flag="unknown_coreNetworkId")
+    private String value_coreNetworkId;
+    private boolean unknown_coreNetworkId;
     public String coreNetworkId() {
-        if (coreNetworkId == null) return null;
-        return coreNetworkId.getValue("SiteToSiteVpnAttachment.coreNetworkId");
+        if (!unknown_coreNetworkId) return value_coreNetworkId;
+        throw new UndeferrableValueException("Value 'SiteToSiteVpnAttachment.coreNetworkId' is not present");
     }
 
     /**
      * The Region where the edge is located.
      * 
      */
-    private UndeferrableValue<String> edgeLocation;
-
+    @PolicyResourceProperty(name="edgeLocation", flag="unknown_edgeLocation")
+    private String value_edgeLocation;
+    private boolean unknown_edgeLocation;
     public String edgeLocation() {
-        if (edgeLocation == null) return null;
-        return edgeLocation.getValue("SiteToSiteVpnAttachment.edgeLocation");
+        if (!unknown_edgeLocation) return value_edgeLocation;
+        throw new UndeferrableValueException("Value 'SiteToSiteVpnAttachment.edgeLocation' is not present");
     }
 
     /**
      * The ID of the attachment account owner.
      * 
      */
-    private UndeferrableValue<String> ownerAccountId;
-
+    @PolicyResourceProperty(name="ownerAccountId", flag="unknown_ownerAccountId")
+    private String value_ownerAccountId;
+    private boolean unknown_ownerAccountId;
     public String ownerAccountId() {
-        if (ownerAccountId == null) return null;
-        return ownerAccountId.getValue("SiteToSiteVpnAttachment.ownerAccountId");
+        if (!unknown_ownerAccountId) return value_ownerAccountId;
+        throw new UndeferrableValueException("Value 'SiteToSiteVpnAttachment.ownerAccountId' is not present");
     }
 
     /**
      * The attachment resource ARN.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("SiteToSiteVpnAttachment.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'SiteToSiteVpnAttachment.resourceArn' is not present");
     }
 
     /**
      * The name of the segment attachment.
      * 
      */
-    private UndeferrableValue<String> segmentName;
-
+    @PolicyResourceProperty(name="segmentName", flag="unknown_segmentName")
+    private String value_segmentName;
+    private boolean unknown_segmentName;
     public String segmentName() {
-        if (segmentName == null) return null;
-        return segmentName.getValue("SiteToSiteVpnAttachment.segmentName");
+        if (!unknown_segmentName) return value_segmentName;
+        throw new UndeferrableValueException("Value 'SiteToSiteVpnAttachment.segmentName' is not present");
     }
 
     /**
      * The state of the attachment.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("SiteToSiteVpnAttachment.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'SiteToSiteVpnAttachment.state' is not present");
     }
 
     /**
      * Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SiteToSiteVpnAttachment.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SiteToSiteVpnAttachment.tags' is not present");
     }
 
     /**
@@ -143,11 +155,12 @@ public final class SiteToSiteVpnAttachment extends com.pulumi.resources.PolicyRe
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("SiteToSiteVpnAttachment.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'SiteToSiteVpnAttachment.tagsAll' is not present");
     }
 
     /**
@@ -156,11 +169,12 @@ public final class SiteToSiteVpnAttachment extends com.pulumi.resources.PolicyRe
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> vpnConnectionArn;
-
+    @PolicyResourceProperty(name="vpnConnectionArn", flag="unknown_vpnConnectionArn")
+    private String value_vpnConnectionArn;
+    private boolean unknown_vpnConnectionArn;
     public String vpnConnectionArn() {
-        if (vpnConnectionArn == null) return null;
-        return vpnConnectionArn.getValue("SiteToSiteVpnAttachment.vpnConnectionArn");
+        if (!unknown_vpnConnectionArn) return value_vpnConnectionArn;
+        throw new UndeferrableValueException("Value 'SiteToSiteVpnAttachment.vpnConnectionArn' is not present");
     }
 
 }

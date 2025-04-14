@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.IntentFulfillmentActivityCodeHookArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class IntentFulfillmentActivityArgs {
      * Required if type is CodeHook. Attributes are documented under code_hook.
      * 
      */
-    private UndeferrableValue<IntentFulfillmentActivityCodeHookArgs> codeHook;
-
+    @PolicyResourceProperty(name="codeHook", flag="unknown_codeHook")
+    private IntentFulfillmentActivityCodeHookArgs value_codeHook;
+    private boolean unknown_codeHook;
     public IntentFulfillmentActivityCodeHookArgs codeHook() {
-        if (codeHook == null) return null;
-        return codeHook.getValue("IntentFulfillmentActivityArgs.codeHook");
+        if (!unknown_codeHook) return value_codeHook;
+        throw new UndeferrableValueException("Value 'IntentFulfillmentActivityArgs.codeHook' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class IntentFulfillmentActivityArgs {
      * returning the slot data to the client application. Type can be either `ReturnIntent` or `CodeHook`, as documented [here](https://docs.aws.amazon.com/lex/latest/dg/API_FulfillmentActivity.html).
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("IntentFulfillmentActivityArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'IntentFulfillmentActivityArgs.type' is not present");
     }
 
 }

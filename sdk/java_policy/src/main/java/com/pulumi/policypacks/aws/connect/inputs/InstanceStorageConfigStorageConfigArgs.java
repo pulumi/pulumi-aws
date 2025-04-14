@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.connect.inputs.InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs;
 import com.pulumi.policypacks.aws.connect.inputs.InstanceStorageConfigStorageConfigKinesisStreamConfigArgs;
 import com.pulumi.policypacks.aws.connect.inputs.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs;
@@ -18,55 +19,60 @@ public final class InstanceStorageConfigStorageConfigArgs {
      * A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
      * 
      */
-    private UndeferrableValue<InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs> kinesisFirehoseConfig;
-
+    @PolicyResourceProperty(name="kinesisFirehoseConfig", flag="unknown_kinesisFirehoseConfig")
+    private InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs value_kinesisFirehoseConfig;
+    private boolean unknown_kinesisFirehoseConfig;
     public InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs kinesisFirehoseConfig() {
-        if (kinesisFirehoseConfig == null) return null;
-        return kinesisFirehoseConfig.getValue("InstanceStorageConfigStorageConfigArgs.kinesisFirehoseConfig");
+        if (!unknown_kinesisFirehoseConfig) return value_kinesisFirehoseConfig;
+        throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigArgs.kinesisFirehoseConfig' is not present");
     }
 
     /**
      * A block that specifies the configuration of the Kinesis data stream. Documented below.
      * 
      */
-    private UndeferrableValue<InstanceStorageConfigStorageConfigKinesisStreamConfigArgs> kinesisStreamConfig;
-
+    @PolicyResourceProperty(name="kinesisStreamConfig", flag="unknown_kinesisStreamConfig")
+    private InstanceStorageConfigStorageConfigKinesisStreamConfigArgs value_kinesisStreamConfig;
+    private boolean unknown_kinesisStreamConfig;
     public InstanceStorageConfigStorageConfigKinesisStreamConfigArgs kinesisStreamConfig() {
-        if (kinesisStreamConfig == null) return null;
-        return kinesisStreamConfig.getValue("InstanceStorageConfigStorageConfigArgs.kinesisStreamConfig");
+        if (!unknown_kinesisStreamConfig) return value_kinesisStreamConfig;
+        throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigArgs.kinesisStreamConfig' is not present");
     }
 
     /**
      * A block that specifies the configuration of the Kinesis video stream. Documented below.
      * 
      */
-    private UndeferrableValue<InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs> kinesisVideoStreamConfig;
-
+    @PolicyResourceProperty(name="kinesisVideoStreamConfig", flag="unknown_kinesisVideoStreamConfig")
+    private InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs value_kinesisVideoStreamConfig;
+    private boolean unknown_kinesisVideoStreamConfig;
     public InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs kinesisVideoStreamConfig() {
-        if (kinesisVideoStreamConfig == null) return null;
-        return kinesisVideoStreamConfig.getValue("InstanceStorageConfigStorageConfigArgs.kinesisVideoStreamConfig");
+        if (!unknown_kinesisVideoStreamConfig) return value_kinesisVideoStreamConfig;
+        throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigArgs.kinesisVideoStreamConfig' is not present");
     }
 
     /**
      * A block that specifies the configuration of S3 Bucket. Documented below.
      * 
      */
-    private UndeferrableValue<InstanceStorageConfigStorageConfigS3ConfigArgs> s3Config;
-
+    @PolicyResourceProperty(name="s3Config", flag="unknown_s3Config")
+    private InstanceStorageConfigStorageConfigS3ConfigArgs value_s3Config;
+    private boolean unknown_s3Config;
     public InstanceStorageConfigStorageConfigS3ConfigArgs s3Config() {
-        if (s3Config == null) return null;
-        return s3Config.getValue("InstanceStorageConfigStorageConfigArgs.s3Config");
+        if (!unknown_s3Config) return value_s3Config;
+        throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigArgs.s3Config' is not present");
     }
 
     /**
      * A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
      * 
      */
-    private UndeferrableValue<String> storageType;
-
+    @PolicyResourceProperty(name="storageType", flag="unknown_storageType")
+    private String value_storageType;
+    private boolean unknown_storageType;
     public String storageType() {
-        if (storageType == null) return null;
-        return storageType.getValue("InstanceStorageConfigStorageConfigArgs.storageType");
+        if (!unknown_storageType) return value_storageType;
+        throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigArgs.storageType' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class DomainNameApiAssociationArgs extends com.pulumi.resources.Pol
      * API ID.
      * 
      */
-    private UndeferrableValue<String> apiId;
-
+    @PolicyResourceProperty(name="apiId", flag="unknown_apiId")
+    private String value_apiId;
+    private boolean unknown_apiId;
     public String apiId() {
-        if (apiId == null) return null;
-        return apiId.getValue("DomainNameApiAssociationArgs.apiId");
+        if (!unknown_apiId) return value_apiId;
+        throw new UndeferrableValueException("Value 'DomainNameApiAssociationArgs.apiId' is not present");
     }
 
     /**
      * Appsync domain name.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("DomainNameApiAssociationArgs.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'DomainNameApiAssociationArgs.domainName' is not present");
     }
 
 }

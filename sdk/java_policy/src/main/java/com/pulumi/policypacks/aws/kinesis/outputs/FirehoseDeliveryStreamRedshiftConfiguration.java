@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions;
 import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration;
 import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration;
@@ -20,99 +21,108 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
      * The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions;
-
+    @PolicyResourceProperty(name="cloudwatchLoggingOptions", flag="unknown_cloudwatchLoggingOptions")
+    private @Nullable FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions value_cloudwatchLoggingOptions;
+    private boolean unknown_cloudwatchLoggingOptions;
     public @Nullable FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions() {
-        if (cloudwatchLoggingOptions == null) return null;
-        return cloudwatchLoggingOptions.getValue("FirehoseDeliveryStreamRedshiftConfiguration.cloudwatchLoggingOptions");
+        if (!unknown_cloudwatchLoggingOptions) return value_cloudwatchLoggingOptions;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfiguration.cloudwatchLoggingOptions' is not present");
     }
 
     /**
      * The jdbcurl of the redshift cluster.
      * 
      */
-    private UndeferrableValue<String> clusterJdbcurl;
-
+    @PolicyResourceProperty(name="clusterJdbcurl", flag="unknown_clusterJdbcurl")
+    private String value_clusterJdbcurl;
+    private boolean unknown_clusterJdbcurl;
     public String clusterJdbcurl() {
-        if (clusterJdbcurl == null) return null;
-        return clusterJdbcurl.getValue("FirehoseDeliveryStreamRedshiftConfiguration.clusterJdbcurl");
+        if (!unknown_clusterJdbcurl) return value_clusterJdbcurl;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfiguration.clusterJdbcurl' is not present");
     }
 
     /**
      * Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
      * 
      */
-    private @Nullable UndeferrableValue<String> copyOptions;
-
+    @PolicyResourceProperty(name="copyOptions", flag="unknown_copyOptions")
+    private @Nullable String value_copyOptions;
+    private boolean unknown_copyOptions;
     public @Nullable String copyOptions() {
-        if (copyOptions == null) return null;
-        return copyOptions.getValue("FirehoseDeliveryStreamRedshiftConfiguration.copyOptions");
+        if (!unknown_copyOptions) return value_copyOptions;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfiguration.copyOptions' is not present");
     }
 
     /**
      * The data table columns that will be targeted by the copy command.
      * 
      */
-    private @Nullable UndeferrableValue<String> dataTableColumns;
-
+    @PolicyResourceProperty(name="dataTableColumns", flag="unknown_dataTableColumns")
+    private @Nullable String value_dataTableColumns;
+    private boolean unknown_dataTableColumns;
     public @Nullable String dataTableColumns() {
-        if (dataTableColumns == null) return null;
-        return dataTableColumns.getValue("FirehoseDeliveryStreamRedshiftConfiguration.dataTableColumns");
+        if (!unknown_dataTableColumns) return value_dataTableColumns;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfiguration.dataTableColumns' is not present");
     }
 
     /**
      * The name of the table in the redshift cluster that the s3 bucket will copy to.
      * 
      */
-    private UndeferrableValue<String> dataTableName;
-
+    @PolicyResourceProperty(name="dataTableName", flag="unknown_dataTableName")
+    private String value_dataTableName;
+    private boolean unknown_dataTableName;
     public String dataTableName() {
-        if (dataTableName == null) return null;
-        return dataTableName.getValue("FirehoseDeliveryStreamRedshiftConfiguration.dataTableName");
+        if (!unknown_dataTableName) return value_dataTableName;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfiguration.dataTableName' is not present");
     }
 
     /**
      * The password for the username above. This value is required if `secrets_manager_configuration` is not provided.
      * 
      */
-    private @Nullable UndeferrableValue<String> password;
-
+    @PolicyResourceProperty(name="password", flag="unknown_password")
+    private @Nullable String value_password;
+    private boolean unknown_password;
     public @Nullable String password() {
-        if (password == null) return null;
-        return password.getValue("FirehoseDeliveryStreamRedshiftConfiguration.password");
+        if (!unknown_password) return value_password;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfiguration.password' is not present");
     }
 
     /**
      * The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration> processingConfiguration;
-
+    @PolicyResourceProperty(name="processingConfiguration", flag="unknown_processingConfiguration")
+    private @Nullable FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration value_processingConfiguration;
+    private boolean unknown_processingConfiguration;
     public @Nullable FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration processingConfiguration() {
-        if (processingConfiguration == null) return null;
-        return processingConfiguration.getValue("FirehoseDeliveryStreamRedshiftConfiguration.processingConfiguration");
+        if (!unknown_processingConfiguration) return value_processingConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfiguration.processingConfiguration' is not present");
     }
 
     /**
      * The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> retryDuration;
-
+    @PolicyResourceProperty(name="retryDuration", flag="unknown_retryDuration")
+    private @Nullable Integer value_retryDuration;
+    private boolean unknown_retryDuration;
     public @Nullable Integer retryDuration() {
-        if (retryDuration == null) return null;
-        return retryDuration.getValue("FirehoseDeliveryStreamRedshiftConfiguration.retryDuration");
+        if (!unknown_retryDuration) return value_retryDuration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfiguration.retryDuration' is not present");
     }
 
     /**
      * The arn of the role the stream assumes.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("FirehoseDeliveryStreamRedshiftConfiguration.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfiguration.roleArn' is not present");
     }
 
     /**
@@ -120,51 +130,56 @@ public final class FirehoseDeliveryStreamRedshiftConfiguration {
      * `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `username` and `password` are not provided.
      * 
      */
-    private @Nullable UndeferrableValue<FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration> s3BackupConfiguration;
-
+    @PolicyResourceProperty(name="s3BackupConfiguration", flag="unknown_s3BackupConfiguration")
+    private @Nullable FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration value_s3BackupConfiguration;
+    private boolean unknown_s3BackupConfiguration;
     public @Nullable FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration s3BackupConfiguration() {
-        if (s3BackupConfiguration == null) return null;
-        return s3BackupConfiguration.getValue("FirehoseDeliveryStreamRedshiftConfiguration.s3BackupConfiguration");
+        if (!unknown_s3BackupConfiguration) return value_s3BackupConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfiguration.s3BackupConfiguration' is not present");
     }
 
     /**
      * The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
      * 
      */
-    private @Nullable UndeferrableValue<String> s3BackupMode;
-
+    @PolicyResourceProperty(name="s3BackupMode", flag="unknown_s3BackupMode")
+    private @Nullable String value_s3BackupMode;
+    private boolean unknown_s3BackupMode;
     public @Nullable String s3BackupMode() {
-        if (s3BackupMode == null) return null;
-        return s3BackupMode.getValue("FirehoseDeliveryStreamRedshiftConfiguration.s3BackupMode");
+        if (!unknown_s3BackupMode) return value_s3BackupMode;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfiguration.s3BackupMode' is not present");
     }
 
     /**
      * The S3 Configuration. See s3_configuration below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamRedshiftConfigurationS3Configuration> s3Configuration;
-
+    @PolicyResourceProperty(name="s3Configuration", flag="unknown_s3Configuration")
+    private FirehoseDeliveryStreamRedshiftConfigurationS3Configuration value_s3Configuration;
+    private boolean unknown_s3Configuration;
     public FirehoseDeliveryStreamRedshiftConfigurationS3Configuration s3Configuration() {
-        if (s3Configuration == null) return null;
-        return s3Configuration.getValue("FirehoseDeliveryStreamRedshiftConfiguration.s3Configuration");
+        if (!unknown_s3Configuration) return value_s3Configuration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfiguration.s3Configuration' is not present");
     }
 
-    private @Nullable UndeferrableValue<FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration> secretsManagerConfiguration;
-
+    @PolicyResourceProperty(name="secretsManagerConfiguration", flag="unknown_secretsManagerConfiguration")
+    private @Nullable FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration value_secretsManagerConfiguration;
+    private boolean unknown_secretsManagerConfiguration;
     public @Nullable FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration secretsManagerConfiguration() {
-        if (secretsManagerConfiguration == null) return null;
-        return secretsManagerConfiguration.getValue("FirehoseDeliveryStreamRedshiftConfiguration.secretsManagerConfiguration");
+        if (!unknown_secretsManagerConfiguration) return value_secretsManagerConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfiguration.secretsManagerConfiguration' is not present");
     }
 
     /**
      * The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secrets_manager_configuration` is not provided.
      * 
      */
-    private @Nullable UndeferrableValue<String> username;
-
+    @PolicyResourceProperty(name="username", flag="unknown_username")
+    private @Nullable String value_username;
+    private boolean unknown_username;
     public @Nullable String username() {
-        if (username == null) return null;
-        return username.getValue("FirehoseDeliveryStreamRedshiftConfiguration.username");
+        if (!unknown_username) return value_username;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamRedshiftConfiguration.username' is not present");
     }
 
 }

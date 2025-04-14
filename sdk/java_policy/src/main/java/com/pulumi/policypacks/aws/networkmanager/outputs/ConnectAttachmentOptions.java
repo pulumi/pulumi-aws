@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ConnectAttachmentOptions {
      * The protocol used for the attachment connection. Possible values are `GRE` and `NO_ENCAP`.
      * 
      */
-    private @Nullable UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private @Nullable String value_protocol;
+    private boolean unknown_protocol;
     public @Nullable String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("ConnectAttachmentOptions.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'ConnectAttachmentOptions.protocol' is not present");
     }
 
 }

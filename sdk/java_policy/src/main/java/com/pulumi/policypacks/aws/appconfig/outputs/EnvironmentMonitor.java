@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appconfig.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class EnvironmentMonitor {
      * ARN of the Amazon CloudWatch alarm.
      * 
      */
-    private UndeferrableValue<String> alarmArn;
-
+    @PolicyResourceProperty(name="alarmArn", flag="unknown_alarmArn")
+    private String value_alarmArn;
+    private boolean unknown_alarmArn;
     public String alarmArn() {
-        if (alarmArn == null) return null;
-        return alarmArn.getValue("EnvironmentMonitor.alarmArn");
+        if (!unknown_alarmArn) return value_alarmArn;
+        throw new UndeferrableValueException("Value 'EnvironmentMonitor.alarmArn' is not present");
     }
 
     /**
      * ARN of an IAM role for AWS AppConfig to monitor `alarm_arn`.
      * 
      */
-    private @Nullable UndeferrableValue<String> alarmRoleArn;
-
+    @PolicyResourceProperty(name="alarmRoleArn", flag="unknown_alarmRoleArn")
+    private @Nullable String value_alarmRoleArn;
+    private boolean unknown_alarmRoleArn;
     public @Nullable String alarmRoleArn() {
-        if (alarmRoleArn == null) return null;
-        return alarmRoleArn.getValue("EnvironmentMonitor.alarmRoleArn");
+        if (!unknown_alarmRoleArn) return value_alarmRoleArn;
+        throw new UndeferrableValueException("Value 'EnvironmentMonitor.alarmRoleArn' is not present");
     }
 
 }

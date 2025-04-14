@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ProjectEnvironmentFleet {
      * Compute fleet ARN for the build project.
      * 
      */
-    private @Nullable UndeferrableValue<String> fleetArn;
-
+    @PolicyResourceProperty(name="fleetArn", flag="unknown_fleetArn")
+    private @Nullable String value_fleetArn;
+    private boolean unknown_fleetArn;
     public @Nullable String fleetArn() {
-        if (fleetArn == null) return null;
-        return fleetArn.getValue("ProjectEnvironmentFleet.fleetArn");
+        if (!unknown_fleetArn) return value_fleetArn;
+        throw new UndeferrableValueException("Value 'ProjectEnvironmentFleet.fleetArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.acmpca.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,143 +15,156 @@ public final class CertificateAuthorityCertificateAuthorityConfigurationSubject 
      * Fully qualified domain name (FQDN) associated with the certificate subject. Must be less than or equal to 64 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> commonName;
-
+    @PolicyResourceProperty(name="commonName", flag="unknown_commonName")
+    private @Nullable String value_commonName;
+    private boolean unknown_commonName;
     public @Nullable String commonName() {
-        if (commonName == null) return null;
-        return commonName.getValue("CertificateAuthorityCertificateAuthorityConfigurationSubject.commonName");
+        if (!unknown_commonName) return value_commonName;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubject.commonName' is not present");
     }
 
     /**
      * Two digit code that specifies the country in which the certificate subject located. Must be less than or equal to 2 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> country;
-
+    @PolicyResourceProperty(name="country", flag="unknown_country")
+    private @Nullable String value_country;
+    private boolean unknown_country;
     public @Nullable String country() {
-        if (country == null) return null;
-        return country.getValue("CertificateAuthorityCertificateAuthorityConfigurationSubject.country");
+        if (!unknown_country) return value_country;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubject.country' is not present");
     }
 
     /**
      * Disambiguating information for the certificate subject. Must be less than or equal to 64 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> distinguishedNameQualifier;
-
+    @PolicyResourceProperty(name="distinguishedNameQualifier", flag="unknown_distinguishedNameQualifier")
+    private @Nullable String value_distinguishedNameQualifier;
+    private boolean unknown_distinguishedNameQualifier;
     public @Nullable String distinguishedNameQualifier() {
-        if (distinguishedNameQualifier == null) return null;
-        return distinguishedNameQualifier.getValue("CertificateAuthorityCertificateAuthorityConfigurationSubject.distinguishedNameQualifier");
+        if (!unknown_distinguishedNameQualifier) return value_distinguishedNameQualifier;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubject.distinguishedNameQualifier' is not present");
     }
 
     /**
      * Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third. Must be less than or equal to 3 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> generationQualifier;
-
+    @PolicyResourceProperty(name="generationQualifier", flag="unknown_generationQualifier")
+    private @Nullable String value_generationQualifier;
+    private boolean unknown_generationQualifier;
     public @Nullable String generationQualifier() {
-        if (generationQualifier == null) return null;
-        return generationQualifier.getValue("CertificateAuthorityCertificateAuthorityConfigurationSubject.generationQualifier");
+        if (!unknown_generationQualifier) return value_generationQualifier;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubject.generationQualifier' is not present");
     }
 
     /**
      * First name. Must be less than or equal to 16 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> givenName;
-
+    @PolicyResourceProperty(name="givenName", flag="unknown_givenName")
+    private @Nullable String value_givenName;
+    private boolean unknown_givenName;
     public @Nullable String givenName() {
-        if (givenName == null) return null;
-        return givenName.getValue("CertificateAuthorityCertificateAuthorityConfigurationSubject.givenName");
+        if (!unknown_givenName) return value_givenName;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubject.givenName' is not present");
     }
 
     /**
      * Concatenation that typically contains the first letter of the `given_name`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> initials;
-
+    @PolicyResourceProperty(name="initials", flag="unknown_initials")
+    private @Nullable String value_initials;
+    private boolean unknown_initials;
     public @Nullable String initials() {
-        if (initials == null) return null;
-        return initials.getValue("CertificateAuthorityCertificateAuthorityConfigurationSubject.initials");
+        if (!unknown_initials) return value_initials;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubject.initials' is not present");
     }
 
     /**
      * Locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> locality;
-
+    @PolicyResourceProperty(name="locality", flag="unknown_locality")
+    private @Nullable String value_locality;
+    private boolean unknown_locality;
     public @Nullable String locality() {
-        if (locality == null) return null;
-        return locality.getValue("CertificateAuthorityCertificateAuthorityConfigurationSubject.locality");
+        if (!unknown_locality) return value_locality;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubject.locality' is not present");
     }
 
     /**
      * Legal name of the organization with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> organization;
-
+    @PolicyResourceProperty(name="organization", flag="unknown_organization")
+    private @Nullable String value_organization;
+    private boolean unknown_organization;
     public @Nullable String organization() {
-        if (organization == null) return null;
-        return organization.getValue("CertificateAuthorityCertificateAuthorityConfigurationSubject.organization");
+        if (!unknown_organization) return value_organization;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubject.organization' is not present");
     }
 
     /**
      * Subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> organizationalUnit;
-
+    @PolicyResourceProperty(name="organizationalUnit", flag="unknown_organizationalUnit")
+    private @Nullable String value_organizationalUnit;
+    private boolean unknown_organizationalUnit;
     public @Nullable String organizationalUnit() {
-        if (organizationalUnit == null) return null;
-        return organizationalUnit.getValue("CertificateAuthorityCertificateAuthorityConfigurationSubject.organizationalUnit");
+        if (!unknown_organizationalUnit) return value_organizationalUnit;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubject.organizationalUnit' is not present");
     }
 
     /**
      * Typically a shortened version of a longer `given_name`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> pseudonym;
-
+    @PolicyResourceProperty(name="pseudonym", flag="unknown_pseudonym")
+    private @Nullable String value_pseudonym;
+    private boolean unknown_pseudonym;
     public @Nullable String pseudonym() {
-        if (pseudonym == null) return null;
-        return pseudonym.getValue("CertificateAuthorityCertificateAuthorityConfigurationSubject.pseudonym");
+        if (!unknown_pseudonym) return value_pseudonym;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubject.pseudonym' is not present");
     }
 
     /**
      * State in which the subject of the certificate is located. Must be less than or equal to 128 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private @Nullable String value_state;
+    private boolean unknown_state;
     public @Nullable String state() {
-        if (state == null) return null;
-        return state.getValue("CertificateAuthorityCertificateAuthorityConfigurationSubject.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubject.state' is not present");
     }
 
     /**
      * Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first. Must be less than or equal to 40 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> surname;
-
+    @PolicyResourceProperty(name="surname", flag="unknown_surname")
+    private @Nullable String value_surname;
+    private boolean unknown_surname;
     public @Nullable String surname() {
-        if (surname == null) return null;
-        return surname.getValue("CertificateAuthorityCertificateAuthorityConfigurationSubject.surname");
+        if (!unknown_surname) return value_surname;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubject.surname' is not present");
     }
 
     /**
      * Title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> title;
-
+    @PolicyResourceProperty(name="title", flag="unknown_title")
+    private @Nullable String value_title;
+    private boolean unknown_title;
     public @Nullable String title() {
-        if (title == null) return null;
-        return title.getValue("CertificateAuthorityCertificateAuthorityConfigurationSubject.title");
+        if (!unknown_title) return value_title;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfigurationSubject.title' is not present");
     }
 
 }

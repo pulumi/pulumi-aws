@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chime.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class VoiceConnectorTerminationCredentialsCredential {
      * RFC2617 compliant password associated with the SIP credentials.
      * 
      */
-    private UndeferrableValue<String> password;
-
+    @PolicyResourceProperty(name="password", flag="unknown_password")
+    private String value_password;
+    private boolean unknown_password;
     public String password() {
-        if (password == null) return null;
-        return password.getValue("VoiceConnectorTerminationCredentialsCredential.password");
+        if (!unknown_password) return value_password;
+        throw new UndeferrableValueException("Value 'VoiceConnectorTerminationCredentialsCredential.password' is not present");
     }
 
     /**
      * RFC2617 compliant username associated with the SIP credentials.
      * 
      */
-    private UndeferrableValue<String> username;
-
+    @PolicyResourceProperty(name="username", flag="unknown_username")
+    private String value_username;
+    private boolean unknown_username;
     public String username() {
-        if (username == null) return null;
-        return username.getValue("VoiceConnectorTerminationCredentialsCredential.username");
+        if (!unknown_username) return value_username;
+        throw new UndeferrableValueException("Value 'VoiceConnectorTerminationCredentialsCredential.username' is not present");
     }
 
 }

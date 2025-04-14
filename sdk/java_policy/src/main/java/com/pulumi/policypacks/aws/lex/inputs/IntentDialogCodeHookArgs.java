@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -15,22 +16,24 @@ public final class IntentDialogCodeHookArgs {
      * [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
      * 
      */
-    private UndeferrableValue<String> messageVersion;
-
+    @PolicyResourceProperty(name="messageVersion", flag="unknown_messageVersion")
+    private String value_messageVersion;
+    private boolean unknown_messageVersion;
     public String messageVersion() {
-        if (messageVersion == null) return null;
-        return messageVersion.getValue("IntentDialogCodeHookArgs.messageVersion");
+        if (!unknown_messageVersion) return value_messageVersion;
+        throw new UndeferrableValueException("Value 'IntentDialogCodeHookArgs.messageVersion' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Lambda function.
      * 
      */
-    private UndeferrableValue<String> uri;
-
+    @PolicyResourceProperty(name="uri", flag="unknown_uri")
+    private String value_uri;
+    private boolean unknown_uri;
     public String uri() {
-        if (uri == null) return null;
-        return uri.getValue("IntentDialogCodeHookArgs.uri");
+        if (!unknown_uri) return value_uri;
+        throw new UndeferrableValueException("Value 'IntentDialogCodeHookArgs.uri' is not present");
     }
 
 }

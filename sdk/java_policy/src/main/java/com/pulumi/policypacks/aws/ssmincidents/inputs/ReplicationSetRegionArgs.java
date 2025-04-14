@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssmincidents.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -16,22 +17,24 @@ public final class ReplicationSetRegionArgs {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("ReplicationSetRegionArgs.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'ReplicationSetRegionArgs.kmsKeyArn' is not present");
     }
 
     /**
      * The name of the Region, such as `ap-southeast-2`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ReplicationSetRegionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ReplicationSetRegionArgs.name' is not present");
     }
 
     /**
@@ -39,22 +42,24 @@ public final class ReplicationSetRegionArgs {
      * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("ReplicationSetRegionArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'ReplicationSetRegionArgs.status' is not present");
     }
 
     /**
      * More information about the status of a Region.
      * 
      */
-    private UndeferrableValue<String> statusMessage;
-
+    @PolicyResourceProperty(name="statusMessage", flag="unknown_statusMessage")
+    private String value_statusMessage;
+    private boolean unknown_statusMessage;
     public String statusMessage() {
-        if (statusMessage == null) return null;
-        return statusMessage.getValue("ReplicationSetRegionArgs.statusMessage");
+        if (!unknown_statusMessage) return value_statusMessage;
+        throw new UndeferrableValueException("Value 'ReplicationSetRegionArgs.statusMessage' is not present");
     }
 
 }

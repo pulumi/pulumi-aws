@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 
 
@@ -13,11 +14,12 @@ public final class DataSourceSslProperties {
      * A Boolean option to control whether SSL should be disabled.
      * 
      */
-    private UndeferrableValue<Boolean> disableSsl;
-
+    @PolicyResourceProperty(name="disableSsl", flag="unknown_disableSsl")
+    private Boolean value_disableSsl;
+    private boolean unknown_disableSsl;
     public Boolean disableSsl() {
-        if (disableSsl == null) return null;
-        return disableSsl.getValue("DataSourceSslProperties.disableSsl");
+        if (!unknown_disableSsl) return value_disableSsl;
+        throw new UndeferrableValueException("Value 'DataSourceSslProperties.disableSsl' is not present");
     }
 
 }

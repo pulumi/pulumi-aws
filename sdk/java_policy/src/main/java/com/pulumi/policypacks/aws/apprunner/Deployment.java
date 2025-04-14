@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.apprunner.outputs.DeploymentTimeouts;
 import java.lang.String;
@@ -17,40 +18,44 @@ public final class Deployment extends com.pulumi.resources.PolicyResourceOutput 
      * The unique ID of the operation associated with deployment.
      * 
      */
-    private UndeferrableValue<String> operationId;
-
+    @PolicyResourceProperty(name="operationId", flag="unknown_operationId")
+    private String value_operationId;
+    private boolean unknown_operationId;
     public String operationId() {
-        if (operationId == null) return null;
-        return operationId.getValue("Deployment.operationId");
+        if (!unknown_operationId) return value_operationId;
+        throw new UndeferrableValueException("Value 'Deployment.operationId' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
      * 
      */
-    private UndeferrableValue<String> serviceArn;
-
+    @PolicyResourceProperty(name="serviceArn", flag="unknown_serviceArn")
+    private String value_serviceArn;
+    private boolean unknown_serviceArn;
     public String serviceArn() {
-        if (serviceArn == null) return null;
-        return serviceArn.getValue("Deployment.serviceArn");
+        if (!unknown_serviceArn) return value_serviceArn;
+        throw new UndeferrableValueException("Value 'Deployment.serviceArn' is not present");
     }
 
     /**
      * The current status of the App Runner service deployment.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Deployment.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Deployment.status' is not present");
     }
 
-    private @Nullable UndeferrableValue<DeploymentTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable DeploymentTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable DeploymentTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("Deployment.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'Deployment.timeouts' is not present");
     }
 
 }

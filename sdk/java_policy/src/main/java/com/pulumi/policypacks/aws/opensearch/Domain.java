@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.opensearch.outputs.DomainAdvancedSecurityOptions;
 import com.pulumi.policypacks.aws.opensearch.outputs.DomainAutoTuneOptions;
@@ -31,132 +32,144 @@ public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
      * IAM policy document specifying the access policies for the domain.
      * 
      */
-    private UndeferrableValue<String> accessPolicies;
-
+    @PolicyResourceProperty(name="accessPolicies", flag="unknown_accessPolicies")
+    private String value_accessPolicies;
+    private boolean unknown_accessPolicies;
     public String accessPolicies() {
-        if (accessPolicies == null) return null;
-        return accessPolicies.getValue("Domain.accessPolicies");
+        if (!unknown_accessPolicies) return value_accessPolicies;
+        throw new UndeferrableValueException("Value 'Domain.accessPolicies' is not present");
     }
 
     /**
      * Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
      * 
      */
-    private UndeferrableValue<Map<String,String>> advancedOptions;
-
+    @PolicyResourceProperty(name="advancedOptions", flag="unknown_advancedOptions")
+    private Map<String,String> value_advancedOptions;
+    private boolean unknown_advancedOptions;
     public Map<String,String> advancedOptions() {
-        if (advancedOptions == null) return null;
-        return advancedOptions.getValue("Domain.advancedOptions");
+        if (!unknown_advancedOptions) return value_advancedOptions;
+        throw new UndeferrableValueException("Value 'Domain.advancedOptions' is not present");
     }
 
     /**
      * Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
      * 
      */
-    private UndeferrableValue<DomainAdvancedSecurityOptions> advancedSecurityOptions;
-
+    @PolicyResourceProperty(name="advancedSecurityOptions", flag="unknown_advancedSecurityOptions")
+    private DomainAdvancedSecurityOptions value_advancedSecurityOptions;
+    private boolean unknown_advancedSecurityOptions;
     public DomainAdvancedSecurityOptions advancedSecurityOptions() {
-        if (advancedSecurityOptions == null) return null;
-        return advancedSecurityOptions.getValue("Domain.advancedSecurityOptions");
+        if (!unknown_advancedSecurityOptions) return value_advancedSecurityOptions;
+        throw new UndeferrableValueException("Value 'Domain.advancedSecurityOptions' is not present");
     }
 
     /**
      * ARN of the domain.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Domain.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Domain.arn' is not present");
     }
 
     /**
      * Configuration block for the Auto-Tune options of the domain. Detailed below.
      * 
      */
-    private UndeferrableValue<DomainAutoTuneOptions> autoTuneOptions;
-
+    @PolicyResourceProperty(name="autoTuneOptions", flag="unknown_autoTuneOptions")
+    private DomainAutoTuneOptions value_autoTuneOptions;
+    private boolean unknown_autoTuneOptions;
     public DomainAutoTuneOptions autoTuneOptions() {
-        if (autoTuneOptions == null) return null;
-        return autoTuneOptions.getValue("Domain.autoTuneOptions");
+        if (!unknown_autoTuneOptions) return value_autoTuneOptions;
+        throw new UndeferrableValueException("Value 'Domain.autoTuneOptions' is not present");
     }
 
     /**
      * Configuration block for the cluster of the domain. Detailed below.
      * 
      */
-    private UndeferrableValue<DomainClusterConfig> clusterConfig;
-
+    @PolicyResourceProperty(name="clusterConfig", flag="unknown_clusterConfig")
+    private DomainClusterConfig value_clusterConfig;
+    private boolean unknown_clusterConfig;
     public DomainClusterConfig clusterConfig() {
-        if (clusterConfig == null) return null;
-        return clusterConfig.getValue("Domain.clusterConfig");
+        if (!unknown_clusterConfig) return value_clusterConfig;
+        throw new UndeferrableValueException("Value 'Domain.clusterConfig' is not present");
     }
 
     /**
      * Configuration block for authenticating dashboard with Cognito. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<DomainCognitoOptions> cognitoOptions;
-
+    @PolicyResourceProperty(name="cognitoOptions", flag="unknown_cognitoOptions")
+    private @Nullable DomainCognitoOptions value_cognitoOptions;
+    private boolean unknown_cognitoOptions;
     public @Nullable DomainCognitoOptions cognitoOptions() {
-        if (cognitoOptions == null) return null;
-        return cognitoOptions.getValue("Domain.cognitoOptions");
+        if (!unknown_cognitoOptions) return value_cognitoOptions;
+        throw new UndeferrableValueException("Value 'Domain.cognitoOptions' is not present");
     }
 
     /**
      * Domain-specific endpoint for Dashboard without https scheme.
      * 
      */
-    private UndeferrableValue<String> dashboardEndpoint;
-
+    @PolicyResourceProperty(name="dashboardEndpoint", flag="unknown_dashboardEndpoint")
+    private String value_dashboardEndpoint;
+    private boolean unknown_dashboardEndpoint;
     public String dashboardEndpoint() {
-        if (dashboardEndpoint == null) return null;
-        return dashboardEndpoint.getValue("Domain.dashboardEndpoint");
+        if (!unknown_dashboardEndpoint) return value_dashboardEndpoint;
+        throw new UndeferrableValueException("Value 'Domain.dashboardEndpoint' is not present");
     }
 
     /**
      * V2 domain endpoint for Dashboard that works with both IPv4 and IPv6 addresses, without https scheme.
      * 
      */
-    private UndeferrableValue<String> dashboardEndpointV2;
-
+    @PolicyResourceProperty(name="dashboardEndpointV2", flag="unknown_dashboardEndpointV2")
+    private String value_dashboardEndpointV2;
+    private boolean unknown_dashboardEndpointV2;
     public String dashboardEndpointV2() {
-        if (dashboardEndpointV2 == null) return null;
-        return dashboardEndpointV2.getValue("Domain.dashboardEndpointV2");
+        if (!unknown_dashboardEndpointV2) return value_dashboardEndpointV2;
+        throw new UndeferrableValueException("Value 'Domain.dashboardEndpointV2' is not present");
     }
 
     /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      * 
      */
-    private UndeferrableValue<DomainDomainEndpointOptions> domainEndpointOptions;
-
+    @PolicyResourceProperty(name="domainEndpointOptions", flag="unknown_domainEndpointOptions")
+    private DomainDomainEndpointOptions value_domainEndpointOptions;
+    private boolean unknown_domainEndpointOptions;
     public DomainDomainEndpointOptions domainEndpointOptions() {
-        if (domainEndpointOptions == null) return null;
-        return domainEndpointOptions.getValue("Domain.domainEndpointOptions");
+        if (!unknown_domainEndpointOptions) return value_domainEndpointOptions;
+        throw new UndeferrableValueException("Value 'Domain.domainEndpointOptions' is not present");
     }
 
     /**
      * Dual stack hosted zone ID for the domain.
      * 
      */
-    private UndeferrableValue<String> domainEndpointV2HostedZoneId;
-
+    @PolicyResourceProperty(name="domainEndpointV2HostedZoneId", flag="unknown_domainEndpointV2HostedZoneId")
+    private String value_domainEndpointV2HostedZoneId;
+    private boolean unknown_domainEndpointV2HostedZoneId;
     public String domainEndpointV2HostedZoneId() {
-        if (domainEndpointV2HostedZoneId == null) return null;
-        return domainEndpointV2HostedZoneId.getValue("Domain.domainEndpointV2HostedZoneId");
+        if (!unknown_domainEndpointV2HostedZoneId) return value_domainEndpointV2HostedZoneId;
+        throw new UndeferrableValueException("Value 'Domain.domainEndpointV2HostedZoneId' is not present");
     }
 
     /**
      * Unique identifier for the domain.
      * 
      */
-    private UndeferrableValue<String> domainId;
-
+    @PolicyResourceProperty(name="domainId", flag="unknown_domainId")
+    private String value_domainId;
+    private boolean unknown_domainId;
     public String domainId() {
-        if (domainId == null) return null;
-        return domainId.getValue("Domain.domainId");
+        if (!unknown_domainId) return value_domainId;
+        throw new UndeferrableValueException("Value 'Domain.domainId' is not present");
     }
 
     /**
@@ -165,55 +178,60 @@ public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("Domain.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'Domain.domainName' is not present");
     }
 
     /**
      * Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
      * 
      */
-    private UndeferrableValue<DomainEbsOptions> ebsOptions;
-
+    @PolicyResourceProperty(name="ebsOptions", flag="unknown_ebsOptions")
+    private DomainEbsOptions value_ebsOptions;
+    private boolean unknown_ebsOptions;
     public DomainEbsOptions ebsOptions() {
-        if (ebsOptions == null) return null;
-        return ebsOptions.getValue("Domain.ebsOptions");
+        if (!unknown_ebsOptions) return value_ebsOptions;
+        throw new UndeferrableValueException("Value 'Domain.ebsOptions' is not present");
     }
 
     /**
      * Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
      * 
      */
-    private UndeferrableValue<DomainEncryptAtRest> encryptAtRest;
-
+    @PolicyResourceProperty(name="encryptAtRest", flag="unknown_encryptAtRest")
+    private DomainEncryptAtRest value_encryptAtRest;
+    private boolean unknown_encryptAtRest;
     public DomainEncryptAtRest encryptAtRest() {
-        if (encryptAtRest == null) return null;
-        return encryptAtRest.getValue("Domain.encryptAtRest");
+        if (!unknown_encryptAtRest) return value_encryptAtRest;
+        throw new UndeferrableValueException("Value 'Domain.encryptAtRest' is not present");
     }
 
     /**
      * Domain-specific endpoint used to submit index, search, and data upload requests.
      * 
      */
-    private UndeferrableValue<String> endpoint;
-
+    @PolicyResourceProperty(name="endpoint", flag="unknown_endpoint")
+    private String value_endpoint;
+    private boolean unknown_endpoint;
     public String endpoint() {
-        if (endpoint == null) return null;
-        return endpoint.getValue("Domain.endpoint");
+        if (!unknown_endpoint) return value_endpoint;
+        throw new UndeferrableValueException("Value 'Domain.endpoint' is not present");
     }
 
     /**
      * V2 domain endpoint that works with both IPv4 and IPv6 addresses, used to submit index, search, and data upload requests.
      * 
      */
-    private UndeferrableValue<String> endpointV2;
-
+    @PolicyResourceProperty(name="endpointV2", flag="unknown_endpointV2")
+    private String value_endpointV2;
+    private boolean unknown_endpointV2;
     public String endpointV2() {
-        if (endpointV2 == null) return null;
-        return endpointV2.getValue("Domain.endpointV2");
+        if (!unknown_endpointV2) return value_endpointV2;
+        throw new UndeferrableValueException("Value 'Domain.endpointV2' is not present");
     }
 
     /**
@@ -222,22 +240,24 @@ public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
      * Defaults to the lastest version of OpenSearch.
      * 
      */
-    private UndeferrableValue<String> engineVersion;
-
+    @PolicyResourceProperty(name="engineVersion", flag="unknown_engineVersion")
+    private String value_engineVersion;
+    private boolean unknown_engineVersion;
     public String engineVersion() {
-        if (engineVersion == null) return null;
-        return engineVersion.getValue("Domain.engineVersion");
+        if (!unknown_engineVersion) return value_engineVersion;
+        throw new UndeferrableValueException("Value 'Domain.engineVersion' is not present");
     }
 
     /**
      * The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
      * 
      */
-    private UndeferrableValue<String> ipAddressType;
-
+    @PolicyResourceProperty(name="ipAddressType", flag="unknown_ipAddressType")
+    private String value_ipAddressType;
+    private boolean unknown_ipAddressType;
     public String ipAddressType() {
-        if (ipAddressType == null) return null;
-        return ipAddressType.getValue("Domain.ipAddressType");
+        if (!unknown_ipAddressType) return value_ipAddressType;
+        throw new UndeferrableValueException("Value 'Domain.ipAddressType' is not present");
     }
 
     /**
@@ -248,77 +268,84 @@ public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* kibana_endpoint is deprecated. Use dashboard_endpoint instead. */
-    private UndeferrableValue<String> kibanaEndpoint;
-
+    @PolicyResourceProperty(name="kibanaEndpoint", flag="unknown_kibanaEndpoint")
+    private String value_kibanaEndpoint;
+    private boolean unknown_kibanaEndpoint;
     public String kibanaEndpoint() {
-        if (kibanaEndpoint == null) return null;
-        return kibanaEndpoint.getValue("Domain.kibanaEndpoint");
+        if (!unknown_kibanaEndpoint) return value_kibanaEndpoint;
+        throw new UndeferrableValueException("Value 'Domain.kibanaEndpoint' is not present");
     }
 
     /**
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<DomainLogPublishingOption>> logPublishingOptions;
-
+    @PolicyResourceProperty(name="logPublishingOptions", flag="unknown_logPublishingOptions")
+    private @Nullable List<DomainLogPublishingOption> value_logPublishingOptions;
+    private boolean unknown_logPublishingOptions;
     public @Nullable List<DomainLogPublishingOption> logPublishingOptions() {
-        if (logPublishingOptions == null) return null;
-        return logPublishingOptions.getValue("Domain.logPublishingOptions");
+        if (!unknown_logPublishingOptions) return value_logPublishingOptions;
+        throw new UndeferrableValueException("Value 'Domain.logPublishingOptions' is not present");
     }
 
     /**
      * Configuration block for node-to-node encryption options. Detailed below.
      * 
      */
-    private UndeferrableValue<DomainNodeToNodeEncryption> nodeToNodeEncryption;
-
+    @PolicyResourceProperty(name="nodeToNodeEncryption", flag="unknown_nodeToNodeEncryption")
+    private DomainNodeToNodeEncryption value_nodeToNodeEncryption;
+    private boolean unknown_nodeToNodeEncryption;
     public DomainNodeToNodeEncryption nodeToNodeEncryption() {
-        if (nodeToNodeEncryption == null) return null;
-        return nodeToNodeEncryption.getValue("Domain.nodeToNodeEncryption");
+        if (!unknown_nodeToNodeEncryption) return value_nodeToNodeEncryption;
+        throw new UndeferrableValueException("Value 'Domain.nodeToNodeEncryption' is not present");
     }
 
     /**
      * Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
      * 
      */
-    private UndeferrableValue<DomainOffPeakWindowOptions> offPeakWindowOptions;
-
+    @PolicyResourceProperty(name="offPeakWindowOptions", flag="unknown_offPeakWindowOptions")
+    private DomainOffPeakWindowOptions value_offPeakWindowOptions;
+    private boolean unknown_offPeakWindowOptions;
     public DomainOffPeakWindowOptions offPeakWindowOptions() {
-        if (offPeakWindowOptions == null) return null;
-        return offPeakWindowOptions.getValue("Domain.offPeakWindowOptions");
+        if (!unknown_offPeakWindowOptions) return value_offPeakWindowOptions;
+        throw new UndeferrableValueException("Value 'Domain.offPeakWindowOptions' is not present");
     }
 
     /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
      * 
      */
-    private @Nullable UndeferrableValue<DomainSnapshotOptions> snapshotOptions;
-
+    @PolicyResourceProperty(name="snapshotOptions", flag="unknown_snapshotOptions")
+    private @Nullable DomainSnapshotOptions value_snapshotOptions;
+    private boolean unknown_snapshotOptions;
     public @Nullable DomainSnapshotOptions snapshotOptions() {
-        if (snapshotOptions == null) return null;
-        return snapshotOptions.getValue("Domain.snapshotOptions");
+        if (!unknown_snapshotOptions) return value_snapshotOptions;
+        throw new UndeferrableValueException("Value 'Domain.snapshotOptions' is not present");
     }
 
     /**
      * Software update options for the domain. Detailed below.
      * 
      */
-    private UndeferrableValue<DomainSoftwareUpdateOptions> softwareUpdateOptions;
-
+    @PolicyResourceProperty(name="softwareUpdateOptions", flag="unknown_softwareUpdateOptions")
+    private DomainSoftwareUpdateOptions value_softwareUpdateOptions;
+    private boolean unknown_softwareUpdateOptions;
     public DomainSoftwareUpdateOptions softwareUpdateOptions() {
-        if (softwareUpdateOptions == null) return null;
-        return softwareUpdateOptions.getValue("Domain.softwareUpdateOptions");
+        if (!unknown_softwareUpdateOptions) return value_softwareUpdateOptions;
+        throw new UndeferrableValueException("Value 'Domain.softwareUpdateOptions' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Domain.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Domain.tags' is not present");
     }
 
     /**
@@ -329,22 +356,24 @@ public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Domain.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Domain.tagsAll' is not present");
     }
 
     /**
      * Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<DomainVpcOptions> vpcOptions;
-
+    @PolicyResourceProperty(name="vpcOptions", flag="unknown_vpcOptions")
+    private @Nullable DomainVpcOptions value_vpcOptions;
+    private boolean unknown_vpcOptions;
     public @Nullable DomainVpcOptions vpcOptions() {
-        if (vpcOptions == null) return null;
-        return vpcOptions.getValue("Domain.vpcOptions");
+        if (!unknown_vpcOptions) return value_vpcOptions;
+        throw new UndeferrableValueException("Value 'Domain.vpcOptions' is not present");
     }
 
 }

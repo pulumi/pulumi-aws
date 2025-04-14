@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codeconnections;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.codeconnections.outputs.HostTimeouts;
 import com.pulumi.policypacks.aws.codeconnections.outputs.HostVpcConfiguration;
@@ -19,51 +20,56 @@ public final class Host extends com.pulumi.resources.PolicyResourceOutput {
      * The CodeConnections Host ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Host.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Host.arn' is not present");
     }
 
     /**
      * The name of the host to be created. The name must be unique in the calling AWS account.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Host.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Host.name' is not present");
     }
 
     /**
      * The endpoint of the infrastructure to be represented by the host after it is created.
      * 
      */
-    private UndeferrableValue<String> providerEndpoint;
-
+    @PolicyResourceProperty(name="providerEndpoint", flag="unknown_providerEndpoint")
+    private String value_providerEndpoint;
+    private boolean unknown_providerEndpoint;
     public String providerEndpoint() {
-        if (providerEndpoint == null) return null;
-        return providerEndpoint.getValue("Host.providerEndpoint");
+        if (!unknown_providerEndpoint) return value_providerEndpoint;
+        throw new UndeferrableValueException("Value 'Host.providerEndpoint' is not present");
     }
 
     /**
      * The name of the external provider where your third-party code repository is configured.
      * 
      */
-    private UndeferrableValue<String> providerType;
-
+    @PolicyResourceProperty(name="providerType", flag="unknown_providerType")
+    private String value_providerType;
+    private boolean unknown_providerType;
     public String providerType() {
-        if (providerType == null) return null;
-        return providerType.getValue("Host.providerType");
+        if (!unknown_providerType) return value_providerType;
+        throw new UndeferrableValueException("Value 'Host.providerType' is not present");
     }
 
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Host.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Host.tags' is not present");
     }
 
     /**
@@ -72,29 +78,32 @@ public final class Host extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Host.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Host.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<HostTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable HostTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable HostTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("Host.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'Host.timeouts' is not present");
     }
 
     /**
      * The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
      * 
      */
-    private @Nullable UndeferrableValue<HostVpcConfiguration> vpcConfiguration;
-
+    @PolicyResourceProperty(name="vpcConfiguration", flag="unknown_vpcConfiguration")
+    private @Nullable HostVpcConfiguration value_vpcConfiguration;
+    private boolean unknown_vpcConfiguration;
     public @Nullable HostVpcConfiguration vpcConfiguration() {
-        if (vpcConfiguration == null) return null;
-        return vpcConfiguration.getValue("Host.vpcConfiguration");
+        if (!unknown_vpcConfiguration) return value_vpcConfiguration;
+        throw new UndeferrableValueException("Value 'Host.vpcConfiguration' is not present");
     }
 
 }

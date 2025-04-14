@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.rds.inputs.ProxyAuthArgs;
 import java.lang.Boolean;
@@ -21,110 +22,120 @@ public final class ProxyArgs extends com.pulumi.resources.PolicyResourceInput {
      * Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
      * 
      */
-    private UndeferrableValue<List<ProxyAuthArgs>> auths;
-
+    @PolicyResourceProperty(name="auths", flag="unknown_auths")
+    private List<ProxyAuthArgs> value_auths;
+    private boolean unknown_auths;
     public List<ProxyAuthArgs> auths() {
-        if (auths == null) return null;
-        return auths.getValue("ProxyArgs.auths");
+        if (!unknown_auths) return value_auths;
+        throw new UndeferrableValueException("Value 'ProxyArgs.auths' is not present");
     }
 
     /**
      * Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
      * 
      */
-    private UndeferrableValue<Boolean> debugLogging;
-
+    @PolicyResourceProperty(name="debugLogging", flag="unknown_debugLogging")
+    private Boolean value_debugLogging;
+    private boolean unknown_debugLogging;
     public Boolean debugLogging() {
-        if (debugLogging == null) return null;
-        return debugLogging.getValue("ProxyArgs.debugLogging");
+        if (!unknown_debugLogging) return value_debugLogging;
+        throw new UndeferrableValueException("Value 'ProxyArgs.debugLogging' is not present");
     }
 
     /**
      * The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases, specify `MYSQL`. For Aurora PostgreSQL and RDS for PostgreSQL databases, specify `POSTGRESQL`. For RDS for Microsoft SQL Server, specify `SQLSERVER`. Valid values are `MYSQL`, `POSTGRESQL`, and `SQLSERVER`.
      * 
      */
-    private UndeferrableValue<String> engineFamily;
-
+    @PolicyResourceProperty(name="engineFamily", flag="unknown_engineFamily")
+    private String value_engineFamily;
+    private boolean unknown_engineFamily;
     public String engineFamily() {
-        if (engineFamily == null) return null;
-        return engineFamily.getValue("ProxyArgs.engineFamily");
+        if (!unknown_engineFamily) return value_engineFamily;
+        throw new UndeferrableValueException("Value 'ProxyArgs.engineFamily' is not present");
     }
 
     /**
      * The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
      * 
      */
-    private UndeferrableValue<Integer> idleClientTimeout;
-
+    @PolicyResourceProperty(name="idleClientTimeout", flag="unknown_idleClientTimeout")
+    private Integer value_idleClientTimeout;
+    private boolean unknown_idleClientTimeout;
     public Integer idleClientTimeout() {
-        if (idleClientTimeout == null) return null;
-        return idleClientTimeout.getValue("ProxyArgs.idleClientTimeout");
+        if (!unknown_idleClientTimeout) return value_idleClientTimeout;
+        throw new UndeferrableValueException("Value 'ProxyArgs.idleClientTimeout' is not present");
     }
 
     /**
      * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ProxyArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ProxyArgs.name' is not present");
     }
 
     /**
      * A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
      * 
      */
-    private UndeferrableValue<Boolean> requireTls;
-
+    @PolicyResourceProperty(name="requireTls", flag="unknown_requireTls")
+    private Boolean value_requireTls;
+    private boolean unknown_requireTls;
     public Boolean requireTls() {
-        if (requireTls == null) return null;
-        return requireTls.getValue("ProxyArgs.requireTls");
+        if (!unknown_requireTls) return value_requireTls;
+        throw new UndeferrableValueException("Value 'ProxyArgs.requireTls' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("ProxyArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'ProxyArgs.roleArn' is not present");
     }
 
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ProxyArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ProxyArgs.tags' is not present");
     }
 
     /**
      * One or more VPC security group IDs to associate with the new proxy.
      * 
      */
-    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
-
+    @PolicyResourceProperty(name="vpcSecurityGroupIds", flag="unknown_vpcSecurityGroupIds")
+    private List<String> value_vpcSecurityGroupIds;
+    private boolean unknown_vpcSecurityGroupIds;
     public List<String> vpcSecurityGroupIds() {
-        if (vpcSecurityGroupIds == null) return null;
-        return vpcSecurityGroupIds.getValue("ProxyArgs.vpcSecurityGroupIds");
+        if (!unknown_vpcSecurityGroupIds) return value_vpcSecurityGroupIds;
+        throw new UndeferrableValueException("Value 'ProxyArgs.vpcSecurityGroupIds' is not present");
     }
 
     /**
      * One or more VPC subnet IDs to associate with the new proxy.
      * 
      */
-    private UndeferrableValue<List<String>> vpcSubnetIds;
-
+    @PolicyResourceProperty(name="vpcSubnetIds", flag="unknown_vpcSubnetIds")
+    private List<String> value_vpcSubnetIds;
+    private boolean unknown_vpcSubnetIds;
     public List<String> vpcSubnetIds() {
-        if (vpcSubnetIds == null) return null;
-        return vpcSubnetIds.getValue("ProxyArgs.vpcSubnetIds");
+        if (!unknown_vpcSubnetIds) return value_vpcSubnetIds;
+        throw new UndeferrableValueException("Value 'ProxyArgs.vpcSubnetIds' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mskconnect.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class ConnectorPluginCustomPlugin {
      * The Amazon Resource Name (ARN) of the custom plugin.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ConnectorPluginCustomPlugin.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ConnectorPluginCustomPlugin.arn' is not present");
     }
 
     /**
      * The revision of the custom plugin.
      * 
      */
-    private UndeferrableValue<Integer> revision;
-
+    @PolicyResourceProperty(name="revision", flag="unknown_revision")
+    private Integer value_revision;
+    private boolean unknown_revision;
     public Integer revision() {
-        if (revision == null) return null;
-        return revision.getValue("ConnectorPluginCustomPlugin.revision");
+        if (!unknown_revision) return value_revision;
+        throw new UndeferrableValueException("Value 'ConnectorPluginCustomPlugin.revision' is not present");
     }
 
 }

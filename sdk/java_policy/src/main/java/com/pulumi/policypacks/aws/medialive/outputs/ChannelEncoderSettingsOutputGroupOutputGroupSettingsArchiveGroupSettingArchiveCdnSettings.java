@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
      * Archive S3 Settings. See Archive S3 Settings for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings> archiveS3Settings;
-
+    @PolicyResourceProperty(name="archiveS3Settings", flag="unknown_archiveS3Settings")
+    private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings value_archiveS3Settings;
+    private boolean unknown_archiveS3Settings;
     public @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings archiveS3Settings() {
-        if (archiveS3Settings == null) return null;
-        return archiveS3Settings.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings.archiveS3Settings");
+        if (!unknown_archiveS3Settings) return value_archiveS3Settings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings.archiveS3Settings' is not present");
     }
 
 }

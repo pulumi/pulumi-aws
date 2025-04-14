@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.iot.outputs.BillingGroupMetadata;
 import com.pulumi.policypacks.aws.iot.outputs.BillingGroupProperties;
@@ -21,51 +22,56 @@ public final class BillingGroup extends com.pulumi.resources.PolicyResourceOutpu
      * The ARN of the Billing Group.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("BillingGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'BillingGroup.arn' is not present");
     }
 
-    private UndeferrableValue<List<BillingGroupMetadata>> metadatas;
-
+    @PolicyResourceProperty(name="metadatas", flag="unknown_metadatas")
+    private List<BillingGroupMetadata> value_metadatas;
+    private boolean unknown_metadatas;
     public List<BillingGroupMetadata> metadatas() {
-        if (metadatas == null) return null;
-        return metadatas.getValue("BillingGroup.metadatas");
+        if (!unknown_metadatas) return value_metadatas;
+        throw new UndeferrableValueException("Value 'BillingGroup.metadatas' is not present");
     }
 
     /**
      * The name of the Billing Group.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("BillingGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'BillingGroup.name' is not present");
     }
 
     /**
      * The Billing Group properties. Defined below.
      * 
      */
-    private @Nullable UndeferrableValue<BillingGroupProperties> properties;
-
+    @PolicyResourceProperty(name="properties", flag="unknown_properties")
+    private @Nullable BillingGroupProperties value_properties;
+    private boolean unknown_properties;
     public @Nullable BillingGroupProperties properties() {
-        if (properties == null) return null;
-        return properties.getValue("BillingGroup.properties");
+        if (!unknown_properties) return value_properties;
+        throw new UndeferrableValueException("Value 'BillingGroup.properties' is not present");
     }
 
     /**
      * Key-value mapping of resource tags
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("BillingGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'BillingGroup.tags' is not present");
     }
 
     /**
@@ -74,22 +80,24 @@ public final class BillingGroup extends com.pulumi.resources.PolicyResourceOutpu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("BillingGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'BillingGroup.tagsAll' is not present");
     }
 
     /**
      * The current version of the Billing Group record in the registry.
      * 
      */
-    private UndeferrableValue<Integer> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private Integer value_version;
+    private boolean unknown_version;
     public Integer version() {
-        if (version == null) return null;
-        return version.getValue("BillingGroup.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'BillingGroup.version' is not present");
     }
 
 }

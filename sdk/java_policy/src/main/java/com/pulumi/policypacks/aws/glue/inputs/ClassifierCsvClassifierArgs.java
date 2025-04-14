@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -16,99 +17,108 @@ public final class ClassifierCsvClassifierArgs {
      * Enables the processing of files that contain only one column.
      * 
      */
-    private UndeferrableValue<Boolean> allowSingleColumn;
-
+    @PolicyResourceProperty(name="allowSingleColumn", flag="unknown_allowSingleColumn")
+    private Boolean value_allowSingleColumn;
+    private boolean unknown_allowSingleColumn;
     public Boolean allowSingleColumn() {
-        if (allowSingleColumn == null) return null;
-        return allowSingleColumn.getValue("ClassifierCsvClassifierArgs.allowSingleColumn");
+        if (!unknown_allowSingleColumn) return value_allowSingleColumn;
+        throw new UndeferrableValueException("Value 'ClassifierCsvClassifierArgs.allowSingleColumn' is not present");
     }
 
     /**
      * Indicates whether the CSV file contains a header. This can be one of &#34;ABSENT&#34;, &#34;PRESENT&#34;, or &#34;UNKNOWN&#34;.
      * 
      */
-    private UndeferrableValue<String> containsHeader;
-
+    @PolicyResourceProperty(name="containsHeader", flag="unknown_containsHeader")
+    private String value_containsHeader;
+    private boolean unknown_containsHeader;
     public String containsHeader() {
-        if (containsHeader == null) return null;
-        return containsHeader.getValue("ClassifierCsvClassifierArgs.containsHeader");
+        if (!unknown_containsHeader) return value_containsHeader;
+        throw new UndeferrableValueException("Value 'ClassifierCsvClassifierArgs.containsHeader' is not present");
     }
 
     /**
      * Enables the custom datatype to be configured.
      * 
      */
-    private UndeferrableValue<Boolean> customDatatypeConfigured;
-
+    @PolicyResourceProperty(name="customDatatypeConfigured", flag="unknown_customDatatypeConfigured")
+    private Boolean value_customDatatypeConfigured;
+    private boolean unknown_customDatatypeConfigured;
     public Boolean customDatatypeConfigured() {
-        if (customDatatypeConfigured == null) return null;
-        return customDatatypeConfigured.getValue("ClassifierCsvClassifierArgs.customDatatypeConfigured");
+        if (!unknown_customDatatypeConfigured) return value_customDatatypeConfigured;
+        throw new UndeferrableValueException("Value 'ClassifierCsvClassifierArgs.customDatatypeConfigured' is not present");
     }
 
     /**
      * A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
      * 
      */
-    private UndeferrableValue<List<String>> customDatatypes;
-
+    @PolicyResourceProperty(name="customDatatypes", flag="unknown_customDatatypes")
+    private List<String> value_customDatatypes;
+    private boolean unknown_customDatatypes;
     public List<String> customDatatypes() {
-        if (customDatatypes == null) return null;
-        return customDatatypes.getValue("ClassifierCsvClassifierArgs.customDatatypes");
+        if (!unknown_customDatatypes) return value_customDatatypes;
+        throw new UndeferrableValueException("Value 'ClassifierCsvClassifierArgs.customDatatypes' is not present");
     }
 
     /**
      * The delimiter used in the CSV to separate columns.
      * 
      */
-    private UndeferrableValue<String> delimiter;
-
+    @PolicyResourceProperty(name="delimiter", flag="unknown_delimiter")
+    private String value_delimiter;
+    private boolean unknown_delimiter;
     public String delimiter() {
-        if (delimiter == null) return null;
-        return delimiter.getValue("ClassifierCsvClassifierArgs.delimiter");
+        if (!unknown_delimiter) return value_delimiter;
+        throw new UndeferrableValueException("Value 'ClassifierCsvClassifierArgs.delimiter' is not present");
     }
 
     /**
      * Specifies whether to trim column values.
      * 
      */
-    private UndeferrableValue<Boolean> disableValueTrimming;
-
+    @PolicyResourceProperty(name="disableValueTrimming", flag="unknown_disableValueTrimming")
+    private Boolean value_disableValueTrimming;
+    private boolean unknown_disableValueTrimming;
     public Boolean disableValueTrimming() {
-        if (disableValueTrimming == null) return null;
-        return disableValueTrimming.getValue("ClassifierCsvClassifierArgs.disableValueTrimming");
+        if (!unknown_disableValueTrimming) return value_disableValueTrimming;
+        throw new UndeferrableValueException("Value 'ClassifierCsvClassifierArgs.disableValueTrimming' is not present");
     }
 
     /**
      * A list of strings representing column names.
      * 
      */
-    private UndeferrableValue<List<String>> headers;
-
+    @PolicyResourceProperty(name="headers", flag="unknown_headers")
+    private List<String> value_headers;
+    private boolean unknown_headers;
     public List<String> headers() {
-        if (headers == null) return null;
-        return headers.getValue("ClassifierCsvClassifierArgs.headers");
+        if (!unknown_headers) return value_headers;
+        throw new UndeferrableValueException("Value 'ClassifierCsvClassifierArgs.headers' is not present");
     }
 
     /**
      * A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
      * 
      */
-    private UndeferrableValue<String> quoteSymbol;
-
+    @PolicyResourceProperty(name="quoteSymbol", flag="unknown_quoteSymbol")
+    private String value_quoteSymbol;
+    private boolean unknown_quoteSymbol;
     public String quoteSymbol() {
-        if (quoteSymbol == null) return null;
-        return quoteSymbol.getValue("ClassifierCsvClassifierArgs.quoteSymbol");
+        if (!unknown_quoteSymbol) return value_quoteSymbol;
+        throw new UndeferrableValueException("Value 'ClassifierCsvClassifierArgs.quoteSymbol' is not present");
     }
 
     /**
      * The SerDe for processing CSV. Valid values are `OpenCSVSerDe`, `LazySimpleSerDe`, `None`.
      * 
      */
-    private UndeferrableValue<String> serde;
-
+    @PolicyResourceProperty(name="serde", flag="unknown_serde")
+    private String value_serde;
+    private boolean unknown_serde;
     public String serde() {
-        if (serde == null) return null;
-        return serde.getValue("ClassifierCsvClassifierArgs.serde");
+        if (!unknown_serde) return value_serde;
+        throw new UndeferrableValueException("Value 'ClassifierCsvClassifierArgs.serde' is not present");
     }
 
 }

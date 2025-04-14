@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lex.outputs.IntentConclusionStatement;
 import com.pulumi.policypacks.aws.lex.outputs.IntentConfirmationPrompt;
@@ -25,11 +26,12 @@ public final class Intent extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN of the Lex intent.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Intent.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Intent.arn' is not present");
     }
 
     /**
@@ -37,11 +39,12 @@ public final class Intent extends com.pulumi.resources.PolicyResourceOutput {
      * included as an argument because the resource will add it automatically when updating the intent.
      * 
      */
-    private UndeferrableValue<String> checksum;
-
+    @PolicyResourceProperty(name="checksum", flag="unknown_checksum")
+    private String value_checksum;
+    private boolean unknown_checksum;
     public String checksum() {
-        if (checksum == null) return null;
-        return checksum.getValue("Intent.checksum");
+        if (!unknown_checksum) return value_checksum;
+        throw new UndeferrableValueException("Value 'Intent.checksum' is not present");
     }
 
     /**
@@ -52,11 +55,12 @@ public final class Intent extends com.pulumi.resources.PolicyResourceOutput {
      * mutually exclusive. You can specify only one. Attributes are documented under statement.
      * 
      */
-    private @Nullable UndeferrableValue<IntentConclusionStatement> conclusionStatement;
-
+    @PolicyResourceProperty(name="conclusionStatement", flag="unknown_conclusionStatement")
+    private @Nullable IntentConclusionStatement value_conclusionStatement;
+    private boolean unknown_conclusionStatement;
     public @Nullable IntentConclusionStatement conclusionStatement() {
-        if (conclusionStatement == null) return null;
-        return conclusionStatement.getValue("Intent.conclusionStatement");
+        if (!unknown_conclusionStatement) return value_conclusionStatement;
+        throw new UndeferrableValueException("Value 'Intent.conclusionStatement' is not present");
     }
 
     /**
@@ -65,11 +69,12 @@ public final class Intent extends com.pulumi.resources.PolicyResourceOutput {
      * or neither. Attributes are documented under prompt.
      * 
      */
-    private @Nullable UndeferrableValue<IntentConfirmationPrompt> confirmationPrompt;
-
+    @PolicyResourceProperty(name="confirmationPrompt", flag="unknown_confirmationPrompt")
+    private @Nullable IntentConfirmationPrompt value_confirmationPrompt;
+    private boolean unknown_confirmationPrompt;
     public @Nullable IntentConfirmationPrompt confirmationPrompt() {
-        if (confirmationPrompt == null) return null;
-        return confirmationPrompt.getValue("Intent.confirmationPrompt");
+        if (!unknown_confirmationPrompt) return value_confirmationPrompt;
+        throw new UndeferrableValueException("Value 'Intent.confirmationPrompt' is not present");
     }
 
     /**
@@ -77,33 +82,36 @@ public final class Intent extends com.pulumi.resources.PolicyResourceOutput {
      * resource is created and on each update. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> createVersion;
-
+    @PolicyResourceProperty(name="createVersion", flag="unknown_createVersion")
+    private @Nullable Boolean value_createVersion;
+    private boolean unknown_createVersion;
     public @Nullable Boolean createVersion() {
-        if (createVersion == null) return null;
-        return createVersion.getValue("Intent.createVersion");
+        if (!unknown_createVersion) return value_createVersion;
+        throw new UndeferrableValueException("Value 'Intent.createVersion' is not present");
     }
 
     /**
      * The date when the intent version was created.
      * 
      */
-    private UndeferrableValue<String> createdDate;
-
+    @PolicyResourceProperty(name="createdDate", flag="unknown_createdDate")
+    private String value_createdDate;
+    private boolean unknown_createdDate;
     public String createdDate() {
-        if (createdDate == null) return null;
-        return createdDate.getValue("Intent.createdDate");
+        if (!unknown_createdDate) return value_createdDate;
+        throw new UndeferrableValueException("Value 'Intent.createdDate' is not present");
     }
 
     /**
      * A description of the intent. Must be less than or equal to 200 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Intent.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Intent.description' is not present");
     }
 
     /**
@@ -111,11 +119,12 @@ public final class Intent extends com.pulumi.resources.PolicyResourceOutput {
      * invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
      * 
      */
-    private @Nullable UndeferrableValue<IntentDialogCodeHook> dialogCodeHook;
-
+    @PolicyResourceProperty(name="dialogCodeHook", flag="unknown_dialogCodeHook")
+    private @Nullable IntentDialogCodeHook value_dialogCodeHook;
+    private boolean unknown_dialogCodeHook;
     public @Nullable IntentDialogCodeHook dialogCodeHook() {
-        if (dialogCodeHook == null) return null;
-        return dialogCodeHook.getValue("Intent.dialogCodeHook");
+        if (!unknown_dialogCodeHook) return value_dialogCodeHook;
+        throw new UndeferrableValueException("Value 'Intent.dialogCodeHook' is not present");
     }
 
     /**
@@ -125,11 +134,12 @@ public final class Intent extends com.pulumi.resources.PolicyResourceOutput {
      * exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
      * 
      */
-    private @Nullable UndeferrableValue<IntentFollowUpPrompt> followUpPrompt;
-
+    @PolicyResourceProperty(name="followUpPrompt", flag="unknown_followUpPrompt")
+    private @Nullable IntentFollowUpPrompt value_followUpPrompt;
+    private boolean unknown_followUpPrompt;
     public @Nullable IntentFollowUpPrompt followUpPrompt() {
-        if (followUpPrompt == null) return null;
-        return followUpPrompt.getValue("Intent.followUpPrompt");
+        if (!unknown_followUpPrompt) return value_followUpPrompt;
+        throw new UndeferrableValueException("Value 'Intent.followUpPrompt' is not present");
     }
 
     /**
@@ -138,33 +148,36 @@ public final class Intent extends com.pulumi.resources.PolicyResourceOutput {
      * places an order with a local pizza store. Attributes are documented under fulfillment_activity.
      * 
      */
-    private UndeferrableValue<IntentFulfillmentActivity> fulfillmentActivity;
-
+    @PolicyResourceProperty(name="fulfillmentActivity", flag="unknown_fulfillmentActivity")
+    private IntentFulfillmentActivity value_fulfillmentActivity;
+    private boolean unknown_fulfillmentActivity;
     public IntentFulfillmentActivity fulfillmentActivity() {
-        if (fulfillmentActivity == null) return null;
-        return fulfillmentActivity.getValue("Intent.fulfillmentActivity");
+        if (!unknown_fulfillmentActivity) return value_fulfillmentActivity;
+        throw new UndeferrableValueException("Value 'Intent.fulfillmentActivity' is not present");
     }
 
     /**
      * The date when the $LATEST version of this intent was updated.
      * 
      */
-    private UndeferrableValue<String> lastUpdatedDate;
-
+    @PolicyResourceProperty(name="lastUpdatedDate", flag="unknown_lastUpdatedDate")
+    private String value_lastUpdatedDate;
+    private boolean unknown_lastUpdatedDate;
     public String lastUpdatedDate() {
-        if (lastUpdatedDate == null) return null;
-        return lastUpdatedDate.getValue("Intent.lastUpdatedDate");
+        if (!unknown_lastUpdatedDate) return value_lastUpdatedDate;
+        throw new UndeferrableValueException("Value 'Intent.lastUpdatedDate' is not present");
     }
 
     /**
      * The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Intent.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Intent.name' is not present");
     }
 
     /**
@@ -174,11 +187,12 @@ public final class Intent extends com.pulumi.resources.PolicyResourceOutput {
      * in the Alexa Skills Kit.
      * 
      */
-    private @Nullable UndeferrableValue<String> parentIntentSignature;
-
+    @PolicyResourceProperty(name="parentIntentSignature", flag="unknown_parentIntentSignature")
+    private @Nullable String value_parentIntentSignature;
+    private boolean unknown_parentIntentSignature;
     public @Nullable String parentIntentSignature() {
-        if (parentIntentSignature == null) return null;
-        return parentIntentSignature.getValue("Intent.parentIntentSignature");
+        if (!unknown_parentIntentSignature) return value_parentIntentSignature;
+        throw new UndeferrableValueException("Value 'Intent.parentIntentSignature' is not present");
     }
 
     /**
@@ -188,11 +202,12 @@ public final class Intent extends com.pulumi.resources.PolicyResourceOutput {
      * Attributes are documented under statement.
      * 
      */
-    private @Nullable UndeferrableValue<IntentRejectionStatement> rejectionStatement;
-
+    @PolicyResourceProperty(name="rejectionStatement", flag="unknown_rejectionStatement")
+    private @Nullable IntentRejectionStatement value_rejectionStatement;
+    private boolean unknown_rejectionStatement;
     public @Nullable IntentRejectionStatement rejectionStatement() {
-        if (rejectionStatement == null) return null;
-        return rejectionStatement.getValue("Intent.rejectionStatement");
+        if (!unknown_rejectionStatement) return value_rejectionStatement;
+        throw new UndeferrableValueException("Value 'Intent.rejectionStatement' is not present");
     }
 
     /**
@@ -201,11 +216,12 @@ public final class Intent extends com.pulumi.resources.PolicyResourceOutput {
      * In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> sampleUtterances;
-
+    @PolicyResourceProperty(name="sampleUtterances", flag="unknown_sampleUtterances")
+    private @Nullable List<String> value_sampleUtterances;
+    private boolean unknown_sampleUtterances;
     public @Nullable List<String> sampleUtterances() {
-        if (sampleUtterances == null) return null;
-        return sampleUtterances.getValue("Intent.sampleUtterances");
+        if (!unknown_sampleUtterances) return value_sampleUtterances;
+        throw new UndeferrableValueException("Value 'Intent.sampleUtterances' is not present");
     }
 
     /**
@@ -213,22 +229,24 @@ public final class Intent extends com.pulumi.resources.PolicyResourceOutput {
      * from the user using prompts defined in the slots. Attributes are documented under slot.
      * 
      */
-    private @Nullable UndeferrableValue<List<IntentSlot>> slots;
-
+    @PolicyResourceProperty(name="slots", flag="unknown_slots")
+    private @Nullable List<IntentSlot> value_slots;
+    private boolean unknown_slots;
     public @Nullable List<IntentSlot> slots() {
-        if (slots == null) return null;
-        return slots.getValue("Intent.slots");
+        if (!unknown_slots) return value_slots;
+        throw new UndeferrableValueException("Value 'Intent.slots' is not present");
     }
 
     /**
      * The version of the bot.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("Intent.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'Intent.version' is not present");
     }
 
 }

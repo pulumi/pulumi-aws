@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclChallengeConfigImmunityTimeProperty;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class WebAclChallengeConfig {
      * Defines custom immunity time. See `immunity_time_property` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclChallengeConfigImmunityTimeProperty> immunityTimeProperty;
-
+    @PolicyResourceProperty(name="immunityTimeProperty", flag="unknown_immunityTimeProperty")
+    private @Nullable WebAclChallengeConfigImmunityTimeProperty value_immunityTimeProperty;
+    private boolean unknown_immunityTimeProperty;
     public @Nullable WebAclChallengeConfigImmunityTimeProperty immunityTimeProperty() {
-        if (immunityTimeProperty == null) return null;
-        return immunityTimeProperty.getValue("WebAclChallengeConfig.immunityTimeProperty");
+        if (!unknown_immunityTimeProperty) return value_immunityTimeProperty;
+        throw new UndeferrableValueException("Value 'WebAclChallengeConfig.immunityTimeProperty' is not present");
     }
 
 }

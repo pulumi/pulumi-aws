@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -17,165 +18,180 @@ public final class HostedConnection extends com.pulumi.resources.PolicyResourceO
      * The Direct Connect endpoint on which the physical connection terminates.
      * 
      */
-    private UndeferrableValue<String> awsDevice;
-
+    @PolicyResourceProperty(name="awsDevice", flag="unknown_awsDevice")
+    private String value_awsDevice;
+    private boolean unknown_awsDevice;
     public String awsDevice() {
-        if (awsDevice == null) return null;
-        return awsDevice.getValue("HostedConnection.awsDevice");
+        if (!unknown_awsDevice) return value_awsDevice;
+        throw new UndeferrableValueException("Value 'HostedConnection.awsDevice' is not present");
     }
 
     /**
      * The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
      * 
      */
-    private UndeferrableValue<String> bandwidth;
-
+    @PolicyResourceProperty(name="bandwidth", flag="unknown_bandwidth")
+    private String value_bandwidth;
+    private boolean unknown_bandwidth;
     public String bandwidth() {
-        if (bandwidth == null) return null;
-        return bandwidth.getValue("HostedConnection.bandwidth");
+        if (!unknown_bandwidth) return value_bandwidth;
+        throw new UndeferrableValueException("Value 'HostedConnection.bandwidth' is not present");
     }
 
     /**
      * The ID of the interconnect or LAG.
      * 
      */
-    private UndeferrableValue<String> connectionId;
-
+    @PolicyResourceProperty(name="connectionId", flag="unknown_connectionId")
+    private String value_connectionId;
+    private boolean unknown_connectionId;
     public String connectionId() {
-        if (connectionId == null) return null;
-        return connectionId.getValue("HostedConnection.connectionId");
+        if (!unknown_connectionId) return value_connectionId;
+        throw new UndeferrableValueException("Value 'HostedConnection.connectionId' is not present");
     }
 
     /**
      * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
      * 
      */
-    private UndeferrableValue<String> hasLogicalRedundancy;
-
+    @PolicyResourceProperty(name="hasLogicalRedundancy", flag="unknown_hasLogicalRedundancy")
+    private String value_hasLogicalRedundancy;
+    private boolean unknown_hasLogicalRedundancy;
     public String hasLogicalRedundancy() {
-        if (hasLogicalRedundancy == null) return null;
-        return hasLogicalRedundancy.getValue("HostedConnection.hasLogicalRedundancy");
+        if (!unknown_hasLogicalRedundancy) return value_hasLogicalRedundancy;
+        throw new UndeferrableValueException("Value 'HostedConnection.hasLogicalRedundancy' is not present");
     }
 
     /**
      * Boolean value representing if jumbo frames have been enabled for this connection.
      * 
      */
-    private UndeferrableValue<Boolean> jumboFrameCapable;
-
+    @PolicyResourceProperty(name="jumboFrameCapable", flag="unknown_jumboFrameCapable")
+    private Boolean value_jumboFrameCapable;
+    private boolean unknown_jumboFrameCapable;
     public Boolean jumboFrameCapable() {
-        if (jumboFrameCapable == null) return null;
-        return jumboFrameCapable.getValue("HostedConnection.jumboFrameCapable");
+        if (!unknown_jumboFrameCapable) return value_jumboFrameCapable;
+        throw new UndeferrableValueException("Value 'HostedConnection.jumboFrameCapable' is not present");
     }
 
     /**
      * The ID of the LAG.
      * 
      */
-    private UndeferrableValue<String> lagId;
-
+    @PolicyResourceProperty(name="lagId", flag="unknown_lagId")
+    private String value_lagId;
+    private boolean unknown_lagId;
     public String lagId() {
-        if (lagId == null) return null;
-        return lagId.getValue("HostedConnection.lagId");
+        if (!unknown_lagId) return value_lagId;
+        throw new UndeferrableValueException("Value 'HostedConnection.lagId' is not present");
     }
 
     /**
      * The time of the most recent call to [DescribeLoa](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLoa.html) for this connection.
      * 
      */
-    private UndeferrableValue<String> loaIssueTime;
-
+    @PolicyResourceProperty(name="loaIssueTime", flag="unknown_loaIssueTime")
+    private String value_loaIssueTime;
+    private boolean unknown_loaIssueTime;
     public String loaIssueTime() {
-        if (loaIssueTime == null) return null;
-        return loaIssueTime.getValue("HostedConnection.loaIssueTime");
+        if (!unknown_loaIssueTime) return value_loaIssueTime;
+        throw new UndeferrableValueException("Value 'HostedConnection.loaIssueTime' is not present");
     }
 
     /**
      * The location of the connection.
      * 
      */
-    private UndeferrableValue<String> location;
-
+    @PolicyResourceProperty(name="location", flag="unknown_location")
+    private String value_location;
+    private boolean unknown_location;
     public String location() {
-        if (location == null) return null;
-        return location.getValue("HostedConnection.location");
+        if (!unknown_location) return value_location;
+        throw new UndeferrableValueException("Value 'HostedConnection.location' is not present");
     }
 
     /**
      * The name of the connection.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("HostedConnection.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'HostedConnection.name' is not present");
     }
 
     /**
      * The ID of the AWS account of the customer for the connection.
      * 
      */
-    private UndeferrableValue<String> ownerAccountId;
-
+    @PolicyResourceProperty(name="ownerAccountId", flag="unknown_ownerAccountId")
+    private String value_ownerAccountId;
+    private boolean unknown_ownerAccountId;
     public String ownerAccountId() {
-        if (ownerAccountId == null) return null;
-        return ownerAccountId.getValue("HostedConnection.ownerAccountId");
+        if (!unknown_ownerAccountId) return value_ownerAccountId;
+        throw new UndeferrableValueException("Value 'HostedConnection.ownerAccountId' is not present");
     }
 
     /**
      * The name of the AWS Direct Connect service provider associated with the connection.
      * 
      */
-    private UndeferrableValue<String> partnerName;
-
+    @PolicyResourceProperty(name="partnerName", flag="unknown_partnerName")
+    private String value_partnerName;
+    private boolean unknown_partnerName;
     public String partnerName() {
-        if (partnerName == null) return null;
-        return partnerName.getValue("HostedConnection.partnerName");
+        if (!unknown_partnerName) return value_partnerName;
+        throw new UndeferrableValueException("Value 'HostedConnection.partnerName' is not present");
     }
 
     /**
      * The name of the service provider associated with the connection.
      * 
      */
-    private UndeferrableValue<String> providerName;
-
+    @PolicyResourceProperty(name="providerName", flag="unknown_providerName")
+    private String value_providerName;
+    private boolean unknown_providerName;
     public String providerName() {
-        if (providerName == null) return null;
-        return providerName.getValue("HostedConnection.providerName");
+        if (!unknown_providerName) return value_providerName;
+        throw new UndeferrableValueException("Value 'HostedConnection.providerName' is not present");
     }
 
     /**
      * The AWS Region where the connection is located.
      * 
      */
-    private UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private String value_region;
+    private boolean unknown_region;
     public String region() {
-        if (region == null) return null;
-        return region.getValue("HostedConnection.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'HostedConnection.region' is not present");
     }
 
     /**
      * The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("HostedConnection.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'HostedConnection.state' is not present");
     }
 
     /**
      * The dedicated VLAN provisioned to the hosted connection.
      * 
      */
-    private UndeferrableValue<Integer> vlan;
-
+    @PolicyResourceProperty(name="vlan", flag="unknown_vlan")
+    private Integer value_vlan;
+    private boolean unknown_vlan;
     public Integer vlan() {
-        if (vlan == null) return null;
-        return vlan.getValue("HostedConnection.vlan");
+        if (!unknown_vlan) return value_vlan;
+        throw new UndeferrableValueException("Value 'HostedConnection.vlan' is not present");
     }
 
 }

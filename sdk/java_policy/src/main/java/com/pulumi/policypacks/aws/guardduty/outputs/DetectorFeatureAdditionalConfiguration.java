@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.guardduty.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class DetectorFeatureAdditionalConfiguration {
      * The name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DetectorFeatureAdditionalConfiguration.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DetectorFeatureAdditionalConfiguration.name' is not present");
     }
 
     /**
      * The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("DetectorFeatureAdditionalConfiguration.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'DetectorFeatureAdditionalConfiguration.status' is not present");
     }
 
 }

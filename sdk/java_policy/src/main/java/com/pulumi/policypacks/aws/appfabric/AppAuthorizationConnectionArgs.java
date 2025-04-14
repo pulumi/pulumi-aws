@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appfabric;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appfabric.inputs.AppAuthorizationConnectionAuthRequestArgs;
 import com.pulumi.policypacks.aws.appfabric.inputs.AppAuthorizationConnectionTimeoutsArgs;
@@ -18,40 +19,44 @@ public final class AppAuthorizationConnectionArgs extends com.pulumi.resources.P
      * The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
      * 
      */
-    private UndeferrableValue<String> appAuthorizationArn;
-
+    @PolicyResourceProperty(name="appAuthorizationArn", flag="unknown_appAuthorizationArn")
+    private String value_appAuthorizationArn;
+    private boolean unknown_appAuthorizationArn;
     public String appAuthorizationArn() {
-        if (appAuthorizationArn == null) return null;
-        return appAuthorizationArn.getValue("AppAuthorizationConnectionArgs.appAuthorizationArn");
+        if (!unknown_appAuthorizationArn) return value_appAuthorizationArn;
+        throw new UndeferrableValueException("Value 'AppAuthorizationConnectionArgs.appAuthorizationArn' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the app bundle to use for the request.
      * 
      */
-    private UndeferrableValue<String> appBundleArn;
-
+    @PolicyResourceProperty(name="appBundleArn", flag="unknown_appBundleArn")
+    private String value_appBundleArn;
+    private boolean unknown_appBundleArn;
     public String appBundleArn() {
-        if (appBundleArn == null) return null;
-        return appBundleArn.getValue("AppAuthorizationConnectionArgs.appBundleArn");
+        if (!unknown_appBundleArn) return value_appBundleArn;
+        throw new UndeferrableValueException("Value 'AppAuthorizationConnectionArgs.appBundleArn' is not present");
     }
 
     /**
      * Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
      * 
      */
-    private UndeferrableValue<AppAuthorizationConnectionAuthRequestArgs> authRequest;
-
+    @PolicyResourceProperty(name="authRequest", flag="unknown_authRequest")
+    private AppAuthorizationConnectionAuthRequestArgs value_authRequest;
+    private boolean unknown_authRequest;
     public AppAuthorizationConnectionAuthRequestArgs authRequest() {
-        if (authRequest == null) return null;
-        return authRequest.getValue("AppAuthorizationConnectionArgs.authRequest");
+        if (!unknown_authRequest) return value_authRequest;
+        throw new UndeferrableValueException("Value 'AppAuthorizationConnectionArgs.authRequest' is not present");
     }
 
-    private UndeferrableValue<AppAuthorizationConnectionTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private AppAuthorizationConnectionTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public AppAuthorizationConnectionTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("AppAuthorizationConnectionArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'AppAuthorizationConnectionArgs.timeouts' is not present");
     }
 
 }

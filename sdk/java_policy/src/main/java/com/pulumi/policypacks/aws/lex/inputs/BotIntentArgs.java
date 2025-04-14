@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class BotIntentArgs {
      * The name of the intent. Must be less than or equal to 100 characters in length.
      * 
      */
-    private UndeferrableValue<String> intentName;
-
+    @PolicyResourceProperty(name="intentName", flag="unknown_intentName")
+    private String value_intentName;
+    private boolean unknown_intentName;
     public String intentName() {
-        if (intentName == null) return null;
-        return intentName.getValue("BotIntentArgs.intentName");
+        if (!unknown_intentName) return value_intentName;
+        throw new UndeferrableValueException("Value 'BotIntentArgs.intentName' is not present");
     }
 
     /**
      * The version of the intent. Must be less than or equal to 64 characters in length.
      * 
      */
-    private UndeferrableValue<String> intentVersion;
-
+    @PolicyResourceProperty(name="intentVersion", flag="unknown_intentVersion")
+    private String value_intentVersion;
+    private boolean unknown_intentVersion;
     public String intentVersion() {
-        if (intentVersion == null) return null;
-        return intentVersion.getValue("BotIntentArgs.intentVersion");
+        if (!unknown_intentVersion) return value_intentVersion;
+        throw new UndeferrableValueException("Value 'BotIntentArgs.intentVersion' is not present");
     }
 
 }

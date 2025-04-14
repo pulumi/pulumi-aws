@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class TaskTaskReportConfigReportOverridesArgs {
      * Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn&#39;t in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
      * 
      */
-    private UndeferrableValue<String> deletedOverride;
-
+    @PolicyResourceProperty(name="deletedOverride", flag="unknown_deletedOverride")
+    private String value_deletedOverride;
+    private boolean unknown_deletedOverride;
     public String deletedOverride() {
-        if (deletedOverride == null) return null;
-        return deletedOverride.getValue("TaskTaskReportConfigReportOverridesArgs.deletedOverride");
+        if (!unknown_deletedOverride) return value_deletedOverride;
+        throw new UndeferrableValueException("Value 'TaskTaskReportConfigReportOverridesArgs.deletedOverride' is not present");
     }
 
     /**
      * Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
      * 
      */
-    private UndeferrableValue<String> skippedOverride;
-
+    @PolicyResourceProperty(name="skippedOverride", flag="unknown_skippedOverride")
+    private String value_skippedOverride;
+    private boolean unknown_skippedOverride;
     public String skippedOverride() {
-        if (skippedOverride == null) return null;
-        return skippedOverride.getValue("TaskTaskReportConfigReportOverridesArgs.skippedOverride");
+        if (!unknown_skippedOverride) return value_skippedOverride;
+        throw new UndeferrableValueException("Value 'TaskTaskReportConfigReportOverridesArgs.skippedOverride' is not present");
     }
 
     /**
      * Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
      * 
      */
-    private UndeferrableValue<String> transferredOverride;
-
+    @PolicyResourceProperty(name="transferredOverride", flag="unknown_transferredOverride")
+    private String value_transferredOverride;
+    private boolean unknown_transferredOverride;
     public String transferredOverride() {
-        if (transferredOverride == null) return null;
-        return transferredOverride.getValue("TaskTaskReportConfigReportOverridesArgs.transferredOverride");
+        if (!unknown_transferredOverride) return value_transferredOverride;
+        throw new UndeferrableValueException("Value 'TaskTaskReportConfigReportOverridesArgs.transferredOverride' is not present");
     }
 
     /**
@@ -49,11 +53,12 @@ public final class TaskTaskReportConfigReportOverridesArgs {
      * &gt; **NOTE:** If any `report_overrides` are set to the same value as `task_report_config.report_level`, they will always be flagged as changed. Only set overrides to a value that differs from `task_report_config.report_level`.
      * 
      */
-    private UndeferrableValue<String> verifiedOverride;
-
+    @PolicyResourceProperty(name="verifiedOverride", flag="unknown_verifiedOverride")
+    private String value_verifiedOverride;
+    private boolean unknown_verifiedOverride;
     public String verifiedOverride() {
-        if (verifiedOverride == null) return null;
-        return verifiedOverride.getValue("TaskTaskReportConfigReportOverridesArgs.verifiedOverride");
+        if (!unknown_verifiedOverride) return value_verifiedOverride;
+        throw new UndeferrableValueException("Value 'TaskTaskReportConfigReportOverridesArgs.verifiedOverride' is not present");
     }
 
 }

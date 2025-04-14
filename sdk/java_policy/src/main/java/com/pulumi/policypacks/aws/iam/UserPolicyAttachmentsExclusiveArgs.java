@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class UserPolicyAttachmentsExclusiveArgs extends com.pulumi.resourc
      * A list of managed IAM policy ARNs to be attached to the user. Policies attached to this user but not configured in this argument will be removed.
      * 
      */
-    private UndeferrableValue<List<String>> policyArns;
-
+    @PolicyResourceProperty(name="policyArns", flag="unknown_policyArns")
+    private List<String> value_policyArns;
+    private boolean unknown_policyArns;
     public List<String> policyArns() {
-        if (policyArns == null) return null;
-        return policyArns.getValue("UserPolicyAttachmentsExclusiveArgs.policyArns");
+        if (!unknown_policyArns) return value_policyArns;
+        throw new UndeferrableValueException("Value 'UserPolicyAttachmentsExclusiveArgs.policyArns' is not present");
     }
 
     /**
      * IAM user name.
      * 
      */
-    private UndeferrableValue<String> userName;
-
+    @PolicyResourceProperty(name="userName", flag="unknown_userName")
+    private String value_userName;
+    private boolean unknown_userName;
     public String userName() {
-        if (userName == null) return null;
-        return userName.getValue("UserPolicyAttachmentsExclusiveArgs.userName");
+        if (!unknown_userName) return value_userName;
+        throw new UndeferrableValueException("Value 'UserPolicyAttachmentsExclusiveArgs.userName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.guardduty;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class PublishingDestinationArgs extends com.pulumi.resources.Policy
      * The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
      * 
      */
-    private UndeferrableValue<String> destinationArn;
-
+    @PolicyResourceProperty(name="destinationArn", flag="unknown_destinationArn")
+    private String value_destinationArn;
+    private boolean unknown_destinationArn;
     public String destinationArn() {
-        if (destinationArn == null) return null;
-        return destinationArn.getValue("PublishingDestinationArgs.destinationArn");
+        if (!unknown_destinationArn) return value_destinationArn;
+        throw new UndeferrableValueException("Value 'PublishingDestinationArgs.destinationArn' is not present");
     }
 
     /**
@@ -29,33 +31,36 @@ public final class PublishingDestinationArgs extends com.pulumi.resources.Policy
      * &gt; **Note:** In case of missing permissions (S3 Bucket Policy _or_ KMS Key permissions) the resource will fail to create. If the permissions are changed after resource creation, this can be asked from the AWS API via the &#34;DescribePublishingDestination&#34; call (https://docs.aws.amazon.com/cli/latest/reference/guardduty/describe-publishing-destination.html).
      * 
      */
-    private UndeferrableValue<String> destinationType;
-
+    @PolicyResourceProperty(name="destinationType", flag="unknown_destinationType")
+    private String value_destinationType;
+    private boolean unknown_destinationType;
     public String destinationType() {
-        if (destinationType == null) return null;
-        return destinationType.getValue("PublishingDestinationArgs.destinationType");
+        if (!unknown_destinationType) return value_destinationType;
+        throw new UndeferrableValueException("Value 'PublishingDestinationArgs.destinationType' is not present");
     }
 
     /**
      * The detector ID of the GuardDuty.
      * 
      */
-    private UndeferrableValue<String> detectorId;
-
+    @PolicyResourceProperty(name="detectorId", flag="unknown_detectorId")
+    private String value_detectorId;
+    private boolean unknown_detectorId;
     public String detectorId() {
-        if (detectorId == null) return null;
-        return detectorId.getValue("PublishingDestinationArgs.detectorId");
+        if (!unknown_detectorId) return value_detectorId;
+        throw new UndeferrableValueException("Value 'PublishingDestinationArgs.detectorId' is not present");
     }
 
     /**
      * The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
      * 
      */
-    private UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("PublishingDestinationArgs.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'PublishingDestinationArgs.kmsKeyArn' is not present");
     }
 
 }

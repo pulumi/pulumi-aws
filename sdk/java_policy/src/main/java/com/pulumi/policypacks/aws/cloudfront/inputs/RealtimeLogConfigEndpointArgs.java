@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.inputs.RealtimeLogConfigEndpointKinesisStreamConfigArgs;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class RealtimeLogConfigEndpointArgs {
      * The Amazon Kinesis data stream configuration.
      * 
      */
-    private UndeferrableValue<RealtimeLogConfigEndpointKinesisStreamConfigArgs> kinesisStreamConfig;
-
+    @PolicyResourceProperty(name="kinesisStreamConfig", flag="unknown_kinesisStreamConfig")
+    private RealtimeLogConfigEndpointKinesisStreamConfigArgs value_kinesisStreamConfig;
+    private boolean unknown_kinesisStreamConfig;
     public RealtimeLogConfigEndpointKinesisStreamConfigArgs kinesisStreamConfig() {
-        if (kinesisStreamConfig == null) return null;
-        return kinesisStreamConfig.getValue("RealtimeLogConfigEndpointArgs.kinesisStreamConfig");
+        if (!unknown_kinesisStreamConfig) return value_kinesisStreamConfig;
+        throw new UndeferrableValueException("Value 'RealtimeLogConfigEndpointArgs.kinesisStreamConfig' is not present");
     }
 
     /**
      * The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
      * 
      */
-    private UndeferrableValue<String> streamType;
-
+    @PolicyResourceProperty(name="streamType", flag="unknown_streamType")
+    private String value_streamType;
+    private boolean unknown_streamType;
     public String streamType() {
-        if (streamType == null) return null;
-        return streamType.getValue("RealtimeLogConfigEndpointArgs.streamType");
+        if (!unknown_streamType) return value_streamType;
+        throw new UndeferrableValueException("Value 'RealtimeLogConfigEndpointArgs.streamType' is not present");
     }
 
 }

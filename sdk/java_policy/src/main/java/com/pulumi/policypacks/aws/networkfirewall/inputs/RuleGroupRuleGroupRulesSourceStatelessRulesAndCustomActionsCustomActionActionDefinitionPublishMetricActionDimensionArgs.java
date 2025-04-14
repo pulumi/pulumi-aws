@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCu
      * The value to use in the custom metric dimension.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArgs.value' is not present");
     }
 
 }

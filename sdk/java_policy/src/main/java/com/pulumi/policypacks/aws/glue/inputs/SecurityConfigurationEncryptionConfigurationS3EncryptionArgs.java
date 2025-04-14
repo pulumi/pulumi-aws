@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class SecurityConfigurationEncryptionConfigurationS3EncryptionArgs 
      * Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
      * 
      */
-    private UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("SecurityConfigurationEncryptionConfigurationS3EncryptionArgs.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'SecurityConfigurationEncryptionConfigurationS3EncryptionArgs.kmsKeyArn' is not present");
     }
 
     /**
      * Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> s3EncryptionMode;
-
+    @PolicyResourceProperty(name="s3EncryptionMode", flag="unknown_s3EncryptionMode")
+    private String value_s3EncryptionMode;
+    private boolean unknown_s3EncryptionMode;
     public String s3EncryptionMode() {
-        if (s3EncryptionMode == null) return null;
-        return s3EncryptionMode.getValue("SecurityConfigurationEncryptionConfigurationS3EncryptionArgs.s3EncryptionMode");
+        if (!unknown_s3EncryptionMode) return value_s3EncryptionMode;
+        throw new UndeferrableValueException("Value 'SecurityConfigurationEncryptionConfigurationS3EncryptionArgs.s3EncryptionMode' is not present");
     }
 
 }

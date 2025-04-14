@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.datazone.inputs.AssetTypeFormsInputArgs;
 import com.pulumi.policypacks.aws.datazone.inputs.AssetTypeTimeoutsArgs;
@@ -19,44 +20,48 @@ public final class AssetTypeArgs extends com.pulumi.resources.PolicyResourceInpu
      * The description of the custom asset type.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("AssetTypeArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AssetTypeArgs.description' is not present");
     }
 
     /**
      * The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
      * 
      */
-    private UndeferrableValue<String> domainIdentifier;
-
+    @PolicyResourceProperty(name="domainIdentifier", flag="unknown_domainIdentifier")
+    private String value_domainIdentifier;
+    private boolean unknown_domainIdentifier;
     public String domainIdentifier() {
-        if (domainIdentifier == null) return null;
-        return domainIdentifier.getValue("AssetTypeArgs.domainIdentifier");
+        if (!unknown_domainIdentifier) return value_domainIdentifier;
+        throw new UndeferrableValueException("Value 'AssetTypeArgs.domainIdentifier' is not present");
     }
 
     /**
      * The metadata forms that are to be attached to the custom asset type.
      * 
      */
-    private UndeferrableValue<List<AssetTypeFormsInputArgs>> formsInputs;
-
+    @PolicyResourceProperty(name="formsInputs", flag="unknown_formsInputs")
+    private List<AssetTypeFormsInputArgs> value_formsInputs;
+    private boolean unknown_formsInputs;
     public List<AssetTypeFormsInputArgs> formsInputs() {
-        if (formsInputs == null) return null;
-        return formsInputs.getValue("AssetTypeArgs.formsInputs");
+        if (!unknown_formsInputs) return value_formsInputs;
+        throw new UndeferrableValueException("Value 'AssetTypeArgs.formsInputs' is not present");
     }
 
     /**
      * The name of the custom asset type.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AssetTypeArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AssetTypeArgs.name' is not present");
     }
 
     /**
@@ -65,18 +70,20 @@ public final class AssetTypeArgs extends com.pulumi.resources.PolicyResourceInpu
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> owningProjectIdentifier;
-
+    @PolicyResourceProperty(name="owningProjectIdentifier", flag="unknown_owningProjectIdentifier")
+    private String value_owningProjectIdentifier;
+    private boolean unknown_owningProjectIdentifier;
     public String owningProjectIdentifier() {
-        if (owningProjectIdentifier == null) return null;
-        return owningProjectIdentifier.getValue("AssetTypeArgs.owningProjectIdentifier");
+        if (!unknown_owningProjectIdentifier) return value_owningProjectIdentifier;
+        throw new UndeferrableValueException("Value 'AssetTypeArgs.owningProjectIdentifier' is not present");
     }
 
-    private UndeferrableValue<AssetTypeTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private AssetTypeTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public AssetTypeTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("AssetTypeArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'AssetTypeArgs.timeouts' is not present");
     }
 
 }

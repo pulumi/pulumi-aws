@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ses;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,11 +16,12 @@ public final class EmailIdentityArgs extends com.pulumi.resources.PolicyResource
      * The email address to assign to SES.
      * 
      */
-    private UndeferrableValue<String> email;
-
+    @PolicyResourceProperty(name="email", flag="unknown_email")
+    private String value_email;
+    private boolean unknown_email;
     public String email() {
-        if (email == null) return null;
-        return email.getValue("EmailIdentityArgs.email");
+        if (!unknown_email) return value_email;
+        throw new UndeferrableValueException("Value 'EmailIdentityArgs.email' is not present");
     }
 
 }

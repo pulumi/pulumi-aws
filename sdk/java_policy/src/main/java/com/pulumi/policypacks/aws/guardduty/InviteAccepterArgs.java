@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.guardduty;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class InviteAccepterArgs extends com.pulumi.resources.PolicyResourc
      * The detector ID of the member GuardDuty account.
      * 
      */
-    private UndeferrableValue<String> detectorId;
-
+    @PolicyResourceProperty(name="detectorId", flag="unknown_detectorId")
+    private String value_detectorId;
+    private boolean unknown_detectorId;
     public String detectorId() {
-        if (detectorId == null) return null;
-        return detectorId.getValue("InviteAccepterArgs.detectorId");
+        if (!unknown_detectorId) return value_detectorId;
+        throw new UndeferrableValueException("Value 'InviteAccepterArgs.detectorId' is not present");
     }
 
     /**
      * AWS account ID for primary account.
      * 
      */
-    private UndeferrableValue<String> masterAccountId;
-
+    @PolicyResourceProperty(name="masterAccountId", flag="unknown_masterAccountId")
+    private String value_masterAccountId;
+    private boolean unknown_masterAccountId;
     public String masterAccountId() {
-        if (masterAccountId == null) return null;
-        return masterAccountId.getValue("InviteAccepterArgs.masterAccountId");
+        if (!unknown_masterAccountId) return value_masterAccountId;
+        throw new UndeferrableValueException("Value 'InviteAccepterArgs.masterAccountId' is not present");
     }
 
 }

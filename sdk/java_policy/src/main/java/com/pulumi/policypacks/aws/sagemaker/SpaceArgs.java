@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.inputs.SpaceOwnershipSettingsArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.SpaceSpaceSettingsArgs;
@@ -20,77 +21,84 @@ public final class SpaceArgs extends com.pulumi.resources.PolicyResourceInput {
      * The ID of the associated Domain.
      * 
      */
-    private UndeferrableValue<String> domainId;
-
+    @PolicyResourceProperty(name="domainId", flag="unknown_domainId")
+    private String value_domainId;
+    private boolean unknown_domainId;
     public String domainId() {
-        if (domainId == null) return null;
-        return domainId.getValue("SpaceArgs.domainId");
+        if (!unknown_domainId) return value_domainId;
+        throw new UndeferrableValueException("Value 'SpaceArgs.domainId' is not present");
     }
 
     /**
      * A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
      * 
      */
-    private UndeferrableValue<SpaceOwnershipSettingsArgs> ownershipSettings;
-
+    @PolicyResourceProperty(name="ownershipSettings", flag="unknown_ownershipSettings")
+    private SpaceOwnershipSettingsArgs value_ownershipSettings;
+    private boolean unknown_ownershipSettings;
     public SpaceOwnershipSettingsArgs ownershipSettings() {
-        if (ownershipSettings == null) return null;
-        return ownershipSettings.getValue("SpaceArgs.ownershipSettings");
+        if (!unknown_ownershipSettings) return value_ownershipSettings;
+        throw new UndeferrableValueException("Value 'SpaceArgs.ownershipSettings' is not present");
     }
 
     /**
      * The name of the space that appears in the SageMaker AI Studio UI.
      * 
      */
-    private UndeferrableValue<String> spaceDisplayName;
-
+    @PolicyResourceProperty(name="spaceDisplayName", flag="unknown_spaceDisplayName")
+    private String value_spaceDisplayName;
+    private boolean unknown_spaceDisplayName;
     public String spaceDisplayName() {
-        if (spaceDisplayName == null) return null;
-        return spaceDisplayName.getValue("SpaceArgs.spaceDisplayName");
+        if (!unknown_spaceDisplayName) return value_spaceDisplayName;
+        throw new UndeferrableValueException("Value 'SpaceArgs.spaceDisplayName' is not present");
     }
 
     /**
      * The name of the space.
      * 
      */
-    private UndeferrableValue<String> spaceName;
-
+    @PolicyResourceProperty(name="spaceName", flag="unknown_spaceName")
+    private String value_spaceName;
+    private boolean unknown_spaceName;
     public String spaceName() {
-        if (spaceName == null) return null;
-        return spaceName.getValue("SpaceArgs.spaceName");
+        if (!unknown_spaceName) return value_spaceName;
+        throw new UndeferrableValueException("Value 'SpaceArgs.spaceName' is not present");
     }
 
     /**
      * A collection of space settings. See `space_settings` Block below.
      * 
      */
-    private UndeferrableValue<SpaceSpaceSettingsArgs> spaceSettings;
-
+    @PolicyResourceProperty(name="spaceSettings", flag="unknown_spaceSettings")
+    private SpaceSpaceSettingsArgs value_spaceSettings;
+    private boolean unknown_spaceSettings;
     public SpaceSpaceSettingsArgs spaceSettings() {
-        if (spaceSettings == null) return null;
-        return spaceSettings.getValue("SpaceArgs.spaceSettings");
+        if (!unknown_spaceSettings) return value_spaceSettings;
+        throw new UndeferrableValueException("Value 'SpaceArgs.spaceSettings' is not present");
     }
 
     /**
      * A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
      * 
      */
-    private UndeferrableValue<SpaceSpaceSharingSettingsArgs> spaceSharingSettings;
-
+    @PolicyResourceProperty(name="spaceSharingSettings", flag="unknown_spaceSharingSettings")
+    private SpaceSpaceSharingSettingsArgs value_spaceSharingSettings;
+    private boolean unknown_spaceSharingSettings;
     public SpaceSpaceSharingSettingsArgs spaceSharingSettings() {
-        if (spaceSharingSettings == null) return null;
-        return spaceSharingSettings.getValue("SpaceArgs.spaceSharingSettings");
+        if (!unknown_spaceSharingSettings) return value_spaceSharingSettings;
+        throw new UndeferrableValueException("Value 'SpaceArgs.spaceSharingSettings' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SpaceArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SpaceArgs.tags' is not present");
     }
 
 }

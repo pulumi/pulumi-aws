@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.applicationinsights;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,66 +19,72 @@ public final class ApplicationArgs extends com.pulumi.resources.PolicyResourceIn
      * Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
      * 
      */
-    private UndeferrableValue<Boolean> autoConfigEnabled;
-
+    @PolicyResourceProperty(name="autoConfigEnabled", flag="unknown_autoConfigEnabled")
+    private Boolean value_autoConfigEnabled;
+    private boolean unknown_autoConfigEnabled;
     public Boolean autoConfigEnabled() {
-        if (autoConfigEnabled == null) return null;
-        return autoConfigEnabled.getValue("ApplicationArgs.autoConfigEnabled");
+        if (!unknown_autoConfigEnabled) return value_autoConfigEnabled;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.autoConfigEnabled' is not present");
     }
 
     /**
      * Configures all of the resources in the resource group by applying the recommended configurations.
      * 
      */
-    private UndeferrableValue<Boolean> autoCreate;
-
+    @PolicyResourceProperty(name="autoCreate", flag="unknown_autoCreate")
+    private Boolean value_autoCreate;
+    private boolean unknown_autoCreate;
     public Boolean autoCreate() {
-        if (autoCreate == null) return null;
-        return autoCreate.getValue("ApplicationArgs.autoCreate");
+        if (!unknown_autoCreate) return value_autoCreate;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.autoCreate' is not present");
     }
 
     /**
      * Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
      * 
      */
-    private UndeferrableValue<Boolean> cweMonitorEnabled;
-
+    @PolicyResourceProperty(name="cweMonitorEnabled", flag="unknown_cweMonitorEnabled")
+    private Boolean value_cweMonitorEnabled;
+    private boolean unknown_cweMonitorEnabled;
     public Boolean cweMonitorEnabled() {
-        if (cweMonitorEnabled == null) return null;
-        return cweMonitorEnabled.getValue("ApplicationArgs.cweMonitorEnabled");
+        if (!unknown_cweMonitorEnabled) return value_cweMonitorEnabled;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.cweMonitorEnabled' is not present");
     }
 
     /**
      * Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
      * 
      */
-    private UndeferrableValue<String> groupingType;
-
+    @PolicyResourceProperty(name="groupingType", flag="unknown_groupingType")
+    private String value_groupingType;
+    private boolean unknown_groupingType;
     public String groupingType() {
-        if (groupingType == null) return null;
-        return groupingType.getValue("ApplicationArgs.groupingType");
+        if (!unknown_groupingType) return value_groupingType;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.groupingType' is not present");
     }
 
     /**
      * When set to `true`, creates opsItems for any problems detected on an application.
      * 
      */
-    private UndeferrableValue<Boolean> opsCenterEnabled;
-
+    @PolicyResourceProperty(name="opsCenterEnabled", flag="unknown_opsCenterEnabled")
+    private Boolean value_opsCenterEnabled;
+    private boolean unknown_opsCenterEnabled;
     public Boolean opsCenterEnabled() {
-        if (opsCenterEnabled == null) return null;
-        return opsCenterEnabled.getValue("ApplicationArgs.opsCenterEnabled");
+        if (!unknown_opsCenterEnabled) return value_opsCenterEnabled;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.opsCenterEnabled' is not present");
     }
 
     /**
      * SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
      * 
      */
-    private UndeferrableValue<String> opsItemSnsTopicArn;
-
+    @PolicyResourceProperty(name="opsItemSnsTopicArn", flag="unknown_opsItemSnsTopicArn")
+    private String value_opsItemSnsTopicArn;
+    private boolean unknown_opsItemSnsTopicArn;
     public String opsItemSnsTopicArn() {
-        if (opsItemSnsTopicArn == null) return null;
-        return opsItemSnsTopicArn.getValue("ApplicationArgs.opsItemSnsTopicArn");
+        if (!unknown_opsItemSnsTopicArn) return value_opsItemSnsTopicArn;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.opsItemSnsTopicArn' is not present");
     }
 
     /**
@@ -86,22 +93,24 @@ public final class ApplicationArgs extends com.pulumi.resources.PolicyResourceIn
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> resourceGroupName;
-
+    @PolicyResourceProperty(name="resourceGroupName", flag="unknown_resourceGroupName")
+    private String value_resourceGroupName;
+    private boolean unknown_resourceGroupName;
     public String resourceGroupName() {
-        if (resourceGroupName == null) return null;
-        return resourceGroupName.getValue("ApplicationArgs.resourceGroupName");
+        if (!unknown_resourceGroupName) return value_resourceGroupName;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.resourceGroupName' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ApplicationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.tags' is not present");
     }
 
 }

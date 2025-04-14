@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class PeeringAttachmentOptionsArgs {
      * Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
      * 
      */
-    private UndeferrableValue<String> dynamicRouting;
-
+    @PolicyResourceProperty(name="dynamicRouting", flag="unknown_dynamicRouting")
+    private String value_dynamicRouting;
+    private boolean unknown_dynamicRouting;
     public String dynamicRouting() {
-        if (dynamicRouting == null) return null;
-        return dynamicRouting.getValue("PeeringAttachmentOptionsArgs.dynamicRouting");
+        if (!unknown_dynamicRouting) return value_dynamicRouting;
+        throw new UndeferrableValueException("Value 'PeeringAttachmentOptionsArgs.dynamicRouting' is not present");
     }
 
 }

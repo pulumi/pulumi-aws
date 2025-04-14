@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamquery.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.timestreamquery.inputs.ScheduledQueryLastRunSummaryErrorReportLocationArgs;
 import com.pulumi.policypacks.aws.timestreamquery.inputs.ScheduledQueryLastRunSummaryExecutionStatArgs;
 import com.pulumi.policypacks.aws.timestreamquery.inputs.ScheduledQueryLastRunSummaryQueryInsightsResponseArgs;
@@ -18,77 +19,84 @@ public final class ScheduledQueryLastRunSummaryArgs {
      * S3 location for error report.
      * 
      */
-    private UndeferrableValue<List<ScheduledQueryLastRunSummaryErrorReportLocationArgs>> errorReportLocations;
-
+    @PolicyResourceProperty(name="errorReportLocations", flag="unknown_errorReportLocations")
+    private List<ScheduledQueryLastRunSummaryErrorReportLocationArgs> value_errorReportLocations;
+    private boolean unknown_errorReportLocations;
     public List<ScheduledQueryLastRunSummaryErrorReportLocationArgs> errorReportLocations() {
-        if (errorReportLocations == null) return null;
-        return errorReportLocations.getValue("ScheduledQueryLastRunSummaryArgs.errorReportLocations");
+        if (!unknown_errorReportLocations) return value_errorReportLocations;
+        throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryArgs.errorReportLocations' is not present");
     }
 
     /**
      * Statistics for a single scheduled query run.
      * 
      */
-    private UndeferrableValue<List<ScheduledQueryLastRunSummaryExecutionStatArgs>> executionStats;
-
+    @PolicyResourceProperty(name="executionStats", flag="unknown_executionStats")
+    private List<ScheduledQueryLastRunSummaryExecutionStatArgs> value_executionStats;
+    private boolean unknown_executionStats;
     public List<ScheduledQueryLastRunSummaryExecutionStatArgs> executionStats() {
-        if (executionStats == null) return null;
-        return executionStats.getValue("ScheduledQueryLastRunSummaryArgs.executionStats");
+        if (!unknown_executionStats) return value_executionStats;
+        throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryArgs.executionStats' is not present");
     }
 
     /**
      * Error message for the scheduled query in case of failure. You might have to look at the error report to get more detailed error reasons.
      * 
      */
-    private UndeferrableValue<String> failureReason;
-
+    @PolicyResourceProperty(name="failureReason", flag="unknown_failureReason")
+    private String value_failureReason;
+    private boolean unknown_failureReason;
     public String failureReason() {
-        if (failureReason == null) return null;
-        return failureReason.getValue("ScheduledQueryLastRunSummaryArgs.failureReason");
+        if (!unknown_failureReason) return value_failureReason;
+        throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryArgs.failureReason' is not present");
     }
 
     /**
      * InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `{@literal @}scheduled_runtime` can be used in the query to get the value.
      * 
      */
-    private UndeferrableValue<String> invocationTime;
-
+    @PolicyResourceProperty(name="invocationTime", flag="unknown_invocationTime")
+    private String value_invocationTime;
+    private boolean unknown_invocationTime;
     public String invocationTime() {
-        if (invocationTime == null) return null;
-        return invocationTime.getValue("ScheduledQueryLastRunSummaryArgs.invocationTime");
+        if (!unknown_invocationTime) return value_invocationTime;
+        throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryArgs.invocationTime' is not present");
     }
 
     /**
      * Various insights and metrics related to the run summary of the scheduled query.
      * 
      */
-    private UndeferrableValue<List<ScheduledQueryLastRunSummaryQueryInsightsResponseArgs>> queryInsightsResponses;
-
+    @PolicyResourceProperty(name="queryInsightsResponses", flag="unknown_queryInsightsResponses")
+    private List<ScheduledQueryLastRunSummaryQueryInsightsResponseArgs> value_queryInsightsResponses;
+    private boolean unknown_queryInsightsResponses;
     public List<ScheduledQueryLastRunSummaryQueryInsightsResponseArgs> queryInsightsResponses() {
-        if (queryInsightsResponses == null) return null;
-        return queryInsightsResponses.getValue("ScheduledQueryLastRunSummaryArgs.queryInsightsResponses");
+        if (!unknown_queryInsightsResponses) return value_queryInsightsResponses;
+        throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryArgs.queryInsightsResponses' is not present");
     }
 
     /**
      * Status of a scheduled query run. Valid values: `AUTO_TRIGGER_SUCCESS`, `AUTO_TRIGGER_FAILURE`, `MANUAL_TRIGGER_SUCCESS`, `MANUAL_TRIGGER_FAILURE`.
      * 
      */
-    private UndeferrableValue<String> runStatus;
-
+    @PolicyResourceProperty(name="runStatus", flag="unknown_runStatus")
+    private String value_runStatus;
+    private boolean unknown_runStatus;
     public String runStatus() {
-        if (runStatus == null) return null;
-        return runStatus.getValue("ScheduledQueryLastRunSummaryArgs.runStatus");
+        if (!unknown_runStatus) return value_runStatus;
+        throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryArgs.runStatus' is not present");
     }
 
     /**
      * Actual time when the query was run.
      * 
      */
-    private UndeferrableValue<String> triggerTime;
-
+    @PolicyResourceProperty(name="triggerTime", flag="unknown_triggerTime")
+    private String value_triggerTime;
+    private boolean unknown_triggerTime;
     public String triggerTime() {
-        if (triggerTime == null) return null;
-        return triggerTime.getValue("ScheduledQueryLastRunSummaryArgs.triggerTime");
+        if (!unknown_triggerTime) return value_triggerTime;
+        throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryArgs.triggerTime' is not present");
     }
 
 }

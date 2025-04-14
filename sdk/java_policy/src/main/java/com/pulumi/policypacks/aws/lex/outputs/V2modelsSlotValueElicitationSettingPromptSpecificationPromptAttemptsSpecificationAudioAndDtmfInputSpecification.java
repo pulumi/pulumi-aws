@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification;
 import java.lang.Integer;
@@ -12,25 +13,28 @@ import javax.annotation.Nullable;
 
 public final class V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification {
 
-    private @Nullable UndeferrableValue<V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification> audioSpecification;
-
+    @PolicyResourceProperty(name="audioSpecification", flag="unknown_audioSpecification")
+    private @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification value_audioSpecification;
+    private boolean unknown_audioSpecification;
     public @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification audioSpecification() {
-        if (audioSpecification == null) return null;
-        return audioSpecification.getValue("V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification.audioSpecification");
+        if (!unknown_audioSpecification) return value_audioSpecification;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification.audioSpecification' is not present");
     }
 
-    private @Nullable UndeferrableValue<V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification> dtmfSpecification;
-
+    @PolicyResourceProperty(name="dtmfSpecification", flag="unknown_dtmfSpecification")
+    private @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification value_dtmfSpecification;
+    private boolean unknown_dtmfSpecification;
     public @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification dtmfSpecification() {
-        if (dtmfSpecification == null) return null;
-        return dtmfSpecification.getValue("V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification.dtmfSpecification");
+        if (!unknown_dtmfSpecification) return value_dtmfSpecification;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification.dtmfSpecification' is not present");
     }
 
-    private UndeferrableValue<Integer> startTimeoutMs;
-
+    @PolicyResourceProperty(name="startTimeoutMs", flag="unknown_startTimeoutMs")
+    private Integer value_startTimeoutMs;
+    private boolean unknown_startTimeoutMs;
     public Integer startTimeoutMs() {
-        if (startTimeoutMs == null) return null;
-        return startTimeoutMs.getValue("V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification.startTimeoutMs");
+        if (!unknown_startTimeoutMs) return value_startTimeoutMs;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification.startTimeoutMs' is not present");
     }
 
 }

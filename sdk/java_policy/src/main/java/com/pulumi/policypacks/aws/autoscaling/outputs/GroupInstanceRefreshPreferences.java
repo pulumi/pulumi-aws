@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.autoscaling.outputs.GroupInstanceRefreshPreferencesAlarmSpecification;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -18,110 +19,120 @@ public final class GroupInstanceRefreshPreferences {
      * Alarm Specification for Instance Refresh.
      * 
      */
-    private @Nullable UndeferrableValue<GroupInstanceRefreshPreferencesAlarmSpecification> alarmSpecification;
-
+    @PolicyResourceProperty(name="alarmSpecification", flag="unknown_alarmSpecification")
+    private @Nullable GroupInstanceRefreshPreferencesAlarmSpecification value_alarmSpecification;
+    private boolean unknown_alarmSpecification;
     public @Nullable GroupInstanceRefreshPreferencesAlarmSpecification alarmSpecification() {
-        if (alarmSpecification == null) return null;
-        return alarmSpecification.getValue("GroupInstanceRefreshPreferences.alarmSpecification");
+        if (!unknown_alarmSpecification) return value_alarmSpecification;
+        throw new UndeferrableValueException("Value 'GroupInstanceRefreshPreferences.alarmSpecification' is not present");
     }
 
     /**
      * Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> autoRollback;
-
+    @PolicyResourceProperty(name="autoRollback", flag="unknown_autoRollback")
+    private @Nullable Boolean value_autoRollback;
+    private boolean unknown_autoRollback;
     public @Nullable Boolean autoRollback() {
-        if (autoRollback == null) return null;
-        return autoRollback.getValue("GroupInstanceRefreshPreferences.autoRollback");
+        if (!unknown_autoRollback) return value_autoRollback;
+        throw new UndeferrableValueException("Value 'GroupInstanceRefreshPreferences.autoRollback' is not present");
     }
 
     /**
      * Number of seconds to wait after a checkpoint. Defaults to `3600`.
      * 
      */
-    private @Nullable UndeferrableValue<String> checkpointDelay;
-
+    @PolicyResourceProperty(name="checkpointDelay", flag="unknown_checkpointDelay")
+    private @Nullable String value_checkpointDelay;
+    private boolean unknown_checkpointDelay;
     public @Nullable String checkpointDelay() {
-        if (checkpointDelay == null) return null;
-        return checkpointDelay.getValue("GroupInstanceRefreshPreferences.checkpointDelay");
+        if (!unknown_checkpointDelay) return value_checkpointDelay;
+        throw new UndeferrableValueException("Value 'GroupInstanceRefreshPreferences.checkpointDelay' is not present");
     }
 
     /**
      * List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
      * 
      */
-    private @Nullable UndeferrableValue<List<Integer>> checkpointPercentages;
-
+    @PolicyResourceProperty(name="checkpointPercentages", flag="unknown_checkpointPercentages")
+    private @Nullable List<Integer> value_checkpointPercentages;
+    private boolean unknown_checkpointPercentages;
     public @Nullable List<Integer> checkpointPercentages() {
-        if (checkpointPercentages == null) return null;
-        return checkpointPercentages.getValue("GroupInstanceRefreshPreferences.checkpointPercentages");
+        if (!unknown_checkpointPercentages) return value_checkpointPercentages;
+        throw new UndeferrableValueException("Value 'GroupInstanceRefreshPreferences.checkpointPercentages' is not present");
     }
 
     /**
      * Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group&#39;s health check grace period.
      * 
      */
-    private @Nullable UndeferrableValue<String> instanceWarmup;
-
+    @PolicyResourceProperty(name="instanceWarmup", flag="unknown_instanceWarmup")
+    private @Nullable String value_instanceWarmup;
+    private boolean unknown_instanceWarmup;
     public @Nullable String instanceWarmup() {
-        if (instanceWarmup == null) return null;
-        return instanceWarmup.getValue("GroupInstanceRefreshPreferences.instanceWarmup");
+        if (!unknown_instanceWarmup) return value_instanceWarmup;
+        throw new UndeferrableValueException("Value 'GroupInstanceRefreshPreferences.instanceWarmup' is not present");
     }
 
     /**
      * Amount of capacity in the Auto Scaling group that can be in service and healthy, or pending, to support your workload when an instance refresh is in place, as a percentage of the desired capacity of the Auto Scaling group. Values must be between `100` and `200`, defaults to `100`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxHealthyPercentage;
-
+    @PolicyResourceProperty(name="maxHealthyPercentage", flag="unknown_maxHealthyPercentage")
+    private @Nullable Integer value_maxHealthyPercentage;
+    private boolean unknown_maxHealthyPercentage;
     public @Nullable Integer maxHealthyPercentage() {
-        if (maxHealthyPercentage == null) return null;
-        return maxHealthyPercentage.getValue("GroupInstanceRefreshPreferences.maxHealthyPercentage");
+        if (!unknown_maxHealthyPercentage) return value_maxHealthyPercentage;
+        throw new UndeferrableValueException("Value 'GroupInstanceRefreshPreferences.maxHealthyPercentage' is not present");
     }
 
     /**
      * Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> minHealthyPercentage;
-
+    @PolicyResourceProperty(name="minHealthyPercentage", flag="unknown_minHealthyPercentage")
+    private @Nullable Integer value_minHealthyPercentage;
+    private boolean unknown_minHealthyPercentage;
     public @Nullable Integer minHealthyPercentage() {
-        if (minHealthyPercentage == null) return null;
-        return minHealthyPercentage.getValue("GroupInstanceRefreshPreferences.minHealthyPercentage");
+        if (!unknown_minHealthyPercentage) return value_minHealthyPercentage;
+        throw new UndeferrableValueException("Value 'GroupInstanceRefreshPreferences.minHealthyPercentage' is not present");
     }
 
     /**
      * Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
      * 
      */
-    private @Nullable UndeferrableValue<String> scaleInProtectedInstances;
-
+    @PolicyResourceProperty(name="scaleInProtectedInstances", flag="unknown_scaleInProtectedInstances")
+    private @Nullable String value_scaleInProtectedInstances;
+    private boolean unknown_scaleInProtectedInstances;
     public @Nullable String scaleInProtectedInstances() {
-        if (scaleInProtectedInstances == null) return null;
-        return scaleInProtectedInstances.getValue("GroupInstanceRefreshPreferences.scaleInProtectedInstances");
+        if (!unknown_scaleInProtectedInstances) return value_scaleInProtectedInstances;
+        throw new UndeferrableValueException("Value 'GroupInstanceRefreshPreferences.scaleInProtectedInstances' is not present");
     }
 
     /**
      * Replace instances that already have your desired configuration. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> skipMatching;
-
+    @PolicyResourceProperty(name="skipMatching", flag="unknown_skipMatching")
+    private @Nullable Boolean value_skipMatching;
+    private boolean unknown_skipMatching;
     public @Nullable Boolean skipMatching() {
-        if (skipMatching == null) return null;
-        return skipMatching.getValue("GroupInstanceRefreshPreferences.skipMatching");
+        if (!unknown_skipMatching) return value_skipMatching;
+        throw new UndeferrableValueException("Value 'GroupInstanceRefreshPreferences.skipMatching' is not present");
     }
 
     /**
      * Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
      * 
      */
-    private @Nullable UndeferrableValue<String> standbyInstances;
-
+    @PolicyResourceProperty(name="standbyInstances", flag="unknown_standbyInstances")
+    private @Nullable String value_standbyInstances;
+    private boolean unknown_standbyInstances;
     public @Nullable String standbyInstances() {
-        if (standbyInstances == null) return null;
-        return standbyInstances.getValue("GroupInstanceRefreshPreferences.standbyInstances");
+        if (!unknown_standbyInstances) return value_standbyInstances;
+        throw new UndeferrableValueException("Value 'GroupInstanceRefreshPreferences.standbyInstances' is not present");
     }
 
 }

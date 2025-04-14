@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,44 +17,48 @@ public final class Group extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN assigned by AWS for this group.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Group.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Group.arn' is not present");
     }
 
     /**
      * The group&#39;s name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.{@literal @}-_.`. Group names are not distinguished by case. For example, you cannot create groups named both &#34;ADMINS&#34; and &#34;admins&#34;.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Group.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Group.name' is not present");
     }
 
     /**
      * Path in which to create the group.
      * 
      */
-    private @Nullable UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private @Nullable String value_path;
+    private boolean unknown_path;
     public @Nullable String path() {
-        if (path == null) return null;
-        return path.getValue("Group.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'Group.path' is not present");
     }
 
     /**
      * The [unique ID][1] assigned by AWS.
      * 
      */
-    private UndeferrableValue<String> uniqueId;
-
+    @PolicyResourceProperty(name="uniqueId", flag="unknown_uniqueId")
+    private String value_uniqueId;
+    private boolean unknown_uniqueId;
     public String uniqueId() {
-        if (uniqueId == null) return null;
-        return uniqueId.getValue("Group.uniqueId");
+        if (!unknown_uniqueId) return value_uniqueId;
+        throw new UndeferrableValueException("Value 'Group.uniqueId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementCustomKeyCookieArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementCustomKeyForwardedIpArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs;
@@ -24,121 +25,132 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyArgs {
      * Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementRateBasedStatementCustomKeyCookieArgs> cookie;
-
+    @PolicyResourceProperty(name="cookie", flag="unknown_cookie")
+    private WebAclRuleStatementRateBasedStatementCustomKeyCookieArgs value_cookie;
+    private boolean unknown_cookie;
     public WebAclRuleStatementRateBasedStatementCustomKeyCookieArgs cookie() {
-        if (cookie == null) return null;
-        return cookie.getValue("WebAclRuleStatementRateBasedStatementCustomKeyArgs.cookie");
+        if (!unknown_cookie) return value_cookie;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementCustomKeyArgs.cookie' is not present");
     }
 
     /**
      * Use the first IP address in an HTTP header as an aggregate key. See `forwarded_ip` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementRateBasedStatementCustomKeyForwardedIpArgs> forwardedIp;
-
+    @PolicyResourceProperty(name="forwardedIp", flag="unknown_forwardedIp")
+    private WebAclRuleStatementRateBasedStatementCustomKeyForwardedIpArgs value_forwardedIp;
+    private boolean unknown_forwardedIp;
     public WebAclRuleStatementRateBasedStatementCustomKeyForwardedIpArgs forwardedIp() {
-        if (forwardedIp == null) return null;
-        return forwardedIp.getValue("WebAclRuleStatementRateBasedStatementCustomKeyArgs.forwardedIp");
+        if (!unknown_forwardedIp) return value_forwardedIp;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementCustomKeyArgs.forwardedIp' is not present");
     }
 
     /**
      * Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs> header;
-
+    @PolicyResourceProperty(name="header", flag="unknown_header")
+    private WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs value_header;
+    private boolean unknown_header;
     public WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs header() {
-        if (header == null) return null;
-        return header.getValue("WebAclRuleStatementRateBasedStatementCustomKeyArgs.header");
+        if (!unknown_header) return value_header;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementCustomKeyArgs.header' is not present");
     }
 
     /**
      * Use the request&#39;s HTTP method as an aggregate key. See RateLimit `http_method` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementRateBasedStatementCustomKeyHttpMethodArgs> httpMethod;
-
+    @PolicyResourceProperty(name="httpMethod", flag="unknown_httpMethod")
+    private WebAclRuleStatementRateBasedStatementCustomKeyHttpMethodArgs value_httpMethod;
+    private boolean unknown_httpMethod;
     public WebAclRuleStatementRateBasedStatementCustomKeyHttpMethodArgs httpMethod() {
-        if (httpMethod == null) return null;
-        return httpMethod.getValue("WebAclRuleStatementRateBasedStatementCustomKeyArgs.httpMethod");
+        if (!unknown_httpMethod) return value_httpMethod;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementCustomKeyArgs.httpMethod' is not present");
     }
 
     /**
      * Use the request&#39;s originating IP address as an aggregate key. See `RateLimit ip` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementRateBasedStatementCustomKeyIpArgs> ip;
-
+    @PolicyResourceProperty(name="ip", flag="unknown_ip")
+    private WebAclRuleStatementRateBasedStatementCustomKeyIpArgs value_ip;
+    private boolean unknown_ip;
     public WebAclRuleStatementRateBasedStatementCustomKeyIpArgs ip() {
-        if (ip == null) return null;
-        return ip.getValue("WebAclRuleStatementRateBasedStatementCustomKeyArgs.ip");
+        if (!unknown_ip) return value_ip;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementCustomKeyArgs.ip' is not present");
     }
 
     /**
      * Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementRateBasedStatementCustomKeyJa3FingerprintArgs> ja3Fingerprint;
-
+    @PolicyResourceProperty(name="ja3Fingerprint", flag="unknown_ja3Fingerprint")
+    private WebAclRuleStatementRateBasedStatementCustomKeyJa3FingerprintArgs value_ja3Fingerprint;
+    private boolean unknown_ja3Fingerprint;
     public WebAclRuleStatementRateBasedStatementCustomKeyJa3FingerprintArgs ja3Fingerprint() {
-        if (ja3Fingerprint == null) return null;
-        return ja3Fingerprint.getValue("WebAclRuleStatementRateBasedStatementCustomKeyArgs.ja3Fingerprint");
+        if (!unknown_ja3Fingerprint) return value_ja3Fingerprint;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementCustomKeyArgs.ja3Fingerprint' is not present");
     }
 
     /**
      * Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs> ja4Fingerprint;
-
+    @PolicyResourceProperty(name="ja4Fingerprint", flag="unknown_ja4Fingerprint")
+    private WebAclRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs value_ja4Fingerprint;
+    private boolean unknown_ja4Fingerprint;
     public WebAclRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs ja4Fingerprint() {
-        if (ja4Fingerprint == null) return null;
-        return ja4Fingerprint.getValue("WebAclRuleStatementRateBasedStatementCustomKeyArgs.ja4Fingerprint");
+        if (!unknown_ja4Fingerprint) return value_ja4Fingerprint;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementCustomKeyArgs.ja4Fingerprint' is not present");
     }
 
     /**
      * Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs> labelNamespace;
-
+    @PolicyResourceProperty(name="labelNamespace", flag="unknown_labelNamespace")
+    private WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs value_labelNamespace;
+    private boolean unknown_labelNamespace;
     public WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs labelNamespace() {
-        if (labelNamespace == null) return null;
-        return labelNamespace.getValue("WebAclRuleStatementRateBasedStatementCustomKeyArgs.labelNamespace");
+        if (!unknown_labelNamespace) return value_labelNamespace;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementCustomKeyArgs.labelNamespace' is not present");
     }
 
     /**
      * Use the specified query argument as an aggregate key. See RateLimit `query_argument` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs> queryArgument;
-
+    @PolicyResourceProperty(name="queryArgument", flag="unknown_queryArgument")
+    private WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs value_queryArgument;
+    private boolean unknown_queryArgument;
     public WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs queryArgument() {
-        if (queryArgument == null) return null;
-        return queryArgument.getValue("WebAclRuleStatementRateBasedStatementCustomKeyArgs.queryArgument");
+        if (!unknown_queryArgument) return value_queryArgument;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementCustomKeyArgs.queryArgument' is not present");
     }
 
     /**
      * Use the request&#39;s query string as an aggregate key. See RateLimit `query_string` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs> queryString;
-
+    @PolicyResourceProperty(name="queryString", flag="unknown_queryString")
+    private WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs value_queryString;
+    private boolean unknown_queryString;
     public WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs queryString() {
-        if (queryString == null) return null;
-        return queryString.getValue("WebAclRuleStatementRateBasedStatementCustomKeyArgs.queryString");
+        if (!unknown_queryString) return value_queryString;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementCustomKeyArgs.queryString' is not present");
     }
 
     /**
      * Use the request&#39;s URI path as an aggregate key. See RateLimit `uri_path` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementRateBasedStatementCustomKeyUriPathArgs> uriPath;
-
+    @PolicyResourceProperty(name="uriPath", flag="unknown_uriPath")
+    private WebAclRuleStatementRateBasedStatementCustomKeyUriPathArgs value_uriPath;
+    private boolean unknown_uriPath;
     public WebAclRuleStatementRateBasedStatementCustomKeyUriPathArgs uriPath() {
-        if (uriPath == null) return null;
-        return uriPath.getValue("WebAclRuleStatementRateBasedStatementCustomKeyArgs.uriPath");
+        if (!unknown_uriPath) return value_uriPath;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementCustomKeyArgs.uriPath' is not present");
     }
 
 }

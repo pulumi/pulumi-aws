@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,66 +15,72 @@ public final class ProxyAuthArgs {
      * The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
      * 
      */
-    private UndeferrableValue<String> authScheme;
-
+    @PolicyResourceProperty(name="authScheme", flag="unknown_authScheme")
+    private String value_authScheme;
+    private boolean unknown_authScheme;
     public String authScheme() {
-        if (authScheme == null) return null;
-        return authScheme.getValue("ProxyAuthArgs.authScheme");
+        if (!unknown_authScheme) return value_authScheme;
+        throw new UndeferrableValueException("Value 'ProxyAuthArgs.authScheme' is not present");
     }
 
     /**
      * The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
      * 
      */
-    private UndeferrableValue<String> clientPasswordAuthType;
-
+    @PolicyResourceProperty(name="clientPasswordAuthType", flag="unknown_clientPasswordAuthType")
+    private String value_clientPasswordAuthType;
+    private boolean unknown_clientPasswordAuthType;
     public String clientPasswordAuthType() {
-        if (clientPasswordAuthType == null) return null;
-        return clientPasswordAuthType.getValue("ProxyAuthArgs.clientPasswordAuthType");
+        if (!unknown_clientPasswordAuthType) return value_clientPasswordAuthType;
+        throw new UndeferrableValueException("Value 'ProxyAuthArgs.clientPasswordAuthType' is not present");
     }
 
     /**
      * A user-specified description about the authentication used by a proxy to log in as a specific database user.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ProxyAuthArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ProxyAuthArgs.description' is not present");
     }
 
     /**
      * Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
      * 
      */
-    private UndeferrableValue<String> iamAuth;
-
+    @PolicyResourceProperty(name="iamAuth", flag="unknown_iamAuth")
+    private String value_iamAuth;
+    private boolean unknown_iamAuth;
     public String iamAuth() {
-        if (iamAuth == null) return null;
-        return iamAuth.getValue("ProxyAuthArgs.iamAuth");
+        if (!unknown_iamAuth) return value_iamAuth;
+        throw new UndeferrableValueException("Value 'ProxyAuthArgs.iamAuth' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
      * 
      */
-    private UndeferrableValue<String> secretArn;
-
+    @PolicyResourceProperty(name="secretArn", flag="unknown_secretArn")
+    private String value_secretArn;
+    private boolean unknown_secretArn;
     public String secretArn() {
-        if (secretArn == null) return null;
-        return secretArn.getValue("ProxyAuthArgs.secretArn");
+        if (!unknown_secretArn) return value_secretArn;
+        throw new UndeferrableValueException("Value 'ProxyAuthArgs.secretArn' is not present");
     }
 
     /**
      * The name of the database user to which the proxy connects.
      * 
      */
-    private UndeferrableValue<String> username;
-
+    @PolicyResourceProperty(name="username", flag="unknown_username")
+    private String value_username;
+    private boolean unknown_username;
     public String username() {
-        if (username == null) return null;
-        return username.getValue("ProxyAuthArgs.username");
+        if (!unknown_username) return value_username;
+        throw new UndeferrableValueException("Value 'ProxyAuthArgs.username' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearchingest.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 
 
@@ -13,11 +14,12 @@ public final class PipelineBufferOptionsArgs {
      * Whether persistent buffering should be enabled.
      * 
      */
-    private UndeferrableValue<Boolean> persistentBufferEnabled;
-
+    @PolicyResourceProperty(name="persistentBufferEnabled", flag="unknown_persistentBufferEnabled")
+    private Boolean value_persistentBufferEnabled;
+    private boolean unknown_persistentBufferEnabled;
     public Boolean persistentBufferEnabled() {
-        if (persistentBufferEnabled == null) return null;
-        return persistentBufferEnabled.getValue("PipelineBufferOptionsArgs.persistentBufferEnabled");
+        if (!unknown_persistentBufferEnabled) return value_persistentBufferEnabled;
+        throw new UndeferrableValueException("Value 'PipelineBufferOptionsArgs.persistentBufferEnabled' is not present");
     }
 
 }

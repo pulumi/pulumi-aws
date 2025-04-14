@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lakeformation.inputs.DataCellsFilterTableDataRowFilterAllRowsWildcardArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DataCellsFilterTableDataRowFilterArgs {
      * (Optional) A wildcard that matches all rows.
      * 
      */
-    private UndeferrableValue<DataCellsFilterTableDataRowFilterAllRowsWildcardArgs> allRowsWildcard;
-
+    @PolicyResourceProperty(name="allRowsWildcard", flag="unknown_allRowsWildcard")
+    private DataCellsFilterTableDataRowFilterAllRowsWildcardArgs value_allRowsWildcard;
+    private boolean unknown_allRowsWildcard;
     public DataCellsFilterTableDataRowFilterAllRowsWildcardArgs allRowsWildcard() {
-        if (allRowsWildcard == null) return null;
-        return allRowsWildcard.getValue("DataCellsFilterTableDataRowFilterArgs.allRowsWildcard");
+        if (!unknown_allRowsWildcard) return value_allRowsWildcard;
+        throw new UndeferrableValueException("Value 'DataCellsFilterTableDataRowFilterArgs.allRowsWildcard' is not present");
     }
 
     /**
      * (Optional) A filter expression.
      * 
      */
-    private UndeferrableValue<String> filterExpression;
-
+    @PolicyResourceProperty(name="filterExpression", flag="unknown_filterExpression")
+    private String value_filterExpression;
+    private boolean unknown_filterExpression;
     public String filterExpression() {
-        if (filterExpression == null) return null;
-        return filterExpression.getValue("DataCellsFilterTableDataRowFilterArgs.filterExpression");
+        if (!unknown_filterExpression) return value_filterExpression;
+        throw new UndeferrableValueException("Value 'DataCellsFilterTableDataRowFilterArgs.filterExpression' is not present");
     }
 
 }

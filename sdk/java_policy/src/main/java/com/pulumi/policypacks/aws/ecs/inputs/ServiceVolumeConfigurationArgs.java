@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ecs.inputs.ServiceVolumeConfigurationManagedEbsVolumeArgs;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class ServiceVolumeConfigurationArgs {
      * Configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. See below.
      * 
      */
-    private UndeferrableValue<ServiceVolumeConfigurationManagedEbsVolumeArgs> managedEbsVolume;
-
+    @PolicyResourceProperty(name="managedEbsVolume", flag="unknown_managedEbsVolume")
+    private ServiceVolumeConfigurationManagedEbsVolumeArgs value_managedEbsVolume;
+    private boolean unknown_managedEbsVolume;
     public ServiceVolumeConfigurationManagedEbsVolumeArgs managedEbsVolume() {
-        if (managedEbsVolume == null) return null;
-        return managedEbsVolume.getValue("ServiceVolumeConfigurationArgs.managedEbsVolume");
+        if (!unknown_managedEbsVolume) return value_managedEbsVolume;
+        throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationArgs.managedEbsVolume' is not present");
     }
 
     /**
      * Name of the volume.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ServiceVolumeConfigurationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationArgs.name' is not present");
     }
 
 }

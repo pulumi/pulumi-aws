@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class FeatureGroupOnlineStoreConfigTtlDuration {
      * TtlDuration time unit. Valid values are `Seconds`, `Minutes`, `Hours`, `Days`, or `Weeks`.
      * 
      */
-    private @Nullable UndeferrableValue<String> unit;
-
+    @PolicyResourceProperty(name="unit", flag="unknown_unit")
+    private @Nullable String value_unit;
+    private boolean unknown_unit;
     public @Nullable String unit() {
-        if (unit == null) return null;
-        return unit.getValue("FeatureGroupOnlineStoreConfigTtlDuration.unit");
+        if (!unknown_unit) return value_unit;
+        throw new UndeferrableValueException("Value 'FeatureGroupOnlineStoreConfigTtlDuration.unit' is not present");
     }
 
     /**
      * TtlDuration time value.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private @Nullable Integer value_value;
+    private boolean unknown_value;
     public @Nullable Integer value() {
-        if (value == null) return null;
-        return value.getValue("FeatureGroupOnlineStoreConfigTtlDuration.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'FeatureGroupOnlineStoreConfigTtlDuration.value' is not present");
     }
 
 }

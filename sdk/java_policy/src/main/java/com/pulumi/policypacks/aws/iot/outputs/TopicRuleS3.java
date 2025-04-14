@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class TopicRuleS3 {
      * The Amazon S3 bucket name.
      * 
      */
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("TopicRuleS3.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'TopicRuleS3.bucketName' is not present");
     }
 
     /**
      * The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
      * 
      */
-    private @Nullable UndeferrableValue<String> cannedAcl;
-
+    @PolicyResourceProperty(name="cannedAcl", flag="unknown_cannedAcl")
+    private @Nullable String value_cannedAcl;
+    private boolean unknown_cannedAcl;
     public @Nullable String cannedAcl() {
-        if (cannedAcl == null) return null;
-        return cannedAcl.getValue("TopicRuleS3.cannedAcl");
+        if (!unknown_cannedAcl) return value_cannedAcl;
+        throw new UndeferrableValueException("Value 'TopicRuleS3.cannedAcl' is not present");
     }
 
     /**
      * The object key.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("TopicRuleS3.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'TopicRuleS3.key' is not present");
     }
 
     /**
      * The ARN of the IAM role that grants access.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("TopicRuleS3.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'TopicRuleS3.roleArn' is not present");
     }
 
 }

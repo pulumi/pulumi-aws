@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class DeviceDeviceArgs {
      * A description for the device.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("DeviceDeviceArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'DeviceDeviceArgs.description' is not present");
     }
 
     /**
      * The name of the device.
      * 
      */
-    private UndeferrableValue<String> deviceName;
-
+    @PolicyResourceProperty(name="deviceName", flag="unknown_deviceName")
+    private String value_deviceName;
+    private boolean unknown_deviceName;
     public String deviceName() {
-        if (deviceName == null) return null;
-        return deviceName.getValue("DeviceDeviceArgs.deviceName");
+        if (!unknown_deviceName) return value_deviceName;
+        throw new UndeferrableValueException("Value 'DeviceDeviceArgs.deviceName' is not present");
     }
 
     /**
      * Amazon Web Services Internet of Things (IoT) object name.
      * 
      */
-    private UndeferrableValue<String> iotThingName;
-
+    @PolicyResourceProperty(name="iotThingName", flag="unknown_iotThingName")
+    private String value_iotThingName;
+    private boolean unknown_iotThingName;
     public String iotThingName() {
-        if (iotThingName == null) return null;
-        return iotThingName.getValue("DeviceDeviceArgs.iotThingName");
+        if (!unknown_iotThingName) return value_iotThingName;
+        throw new UndeferrableValueException("Value 'DeviceDeviceArgs.iotThingName' is not present");
     }
 
 }

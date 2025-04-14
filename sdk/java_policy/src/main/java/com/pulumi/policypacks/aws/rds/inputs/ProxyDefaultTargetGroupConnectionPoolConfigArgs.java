@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -16,55 +17,60 @@ public final class ProxyDefaultTargetGroupConnectionPoolConfigArgs {
      * The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
      * 
      */
-    private UndeferrableValue<Integer> connectionBorrowTimeout;
-
+    @PolicyResourceProperty(name="connectionBorrowTimeout", flag="unknown_connectionBorrowTimeout")
+    private Integer value_connectionBorrowTimeout;
+    private boolean unknown_connectionBorrowTimeout;
     public Integer connectionBorrowTimeout() {
-        if (connectionBorrowTimeout == null) return null;
-        return connectionBorrowTimeout.getValue("ProxyDefaultTargetGroupConnectionPoolConfigArgs.connectionBorrowTimeout");
+        if (!unknown_connectionBorrowTimeout) return value_connectionBorrowTimeout;
+        throw new UndeferrableValueException("Value 'ProxyDefaultTargetGroupConnectionPoolConfigArgs.connectionBorrowTimeout' is not present");
     }
 
     /**
      * One or more SQL statements for the proxy to run when opening each new database connection. Typically used with `SET` statements to make sure that each connection has identical settings such as time zone and character set. This setting is empty by default. For multiple statements, use semicolons as the separator. You can also include multiple variables in a single `SET` statement, such as `SET x=1, y=2`.
      * 
      */
-    private UndeferrableValue<String> initQuery;
-
+    @PolicyResourceProperty(name="initQuery", flag="unknown_initQuery")
+    private String value_initQuery;
+    private boolean unknown_initQuery;
     public String initQuery() {
-        if (initQuery == null) return null;
-        return initQuery.getValue("ProxyDefaultTargetGroupConnectionPoolConfigArgs.initQuery");
+        if (!unknown_initQuery) return value_initQuery;
+        throw new UndeferrableValueException("Value 'ProxyDefaultTargetGroupConnectionPoolConfigArgs.initQuery' is not present");
     }
 
     /**
      * The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
      * 
      */
-    private UndeferrableValue<Integer> maxConnectionsPercent;
-
+    @PolicyResourceProperty(name="maxConnectionsPercent", flag="unknown_maxConnectionsPercent")
+    private Integer value_maxConnectionsPercent;
+    private boolean unknown_maxConnectionsPercent;
     public Integer maxConnectionsPercent() {
-        if (maxConnectionsPercent == null) return null;
-        return maxConnectionsPercent.getValue("ProxyDefaultTargetGroupConnectionPoolConfigArgs.maxConnectionsPercent");
+        if (!unknown_maxConnectionsPercent) return value_maxConnectionsPercent;
+        throw new UndeferrableValueException("Value 'ProxyDefaultTargetGroupConnectionPoolConfigArgs.maxConnectionsPercent' is not present");
     }
 
     /**
      * Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
      * 
      */
-    private UndeferrableValue<Integer> maxIdleConnectionsPercent;
-
+    @PolicyResourceProperty(name="maxIdleConnectionsPercent", flag="unknown_maxIdleConnectionsPercent")
+    private Integer value_maxIdleConnectionsPercent;
+    private boolean unknown_maxIdleConnectionsPercent;
     public Integer maxIdleConnectionsPercent() {
-        if (maxIdleConnectionsPercent == null) return null;
-        return maxIdleConnectionsPercent.getValue("ProxyDefaultTargetGroupConnectionPoolConfigArgs.maxIdleConnectionsPercent");
+        if (!unknown_maxIdleConnectionsPercent) return value_maxIdleConnectionsPercent;
+        throw new UndeferrableValueException("Value 'ProxyDefaultTargetGroupConnectionPoolConfigArgs.maxIdleConnectionsPercent' is not present");
     }
 
     /**
      * Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. This setting is only supported for MySQL engine family databases. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
      * 
      */
-    private UndeferrableValue<List<String>> sessionPinningFilters;
-
+    @PolicyResourceProperty(name="sessionPinningFilters", flag="unknown_sessionPinningFilters")
+    private List<String> value_sessionPinningFilters;
+    private boolean unknown_sessionPinningFilters;
     public List<String> sessionPinningFilters() {
-        if (sessionPinningFilters == null) return null;
-        return sessionPinningFilters.getValue("ProxyDefaultTargetGroupConnectionPoolConfigArgs.sessionPinningFilters");
+        if (!unknown_sessionPinningFilters) return value_sessionPinningFilters;
+        throw new UndeferrableValueException("Value 'ProxyDefaultTargetGroupConnectionPoolConfigArgs.sessionPinningFilters' is not present");
     }
 
 }

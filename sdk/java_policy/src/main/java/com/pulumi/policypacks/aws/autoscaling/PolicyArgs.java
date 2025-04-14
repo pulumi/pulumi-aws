@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationArgs;
 import com.pulumi.policypacks.aws.autoscaling.inputs.PolicyStepAdjustmentArgs;
@@ -22,33 +23,36 @@ public final class PolicyArgs extends com.pulumi.resources.PolicyResourceInput {
      * Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
      * 
      */
-    private UndeferrableValue<String> adjustmentType;
-
+    @PolicyResourceProperty(name="adjustmentType", flag="unknown_adjustmentType")
+    private String value_adjustmentType;
+    private boolean unknown_adjustmentType;
     public String adjustmentType() {
-        if (adjustmentType == null) return null;
-        return adjustmentType.getValue("PolicyArgs.adjustmentType");
+        if (!unknown_adjustmentType) return value_adjustmentType;
+        throw new UndeferrableValueException("Value 'PolicyArgs.adjustmentType' is not present");
     }
 
     /**
      * Name of the autoscaling group.
      * 
      */
-    private UndeferrableValue<String> autoscalingGroupName;
-
+    @PolicyResourceProperty(name="autoscalingGroupName", flag="unknown_autoscalingGroupName")
+    private String value_autoscalingGroupName;
+    private boolean unknown_autoscalingGroupName;
     public String autoscalingGroupName() {
-        if (autoscalingGroupName == null) return null;
-        return autoscalingGroupName.getValue("PolicyArgs.autoscalingGroupName");
+        if (!unknown_autoscalingGroupName) return value_autoscalingGroupName;
+        throw new UndeferrableValueException("Value 'PolicyArgs.autoscalingGroupName' is not present");
     }
 
     /**
      * Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
      * 
      */
-    private UndeferrableValue<Integer> cooldown;
-
+    @PolicyResourceProperty(name="cooldown", flag="unknown_cooldown")
+    private Integer value_cooldown;
+    private boolean unknown_cooldown;
     public Integer cooldown() {
-        if (cooldown == null) return null;
-        return cooldown.getValue("PolicyArgs.cooldown");
+        if (!unknown_cooldown) return value_cooldown;
+        throw new UndeferrableValueException("Value 'PolicyArgs.cooldown' is not present");
     }
 
     /**
@@ -57,33 +61,36 @@ public final class PolicyArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following argument is only available to &#34;SimpleScaling&#34; and &#34;StepScaling&#34; type policies:
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("PolicyArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'PolicyArgs.enabled' is not present");
     }
 
     /**
      * Estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group&#39;s specified cooldown period.
      * 
      */
-    private UndeferrableValue<Integer> estimatedInstanceWarmup;
-
+    @PolicyResourceProperty(name="estimatedInstanceWarmup", flag="unknown_estimatedInstanceWarmup")
+    private Integer value_estimatedInstanceWarmup;
+    private boolean unknown_estimatedInstanceWarmup;
     public Integer estimatedInstanceWarmup() {
-        if (estimatedInstanceWarmup == null) return null;
-        return estimatedInstanceWarmup.getValue("PolicyArgs.estimatedInstanceWarmup");
+        if (!unknown_estimatedInstanceWarmup) return value_estimatedInstanceWarmup;
+        throw new UndeferrableValueException("Value 'PolicyArgs.estimatedInstanceWarmup' is not present");
     }
 
     /**
      * Aggregation type for the policy&#39;s metrics. Valid values are &#34;Minimum&#34;, &#34;Maximum&#34;, and &#34;Average&#34;. Without a value, AWS will treat the aggregation type as &#34;Average&#34;.
      * 
      */
-    private UndeferrableValue<String> metricAggregationType;
-
+    @PolicyResourceProperty(name="metricAggregationType", flag="unknown_metricAggregationType")
+    private String value_metricAggregationType;
+    private boolean unknown_metricAggregationType;
     public String metricAggregationType() {
-        if (metricAggregationType == null) return null;
-        return metricAggregationType.getValue("PolicyArgs.metricAggregationType");
+        if (!unknown_metricAggregationType) return value_metricAggregationType;
+        throw new UndeferrableValueException("Value 'PolicyArgs.metricAggregationType' is not present");
     }
 
     /**
@@ -92,44 +99,48 @@ public final class PolicyArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following arguments are only available to &#34;SimpleScaling&#34; type policies:
      * 
      */
-    private UndeferrableValue<Integer> minAdjustmentMagnitude;
-
+    @PolicyResourceProperty(name="minAdjustmentMagnitude", flag="unknown_minAdjustmentMagnitude")
+    private Integer value_minAdjustmentMagnitude;
+    private boolean unknown_minAdjustmentMagnitude;
     public Integer minAdjustmentMagnitude() {
-        if (minAdjustmentMagnitude == null) return null;
-        return minAdjustmentMagnitude.getValue("PolicyArgs.minAdjustmentMagnitude");
+        if (!unknown_minAdjustmentMagnitude) return value_minAdjustmentMagnitude;
+        throw new UndeferrableValueException("Value 'PolicyArgs.minAdjustmentMagnitude' is not present");
     }
 
     /**
      * Name of the policy.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PolicyArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PolicyArgs.name' is not present");
     }
 
     /**
      * Policy type, either &#34;SimpleScaling&#34;, &#34;StepScaling&#34;, &#34;TargetTrackingScaling&#34;, or &#34;PredictiveScaling&#34;. If this value isn&#39;t provided, AWS will default to &#34;SimpleScaling.&#34;
      * 
      */
-    private UndeferrableValue<String> policyType;
-
+    @PolicyResourceProperty(name="policyType", flag="unknown_policyType")
+    private String value_policyType;
+    private boolean unknown_policyType;
     public String policyType() {
-        if (policyType == null) return null;
-        return policyType.getValue("PolicyArgs.policyType");
+        if (!unknown_policyType) return value_policyType;
+        throw new UndeferrableValueException("Value 'PolicyArgs.policyType' is not present");
     }
 
     /**
      * Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
      * 
      */
-    private UndeferrableValue<PolicyPredictiveScalingConfigurationArgs> predictiveScalingConfiguration;
-
+    @PolicyResourceProperty(name="predictiveScalingConfiguration", flag="unknown_predictiveScalingConfiguration")
+    private PolicyPredictiveScalingConfigurationArgs value_predictiveScalingConfiguration;
+    private boolean unknown_predictiveScalingConfiguration;
     public PolicyPredictiveScalingConfigurationArgs predictiveScalingConfiguration() {
-        if (predictiveScalingConfiguration == null) return null;
-        return predictiveScalingConfiguration.getValue("PolicyArgs.predictiveScalingConfiguration");
+        if (!unknown_predictiveScalingConfiguration) return value_predictiveScalingConfiguration;
+        throw new UndeferrableValueException("Value 'PolicyArgs.predictiveScalingConfiguration' is not present");
     }
 
     /**
@@ -138,11 +149,12 @@ public final class PolicyArgs extends com.pulumi.resources.PolicyResourceInput {
      * up. A negative value scales down.
      * 
      */
-    private UndeferrableValue<Integer> scalingAdjustment;
-
+    @PolicyResourceProperty(name="scalingAdjustment", flag="unknown_scalingAdjustment")
+    private Integer value_scalingAdjustment;
+    private boolean unknown_scalingAdjustment;
     public Integer scalingAdjustment() {
-        if (scalingAdjustment == null) return null;
-        return scalingAdjustment.getValue("PolicyArgs.scalingAdjustment");
+        if (!unknown_scalingAdjustment) return value_scalingAdjustment;
+        throw new UndeferrableValueException("Value 'PolicyArgs.scalingAdjustment' is not present");
     }
 
     /**
@@ -196,11 +208,12 @@ public final class PolicyArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following fields are available in step adjustments:
      * 
      */
-    private UndeferrableValue<List<PolicyStepAdjustmentArgs>> stepAdjustments;
-
+    @PolicyResourceProperty(name="stepAdjustments", flag="unknown_stepAdjustments")
+    private List<PolicyStepAdjustmentArgs> value_stepAdjustments;
+    private boolean unknown_stepAdjustments;
     public List<PolicyStepAdjustmentArgs> stepAdjustments() {
-        if (stepAdjustments == null) return null;
-        return stepAdjustments.getValue("PolicyArgs.stepAdjustments");
+        if (!unknown_stepAdjustments) return value_stepAdjustments;
+        throw new UndeferrableValueException("Value 'PolicyArgs.stepAdjustments' is not present");
     }
 
     /**
@@ -249,11 +262,12 @@ public final class PolicyArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following fields are available in target tracking configuration:
      * 
      */
-    private UndeferrableValue<PolicyTargetTrackingConfigurationArgs> targetTrackingConfiguration;
-
+    @PolicyResourceProperty(name="targetTrackingConfiguration", flag="unknown_targetTrackingConfiguration")
+    private PolicyTargetTrackingConfigurationArgs value_targetTrackingConfiguration;
+    private boolean unknown_targetTrackingConfiguration;
     public PolicyTargetTrackingConfigurationArgs targetTrackingConfiguration() {
-        if (targetTrackingConfiguration == null) return null;
-        return targetTrackingConfiguration.getValue("PolicyArgs.targetTrackingConfiguration");
+        if (!unknown_targetTrackingConfiguration) return value_targetTrackingConfiguration;
+        throw new UndeferrableValueException("Value 'PolicyArgs.targetTrackingConfiguration' is not present");
     }
 
 }

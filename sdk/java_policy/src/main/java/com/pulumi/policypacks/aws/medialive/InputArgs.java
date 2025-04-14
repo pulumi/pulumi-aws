@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.medialive.inputs.InputDestinationArgs;
 import com.pulumi.policypacks.aws.medialive.inputs.InputInputDeviceArgs;
@@ -23,88 +24,96 @@ public final class InputArgs extends com.pulumi.resources.PolicyResourceInput {
      * Destination settings for PUSH type inputs. See Destinations for more details.
      * 
      */
-    private UndeferrableValue<List<InputDestinationArgs>> destinations;
-
+    @PolicyResourceProperty(name="destinations", flag="unknown_destinations")
+    private List<InputDestinationArgs> value_destinations;
+    private boolean unknown_destinations;
     public List<InputDestinationArgs> destinations() {
-        if (destinations == null) return null;
-        return destinations.getValue("InputArgs.destinations");
+        if (!unknown_destinations) return value_destinations;
+        throw new UndeferrableValueException("Value 'InputArgs.destinations' is not present");
     }
 
     /**
      * Settings for the devices. See Input Devices for more details.
      * 
      */
-    private UndeferrableValue<List<InputInputDeviceArgs>> inputDevices;
-
+    @PolicyResourceProperty(name="inputDevices", flag="unknown_inputDevices")
+    private List<InputInputDeviceArgs> value_inputDevices;
+    private boolean unknown_inputDevices;
     public List<InputInputDeviceArgs> inputDevices() {
-        if (inputDevices == null) return null;
-        return inputDevices.getValue("InputArgs.inputDevices");
+        if (!unknown_inputDevices) return value_inputDevices;
+        throw new UndeferrableValueException("Value 'InputArgs.inputDevices' is not present");
     }
 
     /**
      * List of input security groups.
      * 
      */
-    private UndeferrableValue<List<String>> inputSecurityGroups;
-
+    @PolicyResourceProperty(name="inputSecurityGroups", flag="unknown_inputSecurityGroups")
+    private List<String> value_inputSecurityGroups;
+    private boolean unknown_inputSecurityGroups;
     public List<String> inputSecurityGroups() {
-        if (inputSecurityGroups == null) return null;
-        return inputSecurityGroups.getValue("InputArgs.inputSecurityGroups");
+        if (!unknown_inputSecurityGroups) return value_inputSecurityGroups;
+        throw new UndeferrableValueException("Value 'InputArgs.inputSecurityGroups' is not present");
     }
 
     /**
      * A list of the MediaConnect Flows. See Media Connect Flows for more details.
      * 
      */
-    private UndeferrableValue<List<InputMediaConnectFlowArgs>> mediaConnectFlows;
-
+    @PolicyResourceProperty(name="mediaConnectFlows", flag="unknown_mediaConnectFlows")
+    private List<InputMediaConnectFlowArgs> value_mediaConnectFlows;
+    private boolean unknown_mediaConnectFlows;
     public List<InputMediaConnectFlowArgs> mediaConnectFlows() {
-        if (mediaConnectFlows == null) return null;
-        return mediaConnectFlows.getValue("InputArgs.mediaConnectFlows");
+        if (!unknown_mediaConnectFlows) return value_mediaConnectFlows;
+        throw new UndeferrableValueException("Value 'InputArgs.mediaConnectFlows' is not present");
     }
 
     /**
      * Name of the input.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("InputArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'InputArgs.name' is not present");
     }
 
     /**
      * The ARN of the role this input assumes during and after creation.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("InputArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'InputArgs.roleArn' is not present");
     }
 
     /**
      * The source URLs for a PULL-type input. See Sources for more details.
      * 
      */
-    private UndeferrableValue<List<InputSourceArgs>> sources;
-
+    @PolicyResourceProperty(name="sources", flag="unknown_sources")
+    private List<InputSourceArgs> value_sources;
+    private boolean unknown_sources;
     public List<InputSourceArgs> sources() {
-        if (sources == null) return null;
-        return sources.getValue("InputArgs.sources");
+        if (!unknown_sources) return value_sources;
+        throw new UndeferrableValueException("Value 'InputArgs.sources' is not present");
     }
 
     /**
      * A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("InputArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'InputArgs.tags' is not present");
     }
 
     /**
@@ -113,22 +122,24 @@ public final class InputArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("InputArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'InputArgs.type' is not present");
     }
 
     /**
      * Settings for a private VPC Input. See VPC for more details.
      * 
      */
-    private UndeferrableValue<InputVpcArgs> vpc;
-
+    @PolicyResourceProperty(name="vpc", flag="unknown_vpc")
+    private InputVpcArgs value_vpc;
+    private boolean unknown_vpc;
     public InputVpcArgs vpc() {
-        if (vpc == null) return null;
-        return vpc.getValue("InputArgs.vpc");
+        if (!unknown_vpc) return value_vpc;
+        throw new UndeferrableValueException("Value 'InputArgs.vpc' is not present");
     }
 
 }

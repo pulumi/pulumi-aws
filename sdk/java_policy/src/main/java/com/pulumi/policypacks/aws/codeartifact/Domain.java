@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codeartifact;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,99 +19,108 @@ public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN of the Domain.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Domain.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Domain.arn' is not present");
     }
 
     /**
      * The total size of all assets in the domain.
      * 
      */
-    private UndeferrableValue<String> assetSizeBytes;
-
+    @PolicyResourceProperty(name="assetSizeBytes", flag="unknown_assetSizeBytes")
+    private String value_assetSizeBytes;
+    private boolean unknown_assetSizeBytes;
     public String assetSizeBytes() {
-        if (assetSizeBytes == null) return null;
-        return assetSizeBytes.getValue("Domain.assetSizeBytes");
+        if (!unknown_assetSizeBytes) return value_assetSizeBytes;
+        throw new UndeferrableValueException("Value 'Domain.assetSizeBytes' is not present");
     }
 
     /**
      * A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private UndeferrableValue<String> createdTime;
-
+    @PolicyResourceProperty(name="createdTime", flag="unknown_createdTime")
+    private String value_createdTime;
+    private boolean unknown_createdTime;
     public String createdTime() {
-        if (createdTime == null) return null;
-        return createdTime.getValue("Domain.createdTime");
+        if (!unknown_createdTime) return value_createdTime;
+        throw new UndeferrableValueException("Value 'Domain.createdTime' is not present");
     }
 
     /**
      * The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
      * 
      */
-    private UndeferrableValue<String> domain;
-
+    @PolicyResourceProperty(name="domain", flag="unknown_domain")
+    private String value_domain;
+    private boolean unknown_domain;
     public String domain() {
-        if (domain == null) return null;
-        return domain.getValue("Domain.domain");
+        if (!unknown_domain) return value_domain;
+        throw new UndeferrableValueException("Value 'Domain.domain' is not present");
     }
 
     /**
      * The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
      * 
      */
-    private UndeferrableValue<String> encryptionKey;
-
+    @PolicyResourceProperty(name="encryptionKey", flag="unknown_encryptionKey")
+    private String value_encryptionKey;
+    private boolean unknown_encryptionKey;
     public String encryptionKey() {
-        if (encryptionKey == null) return null;
-        return encryptionKey.getValue("Domain.encryptionKey");
+        if (!unknown_encryptionKey) return value_encryptionKey;
+        throw new UndeferrableValueException("Value 'Domain.encryptionKey' is not present");
     }
 
     /**
      * The AWS account ID that owns the domain.
      * 
      */
-    private UndeferrableValue<String> owner;
-
+    @PolicyResourceProperty(name="owner", flag="unknown_owner")
+    private String value_owner;
+    private boolean unknown_owner;
     public String owner() {
-        if (owner == null) return null;
-        return owner.getValue("Domain.owner");
+        if (!unknown_owner) return value_owner;
+        throw new UndeferrableValueException("Value 'Domain.owner' is not present");
     }
 
     /**
      * The number of repositories in the domain.
      * 
      */
-    private UndeferrableValue<Integer> repositoryCount;
-
+    @PolicyResourceProperty(name="repositoryCount", flag="unknown_repositoryCount")
+    private Integer value_repositoryCount;
+    private boolean unknown_repositoryCount;
     public Integer repositoryCount() {
-        if (repositoryCount == null) return null;
-        return repositoryCount.getValue("Domain.repositoryCount");
+        if (!unknown_repositoryCount) return value_repositoryCount;
+        throw new UndeferrableValueException("Value 'Domain.repositoryCount' is not present");
     }
 
     /**
      * The ARN of the Amazon S3 bucket that is used to store package assets in the domain.
      * 
      */
-    private UndeferrableValue<String> s3BucketArn;
-
+    @PolicyResourceProperty(name="s3BucketArn", flag="unknown_s3BucketArn")
+    private String value_s3BucketArn;
+    private boolean unknown_s3BucketArn;
     public String s3BucketArn() {
-        if (s3BucketArn == null) return null;
-        return s3BucketArn.getValue("Domain.s3BucketArn");
+        if (!unknown_s3BucketArn) return value_s3BucketArn;
+        throw new UndeferrableValueException("Value 'Domain.s3BucketArn' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Domain.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Domain.tags' is not present");
     }
 
     /**
@@ -121,11 +131,12 @@ public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Domain.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Domain.tagsAll' is not present");
     }
 
 }

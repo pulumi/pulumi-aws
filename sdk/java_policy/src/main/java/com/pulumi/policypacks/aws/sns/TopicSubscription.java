@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sns;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -18,165 +19,180 @@ public final class TopicSubscription extends com.pulumi.resources.PolicyResource
      * ARN of the subscription.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("TopicSubscription.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'TopicSubscription.arn' is not present");
     }
 
     /**
      * Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> confirmationTimeoutInMinutes;
-
+    @PolicyResourceProperty(name="confirmationTimeoutInMinutes", flag="unknown_confirmationTimeoutInMinutes")
+    private @Nullable Integer value_confirmationTimeoutInMinutes;
+    private boolean unknown_confirmationTimeoutInMinutes;
     public @Nullable Integer confirmationTimeoutInMinutes() {
-        if (confirmationTimeoutInMinutes == null) return null;
-        return confirmationTimeoutInMinutes.getValue("TopicSubscription.confirmationTimeoutInMinutes");
+        if (!unknown_confirmationTimeoutInMinutes) return value_confirmationTimeoutInMinutes;
+        throw new UndeferrableValueException("Value 'TopicSubscription.confirmationTimeoutInMinutes' is not present");
     }
 
     /**
      * Whether the subscription confirmation request was authenticated.
      * 
      */
-    private UndeferrableValue<Boolean> confirmationWasAuthenticated;
-
+    @PolicyResourceProperty(name="confirmationWasAuthenticated", flag="unknown_confirmationWasAuthenticated")
+    private Boolean value_confirmationWasAuthenticated;
+    private boolean unknown_confirmationWasAuthenticated;
     public Boolean confirmationWasAuthenticated() {
-        if (confirmationWasAuthenticated == null) return null;
-        return confirmationWasAuthenticated.getValue("TopicSubscription.confirmationWasAuthenticated");
+        if (!unknown_confirmationWasAuthenticated) return value_confirmationWasAuthenticated;
+        throw new UndeferrableValueException("Value 'TopicSubscription.confirmationWasAuthenticated' is not present");
     }
 
     /**
      * JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
      * 
      */
-    private @Nullable UndeferrableValue<String> deliveryPolicy;
-
+    @PolicyResourceProperty(name="deliveryPolicy", flag="unknown_deliveryPolicy")
+    private @Nullable String value_deliveryPolicy;
+    private boolean unknown_deliveryPolicy;
     public @Nullable String deliveryPolicy() {
-        if (deliveryPolicy == null) return null;
-        return deliveryPolicy.getValue("TopicSubscription.deliveryPolicy");
+        if (!unknown_deliveryPolicy) return value_deliveryPolicy;
+        throw new UndeferrableValueException("Value 'TopicSubscription.deliveryPolicy' is not present");
     }
 
     /**
      * Endpoint to send data to. The contents vary with the protocol. See details below.
      * 
      */
-    private UndeferrableValue<String> endpoint;
-
+    @PolicyResourceProperty(name="endpoint", flag="unknown_endpoint")
+    private String value_endpoint;
+    private boolean unknown_endpoint;
     public String endpoint() {
-        if (endpoint == null) return null;
-        return endpoint.getValue("TopicSubscription.endpoint");
+        if (!unknown_endpoint) return value_endpoint;
+        throw new UndeferrableValueException("Value 'TopicSubscription.endpoint' is not present");
     }
 
     /**
      * Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> endpointAutoConfirms;
-
+    @PolicyResourceProperty(name="endpointAutoConfirms", flag="unknown_endpointAutoConfirms")
+    private @Nullable Boolean value_endpointAutoConfirms;
+    private boolean unknown_endpointAutoConfirms;
     public @Nullable Boolean endpointAutoConfirms() {
-        if (endpointAutoConfirms == null) return null;
-        return endpointAutoConfirms.getValue("TopicSubscription.endpointAutoConfirms");
+        if (!unknown_endpointAutoConfirms) return value_endpointAutoConfirms;
+        throw new UndeferrableValueException("Value 'TopicSubscription.endpointAutoConfirms' is not present");
     }
 
     /**
      * JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
      * 
      */
-    private @Nullable UndeferrableValue<String> filterPolicy;
-
+    @PolicyResourceProperty(name="filterPolicy", flag="unknown_filterPolicy")
+    private @Nullable String value_filterPolicy;
+    private boolean unknown_filterPolicy;
     public @Nullable String filterPolicy() {
-        if (filterPolicy == null) return null;
-        return filterPolicy.getValue("TopicSubscription.filterPolicy");
+        if (!unknown_filterPolicy) return value_filterPolicy;
+        throw new UndeferrableValueException("Value 'TopicSubscription.filterPolicy' is not present");
     }
 
     /**
      * Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
      * 
      */
-    private UndeferrableValue<String> filterPolicyScope;
-
+    @PolicyResourceProperty(name="filterPolicyScope", flag="unknown_filterPolicyScope")
+    private String value_filterPolicyScope;
+    private boolean unknown_filterPolicyScope;
     public String filterPolicyScope() {
-        if (filterPolicyScope == null) return null;
-        return filterPolicyScope.getValue("TopicSubscription.filterPolicyScope");
+        if (!unknown_filterPolicyScope) return value_filterPolicyScope;
+        throw new UndeferrableValueException("Value 'TopicSubscription.filterPolicyScope' is not present");
     }
 
     /**
      * AWS account ID of the subscription&#39;s owner.
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("TopicSubscription.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'TopicSubscription.ownerId' is not present");
     }
 
     /**
      * Whether the subscription has not been confirmed.
      * 
      */
-    private UndeferrableValue<Boolean> pendingConfirmation;
-
+    @PolicyResourceProperty(name="pendingConfirmation", flag="unknown_pendingConfirmation")
+    private Boolean value_pendingConfirmation;
+    private boolean unknown_pendingConfirmation;
     public Boolean pendingConfirmation() {
-        if (pendingConfirmation == null) return null;
-        return pendingConfirmation.getValue("TopicSubscription.pendingConfirmation");
+        if (!unknown_pendingConfirmation) return value_pendingConfirmation;
+        throw new UndeferrableValueException("Value 'TopicSubscription.pendingConfirmation' is not present");
     }
 
     /**
      * Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("TopicSubscription.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'TopicSubscription.protocol' is not present");
     }
 
     /**
      * Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> rawMessageDelivery;
-
+    @PolicyResourceProperty(name="rawMessageDelivery", flag="unknown_rawMessageDelivery")
+    private @Nullable Boolean value_rawMessageDelivery;
+    private boolean unknown_rawMessageDelivery;
     public @Nullable Boolean rawMessageDelivery() {
-        if (rawMessageDelivery == null) return null;
-        return rawMessageDelivery.getValue("TopicSubscription.rawMessageDelivery");
+        if (!unknown_rawMessageDelivery) return value_rawMessageDelivery;
+        throw new UndeferrableValueException("Value 'TopicSubscription.rawMessageDelivery' is not present");
     }
 
     /**
      * JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
      * 
      */
-    private @Nullable UndeferrableValue<String> redrivePolicy;
-
+    @PolicyResourceProperty(name="redrivePolicy", flag="unknown_redrivePolicy")
+    private @Nullable String value_redrivePolicy;
+    private boolean unknown_redrivePolicy;
     public @Nullable String redrivePolicy() {
-        if (redrivePolicy == null) return null;
-        return redrivePolicy.getValue("TopicSubscription.redrivePolicy");
+        if (!unknown_redrivePolicy) return value_redrivePolicy;
+        throw new UndeferrableValueException("Value 'TopicSubscription.redrivePolicy' is not present");
     }
 
     /**
      * JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
      * 
      */
-    private @Nullable UndeferrableValue<String> replayPolicy;
-
+    @PolicyResourceProperty(name="replayPolicy", flag="unknown_replayPolicy")
+    private @Nullable String value_replayPolicy;
+    private boolean unknown_replayPolicy;
     public @Nullable String replayPolicy() {
-        if (replayPolicy == null) return null;
-        return replayPolicy.getValue("TopicSubscription.replayPolicy");
+        if (!unknown_replayPolicy) return value_replayPolicy;
+        throw new UndeferrableValueException("Value 'TopicSubscription.replayPolicy' is not present");
     }
 
     /**
      * ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
      * 
      */
-    private @Nullable UndeferrableValue<String> subscriptionRoleArn;
-
+    @PolicyResourceProperty(name="subscriptionRoleArn", flag="unknown_subscriptionRoleArn")
+    private @Nullable String value_subscriptionRoleArn;
+    private boolean unknown_subscriptionRoleArn;
     public @Nullable String subscriptionRoleArn() {
-        if (subscriptionRoleArn == null) return null;
-        return subscriptionRoleArn.getValue("TopicSubscription.subscriptionRoleArn");
+        if (!unknown_subscriptionRoleArn) return value_subscriptionRoleArn;
+        throw new UndeferrableValueException("Value 'TopicSubscription.subscriptionRoleArn' is not present");
     }
 
     /**
@@ -185,11 +201,12 @@ public final class TopicSubscription extends com.pulumi.resources.PolicyResource
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> topic;
-
+    @PolicyResourceProperty(name="topic", flag="unknown_topic")
+    private String value_topic;
+    private boolean unknown_topic;
     public String topic() {
-        if (topic == null) return null;
-        return topic.getValue("TopicSubscription.topic");
+        if (!unknown_topic) return value_topic;
+        throw new UndeferrableValueException("Value 'TopicSubscription.topic' is not present");
     }
 
 }

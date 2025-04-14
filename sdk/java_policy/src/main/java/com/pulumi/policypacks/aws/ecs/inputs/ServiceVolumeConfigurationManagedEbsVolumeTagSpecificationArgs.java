@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArg
      * Determines whether to propagate the tags from the task definition to the Amazon EBS volume.
      * 
      */
-    private UndeferrableValue<String> propagateTags;
-
+    @PolicyResourceProperty(name="propagateTags", flag="unknown_propagateTags")
+    private String value_propagateTags;
+    private boolean unknown_propagateTags;
     public String propagateTags() {
-        if (propagateTags == null) return null;
-        return propagateTags.getValue("ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs.propagateTags");
+        if (!unknown_propagateTags) return value_propagateTags;
+        throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs.propagateTags' is not present");
     }
 
     /**
      * The type of volume resource. Valid values, `volume`.
      * 
      */
-    private UndeferrableValue<String> resourceType;
-
+    @PolicyResourceProperty(name="resourceType", flag="unknown_resourceType")
+    private String value_resourceType;
+    private boolean unknown_resourceType;
     public String resourceType() {
-        if (resourceType == null) return null;
-        return resourceType.getValue("ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs.resourceType");
+        if (!unknown_resourceType) return value_resourceType;
+        throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs.resourceType' is not present");
     }
 
     /**
      * The tags applied to this Amazon EBS volume. `AmazonECSCreated` and `AmazonECSManaged` are reserved tags that can&#39;t be used.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolumeTagSpecificationArgs.tags' is not present");
     }
 
 }

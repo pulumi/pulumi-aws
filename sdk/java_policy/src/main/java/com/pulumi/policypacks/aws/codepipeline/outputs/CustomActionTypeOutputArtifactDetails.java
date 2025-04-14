@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,22 +14,24 @@ public final class CustomActionTypeOutputArtifactDetails {
      * The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
      * 
      */
-    private UndeferrableValue<Integer> maximumCount;
-
+    @PolicyResourceProperty(name="maximumCount", flag="unknown_maximumCount")
+    private Integer value_maximumCount;
+    private boolean unknown_maximumCount;
     public Integer maximumCount() {
-        if (maximumCount == null) return null;
-        return maximumCount.getValue("CustomActionTypeOutputArtifactDetails.maximumCount");
+        if (!unknown_maximumCount) return value_maximumCount;
+        throw new UndeferrableValueException("Value 'CustomActionTypeOutputArtifactDetails.maximumCount' is not present");
     }
 
     /**
      * The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
      * 
      */
-    private UndeferrableValue<Integer> minimumCount;
-
+    @PolicyResourceProperty(name="minimumCount", flag="unknown_minimumCount")
+    private Integer value_minimumCount;
+    private boolean unknown_minimumCount;
     public Integer minimumCount() {
-        if (minimumCount == null) return null;
-        return minimumCount.getValue("CustomActionTypeOutputArtifactDetails.minimumCount");
+        if (!unknown_minimumCount) return value_minimumCount;
+        throw new UndeferrableValueException("Value 'CustomActionTypeOutputArtifactDetails.minimumCount' is not present");
     }
 
 }

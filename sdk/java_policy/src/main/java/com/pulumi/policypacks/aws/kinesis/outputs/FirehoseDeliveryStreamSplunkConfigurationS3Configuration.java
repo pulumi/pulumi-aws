@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,22 +17,24 @@ public final class FirehoseDeliveryStreamSplunkConfigurationS3Configuration {
      * The ARN of the S3 bucket
      * 
      */
-    private UndeferrableValue<String> bucketArn;
-
+    @PolicyResourceProperty(name="bucketArn", flag="unknown_bucketArn")
+    private String value_bucketArn;
+    private boolean unknown_bucketArn;
     public String bucketArn() {
-        if (bucketArn == null) return null;
-        return bucketArn.getValue("FirehoseDeliveryStreamSplunkConfigurationS3Configuration.bucketArn");
+        if (!unknown_bucketArn) return value_bucketArn;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfigurationS3Configuration.bucketArn' is not present");
     }
 
     /**
      * Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> bufferingInterval;
-
+    @PolicyResourceProperty(name="bufferingInterval", flag="unknown_bufferingInterval")
+    private @Nullable Integer value_bufferingInterval;
+    private boolean unknown_bufferingInterval;
     public @Nullable Integer bufferingInterval() {
-        if (bufferingInterval == null) return null;
-        return bufferingInterval.getValue("FirehoseDeliveryStreamSplunkConfigurationS3Configuration.bufferingInterval");
+        if (!unknown_bufferingInterval) return value_bufferingInterval;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfigurationS3Configuration.bufferingInterval' is not present");
     }
 
     /**
@@ -39,44 +42,48 @@ public final class FirehoseDeliveryStreamSplunkConfigurationS3Configuration {
      * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> bufferingSize;
-
+    @PolicyResourceProperty(name="bufferingSize", flag="unknown_bufferingSize")
+    private @Nullable Integer value_bufferingSize;
+    private boolean unknown_bufferingSize;
     public @Nullable Integer bufferingSize() {
-        if (bufferingSize == null) return null;
-        return bufferingSize.getValue("FirehoseDeliveryStreamSplunkConfigurationS3Configuration.bufferingSize");
+        if (!unknown_bufferingSize) return value_bufferingSize;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfigurationS3Configuration.bufferingSize' is not present");
     }
 
     /**
      * The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions;
-
+    @PolicyResourceProperty(name="cloudwatchLoggingOptions", flag="unknown_cloudwatchLoggingOptions")
+    private @Nullable FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions value_cloudwatchLoggingOptions;
+    private boolean unknown_cloudwatchLoggingOptions;
     public @Nullable FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions() {
-        if (cloudwatchLoggingOptions == null) return null;
-        return cloudwatchLoggingOptions.getValue("FirehoseDeliveryStreamSplunkConfigurationS3Configuration.cloudwatchLoggingOptions");
+        if (!unknown_cloudwatchLoggingOptions) return value_cloudwatchLoggingOptions;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfigurationS3Configuration.cloudwatchLoggingOptions' is not present");
     }
 
     /**
      * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
      * 
      */
-    private @Nullable UndeferrableValue<String> compressionFormat;
-
+    @PolicyResourceProperty(name="compressionFormat", flag="unknown_compressionFormat")
+    private @Nullable String value_compressionFormat;
+    private boolean unknown_compressionFormat;
     public @Nullable String compressionFormat() {
-        if (compressionFormat == null) return null;
-        return compressionFormat.getValue("FirehoseDeliveryStreamSplunkConfigurationS3Configuration.compressionFormat");
+        if (!unknown_compressionFormat) return value_compressionFormat;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfigurationS3Configuration.compressionFormat' is not present");
     }
 
     /**
      * Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
      * 
      */
-    private @Nullable UndeferrableValue<String> errorOutputPrefix;
-
+    @PolicyResourceProperty(name="errorOutputPrefix", flag="unknown_errorOutputPrefix")
+    private @Nullable String value_errorOutputPrefix;
+    private boolean unknown_errorOutputPrefix;
     public @Nullable String errorOutputPrefix() {
-        if (errorOutputPrefix == null) return null;
-        return errorOutputPrefix.getValue("FirehoseDeliveryStreamSplunkConfigurationS3Configuration.errorOutputPrefix");
+        if (!unknown_errorOutputPrefix) return value_errorOutputPrefix;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfigurationS3Configuration.errorOutputPrefix' is not present");
     }
 
     /**
@@ -84,33 +91,36 @@ public final class FirehoseDeliveryStreamSplunkConfigurationS3Configuration {
      * be used.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private @Nullable String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public @Nullable String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("FirehoseDeliveryStreamSplunkConfigurationS3Configuration.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfigurationS3Configuration.kmsKeyArn' is not present");
     }
 
     /**
      * The &#34;YYYY/MM/DD/HH&#34; time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
      * 
      */
-    private @Nullable UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private @Nullable String value_prefix;
+    private boolean unknown_prefix;
     public @Nullable String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("FirehoseDeliveryStreamSplunkConfigurationS3Configuration.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfigurationS3Configuration.prefix' is not present");
     }
 
     /**
      * The ARN of the AWS credentials.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("FirehoseDeliveryStreamSplunkConfigurationS3Configuration.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfigurationS3Configuration.roleArn' is not present");
     }
 
 }

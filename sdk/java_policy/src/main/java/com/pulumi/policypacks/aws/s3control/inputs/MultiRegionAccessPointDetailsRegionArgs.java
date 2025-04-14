@@ -3,32 +3,36 @@
 
 package com.pulumi.policypacks.aws.s3control.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class MultiRegionAccessPointDetailsRegionArgs {
 
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("MultiRegionAccessPointDetailsRegionArgs.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'MultiRegionAccessPointDetailsRegionArgs.bucket' is not present");
     }
 
-    private UndeferrableValue<String> bucketAccountId;
-
+    @PolicyResourceProperty(name="bucketAccountId", flag="unknown_bucketAccountId")
+    private String value_bucketAccountId;
+    private boolean unknown_bucketAccountId;
     public String bucketAccountId() {
-        if (bucketAccountId == null) return null;
-        return bucketAccountId.getValue("MultiRegionAccessPointDetailsRegionArgs.bucketAccountId");
+        if (!unknown_bucketAccountId) return value_bucketAccountId;
+        throw new UndeferrableValueException("Value 'MultiRegionAccessPointDetailsRegionArgs.bucketAccountId' is not present");
     }
 
-    private UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private String value_region;
+    private boolean unknown_region;
     public String region() {
-        if (region == null) return null;
-        return region.getValue("MultiRegionAccessPointDetailsRegionArgs.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'MultiRegionAccessPointDetailsRegionArgs.region' is not present");
     }
 
 }

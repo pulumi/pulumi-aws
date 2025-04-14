@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class RouteTableAssociation extends com.pulumi.resources.PolicyReso
      * The gateway ID to create an association. Conflicts with `subnet_id`.
      * 
      */
-    private @Nullable UndeferrableValue<String> gatewayId;
-
+    @PolicyResourceProperty(name="gatewayId", flag="unknown_gatewayId")
+    private @Nullable String value_gatewayId;
+    private boolean unknown_gatewayId;
     public @Nullable String gatewayId() {
-        if (gatewayId == null) return null;
-        return gatewayId.getValue("RouteTableAssociation.gatewayId");
+        if (!unknown_gatewayId) return value_gatewayId;
+        throw new UndeferrableValueException("Value 'RouteTableAssociation.gatewayId' is not present");
     }
 
     /**
      * The ID of the routing table to associate with.
      * 
      */
-    private UndeferrableValue<String> routeTableId;
-
+    @PolicyResourceProperty(name="routeTableId", flag="unknown_routeTableId")
+    private String value_routeTableId;
+    private boolean unknown_routeTableId;
     public String routeTableId() {
-        if (routeTableId == null) return null;
-        return routeTableId.getValue("RouteTableAssociation.routeTableId");
+        if (!unknown_routeTableId) return value_routeTableId;
+        throw new UndeferrableValueException("Value 'RouteTableAssociation.routeTableId' is not present");
     }
 
     /**
      * The subnet ID to create an association. Conflicts with `gateway_id`.
      * 
      */
-    private @Nullable UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private @Nullable String value_subnetId;
+    private boolean unknown_subnetId;
     public @Nullable String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("RouteTableAssociation.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'RouteTableAssociation.subnetId' is not present");
     }
 
 }

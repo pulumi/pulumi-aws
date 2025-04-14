@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rum;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,44 +17,48 @@ public final class MetricsDestination extends com.pulumi.resources.PolicyResourc
      * The name of the CloudWatch RUM app monitor that will send the metrics.
      * 
      */
-    private UndeferrableValue<String> appMonitorName;
-
+    @PolicyResourceProperty(name="appMonitorName", flag="unknown_appMonitorName")
+    private String value_appMonitorName;
+    private boolean unknown_appMonitorName;
     public String appMonitorName() {
-        if (appMonitorName == null) return null;
-        return appMonitorName.getValue("MetricsDestination.appMonitorName");
+        if (!unknown_appMonitorName) return value_appMonitorName;
+        throw new UndeferrableValueException("Value 'MetricsDestination.appMonitorName' is not present");
     }
 
     /**
      * Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
      * 
      */
-    private UndeferrableValue<String> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private String value_destination;
+    private boolean unknown_destination;
     public String destination() {
-        if (destination == null) return null;
-        return destination.getValue("MetricsDestination.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'MetricsDestination.destination' is not present");
     }
 
     /**
      * Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
      * 
      */
-    private @Nullable UndeferrableValue<String> destinationArn;
-
+    @PolicyResourceProperty(name="destinationArn", flag="unknown_destinationArn")
+    private @Nullable String value_destinationArn;
+    private boolean unknown_destinationArn;
     public @Nullable String destinationArn() {
-        if (destinationArn == null) return null;
-        return destinationArn.getValue("MetricsDestination.destinationArn");
+        if (!unknown_destinationArn) return value_destinationArn;
+        throw new UndeferrableValueException("Value 'MetricsDestination.destinationArn' is not present");
     }
 
     /**
      * This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
      * 
      */
-    private @Nullable UndeferrableValue<String> iamRoleArn;
-
+    @PolicyResourceProperty(name="iamRoleArn", flag="unknown_iamRoleArn")
+    private @Nullable String value_iamRoleArn;
+    private boolean unknown_iamRoleArn;
     public @Nullable String iamRoleArn() {
-        if (iamRoleArn == null) return null;
-        return iamRoleArn.getValue("MetricsDestination.iamRoleArn");
+        if (!unknown_iamRoleArn) return value_iamRoleArn;
+        throw new UndeferrableValueException("Value 'MetricsDestination.iamRoleArn' is not present");
     }
 
 }

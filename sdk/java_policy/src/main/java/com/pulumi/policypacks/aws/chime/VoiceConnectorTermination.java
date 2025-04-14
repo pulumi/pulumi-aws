@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chime;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,66 +20,72 @@ public final class VoiceConnectorTermination extends com.pulumi.resources.Policy
      * The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
      * 
      */
-    private UndeferrableValue<List<String>> callingRegions;
-
+    @PolicyResourceProperty(name="callingRegions", flag="unknown_callingRegions")
+    private List<String> value_callingRegions;
+    private boolean unknown_callingRegions;
     public List<String> callingRegions() {
-        if (callingRegions == null) return null;
-        return callingRegions.getValue("VoiceConnectorTermination.callingRegions");
+        if (!unknown_callingRegions) return value_callingRegions;
+        throw new UndeferrableValueException("Value 'VoiceConnectorTermination.callingRegions' is not present");
     }
 
     /**
      * The IP addresses allowed to make calls, in CIDR format.
      * 
      */
-    private UndeferrableValue<List<String>> cidrAllowLists;
-
+    @PolicyResourceProperty(name="cidrAllowLists", flag="unknown_cidrAllowLists")
+    private List<String> value_cidrAllowLists;
+    private boolean unknown_cidrAllowLists;
     public List<String> cidrAllowLists() {
-        if (cidrAllowLists == null) return null;
-        return cidrAllowLists.getValue("VoiceConnectorTermination.cidrAllowLists");
+        if (!unknown_cidrAllowLists) return value_cidrAllowLists;
+        throw new UndeferrableValueException("Value 'VoiceConnectorTermination.cidrAllowLists' is not present");
     }
 
     /**
      * The limit on calls per second. Max value based on account service quota. Default value of `1`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> cpsLimit;
-
+    @PolicyResourceProperty(name="cpsLimit", flag="unknown_cpsLimit")
+    private @Nullable Integer value_cpsLimit;
+    private boolean unknown_cpsLimit;
     public @Nullable Integer cpsLimit() {
-        if (cpsLimit == null) return null;
-        return cpsLimit.getValue("VoiceConnectorTermination.cpsLimit");
+        if (!unknown_cpsLimit) return value_cpsLimit;
+        throw new UndeferrableValueException("Value 'VoiceConnectorTermination.cpsLimit' is not present");
     }
 
     /**
      * The default caller ID phone number.
      * 
      */
-    private @Nullable UndeferrableValue<String> defaultPhoneNumber;
-
+    @PolicyResourceProperty(name="defaultPhoneNumber", flag="unknown_defaultPhoneNumber")
+    private @Nullable String value_defaultPhoneNumber;
+    private boolean unknown_defaultPhoneNumber;
     public @Nullable String defaultPhoneNumber() {
-        if (defaultPhoneNumber == null) return null;
-        return defaultPhoneNumber.getValue("VoiceConnectorTermination.defaultPhoneNumber");
+        if (!unknown_defaultPhoneNumber) return value_defaultPhoneNumber;
+        throw new UndeferrableValueException("Value 'VoiceConnectorTermination.defaultPhoneNumber' is not present");
     }
 
     /**
      * When termination settings are disabled, outbound calls can not be made.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> disabled;
-
+    @PolicyResourceProperty(name="disabled", flag="unknown_disabled")
+    private @Nullable Boolean value_disabled;
+    private boolean unknown_disabled;
     public @Nullable Boolean disabled() {
-        if (disabled == null) return null;
-        return disabled.getValue("VoiceConnectorTermination.disabled");
+        if (!unknown_disabled) return value_disabled;
+        throw new UndeferrableValueException("Value 'VoiceConnectorTermination.disabled' is not present");
     }
 
     /**
      * The Amazon Chime Voice Connector ID.
      * 
      */
-    private UndeferrableValue<String> voiceConnectorId;
-
+    @PolicyResourceProperty(name="voiceConnectorId", flag="unknown_voiceConnectorId")
+    private String value_voiceConnectorId;
+    private boolean unknown_voiceConnectorId;
     public String voiceConnectorId() {
-        if (voiceConnectorId == null) return null;
-        return voiceConnectorId.getValue("VoiceConnectorTermination.voiceConnectorId");
+        if (!unknown_voiceConnectorId) return value_voiceConnectorId;
+        throw new UndeferrableValueException("Value 'VoiceConnectorTermination.voiceConnectorId' is not present");
     }
 
 }

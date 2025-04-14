@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class TriggerEventBatchingConditionArgs {
      * Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
      * 
      */
-    private UndeferrableValue<Integer> batchSize;
-
+    @PolicyResourceProperty(name="batchSize", flag="unknown_batchSize")
+    private Integer value_batchSize;
+    private boolean unknown_batchSize;
     public Integer batchSize() {
-        if (batchSize == null) return null;
-        return batchSize.getValue("TriggerEventBatchingConditionArgs.batchSize");
+        if (!unknown_batchSize) return value_batchSize;
+        throw new UndeferrableValueException("Value 'TriggerEventBatchingConditionArgs.batchSize' is not present");
     }
 
     /**
      * Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received. Default value is `900`.
      * 
      */
-    private UndeferrableValue<Integer> batchWindow;
-
+    @PolicyResourceProperty(name="batchWindow", flag="unknown_batchWindow")
+    private Integer value_batchWindow;
+    private boolean unknown_batchWindow;
     public Integer batchWindow() {
-        if (batchWindow == null) return null;
-        return batchWindow.getValue("TriggerEventBatchingConditionArgs.batchWindow");
+        if (!unknown_batchWindow) return value_batchWindow;
+        throw new UndeferrableValueException("Value 'TriggerEventBatchingConditionArgs.batchWindow' is not present");
     }
 
 }

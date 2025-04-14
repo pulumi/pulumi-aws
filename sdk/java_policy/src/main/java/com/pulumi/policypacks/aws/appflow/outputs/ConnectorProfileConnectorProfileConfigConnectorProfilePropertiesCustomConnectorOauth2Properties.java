@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -11,29 +12,32 @@ import javax.annotation.Nullable;
 
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties {
 
-    private UndeferrableValue<String> oauth2GrantType;
-
+    @PolicyResourceProperty(name="oauth2GrantType", flag="unknown_oauth2GrantType")
+    private String value_oauth2GrantType;
+    private boolean unknown_oauth2GrantType;
     public String oauth2GrantType() {
-        if (oauth2GrantType == null) return null;
-        return oauth2GrantType.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties.oauth2GrantType");
+        if (!unknown_oauth2GrantType) return value_oauth2GrantType;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties.oauth2GrantType' is not present");
     }
 
-    private UndeferrableValue<String> tokenUrl;
-
+    @PolicyResourceProperty(name="tokenUrl", flag="unknown_tokenUrl")
+    private String value_tokenUrl;
+    private boolean unknown_tokenUrl;
     public String tokenUrl() {
-        if (tokenUrl == null) return null;
-        return tokenUrl.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties.tokenUrl");
+        if (!unknown_tokenUrl) return value_tokenUrl;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties.tokenUrl' is not present");
     }
 
     /**
      * Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tokenUrlCustomProperties;
-
+    @PolicyResourceProperty(name="tokenUrlCustomProperties", flag="unknown_tokenUrlCustomProperties")
+    private @Nullable Map<String,String> value_tokenUrlCustomProperties;
+    private boolean unknown_tokenUrlCustomProperties;
     public @Nullable Map<String,String> tokenUrlCustomProperties() {
-        if (tokenUrlCustomProperties == null) return null;
-        return tokenUrlCustomProperties.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties.tokenUrlCustomProperties");
+        if (!unknown_tokenUrlCustomProperties) return value_tokenUrlCustomProperties;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties.tokenUrlCustomProperties' is not present");
     }
 
 }

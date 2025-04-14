@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.outputs.DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperationTag {
      * A description for a column. See column_description.
      * 
      */
-    private @Nullable UndeferrableValue<DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription> columnDescription;
-
+    @PolicyResourceProperty(name="columnDescription", flag="unknown_columnDescription")
+    private @Nullable DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription value_columnDescription;
+    private boolean unknown_columnDescription;
     public @Nullable DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription columnDescription() {
-        if (columnDescription == null) return null;
-        return columnDescription.getValue("DataSetLogicalTableMapDataTransformTagColumnOperationTag.columnDescription");
+        if (!unknown_columnDescription) return value_columnDescription;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformTagColumnOperationTag.columnDescription' is not present");
     }
 
     /**
      * A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> columnGeographicRole;
-
+    @PolicyResourceProperty(name="columnGeographicRole", flag="unknown_columnGeographicRole")
+    private @Nullable String value_columnGeographicRole;
+    private boolean unknown_columnGeographicRole;
     public @Nullable String columnGeographicRole() {
-        if (columnGeographicRole == null) return null;
-        return columnGeographicRole.getValue("DataSetLogicalTableMapDataTransformTagColumnOperationTag.columnGeographicRole");
+        if (!unknown_columnGeographicRole) return value_columnGeographicRole;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformTagColumnOperationTag.columnGeographicRole' is not present");
     }
 
 }

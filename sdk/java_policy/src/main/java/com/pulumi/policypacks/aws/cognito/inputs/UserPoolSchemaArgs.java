@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cognito.inputs.UserPoolSchemaNumberAttributeConstraintsArgs;
 import com.pulumi.policypacks.aws.cognito.inputs.UserPoolSchemaStringAttributeConstraintsArgs;
 import java.lang.Boolean;
@@ -17,77 +18,84 @@ public final class UserPoolSchemaArgs {
      * Attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
      * 
      */
-    private UndeferrableValue<String> attributeDataType;
-
+    @PolicyResourceProperty(name="attributeDataType", flag="unknown_attributeDataType")
+    private String value_attributeDataType;
+    private boolean unknown_attributeDataType;
     public String attributeDataType() {
-        if (attributeDataType == null) return null;
-        return attributeDataType.getValue("UserPoolSchemaArgs.attributeDataType");
+        if (!unknown_attributeDataType) return value_attributeDataType;
+        throw new UndeferrableValueException("Value 'UserPoolSchemaArgs.attributeDataType' is not present");
     }
 
     /**
      * Whether the attribute type is developer only.
      * 
      */
-    private UndeferrableValue<Boolean> developerOnlyAttribute;
-
+    @PolicyResourceProperty(name="developerOnlyAttribute", flag="unknown_developerOnlyAttribute")
+    private Boolean value_developerOnlyAttribute;
+    private boolean unknown_developerOnlyAttribute;
     public Boolean developerOnlyAttribute() {
-        if (developerOnlyAttribute == null) return null;
-        return developerOnlyAttribute.getValue("UserPoolSchemaArgs.developerOnlyAttribute");
+        if (!unknown_developerOnlyAttribute) return value_developerOnlyAttribute;
+        throw new UndeferrableValueException("Value 'UserPoolSchemaArgs.developerOnlyAttribute' is not present");
     }
 
     /**
      * Whether the attribute can be changed once it has been created.
      * 
      */
-    private UndeferrableValue<Boolean> mutable;
-
+    @PolicyResourceProperty(name="mutable", flag="unknown_mutable")
+    private Boolean value_mutable;
+    private boolean unknown_mutable;
     public Boolean mutable() {
-        if (mutable == null) return null;
-        return mutable.getValue("UserPoolSchemaArgs.mutable");
+        if (!unknown_mutable) return value_mutable;
+        throw new UndeferrableValueException("Value 'UserPoolSchemaArgs.mutable' is not present");
     }
 
     /**
      * Name of the attribute.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("UserPoolSchemaArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'UserPoolSchemaArgs.name' is not present");
     }
 
     /**
      * Configuration block for the constraints for an attribute of the number type. Detailed below.
      * 
      */
-    private UndeferrableValue<UserPoolSchemaNumberAttributeConstraintsArgs> numberAttributeConstraints;
-
+    @PolicyResourceProperty(name="numberAttributeConstraints", flag="unknown_numberAttributeConstraints")
+    private UserPoolSchemaNumberAttributeConstraintsArgs value_numberAttributeConstraints;
+    private boolean unknown_numberAttributeConstraints;
     public UserPoolSchemaNumberAttributeConstraintsArgs numberAttributeConstraints() {
-        if (numberAttributeConstraints == null) return null;
-        return numberAttributeConstraints.getValue("UserPoolSchemaArgs.numberAttributeConstraints");
+        if (!unknown_numberAttributeConstraints) return value_numberAttributeConstraints;
+        throw new UndeferrableValueException("Value 'UserPoolSchemaArgs.numberAttributeConstraints' is not present");
     }
 
     /**
      * Whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
      * 
      */
-    private UndeferrableValue<Boolean> required;
-
+    @PolicyResourceProperty(name="required", flag="unknown_required")
+    private Boolean value_required;
+    private boolean unknown_required;
     public Boolean required() {
-        if (required == null) return null;
-        return required.getValue("UserPoolSchemaArgs.required");
+        if (!unknown_required) return value_required;
+        throw new UndeferrableValueException("Value 'UserPoolSchemaArgs.required' is not present");
     }
 
     /**
      * Constraints for an attribute of the string type. Detailed below.
      * 
      */
-    private UndeferrableValue<UserPoolSchemaStringAttributeConstraintsArgs> stringAttributeConstraints;
-
+    @PolicyResourceProperty(name="stringAttributeConstraints", flag="unknown_stringAttributeConstraints")
+    private UserPoolSchemaStringAttributeConstraintsArgs value_stringAttributeConstraints;
+    private boolean unknown_stringAttributeConstraints;
     public UserPoolSchemaStringAttributeConstraintsArgs stringAttributeConstraints() {
-        if (stringAttributeConstraints == null) return null;
-        return stringAttributeConstraints.getValue("UserPoolSchemaArgs.stringAttributeConstraints");
+        if (!unknown_stringAttributeConstraints) return value_stringAttributeConstraints;
+        throw new UndeferrableValueException("Value 'UserPoolSchemaArgs.stringAttributeConstraints' is not present");
     }
 
 }

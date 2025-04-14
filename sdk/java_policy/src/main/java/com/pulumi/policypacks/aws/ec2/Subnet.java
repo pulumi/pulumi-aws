@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,11 +20,12 @@ public final class Subnet extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN of the subnet.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Subnet.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Subnet.arn' is not present");
     }
 
     /**
@@ -32,99 +34,108 @@ public final class Subnet extends com.pulumi.resources.PolicyResourceOutput {
      * assigned an IPv6 address. Default is `false`
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> assignIpv6AddressOnCreation;
-
+    @PolicyResourceProperty(name="assignIpv6AddressOnCreation", flag="unknown_assignIpv6AddressOnCreation")
+    private @Nullable Boolean value_assignIpv6AddressOnCreation;
+    private boolean unknown_assignIpv6AddressOnCreation;
     public @Nullable Boolean assignIpv6AddressOnCreation() {
-        if (assignIpv6AddressOnCreation == null) return null;
-        return assignIpv6AddressOnCreation.getValue("Subnet.assignIpv6AddressOnCreation");
+        if (!unknown_assignIpv6AddressOnCreation) return value_assignIpv6AddressOnCreation;
+        throw new UndeferrableValueException("Value 'Subnet.assignIpv6AddressOnCreation' is not present");
     }
 
     /**
      * AZ for the subnet.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("Subnet.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'Subnet.availabilityZone' is not present");
     }
 
     /**
      * AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
      * 
      */
-    private UndeferrableValue<String> availabilityZoneId;
-
+    @PolicyResourceProperty(name="availabilityZoneId", flag="unknown_availabilityZoneId")
+    private String value_availabilityZoneId;
+    private boolean unknown_availabilityZoneId;
     public String availabilityZoneId() {
-        if (availabilityZoneId == null) return null;
-        return availabilityZoneId.getValue("Subnet.availabilityZoneId");
+        if (!unknown_availabilityZoneId) return value_availabilityZoneId;
+        throw new UndeferrableValueException("Value 'Subnet.availabilityZoneId' is not present");
     }
 
     /**
      * The IPv4 CIDR block for the subnet.
      * 
      */
-    private @Nullable UndeferrableValue<String> cidrBlock;
-
+    @PolicyResourceProperty(name="cidrBlock", flag="unknown_cidrBlock")
+    private @Nullable String value_cidrBlock;
+    private boolean unknown_cidrBlock;
     public @Nullable String cidrBlock() {
-        if (cidrBlock == null) return null;
-        return cidrBlock.getValue("Subnet.cidrBlock");
+        if (!unknown_cidrBlock) return value_cidrBlock;
+        throw new UndeferrableValueException("Value 'Subnet.cidrBlock' is not present");
     }
 
     /**
      * The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
      * 
      */
-    private @Nullable UndeferrableValue<String> customerOwnedIpv4Pool;
-
+    @PolicyResourceProperty(name="customerOwnedIpv4Pool", flag="unknown_customerOwnedIpv4Pool")
+    private @Nullable String value_customerOwnedIpv4Pool;
+    private boolean unknown_customerOwnedIpv4Pool;
     public @Nullable String customerOwnedIpv4Pool() {
-        if (customerOwnedIpv4Pool == null) return null;
-        return customerOwnedIpv4Pool.getValue("Subnet.customerOwnedIpv4Pool");
+        if (!unknown_customerOwnedIpv4Pool) return value_customerOwnedIpv4Pool;
+        throw new UndeferrableValueException("Value 'Subnet.customerOwnedIpv4Pool' is not present");
     }
 
     /**
      * Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enableDns64;
-
+    @PolicyResourceProperty(name="enableDns64", flag="unknown_enableDns64")
+    private @Nullable Boolean value_enableDns64;
+    private boolean unknown_enableDns64;
     public @Nullable Boolean enableDns64() {
-        if (enableDns64 == null) return null;
-        return enableDns64.getValue("Subnet.enableDns64");
+        if (!unknown_enableDns64) return value_enableDns64;
+        throw new UndeferrableValueException("Value 'Subnet.enableDns64' is not present");
     }
 
     /**
      * Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
      * 
      */
-    private @Nullable UndeferrableValue<Integer> enableLniAtDeviceIndex;
-
+    @PolicyResourceProperty(name="enableLniAtDeviceIndex", flag="unknown_enableLniAtDeviceIndex")
+    private @Nullable Integer value_enableLniAtDeviceIndex;
+    private boolean unknown_enableLniAtDeviceIndex;
     public @Nullable Integer enableLniAtDeviceIndex() {
-        if (enableLniAtDeviceIndex == null) return null;
-        return enableLniAtDeviceIndex.getValue("Subnet.enableLniAtDeviceIndex");
+        if (!unknown_enableLniAtDeviceIndex) return value_enableLniAtDeviceIndex;
+        throw new UndeferrableValueException("Value 'Subnet.enableLniAtDeviceIndex' is not present");
     }
 
     /**
      * Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enableResourceNameDnsARecordOnLaunch;
-
+    @PolicyResourceProperty(name="enableResourceNameDnsARecordOnLaunch", flag="unknown_enableResourceNameDnsARecordOnLaunch")
+    private @Nullable Boolean value_enableResourceNameDnsARecordOnLaunch;
+    private boolean unknown_enableResourceNameDnsARecordOnLaunch;
     public @Nullable Boolean enableResourceNameDnsARecordOnLaunch() {
-        if (enableResourceNameDnsARecordOnLaunch == null) return null;
-        return enableResourceNameDnsARecordOnLaunch.getValue("Subnet.enableResourceNameDnsARecordOnLaunch");
+        if (!unknown_enableResourceNameDnsARecordOnLaunch) return value_enableResourceNameDnsARecordOnLaunch;
+        throw new UndeferrableValueException("Value 'Subnet.enableResourceNameDnsARecordOnLaunch' is not present");
     }
 
     /**
      * Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enableResourceNameDnsAaaaRecordOnLaunch;
-
+    @PolicyResourceProperty(name="enableResourceNameDnsAaaaRecordOnLaunch", flag="unknown_enableResourceNameDnsAaaaRecordOnLaunch")
+    private @Nullable Boolean value_enableResourceNameDnsAaaaRecordOnLaunch;
+    private boolean unknown_enableResourceNameDnsAaaaRecordOnLaunch;
     public @Nullable Boolean enableResourceNameDnsAaaaRecordOnLaunch() {
-        if (enableResourceNameDnsAaaaRecordOnLaunch == null) return null;
-        return enableResourceNameDnsAaaaRecordOnLaunch.getValue("Subnet.enableResourceNameDnsAaaaRecordOnLaunch");
+        if (!unknown_enableResourceNameDnsAaaaRecordOnLaunch) return value_enableResourceNameDnsAaaaRecordOnLaunch;
+        throw new UndeferrableValueException("Value 'Subnet.enableResourceNameDnsAaaaRecordOnLaunch' is not present");
     }
 
     /**
@@ -132,44 +143,48 @@ public final class Subnet extends com.pulumi.resources.PolicyResourceOutput {
      * in CIDR notation. The subnet size must use a /64 prefix length.
      * 
      */
-    private @Nullable UndeferrableValue<String> ipv6CidrBlock;
-
+    @PolicyResourceProperty(name="ipv6CidrBlock", flag="unknown_ipv6CidrBlock")
+    private @Nullable String value_ipv6CidrBlock;
+    private boolean unknown_ipv6CidrBlock;
     public @Nullable String ipv6CidrBlock() {
-        if (ipv6CidrBlock == null) return null;
-        return ipv6CidrBlock.getValue("Subnet.ipv6CidrBlock");
+        if (!unknown_ipv6CidrBlock) return value_ipv6CidrBlock;
+        throw new UndeferrableValueException("Value 'Subnet.ipv6CidrBlock' is not present");
     }
 
     /**
      * The association ID for the IPv6 CIDR block.
      * 
      */
-    private UndeferrableValue<String> ipv6CidrBlockAssociationId;
-
+    @PolicyResourceProperty(name="ipv6CidrBlockAssociationId", flag="unknown_ipv6CidrBlockAssociationId")
+    private String value_ipv6CidrBlockAssociationId;
+    private boolean unknown_ipv6CidrBlockAssociationId;
     public String ipv6CidrBlockAssociationId() {
-        if (ipv6CidrBlockAssociationId == null) return null;
-        return ipv6CidrBlockAssociationId.getValue("Subnet.ipv6CidrBlockAssociationId");
+        if (!unknown_ipv6CidrBlockAssociationId) return value_ipv6CidrBlockAssociationId;
+        throw new UndeferrableValueException("Value 'Subnet.ipv6CidrBlockAssociationId' is not present");
     }
 
     /**
      * Indicates whether to create an IPv6-only subnet. Default: `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> ipv6Native;
-
+    @PolicyResourceProperty(name="ipv6Native", flag="unknown_ipv6Native")
+    private @Nullable Boolean value_ipv6Native;
+    private boolean unknown_ipv6Native;
     public @Nullable Boolean ipv6Native() {
-        if (ipv6Native == null) return null;
-        return ipv6Native.getValue("Subnet.ipv6Native");
+        if (!unknown_ipv6Native) return value_ipv6Native;
+        throw new UndeferrableValueException("Value 'Subnet.ipv6Native' is not present");
     }
 
     /**
      * Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> mapCustomerOwnedIpOnLaunch;
-
+    @PolicyResourceProperty(name="mapCustomerOwnedIpOnLaunch", flag="unknown_mapCustomerOwnedIpOnLaunch")
+    private @Nullable Boolean value_mapCustomerOwnedIpOnLaunch;
+    private boolean unknown_mapCustomerOwnedIpOnLaunch;
     public @Nullable Boolean mapCustomerOwnedIpOnLaunch() {
-        if (mapCustomerOwnedIpOnLaunch == null) return null;
-        return mapCustomerOwnedIpOnLaunch.getValue("Subnet.mapCustomerOwnedIpOnLaunch");
+        if (!unknown_mapCustomerOwnedIpOnLaunch) return value_mapCustomerOwnedIpOnLaunch;
+        throw new UndeferrableValueException("Value 'Subnet.mapCustomerOwnedIpOnLaunch' is not present");
     }
 
     /**
@@ -178,55 +193,60 @@ public final class Subnet extends com.pulumi.resources.PolicyResourceOutput {
      * a public IP address. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> mapPublicIpOnLaunch;
-
+    @PolicyResourceProperty(name="mapPublicIpOnLaunch", flag="unknown_mapPublicIpOnLaunch")
+    private @Nullable Boolean value_mapPublicIpOnLaunch;
+    private boolean unknown_mapPublicIpOnLaunch;
     public @Nullable Boolean mapPublicIpOnLaunch() {
-        if (mapPublicIpOnLaunch == null) return null;
-        return mapPublicIpOnLaunch.getValue("Subnet.mapPublicIpOnLaunch");
+        if (!unknown_mapPublicIpOnLaunch) return value_mapPublicIpOnLaunch;
+        throw new UndeferrableValueException("Value 'Subnet.mapPublicIpOnLaunch' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Outpost.
      * 
      */
-    private @Nullable UndeferrableValue<String> outpostArn;
-
+    @PolicyResourceProperty(name="outpostArn", flag="unknown_outpostArn")
+    private @Nullable String value_outpostArn;
+    private boolean unknown_outpostArn;
     public @Nullable String outpostArn() {
-        if (outpostArn == null) return null;
-        return outpostArn.getValue("Subnet.outpostArn");
+        if (!unknown_outpostArn) return value_outpostArn;
+        throw new UndeferrableValueException("Value 'Subnet.outpostArn' is not present");
     }
 
     /**
      * The ID of the AWS account that owns the subnet.
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("Subnet.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'Subnet.ownerId' is not present");
     }
 
     /**
      * The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
      * 
      */
-    private UndeferrableValue<String> privateDnsHostnameTypeOnLaunch;
-
+    @PolicyResourceProperty(name="privateDnsHostnameTypeOnLaunch", flag="unknown_privateDnsHostnameTypeOnLaunch")
+    private String value_privateDnsHostnameTypeOnLaunch;
+    private boolean unknown_privateDnsHostnameTypeOnLaunch;
     public String privateDnsHostnameTypeOnLaunch() {
-        if (privateDnsHostnameTypeOnLaunch == null) return null;
-        return privateDnsHostnameTypeOnLaunch.getValue("Subnet.privateDnsHostnameTypeOnLaunch");
+        if (!unknown_privateDnsHostnameTypeOnLaunch) return value_privateDnsHostnameTypeOnLaunch;
+        throw new UndeferrableValueException("Value 'Subnet.privateDnsHostnameTypeOnLaunch' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Subnet.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Subnet.tags' is not present");
     }
 
     /**
@@ -237,22 +257,24 @@ public final class Subnet extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Subnet.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Subnet.tagsAll' is not present");
     }
 
     /**
      * The VPC ID.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("Subnet.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'Subnet.vpcId' is not present");
     }
 
 }

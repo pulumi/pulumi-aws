@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ecs.outputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig;
 import java.lang.String;
 
@@ -14,33 +15,36 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration {
      * Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
      * 
      */
-    private UndeferrableValue<TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig> authorizationConfig;
-
+    @PolicyResourceProperty(name="authorizationConfig", flag="unknown_authorizationConfig")
+    private TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig value_authorizationConfig;
+    private boolean unknown_authorizationConfig;
     public TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig authorizationConfig() {
-        if (authorizationConfig == null) return null;
-        return authorizationConfig.getValue("TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration.authorizationConfig");
+        if (!unknown_authorizationConfig) return value_authorizationConfig;
+        throw new UndeferrableValueException("Value 'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration.authorizationConfig' is not present");
     }
 
     /**
      * The Amazon FSx for Windows File Server file system ID to use.
      * 
      */
-    private UndeferrableValue<String> fileSystemId;
-
+    @PolicyResourceProperty(name="fileSystemId", flag="unknown_fileSystemId")
+    private String value_fileSystemId;
+    private boolean unknown_fileSystemId;
     public String fileSystemId() {
-        if (fileSystemId == null) return null;
-        return fileSystemId.getValue("TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration.fileSystemId");
+        if (!unknown_fileSystemId) return value_fileSystemId;
+        throw new UndeferrableValueException("Value 'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration.fileSystemId' is not present");
     }
 
     /**
      * The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
      * 
      */
-    private UndeferrableValue<String> rootDirectory;
-
+    @PolicyResourceProperty(name="rootDirectory", flag="unknown_rootDirectory")
+    private String value_rootDirectory;
+    private boolean unknown_rootDirectory;
     public String rootDirectory() {
-        if (rootDirectory == null) return null;
-        return rootDirectory.getValue("TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration.rootDirectory");
+        if (!unknown_rootDirectory) return value_rootDirectory;
+        throw new UndeferrableValueException("Value 'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration.rootDirectory' is not present");
     }
 
 }

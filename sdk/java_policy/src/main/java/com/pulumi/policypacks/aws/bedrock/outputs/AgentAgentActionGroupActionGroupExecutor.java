@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -16,11 +17,12 @@ public final class AgentAgentActionGroupActionGroupExecutor {
      * Only one of `custom_control` or `lambda` can be specified.
      * 
      */
-    private @Nullable UndeferrableValue<String> customControl;
-
+    @PolicyResourceProperty(name="customControl", flag="unknown_customControl")
+    private @Nullable String value_customControl;
+    private boolean unknown_customControl;
     public @Nullable String customControl() {
-        if (customControl == null) return null;
-        return customControl.getValue("AgentAgentActionGroupActionGroupExecutor.customControl");
+        if (!unknown_customControl) return value_customControl;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupActionGroupExecutor.customControl' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class AgentAgentActionGroupActionGroupExecutor {
      * Only one of `lambda` or `custom_control` can be specified.
      * 
      */
-    private @Nullable UndeferrableValue<String> lambda;
-
+    @PolicyResourceProperty(name="lambda", flag="unknown_lambda")
+    private @Nullable String value_lambda;
+    private boolean unknown_lambda;
     public @Nullable String lambda() {
-        if (lambda == null) return null;
-        return lambda.getValue("AgentAgentActionGroupActionGroupExecutor.lambda");
+        if (!unknown_lambda) return value_lambda;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupActionGroupExecutor.lambda' is not present");
     }
 
 }

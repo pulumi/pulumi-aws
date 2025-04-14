@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.DomainDomainSettingsDockerSettingsArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.DomainDomainSettingsRStudioServerProDomainSettingsArgs;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class DomainDomainSettingsArgs {
      * A collection of settings that configure the domain’s Docker interaction. see `docker_settings` Block below.
      * 
      */
-    private UndeferrableValue<DomainDomainSettingsDockerSettingsArgs> dockerSettings;
-
+    @PolicyResourceProperty(name="dockerSettings", flag="unknown_dockerSettings")
+    private DomainDomainSettingsDockerSettingsArgs value_dockerSettings;
+    private boolean unknown_dockerSettings;
     public DomainDomainSettingsDockerSettingsArgs dockerSettings() {
-        if (dockerSettings == null) return null;
-        return dockerSettings.getValue("DomainDomainSettingsArgs.dockerSettings");
+        if (!unknown_dockerSettings) return value_dockerSettings;
+        throw new UndeferrableValueException("Value 'DomainDomainSettingsArgs.dockerSettings' is not present");
     }
 
     /**
      * The configuration for attaching a SageMaker AI user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> executionRoleIdentityConfig;
-
+    @PolicyResourceProperty(name="executionRoleIdentityConfig", flag="unknown_executionRoleIdentityConfig")
+    private String value_executionRoleIdentityConfig;
+    private boolean unknown_executionRoleIdentityConfig;
     public String executionRoleIdentityConfig() {
-        if (executionRoleIdentityConfig == null) return null;
-        return executionRoleIdentityConfig.getValue("DomainDomainSettingsArgs.executionRoleIdentityConfig");
+        if (!unknown_executionRoleIdentityConfig) return value_executionRoleIdentityConfig;
+        throw new UndeferrableValueException("Value 'DomainDomainSettingsArgs.executionRoleIdentityConfig' is not present");
     }
 
     /**
      * A collection of settings that configure the RStudioServerPro Domain-level app. see `r_studio_server_pro_domain_settings` Block below.
      * 
      */
-    private UndeferrableValue<DomainDomainSettingsRStudioServerProDomainSettingsArgs> rStudioServerProDomainSettings;
-
+    @PolicyResourceProperty(name="rStudioServerProDomainSettings", flag="unknown_rStudioServerProDomainSettings")
+    private DomainDomainSettingsRStudioServerProDomainSettingsArgs value_rStudioServerProDomainSettings;
+    private boolean unknown_rStudioServerProDomainSettings;
     public DomainDomainSettingsRStudioServerProDomainSettingsArgs rStudioServerProDomainSettings() {
-        if (rStudioServerProDomainSettings == null) return null;
-        return rStudioServerProDomainSettings.getValue("DomainDomainSettingsArgs.rStudioServerProDomainSettings");
+        if (!unknown_rStudioServerProDomainSettings) return value_rStudioServerProDomainSettings;
+        throw new UndeferrableValueException("Value 'DomainDomainSettingsArgs.rStudioServerProDomainSettings' is not present");
     }
 
     /**
      * The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("DomainDomainSettingsArgs.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'DomainDomainSettingsArgs.securityGroupIds' is not present");
     }
 
 }

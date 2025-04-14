@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chimesdkmediapipelines.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.chimesdkmediapipelines.outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule;
 import java.lang.Boolean;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfiguration 
      * Disables real time alert rules.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> disabled;
-
+    @PolicyResourceProperty(name="disabled", flag="unknown_disabled")
+    private @Nullable Boolean value_disabled;
+    private boolean unknown_disabled;
     public @Nullable Boolean disabled() {
-        if (disabled == null) return null;
-        return disabled.getValue("MediaInsightsPipelineConfigurationRealTimeAlertConfiguration.disabled");
+        if (!unknown_disabled) return value_disabled;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationRealTimeAlertConfiguration.disabled' is not present");
     }
 
     /**
      * Collection of real time alert rules
      * 
      */
-    private UndeferrableValue<List<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule>> rules;
-
+    @PolicyResourceProperty(name="rules", flag="unknown_rules")
+    private List<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule> value_rules;
+    private boolean unknown_rules;
     public List<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule> rules() {
-        if (rules == null) return null;
-        return rules.getValue("MediaInsightsPipelineConfigurationRealTimeAlertConfiguration.rules");
+        if (!unknown_rules) return value_rules;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationRealTimeAlertConfiguration.rules' is not present");
     }
 
 }

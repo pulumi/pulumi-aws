@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.transfer.outputs.AccessHomeDirectoryMapping;
 import com.pulumi.policypacks.aws.transfer.outputs.AccessPosixProfile;
@@ -19,88 +20,96 @@ public final class Access extends com.pulumi.resources.PolicyResourceOutput {
      * The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
      * 
      */
-    private UndeferrableValue<String> externalId;
-
+    @PolicyResourceProperty(name="externalId", flag="unknown_externalId")
+    private String value_externalId;
+    private boolean unknown_externalId;
     public String externalId() {
-        if (externalId == null) return null;
-        return externalId.getValue("Access.externalId");
+        if (!unknown_externalId) return value_externalId;
+        throw new UndeferrableValueException("Value 'Access.externalId' is not present");
     }
 
     /**
      * The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
      * 
      */
-    private @Nullable UndeferrableValue<String> homeDirectory;
-
+    @PolicyResourceProperty(name="homeDirectory", flag="unknown_homeDirectory")
+    private @Nullable String value_homeDirectory;
+    private boolean unknown_homeDirectory;
     public @Nullable String homeDirectory() {
-        if (homeDirectory == null) return null;
-        return homeDirectory.getValue("Access.homeDirectory");
+        if (!unknown_homeDirectory) return value_homeDirectory;
+        throw new UndeferrableValueException("Value 'Access.homeDirectory' is not present");
     }
 
     /**
      * Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AccessHomeDirectoryMapping>> homeDirectoryMappings;
-
+    @PolicyResourceProperty(name="homeDirectoryMappings", flag="unknown_homeDirectoryMappings")
+    private @Nullable List<AccessHomeDirectoryMapping> value_homeDirectoryMappings;
+    private boolean unknown_homeDirectoryMappings;
     public @Nullable List<AccessHomeDirectoryMapping> homeDirectoryMappings() {
-        if (homeDirectoryMappings == null) return null;
-        return homeDirectoryMappings.getValue("Access.homeDirectoryMappings");
+        if (!unknown_homeDirectoryMappings) return value_homeDirectoryMappings;
+        throw new UndeferrableValueException("Value 'Access.homeDirectoryMappings' is not present");
     }
 
     /**
      * The type of landing directory (folder) you mapped for your users&#39; home directory. Valid values are `PATH` and `LOGICAL`.
      * 
      */
-    private @Nullable UndeferrableValue<String> homeDirectoryType;
-
+    @PolicyResourceProperty(name="homeDirectoryType", flag="unknown_homeDirectoryType")
+    private @Nullable String value_homeDirectoryType;
+    private boolean unknown_homeDirectoryType;
     public @Nullable String homeDirectoryType() {
-        if (homeDirectoryType == null) return null;
-        return homeDirectoryType.getValue("Access.homeDirectoryType");
+        if (!unknown_homeDirectoryType) return value_homeDirectoryType;
+        throw new UndeferrableValueException("Value 'Access.homeDirectoryType' is not present");
     }
 
     /**
      * An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
      * 
      */
-    private @Nullable UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private @Nullable String value_policy;
+    private boolean unknown_policy;
     public @Nullable String policy() {
-        if (policy == null) return null;
-        return policy.getValue("Access.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'Access.policy' is not present");
     }
 
     /**
      * Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users&#39; access to your Amazon EFS file systems. See Posix Profile below.
      * 
      */
-    private @Nullable UndeferrableValue<AccessPosixProfile> posixProfile;
-
+    @PolicyResourceProperty(name="posixProfile", flag="unknown_posixProfile")
+    private @Nullable AccessPosixProfile value_posixProfile;
+    private boolean unknown_posixProfile;
     public @Nullable AccessPosixProfile posixProfile() {
-        if (posixProfile == null) return null;
-        return posixProfile.getValue("Access.posixProfile");
+        if (!unknown_posixProfile) return value_posixProfile;
+        throw new UndeferrableValueException("Value 'Access.posixProfile' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
      * 
      */
-    private @Nullable UndeferrableValue<String> role;
-
+    @PolicyResourceProperty(name="role", flag="unknown_role")
+    private @Nullable String value_role;
+    private boolean unknown_role;
     public @Nullable String role() {
-        if (role == null) return null;
-        return role.getValue("Access.role");
+        if (!unknown_role) return value_role;
+        throw new UndeferrableValueException("Value 'Access.role' is not present");
     }
 
     /**
      * The Server ID of the Transfer Server (e.g., `s-12345678`)
      * 
      */
-    private UndeferrableValue<String> serverId;
-
+    @PolicyResourceProperty(name="serverId", flag="unknown_serverId")
+    private String value_serverId;
+    private boolean unknown_serverId;
     public String serverId() {
-        if (serverId == null) return null;
-        return serverId.getValue("Access.serverId");
+        if (!unknown_serverId) return value_serverId;
+        throw new UndeferrableValueException("Value 'Access.serverId' is not present");
     }
 
 }

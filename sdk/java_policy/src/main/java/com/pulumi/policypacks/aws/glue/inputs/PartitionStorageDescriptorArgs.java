@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.glue.inputs.PartitionStorageDescriptorColumnArgs;
 import com.pulumi.policypacks.aws.glue.inputs.PartitionStorageDescriptorSerDeInfoArgs;
 import com.pulumi.policypacks.aws.glue.inputs.PartitionStorageDescriptorSkewedInfoArgs;
@@ -22,143 +23,156 @@ public final class PartitionStorageDescriptorArgs {
      * List of locations that point to the path where a Delta table is located.
      * 
      */
-    private UndeferrableValue<List<String>> additionalLocations;
-
+    @PolicyResourceProperty(name="additionalLocations", flag="unknown_additionalLocations")
+    private List<String> value_additionalLocations;
+    private boolean unknown_additionalLocations;
     public List<String> additionalLocations() {
-        if (additionalLocations == null) return null;
-        return additionalLocations.getValue("PartitionStorageDescriptorArgs.additionalLocations");
+        if (!unknown_additionalLocations) return value_additionalLocations;
+        throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.additionalLocations' is not present");
     }
 
     /**
      * A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
      * 
      */
-    private UndeferrableValue<List<String>> bucketColumns;
-
+    @PolicyResourceProperty(name="bucketColumns", flag="unknown_bucketColumns")
+    private List<String> value_bucketColumns;
+    private boolean unknown_bucketColumns;
     public List<String> bucketColumns() {
-        if (bucketColumns == null) return null;
-        return bucketColumns.getValue("PartitionStorageDescriptorArgs.bucketColumns");
+        if (!unknown_bucketColumns) return value_bucketColumns;
+        throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.bucketColumns' is not present");
     }
 
     /**
      * A list of the Columns in the table.
      * 
      */
-    private UndeferrableValue<List<PartitionStorageDescriptorColumnArgs>> columns;
-
+    @PolicyResourceProperty(name="columns", flag="unknown_columns")
+    private List<PartitionStorageDescriptorColumnArgs> value_columns;
+    private boolean unknown_columns;
     public List<PartitionStorageDescriptorColumnArgs> columns() {
-        if (columns == null) return null;
-        return columns.getValue("PartitionStorageDescriptorArgs.columns");
+        if (!unknown_columns) return value_columns;
+        throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.columns' is not present");
     }
 
     /**
      * True if the data in the table is compressed, or False if not.
      * 
      */
-    private UndeferrableValue<Boolean> compressed;
-
+    @PolicyResourceProperty(name="compressed", flag="unknown_compressed")
+    private Boolean value_compressed;
+    private boolean unknown_compressed;
     public Boolean compressed() {
-        if (compressed == null) return null;
-        return compressed.getValue("PartitionStorageDescriptorArgs.compressed");
+        if (!unknown_compressed) return value_compressed;
+        throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.compressed' is not present");
     }
 
     /**
      * The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
      * 
      */
-    private UndeferrableValue<String> inputFormat;
-
+    @PolicyResourceProperty(name="inputFormat", flag="unknown_inputFormat")
+    private String value_inputFormat;
+    private boolean unknown_inputFormat;
     public String inputFormat() {
-        if (inputFormat == null) return null;
-        return inputFormat.getValue("PartitionStorageDescriptorArgs.inputFormat");
+        if (!unknown_inputFormat) return value_inputFormat;
+        throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.inputFormat' is not present");
     }
 
     /**
      * The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
      * 
      */
-    private UndeferrableValue<String> location;
-
+    @PolicyResourceProperty(name="location", flag="unknown_location")
+    private String value_location;
+    private boolean unknown_location;
     public String location() {
-        if (location == null) return null;
-        return location.getValue("PartitionStorageDescriptorArgs.location");
+        if (!unknown_location) return value_location;
+        throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.location' is not present");
     }
 
     /**
      * Must be specified if the table contains any dimension columns.
      * 
      */
-    private UndeferrableValue<Integer> numberOfBuckets;
-
+    @PolicyResourceProperty(name="numberOfBuckets", flag="unknown_numberOfBuckets")
+    private Integer value_numberOfBuckets;
+    private boolean unknown_numberOfBuckets;
     public Integer numberOfBuckets() {
-        if (numberOfBuckets == null) return null;
-        return numberOfBuckets.getValue("PartitionStorageDescriptorArgs.numberOfBuckets");
+        if (!unknown_numberOfBuckets) return value_numberOfBuckets;
+        throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.numberOfBuckets' is not present");
     }
 
     /**
      * The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
      * 
      */
-    private UndeferrableValue<String> outputFormat;
-
+    @PolicyResourceProperty(name="outputFormat", flag="unknown_outputFormat")
+    private String value_outputFormat;
+    private boolean unknown_outputFormat;
     public String outputFormat() {
-        if (outputFormat == null) return null;
-        return outputFormat.getValue("PartitionStorageDescriptorArgs.outputFormat");
+        if (!unknown_outputFormat) return value_outputFormat;
+        throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.outputFormat' is not present");
     }
 
     /**
      * User-supplied properties in key-value form.
      * 
      */
-    private UndeferrableValue<Map<String,String>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private Map<String,String> value_parameters;
+    private boolean unknown_parameters;
     public Map<String,String> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("PartitionStorageDescriptorArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.parameters' is not present");
     }
 
     /**
      * Serialization/deserialization (SerDe) information.
      * 
      */
-    private UndeferrableValue<PartitionStorageDescriptorSerDeInfoArgs> serDeInfo;
-
+    @PolicyResourceProperty(name="serDeInfo", flag="unknown_serDeInfo")
+    private PartitionStorageDescriptorSerDeInfoArgs value_serDeInfo;
+    private boolean unknown_serDeInfo;
     public PartitionStorageDescriptorSerDeInfoArgs serDeInfo() {
-        if (serDeInfo == null) return null;
-        return serDeInfo.getValue("PartitionStorageDescriptorArgs.serDeInfo");
+        if (!unknown_serDeInfo) return value_serDeInfo;
+        throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.serDeInfo' is not present");
     }
 
     /**
      * Information about values that appear very frequently in a column (skewed values).
      * 
      */
-    private UndeferrableValue<PartitionStorageDescriptorSkewedInfoArgs> skewedInfo;
-
+    @PolicyResourceProperty(name="skewedInfo", flag="unknown_skewedInfo")
+    private PartitionStorageDescriptorSkewedInfoArgs value_skewedInfo;
+    private boolean unknown_skewedInfo;
     public PartitionStorageDescriptorSkewedInfoArgs skewedInfo() {
-        if (skewedInfo == null) return null;
-        return skewedInfo.getValue("PartitionStorageDescriptorArgs.skewedInfo");
+        if (!unknown_skewedInfo) return value_skewedInfo;
+        throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.skewedInfo' is not present");
     }
 
     /**
      * A list of Order objects specifying the sort order of each bucket in the table.
      * 
      */
-    private UndeferrableValue<List<PartitionStorageDescriptorSortColumnArgs>> sortColumns;
-
+    @PolicyResourceProperty(name="sortColumns", flag="unknown_sortColumns")
+    private List<PartitionStorageDescriptorSortColumnArgs> value_sortColumns;
+    private boolean unknown_sortColumns;
     public List<PartitionStorageDescriptorSortColumnArgs> sortColumns() {
-        if (sortColumns == null) return null;
-        return sortColumns.getValue("PartitionStorageDescriptorArgs.sortColumns");
+        if (!unknown_sortColumns) return value_sortColumns;
+        throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.sortColumns' is not present");
     }
 
     /**
      * True if the table data is stored in subdirectories, or False if not.
      * 
      */
-    private UndeferrableValue<Boolean> storedAsSubDirectories;
-
+    @PolicyResourceProperty(name="storedAsSubDirectories", flag="unknown_storedAsSubDirectories")
+    private Boolean value_storedAsSubDirectories;
+    private boolean unknown_storedAsSubDirectories;
     public Boolean storedAsSubDirectories() {
-        if (storedAsSubDirectories == null) return null;
-        return storedAsSubDirectories.getValue("PartitionStorageDescriptorArgs.storedAsSubDirectories");
+        if (!unknown_storedAsSubDirectories) return value_storedAsSubDirectories;
+        throw new UndeferrableValueException("Value 'PartitionStorageDescriptorArgs.storedAsSubDirectories' is not present");
     }
 
 }

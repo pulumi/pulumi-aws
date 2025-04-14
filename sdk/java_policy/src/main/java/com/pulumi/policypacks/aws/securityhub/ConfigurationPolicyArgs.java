@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.securityhub.inputs.ConfigurationPolicyConfigurationPolicyArgs;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class ConfigurationPolicyArgs extends com.pulumi.resources.PolicyRe
      * Defines how Security Hub is configured. See below.
      * 
      */
-    private UndeferrableValue<ConfigurationPolicyConfigurationPolicyArgs> configurationPolicy;
-
+    @PolicyResourceProperty(name="configurationPolicy", flag="unknown_configurationPolicy")
+    private ConfigurationPolicyConfigurationPolicyArgs value_configurationPolicy;
+    private boolean unknown_configurationPolicy;
     public ConfigurationPolicyConfigurationPolicyArgs configurationPolicy() {
-        if (configurationPolicy == null) return null;
-        return configurationPolicy.getValue("ConfigurationPolicyArgs.configurationPolicy");
+        if (!unknown_configurationPolicy) return value_configurationPolicy;
+        throw new UndeferrableValueException("Value 'ConfigurationPolicyArgs.configurationPolicy' is not present");
     }
 
     /**
      * The description of the configuration policy.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ConfigurationPolicyArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ConfigurationPolicyArgs.description' is not present");
     }
 
     /**
      * The name of the configuration policy.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ConfigurationPolicyArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ConfigurationPolicyArgs.name' is not present");
     }
 
 }

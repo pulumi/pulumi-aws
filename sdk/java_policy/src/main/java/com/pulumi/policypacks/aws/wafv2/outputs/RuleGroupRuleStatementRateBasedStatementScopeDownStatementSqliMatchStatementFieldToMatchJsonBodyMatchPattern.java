@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll;
 import java.lang.String;
 import java.util.List;
@@ -16,18 +17,20 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSql
      * An empty configuration block that is used for inspecting all headers.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll> all;
-
+    @PolicyResourceProperty(name="all", flag="unknown_all")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll value_all;
+    private boolean unknown_all;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll all() {
-        if (all == null) return null;
-        return all.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern.all");
+        if (!unknown_all) return value_all;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern.all' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<String>> includedPaths;
-
+    @PolicyResourceProperty(name="includedPaths", flag="unknown_includedPaths")
+    private @Nullable List<String> value_includedPaths;
+    private boolean unknown_includedPaths;
     public @Nullable List<String> includedPaths() {
-        if (includedPaths == null) return null;
-        return includedPaths.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern.includedPaths");
+        if (!unknown_includedPaths) return value_includedPaths;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern.includedPaths' is not present");
     }
 
 }

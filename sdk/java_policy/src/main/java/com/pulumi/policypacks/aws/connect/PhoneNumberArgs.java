@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,66 +18,72 @@ public final class PhoneNumberArgs extends com.pulumi.resources.PolicyResourceIn
      * The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
      * 
      */
-    private UndeferrableValue<String> countryCode;
-
+    @PolicyResourceProperty(name="countryCode", flag="unknown_countryCode")
+    private String value_countryCode;
+    private boolean unknown_countryCode;
     public String countryCode() {
-        if (countryCode == null) return null;
-        return countryCode.getValue("PhoneNumberArgs.countryCode");
+        if (!unknown_countryCode) return value_countryCode;
+        throw new UndeferrableValueException("Value 'PhoneNumberArgs.countryCode' is not present");
     }
 
     /**
      * The description of the phone number.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("PhoneNumberArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'PhoneNumberArgs.description' is not present");
     }
 
     /**
      * The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
      * 
      */
-    private UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private String value_prefix;
+    private boolean unknown_prefix;
     public String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("PhoneNumberArgs.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'PhoneNumberArgs.prefix' is not present");
     }
 
     /**
      * Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("PhoneNumberArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'PhoneNumberArgs.tags' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
      * 
      */
-    private UndeferrableValue<String> targetArn;
-
+    @PolicyResourceProperty(name="targetArn", flag="unknown_targetArn")
+    private String value_targetArn;
+    private boolean unknown_targetArn;
     public String targetArn() {
-        if (targetArn == null) return null;
-        return targetArn.getValue("PhoneNumberArgs.targetArn");
+        if (!unknown_targetArn) return value_targetArn;
+        throw new UndeferrableValueException("Value 'PhoneNumberArgs.targetArn' is not present");
     }
 
     /**
      * The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("PhoneNumberArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'PhoneNumberArgs.type' is not present");
     }
 
 }

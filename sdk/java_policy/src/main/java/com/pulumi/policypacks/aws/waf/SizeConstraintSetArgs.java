@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.waf;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.waf.inputs.SizeConstraintSetSizeConstraintArgs;
 import java.lang.String;
@@ -18,22 +19,24 @@ public final class SizeConstraintSetArgs extends com.pulumi.resources.PolicyReso
      * Name or description of the Size Constraint Set.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("SizeConstraintSetArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'SizeConstraintSetArgs.name' is not present");
     }
 
     /**
      * Parts of web requests that you want to inspect the size of.
      * 
      */
-    private UndeferrableValue<List<SizeConstraintSetSizeConstraintArgs>> sizeConstraints;
-
+    @PolicyResourceProperty(name="sizeConstraints", flag="unknown_sizeConstraints")
+    private List<SizeConstraintSetSizeConstraintArgs> value_sizeConstraints;
+    private boolean unknown_sizeConstraints;
     public List<SizeConstraintSetSizeConstraintArgs> sizeConstraints() {
-        if (sizeConstraints == null) return null;
-        return sizeConstraints.getValue("SizeConstraintSetArgs.sizeConstraints");
+        if (!unknown_sizeConstraints) return value_sizeConstraints;
+        throw new UndeferrableValueException("Value 'SizeConstraintSetArgs.sizeConstraints' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauth
      * The name of the data source that you&#39;re connecting to. Canvas currently supports OAuth for Snowflake and Salesforce Data Cloud. Valid values are `SalesforceGenie` and `Snowflake`.
      * 
      */
-    private @Nullable UndeferrableValue<String> dataSourceName;
-
+    @PolicyResourceProperty(name="dataSourceName", flag="unknown_dataSourceName")
+    private @Nullable String value_dataSourceName;
+    private boolean unknown_dataSourceName;
     public @Nullable String dataSourceName() {
-        if (dataSourceName == null) return null;
-        return dataSourceName.getValue("UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting.dataSourceName");
+        if (!unknown_dataSourceName) return value_dataSourceName;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting.dataSourceName' is not present");
     }
 
     /**
      * The ARN of an Amazon Web Services Secrets Manager secret that stores the credentials from your identity provider, such as the client ID and secret, authorization URL, and token URL.
      * 
      */
-    private UndeferrableValue<String> secretArn;
-
+    @PolicyResourceProperty(name="secretArn", flag="unknown_secretArn")
+    private String value_secretArn;
+    private boolean unknown_secretArn;
     public String secretArn() {
-        if (secretArn == null) return null;
-        return secretArn.getValue("UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting.secretArn");
+        if (!unknown_secretArn) return value_secretArn;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting.secretArn' is not present");
     }
 
     /**
      * Describes whether OAuth for a data source is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private @Nullable String value_status;
+    private boolean unknown_status;
     public @Nullable String status() {
-        if (status == null) return null;
-        return status.getValue("UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting.status' is not present");
     }
 
 }

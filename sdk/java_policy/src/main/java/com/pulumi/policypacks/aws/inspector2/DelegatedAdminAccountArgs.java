@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.inspector2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,11 +16,12 @@ public final class DelegatedAdminAccountArgs extends com.pulumi.resources.Policy
      * Account to enable as delegated admin account.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("DelegatedAdminAccountArgs.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'DelegatedAdminAccountArgs.accountId' is not present");
     }
 
 }

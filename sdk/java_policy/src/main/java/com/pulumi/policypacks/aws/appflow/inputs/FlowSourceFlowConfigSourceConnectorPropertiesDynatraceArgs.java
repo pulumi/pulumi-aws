@@ -3,17 +3,19 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs {
 
-    private UndeferrableValue<String> object;
-
+    @PolicyResourceProperty(name="object", flag="unknown_object")
+    private String value_object;
+    private boolean unknown_object;
     public String object() {
-        if (object == null) return null;
-        return object.getValue("FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs.object");
+        if (!unknown_object) return value_object;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs.object' is not present");
     }
 
 }

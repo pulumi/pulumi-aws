@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,66 +18,72 @@ public final class ApiCorsConfiguration {
      * Whether credentials are included in the CORS request.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> allowCredentials;
-
+    @PolicyResourceProperty(name="allowCredentials", flag="unknown_allowCredentials")
+    private @Nullable Boolean value_allowCredentials;
+    private boolean unknown_allowCredentials;
     public @Nullable Boolean allowCredentials() {
-        if (allowCredentials == null) return null;
-        return allowCredentials.getValue("ApiCorsConfiguration.allowCredentials");
+        if (!unknown_allowCredentials) return value_allowCredentials;
+        throw new UndeferrableValueException("Value 'ApiCorsConfiguration.allowCredentials' is not present");
     }
 
     /**
      * Set of allowed HTTP headers.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> allowHeaders;
-
+    @PolicyResourceProperty(name="allowHeaders", flag="unknown_allowHeaders")
+    private @Nullable List<String> value_allowHeaders;
+    private boolean unknown_allowHeaders;
     public @Nullable List<String> allowHeaders() {
-        if (allowHeaders == null) return null;
-        return allowHeaders.getValue("ApiCorsConfiguration.allowHeaders");
+        if (!unknown_allowHeaders) return value_allowHeaders;
+        throw new UndeferrableValueException("Value 'ApiCorsConfiguration.allowHeaders' is not present");
     }
 
     /**
      * Set of allowed HTTP methods.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> allowMethods;
-
+    @PolicyResourceProperty(name="allowMethods", flag="unknown_allowMethods")
+    private @Nullable List<String> value_allowMethods;
+    private boolean unknown_allowMethods;
     public @Nullable List<String> allowMethods() {
-        if (allowMethods == null) return null;
-        return allowMethods.getValue("ApiCorsConfiguration.allowMethods");
+        if (!unknown_allowMethods) return value_allowMethods;
+        throw new UndeferrableValueException("Value 'ApiCorsConfiguration.allowMethods' is not present");
     }
 
     /**
      * Set of allowed origins.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> allowOrigins;
-
+    @PolicyResourceProperty(name="allowOrigins", flag="unknown_allowOrigins")
+    private @Nullable List<String> value_allowOrigins;
+    private boolean unknown_allowOrigins;
     public @Nullable List<String> allowOrigins() {
-        if (allowOrigins == null) return null;
-        return allowOrigins.getValue("ApiCorsConfiguration.allowOrigins");
+        if (!unknown_allowOrigins) return value_allowOrigins;
+        throw new UndeferrableValueException("Value 'ApiCorsConfiguration.allowOrigins' is not present");
     }
 
     /**
      * Set of exposed HTTP headers.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> exposeHeaders;
-
+    @PolicyResourceProperty(name="exposeHeaders", flag="unknown_exposeHeaders")
+    private @Nullable List<String> value_exposeHeaders;
+    private boolean unknown_exposeHeaders;
     public @Nullable List<String> exposeHeaders() {
-        if (exposeHeaders == null) return null;
-        return exposeHeaders.getValue("ApiCorsConfiguration.exposeHeaders");
+        if (!unknown_exposeHeaders) return value_exposeHeaders;
+        throw new UndeferrableValueException("Value 'ApiCorsConfiguration.exposeHeaders' is not present");
     }
 
     /**
      * Number of seconds that the browser should cache preflight request results.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxAge;
-
+    @PolicyResourceProperty(name="maxAge", flag="unknown_maxAge")
+    private @Nullable Integer value_maxAge;
+    private boolean unknown_maxAge;
     public @Nullable Integer maxAge() {
-        if (maxAge == null) return null;
-        return maxAge.getValue("ApiCorsConfiguration.maxAge");
+        if (!unknown_maxAge) return value_maxAge;
+        throw new UndeferrableValueException("Value 'ApiCorsConfiguration.maxAge' is not present");
     }
 
 }

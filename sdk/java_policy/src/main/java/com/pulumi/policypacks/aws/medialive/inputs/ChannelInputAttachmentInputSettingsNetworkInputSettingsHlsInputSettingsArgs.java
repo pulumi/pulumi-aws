@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,51 +16,56 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInp
      * The bitrate is specified in bits per second, as in an HLS manifest.
      * 
      */
-    private UndeferrableValue<Integer> bandwidth;
-
+    @PolicyResourceProperty(name="bandwidth", flag="unknown_bandwidth")
+    private Integer value_bandwidth;
+    private boolean unknown_bandwidth;
     public Integer bandwidth() {
-        if (bandwidth == null) return null;
-        return bandwidth.getValue("ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs.bandwidth");
+        if (!unknown_bandwidth) return value_bandwidth;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs.bandwidth' is not present");
     }
 
     /**
      * Buffer segments.
      * 
      */
-    private UndeferrableValue<Integer> bufferSegments;
-
+    @PolicyResourceProperty(name="bufferSegments", flag="unknown_bufferSegments")
+    private Integer value_bufferSegments;
+    private boolean unknown_bufferSegments;
     public Integer bufferSegments() {
-        if (bufferSegments == null) return null;
-        return bufferSegments.getValue("ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs.bufferSegments");
+        if (!unknown_bufferSegments) return value_bufferSegments;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs.bufferSegments' is not present");
     }
 
     /**
      * The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
      * 
      */
-    private UndeferrableValue<Integer> retries;
-
+    @PolicyResourceProperty(name="retries", flag="unknown_retries")
+    private Integer value_retries;
+    private boolean unknown_retries;
     public Integer retries() {
-        if (retries == null) return null;
-        return retries.getValue("ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs.retries");
+        if (!unknown_retries) return value_retries;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs.retries' is not present");
     }
 
     /**
      * The number of seconds between retries when an attempt to read a manifest or segment fails.
      * 
      */
-    private UndeferrableValue<Integer> retryInterval;
-
+    @PolicyResourceProperty(name="retryInterval", flag="unknown_retryInterval")
+    private Integer value_retryInterval;
+    private boolean unknown_retryInterval;
     public Integer retryInterval() {
-        if (retryInterval == null) return null;
-        return retryInterval.getValue("ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs.retryInterval");
+        if (!unknown_retryInterval) return value_retryInterval;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs.retryInterval' is not present");
     }
 
-    private UndeferrableValue<String> scte35Source;
-
+    @PolicyResourceProperty(name="scte35Source", flag="unknown_scte35Source")
+    private String value_scte35Source;
+    private boolean unknown_scte35Source;
     public String scte35Source() {
-        if (scte35Source == null) return null;
-        return scte35Source.getValue("ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs.scte35Source");
+        if (!unknown_scte35Source) return value_scte35Source;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs.scte35Source' is not present");
     }
 
 }

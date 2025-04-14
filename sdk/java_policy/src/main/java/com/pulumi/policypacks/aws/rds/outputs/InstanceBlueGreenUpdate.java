@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -22,11 +23,12 @@ public final class InstanceBlueGreenUpdate {
      * https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("InstanceBlueGreenUpdate.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'InstanceBlueGreenUpdate.enabled' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.pipes.outputs.PipeTargetParametersBatchJobParametersContainerOverridesEnvironment;
 import com.pulumi.policypacks.aws.pipes.outputs.PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class PipeTargetParametersBatchJobParametersContainerOverrides {
      * List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> commands;
-
+    @PolicyResourceProperty(name="commands", flag="unknown_commands")
+    private @Nullable List<String> value_commands;
+    private boolean unknown_commands;
     public @Nullable List<String> commands() {
-        if (commands == null) return null;
-        return commands.getValue("PipeTargetParametersBatchJobParametersContainerOverrides.commands");
+        if (!unknown_commands) return value_commands;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParametersContainerOverrides.commands' is not present");
     }
 
     /**
      * The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<PipeTargetParametersBatchJobParametersContainerOverridesEnvironment>> environments;
-
+    @PolicyResourceProperty(name="environments", flag="unknown_environments")
+    private @Nullable List<PipeTargetParametersBatchJobParametersContainerOverridesEnvironment> value_environments;
+    private boolean unknown_environments;
     public @Nullable List<PipeTargetParametersBatchJobParametersContainerOverridesEnvironment> environments() {
-        if (environments == null) return null;
-        return environments.getValue("PipeTargetParametersBatchJobParametersContainerOverrides.environments");
+        if (!unknown_environments) return value_environments;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParametersContainerOverrides.environments' is not present");
     }
 
     /**
      * The instance type to use for a multi-node parallel job. This parameter isn&#39;t applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn&#39;t be provided.
      * 
      */
-    private @Nullable UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private @Nullable String value_instanceType;
+    private boolean unknown_instanceType;
     public @Nullable String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("PipeTargetParametersBatchJobParametersContainerOverrides.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParametersContainerOverrides.instanceType' is not present");
     }
 
     /**
      * The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement>> resourceRequirements;
-
+    @PolicyResourceProperty(name="resourceRequirements", flag="unknown_resourceRequirements")
+    private @Nullable List<PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement> value_resourceRequirements;
+    private boolean unknown_resourceRequirements;
     public @Nullable List<PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement> resourceRequirements() {
-        if (resourceRequirements == null) return null;
-        return resourceRequirements.getValue("PipeTargetParametersBatchJobParametersContainerOverrides.resourceRequirements");
+        if (!unknown_resourceRequirements) return value_resourceRequirements;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParametersContainerOverrides.resourceRequirements' is not present");
     }
 
 }

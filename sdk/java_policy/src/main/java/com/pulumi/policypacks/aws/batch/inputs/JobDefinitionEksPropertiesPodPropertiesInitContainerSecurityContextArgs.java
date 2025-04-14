@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import javax.annotation.Nullable;
@@ -11,39 +12,44 @@ import javax.annotation.Nullable;
 
 public final class JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs {
 
-    private UndeferrableValue<Boolean> privileged;
-
+    @PolicyResourceProperty(name="privileged", flag="unknown_privileged")
+    private Boolean value_privileged;
+    private boolean unknown_privileged;
     public Boolean privileged() {
-        if (privileged == null) return null;
-        return privileged.getValue("JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs.privileged");
+        if (!unknown_privileged) return value_privileged;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs.privileged' is not present");
     }
 
-    private UndeferrableValue<Boolean> readOnlyRootFileSystem;
-
+    @PolicyResourceProperty(name="readOnlyRootFileSystem", flag="unknown_readOnlyRootFileSystem")
+    private Boolean value_readOnlyRootFileSystem;
+    private boolean unknown_readOnlyRootFileSystem;
     public Boolean readOnlyRootFileSystem() {
-        if (readOnlyRootFileSystem == null) return null;
-        return readOnlyRootFileSystem.getValue("JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs.readOnlyRootFileSystem");
+        if (!unknown_readOnlyRootFileSystem) return value_readOnlyRootFileSystem;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs.readOnlyRootFileSystem' is not present");
     }
 
-    private UndeferrableValue<Integer> runAsGroup;
-
+    @PolicyResourceProperty(name="runAsGroup", flag="unknown_runAsGroup")
+    private Integer value_runAsGroup;
+    private boolean unknown_runAsGroup;
     public Integer runAsGroup() {
-        if (runAsGroup == null) return null;
-        return runAsGroup.getValue("JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs.runAsGroup");
+        if (!unknown_runAsGroup) return value_runAsGroup;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs.runAsGroup' is not present");
     }
 
-    private UndeferrableValue<Boolean> runAsNonRoot;
-
+    @PolicyResourceProperty(name="runAsNonRoot", flag="unknown_runAsNonRoot")
+    private Boolean value_runAsNonRoot;
+    private boolean unknown_runAsNonRoot;
     public Boolean runAsNonRoot() {
-        if (runAsNonRoot == null) return null;
-        return runAsNonRoot.getValue("JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs.runAsNonRoot");
+        if (!unknown_runAsNonRoot) return value_runAsNonRoot;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs.runAsNonRoot' is not present");
     }
 
-    private UndeferrableValue<Integer> runAsUser;
-
+    @PolicyResourceProperty(name="runAsUser", flag="unknown_runAsUser")
+    private Integer value_runAsUser;
+    private boolean unknown_runAsUser;
     public Integer runAsUser() {
-        if (runAsUser == null) return null;
-        return runAsUser.getValue("JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs.runAsUser");
+        if (!unknown_runAsUser) return value_runAsUser;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs.runAsUser' is not present");
     }
 
 }

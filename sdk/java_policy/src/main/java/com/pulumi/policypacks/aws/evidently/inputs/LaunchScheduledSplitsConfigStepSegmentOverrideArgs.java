@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.evidently.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -15,33 +16,36 @@ public final class LaunchScheduledSplitsConfigStepSegmentOverrideArgs {
      * Specifies a number indicating the order to use to evaluate segment overrides, if there are more than one. Segment overrides with lower numbers are evaluated first.
      * 
      */
-    private UndeferrableValue<Integer> evaluationOrder;
-
+    @PolicyResourceProperty(name="evaluationOrder", flag="unknown_evaluationOrder")
+    private Integer value_evaluationOrder;
+    private boolean unknown_evaluationOrder;
     public Integer evaluationOrder() {
-        if (evaluationOrder == null) return null;
-        return evaluationOrder.getValue("LaunchScheduledSplitsConfigStepSegmentOverrideArgs.evaluationOrder");
+        if (!unknown_evaluationOrder) return value_evaluationOrder;
+        throw new UndeferrableValueException("Value 'LaunchScheduledSplitsConfigStepSegmentOverrideArgs.evaluationOrder' is not present");
     }
 
     /**
      * The name or ARN of the segment to use.
      * 
      */
-    private UndeferrableValue<String> segment;
-
+    @PolicyResourceProperty(name="segment", flag="unknown_segment")
+    private String value_segment;
+    private boolean unknown_segment;
     public String segment() {
-        if (segment == null) return null;
-        return segment.getValue("LaunchScheduledSplitsConfigStepSegmentOverrideArgs.segment");
+        if (!unknown_segment) return value_segment;
+        throw new UndeferrableValueException("Value 'LaunchScheduledSplitsConfigStepSegmentOverrideArgs.segment' is not present");
     }
 
     /**
      * The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
      * 
      */
-    private UndeferrableValue<Map<String,Integer>> weights;
-
+    @PolicyResourceProperty(name="weights", flag="unknown_weights")
+    private Map<String,Integer> value_weights;
+    private boolean unknown_weights;
     public Map<String,Integer> weights() {
-        if (weights == null) return null;
-        return weights.getValue("LaunchScheduledSplitsConfigStepSegmentOverrideArgs.weights");
+        if (!unknown_weights) return value_weights;
+        throw new UndeferrableValueException("Value 'LaunchScheduledSplitsConfigStepSegmentOverrideArgs.weights' is not present");
     }
 
 }

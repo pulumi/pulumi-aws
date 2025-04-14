@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrockmodel.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrockmodel.inputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigAr
      * S3 configuration for delivering a large amount of data. See `large_data_delivery_s3_config` Block for details.
      * 
      */
-    private UndeferrableValue<InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs> largeDataDeliveryS3Config;
-
+    @PolicyResourceProperty(name="largeDataDeliveryS3Config", flag="unknown_largeDataDeliveryS3Config")
+    private InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs value_largeDataDeliveryS3Config;
+    private boolean unknown_largeDataDeliveryS3Config;
     public InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs largeDataDeliveryS3Config() {
-        if (largeDataDeliveryS3Config == null) return null;
-        return largeDataDeliveryS3Config.getValue("InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs.largeDataDeliveryS3Config");
+        if (!unknown_largeDataDeliveryS3Config) return value_largeDataDeliveryS3Config;
+        throw new UndeferrableValueException("Value 'InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs.largeDataDeliveryS3Config' is not present");
     }
 
     /**
      * Log group name.
      * 
      */
-    private UndeferrableValue<String> logGroupName;
-
+    @PolicyResourceProperty(name="logGroupName", flag="unknown_logGroupName")
+    private String value_logGroupName;
+    private boolean unknown_logGroupName;
     public String logGroupName() {
-        if (logGroupName == null) return null;
-        return logGroupName.getValue("InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs.logGroupName");
+        if (!unknown_logGroupName) return value_logGroupName;
+        throw new UndeferrableValueException("Value 'InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs.logGroupName' is not present");
     }
 
     /**
      * The role ARN.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs.roleArn' is not present");
     }
 
 }

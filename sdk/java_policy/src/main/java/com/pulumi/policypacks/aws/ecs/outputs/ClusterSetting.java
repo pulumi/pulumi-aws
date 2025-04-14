@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class ClusterSetting {
      * Name of the setting to manage. Valid values: `containerInsights`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ClusterSetting.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ClusterSetting.name' is not present");
     }
 
     /**
      * Value to assign to the setting. Valid values: `enhanced`, `enabled`, `disabled`.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("ClusterSetting.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'ClusterSetting.value' is not present");
     }
 
 }

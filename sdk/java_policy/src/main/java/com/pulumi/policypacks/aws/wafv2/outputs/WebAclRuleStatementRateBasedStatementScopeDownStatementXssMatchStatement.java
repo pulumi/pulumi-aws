@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMat
      * Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch> fieldToMatch;
-
+    @PolicyResourceProperty(name="fieldToMatch", flag="unknown_fieldToMatch")
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch value_fieldToMatch;
+    private boolean unknown_fieldToMatch;
     public @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch fieldToMatch() {
-        if (fieldToMatch == null) return null;
-        return fieldToMatch.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement.fieldToMatch");
+        if (!unknown_fieldToMatch) return value_fieldToMatch;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement.fieldToMatch' is not present");
     }
 
     /**
      * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
      * 
      */
-    private UndeferrableValue<List<WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation>> textTransformations;
-
+    @PolicyResourceProperty(name="textTransformations", flag="unknown_textTransformations")
+    private List<WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation> value_textTransformations;
+    private boolean unknown_textTransformations;
     public List<WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation> textTransformations() {
-        if (textTransformations == null) return null;
-        return textTransformations.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement.textTransformations");
+        if (!unknown_textTransformations) return value_textTransformations;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement.textTransformations' is not present");
     }
 
 }

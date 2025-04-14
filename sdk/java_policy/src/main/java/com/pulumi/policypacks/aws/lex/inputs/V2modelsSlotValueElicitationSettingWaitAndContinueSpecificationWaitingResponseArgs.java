@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs;
 import java.lang.Boolean;
 import java.util.List;
@@ -16,11 +17,12 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
      * Whether the user can interrupt a speech response from Amazon Lex.
      * 
      */
-    private UndeferrableValue<Boolean> allowInterrupt;
-
+    @PolicyResourceProperty(name="allowInterrupt", flag="unknown_allowInterrupt")
+    private Boolean value_allowInterrupt;
+    private boolean unknown_allowInterrupt;
     public Boolean allowInterrupt() {
-        if (allowInterrupt == null) return null;
-        return allowInterrupt.getValue("V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs.allowInterrupt");
+        if (!unknown_allowInterrupt) return value_allowInterrupt;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs.allowInterrupt' is not present");
     }
 
     /**
@@ -29,11 +31,12 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
      * See `message_group`.
      * 
      */
-    private UndeferrableValue<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs>> messageGroups;
-
+    @PolicyResourceProperty(name="messageGroups", flag="unknown_messageGroups")
+    private List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs> value_messageGroups;
+    private boolean unknown_messageGroups;
     public List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs> messageGroups() {
-        if (messageGroups == null) return null;
-        return messageGroups.getValue("V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs.messageGroups");
+        if (!unknown_messageGroups) return value_messageGroups;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs.messageGroups' is not present");
     }
 
 }

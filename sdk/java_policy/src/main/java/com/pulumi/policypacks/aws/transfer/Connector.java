@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.transfer.outputs.ConnectorAs2Config;
 import com.pulumi.policypacks.aws.transfer.outputs.ConnectorSftpConfig;
@@ -19,88 +20,96 @@ public final class Connector extends com.pulumi.resources.PolicyResourceOutput {
      * The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
      * 
      */
-    private UndeferrableValue<String> accessRole;
-
+    @PolicyResourceProperty(name="accessRole", flag="unknown_accessRole")
+    private String value_accessRole;
+    private boolean unknown_accessRole;
     public String accessRole() {
-        if (accessRole == null) return null;
-        return accessRole.getValue("Connector.accessRole");
+        if (!unknown_accessRole) return value_accessRole;
+        throw new UndeferrableValueException("Value 'Connector.accessRole' is not present");
     }
 
     /**
      * The ARN of the connector.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Connector.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Connector.arn' is not present");
     }
 
     /**
      * Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorAs2Config> as2Config;
-
+    @PolicyResourceProperty(name="as2Config", flag="unknown_as2Config")
+    private @Nullable ConnectorAs2Config value_as2Config;
+    private boolean unknown_as2Config;
     public @Nullable ConnectorAs2Config as2Config() {
-        if (as2Config == null) return null;
-        return as2Config.getValue("Connector.as2Config");
+        if (!unknown_as2Config) return value_as2Config;
+        throw new UndeferrableValueException("Value 'Connector.as2Config' is not present");
     }
 
     /**
      * The unique identifier for the AS2 profile or SFTP Profile.
      * 
      */
-    private UndeferrableValue<String> connectorId;
-
+    @PolicyResourceProperty(name="connectorId", flag="unknown_connectorId")
+    private String value_connectorId;
+    private boolean unknown_connectorId;
     public String connectorId() {
-        if (connectorId == null) return null;
-        return connectorId.getValue("Connector.connectorId");
+        if (!unknown_connectorId) return value_connectorId;
+        throw new UndeferrableValueException("Value 'Connector.connectorId' is not present");
     }
 
     /**
      * The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
      * 
      */
-    private @Nullable UndeferrableValue<String> loggingRole;
-
+    @PolicyResourceProperty(name="loggingRole", flag="unknown_loggingRole")
+    private @Nullable String value_loggingRole;
+    private boolean unknown_loggingRole;
     public @Nullable String loggingRole() {
-        if (loggingRole == null) return null;
-        return loggingRole.getValue("Connector.loggingRole");
+        if (!unknown_loggingRole) return value_loggingRole;
+        throw new UndeferrableValueException("Value 'Connector.loggingRole' is not present");
     }
 
     /**
      * Name of the security policy for the connector.
      * 
      */
-    private UndeferrableValue<String> securityPolicyName;
-
+    @PolicyResourceProperty(name="securityPolicyName", flag="unknown_securityPolicyName")
+    private String value_securityPolicyName;
+    private boolean unknown_securityPolicyName;
     public String securityPolicyName() {
-        if (securityPolicyName == null) return null;
-        return securityPolicyName.getValue("Connector.securityPolicyName");
+        if (!unknown_securityPolicyName) return value_securityPolicyName;
+        throw new UndeferrableValueException("Value 'Connector.securityPolicyName' is not present");
     }
 
     /**
      * Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorSftpConfig> sftpConfig;
-
+    @PolicyResourceProperty(name="sftpConfig", flag="unknown_sftpConfig")
+    private @Nullable ConnectorSftpConfig value_sftpConfig;
+    private boolean unknown_sftpConfig;
     public @Nullable ConnectorSftpConfig sftpConfig() {
-        if (sftpConfig == null) return null;
-        return sftpConfig.getValue("Connector.sftpConfig");
+        if (!unknown_sftpConfig) return value_sftpConfig;
+        throw new UndeferrableValueException("Value 'Connector.sftpConfig' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Connector.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Connector.tags' is not present");
     }
 
     /**
@@ -109,22 +118,24 @@ public final class Connector extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Connector.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Connector.tagsAll' is not present");
     }
 
     /**
      * The URL of the partners AS2 endpoint or SFTP endpoint.
      * 
      */
-    private UndeferrableValue<String> url;
-
+    @PolicyResourceProperty(name="url", flag="unknown_url")
+    private String value_url;
+    private boolean unknown_url;
     public String url() {
-        if (url == null) return null;
-        return url.getValue("Connector.url");
+        if (!unknown_url) return value_url;
+        throw new UndeferrableValueException("Value 'Connector.url' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.quicksight.inputs.AnalysisParametersArgs;
 import com.pulumi.policypacks.aws.quicksight.inputs.AnalysisPermissionArgs;
@@ -22,22 +23,24 @@ public final class AnalysisArgs extends com.pulumi.resources.PolicyResourceInput
      * Identifier for the analysis.
      * 
      */
-    private UndeferrableValue<String> analysisId;
-
+    @PolicyResourceProperty(name="analysisId", flag="unknown_analysisId")
+    private String value_analysisId;
+    private boolean unknown_analysisId;
     public String analysisId() {
-        if (analysisId == null) return null;
-        return analysisId.getValue("AnalysisArgs.analysisId");
+        if (!unknown_analysisId) return value_analysisId;
+        throw new UndeferrableValueException("Value 'AnalysisArgs.analysisId' is not present");
     }
 
     /**
      * AWS account ID.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("AnalysisArgs.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'AnalysisArgs.awsAccountId' is not present");
     }
 
     /**
@@ -46,77 +49,84 @@ public final class AnalysisArgs extends com.pulumi.resources.PolicyResourceInput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AnalysisArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AnalysisArgs.name' is not present");
     }
 
     /**
      * The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
      * 
      */
-    private UndeferrableValue<AnalysisParametersArgs> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private AnalysisParametersArgs value_parameters;
+    private boolean unknown_parameters;
     public AnalysisParametersArgs parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("AnalysisArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'AnalysisArgs.parameters' is not present");
     }
 
     /**
      * A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
      * 
      */
-    private UndeferrableValue<List<AnalysisPermissionArgs>> permissions;
-
+    @PolicyResourceProperty(name="permissions", flag="unknown_permissions")
+    private List<AnalysisPermissionArgs> value_permissions;
+    private boolean unknown_permissions;
     public List<AnalysisPermissionArgs> permissions() {
-        if (permissions == null) return null;
-        return permissions.getValue("AnalysisArgs.permissions");
+        if (!unknown_permissions) return value_permissions;
+        throw new UndeferrableValueException("Value 'AnalysisArgs.permissions' is not present");
     }
 
     /**
      * A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
      * 
      */
-    private UndeferrableValue<Integer> recoveryWindowInDays;
-
+    @PolicyResourceProperty(name="recoveryWindowInDays", flag="unknown_recoveryWindowInDays")
+    private Integer value_recoveryWindowInDays;
+    private boolean unknown_recoveryWindowInDays;
     public Integer recoveryWindowInDays() {
-        if (recoveryWindowInDays == null) return null;
-        return recoveryWindowInDays.getValue("AnalysisArgs.recoveryWindowInDays");
+        if (!unknown_recoveryWindowInDays) return value_recoveryWindowInDays;
+        throw new UndeferrableValueException("Value 'AnalysisArgs.recoveryWindowInDays' is not present");
     }
 
     /**
      * The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
      * 
      */
-    private UndeferrableValue<AnalysisSourceEntityArgs> sourceEntity;
-
+    @PolicyResourceProperty(name="sourceEntity", flag="unknown_sourceEntity")
+    private AnalysisSourceEntityArgs value_sourceEntity;
+    private boolean unknown_sourceEntity;
     public AnalysisSourceEntityArgs sourceEntity() {
-        if (sourceEntity == null) return null;
-        return sourceEntity.getValue("AnalysisArgs.sourceEntity");
+        if (!unknown_sourceEntity) return value_sourceEntity;
+        throw new UndeferrableValueException("Value 'AnalysisArgs.sourceEntity' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AnalysisArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AnalysisArgs.tags' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
      * 
      */
-    private UndeferrableValue<String> themeArn;
-
+    @PolicyResourceProperty(name="themeArn", flag="unknown_themeArn")
+    private String value_themeArn;
+    private boolean unknown_themeArn;
     public String themeArn() {
-        if (themeArn == null) return null;
-        return themeArn.getValue("AnalysisArgs.themeArn");
+        if (!unknown_themeArn) return value_themeArn;
+        throw new UndeferrableValueException("Value 'AnalysisArgs.themeArn' is not present");
     }
 
 }

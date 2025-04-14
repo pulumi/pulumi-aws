@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.paymentcryptography;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -18,22 +19,24 @@ public final class KeyAliasArgs extends com.pulumi.resources.PolicyResourceInput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> aliasName;
-
+    @PolicyResourceProperty(name="aliasName", flag="unknown_aliasName")
+    private String value_aliasName;
+    private boolean unknown_aliasName;
     public String aliasName() {
-        if (aliasName == null) return null;
-        return aliasName.getValue("KeyAliasArgs.aliasName");
+        if (!unknown_aliasName) return value_aliasName;
+        throw new UndeferrableValueException("Value 'KeyAliasArgs.aliasName' is not present");
     }
 
     /**
      * ARN of the key.
      * 
      */
-    private UndeferrableValue<String> keyArn;
-
+    @PolicyResourceProperty(name="keyArn", flag="unknown_keyArn")
+    private String value_keyArn;
+    private boolean unknown_keyArn;
     public String keyArn() {
-        if (keyArn == null) return null;
-        return keyArn.getValue("KeyAliasArgs.keyArn");
+        if (!unknown_keyArn) return value_keyArn;
+        throw new UndeferrableValueException("Value 'KeyAliasArgs.keyArn' is not present");
     }
 
 }

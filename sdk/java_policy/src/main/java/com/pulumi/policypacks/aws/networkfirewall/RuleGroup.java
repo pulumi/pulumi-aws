@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.RuleGroupEncryptionConfiguration;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.RuleGroupRuleGroup;
@@ -20,88 +21,96 @@ public final class RuleGroup extends com.pulumi.resources.PolicyResourceOutput {
      * The Amazon Resource Name (ARN) that identifies the rule group.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("RuleGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'RuleGroup.arn' is not present");
     }
 
     /**
      * The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
      * 
      */
-    private UndeferrableValue<Integer> capacity;
-
+    @PolicyResourceProperty(name="capacity", flag="unknown_capacity")
+    private Integer value_capacity;
+    private boolean unknown_capacity;
     public Integer capacity() {
-        if (capacity == null) return null;
-        return capacity.getValue("RuleGroup.capacity");
+        if (!unknown_capacity) return value_capacity;
+        throw new UndeferrableValueException("Value 'RuleGroup.capacity' is not present");
     }
 
     /**
      * A friendly description of the rule group.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("RuleGroup.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'RuleGroup.description' is not present");
     }
 
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupEncryptionConfiguration> encryptionConfiguration;
-
+    @PolicyResourceProperty(name="encryptionConfiguration", flag="unknown_encryptionConfiguration")
+    private @Nullable RuleGroupEncryptionConfiguration value_encryptionConfiguration;
+    private boolean unknown_encryptionConfiguration;
     public @Nullable RuleGroupEncryptionConfiguration encryptionConfiguration() {
-        if (encryptionConfiguration == null) return null;
-        return encryptionConfiguration.getValue("RuleGroup.encryptionConfiguration");
+        if (!unknown_encryptionConfiguration) return value_encryptionConfiguration;
+        throw new UndeferrableValueException("Value 'RuleGroup.encryptionConfiguration' is not present");
     }
 
     /**
      * A friendly name of the rule group.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RuleGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RuleGroup.name' is not present");
     }
 
     /**
      * A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleGroup> ruleGroup;
-
+    @PolicyResourceProperty(name="ruleGroup", flag="unknown_ruleGroup")
+    private RuleGroupRuleGroup value_ruleGroup;
+    private boolean unknown_ruleGroup;
     public RuleGroupRuleGroup ruleGroup() {
-        if (ruleGroup == null) return null;
-        return ruleGroup.getValue("RuleGroup.ruleGroup");
+        if (!unknown_ruleGroup) return value_ruleGroup;
+        throw new UndeferrableValueException("Value 'RuleGroup.ruleGroup' is not present");
     }
 
     /**
      * The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
      * 
      */
-    private @Nullable UndeferrableValue<String> rules;
-
+    @PolicyResourceProperty(name="rules", flag="unknown_rules")
+    private @Nullable String value_rules;
+    private boolean unknown_rules;
     public @Nullable String rules() {
-        if (rules == null) return null;
-        return rules.getValue("RuleGroup.rules");
+        if (!unknown_rules) return value_rules;
+        throw new UndeferrableValueException("Value 'RuleGroup.rules' is not present");
     }
 
     /**
      * A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RuleGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RuleGroup.tags' is not present");
     }
 
     /**
@@ -112,33 +121,36 @@ public final class RuleGroup extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("RuleGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'RuleGroup.tagsAll' is not present");
     }
 
     /**
      * Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("RuleGroup.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'RuleGroup.type' is not present");
     }
 
     /**
      * A string token used when updating the rule group.
      * 
      */
-    private UndeferrableValue<String> updateToken;
-
+    @PolicyResourceProperty(name="updateToken", flag="unknown_updateToken")
+    private String value_updateToken;
+    private boolean unknown_updateToken;
     public String updateToken() {
-        if (updateToken == null) return null;
-        return updateToken.getValue("RuleGroup.updateToken");
+        if (!unknown_updateToken) return value_updateToken;
+        throw new UndeferrableValueException("Value 'RuleGroup.updateToken' is not present");
     }
 
 }

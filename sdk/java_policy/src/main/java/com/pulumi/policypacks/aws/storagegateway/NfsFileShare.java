@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.storagegateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.storagegateway.outputs.NfsFileShareCacheAttributes;
 import com.pulumi.policypacks.aws.storagegateway.outputs.NfsFileShareNfsFileShareDefaults;
@@ -21,242 +22,264 @@ public final class NfsFileShare extends com.pulumi.resources.PolicyResourceOutpu
      * Amazon Resource Name (ARN) of the NFS File Share.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("NfsFileShare.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'NfsFileShare.arn' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the storage used for audit logs.
      * 
      */
-    private @Nullable UndeferrableValue<String> auditDestinationArn;
-
+    @PolicyResourceProperty(name="auditDestinationArn", flag="unknown_auditDestinationArn")
+    private @Nullable String value_auditDestinationArn;
+    private boolean unknown_auditDestinationArn;
     public @Nullable String auditDestinationArn() {
-        if (auditDestinationArn == null) return null;
-        return auditDestinationArn.getValue("NfsFileShare.auditDestinationArn");
+        if (!unknown_auditDestinationArn) return value_auditDestinationArn;
+        throw new UndeferrableValueException("Value 'NfsFileShare.auditDestinationArn' is not present");
     }
 
     /**
      * The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
      * 
      */
-    private @Nullable UndeferrableValue<String> bucketRegion;
-
+    @PolicyResourceProperty(name="bucketRegion", flag="unknown_bucketRegion")
+    private @Nullable String value_bucketRegion;
+    private boolean unknown_bucketRegion;
     public @Nullable String bucketRegion() {
-        if (bucketRegion == null) return null;
-        return bucketRegion.getValue("NfsFileShare.bucketRegion");
+        if (!unknown_bucketRegion) return value_bucketRegion;
+        throw new UndeferrableValueException("Value 'NfsFileShare.bucketRegion' is not present");
     }
 
     /**
      * Refresh cache information. see Cache Attributes for more details.
      * 
      */
-    private @Nullable UndeferrableValue<NfsFileShareCacheAttributes> cacheAttributes;
-
+    @PolicyResourceProperty(name="cacheAttributes", flag="unknown_cacheAttributes")
+    private @Nullable NfsFileShareCacheAttributes value_cacheAttributes;
+    private boolean unknown_cacheAttributes;
     public @Nullable NfsFileShareCacheAttributes cacheAttributes() {
-        if (cacheAttributes == null) return null;
-        return cacheAttributes.getValue("NfsFileShare.cacheAttributes");
+        if (!unknown_cacheAttributes) return value_cacheAttributes;
+        throw new UndeferrableValueException("Value 'NfsFileShare.cacheAttributes' is not present");
     }
 
     /**
      * The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `[&#34;0.0.0.0/0&#34;]` to not limit access. Minimum 1 item. Maximum 100 items.
      * 
      */
-    private UndeferrableValue<List<String>> clientLists;
-
+    @PolicyResourceProperty(name="clientLists", flag="unknown_clientLists")
+    private List<String> value_clientLists;
+    private boolean unknown_clientLists;
     public List<String> clientLists() {
-        if (clientLists == null) return null;
-        return clientLists.getValue("NfsFileShare.clientLists");
+        if (!unknown_clientLists) return value_clientLists;
+        throw new UndeferrableValueException("Value 'NfsFileShare.clientLists' is not present");
     }
 
     /**
      * The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
      * 
      */
-    private @Nullable UndeferrableValue<String> defaultStorageClass;
-
+    @PolicyResourceProperty(name="defaultStorageClass", flag="unknown_defaultStorageClass")
+    private @Nullable String value_defaultStorageClass;
+    private boolean unknown_defaultStorageClass;
     public @Nullable String defaultStorageClass() {
-        if (defaultStorageClass == null) return null;
-        return defaultStorageClass.getValue("NfsFileShare.defaultStorageClass");
+        if (!unknown_defaultStorageClass) return value_defaultStorageClass;
+        throw new UndeferrableValueException("Value 'NfsFileShare.defaultStorageClass' is not present");
     }
 
     /**
      * The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
      * 
      */
-    private UndeferrableValue<String> fileShareName;
-
+    @PolicyResourceProperty(name="fileShareName", flag="unknown_fileShareName")
+    private String value_fileShareName;
+    private boolean unknown_fileShareName;
     public String fileShareName() {
-        if (fileShareName == null) return null;
-        return fileShareName.getValue("NfsFileShare.fileShareName");
+        if (!unknown_fileShareName) return value_fileShareName;
+        throw new UndeferrableValueException("Value 'NfsFileShare.fileShareName' is not present");
     }
 
     /**
      * ID of the NFS File Share.
      * 
      */
-    private UndeferrableValue<String> fileshareId;
-
+    @PolicyResourceProperty(name="fileshareId", flag="unknown_fileshareId")
+    private String value_fileshareId;
+    private boolean unknown_fileshareId;
     public String fileshareId() {
-        if (fileshareId == null) return null;
-        return fileshareId.getValue("NfsFileShare.fileshareId");
+        if (!unknown_fileshareId) return value_fileshareId;
+        throw new UndeferrableValueException("Value 'NfsFileShare.fileshareId' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the file gateway.
      * 
      */
-    private UndeferrableValue<String> gatewayArn;
-
+    @PolicyResourceProperty(name="gatewayArn", flag="unknown_gatewayArn")
+    private String value_gatewayArn;
+    private boolean unknown_gatewayArn;
     public String gatewayArn() {
-        if (gatewayArn == null) return null;
-        return gatewayArn.getValue("NfsFileShare.gatewayArn");
+        if (!unknown_gatewayArn) return value_gatewayArn;
+        throw new UndeferrableValueException("Value 'NfsFileShare.gatewayArn' is not present");
     }
 
     /**
      * Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> guessMimeTypeEnabled;
-
+    @PolicyResourceProperty(name="guessMimeTypeEnabled", flag="unknown_guessMimeTypeEnabled")
+    private @Nullable Boolean value_guessMimeTypeEnabled;
+    private boolean unknown_guessMimeTypeEnabled;
     public @Nullable Boolean guessMimeTypeEnabled() {
-        if (guessMimeTypeEnabled == null) return null;
-        return guessMimeTypeEnabled.getValue("NfsFileShare.guessMimeTypeEnabled");
+        if (!unknown_guessMimeTypeEnabled) return value_guessMimeTypeEnabled;
+        throw new UndeferrableValueException("Value 'NfsFileShare.guessMimeTypeEnabled' is not present");
     }
 
     /**
      * Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> kmsEncrypted;
-
+    @PolicyResourceProperty(name="kmsEncrypted", flag="unknown_kmsEncrypted")
+    private @Nullable Boolean value_kmsEncrypted;
+    private boolean unknown_kmsEncrypted;
     public @Nullable Boolean kmsEncrypted() {
-        if (kmsEncrypted == null) return null;
-        return kmsEncrypted.getValue("NfsFileShare.kmsEncrypted");
+        if (!unknown_kmsEncrypted) return value_kmsEncrypted;
+        throw new UndeferrableValueException("Value 'NfsFileShare.kmsEncrypted' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private @Nullable String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public @Nullable String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("NfsFileShare.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'NfsFileShare.kmsKeyArn' is not present");
     }
 
     /**
      * The ARN of the backed storage used for storing file data.
      * 
      */
-    private UndeferrableValue<String> locationArn;
-
+    @PolicyResourceProperty(name="locationArn", flag="unknown_locationArn")
+    private String value_locationArn;
+    private boolean unknown_locationArn;
     public String locationArn() {
-        if (locationArn == null) return null;
-        return locationArn.getValue("NfsFileShare.locationArn");
+        if (!unknown_locationArn) return value_locationArn;
+        throw new UndeferrableValueException("Value 'NfsFileShare.locationArn' is not present");
     }
 
     /**
      * Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
      * 
      */
-    private @Nullable UndeferrableValue<NfsFileShareNfsFileShareDefaults> nfsFileShareDefaults;
-
+    @PolicyResourceProperty(name="nfsFileShareDefaults", flag="unknown_nfsFileShareDefaults")
+    private @Nullable NfsFileShareNfsFileShareDefaults value_nfsFileShareDefaults;
+    private boolean unknown_nfsFileShareDefaults;
     public @Nullable NfsFileShareNfsFileShareDefaults nfsFileShareDefaults() {
-        if (nfsFileShareDefaults == null) return null;
-        return nfsFileShareDefaults.getValue("NfsFileShare.nfsFileShareDefaults");
+        if (!unknown_nfsFileShareDefaults) return value_nfsFileShareDefaults;
+        throw new UndeferrableValueException("Value 'NfsFileShare.nfsFileShareDefaults' is not present");
     }
 
     /**
      * The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
      * 
      */
-    private @Nullable UndeferrableValue<String> notificationPolicy;
-
+    @PolicyResourceProperty(name="notificationPolicy", flag="unknown_notificationPolicy")
+    private @Nullable String value_notificationPolicy;
+    private boolean unknown_notificationPolicy;
     public @Nullable String notificationPolicy() {
-        if (notificationPolicy == null) return null;
-        return notificationPolicy.getValue("NfsFileShare.notificationPolicy");
+        if (!unknown_notificationPolicy) return value_notificationPolicy;
+        throw new UndeferrableValueException("Value 'NfsFileShare.notificationPolicy' is not present");
     }
 
     /**
      * Access Control List permission for S3 objects. Defaults to `private`.
      * 
      */
-    private @Nullable UndeferrableValue<String> objectAcl;
-
+    @PolicyResourceProperty(name="objectAcl", flag="unknown_objectAcl")
+    private @Nullable String value_objectAcl;
+    private boolean unknown_objectAcl;
     public @Nullable String objectAcl() {
-        if (objectAcl == null) return null;
-        return objectAcl.getValue("NfsFileShare.objectAcl");
+        if (!unknown_objectAcl) return value_objectAcl;
+        throw new UndeferrableValueException("Value 'NfsFileShare.objectAcl' is not present");
     }
 
     /**
      * File share path used by the NFS client to identify the mount point.
      * 
      */
-    private UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private String value_path;
+    private boolean unknown_path;
     public String path() {
-        if (path == null) return null;
-        return path.getValue("NfsFileShare.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'NfsFileShare.path' is not present");
     }
 
     /**
      * Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> readOnly;
-
+    @PolicyResourceProperty(name="readOnly", flag="unknown_readOnly")
+    private @Nullable Boolean value_readOnly;
+    private boolean unknown_readOnly;
     public @Nullable Boolean readOnly() {
-        if (readOnly == null) return null;
-        return readOnly.getValue("NfsFileShare.readOnly");
+        if (!unknown_readOnly) return value_readOnly;
+        throw new UndeferrableValueException("Value 'NfsFileShare.readOnly' is not present");
     }
 
     /**
      * Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> requesterPays;
-
+    @PolicyResourceProperty(name="requesterPays", flag="unknown_requesterPays")
+    private @Nullable Boolean value_requesterPays;
+    private boolean unknown_requesterPays;
     public @Nullable Boolean requesterPays() {
-        if (requesterPays == null) return null;
-        return requesterPays.getValue("NfsFileShare.requesterPays");
+        if (!unknown_requesterPays) return value_requesterPays;
+        throw new UndeferrableValueException("Value 'NfsFileShare.requesterPays' is not present");
     }
 
     /**
      * The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("NfsFileShare.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'NfsFileShare.roleArn' is not present");
     }
 
     /**
      * Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
      * 
      */
-    private @Nullable UndeferrableValue<String> squash;
-
+    @PolicyResourceProperty(name="squash", flag="unknown_squash")
+    private @Nullable String value_squash;
+    private boolean unknown_squash;
     public @Nullable String squash() {
-        if (squash == null) return null;
-        return squash.getValue("NfsFileShare.squash");
+        if (!unknown_squash) return value_squash;
+        throw new UndeferrableValueException("Value 'NfsFileShare.squash' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("NfsFileShare.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'NfsFileShare.tags' is not present");
     }
 
     /**
@@ -267,22 +290,24 @@ public final class NfsFileShare extends com.pulumi.resources.PolicyResourceOutpu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("NfsFileShare.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'NfsFileShare.tagsAll' is not present");
     }
 
     /**
      * The DNS name of the VPC endpoint for S3 PrivateLink.
      * 
      */
-    private @Nullable UndeferrableValue<String> vpcEndpointDnsName;
-
+    @PolicyResourceProperty(name="vpcEndpointDnsName", flag="unknown_vpcEndpointDnsName")
+    private @Nullable String value_vpcEndpointDnsName;
+    private boolean unknown_vpcEndpointDnsName;
     public @Nullable String vpcEndpointDnsName() {
-        if (vpcEndpointDnsName == null) return null;
-        return vpcEndpointDnsName.getValue("NfsFileShare.vpcEndpointDnsName");
+        if (!unknown_vpcEndpointDnsName) return value_vpcEndpointDnsName;
+        throw new UndeferrableValueException("Value 'NfsFileShare.vpcEndpointDnsName' is not present");
     }
 
 }

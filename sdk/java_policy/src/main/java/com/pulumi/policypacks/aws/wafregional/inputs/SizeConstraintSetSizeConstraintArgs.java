@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafregional.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafregional.inputs.SizeConstraintSetSizeConstraintFieldToMatchArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class SizeConstraintSetSizeConstraintArgs {
      * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
      * 
      */
-    private UndeferrableValue<String> comparisonOperator;
-
+    @PolicyResourceProperty(name="comparisonOperator", flag="unknown_comparisonOperator")
+    private String value_comparisonOperator;
+    private boolean unknown_comparisonOperator;
     public String comparisonOperator() {
-        if (comparisonOperator == null) return null;
-        return comparisonOperator.getValue("SizeConstraintSetSizeConstraintArgs.comparisonOperator");
+        if (!unknown_comparisonOperator) return value_comparisonOperator;
+        throw new UndeferrableValueException("Value 'SizeConstraintSetSizeConstraintArgs.comparisonOperator' is not present");
     }
 
     /**
      * Specifies where in a web request to look for the size constraint.
      * 
      */
-    private UndeferrableValue<SizeConstraintSetSizeConstraintFieldToMatchArgs> fieldToMatch;
-
+    @PolicyResourceProperty(name="fieldToMatch", flag="unknown_fieldToMatch")
+    private SizeConstraintSetSizeConstraintFieldToMatchArgs value_fieldToMatch;
+    private boolean unknown_fieldToMatch;
     public SizeConstraintSetSizeConstraintFieldToMatchArgs fieldToMatch() {
-        if (fieldToMatch == null) return null;
-        return fieldToMatch.getValue("SizeConstraintSetSizeConstraintArgs.fieldToMatch");
+        if (!unknown_fieldToMatch) return value_fieldToMatch;
+        throw new UndeferrableValueException("Value 'SizeConstraintSetSizeConstraintArgs.fieldToMatch' is not present");
     }
 
     /**
@@ -40,11 +43,12 @@ public final class SizeConstraintSetSizeConstraintArgs {
      * Valid values are between 0 - 21474836480 bytes (0 - 20 GB).
      * 
      */
-    private UndeferrableValue<Integer> size;
-
+    @PolicyResourceProperty(name="size", flag="unknown_size")
+    private Integer value_size;
+    private boolean unknown_size;
     public Integer size() {
-        if (size == null) return null;
-        return size.getValue("SizeConstraintSetSizeConstraintArgs.size");
+        if (!unknown_size) return value_size;
+        throw new UndeferrableValueException("Value 'SizeConstraintSetSizeConstraintArgs.size' is not present");
     }
 
     /**
@@ -56,11 +60,12 @@ public final class SizeConstraintSetSizeConstraintArgs {
      * **Note:** if you choose `BODY` as `type`, you must choose `NONE` because CloudFront forwards only the first 8192 bytes for inspection.
      * 
      */
-    private UndeferrableValue<String> textTransformation;
-
+    @PolicyResourceProperty(name="textTransformation", flag="unknown_textTransformation")
+    private String value_textTransformation;
+    private boolean unknown_textTransformation;
     public String textTransformation() {
-        if (textTransformation == null) return null;
-        return textTransformation.getValue("SizeConstraintSetSizeConstraintArgs.textTransformation");
+        if (!unknown_textTransformation) return value_textTransformation;
+        throw new UndeferrableValueException("Value 'SizeConstraintSetSizeConstraintArgs.textTransformation' is not present");
     }
 
 }

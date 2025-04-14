@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ses.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,66 +16,72 @@ public final class ReceiptRuleBounceActionArgs {
      * The message to send
      * 
      */
-    private UndeferrableValue<String> message;
-
+    @PolicyResourceProperty(name="message", flag="unknown_message")
+    private String value_message;
+    private boolean unknown_message;
     public String message() {
-        if (message == null) return null;
-        return message.getValue("ReceiptRuleBounceActionArgs.message");
+        if (!unknown_message) return value_message;
+        throw new UndeferrableValueException("Value 'ReceiptRuleBounceActionArgs.message' is not present");
     }
 
     /**
      * The position of the action in the receipt rule
      * 
      */
-    private UndeferrableValue<Integer> position;
-
+    @PolicyResourceProperty(name="position", flag="unknown_position")
+    private Integer value_position;
+    private boolean unknown_position;
     public Integer position() {
-        if (position == null) return null;
-        return position.getValue("ReceiptRuleBounceActionArgs.position");
+        if (!unknown_position) return value_position;
+        throw new UndeferrableValueException("Value 'ReceiptRuleBounceActionArgs.position' is not present");
     }
 
     /**
      * The email address of the sender
      * 
      */
-    private UndeferrableValue<String> sender;
-
+    @PolicyResourceProperty(name="sender", flag="unknown_sender")
+    private String value_sender;
+    private boolean unknown_sender;
     public String sender() {
-        if (sender == null) return null;
-        return sender.getValue("ReceiptRuleBounceActionArgs.sender");
+        if (!unknown_sender) return value_sender;
+        throw new UndeferrableValueException("Value 'ReceiptRuleBounceActionArgs.sender' is not present");
     }
 
     /**
      * The RFC 5321 SMTP reply code
      * 
      */
-    private UndeferrableValue<String> smtpReplyCode;
-
+    @PolicyResourceProperty(name="smtpReplyCode", flag="unknown_smtpReplyCode")
+    private String value_smtpReplyCode;
+    private boolean unknown_smtpReplyCode;
     public String smtpReplyCode() {
-        if (smtpReplyCode == null) return null;
-        return smtpReplyCode.getValue("ReceiptRuleBounceActionArgs.smtpReplyCode");
+        if (!unknown_smtpReplyCode) return value_smtpReplyCode;
+        throw new UndeferrableValueException("Value 'ReceiptRuleBounceActionArgs.smtpReplyCode' is not present");
     }
 
     /**
      * The RFC 3463 SMTP enhanced status code
      * 
      */
-    private UndeferrableValue<String> statusCode;
-
+    @PolicyResourceProperty(name="statusCode", flag="unknown_statusCode")
+    private String value_statusCode;
+    private boolean unknown_statusCode;
     public String statusCode() {
-        if (statusCode == null) return null;
-        return statusCode.getValue("ReceiptRuleBounceActionArgs.statusCode");
+        if (!unknown_statusCode) return value_statusCode;
+        throw new UndeferrableValueException("Value 'ReceiptRuleBounceActionArgs.statusCode' is not present");
     }
 
     /**
      * The ARN of an SNS topic to notify
      * 
      */
-    private UndeferrableValue<String> topicArn;
-
+    @PolicyResourceProperty(name="topicArn", flag="unknown_topicArn")
+    private String value_topicArn;
+    private boolean unknown_topicArn;
     public String topicArn() {
-        if (topicArn == null) return null;
-        return topicArn.getValue("ReceiptRuleBounceActionArgs.topicArn");
+        if (!unknown_topicArn) return value_topicArn;
+        throw new UndeferrableValueException("Value 'ReceiptRuleBounceActionArgs.topicArn' is not present");
     }
 
 }

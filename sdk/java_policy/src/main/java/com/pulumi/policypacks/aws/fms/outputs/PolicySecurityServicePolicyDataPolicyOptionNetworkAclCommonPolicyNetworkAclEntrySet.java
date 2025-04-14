@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fms.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.fms.outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry;
 import com.pulumi.policypacks.aws.fms.outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry;
 import java.lang.Boolean;
@@ -17,44 +18,48 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
      * The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `first_entry` block.
      * 
      */
-    private @Nullable UndeferrableValue<List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry>> firstEntries;
-
+    @PolicyResourceProperty(name="firstEntries", flag="unknown_firstEntries")
+    private @Nullable List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry> value_firstEntries;
+    private boolean unknown_firstEntries;
     public @Nullable List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntry> firstEntries() {
-        if (firstEntries == null) return null;
-        return firstEntries.getValue("PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet.firstEntries");
+        if (!unknown_firstEntries) return value_firstEntries;
+        throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet.firstEntries' is not present");
     }
 
     /**
      * A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
      * 
      */
-    private UndeferrableValue<Boolean> forceRemediateForFirstEntries;
-
+    @PolicyResourceProperty(name="forceRemediateForFirstEntries", flag="unknown_forceRemediateForFirstEntries")
+    private Boolean value_forceRemediateForFirstEntries;
+    private boolean unknown_forceRemediateForFirstEntries;
     public Boolean forceRemediateForFirstEntries() {
-        if (forceRemediateForFirstEntries == null) return null;
-        return forceRemediateForFirstEntries.getValue("PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet.forceRemediateForFirstEntries");
+        if (!unknown_forceRemediateForFirstEntries) return value_forceRemediateForFirstEntries;
+        throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet.forceRemediateForFirstEntries' is not present");
     }
 
     /**
      * A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
      * 
      */
-    private UndeferrableValue<Boolean> forceRemediateForLastEntries;
-
+    @PolicyResourceProperty(name="forceRemediateForLastEntries", flag="unknown_forceRemediateForLastEntries")
+    private Boolean value_forceRemediateForLastEntries;
+    private boolean unknown_forceRemediateForLastEntries;
     public Boolean forceRemediateForLastEntries() {
-        if (forceRemediateForLastEntries == null) return null;
-        return forceRemediateForLastEntries.getValue("PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet.forceRemediateForLastEntries");
+        if (!unknown_forceRemediateForLastEntries) return value_forceRemediateForLastEntries;
+        throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet.forceRemediateForLastEntries' is not present");
     }
 
     /**
      * The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `last_entry` block.
      * 
      */
-    private @Nullable UndeferrableValue<List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry>> lastEntries;
-
+    @PolicyResourceProperty(name="lastEntries", flag="unknown_lastEntries")
+    private @Nullable List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry> value_lastEntries;
+    private boolean unknown_lastEntries;
     public @Nullable List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry> lastEntries() {
-        if (lastEntries == null) return null;
-        return lastEntries.getValue("PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet.lastEntries");
+        if (!unknown_lastEntries) return value_lastEntries;
+        throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySet.lastEntries' is not present");
     }
 
 }

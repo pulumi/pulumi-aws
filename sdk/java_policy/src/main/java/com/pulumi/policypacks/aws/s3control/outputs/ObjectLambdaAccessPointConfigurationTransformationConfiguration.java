@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3control.outputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation;
 import java.lang.String;
 import java.util.List;
@@ -15,22 +16,24 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
      * The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
      * 
      */
-    private UndeferrableValue<List<String>> actions;
-
+    @PolicyResourceProperty(name="actions", flag="unknown_actions")
+    private List<String> value_actions;
+    private boolean unknown_actions;
     public List<String> actions() {
-        if (actions == null) return null;
-        return actions.getValue("ObjectLambdaAccessPointConfigurationTransformationConfiguration.actions");
+        if (!unknown_actions) return value_actions;
+        throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointConfigurationTransformationConfiguration.actions' is not present");
     }
 
     /**
      * The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
      * 
      */
-    private UndeferrableValue<ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation> contentTransformation;
-
+    @PolicyResourceProperty(name="contentTransformation", flag="unknown_contentTransformation")
+    private ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation value_contentTransformation;
+    private boolean unknown_contentTransformation;
     public ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation contentTransformation() {
-        if (contentTransformation == null) return null;
-        return contentTransformation.getValue("ObjectLambdaAccessPointConfigurationTransformationConfiguration.contentTransformation");
+        if (!unknown_contentTransformation) return value_contentTransformation;
+        throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointConfigurationTransformationConfiguration.contentTransformation' is not present");
     }
 
 }

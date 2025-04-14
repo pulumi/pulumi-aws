@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appstream;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class FleetStackAssociationArgs extends com.pulumi.resources.Policy
      * Name of the fleet.
      * 
      */
-    private UndeferrableValue<String> fleetName;
-
+    @PolicyResourceProperty(name="fleetName", flag="unknown_fleetName")
+    private String value_fleetName;
+    private boolean unknown_fleetName;
     public String fleetName() {
-        if (fleetName == null) return null;
-        return fleetName.getValue("FleetStackAssociationArgs.fleetName");
+        if (!unknown_fleetName) return value_fleetName;
+        throw new UndeferrableValueException("Value 'FleetStackAssociationArgs.fleetName' is not present");
     }
 
     /**
      * Name of the stack.
      * 
      */
-    private UndeferrableValue<String> stackName;
-
+    @PolicyResourceProperty(name="stackName", flag="unknown_stackName")
+    private String value_stackName;
+    private boolean unknown_stackName;
     public String stackName() {
-        if (stackName == null) return null;
-        return stackName.getValue("FleetStackAssociationArgs.stackName");
+        if (!unknown_stackName) return value_stackName;
+        throw new UndeferrableValueException("Value 'FleetStackAssociationArgs.stackName' is not present");
     }
 
 }

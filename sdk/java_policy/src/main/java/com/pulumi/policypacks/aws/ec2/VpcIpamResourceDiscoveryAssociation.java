@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,99 +19,108 @@ public final class VpcIpamResourceDiscoveryAssociation extends com.pulumi.resour
      * The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("VpcIpamResourceDiscoveryAssociation.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'VpcIpamResourceDiscoveryAssociation.arn' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the IPAM.
      * 
      */
-    private UndeferrableValue<String> ipamArn;
-
+    @PolicyResourceProperty(name="ipamArn", flag="unknown_ipamArn")
+    private String value_ipamArn;
+    private boolean unknown_ipamArn;
     public String ipamArn() {
-        if (ipamArn == null) return null;
-        return ipamArn.getValue("VpcIpamResourceDiscoveryAssociation.ipamArn");
+        if (!unknown_ipamArn) return value_ipamArn;
+        throw new UndeferrableValueException("Value 'VpcIpamResourceDiscoveryAssociation.ipamArn' is not present");
     }
 
     /**
      * The ID of the IPAM to associate.
      * 
      */
-    private UndeferrableValue<String> ipamId;
-
+    @PolicyResourceProperty(name="ipamId", flag="unknown_ipamId")
+    private String value_ipamId;
+    private boolean unknown_ipamId;
     public String ipamId() {
-        if (ipamId == null) return null;
-        return ipamId.getValue("VpcIpamResourceDiscoveryAssociation.ipamId");
+        if (!unknown_ipamId) return value_ipamId;
+        throw new UndeferrableValueException("Value 'VpcIpamResourceDiscoveryAssociation.ipamId' is not present");
     }
 
     /**
      * The home region of the IPAM.
      * 
      */
-    private UndeferrableValue<String> ipamRegion;
-
+    @PolicyResourceProperty(name="ipamRegion", flag="unknown_ipamRegion")
+    private String value_ipamRegion;
+    private boolean unknown_ipamRegion;
     public String ipamRegion() {
-        if (ipamRegion == null) return null;
-        return ipamRegion.getValue("VpcIpamResourceDiscoveryAssociation.ipamRegion");
+        if (!unknown_ipamRegion) return value_ipamRegion;
+        throw new UndeferrableValueException("Value 'VpcIpamResourceDiscoveryAssociation.ipamRegion' is not present");
     }
 
     /**
      * The ID of the Resource Discovery to associate.
      * 
      */
-    private UndeferrableValue<String> ipamResourceDiscoveryId;
-
+    @PolicyResourceProperty(name="ipamResourceDiscoveryId", flag="unknown_ipamResourceDiscoveryId")
+    private String value_ipamResourceDiscoveryId;
+    private boolean unknown_ipamResourceDiscoveryId;
     public String ipamResourceDiscoveryId() {
-        if (ipamResourceDiscoveryId == null) return null;
-        return ipamResourceDiscoveryId.getValue("VpcIpamResourceDiscoveryAssociation.ipamResourceDiscoveryId");
+        if (!unknown_ipamResourceDiscoveryId) return value_ipamResourceDiscoveryId;
+        throw new UndeferrableValueException("Value 'VpcIpamResourceDiscoveryAssociation.ipamResourceDiscoveryId' is not present");
     }
 
     /**
      * A boolean to identify if the Resource Discovery is the accounts default resource discovery.
      * 
      */
-    private UndeferrableValue<Boolean> isDefault;
-
+    @PolicyResourceProperty(name="isDefault", flag="unknown_isDefault")
+    private Boolean value_isDefault;
+    private boolean unknown_isDefault;
     public Boolean isDefault() {
-        if (isDefault == null) return null;
-        return isDefault.getValue("VpcIpamResourceDiscoveryAssociation.isDefault");
+        if (!unknown_isDefault) return value_isDefault;
+        throw new UndeferrableValueException("Value 'VpcIpamResourceDiscoveryAssociation.isDefault' is not present");
     }
 
     /**
      * The account ID for the account that manages the Resource Discovery
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("VpcIpamResourceDiscoveryAssociation.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'VpcIpamResourceDiscoveryAssociation.ownerId' is not present");
     }
 
     /**
      * The lifecycle state of the association when you associate or disassociate a resource discovery.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("VpcIpamResourceDiscoveryAssociation.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'VpcIpamResourceDiscoveryAssociation.state' is not present");
     }
 
     /**
      * A map of tags to add to the IPAM resource discovery association resource.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VpcIpamResourceDiscoveryAssociation.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VpcIpamResourceDiscoveryAssociation.tags' is not present");
     }
 
     /**
@@ -121,11 +131,12 @@ public final class VpcIpamResourceDiscoveryAssociation extends com.pulumi.resour
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("VpcIpamResourceDiscoveryAssociation.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'VpcIpamResourceDiscoveryAssociation.tagsAll' is not present");
     }
 
 }

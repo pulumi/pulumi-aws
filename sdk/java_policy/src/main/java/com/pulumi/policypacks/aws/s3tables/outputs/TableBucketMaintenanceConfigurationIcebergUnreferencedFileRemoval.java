@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3tables.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3tables.outputs.TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings;
 import java.lang.String;
 
@@ -15,11 +16,12 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
      * See `iceberg_unreferenced_file_removal.settings` below.
      * 
      */
-    private UndeferrableValue<TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings> settings;
-
+    @PolicyResourceProperty(name="settings", flag="unknown_settings")
+    private TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings value_settings;
+    private boolean unknown_settings;
     public TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings settings() {
-        if (settings == null) return null;
-        return settings.getValue("TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval.settings");
+        if (!unknown_settings) return value_settings;
+        throw new UndeferrableValueException("Value 'TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval.settings' is not present");
     }
 
     /**
@@ -27,11 +29,12 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
      * Valid values are `enabled` and `disabled`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval.status' is not present");
     }
 
 }

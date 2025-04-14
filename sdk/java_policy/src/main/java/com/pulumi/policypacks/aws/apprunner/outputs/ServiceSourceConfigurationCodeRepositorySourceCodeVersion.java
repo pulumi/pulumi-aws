@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class ServiceSourceConfigurationCodeRepositorySourceCodeVersion {
      * Type of version identifier. For a git-based repository, branches represent versions. Valid values: `BRANCH`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ServiceSourceConfigurationCodeRepositorySourceCodeVersion.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationCodeRepositorySourceCodeVersion.type' is not present");
     }
 
     /**
      * Source code version. For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("ServiceSourceConfigurationCodeRepositorySourceCodeVersion.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationCodeRepositorySourceCodeVersion.value' is not present");
     }
 
 }

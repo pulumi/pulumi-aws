@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3control.outputs.ObjectLambdaAccessPointConfigurationTransformationConfiguration;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class ObjectLambdaAccessPointConfiguration {
      * Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> allowedFeatures;
-
+    @PolicyResourceProperty(name="allowedFeatures", flag="unknown_allowedFeatures")
+    private @Nullable List<String> value_allowedFeatures;
+    private boolean unknown_allowedFeatures;
     public @Nullable List<String> allowedFeatures() {
-        if (allowedFeatures == null) return null;
-        return allowedFeatures.getValue("ObjectLambdaAccessPointConfiguration.allowedFeatures");
+        if (!unknown_allowedFeatures) return value_allowedFeatures;
+        throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointConfiguration.allowedFeatures' is not present");
     }
 
     /**
      * Whether or not the CloudWatch metrics configuration is enabled.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> cloudWatchMetricsEnabled;
-
+    @PolicyResourceProperty(name="cloudWatchMetricsEnabled", flag="unknown_cloudWatchMetricsEnabled")
+    private @Nullable Boolean value_cloudWatchMetricsEnabled;
+    private boolean unknown_cloudWatchMetricsEnabled;
     public @Nullable Boolean cloudWatchMetricsEnabled() {
-        if (cloudWatchMetricsEnabled == null) return null;
-        return cloudWatchMetricsEnabled.getValue("ObjectLambdaAccessPointConfiguration.cloudWatchMetricsEnabled");
+        if (!unknown_cloudWatchMetricsEnabled) return value_cloudWatchMetricsEnabled;
+        throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointConfiguration.cloudWatchMetricsEnabled' is not present");
     }
 
     /**
      * Standard access point associated with the Object Lambda Access Point.
      * 
      */
-    private UndeferrableValue<String> supportingAccessPoint;
-
+    @PolicyResourceProperty(name="supportingAccessPoint", flag="unknown_supportingAccessPoint")
+    private String value_supportingAccessPoint;
+    private boolean unknown_supportingAccessPoint;
     public String supportingAccessPoint() {
-        if (supportingAccessPoint == null) return null;
-        return supportingAccessPoint.getValue("ObjectLambdaAccessPointConfiguration.supportingAccessPoint");
+        if (!unknown_supportingAccessPoint) return value_supportingAccessPoint;
+        throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointConfiguration.supportingAccessPoint' is not present");
     }
 
     /**
      * List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
      * 
      */
-    private UndeferrableValue<List<ObjectLambdaAccessPointConfigurationTransformationConfiguration>> transformationConfigurations;
-
+    @PolicyResourceProperty(name="transformationConfigurations", flag="unknown_transformationConfigurations")
+    private List<ObjectLambdaAccessPointConfigurationTransformationConfiguration> value_transformationConfigurations;
+    private boolean unknown_transformationConfigurations;
     public List<ObjectLambdaAccessPointConfigurationTransformationConfiguration> transformationConfigurations() {
-        if (transformationConfigurations == null) return null;
-        return transformationConfigurations.getValue("ObjectLambdaAccessPointConfiguration.transformationConfigurations");
+        if (!unknown_transformationConfigurations) return value_transformationConfigurations;
+        throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointConfiguration.transformationConfigurations' is not present");
     }
 
 }

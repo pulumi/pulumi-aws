@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -18,66 +19,72 @@ public final class VpcIpv6CidrBlockAssociationArgs extends com.pulumi.resources.
      * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_pam_pool_id`, `ipv6_pool`, `ipv6_cidr_block` and `ipv6_netmask_length`.
      * 
      */
-    private UndeferrableValue<Boolean> assignGeneratedIpv6CidrBlock;
-
+    @PolicyResourceProperty(name="assignGeneratedIpv6CidrBlock", flag="unknown_assignGeneratedIpv6CidrBlock")
+    private Boolean value_assignGeneratedIpv6CidrBlock;
+    private boolean unknown_assignGeneratedIpv6CidrBlock;
     public Boolean assignGeneratedIpv6CidrBlock() {
-        if (assignGeneratedIpv6CidrBlock == null) return null;
-        return assignGeneratedIpv6CidrBlock.getValue("VpcIpv6CidrBlockAssociationArgs.assignGeneratedIpv6CidrBlock");
+        if (!unknown_assignGeneratedIpv6CidrBlock) return value_assignGeneratedIpv6CidrBlock;
+        throw new UndeferrableValueException("Value 'VpcIpv6CidrBlockAssociationArgs.assignGeneratedIpv6CidrBlock' is not present");
     }
 
     /**
      * The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and the IPAM pool does not have `allocation_default_netmask` set. Conflicts with `assign_generated_ipv6_cidr_block`.
      * 
      */
-    private UndeferrableValue<String> ipv6CidrBlock;
-
+    @PolicyResourceProperty(name="ipv6CidrBlock", flag="unknown_ipv6CidrBlock")
+    private String value_ipv6CidrBlock;
+    private boolean unknown_ipv6CidrBlock;
     public String ipv6CidrBlock() {
-        if (ipv6CidrBlock == null) return null;
-        return ipv6CidrBlock.getValue("VpcIpv6CidrBlockAssociationArgs.ipv6CidrBlock");
+        if (!unknown_ipv6CidrBlock) return value_ipv6CidrBlock;
+        throw new UndeferrableValueException("Value 'VpcIpv6CidrBlockAssociationArgs.ipv6CidrBlock' is not present");
     }
 
     /**
      * The ID of an IPv6 IPAM pool you want to use for allocating this VPC&#39;s CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Conflict with `assign_generated_ipv6_cidr_block` and `ipv6_pool`.
      * 
      */
-    private UndeferrableValue<String> ipv6IpamPoolId;
-
+    @PolicyResourceProperty(name="ipv6IpamPoolId", flag="unknown_ipv6IpamPoolId")
+    private String value_ipv6IpamPoolId;
+    private boolean unknown_ipv6IpamPoolId;
     public String ipv6IpamPoolId() {
-        if (ipv6IpamPoolId == null) return null;
-        return ipv6IpamPoolId.getValue("VpcIpv6CidrBlockAssociationArgs.ipv6IpamPoolId");
+        if (!unknown_ipv6IpamPoolId) return value_ipv6IpamPoolId;
+        throw new UndeferrableValueException("Value 'VpcIpv6CidrBlockAssociationArgs.ipv6IpamPoolId' is not present");
     }
 
     /**
      * The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6_ipam_pool_id`. This parameter is optional if the IPAM pool has `allocation_default_netmask` set, otherwise it or `ipv6_cidr_block` are required. Conflicts with `ipv6_cidr_block`.
      * 
      */
-    private UndeferrableValue<Integer> ipv6NetmaskLength;
-
+    @PolicyResourceProperty(name="ipv6NetmaskLength", flag="unknown_ipv6NetmaskLength")
+    private Integer value_ipv6NetmaskLength;
+    private boolean unknown_ipv6NetmaskLength;
     public Integer ipv6NetmaskLength() {
-        if (ipv6NetmaskLength == null) return null;
-        return ipv6NetmaskLength.getValue("VpcIpv6CidrBlockAssociationArgs.ipv6NetmaskLength");
+        if (!unknown_ipv6NetmaskLength) return value_ipv6NetmaskLength;
+        throw new UndeferrableValueException("Value 'VpcIpv6CidrBlockAssociationArgs.ipv6NetmaskLength' is not present");
     }
 
     /**
      * The  ID of an IPv6 address pool from which to allocate the IPv6 CIDR block. Conflicts with `assign_generated_ipv6_cidr_block` and `ipv6_pam_pool_id`.
      * 
      */
-    private UndeferrableValue<String> ipv6Pool;
-
+    @PolicyResourceProperty(name="ipv6Pool", flag="unknown_ipv6Pool")
+    private String value_ipv6Pool;
+    private boolean unknown_ipv6Pool;
     public String ipv6Pool() {
-        if (ipv6Pool == null) return null;
-        return ipv6Pool.getValue("VpcIpv6CidrBlockAssociationArgs.ipv6Pool");
+        if (!unknown_ipv6Pool) return value_ipv6Pool;
+        throw new UndeferrableValueException("Value 'VpcIpv6CidrBlockAssociationArgs.ipv6Pool' is not present");
     }
 
     /**
      * The ID of the VPC to make the association with.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("VpcIpv6CidrBlockAssociationArgs.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'VpcIpv6CidrBlockAssociationArgs.vpcId' is not present");
     }
 
 }

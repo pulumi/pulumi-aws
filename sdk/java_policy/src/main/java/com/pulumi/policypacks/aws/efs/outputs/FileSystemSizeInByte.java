@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.efs.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class FileSystemSizeInByte {
      * The latest known metered size (in bytes) of data stored in the file system.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private @Nullable Integer value_value;
+    private boolean unknown_value;
     public @Nullable Integer value() {
-        if (value == null) return null;
-        return value.getValue("FileSystemSizeInByte.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'FileSystemSizeInByte.value' is not present");
     }
 
     /**
      * The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> valueInIa;
-
+    @PolicyResourceProperty(name="valueInIa", flag="unknown_valueInIa")
+    private @Nullable Integer value_valueInIa;
+    private boolean unknown_valueInIa;
     public @Nullable Integer valueInIa() {
-        if (valueInIa == null) return null;
-        return valueInIa.getValue("FileSystemSizeInByte.valueInIa");
+        if (!unknown_valueInIa) return value_valueInIa;
+        throw new UndeferrableValueException("Value 'FileSystemSizeInByte.valueInIa' is not present");
     }
 
     /**
      * The latest known metered size (in bytes) of data stored in the Standard storage class.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> valueInStandard;
-
+    @PolicyResourceProperty(name="valueInStandard", flag="unknown_valueInStandard")
+    private @Nullable Integer value_valueInStandard;
+    private boolean unknown_valueInStandard;
     public @Nullable Integer valueInStandard() {
-        if (valueInStandard == null) return null;
-        return valueInStandard.getValue("FileSystemSizeInByte.valueInStandard");
+        if (!unknown_valueInStandard) return value_valueInStandard;
+        throw new UndeferrableValueException("Value 'FileSystemSizeInByte.valueInStandard' is not present");
     }
 
 }

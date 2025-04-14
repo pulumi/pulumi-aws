@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticache;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,11 +20,12 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Polic
      * When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
      * 
      */
-    private UndeferrableValue<Boolean> automaticFailoverEnabled;
-
+    @PolicyResourceProperty(name="automaticFailoverEnabled", flag="unknown_automaticFailoverEnabled")
+    private Boolean value_automaticFailoverEnabled;
+    private boolean unknown_automaticFailoverEnabled;
     public Boolean automaticFailoverEnabled() {
-        if (automaticFailoverEnabled == null) return null;
-        return automaticFailoverEnabled.getValue("GlobalReplicationGroupArgs.automaticFailoverEnabled");
+        if (!unknown_automaticFailoverEnabled) return value_automaticFailoverEnabled;
+        throw new UndeferrableValueException("Value 'GlobalReplicationGroupArgs.automaticFailoverEnabled' is not present");
     }
 
     /**
@@ -33,11 +35,12 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Polic
      * When creating, by default the Global Replication Group inherits the node type of the primary replication group.
      * 
      */
-    private UndeferrableValue<String> cacheNodeType;
-
+    @PolicyResourceProperty(name="cacheNodeType", flag="unknown_cacheNodeType")
+    private String value_cacheNodeType;
+    private boolean unknown_cacheNodeType;
     public String cacheNodeType() {
-        if (cacheNodeType == null) return null;
-        return cacheNodeType.getValue("GlobalReplicationGroupArgs.cacheNodeType");
+        if (!unknown_cacheNodeType) return value_cacheNodeType;
+        throw new UndeferrableValueException("Value 'GlobalReplicationGroupArgs.cacheNodeType' is not present");
     }
 
     /**
@@ -51,44 +54,48 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Polic
      * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
      * 
      */
-    private UndeferrableValue<String> engineVersion;
-
+    @PolicyResourceProperty(name="engineVersion", flag="unknown_engineVersion")
+    private String value_engineVersion;
+    private boolean unknown_engineVersion;
     public String engineVersion() {
-        if (engineVersion == null) return null;
-        return engineVersion.getValue("GlobalReplicationGroupArgs.engineVersion");
+        if (!unknown_engineVersion) return value_engineVersion;
+        throw new UndeferrableValueException("Value 'GlobalReplicationGroupArgs.engineVersion' is not present");
     }
 
     /**
      * A user-created description for the global replication group.
      * 
      */
-    private UndeferrableValue<String> globalReplicationGroupDescription;
-
+    @PolicyResourceProperty(name="globalReplicationGroupDescription", flag="unknown_globalReplicationGroupDescription")
+    private String value_globalReplicationGroupDescription;
+    private boolean unknown_globalReplicationGroupDescription;
     public String globalReplicationGroupDescription() {
-        if (globalReplicationGroupDescription == null) return null;
-        return globalReplicationGroupDescription.getValue("GlobalReplicationGroupArgs.globalReplicationGroupDescription");
+        if (!unknown_globalReplicationGroupDescription) return value_globalReplicationGroupDescription;
+        throw new UndeferrableValueException("Value 'GlobalReplicationGroupArgs.globalReplicationGroupDescription' is not present");
     }
 
     /**
      * The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
      * 
      */
-    private UndeferrableValue<String> globalReplicationGroupIdSuffix;
-
+    @PolicyResourceProperty(name="globalReplicationGroupIdSuffix", flag="unknown_globalReplicationGroupIdSuffix")
+    private String value_globalReplicationGroupIdSuffix;
+    private boolean unknown_globalReplicationGroupIdSuffix;
     public String globalReplicationGroupIdSuffix() {
-        if (globalReplicationGroupIdSuffix == null) return null;
-        return globalReplicationGroupIdSuffix.getValue("GlobalReplicationGroupArgs.globalReplicationGroupIdSuffix");
+        if (!unknown_globalReplicationGroupIdSuffix) return value_globalReplicationGroupIdSuffix;
+        throw new UndeferrableValueException("Value 'GlobalReplicationGroupArgs.globalReplicationGroupIdSuffix' is not present");
     }
 
     /**
      * The number of node groups (shards) on the global replication group.
      * 
      */
-    private UndeferrableValue<Integer> numNodeGroups;
-
+    @PolicyResourceProperty(name="numNodeGroups", flag="unknown_numNodeGroups")
+    private Integer value_numNodeGroups;
+    private boolean unknown_numNodeGroups;
     public Integer numNodeGroups() {
-        if (numNodeGroups == null) return null;
-        return numNodeGroups.getValue("GlobalReplicationGroupArgs.numNodeGroups");
+        if (!unknown_numNodeGroups) return value_numNodeGroups;
+        throw new UndeferrableValueException("Value 'GlobalReplicationGroupArgs.numNodeGroups' is not present");
     }
 
     /**
@@ -98,22 +105,24 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Polic
      * Note that ElastiCache creates a copy of this parameter group for each member replication group.
      * 
      */
-    private UndeferrableValue<String> parameterGroupName;
-
+    @PolicyResourceProperty(name="parameterGroupName", flag="unknown_parameterGroupName")
+    private String value_parameterGroupName;
+    private boolean unknown_parameterGroupName;
     public String parameterGroupName() {
-        if (parameterGroupName == null) return null;
-        return parameterGroupName.getValue("GlobalReplicationGroupArgs.parameterGroupName");
+        if (!unknown_parameterGroupName) return value_parameterGroupName;
+        throw new UndeferrableValueException("Value 'GlobalReplicationGroupArgs.parameterGroupName' is not present");
     }
 
     /**
      * The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
      * 
      */
-    private UndeferrableValue<String> primaryReplicationGroupId;
-
+    @PolicyResourceProperty(name="primaryReplicationGroupId", flag="unknown_primaryReplicationGroupId")
+    private String value_primaryReplicationGroupId;
+    private boolean unknown_primaryReplicationGroupId;
     public String primaryReplicationGroupId() {
-        if (primaryReplicationGroupId == null) return null;
-        return primaryReplicationGroupId.getValue("GlobalReplicationGroupArgs.primaryReplicationGroupId");
+        if (!unknown_primaryReplicationGroupId) return value_primaryReplicationGroupId;
+        throw new UndeferrableValueException("Value 'GlobalReplicationGroupArgs.primaryReplicationGroupId' is not present");
     }
 
 }

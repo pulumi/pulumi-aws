@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContainsArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeaderArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJsonArgs;
@@ -17,44 +18,48 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      * Configures inspection of the response body. See `body_contains` for more details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContainsArgs> bodyContains;
-
+    @PolicyResourceProperty(name="bodyContains", flag="unknown_bodyContains")
+    private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContainsArgs value_bodyContains;
+    private boolean unknown_bodyContains;
     public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContainsArgs bodyContains() {
-        if (bodyContains == null) return null;
-        return bodyContains.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionArgs.bodyContains");
+        if (!unknown_bodyContains) return value_bodyContains;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionArgs.bodyContains' is not present");
     }
 
     /**
      * Configures inspection of the response header.See `header` for more details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeaderArgs> header;
-
+    @PolicyResourceProperty(name="header", flag="unknown_header")
+    private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeaderArgs value_header;
+    private boolean unknown_header;
     public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeaderArgs header() {
-        if (header == null) return null;
-        return header.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionArgs.header");
+        if (!unknown_header) return value_header;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionArgs.header' is not present");
     }
 
     /**
      * Configures inspection of the response JSON. See `json` for more details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJsonArgs> json;
-
+    @PolicyResourceProperty(name="json", flag="unknown_json")
+    private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJsonArgs value_json;
+    private boolean unknown_json;
     public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJsonArgs json() {
-        if (json == null) return null;
-        return json.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionArgs.json");
+        if (!unknown_json) return value_json;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionArgs.json' is not present");
     }
 
     /**
      * Configures inspection of the response status code.See `status_code` for more details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCodeArgs> statusCode;
-
+    @PolicyResourceProperty(name="statusCode", flag="unknown_statusCode")
+    private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCodeArgs value_statusCode;
+    private boolean unknown_statusCode;
     public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCodeArgs statusCode() {
-        if (statusCode == null) return null;
-        return statusCode.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionArgs.statusCode");
+        if (!unknown_statusCode) return value_statusCode;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionArgs.statusCode' is not present");
     }
 
 }

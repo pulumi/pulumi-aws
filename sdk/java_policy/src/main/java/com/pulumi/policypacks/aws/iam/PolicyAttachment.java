@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,55 +18,60 @@ public final class PolicyAttachment extends com.pulumi.resources.PolicyResourceO
      * Group(s) the policy should be applied to.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> groups;
-
+    @PolicyResourceProperty(name="groups", flag="unknown_groups")
+    private @Nullable List<String> value_groups;
+    private boolean unknown_groups;
     public @Nullable List<String> groups() {
-        if (groups == null) return null;
-        return groups.getValue("PolicyAttachment.groups");
+        if (!unknown_groups) return value_groups;
+        throw new UndeferrableValueException("Value 'PolicyAttachment.groups' is not present");
     }
 
     /**
      * Name of the attachment. This cannot be an empty string.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PolicyAttachment.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PolicyAttachment.name' is not present");
     }
 
     /**
      * ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
      * 
      */
-    private UndeferrableValue<String> policyArn;
-
+    @PolicyResourceProperty(name="policyArn", flag="unknown_policyArn")
+    private String value_policyArn;
+    private boolean unknown_policyArn;
     public String policyArn() {
-        if (policyArn == null) return null;
-        return policyArn.getValue("PolicyAttachment.policyArn");
+        if (!unknown_policyArn) return value_policyArn;
+        throw new UndeferrableValueException("Value 'PolicyAttachment.policyArn' is not present");
     }
 
     /**
      * Role(s) the policy should be applied to.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> roles;
-
+    @PolicyResourceProperty(name="roles", flag="unknown_roles")
+    private @Nullable List<String> value_roles;
+    private boolean unknown_roles;
     public @Nullable List<String> roles() {
-        if (roles == null) return null;
-        return roles.getValue("PolicyAttachment.roles");
+        if (!unknown_roles) return value_roles;
+        throw new UndeferrableValueException("Value 'PolicyAttachment.roles' is not present");
     }
 
     /**
      * User(s) the policy should be applied to.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> users;
-
+    @PolicyResourceProperty(name="users", flag="unknown_users")
+    private @Nullable List<String> value_users;
+    private boolean unknown_users;
     public @Nullable List<String> users() {
-        if (users == null) return null;
-        return users.getValue("PolicyAttachment.users");
+        if (!unknown_users) return value_users;
+        throw new UndeferrableValueException("Value 'PolicyAttachment.users' is not present");
     }
 
 }

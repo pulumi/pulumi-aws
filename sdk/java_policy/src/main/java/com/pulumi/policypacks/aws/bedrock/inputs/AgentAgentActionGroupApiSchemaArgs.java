@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentAgentActionGroupApiSchemaS3Args;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class AgentAgentActionGroupApiSchemaArgs {
      * Only one of `payload` or `s3` can be specified.
      * 
      */
-    private UndeferrableValue<String> payload;
-
+    @PolicyResourceProperty(name="payload", flag="unknown_payload")
+    private String value_payload;
+    private boolean unknown_payload;
     public String payload() {
-        if (payload == null) return null;
-        return payload.getValue("AgentAgentActionGroupApiSchemaArgs.payload");
+        if (!unknown_payload) return value_payload;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupApiSchemaArgs.payload' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class AgentAgentActionGroupApiSchemaArgs {
      * Only one of `s3` or `payload` can be specified.
      * 
      */
-    private UndeferrableValue<AgentAgentActionGroupApiSchemaS3Args> s3;
-
+    @PolicyResourceProperty(name="s3", flag="unknown_s3")
+    private AgentAgentActionGroupApiSchemaS3Args value_s3;
+    private boolean unknown_s3;
     public AgentAgentActionGroupApiSchemaS3Args s3() {
-        if (s3 == null) return null;
-        return s3.getValue("AgentAgentActionGroupApiSchemaArgs.s3");
+        if (!unknown_s3) return value_s3;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupApiSchemaArgs.s3' is not present");
     }
 
 }

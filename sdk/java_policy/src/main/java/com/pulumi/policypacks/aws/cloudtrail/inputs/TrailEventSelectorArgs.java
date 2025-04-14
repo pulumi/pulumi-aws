@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudtrail.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudtrail.inputs.TrailEventSelectorDataResourceArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class TrailEventSelectorArgs {
      * Configuration block for data events. See details below.
      * 
      */
-    private UndeferrableValue<List<TrailEventSelectorDataResourceArgs>> dataResources;
-
+    @PolicyResourceProperty(name="dataResources", flag="unknown_dataResources")
+    private List<TrailEventSelectorDataResourceArgs> value_dataResources;
+    private boolean unknown_dataResources;
     public List<TrailEventSelectorDataResourceArgs> dataResources() {
-        if (dataResources == null) return null;
-        return dataResources.getValue("TrailEventSelectorArgs.dataResources");
+        if (!unknown_dataResources) return value_dataResources;
+        throw new UndeferrableValueException("Value 'TrailEventSelectorArgs.dataResources' is not present");
     }
 
     /**
      * A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `include_management_events` must be set to`true` to allow this.
      * 
      */
-    private UndeferrableValue<List<String>> excludeManagementEventSources;
-
+    @PolicyResourceProperty(name="excludeManagementEventSources", flag="unknown_excludeManagementEventSources")
+    private List<String> value_excludeManagementEventSources;
+    private boolean unknown_excludeManagementEventSources;
     public List<String> excludeManagementEventSources() {
-        if (excludeManagementEventSources == null) return null;
-        return excludeManagementEventSources.getValue("TrailEventSelectorArgs.excludeManagementEventSources");
+        if (!unknown_excludeManagementEventSources) return value_excludeManagementEventSources;
+        throw new UndeferrableValueException("Value 'TrailEventSelectorArgs.excludeManagementEventSources' is not present");
     }
 
     /**
      * Whether to include management events for your trail. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> includeManagementEvents;
-
+    @PolicyResourceProperty(name="includeManagementEvents", flag="unknown_includeManagementEvents")
+    private Boolean value_includeManagementEvents;
+    private boolean unknown_includeManagementEvents;
     public Boolean includeManagementEvents() {
-        if (includeManagementEvents == null) return null;
-        return includeManagementEvents.getValue("TrailEventSelectorArgs.includeManagementEvents");
+        if (!unknown_includeManagementEvents) return value_includeManagementEvents;
+        throw new UndeferrableValueException("Value 'TrailEventSelectorArgs.includeManagementEvents' is not present");
     }
 
     /**
      * Type of events to log. Valid values are `ReadOnly`, `WriteOnly`, `All`. Default value is `All`.
      * 
      */
-    private UndeferrableValue<String> readWriteType;
-
+    @PolicyResourceProperty(name="readWriteType", flag="unknown_readWriteType")
+    private String value_readWriteType;
+    private boolean unknown_readWriteType;
     public String readWriteType() {
-        if (readWriteType == null) return null;
-        return readWriteType.getValue("TrailEventSelectorArgs.readWriteType");
+        if (!unknown_readWriteType) return value_readWriteType;
+        throw new UndeferrableValueException("Value 'TrailEventSelectorArgs.readWriteType' is not present");
     }
 
 }

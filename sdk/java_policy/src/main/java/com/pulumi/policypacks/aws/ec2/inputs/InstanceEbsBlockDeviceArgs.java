@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,121 +18,132 @@ public final class InstanceEbsBlockDeviceArgs {
      * Whether the volume should be destroyed on instance termination. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> deleteOnTermination;
-
+    @PolicyResourceProperty(name="deleteOnTermination", flag="unknown_deleteOnTermination")
+    private Boolean value_deleteOnTermination;
+    private boolean unknown_deleteOnTermination;
     public Boolean deleteOnTermination() {
-        if (deleteOnTermination == null) return null;
-        return deleteOnTermination.getValue("InstanceEbsBlockDeviceArgs.deleteOnTermination");
+        if (!unknown_deleteOnTermination) return value_deleteOnTermination;
+        throw new UndeferrableValueException("Value 'InstanceEbsBlockDeviceArgs.deleteOnTermination' is not present");
     }
 
     /**
      * Name of the device to mount.
      * 
      */
-    private UndeferrableValue<String> deviceName;
-
+    @PolicyResourceProperty(name="deviceName", flag="unknown_deviceName")
+    private String value_deviceName;
+    private boolean unknown_deviceName;
     public String deviceName() {
-        if (deviceName == null) return null;
-        return deviceName.getValue("InstanceEbsBlockDeviceArgs.deviceName");
+        if (!unknown_deviceName) return value_deviceName;
+        throw new UndeferrableValueException("Value 'InstanceEbsBlockDeviceArgs.deviceName' is not present");
     }
 
     /**
      * Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume. Defaults to `false`. Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
      * 
      */
-    private UndeferrableValue<Boolean> encrypted;
-
+    @PolicyResourceProperty(name="encrypted", flag="unknown_encrypted")
+    private Boolean value_encrypted;
+    private boolean unknown_encrypted;
     public Boolean encrypted() {
-        if (encrypted == null) return null;
-        return encrypted.getValue("InstanceEbsBlockDeviceArgs.encrypted");
+        if (!unknown_encrypted) return value_encrypted;
+        throw new UndeferrableValueException("Value 'InstanceEbsBlockDeviceArgs.encrypted' is not present");
     }
 
     /**
      * Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
      * 
      */
-    private UndeferrableValue<Integer> iops;
-
+    @PolicyResourceProperty(name="iops", flag="unknown_iops")
+    private Integer value_iops;
+    private boolean unknown_iops;
     public Integer iops() {
-        if (iops == null) return null;
-        return iops.getValue("InstanceEbsBlockDeviceArgs.iops");
+        if (!unknown_iops) return value_iops;
+        throw new UndeferrableValueException("Value 'InstanceEbsBlockDeviceArgs.iops' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("InstanceEbsBlockDeviceArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'InstanceEbsBlockDeviceArgs.kmsKeyId' is not present");
     }
 
     /**
      * Snapshot ID to mount.
      * 
      */
-    private UndeferrableValue<String> snapshotId;
-
+    @PolicyResourceProperty(name="snapshotId", flag="unknown_snapshotId")
+    private String value_snapshotId;
+    private boolean unknown_snapshotId;
     public String snapshotId() {
-        if (snapshotId == null) return null;
-        return snapshotId.getValue("InstanceEbsBlockDeviceArgs.snapshotId");
+        if (!unknown_snapshotId) return value_snapshotId;
+        throw new UndeferrableValueException("Value 'InstanceEbsBlockDeviceArgs.snapshotId' is not present");
     }
 
     /**
      * Map of tags to assign to the device.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("InstanceEbsBlockDeviceArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'InstanceEbsBlockDeviceArgs.tags' is not present");
     }
 
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("InstanceEbsBlockDeviceArgs.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'InstanceEbsBlockDeviceArgs.tagsAll' is not present");
     }
 
     /**
      * Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
      * 
      */
-    private UndeferrableValue<Integer> throughput;
-
+    @PolicyResourceProperty(name="throughput", flag="unknown_throughput")
+    private Integer value_throughput;
+    private boolean unknown_throughput;
     public Integer throughput() {
-        if (throughput == null) return null;
-        return throughput.getValue("InstanceEbsBlockDeviceArgs.throughput");
+        if (!unknown_throughput) return value_throughput;
+        throw new UndeferrableValueException("Value 'InstanceEbsBlockDeviceArgs.throughput' is not present");
     }
 
     /**
      * ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
      * 
      */
-    private UndeferrableValue<String> volumeId;
-
+    @PolicyResourceProperty(name="volumeId", flag="unknown_volumeId")
+    private String value_volumeId;
+    private boolean unknown_volumeId;
     public String volumeId() {
-        if (volumeId == null) return null;
-        return volumeId.getValue("InstanceEbsBlockDeviceArgs.volumeId");
+        if (!unknown_volumeId) return value_volumeId;
+        throw new UndeferrableValueException("Value 'InstanceEbsBlockDeviceArgs.volumeId' is not present");
     }
 
     /**
      * Size of the volume in gibibytes (GiB).
      * 
      */
-    private UndeferrableValue<Integer> volumeSize;
-
+    @PolicyResourceProperty(name="volumeSize", flag="unknown_volumeSize")
+    private Integer value_volumeSize;
+    private boolean unknown_volumeSize;
     public Integer volumeSize() {
-        if (volumeSize == null) return null;
-        return volumeSize.getValue("InstanceEbsBlockDeviceArgs.volumeSize");
+        if (!unknown_volumeSize) return value_volumeSize;
+        throw new UndeferrableValueException("Value 'InstanceEbsBlockDeviceArgs.volumeSize' is not present");
     }
 
     /**
@@ -140,11 +152,12 @@ public final class InstanceEbsBlockDeviceArgs {
      * &gt; **NOTE:** Currently, changes to the `ebs_block_device` configuration of _existing_ resources cannot be automatically detected by this provider. To manage changes and attachments of an EBS block to an instance, use the `aws.ebs.Volume` and `aws.ec2.VolumeAttachment` resources instead. If you use `ebs_block_device` on an `aws.ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, treating additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `aws.ebs.Volume` and `aws.ec2.VolumeAttachment` resources for a given instance.
      * 
      */
-    private UndeferrableValue<String> volumeType;
-
+    @PolicyResourceProperty(name="volumeType", flag="unknown_volumeType")
+    private String value_volumeType;
+    private boolean unknown_volumeType;
     public String volumeType() {
-        if (volumeType == null) return null;
-        return volumeType.getValue("InstanceEbsBlockDeviceArgs.volumeType");
+        if (!unknown_volumeType) return value_volumeType;
+        throw new UndeferrableValueException("Value 'InstanceEbsBlockDeviceArgs.volumeType' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.customerprofiles.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class DomainMatchingAutoMergingConsolidationArgs {
      * A list of matching criteria.
      * 
      */
-    private UndeferrableValue<List<List<String>>> matchingAttributesLists;
-
+    @PolicyResourceProperty(name="matchingAttributesLists", flag="unknown_matchingAttributesLists")
+    private List<List<String>> value_matchingAttributesLists;
+    private boolean unknown_matchingAttributesLists;
     public List<List<String>> matchingAttributesLists() {
-        if (matchingAttributesLists == null) return null;
-        return matchingAttributesLists.getValue("DomainMatchingAutoMergingConsolidationArgs.matchingAttributesLists");
+        if (!unknown_matchingAttributesLists) return value_matchingAttributesLists;
+        throw new UndeferrableValueException("Value 'DomainMatchingAutoMergingConsolidationArgs.matchingAttributesLists' is not present");
     }
 
 }

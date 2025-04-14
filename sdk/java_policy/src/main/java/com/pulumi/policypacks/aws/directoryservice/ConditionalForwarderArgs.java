@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directoryservice;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class ConditionalForwarderArgs extends com.pulumi.resources.PolicyR
      * ID of directory.
      * 
      */
-    private UndeferrableValue<String> directoryId;
-
+    @PolicyResourceProperty(name="directoryId", flag="unknown_directoryId")
+    private String value_directoryId;
+    private boolean unknown_directoryId;
     public String directoryId() {
-        if (directoryId == null) return null;
-        return directoryId.getValue("ConditionalForwarderArgs.directoryId");
+        if (!unknown_directoryId) return value_directoryId;
+        throw new UndeferrableValueException("Value 'ConditionalForwarderArgs.directoryId' is not present");
     }
 
     /**
      * A list of forwarder IP addresses.
      * 
      */
-    private UndeferrableValue<List<String>> dnsIps;
-
+    @PolicyResourceProperty(name="dnsIps", flag="unknown_dnsIps")
+    private List<String> value_dnsIps;
+    private boolean unknown_dnsIps;
     public List<String> dnsIps() {
-        if (dnsIps == null) return null;
-        return dnsIps.getValue("ConditionalForwarderArgs.dnsIps");
+        if (!unknown_dnsIps) return value_dnsIps;
+        throw new UndeferrableValueException("Value 'ConditionalForwarderArgs.dnsIps' is not present");
     }
 
     /**
      * The fully qualified domain name of the remote domain for which forwarders will be used.
      * 
      */
-    private UndeferrableValue<String> remoteDomainName;
-
+    @PolicyResourceProperty(name="remoteDomainName", flag="unknown_remoteDomainName")
+    private String value_remoteDomainName;
+    private boolean unknown_remoteDomainName;
     public String remoteDomainName() {
-        if (remoteDomainName == null) return null;
-        return remoteDomainName.getValue("ConditionalForwarderArgs.remoteDomainName");
+        if (!unknown_remoteDomainName) return value_remoteDomainName;
+        throw new UndeferrableValueException("Value 'ConditionalForwarderArgs.remoteDomainName' is not present");
     }
 
 }

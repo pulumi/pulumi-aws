@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appconfig.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class EventIntegrationEventFilterArgs {
      * Source of the events.
      * 
      */
-    private UndeferrableValue<String> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private String value_source;
+    private boolean unknown_source;
     public String source() {
-        if (source == null) return null;
-        return source.getValue("EventIntegrationEventFilterArgs.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'EventIntegrationEventFilterArgs.source' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.devicefarm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,44 +17,48 @@ public final class UploadArgs extends com.pulumi.resources.PolicyResourceInput {
      * The upload&#39;s content type (for example, application/octet-stream).
      * 
      */
-    private UndeferrableValue<String> contentType;
-
+    @PolicyResourceProperty(name="contentType", flag="unknown_contentType")
+    private String value_contentType;
+    private boolean unknown_contentType;
     public String contentType() {
-        if (contentType == null) return null;
-        return contentType.getValue("UploadArgs.contentType");
+        if (!unknown_contentType) return value_contentType;
+        throw new UndeferrableValueException("Value 'UploadArgs.contentType' is not present");
     }
 
     /**
      * The upload&#39;s file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("UploadArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'UploadArgs.name' is not present");
     }
 
     /**
      * The ARN of the project for the upload.
      * 
      */
-    private UndeferrableValue<String> projectArn;
-
+    @PolicyResourceProperty(name="projectArn", flag="unknown_projectArn")
+    private String value_projectArn;
+    private boolean unknown_projectArn;
     public String projectArn() {
-        if (projectArn == null) return null;
-        return projectArn.getValue("UploadArgs.projectArn");
+        if (!unknown_projectArn) return value_projectArn;
+        throw new UndeferrableValueException("Value 'UploadArgs.projectArn' is not present");
     }
 
     /**
      * The upload&#39;s upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("UploadArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'UploadArgs.type' is not present");
     }
 
 }

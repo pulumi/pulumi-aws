@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,18 +16,20 @@ public final class ModelPackageGroupPolicyArgs extends com.pulumi.resources.Poli
      * The name of the model package group.
      * 
      */
-    private UndeferrableValue<String> modelPackageGroupName;
-
+    @PolicyResourceProperty(name="modelPackageGroupName", flag="unknown_modelPackageGroupName")
+    private String value_modelPackageGroupName;
+    private boolean unknown_modelPackageGroupName;
     public String modelPackageGroupName() {
-        if (modelPackageGroupName == null) return null;
-        return modelPackageGroupName.getValue("ModelPackageGroupPolicyArgs.modelPackageGroupName");
+        if (!unknown_modelPackageGroupName) return value_modelPackageGroupName;
+        throw new UndeferrableValueException("Value 'ModelPackageGroupPolicyArgs.modelPackageGroupName' is not present");
     }
 
-    private UndeferrableValue<String> resourcePolicy;
-
+    @PolicyResourceProperty(name="resourcePolicy", flag="unknown_resourcePolicy")
+    private String value_resourcePolicy;
+    private boolean unknown_resourcePolicy;
     public String resourcePolicy() {
-        if (resourcePolicy == null) return null;
-        return resourcePolicy.getValue("ModelPackageGroupPolicyArgs.resourcePolicy");
+        if (!unknown_resourcePolicy) return value_resourcePolicy;
+        throw new UndeferrableValueException("Value 'ModelPackageGroupPolicyArgs.resourcePolicy' is not present");
     }
 
 }

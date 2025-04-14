@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,22 +17,24 @@ public final class GatewayArgs extends com.pulumi.resources.PolicyResourceInput 
      * The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
      * 
      */
-    private UndeferrableValue<String> amazonSideAsn;
-
+    @PolicyResourceProperty(name="amazonSideAsn", flag="unknown_amazonSideAsn")
+    private String value_amazonSideAsn;
+    private boolean unknown_amazonSideAsn;
     public String amazonSideAsn() {
-        if (amazonSideAsn == null) return null;
-        return amazonSideAsn.getValue("GatewayArgs.amazonSideAsn");
+        if (!unknown_amazonSideAsn) return value_amazonSideAsn;
+        throw new UndeferrableValueException("Value 'GatewayArgs.amazonSideAsn' is not present");
     }
 
     /**
      * The name of the connection.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("GatewayArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'GatewayArgs.name' is not present");
     }
 
 }

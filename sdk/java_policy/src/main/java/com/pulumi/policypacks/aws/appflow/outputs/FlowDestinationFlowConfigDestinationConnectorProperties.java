@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector;
 import com.pulumi.policypacks.aws.appflow.outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles;
 import com.pulumi.policypacks.aws.appflow.outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge;
@@ -26,139 +27,152 @@ public final class FlowDestinationFlowConfigDestinationConnectorProperties {
      * Properties that are required to query the custom Connector. See Custom Connector Destination Properties for more details.
      * 
      */
-    private @Nullable UndeferrableValue<FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector> customConnector;
-
+    @PolicyResourceProperty(name="customConnector", flag="unknown_customConnector")
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector value_customConnector;
+    private boolean unknown_customConnector;
     public @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector customConnector() {
-        if (customConnector == null) return null;
-        return customConnector.getValue("FlowDestinationFlowConfigDestinationConnectorProperties.customConnector");
+        if (!unknown_customConnector) return value_customConnector;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.customConnector' is not present");
     }
 
     /**
      * Properties that are required to query Amazon Connect Customer Profiles. See Customer Profiles Destination Properties for more details.
      * 
      */
-    private @Nullable UndeferrableValue<FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles> customerProfiles;
-
+    @PolicyResourceProperty(name="customerProfiles", flag="unknown_customerProfiles")
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles value_customerProfiles;
+    private boolean unknown_customerProfiles;
     public @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles customerProfiles() {
-        if (customerProfiles == null) return null;
-        return customerProfiles.getValue("FlowDestinationFlowConfigDestinationConnectorProperties.customerProfiles");
+        if (!unknown_customerProfiles) return value_customerProfiles;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.customerProfiles' is not present");
     }
 
     /**
      * Properties that are required to query Amazon EventBridge. See Generic Destination Properties for more details.
      * 
      */
-    private @Nullable UndeferrableValue<FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge> eventBridge;
-
+    @PolicyResourceProperty(name="eventBridge", flag="unknown_eventBridge")
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge value_eventBridge;
+    private boolean unknown_eventBridge;
     public @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge eventBridge() {
-        if (eventBridge == null) return null;
-        return eventBridge.getValue("FlowDestinationFlowConfigDestinationConnectorProperties.eventBridge");
+        if (!unknown_eventBridge) return value_eventBridge;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.eventBridge' is not present");
     }
 
     /**
      * Properties that are required to query Amazon Honeycode. See Generic Destination Properties for more details.
      * 
      */
-    private @Nullable UndeferrableValue<FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode> honeycode;
-
+    @PolicyResourceProperty(name="honeycode", flag="unknown_honeycode")
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode value_honeycode;
+    private boolean unknown_honeycode;
     public @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode honeycode() {
-        if (honeycode == null) return null;
-        return honeycode.getValue("FlowDestinationFlowConfigDestinationConnectorProperties.honeycode");
+        if (!unknown_honeycode) return value_honeycode;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.honeycode' is not present");
     }
 
-    private @Nullable UndeferrableValue<FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics> lookoutMetrics;
-
+    @PolicyResourceProperty(name="lookoutMetrics", flag="unknown_lookoutMetrics")
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics value_lookoutMetrics;
+    private boolean unknown_lookoutMetrics;
     public @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics lookoutMetrics() {
-        if (lookoutMetrics == null) return null;
-        return lookoutMetrics.getValue("FlowDestinationFlowConfigDestinationConnectorProperties.lookoutMetrics");
+        if (!unknown_lookoutMetrics) return value_lookoutMetrics;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.lookoutMetrics' is not present");
     }
 
     /**
      * Properties that are required to query Marketo. See Generic Destination Properties for more details.
      * 
      */
-    private @Nullable UndeferrableValue<FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo> marketo;
-
+    @PolicyResourceProperty(name="marketo", flag="unknown_marketo")
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo value_marketo;
+    private boolean unknown_marketo;
     public @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo marketo() {
-        if (marketo == null) return null;
-        return marketo.getValue("FlowDestinationFlowConfigDestinationConnectorProperties.marketo");
+        if (!unknown_marketo) return value_marketo;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.marketo' is not present");
     }
 
     /**
      * Properties that are required to query Amazon Redshift. See Redshift Destination Properties for more details.
      * 
      */
-    private @Nullable UndeferrableValue<FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift> redshift;
-
+    @PolicyResourceProperty(name="redshift", flag="unknown_redshift")
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift value_redshift;
+    private boolean unknown_redshift;
     public @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift redshift() {
-        if (redshift == null) return null;
-        return redshift.getValue("FlowDestinationFlowConfigDestinationConnectorProperties.redshift");
+        if (!unknown_redshift) return value_redshift;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.redshift' is not present");
     }
 
     /**
      * Properties that are required to query Amazon S3. See S3 Destination Properties for more details.
      * 
      */
-    private @Nullable UndeferrableValue<FlowDestinationFlowConfigDestinationConnectorPropertiesS3> s3;
-
+    @PolicyResourceProperty(name="s3", flag="unknown_s3")
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3 value_s3;
+    private boolean unknown_s3;
     public @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3 s3() {
-        if (s3 == null) return null;
-        return s3.getValue("FlowDestinationFlowConfigDestinationConnectorProperties.s3");
+        if (!unknown_s3) return value_s3;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.s3' is not present");
     }
 
     /**
      * Properties that are required to query Salesforce. See Salesforce Destination Properties for more details.
      * 
      */
-    private @Nullable UndeferrableValue<FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce> salesforce;
-
+    @PolicyResourceProperty(name="salesforce", flag="unknown_salesforce")
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce value_salesforce;
+    private boolean unknown_salesforce;
     public @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce salesforce() {
-        if (salesforce == null) return null;
-        return salesforce.getValue("FlowDestinationFlowConfigDestinationConnectorProperties.salesforce");
+        if (!unknown_salesforce) return value_salesforce;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.salesforce' is not present");
     }
 
     /**
      * Properties that are required to query SAPOData. See SAPOData Destination Properties for more details.
      * 
      */
-    private @Nullable UndeferrableValue<FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData> sapoData;
-
+    @PolicyResourceProperty(name="sapoData", flag="unknown_sapoData")
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData value_sapoData;
+    private boolean unknown_sapoData;
     public @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData sapoData() {
-        if (sapoData == null) return null;
-        return sapoData.getValue("FlowDestinationFlowConfigDestinationConnectorProperties.sapoData");
+        if (!unknown_sapoData) return value_sapoData;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.sapoData' is not present");
     }
 
     /**
      * Properties that are required to query Snowflake. See Snowflake Destination Properties for more details.
      * 
      */
-    private @Nullable UndeferrableValue<FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake> snowflake;
-
+    @PolicyResourceProperty(name="snowflake", flag="unknown_snowflake")
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake value_snowflake;
+    private boolean unknown_snowflake;
     public @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake snowflake() {
-        if (snowflake == null) return null;
-        return snowflake.getValue("FlowDestinationFlowConfigDestinationConnectorProperties.snowflake");
+        if (!unknown_snowflake) return value_snowflake;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.snowflake' is not present");
     }
 
     /**
      * Properties that are required to query Upsolver. See Upsolver Destination Properties for more details.
      * 
      */
-    private @Nullable UndeferrableValue<FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver> upsolver;
-
+    @PolicyResourceProperty(name="upsolver", flag="unknown_upsolver")
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver value_upsolver;
+    private boolean unknown_upsolver;
     public @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver upsolver() {
-        if (upsolver == null) return null;
-        return upsolver.getValue("FlowDestinationFlowConfigDestinationConnectorProperties.upsolver");
+        if (!unknown_upsolver) return value_upsolver;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.upsolver' is not present");
     }
 
     /**
      * Properties that are required to query Zendesk. See Zendesk Destination Properties for more details.
      * 
      */
-    private @Nullable UndeferrableValue<FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk> zendesk;
-
+    @PolicyResourceProperty(name="zendesk", flag="unknown_zendesk")
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk value_zendesk;
+    private boolean unknown_zendesk;
     public @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk zendesk() {
-        if (zendesk == null) return null;
-        return zendesk.getValue("FlowDestinationFlowConfigDestinationConnectorProperties.zendesk");
+        if (!unknown_zendesk) return value_zendesk;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorProperties.zendesk' is not present");
     }
 
 }

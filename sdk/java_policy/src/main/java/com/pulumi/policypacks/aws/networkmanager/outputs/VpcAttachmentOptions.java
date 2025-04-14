@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -16,11 +17,12 @@ public final class VpcAttachmentOptions {
      * If the VPC attachment is pending acceptance, changing this value will recreate the resource.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> applianceModeSupport;
-
+    @PolicyResourceProperty(name="applianceModeSupport", flag="unknown_applianceModeSupport")
+    private @Nullable Boolean value_applianceModeSupport;
+    private boolean unknown_applianceModeSupport;
     public @Nullable Boolean applianceModeSupport() {
-        if (applianceModeSupport == null) return null;
-        return applianceModeSupport.getValue("VpcAttachmentOptions.applianceModeSupport");
+        if (!unknown_applianceModeSupport) return value_applianceModeSupport;
+        throw new UndeferrableValueException("Value 'VpcAttachmentOptions.applianceModeSupport' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class VpcAttachmentOptions {
      * If the VPC attachment is pending acceptance, changing this value will recreate the resource.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> ipv6Support;
-
+    @PolicyResourceProperty(name="ipv6Support", flag="unknown_ipv6Support")
+    private @Nullable Boolean value_ipv6Support;
+    private boolean unknown_ipv6Support;
     public @Nullable Boolean ipv6Support() {
-        if (ipv6Support == null) return null;
-        return ipv6Support.getValue("VpcAttachmentOptions.ipv6Support");
+        if (!unknown_ipv6Support) return value_ipv6Support;
+        throw new UndeferrableValueException("Value 'VpcAttachmentOptions.ipv6Support' is not present");
     }
 
 }

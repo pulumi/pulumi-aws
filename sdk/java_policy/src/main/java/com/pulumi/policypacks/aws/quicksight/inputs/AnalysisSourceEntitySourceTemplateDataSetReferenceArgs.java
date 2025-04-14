@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class AnalysisSourceEntitySourceTemplateDataSetReferenceArgs {
      * Dataset Amazon Resource Name (ARN).
      * 
      */
-    private UndeferrableValue<String> dataSetArn;
-
+    @PolicyResourceProperty(name="dataSetArn", flag="unknown_dataSetArn")
+    private String value_dataSetArn;
+    private boolean unknown_dataSetArn;
     public String dataSetArn() {
-        if (dataSetArn == null) return null;
-        return dataSetArn.getValue("AnalysisSourceEntitySourceTemplateDataSetReferenceArgs.dataSetArn");
+        if (!unknown_dataSetArn) return value_dataSetArn;
+        throw new UndeferrableValueException("Value 'AnalysisSourceEntitySourceTemplateDataSetReferenceArgs.dataSetArn' is not present");
     }
 
     /**
      * Dataset placeholder.
      * 
      */
-    private UndeferrableValue<String> dataSetPlaceholder;
-
+    @PolicyResourceProperty(name="dataSetPlaceholder", flag="unknown_dataSetPlaceholder")
+    private String value_dataSetPlaceholder;
+    private boolean unknown_dataSetPlaceholder;
     public String dataSetPlaceholder() {
-        if (dataSetPlaceholder == null) return null;
-        return dataSetPlaceholder.getValue("AnalysisSourceEntitySourceTemplateDataSetReferenceArgs.dataSetPlaceholder");
+        if (!unknown_dataSetPlaceholder) return value_dataSetPlaceholder;
+        throw new UndeferrableValueException("Value 'AnalysisSourceEntitySourceTemplateDataSetReferenceArgs.dataSetPlaceholder' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.identitystore.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class UserPhoneNumbers {
      * When `true`, this is the primary phone number associated with the user.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> primary;
-
+    @PolicyResourceProperty(name="primary", flag="unknown_primary")
+    private @Nullable Boolean value_primary;
+    private boolean unknown_primary;
     public @Nullable Boolean primary() {
-        if (primary == null) return null;
-        return primary.getValue("UserPhoneNumbers.primary");
+        if (!unknown_primary) return value_primary;
+        throw new UndeferrableValueException("Value 'UserPhoneNumbers.primary' is not present");
     }
 
     /**
      * The type of phone number.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("UserPhoneNumbers.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'UserPhoneNumbers.type' is not present");
     }
 
     /**
      * The user&#39;s phone number.
      * 
      */
-    private @Nullable UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private @Nullable String value_value;
+    private boolean unknown_value;
     public @Nullable String value() {
-        if (value == null) return null;
-        return value.getValue("UserPhoneNumbers.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'UserPhoneNumbers.value' is not present");
     }
 
 }

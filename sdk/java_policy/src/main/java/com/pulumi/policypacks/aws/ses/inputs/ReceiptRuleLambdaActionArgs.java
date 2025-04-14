@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ses.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class ReceiptRuleLambdaActionArgs {
      * The ARN of the Lambda function to invoke
      * 
      */
-    private UndeferrableValue<String> functionArn;
-
+    @PolicyResourceProperty(name="functionArn", flag="unknown_functionArn")
+    private String value_functionArn;
+    private boolean unknown_functionArn;
     public String functionArn() {
-        if (functionArn == null) return null;
-        return functionArn.getValue("ReceiptRuleLambdaActionArgs.functionArn");
+        if (!unknown_functionArn) return value_functionArn;
+        throw new UndeferrableValueException("Value 'ReceiptRuleLambdaActionArgs.functionArn' is not present");
     }
 
     /**
      * `Event` or `RequestResponse`
      * 
      */
-    private UndeferrableValue<String> invocationType;
-
+    @PolicyResourceProperty(name="invocationType", flag="unknown_invocationType")
+    private String value_invocationType;
+    private boolean unknown_invocationType;
     public String invocationType() {
-        if (invocationType == null) return null;
-        return invocationType.getValue("ReceiptRuleLambdaActionArgs.invocationType");
+        if (!unknown_invocationType) return value_invocationType;
+        throw new UndeferrableValueException("Value 'ReceiptRuleLambdaActionArgs.invocationType' is not present");
     }
 
     /**
      * The position of the action in the receipt rule
      * 
      */
-    private UndeferrableValue<Integer> position;
-
+    @PolicyResourceProperty(name="position", flag="unknown_position")
+    private Integer value_position;
+    private boolean unknown_position;
     public Integer position() {
-        if (position == null) return null;
-        return position.getValue("ReceiptRuleLambdaActionArgs.position");
+        if (!unknown_position) return value_position;
+        throw new UndeferrableValueException("Value 'ReceiptRuleLambdaActionArgs.position' is not present");
     }
 
     /**
      * The ARN of an SNS topic to notify
      * 
      */
-    private UndeferrableValue<String> topicArn;
-
+    @PolicyResourceProperty(name="topicArn", flag="unknown_topicArn")
+    private String value_topicArn;
+    private boolean unknown_topicArn;
     public String topicArn() {
-        if (topicArn == null) return null;
-        return topicArn.getValue("ReceiptRuleLambdaActionArgs.topicArn");
+        if (!unknown_topicArn) return value_topicArn;
+        throw new UndeferrableValueException("Value 'ReceiptRuleLambdaActionArgs.topicArn' is not present");
     }
 
 }

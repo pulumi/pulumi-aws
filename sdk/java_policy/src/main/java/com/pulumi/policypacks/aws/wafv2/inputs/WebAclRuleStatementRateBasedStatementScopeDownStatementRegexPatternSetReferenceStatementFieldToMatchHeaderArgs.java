@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs;
 import java.lang.String;
 
@@ -14,33 +15,36 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexP
      * The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs> matchPattern;
-
+    @PolicyResourceProperty(name="matchPattern", flag="unknown_matchPattern")
+    private WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs value_matchPattern;
+    private boolean unknown_matchPattern;
     public WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs matchPattern() {
-        if (matchPattern == null) return null;
-        return matchPattern.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs.matchPattern");
+        if (!unknown_matchPattern) return value_matchPattern;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs.matchPattern' is not present");
     }
 
     /**
      * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
      * 
      */
-    private UndeferrableValue<String> matchScope;
-
+    @PolicyResourceProperty(name="matchScope", flag="unknown_matchScope")
+    private String value_matchScope;
+    private boolean unknown_matchScope;
     public String matchScope() {
-        if (matchScope == null) return null;
-        return matchScope.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs.matchScope");
+        if (!unknown_matchScope) return value_matchScope;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs.matchScope' is not present");
     }
 
     /**
      * Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
      * 
      */
-    private UndeferrableValue<String> oversizeHandling;
-
+    @PolicyResourceProperty(name="oversizeHandling", flag="unknown_oversizeHandling")
+    private String value_oversizeHandling;
+    private boolean unknown_oversizeHandling;
     public String oversizeHandling() {
-        if (oversizeHandling == null) return null;
-        return oversizeHandling.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs.oversizeHandling");
+        if (!unknown_oversizeHandling) return value_oversizeHandling;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs.oversizeHandling' is not present");
     }
 
 }

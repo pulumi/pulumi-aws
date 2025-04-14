@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
      * Default value to use when a user doesn&#39;t provide a value for a slot.
      * 
      */
-    private UndeferrableValue<String> defaultValue;
-
+    @PolicyResourceProperty(name="defaultValue", flag="unknown_defaultValue")
+    private String value_defaultValue;
+    private boolean unknown_defaultValue;
     public String defaultValue() {
-        if (defaultValue == null) return null;
-        return defaultValue.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList.defaultValue");
+        if (!unknown_defaultValue) return value_defaultValue;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList.defaultValue' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeade
      * One of `csv_content_types` or `json_content_types` is required.
      * 
      */
-    private UndeferrableValue<List<String>> csvContentTypes;
-
+    @PolicyResourceProperty(name="csvContentTypes", flag="unknown_csvContentTypes")
+    private List<String> value_csvContentTypes;
+    private boolean unknown_csvContentTypes;
     public List<String> csvContentTypes() {
-        if (csvContentTypes == null) return null;
-        return csvContentTypes.getValue("EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs.csvContentTypes");
+        if (!unknown_csvContentTypes) return value_csvContentTypes;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs.csvContentTypes' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeade
      * One of `json_content_types` or `csv_content_types` is required.
      * 
      */
-    private UndeferrableValue<List<String>> jsonContentTypes;
-
+    @PolicyResourceProperty(name="jsonContentTypes", flag="unknown_jsonContentTypes")
+    private List<String> value_jsonContentTypes;
+    private boolean unknown_jsonContentTypes;
     public List<String> jsonContentTypes() {
-        if (jsonContentTypes == null) return null;
-        return jsonContentTypes.getValue("EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs.jsonContentTypes");
+        if (!unknown_jsonContentTypes) return value_jsonContentTypes;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs.jsonContentTypes' is not present");
     }
 
 }

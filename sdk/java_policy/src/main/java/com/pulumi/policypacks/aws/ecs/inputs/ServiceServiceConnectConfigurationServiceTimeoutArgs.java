@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ServiceServiceConnectConfigurationServiceTimeoutArgs {
      * Amount of time in seconds a connection will stay active while idle. A value of 0 can be set to disable idleTimeout.
      * 
      */
-    private UndeferrableValue<Integer> idleTimeoutSeconds;
-
+    @PolicyResourceProperty(name="idleTimeoutSeconds", flag="unknown_idleTimeoutSeconds")
+    private Integer value_idleTimeoutSeconds;
+    private boolean unknown_idleTimeoutSeconds;
     public Integer idleTimeoutSeconds() {
-        if (idleTimeoutSeconds == null) return null;
-        return idleTimeoutSeconds.getValue("ServiceServiceConnectConfigurationServiceTimeoutArgs.idleTimeoutSeconds");
+        if (!unknown_idleTimeoutSeconds) return value_idleTimeoutSeconds;
+        throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationServiceTimeoutArgs.idleTimeoutSeconds' is not present");
     }
 
     /**
      * Amount of time in seconds for the upstream to respond with a complete response per request. A value of 0 can be set to disable perRequestTimeout. Can only be set when appProtocol isn&#39;t TCP.
      * 
      */
-    private UndeferrableValue<Integer> perRequestTimeoutSeconds;
-
+    @PolicyResourceProperty(name="perRequestTimeoutSeconds", flag="unknown_perRequestTimeoutSeconds")
+    private Integer value_perRequestTimeoutSeconds;
+    private boolean unknown_perRequestTimeoutSeconds;
     public Integer perRequestTimeoutSeconds() {
-        if (perRequestTimeoutSeconds == null) return null;
-        return perRequestTimeoutSeconds.getValue("ServiceServiceConnectConfigurationServiceTimeoutArgs.perRequestTimeoutSeconds");
+        if (!unknown_perRequestTimeoutSeconds) return value_perRequestTimeoutSeconds;
+        throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationServiceTimeoutArgs.perRequestTimeoutSeconds' is not present");
     }
 
 }

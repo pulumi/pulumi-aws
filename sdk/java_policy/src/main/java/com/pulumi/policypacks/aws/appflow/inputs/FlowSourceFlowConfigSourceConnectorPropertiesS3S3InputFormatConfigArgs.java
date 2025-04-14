@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatC
      * File type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
      * 
      */
-    private UndeferrableValue<String> s3InputFileType;
-
+    @PolicyResourceProperty(name="s3InputFileType", flag="unknown_s3InputFileType")
+    private String value_s3InputFileType;
+    private boolean unknown_s3InputFileType;
     public String s3InputFileType() {
-        if (s3InputFileType == null) return null;
-        return s3InputFileType.getValue("FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs.s3InputFileType");
+        if (!unknown_s3InputFileType) return value_s3InputFileType;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs.s3InputFileType' is not present");
     }
 
 }

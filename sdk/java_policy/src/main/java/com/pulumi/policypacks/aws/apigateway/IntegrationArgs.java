@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.apigateway.inputs.IntegrationTlsConfigArgs;
 import java.lang.Integer;
@@ -20,66 +21,72 @@ public final class IntegrationArgs extends com.pulumi.resources.PolicyResourceIn
      * List of cache key parameters for the integration.
      * 
      */
-    private UndeferrableValue<List<String>> cacheKeyParameters;
-
+    @PolicyResourceProperty(name="cacheKeyParameters", flag="unknown_cacheKeyParameters")
+    private List<String> value_cacheKeyParameters;
+    private boolean unknown_cacheKeyParameters;
     public List<String> cacheKeyParameters() {
-        if (cacheKeyParameters == null) return null;
-        return cacheKeyParameters.getValue("IntegrationArgs.cacheKeyParameters");
+        if (!unknown_cacheKeyParameters) return value_cacheKeyParameters;
+        throw new UndeferrableValueException("Value 'IntegrationArgs.cacheKeyParameters' is not present");
     }
 
     /**
      * Integration&#39;s cache namespace.
      * 
      */
-    private UndeferrableValue<String> cacheNamespace;
-
+    @PolicyResourceProperty(name="cacheNamespace", flag="unknown_cacheNamespace")
+    private String value_cacheNamespace;
+    private boolean unknown_cacheNamespace;
     public String cacheNamespace() {
-        if (cacheNamespace == null) return null;
-        return cacheNamespace.getValue("IntegrationArgs.cacheNamespace");
+        if (!unknown_cacheNamespace) return value_cacheNamespace;
+        throw new UndeferrableValueException("Value 'IntegrationArgs.cacheNamespace' is not present");
     }
 
     /**
      * ID of the VpcLink used for the integration. **Required** if `connection_type` is `VPC_LINK`
      * 
      */
-    private UndeferrableValue<String> connectionId;
-
+    @PolicyResourceProperty(name="connectionId", flag="unknown_connectionId")
+    private String value_connectionId;
+    private boolean unknown_connectionId;
     public String connectionId() {
-        if (connectionId == null) return null;
-        return connectionId.getValue("IntegrationArgs.connectionId");
+        if (!unknown_connectionId) return value_connectionId;
+        throw new UndeferrableValueException("Value 'IntegrationArgs.connectionId' is not present");
     }
 
     /**
      * Integration input&#39;s [connectionType](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#connectionType). Valid values are `INTERNET` (default for connections through the public routable internet), and `VPC_LINK` (for private connections between API Gateway and a network load balancer in a VPC).
      * 
      */
-    private UndeferrableValue<String> connectionType;
-
+    @PolicyResourceProperty(name="connectionType", flag="unknown_connectionType")
+    private String value_connectionType;
+    private boolean unknown_connectionType;
     public String connectionType() {
-        if (connectionType == null) return null;
-        return connectionType.getValue("IntegrationArgs.connectionType");
+        if (!unknown_connectionType) return value_connectionType;
+        throw new UndeferrableValueException("Value 'IntegrationArgs.connectionType' is not present");
     }
 
     /**
      * How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the passthroughBehaviors is configured to support payload pass-through.
      * 
      */
-    private UndeferrableValue<String> contentHandling;
-
+    @PolicyResourceProperty(name="contentHandling", flag="unknown_contentHandling")
+    private String value_contentHandling;
+    private boolean unknown_contentHandling;
     public String contentHandling() {
-        if (contentHandling == null) return null;
-        return contentHandling.getValue("IntegrationArgs.contentHandling");
+        if (!unknown_contentHandling) return value_contentHandling;
+        throw new UndeferrableValueException("Value 'IntegrationArgs.contentHandling' is not present");
     }
 
     /**
      * Credentials required for the integration. For `AWS` integrations, 2 options are available. To specify an IAM Role for Amazon API Gateway to assume, use the role&#39;s ARN. To require that the caller&#39;s identity be passed through from the request, specify the string `arn:aws:iam::\*:user/\*`.
      * 
      */
-    private UndeferrableValue<String> credentials;
-
+    @PolicyResourceProperty(name="credentials", flag="unknown_credentials")
+    private String value_credentials;
+    private boolean unknown_credentials;
     public String credentials() {
-        if (credentials == null) return null;
-        return credentials.getValue("IntegrationArgs.credentials");
+        if (!unknown_credentials) return value_credentials;
+        throw new UndeferrableValueException("Value 'IntegrationArgs.credentials' is not present");
     }
 
     /**
@@ -87,11 +94,12 @@ public final class IntegrationArgs extends com.pulumi.resources.PolicyResourceIn
      * when calling the associated resource.
      * 
      */
-    private UndeferrableValue<String> httpMethod;
-
+    @PolicyResourceProperty(name="httpMethod", flag="unknown_httpMethod")
+    private String value_httpMethod;
+    private boolean unknown_httpMethod;
     public String httpMethod() {
-        if (httpMethod == null) return null;
-        return httpMethod.getValue("IntegrationArgs.httpMethod");
+        if (!unknown_httpMethod) return value_httpMethod;
+        throw new UndeferrableValueException("Value 'IntegrationArgs.httpMethod' is not present");
     }
 
     /**
@@ -102,22 +110,24 @@ public final class IntegrationArgs extends com.pulumi.resources.PolicyResourceIn
      * e.g., Lambda function [can only be invoked](https://github.com/awslabs/aws-apigateway-importer/issues/9#issuecomment-129651005) via `POST`.
      * 
      */
-    private UndeferrableValue<String> integrationHttpMethod;
-
+    @PolicyResourceProperty(name="integrationHttpMethod", flag="unknown_integrationHttpMethod")
+    private String value_integrationHttpMethod;
+    private boolean unknown_integrationHttpMethod;
     public String integrationHttpMethod() {
-        if (integrationHttpMethod == null) return null;
-        return integrationHttpMethod.getValue("IntegrationArgs.integrationHttpMethod");
+        if (!unknown_integrationHttpMethod) return value_integrationHttpMethod;
+        throw new UndeferrableValueException("Value 'IntegrationArgs.integrationHttpMethod' is not present");
     }
 
     /**
      * Integration passthrough behavior (`WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`).  **Required** if `request_templates` is used.
      * 
      */
-    private UndeferrableValue<String> passthroughBehavior;
-
+    @PolicyResourceProperty(name="passthroughBehavior", flag="unknown_passthroughBehavior")
+    private String value_passthroughBehavior;
+    private boolean unknown_passthroughBehavior;
     public String passthroughBehavior() {
-        if (passthroughBehavior == null) return null;
-        return passthroughBehavior.getValue("IntegrationArgs.passthroughBehavior");
+        if (!unknown_passthroughBehavior) return value_passthroughBehavior;
+        throw new UndeferrableValueException("Value 'IntegrationArgs.passthroughBehavior' is not present");
     }
 
     /**
@@ -125,77 +135,84 @@ public final class IntegrationArgs extends com.pulumi.resources.PolicyResourceIn
      * For example: `request_parameters = { &#34;integration.request.header.X-Some-Other-Header&#34; = &#34;method.request.header.X-Some-Header&#34; }`
      * 
      */
-    private UndeferrableValue<Map<String,String>> requestParameters;
-
+    @PolicyResourceProperty(name="requestParameters", flag="unknown_requestParameters")
+    private Map<String,String> value_requestParameters;
+    private boolean unknown_requestParameters;
     public Map<String,String> requestParameters() {
-        if (requestParameters == null) return null;
-        return requestParameters.getValue("IntegrationArgs.requestParameters");
+        if (!unknown_requestParameters) return value_requestParameters;
+        throw new UndeferrableValueException("Value 'IntegrationArgs.requestParameters' is not present");
     }
 
     /**
      * Map of the integration&#39;s request templates.
      * 
      */
-    private UndeferrableValue<Map<String,String>> requestTemplates;
-
+    @PolicyResourceProperty(name="requestTemplates", flag="unknown_requestTemplates")
+    private Map<String,String> value_requestTemplates;
+    private boolean unknown_requestTemplates;
     public Map<String,String> requestTemplates() {
-        if (requestTemplates == null) return null;
-        return requestTemplates.getValue("IntegrationArgs.requestTemplates");
+        if (!unknown_requestTemplates) return value_requestTemplates;
+        throw new UndeferrableValueException("Value 'IntegrationArgs.requestTemplates' is not present");
     }
 
     /**
      * API resource ID.
      * 
      */
-    private UndeferrableValue<String> resourceId;
-
+    @PolicyResourceProperty(name="resourceId", flag="unknown_resourceId")
+    private String value_resourceId;
+    private boolean unknown_resourceId;
     public String resourceId() {
-        if (resourceId == null) return null;
-        return resourceId.getValue("IntegrationArgs.resourceId");
+        if (!unknown_resourceId) return value_resourceId;
+        throw new UndeferrableValueException("Value 'IntegrationArgs.resourceId' is not present");
     }
 
     /**
      * ID of the associated REST API.
      * 
      */
-    private UndeferrableValue<String> restApi;
-
+    @PolicyResourceProperty(name="restApi", flag="unknown_restApi")
+    private String value_restApi;
+    private boolean unknown_restApi;
     public String restApi() {
-        if (restApi == null) return null;
-        return restApi.getValue("IntegrationArgs.restApi");
+        if (!unknown_restApi) return value_restApi;
+        throw new UndeferrableValueException("Value 'IntegrationArgs.restApi' is not present");
     }
 
     /**
      * Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
      * 
      */
-    private UndeferrableValue<Integer> timeoutMilliseconds;
-
+    @PolicyResourceProperty(name="timeoutMilliseconds", flag="unknown_timeoutMilliseconds")
+    private Integer value_timeoutMilliseconds;
+    private boolean unknown_timeoutMilliseconds;
     public Integer timeoutMilliseconds() {
-        if (timeoutMilliseconds == null) return null;
-        return timeoutMilliseconds.getValue("IntegrationArgs.timeoutMilliseconds");
+        if (!unknown_timeoutMilliseconds) return value_timeoutMilliseconds;
+        throw new UndeferrableValueException("Value 'IntegrationArgs.timeoutMilliseconds' is not present");
     }
 
     /**
      * TLS configuration. See below.
      * 
      */
-    private UndeferrableValue<IntegrationTlsConfigArgs> tlsConfig;
-
+    @PolicyResourceProperty(name="tlsConfig", flag="unknown_tlsConfig")
+    private IntegrationTlsConfigArgs value_tlsConfig;
+    private boolean unknown_tlsConfig;
     public IntegrationTlsConfigArgs tlsConfig() {
-        if (tlsConfig == null) return null;
-        return tlsConfig.getValue("IntegrationArgs.tlsConfig");
+        if (!unknown_tlsConfig) return value_tlsConfig;
+        throw new UndeferrableValueException("Value 'IntegrationArgs.tlsConfig' is not present");
     }
 
     /**
      * Integration input&#39;s [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("IntegrationArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'IntegrationArgs.type' is not present");
     }
 
     /**
@@ -204,11 +221,12 @@ public final class IntegrationArgs extends com.pulumi.resources.PolicyResourceIn
      * e.g., `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:123456789012:function:my-func/invocations`. For private integrations, the URI parameter is not used for routing requests to your endpoint, but is used for setting the Host header and for certificate validation.
      * 
      */
-    private UndeferrableValue<String> uri;
-
+    @PolicyResourceProperty(name="uri", flag="unknown_uri")
+    private String value_uri;
+    private boolean unknown_uri;
     public String uri() {
-        if (uri == null) return null;
-        return uri.getValue("IntegrationArgs.uri");
+        if (!unknown_uri) return value_uri;
+        throw new UndeferrableValueException("Value 'IntegrationArgs.uri' is not present");
     }
 
 }

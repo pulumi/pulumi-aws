@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,88 +18,96 @@ public final class DedicatedHostArgs extends com.pulumi.resources.PolicyResource
      * The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
      * 
      */
-    private UndeferrableValue<String> assetId;
-
+    @PolicyResourceProperty(name="assetId", flag="unknown_assetId")
+    private String value_assetId;
+    private boolean unknown_assetId;
     public String assetId() {
-        if (assetId == null) return null;
-        return assetId.getValue("DedicatedHostArgs.assetId");
+        if (!unknown_assetId) return value_assetId;
+        throw new UndeferrableValueException("Value 'DedicatedHostArgs.assetId' is not present");
     }
 
     /**
      * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
      * 
      */
-    private UndeferrableValue<String> autoPlacement;
-
+    @PolicyResourceProperty(name="autoPlacement", flag="unknown_autoPlacement")
+    private String value_autoPlacement;
+    private boolean unknown_autoPlacement;
     public String autoPlacement() {
-        if (autoPlacement == null) return null;
-        return autoPlacement.getValue("DedicatedHostArgs.autoPlacement");
+        if (!unknown_autoPlacement) return value_autoPlacement;
+        throw new UndeferrableValueException("Value 'DedicatedHostArgs.autoPlacement' is not present");
     }
 
     /**
      * The Availability Zone in which to allocate the Dedicated Host.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("DedicatedHostArgs.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'DedicatedHostArgs.availabilityZone' is not present");
     }
 
     /**
      * Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
      * 
      */
-    private UndeferrableValue<String> hostRecovery;
-
+    @PolicyResourceProperty(name="hostRecovery", flag="unknown_hostRecovery")
+    private String value_hostRecovery;
+    private boolean unknown_hostRecovery;
     public String hostRecovery() {
-        if (hostRecovery == null) return null;
-        return hostRecovery.getValue("DedicatedHostArgs.hostRecovery");
+        if (!unknown_hostRecovery) return value_hostRecovery;
+        throw new UndeferrableValueException("Value 'DedicatedHostArgs.hostRecovery' is not present");
     }
 
     /**
      * Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instance_family` or `instance_type` must be specified.
      * 
      */
-    private UndeferrableValue<String> instanceFamily;
-
+    @PolicyResourceProperty(name="instanceFamily", flag="unknown_instanceFamily")
+    private String value_instanceFamily;
+    private boolean unknown_instanceFamily;
     public String instanceFamily() {
-        if (instanceFamily == null) return null;
-        return instanceFamily.getValue("DedicatedHostArgs.instanceFamily");
+        if (!unknown_instanceFamily) return value_instanceFamily;
+        throw new UndeferrableValueException("Value 'DedicatedHostArgs.instanceFamily' is not present");
     }
 
     /**
      * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("DedicatedHostArgs.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'DedicatedHostArgs.instanceType' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
      * 
      */
-    private UndeferrableValue<String> outpostArn;
-
+    @PolicyResourceProperty(name="outpostArn", flag="unknown_outpostArn")
+    private String value_outpostArn;
+    private boolean unknown_outpostArn;
     public String outpostArn() {
-        if (outpostArn == null) return null;
-        return outpostArn.getValue("DedicatedHostArgs.outpostArn");
+        if (!unknown_outpostArn) return value_outpostArn;
+        throw new UndeferrableValueException("Value 'DedicatedHostArgs.outpostArn' is not present");
     }
 
     /**
      * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DedicatedHostArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DedicatedHostArgs.tags' is not present");
     }
 
 }

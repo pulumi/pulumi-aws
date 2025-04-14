@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.autoscaling.outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric;
 import com.pulumi.policypacks.aws.autoscaling.outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension;
 import java.lang.Integer;
@@ -18,77 +19,84 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
      * Dimensions of the metric.
      * 
      */
-    private @Nullable UndeferrableValue<List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension>> metricDimensions;
-
+    @PolicyResourceProperty(name="metricDimensions", flag="unknown_metricDimensions")
+    private @Nullable List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension> value_metricDimensions;
+    private boolean unknown_metricDimensions;
     public @Nullable List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension> metricDimensions() {
-        if (metricDimensions == null) return null;
-        return metricDimensions.getValue("PolicyTargetTrackingConfigurationCustomizedMetricSpecification.metricDimensions");
+        if (!unknown_metricDimensions) return value_metricDimensions;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecification.metricDimensions' is not present");
     }
 
     /**
      * Name of the metric.
      * 
      */
-    private @Nullable UndeferrableValue<String> metricName;
-
+    @PolicyResourceProperty(name="metricName", flag="unknown_metricName")
+    private @Nullable String value_metricName;
+    private boolean unknown_metricName;
     public @Nullable String metricName() {
-        if (metricName == null) return null;
-        return metricName.getValue("PolicyTargetTrackingConfigurationCustomizedMetricSpecification.metricName");
+        if (!unknown_metricName) return value_metricName;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecification.metricName' is not present");
     }
 
     /**
      * Metrics to include, as a metric data query.
      * 
      */
-    private @Nullable UndeferrableValue<List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric>> metrics;
-
+    @PolicyResourceProperty(name="metrics", flag="unknown_metrics")
+    private @Nullable List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric> value_metrics;
+    private boolean unknown_metrics;
     public @Nullable List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric> metrics() {
-        if (metrics == null) return null;
-        return metrics.getValue("PolicyTargetTrackingConfigurationCustomizedMetricSpecification.metrics");
+        if (!unknown_metrics) return value_metrics;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecification.metrics' is not present");
     }
 
     /**
      * Namespace of the metric.
      * 
      */
-    private @Nullable UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private @Nullable String value_namespace;
+    private boolean unknown_namespace;
     public @Nullable String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("PolicyTargetTrackingConfigurationCustomizedMetricSpecification.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecification.namespace' is not present");
     }
 
     /**
      * The period of the metric in seconds.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> period;
-
+    @PolicyResourceProperty(name="period", flag="unknown_period")
+    private @Nullable Integer value_period;
+    private boolean unknown_period;
     public @Nullable Integer period() {
-        if (period == null) return null;
-        return period.getValue("PolicyTargetTrackingConfigurationCustomizedMetricSpecification.period");
+        if (!unknown_period) return value_period;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecification.period' is not present");
     }
 
     /**
      * Statistic of the metric.
      * 
      */
-    private @Nullable UndeferrableValue<String> statistic;
-
+    @PolicyResourceProperty(name="statistic", flag="unknown_statistic")
+    private @Nullable String value_statistic;
+    private boolean unknown_statistic;
     public @Nullable String statistic() {
-        if (statistic == null) return null;
-        return statistic.getValue("PolicyTargetTrackingConfigurationCustomizedMetricSpecification.statistic");
+        if (!unknown_statistic) return value_statistic;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecification.statistic' is not present");
     }
 
     /**
      * Unit of the metric.
      * 
      */
-    private @Nullable UndeferrableValue<String> unit;
-
+    @PolicyResourceProperty(name="unit", flag="unknown_unit")
+    private @Nullable String value_unit;
+    private boolean unknown_unit;
     public @Nullable String unit() {
-        if (unit == null) return null;
-        return unit.getValue("PolicyTargetTrackingConfigurationCustomizedMetricSpecification.unit");
+        if (!unknown_unit) return value_unit;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecification.unit' is not present");
     }
 
 }

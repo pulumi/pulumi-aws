@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.msk.inputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs
      * Configuration block for specifying a client authentication. See below.
      * 
      */
-    private UndeferrableValue<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs> clientAuthentication;
-
+    @PolicyResourceProperty(name="clientAuthentication", flag="unknown_clientAuthentication")
+    private ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs value_clientAuthentication;
+    private boolean unknown_clientAuthentication;
     public ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs clientAuthentication() {
-        if (clientAuthentication == null) return null;
-        return clientAuthentication.getValue("ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs.clientAuthentication");
+        if (!unknown_clientAuthentication) return value_clientAuthentication;
+        throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs.clientAuthentication' is not present");
     }
 
 }

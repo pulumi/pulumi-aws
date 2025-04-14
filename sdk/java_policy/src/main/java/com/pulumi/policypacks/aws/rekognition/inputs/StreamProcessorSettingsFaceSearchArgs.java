@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rekognition.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class StreamProcessorSettingsFaceSearchArgs {
      * ID of a collection that contains faces that you want to search for.
      * 
      */
-    private UndeferrableValue<String> collectionId;
-
+    @PolicyResourceProperty(name="collectionId", flag="unknown_collectionId")
+    private String value_collectionId;
+    private boolean unknown_collectionId;
     public String collectionId() {
-        if (collectionId == null) return null;
-        return collectionId.getValue("StreamProcessorSettingsFaceSearchArgs.collectionId");
+        if (!unknown_collectionId) return value_collectionId;
+        throw new UndeferrableValueException("Value 'StreamProcessorSettingsFaceSearchArgs.collectionId' is not present");
     }
 
     /**
      * Minimum face match confidence score that must be met to return a result for a recognized face.
      * 
      */
-    private UndeferrableValue<Double> faceMatchThreshold;
-
+    @PolicyResourceProperty(name="faceMatchThreshold", flag="unknown_faceMatchThreshold")
+    private Double value_faceMatchThreshold;
+    private boolean unknown_faceMatchThreshold;
     public Double faceMatchThreshold() {
-        if (faceMatchThreshold == null) return null;
-        return faceMatchThreshold.getValue("StreamProcessorSettingsFaceSearchArgs.faceMatchThreshold");
+        if (!unknown_faceMatchThreshold) return value_faceMatchThreshold;
+        throw new UndeferrableValueException("Value 'StreamProcessorSettingsFaceSearchArgs.faceMatchThreshold' is not present");
     }
 
 }

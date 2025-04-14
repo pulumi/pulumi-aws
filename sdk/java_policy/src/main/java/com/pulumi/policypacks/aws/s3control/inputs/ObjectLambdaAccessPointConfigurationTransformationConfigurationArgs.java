@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3control.inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs;
 import java.lang.String;
 import java.util.List;
@@ -15,22 +16,24 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
      * The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
      * 
      */
-    private UndeferrableValue<List<String>> actions;
-
+    @PolicyResourceProperty(name="actions", flag="unknown_actions")
+    private List<String> value_actions;
+    private boolean unknown_actions;
     public List<String> actions() {
-        if (actions == null) return null;
-        return actions.getValue("ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs.actions");
+        if (!unknown_actions) return value_actions;
+        throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs.actions' is not present");
     }
 
     /**
      * The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
      * 
      */
-    private UndeferrableValue<ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs> contentTransformation;
-
+    @PolicyResourceProperty(name="contentTransformation", flag="unknown_contentTransformation")
+    private ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs value_contentTransformation;
+    private boolean unknown_contentTransformation;
     public ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs contentTransformation() {
-        if (contentTransformation == null) return null;
-        return contentTransformation.getValue("ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs.contentTransformation");
+        if (!unknown_contentTransformation) return value_contentTransformation;
+        throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs.contentTransformation' is not present");
     }
 
 }

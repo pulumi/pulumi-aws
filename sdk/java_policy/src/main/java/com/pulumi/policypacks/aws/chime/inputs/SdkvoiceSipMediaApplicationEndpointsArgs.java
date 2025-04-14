@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chime.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class SdkvoiceSipMediaApplicationEndpointsArgs {
      * Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
      * 
      */
-    private UndeferrableValue<String> lambdaArn;
-
+    @PolicyResourceProperty(name="lambdaArn", flag="unknown_lambdaArn")
+    private String value_lambdaArn;
+    private boolean unknown_lambdaArn;
     public String lambdaArn() {
-        if (lambdaArn == null) return null;
-        return lambdaArn.getValue("SdkvoiceSipMediaApplicationEndpointsArgs.lambdaArn");
+        if (!unknown_lambdaArn) return value_lambdaArn;
+        throw new UndeferrableValueException("Value 'SdkvoiceSipMediaApplicationEndpointsArgs.lambdaArn' is not present");
     }
 
 }

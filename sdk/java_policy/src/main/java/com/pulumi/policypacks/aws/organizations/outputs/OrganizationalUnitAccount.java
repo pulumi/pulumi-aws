@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.organizations.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class OrganizationalUnitAccount {
      * ARN of the organizational unit
      * 
      */
-    private @Nullable UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private @Nullable String value_arn;
+    private boolean unknown_arn;
     public @Nullable String arn() {
-        if (arn == null) return null;
-        return arn.getValue("OrganizationalUnitAccount.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'OrganizationalUnitAccount.arn' is not present");
     }
 
     /**
      * Email of the account
      * 
      */
-    private @Nullable UndeferrableValue<String> email;
-
+    @PolicyResourceProperty(name="email", flag="unknown_email")
+    private @Nullable String value_email;
+    private boolean unknown_email;
     public @Nullable String email() {
-        if (email == null) return null;
-        return email.getValue("OrganizationalUnitAccount.email");
+        if (!unknown_email) return value_email;
+        throw new UndeferrableValueException("Value 'OrganizationalUnitAccount.email' is not present");
     }
 
     /**
      * Identifier of the organization unit
      * 
      */
-    private @Nullable UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private @Nullable String value_id;
+    private boolean unknown_id;
     public @Nullable String id() {
-        if (id == null) return null;
-        return id.getValue("OrganizationalUnitAccount.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'OrganizationalUnitAccount.id' is not present");
     }
 
     /**
      * The name for the organizational unit
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("OrganizationalUnitAccount.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'OrganizationalUnitAccount.name' is not present");
     }
 
 }

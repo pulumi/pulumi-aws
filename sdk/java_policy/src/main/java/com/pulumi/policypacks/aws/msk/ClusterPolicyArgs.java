@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class ClusterPolicyArgs extends com.pulumi.resources.PolicyResource
      * The Amazon Resource Name (ARN) that uniquely identifies the cluster.
      * 
      */
-    private UndeferrableValue<String> clusterArn;
-
+    @PolicyResourceProperty(name="clusterArn", flag="unknown_clusterArn")
+    private String value_clusterArn;
+    private boolean unknown_clusterArn;
     public String clusterArn() {
-        if (clusterArn == null) return null;
-        return clusterArn.getValue("ClusterPolicyArgs.clusterArn");
+        if (!unknown_clusterArn) return value_clusterArn;
+        throw new UndeferrableValueException("Value 'ClusterPolicyArgs.clusterArn' is not present");
     }
 
     /**
      * Resource policy for cluster.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("ClusterPolicyArgs.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'ClusterPolicyArgs.policy' is not present");
     }
 
 }

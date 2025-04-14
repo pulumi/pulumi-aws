@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.comprehend.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.comprehend.inputs.EntityRecognizerInputDataConfigAnnotationsArgs;
 import com.pulumi.policypacks.aws.comprehend.inputs.EntityRecognizerInputDataConfigAugmentedManifestArgs;
 import com.pulumi.policypacks.aws.comprehend.inputs.EntityRecognizerInputDataConfigDocumentsArgs;
@@ -22,11 +23,12 @@ public final class EntityRecognizerInputDataConfigArgs {
      * One of `annotations` or `entity_list` is required.
      * 
      */
-    private UndeferrableValue<EntityRecognizerInputDataConfigAnnotationsArgs> annotations;
-
+    @PolicyResourceProperty(name="annotations", flag="unknown_annotations")
+    private EntityRecognizerInputDataConfigAnnotationsArgs value_annotations;
+    private boolean unknown_annotations;
     public EntityRecognizerInputDataConfigAnnotationsArgs annotations() {
-        if (annotations == null) return null;
-        return annotations.getValue("EntityRecognizerInputDataConfigArgs.annotations");
+        if (!unknown_annotations) return value_annotations;
+        throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfigArgs.annotations' is not present");
     }
 
     /**
@@ -35,11 +37,12 @@ public final class EntityRecognizerInputDataConfigArgs {
      * See the `augmented_manifests` Configuration Block section below.
      * 
      */
-    private UndeferrableValue<List<EntityRecognizerInputDataConfigAugmentedManifestArgs>> augmentedManifests;
-
+    @PolicyResourceProperty(name="augmentedManifests", flag="unknown_augmentedManifests")
+    private List<EntityRecognizerInputDataConfigAugmentedManifestArgs> value_augmentedManifests;
+    private boolean unknown_augmentedManifests;
     public List<EntityRecognizerInputDataConfigAugmentedManifestArgs> augmentedManifests() {
-        if (augmentedManifests == null) return null;
-        return augmentedManifests.getValue("EntityRecognizerInputDataConfigArgs.augmentedManifests");
+        if (!unknown_augmentedManifests) return value_augmentedManifests;
+        throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfigArgs.augmentedManifests' is not present");
     }
 
     /**
@@ -47,11 +50,12 @@ public final class EntityRecognizerInputDataConfigArgs {
      * One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
      * 
      */
-    private UndeferrableValue<String> dataFormat;
-
+    @PolicyResourceProperty(name="dataFormat", flag="unknown_dataFormat")
+    private String value_dataFormat;
+    private boolean unknown_dataFormat;
     public String dataFormat() {
-        if (dataFormat == null) return null;
-        return dataFormat.getValue("EntityRecognizerInputDataConfigArgs.dataFormat");
+        if (!unknown_dataFormat) return value_dataFormat;
+        throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfigArgs.dataFormat' is not present");
     }
 
     /**
@@ -60,11 +64,12 @@ public final class EntityRecognizerInputDataConfigArgs {
      * See the `documents` Configuration Block section below.
      * 
      */
-    private UndeferrableValue<EntityRecognizerInputDataConfigDocumentsArgs> documents;
-
+    @PolicyResourceProperty(name="documents", flag="unknown_documents")
+    private EntityRecognizerInputDataConfigDocumentsArgs value_documents;
+    private boolean unknown_documents;
     public EntityRecognizerInputDataConfigDocumentsArgs documents() {
-        if (documents == null) return null;
-        return documents.getValue("EntityRecognizerInputDataConfigArgs.documents");
+        if (!unknown_documents) return value_documents;
+        throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfigArgs.documents' is not present");
     }
 
     /**
@@ -73,11 +78,12 @@ public final class EntityRecognizerInputDataConfigArgs {
      * One of `entity_list` or `annotations` is required.
      * 
      */
-    private UndeferrableValue<EntityRecognizerInputDataConfigEntityListArgs> entityList;
-
+    @PolicyResourceProperty(name="entityList", flag="unknown_entityList")
+    private EntityRecognizerInputDataConfigEntityListArgs value_entityList;
+    private boolean unknown_entityList;
     public EntityRecognizerInputDataConfigEntityListArgs entityList() {
-        if (entityList == null) return null;
-        return entityList.getValue("EntityRecognizerInputDataConfigArgs.entityList");
+        if (!unknown_entityList) return value_entityList;
+        throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfigArgs.entityList' is not present");
     }
 
     /**
@@ -86,11 +92,12 @@ public final class EntityRecognizerInputDataConfigArgs {
      * See the `entity_types` Configuration Block section below.
      * 
      */
-    private UndeferrableValue<List<EntityRecognizerInputDataConfigEntityTypeArgs>> entityTypes;
-
+    @PolicyResourceProperty(name="entityTypes", flag="unknown_entityTypes")
+    private List<EntityRecognizerInputDataConfigEntityTypeArgs> value_entityTypes;
+    private boolean unknown_entityTypes;
     public List<EntityRecognizerInputDataConfigEntityTypeArgs> entityTypes() {
-        if (entityTypes == null) return null;
-        return entityTypes.getValue("EntityRecognizerInputDataConfigArgs.entityTypes");
+        if (!unknown_entityTypes) return value_entityTypes;
+        throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfigArgs.entityTypes' is not present");
     }
 
 }

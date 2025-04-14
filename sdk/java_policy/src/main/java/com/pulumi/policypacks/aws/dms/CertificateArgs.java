@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dms;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -19,44 +20,48 @@ public final class CertificateArgs extends com.pulumi.resources.PolicyResourceIn
      * - Must contain from 1 to 255 alphanumeric characters and hyphens.
      * 
      */
-    private UndeferrableValue<String> certificateId;
-
+    @PolicyResourceProperty(name="certificateId", flag="unknown_certificateId")
+    private String value_certificateId;
+    private boolean unknown_certificateId;
     public String certificateId() {
-        if (certificateId == null) return null;
-        return certificateId.getValue("CertificateArgs.certificateId");
+        if (!unknown_certificateId) return value_certificateId;
+        throw new UndeferrableValueException("Value 'CertificateArgs.certificateId' is not present");
     }
 
     /**
      * The contents of the .pem X.509 certificate file for the certificate. Either `certificate_pem` or `certificate_wallet` must be set.
      * 
      */
-    private UndeferrableValue<String> certificatePem;
-
+    @PolicyResourceProperty(name="certificatePem", flag="unknown_certificatePem")
+    private String value_certificatePem;
+    private boolean unknown_certificatePem;
     public String certificatePem() {
-        if (certificatePem == null) return null;
-        return certificatePem.getValue("CertificateArgs.certificatePem");
+        if (!unknown_certificatePem) return value_certificatePem;
+        throw new UndeferrableValueException("Value 'CertificateArgs.certificatePem' is not present");
     }
 
     /**
      * The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificate_pem` or `certificate_wallet` must be set.
      * 
      */
-    private UndeferrableValue<String> certificateWallet;
-
+    @PolicyResourceProperty(name="certificateWallet", flag="unknown_certificateWallet")
+    private String value_certificateWallet;
+    private boolean unknown_certificateWallet;
     public String certificateWallet() {
-        if (certificateWallet == null) return null;
-        return certificateWallet.getValue("CertificateArgs.certificateWallet");
+        if (!unknown_certificateWallet) return value_certificateWallet;
+        throw new UndeferrableValueException("Value 'CertificateArgs.certificateWallet' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CertificateArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CertificateArgs.tags' is not present");
     }
 
 }

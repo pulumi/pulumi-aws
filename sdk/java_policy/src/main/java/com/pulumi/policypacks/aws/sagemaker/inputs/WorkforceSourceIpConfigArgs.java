@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class WorkforceSourceIpConfigArgs {
      * A list of up to 10 CIDR values.
      * 
      */
-    private UndeferrableValue<List<String>> cidrs;
-
+    @PolicyResourceProperty(name="cidrs", flag="unknown_cidrs")
+    private List<String> value_cidrs;
+    private boolean unknown_cidrs;
     public List<String> cidrs() {
-        if (cidrs == null) return null;
-        return cidrs.getValue("WorkforceSourceIpConfigArgs.cidrs");
+        if (!unknown_cidrs) return value_cidrs;
+        throw new UndeferrableValueException("Value 'WorkforceSourceIpConfigArgs.cidrs' is not present");
     }
 
 }

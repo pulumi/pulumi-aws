@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.workspaces;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.workspaces.inputs.DirectorySamlPropertiesArgs;
 import com.pulumi.policypacks.aws.workspaces.inputs.DirectorySelfServicePermissionsArgs;
@@ -22,88 +23,96 @@ public final class DirectoryArgs extends com.pulumi.resources.PolicyResourceInpu
      * The directory identifier for registration in WorkSpaces service.
      * 
      */
-    private UndeferrableValue<String> directoryId;
-
+    @PolicyResourceProperty(name="directoryId", flag="unknown_directoryId")
+    private String value_directoryId;
+    private boolean unknown_directoryId;
     public String directoryId() {
-        if (directoryId == null) return null;
-        return directoryId.getValue("DirectoryArgs.directoryId");
+        if (!unknown_directoryId) return value_directoryId;
+        throw new UndeferrableValueException("Value 'DirectoryArgs.directoryId' is not present");
     }
 
     /**
      * The identifiers of the IP access control groups associated with the directory.
      * 
      */
-    private UndeferrableValue<List<String>> ipGroupIds;
-
+    @PolicyResourceProperty(name="ipGroupIds", flag="unknown_ipGroupIds")
+    private List<String> value_ipGroupIds;
+    private boolean unknown_ipGroupIds;
     public List<String> ipGroupIds() {
-        if (ipGroupIds == null) return null;
-        return ipGroupIds.getValue("DirectoryArgs.ipGroupIds");
+        if (!unknown_ipGroupIds) return value_ipGroupIds;
+        throw new UndeferrableValueException("Value 'DirectoryArgs.ipGroupIds' is not present");
     }
 
     /**
      * Configuration of SAML authentication integration. Defined below.
      * 
      */
-    private UndeferrableValue<DirectorySamlPropertiesArgs> samlProperties;
-
+    @PolicyResourceProperty(name="samlProperties", flag="unknown_samlProperties")
+    private DirectorySamlPropertiesArgs value_samlProperties;
+    private boolean unknown_samlProperties;
     public DirectorySamlPropertiesArgs samlProperties() {
-        if (samlProperties == null) return null;
-        return samlProperties.getValue("DirectoryArgs.samlProperties");
+        if (!unknown_samlProperties) return value_samlProperties;
+        throw new UndeferrableValueException("Value 'DirectoryArgs.samlProperties' is not present");
     }
 
     /**
      * Permissions to enable or disable self-service capabilities. Defined below.
      * 
      */
-    private UndeferrableValue<DirectorySelfServicePermissionsArgs> selfServicePermissions;
-
+    @PolicyResourceProperty(name="selfServicePermissions", flag="unknown_selfServicePermissions")
+    private DirectorySelfServicePermissionsArgs value_selfServicePermissions;
+    private boolean unknown_selfServicePermissions;
     public DirectorySelfServicePermissionsArgs selfServicePermissions() {
-        if (selfServicePermissions == null) return null;
-        return selfServicePermissions.getValue("DirectoryArgs.selfServicePermissions");
+        if (!unknown_selfServicePermissions) return value_selfServicePermissions;
+        throw new UndeferrableValueException("Value 'DirectoryArgs.selfServicePermissions' is not present");
     }
 
     /**
      * The identifiers of the subnets where the directory resides.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("DirectoryArgs.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'DirectoryArgs.subnetIds' is not present");
     }
 
     /**
      * A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DirectoryArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DirectoryArgs.tags' is not present");
     }
 
     /**
      * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      * 
      */
-    private UndeferrableValue<DirectoryWorkspaceAccessPropertiesArgs> workspaceAccessProperties;
-
+    @PolicyResourceProperty(name="workspaceAccessProperties", flag="unknown_workspaceAccessProperties")
+    private DirectoryWorkspaceAccessPropertiesArgs value_workspaceAccessProperties;
+    private boolean unknown_workspaceAccessProperties;
     public DirectoryWorkspaceAccessPropertiesArgs workspaceAccessProperties() {
-        if (workspaceAccessProperties == null) return null;
-        return workspaceAccessProperties.getValue("DirectoryArgs.workspaceAccessProperties");
+        if (!unknown_workspaceAccessProperties) return value_workspaceAccessProperties;
+        throw new UndeferrableValueException("Value 'DirectoryArgs.workspaceAccessProperties' is not present");
     }
 
     /**
      * Default properties that are used for creating WorkSpaces. Defined below.
      * 
      */
-    private UndeferrableValue<DirectoryWorkspaceCreationPropertiesArgs> workspaceCreationProperties;
-
+    @PolicyResourceProperty(name="workspaceCreationProperties", flag="unknown_workspaceCreationProperties")
+    private DirectoryWorkspaceCreationPropertiesArgs value_workspaceCreationProperties;
+    private boolean unknown_workspaceCreationProperties;
     public DirectoryWorkspaceCreationPropertiesArgs workspaceCreationProperties() {
-        if (workspaceCreationProperties == null) return null;
-        return workspaceCreationProperties.getValue("DirectoryArgs.workspaceCreationProperties");
+        if (!unknown_workspaceCreationProperties) return value_workspaceCreationProperties;
+        throw new UndeferrableValueException("Value 'DirectoryArgs.workspaceCreationProperties' is not present");
     }
 
 }

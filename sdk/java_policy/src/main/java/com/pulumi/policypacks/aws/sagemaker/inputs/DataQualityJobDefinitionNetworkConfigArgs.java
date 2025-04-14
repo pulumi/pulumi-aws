@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.DataQualityJobDefinitionNetworkConfigVpcConfigArgs;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class DataQualityJobDefinitionNetworkConfigArgs {
      * Whether to encrypt all communications between the instances used for the monitoring jobs. Choose `true` to encrypt communications. Encryption provides greater security for distributed jobs, but the processing might take longer.
      * 
      */
-    private UndeferrableValue<Boolean> enableInterContainerTrafficEncryption;
-
+    @PolicyResourceProperty(name="enableInterContainerTrafficEncryption", flag="unknown_enableInterContainerTrafficEncryption")
+    private Boolean value_enableInterContainerTrafficEncryption;
+    private boolean unknown_enableInterContainerTrafficEncryption;
     public Boolean enableInterContainerTrafficEncryption() {
-        if (enableInterContainerTrafficEncryption == null) return null;
-        return enableInterContainerTrafficEncryption.getValue("DataQualityJobDefinitionNetworkConfigArgs.enableInterContainerTrafficEncryption");
+        if (!unknown_enableInterContainerTrafficEncryption) return value_enableInterContainerTrafficEncryption;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionNetworkConfigArgs.enableInterContainerTrafficEncryption' is not present");
     }
 
     /**
      * Whether to allow inbound and outbound network calls to and from the containers used for the monitoring job.
      * 
      */
-    private UndeferrableValue<Boolean> enableNetworkIsolation;
-
+    @PolicyResourceProperty(name="enableNetworkIsolation", flag="unknown_enableNetworkIsolation")
+    private Boolean value_enableNetworkIsolation;
+    private boolean unknown_enableNetworkIsolation;
     public Boolean enableNetworkIsolation() {
-        if (enableNetworkIsolation == null) return null;
-        return enableNetworkIsolation.getValue("DataQualityJobDefinitionNetworkConfigArgs.enableNetworkIsolation");
+        if (!unknown_enableNetworkIsolation) return value_enableNetworkIsolation;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionNetworkConfigArgs.enableNetworkIsolation' is not present");
     }
 
     /**
      * Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. Fields are documented below.
      * 
      */
-    private UndeferrableValue<DataQualityJobDefinitionNetworkConfigVpcConfigArgs> vpcConfig;
-
+    @PolicyResourceProperty(name="vpcConfig", flag="unknown_vpcConfig")
+    private DataQualityJobDefinitionNetworkConfigVpcConfigArgs value_vpcConfig;
+    private boolean unknown_vpcConfig;
     public DataQualityJobDefinitionNetworkConfigVpcConfigArgs vpcConfig() {
-        if (vpcConfig == null) return null;
-        return vpcConfig.getValue("DataQualityJobDefinitionNetworkConfigArgs.vpcConfig");
+        if (!unknown_vpcConfig) return value_vpcConfig;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionNetworkConfigArgs.vpcConfig' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class VpnConnectionRoute {
      * The CIDR block associated with the local subnet of the customer data center.
      * 
      */
-    private @Nullable UndeferrableValue<String> destinationCidrBlock;
-
+    @PolicyResourceProperty(name="destinationCidrBlock", flag="unknown_destinationCidrBlock")
+    private @Nullable String value_destinationCidrBlock;
+    private boolean unknown_destinationCidrBlock;
     public @Nullable String destinationCidrBlock() {
-        if (destinationCidrBlock == null) return null;
-        return destinationCidrBlock.getValue("VpnConnectionRoute.destinationCidrBlock");
+        if (!unknown_destinationCidrBlock) return value_destinationCidrBlock;
+        throw new UndeferrableValueException("Value 'VpnConnectionRoute.destinationCidrBlock' is not present");
     }
 
     /**
      * Indicates how the routes were provided.
      * 
      */
-    private @Nullable UndeferrableValue<String> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private @Nullable String value_source;
+    private boolean unknown_source;
     public @Nullable String source() {
-        if (source == null) return null;
-        return source.getValue("VpnConnectionRoute.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'VpnConnectionRoute.source' is not present");
     }
 
     /**
      * The current state of the static route.
      * 
      */
-    private @Nullable UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private @Nullable String value_state;
+    private boolean unknown_state;
     public @Nullable String state() {
-        if (state == null) return null;
-        return state.getValue("VpnConnectionRoute.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'VpnConnectionRoute.state' is not present");
     }
 
 }

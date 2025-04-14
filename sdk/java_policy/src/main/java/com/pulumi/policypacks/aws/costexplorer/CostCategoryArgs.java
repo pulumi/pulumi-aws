@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.costexplorer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.costexplorer.inputs.CostCategoryRuleArgs;
 import com.pulumi.policypacks.aws.costexplorer.inputs.CostCategorySplitChargeRuleArgs;
@@ -20,11 +21,12 @@ public final class CostCategoryArgs extends com.pulumi.resources.PolicyResourceI
      * Default value for the cost category.
      * 
      */
-    private UndeferrableValue<String> defaultValue;
-
+    @PolicyResourceProperty(name="defaultValue", flag="unknown_defaultValue")
+    private String value_defaultValue;
+    private boolean unknown_defaultValue;
     public String defaultValue() {
-        if (defaultValue == null) return null;
-        return defaultValue.getValue("CostCategoryArgs.defaultValue");
+        if (!unknown_defaultValue) return value_defaultValue;
+        throw new UndeferrableValueException("Value 'CostCategoryArgs.defaultValue' is not present");
     }
 
     /**
@@ -33,66 +35,72 @@ public final class CostCategoryArgs extends com.pulumi.resources.PolicyResourceI
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> effectiveStart;
-
+    @PolicyResourceProperty(name="effectiveStart", flag="unknown_effectiveStart")
+    private String value_effectiveStart;
+    private boolean unknown_effectiveStart;
     public String effectiveStart() {
-        if (effectiveStart == null) return null;
-        return effectiveStart.getValue("CostCategoryArgs.effectiveStart");
+        if (!unknown_effectiveStart) return value_effectiveStart;
+        throw new UndeferrableValueException("Value 'CostCategoryArgs.effectiveStart' is not present");
     }
 
     /**
      * Unique name for the Cost Category.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("CostCategoryArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'CostCategoryArgs.name' is not present");
     }
 
     /**
      * Rule schema version in this particular Cost Category.
      * 
      */
-    private UndeferrableValue<String> ruleVersion;
-
+    @PolicyResourceProperty(name="ruleVersion", flag="unknown_ruleVersion")
+    private String value_ruleVersion;
+    private boolean unknown_ruleVersion;
     public String ruleVersion() {
-        if (ruleVersion == null) return null;
-        return ruleVersion.getValue("CostCategoryArgs.ruleVersion");
+        if (!unknown_ruleVersion) return value_ruleVersion;
+        throw new UndeferrableValueException("Value 'CostCategoryArgs.ruleVersion' is not present");
     }
 
     /**
      * Configuration block for the Cost Category rules used to categorize costs. See below.
      * 
      */
-    private UndeferrableValue<List<CostCategoryRuleArgs>> rules;
-
+    @PolicyResourceProperty(name="rules", flag="unknown_rules")
+    private List<CostCategoryRuleArgs> value_rules;
+    private boolean unknown_rules;
     public List<CostCategoryRuleArgs> rules() {
-        if (rules == null) return null;
-        return rules.getValue("CostCategoryArgs.rules");
+        if (!unknown_rules) return value_rules;
+        throw new UndeferrableValueException("Value 'CostCategoryArgs.rules' is not present");
     }
 
     /**
      * Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
      * 
      */
-    private UndeferrableValue<List<CostCategorySplitChargeRuleArgs>> splitChargeRules;
-
+    @PolicyResourceProperty(name="splitChargeRules", flag="unknown_splitChargeRules")
+    private List<CostCategorySplitChargeRuleArgs> value_splitChargeRules;
+    private boolean unknown_splitChargeRules;
     public List<CostCategorySplitChargeRuleArgs> splitChargeRules() {
-        if (splitChargeRules == null) return null;
-        return splitChargeRules.getValue("CostCategoryArgs.splitChargeRules");
+        if (!unknown_splitChargeRules) return value_splitChargeRules;
+        throw new UndeferrableValueException("Value 'CostCategoryArgs.splitChargeRules' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CostCategoryArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CostCategoryArgs.tags' is not present");
     }
 
 }

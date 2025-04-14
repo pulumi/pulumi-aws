@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.inputs.VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,66 +17,72 @@ public final class VpcOriginVpcOriginEndpointConfigArgs {
      * The VPC origin ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("VpcOriginVpcOriginEndpointConfigArgs.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'VpcOriginVpcOriginEndpointConfigArgs.arn' is not present");
     }
 
     /**
      * The HTTP port for the CloudFront VPC origin endpoint configuration.
      * 
      */
-    private UndeferrableValue<Integer> httpPort;
-
+    @PolicyResourceProperty(name="httpPort", flag="unknown_httpPort")
+    private Integer value_httpPort;
+    private boolean unknown_httpPort;
     public Integer httpPort() {
-        if (httpPort == null) return null;
-        return httpPort.getValue("VpcOriginVpcOriginEndpointConfigArgs.httpPort");
+        if (!unknown_httpPort) return value_httpPort;
+        throw new UndeferrableValueException("Value 'VpcOriginVpcOriginEndpointConfigArgs.httpPort' is not present");
     }
 
     /**
      * The HTTPS port for the CloudFront VPC origin endpoint configuration.
      * 
      */
-    private UndeferrableValue<Integer> httpsPort;
-
+    @PolicyResourceProperty(name="httpsPort", flag="unknown_httpsPort")
+    private Integer value_httpsPort;
+    private boolean unknown_httpsPort;
     public Integer httpsPort() {
-        if (httpsPort == null) return null;
-        return httpsPort.getValue("VpcOriginVpcOriginEndpointConfigArgs.httpsPort");
+        if (!unknown_httpsPort) return value_httpsPort;
+        throw new UndeferrableValueException("Value 'VpcOriginVpcOriginEndpointConfigArgs.httpsPort' is not present");
     }
 
     /**
      * The name of the CloudFront VPC origin endpoint configuration.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("VpcOriginVpcOriginEndpointConfigArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'VpcOriginVpcOriginEndpointConfigArgs.name' is not present");
     }
 
     /**
      * The origin protocol policy for the CloudFront VPC origin endpoint configuration.
      * 
      */
-    private UndeferrableValue<String> originProtocolPolicy;
-
+    @PolicyResourceProperty(name="originProtocolPolicy", flag="unknown_originProtocolPolicy")
+    private String value_originProtocolPolicy;
+    private boolean unknown_originProtocolPolicy;
     public String originProtocolPolicy() {
-        if (originProtocolPolicy == null) return null;
-        return originProtocolPolicy.getValue("VpcOriginVpcOriginEndpointConfigArgs.originProtocolPolicy");
+        if (!unknown_originProtocolPolicy) return value_originProtocolPolicy;
+        throw new UndeferrableValueException("Value 'VpcOriginVpcOriginEndpointConfigArgs.originProtocolPolicy' is not present");
     }
 
     /**
      * A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
      * 
      */
-    private UndeferrableValue<VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs> originSslProtocols;
-
+    @PolicyResourceProperty(name="originSslProtocols", flag="unknown_originSslProtocols")
+    private VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs value_originSslProtocols;
+    private boolean unknown_originSslProtocols;
     public VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs originSslProtocols() {
-        if (originSslProtocols == null) return null;
-        return originSslProtocols.getValue("VpcOriginVpcOriginEndpointConfigArgs.originSslProtocols");
+        if (!unknown_originSslProtocols) return value_originSslProtocols;
+        throw new UndeferrableValueException("Value 'VpcOriginVpcOriginEndpointConfigArgs.originSslProtocols' is not present");
     }
 
 }

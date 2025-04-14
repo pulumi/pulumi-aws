@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,44 +16,48 @@ public final class Resource extends com.pulumi.resources.PolicyResourceOutput {
      * ID of the parent API resource
      * 
      */
-    private UndeferrableValue<String> parentId;
-
+    @PolicyResourceProperty(name="parentId", flag="unknown_parentId")
+    private String value_parentId;
+    private boolean unknown_parentId;
     public String parentId() {
-        if (parentId == null) return null;
-        return parentId.getValue("Resource.parentId");
+        if (!unknown_parentId) return value_parentId;
+        throw new UndeferrableValueException("Value 'Resource.parentId' is not present");
     }
 
     /**
      * Complete path for this API resource, including all parent paths.
      * 
      */
-    private UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private String value_path;
+    private boolean unknown_path;
     public String path() {
-        if (path == null) return null;
-        return path.getValue("Resource.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'Resource.path' is not present");
     }
 
     /**
      * Last path segment of this API resource.
      * 
      */
-    private UndeferrableValue<String> pathPart;
-
+    @PolicyResourceProperty(name="pathPart", flag="unknown_pathPart")
+    private String value_pathPart;
+    private boolean unknown_pathPart;
     public String pathPart() {
-        if (pathPart == null) return null;
-        return pathPart.getValue("Resource.pathPart");
+        if (!unknown_pathPart) return value_pathPart;
+        throw new UndeferrableValueException("Value 'Resource.pathPart' is not present");
     }
 
     /**
      * ID of the associated REST API
      * 
      */
-    private UndeferrableValue<String> restApi;
-
+    @PolicyResourceProperty(name="restApi", flag="unknown_restApi")
+    private String value_restApi;
+    private boolean unknown_restApi;
     public String restApi() {
-        if (restApi == null) return null;
-        return restApi.getValue("Resource.restApi");
+        if (!unknown_restApi) return value_restApi;
+        throw new UndeferrableValueException("Value 'Resource.restApi' is not present");
     }
 
 }

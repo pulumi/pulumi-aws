@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ecs.outputs.ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ServiceServiceConnectConfigurationServiceTls {
      * Details of the certificate authority which will issue the certificate.
      * 
      */
-    private UndeferrableValue<ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority> issuerCertAuthority;
-
+    @PolicyResourceProperty(name="issuerCertAuthority", flag="unknown_issuerCertAuthority")
+    private ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority value_issuerCertAuthority;
+    private boolean unknown_issuerCertAuthority;
     public ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority issuerCertAuthority() {
-        if (issuerCertAuthority == null) return null;
-        return issuerCertAuthority.getValue("ServiceServiceConnectConfigurationServiceTls.issuerCertAuthority");
+        if (!unknown_issuerCertAuthority) return value_issuerCertAuthority;
+        throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationServiceTls.issuerCertAuthority' is not present");
     }
 
     /**
      * KMS key used to encrypt the private key in Secrets Manager.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKey;
-
+    @PolicyResourceProperty(name="kmsKey", flag="unknown_kmsKey")
+    private @Nullable String value_kmsKey;
+    private boolean unknown_kmsKey;
     public @Nullable String kmsKey() {
-        if (kmsKey == null) return null;
-        return kmsKey.getValue("ServiceServiceConnectConfigurationServiceTls.kmsKey");
+        if (!unknown_kmsKey) return value_kmsKey;
+        throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationServiceTls.kmsKey' is not present");
     }
 
     /**
      * ARN of the IAM Role that&#39;s associated with the Service Connect TLS.
      * 
      */
-    private @Nullable UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private @Nullable String value_roleArn;
+    private boolean unknown_roleArn;
     public @Nullable String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("ServiceServiceConnectConfigurationServiceTls.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationServiceTls.roleArn' is not present");
     }
 
 }

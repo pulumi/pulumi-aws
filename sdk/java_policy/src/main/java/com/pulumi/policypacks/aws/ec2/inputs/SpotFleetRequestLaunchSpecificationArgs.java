@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.inputs.SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs;
 import com.pulumi.policypacks.aws.ec2.inputs.SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgs;
 import com.pulumi.policypacks.aws.ec2.inputs.SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs;
@@ -16,168 +17,188 @@ import javax.annotation.Nullable;
 
 public final class SpotFleetRequestLaunchSpecificationArgs {
 
-    private UndeferrableValue<String> ami;
-
+    @PolicyResourceProperty(name="ami", flag="unknown_ami")
+    private String value_ami;
+    private boolean unknown_ami;
     public String ami() {
-        if (ami == null) return null;
-        return ami.getValue("SpotFleetRequestLaunchSpecificationArgs.ami");
+        if (!unknown_ami) return value_ami;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationArgs.ami' is not present");
     }
 
-    private UndeferrableValue<Boolean> associatePublicIpAddress;
-
+    @PolicyResourceProperty(name="associatePublicIpAddress", flag="unknown_associatePublicIpAddress")
+    private Boolean value_associatePublicIpAddress;
+    private boolean unknown_associatePublicIpAddress;
     public Boolean associatePublicIpAddress() {
-        if (associatePublicIpAddress == null) return null;
-        return associatePublicIpAddress.getValue("SpotFleetRequestLaunchSpecificationArgs.associatePublicIpAddress");
+        if (!unknown_associatePublicIpAddress) return value_associatePublicIpAddress;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationArgs.associatePublicIpAddress' is not present");
     }
 
     /**
      * The availability zone in which to place the request.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("SpotFleetRequestLaunchSpecificationArgs.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationArgs.availabilityZone' is not present");
     }
 
-    private UndeferrableValue<List<SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs>> ebsBlockDevices;
-
+    @PolicyResourceProperty(name="ebsBlockDevices", flag="unknown_ebsBlockDevices")
+    private List<SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs> value_ebsBlockDevices;
+    private boolean unknown_ebsBlockDevices;
     public List<SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs> ebsBlockDevices() {
-        if (ebsBlockDevices == null) return null;
-        return ebsBlockDevices.getValue("SpotFleetRequestLaunchSpecificationArgs.ebsBlockDevices");
+        if (!unknown_ebsBlockDevices) return value_ebsBlockDevices;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationArgs.ebsBlockDevices' is not present");
     }
 
-    private UndeferrableValue<Boolean> ebsOptimized;
-
+    @PolicyResourceProperty(name="ebsOptimized", flag="unknown_ebsOptimized")
+    private Boolean value_ebsOptimized;
+    private boolean unknown_ebsOptimized;
     public Boolean ebsOptimized() {
-        if (ebsOptimized == null) return null;
-        return ebsOptimized.getValue("SpotFleetRequestLaunchSpecificationArgs.ebsOptimized");
+        if (!unknown_ebsOptimized) return value_ebsOptimized;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationArgs.ebsOptimized' is not present");
     }
 
-    private UndeferrableValue<List<SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgs>> ephemeralBlockDevices;
-
+    @PolicyResourceProperty(name="ephemeralBlockDevices", flag="unknown_ephemeralBlockDevices")
+    private List<SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgs> value_ephemeralBlockDevices;
+    private boolean unknown_ephemeralBlockDevices;
     public List<SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgs> ephemeralBlockDevices() {
-        if (ephemeralBlockDevices == null) return null;
-        return ephemeralBlockDevices.getValue("SpotFleetRequestLaunchSpecificationArgs.ephemeralBlockDevices");
+        if (!unknown_ephemeralBlockDevices) return value_ephemeralBlockDevices;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationArgs.ephemeralBlockDevices' is not present");
     }
 
-    private UndeferrableValue<String> iamInstanceProfile;
-
+    @PolicyResourceProperty(name="iamInstanceProfile", flag="unknown_iamInstanceProfile")
+    private String value_iamInstanceProfile;
+    private boolean unknown_iamInstanceProfile;
     public String iamInstanceProfile() {
-        if (iamInstanceProfile == null) return null;
-        return iamInstanceProfile.getValue("SpotFleetRequestLaunchSpecificationArgs.iamInstanceProfile");
+        if (!unknown_iamInstanceProfile) return value_iamInstanceProfile;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationArgs.iamInstanceProfile' is not present");
     }
 
-    private UndeferrableValue<String> iamInstanceProfileArn;
-
+    @PolicyResourceProperty(name="iamInstanceProfileArn", flag="unknown_iamInstanceProfileArn")
+    private String value_iamInstanceProfileArn;
+    private boolean unknown_iamInstanceProfileArn;
     public String iamInstanceProfileArn() {
-        if (iamInstanceProfileArn == null) return null;
-        return iamInstanceProfileArn.getValue("SpotFleetRequestLaunchSpecificationArgs.iamInstanceProfileArn");
+        if (!unknown_iamInstanceProfileArn) return value_iamInstanceProfileArn;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationArgs.iamInstanceProfileArn' is not present");
     }
 
     /**
      * The type of instance to request.
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("SpotFleetRequestLaunchSpecificationArgs.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationArgs.instanceType' is not present");
     }
 
-    private UndeferrableValue<String> keyName;
-
+    @PolicyResourceProperty(name="keyName", flag="unknown_keyName")
+    private String value_keyName;
+    private boolean unknown_keyName;
     public String keyName() {
-        if (keyName == null) return null;
-        return keyName.getValue("SpotFleetRequestLaunchSpecificationArgs.keyName");
+        if (!unknown_keyName) return value_keyName;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationArgs.keyName' is not present");
     }
 
-    private UndeferrableValue<Boolean> monitoring;
-
+    @PolicyResourceProperty(name="monitoring", flag="unknown_monitoring")
+    private Boolean value_monitoring;
+    private boolean unknown_monitoring;
     public Boolean monitoring() {
-        if (monitoring == null) return null;
-        return monitoring.getValue("SpotFleetRequestLaunchSpecificationArgs.monitoring");
+        if (!unknown_monitoring) return value_monitoring;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationArgs.monitoring' is not present");
     }
 
-    private UndeferrableValue<String> placementGroup;
-
+    @PolicyResourceProperty(name="placementGroup", flag="unknown_placementGroup")
+    private String value_placementGroup;
+    private boolean unknown_placementGroup;
     public String placementGroup() {
-        if (placementGroup == null) return null;
-        return placementGroup.getValue("SpotFleetRequestLaunchSpecificationArgs.placementGroup");
+        if (!unknown_placementGroup) return value_placementGroup;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationArgs.placementGroup' is not present");
     }
 
-    private UndeferrableValue<String> placementTenancy;
-
+    @PolicyResourceProperty(name="placementTenancy", flag="unknown_placementTenancy")
+    private String value_placementTenancy;
+    private boolean unknown_placementTenancy;
     public String placementTenancy() {
-        if (placementTenancy == null) return null;
-        return placementTenancy.getValue("SpotFleetRequestLaunchSpecificationArgs.placementTenancy");
+        if (!unknown_placementTenancy) return value_placementTenancy;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationArgs.placementTenancy' is not present");
     }
 
-    private UndeferrableValue<List<SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs>> rootBlockDevices;
-
+    @PolicyResourceProperty(name="rootBlockDevices", flag="unknown_rootBlockDevices")
+    private List<SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs> value_rootBlockDevices;
+    private boolean unknown_rootBlockDevices;
     public List<SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs> rootBlockDevices() {
-        if (rootBlockDevices == null) return null;
-        return rootBlockDevices.getValue("SpotFleetRequestLaunchSpecificationArgs.rootBlockDevices");
+        if (!unknown_rootBlockDevices) return value_rootBlockDevices;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationArgs.rootBlockDevices' is not present");
     }
 
     /**
      * The maximum bid price per unit hour.
      * 
      */
-    private UndeferrableValue<String> spotPrice;
-
+    @PolicyResourceProperty(name="spotPrice", flag="unknown_spotPrice")
+    private String value_spotPrice;
+    private boolean unknown_spotPrice;
     public String spotPrice() {
-        if (spotPrice == null) return null;
-        return spotPrice.getValue("SpotFleetRequestLaunchSpecificationArgs.spotPrice");
+        if (!unknown_spotPrice) return value_spotPrice;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationArgs.spotPrice' is not present");
     }
 
     /**
      * The subnet in which to launch the requested instance.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("SpotFleetRequestLaunchSpecificationArgs.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationArgs.subnetId' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SpotFleetRequestLaunchSpecificationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationArgs.tags' is not present");
     }
 
-    private UndeferrableValue<String> userData;
-
+    @PolicyResourceProperty(name="userData", flag="unknown_userData")
+    private String value_userData;
+    private boolean unknown_userData;
     public String userData() {
-        if (userData == null) return null;
-        return userData.getValue("SpotFleetRequestLaunchSpecificationArgs.userData");
+        if (!unknown_userData) return value_userData;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationArgs.userData' is not present");
     }
 
-    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
-
+    @PolicyResourceProperty(name="vpcSecurityGroupIds", flag="unknown_vpcSecurityGroupIds")
+    private List<String> value_vpcSecurityGroupIds;
+    private boolean unknown_vpcSecurityGroupIds;
     public List<String> vpcSecurityGroupIds() {
-        if (vpcSecurityGroupIds == null) return null;
-        return vpcSecurityGroupIds.getValue("SpotFleetRequestLaunchSpecificationArgs.vpcSecurityGroupIds");
+        if (!unknown_vpcSecurityGroupIds) return value_vpcSecurityGroupIds;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationArgs.vpcSecurityGroupIds' is not present");
     }
 
     /**
      * The capacity added to the fleet by a fulfilled request.
      * 
      */
-    private UndeferrableValue<String> weightedCapacity;
-
+    @PolicyResourceProperty(name="weightedCapacity", flag="unknown_weightedCapacity")
+    private String value_weightedCapacity;
+    private boolean unknown_weightedCapacity;
     public String weightedCapacity() {
-        if (weightedCapacity == null) return null;
-        return weightedCapacity.getValue("SpotFleetRequestLaunchSpecificationArgs.weightedCapacity");
+        if (!unknown_weightedCapacity) return value_weightedCapacity;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationArgs.weightedCapacity' is not present");
     }
 
 }

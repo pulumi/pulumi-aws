@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs {
      * Enable or disable VPN tunnel logging feature. The default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> logEnabled;
-
+    @PolicyResourceProperty(name="logEnabled", flag="unknown_logEnabled")
+    private Boolean value_logEnabled;
+    private boolean unknown_logEnabled;
     public Boolean logEnabled() {
-        if (logEnabled == null) return null;
-        return logEnabled.getValue("VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs.logEnabled");
+        if (!unknown_logEnabled) return value_logEnabled;
+        throw new UndeferrableValueException("Value 'VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs.logEnabled' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
      * 
      */
-    private UndeferrableValue<String> logGroupArn;
-
+    @PolicyResourceProperty(name="logGroupArn", flag="unknown_logGroupArn")
+    private String value_logGroupArn;
+    private boolean unknown_logGroupArn;
     public String logGroupArn() {
-        if (logGroupArn == null) return null;
-        return logGroupArn.getValue("VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs.logGroupArn");
+        if (!unknown_logGroupArn) return value_logGroupArn;
+        throw new UndeferrableValueException("Value 'VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs.logGroupArn' is not present");
     }
 
     /**
      * Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
      * 
      */
-    private UndeferrableValue<String> logOutputFormat;
-
+    @PolicyResourceProperty(name="logOutputFormat", flag="unknown_logOutputFormat")
+    private String value_logOutputFormat;
+    private boolean unknown_logOutputFormat;
     public String logOutputFormat() {
-        if (logOutputFormat == null) return null;
-        return logOutputFormat.getValue("VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs.logOutputFormat");
+        if (!unknown_logOutputFormat) return value_logOutputFormat;
+        throw new UndeferrableValueException("Value 'VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs.logOutputFormat' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.route53.outputs.RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,11 +17,12 @@ public final class RecordsExclusiveResourceRecordSetGeoproximityLocation {
      * AWS region of the resource where DNS traffic is directed to.
      * 
      */
-    private @Nullable UndeferrableValue<String> awsRegion;
-
+    @PolicyResourceProperty(name="awsRegion", flag="unknown_awsRegion")
+    private @Nullable String value_awsRegion;
+    private boolean unknown_awsRegion;
     public @Nullable String awsRegion() {
-        if (awsRegion == null) return null;
-        return awsRegion.getValue("RecordsExclusiveResourceRecordSetGeoproximityLocation.awsRegion");
+        if (!unknown_awsRegion) return value_awsRegion;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSetGeoproximityLocation.awsRegion' is not present");
     }
 
     /**
@@ -30,11 +32,12 @@ public final class RecordsExclusiveResourceRecordSetGeoproximityLocation {
      * See the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html) for additional details.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> bias;
-
+    @PolicyResourceProperty(name="bias", flag="unknown_bias")
+    private @Nullable Integer value_bias;
+    private boolean unknown_bias;
     public @Nullable Integer bias() {
-        if (bias == null) return null;
-        return bias.getValue("RecordsExclusiveResourceRecordSetGeoproximityLocation.bias");
+        if (!unknown_bias) return value_bias;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSetGeoproximityLocation.bias' is not present");
     }
 
     /**
@@ -42,11 +45,12 @@ public final class RecordsExclusiveResourceRecordSetGeoproximityLocation {
      * See `coordinates` below.
      * 
      */
-    private @Nullable UndeferrableValue<RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates> coordinates;
-
+    @PolicyResourceProperty(name="coordinates", flag="unknown_coordinates")
+    private @Nullable RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates value_coordinates;
+    private boolean unknown_coordinates;
     public @Nullable RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates coordinates() {
-        if (coordinates == null) return null;
-        return coordinates.getValue("RecordsExclusiveResourceRecordSetGeoproximityLocation.coordinates");
+        if (!unknown_coordinates) return value_coordinates;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSetGeoproximityLocation.coordinates' is not present");
     }
 
     /**
@@ -54,11 +58,12 @@ public final class RecordsExclusiveResourceRecordSetGeoproximityLocation {
      * Identify the Local Zones Group for a specific Local Zone by using the [`describe-availability-zones` CLI command](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-availability-zones.html).
      * 
      */
-    private @Nullable UndeferrableValue<String> localZoneGroup;
-
+    @PolicyResourceProperty(name="localZoneGroup", flag="unknown_localZoneGroup")
+    private @Nullable String value_localZoneGroup;
+    private boolean unknown_localZoneGroup;
     public @Nullable String localZoneGroup() {
-        if (localZoneGroup == null) return null;
-        return localZoneGroup.getValue("RecordsExclusiveResourceRecordSetGeoproximityLocation.localZoneGroup");
+        if (!unknown_localZoneGroup) return value_localZoneGroup;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSetGeoproximityLocation.localZoneGroup' is not present");
     }
 
 }

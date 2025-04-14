@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
      * Set a prefix on the burned in timecode.
      * 
      */
-    private @Nullable UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private @Nullable String value_prefix;
+    private boolean unknown_prefix;
     public @Nullable String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings.prefix' is not present");
     }
 
     /**
      * Sets the size of the burned in timecode.
      * 
      */
-    private @Nullable UndeferrableValue<String> timecodeBurninFontSize;
-
+    @PolicyResourceProperty(name="timecodeBurninFontSize", flag="unknown_timecodeBurninFontSize")
+    private @Nullable String value_timecodeBurninFontSize;
+    private boolean unknown_timecodeBurninFontSize;
     public @Nullable String timecodeBurninFontSize() {
-        if (timecodeBurninFontSize == null) return null;
-        return timecodeBurninFontSize.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings.timecodeBurninFontSize");
+        if (!unknown_timecodeBurninFontSize) return value_timecodeBurninFontSize;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings.timecodeBurninFontSize' is not present");
     }
 
     /**
      * Sets the position of the burned in timecode.
      * 
      */
-    private @Nullable UndeferrableValue<String> timecodeBurninPosition;
-
+    @PolicyResourceProperty(name="timecodeBurninPosition", flag="unknown_timecodeBurninPosition")
+    private @Nullable String value_timecodeBurninPosition;
+    private boolean unknown_timecodeBurninPosition;
     public @Nullable String timecodeBurninPosition() {
-        if (timecodeBurninPosition == null) return null;
-        return timecodeBurninPosition.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings.timecodeBurninPosition");
+        if (!unknown_timecodeBurninPosition) return value_timecodeBurninPosition;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings.timecodeBurninPosition' is not present");
     }
 
 }

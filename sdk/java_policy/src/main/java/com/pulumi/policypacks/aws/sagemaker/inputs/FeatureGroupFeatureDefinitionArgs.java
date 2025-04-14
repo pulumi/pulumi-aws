@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.FeatureGroupFeatureDefinitionCollectionConfigArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,40 +12,44 @@ import javax.annotation.Nullable;
 
 public final class FeatureGroupFeatureDefinitionArgs {
 
-    private UndeferrableValue<FeatureGroupFeatureDefinitionCollectionConfigArgs> collectionConfig;
-
+    @PolicyResourceProperty(name="collectionConfig", flag="unknown_collectionConfig")
+    private FeatureGroupFeatureDefinitionCollectionConfigArgs value_collectionConfig;
+    private boolean unknown_collectionConfig;
     public FeatureGroupFeatureDefinitionCollectionConfigArgs collectionConfig() {
-        if (collectionConfig == null) return null;
-        return collectionConfig.getValue("FeatureGroupFeatureDefinitionArgs.collectionConfig");
+        if (!unknown_collectionConfig) return value_collectionConfig;
+        throw new UndeferrableValueException("Value 'FeatureGroupFeatureDefinitionArgs.collectionConfig' is not present");
     }
 
-    private UndeferrableValue<String> collectionType;
-
+    @PolicyResourceProperty(name="collectionType", flag="unknown_collectionType")
+    private String value_collectionType;
+    private boolean unknown_collectionType;
     public String collectionType() {
-        if (collectionType == null) return null;
-        return collectionType.getValue("FeatureGroupFeatureDefinitionArgs.collectionType");
+        if (!unknown_collectionType) return value_collectionType;
+        throw new UndeferrableValueException("Value 'FeatureGroupFeatureDefinitionArgs.collectionType' is not present");
     }
 
     /**
      * The name of a feature. `feature_name` cannot be any of the following: `is_deleted`, `write_time`, `api_invocation_time`.
      * 
      */
-    private UndeferrableValue<String> featureName;
-
+    @PolicyResourceProperty(name="featureName", flag="unknown_featureName")
+    private String value_featureName;
+    private boolean unknown_featureName;
     public String featureName() {
-        if (featureName == null) return null;
-        return featureName.getValue("FeatureGroupFeatureDefinitionArgs.featureName");
+        if (!unknown_featureName) return value_featureName;
+        throw new UndeferrableValueException("Value 'FeatureGroupFeatureDefinitionArgs.featureName' is not present");
     }
 
     /**
      * The value type of a feature. Valid values are `Integral`, `Fractional`, or `String`.
      * 
      */
-    private UndeferrableValue<String> featureType;
-
+    @PolicyResourceProperty(name="featureType", flag="unknown_featureType")
+    private String value_featureType;
+    private boolean unknown_featureType;
     public String featureType() {
-        if (featureType == null) return null;
-        return featureType.getValue("FeatureGroupFeatureDefinitionArgs.featureType");
+        if (!unknown_featureType) return value_featureType;
+        throw new UndeferrableValueException("Value 'FeatureGroupFeatureDefinitionArgs.featureType' is not present");
     }
 
 }

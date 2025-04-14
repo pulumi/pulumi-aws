@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.inputs.DefaultRouteTableRouteArgs;
 import java.lang.String;
@@ -21,44 +22,48 @@ public final class DefaultRouteTableArgs extends com.pulumi.resources.PolicyReso
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> defaultRouteTableId;
-
+    @PolicyResourceProperty(name="defaultRouteTableId", flag="unknown_defaultRouteTableId")
+    private String value_defaultRouteTableId;
+    private boolean unknown_defaultRouteTableId;
     public String defaultRouteTableId() {
-        if (defaultRouteTableId == null) return null;
-        return defaultRouteTableId.getValue("DefaultRouteTableArgs.defaultRouteTableId");
+        if (!unknown_defaultRouteTableId) return value_defaultRouteTableId;
+        throw new UndeferrableValueException("Value 'DefaultRouteTableArgs.defaultRouteTableId' is not present");
     }
 
     /**
      * List of virtual gateways for propagation.
      * 
      */
-    private UndeferrableValue<List<String>> propagatingVgws;
-
+    @PolicyResourceProperty(name="propagatingVgws", flag="unknown_propagatingVgws")
+    private List<String> value_propagatingVgws;
+    private boolean unknown_propagatingVgws;
     public List<String> propagatingVgws() {
-        if (propagatingVgws == null) return null;
-        return propagatingVgws.getValue("DefaultRouteTableArgs.propagatingVgws");
+        if (!unknown_propagatingVgws) return value_propagatingVgws;
+        throw new UndeferrableValueException("Value 'DefaultRouteTableArgs.propagatingVgws' is not present");
     }
 
     /**
      * Set of objects. Detailed below
      * 
      */
-    private UndeferrableValue<List<DefaultRouteTableRouteArgs>> routes;
-
+    @PolicyResourceProperty(name="routes", flag="unknown_routes")
+    private List<DefaultRouteTableRouteArgs> value_routes;
+    private boolean unknown_routes;
     public List<DefaultRouteTableRouteArgs> routes() {
-        if (routes == null) return null;
-        return routes.getValue("DefaultRouteTableArgs.routes");
+        if (!unknown_routes) return value_routes;
+        throw new UndeferrableValueException("Value 'DefaultRouteTableArgs.routes' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DefaultRouteTableArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DefaultRouteTableArgs.tags' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class FunctionRuntime {
      * The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("FunctionRuntime.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FunctionRuntime.name' is not present");
     }
 
     /**
      * The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
      * 
      */
-    private UndeferrableValue<String> runtimeVersion;
-
+    @PolicyResourceProperty(name="runtimeVersion", flag="unknown_runtimeVersion")
+    private String value_runtimeVersion;
+    private boolean unknown_runtimeVersion;
     public String runtimeVersion() {
-        if (runtimeVersion == null) return null;
-        return runtimeVersion.getValue("FunctionRuntime.runtimeVersion");
+        if (!unknown_runtimeVersion) return value_runtimeVersion;
+        throw new UndeferrableValueException("Value 'FunctionRuntime.runtimeVersion' is not present");
     }
 
 }

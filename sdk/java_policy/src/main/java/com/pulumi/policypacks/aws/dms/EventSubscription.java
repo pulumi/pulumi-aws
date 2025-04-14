@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dms;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -19,88 +20,96 @@ public final class EventSubscription extends com.pulumi.resources.PolicyResource
      * Amazon Resource Name (ARN) of the DMS Event Subscription.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("EventSubscription.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'EventSubscription.arn' is not present");
     }
 
     /**
      * Whether the event subscription should be enabled.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("EventSubscription.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'EventSubscription.enabled' is not present");
     }
 
     /**
      * List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
      * 
      */
-    private UndeferrableValue<List<String>> eventCategories;
-
+    @PolicyResourceProperty(name="eventCategories", flag="unknown_eventCategories")
+    private List<String> value_eventCategories;
+    private boolean unknown_eventCategories;
     public List<String> eventCategories() {
-        if (eventCategories == null) return null;
-        return eventCategories.getValue("EventSubscription.eventCategories");
+        if (!unknown_eventCategories) return value_eventCategories;
+        throw new UndeferrableValueException("Value 'EventSubscription.eventCategories' is not present");
     }
 
     /**
      * Name of event subscription.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("EventSubscription.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'EventSubscription.name' is not present");
     }
 
     /**
      * SNS topic arn to send events on.
      * 
      */
-    private UndeferrableValue<String> snsTopicArn;
-
+    @PolicyResourceProperty(name="snsTopicArn", flag="unknown_snsTopicArn")
+    private String value_snsTopicArn;
+    private boolean unknown_snsTopicArn;
     public String snsTopicArn() {
-        if (snsTopicArn == null) return null;
-        return snsTopicArn.getValue("EventSubscription.snsTopicArn");
+        if (!unknown_snsTopicArn) return value_snsTopicArn;
+        throw new UndeferrableValueException("Value 'EventSubscription.snsTopicArn' is not present");
     }
 
     /**
      * Ids of sources to listen to. If you don&#39;t specify a value, notifications are provided for all sources.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> sourceIds;
-
+    @PolicyResourceProperty(name="sourceIds", flag="unknown_sourceIds")
+    private @Nullable List<String> value_sourceIds;
+    private boolean unknown_sourceIds;
     public @Nullable List<String> sourceIds() {
-        if (sourceIds == null) return null;
-        return sourceIds.getValue("EventSubscription.sourceIds");
+        if (!unknown_sourceIds) return value_sourceIds;
+        throw new UndeferrableValueException("Value 'EventSubscription.sourceIds' is not present");
     }
 
     /**
      * Type of source for events. Valid values: `replication-instance` or `replication-task`
      * 
      */
-    private UndeferrableValue<String> sourceType;
-
+    @PolicyResourceProperty(name="sourceType", flag="unknown_sourceType")
+    private String value_sourceType;
+    private boolean unknown_sourceType;
     public String sourceType() {
-        if (sourceType == null) return null;
-        return sourceType.getValue("EventSubscription.sourceType");
+        if (!unknown_sourceType) return value_sourceType;
+        throw new UndeferrableValueException("Value 'EventSubscription.sourceType' is not present");
     }
 
     /**
      * Map of resource tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("EventSubscription.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'EventSubscription.tags' is not present");
     }
 
     /**
@@ -111,11 +120,12 @@ public final class EventSubscription extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("EventSubscription.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'EventSubscription.tagsAll' is not present");
     }
 
 }

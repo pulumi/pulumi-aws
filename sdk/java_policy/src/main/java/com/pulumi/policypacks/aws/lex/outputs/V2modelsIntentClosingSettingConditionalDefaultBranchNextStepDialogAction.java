@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class V2modelsIntentClosingSettingConditionalDefaultBranchNextStepD
      * If the dialog action is `ElicitSlot`, defines the slot to elicit from the user.
      * 
      */
-    private @Nullable UndeferrableValue<String> slotToElicit;
-
+    @PolicyResourceProperty(name="slotToElicit", flag="unknown_slotToElicit")
+    private @Nullable String value_slotToElicit;
+    private boolean unknown_slotToElicit;
     public @Nullable String slotToElicit() {
-        if (slotToElicit == null) return null;
-        return slotToElicit.getValue("V2modelsIntentClosingSettingConditionalDefaultBranchNextStepDialogAction.slotToElicit");
+        if (!unknown_slotToElicit) return value_slotToElicit;
+        throw new UndeferrableValueException("Value 'V2modelsIntentClosingSettingConditionalDefaultBranchNextStepDialogAction.slotToElicit' is not present");
     }
 
     /**
      * Whether the next message for the intent is _not_ used.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> suppressNextMessage;
-
+    @PolicyResourceProperty(name="suppressNextMessage", flag="unknown_suppressNextMessage")
+    private @Nullable Boolean value_suppressNextMessage;
+    private boolean unknown_suppressNextMessage;
     public @Nullable Boolean suppressNextMessage() {
-        if (suppressNextMessage == null) return null;
-        return suppressNextMessage.getValue("V2modelsIntentClosingSettingConditionalDefaultBranchNextStepDialogAction.suppressNextMessage");
+        if (!unknown_suppressNextMessage) return value_suppressNextMessage;
+        throw new UndeferrableValueException("Value 'V2modelsIntentClosingSettingConditionalDefaultBranchNextStepDialogAction.suppressNextMessage' is not present");
     }
 
     /**
      * Action that the bot should execute. Valid values are `ElicitIntent`, `StartIntent`, `ElicitSlot`, `EvaluateConditional`, `InvokeDialogCodeHook`, `ConfirmIntent`, `FulfillIntent`, `CloseIntent`, `EndConversation`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("V2modelsIntentClosingSettingConditionalDefaultBranchNextStepDialogAction.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'V2modelsIntentClosingSettingConditionalDefaultBranchNextStepDialogAction.type' is not present");
     }
 
 }

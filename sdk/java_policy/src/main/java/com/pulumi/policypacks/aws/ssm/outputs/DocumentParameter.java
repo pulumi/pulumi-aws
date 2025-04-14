@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class DocumentParameter {
      * If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
      * 
      */
-    private @Nullable UndeferrableValue<String> defaultValue;
-
+    @PolicyResourceProperty(name="defaultValue", flag="unknown_defaultValue")
+    private @Nullable String value_defaultValue;
+    private boolean unknown_defaultValue;
     public @Nullable String defaultValue() {
-        if (defaultValue == null) return null;
-        return defaultValue.getValue("DocumentParameter.defaultValue");
+        if (!unknown_defaultValue) return value_defaultValue;
+        throw new UndeferrableValueException("Value 'DocumentParameter.defaultValue' is not present");
     }
 
     /**
      * A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("DocumentParameter.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'DocumentParameter.description' is not present");
     }
 
     /**
      * The name of the document.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("DocumentParameter.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DocumentParameter.name' is not present");
     }
 
     /**
      * The type of parameter. Valid values: `String`, `StringList`.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("DocumentParameter.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'DocumentParameter.type' is not present");
     }
 
 }

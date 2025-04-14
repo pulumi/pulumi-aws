@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appconfig.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appconfig.outputs.ExtensionActionPointAction;
 import java.lang.String;
 import java.util.List;
@@ -15,22 +16,24 @@ public final class ExtensionActionPoint {
      * An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
      * 
      */
-    private UndeferrableValue<List<ExtensionActionPointAction>> actions;
-
+    @PolicyResourceProperty(name="actions", flag="unknown_actions")
+    private List<ExtensionActionPointAction> value_actions;
+    private boolean unknown_actions;
     public List<ExtensionActionPointAction> actions() {
-        if (actions == null) return null;
-        return actions.getValue("ExtensionActionPoint.actions");
+        if (!unknown_actions) return value_actions;
+        throw new UndeferrableValueException("Value 'ExtensionActionPoint.actions' is not present");
     }
 
     /**
      * The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
      * 
      */
-    private UndeferrableValue<String> point;
-
+    @PolicyResourceProperty(name="point", flag="unknown_point")
+    private String value_point;
+    private boolean unknown_point;
     public String point() {
-        if (point == null) return null;
-        return point.getValue("ExtensionActionPoint.point");
+        if (!unknown_point) return value_point;
+        throw new UndeferrableValueException("Value 'ExtensionActionPoint.point' is not present");
     }
 
 }

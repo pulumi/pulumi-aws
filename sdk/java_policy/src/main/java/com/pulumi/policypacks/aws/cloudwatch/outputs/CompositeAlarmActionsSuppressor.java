@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,33 +15,36 @@ public final class CompositeAlarmActionsSuppressor {
      * Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
      * 
      */
-    private UndeferrableValue<String> alarm;
-
+    @PolicyResourceProperty(name="alarm", flag="unknown_alarm")
+    private String value_alarm;
+    private boolean unknown_alarm;
     public String alarm() {
-        if (alarm == null) return null;
-        return alarm.getValue("CompositeAlarmActionsSuppressor.alarm");
+        if (!unknown_alarm) return value_alarm;
+        throw new UndeferrableValueException("Value 'CompositeAlarmActionsSuppressor.alarm' is not present");
     }
 
     /**
      * The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
      * 
      */
-    private UndeferrableValue<Integer> extensionPeriod;
-
+    @PolicyResourceProperty(name="extensionPeriod", flag="unknown_extensionPeriod")
+    private Integer value_extensionPeriod;
+    private boolean unknown_extensionPeriod;
     public Integer extensionPeriod() {
-        if (extensionPeriod == null) return null;
-        return extensionPeriod.getValue("CompositeAlarmActionsSuppressor.extensionPeriod");
+        if (!unknown_extensionPeriod) return value_extensionPeriod;
+        throw new UndeferrableValueException("Value 'CompositeAlarmActionsSuppressor.extensionPeriod' is not present");
     }
 
     /**
      * The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
      * 
      */
-    private UndeferrableValue<Integer> waitPeriod;
-
+    @PolicyResourceProperty(name="waitPeriod", flag="unknown_waitPeriod")
+    private Integer value_waitPeriod;
+    private boolean unknown_waitPeriod;
     public Integer waitPeriod() {
-        if (waitPeriod == null) return null;
-        return waitPeriod.getValue("CompositeAlarmActionsSuppressor.waitPeriod");
+        if (!unknown_waitPeriod) return value_waitPeriod;
+        throw new UndeferrableValueException("Value 'CompositeAlarmActionsSuppressor.waitPeriod' is not present");
     }
 
 }

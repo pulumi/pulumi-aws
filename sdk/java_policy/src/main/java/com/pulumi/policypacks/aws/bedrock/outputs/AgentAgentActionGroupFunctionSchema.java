@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentAgentActionGroupFunctionSchemaMemberFunctions;
 import javax.annotation.Nullable;
 
@@ -16,11 +17,12 @@ public final class AgentAgentActionGroupFunctionSchema {
      * See `member_functions` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<AgentAgentActionGroupFunctionSchemaMemberFunctions> memberFunctions;
-
+    @PolicyResourceProperty(name="memberFunctions", flag="unknown_memberFunctions")
+    private @Nullable AgentAgentActionGroupFunctionSchemaMemberFunctions value_memberFunctions;
+    private boolean unknown_memberFunctions;
     public @Nullable AgentAgentActionGroupFunctionSchemaMemberFunctions memberFunctions() {
-        if (memberFunctions == null) return null;
-        return memberFunctions.getValue("AgentAgentActionGroupFunctionSchema.memberFunctions");
+        if (!unknown_memberFunctions) return value_memberFunctions;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupFunctionSchema.memberFunctions' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class WorkflowArgs extends com.pulumi.resources.PolicyResourceInput
      * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      * 
      */
-    private UndeferrableValue<Map<String,String>> defaultRunProperties;
-
+    @PolicyResourceProperty(name="defaultRunProperties", flag="unknown_defaultRunProperties")
+    private Map<String,String> value_defaultRunProperties;
+    private boolean unknown_defaultRunProperties;
     public Map<String,String> defaultRunProperties() {
-        if (defaultRunProperties == null) return null;
-        return defaultRunProperties.getValue("WorkflowArgs.defaultRunProperties");
+        if (!unknown_defaultRunProperties) return value_defaultRunProperties;
+        throw new UndeferrableValueException("Value 'WorkflowArgs.defaultRunProperties' is not present");
     }
 
     /**
      * Description of the workflow.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("WorkflowArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'WorkflowArgs.description' is not present");
     }
 
     /**
      * Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
      * 
      */
-    private UndeferrableValue<Integer> maxConcurrentRuns;
-
+    @PolicyResourceProperty(name="maxConcurrentRuns", flag="unknown_maxConcurrentRuns")
+    private Integer value_maxConcurrentRuns;
+    private boolean unknown_maxConcurrentRuns;
     public Integer maxConcurrentRuns() {
-        if (maxConcurrentRuns == null) return null;
-        return maxConcurrentRuns.getValue("WorkflowArgs.maxConcurrentRuns");
+        if (!unknown_maxConcurrentRuns) return value_maxConcurrentRuns;
+        throw new UndeferrableValueException("Value 'WorkflowArgs.maxConcurrentRuns' is not present");
     }
 
     /**
      * The name you assign to this workflow.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("WorkflowArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'WorkflowArgs.name' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("WorkflowArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'WorkflowArgs.tags' is not present");
     }
 
 }

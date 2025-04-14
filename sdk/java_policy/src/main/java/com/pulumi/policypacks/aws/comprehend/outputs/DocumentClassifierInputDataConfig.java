@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.comprehend.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.comprehend.outputs.DocumentClassifierInputDataConfigAugmentedManifest;
 import java.lang.String;
 import java.util.List;
@@ -18,11 +19,12 @@ public final class DocumentClassifierInputDataConfig {
      * See the `augmented_manifests` Configuration Block section below.
      * 
      */
-    private @Nullable UndeferrableValue<List<DocumentClassifierInputDataConfigAugmentedManifest>> augmentedManifests;
-
+    @PolicyResourceProperty(name="augmentedManifests", flag="unknown_augmentedManifests")
+    private @Nullable List<DocumentClassifierInputDataConfigAugmentedManifest> value_augmentedManifests;
+    private boolean unknown_augmentedManifests;
     public @Nullable List<DocumentClassifierInputDataConfigAugmentedManifest> augmentedManifests() {
-        if (augmentedManifests == null) return null;
-        return augmentedManifests.getValue("DocumentClassifierInputDataConfig.augmentedManifests");
+        if (!unknown_augmentedManifests) return value_augmentedManifests;
+        throw new UndeferrableValueException("Value 'DocumentClassifierInputDataConfig.augmentedManifests' is not present");
     }
 
     /**
@@ -30,11 +32,12 @@ public final class DocumentClassifierInputDataConfig {
      * One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
      * 
      */
-    private @Nullable UndeferrableValue<String> dataFormat;
-
+    @PolicyResourceProperty(name="dataFormat", flag="unknown_dataFormat")
+    private @Nullable String value_dataFormat;
+    private boolean unknown_dataFormat;
     public @Nullable String dataFormat() {
-        if (dataFormat == null) return null;
-        return dataFormat.getValue("DocumentClassifierInputDataConfig.dataFormat");
+        if (!unknown_dataFormat) return value_dataFormat;
+        throw new UndeferrableValueException("Value 'DocumentClassifierInputDataConfig.dataFormat' is not present");
     }
 
     /**
@@ -43,11 +46,12 @@ public final class DocumentClassifierInputDataConfig {
      * Default is `|`.
      * 
      */
-    private @Nullable UndeferrableValue<String> labelDelimiter;
-
+    @PolicyResourceProperty(name="labelDelimiter", flag="unknown_labelDelimiter")
+    private @Nullable String value_labelDelimiter;
+    private boolean unknown_labelDelimiter;
     public @Nullable String labelDelimiter() {
-        if (labelDelimiter == null) return null;
-        return labelDelimiter.getValue("DocumentClassifierInputDataConfig.labelDelimiter");
+        if (!unknown_labelDelimiter) return value_labelDelimiter;
+        throw new UndeferrableValueException("Value 'DocumentClassifierInputDataConfig.labelDelimiter' is not present");
     }
 
     /**
@@ -55,18 +59,20 @@ public final class DocumentClassifierInputDataConfig {
      * Used if `data_format` is `COMPREHEND_CSV`.
      * 
      */
-    private @Nullable UndeferrableValue<String> s3Uri;
-
+    @PolicyResourceProperty(name="s3Uri", flag="unknown_s3Uri")
+    private @Nullable String value_s3Uri;
+    private boolean unknown_s3Uri;
     public @Nullable String s3Uri() {
-        if (s3Uri == null) return null;
-        return s3Uri.getValue("DocumentClassifierInputDataConfig.s3Uri");
+        if (!unknown_s3Uri) return value_s3Uri;
+        throw new UndeferrableValueException("Value 'DocumentClassifierInputDataConfig.s3Uri' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> testS3Uri;
-
+    @PolicyResourceProperty(name="testS3Uri", flag="unknown_testS3Uri")
+    private @Nullable String value_testS3Uri;
+    private boolean unknown_testS3Uri;
     public @Nullable String testS3Uri() {
-        if (testS3Uri == null) return null;
-        return testS3Uri.getValue("DocumentClassifierInputDataConfig.testS3Uri");
+        if (!unknown_testS3Uri) return value_testS3Uri;
+        throw new UndeferrableValueException("Value 'DocumentClassifierInputDataConfig.testS3Uri' is not present");
     }
 
 }

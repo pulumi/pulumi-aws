@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
      * Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle> outputRectangle;
-
+    @PolicyResourceProperty(name="outputRectangle", flag="unknown_outputRectangle")
+    private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle value_outputRectangle;
+    private boolean unknown_outputRectangle;
     public @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle outputRectangle() {
-        if (outputRectangle == null) return null;
-        return outputRectangle.getValue("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings.outputRectangle");
+        if (!unknown_outputRectangle) return value_outputRectangle;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings.outputRectangle' is not present");
     }
 
     /**
      * Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
      * 
      */
-    private @Nullable UndeferrableValue<String> pageNumber;
-
+    @PolicyResourceProperty(name="pageNumber", flag="unknown_pageNumber")
+    private @Nullable String value_pageNumber;
+    private boolean unknown_pageNumber;
     public @Nullable String pageNumber() {
-        if (pageNumber == null) return null;
-        return pageNumber.getValue("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings.pageNumber");
+        if (!unknown_pageNumber) return value_pageNumber;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings.pageNumber' is not present");
     }
 
 }

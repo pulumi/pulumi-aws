@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,176 +15,192 @@ public final class ThemeConfigurationUiColorPaletteArgs {
      * Color (hexadecimal) that applies to selected states and buttons.
      * 
      */
-    private UndeferrableValue<String> accent;
-
+    @PolicyResourceProperty(name="accent", flag="unknown_accent")
+    private String value_accent;
+    private boolean unknown_accent;
     public String accent() {
-        if (accent == null) return null;
-        return accent.getValue("ThemeConfigurationUiColorPaletteArgs.accent");
+        if (!unknown_accent) return value_accent;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationUiColorPaletteArgs.accent' is not present");
     }
 
     /**
      * Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
      * 
      */
-    private UndeferrableValue<String> accentForeground;
-
+    @PolicyResourceProperty(name="accentForeground", flag="unknown_accentForeground")
+    private String value_accentForeground;
+    private boolean unknown_accentForeground;
     public String accentForeground() {
-        if (accentForeground == null) return null;
-        return accentForeground.getValue("ThemeConfigurationUiColorPaletteArgs.accentForeground");
+        if (!unknown_accentForeground) return value_accentForeground;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationUiColorPaletteArgs.accentForeground' is not present");
     }
 
     /**
      * Color (hexadecimal) that applies to error messages.
      * 
      */
-    private UndeferrableValue<String> danger;
-
+    @PolicyResourceProperty(name="danger", flag="unknown_danger")
+    private String value_danger;
+    private boolean unknown_danger;
     public String danger() {
-        if (danger == null) return null;
-        return danger.getValue("ThemeConfigurationUiColorPaletteArgs.danger");
+        if (!unknown_danger) return value_danger;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationUiColorPaletteArgs.danger' is not present");
     }
 
     /**
      * Color (hexadecimal) that applies to any text or other elements that appear over the error color.
      * 
      */
-    private UndeferrableValue<String> dangerForeground;
-
+    @PolicyResourceProperty(name="dangerForeground", flag="unknown_dangerForeground")
+    private String value_dangerForeground;
+    private boolean unknown_dangerForeground;
     public String dangerForeground() {
-        if (dangerForeground == null) return null;
-        return dangerForeground.getValue("ThemeConfigurationUiColorPaletteArgs.dangerForeground");
+        if (!unknown_dangerForeground) return value_dangerForeground;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationUiColorPaletteArgs.dangerForeground' is not present");
     }
 
     /**
      * Color (hexadecimal) that applies to the names of fields that are identified as dimensions.
      * 
      */
-    private UndeferrableValue<String> dimension;
-
+    @PolicyResourceProperty(name="dimension", flag="unknown_dimension")
+    private String value_dimension;
+    private boolean unknown_dimension;
     public String dimension() {
-        if (dimension == null) return null;
-        return dimension.getValue("ThemeConfigurationUiColorPaletteArgs.dimension");
+        if (!unknown_dimension) return value_dimension;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationUiColorPaletteArgs.dimension' is not present");
     }
 
     /**
      * Color (hexadecimal) that applies to any text or other elements that appear over the dimension color.
      * 
      */
-    private UndeferrableValue<String> dimensionForeground;
-
+    @PolicyResourceProperty(name="dimensionForeground", flag="unknown_dimensionForeground")
+    private String value_dimensionForeground;
+    private boolean unknown_dimensionForeground;
     public String dimensionForeground() {
-        if (dimensionForeground == null) return null;
-        return dimensionForeground.getValue("ThemeConfigurationUiColorPaletteArgs.dimensionForeground");
+        if (!unknown_dimensionForeground) return value_dimensionForeground;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationUiColorPaletteArgs.dimensionForeground' is not present");
     }
 
     /**
      * Color (hexadecimal) that applies to the names of fields that are identified as measures.
      * 
      */
-    private UndeferrableValue<String> measure;
-
+    @PolicyResourceProperty(name="measure", flag="unknown_measure")
+    private String value_measure;
+    private boolean unknown_measure;
     public String measure() {
-        if (measure == null) return null;
-        return measure.getValue("ThemeConfigurationUiColorPaletteArgs.measure");
+        if (!unknown_measure) return value_measure;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationUiColorPaletteArgs.measure' is not present");
     }
 
     /**
      * Color (hexadecimal) that applies to any text or other elements that appear over the measure color.
      * 
      */
-    private UndeferrableValue<String> measureForeground;
-
+    @PolicyResourceProperty(name="measureForeground", flag="unknown_measureForeground")
+    private String value_measureForeground;
+    private boolean unknown_measureForeground;
     public String measureForeground() {
-        if (measureForeground == null) return null;
-        return measureForeground.getValue("ThemeConfigurationUiColorPaletteArgs.measureForeground");
+        if (!unknown_measureForeground) return value_measureForeground;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationUiColorPaletteArgs.measureForeground' is not present");
     }
 
     /**
      * Color (hexadecimal) that applies to visuals and other high emphasis UI.
      * 
      */
-    private UndeferrableValue<String> primaryBackground;
-
+    @PolicyResourceProperty(name="primaryBackground", flag="unknown_primaryBackground")
+    private String value_primaryBackground;
+    private boolean unknown_primaryBackground;
     public String primaryBackground() {
-        if (primaryBackground == null) return null;
-        return primaryBackground.getValue("ThemeConfigurationUiColorPaletteArgs.primaryBackground");
+        if (!unknown_primaryBackground) return value_primaryBackground;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationUiColorPaletteArgs.primaryBackground' is not present");
     }
 
     /**
      * Color (hexadecimal) of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
      * 
      */
-    private UndeferrableValue<String> primaryForeground;
-
+    @PolicyResourceProperty(name="primaryForeground", flag="unknown_primaryForeground")
+    private String value_primaryForeground;
+    private boolean unknown_primaryForeground;
     public String primaryForeground() {
-        if (primaryForeground == null) return null;
-        return primaryForeground.getValue("ThemeConfigurationUiColorPaletteArgs.primaryForeground");
+        if (!unknown_primaryForeground) return value_primaryForeground;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationUiColorPaletteArgs.primaryForeground' is not present");
     }
 
     /**
      * Color (hexadecimal) that applies to the sheet background and sheet controls.
      * 
      */
-    private UndeferrableValue<String> secondaryBackground;
-
+    @PolicyResourceProperty(name="secondaryBackground", flag="unknown_secondaryBackground")
+    private String value_secondaryBackground;
+    private boolean unknown_secondaryBackground;
     public String secondaryBackground() {
-        if (secondaryBackground == null) return null;
-        return secondaryBackground.getValue("ThemeConfigurationUiColorPaletteArgs.secondaryBackground");
+        if (!unknown_secondaryBackground) return value_secondaryBackground;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationUiColorPaletteArgs.secondaryBackground' is not present");
     }
 
     /**
      * Color (hexadecimal) that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
      * 
      */
-    private UndeferrableValue<String> secondaryForeground;
-
+    @PolicyResourceProperty(name="secondaryForeground", flag="unknown_secondaryForeground")
+    private String value_secondaryForeground;
+    private boolean unknown_secondaryForeground;
     public String secondaryForeground() {
-        if (secondaryForeground == null) return null;
-        return secondaryForeground.getValue("ThemeConfigurationUiColorPaletteArgs.secondaryForeground");
+        if (!unknown_secondaryForeground) return value_secondaryForeground;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationUiColorPaletteArgs.secondaryForeground' is not present");
     }
 
     /**
      * Color (hexadecimal) that applies to success messages, for example the check mark for a successful download.
      * 
      */
-    private UndeferrableValue<String> success;
-
+    @PolicyResourceProperty(name="success", flag="unknown_success")
+    private String value_success;
+    private boolean unknown_success;
     public String success() {
-        if (success == null) return null;
-        return success.getValue("ThemeConfigurationUiColorPaletteArgs.success");
+        if (!unknown_success) return value_success;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationUiColorPaletteArgs.success' is not present");
     }
 
     /**
      * Color (hexadecimal) that applies to any text or other elements that appear over the success color.
      * 
      */
-    private UndeferrableValue<String> successForeground;
-
+    @PolicyResourceProperty(name="successForeground", flag="unknown_successForeground")
+    private String value_successForeground;
+    private boolean unknown_successForeground;
     public String successForeground() {
-        if (successForeground == null) return null;
-        return successForeground.getValue("ThemeConfigurationUiColorPaletteArgs.successForeground");
+        if (!unknown_successForeground) return value_successForeground;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationUiColorPaletteArgs.successForeground' is not present");
     }
 
     /**
      * Color (hexadecimal) that applies to warning and informational messages.
      * 
      */
-    private UndeferrableValue<String> warning;
-
+    @PolicyResourceProperty(name="warning", flag="unknown_warning")
+    private String value_warning;
+    private boolean unknown_warning;
     public String warning() {
-        if (warning == null) return null;
-        return warning.getValue("ThemeConfigurationUiColorPaletteArgs.warning");
+        if (!unknown_warning) return value_warning;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationUiColorPaletteArgs.warning' is not present");
     }
 
     /**
      * Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
      * 
      */
-    private UndeferrableValue<String> warningForeground;
-
+    @PolicyResourceProperty(name="warningForeground", flag="unknown_warningForeground")
+    private String value_warningForeground;
+    private boolean unknown_warningForeground;
     public String warningForeground() {
-        if (warningForeground == null) return null;
-        return warningForeground.getValue("ThemeConfigurationUiColorPaletteArgs.warningForeground");
+        if (!unknown_warningForeground) return value_warningForeground;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationUiColorPaletteArgs.warningForeground' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.kendra.outputs.QuerySuggestionsBlockListSourceS3Path;
 import java.lang.String;
@@ -18,87 +19,96 @@ public final class QuerySuggestionsBlockList extends com.pulumi.resources.Policy
      * ARN of the block list.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("QuerySuggestionsBlockList.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'QuerySuggestionsBlockList.arn' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("QuerySuggestionsBlockList.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'QuerySuggestionsBlockList.description' is not present");
     }
 
     /**
      * Identifier of the index for a block list.
      * 
      */
-    private UndeferrableValue<String> indexId;
-
+    @PolicyResourceProperty(name="indexId", flag="unknown_indexId")
+    private String value_indexId;
+    private boolean unknown_indexId;
     public String indexId() {
-        if (indexId == null) return null;
-        return indexId.getValue("QuerySuggestionsBlockList.indexId");
+        if (!unknown_indexId) return value_indexId;
+        throw new UndeferrableValueException("Value 'QuerySuggestionsBlockList.indexId' is not present");
     }
 
     /**
      * Name for the block list.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("QuerySuggestionsBlockList.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'QuerySuggestionsBlockList.name' is not present");
     }
 
     /**
      * Unique identifier of the block list.
      * 
      */
-    private UndeferrableValue<String> querySuggestionsBlockListId;
-
+    @PolicyResourceProperty(name="querySuggestionsBlockListId", flag="unknown_querySuggestionsBlockListId")
+    private String value_querySuggestionsBlockListId;
+    private boolean unknown_querySuggestionsBlockListId;
     public String querySuggestionsBlockListId() {
-        if (querySuggestionsBlockListId == null) return null;
-        return querySuggestionsBlockListId.getValue("QuerySuggestionsBlockList.querySuggestionsBlockListId");
+        if (!unknown_querySuggestionsBlockListId) return value_querySuggestionsBlockListId;
+        throw new UndeferrableValueException("Value 'QuerySuggestionsBlockList.querySuggestionsBlockListId' is not present");
     }
 
     /**
      * IAM (Identity and Access Management) role used to access the block list text file in S3.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("QuerySuggestionsBlockList.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'QuerySuggestionsBlockList.roleArn' is not present");
     }
 
     /**
      * S3 path where your block list text file is located. See details below.
      * 
      */
-    private UndeferrableValue<QuerySuggestionsBlockListSourceS3Path> sourceS3Path;
-
+    @PolicyResourceProperty(name="sourceS3Path", flag="unknown_sourceS3Path")
+    private QuerySuggestionsBlockListSourceS3Path value_sourceS3Path;
+    private boolean unknown_sourceS3Path;
     public QuerySuggestionsBlockListSourceS3Path sourceS3Path() {
-        if (sourceS3Path == null) return null;
-        return sourceS3Path.getValue("QuerySuggestionsBlockList.sourceS3Path");
+        if (!unknown_sourceS3Path) return value_sourceS3Path;
+        throw new UndeferrableValueException("Value 'QuerySuggestionsBlockList.sourceS3Path' is not present");
     }
 
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("QuerySuggestionsBlockList.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'QuerySuggestionsBlockList.status' is not present");
     }
 
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("QuerySuggestionsBlockList.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'QuerySuggestionsBlockList.tags' is not present");
     }
 
     /**
@@ -109,11 +119,12 @@ public final class QuerySuggestionsBlockList extends com.pulumi.resources.Policy
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("QuerySuggestionsBlockList.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'QuerySuggestionsBlockList.tagsAll' is not present");
     }
 
 }

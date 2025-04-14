@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ses;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ses.inputs.EventDestinationCloudwatchDestinationArgs;
 import com.pulumi.policypacks.aws.ses.inputs.EventDestinationKinesisDestinationArgs;
@@ -21,66 +22,72 @@ public final class EventDestinationArgs extends com.pulumi.resources.PolicyResou
      * CloudWatch destination for the events
      * 
      */
-    private UndeferrableValue<List<EventDestinationCloudwatchDestinationArgs>> cloudwatchDestinations;
-
+    @PolicyResourceProperty(name="cloudwatchDestinations", flag="unknown_cloudwatchDestinations")
+    private List<EventDestinationCloudwatchDestinationArgs> value_cloudwatchDestinations;
+    private boolean unknown_cloudwatchDestinations;
     public List<EventDestinationCloudwatchDestinationArgs> cloudwatchDestinations() {
-        if (cloudwatchDestinations == null) return null;
-        return cloudwatchDestinations.getValue("EventDestinationArgs.cloudwatchDestinations");
+        if (!unknown_cloudwatchDestinations) return value_cloudwatchDestinations;
+        throw new UndeferrableValueException("Value 'EventDestinationArgs.cloudwatchDestinations' is not present");
     }
 
     /**
      * The name of the configuration set
      * 
      */
-    private UndeferrableValue<String> configurationSetName;
-
+    @PolicyResourceProperty(name="configurationSetName", flag="unknown_configurationSetName")
+    private String value_configurationSetName;
+    private boolean unknown_configurationSetName;
     public String configurationSetName() {
-        if (configurationSetName == null) return null;
-        return configurationSetName.getValue("EventDestinationArgs.configurationSetName");
+        if (!unknown_configurationSetName) return value_configurationSetName;
+        throw new UndeferrableValueException("Value 'EventDestinationArgs.configurationSetName' is not present");
     }
 
     /**
      * If true, the event destination will be enabled
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("EventDestinationArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'EventDestinationArgs.enabled' is not present");
     }
 
     /**
      * Send the events to a kinesis firehose destination
      * 
      */
-    private UndeferrableValue<EventDestinationKinesisDestinationArgs> kinesisDestination;
-
+    @PolicyResourceProperty(name="kinesisDestination", flag="unknown_kinesisDestination")
+    private EventDestinationKinesisDestinationArgs value_kinesisDestination;
+    private boolean unknown_kinesisDestination;
     public EventDestinationKinesisDestinationArgs kinesisDestination() {
-        if (kinesisDestination == null) return null;
-        return kinesisDestination.getValue("EventDestinationArgs.kinesisDestination");
+        if (!unknown_kinesisDestination) return value_kinesisDestination;
+        throw new UndeferrableValueException("Value 'EventDestinationArgs.kinesisDestination' is not present");
     }
 
     /**
      * A list of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
      * 
      */
-    private UndeferrableValue<List<String>> matchingTypes;
-
+    @PolicyResourceProperty(name="matchingTypes", flag="unknown_matchingTypes")
+    private List<String> value_matchingTypes;
+    private boolean unknown_matchingTypes;
     public List<String> matchingTypes() {
-        if (matchingTypes == null) return null;
-        return matchingTypes.getValue("EventDestinationArgs.matchingTypes");
+        if (!unknown_matchingTypes) return value_matchingTypes;
+        throw new UndeferrableValueException("Value 'EventDestinationArgs.matchingTypes' is not present");
     }
 
     /**
      * The name of the event destination
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("EventDestinationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'EventDestinationArgs.name' is not present");
     }
 
     /**
@@ -89,11 +96,12 @@ public final class EventDestinationArgs extends com.pulumi.resources.PolicyResou
      * &gt; **NOTE:** You can specify `&#34;cloudwatch_destination&#34;` or `&#34;kinesis_destination&#34;` but not both
      * 
      */
-    private UndeferrableValue<EventDestinationSnsDestinationArgs> snsDestination;
-
+    @PolicyResourceProperty(name="snsDestination", flag="unknown_snsDestination")
+    private EventDestinationSnsDestinationArgs value_snsDestination;
+    private boolean unknown_snsDestination;
     public EventDestinationSnsDestinationArgs snsDestination() {
-        if (snsDestination == null) return null;
-        return snsDestination.getValue("EventDestinationArgs.snsDestination");
+        if (!unknown_snsDestination) return value_snsDestination;
+        throw new UndeferrableValueException("Value 'EventDestinationArgs.snsDestination' is not present");
     }
 
 }

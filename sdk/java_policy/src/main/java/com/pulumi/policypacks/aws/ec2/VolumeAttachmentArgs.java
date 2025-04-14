@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,11 +19,12 @@ public final class VolumeAttachmentArgs extends com.pulumi.resources.PolicyResou
      * example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
      * 
      */
-    private UndeferrableValue<String> deviceName;
-
+    @PolicyResourceProperty(name="deviceName", flag="unknown_deviceName")
+    private String value_deviceName;
+    private boolean unknown_deviceName;
     public String deviceName() {
-        if (deviceName == null) return null;
-        return deviceName.getValue("VolumeAttachmentArgs.deviceName");
+        if (!unknown_deviceName) return value_deviceName;
+        throw new UndeferrableValueException("Value 'VolumeAttachmentArgs.deviceName' is not present");
     }
 
     /**
@@ -32,22 +34,24 @@ public final class VolumeAttachmentArgs extends com.pulumi.resources.PolicyResou
      * [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
      * 
      */
-    private UndeferrableValue<Boolean> forceDetach;
-
+    @PolicyResourceProperty(name="forceDetach", flag="unknown_forceDetach")
+    private Boolean value_forceDetach;
+    private boolean unknown_forceDetach;
     public Boolean forceDetach() {
-        if (forceDetach == null) return null;
-        return forceDetach.getValue("VolumeAttachmentArgs.forceDetach");
+        if (!unknown_forceDetach) return value_forceDetach;
+        throw new UndeferrableValueException("Value 'VolumeAttachmentArgs.forceDetach' is not present");
     }
 
     /**
      * ID of the Instance to attach to
      * 
      */
-    private UndeferrableValue<String> instanceId;
-
+    @PolicyResourceProperty(name="instanceId", flag="unknown_instanceId")
+    private String value_instanceId;
+    private boolean unknown_instanceId;
     public String instanceId() {
-        if (instanceId == null) return null;
-        return instanceId.getValue("VolumeAttachmentArgs.instanceId");
+        if (!unknown_instanceId) return value_instanceId;
+        throw new UndeferrableValueException("Value 'VolumeAttachmentArgs.instanceId' is not present");
     }
 
     /**
@@ -58,11 +62,12 @@ public final class VolumeAttachmentArgs extends com.pulumi.resources.PolicyResou
      * means attached.
      * 
      */
-    private UndeferrableValue<Boolean> skipDestroy;
-
+    @PolicyResourceProperty(name="skipDestroy", flag="unknown_skipDestroy")
+    private Boolean value_skipDestroy;
+    private boolean unknown_skipDestroy;
     public Boolean skipDestroy() {
-        if (skipDestroy == null) return null;
-        return skipDestroy.getValue("VolumeAttachmentArgs.skipDestroy");
+        if (!unknown_skipDestroy) return value_skipDestroy;
+        throw new UndeferrableValueException("Value 'VolumeAttachmentArgs.skipDestroy' is not present");
     }
 
     /**
@@ -70,22 +75,24 @@ public final class VolumeAttachmentArgs extends com.pulumi.resources.PolicyResou
      * before trying to detach the volume. Stops the instance, if it is not already stopped.
      * 
      */
-    private UndeferrableValue<Boolean> stopInstanceBeforeDetaching;
-
+    @PolicyResourceProperty(name="stopInstanceBeforeDetaching", flag="unknown_stopInstanceBeforeDetaching")
+    private Boolean value_stopInstanceBeforeDetaching;
+    private boolean unknown_stopInstanceBeforeDetaching;
     public Boolean stopInstanceBeforeDetaching() {
-        if (stopInstanceBeforeDetaching == null) return null;
-        return stopInstanceBeforeDetaching.getValue("VolumeAttachmentArgs.stopInstanceBeforeDetaching");
+        if (!unknown_stopInstanceBeforeDetaching) return value_stopInstanceBeforeDetaching;
+        throw new UndeferrableValueException("Value 'VolumeAttachmentArgs.stopInstanceBeforeDetaching' is not present");
     }
 
     /**
      * ID of the Volume to be attached
      * 
      */
-    private UndeferrableValue<String> volumeId;
-
+    @PolicyResourceProperty(name="volumeId", flag="unknown_volumeId")
+    private String value_volumeId;
+    private boolean unknown_volumeId;
     public String volumeId() {
-        if (volumeId == null) return null;
-        return volumeId.getValue("VolumeAttachmentArgs.volumeId");
+        if (!unknown_volumeId) return value_volumeId;
+        throw new UndeferrableValueException("Value 'VolumeAttachmentArgs.volumeId' is not present");
     }
 
 }

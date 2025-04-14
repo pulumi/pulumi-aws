@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -16,33 +17,36 @@ public final class CatalogTableStorageDescriptorSkewedInfoArgs {
      * List of names of columns that contain skewed values.
      * 
      */
-    private UndeferrableValue<List<String>> skewedColumnNames;
-
+    @PolicyResourceProperty(name="skewedColumnNames", flag="unknown_skewedColumnNames")
+    private List<String> value_skewedColumnNames;
+    private boolean unknown_skewedColumnNames;
     public List<String> skewedColumnNames() {
-        if (skewedColumnNames == null) return null;
-        return skewedColumnNames.getValue("CatalogTableStorageDescriptorSkewedInfoArgs.skewedColumnNames");
+        if (!unknown_skewedColumnNames) return value_skewedColumnNames;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptorSkewedInfoArgs.skewedColumnNames' is not present");
     }
 
     /**
      * List of values that appear so frequently as to be considered skewed.
      * 
      */
-    private UndeferrableValue<Map<String,String>> skewedColumnValueLocationMaps;
-
+    @PolicyResourceProperty(name="skewedColumnValueLocationMaps", flag="unknown_skewedColumnValueLocationMaps")
+    private Map<String,String> value_skewedColumnValueLocationMaps;
+    private boolean unknown_skewedColumnValueLocationMaps;
     public Map<String,String> skewedColumnValueLocationMaps() {
-        if (skewedColumnValueLocationMaps == null) return null;
-        return skewedColumnValueLocationMaps.getValue("CatalogTableStorageDescriptorSkewedInfoArgs.skewedColumnValueLocationMaps");
+        if (!unknown_skewedColumnValueLocationMaps) return value_skewedColumnValueLocationMaps;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptorSkewedInfoArgs.skewedColumnValueLocationMaps' is not present");
     }
 
     /**
      * Map of skewed values to the columns that contain them.
      * 
      */
-    private UndeferrableValue<List<String>> skewedColumnValues;
-
+    @PolicyResourceProperty(name="skewedColumnValues", flag="unknown_skewedColumnValues")
+    private List<String> value_skewedColumnValues;
+    private boolean unknown_skewedColumnValues;
     public List<String> skewedColumnValues() {
-        if (skewedColumnValues == null) return null;
-        return skewedColumnValues.getValue("CatalogTableStorageDescriptorSkewedInfoArgs.skewedColumnValues");
+        if (!unknown_skewedColumnValues) return value_skewedColumnValues;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptorSkewedInfoArgs.skewedColumnValues' is not present");
     }
 
 }

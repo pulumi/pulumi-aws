@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup;
 import java.lang.Boolean;
 import java.util.List;
@@ -16,11 +17,12 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
      * Whether the user can interrupt a speech response from Amazon Lex.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> allowInterrupt;
-
+    @PolicyResourceProperty(name="allowInterrupt", flag="unknown_allowInterrupt")
+    private @Nullable Boolean value_allowInterrupt;
+    private boolean unknown_allowInterrupt;
     public @Nullable Boolean allowInterrupt() {
-        if (allowInterrupt == null) return null;
-        return allowInterrupt.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponse.allowInterrupt");
+        if (!unknown_allowInterrupt) return value_allowInterrupt;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponse.allowInterrupt' is not present");
     }
 
     /**
@@ -29,11 +31,12 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
      * See `message_group`.
      * 
      */
-    private @Nullable UndeferrableValue<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup>> messageGroups;
-
+    @PolicyResourceProperty(name="messageGroups", flag="unknown_messageGroups")
+    private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup> value_messageGroups;
+    private boolean unknown_messageGroups;
     public @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup> messageGroups() {
-        if (messageGroups == null) return null;
-        return messageGroups.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponse.messageGroups");
+        if (!unknown_messageGroups) return value_messageGroups;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponse.messageGroups' is not present");
     }
 
 }

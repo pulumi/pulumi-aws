@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mediapackage.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.mediapackage.outputs.ChannelHlsIngestIngestEndpoint;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ChannelHlsIngest {
      * A list of the ingest endpoints
      * 
      */
-    private @Nullable UndeferrableValue<List<ChannelHlsIngestIngestEndpoint>> ingestEndpoints;
-
+    @PolicyResourceProperty(name="ingestEndpoints", flag="unknown_ingestEndpoints")
+    private @Nullable List<ChannelHlsIngestIngestEndpoint> value_ingestEndpoints;
+    private boolean unknown_ingestEndpoints;
     public @Nullable List<ChannelHlsIngestIngestEndpoint> ingestEndpoints() {
-        if (ingestEndpoints == null) return null;
-        return ingestEndpoints.getValue("ChannelHlsIngest.ingestEndpoints");
+        if (!unknown_ingestEndpoints) return value_ingestEndpoints;
+        throw new UndeferrableValueException("Value 'ChannelHlsIngest.ingestEndpoints' is not present");
     }
 
 }

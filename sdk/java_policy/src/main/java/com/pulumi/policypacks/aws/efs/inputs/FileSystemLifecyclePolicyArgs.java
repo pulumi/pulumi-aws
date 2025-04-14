@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.efs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class FileSystemLifecyclePolicyArgs {
      * Indicates how long it takes to transition files to the archive storage class. Requires transition_to_ia, Elastic Throughput and General Purpose performance mode. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
      * 
      */
-    private UndeferrableValue<String> transitionToArchive;
-
+    @PolicyResourceProperty(name="transitionToArchive", flag="unknown_transitionToArchive")
+    private String value_transitionToArchive;
+    private boolean unknown_transitionToArchive;
     public String transitionToArchive() {
-        if (transitionToArchive == null) return null;
-        return transitionToArchive.getValue("FileSystemLifecyclePolicyArgs.transitionToArchive");
+        if (!unknown_transitionToArchive) return value_transitionToArchive;
+        throw new UndeferrableValueException("Value 'FileSystemLifecyclePolicyArgs.transitionToArchive' is not present");
     }
 
     /**
      * Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, `AFTER_90_DAYS`, `AFTER_180_DAYS`, `AFTER_270_DAYS`, or `AFTER_365_DAYS`.
      * 
      */
-    private UndeferrableValue<String> transitionToIa;
-
+    @PolicyResourceProperty(name="transitionToIa", flag="unknown_transitionToIa")
+    private String value_transitionToIa;
+    private boolean unknown_transitionToIa;
     public String transitionToIa() {
-        if (transitionToIa == null) return null;
-        return transitionToIa.getValue("FileSystemLifecyclePolicyArgs.transitionToIa");
+        if (!unknown_transitionToIa) return value_transitionToIa;
+        throw new UndeferrableValueException("Value 'FileSystemLifecyclePolicyArgs.transitionToIa' is not present");
     }
 
     /**
      * Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
      * 
      */
-    private UndeferrableValue<String> transitionToPrimaryStorageClass;
-
+    @PolicyResourceProperty(name="transitionToPrimaryStorageClass", flag="unknown_transitionToPrimaryStorageClass")
+    private String value_transitionToPrimaryStorageClass;
+    private boolean unknown_transitionToPrimaryStorageClass;
     public String transitionToPrimaryStorageClass() {
-        if (transitionToPrimaryStorageClass == null) return null;
-        return transitionToPrimaryStorageClass.getValue("FileSystemLifecyclePolicyArgs.transitionToPrimaryStorageClass");
+        if (!unknown_transitionToPrimaryStorageClass) return value_transitionToPrimaryStorageClass;
+        throw new UndeferrableValueException("Value 'FileSystemLifecyclePolicyArgs.transitionToPrimaryStorageClass' is not present");
     }
 
 }

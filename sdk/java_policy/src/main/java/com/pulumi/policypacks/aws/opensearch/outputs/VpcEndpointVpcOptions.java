@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -11,40 +12,44 @@ import javax.annotation.Nullable;
 
 public final class VpcEndpointVpcOptions {
 
-    private @Nullable UndeferrableValue<List<String>> availabilityZones;
-
+    @PolicyResourceProperty(name="availabilityZones", flag="unknown_availabilityZones")
+    private @Nullable List<String> value_availabilityZones;
+    private boolean unknown_availabilityZones;
     public @Nullable List<String> availabilityZones() {
-        if (availabilityZones == null) return null;
-        return availabilityZones.getValue("VpcEndpointVpcOptions.availabilityZones");
+        if (!unknown_availabilityZones) return value_availabilityZones;
+        throw new UndeferrableValueException("Value 'VpcEndpointVpcOptions.availabilityZones' is not present");
     }
 
     /**
      * The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, OpenSearch Service uses the default security group for the VPC.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private @Nullable List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public @Nullable List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("VpcEndpointVpcOptions.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'VpcEndpointVpcOptions.securityGroupIds' is not present");
     }
 
     /**
      * A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("VpcEndpointVpcOptions.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'VpcEndpointVpcOptions.subnetIds' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private @Nullable String value_vpcId;
+    private boolean unknown_vpcId;
     public @Nullable String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("VpcEndpointVpcOptions.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'VpcEndpointVpcOptions.vpcId' is not present");
     }
 
 }

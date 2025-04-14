@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chimesdkmediapipelines.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,132 +16,144 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeProc
      * Labels all personally identifiable information (PII) identified in Transcript events.
      * 
      */
-    private UndeferrableValue<String> contentIdentificationType;
-
+    @PolicyResourceProperty(name="contentIdentificationType", flag="unknown_contentIdentificationType")
+    private String value_contentIdentificationType;
+    private boolean unknown_contentIdentificationType;
     public String contentIdentificationType() {
-        if (contentIdentificationType == null) return null;
-        return contentIdentificationType.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.contentIdentificationType");
+        if (!unknown_contentIdentificationType) return value_contentIdentificationType;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.contentIdentificationType' is not present");
     }
 
     /**
      * Redacts all personally identifiable information (PII) identified in Transcript events.
      * 
      */
-    private UndeferrableValue<String> contentRedactionType;
-
+    @PolicyResourceProperty(name="contentRedactionType", flag="unknown_contentRedactionType")
+    private String value_contentRedactionType;
+    private boolean unknown_contentRedactionType;
     public String contentRedactionType() {
-        if (contentRedactionType == null) return null;
-        return contentRedactionType.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.contentRedactionType");
+        if (!unknown_contentRedactionType) return value_contentRedactionType;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.contentRedactionType' is not present");
     }
 
     /**
      * Enables partial result stabilization in Transcript events.
      * 
      */
-    private UndeferrableValue<Boolean> enablePartialResultsStabilization;
-
+    @PolicyResourceProperty(name="enablePartialResultsStabilization", flag="unknown_enablePartialResultsStabilization")
+    private Boolean value_enablePartialResultsStabilization;
+    private boolean unknown_enablePartialResultsStabilization;
     public Boolean enablePartialResultsStabilization() {
-        if (enablePartialResultsStabilization == null) return null;
-        return enablePartialResultsStabilization.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.enablePartialResultsStabilization");
+        if (!unknown_enablePartialResultsStabilization) return value_enablePartialResultsStabilization;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.enablePartialResultsStabilization' is not present");
     }
 
     /**
      * Filters partial Utterance events from delivery to the insights target.
      * 
      */
-    private UndeferrableValue<Boolean> filterPartialResults;
-
+    @PolicyResourceProperty(name="filterPartialResults", flag="unknown_filterPartialResults")
+    private Boolean value_filterPartialResults;
+    private boolean unknown_filterPartialResults;
     public Boolean filterPartialResults() {
-        if (filterPartialResults == null) return null;
-        return filterPartialResults.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.filterPartialResults");
+        if (!unknown_filterPartialResults) return value_filterPartialResults;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.filterPartialResults' is not present");
     }
 
     /**
      * Language code for the transcription model.
      * 
      */
-    private UndeferrableValue<String> languageCode;
-
+    @PolicyResourceProperty(name="languageCode", flag="unknown_languageCode")
+    private String value_languageCode;
+    private boolean unknown_languageCode;
     public String languageCode() {
-        if (languageCode == null) return null;
-        return languageCode.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.languageCode");
+        if (!unknown_languageCode) return value_languageCode;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.languageCode' is not present");
     }
 
     /**
      * Name of custom language model for transcription.
      * 
      */
-    private UndeferrableValue<String> languageModelName;
-
+    @PolicyResourceProperty(name="languageModelName", flag="unknown_languageModelName")
+    private String value_languageModelName;
+    private boolean unknown_languageModelName;
     public String languageModelName() {
-        if (languageModelName == null) return null;
-        return languageModelName.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.languageModelName");
+        if (!unknown_languageModelName) return value_languageModelName;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.languageModelName' is not present");
     }
 
     /**
      * Level of stability to use when partial results stabilization is enabled.
      * 
      */
-    private UndeferrableValue<String> partialResultsStability;
-
+    @PolicyResourceProperty(name="partialResultsStability", flag="unknown_partialResultsStability")
+    private String value_partialResultsStability;
+    private boolean unknown_partialResultsStability;
     public String partialResultsStability() {
-        if (partialResultsStability == null) return null;
-        return partialResultsStability.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.partialResultsStability");
+        if (!unknown_partialResultsStability) return value_partialResultsStability;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.partialResultsStability' is not present");
     }
 
     /**
      * Types of personally identifiable information (PII) to redact from a Transcript event.
      * 
      */
-    private UndeferrableValue<String> piiEntityTypes;
-
+    @PolicyResourceProperty(name="piiEntityTypes", flag="unknown_piiEntityTypes")
+    private String value_piiEntityTypes;
+    private boolean unknown_piiEntityTypes;
     public String piiEntityTypes() {
-        if (piiEntityTypes == null) return null;
-        return piiEntityTypes.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.piiEntityTypes");
+        if (!unknown_piiEntityTypes) return value_piiEntityTypes;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.piiEntityTypes' is not present");
     }
 
     /**
      * Enables speaker partitioning (diarization) in your Transcript events.
      * 
      */
-    private UndeferrableValue<Boolean> showSpeakerLabel;
-
+    @PolicyResourceProperty(name="showSpeakerLabel", flag="unknown_showSpeakerLabel")
+    private Boolean value_showSpeakerLabel;
+    private boolean unknown_showSpeakerLabel;
     public Boolean showSpeakerLabel() {
-        if (showSpeakerLabel == null) return null;
-        return showSpeakerLabel.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.showSpeakerLabel");
+        if (!unknown_showSpeakerLabel) return value_showSpeakerLabel;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.showSpeakerLabel' is not present");
     }
 
     /**
      * Method for applying a vocabulary filter to Transcript events.
      * 
      */
-    private UndeferrableValue<String> vocabularyFilterMethod;
-
+    @PolicyResourceProperty(name="vocabularyFilterMethod", flag="unknown_vocabularyFilterMethod")
+    private String value_vocabularyFilterMethod;
+    private boolean unknown_vocabularyFilterMethod;
     public String vocabularyFilterMethod() {
-        if (vocabularyFilterMethod == null) return null;
-        return vocabularyFilterMethod.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.vocabularyFilterMethod");
+        if (!unknown_vocabularyFilterMethod) return value_vocabularyFilterMethod;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.vocabularyFilterMethod' is not present");
     }
 
     /**
      * Name of the custom vocabulary filter to use when processing Transcript events.
      * 
      */
-    private UndeferrableValue<String> vocabularyFilterName;
-
+    @PolicyResourceProperty(name="vocabularyFilterName", flag="unknown_vocabularyFilterName")
+    private String value_vocabularyFilterName;
+    private boolean unknown_vocabularyFilterName;
     public String vocabularyFilterName() {
-        if (vocabularyFilterName == null) return null;
-        return vocabularyFilterName.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.vocabularyFilterName");
+        if (!unknown_vocabularyFilterName) return value_vocabularyFilterName;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.vocabularyFilterName' is not present");
     }
 
     /**
      * Name of the custom vocabulary to use when processing Transcript events.
      * 
      */
-    private UndeferrableValue<String> vocabularyName;
-
+    @PolicyResourceProperty(name="vocabularyName", flag="unknown_vocabularyName")
+    private String value_vocabularyName;
+    private boolean unknown_vocabularyName;
     public String vocabularyName() {
-        if (vocabularyName == null) return null;
-        return vocabularyName.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.vocabularyName");
+        if (!unknown_vocabularyName) return value_vocabularyName;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs.vocabularyName' is not present");
     }
 
 }

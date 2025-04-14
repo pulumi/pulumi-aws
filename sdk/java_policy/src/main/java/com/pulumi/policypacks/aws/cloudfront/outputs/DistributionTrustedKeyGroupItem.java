@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DistributionTrustedKeyGroupItem {
      * ID of the key group that contains the public keys.
      * 
      */
-    private @Nullable UndeferrableValue<String> keyGroupId;
-
+    @PolicyResourceProperty(name="keyGroupId", flag="unknown_keyGroupId")
+    private @Nullable String value_keyGroupId;
+    private boolean unknown_keyGroupId;
     public @Nullable String keyGroupId() {
-        if (keyGroupId == null) return null;
-        return keyGroupId.getValue("DistributionTrustedKeyGroupItem.keyGroupId");
+        if (!unknown_keyGroupId) return value_keyGroupId;
+        throw new UndeferrableValueException("Value 'DistributionTrustedKeyGroupItem.keyGroupId' is not present");
     }
 
     /**
      * Set of active CloudFront key pairs associated with the signer account
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> keyPairIds;
-
+    @PolicyResourceProperty(name="keyPairIds", flag="unknown_keyPairIds")
+    private @Nullable List<String> value_keyPairIds;
+    private boolean unknown_keyPairIds;
     public @Nullable List<String> keyPairIds() {
-        if (keyPairIds == null) return null;
-        return keyPairIds.getValue("DistributionTrustedKeyGroupItem.keyPairIds");
+        if (!unknown_keyPairIds) return value_keyPairIds;
+        throw new UndeferrableValueException("Value 'DistributionTrustedKeyGroupItem.keyPairIds' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,55 +16,60 @@ public final class Ingestion extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the Ingestion.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Ingestion.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Ingestion.arn' is not present");
     }
 
     /**
      * AWS account ID.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("Ingestion.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'Ingestion.awsAccountId' is not present");
     }
 
     /**
      * ID of the dataset used in the ingestion.
      * 
      */
-    private UndeferrableValue<String> dataSetId;
-
+    @PolicyResourceProperty(name="dataSetId", flag="unknown_dataSetId")
+    private String value_dataSetId;
+    private boolean unknown_dataSetId;
     public String dataSetId() {
-        if (dataSetId == null) return null;
-        return dataSetId.getValue("Ingestion.dataSetId");
+        if (!unknown_dataSetId) return value_dataSetId;
+        throw new UndeferrableValueException("Value 'Ingestion.dataSetId' is not present");
     }
 
     /**
      * ID for the ingestion.
      * 
      */
-    private UndeferrableValue<String> ingestionId;
-
+    @PolicyResourceProperty(name="ingestionId", flag="unknown_ingestionId")
+    private String value_ingestionId;
+    private boolean unknown_ingestionId;
     public String ingestionId() {
-        if (ingestionId == null) return null;
-        return ingestionId.getValue("Ingestion.ingestionId");
+        if (!unknown_ingestionId) return value_ingestionId;
+        throw new UndeferrableValueException("Value 'Ingestion.ingestionId' is not present");
     }
 
     /**
      * Ingestion status.
      * 
      */
-    private UndeferrableValue<String> ingestionStatus;
-
+    @PolicyResourceProperty(name="ingestionStatus", flag="unknown_ingestionStatus")
+    private String value_ingestionStatus;
+    private boolean unknown_ingestionStatus;
     public String ingestionStatus() {
-        if (ingestionStatus == null) return null;
-        return ingestionStatus.getValue("Ingestion.ingestionStatus");
+        if (!unknown_ingestionStatus) return value_ingestionStatus;
+        throw new UndeferrableValueException("Value 'Ingestion.ingestionStatus' is not present");
     }
 
     /**
@@ -72,11 +78,12 @@ public final class Ingestion extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> ingestionType;
-
+    @PolicyResourceProperty(name="ingestionType", flag="unknown_ingestionType")
+    private String value_ingestionType;
+    private boolean unknown_ingestionType;
     public String ingestionType() {
-        if (ingestionType == null) return null;
-        return ingestionType.getValue("Ingestion.ingestionType");
+        if (!unknown_ingestionType) return value_ingestionType;
+        throw new UndeferrableValueException("Value 'Ingestion.ingestionType' is not present");
     }
 
 }

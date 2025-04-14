@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class TagOptionArgs extends com.pulumi.resources.PolicyResourceInpu
      * Whether tag option is active. Default is `true`.
      * 
      */
-    private UndeferrableValue<Boolean> active;
-
+    @PolicyResourceProperty(name="active", flag="unknown_active")
+    private Boolean value_active;
+    private boolean unknown_active;
     public Boolean active() {
-        if (active == null) return null;
-        return active.getValue("TagOptionArgs.active");
+        if (!unknown_active) return value_active;
+        throw new UndeferrableValueException("Value 'TagOptionArgs.active' is not present");
     }
 
     /**
      * Tag option key.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("TagOptionArgs.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'TagOptionArgs.key' is not present");
     }
 
     /**
@@ -41,11 +44,12 @@ public final class TagOptionArgs extends com.pulumi.resources.PolicyResourceInpu
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("TagOptionArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'TagOptionArgs.value' is not present");
     }
 
 }

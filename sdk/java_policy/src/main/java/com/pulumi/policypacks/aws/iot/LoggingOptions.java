@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class LoggingOptions extends com.pulumi.resources.PolicyResourceOut
      * The default logging level. Valid Values: `&#34;DEBUG&#34;`, `&#34;INFO&#34;`, `&#34;ERROR&#34;`, `&#34;WARN&#34;`, `&#34;DISABLED&#34;`.
      * 
      */
-    private UndeferrableValue<String> defaultLogLevel;
-
+    @PolicyResourceProperty(name="defaultLogLevel", flag="unknown_defaultLogLevel")
+    private String value_defaultLogLevel;
+    private boolean unknown_defaultLogLevel;
     public String defaultLogLevel() {
-        if (defaultLogLevel == null) return null;
-        return defaultLogLevel.getValue("LoggingOptions.defaultLogLevel");
+        if (!unknown_defaultLogLevel) return value_defaultLogLevel;
+        throw new UndeferrableValueException("Value 'LoggingOptions.defaultLogLevel' is not present");
     }
 
     /**
      * If `true` all logs are disabled. The default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> disableAllLogs;
-
+    @PolicyResourceProperty(name="disableAllLogs", flag="unknown_disableAllLogs")
+    private @Nullable Boolean value_disableAllLogs;
+    private boolean unknown_disableAllLogs;
     public @Nullable Boolean disableAllLogs() {
-        if (disableAllLogs == null) return null;
-        return disableAllLogs.getValue("LoggingOptions.disableAllLogs");
+        if (!unknown_disableAllLogs) return value_disableAllLogs;
+        throw new UndeferrableValueException("Value 'LoggingOptions.disableAllLogs' is not present");
     }
 
     /**
      * The ARN of the role that allows IoT to write to Cloudwatch logs.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("LoggingOptions.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'LoggingOptions.roleArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ivschat;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ivschat.inputs.RoomMessageReviewHandlerArgs;
 import java.lang.Integer;
@@ -21,11 +22,12 @@ public final class RoomArgs extends com.pulumi.resources.PolicyResourceInput {
      * ARNs to attach to the room.
      * 
      */
-    private UndeferrableValue<List<String>> loggingConfigurationIdentifiers;
-
+    @PolicyResourceProperty(name="loggingConfigurationIdentifiers", flag="unknown_loggingConfigurationIdentifiers")
+    private List<String> value_loggingConfigurationIdentifiers;
+    private boolean unknown_loggingConfigurationIdentifiers;
     public List<String> loggingConfigurationIdentifiers() {
-        if (loggingConfigurationIdentifiers == null) return null;
-        return loggingConfigurationIdentifiers.getValue("RoomArgs.loggingConfigurationIdentifiers");
+        if (!unknown_loggingConfigurationIdentifiers) return value_loggingConfigurationIdentifiers;
+        throw new UndeferrableValueException("Value 'RoomArgs.loggingConfigurationIdentifiers' is not present");
     }
 
     /**
@@ -34,11 +36,12 @@ public final class RoomArgs extends com.pulumi.resources.PolicyResourceInput {
      * specifically to rune/code-point count, not number of bytes.
      * 
      */
-    private UndeferrableValue<Integer> maximumMessageLength;
-
+    @PolicyResourceProperty(name="maximumMessageLength", flag="unknown_maximumMessageLength")
+    private Integer value_maximumMessageLength;
+    private boolean unknown_maximumMessageLength;
     public Integer maximumMessageLength() {
-        if (maximumMessageLength == null) return null;
-        return maximumMessageLength.getValue("RoomArgs.maximumMessageLength");
+        if (!unknown_maximumMessageLength) return value_maximumMessageLength;
+        throw new UndeferrableValueException("Value 'RoomArgs.maximumMessageLength' is not present");
     }
 
     /**
@@ -46,11 +49,12 @@ public final class RoomArgs extends com.pulumi.resources.PolicyResourceInput {
      * second that can be sent to the room (by all clients).
      * 
      */
-    private UndeferrableValue<Integer> maximumMessageRatePerSecond;
-
+    @PolicyResourceProperty(name="maximumMessageRatePerSecond", flag="unknown_maximumMessageRatePerSecond")
+    private Integer value_maximumMessageRatePerSecond;
+    private boolean unknown_maximumMessageRatePerSecond;
     public Integer maximumMessageRatePerSecond() {
-        if (maximumMessageRatePerSecond == null) return null;
-        return maximumMessageRatePerSecond.getValue("RoomArgs.maximumMessageRatePerSecond");
+        if (!unknown_maximumMessageRatePerSecond) return value_maximumMessageRatePerSecond;
+        throw new UndeferrableValueException("Value 'RoomArgs.maximumMessageRatePerSecond' is not present");
     }
 
     /**
@@ -58,33 +62,36 @@ public final class RoomArgs extends com.pulumi.resources.PolicyResourceInput {
      * review of messages.
      * 
      */
-    private UndeferrableValue<RoomMessageReviewHandlerArgs> messageReviewHandler;
-
+    @PolicyResourceProperty(name="messageReviewHandler", flag="unknown_messageReviewHandler")
+    private RoomMessageReviewHandlerArgs value_messageReviewHandler;
+    private boolean unknown_messageReviewHandler;
     public RoomMessageReviewHandlerArgs messageReviewHandler() {
-        if (messageReviewHandler == null) return null;
-        return messageReviewHandler.getValue("RoomArgs.messageReviewHandler");
+        if (!unknown_messageReviewHandler) return value_messageReviewHandler;
+        throw new UndeferrableValueException("Value 'RoomArgs.messageReviewHandler' is not present");
     }
 
     /**
      * Room name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RoomArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RoomArgs.name' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RoomArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RoomArgs.tags' is not present");
     }
 
 }

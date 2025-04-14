@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchCondition;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStep;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponse;
@@ -17,44 +18,48 @@ public final class V2modelsIntentConfirmationSettingFailureConditionalConditiona
      * Configuration block for the expression to evaluate. If the condition is true, the branch&#39;s actions are taken. See `condition`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchCondition> condition;
-
+    @PolicyResourceProperty(name="condition", flag="unknown_condition")
+    private V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchCondition value_condition;
+    private boolean unknown_condition;
     public V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchCondition condition() {
-        if (condition == null) return null;
-        return condition.getValue("V2modelsIntentConfirmationSettingFailureConditionalConditionalBranch.condition");
+        if (!unknown_condition) return value_condition;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingFailureConditionalConditionalBranch.condition' is not present");
     }
 
     /**
      * Name of the branch.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("V2modelsIntentConfirmationSettingFailureConditionalConditionalBranch.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingFailureConditionalConditionalBranch.name' is not present");
     }
 
     /**
      * Configuration block for the next step in the conversation. See `next_step`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStep> nextStep;
-
+    @PolicyResourceProperty(name="nextStep", flag="unknown_nextStep")
+    private V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStep value_nextStep;
+    private boolean unknown_nextStep;
     public V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStep nextStep() {
-        if (nextStep == null) return null;
-        return nextStep.getValue("V2modelsIntentConfirmationSettingFailureConditionalConditionalBranch.nextStep");
+        if (!unknown_nextStep) return value_nextStep;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingFailureConditionalConditionalBranch.nextStep' is not present");
     }
 
     /**
      * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponse> response;
-
+    @PolicyResourceProperty(name="response", flag="unknown_response")
+    private @Nullable V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponse value_response;
+    private boolean unknown_response;
     public @Nullable V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponse response() {
-        if (response == null) return null;
-        return response.getValue("V2modelsIntentConfirmationSettingFailureConditionalConditionalBranch.response");
+        if (!unknown_response) return value_response;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingFailureConditionalConditionalBranch.response' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs;
@@ -17,44 +18,48 @@ public final class V2modelsIntentConfirmationSettingConfirmationConditionalCondi
      * Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs> customPayload;
-
+    @PolicyResourceProperty(name="customPayload", flag="unknown_customPayload")
+    private V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs value_customPayload;
+    private boolean unknown_customPayload;
     public V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs customPayload() {
-        if (customPayload == null) return null;
-        return customPayload.getValue("V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationArgs.customPayload");
+        if (!unknown_customPayload) return value_customPayload;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationArgs.customPayload' is not present");
     }
 
     /**
      * Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs> imageResponseCard;
-
+    @PolicyResourceProperty(name="imageResponseCard", flag="unknown_imageResponseCard")
+    private V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs value_imageResponseCard;
+    private boolean unknown_imageResponseCard;
     public V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs imageResponseCard() {
-        if (imageResponseCard == null) return null;
-        return imageResponseCard.getValue("V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationArgs.imageResponseCard");
+        if (!unknown_imageResponseCard) return value_imageResponseCard;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationArgs.imageResponseCard' is not present");
     }
 
     /**
      * Configuration block for a message in plain text format. See `plain_text_message`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs> plainTextMessage;
-
+    @PolicyResourceProperty(name="plainTextMessage", flag="unknown_plainTextMessage")
+    private V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs value_plainTextMessage;
+    private boolean unknown_plainTextMessage;
     public V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs plainTextMessage() {
-        if (plainTextMessage == null) return null;
-        return plainTextMessage.getValue("V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationArgs.plainTextMessage");
+        if (!unknown_plainTextMessage) return value_plainTextMessage;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationArgs.plainTextMessage' is not present");
     }
 
     /**
      * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs> ssmlMessage;
-
+    @PolicyResourceProperty(name="ssmlMessage", flag="unknown_ssmlMessage")
+    private V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs value_ssmlMessage;
+    private boolean unknown_ssmlMessage;
     public V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs ssmlMessage() {
-        if (ssmlMessage == null) return null;
-        return ssmlMessage.getValue("V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationArgs.ssmlMessage");
+        if (!unknown_ssmlMessage) return value_ssmlMessage;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationArgs.ssmlMessage' is not present");
     }
 
 }

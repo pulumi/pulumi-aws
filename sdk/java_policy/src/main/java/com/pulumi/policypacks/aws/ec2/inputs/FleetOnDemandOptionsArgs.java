@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.inputs.FleetOnDemandOptionsCapacityReservationOptionsArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -17,33 +18,36 @@ public final class FleetOnDemandOptionsArgs {
      * The order of the launch template overrides to use in fulfilling On-Demand capacity. Valid values: `lowestPrice`, `prioritized`. Default: `lowestPrice`.
      * 
      */
-    private UndeferrableValue<String> allocationStrategy;
-
+    @PolicyResourceProperty(name="allocationStrategy", flag="unknown_allocationStrategy")
+    private String value_allocationStrategy;
+    private boolean unknown_allocationStrategy;
     public String allocationStrategy() {
-        if (allocationStrategy == null) return null;
-        return allocationStrategy.getValue("FleetOnDemandOptionsArgs.allocationStrategy");
+        if (!unknown_allocationStrategy) return value_allocationStrategy;
+        throw new UndeferrableValueException("Value 'FleetOnDemandOptionsArgs.allocationStrategy' is not present");
     }
 
     /**
      * The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
      * 
      */
-    private UndeferrableValue<FleetOnDemandOptionsCapacityReservationOptionsArgs> capacityReservationOptions;
-
+    @PolicyResourceProperty(name="capacityReservationOptions", flag="unknown_capacityReservationOptions")
+    private FleetOnDemandOptionsCapacityReservationOptionsArgs value_capacityReservationOptions;
+    private boolean unknown_capacityReservationOptions;
     public FleetOnDemandOptionsCapacityReservationOptionsArgs capacityReservationOptions() {
-        if (capacityReservationOptions == null) return null;
-        return capacityReservationOptions.getValue("FleetOnDemandOptionsArgs.capacityReservationOptions");
+        if (!unknown_capacityReservationOptions) return value_capacityReservationOptions;
+        throw new UndeferrableValueException("Value 'FleetOnDemandOptionsArgs.capacityReservationOptions' is not present");
     }
 
     /**
      * The maximum amount per hour for On-Demand Instances that you&#39;re willing to pay.
      * 
      */
-    private UndeferrableValue<String> maxTotalPrice;
-
+    @PolicyResourceProperty(name="maxTotalPrice", flag="unknown_maxTotalPrice")
+    private String value_maxTotalPrice;
+    private boolean unknown_maxTotalPrice;
     public String maxTotalPrice() {
-        if (maxTotalPrice == null) return null;
-        return maxTotalPrice.getValue("FleetOnDemandOptionsArgs.maxTotalPrice");
+        if (!unknown_maxTotalPrice) return value_maxTotalPrice;
+        throw new UndeferrableValueException("Value 'FleetOnDemandOptionsArgs.maxTotalPrice' is not present");
     }
 
     /**
@@ -51,33 +55,36 @@ public final class FleetOnDemandOptionsArgs {
      * If you specify `min_target_capacity`, at least one of the following must be specified: `single_availability_zone` or `single_instance_type`.
      * 
      */
-    private UndeferrableValue<Integer> minTargetCapacity;
-
+    @PolicyResourceProperty(name="minTargetCapacity", flag="unknown_minTargetCapacity")
+    private Integer value_minTargetCapacity;
+    private boolean unknown_minTargetCapacity;
     public Integer minTargetCapacity() {
-        if (minTargetCapacity == null) return null;
-        return minTargetCapacity.getValue("FleetOnDemandOptionsArgs.minTargetCapacity");
+        if (!unknown_minTargetCapacity) return value_minTargetCapacity;
+        throw new UndeferrableValueException("Value 'FleetOnDemandOptionsArgs.minTargetCapacity' is not present");
     }
 
     /**
      * Indicates that the fleet launches all On-Demand Instances into a single Availability Zone. Supported only for fleets of type `instant`.
      * 
      */
-    private UndeferrableValue<Boolean> singleAvailabilityZone;
-
+    @PolicyResourceProperty(name="singleAvailabilityZone", flag="unknown_singleAvailabilityZone")
+    private Boolean value_singleAvailabilityZone;
+    private boolean unknown_singleAvailabilityZone;
     public Boolean singleAvailabilityZone() {
-        if (singleAvailabilityZone == null) return null;
-        return singleAvailabilityZone.getValue("FleetOnDemandOptionsArgs.singleAvailabilityZone");
+        if (!unknown_singleAvailabilityZone) return value_singleAvailabilityZone;
+        throw new UndeferrableValueException("Value 'FleetOnDemandOptionsArgs.singleAvailabilityZone' is not present");
     }
 
     /**
      * Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet. Supported only for fleets of type `instant`.
      * 
      */
-    private UndeferrableValue<Boolean> singleInstanceType;
-
+    @PolicyResourceProperty(name="singleInstanceType", flag="unknown_singleInstanceType")
+    private Boolean value_singleInstanceType;
+    private boolean unknown_singleInstanceType;
     public Boolean singleInstanceType() {
-        if (singleInstanceType == null) return null;
-        return singleInstanceType.getValue("FleetOnDemandOptionsArgs.singleInstanceType");
+        if (!unknown_singleInstanceType) return value_singleInstanceType;
+        throw new UndeferrableValueException("Value 'FleetOnDemandOptionsArgs.singleInstanceType' is not present");
     }
 
 }

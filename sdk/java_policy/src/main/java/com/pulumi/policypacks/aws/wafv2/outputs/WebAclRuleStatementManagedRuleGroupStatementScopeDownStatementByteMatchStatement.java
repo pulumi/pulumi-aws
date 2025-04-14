@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatch;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformation;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatch> fieldToMatch;
-
+    @PolicyResourceProperty(name="fieldToMatch", flag="unknown_fieldToMatch")
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatch value_fieldToMatch;
+    private boolean unknown_fieldToMatch;
     public @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatch fieldToMatch() {
-        if (fieldToMatch == null) return null;
-        return fieldToMatch.getValue("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement.fieldToMatch");
+        if (!unknown_fieldToMatch) return value_fieldToMatch;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement.fieldToMatch' is not present");
     }
 
     /**
      * Area within the portion of a web request that you want AWS WAF to search for `search_string`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
      * 
      */
-    private UndeferrableValue<String> positionalConstraint;
-
+    @PolicyResourceProperty(name="positionalConstraint", flag="unknown_positionalConstraint")
+    private String value_positionalConstraint;
+    private boolean unknown_positionalConstraint;
     public String positionalConstraint() {
-        if (positionalConstraint == null) return null;
-        return positionalConstraint.getValue("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement.positionalConstraint");
+        if (!unknown_positionalConstraint) return value_positionalConstraint;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement.positionalConstraint' is not present");
     }
 
     /**
      * String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `field_to_match`. The maximum length of the value is 50 bytes.
      * 
      */
-    private UndeferrableValue<String> searchString;
-
+    @PolicyResourceProperty(name="searchString", flag="unknown_searchString")
+    private String value_searchString;
+    private boolean unknown_searchString;
     public String searchString() {
-        if (searchString == null) return null;
-        return searchString.getValue("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement.searchString");
+        if (!unknown_searchString) return value_searchString;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement.searchString' is not present");
     }
 
     /**
      * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
      * 
      */
-    private UndeferrableValue<List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformation>> textTransformations;
-
+    @PolicyResourceProperty(name="textTransformations", flag="unknown_textTransformations")
+    private List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformation> value_textTransformations;
+    private boolean unknown_textTransformations;
     public List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformation> textTransformations() {
-        if (textTransformations == null) return null;
-        return textTransformations.getValue("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement.textTransformations");
+        if (!unknown_textTransformations) return value_textTransformations;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement.textTransformations' is not present");
     }
 
 }

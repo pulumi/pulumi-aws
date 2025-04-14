@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedpermissions;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,44 +17,48 @@ public final class PolicyTemplate extends com.pulumi.resources.PolicyResourceOut
      * The date the Policy Store was created.
      * 
      */
-    private UndeferrableValue<String> createdDate;
-
+    @PolicyResourceProperty(name="createdDate", flag="unknown_createdDate")
+    private String value_createdDate;
+    private boolean unknown_createdDate;
     public String createdDate() {
-        if (createdDate == null) return null;
-        return createdDate.getValue("PolicyTemplate.createdDate");
+        if (!unknown_createdDate) return value_createdDate;
+        throw new UndeferrableValueException("Value 'PolicyTemplate.createdDate' is not present");
     }
 
     /**
      * Provides a description for the policy template.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("PolicyTemplate.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'PolicyTemplate.description' is not present");
     }
 
     /**
      * The ID of the Policy Store.
      * 
      */
-    private UndeferrableValue<String> policyStoreId;
-
+    @PolicyResourceProperty(name="policyStoreId", flag="unknown_policyStoreId")
+    private String value_policyStoreId;
+    private boolean unknown_policyStoreId;
     public String policyStoreId() {
-        if (policyStoreId == null) return null;
-        return policyStoreId.getValue("PolicyTemplate.policyStoreId");
+        if (!unknown_policyStoreId) return value_policyStoreId;
+        throw new UndeferrableValueException("Value 'PolicyTemplate.policyStoreId' is not present");
     }
 
     /**
      * The ID of the Policy Store.
      * 
      */
-    private UndeferrableValue<String> policyTemplateId;
-
+    @PolicyResourceProperty(name="policyTemplateId", flag="unknown_policyTemplateId")
+    private String value_policyTemplateId;
+    private boolean unknown_policyTemplateId;
     public String policyTemplateId() {
-        if (policyTemplateId == null) return null;
-        return policyTemplateId.getValue("PolicyTemplate.policyTemplateId");
+        if (!unknown_policyTemplateId) return value_policyTemplateId;
+        throw new UndeferrableValueException("Value 'PolicyTemplate.policyTemplateId' is not present");
     }
 
     /**
@@ -62,11 +67,12 @@ public final class PolicyTemplate extends com.pulumi.resources.PolicyResourceOut
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> statement;
-
+    @PolicyResourceProperty(name="statement", flag="unknown_statement")
+    private String value_statement;
+    private boolean unknown_statement;
     public String statement() {
-        if (statement == null) return null;
-        return statement.getValue("PolicyTemplate.statement");
+        if (!unknown_statement) return value_statement;
+        throw new UndeferrableValueException("Value 'PolicyTemplate.statement' is not present");
     }
 
 }

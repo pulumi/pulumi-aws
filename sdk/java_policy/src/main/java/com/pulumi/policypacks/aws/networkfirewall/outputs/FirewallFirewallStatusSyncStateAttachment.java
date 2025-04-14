@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class FirewallFirewallStatusSyncStateAttachment {
      * The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
      * 
      */
-    private @Nullable UndeferrableValue<String> endpointId;
-
+    @PolicyResourceProperty(name="endpointId", flag="unknown_endpointId")
+    private @Nullable String value_endpointId;
+    private boolean unknown_endpointId;
     public @Nullable String endpointId() {
-        if (endpointId == null) return null;
-        return endpointId.getValue("FirewallFirewallStatusSyncStateAttachment.endpointId");
+        if (!unknown_endpointId) return value_endpointId;
+        throw new UndeferrableValueException("Value 'FirewallFirewallStatusSyncStateAttachment.endpointId' is not present");
     }
 
     /**
      * The unique identifier of the subnet that you&#39;ve specified to be used for a firewall endpoint.
      * 
      */
-    private @Nullable UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private @Nullable String value_subnetId;
+    private boolean unknown_subnetId;
     public @Nullable String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("FirewallFirewallStatusSyncStateAttachment.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'FirewallFirewallStatusSyncStateAttachment.subnetId' is not present");
     }
 
 }

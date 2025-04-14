@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2clientvpn.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class EndpointConnectionLogOptions {
      * The name of the CloudWatch Logs log group.
      * 
      */
-    private @Nullable UndeferrableValue<String> cloudwatchLogGroup;
-
+    @PolicyResourceProperty(name="cloudwatchLogGroup", flag="unknown_cloudwatchLogGroup")
+    private @Nullable String value_cloudwatchLogGroup;
+    private boolean unknown_cloudwatchLogGroup;
     public @Nullable String cloudwatchLogGroup() {
-        if (cloudwatchLogGroup == null) return null;
-        return cloudwatchLogGroup.getValue("EndpointConnectionLogOptions.cloudwatchLogGroup");
+        if (!unknown_cloudwatchLogGroup) return value_cloudwatchLogGroup;
+        throw new UndeferrableValueException("Value 'EndpointConnectionLogOptions.cloudwatchLogGroup' is not present");
     }
 
     /**
      * The name of the CloudWatch Logs log stream to which the connection data is published.
      * 
      */
-    private @Nullable UndeferrableValue<String> cloudwatchLogStream;
-
+    @PolicyResourceProperty(name="cloudwatchLogStream", flag="unknown_cloudwatchLogStream")
+    private @Nullable String value_cloudwatchLogStream;
+    private boolean unknown_cloudwatchLogStream;
     public @Nullable String cloudwatchLogStream() {
-        if (cloudwatchLogStream == null) return null;
-        return cloudwatchLogStream.getValue("EndpointConnectionLogOptions.cloudwatchLogStream");
+        if (!unknown_cloudwatchLogStream) return value_cloudwatchLogStream;
+        throw new UndeferrableValueException("Value 'EndpointConnectionLogOptions.cloudwatchLogStream' is not present");
     }
 
     /**
      * Indicates whether connection logging is enabled.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("EndpointConnectionLogOptions.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'EndpointConnectionLogOptions.enabled' is not present");
     }
 
 }

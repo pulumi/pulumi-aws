@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecListenerTimeoutGrpcArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecListenerTimeoutHttp2Args;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecListenerTimeoutHttpArgs;
@@ -17,44 +18,48 @@ public final class VirtualNodeSpecListenerTimeoutArgs {
      * Timeouts for gRPC listeners.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecListenerTimeoutGrpcArgs> grpc;
-
+    @PolicyResourceProperty(name="grpc", flag="unknown_grpc")
+    private VirtualNodeSpecListenerTimeoutGrpcArgs value_grpc;
+    private boolean unknown_grpc;
     public VirtualNodeSpecListenerTimeoutGrpcArgs grpc() {
-        if (grpc == null) return null;
-        return grpc.getValue("VirtualNodeSpecListenerTimeoutArgs.grpc");
+        if (!unknown_grpc) return value_grpc;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerTimeoutArgs.grpc' is not present");
     }
 
     /**
      * Timeouts for HTTP listeners.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecListenerTimeoutHttpArgs> http;
-
+    @PolicyResourceProperty(name="http", flag="unknown_http")
+    private VirtualNodeSpecListenerTimeoutHttpArgs value_http;
+    private boolean unknown_http;
     public VirtualNodeSpecListenerTimeoutHttpArgs http() {
-        if (http == null) return null;
-        return http.getValue("VirtualNodeSpecListenerTimeoutArgs.http");
+        if (!unknown_http) return value_http;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerTimeoutArgs.http' is not present");
     }
 
     /**
      * Timeouts for HTTP2 listeners.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecListenerTimeoutHttp2Args> http2;
-
+    @PolicyResourceProperty(name="http2", flag="unknown_http2")
+    private VirtualNodeSpecListenerTimeoutHttp2Args value_http2;
+    private boolean unknown_http2;
     public VirtualNodeSpecListenerTimeoutHttp2Args http2() {
-        if (http2 == null) return null;
-        return http2.getValue("VirtualNodeSpecListenerTimeoutArgs.http2");
+        if (!unknown_http2) return value_http2;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerTimeoutArgs.http2' is not present");
     }
 
     /**
      * Timeouts for TCP listeners.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecListenerTimeoutTcpArgs> tcp;
-
+    @PolicyResourceProperty(name="tcp", flag="unknown_tcp")
+    private VirtualNodeSpecListenerTimeoutTcpArgs value_tcp;
+    private boolean unknown_tcp;
     public VirtualNodeSpecListenerTimeoutTcpArgs tcp() {
-        if (tcp == null) return null;
-        return tcp.getValue("VirtualNodeSpecListenerTimeoutArgs.tcp");
+        if (!unknown_tcp) return value_tcp;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerTimeoutArgs.tcp' is not present");
     }
 
 }

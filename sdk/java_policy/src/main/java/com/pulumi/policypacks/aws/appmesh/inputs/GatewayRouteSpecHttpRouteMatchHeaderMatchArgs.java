@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,55 +16,60 @@ public final class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs {
      * Header value sent by the client must match the specified value exactly.
      * 
      */
-    private UndeferrableValue<String> exact;
-
+    @PolicyResourceProperty(name="exact", flag="unknown_exact")
+    private String value_exact;
+    private boolean unknown_exact;
     public String exact() {
-        if (exact == null) return null;
-        return exact.getValue("GatewayRouteSpecHttpRouteMatchHeaderMatchArgs.exact");
+        if (!unknown_exact) return value_exact;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteMatchHeaderMatchArgs.exact' is not present");
     }
 
     /**
      * Header value sent by the client must begin with the specified characters.
      * 
      */
-    private UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private String value_prefix;
+    private boolean unknown_prefix;
     public String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("GatewayRouteSpecHttpRouteMatchHeaderMatchArgs.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteMatchHeaderMatchArgs.prefix' is not present");
     }
 
     /**
      * Object that specifies the range of numbers that the header value sent by the client must be included in.
      * 
      */
-    private UndeferrableValue<GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs> range;
-
+    @PolicyResourceProperty(name="range", flag="unknown_range")
+    private GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs value_range;
+    private boolean unknown_range;
     public GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs range() {
-        if (range == null) return null;
-        return range.getValue("GatewayRouteSpecHttpRouteMatchHeaderMatchArgs.range");
+        if (!unknown_range) return value_range;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteMatchHeaderMatchArgs.range' is not present");
     }
 
     /**
      * Header value sent by the client must include the specified characters.
      * 
      */
-    private UndeferrableValue<String> regex;
-
+    @PolicyResourceProperty(name="regex", flag="unknown_regex")
+    private String value_regex;
+    private boolean unknown_regex;
     public String regex() {
-        if (regex == null) return null;
-        return regex.getValue("GatewayRouteSpecHttpRouteMatchHeaderMatchArgs.regex");
+        if (!unknown_regex) return value_regex;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteMatchHeaderMatchArgs.regex' is not present");
     }
 
     /**
      * Header value sent by the client must end with the specified characters.
      * 
      */
-    private UndeferrableValue<String> suffix;
-
+    @PolicyResourceProperty(name="suffix", flag="unknown_suffix")
+    private String value_suffix;
+    private boolean unknown_suffix;
     public String suffix() {
-        if (suffix == null) return null;
-        return suffix.getValue("GatewayRouteSpecHttpRouteMatchHeaderMatchArgs.suffix");
+        if (!unknown_suffix) return value_suffix;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteMatchHeaderMatchArgs.suffix' is not present");
     }
 
 }

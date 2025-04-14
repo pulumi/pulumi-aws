@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codeguruprofiler;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.codeguruprofiler.inputs.ProfilingGroupAgentOrchestrationConfigArgs;
 import java.lang.String;
@@ -18,22 +19,24 @@ public final class ProfilingGroupArgs extends com.pulumi.resources.PolicyResourc
      * Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
      * 
      */
-    private UndeferrableValue<ProfilingGroupAgentOrchestrationConfigArgs> agentOrchestrationConfig;
-
+    @PolicyResourceProperty(name="agentOrchestrationConfig", flag="unknown_agentOrchestrationConfig")
+    private ProfilingGroupAgentOrchestrationConfigArgs value_agentOrchestrationConfig;
+    private boolean unknown_agentOrchestrationConfig;
     public ProfilingGroupAgentOrchestrationConfigArgs agentOrchestrationConfig() {
-        if (agentOrchestrationConfig == null) return null;
-        return agentOrchestrationConfig.getValue("ProfilingGroupArgs.agentOrchestrationConfig");
+        if (!unknown_agentOrchestrationConfig) return value_agentOrchestrationConfig;
+        throw new UndeferrableValueException("Value 'ProfilingGroupArgs.agentOrchestrationConfig' is not present");
     }
 
     /**
      * Compute platform of the profiling group.
      * 
      */
-    private UndeferrableValue<String> computePlatform;
-
+    @PolicyResourceProperty(name="computePlatform", flag="unknown_computePlatform")
+    private String value_computePlatform;
+    private boolean unknown_computePlatform;
     public String computePlatform() {
-        if (computePlatform == null) return null;
-        return computePlatform.getValue("ProfilingGroupArgs.computePlatform");
+        if (!unknown_computePlatform) return value_computePlatform;
+        throw new UndeferrableValueException("Value 'ProfilingGroupArgs.computePlatform' is not present");
     }
 
     /**
@@ -42,22 +45,24 @@ public final class ProfilingGroupArgs extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ProfilingGroupArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ProfilingGroupArgs.name' is not present");
     }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ProfilingGroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ProfilingGroupArgs.tags' is not present");
     }
 
 }

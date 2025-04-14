@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class CatalogTableOptimizerConfigurationRetentionConfigurationIcebe
      * If set to `false`, snapshots are only deleted from table metadata, and the underlying data and metadata files are not deleted. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> cleanExpiredFiles;
-
+    @PolicyResourceProperty(name="cleanExpiredFiles", flag="unknown_cleanExpiredFiles")
+    private @Nullable Boolean value_cleanExpiredFiles;
+    private boolean unknown_cleanExpiredFiles;
     public @Nullable Boolean cleanExpiredFiles() {
-        if (cleanExpiredFiles == null) return null;
-        return cleanExpiredFiles.getValue("CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration.cleanExpiredFiles");
+        if (!unknown_cleanExpiredFiles) return value_cleanExpiredFiles;
+        throw new UndeferrableValueException("Value 'CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration.cleanExpiredFiles' is not present");
     }
 
     /**
      * The number of Iceberg snapshots to retain within the retention period. Defaults to `1` or the corresponding Iceberg table configuration field if it exists.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> numberOfSnapshotsToRetain;
-
+    @PolicyResourceProperty(name="numberOfSnapshotsToRetain", flag="unknown_numberOfSnapshotsToRetain")
+    private @Nullable Integer value_numberOfSnapshotsToRetain;
+    private boolean unknown_numberOfSnapshotsToRetain;
     public @Nullable Integer numberOfSnapshotsToRetain() {
-        if (numberOfSnapshotsToRetain == null) return null;
-        return numberOfSnapshotsToRetain.getValue("CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration.numberOfSnapshotsToRetain");
+        if (!unknown_numberOfSnapshotsToRetain) return value_numberOfSnapshotsToRetain;
+        throw new UndeferrableValueException("Value 'CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration.numberOfSnapshotsToRetain' is not present");
     }
 
     /**
      * The number of days to retain the Iceberg snapshots. Defaults to `5`, or the corresponding Iceberg table configuration field if it exists.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> snapshotRetentionPeriodInDays;
-
+    @PolicyResourceProperty(name="snapshotRetentionPeriodInDays", flag="unknown_snapshotRetentionPeriodInDays")
+    private @Nullable Integer value_snapshotRetentionPeriodInDays;
+    private boolean unknown_snapshotRetentionPeriodInDays;
     public @Nullable Integer snapshotRetentionPeriodInDays() {
-        if (snapshotRetentionPeriodInDays == null) return null;
-        return snapshotRetentionPeriodInDays.getValue("CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration.snapshotRetentionPeriodInDays");
+        if (!unknown_snapshotRetentionPeriodInDays) return value_snapshotRetentionPeriodInDays;
+        throw new UndeferrableValueException("Value 'CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration.snapshotRetentionPeriodInDays' is not present");
     }
 
 }

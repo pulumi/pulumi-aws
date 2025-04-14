@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.synthetics;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.synthetics.inputs.CanaryArtifactConfigArgs;
 import com.pulumi.policypacks.aws.synthetics.inputs.CanaryRunConfigArgs;
@@ -23,132 +24,144 @@ public final class CanaryArgs extends com.pulumi.resources.PolicyResourceInput {
      * configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
      * 
      */
-    private UndeferrableValue<CanaryArtifactConfigArgs> artifactConfig;
-
+    @PolicyResourceProperty(name="artifactConfig", flag="unknown_artifactConfig")
+    private CanaryArtifactConfigArgs value_artifactConfig;
+    private boolean unknown_artifactConfig;
     public CanaryArtifactConfigArgs artifactConfig() {
-        if (artifactConfig == null) return null;
-        return artifactConfig.getValue("CanaryArgs.artifactConfig");
+        if (!unknown_artifactConfig) return value_artifactConfig;
+        throw new UndeferrableValueException("Value 'CanaryArgs.artifactConfig' is not present");
     }
 
     /**
      * Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
      * 
      */
-    private UndeferrableValue<String> artifactS3Location;
-
+    @PolicyResourceProperty(name="artifactS3Location", flag="unknown_artifactS3Location")
+    private String value_artifactS3Location;
+    private boolean unknown_artifactS3Location;
     public String artifactS3Location() {
-        if (artifactS3Location == null) return null;
-        return artifactS3Location.getValue("CanaryArgs.artifactS3Location");
+        if (!unknown_artifactS3Location) return value_artifactS3Location;
+        throw new UndeferrableValueException("Value 'CanaryArgs.artifactS3Location' is not present");
     }
 
     /**
      * Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> deleteLambda;
-
+    @PolicyResourceProperty(name="deleteLambda", flag="unknown_deleteLambda")
+    private Boolean value_deleteLambda;
+    private boolean unknown_deleteLambda;
     public Boolean deleteLambda() {
-        if (deleteLambda == null) return null;
-        return deleteLambda.getValue("CanaryArgs.deleteLambda");
+        if (!unknown_deleteLambda) return value_deleteLambda;
+        throw new UndeferrableValueException("Value 'CanaryArgs.deleteLambda' is not present");
     }
 
     /**
      * ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
      * 
      */
-    private UndeferrableValue<String> executionRoleArn;
-
+    @PolicyResourceProperty(name="executionRoleArn", flag="unknown_executionRoleArn")
+    private String value_executionRoleArn;
+    private boolean unknown_executionRoleArn;
     public String executionRoleArn() {
-        if (executionRoleArn == null) return null;
-        return executionRoleArn.getValue("CanaryArgs.executionRoleArn");
+        if (!unknown_executionRoleArn) return value_executionRoleArn;
+        throw new UndeferrableValueException("Value 'CanaryArgs.executionRoleArn' is not present");
     }
 
     /**
      * Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
      * 
      */
-    private UndeferrableValue<Integer> failureRetentionPeriod;
-
+    @PolicyResourceProperty(name="failureRetentionPeriod", flag="unknown_failureRetentionPeriod")
+    private Integer value_failureRetentionPeriod;
+    private boolean unknown_failureRetentionPeriod;
     public Integer failureRetentionPeriod() {
-        if (failureRetentionPeriod == null) return null;
-        return failureRetentionPeriod.getValue("CanaryArgs.failureRetentionPeriod");
+        if (!unknown_failureRetentionPeriod) return value_failureRetentionPeriod;
+        throw new UndeferrableValueException("Value 'CanaryArgs.failureRetentionPeriod' is not present");
     }
 
     /**
      * Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
      * 
      */
-    private UndeferrableValue<String> handler;
-
+    @PolicyResourceProperty(name="handler", flag="unknown_handler")
+    private String value_handler;
+    private boolean unknown_handler;
     public String handler() {
-        if (handler == null) return null;
-        return handler.getValue("CanaryArgs.handler");
+        if (!unknown_handler) return value_handler;
+        throw new UndeferrableValueException("Value 'CanaryArgs.handler' is not present");
     }
 
     /**
      * Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("CanaryArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'CanaryArgs.name' is not present");
     }
 
     /**
      * Configuration block for individual canary runs. Detailed below.
      * 
      */
-    private UndeferrableValue<CanaryRunConfigArgs> runConfig;
-
+    @PolicyResourceProperty(name="runConfig", flag="unknown_runConfig")
+    private CanaryRunConfigArgs value_runConfig;
+    private boolean unknown_runConfig;
     public CanaryRunConfigArgs runConfig() {
-        if (runConfig == null) return null;
-        return runConfig.getValue("CanaryArgs.runConfig");
+        if (!unknown_runConfig) return value_runConfig;
+        throw new UndeferrableValueException("Value 'CanaryArgs.runConfig' is not present");
     }
 
     /**
      * Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
      * 
      */
-    private UndeferrableValue<String> runtimeVersion;
-
+    @PolicyResourceProperty(name="runtimeVersion", flag="unknown_runtimeVersion")
+    private String value_runtimeVersion;
+    private boolean unknown_runtimeVersion;
     public String runtimeVersion() {
-        if (runtimeVersion == null) return null;
-        return runtimeVersion.getValue("CanaryArgs.runtimeVersion");
+        if (!unknown_runtimeVersion) return value_runtimeVersion;
+        throw new UndeferrableValueException("Value 'CanaryArgs.runtimeVersion' is not present");
     }
 
     /**
      * Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
      * 
      */
-    private UndeferrableValue<String> s3Bucket;
-
+    @PolicyResourceProperty(name="s3Bucket", flag="unknown_s3Bucket")
+    private String value_s3Bucket;
+    private boolean unknown_s3Bucket;
     public String s3Bucket() {
-        if (s3Bucket == null) return null;
-        return s3Bucket.getValue("CanaryArgs.s3Bucket");
+        if (!unknown_s3Bucket) return value_s3Bucket;
+        throw new UndeferrableValueException("Value 'CanaryArgs.s3Bucket' is not present");
     }
 
     /**
      * S3 key of your script. **Conflicts with `zip_file`.**
      * 
      */
-    private UndeferrableValue<String> s3Key;
-
+    @PolicyResourceProperty(name="s3Key", flag="unknown_s3Key")
+    private String value_s3Key;
+    private boolean unknown_s3Key;
     public String s3Key() {
-        if (s3Key == null) return null;
-        return s3Key.getValue("CanaryArgs.s3Key");
+        if (!unknown_s3Key) return value_s3Key;
+        throw new UndeferrableValueException("Value 'CanaryArgs.s3Key' is not present");
     }
 
     /**
      * S3 version ID of your script. **Conflicts with `zip_file`.**
      * 
      */
-    private UndeferrableValue<String> s3Version;
-
+    @PolicyResourceProperty(name="s3Version", flag="unknown_s3Version")
+    private String value_s3Version;
+    private boolean unknown_s3Version;
     public String s3Version() {
-        if (s3Version == null) return null;
-        return s3Version.getValue("CanaryArgs.s3Version");
+        if (!unknown_s3Version) return value_s3Version;
+        throw new UndeferrableValueException("Value 'CanaryArgs.s3Version' is not present");
     }
 
     /**
@@ -157,66 +170,72 @@ public final class CanaryArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<CanaryScheduleArgs> schedule;
-
+    @PolicyResourceProperty(name="schedule", flag="unknown_schedule")
+    private CanaryScheduleArgs value_schedule;
+    private boolean unknown_schedule;
     public CanaryScheduleArgs schedule() {
-        if (schedule == null) return null;
-        return schedule.getValue("CanaryArgs.schedule");
+        if (!unknown_schedule) return value_schedule;
+        throw new UndeferrableValueException("Value 'CanaryArgs.schedule' is not present");
     }
 
     /**
      * Whether to run or stop the canary.
      * 
      */
-    private UndeferrableValue<Boolean> startCanary;
-
+    @PolicyResourceProperty(name="startCanary", flag="unknown_startCanary")
+    private Boolean value_startCanary;
+    private boolean unknown_startCanary;
     public Boolean startCanary() {
-        if (startCanary == null) return null;
-        return startCanary.getValue("CanaryArgs.startCanary");
+        if (!unknown_startCanary) return value_startCanary;
+        throw new UndeferrableValueException("Value 'CanaryArgs.startCanary' is not present");
     }
 
     /**
      * Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
      * 
      */
-    private UndeferrableValue<Integer> successRetentionPeriod;
-
+    @PolicyResourceProperty(name="successRetentionPeriod", flag="unknown_successRetentionPeriod")
+    private Integer value_successRetentionPeriod;
+    private boolean unknown_successRetentionPeriod;
     public Integer successRetentionPeriod() {
-        if (successRetentionPeriod == null) return null;
-        return successRetentionPeriod.getValue("CanaryArgs.successRetentionPeriod");
+        if (!unknown_successRetentionPeriod) return value_successRetentionPeriod;
+        throw new UndeferrableValueException("Value 'CanaryArgs.successRetentionPeriod' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CanaryArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CanaryArgs.tags' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<CanaryVpcConfigArgs> vpcConfig;
-
+    @PolicyResourceProperty(name="vpcConfig", flag="unknown_vpcConfig")
+    private CanaryVpcConfigArgs value_vpcConfig;
+    private boolean unknown_vpcConfig;
     public CanaryVpcConfigArgs vpcConfig() {
-        if (vpcConfig == null) return null;
-        return vpcConfig.getValue("CanaryArgs.vpcConfig");
+        if (!unknown_vpcConfig) return value_vpcConfig;
+        throw new UndeferrableValueException("Value 'CanaryArgs.vpcConfig' is not present");
     }
 
     /**
      * ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
      * 
      */
-    private UndeferrableValue<String> zipFile;
-
+    @PolicyResourceProperty(name="zipFile", flag="unknown_zipFile")
+    private String value_zipFile;
+    private boolean unknown_zipFile;
     public String zipFile() {
-        if (zipFile == null) return null;
-        return zipFile.getValue("CanaryArgs.zipFile");
+        if (!unknown_zipFile) return value_zipFile;
+        throw new UndeferrableValueException("Value 'CanaryArgs.zipFile' is not present");
     }
 
 }

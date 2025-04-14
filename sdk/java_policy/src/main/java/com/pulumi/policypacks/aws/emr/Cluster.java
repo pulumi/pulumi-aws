@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.emr.outputs.ClusterAutoTerminationPolicy;
 import com.pulumi.policypacks.aws.emr.outputs.ClusterBootstrapAction;
@@ -30,84 +31,92 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
      * 
      */
-    private @Nullable UndeferrableValue<String> additionalInfo;
-
+    @PolicyResourceProperty(name="additionalInfo", flag="unknown_additionalInfo")
+    private @Nullable String value_additionalInfo;
+    private boolean unknown_additionalInfo;
     public @Nullable String additionalInfo() {
-        if (additionalInfo == null) return null;
-        return additionalInfo.getValue("Cluster.additionalInfo");
+        if (!unknown_additionalInfo) return value_additionalInfo;
+        throw new UndeferrableValueException("Value 'Cluster.additionalInfo' is not present");
     }
 
     /**
      * A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> applications;
-
+    @PolicyResourceProperty(name="applications", flag="unknown_applications")
+    private @Nullable List<String> value_applications;
+    private boolean unknown_applications;
     public @Nullable List<String> applications() {
-        if (applications == null) return null;
-        return applications.getValue("Cluster.applications");
+        if (!unknown_applications) return value_applications;
+        throw new UndeferrableValueException("Value 'Cluster.applications' is not present");
     }
 
     /**
      * ARN of the cluster.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Cluster.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Cluster.arn' is not present");
     }
 
     /**
      * An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
      * 
      */
-    private @Nullable UndeferrableValue<ClusterAutoTerminationPolicy> autoTerminationPolicy;
-
+    @PolicyResourceProperty(name="autoTerminationPolicy", flag="unknown_autoTerminationPolicy")
+    private @Nullable ClusterAutoTerminationPolicy value_autoTerminationPolicy;
+    private boolean unknown_autoTerminationPolicy;
     public @Nullable ClusterAutoTerminationPolicy autoTerminationPolicy() {
-        if (autoTerminationPolicy == null) return null;
-        return autoTerminationPolicy.getValue("Cluster.autoTerminationPolicy");
+        if (!unknown_autoTerminationPolicy) return value_autoTerminationPolicy;
+        throw new UndeferrableValueException("Value 'Cluster.autoTerminationPolicy' is not present");
     }
 
     /**
      * IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
      * 
      */
-    private @Nullable UndeferrableValue<String> autoscalingRole;
-
+    @PolicyResourceProperty(name="autoscalingRole", flag="unknown_autoscalingRole")
+    private @Nullable String value_autoscalingRole;
+    private boolean unknown_autoscalingRole;
     public @Nullable String autoscalingRole() {
-        if (autoscalingRole == null) return null;
-        return autoscalingRole.getValue("Cluster.autoscalingRole");
+        if (!unknown_autoscalingRole) return value_autoscalingRole;
+        throw new UndeferrableValueException("Value 'Cluster.autoscalingRole' is not present");
     }
 
     /**
      * Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ClusterBootstrapAction>> bootstrapActions;
-
+    @PolicyResourceProperty(name="bootstrapActions", flag="unknown_bootstrapActions")
+    private @Nullable List<ClusterBootstrapAction> value_bootstrapActions;
+    private boolean unknown_bootstrapActions;
     public @Nullable List<ClusterBootstrapAction> bootstrapActions() {
-        if (bootstrapActions == null) return null;
-        return bootstrapActions.getValue("Cluster.bootstrapActions");
+        if (!unknown_bootstrapActions) return value_bootstrapActions;
+        throw new UndeferrableValueException("Value 'Cluster.bootstrapActions' is not present");
     }
 
-    private UndeferrableValue<String> clusterState;
-
+    @PolicyResourceProperty(name="clusterState", flag="unknown_clusterState")
+    private String value_clusterState;
+    private boolean unknown_clusterState;
     public String clusterState() {
-        if (clusterState == null) return null;
-        return clusterState.getValue("Cluster.clusterState");
+        if (!unknown_clusterState) return value_clusterState;
+        throw new UndeferrableValueException("Value 'Cluster.clusterState' is not present");
     }
 
     /**
      * List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
      * 
      */
-    private @Nullable UndeferrableValue<String> configurations;
-
+    @PolicyResourceProperty(name="configurations", flag="unknown_configurations")
+    private @Nullable String value_configurations;
+    private boolean unknown_configurations;
     public @Nullable String configurations() {
-        if (configurations == null) return null;
-        return configurations.getValue("Cluster.configurations");
+        if (!unknown_configurations) return value_configurations;
+        throw new UndeferrableValueException("Value 'Cluster.configurations' is not present");
     }
 
     /**
@@ -164,209 +173,228 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    private @Nullable UndeferrableValue<String> configurationsJson;
-
+    @PolicyResourceProperty(name="configurationsJson", flag="unknown_configurationsJson")
+    private @Nullable String value_configurationsJson;
+    private boolean unknown_configurationsJson;
     public @Nullable String configurationsJson() {
-        if (configurationsJson == null) return null;
-        return configurationsJson.getValue("Cluster.configurationsJson");
+        if (!unknown_configurationsJson) return value_configurationsJson;
+        throw new UndeferrableValueException("Value 'Cluster.configurationsJson' is not present");
     }
 
     /**
      * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
      * 
      */
-    private UndeferrableValue<ClusterCoreInstanceFleet> coreInstanceFleet;
-
+    @PolicyResourceProperty(name="coreInstanceFleet", flag="unknown_coreInstanceFleet")
+    private ClusterCoreInstanceFleet value_coreInstanceFleet;
+    private boolean unknown_coreInstanceFleet;
     public ClusterCoreInstanceFleet coreInstanceFleet() {
-        if (coreInstanceFleet == null) return null;
-        return coreInstanceFleet.getValue("Cluster.coreInstanceFleet");
+        if (!unknown_coreInstanceFleet) return value_coreInstanceFleet;
+        throw new UndeferrableValueException("Value 'Cluster.coreInstanceFleet' is not present");
     }
 
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
      * 
      */
-    private UndeferrableValue<ClusterCoreInstanceGroup> coreInstanceGroup;
-
+    @PolicyResourceProperty(name="coreInstanceGroup", flag="unknown_coreInstanceGroup")
+    private ClusterCoreInstanceGroup value_coreInstanceGroup;
+    private boolean unknown_coreInstanceGroup;
     public ClusterCoreInstanceGroup coreInstanceGroup() {
-        if (coreInstanceGroup == null) return null;
-        return coreInstanceGroup.getValue("Cluster.coreInstanceGroup");
+        if (!unknown_coreInstanceGroup) return value_coreInstanceGroup;
+        throw new UndeferrableValueException("Value 'Cluster.coreInstanceGroup' is not present");
     }
 
     /**
      * Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
      * 
      */
-    private @Nullable UndeferrableValue<String> customAmiId;
-
+    @PolicyResourceProperty(name="customAmiId", flag="unknown_customAmiId")
+    private @Nullable String value_customAmiId;
+    private boolean unknown_customAmiId;
     public @Nullable String customAmiId() {
-        if (customAmiId == null) return null;
-        return customAmiId.getValue("Cluster.customAmiId");
+        if (!unknown_customAmiId) return value_customAmiId;
+        throw new UndeferrableValueException("Value 'Cluster.customAmiId' is not present");
     }
 
     /**
      * Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> ebsRootVolumeSize;
-
+    @PolicyResourceProperty(name="ebsRootVolumeSize", flag="unknown_ebsRootVolumeSize")
+    private @Nullable Integer value_ebsRootVolumeSize;
+    private boolean unknown_ebsRootVolumeSize;
     public @Nullable Integer ebsRootVolumeSize() {
-        if (ebsRootVolumeSize == null) return null;
-        return ebsRootVolumeSize.getValue("Cluster.ebsRootVolumeSize");
+        if (!unknown_ebsRootVolumeSize) return value_ebsRootVolumeSize;
+        throw new UndeferrableValueException("Value 'Cluster.ebsRootVolumeSize' is not present");
     }
 
     /**
      * Attributes for the EC2 instances running the job flow. See below.
      * 
      */
-    private @Nullable UndeferrableValue<ClusterEc2Attributes> ec2Attributes;
-
+    @PolicyResourceProperty(name="ec2Attributes", flag="unknown_ec2Attributes")
+    private @Nullable ClusterEc2Attributes value_ec2Attributes;
+    private boolean unknown_ec2Attributes;
     public @Nullable ClusterEc2Attributes ec2Attributes() {
-        if (ec2Attributes == null) return null;
-        return ec2Attributes.getValue("Cluster.ec2Attributes");
+        if (!unknown_ec2Attributes) return value_ec2Attributes;
+        throw new UndeferrableValueException("Value 'Cluster.ec2Attributes' is not present");
     }
 
     /**
      * Switch on/off run cluster with no steps or when all steps are complete (default is on)
      * 
      */
-    private UndeferrableValue<Boolean> keepJobFlowAliveWhenNoSteps;
-
+    @PolicyResourceProperty(name="keepJobFlowAliveWhenNoSteps", flag="unknown_keepJobFlowAliveWhenNoSteps")
+    private Boolean value_keepJobFlowAliveWhenNoSteps;
+    private boolean unknown_keepJobFlowAliveWhenNoSteps;
     public Boolean keepJobFlowAliveWhenNoSteps() {
-        if (keepJobFlowAliveWhenNoSteps == null) return null;
-        return keepJobFlowAliveWhenNoSteps.getValue("Cluster.keepJobFlowAliveWhenNoSteps");
+        if (!unknown_keepJobFlowAliveWhenNoSteps) return value_keepJobFlowAliveWhenNoSteps;
+        throw new UndeferrableValueException("Value 'Cluster.keepJobFlowAliveWhenNoSteps' is not present");
     }
 
     /**
      * Kerberos configuration for the cluster. See below.
      * 
      */
-    private @Nullable UndeferrableValue<ClusterKerberosAttributes> kerberosAttributes;
-
+    @PolicyResourceProperty(name="kerberosAttributes", flag="unknown_kerberosAttributes")
+    private @Nullable ClusterKerberosAttributes value_kerberosAttributes;
+    private boolean unknown_kerberosAttributes;
     public @Nullable ClusterKerberosAttributes kerberosAttributes() {
-        if (kerberosAttributes == null) return null;
-        return kerberosAttributes.getValue("Cluster.kerberosAttributes");
+        if (!unknown_kerberosAttributes) return value_kerberosAttributes;
+        throw new UndeferrableValueException("Value 'Cluster.kerberosAttributes' is not present");
     }
 
     /**
      * List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> listStepsStates;
-
+    @PolicyResourceProperty(name="listStepsStates", flag="unknown_listStepsStates")
+    private @Nullable List<String> value_listStepsStates;
+    private boolean unknown_listStepsStates;
     public @Nullable List<String> listStepsStates() {
-        if (listStepsStates == null) return null;
-        return listStepsStates.getValue("Cluster.listStepsStates");
+        if (!unknown_listStepsStates) return value_listStepsStates;
+        throw new UndeferrableValueException("Value 'Cluster.listStepsStates' is not present");
     }
 
     /**
      * AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
      * 
      */
-    private @Nullable UndeferrableValue<String> logEncryptionKmsKeyId;
-
+    @PolicyResourceProperty(name="logEncryptionKmsKeyId", flag="unknown_logEncryptionKmsKeyId")
+    private @Nullable String value_logEncryptionKmsKeyId;
+    private boolean unknown_logEncryptionKmsKeyId;
     public @Nullable String logEncryptionKmsKeyId() {
-        if (logEncryptionKmsKeyId == null) return null;
-        return logEncryptionKmsKeyId.getValue("Cluster.logEncryptionKmsKeyId");
+        if (!unknown_logEncryptionKmsKeyId) return value_logEncryptionKmsKeyId;
+        throw new UndeferrableValueException("Value 'Cluster.logEncryptionKmsKeyId' is not present");
     }
 
     /**
      * S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
      * 
      */
-    private @Nullable UndeferrableValue<String> logUri;
-
+    @PolicyResourceProperty(name="logUri", flag="unknown_logUri")
+    private @Nullable String value_logUri;
+    private boolean unknown_logUri;
     public @Nullable String logUri() {
-        if (logUri == null) return null;
-        return logUri.getValue("Cluster.logUri");
+        if (!unknown_logUri) return value_logUri;
+        throw new UndeferrableValueException("Value 'Cluster.logUri' is not present");
     }
 
     /**
      * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
      * 
      */
-    private UndeferrableValue<ClusterMasterInstanceFleet> masterInstanceFleet;
-
+    @PolicyResourceProperty(name="masterInstanceFleet", flag="unknown_masterInstanceFleet")
+    private ClusterMasterInstanceFleet value_masterInstanceFleet;
+    private boolean unknown_masterInstanceFleet;
     public ClusterMasterInstanceFleet masterInstanceFleet() {
-        if (masterInstanceFleet == null) return null;
-        return masterInstanceFleet.getValue("Cluster.masterInstanceFleet");
+        if (!unknown_masterInstanceFleet) return value_masterInstanceFleet;
+        throw new UndeferrableValueException("Value 'Cluster.masterInstanceFleet' is not present");
     }
 
     /**
      * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
      * 
      */
-    private UndeferrableValue<ClusterMasterInstanceGroup> masterInstanceGroup;
-
+    @PolicyResourceProperty(name="masterInstanceGroup", flag="unknown_masterInstanceGroup")
+    private ClusterMasterInstanceGroup value_masterInstanceGroup;
+    private boolean unknown_masterInstanceGroup;
     public ClusterMasterInstanceGroup masterInstanceGroup() {
-        if (masterInstanceGroup == null) return null;
-        return masterInstanceGroup.getValue("Cluster.masterInstanceGroup");
+        if (!unknown_masterInstanceGroup) return value_masterInstanceGroup;
+        throw new UndeferrableValueException("Value 'Cluster.masterInstanceGroup' is not present");
     }
 
     /**
      * The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
      * 
      */
-    private UndeferrableValue<String> masterPublicDns;
-
+    @PolicyResourceProperty(name="masterPublicDns", flag="unknown_masterPublicDns")
+    private String value_masterPublicDns;
+    private boolean unknown_masterPublicDns;
     public String masterPublicDns() {
-        if (masterPublicDns == null) return null;
-        return masterPublicDns.getValue("Cluster.masterPublicDns");
+        if (!unknown_masterPublicDns) return value_masterPublicDns;
+        throw new UndeferrableValueException("Value 'Cluster.masterPublicDns' is not present");
     }
 
     /**
      * Name of the job flow.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Cluster.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Cluster.name' is not present");
     }
 
     /**
      * The specified placement group configuration for an Amazon EMR cluster.
      * 
      */
-    private @Nullable UndeferrableValue<List<ClusterPlacementGroupConfig>> placementGroupConfigs;
-
+    @PolicyResourceProperty(name="placementGroupConfigs", flag="unknown_placementGroupConfigs")
+    private @Nullable List<ClusterPlacementGroupConfig> value_placementGroupConfigs;
+    private boolean unknown_placementGroupConfigs;
     public @Nullable List<ClusterPlacementGroupConfig> placementGroupConfigs() {
-        if (placementGroupConfigs == null) return null;
-        return placementGroupConfigs.getValue("Cluster.placementGroupConfigs");
+        if (!unknown_placementGroupConfigs) return value_placementGroupConfigs;
+        throw new UndeferrableValueException("Value 'Cluster.placementGroupConfigs' is not present");
     }
 
     /**
      * Release label for the Amazon EMR release.
      * 
      */
-    private UndeferrableValue<String> releaseLabel;
-
+    @PolicyResourceProperty(name="releaseLabel", flag="unknown_releaseLabel")
+    private String value_releaseLabel;
+    private boolean unknown_releaseLabel;
     public String releaseLabel() {
-        if (releaseLabel == null) return null;
-        return releaseLabel.getValue("Cluster.releaseLabel");
+        if (!unknown_releaseLabel) return value_releaseLabel;
+        throw new UndeferrableValueException("Value 'Cluster.releaseLabel' is not present");
     }
 
     /**
      * Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
      * 
      */
-    private UndeferrableValue<String> scaleDownBehavior;
-
+    @PolicyResourceProperty(name="scaleDownBehavior", flag="unknown_scaleDownBehavior")
+    private String value_scaleDownBehavior;
+    private boolean unknown_scaleDownBehavior;
     public String scaleDownBehavior() {
-        if (scaleDownBehavior == null) return null;
-        return scaleDownBehavior.getValue("Cluster.scaleDownBehavior");
+        if (!unknown_scaleDownBehavior) return value_scaleDownBehavior;
+        throw new UndeferrableValueException("Value 'Cluster.scaleDownBehavior' is not present");
     }
 
     /**
      * Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater.
      * 
      */
-    private @Nullable UndeferrableValue<String> securityConfiguration;
-
+    @PolicyResourceProperty(name="securityConfiguration", flag="unknown_securityConfiguration")
+    private @Nullable String value_securityConfiguration;
+    private boolean unknown_securityConfiguration;
     public @Nullable String securityConfiguration() {
-        if (securityConfiguration == null) return null;
-        return securityConfiguration.getValue("Cluster.securityConfiguration");
+        if (!unknown_securityConfiguration) return value_securityConfiguration;
+        throw new UndeferrableValueException("Value 'Cluster.securityConfiguration' is not present");
     }
 
     /**
@@ -375,44 +403,48 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> serviceRole;
-
+    @PolicyResourceProperty(name="serviceRole", flag="unknown_serviceRole")
+    private String value_serviceRole;
+    private boolean unknown_serviceRole;
     public String serviceRole() {
-        if (serviceRole == null) return null;
-        return serviceRole.getValue("Cluster.serviceRole");
+        if (!unknown_serviceRole) return value_serviceRole;
+        throw new UndeferrableValueException("Value 'Cluster.serviceRole' is not present");
     }
 
     /**
      * Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
      * 
      */
-    private @Nullable UndeferrableValue<Integer> stepConcurrencyLevel;
-
+    @PolicyResourceProperty(name="stepConcurrencyLevel", flag="unknown_stepConcurrencyLevel")
+    private @Nullable Integer value_stepConcurrencyLevel;
+    private boolean unknown_stepConcurrencyLevel;
     public @Nullable Integer stepConcurrencyLevel() {
-        if (stepConcurrencyLevel == null) return null;
-        return stepConcurrencyLevel.getValue("Cluster.stepConcurrencyLevel");
+        if (!unknown_stepConcurrencyLevel) return value_stepConcurrencyLevel;
+        throw new UndeferrableValueException("Value 'Cluster.stepConcurrencyLevel' is not present");
     }
 
     /**
      * List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
      * 
      */
-    private UndeferrableValue<List<ClusterStep>> steps;
-
+    @PolicyResourceProperty(name="steps", flag="unknown_steps")
+    private List<ClusterStep> value_steps;
+    private boolean unknown_steps;
     public List<ClusterStep> steps() {
-        if (steps == null) return null;
-        return steps.getValue("Cluster.steps");
+        if (!unknown_steps) return value_steps;
+        throw new UndeferrableValueException("Value 'Cluster.steps' is not present");
     }
 
     /**
      * list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Cluster.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Cluster.tags' is not present");
     }
 
     /**
@@ -423,44 +455,48 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Cluster.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Cluster.tagsAll' is not present");
     }
 
     /**
      * Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> terminationProtection;
-
+    @PolicyResourceProperty(name="terminationProtection", flag="unknown_terminationProtection")
+    private Boolean value_terminationProtection;
+    private boolean unknown_terminationProtection;
     public Boolean terminationProtection() {
-        if (terminationProtection == null) return null;
-        return terminationProtection.getValue("Cluster.terminationProtection");
+        if (!unknown_terminationProtection) return value_terminationProtection;
+        throw new UndeferrableValueException("Value 'Cluster.terminationProtection' is not present");
     }
 
     /**
      * Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> unhealthyNodeReplacement;
-
+    @PolicyResourceProperty(name="unhealthyNodeReplacement", flag="unknown_unhealthyNodeReplacement")
+    private @Nullable Boolean value_unhealthyNodeReplacement;
+    private boolean unknown_unhealthyNodeReplacement;
     public @Nullable Boolean unhealthyNodeReplacement() {
-        if (unhealthyNodeReplacement == null) return null;
-        return unhealthyNodeReplacement.getValue("Cluster.unhealthyNodeReplacement");
+        if (!unknown_unhealthyNodeReplacement) return value_unhealthyNodeReplacement;
+        throw new UndeferrableValueException("Value 'Cluster.unhealthyNodeReplacement' is not present");
     }
 
     /**
      * Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> visibleToAllUsers;
-
+    @PolicyResourceProperty(name="visibleToAllUsers", flag="unknown_visibleToAllUsers")
+    private @Nullable Boolean value_visibleToAllUsers;
+    private boolean unknown_visibleToAllUsers;
     public @Nullable Boolean visibleToAllUsers() {
-        if (visibleToAllUsers == null) return null;
-        return visibleToAllUsers.getValue("Cluster.visibleToAllUsers");
+        if (!unknown_visibleToAllUsers) return value_visibleToAllUsers;
+        throw new UndeferrableValueException("Value 'Cluster.visibleToAllUsers' is not present");
     }
 
 }

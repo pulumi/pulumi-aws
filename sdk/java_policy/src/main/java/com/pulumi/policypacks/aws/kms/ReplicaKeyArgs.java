@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kms;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -22,11 +23,12 @@ public final class ReplicaKeyArgs extends com.pulumi.resources.PolicyResourceInp
      * The default value is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> bypassPolicyLockoutSafetyCheck;
-
+    @PolicyResourceProperty(name="bypassPolicyLockoutSafetyCheck", flag="unknown_bypassPolicyLockoutSafetyCheck")
+    private Boolean value_bypassPolicyLockoutSafetyCheck;
+    private boolean unknown_bypassPolicyLockoutSafetyCheck;
     public Boolean bypassPolicyLockoutSafetyCheck() {
-        if (bypassPolicyLockoutSafetyCheck == null) return null;
-        return bypassPolicyLockoutSafetyCheck.getValue("ReplicaKeyArgs.bypassPolicyLockoutSafetyCheck");
+        if (!unknown_bypassPolicyLockoutSafetyCheck) return value_bypassPolicyLockoutSafetyCheck;
+        throw new UndeferrableValueException("Value 'ReplicaKeyArgs.bypassPolicyLockoutSafetyCheck' is not present");
     }
 
     /**
@@ -34,66 +36,72 @@ public final class ReplicaKeyArgs extends com.pulumi.resources.PolicyResourceInp
      * If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
      * 
      */
-    private UndeferrableValue<Integer> deletionWindowInDays;
-
+    @PolicyResourceProperty(name="deletionWindowInDays", flag="unknown_deletionWindowInDays")
+    private Integer value_deletionWindowInDays;
+    private boolean unknown_deletionWindowInDays;
     public Integer deletionWindowInDays() {
-        if (deletionWindowInDays == null) return null;
-        return deletionWindowInDays.getValue("ReplicaKeyArgs.deletionWindowInDays");
+        if (!unknown_deletionWindowInDays) return value_deletionWindowInDays;
+        throw new UndeferrableValueException("Value 'ReplicaKeyArgs.deletionWindowInDays' is not present");
     }
 
     /**
      * A description of the KMS key.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ReplicaKeyArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ReplicaKeyArgs.description' is not present");
     }
 
     /**
      * Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("ReplicaKeyArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'ReplicaKeyArgs.enabled' is not present");
     }
 
     /**
      * The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("ReplicaKeyArgs.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'ReplicaKeyArgs.policy' is not present");
     }
 
     /**
      * The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
      * 
      */
-    private UndeferrableValue<String> primaryKeyArn;
-
+    @PolicyResourceProperty(name="primaryKeyArn", flag="unknown_primaryKeyArn")
+    private String value_primaryKeyArn;
+    private boolean unknown_primaryKeyArn;
     public String primaryKeyArn() {
-        if (primaryKeyArn == null) return null;
-        return primaryKeyArn.getValue("ReplicaKeyArgs.primaryKeyArn");
+        if (!unknown_primaryKeyArn) return value_primaryKeyArn;
+        throw new UndeferrableValueException("Value 'ReplicaKeyArgs.primaryKeyArn' is not present");
     }
 
     /**
      * A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ReplicaKeyArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ReplicaKeyArgs.tags' is not present");
     }
 
 }

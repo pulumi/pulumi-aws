@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.outputs.BucketV2ReplicationConfigurationRule;
 import java.lang.String;
 import java.util.List;
@@ -15,22 +16,24 @@ public final class BucketV2ReplicationConfiguration {
      * ARN of the IAM role for Amazon S3 to assume when replicating the objects.
      * 
      */
-    private UndeferrableValue<String> role;
-
+    @PolicyResourceProperty(name="role", flag="unknown_role")
+    private String value_role;
+    private boolean unknown_role;
     public String role() {
-        if (role == null) return null;
-        return role.getValue("BucketV2ReplicationConfiguration.role");
+        if (!unknown_role) return value_role;
+        throw new UndeferrableValueException("Value 'BucketV2ReplicationConfiguration.role' is not present");
     }
 
     /**
      * Specifies the rules managing the replication (documented below).
      * 
      */
-    private UndeferrableValue<List<BucketV2ReplicationConfigurationRule>> rules;
-
+    @PolicyResourceProperty(name="rules", flag="unknown_rules")
+    private List<BucketV2ReplicationConfigurationRule> value_rules;
+    private boolean unknown_rules;
     public List<BucketV2ReplicationConfigurationRule> rules() {
-        if (rules == null) return null;
-        return rules.getValue("BucketV2ReplicationConfiguration.rules");
+        if (!unknown_rules) return value_rules;
+        throw new UndeferrableValueException("Value 'BucketV2ReplicationConfiguration.rules' is not present");
     }
 
 }

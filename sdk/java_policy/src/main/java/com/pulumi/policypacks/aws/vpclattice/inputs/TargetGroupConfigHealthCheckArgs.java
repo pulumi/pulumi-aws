@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.vpclattice.inputs.TargetGroupConfigHealthCheckMatcherArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -17,22 +18,24 @@ public final class TargetGroupConfigHealthCheckArgs {
      * Indicates whether health checking is enabled. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("TargetGroupConfigHealthCheckArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'TargetGroupConfigHealthCheckArgs.enabled' is not present");
     }
 
     /**
      * The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
      * 
      */
-    private UndeferrableValue<Integer> healthCheckIntervalSeconds;
-
+    @PolicyResourceProperty(name="healthCheckIntervalSeconds", flag="unknown_healthCheckIntervalSeconds")
+    private Integer value_healthCheckIntervalSeconds;
+    private boolean unknown_healthCheckIntervalSeconds;
     public Integer healthCheckIntervalSeconds() {
-        if (healthCheckIntervalSeconds == null) return null;
-        return healthCheckIntervalSeconds.getValue("TargetGroupConfigHealthCheckArgs.healthCheckIntervalSeconds");
+        if (!unknown_healthCheckIntervalSeconds) return value_healthCheckIntervalSeconds;
+        throw new UndeferrableValueException("Value 'TargetGroupConfigHealthCheckArgs.healthCheckIntervalSeconds' is not present");
     }
 
     /**
@@ -40,84 +43,92 @@ public final class TargetGroupConfigHealthCheckArgs {
      * * ` healthy_threshold_count  ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
      * 
      */
-    private UndeferrableValue<Integer> healthCheckTimeoutSeconds;
-
+    @PolicyResourceProperty(name="healthCheckTimeoutSeconds", flag="unknown_healthCheckTimeoutSeconds")
+    private Integer value_healthCheckTimeoutSeconds;
+    private boolean unknown_healthCheckTimeoutSeconds;
     public Integer healthCheckTimeoutSeconds() {
-        if (healthCheckTimeoutSeconds == null) return null;
-        return healthCheckTimeoutSeconds.getValue("TargetGroupConfigHealthCheckArgs.healthCheckTimeoutSeconds");
+        if (!unknown_healthCheckTimeoutSeconds) return value_healthCheckTimeoutSeconds;
+        throw new UndeferrableValueException("Value 'TargetGroupConfigHealthCheckArgs.healthCheckTimeoutSeconds' is not present");
     }
 
-    private UndeferrableValue<Integer> healthyThresholdCount;
-
+    @PolicyResourceProperty(name="healthyThresholdCount", flag="unknown_healthyThresholdCount")
+    private Integer value_healthyThresholdCount;
+    private boolean unknown_healthyThresholdCount;
     public Integer healthyThresholdCount() {
-        if (healthyThresholdCount == null) return null;
-        return healthyThresholdCount.getValue("TargetGroupConfigHealthCheckArgs.healthyThresholdCount");
+        if (!unknown_healthyThresholdCount) return value_healthyThresholdCount;
+        throw new UndeferrableValueException("Value 'TargetGroupConfigHealthCheckArgs.healthyThresholdCount' is not present");
     }
 
     /**
      * The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
      * 
      */
-    private UndeferrableValue<TargetGroupConfigHealthCheckMatcherArgs> matcher;
-
+    @PolicyResourceProperty(name="matcher", flag="unknown_matcher")
+    private TargetGroupConfigHealthCheckMatcherArgs value_matcher;
+    private boolean unknown_matcher;
     public TargetGroupConfigHealthCheckMatcherArgs matcher() {
-        if (matcher == null) return null;
-        return matcher.getValue("TargetGroupConfigHealthCheckArgs.matcher");
+        if (!unknown_matcher) return value_matcher;
+        throw new UndeferrableValueException("Value 'TargetGroupConfigHealthCheckArgs.matcher' is not present");
     }
 
     /**
      * The destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
      * 
      */
-    private UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private String value_path;
+    private boolean unknown_path;
     public String path() {
-        if (path == null) return null;
-        return path.getValue("TargetGroupConfigHealthCheckArgs.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'TargetGroupConfigHealthCheckArgs.path' is not present");
     }
 
     /**
      * The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("TargetGroupConfigHealthCheckArgs.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'TargetGroupConfigHealthCheckArgs.port' is not present");
     }
 
     /**
      * The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("TargetGroupConfigHealthCheckArgs.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'TargetGroupConfigHealthCheckArgs.protocol' is not present");
     }
 
     /**
      * The protocol version used when performing health checks on targets. The possible protocol versions are `HTTP1` and `HTTP2`. The default is `HTTP1`.
      * 
      */
-    private UndeferrableValue<String> protocolVersion;
-
+    @PolicyResourceProperty(name="protocolVersion", flag="unknown_protocolVersion")
+    private String value_protocolVersion;
+    private boolean unknown_protocolVersion;
     public String protocolVersion() {
-        if (protocolVersion == null) return null;
-        return protocolVersion.getValue("TargetGroupConfigHealthCheckArgs.protocolVersion");
+        if (!unknown_protocolVersion) return value_protocolVersion;
+        throw new UndeferrableValueException("Value 'TargetGroupConfigHealthCheckArgs.protocolVersion' is not present");
     }
 
     /**
      * The number of consecutive failed health checks required before considering a target unhealthy. The range is 2–10. The default is 2.
      * 
      */
-    private UndeferrableValue<Integer> unhealthyThresholdCount;
-
+    @PolicyResourceProperty(name="unhealthyThresholdCount", flag="unknown_unhealthyThresholdCount")
+    private Integer value_unhealthyThresholdCount;
+    private boolean unknown_unhealthyThresholdCount;
     public Integer unhealthyThresholdCount() {
-        if (unhealthyThresholdCount == null) return null;
-        return unhealthyThresholdCount.getValue("TargetGroupConfigHealthCheckArgs.unhealthyThresholdCount");
+        if (!unknown_unhealthyThresholdCount) return value_unhealthyThresholdCount;
+        throw new UndeferrableValueException("Value 'TargetGroupConfigHealthCheckArgs.unhealthyThresholdCount' is not present");
     }
 
 }

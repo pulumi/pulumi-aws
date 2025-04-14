@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appstream.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,55 +15,60 @@ public final class FleetComputeCapacityArgs {
      * Number of currently available instances that can be used to stream sessions.
      * 
      */
-    private UndeferrableValue<Integer> available;
-
+    @PolicyResourceProperty(name="available", flag="unknown_available")
+    private Integer value_available;
+    private boolean unknown_available;
     public Integer available() {
-        if (available == null) return null;
-        return available.getValue("FleetComputeCapacityArgs.available");
+        if (!unknown_available) return value_available;
+        throw new UndeferrableValueException("Value 'FleetComputeCapacityArgs.available' is not present");
     }
 
     /**
      * Desired number of streaming instances.
      * 
      */
-    private UndeferrableValue<Integer> desiredInstances;
-
+    @PolicyResourceProperty(name="desiredInstances", flag="unknown_desiredInstances")
+    private Integer value_desiredInstances;
+    private boolean unknown_desiredInstances;
     public Integer desiredInstances() {
-        if (desiredInstances == null) return null;
-        return desiredInstances.getValue("FleetComputeCapacityArgs.desiredInstances");
+        if (!unknown_desiredInstances) return value_desiredInstances;
+        throw new UndeferrableValueException("Value 'FleetComputeCapacityArgs.desiredInstances' is not present");
     }
 
     /**
      * Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
      * 
      */
-    private UndeferrableValue<Integer> desiredSessions;
-
+    @PolicyResourceProperty(name="desiredSessions", flag="unknown_desiredSessions")
+    private Integer value_desiredSessions;
+    private boolean unknown_desiredSessions;
     public Integer desiredSessions() {
-        if (desiredSessions == null) return null;
-        return desiredSessions.getValue("FleetComputeCapacityArgs.desiredSessions");
+        if (!unknown_desiredSessions) return value_desiredSessions;
+        throw new UndeferrableValueException("Value 'FleetComputeCapacityArgs.desiredSessions' is not present");
     }
 
     /**
      * Number of instances in use for streaming.
      * 
      */
-    private UndeferrableValue<Integer> inUse;
-
+    @PolicyResourceProperty(name="inUse", flag="unknown_inUse")
+    private Integer value_inUse;
+    private boolean unknown_inUse;
     public Integer inUse() {
-        if (inUse == null) return null;
-        return inUse.getValue("FleetComputeCapacityArgs.inUse");
+        if (!unknown_inUse) return value_inUse;
+        throw new UndeferrableValueException("Value 'FleetComputeCapacityArgs.inUse' is not present");
     }
 
     /**
      * Total number of simultaneous streaming instances that are running.
      * 
      */
-    private UndeferrableValue<Integer> running;
-
+    @PolicyResourceProperty(name="running", flag="unknown_running")
+    private Integer value_running;
+    private boolean unknown_running;
     public Integer running() {
-        if (running == null) return null;
-        return running.getValue("FleetComputeCapacityArgs.running");
+        if (!unknown_running) return value_running;
+        throw new UndeferrableValueException("Value 'FleetComputeCapacityArgs.running' is not present");
     }
 
 }

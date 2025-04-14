@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudfront.inputs.FieldLevelEncryptionProfileEncryptionEntitiesArgs;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class FieldLevelEncryptionProfileArgs extends com.pulumi.resources.
      * An optional comment about the Field Level Encryption Profile.
      * 
      */
-    private UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private String value_comment;
+    private boolean unknown_comment;
     public String comment() {
-        if (comment == null) return null;
-        return comment.getValue("FieldLevelEncryptionProfileArgs.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfileArgs.comment' is not present");
     }
 
     /**
      * The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
      * 
      */
-    private UndeferrableValue<FieldLevelEncryptionProfileEncryptionEntitiesArgs> encryptionEntities;
-
+    @PolicyResourceProperty(name="encryptionEntities", flag="unknown_encryptionEntities")
+    private FieldLevelEncryptionProfileEncryptionEntitiesArgs value_encryptionEntities;
+    private boolean unknown_encryptionEntities;
     public FieldLevelEncryptionProfileEncryptionEntitiesArgs encryptionEntities() {
-        if (encryptionEntities == null) return null;
-        return encryptionEntities.getValue("FieldLevelEncryptionProfileArgs.encryptionEntities");
+        if (!unknown_encryptionEntities) return value_encryptionEntities;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfileArgs.encryptionEntities' is not present");
     }
 
     /**
      * The name of the Field Level Encryption Profile.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("FieldLevelEncryptionProfileArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfileArgs.name' is not present");
     }
 
 }

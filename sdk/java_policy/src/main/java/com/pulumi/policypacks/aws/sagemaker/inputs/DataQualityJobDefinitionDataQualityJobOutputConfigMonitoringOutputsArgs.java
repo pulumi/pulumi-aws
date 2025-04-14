@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs;
 
 
@@ -13,11 +14,12 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringO
      * The Amazon S3 storage location where the results of a monitoring job are saved. Fields are documented below.
      * 
      */
-    private UndeferrableValue<DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs> s3Output;
-
+    @PolicyResourceProperty(name="s3Output", flag="unknown_s3Output")
+    private DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs value_s3Output;
+    private boolean unknown_s3Output;
     public DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs s3Output() {
-        if (s3Output == null) return null;
-        return s3Output.getValue("DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs.s3Output");
+        if (!unknown_s3Output) return value_s3Output;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs.s3Output' is not present");
     }
 
 }

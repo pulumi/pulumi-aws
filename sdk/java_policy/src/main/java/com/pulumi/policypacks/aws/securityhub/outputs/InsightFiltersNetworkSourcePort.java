@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class InsightFiltersNetworkSourcePort {
      * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
      * 
      */
-    private @Nullable UndeferrableValue<String> eq;
-
+    @PolicyResourceProperty(name="eq", flag="unknown_eq")
+    private @Nullable String value_eq;
+    private boolean unknown_eq;
     public @Nullable String eq() {
-        if (eq == null) return null;
-        return eq.getValue("InsightFiltersNetworkSourcePort.eq");
+        if (!unknown_eq) return value_eq;
+        throw new UndeferrableValueException("Value 'InsightFiltersNetworkSourcePort.eq' is not present");
     }
 
     /**
      * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
      * 
      */
-    private @Nullable UndeferrableValue<String> gte;
-
+    @PolicyResourceProperty(name="gte", flag="unknown_gte")
+    private @Nullable String value_gte;
+    private boolean unknown_gte;
     public @Nullable String gte() {
-        if (gte == null) return null;
-        return gte.getValue("InsightFiltersNetworkSourcePort.gte");
+        if (!unknown_gte) return value_gte;
+        throw new UndeferrableValueException("Value 'InsightFiltersNetworkSourcePort.gte' is not present");
     }
 
     /**
      * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
      * 
      */
-    private @Nullable UndeferrableValue<String> lte;
-
+    @PolicyResourceProperty(name="lte", flag="unknown_lte")
+    private @Nullable String value_lte;
+    private boolean unknown_lte;
     public @Nullable String lte() {
-        if (lte == null) return null;
-        return lte.getValue("InsightFiltersNetworkSourcePort.lte");
+        if (!unknown_lte) return value_lte;
+        throw new UndeferrableValueException("Value 'InsightFiltersNetworkSourcePort.lte' is not present");
     }
 
 }

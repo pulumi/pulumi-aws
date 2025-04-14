@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * The custom subdomain for the CIDR endpoints.
      * 
      */
-    private UndeferrableValue<String> cidrEndpointsCustomSubdomain;
-
+    @PolicyResourceProperty(name="cidrEndpointsCustomSubdomain", flag="unknown_cidrEndpointsCustomSubdomain")
+    private String value_cidrEndpointsCustomSubdomain;
+    private boolean unknown_cidrEndpointsCustomSubdomain;
     public String cidrEndpointsCustomSubdomain() {
-        if (cidrEndpointsCustomSubdomain == null) return null;
-        return cidrEndpointsCustomSubdomain.getValue("InstanceArgs.cidrEndpointsCustomSubdomain");
+        if (!unknown_cidrEndpointsCustomSubdomain) return value_cidrEndpointsCustomSubdomain;
+        throw new UndeferrableValueException("Value 'InstanceArgs.cidrEndpointsCustomSubdomain' is not present");
     }
 
     /**
      * A description for the AWS Verified Access Instance.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("InstanceArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'InstanceArgs.description' is not present");
     }
 
     /**
      * Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
      * 
      */
-    private UndeferrableValue<Boolean> fipsEnabled;
-
+    @PolicyResourceProperty(name="fipsEnabled", flag="unknown_fipsEnabled")
+    private Boolean value_fipsEnabled;
+    private boolean unknown_fipsEnabled;
     public Boolean fipsEnabled() {
-        if (fipsEnabled == null) return null;
-        return fipsEnabled.getValue("InstanceArgs.fipsEnabled");
+        if (!unknown_fipsEnabled) return value_fipsEnabled;
+        throw new UndeferrableValueException("Value 'InstanceArgs.fipsEnabled' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("InstanceArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'InstanceArgs.tags' is not present");
     }
 
 }

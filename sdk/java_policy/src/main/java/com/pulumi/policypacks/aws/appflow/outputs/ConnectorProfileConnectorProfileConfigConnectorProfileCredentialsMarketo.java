@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,32 +12,36 @@ import javax.annotation.Nullable;
 
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo {
 
-    private @Nullable UndeferrableValue<String> accessToken;
-
+    @PolicyResourceProperty(name="accessToken", flag="unknown_accessToken")
+    private @Nullable String value_accessToken;
+    private boolean unknown_accessToken;
     public @Nullable String accessToken() {
-        if (accessToken == null) return null;
-        return accessToken.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo.accessToken");
+        if (!unknown_accessToken) return value_accessToken;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo.accessToken' is not present");
     }
 
-    private UndeferrableValue<String> clientId;
-
+    @PolicyResourceProperty(name="clientId", flag="unknown_clientId")
+    private String value_clientId;
+    private boolean unknown_clientId;
     public String clientId() {
-        if (clientId == null) return null;
-        return clientId.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo.clientId");
+        if (!unknown_clientId) return value_clientId;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo.clientId' is not present");
     }
 
-    private UndeferrableValue<String> clientSecret;
-
+    @PolicyResourceProperty(name="clientSecret", flag="unknown_clientSecret")
+    private String value_clientSecret;
+    private boolean unknown_clientSecret;
     public String clientSecret() {
-        if (clientSecret == null) return null;
-        return clientSecret.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo.clientSecret");
+        if (!unknown_clientSecret) return value_clientSecret;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo.clientSecret' is not present");
     }
 
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest> oauthRequest;
-
+    @PolicyResourceProperty(name="oauthRequest", flag="unknown_oauthRequest")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest value_oauthRequest;
+    private boolean unknown_oauthRequest;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest oauthRequest() {
-        if (oauthRequest == null) return null;
-        return oauthRequest.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo.oauthRequest");
+        if (!unknown_oauthRequest) return value_oauthRequest;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo.oauthRequest' is not present");
     }
 
 }

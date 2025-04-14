@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class CoreNetworkSegment {
      * Regions where the edges are located.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> edgeLocations;
-
+    @PolicyResourceProperty(name="edgeLocations", flag="unknown_edgeLocations")
+    private @Nullable List<String> value_edgeLocations;
+    private boolean unknown_edgeLocations;
     public @Nullable List<String> edgeLocations() {
-        if (edgeLocations == null) return null;
-        return edgeLocations.getValue("CoreNetworkSegment.edgeLocations");
+        if (!unknown_edgeLocations) return value_edgeLocations;
+        throw new UndeferrableValueException("Value 'CoreNetworkSegment.edgeLocations' is not present");
     }
 
     /**
      * Name of a core network segment.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("CoreNetworkSegment.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'CoreNetworkSegment.name' is not present");
     }
 
     /**
      * Shared segments of a core network.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> sharedSegments;
-
+    @PolicyResourceProperty(name="sharedSegments", flag="unknown_sharedSegments")
+    private @Nullable List<String> value_sharedSegments;
+    private boolean unknown_sharedSegments;
     public @Nullable List<String> sharedSegments() {
-        if (sharedSegments == null) return null;
-        return sharedSegments.getValue("CoreNetworkSegment.sharedSegments");
+        if (!unknown_sharedSegments) return value_sharedSegments;
+        throw new UndeferrableValueException("Value 'CoreNetworkSegment.sharedSegments' is not present");
     }
 
 }

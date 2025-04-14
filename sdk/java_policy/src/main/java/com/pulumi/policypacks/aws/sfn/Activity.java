@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sfn;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sfn.outputs.ActivityEncryptionConfiguration;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class Activity extends com.pulumi.resources.PolicyResourceOutput {
      * The date the activity was created.
      * 
      */
-    private UndeferrableValue<String> creationDate;
-
+    @PolicyResourceProperty(name="creationDate", flag="unknown_creationDate")
+    private String value_creationDate;
+    private boolean unknown_creationDate;
     public String creationDate() {
-        if (creationDate == null) return null;
-        return creationDate.getValue("Activity.creationDate");
+        if (!unknown_creationDate) return value_creationDate;
+        throw new UndeferrableValueException("Value 'Activity.creationDate' is not present");
     }
 
     /**
      * Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
      * 
      */
-    private UndeferrableValue<ActivityEncryptionConfiguration> encryptionConfiguration;
-
+    @PolicyResourceProperty(name="encryptionConfiguration", flag="unknown_encryptionConfiguration")
+    private ActivityEncryptionConfiguration value_encryptionConfiguration;
+    private boolean unknown_encryptionConfiguration;
     public ActivityEncryptionConfiguration encryptionConfiguration() {
-        if (encryptionConfiguration == null) return null;
-        return encryptionConfiguration.getValue("Activity.encryptionConfiguration");
+        if (!unknown_encryptionConfiguration) return value_encryptionConfiguration;
+        throw new UndeferrableValueException("Value 'Activity.encryptionConfiguration' is not present");
     }
 
     /**
      * The name of the activity to create.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Activity.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Activity.name' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Activity.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Activity.tags' is not present");
     }
 
     /**
@@ -66,11 +71,12 @@ public final class Activity extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Activity.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Activity.tagsAll' is not present");
     }
 
 }

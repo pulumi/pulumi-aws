@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -18,33 +19,36 @@ public final class NetworkAclRule extends com.pulumi.resources.PolicyResourceOut
      * The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
      * 
      */
-    private @Nullable UndeferrableValue<String> cidrBlock;
-
+    @PolicyResourceProperty(name="cidrBlock", flag="unknown_cidrBlock")
+    private @Nullable String value_cidrBlock;
+    private boolean unknown_cidrBlock;
     public @Nullable String cidrBlock() {
-        if (cidrBlock == null) return null;
-        return cidrBlock.getValue("NetworkAclRule.cidrBlock");
+        if (!unknown_cidrBlock) return value_cidrBlock;
+        throw new UndeferrableValueException("Value 'NetworkAclRule.cidrBlock' is not present");
     }
 
     /**
      * Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> egress;
-
+    @PolicyResourceProperty(name="egress", flag="unknown_egress")
+    private @Nullable Boolean value_egress;
+    private boolean unknown_egress;
     public @Nullable Boolean egress() {
-        if (egress == null) return null;
-        return egress.getValue("NetworkAclRule.egress");
+        if (!unknown_egress) return value_egress;
+        throw new UndeferrableValueException("Value 'NetworkAclRule.egress' is not present");
     }
 
     /**
      * The from port to match.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> fromPort;
-
+    @PolicyResourceProperty(name="fromPort", flag="unknown_fromPort")
+    private @Nullable Integer value_fromPort;
+    private boolean unknown_fromPort;
     public @Nullable Integer fromPort() {
-        if (fromPort == null) return null;
-        return fromPort.getValue("NetworkAclRule.fromPort");
+        if (!unknown_fromPort) return value_fromPort;
+        throw new UndeferrableValueException("Value 'NetworkAclRule.fromPort' is not present");
     }
 
     /**
@@ -57,88 +61,96 @@ public final class NetworkAclRule extends com.pulumi.resources.PolicyResourceOut
      * &gt; Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
      * 
      */
-    private @Nullable UndeferrableValue<Integer> icmpCode;
-
+    @PolicyResourceProperty(name="icmpCode", flag="unknown_icmpCode")
+    private @Nullable Integer value_icmpCode;
+    private boolean unknown_icmpCode;
     public @Nullable Integer icmpCode() {
-        if (icmpCode == null) return null;
-        return icmpCode.getValue("NetworkAclRule.icmpCode");
+        if (!unknown_icmpCode) return value_icmpCode;
+        throw new UndeferrableValueException("Value 'NetworkAclRule.icmpCode' is not present");
     }
 
     /**
      * ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
      * 
      */
-    private @Nullable UndeferrableValue<Integer> icmpType;
-
+    @PolicyResourceProperty(name="icmpType", flag="unknown_icmpType")
+    private @Nullable Integer value_icmpType;
+    private boolean unknown_icmpType;
     public @Nullable Integer icmpType() {
-        if (icmpType == null) return null;
-        return icmpType.getValue("NetworkAclRule.icmpType");
+        if (!unknown_icmpType) return value_icmpType;
+        throw new UndeferrableValueException("Value 'NetworkAclRule.icmpType' is not present");
     }
 
     /**
      * The IPv6 CIDR block to allow or deny.
      * 
      */
-    private @Nullable UndeferrableValue<String> ipv6CidrBlock;
-
+    @PolicyResourceProperty(name="ipv6CidrBlock", flag="unknown_ipv6CidrBlock")
+    private @Nullable String value_ipv6CidrBlock;
+    private boolean unknown_ipv6CidrBlock;
     public @Nullable String ipv6CidrBlock() {
-        if (ipv6CidrBlock == null) return null;
-        return ipv6CidrBlock.getValue("NetworkAclRule.ipv6CidrBlock");
+        if (!unknown_ipv6CidrBlock) return value_ipv6CidrBlock;
+        throw new UndeferrableValueException("Value 'NetworkAclRule.ipv6CidrBlock' is not present");
     }
 
     /**
      * The ID of the network ACL.
      * 
      */
-    private UndeferrableValue<String> networkAclId;
-
+    @PolicyResourceProperty(name="networkAclId", flag="unknown_networkAclId")
+    private String value_networkAclId;
+    private boolean unknown_networkAclId;
     public String networkAclId() {
-        if (networkAclId == null) return null;
-        return networkAclId.getValue("NetworkAclRule.networkAclId");
+        if (!unknown_networkAclId) return value_networkAclId;
+        throw new UndeferrableValueException("Value 'NetworkAclRule.networkAclId' is not present");
     }
 
     /**
      * The protocol. A value of -1 means all protocols.
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("NetworkAclRule.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'NetworkAclRule.protocol' is not present");
     }
 
     /**
      * Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
      * 
      */
-    private UndeferrableValue<String> ruleAction;
-
+    @PolicyResourceProperty(name="ruleAction", flag="unknown_ruleAction")
+    private String value_ruleAction;
+    private boolean unknown_ruleAction;
     public String ruleAction() {
-        if (ruleAction == null) return null;
-        return ruleAction.getValue("NetworkAclRule.ruleAction");
+        if (!unknown_ruleAction) return value_ruleAction;
+        throw new UndeferrableValueException("Value 'NetworkAclRule.ruleAction' is not present");
     }
 
     /**
      * The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
      * 
      */
-    private UndeferrableValue<Integer> ruleNumber;
-
+    @PolicyResourceProperty(name="ruleNumber", flag="unknown_ruleNumber")
+    private Integer value_ruleNumber;
+    private boolean unknown_ruleNumber;
     public Integer ruleNumber() {
-        if (ruleNumber == null) return null;
-        return ruleNumber.getValue("NetworkAclRule.ruleNumber");
+        if (!unknown_ruleNumber) return value_ruleNumber;
+        throw new UndeferrableValueException("Value 'NetworkAclRule.ruleNumber' is not present");
     }
 
     /**
      * The to port to match.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> toPort;
-
+    @PolicyResourceProperty(name="toPort", flag="unknown_toPort")
+    private @Nullable Integer value_toPort;
+    private boolean unknown_toPort;
     public @Nullable Integer toPort() {
-        if (toPort == null) return null;
-        return toPort.getValue("NetworkAclRule.toPort");
+        if (!unknown_toPort) return value_toPort;
+        throw new UndeferrableValueException("Value 'NetworkAclRule.toPort' is not present");
     }
 
 }

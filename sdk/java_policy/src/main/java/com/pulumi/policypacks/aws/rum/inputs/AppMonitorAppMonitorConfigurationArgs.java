@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rum.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -17,99 +18,108 @@ public final class AppMonitorAppMonitorConfigurationArgs {
      * If you set this to `true`, RUM web client sets two cookies, a session cookie  and a user cookie. The cookies allow the RUM web client to collect data relating to the number of users an application has and the behavior of the application across a sequence of events. Cookies are stored in the top-level domain of the current page.
      * 
      */
-    private UndeferrableValue<Boolean> allowCookies;
-
+    @PolicyResourceProperty(name="allowCookies", flag="unknown_allowCookies")
+    private Boolean value_allowCookies;
+    private boolean unknown_allowCookies;
     public Boolean allowCookies() {
-        if (allowCookies == null) return null;
-        return allowCookies.getValue("AppMonitorAppMonitorConfigurationArgs.allowCookies");
+        if (!unknown_allowCookies) return value_allowCookies;
+        throw new UndeferrableValueException("Value 'AppMonitorAppMonitorConfigurationArgs.allowCookies' is not present");
     }
 
     /**
      * If you set this to `true`, RUM enables X-Ray tracing for the user sessions  that RUM samples. RUM adds an X-Ray trace header to allowed HTTP requests. It also records an X-Ray segment for allowed HTTP requests.
      * 
      */
-    private UndeferrableValue<Boolean> enableXray;
-
+    @PolicyResourceProperty(name="enableXray", flag="unknown_enableXray")
+    private Boolean value_enableXray;
+    private boolean unknown_enableXray;
     public Boolean enableXray() {
-        if (enableXray == null) return null;
-        return enableXray.getValue("AppMonitorAppMonitorConfigurationArgs.enableXray");
+        if (!unknown_enableXray) return value_enableXray;
+        throw new UndeferrableValueException("Value 'AppMonitorAppMonitorConfigurationArgs.enableXray' is not present");
     }
 
     /**
      * A list of URLs in your website or application to exclude from RUM data collection.
      * 
      */
-    private UndeferrableValue<List<String>> excludedPages;
-
+    @PolicyResourceProperty(name="excludedPages", flag="unknown_excludedPages")
+    private List<String> value_excludedPages;
+    private boolean unknown_excludedPages;
     public List<String> excludedPages() {
-        if (excludedPages == null) return null;
-        return excludedPages.getValue("AppMonitorAppMonitorConfigurationArgs.excludedPages");
+        if (!unknown_excludedPages) return value_excludedPages;
+        throw new UndeferrableValueException("Value 'AppMonitorAppMonitorConfigurationArgs.excludedPages' is not present");
     }
 
     /**
      * A list of pages in the CloudWatch RUM console that are to be displayed with a &#34;favorite&#34; icon.
      * 
      */
-    private UndeferrableValue<List<String>> favoritePages;
-
+    @PolicyResourceProperty(name="favoritePages", flag="unknown_favoritePages")
+    private List<String> value_favoritePages;
+    private boolean unknown_favoritePages;
     public List<String> favoritePages() {
-        if (favoritePages == null) return null;
-        return favoritePages.getValue("AppMonitorAppMonitorConfigurationArgs.favoritePages");
+        if (!unknown_favoritePages) return value_favoritePages;
+        throw new UndeferrableValueException("Value 'AppMonitorAppMonitorConfigurationArgs.favoritePages' is not present");
     }
 
     /**
      * The ARN of the guest IAM role that is attached to the Amazon Cognito identity pool that is used to authorize the sending of data to RUM.
      * 
      */
-    private UndeferrableValue<String> guestRoleArn;
-
+    @PolicyResourceProperty(name="guestRoleArn", flag="unknown_guestRoleArn")
+    private String value_guestRoleArn;
+    private boolean unknown_guestRoleArn;
     public String guestRoleArn() {
-        if (guestRoleArn == null) return null;
-        return guestRoleArn.getValue("AppMonitorAppMonitorConfigurationArgs.guestRoleArn");
+        if (!unknown_guestRoleArn) return value_guestRoleArn;
+        throw new UndeferrableValueException("Value 'AppMonitorAppMonitorConfigurationArgs.guestRoleArn' is not present");
     }
 
     /**
      * The ID of the Amazon Cognito identity pool that is used to authorize the sending of data to RUM.
      * 
      */
-    private UndeferrableValue<String> identityPoolId;
-
+    @PolicyResourceProperty(name="identityPoolId", flag="unknown_identityPoolId")
+    private String value_identityPoolId;
+    private boolean unknown_identityPoolId;
     public String identityPoolId() {
-        if (identityPoolId == null) return null;
-        return identityPoolId.getValue("AppMonitorAppMonitorConfigurationArgs.identityPoolId");
+        if (!unknown_identityPoolId) return value_identityPoolId;
+        throw new UndeferrableValueException("Value 'AppMonitorAppMonitorConfigurationArgs.identityPoolId' is not present");
     }
 
     /**
      * If this app monitor is to collect data from only certain pages in your application, this structure lists those pages.
      * 
      */
-    private UndeferrableValue<List<String>> includedPages;
-
+    @PolicyResourceProperty(name="includedPages", flag="unknown_includedPages")
+    private List<String> value_includedPages;
+    private boolean unknown_includedPages;
     public List<String> includedPages() {
-        if (includedPages == null) return null;
-        return includedPages.getValue("AppMonitorAppMonitorConfigurationArgs.includedPages");
+        if (!unknown_includedPages) return value_includedPages;
+        throw new UndeferrableValueException("Value 'AppMonitorAppMonitorConfigurationArgs.includedPages' is not present");
     }
 
     /**
      * Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. Default value is `0.1`.
      * 
      */
-    private UndeferrableValue<Double> sessionSampleRate;
-
+    @PolicyResourceProperty(name="sessionSampleRate", flag="unknown_sessionSampleRate")
+    private Double value_sessionSampleRate;
+    private boolean unknown_sessionSampleRate;
     public Double sessionSampleRate() {
-        if (sessionSampleRate == null) return null;
-        return sessionSampleRate.getValue("AppMonitorAppMonitorConfigurationArgs.sessionSampleRate");
+        if (!unknown_sessionSampleRate) return value_sessionSampleRate;
+        throw new UndeferrableValueException("Value 'AppMonitorAppMonitorConfigurationArgs.sessionSampleRate' is not present");
     }
 
     /**
      * An array that lists the types of telemetry data that this app monitor is to collect. Valid values are `errors`, `performance`, and `http`.
      * 
      */
-    private UndeferrableValue<List<String>> telemetries;
-
+    @PolicyResourceProperty(name="telemetries", flag="unknown_telemetries")
+    private List<String> value_telemetries;
+    private boolean unknown_telemetries;
     public List<String> telemetries() {
-        if (telemetries == null) return null;
-        return telemetries.getValue("AppMonitorAppMonitorConfigurationArgs.telemetries");
+        if (!unknown_telemetries) return value_telemetries;
+        throw new UndeferrableValueException("Value 'AppMonitorAppMonitorConfigurationArgs.telemetries' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rekognition;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.rekognition.inputs.StreamProcessorDataSharingPreferenceArgs;
 import com.pulumi.policypacks.aws.rekognition.inputs.StreamProcessorInputArgs;
@@ -25,88 +26,96 @@ public final class StreamProcessorArgs extends com.pulumi.resources.PolicyResour
      * See `data_sharing_preference`.
      * 
      */
-    private UndeferrableValue<StreamProcessorDataSharingPreferenceArgs> dataSharingPreference;
-
+    @PolicyResourceProperty(name="dataSharingPreference", flag="unknown_dataSharingPreference")
+    private StreamProcessorDataSharingPreferenceArgs value_dataSharingPreference;
+    private boolean unknown_dataSharingPreference;
     public StreamProcessorDataSharingPreferenceArgs dataSharingPreference() {
-        if (dataSharingPreference == null) return null;
-        return dataSharingPreference.getValue("StreamProcessorArgs.dataSharingPreference");
+        if (!unknown_dataSharingPreference) return value_dataSharingPreference;
+        throw new UndeferrableValueException("Value 'StreamProcessorArgs.dataSharingPreference' is not present");
     }
 
     /**
      * Input video stream. See `input`.
      * 
      */
-    private UndeferrableValue<StreamProcessorInputArgs> input;
-
+    @PolicyResourceProperty(name="input", flag="unknown_input")
+    private StreamProcessorInputArgs value_input;
+    private boolean unknown_input;
     public StreamProcessorInputArgs input() {
-        if (input == null) return null;
-        return input.getValue("StreamProcessorArgs.input");
+        if (!unknown_input) return value_input;
+        throw new UndeferrableValueException("Value 'StreamProcessorArgs.input' is not present");
     }
 
     /**
      * Optional parameter for label detection stream processors.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("StreamProcessorArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'StreamProcessorArgs.kmsKeyId' is not present");
     }
 
     /**
      * The name of the Stream Processor.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("StreamProcessorArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'StreamProcessorArgs.name' is not present");
     }
 
     /**
      * The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
      * 
      */
-    private UndeferrableValue<StreamProcessorNotificationChannelArgs> notificationChannel;
-
+    @PolicyResourceProperty(name="notificationChannel", flag="unknown_notificationChannel")
+    private StreamProcessorNotificationChannelArgs value_notificationChannel;
+    private boolean unknown_notificationChannel;
     public StreamProcessorNotificationChannelArgs notificationChannel() {
-        if (notificationChannel == null) return null;
-        return notificationChannel.getValue("StreamProcessorArgs.notificationChannel");
+        if (!unknown_notificationChannel) return value_notificationChannel;
+        throw new UndeferrableValueException("Value 'StreamProcessorArgs.notificationChannel' is not present");
     }
 
     /**
      * Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
      * 
      */
-    private UndeferrableValue<StreamProcessorOutputArgs> output;
-
+    @PolicyResourceProperty(name="output", flag="unknown_output")
+    private StreamProcessorOutputArgs value_output;
+    private boolean unknown_output;
     public StreamProcessorOutputArgs output() {
-        if (output == null) return null;
-        return output.getValue("StreamProcessorArgs.output");
+        if (!unknown_output) return value_output;
+        throw new UndeferrableValueException("Value 'StreamProcessorArgs.output' is not present");
     }
 
     /**
      * Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
      * 
      */
-    private UndeferrableValue<List<StreamProcessorRegionsOfInterestArgs>> regionsOfInterests;
-
+    @PolicyResourceProperty(name="regionsOfInterests", flag="unknown_regionsOfInterests")
+    private List<StreamProcessorRegionsOfInterestArgs> value_regionsOfInterests;
+    private boolean unknown_regionsOfInterests;
     public List<StreamProcessorRegionsOfInterestArgs> regionsOfInterests() {
-        if (regionsOfInterests == null) return null;
-        return regionsOfInterests.getValue("StreamProcessorArgs.regionsOfInterests");
+        if (!unknown_regionsOfInterests) return value_regionsOfInterests;
+        throw new UndeferrableValueException("Value 'StreamProcessorArgs.regionsOfInterests' is not present");
     }
 
     /**
      * The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("StreamProcessorArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'StreamProcessorArgs.roleArn' is not present");
     }
 
     /**
@@ -115,29 +124,32 @@ public final class StreamProcessorArgs extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<StreamProcessorSettingsArgs> settings;
-
+    @PolicyResourceProperty(name="settings", flag="unknown_settings")
+    private StreamProcessorSettingsArgs value_settings;
+    private boolean unknown_settings;
     public StreamProcessorSettingsArgs settings() {
-        if (settings == null) return null;
-        return settings.getValue("StreamProcessorArgs.settings");
+        if (!unknown_settings) return value_settings;
+        throw new UndeferrableValueException("Value 'StreamProcessorArgs.settings' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("StreamProcessorArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'StreamProcessorArgs.tags' is not present");
     }
 
-    private UndeferrableValue<StreamProcessorTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private StreamProcessorTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public StreamProcessorTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("StreamProcessorArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'StreamProcessorArgs.timeouts' is not present");
     }
 
 }

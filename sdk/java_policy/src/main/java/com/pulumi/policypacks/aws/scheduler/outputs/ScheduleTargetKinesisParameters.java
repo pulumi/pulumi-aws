@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.scheduler.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ScheduleTargetKinesisParameters {
      * Specifies the shard to which EventBridge Scheduler sends the event. Up to 256 characters.
      * 
      */
-    private UndeferrableValue<String> partitionKey;
-
+    @PolicyResourceProperty(name="partitionKey", flag="unknown_partitionKey")
+    private String value_partitionKey;
+    private boolean unknown_partitionKey;
     public String partitionKey() {
-        if (partitionKey == null) return null;
-        return partitionKey.getValue("ScheduleTargetKinesisParameters.partitionKey");
+        if (!unknown_partitionKey) return value_partitionKey;
+        throw new UndeferrableValueException("Value 'ScheduleTargetKinesisParameters.partitionKey' is not present");
     }
 
 }

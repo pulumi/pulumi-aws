@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementCustomKey;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementForwardedIpConfig;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatement;
@@ -19,22 +20,24 @@ public final class WebAclRuleStatementRateBasedStatement {
      * Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP`, or `IP`. Default: `IP`.
      * 
      */
-    private @Nullable UndeferrableValue<String> aggregateKeyType;
-
+    @PolicyResourceProperty(name="aggregateKeyType", flag="unknown_aggregateKeyType")
+    private @Nullable String value_aggregateKeyType;
+    private boolean unknown_aggregateKeyType;
     public @Nullable String aggregateKeyType() {
-        if (aggregateKeyType == null) return null;
-        return aggregateKeyType.getValue("WebAclRuleStatementRateBasedStatement.aggregateKeyType");
+        if (!unknown_aggregateKeyType) return value_aggregateKeyType;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatement.aggregateKeyType' is not present");
     }
 
     /**
      * Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<WebAclRuleStatementRateBasedStatementCustomKey>> customKeys;
-
+    @PolicyResourceProperty(name="customKeys", flag="unknown_customKeys")
+    private @Nullable List<WebAclRuleStatementRateBasedStatementCustomKey> value_customKeys;
+    private boolean unknown_customKeys;
     public @Nullable List<WebAclRuleStatementRateBasedStatementCustomKey> customKeys() {
-        if (customKeys == null) return null;
-        return customKeys.getValue("WebAclRuleStatementRateBasedStatement.customKeys");
+        if (!unknown_customKeys) return value_customKeys;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatement.customKeys' is not present");
     }
 
     /**
@@ -43,44 +46,48 @@ public final class WebAclRuleStatementRateBasedStatement {
      * **NOTE:** This setting doesn&#39;t determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> evaluationWindowSec;
-
+    @PolicyResourceProperty(name="evaluationWindowSec", flag="unknown_evaluationWindowSec")
+    private @Nullable Integer value_evaluationWindowSec;
+    private boolean unknown_evaluationWindowSec;
     public @Nullable Integer evaluationWindowSec() {
-        if (evaluationWindowSec == null) return null;
-        return evaluationWindowSec.getValue("WebAclRuleStatementRateBasedStatement.evaluationWindowSec");
+        if (!unknown_evaluationWindowSec) return value_evaluationWindowSec;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatement.evaluationWindowSec' is not present");
     }
 
     /**
      * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See `forwarded_ip_config` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementRateBasedStatementForwardedIpConfig> forwardedIpConfig;
-
+    @PolicyResourceProperty(name="forwardedIpConfig", flag="unknown_forwardedIpConfig")
+    private @Nullable WebAclRuleStatementRateBasedStatementForwardedIpConfig value_forwardedIpConfig;
+    private boolean unknown_forwardedIpConfig;
     public @Nullable WebAclRuleStatementRateBasedStatementForwardedIpConfig forwardedIpConfig() {
-        if (forwardedIpConfig == null) return null;
-        return forwardedIpConfig.getValue("WebAclRuleStatementRateBasedStatement.forwardedIpConfig");
+        if (!unknown_forwardedIpConfig) return value_forwardedIpConfig;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatement.forwardedIpConfig' is not present");
     }
 
     /**
      * Limit on requests per 5-minute period for a single originating IP address.
      * 
      */
-    private UndeferrableValue<Integer> limit;
-
+    @PolicyResourceProperty(name="limit", flag="unknown_limit")
+    private Integer value_limit;
+    private boolean unknown_limit;
     public Integer limit() {
-        if (limit == null) return null;
-        return limit.getValue("WebAclRuleStatementRateBasedStatement.limit");
+        if (!unknown_limit) return value_limit;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatement.limit' is not present");
     }
 
     /**
      * Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementRateBasedStatementScopeDownStatement> scopeDownStatement;
-
+    @PolicyResourceProperty(name="scopeDownStatement", flag="unknown_scopeDownStatement")
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatement value_scopeDownStatement;
+    private boolean unknown_scopeDownStatement;
     public @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatement scopeDownStatement() {
-        if (scopeDownStatement == null) return null;
-        return scopeDownStatement.getValue("WebAclRuleStatementRateBasedStatement.scopeDownStatement");
+        if (!unknown_scopeDownStatement) return value_scopeDownStatement;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatement.scopeDownStatement' is not present");
     }
 
 }

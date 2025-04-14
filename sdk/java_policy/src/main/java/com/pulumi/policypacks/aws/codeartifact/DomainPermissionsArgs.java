@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codeartifact;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,44 +17,48 @@ public final class DomainPermissionsArgs extends com.pulumi.resources.PolicyReso
      * The name of the domain on which to set the resource policy.
      * 
      */
-    private UndeferrableValue<String> domain;
-
+    @PolicyResourceProperty(name="domain", flag="unknown_domain")
+    private String value_domain;
+    private boolean unknown_domain;
     public String domain() {
-        if (domain == null) return null;
-        return domain.getValue("DomainPermissionsArgs.domain");
+        if (!unknown_domain) return value_domain;
+        throw new UndeferrableValueException("Value 'DomainPermissionsArgs.domain' is not present");
     }
 
     /**
      * The account number of the AWS account that owns the domain.
      * 
      */
-    private UndeferrableValue<String> domainOwner;
-
+    @PolicyResourceProperty(name="domainOwner", flag="unknown_domainOwner")
+    private String value_domainOwner;
+    private boolean unknown_domainOwner;
     public String domainOwner() {
-        if (domainOwner == null) return null;
-        return domainOwner.getValue("DomainPermissionsArgs.domainOwner");
+        if (!unknown_domainOwner) return value_domainOwner;
+        throw new UndeferrableValueException("Value 'DomainPermissionsArgs.domainOwner' is not present");
     }
 
     /**
      * A JSON policy string to be set as the access control resource policy on the provided domain.
      * 
      */
-    private UndeferrableValue<String> policyDocument;
-
+    @PolicyResourceProperty(name="policyDocument", flag="unknown_policyDocument")
+    private String value_policyDocument;
+    private boolean unknown_policyDocument;
     public String policyDocument() {
-        if (policyDocument == null) return null;
-        return policyDocument.getValue("DomainPermissionsArgs.policyDocument");
+        if (!unknown_policyDocument) return value_policyDocument;
+        throw new UndeferrableValueException("Value 'DomainPermissionsArgs.policyDocument' is not present");
     }
 
     /**
      * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain&#39;s resource policy.
      * 
      */
-    private UndeferrableValue<String> policyRevision;
-
+    @PolicyResourceProperty(name="policyRevision", flag="unknown_policyRevision")
+    private String value_policyRevision;
+    private boolean unknown_policyRevision;
     public String policyRevision() {
-        if (policyRevision == null) return null;
-        return policyRevision.getValue("DomainPermissionsArgs.policyRevision");
+        if (!unknown_policyRevision) return value_policyRevision;
+        throw new UndeferrableValueException("Value 'DomainPermissionsArgs.policyRevision' is not present");
     }
 
 }

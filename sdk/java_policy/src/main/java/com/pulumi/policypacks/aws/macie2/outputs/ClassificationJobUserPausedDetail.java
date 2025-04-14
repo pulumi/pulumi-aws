@@ -3,32 +3,36 @@
 
 package com.pulumi.policypacks.aws.macie2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class ClassificationJobUserPausedDetail {
 
-    private @Nullable UndeferrableValue<String> jobExpiresAt;
-
+    @PolicyResourceProperty(name="jobExpiresAt", flag="unknown_jobExpiresAt")
+    private @Nullable String value_jobExpiresAt;
+    private boolean unknown_jobExpiresAt;
     public @Nullable String jobExpiresAt() {
-        if (jobExpiresAt == null) return null;
-        return jobExpiresAt.getValue("ClassificationJobUserPausedDetail.jobExpiresAt");
+        if (!unknown_jobExpiresAt) return value_jobExpiresAt;
+        throw new UndeferrableValueException("Value 'ClassificationJobUserPausedDetail.jobExpiresAt' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> jobImminentExpirationHealthEventArn;
-
+    @PolicyResourceProperty(name="jobImminentExpirationHealthEventArn", flag="unknown_jobImminentExpirationHealthEventArn")
+    private @Nullable String value_jobImminentExpirationHealthEventArn;
+    private boolean unknown_jobImminentExpirationHealthEventArn;
     public @Nullable String jobImminentExpirationHealthEventArn() {
-        if (jobImminentExpirationHealthEventArn == null) return null;
-        return jobImminentExpirationHealthEventArn.getValue("ClassificationJobUserPausedDetail.jobImminentExpirationHealthEventArn");
+        if (!unknown_jobImminentExpirationHealthEventArn) return value_jobImminentExpirationHealthEventArn;
+        throw new UndeferrableValueException("Value 'ClassificationJobUserPausedDetail.jobImminentExpirationHealthEventArn' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> jobPausedAt;
-
+    @PolicyResourceProperty(name="jobPausedAt", flag="unknown_jobPausedAt")
+    private @Nullable String value_jobPausedAt;
+    private boolean unknown_jobPausedAt;
     public @Nullable String jobPausedAt() {
-        if (jobPausedAt == null) return null;
-        return jobPausedAt.getValue("ClassificationJobUserPausedDetail.jobPausedAt");
+        if (!unknown_jobPausedAt) return value_jobPausedAt;
+        throw new UndeferrableValueException("Value 'ClassificationJobUserPausedDetail.jobPausedAt' is not present");
     }
 
 }

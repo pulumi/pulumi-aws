@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,55 +17,60 @@ public final class ModelArgs extends com.pulumi.resources.PolicyResourceInput {
      * API identifier.
      * 
      */
-    private UndeferrableValue<String> apiId;
-
+    @PolicyResourceProperty(name="apiId", flag="unknown_apiId")
+    private String value_apiId;
+    private boolean unknown_apiId;
     public String apiId() {
-        if (apiId == null) return null;
-        return apiId.getValue("ModelArgs.apiId");
+        if (!unknown_apiId) return value_apiId;
+        throw new UndeferrableValueException("Value 'ModelArgs.apiId' is not present");
     }
 
     /**
      * The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
      * 
      */
-    private UndeferrableValue<String> contentType;
-
+    @PolicyResourceProperty(name="contentType", flag="unknown_contentType")
+    private String value_contentType;
+    private boolean unknown_contentType;
     public String contentType() {
-        if (contentType == null) return null;
-        return contentType.getValue("ModelArgs.contentType");
+        if (!unknown_contentType) return value_contentType;
+        throw new UndeferrableValueException("Value 'ModelArgs.contentType' is not present");
     }
 
     /**
      * Description of the model. Must be between 1 and 128 characters in length.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ModelArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ModelArgs.description' is not present");
     }
 
     /**
      * Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ModelArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ModelArgs.name' is not present");
     }
 
     /**
      * Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
      * 
      */
-    private UndeferrableValue<String> schema;
-
+    @PolicyResourceProperty(name="schema", flag="unknown_schema")
+    private String value_schema;
+    private boolean unknown_schema;
     public String schema() {
-        if (schema == null) return null;
-        return schema.getValue("ModelArgs.schema");
+        if (!unknown_schema) return value_schema;
+        throw new UndeferrableValueException("Value 'ModelArgs.schema' is not present");
     }
 
 }

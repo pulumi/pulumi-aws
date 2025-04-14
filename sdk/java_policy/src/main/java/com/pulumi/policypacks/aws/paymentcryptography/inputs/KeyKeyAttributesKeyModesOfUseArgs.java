@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.paymentcryptography.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,99 +15,108 @@ public final class KeyKeyAttributesKeyModesOfUseArgs {
      * Whether an AWS Payment Cryptography key can be used to decrypt data.
      * 
      */
-    private UndeferrableValue<Boolean> decrypt;
-
+    @PolicyResourceProperty(name="decrypt", flag="unknown_decrypt")
+    private Boolean value_decrypt;
+    private boolean unknown_decrypt;
     public Boolean decrypt() {
-        if (decrypt == null) return null;
-        return decrypt.getValue("KeyKeyAttributesKeyModesOfUseArgs.decrypt");
+        if (!unknown_decrypt) return value_decrypt;
+        throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUseArgs.decrypt' is not present");
     }
 
     /**
      * Whether an AWS Payment Cryptography key can be used to derive new keys.
      * 
      */
-    private UndeferrableValue<Boolean> deriveKey;
-
+    @PolicyResourceProperty(name="deriveKey", flag="unknown_deriveKey")
+    private Boolean value_deriveKey;
+    private boolean unknown_deriveKey;
     public Boolean deriveKey() {
-        if (deriveKey == null) return null;
-        return deriveKey.getValue("KeyKeyAttributesKeyModesOfUseArgs.deriveKey");
+        if (!unknown_deriveKey) return value_deriveKey;
+        throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUseArgs.deriveKey' is not present");
     }
 
     /**
      * Whether an AWS Payment Cryptography key can be used to encrypt data.
      * 
      */
-    private UndeferrableValue<Boolean> encrypt;
-
+    @PolicyResourceProperty(name="encrypt", flag="unknown_encrypt")
+    private Boolean value_encrypt;
+    private boolean unknown_encrypt;
     public Boolean encrypt() {
-        if (encrypt == null) return null;
-        return encrypt.getValue("KeyKeyAttributesKeyModesOfUseArgs.encrypt");
+        if (!unknown_encrypt) return value_encrypt;
+        throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUseArgs.encrypt' is not present");
     }
 
     /**
      * Whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
      * 
      */
-    private UndeferrableValue<Boolean> generate;
-
+    @PolicyResourceProperty(name="generate", flag="unknown_generate")
+    private Boolean value_generate;
+    private boolean unknown_generate;
     public Boolean generate() {
-        if (generate == null) return null;
-        return generate.getValue("KeyKeyAttributesKeyModesOfUseArgs.generate");
+        if (!unknown_generate) return value_generate;
+        throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUseArgs.generate' is not present");
     }
 
     /**
      * Whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by KeyUsage.
      * 
      */
-    private UndeferrableValue<Boolean> noRestrictions;
-
+    @PolicyResourceProperty(name="noRestrictions", flag="unknown_noRestrictions")
+    private Boolean value_noRestrictions;
+    private boolean unknown_noRestrictions;
     public Boolean noRestrictions() {
-        if (noRestrictions == null) return null;
-        return noRestrictions.getValue("KeyKeyAttributesKeyModesOfUseArgs.noRestrictions");
+        if (!unknown_noRestrictions) return value_noRestrictions;
+        throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUseArgs.noRestrictions' is not present");
     }
 
     /**
      * Whether an AWS Payment Cryptography key can be used for signing.
      * 
      */
-    private UndeferrableValue<Boolean> sign;
-
+    @PolicyResourceProperty(name="sign", flag="unknown_sign")
+    private Boolean value_sign;
+    private boolean unknown_sign;
     public Boolean sign() {
-        if (sign == null) return null;
-        return sign.getValue("KeyKeyAttributesKeyModesOfUseArgs.sign");
+        if (!unknown_sign) return value_sign;
+        throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUseArgs.sign' is not present");
     }
 
     /**
      * Whether an AWS Payment Cryptography key can be used to unwrap other keys.
      * 
      */
-    private UndeferrableValue<Boolean> unwrap;
-
+    @PolicyResourceProperty(name="unwrap", flag="unknown_unwrap")
+    private Boolean value_unwrap;
+    private boolean unknown_unwrap;
     public Boolean unwrap() {
-        if (unwrap == null) return null;
-        return unwrap.getValue("KeyKeyAttributesKeyModesOfUseArgs.unwrap");
+        if (!unknown_unwrap) return value_unwrap;
+        throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUseArgs.unwrap' is not present");
     }
 
     /**
      * Whether an AWS Payment Cryptography key can be used to verify signatures.
      * 
      */
-    private UndeferrableValue<Boolean> verify;
-
+    @PolicyResourceProperty(name="verify", flag="unknown_verify")
+    private Boolean value_verify;
+    private boolean unknown_verify;
     public Boolean verify() {
-        if (verify == null) return null;
-        return verify.getValue("KeyKeyAttributesKeyModesOfUseArgs.verify");
+        if (!unknown_verify) return value_verify;
+        throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUseArgs.verify' is not present");
     }
 
     /**
      * Whether an AWS Payment Cryptography key can be used to wrap other keys.
      * 
      */
-    private UndeferrableValue<Boolean> wrap;
-
+    @PolicyResourceProperty(name="wrap", flag="unknown_wrap")
+    private Boolean value_wrap;
+    private boolean unknown_wrap;
     public Boolean wrap() {
-        if (wrap == null) return null;
-        return wrap.getValue("KeyKeyAttributesKeyModesOfUseArgs.wrap");
+        if (!unknown_wrap) return value_wrap;
+        throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUseArgs.wrap' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.iot.outputs.ThingGroupMetadataRootToParentGroup;
 import java.lang.String;
 import java.util.List;
@@ -12,29 +13,32 @@ import javax.annotation.Nullable;
 
 public final class ThingGroupMetadata {
 
-    private @Nullable UndeferrableValue<String> creationDate;
-
+    @PolicyResourceProperty(name="creationDate", flag="unknown_creationDate")
+    private @Nullable String value_creationDate;
+    private boolean unknown_creationDate;
     public @Nullable String creationDate() {
-        if (creationDate == null) return null;
-        return creationDate.getValue("ThingGroupMetadata.creationDate");
+        if (!unknown_creationDate) return value_creationDate;
+        throw new UndeferrableValueException("Value 'ThingGroupMetadata.creationDate' is not present");
     }
 
     /**
      * The name of the parent Thing Group.
      * 
      */
-    private @Nullable UndeferrableValue<String> parentGroupName;
-
+    @PolicyResourceProperty(name="parentGroupName", flag="unknown_parentGroupName")
+    private @Nullable String value_parentGroupName;
+    private boolean unknown_parentGroupName;
     public @Nullable String parentGroupName() {
-        if (parentGroupName == null) return null;
-        return parentGroupName.getValue("ThingGroupMetadata.parentGroupName");
+        if (!unknown_parentGroupName) return value_parentGroupName;
+        throw new UndeferrableValueException("Value 'ThingGroupMetadata.parentGroupName' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<ThingGroupMetadataRootToParentGroup>> rootToParentGroups;
-
+    @PolicyResourceProperty(name="rootToParentGroups", flag="unknown_rootToParentGroups")
+    private @Nullable List<ThingGroupMetadataRootToParentGroup> value_rootToParentGroups;
+    private boolean unknown_rootToParentGroups;
     public @Nullable List<ThingGroupMetadataRootToParentGroup> rootToParentGroups() {
-        if (rootToParentGroups == null) return null;
-        return rootToParentGroups.getValue("ThingGroupMetadata.rootToParentGroups");
+        if (!unknown_rootToParentGroups) return value_rootToParentGroups;
+        throw new UndeferrableValueException("Value 'ThingGroupMetadata.rootToParentGroups' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.iot.outputs.TopicRuleErrorActionDynamodbv2PutItem;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class TopicRuleErrorActionDynamodbv2 {
      * Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
      * 
      */
-    private @Nullable UndeferrableValue<TopicRuleErrorActionDynamodbv2PutItem> putItem;
-
+    @PolicyResourceProperty(name="putItem", flag="unknown_putItem")
+    private @Nullable TopicRuleErrorActionDynamodbv2PutItem value_putItem;
+    private boolean unknown_putItem;
     public @Nullable TopicRuleErrorActionDynamodbv2PutItem putItem() {
-        if (putItem == null) return null;
-        return putItem.getValue("TopicRuleErrorActionDynamodbv2.putItem");
+        if (!unknown_putItem) return value_putItem;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionDynamodbv2.putItem' is not present");
     }
 
     /**
      * The ARN of the IAM role that grants access to the DynamoDB table.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("TopicRuleErrorActionDynamodbv2.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionDynamodbv2.roleArn' is not present");
     }
 
 }

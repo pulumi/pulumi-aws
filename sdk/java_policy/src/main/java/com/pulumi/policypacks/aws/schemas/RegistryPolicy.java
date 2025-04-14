@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.schemas;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class RegistryPolicy extends com.pulumi.resources.PolicyResourceOut
      * Resource Policy for EventBridge Schema Registry
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("RegistryPolicy.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'RegistryPolicy.policy' is not present");
     }
 
     /**
      * Name of EventBridge Schema Registry
      * 
      */
-    private UndeferrableValue<String> registryName;
-
+    @PolicyResourceProperty(name="registryName", flag="unknown_registryName")
+    private String value_registryName;
+    private boolean unknown_registryName;
     public String registryName() {
-        if (registryName == null) return null;
-        return registryName.getValue("RegistryPolicy.registryName");
+        if (!unknown_registryName) return value_registryName;
+        throw new UndeferrableValueException("Value 'RegistryPolicy.registryName' is not present");
     }
 
 }

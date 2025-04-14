@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.fsx.inputs.LustreFileSystemLogConfigurationArgs;
 import com.pulumi.policypacks.aws.fsx.inputs.LustreFileSystemMetadataConfigurationArgs;
@@ -23,121 +24,132 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.PolicyResou
      * How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
      * 
      */
-    private UndeferrableValue<String> autoImportPolicy;
-
+    @PolicyResourceProperty(name="autoImportPolicy", flag="unknown_autoImportPolicy")
+    private String value_autoImportPolicy;
+    private boolean unknown_autoImportPolicy;
     public String autoImportPolicy() {
-        if (autoImportPolicy == null) return null;
-        return autoImportPolicy.getValue("LustreFileSystemArgs.autoImportPolicy");
+        if (!unknown_autoImportPolicy) return value_autoImportPolicy;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.autoImportPolicy' is not present");
     }
 
     /**
      * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
      * 
      */
-    private UndeferrableValue<Integer> automaticBackupRetentionDays;
-
+    @PolicyResourceProperty(name="automaticBackupRetentionDays", flag="unknown_automaticBackupRetentionDays")
+    private Integer value_automaticBackupRetentionDays;
+    private boolean unknown_automaticBackupRetentionDays;
     public Integer automaticBackupRetentionDays() {
-        if (automaticBackupRetentionDays == null) return null;
-        return automaticBackupRetentionDays.getValue("LustreFileSystemArgs.automaticBackupRetentionDays");
+        if (!unknown_automaticBackupRetentionDays) return value_automaticBackupRetentionDays;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.automaticBackupRetentionDays' is not present");
     }
 
     /**
      * The ID of the source backup to create the filesystem from.
      * 
      */
-    private UndeferrableValue<String> backupId;
-
+    @PolicyResourceProperty(name="backupId", flag="unknown_backupId")
+    private String value_backupId;
+    private boolean unknown_backupId;
     public String backupId() {
-        if (backupId == null) return null;
-        return backupId.getValue("LustreFileSystemArgs.backupId");
+        if (!unknown_backupId) return value_backupId;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.backupId' is not present");
     }
 
     /**
      * A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. The default value is false.
      * 
      */
-    private UndeferrableValue<Boolean> copyTagsToBackups;
-
+    @PolicyResourceProperty(name="copyTagsToBackups", flag="unknown_copyTagsToBackups")
+    private Boolean value_copyTagsToBackups;
+    private boolean unknown_copyTagsToBackups;
     public Boolean copyTagsToBackups() {
-        if (copyTagsToBackups == null) return null;
-        return copyTagsToBackups.getValue("LustreFileSystemArgs.copyTagsToBackups");
+        if (!unknown_copyTagsToBackups) return value_copyTagsToBackups;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.copyTagsToBackups' is not present");
     }
 
     /**
      * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Requires `automatic_backup_retention_days` to be set.
      * 
      */
-    private UndeferrableValue<String> dailyAutomaticBackupStartTime;
-
+    @PolicyResourceProperty(name="dailyAutomaticBackupStartTime", flag="unknown_dailyAutomaticBackupStartTime")
+    private String value_dailyAutomaticBackupStartTime;
+    private boolean unknown_dailyAutomaticBackupStartTime;
     public String dailyAutomaticBackupStartTime() {
-        if (dailyAutomaticBackupStartTime == null) return null;
-        return dailyAutomaticBackupStartTime.getValue("LustreFileSystemArgs.dailyAutomaticBackupStartTime");
+        if (!unknown_dailyAutomaticBackupStartTime) return value_dailyAutomaticBackupStartTime;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.dailyAutomaticBackupStartTime' is not present");
     }
 
     /**
      * Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
      * 
      */
-    private UndeferrableValue<String> dataCompressionType;
-
+    @PolicyResourceProperty(name="dataCompressionType", flag="unknown_dataCompressionType")
+    private String value_dataCompressionType;
+    private boolean unknown_dataCompressionType;
     public String dataCompressionType() {
-        if (dataCompressionType == null) return null;
-        return dataCompressionType.getValue("LustreFileSystemArgs.dataCompressionType");
+        if (!unknown_dataCompressionType) return value_dataCompressionType;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.dataCompressionType' is not present");
     }
 
     /**
      * The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, `PERSISTENT_2`.
      * 
      */
-    private UndeferrableValue<String> deploymentType;
-
+    @PolicyResourceProperty(name="deploymentType", flag="unknown_deploymentType")
+    private String value_deploymentType;
+    private boolean unknown_deploymentType;
     public String deploymentType() {
-        if (deploymentType == null) return null;
-        return deploymentType.getValue("LustreFileSystemArgs.deploymentType");
+        if (!unknown_deploymentType) return value_deploymentType;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.deploymentType' is not present");
     }
 
     /**
      * The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
      * 
      */
-    private UndeferrableValue<String> driveCacheType;
-
+    @PolicyResourceProperty(name="driveCacheType", flag="unknown_driveCacheType")
+    private String value_driveCacheType;
+    private boolean unknown_driveCacheType;
     public String driveCacheType() {
-        if (driveCacheType == null) return null;
-        return driveCacheType.getValue("LustreFileSystemArgs.driveCacheType");
+        if (!unknown_driveCacheType) return value_driveCacheType;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.driveCacheType' is not present");
     }
 
     /**
      * Adds support for Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS) to Lustre. This must be set at creation. If set this cannot be changed and this prevents changes to `per_unit_storage_throughput`. This is only supported when deployment_type is set to `PERSISTENT_2`, `metadata_configuration` is used, and an EFA-enabled security group is attached.
      * 
      */
-    private UndeferrableValue<Boolean> efaEnabled;
-
+    @PolicyResourceProperty(name="efaEnabled", flag="unknown_efaEnabled")
+    private Boolean value_efaEnabled;
+    private boolean unknown_efaEnabled;
     public Boolean efaEnabled() {
-        if (efaEnabled == null) return null;
-        return efaEnabled.getValue("LustreFileSystemArgs.efaEnabled");
+        if (!unknown_efaEnabled) return value_efaEnabled;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.efaEnabled' is not present");
     }
 
     /**
      * S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`. Only supported on `PERSISTENT_1` deployment types.
      * 
      */
-    private UndeferrableValue<String> exportPath;
-
+    @PolicyResourceProperty(name="exportPath", flag="unknown_exportPath")
+    private String value_exportPath;
+    private boolean unknown_exportPath;
     public String exportPath() {
-        if (exportPath == null) return null;
-        return exportPath.getValue("LustreFileSystemArgs.exportPath");
+        if (!unknown_exportPath) return value_exportPath;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.exportPath' is not present");
     }
 
     /**
      * Sets the Lustre version for the file system that you&#39;re creating. Valid values are 2.10 for `SCRATCH_1`, `SCRATCH_2` and `PERSISTENT_1` deployment types. Valid values for 2.12 include all deployment types.
      * 
      */
-    private UndeferrableValue<String> fileSystemTypeVersion;
-
+    @PolicyResourceProperty(name="fileSystemTypeVersion", flag="unknown_fileSystemTypeVersion")
+    private String value_fileSystemTypeVersion;
+    private boolean unknown_fileSystemTypeVersion;
     public String fileSystemTypeVersion() {
-        if (fileSystemTypeVersion == null) return null;
-        return fileSystemTypeVersion.getValue("LustreFileSystemArgs.fileSystemTypeVersion");
+        if (!unknown_fileSystemTypeVersion) return value_fileSystemTypeVersion;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.fileSystemTypeVersion' is not present");
     }
 
     /**
@@ -146,99 +158,108 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.PolicyResou
      * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
      * 
      */
-    private UndeferrableValue<Map<String,String>> finalBackupTags;
-
+    @PolicyResourceProperty(name="finalBackupTags", flag="unknown_finalBackupTags")
+    private Map<String,String> value_finalBackupTags;
+    private boolean unknown_finalBackupTags;
     public Map<String,String> finalBackupTags() {
-        if (finalBackupTags == null) return null;
-        return finalBackupTags.getValue("LustreFileSystemArgs.finalBackupTags");
+        if (!unknown_finalBackupTags) return value_finalBackupTags;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.finalBackupTags' is not present");
     }
 
     /**
      * S3 URI (with optional prefix) that you&#39;re using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`. Only supported on `PERSISTENT_1` deployment types.
      * 
      */
-    private UndeferrableValue<String> importPath;
-
+    @PolicyResourceProperty(name="importPath", flag="unknown_importPath")
+    private String value_importPath;
+    private boolean unknown_importPath;
     public String importPath() {
-        if (importPath == null) return null;
-        return importPath.getValue("LustreFileSystemArgs.importPath");
+        if (!unknown_importPath) return value_importPath;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.importPath' is not present");
     }
 
     /**
      * For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `import_path` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`. Only supported on `PERSISTENT_1` deployment types.
      * 
      */
-    private UndeferrableValue<Integer> importedFileChunkSize;
-
+    @PolicyResourceProperty(name="importedFileChunkSize", flag="unknown_importedFileChunkSize")
+    private Integer value_importedFileChunkSize;
+    private boolean unknown_importedFileChunkSize;
     public Integer importedFileChunkSize() {
-        if (importedFileChunkSize == null) return null;
-        return importedFileChunkSize.getValue("LustreFileSystemArgs.importedFileChunkSize");
+        if (!unknown_importedFileChunkSize) return value_importedFileChunkSize;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.importedFileChunkSize' is not present");
     }
 
     /**
      * ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Defaults to an AWS managed KMS Key.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("LustreFileSystemArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.kmsKeyId' is not present");
     }
 
     /**
      * The Lustre logging configuration used when creating an Amazon FSx for Lustre file system. When logging is enabled, Lustre logs error and warning events for data repositories associated with your file system to Amazon CloudWatch Logs. See `log_configuration` Block for details.
      * 
      */
-    private UndeferrableValue<LustreFileSystemLogConfigurationArgs> logConfiguration;
-
+    @PolicyResourceProperty(name="logConfiguration", flag="unknown_logConfiguration")
+    private LustreFileSystemLogConfigurationArgs value_logConfiguration;
+    private boolean unknown_logConfiguration;
     public LustreFileSystemLogConfigurationArgs logConfiguration() {
-        if (logConfiguration == null) return null;
-        return logConfiguration.getValue("LustreFileSystemArgs.logConfiguration");
+        if (!unknown_logConfiguration) return value_logConfiguration;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.logConfiguration' is not present");
     }
 
     /**
      * The Lustre metadata configuration used when creating an Amazon FSx for Lustre file system. This can be used to specify a user provisioned metadata scale. This is only supported when `deployment_type` is set to `PERSISTENT_2`. See `metadata_configuration` Block for details.
      * 
      */
-    private UndeferrableValue<LustreFileSystemMetadataConfigurationArgs> metadataConfiguration;
-
+    @PolicyResourceProperty(name="metadataConfiguration", flag="unknown_metadataConfiguration")
+    private LustreFileSystemMetadataConfigurationArgs value_metadataConfiguration;
+    private boolean unknown_metadataConfiguration;
     public LustreFileSystemMetadataConfigurationArgs metadataConfiguration() {
-        if (metadataConfiguration == null) return null;
-        return metadataConfiguration.getValue("LustreFileSystemArgs.metadataConfiguration");
+        if (!unknown_metadataConfiguration) return value_metadataConfiguration;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.metadataConfiguration' is not present");
     }
 
     /**
      * Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deployment_type and `SSD` storage_type are 50, 100, 200. Valid values for `PERSISTENT_1` deployment_type and `HDD` storage_type are 12, 40. Valid values for `PERSISTENT_2` deployment_type and `  SSD ` storage_type are 125, 250, 500, 1000.
      * 
      */
-    private UndeferrableValue<Integer> perUnitStorageThroughput;
-
+    @PolicyResourceProperty(name="perUnitStorageThroughput", flag="unknown_perUnitStorageThroughput")
+    private Integer value_perUnitStorageThroughput;
+    private boolean unknown_perUnitStorageThroughput;
     public Integer perUnitStorageThroughput() {
-        if (perUnitStorageThroughput == null) return null;
-        return perUnitStorageThroughput.getValue("LustreFileSystemArgs.perUnitStorageThroughput");
+        if (!unknown_perUnitStorageThroughput) return value_perUnitStorageThroughput;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.perUnitStorageThroughput' is not present");
     }
 
     /**
      * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `root_squash_configuration` Block for details.
      * 
      */
-    private UndeferrableValue<LustreFileSystemRootSquashConfigurationArgs> rootSquashConfiguration;
-
+    @PolicyResourceProperty(name="rootSquashConfiguration", flag="unknown_rootSquashConfiguration")
+    private LustreFileSystemRootSquashConfigurationArgs value_rootSquashConfiguration;
+    private boolean unknown_rootSquashConfiguration;
     public LustreFileSystemRootSquashConfigurationArgs rootSquashConfiguration() {
-        if (rootSquashConfiguration == null) return null;
-        return rootSquashConfiguration.getValue("LustreFileSystemArgs.rootSquashConfiguration");
+        if (!unknown_rootSquashConfiguration) return value_rootSquashConfiguration;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.rootSquashConfiguration' is not present");
     }
 
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("LustreFileSystemArgs.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.securityGroupIds' is not present");
     }
 
     /**
@@ -247,33 +268,36 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.PolicyResou
      * **Note:** If the filesystem uses a Scratch deployment type, final backup during delete will always be skipped and this argument will not be used even when set.
      * 
      */
-    private UndeferrableValue<Boolean> skipFinalBackup;
-
+    @PolicyResourceProperty(name="skipFinalBackup", flag="unknown_skipFinalBackup")
+    private Boolean value_skipFinalBackup;
+    private boolean unknown_skipFinalBackup;
     public Boolean skipFinalBackup() {
-        if (skipFinalBackup == null) return null;
-        return skipFinalBackup.getValue("LustreFileSystemArgs.skipFinalBackup");
+        if (!unknown_skipFinalBackup) return value_skipFinalBackup;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.skipFinalBackup' is not present");
     }
 
     /**
      * The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2`, `PERSISTENT_1` and `PERSISTENT_2` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
      * 
      */
-    private UndeferrableValue<Integer> storageCapacity;
-
+    @PolicyResourceProperty(name="storageCapacity", flag="unknown_storageCapacity")
+    private Integer value_storageCapacity;
+    private boolean unknown_storageCapacity;
     public Integer storageCapacity() {
-        if (storageCapacity == null) return null;
-        return storageCapacity.getValue("LustreFileSystemArgs.storageCapacity");
+        if (!unknown_storageCapacity) return value_storageCapacity;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.storageCapacity' is not present");
     }
 
     /**
      * The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
      * 
      */
-    private UndeferrableValue<String> storageType;
-
+    @PolicyResourceProperty(name="storageType", flag="unknown_storageType")
+    private String value_storageType;
+    private boolean unknown_storageType;
     public String storageType() {
-        if (storageType == null) return null;
-        return storageType.getValue("LustreFileSystemArgs.storageType");
+        if (!unknown_storageType) return value_storageType;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.storageType' is not present");
     }
 
     /**
@@ -282,33 +306,36 @@ public final class LustreFileSystemArgs extends com.pulumi.resources.PolicyResou
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private String value_subnetIds;
+    private boolean unknown_subnetIds;
     public String subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("LustreFileSystemArgs.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.subnetIds' is not present");
     }
 
     /**
      * A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LustreFileSystemArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.tags' is not present");
     }
 
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
-    private UndeferrableValue<String> weeklyMaintenanceStartTime;
-
+    @PolicyResourceProperty(name="weeklyMaintenanceStartTime", flag="unknown_weeklyMaintenanceStartTime")
+    private String value_weeklyMaintenanceStartTime;
+    private boolean unknown_weeklyMaintenanceStartTime;
     public String weeklyMaintenanceStartTime() {
-        if (weeklyMaintenanceStartTime == null) return null;
-        return weeklyMaintenanceStartTime.getValue("LustreFileSystemArgs.weeklyMaintenanceStartTime");
+        if (!unknown_weeklyMaintenanceStartTime) return value_weeklyMaintenanceStartTime;
+        throw new UndeferrableValueException("Value 'LustreFileSystemArgs.weeklyMaintenanceStartTime' is not present");
     }
 
 }

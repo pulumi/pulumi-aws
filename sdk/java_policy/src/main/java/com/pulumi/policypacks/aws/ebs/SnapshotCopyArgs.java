@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ebs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,110 +20,120 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.PolicyResourceI
      * Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
      * 
      */
-    private UndeferrableValue<Integer> completionDurationMinutes;
-
+    @PolicyResourceProperty(name="completionDurationMinutes", flag="unknown_completionDurationMinutes")
+    private Integer value_completionDurationMinutes;
+    private boolean unknown_completionDurationMinutes;
     public Integer completionDurationMinutes() {
-        if (completionDurationMinutes == null) return null;
-        return completionDurationMinutes.getValue("SnapshotCopyArgs.completionDurationMinutes");
+        if (!unknown_completionDurationMinutes) return value_completionDurationMinutes;
+        throw new UndeferrableValueException("Value 'SnapshotCopyArgs.completionDurationMinutes' is not present");
     }
 
     /**
      * A description of what the snapshot is.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("SnapshotCopyArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'SnapshotCopyArgs.description' is not present");
     }
 
     /**
      * Whether the snapshot is encrypted.
      * 
      */
-    private UndeferrableValue<Boolean> encrypted;
-
+    @PolicyResourceProperty(name="encrypted", flag="unknown_encrypted")
+    private Boolean value_encrypted;
+    private boolean unknown_encrypted;
     public Boolean encrypted() {
-        if (encrypted == null) return null;
-        return encrypted.getValue("SnapshotCopyArgs.encrypted");
+        if (!unknown_encrypted) return value_encrypted;
+        throw new UndeferrableValueException("Value 'SnapshotCopyArgs.encrypted' is not present");
     }
 
     /**
      * The ARN for the KMS encryption key.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("SnapshotCopyArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'SnapshotCopyArgs.kmsKeyId' is not present");
     }
 
     /**
      * Indicates whether to permanently restore an archived snapshot.
      * 
      */
-    private UndeferrableValue<Boolean> permanentRestore;
-
+    @PolicyResourceProperty(name="permanentRestore", flag="unknown_permanentRestore")
+    private Boolean value_permanentRestore;
+    private boolean unknown_permanentRestore;
     public Boolean permanentRestore() {
-        if (permanentRestore == null) return null;
-        return permanentRestore.getValue("SnapshotCopyArgs.permanentRestore");
+        if (!unknown_permanentRestore) return value_permanentRestore;
+        throw new UndeferrableValueException("Value 'SnapshotCopyArgs.permanentRestore' is not present");
     }
 
     /**
      * The region of the source snapshot.
      * 
      */
-    private UndeferrableValue<String> sourceRegion;
-
+    @PolicyResourceProperty(name="sourceRegion", flag="unknown_sourceRegion")
+    private String value_sourceRegion;
+    private boolean unknown_sourceRegion;
     public String sourceRegion() {
-        if (sourceRegion == null) return null;
-        return sourceRegion.getValue("SnapshotCopyArgs.sourceRegion");
+        if (!unknown_sourceRegion) return value_sourceRegion;
+        throw new UndeferrableValueException("Value 'SnapshotCopyArgs.sourceRegion' is not present");
     }
 
     /**
      * The ARN for the snapshot to be copied.
      * 
      */
-    private UndeferrableValue<String> sourceSnapshotId;
-
+    @PolicyResourceProperty(name="sourceSnapshotId", flag="unknown_sourceSnapshotId")
+    private String value_sourceSnapshotId;
+    private boolean unknown_sourceSnapshotId;
     public String sourceSnapshotId() {
-        if (sourceSnapshotId == null) return null;
-        return sourceSnapshotId.getValue("SnapshotCopyArgs.sourceSnapshotId");
+        if (!unknown_sourceSnapshotId) return value_sourceSnapshotId;
+        throw new UndeferrableValueException("Value 'SnapshotCopyArgs.sourceSnapshotId' is not present");
     }
 
     /**
      * The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
      * 
      */
-    private UndeferrableValue<String> storageTier;
-
+    @PolicyResourceProperty(name="storageTier", flag="unknown_storageTier")
+    private String value_storageTier;
+    private boolean unknown_storageTier;
     public String storageTier() {
-        if (storageTier == null) return null;
-        return storageTier.getValue("SnapshotCopyArgs.storageTier");
+        if (!unknown_storageTier) return value_storageTier;
+        throw new UndeferrableValueException("Value 'SnapshotCopyArgs.storageTier' is not present");
     }
 
     /**
      * A map of tags for the snapshot.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SnapshotCopyArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SnapshotCopyArgs.tags' is not present");
     }
 
     /**
      * Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
      * 
      */
-    private UndeferrableValue<Integer> temporaryRestoreDays;
-
+    @PolicyResourceProperty(name="temporaryRestoreDays", flag="unknown_temporaryRestoreDays")
+    private Integer value_temporaryRestoreDays;
+    private boolean unknown_temporaryRestoreDays;
     public Integer temporaryRestoreDays() {
-        if (temporaryRestoreDays == null) return null;
-        return temporaryRestoreDays.getValue("SnapshotCopyArgs.temporaryRestoreDays");
+        if (!unknown_temporaryRestoreDays) return value_temporaryRestoreDays;
+        throw new UndeferrableValueException("Value 'SnapshotCopyArgs.temporaryRestoreDays' is not present");
     }
 
 }

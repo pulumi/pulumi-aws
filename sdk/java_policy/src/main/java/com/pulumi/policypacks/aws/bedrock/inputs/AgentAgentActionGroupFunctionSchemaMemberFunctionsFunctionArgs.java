@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArg
      * Description of the function and its purpose.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs.description' is not present");
     }
 
     /**
      * Name for the function.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs.name' is not present");
     }
 
     /**
      * Parameters that the agent elicits from the user to fulfill the function. See `parameters` Block for details.
      * 
      */
-    private UndeferrableValue<List<AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private List<AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs> value_parameters;
+    private boolean unknown_parameters;
     public List<AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs.parameters' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,33 +14,36 @@ public final class AnalyticsApplicationReferenceDataSourcesS3 {
      * The S3 Bucket ARN.
      * 
      */
-    private UndeferrableValue<String> bucketArn;
-
+    @PolicyResourceProperty(name="bucketArn", flag="unknown_bucketArn")
+    private String value_bucketArn;
+    private boolean unknown_bucketArn;
     public String bucketArn() {
-        if (bucketArn == null) return null;
-        return bucketArn.getValue("AnalyticsApplicationReferenceDataSourcesS3.bucketArn");
+        if (!unknown_bucketArn) return value_bucketArn;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesS3.bucketArn' is not present");
     }
 
     /**
      * The File Key name containing reference data.
      * 
      */
-    private UndeferrableValue<String> fileKey;
-
+    @PolicyResourceProperty(name="fileKey", flag="unknown_fileKey")
+    private String value_fileKey;
+    private boolean unknown_fileKey;
     public String fileKey() {
-        if (fileKey == null) return null;
-        return fileKey.getValue("AnalyticsApplicationReferenceDataSourcesS3.fileKey");
+        if (!unknown_fileKey) return value_fileKey;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesS3.fileKey' is not present");
     }
 
     /**
      * The IAM Role ARN to read the data.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("AnalyticsApplicationReferenceDataSourcesS3.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesS3.roleArn' is not present");
     }
 
 }

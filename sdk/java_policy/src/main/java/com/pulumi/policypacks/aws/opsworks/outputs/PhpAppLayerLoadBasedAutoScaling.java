@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.opsworks.outputs.PhpAppLayerLoadBasedAutoScalingDownscaling;
 import com.pulumi.policypacks.aws.opsworks.outputs.PhpAppLayerLoadBasedAutoScalingUpscaling;
 import java.lang.Boolean;
@@ -12,25 +13,28 @@ import javax.annotation.Nullable;
 
 public final class PhpAppLayerLoadBasedAutoScaling {
 
-    private @Nullable UndeferrableValue<PhpAppLayerLoadBasedAutoScalingDownscaling> downscaling;
-
+    @PolicyResourceProperty(name="downscaling", flag="unknown_downscaling")
+    private @Nullable PhpAppLayerLoadBasedAutoScalingDownscaling value_downscaling;
+    private boolean unknown_downscaling;
     public @Nullable PhpAppLayerLoadBasedAutoScalingDownscaling downscaling() {
-        if (downscaling == null) return null;
-        return downscaling.getValue("PhpAppLayerLoadBasedAutoScaling.downscaling");
+        if (!unknown_downscaling) return value_downscaling;
+        throw new UndeferrableValueException("Value 'PhpAppLayerLoadBasedAutoScaling.downscaling' is not present");
     }
 
-    private @Nullable UndeferrableValue<Boolean> enable;
-
+    @PolicyResourceProperty(name="enable", flag="unknown_enable")
+    private @Nullable Boolean value_enable;
+    private boolean unknown_enable;
     public @Nullable Boolean enable() {
-        if (enable == null) return null;
-        return enable.getValue("PhpAppLayerLoadBasedAutoScaling.enable");
+        if (!unknown_enable) return value_enable;
+        throw new UndeferrableValueException("Value 'PhpAppLayerLoadBasedAutoScaling.enable' is not present");
     }
 
-    private @Nullable UndeferrableValue<PhpAppLayerLoadBasedAutoScalingUpscaling> upscaling;
-
+    @PolicyResourceProperty(name="upscaling", flag="unknown_upscaling")
+    private @Nullable PhpAppLayerLoadBasedAutoScalingUpscaling value_upscaling;
+    private boolean unknown_upscaling;
     public @Nullable PhpAppLayerLoadBasedAutoScalingUpscaling upscaling() {
-        if (upscaling == null) return null;
-        return upscaling.getValue("PhpAppLayerLoadBasedAutoScaling.upscaling");
+        if (!unknown_upscaling) return value_upscaling;
+        throw new UndeferrableValueException("Value 'PhpAppLayerLoadBasedAutoScaling.upscaling' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mskconnect.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ConnectorKafkaClusterClientAuthentication {
      * The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> authenticationType;
-
+    @PolicyResourceProperty(name="authenticationType", flag="unknown_authenticationType")
+    private @Nullable String value_authenticationType;
+    private boolean unknown_authenticationType;
     public @Nullable String authenticationType() {
-        if (authenticationType == null) return null;
-        return authenticationType.getValue("ConnectorKafkaClusterClientAuthentication.authenticationType");
+        if (!unknown_authenticationType) return value_authenticationType;
+        throw new UndeferrableValueException("Value 'ConnectorKafkaClusterClientAuthentication.authenticationType' is not present");
     }
 
 }

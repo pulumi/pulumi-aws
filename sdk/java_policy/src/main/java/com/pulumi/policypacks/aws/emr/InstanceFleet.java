@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.emr.outputs.InstanceFleetInstanceTypeConfig;
 import com.pulumi.policypacks.aws.emr.outputs.InstanceFleetLaunchSpecifications;
@@ -20,44 +21,48 @@ public final class InstanceFleet extends com.pulumi.resources.PolicyResourceOutp
      * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
      * 
      */
-    private UndeferrableValue<String> clusterId;
-
+    @PolicyResourceProperty(name="clusterId", flag="unknown_clusterId")
+    private String value_clusterId;
+    private boolean unknown_clusterId;
     public String clusterId() {
-        if (clusterId == null) return null;
-        return clusterId.getValue("InstanceFleet.clusterId");
+        if (!unknown_clusterId) return value_clusterId;
+        throw new UndeferrableValueException("Value 'InstanceFleet.clusterId' is not present");
     }
 
     /**
      * Configuration block for instance fleet
      * 
      */
-    private @Nullable UndeferrableValue<List<InstanceFleetInstanceTypeConfig>> instanceTypeConfigs;
-
+    @PolicyResourceProperty(name="instanceTypeConfigs", flag="unknown_instanceTypeConfigs")
+    private @Nullable List<InstanceFleetInstanceTypeConfig> value_instanceTypeConfigs;
+    private boolean unknown_instanceTypeConfigs;
     public @Nullable List<InstanceFleetInstanceTypeConfig> instanceTypeConfigs() {
-        if (instanceTypeConfigs == null) return null;
-        return instanceTypeConfigs.getValue("InstanceFleet.instanceTypeConfigs");
+        if (!unknown_instanceTypeConfigs) return value_instanceTypeConfigs;
+        throw new UndeferrableValueException("Value 'InstanceFleet.instanceTypeConfigs' is not present");
     }
 
     /**
      * Configuration block for launch specification
      * 
      */
-    private @Nullable UndeferrableValue<InstanceFleetLaunchSpecifications> launchSpecifications;
-
+    @PolicyResourceProperty(name="launchSpecifications", flag="unknown_launchSpecifications")
+    private @Nullable InstanceFleetLaunchSpecifications value_launchSpecifications;
+    private boolean unknown_launchSpecifications;
     public @Nullable InstanceFleetLaunchSpecifications launchSpecifications() {
-        if (launchSpecifications == null) return null;
-        return launchSpecifications.getValue("InstanceFleet.launchSpecifications");
+        if (!unknown_launchSpecifications) return value_launchSpecifications;
+        throw new UndeferrableValueException("Value 'InstanceFleet.launchSpecifications' is not present");
     }
 
     /**
      * Friendly name given to the instance fleet.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("InstanceFleet.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'InstanceFleet.name' is not present");
     }
 
     /**
@@ -65,11 +70,12 @@ public final class InstanceFleet extends com.pulumi.resources.PolicyResourceOutp
      * fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
      * 
      */
-    private UndeferrableValue<Integer> provisionedOnDemandCapacity;
-
+    @PolicyResourceProperty(name="provisionedOnDemandCapacity", flag="unknown_provisionedOnDemandCapacity")
+    private Integer value_provisionedOnDemandCapacity;
+    private boolean unknown_provisionedOnDemandCapacity;
     public Integer provisionedOnDemandCapacity() {
-        if (provisionedOnDemandCapacity == null) return null;
-        return provisionedOnDemandCapacity.getValue("InstanceFleet.provisionedOnDemandCapacity");
+        if (!unknown_provisionedOnDemandCapacity) return value_provisionedOnDemandCapacity;
+        throw new UndeferrableValueException("Value 'InstanceFleet.provisionedOnDemandCapacity' is not present");
     }
 
     /**
@@ -77,33 +83,36 @@ public final class InstanceFleet extends com.pulumi.resources.PolicyResourceOutp
      * to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
      * 
      */
-    private UndeferrableValue<Integer> provisionedSpotCapacity;
-
+    @PolicyResourceProperty(name="provisionedSpotCapacity", flag="unknown_provisionedSpotCapacity")
+    private Integer value_provisionedSpotCapacity;
+    private boolean unknown_provisionedSpotCapacity;
     public Integer provisionedSpotCapacity() {
-        if (provisionedSpotCapacity == null) return null;
-        return provisionedSpotCapacity.getValue("InstanceFleet.provisionedSpotCapacity");
+        if (!unknown_provisionedSpotCapacity) return value_provisionedSpotCapacity;
+        throw new UndeferrableValueException("Value 'InstanceFleet.provisionedSpotCapacity' is not present");
     }
 
     /**
      * The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> targetOnDemandCapacity;
-
+    @PolicyResourceProperty(name="targetOnDemandCapacity", flag="unknown_targetOnDemandCapacity")
+    private @Nullable Integer value_targetOnDemandCapacity;
+    private boolean unknown_targetOnDemandCapacity;
     public @Nullable Integer targetOnDemandCapacity() {
-        if (targetOnDemandCapacity == null) return null;
-        return targetOnDemandCapacity.getValue("InstanceFleet.targetOnDemandCapacity");
+        if (!unknown_targetOnDemandCapacity) return value_targetOnDemandCapacity;
+        throw new UndeferrableValueException("Value 'InstanceFleet.targetOnDemandCapacity' is not present");
     }
 
     /**
      * The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> targetSpotCapacity;
-
+    @PolicyResourceProperty(name="targetSpotCapacity", flag="unknown_targetSpotCapacity")
+    private @Nullable Integer value_targetSpotCapacity;
+    private boolean unknown_targetSpotCapacity;
     public @Nullable Integer targetSpotCapacity() {
-        if (targetSpotCapacity == null) return null;
-        return targetSpotCapacity.getValue("InstanceFleet.targetSpotCapacity");
+        if (!unknown_targetSpotCapacity) return value_targetSpotCapacity;
+        throw new UndeferrableValueException("Value 'InstanceFleet.targetSpotCapacity' is not present");
     }
 
 }

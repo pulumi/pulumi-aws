@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs;
 import javax.annotation.Nullable;
@@ -11,18 +12,20 @@ import javax.annotation.Nullable;
 
 public final class AgentDataSourceDataSourceConfigurationWebConfigurationArgs {
 
-    private UndeferrableValue<AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs> crawlerConfiguration;
-
+    @PolicyResourceProperty(name="crawlerConfiguration", flag="unknown_crawlerConfiguration")
+    private AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs value_crawlerConfiguration;
+    private boolean unknown_crawlerConfiguration;
     public AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs crawlerConfiguration() {
-        if (crawlerConfiguration == null) return null;
-        return crawlerConfiguration.getValue("AgentDataSourceDataSourceConfigurationWebConfigurationArgs.crawlerConfiguration");
+        if (!unknown_crawlerConfiguration) return value_crawlerConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationWebConfigurationArgs.crawlerConfiguration' is not present");
     }
 
-    private UndeferrableValue<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs> sourceConfiguration;
-
+    @PolicyResourceProperty(name="sourceConfiguration", flag="unknown_sourceConfiguration")
+    private AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs value_sourceConfiguration;
+    private boolean unknown_sourceConfiguration;
     public AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs sourceConfiguration() {
-        if (sourceConfiguration == null) return null;
-        return sourceConfiguration.getValue("AgentDataSourceDataSourceConfigurationWebConfigurationArgs.sourceConfiguration");
+        if (!unknown_sourceConfiguration) return value_sourceConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationWebConfigurationArgs.sourceConfiguration' is not present");
     }
 
 }

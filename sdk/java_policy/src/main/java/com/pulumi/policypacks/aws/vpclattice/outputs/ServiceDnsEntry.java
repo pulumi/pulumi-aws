@@ -3,25 +3,28 @@
 
 package com.pulumi.policypacks.aws.vpclattice.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class ServiceDnsEntry {
 
-    private @Nullable UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private @Nullable String value_domainName;
+    private boolean unknown_domainName;
     public @Nullable String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("ServiceDnsEntry.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'ServiceDnsEntry.domainName' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> hostedZoneId;
-
+    @PolicyResourceProperty(name="hostedZoneId", flag="unknown_hostedZoneId")
+    private @Nullable String value_hostedZoneId;
+    private boolean unknown_hostedZoneId;
     public @Nullable String hostedZoneId() {
-        if (hostedZoneId == null) return null;
-        return hostedZoneId.getValue("ServiceDnsEntry.hostedZoneId");
+        if (!unknown_hostedZoneId) return value_hostedZoneId;
+        throw new UndeferrableValueException("Value 'ServiceDnsEntry.hostedZoneId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.batch.inputs.JobDefinitionEksPropertiesArgs;
 import com.pulumi.policypacks.aws.batch.inputs.JobDefinitionRetryStrategyArgs;
@@ -23,143 +24,156 @@ public final class JobDefinitionArgs extends com.pulumi.resources.PolicyResource
      * Valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
-    private UndeferrableValue<String> containerProperties;
-
+    @PolicyResourceProperty(name="containerProperties", flag="unknown_containerProperties")
+    private String value_containerProperties;
+    private boolean unknown_containerProperties;
     public String containerProperties() {
-        if (containerProperties == null) return null;
-        return containerProperties.getValue("JobDefinitionArgs.containerProperties");
+        if (!unknown_containerProperties) return value_containerProperties;
+        throw new UndeferrableValueException("Value 'JobDefinitionArgs.containerProperties' is not present");
     }
 
     /**
      * When updating a job definition a new revision is created. This parameter determines if the previous version is `deregistered` (`INACTIVE`) or left  `ACTIVE`. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> deregisterOnNewRevision;
-
+    @PolicyResourceProperty(name="deregisterOnNewRevision", flag="unknown_deregisterOnNewRevision")
+    private Boolean value_deregisterOnNewRevision;
+    private boolean unknown_deregisterOnNewRevision;
     public Boolean deregisterOnNewRevision() {
-        if (deregisterOnNewRevision == null) return null;
-        return deregisterOnNewRevision.getValue("JobDefinitionArgs.deregisterOnNewRevision");
+        if (!unknown_deregisterOnNewRevision) return value_deregisterOnNewRevision;
+        throw new UndeferrableValueException("Value 'JobDefinitionArgs.deregisterOnNewRevision' is not present");
     }
 
     /**
      * Valid [ECS properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
-    private UndeferrableValue<String> ecsProperties;
-
+    @PolicyResourceProperty(name="ecsProperties", flag="unknown_ecsProperties")
+    private String value_ecsProperties;
+    private boolean unknown_ecsProperties;
     public String ecsProperties() {
-        if (ecsProperties == null) return null;
-        return ecsProperties.getValue("JobDefinitionArgs.ecsProperties");
+        if (!unknown_ecsProperties) return value_ecsProperties;
+        throw new UndeferrableValueException("Value 'JobDefinitionArgs.ecsProperties' is not present");
     }
 
     /**
      * Valid eks properties. This parameter is only valid if the `type` parameter is `container`.
      * 
      */
-    private UndeferrableValue<JobDefinitionEksPropertiesArgs> eksProperties;
-
+    @PolicyResourceProperty(name="eksProperties", flag="unknown_eksProperties")
+    private JobDefinitionEksPropertiesArgs value_eksProperties;
+    private boolean unknown_eksProperties;
     public JobDefinitionEksPropertiesArgs eksProperties() {
-        if (eksProperties == null) return null;
-        return eksProperties.getValue("JobDefinitionArgs.eksProperties");
+        if (!unknown_eksProperties) return value_eksProperties;
+        throw new UndeferrableValueException("Value 'JobDefinitionArgs.eksProperties' is not present");
     }
 
     /**
      * Name of the job definition.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("JobDefinitionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'JobDefinitionArgs.name' is not present");
     }
 
     /**
      * Valid [node properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html) provided as a single valid JSON document. This parameter is required if the `type` parameter is `multinode`.
      * 
      */
-    private UndeferrableValue<String> nodeProperties;
-
+    @PolicyResourceProperty(name="nodeProperties", flag="unknown_nodeProperties")
+    private String value_nodeProperties;
+    private boolean unknown_nodeProperties;
     public String nodeProperties() {
-        if (nodeProperties == null) return null;
-        return nodeProperties.getValue("JobDefinitionArgs.nodeProperties");
+        if (!unknown_nodeProperties) return value_nodeProperties;
+        throw new UndeferrableValueException("Value 'JobDefinitionArgs.nodeProperties' is not present");
     }
 
     /**
      * Parameter substitution placeholders to set in the job definition.
      * 
      */
-    private UndeferrableValue<Map<String,String>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private Map<String,String> value_parameters;
+    private boolean unknown_parameters;
     public Map<String,String> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("JobDefinitionArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'JobDefinitionArgs.parameters' is not present");
     }
 
     /**
      * Platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
      * 
      */
-    private UndeferrableValue<List<String>> platformCapabilities;
-
+    @PolicyResourceProperty(name="platformCapabilities", flag="unknown_platformCapabilities")
+    private List<String> value_platformCapabilities;
+    private boolean unknown_platformCapabilities;
     public List<String> platformCapabilities() {
-        if (platformCapabilities == null) return null;
-        return platformCapabilities.getValue("JobDefinitionArgs.platformCapabilities");
+        if (!unknown_platformCapabilities) return value_platformCapabilities;
+        throw new UndeferrableValueException("Value 'JobDefinitionArgs.platformCapabilities' is not present");
     }
 
     /**
      * Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> propagateTags;
-
+    @PolicyResourceProperty(name="propagateTags", flag="unknown_propagateTags")
+    private Boolean value_propagateTags;
+    private boolean unknown_propagateTags;
     public Boolean propagateTags() {
-        if (propagateTags == null) return null;
-        return propagateTags.getValue("JobDefinitionArgs.propagateTags");
+        if (!unknown_propagateTags) return value_propagateTags;
+        throw new UndeferrableValueException("Value 'JobDefinitionArgs.propagateTags' is not present");
     }
 
     /**
      * Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retry_strategy` is `1`.  Defined below.
      * 
      */
-    private UndeferrableValue<JobDefinitionRetryStrategyArgs> retryStrategy;
-
+    @PolicyResourceProperty(name="retryStrategy", flag="unknown_retryStrategy")
+    private JobDefinitionRetryStrategyArgs value_retryStrategy;
+    private boolean unknown_retryStrategy;
     public JobDefinitionRetryStrategyArgs retryStrategy() {
-        if (retryStrategy == null) return null;
-        return retryStrategy.getValue("JobDefinitionArgs.retryStrategy");
+        if (!unknown_retryStrategy) return value_retryStrategy;
+        throw new UndeferrableValueException("Value 'JobDefinitionArgs.retryStrategy' is not present");
     }
 
     /**
      * Scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority. Allowed values `0` through `9999`.
      * 
      */
-    private UndeferrableValue<Integer> schedulingPriority;
-
+    @PolicyResourceProperty(name="schedulingPriority", flag="unknown_schedulingPriority")
+    private Integer value_schedulingPriority;
+    private boolean unknown_schedulingPriority;
     public Integer schedulingPriority() {
-        if (schedulingPriority == null) return null;
-        return schedulingPriority.getValue("JobDefinitionArgs.schedulingPriority");
+        if (!unknown_schedulingPriority) return value_schedulingPriority;
+        throw new UndeferrableValueException("Value 'JobDefinitionArgs.schedulingPriority' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("JobDefinitionArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'JobDefinitionArgs.tags' is not present");
     }
 
     /**
      * Timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
      * 
      */
-    private UndeferrableValue<JobDefinitionTimeoutArgs> timeout;
-
+    @PolicyResourceProperty(name="timeout", flag="unknown_timeout")
+    private JobDefinitionTimeoutArgs value_timeout;
+    private boolean unknown_timeout;
     public JobDefinitionTimeoutArgs timeout() {
-        if (timeout == null) return null;
-        return timeout.getValue("JobDefinitionArgs.timeout");
+        if (!unknown_timeout) return value_timeout;
+        throw new UndeferrableValueException("Value 'JobDefinitionArgs.timeout' is not present");
     }
 
     /**
@@ -168,11 +182,12 @@ public final class JobDefinitionArgs extends com.pulumi.resources.PolicyResource
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("JobDefinitionArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'JobDefinitionArgs.type' is not present");
     }
 
 }

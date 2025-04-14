@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,44 +19,48 @@ public final class CertificateArgs extends com.pulumi.resources.PolicyResourceIn
      * A domain name for which the certificate should be issued.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("CertificateArgs.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'CertificateArgs.domainName' is not present");
     }
 
     /**
      * The name of the Lightsail load balancer.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("CertificateArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'CertificateArgs.name' is not present");
     }
 
     /**
      * Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
      * 
      */
-    private UndeferrableValue<List<String>> subjectAlternativeNames;
-
+    @PolicyResourceProperty(name="subjectAlternativeNames", flag="unknown_subjectAlternativeNames")
+    private List<String> value_subjectAlternativeNames;
+    private boolean unknown_subjectAlternativeNames;
     public List<String> subjectAlternativeNames() {
-        if (subjectAlternativeNames == null) return null;
-        return subjectAlternativeNames.getValue("CertificateArgs.subjectAlternativeNames");
+        if (!unknown_subjectAlternativeNames) return value_subjectAlternativeNames;
+        throw new UndeferrableValueException("Value 'CertificateArgs.subjectAlternativeNames' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CertificateArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CertificateArgs.tags' is not present");
     }
 
 }

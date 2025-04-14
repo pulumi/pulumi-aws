@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.outputs.BucketObjectLockConfigurationRule;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class BucketObjectLockConfiguration {
      * Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
      * 
      */
-    private UndeferrableValue<String> objectLockEnabled;
-
+    @PolicyResourceProperty(name="objectLockEnabled", flag="unknown_objectLockEnabled")
+    private String value_objectLockEnabled;
+    private boolean unknown_objectLockEnabled;
     public String objectLockEnabled() {
-        if (objectLockEnabled == null) return null;
-        return objectLockEnabled.getValue("BucketObjectLockConfiguration.objectLockEnabled");
+        if (!unknown_objectLockEnabled) return value_objectLockEnabled;
+        throw new UndeferrableValueException("Value 'BucketObjectLockConfiguration.objectLockEnabled' is not present");
     }
 
     /**
      * The Object Lock rule in place for this bucket.
      * 
      */
-    private @Nullable UndeferrableValue<BucketObjectLockConfigurationRule> rule;
-
+    @PolicyResourceProperty(name="rule", flag="unknown_rule")
+    private @Nullable BucketObjectLockConfigurationRule value_rule;
+    private boolean unknown_rule;
     public @Nullable BucketObjectLockConfigurationRule rule() {
-        if (rule == null) return null;
-        return rule.getValue("BucketObjectLockConfiguration.rule");
+        if (!unknown_rule) return value_rule;
+        throw new UndeferrableValueException("Value 'BucketObjectLockConfiguration.rule' is not present");
     }
 
 }

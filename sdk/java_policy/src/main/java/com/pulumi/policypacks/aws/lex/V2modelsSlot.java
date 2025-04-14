@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotMultipleValuesSetting;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotObfuscationSetting;
@@ -22,55 +23,60 @@ public final class V2modelsSlot extends com.pulumi.resources.PolicyResourceOutpu
      * Identifier of the bot associated with the slot.
      * 
      */
-    private UndeferrableValue<String> botId;
-
+    @PolicyResourceProperty(name="botId", flag="unknown_botId")
+    private String value_botId;
+    private boolean unknown_botId;
     public String botId() {
-        if (botId == null) return null;
-        return botId.getValue("V2modelsSlot.botId");
+        if (!unknown_botId) return value_botId;
+        throw new UndeferrableValueException("Value 'V2modelsSlot.botId' is not present");
     }
 
     /**
      * Version of the bot associated with the slot.
      * 
      */
-    private UndeferrableValue<String> botVersion;
-
+    @PolicyResourceProperty(name="botVersion", flag="unknown_botVersion")
+    private String value_botVersion;
+    private boolean unknown_botVersion;
     public String botVersion() {
-        if (botVersion == null) return null;
-        return botVersion.getValue("V2modelsSlot.botVersion");
+        if (!unknown_botVersion) return value_botVersion;
+        throw new UndeferrableValueException("Value 'V2modelsSlot.botVersion' is not present");
     }
 
     /**
      * Description of the slot.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("V2modelsSlot.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'V2modelsSlot.description' is not present");
     }
 
     /**
      * Identifier of the intent that contains the slot.
      * 
      */
-    private UndeferrableValue<String> intentId;
-
+    @PolicyResourceProperty(name="intentId", flag="unknown_intentId")
+    private String value_intentId;
+    private boolean unknown_intentId;
     public String intentId() {
-        if (intentId == null) return null;
-        return intentId.getValue("V2modelsSlot.intentId");
+        if (!unknown_intentId) return value_intentId;
+        throw new UndeferrableValueException("Value 'V2modelsSlot.intentId' is not present");
     }
 
     /**
      * Identifier of the language and locale that the slot will be used in.
      * 
      */
-    private UndeferrableValue<String> localeId;
-
+    @PolicyResourceProperty(name="localeId", flag="unknown_localeId")
+    private String value_localeId;
+    private boolean unknown_localeId;
     public String localeId() {
-        if (localeId == null) return null;
-        return localeId.getValue("V2modelsSlot.localeId");
+        if (!unknown_localeId) return value_localeId;
+        throw new UndeferrableValueException("Value 'V2modelsSlot.localeId' is not present");
     }
 
     /**
@@ -78,22 +84,24 @@ public final class V2modelsSlot extends com.pulumi.resources.PolicyResourceOutpu
      * See the `multiple_values_setting` argument reference below.
      * 
      */
-    private @Nullable UndeferrableValue<List<V2modelsSlotMultipleValuesSetting>> multipleValuesSettings;
-
+    @PolicyResourceProperty(name="multipleValuesSettings", flag="unknown_multipleValuesSettings")
+    private @Nullable List<V2modelsSlotMultipleValuesSetting> value_multipleValuesSettings;
+    private boolean unknown_multipleValuesSettings;
     public @Nullable List<V2modelsSlotMultipleValuesSetting> multipleValuesSettings() {
-        if (multipleValuesSettings == null) return null;
-        return multipleValuesSettings.getValue("V2modelsSlot.multipleValuesSettings");
+        if (!unknown_multipleValuesSettings) return value_multipleValuesSettings;
+        throw new UndeferrableValueException("Value 'V2modelsSlot.multipleValuesSettings' is not present");
     }
 
     /**
      * Name of the slot.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("V2modelsSlot.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'V2modelsSlot.name' is not present");
     }
 
     /**
@@ -101,33 +109,36 @@ public final class V2modelsSlot extends com.pulumi.resources.PolicyResourceOutpu
      * See the `obfuscation_setting` argument reference below.
      * 
      */
-    private @Nullable UndeferrableValue<List<V2modelsSlotObfuscationSetting>> obfuscationSettings;
-
+    @PolicyResourceProperty(name="obfuscationSettings", flag="unknown_obfuscationSettings")
+    private @Nullable List<V2modelsSlotObfuscationSetting> value_obfuscationSettings;
+    private boolean unknown_obfuscationSettings;
     public @Nullable List<V2modelsSlotObfuscationSetting> obfuscationSettings() {
-        if (obfuscationSettings == null) return null;
-        return obfuscationSettings.getValue("V2modelsSlot.obfuscationSettings");
+        if (!unknown_obfuscationSettings) return value_obfuscationSettings;
+        throw new UndeferrableValueException("Value 'V2modelsSlot.obfuscationSettings' is not present");
     }
 
     /**
      * Unique identifier associated with the slot.
      * 
      */
-    private UndeferrableValue<String> slotId;
-
+    @PolicyResourceProperty(name="slotId", flag="unknown_slotId")
+    private String value_slotId;
+    private boolean unknown_slotId;
     public String slotId() {
-        if (slotId == null) return null;
-        return slotId.getValue("V2modelsSlot.slotId");
+        if (!unknown_slotId) return value_slotId;
+        throw new UndeferrableValueException("Value 'V2modelsSlot.slotId' is not present");
     }
 
     /**
      * Unique identifier for the slot type associated with this slot.
      * 
      */
-    private UndeferrableValue<String> slotTypeId;
-
+    @PolicyResourceProperty(name="slotTypeId", flag="unknown_slotTypeId")
+    private String value_slotTypeId;
+    private boolean unknown_slotTypeId;
     public String slotTypeId() {
-        if (slotTypeId == null) return null;
-        return slotTypeId.getValue("V2modelsSlot.slotTypeId");
+        if (!unknown_slotTypeId) return value_slotTypeId;
+        throw new UndeferrableValueException("Value 'V2modelsSlot.slotTypeId' is not present");
     }
 
     /**
@@ -135,25 +146,28 @@ public final class V2modelsSlot extends com.pulumi.resources.PolicyResourceOutpu
      * See the `sub_slot_setting` argument reference below.
      * 
      */
-    private @Nullable UndeferrableValue<List<V2modelsSlotSubSlotSetting>> subSlotSettings;
-
+    @PolicyResourceProperty(name="subSlotSettings", flag="unknown_subSlotSettings")
+    private @Nullable List<V2modelsSlotSubSlotSetting> value_subSlotSettings;
+    private boolean unknown_subSlotSettings;
     public @Nullable List<V2modelsSlotSubSlotSetting> subSlotSettings() {
-        if (subSlotSettings == null) return null;
-        return subSlotSettings.getValue("V2modelsSlot.subSlotSettings");
+        if (!unknown_subSlotSettings) return value_subSlotSettings;
+        throw new UndeferrableValueException("Value 'V2modelsSlot.subSlotSettings' is not present");
     }
 
-    private @Nullable UndeferrableValue<V2modelsSlotTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable V2modelsSlotTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable V2modelsSlotTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("V2modelsSlot.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'V2modelsSlot.timeouts' is not present");
     }
 
-    private @Nullable UndeferrableValue<V2modelsSlotValueElicitationSetting> valueElicitationSetting;
-
+    @PolicyResourceProperty(name="valueElicitationSetting", flag="unknown_valueElicitationSetting")
+    private @Nullable V2modelsSlotValueElicitationSetting value_valueElicitationSetting;
+    private boolean unknown_valueElicitationSetting;
     public @Nullable V2modelsSlotValueElicitationSetting valueElicitationSetting() {
-        if (valueElicitationSetting == null) return null;
-        return valueElicitationSetting.getValue("V2modelsSlot.valueElicitationSetting");
+        if (!unknown_valueElicitationSetting) return value_valueElicitationSetting;
+        throw new UndeferrableValueException("Value 'V2modelsSlot.valueElicitationSetting' is not present");
     }
 
 }

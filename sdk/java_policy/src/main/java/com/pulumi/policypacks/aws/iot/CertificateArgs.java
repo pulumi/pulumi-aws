@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class CertificateArgs extends com.pulumi.resources.PolicyResourceIn
      * Boolean flag to indicate if the certificate should be active
      * 
      */
-    private UndeferrableValue<Boolean> active;
-
+    @PolicyResourceProperty(name="active", flag="unknown_active")
+    private Boolean value_active;
+    private boolean unknown_active;
     public Boolean active() {
-        if (active == null) return null;
-        return active.getValue("CertificateArgs.active");
+        if (!unknown_active) return value_active;
+        throw new UndeferrableValueException("Value 'CertificateArgs.active' is not present");
     }
 
     /**
      * The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
      * 
      */
-    private UndeferrableValue<String> caPem;
-
+    @PolicyResourceProperty(name="caPem", flag="unknown_caPem")
+    private String value_caPem;
+    private boolean unknown_caPem;
     public String caPem() {
-        if (caPem == null) return null;
-        return caPem.getValue("CertificateArgs.caPem");
+        if (!unknown_caPem) return value_caPem;
+        throw new UndeferrableValueException("Value 'CertificateArgs.caPem' is not present");
     }
 
     /**
@@ -43,11 +46,12 @@ public final class CertificateArgs extends com.pulumi.resources.PolicyResourceIn
      * for more information on registering a certificate.
      * 
      */
-    private UndeferrableValue<String> certificatePem;
-
+    @PolicyResourceProperty(name="certificatePem", flag="unknown_certificatePem")
+    private String value_certificatePem;
+    private boolean unknown_certificatePem;
     public String certificatePem() {
-        if (certificatePem == null) return null;
-        return certificatePem.getValue("CertificateArgs.certificatePem");
+        if (!unknown_certificatePem) return value_certificatePem;
+        throw new UndeferrableValueException("Value 'CertificateArgs.certificatePem' is not present");
     }
 
     /**
@@ -58,11 +62,12 @@ public final class CertificateArgs extends com.pulumi.resources.PolicyResourceIn
      * for more information on generating keys and a certificate.
      * 
      */
-    private UndeferrableValue<String> csr;
-
+    @PolicyResourceProperty(name="csr", flag="unknown_csr")
+    private String value_csr;
+    private boolean unknown_csr;
     public String csr() {
-        if (csr == null) return null;
-        return csr.getValue("CertificateArgs.csr");
+        if (!unknown_csr) return value_csr;
+        throw new UndeferrableValueException("Value 'CertificateArgs.csr' is not present");
     }
 
 }

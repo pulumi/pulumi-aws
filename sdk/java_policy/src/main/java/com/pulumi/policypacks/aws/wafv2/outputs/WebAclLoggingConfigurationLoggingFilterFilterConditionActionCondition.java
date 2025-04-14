@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionActionC
      * Action setting that a log record must contain in order to meet the condition. Valid values for `action` are `ALLOW`, `BLOCK`, `COUNT`, `CAPTCHA`, `CHALLENGE` and `EXCLUDED_AS_COUNT`.
      * 
      */
-    private UndeferrableValue<String> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private String value_action;
+    private boolean unknown_action;
     public String action() {
-        if (action == null) return null;
-        return action.getValue("WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition.action' is not present");
     }
 
 }

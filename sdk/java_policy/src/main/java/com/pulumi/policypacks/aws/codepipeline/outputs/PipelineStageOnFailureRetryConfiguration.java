@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class PipelineStageOnFailureRetryConfiguration {
      * The method that you want to configure for automatic stage retry on stage failure. You can specify to retry only failed action in the stage or all actions in the stage. Possible values are `FAILED_ACTIONS` and `ALL_ACTIONS`.
      * 
      */
-    private @Nullable UndeferrableValue<String> retryMode;
-
+    @PolicyResourceProperty(name="retryMode", flag="unknown_retryMode")
+    private @Nullable String value_retryMode;
+    private boolean unknown_retryMode;
     public @Nullable String retryMode() {
-        if (retryMode == null) return null;
-        return retryMode.getValue("PipelineStageOnFailureRetryConfiguration.retryMode");
+        if (!unknown_retryMode) return value_retryMode;
+        throw new UndeferrableValueException("Value 'PipelineStageOnFailureRetryConfiguration.retryMode' is not present");
     }
 
 }

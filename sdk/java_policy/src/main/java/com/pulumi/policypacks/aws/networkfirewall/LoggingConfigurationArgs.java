@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.networkfirewall.inputs.LoggingConfigurationLoggingConfigurationArgs;
 import java.lang.String;
@@ -16,22 +17,24 @@ public final class LoggingConfigurationArgs extends com.pulumi.resources.PolicyR
      * The Amazon Resource Name (ARN) of the Network Firewall firewall.
      * 
      */
-    private UndeferrableValue<String> firewallArn;
-
+    @PolicyResourceProperty(name="firewallArn", flag="unknown_firewallArn")
+    private String value_firewallArn;
+    private boolean unknown_firewallArn;
     public String firewallArn() {
-        if (firewallArn == null) return null;
-        return firewallArn.getValue("LoggingConfigurationArgs.firewallArn");
+        if (!unknown_firewallArn) return value_firewallArn;
+        throw new UndeferrableValueException("Value 'LoggingConfigurationArgs.firewallArn' is not present");
     }
 
     /**
      * A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
      * 
      */
-    private UndeferrableValue<LoggingConfigurationLoggingConfigurationArgs> loggingConfiguration;
-
+    @PolicyResourceProperty(name="loggingConfiguration", flag="unknown_loggingConfiguration")
+    private LoggingConfigurationLoggingConfigurationArgs value_loggingConfiguration;
+    private boolean unknown_loggingConfiguration;
     public LoggingConfigurationLoggingConfigurationArgs loggingConfiguration() {
-        if (loggingConfiguration == null) return null;
-        return loggingConfiguration.getValue("LoggingConfigurationArgs.loggingConfiguration");
+        if (!unknown_loggingConfiguration) return value_loggingConfiguration;
+        throw new UndeferrableValueException("Value 'LoggingConfigurationArgs.loggingConfiguration' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.datazone.inputs.GlossaryTermTermRelationsArgs;
 import com.pulumi.policypacks.aws.datazone.inputs.GlossaryTermTimeoutsArgs;
@@ -18,33 +19,36 @@ public final class GlossaryTermArgs extends com.pulumi.resources.PolicyResourceI
      * Identifier of domain.
      * 
      */
-    private UndeferrableValue<String> domainIdentifier;
-
+    @PolicyResourceProperty(name="domainIdentifier", flag="unknown_domainIdentifier")
+    private String value_domainIdentifier;
+    private boolean unknown_domainIdentifier;
     public String domainIdentifier() {
-        if (domainIdentifier == null) return null;
-        return domainIdentifier.getValue("GlossaryTermArgs.domainIdentifier");
+        if (!unknown_domainIdentifier) return value_domainIdentifier;
+        throw new UndeferrableValueException("Value 'GlossaryTermArgs.domainIdentifier' is not present");
     }
 
     /**
      * Identifier of glossary.
      * 
      */
-    private UndeferrableValue<String> glossaryIdentifier;
-
+    @PolicyResourceProperty(name="glossaryIdentifier", flag="unknown_glossaryIdentifier")
+    private String value_glossaryIdentifier;
+    private boolean unknown_glossaryIdentifier;
     public String glossaryIdentifier() {
-        if (glossaryIdentifier == null) return null;
-        return glossaryIdentifier.getValue("GlossaryTermArgs.glossaryIdentifier");
+        if (!unknown_glossaryIdentifier) return value_glossaryIdentifier;
+        throw new UndeferrableValueException("Value 'GlossaryTermArgs.glossaryIdentifier' is not present");
     }
 
     /**
      * Long description of entry.
      * 
      */
-    private UndeferrableValue<String> longDescription;
-
+    @PolicyResourceProperty(name="longDescription", flag="unknown_longDescription")
+    private String value_longDescription;
+    private boolean unknown_longDescription;
     public String longDescription() {
-        if (longDescription == null) return null;
-        return longDescription.getValue("GlossaryTermArgs.longDescription");
+        if (!unknown_longDescription) return value_longDescription;
+        throw new UndeferrableValueException("Value 'GlossaryTermArgs.longDescription' is not present");
     }
 
     /**
@@ -53,51 +57,56 @@ public final class GlossaryTermArgs extends com.pulumi.resources.PolicyResourceI
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("GlossaryTermArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'GlossaryTermArgs.name' is not present");
     }
 
     /**
      * Short description of entry.
      * 
      */
-    private UndeferrableValue<String> shortDescription;
-
+    @PolicyResourceProperty(name="shortDescription", flag="unknown_shortDescription")
+    private String value_shortDescription;
+    private boolean unknown_shortDescription;
     public String shortDescription() {
-        if (shortDescription == null) return null;
-        return shortDescription.getValue("GlossaryTermArgs.shortDescription");
+        if (!unknown_shortDescription) return value_shortDescription;
+        throw new UndeferrableValueException("Value 'GlossaryTermArgs.shortDescription' is not present");
     }
 
     /**
      * If glossary term is ENABLED or DISABLED.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("GlossaryTermArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'GlossaryTermArgs.status' is not present");
     }
 
     /**
      * Object classifying the term relations through the following attributes:
      * 
      */
-    private UndeferrableValue<GlossaryTermTermRelationsArgs> termRelations;
-
+    @PolicyResourceProperty(name="termRelations", flag="unknown_termRelations")
+    private GlossaryTermTermRelationsArgs value_termRelations;
+    private boolean unknown_termRelations;
     public GlossaryTermTermRelationsArgs termRelations() {
-        if (termRelations == null) return null;
-        return termRelations.getValue("GlossaryTermArgs.termRelations");
+        if (!unknown_termRelations) return value_termRelations;
+        throw new UndeferrableValueException("Value 'GlossaryTermArgs.termRelations' is not present");
     }
 
-    private UndeferrableValue<GlossaryTermTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private GlossaryTermTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public GlossaryTermTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("GlossaryTermArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'GlossaryTermArgs.timeouts' is not present");
     }
 
 }

@@ -3,24 +3,27 @@
 
 package com.pulumi.policypacks.aws.securityhub.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class InsightFiltersResourceAwsIamAccessKeyUserName {
 
-    private UndeferrableValue<String> comparison;
-
+    @PolicyResourceProperty(name="comparison", flag="unknown_comparison")
+    private String value_comparison;
+    private boolean unknown_comparison;
     public String comparison() {
-        if (comparison == null) return null;
-        return comparison.getValue("InsightFiltersResourceAwsIamAccessKeyUserName.comparison");
+        if (!unknown_comparison) return value_comparison;
+        throw new UndeferrableValueException("Value 'InsightFiltersResourceAwsIamAccessKeyUserName.comparison' is not present");
     }
 
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("InsightFiltersResourceAwsIamAccessKeyUserName.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'InsightFiltersResourceAwsIamAccessKeyUserName.value' is not present");
     }
 
 }

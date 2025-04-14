@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -15,11 +16,12 @@ public final class ProjectSourceBuildStatusConfig {
      * this parameter depends on the source provider.
      * 
      */
-    private @Nullable UndeferrableValue<String> context;
-
+    @PolicyResourceProperty(name="context", flag="unknown_context")
+    private @Nullable String value_context;
+    private boolean unknown_context;
     public @Nullable String context() {
-        if (context == null) return null;
-        return context.getValue("ProjectSourceBuildStatusConfig.context");
+        if (!unknown_context) return value_context;
+        throw new UndeferrableValueException("Value 'ProjectSourceBuildStatusConfig.context' is not present");
     }
 
     /**
@@ -27,11 +29,12 @@ public final class ProjectSourceBuildStatusConfig {
      * usage of this parameter depends on the source provider.
      * 
      */
-    private @Nullable UndeferrableValue<String> targetUrl;
-
+    @PolicyResourceProperty(name="targetUrl", flag="unknown_targetUrl")
+    private @Nullable String value_targetUrl;
+    private boolean unknown_targetUrl;
     public @Nullable String targetUrl() {
-        if (targetUrl == null) return null;
-        return targetUrl.getValue("ProjectSourceBuildStatusConfig.targetUrl");
+        if (!unknown_targetUrl) return value_targetUrl;
+        throw new UndeferrableValueException("Value 'ProjectSourceBuildStatusConfig.targetUrl' is not present");
     }
 
 }

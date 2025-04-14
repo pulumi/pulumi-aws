@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class BucketWebsiteConfigurationV2RoutingRuleConditionArgs {
      * HTTP error code when the redirect is applied. If specified with `key_prefix_equals`, then both must be true for the redirect to be applied.
      * 
      */
-    private UndeferrableValue<String> httpErrorCodeReturnedEquals;
-
+    @PolicyResourceProperty(name="httpErrorCodeReturnedEquals", flag="unknown_httpErrorCodeReturnedEquals")
+    private String value_httpErrorCodeReturnedEquals;
+    private boolean unknown_httpErrorCodeReturnedEquals;
     public String httpErrorCodeReturnedEquals() {
-        if (httpErrorCodeReturnedEquals == null) return null;
-        return httpErrorCodeReturnedEquals.getValue("BucketWebsiteConfigurationV2RoutingRuleConditionArgs.httpErrorCodeReturnedEquals");
+        if (!unknown_httpErrorCodeReturnedEquals) return value_httpErrorCodeReturnedEquals;
+        throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2RoutingRuleConditionArgs.httpErrorCodeReturnedEquals' is not present");
     }
 
     /**
      * Object key name prefix when the redirect is applied. If specified with `http_error_code_returned_equals`, then both must be true for the redirect to be applied.
      * 
      */
-    private UndeferrableValue<String> keyPrefixEquals;
-
+    @PolicyResourceProperty(name="keyPrefixEquals", flag="unknown_keyPrefixEquals")
+    private String value_keyPrefixEquals;
+    private boolean unknown_keyPrefixEquals;
     public String keyPrefixEquals() {
-        if (keyPrefixEquals == null) return null;
-        return keyPrefixEquals.getValue("BucketWebsiteConfigurationV2RoutingRuleConditionArgs.keyPrefixEquals");
+        if (!unknown_keyPrefixEquals) return value_keyPrefixEquals;
+        throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2RoutingRuleConditionArgs.keyPrefixEquals' is not present");
     }
 
 }

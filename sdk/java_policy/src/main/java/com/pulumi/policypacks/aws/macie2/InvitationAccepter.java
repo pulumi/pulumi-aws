@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.macie2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class InvitationAccepter extends com.pulumi.resources.PolicyResourc
      * The AWS account ID for the account that sent the invitation.
      * 
      */
-    private UndeferrableValue<String> administratorAccountId;
-
+    @PolicyResourceProperty(name="administratorAccountId", flag="unknown_administratorAccountId")
+    private String value_administratorAccountId;
+    private boolean unknown_administratorAccountId;
     public String administratorAccountId() {
-        if (administratorAccountId == null) return null;
-        return administratorAccountId.getValue("InvitationAccepter.administratorAccountId");
+        if (!unknown_administratorAccountId) return value_administratorAccountId;
+        throw new UndeferrableValueException("Value 'InvitationAccepter.administratorAccountId' is not present");
     }
 
     /**
      * The unique identifier for the invitation.
      * 
      */
-    private UndeferrableValue<String> invitationId;
-
+    @PolicyResourceProperty(name="invitationId", flag="unknown_invitationId")
+    private String value_invitationId;
+    private boolean unknown_invitationId;
     public String invitationId() {
-        if (invitationId == null) return null;
-        return invitationId.getValue("InvitationAccepter.invitationId");
+        if (!unknown_invitationId) return value_invitationId;
+        throw new UndeferrableValueException("Value 'InvitationAccepter.invitationId' is not present");
     }
 
 }

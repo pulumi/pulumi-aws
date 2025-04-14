@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cognito.outputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction;
 import com.pulumi.policypacks.aws.cognito.outputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction;
 import com.pulumi.policypacks.aws.cognito.outputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction;
@@ -16,33 +17,36 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationActions {
      * Action to take for a high risk. See action block below.
      * 
      */
-    private @Nullable UndeferrableValue<RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction> highAction;
-
+    @PolicyResourceProperty(name="highAction", flag="unknown_highAction")
+    private @Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction value_highAction;
+    private boolean unknown_highAction;
     public @Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction highAction() {
-        if (highAction == null) return null;
-        return highAction.getValue("RiskConfigurationAccountTakeoverRiskConfigurationActions.highAction");
+        if (!unknown_highAction) return value_highAction;
+        throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationActions.highAction' is not present");
     }
 
     /**
      * Action to take for a low risk. See action block below.
      * 
      */
-    private @Nullable UndeferrableValue<RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction> lowAction;
-
+    @PolicyResourceProperty(name="lowAction", flag="unknown_lowAction")
+    private @Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction value_lowAction;
+    private boolean unknown_lowAction;
     public @Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction lowAction() {
-        if (lowAction == null) return null;
-        return lowAction.getValue("RiskConfigurationAccountTakeoverRiskConfigurationActions.lowAction");
+        if (!unknown_lowAction) return value_lowAction;
+        throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationActions.lowAction' is not present");
     }
 
     /**
      * Action to take for a medium risk. See action block below.
      * 
      */
-    private @Nullable UndeferrableValue<RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction> mediumAction;
-
+    @PolicyResourceProperty(name="mediumAction", flag="unknown_mediumAction")
+    private @Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction value_mediumAction;
+    private boolean unknown_mediumAction;
     public @Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction mediumAction() {
-        if (mediumAction == null) return null;
-        return mediumAction.getValue("RiskConfigurationAccountTakeoverRiskConfigurationActions.mediumAction");
+        if (!unknown_mediumAction) return value_mediumAction;
+        throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationActions.mediumAction' is not present");
     }
 
 }

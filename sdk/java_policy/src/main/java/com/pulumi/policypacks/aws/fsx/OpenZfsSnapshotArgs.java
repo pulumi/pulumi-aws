@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class OpenZfsSnapshotArgs extends com.pulumi.resources.PolicyResour
      * The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("OpenZfsSnapshotArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'OpenZfsSnapshotArgs.name' is not present");
     }
 
     /**
      * A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("OpenZfsSnapshotArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'OpenZfsSnapshotArgs.tags' is not present");
     }
 
     /**
      * The ID of the volume to snapshot. This can be the root volume or a child volume.
      * 
      */
-    private UndeferrableValue<String> volumeId;
-
+    @PolicyResourceProperty(name="volumeId", flag="unknown_volumeId")
+    private String value_volumeId;
+    private boolean unknown_volumeId;
     public String volumeId() {
-        if (volumeId == null) return null;
-        return volumeId.getValue("OpenZfsSnapshotArgs.volumeId");
+        if (!unknown_volumeId) return value_volumeId;
+        throw new UndeferrableValueException("Value 'OpenZfsSnapshotArgs.volumeId' is not present");
     }
 
 }

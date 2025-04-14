@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudfront.inputs.VpcOriginTimeoutsArgs;
 import com.pulumi.policypacks.aws.cloudfront.inputs.VpcOriginVpcOriginEndpointConfigArgs;
@@ -15,25 +16,28 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:cloudfront/vpcOrigin:VpcOrigin")
 public final class VpcOriginArgs extends com.pulumi.resources.PolicyResourceInput {
 
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VpcOriginArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VpcOriginArgs.tags' is not present");
     }
 
-    private UndeferrableValue<VpcOriginTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private VpcOriginTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public VpcOriginTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("VpcOriginArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'VpcOriginArgs.timeouts' is not present");
     }
 
-    private UndeferrableValue<VpcOriginVpcOriginEndpointConfigArgs> vpcOriginEndpointConfig;
-
+    @PolicyResourceProperty(name="vpcOriginEndpointConfig", flag="unknown_vpcOriginEndpointConfig")
+    private VpcOriginVpcOriginEndpointConfigArgs value_vpcOriginEndpointConfig;
+    private boolean unknown_vpcOriginEndpointConfig;
     public VpcOriginVpcOriginEndpointConfigArgs vpcOriginEndpointConfig() {
-        if (vpcOriginEndpointConfig == null) return null;
-        return vpcOriginEndpointConfig.getValue("VpcOriginArgs.vpcOriginEndpointConfig");
+        if (!unknown_vpcOriginEndpointConfig) return value_vpcOriginEndpointConfig;
+        throw new UndeferrableValueException("Value 'VpcOriginArgs.vpcOriginEndpointConfig' is not present");
     }
 
 }

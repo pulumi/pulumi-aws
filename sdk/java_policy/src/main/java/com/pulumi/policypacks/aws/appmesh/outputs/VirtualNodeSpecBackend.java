@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualNodeSpecBackendVirtualService;
 
 
@@ -13,11 +14,12 @@ public final class VirtualNodeSpecBackend {
      * Virtual service to use as a backend for a virtual node.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecBackendVirtualService> virtualService;
-
+    @PolicyResourceProperty(name="virtualService", flag="unknown_virtualService")
+    private VirtualNodeSpecBackendVirtualService value_virtualService;
+    private boolean unknown_virtualService;
     public VirtualNodeSpecBackendVirtualService virtualService() {
-        if (virtualService == null) return null;
-        return virtualService.getValue("VirtualNodeSpecBackend.virtualService");
+        if (!unknown_virtualService) return value_virtualService;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecBackend.virtualService' is not present");
     }
 
 }

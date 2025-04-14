@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directoryservice.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -11,33 +12,36 @@ import javax.annotation.Nullable;
 
 public final class DirectoryVpcSettings {
 
-    private @Nullable UndeferrableValue<List<String>> availabilityZones;
-
+    @PolicyResourceProperty(name="availabilityZones", flag="unknown_availabilityZones")
+    private @Nullable List<String> value_availabilityZones;
+    private boolean unknown_availabilityZones;
     public @Nullable List<String> availabilityZones() {
-        if (availabilityZones == null) return null;
-        return availabilityZones.getValue("DirectoryVpcSettings.availabilityZones");
+        if (!unknown_availabilityZones) return value_availabilityZones;
+        throw new UndeferrableValueException("Value 'DirectoryVpcSettings.availabilityZones' is not present");
     }
 
     /**
      * The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("DirectoryVpcSettings.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'DirectoryVpcSettings.subnetIds' is not present");
     }
 
     /**
      * The identifier of the VPC that the directory is in.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("DirectoryVpcSettings.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'DirectoryVpcSettings.vpcId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lambda.outputs.FunctionUrlCors;
 import java.lang.String;
@@ -17,88 +18,96 @@ public final class FunctionUrl extends com.pulumi.resources.PolicyResourceOutput
      * The type of authentication that the function URL uses. Set to `&#34;AWS_IAM&#34;` to restrict access to authenticated IAM users only. Set to `&#34;NONE&#34;` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
      * 
      */
-    private UndeferrableValue<String> authorizationType;
-
+    @PolicyResourceProperty(name="authorizationType", flag="unknown_authorizationType")
+    private String value_authorizationType;
+    private boolean unknown_authorizationType;
     public String authorizationType() {
-        if (authorizationType == null) return null;
-        return authorizationType.getValue("FunctionUrl.authorizationType");
+        if (!unknown_authorizationType) return value_authorizationType;
+        throw new UndeferrableValueException("Value 'FunctionUrl.authorizationType' is not present");
     }
 
     /**
      * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<FunctionUrlCors> cors;
-
+    @PolicyResourceProperty(name="cors", flag="unknown_cors")
+    private @Nullable FunctionUrlCors value_cors;
+    private boolean unknown_cors;
     public @Nullable FunctionUrlCors cors() {
-        if (cors == null) return null;
-        return cors.getValue("FunctionUrl.cors");
+        if (!unknown_cors) return value_cors;
+        throw new UndeferrableValueException("Value 'FunctionUrl.cors' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the function.
      * 
      */
-    private UndeferrableValue<String> functionArn;
-
+    @PolicyResourceProperty(name="functionArn", flag="unknown_functionArn")
+    private String value_functionArn;
+    private boolean unknown_functionArn;
     public String functionArn() {
-        if (functionArn == null) return null;
-        return functionArn.getValue("FunctionUrl.functionArn");
+        if (!unknown_functionArn) return value_functionArn;
+        throw new UndeferrableValueException("Value 'FunctionUrl.functionArn' is not present");
     }
 
     /**
      * The name (or ARN) of the Lambda function.
      * 
      */
-    private UndeferrableValue<String> functionName;
-
+    @PolicyResourceProperty(name="functionName", flag="unknown_functionName")
+    private String value_functionName;
+    private boolean unknown_functionName;
     public String functionName() {
-        if (functionName == null) return null;
-        return functionName.getValue("FunctionUrl.functionName");
+        if (!unknown_functionName) return value_functionName;
+        throw new UndeferrableValueException("Value 'FunctionUrl.functionName' is not present");
     }
 
     /**
      * The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
      * 
      */
-    private UndeferrableValue<String> functionUrl;
-
+    @PolicyResourceProperty(name="functionUrl", flag="unknown_functionUrl")
+    private String value_functionUrl;
+    private boolean unknown_functionUrl;
     public String functionUrl() {
-        if (functionUrl == null) return null;
-        return functionUrl.getValue("FunctionUrl.functionUrl");
+        if (!unknown_functionUrl) return value_functionUrl;
+        throw new UndeferrableValueException("Value 'FunctionUrl.functionUrl' is not present");
     }
 
     /**
      * Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
      * 
      */
-    private @Nullable UndeferrableValue<String> invokeMode;
-
+    @PolicyResourceProperty(name="invokeMode", flag="unknown_invokeMode")
+    private @Nullable String value_invokeMode;
+    private boolean unknown_invokeMode;
     public @Nullable String invokeMode() {
-        if (invokeMode == null) return null;
-        return invokeMode.getValue("FunctionUrl.invokeMode");
+        if (!unknown_invokeMode) return value_invokeMode;
+        throw new UndeferrableValueException("Value 'FunctionUrl.invokeMode' is not present");
     }
 
     /**
      * The alias name or `&#34;$LATEST&#34;`.
      * 
      */
-    private @Nullable UndeferrableValue<String> qualifier;
-
+    @PolicyResourceProperty(name="qualifier", flag="unknown_qualifier")
+    private @Nullable String value_qualifier;
+    private boolean unknown_qualifier;
     public @Nullable String qualifier() {
-        if (qualifier == null) return null;
-        return qualifier.getValue("FunctionUrl.qualifier");
+        if (!unknown_qualifier) return value_qualifier;
+        throw new UndeferrableValueException("Value 'FunctionUrl.qualifier' is not present");
     }
 
     /**
      * A generated ID for the endpoint.
      * 
      */
-    private UndeferrableValue<String> urlId;
-
+    @PolicyResourceProperty(name="urlId", flag="unknown_urlId")
+    private String value_urlId;
+    private boolean unknown_urlId;
     public String urlId() {
-        if (urlId == null) return null;
-        return urlId.getValue("FunctionUrl.urlId");
+        if (!unknown_urlId) return value_urlId;
+        throw new UndeferrableValueException("Value 'FunctionUrl.urlId' is not present");
     }
 
 }

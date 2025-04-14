@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securitylake.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DataLakeConfigurationLifecycleConfigurationTransition {
      * Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> days;
-
+    @PolicyResourceProperty(name="days", flag="unknown_days")
+    private @Nullable Integer value_days;
+    private boolean unknown_days;
     public @Nullable Integer days() {
-        if (days == null) return null;
-        return days.getValue("DataLakeConfigurationLifecycleConfigurationTransition.days");
+        if (!unknown_days) return value_days;
+        throw new UndeferrableValueException("Value 'DataLakeConfigurationLifecycleConfigurationTransition.days' is not present");
     }
 
     /**
      * The range of storage classes that you can choose from based on the data access, resiliency, and cost requirements of your workloads.
      * 
      */
-    private @Nullable UndeferrableValue<String> storageClass;
-
+    @PolicyResourceProperty(name="storageClass", flag="unknown_storageClass")
+    private @Nullable String value_storageClass;
+    private boolean unknown_storageClass;
     public @Nullable String storageClass() {
-        if (storageClass == null) return null;
-        return storageClass.getValue("DataLakeConfigurationLifecycleConfigurationTransition.storageClass");
+        if (!unknown_storageClass) return value_storageClass;
+        throw new UndeferrableValueException("Value 'DataLakeConfigurationLifecycleConfigurationTransition.storageClass' is not present");
     }
 
 }

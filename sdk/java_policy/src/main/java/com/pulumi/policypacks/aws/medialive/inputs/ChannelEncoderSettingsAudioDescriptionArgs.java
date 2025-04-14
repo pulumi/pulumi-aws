@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs;
@@ -18,109 +19,120 @@ public final class ChannelEncoderSettingsAudioDescriptionArgs {
      * Advanced audio normalization settings. See Audio Normalization Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs> audioNormalizationSettings;
-
+    @PolicyResourceProperty(name="audioNormalizationSettings", flag="unknown_audioNormalizationSettings")
+    private ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs value_audioNormalizationSettings;
+    private boolean unknown_audioNormalizationSettings;
     public ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs audioNormalizationSettings() {
-        if (audioNormalizationSettings == null) return null;
-        return audioNormalizationSettings.getValue("ChannelEncoderSettingsAudioDescriptionArgs.audioNormalizationSettings");
+        if (!unknown_audioNormalizationSettings) return value_audioNormalizationSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionArgs.audioNormalizationSettings' is not present");
     }
 
     /**
      * The name of the audio selector used as the source for this AudioDescription.
      * 
      */
-    private UndeferrableValue<String> audioSelectorName;
-
+    @PolicyResourceProperty(name="audioSelectorName", flag="unknown_audioSelectorName")
+    private String value_audioSelectorName;
+    private boolean unknown_audioSelectorName;
     public String audioSelectorName() {
-        if (audioSelectorName == null) return null;
-        return audioSelectorName.getValue("ChannelEncoderSettingsAudioDescriptionArgs.audioSelectorName");
+        if (!unknown_audioSelectorName) return value_audioSelectorName;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionArgs.audioSelectorName' is not present");
     }
 
     /**
      * Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
      * 
      */
-    private UndeferrableValue<String> audioType;
-
+    @PolicyResourceProperty(name="audioType", flag="unknown_audioType")
+    private String value_audioType;
+    private boolean unknown_audioType;
     public String audioType() {
-        if (audioType == null) return null;
-        return audioType.getValue("ChannelEncoderSettingsAudioDescriptionArgs.audioType");
+        if (!unknown_audioType) return value_audioType;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionArgs.audioType' is not present");
     }
 
     /**
      * Determined how audio type is determined.
      * 
      */
-    private UndeferrableValue<String> audioTypeControl;
-
+    @PolicyResourceProperty(name="audioTypeControl", flag="unknown_audioTypeControl")
+    private String value_audioTypeControl;
+    private boolean unknown_audioTypeControl;
     public String audioTypeControl() {
-        if (audioTypeControl == null) return null;
-        return audioTypeControl.getValue("ChannelEncoderSettingsAudioDescriptionArgs.audioTypeControl");
+        if (!unknown_audioTypeControl) return value_audioTypeControl;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionArgs.audioTypeControl' is not present");
     }
 
     /**
      * Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs> audioWatermarkSettings;
-
+    @PolicyResourceProperty(name="audioWatermarkSettings", flag="unknown_audioWatermarkSettings")
+    private ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs value_audioWatermarkSettings;
+    private boolean unknown_audioWatermarkSettings;
     public ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs audioWatermarkSettings() {
-        if (audioWatermarkSettings == null) return null;
-        return audioWatermarkSettings.getValue("ChannelEncoderSettingsAudioDescriptionArgs.audioWatermarkSettings");
+        if (!unknown_audioWatermarkSettings) return value_audioWatermarkSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionArgs.audioWatermarkSettings' is not present");
     }
 
     /**
      * Audio codec settings. See Audio Codec Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs> codecSettings;
-
+    @PolicyResourceProperty(name="codecSettings", flag="unknown_codecSettings")
+    private ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs value_codecSettings;
+    private boolean unknown_codecSettings;
     public ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs codecSettings() {
-        if (codecSettings == null) return null;
-        return codecSettings.getValue("ChannelEncoderSettingsAudioDescriptionArgs.codecSettings");
+        if (!unknown_codecSettings) return value_codecSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionArgs.codecSettings' is not present");
     }
 
-    private UndeferrableValue<String> languageCode;
-
+    @PolicyResourceProperty(name="languageCode", flag="unknown_languageCode")
+    private String value_languageCode;
+    private boolean unknown_languageCode;
     public String languageCode() {
-        if (languageCode == null) return null;
-        return languageCode.getValue("ChannelEncoderSettingsAudioDescriptionArgs.languageCode");
+        if (!unknown_languageCode) return value_languageCode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionArgs.languageCode' is not present");
     }
 
-    private UndeferrableValue<String> languageCodeControl;
-
+    @PolicyResourceProperty(name="languageCodeControl", flag="unknown_languageCodeControl")
+    private String value_languageCodeControl;
+    private boolean unknown_languageCodeControl;
     public String languageCodeControl() {
-        if (languageCodeControl == null) return null;
-        return languageCodeControl.getValue("ChannelEncoderSettingsAudioDescriptionArgs.languageCodeControl");
+        if (!unknown_languageCodeControl) return value_languageCodeControl;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionArgs.languageCodeControl' is not present");
     }
 
     /**
      * The name of this audio description.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ChannelEncoderSettingsAudioDescriptionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionArgs.name' is not present");
     }
 
-    private UndeferrableValue<ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs> remixSettings;
-
+    @PolicyResourceProperty(name="remixSettings", flag="unknown_remixSettings")
+    private ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs value_remixSettings;
+    private boolean unknown_remixSettings;
     public ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs remixSettings() {
-        if (remixSettings == null) return null;
-        return remixSettings.getValue("ChannelEncoderSettingsAudioDescriptionArgs.remixSettings");
+        if (!unknown_remixSettings) return value_remixSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionArgs.remixSettings' is not present");
     }
 
     /**
      * Stream name RTMP destinations (URLs of type rtmp://)
      * 
      */
-    private UndeferrableValue<String> streamName;
-
+    @PolicyResourceProperty(name="streamName", flag="unknown_streamName")
+    private String value_streamName;
+    private boolean unknown_streamName;
     public String streamName() {
-        if (streamName == null) return null;
-        return streamName.getValue("ChannelEncoderSettingsAudioDescriptionArgs.streamName");
+        if (!unknown_streamName) return value_streamName;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionArgs.streamName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.paymentcryptography.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,99 +15,108 @@ public final class KeyKeyAttributesKeyModesOfUse {
      * Whether an AWS Payment Cryptography key can be used to decrypt data.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> decrypt;
-
+    @PolicyResourceProperty(name="decrypt", flag="unknown_decrypt")
+    private @Nullable Boolean value_decrypt;
+    private boolean unknown_decrypt;
     public @Nullable Boolean decrypt() {
-        if (decrypt == null) return null;
-        return decrypt.getValue("KeyKeyAttributesKeyModesOfUse.decrypt");
+        if (!unknown_decrypt) return value_decrypt;
+        throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUse.decrypt' is not present");
     }
 
     /**
      * Whether an AWS Payment Cryptography key can be used to derive new keys.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> deriveKey;
-
+    @PolicyResourceProperty(name="deriveKey", flag="unknown_deriveKey")
+    private @Nullable Boolean value_deriveKey;
+    private boolean unknown_deriveKey;
     public @Nullable Boolean deriveKey() {
-        if (deriveKey == null) return null;
-        return deriveKey.getValue("KeyKeyAttributesKeyModesOfUse.deriveKey");
+        if (!unknown_deriveKey) return value_deriveKey;
+        throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUse.deriveKey' is not present");
     }
 
     /**
      * Whether an AWS Payment Cryptography key can be used to encrypt data.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> encrypt;
-
+    @PolicyResourceProperty(name="encrypt", flag="unknown_encrypt")
+    private @Nullable Boolean value_encrypt;
+    private boolean unknown_encrypt;
     public @Nullable Boolean encrypt() {
-        if (encrypt == null) return null;
-        return encrypt.getValue("KeyKeyAttributesKeyModesOfUse.encrypt");
+        if (!unknown_encrypt) return value_encrypt;
+        throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUse.encrypt' is not present");
     }
 
     /**
      * Whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> generate;
-
+    @PolicyResourceProperty(name="generate", flag="unknown_generate")
+    private @Nullable Boolean value_generate;
+    private boolean unknown_generate;
     public @Nullable Boolean generate() {
-        if (generate == null) return null;
-        return generate.getValue("KeyKeyAttributesKeyModesOfUse.generate");
+        if (!unknown_generate) return value_generate;
+        throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUse.generate' is not present");
     }
 
     /**
      * Whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by KeyUsage.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> noRestrictions;
-
+    @PolicyResourceProperty(name="noRestrictions", flag="unknown_noRestrictions")
+    private @Nullable Boolean value_noRestrictions;
+    private boolean unknown_noRestrictions;
     public @Nullable Boolean noRestrictions() {
-        if (noRestrictions == null) return null;
-        return noRestrictions.getValue("KeyKeyAttributesKeyModesOfUse.noRestrictions");
+        if (!unknown_noRestrictions) return value_noRestrictions;
+        throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUse.noRestrictions' is not present");
     }
 
     /**
      * Whether an AWS Payment Cryptography key can be used for signing.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> sign;
-
+    @PolicyResourceProperty(name="sign", flag="unknown_sign")
+    private @Nullable Boolean value_sign;
+    private boolean unknown_sign;
     public @Nullable Boolean sign() {
-        if (sign == null) return null;
-        return sign.getValue("KeyKeyAttributesKeyModesOfUse.sign");
+        if (!unknown_sign) return value_sign;
+        throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUse.sign' is not present");
     }
 
     /**
      * Whether an AWS Payment Cryptography key can be used to unwrap other keys.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> unwrap;
-
+    @PolicyResourceProperty(name="unwrap", flag="unknown_unwrap")
+    private @Nullable Boolean value_unwrap;
+    private boolean unknown_unwrap;
     public @Nullable Boolean unwrap() {
-        if (unwrap == null) return null;
-        return unwrap.getValue("KeyKeyAttributesKeyModesOfUse.unwrap");
+        if (!unknown_unwrap) return value_unwrap;
+        throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUse.unwrap' is not present");
     }
 
     /**
      * Whether an AWS Payment Cryptography key can be used to verify signatures.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> verify;
-
+    @PolicyResourceProperty(name="verify", flag="unknown_verify")
+    private @Nullable Boolean value_verify;
+    private boolean unknown_verify;
     public @Nullable Boolean verify() {
-        if (verify == null) return null;
-        return verify.getValue("KeyKeyAttributesKeyModesOfUse.verify");
+        if (!unknown_verify) return value_verify;
+        throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUse.verify' is not present");
     }
 
     /**
      * Whether an AWS Payment Cryptography key can be used to wrap other keys.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> wrap;
-
+    @PolicyResourceProperty(name="wrap", flag="unknown_wrap")
+    private @Nullable Boolean value_wrap;
+    private boolean unknown_wrap;
     public @Nullable Boolean wrap() {
-        if (wrap == null) return null;
-        return wrap.getValue("KeyKeyAttributesKeyModesOfUse.wrap");
+        if (!unknown_wrap) return value_wrap;
+        throw new UndeferrableValueException("Value 'KeyKeyAttributesKeyModesOfUse.wrap' is not present");
     }
 
 }

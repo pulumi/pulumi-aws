@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class UsagePlanQuotaSettingsArgs {
      * Maximum number of requests that can be made in a given time period.
      * 
      */
-    private UndeferrableValue<Integer> limit;
-
+    @PolicyResourceProperty(name="limit", flag="unknown_limit")
+    private Integer value_limit;
+    private boolean unknown_limit;
     public Integer limit() {
-        if (limit == null) return null;
-        return limit.getValue("UsagePlanQuotaSettingsArgs.limit");
+        if (!unknown_limit) return value_limit;
+        throw new UndeferrableValueException("Value 'UsagePlanQuotaSettingsArgs.limit' is not present");
     }
 
     /**
      * Number of requests subtracted from the given limit in the initial time period.
      * 
      */
-    private UndeferrableValue<Integer> offset;
-
+    @PolicyResourceProperty(name="offset", flag="unknown_offset")
+    private Integer value_offset;
+    private boolean unknown_offset;
     public Integer offset() {
-        if (offset == null) return null;
-        return offset.getValue("UsagePlanQuotaSettingsArgs.offset");
+        if (!unknown_offset) return value_offset;
+        throw new UndeferrableValueException("Value 'UsagePlanQuotaSettingsArgs.offset' is not present");
     }
 
     /**
      * Time period in which the limit applies. Valid values are &#34;DAY&#34;, &#34;WEEK&#34; or &#34;MONTH&#34;.
      * 
      */
-    private UndeferrableValue<String> period;
-
+    @PolicyResourceProperty(name="period", flag="unknown_period")
+    private String value_period;
+    private boolean unknown_period;
     public String period() {
-        if (period == null) return null;
-        return period.getValue("UsagePlanQuotaSettingsArgs.period");
+        if (!unknown_period) return value_period;
+        throw new UndeferrableValueException("Value 'UsagePlanQuotaSettingsArgs.period' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,33 +18,36 @@ public final class LfTagArgs extends com.pulumi.resources.PolicyResourceInput {
      * ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
      * 
      */
-    private UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private String value_catalogId;
+    private boolean unknown_catalogId;
     public String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("LfTagArgs.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'LfTagArgs.catalogId' is not present");
     }
 
     /**
      * Key-name for the tag.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("LfTagArgs.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'LfTagArgs.key' is not present");
     }
 
     /**
      * List of possible values an attribute can take.
      * 
      */
-    private UndeferrableValue<List<String>> values;
-
+    @PolicyResourceProperty(name="values", flag="unknown_values")
+    private List<String> value_values;
+    private boolean unknown_values;
     public List<String> values() {
-        if (values == null) return null;
-        return values.getValue("LfTagArgs.values");
+        if (!unknown_values) return value_values;
+        throw new UndeferrableValueException("Value 'LfTagArgs.values' is not present");
     }
 
 }

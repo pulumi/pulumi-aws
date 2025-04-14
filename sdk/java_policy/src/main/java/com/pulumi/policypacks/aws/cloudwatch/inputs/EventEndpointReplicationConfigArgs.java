@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class EventEndpointReplicationConfigArgs {
      * The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `role_arn`. If you don&#39;t have a `role_arn` or you don&#39;t want event replication enabled, set `state` to `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("EventEndpointReplicationConfigArgs.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'EventEndpointReplicationConfigArgs.state' is not present");
     }
 
 }

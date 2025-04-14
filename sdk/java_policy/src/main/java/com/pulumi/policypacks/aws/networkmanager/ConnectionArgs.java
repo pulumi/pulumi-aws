@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,77 +18,84 @@ public final class ConnectionArgs extends com.pulumi.resources.PolicyResourceInp
      * The ID of the second device in the connection.
      * 
      */
-    private UndeferrableValue<String> connectedDeviceId;
-
+    @PolicyResourceProperty(name="connectedDeviceId", flag="unknown_connectedDeviceId")
+    private String value_connectedDeviceId;
+    private boolean unknown_connectedDeviceId;
     public String connectedDeviceId() {
-        if (connectedDeviceId == null) return null;
-        return connectedDeviceId.getValue("ConnectionArgs.connectedDeviceId");
+        if (!unknown_connectedDeviceId) return value_connectedDeviceId;
+        throw new UndeferrableValueException("Value 'ConnectionArgs.connectedDeviceId' is not present");
     }
 
     /**
      * The ID of the link for the second device.
      * 
      */
-    private UndeferrableValue<String> connectedLinkId;
-
+    @PolicyResourceProperty(name="connectedLinkId", flag="unknown_connectedLinkId")
+    private String value_connectedLinkId;
+    private boolean unknown_connectedLinkId;
     public String connectedLinkId() {
-        if (connectedLinkId == null) return null;
-        return connectedLinkId.getValue("ConnectionArgs.connectedLinkId");
+        if (!unknown_connectedLinkId) return value_connectedLinkId;
+        throw new UndeferrableValueException("Value 'ConnectionArgs.connectedLinkId' is not present");
     }
 
     /**
      * A description of the connection.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ConnectionArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ConnectionArgs.description' is not present");
     }
 
     /**
      * The ID of the first device in the connection.
      * 
      */
-    private UndeferrableValue<String> deviceId;
-
+    @PolicyResourceProperty(name="deviceId", flag="unknown_deviceId")
+    private String value_deviceId;
+    private boolean unknown_deviceId;
     public String deviceId() {
-        if (deviceId == null) return null;
-        return deviceId.getValue("ConnectionArgs.deviceId");
+        if (!unknown_deviceId) return value_deviceId;
+        throw new UndeferrableValueException("Value 'ConnectionArgs.deviceId' is not present");
     }
 
     /**
      * The ID of the global network.
      * 
      */
-    private UndeferrableValue<String> globalNetworkId;
-
+    @PolicyResourceProperty(name="globalNetworkId", flag="unknown_globalNetworkId")
+    private String value_globalNetworkId;
+    private boolean unknown_globalNetworkId;
     public String globalNetworkId() {
-        if (globalNetworkId == null) return null;
-        return globalNetworkId.getValue("ConnectionArgs.globalNetworkId");
+        if (!unknown_globalNetworkId) return value_globalNetworkId;
+        throw new UndeferrableValueException("Value 'ConnectionArgs.globalNetworkId' is not present");
     }
 
     /**
      * The ID of the link for the first device.
      * 
      */
-    private UndeferrableValue<String> linkId;
-
+    @PolicyResourceProperty(name="linkId", flag="unknown_linkId")
+    private String value_linkId;
+    private boolean unknown_linkId;
     public String linkId() {
-        if (linkId == null) return null;
-        return linkId.getValue("ConnectionArgs.linkId");
+        if (!unknown_linkId) return value_linkId;
+        throw new UndeferrableValueException("Value 'ConnectionArgs.linkId' is not present");
     }
 
     /**
      * Key-value tags for the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ConnectionArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ConnectionArgs.tags' is not present");
     }
 
 }

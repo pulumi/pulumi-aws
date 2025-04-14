@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudformation;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -21,11 +22,12 @@ public final class StackArgs extends com.pulumi.resources.PolicyResourceInput {
      * Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, or `CAPABILITY_AUTO_EXPAND`
      * 
      */
-    private UndeferrableValue<List<String>> capabilities;
-
+    @PolicyResourceProperty(name="capabilities", flag="unknown_capabilities")
+    private List<String> value_capabilities;
+    private boolean unknown_capabilities;
     public List<String> capabilities() {
-        if (capabilities == null) return null;
-        return capabilities.getValue("StackArgs.capabilities");
+        if (!unknown_capabilities) return value_capabilities;
+        throw new UndeferrableValueException("Value 'StackArgs.capabilities' is not present");
     }
 
     /**
@@ -33,44 +35,48 @@ public final class StackArgs extends com.pulumi.resources.PolicyResourceInput {
      * Conflicts with `on_failure`.
      * 
      */
-    private UndeferrableValue<Boolean> disableRollback;
-
+    @PolicyResourceProperty(name="disableRollback", flag="unknown_disableRollback")
+    private Boolean value_disableRollback;
+    private boolean unknown_disableRollback;
     public Boolean disableRollback() {
-        if (disableRollback == null) return null;
-        return disableRollback.getValue("StackArgs.disableRollback");
+        if (!unknown_disableRollback) return value_disableRollback;
+        throw new UndeferrableValueException("Value 'StackArgs.disableRollback' is not present");
     }
 
     /**
      * The ARN of an IAM role that AWS CloudFormation assumes to create the stack. If you don&#39;t specify a value, AWS CloudFormation uses the role that was previously associated with the stack. If no role is available, AWS CloudFormation uses a temporary session that is generated from your user credentials.
      * 
      */
-    private UndeferrableValue<String> iamRoleArn;
-
+    @PolicyResourceProperty(name="iamRoleArn", flag="unknown_iamRoleArn")
+    private String value_iamRoleArn;
+    private boolean unknown_iamRoleArn;
     public String iamRoleArn() {
-        if (iamRoleArn == null) return null;
-        return iamRoleArn.getValue("StackArgs.iamRoleArn");
+        if (!unknown_iamRoleArn) return value_iamRoleArn;
+        throw new UndeferrableValueException("Value 'StackArgs.iamRoleArn' is not present");
     }
 
     /**
      * Stack name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("StackArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'StackArgs.name' is not present");
     }
 
     /**
      * A list of SNS topic ARNs to publish stack related events.
      * 
      */
-    private UndeferrableValue<List<String>> notificationArns;
-
+    @PolicyResourceProperty(name="notificationArns", flag="unknown_notificationArns")
+    private List<String> value_notificationArns;
+    private boolean unknown_notificationArns;
     public List<String> notificationArns() {
-        if (notificationArns == null) return null;
-        return notificationArns.getValue("StackArgs.notificationArns");
+        if (!unknown_notificationArns) return value_notificationArns;
+        throw new UndeferrableValueException("Value 'StackArgs.notificationArns' is not present");
     }
 
     /**
@@ -78,22 +84,24 @@ public final class StackArgs extends com.pulumi.resources.PolicyResourceInput {
      * one of: `DO_NOTHING`, `ROLLBACK`, or `DELETE`. Conflicts with `disable_rollback`.
      * 
      */
-    private UndeferrableValue<String> onFailure;
-
+    @PolicyResourceProperty(name="onFailure", flag="unknown_onFailure")
+    private String value_onFailure;
+    private boolean unknown_onFailure;
     public String onFailure() {
-        if (onFailure == null) return null;
-        return onFailure.getValue("StackArgs.onFailure");
+        if (!unknown_onFailure) return value_onFailure;
+        throw new UndeferrableValueException("Value 'StackArgs.onFailure' is not present");
     }
 
     /**
      * A map of Parameter structures that specify input parameters for the stack.
      * 
      */
-    private UndeferrableValue<Map<String,String>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private Map<String,String> value_parameters;
+    private boolean unknown_parameters;
     public Map<String,String> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("StackArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'StackArgs.parameters' is not present");
     }
 
     /**
@@ -101,11 +109,12 @@ public final class StackArgs extends com.pulumi.resources.PolicyResourceInput {
      * Conflicts w/ `policy_url`.
      * 
      */
-    private UndeferrableValue<String> policyBody;
-
+    @PolicyResourceProperty(name="policyBody", flag="unknown_policyBody")
+    private String value_policyBody;
+    private boolean unknown_policyBody;
     public String policyBody() {
-        if (policyBody == null) return null;
-        return policyBody.getValue("StackArgs.policyBody");
+        if (!unknown_policyBody) return value_policyBody;
+        throw new UndeferrableValueException("Value 'StackArgs.policyBody' is not present");
     }
 
     /**
@@ -113,55 +122,60 @@ public final class StackArgs extends com.pulumi.resources.PolicyResourceInput {
      * Conflicts w/ `policy_body`.
      * 
      */
-    private UndeferrableValue<String> policyUrl;
-
+    @PolicyResourceProperty(name="policyUrl", flag="unknown_policyUrl")
+    private String value_policyUrl;
+    private boolean unknown_policyUrl;
     public String policyUrl() {
-        if (policyUrl == null) return null;
-        return policyUrl.getValue("StackArgs.policyUrl");
+        if (!unknown_policyUrl) return value_policyUrl;
+        throw new UndeferrableValueException("Value 'StackArgs.policyUrl' is not present");
     }
 
     /**
      * Map of resource tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("StackArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'StackArgs.tags' is not present");
     }
 
     /**
      * Structure containing the template body (max size: 51,200 bytes).
      * 
      */
-    private UndeferrableValue<String> templateBody;
-
+    @PolicyResourceProperty(name="templateBody", flag="unknown_templateBody")
+    private String value_templateBody;
+    private boolean unknown_templateBody;
     public String templateBody() {
-        if (templateBody == null) return null;
-        return templateBody.getValue("StackArgs.templateBody");
+        if (!unknown_templateBody) return value_templateBody;
+        throw new UndeferrableValueException("Value 'StackArgs.templateBody' is not present");
     }
 
     /**
      * Location of a file containing the template body (max size: 460,800 bytes).
      * 
      */
-    private UndeferrableValue<String> templateUrl;
-
+    @PolicyResourceProperty(name="templateUrl", flag="unknown_templateUrl")
+    private String value_templateUrl;
+    private boolean unknown_templateUrl;
     public String templateUrl() {
-        if (templateUrl == null) return null;
-        return templateUrl.getValue("StackArgs.templateUrl");
+        if (!unknown_templateUrl) return value_templateUrl;
+        throw new UndeferrableValueException("Value 'StackArgs.templateUrl' is not present");
     }
 
     /**
      * The amount of time that can pass before the stack status becomes `CREATE_FAILED`.
      * 
      */
-    private UndeferrableValue<Integer> timeoutInMinutes;
-
+    @PolicyResourceProperty(name="timeoutInMinutes", flag="unknown_timeoutInMinutes")
+    private Integer value_timeoutInMinutes;
+    private boolean unknown_timeoutInMinutes;
     public Integer timeoutInMinutes() {
-        if (timeoutInMinutes == null) return null;
-        return timeoutInMinutes.getValue("StackArgs.timeoutInMinutes");
+        if (!unknown_timeoutInMinutes) return value_timeoutInMinutes;
+        throw new UndeferrableValueException("Value 'StackArgs.timeoutInMinutes' is not present");
     }
 
 }

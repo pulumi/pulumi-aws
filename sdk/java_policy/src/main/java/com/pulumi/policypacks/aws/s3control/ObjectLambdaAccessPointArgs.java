@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3control.inputs.ObjectLambdaAccessPointConfigurationArgs;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class ObjectLambdaAccessPointArgs extends com.pulumi.resources.Poli
      * The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("ObjectLambdaAccessPointArgs.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointArgs.accountId' is not present");
     }
 
     /**
      * A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
      * 
      */
-    private UndeferrableValue<ObjectLambdaAccessPointConfigurationArgs> configuration;
-
+    @PolicyResourceProperty(name="configuration", flag="unknown_configuration")
+    private ObjectLambdaAccessPointConfigurationArgs value_configuration;
+    private boolean unknown_configuration;
     public ObjectLambdaAccessPointConfigurationArgs configuration() {
-        if (configuration == null) return null;
-        return configuration.getValue("ObjectLambdaAccessPointArgs.configuration");
+        if (!unknown_configuration) return value_configuration;
+        throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointArgs.configuration' is not present");
     }
 
     /**
      * The name for this Object Lambda Access Point.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ObjectLambdaAccessPointArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointArgs.name' is not present");
     }
 
 }

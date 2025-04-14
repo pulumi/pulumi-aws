@@ -3,17 +3,19 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
 public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs {
 
-    private UndeferrableValue<Integer> startTimeoutMs;
-
+    @PolicyResourceProperty(name="startTimeoutMs", flag="unknown_startTimeoutMs")
+    private Integer value_startTimeoutMs;
+    private boolean unknown_startTimeoutMs;
     public Integer startTimeoutMs() {
-        if (startTimeoutMs == null) return null;
-        return startTimeoutMs.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs.startTimeoutMs");
+        if (!unknown_startTimeoutMs) return value_startTimeoutMs;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs.startTimeoutMs' is not present");
     }
 
 }

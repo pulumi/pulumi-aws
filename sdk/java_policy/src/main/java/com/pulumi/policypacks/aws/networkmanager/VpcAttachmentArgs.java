@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.networkmanager.inputs.VpcAttachmentOptionsArgs;
 import java.lang.String;
@@ -19,44 +20,48 @@ public final class VpcAttachmentArgs extends com.pulumi.resources.PolicyResource
      * The ID of a core network for the VPC attachment.
      * 
      */
-    private UndeferrableValue<String> coreNetworkId;
-
+    @PolicyResourceProperty(name="coreNetworkId", flag="unknown_coreNetworkId")
+    private String value_coreNetworkId;
+    private boolean unknown_coreNetworkId;
     public String coreNetworkId() {
-        if (coreNetworkId == null) return null;
-        return coreNetworkId.getValue("VpcAttachmentArgs.coreNetworkId");
+        if (!unknown_coreNetworkId) return value_coreNetworkId;
+        throw new UndeferrableValueException("Value 'VpcAttachmentArgs.coreNetworkId' is not present");
     }
 
     /**
      * Options for the VPC attachment.
      * 
      */
-    private UndeferrableValue<VpcAttachmentOptionsArgs> options;
-
+    @PolicyResourceProperty(name="options", flag="unknown_options")
+    private VpcAttachmentOptionsArgs value_options;
+    private boolean unknown_options;
     public VpcAttachmentOptionsArgs options() {
-        if (options == null) return null;
-        return options.getValue("VpcAttachmentArgs.options");
+        if (!unknown_options) return value_options;
+        throw new UndeferrableValueException("Value 'VpcAttachmentArgs.options' is not present");
     }
 
     /**
      * The subnet ARN of the VPC attachment.
      * 
      */
-    private UndeferrableValue<List<String>> subnetArns;
-
+    @PolicyResourceProperty(name="subnetArns", flag="unknown_subnetArns")
+    private List<String> value_subnetArns;
+    private boolean unknown_subnetArns;
     public List<String> subnetArns() {
-        if (subnetArns == null) return null;
-        return subnetArns.getValue("VpcAttachmentArgs.subnetArns");
+        if (!unknown_subnetArns) return value_subnetArns;
+        throw new UndeferrableValueException("Value 'VpcAttachmentArgs.subnetArns' is not present");
     }
 
     /**
      * Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VpcAttachmentArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VpcAttachmentArgs.tags' is not present");
     }
 
     /**
@@ -65,11 +70,12 @@ public final class VpcAttachmentArgs extends com.pulumi.resources.PolicyResource
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> vpcArn;
-
+    @PolicyResourceProperty(name="vpcArn", flag="unknown_vpcArn")
+    private String value_vpcArn;
+    private boolean unknown_vpcArn;
     public String vpcArn() {
-        if (vpcArn == null) return null;
-        return vpcArn.getValue("VpcAttachmentArgs.vpcArn");
+        if (!unknown_vpcArn) return value_vpcArn;
+        throw new UndeferrableValueException("Value 'VpcAttachmentArgs.vpcArn' is not present");
     }
 
 }

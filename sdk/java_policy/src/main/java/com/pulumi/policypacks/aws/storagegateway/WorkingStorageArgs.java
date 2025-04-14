@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.storagegateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class WorkingStorageArgs extends com.pulumi.resources.PolicyResourc
      * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
      * 
      */
-    private UndeferrableValue<String> diskId;
-
+    @PolicyResourceProperty(name="diskId", flag="unknown_diskId")
+    private String value_diskId;
+    private boolean unknown_diskId;
     public String diskId() {
-        if (diskId == null) return null;
-        return diskId.getValue("WorkingStorageArgs.diskId");
+        if (!unknown_diskId) return value_diskId;
+        throw new UndeferrableValueException("Value 'WorkingStorageArgs.diskId' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      * 
      */
-    private UndeferrableValue<String> gatewayArn;
-
+    @PolicyResourceProperty(name="gatewayArn", flag="unknown_gatewayArn")
+    private String value_gatewayArn;
+    private boolean unknown_gatewayArn;
     public String gatewayArn() {
-        if (gatewayArn == null) return null;
-        return gatewayArn.getValue("WorkingStorageArgs.gatewayArn");
+        if (!unknown_gatewayArn) return value_gatewayArn;
+        throw new UndeferrableValueException("Value 'WorkingStorageArgs.gatewayArn' is not present");
     }
 
 }

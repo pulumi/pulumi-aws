@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.oam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.oam.inputs.LinkLinkConfigurationArgs;
 import java.lang.String;
@@ -19,33 +20,36 @@ public final class LinkArgs extends com.pulumi.resources.PolicyResourceInput {
      * Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
      * 
      */
-    private UndeferrableValue<String> labelTemplate;
-
+    @PolicyResourceProperty(name="labelTemplate", flag="unknown_labelTemplate")
+    private String value_labelTemplate;
+    private boolean unknown_labelTemplate;
     public String labelTemplate() {
-        if (labelTemplate == null) return null;
-        return labelTemplate.getValue("LinkArgs.labelTemplate");
+        if (!unknown_labelTemplate) return value_labelTemplate;
+        throw new UndeferrableValueException("Value 'LinkArgs.labelTemplate' is not present");
     }
 
     /**
      * Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
      * 
      */
-    private UndeferrableValue<LinkLinkConfigurationArgs> linkConfiguration;
-
+    @PolicyResourceProperty(name="linkConfiguration", flag="unknown_linkConfiguration")
+    private LinkLinkConfigurationArgs value_linkConfiguration;
+    private boolean unknown_linkConfiguration;
     public LinkLinkConfigurationArgs linkConfiguration() {
-        if (linkConfiguration == null) return null;
-        return linkConfiguration.getValue("LinkArgs.linkConfiguration");
+        if (!unknown_linkConfiguration) return value_linkConfiguration;
+        throw new UndeferrableValueException("Value 'LinkArgs.linkConfiguration' is not present");
     }
 
     /**
      * Types of data that the source account shares with the monitoring account.
      * 
      */
-    private UndeferrableValue<List<String>> resourceTypes;
-
+    @PolicyResourceProperty(name="resourceTypes", flag="unknown_resourceTypes")
+    private List<String> value_resourceTypes;
+    private boolean unknown_resourceTypes;
     public List<String> resourceTypes() {
-        if (resourceTypes == null) return null;
-        return resourceTypes.getValue("LinkArgs.resourceTypes");
+        if (!unknown_resourceTypes) return value_resourceTypes;
+        throw new UndeferrableValueException("Value 'LinkArgs.resourceTypes' is not present");
     }
 
     /**
@@ -54,22 +58,24 @@ public final class LinkArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> sinkIdentifier;
-
+    @PolicyResourceProperty(name="sinkIdentifier", flag="unknown_sinkIdentifier")
+    private String value_sinkIdentifier;
+    private boolean unknown_sinkIdentifier;
     public String sinkIdentifier() {
-        if (sinkIdentifier == null) return null;
-        return sinkIdentifier.getValue("LinkArgs.sinkIdentifier");
+        if (!unknown_sinkIdentifier) return value_sinkIdentifier;
+        throw new UndeferrableValueException("Value 'LinkArgs.sinkIdentifier' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LinkArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LinkArgs.tags' is not present");
     }
 
 }

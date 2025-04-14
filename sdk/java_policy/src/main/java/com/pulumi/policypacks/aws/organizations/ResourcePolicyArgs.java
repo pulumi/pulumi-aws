@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.organizations;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,22 +18,24 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.PolicyResourc
      * Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy&#39;s type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
      * 
      */
-    private UndeferrableValue<String> content;
-
+    @PolicyResourceProperty(name="content", flag="unknown_content")
+    private String value_content;
+    private boolean unknown_content;
     public String content() {
-        if (content == null) return null;
-        return content.getValue("ResourcePolicyArgs.content");
+        if (!unknown_content) return value_content;
+        throw new UndeferrableValueException("Value 'ResourcePolicyArgs.content' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ResourcePolicyArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ResourcePolicyArgs.tags' is not present");
     }
 
 }

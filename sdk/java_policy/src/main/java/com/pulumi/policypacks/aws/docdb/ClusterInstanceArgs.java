@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.docdb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -20,110 +21,120 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.PolicyResour
      * are applied immediately, or during the next maintenance window. Default is`false`.
      * 
      */
-    private UndeferrableValue<Boolean> applyImmediately;
-
+    @PolicyResourceProperty(name="applyImmediately", flag="unknown_applyImmediately")
+    private Boolean value_applyImmediately;
+    private boolean unknown_applyImmediately;
     public Boolean applyImmediately() {
-        if (applyImmediately == null) return null;
-        return applyImmediately.getValue("ClusterInstanceArgs.applyImmediately");
+        if (!unknown_applyImmediately) return value_applyImmediately;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.applyImmediately' is not present");
     }
 
     /**
      * This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
      * 
      */
-    private UndeferrableValue<Boolean> autoMinorVersionUpgrade;
-
+    @PolicyResourceProperty(name="autoMinorVersionUpgrade", flag="unknown_autoMinorVersionUpgrade")
+    private Boolean value_autoMinorVersionUpgrade;
+    private boolean unknown_autoMinorVersionUpgrade;
     public Boolean autoMinorVersionUpgrade() {
-        if (autoMinorVersionUpgrade == null) return null;
-        return autoMinorVersionUpgrade.getValue("ClusterInstanceArgs.autoMinorVersionUpgrade");
+        if (!unknown_autoMinorVersionUpgrade) return value_autoMinorVersionUpgrade;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.autoMinorVersionUpgrade' is not present");
     }
 
     /**
      * The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("ClusterInstanceArgs.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.availabilityZone' is not present");
     }
 
     /**
      * The identifier of the certificate authority (CA) certificate for the DB instance.
      * 
      */
-    private UndeferrableValue<String> caCertIdentifier;
-
+    @PolicyResourceProperty(name="caCertIdentifier", flag="unknown_caCertIdentifier")
+    private String value_caCertIdentifier;
+    private boolean unknown_caCertIdentifier;
     public String caCertIdentifier() {
-        if (caCertIdentifier == null) return null;
-        return caCertIdentifier.getValue("ClusterInstanceArgs.caCertIdentifier");
+        if (!unknown_caCertIdentifier) return value_caCertIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.caCertIdentifier' is not present");
     }
 
     /**
      * The identifier of the `aws.docdb.Cluster` in which to launch this instance.
      * 
      */
-    private UndeferrableValue<String> clusterIdentifier;
-
+    @PolicyResourceProperty(name="clusterIdentifier", flag="unknown_clusterIdentifier")
+    private String value_clusterIdentifier;
+    private boolean unknown_clusterIdentifier;
     public String clusterIdentifier() {
-        if (clusterIdentifier == null) return null;
-        return clusterIdentifier.getValue("ClusterInstanceArgs.clusterIdentifier");
+        if (!unknown_clusterIdentifier) return value_clusterIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.clusterIdentifier' is not present");
     }
 
     /**
      * Copy all DB instance `tags` to snapshots. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> copyTagsToSnapshot;
-
+    @PolicyResourceProperty(name="copyTagsToSnapshot", flag="unknown_copyTagsToSnapshot")
+    private Boolean value_copyTagsToSnapshot;
+    private boolean unknown_copyTagsToSnapshot;
     public Boolean copyTagsToSnapshot() {
-        if (copyTagsToSnapshot == null) return null;
-        return copyTagsToSnapshot.getValue("ClusterInstanceArgs.copyTagsToSnapshot");
+        if (!unknown_copyTagsToSnapshot) return value_copyTagsToSnapshot;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.copyTagsToSnapshot' is not present");
     }
 
     /**
      * A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
      * 
      */
-    private UndeferrableValue<Boolean> enablePerformanceInsights;
-
+    @PolicyResourceProperty(name="enablePerformanceInsights", flag="unknown_enablePerformanceInsights")
+    private Boolean value_enablePerformanceInsights;
+    private boolean unknown_enablePerformanceInsights;
     public Boolean enablePerformanceInsights() {
-        if (enablePerformanceInsights == null) return null;
-        return enablePerformanceInsights.getValue("ClusterInstanceArgs.enablePerformanceInsights");
+        if (!unknown_enablePerformanceInsights) return value_enablePerformanceInsights;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.enablePerformanceInsights' is not present");
     }
 
     /**
      * The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
      * 
      */
-    private UndeferrableValue<String> engine;
-
+    @PolicyResourceProperty(name="engine", flag="unknown_engine")
+    private String value_engine;
+    private boolean unknown_engine;
     public String engine() {
-        if (engine == null) return null;
-        return engine.getValue("ClusterInstanceArgs.engine");
+        if (!unknown_engine) return value_engine;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.engine' is not present");
     }
 
     /**
      * The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
      * 
      */
-    private UndeferrableValue<String> identifier;
-
+    @PolicyResourceProperty(name="identifier", flag="unknown_identifier")
+    private String value_identifier;
+    private boolean unknown_identifier;
     public String identifier() {
-        if (identifier == null) return null;
-        return identifier.getValue("ClusterInstanceArgs.identifier");
+        if (!unknown_identifier) return value_identifier;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.identifier' is not present");
     }
 
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
-    private UndeferrableValue<String> identifierPrefix;
-
+    @PolicyResourceProperty(name="identifierPrefix", flag="unknown_identifierPrefix")
+    private String value_identifierPrefix;
+    private boolean unknown_identifierPrefix;
     public String identifierPrefix() {
-        if (identifierPrefix == null) return null;
-        return identifierPrefix.getValue("ClusterInstanceArgs.identifierPrefix");
+        if (!unknown_identifierPrefix) return value_identifierPrefix;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.identifierPrefix' is not present");
     }
 
     /**
@@ -153,22 +164,24 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.PolicyResour
      * - db.t3.medium
      * 
      */
-    private UndeferrableValue<String> instanceClass;
-
+    @PolicyResourceProperty(name="instanceClass", flag="unknown_instanceClass")
+    private String value_instanceClass;
+    private boolean unknown_instanceClass;
     public String instanceClass() {
-        if (instanceClass == null) return null;
-        return instanceClass.getValue("ClusterInstanceArgs.instanceClass");
+        if (!unknown_instanceClass) return value_instanceClass;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.instanceClass' is not present");
     }
 
     /**
      * The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
      * 
      */
-    private UndeferrableValue<String> performanceInsightsKmsKeyId;
-
+    @PolicyResourceProperty(name="performanceInsightsKmsKeyId", flag="unknown_performanceInsightsKmsKeyId")
+    private String value_performanceInsightsKmsKeyId;
+    private boolean unknown_performanceInsightsKmsKeyId;
     public String performanceInsightsKmsKeyId() {
-        if (performanceInsightsKmsKeyId == null) return null;
-        return performanceInsightsKmsKeyId.getValue("ClusterInstanceArgs.performanceInsightsKmsKeyId");
+        if (!unknown_performanceInsightsKmsKeyId) return value_performanceInsightsKmsKeyId;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.performanceInsightsKmsKeyId' is not present");
     }
 
     /**
@@ -176,33 +189,36 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.PolicyResour
      * Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
      * 
      */
-    private UndeferrableValue<String> preferredMaintenanceWindow;
-
+    @PolicyResourceProperty(name="preferredMaintenanceWindow", flag="unknown_preferredMaintenanceWindow")
+    private String value_preferredMaintenanceWindow;
+    private boolean unknown_preferredMaintenanceWindow;
     public String preferredMaintenanceWindow() {
-        if (preferredMaintenanceWindow == null) return null;
-        return preferredMaintenanceWindow.getValue("ClusterInstanceArgs.preferredMaintenanceWindow");
+        if (!unknown_preferredMaintenanceWindow) return value_preferredMaintenanceWindow;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.preferredMaintenanceWindow' is not present");
     }
 
     /**
      * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
      * 
      */
-    private UndeferrableValue<Integer> promotionTier;
-
+    @PolicyResourceProperty(name="promotionTier", flag="unknown_promotionTier")
+    private Integer value_promotionTier;
+    private boolean unknown_promotionTier;
     public Integer promotionTier() {
-        if (promotionTier == null) return null;
-        return promotionTier.getValue("ClusterInstanceArgs.promotionTier");
+        if (!unknown_promotionTier) return value_promotionTier;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.promotionTier' is not present");
     }
 
     /**
      * A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ClusterInstanceArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.tags' is not present");
     }
 
 }

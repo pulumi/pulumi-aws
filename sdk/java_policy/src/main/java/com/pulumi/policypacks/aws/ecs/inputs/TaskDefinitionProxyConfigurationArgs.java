@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class TaskDefinitionProxyConfigurationArgs {
      * Name of the container that will serve as the App Mesh proxy.
      * 
      */
-    private UndeferrableValue<String> containerName;
-
+    @PolicyResourceProperty(name="containerName", flag="unknown_containerName")
+    private String value_containerName;
+    private boolean unknown_containerName;
     public String containerName() {
-        if (containerName == null) return null;
-        return containerName.getValue("TaskDefinitionProxyConfigurationArgs.containerName");
+        if (!unknown_containerName) return value_containerName;
+        throw new UndeferrableValueException("Value 'TaskDefinitionProxyConfigurationArgs.containerName' is not present");
     }
 
     /**
      * Set of network configuration parameters to provide the Container Network Interface (CNI) plugin, specified a key-value mapping.
      * 
      */
-    private UndeferrableValue<Map<String,String>> properties;
-
+    @PolicyResourceProperty(name="properties", flag="unknown_properties")
+    private Map<String,String> value_properties;
+    private boolean unknown_properties;
     public Map<String,String> properties() {
-        if (properties == null) return null;
-        return properties.getValue("TaskDefinitionProxyConfigurationArgs.properties");
+        if (!unknown_properties) return value_properties;
+        throw new UndeferrableValueException("Value 'TaskDefinitionProxyConfigurationArgs.properties' is not present");
     }
 
     /**
      * Proxy type. The default value is `APPMESH`. The only supported value is `APPMESH`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("TaskDefinitionProxyConfigurationArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'TaskDefinitionProxyConfigurationArgs.type' is not present");
     }
 
 }

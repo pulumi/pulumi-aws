@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ssm.outputs.ContactsRotationRecurrence;
 import java.lang.String;
@@ -19,33 +20,36 @@ public final class ContactsRotation extends com.pulumi.resources.PolicyResourceO
      * The Amazon Resource Name (ARN) of the rotation.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ContactsRotation.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ContactsRotation.arn' is not present");
     }
 
     /**
      * Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
      * 
      */
-    private UndeferrableValue<List<String>> contactIds;
-
+    @PolicyResourceProperty(name="contactIds", flag="unknown_contactIds")
+    private List<String> value_contactIds;
+    private boolean unknown_contactIds;
     public List<String> contactIds() {
-        if (contactIds == null) return null;
-        return contactIds.getValue("ContactsRotation.contactIds");
+        if (!unknown_contactIds) return value_contactIds;
+        throw new UndeferrableValueException("Value 'ContactsRotation.contactIds' is not present");
     }
 
     /**
      * The name for the rotation.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ContactsRotation.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ContactsRotation.name' is not present");
     }
 
     /**
@@ -54,33 +58,36 @@ public final class ContactsRotation extends com.pulumi.resources.PolicyResourceO
      * The following arguments are optional:
      * 
      */
-    private @Nullable UndeferrableValue<ContactsRotationRecurrence> recurrence;
-
+    @PolicyResourceProperty(name="recurrence", flag="unknown_recurrence")
+    private @Nullable ContactsRotationRecurrence value_recurrence;
+    private boolean unknown_recurrence;
     public @Nullable ContactsRotationRecurrence recurrence() {
-        if (recurrence == null) return null;
-        return recurrence.getValue("ContactsRotation.recurrence");
+        if (!unknown_recurrence) return value_recurrence;
+        throw new UndeferrableValueException("Value 'ContactsRotation.recurrence' is not present");
     }
 
     /**
      * The date and time, in RFC 3339 format, that the rotation goes into effect.
      * 
      */
-    private @Nullable UndeferrableValue<String> startTime;
-
+    @PolicyResourceProperty(name="startTime", flag="unknown_startTime")
+    private @Nullable String value_startTime;
+    private boolean unknown_startTime;
     public @Nullable String startTime() {
-        if (startTime == null) return null;
-        return startTime.getValue("ContactsRotation.startTime");
+        if (!unknown_startTime) return value_startTime;
+        throw new UndeferrableValueException("Value 'ContactsRotation.startTime' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ContactsRotation.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ContactsRotation.tags' is not present");
     }
 
     /**
@@ -91,22 +98,24 @@ public final class ContactsRotation extends com.pulumi.resources.PolicyResourceO
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ContactsRotation.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ContactsRotation.tagsAll' is not present");
     }
 
     /**
      * The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
      * 
      */
-    private UndeferrableValue<String> timeZoneId;
-
+    @PolicyResourceProperty(name="timeZoneId", flag="unknown_timeZoneId")
+    private String value_timeZoneId;
+    private boolean unknown_timeZoneId;
     public String timeZoneId() {
-        if (timeZoneId == null) return null;
-        return timeZoneId.getValue("ContactsRotation.timeZoneId");
+        if (!unknown_timeZoneId) return value_timeZoneId;
+        throw new UndeferrableValueException("Value 'ContactsRotation.timeZoneId' is not present");
     }
 
 }

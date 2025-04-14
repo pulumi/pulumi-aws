@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceC
      * List of one or more seed URLs to crawl. See `seed_urls` block for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl>> seedUrls;
-
+    @PolicyResourceProperty(name="seedUrls", flag="unknown_seedUrls")
+    private @Nullable List<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl> value_seedUrls;
+    private boolean unknown_seedUrls;
     public @Nullable List<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrl> seedUrls() {
-        if (seedUrls == null) return null;
-        return seedUrls.getValue("AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration.seedUrls");
+        if (!unknown_seedUrls) return value_seedUrls;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration.seedUrls' is not present");
     }
 
 }

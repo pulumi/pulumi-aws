@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.redshift.outputs.ScheduledActionTargetAction;
 import java.lang.Boolean;
@@ -18,88 +19,96 @@ public final class ScheduledAction extends com.pulumi.resources.PolicyResourceOu
      * The description of the scheduled action.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ScheduledAction.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ScheduledAction.description' is not present");
     }
 
     /**
      * Whether to enable the scheduled action. Default is `true` .
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enable;
-
+    @PolicyResourceProperty(name="enable", flag="unknown_enable")
+    private @Nullable Boolean value_enable;
+    private boolean unknown_enable;
     public @Nullable Boolean enable() {
-        if (enable == null) return null;
-        return enable.getValue("ScheduledAction.enable");
+        if (!unknown_enable) return value_enable;
+        throw new UndeferrableValueException("Value 'ScheduledAction.enable' is not present");
     }
 
     /**
      * The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
      * 
      */
-    private @Nullable UndeferrableValue<String> endTime;
-
+    @PolicyResourceProperty(name="endTime", flag="unknown_endTime")
+    private @Nullable String value_endTime;
+    private boolean unknown_endTime;
     public @Nullable String endTime() {
-        if (endTime == null) return null;
-        return endTime.getValue("ScheduledAction.endTime");
+        if (!unknown_endTime) return value_endTime;
+        throw new UndeferrableValueException("Value 'ScheduledAction.endTime' is not present");
     }
 
     /**
      * The IAM role to assume to run the scheduled action.
      * 
      */
-    private UndeferrableValue<String> iamRole;
-
+    @PolicyResourceProperty(name="iamRole", flag="unknown_iamRole")
+    private String value_iamRole;
+    private boolean unknown_iamRole;
     public String iamRole() {
-        if (iamRole == null) return null;
-        return iamRole.getValue("ScheduledAction.iamRole");
+        if (!unknown_iamRole) return value_iamRole;
+        throw new UndeferrableValueException("Value 'ScheduledAction.iamRole' is not present");
     }
 
     /**
      * The scheduled action name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ScheduledAction.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ScheduledAction.name' is not present");
     }
 
     /**
      * The schedule of action. The schedule is defined format of &#34;at expression&#34; or &#34;cron expression&#34;, for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
      * 
      */
-    private UndeferrableValue<String> schedule;
-
+    @PolicyResourceProperty(name="schedule", flag="unknown_schedule")
+    private String value_schedule;
+    private boolean unknown_schedule;
     public String schedule() {
-        if (schedule == null) return null;
-        return schedule.getValue("ScheduledAction.schedule");
+        if (!unknown_schedule) return value_schedule;
+        throw new UndeferrableValueException("Value 'ScheduledAction.schedule' is not present");
     }
 
     /**
      * The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
      * 
      */
-    private @Nullable UndeferrableValue<String> startTime;
-
+    @PolicyResourceProperty(name="startTime", flag="unknown_startTime")
+    private @Nullable String value_startTime;
+    private boolean unknown_startTime;
     public @Nullable String startTime() {
-        if (startTime == null) return null;
-        return startTime.getValue("ScheduledAction.startTime");
+        if (!unknown_startTime) return value_startTime;
+        throw new UndeferrableValueException("Value 'ScheduledAction.startTime' is not present");
     }
 
     /**
      * Target action. Documented below.
      * 
      */
-    private UndeferrableValue<ScheduledActionTargetAction> targetAction;
-
+    @PolicyResourceProperty(name="targetAction", flag="unknown_targetAction")
+    private ScheduledActionTargetAction value_targetAction;
+    private boolean unknown_targetAction;
     public ScheduledActionTargetAction targetAction() {
-        if (targetAction == null) return null;
-        return targetAction.getValue("ScheduledAction.targetAction");
+        if (!unknown_targetAction) return value_targetAction;
+        throw new UndeferrableValueException("Value 'ScheduledAction.targetAction' is not present");
     }
 
 }

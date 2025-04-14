@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.iot.outputs.ProvisioningTemplatePreProvisioningHook;
 import java.lang.Boolean;
@@ -20,88 +21,96 @@ public final class ProvisioningTemplate extends com.pulumi.resources.PolicyResou
      * The ARN that identifies the provisioning template.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ProvisioningTemplate.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ProvisioningTemplate.arn' is not present");
     }
 
     /**
      * The default version of the fleet provisioning template.
      * 
      */
-    private UndeferrableValue<Integer> defaultVersionId;
-
+    @PolicyResourceProperty(name="defaultVersionId", flag="unknown_defaultVersionId")
+    private Integer value_defaultVersionId;
+    private boolean unknown_defaultVersionId;
     public Integer defaultVersionId() {
-        if (defaultVersionId == null) return null;
-        return defaultVersionId.getValue("ProvisioningTemplate.defaultVersionId");
+        if (!unknown_defaultVersionId) return value_defaultVersionId;
+        throw new UndeferrableValueException("Value 'ProvisioningTemplate.defaultVersionId' is not present");
     }
 
     /**
      * The description of the fleet provisioning template.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ProvisioningTemplate.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ProvisioningTemplate.description' is not present");
     }
 
     /**
      * True to enable the fleet provisioning template, otherwise false.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("ProvisioningTemplate.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'ProvisioningTemplate.enabled' is not present");
     }
 
     /**
      * The name of the fleet provisioning template.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ProvisioningTemplate.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ProvisioningTemplate.name' is not present");
     }
 
     /**
      * Creates a pre-provisioning hook template. Details below.
      * 
      */
-    private @Nullable UndeferrableValue<ProvisioningTemplatePreProvisioningHook> preProvisioningHook;
-
+    @PolicyResourceProperty(name="preProvisioningHook", flag="unknown_preProvisioningHook")
+    private @Nullable ProvisioningTemplatePreProvisioningHook value_preProvisioningHook;
+    private boolean unknown_preProvisioningHook;
     public @Nullable ProvisioningTemplatePreProvisioningHook preProvisioningHook() {
-        if (preProvisioningHook == null) return null;
-        return preProvisioningHook.getValue("ProvisioningTemplate.preProvisioningHook");
+        if (!unknown_preProvisioningHook) return value_preProvisioningHook;
+        throw new UndeferrableValueException("Value 'ProvisioningTemplate.preProvisioningHook' is not present");
     }
 
     /**
      * The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
      * 
      */
-    private UndeferrableValue<String> provisioningRoleArn;
-
+    @PolicyResourceProperty(name="provisioningRoleArn", flag="unknown_provisioningRoleArn")
+    private String value_provisioningRoleArn;
+    private boolean unknown_provisioningRoleArn;
     public String provisioningRoleArn() {
-        if (provisioningRoleArn == null) return null;
-        return provisioningRoleArn.getValue("ProvisioningTemplate.provisioningRoleArn");
+        if (!unknown_provisioningRoleArn) return value_provisioningRoleArn;
+        throw new UndeferrableValueException("Value 'ProvisioningTemplate.provisioningRoleArn' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ProvisioningTemplate.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ProvisioningTemplate.tags' is not present");
     }
 
     /**
@@ -112,33 +121,36 @@ public final class ProvisioningTemplate extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ProvisioningTemplate.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ProvisioningTemplate.tagsAll' is not present");
     }
 
     /**
      * The JSON formatted contents of the fleet provisioning template.
      * 
      */
-    private UndeferrableValue<String> templateBody;
-
+    @PolicyResourceProperty(name="templateBody", flag="unknown_templateBody")
+    private String value_templateBody;
+    private boolean unknown_templateBody;
     public String templateBody() {
-        if (templateBody == null) return null;
-        return templateBody.getValue("ProvisioningTemplate.templateBody");
+        if (!unknown_templateBody) return value_templateBody;
+        throw new UndeferrableValueException("Value 'ProvisioningTemplate.templateBody' is not present");
     }
 
     /**
      * The type you define in a provisioning template.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ProvisioningTemplate.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ProvisioningTemplate.type' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs {
      * The value of the `X-Frame-Options` HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
      * 
      */
-    private UndeferrableValue<String> frameOption;
-
+    @PolicyResourceProperty(name="frameOption", flag="unknown_frameOption")
+    private String value_frameOption;
+    private boolean unknown_frameOption;
     public String frameOption() {
-        if (frameOption == null) return null;
-        return frameOption.getValue("ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs.frameOption");
+        if (!unknown_frameOption) return value_frameOption;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs.frameOption' is not present");
     }
 
     /**
      * Whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    private UndeferrableValue<Boolean> override;
-
+    @PolicyResourceProperty(name="override", flag="unknown_override")
+    private Boolean value_override;
+    private boolean unknown_override;
     public Boolean override() {
-        if (override == null) return null;
-        return override.getValue("ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs.override");
+        if (!unknown_override) return value_override;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs.override' is not present");
     }
 
 }

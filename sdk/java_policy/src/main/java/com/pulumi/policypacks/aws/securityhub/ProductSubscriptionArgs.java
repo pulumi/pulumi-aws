@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -53,11 +54,12 @@ public final class ProductSubscriptionArgs extends com.pulumi.resources.PolicyRe
      * * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
      * 
      */
-    private UndeferrableValue<String> productArn;
-
+    @PolicyResourceProperty(name="productArn", flag="unknown_productArn")
+    private String value_productArn;
+    private boolean unknown_productArn;
     public String productArn() {
-        if (productArn == null) return null;
-        return productArn.getValue("ProductSubscriptionArgs.productArn");
+        if (!unknown_productArn) return value_productArn;
+        throw new UndeferrableValueException("Value 'ProductSubscriptionArgs.productArn' is not present");
     }
 
 }

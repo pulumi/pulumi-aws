@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,33 +14,36 @@ public final class DataSetLogicalTableMapDataTransformCreateColumnsOperationColu
      * A unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
      * 
      */
-    private UndeferrableValue<String> columnId;
-
+    @PolicyResourceProperty(name="columnId", flag="unknown_columnId")
+    private String value_columnId;
+    private boolean unknown_columnId;
     public String columnId() {
-        if (columnId == null) return null;
-        return columnId.getValue("DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn.columnId");
+        if (!unknown_columnId) return value_columnId;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn.columnId' is not present");
     }
 
     /**
      * Column name.
      * 
      */
-    private UndeferrableValue<String> columnName;
-
+    @PolicyResourceProperty(name="columnName", flag="unknown_columnName")
+    private String value_columnName;
+    private boolean unknown_columnName;
     public String columnName() {
-        if (columnName == null) return null;
-        return columnName.getValue("DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn.columnName");
+        if (!unknown_columnName) return value_columnName;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn.columnName' is not present");
     }
 
     /**
      * An expression that defines the calculated column.
      * 
      */
-    private UndeferrableValue<String> expression;
-
+    @PolicyResourceProperty(name="expression", flag="unknown_expression")
+    private String value_expression;
+    private boolean unknown_expression;
     public String expression() {
-        if (expression == null) return null;
-        return expression.getValue("DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn.expression");
+        if (!unknown_expression) return value_expression;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn.expression' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.batch.outputs.JobDefinitionRetryStrategyEvaluateOnExit;
 import java.lang.Integer;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class JobDefinitionRetryStrategy {
      * Number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> attempts;
-
+    @PolicyResourceProperty(name="attempts", flag="unknown_attempts")
+    private @Nullable Integer value_attempts;
+    private boolean unknown_attempts;
     public @Nullable Integer attempts() {
-        if (attempts == null) return null;
-        return attempts.getValue("JobDefinitionRetryStrategy.attempts");
+        if (!unknown_attempts) return value_attempts;
+        throw new UndeferrableValueException("Value 'JobDefinitionRetryStrategy.attempts' is not present");
     }
 
     /**
      * Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
      * 
      */
-    private @Nullable UndeferrableValue<List<JobDefinitionRetryStrategyEvaluateOnExit>> evaluateOnExits;
-
+    @PolicyResourceProperty(name="evaluateOnExits", flag="unknown_evaluateOnExits")
+    private @Nullable List<JobDefinitionRetryStrategyEvaluateOnExit> value_evaluateOnExits;
+    private boolean unknown_evaluateOnExits;
     public @Nullable List<JobDefinitionRetryStrategyEvaluateOnExit> evaluateOnExits() {
-        if (evaluateOnExits == null) return null;
-        return evaluateOnExits.getValue("JobDefinitionRetryStrategy.evaluateOnExits");
+        if (!unknown_evaluateOnExits) return value_evaluateOnExits;
+        throw new UndeferrableValueException("Value 'JobDefinitionRetryStrategy.evaluateOnExits' is not present");
     }
 
 }

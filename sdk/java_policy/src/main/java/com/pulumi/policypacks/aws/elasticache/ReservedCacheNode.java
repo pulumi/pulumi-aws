@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticache;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.elasticache.outputs.ReservedCacheNodeRecurringCharge;
 import com.pulumi.policypacks.aws.elasticache.outputs.ReservedCacheNodeTimeouts;
@@ -22,11 +23,12 @@ public final class ReservedCacheNode extends com.pulumi.resources.PolicyResource
      * ARN for the reserved cache node.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ReservedCacheNode.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ReservedCacheNode.arn' is not present");
     }
 
     /**
@@ -34,77 +36,84 @@ public final class ReservedCacheNode extends com.pulumi.resources.PolicyResource
      * Default value is `1`.
      * 
      */
-    private UndeferrableValue<Integer> cacheNodeCount;
-
+    @PolicyResourceProperty(name="cacheNodeCount", flag="unknown_cacheNodeCount")
+    private Integer value_cacheNodeCount;
+    private boolean unknown_cacheNodeCount;
     public Integer cacheNodeCount() {
-        if (cacheNodeCount == null) return null;
-        return cacheNodeCount.getValue("ReservedCacheNode.cacheNodeCount");
+        if (!unknown_cacheNodeCount) return value_cacheNodeCount;
+        throw new UndeferrableValueException("Value 'ReservedCacheNode.cacheNodeCount' is not present");
     }
 
     /**
      * Node type for the reserved cache nodes.
      * 
      */
-    private UndeferrableValue<String> cacheNodeType;
-
+    @PolicyResourceProperty(name="cacheNodeType", flag="unknown_cacheNodeType")
+    private String value_cacheNodeType;
+    private boolean unknown_cacheNodeType;
     public String cacheNodeType() {
-        if (cacheNodeType == null) return null;
-        return cacheNodeType.getValue("ReservedCacheNode.cacheNodeType");
+        if (!unknown_cacheNodeType) return value_cacheNodeType;
+        throw new UndeferrableValueException("Value 'ReservedCacheNode.cacheNodeType' is not present");
     }
 
     /**
      * Duration of the reservation as an RFC3339 duration.
      * 
      */
-    private UndeferrableValue<String> duration;
-
+    @PolicyResourceProperty(name="duration", flag="unknown_duration")
+    private String value_duration;
+    private boolean unknown_duration;
     public String duration() {
-        if (duration == null) return null;
-        return duration.getValue("ReservedCacheNode.duration");
+        if (!unknown_duration) return value_duration;
+        throw new UndeferrableValueException("Value 'ReservedCacheNode.duration' is not present");
     }
 
     /**
      * Fixed price charged for this reserved cache node.
      * 
      */
-    private UndeferrableValue<Double> fixedPrice;
-
+    @PolicyResourceProperty(name="fixedPrice", flag="unknown_fixedPrice")
+    private Double value_fixedPrice;
+    private boolean unknown_fixedPrice;
     public Double fixedPrice() {
-        if (fixedPrice == null) return null;
-        return fixedPrice.getValue("ReservedCacheNode.fixedPrice");
+        if (!unknown_fixedPrice) return value_fixedPrice;
+        throw new UndeferrableValueException("Value 'ReservedCacheNode.fixedPrice' is not present");
     }
 
     /**
      * Offering type of this reserved cache node.
      * 
      */
-    private UndeferrableValue<String> offeringType;
-
+    @PolicyResourceProperty(name="offeringType", flag="unknown_offeringType")
+    private String value_offeringType;
+    private boolean unknown_offeringType;
     public String offeringType() {
-        if (offeringType == null) return null;
-        return offeringType.getValue("ReservedCacheNode.offeringType");
+        if (!unknown_offeringType) return value_offeringType;
+        throw new UndeferrableValueException("Value 'ReservedCacheNode.offeringType' is not present");
     }
 
     /**
      * Engine type for the reserved cache node.
      * 
      */
-    private UndeferrableValue<String> productDescription;
-
+    @PolicyResourceProperty(name="productDescription", flag="unknown_productDescription")
+    private String value_productDescription;
+    private boolean unknown_productDescription;
     public String productDescription() {
-        if (productDescription == null) return null;
-        return productDescription.getValue("ReservedCacheNode.productDescription");
+        if (!unknown_productDescription) return value_productDescription;
+        throw new UndeferrableValueException("Value 'ReservedCacheNode.productDescription' is not present");
     }
 
     /**
      * Recurring price charged to run this reserved cache node.
      * 
      */
-    private UndeferrableValue<List<ReservedCacheNodeRecurringCharge>> recurringCharges;
-
+    @PolicyResourceProperty(name="recurringCharges", flag="unknown_recurringCharges")
+    private List<ReservedCacheNodeRecurringCharge> value_recurringCharges;
+    private boolean unknown_recurringCharges;
     public List<ReservedCacheNodeRecurringCharge> recurringCharges() {
-        if (recurringCharges == null) return null;
-        return recurringCharges.getValue("ReservedCacheNode.recurringCharges");
+        if (!unknown_recurringCharges) return value_recurringCharges;
+        throw new UndeferrableValueException("Value 'ReservedCacheNode.recurringCharges' is not present");
     }
 
     /**
@@ -114,44 +123,48 @@ public final class ReservedCacheNode extends com.pulumi.resources.PolicyResource
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> reservedCacheNodesOfferingId;
-
+    @PolicyResourceProperty(name="reservedCacheNodesOfferingId", flag="unknown_reservedCacheNodesOfferingId")
+    private String value_reservedCacheNodesOfferingId;
+    private boolean unknown_reservedCacheNodesOfferingId;
     public String reservedCacheNodesOfferingId() {
-        if (reservedCacheNodesOfferingId == null) return null;
-        return reservedCacheNodesOfferingId.getValue("ReservedCacheNode.reservedCacheNodesOfferingId");
+        if (!unknown_reservedCacheNodesOfferingId) return value_reservedCacheNodesOfferingId;
+        throw new UndeferrableValueException("Value 'ReservedCacheNode.reservedCacheNodesOfferingId' is not present");
     }
 
     /**
      * Time the reservation started.
      * 
      */
-    private UndeferrableValue<String> startTime;
-
+    @PolicyResourceProperty(name="startTime", flag="unknown_startTime")
+    private String value_startTime;
+    private boolean unknown_startTime;
     public String startTime() {
-        if (startTime == null) return null;
-        return startTime.getValue("ReservedCacheNode.startTime");
+        if (!unknown_startTime) return value_startTime;
+        throw new UndeferrableValueException("Value 'ReservedCacheNode.startTime' is not present");
     }
 
     /**
      * State of the reserved cache node.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("ReservedCacheNode.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'ReservedCacheNode.state' is not present");
     }
 
     /**
      * Map of tags to assign to the reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ReservedCacheNode.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ReservedCacheNode.tags' is not present");
     }
 
     /**
@@ -162,29 +175,32 @@ public final class ReservedCacheNode extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ReservedCacheNode.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ReservedCacheNode.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<ReservedCacheNodeTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable ReservedCacheNodeTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable ReservedCacheNodeTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ReservedCacheNode.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ReservedCacheNode.timeouts' is not present");
     }
 
     /**
      * Hourly price charged for this reserved cache node.
      * 
      */
-    private UndeferrableValue<Double> usagePrice;
-
+    @PolicyResourceProperty(name="usagePrice", flag="unknown_usagePrice")
+    private Double value_usagePrice;
+    private boolean unknown_usagePrice;
     public Double usagePrice() {
-        if (usagePrice == null) return null;
-        return usagePrice.getValue("ReservedCacheNode.usagePrice");
+        if (!unknown_usagePrice) return value_usagePrice;
+        throw new UndeferrableValueException("Value 'ReservedCacheNode.usagePrice' is not present");
     }
 
 }

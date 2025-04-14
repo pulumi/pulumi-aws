@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class SecurityGroupAssociation extends com.pulumi.resources.PolicyR
      * Whether this association should replace the association with the VPC&#39;s default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`. `false` should be used when importing resources.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> replaceDefaultAssociation;
-
+    @PolicyResourceProperty(name="replaceDefaultAssociation", flag="unknown_replaceDefaultAssociation")
+    private @Nullable Boolean value_replaceDefaultAssociation;
+    private boolean unknown_replaceDefaultAssociation;
     public @Nullable Boolean replaceDefaultAssociation() {
-        if (replaceDefaultAssociation == null) return null;
-        return replaceDefaultAssociation.getValue("SecurityGroupAssociation.replaceDefaultAssociation");
+        if (!unknown_replaceDefaultAssociation) return value_replaceDefaultAssociation;
+        throw new UndeferrableValueException("Value 'SecurityGroupAssociation.replaceDefaultAssociation' is not present");
     }
 
     /**
      * The ID of the security group to be associated with the VPC endpoint.
      * 
      */
-    private UndeferrableValue<String> securityGroupId;
-
+    @PolicyResourceProperty(name="securityGroupId", flag="unknown_securityGroupId")
+    private String value_securityGroupId;
+    private boolean unknown_securityGroupId;
     public String securityGroupId() {
-        if (securityGroupId == null) return null;
-        return securityGroupId.getValue("SecurityGroupAssociation.securityGroupId");
+        if (!unknown_securityGroupId) return value_securityGroupId;
+        throw new UndeferrableValueException("Value 'SecurityGroupAssociation.securityGroupId' is not present");
     }
 
     /**
      * The ID of the VPC endpoint with which the security group will be associated.
      * 
      */
-    private UndeferrableValue<String> vpcEndpointId;
-
+    @PolicyResourceProperty(name="vpcEndpointId", flag="unknown_vpcEndpointId")
+    private String value_vpcEndpointId;
+    private boolean unknown_vpcEndpointId;
     public String vpcEndpointId() {
-        if (vpcEndpointId == null) return null;
-        return vpcEndpointId.getValue("SecurityGroupAssociation.vpcEndpointId");
+        if (!unknown_vpcEndpointId) return value_vpcEndpointId;
+        throw new UndeferrableValueException("Value 'SecurityGroupAssociation.vpcEndpointId' is not present");
     }
 
 }

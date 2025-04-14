@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.costexplorer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,55 +18,60 @@ public final class AnomalyMonitorArgs extends com.pulumi.resources.PolicyResourc
      * The dimensions to evaluate. Valid values: `SERVICE`.
      * 
      */
-    private UndeferrableValue<String> monitorDimension;
-
+    @PolicyResourceProperty(name="monitorDimension", flag="unknown_monitorDimension")
+    private String value_monitorDimension;
+    private boolean unknown_monitorDimension;
     public String monitorDimension() {
-        if (monitorDimension == null) return null;
-        return monitorDimension.getValue("AnomalyMonitorArgs.monitorDimension");
+        if (!unknown_monitorDimension) return value_monitorDimension;
+        throw new UndeferrableValueException("Value 'AnomalyMonitorArgs.monitorDimension' is not present");
     }
 
     /**
      * A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
      * 
      */
-    private UndeferrableValue<String> monitorSpecification;
-
+    @PolicyResourceProperty(name="monitorSpecification", flag="unknown_monitorSpecification")
+    private String value_monitorSpecification;
+    private boolean unknown_monitorSpecification;
     public String monitorSpecification() {
-        if (monitorSpecification == null) return null;
-        return monitorSpecification.getValue("AnomalyMonitorArgs.monitorSpecification");
+        if (!unknown_monitorSpecification) return value_monitorSpecification;
+        throw new UndeferrableValueException("Value 'AnomalyMonitorArgs.monitorSpecification' is not present");
     }
 
     /**
      * The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
      * 
      */
-    private UndeferrableValue<String> monitorType;
-
+    @PolicyResourceProperty(name="monitorType", flag="unknown_monitorType")
+    private String value_monitorType;
+    private boolean unknown_monitorType;
     public String monitorType() {
-        if (monitorType == null) return null;
-        return monitorType.getValue("AnomalyMonitorArgs.monitorType");
+        if (!unknown_monitorType) return value_monitorType;
+        throw new UndeferrableValueException("Value 'AnomalyMonitorArgs.monitorType' is not present");
     }
 
     /**
      * The name of the monitor.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AnomalyMonitorArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AnomalyMonitorArgs.name' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AnomalyMonitorArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AnomalyMonitorArgs.tags' is not present");
     }
 
 }

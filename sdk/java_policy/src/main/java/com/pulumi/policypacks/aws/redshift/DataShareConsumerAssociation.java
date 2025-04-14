@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class DataShareConsumerAssociation extends com.pulumi.resources.Pol
      * Whether to allow write operations for a datashare.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> allowWrites;
-
+    @PolicyResourceProperty(name="allowWrites", flag="unknown_allowWrites")
+    private @Nullable Boolean value_allowWrites;
+    private boolean unknown_allowWrites;
     public @Nullable Boolean allowWrites() {
-        if (allowWrites == null) return null;
-        return allowWrites.getValue("DataShareConsumerAssociation.allowWrites");
+        if (!unknown_allowWrites) return value_allowWrites;
+        throw new UndeferrableValueException("Value 'DataShareConsumerAssociation.allowWrites' is not present");
     }
 
     /**
      * Whether the datashare is associated with the entire account. Conflicts with `consumer_arn` and `consumer_region`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> associateEntireAccount;
-
+    @PolicyResourceProperty(name="associateEntireAccount", flag="unknown_associateEntireAccount")
+    private @Nullable Boolean value_associateEntireAccount;
+    private boolean unknown_associateEntireAccount;
     public @Nullable Boolean associateEntireAccount() {
-        if (associateEntireAccount == null) return null;
-        return associateEntireAccount.getValue("DataShareConsumerAssociation.associateEntireAccount");
+        if (!unknown_associateEntireAccount) return value_associateEntireAccount;
+        throw new UndeferrableValueException("Value 'DataShareConsumerAssociation.associateEntireAccount' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associate_entire_account` and `consumer_region`.
      * 
      */
-    private @Nullable UndeferrableValue<String> consumerArn;
-
+    @PolicyResourceProperty(name="consumerArn", flag="unknown_consumerArn")
+    private @Nullable String value_consumerArn;
+    private boolean unknown_consumerArn;
     public @Nullable String consumerArn() {
-        if (consumerArn == null) return null;
-        return consumerArn.getValue("DataShareConsumerAssociation.consumerArn");
+        if (!unknown_consumerArn) return value_consumerArn;
+        throw new UndeferrableValueException("Value 'DataShareConsumerAssociation.consumerArn' is not present");
     }
 
     /**
      * From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `associate_entire_account` and `consumer_arn`.
      * 
      */
-    private @Nullable UndeferrableValue<String> consumerRegion;
-
+    @PolicyResourceProperty(name="consumerRegion", flag="unknown_consumerRegion")
+    private @Nullable String value_consumerRegion;
+    private boolean unknown_consumerRegion;
     public @Nullable String consumerRegion() {
-        if (consumerRegion == null) return null;
-        return consumerRegion.getValue("DataShareConsumerAssociation.consumerRegion");
+        if (!unknown_consumerRegion) return value_consumerRegion;
+        throw new UndeferrableValueException("Value 'DataShareConsumerAssociation.consumerRegion' is not present");
     }
 
     /**
@@ -63,33 +68,36 @@ public final class DataShareConsumerAssociation extends com.pulumi.resources.Pol
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> dataShareArn;
-
+    @PolicyResourceProperty(name="dataShareArn", flag="unknown_dataShareArn")
+    private String value_dataShareArn;
+    private boolean unknown_dataShareArn;
     public String dataShareArn() {
-        if (dataShareArn == null) return null;
-        return dataShareArn.getValue("DataShareConsumerAssociation.dataShareArn");
+        if (!unknown_dataShareArn) return value_dataShareArn;
+        throw new UndeferrableValueException("Value 'DataShareConsumerAssociation.dataShareArn' is not present");
     }
 
     /**
      * Identifier of a datashare to show its managing entity.
      * 
      */
-    private UndeferrableValue<String> managedBy;
-
+    @PolicyResourceProperty(name="managedBy", flag="unknown_managedBy")
+    private String value_managedBy;
+    private boolean unknown_managedBy;
     public String managedBy() {
-        if (managedBy == null) return null;
-        return managedBy.getValue("DataShareConsumerAssociation.managedBy");
+        if (!unknown_managedBy) return value_managedBy;
+        throw new UndeferrableValueException("Value 'DataShareConsumerAssociation.managedBy' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the producer.
      * 
      */
-    private UndeferrableValue<String> producerArn;
-
+    @PolicyResourceProperty(name="producerArn", flag="unknown_producerArn")
+    private String value_producerArn;
+    private boolean unknown_producerArn;
     public String producerArn() {
-        if (producerArn == null) return null;
-        return producerArn.getValue("DataShareConsumerAssociation.producerArn");
+        if (!unknown_producerArn) return value_producerArn;
+        throw new UndeferrableValueException("Value 'DataShareConsumerAssociation.producerArn' is not present");
     }
 
 }

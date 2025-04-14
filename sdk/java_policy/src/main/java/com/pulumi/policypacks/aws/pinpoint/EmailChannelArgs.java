@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pinpoint;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,77 +18,84 @@ public final class EmailChannelArgs extends com.pulumi.resources.PolicyResourceI
      * The application ID.
      * 
      */
-    private UndeferrableValue<String> applicationId;
-
+    @PolicyResourceProperty(name="applicationId", flag="unknown_applicationId")
+    private String value_applicationId;
+    private boolean unknown_applicationId;
     public String applicationId() {
-        if (applicationId == null) return null;
-        return applicationId.getValue("EmailChannelArgs.applicationId");
+        if (!unknown_applicationId) return value_applicationId;
+        throw new UndeferrableValueException("Value 'EmailChannelArgs.applicationId' is not present");
     }
 
     /**
      * The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
      * 
      */
-    private UndeferrableValue<String> configurationSet;
-
+    @PolicyResourceProperty(name="configurationSet", flag="unknown_configurationSet")
+    private String value_configurationSet;
+    private boolean unknown_configurationSet;
     public String configurationSet() {
-        if (configurationSet == null) return null;
-        return configurationSet.getValue("EmailChannelArgs.configurationSet");
+        if (!unknown_configurationSet) return value_configurationSet;
+        throw new UndeferrableValueException("Value 'EmailChannelArgs.configurationSet' is not present");
     }
 
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("EmailChannelArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'EmailChannelArgs.enabled' is not present");
     }
 
     /**
      * The email address used to send emails from. You can use email only (`user{@literal @}example.com`) or friendly address (`User &lt;user{@literal @}example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
      * 
      */
-    private UndeferrableValue<String> fromAddress;
-
+    @PolicyResourceProperty(name="fromAddress", flag="unknown_fromAddress")
+    private String value_fromAddress;
+    private boolean unknown_fromAddress;
     public String fromAddress() {
-        if (fromAddress == null) return null;
-        return fromAddress.getValue("EmailChannelArgs.fromAddress");
+        if (!unknown_fromAddress) return value_fromAddress;
+        throw new UndeferrableValueException("Value 'EmailChannelArgs.fromAddress' is not present");
     }
 
     /**
      * The ARN of an identity verified with SES.
      * 
      */
-    private UndeferrableValue<String> identity;
-
+    @PolicyResourceProperty(name="identity", flag="unknown_identity")
+    private String value_identity;
+    private boolean unknown_identity;
     public String identity() {
-        if (identity == null) return null;
-        return identity.getValue("EmailChannelArgs.identity");
+        if (!unknown_identity) return value_identity;
+        throw new UndeferrableValueException("Value 'EmailChannelArgs.identity' is not present");
     }
 
     /**
      * The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
      * 
      */
-    private UndeferrableValue<String> orchestrationSendingRoleArn;
-
+    @PolicyResourceProperty(name="orchestrationSendingRoleArn", flag="unknown_orchestrationSendingRoleArn")
+    private String value_orchestrationSendingRoleArn;
+    private boolean unknown_orchestrationSendingRoleArn;
     public String orchestrationSendingRoleArn() {
-        if (orchestrationSendingRoleArn == null) return null;
-        return orchestrationSendingRoleArn.getValue("EmailChannelArgs.orchestrationSendingRoleArn");
+        if (!unknown_orchestrationSendingRoleArn) return value_orchestrationSendingRoleArn;
+        throw new UndeferrableValueException("Value 'EmailChannelArgs.orchestrationSendingRoleArn' is not present");
     }
 
     /**
      * *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("EmailChannelArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'EmailChannelArgs.roleArn' is not present");
     }
 
 }

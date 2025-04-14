@@ -3,25 +3,28 @@
 
 package com.pulumi.policypacks.aws.mwaa.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class EnvironmentLastUpdatedError {
 
-    private @Nullable UndeferrableValue<String> errorCode;
-
+    @PolicyResourceProperty(name="errorCode", flag="unknown_errorCode")
+    private @Nullable String value_errorCode;
+    private boolean unknown_errorCode;
     public @Nullable String errorCode() {
-        if (errorCode == null) return null;
-        return errorCode.getValue("EnvironmentLastUpdatedError.errorCode");
+        if (!unknown_errorCode) return value_errorCode;
+        throw new UndeferrableValueException("Value 'EnvironmentLastUpdatedError.errorCode' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> errorMessage;
-
+    @PolicyResourceProperty(name="errorMessage", flag="unknown_errorMessage")
+    private @Nullable String value_errorMessage;
+    private boolean unknown_errorMessage;
     public @Nullable String errorMessage() {
-        if (errorMessage == null) return null;
-        return errorMessage.getValue("EnvironmentLastUpdatedError.errorMessage");
+        if (!unknown_errorMessage) return value_errorMessage;
+        throw new UndeferrableValueException("Value 'EnvironmentLastUpdatedError.errorMessage' is not present");
     }
 
 }

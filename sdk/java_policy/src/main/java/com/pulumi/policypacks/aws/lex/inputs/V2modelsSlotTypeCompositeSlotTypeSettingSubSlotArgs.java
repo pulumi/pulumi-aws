@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs {
      * Name of a constituent sub slot inside a composite slot.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs.name' is not present");
     }
 
     /**
@@ -25,11 +27,12 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs {
      * This refers to either a built-in slot type or the unique `slot_type_id` of a custom slot type.
      * 
      */
-    private UndeferrableValue<String> slotTypeId;
-
+    @PolicyResourceProperty(name="slotTypeId", flag="unknown_slotTypeId")
+    private String value_slotTypeId;
+    private boolean unknown_slotTypeId;
     public String slotTypeId() {
-        if (slotTypeId == null) return null;
-        return slotTypeId.getValue("V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs.slotTypeId");
+        if (!unknown_slotTypeId) return value_slotTypeId;
+        throw new UndeferrableValueException("Value 'V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs.slotTypeId' is not present");
     }
 
 }

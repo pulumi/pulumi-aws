@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualGatewaySpecBackendDefaultsClientPolicy;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class VirtualGatewaySpecBackendDefaults {
      * Default client policy for virtual gateway backends.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualGatewaySpecBackendDefaultsClientPolicy> clientPolicy;
-
+    @PolicyResourceProperty(name="clientPolicy", flag="unknown_clientPolicy")
+    private @Nullable VirtualGatewaySpecBackendDefaultsClientPolicy value_clientPolicy;
+    private boolean unknown_clientPolicy;
     public @Nullable VirtualGatewaySpecBackendDefaultsClientPolicy clientPolicy() {
-        if (clientPolicy == null) return null;
-        return clientPolicy.getValue("VirtualGatewaySpecBackendDefaults.clientPolicy");
+        if (!unknown_clientPolicy) return value_clientPolicy;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecBackendDefaults.clientPolicy' is not present");
     }
 
 }

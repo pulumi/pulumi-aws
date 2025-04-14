@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ReportPlanReportDeliveryChannel {
      * A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> formats;
-
+    @PolicyResourceProperty(name="formats", flag="unknown_formats")
+    private @Nullable List<String> value_formats;
+    private boolean unknown_formats;
     public @Nullable List<String> formats() {
-        if (formats == null) return null;
-        return formats.getValue("ReportPlanReportDeliveryChannel.formats");
+        if (!unknown_formats) return value_formats;
+        throw new UndeferrableValueException("Value 'ReportPlanReportDeliveryChannel.formats' is not present");
     }
 
     /**
      * The unique name of the S3 bucket that receives your reports.
      * 
      */
-    private UndeferrableValue<String> s3BucketName;
-
+    @PolicyResourceProperty(name="s3BucketName", flag="unknown_s3BucketName")
+    private String value_s3BucketName;
+    private boolean unknown_s3BucketName;
     public String s3BucketName() {
-        if (s3BucketName == null) return null;
-        return s3BucketName.getValue("ReportPlanReportDeliveryChannel.s3BucketName");
+        if (!unknown_s3BucketName) return value_s3BucketName;
+        throw new UndeferrableValueException("Value 'ReportPlanReportDeliveryChannel.s3BucketName' is not present");
     }
 
     /**
      * The prefix for where Backup Audit Manager delivers your reports to Amazon S3. The prefix is this part of the following path: s3://your-bucket-name/prefix/Backup/us-west-2/year/month/day/report-name. If not specified, there is no prefix.
      * 
      */
-    private @Nullable UndeferrableValue<String> s3KeyPrefix;
-
+    @PolicyResourceProperty(name="s3KeyPrefix", flag="unknown_s3KeyPrefix")
+    private @Nullable String value_s3KeyPrefix;
+    private boolean unknown_s3KeyPrefix;
     public @Nullable String s3KeyPrefix() {
-        if (s3KeyPrefix == null) return null;
-        return s3KeyPrefix.getValue("ReportPlanReportDeliveryChannel.s3KeyPrefix");
+        if (!unknown_s3KeyPrefix) return value_s3KeyPrefix;
+        throw new UndeferrableValueException("Value 'ReportPlanReportDeliveryChannel.s3KeyPrefix' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ManagedPrefixListEntry {
      * CIDR block of this entry.
      * 
      */
-    private UndeferrableValue<String> cidr;
-
+    @PolicyResourceProperty(name="cidr", flag="unknown_cidr")
+    private String value_cidr;
+    private boolean unknown_cidr;
     public String cidr() {
-        if (cidr == null) return null;
-        return cidr.getValue("ManagedPrefixListEntry.cidr");
+        if (!unknown_cidr) return value_cidr;
+        throw new UndeferrableValueException("Value 'ManagedPrefixListEntry.cidr' is not present");
     }
 
     /**
      * Description of this entry. Due to API limitations, updating only the description of an existing entry requires temporarily removing and re-adding the entry.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ManagedPrefixListEntry.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ManagedPrefixListEntry.description' is not present");
     }
 
 }

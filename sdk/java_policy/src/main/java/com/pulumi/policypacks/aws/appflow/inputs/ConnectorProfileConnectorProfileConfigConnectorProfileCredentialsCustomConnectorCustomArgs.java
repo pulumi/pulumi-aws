@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      * A map that holds custom authentication credentials.
      * 
      */
-    private UndeferrableValue<Map<String,String>> credentialsMap;
-
+    @PolicyResourceProperty(name="credentialsMap", flag="unknown_credentialsMap")
+    private Map<String,String> value_credentialsMap;
+    private boolean unknown_credentialsMap;
     public Map<String,String> credentialsMap() {
-        if (credentialsMap == null) return null;
-        return credentialsMap.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs.credentialsMap");
+        if (!unknown_credentialsMap) return value_credentialsMap;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs.credentialsMap' is not present");
     }
 
     /**
      * The custom authentication type that the connector uses.
      * 
      */
-    private UndeferrableValue<String> customAuthenticationType;
-
+    @PolicyResourceProperty(name="customAuthenticationType", flag="unknown_customAuthenticationType")
+    private String value_customAuthenticationType;
+    private boolean unknown_customAuthenticationType;
     public String customAuthenticationType() {
-        if (customAuthenticationType == null) return null;
-        return customAuthenticationType.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs.customAuthenticationType");
+        if (!unknown_customAuthenticationType) return value_customAuthenticationType;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs.customAuthenticationType' is not present");
     }
 
 }

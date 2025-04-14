@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.inspector2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.inspector2.outputs.OrganizationConfigurationAutoEnable;
 import java.lang.Boolean;
@@ -16,22 +17,24 @@ public final class OrganizationConfiguration extends com.pulumi.resources.Policy
      * Configuration block for auto enabling. See below.
      * 
      */
-    private UndeferrableValue<OrganizationConfigurationAutoEnable> autoEnable;
-
+    @PolicyResourceProperty(name="autoEnable", flag="unknown_autoEnable")
+    private OrganizationConfigurationAutoEnable value_autoEnable;
+    private boolean unknown_autoEnable;
     public OrganizationConfigurationAutoEnable autoEnable() {
-        if (autoEnable == null) return null;
-        return autoEnable.getValue("OrganizationConfiguration.autoEnable");
+        if (!unknown_autoEnable) return value_autoEnable;
+        throw new UndeferrableValueException("Value 'OrganizationConfiguration.autoEnable' is not present");
     }
 
     /**
      * Whether your configuration reached the max account limit.
      * 
      */
-    private UndeferrableValue<Boolean> maxAccountLimitReached;
-
+    @PolicyResourceProperty(name="maxAccountLimitReached", flag="unknown_maxAccountLimitReached")
+    private Boolean value_maxAccountLimitReached;
+    private boolean unknown_maxAccountLimitReached;
     public Boolean maxAccountLimitReached() {
-        if (maxAccountLimitReached == null) return null;
-        return maxAccountLimitReached.getValue("OrganizationConfiguration.maxAccountLimitReached");
+        if (!unknown_maxAccountLimitReached) return value_maxAccountLimitReached;
+        throw new UndeferrableValueException("Value 'OrganizationConfiguration.maxAccountLimitReached' is not present");
     }
 
 }

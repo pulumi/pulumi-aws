@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ses;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,11 +16,12 @@ public final class DomainIdentityVerificationArgs extends com.pulumi.resources.P
      * The domain name of the SES domain identity to verify.
      * 
      */
-    private UndeferrableValue<String> domain;
-
+    @PolicyResourceProperty(name="domain", flag="unknown_domain")
+    private String value_domain;
+    private boolean unknown_domain;
     public String domain() {
-        if (domain == null) return null;
-        return domain.getValue("DomainIdentityVerificationArgs.domain");
+        if (!unknown_domain) return value_domain;
+        throw new UndeferrableValueException("Value 'DomainIdentityVerificationArgs.domain' is not present");
     }
 
 }

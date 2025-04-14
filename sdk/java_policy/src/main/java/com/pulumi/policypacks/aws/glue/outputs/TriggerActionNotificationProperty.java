@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class TriggerActionNotificationProperty {
      * After a job run starts, the number of minutes to wait before sending a job run delay notification.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> notifyDelayAfter;
-
+    @PolicyResourceProperty(name="notifyDelayAfter", flag="unknown_notifyDelayAfter")
+    private @Nullable Integer value_notifyDelayAfter;
+    private boolean unknown_notifyDelayAfter;
     public @Nullable Integer notifyDelayAfter() {
-        if (notifyDelayAfter == null) return null;
-        return notifyDelayAfter.getValue("TriggerActionNotificationProperty.notifyDelayAfter");
+        if (!unknown_notifyDelayAfter) return value_notifyDelayAfter;
+        throw new UndeferrableValueException("Value 'TriggerActionNotificationProperty.notifyDelayAfter' is not present");
     }
 
 }

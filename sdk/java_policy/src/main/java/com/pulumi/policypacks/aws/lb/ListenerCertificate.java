@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class ListenerCertificate extends com.pulumi.resources.PolicyResour
      * The ARN of the certificate to attach to the listener.
      * 
      */
-    private UndeferrableValue<String> certificateArn;
-
+    @PolicyResourceProperty(name="certificateArn", flag="unknown_certificateArn")
+    private String value_certificateArn;
+    private boolean unknown_certificateArn;
     public String certificateArn() {
-        if (certificateArn == null) return null;
-        return certificateArn.getValue("ListenerCertificate.certificateArn");
+        if (!unknown_certificateArn) return value_certificateArn;
+        throw new UndeferrableValueException("Value 'ListenerCertificate.certificateArn' is not present");
     }
 
     /**
      * The ARN of the listener to which to attach the certificate.
      * 
      */
-    private UndeferrableValue<String> listenerArn;
-
+    @PolicyResourceProperty(name="listenerArn", flag="unknown_listenerArn")
+    private String value_listenerArn;
+    private boolean unknown_listenerArn;
     public String listenerArn() {
-        if (listenerArn == null) return null;
-        return listenerArn.getValue("ListenerCertificate.listenerArn");
+        if (!unknown_listenerArn) return value_listenerArn;
+        throw new UndeferrableValueException("Value 'ListenerCertificate.listenerArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DeliveryChannelSnapshotDeliveryProperties {
      * The frequency with which AWS Config recurringly delivers configuration snapshotsE.g., `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
      * 
      */
-    private @Nullable UndeferrableValue<String> deliveryFrequency;
-
+    @PolicyResourceProperty(name="deliveryFrequency", flag="unknown_deliveryFrequency")
+    private @Nullable String value_deliveryFrequency;
+    private boolean unknown_deliveryFrequency;
     public @Nullable String deliveryFrequency() {
-        if (deliveryFrequency == null) return null;
-        return deliveryFrequency.getValue("DeliveryChannelSnapshotDeliveryProperties.deliveryFrequency");
+        if (!unknown_deliveryFrequency) return value_deliveryFrequency;
+        throw new UndeferrableValueException("Value 'DeliveryChannelSnapshotDeliveryProperties.deliveryFrequency' is not present");
     }
 
 }

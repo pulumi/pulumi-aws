@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glacier;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.glacier.inputs.VaultNotificationArgs;
 import java.lang.String;
@@ -19,44 +20,48 @@ public final class VaultArgs extends com.pulumi.resources.PolicyResourceInput {
      * The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
      * 
      */
-    private UndeferrableValue<String> accessPolicy;
-
+    @PolicyResourceProperty(name="accessPolicy", flag="unknown_accessPolicy")
+    private String value_accessPolicy;
+    private boolean unknown_accessPolicy;
     public String accessPolicy() {
-        if (accessPolicy == null) return null;
-        return accessPolicy.getValue("VaultArgs.accessPolicy");
+        if (!unknown_accessPolicy) return value_accessPolicy;
+        throw new UndeferrableValueException("Value 'VaultArgs.accessPolicy' is not present");
     }
 
     /**
      * The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, &#39;_&#39; (underscore), &#39;-&#39; (hyphen), and &#39;.&#39; (period).
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("VaultArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'VaultArgs.name' is not present");
     }
 
     /**
      * The notifications for the Vault. Fields documented below.
      * 
      */
-    private UndeferrableValue<VaultNotificationArgs> notification;
-
+    @PolicyResourceProperty(name="notification", flag="unknown_notification")
+    private VaultNotificationArgs value_notification;
+    private boolean unknown_notification;
     public VaultNotificationArgs notification() {
-        if (notification == null) return null;
-        return notification.getValue("VaultArgs.notification");
+        if (!unknown_notification) return value_notification;
+        throw new UndeferrableValueException("Value 'VaultArgs.notification' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VaultArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VaultArgs.tags' is not present");
     }
 
 }

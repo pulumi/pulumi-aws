@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -16,22 +17,24 @@ public final class RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs {
      * See [Snort General Rule Options](http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node31.html) or [Suricata Rule Options](https://suricata.readthedocs.io/en/suricata-5.0.1/rules/intro.html#rule-options) for more details.
      * 
      */
-    private UndeferrableValue<String> keyword;
-
+    @PolicyResourceProperty(name="keyword", flag="unknown_keyword")
+    private String value_keyword;
+    private boolean unknown_keyword;
     public String keyword() {
-        if (keyword == null) return null;
-        return keyword.getValue("RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs.keyword");
+        if (!unknown_keyword) return value_keyword;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs.keyword' is not present");
     }
 
     /**
      * Set of strings for additional settings to use in stateful rule inspection.
      * 
      */
-    private UndeferrableValue<List<String>> settings;
-
+    @PolicyResourceProperty(name="settings", flag="unknown_settings")
+    private List<String> value_settings;
+    private boolean unknown_settings;
     public List<String> settings() {
-        if (settings == null) return null;
-        return settings.getValue("RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs.settings");
+        if (!unknown_settings) return value_settings;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs.settings' is not present");
     }
 
 }

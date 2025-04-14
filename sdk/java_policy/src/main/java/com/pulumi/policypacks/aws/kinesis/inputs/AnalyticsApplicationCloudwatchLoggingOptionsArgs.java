@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class AnalyticsApplicationCloudwatchLoggingOptionsArgs {
      * The ARN of the Kinesis Analytics Application.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("AnalyticsApplicationCloudwatchLoggingOptionsArgs.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationCloudwatchLoggingOptionsArgs.id' is not present");
     }
 
     /**
      * The ARN of the CloudWatch Log Stream.
      * 
      */
-    private UndeferrableValue<String> logStreamArn;
-
+    @PolicyResourceProperty(name="logStreamArn", flag="unknown_logStreamArn")
+    private String value_logStreamArn;
+    private boolean unknown_logStreamArn;
     public String logStreamArn() {
-        if (logStreamArn == null) return null;
-        return logStreamArn.getValue("AnalyticsApplicationCloudwatchLoggingOptionsArgs.logStreamArn");
+        if (!unknown_logStreamArn) return value_logStreamArn;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationCloudwatchLoggingOptionsArgs.logStreamArn' is not present");
     }
 
     /**
      * The ARN of the IAM Role used to send application messages.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("AnalyticsApplicationCloudwatchLoggingOptionsArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationCloudwatchLoggingOptionsArgs.roleArn' is not present");
     }
 
 }

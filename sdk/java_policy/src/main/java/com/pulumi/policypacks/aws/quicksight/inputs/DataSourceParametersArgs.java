@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.inputs.DataSourceParametersAmazonElasticsearchArgs;
 import com.pulumi.policypacks.aws.quicksight.inputs.DataSourceParametersAthenaArgs;
 import com.pulumi.policypacks.aws.quicksight.inputs.DataSourceParametersAuroraArgs;
@@ -34,231 +35,252 @@ public final class DataSourceParametersArgs {
      * Parameters for connecting to Amazon Elasticsearch.
      * 
      */
-    private UndeferrableValue<DataSourceParametersAmazonElasticsearchArgs> amazonElasticsearch;
-
+    @PolicyResourceProperty(name="amazonElasticsearch", flag="unknown_amazonElasticsearch")
+    private DataSourceParametersAmazonElasticsearchArgs value_amazonElasticsearch;
+    private boolean unknown_amazonElasticsearch;
     public DataSourceParametersAmazonElasticsearchArgs amazonElasticsearch() {
-        if (amazonElasticsearch == null) return null;
-        return amazonElasticsearch.getValue("DataSourceParametersArgs.amazonElasticsearch");
+        if (!unknown_amazonElasticsearch) return value_amazonElasticsearch;
+        throw new UndeferrableValueException("Value 'DataSourceParametersArgs.amazonElasticsearch' is not present");
     }
 
     /**
      * Parameters for connecting to Athena.
      * 
      */
-    private UndeferrableValue<DataSourceParametersAthenaArgs> athena;
-
+    @PolicyResourceProperty(name="athena", flag="unknown_athena")
+    private DataSourceParametersAthenaArgs value_athena;
+    private boolean unknown_athena;
     public DataSourceParametersAthenaArgs athena() {
-        if (athena == null) return null;
-        return athena.getValue("DataSourceParametersArgs.athena");
+        if (!unknown_athena) return value_athena;
+        throw new UndeferrableValueException("Value 'DataSourceParametersArgs.athena' is not present");
     }
 
     /**
      * Parameters for connecting to Aurora MySQL.
      * 
      */
-    private UndeferrableValue<DataSourceParametersAuroraArgs> aurora;
-
+    @PolicyResourceProperty(name="aurora", flag="unknown_aurora")
+    private DataSourceParametersAuroraArgs value_aurora;
+    private boolean unknown_aurora;
     public DataSourceParametersAuroraArgs aurora() {
-        if (aurora == null) return null;
-        return aurora.getValue("DataSourceParametersArgs.aurora");
+        if (!unknown_aurora) return value_aurora;
+        throw new UndeferrableValueException("Value 'DataSourceParametersArgs.aurora' is not present");
     }
 
     /**
      * Parameters for connecting to Aurora Postgresql.
      * 
      */
-    private UndeferrableValue<DataSourceParametersAuroraPostgresqlArgs> auroraPostgresql;
-
+    @PolicyResourceProperty(name="auroraPostgresql", flag="unknown_auroraPostgresql")
+    private DataSourceParametersAuroraPostgresqlArgs value_auroraPostgresql;
+    private boolean unknown_auroraPostgresql;
     public DataSourceParametersAuroraPostgresqlArgs auroraPostgresql() {
-        if (auroraPostgresql == null) return null;
-        return auroraPostgresql.getValue("DataSourceParametersArgs.auroraPostgresql");
+        if (!unknown_auroraPostgresql) return value_auroraPostgresql;
+        throw new UndeferrableValueException("Value 'DataSourceParametersArgs.auroraPostgresql' is not present");
     }
 
     /**
      * Parameters for connecting to AWS IOT Analytics.
      * 
      */
-    private UndeferrableValue<DataSourceParametersAwsIotAnalyticsArgs> awsIotAnalytics;
-
+    @PolicyResourceProperty(name="awsIotAnalytics", flag="unknown_awsIotAnalytics")
+    private DataSourceParametersAwsIotAnalyticsArgs value_awsIotAnalytics;
+    private boolean unknown_awsIotAnalytics;
     public DataSourceParametersAwsIotAnalyticsArgs awsIotAnalytics() {
-        if (awsIotAnalytics == null) return null;
-        return awsIotAnalytics.getValue("DataSourceParametersArgs.awsIotAnalytics");
+        if (!unknown_awsIotAnalytics) return value_awsIotAnalytics;
+        throw new UndeferrableValueException("Value 'DataSourceParametersArgs.awsIotAnalytics' is not present");
     }
 
     /**
      * Parameters for connecting to Databricks.
      * 
      */
-    private UndeferrableValue<DataSourceParametersDatabricksArgs> databricks;
-
+    @PolicyResourceProperty(name="databricks", flag="unknown_databricks")
+    private DataSourceParametersDatabricksArgs value_databricks;
+    private boolean unknown_databricks;
     public DataSourceParametersDatabricksArgs databricks() {
-        if (databricks == null) return null;
-        return databricks.getValue("DataSourceParametersArgs.databricks");
+        if (!unknown_databricks) return value_databricks;
+        throw new UndeferrableValueException("Value 'DataSourceParametersArgs.databricks' is not present");
     }
 
     /**
      * Parameters for connecting to Jira.
      * 
      */
-    private UndeferrableValue<DataSourceParametersJiraArgs> jira;
-
+    @PolicyResourceProperty(name="jira", flag="unknown_jira")
+    private DataSourceParametersJiraArgs value_jira;
+    private boolean unknown_jira;
     public DataSourceParametersJiraArgs jira() {
-        if (jira == null) return null;
-        return jira.getValue("DataSourceParametersArgs.jira");
+        if (!unknown_jira) return value_jira;
+        throw new UndeferrableValueException("Value 'DataSourceParametersArgs.jira' is not present");
     }
 
     /**
      * Parameters for connecting to MariaDB.
      * 
      */
-    private UndeferrableValue<DataSourceParametersMariaDbArgs> mariaDb;
-
+    @PolicyResourceProperty(name="mariaDb", flag="unknown_mariaDb")
+    private DataSourceParametersMariaDbArgs value_mariaDb;
+    private boolean unknown_mariaDb;
     public DataSourceParametersMariaDbArgs mariaDb() {
-        if (mariaDb == null) return null;
-        return mariaDb.getValue("DataSourceParametersArgs.mariaDb");
+        if (!unknown_mariaDb) return value_mariaDb;
+        throw new UndeferrableValueException("Value 'DataSourceParametersArgs.mariaDb' is not present");
     }
 
     /**
      * Parameters for connecting to MySQL.
      * 
      */
-    private UndeferrableValue<DataSourceParametersMysqlArgs> mysql;
-
+    @PolicyResourceProperty(name="mysql", flag="unknown_mysql")
+    private DataSourceParametersMysqlArgs value_mysql;
+    private boolean unknown_mysql;
     public DataSourceParametersMysqlArgs mysql() {
-        if (mysql == null) return null;
-        return mysql.getValue("DataSourceParametersArgs.mysql");
+        if (!unknown_mysql) return value_mysql;
+        throw new UndeferrableValueException("Value 'DataSourceParametersArgs.mysql' is not present");
     }
 
     /**
      * Parameters for connecting to Oracle.
      * 
      */
-    private UndeferrableValue<DataSourceParametersOracleArgs> oracle;
-
+    @PolicyResourceProperty(name="oracle", flag="unknown_oracle")
+    private DataSourceParametersOracleArgs value_oracle;
+    private boolean unknown_oracle;
     public DataSourceParametersOracleArgs oracle() {
-        if (oracle == null) return null;
-        return oracle.getValue("DataSourceParametersArgs.oracle");
+        if (!unknown_oracle) return value_oracle;
+        throw new UndeferrableValueException("Value 'DataSourceParametersArgs.oracle' is not present");
     }
 
     /**
      * Parameters for connecting to Postgresql.
      * 
      */
-    private UndeferrableValue<DataSourceParametersPostgresqlArgs> postgresql;
-
+    @PolicyResourceProperty(name="postgresql", flag="unknown_postgresql")
+    private DataSourceParametersPostgresqlArgs value_postgresql;
+    private boolean unknown_postgresql;
     public DataSourceParametersPostgresqlArgs postgresql() {
-        if (postgresql == null) return null;
-        return postgresql.getValue("DataSourceParametersArgs.postgresql");
+        if (!unknown_postgresql) return value_postgresql;
+        throw new UndeferrableValueException("Value 'DataSourceParametersArgs.postgresql' is not present");
     }
 
     /**
      * Parameters for connecting to Presto.
      * 
      */
-    private UndeferrableValue<DataSourceParametersPrestoArgs> presto;
-
+    @PolicyResourceProperty(name="presto", flag="unknown_presto")
+    private DataSourceParametersPrestoArgs value_presto;
+    private boolean unknown_presto;
     public DataSourceParametersPrestoArgs presto() {
-        if (presto == null) return null;
-        return presto.getValue("DataSourceParametersArgs.presto");
+        if (!unknown_presto) return value_presto;
+        throw new UndeferrableValueException("Value 'DataSourceParametersArgs.presto' is not present");
     }
 
     /**
      * Parameters for connecting to RDS.
      * 
      */
-    private UndeferrableValue<DataSourceParametersRdsArgs> rds;
-
+    @PolicyResourceProperty(name="rds", flag="unknown_rds")
+    private DataSourceParametersRdsArgs value_rds;
+    private boolean unknown_rds;
     public DataSourceParametersRdsArgs rds() {
-        if (rds == null) return null;
-        return rds.getValue("DataSourceParametersArgs.rds");
+        if (!unknown_rds) return value_rds;
+        throw new UndeferrableValueException("Value 'DataSourceParametersArgs.rds' is not present");
     }
 
     /**
      * Parameters for connecting to Redshift.
      * 
      */
-    private UndeferrableValue<DataSourceParametersRedshiftArgs> redshift;
-
+    @PolicyResourceProperty(name="redshift", flag="unknown_redshift")
+    private DataSourceParametersRedshiftArgs value_redshift;
+    private boolean unknown_redshift;
     public DataSourceParametersRedshiftArgs redshift() {
-        if (redshift == null) return null;
-        return redshift.getValue("DataSourceParametersArgs.redshift");
+        if (!unknown_redshift) return value_redshift;
+        throw new UndeferrableValueException("Value 'DataSourceParametersArgs.redshift' is not present");
     }
 
     /**
      * Parameters for connecting to S3.
      * 
      */
-    private UndeferrableValue<DataSourceParametersS3Args> s3;
-
+    @PolicyResourceProperty(name="s3", flag="unknown_s3")
+    private DataSourceParametersS3Args value_s3;
+    private boolean unknown_s3;
     public DataSourceParametersS3Args s3() {
-        if (s3 == null) return null;
-        return s3.getValue("DataSourceParametersArgs.s3");
+        if (!unknown_s3) return value_s3;
+        throw new UndeferrableValueException("Value 'DataSourceParametersArgs.s3' is not present");
     }
 
     /**
      * Parameters for connecting to ServiceNow.
      * 
      */
-    private UndeferrableValue<DataSourceParametersServiceNowArgs> serviceNow;
-
+    @PolicyResourceProperty(name="serviceNow", flag="unknown_serviceNow")
+    private DataSourceParametersServiceNowArgs value_serviceNow;
+    private boolean unknown_serviceNow;
     public DataSourceParametersServiceNowArgs serviceNow() {
-        if (serviceNow == null) return null;
-        return serviceNow.getValue("DataSourceParametersArgs.serviceNow");
+        if (!unknown_serviceNow) return value_serviceNow;
+        throw new UndeferrableValueException("Value 'DataSourceParametersArgs.serviceNow' is not present");
     }
 
     /**
      * Parameters for connecting to Snowflake.
      * 
      */
-    private UndeferrableValue<DataSourceParametersSnowflakeArgs> snowflake;
-
+    @PolicyResourceProperty(name="snowflake", flag="unknown_snowflake")
+    private DataSourceParametersSnowflakeArgs value_snowflake;
+    private boolean unknown_snowflake;
     public DataSourceParametersSnowflakeArgs snowflake() {
-        if (snowflake == null) return null;
-        return snowflake.getValue("DataSourceParametersArgs.snowflake");
+        if (!unknown_snowflake) return value_snowflake;
+        throw new UndeferrableValueException("Value 'DataSourceParametersArgs.snowflake' is not present");
     }
 
     /**
      * Parameters for connecting to Spark.
      * 
      */
-    private UndeferrableValue<DataSourceParametersSparkArgs> spark;
-
+    @PolicyResourceProperty(name="spark", flag="unknown_spark")
+    private DataSourceParametersSparkArgs value_spark;
+    private boolean unknown_spark;
     public DataSourceParametersSparkArgs spark() {
-        if (spark == null) return null;
-        return spark.getValue("DataSourceParametersArgs.spark");
+        if (!unknown_spark) return value_spark;
+        throw new UndeferrableValueException("Value 'DataSourceParametersArgs.spark' is not present");
     }
 
     /**
      * Parameters for connecting to SQL Server.
      * 
      */
-    private UndeferrableValue<DataSourceParametersSqlServerArgs> sqlServer;
-
+    @PolicyResourceProperty(name="sqlServer", flag="unknown_sqlServer")
+    private DataSourceParametersSqlServerArgs value_sqlServer;
+    private boolean unknown_sqlServer;
     public DataSourceParametersSqlServerArgs sqlServer() {
-        if (sqlServer == null) return null;
-        return sqlServer.getValue("DataSourceParametersArgs.sqlServer");
+        if (!unknown_sqlServer) return value_sqlServer;
+        throw new UndeferrableValueException("Value 'DataSourceParametersArgs.sqlServer' is not present");
     }
 
     /**
      * Parameters for connecting to Teradata.
      * 
      */
-    private UndeferrableValue<DataSourceParametersTeradataArgs> teradata;
-
+    @PolicyResourceProperty(name="teradata", flag="unknown_teradata")
+    private DataSourceParametersTeradataArgs value_teradata;
+    private boolean unknown_teradata;
     public DataSourceParametersTeradataArgs teradata() {
-        if (teradata == null) return null;
-        return teradata.getValue("DataSourceParametersArgs.teradata");
+        if (!unknown_teradata) return value_teradata;
+        throw new UndeferrableValueException("Value 'DataSourceParametersArgs.teradata' is not present");
     }
 
     /**
      * Parameters for connecting to Twitter.
      * 
      */
-    private UndeferrableValue<DataSourceParametersTwitterArgs> twitter;
-
+    @PolicyResourceProperty(name="twitter", flag="unknown_twitter")
+    private DataSourceParametersTwitterArgs value_twitter;
+    private boolean unknown_twitter;
     public DataSourceParametersTwitterArgs twitter() {
-        if (twitter == null) return null;
-        return twitter.getValue("DataSourceParametersArgs.twitter");
+        if (!unknown_twitter) return value_twitter;
+        throw new UndeferrableValueException("Value 'DataSourceParametersArgs.twitter' is not present");
     }
 
 }

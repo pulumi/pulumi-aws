@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.vpclattice.inputs.ListenerRuleMatchHttpMatchHeaderMatchArgs;
 import com.pulumi.policypacks.aws.vpclattice.inputs.ListenerRuleMatchHttpMatchPathMatchArgs;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class ListenerRuleMatchHttpMatchArgs {
      * The header matches. Matches incoming requests with rule based on request header value before applying rule action.
      * 
      */
-    private UndeferrableValue<List<ListenerRuleMatchHttpMatchHeaderMatchArgs>> headerMatches;
-
+    @PolicyResourceProperty(name="headerMatches", flag="unknown_headerMatches")
+    private List<ListenerRuleMatchHttpMatchHeaderMatchArgs> value_headerMatches;
+    private boolean unknown_headerMatches;
     public List<ListenerRuleMatchHttpMatchHeaderMatchArgs> headerMatches() {
-        if (headerMatches == null) return null;
-        return headerMatches.getValue("ListenerRuleMatchHttpMatchArgs.headerMatches");
+        if (!unknown_headerMatches) return value_headerMatches;
+        throw new UndeferrableValueException("Value 'ListenerRuleMatchHttpMatchArgs.headerMatches' is not present");
     }
 
     /**
      * The HTTP method type.
      * 
      */
-    private UndeferrableValue<String> method;
-
+    @PolicyResourceProperty(name="method", flag="unknown_method")
+    private String value_method;
+    private boolean unknown_method;
     public String method() {
-        if (method == null) return null;
-        return method.getValue("ListenerRuleMatchHttpMatchArgs.method");
+        if (!unknown_method) return value_method;
+        throw new UndeferrableValueException("Value 'ListenerRuleMatchHttpMatchArgs.method' is not present");
     }
 
     /**
      * The path match.
      * 
      */
-    private UndeferrableValue<ListenerRuleMatchHttpMatchPathMatchArgs> pathMatch;
-
+    @PolicyResourceProperty(name="pathMatch", flag="unknown_pathMatch")
+    private ListenerRuleMatchHttpMatchPathMatchArgs value_pathMatch;
+    private boolean unknown_pathMatch;
     public ListenerRuleMatchHttpMatchPathMatchArgs pathMatch() {
-        if (pathMatch == null) return null;
-        return pathMatch.getValue("ListenerRuleMatchHttpMatchArgs.pathMatch");
+        if (!unknown_pathMatch) return value_pathMatch;
+        throw new UndeferrableValueException("Value 'ListenerRuleMatchHttpMatchArgs.pathMatch' is not present");
     }
 
 }

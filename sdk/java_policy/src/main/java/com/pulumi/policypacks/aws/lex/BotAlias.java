@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lex.outputs.BotAliasConversationLogs;
 import java.lang.String;
@@ -17,99 +18,108 @@ public final class BotAlias extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN of the bot alias.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("BotAlias.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'BotAlias.arn' is not present");
     }
 
     /**
      * The name of the bot.
      * 
      */
-    private UndeferrableValue<String> botName;
-
+    @PolicyResourceProperty(name="botName", flag="unknown_botName")
+    private String value_botName;
+    private boolean unknown_botName;
     public String botName() {
-        if (botName == null) return null;
-        return botName.getValue("BotAlias.botName");
+        if (!unknown_botName) return value_botName;
+        throw new UndeferrableValueException("Value 'BotAlias.botName' is not present");
     }
 
     /**
      * The version of the bot.
      * 
      */
-    private UndeferrableValue<String> botVersion;
-
+    @PolicyResourceProperty(name="botVersion", flag="unknown_botVersion")
+    private String value_botVersion;
+    private boolean unknown_botVersion;
     public String botVersion() {
-        if (botVersion == null) return null;
-        return botVersion.getValue("BotAlias.botVersion");
+        if (!unknown_botVersion) return value_botVersion;
+        throw new UndeferrableValueException("Value 'BotAlias.botVersion' is not present");
     }
 
     /**
      * Checksum of the bot alias.
      * 
      */
-    private UndeferrableValue<String> checksum;
-
+    @PolicyResourceProperty(name="checksum", flag="unknown_checksum")
+    private String value_checksum;
+    private boolean unknown_checksum;
     public String checksum() {
-        if (checksum == null) return null;
-        return checksum.getValue("BotAlias.checksum");
+        if (!unknown_checksum) return value_checksum;
+        throw new UndeferrableValueException("Value 'BotAlias.checksum' is not present");
     }
 
     /**
      * The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
      * 
      */
-    private @Nullable UndeferrableValue<BotAliasConversationLogs> conversationLogs;
-
+    @PolicyResourceProperty(name="conversationLogs", flag="unknown_conversationLogs")
+    private @Nullable BotAliasConversationLogs value_conversationLogs;
+    private boolean unknown_conversationLogs;
     public @Nullable BotAliasConversationLogs conversationLogs() {
-        if (conversationLogs == null) return null;
-        return conversationLogs.getValue("BotAlias.conversationLogs");
+        if (!unknown_conversationLogs) return value_conversationLogs;
+        throw new UndeferrableValueException("Value 'BotAlias.conversationLogs' is not present");
     }
 
     /**
      * The date that the bot alias was created.
      * 
      */
-    private UndeferrableValue<String> createdDate;
-
+    @PolicyResourceProperty(name="createdDate", flag="unknown_createdDate")
+    private String value_createdDate;
+    private boolean unknown_createdDate;
     public String createdDate() {
-        if (createdDate == null) return null;
-        return createdDate.getValue("BotAlias.createdDate");
+        if (!unknown_createdDate) return value_createdDate;
+        throw new UndeferrableValueException("Value 'BotAlias.createdDate' is not present");
     }
 
     /**
      * A description of the alias. Must be less than or equal to 200 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("BotAlias.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'BotAlias.description' is not present");
     }
 
     /**
      * The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
      * 
      */
-    private UndeferrableValue<String> lastUpdatedDate;
-
+    @PolicyResourceProperty(name="lastUpdatedDate", flag="unknown_lastUpdatedDate")
+    private String value_lastUpdatedDate;
+    private boolean unknown_lastUpdatedDate;
     public String lastUpdatedDate() {
-        if (lastUpdatedDate == null) return null;
-        return lastUpdatedDate.getValue("BotAlias.lastUpdatedDate");
+        if (!unknown_lastUpdatedDate) return value_lastUpdatedDate;
+        throw new UndeferrableValueException("Value 'BotAlias.lastUpdatedDate' is not present");
     }
 
     /**
      * The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("BotAlias.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'BotAlias.name' is not present");
     }
 
 }

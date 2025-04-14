@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class RuleSourceSourceDetail {
      * The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWSresources. This defaults to `aws.config` and is the only valid value.
      * 
      */
-    private @Nullable UndeferrableValue<String> eventSource;
-
+    @PolicyResourceProperty(name="eventSource", flag="unknown_eventSource")
+    private @Nullable String value_eventSource;
+    private boolean unknown_eventSource;
     public @Nullable String eventSource() {
-        if (eventSource == null) return null;
-        return eventSource.getValue("RuleSourceSourceDetail.eventSource");
+        if (!unknown_eventSource) return value_eventSource;
+        throw new UndeferrableValueException("Value 'RuleSourceSourceDetail.eventSource' is not present");
     }
 
     /**
      * The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
      * 
      */
-    private @Nullable UndeferrableValue<String> maximumExecutionFrequency;
-
+    @PolicyResourceProperty(name="maximumExecutionFrequency", flag="unknown_maximumExecutionFrequency")
+    private @Nullable String value_maximumExecutionFrequency;
+    private boolean unknown_maximumExecutionFrequency;
     public @Nullable String maximumExecutionFrequency() {
-        if (maximumExecutionFrequency == null) return null;
-        return maximumExecutionFrequency.getValue("RuleSourceSourceDetail.maximumExecutionFrequency");
+        if (!unknown_maximumExecutionFrequency) return value_maximumExecutionFrequency;
+        throw new UndeferrableValueException("Value 'RuleSourceSourceDetail.maximumExecutionFrequency' is not present");
     }
 
     /**
@@ -40,11 +43,12 @@ public final class RuleSourceSourceDetail {
      * * `ConfigurationSnapshotDeliveryCompleted` - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot.
      * 
      */
-    private @Nullable UndeferrableValue<String> messageType;
-
+    @PolicyResourceProperty(name="messageType", flag="unknown_messageType")
+    private @Nullable String value_messageType;
+    private boolean unknown_messageType;
     public @Nullable String messageType() {
-        if (messageType == null) return null;
-        return messageType.getValue("RuleSourceSourceDetail.messageType");
+        if (!unknown_messageType) return value_messageType;
+        throw new UndeferrableValueException("Value 'RuleSourceSourceDetail.messageType' is not present");
     }
 
 }

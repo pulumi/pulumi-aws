@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel;
 import java.lang.Integer;
 import java.util.List;
@@ -11,18 +12,20 @@ import java.util.List;
 
 public final class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping {
 
-    private UndeferrableValue<List<ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel>> inputChannelLevels;
-
+    @PolicyResourceProperty(name="inputChannelLevels", flag="unknown_inputChannelLevels")
+    private List<ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel> value_inputChannelLevels;
+    private boolean unknown_inputChannelLevels;
     public List<ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel> inputChannelLevels() {
-        if (inputChannelLevels == null) return null;
-        return inputChannelLevels.getValue("ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping.inputChannelLevels");
+        if (!unknown_inputChannelLevels) return value_inputChannelLevels;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping.inputChannelLevels' is not present");
     }
 
-    private UndeferrableValue<Integer> outputChannel;
-
+    @PolicyResourceProperty(name="outputChannel", flag="unknown_outputChannel")
+    private Integer value_outputChannel;
+    private boolean unknown_outputChannel;
     public Integer outputChannel() {
-        if (outputChannel == null) return null;
-        return outputChannel.getValue("ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping.outputChannel");
+        if (!unknown_outputChannel) return value_outputChannel;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping.outputChannel' is not present");
     }
 
 }

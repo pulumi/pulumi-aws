@@ -3,17 +3,19 @@
 
 package com.pulumi.policypacks.aws.appfabric.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs {
 
-    private UndeferrableValue<String> streamName;
-
+    @PolicyResourceProperty(name="streamName", flag="unknown_streamName")
+    private String value_streamName;
+    private boolean unknown_streamName;
     public String streamName() {
-        if (streamName == null) return null;
-        return streamName.getValue("IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs.streamName");
+        if (!unknown_streamName) return value_streamName;
+        throw new UndeferrableValueException("Value 'IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs.streamName' is not present");
     }
 
 }

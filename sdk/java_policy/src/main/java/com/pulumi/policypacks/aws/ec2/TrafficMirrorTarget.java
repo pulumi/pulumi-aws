@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,66 +18,72 @@ public final class TrafficMirrorTarget extends com.pulumi.resources.PolicyResour
      * The ARN of the traffic mirror target.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("TrafficMirrorTarget.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'TrafficMirrorTarget.arn' is not present");
     }
 
     /**
      * A description of the traffic mirror session.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("TrafficMirrorTarget.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'TrafficMirrorTarget.description' is not present");
     }
 
     /**
      * The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
      * 
      */
-    private @Nullable UndeferrableValue<String> gatewayLoadBalancerEndpointId;
-
+    @PolicyResourceProperty(name="gatewayLoadBalancerEndpointId", flag="unknown_gatewayLoadBalancerEndpointId")
+    private @Nullable String value_gatewayLoadBalancerEndpointId;
+    private boolean unknown_gatewayLoadBalancerEndpointId;
     public @Nullable String gatewayLoadBalancerEndpointId() {
-        if (gatewayLoadBalancerEndpointId == null) return null;
-        return gatewayLoadBalancerEndpointId.getValue("TrafficMirrorTarget.gatewayLoadBalancerEndpointId");
+        if (!unknown_gatewayLoadBalancerEndpointId) return value_gatewayLoadBalancerEndpointId;
+        throw new UndeferrableValueException("Value 'TrafficMirrorTarget.gatewayLoadBalancerEndpointId' is not present");
     }
 
     /**
      * The network interface ID that is associated with the target.
      * 
      */
-    private @Nullable UndeferrableValue<String> networkInterfaceId;
-
+    @PolicyResourceProperty(name="networkInterfaceId", flag="unknown_networkInterfaceId")
+    private @Nullable String value_networkInterfaceId;
+    private boolean unknown_networkInterfaceId;
     public @Nullable String networkInterfaceId() {
-        if (networkInterfaceId == null) return null;
-        return networkInterfaceId.getValue("TrafficMirrorTarget.networkInterfaceId");
+        if (!unknown_networkInterfaceId) return value_networkInterfaceId;
+        throw new UndeferrableValueException("Value 'TrafficMirrorTarget.networkInterfaceId' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
      * 
      */
-    private @Nullable UndeferrableValue<String> networkLoadBalancerArn;
-
+    @PolicyResourceProperty(name="networkLoadBalancerArn", flag="unknown_networkLoadBalancerArn")
+    private @Nullable String value_networkLoadBalancerArn;
+    private boolean unknown_networkLoadBalancerArn;
     public @Nullable String networkLoadBalancerArn() {
-        if (networkLoadBalancerArn == null) return null;
-        return networkLoadBalancerArn.getValue("TrafficMirrorTarget.networkLoadBalancerArn");
+        if (!unknown_networkLoadBalancerArn) return value_networkLoadBalancerArn;
+        throw new UndeferrableValueException("Value 'TrafficMirrorTarget.networkLoadBalancerArn' is not present");
     }
 
     /**
      * The ID of the AWS account that owns the traffic mirror target.
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("TrafficMirrorTarget.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'TrafficMirrorTarget.ownerId' is not present");
     }
 
     /**
@@ -85,11 +92,12 @@ public final class TrafficMirrorTarget extends com.pulumi.resources.PolicyResour
      * **NOTE:** Either `network_interface_id` or `network_load_balancer_arn` should be specified and both should not be specified together
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TrafficMirrorTarget.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TrafficMirrorTarget.tags' is not present");
     }
 
     /**
@@ -100,11 +108,12 @@ public final class TrafficMirrorTarget extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("TrafficMirrorTarget.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'TrafficMirrorTarget.tagsAll' is not present");
     }
 
 }

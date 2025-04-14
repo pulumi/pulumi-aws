@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chime.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class SdkvoiceGlobalSettingsVoiceConnector {
      * The S3 bucket that stores the Voice Connector&#39;s call detail records.
      * 
      */
-    private @Nullable UndeferrableValue<String> cdrBucket;
-
+    @PolicyResourceProperty(name="cdrBucket", flag="unknown_cdrBucket")
+    private @Nullable String value_cdrBucket;
+    private boolean unknown_cdrBucket;
     public @Nullable String cdrBucket() {
-        if (cdrBucket == null) return null;
-        return cdrBucket.getValue("SdkvoiceGlobalSettingsVoiceConnector.cdrBucket");
+        if (!unknown_cdrBucket) return value_cdrBucket;
+        throw new UndeferrableValueException("Value 'SdkvoiceGlobalSettingsVoiceConnector.cdrBucket' is not present");
     }
 
 }

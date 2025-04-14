@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class ProjectSecondaryArtifactArgs {
      * specification.
      * 
      */
-    private UndeferrableValue<String> artifactIdentifier;
-
+    @PolicyResourceProperty(name="artifactIdentifier", flag="unknown_artifactIdentifier")
+    private String value_artifactIdentifier;
+    private boolean unknown_artifactIdentifier;
     public String artifactIdentifier() {
-        if (artifactIdentifier == null) return null;
-        return artifactIdentifier.getValue("ProjectSecondaryArtifactArgs.artifactIdentifier");
+        if (!unknown_artifactIdentifier) return value_artifactIdentifier;
+        throw new UndeferrableValueException("Value 'ProjectSecondaryArtifactArgs.artifactIdentifier' is not present");
     }
 
     /**
@@ -31,11 +33,12 @@ public final class ProjectSecondaryArtifactArgs {
      * CodeBuild to modify the access control list for the bucket.
      * 
      */
-    private UndeferrableValue<String> bucketOwnerAccess;
-
+    @PolicyResourceProperty(name="bucketOwnerAccess", flag="unknown_bucketOwnerAccess")
+    private String value_bucketOwnerAccess;
+    private boolean unknown_bucketOwnerAccess;
     public String bucketOwnerAccess() {
-        if (bucketOwnerAccess == null) return null;
-        return bucketOwnerAccess.getValue("ProjectSecondaryArtifactArgs.bucketOwnerAccess");
+        if (!unknown_bucketOwnerAccess) return value_bucketOwnerAccess;
+        throw new UndeferrableValueException("Value 'ProjectSecondaryArtifactArgs.bucketOwnerAccess' is not present");
     }
 
     /**
@@ -43,11 +46,12 @@ public final class ProjectSecondaryArtifactArgs {
      * this value is ignored. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> encryptionDisabled;
-
+    @PolicyResourceProperty(name="encryptionDisabled", flag="unknown_encryptionDisabled")
+    private Boolean value_encryptionDisabled;
+    private boolean unknown_encryptionDisabled;
     public Boolean encryptionDisabled() {
-        if (encryptionDisabled == null) return null;
-        return encryptionDisabled.getValue("ProjectSecondaryArtifactArgs.encryptionDisabled");
+        if (!unknown_encryptionDisabled) return value_encryptionDisabled;
+        throw new UndeferrableValueException("Value 'ProjectSecondaryArtifactArgs.encryptionDisabled' is not present");
     }
 
     /**
@@ -56,11 +60,12 @@ public final class ProjectSecondaryArtifactArgs {
      * If `path` is not specified, `location` can specify the path of the output artifact in the output bucket.
      * 
      */
-    private UndeferrableValue<String> location;
-
+    @PolicyResourceProperty(name="location", flag="unknown_location")
+    private String value_location;
+    private boolean unknown_location;
     public String location() {
-        if (location == null) return null;
-        return location.getValue("ProjectSecondaryArtifactArgs.location");
+        if (!unknown_location) return value_location;
+        throw new UndeferrableValueException("Value 'ProjectSecondaryArtifactArgs.location' is not present");
     }
 
     /**
@@ -68,11 +73,12 @@ public final class ProjectSecondaryArtifactArgs {
      * if specified. If `type` is set to `S3`, this is the name of the output artifact object.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ProjectSecondaryArtifactArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ProjectSecondaryArtifactArgs.name' is not present");
     }
 
     /**
@@ -80,22 +86,24 @@ public final class ProjectSecondaryArtifactArgs {
      * `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `BUILD_ID` or `NONE`.
      * 
      */
-    private UndeferrableValue<String> namespaceType;
-
+    @PolicyResourceProperty(name="namespaceType", flag="unknown_namespaceType")
+    private String value_namespaceType;
+    private boolean unknown_namespaceType;
     public String namespaceType() {
-        if (namespaceType == null) return null;
-        return namespaceType.getValue("ProjectSecondaryArtifactArgs.namespaceType");
+        if (!unknown_namespaceType) return value_namespaceType;
+        throw new UndeferrableValueException("Value 'ProjectSecondaryArtifactArgs.namespaceType' is not present");
     }
 
     /**
      * Whether a name specified in the build specification overrides the artifact name.
      * 
      */
-    private UndeferrableValue<Boolean> overrideArtifactName;
-
+    @PolicyResourceProperty(name="overrideArtifactName", flag="unknown_overrideArtifactName")
+    private Boolean value_overrideArtifactName;
+    private boolean unknown_overrideArtifactName;
     public Boolean overrideArtifactName() {
-        if (overrideArtifactName == null) return null;
-        return overrideArtifactName.getValue("ProjectSecondaryArtifactArgs.overrideArtifactName");
+        if (!unknown_overrideArtifactName) return value_overrideArtifactName;
+        throw new UndeferrableValueException("Value 'ProjectSecondaryArtifactArgs.overrideArtifactName' is not present");
     }
 
     /**
@@ -103,11 +111,12 @@ public final class ProjectSecondaryArtifactArgs {
      * `NO_ARTIFACTS`, this value is ignored if specified. If `type` is set to `S3`, valid values are `NONE` or `ZIP`.
      * 
      */
-    private UndeferrableValue<String> packaging;
-
+    @PolicyResourceProperty(name="packaging", flag="unknown_packaging")
+    private String value_packaging;
+    private boolean unknown_packaging;
     public String packaging() {
-        if (packaging == null) return null;
-        return packaging.getValue("ProjectSecondaryArtifactArgs.packaging");
+        if (!unknown_packaging) return value_packaging;
+        throw new UndeferrableValueException("Value 'ProjectSecondaryArtifactArgs.packaging' is not present");
     }
 
     /**
@@ -116,22 +125,24 @@ public final class ProjectSecondaryArtifactArgs {
      * is set to `S3`, this is the path to the output artifact.
      * 
      */
-    private UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private String value_path;
+    private boolean unknown_path;
     public String path() {
-        if (path == null) return null;
-        return path.getValue("ProjectSecondaryArtifactArgs.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'ProjectSecondaryArtifactArgs.path' is not present");
     }
 
     /**
      * Build output artifact&#39;s type. Valid values `CODEPIPELINE`, `NO_ARTIFACTS`, and `S3`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ProjectSecondaryArtifactArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ProjectSecondaryArtifactArgs.type' is not present");
     }
 
 }

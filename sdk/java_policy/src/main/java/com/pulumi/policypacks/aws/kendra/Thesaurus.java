@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.kendra.outputs.ThesaurusSourceS3Path;
 import java.lang.String;
@@ -18,80 +19,88 @@ public final class Thesaurus extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the thesaurus.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Thesaurus.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Thesaurus.arn' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Thesaurus.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Thesaurus.description' is not present");
     }
 
     /**
      * The identifier of the index for a thesaurus.
      * 
      */
-    private UndeferrableValue<String> indexId;
-
+    @PolicyResourceProperty(name="indexId", flag="unknown_indexId")
+    private String value_indexId;
+    private boolean unknown_indexId;
     public String indexId() {
-        if (indexId == null) return null;
-        return indexId.getValue("Thesaurus.indexId");
+        if (!unknown_indexId) return value_indexId;
+        throw new UndeferrableValueException("Value 'Thesaurus.indexId' is not present");
     }
 
     /**
      * The name for the thesaurus.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Thesaurus.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Thesaurus.name' is not present");
     }
 
     /**
      * The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("Thesaurus.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'Thesaurus.roleArn' is not present");
     }
 
     /**
      * The S3 path where your thesaurus file sits in S3. Detailed below.
      * 
      */
-    private UndeferrableValue<ThesaurusSourceS3Path> sourceS3Path;
-
+    @PolicyResourceProperty(name="sourceS3Path", flag="unknown_sourceS3Path")
+    private ThesaurusSourceS3Path value_sourceS3Path;
+    private boolean unknown_sourceS3Path;
     public ThesaurusSourceS3Path sourceS3Path() {
-        if (sourceS3Path == null) return null;
-        return sourceS3Path.getValue("Thesaurus.sourceS3Path");
+        if (!unknown_sourceS3Path) return value_sourceS3Path;
+        throw new UndeferrableValueException("Value 'Thesaurus.sourceS3Path' is not present");
     }
 
     /**
      * The current status of the thesaurus.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Thesaurus.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Thesaurus.status' is not present");
     }
 
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Thesaurus.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Thesaurus.tags' is not present");
     }
 
     /**
@@ -102,18 +111,20 @@ public final class Thesaurus extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Thesaurus.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Thesaurus.tagsAll' is not present");
     }
 
-    private UndeferrableValue<String> thesaurusId;
-
+    @PolicyResourceProperty(name="thesaurusId", flag="unknown_thesaurusId")
+    private String value_thesaurusId;
+    private boolean unknown_thesaurusId;
     public String thesaurusId() {
-        if (thesaurusId == null) return null;
-        return thesaurusId.getValue("Thesaurus.thesaurusId");
+        if (!unknown_thesaurusId) return value_thesaurusId;
+        throw new UndeferrableValueException("Value 'Thesaurus.thesaurusId' is not present");
     }
 
 }

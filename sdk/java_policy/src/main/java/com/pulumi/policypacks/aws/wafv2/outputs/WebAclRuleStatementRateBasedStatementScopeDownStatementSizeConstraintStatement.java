@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation;
 import java.lang.Integer;
@@ -18,44 +19,48 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeCo
      * Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
      * 
      */
-    private UndeferrableValue<String> comparisonOperator;
-
+    @PolicyResourceProperty(name="comparisonOperator", flag="unknown_comparisonOperator")
+    private String value_comparisonOperator;
+    private boolean unknown_comparisonOperator;
     public String comparisonOperator() {
-        if (comparisonOperator == null) return null;
-        return comparisonOperator.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement.comparisonOperator");
+        if (!unknown_comparisonOperator) return value_comparisonOperator;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement.comparisonOperator' is not present");
     }
 
     /**
      * Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch> fieldToMatch;
-
+    @PolicyResourceProperty(name="fieldToMatch", flag="unknown_fieldToMatch")
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch value_fieldToMatch;
+    private boolean unknown_fieldToMatch;
     public @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch fieldToMatch() {
-        if (fieldToMatch == null) return null;
-        return fieldToMatch.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement.fieldToMatch");
+        if (!unknown_fieldToMatch) return value_fieldToMatch;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement.fieldToMatch' is not present");
     }
 
     /**
      * Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
      * 
      */
-    private UndeferrableValue<Integer> size;
-
+    @PolicyResourceProperty(name="size", flag="unknown_size")
+    private Integer value_size;
+    private boolean unknown_size;
     public Integer size() {
-        if (size == null) return null;
-        return size.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement.size");
+        if (!unknown_size) return value_size;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement.size' is not present");
     }
 
     /**
      * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
      * 
      */
-    private UndeferrableValue<List<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation>> textTransformations;
-
+    @PolicyResourceProperty(name="textTransformations", flag="unknown_textTransformations")
+    private List<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation> value_textTransformations;
+    private boolean unknown_textTransformations;
     public List<WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation> textTransformations() {
-        if (textTransformations == null) return null;
-        return textTransformations.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement.textTransformations");
+        if (!unknown_textTransformations) return value_textTransformations;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement.textTransformations' is not present");
     }
 
 }

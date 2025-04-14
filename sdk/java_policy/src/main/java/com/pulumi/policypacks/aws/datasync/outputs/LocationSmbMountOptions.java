@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class LocationSmbMountOptions {
      * The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
      * 
      */
-    private @Nullable UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private @Nullable String value_version;
+    private boolean unknown_version;
     public @Nullable String version() {
-        if (version == null) return null;
-        return version.getValue("LocationSmbMountOptions.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'LocationSmbMountOptions.version' is not present");
     }
 
 }

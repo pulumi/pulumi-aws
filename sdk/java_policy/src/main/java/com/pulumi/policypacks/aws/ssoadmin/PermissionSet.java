@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssoadmin;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,88 +18,96 @@ public final class PermissionSet extends com.pulumi.resources.PolicyResourceOutp
      * The Amazon Resource Name (ARN) of the Permission Set.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("PermissionSet.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'PermissionSet.arn' is not present");
     }
 
     /**
      * The date the Permission Set was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private UndeferrableValue<String> createdDate;
-
+    @PolicyResourceProperty(name="createdDate", flag="unknown_createdDate")
+    private String value_createdDate;
+    private boolean unknown_createdDate;
     public String createdDate() {
-        if (createdDate == null) return null;
-        return createdDate.getValue("PermissionSet.createdDate");
+        if (!unknown_createdDate) return value_createdDate;
+        throw new UndeferrableValueException("Value 'PermissionSet.createdDate' is not present");
     }
 
     /**
      * The description of the Permission Set.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("PermissionSet.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'PermissionSet.description' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
      * 
      */
-    private UndeferrableValue<String> instanceArn;
-
+    @PolicyResourceProperty(name="instanceArn", flag="unknown_instanceArn")
+    private String value_instanceArn;
+    private boolean unknown_instanceArn;
     public String instanceArn() {
-        if (instanceArn == null) return null;
-        return instanceArn.getValue("PermissionSet.instanceArn");
+        if (!unknown_instanceArn) return value_instanceArn;
+        throw new UndeferrableValueException("Value 'PermissionSet.instanceArn' is not present");
     }
 
     /**
      * The name of the Permission Set.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PermissionSet.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PermissionSet.name' is not present");
     }
 
     /**
      * The relay state URL used to redirect users within the application during the federation authentication process.
      * 
      */
-    private @Nullable UndeferrableValue<String> relayState;
-
+    @PolicyResourceProperty(name="relayState", flag="unknown_relayState")
+    private @Nullable String value_relayState;
+    private boolean unknown_relayState;
     public @Nullable String relayState() {
-        if (relayState == null) return null;
-        return relayState.getValue("PermissionSet.relayState");
+        if (!unknown_relayState) return value_relayState;
+        throw new UndeferrableValueException("Value 'PermissionSet.relayState' is not present");
     }
 
     /**
      * The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
      * 
      */
-    private @Nullable UndeferrableValue<String> sessionDuration;
-
+    @PolicyResourceProperty(name="sessionDuration", flag="unknown_sessionDuration")
+    private @Nullable String value_sessionDuration;
+    private boolean unknown_sessionDuration;
     public @Nullable String sessionDuration() {
-        if (sessionDuration == null) return null;
-        return sessionDuration.getValue("PermissionSet.sessionDuration");
+        if (!unknown_sessionDuration) return value_sessionDuration;
+        throw new UndeferrableValueException("Value 'PermissionSet.sessionDuration' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("PermissionSet.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'PermissionSet.tags' is not present");
     }
 
     /**
@@ -109,11 +118,12 @@ public final class PermissionSet extends com.pulumi.resources.PolicyResourceOutp
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("PermissionSet.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'PermissionSet.tagsAll' is not present");
     }
 
 }

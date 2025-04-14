@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.location;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,11 +18,12 @@ public final class RouteCalculationArgs extends com.pulumi.resources.PolicyResou
      * The name of the route calculator resource.
      * 
      */
-    private UndeferrableValue<String> calculatorName;
-
+    @PolicyResourceProperty(name="calculatorName", flag="unknown_calculatorName")
+    private String value_calculatorName;
+    private boolean unknown_calculatorName;
     public String calculatorName() {
-        if (calculatorName == null) return null;
-        return calculatorName.getValue("RouteCalculationArgs.calculatorName");
+        if (!unknown_calculatorName) return value_calculatorName;
+        throw new UndeferrableValueException("Value 'RouteCalculationArgs.calculatorName' is not present");
     }
 
     /**
@@ -30,33 +32,36 @@ public final class RouteCalculationArgs extends com.pulumi.resources.PolicyResou
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> dataSource;
-
+    @PolicyResourceProperty(name="dataSource", flag="unknown_dataSource")
+    private String value_dataSource;
+    private boolean unknown_dataSource;
     public String dataSource() {
-        if (dataSource == null) return null;
-        return dataSource.getValue("RouteCalculationArgs.dataSource");
+        if (!unknown_dataSource) return value_dataSource;
+        throw new UndeferrableValueException("Value 'RouteCalculationArgs.dataSource' is not present");
     }
 
     /**
      * The optional description for the route calculator resource.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("RouteCalculationArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'RouteCalculationArgs.description' is not present");
     }
 
     /**
      * Key-value tags for the route calculator. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RouteCalculationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RouteCalculationArgs.tags' is not present");
     }
 
 }

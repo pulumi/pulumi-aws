@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class TaskSetLoadBalancer {
      * The name of the container to associate with the load balancer (as it appears in a container definition).
      * 
      */
-    private UndeferrableValue<String> containerName;
-
+    @PolicyResourceProperty(name="containerName", flag="unknown_containerName")
+    private String value_containerName;
+    private boolean unknown_containerName;
     public String containerName() {
-        if (containerName == null) return null;
-        return containerName.getValue("TaskSetLoadBalancer.containerName");
+        if (!unknown_containerName) return value_containerName;
+        throw new UndeferrableValueException("Value 'TaskSetLoadBalancer.containerName' is not present");
     }
 
     /**
@@ -28,33 +30,36 @@ public final class TaskSetLoadBalancer {
      * &gt; **Note:** Specifying multiple `load_balancer` configurations is still not supported by AWS for ECS task set.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> containerPort;
-
+    @PolicyResourceProperty(name="containerPort", flag="unknown_containerPort")
+    private @Nullable Integer value_containerPort;
+    private boolean unknown_containerPort;
     public @Nullable Integer containerPort() {
-        if (containerPort == null) return null;
-        return containerPort.getValue("TaskSetLoadBalancer.containerPort");
+        if (!unknown_containerPort) return value_containerPort;
+        throw new UndeferrableValueException("Value 'TaskSetLoadBalancer.containerPort' is not present");
     }
 
     /**
      * The name of the ELB (Classic) to associate with the service.
      * 
      */
-    private @Nullable UndeferrableValue<String> loadBalancerName;
-
+    @PolicyResourceProperty(name="loadBalancerName", flag="unknown_loadBalancerName")
+    private @Nullable String value_loadBalancerName;
+    private boolean unknown_loadBalancerName;
     public @Nullable String loadBalancerName() {
-        if (loadBalancerName == null) return null;
-        return loadBalancerName.getValue("TaskSetLoadBalancer.loadBalancerName");
+        if (!unknown_loadBalancerName) return value_loadBalancerName;
+        throw new UndeferrableValueException("Value 'TaskSetLoadBalancer.loadBalancerName' is not present");
     }
 
     /**
      * The ARN of the Load Balancer target group to associate with the service.
      * 
      */
-    private @Nullable UndeferrableValue<String> targetGroupArn;
-
+    @PolicyResourceProperty(name="targetGroupArn", flag="unknown_targetGroupArn")
+    private @Nullable String value_targetGroupArn;
+    private boolean unknown_targetGroupArn;
     public @Nullable String targetGroupArn() {
-        if (targetGroupArn == null) return null;
-        return targetGroupArn.getValue("TaskSetLoadBalancer.targetGroupArn");
+        if (!unknown_targetGroupArn) return value_targetGroupArn;
+        throw new UndeferrableValueException("Value 'TaskSetLoadBalancer.targetGroupArn' is not present");
     }
 
 }

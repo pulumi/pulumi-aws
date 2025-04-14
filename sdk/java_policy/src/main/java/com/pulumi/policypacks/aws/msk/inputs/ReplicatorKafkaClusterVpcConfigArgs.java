@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ReplicatorKafkaClusterVpcConfigArgs {
      * The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupsIds;
-
+    @PolicyResourceProperty(name="securityGroupsIds", flag="unknown_securityGroupsIds")
+    private List<String> value_securityGroupsIds;
+    private boolean unknown_securityGroupsIds;
     public List<String> securityGroupsIds() {
-        if (securityGroupsIds == null) return null;
-        return securityGroupsIds.getValue("ReplicatorKafkaClusterVpcConfigArgs.securityGroupsIds");
+        if (!unknown_securityGroupsIds) return value_securityGroupsIds;
+        throw new UndeferrableValueException("Value 'ReplicatorKafkaClusterVpcConfigArgs.securityGroupsIds' is not present");
     }
 
     /**
      * The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("ReplicatorKafkaClusterVpcConfigArgs.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'ReplicatorKafkaClusterVpcConfigArgs.subnetIds' is not present");
     }
 
 }

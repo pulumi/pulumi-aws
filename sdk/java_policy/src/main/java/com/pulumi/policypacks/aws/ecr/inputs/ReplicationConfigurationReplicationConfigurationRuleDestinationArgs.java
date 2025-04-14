@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecr.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class ReplicationConfigurationReplicationConfigurationRuleDestinati
      * A Region to replicate to.
      * 
      */
-    private UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private String value_region;
+    private boolean unknown_region;
     public String region() {
-        if (region == null) return null;
-        return region.getValue("ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.region' is not present");
     }
 
     /**
      * The account ID of the destination registry to replicate to.
      * 
      */
-    private UndeferrableValue<String> registryId;
-
+    @PolicyResourceProperty(name="registryId", flag="unknown_registryId")
+    private String value_registryId;
+    private boolean unknown_registryId;
     public String registryId() {
-        if (registryId == null) return null;
-        return registryId.getValue("ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.registryId");
+        if (!unknown_registryId) return value_registryId;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationReplicationConfigurationRuleDestinationArgs.registryId' is not present");
     }
 
 }

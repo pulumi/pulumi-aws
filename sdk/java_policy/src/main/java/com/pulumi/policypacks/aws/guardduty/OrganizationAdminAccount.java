@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.guardduty;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,11 +16,12 @@ public final class OrganizationAdminAccount extends com.pulumi.resources.PolicyR
      * AWS account identifier to designate as a delegated administrator for GuardDuty.
      * 
      */
-    private UndeferrableValue<String> adminAccountId;
-
+    @PolicyResourceProperty(name="adminAccountId", flag="unknown_adminAccountId")
+    private String value_adminAccountId;
+    private boolean unknown_adminAccountId;
     public String adminAccountId() {
-        if (adminAccountId == null) return null;
-        return adminAccountId.getValue("OrganizationAdminAccount.adminAccountId");
+        if (!unknown_adminAccountId) return value_adminAccountId;
+        throw new UndeferrableValueException("Value 'OrganizationAdminAccount.adminAccountId' is not present");
     }
 
 }

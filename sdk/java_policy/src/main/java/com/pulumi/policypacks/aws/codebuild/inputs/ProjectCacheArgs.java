@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class ProjectCacheArgs {
      * type `S3`, the value must be a valid S3 bucket name/prefix.
      * 
      */
-    private UndeferrableValue<String> location;
-
+    @PolicyResourceProperty(name="location", flag="unknown_location")
+    private String value_location;
+    private boolean unknown_location;
     public String location() {
-        if (location == null) return null;
-        return location.getValue("ProjectCacheArgs.location");
+        if (!unknown_location) return value_location;
+        throw new UndeferrableValueException("Value 'ProjectCacheArgs.location' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class ProjectCacheArgs {
      * dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
      * 
      */
-    private UndeferrableValue<List<String>> modes;
-
+    @PolicyResourceProperty(name="modes", flag="unknown_modes")
+    private List<String> value_modes;
+    private boolean unknown_modes;
     public List<String> modes() {
-        if (modes == null) return null;
-        return modes.getValue("ProjectCacheArgs.modes");
+        if (!unknown_modes) return value_modes;
+        throw new UndeferrableValueException("Value 'ProjectCacheArgs.modes' is not present");
     }
 
     /**
@@ -40,11 +43,12 @@ public final class ProjectCacheArgs {
      * `LOCAL`, `S3`. Defaults to `NO_CACHE`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ProjectCacheArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ProjectCacheArgs.type' is not present");
     }
 
 }

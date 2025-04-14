@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class RuleGroupRuleActionChallengeCustomRequestHandling {
      * The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
      * 
      */
-    private UndeferrableValue<List<RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader>> insertHeaders;
-
+    @PolicyResourceProperty(name="insertHeaders", flag="unknown_insertHeaders")
+    private List<RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader> value_insertHeaders;
+    private boolean unknown_insertHeaders;
     public List<RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader> insertHeaders() {
-        if (insertHeaders == null) return null;
-        return insertHeaders.getValue("RuleGroupRuleActionChallengeCustomRequestHandling.insertHeaders");
+        if (!unknown_insertHeaders) return value_insertHeaders;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleActionChallengeCustomRequestHandling.insertHeaders' is not present");
     }
 
 }

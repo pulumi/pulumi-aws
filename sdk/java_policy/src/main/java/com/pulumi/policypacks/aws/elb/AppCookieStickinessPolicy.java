@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,11 +17,12 @@ public final class AppCookieStickinessPolicy extends com.pulumi.resources.Policy
      * Application cookie whose lifetime the ELB&#39;s cookie should follow.
      * 
      */
-    private UndeferrableValue<String> cookieName;
-
+    @PolicyResourceProperty(name="cookieName", flag="unknown_cookieName")
+    private String value_cookieName;
+    private boolean unknown_cookieName;
     public String cookieName() {
-        if (cookieName == null) return null;
-        return cookieName.getValue("AppCookieStickinessPolicy.cookieName");
+        if (!unknown_cookieName) return value_cookieName;
+        throw new UndeferrableValueException("Value 'AppCookieStickinessPolicy.cookieName' is not present");
     }
 
     /**
@@ -29,11 +31,12 @@ public final class AppCookieStickinessPolicy extends com.pulumi.resources.Policy
      * balancer.
      * 
      */
-    private UndeferrableValue<Integer> lbPort;
-
+    @PolicyResourceProperty(name="lbPort", flag="unknown_lbPort")
+    private Integer value_lbPort;
+    private boolean unknown_lbPort;
     public Integer lbPort() {
-        if (lbPort == null) return null;
-        return lbPort.getValue("AppCookieStickinessPolicy.lbPort");
+        if (!unknown_lbPort) return value_lbPort;
+        throw new UndeferrableValueException("Value 'AppCookieStickinessPolicy.lbPort' is not present");
     }
 
     /**
@@ -41,22 +44,24 @@ public final class AppCookieStickinessPolicy extends com.pulumi.resources.Policy
      * should be attached.
      * 
      */
-    private UndeferrableValue<String> loadBalancer;
-
+    @PolicyResourceProperty(name="loadBalancer", flag="unknown_loadBalancer")
+    private String value_loadBalancer;
+    private boolean unknown_loadBalancer;
     public String loadBalancer() {
-        if (loadBalancer == null) return null;
-        return loadBalancer.getValue("AppCookieStickinessPolicy.loadBalancer");
+        if (!unknown_loadBalancer) return value_loadBalancer;
+        throw new UndeferrableValueException("Value 'AppCookieStickinessPolicy.loadBalancer' is not present");
     }
 
     /**
      * Name of the stickiness policy.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AppCookieStickinessPolicy.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AppCookieStickinessPolicy.name' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.waf.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class IpSetIpSetDescriptor {
      * Type of the IP address - `IPV4` or `IPV6`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("IpSetIpSetDescriptor.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'IpSetIpSetDescriptor.type' is not present");
     }
 
     /**
      * An IPv4 or IPv6 address specified via CIDR notationE.g., `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("IpSetIpSetDescriptor.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'IpSetIpSetDescriptor.value' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicecatalog.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -16,66 +17,72 @@ public final class ProvisionedProductStackSetProvisioningPreferencesArgs {
      * One or more AWS accounts that will have access to the provisioned product. The AWS accounts specified should be within the list of accounts in the STACKSET constraint. To get the list of accounts in the STACKSET constraint, use the `aws_servicecatalog_provisioning_parameters` data source. If no values are specified, the default value is all accounts from the STACKSET constraint.
      * 
      */
-    private UndeferrableValue<List<String>> accounts;
-
+    @PolicyResourceProperty(name="accounts", flag="unknown_accounts")
+    private List<String> value_accounts;
+    private boolean unknown_accounts;
     public List<String> accounts() {
-        if (accounts == null) return null;
-        return accounts.getValue("ProvisionedProductStackSetProvisioningPreferencesArgs.accounts");
+        if (!unknown_accounts) return value_accounts;
+        throw new UndeferrableValueException("Value 'ProvisionedProductStackSetProvisioningPreferencesArgs.accounts' is not present");
     }
 
     /**
      * Number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn&#39;t attempt the operation in any subsequent regions. You must specify either `failure_tolerance_count` or `failure_tolerance_percentage`, but not both. The default value is 0 if no value is specified.
      * 
      */
-    private UndeferrableValue<Integer> failureToleranceCount;
-
+    @PolicyResourceProperty(name="failureToleranceCount", flag="unknown_failureToleranceCount")
+    private Integer value_failureToleranceCount;
+    private boolean unknown_failureToleranceCount;
     public Integer failureToleranceCount() {
-        if (failureToleranceCount == null) return null;
-        return failureToleranceCount.getValue("ProvisionedProductStackSetProvisioningPreferencesArgs.failureToleranceCount");
+        if (!unknown_failureToleranceCount) return value_failureToleranceCount;
+        throw new UndeferrableValueException("Value 'ProvisionedProductStackSetProvisioningPreferencesArgs.failureToleranceCount' is not present");
     }
 
     /**
      * Percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn&#39;t attempt the operation in any subsequent regions. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. You must specify either `failure_tolerance_count` or `failure_tolerance_percentage`, but not both.
      * 
      */
-    private UndeferrableValue<Integer> failureTolerancePercentage;
-
+    @PolicyResourceProperty(name="failureTolerancePercentage", flag="unknown_failureTolerancePercentage")
+    private Integer value_failureTolerancePercentage;
+    private boolean unknown_failureTolerancePercentage;
     public Integer failureTolerancePercentage() {
-        if (failureTolerancePercentage == null) return null;
-        return failureTolerancePercentage.getValue("ProvisionedProductStackSetProvisioningPreferencesArgs.failureTolerancePercentage");
+        if (!unknown_failureTolerancePercentage) return value_failureTolerancePercentage;
+        throw new UndeferrableValueException("Value 'ProvisionedProductStackSetProvisioningPreferencesArgs.failureTolerancePercentage' is not present");
     }
 
     /**
      * Maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `failure_tolerance_count`. `max_concurrency_count` is at most one more than the `failure_tolerance_count`. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `max_concurrency_count` or `max_concurrency_percentage`, but not both.
      * 
      */
-    private UndeferrableValue<Integer> maxConcurrencyCount;
-
+    @PolicyResourceProperty(name="maxConcurrencyCount", flag="unknown_maxConcurrencyCount")
+    private Integer value_maxConcurrencyCount;
+    private boolean unknown_maxConcurrencyCount;
     public Integer maxConcurrencyCount() {
-        if (maxConcurrencyCount == null) return null;
-        return maxConcurrencyCount.getValue("ProvisionedProductStackSetProvisioningPreferencesArgs.maxConcurrencyCount");
+        if (!unknown_maxConcurrencyCount) return value_maxConcurrencyCount;
+        throw new UndeferrableValueException("Value 'ProvisionedProductStackSetProvisioningPreferencesArgs.maxConcurrencyCount' is not present");
     }
 
     /**
      * Maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as 1 instead. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `max_concurrency_count` or `max_concurrency_percentage`, but not both.
      * 
      */
-    private UndeferrableValue<Integer> maxConcurrencyPercentage;
-
+    @PolicyResourceProperty(name="maxConcurrencyPercentage", flag="unknown_maxConcurrencyPercentage")
+    private Integer value_maxConcurrencyPercentage;
+    private boolean unknown_maxConcurrencyPercentage;
     public Integer maxConcurrencyPercentage() {
-        if (maxConcurrencyPercentage == null) return null;
-        return maxConcurrencyPercentage.getValue("ProvisionedProductStackSetProvisioningPreferencesArgs.maxConcurrencyPercentage");
+        if (!unknown_maxConcurrencyPercentage) return value_maxConcurrencyPercentage;
+        throw new UndeferrableValueException("Value 'ProvisionedProductStackSetProvisioningPreferencesArgs.maxConcurrencyPercentage' is not present");
     }
 
     /**
      * One or more AWS Regions where the provisioned product will be available. The specified regions should be within the list of regions from the STACKSET constraint. To get the list of regions in the STACKSET constraint, use the `aws_servicecatalog_provisioning_parameters` data source. If no values are specified, the default value is all regions from the STACKSET constraint.
      * 
      */
-    private UndeferrableValue<List<String>> regions;
-
+    @PolicyResourceProperty(name="regions", flag="unknown_regions")
+    private List<String> value_regions;
+    private boolean unknown_regions;
     public List<String> regions() {
-        if (regions == null) return null;
-        return regions.getValue("ProvisionedProductStackSetProvisioningPreferencesArgs.regions");
+        if (!unknown_regions) return value_regions;
+        throw new UndeferrableValueException("Value 'ProvisionedProductStackSetProvisioningPreferencesArgs.regions' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecr;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,11 +16,12 @@ public final class AccountSetting extends com.pulumi.resources.PolicyResourceOut
      * Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AccountSetting.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AccountSetting.name' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class AccountSetting extends com.pulumi.resources.PolicyResourceOut
      * * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("AccountSetting.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'AccountSetting.value' is not present");
     }
 
 }

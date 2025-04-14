@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.storagegateway.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -16,11 +17,12 @@ public final class FileSystemAssociationCacheAttributes {
      * to first refresh that directory&#39;s contents from the Amazon S3 bucket. Valid Values: `0` or `300` to `2592000` seconds (5 minutes to 30 days). Defaults to `0`
      * 
      */
-    private @Nullable UndeferrableValue<Integer> cacheStaleTimeoutInSeconds;
-
+    @PolicyResourceProperty(name="cacheStaleTimeoutInSeconds", flag="unknown_cacheStaleTimeoutInSeconds")
+    private @Nullable Integer value_cacheStaleTimeoutInSeconds;
+    private boolean unknown_cacheStaleTimeoutInSeconds;
     public @Nullable Integer cacheStaleTimeoutInSeconds() {
-        if (cacheStaleTimeoutInSeconds == null) return null;
-        return cacheStaleTimeoutInSeconds.getValue("FileSystemAssociationCacheAttributes.cacheStaleTimeoutInSeconds");
+        if (!unknown_cacheStaleTimeoutInSeconds) return value_cacheStaleTimeoutInSeconds;
+        throw new UndeferrableValueException("Value 'FileSystemAssociationCacheAttributes.cacheStaleTimeoutInSeconds' is not present");
     }
 
 }

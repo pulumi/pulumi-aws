@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.vpclattice.outputs.ListenerRuleMatchHttpMatchHeaderMatchMatch;
 import java.lang.Boolean;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class ListenerRuleMatchHttpMatchHeaderMatch {
      * Indicates whether the match is case sensitive. Defaults to false.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> caseSensitive;
-
+    @PolicyResourceProperty(name="caseSensitive", flag="unknown_caseSensitive")
+    private @Nullable Boolean value_caseSensitive;
+    private boolean unknown_caseSensitive;
     public @Nullable Boolean caseSensitive() {
-        if (caseSensitive == null) return null;
-        return caseSensitive.getValue("ListenerRuleMatchHttpMatchHeaderMatch.caseSensitive");
+        if (!unknown_caseSensitive) return value_caseSensitive;
+        throw new UndeferrableValueException("Value 'ListenerRuleMatchHttpMatchHeaderMatch.caseSensitive' is not present");
     }
 
     /**
      * The header match type.
      * 
      */
-    private UndeferrableValue<ListenerRuleMatchHttpMatchHeaderMatchMatch> match;
-
+    @PolicyResourceProperty(name="match", flag="unknown_match")
+    private ListenerRuleMatchHttpMatchHeaderMatchMatch value_match;
+    private boolean unknown_match;
     public ListenerRuleMatchHttpMatchHeaderMatchMatch match() {
-        if (match == null) return null;
-        return match.getValue("ListenerRuleMatchHttpMatchHeaderMatch.match");
+        if (!unknown_match) return value_match;
+        throw new UndeferrableValueException("Value 'ListenerRuleMatchHttpMatchHeaderMatch.match' is not present");
     }
 
     /**
      * The name of the header.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ListenerRuleMatchHttpMatchHeaderMatch.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ListenerRuleMatchHttpMatchHeaderMatch.name' is not present");
     }
 
 }

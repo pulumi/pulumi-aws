@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,88 +19,96 @@ public final class EipArgs extends com.pulumi.resources.PolicyResourceInput {
      * IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
      * 
      */
-    private UndeferrableValue<String> address;
-
+    @PolicyResourceProperty(name="address", flag="unknown_address")
+    private String value_address;
+    private boolean unknown_address;
     public String address() {
-        if (address == null) return null;
-        return address.getValue("EipArgs.address");
+        if (!unknown_address) return value_address;
+        throw new UndeferrableValueException("Value 'EipArgs.address' is not present");
     }
 
     /**
      * User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
      * 
      */
-    private UndeferrableValue<String> associateWithPrivateIp;
-
+    @PolicyResourceProperty(name="associateWithPrivateIp", flag="unknown_associateWithPrivateIp")
+    private String value_associateWithPrivateIp;
+    private boolean unknown_associateWithPrivateIp;
     public String associateWithPrivateIp() {
-        if (associateWithPrivateIp == null) return null;
-        return associateWithPrivateIp.getValue("EipArgs.associateWithPrivateIp");
+        if (!unknown_associateWithPrivateIp) return value_associateWithPrivateIp;
+        throw new UndeferrableValueException("Value 'EipArgs.associateWithPrivateIp' is not present");
     }
 
     /**
      * ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
      * 
      */
-    private UndeferrableValue<String> customerOwnedIpv4Pool;
-
+    @PolicyResourceProperty(name="customerOwnedIpv4Pool", flag="unknown_customerOwnedIpv4Pool")
+    private String value_customerOwnedIpv4Pool;
+    private boolean unknown_customerOwnedIpv4Pool;
     public String customerOwnedIpv4Pool() {
-        if (customerOwnedIpv4Pool == null) return null;
-        return customerOwnedIpv4Pool.getValue("EipArgs.customerOwnedIpv4Pool");
+        if (!unknown_customerOwnedIpv4Pool) return value_customerOwnedIpv4Pool;
+        throw new UndeferrableValueException("Value 'EipArgs.customerOwnedIpv4Pool' is not present");
     }
 
     /**
      * Indicates if this EIP is for use in VPC (`vpc`).
      * 
      */
-    private UndeferrableValue<String> domain;
-
+    @PolicyResourceProperty(name="domain", flag="unknown_domain")
+    private String value_domain;
+    private boolean unknown_domain;
     public String domain() {
-        if (domain == null) return null;
-        return domain.getValue("EipArgs.domain");
+        if (!unknown_domain) return value_domain;
+        throw new UndeferrableValueException("Value 'EipArgs.domain' is not present");
     }
 
     /**
      * EC2 instance ID.
      * 
      */
-    private UndeferrableValue<String> instance;
-
+    @PolicyResourceProperty(name="instance", flag="unknown_instance")
+    private String value_instance;
+    private boolean unknown_instance;
     public String instance() {
-        if (instance == null) return null;
-        return instance.getValue("EipArgs.instance");
+        if (!unknown_instance) return value_instance;
+        throw new UndeferrableValueException("Value 'EipArgs.instance' is not present");
     }
 
     /**
      * The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
      * 
      */
-    private UndeferrableValue<String> ipamPoolId;
-
+    @PolicyResourceProperty(name="ipamPoolId", flag="unknown_ipamPoolId")
+    private String value_ipamPoolId;
+    private boolean unknown_ipamPoolId;
     public String ipamPoolId() {
-        if (ipamPoolId == null) return null;
-        return ipamPoolId.getValue("EipArgs.ipamPoolId");
+        if (!unknown_ipamPoolId) return value_ipamPoolId;
+        throw new UndeferrableValueException("Value 'EipArgs.ipamPoolId' is not present");
     }
 
     /**
      * Location from which the IP address is advertised. Use this parameter to limit the address to this location.
      * 
      */
-    private UndeferrableValue<String> networkBorderGroup;
-
+    @PolicyResourceProperty(name="networkBorderGroup", flag="unknown_networkBorderGroup")
+    private String value_networkBorderGroup;
+    private boolean unknown_networkBorderGroup;
     public String networkBorderGroup() {
-        if (networkBorderGroup == null) return null;
-        return networkBorderGroup.getValue("EipArgs.networkBorderGroup");
+        if (!unknown_networkBorderGroup) return value_networkBorderGroup;
+        throw new UndeferrableValueException("Value 'EipArgs.networkBorderGroup' is not present");
     }
 
     /**
      * Network interface ID to associate with.
      * 
      */
-    private UndeferrableValue<String> networkInterface;
-
+    @PolicyResourceProperty(name="networkInterface", flag="unknown_networkInterface")
+    private String value_networkInterface;
+    private boolean unknown_networkInterface;
     public String networkInterface() {
-        if (networkInterface == null) return null;
-        return networkInterface.getValue("EipArgs.networkInterface");
+        if (!unknown_networkInterface) return value_networkInterface;
+        throw new UndeferrableValueException("Value 'EipArgs.networkInterface' is not present");
     }
 
     /**
@@ -107,22 +116,24 @@ public final class EipArgs extends com.pulumi.resources.PolicyResourceInput {
      * This option is only available for VPC EIPs.
      * 
      */
-    private UndeferrableValue<String> publicIpv4Pool;
-
+    @PolicyResourceProperty(name="publicIpv4Pool", flag="unknown_publicIpv4Pool")
+    private String value_publicIpv4Pool;
+    private boolean unknown_publicIpv4Pool;
     public String publicIpv4Pool() {
-        if (publicIpv4Pool == null) return null;
-        return publicIpv4Pool.getValue("EipArgs.publicIpv4Pool");
+        if (!unknown_publicIpv4Pool) return value_publicIpv4Pool;
+        throw new UndeferrableValueException("Value 'EipArgs.publicIpv4Pool' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("EipArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'EipArgs.tags' is not present");
     }
 
     /**
@@ -139,11 +150,12 @@ public final class EipArgs extends com.pulumi.resources.PolicyResourceInput {
      * 
      */
     @Deprecated /* vpc is deprecated. Use domain instead. */
-    private UndeferrableValue<Boolean> vpc;
-
+    @PolicyResourceProperty(name="vpc", flag="unknown_vpc")
+    private Boolean value_vpc;
+    private boolean unknown_vpc;
     public Boolean vpc() {
-        if (vpc == null) return null;
-        return vpc.getValue("EipArgs.vpc");
+        if (!unknown_vpc) return value_vpc;
+        throw new UndeferrableValueException("Value 'EipArgs.vpc' is not present");
     }
 
 }

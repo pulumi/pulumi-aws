@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kms.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class CustomKeyStoreXksProxyAuthenticationCredentialArgs {
      * A unique identifier for the raw secret access key.
      * 
      */
-    private UndeferrableValue<String> accessKeyId;
-
+    @PolicyResourceProperty(name="accessKeyId", flag="unknown_accessKeyId")
+    private String value_accessKeyId;
+    private boolean unknown_accessKeyId;
     public String accessKeyId() {
-        if (accessKeyId == null) return null;
-        return accessKeyId.getValue("CustomKeyStoreXksProxyAuthenticationCredentialArgs.accessKeyId");
+        if (!unknown_accessKeyId) return value_accessKeyId;
+        throw new UndeferrableValueException("Value 'CustomKeyStoreXksProxyAuthenticationCredentialArgs.accessKeyId' is not present");
     }
 
     /**
      * A secret string of 43-64 characters.
      * 
      */
-    private UndeferrableValue<String> rawSecretAccessKey;
-
+    @PolicyResourceProperty(name="rawSecretAccessKey", flag="unknown_rawSecretAccessKey")
+    private String value_rawSecretAccessKey;
+    private boolean unknown_rawSecretAccessKey;
     public String rawSecretAccessKey() {
-        if (rawSecretAccessKey == null) return null;
-        return rawSecretAccessKey.getValue("CustomKeyStoreXksProxyAuthenticationCredentialArgs.rawSecretAccessKey");
+        if (!unknown_rawSecretAccessKey) return value_rawSecretAccessKey;
+        throw new UndeferrableValueException("Value 'CustomKeyStoreXksProxyAuthenticationCredentialArgs.rawSecretAccessKey' is not present");
     }
 
 }

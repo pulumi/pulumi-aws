@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -16,77 +17,84 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroup
      * The ad marker type for this output group.
      * 
      */
-    private UndeferrableValue<List<String>> adMarkers;
-
+    @PolicyResourceProperty(name="adMarkers", flag="unknown_adMarkers")
+    private List<String> value_adMarkers;
+    private boolean unknown_adMarkers;
     public List<String> adMarkers() {
-        if (adMarkers == null) return null;
-        return adMarkers.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs.adMarkers");
+        if (!unknown_adMarkers) return value_adMarkers;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs.adMarkers' is not present");
     }
 
     /**
      * Authentication scheme to use when connecting with CDN.
      * 
      */
-    private UndeferrableValue<String> authenticationScheme;
-
+    @PolicyResourceProperty(name="authenticationScheme", flag="unknown_authenticationScheme")
+    private String value_authenticationScheme;
+    private boolean unknown_authenticationScheme;
     public String authenticationScheme() {
-        if (authenticationScheme == null) return null;
-        return authenticationScheme.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs.authenticationScheme");
+        if (!unknown_authenticationScheme) return value_authenticationScheme;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs.authenticationScheme' is not present");
     }
 
     /**
      * Controls behavior when content cache fills up.
      * 
      */
-    private UndeferrableValue<String> cacheFullBehavior;
-
+    @PolicyResourceProperty(name="cacheFullBehavior", flag="unknown_cacheFullBehavior")
+    private String value_cacheFullBehavior;
+    private boolean unknown_cacheFullBehavior;
     public String cacheFullBehavior() {
-        if (cacheFullBehavior == null) return null;
-        return cacheFullBehavior.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs.cacheFullBehavior");
+        if (!unknown_cacheFullBehavior) return value_cacheFullBehavior;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs.cacheFullBehavior' is not present");
     }
 
     /**
      * Cache length in seconds, is used to calculate buffer size.
      * 
      */
-    private UndeferrableValue<Integer> cacheLength;
-
+    @PolicyResourceProperty(name="cacheLength", flag="unknown_cacheLength")
+    private Integer value_cacheLength;
+    private boolean unknown_cacheLength;
     public Integer cacheLength() {
-        if (cacheLength == null) return null;
-        return cacheLength.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs.cacheLength");
+        if (!unknown_cacheLength) return value_cacheLength;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs.cacheLength' is not present");
     }
 
     /**
      * Controls the types of data that passes to onCaptionInfo outputs.
      * 
      */
-    private UndeferrableValue<String> captionData;
-
+    @PolicyResourceProperty(name="captionData", flag="unknown_captionData")
+    private String value_captionData;
+    private boolean unknown_captionData;
     public String captionData() {
-        if (captionData == null) return null;
-        return captionData.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs.captionData");
+        if (!unknown_captionData) return value_captionData;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs.captionData' is not present");
     }
 
     /**
      * Controls the behavior of the RTMP group if input becomes unavailable.
      * 
      */
-    private UndeferrableValue<String> inputLossAction;
-
+    @PolicyResourceProperty(name="inputLossAction", flag="unknown_inputLossAction")
+    private String value_inputLossAction;
+    private boolean unknown_inputLossAction;
     public String inputLossAction() {
-        if (inputLossAction == null) return null;
-        return inputLossAction.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs.inputLossAction");
+        if (!unknown_inputLossAction) return value_inputLossAction;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs.inputLossAction' is not present");
     }
 
     /**
      * Number of seconds to wait until a restart is initiated.
      * 
      */
-    private UndeferrableValue<Integer> restartDelay;
-
+    @PolicyResourceProperty(name="restartDelay", flag="unknown_restartDelay")
+    private Integer value_restartDelay;
+    private boolean unknown_restartDelay;
     public Integer restartDelay() {
-        if (restartDelay == null) return null;
-        return restartDelay.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs.restartDelay");
+        if (!unknown_restartDelay) return value_restartDelay;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs.restartDelay' is not present");
     }
 
 }

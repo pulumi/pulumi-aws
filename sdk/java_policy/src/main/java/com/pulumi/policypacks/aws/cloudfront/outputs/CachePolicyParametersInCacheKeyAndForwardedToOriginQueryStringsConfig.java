@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStrin
      * Whether URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `query_string_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
      * 
      */
-    private UndeferrableValue<String> queryStringBehavior;
-
+    @PolicyResourceProperty(name="queryStringBehavior", flag="unknown_queryStringBehavior")
+    private String value_queryStringBehavior;
+    private boolean unknown_queryStringBehavior;
     public String queryStringBehavior() {
-        if (queryStringBehavior == null) return null;
-        return queryStringBehavior.getValue("CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig.queryStringBehavior");
+        if (!unknown_queryStringBehavior) return value_queryStringBehavior;
+        throw new UndeferrableValueException("Value 'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig.queryStringBehavior' is not present");
     }
 
     /**
      * Configuration parameter that contains a list of query string names. See Items for more information.
      * 
      */
-    private @Nullable UndeferrableValue<CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings> queryStrings;
-
+    @PolicyResourceProperty(name="queryStrings", flag="unknown_queryStrings")
+    private @Nullable CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings value_queryStrings;
+    private boolean unknown_queryStrings;
     public @Nullable CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings queryStrings() {
-        if (queryStrings == null) return null;
-        return queryStrings.getValue("CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig.queryStrings");
+        if (!unknown_queryStrings) return value_queryStrings;
+        throw new UndeferrableValueException("Value 'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig.queryStrings' is not present");
     }
 
 }

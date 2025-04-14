@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,66 +18,72 @@ public final class Image extends com.pulumi.resources.PolicyResourceOutput {
      * The Amazon Resource Name (ARN) assigned by AWS to this Image.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Image.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Image.arn' is not present");
     }
 
     /**
      * The description of the image.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Image.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Image.description' is not present");
     }
 
     /**
      * The display name of the image. When the image is added to a domain (must be unique to the domain).
      * 
      */
-    private @Nullable UndeferrableValue<String> displayName;
-
+    @PolicyResourceProperty(name="displayName", flag="unknown_displayName")
+    private @Nullable String value_displayName;
+    private boolean unknown_displayName;
     public @Nullable String displayName() {
-        if (displayName == null) return null;
-        return displayName.getValue("Image.displayName");
+        if (!unknown_displayName) return value_displayName;
+        throw new UndeferrableValueException("Value 'Image.displayName' is not present");
     }
 
     /**
      * The name of the image. Must be unique to your account.
      * 
      */
-    private UndeferrableValue<String> imageName;
-
+    @PolicyResourceProperty(name="imageName", flag="unknown_imageName")
+    private String value_imageName;
+    private boolean unknown_imageName;
     public String imageName() {
-        if (imageName == null) return null;
-        return imageName.getValue("Image.imageName");
+        if (!unknown_imageName) return value_imageName;
+        throw new UndeferrableValueException("Value 'Image.imageName' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("Image.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'Image.roleArn' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Image.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Image.tags' is not present");
     }
 
     /**
@@ -87,11 +94,12 @@ public final class Image extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Image.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Image.tagsAll' is not present");
     }
 
 }

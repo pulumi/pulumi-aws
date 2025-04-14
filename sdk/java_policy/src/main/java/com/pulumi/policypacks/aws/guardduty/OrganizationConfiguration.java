@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.guardduty;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.guardduty.outputs.OrganizationConfigurationDatasources;
 import java.lang.Boolean;
@@ -21,44 +22,48 @@ public final class OrganizationConfiguration extends com.pulumi.resources.Policy
      * 
      */
     @Deprecated /* auto_enable is deprecated. Use auto_enable_organization_members instead. */
-    private UndeferrableValue<Boolean> autoEnable;
-
+    @PolicyResourceProperty(name="autoEnable", flag="unknown_autoEnable")
+    private Boolean value_autoEnable;
+    private boolean unknown_autoEnable;
     public Boolean autoEnable() {
-        if (autoEnable == null) return null;
-        return autoEnable.getValue("OrganizationConfiguration.autoEnable");
+        if (!unknown_autoEnable) return value_autoEnable;
+        throw new UndeferrableValueException("Value 'OrganizationConfiguration.autoEnable' is not present");
     }
 
     /**
      * Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
      * 
      */
-    private UndeferrableValue<String> autoEnableOrganizationMembers;
-
+    @PolicyResourceProperty(name="autoEnableOrganizationMembers", flag="unknown_autoEnableOrganizationMembers")
+    private String value_autoEnableOrganizationMembers;
+    private boolean unknown_autoEnableOrganizationMembers;
     public String autoEnableOrganizationMembers() {
-        if (autoEnableOrganizationMembers == null) return null;
-        return autoEnableOrganizationMembers.getValue("OrganizationConfiguration.autoEnableOrganizationMembers");
+        if (!unknown_autoEnableOrganizationMembers) return value_autoEnableOrganizationMembers;
+        throw new UndeferrableValueException("Value 'OrganizationConfiguration.autoEnableOrganizationMembers' is not present");
     }
 
     /**
      * Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
      * 
      */
-    private UndeferrableValue<OrganizationConfigurationDatasources> datasources;
-
+    @PolicyResourceProperty(name="datasources", flag="unknown_datasources")
+    private OrganizationConfigurationDatasources value_datasources;
+    private boolean unknown_datasources;
     public OrganizationConfigurationDatasources datasources() {
-        if (datasources == null) return null;
-        return datasources.getValue("OrganizationConfiguration.datasources");
+        if (!unknown_datasources) return value_datasources;
+        throw new UndeferrableValueException("Value 'OrganizationConfiguration.datasources' is not present");
     }
 
     /**
      * The detector ID of the GuardDuty account.
      * 
      */
-    private UndeferrableValue<String> detectorId;
-
+    @PolicyResourceProperty(name="detectorId", flag="unknown_detectorId")
+    private String value_detectorId;
+    private boolean unknown_detectorId;
     public String detectorId() {
-        if (detectorId == null) return null;
-        return detectorId.getValue("OrganizationConfiguration.detectorId");
+        if (!unknown_detectorId) return value_detectorId;
+        throw new UndeferrableValueException("Value 'OrganizationConfiguration.detectorId' is not present");
     }
 
 }

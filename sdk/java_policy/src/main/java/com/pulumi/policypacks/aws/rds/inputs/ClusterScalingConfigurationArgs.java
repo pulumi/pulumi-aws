@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,66 +17,72 @@ public final class ClusterScalingConfigurationArgs {
      * Whether to enable automatic pause. A DB cluster can be paused only when it&#39;s idle (it has no connections). If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> autoPause;
-
+    @PolicyResourceProperty(name="autoPause", flag="unknown_autoPause")
+    private Boolean value_autoPause;
+    private boolean unknown_autoPause;
     public Boolean autoPause() {
-        if (autoPause == null) return null;
-        return autoPause.getValue("ClusterScalingConfigurationArgs.autoPause");
+        if (!unknown_autoPause) return value_autoPause;
+        throw new UndeferrableValueException("Value 'ClusterScalingConfigurationArgs.autoPause' is not present");
     }
 
     /**
      * Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
      * 
      */
-    private UndeferrableValue<Integer> maxCapacity;
-
+    @PolicyResourceProperty(name="maxCapacity", flag="unknown_maxCapacity")
+    private Integer value_maxCapacity;
+    private boolean unknown_maxCapacity;
     public Integer maxCapacity() {
-        if (maxCapacity == null) return null;
-        return maxCapacity.getValue("ClusterScalingConfigurationArgs.maxCapacity");
+        if (!unknown_maxCapacity) return value_maxCapacity;
+        throw new UndeferrableValueException("Value 'ClusterScalingConfigurationArgs.maxCapacity' is not present");
     }
 
     /**
      * Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
      * 
      */
-    private UndeferrableValue<Integer> minCapacity;
-
+    @PolicyResourceProperty(name="minCapacity", flag="unknown_minCapacity")
+    private Integer value_minCapacity;
+    private boolean unknown_minCapacity;
     public Integer minCapacity() {
-        if (minCapacity == null) return null;
-        return minCapacity.getValue("ClusterScalingConfigurationArgs.minCapacity");
+        if (!unknown_minCapacity) return value_minCapacity;
+        throw new UndeferrableValueException("Value 'ClusterScalingConfigurationArgs.minCapacity' is not present");
     }
 
     /**
      * Amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. Valid values are `60` through `600`. Defaults to `300`.
      * 
      */
-    private UndeferrableValue<Integer> secondsBeforeTimeout;
-
+    @PolicyResourceProperty(name="secondsBeforeTimeout", flag="unknown_secondsBeforeTimeout")
+    private Integer value_secondsBeforeTimeout;
+    private boolean unknown_secondsBeforeTimeout;
     public Integer secondsBeforeTimeout() {
-        if (secondsBeforeTimeout == null) return null;
-        return secondsBeforeTimeout.getValue("ClusterScalingConfigurationArgs.secondsBeforeTimeout");
+        if (!unknown_secondsBeforeTimeout) return value_secondsBeforeTimeout;
+        throw new UndeferrableValueException("Value 'ClusterScalingConfigurationArgs.secondsBeforeTimeout' is not present");
     }
 
     /**
      * Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
      * 
      */
-    private UndeferrableValue<Integer> secondsUntilAutoPause;
-
+    @PolicyResourceProperty(name="secondsUntilAutoPause", flag="unknown_secondsUntilAutoPause")
+    private Integer value_secondsUntilAutoPause;
+    private boolean unknown_secondsUntilAutoPause;
     public Integer secondsUntilAutoPause() {
-        if (secondsUntilAutoPause == null) return null;
-        return secondsUntilAutoPause.getValue("ClusterScalingConfigurationArgs.secondsUntilAutoPause");
+        if (!unknown_secondsUntilAutoPause) return value_secondsUntilAutoPause;
+        throw new UndeferrableValueException("Value 'ClusterScalingConfigurationArgs.secondsUntilAutoPause' is not present");
     }
 
     /**
      * Action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v1.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
      * 
      */
-    private UndeferrableValue<String> timeoutAction;
-
+    @PolicyResourceProperty(name="timeoutAction", flag="unknown_timeoutAction")
+    private String value_timeoutAction;
+    private boolean unknown_timeoutAction;
     public String timeoutAction() {
-        if (timeoutAction == null) return null;
-        return timeoutAction.getValue("ClusterScalingConfigurationArgs.timeoutAction");
+        if (!unknown_timeoutAction) return value_timeoutAction;
+        throw new UndeferrableValueException("Value 'ClusterScalingConfigurationArgs.timeoutAction' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs {
      * Maximum. May be a decimal number, e.g. `0.5`.
      * 
      */
-    private UndeferrableValue<Double> max;
-
+    @PolicyResourceProperty(name="max", flag="unknown_max")
+    private Double value_max;
+    private boolean unknown_max;
     public Double max() {
-        if (max == null) return null;
-        return max.getValue("LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs.max");
+        if (!unknown_max) return value_max;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs.max' is not present");
     }
 
     /**
      * Minimum. May be a decimal number, e.g. `0.5`.
      * 
      */
-    private UndeferrableValue<Double> min;
-
+    @PolicyResourceProperty(name="min", flag="unknown_min")
+    private Double value_min;
+    private boolean unknown_min;
     public Double min() {
-        if (min == null) return null;
-        return min.getValue("LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs.min");
+        if (!unknown_min) return value_min;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs.min' is not present");
     }
 
 }

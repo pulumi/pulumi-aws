@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class EndpointConfigurationShadowProductionVariantManagedInstanceSc
      * The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxInstanceCount;
-
+    @PolicyResourceProperty(name="maxInstanceCount", flag="unknown_maxInstanceCount")
+    private @Nullable Integer value_maxInstanceCount;
+    private boolean unknown_maxInstanceCount;
     public @Nullable Integer maxInstanceCount() {
-        if (maxInstanceCount == null) return null;
-        return maxInstanceCount.getValue("EndpointConfigurationShadowProductionVariantManagedInstanceScaling.maxInstanceCount");
+        if (!unknown_maxInstanceCount) return value_maxInstanceCount;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariantManagedInstanceScaling.maxInstanceCount' is not present");
     }
 
     /**
      * The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> minInstanceCount;
-
+    @PolicyResourceProperty(name="minInstanceCount", flag="unknown_minInstanceCount")
+    private @Nullable Integer value_minInstanceCount;
+    private boolean unknown_minInstanceCount;
     public @Nullable Integer minInstanceCount() {
-        if (minInstanceCount == null) return null;
-        return minInstanceCount.getValue("EndpointConfigurationShadowProductionVariantManagedInstanceScaling.minInstanceCount");
+        if (!unknown_minInstanceCount) return value_minInstanceCount;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariantManagedInstanceScaling.minInstanceCount' is not present");
     }
 
     /**
      * Indicates whether managed instance scaling is enabled. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private @Nullable String value_status;
+    private boolean unknown_status;
     public @Nullable String status() {
-        if (status == null) return null;
-        return status.getValue("EndpointConfigurationShadowProductionVariantManagedInstanceScaling.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariantManagedInstanceScaling.status' is not present");
     }
 
 }

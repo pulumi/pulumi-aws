@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValue;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
      * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
      * 
      */
-    private UndeferrableValue<String> mapBlockKey;
-
+    @PolicyResourceProperty(name="mapBlockKey", flag="unknown_mapBlockKey")
+    private String value_mapBlockKey;
+    private boolean unknown_mapBlockKey;
     public String mapBlockKey() {
-        if (mapBlockKey == null) return null;
-        return mapBlockKey.getValue("V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlot.mapBlockKey");
+        if (!unknown_mapBlockKey) return value_mapBlockKey;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlot.mapBlockKey' is not present");
     }
 
     /**
      * When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
      * 
      */
-    private @Nullable UndeferrableValue<String> shape;
-
+    @PolicyResourceProperty(name="shape", flag="unknown_shape")
+    private @Nullable String value_shape;
+    private boolean unknown_shape;
     public @Nullable String shape() {
-        if (shape == null) return null;
-        return shape.getValue("V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlot.shape");
+        if (!unknown_shape) return value_shape;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlot.shape' is not present");
     }
 
     /**
      * Configuration block for the current value of the slot. See `value`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValue> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValue value_value;
+    private boolean unknown_value;
     public @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValue value() {
-        if (value == null) return null;
-        return value.getValue("V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlot.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlot.value' is not present");
     }
 
 }

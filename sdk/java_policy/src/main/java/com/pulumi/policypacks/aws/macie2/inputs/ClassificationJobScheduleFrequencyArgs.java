@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.macie2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class ClassificationJobScheduleFrequencyArgs {
      * Specifies a daily recurrence pattern for running the job.
      * 
      */
-    private UndeferrableValue<Boolean> dailySchedule;
-
+    @PolicyResourceProperty(name="dailySchedule", flag="unknown_dailySchedule")
+    private Boolean value_dailySchedule;
+    private boolean unknown_dailySchedule;
     public Boolean dailySchedule() {
-        if (dailySchedule == null) return null;
-        return dailySchedule.getValue("ClassificationJobScheduleFrequencyArgs.dailySchedule");
+        if (!unknown_dailySchedule) return value_dailySchedule;
+        throw new UndeferrableValueException("Value 'ClassificationJobScheduleFrequencyArgs.dailySchedule' is not present");
     }
 
     /**
      * Specifies a monthly recurrence pattern for running the job.
      * 
      */
-    private UndeferrableValue<Integer> monthlySchedule;
-
+    @PolicyResourceProperty(name="monthlySchedule", flag="unknown_monthlySchedule")
+    private Integer value_monthlySchedule;
+    private boolean unknown_monthlySchedule;
     public Integer monthlySchedule() {
-        if (monthlySchedule == null) return null;
-        return monthlySchedule.getValue("ClassificationJobScheduleFrequencyArgs.monthlySchedule");
+        if (!unknown_monthlySchedule) return value_monthlySchedule;
+        throw new UndeferrableValueException("Value 'ClassificationJobScheduleFrequencyArgs.monthlySchedule' is not present");
     }
 
     /**
      * Specifies a weekly recurrence pattern for running the job.
      * 
      */
-    private UndeferrableValue<String> weeklySchedule;
-
+    @PolicyResourceProperty(name="weeklySchedule", flag="unknown_weeklySchedule")
+    private String value_weeklySchedule;
+    private boolean unknown_weeklySchedule;
     public String weeklySchedule() {
-        if (weeklySchedule == null) return null;
-        return weeklySchedule.getValue("ClassificationJobScheduleFrequencyArgs.weeklySchedule");
+        if (!unknown_weeklySchedule) return value_weeklySchedule;
+        throw new UndeferrableValueException("Value 'ClassificationJobScheduleFrequencyArgs.weeklySchedule' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class FirehoseDeliveryStreamIcebergConfigurationDestinationTableCon
      * The name of the Apache Iceberg database.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration.databaseName' is not present");
     }
 
     /**
      * The table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
      * 
      */
-    private @Nullable UndeferrableValue<String> s3ErrorOutputPrefix;
-
+    @PolicyResourceProperty(name="s3ErrorOutputPrefix", flag="unknown_s3ErrorOutputPrefix")
+    private @Nullable String value_s3ErrorOutputPrefix;
+    private boolean unknown_s3ErrorOutputPrefix;
     public @Nullable String s3ErrorOutputPrefix() {
-        if (s3ErrorOutputPrefix == null) return null;
-        return s3ErrorOutputPrefix.getValue("FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration.s3ErrorOutputPrefix");
+        if (!unknown_s3ErrorOutputPrefix) return value_s3ErrorOutputPrefix;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration.s3ErrorOutputPrefix' is not present");
     }
 
     /**
      * The name of the Apache Iceberg Table.
      * 
      */
-    private UndeferrableValue<String> tableName;
-
+    @PolicyResourceProperty(name="tableName", flag="unknown_tableName")
+    private String value_tableName;
+    private boolean unknown_tableName;
     public String tableName() {
-        if (tableName == null) return null;
-        return tableName.getValue("FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration.tableName");
+        if (!unknown_tableName) return value_tableName;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration.tableName' is not present");
     }
 
     /**
      * A list of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> uniqueKeys;
-
+    @PolicyResourceProperty(name="uniqueKeys", flag="unknown_uniqueKeys")
+    private @Nullable List<String> value_uniqueKeys;
+    private boolean unknown_uniqueKeys;
     public @Nullable List<String> uniqueKeys() {
-        if (uniqueKeys == null) return null;
-        return uniqueKeys.getValue("FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration.uniqueKeys");
+        if (!unknown_uniqueKeys) return value_uniqueKeys;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration.uniqueKeys' is not present");
     }
 
 }

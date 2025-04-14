@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudfront.outputs.KeyValueStoreTimeouts;
 import java.lang.String;
@@ -17,40 +18,44 @@ public final class KeyValueStore extends com.pulumi.resources.PolicyResourceOutp
      * Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("KeyValueStore.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'KeyValueStore.arn' is not present");
     }
 
     /**
      * Comment.
      * 
      */
-    private @Nullable UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private @Nullable String value_comment;
+    private boolean unknown_comment;
     public @Nullable String comment() {
-        if (comment == null) return null;
-        return comment.getValue("KeyValueStore.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'KeyValueStore.comment' is not present");
     }
 
     /**
      * ETag hash of the KeyValueStore.
      * 
      */
-    private UndeferrableValue<String> etag;
-
+    @PolicyResourceProperty(name="etag", flag="unknown_etag")
+    private String value_etag;
+    private boolean unknown_etag;
     public String etag() {
-        if (etag == null) return null;
-        return etag.getValue("KeyValueStore.etag");
+        if (!unknown_etag) return value_etag;
+        throw new UndeferrableValueException("Value 'KeyValueStore.etag' is not present");
     }
 
-    private UndeferrableValue<String> lastModifiedTime;
-
+    @PolicyResourceProperty(name="lastModifiedTime", flag="unknown_lastModifiedTime")
+    private String value_lastModifiedTime;
+    private boolean unknown_lastModifiedTime;
     public String lastModifiedTime() {
-        if (lastModifiedTime == null) return null;
-        return lastModifiedTime.getValue("KeyValueStore.lastModifiedTime");
+        if (!unknown_lastModifiedTime) return value_lastModifiedTime;
+        throw new UndeferrableValueException("Value 'KeyValueStore.lastModifiedTime' is not present");
     }
 
     /**
@@ -59,18 +64,20 @@ public final class KeyValueStore extends com.pulumi.resources.PolicyResourceOutp
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("KeyValueStore.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'KeyValueStore.name' is not present");
     }
 
-    private @Nullable UndeferrableValue<KeyValueStoreTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable KeyValueStoreTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable KeyValueStoreTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("KeyValueStore.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'KeyValueStore.timeouts' is not present");
     }
 
 }

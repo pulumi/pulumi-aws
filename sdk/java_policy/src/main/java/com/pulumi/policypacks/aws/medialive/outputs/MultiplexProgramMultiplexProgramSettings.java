@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.MultiplexProgramMultiplexProgramSettingsServiceDescriptor;
 import com.pulumi.policypacks.aws.medialive.outputs.MultiplexProgramMultiplexProgramSettingsVideoSettings;
 import java.lang.Integer;
@@ -17,44 +18,48 @@ public final class MultiplexProgramMultiplexProgramSettings {
      * Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
      * 
      */
-    private UndeferrableValue<String> preferredChannelPipeline;
-
+    @PolicyResourceProperty(name="preferredChannelPipeline", flag="unknown_preferredChannelPipeline")
+    private String value_preferredChannelPipeline;
+    private boolean unknown_preferredChannelPipeline;
     public String preferredChannelPipeline() {
-        if (preferredChannelPipeline == null) return null;
-        return preferredChannelPipeline.getValue("MultiplexProgramMultiplexProgramSettings.preferredChannelPipeline");
+        if (!unknown_preferredChannelPipeline) return value_preferredChannelPipeline;
+        throw new UndeferrableValueException("Value 'MultiplexProgramMultiplexProgramSettings.preferredChannelPipeline' is not present");
     }
 
     /**
      * Unique program number.
      * 
      */
-    private UndeferrableValue<Integer> programNumber;
-
+    @PolicyResourceProperty(name="programNumber", flag="unknown_programNumber")
+    private Integer value_programNumber;
+    private boolean unknown_programNumber;
     public Integer programNumber() {
-        if (programNumber == null) return null;
-        return programNumber.getValue("MultiplexProgramMultiplexProgramSettings.programNumber");
+        if (!unknown_programNumber) return value_programNumber;
+        throw new UndeferrableValueException("Value 'MultiplexProgramMultiplexProgramSettings.programNumber' is not present");
     }
 
     /**
      * Service Descriptor. See Service Descriptor for more details.
      * 
      */
-    private @Nullable UndeferrableValue<MultiplexProgramMultiplexProgramSettingsServiceDescriptor> serviceDescriptor;
-
+    @PolicyResourceProperty(name="serviceDescriptor", flag="unknown_serviceDescriptor")
+    private @Nullable MultiplexProgramMultiplexProgramSettingsServiceDescriptor value_serviceDescriptor;
+    private boolean unknown_serviceDescriptor;
     public @Nullable MultiplexProgramMultiplexProgramSettingsServiceDescriptor serviceDescriptor() {
-        if (serviceDescriptor == null) return null;
-        return serviceDescriptor.getValue("MultiplexProgramMultiplexProgramSettings.serviceDescriptor");
+        if (!unknown_serviceDescriptor) return value_serviceDescriptor;
+        throw new UndeferrableValueException("Value 'MultiplexProgramMultiplexProgramSettings.serviceDescriptor' is not present");
     }
 
     /**
      * Video settings. See Video Settings for more details.
      * 
      */
-    private @Nullable UndeferrableValue<MultiplexProgramMultiplexProgramSettingsVideoSettings> videoSettings;
-
+    @PolicyResourceProperty(name="videoSettings", flag="unknown_videoSettings")
+    private @Nullable MultiplexProgramMultiplexProgramSettingsVideoSettings value_videoSettings;
+    private boolean unknown_videoSettings;
     public @Nullable MultiplexProgramMultiplexProgramSettingsVideoSettings videoSettings() {
-        if (videoSettings == null) return null;
-        return videoSettings.getValue("MultiplexProgramMultiplexProgramSettings.videoSettings");
+        if (!unknown_videoSettings) return value_videoSettings;
+        throw new UndeferrableValueException("Value 'MultiplexProgramMultiplexProgramSettings.videoSettings' is not present");
     }
 
 }

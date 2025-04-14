@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualNodeSpecLoggingAccessLog;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class VirtualNodeSpecLogging {
      * Access log configuration for a virtual node.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualNodeSpecLoggingAccessLog> accessLog;
-
+    @PolicyResourceProperty(name="accessLog", flag="unknown_accessLog")
+    private @Nullable VirtualNodeSpecLoggingAccessLog value_accessLog;
+    private boolean unknown_accessLog;
     public @Nullable VirtualNodeSpecLoggingAccessLog accessLog() {
-        if (accessLog == null) return null;
-        return accessLog.getValue("VirtualNodeSpecLogging.accessLog");
+        if (!unknown_accessLog) return value_accessLog;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecLogging.accessLog' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.TlsInspectionConfigurationCertificate;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.TlsInspectionConfigurationCertificateAuthority;
@@ -24,84 +25,92 @@ public final class TlsInspectionConfiguration extends com.pulumi.resources.Polic
      * ARN of the TLS Inspection Configuration.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("TlsInspectionConfiguration.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.arn' is not present");
     }
 
     /**
      * Certificate Manager certificate block. See Certificate Authority below for details.
      * 
      */
-    private UndeferrableValue<List<TlsInspectionConfigurationCertificateAuthority>> certificateAuthorities;
-
+    @PolicyResourceProperty(name="certificateAuthorities", flag="unknown_certificateAuthorities")
+    private List<TlsInspectionConfigurationCertificateAuthority> value_certificateAuthorities;
+    private boolean unknown_certificateAuthorities;
     public List<TlsInspectionConfigurationCertificateAuthority> certificateAuthorities() {
-        if (certificateAuthorities == null) return null;
-        return certificateAuthorities.getValue("TlsInspectionConfiguration.certificateAuthorities");
+        if (!unknown_certificateAuthorities) return value_certificateAuthorities;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.certificateAuthorities' is not present");
     }
 
     /**
      * List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
      * 
      */
-    private UndeferrableValue<List<TlsInspectionConfigurationCertificate>> certificates;
-
+    @PolicyResourceProperty(name="certificates", flag="unknown_certificates")
+    private List<TlsInspectionConfigurationCertificate> value_certificates;
+    private boolean unknown_certificates;
     public List<TlsInspectionConfigurationCertificate> certificates() {
-        if (certificates == null) return null;
-        return certificates.getValue("TlsInspectionConfiguration.certificates");
+        if (!unknown_certificates) return value_certificates;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.certificates' is not present");
     }
 
     /**
      * Description of the TLS inspection configuration.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("TlsInspectionConfiguration.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.description' is not present");
     }
 
     /**
      * Encryption configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<List<TlsInspectionConfigurationEncryptionConfiguration>> encryptionConfigurations;
-
+    @PolicyResourceProperty(name="encryptionConfigurations", flag="unknown_encryptionConfigurations")
+    private List<TlsInspectionConfigurationEncryptionConfiguration> value_encryptionConfigurations;
+    private boolean unknown_encryptionConfigurations;
     public List<TlsInspectionConfigurationEncryptionConfiguration> encryptionConfigurations() {
-        if (encryptionConfigurations == null) return null;
-        return encryptionConfigurations.getValue("TlsInspectionConfiguration.encryptionConfigurations");
+        if (!unknown_encryptionConfigurations) return value_encryptionConfigurations;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.encryptionConfigurations' is not present");
     }
 
     /**
      * Descriptive name of the TLS inspection configuration.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TlsInspectionConfiguration.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.name' is not present");
     }
 
     /**
      * Number of firewall policies that use this TLS inspection configuration.
      * 
      */
-    private UndeferrableValue<Integer> numberOfAssociations;
-
+    @PolicyResourceProperty(name="numberOfAssociations", flag="unknown_numberOfAssociations")
+    private Integer value_numberOfAssociations;
+    private boolean unknown_numberOfAssociations;
     public Integer numberOfAssociations() {
-        if (numberOfAssociations == null) return null;
-        return numberOfAssociations.getValue("TlsInspectionConfiguration.numberOfAssociations");
+        if (!unknown_numberOfAssociations) return value_numberOfAssociations;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.numberOfAssociations' is not present");
     }
 
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TlsInspectionConfiguration.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.tags' is not present");
     }
 
     /**
@@ -110,18 +119,20 @@ public final class TlsInspectionConfiguration extends com.pulumi.resources.Polic
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("TlsInspectionConfiguration.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<TlsInspectionConfigurationTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable TlsInspectionConfigurationTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable TlsInspectionConfigurationTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("TlsInspectionConfiguration.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.timeouts' is not present");
     }
 
     /**
@@ -130,33 +141,36 @@ public final class TlsInspectionConfiguration extends com.pulumi.resources.Polic
      * The following arguments are optional:
      * 
      */
-    private @Nullable UndeferrableValue<TlsInspectionConfigurationTlsInspectionConfiguration> tlsInspectionConfiguration;
-
+    @PolicyResourceProperty(name="tlsInspectionConfiguration", flag="unknown_tlsInspectionConfiguration")
+    private @Nullable TlsInspectionConfigurationTlsInspectionConfiguration value_tlsInspectionConfiguration;
+    private boolean unknown_tlsInspectionConfiguration;
     public @Nullable TlsInspectionConfigurationTlsInspectionConfiguration tlsInspectionConfiguration() {
-        if (tlsInspectionConfiguration == null) return null;
-        return tlsInspectionConfiguration.getValue("TlsInspectionConfiguration.tlsInspectionConfiguration");
+        if (!unknown_tlsInspectionConfiguration) return value_tlsInspectionConfiguration;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.tlsInspectionConfiguration' is not present");
     }
 
     /**
      * A unique identifier for the TLS inspection configuration.
      * 
      */
-    private UndeferrableValue<String> tlsInspectionConfigurationId;
-
+    @PolicyResourceProperty(name="tlsInspectionConfigurationId", flag="unknown_tlsInspectionConfigurationId")
+    private String value_tlsInspectionConfigurationId;
+    private boolean unknown_tlsInspectionConfigurationId;
     public String tlsInspectionConfigurationId() {
-        if (tlsInspectionConfigurationId == null) return null;
-        return tlsInspectionConfigurationId.getValue("TlsInspectionConfiguration.tlsInspectionConfigurationId");
+        if (!unknown_tlsInspectionConfigurationId) return value_tlsInspectionConfigurationId;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.tlsInspectionConfigurationId' is not present");
     }
 
     /**
      * String token used when updating the rule group.
      * 
      */
-    private UndeferrableValue<String> updateToken;
-
+    @PolicyResourceProperty(name="updateToken", flag="unknown_updateToken")
+    private String value_updateToken;
+    private boolean unknown_updateToken;
     public String updateToken() {
-        if (updateToken == null) return null;
-        return updateToken.getValue("TlsInspectionConfiguration.updateToken");
+        if (!unknown_updateToken) return value_updateToken;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfiguration.updateToken' is not present");
     }
 
 }

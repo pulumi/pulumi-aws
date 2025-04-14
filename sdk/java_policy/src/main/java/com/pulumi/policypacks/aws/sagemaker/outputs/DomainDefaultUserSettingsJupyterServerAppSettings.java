@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.outputs.DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository;
 import com.pulumi.policypacks.aws.sagemaker.outputs.DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class DomainDefaultUserSettingsJupyterServerAppSettings {
      * A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
      * 
      */
-    private @Nullable UndeferrableValue<List<DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository>> codeRepositories;
-
+    @PolicyResourceProperty(name="codeRepositories", flag="unknown_codeRepositories")
+    private @Nullable List<DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository> value_codeRepositories;
+    private boolean unknown_codeRepositories;
     public @Nullable List<DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository> codeRepositories() {
-        if (codeRepositories == null) return null;
-        return codeRepositories.getValue("DomainDefaultUserSettingsJupyterServerAppSettings.codeRepositories");
+        if (!unknown_codeRepositories) return value_codeRepositories;
+        throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsJupyterServerAppSettings.codeRepositories' is not present");
     }
 
     /**
      * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
      * 
      */
-    private @Nullable UndeferrableValue<DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec> defaultResourceSpec;
-
+    @PolicyResourceProperty(name="defaultResourceSpec", flag="unknown_defaultResourceSpec")
+    private @Nullable DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec value_defaultResourceSpec;
+    private boolean unknown_defaultResourceSpec;
     public @Nullable DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec() {
-        if (defaultResourceSpec == null) return null;
-        return defaultResourceSpec.getValue("DomainDefaultUserSettingsJupyterServerAppSettings.defaultResourceSpec");
+        if (!unknown_defaultResourceSpec) return value_defaultResourceSpec;
+        throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsJupyterServerAppSettings.defaultResourceSpec' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> lifecycleConfigArns;
-
+    @PolicyResourceProperty(name="lifecycleConfigArns", flag="unknown_lifecycleConfigArns")
+    private @Nullable List<String> value_lifecycleConfigArns;
+    private boolean unknown_lifecycleConfigArns;
     public @Nullable List<String> lifecycleConfigArns() {
-        if (lifecycleConfigArns == null) return null;
-        return lifecycleConfigArns.getValue("DomainDefaultUserSettingsJupyterServerAppSettings.lifecycleConfigArns");
+        if (!unknown_lifecycleConfigArns) return value_lifecycleConfigArns;
+        throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsJupyterServerAppSettings.lifecycleConfigArns' is not present");
     }
 
 }

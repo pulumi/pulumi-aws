@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.networkmanager.outputs.ConnectPeerConfigurationBgpConfiguration;
 import java.lang.String;
 import java.util.List;
@@ -12,33 +13,36 @@ import javax.annotation.Nullable;
 
 public final class ConnectPeerConfiguration {
 
-    private @Nullable UndeferrableValue<List<ConnectPeerConfigurationBgpConfiguration>> bgpConfigurations;
-
+    @PolicyResourceProperty(name="bgpConfigurations", flag="unknown_bgpConfigurations")
+    private @Nullable List<ConnectPeerConfigurationBgpConfiguration> value_bgpConfigurations;
+    private boolean unknown_bgpConfigurations;
     public @Nullable List<ConnectPeerConfigurationBgpConfiguration> bgpConfigurations() {
-        if (bgpConfigurations == null) return null;
-        return bgpConfigurations.getValue("ConnectPeerConfiguration.bgpConfigurations");
+        if (!unknown_bgpConfigurations) return value_bgpConfigurations;
+        throw new UndeferrableValueException("Value 'ConnectPeerConfiguration.bgpConfigurations' is not present");
     }
 
     /**
      * A Connect peer core network address.
      * 
      */
-    private @Nullable UndeferrableValue<String> coreNetworkAddress;
-
+    @PolicyResourceProperty(name="coreNetworkAddress", flag="unknown_coreNetworkAddress")
+    private @Nullable String value_coreNetworkAddress;
+    private boolean unknown_coreNetworkAddress;
     public @Nullable String coreNetworkAddress() {
-        if (coreNetworkAddress == null) return null;
-        return coreNetworkAddress.getValue("ConnectPeerConfiguration.coreNetworkAddress");
+        if (!unknown_coreNetworkAddress) return value_coreNetworkAddress;
+        throw new UndeferrableValueException("Value 'ConnectPeerConfiguration.coreNetworkAddress' is not present");
     }
 
     /**
      * The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> insideCidrBlocks;
-
+    @PolicyResourceProperty(name="insideCidrBlocks", flag="unknown_insideCidrBlocks")
+    private @Nullable List<String> value_insideCidrBlocks;
+    private boolean unknown_insideCidrBlocks;
     public @Nullable List<String> insideCidrBlocks() {
-        if (insideCidrBlocks == null) return null;
-        return insideCidrBlocks.getValue("ConnectPeerConfiguration.insideCidrBlocks");
+        if (!unknown_insideCidrBlocks) return value_insideCidrBlocks;
+        throw new UndeferrableValueException("Value 'ConnectPeerConfiguration.insideCidrBlocks' is not present");
     }
 
     /**
@@ -47,18 +51,20 @@ public final class ConnectPeerConfiguration {
      * The following arguments are optional:
      * 
      */
-    private @Nullable UndeferrableValue<String> peerAddress;
-
+    @PolicyResourceProperty(name="peerAddress", flag="unknown_peerAddress")
+    private @Nullable String value_peerAddress;
+    private boolean unknown_peerAddress;
     public @Nullable String peerAddress() {
-        if (peerAddress == null) return null;
-        return peerAddress.getValue("ConnectPeerConfiguration.peerAddress");
+        if (!unknown_peerAddress) return value_peerAddress;
+        throw new UndeferrableValueException("Value 'ConnectPeerConfiguration.peerAddress' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private @Nullable String value_protocol;
+    private boolean unknown_protocol;
     public @Nullable String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("ConnectPeerConfiguration.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'ConnectPeerConfiguration.protocol' is not present");
     }
 
 }

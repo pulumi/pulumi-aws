@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codedeploy.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -16,11 +17,12 @@ public final class DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisionin
      * * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscaling_groups` to specify the Auto Scaling group.
      * 
      */
-    private @Nullable UndeferrableValue<String> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private @Nullable String value_action;
+    private boolean unknown_action;
     public @Nullable String action() {
-        if (action == null) return null;
-        return action.getValue("DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption.action' is not present");
     }
 
 }

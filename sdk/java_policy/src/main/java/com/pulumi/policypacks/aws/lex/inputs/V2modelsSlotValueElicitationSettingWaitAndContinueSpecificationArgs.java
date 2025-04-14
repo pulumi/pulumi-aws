@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs;
@@ -20,11 +21,12 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
      * If the active field isn&#39;t specified, the default is `true`.
      * 
      */
-    private UndeferrableValue<Boolean> active;
-
+    @PolicyResourceProperty(name="active", flag="unknown_active")
+    private Boolean value_active;
+    private boolean unknown_active;
     public Boolean active() {
-        if (active == null) return null;
-        return active.getValue("V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs.active");
+        if (!unknown_active) return value_active;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs.active' is not present");
     }
 
     /**
@@ -32,11 +34,12 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
      * See the `continue_response` argument reference below.
      * 
      */
-    private UndeferrableValue<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs>> continueResponses;
-
+    @PolicyResourceProperty(name="continueResponses", flag="unknown_continueResponses")
+    private List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs> value_continueResponses;
+    private boolean unknown_continueResponses;
     public List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs> continueResponses() {
-        if (continueResponses == null) return null;
-        return continueResponses.getValue("V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs.continueResponses");
+        if (!unknown_continueResponses) return value_continueResponses;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs.continueResponses' is not present");
     }
 
     /**
@@ -44,11 +47,12 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
      * See the `still_waiting_response` argument reference below.
      * 
      */
-    private UndeferrableValue<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs>> stillWaitingResponses;
-
+    @PolicyResourceProperty(name="stillWaitingResponses", flag="unknown_stillWaitingResponses")
+    private List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs> value_stillWaitingResponses;
+    private boolean unknown_stillWaitingResponses;
     public List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs> stillWaitingResponses() {
-        if (stillWaitingResponses == null) return null;
-        return stillWaitingResponses.getValue("V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs.stillWaitingResponses");
+        if (!unknown_stillWaitingResponses) return value_stillWaitingResponses;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs.stillWaitingResponses' is not present");
     }
 
     /**
@@ -56,11 +60,12 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
      * See the `waiting_response` argument reference below.
      * 
      */
-    private UndeferrableValue<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs>> waitingResponses;
-
+    @PolicyResourceProperty(name="waitingResponses", flag="unknown_waitingResponses")
+    private List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs> value_waitingResponses;
+    private boolean unknown_waitingResponses;
     public List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs> waitingResponses() {
-        if (waitingResponses == null) return null;
-        return waitingResponses.getValue("V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs.waitingResponses");
+        if (!unknown_waitingResponses) return value_waitingResponses;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs.waitingResponses' is not present");
     }
 
 }

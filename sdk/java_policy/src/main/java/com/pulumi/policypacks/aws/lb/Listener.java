@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lb.outputs.ListenerDefaultAction;
 import com.pulumi.policypacks.aws.lb.outputs.ListenerMutualAuthentication;
@@ -22,44 +23,48 @@ public final class Listener extends com.pulumi.resources.PolicyResourceOutput {
      * Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
      * 
      */
-    private @Nullable UndeferrableValue<String> alpnPolicy;
-
+    @PolicyResourceProperty(name="alpnPolicy", flag="unknown_alpnPolicy")
+    private @Nullable String value_alpnPolicy;
+    private boolean unknown_alpnPolicy;
     public @Nullable String alpnPolicy() {
-        if (alpnPolicy == null) return null;
-        return alpnPolicy.getValue("Listener.alpnPolicy");
+        if (!unknown_alpnPolicy) return value_alpnPolicy;
+        throw new UndeferrableValueException("Value 'Listener.alpnPolicy' is not present");
     }
 
     /**
      * ARN of the listener (matches `id`).
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Listener.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Listener.arn' is not present");
     }
 
     /**
      * ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
      * 
      */
-    private @Nullable UndeferrableValue<String> certificateArn;
-
+    @PolicyResourceProperty(name="certificateArn", flag="unknown_certificateArn")
+    private @Nullable String value_certificateArn;
+    private boolean unknown_certificateArn;
     public @Nullable String certificateArn() {
-        if (certificateArn == null) return null;
-        return certificateArn.getValue("Listener.certificateArn");
+        if (!unknown_certificateArn) return value_certificateArn;
+        throw new UndeferrableValueException("Value 'Listener.certificateArn' is not present");
     }
 
     /**
      * Configuration block for default actions. See below.
      * 
      */
-    private UndeferrableValue<List<ListenerDefaultAction>> defaultActions;
-
+    @PolicyResourceProperty(name="defaultActions", flag="unknown_defaultActions")
+    private List<ListenerDefaultAction> value_defaultActions;
+    private boolean unknown_defaultActions;
     public List<ListenerDefaultAction> defaultActions() {
-        if (defaultActions == null) return null;
-        return defaultActions.getValue("Listener.defaultActions");
+        if (!unknown_defaultActions) return value_defaultActions;
+        throw new UndeferrableValueException("Value 'Listener.defaultActions' is not present");
     }
 
     /**
@@ -68,264 +73,288 @@ public final class Listener extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> loadBalancerArn;
-
+    @PolicyResourceProperty(name="loadBalancerArn", flag="unknown_loadBalancerArn")
+    private String value_loadBalancerArn;
+    private boolean unknown_loadBalancerArn;
     public String loadBalancerArn() {
-        if (loadBalancerArn == null) return null;
-        return loadBalancerArn.getValue("Listener.loadBalancerArn");
+        if (!unknown_loadBalancerArn) return value_loadBalancerArn;
+        throw new UndeferrableValueException("Value 'Listener.loadBalancerArn' is not present");
     }
 
     /**
      * The mutual authentication configuration information. See below.
      * 
      */
-    private UndeferrableValue<ListenerMutualAuthentication> mutualAuthentication;
-
+    @PolicyResourceProperty(name="mutualAuthentication", flag="unknown_mutualAuthentication")
+    private ListenerMutualAuthentication value_mutualAuthentication;
+    private boolean unknown_mutualAuthentication;
     public ListenerMutualAuthentication mutualAuthentication() {
-        if (mutualAuthentication == null) return null;
-        return mutualAuthentication.getValue("Listener.mutualAuthentication");
+        if (!unknown_mutualAuthentication) return value_mutualAuthentication;
+        throw new UndeferrableValueException("Value 'Listener.mutualAuthentication' is not present");
     }
 
     /**
      * Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable Integer value_port;
+    private boolean unknown_port;
     public @Nullable Integer port() {
-        if (port == null) return null;
-        return port.getValue("Listener.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'Listener.port' is not present");
     }
 
     /**
      * Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("Listener.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'Listener.protocol' is not present");
     }
 
     /**
      * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      * 
      */
-    private UndeferrableValue<String> routingHttpRequestXAmznMtlsClientcertHeaderName;
-
+    @PolicyResourceProperty(name="routingHttpRequestXAmznMtlsClientcertHeaderName", flag="unknown_routingHttpRequestXAmznMtlsClientcertHeaderName")
+    private String value_routingHttpRequestXAmznMtlsClientcertHeaderName;
+    private boolean unknown_routingHttpRequestXAmznMtlsClientcertHeaderName;
     public String routingHttpRequestXAmznMtlsClientcertHeaderName() {
-        if (routingHttpRequestXAmznMtlsClientcertHeaderName == null) return null;
-        return routingHttpRequestXAmznMtlsClientcertHeaderName.getValue("Listener.routingHttpRequestXAmznMtlsClientcertHeaderName");
+        if (!unknown_routingHttpRequestXAmznMtlsClientcertHeaderName) return value_routingHttpRequestXAmznMtlsClientcertHeaderName;
+        throw new UndeferrableValueException("Value 'Listener.routingHttpRequestXAmznMtlsClientcertHeaderName' is not present");
     }
 
     /**
      * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Issuer` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      * 
      */
-    private UndeferrableValue<String> routingHttpRequestXAmznMtlsClientcertIssuerHeaderName;
-
+    @PolicyResourceProperty(name="routingHttpRequestXAmznMtlsClientcertIssuerHeaderName", flag="unknown_routingHttpRequestXAmznMtlsClientcertIssuerHeaderName")
+    private String value_routingHttpRequestXAmznMtlsClientcertIssuerHeaderName;
+    private boolean unknown_routingHttpRequestXAmznMtlsClientcertIssuerHeaderName;
     public String routingHttpRequestXAmznMtlsClientcertIssuerHeaderName() {
-        if (routingHttpRequestXAmznMtlsClientcertIssuerHeaderName == null) return null;
-        return routingHttpRequestXAmznMtlsClientcertIssuerHeaderName.getValue("Listener.routingHttpRequestXAmznMtlsClientcertIssuerHeaderName");
+        if (!unknown_routingHttpRequestXAmznMtlsClientcertIssuerHeaderName) return value_routingHttpRequestXAmznMtlsClientcertIssuerHeaderName;
+        throw new UndeferrableValueException("Value 'Listener.routingHttpRequestXAmznMtlsClientcertIssuerHeaderName' is not present");
     }
 
     /**
      * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Leaf` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      * 
      */
-    private UndeferrableValue<String> routingHttpRequestXAmznMtlsClientcertLeafHeaderName;
-
+    @PolicyResourceProperty(name="routingHttpRequestXAmznMtlsClientcertLeafHeaderName", flag="unknown_routingHttpRequestXAmznMtlsClientcertLeafHeaderName")
+    private String value_routingHttpRequestXAmznMtlsClientcertLeafHeaderName;
+    private boolean unknown_routingHttpRequestXAmznMtlsClientcertLeafHeaderName;
     public String routingHttpRequestXAmznMtlsClientcertLeafHeaderName() {
-        if (routingHttpRequestXAmznMtlsClientcertLeafHeaderName == null) return null;
-        return routingHttpRequestXAmznMtlsClientcertLeafHeaderName.getValue("Listener.routingHttpRequestXAmznMtlsClientcertLeafHeaderName");
+        if (!unknown_routingHttpRequestXAmznMtlsClientcertLeafHeaderName) return value_routingHttpRequestXAmznMtlsClientcertLeafHeaderName;
+        throw new UndeferrableValueException("Value 'Listener.routingHttpRequestXAmznMtlsClientcertLeafHeaderName' is not present");
     }
 
     /**
      * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Serial-Number` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      * 
      */
-    private UndeferrableValue<String> routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName;
-
+    @PolicyResourceProperty(name="routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName", flag="unknown_routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName")
+    private String value_routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName;
+    private boolean unknown_routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName;
     public String routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName() {
-        if (routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName == null) return null;
-        return routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName.getValue("Listener.routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName");
+        if (!unknown_routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName) return value_routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName;
+        throw new UndeferrableValueException("Value 'Listener.routingHttpRequestXAmznMtlsClientcertSerialNumberHeaderName' is not present");
     }
 
     /**
      * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Subject` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      * 
      */
-    private UndeferrableValue<String> routingHttpRequestXAmznMtlsClientcertSubjectHeaderName;
-
+    @PolicyResourceProperty(name="routingHttpRequestXAmznMtlsClientcertSubjectHeaderName", flag="unknown_routingHttpRequestXAmznMtlsClientcertSubjectHeaderName")
+    private String value_routingHttpRequestXAmznMtlsClientcertSubjectHeaderName;
+    private boolean unknown_routingHttpRequestXAmznMtlsClientcertSubjectHeaderName;
     public String routingHttpRequestXAmznMtlsClientcertSubjectHeaderName() {
-        if (routingHttpRequestXAmznMtlsClientcertSubjectHeaderName == null) return null;
-        return routingHttpRequestXAmznMtlsClientcertSubjectHeaderName.getValue("Listener.routingHttpRequestXAmznMtlsClientcertSubjectHeaderName");
+        if (!unknown_routingHttpRequestXAmznMtlsClientcertSubjectHeaderName) return value_routingHttpRequestXAmznMtlsClientcertSubjectHeaderName;
+        throw new UndeferrableValueException("Value 'Listener.routingHttpRequestXAmznMtlsClientcertSubjectHeaderName' is not present");
     }
 
     /**
      * Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Validity` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      * 
      */
-    private UndeferrableValue<String> routingHttpRequestXAmznMtlsClientcertValidityHeaderName;
-
+    @PolicyResourceProperty(name="routingHttpRequestXAmznMtlsClientcertValidityHeaderName", flag="unknown_routingHttpRequestXAmznMtlsClientcertValidityHeaderName")
+    private String value_routingHttpRequestXAmznMtlsClientcertValidityHeaderName;
+    private boolean unknown_routingHttpRequestXAmznMtlsClientcertValidityHeaderName;
     public String routingHttpRequestXAmznMtlsClientcertValidityHeaderName() {
-        if (routingHttpRequestXAmznMtlsClientcertValidityHeaderName == null) return null;
-        return routingHttpRequestXAmznMtlsClientcertValidityHeaderName.getValue("Listener.routingHttpRequestXAmznMtlsClientcertValidityHeaderName");
+        if (!unknown_routingHttpRequestXAmznMtlsClientcertValidityHeaderName) return value_routingHttpRequestXAmznMtlsClientcertValidityHeaderName;
+        throw new UndeferrableValueException("Value 'Listener.routingHttpRequestXAmznMtlsClientcertValidityHeaderName' is not present");
     }
 
     /**
      * Enables you to modify the header name of the `X-Amzn-Tls-Cipher-Suite` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      * 
      */
-    private UndeferrableValue<String> routingHttpRequestXAmznTlsCipherSuiteHeaderName;
-
+    @PolicyResourceProperty(name="routingHttpRequestXAmznTlsCipherSuiteHeaderName", flag="unknown_routingHttpRequestXAmznTlsCipherSuiteHeaderName")
+    private String value_routingHttpRequestXAmznTlsCipherSuiteHeaderName;
+    private boolean unknown_routingHttpRequestXAmznTlsCipherSuiteHeaderName;
     public String routingHttpRequestXAmznTlsCipherSuiteHeaderName() {
-        if (routingHttpRequestXAmznTlsCipherSuiteHeaderName == null) return null;
-        return routingHttpRequestXAmznTlsCipherSuiteHeaderName.getValue("Listener.routingHttpRequestXAmznTlsCipherSuiteHeaderName");
+        if (!unknown_routingHttpRequestXAmznTlsCipherSuiteHeaderName) return value_routingHttpRequestXAmznTlsCipherSuiteHeaderName;
+        throw new UndeferrableValueException("Value 'Listener.routingHttpRequestXAmznTlsCipherSuiteHeaderName' is not present");
     }
 
     /**
      * Enables you to modify the header name of the `X-Amzn-Tls-Version` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
      * 
      */
-    private UndeferrableValue<String> routingHttpRequestXAmznTlsVersionHeaderName;
-
+    @PolicyResourceProperty(name="routingHttpRequestXAmznTlsVersionHeaderName", flag="unknown_routingHttpRequestXAmznTlsVersionHeaderName")
+    private String value_routingHttpRequestXAmznTlsVersionHeaderName;
+    private boolean unknown_routingHttpRequestXAmznTlsVersionHeaderName;
     public String routingHttpRequestXAmznTlsVersionHeaderName() {
-        if (routingHttpRequestXAmznTlsVersionHeaderName == null) return null;
-        return routingHttpRequestXAmznTlsVersionHeaderName.getValue("Listener.routingHttpRequestXAmznTlsVersionHeaderName");
+        if (!unknown_routingHttpRequestXAmznTlsVersionHeaderName) return value_routingHttpRequestXAmznTlsVersionHeaderName;
+        throw new UndeferrableValueException("Value 'Listener.routingHttpRequestXAmznTlsVersionHeaderName' is not present");
     }
 
     /**
      * Specifies which headers the browser can expose to the requesting client. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `true`.
      * 
      */
-    private UndeferrableValue<String> routingHttpResponseAccessControlAllowCredentialsHeaderValue;
-
+    @PolicyResourceProperty(name="routingHttpResponseAccessControlAllowCredentialsHeaderValue", flag="unknown_routingHttpResponseAccessControlAllowCredentialsHeaderValue")
+    private String value_routingHttpResponseAccessControlAllowCredentialsHeaderValue;
+    private boolean unknown_routingHttpResponseAccessControlAllowCredentialsHeaderValue;
     public String routingHttpResponseAccessControlAllowCredentialsHeaderValue() {
-        if (routingHttpResponseAccessControlAllowCredentialsHeaderValue == null) return null;
-        return routingHttpResponseAccessControlAllowCredentialsHeaderValue.getValue("Listener.routingHttpResponseAccessControlAllowCredentialsHeaderValue");
+        if (!unknown_routingHttpResponseAccessControlAllowCredentialsHeaderValue) return value_routingHttpResponseAccessControlAllowCredentialsHeaderValue;
+        throw new UndeferrableValueException("Value 'Listener.routingHttpResponseAccessControlAllowCredentialsHeaderValue' is not present");
     }
 
     /**
      * Specifies which headers can be used during the request. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Accept`, `Accept-Language`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, `Pragma`. Dependent on your use-case other headers can be exposed and then set as a value consult the Access-Control-Allow-Headers documentation.
      * 
      */
-    private UndeferrableValue<String> routingHttpResponseAccessControlAllowHeadersHeaderValue;
-
+    @PolicyResourceProperty(name="routingHttpResponseAccessControlAllowHeadersHeaderValue", flag="unknown_routingHttpResponseAccessControlAllowHeadersHeaderValue")
+    private String value_routingHttpResponseAccessControlAllowHeadersHeaderValue;
+    private boolean unknown_routingHttpResponseAccessControlAllowHeadersHeaderValue;
     public String routingHttpResponseAccessControlAllowHeadersHeaderValue() {
-        if (routingHttpResponseAccessControlAllowHeadersHeaderValue == null) return null;
-        return routingHttpResponseAccessControlAllowHeadersHeaderValue.getValue("Listener.routingHttpResponseAccessControlAllowHeadersHeaderValue");
+        if (!unknown_routingHttpResponseAccessControlAllowHeadersHeaderValue) return value_routingHttpResponseAccessControlAllowHeadersHeaderValue;
+        throw new UndeferrableValueException("Value 'Listener.routingHttpResponseAccessControlAllowHeadersHeaderValue' is not present");
     }
 
     /**
      * Set which HTTP methods are allowed when accessing the server from a different origin. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `GET`, `HEAD`, `POST`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE` or `PATCH`.
      * 
      */
-    private UndeferrableValue<String> routingHttpResponseAccessControlAllowMethodsHeaderValue;
-
+    @PolicyResourceProperty(name="routingHttpResponseAccessControlAllowMethodsHeaderValue", flag="unknown_routingHttpResponseAccessControlAllowMethodsHeaderValue")
+    private String value_routingHttpResponseAccessControlAllowMethodsHeaderValue;
+    private boolean unknown_routingHttpResponseAccessControlAllowMethodsHeaderValue;
     public String routingHttpResponseAccessControlAllowMethodsHeaderValue() {
-        if (routingHttpResponseAccessControlAllowMethodsHeaderValue == null) return null;
-        return routingHttpResponseAccessControlAllowMethodsHeaderValue.getValue("Listener.routingHttpResponseAccessControlAllowMethodsHeaderValue");
+        if (!unknown_routingHttpResponseAccessControlAllowMethodsHeaderValue) return value_routingHttpResponseAccessControlAllowMethodsHeaderValue;
+        throw new UndeferrableValueException("Value 'Listener.routingHttpResponseAccessControlAllowMethodsHeaderValue' is not present");
     }
 
     /**
      * Specifies which origins are allowed to access the server. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. A valid value is a URI, eg: `https://example.com`.
      * 
      */
-    private UndeferrableValue<String> routingHttpResponseAccessControlAllowOriginHeaderValue;
-
+    @PolicyResourceProperty(name="routingHttpResponseAccessControlAllowOriginHeaderValue", flag="unknown_routingHttpResponseAccessControlAllowOriginHeaderValue")
+    private String value_routingHttpResponseAccessControlAllowOriginHeaderValue;
+    private boolean unknown_routingHttpResponseAccessControlAllowOriginHeaderValue;
     public String routingHttpResponseAccessControlAllowOriginHeaderValue() {
-        if (routingHttpResponseAccessControlAllowOriginHeaderValue == null) return null;
-        return routingHttpResponseAccessControlAllowOriginHeaderValue.getValue("Listener.routingHttpResponseAccessControlAllowOriginHeaderValue");
+        if (!unknown_routingHttpResponseAccessControlAllowOriginHeaderValue) return value_routingHttpResponseAccessControlAllowOriginHeaderValue;
+        throw new UndeferrableValueException("Value 'Listener.routingHttpResponseAccessControlAllowOriginHeaderValue' is not present");
     }
 
     /**
      * Specifies whether the browser should include credentials such as cookies or authentication when making requests. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `*`, `Cache-Control`, `Content-Language`, `Content-Length`, `Content-Type`, `Expires`, `Last-Modified`, or `Pragma`. Dependent on your use-case other headers can be exposed, consult the Access-Control-Expose-Headers documentation.
      * 
      */
-    private UndeferrableValue<String> routingHttpResponseAccessControlExposeHeadersHeaderValue;
-
+    @PolicyResourceProperty(name="routingHttpResponseAccessControlExposeHeadersHeaderValue", flag="unknown_routingHttpResponseAccessControlExposeHeadersHeaderValue")
+    private String value_routingHttpResponseAccessControlExposeHeadersHeaderValue;
+    private boolean unknown_routingHttpResponseAccessControlExposeHeadersHeaderValue;
     public String routingHttpResponseAccessControlExposeHeadersHeaderValue() {
-        if (routingHttpResponseAccessControlExposeHeadersHeaderValue == null) return null;
-        return routingHttpResponseAccessControlExposeHeadersHeaderValue.getValue("Listener.routingHttpResponseAccessControlExposeHeadersHeaderValue");
+        if (!unknown_routingHttpResponseAccessControlExposeHeadersHeaderValue) return value_routingHttpResponseAccessControlExposeHeadersHeaderValue;
+        throw new UndeferrableValueException("Value 'Listener.routingHttpResponseAccessControlExposeHeadersHeaderValue' is not present");
     }
 
     /**
      * Specifies how long the results of a preflight request can be cached, in seconds. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are between `0` and `86400`. This value is browser specific, consult the Access-Control-Max-Age documentation.
      * 
      */
-    private UndeferrableValue<String> routingHttpResponseAccessControlMaxAgeHeaderValue;
-
+    @PolicyResourceProperty(name="routingHttpResponseAccessControlMaxAgeHeaderValue", flag="unknown_routingHttpResponseAccessControlMaxAgeHeaderValue")
+    private String value_routingHttpResponseAccessControlMaxAgeHeaderValue;
+    private boolean unknown_routingHttpResponseAccessControlMaxAgeHeaderValue;
     public String routingHttpResponseAccessControlMaxAgeHeaderValue() {
-        if (routingHttpResponseAccessControlMaxAgeHeaderValue == null) return null;
-        return routingHttpResponseAccessControlMaxAgeHeaderValue.getValue("Listener.routingHttpResponseAccessControlMaxAgeHeaderValue");
+        if (!unknown_routingHttpResponseAccessControlMaxAgeHeaderValue) return value_routingHttpResponseAccessControlMaxAgeHeaderValue;
+        throw new UndeferrableValueException("Value 'Listener.routingHttpResponseAccessControlMaxAgeHeaderValue' is not present");
     }
 
     /**
      * Specifies restrictions enforced by the browser to help minimize the risk of certain types of security threats. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Values for this are extensive, and can be impactful when set, consult Content-Security-Policy documentation.
      * 
      */
-    private UndeferrableValue<String> routingHttpResponseContentSecurityPolicyHeaderValue;
-
+    @PolicyResourceProperty(name="routingHttpResponseContentSecurityPolicyHeaderValue", flag="unknown_routingHttpResponseContentSecurityPolicyHeaderValue")
+    private String value_routingHttpResponseContentSecurityPolicyHeaderValue;
+    private boolean unknown_routingHttpResponseContentSecurityPolicyHeaderValue;
     public String routingHttpResponseContentSecurityPolicyHeaderValue() {
-        if (routingHttpResponseContentSecurityPolicyHeaderValue == null) return null;
-        return routingHttpResponseContentSecurityPolicyHeaderValue.getValue("Listener.routingHttpResponseContentSecurityPolicyHeaderValue");
+        if (!unknown_routingHttpResponseContentSecurityPolicyHeaderValue) return value_routingHttpResponseContentSecurityPolicyHeaderValue;
+        throw new UndeferrableValueException("Value 'Listener.routingHttpResponseContentSecurityPolicyHeaderValue' is not present");
     }
 
     /**
      * Enables you to allow or remove the HTTP response server header. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. Valid values are `true` or `false`.
      * 
      */
-    private UndeferrableValue<Boolean> routingHttpResponseServerEnabled;
-
+    @PolicyResourceProperty(name="routingHttpResponseServerEnabled", flag="unknown_routingHttpResponseServerEnabled")
+    private Boolean value_routingHttpResponseServerEnabled;
+    private boolean unknown_routingHttpResponseServerEnabled;
     public Boolean routingHttpResponseServerEnabled() {
-        if (routingHttpResponseServerEnabled == null) return null;
-        return routingHttpResponseServerEnabled.getValue("Listener.routingHttpResponseServerEnabled");
+        if (!unknown_routingHttpResponseServerEnabled) return value_routingHttpResponseServerEnabled;
+        throw new UndeferrableValueException("Value 'Listener.routingHttpResponseServerEnabled' is not present");
     }
 
     /**
      * Informs browsers that the site should only be accessed using HTTPS, and that any future attempts to access it using HTTP should automatically be converted to HTTPS. Default values are `max-age=31536000; includeSubDomains; preload` consult the Strict-Transport-Security documentation for further details.
      * 
      */
-    private UndeferrableValue<String> routingHttpResponseStrictTransportSecurityHeaderValue;
-
+    @PolicyResourceProperty(name="routingHttpResponseStrictTransportSecurityHeaderValue", flag="unknown_routingHttpResponseStrictTransportSecurityHeaderValue")
+    private String value_routingHttpResponseStrictTransportSecurityHeaderValue;
+    private boolean unknown_routingHttpResponseStrictTransportSecurityHeaderValue;
     public String routingHttpResponseStrictTransportSecurityHeaderValue() {
-        if (routingHttpResponseStrictTransportSecurityHeaderValue == null) return null;
-        return routingHttpResponseStrictTransportSecurityHeaderValue.getValue("Listener.routingHttpResponseStrictTransportSecurityHeaderValue");
+        if (!unknown_routingHttpResponseStrictTransportSecurityHeaderValue) return value_routingHttpResponseStrictTransportSecurityHeaderValue;
+        throw new UndeferrableValueException("Value 'Listener.routingHttpResponseStrictTransportSecurityHeaderValue' is not present");
     }
 
     /**
      * Indicates whether the MIME types advertised in the Content-Type headers should be followed and not be changed. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid value is `nosniff`.
      * 
      */
-    private UndeferrableValue<String> routingHttpResponseXContentTypeOptionsHeaderValue;
-
+    @PolicyResourceProperty(name="routingHttpResponseXContentTypeOptionsHeaderValue", flag="unknown_routingHttpResponseXContentTypeOptionsHeaderValue")
+    private String value_routingHttpResponseXContentTypeOptionsHeaderValue;
+    private boolean unknown_routingHttpResponseXContentTypeOptionsHeaderValue;
     public String routingHttpResponseXContentTypeOptionsHeaderValue() {
-        if (routingHttpResponseXContentTypeOptionsHeaderValue == null) return null;
-        return routingHttpResponseXContentTypeOptionsHeaderValue.getValue("Listener.routingHttpResponseXContentTypeOptionsHeaderValue");
+        if (!unknown_routingHttpResponseXContentTypeOptionsHeaderValue) return value_routingHttpResponseXContentTypeOptionsHeaderValue;
+        throw new UndeferrableValueException("Value 'Listener.routingHttpResponseXContentTypeOptionsHeaderValue' is not present");
     }
 
     /**
      * Indicates whether the browser is allowed to render a page in a frame, iframe, embed or object. Can only be set if protocol is `HTTP` or `HTTPS` for Application Load Balancers. Not supported for Network Load Balancer, or with a Gateway Load Balancer. The only valid values are `DENY`, `SAMEORIGIN`, or `ALLOW-FROM https://example.com`.
      * 
      */
-    private UndeferrableValue<String> routingHttpResponseXFrameOptionsHeaderValue;
-
+    @PolicyResourceProperty(name="routingHttpResponseXFrameOptionsHeaderValue", flag="unknown_routingHttpResponseXFrameOptionsHeaderValue")
+    private String value_routingHttpResponseXFrameOptionsHeaderValue;
+    private boolean unknown_routingHttpResponseXFrameOptionsHeaderValue;
     public String routingHttpResponseXFrameOptionsHeaderValue() {
-        if (routingHttpResponseXFrameOptionsHeaderValue == null) return null;
-        return routingHttpResponseXFrameOptionsHeaderValue.getValue("Listener.routingHttpResponseXFrameOptionsHeaderValue");
+        if (!unknown_routingHttpResponseXFrameOptionsHeaderValue) return value_routingHttpResponseXFrameOptionsHeaderValue;
+        throw new UndeferrableValueException("Value 'Listener.routingHttpResponseXFrameOptionsHeaderValue' is not present");
     }
 
     /**
      * Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
      * 
      */
-    private UndeferrableValue<String> sslPolicy;
-
+    @PolicyResourceProperty(name="sslPolicy", flag="unknown_sslPolicy")
+    private String value_sslPolicy;
+    private boolean unknown_sslPolicy;
     public String sslPolicy() {
-        if (sslPolicy == null) return null;
-        return sslPolicy.getValue("Listener.sslPolicy");
+        if (!unknown_sslPolicy) return value_sslPolicy;
+        throw new UndeferrableValueException("Value 'Listener.sslPolicy' is not present");
     }
 
     /**
@@ -334,11 +363,12 @@ public final class Listener extends com.pulumi.resources.PolicyResourceOutput {
      * &gt; **Note::** When a `Name` key is specified in the map, the AWS Console maps the value to the `Name Tag` column value inside the `Listener Rules` table within a specific load balancer listener page. Otherwise, the value resolves to `Default`.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Listener.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Listener.tags' is not present");
     }
 
     /**
@@ -349,22 +379,24 @@ public final class Listener extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Listener.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Listener.tagsAll' is not present");
     }
 
     /**
      * TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
      * 
      */
-    private UndeferrableValue<Integer> tcpIdleTimeoutSeconds;
-
+    @PolicyResourceProperty(name="tcpIdleTimeoutSeconds", flag="unknown_tcpIdleTimeoutSeconds")
+    private Integer value_tcpIdleTimeoutSeconds;
+    private boolean unknown_tcpIdleTimeoutSeconds;
     public Integer tcpIdleTimeoutSeconds() {
-        if (tcpIdleTimeoutSeconds == null) return null;
-        return tcpIdleTimeoutSeconds.getValue("Listener.tcpIdleTimeoutSeconds");
+        if (!unknown_tcpIdleTimeoutSeconds) return value_tcpIdleTimeoutSeconds;
+        throw new UndeferrableValueException("Value 'Listener.tcpIdleTimeoutSeconds' is not present");
     }
 
 }

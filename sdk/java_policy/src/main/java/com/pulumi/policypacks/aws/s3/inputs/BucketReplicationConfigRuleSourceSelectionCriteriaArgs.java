@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.inputs.BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs;
 import com.pulumi.policypacks.aws.s3.inputs.BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class BucketReplicationConfigRuleSourceSelectionCriteriaArgs {
      * Configuration block that you can specify for selections for modifications on replicas. Amazon S3 doesn&#39;t replicate replica modifications by default. In the latest version of replication configuration (when `filter` is specified), you can specify this element and set the status to `Enabled` to replicate modifications on replicas.
      * 
      */
-    private UndeferrableValue<BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs> replicaModifications;
-
+    @PolicyResourceProperty(name="replicaModifications", flag="unknown_replicaModifications")
+    private BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs value_replicaModifications;
+    private boolean unknown_replicaModifications;
     public BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs replicaModifications() {
-        if (replicaModifications == null) return null;
-        return replicaModifications.getValue("BucketReplicationConfigRuleSourceSelectionCriteriaArgs.replicaModifications");
+        if (!unknown_replicaModifications) return value_replicaModifications;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleSourceSelectionCriteriaArgs.replicaModifications' is not present");
     }
 
     /**
      * Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replica_kms_key_id` in `destination` `encryption_configuration` must be specified as well.
      * 
      */
-    private UndeferrableValue<BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs> sseKmsEncryptedObjects;
-
+    @PolicyResourceProperty(name="sseKmsEncryptedObjects", flag="unknown_sseKmsEncryptedObjects")
+    private BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs value_sseKmsEncryptedObjects;
+    private boolean unknown_sseKmsEncryptedObjects;
     public BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs sseKmsEncryptedObjects() {
-        if (sseKmsEncryptedObjects == null) return null;
-        return sseKmsEncryptedObjects.getValue("BucketReplicationConfigRuleSourceSelectionCriteriaArgs.sseKmsEncryptedObjects");
+        if (!unknown_sseKmsEncryptedObjects) return value_sseKmsEncryptedObjects;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleSourceSelectionCriteriaArgs.sseKmsEncryptedObjects' is not present");
     }
 
 }

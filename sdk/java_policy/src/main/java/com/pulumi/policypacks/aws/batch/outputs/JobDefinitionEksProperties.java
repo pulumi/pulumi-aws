@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.batch.outputs.JobDefinitionEksPropertiesPodProperties;
 
 
@@ -13,11 +14,12 @@ public final class JobDefinitionEksProperties {
      * Properties for the Kubernetes pod resources of a job. See `pod_properties` below.
      * 
      */
-    private UndeferrableValue<JobDefinitionEksPropertiesPodProperties> podProperties;
-
+    @PolicyResourceProperty(name="podProperties", flag="unknown_podProperties")
+    private JobDefinitionEksPropertiesPodProperties value_podProperties;
+    private boolean unknown_podProperties;
     public JobDefinitionEksPropertiesPodProperties podProperties() {
-        if (podProperties == null) return null;
-        return podProperties.getValue("JobDefinitionEksProperties.podProperties");
+        if (!unknown_podProperties) return value_podProperties;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksProperties.podProperties' is not present");
     }
 
 }

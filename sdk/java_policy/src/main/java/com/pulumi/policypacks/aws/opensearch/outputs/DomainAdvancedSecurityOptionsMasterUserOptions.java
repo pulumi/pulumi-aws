@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class DomainAdvancedSecurityOptionsMasterUserOptions {
      * ARN for the main user. Only specify if `internal_user_database_enabled` is not set or set to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<String> masterUserArn;
-
+    @PolicyResourceProperty(name="masterUserArn", flag="unknown_masterUserArn")
+    private @Nullable String value_masterUserArn;
+    private boolean unknown_masterUserArn;
     public @Nullable String masterUserArn() {
-        if (masterUserArn == null) return null;
-        return masterUserArn.getValue("DomainAdvancedSecurityOptionsMasterUserOptions.masterUserArn");
+        if (!unknown_masterUserArn) return value_masterUserArn;
+        throw new UndeferrableValueException("Value 'DomainAdvancedSecurityOptionsMasterUserOptions.masterUserArn' is not present");
     }
 
     /**
      * Main user&#39;s username, which is stored in the Amazon OpenSearch Service domain&#39;s internal database. Only specify if `internal_user_database_enabled` is set to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<String> masterUserName;
-
+    @PolicyResourceProperty(name="masterUserName", flag="unknown_masterUserName")
+    private @Nullable String value_masterUserName;
+    private boolean unknown_masterUserName;
     public @Nullable String masterUserName() {
-        if (masterUserName == null) return null;
-        return masterUserName.getValue("DomainAdvancedSecurityOptionsMasterUserOptions.masterUserName");
+        if (!unknown_masterUserName) return value_masterUserName;
+        throw new UndeferrableValueException("Value 'DomainAdvancedSecurityOptionsMasterUserOptions.masterUserName' is not present");
     }
 
     /**
      * Main user&#39;s password, which is stored in the Amazon OpenSearch Service domain&#39;s internal database. Only specify if `internal_user_database_enabled` is set to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<String> masterUserPassword;
-
+    @PolicyResourceProperty(name="masterUserPassword", flag="unknown_masterUserPassword")
+    private @Nullable String value_masterUserPassword;
+    private boolean unknown_masterUserPassword;
     public @Nullable String masterUserPassword() {
-        if (masterUserPassword == null) return null;
-        return masterUserPassword.getValue("DomainAdvancedSecurityOptionsMasterUserOptions.masterUserPassword");
+        if (!unknown_masterUserPassword) return value_masterUserPassword;
+        throw new UndeferrableValueException("Value 'DomainAdvancedSecurityOptionsMasterUserOptions.masterUserPassword' is not present");
     }
 
 }

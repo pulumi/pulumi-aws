@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.alb.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -16,88 +17,96 @@ public final class ListenerRuleActionAuthenticateCognitoArgs {
      * The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
      * 
      */
-    private UndeferrableValue<Map<String,String>> authenticationRequestExtraParams;
-
+    @PolicyResourceProperty(name="authenticationRequestExtraParams", flag="unknown_authenticationRequestExtraParams")
+    private Map<String,String> value_authenticationRequestExtraParams;
+    private boolean unknown_authenticationRequestExtraParams;
     public Map<String,String> authenticationRequestExtraParams() {
-        if (authenticationRequestExtraParams == null) return null;
-        return authenticationRequestExtraParams.getValue("ListenerRuleActionAuthenticateCognitoArgs.authenticationRequestExtraParams");
+        if (!unknown_authenticationRequestExtraParams) return value_authenticationRequestExtraParams;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionAuthenticateCognitoArgs.authenticationRequestExtraParams' is not present");
     }
 
     /**
      * The behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
      * 
      */
-    private UndeferrableValue<String> onUnauthenticatedRequest;
-
+    @PolicyResourceProperty(name="onUnauthenticatedRequest", flag="unknown_onUnauthenticatedRequest")
+    private String value_onUnauthenticatedRequest;
+    private boolean unknown_onUnauthenticatedRequest;
     public String onUnauthenticatedRequest() {
-        if (onUnauthenticatedRequest == null) return null;
-        return onUnauthenticatedRequest.getValue("ListenerRuleActionAuthenticateCognitoArgs.onUnauthenticatedRequest");
+        if (!unknown_onUnauthenticatedRequest) return value_onUnauthenticatedRequest;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionAuthenticateCognitoArgs.onUnauthenticatedRequest' is not present");
     }
 
     /**
      * The set of user claims to be requested from the IdP.
      * 
      */
-    private UndeferrableValue<String> scope;
-
+    @PolicyResourceProperty(name="scope", flag="unknown_scope")
+    private String value_scope;
+    private boolean unknown_scope;
     public String scope() {
-        if (scope == null) return null;
-        return scope.getValue("ListenerRuleActionAuthenticateCognitoArgs.scope");
+        if (!unknown_scope) return value_scope;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionAuthenticateCognitoArgs.scope' is not present");
     }
 
     /**
      * The name of the cookie used to maintain session information.
      * 
      */
-    private UndeferrableValue<String> sessionCookieName;
-
+    @PolicyResourceProperty(name="sessionCookieName", flag="unknown_sessionCookieName")
+    private String value_sessionCookieName;
+    private boolean unknown_sessionCookieName;
     public String sessionCookieName() {
-        if (sessionCookieName == null) return null;
-        return sessionCookieName.getValue("ListenerRuleActionAuthenticateCognitoArgs.sessionCookieName");
+        if (!unknown_sessionCookieName) return value_sessionCookieName;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionAuthenticateCognitoArgs.sessionCookieName' is not present");
     }
 
     /**
      * The maximum duration of the authentication session, in seconds.
      * 
      */
-    private UndeferrableValue<Integer> sessionTimeout;
-
+    @PolicyResourceProperty(name="sessionTimeout", flag="unknown_sessionTimeout")
+    private Integer value_sessionTimeout;
+    private boolean unknown_sessionTimeout;
     public Integer sessionTimeout() {
-        if (sessionTimeout == null) return null;
-        return sessionTimeout.getValue("ListenerRuleActionAuthenticateCognitoArgs.sessionTimeout");
+        if (!unknown_sessionTimeout) return value_sessionTimeout;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionAuthenticateCognitoArgs.sessionTimeout' is not present");
     }
 
     /**
      * The ARN of the Cognito user pool.
      * 
      */
-    private UndeferrableValue<String> userPoolArn;
-
+    @PolicyResourceProperty(name="userPoolArn", flag="unknown_userPoolArn")
+    private String value_userPoolArn;
+    private boolean unknown_userPoolArn;
     public String userPoolArn() {
-        if (userPoolArn == null) return null;
-        return userPoolArn.getValue("ListenerRuleActionAuthenticateCognitoArgs.userPoolArn");
+        if (!unknown_userPoolArn) return value_userPoolArn;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionAuthenticateCognitoArgs.userPoolArn' is not present");
     }
 
     /**
      * The ID of the Cognito user pool client.
      * 
      */
-    private UndeferrableValue<String> userPoolClientId;
-
+    @PolicyResourceProperty(name="userPoolClientId", flag="unknown_userPoolClientId")
+    private String value_userPoolClientId;
+    private boolean unknown_userPoolClientId;
     public String userPoolClientId() {
-        if (userPoolClientId == null) return null;
-        return userPoolClientId.getValue("ListenerRuleActionAuthenticateCognitoArgs.userPoolClientId");
+        if (!unknown_userPoolClientId) return value_userPoolClientId;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionAuthenticateCognitoArgs.userPoolClientId' is not present");
     }
 
     /**
      * The domain prefix or fully-qualified domain name of the Cognito user pool.
      * 
      */
-    private UndeferrableValue<String> userPoolDomain;
-
+    @PolicyResourceProperty(name="userPoolDomain", flag="unknown_userPoolDomain")
+    private String value_userPoolDomain;
+    private boolean unknown_userPoolDomain;
     public String userPoolDomain() {
-        if (userPoolDomain == null) return null;
-        return userPoolDomain.getValue("ListenerRuleActionAuthenticateCognitoArgs.userPoolDomain");
+        if (!unknown_userPoolDomain) return value_userPoolDomain;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionAuthenticateCognitoArgs.userPoolDomain' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs {
      * Options for sensitive information action.
      * 
      */
-    private UndeferrableValue<String> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private String value_action;
+    private boolean unknown_action;
     public String action() {
-        if (action == null) return null;
-        return action.getValue("GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs.action' is not present");
     }
 
     /**
      * The regex description.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs.description' is not present");
     }
 
     /**
      * The regex name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs.name' is not present");
     }
 
     /**
      * The regex pattern.
      * 
      */
-    private UndeferrableValue<String> pattern;
-
+    @PolicyResourceProperty(name="pattern", flag="unknown_pattern")
+    private String value_pattern;
+    private boolean unknown_pattern;
     public String pattern() {
-        if (pattern == null) return null;
-        return pattern.getValue("GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs.pattern");
+        if (!unknown_pattern) return value_pattern;
+        throw new UndeferrableValueException("Value 'GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs.pattern' is not present");
     }
 
 }

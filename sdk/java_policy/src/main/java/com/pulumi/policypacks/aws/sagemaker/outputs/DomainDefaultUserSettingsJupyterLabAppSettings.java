@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.outputs.DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement;
 import com.pulumi.policypacks.aws.sagemaker.outputs.DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository;
 import com.pulumi.policypacks.aws.sagemaker.outputs.DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage;
@@ -20,77 +21,84 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettings {
      * Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
      * 
      */
-    private @Nullable UndeferrableValue<DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement> appLifecycleManagement;
-
+    @PolicyResourceProperty(name="appLifecycleManagement", flag="unknown_appLifecycleManagement")
+    private @Nullable DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement value_appLifecycleManagement;
+    private boolean unknown_appLifecycleManagement;
     public @Nullable DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement appLifecycleManagement() {
-        if (appLifecycleManagement == null) return null;
-        return appLifecycleManagement.getValue("DomainDefaultUserSettingsJupyterLabAppSettings.appLifecycleManagement");
+        if (!unknown_appLifecycleManagement) return value_appLifecycleManagement;
+        throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsJupyterLabAppSettings.appLifecycleManagement' is not present");
     }
 
     /**
      * The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
      * 
      */
-    private @Nullable UndeferrableValue<String> builtInLifecycleConfigArn;
-
+    @PolicyResourceProperty(name="builtInLifecycleConfigArn", flag="unknown_builtInLifecycleConfigArn")
+    private @Nullable String value_builtInLifecycleConfigArn;
+    private boolean unknown_builtInLifecycleConfigArn;
     public @Nullable String builtInLifecycleConfigArn() {
-        if (builtInLifecycleConfigArn == null) return null;
-        return builtInLifecycleConfigArn.getValue("DomainDefaultUserSettingsJupyterLabAppSettings.builtInLifecycleConfigArn");
+        if (!unknown_builtInLifecycleConfigArn) return value_builtInLifecycleConfigArn;
+        throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsJupyterLabAppSettings.builtInLifecycleConfigArn' is not present");
     }
 
     /**
      * A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
      * 
      */
-    private @Nullable UndeferrableValue<List<DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository>> codeRepositories;
-
+    @PolicyResourceProperty(name="codeRepositories", flag="unknown_codeRepositories")
+    private @Nullable List<DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository> value_codeRepositories;
+    private boolean unknown_codeRepositories;
     public @Nullable List<DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepository> codeRepositories() {
-        if (codeRepositories == null) return null;
-        return codeRepositories.getValue("DomainDefaultUserSettingsJupyterLabAppSettings.codeRepositories");
+        if (!unknown_codeRepositories) return value_codeRepositories;
+        throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsJupyterLabAppSettings.codeRepositories' is not present");
     }
 
     /**
      * A list of custom SageMaker AI images that are configured to run as a JupyterLab app. see `custom_image` Block below.
      * 
      */
-    private @Nullable UndeferrableValue<List<DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage>> customImages;
-
+    @PolicyResourceProperty(name="customImages", flag="unknown_customImages")
+    private @Nullable List<DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage> value_customImages;
+    private boolean unknown_customImages;
     public @Nullable List<DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage> customImages() {
-        if (customImages == null) return null;
-        return customImages.getValue("DomainDefaultUserSettingsJupyterLabAppSettings.customImages");
+        if (!unknown_customImages) return value_customImages;
+        throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsJupyterLabAppSettings.customImages' is not present");
     }
 
     /**
      * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
      * 
      */
-    private @Nullable UndeferrableValue<DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec> defaultResourceSpec;
-
+    @PolicyResourceProperty(name="defaultResourceSpec", flag="unknown_defaultResourceSpec")
+    private @Nullable DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec value_defaultResourceSpec;
+    private boolean unknown_defaultResourceSpec;
     public @Nullable DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec defaultResourceSpec() {
-        if (defaultResourceSpec == null) return null;
-        return defaultResourceSpec.getValue("DomainDefaultUserSettingsJupyterLabAppSettings.defaultResourceSpec");
+        if (!unknown_defaultResourceSpec) return value_defaultResourceSpec;
+        throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsJupyterLabAppSettings.defaultResourceSpec' is not present");
     }
 
     /**
      * The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
      * 
      */
-    private @Nullable UndeferrableValue<DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings> emrSettings;
-
+    @PolicyResourceProperty(name="emrSettings", flag="unknown_emrSettings")
+    private @Nullable DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings value_emrSettings;
+    private boolean unknown_emrSettings;
     public @Nullable DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings emrSettings() {
-        if (emrSettings == null) return null;
-        return emrSettings.getValue("DomainDefaultUserSettingsJupyterLabAppSettings.emrSettings");
+        if (!unknown_emrSettings) return value_emrSettings;
+        throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsJupyterLabAppSettings.emrSettings' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> lifecycleConfigArns;
-
+    @PolicyResourceProperty(name="lifecycleConfigArns", flag="unknown_lifecycleConfigArns")
+    private @Nullable List<String> value_lifecycleConfigArns;
+    private boolean unknown_lifecycleConfigArns;
     public @Nullable List<String> lifecycleConfigArns() {
-        if (lifecycleConfigArns == null) return null;
-        return lifecycleConfigArns.getValue("DomainDefaultUserSettingsJupyterLabAppSettings.lifecycleConfigArns");
+        if (!unknown_lifecycleConfigArns) return value_lifecycleConfigArns;
+        throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsJupyterLabAppSettings.lifecycleConfigArns' is not present");
     }
 
 }

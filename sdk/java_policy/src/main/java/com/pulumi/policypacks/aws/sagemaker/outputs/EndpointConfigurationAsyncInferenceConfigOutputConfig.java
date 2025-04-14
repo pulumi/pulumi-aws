@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.outputs.EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfig {
      * The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker AI uses to encrypt the asynchronous inference output in Amazon S3.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("EndpointConfigurationAsyncInferenceConfigOutputConfig.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationAsyncInferenceConfigOutputConfig.kmsKeyId' is not present");
     }
 
     /**
      * Specifies the configuration for notifications of inference results for asynchronous inference.
      * 
      */
-    private @Nullable UndeferrableValue<EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig> notificationConfig;
-
+    @PolicyResourceProperty(name="notificationConfig", flag="unknown_notificationConfig")
+    private @Nullable EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig value_notificationConfig;
+    private boolean unknown_notificationConfig;
     public @Nullable EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig notificationConfig() {
-        if (notificationConfig == null) return null;
-        return notificationConfig.getValue("EndpointConfigurationAsyncInferenceConfigOutputConfig.notificationConfig");
+        if (!unknown_notificationConfig) return value_notificationConfig;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationAsyncInferenceConfigOutputConfig.notificationConfig' is not present");
     }
 
     /**
      * The Amazon S3 location to upload failure inference responses to.
      * 
      */
-    private @Nullable UndeferrableValue<String> s3FailurePath;
-
+    @PolicyResourceProperty(name="s3FailurePath", flag="unknown_s3FailurePath")
+    private @Nullable String value_s3FailurePath;
+    private boolean unknown_s3FailurePath;
     public @Nullable String s3FailurePath() {
-        if (s3FailurePath == null) return null;
-        return s3FailurePath.getValue("EndpointConfigurationAsyncInferenceConfigOutputConfig.s3FailurePath");
+        if (!unknown_s3FailurePath) return value_s3FailurePath;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationAsyncInferenceConfigOutputConfig.s3FailurePath' is not present");
     }
 
     /**
      * The Amazon S3 location to upload inference responses to.
      * 
      */
-    private UndeferrableValue<String> s3OutputPath;
-
+    @PolicyResourceProperty(name="s3OutputPath", flag="unknown_s3OutputPath")
+    private String value_s3OutputPath;
+    private boolean unknown_s3OutputPath;
     public String s3OutputPath() {
-        if (s3OutputPath == null) return null;
-        return s3OutputPath.getValue("EndpointConfigurationAsyncInferenceConfigOutputConfig.s3OutputPath");
+        if (!unknown_s3OutputPath) return value_s3OutputPath;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationAsyncInferenceConfigOutputConfig.s3OutputPath' is not present");
     }
 
 }

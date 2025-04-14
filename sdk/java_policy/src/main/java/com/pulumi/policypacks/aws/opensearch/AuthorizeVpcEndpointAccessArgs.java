@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class AuthorizeVpcEndpointAccessArgs extends com.pulumi.resources.P
      * AWS account ID to grant access to.
      * 
      */
-    private UndeferrableValue<String> account;
-
+    @PolicyResourceProperty(name="account", flag="unknown_account")
+    private String value_account;
+    private boolean unknown_account;
     public String account() {
-        if (account == null) return null;
-        return account.getValue("AuthorizeVpcEndpointAccessArgs.account");
+        if (!unknown_account) return value_account;
+        throw new UndeferrableValueException("Value 'AuthorizeVpcEndpointAccessArgs.account' is not present");
     }
 
     /**
      * Name of OpenSearch Service domain to provide access to.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("AuthorizeVpcEndpointAccessArgs.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'AuthorizeVpcEndpointAccessArgs.domainName' is not present");
     }
 
 }

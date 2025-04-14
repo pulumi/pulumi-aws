@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.outputs.UserProfileUserSettingsRSessionAppSettingsCustomImage;
 import com.pulumi.policypacks.aws.sagemaker.outputs.UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class UserProfileUserSettingsRSessionAppSettings {
      * A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see Custom Image below.
      * 
      */
-    private @Nullable UndeferrableValue<List<UserProfileUserSettingsRSessionAppSettingsCustomImage>> customImages;
-
+    @PolicyResourceProperty(name="customImages", flag="unknown_customImages")
+    private @Nullable List<UserProfileUserSettingsRSessionAppSettingsCustomImage> value_customImages;
+    private boolean unknown_customImages;
     public @Nullable List<UserProfileUserSettingsRSessionAppSettingsCustomImage> customImages() {
-        if (customImages == null) return null;
-        return customImages.getValue("UserProfileUserSettingsRSessionAppSettings.customImages");
+        if (!unknown_customImages) return value_customImages;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsRSessionAppSettings.customImages' is not present");
     }
 
     /**
      * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
      * 
      */
-    private @Nullable UndeferrableValue<UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec> defaultResourceSpec;
-
+    @PolicyResourceProperty(name="defaultResourceSpec", flag="unknown_defaultResourceSpec")
+    private @Nullable UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec value_defaultResourceSpec;
+    private boolean unknown_defaultResourceSpec;
     public @Nullable UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec defaultResourceSpec() {
-        if (defaultResourceSpec == null) return null;
-        return defaultResourceSpec.getValue("UserProfileUserSettingsRSessionAppSettings.defaultResourceSpec");
+        if (!unknown_defaultResourceSpec) return value_defaultResourceSpec;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsRSessionAppSettings.defaultResourceSpec' is not present");
     }
 
 }

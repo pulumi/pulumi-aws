@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.kendra.inputs.DataSourceConfigurationArgs;
 import com.pulumi.policypacks.aws.kendra.inputs.DataSourceCustomDocumentEnrichmentConfigurationArgs;
@@ -19,99 +20,108 @@ public final class DataSourceArgs extends com.pulumi.resources.PolicyResourceInp
      * A block with the configuration information to connect to your Data Source repository. You can&#39;t specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
      * 
      */
-    private UndeferrableValue<DataSourceConfigurationArgs> configuration;
-
+    @PolicyResourceProperty(name="configuration", flag="unknown_configuration")
+    private DataSourceConfigurationArgs value_configuration;
+    private boolean unknown_configuration;
     public DataSourceConfigurationArgs configuration() {
-        if (configuration == null) return null;
-        return configuration.getValue("DataSourceArgs.configuration");
+        if (!unknown_configuration) return value_configuration;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.configuration' is not present");
     }
 
     /**
      * A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
      * 
      */
-    private UndeferrableValue<DataSourceCustomDocumentEnrichmentConfigurationArgs> customDocumentEnrichmentConfiguration;
-
+    @PolicyResourceProperty(name="customDocumentEnrichmentConfiguration", flag="unknown_customDocumentEnrichmentConfiguration")
+    private DataSourceCustomDocumentEnrichmentConfigurationArgs value_customDocumentEnrichmentConfiguration;
+    private boolean unknown_customDocumentEnrichmentConfiguration;
     public DataSourceCustomDocumentEnrichmentConfigurationArgs customDocumentEnrichmentConfiguration() {
-        if (customDocumentEnrichmentConfiguration == null) return null;
-        return customDocumentEnrichmentConfiguration.getValue("DataSourceArgs.customDocumentEnrichmentConfiguration");
+        if (!unknown_customDocumentEnrichmentConfiguration) return value_customDocumentEnrichmentConfiguration;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.customDocumentEnrichmentConfiguration' is not present");
     }
 
     /**
      * A description for the Data Source connector.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("DataSourceArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.description' is not present");
     }
 
     /**
      * The identifier of the index for your Amazon Kendra data source.
      * 
      */
-    private UndeferrableValue<String> indexId;
-
+    @PolicyResourceProperty(name="indexId", flag="unknown_indexId")
+    private String value_indexId;
+    private boolean unknown_indexId;
     public String indexId() {
-        if (indexId == null) return null;
-        return indexId.getValue("DataSourceArgs.indexId");
+        if (!unknown_indexId) return value_indexId;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.indexId' is not present");
     }
 
     /**
      * The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
      * 
      */
-    private UndeferrableValue<String> languageCode;
-
+    @PolicyResourceProperty(name="languageCode", flag="unknown_languageCode")
+    private String value_languageCode;
+    private boolean unknown_languageCode;
     public String languageCode() {
-        if (languageCode == null) return null;
-        return languageCode.getValue("DataSourceArgs.languageCode");
+        if (!unknown_languageCode) return value_languageCode;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.languageCode' is not present");
     }
 
     /**
      * A name for your data source connector.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DataSourceArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.name' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can&#39;t specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("DataSourceArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.roleArn' is not present");
     }
 
     /**
      * Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don&#39;t set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
      * 
      */
-    private UndeferrableValue<String> schedule;
-
+    @PolicyResourceProperty(name="schedule", flag="unknown_schedule")
+    private String value_schedule;
+    private boolean unknown_schedule;
     public String schedule() {
-        if (schedule == null) return null;
-        return schedule.getValue("DataSourceArgs.schedule");
+        if (!unknown_schedule) return value_schedule;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.schedule' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DataSourceArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.tags' is not present");
     }
 
     /**
@@ -120,11 +130,12 @@ public final class DataSourceArgs extends com.pulumi.resources.PolicyResourceInp
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("DataSourceArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.type' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.apprunner.outputs.ServiceNetworkConfigurationEgressConfiguration;
 import com.pulumi.policypacks.aws.apprunner.outputs.ServiceNetworkConfigurationIngressConfiguration;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class ServiceNetworkConfiguration {
      * Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ServiceNetworkConfigurationEgressConfiguration> egressConfiguration;
-
+    @PolicyResourceProperty(name="egressConfiguration", flag="unknown_egressConfiguration")
+    private @Nullable ServiceNetworkConfigurationEgressConfiguration value_egressConfiguration;
+    private boolean unknown_egressConfiguration;
     public @Nullable ServiceNetworkConfigurationEgressConfiguration egressConfiguration() {
-        if (egressConfiguration == null) return null;
-        return egressConfiguration.getValue("ServiceNetworkConfiguration.egressConfiguration");
+        if (!unknown_egressConfiguration) return value_egressConfiguration;
+        throw new UndeferrableValueException("Value 'ServiceNetworkConfiguration.egressConfiguration' is not present");
     }
 
     /**
      * Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ServiceNetworkConfigurationIngressConfiguration> ingressConfiguration;
-
+    @PolicyResourceProperty(name="ingressConfiguration", flag="unknown_ingressConfiguration")
+    private @Nullable ServiceNetworkConfigurationIngressConfiguration value_ingressConfiguration;
+    private boolean unknown_ingressConfiguration;
     public @Nullable ServiceNetworkConfigurationIngressConfiguration ingressConfiguration() {
-        if (ingressConfiguration == null) return null;
-        return ingressConfiguration.getValue("ServiceNetworkConfiguration.ingressConfiguration");
+        if (!unknown_ingressConfiguration) return value_ingressConfiguration;
+        throw new UndeferrableValueException("Value 'ServiceNetworkConfiguration.ingressConfiguration' is not present");
     }
 
     /**
      * App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
      * 
      */
-    private @Nullable UndeferrableValue<String> ipAddressType;
-
+    @PolicyResourceProperty(name="ipAddressType", flag="unknown_ipAddressType")
+    private @Nullable String value_ipAddressType;
+    private boolean unknown_ipAddressType;
     public @Nullable String ipAddressType() {
-        if (ipAddressType == null) return null;
-        return ipAddressType.getValue("ServiceNetworkConfiguration.ipAddressType");
+        if (!unknown_ipAddressType) return value_ipAddressType;
+        throw new UndeferrableValueException("Value 'ServiceNetworkConfiguration.ipAddressType' is not present");
     }
 
 }

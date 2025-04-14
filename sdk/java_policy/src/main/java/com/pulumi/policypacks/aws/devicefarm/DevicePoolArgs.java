@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.devicefarm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.devicefarm.inputs.DevicePoolRuleArgs;
 import java.lang.Integer;
@@ -20,66 +21,72 @@ public final class DevicePoolArgs extends com.pulumi.resources.PolicyResourceInp
      * The device pool&#39;s description.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("DevicePoolArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'DevicePoolArgs.description' is not present");
     }
 
     /**
      * The number of devices that Device Farm can add to your device pool.
      * 
      */
-    private UndeferrableValue<Integer> maxDevices;
-
+    @PolicyResourceProperty(name="maxDevices", flag="unknown_maxDevices")
+    private Integer value_maxDevices;
+    private boolean unknown_maxDevices;
     public Integer maxDevices() {
-        if (maxDevices == null) return null;
-        return maxDevices.getValue("DevicePoolArgs.maxDevices");
+        if (!unknown_maxDevices) return value_maxDevices;
+        throw new UndeferrableValueException("Value 'DevicePoolArgs.maxDevices' is not present");
     }
 
     /**
      * The name of the Device Pool
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DevicePoolArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DevicePoolArgs.name' is not present");
     }
 
     /**
      * The ARN of the project for the device pool.
      * 
      */
-    private UndeferrableValue<String> projectArn;
-
+    @PolicyResourceProperty(name="projectArn", flag="unknown_projectArn")
+    private String value_projectArn;
+    private boolean unknown_projectArn;
     public String projectArn() {
-        if (projectArn == null) return null;
-        return projectArn.getValue("DevicePoolArgs.projectArn");
+        if (!unknown_projectArn) return value_projectArn;
+        throw new UndeferrableValueException("Value 'DevicePoolArgs.projectArn' is not present");
     }
 
     /**
      * The device pool&#39;s rules. See Rule.
      * 
      */
-    private UndeferrableValue<List<DevicePoolRuleArgs>> rules;
-
+    @PolicyResourceProperty(name="rules", flag="unknown_rules")
+    private List<DevicePoolRuleArgs> value_rules;
+    private boolean unknown_rules;
     public List<DevicePoolRuleArgs> rules() {
-        if (rules == null) return null;
-        return rules.getValue("DevicePoolArgs.rules");
+        if (!unknown_rules) return value_rules;
+        throw new UndeferrableValueException("Value 'DevicePoolArgs.rules' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DevicePoolArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DevicePoolArgs.tags' is not present");
     }
 
 }

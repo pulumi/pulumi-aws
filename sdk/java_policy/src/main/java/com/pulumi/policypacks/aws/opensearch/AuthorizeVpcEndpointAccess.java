@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.opensearch.outputs.AuthorizeVpcEndpointAccessAuthorizedPrincipal;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class AuthorizeVpcEndpointAccess extends com.pulumi.resources.Polic
      * AWS account ID to grant access to.
      * 
      */
-    private UndeferrableValue<String> account;
-
+    @PolicyResourceProperty(name="account", flag="unknown_account")
+    private String value_account;
+    private boolean unknown_account;
     public String account() {
-        if (account == null) return null;
-        return account.getValue("AuthorizeVpcEndpointAccess.account");
+        if (!unknown_account) return value_account;
+        throw new UndeferrableValueException("Value 'AuthorizeVpcEndpointAccess.account' is not present");
     }
 
     /**
      * Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
      * 
      */
-    private UndeferrableValue<List<AuthorizeVpcEndpointAccessAuthorizedPrincipal>> authorizedPrincipals;
-
+    @PolicyResourceProperty(name="authorizedPrincipals", flag="unknown_authorizedPrincipals")
+    private List<AuthorizeVpcEndpointAccessAuthorizedPrincipal> value_authorizedPrincipals;
+    private boolean unknown_authorizedPrincipals;
     public List<AuthorizeVpcEndpointAccessAuthorizedPrincipal> authorizedPrincipals() {
-        if (authorizedPrincipals == null) return null;
-        return authorizedPrincipals.getValue("AuthorizeVpcEndpointAccess.authorizedPrincipals");
+        if (!unknown_authorizedPrincipals) return value_authorizedPrincipals;
+        throw new UndeferrableValueException("Value 'AuthorizeVpcEndpointAccess.authorizedPrincipals' is not present");
     }
 
     /**
      * Name of OpenSearch Service domain to provide access to.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("AuthorizeVpcEndpointAccess.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'AuthorizeVpcEndpointAccess.domainName' is not present");
     }
 
 }

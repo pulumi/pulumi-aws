@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -20,44 +21,48 @@ public final class HealthCheckArgs extends com.pulumi.resources.PolicyResourceIn
      * The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
      * 
      */
-    private UndeferrableValue<Integer> childHealthThreshold;
-
+    @PolicyResourceProperty(name="childHealthThreshold", flag="unknown_childHealthThreshold")
+    private Integer value_childHealthThreshold;
+    private boolean unknown_childHealthThreshold;
     public Integer childHealthThreshold() {
-        if (childHealthThreshold == null) return null;
-        return childHealthThreshold.getValue("HealthCheckArgs.childHealthThreshold");
+        if (!unknown_childHealthThreshold) return value_childHealthThreshold;
+        throw new UndeferrableValueException("Value 'HealthCheckArgs.childHealthThreshold' is not present");
     }
 
     /**
      * For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
      * 
      */
-    private UndeferrableValue<List<String>> childHealthchecks;
-
+    @PolicyResourceProperty(name="childHealthchecks", flag="unknown_childHealthchecks")
+    private List<String> value_childHealthchecks;
+    private boolean unknown_childHealthchecks;
     public List<String> childHealthchecks() {
-        if (childHealthchecks == null) return null;
-        return childHealthchecks.getValue("HealthCheckArgs.childHealthchecks");
+        if (!unknown_childHealthchecks) return value_childHealthchecks;
+        throw new UndeferrableValueException("Value 'HealthCheckArgs.childHealthchecks' is not present");
     }
 
     /**
      * The name of the CloudWatch alarm.
      * 
      */
-    private UndeferrableValue<String> cloudwatchAlarmName;
-
+    @PolicyResourceProperty(name="cloudwatchAlarmName", flag="unknown_cloudwatchAlarmName")
+    private String value_cloudwatchAlarmName;
+    private boolean unknown_cloudwatchAlarmName;
     public String cloudwatchAlarmName() {
-        if (cloudwatchAlarmName == null) return null;
-        return cloudwatchAlarmName.getValue("HealthCheckArgs.cloudwatchAlarmName");
+        if (!unknown_cloudwatchAlarmName) return value_cloudwatchAlarmName;
+        throw new UndeferrableValueException("Value 'HealthCheckArgs.cloudwatchAlarmName' is not present");
     }
 
     /**
      * The region that the CloudWatch alarm was created in.
      * 
      */
-    private UndeferrableValue<String> cloudwatchAlarmRegion;
-
+    @PolicyResourceProperty(name="cloudwatchAlarmRegion", flag="unknown_cloudwatchAlarmRegion")
+    private String value_cloudwatchAlarmRegion;
+    private boolean unknown_cloudwatchAlarmRegion;
     public String cloudwatchAlarmRegion() {
-        if (cloudwatchAlarmRegion == null) return null;
-        return cloudwatchAlarmRegion.getValue("HealthCheckArgs.cloudwatchAlarmRegion");
+        if (!unknown_cloudwatchAlarmRegion) return value_cloudwatchAlarmRegion;
+        throw new UndeferrableValueException("Value 'HealthCheckArgs.cloudwatchAlarmRegion' is not present");
     }
 
     /**
@@ -69,99 +74,108 @@ public final class HealthCheckArgs extends com.pulumi.resources.PolicyResourceIn
      * &gt; **Note:** After you disable a health check, Route 53 considers the status of the health check to always be healthy. If you configured DNS failover, Route 53 continues to route traffic to the corresponding resources. If you want to stop routing traffic to a resource, change the value of `invert_healthcheck`.
      * 
      */
-    private UndeferrableValue<Boolean> disabled;
-
+    @PolicyResourceProperty(name="disabled", flag="unknown_disabled")
+    private Boolean value_disabled;
+    private boolean unknown_disabled;
     public Boolean disabled() {
-        if (disabled == null) return null;
-        return disabled.getValue("HealthCheckArgs.disabled");
+        if (!unknown_disabled) return value_disabled;
+        throw new UndeferrableValueException("Value 'HealthCheckArgs.disabled' is not present");
     }
 
     /**
      * A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS&#39; defaults: when the `type` is &#34;HTTPS&#34; `enable_sni` defaults to `true`, when `type` is anything else `enable_sni` defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> enableSni;
-
+    @PolicyResourceProperty(name="enableSni", flag="unknown_enableSni")
+    private Boolean value_enableSni;
+    private boolean unknown_enableSni;
     public Boolean enableSni() {
-        if (enableSni == null) return null;
-        return enableSni.getValue("HealthCheckArgs.enableSni");
+        if (!unknown_enableSni) return value_enableSni;
+        throw new UndeferrableValueException("Value 'HealthCheckArgs.enableSni' is not present");
     }
 
     /**
      * The number of consecutive health checks that an endpoint must pass or fail.
      * 
      */
-    private UndeferrableValue<Integer> failureThreshold;
-
+    @PolicyResourceProperty(name="failureThreshold", flag="unknown_failureThreshold")
+    private Integer value_failureThreshold;
+    private boolean unknown_failureThreshold;
     public Integer failureThreshold() {
-        if (failureThreshold == null) return null;
-        return failureThreshold.getValue("HealthCheckArgs.failureThreshold");
+        if (!unknown_failureThreshold) return value_failureThreshold;
+        throw new UndeferrableValueException("Value 'HealthCheckArgs.failureThreshold' is not present");
     }
 
     /**
      * The fully qualified domain name of the endpoint to be checked. If a value is set for `ip_address`, the value set for `fqdn` will be passed in the `Host` header.
      * 
      */
-    private UndeferrableValue<String> fqdn;
-
+    @PolicyResourceProperty(name="fqdn", flag="unknown_fqdn")
+    private String value_fqdn;
+    private boolean unknown_fqdn;
     public String fqdn() {
-        if (fqdn == null) return null;
-        return fqdn.getValue("HealthCheckArgs.fqdn");
+        if (!unknown_fqdn) return value_fqdn;
+        throw new UndeferrableValueException("Value 'HealthCheckArgs.fqdn' is not present");
     }
 
     /**
      * The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
      * 
      */
-    private UndeferrableValue<String> insufficientDataHealthStatus;
-
+    @PolicyResourceProperty(name="insufficientDataHealthStatus", flag="unknown_insufficientDataHealthStatus")
+    private String value_insufficientDataHealthStatus;
+    private boolean unknown_insufficientDataHealthStatus;
     public String insufficientDataHealthStatus() {
-        if (insufficientDataHealthStatus == null) return null;
-        return insufficientDataHealthStatus.getValue("HealthCheckArgs.insufficientDataHealthStatus");
+        if (!unknown_insufficientDataHealthStatus) return value_insufficientDataHealthStatus;
+        throw new UndeferrableValueException("Value 'HealthCheckArgs.insufficientDataHealthStatus' is not present");
     }
 
     /**
      * A boolean value that indicates whether the status of health check should be inverted. For example, if a health check is healthy but Inverted is True , then Route 53 considers the health check to be unhealthy.
      * 
      */
-    private UndeferrableValue<Boolean> invertHealthcheck;
-
+    @PolicyResourceProperty(name="invertHealthcheck", flag="unknown_invertHealthcheck")
+    private Boolean value_invertHealthcheck;
+    private boolean unknown_invertHealthcheck;
     public Boolean invertHealthcheck() {
-        if (invertHealthcheck == null) return null;
-        return invertHealthcheck.getValue("HealthCheckArgs.invertHealthcheck");
+        if (!unknown_invertHealthcheck) return value_invertHealthcheck;
+        throw new UndeferrableValueException("Value 'HealthCheckArgs.invertHealthcheck' is not present");
     }
 
     /**
      * The IP address of the endpoint to be checked.
      * 
      */
-    private UndeferrableValue<String> ipAddress;
-
+    @PolicyResourceProperty(name="ipAddress", flag="unknown_ipAddress")
+    private String value_ipAddress;
+    private boolean unknown_ipAddress;
     public String ipAddress() {
-        if (ipAddress == null) return null;
-        return ipAddress.getValue("HealthCheckArgs.ipAddress");
+        if (!unknown_ipAddress) return value_ipAddress;
+        throw new UndeferrableValueException("Value 'HealthCheckArgs.ipAddress' is not present");
     }
 
     /**
      * A Boolean value that indicates whether you want Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint and to display CloudWatch latency graphs in the Route 53 console.
      * 
      */
-    private UndeferrableValue<Boolean> measureLatency;
-
+    @PolicyResourceProperty(name="measureLatency", flag="unknown_measureLatency")
+    private Boolean value_measureLatency;
+    private boolean unknown_measureLatency;
     public Boolean measureLatency() {
-        if (measureLatency == null) return null;
-        return measureLatency.getValue("HealthCheckArgs.measureLatency");
+        if (!unknown_measureLatency) return value_measureLatency;
+        throw new UndeferrableValueException("Value 'HealthCheckArgs.measureLatency' is not present");
     }
 
     /**
      * The port of the endpoint to be checked.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("HealthCheckArgs.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'HealthCheckArgs.port' is not present");
     }
 
     /**
@@ -169,99 +183,108 @@ public final class HealthCheckArgs extends com.pulumi.resources.PolicyResourceIn
      * (helpful for identifying single health_check set amongst others)
      * 
      */
-    private UndeferrableValue<String> referenceName;
-
+    @PolicyResourceProperty(name="referenceName", flag="unknown_referenceName")
+    private String value_referenceName;
+    private boolean unknown_referenceName;
     public String referenceName() {
-        if (referenceName == null) return null;
-        return referenceName.getValue("HealthCheckArgs.referenceName");
+        if (!unknown_referenceName) return value_referenceName;
+        throw new UndeferrableValueException("Value 'HealthCheckArgs.referenceName' is not present");
     }
 
     /**
      * A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
      * 
      */
-    private UndeferrableValue<List<String>> regions;
-
+    @PolicyResourceProperty(name="regions", flag="unknown_regions")
+    private List<String> value_regions;
+    private boolean unknown_regions;
     public List<String> regions() {
-        if (regions == null) return null;
-        return regions.getValue("HealthCheckArgs.regions");
+        if (!unknown_regions) return value_regions;
+        throw new UndeferrableValueException("Value 'HealthCheckArgs.regions' is not present");
     }
 
     /**
      * The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
      * 
      */
-    private UndeferrableValue<Integer> requestInterval;
-
+    @PolicyResourceProperty(name="requestInterval", flag="unknown_requestInterval")
+    private Integer value_requestInterval;
+    private boolean unknown_requestInterval;
     public Integer requestInterval() {
-        if (requestInterval == null) return null;
-        return requestInterval.getValue("HealthCheckArgs.requestInterval");
+        if (!unknown_requestInterval) return value_requestInterval;
+        throw new UndeferrableValueException("Value 'HealthCheckArgs.requestInterval' is not present");
     }
 
     /**
      * The path that you want Amazon Route 53 to request when performing health checks.
      * 
      */
-    private UndeferrableValue<String> resourcePath;
-
+    @PolicyResourceProperty(name="resourcePath", flag="unknown_resourcePath")
+    private String value_resourcePath;
+    private boolean unknown_resourcePath;
     public String resourcePath() {
-        if (resourcePath == null) return null;
-        return resourcePath.getValue("HealthCheckArgs.resourcePath");
+        if (!unknown_resourcePath) return value_resourcePath;
+        throw new UndeferrableValueException("Value 'HealthCheckArgs.resourcePath' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
      * 
      */
-    private UndeferrableValue<String> routingControlArn;
-
+    @PolicyResourceProperty(name="routingControlArn", flag="unknown_routingControlArn")
+    private String value_routingControlArn;
+    private boolean unknown_routingControlArn;
     public String routingControlArn() {
-        if (routingControlArn == null) return null;
-        return routingControlArn.getValue("HealthCheckArgs.routingControlArn");
+        if (!unknown_routingControlArn) return value_routingControlArn;
+        throw new UndeferrableValueException("Value 'HealthCheckArgs.routingControlArn' is not present");
     }
 
     /**
      * String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
      * 
      */
-    private UndeferrableValue<String> searchString;
-
+    @PolicyResourceProperty(name="searchString", flag="unknown_searchString")
+    private String value_searchString;
+    private boolean unknown_searchString;
     public String searchString() {
-        if (searchString == null) return null;
-        return searchString.getValue("HealthCheckArgs.searchString");
+        if (!unknown_searchString) return value_searchString;
+        throw new UndeferrableValueException("Value 'HealthCheckArgs.searchString' is not present");
     }
 
     /**
      * A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("HealthCheckArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'HealthCheckArgs.tags' is not present");
     }
 
     /**
      * Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
      * 
      */
-    private UndeferrableValue<Map<String,String>> triggers;
-
+    @PolicyResourceProperty(name="triggers", flag="unknown_triggers")
+    private Map<String,String> value_triggers;
+    private boolean unknown_triggers;
     public Map<String,String> triggers() {
-        if (triggers == null) return null;
-        return triggers.getValue("HealthCheckArgs.triggers");
+        if (!unknown_triggers) return value_triggers;
+        throw new UndeferrableValueException("Value 'HealthCheckArgs.triggers' is not present");
     }
 
     /**
      * The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("HealthCheckArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'HealthCheckArgs.type' is not present");
     }
 
 }

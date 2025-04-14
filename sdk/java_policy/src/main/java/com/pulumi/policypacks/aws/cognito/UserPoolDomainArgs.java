@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class UserPoolDomainArgs extends com.pulumi.resources.PolicyResourc
      * The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
      * 
      */
-    private UndeferrableValue<String> certificateArn;
-
+    @PolicyResourceProperty(name="certificateArn", flag="unknown_certificateArn")
+    private String value_certificateArn;
+    private boolean unknown_certificateArn;
     public String certificateArn() {
-        if (certificateArn == null) return null;
-        return certificateArn.getValue("UserPoolDomainArgs.certificateArn");
+        if (!unknown_certificateArn) return value_certificateArn;
+        throw new UndeferrableValueException("Value 'UserPoolDomainArgs.certificateArn' is not present");
     }
 
     /**
      * For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
      * 
      */
-    private UndeferrableValue<String> domain;
-
+    @PolicyResourceProperty(name="domain", flag="unknown_domain")
+    private String value_domain;
+    private boolean unknown_domain;
     public String domain() {
-        if (domain == null) return null;
-        return domain.getValue("UserPoolDomainArgs.domain");
+        if (!unknown_domain) return value_domain;
+        throw new UndeferrableValueException("Value 'UserPoolDomainArgs.domain' is not present");
     }
 
     /**
      * The user pool ID.
      * 
      */
-    private UndeferrableValue<String> userPoolId;
-
+    @PolicyResourceProperty(name="userPoolId", flag="unknown_userPoolId")
+    private String value_userPoolId;
+    private boolean unknown_userPoolId;
     public String userPoolId() {
-        if (userPoolId == null) return null;
-        return userPoolId.getValue("UserPoolDomainArgs.userPoolId");
+        if (!unknown_userPoolId) return value_userPoolId;
+        throw new UndeferrableValueException("Value 'UserPoolDomainArgs.userPoolId' is not present");
     }
 
 }

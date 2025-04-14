@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class VideoStreamArgs extends com.pulumi.resources.PolicyResourceIn
      * The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
      * 
      */
-    private UndeferrableValue<Integer> dataRetentionInHours;
-
+    @PolicyResourceProperty(name="dataRetentionInHours", flag="unknown_dataRetentionInHours")
+    private Integer value_dataRetentionInHours;
+    private boolean unknown_dataRetentionInHours;
     public Integer dataRetentionInHours() {
-        if (dataRetentionInHours == null) return null;
-        return dataRetentionInHours.getValue("VideoStreamArgs.dataRetentionInHours");
+        if (!unknown_dataRetentionInHours) return value_dataRetentionInHours;
+        throw new UndeferrableValueException("Value 'VideoStreamArgs.dataRetentionInHours' is not present");
     }
 
     /**
      * The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
      * 
      */
-    private UndeferrableValue<String> deviceName;
-
+    @PolicyResourceProperty(name="deviceName", flag="unknown_deviceName")
+    private String value_deviceName;
+    private boolean unknown_deviceName;
     public String deviceName() {
-        if (deviceName == null) return null;
-        return deviceName.getValue("VideoStreamArgs.deviceName");
+        if (!unknown_deviceName) return value_deviceName;
+        throw new UndeferrableValueException("Value 'VideoStreamArgs.deviceName' is not present");
     }
 
     /**
      * The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("VideoStreamArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'VideoStreamArgs.kmsKeyId' is not present");
     }
 
     /**
      * The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
      * 
      */
-    private UndeferrableValue<String> mediaType;
-
+    @PolicyResourceProperty(name="mediaType", flag="unknown_mediaType")
+    private String value_mediaType;
+    private boolean unknown_mediaType;
     public String mediaType() {
-        if (mediaType == null) return null;
-        return mediaType.getValue("VideoStreamArgs.mediaType");
+        if (!unknown_mediaType) return value_mediaType;
+        throw new UndeferrableValueException("Value 'VideoStreamArgs.mediaType' is not present");
     }
 
     /**
@@ -63,22 +68,24 @@ public final class VideoStreamArgs extends com.pulumi.resources.PolicyResourceIn
      * AWS account and region the Stream is created in.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("VideoStreamArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'VideoStreamArgs.name' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VideoStreamArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VideoStreamArgs.tags' is not present");
     }
 
 }

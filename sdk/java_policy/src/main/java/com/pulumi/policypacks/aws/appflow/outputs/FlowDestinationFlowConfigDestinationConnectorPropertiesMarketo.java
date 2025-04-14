@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,18 +12,20 @@ import javax.annotation.Nullable;
 
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo {
 
-    private @Nullable UndeferrableValue<FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig> errorHandlingConfig;
-
+    @PolicyResourceProperty(name="errorHandlingConfig", flag="unknown_errorHandlingConfig")
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig value_errorHandlingConfig;
+    private boolean unknown_errorHandlingConfig;
     public @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig errorHandlingConfig() {
-        if (errorHandlingConfig == null) return null;
-        return errorHandlingConfig.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo.errorHandlingConfig");
+        if (!unknown_errorHandlingConfig) return value_errorHandlingConfig;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo.errorHandlingConfig' is not present");
     }
 
-    private UndeferrableValue<String> object;
-
+    @PolicyResourceProperty(name="object", flag="unknown_object")
+    private String value_object;
+    private boolean unknown_object;
     public String object() {
-        if (object == null) return null;
-        return object.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo.object");
+        if (!unknown_object) return value_object;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo.object' is not present");
     }
 
 }

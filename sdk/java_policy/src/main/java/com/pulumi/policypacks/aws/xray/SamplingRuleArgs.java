@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.xray;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Double;
 import java.lang.Integer;
@@ -19,143 +20,156 @@ public final class SamplingRuleArgs extends com.pulumi.resources.PolicyResourceI
      * Matches attributes derived from the request.
      * 
      */
-    private UndeferrableValue<Map<String,String>> attributes;
-
+    @PolicyResourceProperty(name="attributes", flag="unknown_attributes")
+    private Map<String,String> value_attributes;
+    private boolean unknown_attributes;
     public Map<String,String> attributes() {
-        if (attributes == null) return null;
-        return attributes.getValue("SamplingRuleArgs.attributes");
+        if (!unknown_attributes) return value_attributes;
+        throw new UndeferrableValueException("Value 'SamplingRuleArgs.attributes' is not present");
     }
 
     /**
      * The percentage of matching requests to instrument, after the reservoir is exhausted.
      * 
      */
-    private UndeferrableValue<Double> fixedRate;
-
+    @PolicyResourceProperty(name="fixedRate", flag="unknown_fixedRate")
+    private Double value_fixedRate;
+    private boolean unknown_fixedRate;
     public Double fixedRate() {
-        if (fixedRate == null) return null;
-        return fixedRate.getValue("SamplingRuleArgs.fixedRate");
+        if (!unknown_fixedRate) return value_fixedRate;
+        throw new UndeferrableValueException("Value 'SamplingRuleArgs.fixedRate' is not present");
     }
 
     /**
      * Matches the hostname from a request URL.
      * 
      */
-    private UndeferrableValue<String> host;
-
+    @PolicyResourceProperty(name="host", flag="unknown_host")
+    private String value_host;
+    private boolean unknown_host;
     public String host() {
-        if (host == null) return null;
-        return host.getValue("SamplingRuleArgs.host");
+        if (!unknown_host) return value_host;
+        throw new UndeferrableValueException("Value 'SamplingRuleArgs.host' is not present");
     }
 
     /**
      * Matches the HTTP method of a request.
      * 
      */
-    private UndeferrableValue<String> httpMethod;
-
+    @PolicyResourceProperty(name="httpMethod", flag="unknown_httpMethod")
+    private String value_httpMethod;
+    private boolean unknown_httpMethod;
     public String httpMethod() {
-        if (httpMethod == null) return null;
-        return httpMethod.getValue("SamplingRuleArgs.httpMethod");
+        if (!unknown_httpMethod) return value_httpMethod;
+        throw new UndeferrableValueException("Value 'SamplingRuleArgs.httpMethod' is not present");
     }
 
     /**
      * The priority of the sampling rule.
      * 
      */
-    private UndeferrableValue<Integer> priority;
-
+    @PolicyResourceProperty(name="priority", flag="unknown_priority")
+    private Integer value_priority;
+    private boolean unknown_priority;
     public Integer priority() {
-        if (priority == null) return null;
-        return priority.getValue("SamplingRuleArgs.priority");
+        if (!unknown_priority) return value_priority;
+        throw new UndeferrableValueException("Value 'SamplingRuleArgs.priority' is not present");
     }
 
     /**
      * A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
      * 
      */
-    private UndeferrableValue<Integer> reservoirSize;
-
+    @PolicyResourceProperty(name="reservoirSize", flag="unknown_reservoirSize")
+    private Integer value_reservoirSize;
+    private boolean unknown_reservoirSize;
     public Integer reservoirSize() {
-        if (reservoirSize == null) return null;
-        return reservoirSize.getValue("SamplingRuleArgs.reservoirSize");
+        if (!unknown_reservoirSize) return value_reservoirSize;
+        throw new UndeferrableValueException("Value 'SamplingRuleArgs.reservoirSize' is not present");
     }
 
     /**
      * Matches the ARN of the AWS resource on which the service runs.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("SamplingRuleArgs.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'SamplingRuleArgs.resourceArn' is not present");
     }
 
     /**
      * The name of the sampling rule.
      * 
      */
-    private UndeferrableValue<String> ruleName;
-
+    @PolicyResourceProperty(name="ruleName", flag="unknown_ruleName")
+    private String value_ruleName;
+    private boolean unknown_ruleName;
     public String ruleName() {
-        if (ruleName == null) return null;
-        return ruleName.getValue("SamplingRuleArgs.ruleName");
+        if (!unknown_ruleName) return value_ruleName;
+        throw new UndeferrableValueException("Value 'SamplingRuleArgs.ruleName' is not present");
     }
 
     /**
      * Matches the `name` that the service uses to identify itself in segments.
      * 
      */
-    private UndeferrableValue<String> serviceName;
-
+    @PolicyResourceProperty(name="serviceName", flag="unknown_serviceName")
+    private String value_serviceName;
+    private boolean unknown_serviceName;
     public String serviceName() {
-        if (serviceName == null) return null;
-        return serviceName.getValue("SamplingRuleArgs.serviceName");
+        if (!unknown_serviceName) return value_serviceName;
+        throw new UndeferrableValueException("Value 'SamplingRuleArgs.serviceName' is not present");
     }
 
     /**
      * Matches the `origin` that the service uses to identify its type in segments.
      * 
      */
-    private UndeferrableValue<String> serviceType;
-
+    @PolicyResourceProperty(name="serviceType", flag="unknown_serviceType")
+    private String value_serviceType;
+    private boolean unknown_serviceType;
     public String serviceType() {
-        if (serviceType == null) return null;
-        return serviceType.getValue("SamplingRuleArgs.serviceType");
+        if (!unknown_serviceType) return value_serviceType;
+        throw new UndeferrableValueException("Value 'SamplingRuleArgs.serviceType' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SamplingRuleArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SamplingRuleArgs.tags' is not present");
     }
 
     /**
      * Matches the path from a request URL.
      * 
      */
-    private UndeferrableValue<String> urlPath;
-
+    @PolicyResourceProperty(name="urlPath", flag="unknown_urlPath")
+    private String value_urlPath;
+    private boolean unknown_urlPath;
     public String urlPath() {
-        if (urlPath == null) return null;
-        return urlPath.getValue("SamplingRuleArgs.urlPath");
+        if (!unknown_urlPath) return value_urlPath;
+        throw new UndeferrableValueException("Value 'SamplingRuleArgs.urlPath' is not present");
     }
 
     /**
      * The version of the sampling rule format (`1` )
      * 
      */
-    private UndeferrableValue<Integer> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private Integer value_version;
+    private boolean unknown_version;
     public Integer version() {
-        if (version == null) return null;
-        return version.getValue("SamplingRuleArgs.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'SamplingRuleArgs.version' is not present");
     }
 
 }

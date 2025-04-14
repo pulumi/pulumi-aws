@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField;
 import java.lang.String;
@@ -15,33 +16,36 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      * Details about your login page password field. See `password_field` for more details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField> passwordField;
-
+    @PolicyResourceProperty(name="passwordField", flag="unknown_passwordField")
+    private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField value_passwordField;
+    private boolean unknown_passwordField;
     public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField passwordField() {
-        if (passwordField == null) return null;
-        return passwordField.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection.passwordField");
+        if (!unknown_passwordField) return value_passwordField;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection.passwordField' is not present");
     }
 
     /**
      * The payload type for your login endpoint, either JSON or form encoded.
      * 
      */
-    private UndeferrableValue<String> payloadType;
-
+    @PolicyResourceProperty(name="payloadType", flag="unknown_payloadType")
+    private String value_payloadType;
+    private boolean unknown_payloadType;
     public String payloadType() {
-        if (payloadType == null) return null;
-        return payloadType.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection.payloadType");
+        if (!unknown_payloadType) return value_payloadType;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection.payloadType' is not present");
     }
 
     /**
      * Details about your login page username field. See `username_field` for more details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField> usernameField;
-
+    @PolicyResourceProperty(name="usernameField", flag="unknown_usernameField")
+    private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField value_usernameField;
+    private boolean unknown_usernameField;
     public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField usernameField() {
-        if (usernameField == null) return null;
-        return usernameField.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection.usernameField");
+        if (!unknown_usernameField) return value_usernameField;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection.usernameField' is not present");
     }
 
 }

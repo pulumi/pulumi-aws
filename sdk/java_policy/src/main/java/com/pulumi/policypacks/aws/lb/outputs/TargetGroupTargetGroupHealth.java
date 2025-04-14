@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lb.outputs.TargetGroupTargetGroupHealthDnsFailover;
 import com.pulumi.policypacks.aws.lb.outputs.TargetGroupTargetGroupHealthUnhealthyStateRouting;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class TargetGroupTargetGroupHealth {
      * Block to configure DNS Failover requirements. See DNS Failover below for details on attributes.
      * 
      */
-    private @Nullable UndeferrableValue<TargetGroupTargetGroupHealthDnsFailover> dnsFailover;
-
+    @PolicyResourceProperty(name="dnsFailover", flag="unknown_dnsFailover")
+    private @Nullable TargetGroupTargetGroupHealthDnsFailover value_dnsFailover;
+    private boolean unknown_dnsFailover;
     public @Nullable TargetGroupTargetGroupHealthDnsFailover dnsFailover() {
-        if (dnsFailover == null) return null;
-        return dnsFailover.getValue("TargetGroupTargetGroupHealth.dnsFailover");
+        if (!unknown_dnsFailover) return value_dnsFailover;
+        throw new UndeferrableValueException("Value 'TargetGroupTargetGroupHealth.dnsFailover' is not present");
     }
 
     /**
      * Block to configure Unhealthy State Routing requirements. See Unhealthy State Routing below for details on attributes.
      * 
      */
-    private @Nullable UndeferrableValue<TargetGroupTargetGroupHealthUnhealthyStateRouting> unhealthyStateRouting;
-
+    @PolicyResourceProperty(name="unhealthyStateRouting", flag="unknown_unhealthyStateRouting")
+    private @Nullable TargetGroupTargetGroupHealthUnhealthyStateRouting value_unhealthyStateRouting;
+    private boolean unknown_unhealthyStateRouting;
     public @Nullable TargetGroupTargetGroupHealthUnhealthyStateRouting unhealthyStateRouting() {
-        if (unhealthyStateRouting == null) return null;
-        return unhealthyStateRouting.getValue("TargetGroupTargetGroupHealth.unhealthyStateRouting");
+        if (!unknown_unhealthyStateRouting) return value_unhealthyStateRouting;
+        throw new UndeferrableValueException("Value 'TargetGroupTargetGroupHealth.unhealthyStateRouting' is not present");
     }
 
 }

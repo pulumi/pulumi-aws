@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.emr.inputs.InstanceFleetInstanceTypeConfigConfigurationArgs;
 import com.pulumi.policypacks.aws.emr.inputs.InstanceFleetInstanceTypeConfigEbsConfigArgs;
 import java.lang.Double;
@@ -19,66 +20,72 @@ public final class InstanceFleetInstanceTypeConfigArgs {
      * The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
      * 
      */
-    private UndeferrableValue<String> bidPrice;
-
+    @PolicyResourceProperty(name="bidPrice", flag="unknown_bidPrice")
+    private String value_bidPrice;
+    private boolean unknown_bidPrice;
     public String bidPrice() {
-        if (bidPrice == null) return null;
-        return bidPrice.getValue("InstanceFleetInstanceTypeConfigArgs.bidPrice");
+        if (!unknown_bidPrice) return value_bidPrice;
+        throw new UndeferrableValueException("Value 'InstanceFleetInstanceTypeConfigArgs.bidPrice' is not present");
     }
 
     /**
      * The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
      * 
      */
-    private UndeferrableValue<Double> bidPriceAsPercentageOfOnDemandPrice;
-
+    @PolicyResourceProperty(name="bidPriceAsPercentageOfOnDemandPrice", flag="unknown_bidPriceAsPercentageOfOnDemandPrice")
+    private Double value_bidPriceAsPercentageOfOnDemandPrice;
+    private boolean unknown_bidPriceAsPercentageOfOnDemandPrice;
     public Double bidPriceAsPercentageOfOnDemandPrice() {
-        if (bidPriceAsPercentageOfOnDemandPrice == null) return null;
-        return bidPriceAsPercentageOfOnDemandPrice.getValue("InstanceFleetInstanceTypeConfigArgs.bidPriceAsPercentageOfOnDemandPrice");
+        if (!unknown_bidPriceAsPercentageOfOnDemandPrice) return value_bidPriceAsPercentageOfOnDemandPrice;
+        throw new UndeferrableValueException("Value 'InstanceFleetInstanceTypeConfigArgs.bidPriceAsPercentageOfOnDemandPrice' is not present");
     }
 
     /**
      * A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
      * 
      */
-    private UndeferrableValue<List<InstanceFleetInstanceTypeConfigConfigurationArgs>> configurations;
-
+    @PolicyResourceProperty(name="configurations", flag="unknown_configurations")
+    private List<InstanceFleetInstanceTypeConfigConfigurationArgs> value_configurations;
+    private boolean unknown_configurations;
     public List<InstanceFleetInstanceTypeConfigConfigurationArgs> configurations() {
-        if (configurations == null) return null;
-        return configurations.getValue("InstanceFleetInstanceTypeConfigArgs.configurations");
+        if (!unknown_configurations) return value_configurations;
+        throw new UndeferrableValueException("Value 'InstanceFleetInstanceTypeConfigArgs.configurations' is not present");
     }
 
     /**
      * Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
      * 
      */
-    private UndeferrableValue<List<InstanceFleetInstanceTypeConfigEbsConfigArgs>> ebsConfigs;
-
+    @PolicyResourceProperty(name="ebsConfigs", flag="unknown_ebsConfigs")
+    private List<InstanceFleetInstanceTypeConfigEbsConfigArgs> value_ebsConfigs;
+    private boolean unknown_ebsConfigs;
     public List<InstanceFleetInstanceTypeConfigEbsConfigArgs> ebsConfigs() {
-        if (ebsConfigs == null) return null;
-        return ebsConfigs.getValue("InstanceFleetInstanceTypeConfigArgs.ebsConfigs");
+        if (!unknown_ebsConfigs) return value_ebsConfigs;
+        throw new UndeferrableValueException("Value 'InstanceFleetInstanceTypeConfigArgs.ebsConfigs' is not present");
     }
 
     /**
      * An EC2 instance type, such as m4.xlarge.
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("InstanceFleetInstanceTypeConfigArgs.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'InstanceFleetInstanceTypeConfigArgs.instanceType' is not present");
     }
 
     /**
      * The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `aws.emr.InstanceFleet`.
      * 
      */
-    private UndeferrableValue<Integer> weightedCapacity;
-
+    @PolicyResourceProperty(name="weightedCapacity", flag="unknown_weightedCapacity")
+    private Integer value_weightedCapacity;
+    private boolean unknown_weightedCapacity;
     public Integer weightedCapacity() {
-        if (weightedCapacity == null) return null;
-        return weightedCapacity.getValue("InstanceFleetInstanceTypeConfigArgs.weightedCapacity");
+        if (!unknown_weightedCapacity) return value_weightedCapacity;
+        throw new UndeferrableValueException("Value 'InstanceFleetInstanceTypeConfigArgs.weightedCapacity' is not present");
     }
 
 }

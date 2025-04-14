@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.inputs.DataSetLogicalTableMapSourceJoinInstructionArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class DataSetLogicalTableMapSourceArgs {
      * ARN of the parent data set.
      * 
      */
-    private UndeferrableValue<String> dataSetArn;
-
+    @PolicyResourceProperty(name="dataSetArn", flag="unknown_dataSetArn")
+    private String value_dataSetArn;
+    private boolean unknown_dataSetArn;
     public String dataSetArn() {
-        if (dataSetArn == null) return null;
-        return dataSetArn.getValue("DataSetLogicalTableMapSourceArgs.dataSetArn");
+        if (!unknown_dataSetArn) return value_dataSetArn;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapSourceArgs.dataSetArn' is not present");
     }
 
     /**
      * Specifies the result of a join of two logical tables. See join_instruction.
      * 
      */
-    private UndeferrableValue<DataSetLogicalTableMapSourceJoinInstructionArgs> joinInstruction;
-
+    @PolicyResourceProperty(name="joinInstruction", flag="unknown_joinInstruction")
+    private DataSetLogicalTableMapSourceJoinInstructionArgs value_joinInstruction;
+    private boolean unknown_joinInstruction;
     public DataSetLogicalTableMapSourceJoinInstructionArgs joinInstruction() {
-        if (joinInstruction == null) return null;
-        return joinInstruction.getValue("DataSetLogicalTableMapSourceArgs.joinInstruction");
+        if (!unknown_joinInstruction) return value_joinInstruction;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapSourceArgs.joinInstruction' is not present");
     }
 
     /**
      * Physical table ID.
      * 
      */
-    private UndeferrableValue<String> physicalTableId;
-
+    @PolicyResourceProperty(name="physicalTableId", flag="unknown_physicalTableId")
+    private String value_physicalTableId;
+    private boolean unknown_physicalTableId;
     public String physicalTableId() {
-        if (physicalTableId == null) return null;
-        return physicalTableId.getValue("DataSetLogicalTableMapSourceArgs.physicalTableId");
+        if (!unknown_physicalTableId) return value_physicalTableId;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapSourceArgs.physicalTableId' is not present");
     }
 
 }

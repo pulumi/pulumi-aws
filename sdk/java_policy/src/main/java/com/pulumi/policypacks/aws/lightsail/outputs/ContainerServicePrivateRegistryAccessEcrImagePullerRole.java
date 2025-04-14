@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ContainerServicePrivateRegistryAccessEcrImagePullerRole {
      * A Boolean value that indicates whether to activate the role. The default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> isActive;
-
+    @PolicyResourceProperty(name="isActive", flag="unknown_isActive")
+    private @Nullable Boolean value_isActive;
+    private boolean unknown_isActive;
     public @Nullable Boolean isActive() {
-        if (isActive == null) return null;
-        return isActive.getValue("ContainerServicePrivateRegistryAccessEcrImagePullerRole.isActive");
+        if (!unknown_isActive) return value_isActive;
+        throw new UndeferrableValueException("Value 'ContainerServicePrivateRegistryAccessEcrImagePullerRole.isActive' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class ContainerServicePrivateRegistryAccessEcrImagePullerRole {
      * service permission to access resources in your standard AWS account.
      * 
      */
-    private @Nullable UndeferrableValue<String> principalArn;
-
+    @PolicyResourceProperty(name="principalArn", flag="unknown_principalArn")
+    private @Nullable String value_principalArn;
+    private boolean unknown_principalArn;
     public @Nullable String principalArn() {
-        if (principalArn == null) return null;
-        return principalArn.getValue("ContainerServicePrivateRegistryAccessEcrImagePullerRole.principalArn");
+        if (!unknown_principalArn) return value_principalArn;
+        throw new UndeferrableValueException("Value 'ContainerServicePrivateRegistryAccessEcrImagePullerRole.principalArn' is not present");
     }
 
 }

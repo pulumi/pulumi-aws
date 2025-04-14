@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,44 +17,48 @@ public final class Route extends com.pulumi.resources.PolicyResourceOutput {
      * Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
      * 
      */
-    private @Nullable UndeferrableValue<String> carrierGatewayId;
-
+    @PolicyResourceProperty(name="carrierGatewayId", flag="unknown_carrierGatewayId")
+    private @Nullable String value_carrierGatewayId;
+    private boolean unknown_carrierGatewayId;
     public @Nullable String carrierGatewayId() {
-        if (carrierGatewayId == null) return null;
-        return carrierGatewayId.getValue("Route.carrierGatewayId");
+        if (!unknown_carrierGatewayId) return value_carrierGatewayId;
+        throw new UndeferrableValueException("Value 'Route.carrierGatewayId' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of a core network.
      * 
      */
-    private @Nullable UndeferrableValue<String> coreNetworkArn;
-
+    @PolicyResourceProperty(name="coreNetworkArn", flag="unknown_coreNetworkArn")
+    private @Nullable String value_coreNetworkArn;
+    private boolean unknown_coreNetworkArn;
     public @Nullable String coreNetworkArn() {
-        if (coreNetworkArn == null) return null;
-        return coreNetworkArn.getValue("Route.coreNetworkArn");
+        if (!unknown_coreNetworkArn) return value_coreNetworkArn;
+        throw new UndeferrableValueException("Value 'Route.coreNetworkArn' is not present");
     }
 
     /**
      * The destination CIDR block.
      * 
      */
-    private @Nullable UndeferrableValue<String> destinationCidrBlock;
-
+    @PolicyResourceProperty(name="destinationCidrBlock", flag="unknown_destinationCidrBlock")
+    private @Nullable String value_destinationCidrBlock;
+    private boolean unknown_destinationCidrBlock;
     public @Nullable String destinationCidrBlock() {
-        if (destinationCidrBlock == null) return null;
-        return destinationCidrBlock.getValue("Route.destinationCidrBlock");
+        if (!unknown_destinationCidrBlock) return value_destinationCidrBlock;
+        throw new UndeferrableValueException("Value 'Route.destinationCidrBlock' is not present");
     }
 
     /**
      * The destination IPv6 CIDR block.
      * 
      */
-    private @Nullable UndeferrableValue<String> destinationIpv6CidrBlock;
-
+    @PolicyResourceProperty(name="destinationIpv6CidrBlock", flag="unknown_destinationIpv6CidrBlock")
+    private @Nullable String value_destinationIpv6CidrBlock;
+    private boolean unknown_destinationIpv6CidrBlock;
     public @Nullable String destinationIpv6CidrBlock() {
-        if (destinationIpv6CidrBlock == null) return null;
-        return destinationIpv6CidrBlock.getValue("Route.destinationIpv6CidrBlock");
+        if (!unknown_destinationIpv6CidrBlock) return value_destinationIpv6CidrBlock;
+        throw new UndeferrableValueException("Value 'Route.destinationIpv6CidrBlock' is not present");
     }
 
     /**
@@ -62,99 +67,108 @@ public final class Route extends com.pulumi.resources.PolicyResourceOutput {
      * One of the following target arguments must be supplied:
      * 
      */
-    private @Nullable UndeferrableValue<String> destinationPrefixListId;
-
+    @PolicyResourceProperty(name="destinationPrefixListId", flag="unknown_destinationPrefixListId")
+    private @Nullable String value_destinationPrefixListId;
+    private boolean unknown_destinationPrefixListId;
     public @Nullable String destinationPrefixListId() {
-        if (destinationPrefixListId == null) return null;
-        return destinationPrefixListId.getValue("Route.destinationPrefixListId");
+        if (!unknown_destinationPrefixListId) return value_destinationPrefixListId;
+        throw new UndeferrableValueException("Value 'Route.destinationPrefixListId' is not present");
     }
 
     /**
      * Identifier of a VPC Egress Only Internet Gateway.
      * 
      */
-    private @Nullable UndeferrableValue<String> egressOnlyGatewayId;
-
+    @PolicyResourceProperty(name="egressOnlyGatewayId", flag="unknown_egressOnlyGatewayId")
+    private @Nullable String value_egressOnlyGatewayId;
+    private boolean unknown_egressOnlyGatewayId;
     public @Nullable String egressOnlyGatewayId() {
-        if (egressOnlyGatewayId == null) return null;
-        return egressOnlyGatewayId.getValue("Route.egressOnlyGatewayId");
+        if (!unknown_egressOnlyGatewayId) return value_egressOnlyGatewayId;
+        throw new UndeferrableValueException("Value 'Route.egressOnlyGatewayId' is not present");
     }
 
     /**
      * Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
      * 
      */
-    private @Nullable UndeferrableValue<String> gatewayId;
-
+    @PolicyResourceProperty(name="gatewayId", flag="unknown_gatewayId")
+    private @Nullable String value_gatewayId;
+    private boolean unknown_gatewayId;
     public @Nullable String gatewayId() {
-        if (gatewayId == null) return null;
-        return gatewayId.getValue("Route.gatewayId");
+        if (!unknown_gatewayId) return value_gatewayId;
+        throw new UndeferrableValueException("Value 'Route.gatewayId' is not present");
     }
 
     /**
      * Identifier of an EC2 instance.
      * 
      */
-    private UndeferrableValue<String> instanceId;
-
+    @PolicyResourceProperty(name="instanceId", flag="unknown_instanceId")
+    private String value_instanceId;
+    private boolean unknown_instanceId;
     public String instanceId() {
-        if (instanceId == null) return null;
-        return instanceId.getValue("Route.instanceId");
+        if (!unknown_instanceId) return value_instanceId;
+        throw new UndeferrableValueException("Value 'Route.instanceId' is not present");
     }
 
     /**
      * The AWS account ID of the owner of the EC2 instance.
      * 
      */
-    private UndeferrableValue<String> instanceOwnerId;
-
+    @PolicyResourceProperty(name="instanceOwnerId", flag="unknown_instanceOwnerId")
+    private String value_instanceOwnerId;
+    private boolean unknown_instanceOwnerId;
     public String instanceOwnerId() {
-        if (instanceOwnerId == null) return null;
-        return instanceOwnerId.getValue("Route.instanceOwnerId");
+        if (!unknown_instanceOwnerId) return value_instanceOwnerId;
+        throw new UndeferrableValueException("Value 'Route.instanceOwnerId' is not present");
     }
 
     /**
      * Identifier of a Outpost local gateway.
      * 
      */
-    private @Nullable UndeferrableValue<String> localGatewayId;
-
+    @PolicyResourceProperty(name="localGatewayId", flag="unknown_localGatewayId")
+    private @Nullable String value_localGatewayId;
+    private boolean unknown_localGatewayId;
     public @Nullable String localGatewayId() {
-        if (localGatewayId == null) return null;
-        return localGatewayId.getValue("Route.localGatewayId");
+        if (!unknown_localGatewayId) return value_localGatewayId;
+        throw new UndeferrableValueException("Value 'Route.localGatewayId' is not present");
     }
 
     /**
      * Identifier of a VPC NAT gateway.
      * 
      */
-    private @Nullable UndeferrableValue<String> natGatewayId;
-
+    @PolicyResourceProperty(name="natGatewayId", flag="unknown_natGatewayId")
+    private @Nullable String value_natGatewayId;
+    private boolean unknown_natGatewayId;
     public @Nullable String natGatewayId() {
-        if (natGatewayId == null) return null;
-        return natGatewayId.getValue("Route.natGatewayId");
+        if (!unknown_natGatewayId) return value_natGatewayId;
+        throw new UndeferrableValueException("Value 'Route.natGatewayId' is not present");
     }
 
     /**
      * Identifier of an EC2 network interface.
      * 
      */
-    private UndeferrableValue<String> networkInterfaceId;
-
+    @PolicyResourceProperty(name="networkInterfaceId", flag="unknown_networkInterfaceId")
+    private String value_networkInterfaceId;
+    private boolean unknown_networkInterfaceId;
     public String networkInterfaceId() {
-        if (networkInterfaceId == null) return null;
-        return networkInterfaceId.getValue("Route.networkInterfaceId");
+        if (!unknown_networkInterfaceId) return value_networkInterfaceId;
+        throw new UndeferrableValueException("Value 'Route.networkInterfaceId' is not present");
     }
 
     /**
      * How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
      * 
      */
-    private UndeferrableValue<String> origin;
-
+    @PolicyResourceProperty(name="origin", flag="unknown_origin")
+    private String value_origin;
+    private boolean unknown_origin;
     public String origin() {
-        if (origin == null) return null;
-        return origin.getValue("Route.origin");
+        if (!unknown_origin) return value_origin;
+        throw new UndeferrableValueException("Value 'Route.origin' is not present");
     }
 
     /**
@@ -163,44 +177,48 @@ public final class Route extends com.pulumi.resources.PolicyResourceOutput {
      * One of the following destination arguments must be supplied:
      * 
      */
-    private UndeferrableValue<String> routeTableId;
-
+    @PolicyResourceProperty(name="routeTableId", flag="unknown_routeTableId")
+    private String value_routeTableId;
+    private boolean unknown_routeTableId;
     public String routeTableId() {
-        if (routeTableId == null) return null;
-        return routeTableId.getValue("Route.routeTableId");
+        if (!unknown_routeTableId) return value_routeTableId;
+        throw new UndeferrableValueException("Value 'Route.routeTableId' is not present");
     }
 
     /**
      * The state of the route - `active` or `blackhole`.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("Route.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'Route.state' is not present");
     }
 
     /**
      * Identifier of an EC2 Transit Gateway.
      * 
      */
-    private @Nullable UndeferrableValue<String> transitGatewayId;
-
+    @PolicyResourceProperty(name="transitGatewayId", flag="unknown_transitGatewayId")
+    private @Nullable String value_transitGatewayId;
+    private boolean unknown_transitGatewayId;
     public @Nullable String transitGatewayId() {
-        if (transitGatewayId == null) return null;
-        return transitGatewayId.getValue("Route.transitGatewayId");
+        if (!unknown_transitGatewayId) return value_transitGatewayId;
+        throw new UndeferrableValueException("Value 'Route.transitGatewayId' is not present");
     }
 
     /**
      * Identifier of a VPC Endpoint.
      * 
      */
-    private @Nullable UndeferrableValue<String> vpcEndpointId;
-
+    @PolicyResourceProperty(name="vpcEndpointId", flag="unknown_vpcEndpointId")
+    private @Nullable String value_vpcEndpointId;
+    private boolean unknown_vpcEndpointId;
     public @Nullable String vpcEndpointId() {
-        if (vpcEndpointId == null) return null;
-        return vpcEndpointId.getValue("Route.vpcEndpointId");
+        if (!unknown_vpcEndpointId) return value_vpcEndpointId;
+        throw new UndeferrableValueException("Value 'Route.vpcEndpointId' is not present");
     }
 
     /**
@@ -209,11 +227,12 @@ public final class Route extends com.pulumi.resources.PolicyResourceOutput {
      * Note that the default route, mapping the VPC&#39;s CIDR block to &#34;local&#34;, is created implicitly and cannot be specified.
      * 
      */
-    private @Nullable UndeferrableValue<String> vpcPeeringConnectionId;
-
+    @PolicyResourceProperty(name="vpcPeeringConnectionId", flag="unknown_vpcPeeringConnectionId")
+    private @Nullable String value_vpcPeeringConnectionId;
+    private boolean unknown_vpcPeeringConnectionId;
     public @Nullable String vpcPeeringConnectionId() {
-        if (vpcPeeringConnectionId == null) return null;
-        return vpcPeeringConnectionId.getValue("Route.vpcPeeringConnectionId");
+        if (!unknown_vpcPeeringConnectionId) return value_vpcPeeringConnectionId;
+        throw new UndeferrableValueException("Value 'Route.vpcPeeringConnectionId' is not present");
     }
 
 }

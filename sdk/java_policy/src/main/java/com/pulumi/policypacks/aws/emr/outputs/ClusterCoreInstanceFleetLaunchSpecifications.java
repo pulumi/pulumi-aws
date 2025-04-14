@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.emr.outputs.ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification;
 import com.pulumi.policypacks.aws.emr.outputs.ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class ClusterCoreInstanceFleetLaunchSpecifications {
      * Configuration block for on demand instances launch specifications.
      * 
      */
-    private @Nullable UndeferrableValue<List<ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification>> onDemandSpecifications;
-
+    @PolicyResourceProperty(name="onDemandSpecifications", flag="unknown_onDemandSpecifications")
+    private @Nullable List<ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification> value_onDemandSpecifications;
+    private boolean unknown_onDemandSpecifications;
     public @Nullable List<ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification> onDemandSpecifications() {
-        if (onDemandSpecifications == null) return null;
-        return onDemandSpecifications.getValue("ClusterCoreInstanceFleetLaunchSpecifications.onDemandSpecifications");
+        if (!unknown_onDemandSpecifications) return value_onDemandSpecifications;
+        throw new UndeferrableValueException("Value 'ClusterCoreInstanceFleetLaunchSpecifications.onDemandSpecifications' is not present");
     }
 
     /**
      * Configuration block for spot instances launch specifications.
      * 
      */
-    private @Nullable UndeferrableValue<List<ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification>> spotSpecifications;
-
+    @PolicyResourceProperty(name="spotSpecifications", flag="unknown_spotSpecifications")
+    private @Nullable List<ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification> value_spotSpecifications;
+    private boolean unknown_spotSpecifications;
     public @Nullable List<ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification> spotSpecifications() {
-        if (spotSpecifications == null) return null;
-        return spotSpecifications.getValue("ClusterCoreInstanceFleetLaunchSpecifications.spotSpecifications");
+        if (!unknown_spotSpecifications) return value_spotSpecifications;
+        throw new UndeferrableValueException("Value 'ClusterCoreInstanceFleetLaunchSpecifications.spotSpecifications' is not present");
     }
 
 }

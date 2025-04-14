@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.workspaces.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,55 +15,60 @@ public final class DirectorySelfServicePermissions {
      * Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> changeComputeType;
-
+    @PolicyResourceProperty(name="changeComputeType", flag="unknown_changeComputeType")
+    private @Nullable Boolean value_changeComputeType;
+    private boolean unknown_changeComputeType;
     public @Nullable Boolean changeComputeType() {
-        if (changeComputeType == null) return null;
-        return changeComputeType.getValue("DirectorySelfServicePermissions.changeComputeType");
+        if (!unknown_changeComputeType) return value_changeComputeType;
+        throw new UndeferrableValueException("Value 'DirectorySelfServicePermissions.changeComputeType' is not present");
     }
 
     /**
      * Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> increaseVolumeSize;
-
+    @PolicyResourceProperty(name="increaseVolumeSize", flag="unknown_increaseVolumeSize")
+    private @Nullable Boolean value_increaseVolumeSize;
+    private boolean unknown_increaseVolumeSize;
     public @Nullable Boolean increaseVolumeSize() {
-        if (increaseVolumeSize == null) return null;
-        return increaseVolumeSize.getValue("DirectorySelfServicePermissions.increaseVolumeSize");
+        if (!unknown_increaseVolumeSize) return value_increaseVolumeSize;
+        throw new UndeferrableValueException("Value 'DirectorySelfServicePermissions.increaseVolumeSize' is not present");
     }
 
     /**
      * Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> rebuildWorkspace;
-
+    @PolicyResourceProperty(name="rebuildWorkspace", flag="unknown_rebuildWorkspace")
+    private @Nullable Boolean value_rebuildWorkspace;
+    private boolean unknown_rebuildWorkspace;
     public @Nullable Boolean rebuildWorkspace() {
-        if (rebuildWorkspace == null) return null;
-        return rebuildWorkspace.getValue("DirectorySelfServicePermissions.rebuildWorkspace");
+        if (!unknown_rebuildWorkspace) return value_rebuildWorkspace;
+        throw new UndeferrableValueException("Value 'DirectorySelfServicePermissions.rebuildWorkspace' is not present");
     }
 
     /**
      * Whether WorkSpaces directory users can restart their workspace. Default `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> restartWorkspace;
-
+    @PolicyResourceProperty(name="restartWorkspace", flag="unknown_restartWorkspace")
+    private @Nullable Boolean value_restartWorkspace;
+    private boolean unknown_restartWorkspace;
     public @Nullable Boolean restartWorkspace() {
-        if (restartWorkspace == null) return null;
-        return restartWorkspace.getValue("DirectorySelfServicePermissions.restartWorkspace");
+        if (!unknown_restartWorkspace) return value_restartWorkspace;
+        throw new UndeferrableValueException("Value 'DirectorySelfServicePermissions.restartWorkspace' is not present");
     }
 
     /**
      * Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> switchRunningMode;
-
+    @PolicyResourceProperty(name="switchRunningMode", flag="unknown_switchRunningMode")
+    private @Nullable Boolean value_switchRunningMode;
+    private boolean unknown_switchRunningMode;
     public @Nullable Boolean switchRunningMode() {
-        if (switchRunningMode == null) return null;
-        return switchRunningMode.getValue("DirectorySelfServicePermissions.switchRunningMode");
+        if (!unknown_switchRunningMode) return value_switchRunningMode;
+        throw new UndeferrableValueException("Value 'DirectorySelfServicePermissions.switchRunningMode' is not present");
     }
 
 }

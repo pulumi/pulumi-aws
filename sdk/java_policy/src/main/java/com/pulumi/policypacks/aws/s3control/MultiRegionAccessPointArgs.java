@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3control.inputs.MultiRegionAccessPointDetailsArgs;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class MultiRegionAccessPointArgs extends com.pulumi.resources.Polic
      * The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("MultiRegionAccessPointArgs.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'MultiRegionAccessPointArgs.accountId' is not present");
     }
 
     /**
      * A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
      * 
      */
-    private UndeferrableValue<MultiRegionAccessPointDetailsArgs> details;
-
+    @PolicyResourceProperty(name="details", flag="unknown_details")
+    private MultiRegionAccessPointDetailsArgs value_details;
+    private boolean unknown_details;
     public MultiRegionAccessPointDetailsArgs details() {
-        if (details == null) return null;
-        return details.getValue("MultiRegionAccessPointArgs.details");
+        if (!unknown_details) return value_details;
+        throw new UndeferrableValueException("Value 'MultiRegionAccessPointArgs.details' is not present");
     }
 
 }

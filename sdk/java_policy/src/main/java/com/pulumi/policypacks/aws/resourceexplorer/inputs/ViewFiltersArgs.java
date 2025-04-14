@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.resourceexplorer.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ViewFiltersArgs {
      * The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a search operation. For more details, see [Search query syntax](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html).
      * 
      */
-    private UndeferrableValue<String> filterString;
-
+    @PolicyResourceProperty(name="filterString", flag="unknown_filterString")
+    private String value_filterString;
+    private boolean unknown_filterString;
     public String filterString() {
-        if (filterString == null) return null;
-        return filterString.getValue("ViewFiltersArgs.filterString");
+        if (!unknown_filterString) return value_filterString;
+        throw new UndeferrableValueException("Value 'ViewFiltersArgs.filterString' is not present");
     }
 
 }

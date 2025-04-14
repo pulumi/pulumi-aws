@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.fsx.outputs.FileCacheDataRepositoryAssociationNf;
 import java.lang.Integer;
 import java.lang.String;
@@ -14,105 +15,116 @@ import javax.annotation.Nullable;
 
 public final class FileCacheDataRepositoryAssociation {
 
-    private @Nullable UndeferrableValue<String> associationId;
-
+    @PolicyResourceProperty(name="associationId", flag="unknown_associationId")
+    private @Nullable String value_associationId;
+    private boolean unknown_associationId;
     public @Nullable String associationId() {
-        if (associationId == null) return null;
-        return associationId.getValue("FileCacheDataRepositoryAssociation.associationId");
+        if (!unknown_associationId) return value_associationId;
+        throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociation.associationId' is not present");
     }
 
     /**
      * The path to the S3 or NFS data repository that links to the cache.
      * 
      */
-    private UndeferrableValue<String> dataRepositoryPath;
-
+    @PolicyResourceProperty(name="dataRepositoryPath", flag="unknown_dataRepositoryPath")
+    private String value_dataRepositoryPath;
+    private boolean unknown_dataRepositoryPath;
     public String dataRepositoryPath() {
-        if (dataRepositoryPath == null) return null;
-        return dataRepositoryPath.getValue("FileCacheDataRepositoryAssociation.dataRepositoryPath");
+        if (!unknown_dataRepositoryPath) return value_dataRepositoryPath;
+        throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociation.dataRepositoryPath' is not present");
     }
 
     /**
      * A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> dataRepositorySubdirectories;
-
+    @PolicyResourceProperty(name="dataRepositorySubdirectories", flag="unknown_dataRepositorySubdirectories")
+    private @Nullable List<String> value_dataRepositorySubdirectories;
+    private boolean unknown_dataRepositorySubdirectories;
     public @Nullable List<String> dataRepositorySubdirectories() {
-        if (dataRepositorySubdirectories == null) return null;
-        return dataRepositorySubdirectories.getValue("FileCacheDataRepositoryAssociation.dataRepositorySubdirectories");
+        if (!unknown_dataRepositorySubdirectories) return value_dataRepositorySubdirectories;
+        throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociation.dataRepositorySubdirectories' is not present");
     }
 
     /**
      * The system-generated, unique ID of the cache.
      * 
      */
-    private @Nullable UndeferrableValue<String> fileCacheId;
-
+    @PolicyResourceProperty(name="fileCacheId", flag="unknown_fileCacheId")
+    private @Nullable String value_fileCacheId;
+    private boolean unknown_fileCacheId;
     public @Nullable String fileCacheId() {
-        if (fileCacheId == null) return null;
-        return fileCacheId.getValue("FileCacheDataRepositoryAssociation.fileCacheId");
+        if (!unknown_fileCacheId) return value_fileCacheId;
+        throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociation.fileCacheId' is not present");
     }
 
     /**
      * A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
      * 
      */
-    private UndeferrableValue<String> fileCachePath;
-
+    @PolicyResourceProperty(name="fileCachePath", flag="unknown_fileCachePath")
+    private String value_fileCachePath;
+    private boolean unknown_fileCachePath;
     public String fileCachePath() {
-        if (fileCachePath == null) return null;
-        return fileCachePath.getValue("FileCacheDataRepositoryAssociation.fileCachePath");
+        if (!unknown_fileCachePath) return value_fileCachePath;
+        throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociation.fileCachePath' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> fileSystemId;
-
+    @PolicyResourceProperty(name="fileSystemId", flag="unknown_fileSystemId")
+    private @Nullable String value_fileSystemId;
+    private boolean unknown_fileSystemId;
     public @Nullable String fileSystemId() {
-        if (fileSystemId == null) return null;
-        return fileSystemId.getValue("FileCacheDataRepositoryAssociation.fileSystemId");
+        if (!unknown_fileSystemId) return value_fileSystemId;
+        throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociation.fileSystemId' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> fileSystemPath;
-
+    @PolicyResourceProperty(name="fileSystemPath", flag="unknown_fileSystemPath")
+    private @Nullable String value_fileSystemPath;
+    private boolean unknown_fileSystemPath;
     public @Nullable String fileSystemPath() {
-        if (fileSystemPath == null) return null;
-        return fileSystemPath.getValue("FileCacheDataRepositoryAssociation.fileSystemPath");
+        if (!unknown_fileSystemPath) return value_fileSystemPath;
+        throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociation.fileSystemPath' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> importedFileChunkSize;
-
+    @PolicyResourceProperty(name="importedFileChunkSize", flag="unknown_importedFileChunkSize")
+    private @Nullable Integer value_importedFileChunkSize;
+    private boolean unknown_importedFileChunkSize;
     public @Nullable Integer importedFileChunkSize() {
-        if (importedFileChunkSize == null) return null;
-        return importedFileChunkSize.getValue("FileCacheDataRepositoryAssociation.importedFileChunkSize");
+        if (!unknown_importedFileChunkSize) return value_importedFileChunkSize;
+        throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociation.importedFileChunkSize' is not present");
     }
 
     /**
      * (Optional) See the `nfs` configuration block.
      * 
      */
-    private @Nullable UndeferrableValue<List<FileCacheDataRepositoryAssociationNf>> nfs;
-
+    @PolicyResourceProperty(name="nfs", flag="unknown_nfs")
+    private @Nullable List<FileCacheDataRepositoryAssociationNf> value_nfs;
+    private boolean unknown_nfs;
     public @Nullable List<FileCacheDataRepositoryAssociationNf> nfs() {
-        if (nfs == null) return null;
-        return nfs.getValue("FileCacheDataRepositoryAssociation.nfs");
+        if (!unknown_nfs) return value_nfs;
+        throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociation.nfs' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private @Nullable String value_resourceArn;
+    private boolean unknown_resourceArn;
     public @Nullable String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("FileCacheDataRepositoryAssociation.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociation.resourceArn' is not present");
     }
 
     /**
      * A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("FileCacheDataRepositoryAssociation.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociation.tags' is not present");
     }
 
 }

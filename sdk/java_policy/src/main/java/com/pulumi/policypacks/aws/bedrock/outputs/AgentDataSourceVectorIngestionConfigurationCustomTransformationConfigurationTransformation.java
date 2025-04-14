@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
      * When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
      * 
      */
-    private UndeferrableValue<String> stepToApply;
-
+    @PolicyResourceProperty(name="stepToApply", flag="unknown_stepToApply")
+    private String value_stepToApply;
+    private boolean unknown_stepToApply;
     public String stepToApply() {
-        if (stepToApply == null) return null;
-        return stepToApply.getValue("AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation.stepToApply");
+        if (!unknown_stepToApply) return value_stepToApply;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation.stepToApply' is not present");
     }
 
     /**
      * The lambda function that processes documents.
      * 
      */
-    private @Nullable UndeferrableValue<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction> transformationFunction;
-
+    @PolicyResourceProperty(name="transformationFunction", flag="unknown_transformationFunction")
+    private @Nullable AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction value_transformationFunction;
+    private boolean unknown_transformationFunction;
     public @Nullable AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunction transformationFunction() {
-        if (transformationFunction == null) return null;
-        return transformationFunction.getValue("AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation.transformationFunction");
+        if (!unknown_transformationFunction) return value_transformationFunction;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation.transformationFunction' is not present");
     }
 
 }

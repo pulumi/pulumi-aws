@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DistributionConfigurationDistributionFastLaunchConfigurationS
      * The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
      * 
      */
-    private UndeferrableValue<Integer> targetResourceCount;
-
+    @PolicyResourceProperty(name="targetResourceCount", flag="unknown_targetResourceCount")
+    private Integer value_targetResourceCount;
+    private boolean unknown_targetResourceCount;
     public Integer targetResourceCount() {
-        if (targetResourceCount == null) return null;
-        return targetResourceCount.getValue("DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs.targetResourceCount");
+        if (!unknown_targetResourceCount) return value_targetResourceCount;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs.targetResourceCount' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -17,143 +18,156 @@ public final class PipelineStageAction {
      * A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
      * 
      */
-    private UndeferrableValue<String> category;
-
+    @PolicyResourceProperty(name="category", flag="unknown_category")
+    private String value_category;
+    private boolean unknown_category;
     public String category() {
-        if (category == null) return null;
-        return category.getValue("PipelineStageAction.category");
+        if (!unknown_category) return value_category;
+        throw new UndeferrableValueException("Value 'PipelineStageAction.category' is not present");
     }
 
     /**
      * A map of the action declaration&#39;s configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation. Note: The `DetectChanges` parameter (optional, default value is true) in the `configuration` section causes CodePipeline to automatically start your pipeline upon new commits. Please refer to AWS Documentation for more details: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> configuration;
-
+    @PolicyResourceProperty(name="configuration", flag="unknown_configuration")
+    private @Nullable Map<String,String> value_configuration;
+    private boolean unknown_configuration;
     public @Nullable Map<String,String> configuration() {
-        if (configuration == null) return null;
-        return configuration.getValue("PipelineStageAction.configuration");
+        if (!unknown_configuration) return value_configuration;
+        throw new UndeferrableValueException("Value 'PipelineStageAction.configuration' is not present");
     }
 
     /**
      * A list of artifact names to be worked on.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> inputArtifacts;
-
+    @PolicyResourceProperty(name="inputArtifacts", flag="unknown_inputArtifacts")
+    private @Nullable List<String> value_inputArtifacts;
+    private boolean unknown_inputArtifacts;
     public @Nullable List<String> inputArtifacts() {
-        if (inputArtifacts == null) return null;
-        return inputArtifacts.getValue("PipelineStageAction.inputArtifacts");
+        if (!unknown_inputArtifacts) return value_inputArtifacts;
+        throw new UndeferrableValueException("Value 'PipelineStageAction.inputArtifacts' is not present");
     }
 
     /**
      * The action declaration&#39;s name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PipelineStageAction.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PipelineStageAction.name' is not present");
     }
 
     /**
      * The namespace all output variables will be accessed from.
      * 
      */
-    private @Nullable UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private @Nullable String value_namespace;
+    private boolean unknown_namespace;
     public @Nullable String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("PipelineStageAction.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'PipelineStageAction.namespace' is not present");
     }
 
     /**
      * A list of artifact names to output. Output artifact names must be unique within a pipeline.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> outputArtifacts;
-
+    @PolicyResourceProperty(name="outputArtifacts", flag="unknown_outputArtifacts")
+    private @Nullable List<String> value_outputArtifacts;
+    private boolean unknown_outputArtifacts;
     public @Nullable List<String> outputArtifacts() {
-        if (outputArtifacts == null) return null;
-        return outputArtifacts.getValue("PipelineStageAction.outputArtifacts");
+        if (!unknown_outputArtifacts) return value_outputArtifacts;
+        throw new UndeferrableValueException("Value 'PipelineStageAction.outputArtifacts' is not present");
     }
 
     /**
      * The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
      * 
      */
-    private UndeferrableValue<String> owner;
-
+    @PolicyResourceProperty(name="owner", flag="unknown_owner")
+    private String value_owner;
+    private boolean unknown_owner;
     public String owner() {
-        if (owner == null) return null;
-        return owner.getValue("PipelineStageAction.owner");
+        if (!unknown_owner) return value_owner;
+        throw new UndeferrableValueException("Value 'PipelineStageAction.owner' is not present");
     }
 
     /**
      * The provider of the service being called by the action. Valid providers are determined by the action category. Provider names are listed in the [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
      * 
      */
-    private UndeferrableValue<String> provider;
-
+    @PolicyResourceProperty(name="provider", flag="unknown_provider")
+    private String value_provider;
+    private boolean unknown_provider;
     public String provider() {
-        if (provider == null) return null;
-        return provider.getValue("PipelineStageAction.provider");
+        if (!unknown_provider) return value_provider;
+        throw new UndeferrableValueException("Value 'PipelineStageAction.provider' is not present");
     }
 
     /**
      * The region in which to run the action.
      * 
      */
-    private @Nullable UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private @Nullable String value_region;
+    private boolean unknown_region;
     public @Nullable String region() {
-        if (region == null) return null;
-        return region.getValue("PipelineStageAction.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'PipelineStageAction.region' is not present");
     }
 
     /**
      * The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
      * 
      */
-    private @Nullable UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private @Nullable String value_roleArn;
+    private boolean unknown_roleArn;
     public @Nullable String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("PipelineStageAction.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'PipelineStageAction.roleArn' is not present");
     }
 
     /**
      * The order in which actions are run.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> runOrder;
-
+    @PolicyResourceProperty(name="runOrder", flag="unknown_runOrder")
+    private @Nullable Integer value_runOrder;
+    private boolean unknown_runOrder;
     public @Nullable Integer runOrder() {
-        if (runOrder == null) return null;
-        return runOrder.getValue("PipelineStageAction.runOrder");
+        if (!unknown_runOrder) return value_runOrder;
+        throw new UndeferrableValueException("Value 'PipelineStageAction.runOrder' is not present");
     }
 
     /**
      * The action timeout for the rule.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> timeoutInMinutes;
-
+    @PolicyResourceProperty(name="timeoutInMinutes", flag="unknown_timeoutInMinutes")
+    private @Nullable Integer value_timeoutInMinutes;
+    private boolean unknown_timeoutInMinutes;
     public @Nullable Integer timeoutInMinutes() {
-        if (timeoutInMinutes == null) return null;
-        return timeoutInMinutes.getValue("PipelineStageAction.timeoutInMinutes");
+        if (!unknown_timeoutInMinutes) return value_timeoutInMinutes;
+        throw new UndeferrableValueException("Value 'PipelineStageAction.timeoutInMinutes' is not present");
     }
 
     /**
      * A string that identifies the action type.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("PipelineStageAction.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'PipelineStageAction.version' is not present");
     }
 
 }

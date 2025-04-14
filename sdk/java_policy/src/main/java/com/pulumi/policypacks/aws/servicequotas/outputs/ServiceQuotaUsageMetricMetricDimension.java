@@ -3,39 +3,44 @@
 
 package com.pulumi.policypacks.aws.servicequotas.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class ServiceQuotaUsageMetricMetricDimension {
 
-    private @Nullable UndeferrableValue<String> class_;
-
+    @PolicyResourceProperty(name="class", flag="unknown_class_")
+    private @Nullable String value_class_;
+    private boolean unknown_class_;
     public @Nullable String class_() {
-        if (class_ == null) return null;
-        return class_.getValue("ServiceQuotaUsageMetricMetricDimension.class_");
+        if (!unknown_class_) return value_class_;
+        throw new UndeferrableValueException("Value 'ServiceQuotaUsageMetricMetricDimension.class_' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> resource;
-
+    @PolicyResourceProperty(name="resource", flag="unknown_resource")
+    private @Nullable String value_resource;
+    private boolean unknown_resource;
     public @Nullable String resource() {
-        if (resource == null) return null;
-        return resource.getValue("ServiceQuotaUsageMetricMetricDimension.resource");
+        if (!unknown_resource) return value_resource;
+        throw new UndeferrableValueException("Value 'ServiceQuotaUsageMetricMetricDimension.resource' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> service;
-
+    @PolicyResourceProperty(name="service", flag="unknown_service")
+    private @Nullable String value_service;
+    private boolean unknown_service;
     public @Nullable String service() {
-        if (service == null) return null;
-        return service.getValue("ServiceQuotaUsageMetricMetricDimension.service");
+        if (!unknown_service) return value_service;
+        throw new UndeferrableValueException("Value 'ServiceQuotaUsageMetricMetricDimension.service' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("ServiceQuotaUsageMetricMetricDimension.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ServiceQuotaUsageMetricMetricDimension.type' is not present");
     }
 
 }

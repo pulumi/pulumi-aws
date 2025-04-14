@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class FunctionRecursionConfigArgs extends com.pulumi.resources.Poli
      * Lambda function name.
      * 
      */
-    private UndeferrableValue<String> functionName;
-
+    @PolicyResourceProperty(name="functionName", flag="unknown_functionName")
+    private String value_functionName;
+    private boolean unknown_functionName;
     public String functionName() {
-        if (functionName == null) return null;
-        return functionName.getValue("FunctionRecursionConfigArgs.functionName");
+        if (!unknown_functionName) return value_functionName;
+        throw new UndeferrableValueException("Value 'FunctionRecursionConfigArgs.functionName' is not present");
     }
 
     /**
      * Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
      * 
      */
-    private UndeferrableValue<String> recursiveLoop;
-
+    @PolicyResourceProperty(name="recursiveLoop", flag="unknown_recursiveLoop")
+    private String value_recursiveLoop;
+    private boolean unknown_recursiveLoop;
     public String recursiveLoop() {
-        if (recursiveLoop == null) return null;
-        return recursiveLoop.getValue("FunctionRecursionConfigArgs.recursiveLoop");
+        if (!unknown_recursiveLoop) return value_recursiveLoop;
+        throw new UndeferrableValueException("Value 'FunctionRecursionConfigArgs.recursiveLoop' is not present");
     }
 
 }

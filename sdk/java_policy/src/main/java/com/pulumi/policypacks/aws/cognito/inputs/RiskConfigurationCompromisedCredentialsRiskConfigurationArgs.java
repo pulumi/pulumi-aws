@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cognito.inputs.RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class RiskConfigurationCompromisedCredentialsRiskConfigurationArgs 
      * The compromised credentials risk configuration actions. See details below.
      * 
      */
-    private UndeferrableValue<RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs> actions;
-
+    @PolicyResourceProperty(name="actions", flag="unknown_actions")
+    private RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs value_actions;
+    private boolean unknown_actions;
     public RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs actions() {
-        if (actions == null) return null;
-        return actions.getValue("RiskConfigurationCompromisedCredentialsRiskConfigurationArgs.actions");
+        if (!unknown_actions) return value_actions;
+        throw new UndeferrableValueException("Value 'RiskConfigurationCompromisedCredentialsRiskConfigurationArgs.actions' is not present");
     }
 
     /**
      * Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
      * 
      */
-    private UndeferrableValue<List<String>> eventFilters;
-
+    @PolicyResourceProperty(name="eventFilters", flag="unknown_eventFilters")
+    private List<String> value_eventFilters;
+    private boolean unknown_eventFilters;
     public List<String> eventFilters() {
-        if (eventFilters == null) return null;
-        return eventFilters.getValue("RiskConfigurationCompromisedCredentialsRiskConfigurationArgs.eventFilters");
+        if (!unknown_eventFilters) return value_eventFilters;
+        throw new UndeferrableValueException("Value 'RiskConfigurationCompromisedCredentialsRiskConfigurationArgs.eventFilters' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.signer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.signer.inputs.SigningProfileSignatureValidityPeriodArgs;
 import com.pulumi.policypacks.aws.signer.inputs.SigningProfileSigningMaterialArgs;
@@ -15,62 +16,68 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:signer/signingProfile:SigningProfile")
 public final class SigningProfileArgs extends com.pulumi.resources.PolicyResourceInput {
 
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("SigningProfileArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'SigningProfileArgs.name' is not present");
     }
 
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("SigningProfileArgs.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'SigningProfileArgs.namePrefix' is not present");
     }
 
     /**
      * The ID of the platform that is used by the target signing profile.
      * 
      */
-    private UndeferrableValue<String> platformId;
-
+    @PolicyResourceProperty(name="platformId", flag="unknown_platformId")
+    private String value_platformId;
+    private boolean unknown_platformId;
     public String platformId() {
-        if (platformId == null) return null;
-        return platformId.getValue("SigningProfileArgs.platformId");
+        if (!unknown_platformId) return value_platformId;
+        throw new UndeferrableValueException("Value 'SigningProfileArgs.platformId' is not present");
     }
 
     /**
      * The validity period for a signing job. See `signature_validity_period` Block below for details.
      * 
      */
-    private UndeferrableValue<SigningProfileSignatureValidityPeriodArgs> signatureValidityPeriod;
-
+    @PolicyResourceProperty(name="signatureValidityPeriod", flag="unknown_signatureValidityPeriod")
+    private SigningProfileSignatureValidityPeriodArgs value_signatureValidityPeriod;
+    private boolean unknown_signatureValidityPeriod;
     public SigningProfileSignatureValidityPeriodArgs signatureValidityPeriod() {
-        if (signatureValidityPeriod == null) return null;
-        return signatureValidityPeriod.getValue("SigningProfileArgs.signatureValidityPeriod");
+        if (!unknown_signatureValidityPeriod) return value_signatureValidityPeriod;
+        throw new UndeferrableValueException("Value 'SigningProfileArgs.signatureValidityPeriod' is not present");
     }
 
     /**
      * The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
      * 
      */
-    private UndeferrableValue<SigningProfileSigningMaterialArgs> signingMaterial;
-
+    @PolicyResourceProperty(name="signingMaterial", flag="unknown_signingMaterial")
+    private SigningProfileSigningMaterialArgs value_signingMaterial;
+    private boolean unknown_signingMaterial;
     public SigningProfileSigningMaterialArgs signingMaterial() {
-        if (signingMaterial == null) return null;
-        return signingMaterial.getValue("SigningProfileArgs.signingMaterial");
+        if (!unknown_signingMaterial) return value_signingMaterial;
+        throw new UndeferrableValueException("Value 'SigningProfileArgs.signingMaterial' is not present");
     }
 
     /**
      * A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SigningProfileArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SigningProfileArgs.tags' is not present");
     }
 
 }

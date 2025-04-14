@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class InventoryFilter {
      * Prefix that an object must have to be included in the inventory results.
      * 
      */
-    private @Nullable UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private @Nullable String value_prefix;
+    private boolean unknown_prefix;
     public @Nullable String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("InventoryFilter.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'InventoryFilter.prefix' is not present");
     }
 
 }

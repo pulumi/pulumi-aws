@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,33 +14,36 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
      * 
      */
-    private UndeferrableValue<String> fallbackBehavior;
-
+    @PolicyResourceProperty(name="fallbackBehavior", flag="unknown_fallbackBehavior")
+    private String value_fallbackBehavior;
+    private boolean unknown_fallbackBehavior;
     public String fallbackBehavior() {
-        if (fallbackBehavior == null) return null;
-        return fallbackBehavior.getValue("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig.fallbackBehavior");
+        if (!unknown_fallbackBehavior) return value_fallbackBehavior;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig.fallbackBehavior' is not present");
     }
 
     /**
      * Name of the HTTP header to use for the IP address.
      * 
      */
-    private UndeferrableValue<String> headerName;
-
+    @PolicyResourceProperty(name="headerName", flag="unknown_headerName")
+    private String value_headerName;
+    private boolean unknown_headerName;
     public String headerName() {
-        if (headerName == null) return null;
-        return headerName.getValue("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig.headerName");
+        if (!unknown_headerName) return value_headerName;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig.headerName' is not present");
     }
 
     /**
      * Position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
      * 
      */
-    private UndeferrableValue<String> position;
-
+    @PolicyResourceProperty(name="position", flag="unknown_position")
+    private String value_position;
+    private boolean unknown_position;
     public String position() {
-        if (position == null) return null;
-        return position.getValue("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig.position");
+        if (!unknown_position) return value_position;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig.position' is not present");
     }
 
 }

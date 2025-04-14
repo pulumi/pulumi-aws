@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.datasync.inputs.LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class LocationFsxOntapFileSystemProtocolSmbArgs {
      * Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
      * 
      */
-    private UndeferrableValue<String> domain;
-
+    @PolicyResourceProperty(name="domain", flag="unknown_domain")
+    private String value_domain;
+    private boolean unknown_domain;
     public String domain() {
-        if (domain == null) return null;
-        return domain.getValue("LocationFsxOntapFileSystemProtocolSmbArgs.domain");
+        if (!unknown_domain) return value_domain;
+        throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystemProtocolSmbArgs.domain' is not present");
     }
 
     /**
      * Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
      * 
      */
-    private UndeferrableValue<LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs> mountOptions;
-
+    @PolicyResourceProperty(name="mountOptions", flag="unknown_mountOptions")
+    private LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs value_mountOptions;
+    private boolean unknown_mountOptions;
     public LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs mountOptions() {
-        if (mountOptions == null) return null;
-        return mountOptions.getValue("LocationFsxOntapFileSystemProtocolSmbArgs.mountOptions");
+        if (!unknown_mountOptions) return value_mountOptions;
+        throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystemProtocolSmbArgs.mountOptions' is not present");
     }
 
     /**
      * Password of a user who has permission to access your SVM.
      * 
      */
-    private UndeferrableValue<String> password;
-
+    @PolicyResourceProperty(name="password", flag="unknown_password")
+    private String value_password;
+    private boolean unknown_password;
     public String password() {
-        if (password == null) return null;
-        return password.getValue("LocationFsxOntapFileSystemProtocolSmbArgs.password");
+        if (!unknown_password) return value_password;
+        throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystemProtocolSmbArgs.password' is not present");
     }
 
     /**
      * Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
      * 
      */
-    private UndeferrableValue<String> user;
-
+    @PolicyResourceProperty(name="user", flag="unknown_user")
+    private String value_user;
+    private boolean unknown_user;
     public String user() {
-        if (user == null) return null;
-        return user.getValue("LocationFsxOntapFileSystemProtocolSmbArgs.user");
+        if (!unknown_user) return value_user;
+        throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystemProtocolSmbArgs.user' is not present");
     }
 
 }

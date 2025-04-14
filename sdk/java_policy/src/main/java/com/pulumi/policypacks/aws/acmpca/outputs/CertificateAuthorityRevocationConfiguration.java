@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.acmpca.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.acmpca.outputs.CertificateAuthorityRevocationConfigurationCrlConfiguration;
 import com.pulumi.policypacks.aws.acmpca.outputs.CertificateAuthorityRevocationConfigurationOcspConfiguration;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class CertificateAuthorityRevocationConfiguration {
      * Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
      * 
      */
-    private @Nullable UndeferrableValue<CertificateAuthorityRevocationConfigurationCrlConfiguration> crlConfiguration;
-
+    @PolicyResourceProperty(name="crlConfiguration", flag="unknown_crlConfiguration")
+    private @Nullable CertificateAuthorityRevocationConfigurationCrlConfiguration value_crlConfiguration;
+    private boolean unknown_crlConfiguration;
     public @Nullable CertificateAuthorityRevocationConfigurationCrlConfiguration crlConfiguration() {
-        if (crlConfiguration == null) return null;
-        return crlConfiguration.getValue("CertificateAuthorityRevocationConfiguration.crlConfiguration");
+        if (!unknown_crlConfiguration) return value_crlConfiguration;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityRevocationConfiguration.crlConfiguration' is not present");
     }
 
     /**
@@ -27,11 +29,12 @@ public final class CertificateAuthorityRevocationConfiguration {
      * the custom OCSP responder endpoint. Defined below.
      * 
      */
-    private @Nullable UndeferrableValue<CertificateAuthorityRevocationConfigurationOcspConfiguration> ocspConfiguration;
-
+    @PolicyResourceProperty(name="ocspConfiguration", flag="unknown_ocspConfiguration")
+    private @Nullable CertificateAuthorityRevocationConfigurationOcspConfiguration value_ocspConfiguration;
+    private boolean unknown_ocspConfiguration;
     public @Nullable CertificateAuthorityRevocationConfigurationOcspConfiguration ocspConfiguration() {
-        if (ocspConfiguration == null) return null;
-        return ocspConfiguration.getValue("CertificateAuthorityRevocationConfiguration.ocspConfiguration");
+        if (!unknown_ocspConfiguration) return value_ocspConfiguration;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityRevocationConfiguration.ocspConfiguration' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,33 +14,36 @@ public final class EventPermissionCondition {
      * Key for the condition. Valid values: `aws:PrincipalOrgID`.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("EventPermissionCondition.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'EventPermissionCondition.key' is not present");
     }
 
     /**
      * Type of condition. Value values: `StringEquals`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("EventPermissionCondition.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'EventPermissionCondition.type' is not present");
     }
 
     /**
      * Value for the key.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("EventPermissionCondition.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'EventPermissionCondition.value' is not present");
     }
 
 }

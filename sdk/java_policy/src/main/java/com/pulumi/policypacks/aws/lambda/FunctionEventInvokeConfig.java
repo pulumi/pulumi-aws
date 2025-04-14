@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lambda.outputs.FunctionEventInvokeConfigDestinationConfig;
 import java.lang.Integer;
@@ -18,11 +19,12 @@ public final class FunctionEventInvokeConfig extends com.pulumi.resources.Policy
      * Configuration block with destination configuration. See below for details.
      * 
      */
-    private @Nullable UndeferrableValue<FunctionEventInvokeConfigDestinationConfig> destinationConfig;
-
+    @PolicyResourceProperty(name="destinationConfig", flag="unknown_destinationConfig")
+    private @Nullable FunctionEventInvokeConfigDestinationConfig value_destinationConfig;
+    private boolean unknown_destinationConfig;
     public @Nullable FunctionEventInvokeConfigDestinationConfig destinationConfig() {
-        if (destinationConfig == null) return null;
-        return destinationConfig.getValue("FunctionEventInvokeConfig.destinationConfig");
+        if (!unknown_destinationConfig) return value_destinationConfig;
+        throw new UndeferrableValueException("Value 'FunctionEventInvokeConfig.destinationConfig' is not present");
     }
 
     /**
@@ -31,44 +33,48 @@ public final class FunctionEventInvokeConfig extends com.pulumi.resources.Policy
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> functionName;
-
+    @PolicyResourceProperty(name="functionName", flag="unknown_functionName")
+    private String value_functionName;
+    private boolean unknown_functionName;
     public String functionName() {
-        if (functionName == null) return null;
-        return functionName.getValue("FunctionEventInvokeConfig.functionName");
+        if (!unknown_functionName) return value_functionName;
+        throw new UndeferrableValueException("Value 'FunctionEventInvokeConfig.functionName' is not present");
     }
 
     /**
      * Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maximumEventAgeInSeconds;
-
+    @PolicyResourceProperty(name="maximumEventAgeInSeconds", flag="unknown_maximumEventAgeInSeconds")
+    private @Nullable Integer value_maximumEventAgeInSeconds;
+    private boolean unknown_maximumEventAgeInSeconds;
     public @Nullable Integer maximumEventAgeInSeconds() {
-        if (maximumEventAgeInSeconds == null) return null;
-        return maximumEventAgeInSeconds.getValue("FunctionEventInvokeConfig.maximumEventAgeInSeconds");
+        if (!unknown_maximumEventAgeInSeconds) return value_maximumEventAgeInSeconds;
+        throw new UndeferrableValueException("Value 'FunctionEventInvokeConfig.maximumEventAgeInSeconds' is not present");
     }
 
     /**
      * Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maximumRetryAttempts;
-
+    @PolicyResourceProperty(name="maximumRetryAttempts", flag="unknown_maximumRetryAttempts")
+    private @Nullable Integer value_maximumRetryAttempts;
+    private boolean unknown_maximumRetryAttempts;
     public @Nullable Integer maximumRetryAttempts() {
-        if (maximumRetryAttempts == null) return null;
-        return maximumRetryAttempts.getValue("FunctionEventInvokeConfig.maximumRetryAttempts");
+        if (!unknown_maximumRetryAttempts) return value_maximumRetryAttempts;
+        throw new UndeferrableValueException("Value 'FunctionEventInvokeConfig.maximumRetryAttempts' is not present");
     }
 
     /**
      * Lambda Function published version, `$LATEST`, or Lambda Alias name.
      * 
      */
-    private @Nullable UndeferrableValue<String> qualifier;
-
+    @PolicyResourceProperty(name="qualifier", flag="unknown_qualifier")
+    private @Nullable String value_qualifier;
+    private boolean unknown_qualifier;
     public @Nullable String qualifier() {
-        if (qualifier == null) return null;
-        return qualifier.getValue("FunctionEventInvokeConfig.qualifier");
+        if (!unknown_qualifier) return value_qualifier;
+        throw new UndeferrableValueException("Value 'FunctionEventInvokeConfig.qualifier' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,88 +18,96 @@ public final class TrustStore extends com.pulumi.resources.PolicyResourceOutput 
      * ARN of the Trust Store (matches `id`).
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("TrustStore.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'TrustStore.arn' is not present");
     }
 
     /**
      * ARN suffix for use with CloudWatch Metrics.
      * 
      */
-    private UndeferrableValue<String> arnSuffix;
-
+    @PolicyResourceProperty(name="arnSuffix", flag="unknown_arnSuffix")
+    private String value_arnSuffix;
+    private boolean unknown_arnSuffix;
     public String arnSuffix() {
-        if (arnSuffix == null) return null;
-        return arnSuffix.getValue("TrustStore.arnSuffix");
+        if (!unknown_arnSuffix) return value_arnSuffix;
+        throw new UndeferrableValueException("Value 'TrustStore.arnSuffix' is not present");
     }
 
     /**
      * S3 Bucket name holding the client certificate CA bundle.
      * 
      */
-    private UndeferrableValue<String> caCertificatesBundleS3Bucket;
-
+    @PolicyResourceProperty(name="caCertificatesBundleS3Bucket", flag="unknown_caCertificatesBundleS3Bucket")
+    private String value_caCertificatesBundleS3Bucket;
+    private boolean unknown_caCertificatesBundleS3Bucket;
     public String caCertificatesBundleS3Bucket() {
-        if (caCertificatesBundleS3Bucket == null) return null;
-        return caCertificatesBundleS3Bucket.getValue("TrustStore.caCertificatesBundleS3Bucket");
+        if (!unknown_caCertificatesBundleS3Bucket) return value_caCertificatesBundleS3Bucket;
+        throw new UndeferrableValueException("Value 'TrustStore.caCertificatesBundleS3Bucket' is not present");
     }
 
     /**
      * S3 object key holding the client certificate CA bundle.
      * 
      */
-    private UndeferrableValue<String> caCertificatesBundleS3Key;
-
+    @PolicyResourceProperty(name="caCertificatesBundleS3Key", flag="unknown_caCertificatesBundleS3Key")
+    private String value_caCertificatesBundleS3Key;
+    private boolean unknown_caCertificatesBundleS3Key;
     public String caCertificatesBundleS3Key() {
-        if (caCertificatesBundleS3Key == null) return null;
-        return caCertificatesBundleS3Key.getValue("TrustStore.caCertificatesBundleS3Key");
+        if (!unknown_caCertificatesBundleS3Key) return value_caCertificatesBundleS3Key;
+        throw new UndeferrableValueException("Value 'TrustStore.caCertificatesBundleS3Key' is not present");
     }
 
     /**
      * Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
      * 
      */
-    private @Nullable UndeferrableValue<String> caCertificatesBundleS3ObjectVersion;
-
+    @PolicyResourceProperty(name="caCertificatesBundleS3ObjectVersion", flag="unknown_caCertificatesBundleS3ObjectVersion")
+    private @Nullable String value_caCertificatesBundleS3ObjectVersion;
+    private boolean unknown_caCertificatesBundleS3ObjectVersion;
     public @Nullable String caCertificatesBundleS3ObjectVersion() {
-        if (caCertificatesBundleS3ObjectVersion == null) return null;
-        return caCertificatesBundleS3ObjectVersion.getValue("TrustStore.caCertificatesBundleS3ObjectVersion");
+        if (!unknown_caCertificatesBundleS3ObjectVersion) return value_caCertificatesBundleS3ObjectVersion;
+        throw new UndeferrableValueException("Value 'TrustStore.caCertificatesBundleS3ObjectVersion' is not present");
     }
 
     /**
      * Name of the Trust Store. If omitted, the provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TrustStore.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TrustStore.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("TrustStore.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'TrustStore.namePrefix' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TrustStore.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TrustStore.tags' is not present");
     }
 
     /**
@@ -109,11 +118,12 @@ public final class TrustStore extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("TrustStore.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'TrustStore.tagsAll' is not present");
     }
 
 }

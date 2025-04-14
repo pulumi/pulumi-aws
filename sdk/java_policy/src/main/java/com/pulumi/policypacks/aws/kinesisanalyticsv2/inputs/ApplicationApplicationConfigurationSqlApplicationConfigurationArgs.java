@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs;
@@ -17,33 +18,36 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * The input stream used by the application.
      * 
      */
-    private UndeferrableValue<ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs> input;
-
+    @PolicyResourceProperty(name="input", flag="unknown_input")
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs value_input;
+    private boolean unknown_input;
     public ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs input() {
-        if (input == null) return null;
-        return input.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationArgs.input");
+        if (!unknown_input) return value_input;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationArgs.input' is not present");
     }
 
     /**
      * The destination streams used by the application.
      * 
      */
-    private UndeferrableValue<List<ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs>> outputs;
-
+    @PolicyResourceProperty(name="outputs", flag="unknown_outputs")
+    private List<ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs> value_outputs;
+    private boolean unknown_outputs;
     public List<ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs> outputs() {
-        if (outputs == null) return null;
-        return outputs.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationArgs.outputs");
+        if (!unknown_outputs) return value_outputs;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationArgs.outputs' is not present");
     }
 
     /**
      * The reference data source used by the application.
      * 
      */
-    private UndeferrableValue<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs> referenceDataSource;
-
+    @PolicyResourceProperty(name="referenceDataSource", flag="unknown_referenceDataSource")
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs value_referenceDataSource;
+    private boolean unknown_referenceDataSource;
     public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs referenceDataSource() {
-        if (referenceDataSource == null) return null;
-        return referenceDataSource.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationArgs.referenceDataSource");
+        if (!unknown_referenceDataSource) return value_referenceDataSource;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationArgs.referenceDataSource' is not present");
     }
 
 }

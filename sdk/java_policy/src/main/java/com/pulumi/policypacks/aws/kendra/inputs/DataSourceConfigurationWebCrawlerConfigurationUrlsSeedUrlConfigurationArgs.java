@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConf
      * The list of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
      * 
      */
-    private UndeferrableValue<List<String>> seedUrls;
-
+    @PolicyResourceProperty(name="seedUrls", flag="unknown_seedUrls")
+    private List<String> value_seedUrls;
+    private boolean unknown_seedUrls;
     public List<String> seedUrls() {
-        if (seedUrls == null) return null;
-        return seedUrls.getValue("DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.seedUrls");
+        if (!unknown_seedUrls) return value_seedUrls;
+        throw new UndeferrableValueException("Value 'DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.seedUrls' is not present");
     }
 
     /**
@@ -29,11 +31,12 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConf
      * * `EVERYTHING` – crawl the website host names with subdomains and other domains that the webpages link to.
      * 
      */
-    private UndeferrableValue<String> webCrawlerMode;
-
+    @PolicyResourceProperty(name="webCrawlerMode", flag="unknown_webCrawlerMode")
+    private String value_webCrawlerMode;
+    private boolean unknown_webCrawlerMode;
     public String webCrawlerMode() {
-        if (webCrawlerMode == null) return null;
-        return webCrawlerMode.getValue("DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.webCrawlerMode");
+        if (!unknown_webCrawlerMode) return value_webCrawlerMode;
+        throw new UndeferrableValueException("Value 'DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.webCrawlerMode' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -16,11 +17,12 @@ public final class V2modelsSlotValueElicitationSettingSlotResolutionSetting {
      * If the value is `Default`, assisted slot resolution is turned off.
      * 
      */
-    private UndeferrableValue<String> slotResolutionStrategy;
-
+    @PolicyResourceProperty(name="slotResolutionStrategy", flag="unknown_slotResolutionStrategy")
+    private String value_slotResolutionStrategy;
+    private boolean unknown_slotResolutionStrategy;
     public String slotResolutionStrategy() {
-        if (slotResolutionStrategy == null) return null;
-        return slotResolutionStrategy.getValue("V2modelsSlotValueElicitationSettingSlotResolutionSetting.slotResolutionStrategy");
+        if (!unknown_slotResolutionStrategy) return value_slotResolutionStrategy;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingSlotResolutionSetting.slotResolutionStrategy' is not present");
     }
 
 }

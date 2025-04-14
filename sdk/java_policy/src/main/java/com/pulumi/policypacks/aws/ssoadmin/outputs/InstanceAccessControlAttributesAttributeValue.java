@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssoadmin.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class InstanceAccessControlAttributesAttributeValue {
      * The identity source to use when mapping a specified attribute to AWS SSO.
      * 
      */
-    private UndeferrableValue<List<String>> sources;
-
+    @PolicyResourceProperty(name="sources", flag="unknown_sources")
+    private List<String> value_sources;
+    private boolean unknown_sources;
     public List<String> sources() {
-        if (sources == null) return null;
-        return sources.getValue("InstanceAccessControlAttributesAttributeValue.sources");
+        if (!unknown_sources) return value_sources;
+        throw new UndeferrableValueException("Value 'InstanceAccessControlAttributesAttributeValue.sources' is not present");
     }
 
 }

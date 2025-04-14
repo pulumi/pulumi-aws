@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs;
 import java.lang.Integer;
 import javax.annotation.Nullable;
@@ -11,33 +12,36 @@ import javax.annotation.Nullable;
 
 public final class EndpointDeploymentConfigBlueGreenUpdatePolicyArgs {
 
-    private UndeferrableValue<Integer> maximumExecutionTimeoutInSeconds;
-
+    @PolicyResourceProperty(name="maximumExecutionTimeoutInSeconds", flag="unknown_maximumExecutionTimeoutInSeconds")
+    private Integer value_maximumExecutionTimeoutInSeconds;
+    private boolean unknown_maximumExecutionTimeoutInSeconds;
     public Integer maximumExecutionTimeoutInSeconds() {
-        if (maximumExecutionTimeoutInSeconds == null) return null;
-        return maximumExecutionTimeoutInSeconds.getValue("EndpointDeploymentConfigBlueGreenUpdatePolicyArgs.maximumExecutionTimeoutInSeconds");
+        if (!unknown_maximumExecutionTimeoutInSeconds) return value_maximumExecutionTimeoutInSeconds;
+        throw new UndeferrableValueException("Value 'EndpointDeploymentConfigBlueGreenUpdatePolicyArgs.maximumExecutionTimeoutInSeconds' is not present");
     }
 
     /**
      * Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
      * 
      */
-    private UndeferrableValue<Integer> terminationWaitInSeconds;
-
+    @PolicyResourceProperty(name="terminationWaitInSeconds", flag="unknown_terminationWaitInSeconds")
+    private Integer value_terminationWaitInSeconds;
+    private boolean unknown_terminationWaitInSeconds;
     public Integer terminationWaitInSeconds() {
-        if (terminationWaitInSeconds == null) return null;
-        return terminationWaitInSeconds.getValue("EndpointDeploymentConfigBlueGreenUpdatePolicyArgs.terminationWaitInSeconds");
+        if (!unknown_terminationWaitInSeconds) return value_terminationWaitInSeconds;
+        throw new UndeferrableValueException("Value 'EndpointDeploymentConfigBlueGreenUpdatePolicyArgs.terminationWaitInSeconds' is not present");
     }
 
     /**
      * Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
      * 
      */
-    private UndeferrableValue<EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs> trafficRoutingConfiguration;
-
+    @PolicyResourceProperty(name="trafficRoutingConfiguration", flag="unknown_trafficRoutingConfiguration")
+    private EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs value_trafficRoutingConfiguration;
+    private boolean unknown_trafficRoutingConfiguration;
     public EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs trafficRoutingConfiguration() {
-        if (trafficRoutingConfiguration == null) return null;
-        return trafficRoutingConfiguration.getValue("EndpointDeploymentConfigBlueGreenUpdatePolicyArgs.trafficRoutingConfiguration");
+        if (!unknown_trafficRoutingConfiguration) return value_trafficRoutingConfiguration;
+        throw new UndeferrableValueException("Value 'EndpointDeploymentConfigBlueGreenUpdatePolicyArgs.trafficRoutingConfiguration' is not present");
     }
 
 }

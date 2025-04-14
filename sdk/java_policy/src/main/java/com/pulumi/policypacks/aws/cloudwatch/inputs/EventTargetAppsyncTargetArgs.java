@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class EventTargetAppsyncTargetArgs {
      * Contains the GraphQL mutation to be parsed and executed.
      * 
      */
-    private UndeferrableValue<String> graphqlOperation;
-
+    @PolicyResourceProperty(name="graphqlOperation", flag="unknown_graphqlOperation")
+    private String value_graphqlOperation;
+    private boolean unknown_graphqlOperation;
     public String graphqlOperation() {
-        if (graphqlOperation == null) return null;
-        return graphqlOperation.getValue("EventTargetAppsyncTargetArgs.graphqlOperation");
+        if (!unknown_graphqlOperation) return value_graphqlOperation;
+        throw new UndeferrableValueException("Value 'EventTargetAppsyncTargetArgs.graphqlOperation' is not present");
     }
 
 }

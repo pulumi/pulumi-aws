@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rolesanywhere.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -12,43 +13,48 @@ import javax.annotation.Nullable;
 
 public final class TrustAnchorNotificationSettingArgs {
 
-    private UndeferrableValue<String> channel;
-
+    @PolicyResourceProperty(name="channel", flag="unknown_channel")
+    private String value_channel;
+    private boolean unknown_channel;
     public String channel() {
-        if (channel == null) return null;
-        return channel.getValue("TrustAnchorNotificationSettingArgs.channel");
+        if (!unknown_channel) return value_channel;
+        throw new UndeferrableValueException("Value 'TrustAnchorNotificationSettingArgs.channel' is not present");
     }
 
-    private UndeferrableValue<String> configuredBy;
-
+    @PolicyResourceProperty(name="configuredBy", flag="unknown_configuredBy")
+    private String value_configuredBy;
+    private boolean unknown_configuredBy;
     public String configuredBy() {
-        if (configuredBy == null) return null;
-        return configuredBy.getValue("TrustAnchorNotificationSettingArgs.configuredBy");
+        if (!unknown_configuredBy) return value_configuredBy;
+        throw new UndeferrableValueException("Value 'TrustAnchorNotificationSettingArgs.configuredBy' is not present");
     }
 
     /**
      * Whether or not the Trust Anchor should be enabled.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("TrustAnchorNotificationSettingArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'TrustAnchorNotificationSettingArgs.enabled' is not present");
     }
 
-    private UndeferrableValue<String> event;
-
+    @PolicyResourceProperty(name="event", flag="unknown_event")
+    private String value_event;
+    private boolean unknown_event;
     public String event() {
-        if (event == null) return null;
-        return event.getValue("TrustAnchorNotificationSettingArgs.event");
+        if (!unknown_event) return value_event;
+        throw new UndeferrableValueException("Value 'TrustAnchorNotificationSettingArgs.event' is not present");
     }
 
-    private UndeferrableValue<Integer> threshold;
-
+    @PolicyResourceProperty(name="threshold", flag="unknown_threshold")
+    private Integer value_threshold;
+    private boolean unknown_threshold;
     public Integer threshold() {
-        if (threshold == null) return null;
-        return threshold.getValue("TrustAnchorNotificationSettingArgs.threshold");
+        if (!unknown_threshold) return value_threshold;
+        throw new UndeferrableValueException("Value 'TrustAnchorNotificationSettingArgs.threshold' is not present");
     }
 
 }

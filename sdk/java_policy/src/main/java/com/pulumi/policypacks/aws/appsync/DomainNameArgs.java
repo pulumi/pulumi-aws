@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class DomainNameArgs extends com.pulumi.resources.PolicyResourceInp
      * ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
      * 
      */
-    private UndeferrableValue<String> certificateArn;
-
+    @PolicyResourceProperty(name="certificateArn", flag="unknown_certificateArn")
+    private String value_certificateArn;
+    private boolean unknown_certificateArn;
     public String certificateArn() {
-        if (certificateArn == null) return null;
-        return certificateArn.getValue("DomainNameArgs.certificateArn");
+        if (!unknown_certificateArn) return value_certificateArn;
+        throw new UndeferrableValueException("Value 'DomainNameArgs.certificateArn' is not present");
     }
 
     /**
      * A description of the Domain Name.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("DomainNameArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'DomainNameArgs.description' is not present");
     }
 
     /**
      * Domain name.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("DomainNameArgs.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'DomainNameArgs.domainName' is not present");
     }
 
 }

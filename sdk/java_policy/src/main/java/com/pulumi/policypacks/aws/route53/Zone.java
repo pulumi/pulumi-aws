@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.route53.outputs.ZoneVpc;
 import java.lang.Boolean;
@@ -20,55 +21,60 @@ public final class Zone extends com.pulumi.resources.PolicyResourceOutput {
      * The Amazon Resource Name (ARN) of the Hosted Zone.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Zone.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Zone.arn' is not present");
     }
 
     /**
      * A comment for the hosted zone. Defaults to &#39;Managed by Pulumi&#39;.
      * 
      */
-    private UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private String value_comment;
+    private boolean unknown_comment;
     public String comment() {
-        if (comment == null) return null;
-        return comment.getValue("Zone.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'Zone.comment' is not present");
     }
 
     /**
      * The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
      * 
      */
-    private @Nullable UndeferrableValue<String> delegationSetId;
-
+    @PolicyResourceProperty(name="delegationSetId", flag="unknown_delegationSetId")
+    private @Nullable String value_delegationSetId;
+    private boolean unknown_delegationSetId;
     public @Nullable String delegationSetId() {
-        if (delegationSetId == null) return null;
-        return delegationSetId.getValue("Zone.delegationSetId");
+        if (!unknown_delegationSetId) return value_delegationSetId;
+        throw new UndeferrableValueException("Value 'Zone.delegationSetId' is not present");
     }
 
     /**
      * Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> forceDestroy;
-
+    @PolicyResourceProperty(name="forceDestroy", flag="unknown_forceDestroy")
+    private @Nullable Boolean value_forceDestroy;
+    private boolean unknown_forceDestroy;
     public @Nullable Boolean forceDestroy() {
-        if (forceDestroy == null) return null;
-        return forceDestroy.getValue("Zone.forceDestroy");
+        if (!unknown_forceDestroy) return value_forceDestroy;
+        throw new UndeferrableValueException("Value 'Zone.forceDestroy' is not present");
     }
 
     /**
      * This is the name of the hosted zone.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Zone.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Zone.name' is not present");
     }
 
     /**
@@ -76,33 +82,36 @@ public final class Zone extends com.pulumi.resources.PolicyResourceOutput {
      * Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
      * 
      */
-    private UndeferrableValue<List<String>> nameServers;
-
+    @PolicyResourceProperty(name="nameServers", flag="unknown_nameServers")
+    private List<String> value_nameServers;
+    private boolean unknown_nameServers;
     public List<String> nameServers() {
-        if (nameServers == null) return null;
-        return nameServers.getValue("Zone.nameServers");
+        if (!unknown_nameServers) return value_nameServers;
+        throw new UndeferrableValueException("Value 'Zone.nameServers' is not present");
     }
 
     /**
      * The Route 53 name server that created the SOA record.
      * 
      */
-    private UndeferrableValue<String> primaryNameServer;
-
+    @PolicyResourceProperty(name="primaryNameServer", flag="unknown_primaryNameServer")
+    private String value_primaryNameServer;
+    private boolean unknown_primaryNameServer;
     public String primaryNameServer() {
-        if (primaryNameServer == null) return null;
-        return primaryNameServer.getValue("Zone.primaryNameServer");
+        if (!unknown_primaryNameServer) return value_primaryNameServer;
+        throw new UndeferrableValueException("Value 'Zone.primaryNameServer' is not present");
     }
 
     /**
      * A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Zone.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Zone.tags' is not present");
     }
 
     /**
@@ -113,33 +122,36 @@ public final class Zone extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Zone.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Zone.tagsAll' is not present");
     }
 
     /**
      * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ZoneVpc>> vpcs;
-
+    @PolicyResourceProperty(name="vpcs", flag="unknown_vpcs")
+    private @Nullable List<ZoneVpc> value_vpcs;
+    private boolean unknown_vpcs;
     public @Nullable List<ZoneVpc> vpcs() {
-        if (vpcs == null) return null;
-        return vpcs.getValue("Zone.vpcs");
+        if (!unknown_vpcs) return value_vpcs;
+        throw new UndeferrableValueException("Value 'Zone.vpcs' is not present");
     }
 
     /**
      * The Hosted Zone ID. This can be referenced by zone records.
      * 
      */
-    private UndeferrableValue<String> zoneId;
-
+    @PolicyResourceProperty(name="zoneId", flag="unknown_zoneId")
+    private String value_zoneId;
+    private boolean unknown_zoneId;
     public String zoneId() {
-        if (zoneId == null) return null;
-        return zoneId.getValue("Zone.zoneId");
+        if (!unknown_zoneId) return value_zoneId;
+        throw new UndeferrableValueException("Value 'Zone.zoneId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dataexchange;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.dataexchange.outputs.EventActionAction;
 import com.pulumi.policypacks.aws.dataexchange.outputs.EventActionEvent;
@@ -19,33 +20,36 @@ public final class EventAction extends com.pulumi.resources.PolicyResourceOutput
      * Described in `action` Configuration Block below.
      * 
      */
-    private @Nullable UndeferrableValue<EventActionAction> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private @Nullable EventActionAction value_action;
+    private boolean unknown_action;
     public @Nullable EventActionAction action() {
-        if (action == null) return null;
-        return action.getValue("EventAction.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'EventAction.action' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the event action.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("EventAction.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'EventAction.arn' is not present");
     }
 
     /**
      * Date and time when the resource was created.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("EventAction.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'EventAction.createdAt' is not present");
     }
 
     /**
@@ -53,22 +57,24 @@ public final class EventAction extends com.pulumi.resources.PolicyResourceOutput
      * Described in `event` Configuration Block below.
      * 
      */
-    private @Nullable UndeferrableValue<EventActionEvent> event;
-
+    @PolicyResourceProperty(name="event", flag="unknown_event")
+    private @Nullable EventActionEvent value_event;
+    private boolean unknown_event;
     public @Nullable EventActionEvent event() {
-        if (event == null) return null;
-        return event.getValue("EventAction.event");
+        if (!unknown_event) return value_event;
+        throw new UndeferrableValueException("Value 'EventAction.event' is not present");
     }
 
     /**
      * Data and time when the resource was last updated.
      * 
      */
-    private UndeferrableValue<String> updatedAt;
-
+    @PolicyResourceProperty(name="updatedAt", flag="unknown_updatedAt")
+    private String value_updatedAt;
+    private boolean unknown_updatedAt;
     public String updatedAt() {
-        if (updatedAt == null) return null;
-        return updatedAt.getValue("EventAction.updatedAt");
+        if (!unknown_updatedAt) return value_updatedAt;
+        throw new UndeferrableValueException("Value 'EventAction.updatedAt' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ConfigurationSetTrackingOptionsArgs {
      * The domain to use for tracking open and click events.
      * 
      */
-    private UndeferrableValue<String> customRedirectDomain;
-
+    @PolicyResourceProperty(name="customRedirectDomain", flag="unknown_customRedirectDomain")
+    private String value_customRedirectDomain;
+    private boolean unknown_customRedirectDomain;
     public String customRedirectDomain() {
-        if (customRedirectDomain == null) return null;
-        return customRedirectDomain.getValue("ConfigurationSetTrackingOptionsArgs.customRedirectDomain");
+        if (!unknown_customRedirectDomain) return value_customRedirectDomain;
+        throw new UndeferrableValueException("Value 'ConfigurationSetTrackingOptionsArgs.customRedirectDomain' is not present");
     }
 
     /**
      * The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
      * 
      */
-    private UndeferrableValue<String> httpsPolicy;
-
+    @PolicyResourceProperty(name="httpsPolicy", flag="unknown_httpsPolicy")
+    private String value_httpsPolicy;
+    private boolean unknown_httpsPolicy;
     public String httpsPolicy() {
-        if (httpsPolicy == null) return null;
-        return httpsPolicy.getValue("ConfigurationSetTrackingOptionsArgs.httpsPolicy");
+        if (!unknown_httpsPolicy) return value_httpsPolicy;
+        throw new UndeferrableValueException("Value 'ConfigurationSetTrackingOptionsArgs.httpsPolicy' is not present");
     }
 
 }

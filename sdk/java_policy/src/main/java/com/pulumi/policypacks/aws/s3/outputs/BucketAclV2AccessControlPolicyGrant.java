@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.outputs.BucketAclV2AccessControlPolicyGrantGrantee;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class BucketAclV2AccessControlPolicyGrant {
      * Configuration block for the person being granted permissions. See below.
      * 
      */
-    private @Nullable UndeferrableValue<BucketAclV2AccessControlPolicyGrantGrantee> grantee;
-
+    @PolicyResourceProperty(name="grantee", flag="unknown_grantee")
+    private @Nullable BucketAclV2AccessControlPolicyGrantGrantee value_grantee;
+    private boolean unknown_grantee;
     public @Nullable BucketAclV2AccessControlPolicyGrantGrantee grantee() {
-        if (grantee == null) return null;
-        return grantee.getValue("BucketAclV2AccessControlPolicyGrant.grantee");
+        if (!unknown_grantee) return value_grantee;
+        throw new UndeferrableValueException("Value 'BucketAclV2AccessControlPolicyGrant.grantee' is not present");
     }
 
     /**
      * Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
      * 
      */
-    private UndeferrableValue<String> permission;
-
+    @PolicyResourceProperty(name="permission", flag="unknown_permission")
+    private String value_permission;
+    private boolean unknown_permission;
     public String permission() {
-        if (permission == null) return null;
-        return permission.getValue("BucketAclV2AccessControlPolicyGrant.permission");
+        if (!unknown_permission) return value_permission;
+        throw new UndeferrableValueException("Value 'BucketAclV2AccessControlPolicyGrant.permission' is not present");
     }
 
 }

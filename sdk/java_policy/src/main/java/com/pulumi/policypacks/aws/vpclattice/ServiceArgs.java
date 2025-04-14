@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class ServiceArgs extends com.pulumi.resources.PolicyResourceInput 
      * Type of IAM policy. Either `NONE` or `AWS_IAM`.
      * 
      */
-    private UndeferrableValue<String> authType;
-
+    @PolicyResourceProperty(name="authType", flag="unknown_authType")
+    private String value_authType;
+    private boolean unknown_authType;
     public String authType() {
-        if (authType == null) return null;
-        return authType.getValue("ServiceArgs.authType");
+        if (!unknown_authType) return value_authType;
+        throw new UndeferrableValueException("Value 'ServiceArgs.authType' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the certificate.
      * 
      */
-    private UndeferrableValue<String> certificateArn;
-
+    @PolicyResourceProperty(name="certificateArn", flag="unknown_certificateArn")
+    private String value_certificateArn;
+    private boolean unknown_certificateArn;
     public String certificateArn() {
-        if (certificateArn == null) return null;
-        return certificateArn.getValue("ServiceArgs.certificateArn");
+        if (!unknown_certificateArn) return value_certificateArn;
+        throw new UndeferrableValueException("Value 'ServiceArgs.certificateArn' is not present");
     }
 
     /**
      * Custom domain name of the service.
      * 
      */
-    private UndeferrableValue<String> customDomainName;
-
+    @PolicyResourceProperty(name="customDomainName", flag="unknown_customDomainName")
+    private String value_customDomainName;
+    private boolean unknown_customDomainName;
     public String customDomainName() {
-        if (customDomainName == null) return null;
-        return customDomainName.getValue("ServiceArgs.customDomainName");
+        if (!unknown_customDomainName) return value_customDomainName;
+        throw new UndeferrableValueException("Value 'ServiceArgs.customDomainName' is not present");
     }
 
     /**
@@ -52,22 +56,24 @@ public final class ServiceArgs extends com.pulumi.resources.PolicyResourceInput 
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ServiceArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ServiceArgs.name' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ServiceArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ServiceArgs.tags' is not present");
     }
 
 }

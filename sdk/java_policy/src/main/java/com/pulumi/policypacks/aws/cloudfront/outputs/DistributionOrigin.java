@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.outputs.DistributionOriginCustomHeader;
 import com.pulumi.policypacks.aws.cloudfront.outputs.DistributionOriginCustomOriginConfig;
 import com.pulumi.policypacks.aws.cloudfront.outputs.DistributionOriginOriginShield;
@@ -21,117 +22,128 @@ public final class DistributionOrigin {
      * Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> connectionAttempts;
-
+    @PolicyResourceProperty(name="connectionAttempts", flag="unknown_connectionAttempts")
+    private @Nullable Integer value_connectionAttempts;
+    private boolean unknown_connectionAttempts;
     public @Nullable Integer connectionAttempts() {
-        if (connectionAttempts == null) return null;
-        return connectionAttempts.getValue("DistributionOrigin.connectionAttempts");
+        if (!unknown_connectionAttempts) return value_connectionAttempts;
+        throw new UndeferrableValueException("Value 'DistributionOrigin.connectionAttempts' is not present");
     }
 
     /**
      * Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> connectionTimeout;
-
+    @PolicyResourceProperty(name="connectionTimeout", flag="unknown_connectionTimeout")
+    private @Nullable Integer value_connectionTimeout;
+    private boolean unknown_connectionTimeout;
     public @Nullable Integer connectionTimeout() {
-        if (connectionTimeout == null) return null;
-        return connectionTimeout.getValue("DistributionOrigin.connectionTimeout");
+        if (!unknown_connectionTimeout) return value_connectionTimeout;
+        throw new UndeferrableValueException("Value 'DistributionOrigin.connectionTimeout' is not present");
     }
 
     /**
      * One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin (multiples allowed).
      * 
      */
-    private @Nullable UndeferrableValue<List<DistributionOriginCustomHeader>> customHeaders;
-
+    @PolicyResourceProperty(name="customHeaders", flag="unknown_customHeaders")
+    private @Nullable List<DistributionOriginCustomHeader> value_customHeaders;
+    private boolean unknown_customHeaders;
     public @Nullable List<DistributionOriginCustomHeader> customHeaders() {
-        if (customHeaders == null) return null;
-        return customHeaders.getValue("DistributionOrigin.customHeaders");
+        if (!unknown_customHeaders) return value_customHeaders;
+        throw new UndeferrableValueException("Value 'DistributionOrigin.customHeaders' is not present");
     }
 
     /**
      * The CloudFront custom origin configuration information. If an S3 origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
      * 
      */
-    private @Nullable UndeferrableValue<DistributionOriginCustomOriginConfig> customOriginConfig;
-
+    @PolicyResourceProperty(name="customOriginConfig", flag="unknown_customOriginConfig")
+    private @Nullable DistributionOriginCustomOriginConfig value_customOriginConfig;
+    private boolean unknown_customOriginConfig;
     public @Nullable DistributionOriginCustomOriginConfig customOriginConfig() {
-        if (customOriginConfig == null) return null;
-        return customOriginConfig.getValue("DistributionOrigin.customOriginConfig");
+        if (!unknown_customOriginConfig) return value_customOriginConfig;
+        throw new UndeferrableValueException("Value 'DistributionOrigin.customOriginConfig' is not present");
     }
 
     /**
      * Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("DistributionOrigin.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'DistributionOrigin.domainName' is not present");
     }
 
     /**
      * Unique identifier of a [CloudFront origin access control][8] for this origin.
      * 
      */
-    private @Nullable UndeferrableValue<String> originAccessControlId;
-
+    @PolicyResourceProperty(name="originAccessControlId", flag="unknown_originAccessControlId")
+    private @Nullable String value_originAccessControlId;
+    private boolean unknown_originAccessControlId;
     public @Nullable String originAccessControlId() {
-        if (originAccessControlId == null) return null;
-        return originAccessControlId.getValue("DistributionOrigin.originAccessControlId");
+        if (!unknown_originAccessControlId) return value_originAccessControlId;
+        throw new UndeferrableValueException("Value 'DistributionOrigin.originAccessControlId' is not present");
     }
 
-    private UndeferrableValue<String> originId;
-
+    @PolicyResourceProperty(name="originId", flag="unknown_originId")
+    private String value_originId;
+    private boolean unknown_originId;
     public String originId() {
-        if (originId == null) return null;
-        return originId.getValue("DistributionOrigin.originId");
+        if (!unknown_originId) return value_originId;
+        throw new UndeferrableValueException("Value 'DistributionOrigin.originId' is not present");
     }
 
     /**
      * Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
      * 
      */
-    private @Nullable UndeferrableValue<String> originPath;
-
+    @PolicyResourceProperty(name="originPath", flag="unknown_originPath")
+    private @Nullable String value_originPath;
+    private boolean unknown_originPath;
     public @Nullable String originPath() {
-        if (originPath == null) return null;
-        return originPath.getValue("DistributionOrigin.originPath");
+        if (!unknown_originPath) return value_originPath;
+        throw new UndeferrableValueException("Value 'DistributionOrigin.originPath' is not present");
     }
 
     /**
      * CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
      * 
      */
-    private @Nullable UndeferrableValue<DistributionOriginOriginShield> originShield;
-
+    @PolicyResourceProperty(name="originShield", flag="unknown_originShield")
+    private @Nullable DistributionOriginOriginShield value_originShield;
+    private boolean unknown_originShield;
     public @Nullable DistributionOriginOriginShield originShield() {
-        if (originShield == null) return null;
-        return originShield.getValue("DistributionOrigin.originShield");
+        if (!unknown_originShield) return value_originShield;
+        throw new UndeferrableValueException("Value 'DistributionOrigin.originShield' is not present");
     }
 
     /**
      * CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
      * 
      */
-    private @Nullable UndeferrableValue<DistributionOriginS3OriginConfig> s3OriginConfig;
-
+    @PolicyResourceProperty(name="s3OriginConfig", flag="unknown_s3OriginConfig")
+    private @Nullable DistributionOriginS3OriginConfig value_s3OriginConfig;
+    private boolean unknown_s3OriginConfig;
     public @Nullable DistributionOriginS3OriginConfig s3OriginConfig() {
-        if (s3OriginConfig == null) return null;
-        return s3OriginConfig.getValue("DistributionOrigin.s3OriginConfig");
+        if (!unknown_s3OriginConfig) return value_s3OriginConfig;
+        throw new UndeferrableValueException("Value 'DistributionOrigin.s3OriginConfig' is not present");
     }
 
     /**
      * The VPC origin configuration.
      * 
      */
-    private @Nullable UndeferrableValue<DistributionOriginVpcOriginConfig> vpcOriginConfig;
-
+    @PolicyResourceProperty(name="vpcOriginConfig", flag="unknown_vpcOriginConfig")
+    private @Nullable DistributionOriginVpcOriginConfig value_vpcOriginConfig;
+    private boolean unknown_vpcOriginConfig;
     public @Nullable DistributionOriginVpcOriginConfig vpcOriginConfig() {
-        if (vpcOriginConfig == null) return null;
-        return vpcOriginConfig.getValue("DistributionOrigin.vpcOriginConfig");
+        if (!unknown_vpcOriginConfig) return value_vpcOriginConfig;
+        throw new UndeferrableValueException("Value 'DistributionOrigin.vpcOriginConfig' is not present");
     }
 
 }

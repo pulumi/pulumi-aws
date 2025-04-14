@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrockmodel;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.bedrockmodel.inputs.InvocationLoggingConfigurationLoggingConfigArgs;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class InvocationLoggingConfigurationArgs extends com.pulumi.resourc
      * The logging configuration values to set. See `logging_config` Block for details.
      * 
      */
-    private UndeferrableValue<InvocationLoggingConfigurationLoggingConfigArgs> loggingConfig;
-
+    @PolicyResourceProperty(name="loggingConfig", flag="unknown_loggingConfig")
+    private InvocationLoggingConfigurationLoggingConfigArgs value_loggingConfig;
+    private boolean unknown_loggingConfig;
     public InvocationLoggingConfigurationLoggingConfigArgs loggingConfig() {
-        if (loggingConfig == null) return null;
-        return loggingConfig.getValue("InvocationLoggingConfigurationArgs.loggingConfig");
+        if (!unknown_loggingConfig) return value_loggingConfig;
+        throw new UndeferrableValueException("Value 'InvocationLoggingConfigurationArgs.loggingConfig' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.iot.outputs.ThingTypeProperties;
 import java.lang.Boolean;
@@ -19,55 +20,60 @@ public final class ThingType extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN of the created AWS IoT Thing Type.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ThingType.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ThingType.arn' is not present");
     }
 
     /**
      * Whether the thing type is deprecated. If true, no new things could be associated with this type.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> deprecated;
-
+    @PolicyResourceProperty(name="deprecated", flag="unknown_deprecated")
+    private @Nullable Boolean value_deprecated;
+    private boolean unknown_deprecated;
     public @Nullable Boolean deprecated() {
-        if (deprecated == null) return null;
-        return deprecated.getValue("ThingType.deprecated");
+        if (!unknown_deprecated) return value_deprecated;
+        throw new UndeferrableValueException("Value 'ThingType.deprecated' is not present");
     }
 
     /**
      * The name of the thing type.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ThingType.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ThingType.name' is not present");
     }
 
     /**
      * , Configuration block that can contain the following properties of the thing type:
      * 
      */
-    private @Nullable UndeferrableValue<ThingTypeProperties> properties;
-
+    @PolicyResourceProperty(name="properties", flag="unknown_properties")
+    private @Nullable ThingTypeProperties value_properties;
+    private boolean unknown_properties;
     public @Nullable ThingTypeProperties properties() {
-        if (properties == null) return null;
-        return properties.getValue("ThingType.properties");
+        if (!unknown_properties) return value_properties;
+        throw new UndeferrableValueException("Value 'ThingType.properties' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ThingType.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ThingType.tags' is not present");
     }
 
     /**
@@ -78,11 +84,12 @@ public final class ThingType extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ThingType.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ThingType.tagsAll' is not present");
     }
 
 }

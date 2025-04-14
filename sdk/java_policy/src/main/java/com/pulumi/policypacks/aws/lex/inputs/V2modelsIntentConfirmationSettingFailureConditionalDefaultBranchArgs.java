@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class V2modelsIntentConfirmationSettingFailureConditionalDefaultBra
      * Configuration block for the next step in the conversation. See `next_step`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepArgs> nextStep;
-
+    @PolicyResourceProperty(name="nextStep", flag="unknown_nextStep")
+    private V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepArgs value_nextStep;
+    private boolean unknown_nextStep;
     public V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepArgs nextStep() {
-        if (nextStep == null) return null;
-        return nextStep.getValue("V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchArgs.nextStep");
+        if (!unknown_nextStep) return value_nextStep;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchArgs.nextStep' is not present");
     }
 
     /**
      * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseArgs> response;
-
+    @PolicyResourceProperty(name="response", flag="unknown_response")
+    private V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseArgs value_response;
+    private boolean unknown_response;
     public V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseArgs response() {
-        if (response == null) return null;
-        return response.getValue("V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchArgs.response");
+        if (!unknown_response) return value_response;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchArgs.response' is not present");
     }
 
 }

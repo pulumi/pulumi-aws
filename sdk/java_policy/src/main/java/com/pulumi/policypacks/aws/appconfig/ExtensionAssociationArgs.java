@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appconfig;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class ExtensionAssociationArgs extends com.pulumi.resources.PolicyR
      * The ARN of the extension defined in the association.
      * 
      */
-    private UndeferrableValue<String> extensionArn;
-
+    @PolicyResourceProperty(name="extensionArn", flag="unknown_extensionArn")
+    private String value_extensionArn;
+    private boolean unknown_extensionArn;
     public String extensionArn() {
-        if (extensionArn == null) return null;
-        return extensionArn.getValue("ExtensionAssociationArgs.extensionArn");
+        if (!unknown_extensionArn) return value_extensionArn;
+        throw new UndeferrableValueException("Value 'ExtensionAssociationArgs.extensionArn' is not present");
     }
 
     /**
      * The parameter names and values defined for the association.
      * 
      */
-    private UndeferrableValue<Map<String,String>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private Map<String,String> value_parameters;
+    private boolean unknown_parameters;
     public Map<String,String> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("ExtensionAssociationArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'ExtensionAssociationArgs.parameters' is not present");
     }
 
     /**
      * The ARN of the application, configuration profile, or environment to associate with the extension.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("ExtensionAssociationArgs.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'ExtensionAssociationArgs.resourceArn' is not present");
     }
 
 }

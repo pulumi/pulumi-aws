@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBodyArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs;
@@ -27,143 +28,156 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
      * Inspect all query arguments.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArgs> allQueryArguments;
-
+    @PolicyResourceProperty(name="allQueryArguments", flag="unknown_allQueryArguments")
+    private RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArgs value_allQueryArguments;
+    private boolean unknown_allQueryArguments;
     public RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArgs allQueryArguments() {
-        if (allQueryArguments == null) return null;
-        return allQueryArguments.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.allQueryArguments");
+        if (!unknown_allQueryArguments) return value_allQueryArguments;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.allQueryArguments' is not present");
     }
 
     /**
      * Inspect the request body, which immediately follows the request headers.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBodyArgs> body;
-
+    @PolicyResourceProperty(name="body", flag="unknown_body")
+    private RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBodyArgs value_body;
+    private boolean unknown_body;
     public RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBodyArgs body() {
-        if (body == null) return null;
-        return body.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.body");
+        if (!unknown_body) return value_body;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.body' is not present");
     }
 
     /**
      * Inspect the cookies in the web request. See Cookies below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs> cookies;
-
+    @PolicyResourceProperty(name="cookies", flag="unknown_cookies")
+    private RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs value_cookies;
+    private boolean unknown_cookies;
     public RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs cookies() {
-        if (cookies == null) return null;
-        return cookies.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.cookies");
+        if (!unknown_cookies) return value_cookies;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.cookies' is not present");
     }
 
     /**
      * Inspect the request headers. See Header Order below for details.
      * 
      */
-    private UndeferrableValue<List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrderArgs>> headerOrders;
-
+    @PolicyResourceProperty(name="headerOrders", flag="unknown_headerOrders")
+    private List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrderArgs> value_headerOrders;
+    private boolean unknown_headerOrders;
     public List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderOrderArgs> headerOrders() {
-        if (headerOrders == null) return null;
-        return headerOrders.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.headerOrders");
+        if (!unknown_headerOrders) return value_headerOrders;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.headerOrders' is not present");
     }
 
     /**
      * Inspect the request headers. See Headers below for details.
      * 
      */
-    private UndeferrableValue<List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs>> headers;
-
+    @PolicyResourceProperty(name="headers", flag="unknown_headers")
+    private List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs> value_headers;
+    private boolean unknown_headers;
     public List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs> headers() {
-        if (headers == null) return null;
-        return headers.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.headers");
+        if (!unknown_headers) return value_headers;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.headers' is not present");
     }
 
     /**
      * Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs> ja3Fingerprint;
-
+    @PolicyResourceProperty(name="ja3Fingerprint", flag="unknown_ja3Fingerprint")
+    private RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs value_ja3Fingerprint;
+    private boolean unknown_ja3Fingerprint;
     public RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs ja3Fingerprint() {
-        if (ja3Fingerprint == null) return null;
-        return ja3Fingerprint.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.ja3Fingerprint");
+        if (!unknown_ja3Fingerprint) return value_ja3Fingerprint;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.ja3Fingerprint' is not present");
     }
 
     /**
      * Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs> ja4Fingerprint;
-
+    @PolicyResourceProperty(name="ja4Fingerprint", flag="unknown_ja4Fingerprint")
+    private RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs value_ja4Fingerprint;
+    private boolean unknown_ja4Fingerprint;
     public RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa4FingerprintArgs ja4Fingerprint() {
-        if (ja4Fingerprint == null) return null;
-        return ja4Fingerprint.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.ja4Fingerprint");
+        if (!unknown_ja4Fingerprint) return value_ja4Fingerprint;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.ja4Fingerprint' is not present");
     }
 
     /**
      * Inspect the request body as JSON. See JSON Body for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs> jsonBody;
-
+    @PolicyResourceProperty(name="jsonBody", flag="unknown_jsonBody")
+    private RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs value_jsonBody;
+    private boolean unknown_jsonBody;
     public RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs jsonBody() {
-        if (jsonBody == null) return null;
-        return jsonBody.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.jsonBody");
+        if (!unknown_jsonBody) return value_jsonBody;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.jsonBody' is not present");
     }
 
     /**
      * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethodArgs> method;
-
+    @PolicyResourceProperty(name="method", flag="unknown_method")
+    private RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethodArgs value_method;
+    private boolean unknown_method;
     public RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethodArgs method() {
-        if (method == null) return null;
-        return method.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.method");
+        if (!unknown_method) return value_method;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.method' is not present");
     }
 
     /**
      * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs> queryString;
-
+    @PolicyResourceProperty(name="queryString", flag="unknown_queryString")
+    private RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs value_queryString;
+    private boolean unknown_queryString;
     public RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs queryString() {
-        if (queryString == null) return null;
-        return queryString.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.queryString");
+        if (!unknown_queryString) return value_queryString;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.queryString' is not present");
     }
 
     /**
      * Inspect a single header. See Single Header below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs> singleHeader;
-
+    @PolicyResourceProperty(name="singleHeader", flag="unknown_singleHeader")
+    private RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs value_singleHeader;
+    private boolean unknown_singleHeader;
     public RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs singleHeader() {
-        if (singleHeader == null) return null;
-        return singleHeader.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.singleHeader");
+        if (!unknown_singleHeader) return value_singleHeader;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.singleHeader' is not present");
     }
 
     /**
      * Inspect a single query argument. See Single Query Argument below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs> singleQueryArgument;
-
+    @PolicyResourceProperty(name="singleQueryArgument", flag="unknown_singleQueryArgument")
+    private RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs value_singleQueryArgument;
+    private boolean unknown_singleQueryArgument;
     public RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs singleQueryArgument() {
-        if (singleQueryArgument == null) return null;
-        return singleQueryArgument.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.singleQueryArgument");
+        if (!unknown_singleQueryArgument) return value_singleQueryArgument;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.singleQueryArgument' is not present");
     }
 
     /**
      * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs> uriPath;
-
+    @PolicyResourceProperty(name="uriPath", flag="unknown_uriPath")
+    private RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs value_uriPath;
+    private boolean unknown_uriPath;
     public RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs uriPath() {
-        if (uriPath == null) return null;
-        return uriPath.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.uriPath");
+        if (!unknown_uriPath) return value_uriPath;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs.uriPath' is not present");
     }
 
 }

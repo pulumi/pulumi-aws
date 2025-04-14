@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3.outputs.BucketLifecycleConfigurationV2Rule;
 import com.pulumi.policypacks.aws.s3.outputs.BucketLifecycleConfigurationV2Timeouts;
@@ -19,51 +20,56 @@ public final class BucketLifecycleConfigurationV2 extends com.pulumi.resources.P
      * Name of the source S3 bucket you want Amazon S3 to monitor.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("BucketLifecycleConfigurationV2.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2.bucket' is not present");
     }
 
     /**
      * Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      * 
      */
-    private UndeferrableValue<String> expectedBucketOwner;
-
+    @PolicyResourceProperty(name="expectedBucketOwner", flag="unknown_expectedBucketOwner")
+    private String value_expectedBucketOwner;
+    private boolean unknown_expectedBucketOwner;
     public String expectedBucketOwner() {
-        if (expectedBucketOwner == null) return null;
-        return expectedBucketOwner.getValue("BucketLifecycleConfigurationV2.expectedBucketOwner");
+        if (!unknown_expectedBucketOwner) return value_expectedBucketOwner;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2.expectedBucketOwner' is not present");
     }
 
     /**
      * List of configuration blocks describing the rules managing the replication. See below.
      * 
      */
-    private @Nullable UndeferrableValue<List<BucketLifecycleConfigurationV2Rule>> rules;
-
+    @PolicyResourceProperty(name="rules", flag="unknown_rules")
+    private @Nullable List<BucketLifecycleConfigurationV2Rule> value_rules;
+    private boolean unknown_rules;
     public @Nullable List<BucketLifecycleConfigurationV2Rule> rules() {
-        if (rules == null) return null;
-        return rules.getValue("BucketLifecycleConfigurationV2.rules");
+        if (!unknown_rules) return value_rules;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2.rules' is not present");
     }
 
-    private @Nullable UndeferrableValue<BucketLifecycleConfigurationV2Timeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable BucketLifecycleConfigurationV2Timeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable BucketLifecycleConfigurationV2Timeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("BucketLifecycleConfigurationV2.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2.timeouts' is not present");
     }
 
     /**
      * The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
      * 
      */
-    private UndeferrableValue<String> transitionDefaultMinimumObjectSize;
-
+    @PolicyResourceProperty(name="transitionDefaultMinimumObjectSize", flag="unknown_transitionDefaultMinimumObjectSize")
+    private String value_transitionDefaultMinimumObjectSize;
+    private boolean unknown_transitionDefaultMinimumObjectSize;
     public String transitionDefaultMinimumObjectSize() {
-        if (transitionDefaultMinimumObjectSize == null) return null;
-        return transitionDefaultMinimumObjectSize.getValue("BucketLifecycleConfigurationV2.transitionDefaultMinimumObjectSize");
+        if (!unknown_transitionDefaultMinimumObjectSize) return value_transitionDefaultMinimumObjectSize;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2.transitionDefaultMinimumObjectSize' is not present");
     }
 
 }

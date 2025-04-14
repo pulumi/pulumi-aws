@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.acmpca.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class CertificateValidityArgs {
      * Determines how `value` is interpreted. Valid values: `DAYS`, `MONTHS`, `YEARS`, `ABSOLUTE`, `END_DATE`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("CertificateValidityArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'CertificateValidityArgs.type' is not present");
     }
 
     /**
      * If `type` is `DAYS`, `MONTHS`, or `YEARS`, the relative time until the certificate expires. If `type` is `ABSOLUTE`, the date in seconds since the Unix epoch. If `type` is `END_DATE`, the  date in RFC 3339 format.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("CertificateValidityArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'CertificateValidityArgs.value' is not present");
     }
 
 }

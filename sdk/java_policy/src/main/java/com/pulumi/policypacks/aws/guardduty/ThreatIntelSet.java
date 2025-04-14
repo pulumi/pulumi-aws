@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.guardduty;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,77 +19,84 @@ public final class ThreatIntelSet extends com.pulumi.resources.PolicyResourceOut
      * Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
      * 
      */
-    private UndeferrableValue<Boolean> activate;
-
+    @PolicyResourceProperty(name="activate", flag="unknown_activate")
+    private Boolean value_activate;
+    private boolean unknown_activate;
     public Boolean activate() {
-        if (activate == null) return null;
-        return activate.getValue("ThreatIntelSet.activate");
+        if (!unknown_activate) return value_activate;
+        throw new UndeferrableValueException("Value 'ThreatIntelSet.activate' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ThreatIntelSet.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ThreatIntelSet.arn' is not present");
     }
 
     /**
      * The detector ID of the GuardDuty.
      * 
      */
-    private UndeferrableValue<String> detectorId;
-
+    @PolicyResourceProperty(name="detectorId", flag="unknown_detectorId")
+    private String value_detectorId;
+    private boolean unknown_detectorId;
     public String detectorId() {
-        if (detectorId == null) return null;
-        return detectorId.getValue("ThreatIntelSet.detectorId");
+        if (!unknown_detectorId) return value_detectorId;
+        throw new UndeferrableValueException("Value 'ThreatIntelSet.detectorId' is not present");
     }
 
     /**
      * The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
      * 
      */
-    private UndeferrableValue<String> format;
-
+    @PolicyResourceProperty(name="format", flag="unknown_format")
+    private String value_format;
+    private boolean unknown_format;
     public String format() {
-        if (format == null) return null;
-        return format.getValue("ThreatIntelSet.format");
+        if (!unknown_format) return value_format;
+        throw new UndeferrableValueException("Value 'ThreatIntelSet.format' is not present");
     }
 
     /**
      * The URI of the file that contains the ThreatIntelSet.
      * 
      */
-    private UndeferrableValue<String> location;
-
+    @PolicyResourceProperty(name="location", flag="unknown_location")
+    private String value_location;
+    private boolean unknown_location;
     public String location() {
-        if (location == null) return null;
-        return location.getValue("ThreatIntelSet.location");
+        if (!unknown_location) return value_location;
+        throw new UndeferrableValueException("Value 'ThreatIntelSet.location' is not present");
     }
 
     /**
      * The friendly name to identify the ThreatIntelSet.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ThreatIntelSet.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ThreatIntelSet.name' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ThreatIntelSet.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ThreatIntelSet.tags' is not present");
     }
 
     /**
@@ -99,11 +107,12 @@ public final class ThreatIntelSet extends com.pulumi.resources.PolicyResourceOut
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ThreatIntelSet.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ThreatIntelSet.tagsAll' is not present");
     }
 
 }

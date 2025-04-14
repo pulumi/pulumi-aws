@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class StaticIpAttachmentArgs extends com.pulumi.resources.PolicyRes
      * The name of the Lightsail instance to attach the IP to
      * 
      */
-    private UndeferrableValue<String> instanceName;
-
+    @PolicyResourceProperty(name="instanceName", flag="unknown_instanceName")
+    private String value_instanceName;
+    private boolean unknown_instanceName;
     public String instanceName() {
-        if (instanceName == null) return null;
-        return instanceName.getValue("StaticIpAttachmentArgs.instanceName");
+        if (!unknown_instanceName) return value_instanceName;
+        throw new UndeferrableValueException("Value 'StaticIpAttachmentArgs.instanceName' is not present");
     }
 
     /**
      * The name of the allocated static IP
      * 
      */
-    private UndeferrableValue<String> staticIpName;
-
+    @PolicyResourceProperty(name="staticIpName", flag="unknown_staticIpName")
+    private String value_staticIpName;
+    private boolean unknown_staticIpName;
     public String staticIpName() {
-        if (staticIpName == null) return null;
-        return staticIpName.getValue("StaticIpAttachmentArgs.staticIpName");
+        if (!unknown_staticIpName) return value_staticIpName;
+        throw new UndeferrableValueException("Value 'StaticIpAttachmentArgs.staticIpName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.outputs.InventoryDestinationBucket;
 
 
@@ -13,11 +14,12 @@ public final class InventoryDestination {
      * S3 bucket configuration where inventory results are published (documented below).
      * 
      */
-    private UndeferrableValue<InventoryDestinationBucket> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private InventoryDestinationBucket value_bucket;
+    private boolean unknown_bucket;
     public InventoryDestinationBucket bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("InventoryDestination.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'InventoryDestination.bucket' is not present");
     }
 
 }

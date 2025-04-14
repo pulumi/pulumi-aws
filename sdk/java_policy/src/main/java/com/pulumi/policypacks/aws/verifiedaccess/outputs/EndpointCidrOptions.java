@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.verifiedaccess.outputs.EndpointCidrOptionsPortRange;
 import java.lang.String;
 import java.util.List;
@@ -12,32 +13,36 @@ import javax.annotation.Nullable;
 
 public final class EndpointCidrOptions {
 
-    private UndeferrableValue<String> cidr;
-
+    @PolicyResourceProperty(name="cidr", flag="unknown_cidr")
+    private String value_cidr;
+    private boolean unknown_cidr;
     public String cidr() {
-        if (cidr == null) return null;
-        return cidr.getValue("EndpointCidrOptions.cidr");
+        if (!unknown_cidr) return value_cidr;
+        throw new UndeferrableValueException("Value 'EndpointCidrOptions.cidr' is not present");
     }
 
-    private UndeferrableValue<List<EndpointCidrOptionsPortRange>> portRanges;
-
+    @PolicyResourceProperty(name="portRanges", flag="unknown_portRanges")
+    private List<EndpointCidrOptionsPortRange> value_portRanges;
+    private boolean unknown_portRanges;
     public List<EndpointCidrOptionsPortRange> portRanges() {
-        if (portRanges == null) return null;
-        return portRanges.getValue("EndpointCidrOptions.portRanges");
+        if (!unknown_portRanges) return value_portRanges;
+        throw new UndeferrableValueException("Value 'EndpointCidrOptions.portRanges' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private @Nullable String value_protocol;
+    private boolean unknown_protocol;
     public @Nullable String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("EndpointCidrOptions.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'EndpointCidrOptions.protocol' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private @Nullable List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public @Nullable List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("EndpointCidrOptions.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'EndpointCidrOptions.subnetIds' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,11 +14,12 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallel
      * he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
      * 
      */
-    private UndeferrableValue<Integer> maxPageSize;
-
+    @PolicyResourceProperty(name="maxPageSize", flag="unknown_maxPageSize")
+    private Integer value_maxPageSize;
+    private boolean unknown_maxPageSize;
     public Integer maxPageSize() {
-        if (maxPageSize == null) return null;
-        return maxPageSize.getValue("FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs.maxPageSize");
+        if (!unknown_maxPageSize) return value_maxPageSize;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs.maxPageSize' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationCustomPayload;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationImageResponseCard;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationPlainTextMessage;
@@ -17,44 +18,48 @@ public final class V2modelsIntentConfirmationSettingConfirmationResponseMessageG
      * Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationCustomPayload> customPayload;
-
+    @PolicyResourceProperty(name="customPayload", flag="unknown_customPayload")
+    private @Nullable V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationCustomPayload value_customPayload;
+    private boolean unknown_customPayload;
     public @Nullable V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationCustomPayload customPayload() {
-        if (customPayload == null) return null;
-        return customPayload.getValue("V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariation.customPayload");
+        if (!unknown_customPayload) return value_customPayload;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariation.customPayload' is not present");
     }
 
     /**
      * Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationImageResponseCard> imageResponseCard;
-
+    @PolicyResourceProperty(name="imageResponseCard", flag="unknown_imageResponseCard")
+    private @Nullable V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationImageResponseCard value_imageResponseCard;
+    private boolean unknown_imageResponseCard;
     public @Nullable V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationImageResponseCard imageResponseCard() {
-        if (imageResponseCard == null) return null;
-        return imageResponseCard.getValue("V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariation.imageResponseCard");
+        if (!unknown_imageResponseCard) return value_imageResponseCard;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariation.imageResponseCard' is not present");
     }
 
     /**
      * Configuration block for a message in plain text format. See `plain_text_message`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationPlainTextMessage> plainTextMessage;
-
+    @PolicyResourceProperty(name="plainTextMessage", flag="unknown_plainTextMessage")
+    private @Nullable V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationPlainTextMessage value_plainTextMessage;
+    private boolean unknown_plainTextMessage;
     public @Nullable V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationPlainTextMessage plainTextMessage() {
-        if (plainTextMessage == null) return null;
-        return plainTextMessage.getValue("V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariation.plainTextMessage");
+        if (!unknown_plainTextMessage) return value_plainTextMessage;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariation.plainTextMessage' is not present");
     }
 
     /**
      * Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationSsmlMessage> ssmlMessage;
-
+    @PolicyResourceProperty(name="ssmlMessage", flag="unknown_ssmlMessage")
+    private @Nullable V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationSsmlMessage value_ssmlMessage;
+    private boolean unknown_ssmlMessage;
     public @Nullable V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationSsmlMessage ssmlMessage() {
-        if (ssmlMessage == null) return null;
-        return ssmlMessage.getValue("V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariation.ssmlMessage");
+        if (!unknown_ssmlMessage) return value_ssmlMessage;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariation.ssmlMessage' is not present");
     }
 
 }

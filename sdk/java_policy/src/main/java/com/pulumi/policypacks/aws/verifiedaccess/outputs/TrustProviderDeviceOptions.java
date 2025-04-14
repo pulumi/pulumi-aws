@@ -3,18 +3,20 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class TrustProviderDeviceOptions {
 
-    private @Nullable UndeferrableValue<String> tenantId;
-
+    @PolicyResourceProperty(name="tenantId", flag="unknown_tenantId")
+    private @Nullable String value_tenantId;
+    private boolean unknown_tenantId;
     public @Nullable String tenantId() {
-        if (tenantId == null) return null;
-        return tenantId.getValue("TrustProviderDeviceOptions.tenantId");
+        if (!unknown_tenantId) return value_tenantId;
+        throw new UndeferrableValueException("Value 'TrustProviderDeviceOptions.tenantId' is not present");
     }
 
 }

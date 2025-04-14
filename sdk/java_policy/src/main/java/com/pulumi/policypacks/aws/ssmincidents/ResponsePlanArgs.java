@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssmincidents;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ssmincidents.inputs.ResponsePlanActionArgs;
 import com.pulumi.policypacks.aws.ssmincidents.inputs.ResponsePlanIncidentTemplateArgs;
@@ -17,64 +18,72 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:ssmincidents/responsePlan:ResponsePlan")
 public final class ResponsePlanArgs extends com.pulumi.resources.PolicyResourceInput {
 
-    private UndeferrableValue<ResponsePlanActionArgs> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private ResponsePlanActionArgs value_action;
+    private boolean unknown_action;
     public ResponsePlanActionArgs action() {
-        if (action == null) return null;
-        return action.getValue("ResponsePlanArgs.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'ResponsePlanArgs.action' is not present");
     }
 
-    private UndeferrableValue<List<String>> chatChannels;
-
+    @PolicyResourceProperty(name="chatChannels", flag="unknown_chatChannels")
+    private List<String> value_chatChannels;
+    private boolean unknown_chatChannels;
     public List<String> chatChannels() {
-        if (chatChannels == null) return null;
-        return chatChannels.getValue("ResponsePlanArgs.chatChannels");
+        if (!unknown_chatChannels) return value_chatChannels;
+        throw new UndeferrableValueException("Value 'ResponsePlanArgs.chatChannels' is not present");
     }
 
-    private UndeferrableValue<String> displayName;
-
+    @PolicyResourceProperty(name="displayName", flag="unknown_displayName")
+    private String value_displayName;
+    private boolean unknown_displayName;
     public String displayName() {
-        if (displayName == null) return null;
-        return displayName.getValue("ResponsePlanArgs.displayName");
+        if (!unknown_displayName) return value_displayName;
+        throw new UndeferrableValueException("Value 'ResponsePlanArgs.displayName' is not present");
     }
 
-    private UndeferrableValue<List<String>> engagements;
-
+    @PolicyResourceProperty(name="engagements", flag="unknown_engagements")
+    private List<String> value_engagements;
+    private boolean unknown_engagements;
     public List<String> engagements() {
-        if (engagements == null) return null;
-        return engagements.getValue("ResponsePlanArgs.engagements");
+        if (!unknown_engagements) return value_engagements;
+        throw new UndeferrableValueException("Value 'ResponsePlanArgs.engagements' is not present");
     }
 
-    private UndeferrableValue<ResponsePlanIncidentTemplateArgs> incidentTemplate;
-
+    @PolicyResourceProperty(name="incidentTemplate", flag="unknown_incidentTemplate")
+    private ResponsePlanIncidentTemplateArgs value_incidentTemplate;
+    private boolean unknown_incidentTemplate;
     public ResponsePlanIncidentTemplateArgs incidentTemplate() {
-        if (incidentTemplate == null) return null;
-        return incidentTemplate.getValue("ResponsePlanArgs.incidentTemplate");
+        if (!unknown_incidentTemplate) return value_incidentTemplate;
+        throw new UndeferrableValueException("Value 'ResponsePlanArgs.incidentTemplate' is not present");
     }
 
-    private UndeferrableValue<ResponsePlanIntegrationArgs> integration;
-
+    @PolicyResourceProperty(name="integration", flag="unknown_integration")
+    private ResponsePlanIntegrationArgs value_integration;
+    private boolean unknown_integration;
     public ResponsePlanIntegrationArgs integration() {
-        if (integration == null) return null;
-        return integration.getValue("ResponsePlanArgs.integration");
+        if (!unknown_integration) return value_integration;
+        throw new UndeferrableValueException("Value 'ResponsePlanArgs.integration' is not present");
     }
 
     /**
      * The name of the response plan.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ResponsePlanArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ResponsePlanArgs.name' is not present");
     }
 
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ResponsePlanArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ResponsePlanArgs.tags' is not present");
     }
 
 }

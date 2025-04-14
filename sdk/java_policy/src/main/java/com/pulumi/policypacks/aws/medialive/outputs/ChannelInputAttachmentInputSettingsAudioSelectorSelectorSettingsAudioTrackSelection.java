@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
      * Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode> dolbyEDecode;
-
+    @PolicyResourceProperty(name="dolbyEDecode", flag="unknown_dolbyEDecode")
+    private @Nullable ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode value_dolbyEDecode;
+    private boolean unknown_dolbyEDecode;
     public @Nullable ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode dolbyEDecode() {
-        if (dolbyEDecode == null) return null;
-        return dolbyEDecode.getValue("ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection.dolbyEDecode");
+        if (!unknown_dolbyEDecode) return value_dolbyEDecode;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection.dolbyEDecode' is not present");
     }
 
     /**
      * Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
      * 
      */
-    private UndeferrableValue<List<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack>> tracks;
-
+    @PolicyResourceProperty(name="tracks", flag="unknown_tracks")
+    private List<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack> value_tracks;
+    private boolean unknown_tracks;
     public List<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack> tracks() {
-        if (tracks == null) return null;
-        return tracks.getValue("ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection.tracks");
+        if (!unknown_tracks) return value_tracks;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection.tracks' is not present");
     }
 
 }

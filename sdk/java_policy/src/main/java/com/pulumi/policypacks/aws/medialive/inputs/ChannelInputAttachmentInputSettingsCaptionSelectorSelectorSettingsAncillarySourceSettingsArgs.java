@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
      * Specifies the number (1 to 4) of the captions channel you want to extract from the ancillary captions. If you plan to convert the ancillary captions to another format, complete this field. If you plan to choose Embedded as the captions destination in the output (to pass through all the channels in the ancillary captions), leave this field blank because MediaLive ignores the field.
      * 
      */
-    private UndeferrableValue<Integer> sourceAncillaryChannelNumber;
-
+    @PolicyResourceProperty(name="sourceAncillaryChannelNumber", flag="unknown_sourceAncillaryChannelNumber")
+    private Integer value_sourceAncillaryChannelNumber;
+    private boolean unknown_sourceAncillaryChannelNumber;
     public Integer sourceAncillaryChannelNumber() {
-        if (sourceAncillaryChannelNumber == null) return null;
-        return sourceAncillaryChannelNumber.getValue("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs.sourceAncillaryChannelNumber");
+        if (!unknown_sourceAncillaryChannelNumber) return value_sourceAncillaryChannelNumber;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs.sourceAncillaryChannelNumber' is not present");
     }
 
 }

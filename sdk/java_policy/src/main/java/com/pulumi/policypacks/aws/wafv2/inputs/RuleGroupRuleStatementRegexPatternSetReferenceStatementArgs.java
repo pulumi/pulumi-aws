@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs {
      * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs.arn' is not present");
     }
 
     /**
      * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs> fieldToMatch;
-
+    @PolicyResourceProperty(name="fieldToMatch", flag="unknown_fieldToMatch")
+    private RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs value_fieldToMatch;
+    private boolean unknown_fieldToMatch;
     public RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs fieldToMatch() {
-        if (fieldToMatch == null) return null;
-        return fieldToMatch.getValue("RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs.fieldToMatch");
+        if (!unknown_fieldToMatch) return value_fieldToMatch;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs.fieldToMatch' is not present");
     }
 
     /**
@@ -41,11 +44,12 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs {
      * See Text Transformation below for details.
      * 
      */
-    private UndeferrableValue<List<RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs>> textTransformations;
-
+    @PolicyResourceProperty(name="textTransformations", flag="unknown_textTransformations")
+    private List<RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs> value_textTransformations;
+    private boolean unknown_textTransformations;
     public List<RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs> textTransformations() {
-        if (textTransformations == null) return null;
-        return textTransformations.getValue("RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs.textTransformations");
+        if (!unknown_textTransformations) return value_textTransformations;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs.textTransformations' is not present");
     }
 
 }

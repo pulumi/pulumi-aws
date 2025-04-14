@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class DocumentationVersionArgs extends com.pulumi.resources.PolicyR
      * Description of the API documentation version.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("DocumentationVersionArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'DocumentationVersionArgs.description' is not present");
     }
 
     /**
      * ID of the associated Rest API
      * 
      */
-    private UndeferrableValue<String> restApiId;
-
+    @PolicyResourceProperty(name="restApiId", flag="unknown_restApiId")
+    private String value_restApiId;
+    private boolean unknown_restApiId;
     public String restApiId() {
-        if (restApiId == null) return null;
-        return restApiId.getValue("DocumentationVersionArgs.restApiId");
+        if (!unknown_restApiId) return value_restApiId;
+        throw new UndeferrableValueException("Value 'DocumentationVersionArgs.restApiId' is not present");
     }
 
     /**
      * Version identifier of the API documentation snapshot.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("DocumentationVersionArgs.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'DocumentationVersionArgs.version' is not present");
     }
 
 }

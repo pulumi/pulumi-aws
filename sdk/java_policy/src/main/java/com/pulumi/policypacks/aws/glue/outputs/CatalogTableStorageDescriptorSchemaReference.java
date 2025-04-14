@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.glue.outputs.CatalogTableStorageDescriptorSchemaReferenceSchemaId;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class CatalogTableStorageDescriptorSchemaReference {
      * Configuration block that contains schema identity fields. Either this or the `schema_version_id` has to be provided. See `schema_id` below.
      * 
      */
-    private @Nullable UndeferrableValue<CatalogTableStorageDescriptorSchemaReferenceSchemaId> schemaId;
-
+    @PolicyResourceProperty(name="schemaId", flag="unknown_schemaId")
+    private @Nullable CatalogTableStorageDescriptorSchemaReferenceSchemaId value_schemaId;
+    private boolean unknown_schemaId;
     public @Nullable CatalogTableStorageDescriptorSchemaReferenceSchemaId schemaId() {
-        if (schemaId == null) return null;
-        return schemaId.getValue("CatalogTableStorageDescriptorSchemaReference.schemaId");
+        if (!unknown_schemaId) return value_schemaId;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptorSchemaReference.schemaId' is not present");
     }
 
     /**
      * Unique ID assigned to a version of the schema. Either this or the `schema_id` has to be provided.
      * 
      */
-    private @Nullable UndeferrableValue<String> schemaVersionId;
-
+    @PolicyResourceProperty(name="schemaVersionId", flag="unknown_schemaVersionId")
+    private @Nullable String value_schemaVersionId;
+    private boolean unknown_schemaVersionId;
     public @Nullable String schemaVersionId() {
-        if (schemaVersionId == null) return null;
-        return schemaVersionId.getValue("CatalogTableStorageDescriptorSchemaReference.schemaVersionId");
+        if (!unknown_schemaVersionId) return value_schemaVersionId;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptorSchemaReference.schemaVersionId' is not present");
     }
 
     /**
      * Version number of the schema.
      * 
      */
-    private UndeferrableValue<Integer> schemaVersionNumber;
-
+    @PolicyResourceProperty(name="schemaVersionNumber", flag="unknown_schemaVersionNumber")
+    private Integer value_schemaVersionNumber;
+    private boolean unknown_schemaVersionNumber;
     public Integer schemaVersionNumber() {
-        if (schemaVersionNumber == null) return null;
-        return schemaVersionNumber.getValue("CatalogTableStorageDescriptorSchemaReference.schemaVersionNumber");
+        if (!unknown_schemaVersionNumber) return value_schemaVersionNumber;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptorSchemaReference.schemaVersionNumber' is not present");
     }
 
 }

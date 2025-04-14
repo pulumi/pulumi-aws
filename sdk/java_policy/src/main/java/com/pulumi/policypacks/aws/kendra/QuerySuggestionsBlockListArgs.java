@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.kendra.inputs.QuerySuggestionsBlockListSourceS3PathArgs;
 import java.lang.String;
@@ -14,62 +15,68 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList")
 public final class QuerySuggestionsBlockListArgs extends com.pulumi.resources.PolicyResourceInput {
 
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("QuerySuggestionsBlockListArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'QuerySuggestionsBlockListArgs.description' is not present");
     }
 
     /**
      * Identifier of the index for a block list.
      * 
      */
-    private UndeferrableValue<String> indexId;
-
+    @PolicyResourceProperty(name="indexId", flag="unknown_indexId")
+    private String value_indexId;
+    private boolean unknown_indexId;
     public String indexId() {
-        if (indexId == null) return null;
-        return indexId.getValue("QuerySuggestionsBlockListArgs.indexId");
+        if (!unknown_indexId) return value_indexId;
+        throw new UndeferrableValueException("Value 'QuerySuggestionsBlockListArgs.indexId' is not present");
     }
 
     /**
      * Name for the block list.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("QuerySuggestionsBlockListArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'QuerySuggestionsBlockListArgs.name' is not present");
     }
 
     /**
      * IAM (Identity and Access Management) role used to access the block list text file in S3.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("QuerySuggestionsBlockListArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'QuerySuggestionsBlockListArgs.roleArn' is not present");
     }
 
     /**
      * S3 path where your block list text file is located. See details below.
      * 
      */
-    private UndeferrableValue<QuerySuggestionsBlockListSourceS3PathArgs> sourceS3Path;
-
+    @PolicyResourceProperty(name="sourceS3Path", flag="unknown_sourceS3Path")
+    private QuerySuggestionsBlockListSourceS3PathArgs value_sourceS3Path;
+    private boolean unknown_sourceS3Path;
     public QuerySuggestionsBlockListSourceS3PathArgs sourceS3Path() {
-        if (sourceS3Path == null) return null;
-        return sourceS3Path.getValue("QuerySuggestionsBlockListArgs.sourceS3Path");
+        if (!unknown_sourceS3Path) return value_sourceS3Path;
+        throw new UndeferrableValueException("Value 'QuerySuggestionsBlockListArgs.sourceS3Path' is not present");
     }
 
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("QuerySuggestionsBlockListArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'QuerySuggestionsBlockListArgs.tags' is not present");
     }
 
 }

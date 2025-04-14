@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class ResourceConfigurationResourceConfigurationDefinitionDnsResour
      * The hostname of the Resource for this configuration.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("ResourceConfigurationResourceConfigurationDefinitionDnsResource.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'ResourceConfigurationResourceConfigurationDefinitionDnsResource.domainName' is not present");
     }
 
     /**
      * The IP Address type either `IPV4` or `IPV6`
      * 
      */
-    private UndeferrableValue<String> ipAddressType;
-
+    @PolicyResourceProperty(name="ipAddressType", flag="unknown_ipAddressType")
+    private String value_ipAddressType;
+    private boolean unknown_ipAddressType;
     public String ipAddressType() {
-        if (ipAddressType == null) return null;
-        return ipAddressType.getValue("ResourceConfigurationResourceConfigurationDefinitionDnsResource.ipAddressType");
+        if (!unknown_ipAddressType) return value_ipAddressType;
+        throw new UndeferrableValueException("Value 'ResourceConfigurationResourceConfigurationDefinitionDnsResource.ipAddressType' is not present");
     }
 
 }

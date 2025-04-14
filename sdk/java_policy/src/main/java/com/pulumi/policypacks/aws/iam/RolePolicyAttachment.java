@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class RolePolicyAttachment extends com.pulumi.resources.PolicyResou
      * The ARN of the policy you want to apply
      * 
      */
-    private UndeferrableValue<String> policyArn;
-
+    @PolicyResourceProperty(name="policyArn", flag="unknown_policyArn")
+    private String value_policyArn;
+    private boolean unknown_policyArn;
     public String policyArn() {
-        if (policyArn == null) return null;
-        return policyArn.getValue("RolePolicyAttachment.policyArn");
+        if (!unknown_policyArn) return value_policyArn;
+        throw new UndeferrableValueException("Value 'RolePolicyAttachment.policyArn' is not present");
     }
 
     /**
      * The name of the IAM role to which the policy should be applied
      * 
      */
-    private UndeferrableValue<String> role;
-
+    @PolicyResourceProperty(name="role", flag="unknown_role")
+    private String value_role;
+    private boolean unknown_role;
     public String role() {
-        if (role == null) return null;
-        return role.getValue("RolePolicyAttachment.role");
+        if (!unknown_role) return value_role;
+        throw new UndeferrableValueException("Value 'RolePolicyAttachment.role' is not present");
     }
 
 }

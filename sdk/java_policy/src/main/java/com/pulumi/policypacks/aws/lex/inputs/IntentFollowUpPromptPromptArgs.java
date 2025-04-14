@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.IntentFollowUpPromptPromptMessageArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,11 +18,12 @@ public final class IntentFollowUpPromptPromptArgs {
      * The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
      * 
      */
-    private UndeferrableValue<Integer> maxAttempts;
-
+    @PolicyResourceProperty(name="maxAttempts", flag="unknown_maxAttempts")
+    private Integer value_maxAttempts;
+    private boolean unknown_maxAttempts;
     public Integer maxAttempts() {
-        if (maxAttempts == null) return null;
-        return maxAttempts.getValue("IntentFollowUpPromptPromptArgs.maxAttempts");
+        if (!unknown_maxAttempts) return value_maxAttempts;
+        throw new UndeferrableValueException("Value 'IntentFollowUpPromptPromptArgs.maxAttempts' is not present");
     }
 
     /**
@@ -30,11 +32,12 @@ public final class IntentFollowUpPromptPromptArgs {
      * Attributes are documented under message. Must contain between 1 and 15 messages.
      * 
      */
-    private UndeferrableValue<List<IntentFollowUpPromptPromptMessageArgs>> messages;
-
+    @PolicyResourceProperty(name="messages", flag="unknown_messages")
+    private List<IntentFollowUpPromptPromptMessageArgs> value_messages;
+    private boolean unknown_messages;
     public List<IntentFollowUpPromptPromptMessageArgs> messages() {
-        if (messages == null) return null;
-        return messages.getValue("IntentFollowUpPromptPromptArgs.messages");
+        if (!unknown_messages) return value_messages;
+        throw new UndeferrableValueException("Value 'IntentFollowUpPromptPromptArgs.messages' is not present");
     }
 
     /**
@@ -43,11 +46,12 @@ public final class IntentFollowUpPromptPromptArgs {
      * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
      * 
      */
-    private UndeferrableValue<String> responseCard;
-
+    @PolicyResourceProperty(name="responseCard", flag="unknown_responseCard")
+    private String value_responseCard;
+    private boolean unknown_responseCard;
     public String responseCard() {
-        if (responseCard == null) return null;
-        return responseCard.getValue("IntentFollowUpPromptPromptArgs.responseCard");
+        if (!unknown_responseCard) return value_responseCard;
+        throw new UndeferrableValueException("Value 'IntentFollowUpPromptPromptArgs.responseCard' is not present");
     }
 
 }

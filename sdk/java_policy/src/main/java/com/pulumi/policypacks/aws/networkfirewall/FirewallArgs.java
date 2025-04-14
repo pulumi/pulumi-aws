@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.networkfirewall.inputs.FirewallEncryptionConfigurationArgs;
 import com.pulumi.policypacks.aws.networkfirewall.inputs.FirewallSubnetMappingArgs;
@@ -21,110 +22,120 @@ public final class FirewallArgs extends com.pulumi.resources.PolicyResourceInput
      * A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> deleteProtection;
-
+    @PolicyResourceProperty(name="deleteProtection", flag="unknown_deleteProtection")
+    private Boolean value_deleteProtection;
+    private boolean unknown_deleteProtection;
     public Boolean deleteProtection() {
-        if (deleteProtection == null) return null;
-        return deleteProtection.getValue("FirewallArgs.deleteProtection");
+        if (!unknown_deleteProtection) return value_deleteProtection;
+        throw new UndeferrableValueException("Value 'FirewallArgs.deleteProtection' is not present");
     }
 
     /**
      * A friendly description of the firewall.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("FirewallArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'FirewallArgs.description' is not present");
     }
 
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      * 
      */
-    private UndeferrableValue<FirewallEncryptionConfigurationArgs> encryptionConfiguration;
-
+    @PolicyResourceProperty(name="encryptionConfiguration", flag="unknown_encryptionConfiguration")
+    private FirewallEncryptionConfigurationArgs value_encryptionConfiguration;
+    private boolean unknown_encryptionConfiguration;
     public FirewallEncryptionConfigurationArgs encryptionConfiguration() {
-        if (encryptionConfiguration == null) return null;
-        return encryptionConfiguration.getValue("FirewallArgs.encryptionConfiguration");
+        if (!unknown_encryptionConfiguration) return value_encryptionConfiguration;
+        throw new UndeferrableValueException("Value 'FirewallArgs.encryptionConfiguration' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the VPC Firewall policy.
      * 
      */
-    private UndeferrableValue<String> firewallPolicyArn;
-
+    @PolicyResourceProperty(name="firewallPolicyArn", flag="unknown_firewallPolicyArn")
+    private String value_firewallPolicyArn;
+    private boolean unknown_firewallPolicyArn;
     public String firewallPolicyArn() {
-        if (firewallPolicyArn == null) return null;
-        return firewallPolicyArn.getValue("FirewallArgs.firewallPolicyArn");
+        if (!unknown_firewallPolicyArn) return value_firewallPolicyArn;
+        throw new UndeferrableValueException("Value 'FirewallArgs.firewallPolicyArn' is not present");
     }
 
     /**
      * A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> firewallPolicyChangeProtection;
-
+    @PolicyResourceProperty(name="firewallPolicyChangeProtection", flag="unknown_firewallPolicyChangeProtection")
+    private Boolean value_firewallPolicyChangeProtection;
+    private boolean unknown_firewallPolicyChangeProtection;
     public Boolean firewallPolicyChangeProtection() {
-        if (firewallPolicyChangeProtection == null) return null;
-        return firewallPolicyChangeProtection.getValue("FirewallArgs.firewallPolicyChangeProtection");
+        if (!unknown_firewallPolicyChangeProtection) return value_firewallPolicyChangeProtection;
+        throw new UndeferrableValueException("Value 'FirewallArgs.firewallPolicyChangeProtection' is not present");
     }
 
     /**
      * A friendly name of the firewall.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("FirewallArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FirewallArgs.name' is not present");
     }
 
     /**
      * A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> subnetChangeProtection;
-
+    @PolicyResourceProperty(name="subnetChangeProtection", flag="unknown_subnetChangeProtection")
+    private Boolean value_subnetChangeProtection;
+    private boolean unknown_subnetChangeProtection;
     public Boolean subnetChangeProtection() {
-        if (subnetChangeProtection == null) return null;
-        return subnetChangeProtection.getValue("FirewallArgs.subnetChangeProtection");
+        if (!unknown_subnetChangeProtection) return value_subnetChangeProtection;
+        throw new UndeferrableValueException("Value 'FirewallArgs.subnetChangeProtection' is not present");
     }
 
     /**
      * Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
      * 
      */
-    private UndeferrableValue<List<FirewallSubnetMappingArgs>> subnetMappings;
-
+    @PolicyResourceProperty(name="subnetMappings", flag="unknown_subnetMappings")
+    private List<FirewallSubnetMappingArgs> value_subnetMappings;
+    private boolean unknown_subnetMappings;
     public List<FirewallSubnetMappingArgs> subnetMappings() {
-        if (subnetMappings == null) return null;
-        return subnetMappings.getValue("FirewallArgs.subnetMappings");
+        if (!unknown_subnetMappings) return value_subnetMappings;
+        throw new UndeferrableValueException("Value 'FirewallArgs.subnetMappings' is not present");
     }
 
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("FirewallArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'FirewallArgs.tags' is not present");
     }
 
     /**
      * The unique identifier of the VPC where AWS Network Firewall should create the firewall.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("FirewallArgs.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'FirewallArgs.vpcId' is not present");
     }
 
 }

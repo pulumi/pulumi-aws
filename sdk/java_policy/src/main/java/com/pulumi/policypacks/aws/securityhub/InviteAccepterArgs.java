@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,11 +16,12 @@ public final class InviteAccepterArgs extends com.pulumi.resources.PolicyResourc
      * The account ID of the master Security Hub account whose invitation you&#39;re accepting.
      * 
      */
-    private UndeferrableValue<String> masterId;
-
+    @PolicyResourceProperty(name="masterId", flag="unknown_masterId")
+    private String value_masterId;
+    private boolean unknown_masterId;
     public String masterId() {
-        if (masterId == null) return null;
-        return masterId.getValue("InviteAccepterArgs.masterId");
+        if (!unknown_masterId) return value_masterId;
+        throw new UndeferrableValueException("Value 'InviteAccepterArgs.masterId' is not present");
     }
 
 }

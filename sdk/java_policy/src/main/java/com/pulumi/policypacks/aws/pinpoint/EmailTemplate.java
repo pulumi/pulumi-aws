@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pinpoint;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.pinpoint.outputs.EmailTemplateEmailTemplate;
 import java.lang.String;
@@ -19,29 +20,32 @@ public final class EmailTemplate extends com.pulumi.resources.PolicyResourceOutp
      * Amazon Resource Name (ARN) of the message template.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("EmailTemplate.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'EmailTemplate.arn' is not present");
     }
 
     /**
      * Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
      * 
      */
-    private @Nullable UndeferrableValue<List<EmailTemplateEmailTemplate>> emailTemplates;
-
+    @PolicyResourceProperty(name="emailTemplates", flag="unknown_emailTemplates")
+    private @Nullable List<EmailTemplateEmailTemplate> value_emailTemplates;
+    private boolean unknown_emailTemplates;
     public @Nullable List<EmailTemplateEmailTemplate> emailTemplates() {
-        if (emailTemplates == null) return null;
-        return emailTemplates.getValue("EmailTemplate.emailTemplates");
+        if (!unknown_emailTemplates) return value_emailTemplates;
+        throw new UndeferrableValueException("Value 'EmailTemplate.emailTemplates' is not present");
     }
 
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("EmailTemplate.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'EmailTemplate.tags' is not present");
     }
 
     /**
@@ -50,22 +54,24 @@ public final class EmailTemplate extends com.pulumi.resources.PolicyResourceOutp
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("EmailTemplate.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'EmailTemplate.tagsAll' is not present");
     }
 
     /**
      * name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
      * 
      */
-    private UndeferrableValue<String> templateName;
-
+    @PolicyResourceProperty(name="templateName", flag="unknown_templateName")
+    private String value_templateName;
+    private boolean unknown_templateName;
     public String templateName() {
-        if (templateName == null) return null;
-        return templateName.getValue("EmailTemplate.templateName");
+        if (!unknown_templateName) return value_templateName;
+        throw new UndeferrableValueException("Value 'EmailTemplate.templateName' is not present");
     }
 
 }

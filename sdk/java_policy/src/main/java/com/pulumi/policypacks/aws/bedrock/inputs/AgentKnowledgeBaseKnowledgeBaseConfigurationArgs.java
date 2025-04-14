@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs {
      * Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("AgentKnowledgeBaseKnowledgeBaseConfigurationArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseKnowledgeBaseConfigurationArgs.type' is not present");
     }
 
     /**
      * Details about the embeddings model that&#39;sused to convert the data source. See `vector_knowledge_base_configuration` block for details.
      * 
      */
-    private UndeferrableValue<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs> vectorKnowledgeBaseConfiguration;
-
+    @PolicyResourceProperty(name="vectorKnowledgeBaseConfiguration", flag="unknown_vectorKnowledgeBaseConfiguration")
+    private AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs value_vectorKnowledgeBaseConfiguration;
+    private boolean unknown_vectorKnowledgeBaseConfiguration;
     public AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs vectorKnowledgeBaseConfiguration() {
-        if (vectorKnowledgeBaseConfiguration == null) return null;
-        return vectorKnowledgeBaseConfiguration.getValue("AgentKnowledgeBaseKnowledgeBaseConfigurationArgs.vectorKnowledgeBaseConfiguration");
+        if (!unknown_vectorKnowledgeBaseConfiguration) return value_vectorKnowledgeBaseConfiguration;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseKnowledgeBaseConfigurationArgs.vectorKnowledgeBaseConfiguration' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRuleActionCaptchaCustomRequestHandling;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class RuleGroupRuleActionCaptcha {
      * Defines custom handling for the web request. See Custom Request Handling below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleActionCaptchaCustomRequestHandling> customRequestHandling;
-
+    @PolicyResourceProperty(name="customRequestHandling", flag="unknown_customRequestHandling")
+    private @Nullable RuleGroupRuleActionCaptchaCustomRequestHandling value_customRequestHandling;
+    private boolean unknown_customRequestHandling;
     public @Nullable RuleGroupRuleActionCaptchaCustomRequestHandling customRequestHandling() {
-        if (customRequestHandling == null) return null;
-        return customRequestHandling.getValue("RuleGroupRuleActionCaptcha.customRequestHandling");
+        if (!unknown_customRequestHandling) return value_customRequestHandling;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleActionCaptcha.customRequestHandling' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.eks.inputs.ClusterEncryptionConfigProviderArgs;
 import java.lang.String;
 import java.util.List;
@@ -15,22 +16,24 @@ public final class ClusterEncryptionConfigArgs {
      * Configuration block with provider for encryption. Detailed below.
      * 
      */
-    private UndeferrableValue<ClusterEncryptionConfigProviderArgs> provider;
-
+    @PolicyResourceProperty(name="provider", flag="unknown_provider")
+    private ClusterEncryptionConfigProviderArgs value_provider;
+    private boolean unknown_provider;
     public ClusterEncryptionConfigProviderArgs provider() {
-        if (provider == null) return null;
-        return provider.getValue("ClusterEncryptionConfigArgs.provider");
+        if (!unknown_provider) return value_provider;
+        throw new UndeferrableValueException("Value 'ClusterEncryptionConfigArgs.provider' is not present");
     }
 
     /**
      * List of strings with resources to be encrypted. Valid values: `secrets`.
      * 
      */
-    private UndeferrableValue<List<String>> resources;
-
+    @PolicyResourceProperty(name="resources", flag="unknown_resources")
+    private List<String> value_resources;
+    private boolean unknown_resources;
     public List<String> resources() {
-        if (resources == null) return null;
-        return resources.getValue("ClusterEncryptionConfigArgs.resources");
+        if (!unknown_resources) return value_resources;
+        throw new UndeferrableValueException("Value 'ClusterEncryptionConfigArgs.resources' is not present");
     }
 
 }

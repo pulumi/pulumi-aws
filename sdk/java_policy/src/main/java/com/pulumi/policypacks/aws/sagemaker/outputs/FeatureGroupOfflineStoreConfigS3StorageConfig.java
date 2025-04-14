@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class FeatureGroupOfflineStoreConfigS3StorageConfig {
      * The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("FeatureGroupOfflineStoreConfigS3StorageConfig.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'FeatureGroupOfflineStoreConfigS3StorageConfig.kmsKeyId' is not present");
     }
 
     /**
      * The S3 path where offline records are written.
      * 
      */
-    private @Nullable UndeferrableValue<String> resolvedOutputS3Uri;
-
+    @PolicyResourceProperty(name="resolvedOutputS3Uri", flag="unknown_resolvedOutputS3Uri")
+    private @Nullable String value_resolvedOutputS3Uri;
+    private boolean unknown_resolvedOutputS3Uri;
     public @Nullable String resolvedOutputS3Uri() {
-        if (resolvedOutputS3Uri == null) return null;
-        return resolvedOutputS3Uri.getValue("FeatureGroupOfflineStoreConfigS3StorageConfig.resolvedOutputS3Uri");
+        if (!unknown_resolvedOutputS3Uri) return value_resolvedOutputS3Uri;
+        throw new UndeferrableValueException("Value 'FeatureGroupOfflineStoreConfigS3StorageConfig.resolvedOutputS3Uri' is not present");
     }
 
     /**
      * The S3 URI, or location in Amazon S3, of OfflineStore.
      * 
      */
-    private UndeferrableValue<String> s3Uri;
-
+    @PolicyResourceProperty(name="s3Uri", flag="unknown_s3Uri")
+    private String value_s3Uri;
+    private boolean unknown_s3Uri;
     public String s3Uri() {
-        if (s3Uri == null) return null;
-        return s3Uri.getValue("FeatureGroupOfflineStoreConfigS3StorageConfig.s3Uri");
+        if (!unknown_s3Uri) return value_s3Uri;
+        throw new UndeferrableValueException("Value 'FeatureGroupOfflineStoreConfigS3StorageConfig.s3Uri' is not present");
     }
 
 }

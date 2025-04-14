@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,66 +16,72 @@ public final class EventTargetRedshiftTargetArgs {
      * The name of the database.
      * 
      */
-    private UndeferrableValue<String> database;
-
+    @PolicyResourceProperty(name="database", flag="unknown_database")
+    private String value_database;
+    private boolean unknown_database;
     public String database() {
-        if (database == null) return null;
-        return database.getValue("EventTargetRedshiftTargetArgs.database");
+        if (!unknown_database) return value_database;
+        throw new UndeferrableValueException("Value 'EventTargetRedshiftTargetArgs.database' is not present");
     }
 
     /**
      * The database user name.
      * 
      */
-    private UndeferrableValue<String> dbUser;
-
+    @PolicyResourceProperty(name="dbUser", flag="unknown_dbUser")
+    private String value_dbUser;
+    private boolean unknown_dbUser;
     public String dbUser() {
-        if (dbUser == null) return null;
-        return dbUser.getValue("EventTargetRedshiftTargetArgs.dbUser");
+        if (!unknown_dbUser) return value_dbUser;
+        throw new UndeferrableValueException("Value 'EventTargetRedshiftTargetArgs.dbUser' is not present");
     }
 
     /**
      * The name or ARN of the secret that enables access to the database.
      * 
      */
-    private UndeferrableValue<String> secretsManagerArn;
-
+    @PolicyResourceProperty(name="secretsManagerArn", flag="unknown_secretsManagerArn")
+    private String value_secretsManagerArn;
+    private boolean unknown_secretsManagerArn;
     public String secretsManagerArn() {
-        if (secretsManagerArn == null) return null;
-        return secretsManagerArn.getValue("EventTargetRedshiftTargetArgs.secretsManagerArn");
+        if (!unknown_secretsManagerArn) return value_secretsManagerArn;
+        throw new UndeferrableValueException("Value 'EventTargetRedshiftTargetArgs.secretsManagerArn' is not present");
     }
 
     /**
      * The SQL statement text to run.
      * 
      */
-    private UndeferrableValue<String> sql;
-
+    @PolicyResourceProperty(name="sql", flag="unknown_sql")
+    private String value_sql;
+    private boolean unknown_sql;
     public String sql() {
-        if (sql == null) return null;
-        return sql.getValue("EventTargetRedshiftTargetArgs.sql");
+        if (!unknown_sql) return value_sql;
+        throw new UndeferrableValueException("Value 'EventTargetRedshiftTargetArgs.sql' is not present");
     }
 
     /**
      * The name of the SQL statement.
      * 
      */
-    private UndeferrableValue<String> statementName;
-
+    @PolicyResourceProperty(name="statementName", flag="unknown_statementName")
+    private String value_statementName;
+    private boolean unknown_statementName;
     public String statementName() {
-        if (statementName == null) return null;
-        return statementName.getValue("EventTargetRedshiftTargetArgs.statementName");
+        if (!unknown_statementName) return value_statementName;
+        throw new UndeferrableValueException("Value 'EventTargetRedshiftTargetArgs.statementName' is not present");
     }
 
     /**
      * Indicates whether to send an event back to EventBridge after the SQL statement runs.
      * 
      */
-    private UndeferrableValue<Boolean> withEvent;
-
+    @PolicyResourceProperty(name="withEvent", flag="unknown_withEvent")
+    private Boolean value_withEvent;
+    private boolean unknown_withEvent;
     public Boolean withEvent() {
-        if (withEvent == null) return null;
-        return withEvent.getValue("EventTargetRedshiftTargetArgs.withEvent");
+        if (!unknown_withEvent) return value_withEvent;
+        throw new UndeferrableValueException("Value 'EventTargetRedshiftTargetArgs.withEvent' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicediscovery.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ServiceHealthCheckConfig {
      * The number of consecutive health checks. Maximum value of 10.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> failureThreshold;
-
+    @PolicyResourceProperty(name="failureThreshold", flag="unknown_failureThreshold")
+    private @Nullable Integer value_failureThreshold;
+    private boolean unknown_failureThreshold;
     public @Nullable Integer failureThreshold() {
-        if (failureThreshold == null) return null;
-        return failureThreshold.getValue("ServiceHealthCheckConfig.failureThreshold");
+        if (!unknown_failureThreshold) return value_failureThreshold;
+        throw new UndeferrableValueException("Value 'ServiceHealthCheckConfig.failureThreshold' is not present");
     }
 
     /**
      * The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don&#39;t specify a value, the default value is /.
      * 
      */
-    private @Nullable UndeferrableValue<String> resourcePath;
-
+    @PolicyResourceProperty(name="resourcePath", flag="unknown_resourcePath")
+    private @Nullable String value_resourcePath;
+    private boolean unknown_resourcePath;
     public @Nullable String resourcePath() {
-        if (resourcePath == null) return null;
-        return resourcePath.getValue("ServiceHealthCheckConfig.resourcePath");
+        if (!unknown_resourcePath) return value_resourcePath;
+        throw new UndeferrableValueException("Value 'ServiceHealthCheckConfig.resourcePath' is not present");
     }
 
     /**
      * The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("ServiceHealthCheckConfig.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ServiceHealthCheckConfig.type' is not present");
     }
 
 }

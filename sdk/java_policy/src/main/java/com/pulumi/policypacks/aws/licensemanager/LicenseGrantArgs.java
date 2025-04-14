@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.licensemanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,44 +18,48 @@ public final class LicenseGrantArgs extends com.pulumi.resources.PolicyResourceI
      * A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
      * 
      */
-    private UndeferrableValue<List<String>> allowedOperations;
-
+    @PolicyResourceProperty(name="allowedOperations", flag="unknown_allowedOperations")
+    private List<String> value_allowedOperations;
+    private boolean unknown_allowedOperations;
     public List<String> allowedOperations() {
-        if (allowedOperations == null) return null;
-        return allowedOperations.getValue("LicenseGrantArgs.allowedOperations");
+        if (!unknown_allowedOperations) return value_allowedOperations;
+        throw new UndeferrableValueException("Value 'LicenseGrantArgs.allowedOperations' is not present");
     }
 
     /**
      * The ARN of the license to grant.
      * 
      */
-    private UndeferrableValue<String> licenseArn;
-
+    @PolicyResourceProperty(name="licenseArn", flag="unknown_licenseArn")
+    private String value_licenseArn;
+    private boolean unknown_licenseArn;
     public String licenseArn() {
-        if (licenseArn == null) return null;
-        return licenseArn.getValue("LicenseGrantArgs.licenseArn");
+        if (!unknown_licenseArn) return value_licenseArn;
+        throw new UndeferrableValueException("Value 'LicenseGrantArgs.licenseArn' is not present");
     }
 
     /**
      * The Name of the grant.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LicenseGrantArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LicenseGrantArgs.name' is not present");
     }
 
     /**
      * The target account for the grant in the form of the ARN for an account principal of the root user.
      * 
      */
-    private UndeferrableValue<String> principal;
-
+    @PolicyResourceProperty(name="principal", flag="unknown_principal")
+    private String value_principal;
+    private boolean unknown_principal;
     public String principal() {
-        if (principal == null) return null;
-        return principal.getValue("LicenseGrantArgs.principal");
+        if (!unknown_principal) return value_principal;
+        throw new UndeferrableValueException("Value 'LicenseGrantArgs.principal' is not present");
     }
 
 }

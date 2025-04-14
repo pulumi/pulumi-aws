@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class VirtualGatewaySpecListenerConnectionPoolHttp {
      * Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
      * 
      */
-    private UndeferrableValue<Integer> maxConnections;
-
+    @PolicyResourceProperty(name="maxConnections", flag="unknown_maxConnections")
+    private Integer value_maxConnections;
+    private boolean unknown_maxConnections;
     public Integer maxConnections() {
-        if (maxConnections == null) return null;
-        return maxConnections.getValue("VirtualGatewaySpecListenerConnectionPoolHttp.maxConnections");
+        if (!unknown_maxConnections) return value_maxConnections;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerConnectionPoolHttp.maxConnections' is not present");
     }
 
     /**
      * Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxPendingRequests;
-
+    @PolicyResourceProperty(name="maxPendingRequests", flag="unknown_maxPendingRequests")
+    private @Nullable Integer value_maxPendingRequests;
+    private boolean unknown_maxPendingRequests;
     public @Nullable Integer maxPendingRequests() {
-        if (maxPendingRequests == null) return null;
-        return maxPendingRequests.getValue("VirtualGatewaySpecListenerConnectionPoolHttp.maxPendingRequests");
+        if (!unknown_maxPendingRequests) return value_maxPendingRequests;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerConnectionPoolHttp.maxPendingRequests' is not present");
     }
 
 }

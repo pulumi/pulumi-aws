@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3control.inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs;
 
 
@@ -13,11 +14,12 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
      * Configuration for an AWS Lambda function. See AWS Lambda below for more details.
      * 
      */
-    private UndeferrableValue<ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs> awsLambda;
-
+    @PolicyResourceProperty(name="awsLambda", flag="unknown_awsLambda")
+    private ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs value_awsLambda;
+    private boolean unknown_awsLambda;
     public ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs awsLambda() {
-        if (awsLambda == null) return null;
-        return awsLambda.getValue("ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs.awsLambda");
+        if (!unknown_awsLambda) return value_awsLambda;
+        throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs.awsLambda' is not present");
     }
 
 }

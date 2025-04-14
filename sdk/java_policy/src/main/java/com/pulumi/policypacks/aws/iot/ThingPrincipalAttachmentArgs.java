@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class ThingPrincipalAttachmentArgs extends com.pulumi.resources.Pol
      * The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
      * 
      */
-    private UndeferrableValue<String> principal;
-
+    @PolicyResourceProperty(name="principal", flag="unknown_principal")
+    private String value_principal;
+    private boolean unknown_principal;
     public String principal() {
-        if (principal == null) return null;
-        return principal.getValue("ThingPrincipalAttachmentArgs.principal");
+        if (!unknown_principal) return value_principal;
+        throw new UndeferrableValueException("Value 'ThingPrincipalAttachmentArgs.principal' is not present");
     }
 
     /**
      * The name of the thing.
      * 
      */
-    private UndeferrableValue<String> thing;
-
+    @PolicyResourceProperty(name="thing", flag="unknown_thing")
+    private String value_thing;
+    private boolean unknown_thing;
     public String thing() {
-        if (thing == null) return null;
-        return thing.getValue("ThingPrincipalAttachmentArgs.thing");
+        if (!unknown_thing) return value_thing;
+        throw new UndeferrableValueException("Value 'ThingPrincipalAttachmentArgs.thing' is not present");
     }
 
 }

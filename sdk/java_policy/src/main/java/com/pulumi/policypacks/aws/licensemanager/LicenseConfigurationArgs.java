@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.licensemanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -20,77 +21,84 @@ public final class LicenseConfigurationArgs extends com.pulumi.resources.PolicyR
      * Description of the license configuration.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("LicenseConfigurationArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'LicenseConfigurationArgs.description' is not present");
     }
 
     /**
      * Number of licenses managed by the license configuration.
      * 
      */
-    private UndeferrableValue<Integer> licenseCount;
-
+    @PolicyResourceProperty(name="licenseCount", flag="unknown_licenseCount")
+    private Integer value_licenseCount;
+    private boolean unknown_licenseCount;
     public Integer licenseCount() {
-        if (licenseCount == null) return null;
-        return licenseCount.getValue("LicenseConfigurationArgs.licenseCount");
+        if (!unknown_licenseCount) return value_licenseCount;
+        throw new UndeferrableValueException("Value 'LicenseConfigurationArgs.licenseCount' is not present");
     }
 
     /**
      * Sets the number of available licenses as a hard limit.
      * 
      */
-    private UndeferrableValue<Boolean> licenseCountHardLimit;
-
+    @PolicyResourceProperty(name="licenseCountHardLimit", flag="unknown_licenseCountHardLimit")
+    private Boolean value_licenseCountHardLimit;
+    private boolean unknown_licenseCountHardLimit;
     public Boolean licenseCountHardLimit() {
-        if (licenseCountHardLimit == null) return null;
-        return licenseCountHardLimit.getValue("LicenseConfigurationArgs.licenseCountHardLimit");
+        if (!unknown_licenseCountHardLimit) return value_licenseCountHardLimit;
+        throw new UndeferrableValueException("Value 'LicenseConfigurationArgs.licenseCountHardLimit' is not present");
     }
 
     /**
      * Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
      * 
      */
-    private UndeferrableValue<String> licenseCountingType;
-
+    @PolicyResourceProperty(name="licenseCountingType", flag="unknown_licenseCountingType")
+    private String value_licenseCountingType;
+    private boolean unknown_licenseCountingType;
     public String licenseCountingType() {
-        if (licenseCountingType == null) return null;
-        return licenseCountingType.getValue("LicenseConfigurationArgs.licenseCountingType");
+        if (!unknown_licenseCountingType) return value_licenseCountingType;
+        throw new UndeferrableValueException("Value 'LicenseConfigurationArgs.licenseCountingType' is not present");
     }
 
     /**
      * Array of configured License Manager rules.
      * 
      */
-    private UndeferrableValue<List<String>> licenseRules;
-
+    @PolicyResourceProperty(name="licenseRules", flag="unknown_licenseRules")
+    private List<String> value_licenseRules;
+    private boolean unknown_licenseRules;
     public List<String> licenseRules() {
-        if (licenseRules == null) return null;
-        return licenseRules.getValue("LicenseConfigurationArgs.licenseRules");
+        if (!unknown_licenseRules) return value_licenseRules;
+        throw new UndeferrableValueException("Value 'LicenseConfigurationArgs.licenseRules' is not present");
     }
 
     /**
      * Name of the license configuration.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LicenseConfigurationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LicenseConfigurationArgs.name' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LicenseConfigurationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LicenseConfigurationArgs.tags' is not present");
     }
 
 }

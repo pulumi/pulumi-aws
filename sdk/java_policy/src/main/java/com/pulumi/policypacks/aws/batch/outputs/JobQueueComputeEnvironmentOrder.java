@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class JobQueueComputeEnvironmentOrder {
      * The Amazon Resource Name (ARN) of the compute environment.
      * 
      */
-    private UndeferrableValue<String> computeEnvironment;
-
+    @PolicyResourceProperty(name="computeEnvironment", flag="unknown_computeEnvironment")
+    private String value_computeEnvironment;
+    private boolean unknown_computeEnvironment;
     public String computeEnvironment() {
-        if (computeEnvironment == null) return null;
-        return computeEnvironment.getValue("JobQueueComputeEnvironmentOrder.computeEnvironment");
+        if (!unknown_computeEnvironment) return value_computeEnvironment;
+        throw new UndeferrableValueException("Value 'JobQueueComputeEnvironmentOrder.computeEnvironment' is not present");
     }
 
     /**
      * The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
      * 
      */
-    private UndeferrableValue<Integer> order;
-
+    @PolicyResourceProperty(name="order", flag="unknown_order")
+    private Integer value_order;
+    private boolean unknown_order;
     public Integer order() {
-        if (order == null) return null;
-        return order.getValue("JobQueueComputeEnvironmentOrder.order");
+        if (!unknown_order) return value_order;
+        throw new UndeferrableValueException("Value 'JobQueueComputeEnvironmentOrder.order' is not present");
     }
 
 }

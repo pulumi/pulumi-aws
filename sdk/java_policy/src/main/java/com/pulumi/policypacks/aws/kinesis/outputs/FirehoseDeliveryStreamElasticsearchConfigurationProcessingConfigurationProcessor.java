@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationProcessingCon
      * Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private @Nullable List<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter> value_parameters;
+    private boolean unknown_parameters;
     public @Nullable List<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor.parameters' is not present");
     }
 
     /**
      * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor.type' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ivs.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ivs.outputs.RecordingConfigurationDestinationConfigurationS3;
 
 
@@ -13,11 +14,12 @@ public final class RecordingConfigurationDestinationConfiguration {
      * S3 destination configuration where recorded videos will be stored.
      * 
      */
-    private UndeferrableValue<RecordingConfigurationDestinationConfigurationS3> s3;
-
+    @PolicyResourceProperty(name="s3", flag="unknown_s3")
+    private RecordingConfigurationDestinationConfigurationS3 value_s3;
+    private boolean unknown_s3;
     public RecordingConfigurationDestinationConfigurationS3 s3() {
-        if (s3 == null) return null;
-        return s3.getValue("RecordingConfigurationDestinationConfiguration.s3");
+        if (!unknown_s3) return value_s3;
+        throw new UndeferrableValueException("Value 'RecordingConfigurationDestinationConfiguration.s3' is not present");
     }
 
 }

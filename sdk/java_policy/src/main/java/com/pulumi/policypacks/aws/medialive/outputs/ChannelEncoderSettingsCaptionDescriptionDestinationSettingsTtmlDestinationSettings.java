@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTt
      * This field is not currently supported and will not affect the output styling. Leave the default value.
      * 
      */
-    private UndeferrableValue<String> styleControl;
-
+    @PolicyResourceProperty(name="styleControl", flag="unknown_styleControl")
+    private String value_styleControl;
+    private boolean unknown_styleControl;
     public String styleControl() {
-        if (styleControl == null) return null;
-        return styleControl.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings.styleControl");
+        if (!unknown_styleControl) return value_styleControl;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings.styleControl' is not present");
     }
 
 }

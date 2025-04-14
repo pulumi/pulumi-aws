@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,77 +19,84 @@ public final class Authorizer extends com.pulumi.resources.PolicyResourceOutput 
      * The ARN of the authorizer.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Authorizer.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Authorizer.arn' is not present");
     }
 
     /**
      * The ARN of the authorizer&#39;s Lambda function.
      * 
      */
-    private UndeferrableValue<String> authorizerFunctionArn;
-
+    @PolicyResourceProperty(name="authorizerFunctionArn", flag="unknown_authorizerFunctionArn")
+    private String value_authorizerFunctionArn;
+    private boolean unknown_authorizerFunctionArn;
     public String authorizerFunctionArn() {
-        if (authorizerFunctionArn == null) return null;
-        return authorizerFunctionArn.getValue("Authorizer.authorizerFunctionArn");
+        if (!unknown_authorizerFunctionArn) return value_authorizerFunctionArn;
+        throw new UndeferrableValueException("Value 'Authorizer.authorizerFunctionArn' is not present");
     }
 
     /**
      * Specifies whether the HTTP caching is enabled or not. Default: `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enableCachingForHttp;
-
+    @PolicyResourceProperty(name="enableCachingForHttp", flag="unknown_enableCachingForHttp")
+    private @Nullable Boolean value_enableCachingForHttp;
+    private boolean unknown_enableCachingForHttp;
     public @Nullable Boolean enableCachingForHttp() {
-        if (enableCachingForHttp == null) return null;
-        return enableCachingForHttp.getValue("Authorizer.enableCachingForHttp");
+        if (!unknown_enableCachingForHttp) return value_enableCachingForHttp;
+        throw new UndeferrableValueException("Value 'Authorizer.enableCachingForHttp' is not present");
     }
 
     /**
      * The name of the authorizer.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Authorizer.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Authorizer.name' is not present");
     }
 
     /**
      * Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> signingDisabled;
-
+    @PolicyResourceProperty(name="signingDisabled", flag="unknown_signingDisabled")
+    private @Nullable Boolean value_signingDisabled;
+    private boolean unknown_signingDisabled;
     public @Nullable Boolean signingDisabled() {
-        if (signingDisabled == null) return null;
-        return signingDisabled.getValue("Authorizer.signingDisabled");
+        if (!unknown_signingDisabled) return value_signingDisabled;
+        throw new UndeferrableValueException("Value 'Authorizer.signingDisabled' is not present");
     }
 
     /**
      * The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private @Nullable String value_status;
+    private boolean unknown_status;
     public @Nullable String status() {
-        if (status == null) return null;
-        return status.getValue("Authorizer.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Authorizer.status' is not present");
     }
 
     /**
      * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Authorizer.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Authorizer.tags' is not present");
     }
 
     /**
@@ -99,33 +107,36 @@ public final class Authorizer extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Authorizer.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Authorizer.tagsAll' is not present");
     }
 
     /**
      * The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
      * 
      */
-    private @Nullable UndeferrableValue<String> tokenKeyName;
-
+    @PolicyResourceProperty(name="tokenKeyName", flag="unknown_tokenKeyName")
+    private @Nullable String value_tokenKeyName;
+    private boolean unknown_tokenKeyName;
     public @Nullable String tokenKeyName() {
-        if (tokenKeyName == null) return null;
-        return tokenKeyName.getValue("Authorizer.tokenKeyName");
+        if (!unknown_tokenKeyName) return value_tokenKeyName;
+        throw new UndeferrableValueException("Value 'Authorizer.tokenKeyName' is not present");
     }
 
     /**
      * The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tokenSigningPublicKeys;
-
+    @PolicyResourceProperty(name="tokenSigningPublicKeys", flag="unknown_tokenSigningPublicKeys")
+    private @Nullable Map<String,String> value_tokenSigningPublicKeys;
+    private boolean unknown_tokenSigningPublicKeys;
     public @Nullable Map<String,String> tokenSigningPublicKeys() {
-        if (tokenSigningPublicKeys == null) return null;
-        return tokenSigningPublicKeys.getValue("Authorizer.tokenSigningPublicKeys");
+        if (!unknown_tokenSigningPublicKeys) return value_tokenSigningPublicKeys;
+        throw new UndeferrableValueException("Value 'Authorizer.tokenSigningPublicKeys' is not present");
     }
 
 }

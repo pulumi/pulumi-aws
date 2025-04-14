@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -16,44 +17,48 @@ public final class ClusterStepHadoopJarStepArgs {
      * List of command line arguments passed to the JAR file&#39;s main function when executed.
      * 
      */
-    private UndeferrableValue<List<String>> args;
-
+    @PolicyResourceProperty(name="args", flag="unknown_args")
+    private List<String> value_args;
+    private boolean unknown_args;
     public List<String> args() {
-        if (args == null) return null;
-        return args.getValue("ClusterStepHadoopJarStepArgs.args");
+        if (!unknown_args) return value_args;
+        throw new UndeferrableValueException("Value 'ClusterStepHadoopJarStepArgs.args' is not present");
     }
 
     /**
      * Path to a JAR file run during the step.
      * 
      */
-    private UndeferrableValue<String> jar;
-
+    @PolicyResourceProperty(name="jar", flag="unknown_jar")
+    private String value_jar;
+    private boolean unknown_jar;
     public String jar() {
-        if (jar == null) return null;
-        return jar.getValue("ClusterStepHadoopJarStepArgs.jar");
+        if (!unknown_jar) return value_jar;
+        throw new UndeferrableValueException("Value 'ClusterStepHadoopJarStepArgs.jar' is not present");
     }
 
     /**
      * Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
      * 
      */
-    private UndeferrableValue<String> mainClass;
-
+    @PolicyResourceProperty(name="mainClass", flag="unknown_mainClass")
+    private String value_mainClass;
+    private boolean unknown_mainClass;
     public String mainClass() {
-        if (mainClass == null) return null;
-        return mainClass.getValue("ClusterStepHadoopJarStepArgs.mainClass");
+        if (!unknown_mainClass) return value_mainClass;
+        throw new UndeferrableValueException("Value 'ClusterStepHadoopJarStepArgs.mainClass' is not present");
     }
 
     /**
      * Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
      * 
      */
-    private UndeferrableValue<Map<String,String>> properties;
-
+    @PolicyResourceProperty(name="properties", flag="unknown_properties")
+    private Map<String,String> value_properties;
+    private boolean unknown_properties;
     public Map<String,String> properties() {
-        if (properties == null) return null;
-        return properties.getValue("ClusterStepHadoopJarStepArgs.properties");
+        if (!unknown_properties) return value_properties;
+        throw new UndeferrableValueException("Value 'ClusterStepHadoopJarStepArgs.properties' is not present");
     }
 
 }

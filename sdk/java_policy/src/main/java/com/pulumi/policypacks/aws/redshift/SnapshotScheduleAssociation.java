@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class SnapshotScheduleAssociation extends com.pulumi.resources.Poli
      * The cluster identifier.
      * 
      */
-    private UndeferrableValue<String> clusterIdentifier;
-
+    @PolicyResourceProperty(name="clusterIdentifier", flag="unknown_clusterIdentifier")
+    private String value_clusterIdentifier;
+    private boolean unknown_clusterIdentifier;
     public String clusterIdentifier() {
-        if (clusterIdentifier == null) return null;
-        return clusterIdentifier.getValue("SnapshotScheduleAssociation.clusterIdentifier");
+        if (!unknown_clusterIdentifier) return value_clusterIdentifier;
+        throw new UndeferrableValueException("Value 'SnapshotScheduleAssociation.clusterIdentifier' is not present");
     }
 
     /**
      * The snapshot schedule identifier.
      * 
      */
-    private UndeferrableValue<String> scheduleIdentifier;
-
+    @PolicyResourceProperty(name="scheduleIdentifier", flag="unknown_scheduleIdentifier")
+    private String value_scheduleIdentifier;
+    private boolean unknown_scheduleIdentifier;
     public String scheduleIdentifier() {
-        if (scheduleIdentifier == null) return null;
-        return scheduleIdentifier.getValue("SnapshotScheduleAssociation.scheduleIdentifier");
+        if (!unknown_scheduleIdentifier) return value_scheduleIdentifier;
+        throw new UndeferrableValueException("Value 'SnapshotScheduleAssociation.scheduleIdentifier' is not present");
     }
 
 }

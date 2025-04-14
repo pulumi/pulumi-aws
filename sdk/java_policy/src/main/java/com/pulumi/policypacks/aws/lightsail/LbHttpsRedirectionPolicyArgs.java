@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -16,22 +17,24 @@ public final class LbHttpsRedirectionPolicyArgs extends com.pulumi.resources.Pol
      * The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("LbHttpsRedirectionPolicyArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'LbHttpsRedirectionPolicyArgs.enabled' is not present");
     }
 
     /**
      * The name of the load balancer to which you want to enable http to https redirection.
      * 
      */
-    private UndeferrableValue<String> lbName;
-
+    @PolicyResourceProperty(name="lbName", flag="unknown_lbName")
+    private String value_lbName;
+    private boolean unknown_lbName;
     public String lbName() {
-        if (lbName == null) return null;
-        return lbName.getValue("LbHttpsRedirectionPolicyArgs.lbName");
+        if (!unknown_lbName) return value_lbName;
+        throw new UndeferrableValueException("Value 'LbHttpsRedirectionPolicyArgs.lbName' is not present");
     }
 
 }

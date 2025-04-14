@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class CatalogDatabaseTargetDatabase {
      * ID of the Data Catalog in which the database resides.
      * 
      */
-    private UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private String value_catalogId;
+    private boolean unknown_catalogId;
     public String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("CatalogDatabaseTargetDatabase.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'CatalogDatabaseTargetDatabase.catalogId' is not present");
     }
 
     /**
      * Name of the catalog database.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("CatalogDatabaseTargetDatabase.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'CatalogDatabaseTargetDatabase.databaseName' is not present");
     }
 
     /**
      * Region of the target database.
      * 
      */
-    private @Nullable UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private @Nullable String value_region;
+    private boolean unknown_region;
     public @Nullable String region() {
-        if (region == null) return null;
-        return region.getValue("CatalogDatabaseTargetDatabase.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'CatalogDatabaseTargetDatabase.region' is not present");
     }
 
 }

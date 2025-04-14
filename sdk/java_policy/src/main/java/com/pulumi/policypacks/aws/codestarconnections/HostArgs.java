@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codestarconnections;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.codestarconnections.inputs.HostVpcConfigurationArgs;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class HostArgs extends com.pulumi.resources.PolicyResourceInput {
      * The name of the host to be created. The name must be unique in the calling AWS account.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("HostArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'HostArgs.name' is not present");
     }
 
     /**
      * The endpoint of the infrastructure to be represented by the host after it is created.
      * 
      */
-    private UndeferrableValue<String> providerEndpoint;
-
+    @PolicyResourceProperty(name="providerEndpoint", flag="unknown_providerEndpoint")
+    private String value_providerEndpoint;
+    private boolean unknown_providerEndpoint;
     public String providerEndpoint() {
-        if (providerEndpoint == null) return null;
-        return providerEndpoint.getValue("HostArgs.providerEndpoint");
+        if (!unknown_providerEndpoint) return value_providerEndpoint;
+        throw new UndeferrableValueException("Value 'HostArgs.providerEndpoint' is not present");
     }
 
     /**
      * The name of the external provider where your third-party code repository is configured.
      * 
      */
-    private UndeferrableValue<String> providerType;
-
+    @PolicyResourceProperty(name="providerType", flag="unknown_providerType")
+    private String value_providerType;
+    private boolean unknown_providerType;
     public String providerType() {
-        if (providerType == null) return null;
-        return providerType.getValue("HostArgs.providerType");
+        if (!unknown_providerType) return value_providerType;
+        throw new UndeferrableValueException("Value 'HostArgs.providerType' is not present");
     }
 
     /**
      * The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
      * 
      */
-    private UndeferrableValue<HostVpcConfigurationArgs> vpcConfiguration;
-
+    @PolicyResourceProperty(name="vpcConfiguration", flag="unknown_vpcConfiguration")
+    private HostVpcConfigurationArgs value_vpcConfiguration;
+    private boolean unknown_vpcConfiguration;
     public HostVpcConfigurationArgs vpcConfiguration() {
-        if (vpcConfiguration == null) return null;
-        return vpcConfiguration.getValue("HostArgs.vpcConfiguration");
+        if (!unknown_vpcConfiguration) return value_vpcConfiguration;
+        throw new UndeferrableValueException("Value 'HostArgs.vpcConfiguration' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,88 +17,96 @@ public final class UserPoolUICustomization extends com.pulumi.resources.PolicyRe
      * The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
      * 
      */
-    private @Nullable UndeferrableValue<String> clientId;
-
+    @PolicyResourceProperty(name="clientId", flag="unknown_clientId")
+    private @Nullable String value_clientId;
+    private boolean unknown_clientId;
     public @Nullable String clientId() {
-        if (clientId == null) return null;
-        return clientId.getValue("UserPoolUICustomization.clientId");
+        if (!unknown_clientId) return value_clientId;
+        throw new UndeferrableValueException("Value 'UserPoolUICustomization.clientId' is not present");
     }
 
     /**
      * The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
      * 
      */
-    private UndeferrableValue<String> creationDate;
-
+    @PolicyResourceProperty(name="creationDate", flag="unknown_creationDate")
+    private String value_creationDate;
+    private boolean unknown_creationDate;
     public String creationDate() {
-        if (creationDate == null) return null;
-        return creationDate.getValue("UserPoolUICustomization.creationDate");
+        if (!unknown_creationDate) return value_creationDate;
+        throw new UndeferrableValueException("Value 'UserPoolUICustomization.creationDate' is not present");
     }
 
     /**
      * The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
      * 
      */
-    private @Nullable UndeferrableValue<String> css;
-
+    @PolicyResourceProperty(name="css", flag="unknown_css")
+    private @Nullable String value_css;
+    private boolean unknown_css;
     public @Nullable String css() {
-        if (css == null) return null;
-        return css.getValue("UserPoolUICustomization.css");
+        if (!unknown_css) return value_css;
+        throw new UndeferrableValueException("Value 'UserPoolUICustomization.css' is not present");
     }
 
     /**
      * The CSS version number.
      * 
      */
-    private UndeferrableValue<String> cssVersion;
-
+    @PolicyResourceProperty(name="cssVersion", flag="unknown_cssVersion")
+    private String value_cssVersion;
+    private boolean unknown_cssVersion;
     public String cssVersion() {
-        if (cssVersion == null) return null;
-        return cssVersion.getValue("UserPoolUICustomization.cssVersion");
+        if (!unknown_cssVersion) return value_cssVersion;
+        throw new UndeferrableValueException("Value 'UserPoolUICustomization.cssVersion' is not present");
     }
 
     /**
      * The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
      * 
      */
-    private @Nullable UndeferrableValue<String> imageFile;
-
+    @PolicyResourceProperty(name="imageFile", flag="unknown_imageFile")
+    private @Nullable String value_imageFile;
+    private boolean unknown_imageFile;
     public @Nullable String imageFile() {
-        if (imageFile == null) return null;
-        return imageFile.getValue("UserPoolUICustomization.imageFile");
+        if (!unknown_imageFile) return value_imageFile;
+        throw new UndeferrableValueException("Value 'UserPoolUICustomization.imageFile' is not present");
     }
 
     /**
      * The logo image URL for the UI customization.
      * 
      */
-    private UndeferrableValue<String> imageUrl;
-
+    @PolicyResourceProperty(name="imageUrl", flag="unknown_imageUrl")
+    private String value_imageUrl;
+    private boolean unknown_imageUrl;
     public String imageUrl() {
-        if (imageUrl == null) return null;
-        return imageUrl.getValue("UserPoolUICustomization.imageUrl");
+        if (!unknown_imageUrl) return value_imageUrl;
+        throw new UndeferrableValueException("Value 'UserPoolUICustomization.imageUrl' is not present");
     }
 
     /**
      * The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
      * 
      */
-    private UndeferrableValue<String> lastModifiedDate;
-
+    @PolicyResourceProperty(name="lastModifiedDate", flag="unknown_lastModifiedDate")
+    private String value_lastModifiedDate;
+    private boolean unknown_lastModifiedDate;
     public String lastModifiedDate() {
-        if (lastModifiedDate == null) return null;
-        return lastModifiedDate.getValue("UserPoolUICustomization.lastModifiedDate");
+        if (!unknown_lastModifiedDate) return value_lastModifiedDate;
+        throw new UndeferrableValueException("Value 'UserPoolUICustomization.lastModifiedDate' is not present");
     }
 
     /**
      * The user pool ID for the user pool.
      * 
      */
-    private UndeferrableValue<String> userPoolId;
-
+    @PolicyResourceProperty(name="userPoolId", flag="unknown_userPoolId")
+    private String value_userPoolId;
+    private boolean unknown_userPoolId;
     public String userPoolId() {
-        if (userPoolId == null) return null;
-        return userPoolId.getValue("UserPoolUICustomization.userPoolId");
+        if (!unknown_userPoolId) return value_userPoolId;
+        throw new UndeferrableValueException("Value 'UserPoolUICustomization.userPoolId' is not present");
     }
 
 }

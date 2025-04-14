@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs;
 import com.pulumi.policypacks.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsArgs {
      * A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
      * 
      */
-    private UndeferrableValue<DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs> seedUrlConfiguration;
-
+    @PolicyResourceProperty(name="seedUrlConfiguration", flag="unknown_seedUrlConfiguration")
+    private DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs value_seedUrlConfiguration;
+    private boolean unknown_seedUrlConfiguration;
     public DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs seedUrlConfiguration() {
-        if (seedUrlConfiguration == null) return null;
-        return seedUrlConfiguration.getValue("DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.seedUrlConfiguration");
+        if (!unknown_seedUrlConfiguration) return value_seedUrlConfiguration;
+        throw new UndeferrableValueException("Value 'DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.seedUrlConfiguration' is not present");
     }
 
     /**
      * A block that specifies the configuration of the sitemap URLs of the websites you want to crawl. Only URLs belonging to the same website host names are crawled. You can list up to `3` sitemap URLs. Detailed below.
      * 
      */
-    private UndeferrableValue<DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs> siteMapsConfiguration;
-
+    @PolicyResourceProperty(name="siteMapsConfiguration", flag="unknown_siteMapsConfiguration")
+    private DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs value_siteMapsConfiguration;
+    private boolean unknown_siteMapsConfiguration;
     public DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs siteMapsConfiguration() {
-        if (siteMapsConfiguration == null) return null;
-        return siteMapsConfiguration.getValue("DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.siteMapsConfiguration");
+        if (!unknown_siteMapsConfiguration) return value_siteMapsConfiguration;
+        throw new UndeferrableValueException("Value 'DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.siteMapsConfiguration' is not present");
     }
 
 }

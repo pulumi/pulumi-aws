@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.budgets.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class BudgetActionSubscriber {
      * The address that AWS sends budget notifications to, either an SNS topic or an email.
      * 
      */
-    private UndeferrableValue<String> address;
-
+    @PolicyResourceProperty(name="address", flag="unknown_address")
+    private String value_address;
+    private boolean unknown_address;
     public String address() {
-        if (address == null) return null;
-        return address.getValue("BudgetActionSubscriber.address");
+        if (!unknown_address) return value_address;
+        throw new UndeferrableValueException("Value 'BudgetActionSubscriber.address' is not present");
     }
 
     /**
      * The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
      * 
      */
-    private UndeferrableValue<String> subscriptionType;
-
+    @PolicyResourceProperty(name="subscriptionType", flag="unknown_subscriptionType")
+    private String value_subscriptionType;
+    private boolean unknown_subscriptionType;
     public String subscriptionType() {
-        if (subscriptionType == null) return null;
-        return subscriptionType.getValue("BudgetActionSubscriber.subscriptionType");
+        if (!unknown_subscriptionType) return value_subscriptionType;
+        throw new UndeferrableValueException("Value 'BudgetActionSubscriber.subscriptionType' is not present");
     }
 
 }

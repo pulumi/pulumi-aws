@@ -3,32 +3,36 @@
 
 package com.pulumi.policypacks.aws.route53.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class RecordsExclusiveResourceRecordSetGeolocationArgs {
 
-    private UndeferrableValue<String> continentCode;
-
+    @PolicyResourceProperty(name="continentCode", flag="unknown_continentCode")
+    private String value_continentCode;
+    private boolean unknown_continentCode;
     public String continentCode() {
-        if (continentCode == null) return null;
-        return continentCode.getValue("RecordsExclusiveResourceRecordSetGeolocationArgs.continentCode");
+        if (!unknown_continentCode) return value_continentCode;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSetGeolocationArgs.continentCode' is not present");
     }
 
-    private UndeferrableValue<String> countryCode;
-
+    @PolicyResourceProperty(name="countryCode", flag="unknown_countryCode")
+    private String value_countryCode;
+    private boolean unknown_countryCode;
     public String countryCode() {
-        if (countryCode == null) return null;
-        return countryCode.getValue("RecordsExclusiveResourceRecordSetGeolocationArgs.countryCode");
+        if (!unknown_countryCode) return value_countryCode;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSetGeolocationArgs.countryCode' is not present");
     }
 
-    private UndeferrableValue<String> subdivisionCode;
-
+    @PolicyResourceProperty(name="subdivisionCode", flag="unknown_subdivisionCode")
+    private String value_subdivisionCode;
+    private boolean unknown_subdivisionCode;
     public String subdivisionCode() {
-        if (subdivisionCode == null) return null;
-        return subdivisionCode.getValue("RecordsExclusiveResourceRecordSetGeolocationArgs.subdivisionCode");
+        if (!unknown_subdivisionCode) return value_subdivisionCode;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSetGeolocationArgs.subdivisionCode' is not present");
     }
 
 }

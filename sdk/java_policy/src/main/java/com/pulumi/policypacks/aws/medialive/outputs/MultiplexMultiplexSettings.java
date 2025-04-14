@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class MultiplexMultiplexSettings {
      * Maximum video buffer delay.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maximumVideoBufferDelayMilliseconds;
-
+    @PolicyResourceProperty(name="maximumVideoBufferDelayMilliseconds", flag="unknown_maximumVideoBufferDelayMilliseconds")
+    private @Nullable Integer value_maximumVideoBufferDelayMilliseconds;
+    private boolean unknown_maximumVideoBufferDelayMilliseconds;
     public @Nullable Integer maximumVideoBufferDelayMilliseconds() {
-        if (maximumVideoBufferDelayMilliseconds == null) return null;
-        return maximumVideoBufferDelayMilliseconds.getValue("MultiplexMultiplexSettings.maximumVideoBufferDelayMilliseconds");
+        if (!unknown_maximumVideoBufferDelayMilliseconds) return value_maximumVideoBufferDelayMilliseconds;
+        throw new UndeferrableValueException("Value 'MultiplexMultiplexSettings.maximumVideoBufferDelayMilliseconds' is not present");
     }
 
     /**
      * Transport stream bit rate.
      * 
      */
-    private UndeferrableValue<Integer> transportStreamBitrate;
-
+    @PolicyResourceProperty(name="transportStreamBitrate", flag="unknown_transportStreamBitrate")
+    private Integer value_transportStreamBitrate;
+    private boolean unknown_transportStreamBitrate;
     public Integer transportStreamBitrate() {
-        if (transportStreamBitrate == null) return null;
-        return transportStreamBitrate.getValue("MultiplexMultiplexSettings.transportStreamBitrate");
+        if (!unknown_transportStreamBitrate) return value_transportStreamBitrate;
+        throw new UndeferrableValueException("Value 'MultiplexMultiplexSettings.transportStreamBitrate' is not present");
     }
 
     /**
      * Unique ID for each multiplex.
      * 
      */
-    private UndeferrableValue<Integer> transportStreamId;
-
+    @PolicyResourceProperty(name="transportStreamId", flag="unknown_transportStreamId")
+    private Integer value_transportStreamId;
+    private boolean unknown_transportStreamId;
     public Integer transportStreamId() {
-        if (transportStreamId == null) return null;
-        return transportStreamId.getValue("MultiplexMultiplexSettings.transportStreamId");
+        if (!unknown_transportStreamId) return value_transportStreamId;
+        throw new UndeferrableValueException("Value 'MultiplexMultiplexSettings.transportStreamId' is not present");
     }
 
     /**
      * Transport stream reserved bit rate.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> transportStreamReservedBitrate;
-
+    @PolicyResourceProperty(name="transportStreamReservedBitrate", flag="unknown_transportStreamReservedBitrate")
+    private @Nullable Integer value_transportStreamReservedBitrate;
+    private boolean unknown_transportStreamReservedBitrate;
     public @Nullable Integer transportStreamReservedBitrate() {
-        if (transportStreamReservedBitrate == null) return null;
-        return transportStreamReservedBitrate.getValue("MultiplexMultiplexSettings.transportStreamReservedBitrate");
+        if (!unknown_transportStreamReservedBitrate) return value_transportStreamReservedBitrate;
+        throw new UndeferrableValueException("Value 'MultiplexMultiplexSettings.transportStreamReservedBitrate' is not present");
     }
 
 }

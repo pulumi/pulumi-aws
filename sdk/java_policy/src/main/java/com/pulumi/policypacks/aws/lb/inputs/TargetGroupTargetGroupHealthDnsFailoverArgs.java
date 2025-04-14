@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lb.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class TargetGroupTargetGroupHealthDnsFailoverArgs {
      * The minimum number of targets that must be healthy. If the number of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to the maximum number of targets. The default is `off`.
      * 
      */
-    private UndeferrableValue<String> minimumHealthyTargetsCount;
-
+    @PolicyResourceProperty(name="minimumHealthyTargetsCount", flag="unknown_minimumHealthyTargetsCount")
+    private String value_minimumHealthyTargetsCount;
+    private boolean unknown_minimumHealthyTargetsCount;
     public String minimumHealthyTargetsCount() {
-        if (minimumHealthyTargetsCount == null) return null;
-        return minimumHealthyTargetsCount.getValue("TargetGroupTargetGroupHealthDnsFailoverArgs.minimumHealthyTargetsCount");
+        if (!unknown_minimumHealthyTargetsCount) return value_minimumHealthyTargetsCount;
+        throw new UndeferrableValueException("Value 'TargetGroupTargetGroupHealthDnsFailoverArgs.minimumHealthyTargetsCount' is not present");
     }
 
     /**
      * The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, mark the zone as unhealthy in DNS, so that traffic is routed only to healthy zones. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
      * 
      */
-    private UndeferrableValue<String> minimumHealthyTargetsPercentage;
-
+    @PolicyResourceProperty(name="minimumHealthyTargetsPercentage", flag="unknown_minimumHealthyTargetsPercentage")
+    private String value_minimumHealthyTargetsPercentage;
+    private boolean unknown_minimumHealthyTargetsPercentage;
     public String minimumHealthyTargetsPercentage() {
-        if (minimumHealthyTargetsPercentage == null) return null;
-        return minimumHealthyTargetsPercentage.getValue("TargetGroupTargetGroupHealthDnsFailoverArgs.minimumHealthyTargetsPercentage");
+        if (!unknown_minimumHealthyTargetsPercentage) return value_minimumHealthyTargetsPercentage;
+        throw new UndeferrableValueException("Value 'TargetGroupTargetGroupHealthDnsFailoverArgs.minimumHealthyTargetsPercentage' is not present");
     }
 
 }

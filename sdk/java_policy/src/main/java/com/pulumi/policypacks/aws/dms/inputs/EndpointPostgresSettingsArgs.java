@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dms.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,176 +17,192 @@ public final class EndpointPostgresSettingsArgs {
      * For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
      * 
      */
-    private UndeferrableValue<String> afterConnectScript;
-
+    @PolicyResourceProperty(name="afterConnectScript", flag="unknown_afterConnectScript")
+    private String value_afterConnectScript;
+    private boolean unknown_afterConnectScript;
     public String afterConnectScript() {
-        if (afterConnectScript == null) return null;
-        return afterConnectScript.getValue("EndpointPostgresSettingsArgs.afterConnectScript");
+        if (!unknown_afterConnectScript) return value_afterConnectScript;
+        throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.afterConnectScript' is not present");
     }
 
     /**
      * The Babelfish for Aurora PostgreSQL database name for the endpoint.
      * 
      */
-    private UndeferrableValue<String> babelfishDatabaseName;
-
+    @PolicyResourceProperty(name="babelfishDatabaseName", flag="unknown_babelfishDatabaseName")
+    private String value_babelfishDatabaseName;
+    private boolean unknown_babelfishDatabaseName;
     public String babelfishDatabaseName() {
-        if (babelfishDatabaseName == null) return null;
-        return babelfishDatabaseName.getValue("EndpointPostgresSettingsArgs.babelfishDatabaseName");
+        if (!unknown_babelfishDatabaseName) return value_babelfishDatabaseName;
+        throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.babelfishDatabaseName' is not present");
     }
 
     /**
      * To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
      * 
      */
-    private UndeferrableValue<Boolean> captureDdls;
-
+    @PolicyResourceProperty(name="captureDdls", flag="unknown_captureDdls")
+    private Boolean value_captureDdls;
+    private boolean unknown_captureDdls;
     public Boolean captureDdls() {
-        if (captureDdls == null) return null;
-        return captureDdls.getValue("EndpointPostgresSettingsArgs.captureDdls");
+        if (!unknown_captureDdls) return value_captureDdls;
+        throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.captureDdls' is not present");
     }
 
     /**
      * Specifies the default behavior of the replication&#39;s handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
      * 
      */
-    private UndeferrableValue<String> databaseMode;
-
+    @PolicyResourceProperty(name="databaseMode", flag="unknown_databaseMode")
+    private String value_databaseMode;
+    private boolean unknown_databaseMode;
     public String databaseMode() {
-        if (databaseMode == null) return null;
-        return databaseMode.getValue("EndpointPostgresSettingsArgs.databaseMode");
+        if (!unknown_databaseMode) return value_databaseMode;
+        throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.databaseMode' is not present");
     }
 
     /**
      * Sets the schema in which the operational DDL database artifacts are created. Default is `public`.
      * 
      */
-    private UndeferrableValue<String> ddlArtifactsSchema;
-
+    @PolicyResourceProperty(name="ddlArtifactsSchema", flag="unknown_ddlArtifactsSchema")
+    private String value_ddlArtifactsSchema;
+    private boolean unknown_ddlArtifactsSchema;
     public String ddlArtifactsSchema() {
-        if (ddlArtifactsSchema == null) return null;
-        return ddlArtifactsSchema.getValue("EndpointPostgresSettingsArgs.ddlArtifactsSchema");
+        if (!unknown_ddlArtifactsSchema) return value_ddlArtifactsSchema;
+        throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.ddlArtifactsSchema' is not present");
     }
 
     /**
      * Sets the client statement timeout for the PostgreSQL instance, in seconds. Default value is `60`.
      * 
      */
-    private UndeferrableValue<Integer> executeTimeout;
-
+    @PolicyResourceProperty(name="executeTimeout", flag="unknown_executeTimeout")
+    private Integer value_executeTimeout;
+    private boolean unknown_executeTimeout;
     public Integer executeTimeout() {
-        if (executeTimeout == null) return null;
-        return executeTimeout.getValue("EndpointPostgresSettingsArgs.executeTimeout");
+        if (!unknown_executeTimeout) return value_executeTimeout;
+        throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.executeTimeout' is not present");
     }
 
     /**
      * When set to `true`, this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize`. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> failTasksOnLobTruncation;
-
+    @PolicyResourceProperty(name="failTasksOnLobTruncation", flag="unknown_failTasksOnLobTruncation")
+    private Boolean value_failTasksOnLobTruncation;
+    private boolean unknown_failTasksOnLobTruncation;
     public Boolean failTasksOnLobTruncation() {
-        if (failTasksOnLobTruncation == null) return null;
-        return failTasksOnLobTruncation.getValue("EndpointPostgresSettingsArgs.failTasksOnLobTruncation");
+        if (!unknown_failTasksOnLobTruncation) return value_failTasksOnLobTruncation;
+        throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.failTasksOnLobTruncation' is not present");
     }
 
     /**
      * The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this, it prevents idle logical replication slots from holding onto old WAL logs, which can result in storage full situations on the source.
      * 
      */
-    private UndeferrableValue<Boolean> heartbeatEnable;
-
+    @PolicyResourceProperty(name="heartbeatEnable", flag="unknown_heartbeatEnable")
+    private Boolean value_heartbeatEnable;
+    private boolean unknown_heartbeatEnable;
     public Boolean heartbeatEnable() {
-        if (heartbeatEnable == null) return null;
-        return heartbeatEnable.getValue("EndpointPostgresSettingsArgs.heartbeatEnable");
+        if (!unknown_heartbeatEnable) return value_heartbeatEnable;
+        throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.heartbeatEnable' is not present");
     }
 
     /**
      * Sets the WAL heartbeat frequency (in minutes). Default value is `5`.
      * 
      */
-    private UndeferrableValue<Integer> heartbeatFrequency;
-
+    @PolicyResourceProperty(name="heartbeatFrequency", flag="unknown_heartbeatFrequency")
+    private Integer value_heartbeatFrequency;
+    private boolean unknown_heartbeatFrequency;
     public Integer heartbeatFrequency() {
-        if (heartbeatFrequency == null) return null;
-        return heartbeatFrequency.getValue("EndpointPostgresSettingsArgs.heartbeatFrequency");
+        if (!unknown_heartbeatFrequency) return value_heartbeatFrequency;
+        throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.heartbeatFrequency' is not present");
     }
 
     /**
      * Sets the schema in which the heartbeat artifacts are created. Default value is `public`.
      * 
      */
-    private UndeferrableValue<String> heartbeatSchema;
-
+    @PolicyResourceProperty(name="heartbeatSchema", flag="unknown_heartbeatSchema")
+    private String value_heartbeatSchema;
+    private boolean unknown_heartbeatSchema;
     public String heartbeatSchema() {
-        if (heartbeatSchema == null) return null;
-        return heartbeatSchema.getValue("EndpointPostgresSettingsArgs.heartbeatSchema");
+        if (!unknown_heartbeatSchema) return value_heartbeatSchema;
+        throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.heartbeatSchema' is not present");
     }
 
     /**
      * You can use PostgreSQL endpoint settings to map a boolean as a boolean from your PostgreSQL source to a Amazon Redshift target. Default value is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> mapBooleanAsBoolean;
-
+    @PolicyResourceProperty(name="mapBooleanAsBoolean", flag="unknown_mapBooleanAsBoolean")
+    private Boolean value_mapBooleanAsBoolean;
+    private boolean unknown_mapBooleanAsBoolean;
     public Boolean mapBooleanAsBoolean() {
-        if (mapBooleanAsBoolean == null) return null;
-        return mapBooleanAsBoolean.getValue("EndpointPostgresSettingsArgs.mapBooleanAsBoolean");
+        if (!unknown_mapBooleanAsBoolean) return value_mapBooleanAsBoolean;
+        throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.mapBooleanAsBoolean' is not present");
     }
 
     /**
      * Optional When true, DMS migrates JSONB values as CLOB.
      * 
      */
-    private UndeferrableValue<Boolean> mapJsonbAsClob;
-
+    @PolicyResourceProperty(name="mapJsonbAsClob", flag="unknown_mapJsonbAsClob")
+    private Boolean value_mapJsonbAsClob;
+    private boolean unknown_mapJsonbAsClob;
     public Boolean mapJsonbAsClob() {
-        if (mapJsonbAsClob == null) return null;
-        return mapJsonbAsClob.getValue("EndpointPostgresSettingsArgs.mapJsonbAsClob");
+        if (!unknown_mapJsonbAsClob) return value_mapJsonbAsClob;
+        throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.mapJsonbAsClob' is not present");
     }
 
     /**
      * Optional When true, DMS migrates LONG values as VARCHAR.
      * 
      */
-    private UndeferrableValue<String> mapLongVarcharAs;
-
+    @PolicyResourceProperty(name="mapLongVarcharAs", flag="unknown_mapLongVarcharAs")
+    private String value_mapLongVarcharAs;
+    private boolean unknown_mapLongVarcharAs;
     public String mapLongVarcharAs() {
-        if (mapLongVarcharAs == null) return null;
-        return mapLongVarcharAs.getValue("EndpointPostgresSettingsArgs.mapLongVarcharAs");
+        if (!unknown_mapLongVarcharAs) return value_mapLongVarcharAs;
+        throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.mapLongVarcharAs' is not present");
     }
 
     /**
      * Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
      * 
      */
-    private UndeferrableValue<Integer> maxFileSize;
-
+    @PolicyResourceProperty(name="maxFileSize", flag="unknown_maxFileSize")
+    private Integer value_maxFileSize;
+    private boolean unknown_maxFileSize;
     public Integer maxFileSize() {
-        if (maxFileSize == null) return null;
-        return maxFileSize.getValue("EndpointPostgresSettingsArgs.maxFileSize");
+        if (!unknown_maxFileSize) return value_maxFileSize;
+        throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.maxFileSize' is not present");
     }
 
     /**
      * Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test_decoding`.
      * 
      */
-    private UndeferrableValue<String> pluginName;
-
+    @PolicyResourceProperty(name="pluginName", flag="unknown_pluginName")
+    private String value_pluginName;
+    private boolean unknown_pluginName;
     public String pluginName() {
-        if (pluginName == null) return null;
-        return pluginName.getValue("EndpointPostgresSettingsArgs.pluginName");
+        if (!unknown_pluginName) return value_pluginName;
+        throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.pluginName' is not present");
     }
 
     /**
      * Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
      * 
      */
-    private UndeferrableValue<String> slotName;
-
+    @PolicyResourceProperty(name="slotName", flag="unknown_slotName")
+    private String value_slotName;
+    private boolean unknown_slotName;
     public String slotName() {
-        if (slotName == null) return null;
-        return slotName.getValue("EndpointPostgresSettingsArgs.slotName");
+        if (!unknown_slotName) return value_slotName;
+        throw new UndeferrableValueException("Value 'EndpointPostgresSettingsArgs.slotName' is not present");
     }
 
 }

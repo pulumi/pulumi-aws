@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudwatch.outputs.LogDeliveryDestinationDeliveryDestinationConfiguration;
 import java.lang.String;
@@ -18,66 +19,72 @@ public final class LogDeliveryDestination extends com.pulumi.resources.PolicyRes
      * The Amazon Resource Name (ARN) of the delivery destination.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("LogDeliveryDestination.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'LogDeliveryDestination.arn' is not present");
     }
 
     /**
      * The AWS resource that will receive the logs.
      * 
      */
-    private @Nullable UndeferrableValue<LogDeliveryDestinationDeliveryDestinationConfiguration> deliveryDestinationConfiguration;
-
+    @PolicyResourceProperty(name="deliveryDestinationConfiguration", flag="unknown_deliveryDestinationConfiguration")
+    private @Nullable LogDeliveryDestinationDeliveryDestinationConfiguration value_deliveryDestinationConfiguration;
+    private boolean unknown_deliveryDestinationConfiguration;
     public @Nullable LogDeliveryDestinationDeliveryDestinationConfiguration deliveryDestinationConfiguration() {
-        if (deliveryDestinationConfiguration == null) return null;
-        return deliveryDestinationConfiguration.getValue("LogDeliveryDestination.deliveryDestinationConfiguration");
+        if (!unknown_deliveryDestinationConfiguration) return value_deliveryDestinationConfiguration;
+        throw new UndeferrableValueException("Value 'LogDeliveryDestination.deliveryDestinationConfiguration' is not present");
     }
 
     /**
      * Whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.
      * 
      */
-    private UndeferrableValue<String> deliveryDestinationType;
-
+    @PolicyResourceProperty(name="deliveryDestinationType", flag="unknown_deliveryDestinationType")
+    private String value_deliveryDestinationType;
+    private boolean unknown_deliveryDestinationType;
     public String deliveryDestinationType() {
-        if (deliveryDestinationType == null) return null;
-        return deliveryDestinationType.getValue("LogDeliveryDestination.deliveryDestinationType");
+        if (!unknown_deliveryDestinationType) return value_deliveryDestinationType;
+        throw new UndeferrableValueException("Value 'LogDeliveryDestination.deliveryDestinationType' is not present");
     }
 
     /**
      * The name for this delivery destination.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LogDeliveryDestination.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LogDeliveryDestination.name' is not present");
     }
 
     /**
      * The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
      * 
      */
-    private @Nullable UndeferrableValue<String> outputFormat;
-
+    @PolicyResourceProperty(name="outputFormat", flag="unknown_outputFormat")
+    private @Nullable String value_outputFormat;
+    private boolean unknown_outputFormat;
     public @Nullable String outputFormat() {
-        if (outputFormat == null) return null;
-        return outputFormat.getValue("LogDeliveryDestination.outputFormat");
+        if (!unknown_outputFormat) return value_outputFormat;
+        throw new UndeferrableValueException("Value 'LogDeliveryDestination.outputFormat' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LogDeliveryDestination.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LogDeliveryDestination.tags' is not present");
     }
 
     /**
@@ -88,11 +95,12 @@ public final class LogDeliveryDestination extends com.pulumi.resources.PolicyRes
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("LogDeliveryDestination.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'LogDeliveryDestination.tagsAll' is not present");
     }
 
 }

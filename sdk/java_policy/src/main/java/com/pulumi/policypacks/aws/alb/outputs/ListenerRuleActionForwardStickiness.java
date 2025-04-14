@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.alb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ListenerRuleActionForwardStickiness {
      * The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
      * 
      */
-    private UndeferrableValue<Integer> duration;
-
+    @PolicyResourceProperty(name="duration", flag="unknown_duration")
+    private Integer value_duration;
+    private boolean unknown_duration;
     public Integer duration() {
-        if (duration == null) return null;
-        return duration.getValue("ListenerRuleActionForwardStickiness.duration");
+        if (!unknown_duration) return value_duration;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionForwardStickiness.duration' is not present");
     }
 
     /**
      * Indicates whether target group stickiness is enabled.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("ListenerRuleActionForwardStickiness.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionForwardStickiness.enabled' is not present");
     }
 
 }

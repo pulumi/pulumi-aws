@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -13,62 +14,68 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:servicecatalog/portfolio:Portfolio")
 public final class Portfolio extends com.pulumi.resources.PolicyResourceOutput {
 
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Portfolio.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Portfolio.arn' is not present");
     }
 
-    private UndeferrableValue<String> createdTime;
-
+    @PolicyResourceProperty(name="createdTime", flag="unknown_createdTime")
+    private String value_createdTime;
+    private boolean unknown_createdTime;
     public String createdTime() {
-        if (createdTime == null) return null;
-        return createdTime.getValue("Portfolio.createdTime");
+        if (!unknown_createdTime) return value_createdTime;
+        throw new UndeferrableValueException("Value 'Portfolio.createdTime' is not present");
     }
 
     /**
      * Description of the portfolio
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("Portfolio.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Portfolio.description' is not present");
     }
 
     /**
      * The name of the portfolio.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Portfolio.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Portfolio.name' is not present");
     }
 
     /**
      * Name of the person or organization who owns the portfolio.
      * 
      */
-    private UndeferrableValue<String> providerName;
-
+    @PolicyResourceProperty(name="providerName", flag="unknown_providerName")
+    private String value_providerName;
+    private boolean unknown_providerName;
     public String providerName() {
-        if (providerName == null) return null;
-        return providerName.getValue("Portfolio.providerName");
+        if (!unknown_providerName) return value_providerName;
+        throw new UndeferrableValueException("Value 'Portfolio.providerName' is not present");
     }
 
     /**
      * Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Portfolio.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Portfolio.tags' is not present");
     }
 
     /**
@@ -79,11 +86,12 @@ public final class Portfolio extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Portfolio.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Portfolio.tagsAll' is not present");
     }
 
 }

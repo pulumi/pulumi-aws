@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class VpcEndpointServicePrivateDnsNameConfiguration {
      * Name of the record subdomain the service provider needs to create.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("VpcEndpointServicePrivateDnsNameConfiguration.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'VpcEndpointServicePrivateDnsNameConfiguration.name' is not present");
     }
 
     /**
      * Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
      * 
      */
-    private @Nullable UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private @Nullable String value_state;
+    private boolean unknown_state;
     public @Nullable String state() {
-        if (state == null) return null;
-        return state.getValue("VpcEndpointServicePrivateDnsNameConfiguration.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'VpcEndpointServicePrivateDnsNameConfiguration.state' is not present");
     }
 
     /**
      * Endpoint service verification type, for example `TXT`.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("VpcEndpointServicePrivateDnsNameConfiguration.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'VpcEndpointServicePrivateDnsNameConfiguration.type' is not present");
     }
 
     /**
      * Value the service provider adds to the private DNS name domain record before verification.
      * 
      */
-    private @Nullable UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private @Nullable String value_value;
+    private boolean unknown_value;
     public @Nullable String value() {
-        if (value == null) return null;
-        return value.getValue("VpcEndpointServicePrivateDnsNameConfiguration.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'VpcEndpointServicePrivateDnsNameConfiguration.value' is not present");
     }
 
 }

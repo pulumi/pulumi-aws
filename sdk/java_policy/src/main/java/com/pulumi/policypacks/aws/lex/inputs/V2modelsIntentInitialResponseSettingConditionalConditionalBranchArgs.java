@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranchConditionArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseArgs;
@@ -17,44 +18,48 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
      * Configuration block for the expression to evaluate. If the condition is true, the branch&#39;s actions are taken. See `condition`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentInitialResponseSettingConditionalConditionalBranchConditionArgs> condition;
-
+    @PolicyResourceProperty(name="condition", flag="unknown_condition")
+    private V2modelsIntentInitialResponseSettingConditionalConditionalBranchConditionArgs value_condition;
+    private boolean unknown_condition;
     public V2modelsIntentInitialResponseSettingConditionalConditionalBranchConditionArgs condition() {
-        if (condition == null) return null;
-        return condition.getValue("V2modelsIntentInitialResponseSettingConditionalConditionalBranchArgs.condition");
+        if (!unknown_condition) return value_condition;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingConditionalConditionalBranchArgs.condition' is not present");
     }
 
     /**
      * Name of the branch.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("V2modelsIntentInitialResponseSettingConditionalConditionalBranchArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingConditionalConditionalBranchArgs.name' is not present");
     }
 
     /**
      * Configuration block for the next step in the conversation. See `next_step`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepArgs> nextStep;
-
+    @PolicyResourceProperty(name="nextStep", flag="unknown_nextStep")
+    private V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepArgs value_nextStep;
+    private boolean unknown_nextStep;
     public V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepArgs nextStep() {
-        if (nextStep == null) return null;
-        return nextStep.getValue("V2modelsIntentInitialResponseSettingConditionalConditionalBranchArgs.nextStep");
+        if (!unknown_nextStep) return value_nextStep;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingConditionalConditionalBranchArgs.nextStep' is not present");
     }
 
     /**
      * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseArgs> response;
-
+    @PolicyResourceProperty(name="response", flag="unknown_response")
+    private V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseArgs value_response;
+    private boolean unknown_response;
     public V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseArgs response() {
-        if (response == null) return null;
-        return response.getValue("V2modelsIntentInitialResponseSettingConditionalConditionalBranchArgs.response");
+        if (!unknown_response) return value_response;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingConditionalConditionalBranchArgs.response' is not present");
     }
 
 }

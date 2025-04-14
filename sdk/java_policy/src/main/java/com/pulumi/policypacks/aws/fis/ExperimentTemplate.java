@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fis;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.fis.outputs.ExperimentTemplateAction;
 import com.pulumi.policypacks.aws.fis.outputs.ExperimentTemplateExperimentOptions;
@@ -23,55 +24,60 @@ public final class ExperimentTemplate extends com.pulumi.resources.PolicyResourc
      * Action to be performed during an experiment. See below.
      * 
      */
-    private UndeferrableValue<List<ExperimentTemplateAction>> actions;
-
+    @PolicyResourceProperty(name="actions", flag="unknown_actions")
+    private List<ExperimentTemplateAction> value_actions;
+    private boolean unknown_actions;
     public List<ExperimentTemplateAction> actions() {
-        if (actions == null) return null;
-        return actions.getValue("ExperimentTemplate.actions");
+        if (!unknown_actions) return value_actions;
+        throw new UndeferrableValueException("Value 'ExperimentTemplate.actions' is not present");
     }
 
     /**
      * Description for the experiment template.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ExperimentTemplate.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ExperimentTemplate.description' is not present");
     }
 
     /**
      * The experiment options for the experiment template. See experiment_options below for more details!
      * 
      */
-    private UndeferrableValue<ExperimentTemplateExperimentOptions> experimentOptions;
-
+    @PolicyResourceProperty(name="experimentOptions", flag="unknown_experimentOptions")
+    private ExperimentTemplateExperimentOptions value_experimentOptions;
+    private boolean unknown_experimentOptions;
     public ExperimentTemplateExperimentOptions experimentOptions() {
-        if (experimentOptions == null) return null;
-        return experimentOptions.getValue("ExperimentTemplate.experimentOptions");
+        if (!unknown_experimentOptions) return value_experimentOptions;
+        throw new UndeferrableValueException("Value 'ExperimentTemplate.experimentOptions' is not present");
     }
 
     /**
      * The configuration for experiment logging. See below.
      * 
      */
-    private @Nullable UndeferrableValue<ExperimentTemplateLogConfiguration> logConfiguration;
-
+    @PolicyResourceProperty(name="logConfiguration", flag="unknown_logConfiguration")
+    private @Nullable ExperimentTemplateLogConfiguration value_logConfiguration;
+    private boolean unknown_logConfiguration;
     public @Nullable ExperimentTemplateLogConfiguration logConfiguration() {
-        if (logConfiguration == null) return null;
-        return logConfiguration.getValue("ExperimentTemplate.logConfiguration");
+        if (!unknown_logConfiguration) return value_logConfiguration;
+        throw new UndeferrableValueException("Value 'ExperimentTemplate.logConfiguration' is not present");
     }
 
     /**
      * ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("ExperimentTemplate.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'ExperimentTemplate.roleArn' is not present");
     }
 
     /**
@@ -80,22 +86,24 @@ public final class ExperimentTemplate extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<List<ExperimentTemplateStopCondition>> stopConditions;
-
+    @PolicyResourceProperty(name="stopConditions", flag="unknown_stopConditions")
+    private List<ExperimentTemplateStopCondition> value_stopConditions;
+    private boolean unknown_stopConditions;
     public List<ExperimentTemplateStopCondition> stopConditions() {
-        if (stopConditions == null) return null;
-        return stopConditions.getValue("ExperimentTemplate.stopConditions");
+        if (!unknown_stopConditions) return value_stopConditions;
+        throw new UndeferrableValueException("Value 'ExperimentTemplate.stopConditions' is not present");
     }
 
     /**
      * Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ExperimentTemplate.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ExperimentTemplate.tags' is not present");
     }
 
     /**
@@ -104,22 +112,24 @@ public final class ExperimentTemplate extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ExperimentTemplate.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ExperimentTemplate.tagsAll' is not present");
     }
 
     /**
      * Target of an action. See below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ExperimentTemplateTarget>> targets;
-
+    @PolicyResourceProperty(name="targets", flag="unknown_targets")
+    private @Nullable List<ExperimentTemplateTarget> value_targets;
+    private boolean unknown_targets;
     public @Nullable List<ExperimentTemplateTarget> targets() {
-        if (targets == null) return null;
-        return targets.getValue("ExperimentTemplate.targets");
+        if (!unknown_targets) return value_targets;
+        throw new UndeferrableValueException("Value 'ExperimentTemplate.targets' is not present");
     }
 
 }

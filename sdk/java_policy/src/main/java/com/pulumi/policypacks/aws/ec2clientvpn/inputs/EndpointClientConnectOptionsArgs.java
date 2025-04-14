@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2clientvpn.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class EndpointClientConnectOptionsArgs {
      * Indicates whether client connect options are enabled. The default is `false` (not enabled).
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("EndpointClientConnectOptionsArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'EndpointClientConnectOptionsArgs.enabled' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
      * 
      */
-    private UndeferrableValue<String> lambdaFunctionArn;
-
+    @PolicyResourceProperty(name="lambdaFunctionArn", flag="unknown_lambdaFunctionArn")
+    private String value_lambdaFunctionArn;
+    private boolean unknown_lambdaFunctionArn;
     public String lambdaFunctionArn() {
-        if (lambdaFunctionArn == null) return null;
-        return lambdaFunctionArn.getValue("EndpointClientConnectOptionsArgs.lambdaFunctionArn");
+        if (!unknown_lambdaFunctionArn) return value_lambdaFunctionArn;
+        throw new UndeferrableValueException("Value 'EndpointClientConnectOptionsArgs.lambdaFunctionArn' is not present");
     }
 
 }

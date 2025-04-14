@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,51 +16,56 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesVeeva {
      * Document type specified in the Veeva document extract flow.
      * 
      */
-    private @Nullable UndeferrableValue<String> documentType;
-
+    @PolicyResourceProperty(name="documentType", flag="unknown_documentType")
+    private @Nullable String value_documentType;
+    private boolean unknown_documentType;
     public @Nullable String documentType() {
-        if (documentType == null) return null;
-        return documentType.getValue("FlowSourceFlowConfigSourceConnectorPropertiesVeeva.documentType");
+        if (!unknown_documentType) return value_documentType;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesVeeva.documentType' is not present");
     }
 
     /**
      * Boolean value to include All Versions of files in Veeva document extract flow.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> includeAllVersions;
-
+    @PolicyResourceProperty(name="includeAllVersions", flag="unknown_includeAllVersions")
+    private @Nullable Boolean value_includeAllVersions;
+    private boolean unknown_includeAllVersions;
     public @Nullable Boolean includeAllVersions() {
-        if (includeAllVersions == null) return null;
-        return includeAllVersions.getValue("FlowSourceFlowConfigSourceConnectorPropertiesVeeva.includeAllVersions");
+        if (!unknown_includeAllVersions) return value_includeAllVersions;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesVeeva.includeAllVersions' is not present");
     }
 
     /**
      * Boolean value to include file renditions in Veeva document extract flow.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> includeRenditions;
-
+    @PolicyResourceProperty(name="includeRenditions", flag="unknown_includeRenditions")
+    private @Nullable Boolean value_includeRenditions;
+    private boolean unknown_includeRenditions;
     public @Nullable Boolean includeRenditions() {
-        if (includeRenditions == null) return null;
-        return includeRenditions.getValue("FlowSourceFlowConfigSourceConnectorPropertiesVeeva.includeRenditions");
+        if (!unknown_includeRenditions) return value_includeRenditions;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesVeeva.includeRenditions' is not present");
     }
 
     /**
      * Boolean value to include source files in Veeva document extract flow.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> includeSourceFiles;
-
+    @PolicyResourceProperty(name="includeSourceFiles", flag="unknown_includeSourceFiles")
+    private @Nullable Boolean value_includeSourceFiles;
+    private boolean unknown_includeSourceFiles;
     public @Nullable Boolean includeSourceFiles() {
-        if (includeSourceFiles == null) return null;
-        return includeSourceFiles.getValue("FlowSourceFlowConfigSourceConnectorPropertiesVeeva.includeSourceFiles");
+        if (!unknown_includeSourceFiles) return value_includeSourceFiles;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesVeeva.includeSourceFiles' is not present");
     }
 
-    private UndeferrableValue<String> object;
-
+    @PolicyResourceProperty(name="object", flag="unknown_object")
+    private String value_object;
+    private boolean unknown_object;
     public String object() {
-        if (object == null) return null;
-        return object.getValue("FlowSourceFlowConfigSourceConnectorPropertiesVeeva.object");
+        if (!unknown_object) return value_object;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesVeeva.object' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.inputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,73 +17,80 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      * The location of the SAPOData resource.
      * 
      */
-    private UndeferrableValue<String> applicationHostUrl;
-
+    @PolicyResourceProperty(name="applicationHostUrl", flag="unknown_applicationHostUrl")
+    private String value_applicationHostUrl;
+    private boolean unknown_applicationHostUrl;
     public String applicationHostUrl() {
-        if (applicationHostUrl == null) return null;
-        return applicationHostUrl.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs.applicationHostUrl");
+        if (!unknown_applicationHostUrl) return value_applicationHostUrl;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs.applicationHostUrl' is not present");
     }
 
     /**
      * The application path to catalog service.
      * 
      */
-    private UndeferrableValue<String> applicationServicePath;
-
+    @PolicyResourceProperty(name="applicationServicePath", flag="unknown_applicationServicePath")
+    private String value_applicationServicePath;
+    private boolean unknown_applicationServicePath;
     public String applicationServicePath() {
-        if (applicationServicePath == null) return null;
-        return applicationServicePath.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs.applicationServicePath");
+        if (!unknown_applicationServicePath) return value_applicationServicePath;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs.applicationServicePath' is not present");
     }
 
     /**
      * The client number for the client creating the connection.
      * 
      */
-    private UndeferrableValue<String> clientNumber;
-
+    @PolicyResourceProperty(name="clientNumber", flag="unknown_clientNumber")
+    private String value_clientNumber;
+    private boolean unknown_clientNumber;
     public String clientNumber() {
-        if (clientNumber == null) return null;
-        return clientNumber.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs.clientNumber");
+        if (!unknown_clientNumber) return value_clientNumber;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs.clientNumber' is not present");
     }
 
     /**
      * The logon language of SAPOData instance.
      * 
      */
-    private UndeferrableValue<String> logonLanguage;
-
+    @PolicyResourceProperty(name="logonLanguage", flag="unknown_logonLanguage")
+    private String value_logonLanguage;
+    private boolean unknown_logonLanguage;
     public String logonLanguage() {
-        if (logonLanguage == null) return null;
-        return logonLanguage.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs.logonLanguage");
+        if (!unknown_logonLanguage) return value_logonLanguage;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs.logonLanguage' is not present");
     }
 
     /**
      * The SAPOData OAuth properties required for OAuth type authentication.
      * 
      */
-    private UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs> oauthProperties;
-
+    @PolicyResourceProperty(name="oauthProperties", flag="unknown_oauthProperties")
+    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs value_oauthProperties;
+    private boolean unknown_oauthProperties;
     public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs oauthProperties() {
-        if (oauthProperties == null) return null;
-        return oauthProperties.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs.oauthProperties");
+        if (!unknown_oauthProperties) return value_oauthProperties;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs.oauthProperties' is not present");
     }
 
     /**
      * The port number of the SAPOData instance.
      * 
      */
-    private UndeferrableValue<Integer> portNumber;
-
+    @PolicyResourceProperty(name="portNumber", flag="unknown_portNumber")
+    private Integer value_portNumber;
+    private boolean unknown_portNumber;
     public Integer portNumber() {
-        if (portNumber == null) return null;
-        return portNumber.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs.portNumber");
+        if (!unknown_portNumber) return value_portNumber;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs.portNumber' is not present");
     }
 
-    private UndeferrableValue<String> privateLinkServiceName;
-
+    @PolicyResourceProperty(name="privateLinkServiceName", flag="unknown_privateLinkServiceName")
+    private String value_privateLinkServiceName;
+    private boolean unknown_privateLinkServiceName;
     public String privateLinkServiceName() {
-        if (privateLinkServiceName == null) return null;
-        return privateLinkServiceName.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs.privateLinkServiceName");
+        if (!unknown_privateLinkServiceName) return value_privateLinkServiceName;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs.privateLinkServiceName' is not present");
     }
 
 }

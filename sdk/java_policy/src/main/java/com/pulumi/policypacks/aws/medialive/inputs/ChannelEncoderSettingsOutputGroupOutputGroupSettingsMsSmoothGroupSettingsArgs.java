@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -12,153 +13,172 @@ import javax.annotation.Nullable;
 
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs {
 
-    private UndeferrableValue<String> acquisitionPointId;
-
+    @PolicyResourceProperty(name="acquisitionPointId", flag="unknown_acquisitionPointId")
+    private String value_acquisitionPointId;
+    private boolean unknown_acquisitionPointId;
     public String acquisitionPointId() {
-        if (acquisitionPointId == null) return null;
-        return acquisitionPointId.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.acquisitionPointId");
+        if (!unknown_acquisitionPointId) return value_acquisitionPointId;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.acquisitionPointId' is not present");
     }
 
-    private UndeferrableValue<String> audioOnlyTimecodeControl;
-
+    @PolicyResourceProperty(name="audioOnlyTimecodeControl", flag="unknown_audioOnlyTimecodeControl")
+    private String value_audioOnlyTimecodeControl;
+    private boolean unknown_audioOnlyTimecodeControl;
     public String audioOnlyTimecodeControl() {
-        if (audioOnlyTimecodeControl == null) return null;
-        return audioOnlyTimecodeControl.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.audioOnlyTimecodeControl");
+        if (!unknown_audioOnlyTimecodeControl) return value_audioOnlyTimecodeControl;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.audioOnlyTimecodeControl' is not present");
     }
 
     /**
      * Setting to allow self signed or verified RTMP certificates.
      * 
      */
-    private UndeferrableValue<String> certificateMode;
-
+    @PolicyResourceProperty(name="certificateMode", flag="unknown_certificateMode")
+    private String value_certificateMode;
+    private boolean unknown_certificateMode;
     public String certificateMode() {
-        if (certificateMode == null) return null;
-        return certificateMode.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.certificateMode");
+        if (!unknown_certificateMode) return value_certificateMode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.certificateMode' is not present");
     }
 
     /**
      * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
      * 
      */
-    private UndeferrableValue<Integer> connectionRetryInterval;
-
+    @PolicyResourceProperty(name="connectionRetryInterval", flag="unknown_connectionRetryInterval")
+    private Integer value_connectionRetryInterval;
+    private boolean unknown_connectionRetryInterval;
     public Integer connectionRetryInterval() {
-        if (connectionRetryInterval == null) return null;
-        return connectionRetryInterval.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.connectionRetryInterval");
+        if (!unknown_connectionRetryInterval) return value_connectionRetryInterval;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.connectionRetryInterval' is not present");
     }
 
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs value_destination;
+    private boolean unknown_destination;
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs destination() {
-        if (destination == null) return null;
-        return destination.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.destination' is not present");
     }
 
-    private UndeferrableValue<String> eventId;
-
+    @PolicyResourceProperty(name="eventId", flag="unknown_eventId")
+    private String value_eventId;
+    private boolean unknown_eventId;
     public String eventId() {
-        if (eventId == null) return null;
-        return eventId.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.eventId");
+        if (!unknown_eventId) return value_eventId;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.eventId' is not present");
     }
 
-    private UndeferrableValue<String> eventIdMode;
-
+    @PolicyResourceProperty(name="eventIdMode", flag="unknown_eventIdMode")
+    private String value_eventIdMode;
+    private boolean unknown_eventIdMode;
     public String eventIdMode() {
-        if (eventIdMode == null) return null;
-        return eventIdMode.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.eventIdMode");
+        if (!unknown_eventIdMode) return value_eventIdMode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.eventIdMode' is not present");
     }
 
-    private UndeferrableValue<String> eventStopBehavior;
-
+    @PolicyResourceProperty(name="eventStopBehavior", flag="unknown_eventStopBehavior")
+    private String value_eventStopBehavior;
+    private boolean unknown_eventStopBehavior;
     public String eventStopBehavior() {
-        if (eventStopBehavior == null) return null;
-        return eventStopBehavior.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.eventStopBehavior");
+        if (!unknown_eventStopBehavior) return value_eventStopBehavior;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.eventStopBehavior' is not present");
     }
 
-    private UndeferrableValue<Integer> filecacheDuration;
-
+    @PolicyResourceProperty(name="filecacheDuration", flag="unknown_filecacheDuration")
+    private Integer value_filecacheDuration;
+    private boolean unknown_filecacheDuration;
     public Integer filecacheDuration() {
-        if (filecacheDuration == null) return null;
-        return filecacheDuration.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.filecacheDuration");
+        if (!unknown_filecacheDuration) return value_filecacheDuration;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.filecacheDuration' is not present");
     }
 
-    private UndeferrableValue<Integer> fragmentLength;
-
+    @PolicyResourceProperty(name="fragmentLength", flag="unknown_fragmentLength")
+    private Integer value_fragmentLength;
+    private boolean unknown_fragmentLength;
     public Integer fragmentLength() {
-        if (fragmentLength == null) return null;
-        return fragmentLength.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.fragmentLength");
+        if (!unknown_fragmentLength) return value_fragmentLength;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.fragmentLength' is not present");
     }
 
-    private UndeferrableValue<String> inputLossAction;
-
+    @PolicyResourceProperty(name="inputLossAction", flag="unknown_inputLossAction")
+    private String value_inputLossAction;
+    private boolean unknown_inputLossAction;
     public String inputLossAction() {
-        if (inputLossAction == null) return null;
-        return inputLossAction.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.inputLossAction");
+        if (!unknown_inputLossAction) return value_inputLossAction;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.inputLossAction' is not present");
     }
 
     /**
      * Number of retry attempts.
      * 
      */
-    private UndeferrableValue<Integer> numRetries;
-
+    @PolicyResourceProperty(name="numRetries", flag="unknown_numRetries")
+    private Integer value_numRetries;
+    private boolean unknown_numRetries;
     public Integer numRetries() {
-        if (numRetries == null) return null;
-        return numRetries.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.numRetries");
+        if (!unknown_numRetries) return value_numRetries;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.numRetries' is not present");
     }
 
     /**
      * Number of seconds to wait until a restart is initiated.
      * 
      */
-    private UndeferrableValue<Integer> restartDelay;
-
+    @PolicyResourceProperty(name="restartDelay", flag="unknown_restartDelay")
+    private Integer value_restartDelay;
+    private boolean unknown_restartDelay;
     public Integer restartDelay() {
-        if (restartDelay == null) return null;
-        return restartDelay.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.restartDelay");
+        if (!unknown_restartDelay) return value_restartDelay;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.restartDelay' is not present");
     }
 
-    private UndeferrableValue<String> segmentationMode;
-
+    @PolicyResourceProperty(name="segmentationMode", flag="unknown_segmentationMode")
+    private String value_segmentationMode;
+    private boolean unknown_segmentationMode;
     public String segmentationMode() {
-        if (segmentationMode == null) return null;
-        return segmentationMode.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.segmentationMode");
+        if (!unknown_segmentationMode) return value_segmentationMode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.segmentationMode' is not present");
     }
 
-    private UndeferrableValue<Integer> sendDelayMs;
-
+    @PolicyResourceProperty(name="sendDelayMs", flag="unknown_sendDelayMs")
+    private Integer value_sendDelayMs;
+    private boolean unknown_sendDelayMs;
     public Integer sendDelayMs() {
-        if (sendDelayMs == null) return null;
-        return sendDelayMs.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.sendDelayMs");
+        if (!unknown_sendDelayMs) return value_sendDelayMs;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.sendDelayMs' is not present");
     }
 
-    private UndeferrableValue<String> sparseTrackType;
-
+    @PolicyResourceProperty(name="sparseTrackType", flag="unknown_sparseTrackType")
+    private String value_sparseTrackType;
+    private boolean unknown_sparseTrackType;
     public String sparseTrackType() {
-        if (sparseTrackType == null) return null;
-        return sparseTrackType.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.sparseTrackType");
+        if (!unknown_sparseTrackType) return value_sparseTrackType;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.sparseTrackType' is not present");
     }
 
-    private UndeferrableValue<String> streamManifestBehavior;
-
+    @PolicyResourceProperty(name="streamManifestBehavior", flag="unknown_streamManifestBehavior")
+    private String value_streamManifestBehavior;
+    private boolean unknown_streamManifestBehavior;
     public String streamManifestBehavior() {
-        if (streamManifestBehavior == null) return null;
-        return streamManifestBehavior.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.streamManifestBehavior");
+        if (!unknown_streamManifestBehavior) return value_streamManifestBehavior;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.streamManifestBehavior' is not present");
     }
 
-    private UndeferrableValue<String> timestampOffset;
-
+    @PolicyResourceProperty(name="timestampOffset", flag="unknown_timestampOffset")
+    private String value_timestampOffset;
+    private boolean unknown_timestampOffset;
     public String timestampOffset() {
-        if (timestampOffset == null) return null;
-        return timestampOffset.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.timestampOffset");
+        if (!unknown_timestampOffset) return value_timestampOffset;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.timestampOffset' is not present");
     }
 
-    private UndeferrableValue<String> timestampOffsetMode;
-
+    @PolicyResourceProperty(name="timestampOffsetMode", flag="unknown_timestampOffsetMode")
+    private String value_timestampOffsetMode;
+    private boolean unknown_timestampOffsetMode;
     public String timestampOffsetMode() {
-        if (timestampOffsetMode == null) return null;
-        return timestampOffsetMode.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.timestampOffsetMode");
+        if (!unknown_timestampOffsetMode) return value_timestampOffsetMode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs.timestampOffsetMode' is not present");
     }
 
 }

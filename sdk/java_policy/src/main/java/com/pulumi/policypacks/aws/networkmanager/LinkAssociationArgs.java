@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class LinkAssociationArgs extends com.pulumi.resources.PolicyResour
      * The ID of the device.
      * 
      */
-    private UndeferrableValue<String> deviceId;
-
+    @PolicyResourceProperty(name="deviceId", flag="unknown_deviceId")
+    private String value_deviceId;
+    private boolean unknown_deviceId;
     public String deviceId() {
-        if (deviceId == null) return null;
-        return deviceId.getValue("LinkAssociationArgs.deviceId");
+        if (!unknown_deviceId) return value_deviceId;
+        throw new UndeferrableValueException("Value 'LinkAssociationArgs.deviceId' is not present");
     }
 
     /**
      * The ID of the global network.
      * 
      */
-    private UndeferrableValue<String> globalNetworkId;
-
+    @PolicyResourceProperty(name="globalNetworkId", flag="unknown_globalNetworkId")
+    private String value_globalNetworkId;
+    private boolean unknown_globalNetworkId;
     public String globalNetworkId() {
-        if (globalNetworkId == null) return null;
-        return globalNetworkId.getValue("LinkAssociationArgs.globalNetworkId");
+        if (!unknown_globalNetworkId) return value_globalNetworkId;
+        throw new UndeferrableValueException("Value 'LinkAssociationArgs.globalNetworkId' is not present");
     }
 
     /**
      * The ID of the link.
      * 
      */
-    private UndeferrableValue<String> linkId;
-
+    @PolicyResourceProperty(name="linkId", flag="unknown_linkId")
+    private String value_linkId;
+    private boolean unknown_linkId;
     public String linkId() {
-        if (linkId == null) return null;
-        return linkId.getValue("LinkAssociationArgs.linkId");
+        if (!unknown_linkId) return value_linkId;
+        throw new UndeferrableValueException("Value 'LinkAssociationArgs.linkId' is not present");
     }
 
 }

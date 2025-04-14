@@ -4,7 +4,8 @@
 package com.pulumi.policypacks.aws.s3;
 
 import com.pulumi.asset.AssetOrArchive;
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3.inputs.BucketObjectv2OverrideProviderArgs;
 import java.lang.Boolean;
@@ -20,143 +21,156 @@ public final class BucketObjectv2Args extends com.pulumi.resources.PolicyResourc
      * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
      * 
      */
-    private UndeferrableValue<String> acl;
-
+    @PolicyResourceProperty(name="acl", flag="unknown_acl")
+    private String value_acl;
+    private boolean unknown_acl;
     public String acl() {
-        if (acl == null) return null;
-        return acl.getValue("BucketObjectv2Args.acl");
+        if (!unknown_acl) return value_acl;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.acl' is not present");
     }
 
     /**
      * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("BucketObjectv2Args.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.bucket' is not present");
     }
 
     /**
      * Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
      * 
      */
-    private UndeferrableValue<Boolean> bucketKeyEnabled;
-
+    @PolicyResourceProperty(name="bucketKeyEnabled", flag="unknown_bucketKeyEnabled")
+    private Boolean value_bucketKeyEnabled;
+    private boolean unknown_bucketKeyEnabled;
     public Boolean bucketKeyEnabled() {
-        if (bucketKeyEnabled == null) return null;
-        return bucketKeyEnabled.getValue("BucketObjectv2Args.bucketKeyEnabled");
+        if (!unknown_bucketKeyEnabled) return value_bucketKeyEnabled;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.bucketKeyEnabled' is not present");
     }
 
     /**
      * Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      * 
      */
-    private UndeferrableValue<String> cacheControl;
-
+    @PolicyResourceProperty(name="cacheControl", flag="unknown_cacheControl")
+    private String value_cacheControl;
+    private boolean unknown_cacheControl;
     public String cacheControl() {
-        if (cacheControl == null) return null;
-        return cacheControl.getValue("BucketObjectv2Args.cacheControl");
+        if (!unknown_cacheControl) return value_cacheControl;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.cacheControl' is not present");
     }
 
     /**
      * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME`, `SHA1`, `SHA256`.
      * 
      */
-    private UndeferrableValue<String> checksumAlgorithm;
-
+    @PolicyResourceProperty(name="checksumAlgorithm", flag="unknown_checksumAlgorithm")
+    private String value_checksumAlgorithm;
+    private boolean unknown_checksumAlgorithm;
     public String checksumAlgorithm() {
-        if (checksumAlgorithm == null) return null;
-        return checksumAlgorithm.getValue("BucketObjectv2Args.checksumAlgorithm");
+        if (!unknown_checksumAlgorithm) return value_checksumAlgorithm;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.checksumAlgorithm' is not present");
     }
 
     /**
      * Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
      * 
      */
-    private UndeferrableValue<String> content;
-
+    @PolicyResourceProperty(name="content", flag="unknown_content")
+    private String value_content;
+    private boolean unknown_content;
     public String content() {
-        if (content == null) return null;
-        return content.getValue("BucketObjectv2Args.content");
+        if (!unknown_content) return value_content;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.content' is not present");
     }
 
     /**
      * Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
      * 
      */
-    private UndeferrableValue<String> contentBase64;
-
+    @PolicyResourceProperty(name="contentBase64", flag="unknown_contentBase64")
+    private String value_contentBase64;
+    private boolean unknown_contentBase64;
     public String contentBase64() {
-        if (contentBase64 == null) return null;
-        return contentBase64.getValue("BucketObjectv2Args.contentBase64");
+        if (!unknown_contentBase64) return value_contentBase64;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.contentBase64' is not present");
     }
 
     /**
      * Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      * 
      */
-    private UndeferrableValue<String> contentDisposition;
-
+    @PolicyResourceProperty(name="contentDisposition", flag="unknown_contentDisposition")
+    private String value_contentDisposition;
+    private boolean unknown_contentDisposition;
     public String contentDisposition() {
-        if (contentDisposition == null) return null;
-        return contentDisposition.getValue("BucketObjectv2Args.contentDisposition");
+        if (!unknown_contentDisposition) return value_contentDisposition;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.contentDisposition' is not present");
     }
 
     /**
      * Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
      * 
      */
-    private UndeferrableValue<String> contentEncoding;
-
+    @PolicyResourceProperty(name="contentEncoding", flag="unknown_contentEncoding")
+    private String value_contentEncoding;
+    private boolean unknown_contentEncoding;
     public String contentEncoding() {
-        if (contentEncoding == null) return null;
-        return contentEncoding.getValue("BucketObjectv2Args.contentEncoding");
+        if (!unknown_contentEncoding) return value_contentEncoding;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.contentEncoding' is not present");
     }
 
     /**
      * Language the content is in e.g., en-US or en-GB.
      * 
      */
-    private UndeferrableValue<String> contentLanguage;
-
+    @PolicyResourceProperty(name="contentLanguage", flag="unknown_contentLanguage")
+    private String value_contentLanguage;
+    private boolean unknown_contentLanguage;
     public String contentLanguage() {
-        if (contentLanguage == null) return null;
-        return contentLanguage.getValue("BucketObjectv2Args.contentLanguage");
+        if (!unknown_contentLanguage) return value_contentLanguage;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.contentLanguage' is not present");
     }
 
     /**
      * Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
      * 
      */
-    private UndeferrableValue<String> contentType;
-
+    @PolicyResourceProperty(name="contentType", flag="unknown_contentType")
+    private String value_contentType;
+    private boolean unknown_contentType;
     public String contentType() {
-        if (contentType == null) return null;
-        return contentType.getValue("BucketObjectv2Args.contentType");
+        if (!unknown_contentType) return value_contentType;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.contentType' is not present");
     }
 
     /**
      * Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = &#34;aws:kms&#34;`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `source_hash` instead).
      * 
      */
-    private UndeferrableValue<String> etag;
-
+    @PolicyResourceProperty(name="etag", flag="unknown_etag")
+    private String value_etag;
+    private boolean unknown_etag;
     public String etag() {
-        if (etag == null) return null;
-        return etag.getValue("BucketObjectv2Args.etag");
+        if (!unknown_etag) return value_etag;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.etag' is not present");
     }
 
     /**
      * Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
      * 
      */
-    private UndeferrableValue<Boolean> forceDestroy;
-
+    @PolicyResourceProperty(name="forceDestroy", flag="unknown_forceDestroy")
+    private Boolean value_forceDestroy;
+    private boolean unknown_forceDestroy;
     public Boolean forceDestroy() {
-        if (forceDestroy == null) return null;
-        return forceDestroy.getValue("BucketObjectv2Args.forceDestroy");
+        if (!unknown_forceDestroy) return value_forceDestroy;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.forceDestroy' is not present");
     }
 
     /**
@@ -165,132 +179,144 @@ public final class BucketObjectv2Args extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("BucketObjectv2Args.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.key' is not present");
     }
 
     /**
      * ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("BucketObjectv2Args.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.kmsKeyId' is not present");
     }
 
     /**
      * Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
      * 
      */
-    private UndeferrableValue<Map<String,String>> metadata;
-
+    @PolicyResourceProperty(name="metadata", flag="unknown_metadata")
+    private Map<String,String> value_metadata;
+    private boolean unknown_metadata;
     public Map<String,String> metadata() {
-        if (metadata == null) return null;
-        return metadata.getValue("BucketObjectv2Args.metadata");
+        if (!unknown_metadata) return value_metadata;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.metadata' is not present");
     }
 
     /**
      * [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
      * 
      */
-    private UndeferrableValue<String> objectLockLegalHoldStatus;
-
+    @PolicyResourceProperty(name="objectLockLegalHoldStatus", flag="unknown_objectLockLegalHoldStatus")
+    private String value_objectLockLegalHoldStatus;
+    private boolean unknown_objectLockLegalHoldStatus;
     public String objectLockLegalHoldStatus() {
-        if (objectLockLegalHoldStatus == null) return null;
-        return objectLockLegalHoldStatus.getValue("BucketObjectv2Args.objectLockLegalHoldStatus");
+        if (!unknown_objectLockLegalHoldStatus) return value_objectLockLegalHoldStatus;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.objectLockLegalHoldStatus' is not present");
     }
 
     /**
      * Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
      * 
      */
-    private UndeferrableValue<String> objectLockMode;
-
+    @PolicyResourceProperty(name="objectLockMode", flag="unknown_objectLockMode")
+    private String value_objectLockMode;
+    private boolean unknown_objectLockMode;
     public String objectLockMode() {
-        if (objectLockMode == null) return null;
-        return objectLockMode.getValue("BucketObjectv2Args.objectLockMode");
+        if (!unknown_objectLockMode) return value_objectLockMode;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.objectLockMode' is not present");
     }
 
     /**
      * Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object&#39;s object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
      * 
      */
-    private UndeferrableValue<String> objectLockRetainUntilDate;
-
+    @PolicyResourceProperty(name="objectLockRetainUntilDate", flag="unknown_objectLockRetainUntilDate")
+    private String value_objectLockRetainUntilDate;
+    private boolean unknown_objectLockRetainUntilDate;
     public String objectLockRetainUntilDate() {
-        if (objectLockRetainUntilDate == null) return null;
-        return objectLockRetainUntilDate.getValue("BucketObjectv2Args.objectLockRetainUntilDate");
+        if (!unknown_objectLockRetainUntilDate) return value_objectLockRetainUntilDate;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.objectLockRetainUntilDate' is not present");
     }
 
     /**
      * Override provider-level configuration options. See Override Provider below for more details.
      * 
      */
-    private UndeferrableValue<BucketObjectv2OverrideProviderArgs> overrideProvider;
-
+    @PolicyResourceProperty(name="overrideProvider", flag="unknown_overrideProvider")
+    private BucketObjectv2OverrideProviderArgs value_overrideProvider;
+    private boolean unknown_overrideProvider;
     public BucketObjectv2OverrideProviderArgs overrideProvider() {
-        if (overrideProvider == null) return null;
-        return overrideProvider.getValue("BucketObjectv2Args.overrideProvider");
+        if (!unknown_overrideProvider) return value_overrideProvider;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.overrideProvider' is not present");
     }
 
     /**
      * Server-side encryption of the object in S3. Valid values are &#34;`AES256`&#34; and &#34;`aws:kms`&#34;.
      * 
      */
-    private UndeferrableValue<String> serverSideEncryption;
-
+    @PolicyResourceProperty(name="serverSideEncryption", flag="unknown_serverSideEncryption")
+    private String value_serverSideEncryption;
+    private boolean unknown_serverSideEncryption;
     public String serverSideEncryption() {
-        if (serverSideEncryption == null) return null;
-        return serverSideEncryption.getValue("BucketObjectv2Args.serverSideEncryption");
+        if (!unknown_serverSideEncryption) return value_serverSideEncryption;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.serverSideEncryption' is not present");
     }
 
     /**
      * Path to a file that will be read and uploaded as raw bytes for the object content.
      * 
      */
-    private UndeferrableValue<AssetOrArchive> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private AssetOrArchive value_source;
+    private boolean unknown_source;
     public AssetOrArchive source() {
-        if (source == null) return null;
-        return source.getValue("BucketObjectv2Args.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.source' is not present");
     }
 
     /**
      * Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
      * 
      */
-    private UndeferrableValue<String> sourceHash;
-
+    @PolicyResourceProperty(name="sourceHash", flag="unknown_sourceHash")
+    private String value_sourceHash;
+    private boolean unknown_sourceHash;
     public String sourceHash() {
-        if (sourceHash == null) return null;
-        return sourceHash.getValue("BucketObjectv2Args.sourceHash");
+        if (!unknown_sourceHash) return value_sourceHash;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.sourceHash' is not present");
     }
 
     /**
      * [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to &#34;`STANDARD`&#34;.
      * 
      */
-    private UndeferrableValue<String> storageClass;
-
+    @PolicyResourceProperty(name="storageClass", flag="unknown_storageClass")
+    private String value_storageClass;
+    private boolean unknown_storageClass;
     public String storageClass() {
-        if (storageClass == null) return null;
-        return storageClass.getValue("BucketObjectv2Args.storageClass");
+        if (!unknown_storageClass) return value_storageClass;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.storageClass' is not present");
     }
 
     /**
      * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("BucketObjectv2Args.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.tags' is not present");
     }
 
     /**
@@ -301,11 +327,12 @@ public final class BucketObjectv2Args extends com.pulumi.resources.PolicyResourc
      * &gt; **Note:** The provider ignores all leading `/`s in the object&#39;s `key` and treats multiple `/`s in the rest of the object&#39;s `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
      * 
      */
-    private UndeferrableValue<String> websiteRedirect;
-
+    @PolicyResourceProperty(name="websiteRedirect", flag="unknown_websiteRedirect")
+    private String value_websiteRedirect;
+    private boolean unknown_websiteRedirect;
     public String websiteRedirect() {
-        if (websiteRedirect == null) return null;
-        return websiteRedirect.getValue("BucketObjectv2Args.websiteRedirect");
+        if (!unknown_websiteRedirect) return value_websiteRedirect;
+        throw new UndeferrableValueException("Value 'BucketObjectv2Args.websiteRedirect' is not present");
     }
 
 }

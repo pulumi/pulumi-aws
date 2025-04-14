@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.eks.outputs.ClusterIdentityOidc;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ClusterIdentity {
      * Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ClusterIdentityOidc>> oidcs;
-
+    @PolicyResourceProperty(name="oidcs", flag="unknown_oidcs")
+    private @Nullable List<ClusterIdentityOidc> value_oidcs;
+    private boolean unknown_oidcs;
     public @Nullable List<ClusterIdentityOidc> oidcs() {
-        if (oidcs == null) return null;
-        return oidcs.getValue("ClusterIdentity.oidcs");
+        if (!unknown_oidcs) return value_oidcs;
+        throw new UndeferrableValueException("Value 'ClusterIdentity.oidcs' is not present");
     }
 
 }

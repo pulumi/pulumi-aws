@@ -3,25 +3,28 @@
 
 package com.pulumi.policypacks.aws.ssm.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
 
 public final class PatchBaselineGlobalFilterArgs {
 
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("PatchBaselineGlobalFilterArgs.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'PatchBaselineGlobalFilterArgs.key' is not present");
     }
 
-    private UndeferrableValue<List<String>> values;
-
+    @PolicyResourceProperty(name="values", flag="unknown_values")
+    private List<String> value_values;
+    private boolean unknown_values;
     public List<String> values() {
-        if (values == null) return null;
-        return values.getValue("PatchBaselineGlobalFilterArgs.values");
+        if (!unknown_values) return value_values;
+        throw new UndeferrableValueException("Value 'PatchBaselineGlobalFilterArgs.values' is not present");
     }
 
 }

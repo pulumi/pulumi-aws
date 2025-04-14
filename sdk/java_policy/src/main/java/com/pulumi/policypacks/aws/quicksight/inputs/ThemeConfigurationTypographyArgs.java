@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.inputs.ThemeConfigurationTypographyFontFamilyArgs;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ThemeConfigurationTypographyArgs {
      * Determines the list of font families. Maximum number of 5 items. See font_families.
      * 
      */
-    private UndeferrableValue<List<ThemeConfigurationTypographyFontFamilyArgs>> fontFamilies;
-
+    @PolicyResourceProperty(name="fontFamilies", flag="unknown_fontFamilies")
+    private List<ThemeConfigurationTypographyFontFamilyArgs> value_fontFamilies;
+    private boolean unknown_fontFamilies;
     public List<ThemeConfigurationTypographyFontFamilyArgs> fontFamilies() {
-        if (fontFamilies == null) return null;
-        return fontFamilies.getValue("ThemeConfigurationTypographyArgs.fontFamilies");
+        if (!unknown_fontFamilies) return value_fontFamilies;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationTypographyArgs.fontFamilies' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codebuild.inputs.ReportGroupExportConfigS3DestinationArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ReportGroupExportConfigArgs {
      * contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
      * 
      */
-    private UndeferrableValue<ReportGroupExportConfigS3DestinationArgs> s3Destination;
-
+    @PolicyResourceProperty(name="s3Destination", flag="unknown_s3Destination")
+    private ReportGroupExportConfigS3DestinationArgs value_s3Destination;
+    private boolean unknown_s3Destination;
     public ReportGroupExportConfigS3DestinationArgs s3Destination() {
-        if (s3Destination == null) return null;
-        return s3Destination.getValue("ReportGroupExportConfigArgs.s3Destination");
+        if (!unknown_s3Destination) return value_s3Destination;
+        throw new UndeferrableValueException("Value 'ReportGroupExportConfigArgs.s3Destination' is not present");
     }
 
     /**
      * The export configuration type. Valid values are `S3` and `NO_EXPORT`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ReportGroupExportConfigArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ReportGroupExportConfigArgs.type' is not present");
     }
 
 }

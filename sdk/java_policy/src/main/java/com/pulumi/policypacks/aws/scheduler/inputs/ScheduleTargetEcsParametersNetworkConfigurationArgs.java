@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.scheduler.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class ScheduleTargetEcsParametersNetworkConfigurationArgs {
      * Specifies whether the task&#39;s elastic network interface receives a public IP address. This attribute is a boolean type, where `true` maps to `ENABLED` and `false` to `DISABLED`. You can specify `true` only when the `launch_type` is set to `FARGATE`.
      * 
      */
-    private UndeferrableValue<Boolean> assignPublicIp;
-
+    @PolicyResourceProperty(name="assignPublicIp", flag="unknown_assignPublicIp")
+    private Boolean value_assignPublicIp;
+    private boolean unknown_assignPublicIp;
     public Boolean assignPublicIp() {
-        if (assignPublicIp == null) return null;
-        return assignPublicIp.getValue("ScheduleTargetEcsParametersNetworkConfigurationArgs.assignPublicIp");
+        if (!unknown_assignPublicIp) return value_assignPublicIp;
+        throw new UndeferrableValueException("Value 'ScheduleTargetEcsParametersNetworkConfigurationArgs.assignPublicIp' is not present");
     }
 
     /**
      * Set of 1 to 5 Security Group ID-s to be associated with the task. These security groups must all be in the same VPC.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroups;
-
+    @PolicyResourceProperty(name="securityGroups", flag="unknown_securityGroups")
+    private List<String> value_securityGroups;
+    private boolean unknown_securityGroups;
     public List<String> securityGroups() {
-        if (securityGroups == null) return null;
-        return securityGroups.getValue("ScheduleTargetEcsParametersNetworkConfigurationArgs.securityGroups");
+        if (!unknown_securityGroups) return value_securityGroups;
+        throw new UndeferrableValueException("Value 'ScheduleTargetEcsParametersNetworkConfigurationArgs.securityGroups' is not present");
     }
 
     /**
      * Set of 1 to 16 subnets to be associated with the task. These subnets must all be in the same VPC.
      * 
      */
-    private UndeferrableValue<List<String>> subnets;
-
+    @PolicyResourceProperty(name="subnets", flag="unknown_subnets")
+    private List<String> value_subnets;
+    private boolean unknown_subnets;
     public List<String> subnets() {
-        if (subnets == null) return null;
-        return subnets.getValue("ScheduleTargetEcsParametersNetworkConfigurationArgs.subnets");
+        if (!unknown_subnets) return value_subnets;
+        throw new UndeferrableValueException("Value 'ScheduleTargetEcsParametersNetworkConfigurationArgs.subnets' is not present");
     }
 
 }

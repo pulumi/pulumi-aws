@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class TargetGroupConfigHealthCheckMatcherArgs {
      * The HTTP codes to use when checking for a successful response from a target.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("TargetGroupConfigHealthCheckMatcherArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'TargetGroupConfigHealthCheckMatcherArgs.value' is not present");
     }
 
 }

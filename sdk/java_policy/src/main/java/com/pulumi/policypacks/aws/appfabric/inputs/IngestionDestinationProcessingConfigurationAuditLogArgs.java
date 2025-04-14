@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appfabric.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class IngestionDestinationProcessingConfigurationAuditLogArgs {
      * The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
      * 
      */
-    private UndeferrableValue<String> format;
-
+    @PolicyResourceProperty(name="format", flag="unknown_format")
+    private String value_format;
+    private boolean unknown_format;
     public String format() {
-        if (format == null) return null;
-        return format.getValue("IngestionDestinationProcessingConfigurationAuditLogArgs.format");
+        if (!unknown_format) return value_format;
+        throw new UndeferrableValueException("Value 'IngestionDestinationProcessingConfigurationAuditLogArgs.format' is not present");
     }
 
     /**
      * The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
      * 
      */
-    private UndeferrableValue<String> schema;
-
+    @PolicyResourceProperty(name="schema", flag="unknown_schema")
+    private String value_schema;
+    private boolean unknown_schema;
     public String schema() {
-        if (schema == null) return null;
-        return schema.getValue("IngestionDestinationProcessingConfigurationAuditLogArgs.schema");
+        if (!unknown_schema) return value_schema;
+        throw new UndeferrableValueException("Value 'IngestionDestinationProcessingConfigurationAuditLogArgs.schema' is not present");
     }
 
 }

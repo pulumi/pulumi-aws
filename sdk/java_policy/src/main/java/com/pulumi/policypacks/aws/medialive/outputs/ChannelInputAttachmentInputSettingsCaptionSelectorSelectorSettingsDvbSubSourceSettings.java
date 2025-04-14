@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
      * If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
      * 
      */
-    private @Nullable UndeferrableValue<String> ocrLanguage;
-
+    @PolicyResourceProperty(name="ocrLanguage", flag="unknown_ocrLanguage")
+    private @Nullable String value_ocrLanguage;
+    private boolean unknown_ocrLanguage;
     public @Nullable String ocrLanguage() {
-        if (ocrLanguage == null) return null;
-        return ocrLanguage.getValue("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings.ocrLanguage");
+        if (!unknown_ocrLanguage) return value_ocrLanguage;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings.ocrLanguage' is not present");
     }
 
     /**
      * When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> pid;
-
+    @PolicyResourceProperty(name="pid", flag="unknown_pid")
+    private @Nullable Integer value_pid;
+    private boolean unknown_pid;
     public @Nullable Integer pid() {
-        if (pid == null) return null;
-        return pid.getValue("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings.pid");
+        if (!unknown_pid) return value_pid;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings.pid' is not present");
     }
 
 }

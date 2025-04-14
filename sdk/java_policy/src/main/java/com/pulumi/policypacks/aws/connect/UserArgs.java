@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.connect.inputs.UserIdentityInfoArgs;
 import com.pulumi.policypacks.aws.connect.inputs.UserPhoneConfigArgs;
@@ -20,99 +21,108 @@ public final class UserArgs extends com.pulumi.resources.PolicyResourceInput {
      * The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
      * 
      */
-    private UndeferrableValue<String> directoryUserId;
-
+    @PolicyResourceProperty(name="directoryUserId", flag="unknown_directoryUserId")
+    private String value_directoryUserId;
+    private boolean unknown_directoryUserId;
     public String directoryUserId() {
-        if (directoryUserId == null) return null;
-        return directoryUserId.getValue("UserArgs.directoryUserId");
+        if (!unknown_directoryUserId) return value_directoryUserId;
+        throw new UndeferrableValueException("Value 'UserArgs.directoryUserId' is not present");
     }
 
     /**
      * The identifier of the hierarchy group for the user.
      * 
      */
-    private UndeferrableValue<String> hierarchyGroupId;
-
+    @PolicyResourceProperty(name="hierarchyGroupId", flag="unknown_hierarchyGroupId")
+    private String value_hierarchyGroupId;
+    private boolean unknown_hierarchyGroupId;
     public String hierarchyGroupId() {
-        if (hierarchyGroupId == null) return null;
-        return hierarchyGroupId.getValue("UserArgs.hierarchyGroupId");
+        if (!unknown_hierarchyGroupId) return value_hierarchyGroupId;
+        throw new UndeferrableValueException("Value 'UserArgs.hierarchyGroupId' is not present");
     }
 
     /**
      * A block that contains information about the identity of the user. Documented below.
      * 
      */
-    private UndeferrableValue<UserIdentityInfoArgs> identityInfo;
-
+    @PolicyResourceProperty(name="identityInfo", flag="unknown_identityInfo")
+    private UserIdentityInfoArgs value_identityInfo;
+    private boolean unknown_identityInfo;
     public UserIdentityInfoArgs identityInfo() {
-        if (identityInfo == null) return null;
-        return identityInfo.getValue("UserArgs.identityInfo");
+        if (!unknown_identityInfo) return value_identityInfo;
+        throw new UndeferrableValueException("Value 'UserArgs.identityInfo' is not present");
     }
 
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    private UndeferrableValue<String> instanceId;
-
+    @PolicyResourceProperty(name="instanceId", flag="unknown_instanceId")
+    private String value_instanceId;
+    private boolean unknown_instanceId;
     public String instanceId() {
-        if (instanceId == null) return null;
-        return instanceId.getValue("UserArgs.instanceId");
+        if (!unknown_instanceId) return value_instanceId;
+        throw new UndeferrableValueException("Value 'UserArgs.instanceId' is not present");
     }
 
     /**
      * The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\{@literal @}]+`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("UserArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'UserArgs.name' is not present");
     }
 
     /**
      * The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
      * 
      */
-    private UndeferrableValue<String> password;
-
+    @PolicyResourceProperty(name="password", flag="unknown_password")
+    private String value_password;
+    private boolean unknown_password;
     public String password() {
-        if (password == null) return null;
-        return password.getValue("UserArgs.password");
+        if (!unknown_password) return value_password;
+        throw new UndeferrableValueException("Value 'UserArgs.password' is not present");
     }
 
     /**
      * A block that contains information about the phone settings for the user. Documented below.
      * 
      */
-    private UndeferrableValue<UserPhoneConfigArgs> phoneConfig;
-
+    @PolicyResourceProperty(name="phoneConfig", flag="unknown_phoneConfig")
+    private UserPhoneConfigArgs value_phoneConfig;
+    private boolean unknown_phoneConfig;
     public UserPhoneConfigArgs phoneConfig() {
-        if (phoneConfig == null) return null;
-        return phoneConfig.getValue("UserArgs.phoneConfig");
+        if (!unknown_phoneConfig) return value_phoneConfig;
+        throw new UndeferrableValueException("Value 'UserArgs.phoneConfig' is not present");
     }
 
     /**
      * The identifier of the routing profile for the user.
      * 
      */
-    private UndeferrableValue<String> routingProfileId;
-
+    @PolicyResourceProperty(name="routingProfileId", flag="unknown_routingProfileId")
+    private String value_routingProfileId;
+    private boolean unknown_routingProfileId;
     public String routingProfileId() {
-        if (routingProfileId == null) return null;
-        return routingProfileId.getValue("UserArgs.routingProfileId");
+        if (!unknown_routingProfileId) return value_routingProfileId;
+        throw new UndeferrableValueException("Value 'UserArgs.routingProfileId' is not present");
     }
 
     /**
      * A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
      * 
      */
-    private UndeferrableValue<List<String>> securityProfileIds;
-
+    @PolicyResourceProperty(name="securityProfileIds", flag="unknown_securityProfileIds")
+    private List<String> value_securityProfileIds;
+    private boolean unknown_securityProfileIds;
     public List<String> securityProfileIds() {
-        if (securityProfileIds == null) return null;
-        return securityProfileIds.getValue("UserArgs.securityProfileIds");
+        if (!unknown_securityProfileIds) return value_securityProfileIds;
+        throw new UndeferrableValueException("Value 'UserArgs.securityProfileIds' is not present");
     }
 
     /**
@@ -120,11 +130,12 @@ public final class UserArgs extends com.pulumi.resources.PolicyResourceInput {
      * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("UserArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'UserArgs.tags' is not present");
     }
 
 }

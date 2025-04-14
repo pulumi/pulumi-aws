@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codebuild.outputs.ProjectSourceAuth;
 import com.pulumi.policypacks.aws.codebuild.outputs.ProjectSourceBuildStatusConfig;
 import com.pulumi.policypacks.aws.codebuild.outputs.ProjectSourceGitSubmodulesConfig;
@@ -20,11 +21,12 @@ public final class ProjectSource {
      * Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<ProjectSourceAuth> auth;
-
+    @PolicyResourceProperty(name="auth", flag="unknown_auth")
+    private @Nullable ProjectSourceAuth value_auth;
+    private boolean unknown_auth;
     public @Nullable ProjectSourceAuth auth() {
-        if (auth == null) return null;
-        return auth.getValue("ProjectSource.auth");
+        if (!unknown_auth) return value_auth;
+        throw new UndeferrableValueException("Value 'ProjectSource.auth' is not present");
     }
 
     /**
@@ -33,11 +35,12 @@ public final class ProjectSource {
      * Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
      * 
      */
-    private @Nullable UndeferrableValue<ProjectSourceBuildStatusConfig> buildStatusConfig;
-
+    @PolicyResourceProperty(name="buildStatusConfig", flag="unknown_buildStatusConfig")
+    private @Nullable ProjectSourceBuildStatusConfig value_buildStatusConfig;
+    private boolean unknown_buildStatusConfig;
     public @Nullable ProjectSourceBuildStatusConfig buildStatusConfig() {
-        if (buildStatusConfig == null) return null;
-        return buildStatusConfig.getValue("ProjectSource.buildStatusConfig");
+        if (!unknown_buildStatusConfig) return value_buildStatusConfig;
+        throw new UndeferrableValueException("Value 'ProjectSource.buildStatusConfig' is not present");
     }
 
     /**
@@ -46,11 +49,12 @@ public final class ProjectSource {
      * specified.
      * 
      */
-    private @Nullable UndeferrableValue<String> buildspec;
-
+    @PolicyResourceProperty(name="buildspec", flag="unknown_buildspec")
+    private @Nullable String value_buildspec;
+    private boolean unknown_buildspec;
     public @Nullable String buildspec() {
-        if (buildspec == null) return null;
-        return buildspec.getValue("ProjectSource.buildspec");
+        if (!unknown_buildspec) return value_buildspec;
+        throw new UndeferrableValueException("Value 'ProjectSource.buildspec' is not present");
     }
 
     /**
@@ -60,44 +64,48 @@ public final class ProjectSource {
      * for details.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> gitCloneDepth;
-
+    @PolicyResourceProperty(name="gitCloneDepth", flag="unknown_gitCloneDepth")
+    private @Nullable Integer value_gitCloneDepth;
+    private boolean unknown_gitCloneDepth;
     public @Nullable Integer gitCloneDepth() {
-        if (gitCloneDepth == null) return null;
-        return gitCloneDepth.getValue("ProjectSource.gitCloneDepth");
+        if (!unknown_gitCloneDepth) return value_gitCloneDepth;
+        throw new UndeferrableValueException("Value 'ProjectSource.gitCloneDepth' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<ProjectSourceGitSubmodulesConfig> gitSubmodulesConfig;
-
+    @PolicyResourceProperty(name="gitSubmodulesConfig", flag="unknown_gitSubmodulesConfig")
+    private @Nullable ProjectSourceGitSubmodulesConfig value_gitSubmodulesConfig;
+    private boolean unknown_gitSubmodulesConfig;
     public @Nullable ProjectSourceGitSubmodulesConfig gitSubmodulesConfig() {
-        if (gitSubmodulesConfig == null) return null;
-        return gitSubmodulesConfig.getValue("ProjectSource.gitSubmodulesConfig");
+        if (!unknown_gitSubmodulesConfig) return value_gitSubmodulesConfig;
+        throw new UndeferrableValueException("Value 'ProjectSource.gitSubmodulesConfig' is not present");
     }
 
     /**
      * Ignore SSL warnings when connecting to source control.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> insecureSsl;
-
+    @PolicyResourceProperty(name="insecureSsl", flag="unknown_insecureSsl")
+    private @Nullable Boolean value_insecureSsl;
+    private boolean unknown_insecureSsl;
     public @Nullable Boolean insecureSsl() {
-        if (insecureSsl == null) return null;
-        return insecureSsl.getValue("ProjectSource.insecureSsl");
+        if (!unknown_insecureSsl) return value_insecureSsl;
+        throw new UndeferrableValueException("Value 'ProjectSource.insecureSsl' is not present");
     }
 
     /**
      * Location of the source code from git or s3.
      * 
      */
-    private @Nullable UndeferrableValue<String> location;
-
+    @PolicyResourceProperty(name="location", flag="unknown_location")
+    private @Nullable String value_location;
+    private boolean unknown_location;
     public @Nullable String location() {
-        if (location == null) return null;
-        return location.getValue("ProjectSource.location");
+        if (!unknown_location) return value_location;
+        throw new UndeferrableValueException("Value 'ProjectSource.location' is not present");
     }
 
     /**
@@ -106,11 +114,12 @@ public final class ProjectSource {
      * Bitbucket.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> reportBuildStatus;
-
+    @PolicyResourceProperty(name="reportBuildStatus", flag="unknown_reportBuildStatus")
+    private @Nullable Boolean value_reportBuildStatus;
+    private boolean unknown_reportBuildStatus;
     public @Nullable Boolean reportBuildStatus() {
-        if (reportBuildStatus == null) return null;
-        return reportBuildStatus.getValue("ProjectSource.reportBuildStatus");
+        if (!unknown_reportBuildStatus) return value_reportBuildStatus;
+        throw new UndeferrableValueException("Value 'ProjectSource.reportBuildStatus' is not present");
     }
 
     /**
@@ -118,11 +127,12 @@ public final class ProjectSource {
      * `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ProjectSource.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ProjectSource.type' is not present");
     }
 
 }

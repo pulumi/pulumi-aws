@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ServiceNetworkConfigurationIngressConfigurationArgs {
      * Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
      * 
      */
-    private UndeferrableValue<Boolean> isPubliclyAccessible;
-
+    @PolicyResourceProperty(name="isPubliclyAccessible", flag="unknown_isPubliclyAccessible")
+    private Boolean value_isPubliclyAccessible;
+    private boolean unknown_isPubliclyAccessible;
     public Boolean isPubliclyAccessible() {
-        if (isPubliclyAccessible == null) return null;
-        return isPubliclyAccessible.getValue("ServiceNetworkConfigurationIngressConfigurationArgs.isPubliclyAccessible");
+        if (!unknown_isPubliclyAccessible) return value_isPubliclyAccessible;
+        throw new UndeferrableValueException("Value 'ServiceNetworkConfigurationIngressConfigurationArgs.isPubliclyAccessible' is not present");
     }
 
 }

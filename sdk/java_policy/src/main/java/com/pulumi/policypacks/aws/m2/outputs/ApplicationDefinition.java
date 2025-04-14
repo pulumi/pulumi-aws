@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.m2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ApplicationDefinition {
      * JSON application definition. Either this or `s3_location` must be specified.
      * 
      */
-    private @Nullable UndeferrableValue<String> content;
-
+    @PolicyResourceProperty(name="content", flag="unknown_content")
+    private @Nullable String value_content;
+    private boolean unknown_content;
     public @Nullable String content() {
-        if (content == null) return null;
-        return content.getValue("ApplicationDefinition.content");
+        if (!unknown_content) return value_content;
+        throw new UndeferrableValueException("Value 'ApplicationDefinition.content' is not present");
     }
 
     /**
      * Location of the application definition in S3. Either this or `content` must be specified.
      * 
      */
-    private @Nullable UndeferrableValue<String> s3Location;
-
+    @PolicyResourceProperty(name="s3Location", flag="unknown_s3Location")
+    private @Nullable String value_s3Location;
+    private boolean unknown_s3Location;
     public @Nullable String s3Location() {
-        if (s3Location == null) return null;
-        return s3Location.getValue("ApplicationDefinition.s3Location");
+        if (!unknown_s3Location) return value_s3Location;
+        throw new UndeferrableValueException("Value 'ApplicationDefinition.s3Location' is not present");
     }
 
 }

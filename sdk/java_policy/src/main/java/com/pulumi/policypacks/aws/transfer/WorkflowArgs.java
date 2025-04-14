@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.transfer.inputs.WorkflowOnExceptionStepArgs;
 import com.pulumi.policypacks.aws.transfer.inputs.WorkflowStepArgs;
@@ -20,44 +21,48 @@ public final class WorkflowArgs extends com.pulumi.resources.PolicyResourceInput
      * A textual description for the workflow.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("WorkflowArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'WorkflowArgs.description' is not present");
     }
 
     /**
      * Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
      * 
      */
-    private UndeferrableValue<List<WorkflowOnExceptionStepArgs>> onExceptionSteps;
-
+    @PolicyResourceProperty(name="onExceptionSteps", flag="unknown_onExceptionSteps")
+    private List<WorkflowOnExceptionStepArgs> value_onExceptionSteps;
+    private boolean unknown_onExceptionSteps;
     public List<WorkflowOnExceptionStepArgs> onExceptionSteps() {
-        if (onExceptionSteps == null) return null;
-        return onExceptionSteps.getValue("WorkflowArgs.onExceptionSteps");
+        if (!unknown_onExceptionSteps) return value_onExceptionSteps;
+        throw new UndeferrableValueException("Value 'WorkflowArgs.onExceptionSteps' is not present");
     }
 
     /**
      * Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
      * 
      */
-    private UndeferrableValue<List<WorkflowStepArgs>> steps;
-
+    @PolicyResourceProperty(name="steps", flag="unknown_steps")
+    private List<WorkflowStepArgs> value_steps;
+    private boolean unknown_steps;
     public List<WorkflowStepArgs> steps() {
-        if (steps == null) return null;
-        return steps.getValue("WorkflowArgs.steps");
+        if (!unknown_steps) return value_steps;
+        throw new UndeferrableValueException("Value 'WorkflowArgs.steps' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("WorkflowArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'WorkflowArgs.tags' is not present");
     }
 
 }

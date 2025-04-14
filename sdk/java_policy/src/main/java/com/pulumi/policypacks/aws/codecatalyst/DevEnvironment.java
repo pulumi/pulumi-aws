@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codecatalyst;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.codecatalyst.outputs.DevEnvironmentIdes;
 import com.pulumi.policypacks.aws.codecatalyst.outputs.DevEnvironmentPersistentStorage;
@@ -17,33 +18,36 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:codecatalyst/devEnvironment:DevEnvironment")
 public final class DevEnvironment extends com.pulumi.resources.PolicyResourceOutput {
 
-    private @Nullable UndeferrableValue<String> alias;
-
+    @PolicyResourceProperty(name="alias", flag="unknown_alias")
+    private @Nullable String value_alias;
+    private boolean unknown_alias;
     public @Nullable String alias() {
-        if (alias == null) return null;
-        return alias.getValue("DevEnvironment.alias");
+        if (!unknown_alias) return value_alias;
+        throw new UndeferrableValueException("Value 'DevEnvironment.alias' is not present");
     }
 
     /**
      * Information about the integrated development environment (IDE) configured for a Dev Environment.
      * 
      */
-    private UndeferrableValue<DevEnvironmentIdes> ides;
-
+    @PolicyResourceProperty(name="ides", flag="unknown_ides")
+    private DevEnvironmentIdes value_ides;
+    private boolean unknown_ides;
     public DevEnvironmentIdes ides() {
-        if (ides == null) return null;
-        return ides.getValue("DevEnvironment.ides");
+        if (!unknown_ides) return value_ides;
+        throw new UndeferrableValueException("Value 'DevEnvironment.ides' is not present");
     }
 
     /**
      * The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> inactivityTimeoutMinutes;
-
+    @PolicyResourceProperty(name="inactivityTimeoutMinutes", flag="unknown_inactivityTimeoutMinutes")
+    private @Nullable Integer value_inactivityTimeoutMinutes;
+    private boolean unknown_inactivityTimeoutMinutes;
     public @Nullable Integer inactivityTimeoutMinutes() {
-        if (inactivityTimeoutMinutes == null) return null;
-        return inactivityTimeoutMinutes.getValue("DevEnvironment.inactivityTimeoutMinutes");
+        if (!unknown_inactivityTimeoutMinutes) return value_inactivityTimeoutMinutes;
+        throw new UndeferrableValueException("Value 'DevEnvironment.inactivityTimeoutMinutes' is not present");
     }
 
     /**
@@ -52,55 +56,60 @@ public final class DevEnvironment extends com.pulumi.resources.PolicyResourceOut
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("DevEnvironment.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'DevEnvironment.instanceType' is not present");
     }
 
     /**
      * Information about the amount of storage allocated to the Dev Environment.
      * 
      */
-    private UndeferrableValue<DevEnvironmentPersistentStorage> persistentStorage;
-
+    @PolicyResourceProperty(name="persistentStorage", flag="unknown_persistentStorage")
+    private DevEnvironmentPersistentStorage value_persistentStorage;
+    private boolean unknown_persistentStorage;
     public DevEnvironmentPersistentStorage persistentStorage() {
-        if (persistentStorage == null) return null;
-        return persistentStorage.getValue("DevEnvironment.persistentStorage");
+        if (!unknown_persistentStorage) return value_persistentStorage;
+        throw new UndeferrableValueException("Value 'DevEnvironment.persistentStorage' is not present");
     }
 
     /**
      * The name of the project in the space.
      * 
      */
-    private UndeferrableValue<String> projectName;
-
+    @PolicyResourceProperty(name="projectName", flag="unknown_projectName")
+    private String value_projectName;
+    private boolean unknown_projectName;
     public String projectName() {
-        if (projectName == null) return null;
-        return projectName.getValue("DevEnvironment.projectName");
+        if (!unknown_projectName) return value_projectName;
+        throw new UndeferrableValueException("Value 'DevEnvironment.projectName' is not present");
     }
 
     /**
      * The source repository that contains the branch to clone into the Dev Environment.
      * 
      */
-    private @Nullable UndeferrableValue<List<DevEnvironmentRepository>> repositories;
-
+    @PolicyResourceProperty(name="repositories", flag="unknown_repositories")
+    private @Nullable List<DevEnvironmentRepository> value_repositories;
+    private boolean unknown_repositories;
     public @Nullable List<DevEnvironmentRepository> repositories() {
-        if (repositories == null) return null;
-        return repositories.getValue("DevEnvironment.repositories");
+        if (!unknown_repositories) return value_repositories;
+        throw new UndeferrableValueException("Value 'DevEnvironment.repositories' is not present");
     }
 
     /**
      * The name of the space.
      * 
      */
-    private UndeferrableValue<String> spaceName;
-
+    @PolicyResourceProperty(name="spaceName", flag="unknown_spaceName")
+    private String value_spaceName;
+    private boolean unknown_spaceName;
     public String spaceName() {
-        if (spaceName == null) return null;
-        return spaceName.getValue("DevEnvironment.spaceName");
+        if (!unknown_spaceName) return value_spaceName;
+        throw new UndeferrableValueException("Value 'DevEnvironment.spaceName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.docdb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.docdb.outputs.ElasticClusterTimeouts;
 import java.lang.Integer;
@@ -20,121 +21,132 @@ public final class ElasticCluster extends com.pulumi.resources.PolicyResourceOut
      * Name of the Elastic DocumentDB cluster administrator
      * 
      */
-    private UndeferrableValue<String> adminUserName;
-
+    @PolicyResourceProperty(name="adminUserName", flag="unknown_adminUserName")
+    private String value_adminUserName;
+    private boolean unknown_adminUserName;
     public String adminUserName() {
-        if (adminUserName == null) return null;
-        return adminUserName.getValue("ElasticCluster.adminUserName");
+        if (!unknown_adminUserName) return value_adminUserName;
+        throw new UndeferrableValueException("Value 'ElasticCluster.adminUserName' is not present");
     }
 
     /**
      * Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
      * 
      */
-    private UndeferrableValue<String> adminUserPassword;
-
+    @PolicyResourceProperty(name="adminUserPassword", flag="unknown_adminUserPassword")
+    private String value_adminUserPassword;
+    private boolean unknown_adminUserPassword;
     public String adminUserPassword() {
-        if (adminUserPassword == null) return null;
-        return adminUserPassword.getValue("ElasticCluster.adminUserPassword");
+        if (!unknown_adminUserPassword) return value_adminUserPassword;
+        throw new UndeferrableValueException("Value 'ElasticCluster.adminUserPassword' is not present");
     }
 
     /**
      * ARN of the DocumentDB Elastic Cluster
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ElasticCluster.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ElasticCluster.arn' is not present");
     }
 
     /**
      * Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
      * 
      */
-    private UndeferrableValue<String> authType;
-
+    @PolicyResourceProperty(name="authType", flag="unknown_authType")
+    private String value_authType;
+    private boolean unknown_authType;
     public String authType() {
-        if (authType == null) return null;
-        return authType.getValue("ElasticCluster.authType");
+        if (!unknown_authType) return value_authType;
+        throw new UndeferrableValueException("Value 'ElasticCluster.authType' is not present");
     }
 
     /**
      * The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
      * 
      */
-    private UndeferrableValue<Integer> backupRetentionPeriod;
-
+    @PolicyResourceProperty(name="backupRetentionPeriod", flag="unknown_backupRetentionPeriod")
+    private Integer value_backupRetentionPeriod;
+    private boolean unknown_backupRetentionPeriod;
     public Integer backupRetentionPeriod() {
-        if (backupRetentionPeriod == null) return null;
-        return backupRetentionPeriod.getValue("ElasticCluster.backupRetentionPeriod");
+        if (!unknown_backupRetentionPeriod) return value_backupRetentionPeriod;
+        throw new UndeferrableValueException("Value 'ElasticCluster.backupRetentionPeriod' is not present");
     }
 
     /**
      * The DNS address of the DocDB instance
      * 
      */
-    private UndeferrableValue<String> endpoint;
-
+    @PolicyResourceProperty(name="endpoint", flag="unknown_endpoint")
+    private String value_endpoint;
+    private boolean unknown_endpoint;
     public String endpoint() {
-        if (endpoint == null) return null;
-        return endpoint.getValue("ElasticCluster.endpoint");
+        if (!unknown_endpoint) return value_endpoint;
+        throw new UndeferrableValueException("Value 'ElasticCluster.endpoint' is not present");
     }
 
     /**
      * ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("ElasticCluster.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'ElasticCluster.kmsKeyId' is not present");
     }
 
     /**
      * Name of the Elastic DocumentDB cluster
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ElasticCluster.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ElasticCluster.name' is not present");
     }
 
     /**
      * The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
      * 
      */
-    private UndeferrableValue<String> preferredBackupWindow;
-
+    @PolicyResourceProperty(name="preferredBackupWindow", flag="unknown_preferredBackupWindow")
+    private String value_preferredBackupWindow;
+    private boolean unknown_preferredBackupWindow;
     public String preferredBackupWindow() {
-        if (preferredBackupWindow == null) return null;
-        return preferredBackupWindow.getValue("ElasticCluster.preferredBackupWindow");
+        if (!unknown_preferredBackupWindow) return value_preferredBackupWindow;
+        throw new UndeferrableValueException("Value 'ElasticCluster.preferredBackupWindow' is not present");
     }
 
     /**
      * Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
      * 
      */
-    private UndeferrableValue<String> preferredMaintenanceWindow;
-
+    @PolicyResourceProperty(name="preferredMaintenanceWindow", flag="unknown_preferredMaintenanceWindow")
+    private String value_preferredMaintenanceWindow;
+    private boolean unknown_preferredMaintenanceWindow;
     public String preferredMaintenanceWindow() {
-        if (preferredMaintenanceWindow == null) return null;
-        return preferredMaintenanceWindow.getValue("ElasticCluster.preferredMaintenanceWindow");
+        if (!unknown_preferredMaintenanceWindow) return value_preferredMaintenanceWindow;
+        throw new UndeferrableValueException("Value 'ElasticCluster.preferredMaintenanceWindow' is not present");
     }
 
     /**
      * Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
      * 
      */
-    private UndeferrableValue<Integer> shardCapacity;
-
+    @PolicyResourceProperty(name="shardCapacity", flag="unknown_shardCapacity")
+    private Integer value_shardCapacity;
+    private boolean unknown_shardCapacity;
     public Integer shardCapacity() {
-        if (shardCapacity == null) return null;
-        return shardCapacity.getValue("ElasticCluster.shardCapacity");
+        if (!unknown_shardCapacity) return value_shardCapacity;
+        throw new UndeferrableValueException("Value 'ElasticCluster.shardCapacity' is not present");
     }
 
     /**
@@ -143,33 +155,36 @@ public final class ElasticCluster extends com.pulumi.resources.PolicyResourceOut
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<Integer> shardCount;
-
+    @PolicyResourceProperty(name="shardCount", flag="unknown_shardCount")
+    private Integer value_shardCount;
+    private boolean unknown_shardCount;
     public Integer shardCount() {
-        if (shardCount == null) return null;
-        return shardCount.getValue("ElasticCluster.shardCount");
+        if (!unknown_shardCount) return value_shardCount;
+        throw new UndeferrableValueException("Value 'ElasticCluster.shardCount' is not present");
     }
 
     /**
      * IDs of subnets in which the Elastic DocumentDB Cluster operates.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("ElasticCluster.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'ElasticCluster.subnetIds' is not present");
     }
 
     /**
      * A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ElasticCluster.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ElasticCluster.tags' is not present");
     }
 
     /**
@@ -178,29 +193,32 @@ public final class ElasticCluster extends com.pulumi.resources.PolicyResourceOut
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ElasticCluster.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ElasticCluster.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<ElasticClusterTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable ElasticClusterTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable ElasticClusterTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ElasticCluster.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ElasticCluster.timeouts' is not present");
     }
 
     /**
      * List of VPC security groups to associate with the Elastic DocumentDB Cluster
      * 
      */
-    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
-
+    @PolicyResourceProperty(name="vpcSecurityGroupIds", flag="unknown_vpcSecurityGroupIds")
+    private List<String> value_vpcSecurityGroupIds;
+    private boolean unknown_vpcSecurityGroupIds;
     public List<String> vpcSecurityGroupIds() {
-        if (vpcSecurityGroupIds == null) return null;
-        return vpcSecurityGroupIds.getValue("ElasticCluster.vpcSecurityGroupIds");
+        if (!unknown_vpcSecurityGroupIds) return value_vpcSecurityGroupIds;
+        throw new UndeferrableValueException("Value 'ElasticCluster.vpcSecurityGroupIds' is not present");
     }
 
 }

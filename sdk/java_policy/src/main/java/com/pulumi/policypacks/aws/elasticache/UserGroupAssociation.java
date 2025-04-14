@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticache;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class UserGroupAssociation extends com.pulumi.resources.PolicyResou
      * ID of the user group.
      * 
      */
-    private UndeferrableValue<String> userGroupId;
-
+    @PolicyResourceProperty(name="userGroupId", flag="unknown_userGroupId")
+    private String value_userGroupId;
+    private boolean unknown_userGroupId;
     public String userGroupId() {
-        if (userGroupId == null) return null;
-        return userGroupId.getValue("UserGroupAssociation.userGroupId");
+        if (!unknown_userGroupId) return value_userGroupId;
+        throw new UndeferrableValueException("Value 'UserGroupAssociation.userGroupId' is not present");
     }
 
     /**
      * ID of the user to associated with the user group.
      * 
      */
-    private UndeferrableValue<String> userId;
-
+    @PolicyResourceProperty(name="userId", flag="unknown_userId")
+    private String value_userId;
+    private boolean unknown_userId;
     public String userId() {
-        if (userId == null) return null;
-        return userId.getValue("UserGroupAssociation.userId");
+        if (!unknown_userId) return value_userId;
+        throw new UndeferrableValueException("Value 'UserGroupAssociation.userId' is not present");
     }
 
 }

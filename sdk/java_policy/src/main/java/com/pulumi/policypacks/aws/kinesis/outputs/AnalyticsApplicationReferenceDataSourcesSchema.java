@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.outputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn;
 import com.pulumi.policypacks.aws.kinesis.outputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat;
 import java.lang.String;
@@ -18,22 +19,24 @@ public final class AnalyticsApplicationReferenceDataSourcesSchema {
      * See Record Columns below for more details.
      * 
      */
-    private UndeferrableValue<List<AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn>> recordColumns;
-
+    @PolicyResourceProperty(name="recordColumns", flag="unknown_recordColumns")
+    private List<AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn> value_recordColumns;
+    private boolean unknown_recordColumns;
     public List<AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn> recordColumns() {
-        if (recordColumns == null) return null;
-        return recordColumns.getValue("AnalyticsApplicationReferenceDataSourcesSchema.recordColumns");
+        if (!unknown_recordColumns) return value_recordColumns;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesSchema.recordColumns' is not present");
     }
 
     /**
      * The Encoding of the record in the streaming source.
      * 
      */
-    private @Nullable UndeferrableValue<String> recordEncoding;
-
+    @PolicyResourceProperty(name="recordEncoding", flag="unknown_recordEncoding")
+    private @Nullable String value_recordEncoding;
+    private boolean unknown_recordEncoding;
     public @Nullable String recordEncoding() {
-        if (recordEncoding == null) return null;
-        return recordEncoding.getValue("AnalyticsApplicationReferenceDataSourcesSchema.recordEncoding");
+        if (!unknown_recordEncoding) return value_recordEncoding;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesSchema.recordEncoding' is not present");
     }
 
     /**
@@ -41,11 +44,12 @@ public final class AnalyticsApplicationReferenceDataSourcesSchema {
      * See Record Format below for more details.
      * 
      */
-    private UndeferrableValue<AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat> recordFormat;
-
+    @PolicyResourceProperty(name="recordFormat", flag="unknown_recordFormat")
+    private AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat value_recordFormat;
+    private boolean unknown_recordFormat;
     public AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat recordFormat() {
-        if (recordFormat == null) return null;
-        return recordFormat.getValue("AnalyticsApplicationReferenceDataSourcesSchema.recordFormat");
+        if (!unknown_recordFormat) return value_recordFormat;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesSchema.recordFormat' is not present");
     }
 
 }

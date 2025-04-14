@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.elb.inputs.LoadBalancerPolicyPolicyAttributeArgs;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class LoadBalancerPolicyArgs extends com.pulumi.resources.PolicyRes
      * The load balancer on which the policy is defined.
      * 
      */
-    private UndeferrableValue<String> loadBalancerName;
-
+    @PolicyResourceProperty(name="loadBalancerName", flag="unknown_loadBalancerName")
+    private String value_loadBalancerName;
+    private boolean unknown_loadBalancerName;
     public String loadBalancerName() {
-        if (loadBalancerName == null) return null;
-        return loadBalancerName.getValue("LoadBalancerPolicyArgs.loadBalancerName");
+        if (!unknown_loadBalancerName) return value_loadBalancerName;
+        throw new UndeferrableValueException("Value 'LoadBalancerPolicyArgs.loadBalancerName' is not present");
     }
 
     /**
      * Policy attribute to apply to the policy.
      * 
      */
-    private UndeferrableValue<List<LoadBalancerPolicyPolicyAttributeArgs>> policyAttributes;
-
+    @PolicyResourceProperty(name="policyAttributes", flag="unknown_policyAttributes")
+    private List<LoadBalancerPolicyPolicyAttributeArgs> value_policyAttributes;
+    private boolean unknown_policyAttributes;
     public List<LoadBalancerPolicyPolicyAttributeArgs> policyAttributes() {
-        if (policyAttributes == null) return null;
-        return policyAttributes.getValue("LoadBalancerPolicyArgs.policyAttributes");
+        if (!unknown_policyAttributes) return value_policyAttributes;
+        throw new UndeferrableValueException("Value 'LoadBalancerPolicyArgs.policyAttributes' is not present");
     }
 
     /**
      * The name of the load balancer policy.
      * 
      */
-    private UndeferrableValue<String> policyName;
-
+    @PolicyResourceProperty(name="policyName", flag="unknown_policyName")
+    private String value_policyName;
+    private boolean unknown_policyName;
     public String policyName() {
-        if (policyName == null) return null;
-        return policyName.getValue("LoadBalancerPolicyArgs.policyName");
+        if (!unknown_policyName) return value_policyName;
+        throw new UndeferrableValueException("Value 'LoadBalancerPolicyArgs.policyName' is not present");
     }
 
     /**
      * The policy type.
      * 
      */
-    private UndeferrableValue<String> policyTypeName;
-
+    @PolicyResourceProperty(name="policyTypeName", flag="unknown_policyTypeName")
+    private String value_policyTypeName;
+    private boolean unknown_policyTypeName;
     public String policyTypeName() {
-        if (policyTypeName == null) return null;
-        return policyTypeName.getValue("LoadBalancerPolicyArgs.policyTypeName");
+        if (!unknown_policyTypeName) return value_policyTypeName;
+        throw new UndeferrableValueException("Value 'LoadBalancerPolicyArgs.policyTypeName' is not present");
     }
 
 }

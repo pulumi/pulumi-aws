@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ssm.inputs.PatchBaselineApprovalRulePatchFilterArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -18,55 +19,60 @@ public final class PatchBaselineApprovalRuleArgs {
      * Number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline. Valid Range: 0 to 360. Conflicts with `approve_until_date`.
      * 
      */
-    private UndeferrableValue<Integer> approveAfterDays;
-
+    @PolicyResourceProperty(name="approveAfterDays", flag="unknown_approveAfterDays")
+    private Integer value_approveAfterDays;
+    private boolean unknown_approveAfterDays;
     public Integer approveAfterDays() {
-        if (approveAfterDays == null) return null;
-        return approveAfterDays.getValue("PatchBaselineApprovalRuleArgs.approveAfterDays");
+        if (!unknown_approveAfterDays) return value_approveAfterDays;
+        throw new UndeferrableValueException("Value 'PatchBaselineApprovalRuleArgs.approveAfterDays' is not present");
     }
 
     /**
      * Cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
      * 
      */
-    private UndeferrableValue<String> approveUntilDate;
-
+    @PolicyResourceProperty(name="approveUntilDate", flag="unknown_approveUntilDate")
+    private String value_approveUntilDate;
+    private boolean unknown_approveUntilDate;
     public String approveUntilDate() {
-        if (approveUntilDate == null) return null;
-        return approveUntilDate.getValue("PatchBaselineApprovalRuleArgs.approveUntilDate");
+        if (!unknown_approveUntilDate) return value_approveUntilDate;
+        throw new UndeferrableValueException("Value 'PatchBaselineApprovalRuleArgs.approveUntilDate' is not present");
     }
 
     /**
      * Compliance level for patches approved by this rule. Valid values are `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, and `UNSPECIFIED`. The default value is `UNSPECIFIED`.
      * 
      */
-    private UndeferrableValue<String> complianceLevel;
-
+    @PolicyResourceProperty(name="complianceLevel", flag="unknown_complianceLevel")
+    private String value_complianceLevel;
+    private boolean unknown_complianceLevel;
     public String complianceLevel() {
-        if (complianceLevel == null) return null;
-        return complianceLevel.getValue("PatchBaselineApprovalRuleArgs.complianceLevel");
+        if (!unknown_complianceLevel) return value_complianceLevel;
+        throw new UndeferrableValueException("Value 'PatchBaselineApprovalRuleArgs.complianceLevel' is not present");
     }
 
     /**
      * Boolean enabling the application of non-security updates. The default value is `false`. Valid for Linux instances only.
      * 
      */
-    private UndeferrableValue<Boolean> enableNonSecurity;
-
+    @PolicyResourceProperty(name="enableNonSecurity", flag="unknown_enableNonSecurity")
+    private Boolean value_enableNonSecurity;
+    private boolean unknown_enableNonSecurity;
     public Boolean enableNonSecurity() {
-        if (enableNonSecurity == null) return null;
-        return enableNonSecurity.getValue("PatchBaselineApprovalRuleArgs.enableNonSecurity");
+        if (!unknown_enableNonSecurity) return value_enableNonSecurity;
+        throw new UndeferrableValueException("Value 'PatchBaselineApprovalRuleArgs.enableNonSecurity' is not present");
     }
 
     /**
      * Patch filter group that defines the criteria for the rule. Up to 5 patch filters can be specified per approval rule using Key/Value pairs. Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html). Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values. `PATCH_SET` defaults to `OS` if unspecified
      * 
      */
-    private UndeferrableValue<List<PatchBaselineApprovalRulePatchFilterArgs>> patchFilters;
-
+    @PolicyResourceProperty(name="patchFilters", flag="unknown_patchFilters")
+    private List<PatchBaselineApprovalRulePatchFilterArgs> value_patchFilters;
+    private boolean unknown_patchFilters;
     public List<PatchBaselineApprovalRulePatchFilterArgs> patchFilters() {
-        if (patchFilters == null) return null;
-        return patchFilters.getValue("PatchBaselineApprovalRuleArgs.patchFilters");
+        if (!unknown_patchFilters) return value_patchFilters;
+        throw new UndeferrableValueException("Value 'PatchBaselineApprovalRuleArgs.patchFilters' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.amp.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ScraperRoleConfiguration {
      * The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
      * 
      */
-    private @Nullable UndeferrableValue<String> sourceRoleArn;
-
+    @PolicyResourceProperty(name="sourceRoleArn", flag="unknown_sourceRoleArn")
+    private @Nullable String value_sourceRoleArn;
+    private boolean unknown_sourceRoleArn;
     public @Nullable String sourceRoleArn() {
-        if (sourceRoleArn == null) return null;
-        return sourceRoleArn.getValue("ScraperRoleConfiguration.sourceRoleArn");
+        if (!unknown_sourceRoleArn) return value_sourceRoleArn;
+        throw new UndeferrableValueException("Value 'ScraperRoleConfiguration.sourceRoleArn' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
      * 
      */
-    private @Nullable UndeferrableValue<String> targetRoleArn;
-
+    @PolicyResourceProperty(name="targetRoleArn", flag="unknown_targetRoleArn")
+    private @Nullable String value_targetRoleArn;
+    private boolean unknown_targetRoleArn;
     public @Nullable String targetRoleArn() {
-        if (targetRoleArn == null) return null;
-        return targetRoleArn.getValue("ScraperRoleConfiguration.targetRoleArn");
+        if (!unknown_targetRoleArn) return value_targetRoleArn;
+        throw new UndeferrableValueException("Value 'ScraperRoleConfiguration.targetRoleArn' is not present");
     }
 
 }

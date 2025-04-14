@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -11,18 +12,20 @@ import javax.annotation.Nullable;
 
 public final class FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector {
 
-    private @Nullable UndeferrableValue<Map<String,String>> customProperties;
-
+    @PolicyResourceProperty(name="customProperties", flag="unknown_customProperties")
+    private @Nullable Map<String,String> value_customProperties;
+    private boolean unknown_customProperties;
     public @Nullable Map<String,String> customProperties() {
-        if (customProperties == null) return null;
-        return customProperties.getValue("FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector.customProperties");
+        if (!unknown_customProperties) return value_customProperties;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector.customProperties' is not present");
     }
 
-    private UndeferrableValue<String> entityName;
-
+    @PolicyResourceProperty(name="entityName", flag="unknown_entityName")
+    private String value_entityName;
+    private boolean unknown_entityName;
     public String entityName() {
-        if (entityName == null) return null;
-        return entityName.getValue("FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector.entityName");
+        if (!unknown_entityName) return value_entityName;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector.entityName' is not present");
     }
 
 }

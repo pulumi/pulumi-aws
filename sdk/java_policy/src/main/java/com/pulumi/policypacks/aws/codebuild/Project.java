@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.codebuild.outputs.ProjectArtifacts;
 import com.pulumi.policypacks.aws.codebuild.outputs.ProjectBuildBatchConfig;
@@ -31,22 +32,24 @@ public final class Project extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the CodeBuild project.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Project.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Project.arn' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<ProjectArtifacts> artifacts;
-
+    @PolicyResourceProperty(name="artifacts", flag="unknown_artifacts")
+    private ProjectArtifacts value_artifacts;
+    private boolean unknown_artifacts;
     public ProjectArtifacts artifacts() {
-        if (artifacts == null) return null;
-        return artifacts.getValue("Project.artifacts");
+        if (!unknown_artifacts) return value_artifacts;
+        throw new UndeferrableValueException("Value 'Project.artifacts' is not present");
     }
 
     /**
@@ -54,33 +57,36 @@ public final class Project extends com.pulumi.resources.PolicyResourceOutput {
      * `badge_url` attribute when enabled.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> badgeEnabled;
-
+    @PolicyResourceProperty(name="badgeEnabled", flag="unknown_badgeEnabled")
+    private @Nullable Boolean value_badgeEnabled;
+    private boolean unknown_badgeEnabled;
     public @Nullable Boolean badgeEnabled() {
-        if (badgeEnabled == null) return null;
-        return badgeEnabled.getValue("Project.badgeEnabled");
+        if (!unknown_badgeEnabled) return value_badgeEnabled;
+        throw new UndeferrableValueException("Value 'Project.badgeEnabled' is not present");
     }
 
     /**
      * URL of the build badge when `badge_enabled` is enabled.
      * 
      */
-    private UndeferrableValue<String> badgeUrl;
-
+    @PolicyResourceProperty(name="badgeUrl", flag="unknown_badgeUrl")
+    private String value_badgeUrl;
+    private boolean unknown_badgeUrl;
     public String badgeUrl() {
-        if (badgeUrl == null) return null;
-        return badgeUrl.getValue("Project.badgeUrl");
+        if (!unknown_badgeUrl) return value_badgeUrl;
+        throw new UndeferrableValueException("Value 'Project.badgeUrl' is not present");
     }
 
     /**
      * Defines the batch build options for the project.
      * 
      */
-    private @Nullable UndeferrableValue<ProjectBuildBatchConfig> buildBatchConfig;
-
+    @PolicyResourceProperty(name="buildBatchConfig", flag="unknown_buildBatchConfig")
+    private @Nullable ProjectBuildBatchConfig value_buildBatchConfig;
+    private boolean unknown_buildBatchConfig;
     public @Nullable ProjectBuildBatchConfig buildBatchConfig() {
-        if (buildBatchConfig == null) return null;
-        return buildBatchConfig.getValue("Project.buildBatchConfig");
+        if (!unknown_buildBatchConfig) return value_buildBatchConfig;
+        throw new UndeferrableValueException("Value 'Project.buildBatchConfig' is not present");
     }
 
     /**
@@ -89,22 +95,24 @@ public final class Project extends com.pulumi.resources.PolicyResourceOutput {
      * not available on the `Lambda` compute type.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> buildTimeout;
-
+    @PolicyResourceProperty(name="buildTimeout", flag="unknown_buildTimeout")
+    private @Nullable Integer value_buildTimeout;
+    private boolean unknown_buildTimeout;
     public @Nullable Integer buildTimeout() {
-        if (buildTimeout == null) return null;
-        return buildTimeout.getValue("Project.buildTimeout");
+        if (!unknown_buildTimeout) return value_buildTimeout;
+        throw new UndeferrableValueException("Value 'Project.buildTimeout' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<ProjectCache> cache;
-
+    @PolicyResourceProperty(name="cache", flag="unknown_cache")
+    private @Nullable ProjectCache value_cache;
+    private boolean unknown_cache;
     public @Nullable ProjectCache cache() {
-        if (cache == null) return null;
-        return cache.getValue("Project.cache");
+        if (!unknown_cache) return value_cache;
+        throw new UndeferrableValueException("Value 'Project.cache' is not present");
     }
 
     /**
@@ -112,22 +120,24 @@ public final class Project extends com.pulumi.resources.PolicyResourceOutput {
      * specified must be greater than 0 and less than the account concurrent running builds limit.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> concurrentBuildLimit;
-
+    @PolicyResourceProperty(name="concurrentBuildLimit", flag="unknown_concurrentBuildLimit")
+    private @Nullable Integer value_concurrentBuildLimit;
+    private boolean unknown_concurrentBuildLimit;
     public @Nullable Integer concurrentBuildLimit() {
-        if (concurrentBuildLimit == null) return null;
-        return concurrentBuildLimit.getValue("Project.concurrentBuildLimit");
+        if (!unknown_concurrentBuildLimit) return value_concurrentBuildLimit;
+        throw new UndeferrableValueException("Value 'Project.concurrentBuildLimit' is not present");
     }
 
     /**
      * Short description of the project.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("Project.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Project.description' is not present");
     }
 
     /**
@@ -135,22 +145,24 @@ public final class Project extends com.pulumi.resources.PolicyResourceOutput {
      * the build project&#39;s build output artifacts.
      * 
      */
-    private UndeferrableValue<String> encryptionKey;
-
+    @PolicyResourceProperty(name="encryptionKey", flag="unknown_encryptionKey")
+    private String value_encryptionKey;
+    private boolean unknown_encryptionKey;
     public String encryptionKey() {
-        if (encryptionKey == null) return null;
-        return encryptionKey.getValue("Project.encryptionKey");
+        if (!unknown_encryptionKey) return value_encryptionKey;
+        throw new UndeferrableValueException("Value 'Project.encryptionKey' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<ProjectEnvironment> environment;
-
+    @PolicyResourceProperty(name="environment", flag="unknown_environment")
+    private ProjectEnvironment value_environment;
+    private boolean unknown_environment;
     public ProjectEnvironment environment() {
-        if (environment == null) return null;
-        return environment.getValue("Project.environment");
+        if (!unknown_environment) return value_environment;
+        throw new UndeferrableValueException("Value 'Project.environment' is not present");
     }
 
     /**
@@ -158,33 +170,36 @@ public final class Project extends com.pulumi.resources.PolicyResourceOutput {
      * are documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ProjectFileSystemLocation>> fileSystemLocations;
-
+    @PolicyResourceProperty(name="fileSystemLocations", flag="unknown_fileSystemLocations")
+    private @Nullable List<ProjectFileSystemLocation> value_fileSystemLocations;
+    private boolean unknown_fileSystemLocations;
     public @Nullable List<ProjectFileSystemLocation> fileSystemLocations() {
-        if (fileSystemLocations == null) return null;
-        return fileSystemLocations.getValue("Project.fileSystemLocations");
+        if (!unknown_fileSystemLocations) return value_fileSystemLocations;
+        throw new UndeferrableValueException("Value 'Project.fileSystemLocations' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<ProjectLogsConfig> logsConfig;
-
+    @PolicyResourceProperty(name="logsConfig", flag="unknown_logsConfig")
+    private @Nullable ProjectLogsConfig value_logsConfig;
+    private boolean unknown_logsConfig;
     public @Nullable ProjectLogsConfig logsConfig() {
-        if (logsConfig == null) return null;
-        return logsConfig.getValue("Project.logsConfig");
+        if (!unknown_logsConfig) return value_logsConfig;
+        throw new UndeferrableValueException("Value 'Project.logsConfig' is not present");
     }
 
     /**
      * Project&#39;s name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Project.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Project.name' is not present");
     }
 
     /**
@@ -192,22 +207,24 @@ public final class Project extends com.pulumi.resources.PolicyResourceOutput {
      * and `PRIVATE`. Default value is `PRIVATE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> projectVisibility;
-
+    @PolicyResourceProperty(name="projectVisibility", flag="unknown_projectVisibility")
+    private @Nullable String value_projectVisibility;
+    private boolean unknown_projectVisibility;
     public @Nullable String projectVisibility() {
-        if (projectVisibility == null) return null;
-        return projectVisibility.getValue("Project.projectVisibility");
+        if (!unknown_projectVisibility) return value_projectVisibility;
+        throw new UndeferrableValueException("Value 'Project.projectVisibility' is not present");
     }
 
     /**
      * The project identifier used with the public build APIs.
      * 
      */
-    private UndeferrableValue<String> publicProjectAlias;
-
+    @PolicyResourceProperty(name="publicProjectAlias", flag="unknown_publicProjectAlias")
+    private String value_publicProjectAlias;
+    private boolean unknown_publicProjectAlias;
     public String publicProjectAlias() {
-        if (publicProjectAlias == null) return null;
-        return publicProjectAlias.getValue("Project.publicProjectAlias");
+        if (!unknown_publicProjectAlias) return value_publicProjectAlias;
+        throw new UndeferrableValueException("Value 'Project.publicProjectAlias' is not present");
     }
 
     /**
@@ -215,11 +232,12 @@ public final class Project extends com.pulumi.resources.PolicyResourceOutput {
      * times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> queuedTimeout;
-
+    @PolicyResourceProperty(name="queuedTimeout", flag="unknown_queuedTimeout")
+    private @Nullable Integer value_queuedTimeout;
+    private boolean unknown_queuedTimeout;
     public @Nullable Integer queuedTimeout() {
-        if (queuedTimeout == null) return null;
-        return queuedTimeout.getValue("Project.queuedTimeout");
+        if (!unknown_queuedTimeout) return value_queuedTimeout;
+        throw new UndeferrableValueException("Value 'Project.queuedTimeout' is not present");
     }
 
     /**
@@ -228,44 +246,48 @@ public final class Project extends com.pulumi.resources.PolicyResourceOutput {
      * `project_visibility` is `PUBLIC_READ`.
      * 
      */
-    private @Nullable UndeferrableValue<String> resourceAccessRole;
-
+    @PolicyResourceProperty(name="resourceAccessRole", flag="unknown_resourceAccessRole")
+    private @Nullable String value_resourceAccessRole;
+    private boolean unknown_resourceAccessRole;
     public @Nullable String resourceAccessRole() {
-        if (resourceAccessRole == null) return null;
-        return resourceAccessRole.getValue("Project.resourceAccessRole");
+        if (!unknown_resourceAccessRole) return value_resourceAccessRole;
+        throw new UndeferrableValueException("Value 'Project.resourceAccessRole' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ProjectSecondaryArtifact>> secondaryArtifacts;
-
+    @PolicyResourceProperty(name="secondaryArtifacts", flag="unknown_secondaryArtifacts")
+    private @Nullable List<ProjectSecondaryArtifact> value_secondaryArtifacts;
+    private boolean unknown_secondaryArtifacts;
     public @Nullable List<ProjectSecondaryArtifact> secondaryArtifacts() {
-        if (secondaryArtifacts == null) return null;
-        return secondaryArtifacts.getValue("Project.secondaryArtifacts");
+        if (!unknown_secondaryArtifacts) return value_secondaryArtifacts;
+        throw new UndeferrableValueException("Value 'Project.secondaryArtifacts' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ProjectSecondarySourceVersion>> secondarySourceVersions;
-
+    @PolicyResourceProperty(name="secondarySourceVersions", flag="unknown_secondarySourceVersions")
+    private @Nullable List<ProjectSecondarySourceVersion> value_secondarySourceVersions;
+    private boolean unknown_secondarySourceVersions;
     public @Nullable List<ProjectSecondarySourceVersion> secondarySourceVersions() {
-        if (secondarySourceVersions == null) return null;
-        return secondarySourceVersions.getValue("Project.secondarySourceVersions");
+        if (!unknown_secondarySourceVersions) return value_secondarySourceVersions;
+        throw new UndeferrableValueException("Value 'Project.secondarySourceVersions' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ProjectSecondarySource>> secondarySources;
-
+    @PolicyResourceProperty(name="secondarySources", flag="unknown_secondarySources")
+    private @Nullable List<ProjectSecondarySource> value_secondarySources;
+    private boolean unknown_secondarySources;
     public @Nullable List<ProjectSecondarySource> secondarySources() {
-        if (secondarySources == null) return null;
-        return secondarySources.getValue("Project.secondarySources");
+        if (!unknown_secondarySources) return value_secondarySources;
+        throw new UndeferrableValueException("Value 'Project.secondarySources' is not present");
     }
 
     /**
@@ -273,11 +295,12 @@ public final class Project extends com.pulumi.resources.PolicyResourceOutput {
      * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      * 
      */
-    private UndeferrableValue<String> serviceRole;
-
+    @PolicyResourceProperty(name="serviceRole", flag="unknown_serviceRole")
+    private String value_serviceRole;
+    private boolean unknown_serviceRole;
     public String serviceRole() {
-        if (serviceRole == null) return null;
-        return serviceRole.getValue("Project.serviceRole");
+        if (!unknown_serviceRole) return value_serviceRole;
+        throw new UndeferrableValueException("Value 'Project.serviceRole' is not present");
     }
 
     /**
@@ -286,11 +309,12 @@ public final class Project extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<ProjectSource> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private ProjectSource value_source;
+    private boolean unknown_source;
     public ProjectSource source() {
-        if (source == null) return null;
-        return source.getValue("Project.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'Project.source' is not present");
     }
 
     /**
@@ -298,11 +322,12 @@ public final class Project extends com.pulumi.resources.PolicyResourceOutput {
      * version is used.
      * 
      */
-    private @Nullable UndeferrableValue<String> sourceVersion;
-
+    @PolicyResourceProperty(name="sourceVersion", flag="unknown_sourceVersion")
+    private @Nullable String value_sourceVersion;
+    private boolean unknown_sourceVersion;
     public @Nullable String sourceVersion() {
-        if (sourceVersion == null) return null;
-        return sourceVersion.getValue("Project.sourceVersion");
+        if (!unknown_sourceVersion) return value_sourceVersion;
+        throw new UndeferrableValueException("Value 'Project.sourceVersion' is not present");
     }
 
     /**
@@ -311,11 +336,12 @@ public final class Project extends com.pulumi.resources.PolicyResourceOutput {
      * present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Project.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Project.tags' is not present");
     }
 
     /**
@@ -327,22 +353,24 @@ public final class Project extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Project.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Project.tagsAll' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<ProjectVpcConfig> vpcConfig;
-
+    @PolicyResourceProperty(name="vpcConfig", flag="unknown_vpcConfig")
+    private @Nullable ProjectVpcConfig value_vpcConfig;
+    private boolean unknown_vpcConfig;
     public @Nullable ProjectVpcConfig vpcConfig() {
-        if (vpcConfig == null) return null;
-        return vpcConfig.getValue("Project.vpcConfig");
+        if (!unknown_vpcConfig) return value_vpcConfig;
+        throw new UndeferrableValueException("Value 'Project.vpcConfig' is not present");
     }
 
 }

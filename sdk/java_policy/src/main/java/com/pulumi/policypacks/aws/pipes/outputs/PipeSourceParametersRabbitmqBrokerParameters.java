@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.pipes.outputs.PipeSourceParametersRabbitmqBrokerParametersCredentials;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,55 +17,60 @@ public final class PipeSourceParametersRabbitmqBrokerParameters {
      * The maximum number of records to include in each batch. Maximum value of 10000.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> batchSize;
-
+    @PolicyResourceProperty(name="batchSize", flag="unknown_batchSize")
+    private @Nullable Integer value_batchSize;
+    private boolean unknown_batchSize;
     public @Nullable Integer batchSize() {
-        if (batchSize == null) return null;
-        return batchSize.getValue("PipeSourceParametersRabbitmqBrokerParameters.batchSize");
+        if (!unknown_batchSize) return value_batchSize;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersRabbitmqBrokerParameters.batchSize' is not present");
     }
 
     /**
      * The credentials needed to access the resource. Detailed below.
      * 
      */
-    private UndeferrableValue<PipeSourceParametersRabbitmqBrokerParametersCredentials> credentials;
-
+    @PolicyResourceProperty(name="credentials", flag="unknown_credentials")
+    private PipeSourceParametersRabbitmqBrokerParametersCredentials value_credentials;
+    private boolean unknown_credentials;
     public PipeSourceParametersRabbitmqBrokerParametersCredentials credentials() {
-        if (credentials == null) return null;
-        return credentials.getValue("PipeSourceParametersRabbitmqBrokerParameters.credentials");
+        if (!unknown_credentials) return value_credentials;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersRabbitmqBrokerParameters.credentials' is not present");
     }
 
     /**
      * The maximum length of a time to wait for events. Maximum value of 300.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maximumBatchingWindowInSeconds;
-
+    @PolicyResourceProperty(name="maximumBatchingWindowInSeconds", flag="unknown_maximumBatchingWindowInSeconds")
+    private @Nullable Integer value_maximumBatchingWindowInSeconds;
+    private boolean unknown_maximumBatchingWindowInSeconds;
     public @Nullable Integer maximumBatchingWindowInSeconds() {
-        if (maximumBatchingWindowInSeconds == null) return null;
-        return maximumBatchingWindowInSeconds.getValue("PipeSourceParametersRabbitmqBrokerParameters.maximumBatchingWindowInSeconds");
+        if (!unknown_maximumBatchingWindowInSeconds) return value_maximumBatchingWindowInSeconds;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersRabbitmqBrokerParameters.maximumBatchingWindowInSeconds' is not present");
     }
 
     /**
      * The name of the destination queue to consume. Maximum length of 1000.
      * 
      */
-    private UndeferrableValue<String> queueName;
-
+    @PolicyResourceProperty(name="queueName", flag="unknown_queueName")
+    private String value_queueName;
+    private boolean unknown_queueName;
     public String queueName() {
-        if (queueName == null) return null;
-        return queueName.getValue("PipeSourceParametersRabbitmqBrokerParameters.queueName");
+        if (!unknown_queueName) return value_queueName;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersRabbitmqBrokerParameters.queueName' is not present");
     }
 
     /**
      * The name of the virtual host associated with the source broker. Maximum length of 200.
      * 
      */
-    private @Nullable UndeferrableValue<String> virtualHost;
-
+    @PolicyResourceProperty(name="virtualHost", flag="unknown_virtualHost")
+    private @Nullable String value_virtualHost;
+    private boolean unknown_virtualHost;
     public @Nullable String virtualHost() {
-        if (virtualHost == null) return null;
-        return virtualHost.getValue("PipeSourceParametersRabbitmqBrokerParameters.virtualHost");
+        if (!unknown_virtualHost) return value_virtualHost;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersRabbitmqBrokerParameters.virtualHost' is not present");
     }
 
 }

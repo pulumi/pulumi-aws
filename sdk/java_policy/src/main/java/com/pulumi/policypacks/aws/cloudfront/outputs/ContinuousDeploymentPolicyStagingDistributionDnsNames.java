@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class ContinuousDeploymentPolicyStagingDistributionDnsNames {
      * A list of CloudFront domain names for the staging distribution.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> items;
-
+    @PolicyResourceProperty(name="items", flag="unknown_items")
+    private @Nullable List<String> value_items;
+    private boolean unknown_items;
     public @Nullable List<String> items() {
-        if (items == null) return null;
-        return items.getValue("ContinuousDeploymentPolicyStagingDistributionDnsNames.items");
+        if (!unknown_items) return value_items;
+        throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyStagingDistributionDnsNames.items' is not present");
     }
 
     /**
      * Number of CloudFront domain names in the staging distribution.
      * 
      */
-    private UndeferrableValue<Integer> quantity;
-
+    @PolicyResourceProperty(name="quantity", flag="unknown_quantity")
+    private Integer value_quantity;
+    private boolean unknown_quantity;
     public Integer quantity() {
-        if (quantity == null) return null;
-        return quantity.getValue("ContinuousDeploymentPolicyStagingDistributionDnsNames.quantity");
+        if (!unknown_quantity) return value_quantity;
+        throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyStagingDistributionDnsNames.quantity' is not present");
     }
 
 }

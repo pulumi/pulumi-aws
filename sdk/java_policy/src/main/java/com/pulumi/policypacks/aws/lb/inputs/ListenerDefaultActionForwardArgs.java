@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lb.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lb.inputs.ListenerDefaultActionForwardStickinessArgs;
 import com.pulumi.policypacks.aws.lb.inputs.ListenerDefaultActionForwardTargetGroupArgs;
 import java.util.List;
@@ -16,11 +17,12 @@ public final class ListenerDefaultActionForwardArgs {
      * Configuration block for target group stickiness for the rule. See below.
      * 
      */
-    private UndeferrableValue<ListenerDefaultActionForwardStickinessArgs> stickiness;
-
+    @PolicyResourceProperty(name="stickiness", flag="unknown_stickiness")
+    private ListenerDefaultActionForwardStickinessArgs value_stickiness;
+    private boolean unknown_stickiness;
     public ListenerDefaultActionForwardStickinessArgs stickiness() {
-        if (stickiness == null) return null;
-        return stickiness.getValue("ListenerDefaultActionForwardArgs.stickiness");
+        if (!unknown_stickiness) return value_stickiness;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionForwardArgs.stickiness' is not present");
     }
 
     /**
@@ -29,11 +31,12 @@ public final class ListenerDefaultActionForwardArgs {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<List<ListenerDefaultActionForwardTargetGroupArgs>> targetGroups;
-
+    @PolicyResourceProperty(name="targetGroups", flag="unknown_targetGroups")
+    private List<ListenerDefaultActionForwardTargetGroupArgs> value_targetGroups;
+    private boolean unknown_targetGroups;
     public List<ListenerDefaultActionForwardTargetGroupArgs> targetGroups() {
-        if (targetGroups == null) return null;
-        return targetGroups.getValue("ListenerDefaultActionForwardArgs.targetGroups");
+        if (!unknown_targetGroups) return value_targetGroups;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionForwardArgs.targetGroups' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appmesh.outputs.MeshSpec;
 import java.lang.String;
@@ -18,88 +19,96 @@ public final class Mesh extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the service mesh.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Mesh.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Mesh.arn' is not present");
     }
 
     /**
      * Creation date of the service mesh.
      * 
      */
-    private UndeferrableValue<String> createdDate;
-
+    @PolicyResourceProperty(name="createdDate", flag="unknown_createdDate")
+    private String value_createdDate;
+    private boolean unknown_createdDate;
     public String createdDate() {
-        if (createdDate == null) return null;
-        return createdDate.getValue("Mesh.createdDate");
+        if (!unknown_createdDate) return value_createdDate;
+        throw new UndeferrableValueException("Value 'Mesh.createdDate' is not present");
     }
 
     /**
      * Last update date of the service mesh.
      * 
      */
-    private UndeferrableValue<String> lastUpdatedDate;
-
+    @PolicyResourceProperty(name="lastUpdatedDate", flag="unknown_lastUpdatedDate")
+    private String value_lastUpdatedDate;
+    private boolean unknown_lastUpdatedDate;
     public String lastUpdatedDate() {
-        if (lastUpdatedDate == null) return null;
-        return lastUpdatedDate.getValue("Mesh.lastUpdatedDate");
+        if (!unknown_lastUpdatedDate) return value_lastUpdatedDate;
+        throw new UndeferrableValueException("Value 'Mesh.lastUpdatedDate' is not present");
     }
 
     /**
      * AWS account ID of the service mesh&#39;s owner.
      * 
      */
-    private UndeferrableValue<String> meshOwner;
-
+    @PolicyResourceProperty(name="meshOwner", flag="unknown_meshOwner")
+    private String value_meshOwner;
+    private boolean unknown_meshOwner;
     public String meshOwner() {
-        if (meshOwner == null) return null;
-        return meshOwner.getValue("Mesh.meshOwner");
+        if (!unknown_meshOwner) return value_meshOwner;
+        throw new UndeferrableValueException("Value 'Mesh.meshOwner' is not present");
     }
 
     /**
      * Name to use for the service mesh. Must be between 1 and 255 characters in length.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Mesh.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Mesh.name' is not present");
     }
 
     /**
      * Resource owner&#39;s AWS account ID.
      * 
      */
-    private UndeferrableValue<String> resourceOwner;
-
+    @PolicyResourceProperty(name="resourceOwner", flag="unknown_resourceOwner")
+    private String value_resourceOwner;
+    private boolean unknown_resourceOwner;
     public String resourceOwner() {
-        if (resourceOwner == null) return null;
-        return resourceOwner.getValue("Mesh.resourceOwner");
+        if (!unknown_resourceOwner) return value_resourceOwner;
+        throw new UndeferrableValueException("Value 'Mesh.resourceOwner' is not present");
     }
 
     /**
      * Service mesh specification to apply.
      * 
      */
-    private @Nullable UndeferrableValue<MeshSpec> spec;
-
+    @PolicyResourceProperty(name="spec", flag="unknown_spec")
+    private @Nullable MeshSpec value_spec;
+    private boolean unknown_spec;
     public @Nullable MeshSpec spec() {
-        if (spec == null) return null;
-        return spec.getValue("Mesh.spec");
+        if (!unknown_spec) return value_spec;
+        throw new UndeferrableValueException("Value 'Mesh.spec' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Mesh.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Mesh.tags' is not present");
     }
 
     /**
@@ -110,11 +119,12 @@ public final class Mesh extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Mesh.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Mesh.tagsAll' is not present");
     }
 
 }

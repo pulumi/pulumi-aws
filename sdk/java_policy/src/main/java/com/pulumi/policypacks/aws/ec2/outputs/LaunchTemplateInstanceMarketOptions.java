@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.outputs.LaunchTemplateInstanceMarketOptionsSpotOptions;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class LaunchTemplateInstanceMarketOptions {
      * The market type. Can be `spot`.
      * 
      */
-    private @Nullable UndeferrableValue<String> marketType;
-
+    @PolicyResourceProperty(name="marketType", flag="unknown_marketType")
+    private @Nullable String value_marketType;
+    private boolean unknown_marketType;
     public @Nullable String marketType() {
-        if (marketType == null) return null;
-        return marketType.getValue("LaunchTemplateInstanceMarketOptions.marketType");
+        if (!unknown_marketType) return value_marketType;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceMarketOptions.marketType' is not present");
     }
 
     /**
      * The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
      * 
      */
-    private @Nullable UndeferrableValue<LaunchTemplateInstanceMarketOptionsSpotOptions> spotOptions;
-
+    @PolicyResourceProperty(name="spotOptions", flag="unknown_spotOptions")
+    private @Nullable LaunchTemplateInstanceMarketOptionsSpotOptions value_spotOptions;
+    private boolean unknown_spotOptions;
     public @Nullable LaunchTemplateInstanceMarketOptionsSpotOptions spotOptions() {
-        if (spotOptions == null) return null;
-        return spotOptions.getValue("LaunchTemplateInstanceMarketOptions.spotOptions");
+        if (!unknown_spotOptions) return value_spotOptions;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceMarketOptions.spotOptions' is not present");
     }
 
 }

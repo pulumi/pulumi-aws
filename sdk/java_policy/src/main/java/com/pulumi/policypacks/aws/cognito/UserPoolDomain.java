@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,99 +17,108 @@ public final class UserPoolDomain extends com.pulumi.resources.PolicyResourceOut
      * The AWS account ID for the user pool owner.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("UserPoolDomain.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'UserPoolDomain.awsAccountId' is not present");
     }
 
     /**
      * The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
      * 
      */
-    private @Nullable UndeferrableValue<String> certificateArn;
-
+    @PolicyResourceProperty(name="certificateArn", flag="unknown_certificateArn")
+    private @Nullable String value_certificateArn;
+    private boolean unknown_certificateArn;
     public @Nullable String certificateArn() {
-        if (certificateArn == null) return null;
-        return certificateArn.getValue("UserPoolDomain.certificateArn");
+        if (!unknown_certificateArn) return value_certificateArn;
+        throw new UndeferrableValueException("Value 'UserPoolDomain.certificateArn' is not present");
     }
 
     /**
      * The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
      * 
      */
-    private UndeferrableValue<String> cloudfrontDistribution;
-
+    @PolicyResourceProperty(name="cloudfrontDistribution", flag="unknown_cloudfrontDistribution")
+    private String value_cloudfrontDistribution;
+    private boolean unknown_cloudfrontDistribution;
     public String cloudfrontDistribution() {
-        if (cloudfrontDistribution == null) return null;
-        return cloudfrontDistribution.getValue("UserPoolDomain.cloudfrontDistribution");
+        if (!unknown_cloudfrontDistribution) return value_cloudfrontDistribution;
+        throw new UndeferrableValueException("Value 'UserPoolDomain.cloudfrontDistribution' is not present");
     }
 
     /**
      * The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
      * 
      */
-    private UndeferrableValue<String> cloudfrontDistributionArn;
-
+    @PolicyResourceProperty(name="cloudfrontDistributionArn", flag="unknown_cloudfrontDistributionArn")
+    private String value_cloudfrontDistributionArn;
+    private boolean unknown_cloudfrontDistributionArn;
     public String cloudfrontDistributionArn() {
-        if (cloudfrontDistributionArn == null) return null;
-        return cloudfrontDistributionArn.getValue("UserPoolDomain.cloudfrontDistributionArn");
+        if (!unknown_cloudfrontDistributionArn) return value_cloudfrontDistributionArn;
+        throw new UndeferrableValueException("Value 'UserPoolDomain.cloudfrontDistributionArn' is not present");
     }
 
     /**
      * The Route 53 hosted zone ID of the CloudFront distribution.
      * 
      */
-    private UndeferrableValue<String> cloudfrontDistributionZoneId;
-
+    @PolicyResourceProperty(name="cloudfrontDistributionZoneId", flag="unknown_cloudfrontDistributionZoneId")
+    private String value_cloudfrontDistributionZoneId;
+    private boolean unknown_cloudfrontDistributionZoneId;
     public String cloudfrontDistributionZoneId() {
-        if (cloudfrontDistributionZoneId == null) return null;
-        return cloudfrontDistributionZoneId.getValue("UserPoolDomain.cloudfrontDistributionZoneId");
+        if (!unknown_cloudfrontDistributionZoneId) return value_cloudfrontDistributionZoneId;
+        throw new UndeferrableValueException("Value 'UserPoolDomain.cloudfrontDistributionZoneId' is not present");
     }
 
     /**
      * For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
      * 
      */
-    private UndeferrableValue<String> domain;
-
+    @PolicyResourceProperty(name="domain", flag="unknown_domain")
+    private String value_domain;
+    private boolean unknown_domain;
     public String domain() {
-        if (domain == null) return null;
-        return domain.getValue("UserPoolDomain.domain");
+        if (!unknown_domain) return value_domain;
+        throw new UndeferrableValueException("Value 'UserPoolDomain.domain' is not present");
     }
 
     /**
      * The S3 bucket where the static files for this domain are stored.
      * 
      */
-    private UndeferrableValue<String> s3Bucket;
-
+    @PolicyResourceProperty(name="s3Bucket", flag="unknown_s3Bucket")
+    private String value_s3Bucket;
+    private boolean unknown_s3Bucket;
     public String s3Bucket() {
-        if (s3Bucket == null) return null;
-        return s3Bucket.getValue("UserPoolDomain.s3Bucket");
+        if (!unknown_s3Bucket) return value_s3Bucket;
+        throw new UndeferrableValueException("Value 'UserPoolDomain.s3Bucket' is not present");
     }
 
     /**
      * The user pool ID.
      * 
      */
-    private UndeferrableValue<String> userPoolId;
-
+    @PolicyResourceProperty(name="userPoolId", flag="unknown_userPoolId")
+    private String value_userPoolId;
+    private boolean unknown_userPoolId;
     public String userPoolId() {
-        if (userPoolId == null) return null;
-        return userPoolId.getValue("UserPoolDomain.userPoolId");
+        if (!unknown_userPoolId) return value_userPoolId;
+        throw new UndeferrableValueException("Value 'UserPoolDomain.userPoolId' is not present");
     }
 
     /**
      * The app version.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("UserPoolDomain.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'UserPoolDomain.version' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.storagegateway.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class GatewayGatewayNetworkInterface {
      * The Internet Protocol version 4 (IPv4) address of the interface.
      * 
      */
-    private @Nullable UndeferrableValue<String> ipv4Address;
-
+    @PolicyResourceProperty(name="ipv4Address", flag="unknown_ipv4Address")
+    private @Nullable String value_ipv4Address;
+    private boolean unknown_ipv4Address;
     public @Nullable String ipv4Address() {
-        if (ipv4Address == null) return null;
-        return ipv4Address.getValue("GatewayGatewayNetworkInterface.ipv4Address");
+        if (!unknown_ipv4Address) return value_ipv4Address;
+        throw new UndeferrableValueException("Value 'GatewayGatewayNetworkInterface.ipv4Address' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,51 +19,56 @@ public final class LbArgs extends com.pulumi.resources.PolicyResourceInput {
      * The health check path of the load balancer. Default value &#34;/&#34;.
      * 
      */
-    private UndeferrableValue<String> healthCheckPath;
-
+    @PolicyResourceProperty(name="healthCheckPath", flag="unknown_healthCheckPath")
+    private String value_healthCheckPath;
+    private boolean unknown_healthCheckPath;
     public String healthCheckPath() {
-        if (healthCheckPath == null) return null;
-        return healthCheckPath.getValue("LbArgs.healthCheckPath");
+        if (!unknown_healthCheckPath) return value_healthCheckPath;
+        throw new UndeferrableValueException("Value 'LbArgs.healthCheckPath' is not present");
     }
 
     /**
      * The instance port the load balancer will connect.
      * 
      */
-    private UndeferrableValue<Integer> instancePort;
-
+    @PolicyResourceProperty(name="instancePort", flag="unknown_instancePort")
+    private Integer value_instancePort;
+    private boolean unknown_instancePort;
     public Integer instancePort() {
-        if (instancePort == null) return null;
-        return instancePort.getValue("LbArgs.instancePort");
+        if (!unknown_instancePort) return value_instancePort;
+        throw new UndeferrableValueException("Value 'LbArgs.instancePort' is not present");
     }
 
-    private UndeferrableValue<String> ipAddressType;
-
+    @PolicyResourceProperty(name="ipAddressType", flag="unknown_ipAddressType")
+    private String value_ipAddressType;
+    private boolean unknown_ipAddressType;
     public String ipAddressType() {
-        if (ipAddressType == null) return null;
-        return ipAddressType.getValue("LbArgs.ipAddressType");
+        if (!unknown_ipAddressType) return value_ipAddressType;
+        throw new UndeferrableValueException("Value 'LbArgs.ipAddressType' is not present");
     }
 
     /**
      * The name of the Lightsail load balancer.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LbArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LbArgs.name' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LbArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LbArgs.tags' is not present");
     }
 
 }

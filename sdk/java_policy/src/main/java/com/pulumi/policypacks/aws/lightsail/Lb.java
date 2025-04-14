@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -19,117 +20,128 @@ public final class Lb extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN of the Lightsail load balancer.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Lb.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Lb.arn' is not present");
     }
 
     /**
      * The timestamp when the load balancer was created.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("Lb.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'Lb.createdAt' is not present");
     }
 
     /**
      * The DNS name of the load balancer.
      * 
      */
-    private UndeferrableValue<String> dnsName;
-
+    @PolicyResourceProperty(name="dnsName", flag="unknown_dnsName")
+    private String value_dnsName;
+    private boolean unknown_dnsName;
     public String dnsName() {
-        if (dnsName == null) return null;
-        return dnsName.getValue("Lb.dnsName");
+        if (!unknown_dnsName) return value_dnsName;
+        throw new UndeferrableValueException("Value 'Lb.dnsName' is not present");
     }
 
     /**
      * The health check path of the load balancer. Default value &#34;/&#34;.
      * 
      */
-    private @Nullable UndeferrableValue<String> healthCheckPath;
-
+    @PolicyResourceProperty(name="healthCheckPath", flag="unknown_healthCheckPath")
+    private @Nullable String value_healthCheckPath;
+    private boolean unknown_healthCheckPath;
     public @Nullable String healthCheckPath() {
-        if (healthCheckPath == null) return null;
-        return healthCheckPath.getValue("Lb.healthCheckPath");
+        if (!unknown_healthCheckPath) return value_healthCheckPath;
+        throw new UndeferrableValueException("Value 'Lb.healthCheckPath' is not present");
     }
 
     /**
      * The instance port the load balancer will connect.
      * 
      */
-    private UndeferrableValue<Integer> instancePort;
-
+    @PolicyResourceProperty(name="instancePort", flag="unknown_instancePort")
+    private Integer value_instancePort;
+    private boolean unknown_instancePort;
     public Integer instancePort() {
-        if (instancePort == null) return null;
-        return instancePort.getValue("Lb.instancePort");
+        if (!unknown_instancePort) return value_instancePort;
+        throw new UndeferrableValueException("Value 'Lb.instancePort' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> ipAddressType;
-
+    @PolicyResourceProperty(name="ipAddressType", flag="unknown_ipAddressType")
+    private @Nullable String value_ipAddressType;
+    private boolean unknown_ipAddressType;
     public @Nullable String ipAddressType() {
-        if (ipAddressType == null) return null;
-        return ipAddressType.getValue("Lb.ipAddressType");
+        if (!unknown_ipAddressType) return value_ipAddressType;
+        throw new UndeferrableValueException("Value 'Lb.ipAddressType' is not present");
     }
 
     /**
      * The name of the Lightsail load balancer.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Lb.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Lb.name' is not present");
     }
 
     /**
      * The protocol of the load balancer.
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("Lb.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'Lb.protocol' is not present");
     }
 
     /**
      * The public ports of the load balancer.
      * 
      */
-    private UndeferrableValue<List<Integer>> publicPorts;
-
+    @PolicyResourceProperty(name="publicPorts", flag="unknown_publicPorts")
+    private List<Integer> value_publicPorts;
+    private boolean unknown_publicPorts;
     public List<Integer> publicPorts() {
-        if (publicPorts == null) return null;
-        return publicPorts.getValue("Lb.publicPorts");
+        if (!unknown_publicPorts) return value_publicPorts;
+        throw new UndeferrableValueException("Value 'Lb.publicPorts' is not present");
     }
 
     /**
      * The support code for the database. Include this code in your email to support when you have questions about a database in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      * 
      */
-    private UndeferrableValue<String> supportCode;
-
+    @PolicyResourceProperty(name="supportCode", flag="unknown_supportCode")
+    private String value_supportCode;
+    private boolean unknown_supportCode;
     public String supportCode() {
-        if (supportCode == null) return null;
-        return supportCode.getValue("Lb.supportCode");
+        if (!unknown_supportCode) return value_supportCode;
+        throw new UndeferrableValueException("Value 'Lb.supportCode' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Lb.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Lb.tags' is not present");
     }
 
     /**
@@ -140,11 +152,12 @@ public final class Lb extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Lb.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Lb.tagsAll' is not present");
     }
 
 }

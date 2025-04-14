@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,44 +17,48 @@ public final class TransitGatewayConnectPeerAssociation extends com.pulumi.resou
      * The ID of the device.
      * 
      */
-    private UndeferrableValue<String> deviceId;
-
+    @PolicyResourceProperty(name="deviceId", flag="unknown_deviceId")
+    private String value_deviceId;
+    private boolean unknown_deviceId;
     public String deviceId() {
-        if (deviceId == null) return null;
-        return deviceId.getValue("TransitGatewayConnectPeerAssociation.deviceId");
+        if (!unknown_deviceId) return value_deviceId;
+        throw new UndeferrableValueException("Value 'TransitGatewayConnectPeerAssociation.deviceId' is not present");
     }
 
     /**
      * The ID of the global network.
      * 
      */
-    private UndeferrableValue<String> globalNetworkId;
-
+    @PolicyResourceProperty(name="globalNetworkId", flag="unknown_globalNetworkId")
+    private String value_globalNetworkId;
+    private boolean unknown_globalNetworkId;
     public String globalNetworkId() {
-        if (globalNetworkId == null) return null;
-        return globalNetworkId.getValue("TransitGatewayConnectPeerAssociation.globalNetworkId");
+        if (!unknown_globalNetworkId) return value_globalNetworkId;
+        throw new UndeferrableValueException("Value 'TransitGatewayConnectPeerAssociation.globalNetworkId' is not present");
     }
 
     /**
      * The ID of the link.
      * 
      */
-    private @Nullable UndeferrableValue<String> linkId;
-
+    @PolicyResourceProperty(name="linkId", flag="unknown_linkId")
+    private @Nullable String value_linkId;
+    private boolean unknown_linkId;
     public @Nullable String linkId() {
-        if (linkId == null) return null;
-        return linkId.getValue("TransitGatewayConnectPeerAssociation.linkId");
+        if (!unknown_linkId) return value_linkId;
+        throw new UndeferrableValueException("Value 'TransitGatewayConnectPeerAssociation.linkId' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Connect peer.
      * 
      */
-    private UndeferrableValue<String> transitGatewayConnectPeerArn;
-
+    @PolicyResourceProperty(name="transitGatewayConnectPeerArn", flag="unknown_transitGatewayConnectPeerArn")
+    private String value_transitGatewayConnectPeerArn;
+    private boolean unknown_transitGatewayConnectPeerArn;
     public String transitGatewayConnectPeerArn() {
-        if (transitGatewayConnectPeerArn == null) return null;
-        return transitGatewayConnectPeerArn.getValue("TransitGatewayConnectPeerAssociation.transitGatewayConnectPeerArn");
+        if (!unknown_transitGatewayConnectPeerArn) return value_transitGatewayConnectPeerArn;
+        throw new UndeferrableValueException("Value 'TransitGatewayConnectPeerAssociation.transitGatewayConnectPeerArn' is not present");
     }
 
 }

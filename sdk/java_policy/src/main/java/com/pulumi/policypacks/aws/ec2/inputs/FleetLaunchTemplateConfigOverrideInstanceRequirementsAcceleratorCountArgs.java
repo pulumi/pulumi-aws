@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsAccelera
      * Maximum. Set to `0` to exclude instance types with accelerators.
      * 
      */
-    private UndeferrableValue<Integer> max;
-
+    @PolicyResourceProperty(name="max", flag="unknown_max")
+    private Integer value_max;
+    private boolean unknown_max;
     public Integer max() {
-        if (max == null) return null;
-        return max.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs.max");
+        if (!unknown_max) return value_max;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs.max' is not present");
     }
 
     /**
      * Minimum.
      * 
      */
-    private UndeferrableValue<Integer> min;
-
+    @PolicyResourceProperty(name="min", flag="unknown_min")
+    private Integer value_min;
+    private boolean unknown_min;
     public Integer min() {
-        if (min == null) return null;
-        return min.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs.min");
+        if (!unknown_min) return value_min;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs.min' is not present");
     }
 
 }

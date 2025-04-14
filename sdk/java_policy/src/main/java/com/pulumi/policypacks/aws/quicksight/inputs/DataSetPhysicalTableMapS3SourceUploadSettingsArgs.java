@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,55 +17,60 @@ public final class DataSetPhysicalTableMapS3SourceUploadSettingsArgs {
      * Whether the file has a header row, or the files each have a header row.
      * 
      */
-    private UndeferrableValue<Boolean> containsHeader;
-
+    @PolicyResourceProperty(name="containsHeader", flag="unknown_containsHeader")
+    private Boolean value_containsHeader;
+    private boolean unknown_containsHeader;
     public Boolean containsHeader() {
-        if (containsHeader == null) return null;
-        return containsHeader.getValue("DataSetPhysicalTableMapS3SourceUploadSettingsArgs.containsHeader");
+        if (!unknown_containsHeader) return value_containsHeader;
+        throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapS3SourceUploadSettingsArgs.containsHeader' is not present");
     }
 
     /**
      * Delimiter between values in the file.
      * 
      */
-    private UndeferrableValue<String> delimiter;
-
+    @PolicyResourceProperty(name="delimiter", flag="unknown_delimiter")
+    private String value_delimiter;
+    private boolean unknown_delimiter;
     public String delimiter() {
-        if (delimiter == null) return null;
-        return delimiter.getValue("DataSetPhysicalTableMapS3SourceUploadSettingsArgs.delimiter");
+        if (!unknown_delimiter) return value_delimiter;
+        throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapS3SourceUploadSettingsArgs.delimiter' is not present");
     }
 
     /**
      * File format. Valid values are `CSV`, `TSV`, `CLF`, `ELF`, `XLSX`, and `JSON`.
      * 
      */
-    private UndeferrableValue<String> format;
-
+    @PolicyResourceProperty(name="format", flag="unknown_format")
+    private String value_format;
+    private boolean unknown_format;
     public String format() {
-        if (format == null) return null;
-        return format.getValue("DataSetPhysicalTableMapS3SourceUploadSettingsArgs.format");
+        if (!unknown_format) return value_format;
+        throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapS3SourceUploadSettingsArgs.format' is not present");
     }
 
     /**
      * A row number to start reading data from.
      * 
      */
-    private UndeferrableValue<Integer> startFromRow;
-
+    @PolicyResourceProperty(name="startFromRow", flag="unknown_startFromRow")
+    private Integer value_startFromRow;
+    private boolean unknown_startFromRow;
     public Integer startFromRow() {
-        if (startFromRow == null) return null;
-        return startFromRow.getValue("DataSetPhysicalTableMapS3SourceUploadSettingsArgs.startFromRow");
+        if (!unknown_startFromRow) return value_startFromRow;
+        throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapS3SourceUploadSettingsArgs.startFromRow' is not present");
     }
 
     /**
      * Text qualifier. Valid values are `DOUBLE_QUOTE` and `SINGLE_QUOTE`.
      * 
      */
-    private UndeferrableValue<String> textQualifier;
-
+    @PolicyResourceProperty(name="textQualifier", flag="unknown_textQualifier")
+    private String value_textQualifier;
+    private boolean unknown_textQualifier;
     public String textQualifier() {
-        if (textQualifier == null) return null;
-        return textQualifier.getValue("DataSetPhysicalTableMapS3SourceUploadSettingsArgs.textQualifier");
+        if (!unknown_textQualifier) return value_textQualifier;
+        throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapS3SourceUploadSettingsArgs.textQualifier' is not present");
     }
 
 }

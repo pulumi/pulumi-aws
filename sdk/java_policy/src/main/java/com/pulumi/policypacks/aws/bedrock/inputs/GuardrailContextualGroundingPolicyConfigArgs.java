@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.inputs.GuardrailContextualGroundingPolicyConfigFiltersConfigArgs;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class GuardrailContextualGroundingPolicyConfigArgs {
      * List of contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
      * 
      */
-    private UndeferrableValue<List<GuardrailContextualGroundingPolicyConfigFiltersConfigArgs>> filtersConfigs;
-
+    @PolicyResourceProperty(name="filtersConfigs", flag="unknown_filtersConfigs")
+    private List<GuardrailContextualGroundingPolicyConfigFiltersConfigArgs> value_filtersConfigs;
+    private boolean unknown_filtersConfigs;
     public List<GuardrailContextualGroundingPolicyConfigFiltersConfigArgs> filtersConfigs() {
-        if (filtersConfigs == null) return null;
-        return filtersConfigs.getValue("GuardrailContextualGroundingPolicyConfigArgs.filtersConfigs");
+        if (!unknown_filtersConfigs) return value_filtersConfigs;
+        throw new UndeferrableValueException("Value 'GuardrailContextualGroundingPolicyConfigArgs.filtersConfigs' is not present");
     }
 
 }

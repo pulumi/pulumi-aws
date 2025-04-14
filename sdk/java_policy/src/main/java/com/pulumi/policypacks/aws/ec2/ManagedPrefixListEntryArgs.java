@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class ManagedPrefixListEntryArgs extends com.pulumi.resources.Polic
      * CIDR block of this entry.
      * 
      */
-    private UndeferrableValue<String> cidr;
-
+    @PolicyResourceProperty(name="cidr", flag="unknown_cidr")
+    private String value_cidr;
+    private boolean unknown_cidr;
     public String cidr() {
-        if (cidr == null) return null;
-        return cidr.getValue("ManagedPrefixListEntryArgs.cidr");
+        if (!unknown_cidr) return value_cidr;
+        throw new UndeferrableValueException("Value 'ManagedPrefixListEntryArgs.cidr' is not present");
     }
 
     /**
      * Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ManagedPrefixListEntryArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ManagedPrefixListEntryArgs.description' is not present");
     }
 
     /**
      * The ID of the prefix list.
      * 
      */
-    private UndeferrableValue<String> prefixListId;
-
+    @PolicyResourceProperty(name="prefixListId", flag="unknown_prefixListId")
+    private String value_prefixListId;
+    private boolean unknown_prefixListId;
     public String prefixListId() {
-        if (prefixListId == null) return null;
-        return prefixListId.getValue("ManagedPrefixListEntryArgs.prefixListId");
+        if (!unknown_prefixListId) return value_prefixListId;
+        throw new UndeferrableValueException("Value 'ManagedPrefixListEntryArgs.prefixListId' is not present");
     }
 
 }

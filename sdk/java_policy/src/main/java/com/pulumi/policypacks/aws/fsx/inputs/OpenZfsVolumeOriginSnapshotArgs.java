@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class OpenZfsVolumeOriginSnapshotArgs {
      * Specifies the strategy used when copying data from the snapshot to the new volume. Valid values are `CLONE`, `FULL_COPY`, `INCREMENTAL_COPY`.
      * 
      */
-    private UndeferrableValue<String> copyStrategy;
-
+    @PolicyResourceProperty(name="copyStrategy", flag="unknown_copyStrategy")
+    private String value_copyStrategy;
+    private boolean unknown_copyStrategy;
     public String copyStrategy() {
-        if (copyStrategy == null) return null;
-        return copyStrategy.getValue("OpenZfsVolumeOriginSnapshotArgs.copyStrategy");
+        if (!unknown_copyStrategy) return value_copyStrategy;
+        throw new UndeferrableValueException("Value 'OpenZfsVolumeOriginSnapshotArgs.copyStrategy' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the origin snapshot.
      * 
      */
-    private UndeferrableValue<String> snapshotArn;
-
+    @PolicyResourceProperty(name="snapshotArn", flag="unknown_snapshotArn")
+    private String value_snapshotArn;
+    private boolean unknown_snapshotArn;
     public String snapshotArn() {
-        if (snapshotArn == null) return null;
-        return snapshotArn.getValue("OpenZfsVolumeOriginSnapshotArgs.snapshotArn");
+        if (!unknown_snapshotArn) return value_snapshotArn;
+        throw new UndeferrableValueException("Value 'OpenZfsVolumeOriginSnapshotArgs.snapshotArn' is not present");
     }
 
 }

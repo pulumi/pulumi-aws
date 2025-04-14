@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import javax.annotation.Nullable;
@@ -11,22 +12,24 @@ import javax.annotation.Nullable;
 
 public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput {
 
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput.enabled' is not present");
     }
 
     /**
      * Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
      * 
      */
-    private @Nullable UndeferrableValue<Integer> volumeThroughput;
-
+    @PolicyResourceProperty(name="volumeThroughput", flag="unknown_volumeThroughput")
+    private @Nullable Integer value_volumeThroughput;
+    private boolean unknown_volumeThroughput;
     public @Nullable Integer volumeThroughput() {
-        if (volumeThroughput == null) return null;
-        return volumeThroughput.getValue("ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput.volumeThroughput");
+        if (!unknown_volumeThroughput) return value_volumeThroughput;
+        throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput.volumeThroughput' is not present");
     }
 
 }

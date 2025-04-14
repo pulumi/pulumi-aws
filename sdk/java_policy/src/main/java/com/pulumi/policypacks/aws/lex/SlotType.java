@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lex.outputs.SlotTypeEnumerationValue;
 import java.lang.Boolean;
@@ -20,11 +21,12 @@ public final class SlotType extends com.pulumi.resources.PolicyResourceOutput {
      * not included as an argument because the resource will add it automatically when updating the slot type.
      * 
      */
-    private UndeferrableValue<String> checksum;
-
+    @PolicyResourceProperty(name="checksum", flag="unknown_checksum")
+    private String value_checksum;
+    private boolean unknown_checksum;
     public String checksum() {
-        if (checksum == null) return null;
-        return checksum.getValue("SlotType.checksum");
+        if (!unknown_checksum) return value_checksum;
+        throw new UndeferrableValueException("Value 'SlotType.checksum' is not present");
     }
 
     /**
@@ -32,33 +34,36 @@ public final class SlotType extends com.pulumi.resources.PolicyResourceOutput {
      * update. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> createVersion;
-
+    @PolicyResourceProperty(name="createVersion", flag="unknown_createVersion")
+    private @Nullable Boolean value_createVersion;
+    private boolean unknown_createVersion;
     public @Nullable Boolean createVersion() {
-        if (createVersion == null) return null;
-        return createVersion.getValue("SlotType.createVersion");
+        if (!unknown_createVersion) return value_createVersion;
+        throw new UndeferrableValueException("Value 'SlotType.createVersion' is not present");
     }
 
     /**
      * The date when the slot type version was created.
      * 
      */
-    private UndeferrableValue<String> createdDate;
-
+    @PolicyResourceProperty(name="createdDate", flag="unknown_createdDate")
+    private String value_createdDate;
+    private boolean unknown_createdDate;
     public String createdDate() {
-        if (createdDate == null) return null;
-        return createdDate.getValue("SlotType.createdDate");
+        if (!unknown_createdDate) return value_createdDate;
+        throw new UndeferrableValueException("Value 'SlotType.createdDate' is not present");
     }
 
     /**
      * A description of the slot type. Must be less than or equal to 200 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("SlotType.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'SlotType.description' is not present");
     }
 
     /**
@@ -68,33 +73,36 @@ public final class SlotType extends com.pulumi.resources.PolicyResourceOutput {
      * documented under enumeration_value.
      * 
      */
-    private UndeferrableValue<List<SlotTypeEnumerationValue>> enumerationValues;
-
+    @PolicyResourceProperty(name="enumerationValues", flag="unknown_enumerationValues")
+    private List<SlotTypeEnumerationValue> value_enumerationValues;
+    private boolean unknown_enumerationValues;
     public List<SlotTypeEnumerationValue> enumerationValues() {
-        if (enumerationValues == null) return null;
-        return enumerationValues.getValue("SlotType.enumerationValues");
+        if (!unknown_enumerationValues) return value_enumerationValues;
+        throw new UndeferrableValueException("Value 'SlotType.enumerationValues' is not present");
     }
 
     /**
      * The date when the `$LATEST` version of this slot type was updated.
      * 
      */
-    private UndeferrableValue<String> lastUpdatedDate;
-
+    @PolicyResourceProperty(name="lastUpdatedDate", flag="unknown_lastUpdatedDate")
+    private String value_lastUpdatedDate;
+    private boolean unknown_lastUpdatedDate;
     public String lastUpdatedDate() {
-        if (lastUpdatedDate == null) return null;
-        return lastUpdatedDate.getValue("SlotType.lastUpdatedDate");
+        if (!unknown_lastUpdatedDate) return value_lastUpdatedDate;
+        throw new UndeferrableValueException("Value 'SlotType.lastUpdatedDate' is not present");
     }
 
     /**
      * The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("SlotType.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'SlotType.name' is not present");
     }
 
     /**
@@ -104,22 +112,24 @@ public final class SlotType extends com.pulumi.resources.PolicyResourceOutput {
      * if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> valueSelectionStrategy;
-
+    @PolicyResourceProperty(name="valueSelectionStrategy", flag="unknown_valueSelectionStrategy")
+    private @Nullable String value_valueSelectionStrategy;
+    private boolean unknown_valueSelectionStrategy;
     public @Nullable String valueSelectionStrategy() {
-        if (valueSelectionStrategy == null) return null;
-        return valueSelectionStrategy.getValue("SlotType.valueSelectionStrategy");
+        if (!unknown_valueSelectionStrategy) return value_valueSelectionStrategy;
+        throw new UndeferrableValueException("Value 'SlotType.valueSelectionStrategy' is not present");
     }
 
     /**
      * The version of the slot type.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("SlotType.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'SlotType.version' is not present");
     }
 
 }

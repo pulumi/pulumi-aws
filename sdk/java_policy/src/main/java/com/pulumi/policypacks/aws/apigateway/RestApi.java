@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.apigateway.outputs.RestApiEndpointConfiguration;
 import java.lang.Boolean;
@@ -20,88 +21,96 @@ public final class RestApi extends com.pulumi.resources.PolicyResourceOutput {
      * Source of the API key for requests. Valid values are `HEADER` (default) and `AUTHORIZER`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-api-key-source` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-api-key-source.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
-    private UndeferrableValue<String> apiKeySource;
-
+    @PolicyResourceProperty(name="apiKeySource", flag="unknown_apiKeySource")
+    private String value_apiKeySource;
+    private boolean unknown_apiKeySource;
     public String apiKeySource() {
-        if (apiKeySource == null) return null;
-        return apiKeySource.getValue("RestApi.apiKeySource");
+        if (!unknown_apiKeySource) return value_apiKeySource;
+        throw new UndeferrableValueException("Value 'RestApi.apiKeySource' is not present");
     }
 
     /**
      * ARN
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("RestApi.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'RestApi.arn' is not present");
     }
 
     /**
      * List of binary media types supported by the REST API. By default, the REST API supports only UTF-8-encoded text payloads. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-binary-media-types` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-binary-media-types.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
-    private UndeferrableValue<List<String>> binaryMediaTypes;
-
+    @PolicyResourceProperty(name="binaryMediaTypes", flag="unknown_binaryMediaTypes")
+    private List<String> value_binaryMediaTypes;
+    private boolean unknown_binaryMediaTypes;
     public List<String> binaryMediaTypes() {
-        if (binaryMediaTypes == null) return null;
-        return binaryMediaTypes.getValue("RestApi.binaryMediaTypes");
+        if (!unknown_binaryMediaTypes) return value_binaryMediaTypes;
+        throw new UndeferrableValueException("Value 'RestApi.binaryMediaTypes' is not present");
     }
 
     /**
      * OpenAPI specification that defines the set of routes and integrations to create as part of the REST API. This configuration, and any updates to it, will replace all REST API configuration except values overridden in this resource configuration and other resource updates applied after this resource but before any `aws.apigateway.Deployment` creation. More information about REST API OpenAPI support can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
      * 
      */
-    private @Nullable UndeferrableValue<String> body;
-
+    @PolicyResourceProperty(name="body", flag="unknown_body")
+    private @Nullable String value_body;
+    private boolean unknown_body;
     public @Nullable String body() {
-        if (body == null) return null;
-        return body.getValue("RestApi.body");
+        if (!unknown_body) return value_body;
+        throw new UndeferrableValueException("Value 'RestApi.body' is not present");
     }
 
     /**
      * Creation date of the REST API
      * 
      */
-    private UndeferrableValue<String> createdDate;
-
+    @PolicyResourceProperty(name="createdDate", flag="unknown_createdDate")
+    private String value_createdDate;
+    private boolean unknown_createdDate;
     public String createdDate() {
-        if (createdDate == null) return null;
-        return createdDate.getValue("RestApi.createdDate");
+        if (!unknown_createdDate) return value_createdDate;
+        throw new UndeferrableValueException("Value 'RestApi.createdDate' is not present");
     }
 
     /**
      * Description of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.description` field. If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("RestApi.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'RestApi.description' is not present");
     }
 
     /**
      * Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
-    private UndeferrableValue<Boolean> disableExecuteApiEndpoint;
-
+    @PolicyResourceProperty(name="disableExecuteApiEndpoint", flag="unknown_disableExecuteApiEndpoint")
+    private Boolean value_disableExecuteApiEndpoint;
+    private boolean unknown_disableExecuteApiEndpoint;
     public Boolean disableExecuteApiEndpoint() {
-        if (disableExecuteApiEndpoint == null) return null;
-        return disableExecuteApiEndpoint.getValue("RestApi.disableExecuteApiEndpoint");
+        if (!unknown_disableExecuteApiEndpoint) return value_disableExecuteApiEndpoint;
+        throw new UndeferrableValueException("Value 'RestApi.disableExecuteApiEndpoint' is not present");
     }
 
     /**
      * Configuration block defining API endpoint configuration including endpoint type. Defined below.
      * 
      */
-    private UndeferrableValue<RestApiEndpointConfiguration> endpointConfiguration;
-
+    @PolicyResourceProperty(name="endpointConfiguration", flag="unknown_endpointConfiguration")
+    private RestApiEndpointConfiguration value_endpointConfiguration;
+    private boolean unknown_endpointConfiguration;
     public RestApiEndpointConfiguration endpointConfiguration() {
-        if (endpointConfiguration == null) return null;
-        return endpointConfiguration.getValue("RestApi.endpointConfiguration");
+        if (!unknown_endpointConfiguration) return value_endpointConfiguration;
+        throw new UndeferrableValueException("Value 'RestApi.endpointConfiguration' is not present");
     }
 
     /**
@@ -110,99 +119,108 @@ public final class RestApi extends com.pulumi.resources.PolicyResourceOutput {
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
      * 
      */
-    private UndeferrableValue<String> executionArn;
-
+    @PolicyResourceProperty(name="executionArn", flag="unknown_executionArn")
+    private String value_executionArn;
+    private boolean unknown_executionArn;
     public String executionArn() {
-        if (executionArn == null) return null;
-        return executionArn.getValue("RestApi.executionArn");
+        if (!unknown_executionArn) return value_executionArn;
+        throw new UndeferrableValueException("Value 'RestApi.executionArn' is not present");
     }
 
     /**
      * Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> failOnWarnings;
-
+    @PolicyResourceProperty(name="failOnWarnings", flag="unknown_failOnWarnings")
+    private @Nullable Boolean value_failOnWarnings;
+    private boolean unknown_failOnWarnings;
     public @Nullable Boolean failOnWarnings() {
-        if (failOnWarnings == null) return null;
-        return failOnWarnings.getValue("RestApi.failOnWarnings");
+        if (!unknown_failOnWarnings) return value_failOnWarnings;
+        throw new UndeferrableValueException("Value 'RestApi.failOnWarnings' is not present");
     }
 
     /**
      * Minimum response size to compress for the REST API. String containing an integer value between `-1` and `10485760` (10MB). `-1` will disable an existing compression configuration, and all other values will enable compression with the configured size. New resources can simply omit this argument to disable compression, rather than setting the value to `-1`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
-    private UndeferrableValue<String> minimumCompressionSize;
-
+    @PolicyResourceProperty(name="minimumCompressionSize", flag="unknown_minimumCompressionSize")
+    private String value_minimumCompressionSize;
+    private boolean unknown_minimumCompressionSize;
     public String minimumCompressionSize() {
-        if (minimumCompressionSize == null) return null;
-        return minimumCompressionSize.getValue("RestApi.minimumCompressionSize");
+        if (!unknown_minimumCompressionSize) return value_minimumCompressionSize;
+        throw new UndeferrableValueException("Value 'RestApi.minimumCompressionSize' is not present");
     }
 
     /**
      * Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RestApi.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RestApi.name' is not present");
     }
 
     /**
      * Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private @Nullable Map<String,String> value_parameters;
+    private boolean unknown_parameters;
     public @Nullable Map<String,String> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("RestApi.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'RestApi.parameters' is not present");
     }
 
     /**
      * JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide. The provider will only perform drift detection of its value when present in a configuration. We recommend using the `aws.apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("RestApi.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'RestApi.policy' is not present");
     }
 
     /**
      * Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
-    private @Nullable UndeferrableValue<String> putRestApiMode;
-
+    @PolicyResourceProperty(name="putRestApiMode", flag="unknown_putRestApiMode")
+    private @Nullable String value_putRestApiMode;
+    private boolean unknown_putRestApiMode;
     public @Nullable String putRestApiMode() {
-        if (putRestApiMode == null) return null;
-        return putRestApiMode.getValue("RestApi.putRestApiMode");
+        if (!unknown_putRestApiMode) return value_putRestApiMode;
+        throw new UndeferrableValueException("Value 'RestApi.putRestApiMode' is not present");
     }
 
     /**
      * Resource ID of the REST API&#39;s root
      * 
      */
-    private UndeferrableValue<String> rootResourceId;
-
+    @PolicyResourceProperty(name="rootResourceId", flag="unknown_rootResourceId")
+    private String value_rootResourceId;
+    private boolean unknown_rootResourceId;
     public String rootResourceId() {
-        if (rootResourceId == null) return null;
-        return rootResourceId.getValue("RestApi.rootResourceId");
+        if (!unknown_rootResourceId) return value_rootResourceId;
+        throw new UndeferrableValueException("Value 'RestApi.rootResourceId' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RestApi.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RestApi.tags' is not present");
     }
 
     /**
@@ -213,11 +231,12 @@ public final class RestApi extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("RestApi.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'RestApi.tagsAll' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class FleetScalingConfigurationTargetTrackingScalingConfig {
      * Metric type to determine auto-scaling. Valid value: `FLEET_UTILIZATION_RATE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> metricType;
-
+    @PolicyResourceProperty(name="metricType", flag="unknown_metricType")
+    private @Nullable String value_metricType;
+    private boolean unknown_metricType;
     public @Nullable String metricType() {
-        if (metricType == null) return null;
-        return metricType.getValue("FleetScalingConfigurationTargetTrackingScalingConfig.metricType");
+        if (!unknown_metricType) return value_metricType;
+        throw new UndeferrableValueException("Value 'FleetScalingConfigurationTargetTrackingScalingConfig.metricType' is not present");
     }
 
     /**
      * Value of metricType when to start scaling.
      * 
      */
-    private @Nullable UndeferrableValue<Double> targetValue;
-
+    @PolicyResourceProperty(name="targetValue", flag="unknown_targetValue")
+    private @Nullable Double value_targetValue;
+    private boolean unknown_targetValue;
     public @Nullable Double targetValue() {
-        if (targetValue == null) return null;
-        return targetValue.getValue("FleetScalingConfigurationTargetTrackingScalingConfig.targetValue");
+        if (!unknown_targetValue) return value_targetValue;
+        throw new UndeferrableValueException("Value 'FleetScalingConfigurationTargetTrackingScalingConfig.targetValue' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
      * If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
      * 
      */
-    private @Nullable UndeferrableValue<String> convert608To708;
-
+    @PolicyResourceProperty(name="convert608To708", flag="unknown_convert608To708")
+    private @Nullable String value_convert608To708;
+    private boolean unknown_convert608To708;
     public @Nullable String convert608To708() {
-        if (convert608To708 == null) return null;
-        return convert608To708.getValue("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings.convert608To708");
+        if (!unknown_convert608To708) return value_convert608To708;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings.convert608To708' is not present");
     }
 
     /**
      * Set to “auto” to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
      * 
      */
-    private @Nullable UndeferrableValue<String> scte20Detection;
-
+    @PolicyResourceProperty(name="scte20Detection", flag="unknown_scte20Detection")
+    private @Nullable String value_scte20Detection;
+    private boolean unknown_scte20Detection;
     public @Nullable String scte20Detection() {
-        if (scte20Detection == null) return null;
-        return scte20Detection.getValue("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings.scte20Detection");
+        if (!unknown_scte20Detection) return value_scte20Detection;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings.scte20Detection' is not present");
     }
 
     /**
      * Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> source608ChannelNumber;
-
+    @PolicyResourceProperty(name="source608ChannelNumber", flag="unknown_source608ChannelNumber")
+    private @Nullable Integer value_source608ChannelNumber;
+    private boolean unknown_source608ChannelNumber;
     public @Nullable Integer source608ChannelNumber() {
-        if (source608ChannelNumber == null) return null;
-        return source608ChannelNumber.getValue("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings.source608ChannelNumber");
+        if (!unknown_source608ChannelNumber) return value_source608ChannelNumber;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings.source608ChannelNumber' is not present");
     }
 
 }

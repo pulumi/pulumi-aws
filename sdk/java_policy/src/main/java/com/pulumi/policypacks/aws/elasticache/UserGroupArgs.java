@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticache;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,22 +19,24 @@ public final class UserGroupArgs extends com.pulumi.resources.PolicyResourceInpu
      * The current supported value are `redis`, `valkey` (case insensitive).
      * 
      */
-    private UndeferrableValue<String> engine;
-
+    @PolicyResourceProperty(name="engine", flag="unknown_engine")
+    private String value_engine;
+    private boolean unknown_engine;
     public String engine() {
-        if (engine == null) return null;
-        return engine.getValue("UserGroupArgs.engine");
+        if (!unknown_engine) return value_engine;
+        throw new UndeferrableValueException("Value 'UserGroupArgs.engine' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("UserGroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'UserGroupArgs.tags' is not present");
     }
 
     /**
@@ -42,22 +45,24 @@ public final class UserGroupArgs extends com.pulumi.resources.PolicyResourceInpu
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> userGroupId;
-
+    @PolicyResourceProperty(name="userGroupId", flag="unknown_userGroupId")
+    private String value_userGroupId;
+    private boolean unknown_userGroupId;
     public String userGroupId() {
-        if (userGroupId == null) return null;
-        return userGroupId.getValue("UserGroupArgs.userGroupId");
+        if (!unknown_userGroupId) return value_userGroupId;
+        throw new UndeferrableValueException("Value 'UserGroupArgs.userGroupId' is not present");
     }
 
     /**
      * The list of user IDs that belong to the user group.
      * 
      */
-    private UndeferrableValue<List<String>> userIds;
-
+    @PolicyResourceProperty(name="userIds", flag="unknown_userIds")
+    private List<String> value_userIds;
+    private boolean unknown_userIds;
     public List<String> userIds() {
-        if (userIds == null) return null;
-        return userIds.getValue("UserGroupArgs.userIds");
+        if (!unknown_userIds) return value_userIds;
+        throw new UndeferrableValueException("Value 'UserGroupArgs.userIds' is not present");
     }
 
 }

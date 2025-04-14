@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.imagebuilder.outputs.LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunched;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class LifecyclePolicyPolicyDetailExclusionRulesAmis {
      * Configures whether public AMIs are excluded from the lifecycle action.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> isPublic;
-
+    @PolicyResourceProperty(name="isPublic", flag="unknown_isPublic")
+    private @Nullable Boolean value_isPublic;
+    private boolean unknown_isPublic;
     public @Nullable Boolean isPublic() {
-        if (isPublic == null) return null;
-        return isPublic.getValue("LifecyclePolicyPolicyDetailExclusionRulesAmis.isPublic");
+        if (!unknown_isPublic) return value_isPublic;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailExclusionRulesAmis.isPublic' is not present");
     }
 
     /**
      * Specifies configuration details for Image Builder to exclude the most recent resources from lifecycle actions. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunched> lastLaunched;
-
+    @PolicyResourceProperty(name="lastLaunched", flag="unknown_lastLaunched")
+    private @Nullable LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunched value_lastLaunched;
+    private boolean unknown_lastLaunched;
     public @Nullable LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunched lastLaunched() {
-        if (lastLaunched == null) return null;
-        return lastLaunched.getValue("LifecyclePolicyPolicyDetailExclusionRulesAmis.lastLaunched");
+        if (!unknown_lastLaunched) return value_lastLaunched;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailExclusionRulesAmis.lastLaunched' is not present");
     }
 
     /**
      * Configures AWS Regions that are excluded from the lifecycle action.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> regions;
-
+    @PolicyResourceProperty(name="regions", flag="unknown_regions")
+    private @Nullable List<String> value_regions;
+    private boolean unknown_regions;
     public @Nullable List<String> regions() {
-        if (regions == null) return null;
-        return regions.getValue("LifecyclePolicyPolicyDetailExclusionRulesAmis.regions");
+        if (!unknown_regions) return value_regions;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailExclusionRulesAmis.regions' is not present");
     }
 
     /**
      * Specifies AWS accounts whose resources are excluded from the lifecycle action.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> sharedAccounts;
-
+    @PolicyResourceProperty(name="sharedAccounts", flag="unknown_sharedAccounts")
+    private @Nullable List<String> value_sharedAccounts;
+    private boolean unknown_sharedAccounts;
     public @Nullable List<String> sharedAccounts() {
-        if (sharedAccounts == null) return null;
-        return sharedAccounts.getValue("LifecyclePolicyPolicyDetailExclusionRulesAmis.sharedAccounts");
+        if (!unknown_sharedAccounts) return value_sharedAccounts;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailExclusionRulesAmis.sharedAccounts' is not present");
     }
 
     /**
      * Lists tags that should be excluded from lifecycle actions for the AMIs that have them.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tagMap;
-
+    @PolicyResourceProperty(name="tagMap", flag="unknown_tagMap")
+    private @Nullable Map<String,String> value_tagMap;
+    private boolean unknown_tagMap;
     public @Nullable Map<String,String> tagMap() {
-        if (tagMap == null) return null;
-        return tagMap.getValue("LifecyclePolicyPolicyDetailExclusionRulesAmis.tagMap");
+        if (!unknown_tagMap) return value_tagMap;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailExclusionRulesAmis.tagMap' is not present");
     }
 
 }

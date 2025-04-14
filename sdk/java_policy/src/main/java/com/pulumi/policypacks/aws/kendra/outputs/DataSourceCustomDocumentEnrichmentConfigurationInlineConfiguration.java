@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kendra.outputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition;
 import com.pulumi.policypacks.aws.kendra.outputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget;
 import java.lang.Boolean;
@@ -16,33 +17,36 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
      * Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
      * 
      */
-    private @Nullable UndeferrableValue<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition> condition;
-
+    @PolicyResourceProperty(name="condition", flag="unknown_condition")
+    private @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition value_condition;
+    private boolean unknown_condition;
     public @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition condition() {
-        if (condition == null) return null;
-        return condition.getValue("DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration.condition");
+        if (!unknown_condition) return value_condition;
+        throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration.condition' is not present");
     }
 
     /**
      * `TRUE` to delete content if the condition used for the target attribute is met.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> documentContentDeletion;
-
+    @PolicyResourceProperty(name="documentContentDeletion", flag="unknown_documentContentDeletion")
+    private @Nullable Boolean value_documentContentDeletion;
+    private boolean unknown_documentContentDeletion;
     public @Nullable Boolean documentContentDeletion() {
-        if (documentContentDeletion == null) return null;
-        return documentContentDeletion.getValue("DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration.documentContentDeletion");
+        if (!unknown_documentContentDeletion) return value_documentContentDeletion;
+        throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration.documentContentDeletion' is not present");
     }
 
     /**
      * Configuration of the target document attribute or metadata field when ingesting documents into Amazon Kendra. You can also include a value. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget> target;
-
+    @PolicyResourceProperty(name="target", flag="unknown_target")
+    private @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget value_target;
+    private boolean unknown_target;
     public @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget target() {
-        if (target == null) return null;
-        return target.getValue("DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration.target");
+        if (!unknown_target) return value_target;
+        throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration.target' is not present");
     }
 
 }

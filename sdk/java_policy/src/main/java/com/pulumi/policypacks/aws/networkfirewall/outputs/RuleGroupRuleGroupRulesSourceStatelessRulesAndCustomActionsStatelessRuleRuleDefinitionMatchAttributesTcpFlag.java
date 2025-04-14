@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
      * Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
      * 
      */
-    private UndeferrableValue<List<String>> flags;
-
+    @PolicyResourceProperty(name="flags", flag="unknown_flags")
+    private List<String> value_flags;
+    private boolean unknown_flags;
     public List<String> flags() {
-        if (flags == null) return null;
-        return flags.getValue("RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag.flags");
+        if (!unknown_flags) return value_flags;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag.flags' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
      * Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> masks;
-
+    @PolicyResourceProperty(name="masks", flag="unknown_masks")
+    private @Nullable List<String> value_masks;
+    private boolean unknown_masks;
     public @Nullable List<String> masks() {
-        if (masks == null) return null;
-        return masks.getValue("RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag.masks");
+        if (!unknown_masks) return value_masks;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag.masks' is not present");
     }
 
 }

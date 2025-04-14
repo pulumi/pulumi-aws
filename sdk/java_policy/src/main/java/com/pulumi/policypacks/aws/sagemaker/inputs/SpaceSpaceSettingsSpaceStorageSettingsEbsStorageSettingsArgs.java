@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,11 +14,12 @@ public final class SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs 
      * The size of an EBS storage volume for a space.
      * 
      */
-    private UndeferrableValue<Integer> ebsVolumeSizeInGb;
-
+    @PolicyResourceProperty(name="ebsVolumeSizeInGb", flag="unknown_ebsVolumeSizeInGb")
+    private Integer value_ebsVolumeSizeInGb;
+    private boolean unknown_ebsVolumeSizeInGb;
     public Integer ebsVolumeSizeInGb() {
-        if (ebsVolumeSizeInGb == null) return null;
-        return ebsVolumeSizeInGb.getValue("SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs.ebsVolumeSizeInGb");
+        if (!unknown_ebsVolumeSizeInGb) return value_ebsVolumeSizeInGb;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettingsArgs.ebsVolumeSizeInGb' is not present");
     }
 
 }

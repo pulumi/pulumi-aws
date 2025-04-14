@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,55 +17,60 @@ public final class VpcNetworkPerformanceMetricSubscription extends com.pulumi.re
      * The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
      * 
      */
-    private UndeferrableValue<String> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private String value_destination;
+    private boolean unknown_destination;
     public String destination() {
-        if (destination == null) return null;
-        return destination.getValue("VpcNetworkPerformanceMetricSubscription.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'VpcNetworkPerformanceMetricSubscription.destination' is not present");
     }
 
     /**
      * The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
      * 
      */
-    private @Nullable UndeferrableValue<String> metric;
-
+    @PolicyResourceProperty(name="metric", flag="unknown_metric")
+    private @Nullable String value_metric;
+    private boolean unknown_metric;
     public @Nullable String metric() {
-        if (metric == null) return null;
-        return metric.getValue("VpcNetworkPerformanceMetricSubscription.metric");
+        if (!unknown_metric) return value_metric;
+        throw new UndeferrableValueException("Value 'VpcNetworkPerformanceMetricSubscription.metric' is not present");
     }
 
     /**
      * The data aggregation time for the subscription.
      * 
      */
-    private UndeferrableValue<String> period;
-
+    @PolicyResourceProperty(name="period", flag="unknown_period")
+    private String value_period;
+    private boolean unknown_period;
     public String period() {
-        if (period == null) return null;
-        return period.getValue("VpcNetworkPerformanceMetricSubscription.period");
+        if (!unknown_period) return value_period;
+        throw new UndeferrableValueException("Value 'VpcNetworkPerformanceMetricSubscription.period' is not present");
     }
 
     /**
      * The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
      * 
      */
-    private UndeferrableValue<String> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private String value_source;
+    private boolean unknown_source;
     public String source() {
-        if (source == null) return null;
-        return source.getValue("VpcNetworkPerformanceMetricSubscription.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'VpcNetworkPerformanceMetricSubscription.source' is not present");
     }
 
     /**
      * The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
      * 
      */
-    private @Nullable UndeferrableValue<String> statistic;
-
+    @PolicyResourceProperty(name="statistic", flag="unknown_statistic")
+    private @Nullable String value_statistic;
+    private boolean unknown_statistic;
     public @Nullable String statistic() {
-        if (statistic == null) return null;
-        return statistic.getValue("VpcNetworkPerformanceMetricSubscription.statistic");
+        if (!unknown_statistic) return value_statistic;
+        throw new UndeferrableValueException("Value 'VpcNetworkPerformanceMetricSubscription.statistic' is not present");
     }
 
 }

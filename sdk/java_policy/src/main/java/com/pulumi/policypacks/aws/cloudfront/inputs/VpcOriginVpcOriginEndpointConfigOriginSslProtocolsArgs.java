@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -11,18 +12,20 @@ import java.util.List;
 
 public final class VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs {
 
-    private UndeferrableValue<List<String>> items;
-
+    @PolicyResourceProperty(name="items", flag="unknown_items")
+    private List<String> value_items;
+    private boolean unknown_items;
     public List<String> items() {
-        if (items == null) return null;
-        return items.getValue("VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs.items");
+        if (!unknown_items) return value_items;
+        throw new UndeferrableValueException("Value 'VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs.items' is not present");
     }
 
-    private UndeferrableValue<Integer> quantity;
-
+    @PolicyResourceProperty(name="quantity", flag="unknown_quantity")
+    private Integer value_quantity;
+    private boolean unknown_quantity;
     public Integer quantity() {
-        if (quantity == null) return null;
-        return quantity.getValue("VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs.quantity");
+        if (!unknown_quantity) return value_quantity;
+        throw new UndeferrableValueException("Value 'VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs.quantity' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeArgs;
 import com.pulumi.policypacks.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
      * Specifies the native Hive / HCatalog JsonSerDe. More details below. See `hive_json_ser_de` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeArgs> hiveJsonSerDe;
-
+    @PolicyResourceProperty(name="hiveJsonSerDe", flag="unknown_hiveJsonSerDe")
+    private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeArgs value_hiveJsonSerDe;
+    private boolean unknown_hiveJsonSerDe;
     public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeArgs hiveJsonSerDe() {
-        if (hiveJsonSerDe == null) return null;
-        return hiveJsonSerDe.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgs.hiveJsonSerDe");
+        if (!unknown_hiveJsonSerDe) return value_hiveJsonSerDe;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgs.hiveJsonSerDe' is not present");
     }
 
     /**
      * Specifies the OpenX SerDe. See `open_x_json_ser_de` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeArgs> openXJsonSerDe;
-
+    @PolicyResourceProperty(name="openXJsonSerDe", flag="unknown_openXJsonSerDe")
+    private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeArgs value_openXJsonSerDe;
+    private boolean unknown_openXJsonSerDe;
     public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeArgs openXJsonSerDe() {
-        if (openXJsonSerDe == null) return null;
-        return openXJsonSerDe.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgs.openXJsonSerDe");
+        if (!unknown_openXJsonSerDe) return value_openXJsonSerDe;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgs.openXJsonSerDe' is not present");
     }
 
 }

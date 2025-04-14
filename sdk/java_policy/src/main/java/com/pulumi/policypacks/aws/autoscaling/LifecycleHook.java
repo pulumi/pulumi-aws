@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,88 +18,96 @@ public final class LifecycleHook extends com.pulumi.resources.PolicyResourceOutp
      * Name of the Auto Scaling group to which you want to assign the lifecycle hook
      * 
      */
-    private UndeferrableValue<String> autoscalingGroupName;
-
+    @PolicyResourceProperty(name="autoscalingGroupName", flag="unknown_autoscalingGroupName")
+    private String value_autoscalingGroupName;
+    private boolean unknown_autoscalingGroupName;
     public String autoscalingGroupName() {
-        if (autoscalingGroupName == null) return null;
-        return autoscalingGroupName.getValue("LifecycleHook.autoscalingGroupName");
+        if (!unknown_autoscalingGroupName) return value_autoscalingGroupName;
+        throw new UndeferrableValueException("Value 'LifecycleHook.autoscalingGroupName' is not present");
     }
 
     /**
      * Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either CONTINUE or ABANDON. The default value for this parameter is ABANDON.
      * 
      */
-    private UndeferrableValue<String> defaultResult;
-
+    @PolicyResourceProperty(name="defaultResult", flag="unknown_defaultResult")
+    private String value_defaultResult;
+    private boolean unknown_defaultResult;
     public String defaultResult() {
-        if (defaultResult == null) return null;
-        return defaultResult.getValue("LifecycleHook.defaultResult");
+        if (!unknown_defaultResult) return value_defaultResult;
+        throw new UndeferrableValueException("Value 'LifecycleHook.defaultResult' is not present");
     }
 
     /**
      * Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the DefaultResult parameter
      * 
      */
-    private @Nullable UndeferrableValue<Integer> heartbeatTimeout;
-
+    @PolicyResourceProperty(name="heartbeatTimeout", flag="unknown_heartbeatTimeout")
+    private @Nullable Integer value_heartbeatTimeout;
+    private boolean unknown_heartbeatTimeout;
     public @Nullable Integer heartbeatTimeout() {
-        if (heartbeatTimeout == null) return null;
-        return heartbeatTimeout.getValue("LifecycleHook.heartbeatTimeout");
+        if (!unknown_heartbeatTimeout) return value_heartbeatTimeout;
+        throw new UndeferrableValueException("Value 'LifecycleHook.heartbeatTimeout' is not present");
     }
 
     /**
      * Instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
      * 
      */
-    private UndeferrableValue<String> lifecycleTransition;
-
+    @PolicyResourceProperty(name="lifecycleTransition", flag="unknown_lifecycleTransition")
+    private String value_lifecycleTransition;
+    private boolean unknown_lifecycleTransition;
     public String lifecycleTransition() {
-        if (lifecycleTransition == null) return null;
-        return lifecycleTransition.getValue("LifecycleHook.lifecycleTransition");
+        if (!unknown_lifecycleTransition) return value_lifecycleTransition;
+        throw new UndeferrableValueException("Value 'LifecycleHook.lifecycleTransition' is not present");
     }
 
     /**
      * Name of the lifecycle hook.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LifecycleHook.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LifecycleHook.name' is not present");
     }
 
     /**
      * Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
      * 
      */
-    private @Nullable UndeferrableValue<String> notificationMetadata;
-
+    @PolicyResourceProperty(name="notificationMetadata", flag="unknown_notificationMetadata")
+    private @Nullable String value_notificationMetadata;
+    private boolean unknown_notificationMetadata;
     public @Nullable String notificationMetadata() {
-        if (notificationMetadata == null) return null;
-        return notificationMetadata.getValue("LifecycleHook.notificationMetadata");
+        if (!unknown_notificationMetadata) return value_notificationMetadata;
+        throw new UndeferrableValueException("Value 'LifecycleHook.notificationMetadata' is not present");
     }
 
     /**
      * ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
      * 
      */
-    private @Nullable UndeferrableValue<String> notificationTargetArn;
-
+    @PolicyResourceProperty(name="notificationTargetArn", flag="unknown_notificationTargetArn")
+    private @Nullable String value_notificationTargetArn;
+    private boolean unknown_notificationTargetArn;
     public @Nullable String notificationTargetArn() {
-        if (notificationTargetArn == null) return null;
-        return notificationTargetArn.getValue("LifecycleHook.notificationTargetArn");
+        if (!unknown_notificationTargetArn) return value_notificationTargetArn;
+        throw new UndeferrableValueException("Value 'LifecycleHook.notificationTargetArn' is not present");
     }
 
     /**
      * ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
      * 
      */
-    private @Nullable UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private @Nullable String value_roleArn;
+    private boolean unknown_roleArn;
     public @Nullable String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("LifecycleHook.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'LifecycleHook.roleArn' is not present");
     }
 
 }

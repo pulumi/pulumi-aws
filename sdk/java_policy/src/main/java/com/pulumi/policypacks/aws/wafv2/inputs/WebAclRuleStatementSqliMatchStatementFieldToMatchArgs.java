@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArgumentsArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementSqliMatchStatementFieldToMatchBodyArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesArgs;
@@ -27,143 +28,156 @@ public final class WebAclRuleStatementSqliMatchStatementFieldToMatchArgs {
      * Inspect all query arguments.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArgumentsArgs> allQueryArguments;
-
+    @PolicyResourceProperty(name="allQueryArguments", flag="unknown_allQueryArguments")
+    private WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArgumentsArgs value_allQueryArguments;
+    private boolean unknown_allQueryArguments;
     public WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArgumentsArgs allQueryArguments() {
-        if (allQueryArguments == null) return null;
-        return allQueryArguments.getValue("WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.allQueryArguments");
+        if (!unknown_allQueryArguments) return value_allQueryArguments;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.allQueryArguments' is not present");
     }
 
     /**
      * Inspect the request body, which immediately follows the request headers. See `body` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementSqliMatchStatementFieldToMatchBodyArgs> body;
-
+    @PolicyResourceProperty(name="body", flag="unknown_body")
+    private WebAclRuleStatementSqliMatchStatementFieldToMatchBodyArgs value_body;
+    private boolean unknown_body;
     public WebAclRuleStatementSqliMatchStatementFieldToMatchBodyArgs body() {
-        if (body == null) return null;
-        return body.getValue("WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.body");
+        if (!unknown_body) return value_body;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.body' is not present");
     }
 
     /**
      * Inspect the cookies in the web request. See `cookies` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesArgs> cookies;
-
+    @PolicyResourceProperty(name="cookies", flag="unknown_cookies")
+    private WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesArgs value_cookies;
+    private boolean unknown_cookies;
     public WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesArgs cookies() {
-        if (cookies == null) return null;
-        return cookies.getValue("WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.cookies");
+        if (!unknown_cookies) return value_cookies;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.cookies' is not present");
     }
 
     /**
      * Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
      * 
      */
-    private UndeferrableValue<List<WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrderArgs>> headerOrders;
-
+    @PolicyResourceProperty(name="headerOrders", flag="unknown_headerOrders")
+    private List<WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrderArgs> value_headerOrders;
+    private boolean unknown_headerOrders;
     public List<WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderOrderArgs> headerOrders() {
-        if (headerOrders == null) return null;
-        return headerOrders.getValue("WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.headerOrders");
+        if (!unknown_headerOrders) return value_headerOrders;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.headerOrders' is not present");
     }
 
     /**
      * Inspect the request headers. See `headers` below for details.
      * 
      */
-    private UndeferrableValue<List<WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderArgs>> headers;
-
+    @PolicyResourceProperty(name="headers", flag="unknown_headers")
+    private List<WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderArgs> value_headers;
+    private boolean unknown_headers;
     public List<WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderArgs> headers() {
-        if (headers == null) return null;
-        return headers.getValue("WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.headers");
+        if (!unknown_headers) return value_headers;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.headers' is not present");
     }
 
     /**
      * Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs> ja3Fingerprint;
-
+    @PolicyResourceProperty(name="ja3Fingerprint", flag="unknown_ja3Fingerprint")
+    private WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs value_ja3Fingerprint;
+    private boolean unknown_ja3Fingerprint;
     public WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs ja3Fingerprint() {
-        if (ja3Fingerprint == null) return null;
-        return ja3Fingerprint.getValue("WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.ja3Fingerprint");
+        if (!unknown_ja3Fingerprint) return value_ja3Fingerprint;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.ja3Fingerprint' is not present");
     }
 
     /**
      * Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs> ja4Fingerprint;
-
+    @PolicyResourceProperty(name="ja4Fingerprint", flag="unknown_ja4Fingerprint")
+    private WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs value_ja4Fingerprint;
+    private boolean unknown_ja4Fingerprint;
     public WebAclRuleStatementSqliMatchStatementFieldToMatchJa4FingerprintArgs ja4Fingerprint() {
-        if (ja4Fingerprint == null) return null;
-        return ja4Fingerprint.getValue("WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.ja4Fingerprint");
+        if (!unknown_ja4Fingerprint) return value_ja4Fingerprint;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.ja4Fingerprint' is not present");
     }
 
     /**
      * Inspect the request body as JSON. See `json_body` for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs> jsonBody;
-
+    @PolicyResourceProperty(name="jsonBody", flag="unknown_jsonBody")
+    private WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs value_jsonBody;
+    private boolean unknown_jsonBody;
     public WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs jsonBody() {
-        if (jsonBody == null) return null;
-        return jsonBody.getValue("WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.jsonBody");
+        if (!unknown_jsonBody) return value_jsonBody;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.jsonBody' is not present");
     }
 
     /**
      * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementSqliMatchStatementFieldToMatchMethodArgs> method;
-
+    @PolicyResourceProperty(name="method", flag="unknown_method")
+    private WebAclRuleStatementSqliMatchStatementFieldToMatchMethodArgs value_method;
+    private boolean unknown_method;
     public WebAclRuleStatementSqliMatchStatementFieldToMatchMethodArgs method() {
-        if (method == null) return null;
-        return method.getValue("WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.method");
+        if (!unknown_method) return value_method;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.method' is not present");
     }
 
     /**
      * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs> queryString;
-
+    @PolicyResourceProperty(name="queryString", flag="unknown_queryString")
+    private WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs value_queryString;
+    private boolean unknown_queryString;
     public WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs queryString() {
-        if (queryString == null) return null;
-        return queryString.getValue("WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.queryString");
+        if (!unknown_queryString) return value_queryString;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.queryString' is not present");
     }
 
     /**
      * Inspect a single header. See `single_header` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs> singleHeader;
-
+    @PolicyResourceProperty(name="singleHeader", flag="unknown_singleHeader")
+    private WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs value_singleHeader;
+    private boolean unknown_singleHeader;
     public WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs singleHeader() {
-        if (singleHeader == null) return null;
-        return singleHeader.getValue("WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.singleHeader");
+        if (!unknown_singleHeader) return value_singleHeader;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.singleHeader' is not present");
     }
 
     /**
      * Inspect a single query argument. See `single_query_argument` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs> singleQueryArgument;
-
+    @PolicyResourceProperty(name="singleQueryArgument", flag="unknown_singleQueryArgument")
+    private WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs value_singleQueryArgument;
+    private boolean unknown_singleQueryArgument;
     public WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs singleQueryArgument() {
-        if (singleQueryArgument == null) return null;
-        return singleQueryArgument.getValue("WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.singleQueryArgument");
+        if (!unknown_singleQueryArgument) return value_singleQueryArgument;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.singleQueryArgument' is not present");
     }
 
     /**
      * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArgs> uriPath;
-
+    @PolicyResourceProperty(name="uriPath", flag="unknown_uriPath")
+    private WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArgs value_uriPath;
+    private boolean unknown_uriPath;
     public WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArgs uriPath() {
-        if (uriPath == null) return null;
-        return uriPath.getValue("WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.uriPath");
+        if (!unknown_uriPath) return value_uriPath;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementFieldToMatchArgs.uriPath' is not present");
     }
 
 }

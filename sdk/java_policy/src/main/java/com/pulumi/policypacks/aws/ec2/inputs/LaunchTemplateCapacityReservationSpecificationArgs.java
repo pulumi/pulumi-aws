@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.inputs.LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class LaunchTemplateCapacityReservationSpecificationArgs {
      * Indicates the instance&#39;s Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
      * 
      */
-    private UndeferrableValue<String> capacityReservationPreference;
-
+    @PolicyResourceProperty(name="capacityReservationPreference", flag="unknown_capacityReservationPreference")
+    private String value_capacityReservationPreference;
+    private boolean unknown_capacityReservationPreference;
     public String capacityReservationPreference() {
-        if (capacityReservationPreference == null) return null;
-        return capacityReservationPreference.getValue("LaunchTemplateCapacityReservationSpecificationArgs.capacityReservationPreference");
+        if (!unknown_capacityReservationPreference) return value_capacityReservationPreference;
+        throw new UndeferrableValueException("Value 'LaunchTemplateCapacityReservationSpecificationArgs.capacityReservationPreference' is not present");
     }
 
     /**
      * Used to target a specific Capacity Reservation:
      * 
      */
-    private UndeferrableValue<LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs> capacityReservationTarget;
-
+    @PolicyResourceProperty(name="capacityReservationTarget", flag="unknown_capacityReservationTarget")
+    private LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs value_capacityReservationTarget;
+    private boolean unknown_capacityReservationTarget;
     public LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs capacityReservationTarget() {
-        if (capacityReservationTarget == null) return null;
-        return capacityReservationTarget.getValue("LaunchTemplateCapacityReservationSpecificationArgs.capacityReservationTarget");
+        if (!unknown_capacityReservationTarget) return value_capacityReservationTarget;
+        throw new UndeferrableValueException("Value 'LaunchTemplateCapacityReservationSpecificationArgs.capacityReservationTarget' is not present");
     }
 
 }

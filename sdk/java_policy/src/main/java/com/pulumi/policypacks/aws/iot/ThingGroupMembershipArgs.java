@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class ThingGroupMembershipArgs extends com.pulumi.resources.PolicyR
      * Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
      * 
      */
-    private UndeferrableValue<Boolean> overrideDynamicGroup;
-
+    @PolicyResourceProperty(name="overrideDynamicGroup", flag="unknown_overrideDynamicGroup")
+    private Boolean value_overrideDynamicGroup;
+    private boolean unknown_overrideDynamicGroup;
     public Boolean overrideDynamicGroup() {
-        if (overrideDynamicGroup == null) return null;
-        return overrideDynamicGroup.getValue("ThingGroupMembershipArgs.overrideDynamicGroup");
+        if (!unknown_overrideDynamicGroup) return value_overrideDynamicGroup;
+        throw new UndeferrableValueException("Value 'ThingGroupMembershipArgs.overrideDynamicGroup' is not present");
     }
 
     /**
      * The name of the group to which you are adding a thing.
      * 
      */
-    private UndeferrableValue<String> thingGroupName;
-
+    @PolicyResourceProperty(name="thingGroupName", flag="unknown_thingGroupName")
+    private String value_thingGroupName;
+    private boolean unknown_thingGroupName;
     public String thingGroupName() {
-        if (thingGroupName == null) return null;
-        return thingGroupName.getValue("ThingGroupMembershipArgs.thingGroupName");
+        if (!unknown_thingGroupName) return value_thingGroupName;
+        throw new UndeferrableValueException("Value 'ThingGroupMembershipArgs.thingGroupName' is not present");
     }
 
     /**
      * The name of the thing to add to a group.
      * 
      */
-    private UndeferrableValue<String> thingName;
-
+    @PolicyResourceProperty(name="thingName", flag="unknown_thingName")
+    private String value_thingName;
+    private boolean unknown_thingName;
     public String thingName() {
-        if (thingName == null) return null;
-        return thingName.getValue("ThingGroupMembershipArgs.thingName");
+        if (!unknown_thingName) return value_thingName;
+        throw new UndeferrableValueException("Value 'ThingGroupMembershipArgs.thingName' is not present");
     }
 
 }

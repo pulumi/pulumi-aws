@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshiftserverless;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,110 +19,120 @@ public final class Snapshot extends com.pulumi.resources.PolicyResourceOutput {
      * All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.
      * 
      */
-    private UndeferrableValue<List<String>> accountsWithProvisionedRestoreAccesses;
-
+    @PolicyResourceProperty(name="accountsWithProvisionedRestoreAccesses", flag="unknown_accountsWithProvisionedRestoreAccesses")
+    private List<String> value_accountsWithProvisionedRestoreAccesses;
+    private boolean unknown_accountsWithProvisionedRestoreAccesses;
     public List<String> accountsWithProvisionedRestoreAccesses() {
-        if (accountsWithProvisionedRestoreAccesses == null) return null;
-        return accountsWithProvisionedRestoreAccesses.getValue("Snapshot.accountsWithProvisionedRestoreAccesses");
+        if (!unknown_accountsWithProvisionedRestoreAccesses) return value_accountsWithProvisionedRestoreAccesses;
+        throw new UndeferrableValueException("Value 'Snapshot.accountsWithProvisionedRestoreAccesses' is not present");
     }
 
     /**
      * All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
      * 
      */
-    private UndeferrableValue<List<String>> accountsWithRestoreAccesses;
-
+    @PolicyResourceProperty(name="accountsWithRestoreAccesses", flag="unknown_accountsWithRestoreAccesses")
+    private List<String> value_accountsWithRestoreAccesses;
+    private boolean unknown_accountsWithRestoreAccesses;
     public List<String> accountsWithRestoreAccesses() {
-        if (accountsWithRestoreAccesses == null) return null;
-        return accountsWithRestoreAccesses.getValue("Snapshot.accountsWithRestoreAccesses");
+        if (!unknown_accountsWithRestoreAccesses) return value_accountsWithRestoreAccesses;
+        throw new UndeferrableValueException("Value 'Snapshot.accountsWithRestoreAccesses' is not present");
     }
 
     /**
      * The username of the database within a snapshot.
      * 
      */
-    private UndeferrableValue<String> adminUsername;
-
+    @PolicyResourceProperty(name="adminUsername", flag="unknown_adminUsername")
+    private String value_adminUsername;
+    private boolean unknown_adminUsername;
     public String adminUsername() {
-        if (adminUsername == null) return null;
-        return adminUsername.getValue("Snapshot.adminUsername");
+        if (!unknown_adminUsername) return value_adminUsername;
+        throw new UndeferrableValueException("Value 'Snapshot.adminUsername' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the snapshot.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Snapshot.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Snapshot.arn' is not present");
     }
 
     /**
      * The unique identifier of the KMS key used to encrypt the snapshot.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("Snapshot.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'Snapshot.kmsKeyId' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
      * 
      */
-    private UndeferrableValue<String> namespaceArn;
-
+    @PolicyResourceProperty(name="namespaceArn", flag="unknown_namespaceArn")
+    private String value_namespaceArn;
+    private boolean unknown_namespaceArn;
     public String namespaceArn() {
-        if (namespaceArn == null) return null;
-        return namespaceArn.getValue("Snapshot.namespaceArn");
+        if (!unknown_namespaceArn) return value_namespaceArn;
+        throw new UndeferrableValueException("Value 'Snapshot.namespaceArn' is not present");
     }
 
     /**
      * The namespace to create a snapshot for.
      * 
      */
-    private UndeferrableValue<String> namespaceName;
-
+    @PolicyResourceProperty(name="namespaceName", flag="unknown_namespaceName")
+    private String value_namespaceName;
+    private boolean unknown_namespaceName;
     public String namespaceName() {
-        if (namespaceName == null) return null;
-        return namespaceName.getValue("Snapshot.namespaceName");
+        if (!unknown_namespaceName) return value_namespaceName;
+        throw new UndeferrableValueException("Value 'Snapshot.namespaceName' is not present");
     }
 
     /**
      * The owner Amazon Web Services; account of the snapshot.
      * 
      */
-    private UndeferrableValue<String> ownerAccount;
-
+    @PolicyResourceProperty(name="ownerAccount", flag="unknown_ownerAccount")
+    private String value_ownerAccount;
+    private boolean unknown_ownerAccount;
     public String ownerAccount() {
-        if (ownerAccount == null) return null;
-        return ownerAccount.getValue("Snapshot.ownerAccount");
+        if (!unknown_ownerAccount) return value_ownerAccount;
+        throw new UndeferrableValueException("Value 'Snapshot.ownerAccount' is not present");
     }
 
     /**
      * How long to retain the created snapshot. Default value is `-1`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> retentionPeriod;
-
+    @PolicyResourceProperty(name="retentionPeriod", flag="unknown_retentionPeriod")
+    private @Nullable Integer value_retentionPeriod;
+    private boolean unknown_retentionPeriod;
     public @Nullable Integer retentionPeriod() {
-        if (retentionPeriod == null) return null;
-        return retentionPeriod.getValue("Snapshot.retentionPeriod");
+        if (!unknown_retentionPeriod) return value_retentionPeriod;
+        throw new UndeferrableValueException("Value 'Snapshot.retentionPeriod' is not present");
     }
 
     /**
      * The name of the snapshot.
      * 
      */
-    private UndeferrableValue<String> snapshotName;
-
+    @PolicyResourceProperty(name="snapshotName", flag="unknown_snapshotName")
+    private String value_snapshotName;
+    private boolean unknown_snapshotName;
     public String snapshotName() {
-        if (snapshotName == null) return null;
-        return snapshotName.getValue("Snapshot.snapshotName");
+        if (!unknown_snapshotName) return value_snapshotName;
+        throw new UndeferrableValueException("Value 'Snapshot.snapshotName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chimesdkmediapipelines;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementArgs;
 import com.pulumi.policypacks.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs;
@@ -20,55 +21,60 @@ public final class MediaInsightsPipelineConfigurationArgs extends com.pulumi.res
      * Collection of processors and sinks to transform media and deliver data.
      * 
      */
-    private UndeferrableValue<List<MediaInsightsPipelineConfigurationElementArgs>> elements;
-
+    @PolicyResourceProperty(name="elements", flag="unknown_elements")
+    private List<MediaInsightsPipelineConfigurationElementArgs> value_elements;
+    private boolean unknown_elements;
     public List<MediaInsightsPipelineConfigurationElementArgs> elements() {
-        if (elements == null) return null;
-        return elements.getValue("MediaInsightsPipelineConfigurationArgs.elements");
+        if (!unknown_elements) return value_elements;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationArgs.elements' is not present");
     }
 
     /**
      * Configuration name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("MediaInsightsPipelineConfigurationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationArgs.name' is not present");
     }
 
     /**
      * Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
      * 
      */
-    private UndeferrableValue<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs> realTimeAlertConfiguration;
-
+    @PolicyResourceProperty(name="realTimeAlertConfiguration", flag="unknown_realTimeAlertConfiguration")
+    private MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs value_realTimeAlertConfiguration;
+    private boolean unknown_realTimeAlertConfiguration;
     public MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs realTimeAlertConfiguration() {
-        if (realTimeAlertConfiguration == null) return null;
-        return realTimeAlertConfiguration.getValue("MediaInsightsPipelineConfigurationArgs.realTimeAlertConfiguration");
+        if (!unknown_realTimeAlertConfiguration) return value_realTimeAlertConfiguration;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationArgs.realTimeAlertConfiguration' is not present");
     }
 
     /**
      * ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
      * 
      */
-    private UndeferrableValue<String> resourceAccessRoleArn;
-
+    @PolicyResourceProperty(name="resourceAccessRoleArn", flag="unknown_resourceAccessRoleArn")
+    private String value_resourceAccessRoleArn;
+    private boolean unknown_resourceAccessRoleArn;
     public String resourceAccessRoleArn() {
-        if (resourceAccessRoleArn == null) return null;
-        return resourceAccessRoleArn.getValue("MediaInsightsPipelineConfigurationArgs.resourceAccessRoleArn");
+        if (!unknown_resourceAccessRoleArn) return value_resourceAccessRoleArn;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationArgs.resourceAccessRoleArn' is not present");
     }
 
     /**
      * Key-value map of tags for the resource.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("MediaInsightsPipelineConfigurationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationArgs.tags' is not present");
     }
 
 }

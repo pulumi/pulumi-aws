@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ProjectServiceCatalogProvisioningDetailsProvisioningParameter
      * The key that identifies a provisioning parameter.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("ProjectServiceCatalogProvisioningDetailsProvisioningParameter.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'ProjectServiceCatalogProvisioningDetailsProvisioningParameter.key' is not present");
     }
 
     /**
      * The value of the provisioning parameter.
      * 
      */
-    private @Nullable UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private @Nullable String value_value;
+    private boolean unknown_value;
     public @Nullable String value() {
-        if (value == null) return null;
-        return value.getValue("ProjectServiceCatalogProvisioningDetailsProvisioningParameter.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'ProjectServiceCatalogProvisioningDetailsProvisioningParameter.value' is not present");
     }
 
 }

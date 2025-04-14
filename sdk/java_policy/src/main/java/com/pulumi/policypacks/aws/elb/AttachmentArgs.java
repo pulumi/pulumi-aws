@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class AttachmentArgs extends com.pulumi.resources.PolicyResourceInp
      * The name of the ELB.
      * 
      */
-    private UndeferrableValue<String> elb;
-
+    @PolicyResourceProperty(name="elb", flag="unknown_elb")
+    private String value_elb;
+    private boolean unknown_elb;
     public String elb() {
-        if (elb == null) return null;
-        return elb.getValue("AttachmentArgs.elb");
+        if (!unknown_elb) return value_elb;
+        throw new UndeferrableValueException("Value 'AttachmentArgs.elb' is not present");
     }
 
     /**
      * Instance ID to place in the ELB pool.
      * 
      */
-    private UndeferrableValue<String> instance;
-
+    @PolicyResourceProperty(name="instance", flag="unknown_instance")
+    private String value_instance;
+    private boolean unknown_instance;
     public String instance() {
-        if (instance == null) return null;
-        return instance.getValue("AttachmentArgs.instance");
+        if (!unknown_instance) return value_instance;
+        throw new UndeferrableValueException("Value 'AttachmentArgs.instance' is not present");
     }
 
 }

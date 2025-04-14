@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.msk.inputs.ClusterBrokerNodeGroupInfoArgs;
 import com.pulumi.policypacks.aws.msk.inputs.ClusterClientAuthenticationArgs;
@@ -24,132 +25,144 @@ public final class ClusterArgs extends com.pulumi.resources.PolicyResourceInput 
      * Configuration block for the broker nodes of the Kafka cluster.
      * 
      */
-    private UndeferrableValue<ClusterBrokerNodeGroupInfoArgs> brokerNodeGroupInfo;
-
+    @PolicyResourceProperty(name="brokerNodeGroupInfo", flag="unknown_brokerNodeGroupInfo")
+    private ClusterBrokerNodeGroupInfoArgs value_brokerNodeGroupInfo;
+    private boolean unknown_brokerNodeGroupInfo;
     public ClusterBrokerNodeGroupInfoArgs brokerNodeGroupInfo() {
-        if (brokerNodeGroupInfo == null) return null;
-        return brokerNodeGroupInfo.getValue("ClusterArgs.brokerNodeGroupInfo");
+        if (!unknown_brokerNodeGroupInfo) return value_brokerNodeGroupInfo;
+        throw new UndeferrableValueException("Value 'ClusterArgs.brokerNodeGroupInfo' is not present");
     }
 
     /**
      * Configuration block for specifying a client authentication. See below.
      * 
      */
-    private UndeferrableValue<ClusterClientAuthenticationArgs> clientAuthentication;
-
+    @PolicyResourceProperty(name="clientAuthentication", flag="unknown_clientAuthentication")
+    private ClusterClientAuthenticationArgs value_clientAuthentication;
+    private boolean unknown_clientAuthentication;
     public ClusterClientAuthenticationArgs clientAuthentication() {
-        if (clientAuthentication == null) return null;
-        return clientAuthentication.getValue("ClusterArgs.clientAuthentication");
+        if (!unknown_clientAuthentication) return value_clientAuthentication;
+        throw new UndeferrableValueException("Value 'ClusterArgs.clientAuthentication' is not present");
     }
 
     /**
      * Name of the MSK cluster.
      * 
      */
-    private UndeferrableValue<String> clusterName;
-
+    @PolicyResourceProperty(name="clusterName", flag="unknown_clusterName")
+    private String value_clusterName;
+    private boolean unknown_clusterName;
     public String clusterName() {
-        if (clusterName == null) return null;
-        return clusterName.getValue("ClusterArgs.clusterName");
+        if (!unknown_clusterName) return value_clusterName;
+        throw new UndeferrableValueException("Value 'ClusterArgs.clusterName' is not present");
     }
 
     /**
      * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
      * 
      */
-    private UndeferrableValue<ClusterConfigurationInfoArgs> configurationInfo;
-
+    @PolicyResourceProperty(name="configurationInfo", flag="unknown_configurationInfo")
+    private ClusterConfigurationInfoArgs value_configurationInfo;
+    private boolean unknown_configurationInfo;
     public ClusterConfigurationInfoArgs configurationInfo() {
-        if (configurationInfo == null) return null;
-        return configurationInfo.getValue("ClusterArgs.configurationInfo");
+        if (!unknown_configurationInfo) return value_configurationInfo;
+        throw new UndeferrableValueException("Value 'ClusterArgs.configurationInfo' is not present");
     }
 
     /**
      * Configuration block for specifying encryption. See below.
      * 
      */
-    private UndeferrableValue<ClusterEncryptionInfoArgs> encryptionInfo;
-
+    @PolicyResourceProperty(name="encryptionInfo", flag="unknown_encryptionInfo")
+    private ClusterEncryptionInfoArgs value_encryptionInfo;
+    private boolean unknown_encryptionInfo;
     public ClusterEncryptionInfoArgs encryptionInfo() {
-        if (encryptionInfo == null) return null;
-        return encryptionInfo.getValue("ClusterArgs.encryptionInfo");
+        if (!unknown_encryptionInfo) return value_encryptionInfo;
+        throw new UndeferrableValueException("Value 'ClusterArgs.encryptionInfo' is not present");
     }
 
     /**
      * Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
      * 
      */
-    private UndeferrableValue<String> enhancedMonitoring;
-
+    @PolicyResourceProperty(name="enhancedMonitoring", flag="unknown_enhancedMonitoring")
+    private String value_enhancedMonitoring;
+    private boolean unknown_enhancedMonitoring;
     public String enhancedMonitoring() {
-        if (enhancedMonitoring == null) return null;
-        return enhancedMonitoring.getValue("ClusterArgs.enhancedMonitoring");
+        if (!unknown_enhancedMonitoring) return value_enhancedMonitoring;
+        throw new UndeferrableValueException("Value 'ClusterArgs.enhancedMonitoring' is not present");
     }
 
     /**
      * Specify the desired Kafka software version.
      * 
      */
-    private UndeferrableValue<String> kafkaVersion;
-
+    @PolicyResourceProperty(name="kafkaVersion", flag="unknown_kafkaVersion")
+    private String value_kafkaVersion;
+    private boolean unknown_kafkaVersion;
     public String kafkaVersion() {
-        if (kafkaVersion == null) return null;
-        return kafkaVersion.getValue("ClusterArgs.kafkaVersion");
+        if (!unknown_kafkaVersion) return value_kafkaVersion;
+        throw new UndeferrableValueException("Value 'ClusterArgs.kafkaVersion' is not present");
     }
 
     /**
      * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
      * 
      */
-    private UndeferrableValue<ClusterLoggingInfoArgs> loggingInfo;
-
+    @PolicyResourceProperty(name="loggingInfo", flag="unknown_loggingInfo")
+    private ClusterLoggingInfoArgs value_loggingInfo;
+    private boolean unknown_loggingInfo;
     public ClusterLoggingInfoArgs loggingInfo() {
-        if (loggingInfo == null) return null;
-        return loggingInfo.getValue("ClusterArgs.loggingInfo");
+        if (!unknown_loggingInfo) return value_loggingInfo;
+        throw new UndeferrableValueException("Value 'ClusterArgs.loggingInfo' is not present");
     }
 
     /**
      * The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
      * 
      */
-    private UndeferrableValue<Integer> numberOfBrokerNodes;
-
+    @PolicyResourceProperty(name="numberOfBrokerNodes", flag="unknown_numberOfBrokerNodes")
+    private Integer value_numberOfBrokerNodes;
+    private boolean unknown_numberOfBrokerNodes;
     public Integer numberOfBrokerNodes() {
-        if (numberOfBrokerNodes == null) return null;
-        return numberOfBrokerNodes.getValue("ClusterArgs.numberOfBrokerNodes");
+        if (!unknown_numberOfBrokerNodes) return value_numberOfBrokerNodes;
+        throw new UndeferrableValueException("Value 'ClusterArgs.numberOfBrokerNodes' is not present");
     }
 
     /**
      * Configuration block for JMX and Node monitoring for the MSK cluster. See below.
      * 
      */
-    private UndeferrableValue<ClusterOpenMonitoringArgs> openMonitoring;
-
+    @PolicyResourceProperty(name="openMonitoring", flag="unknown_openMonitoring")
+    private ClusterOpenMonitoringArgs value_openMonitoring;
+    private boolean unknown_openMonitoring;
     public ClusterOpenMonitoringArgs openMonitoring() {
-        if (openMonitoring == null) return null;
-        return openMonitoring.getValue("ClusterArgs.openMonitoring");
+        if (!unknown_openMonitoring) return value_openMonitoring;
+        throw new UndeferrableValueException("Value 'ClusterArgs.openMonitoring' is not present");
     }
 
     /**
      * Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
      * 
      */
-    private UndeferrableValue<String> storageMode;
-
+    @PolicyResourceProperty(name="storageMode", flag="unknown_storageMode")
+    private String value_storageMode;
+    private boolean unknown_storageMode;
     public String storageMode() {
-        if (storageMode == null) return null;
-        return storageMode.getValue("ClusterArgs.storageMode");
+        if (!unknown_storageMode) return value_storageMode;
+        throw new UndeferrableValueException("Value 'ClusterArgs.storageMode' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ClusterArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ClusterArgs.tags' is not present");
     }
 
 }

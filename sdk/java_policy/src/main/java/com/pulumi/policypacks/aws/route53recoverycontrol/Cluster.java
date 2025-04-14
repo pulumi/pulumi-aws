@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53recoverycontrol;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.route53recoverycontrol.outputs.ClusterClusterEndpoint;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the cluster
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Cluster.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Cluster.arn' is not present");
     }
 
     /**
      * List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
      * 
      */
-    private UndeferrableValue<List<ClusterClusterEndpoint>> clusterEndpoints;
-
+    @PolicyResourceProperty(name="clusterEndpoints", flag="unknown_clusterEndpoints")
+    private List<ClusterClusterEndpoint> value_clusterEndpoints;
+    private boolean unknown_clusterEndpoints;
     public List<ClusterClusterEndpoint> clusterEndpoints() {
-        if (clusterEndpoints == null) return null;
-        return clusterEndpoints.getValue("Cluster.clusterEndpoints");
+        if (!unknown_clusterEndpoints) return value_clusterEndpoints;
+        throw new UndeferrableValueException("Value 'Cluster.clusterEndpoints' is not present");
     }
 
     /**
      * Unique name describing the cluster.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Cluster.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Cluster.name' is not present");
     }
 
     /**
      * Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Cluster.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Cluster.status' is not present");
     }
 
 }

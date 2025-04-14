@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.RuleGroupRuleStatementSizeConstraintStatementTextTransformationArgs;
 import java.lang.Integer;
@@ -18,33 +19,36 @@ public final class RuleGroupRuleStatementSizeConstraintStatementArgs {
      * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
      * 
      */
-    private UndeferrableValue<String> comparisonOperator;
-
+    @PolicyResourceProperty(name="comparisonOperator", flag="unknown_comparisonOperator")
+    private String value_comparisonOperator;
+    private boolean unknown_comparisonOperator;
     public String comparisonOperator() {
-        if (comparisonOperator == null) return null;
-        return comparisonOperator.getValue("RuleGroupRuleStatementSizeConstraintStatementArgs.comparisonOperator");
+        if (!unknown_comparisonOperator) return value_comparisonOperator;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementSizeConstraintStatementArgs.comparisonOperator' is not present");
     }
 
     /**
      * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs> fieldToMatch;
-
+    @PolicyResourceProperty(name="fieldToMatch", flag="unknown_fieldToMatch")
+    private RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs value_fieldToMatch;
+    private boolean unknown_fieldToMatch;
     public RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs fieldToMatch() {
-        if (fieldToMatch == null) return null;
-        return fieldToMatch.getValue("RuleGroupRuleStatementSizeConstraintStatementArgs.fieldToMatch");
+        if (!unknown_fieldToMatch) return value_fieldToMatch;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementSizeConstraintStatementArgs.fieldToMatch' is not present");
     }
 
     /**
      * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
      * 
      */
-    private UndeferrableValue<Integer> size;
-
+    @PolicyResourceProperty(name="size", flag="unknown_size")
+    private Integer value_size;
+    private boolean unknown_size;
     public Integer size() {
-        if (size == null) return null;
-        return size.getValue("RuleGroupRuleStatementSizeConstraintStatementArgs.size");
+        if (!unknown_size) return value_size;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementSizeConstraintStatementArgs.size' is not present");
     }
 
     /**
@@ -53,11 +57,12 @@ public final class RuleGroupRuleStatementSizeConstraintStatementArgs {
      * See Text Transformation below for details.
      * 
      */
-    private UndeferrableValue<List<RuleGroupRuleStatementSizeConstraintStatementTextTransformationArgs>> textTransformations;
-
+    @PolicyResourceProperty(name="textTransformations", flag="unknown_textTransformations")
+    private List<RuleGroupRuleStatementSizeConstraintStatementTextTransformationArgs> value_textTransformations;
+    private boolean unknown_textTransformations;
     public List<RuleGroupRuleStatementSizeConstraintStatementTextTransformationArgs> textTransformations() {
-        if (textTransformations == null) return null;
-        return textTransformations.getValue("RuleGroupRuleStatementSizeConstraintStatementArgs.textTransformations");
+        if (!unknown_textTransformations) return value_textTransformations;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementSizeConstraintStatementArgs.textTransformations' is not present");
     }
 
 }

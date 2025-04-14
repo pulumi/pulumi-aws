@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStrin
      * List of item names, such as cookies, headers, or query strings.
      * 
      */
-    private UndeferrableValue<List<String>> items;
-
+    @PolicyResourceProperty(name="items", flag="unknown_items")
+    private List<String> value_items;
+    private boolean unknown_items;
     public List<String> items() {
-        if (items == null) return null;
-        return items.getValue("CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs.items");
+        if (!unknown_items) return value_items;
+        throw new UndeferrableValueException("Value 'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs.items' is not present");
     }
 
 }

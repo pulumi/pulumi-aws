@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.GatewayRouteSpecGrpcRouteActionArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.GatewayRouteSpecGrpcRouteMatchArgs;
 
@@ -14,22 +15,24 @@ public final class GatewayRouteSpecGrpcRouteArgs {
      * Action to take if a match is determined.
      * 
      */
-    private UndeferrableValue<GatewayRouteSpecGrpcRouteActionArgs> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private GatewayRouteSpecGrpcRouteActionArgs value_action;
+    private boolean unknown_action;
     public GatewayRouteSpecGrpcRouteActionArgs action() {
-        if (action == null) return null;
-        return action.getValue("GatewayRouteSpecGrpcRouteArgs.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecGrpcRouteArgs.action' is not present");
     }
 
     /**
      * Criteria for determining a request match.
      * 
      */
-    private UndeferrableValue<GatewayRouteSpecGrpcRouteMatchArgs> match;
-
+    @PolicyResourceProperty(name="match", flag="unknown_match")
+    private GatewayRouteSpecGrpcRouteMatchArgs value_match;
+    private boolean unknown_match;
     public GatewayRouteSpecGrpcRouteMatchArgs match() {
-        if (match == null) return null;
-        return match.getValue("GatewayRouteSpecGrpcRouteArgs.match");
+        if (!unknown_match) return value_match;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecGrpcRouteArgs.match' is not present");
     }
 
 }

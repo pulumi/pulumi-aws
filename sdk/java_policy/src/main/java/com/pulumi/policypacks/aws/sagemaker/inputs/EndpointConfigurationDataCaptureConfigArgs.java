@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.EndpointConfigurationDataCaptureConfigCaptureOptionArgs;
 import java.lang.Boolean;
@@ -20,66 +21,72 @@ public final class EndpointConfigurationDataCaptureConfigArgs {
      * See `capture_content_type_header` below.
      * 
      */
-    private UndeferrableValue<EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs> captureContentTypeHeader;
-
+    @PolicyResourceProperty(name="captureContentTypeHeader", flag="unknown_captureContentTypeHeader")
+    private EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs value_captureContentTypeHeader;
+    private boolean unknown_captureContentTypeHeader;
     public EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs captureContentTypeHeader() {
-        if (captureContentTypeHeader == null) return null;
-        return captureContentTypeHeader.getValue("EndpointConfigurationDataCaptureConfigArgs.captureContentTypeHeader");
+        if (!unknown_captureContentTypeHeader) return value_captureContentTypeHeader;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationDataCaptureConfigArgs.captureContentTypeHeader' is not present");
     }
 
     /**
      * Specifies what data to capture. Fields are documented below.
      * 
      */
-    private UndeferrableValue<List<EndpointConfigurationDataCaptureConfigCaptureOptionArgs>> captureOptions;
-
+    @PolicyResourceProperty(name="captureOptions", flag="unknown_captureOptions")
+    private List<EndpointConfigurationDataCaptureConfigCaptureOptionArgs> value_captureOptions;
+    private boolean unknown_captureOptions;
     public List<EndpointConfigurationDataCaptureConfigCaptureOptionArgs> captureOptions() {
-        if (captureOptions == null) return null;
-        return captureOptions.getValue("EndpointConfigurationDataCaptureConfigArgs.captureOptions");
+        if (!unknown_captureOptions) return value_captureOptions;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationDataCaptureConfigArgs.captureOptions' is not present");
     }
 
     /**
      * The URL for S3 location where the captured data is stored.
      * 
      */
-    private UndeferrableValue<String> destinationS3Uri;
-
+    @PolicyResourceProperty(name="destinationS3Uri", flag="unknown_destinationS3Uri")
+    private String value_destinationS3Uri;
+    private boolean unknown_destinationS3Uri;
     public String destinationS3Uri() {
-        if (destinationS3Uri == null) return null;
-        return destinationS3Uri.getValue("EndpointConfigurationDataCaptureConfigArgs.destinationS3Uri");
+        if (!unknown_destinationS3Uri) return value_destinationS3Uri;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationDataCaptureConfigArgs.destinationS3Uri' is not present");
     }
 
     /**
      * Flag to enable data capture. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> enableCapture;
-
+    @PolicyResourceProperty(name="enableCapture", flag="unknown_enableCapture")
+    private Boolean value_enableCapture;
+    private boolean unknown_enableCapture;
     public Boolean enableCapture() {
-        if (enableCapture == null) return null;
-        return enableCapture.getValue("EndpointConfigurationDataCaptureConfigArgs.enableCapture");
+        if (!unknown_enableCapture) return value_enableCapture;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationDataCaptureConfigArgs.enableCapture' is not present");
     }
 
     /**
      * Portion of data to capture. Should be between 0 and 100.
      * 
      */
-    private UndeferrableValue<Integer> initialSamplingPercentage;
-
+    @PolicyResourceProperty(name="initialSamplingPercentage", flag="unknown_initialSamplingPercentage")
+    private Integer value_initialSamplingPercentage;
+    private boolean unknown_initialSamplingPercentage;
     public Integer initialSamplingPercentage() {
-        if (initialSamplingPercentage == null) return null;
-        return initialSamplingPercentage.getValue("EndpointConfigurationDataCaptureConfigArgs.initialSamplingPercentage");
+        if (!unknown_initialSamplingPercentage) return value_initialSamplingPercentage;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationDataCaptureConfigArgs.initialSamplingPercentage' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt the captured data on Amazon S3.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("EndpointConfigurationDataCaptureConfigArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationDataCaptureConfigArgs.kmsKeyId' is not present");
     }
 
 }

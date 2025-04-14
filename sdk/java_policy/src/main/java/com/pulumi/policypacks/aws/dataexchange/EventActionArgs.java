@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dataexchange;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.dataexchange.inputs.EventActionActionArgs;
 import com.pulumi.policypacks.aws.dataexchange.inputs.EventActionEventArgs;
@@ -18,11 +19,12 @@ public final class EventActionArgs extends com.pulumi.resources.PolicyResourceIn
      * Described in `action` Configuration Block below.
      * 
      */
-    private UndeferrableValue<EventActionActionArgs> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private EventActionActionArgs value_action;
+    private boolean unknown_action;
     public EventActionActionArgs action() {
-        if (action == null) return null;
-        return action.getValue("EventActionArgs.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'EventActionArgs.action' is not present");
     }
 
     /**
@@ -30,11 +32,12 @@ public final class EventActionArgs extends com.pulumi.resources.PolicyResourceIn
      * Described in `event` Configuration Block below.
      * 
      */
-    private UndeferrableValue<EventActionEventArgs> event;
-
+    @PolicyResourceProperty(name="event", flag="unknown_event")
+    private EventActionEventArgs value_event;
+    private boolean unknown_event;
     public EventActionEventArgs event() {
-        if (event == null) return null;
-        return event.getValue("EventActionArgs.event");
+        if (!unknown_event) return value_event;
+        throw new UndeferrableValueException("Value 'EventActionArgs.event' is not present");
     }
 
 }

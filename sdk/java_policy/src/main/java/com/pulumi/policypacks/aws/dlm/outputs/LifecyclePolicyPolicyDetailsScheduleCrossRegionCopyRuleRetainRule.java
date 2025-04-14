@@ -3,25 +3,28 @@
 
 package com.pulumi.policypacks.aws.dlm.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
 
 public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule {
 
-    private UndeferrableValue<Integer> interval;
-
+    @PolicyResourceProperty(name="interval", flag="unknown_interval")
+    private Integer value_interval;
+    private boolean unknown_interval;
     public Integer interval() {
-        if (interval == null) return null;
-        return interval.getValue("LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule.interval");
+        if (!unknown_interval) return value_interval;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule.interval' is not present");
     }
 
-    private UndeferrableValue<String> intervalUnit;
-
+    @PolicyResourceProperty(name="intervalUnit", flag="unknown_intervalUnit")
+    private String value_intervalUnit;
+    private boolean unknown_intervalUnit;
     public String intervalUnit() {
-        if (intervalUnit == null) return null;
-        return intervalUnit.getValue("LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule.intervalUnit");
+        if (!unknown_intervalUnit) return value_intervalUnit;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule.intervalUnit' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.inputs.BucketAclV2AccessControlPolicyGrantArgs;
 import com.pulumi.policypacks.aws.s3.inputs.BucketAclV2AccessControlPolicyOwnerArgs;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class BucketAclV2AccessControlPolicyArgs {
      * Set of `grant` configuration blocks. See below.
      * 
      */
-    private UndeferrableValue<List<BucketAclV2AccessControlPolicyGrantArgs>> grants;
-
+    @PolicyResourceProperty(name="grants", flag="unknown_grants")
+    private List<BucketAclV2AccessControlPolicyGrantArgs> value_grants;
+    private boolean unknown_grants;
     public List<BucketAclV2AccessControlPolicyGrantArgs> grants() {
-        if (grants == null) return null;
-        return grants.getValue("BucketAclV2AccessControlPolicyArgs.grants");
+        if (!unknown_grants) return value_grants;
+        throw new UndeferrableValueException("Value 'BucketAclV2AccessControlPolicyArgs.grants' is not present");
     }
 
     /**
      * Configuration block for the bucket owner&#39;s display name and ID. See below.
      * 
      */
-    private UndeferrableValue<BucketAclV2AccessControlPolicyOwnerArgs> owner;
-
+    @PolicyResourceProperty(name="owner", flag="unknown_owner")
+    private BucketAclV2AccessControlPolicyOwnerArgs value_owner;
+    private boolean unknown_owner;
     public BucketAclV2AccessControlPolicyOwnerArgs owner() {
-        if (owner == null) return null;
-        return owner.getValue("BucketAclV2AccessControlPolicyArgs.owner");
+        if (!unknown_owner) return value_owner;
+        throw new UndeferrableValueException("Value 'BucketAclV2AccessControlPolicyArgs.owner' is not present");
     }
 
 }

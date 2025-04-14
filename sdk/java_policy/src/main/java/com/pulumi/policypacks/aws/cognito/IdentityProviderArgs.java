@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,66 +19,72 @@ public final class IdentityProviderArgs extends com.pulumi.resources.PolicyResou
      * The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
      * 
      */
-    private UndeferrableValue<Map<String,String>> attributeMapping;
-
+    @PolicyResourceProperty(name="attributeMapping", flag="unknown_attributeMapping")
+    private Map<String,String> value_attributeMapping;
+    private boolean unknown_attributeMapping;
     public Map<String,String> attributeMapping() {
-        if (attributeMapping == null) return null;
-        return attributeMapping.getValue("IdentityProviderArgs.attributeMapping");
+        if (!unknown_attributeMapping) return value_attributeMapping;
+        throw new UndeferrableValueException("Value 'IdentityProviderArgs.attributeMapping' is not present");
     }
 
     /**
      * The list of identity providers.
      * 
      */
-    private UndeferrableValue<List<String>> idpIdentifiers;
-
+    @PolicyResourceProperty(name="idpIdentifiers", flag="unknown_idpIdentifiers")
+    private List<String> value_idpIdentifiers;
+    private boolean unknown_idpIdentifiers;
     public List<String> idpIdentifiers() {
-        if (idpIdentifiers == null) return null;
-        return idpIdentifiers.getValue("IdentityProviderArgs.idpIdentifiers");
+        if (!unknown_idpIdentifiers) return value_idpIdentifiers;
+        throw new UndeferrableValueException("Value 'IdentityProviderArgs.idpIdentifiers' is not present");
     }
 
     /**
      * The map of identity details, such as access token
      * 
      */
-    private UndeferrableValue<Map<String,String>> providerDetails;
-
+    @PolicyResourceProperty(name="providerDetails", flag="unknown_providerDetails")
+    private Map<String,String> value_providerDetails;
+    private boolean unknown_providerDetails;
     public Map<String,String> providerDetails() {
-        if (providerDetails == null) return null;
-        return providerDetails.getValue("IdentityProviderArgs.providerDetails");
+        if (!unknown_providerDetails) return value_providerDetails;
+        throw new UndeferrableValueException("Value 'IdentityProviderArgs.providerDetails' is not present");
     }
 
     /**
      * The provider name
      * 
      */
-    private UndeferrableValue<String> providerName;
-
+    @PolicyResourceProperty(name="providerName", flag="unknown_providerName")
+    private String value_providerName;
+    private boolean unknown_providerName;
     public String providerName() {
-        if (providerName == null) return null;
-        return providerName.getValue("IdentityProviderArgs.providerName");
+        if (!unknown_providerName) return value_providerName;
+        throw new UndeferrableValueException("Value 'IdentityProviderArgs.providerName' is not present");
     }
 
     /**
      * The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
      * 
      */
-    private UndeferrableValue<String> providerType;
-
+    @PolicyResourceProperty(name="providerType", flag="unknown_providerType")
+    private String value_providerType;
+    private boolean unknown_providerType;
     public String providerType() {
-        if (providerType == null) return null;
-        return providerType.getValue("IdentityProviderArgs.providerType");
+        if (!unknown_providerType) return value_providerType;
+        throw new UndeferrableValueException("Value 'IdentityProviderArgs.providerType' is not present");
     }
 
     /**
      * The user pool id
      * 
      */
-    private UndeferrableValue<String> userPoolId;
-
+    @PolicyResourceProperty(name="userPoolId", flag="unknown_userPoolId")
+    private String value_userPoolId;
+    private boolean unknown_userPoolId;
     public String userPoolId() {
-        if (userPoolId == null) return null;
-        return userPoolId.getValue("IdentityProviderArgs.userPoolId");
+        if (!unknown_userPoolId) return value_userPoolId;
+        throw new UndeferrableValueException("Value 'IdentityProviderArgs.userPoolId' is not present");
     }
 
 }

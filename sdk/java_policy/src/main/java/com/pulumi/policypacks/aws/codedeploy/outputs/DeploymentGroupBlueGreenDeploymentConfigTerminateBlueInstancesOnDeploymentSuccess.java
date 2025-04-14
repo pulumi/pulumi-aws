@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codedeploy.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -17,22 +18,24 @@ public final class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstance
      * * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
      * 
      */
-    private @Nullable UndeferrableValue<String> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private @Nullable String value_action;
+    private boolean unknown_action;
     public @Nullable String action() {
-        if (action == null) return null;
-        return action.getValue("DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess.action' is not present");
     }
 
     /**
      * The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> terminationWaitTimeInMinutes;
-
+    @PolicyResourceProperty(name="terminationWaitTimeInMinutes", flag="unknown_terminationWaitTimeInMinutes")
+    private @Nullable Integer value_terminationWaitTimeInMinutes;
+    private boolean unknown_terminationWaitTimeInMinutes;
     public @Nullable Integer terminationWaitTimeInMinutes() {
-        if (terminationWaitTimeInMinutes == null) return null;
-        return terminationWaitTimeInMinutes.getValue("DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess.terminationWaitTimeInMinutes");
+        if (!unknown_terminationWaitTimeInMinutes) return value_terminationWaitTimeInMinutes;
+        throw new UndeferrableValueException("Value 'DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess.terminationWaitTimeInMinutes' is not present");
     }
 
 }

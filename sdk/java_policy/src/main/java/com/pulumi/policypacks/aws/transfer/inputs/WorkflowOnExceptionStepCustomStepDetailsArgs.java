@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class WorkflowOnExceptionStepCustomStepDetailsArgs {
      * The name of the step, used as an identifier.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("WorkflowOnExceptionStepCustomStepDetailsArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepCustomStepDetailsArgs.name' is not present");
     }
 
     /**
      * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
      * 
      */
-    private UndeferrableValue<String> sourceFileLocation;
-
+    @PolicyResourceProperty(name="sourceFileLocation", flag="unknown_sourceFileLocation")
+    private String value_sourceFileLocation;
+    private boolean unknown_sourceFileLocation;
     public String sourceFileLocation() {
-        if (sourceFileLocation == null) return null;
-        return sourceFileLocation.getValue("WorkflowOnExceptionStepCustomStepDetailsArgs.sourceFileLocation");
+        if (!unknown_sourceFileLocation) return value_sourceFileLocation;
+        throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepCustomStepDetailsArgs.sourceFileLocation' is not present");
     }
 
     /**
      * The ARN for the lambda function that is being called.
      * 
      */
-    private UndeferrableValue<String> target;
-
+    @PolicyResourceProperty(name="target", flag="unknown_target")
+    private String value_target;
+    private boolean unknown_target;
     public String target() {
-        if (target == null) return null;
-        return target.getValue("WorkflowOnExceptionStepCustomStepDetailsArgs.target");
+        if (!unknown_target) return value_target;
+        throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepCustomStepDetailsArgs.target' is not present");
     }
 
     /**
      * Timeout, in seconds, for the step.
      * 
      */
-    private UndeferrableValue<Integer> timeoutSeconds;
-
+    @PolicyResourceProperty(name="timeoutSeconds", flag="unknown_timeoutSeconds")
+    private Integer value_timeoutSeconds;
+    private boolean unknown_timeoutSeconds;
     public Integer timeoutSeconds() {
-        if (timeoutSeconds == null) return null;
-        return timeoutSeconds.getValue("WorkflowOnExceptionStepCustomStepDetailsArgs.timeoutSeconds");
+        if (!unknown_timeoutSeconds) return value_timeoutSeconds;
+        throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepCustomStepDetailsArgs.timeoutSeconds' is not present");
     }
 
 }

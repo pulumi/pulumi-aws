@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.emr.outputs.ClusterStepHadoopJarStep;
 import java.lang.String;
 
@@ -14,33 +15,36 @@ public final class ClusterStep {
      * Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
      * 
      */
-    private UndeferrableValue<String> actionOnFailure;
-
+    @PolicyResourceProperty(name="actionOnFailure", flag="unknown_actionOnFailure")
+    private String value_actionOnFailure;
+    private boolean unknown_actionOnFailure;
     public String actionOnFailure() {
-        if (actionOnFailure == null) return null;
-        return actionOnFailure.getValue("ClusterStep.actionOnFailure");
+        if (!unknown_actionOnFailure) return value_actionOnFailure;
+        throw new UndeferrableValueException("Value 'ClusterStep.actionOnFailure' is not present");
     }
 
     /**
      * JAR file used for the step. See below.
      * 
      */
-    private UndeferrableValue<ClusterStepHadoopJarStep> hadoopJarStep;
-
+    @PolicyResourceProperty(name="hadoopJarStep", flag="unknown_hadoopJarStep")
+    private ClusterStepHadoopJarStep value_hadoopJarStep;
+    private boolean unknown_hadoopJarStep;
     public ClusterStepHadoopJarStep hadoopJarStep() {
-        if (hadoopJarStep == null) return null;
-        return hadoopJarStep.getValue("ClusterStep.hadoopJarStep");
+        if (!unknown_hadoopJarStep) return value_hadoopJarStep;
+        throw new UndeferrableValueException("Value 'ClusterStep.hadoopJarStep' is not present");
     }
 
     /**
      * Name of the step.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ClusterStep.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ClusterStep.name' is not present");
     }
 
 }

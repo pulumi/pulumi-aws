@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudwatch.outputs.MetricAlarmMetricQueryMetric;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -17,55 +18,60 @@ public final class MetricAlarmMetricQuery {
      * The ID of the account where the metrics are located, if this is a cross-account alarm.
      * 
      */
-    private @Nullable UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private @Nullable String value_accountId;
+    private boolean unknown_accountId;
     public @Nullable String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("MetricAlarmMetricQuery.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'MetricAlarmMetricQuery.accountId' is not present");
     }
 
     /**
      * The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
      * 
      */
-    private @Nullable UndeferrableValue<String> expression;
-
+    @PolicyResourceProperty(name="expression", flag="unknown_expression")
+    private @Nullable String value_expression;
+    private boolean unknown_expression;
     public @Nullable String expression() {
-        if (expression == null) return null;
-        return expression.getValue("MetricAlarmMetricQuery.expression");
+        if (!unknown_expression) return value_expression;
+        throw new UndeferrableValueException("Value 'MetricAlarmMetricQuery.expression' is not present");
     }
 
     /**
      * A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("MetricAlarmMetricQuery.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'MetricAlarmMetricQuery.id' is not present");
     }
 
     /**
      * A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
      * 
      */
-    private @Nullable UndeferrableValue<String> label;
-
+    @PolicyResourceProperty(name="label", flag="unknown_label")
+    private @Nullable String value_label;
+    private boolean unknown_label;
     public @Nullable String label() {
-        if (label == null) return null;
-        return label.getValue("MetricAlarmMetricQuery.label");
+        if (!unknown_label) return value_label;
+        throw new UndeferrableValueException("Value 'MetricAlarmMetricQuery.label' is not present");
     }
 
     /**
      * The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
      * 
      */
-    private @Nullable UndeferrableValue<MetricAlarmMetricQueryMetric> metric;
-
+    @PolicyResourceProperty(name="metric", flag="unknown_metric")
+    private @Nullable MetricAlarmMetricQueryMetric value_metric;
+    private boolean unknown_metric;
     public @Nullable MetricAlarmMetricQueryMetric metric() {
-        if (metric == null) return null;
-        return metric.getValue("MetricAlarmMetricQuery.metric");
+        if (!unknown_metric) return value_metric;
+        throw new UndeferrableValueException("Value 'MetricAlarmMetricQuery.metric' is not present");
     }
 
     /**
@@ -74,11 +80,12 @@ public final class MetricAlarmMetricQuery {
      * For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> period;
-
+    @PolicyResourceProperty(name="period", flag="unknown_period")
+    private @Nullable Integer value_period;
+    private boolean unknown_period;
     public @Nullable Integer period() {
-        if (period == null) return null;
-        return period.getValue("MetricAlarmMetricQuery.period");
+        if (!unknown_period) return value_period;
+        throw new UndeferrableValueException("Value 'MetricAlarmMetricQuery.period' is not present");
     }
 
     /**
@@ -87,11 +94,12 @@ public final class MetricAlarmMetricQuery {
      * &gt; **NOTE:**  You must specify either `metric` or `expression`. Not both.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> returnData;
-
+    @PolicyResourceProperty(name="returnData", flag="unknown_returnData")
+    private @Nullable Boolean value_returnData;
+    private boolean unknown_returnData;
     public @Nullable Boolean returnData() {
-        if (returnData == null) return null;
-        return returnData.getValue("MetricAlarmMetricQuery.returnData");
+        if (!unknown_returnData) return value_returnData;
+        throw new UndeferrableValueException("Value 'MetricAlarmMetricQuery.returnData' is not present");
     }
 
 }

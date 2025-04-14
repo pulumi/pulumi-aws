@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.GatewayRouteSpecHttpRouteMatchHeader;
 import com.pulumi.policypacks.aws.appmesh.outputs.GatewayRouteSpecHttpRouteMatchHostname;
 import com.pulumi.policypacks.aws.appmesh.outputs.GatewayRouteSpecHttpRouteMatchPath;
@@ -20,66 +21,72 @@ public final class GatewayRouteSpecHttpRouteMatch {
      * Client request headers to match on.
      * 
      */
-    private @Nullable UndeferrableValue<List<GatewayRouteSpecHttpRouteMatchHeader>> headers;
-
+    @PolicyResourceProperty(name="headers", flag="unknown_headers")
+    private @Nullable List<GatewayRouteSpecHttpRouteMatchHeader> value_headers;
+    private boolean unknown_headers;
     public @Nullable List<GatewayRouteSpecHttpRouteMatchHeader> headers() {
-        if (headers == null) return null;
-        return headers.getValue("GatewayRouteSpecHttpRouteMatch.headers");
+        if (!unknown_headers) return value_headers;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteMatch.headers' is not present");
     }
 
     /**
      * Host name to match on.
      * 
      */
-    private @Nullable UndeferrableValue<GatewayRouteSpecHttpRouteMatchHostname> hostname;
-
+    @PolicyResourceProperty(name="hostname", flag="unknown_hostname")
+    private @Nullable GatewayRouteSpecHttpRouteMatchHostname value_hostname;
+    private boolean unknown_hostname;
     public @Nullable GatewayRouteSpecHttpRouteMatchHostname hostname() {
-        if (hostname == null) return null;
-        return hostname.getValue("GatewayRouteSpecHttpRouteMatch.hostname");
+        if (!unknown_hostname) return value_hostname;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteMatch.hostname' is not present");
     }
 
     /**
      * Client request path to match on.
      * 
      */
-    private @Nullable UndeferrableValue<GatewayRouteSpecHttpRouteMatchPath> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private @Nullable GatewayRouteSpecHttpRouteMatchPath value_path;
+    private boolean unknown_path;
     public @Nullable GatewayRouteSpecHttpRouteMatchPath path() {
-        if (path == null) return null;
-        return path.getValue("GatewayRouteSpecHttpRouteMatch.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteMatch.path' is not present");
     }
 
     /**
      * The port number to match from the request.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable Integer value_port;
+    private boolean unknown_port;
     public @Nullable Integer port() {
-        if (port == null) return null;
-        return port.getValue("GatewayRouteSpecHttpRouteMatch.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteMatch.port' is not present");
     }
 
     /**
      * Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
      * 
      */
-    private @Nullable UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private @Nullable String value_prefix;
+    private boolean unknown_prefix;
     public @Nullable String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("GatewayRouteSpecHttpRouteMatch.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteMatch.prefix' is not present");
     }
 
     /**
      * Client request query parameters to match on.
      * 
      */
-    private @Nullable UndeferrableValue<List<GatewayRouteSpecHttpRouteMatchQueryParameter>> queryParameters;
-
+    @PolicyResourceProperty(name="queryParameters", flag="unknown_queryParameters")
+    private @Nullable List<GatewayRouteSpecHttpRouteMatchQueryParameter> value_queryParameters;
+    private boolean unknown_queryParameters;
     public @Nullable List<GatewayRouteSpecHttpRouteMatchQueryParameter> queryParameters() {
-        if (queryParameters == null) return null;
-        return queryParameters.getValue("GatewayRouteSpecHttpRouteMatch.queryParameters");
+        if (!unknown_queryParameters) return value_queryParameters;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteMatch.queryParameters' is not present");
     }
 
 }

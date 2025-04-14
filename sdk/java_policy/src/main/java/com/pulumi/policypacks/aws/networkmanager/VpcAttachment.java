@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.networkmanager.outputs.VpcAttachmentOptions;
 import java.lang.Integer;
@@ -20,143 +21,156 @@ public final class VpcAttachment extends com.pulumi.resources.PolicyResourceOutp
      * The ARN of the attachment.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("VpcAttachment.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'VpcAttachment.arn' is not present");
     }
 
     /**
      * The policy rule number associated with the attachment.
      * 
      */
-    private UndeferrableValue<Integer> attachmentPolicyRuleNumber;
-
+    @PolicyResourceProperty(name="attachmentPolicyRuleNumber", flag="unknown_attachmentPolicyRuleNumber")
+    private Integer value_attachmentPolicyRuleNumber;
+    private boolean unknown_attachmentPolicyRuleNumber;
     public Integer attachmentPolicyRuleNumber() {
-        if (attachmentPolicyRuleNumber == null) return null;
-        return attachmentPolicyRuleNumber.getValue("VpcAttachment.attachmentPolicyRuleNumber");
+        if (!unknown_attachmentPolicyRuleNumber) return value_attachmentPolicyRuleNumber;
+        throw new UndeferrableValueException("Value 'VpcAttachment.attachmentPolicyRuleNumber' is not present");
     }
 
     /**
      * The type of attachment.
      * 
      */
-    private UndeferrableValue<String> attachmentType;
-
+    @PolicyResourceProperty(name="attachmentType", flag="unknown_attachmentType")
+    private String value_attachmentType;
+    private boolean unknown_attachmentType;
     public String attachmentType() {
-        if (attachmentType == null) return null;
-        return attachmentType.getValue("VpcAttachment.attachmentType");
+        if (!unknown_attachmentType) return value_attachmentType;
+        throw new UndeferrableValueException("Value 'VpcAttachment.attachmentType' is not present");
     }
 
     /**
      * The ARN of a core network.
      * 
      */
-    private UndeferrableValue<String> coreNetworkArn;
-
+    @PolicyResourceProperty(name="coreNetworkArn", flag="unknown_coreNetworkArn")
+    private String value_coreNetworkArn;
+    private boolean unknown_coreNetworkArn;
     public String coreNetworkArn() {
-        if (coreNetworkArn == null) return null;
-        return coreNetworkArn.getValue("VpcAttachment.coreNetworkArn");
+        if (!unknown_coreNetworkArn) return value_coreNetworkArn;
+        throw new UndeferrableValueException("Value 'VpcAttachment.coreNetworkArn' is not present");
     }
 
     /**
      * The ID of a core network for the VPC attachment.
      * 
      */
-    private UndeferrableValue<String> coreNetworkId;
-
+    @PolicyResourceProperty(name="coreNetworkId", flag="unknown_coreNetworkId")
+    private String value_coreNetworkId;
+    private boolean unknown_coreNetworkId;
     public String coreNetworkId() {
-        if (coreNetworkId == null) return null;
-        return coreNetworkId.getValue("VpcAttachment.coreNetworkId");
+        if (!unknown_coreNetworkId) return value_coreNetworkId;
+        throw new UndeferrableValueException("Value 'VpcAttachment.coreNetworkId' is not present");
     }
 
     /**
      * The Region where the edge is located.
      * 
      */
-    private UndeferrableValue<String> edgeLocation;
-
+    @PolicyResourceProperty(name="edgeLocation", flag="unknown_edgeLocation")
+    private String value_edgeLocation;
+    private boolean unknown_edgeLocation;
     public String edgeLocation() {
-        if (edgeLocation == null) return null;
-        return edgeLocation.getValue("VpcAttachment.edgeLocation");
+        if (!unknown_edgeLocation) return value_edgeLocation;
+        throw new UndeferrableValueException("Value 'VpcAttachment.edgeLocation' is not present");
     }
 
     /**
      * Options for the VPC attachment.
      * 
      */
-    private @Nullable UndeferrableValue<VpcAttachmentOptions> options;
-
+    @PolicyResourceProperty(name="options", flag="unknown_options")
+    private @Nullable VpcAttachmentOptions value_options;
+    private boolean unknown_options;
     public @Nullable VpcAttachmentOptions options() {
-        if (options == null) return null;
-        return options.getValue("VpcAttachment.options");
+        if (!unknown_options) return value_options;
+        throw new UndeferrableValueException("Value 'VpcAttachment.options' is not present");
     }
 
     /**
      * The ID of the attachment account owner.
      * 
      */
-    private UndeferrableValue<String> ownerAccountId;
-
+    @PolicyResourceProperty(name="ownerAccountId", flag="unknown_ownerAccountId")
+    private String value_ownerAccountId;
+    private boolean unknown_ownerAccountId;
     public String ownerAccountId() {
-        if (ownerAccountId == null) return null;
-        return ownerAccountId.getValue("VpcAttachment.ownerAccountId");
+        if (!unknown_ownerAccountId) return value_ownerAccountId;
+        throw new UndeferrableValueException("Value 'VpcAttachment.ownerAccountId' is not present");
     }
 
     /**
      * The attachment resource ARN.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("VpcAttachment.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'VpcAttachment.resourceArn' is not present");
     }
 
     /**
      * The name of the segment attachment.
      * 
      */
-    private UndeferrableValue<String> segmentName;
-
+    @PolicyResourceProperty(name="segmentName", flag="unknown_segmentName")
+    private String value_segmentName;
+    private boolean unknown_segmentName;
     public String segmentName() {
-        if (segmentName == null) return null;
-        return segmentName.getValue("VpcAttachment.segmentName");
+        if (!unknown_segmentName) return value_segmentName;
+        throw new UndeferrableValueException("Value 'VpcAttachment.segmentName' is not present");
     }
 
     /**
      * The state of the attachment.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("VpcAttachment.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'VpcAttachment.state' is not present");
     }
 
     /**
      * The subnet ARN of the VPC attachment.
      * 
      */
-    private UndeferrableValue<List<String>> subnetArns;
-
+    @PolicyResourceProperty(name="subnetArns", flag="unknown_subnetArns")
+    private List<String> value_subnetArns;
+    private boolean unknown_subnetArns;
     public List<String> subnetArns() {
-        if (subnetArns == null) return null;
-        return subnetArns.getValue("VpcAttachment.subnetArns");
+        if (!unknown_subnetArns) return value_subnetArns;
+        throw new UndeferrableValueException("Value 'VpcAttachment.subnetArns' is not present");
     }
 
     /**
      * Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VpcAttachment.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VpcAttachment.tags' is not present");
     }
 
     /**
@@ -167,11 +181,12 @@ public final class VpcAttachment extends com.pulumi.resources.PolicyResourceOutp
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("VpcAttachment.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'VpcAttachment.tagsAll' is not present");
     }
 
     /**
@@ -180,11 +195,12 @@ public final class VpcAttachment extends com.pulumi.resources.PolicyResourceOutp
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> vpcArn;
-
+    @PolicyResourceProperty(name="vpcArn", flag="unknown_vpcArn")
+    private String value_vpcArn;
+    private boolean unknown_vpcArn;
     public String vpcArn() {
-        if (vpcArn == null) return null;
-        return vpcArn.getValue("VpcAttachment.vpcArn");
+        if (!unknown_vpcArn) return value_vpcArn;
+        throw new UndeferrableValueException("Value 'VpcAttachment.vpcArn' is not present");
     }
 
 }

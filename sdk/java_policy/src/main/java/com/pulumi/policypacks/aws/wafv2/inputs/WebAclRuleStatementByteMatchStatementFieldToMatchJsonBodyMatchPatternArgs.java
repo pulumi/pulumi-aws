@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,18 +17,20 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatc
      * An empty configuration block that is used for inspecting all headers.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs> all;
-
+    @PolicyResourceProperty(name="all", flag="unknown_all")
+    private WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs value_all;
+    private boolean unknown_all;
     public WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs all() {
-        if (all == null) return null;
-        return all.getValue("WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs.all");
+        if (!unknown_all) return value_all;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs.all' is not present");
     }
 
-    private UndeferrableValue<List<String>> includedPaths;
-
+    @PolicyResourceProperty(name="includedPaths", flag="unknown_includedPaths")
+    private List<String> value_includedPaths;
+    private boolean unknown_includedPaths;
     public List<String> includedPaths() {
-        if (includedPaths == null) return null;
-        return includedPaths.getValue("WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs.includedPaths");
+        if (!unknown_includedPaths) return value_includedPaths;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs.includedPaths' is not present");
     }
 
 }

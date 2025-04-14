@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appsync.inputs.DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DataSourceRelationalDatabaseConfigArgs {
      * Amazon RDS HTTP endpoint configuration. See `http_endpoint_config` Block for details.
      * 
      */
-    private UndeferrableValue<DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs> httpEndpointConfig;
-
+    @PolicyResourceProperty(name="httpEndpointConfig", flag="unknown_httpEndpointConfig")
+    private DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs value_httpEndpointConfig;
+    private boolean unknown_httpEndpointConfig;
     public DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs httpEndpointConfig() {
-        if (httpEndpointConfig == null) return null;
-        return httpEndpointConfig.getValue("DataSourceRelationalDatabaseConfigArgs.httpEndpointConfig");
+        if (!unknown_httpEndpointConfig) return value_httpEndpointConfig;
+        throw new UndeferrableValueException("Value 'DataSourceRelationalDatabaseConfigArgs.httpEndpointConfig' is not present");
     }
 
     /**
      * Source type for the relational database. Valid values: `RDS_HTTP_ENDPOINT`.
      * 
      */
-    private UndeferrableValue<String> sourceType;
-
+    @PolicyResourceProperty(name="sourceType", flag="unknown_sourceType")
+    private String value_sourceType;
+    private boolean unknown_sourceType;
     public String sourceType() {
-        if (sourceType == null) return null;
-        return sourceType.getValue("DataSourceRelationalDatabaseConfigArgs.sourceType");
+        if (!unknown_sourceType) return value_sourceType;
+        throw new UndeferrableValueException("Value 'DataSourceRelationalDatabaseConfigArgs.sourceType' is not present");
     }
 
 }

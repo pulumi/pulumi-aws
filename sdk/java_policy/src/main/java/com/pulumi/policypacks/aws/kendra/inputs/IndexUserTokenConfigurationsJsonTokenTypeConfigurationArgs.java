@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs {
      * The group attribute field. Minimum length of 1. Maximum length of 2048.
      * 
      */
-    private UndeferrableValue<String> groupAttributeField;
-
+    @PolicyResourceProperty(name="groupAttributeField", flag="unknown_groupAttributeField")
+    private String value_groupAttributeField;
+    private boolean unknown_groupAttributeField;
     public String groupAttributeField() {
-        if (groupAttributeField == null) return null;
-        return groupAttributeField.getValue("IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs.groupAttributeField");
+        if (!unknown_groupAttributeField) return value_groupAttributeField;
+        throw new UndeferrableValueException("Value 'IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs.groupAttributeField' is not present");
     }
 
     /**
      * The user name attribute field. Minimum length of 1. Maximum length of 2048.
      * 
      */
-    private UndeferrableValue<String> userNameAttributeField;
-
+    @PolicyResourceProperty(name="userNameAttributeField", flag="unknown_userNameAttributeField")
+    private String value_userNameAttributeField;
+    private boolean unknown_userNameAttributeField;
     public String userNameAttributeField() {
-        if (userNameAttributeField == null) return null;
-        return userNameAttributeField.getValue("IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs.userNameAttributeField");
+        if (!unknown_userNameAttributeField) return value_userNameAttributeField;
+        throw new UndeferrableValueException("Value 'IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs.userNameAttributeField' is not present");
     }
 
 }

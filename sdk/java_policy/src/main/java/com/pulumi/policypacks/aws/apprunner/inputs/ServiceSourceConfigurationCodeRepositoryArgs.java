@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.apprunner.inputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs;
 import com.pulumi.policypacks.aws.apprunner.inputs.ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class ServiceSourceConfigurationCodeRepositoryArgs {
      * Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
      * 
      */
-    private UndeferrableValue<ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs> codeConfiguration;
-
+    @PolicyResourceProperty(name="codeConfiguration", flag="unknown_codeConfiguration")
+    private ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs value_codeConfiguration;
+    private boolean unknown_codeConfiguration;
     public ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs codeConfiguration() {
-        if (codeConfiguration == null) return null;
-        return codeConfiguration.getValue("ServiceSourceConfigurationCodeRepositoryArgs.codeConfiguration");
+        if (!unknown_codeConfiguration) return value_codeConfiguration;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationCodeRepositoryArgs.codeConfiguration' is not present");
     }
 
     /**
      * Location of the repository that contains the source code.
      * 
      */
-    private UndeferrableValue<String> repositoryUrl;
-
+    @PolicyResourceProperty(name="repositoryUrl", flag="unknown_repositoryUrl")
+    private String value_repositoryUrl;
+    private boolean unknown_repositoryUrl;
     public String repositoryUrl() {
-        if (repositoryUrl == null) return null;
-        return repositoryUrl.getValue("ServiceSourceConfigurationCodeRepositoryArgs.repositoryUrl");
+        if (!unknown_repositoryUrl) return value_repositoryUrl;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationCodeRepositoryArgs.repositoryUrl' is not present");
     }
 
     /**
      * Version that should be used within the source code repository. See Source Code Version below for more details.
      * 
      */
-    private UndeferrableValue<ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs> sourceCodeVersion;
-
+    @PolicyResourceProperty(name="sourceCodeVersion", flag="unknown_sourceCodeVersion")
+    private ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs value_sourceCodeVersion;
+    private boolean unknown_sourceCodeVersion;
     public ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs sourceCodeVersion() {
-        if (sourceCodeVersion == null) return null;
-        return sourceCodeVersion.getValue("ServiceSourceConfigurationCodeRepositoryArgs.sourceCodeVersion");
+        if (!unknown_sourceCodeVersion) return value_sourceCodeVersion;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationCodeRepositoryArgs.sourceCodeVersion' is not present");
     }
 
     /**
      * The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
      * 
      */
-    private UndeferrableValue<String> sourceDirectory;
-
+    @PolicyResourceProperty(name="sourceDirectory", flag="unknown_sourceDirectory")
+    private String value_sourceDirectory;
+    private boolean unknown_sourceDirectory;
     public String sourceDirectory() {
-        if (sourceDirectory == null) return null;
-        return sourceDirectory.getValue("ServiceSourceConfigurationCodeRepositoryArgs.sourceDirectory");
+        if (!unknown_sourceDirectory) return value_sourceDirectory;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationCodeRepositoryArgs.sourceDirectory' is not present");
     }
 
 }

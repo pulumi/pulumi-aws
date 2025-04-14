@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.evidently.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,55 +15,60 @@ public final class LaunchMetricMonitorMetricDefinitionArgs {
      * Specifies the entity, such as a user or session, that does an action that causes a metric value to be recorded. An example is `userDetails.userID`.
      * 
      */
-    private UndeferrableValue<String> entityIdKey;
-
+    @PolicyResourceProperty(name="entityIdKey", flag="unknown_entityIdKey")
+    private String value_entityIdKey;
+    private boolean unknown_entityIdKey;
     public String entityIdKey() {
-        if (entityIdKey == null) return null;
-        return entityIdKey.getValue("LaunchMetricMonitorMetricDefinitionArgs.entityIdKey");
+        if (!unknown_entityIdKey) return value_entityIdKey;
+        throw new UndeferrableValueException("Value 'LaunchMetricMonitorMetricDefinitionArgs.entityIdKey' is not present");
     }
 
     /**
      * Specifies The EventBridge event pattern that defines how the metric is recorded.
      * 
      */
-    private UndeferrableValue<String> eventPattern;
-
+    @PolicyResourceProperty(name="eventPattern", flag="unknown_eventPattern")
+    private String value_eventPattern;
+    private boolean unknown_eventPattern;
     public String eventPattern() {
-        if (eventPattern == null) return null;
-        return eventPattern.getValue("LaunchMetricMonitorMetricDefinitionArgs.eventPattern");
+        if (!unknown_eventPattern) return value_eventPattern;
+        throw new UndeferrableValueException("Value 'LaunchMetricMonitorMetricDefinitionArgs.eventPattern' is not present");
     }
 
     /**
      * Specifies the name for the metric.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LaunchMetricMonitorMetricDefinitionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LaunchMetricMonitorMetricDefinitionArgs.name' is not present");
     }
 
     /**
      * Specifies a label for the units that the metric is measuring.
      * 
      */
-    private UndeferrableValue<String> unitLabel;
-
+    @PolicyResourceProperty(name="unitLabel", flag="unknown_unitLabel")
+    private String value_unitLabel;
+    private boolean unknown_unitLabel;
     public String unitLabel() {
-        if (unitLabel == null) return null;
-        return unitLabel.getValue("LaunchMetricMonitorMetricDefinitionArgs.unitLabel");
+        if (!unknown_unitLabel) return value_unitLabel;
+        throw new UndeferrableValueException("Value 'LaunchMetricMonitorMetricDefinitionArgs.unitLabel' is not present");
     }
 
     /**
      * Specifies the value that is tracked to produce the metric.
      * 
      */
-    private UndeferrableValue<String> valueKey;
-
+    @PolicyResourceProperty(name="valueKey", flag="unknown_valueKey")
+    private String value_valueKey;
+    private boolean unknown_valueKey;
     public String valueKey() {
-        if (valueKey == null) return null;
-        return valueKey.getValue("LaunchMetricMonitorMetricDefinitionArgs.valueKey");
+        if (!unknown_valueKey) return value_valueKey;
+        throw new UndeferrableValueException("Value 'LaunchMetricMonitorMetricDefinitionArgs.valueKey' is not present");
     }
 
 }

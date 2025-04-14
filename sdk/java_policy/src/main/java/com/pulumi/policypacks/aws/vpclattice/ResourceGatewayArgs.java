@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.vpclattice.inputs.ResourceGatewayTimeoutsArgs;
 import java.lang.String;
@@ -19,62 +20,68 @@ public final class ResourceGatewayArgs extends com.pulumi.resources.PolicyResour
      * IP address type used by the resource gateway. Valid values are `IPV4`, `IPV6`, and `DUALSTACK`. The IP address type of a resource gateway must be compatible with the subnets of the resource gateway and the IP address type of the resource.
      * 
      */
-    private UndeferrableValue<String> ipAddressType;
-
+    @PolicyResourceProperty(name="ipAddressType", flag="unknown_ipAddressType")
+    private String value_ipAddressType;
+    private boolean unknown_ipAddressType;
     public String ipAddressType() {
-        if (ipAddressType == null) return null;
-        return ipAddressType.getValue("ResourceGatewayArgs.ipAddressType");
+        if (!unknown_ipAddressType) return value_ipAddressType;
+        throw new UndeferrableValueException("Value 'ResourceGatewayArgs.ipAddressType' is not present");
     }
 
     /**
      * Name of the resource gateway.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ResourceGatewayArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ResourceGatewayArgs.name' is not present");
     }
 
     /**
      * Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("ResourceGatewayArgs.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'ResourceGatewayArgs.securityGroupIds' is not present");
     }
 
     /**
      * IDs of the VPC subnets in which to create the resource gateway.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("ResourceGatewayArgs.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'ResourceGatewayArgs.subnetIds' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ResourceGatewayArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ResourceGatewayArgs.tags' is not present");
     }
 
-    private UndeferrableValue<ResourceGatewayTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private ResourceGatewayTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public ResourceGatewayTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ResourceGatewayArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ResourceGatewayArgs.timeouts' is not present");
     }
 
     /**
@@ -83,11 +90,12 @@ public final class ResourceGatewayArgs extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("ResourceGatewayArgs.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'ResourceGatewayArgs.vpcId' is not present");
     }
 
 }

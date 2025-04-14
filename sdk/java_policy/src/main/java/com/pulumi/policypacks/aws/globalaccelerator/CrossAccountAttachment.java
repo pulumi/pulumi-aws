@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.globalaccelerator;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.globalaccelerator.outputs.CrossAccountAttachmentResource;
 import java.lang.String;
@@ -19,33 +20,36 @@ public final class CrossAccountAttachment extends com.pulumi.resources.PolicyRes
      * ARN of the Cross Account Attachment.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("CrossAccountAttachment.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'CrossAccountAttachment.arn' is not present");
     }
 
     /**
      * Creation Time when the Cross Account Attachment.
      * 
      */
-    private UndeferrableValue<String> createdTime;
-
+    @PolicyResourceProperty(name="createdTime", flag="unknown_createdTime")
+    private String value_createdTime;
+    private boolean unknown_createdTime;
     public String createdTime() {
-        if (createdTime == null) return null;
-        return createdTime.getValue("CrossAccountAttachment.createdTime");
+        if (!unknown_createdTime) return value_createdTime;
+        throw new UndeferrableValueException("Value 'CrossAccountAttachment.createdTime' is not present");
     }
 
     /**
      * Last modified time of the Cross Account Attachment.
      * 
      */
-    private UndeferrableValue<String> lastModifiedTime;
-
+    @PolicyResourceProperty(name="lastModifiedTime", flag="unknown_lastModifiedTime")
+    private String value_lastModifiedTime;
+    private boolean unknown_lastModifiedTime;
     public String lastModifiedTime() {
-        if (lastModifiedTime == null) return null;
-        return lastModifiedTime.getValue("CrossAccountAttachment.lastModifiedTime");
+        if (!unknown_lastModifiedTime) return value_lastModifiedTime;
+        throw new UndeferrableValueException("Value 'CrossAccountAttachment.lastModifiedTime' is not present");
     }
 
     /**
@@ -54,44 +58,48 @@ public final class CrossAccountAttachment extends com.pulumi.resources.PolicyRes
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("CrossAccountAttachment.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'CrossAccountAttachment.name' is not present");
     }
 
     /**
      * List of AWS account IDs that are allowed to associate resources with the accelerator.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> principals;
-
+    @PolicyResourceProperty(name="principals", flag="unknown_principals")
+    private @Nullable List<String> value_principals;
+    private boolean unknown_principals;
     public @Nullable List<String> principals() {
-        if (principals == null) return null;
-        return principals.getValue("CrossAccountAttachment.principals");
+        if (!unknown_principals) return value_principals;
+        throw new UndeferrableValueException("Value 'CrossAccountAttachment.principals' is not present");
     }
 
     /**
      * List of resources to be associated with the accelerator.
      * 
      */
-    private @Nullable UndeferrableValue<List<CrossAccountAttachmentResource>> resources;
-
+    @PolicyResourceProperty(name="resources", flag="unknown_resources")
+    private @Nullable List<CrossAccountAttachmentResource> value_resources;
+    private boolean unknown_resources;
     public @Nullable List<CrossAccountAttachmentResource> resources() {
-        if (resources == null) return null;
-        return resources.getValue("CrossAccountAttachment.resources");
+        if (!unknown_resources) return value_resources;
+        throw new UndeferrableValueException("Value 'CrossAccountAttachment.resources' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CrossAccountAttachment.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CrossAccountAttachment.tags' is not present");
     }
 
     /**
@@ -102,11 +110,12 @@ public final class CrossAccountAttachment extends com.pulumi.resources.PolicyRes
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("CrossAccountAttachment.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'CrossAccountAttachment.tagsAll' is not present");
     }
 
 }

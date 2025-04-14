@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class RuleGroupRuleStatementIpSetReferenceStatement {
      * The Amazon Resource Name (ARN) of the IP Set that this statement references.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("RuleGroupRuleStatementIpSetReferenceStatement.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementIpSetReferenceStatement.arn' is not present");
     }
 
     /**
      * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See IPSet Forwarded IP Config below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig> ipSetForwardedIpConfig;
-
+    @PolicyResourceProperty(name="ipSetForwardedIpConfig", flag="unknown_ipSetForwardedIpConfig")
+    private @Nullable RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig value_ipSetForwardedIpConfig;
+    private boolean unknown_ipSetForwardedIpConfig;
     public @Nullable RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig ipSetForwardedIpConfig() {
-        if (ipSetForwardedIpConfig == null) return null;
-        return ipSetForwardedIpConfig.getValue("RuleGroupRuleStatementIpSetReferenceStatement.ipSetForwardedIpConfig");
+        if (!unknown_ipSetForwardedIpConfig) return value_ipSetForwardedIpConfig;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementIpSetReferenceStatement.ipSetForwardedIpConfig' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 
@@ -14,22 +15,24 @@ public final class ApplicationApplicationConfigurationEnvironmentPropertiesPrope
      * The key of the application execution property key-value map.
      * 
      */
-    private UndeferrableValue<String> propertyGroupId;
-
+    @PolicyResourceProperty(name="propertyGroupId", flag="unknown_propertyGroupId")
+    private String value_propertyGroupId;
+    private boolean unknown_propertyGroupId;
     public String propertyGroupId() {
-        if (propertyGroupId == null) return null;
-        return propertyGroupId.getValue("ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs.propertyGroupId");
+        if (!unknown_propertyGroupId) return value_propertyGroupId;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs.propertyGroupId' is not present");
     }
 
     /**
      * Application execution property key-value map.
      * 
      */
-    private UndeferrableValue<Map<String,String>> propertyMap;
-
+    @PolicyResourceProperty(name="propertyMap", flag="unknown_propertyMap")
+    private Map<String,String> value_propertyMap;
+    private boolean unknown_propertyMap;
     public Map<String,String> propertyMap() {
-        if (propertyMap == null) return null;
-        return propertyMap.getValue("ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs.propertyMap");
+        if (!unknown_propertyMap) return value_propertyMap;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs.propertyMap' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudtrail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,11 +16,12 @@ public final class OrganizationDelegatedAdminAccountArgs extends com.pulumi.reso
      * An organization member account ID that you want to designate as a delegated administrator.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("OrganizationDelegatedAdminAccountArgs.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'OrganizationDelegatedAdminAccountArgs.accountId' is not present");
     }
 
 }

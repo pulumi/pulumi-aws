@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class UserPoolDeviceConfiguration {
      * Whether a challenge is required on a new device. Only applicable to a new device.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> challengeRequiredOnNewDevice;
-
+    @PolicyResourceProperty(name="challengeRequiredOnNewDevice", flag="unknown_challengeRequiredOnNewDevice")
+    private @Nullable Boolean value_challengeRequiredOnNewDevice;
+    private boolean unknown_challengeRequiredOnNewDevice;
     public @Nullable Boolean challengeRequiredOnNewDevice() {
-        if (challengeRequiredOnNewDevice == null) return null;
-        return challengeRequiredOnNewDevice.getValue("UserPoolDeviceConfiguration.challengeRequiredOnNewDevice");
+        if (!unknown_challengeRequiredOnNewDevice) return value_challengeRequiredOnNewDevice;
+        throw new UndeferrableValueException("Value 'UserPoolDeviceConfiguration.challengeRequiredOnNewDevice' is not present");
     }
 
     /**
      * Whether a device is only remembered on user prompt. `false` equates to &#34;Always&#34; remember, `true` is &#34;User Opt In,&#34; and not using a `device_configuration` block is &#34;No.&#34;
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> deviceOnlyRememberedOnUserPrompt;
-
+    @PolicyResourceProperty(name="deviceOnlyRememberedOnUserPrompt", flag="unknown_deviceOnlyRememberedOnUserPrompt")
+    private @Nullable Boolean value_deviceOnlyRememberedOnUserPrompt;
+    private boolean unknown_deviceOnlyRememberedOnUserPrompt;
     public @Nullable Boolean deviceOnlyRememberedOnUserPrompt() {
-        if (deviceOnlyRememberedOnUserPrompt == null) return null;
-        return deviceOnlyRememberedOnUserPrompt.getValue("UserPoolDeviceConfiguration.deviceOnlyRememberedOnUserPrompt");
+        if (!unknown_deviceOnlyRememberedOnUserPrompt) return value_deviceOnlyRememberedOnUserPrompt;
+        throw new UndeferrableValueException("Value 'UserPoolDeviceConfiguration.deviceOnlyRememberedOnUserPrompt' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,25 +12,28 @@ import javax.annotation.Nullable;
 
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode {
 
-    private @Nullable UndeferrableValue<String> accessToken;
-
+    @PolicyResourceProperty(name="accessToken", flag="unknown_accessToken")
+    private @Nullable String value_accessToken;
+    private boolean unknown_accessToken;
     public @Nullable String accessToken() {
-        if (accessToken == null) return null;
-        return accessToken.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode.accessToken");
+        if (!unknown_accessToken) return value_accessToken;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode.accessToken' is not present");
     }
 
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest> oauthRequest;
-
+    @PolicyResourceProperty(name="oauthRequest", flag="unknown_oauthRequest")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest value_oauthRequest;
+    private boolean unknown_oauthRequest;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest oauthRequest() {
-        if (oauthRequest == null) return null;
-        return oauthRequest.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode.oauthRequest");
+        if (!unknown_oauthRequest) return value_oauthRequest;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode.oauthRequest' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> refreshToken;
-
+    @PolicyResourceProperty(name="refreshToken", flag="unknown_refreshToken")
+    private @Nullable String value_refreshToken;
+    private boolean unknown_refreshToken;
     public @Nullable String refreshToken() {
-        if (refreshToken == null) return null;
-        return refreshToken.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode.refreshToken");
+        if (!unknown_refreshToken) return value_refreshToken;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode.refreshToken' is not present");
     }
 
 }

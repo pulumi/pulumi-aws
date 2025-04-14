@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.kinesis.outputs.StreamStreamModeDetails;
 import java.lang.Boolean;
@@ -21,66 +22,72 @@ public final class Stream extends com.pulumi.resources.PolicyResourceOutput {
      * The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Stream.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Stream.arn' is not present");
     }
 
     /**
      * The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> encryptionType;
-
+    @PolicyResourceProperty(name="encryptionType", flag="unknown_encryptionType")
+    private @Nullable String value_encryptionType;
+    private boolean unknown_encryptionType;
     public @Nullable String encryptionType() {
-        if (encryptionType == null) return null;
-        return encryptionType.getValue("Stream.encryptionType");
+        if (!unknown_encryptionType) return value_encryptionType;
+        throw new UndeferrableValueException("Value 'Stream.encryptionType' is not present");
     }
 
     /**
      * A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enforceConsumerDeletion;
-
+    @PolicyResourceProperty(name="enforceConsumerDeletion", flag="unknown_enforceConsumerDeletion")
+    private @Nullable Boolean value_enforceConsumerDeletion;
+    private boolean unknown_enforceConsumerDeletion;
     public @Nullable Boolean enforceConsumerDeletion() {
-        if (enforceConsumerDeletion == null) return null;
-        return enforceConsumerDeletion.getValue("Stream.enforceConsumerDeletion");
+        if (!unknown_enforceConsumerDeletion) return value_enforceConsumerDeletion;
+        throw new UndeferrableValueException("Value 'Stream.enforceConsumerDeletion' is not present");
     }
 
     /**
      * The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("Stream.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'Stream.kmsKeyId' is not present");
     }
 
     /**
      * A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Stream.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Stream.name' is not present");
     }
 
     /**
      * Length of time data records are accessible after they are added to the stream. The maximum value of a stream&#39;s retention period is 8760 hours. Minimum value is 24. Default is 24.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> retentionPeriod;
-
+    @PolicyResourceProperty(name="retentionPeriod", flag="unknown_retentionPeriod")
+    private @Nullable Integer value_retentionPeriod;
+    private boolean unknown_retentionPeriod;
     public @Nullable Integer retentionPeriod() {
-        if (retentionPeriod == null) return null;
-        return retentionPeriod.getValue("Stream.retentionPeriod");
+        if (!unknown_retentionPeriod) return value_retentionPeriod;
+        throw new UndeferrableValueException("Value 'Stream.retentionPeriod' is not present");
     }
 
     /**
@@ -88,44 +95,48 @@ public final class Stream extends com.pulumi.resources.PolicyResourceOutput {
      * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> shardCount;
-
+    @PolicyResourceProperty(name="shardCount", flag="unknown_shardCount")
+    private @Nullable Integer value_shardCount;
+    private boolean unknown_shardCount;
     public @Nullable Integer shardCount() {
-        if (shardCount == null) return null;
-        return shardCount.getValue("Stream.shardCount");
+        if (!unknown_shardCount) return value_shardCount;
+        throw new UndeferrableValueException("Value 'Stream.shardCount' is not present");
     }
 
     /**
      * A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> shardLevelMetrics;
-
+    @PolicyResourceProperty(name="shardLevelMetrics", flag="unknown_shardLevelMetrics")
+    private @Nullable List<String> value_shardLevelMetrics;
+    private boolean unknown_shardLevelMetrics;
     public @Nullable List<String> shardLevelMetrics() {
-        if (shardLevelMetrics == null) return null;
-        return shardLevelMetrics.getValue("Stream.shardLevelMetrics");
+        if (!unknown_shardLevelMetrics) return value_shardLevelMetrics;
+        throw new UndeferrableValueException("Value 'Stream.shardLevelMetrics' is not present");
     }
 
     /**
      * Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
      * 
      */
-    private UndeferrableValue<StreamStreamModeDetails> streamModeDetails;
-
+    @PolicyResourceProperty(name="streamModeDetails", flag="unknown_streamModeDetails")
+    private StreamStreamModeDetails value_streamModeDetails;
+    private boolean unknown_streamModeDetails;
     public StreamStreamModeDetails streamModeDetails() {
-        if (streamModeDetails == null) return null;
-        return streamModeDetails.getValue("Stream.streamModeDetails");
+        if (!unknown_streamModeDetails) return value_streamModeDetails;
+        throw new UndeferrableValueException("Value 'Stream.streamModeDetails' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Stream.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Stream.tags' is not present");
     }
 
     /**
@@ -136,11 +147,12 @@ public final class Stream extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Stream.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Stream.tagsAll' is not present");
     }
 
 }

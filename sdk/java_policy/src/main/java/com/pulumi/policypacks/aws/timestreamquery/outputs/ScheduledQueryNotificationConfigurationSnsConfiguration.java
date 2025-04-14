@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamquery.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ScheduledQueryNotificationConfigurationSnsConfiguration {
      * SNS topic ARN that the scheduled query status notifications will be sent to.
      * 
      */
-    private UndeferrableValue<String> topicArn;
-
+    @PolicyResourceProperty(name="topicArn", flag="unknown_topicArn")
+    private String value_topicArn;
+    private boolean unknown_topicArn;
     public String topicArn() {
-        if (topicArn == null) return null;
-        return topicArn.getValue("ScheduledQueryNotificationConfigurationSnsConfiguration.topicArn");
+        if (!unknown_topicArn) return value_topicArn;
+        throw new UndeferrableValueException("Value 'ScheduledQueryNotificationConfigurationSnsConfiguration.topicArn' is not present");
     }
 
 }

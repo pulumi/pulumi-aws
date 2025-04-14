@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.fsx.outputs.OpenZfsVolumeNfsExportsClientConfiguration;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class OpenZfsVolumeNfsExports {
      * A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `client_configurations` Block below for details.
      * 
      */
-    private UndeferrableValue<List<OpenZfsVolumeNfsExportsClientConfiguration>> clientConfigurations;
-
+    @PolicyResourceProperty(name="clientConfigurations", flag="unknown_clientConfigurations")
+    private List<OpenZfsVolumeNfsExportsClientConfiguration> value_clientConfigurations;
+    private boolean unknown_clientConfigurations;
     public List<OpenZfsVolumeNfsExportsClientConfiguration> clientConfigurations() {
-        if (clientConfigurations == null) return null;
-        return clientConfigurations.getValue("OpenZfsVolumeNfsExports.clientConfigurations");
+        if (!unknown_clientConfigurations) return value_clientConfigurations;
+        throw new UndeferrableValueException("Value 'OpenZfsVolumeNfsExports.clientConfigurations' is not present");
     }
 
 }

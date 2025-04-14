@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appsync.outputs.FunctionSyncConfigLambdaConflictHandlerConfig;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class FunctionSyncConfig {
      * Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
      * 
      */
-    private @Nullable UndeferrableValue<String> conflictDetection;
-
+    @PolicyResourceProperty(name="conflictDetection", flag="unknown_conflictDetection")
+    private @Nullable String value_conflictDetection;
+    private boolean unknown_conflictDetection;
     public @Nullable String conflictDetection() {
-        if (conflictDetection == null) return null;
-        return conflictDetection.getValue("FunctionSyncConfig.conflictDetection");
+        if (!unknown_conflictDetection) return value_conflictDetection;
+        throw new UndeferrableValueException("Value 'FunctionSyncConfig.conflictDetection' is not present");
     }
 
     /**
      * Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
      * 
      */
-    private @Nullable UndeferrableValue<String> conflictHandler;
-
+    @PolicyResourceProperty(name="conflictHandler", flag="unknown_conflictHandler")
+    private @Nullable String value_conflictHandler;
+    private boolean unknown_conflictHandler;
     public @Nullable String conflictHandler() {
-        if (conflictHandler == null) return null;
-        return conflictHandler.getValue("FunctionSyncConfig.conflictHandler");
+        if (!unknown_conflictHandler) return value_conflictHandler;
+        throw new UndeferrableValueException("Value 'FunctionSyncConfig.conflictHandler' is not present");
     }
 
     /**
      * Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambda_conflict_handler_config` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<FunctionSyncConfigLambdaConflictHandlerConfig> lambdaConflictHandlerConfig;
-
+    @PolicyResourceProperty(name="lambdaConflictHandlerConfig", flag="unknown_lambdaConflictHandlerConfig")
+    private @Nullable FunctionSyncConfigLambdaConflictHandlerConfig value_lambdaConflictHandlerConfig;
+    private boolean unknown_lambdaConflictHandlerConfig;
     public @Nullable FunctionSyncConfigLambdaConflictHandlerConfig lambdaConflictHandlerConfig() {
-        if (lambdaConflictHandlerConfig == null) return null;
-        return lambdaConflictHandlerConfig.getValue("FunctionSyncConfig.lambdaConflictHandlerConfig");
+        if (!unknown_lambdaConflictHandlerConfig) return value_lambdaConflictHandlerConfig;
+        throw new UndeferrableValueException("Value 'FunctionSyncConfig.lambdaConflictHandlerConfig' is not present");
     }
 
 }

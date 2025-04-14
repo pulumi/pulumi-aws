@@ -3,17 +3,19 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgs {
 
-    private UndeferrableValue<String> instanceUrl;
-
+    @PolicyResourceProperty(name="instanceUrl", flag="unknown_instanceUrl")
+    private String value_instanceUrl;
+    private boolean unknown_instanceUrl;
     public String instanceUrl() {
-        if (instanceUrl == null) return null;
-        return instanceUrl.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgs.instanceUrl");
+        if (!unknown_instanceUrl) return value_instanceUrl;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgs.instanceUrl' is not present");
     }
 
 }

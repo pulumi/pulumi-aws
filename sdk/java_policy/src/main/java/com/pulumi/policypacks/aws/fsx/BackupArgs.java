@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class BackupArgs extends com.pulumi.resources.PolicyResourceInput {
      * The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
      * 
      */
-    private UndeferrableValue<String> fileSystemId;
-
+    @PolicyResourceProperty(name="fileSystemId", flag="unknown_fileSystemId")
+    private String value_fileSystemId;
+    private boolean unknown_fileSystemId;
     public String fileSystemId() {
-        if (fileSystemId == null) return null;
-        return fileSystemId.getValue("BackupArgs.fileSystemId");
+        if (!unknown_fileSystemId) return value_fileSystemId;
+        throw new UndeferrableValueException("Value 'BackupArgs.fileSystemId' is not present");
     }
 
     /**
      * A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("BackupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'BackupArgs.tags' is not present");
     }
 
     /**
      * The ID of the volume to back up. Required if backing up a ONTAP Volume.
      * 
      */
-    private UndeferrableValue<String> volumeId;
-
+    @PolicyResourceProperty(name="volumeId", flag="unknown_volumeId")
+    private String value_volumeId;
+    private boolean unknown_volumeId;
     public String volumeId() {
-        if (volumeId == null) return null;
-        return volumeId.getValue("BackupArgs.volumeId");
+        if (!unknown_volumeId) return value_volumeId;
+        throw new UndeferrableValueException("Value 'BackupArgs.volumeId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,33 +15,36 @@ public final class V2modelsIntentOutputContextArgs {
      * Name of the output context.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("V2modelsIntentOutputContextArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'V2modelsIntentOutputContextArgs.name' is not present");
     }
 
     /**
      * Amount of time, in seconds, that the output context should remain active. The time is figured from the first time the context is sent to the user.
      * 
      */
-    private UndeferrableValue<Integer> timeToLiveInSeconds;
-
+    @PolicyResourceProperty(name="timeToLiveInSeconds", flag="unknown_timeToLiveInSeconds")
+    private Integer value_timeToLiveInSeconds;
+    private boolean unknown_timeToLiveInSeconds;
     public Integer timeToLiveInSeconds() {
-        if (timeToLiveInSeconds == null) return null;
-        return timeToLiveInSeconds.getValue("V2modelsIntentOutputContextArgs.timeToLiveInSeconds");
+        if (!unknown_timeToLiveInSeconds) return value_timeToLiveInSeconds;
+        throw new UndeferrableValueException("Value 'V2modelsIntentOutputContextArgs.timeToLiveInSeconds' is not present");
     }
 
     /**
      * Number of conversation turns that the output context should remain active. The number of turns is counted from the first time that the context is sent to the user.
      * 
      */
-    private UndeferrableValue<Integer> turnsToLive;
-
+    @PolicyResourceProperty(name="turnsToLive", flag="unknown_turnsToLive")
+    private Integer value_turnsToLive;
+    private boolean unknown_turnsToLive;
     public Integer turnsToLive() {
-        if (turnsToLive == null) return null;
-        return turnsToLive.getValue("V2modelsIntentOutputContextArgs.turnsToLive");
+        if (!unknown_turnsToLive) return value_turnsToLive;
+        throw new UndeferrableValueException("Value 'V2modelsIntentOutputContextArgs.turnsToLive' is not present");
     }
 
 }

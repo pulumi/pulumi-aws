@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class EmailIdentityFeedbackAttributes extends com.pulumi.resources.
      * Sets the feedback forwarding configuration for the identity.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> emailForwardingEnabled;
-
+    @PolicyResourceProperty(name="emailForwardingEnabled", flag="unknown_emailForwardingEnabled")
+    private @Nullable Boolean value_emailForwardingEnabled;
+    private boolean unknown_emailForwardingEnabled;
     public @Nullable Boolean emailForwardingEnabled() {
-        if (emailForwardingEnabled == null) return null;
-        return emailForwardingEnabled.getValue("EmailIdentityFeedbackAttributes.emailForwardingEnabled");
+        if (!unknown_emailForwardingEnabled) return value_emailForwardingEnabled;
+        throw new UndeferrableValueException("Value 'EmailIdentityFeedbackAttributes.emailForwardingEnabled' is not present");
     }
 
     /**
      * The email identity.
      * 
      */
-    private UndeferrableValue<String> emailIdentity;
-
+    @PolicyResourceProperty(name="emailIdentity", flag="unknown_emailIdentity")
+    private String value_emailIdentity;
+    private boolean unknown_emailIdentity;
     public String emailIdentity() {
-        if (emailIdentity == null) return null;
-        return emailIdentity.getValue("EmailIdentityFeedbackAttributes.emailIdentity");
+        if (!unknown_emailIdentity) return value_emailIdentity;
+        throw new UndeferrableValueException("Value 'EmailIdentityFeedbackAttributes.emailIdentity' is not present");
     }
 
 }

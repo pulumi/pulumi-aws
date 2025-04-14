@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,25 +18,28 @@ public final class ContributorManagedInsightRuleArgs extends com.pulumi.resource
      * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("ContributorManagedInsightRuleArgs.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'ContributorManagedInsightRuleArgs.resourceArn' is not present");
     }
 
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("ContributorManagedInsightRuleArgs.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'ContributorManagedInsightRuleArgs.state' is not present");
     }
 
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ContributorManagedInsightRuleArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ContributorManagedInsightRuleArgs.tags' is not present");
     }
 
     /**
@@ -44,11 +48,12 @@ public final class ContributorManagedInsightRuleArgs extends com.pulumi.resource
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> templateName;
-
+    @PolicyResourceProperty(name="templateName", flag="unknown_templateName")
+    private String value_templateName;
+    private boolean unknown_templateName;
     public String templateName() {
-        if (templateName == null) return null;
-        return templateName.getValue("ContributorManagedInsightRuleArgs.templateName");
+        if (!unknown_templateName) return value_templateName;
+        throw new UndeferrableValueException("Value 'ContributorManagedInsightRuleArgs.templateName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgs;
@@ -15,337 +16,384 @@ import javax.annotation.Nullable;
 
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs {
 
-    private UndeferrableValue<String> absentInputAudioBehavior;
-
+    @PolicyResourceProperty(name="absentInputAudioBehavior", flag="unknown_absentInputAudioBehavior")
+    private String value_absentInputAudioBehavior;
+    private boolean unknown_absentInputAudioBehavior;
     public String absentInputAudioBehavior() {
-        if (absentInputAudioBehavior == null) return null;
-        return absentInputAudioBehavior.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.absentInputAudioBehavior");
+        if (!unknown_absentInputAudioBehavior) return value_absentInputAudioBehavior;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.absentInputAudioBehavior' is not present");
     }
 
-    private UndeferrableValue<String> arib;
-
+    @PolicyResourceProperty(name="arib", flag="unknown_arib")
+    private String value_arib;
+    private boolean unknown_arib;
     public String arib() {
-        if (arib == null) return null;
-        return arib.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.arib");
+        if (!unknown_arib) return value_arib;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.arib' is not present");
     }
 
-    private UndeferrableValue<String> aribCaptionsPid;
-
+    @PolicyResourceProperty(name="aribCaptionsPid", flag="unknown_aribCaptionsPid")
+    private String value_aribCaptionsPid;
+    private boolean unknown_aribCaptionsPid;
     public String aribCaptionsPid() {
-        if (aribCaptionsPid == null) return null;
-        return aribCaptionsPid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.aribCaptionsPid");
+        if (!unknown_aribCaptionsPid) return value_aribCaptionsPid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.aribCaptionsPid' is not present");
     }
 
-    private UndeferrableValue<String> aribCaptionsPidControl;
-
+    @PolicyResourceProperty(name="aribCaptionsPidControl", flag="unknown_aribCaptionsPidControl")
+    private String value_aribCaptionsPidControl;
+    private boolean unknown_aribCaptionsPidControl;
     public String aribCaptionsPidControl() {
-        if (aribCaptionsPidControl == null) return null;
-        return aribCaptionsPidControl.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.aribCaptionsPidControl");
+        if (!unknown_aribCaptionsPidControl) return value_aribCaptionsPidControl;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.aribCaptionsPidControl' is not present");
     }
 
-    private UndeferrableValue<String> audioBufferModel;
-
+    @PolicyResourceProperty(name="audioBufferModel", flag="unknown_audioBufferModel")
+    private String value_audioBufferModel;
+    private boolean unknown_audioBufferModel;
     public String audioBufferModel() {
-        if (audioBufferModel == null) return null;
-        return audioBufferModel.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.audioBufferModel");
+        if (!unknown_audioBufferModel) return value_audioBufferModel;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.audioBufferModel' is not present");
     }
 
-    private UndeferrableValue<Integer> audioFramesPerPes;
-
+    @PolicyResourceProperty(name="audioFramesPerPes", flag="unknown_audioFramesPerPes")
+    private Integer value_audioFramesPerPes;
+    private boolean unknown_audioFramesPerPes;
     public Integer audioFramesPerPes() {
-        if (audioFramesPerPes == null) return null;
-        return audioFramesPerPes.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.audioFramesPerPes");
+        if (!unknown_audioFramesPerPes) return value_audioFramesPerPes;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.audioFramesPerPes' is not present");
     }
 
-    private UndeferrableValue<String> audioPids;
-
+    @PolicyResourceProperty(name="audioPids", flag="unknown_audioPids")
+    private String value_audioPids;
+    private boolean unknown_audioPids;
     public String audioPids() {
-        if (audioPids == null) return null;
-        return audioPids.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.audioPids");
+        if (!unknown_audioPids) return value_audioPids;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.audioPids' is not present");
     }
 
-    private UndeferrableValue<String> audioStreamType;
-
+    @PolicyResourceProperty(name="audioStreamType", flag="unknown_audioStreamType")
+    private String value_audioStreamType;
+    private boolean unknown_audioStreamType;
     public String audioStreamType() {
-        if (audioStreamType == null) return null;
-        return audioStreamType.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.audioStreamType");
+        if (!unknown_audioStreamType) return value_audioStreamType;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.audioStreamType' is not present");
     }
 
-    private UndeferrableValue<Integer> bitrate;
-
+    @PolicyResourceProperty(name="bitrate", flag="unknown_bitrate")
+    private Integer value_bitrate;
+    private boolean unknown_bitrate;
     public Integer bitrate() {
-        if (bitrate == null) return null;
-        return bitrate.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.bitrate");
+        if (!unknown_bitrate) return value_bitrate;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.bitrate' is not present");
     }
 
-    private UndeferrableValue<String> bufferModel;
-
+    @PolicyResourceProperty(name="bufferModel", flag="unknown_bufferModel")
+    private String value_bufferModel;
+    private boolean unknown_bufferModel;
     public String bufferModel() {
-        if (bufferModel == null) return null;
-        return bufferModel.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.bufferModel");
+        if (!unknown_bufferModel) return value_bufferModel;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.bufferModel' is not present");
     }
 
-    private UndeferrableValue<String> ccDescriptor;
-
+    @PolicyResourceProperty(name="ccDescriptor", flag="unknown_ccDescriptor")
+    private String value_ccDescriptor;
+    private boolean unknown_ccDescriptor;
     public String ccDescriptor() {
-        if (ccDescriptor == null) return null;
-        return ccDescriptor.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.ccDescriptor");
+        if (!unknown_ccDescriptor) return value_ccDescriptor;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.ccDescriptor' is not present");
     }
 
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs> dvbNitSettings;
-
+    @PolicyResourceProperty(name="dvbNitSettings", flag="unknown_dvbNitSettings")
+    private ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs value_dvbNitSettings;
+    private boolean unknown_dvbNitSettings;
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs dvbNitSettings() {
-        if (dvbNitSettings == null) return null;
-        return dvbNitSettings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.dvbNitSettings");
+        if (!unknown_dvbNitSettings) return value_dvbNitSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.dvbNitSettings' is not present");
     }
 
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs> dvbSdtSettings;
-
+    @PolicyResourceProperty(name="dvbSdtSettings", flag="unknown_dvbSdtSettings")
+    private ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs value_dvbSdtSettings;
+    private boolean unknown_dvbSdtSettings;
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs dvbSdtSettings() {
-        if (dvbSdtSettings == null) return null;
-        return dvbSdtSettings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.dvbSdtSettings");
+        if (!unknown_dvbSdtSettings) return value_dvbSdtSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.dvbSdtSettings' is not present");
     }
 
-    private UndeferrableValue<String> dvbSubPids;
-
+    @PolicyResourceProperty(name="dvbSubPids", flag="unknown_dvbSubPids")
+    private String value_dvbSubPids;
+    private boolean unknown_dvbSubPids;
     public String dvbSubPids() {
-        if (dvbSubPids == null) return null;
-        return dvbSubPids.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.dvbSubPids");
+        if (!unknown_dvbSubPids) return value_dvbSubPids;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.dvbSubPids' is not present");
     }
 
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgs> dvbTdtSettings;
-
+    @PolicyResourceProperty(name="dvbTdtSettings", flag="unknown_dvbTdtSettings")
+    private ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgs value_dvbTdtSettings;
+    private boolean unknown_dvbTdtSettings;
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgs dvbTdtSettings() {
-        if (dvbTdtSettings == null) return null;
-        return dvbTdtSettings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.dvbTdtSettings");
+        if (!unknown_dvbTdtSettings) return value_dvbTdtSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.dvbTdtSettings' is not present");
     }
 
-    private UndeferrableValue<String> dvbTeletextPid;
-
+    @PolicyResourceProperty(name="dvbTeletextPid", flag="unknown_dvbTeletextPid")
+    private String value_dvbTeletextPid;
+    private boolean unknown_dvbTeletextPid;
     public String dvbTeletextPid() {
-        if (dvbTeletextPid == null) return null;
-        return dvbTeletextPid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.dvbTeletextPid");
+        if (!unknown_dvbTeletextPid) return value_dvbTeletextPid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.dvbTeletextPid' is not present");
     }
 
-    private UndeferrableValue<String> ebif;
-
+    @PolicyResourceProperty(name="ebif", flag="unknown_ebif")
+    private String value_ebif;
+    private boolean unknown_ebif;
     public String ebif() {
-        if (ebif == null) return null;
-        return ebif.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.ebif");
+        if (!unknown_ebif) return value_ebif;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.ebif' is not present");
     }
 
-    private UndeferrableValue<String> ebpAudioInterval;
-
+    @PolicyResourceProperty(name="ebpAudioInterval", flag="unknown_ebpAudioInterval")
+    private String value_ebpAudioInterval;
+    private boolean unknown_ebpAudioInterval;
     public String ebpAudioInterval() {
-        if (ebpAudioInterval == null) return null;
-        return ebpAudioInterval.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.ebpAudioInterval");
+        if (!unknown_ebpAudioInterval) return value_ebpAudioInterval;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.ebpAudioInterval' is not present");
     }
 
-    private UndeferrableValue<Integer> ebpLookaheadMs;
-
+    @PolicyResourceProperty(name="ebpLookaheadMs", flag="unknown_ebpLookaheadMs")
+    private Integer value_ebpLookaheadMs;
+    private boolean unknown_ebpLookaheadMs;
     public Integer ebpLookaheadMs() {
-        if (ebpLookaheadMs == null) return null;
-        return ebpLookaheadMs.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.ebpLookaheadMs");
+        if (!unknown_ebpLookaheadMs) return value_ebpLookaheadMs;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.ebpLookaheadMs' is not present");
     }
 
-    private UndeferrableValue<String> ebpPlacement;
-
+    @PolicyResourceProperty(name="ebpPlacement", flag="unknown_ebpPlacement")
+    private String value_ebpPlacement;
+    private boolean unknown_ebpPlacement;
     public String ebpPlacement() {
-        if (ebpPlacement == null) return null;
-        return ebpPlacement.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.ebpPlacement");
+        if (!unknown_ebpPlacement) return value_ebpPlacement;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.ebpPlacement' is not present");
     }
 
-    private UndeferrableValue<String> ecmPid;
-
+    @PolicyResourceProperty(name="ecmPid", flag="unknown_ecmPid")
+    private String value_ecmPid;
+    private boolean unknown_ecmPid;
     public String ecmPid() {
-        if (ecmPid == null) return null;
-        return ecmPid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.ecmPid");
+        if (!unknown_ecmPid) return value_ecmPid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.ecmPid' is not present");
     }
 
-    private UndeferrableValue<String> esRateInPes;
-
+    @PolicyResourceProperty(name="esRateInPes", flag="unknown_esRateInPes")
+    private String value_esRateInPes;
+    private boolean unknown_esRateInPes;
     public String esRateInPes() {
-        if (esRateInPes == null) return null;
-        return esRateInPes.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.esRateInPes");
+        if (!unknown_esRateInPes) return value_esRateInPes;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.esRateInPes' is not present");
     }
 
-    private UndeferrableValue<String> etvPlatformPid;
-
+    @PolicyResourceProperty(name="etvPlatformPid", flag="unknown_etvPlatformPid")
+    private String value_etvPlatformPid;
+    private boolean unknown_etvPlatformPid;
     public String etvPlatformPid() {
-        if (etvPlatformPid == null) return null;
-        return etvPlatformPid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.etvPlatformPid");
+        if (!unknown_etvPlatformPid) return value_etvPlatformPid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.etvPlatformPid' is not present");
     }
 
-    private UndeferrableValue<String> etvSignalPid;
-
+    @PolicyResourceProperty(name="etvSignalPid", flag="unknown_etvSignalPid")
+    private String value_etvSignalPid;
+    private boolean unknown_etvSignalPid;
     public String etvSignalPid() {
-        if (etvSignalPid == null) return null;
-        return etvSignalPid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.etvSignalPid");
+        if (!unknown_etvSignalPid) return value_etvSignalPid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.etvSignalPid' is not present");
     }
 
-    private UndeferrableValue<Double> fragmentTime;
-
+    @PolicyResourceProperty(name="fragmentTime", flag="unknown_fragmentTime")
+    private Double value_fragmentTime;
+    private boolean unknown_fragmentTime;
     public Double fragmentTime() {
-        if (fragmentTime == null) return null;
-        return fragmentTime.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.fragmentTime");
+        if (!unknown_fragmentTime) return value_fragmentTime;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.fragmentTime' is not present");
     }
 
-    private UndeferrableValue<String> klv;
-
+    @PolicyResourceProperty(name="klv", flag="unknown_klv")
+    private String value_klv;
+    private boolean unknown_klv;
     public String klv() {
-        if (klv == null) return null;
-        return klv.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.klv");
+        if (!unknown_klv) return value_klv;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.klv' is not present");
     }
 
-    private UndeferrableValue<String> klvDataPids;
-
+    @PolicyResourceProperty(name="klvDataPids", flag="unknown_klvDataPids")
+    private String value_klvDataPids;
+    private boolean unknown_klvDataPids;
     public String klvDataPids() {
-        if (klvDataPids == null) return null;
-        return klvDataPids.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.klvDataPids");
+        if (!unknown_klvDataPids) return value_klvDataPids;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.klvDataPids' is not present");
     }
 
-    private UndeferrableValue<String> nielsenId3Behavior;
-
+    @PolicyResourceProperty(name="nielsenId3Behavior", flag="unknown_nielsenId3Behavior")
+    private String value_nielsenId3Behavior;
+    private boolean unknown_nielsenId3Behavior;
     public String nielsenId3Behavior() {
-        if (nielsenId3Behavior == null) return null;
-        return nielsenId3Behavior.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.nielsenId3Behavior");
+        if (!unknown_nielsenId3Behavior) return value_nielsenId3Behavior;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.nielsenId3Behavior' is not present");
     }
 
-    private UndeferrableValue<Double> nullPacketBitrate;
-
+    @PolicyResourceProperty(name="nullPacketBitrate", flag="unknown_nullPacketBitrate")
+    private Double value_nullPacketBitrate;
+    private boolean unknown_nullPacketBitrate;
     public Double nullPacketBitrate() {
-        if (nullPacketBitrate == null) return null;
-        return nullPacketBitrate.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.nullPacketBitrate");
+        if (!unknown_nullPacketBitrate) return value_nullPacketBitrate;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.nullPacketBitrate' is not present");
     }
 
-    private UndeferrableValue<Integer> patInterval;
-
+    @PolicyResourceProperty(name="patInterval", flag="unknown_patInterval")
+    private Integer value_patInterval;
+    private boolean unknown_patInterval;
     public Integer patInterval() {
-        if (patInterval == null) return null;
-        return patInterval.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.patInterval");
+        if (!unknown_patInterval) return value_patInterval;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.patInterval' is not present");
     }
 
-    private UndeferrableValue<String> pcrControl;
-
+    @PolicyResourceProperty(name="pcrControl", flag="unknown_pcrControl")
+    private String value_pcrControl;
+    private boolean unknown_pcrControl;
     public String pcrControl() {
-        if (pcrControl == null) return null;
-        return pcrControl.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.pcrControl");
+        if (!unknown_pcrControl) return value_pcrControl;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.pcrControl' is not present");
     }
 
-    private UndeferrableValue<Integer> pcrPeriod;
-
+    @PolicyResourceProperty(name="pcrPeriod", flag="unknown_pcrPeriod")
+    private Integer value_pcrPeriod;
+    private boolean unknown_pcrPeriod;
     public Integer pcrPeriod() {
-        if (pcrPeriod == null) return null;
-        return pcrPeriod.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.pcrPeriod");
+        if (!unknown_pcrPeriod) return value_pcrPeriod;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.pcrPeriod' is not present");
     }
 
-    private UndeferrableValue<String> pcrPid;
-
+    @PolicyResourceProperty(name="pcrPid", flag="unknown_pcrPid")
+    private String value_pcrPid;
+    private boolean unknown_pcrPid;
     public String pcrPid() {
-        if (pcrPid == null) return null;
-        return pcrPid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.pcrPid");
+        if (!unknown_pcrPid) return value_pcrPid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.pcrPid' is not present");
     }
 
-    private UndeferrableValue<Integer> pmtInterval;
-
+    @PolicyResourceProperty(name="pmtInterval", flag="unknown_pmtInterval")
+    private Integer value_pmtInterval;
+    private boolean unknown_pmtInterval;
     public Integer pmtInterval() {
-        if (pmtInterval == null) return null;
-        return pmtInterval.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.pmtInterval");
+        if (!unknown_pmtInterval) return value_pmtInterval;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.pmtInterval' is not present");
     }
 
-    private UndeferrableValue<String> pmtPid;
-
+    @PolicyResourceProperty(name="pmtPid", flag="unknown_pmtPid")
+    private String value_pmtPid;
+    private boolean unknown_pmtPid;
     public String pmtPid() {
-        if (pmtPid == null) return null;
-        return pmtPid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.pmtPid");
+        if (!unknown_pmtPid) return value_pmtPid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.pmtPid' is not present");
     }
 
-    private UndeferrableValue<Integer> programNum;
-
+    @PolicyResourceProperty(name="programNum", flag="unknown_programNum")
+    private Integer value_programNum;
+    private boolean unknown_programNum;
     public Integer programNum() {
-        if (programNum == null) return null;
-        return programNum.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.programNum");
+        if (!unknown_programNum) return value_programNum;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.programNum' is not present");
     }
 
-    private UndeferrableValue<String> rateMode;
-
+    @PolicyResourceProperty(name="rateMode", flag="unknown_rateMode")
+    private String value_rateMode;
+    private boolean unknown_rateMode;
     public String rateMode() {
-        if (rateMode == null) return null;
-        return rateMode.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.rateMode");
+        if (!unknown_rateMode) return value_rateMode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.rateMode' is not present");
     }
 
-    private UndeferrableValue<String> scte27Pids;
-
+    @PolicyResourceProperty(name="scte27Pids", flag="unknown_scte27Pids")
+    private String value_scte27Pids;
+    private boolean unknown_scte27Pids;
     public String scte27Pids() {
-        if (scte27Pids == null) return null;
-        return scte27Pids.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.scte27Pids");
+        if (!unknown_scte27Pids) return value_scte27Pids;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.scte27Pids' is not present");
     }
 
-    private UndeferrableValue<String> scte35Control;
-
+    @PolicyResourceProperty(name="scte35Control", flag="unknown_scte35Control")
+    private String value_scte35Control;
+    private boolean unknown_scte35Control;
     public String scte35Control() {
-        if (scte35Control == null) return null;
-        return scte35Control.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.scte35Control");
+        if (!unknown_scte35Control) return value_scte35Control;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.scte35Control' is not present");
     }
 
     /**
      * PID from which to read SCTE-35 messages.
      * 
      */
-    private UndeferrableValue<String> scte35Pid;
-
+    @PolicyResourceProperty(name="scte35Pid", flag="unknown_scte35Pid")
+    private String value_scte35Pid;
+    private boolean unknown_scte35Pid;
     public String scte35Pid() {
-        if (scte35Pid == null) return null;
-        return scte35Pid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.scte35Pid");
+        if (!unknown_scte35Pid) return value_scte35Pid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.scte35Pid' is not present");
     }
 
-    private UndeferrableValue<String> segmentationMarkers;
-
+    @PolicyResourceProperty(name="segmentationMarkers", flag="unknown_segmentationMarkers")
+    private String value_segmentationMarkers;
+    private boolean unknown_segmentationMarkers;
     public String segmentationMarkers() {
-        if (segmentationMarkers == null) return null;
-        return segmentationMarkers.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.segmentationMarkers");
+        if (!unknown_segmentationMarkers) return value_segmentationMarkers;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.segmentationMarkers' is not present");
     }
 
-    private UndeferrableValue<String> segmentationStyle;
-
+    @PolicyResourceProperty(name="segmentationStyle", flag="unknown_segmentationStyle")
+    private String value_segmentationStyle;
+    private boolean unknown_segmentationStyle;
     public String segmentationStyle() {
-        if (segmentationStyle == null) return null;
-        return segmentationStyle.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.segmentationStyle");
+        if (!unknown_segmentationStyle) return value_segmentationStyle;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.segmentationStyle' is not present");
     }
 
-    private UndeferrableValue<Double> segmentationTime;
-
+    @PolicyResourceProperty(name="segmentationTime", flag="unknown_segmentationTime")
+    private Double value_segmentationTime;
+    private boolean unknown_segmentationTime;
     public Double segmentationTime() {
-        if (segmentationTime == null) return null;
-        return segmentationTime.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.segmentationTime");
+        if (!unknown_segmentationTime) return value_segmentationTime;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.segmentationTime' is not present");
     }
 
-    private UndeferrableValue<String> timedMetadataBehavior;
-
+    @PolicyResourceProperty(name="timedMetadataBehavior", flag="unknown_timedMetadataBehavior")
+    private String value_timedMetadataBehavior;
+    private boolean unknown_timedMetadataBehavior;
     public String timedMetadataBehavior() {
-        if (timedMetadataBehavior == null) return null;
-        return timedMetadataBehavior.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.timedMetadataBehavior");
+        if (!unknown_timedMetadataBehavior) return value_timedMetadataBehavior;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.timedMetadataBehavior' is not present");
     }
 
-    private UndeferrableValue<String> timedMetadataPid;
-
+    @PolicyResourceProperty(name="timedMetadataPid", flag="unknown_timedMetadataPid")
+    private String value_timedMetadataPid;
+    private boolean unknown_timedMetadataPid;
     public String timedMetadataPid() {
-        if (timedMetadataPid == null) return null;
-        return timedMetadataPid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.timedMetadataPid");
+        if (!unknown_timedMetadataPid) return value_timedMetadataPid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.timedMetadataPid' is not present");
     }
 
-    private UndeferrableValue<Integer> transportStreamId;
-
+    @PolicyResourceProperty(name="transportStreamId", flag="unknown_transportStreamId")
+    private Integer value_transportStreamId;
+    private boolean unknown_transportStreamId;
     public Integer transportStreamId() {
-        if (transportStreamId == null) return null;
-        return transportStreamId.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.transportStreamId");
+        if (!unknown_transportStreamId) return value_transportStreamId;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.transportStreamId' is not present");
     }
 
-    private UndeferrableValue<String> videoPid;
-
+    @PolicyResourceProperty(name="videoPid", flag="unknown_videoPid")
+    private String value_videoPid;
+    private boolean unknown_videoPid;
     public String videoPid() {
-        if (videoPid == null) return null;
-        return videoPid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.videoPid");
+        if (!unknown_videoPid) return value_videoPid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs.videoPid' is not present");
     }
 
 }

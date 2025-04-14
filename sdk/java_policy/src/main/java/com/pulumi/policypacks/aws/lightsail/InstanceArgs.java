@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lightsail.inputs.InstanceAddOnArgs;
 import java.lang.String;
@@ -18,11 +19,12 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * The add-on configuration for the instance. Detailed below.
      * 
      */
-    private UndeferrableValue<InstanceAddOnArgs> addOn;
-
+    @PolicyResourceProperty(name="addOn", flag="unknown_addOn")
+    private InstanceAddOnArgs value_addOn;
+    private boolean unknown_addOn;
     public InstanceAddOnArgs addOn() {
-        if (addOn == null) return null;
-        return addOn.getValue("InstanceArgs.addOn");
+        if (!unknown_addOn) return value_addOn;
+        throw new UndeferrableValueException("Value 'InstanceArgs.addOn' is not present");
     }
 
     /**
@@ -31,11 +33,12 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("InstanceArgs.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'InstanceArgs.availabilityZone' is not present");
     }
 
     /**
@@ -44,11 +47,12 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
      * 
      */
-    private UndeferrableValue<String> blueprintId;
-
+    @PolicyResourceProperty(name="blueprintId", flag="unknown_blueprintId")
+    private String value_blueprintId;
+    private boolean unknown_blueprintId;
     public String blueprintId() {
-        if (blueprintId == null) return null;
-        return blueprintId.getValue("InstanceArgs.blueprintId");
+        if (!unknown_blueprintId) return value_blueprintId;
+        throw new UndeferrableValueException("Value 'InstanceArgs.blueprintId' is not present");
     }
 
     /**
@@ -57,22 +61,24 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
      * 
      */
-    private UndeferrableValue<String> bundleId;
-
+    @PolicyResourceProperty(name="bundleId", flag="unknown_bundleId")
+    private String value_bundleId;
+    private boolean unknown_bundleId;
     public String bundleId() {
-        if (bundleId == null) return null;
-        return bundleId.getValue("InstanceArgs.bundleId");
+        if (!unknown_bundleId) return value_bundleId;
+        throw new UndeferrableValueException("Value 'InstanceArgs.bundleId' is not present");
     }
 
     /**
      * The IP address type of the Lightsail Instance. Valid Values: `dualstack`,  `ipv4`, and `ipv6`.
      * 
      */
-    private UndeferrableValue<String> ipAddressType;
-
+    @PolicyResourceProperty(name="ipAddressType", flag="unknown_ipAddressType")
+    private String value_ipAddressType;
+    private boolean unknown_ipAddressType;
     public String ipAddressType() {
-        if (ipAddressType == null) return null;
-        return ipAddressType.getValue("InstanceArgs.ipAddressType");
+        if (!unknown_ipAddressType) return value_ipAddressType;
+        throw new UndeferrableValueException("Value 'InstanceArgs.ipAddressType' is not present");
     }
 
     /**
@@ -80,44 +86,48 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
      * 
      */
-    private UndeferrableValue<String> keyPairName;
-
+    @PolicyResourceProperty(name="keyPairName", flag="unknown_keyPairName")
+    private String value_keyPairName;
+    private boolean unknown_keyPairName;
     public String keyPairName() {
-        if (keyPairName == null) return null;
-        return keyPairName.getValue("InstanceArgs.keyPairName");
+        if (!unknown_keyPairName) return value_keyPairName;
+        throw new UndeferrableValueException("Value 'InstanceArgs.keyPairName' is not present");
     }
 
     /**
      * The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("InstanceArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'InstanceArgs.name' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("InstanceArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'InstanceArgs.tags' is not present");
     }
 
     /**
      * Single lined launch script as a string to configure server with additional user data
      * 
      */
-    private UndeferrableValue<String> userData;
-
+    @PolicyResourceProperty(name="userData", flag="unknown_userData")
+    private String value_userData;
+    private boolean unknown_userData;
     public String userData() {
-        if (userData == null) return null;
-        return userData.getValue("InstanceArgs.userData");
+        if (!unknown_userData) return value_userData;
+        throw new UndeferrableValueException("Value 'InstanceArgs.userData' is not present");
     }
 
 }

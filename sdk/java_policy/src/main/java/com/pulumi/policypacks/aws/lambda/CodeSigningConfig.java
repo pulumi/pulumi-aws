@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lambda.outputs.CodeSigningConfigAllowedPublishers;
 import com.pulumi.policypacks.aws.lambda.outputs.CodeSigningConfigPolicies;
@@ -19,77 +20,84 @@ public final class CodeSigningConfig extends com.pulumi.resources.PolicyResource
      * A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
      * 
      */
-    private UndeferrableValue<CodeSigningConfigAllowedPublishers> allowedPublishers;
-
+    @PolicyResourceProperty(name="allowedPublishers", flag="unknown_allowedPublishers")
+    private CodeSigningConfigAllowedPublishers value_allowedPublishers;
+    private boolean unknown_allowedPublishers;
     public CodeSigningConfigAllowedPublishers allowedPublishers() {
-        if (allowedPublishers == null) return null;
-        return allowedPublishers.getValue("CodeSigningConfig.allowedPublishers");
+        if (!unknown_allowedPublishers) return value_allowedPublishers;
+        throw new UndeferrableValueException("Value 'CodeSigningConfig.allowedPublishers' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the code signing configuration.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("CodeSigningConfig.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'CodeSigningConfig.arn' is not present");
     }
 
     /**
      * Unique identifier for the code signing configuration.
      * 
      */
-    private UndeferrableValue<String> configId;
-
+    @PolicyResourceProperty(name="configId", flag="unknown_configId")
+    private String value_configId;
+    private boolean unknown_configId;
     public String configId() {
-        if (configId == null) return null;
-        return configId.getValue("CodeSigningConfig.configId");
+        if (!unknown_configId) return value_configId;
+        throw new UndeferrableValueException("Value 'CodeSigningConfig.configId' is not present");
     }
 
     /**
      * Descriptive name for this code signing configuration.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("CodeSigningConfig.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'CodeSigningConfig.description' is not present");
     }
 
     /**
      * The date and time that the code signing configuration was last modified.
      * 
      */
-    private UndeferrableValue<String> lastModified;
-
+    @PolicyResourceProperty(name="lastModified", flag="unknown_lastModified")
+    private String value_lastModified;
+    private boolean unknown_lastModified;
     public String lastModified() {
-        if (lastModified == null) return null;
-        return lastModified.getValue("CodeSigningConfig.lastModified");
+        if (!unknown_lastModified) return value_lastModified;
+        throw new UndeferrableValueException("Value 'CodeSigningConfig.lastModified' is not present");
     }
 
     /**
      * A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
      * 
      */
-    private UndeferrableValue<CodeSigningConfigPolicies> policies;
-
+    @PolicyResourceProperty(name="policies", flag="unknown_policies")
+    private CodeSigningConfigPolicies value_policies;
+    private boolean unknown_policies;
     public CodeSigningConfigPolicies policies() {
-        if (policies == null) return null;
-        return policies.getValue("CodeSigningConfig.policies");
+        if (!unknown_policies) return value_policies;
+        throw new UndeferrableValueException("Value 'CodeSigningConfig.policies' is not present");
     }
 
     /**
      * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CodeSigningConfig.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CodeSigningConfig.tags' is not present");
     }
 
     /**
@@ -100,11 +108,12 @@ public final class CodeSigningConfig extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("CodeSigningConfig.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'CodeSigningConfig.tagsAll' is not present");
     }
 
 }

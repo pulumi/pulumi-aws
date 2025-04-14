@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class JobExecutionPropertyArgs {
      * The maximum number of concurrent runs allowed for a job. The default is 1.
      * 
      */
-    private UndeferrableValue<Integer> maxConcurrentRuns;
-
+    @PolicyResourceProperty(name="maxConcurrentRuns", flag="unknown_maxConcurrentRuns")
+    private Integer value_maxConcurrentRuns;
+    private boolean unknown_maxConcurrentRuns;
     public Integer maxConcurrentRuns() {
-        if (maxConcurrentRuns == null) return null;
-        return maxConcurrentRuns.getValue("JobExecutionPropertyArgs.maxConcurrentRuns");
+        if (!unknown_maxConcurrentRuns) return value_maxConcurrentRuns;
+        throw new UndeferrableValueException("Value 'JobExecutionPropertyArgs.maxConcurrentRuns' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,11 +18,12 @@ public final class DelegationSet extends com.pulumi.resources.PolicyResourceOutp
      * The Amazon Resource Name (ARN) of the Delegation Set.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("DelegationSet.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'DelegationSet.arn' is not present");
     }
 
     /**
@@ -29,11 +31,12 @@ public final class DelegationSet extends com.pulumi.resources.PolicyResourceOutp
      * (effectively a list of NS records).
      * 
      */
-    private UndeferrableValue<List<String>> nameServers;
-
+    @PolicyResourceProperty(name="nameServers", flag="unknown_nameServers")
+    private List<String> value_nameServers;
+    private boolean unknown_nameServers;
     public List<String> nameServers() {
-        if (nameServers == null) return null;
-        return nameServers.getValue("DelegationSet.nameServers");
+        if (!unknown_nameServers) return value_nameServers;
+        throw new UndeferrableValueException("Value 'DelegationSet.nameServers' is not present");
     }
 
     /**
@@ -41,11 +44,12 @@ public final class DelegationSet extends com.pulumi.resources.PolicyResourceOutp
      * (helpful for identifying single delegation set amongst others)
      * 
      */
-    private @Nullable UndeferrableValue<String> referenceName;
-
+    @PolicyResourceProperty(name="referenceName", flag="unknown_referenceName")
+    private @Nullable String value_referenceName;
+    private boolean unknown_referenceName;
     public @Nullable String referenceName() {
-        if (referenceName == null) return null;
-        return referenceName.getValue("DelegationSet.referenceName");
+        if (!unknown_referenceName) return value_referenceName;
+        throw new UndeferrableValueException("Value 'DelegationSet.referenceName' is not present");
     }
 
 }

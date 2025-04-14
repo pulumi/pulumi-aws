@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codegurureviewer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class RepositoryAssociationRepositoryS3Bucket {
      * The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
      * 
      */
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("RepositoryAssociationRepositoryS3Bucket.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'RepositoryAssociationRepositoryS3Bucket.bucketName' is not present");
     }
 
     /**
      * The name of the repository in the S3 bucket.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RepositoryAssociationRepositoryS3Bucket.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RepositoryAssociationRepositoryS3Bucket.name' is not present");
     }
 
 }

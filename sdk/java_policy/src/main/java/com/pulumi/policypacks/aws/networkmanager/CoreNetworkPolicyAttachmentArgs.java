@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class CoreNetworkPolicyAttachmentArgs extends com.pulumi.resources.
      * The ID of the core network that a policy will be attached to and made `LIVE`.
      * 
      */
-    private UndeferrableValue<String> coreNetworkId;
-
+    @PolicyResourceProperty(name="coreNetworkId", flag="unknown_coreNetworkId")
+    private String value_coreNetworkId;
+    private boolean unknown_coreNetworkId;
     public String coreNetworkId() {
-        if (coreNetworkId == null) return null;
-        return coreNetworkId.getValue("CoreNetworkPolicyAttachmentArgs.coreNetworkId");
+        if (!unknown_coreNetworkId) return value_coreNetworkId;
+        throw new UndeferrableValueException("Value 'CoreNetworkPolicyAttachmentArgs.coreNetworkId' is not present");
     }
 
     /**
      * Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
      * 
      */
-    private UndeferrableValue<String> policyDocument;
-
+    @PolicyResourceProperty(name="policyDocument", flag="unknown_policyDocument")
+    private String value_policyDocument;
+    private boolean unknown_policyDocument;
     public String policyDocument() {
-        if (policyDocument == null) return null;
-        return policyDocument.getValue("CoreNetworkPolicyAttachmentArgs.policyDocument");
+        if (!unknown_policyDocument) return value_policyDocument;
+        throw new UndeferrableValueException("Value 'CoreNetworkPolicyAttachmentArgs.policyDocument' is not present");
     }
 
 }

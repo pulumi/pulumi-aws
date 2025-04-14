@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -16,66 +17,72 @@ public final class PipeTargetParametersRedshiftDataParametersArgs {
      * The name of the database. Required when authenticating using temporary credentials.
      * 
      */
-    private UndeferrableValue<String> database;
-
+    @PolicyResourceProperty(name="database", flag="unknown_database")
+    private String value_database;
+    private boolean unknown_database;
     public String database() {
-        if (database == null) return null;
-        return database.getValue("PipeTargetParametersRedshiftDataParametersArgs.database");
+        if (!unknown_database) return value_database;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersRedshiftDataParametersArgs.database' is not present");
     }
 
     /**
      * The database user name. Required when authenticating using temporary credentials.
      * 
      */
-    private UndeferrableValue<String> dbUser;
-
+    @PolicyResourceProperty(name="dbUser", flag="unknown_dbUser")
+    private String value_dbUser;
+    private boolean unknown_dbUser;
     public String dbUser() {
-        if (dbUser == null) return null;
-        return dbUser.getValue("PipeTargetParametersRedshiftDataParametersArgs.dbUser");
+        if (!unknown_dbUser) return value_dbUser;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersRedshiftDataParametersArgs.dbUser' is not present");
     }
 
     /**
      * The name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
      * 
      */
-    private UndeferrableValue<String> secretManagerArn;
-
+    @PolicyResourceProperty(name="secretManagerArn", flag="unknown_secretManagerArn")
+    private String value_secretManagerArn;
+    private boolean unknown_secretManagerArn;
     public String secretManagerArn() {
-        if (secretManagerArn == null) return null;
-        return secretManagerArn.getValue("PipeTargetParametersRedshiftDataParametersArgs.secretManagerArn");
+        if (!unknown_secretManagerArn) return value_secretManagerArn;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersRedshiftDataParametersArgs.secretManagerArn' is not present");
     }
 
     /**
      * List of SQL statements text to run, each of maximum length of 100,000.
      * 
      */
-    private UndeferrableValue<List<String>> sqls;
-
+    @PolicyResourceProperty(name="sqls", flag="unknown_sqls")
+    private List<String> value_sqls;
+    private boolean unknown_sqls;
     public List<String> sqls() {
-        if (sqls == null) return null;
-        return sqls.getValue("PipeTargetParametersRedshiftDataParametersArgs.sqls");
+        if (!unknown_sqls) return value_sqls;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersRedshiftDataParametersArgs.sqls' is not present");
     }
 
     /**
      * The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
      * 
      */
-    private UndeferrableValue<String> statementName;
-
+    @PolicyResourceProperty(name="statementName", flag="unknown_statementName")
+    private String value_statementName;
+    private boolean unknown_statementName;
     public String statementName() {
-        if (statementName == null) return null;
-        return statementName.getValue("PipeTargetParametersRedshiftDataParametersArgs.statementName");
+        if (!unknown_statementName) return value_statementName;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersRedshiftDataParametersArgs.statementName' is not present");
     }
 
     /**
      * Indicates whether to send an event back to EventBridge after the SQL statement runs.
      * 
      */
-    private UndeferrableValue<Boolean> withEvent;
-
+    @PolicyResourceProperty(name="withEvent", flag="unknown_withEvent")
+    private Boolean value_withEvent;
+    private boolean unknown_withEvent;
     public Boolean withEvent() {
-        if (withEvent == null) return null;
-        return withEvent.getValue("PipeTargetParametersRedshiftDataParametersArgs.withEvent");
+        if (!unknown_withEvent) return value_withEvent;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersRedshiftDataParametersArgs.withEvent' is not present");
     }
 
 }

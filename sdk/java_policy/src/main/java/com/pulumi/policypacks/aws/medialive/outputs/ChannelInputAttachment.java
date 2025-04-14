@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelInputAttachmentAutomaticInputFailoverSettings;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelInputAttachmentInputSettings;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class ChannelInputAttachment {
      * User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ChannelInputAttachmentAutomaticInputFailoverSettings> automaticInputFailoverSettings;
-
+    @PolicyResourceProperty(name="automaticInputFailoverSettings", flag="unknown_automaticInputFailoverSettings")
+    private @Nullable ChannelInputAttachmentAutomaticInputFailoverSettings value_automaticInputFailoverSettings;
+    private boolean unknown_automaticInputFailoverSettings;
     public @Nullable ChannelInputAttachmentAutomaticInputFailoverSettings automaticInputFailoverSettings() {
-        if (automaticInputFailoverSettings == null) return null;
-        return automaticInputFailoverSettings.getValue("ChannelInputAttachment.automaticInputFailoverSettings");
+        if (!unknown_automaticInputFailoverSettings) return value_automaticInputFailoverSettings;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachment.automaticInputFailoverSettings' is not present");
     }
 
     /**
      * User-specified name for the attachment.
      * 
      */
-    private UndeferrableValue<String> inputAttachmentName;
-
+    @PolicyResourceProperty(name="inputAttachmentName", flag="unknown_inputAttachmentName")
+    private String value_inputAttachmentName;
+    private boolean unknown_inputAttachmentName;
     public String inputAttachmentName() {
-        if (inputAttachmentName == null) return null;
-        return inputAttachmentName.getValue("ChannelInputAttachment.inputAttachmentName");
+        if (!unknown_inputAttachmentName) return value_inputAttachmentName;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachment.inputAttachmentName' is not present");
     }
 
     /**
      * The ID of the input.
      * 
      */
-    private UndeferrableValue<String> inputId;
-
+    @PolicyResourceProperty(name="inputId", flag="unknown_inputId")
+    private String value_inputId;
+    private boolean unknown_inputId;
     public String inputId() {
-        if (inputId == null) return null;
-        return inputId.getValue("ChannelInputAttachment.inputId");
+        if (!unknown_inputId) return value_inputId;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachment.inputId' is not present");
     }
 
     /**
      * Settings of an input. See Input Settings for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ChannelInputAttachmentInputSettings> inputSettings;
-
+    @PolicyResourceProperty(name="inputSettings", flag="unknown_inputSettings")
+    private @Nullable ChannelInputAttachmentInputSettings value_inputSettings;
+    private boolean unknown_inputSettings;
     public @Nullable ChannelInputAttachmentInputSettings inputSettings() {
-        if (inputSettings == null) return null;
-        return inputSettings.getValue("ChannelInputAttachment.inputSettings");
+        if (!unknown_inputSettings) return value_inputSettings;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachment.inputSettings' is not present");
     }
 
 }

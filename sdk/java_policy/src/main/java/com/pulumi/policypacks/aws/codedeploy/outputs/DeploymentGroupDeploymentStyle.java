@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codedeploy.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DeploymentGroupDeploymentStyle {
      * Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
      * 
      */
-    private @Nullable UndeferrableValue<String> deploymentOption;
-
+    @PolicyResourceProperty(name="deploymentOption", flag="unknown_deploymentOption")
+    private @Nullable String value_deploymentOption;
+    private boolean unknown_deploymentOption;
     public @Nullable String deploymentOption() {
-        if (deploymentOption == null) return null;
-        return deploymentOption.getValue("DeploymentGroupDeploymentStyle.deploymentOption");
+        if (!unknown_deploymentOption) return value_deploymentOption;
+        throw new UndeferrableValueException("Value 'DeploymentGroupDeploymentStyle.deploymentOption' is not present");
     }
 
     /**
@@ -27,11 +29,12 @@ public final class DeploymentGroupDeploymentStyle {
      * _Only one `deployment_style` is allowed_.
      * 
      */
-    private @Nullable UndeferrableValue<String> deploymentType;
-
+    @PolicyResourceProperty(name="deploymentType", flag="unknown_deploymentType")
+    private @Nullable String value_deploymentType;
+    private boolean unknown_deploymentType;
     public @Nullable String deploymentType() {
-        if (deploymentType == null) return null;
-        return deploymentType.getValue("DeploymentGroupDeploymentStyle.deploymentType");
+        if (!unknown_deploymentType) return value_deploymentType;
+        throw new UndeferrableValueException("Value 'DeploymentGroupDeploymentStyle.deploymentType' is not present");
     }
 
 }

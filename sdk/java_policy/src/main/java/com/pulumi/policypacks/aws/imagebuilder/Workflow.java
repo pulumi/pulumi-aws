@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,99 +18,108 @@ public final class Workflow extends com.pulumi.resources.PolicyResourceOutput {
      * Amazon Resource Name (ARN) of the workflow.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Workflow.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Workflow.arn' is not present");
     }
 
     /**
      * Change description of the workflow.
      * 
      */
-    private @Nullable UndeferrableValue<String> changeDescription;
-
+    @PolicyResourceProperty(name="changeDescription", flag="unknown_changeDescription")
+    private @Nullable String value_changeDescription;
+    private boolean unknown_changeDescription;
     public @Nullable String changeDescription() {
-        if (changeDescription == null) return null;
-        return changeDescription.getValue("Workflow.changeDescription");
+        if (!unknown_changeDescription) return value_changeDescription;
+        throw new UndeferrableValueException("Value 'Workflow.changeDescription' is not present");
     }
 
     /**
      * Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
      * 
      */
-    private UndeferrableValue<String> data;
-
+    @PolicyResourceProperty(name="data", flag="unknown_data")
+    private String value_data;
+    private boolean unknown_data;
     public String data() {
-        if (data == null) return null;
-        return data.getValue("Workflow.data");
+        if (!unknown_data) return value_data;
+        throw new UndeferrableValueException("Value 'Workflow.data' is not present");
     }
 
     /**
      * Date the workflow was created.
      * 
      */
-    private UndeferrableValue<String> dateCreated;
-
+    @PolicyResourceProperty(name="dateCreated", flag="unknown_dateCreated")
+    private String value_dateCreated;
+    private boolean unknown_dateCreated;
     public String dateCreated() {
-        if (dateCreated == null) return null;
-        return dateCreated.getValue("Workflow.dateCreated");
+        if (!unknown_dateCreated) return value_dateCreated;
+        throw new UndeferrableValueException("Value 'Workflow.dateCreated' is not present");
     }
 
     /**
      * Description of the workflow.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Workflow.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Workflow.description' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("Workflow.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'Workflow.kmsKeyId' is not present");
     }
 
     /**
      * Name of the workflow.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Workflow.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Workflow.name' is not present");
     }
 
     /**
      * Owner of the workflow.
      * 
      */
-    private UndeferrableValue<String> owner;
-
+    @PolicyResourceProperty(name="owner", flag="unknown_owner")
+    private String value_owner;
+    private boolean unknown_owner;
     public String owner() {
-        if (owner == null) return null;
-        return owner.getValue("Workflow.owner");
+        if (!unknown_owner) return value_owner;
+        throw new UndeferrableValueException("Value 'Workflow.owner' is not present");
     }
 
     /**
      * Key-value map of resource tags for the workflow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Workflow.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Workflow.tags' is not present");
     }
 
     /**
@@ -118,33 +128,36 @@ public final class Workflow extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Workflow.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Workflow.tagsAll' is not present");
     }
 
     /**
      * Type of the workflow. Valid values: `BUILD`, `TEST`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("Workflow.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'Workflow.type' is not present");
     }
 
     /**
      * S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
      * 
      */
-    private @Nullable UndeferrableValue<String> uri;
-
+    @PolicyResourceProperty(name="uri", flag="unknown_uri")
+    private @Nullable String value_uri;
+    private boolean unknown_uri;
     public @Nullable String uri() {
-        if (uri == null) return null;
-        return uri.getValue("Workflow.uri");
+        if (!unknown_uri) return value_uri;
+        throw new UndeferrableValueException("Value 'Workflow.uri' is not present");
     }
 
     /**
@@ -153,11 +166,12 @@ public final class Workflow extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("Workflow.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'Workflow.version' is not present");
     }
 
 }

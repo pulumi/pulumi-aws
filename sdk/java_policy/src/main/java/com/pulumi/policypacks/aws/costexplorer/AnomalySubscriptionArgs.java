@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.costexplorer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.costexplorer.inputs.AnomalySubscriptionSubscriberArgs;
 import com.pulumi.policypacks.aws.costexplorer.inputs.AnomalySubscriptionThresholdExpressionArgs;
@@ -20,77 +21,84 @@ public final class AnomalySubscriptionArgs extends com.pulumi.resources.PolicyRe
      * The unique identifier for the AWS account in which the anomaly subscription ought to be created.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("AnomalySubscriptionArgs.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'AnomalySubscriptionArgs.accountId' is not present");
     }
 
     /**
      * The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
      * 
      */
-    private UndeferrableValue<String> frequency;
-
+    @PolicyResourceProperty(name="frequency", flag="unknown_frequency")
+    private String value_frequency;
+    private boolean unknown_frequency;
     public String frequency() {
-        if (frequency == null) return null;
-        return frequency.getValue("AnomalySubscriptionArgs.frequency");
+        if (!unknown_frequency) return value_frequency;
+        throw new UndeferrableValueException("Value 'AnomalySubscriptionArgs.frequency' is not present");
     }
 
     /**
      * A list of cost anomaly monitors.
      * 
      */
-    private UndeferrableValue<List<String>> monitorArnLists;
-
+    @PolicyResourceProperty(name="monitorArnLists", flag="unknown_monitorArnLists")
+    private List<String> value_monitorArnLists;
+    private boolean unknown_monitorArnLists;
     public List<String> monitorArnLists() {
-        if (monitorArnLists == null) return null;
-        return monitorArnLists.getValue("AnomalySubscriptionArgs.monitorArnLists");
+        if (!unknown_monitorArnLists) return value_monitorArnLists;
+        throw new UndeferrableValueException("Value 'AnomalySubscriptionArgs.monitorArnLists' is not present");
     }
 
     /**
      * The name for the subscription.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AnomalySubscriptionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AnomalySubscriptionArgs.name' is not present");
     }
 
     /**
      * A subscriber configuration. Multiple subscribers can be defined.
      * 
      */
-    private UndeferrableValue<List<AnomalySubscriptionSubscriberArgs>> subscribers;
-
+    @PolicyResourceProperty(name="subscribers", flag="unknown_subscribers")
+    private List<AnomalySubscriptionSubscriberArgs> value_subscribers;
+    private boolean unknown_subscribers;
     public List<AnomalySubscriptionSubscriberArgs> subscribers() {
-        if (subscribers == null) return null;
-        return subscribers.getValue("AnomalySubscriptionArgs.subscribers");
+        if (!unknown_subscribers) return value_subscribers;
+        throw new UndeferrableValueException("Value 'AnomalySubscriptionArgs.subscribers' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AnomalySubscriptionArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AnomalySubscriptionArgs.tags' is not present");
     }
 
     /**
      * An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
      * 
      */
-    private UndeferrableValue<AnomalySubscriptionThresholdExpressionArgs> thresholdExpression;
-
+    @PolicyResourceProperty(name="thresholdExpression", flag="unknown_thresholdExpression")
+    private AnomalySubscriptionThresholdExpressionArgs value_thresholdExpression;
+    private boolean unknown_thresholdExpression;
     public AnomalySubscriptionThresholdExpressionArgs thresholdExpression() {
-        if (thresholdExpression == null) return null;
-        return thresholdExpression.getValue("AnomalySubscriptionArgs.thresholdExpression");
+        if (!unknown_thresholdExpression) return value_thresholdExpression;
+        throw new UndeferrableValueException("Value 'AnomalySubscriptionArgs.thresholdExpression' is not present");
     }
 
 }

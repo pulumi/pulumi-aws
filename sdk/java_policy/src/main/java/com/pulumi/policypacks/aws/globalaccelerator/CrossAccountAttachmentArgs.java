@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.globalaccelerator;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.globalaccelerator.inputs.CrossAccountAttachmentResourceArgs;
 import java.lang.String;
@@ -21,44 +22,48 @@ public final class CrossAccountAttachmentArgs extends com.pulumi.resources.Polic
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("CrossAccountAttachmentArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'CrossAccountAttachmentArgs.name' is not present");
     }
 
     /**
      * List of AWS account IDs that are allowed to associate resources with the accelerator.
      * 
      */
-    private UndeferrableValue<List<String>> principals;
-
+    @PolicyResourceProperty(name="principals", flag="unknown_principals")
+    private List<String> value_principals;
+    private boolean unknown_principals;
     public List<String> principals() {
-        if (principals == null) return null;
-        return principals.getValue("CrossAccountAttachmentArgs.principals");
+        if (!unknown_principals) return value_principals;
+        throw new UndeferrableValueException("Value 'CrossAccountAttachmentArgs.principals' is not present");
     }
 
     /**
      * List of resources to be associated with the accelerator.
      * 
      */
-    private UndeferrableValue<List<CrossAccountAttachmentResourceArgs>> resources;
-
+    @PolicyResourceProperty(name="resources", flag="unknown_resources")
+    private List<CrossAccountAttachmentResourceArgs> value_resources;
+    private boolean unknown_resources;
     public List<CrossAccountAttachmentResourceArgs> resources() {
-        if (resources == null) return null;
-        return resources.getValue("CrossAccountAttachmentArgs.resources");
+        if (!unknown_resources) return value_resources;
+        throw new UndeferrableValueException("Value 'CrossAccountAttachmentArgs.resources' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CrossAccountAttachmentArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CrossAccountAttachmentArgs.tags' is not present");
     }
 
 }

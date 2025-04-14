@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codepipeline.inputs.PipelineTriggerGitConfigurationPullRequestBranchesArgs;
 import com.pulumi.policypacks.aws.codepipeline.inputs.PipelineTriggerGitConfigurationPullRequestFilePathsArgs;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class PipelineTriggerGitConfigurationPullRequestArgs {
      * The field that specifies to filter on branches for the pull request trigger configuration. A `branches` block is documented below.
      * 
      */
-    private UndeferrableValue<PipelineTriggerGitConfigurationPullRequestBranchesArgs> branches;
-
+    @PolicyResourceProperty(name="branches", flag="unknown_branches")
+    private PipelineTriggerGitConfigurationPullRequestBranchesArgs value_branches;
+    private boolean unknown_branches;
     public PipelineTriggerGitConfigurationPullRequestBranchesArgs branches() {
-        if (branches == null) return null;
-        return branches.getValue("PipelineTriggerGitConfigurationPullRequestArgs.branches");
+        if (!unknown_branches) return value_branches;
+        throw new UndeferrableValueException("Value 'PipelineTriggerGitConfigurationPullRequestArgs.branches' is not present");
     }
 
     /**
      * A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, ` UPDATED  ` and `CLOSED`.
      * 
      */
-    private UndeferrableValue<List<String>> events;
-
+    @PolicyResourceProperty(name="events", flag="unknown_events")
+    private List<String> value_events;
+    private boolean unknown_events;
     public List<String> events() {
-        if (events == null) return null;
-        return events.getValue("PipelineTriggerGitConfigurationPullRequestArgs.events");
+        if (!unknown_events) return value_events;
+        throw new UndeferrableValueException("Value 'PipelineTriggerGitConfigurationPullRequestArgs.events' is not present");
     }
 
     /**
      * The field that specifies to filter on file paths for the pull request trigger configuration. A `file_paths` block is documented below.
      * 
      */
-    private UndeferrableValue<PipelineTriggerGitConfigurationPullRequestFilePathsArgs> filePaths;
-
+    @PolicyResourceProperty(name="filePaths", flag="unknown_filePaths")
+    private PipelineTriggerGitConfigurationPullRequestFilePathsArgs value_filePaths;
+    private boolean unknown_filePaths;
     public PipelineTriggerGitConfigurationPullRequestFilePathsArgs filePaths() {
-        if (filePaths == null) return null;
-        return filePaths.getValue("PipelineTriggerGitConfigurationPullRequestArgs.filePaths");
+        if (!unknown_filePaths) return value_filePaths;
+        throw new UndeferrableValueException("Value 'PipelineTriggerGitConfigurationPullRequestArgs.filePaths' is not present");
     }
 
 }

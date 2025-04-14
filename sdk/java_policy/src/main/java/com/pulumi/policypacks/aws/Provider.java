@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class Provider extends com.pulumi.resources.PolicyResourceOutput {
      * The access key for API operations. You can retrieve this from the &#39;Security &amp; Credentials&#39; section of the AWS console.
      * 
      */
-    private @Nullable UndeferrableValue<String> accessKey;
-
+    @PolicyResourceProperty(name="accessKey", flag="unknown_accessKey")
+    private @Nullable String value_accessKey;
+    private boolean unknown_accessKey;
     public @Nullable String accessKey() {
-        if (accessKey == null) return null;
-        return accessKey.getValue("Provider.accessKey");
+        if (!unknown_accessKey) return value_accessKey;
+        throw new UndeferrableValueException("Value 'Provider.accessKey' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class Provider extends com.pulumi.resources.PolicyResourceOutput {
      * variable. (Setting `ca_bundle` in the shared config file is not supported.)
      * 
      */
-    private @Nullable UndeferrableValue<String> customCaBundle;
-
+    @PolicyResourceProperty(name="customCaBundle", flag="unknown_customCaBundle")
+    private @Nullable String value_customCaBundle;
+    private boolean unknown_customCaBundle;
     public @Nullable String customCaBundle() {
-        if (customCaBundle == null) return null;
-        return customCaBundle.getValue("Provider.customCaBundle");
+        if (!unknown_customCaBundle) return value_customCaBundle;
+        throw new UndeferrableValueException("Value 'Provider.customCaBundle' is not present");
     }
 
     /**
@@ -40,11 +43,12 @@ public final class Provider extends com.pulumi.resources.PolicyResourceOutput {
      * `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
      * 
      */
-    private @Nullable UndeferrableValue<String> ec2MetadataServiceEndpoint;
-
+    @PolicyResourceProperty(name="ec2MetadataServiceEndpoint", flag="unknown_ec2MetadataServiceEndpoint")
+    private @Nullable String value_ec2MetadataServiceEndpoint;
+    private boolean unknown_ec2MetadataServiceEndpoint;
     public @Nullable String ec2MetadataServiceEndpoint() {
-        if (ec2MetadataServiceEndpoint == null) return null;
-        return ec2MetadataServiceEndpoint.getValue("Provider.ec2MetadataServiceEndpoint");
+        if (!unknown_ec2MetadataServiceEndpoint) return value_ec2MetadataServiceEndpoint;
+        throw new UndeferrableValueException("Value 'Provider.ec2MetadataServiceEndpoint' is not present");
     }
 
     /**
@@ -52,11 +56,12 @@ public final class Provider extends com.pulumi.resources.PolicyResourceOutput {
      * `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
      * 
      */
-    private @Nullable UndeferrableValue<String> ec2MetadataServiceEndpointMode;
-
+    @PolicyResourceProperty(name="ec2MetadataServiceEndpointMode", flag="unknown_ec2MetadataServiceEndpointMode")
+    private @Nullable String value_ec2MetadataServiceEndpointMode;
+    private boolean unknown_ec2MetadataServiceEndpointMode;
     public @Nullable String ec2MetadataServiceEndpointMode() {
-        if (ec2MetadataServiceEndpointMode == null) return null;
-        return ec2MetadataServiceEndpointMode.getValue("Provider.ec2MetadataServiceEndpointMode");
+        if (!unknown_ec2MetadataServiceEndpointMode) return value_ec2MetadataServiceEndpointMode;
+        throw new UndeferrableValueException("Value 'Provider.ec2MetadataServiceEndpointMode' is not present");
     }
 
     /**
@@ -64,11 +69,12 @@ public final class Provider extends com.pulumi.resources.PolicyResourceOutput {
      * `http_proxy` environment variables.
      * 
      */
-    private @Nullable UndeferrableValue<String> httpProxy;
-
+    @PolicyResourceProperty(name="httpProxy", flag="unknown_httpProxy")
+    private @Nullable String value_httpProxy;
+    private boolean unknown_httpProxy;
     public @Nullable String httpProxy() {
-        if (httpProxy == null) return null;
-        return httpProxy.getValue("Provider.httpProxy");
+        if (!unknown_httpProxy) return value_httpProxy;
+        throw new UndeferrableValueException("Value 'Provider.httpProxy' is not present");
     }
 
     /**
@@ -76,11 +82,12 @@ public final class Provider extends com.pulumi.resources.PolicyResourceOutput {
      * `https_proxy` environment variables.
      * 
      */
-    private @Nullable UndeferrableValue<String> httpsProxy;
-
+    @PolicyResourceProperty(name="httpsProxy", flag="unknown_httpsProxy")
+    private @Nullable String value_httpsProxy;
+    private boolean unknown_httpsProxy;
     public @Nullable String httpsProxy() {
-        if (httpsProxy == null) return null;
-        return httpsProxy.getValue("Provider.httpsProxy");
+        if (!unknown_httpsProxy) return value_httpsProxy;
+        throw new UndeferrableValueException("Value 'Provider.httpsProxy' is not present");
     }
 
     /**
@@ -88,33 +95,36 @@ public final class Provider extends com.pulumi.resources.PolicyResourceOutput {
      * `no_proxy` environment variables.
      * 
      */
-    private @Nullable UndeferrableValue<String> noProxy;
-
+    @PolicyResourceProperty(name="noProxy", flag="unknown_noProxy")
+    private @Nullable String value_noProxy;
+    private boolean unknown_noProxy;
     public @Nullable String noProxy() {
-        if (noProxy == null) return null;
-        return noProxy.getValue("Provider.noProxy");
+        if (!unknown_noProxy) return value_noProxy;
+        throw new UndeferrableValueException("Value 'Provider.noProxy' is not present");
     }
 
     /**
      * The profile for API operations. If not set, the default profile created with `aws configure` will be used.
      * 
      */
-    private @Nullable UndeferrableValue<String> profile;
-
+    @PolicyResourceProperty(name="profile", flag="unknown_profile")
+    private @Nullable String value_profile;
+    private boolean unknown_profile;
     public @Nullable String profile() {
-        if (profile == null) return null;
-        return profile.getValue("Provider.profile");
+        if (!unknown_profile) return value_profile;
+        throw new UndeferrableValueException("Value 'Provider.profile' is not present");
     }
 
     /**
      * The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
      * 
      */
-    private @Nullable UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private @Nullable String value_region;
+    private boolean unknown_region;
     public @Nullable String region() {
-        if (region == null) return null;
-        return region.getValue("Provider.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'Provider.region' is not present");
     }
 
     /**
@@ -122,11 +132,12 @@ public final class Provider extends com.pulumi.resources.PolicyResourceOutput {
      * `AWS_RETRY_MODE` environment variable.
      * 
      */
-    private @Nullable UndeferrableValue<String> retryMode;
-
+    @PolicyResourceProperty(name="retryMode", flag="unknown_retryMode")
+    private @Nullable String value_retryMode;
+    private boolean unknown_retryMode;
     public @Nullable String retryMode() {
-        if (retryMode == null) return null;
-        return retryMode.getValue("Provider.retryMode");
+        if (!unknown_retryMode) return value_retryMode;
+        throw new UndeferrableValueException("Value 'Provider.retryMode' is not present");
     }
 
     /**
@@ -135,44 +146,48 @@ public final class Provider extends com.pulumi.resources.PolicyResourceOutput {
      * variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
      * 
      */
-    private @Nullable UndeferrableValue<String> s3UsEast1RegionalEndpoint;
-
+    @PolicyResourceProperty(name="s3UsEast1RegionalEndpoint", flag="unknown_s3UsEast1RegionalEndpoint")
+    private @Nullable String value_s3UsEast1RegionalEndpoint;
+    private boolean unknown_s3UsEast1RegionalEndpoint;
     public @Nullable String s3UsEast1RegionalEndpoint() {
-        if (s3UsEast1RegionalEndpoint == null) return null;
-        return s3UsEast1RegionalEndpoint.getValue("Provider.s3UsEast1RegionalEndpoint");
+        if (!unknown_s3UsEast1RegionalEndpoint) return value_s3UsEast1RegionalEndpoint;
+        throw new UndeferrableValueException("Value 'Provider.s3UsEast1RegionalEndpoint' is not present");
     }
 
     /**
      * The secret key for API operations. You can retrieve this from the &#39;Security &amp; Credentials&#39; section of the AWS console.
      * 
      */
-    private @Nullable UndeferrableValue<String> secretKey;
-
+    @PolicyResourceProperty(name="secretKey", flag="unknown_secretKey")
+    private @Nullable String value_secretKey;
+    private boolean unknown_secretKey;
     public @Nullable String secretKey() {
-        if (secretKey == null) return null;
-        return secretKey.getValue("Provider.secretKey");
+        if (!unknown_secretKey) return value_secretKey;
+        throw new UndeferrableValueException("Value 'Provider.secretKey' is not present");
     }
 
     /**
      * The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
      * 
      */
-    private @Nullable UndeferrableValue<String> stsRegion;
-
+    @PolicyResourceProperty(name="stsRegion", flag="unknown_stsRegion")
+    private @Nullable String value_stsRegion;
+    private boolean unknown_stsRegion;
     public @Nullable String stsRegion() {
-        if (stsRegion == null) return null;
-        return stsRegion.getValue("Provider.stsRegion");
+        if (!unknown_stsRegion) return value_stsRegion;
+        throw new UndeferrableValueException("Value 'Provider.stsRegion' is not present");
     }
 
     /**
      * session token. A session token is only required if you are using temporary security credentials.
      * 
      */
-    private @Nullable UndeferrableValue<String> token;
-
+    @PolicyResourceProperty(name="token", flag="unknown_token")
+    private @Nullable String value_token;
+    private boolean unknown_token;
     public @Nullable String token() {
-        if (token == null) return null;
-        return token.getValue("Provider.token");
+        if (!unknown_token) return value_token;
+        throw new UndeferrableValueException("Value 'Provider.token' is not present");
     }
 
 }

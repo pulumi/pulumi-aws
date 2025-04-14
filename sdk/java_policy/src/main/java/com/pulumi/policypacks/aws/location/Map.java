@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.location;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.location.outputs.MapConfiguration;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class Map extends com.pulumi.resources.PolicyResourceOutput {
      * Configuration block with the map style selected from an available data provider. Detailed below.
      * 
      */
-    private UndeferrableValue<MapConfiguration> configuration;
-
+    @PolicyResourceProperty(name="configuration", flag="unknown_configuration")
+    private MapConfiguration value_configuration;
+    private boolean unknown_configuration;
     public MapConfiguration configuration() {
-        if (configuration == null) return null;
-        return configuration.getValue("Map.configuration");
+        if (!unknown_configuration) return value_configuration;
+        throw new UndeferrableValueException("Value 'Map.configuration' is not present");
     }
 
     /**
      * The timestamp for when the map resource was created in ISO 8601 format.
      * 
      */
-    private UndeferrableValue<String> createTime;
-
+    @PolicyResourceProperty(name="createTime", flag="unknown_createTime")
+    private String value_createTime;
+    private boolean unknown_createTime;
     public String createTime() {
-        if (createTime == null) return null;
-        return createTime.getValue("Map.createTime");
+        if (!unknown_createTime) return value_createTime;
+        throw new UndeferrableValueException("Value 'Map.createTime' is not present");
     }
 
     /**
      * An optional description for the map resource.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Map.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Map.description' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
      * 
      */
-    private UndeferrableValue<String> mapArn;
-
+    @PolicyResourceProperty(name="mapArn", flag="unknown_mapArn")
+    private String value_mapArn;
+    private boolean unknown_mapArn;
     public String mapArn() {
-        if (mapArn == null) return null;
-        return mapArn.getValue("Map.mapArn");
+        if (!unknown_mapArn) return value_mapArn;
+        throw new UndeferrableValueException("Value 'Map.mapArn' is not present");
     }
 
     /**
@@ -63,22 +68,24 @@ public final class Map extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> mapName;
-
+    @PolicyResourceProperty(name="mapName", flag="unknown_mapName")
+    private String value_mapName;
+    private boolean unknown_mapName;
     public String mapName() {
-        if (mapName == null) return null;
-        return mapName.getValue("Map.mapName");
+        if (!unknown_mapName) return value_mapName;
+        throw new UndeferrableValueException("Value 'Map.mapName' is not present");
     }
 
     /**
      * Key-value tags for the map. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<java.util.Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable java.util.Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable java.util.Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Map.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Map.tags' is not present");
     }
 
     /**
@@ -89,22 +96,24 @@ public final class Map extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<java.util.Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private java.util.Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public java.util.Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Map.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Map.tagsAll' is not present");
     }
 
     /**
      * The timestamp for when the map resource was last updated in ISO 8601 format.
      * 
      */
-    private UndeferrableValue<String> updateTime;
-
+    @PolicyResourceProperty(name="updateTime", flag="unknown_updateTime")
+    private String value_updateTime;
+    private boolean unknown_updateTime;
     public String updateTime() {
-        if (updateTime == null) return null;
-        return updateTime.getValue("Map.updateTime");
+        if (!unknown_updateTime) return value_updateTime;
+        throw new UndeferrableValueException("Value 'Map.updateTime' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ses.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ConfigurationSetTrackingOptions {
      * Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
      * 
      */
-    private @Nullable UndeferrableValue<String> customRedirectDomain;
-
+    @PolicyResourceProperty(name="customRedirectDomain", flag="unknown_customRedirectDomain")
+    private @Nullable String value_customRedirectDomain;
+    private boolean unknown_customRedirectDomain;
     public @Nullable String customRedirectDomain() {
-        if (customRedirectDomain == null) return null;
-        return customRedirectDomain.getValue("ConfigurationSetTrackingOptions.customRedirectDomain");
+        if (!unknown_customRedirectDomain) return value_customRedirectDomain;
+        throw new UndeferrableValueException("Value 'ConfigurationSetTrackingOptions.customRedirectDomain' is not present");
     }
 
 }

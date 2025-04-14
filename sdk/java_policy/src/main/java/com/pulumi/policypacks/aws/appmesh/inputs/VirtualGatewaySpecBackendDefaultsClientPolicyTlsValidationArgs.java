@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArg
      * SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
      * 
      */
-    private UndeferrableValue<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs> subjectAlternativeNames;
-
+    @PolicyResourceProperty(name="subjectAlternativeNames", flag="unknown_subjectAlternativeNames")
+    private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs value_subjectAlternativeNames;
+    private boolean unknown_subjectAlternativeNames;
     public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs subjectAlternativeNames() {
-        if (subjectAlternativeNames == null) return null;
-        return subjectAlternativeNames.getValue("VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs.subjectAlternativeNames");
+        if (!unknown_subjectAlternativeNames) return value_subjectAlternativeNames;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs.subjectAlternativeNames' is not present");
     }
 
     /**
      * TLS validation context trust.
      * 
      */
-    private UndeferrableValue<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs> trust;
-
+    @PolicyResourceProperty(name="trust", flag="unknown_trust")
+    private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs value_trust;
+    private boolean unknown_trust;
     public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs trust() {
-        if (trust == null) return null;
-        return trust.getValue("VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs.trust");
+        if (!unknown_trust) return value_trust;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs.trust' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.autoscaling.inputs.GroupInstanceRefreshPreferencesArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class GroupInstanceRefreshArgs {
      * Override default parameters for Instance Refresh.
      * 
      */
-    private UndeferrableValue<GroupInstanceRefreshPreferencesArgs> preferences;
-
+    @PolicyResourceProperty(name="preferences", flag="unknown_preferences")
+    private GroupInstanceRefreshPreferencesArgs value_preferences;
+    private boolean unknown_preferences;
     public GroupInstanceRefreshPreferencesArgs preferences() {
-        if (preferences == null) return null;
-        return preferences.getValue("GroupInstanceRefreshArgs.preferences");
+        if (!unknown_preferences) return value_preferences;
+        throw new UndeferrableValueException("Value 'GroupInstanceRefreshArgs.preferences' is not present");
     }
 
     /**
      * Strategy to use for instance refresh. The only allowed value is `Rolling`. See [StartInstanceRefresh Action](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_StartInstanceRefresh.html#API_StartInstanceRefresh_RequestParameters) for more information.
      * 
      */
-    private UndeferrableValue<String> strategy;
-
+    @PolicyResourceProperty(name="strategy", flag="unknown_strategy")
+    private String value_strategy;
+    private boolean unknown_strategy;
     public String strategy() {
-        if (strategy == null) return null;
-        return strategy.getValue("GroupInstanceRefreshArgs.strategy");
+        if (!unknown_strategy) return value_strategy;
+        throw new UndeferrableValueException("Value 'GroupInstanceRefreshArgs.strategy' is not present");
     }
 
     /**
@@ -46,11 +49,12 @@ public final class GroupInstanceRefreshArgs {
      * &gt; **NOTE:** Depending on health check settings and group size, an instance refresh may take a long time or fail. This resource does not wait for the instance refresh to complete.
      * 
      */
-    private UndeferrableValue<List<String>> triggers;
-
+    @PolicyResourceProperty(name="triggers", flag="unknown_triggers")
+    private List<String> value_triggers;
+    private boolean unknown_triggers;
     public List<String> triggers() {
-        if (triggers == null) return null;
-        return triggers.getValue("GroupInstanceRefreshArgs.triggers");
+        if (!unknown_triggers) return value_triggers;
+        throw new UndeferrableValueException("Value 'GroupInstanceRefreshArgs.triggers' is not present");
     }
 
 }

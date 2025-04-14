@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,66 +19,72 @@ public final class VpcConnectionArgs extends com.pulumi.resources.PolicyResource
      * The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
      * 
      */
-    private UndeferrableValue<String> authentication;
-
+    @PolicyResourceProperty(name="authentication", flag="unknown_authentication")
+    private String value_authentication;
+    private boolean unknown_authentication;
     public String authentication() {
-        if (authentication == null) return null;
-        return authentication.getValue("VpcConnectionArgs.authentication");
+        if (!unknown_authentication) return value_authentication;
+        throw new UndeferrableValueException("Value 'VpcConnectionArgs.authentication' is not present");
     }
 
     /**
      * The list of subnets in the client VPC to connect to.
      * 
      */
-    private UndeferrableValue<List<String>> clientSubnets;
-
+    @PolicyResourceProperty(name="clientSubnets", flag="unknown_clientSubnets")
+    private List<String> value_clientSubnets;
+    private boolean unknown_clientSubnets;
     public List<String> clientSubnets() {
-        if (clientSubnets == null) return null;
-        return clientSubnets.getValue("VpcConnectionArgs.clientSubnets");
+        if (!unknown_clientSubnets) return value_clientSubnets;
+        throw new UndeferrableValueException("Value 'VpcConnectionArgs.clientSubnets' is not present");
     }
 
     /**
      * The security groups to attach to the ENIs for the broker nodes.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroups;
-
+    @PolicyResourceProperty(name="securityGroups", flag="unknown_securityGroups")
+    private List<String> value_securityGroups;
+    private boolean unknown_securityGroups;
     public List<String> securityGroups() {
-        if (securityGroups == null) return null;
-        return securityGroups.getValue("VpcConnectionArgs.securityGroups");
+        if (!unknown_securityGroups) return value_securityGroups;
+        throw new UndeferrableValueException("Value 'VpcConnectionArgs.securityGroups' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VpcConnectionArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VpcConnectionArgs.tags' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the cluster.
      * 
      */
-    private UndeferrableValue<String> targetClusterArn;
-
+    @PolicyResourceProperty(name="targetClusterArn", flag="unknown_targetClusterArn")
+    private String value_targetClusterArn;
+    private boolean unknown_targetClusterArn;
     public String targetClusterArn() {
-        if (targetClusterArn == null) return null;
-        return targetClusterArn.getValue("VpcConnectionArgs.targetClusterArn");
+        if (!unknown_targetClusterArn) return value_targetClusterArn;
+        throw new UndeferrableValueException("Value 'VpcConnectionArgs.targetClusterArn' is not present");
     }
 
     /**
      * The VPC ID of the remote client.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("VpcConnectionArgs.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'VpcConnectionArgs.vpcId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      * The code provided by the connector when it has been authenticated via the connected app.
      * 
      */
-    private @Nullable UndeferrableValue<String> authCode;
-
+    @PolicyResourceProperty(name="authCode", flag="unknown_authCode")
+    private @Nullable String value_authCode;
+    private boolean unknown_authCode;
     public @Nullable String authCode() {
-        if (authCode == null) return null;
-        return authCode.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest.authCode");
+        if (!unknown_authCode) return value_authCode;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest.authCode' is not present");
     }
 
     /**
      * The URL to which the authentication server redirects the browser after authorization has been granted.
      * 
      */
-    private @Nullable UndeferrableValue<String> redirectUri;
-
+    @PolicyResourceProperty(name="redirectUri", flag="unknown_redirectUri")
+    private @Nullable String value_redirectUri;
+    private boolean unknown_redirectUri;
     public @Nullable String redirectUri() {
-        if (redirectUri == null) return null;
-        return redirectUri.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest.redirectUri");
+        if (!unknown_redirectUri) return value_redirectUri;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest.redirectUri' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -16,44 +17,48 @@ public final class CrawlerDeltaTarget {
      * The name of the connection to use to connect to the Delta table target.
      * 
      */
-    private @Nullable UndeferrableValue<String> connectionName;
-
+    @PolicyResourceProperty(name="connectionName", flag="unknown_connectionName")
+    private @Nullable String value_connectionName;
+    private boolean unknown_connectionName;
     public @Nullable String connectionName() {
-        if (connectionName == null) return null;
-        return connectionName.getValue("CrawlerDeltaTarget.connectionName");
+        if (!unknown_connectionName) return value_connectionName;
+        throw new UndeferrableValueException("Value 'CrawlerDeltaTarget.connectionName' is not present");
     }
 
     /**
      * Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> createNativeDeltaTable;
-
+    @PolicyResourceProperty(name="createNativeDeltaTable", flag="unknown_createNativeDeltaTable")
+    private @Nullable Boolean value_createNativeDeltaTable;
+    private boolean unknown_createNativeDeltaTable;
     public @Nullable Boolean createNativeDeltaTable() {
-        if (createNativeDeltaTable == null) return null;
-        return createNativeDeltaTable.getValue("CrawlerDeltaTarget.createNativeDeltaTable");
+        if (!unknown_createNativeDeltaTable) return value_createNativeDeltaTable;
+        throw new UndeferrableValueException("Value 'CrawlerDeltaTarget.createNativeDeltaTable' is not present");
     }
 
     /**
      * A list of the Amazon S3 paths to the Delta tables.
      * 
      */
-    private UndeferrableValue<List<String>> deltaTables;
-
+    @PolicyResourceProperty(name="deltaTables", flag="unknown_deltaTables")
+    private List<String> value_deltaTables;
+    private boolean unknown_deltaTables;
     public List<String> deltaTables() {
-        if (deltaTables == null) return null;
-        return deltaTables.getValue("CrawlerDeltaTarget.deltaTables");
+        if (!unknown_deltaTables) return value_deltaTables;
+        throw new UndeferrableValueException("Value 'CrawlerDeltaTarget.deltaTables' is not present");
     }
 
     /**
      * Specifies whether to write the manifest files to the Delta table path.
      * 
      */
-    private UndeferrableValue<Boolean> writeManifest;
-
+    @PolicyResourceProperty(name="writeManifest", flag="unknown_writeManifest")
+    private Boolean value_writeManifest;
+    private boolean unknown_writeManifest;
     public Boolean writeManifest() {
-        if (writeManifest == null) return null;
-        return writeManifest.getValue("CrawlerDeltaTarget.writeManifest");
+        if (!unknown_writeManifest) return value_writeManifest;
+        throw new UndeferrableValueException("Value 'CrawlerDeltaTarget.writeManifest' is not present");
     }
 
 }

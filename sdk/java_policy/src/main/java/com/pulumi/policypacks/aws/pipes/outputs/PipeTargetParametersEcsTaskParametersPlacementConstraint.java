@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class PipeTargetParametersEcsTaskParametersPlacementConstraint {
      * A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
      * 
      */
-    private @Nullable UndeferrableValue<String> expression;
-
+    @PolicyResourceProperty(name="expression", flag="unknown_expression")
+    private @Nullable String value_expression;
+    private boolean unknown_expression;
     public @Nullable String expression() {
-        if (expression == null) return null;
-        return expression.getValue("PipeTargetParametersEcsTaskParametersPlacementConstraint.expression");
+        if (!unknown_expression) return value_expression;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersPlacementConstraint.expression' is not present");
     }
 
     /**
      * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("PipeTargetParametersEcsTaskParametersPlacementConstraint.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersPlacementConstraint.type' is not present");
     }
 
 }

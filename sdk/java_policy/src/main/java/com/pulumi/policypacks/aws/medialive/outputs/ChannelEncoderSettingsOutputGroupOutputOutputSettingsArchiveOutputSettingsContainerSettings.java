@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
      * M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings> m2tsSettings;
-
+    @PolicyResourceProperty(name="m2tsSettings", flag="unknown_m2tsSettings")
+    private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings value_m2tsSettings;
+    private boolean unknown_m2tsSettings;
     public @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings m2tsSettings() {
-        if (m2tsSettings == null) return null;
-        return m2tsSettings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings.m2tsSettings");
+        if (!unknown_m2tsSettings) return value_m2tsSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings.m2tsSettings' is not present");
     }
 
     /**
      * Raw Settings. This can be set as an empty block.
      * 
      */
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings> rawSettings;
-
+    @PolicyResourceProperty(name="rawSettings", flag="unknown_rawSettings")
+    private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings value_rawSettings;
+    private boolean unknown_rawSettings;
     public @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings rawSettings() {
-        if (rawSettings == null) return null;
-        return rawSettings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings.rawSettings");
+        if (!unknown_rawSettings) return value_rawSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings.rawSettings' is not present");
     }
 
 }

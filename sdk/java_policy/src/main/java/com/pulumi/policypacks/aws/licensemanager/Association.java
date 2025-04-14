@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.licensemanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class Association extends com.pulumi.resources.PolicyResourceOutput
      * ARN of the license configuration.
      * 
      */
-    private UndeferrableValue<String> licenseConfigurationArn;
-
+    @PolicyResourceProperty(name="licenseConfigurationArn", flag="unknown_licenseConfigurationArn")
+    private String value_licenseConfigurationArn;
+    private boolean unknown_licenseConfigurationArn;
     public String licenseConfigurationArn() {
-        if (licenseConfigurationArn == null) return null;
-        return licenseConfigurationArn.getValue("Association.licenseConfigurationArn");
+        if (!unknown_licenseConfigurationArn) return value_licenseConfigurationArn;
+        throw new UndeferrableValueException("Value 'Association.licenseConfigurationArn' is not present");
     }
 
     /**
      * ARN of the resource associated with the license configuration.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("Association.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'Association.resourceArn' is not present");
     }
 
 }

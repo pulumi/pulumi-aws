@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -16,11 +17,12 @@ public final class BucketOwnershipControlsRule {
      * * `BucketOwnerEnforced` - Bucket owner automatically owns and has full control over every object in the bucket. ACLs no longer affect permissions to data in the S3 bucket.
      * 
      */
-    private UndeferrableValue<String> objectOwnership;
-
+    @PolicyResourceProperty(name="objectOwnership", flag="unknown_objectOwnership")
+    private String value_objectOwnership;
+    private boolean unknown_objectOwnership;
     public String objectOwnership() {
-        if (objectOwnership == null) return null;
-        return objectOwnership.getValue("BucketOwnershipControlsRule.objectOwnership");
+        if (!unknown_objectOwnership) return value_objectOwnership;
+        throw new UndeferrableValueException("Value 'BucketOwnershipControlsRule.objectOwnership' is not present");
     }
 
 }

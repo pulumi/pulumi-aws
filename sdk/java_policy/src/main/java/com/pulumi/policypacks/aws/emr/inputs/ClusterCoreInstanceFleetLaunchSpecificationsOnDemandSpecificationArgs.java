@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecifica
      * Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
      * 
      */
-    private UndeferrableValue<String> allocationStrategy;
-
+    @PolicyResourceProperty(name="allocationStrategy", flag="unknown_allocationStrategy")
+    private String value_allocationStrategy;
+    private boolean unknown_allocationStrategy;
     public String allocationStrategy() {
-        if (allocationStrategy == null) return null;
-        return allocationStrategy.getValue("ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs.allocationStrategy");
+        if (!unknown_allocationStrategy) return value_allocationStrategy;
+        throw new UndeferrableValueException("Value 'ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs.allocationStrategy' is not present");
     }
 
 }

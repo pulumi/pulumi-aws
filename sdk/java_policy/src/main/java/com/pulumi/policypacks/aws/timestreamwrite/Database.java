@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamwrite;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class Database extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN that uniquely identifies this database.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Database.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Database.arn' is not present");
     }
 
     /**
      * The name of the Timestream database. Minimum length of 3. Maximum length of 64.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("Database.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'Database.databaseName' is not present");
     }
 
     /**
      * The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("Database.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'Database.kmsKeyId' is not present");
     }
 
     /**
      * The total number of tables found within the Timestream database.
      * 
      */
-    private UndeferrableValue<Integer> tableCount;
-
+    @PolicyResourceProperty(name="tableCount", flag="unknown_tableCount")
+    private Integer value_tableCount;
+    private boolean unknown_tableCount;
     public Integer tableCount() {
-        if (tableCount == null) return null;
-        return tableCount.getValue("Database.tableCount");
+        if (!unknown_tableCount) return value_tableCount;
+        throw new UndeferrableValueException("Value 'Database.tableCount' is not present");
     }
 
     /**
      * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Database.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Database.tags' is not present");
     }
 
     /**
@@ -77,11 +83,12 @@ public final class Database extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Database.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Database.tagsAll' is not present");
     }
 
 }

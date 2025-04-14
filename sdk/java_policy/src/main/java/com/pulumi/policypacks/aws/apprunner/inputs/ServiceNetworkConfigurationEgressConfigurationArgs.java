@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ServiceNetworkConfigurationEgressConfigurationArgs {
      * The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
      * 
      */
-    private UndeferrableValue<String> egressType;
-
+    @PolicyResourceProperty(name="egressType", flag="unknown_egressType")
+    private String value_egressType;
+    private boolean unknown_egressType;
     public String egressType() {
-        if (egressType == null) return null;
-        return egressType.getValue("ServiceNetworkConfigurationEgressConfigurationArgs.egressType");
+        if (!unknown_egressType) return value_egressType;
+        throw new UndeferrableValueException("Value 'ServiceNetworkConfigurationEgressConfigurationArgs.egressType' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
      * 
      */
-    private UndeferrableValue<String> vpcConnectorArn;
-
+    @PolicyResourceProperty(name="vpcConnectorArn", flag="unknown_vpcConnectorArn")
+    private String value_vpcConnectorArn;
+    private boolean unknown_vpcConnectorArn;
     public String vpcConnectorArn() {
-        if (vpcConnectorArn == null) return null;
-        return vpcConnectorArn.getValue("ServiceNetworkConfigurationEgressConfigurationArgs.vpcConnectorArn");
+        if (!unknown_vpcConnectorArn) return value_vpcConnectorArn;
+        throw new UndeferrableValueException("Value 'ServiceNetworkConfigurationEgressConfigurationArgs.vpcConnectorArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,66 +17,72 @@ public final class LogSubscriptionFilterArgs extends com.pulumi.resources.Policy
      * The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
      * 
      */
-    private UndeferrableValue<String> destinationArn;
-
+    @PolicyResourceProperty(name="destinationArn", flag="unknown_destinationArn")
+    private String value_destinationArn;
+    private boolean unknown_destinationArn;
     public String destinationArn() {
-        if (destinationArn == null) return null;
-        return destinationArn.getValue("LogSubscriptionFilterArgs.destinationArn");
+        if (!unknown_destinationArn) return value_destinationArn;
+        throw new UndeferrableValueException("Value 'LogSubscriptionFilterArgs.destinationArn' is not present");
     }
 
     /**
      * The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are &#34;Random&#34; and &#34;ByLogStream&#34;.
      * 
      */
-    private UndeferrableValue<String> distribution;
-
+    @PolicyResourceProperty(name="distribution", flag="unknown_distribution")
+    private String value_distribution;
+    private boolean unknown_distribution;
     public String distribution() {
-        if (distribution == null) return null;
-        return distribution.getValue("LogSubscriptionFilterArgs.distribution");
+        if (!unknown_distribution) return value_distribution;
+        throw new UndeferrableValueException("Value 'LogSubscriptionFilterArgs.distribution' is not present");
     }
 
     /**
      * A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `&#34;&#34;` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
      * 
      */
-    private UndeferrableValue<String> filterPattern;
-
+    @PolicyResourceProperty(name="filterPattern", flag="unknown_filterPattern")
+    private String value_filterPattern;
+    private boolean unknown_filterPattern;
     public String filterPattern() {
-        if (filterPattern == null) return null;
-        return filterPattern.getValue("LogSubscriptionFilterArgs.filterPattern");
+        if (!unknown_filterPattern) return value_filterPattern;
+        throw new UndeferrableValueException("Value 'LogSubscriptionFilterArgs.filterPattern' is not present");
     }
 
     /**
      * The name of the log group to associate the subscription filter with
      * 
      */
-    private UndeferrableValue<String> logGroup;
-
+    @PolicyResourceProperty(name="logGroup", flag="unknown_logGroup")
+    private String value_logGroup;
+    private boolean unknown_logGroup;
     public String logGroup() {
-        if (logGroup == null) return null;
-        return logGroup.getValue("LogSubscriptionFilterArgs.logGroup");
+        if (!unknown_logGroup) return value_logGroup;
+        throw new UndeferrableValueException("Value 'LogSubscriptionFilterArgs.logGroup' is not present");
     }
 
     /**
      * A name for the subscription filter
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LogSubscriptionFilterArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LogSubscriptionFilterArgs.name' is not present");
     }
 
     /**
      * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("LogSubscriptionFilterArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'LogSubscriptionFilterArgs.roleArn' is not present");
     }
 
 }

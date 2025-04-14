@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class CodeSigningConfigAllowedPublishers {
      * The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
      * 
      */
-    private UndeferrableValue<List<String>> signingProfileVersionArns;
-
+    @PolicyResourceProperty(name="signingProfileVersionArns", flag="unknown_signingProfileVersionArns")
+    private List<String> value_signingProfileVersionArns;
+    private boolean unknown_signingProfileVersionArns;
     public List<String> signingProfileVersionArns() {
-        if (signingProfileVersionArns == null) return null;
-        return signingProfileVersionArns.getValue("CodeSigningConfigAllowedPublishers.signingProfileVersionArns");
+        if (!unknown_signingProfileVersionArns) return value_signingProfileVersionArns;
+        throw new UndeferrableValueException("Value 'CodeSigningConfigAllowedPublishers.signingProfileVersionArns' is not present");
     }
 
 }

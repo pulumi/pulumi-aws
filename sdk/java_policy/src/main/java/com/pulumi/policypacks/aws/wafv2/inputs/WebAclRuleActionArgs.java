@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleActionAllowArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleActionBlockArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleActionCaptchaArgs;
@@ -18,55 +19,60 @@ public final class WebAclRuleActionArgs {
      * Instructs AWS WAF to allow the web request. See `allow` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleActionAllowArgs> allow;
-
+    @PolicyResourceProperty(name="allow", flag="unknown_allow")
+    private WebAclRuleActionAllowArgs value_allow;
+    private boolean unknown_allow;
     public WebAclRuleActionAllowArgs allow() {
-        if (allow == null) return null;
-        return allow.getValue("WebAclRuleActionArgs.allow");
+        if (!unknown_allow) return value_allow;
+        throw new UndeferrableValueException("Value 'WebAclRuleActionArgs.allow' is not present");
     }
 
     /**
      * Instructs AWS WAF to block the web request. See `block` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleActionBlockArgs> block;
-
+    @PolicyResourceProperty(name="block", flag="unknown_block")
+    private WebAclRuleActionBlockArgs value_block;
+    private boolean unknown_block;
     public WebAclRuleActionBlockArgs block() {
-        if (block == null) return null;
-        return block.getValue("WebAclRuleActionArgs.block");
+        if (!unknown_block) return value_block;
+        throw new UndeferrableValueException("Value 'WebAclRuleActionArgs.block' is not present");
     }
 
     /**
      * Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleActionCaptchaArgs> captcha;
-
+    @PolicyResourceProperty(name="captcha", flag="unknown_captcha")
+    private WebAclRuleActionCaptchaArgs value_captcha;
+    private boolean unknown_captcha;
     public WebAclRuleActionCaptchaArgs captcha() {
-        if (captcha == null) return null;
-        return captcha.getValue("WebAclRuleActionArgs.captcha");
+        if (!unknown_captcha) return value_captcha;
+        throw new UndeferrableValueException("Value 'WebAclRuleActionArgs.captcha' is not present");
     }
 
     /**
      * Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleActionChallengeArgs> challenge;
-
+    @PolicyResourceProperty(name="challenge", flag="unknown_challenge")
+    private WebAclRuleActionChallengeArgs value_challenge;
+    private boolean unknown_challenge;
     public WebAclRuleActionChallengeArgs challenge() {
-        if (challenge == null) return null;
-        return challenge.getValue("WebAclRuleActionArgs.challenge");
+        if (!unknown_challenge) return value_challenge;
+        throw new UndeferrableValueException("Value 'WebAclRuleActionArgs.challenge' is not present");
     }
 
     /**
      * Instructs AWS WAF to count the web request and allow it. See `count` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleActionCountArgs> count;
-
+    @PolicyResourceProperty(name="count", flag="unknown_count")
+    private WebAclRuleActionCountArgs value_count;
+    private boolean unknown_count;
     public WebAclRuleActionCountArgs count() {
-        if (count == null) return null;
-        return count.getValue("WebAclRuleActionArgs.count");
+        if (!unknown_count) return value_count;
+        throw new UndeferrableValueException("Value 'WebAclRuleActionArgs.count' is not present");
     }
 
 }

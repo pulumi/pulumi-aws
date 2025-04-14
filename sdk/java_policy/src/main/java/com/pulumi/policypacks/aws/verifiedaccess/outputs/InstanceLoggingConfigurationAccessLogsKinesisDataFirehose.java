@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class InstanceLoggingConfigurationAccessLogsKinesisDataFirehose {
      * The name of the delivery stream.
      * 
      */
-    private @Nullable UndeferrableValue<String> deliveryStream;
-
+    @PolicyResourceProperty(name="deliveryStream", flag="unknown_deliveryStream")
+    private @Nullable String value_deliveryStream;
+    private boolean unknown_deliveryStream;
     public @Nullable String deliveryStream() {
-        if (deliveryStream == null) return null;
-        return deliveryStream.getValue("InstanceLoggingConfigurationAccessLogsKinesisDataFirehose.deliveryStream");
+        if (!unknown_deliveryStream) return value_deliveryStream;
+        throw new UndeferrableValueException("Value 'InstanceLoggingConfigurationAccessLogsKinesisDataFirehose.deliveryStream' is not present");
     }
 
     /**
      * Indicates whether logging is enabled.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("InstanceLoggingConfigurationAccessLogsKinesisDataFirehose.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'InstanceLoggingConfigurationAccessLogsKinesisDataFirehose.enabled' is not present");
     }
 
 }

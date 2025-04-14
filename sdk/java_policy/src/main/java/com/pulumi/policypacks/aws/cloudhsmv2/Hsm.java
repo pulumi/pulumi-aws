@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudhsmv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,77 +16,84 @@ public final class Hsm extends com.pulumi.resources.PolicyResourceOutput {
      * The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("Hsm.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'Hsm.availabilityZone' is not present");
     }
 
     /**
      * The ID of Cloud HSM v2 cluster to which HSM will be added.
      * 
      */
-    private UndeferrableValue<String> clusterId;
-
+    @PolicyResourceProperty(name="clusterId", flag="unknown_clusterId")
+    private String value_clusterId;
+    private boolean unknown_clusterId;
     public String clusterId() {
-        if (clusterId == null) return null;
-        return clusterId.getValue("Hsm.clusterId");
+        if (!unknown_clusterId) return value_clusterId;
+        throw new UndeferrableValueException("Value 'Hsm.clusterId' is not present");
     }
 
     /**
      * The id of the ENI interface allocated for HSM module.
      * 
      */
-    private UndeferrableValue<String> hsmEniId;
-
+    @PolicyResourceProperty(name="hsmEniId", flag="unknown_hsmEniId")
+    private String value_hsmEniId;
+    private boolean unknown_hsmEniId;
     public String hsmEniId() {
-        if (hsmEniId == null) return null;
-        return hsmEniId.getValue("Hsm.hsmEniId");
+        if (!unknown_hsmEniId) return value_hsmEniId;
+        throw new UndeferrableValueException("Value 'Hsm.hsmEniId' is not present");
     }
 
     /**
      * The id of the HSM module.
      * 
      */
-    private UndeferrableValue<String> hsmId;
-
+    @PolicyResourceProperty(name="hsmId", flag="unknown_hsmId")
+    private String value_hsmId;
+    private boolean unknown_hsmId;
     public String hsmId() {
-        if (hsmId == null) return null;
-        return hsmId.getValue("Hsm.hsmId");
+        if (!unknown_hsmId) return value_hsmId;
+        throw new UndeferrableValueException("Value 'Hsm.hsmId' is not present");
     }
 
     /**
      * The state of the HSM module.
      * 
      */
-    private UndeferrableValue<String> hsmState;
-
+    @PolicyResourceProperty(name="hsmState", flag="unknown_hsmState")
+    private String value_hsmState;
+    private boolean unknown_hsmState;
     public String hsmState() {
-        if (hsmState == null) return null;
-        return hsmState.getValue("Hsm.hsmState");
+        if (!unknown_hsmState) return value_hsmState;
+        throw new UndeferrableValueException("Value 'Hsm.hsmState' is not present");
     }
 
     /**
      * The IP address of HSM module. Must be within the CIDR of selected subnet.
      * 
      */
-    private UndeferrableValue<String> ipAddress;
-
+    @PolicyResourceProperty(name="ipAddress", flag="unknown_ipAddress")
+    private String value_ipAddress;
+    private boolean unknown_ipAddress;
     public String ipAddress() {
-        if (ipAddress == null) return null;
-        return ipAddress.getValue("Hsm.ipAddress");
+        if (!unknown_ipAddress) return value_ipAddress;
+        throw new UndeferrableValueException("Value 'Hsm.ipAddress' is not present");
     }
 
     /**
      * The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("Hsm.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'Hsm.subnetId' is not present");
     }
 
 }

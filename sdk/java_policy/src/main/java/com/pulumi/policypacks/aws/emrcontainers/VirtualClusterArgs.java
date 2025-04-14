@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emrcontainers;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.emrcontainers.inputs.VirtualClusterContainerProviderArgs;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class VirtualClusterArgs extends com.pulumi.resources.PolicyResourc
      * Configuration block for the container provider associated with your cluster.
      * 
      */
-    private UndeferrableValue<VirtualClusterContainerProviderArgs> containerProvider;
-
+    @PolicyResourceProperty(name="containerProvider", flag="unknown_containerProvider")
+    private VirtualClusterContainerProviderArgs value_containerProvider;
+    private boolean unknown_containerProvider;
     public VirtualClusterContainerProviderArgs containerProvider() {
-        if (containerProvider == null) return null;
-        return containerProvider.getValue("VirtualClusterArgs.containerProvider");
+        if (!unknown_containerProvider) return value_containerProvider;
+        throw new UndeferrableValueException("Value 'VirtualClusterArgs.containerProvider' is not present");
     }
 
     /**
      * Name of the virtual cluster.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("VirtualClusterArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'VirtualClusterArgs.name' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VirtualClusterArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VirtualClusterArgs.tags' is not present");
     }
 
 }

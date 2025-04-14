@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch;
 
 
@@ -13,11 +14,12 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjec
      * Criteria for determining a SAN&#39;s match.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch> match;
-
+    @PolicyResourceProperty(name="match", flag="unknown_match")
+    private VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch value_match;
+    private boolean unknown_match;
     public VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch match() {
-        if (match == null) return null;
-        return match.getValue("VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames.match");
+        if (!unknown_match) return value_match;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames.match' is not present");
     }
 
 }

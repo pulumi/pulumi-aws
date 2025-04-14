@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.outputs.FleetLaunchTemplateConfigOverrideInstanceRequirements;
 import java.lang.Double;
 import java.lang.String;
@@ -16,77 +17,84 @@ public final class FleetLaunchTemplateConfigOverride {
      * Availability Zone in which to launch the instances.
      * 
      */
-    private @Nullable UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private @Nullable String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public @Nullable String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("FleetLaunchTemplateConfigOverride.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverride.availabilityZone' is not present");
     }
 
     /**
      * Override the instance type in the Launch Template with instance types that satisfy the requirements.
      * 
      */
-    private @Nullable UndeferrableValue<FleetLaunchTemplateConfigOverrideInstanceRequirements> instanceRequirements;
-
+    @PolicyResourceProperty(name="instanceRequirements", flag="unknown_instanceRequirements")
+    private @Nullable FleetLaunchTemplateConfigOverrideInstanceRequirements value_instanceRequirements;
+    private boolean unknown_instanceRequirements;
     public @Nullable FleetLaunchTemplateConfigOverrideInstanceRequirements instanceRequirements() {
-        if (instanceRequirements == null) return null;
-        return instanceRequirements.getValue("FleetLaunchTemplateConfigOverride.instanceRequirements");
+        if (!unknown_instanceRequirements) return value_instanceRequirements;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverride.instanceRequirements' is not present");
     }
 
     /**
      * Instance type.
      * 
      */
-    private @Nullable UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private @Nullable String value_instanceType;
+    private boolean unknown_instanceType;
     public @Nullable String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("FleetLaunchTemplateConfigOverride.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverride.instanceType' is not present");
     }
 
     /**
      * Maximum price per unit hour that you are willing to pay for a Spot Instance.
      * 
      */
-    private @Nullable UndeferrableValue<String> maxPrice;
-
+    @PolicyResourceProperty(name="maxPrice", flag="unknown_maxPrice")
+    private @Nullable String value_maxPrice;
+    private boolean unknown_maxPrice;
     public @Nullable String maxPrice() {
-        if (maxPrice == null) return null;
-        return maxPrice.getValue("FleetLaunchTemplateConfigOverride.maxPrice");
+        if (!unknown_maxPrice) return value_maxPrice;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverride.maxPrice' is not present");
     }
 
     /**
      * Priority for the launch template override. If `on_demand_options` `allocation_strategy` is set to `prioritized`, EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. Valid values are whole numbers starting at 0.
      * 
      */
-    private @Nullable UndeferrableValue<Double> priority;
-
+    @PolicyResourceProperty(name="priority", flag="unknown_priority")
+    private @Nullable Double value_priority;
+    private boolean unknown_priority;
     public @Nullable Double priority() {
-        if (priority == null) return null;
-        return priority.getValue("FleetLaunchTemplateConfigOverride.priority");
+        if (!unknown_priority) return value_priority;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverride.priority' is not present");
     }
 
     /**
      * ID of the subnet in which to launch the instances.
      * 
      */
-    private @Nullable UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private @Nullable String value_subnetId;
+    private boolean unknown_subnetId;
     public @Nullable String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("FleetLaunchTemplateConfigOverride.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverride.subnetId' is not present");
     }
 
     /**
      * Number of units provided by the specified instance type.
      * 
      */
-    private @Nullable UndeferrableValue<Double> weightedCapacity;
-
+    @PolicyResourceProperty(name="weightedCapacity", flag="unknown_weightedCapacity")
+    private @Nullable Double value_weightedCapacity;
+    private boolean unknown_weightedCapacity;
     public @Nullable Double weightedCapacity() {
-        if (weightedCapacity == null) return null;
-        return weightedCapacity.getValue("FleetLaunchTemplateConfigOverride.weightedCapacity");
+        if (!unknown_weightedCapacity) return value_weightedCapacity;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverride.weightedCapacity' is not present");
     }
 
 }

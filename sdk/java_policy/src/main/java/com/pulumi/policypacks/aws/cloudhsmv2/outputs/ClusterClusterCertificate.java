@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudhsmv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,55 +15,60 @@ public final class ClusterClusterCertificate {
      * The HSM hardware certificate issued (signed) by AWS CloudHSM.
      * 
      */
-    private @Nullable UndeferrableValue<String> awsHardwareCertificate;
-
+    @PolicyResourceProperty(name="awsHardwareCertificate", flag="unknown_awsHardwareCertificate")
+    private @Nullable String value_awsHardwareCertificate;
+    private boolean unknown_awsHardwareCertificate;
     public @Nullable String awsHardwareCertificate() {
-        if (awsHardwareCertificate == null) return null;
-        return awsHardwareCertificate.getValue("ClusterClusterCertificate.awsHardwareCertificate");
+        if (!unknown_awsHardwareCertificate) return value_awsHardwareCertificate;
+        throw new UndeferrableValueException("Value 'ClusterClusterCertificate.awsHardwareCertificate' is not present");
     }
 
     /**
      * The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster&#39;s owner.
      * 
      */
-    private @Nullable UndeferrableValue<String> clusterCertificate;
-
+    @PolicyResourceProperty(name="clusterCertificate", flag="unknown_clusterCertificate")
+    private @Nullable String value_clusterCertificate;
+    private boolean unknown_clusterCertificate;
     public @Nullable String clusterCertificate() {
-        if (clusterCertificate == null) return null;
-        return clusterCertificate.getValue("ClusterClusterCertificate.clusterCertificate");
+        if (!unknown_clusterCertificate) return value_clusterCertificate;
+        throw new UndeferrableValueException("Value 'ClusterClusterCertificate.clusterCertificate' is not present");
     }
 
     /**
      * The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.
      * 
      */
-    private @Nullable UndeferrableValue<String> clusterCsr;
-
+    @PolicyResourceProperty(name="clusterCsr", flag="unknown_clusterCsr")
+    private @Nullable String value_clusterCsr;
+    private boolean unknown_clusterCsr;
     public @Nullable String clusterCsr() {
-        if (clusterCsr == null) return null;
-        return clusterCsr.getValue("ClusterClusterCertificate.clusterCsr");
+        if (!unknown_clusterCsr) return value_clusterCsr;
+        throw new UndeferrableValueException("Value 'ClusterClusterCertificate.clusterCsr' is not present");
     }
 
     /**
      * The HSM certificate issued (signed) by the HSM hardware.
      * 
      */
-    private @Nullable UndeferrableValue<String> hsmCertificate;
-
+    @PolicyResourceProperty(name="hsmCertificate", flag="unknown_hsmCertificate")
+    private @Nullable String value_hsmCertificate;
+    private boolean unknown_hsmCertificate;
     public @Nullable String hsmCertificate() {
-        if (hsmCertificate == null) return null;
-        return hsmCertificate.getValue("ClusterClusterCertificate.hsmCertificate");
+        if (!unknown_hsmCertificate) return value_hsmCertificate;
+        throw new UndeferrableValueException("Value 'ClusterClusterCertificate.hsmCertificate' is not present");
     }
 
     /**
      * The HSM hardware certificate issued (signed) by the hardware manufacturer.
      * 
      */
-    private @Nullable UndeferrableValue<String> manufacturerHardwareCertificate;
-
+    @PolicyResourceProperty(name="manufacturerHardwareCertificate", flag="unknown_manufacturerHardwareCertificate")
+    private @Nullable String value_manufacturerHardwareCertificate;
+    private boolean unknown_manufacturerHardwareCertificate;
     public @Nullable String manufacturerHardwareCertificate() {
-        if (manufacturerHardwareCertificate == null) return null;
-        return manufacturerHardwareCertificate.getValue("ClusterClusterCertificate.manufacturerHardwareCertificate");
+        if (!unknown_manufacturerHardwareCertificate) return value_manufacturerHardwareCertificate;
+        throw new UndeferrableValueException("Value 'ClusterClusterCertificate.manufacturerHardwareCertificate' is not present");
     }
 
 }

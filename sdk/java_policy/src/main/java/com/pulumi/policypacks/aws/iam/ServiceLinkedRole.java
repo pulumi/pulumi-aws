@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,88 +18,96 @@ public final class ServiceLinkedRole extends com.pulumi.resources.PolicyResource
      * The Amazon Resource Name (ARN) specifying the role.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ServiceLinkedRole.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ServiceLinkedRole.arn' is not present");
     }
 
     /**
      * The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
      * 
      */
-    private UndeferrableValue<String> awsServiceName;
-
+    @PolicyResourceProperty(name="awsServiceName", flag="unknown_awsServiceName")
+    private String value_awsServiceName;
+    private boolean unknown_awsServiceName;
     public String awsServiceName() {
-        if (awsServiceName == null) return null;
-        return awsServiceName.getValue("ServiceLinkedRole.awsServiceName");
+        if (!unknown_awsServiceName) return value_awsServiceName;
+        throw new UndeferrableValueException("Value 'ServiceLinkedRole.awsServiceName' is not present");
     }
 
     /**
      * The creation date of the IAM role.
      * 
      */
-    private UndeferrableValue<String> createDate;
-
+    @PolicyResourceProperty(name="createDate", flag="unknown_createDate")
+    private String value_createDate;
+    private boolean unknown_createDate;
     public String createDate() {
-        if (createDate == null) return null;
-        return createDate.getValue("ServiceLinkedRole.createDate");
+        if (!unknown_createDate) return value_createDate;
+        throw new UndeferrableValueException("Value 'ServiceLinkedRole.createDate' is not present");
     }
 
     /**
      * Additional string appended to the role name. Not all AWS services support custom suffixes.
      * 
      */
-    private @Nullable UndeferrableValue<String> customSuffix;
-
+    @PolicyResourceProperty(name="customSuffix", flag="unknown_customSuffix")
+    private @Nullable String value_customSuffix;
+    private boolean unknown_customSuffix;
     public @Nullable String customSuffix() {
-        if (customSuffix == null) return null;
-        return customSuffix.getValue("ServiceLinkedRole.customSuffix");
+        if (!unknown_customSuffix) return value_customSuffix;
+        throw new UndeferrableValueException("Value 'ServiceLinkedRole.customSuffix' is not present");
     }
 
     /**
      * The description of the role.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ServiceLinkedRole.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ServiceLinkedRole.description' is not present");
     }
 
     /**
      * The name of the role.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ServiceLinkedRole.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ServiceLinkedRole.name' is not present");
     }
 
     /**
      * The path of the role.
      * 
      */
-    private UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private String value_path;
+    private boolean unknown_path;
     public String path() {
-        if (path == null) return null;
-        return path.getValue("ServiceLinkedRole.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'ServiceLinkedRole.path' is not present");
     }
 
     /**
      * Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ServiceLinkedRole.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ServiceLinkedRole.tags' is not present");
     }
 
     /**
@@ -109,22 +118,24 @@ public final class ServiceLinkedRole extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ServiceLinkedRole.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ServiceLinkedRole.tagsAll' is not present");
     }
 
     /**
      * The stable and unique string identifying the role.
      * 
      */
-    private UndeferrableValue<String> uniqueId;
-
+    @PolicyResourceProperty(name="uniqueId", flag="unknown_uniqueId")
+    private String value_uniqueId;
+    private boolean unknown_uniqueId;
     public String uniqueId() {
-        if (uniqueId == null) return null;
-        return uniqueId.getValue("ServiceLinkedRole.uniqueId");
+        if (!unknown_uniqueId) return value_uniqueId;
+        throw new UndeferrableValueException("Value 'ServiceLinkedRole.uniqueId' is not present");
     }
 
 }

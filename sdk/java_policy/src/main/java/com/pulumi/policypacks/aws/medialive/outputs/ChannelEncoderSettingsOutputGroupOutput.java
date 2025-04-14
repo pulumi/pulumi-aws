@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettings;
 import java.lang.String;
 import java.util.List;
@@ -16,55 +17,60 @@ public final class ChannelEncoderSettingsOutputGroupOutput {
      * The names of the audio descriptions used as audio sources for the output.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> audioDescriptionNames;
-
+    @PolicyResourceProperty(name="audioDescriptionNames", flag="unknown_audioDescriptionNames")
+    private @Nullable List<String> value_audioDescriptionNames;
+    private boolean unknown_audioDescriptionNames;
     public @Nullable List<String> audioDescriptionNames() {
-        if (audioDescriptionNames == null) return null;
-        return audioDescriptionNames.getValue("ChannelEncoderSettingsOutputGroupOutput.audioDescriptionNames");
+        if (!unknown_audioDescriptionNames) return value_audioDescriptionNames;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutput.audioDescriptionNames' is not present");
     }
 
     /**
      * The names of the caption descriptions used as caption sources for the output.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> captionDescriptionNames;
-
+    @PolicyResourceProperty(name="captionDescriptionNames", flag="unknown_captionDescriptionNames")
+    private @Nullable List<String> value_captionDescriptionNames;
+    private boolean unknown_captionDescriptionNames;
     public @Nullable List<String> captionDescriptionNames() {
-        if (captionDescriptionNames == null) return null;
-        return captionDescriptionNames.getValue("ChannelEncoderSettingsOutputGroupOutput.captionDescriptionNames");
+        if (!unknown_captionDescriptionNames) return value_captionDescriptionNames;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutput.captionDescriptionNames' is not present");
     }
 
     /**
      * The name used to identify an output.
      * 
      */
-    private @Nullable UndeferrableValue<String> outputName;
-
+    @PolicyResourceProperty(name="outputName", flag="unknown_outputName")
+    private @Nullable String value_outputName;
+    private boolean unknown_outputName;
     public @Nullable String outputName() {
-        if (outputName == null) return null;
-        return outputName.getValue("ChannelEncoderSettingsOutputGroupOutput.outputName");
+        if (!unknown_outputName) return value_outputName;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutput.outputName' is not present");
     }
 
     /**
      * Settings for output. See Output Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettings> outputSettings;
-
+    @PolicyResourceProperty(name="outputSettings", flag="unknown_outputSettings")
+    private ChannelEncoderSettingsOutputGroupOutputOutputSettings value_outputSettings;
+    private boolean unknown_outputSettings;
     public ChannelEncoderSettingsOutputGroupOutputOutputSettings outputSettings() {
-        if (outputSettings == null) return null;
-        return outputSettings.getValue("ChannelEncoderSettingsOutputGroupOutput.outputSettings");
+        if (!unknown_outputSettings) return value_outputSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutput.outputSettings' is not present");
     }
 
     /**
      * The name of the video description used as video source for the output.
      * 
      */
-    private @Nullable UndeferrableValue<String> videoDescriptionName;
-
+    @PolicyResourceProperty(name="videoDescriptionName", flag="unknown_videoDescriptionName")
+    private @Nullable String value_videoDescriptionName;
+    private boolean unknown_videoDescriptionName;
     public @Nullable String videoDescriptionName() {
-        if (videoDescriptionName == null) return null;
-        return videoDescriptionName.getValue("ChannelEncoderSettingsOutputGroupOutput.videoDescriptionName");
+        if (!unknown_videoDescriptionName) return value_videoDescriptionName;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutput.videoDescriptionName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,66 +16,72 @@ public final class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArg
      * The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
      * 
      */
-    private UndeferrableValue<Integer> healthyThreshold;
-
+    @PolicyResourceProperty(name="healthyThreshold", flag="unknown_healthyThreshold")
+    private Integer value_healthyThreshold;
+    private boolean unknown_healthyThreshold;
     public Integer healthyThreshold() {
-        if (healthyThreshold == null) return null;
-        return healthyThreshold.getValue("ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs.healthyThreshold");
+        if (!unknown_healthyThreshold) return value_healthyThreshold;
+        throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs.healthyThreshold' is not present");
     }
 
     /**
      * The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
      * 
      */
-    private UndeferrableValue<Integer> intervalSeconds;
-
+    @PolicyResourceProperty(name="intervalSeconds", flag="unknown_intervalSeconds")
+    private Integer value_intervalSeconds;
+    private boolean unknown_intervalSeconds;
     public Integer intervalSeconds() {
-        if (intervalSeconds == null) return null;
-        return intervalSeconds.getValue("ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs.intervalSeconds");
+        if (!unknown_intervalSeconds) return value_intervalSeconds;
+        throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs.intervalSeconds' is not present");
     }
 
     /**
      * The path on the container on which to perform the health check. Defaults to &#34;/&#34;.
      * 
      */
-    private UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private String value_path;
+    private boolean unknown_path;
     public String path() {
-        if (path == null) return null;
-        return path.getValue("ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs.path' is not present");
     }
 
     /**
      * The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to &#34;200-499&#34;.
      * 
      */
-    private UndeferrableValue<String> successCodes;
-
+    @PolicyResourceProperty(name="successCodes", flag="unknown_successCodes")
+    private String value_successCodes;
+    private boolean unknown_successCodes;
     public String successCodes() {
-        if (successCodes == null) return null;
-        return successCodes.getValue("ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs.successCodes");
+        if (!unknown_successCodes) return value_successCodes;
+        throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs.successCodes' is not present");
     }
 
     /**
      * The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
      * 
      */
-    private UndeferrableValue<Integer> timeoutSeconds;
-
+    @PolicyResourceProperty(name="timeoutSeconds", flag="unknown_timeoutSeconds")
+    private Integer value_timeoutSeconds;
+    private boolean unknown_timeoutSeconds;
     public Integer timeoutSeconds() {
-        if (timeoutSeconds == null) return null;
-        return timeoutSeconds.getValue("ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs.timeoutSeconds");
+        if (!unknown_timeoutSeconds) return value_timeoutSeconds;
+        throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs.timeoutSeconds' is not present");
     }
 
     /**
      * The number of consecutive health checks failures required before moving the container to the Unhealthy state. Defaults to 2.
      * 
      */
-    private UndeferrableValue<Integer> unhealthyThreshold;
-
+    @PolicyResourceProperty(name="unhealthyThreshold", flag="unknown_unhealthyThreshold")
+    private Integer value_unhealthyThreshold;
+    private boolean unknown_unhealthyThreshold;
     public Integer unhealthyThreshold() {
-        if (unhealthyThreshold == null) return null;
-        return unhealthyThreshold.getValue("ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs.unhealthyThreshold");
+        if (!unknown_unhealthyThreshold) return value_unhealthyThreshold;
+        throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs.unhealthyThreshold' is not present");
     }
 
 }

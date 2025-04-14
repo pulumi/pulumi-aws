@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kms.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class GrantConstraint {
      * A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryption_context_subset`.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> encryptionContextEquals;
-
+    @PolicyResourceProperty(name="encryptionContextEquals", flag="unknown_encryptionContextEquals")
+    private @Nullable Map<String,String> value_encryptionContextEquals;
+    private boolean unknown_encryptionContextEquals;
     public @Nullable Map<String,String> encryptionContextEquals() {
-        if (encryptionContextEquals == null) return null;
-        return encryptionContextEquals.getValue("GrantConstraint.encryptionContextEquals");
+        if (!unknown_encryptionContextEquals) return value_encryptionContextEquals;
+        throw new UndeferrableValueException("Value 'GrantConstraint.encryptionContextEquals' is not present");
     }
 
     /**
      * A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> encryptionContextSubset;
-
+    @PolicyResourceProperty(name="encryptionContextSubset", flag="unknown_encryptionContextSubset")
+    private @Nullable Map<String,String> value_encryptionContextSubset;
+    private boolean unknown_encryptionContextSubset;
     public @Nullable Map<String,String> encryptionContextSubset() {
-        if (encryptionContextSubset == null) return null;
-        return encryptionContextSubset.getValue("GrantConstraint.encryptionContextSubset");
+        if (!unknown_encryptionContextSubset) return value_encryptionContextSubset;
+        throw new UndeferrableValueException("Value 'GrantConstraint.encryptionContextSubset' is not present");
     }
 
 }

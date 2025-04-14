@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,18 +12,20 @@ import javax.annotation.Nullable;
 
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs {
 
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs> keyProviderServer;
-
+    @PolicyResourceProperty(name="keyProviderServer", flag="unknown_keyProviderServer")
+    private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs value_keyProviderServer;
+    private boolean unknown_keyProviderServer;
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs keyProviderServer() {
-        if (keyProviderServer == null) return null;
-        return keyProviderServer.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs.keyProviderServer");
+        if (!unknown_keyProviderServer) return value_keyProviderServer;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs.keyProviderServer' is not present");
     }
 
-    private UndeferrableValue<String> staticKeyValue;
-
+    @PolicyResourceProperty(name="staticKeyValue", flag="unknown_staticKeyValue")
+    private String value_staticKeyValue;
+    private boolean unknown_staticKeyValue;
     public String staticKeyValue() {
-        if (staticKeyValue == null) return null;
-        return staticKeyValue.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs.staticKeyValue");
+        if (!unknown_staticKeyValue) return value_staticKeyValue;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs.staticKeyValue' is not present");
     }
 
 }

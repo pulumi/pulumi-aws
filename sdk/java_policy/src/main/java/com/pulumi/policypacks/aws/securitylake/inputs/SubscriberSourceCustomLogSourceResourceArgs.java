@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securitylake.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.securitylake.inputs.SubscriberSourceCustomLogSourceResourceAttributeArgs;
 import com.pulumi.policypacks.aws.securitylake.inputs.SubscriberSourceCustomLogSourceResourceProviderArgs;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class SubscriberSourceCustomLogSourceResourceArgs {
      * The attributes of the third-party custom source. See `attributes` Block below.
      * 
      */
-    private UndeferrableValue<List<SubscriberSourceCustomLogSourceResourceAttributeArgs>> attributes;
-
+    @PolicyResourceProperty(name="attributes", flag="unknown_attributes")
+    private List<SubscriberSourceCustomLogSourceResourceAttributeArgs> value_attributes;
+    private boolean unknown_attributes;
     public List<SubscriberSourceCustomLogSourceResourceAttributeArgs> attributes() {
-        if (attributes == null) return null;
-        return attributes.getValue("SubscriberSourceCustomLogSourceResourceArgs.attributes");
+        if (!unknown_attributes) return value_attributes;
+        throw new UndeferrableValueException("Value 'SubscriberSourceCustomLogSourceResourceArgs.attributes' is not present");
     }
 
     /**
      * The details of the log provider for the third-party custom source. See `provider` Block below.
      * 
      */
-    private UndeferrableValue<List<SubscriberSourceCustomLogSourceResourceProviderArgs>> providers;
-
+    @PolicyResourceProperty(name="providers", flag="unknown_providers")
+    private List<SubscriberSourceCustomLogSourceResourceProviderArgs> value_providers;
+    private boolean unknown_providers;
     public List<SubscriberSourceCustomLogSourceResourceProviderArgs> providers() {
-        if (providers == null) return null;
-        return providers.getValue("SubscriberSourceCustomLogSourceResourceArgs.providers");
+        if (!unknown_providers) return value_providers;
+        throw new UndeferrableValueException("Value 'SubscriberSourceCustomLogSourceResourceArgs.providers' is not present");
     }
 
     /**
      * The name for a third-party custom source. This must be a Regionally unique value.
      * 
      */
-    private UndeferrableValue<String> sourceName;
-
+    @PolicyResourceProperty(name="sourceName", flag="unknown_sourceName")
+    private String value_sourceName;
+    private boolean unknown_sourceName;
     public String sourceName() {
-        if (sourceName == null) return null;
-        return sourceName.getValue("SubscriberSourceCustomLogSourceResourceArgs.sourceName");
+        if (!unknown_sourceName) return value_sourceName;
+        throw new UndeferrableValueException("Value 'SubscriberSourceCustomLogSourceResourceArgs.sourceName' is not present");
     }
 
     /**
      * The version for a third-party custom source. This must be a Regionally unique value.
      * 
      */
-    private UndeferrableValue<String> sourceVersion;
-
+    @PolicyResourceProperty(name="sourceVersion", flag="unknown_sourceVersion")
+    private String value_sourceVersion;
+    private boolean unknown_sourceVersion;
     public String sourceVersion() {
-        if (sourceVersion == null) return null;
-        return sourceVersion.getValue("SubscriberSourceCustomLogSourceResourceArgs.sourceVersion");
+        if (!unknown_sourceVersion) return value_sourceVersion;
+        throw new UndeferrableValueException("Value 'SubscriberSourceCustomLogSourceResourceArgs.sourceVersion' is not present");
     }
 
 }

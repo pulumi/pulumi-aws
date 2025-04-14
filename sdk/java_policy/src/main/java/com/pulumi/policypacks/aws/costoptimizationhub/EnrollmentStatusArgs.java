@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.costoptimizationhub;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class EnrollmentStatusArgs extends com.pulumi.resources.PolicyResou
      * Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> includeMemberAccounts;
-
+    @PolicyResourceProperty(name="includeMemberAccounts", flag="unknown_includeMemberAccounts")
+    private Boolean value_includeMemberAccounts;
+    private boolean unknown_includeMemberAccounts;
     public Boolean includeMemberAccounts() {
-        if (includeMemberAccounts == null) return null;
-        return includeMemberAccounts.getValue("EnrollmentStatusArgs.includeMemberAccounts");
+        if (!unknown_includeMemberAccounts) return value_includeMemberAccounts;
+        throw new UndeferrableValueException("Value 'EnrollmentStatusArgs.includeMemberAccounts' is not present");
     }
 
 }

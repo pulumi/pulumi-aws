@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class LaunchConfigurationMetadataOptionsArgs {
      * The state of the metadata service: `enabled`, `disabled`.
      * 
      */
-    private UndeferrableValue<String> httpEndpoint;
-
+    @PolicyResourceProperty(name="httpEndpoint", flag="unknown_httpEndpoint")
+    private String value_httpEndpoint;
+    private boolean unknown_httpEndpoint;
     public String httpEndpoint() {
-        if (httpEndpoint == null) return null;
-        return httpEndpoint.getValue("LaunchConfigurationMetadataOptionsArgs.httpEndpoint");
+        if (!unknown_httpEndpoint) return value_httpEndpoint;
+        throw new UndeferrableValueException("Value 'LaunchConfigurationMetadataOptionsArgs.httpEndpoint' is not present");
     }
 
     /**
      * The desired HTTP PUT response hop limit for instance metadata requests.
      * 
      */
-    private UndeferrableValue<Integer> httpPutResponseHopLimit;
-
+    @PolicyResourceProperty(name="httpPutResponseHopLimit", flag="unknown_httpPutResponseHopLimit")
+    private Integer value_httpPutResponseHopLimit;
+    private boolean unknown_httpPutResponseHopLimit;
     public Integer httpPutResponseHopLimit() {
-        if (httpPutResponseHopLimit == null) return null;
-        return httpPutResponseHopLimit.getValue("LaunchConfigurationMetadataOptionsArgs.httpPutResponseHopLimit");
+        if (!unknown_httpPutResponseHopLimit) return value_httpPutResponseHopLimit;
+        throw new UndeferrableValueException("Value 'LaunchConfigurationMetadataOptionsArgs.httpPutResponseHopLimit' is not present");
     }
 
     /**
      * If session tokens are required: `optional`, `required`.
      * 
      */
-    private UndeferrableValue<String> httpTokens;
-
+    @PolicyResourceProperty(name="httpTokens", flag="unknown_httpTokens")
+    private String value_httpTokens;
+    private boolean unknown_httpTokens;
     public String httpTokens() {
-        if (httpTokens == null) return null;
-        return httpTokens.getValue("LaunchConfigurationMetadataOptionsArgs.httpTokens");
+        if (!unknown_httpTokens) return value_httpTokens;
+        throw new UndeferrableValueException("Value 'LaunchConfigurationMetadataOptionsArgs.httpTokens' is not present");
     }
 
 }

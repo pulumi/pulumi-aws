@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emrcontainers.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class VirtualClusterContainerProviderInfoEksInfo {
      * The namespace where the EMR Containers cluster is running
      * 
      */
-    private @Nullable UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private @Nullable String value_namespace;
+    private boolean unknown_namespace;
     public @Nullable String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("VirtualClusterContainerProviderInfoEksInfo.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'VirtualClusterContainerProviderInfoEksInfo.namespace' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class OntapVolumeTieringPolicyArgs {
      * Specifies the number of days that user data in a volume must remain inactive before it is considered &#34;cold&#34; and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
      * 
      */
-    private UndeferrableValue<Integer> coolingPeriod;
-
+    @PolicyResourceProperty(name="coolingPeriod", flag="unknown_coolingPeriod")
+    private Integer value_coolingPeriod;
+    private boolean unknown_coolingPeriod;
     public Integer coolingPeriod() {
-        if (coolingPeriod == null) return null;
-        return coolingPeriod.getValue("OntapVolumeTieringPolicyArgs.coolingPeriod");
+        if (!unknown_coolingPeriod) return value_coolingPeriod;
+        throw new UndeferrableValueException("Value 'OntapVolumeTieringPolicyArgs.coolingPeriod' is not present");
     }
 
     /**
      * Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("OntapVolumeTieringPolicyArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'OntapVolumeTieringPolicyArgs.name' is not present");
     }
 
 }

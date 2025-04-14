@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGi
      * The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
      * 
      */
-    private @Nullable UndeferrableValue<Double> max;
-
+    @PolicyResourceProperty(name="max", flag="unknown_max")
+    private @Nullable Double value_max;
+    private boolean unknown_max;
     public @Nullable Double max() {
-        if (max == null) return null;
-        return max.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu.max");
+        if (!unknown_max) return value_max;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu.max' is not present");
     }
 
     /**
      * The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
      * 
      */
-    private @Nullable UndeferrableValue<Double> min;
-
+    @PolicyResourceProperty(name="min", flag="unknown_min")
+    private @Nullable Double value_min;
+    private boolean unknown_min;
     public @Nullable Double min() {
-        if (min == null) return null;
-        return min.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu.min");
+        if (!unknown_min) return value_min;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu.min' is not present");
     }
 
 }

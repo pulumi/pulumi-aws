@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.inputs.BucketObjectv2OverrideProviderDefaultTagsArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class BucketObjectv2OverrideProviderArgs {
      * Override the provider `default_tags` configuration block.
      * 
      */
-    private UndeferrableValue<BucketObjectv2OverrideProviderDefaultTagsArgs> defaultTags;
-
+    @PolicyResourceProperty(name="defaultTags", flag="unknown_defaultTags")
+    private BucketObjectv2OverrideProviderDefaultTagsArgs value_defaultTags;
+    private boolean unknown_defaultTags;
     public BucketObjectv2OverrideProviderDefaultTagsArgs defaultTags() {
-        if (defaultTags == null) return null;
-        return defaultTags.getValue("BucketObjectv2OverrideProviderArgs.defaultTags");
+        if (!unknown_defaultTags) return value_defaultTags;
+        throw new UndeferrableValueException("Value 'BucketObjectv2OverrideProviderArgs.defaultTags' is not present");
     }
 
 }

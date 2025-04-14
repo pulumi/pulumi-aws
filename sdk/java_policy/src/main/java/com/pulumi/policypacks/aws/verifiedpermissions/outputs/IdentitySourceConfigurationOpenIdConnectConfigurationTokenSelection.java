@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedpermissions.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.verifiedpermissions.outputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly;
 import com.pulumi.policypacks.aws.verifiedpermissions.outputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
      * The OIDC configuration for processing access tokens. See Access Token Only below.
      * 
      */
-    private @Nullable UndeferrableValue<IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly> accessTokenOnly;
-
+    @PolicyResourceProperty(name="accessTokenOnly", flag="unknown_accessTokenOnly")
+    private @Nullable IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly value_accessTokenOnly;
+    private boolean unknown_accessTokenOnly;
     public @Nullable IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly accessTokenOnly() {
-        if (accessTokenOnly == null) return null;
-        return accessTokenOnly.getValue("IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection.accessTokenOnly");
+        if (!unknown_accessTokenOnly) return value_accessTokenOnly;
+        throw new UndeferrableValueException("Value 'IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection.accessTokenOnly' is not present");
     }
 
     /**
      * The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
      * 
      */
-    private @Nullable UndeferrableValue<IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly> identityTokenOnly;
-
+    @PolicyResourceProperty(name="identityTokenOnly", flag="unknown_identityTokenOnly")
+    private @Nullable IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly value_identityTokenOnly;
+    private boolean unknown_identityTokenOnly;
     public @Nullable IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly identityTokenOnly() {
-        if (identityTokenOnly == null) return null;
-        return identityTokenOnly.getValue("IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection.identityTokenOnly");
+        if (!unknown_identityTokenOnly) return value_identityTokenOnly;
+        throw new UndeferrableValueException("Value 'IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection.identityTokenOnly' is not present");
     }
 
 }

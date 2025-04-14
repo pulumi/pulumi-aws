@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class VpcIpamResourceDiscoveryAssociationArgs extends com.pulumi.re
      * The ID of the IPAM to associate.
      * 
      */
-    private UndeferrableValue<String> ipamId;
-
+    @PolicyResourceProperty(name="ipamId", flag="unknown_ipamId")
+    private String value_ipamId;
+    private boolean unknown_ipamId;
     public String ipamId() {
-        if (ipamId == null) return null;
-        return ipamId.getValue("VpcIpamResourceDiscoveryAssociationArgs.ipamId");
+        if (!unknown_ipamId) return value_ipamId;
+        throw new UndeferrableValueException("Value 'VpcIpamResourceDiscoveryAssociationArgs.ipamId' is not present");
     }
 
     /**
      * The ID of the Resource Discovery to associate.
      * 
      */
-    private UndeferrableValue<String> ipamResourceDiscoveryId;
-
+    @PolicyResourceProperty(name="ipamResourceDiscoveryId", flag="unknown_ipamResourceDiscoveryId")
+    private String value_ipamResourceDiscoveryId;
+    private boolean unknown_ipamResourceDiscoveryId;
     public String ipamResourceDiscoveryId() {
-        if (ipamResourceDiscoveryId == null) return null;
-        return ipamResourceDiscoveryId.getValue("VpcIpamResourceDiscoveryAssociationArgs.ipamResourceDiscoveryId");
+        if (!unknown_ipamResourceDiscoveryId) return value_ipamResourceDiscoveryId;
+        throw new UndeferrableValueException("Value 'VpcIpamResourceDiscoveryAssociationArgs.ipamResourceDiscoveryId' is not present");
     }
 
     /**
      * A map of tags to add to the IPAM resource discovery association resource.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VpcIpamResourceDiscoveryAssociationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VpcIpamResourceDiscoveryAssociationArgs.tags' is not present");
     }
 
 }

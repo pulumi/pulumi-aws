@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,154 +19,168 @@ public final class Instance extends com.pulumi.resources.PolicyResourceOutput {
      * Amazon Resource Name (ARN) of the instance.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Instance.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Instance.arn' is not present");
     }
 
     /**
      * Specifies whether auto resolve best voices is enabled. Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> autoResolveBestVoicesEnabled;
-
+    @PolicyResourceProperty(name="autoResolveBestVoicesEnabled", flag="unknown_autoResolveBestVoicesEnabled")
+    private @Nullable Boolean value_autoResolveBestVoicesEnabled;
+    private boolean unknown_autoResolveBestVoicesEnabled;
     public @Nullable Boolean autoResolveBestVoicesEnabled() {
-        if (autoResolveBestVoicesEnabled == null) return null;
-        return autoResolveBestVoicesEnabled.getValue("Instance.autoResolveBestVoicesEnabled");
+        if (!unknown_autoResolveBestVoicesEnabled) return value_autoResolveBestVoicesEnabled;
+        throw new UndeferrableValueException("Value 'Instance.autoResolveBestVoicesEnabled' is not present");
     }
 
     /**
      * Specifies whether contact flow logs are enabled. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> contactFlowLogsEnabled;
-
+    @PolicyResourceProperty(name="contactFlowLogsEnabled", flag="unknown_contactFlowLogsEnabled")
+    private @Nullable Boolean value_contactFlowLogsEnabled;
+    private boolean unknown_contactFlowLogsEnabled;
     public @Nullable Boolean contactFlowLogsEnabled() {
-        if (contactFlowLogsEnabled == null) return null;
-        return contactFlowLogsEnabled.getValue("Instance.contactFlowLogsEnabled");
+        if (!unknown_contactFlowLogsEnabled) return value_contactFlowLogsEnabled;
+        throw new UndeferrableValueException("Value 'Instance.contactFlowLogsEnabled' is not present");
     }
 
     /**
      * Specifies whether contact lens is enabled. Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> contactLensEnabled;
-
+    @PolicyResourceProperty(name="contactLensEnabled", flag="unknown_contactLensEnabled")
+    private @Nullable Boolean value_contactLensEnabled;
+    private boolean unknown_contactLensEnabled;
     public @Nullable Boolean contactLensEnabled() {
-        if (contactLensEnabled == null) return null;
-        return contactLensEnabled.getValue("Instance.contactLensEnabled");
+        if (!unknown_contactLensEnabled) return value_contactLensEnabled;
+        throw new UndeferrableValueException("Value 'Instance.contactLensEnabled' is not present");
     }
 
     /**
      * When the instance was created.
      * 
      */
-    private UndeferrableValue<String> createdTime;
-
+    @PolicyResourceProperty(name="createdTime", flag="unknown_createdTime")
+    private String value_createdTime;
+    private boolean unknown_createdTime;
     public String createdTime() {
-        if (createdTime == null) return null;
-        return createdTime.getValue("Instance.createdTime");
+        if (!unknown_createdTime) return value_createdTime;
+        throw new UndeferrableValueException("Value 'Instance.createdTime' is not present");
     }
 
     /**
      * The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
      * 
      */
-    private @Nullable UndeferrableValue<String> directoryId;
-
+    @PolicyResourceProperty(name="directoryId", flag="unknown_directoryId")
+    private @Nullable String value_directoryId;
+    private boolean unknown_directoryId;
     public @Nullable String directoryId() {
-        if (directoryId == null) return null;
-        return directoryId.getValue("Instance.directoryId");
+        if (!unknown_directoryId) return value_directoryId;
+        throw new UndeferrableValueException("Value 'Instance.directoryId' is not present");
     }
 
     /**
      * Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> earlyMediaEnabled;
-
+    @PolicyResourceProperty(name="earlyMediaEnabled", flag="unknown_earlyMediaEnabled")
+    private @Nullable Boolean value_earlyMediaEnabled;
+    private boolean unknown_earlyMediaEnabled;
     public @Nullable Boolean earlyMediaEnabled() {
-        if (earlyMediaEnabled == null) return null;
-        return earlyMediaEnabled.getValue("Instance.earlyMediaEnabled");
+        if (!unknown_earlyMediaEnabled) return value_earlyMediaEnabled;
+        throw new UndeferrableValueException("Value 'Instance.earlyMediaEnabled' is not present");
     }
 
     /**
      * Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
      * 
      */
-    private UndeferrableValue<String> identityManagementType;
-
+    @PolicyResourceProperty(name="identityManagementType", flag="unknown_identityManagementType")
+    private String value_identityManagementType;
+    private boolean unknown_identityManagementType;
     public String identityManagementType() {
-        if (identityManagementType == null) return null;
-        return identityManagementType.getValue("Instance.identityManagementType");
+        if (!unknown_identityManagementType) return value_identityManagementType;
+        throw new UndeferrableValueException("Value 'Instance.identityManagementType' is not present");
     }
 
     /**
      * Specifies whether inbound calls are enabled.
      * 
      */
-    private UndeferrableValue<Boolean> inboundCallsEnabled;
-
+    @PolicyResourceProperty(name="inboundCallsEnabled", flag="unknown_inboundCallsEnabled")
+    private Boolean value_inboundCallsEnabled;
+    private boolean unknown_inboundCallsEnabled;
     public Boolean inboundCallsEnabled() {
-        if (inboundCallsEnabled == null) return null;
-        return inboundCallsEnabled.getValue("Instance.inboundCallsEnabled");
+        if (!unknown_inboundCallsEnabled) return value_inboundCallsEnabled;
+        throw new UndeferrableValueException("Value 'Instance.inboundCallsEnabled' is not present");
     }
 
     /**
      * Specifies the name of the instance. Required if `directory_id` not specified.
      * 
      */
-    private @Nullable UndeferrableValue<String> instanceAlias;
-
+    @PolicyResourceProperty(name="instanceAlias", flag="unknown_instanceAlias")
+    private @Nullable String value_instanceAlias;
+    private boolean unknown_instanceAlias;
     public @Nullable String instanceAlias() {
-        if (instanceAlias == null) return null;
-        return instanceAlias.getValue("Instance.instanceAlias");
+        if (!unknown_instanceAlias) return value_instanceAlias;
+        throw new UndeferrableValueException("Value 'Instance.instanceAlias' is not present");
     }
 
     /**
      * Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> multiPartyConferenceEnabled;
-
+    @PolicyResourceProperty(name="multiPartyConferenceEnabled", flag="unknown_multiPartyConferenceEnabled")
+    private @Nullable Boolean value_multiPartyConferenceEnabled;
+    private boolean unknown_multiPartyConferenceEnabled;
     public @Nullable Boolean multiPartyConferenceEnabled() {
-        if (multiPartyConferenceEnabled == null) return null;
-        return multiPartyConferenceEnabled.getValue("Instance.multiPartyConferenceEnabled");
+        if (!unknown_multiPartyConferenceEnabled) return value_multiPartyConferenceEnabled;
+        throw new UndeferrableValueException("Value 'Instance.multiPartyConferenceEnabled' is not present");
     }
 
     /**
      * Specifies whether outbound calls are enabled.
      * 
      */
-    private UndeferrableValue<Boolean> outboundCallsEnabled;
-
+    @PolicyResourceProperty(name="outboundCallsEnabled", flag="unknown_outboundCallsEnabled")
+    private Boolean value_outboundCallsEnabled;
+    private boolean unknown_outboundCallsEnabled;
     public Boolean outboundCallsEnabled() {
-        if (outboundCallsEnabled == null) return null;
-        return outboundCallsEnabled.getValue("Instance.outboundCallsEnabled");
+        if (!unknown_outboundCallsEnabled) return value_outboundCallsEnabled;
+        throw new UndeferrableValueException("Value 'Instance.outboundCallsEnabled' is not present");
     }
 
     /**
      * The service role of the instance.
      * 
      */
-    private UndeferrableValue<String> serviceRole;
-
+    @PolicyResourceProperty(name="serviceRole", flag="unknown_serviceRole")
+    private String value_serviceRole;
+    private boolean unknown_serviceRole;
     public String serviceRole() {
-        if (serviceRole == null) return null;
-        return serviceRole.getValue("Instance.serviceRole");
+        if (!unknown_serviceRole) return value_serviceRole;
+        throw new UndeferrableValueException("Value 'Instance.serviceRole' is not present");
     }
 
     /**
      * The state of the instance.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Instance.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Instance.status' is not present");
     }
 
     /**
@@ -173,11 +188,12 @@ public final class Instance extends com.pulumi.resources.PolicyResourceOutput {
      * &lt;!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` --&gt;
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Instance.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Instance.tags' is not present");
     }
 
     /**
@@ -188,11 +204,12 @@ public final class Instance extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Instance.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Instance.tagsAll' is not present");
     }
 
 }

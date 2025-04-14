@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.inspector2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,11 +18,12 @@ public final class Enabler extends com.pulumi.resources.PolicyResourceOutput {
      * Can contain one of: the Organization&#39;s Administrator Account, or one or more Member Accounts.
      * 
      */
-    private UndeferrableValue<List<String>> accountIds;
-
+    @PolicyResourceProperty(name="accountIds", flag="unknown_accountIds")
+    private List<String> value_accountIds;
+    private boolean unknown_accountIds;
     public List<String> accountIds() {
-        if (accountIds == null) return null;
-        return accountIds.getValue("Enabler.accountIds");
+        if (!unknown_accountIds) return value_accountIds;
+        throw new UndeferrableValueException("Value 'Enabler.accountIds' is not present");
     }
 
     /**
@@ -30,11 +32,12 @@ public final class Enabler extends com.pulumi.resources.PolicyResourceOutput {
      * At least one item is required.
      * 
      */
-    private UndeferrableValue<List<String>> resourceTypes;
-
+    @PolicyResourceProperty(name="resourceTypes", flag="unknown_resourceTypes")
+    private List<String> value_resourceTypes;
+    private boolean unknown_resourceTypes;
     public List<String> resourceTypes() {
-        if (resourceTypes == null) return null;
-        return resourceTypes.getValue("Enabler.resourceTypes");
+        if (!unknown_resourceTypes) return value_resourceTypes;
+        throw new UndeferrableValueException("Value 'Enabler.resourceTypes' is not present");
     }
 
 }

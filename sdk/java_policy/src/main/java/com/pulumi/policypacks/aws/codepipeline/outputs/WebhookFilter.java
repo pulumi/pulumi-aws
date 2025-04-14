@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class WebhookFilter {
      * The [JSON path](https://github.com/json-path/JsonPath) to filter on.
      * 
      */
-    private UndeferrableValue<String> jsonPath;
-
+    @PolicyResourceProperty(name="jsonPath", flag="unknown_jsonPath")
+    private String value_jsonPath;
+    private boolean unknown_jsonPath;
     public String jsonPath() {
-        if (jsonPath == null) return null;
-        return jsonPath.getValue("WebhookFilter.jsonPath");
+        if (!unknown_jsonPath) return value_jsonPath;
+        throw new UndeferrableValueException("Value 'WebhookFilter.jsonPath' is not present");
     }
 
     /**
      * The value to match on (e.g., `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
      * 
      */
-    private UndeferrableValue<String> matchEquals;
-
+    @PolicyResourceProperty(name="matchEquals", flag="unknown_matchEquals")
+    private String value_matchEquals;
+    private boolean unknown_matchEquals;
     public String matchEquals() {
-        if (matchEquals == null) return null;
-        return matchEquals.getValue("WebhookFilter.matchEquals");
+        if (!unknown_matchEquals) return value_matchEquals;
+        throw new UndeferrableValueException("Value 'WebhookFilter.matchEquals' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class InputSecurityGroupWhitelistRuleArgs {
      * The IPv4 CIDR that&#39;s whitelisted.
      * 
      */
-    private UndeferrableValue<String> cidr;
-
+    @PolicyResourceProperty(name="cidr", flag="unknown_cidr")
+    private String value_cidr;
+    private boolean unknown_cidr;
     public String cidr() {
-        if (cidr == null) return null;
-        return cidr.getValue("InputSecurityGroupWhitelistRuleArgs.cidr");
+        if (!unknown_cidr) return value_cidr;
+        throw new UndeferrableValueException("Value 'InputSecurityGroupWhitelistRuleArgs.cidr' is not present");
     }
 
 }

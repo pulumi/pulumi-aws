@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.evidently;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.evidently.inputs.ProjectDataDeliveryArgs;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class ProjectArgs extends com.pulumi.resources.PolicyResourceInput 
      * A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
      * 
      */
-    private UndeferrableValue<ProjectDataDeliveryArgs> dataDelivery;
-
+    @PolicyResourceProperty(name="dataDelivery", flag="unknown_dataDelivery")
+    private ProjectDataDeliveryArgs value_dataDelivery;
+    private boolean unknown_dataDelivery;
     public ProjectDataDeliveryArgs dataDelivery() {
-        if (dataDelivery == null) return null;
-        return dataDelivery.getValue("ProjectArgs.dataDelivery");
+        if (!unknown_dataDelivery) return value_dataDelivery;
+        throw new UndeferrableValueException("Value 'ProjectArgs.dataDelivery' is not present");
     }
 
     /**
      * Specifies the description of the project.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ProjectArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ProjectArgs.description' is not present");
     }
 
     /**
      * A name for the project.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ProjectArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ProjectArgs.name' is not present");
     }
 
     /**
      * Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ProjectArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ProjectArgs.tags' is not present");
     }
 
 }

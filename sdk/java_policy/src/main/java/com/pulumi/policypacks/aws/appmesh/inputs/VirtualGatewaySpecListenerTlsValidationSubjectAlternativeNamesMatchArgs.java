@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeName
      * Values sent must match the specified values exactly.
      * 
      */
-    private UndeferrableValue<List<String>> exacts;
-
+    @PolicyResourceProperty(name="exacts", flag="unknown_exacts")
+    private List<String> value_exacts;
+    private boolean unknown_exacts;
     public List<String> exacts() {
-        if (exacts == null) return null;
-        return exacts.getValue("VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs.exacts");
+        if (!unknown_exacts) return value_exacts;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs.exacts' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.acm.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class CertificateValidationOptionArgs {
      * Fully qualified domain name (FQDN) in the certificate.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("CertificateValidationOptionArgs.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'CertificateValidationOptionArgs.domainName' is not present");
     }
 
     /**
      * Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domain_name` value or a superdomain of the `domain_name` value. For example, if you request a certificate for `&#34;testing.example.com&#34;`, you can specify `&#34;example.com&#34;` for this value.
      * 
      */
-    private UndeferrableValue<String> validationDomain;
-
+    @PolicyResourceProperty(name="validationDomain", flag="unknown_validationDomain")
+    private String value_validationDomain;
+    private boolean unknown_validationDomain;
     public String validationDomain() {
-        if (validationDomain == null) return null;
-        return validationDomain.getValue("CertificateValidationOptionArgs.validationDomain");
+        if (!unknown_validationDomain) return value_validationDomain;
+        throw new UndeferrableValueException("Value 'CertificateValidationOptionArgs.validationDomain' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class Deployment extends com.pulumi.resources.PolicyResourceOutput 
      * API identifier.
      * 
      */
-    private UndeferrableValue<String> apiId;
-
+    @PolicyResourceProperty(name="apiId", flag="unknown_apiId")
+    private String value_apiId;
+    private boolean unknown_apiId;
     public String apiId() {
-        if (apiId == null) return null;
-        return apiId.getValue("Deployment.apiId");
+        if (!unknown_apiId) return value_apiId;
+        throw new UndeferrableValueException("Value 'Deployment.apiId' is not present");
     }
 
     /**
      * Whether the deployment was automatically released.
      * 
      */
-    private UndeferrableValue<Boolean> autoDeployed;
-
+    @PolicyResourceProperty(name="autoDeployed", flag="unknown_autoDeployed")
+    private Boolean value_autoDeployed;
+    private boolean unknown_autoDeployed;
     public Boolean autoDeployed() {
-        if (autoDeployed == null) return null;
-        return autoDeployed.getValue("Deployment.autoDeployed");
+        if (!unknown_autoDeployed) return value_autoDeployed;
+        throw new UndeferrableValueException("Value 'Deployment.autoDeployed' is not present");
     }
 
     /**
      * Description for the deployment resource. Must be less than or equal to 1024 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Deployment.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Deployment.description' is not present");
     }
 
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> triggers;
-
+    @PolicyResourceProperty(name="triggers", flag="unknown_triggers")
+    private @Nullable Map<String,String> value_triggers;
+    private boolean unknown_triggers;
     public @Nullable Map<String,String> triggers() {
-        if (triggers == null) return null;
-        return triggers.getValue("Deployment.triggers");
+        if (!unknown_triggers) return value_triggers;
+        throw new UndeferrableValueException("Value 'Deployment.triggers' is not present");
     }
 
 }

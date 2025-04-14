@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ServiceSourceConfigurationAuthenticationConfigurationArgs {
      * ARN of the IAM role that grants the App Runner service access to a source repository. Required for ECR image repositories (but not for ECR Public)
      * 
      */
-    private UndeferrableValue<String> accessRoleArn;
-
+    @PolicyResourceProperty(name="accessRoleArn", flag="unknown_accessRoleArn")
+    private String value_accessRoleArn;
+    private boolean unknown_accessRoleArn;
     public String accessRoleArn() {
-        if (accessRoleArn == null) return null;
-        return accessRoleArn.getValue("ServiceSourceConfigurationAuthenticationConfigurationArgs.accessRoleArn");
+        if (!unknown_accessRoleArn) return value_accessRoleArn;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationAuthenticationConfigurationArgs.accessRoleArn' is not present");
     }
 
     /**
      * ARN of the App Runner connection that enables the App Runner service to connect to a source repository. Required for GitHub code repositories.
      * 
      */
-    private UndeferrableValue<String> connectionArn;
-
+    @PolicyResourceProperty(name="connectionArn", flag="unknown_connectionArn")
+    private String value_connectionArn;
+    private boolean unknown_connectionArn;
     public String connectionArn() {
-        if (connectionArn == null) return null;
-        return connectionArn.getValue("ServiceSourceConfigurationAuthenticationConfigurationArgs.connectionArn");
+        if (!unknown_connectionArn) return value_connectionArn;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationAuthenticationConfigurationArgs.connectionArn' is not present");
     }
 
 }

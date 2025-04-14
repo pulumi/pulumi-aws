@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafregional;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.wafregional.outputs.WebAclDefaultAction;
 import com.pulumi.policypacks.aws.wafregional.outputs.WebAclLoggingConfiguration;
@@ -21,77 +22,84 @@ public final class WebAcl extends com.pulumi.resources.PolicyResourceOutput {
      * Amazon Resource Name (ARN) of the WAF Regional WebACL.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("WebAcl.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'WebAcl.arn' is not present");
     }
 
     /**
      * The action that you want AWS WAF Regional to take when a request doesn&#39;t match the criteria in any of the rules that are associated with the web ACL.
      * 
      */
-    private UndeferrableValue<WebAclDefaultAction> defaultAction;
-
+    @PolicyResourceProperty(name="defaultAction", flag="unknown_defaultAction")
+    private WebAclDefaultAction value_defaultAction;
+    private boolean unknown_defaultAction;
     public WebAclDefaultAction defaultAction() {
-        if (defaultAction == null) return null;
-        return defaultAction.getValue("WebAcl.defaultAction");
+        if (!unknown_defaultAction) return value_defaultAction;
+        throw new UndeferrableValueException("Value 'WebAcl.defaultAction' is not present");
     }
 
     /**
      * Configuration block to enable WAF logging. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclLoggingConfiguration> loggingConfiguration;
-
+    @PolicyResourceProperty(name="loggingConfiguration", flag="unknown_loggingConfiguration")
+    private @Nullable WebAclLoggingConfiguration value_loggingConfiguration;
+    private boolean unknown_loggingConfiguration;
     public @Nullable WebAclLoggingConfiguration loggingConfiguration() {
-        if (loggingConfiguration == null) return null;
-        return loggingConfiguration.getValue("WebAcl.loggingConfiguration");
+        if (!unknown_loggingConfiguration) return value_loggingConfiguration;
+        throw new UndeferrableValueException("Value 'WebAcl.loggingConfiguration' is not present");
     }
 
     /**
      * The name or description for the Amazon CloudWatch metric of this web ACL.
      * 
      */
-    private UndeferrableValue<String> metricName;
-
+    @PolicyResourceProperty(name="metricName", flag="unknown_metricName")
+    private String value_metricName;
+    private boolean unknown_metricName;
     public String metricName() {
-        if (metricName == null) return null;
-        return metricName.getValue("WebAcl.metricName");
+        if (!unknown_metricName) return value_metricName;
+        throw new UndeferrableValueException("Value 'WebAcl.metricName' is not present");
     }
 
     /**
      * The name or description of the web ACL.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("WebAcl.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'WebAcl.name' is not present");
     }
 
     /**
      * Set of configuration blocks containing rules for the web ACL. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<WebAclRule>> rules;
-
+    @PolicyResourceProperty(name="rules", flag="unknown_rules")
+    private @Nullable List<WebAclRule> value_rules;
+    private boolean unknown_rules;
     public @Nullable List<WebAclRule> rules() {
-        if (rules == null) return null;
-        return rules.getValue("WebAcl.rules");
+        if (!unknown_rules) return value_rules;
+        throw new UndeferrableValueException("Value 'WebAcl.rules' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("WebAcl.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'WebAcl.tags' is not present");
     }
 
     /**
@@ -102,11 +110,12 @@ public final class WebAcl extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("WebAcl.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'WebAcl.tagsAll' is not present");
     }
 
 }

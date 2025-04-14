@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.waf;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.waf.inputs.IpSetIpSetDescriptorArgs;
 import java.lang.String;
@@ -18,22 +19,24 @@ public final class IpSetArgs extends com.pulumi.resources.PolicyResourceInput {
      * One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
      * 
      */
-    private UndeferrableValue<List<IpSetIpSetDescriptorArgs>> ipSetDescriptors;
-
+    @PolicyResourceProperty(name="ipSetDescriptors", flag="unknown_ipSetDescriptors")
+    private List<IpSetIpSetDescriptorArgs> value_ipSetDescriptors;
+    private boolean unknown_ipSetDescriptors;
     public List<IpSetIpSetDescriptorArgs> ipSetDescriptors() {
-        if (ipSetDescriptors == null) return null;
-        return ipSetDescriptors.getValue("IpSetArgs.ipSetDescriptors");
+        if (!unknown_ipSetDescriptors) return value_ipSetDescriptors;
+        throw new UndeferrableValueException("Value 'IpSetArgs.ipSetDescriptors' is not present");
     }
 
     /**
      * The name or description of the IPSet.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("IpSetArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'IpSetArgs.name' is not present");
     }
 
 }

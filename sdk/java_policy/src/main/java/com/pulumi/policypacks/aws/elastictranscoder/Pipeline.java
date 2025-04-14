@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elastictranscoder;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.elastictranscoder.outputs.PipelineContentConfig;
 import com.pulumi.policypacks.aws.elastictranscoder.outputs.PipelineContentConfigPermission;
@@ -22,110 +23,120 @@ public final class Pipeline extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN of the Elastictranscoder pipeline.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Pipeline.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Pipeline.arn' is not present");
     }
 
     /**
      * The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
      * 
      */
-    private @Nullable UndeferrableValue<String> awsKmsKeyArn;
-
+    @PolicyResourceProperty(name="awsKmsKeyArn", flag="unknown_awsKmsKeyArn")
+    private @Nullable String value_awsKmsKeyArn;
+    private boolean unknown_awsKmsKeyArn;
     public @Nullable String awsKmsKeyArn() {
-        if (awsKmsKeyArn == null) return null;
-        return awsKmsKeyArn.getValue("Pipeline.awsKmsKeyArn");
+        if (!unknown_awsKmsKeyArn) return value_awsKmsKeyArn;
+        throw new UndeferrableValueException("Value 'Pipeline.awsKmsKeyArn' is not present");
     }
 
     /**
      * The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
      * 
      */
-    private UndeferrableValue<PipelineContentConfig> contentConfig;
-
+    @PolicyResourceProperty(name="contentConfig", flag="unknown_contentConfig")
+    private PipelineContentConfig value_contentConfig;
+    private boolean unknown_contentConfig;
     public PipelineContentConfig contentConfig() {
-        if (contentConfig == null) return null;
-        return contentConfig.getValue("Pipeline.contentConfig");
+        if (!unknown_contentConfig) return value_contentConfig;
+        throw new UndeferrableValueException("Value 'Pipeline.contentConfig' is not present");
     }
 
     /**
      * The permissions for the `content_config` object. (documented below)
      * 
      */
-    private @Nullable UndeferrableValue<List<PipelineContentConfigPermission>> contentConfigPermissions;
-
+    @PolicyResourceProperty(name="contentConfigPermissions", flag="unknown_contentConfigPermissions")
+    private @Nullable List<PipelineContentConfigPermission> value_contentConfigPermissions;
+    private boolean unknown_contentConfigPermissions;
     public @Nullable List<PipelineContentConfigPermission> contentConfigPermissions() {
-        if (contentConfigPermissions == null) return null;
-        return contentConfigPermissions.getValue("Pipeline.contentConfigPermissions");
+        if (!unknown_contentConfigPermissions) return value_contentConfigPermissions;
+        throw new UndeferrableValueException("Value 'Pipeline.contentConfigPermissions' is not present");
     }
 
     /**
      * The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
      * 
      */
-    private UndeferrableValue<String> inputBucket;
-
+    @PolicyResourceProperty(name="inputBucket", flag="unknown_inputBucket")
+    private String value_inputBucket;
+    private boolean unknown_inputBucket;
     public String inputBucket() {
-        if (inputBucket == null) return null;
-        return inputBucket.getValue("Pipeline.inputBucket");
+        if (!unknown_inputBucket) return value_inputBucket;
+        throw new UndeferrableValueException("Value 'Pipeline.inputBucket' is not present");
     }
 
     /**
      * The name of the pipeline. Maximum 40 characters
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Pipeline.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Pipeline.name' is not present");
     }
 
     /**
      * The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
      * 
      */
-    private @Nullable UndeferrableValue<PipelineNotifications> notifications;
-
+    @PolicyResourceProperty(name="notifications", flag="unknown_notifications")
+    private @Nullable PipelineNotifications value_notifications;
+    private boolean unknown_notifications;
     public @Nullable PipelineNotifications notifications() {
-        if (notifications == null) return null;
-        return notifications.getValue("Pipeline.notifications");
+        if (!unknown_notifications) return value_notifications;
+        throw new UndeferrableValueException("Value 'Pipeline.notifications' is not present");
     }
 
     /**
      * The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
      * 
      */
-    private UndeferrableValue<String> outputBucket;
-
+    @PolicyResourceProperty(name="outputBucket", flag="unknown_outputBucket")
+    private String value_outputBucket;
+    private boolean unknown_outputBucket;
     public String outputBucket() {
-        if (outputBucket == null) return null;
-        return outputBucket.getValue("Pipeline.outputBucket");
+        if (!unknown_outputBucket) return value_outputBucket;
+        throw new UndeferrableValueException("Value 'Pipeline.outputBucket' is not present");
     }
 
     /**
      * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
      * 
      */
-    private UndeferrableValue<String> role;
-
+    @PolicyResourceProperty(name="role", flag="unknown_role")
+    private String value_role;
+    private boolean unknown_role;
     public String role() {
-        if (role == null) return null;
-        return role.getValue("Pipeline.role");
+        if (!unknown_role) return value_role;
+        throw new UndeferrableValueException("Value 'Pipeline.role' is not present");
     }
 
     /**
      * The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
      * 
      */
-    private UndeferrableValue<PipelineThumbnailConfig> thumbnailConfig;
-
+    @PolicyResourceProperty(name="thumbnailConfig", flag="unknown_thumbnailConfig")
+    private PipelineThumbnailConfig value_thumbnailConfig;
+    private boolean unknown_thumbnailConfig;
     public PipelineThumbnailConfig thumbnailConfig() {
-        if (thumbnailConfig == null) return null;
-        return thumbnailConfig.getValue("Pipeline.thumbnailConfig");
+        if (!unknown_thumbnailConfig) return value_thumbnailConfig;
+        throw new UndeferrableValueException("Value 'Pipeline.thumbnailConfig' is not present");
     }
 
     /**
@@ -139,11 +150,12 @@ public final class Pipeline extends com.pulumi.resources.PolicyResourceOutput {
      * `thumbnail_config`, omit the `output_bucket` object.
      * 
      */
-    private @Nullable UndeferrableValue<List<PipelineThumbnailConfigPermission>> thumbnailConfigPermissions;
-
+    @PolicyResourceProperty(name="thumbnailConfigPermissions", flag="unknown_thumbnailConfigPermissions")
+    private @Nullable List<PipelineThumbnailConfigPermission> value_thumbnailConfigPermissions;
+    private boolean unknown_thumbnailConfigPermissions;
     public @Nullable List<PipelineThumbnailConfigPermission> thumbnailConfigPermissions() {
-        if (thumbnailConfigPermissions == null) return null;
-        return thumbnailConfigPermissions.getValue("Pipeline.thumbnailConfigPermissions");
+        if (!unknown_thumbnailConfigPermissions) return value_thumbnailConfigPermissions;
+        throw new UndeferrableValueException("Value 'Pipeline.thumbnailConfigPermissions' is not present");
     }
 
 }

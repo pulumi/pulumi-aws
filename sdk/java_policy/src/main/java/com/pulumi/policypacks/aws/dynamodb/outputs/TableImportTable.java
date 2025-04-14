@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dynamodb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.dynamodb.outputs.TableImportTableInputFormatOptions;
 import com.pulumi.policypacks.aws.dynamodb.outputs.TableImportTableS3BucketSource;
 import java.lang.String;
@@ -17,11 +18,12 @@ public final class TableImportTable {
      * Valid values are `GZIP`, `ZSTD` and `NONE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> inputCompressionType;
-
+    @PolicyResourceProperty(name="inputCompressionType", flag="unknown_inputCompressionType")
+    private @Nullable String value_inputCompressionType;
+    private boolean unknown_inputCompressionType;
     public @Nullable String inputCompressionType() {
-        if (inputCompressionType == null) return null;
-        return inputCompressionType.getValue("TableImportTable.inputCompressionType");
+        if (!unknown_inputCompressionType) return value_inputCompressionType;
+        throw new UndeferrableValueException("Value 'TableImportTable.inputCompressionType' is not present");
     }
 
     /**
@@ -29,11 +31,12 @@ public final class TableImportTable {
      * Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
      * 
      */
-    private UndeferrableValue<String> inputFormat;
-
+    @PolicyResourceProperty(name="inputFormat", flag="unknown_inputFormat")
+    private String value_inputFormat;
+    private boolean unknown_inputFormat;
     public String inputFormat() {
-        if (inputFormat == null) return null;
-        return inputFormat.getValue("TableImportTable.inputFormat");
+        if (!unknown_inputFormat) return value_inputFormat;
+        throw new UndeferrableValueException("Value 'TableImportTable.inputFormat' is not present");
     }
 
     /**
@@ -42,11 +45,12 @@ public final class TableImportTable {
      * See below.
      * 
      */
-    private @Nullable UndeferrableValue<TableImportTableInputFormatOptions> inputFormatOptions;
-
+    @PolicyResourceProperty(name="inputFormatOptions", flag="unknown_inputFormatOptions")
+    private @Nullable TableImportTableInputFormatOptions value_inputFormatOptions;
+    private boolean unknown_inputFormatOptions;
     public @Nullable TableImportTableInputFormatOptions inputFormatOptions() {
-        if (inputFormatOptions == null) return null;
-        return inputFormatOptions.getValue("TableImportTable.inputFormatOptions");
+        if (!unknown_inputFormatOptions) return value_inputFormatOptions;
+        throw new UndeferrableValueException("Value 'TableImportTable.inputFormatOptions' is not present");
     }
 
     /**
@@ -54,11 +58,12 @@ public final class TableImportTable {
      * See below.
      * 
      */
-    private UndeferrableValue<TableImportTableS3BucketSource> s3BucketSource;
-
+    @PolicyResourceProperty(name="s3BucketSource", flag="unknown_s3BucketSource")
+    private TableImportTableS3BucketSource value_s3BucketSource;
+    private boolean unknown_s3BucketSource;
     public TableImportTableS3BucketSource s3BucketSource() {
-        if (s3BucketSource == null) return null;
-        return s3BucketSource.getValue("TableImportTable.s3BucketSource");
+        if (!unknown_s3BucketSource) return value_s3BucketSource;
+        throw new UndeferrableValueException("Value 'TableImportTable.s3BucketSource' is not present");
     }
 
 }

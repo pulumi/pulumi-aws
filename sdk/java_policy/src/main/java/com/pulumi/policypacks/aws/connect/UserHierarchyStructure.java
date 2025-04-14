@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.connect.outputs.UserHierarchyStructureHierarchyStructure;
 import java.lang.String;
@@ -16,22 +17,24 @@ public final class UserHierarchyStructure extends com.pulumi.resources.PolicyRes
      * A block that defines the hierarchy structure&#39;s levels. The `hierarchy_structure` block is documented below.
      * 
      */
-    private UndeferrableValue<UserHierarchyStructureHierarchyStructure> hierarchyStructure;
-
+    @PolicyResourceProperty(name="hierarchyStructure", flag="unknown_hierarchyStructure")
+    private UserHierarchyStructureHierarchyStructure value_hierarchyStructure;
+    private boolean unknown_hierarchyStructure;
     public UserHierarchyStructureHierarchyStructure hierarchyStructure() {
-        if (hierarchyStructure == null) return null;
-        return hierarchyStructure.getValue("UserHierarchyStructure.hierarchyStructure");
+        if (!unknown_hierarchyStructure) return value_hierarchyStructure;
+        throw new UndeferrableValueException("Value 'UserHierarchyStructure.hierarchyStructure' is not present");
     }
 
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    private UndeferrableValue<String> instanceId;
-
+    @PolicyResourceProperty(name="instanceId", flag="unknown_instanceId")
+    private String value_instanceId;
+    private boolean unknown_instanceId;
     public String instanceId() {
-        if (instanceId == null) return null;
-        return instanceId.getValue("UserHierarchyStructure.instanceId");
+        if (!unknown_instanceId) return value_instanceId;
+        throw new UndeferrableValueException("Value 'UserHierarchyStructure.instanceId' is not present");
     }
 
 }

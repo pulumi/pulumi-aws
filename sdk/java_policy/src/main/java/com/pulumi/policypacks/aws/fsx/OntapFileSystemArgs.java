@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.fsx.inputs.OntapFileSystemDiskIopsConfigurationArgs;
 import java.lang.Integer;
@@ -20,198 +21,216 @@ public final class OntapFileSystemArgs extends com.pulumi.resources.PolicyResour
      * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
      * 
      */
-    private UndeferrableValue<Integer> automaticBackupRetentionDays;
-
+    @PolicyResourceProperty(name="automaticBackupRetentionDays", flag="unknown_automaticBackupRetentionDays")
+    private Integer value_automaticBackupRetentionDays;
+    private boolean unknown_automaticBackupRetentionDays;
     public Integer automaticBackupRetentionDays() {
-        if (automaticBackupRetentionDays == null) return null;
-        return automaticBackupRetentionDays.getValue("OntapFileSystemArgs.automaticBackupRetentionDays");
+        if (!unknown_automaticBackupRetentionDays) return value_automaticBackupRetentionDays;
+        throw new UndeferrableValueException("Value 'OntapFileSystemArgs.automaticBackupRetentionDays' is not present");
     }
 
     /**
      * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
      * 
      */
-    private UndeferrableValue<String> dailyAutomaticBackupStartTime;
-
+    @PolicyResourceProperty(name="dailyAutomaticBackupStartTime", flag="unknown_dailyAutomaticBackupStartTime")
+    private String value_dailyAutomaticBackupStartTime;
+    private boolean unknown_dailyAutomaticBackupStartTime;
     public String dailyAutomaticBackupStartTime() {
-        if (dailyAutomaticBackupStartTime == null) return null;
-        return dailyAutomaticBackupStartTime.getValue("OntapFileSystemArgs.dailyAutomaticBackupStartTime");
+        if (!unknown_dailyAutomaticBackupStartTime) return value_dailyAutomaticBackupStartTime;
+        throw new UndeferrableValueException("Value 'OntapFileSystemArgs.dailyAutomaticBackupStartTime' is not present");
     }
 
     /**
      * The filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
      * 
      */
-    private UndeferrableValue<String> deploymentType;
-
+    @PolicyResourceProperty(name="deploymentType", flag="unknown_deploymentType")
+    private String value_deploymentType;
+    private boolean unknown_deploymentType;
     public String deploymentType() {
-        if (deploymentType == null) return null;
-        return deploymentType.getValue("OntapFileSystemArgs.deploymentType");
+        if (!unknown_deploymentType) return value_deploymentType;
+        throw new UndeferrableValueException("Value 'OntapFileSystemArgs.deploymentType' is not present");
     }
 
     /**
      * The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
      * 
      */
-    private UndeferrableValue<OntapFileSystemDiskIopsConfigurationArgs> diskIopsConfiguration;
-
+    @PolicyResourceProperty(name="diskIopsConfiguration", flag="unknown_diskIopsConfiguration")
+    private OntapFileSystemDiskIopsConfigurationArgs value_diskIopsConfiguration;
+    private boolean unknown_diskIopsConfiguration;
     public OntapFileSystemDiskIopsConfigurationArgs diskIopsConfiguration() {
-        if (diskIopsConfiguration == null) return null;
-        return diskIopsConfiguration.getValue("OntapFileSystemArgs.diskIopsConfiguration");
+        if (!unknown_diskIopsConfiguration) return value_diskIopsConfiguration;
+        throw new UndeferrableValueException("Value 'OntapFileSystemArgs.diskIopsConfiguration' is not present");
     }
 
     /**
      * Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
      * 
      */
-    private UndeferrableValue<String> endpointIpAddressRange;
-
+    @PolicyResourceProperty(name="endpointIpAddressRange", flag="unknown_endpointIpAddressRange")
+    private String value_endpointIpAddressRange;
+    private boolean unknown_endpointIpAddressRange;
     public String endpointIpAddressRange() {
-        if (endpointIpAddressRange == null) return null;
-        return endpointIpAddressRange.getValue("OntapFileSystemArgs.endpointIpAddressRange");
+        if (!unknown_endpointIpAddressRange) return value_endpointIpAddressRange;
+        throw new UndeferrableValueException("Value 'OntapFileSystemArgs.endpointIpAddressRange' is not present");
     }
 
     /**
      * The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
      * 
      */
-    private UndeferrableValue<String> fsxAdminPassword;
-
+    @PolicyResourceProperty(name="fsxAdminPassword", flag="unknown_fsxAdminPassword")
+    private String value_fsxAdminPassword;
+    private boolean unknown_fsxAdminPassword;
     public String fsxAdminPassword() {
-        if (fsxAdminPassword == null) return null;
-        return fsxAdminPassword.getValue("OntapFileSystemArgs.fsxAdminPassword");
+        if (!unknown_fsxAdminPassword) return value_fsxAdminPassword;
+        throw new UndeferrableValueException("Value 'OntapFileSystemArgs.fsxAdminPassword' is not present");
     }
 
     /**
      * The number of ha_pairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
      * 
      */
-    private UndeferrableValue<Integer> haPairs;
-
+    @PolicyResourceProperty(name="haPairs", flag="unknown_haPairs")
+    private Integer value_haPairs;
+    private boolean unknown_haPairs;
     public Integer haPairs() {
-        if (haPairs == null) return null;
-        return haPairs.getValue("OntapFileSystemArgs.haPairs");
+        if (!unknown_haPairs) return value_haPairs;
+        throw new UndeferrableValueException("Value 'OntapFileSystemArgs.haPairs' is not present");
     }
 
     /**
      * ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("OntapFileSystemArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'OntapFileSystemArgs.kmsKeyId' is not present");
     }
 
     /**
      * The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
      * 
      */
-    private UndeferrableValue<String> preferredSubnetId;
-
+    @PolicyResourceProperty(name="preferredSubnetId", flag="unknown_preferredSubnetId")
+    private String value_preferredSubnetId;
+    private boolean unknown_preferredSubnetId;
     public String preferredSubnetId() {
-        if (preferredSubnetId == null) return null;
-        return preferredSubnetId.getValue("OntapFileSystemArgs.preferredSubnetId");
+        if (!unknown_preferredSubnetId) return value_preferredSubnetId;
+        throw new UndeferrableValueException("Value 'OntapFileSystemArgs.preferredSubnetId' is not present");
     }
 
     /**
      * Specifies the VPC route tables in which your file system&#39;s endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
      * 
      */
-    private UndeferrableValue<List<String>> routeTableIds;
-
+    @PolicyResourceProperty(name="routeTableIds", flag="unknown_routeTableIds")
+    private List<String> value_routeTableIds;
+    private boolean unknown_routeTableIds;
     public List<String> routeTableIds() {
-        if (routeTableIds == null) return null;
-        return routeTableIds.getValue("OntapFileSystemArgs.routeTableIds");
+        if (!unknown_routeTableIds) return value_routeTableIds;
+        throw new UndeferrableValueException("Value 'OntapFileSystemArgs.routeTableIds' is not present");
     }
 
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("OntapFileSystemArgs.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'OntapFileSystemArgs.securityGroupIds' is not present");
     }
 
     /**
      * The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
      * 
      */
-    private UndeferrableValue<Integer> storageCapacity;
-
+    @PolicyResourceProperty(name="storageCapacity", flag="unknown_storageCapacity")
+    private Integer value_storageCapacity;
+    private boolean unknown_storageCapacity;
     public Integer storageCapacity() {
-        if (storageCapacity == null) return null;
-        return storageCapacity.getValue("OntapFileSystemArgs.storageCapacity");
+        if (!unknown_storageCapacity) return value_storageCapacity;
+        throw new UndeferrableValueException("Value 'OntapFileSystemArgs.storageCapacity' is not present");
     }
 
     /**
      * The filesystem storage type. defaults to `SSD`.
      * 
      */
-    private UndeferrableValue<String> storageType;
-
+    @PolicyResourceProperty(name="storageType", flag="unknown_storageType")
+    private String value_storageType;
+    private boolean unknown_storageType;
     public String storageType() {
-        if (storageType == null) return null;
-        return storageType.getValue("OntapFileSystemArgs.storageType");
+        if (!unknown_storageType) return value_storageType;
+        throw new UndeferrableValueException("Value 'OntapFileSystemArgs.storageType' is not present");
     }
 
     /**
      * A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("OntapFileSystemArgs.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'OntapFileSystemArgs.subnetIds' is not present");
     }
 
     /**
      * A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("OntapFileSystemArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'OntapFileSystemArgs.tags' is not present");
     }
 
     /**
      * Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
      * 
      */
-    private UndeferrableValue<Integer> throughputCapacity;
-
+    @PolicyResourceProperty(name="throughputCapacity", flag="unknown_throughputCapacity")
+    private Integer value_throughputCapacity;
+    private boolean unknown_throughputCapacity;
     public Integer throughputCapacity() {
-        if (throughputCapacity == null) return null;
-        return throughputCapacity.getValue("OntapFileSystemArgs.throughputCapacity");
+        if (!unknown_throughputCapacity) return value_throughputCapacity;
+        throw new UndeferrableValueException("Value 'OntapFileSystemArgs.throughputCapacity' is not present");
     }
 
     /**
      * Sets the per-HA-pair throughput capacity (in MBps) for the file system that you&#39;re creating, as opposed to `throughput_capacity` which specifies the total throughput capacity for the file system. Valid value for `MULTI_AZ_1` and `SINGLE_AZ_1` are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values for deployment type `MULTI_AZ_2` and `SINGLE_AZ_2` are `384`,`768`,`1536`,`3072`,`6144` where `ha_pairs` is `1`. Valid values for deployment type `SINGLE_AZ_2` are `1536`, `3072`, and `6144` where `ha_pairs` is greater than 1. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
      * 
      */
-    private UndeferrableValue<Integer> throughputCapacityPerHaPair;
-
+    @PolicyResourceProperty(name="throughputCapacityPerHaPair", flag="unknown_throughputCapacityPerHaPair")
+    private Integer value_throughputCapacityPerHaPair;
+    private boolean unknown_throughputCapacityPerHaPair;
     public Integer throughputCapacityPerHaPair() {
-        if (throughputCapacityPerHaPair == null) return null;
-        return throughputCapacityPerHaPair.getValue("OntapFileSystemArgs.throughputCapacityPerHaPair");
+        if (!unknown_throughputCapacityPerHaPair) return value_throughputCapacityPerHaPair;
+        throw new UndeferrableValueException("Value 'OntapFileSystemArgs.throughputCapacityPerHaPair' is not present");
     }
 
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
-    private UndeferrableValue<String> weeklyMaintenanceStartTime;
-
+    @PolicyResourceProperty(name="weeklyMaintenanceStartTime", flag="unknown_weeklyMaintenanceStartTime")
+    private String value_weeklyMaintenanceStartTime;
+    private boolean unknown_weeklyMaintenanceStartTime;
     public String weeklyMaintenanceStartTime() {
-        if (weeklyMaintenanceStartTime == null) return null;
-        return weeklyMaintenanceStartTime.getValue("OntapFileSystemArgs.weeklyMaintenanceStartTime");
+        if (!unknown_weeklyMaintenanceStartTime) return value_weeklyMaintenanceStartTime;
+        throw new UndeferrableValueException("Value 'OntapFileSystemArgs.weeklyMaintenanceStartTime' is not present");
     }
 
 }

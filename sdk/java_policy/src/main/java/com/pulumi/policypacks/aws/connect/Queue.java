@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.connect.outputs.QueueOutboundCallerConfig;
 import java.lang.Integer;
@@ -20,121 +21,132 @@ public final class Queue extends com.pulumi.resources.PolicyResourceOutput {
      * The Amazon Resource Name (ARN) of the Queue.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Queue.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Queue.arn' is not present");
     }
 
     /**
      * Specifies the description of the Queue.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Queue.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Queue.description' is not present");
     }
 
     /**
      * Specifies the identifier of the Hours of Operation.
      * 
      */
-    private UndeferrableValue<String> hoursOfOperationId;
-
+    @PolicyResourceProperty(name="hoursOfOperationId", flag="unknown_hoursOfOperationId")
+    private String value_hoursOfOperationId;
+    private boolean unknown_hoursOfOperationId;
     public String hoursOfOperationId() {
-        if (hoursOfOperationId == null) return null;
-        return hoursOfOperationId.getValue("Queue.hoursOfOperationId");
+        if (!unknown_hoursOfOperationId) return value_hoursOfOperationId;
+        throw new UndeferrableValueException("Value 'Queue.hoursOfOperationId' is not present");
     }
 
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    private UndeferrableValue<String> instanceId;
-
+    @PolicyResourceProperty(name="instanceId", flag="unknown_instanceId")
+    private String value_instanceId;
+    private boolean unknown_instanceId;
     public String instanceId() {
-        if (instanceId == null) return null;
-        return instanceId.getValue("Queue.instanceId");
+        if (!unknown_instanceId) return value_instanceId;
+        throw new UndeferrableValueException("Value 'Queue.instanceId' is not present");
     }
 
     /**
      * Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxContacts;
-
+    @PolicyResourceProperty(name="maxContacts", flag="unknown_maxContacts")
+    private @Nullable Integer value_maxContacts;
+    private boolean unknown_maxContacts;
     public @Nullable Integer maxContacts() {
-        if (maxContacts == null) return null;
-        return maxContacts.getValue("Queue.maxContacts");
+        if (!unknown_maxContacts) return value_maxContacts;
+        throw new UndeferrableValueException("Value 'Queue.maxContacts' is not present");
     }
 
     /**
      * Specifies the name of the Queue.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Queue.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Queue.name' is not present");
     }
 
     /**
      * A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
      * 
      */
-    private @Nullable UndeferrableValue<QueueOutboundCallerConfig> outboundCallerConfig;
-
+    @PolicyResourceProperty(name="outboundCallerConfig", flag="unknown_outboundCallerConfig")
+    private @Nullable QueueOutboundCallerConfig value_outboundCallerConfig;
+    private boolean unknown_outboundCallerConfig;
     public @Nullable QueueOutboundCallerConfig outboundCallerConfig() {
-        if (outboundCallerConfig == null) return null;
-        return outboundCallerConfig.getValue("Queue.outboundCallerConfig");
+        if (!unknown_outboundCallerConfig) return value_outboundCallerConfig;
+        throw new UndeferrableValueException("Value 'Queue.outboundCallerConfig' is not present");
     }
 
     /**
      * The identifier for the Queue.
      * 
      */
-    private UndeferrableValue<String> queueId;
-
+    @PolicyResourceProperty(name="queueId", flag="unknown_queueId")
+    private String value_queueId;
+    private boolean unknown_queueId;
     public String queueId() {
-        if (queueId == null) return null;
-        return queueId.getValue("Queue.queueId");
+        if (!unknown_queueId) return value_queueId;
+        throw new UndeferrableValueException("Value 'Queue.queueId' is not present");
     }
 
     /**
      * Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> quickConnectIds;
-
+    @PolicyResourceProperty(name="quickConnectIds", flag="unknown_quickConnectIds")
+    private @Nullable List<String> value_quickConnectIds;
+    private boolean unknown_quickConnectIds;
     public @Nullable List<String> quickConnectIds() {
-        if (quickConnectIds == null) return null;
-        return quickConnectIds.getValue("Queue.quickConnectIds");
+        if (!unknown_quickConnectIds) return value_quickConnectIds;
+        throw new UndeferrableValueException("Value 'Queue.quickConnectIds' is not present");
     }
 
     /**
      * Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Queue.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Queue.status' is not present");
     }
 
     /**
      * Tags to apply to the Queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Queue.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Queue.tags' is not present");
     }
 
     /**
@@ -145,11 +157,12 @@ public final class Queue extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Queue.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Queue.tagsAll' is not present");
     }
 
 }

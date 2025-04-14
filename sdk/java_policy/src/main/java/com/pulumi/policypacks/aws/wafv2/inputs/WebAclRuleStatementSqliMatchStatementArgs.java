@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementSqliMatchStatementFieldToMatchArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementSqliMatchStatementTextTransformationArgs;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class WebAclRuleStatementSqliMatchStatementArgs {
      * Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementSqliMatchStatementFieldToMatchArgs> fieldToMatch;
-
+    @PolicyResourceProperty(name="fieldToMatch", flag="unknown_fieldToMatch")
+    private WebAclRuleStatementSqliMatchStatementFieldToMatchArgs value_fieldToMatch;
+    private boolean unknown_fieldToMatch;
     public WebAclRuleStatementSqliMatchStatementFieldToMatchArgs fieldToMatch() {
-        if (fieldToMatch == null) return null;
-        return fieldToMatch.getValue("WebAclRuleStatementSqliMatchStatementArgs.fieldToMatch");
+        if (!unknown_fieldToMatch) return value_fieldToMatch;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementArgs.fieldToMatch' is not present");
     }
 
     /**
      * Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
      * 
      */
-    private UndeferrableValue<String> sensitivityLevel;
-
+    @PolicyResourceProperty(name="sensitivityLevel", flag="unknown_sensitivityLevel")
+    private String value_sensitivityLevel;
+    private boolean unknown_sensitivityLevel;
     public String sensitivityLevel() {
-        if (sensitivityLevel == null) return null;
-        return sensitivityLevel.getValue("WebAclRuleStatementSqliMatchStatementArgs.sensitivityLevel");
+        if (!unknown_sensitivityLevel) return value_sensitivityLevel;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementArgs.sensitivityLevel' is not present");
     }
 
     /**
      * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
      * 
      */
-    private UndeferrableValue<List<WebAclRuleStatementSqliMatchStatementTextTransformationArgs>> textTransformations;
-
+    @PolicyResourceProperty(name="textTransformations", flag="unknown_textTransformations")
+    private List<WebAclRuleStatementSqliMatchStatementTextTransformationArgs> value_textTransformations;
+    private boolean unknown_textTransformations;
     public List<WebAclRuleStatementSqliMatchStatementTextTransformationArgs> textTransformations() {
-        if (textTransformations == null) return null;
-        return textTransformations.getValue("WebAclRuleStatementSqliMatchStatementArgs.textTransformations");
+        if (!unknown_textTransformations) return value_textTransformations;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSqliMatchStatementArgs.textTransformations' is not present");
     }
 
 }

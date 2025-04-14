@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.outputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInput;
 import com.pulumi.policypacks.aws.sagemaker.outputs.DataQualityJobDefinitionDataQualityJobInputEndpointInput;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DataQualityJobDefinitionDataQualityJobInput {
      * Input object for the batch transform job. Fields are documented below.
      * 
      */
-    private @Nullable UndeferrableValue<DataQualityJobDefinitionDataQualityJobInputBatchTransformInput> batchTransformInput;
-
+    @PolicyResourceProperty(name="batchTransformInput", flag="unknown_batchTransformInput")
+    private @Nullable DataQualityJobDefinitionDataQualityJobInputBatchTransformInput value_batchTransformInput;
+    private boolean unknown_batchTransformInput;
     public @Nullable DataQualityJobDefinitionDataQualityJobInputBatchTransformInput batchTransformInput() {
-        if (batchTransformInput == null) return null;
-        return batchTransformInput.getValue("DataQualityJobDefinitionDataQualityJobInput.batchTransformInput");
+        if (!unknown_batchTransformInput) return value_batchTransformInput;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInput.batchTransformInput' is not present");
     }
 
     /**
      * Input object for the endpoint. Fields are documented below.
      * 
      */
-    private @Nullable UndeferrableValue<DataQualityJobDefinitionDataQualityJobInputEndpointInput> endpointInput;
-
+    @PolicyResourceProperty(name="endpointInput", flag="unknown_endpointInput")
+    private @Nullable DataQualityJobDefinitionDataQualityJobInputEndpointInput value_endpointInput;
+    private boolean unknown_endpointInput;
     public @Nullable DataQualityJobDefinitionDataQualityJobInputEndpointInput endpointInput() {
-        if (endpointInput == null) return null;
-        return endpointInput.getValue("DataQualityJobDefinitionDataQualityJobInput.endpointInput");
+        if (!unknown_endpointInput) return value_endpointInput;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInput.endpointInput' is not present");
     }
 
 }

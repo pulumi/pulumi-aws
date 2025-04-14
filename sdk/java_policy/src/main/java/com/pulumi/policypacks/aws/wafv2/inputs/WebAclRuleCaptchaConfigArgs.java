@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleCaptchaConfigImmunityTimePropertyArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class WebAclRuleCaptchaConfigArgs {
      * Defines custom immunity time. See `immunity_time_property` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleCaptchaConfigImmunityTimePropertyArgs> immunityTimeProperty;
-
+    @PolicyResourceProperty(name="immunityTimeProperty", flag="unknown_immunityTimeProperty")
+    private WebAclRuleCaptchaConfigImmunityTimePropertyArgs value_immunityTimeProperty;
+    private boolean unknown_immunityTimeProperty;
     public WebAclRuleCaptchaConfigImmunityTimePropertyArgs immunityTimeProperty() {
-        if (immunityTimeProperty == null) return null;
-        return immunityTimeProperty.getValue("WebAclRuleCaptchaConfigArgs.immunityTimeProperty");
+        if (!unknown_immunityTimeProperty) return value_immunityTimeProperty;
+        throw new UndeferrableValueException("Value 'WebAclRuleCaptchaConfigArgs.immunityTimeProperty' is not present");
     }
 
 }

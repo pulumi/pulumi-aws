@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class UserHomeDirectoryMappingArgs {
      * Represents an entry and a target.
      * 
      */
-    private UndeferrableValue<String> entry;
-
+    @PolicyResourceProperty(name="entry", flag="unknown_entry")
+    private String value_entry;
+    private boolean unknown_entry;
     public String entry() {
-        if (entry == null) return null;
-        return entry.getValue("UserHomeDirectoryMappingArgs.entry");
+        if (!unknown_entry) return value_entry;
+        throw new UndeferrableValueException("Value 'UserHomeDirectoryMappingArgs.entry' is not present");
     }
 
     /**
@@ -26,11 +28,12 @@ public final class UserHomeDirectoryMappingArgs {
      * The `Restricted` option is achieved using the following mapping:
      * 
      */
-    private UndeferrableValue<String> target;
-
+    @PolicyResourceProperty(name="target", flag="unknown_target")
+    private String value_target;
+    private boolean unknown_target;
     public String target() {
-        if (target == null) return null;
-        return target.getValue("UserHomeDirectoryMappingArgs.target");
+        if (!unknown_target) return value_target;
+        throw new UndeferrableValueException("Value 'UserHomeDirectoryMappingArgs.target' is not present");
     }
 
 }

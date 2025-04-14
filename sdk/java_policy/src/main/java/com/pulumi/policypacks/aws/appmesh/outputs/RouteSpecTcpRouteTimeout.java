@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.RouteSpecTcpRouteTimeoutIdle;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class RouteSpecTcpRouteTimeout {
      * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
      * 
      */
-    private @Nullable UndeferrableValue<RouteSpecTcpRouteTimeoutIdle> idle;
-
+    @PolicyResourceProperty(name="idle", flag="unknown_idle")
+    private @Nullable RouteSpecTcpRouteTimeoutIdle value_idle;
+    private boolean unknown_idle;
     public @Nullable RouteSpecTcpRouteTimeoutIdle idle() {
-        if (idle == null) return null;
-        return idle.getValue("RouteSpecTcpRouteTimeout.idle");
+        if (!unknown_idle) return value_idle;
+        throw new UndeferrableValueException("Value 'RouteSpecTcpRouteTimeout.idle' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.glue.inputs.TriggerActionArgs;
 import com.pulumi.policypacks.aws.glue.inputs.TriggerEventBatchingConditionArgs;
@@ -22,121 +23,132 @@ public final class TriggerArgs extends com.pulumi.resources.PolicyResourceInput 
      * List of actions initiated by this trigger when it fires. See Actions Below.
      * 
      */
-    private UndeferrableValue<List<TriggerActionArgs>> actions;
-
+    @PolicyResourceProperty(name="actions", flag="unknown_actions")
+    private List<TriggerActionArgs> value_actions;
+    private boolean unknown_actions;
     public List<TriggerActionArgs> actions() {
-        if (actions == null) return null;
-        return actions.getValue("TriggerArgs.actions");
+        if (!unknown_actions) return value_actions;
+        throw new UndeferrableValueException("Value 'TriggerArgs.actions' is not present");
     }
 
     /**
      * A description of the new trigger.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("TriggerArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'TriggerArgs.description' is not present");
     }
 
     /**
      * Start the trigger. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("TriggerArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'TriggerArgs.enabled' is not present");
     }
 
     /**
      * Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
      * 
      */
-    private UndeferrableValue<List<TriggerEventBatchingConditionArgs>> eventBatchingConditions;
-
+    @PolicyResourceProperty(name="eventBatchingConditions", flag="unknown_eventBatchingConditions")
+    private List<TriggerEventBatchingConditionArgs> value_eventBatchingConditions;
+    private boolean unknown_eventBatchingConditions;
     public List<TriggerEventBatchingConditionArgs> eventBatchingConditions() {
-        if (eventBatchingConditions == null) return null;
-        return eventBatchingConditions.getValue("TriggerArgs.eventBatchingConditions");
+        if (!unknown_eventBatchingConditions) return value_eventBatchingConditions;
+        throw new UndeferrableValueException("Value 'TriggerArgs.eventBatchingConditions' is not present");
     }
 
     /**
      * The name of the trigger.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TriggerArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TriggerArgs.name' is not present");
     }
 
     /**
      * A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
      * 
      */
-    private UndeferrableValue<TriggerPredicateArgs> predicate;
-
+    @PolicyResourceProperty(name="predicate", flag="unknown_predicate")
+    private TriggerPredicateArgs value_predicate;
+    private boolean unknown_predicate;
     public TriggerPredicateArgs predicate() {
-        if (predicate == null) return null;
-        return predicate.getValue("TriggerArgs.predicate");
+        if (!unknown_predicate) return value_predicate;
+        throw new UndeferrableValueException("Value 'TriggerArgs.predicate' is not present");
     }
 
     /**
      * A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
      * 
      */
-    private UndeferrableValue<String> schedule;
-
+    @PolicyResourceProperty(name="schedule", flag="unknown_schedule")
+    private String value_schedule;
+    private boolean unknown_schedule;
     public String schedule() {
-        if (schedule == null) return null;
-        return schedule.getValue("TriggerArgs.schedule");
+        if (!unknown_schedule) return value_schedule;
+        throw new UndeferrableValueException("Value 'TriggerArgs.schedule' is not present");
     }
 
     /**
      * Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
      * 
      */
-    private UndeferrableValue<Boolean> startOnCreation;
-
+    @PolicyResourceProperty(name="startOnCreation", flag="unknown_startOnCreation")
+    private Boolean value_startOnCreation;
+    private boolean unknown_startOnCreation;
     public Boolean startOnCreation() {
-        if (startOnCreation == null) return null;
-        return startOnCreation.getValue("TriggerArgs.startOnCreation");
+        if (!unknown_startOnCreation) return value_startOnCreation;
+        throw new UndeferrableValueException("Value 'TriggerArgs.startOnCreation' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TriggerArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TriggerArgs.tags' is not present");
     }
 
     /**
      * The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("TriggerArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'TriggerArgs.type' is not present");
     }
 
     /**
      * A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
      * 
      */
-    private UndeferrableValue<String> workflowName;
-
+    @PolicyResourceProperty(name="workflowName", flag="unknown_workflowName")
+    private String value_workflowName;
+    private boolean unknown_workflowName;
     public String workflowName() {
-        if (workflowName == null) return null;
-        return workflowName.getValue("TriggerArgs.workflowName");
+        if (!unknown_workflowName) return value_workflowName;
+        throw new UndeferrableValueException("Value 'TriggerArgs.workflowName' is not present");
     }
 
 }

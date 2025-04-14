@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,22 +14,24 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
      * Maximum number of tokens to include in a chunk.
      * 
      */
-    private UndeferrableValue<Integer> maxTokens;
-
+    @PolicyResourceProperty(name="maxTokens", flag="unknown_maxTokens")
+    private Integer value_maxTokens;
+    private boolean unknown_maxTokens;
     public Integer maxTokens() {
-        if (maxTokens == null) return null;
-        return maxTokens.getValue("AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs.maxTokens");
+        if (!unknown_maxTokens) return value_maxTokens;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs.maxTokens' is not present");
     }
 
     /**
      * Percentage of overlap between adjacent chunks of a data source.
      * 
      */
-    private UndeferrableValue<Integer> overlapPercentage;
-
+    @PolicyResourceProperty(name="overlapPercentage", flag="unknown_overlapPercentage")
+    private Integer value_overlapPercentage;
+    private boolean unknown_overlapPercentage;
     public Integer overlapPercentage() {
-        if (overlapPercentage == null) return null;
-        return overlapPercentage.getValue("AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs.overlapPercentage");
+        if (!unknown_overlapPercentage) return value_overlapPercentage;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs.overlapPercentage' is not present");
     }
 
 }

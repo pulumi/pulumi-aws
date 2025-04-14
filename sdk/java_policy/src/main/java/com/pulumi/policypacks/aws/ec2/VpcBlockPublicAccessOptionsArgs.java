@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.inputs.VpcBlockPublicAccessOptionsTimeoutsArgs;
 import java.lang.String;
@@ -17,18 +18,20 @@ public final class VpcBlockPublicAccessOptionsArgs extends com.pulumi.resources.
      * Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
      * 
      */
-    private UndeferrableValue<String> internetGatewayBlockMode;
-
+    @PolicyResourceProperty(name="internetGatewayBlockMode", flag="unknown_internetGatewayBlockMode")
+    private String value_internetGatewayBlockMode;
+    private boolean unknown_internetGatewayBlockMode;
     public String internetGatewayBlockMode() {
-        if (internetGatewayBlockMode == null) return null;
-        return internetGatewayBlockMode.getValue("VpcBlockPublicAccessOptionsArgs.internetGatewayBlockMode");
+        if (!unknown_internetGatewayBlockMode) return value_internetGatewayBlockMode;
+        throw new UndeferrableValueException("Value 'VpcBlockPublicAccessOptionsArgs.internetGatewayBlockMode' is not present");
     }
 
-    private UndeferrableValue<VpcBlockPublicAccessOptionsTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private VpcBlockPublicAccessOptionsTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public VpcBlockPublicAccessOptionsTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("VpcBlockPublicAccessOptionsArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'VpcBlockPublicAccessOptionsArgs.timeouts' is not present");
     }
 
 }

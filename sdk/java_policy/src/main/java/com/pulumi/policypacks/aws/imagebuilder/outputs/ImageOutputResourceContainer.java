@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ImageOutputResourceContainer {
      * Set of URIs for created containers.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> imageUris;
-
+    @PolicyResourceProperty(name="imageUris", flag="unknown_imageUris")
+    private @Nullable List<String> value_imageUris;
+    private boolean unknown_imageUris;
     public @Nullable List<String> imageUris() {
-        if (imageUris == null) return null;
-        return imageUris.getValue("ImageOutputResourceContainer.imageUris");
+        if (!unknown_imageUris) return value_imageUris;
+        throw new UndeferrableValueException("Value 'ImageOutputResourceContainer.imageUris' is not present");
     }
 
     /**
      * Region of the container image.
      * 
      */
-    private @Nullable UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private @Nullable String value_region;
+    private boolean unknown_region;
     public @Nullable String region() {
-        if (region == null) return null;
-        return region.getValue("ImageOutputResourceContainer.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'ImageOutputResourceContainer.region' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class FrameworkControlInputParameter {
      * The name of a parameter, for example, BackupPlanFrequency.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("FrameworkControlInputParameter.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FrameworkControlInputParameter.name' is not present");
     }
 
     /**
      * The value of parameter, for example, hourly.
      * 
      */
-    private @Nullable UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private @Nullable String value_value;
+    private boolean unknown_value;
     public @Nullable String value() {
-        if (value == null) return null;
-        return value.getValue("FrameworkControlInputParameter.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'FrameworkControlInputParameter.value' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,165 +16,180 @@ public final class TaskOptions {
      * A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
      * 
      */
-    private @Nullable UndeferrableValue<String> atime;
-
+    @PolicyResourceProperty(name="atime", flag="unknown_atime")
+    private @Nullable String value_atime;
+    private boolean unknown_atime;
     public @Nullable String atime() {
-        if (atime == null) return null;
-        return atime.getValue("TaskOptions.atime");
+        if (!unknown_atime) return value_atime;
+        throw new UndeferrableValueException("Value 'TaskOptions.atime' is not present");
     }
 
     /**
      * Limits the bandwidth utilized. For example, to set a maximum of 1 MB, set this value to `1048576`. Value values: `-1` or greater. Default: `-1` (unlimited).
      * 
      */
-    private @Nullable UndeferrableValue<Integer> bytesPerSecond;
-
+    @PolicyResourceProperty(name="bytesPerSecond", flag="unknown_bytesPerSecond")
+    private @Nullable Integer value_bytesPerSecond;
+    private boolean unknown_bytesPerSecond;
     public @Nullable Integer bytesPerSecond() {
-        if (bytesPerSecond == null) return null;
-        return bytesPerSecond.getValue("TaskOptions.bytesPerSecond");
+        if (!unknown_bytesPerSecond) return value_bytesPerSecond;
+        throw new UndeferrableValueException("Value 'TaskOptions.bytesPerSecond' is not present");
     }
 
     /**
      * Group identifier of the file&#39;s owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
      * 
      */
-    private @Nullable UndeferrableValue<String> gid;
-
+    @PolicyResourceProperty(name="gid", flag="unknown_gid")
+    private @Nullable String value_gid;
+    private boolean unknown_gid;
     public @Nullable String gid() {
-        if (gid == null) return null;
-        return gid.getValue("TaskOptions.gid");
+        if (!unknown_gid) return value_gid;
+        throw new UndeferrableValueException("Value 'TaskOptions.gid' is not present");
     }
 
     /**
      * Determines the type of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide. Valid values: `OFF`, `BASIC`, `TRANSFER`. Default: `OFF`.
      * 
      */
-    private @Nullable UndeferrableValue<String> logLevel;
-
+    @PolicyResourceProperty(name="logLevel", flag="unknown_logLevel")
+    private @Nullable String value_logLevel;
+    private boolean unknown_logLevel;
     public @Nullable String logLevel() {
-        if (logLevel == null) return null;
-        return logLevel.getValue("TaskOptions.logLevel");
+        if (!unknown_logLevel) return value_logLevel;
+        throw new UndeferrableValueException("Value 'TaskOptions.logLevel' is not present");
     }
 
     /**
      * A file metadata that indicates the last time a file was modified (written to) before the sync `PREPARING` phase. Value values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> mtime;
-
+    @PolicyResourceProperty(name="mtime", flag="unknown_mtime")
+    private @Nullable String value_mtime;
+    private boolean unknown_mtime;
     public @Nullable String mtime() {
-        if (mtime == null) return null;
-        return mtime.getValue("TaskOptions.mtime");
+        if (!unknown_mtime) return value_mtime;
+        throw new UndeferrableValueException("Value 'TaskOptions.mtime' is not present");
     }
 
     /**
      * Specifies whether object tags are maintained when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the NONE value. Valid values: `PRESERVE`, `NONE`. Default value: `PRESERVE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> objectTags;
-
+    @PolicyResourceProperty(name="objectTags", flag="unknown_objectTags")
+    private @Nullable String value_objectTags;
+    private boolean unknown_objectTags;
     public @Nullable String objectTags() {
-        if (objectTags == null) return null;
-        return objectTags.getValue("TaskOptions.objectTags");
+        if (!unknown_objectTags) return value_objectTags;
+        throw new UndeferrableValueException("Value 'TaskOptions.objectTags' is not present");
     }
 
     /**
      * Determines whether files at the destination should be overwritten or preserved when copying files. Valid values: `ALWAYS`, `NEVER`. Default: `ALWAYS`.
      * 
      */
-    private @Nullable UndeferrableValue<String> overwriteMode;
-
+    @PolicyResourceProperty(name="overwriteMode", flag="unknown_overwriteMode")
+    private @Nullable String value_overwriteMode;
+    private boolean unknown_overwriteMode;
     public @Nullable String overwriteMode() {
-        if (overwriteMode == null) return null;
-        return overwriteMode.getValue("TaskOptions.overwriteMode");
+        if (!unknown_overwriteMode) return value_overwriteMode;
+        throw new UndeferrableValueException("Value 'TaskOptions.overwriteMode' is not present");
     }
 
     /**
      * Determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file. Valid values: `NONE`, `PRESERVE`. Default: `PRESERVE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> posixPermissions;
-
+    @PolicyResourceProperty(name="posixPermissions", flag="unknown_posixPermissions")
+    private @Nullable String value_posixPermissions;
+    private boolean unknown_posixPermissions;
     public @Nullable String posixPermissions() {
-        if (posixPermissions == null) return null;
-        return posixPermissions.getValue("TaskOptions.posixPermissions");
+        if (!unknown_posixPermissions) return value_posixPermissions;
+        throw new UndeferrableValueException("Value 'TaskOptions.posixPermissions' is not present");
     }
 
     /**
      * Whether files deleted in the source should be removed or preserved in the destination file system. Valid values: `PRESERVE`, `REMOVE`. Default: `PRESERVE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> preserveDeletedFiles;
-
+    @PolicyResourceProperty(name="preserveDeletedFiles", flag="unknown_preserveDeletedFiles")
+    private @Nullable String value_preserveDeletedFiles;
+    private boolean unknown_preserveDeletedFiles;
     public @Nullable String preserveDeletedFiles() {
-        if (preserveDeletedFiles == null) return null;
-        return preserveDeletedFiles.getValue("TaskOptions.preserveDeletedFiles");
+        if (!unknown_preserveDeletedFiles) return value_preserveDeletedFiles;
+        throw new UndeferrableValueException("Value 'TaskOptions.preserveDeletedFiles' is not present");
     }
 
     /**
      * Whether the DataSync Task should preserve the metadata of block and character devices in the source files system, and recreate the files with that device name and metadata on the destination. The DataSync Task can’t sync the actual contents of such devices, because many of the devices are non-terminal and don’t return an end of file (EOF) marker. Valid values: `NONE`, `PRESERVE`. Default: `NONE` (ignore special devices).
      * 
      */
-    private @Nullable UndeferrableValue<String> preserveDevices;
-
+    @PolicyResourceProperty(name="preserveDevices", flag="unknown_preserveDevices")
+    private @Nullable String value_preserveDevices;
+    private boolean unknown_preserveDevices;
     public @Nullable String preserveDevices() {
-        if (preserveDevices == null) return null;
-        return preserveDevices.getValue("TaskOptions.preserveDevices");
+        if (!unknown_preserveDevices) return value_preserveDevices;
+        throw new UndeferrableValueException("Value 'TaskOptions.preserveDevices' is not present");
     }
 
     /**
      * Determines which components of the SMB security descriptor are copied from source to destination objects. This value is only used for transfers between SMB and Amazon FSx for Windows File Server locations, or between two Amazon FSx for Windows File Server locations. Valid values: `NONE`, `OWNER_DACL`, `OWNER_DACL_SACL`. Default: `OWNER_DACL`.
      * 
      */
-    private @Nullable UndeferrableValue<String> securityDescriptorCopyFlags;
-
+    @PolicyResourceProperty(name="securityDescriptorCopyFlags", flag="unknown_securityDescriptorCopyFlags")
+    private @Nullable String value_securityDescriptorCopyFlags;
+    private boolean unknown_securityDescriptorCopyFlags;
     public @Nullable String securityDescriptorCopyFlags() {
-        if (securityDescriptorCopyFlags == null) return null;
-        return securityDescriptorCopyFlags.getValue("TaskOptions.securityDescriptorCopyFlags");
+        if (!unknown_securityDescriptorCopyFlags) return value_securityDescriptorCopyFlags;
+        throw new UndeferrableValueException("Value 'TaskOptions.securityDescriptorCopyFlags' is not present");
     }
 
     /**
      * Determines whether tasks should be queued before executing the tasks. Valid values: `ENABLED`, `DISABLED`. Default `ENABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> taskQueueing;
-
+    @PolicyResourceProperty(name="taskQueueing", flag="unknown_taskQueueing")
+    private @Nullable String value_taskQueueing;
+    private boolean unknown_taskQueueing;
     public @Nullable String taskQueueing() {
-        if (taskQueueing == null) return null;
-        return taskQueueing.getValue("TaskOptions.taskQueueing");
+        if (!unknown_taskQueueing) return value_taskQueueing;
+        throw new UndeferrableValueException("Value 'TaskOptions.taskQueueing' is not present");
     }
 
     /**
      * Determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location. Valid values: `CHANGED`, `ALL`. Default: `CHANGED`
      * 
      */
-    private @Nullable UndeferrableValue<String> transferMode;
-
+    @PolicyResourceProperty(name="transferMode", flag="unknown_transferMode")
+    private @Nullable String value_transferMode;
+    private boolean unknown_transferMode;
     public @Nullable String transferMode() {
-        if (transferMode == null) return null;
-        return transferMode.getValue("TaskOptions.transferMode");
+        if (!unknown_transferMode) return value_transferMode;
+        throw new UndeferrableValueException("Value 'TaskOptions.transferMode' is not present");
     }
 
     /**
      * User identifier of the file&#39;s owners. Valid values: `BOTH`, `INT_VALUE`, `NAME`, `NONE`. Default: `INT_VALUE` (preserve integer value of the ID).
      * 
      */
-    private @Nullable UndeferrableValue<String> uid;
-
+    @PolicyResourceProperty(name="uid", flag="unknown_uid")
+    private @Nullable String value_uid;
+    private boolean unknown_uid;
     public @Nullable String uid() {
-        if (uid == null) return null;
-        return uid.getValue("TaskOptions.uid");
+        if (!unknown_uid) return value_uid;
+        throw new UndeferrableValueException("Value 'TaskOptions.uid' is not present");
     }
 
     /**
      * Whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred. Valid values: `NONE`, `POINT_IN_TIME_CONSISTENT`, `ONLY_FILES_TRANSFERRED`. Default: `POINT_IN_TIME_CONSISTENT`.
      * 
      */
-    private @Nullable UndeferrableValue<String> verifyMode;
-
+    @PolicyResourceProperty(name="verifyMode", flag="unknown_verifyMode")
+    private @Nullable String value_verifyMode;
+    private boolean unknown_verifyMode;
     public @Nullable String verifyMode() {
-        if (verifyMode == null) return null;
-        return verifyMode.getValue("TaskOptions.verifyMode");
+        if (!unknown_verifyMode) return value_verifyMode;
+        throw new UndeferrableValueException("Value 'TaskOptions.verifyMode' is not present");
     }
 
 }

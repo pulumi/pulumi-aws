@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs;
 import com.pulumi.policypacks.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideArgs {
      * Override the instance type in the Launch Template with instance types that satisfy the requirements.
      * 
      */
-    private UndeferrableValue<GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs> instanceRequirements;
-
+    @PolicyResourceProperty(name="instanceRequirements", flag="unknown_instanceRequirements")
+    private GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs value_instanceRequirements;
+    private boolean unknown_instanceRequirements;
     public GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs instanceRequirements() {
-        if (instanceRequirements == null) return null;
-        return instanceRequirements.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.instanceRequirements");
+        if (!unknown_instanceRequirements) return value_instanceRequirements;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.instanceRequirements' is not present");
     }
 
     /**
      * Override the instance type in the Launch Template.
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.instanceType' is not present");
     }
 
     /**
      * Override the instance launch template specification in the Launch Template.
      * 
      */
-    private UndeferrableValue<GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs> launchTemplateSpecification;
-
+    @PolicyResourceProperty(name="launchTemplateSpecification", flag="unknown_launchTemplateSpecification")
+    private GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs value_launchTemplateSpecification;
+    private boolean unknown_launchTemplateSpecification;
     public GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs launchTemplateSpecification() {
-        if (launchTemplateSpecification == null) return null;
-        return launchTemplateSpecification.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.launchTemplateSpecification");
+        if (!unknown_launchTemplateSpecification) return value_launchTemplateSpecification;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.launchTemplateSpecification' is not present");
     }
 
     /**
      * Number of capacity units, which gives the instance type a proportional weight to other instance types.
      * 
      */
-    private UndeferrableValue<String> weightedCapacity;
-
+    @PolicyResourceProperty(name="weightedCapacity", flag="unknown_weightedCapacity")
+    private String value_weightedCapacity;
+    private boolean unknown_weightedCapacity;
     public String weightedCapacity() {
-        if (weightedCapacity == null) return null;
-        return weightedCapacity.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.weightedCapacity");
+        if (!unknown_weightedCapacity) return value_weightedCapacity;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.weightedCapacity' is not present");
     }
 
 }

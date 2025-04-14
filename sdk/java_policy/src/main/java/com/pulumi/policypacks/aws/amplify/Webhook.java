@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.amplify;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,55 +17,60 @@ public final class Webhook extends com.pulumi.resources.PolicyResourceOutput {
      * Unique ID for an Amplify app.
      * 
      */
-    private UndeferrableValue<String> appId;
-
+    @PolicyResourceProperty(name="appId", flag="unknown_appId")
+    private String value_appId;
+    private boolean unknown_appId;
     public String appId() {
-        if (appId == null) return null;
-        return appId.getValue("Webhook.appId");
+        if (!unknown_appId) return value_appId;
+        throw new UndeferrableValueException("Value 'Webhook.appId' is not present");
     }
 
     /**
      * ARN for the webhook.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Webhook.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Webhook.arn' is not present");
     }
 
     /**
      * Name for a branch that is part of the Amplify app.
      * 
      */
-    private UndeferrableValue<String> branchName;
-
+    @PolicyResourceProperty(name="branchName", flag="unknown_branchName")
+    private String value_branchName;
+    private boolean unknown_branchName;
     public String branchName() {
-        if (branchName == null) return null;
-        return branchName.getValue("Webhook.branchName");
+        if (!unknown_branchName) return value_branchName;
+        throw new UndeferrableValueException("Value 'Webhook.branchName' is not present");
     }
 
     /**
      * Description for a webhook.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Webhook.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Webhook.description' is not present");
     }
 
     /**
      * URL of the webhook.
      * 
      */
-    private UndeferrableValue<String> url;
-
+    @PolicyResourceProperty(name="url", flag="unknown_url")
+    private String value_url;
+    private boolean unknown_url;
     public String url() {
-        if (url == null) return null;
-        return url.getValue("Webhook.url");
+        if (!unknown_url) return value_url;
+        throw new UndeferrableValueException("Value 'Webhook.url' is not present");
     }
 
 }

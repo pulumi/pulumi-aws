@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -19,110 +20,120 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.PolicyResourceI
      * Whether to copy existing tags. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> copyTags;
-
+    @PolicyResourceProperty(name="copyTags", flag="unknown_copyTags")
+    private Boolean value_copyTags;
+    private boolean unknown_copyTags;
     public Boolean copyTags() {
-        if (copyTags == null) return null;
-        return copyTags.getValue("SnapshotCopyArgs.copyTags");
+        if (!unknown_copyTags) return value_copyTags;
+        throw new UndeferrableValueException("Value 'SnapshotCopyArgs.copyTags' is not present");
     }
 
     /**
      * The Destination region to place snapshot copy.
      * 
      */
-    private UndeferrableValue<String> destinationRegion;
-
+    @PolicyResourceProperty(name="destinationRegion", flag="unknown_destinationRegion")
+    private String value_destinationRegion;
+    private boolean unknown_destinationRegion;
     public String destinationRegion() {
-        if (destinationRegion == null) return null;
-        return destinationRegion.getValue("SnapshotCopyArgs.destinationRegion");
+        if (!unknown_destinationRegion) return value_destinationRegion;
+        throw new UndeferrableValueException("Value 'SnapshotCopyArgs.destinationRegion' is not present");
     }
 
     /**
      * KMS key ID.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("SnapshotCopyArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'SnapshotCopyArgs.kmsKeyId' is not present");
     }
 
     /**
      * The name of an option group to associate with the copy of the snapshot.
      * 
      */
-    private UndeferrableValue<String> optionGroupName;
-
+    @PolicyResourceProperty(name="optionGroupName", flag="unknown_optionGroupName")
+    private String value_optionGroupName;
+    private boolean unknown_optionGroupName;
     public String optionGroupName() {
-        if (optionGroupName == null) return null;
-        return optionGroupName.getValue("SnapshotCopyArgs.optionGroupName");
+        if (!unknown_optionGroupName) return value_optionGroupName;
+        throw new UndeferrableValueException("Value 'SnapshotCopyArgs.optionGroupName' is not present");
     }
 
     /**
      * he URL that contains a Signature Version 4 signed request.
      * 
      */
-    private UndeferrableValue<String> presignedUrl;
-
+    @PolicyResourceProperty(name="presignedUrl", flag="unknown_presignedUrl")
+    private String value_presignedUrl;
+    private boolean unknown_presignedUrl;
     public String presignedUrl() {
-        if (presignedUrl == null) return null;
-        return presignedUrl.getValue("SnapshotCopyArgs.presignedUrl");
+        if (!unknown_presignedUrl) return value_presignedUrl;
+        throw new UndeferrableValueException("Value 'SnapshotCopyArgs.presignedUrl' is not present");
     }
 
     /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      * 
      */
-    private UndeferrableValue<List<String>> sharedAccounts;
-
+    @PolicyResourceProperty(name="sharedAccounts", flag="unknown_sharedAccounts")
+    private List<String> value_sharedAccounts;
+    private boolean unknown_sharedAccounts;
     public List<String> sharedAccounts() {
-        if (sharedAccounts == null) return null;
-        return sharedAccounts.getValue("SnapshotCopyArgs.sharedAccounts");
+        if (!unknown_sharedAccounts) return value_sharedAccounts;
+        throw new UndeferrableValueException("Value 'SnapshotCopyArgs.sharedAccounts' is not present");
     }
 
     /**
      * Snapshot identifier of the source snapshot.
      * 
      */
-    private UndeferrableValue<String> sourceDbSnapshotIdentifier;
-
+    @PolicyResourceProperty(name="sourceDbSnapshotIdentifier", flag="unknown_sourceDbSnapshotIdentifier")
+    private String value_sourceDbSnapshotIdentifier;
+    private boolean unknown_sourceDbSnapshotIdentifier;
     public String sourceDbSnapshotIdentifier() {
-        if (sourceDbSnapshotIdentifier == null) return null;
-        return sourceDbSnapshotIdentifier.getValue("SnapshotCopyArgs.sourceDbSnapshotIdentifier");
+        if (!unknown_sourceDbSnapshotIdentifier) return value_sourceDbSnapshotIdentifier;
+        throw new UndeferrableValueException("Value 'SnapshotCopyArgs.sourceDbSnapshotIdentifier' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SnapshotCopyArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SnapshotCopyArgs.tags' is not present");
     }
 
     /**
      * The external custom Availability Zone.
      * 
      */
-    private UndeferrableValue<String> targetCustomAvailabilityZone;
-
+    @PolicyResourceProperty(name="targetCustomAvailabilityZone", flag="unknown_targetCustomAvailabilityZone")
+    private String value_targetCustomAvailabilityZone;
+    private boolean unknown_targetCustomAvailabilityZone;
     public String targetCustomAvailabilityZone() {
-        if (targetCustomAvailabilityZone == null) return null;
-        return targetCustomAvailabilityZone.getValue("SnapshotCopyArgs.targetCustomAvailabilityZone");
+        if (!unknown_targetCustomAvailabilityZone) return value_targetCustomAvailabilityZone;
+        throw new UndeferrableValueException("Value 'SnapshotCopyArgs.targetCustomAvailabilityZone' is not present");
     }
 
     /**
      * The Identifier for the snapshot.
      * 
      */
-    private UndeferrableValue<String> targetDbSnapshotIdentifier;
-
+    @PolicyResourceProperty(name="targetDbSnapshotIdentifier", flag="unknown_targetDbSnapshotIdentifier")
+    private String value_targetDbSnapshotIdentifier;
+    private boolean unknown_targetDbSnapshotIdentifier;
     public String targetDbSnapshotIdentifier() {
-        if (targetDbSnapshotIdentifier == null) return null;
-        return targetDbSnapshotIdentifier.getValue("SnapshotCopyArgs.targetDbSnapshotIdentifier");
+        if (!unknown_targetDbSnapshotIdentifier) return value_targetDbSnapshotIdentifier;
+        throw new UndeferrableValueException("Value 'SnapshotCopyArgs.targetDbSnapshotIdentifier' is not present");
     }
 
 }

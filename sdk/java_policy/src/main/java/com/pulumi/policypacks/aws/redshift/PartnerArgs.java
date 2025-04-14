@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,44 +16,48 @@ public final class PartnerArgs extends com.pulumi.resources.PolicyResourceInput 
      * The Amazon Web Services account ID that owns the cluster.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("PartnerArgs.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'PartnerArgs.accountId' is not present");
     }
 
     /**
      * The cluster identifier of the cluster that receives data from the partner.
      * 
      */
-    private UndeferrableValue<String> clusterIdentifier;
-
+    @PolicyResourceProperty(name="clusterIdentifier", flag="unknown_clusterIdentifier")
+    private String value_clusterIdentifier;
+    private boolean unknown_clusterIdentifier;
     public String clusterIdentifier() {
-        if (clusterIdentifier == null) return null;
-        return clusterIdentifier.getValue("PartnerArgs.clusterIdentifier");
+        if (!unknown_clusterIdentifier) return value_clusterIdentifier;
+        throw new UndeferrableValueException("Value 'PartnerArgs.clusterIdentifier' is not present");
     }
 
     /**
      * The name of the database that receives data from the partner.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("PartnerArgs.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'PartnerArgs.databaseName' is not present");
     }
 
     /**
      * The name of the partner that is authorized to send data.
      * 
      */
-    private UndeferrableValue<String> partnerName;
-
+    @PolicyResourceProperty(name="partnerName", flag="unknown_partnerName")
+    private String value_partnerName;
+    private boolean unknown_partnerName;
     public String partnerName() {
-        if (partnerName == null) return null;
-        return partnerName.getValue("PartnerArgs.partnerName");
+        if (!unknown_partnerName) return value_partnerName;
+        throw new UndeferrableValueException("Value 'PartnerArgs.partnerName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.transfer.outputs.ServerEndpointDetails;
 import com.pulumi.policypacks.aws.transfer.outputs.ServerProtocolDetails;
@@ -23,187 +24,204 @@ public final class Server extends com.pulumi.resources.PolicyResourceOutput {
      * Amazon Resource Name (ARN) of Transfer Server
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Server.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Server.arn' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
      * 
      */
-    private @Nullable UndeferrableValue<String> certificate;
-
+    @PolicyResourceProperty(name="certificate", flag="unknown_certificate")
+    private @Nullable String value_certificate;
+    private boolean unknown_certificate;
     public @Nullable String certificate() {
-        if (certificate == null) return null;
-        return certificate.getValue("Server.certificate");
+        if (!unknown_certificate) return value_certificate;
+        throw new UndeferrableValueException("Value 'Server.certificate' is not present");
     }
 
     /**
      * The directory service ID of the directory service you want to connect to with an `identity_provider_type` of `AWS_DIRECTORY_SERVICE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> directoryId;
-
+    @PolicyResourceProperty(name="directoryId", flag="unknown_directoryId")
+    private @Nullable String value_directoryId;
+    private boolean unknown_directoryId;
     public @Nullable String directoryId() {
-        if (directoryId == null) return null;
-        return directoryId.getValue("Server.directoryId");
+        if (!unknown_directoryId) return value_directoryId;
+        throw new UndeferrableValueException("Value 'Server.directoryId' is not present");
     }
 
     /**
      * The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
      * 
      */
-    private @Nullable UndeferrableValue<String> domain;
-
+    @PolicyResourceProperty(name="domain", flag="unknown_domain")
+    private @Nullable String value_domain;
+    private boolean unknown_domain;
     public @Nullable String domain() {
-        if (domain == null) return null;
-        return domain.getValue("Server.domain");
+        if (!unknown_domain) return value_domain;
+        throw new UndeferrableValueException("Value 'Server.domain' is not present");
     }
 
     /**
      * The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
      * 
      */
-    private UndeferrableValue<String> endpoint;
-
+    @PolicyResourceProperty(name="endpoint", flag="unknown_endpoint")
+    private String value_endpoint;
+    private boolean unknown_endpoint;
     public String endpoint() {
-        if (endpoint == null) return null;
-        return endpoint.getValue("Server.endpoint");
+        if (!unknown_endpoint) return value_endpoint;
+        throw new UndeferrableValueException("Value 'Server.endpoint' is not present");
     }
 
     /**
      * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. See `endpoint_details` Block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<ServerEndpointDetails> endpointDetails;
-
+    @PolicyResourceProperty(name="endpointDetails", flag="unknown_endpointDetails")
+    private @Nullable ServerEndpointDetails value_endpointDetails;
+    private boolean unknown_endpointDetails;
     public @Nullable ServerEndpointDetails endpointDetails() {
-        if (endpointDetails == null) return null;
-        return endpointDetails.getValue("Server.endpointDetails");
+        if (!unknown_endpointDetails) return value_endpointDetails;
+        throw new UndeferrableValueException("Value 'Server.endpointDetails' is not present");
     }
 
     /**
      * The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn&#39;t accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
      * 
      */
-    private @Nullable UndeferrableValue<String> endpointType;
-
+    @PolicyResourceProperty(name="endpointType", flag="unknown_endpointType")
+    private @Nullable String value_endpointType;
+    private boolean unknown_endpointType;
     public @Nullable String endpointType() {
-        if (endpointType == null) return null;
-        return endpointType.getValue("Server.endpointType");
+        if (!unknown_endpointType) return value_endpointType;
+        throw new UndeferrableValueException("Value 'Server.endpointType' is not present");
     }
 
     /**
      * A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identity_provider_type`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> forceDestroy;
-
+    @PolicyResourceProperty(name="forceDestroy", flag="unknown_forceDestroy")
+    private @Nullable Boolean value_forceDestroy;
+    private boolean unknown_forceDestroy;
     public @Nullable Boolean forceDestroy() {
-        if (forceDestroy == null) return null;
-        return forceDestroy.getValue("Server.forceDestroy");
+        if (!unknown_forceDestroy) return value_forceDestroy;
+        throw new UndeferrableValueException("Value 'Server.forceDestroy' is not present");
     }
 
     /**
      * The ARN for a lambda function to use for the Identity provider.
      * 
      */
-    private @Nullable UndeferrableValue<String> function;
-
+    @PolicyResourceProperty(name="function", flag="unknown_function")
+    private @Nullable String value_function;
+    private boolean unknown_function;
     public @Nullable String function() {
-        if (function == null) return null;
-        return function.getValue("Server.function");
+        if (!unknown_function) return value_function;
+        throw new UndeferrableValueException("Value 'Server.function' is not present");
     }
 
     /**
      * RSA, ECDSA, or ED25519 private key (e.g., as generated by the `ssh-keygen -t rsa -b 2048 -N &#34;&#34; -m PEM -f my-new-server-key`, `ssh-keygen -t ecdsa -b 256 -N &#34;&#34; -m PEM -f my-new-server-key` or `ssh-keygen -t ed25519 -N &#34;&#34; -f my-new-server-key` commands).
      * 
      */
-    private @Nullable UndeferrableValue<String> hostKey;
-
+    @PolicyResourceProperty(name="hostKey", flag="unknown_hostKey")
+    private @Nullable String value_hostKey;
+    private boolean unknown_hostKey;
     public @Nullable String hostKey() {
-        if (hostKey == null) return null;
-        return hostKey.getValue("Server.hostKey");
+        if (!unknown_hostKey) return value_hostKey;
+        throw new UndeferrableValueException("Value 'Server.hostKey' is not present");
     }
 
     /**
      * This value contains the message-digest algorithm (MD5) hash of the server&#39;s host key. This value is equivalent to the output of the `ssh-keygen -l -E md5 -f my-new-server-key` command.
      * 
      */
-    private UndeferrableValue<String> hostKeyFingerprint;
-
+    @PolicyResourceProperty(name="hostKeyFingerprint", flag="unknown_hostKeyFingerprint")
+    private String value_hostKeyFingerprint;
+    private boolean unknown_hostKeyFingerprint;
     public String hostKeyFingerprint() {
-        if (hostKeyFingerprint == null) return null;
-        return hostKeyFingerprint.getValue("Server.hostKeyFingerprint");
+        if (!unknown_hostKeyFingerprint) return value_hostKeyFingerprint;
+        throw new UndeferrableValueException("Value 'Server.hostKeyFingerprint' is not present");
     }
 
     /**
      * The mode of authentication enabled for this service. The default value is `SERVICE_MANAGED`, which allows you to store and access SFTP user credentials within the service. `API_GATEWAY` indicates that user authentication requires a call to an API Gateway endpoint URL provided by you to integrate an identity provider of your choice. Using `AWS_DIRECTORY_SERVICE` will allow for authentication against AWS Managed Active Directory or Microsoft Active Directory in your on-premises environment, or in AWS using AD Connectors. Use the `AWS_LAMBDA` value to directly use a Lambda function as your identity provider. If you choose this value, you must specify the ARN for the lambda function in the `function` argument.
      * 
      */
-    private @Nullable UndeferrableValue<String> identityProviderType;
-
+    @PolicyResourceProperty(name="identityProviderType", flag="unknown_identityProviderType")
+    private @Nullable String value_identityProviderType;
+    private boolean unknown_identityProviderType;
     public @Nullable String identityProviderType() {
-        if (identityProviderType == null) return null;
-        return identityProviderType.getValue("Server.identityProviderType");
+        if (!unknown_identityProviderType) return value_identityProviderType;
+        throw new UndeferrableValueException("Value 'Server.identityProviderType' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identity_provider_type` of `API_GATEWAY`.
      * 
      */
-    private @Nullable UndeferrableValue<String> invocationRole;
-
+    @PolicyResourceProperty(name="invocationRole", flag="unknown_invocationRole")
+    private @Nullable String value_invocationRole;
+    private boolean unknown_invocationRole;
     public @Nullable String invocationRole() {
-        if (invocationRole == null) return null;
-        return invocationRole.getValue("Server.invocationRole");
+        if (!unknown_invocationRole) return value_invocationRole;
+        throw new UndeferrableValueException("Value 'Server.invocationRole' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      * 
      */
-    private @Nullable UndeferrableValue<String> loggingRole;
-
+    @PolicyResourceProperty(name="loggingRole", flag="unknown_loggingRole")
+    private @Nullable String value_loggingRole;
+    private boolean unknown_loggingRole;
     public @Nullable String loggingRole() {
-        if (loggingRole == null) return null;
-        return loggingRole.getValue("Server.loggingRole");
+        if (!unknown_loggingRole) return value_loggingRole;
+        throw new UndeferrableValueException("Value 'Server.loggingRole' is not present");
     }
 
     /**
      * Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
      * 
      */
-    private @Nullable UndeferrableValue<String> postAuthenticationLoginBanner;
-
+    @PolicyResourceProperty(name="postAuthenticationLoginBanner", flag="unknown_postAuthenticationLoginBanner")
+    private @Nullable String value_postAuthenticationLoginBanner;
+    private boolean unknown_postAuthenticationLoginBanner;
     public @Nullable String postAuthenticationLoginBanner() {
-        if (postAuthenticationLoginBanner == null) return null;
-        return postAuthenticationLoginBanner.getValue("Server.postAuthenticationLoginBanner");
+        if (!unknown_postAuthenticationLoginBanner) return value_postAuthenticationLoginBanner;
+        throw new UndeferrableValueException("Value 'Server.postAuthenticationLoginBanner' is not present");
     }
 
     /**
      * Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
      * 
      */
-    private @Nullable UndeferrableValue<String> preAuthenticationLoginBanner;
-
+    @PolicyResourceProperty(name="preAuthenticationLoginBanner", flag="unknown_preAuthenticationLoginBanner")
+    private @Nullable String value_preAuthenticationLoginBanner;
+    private boolean unknown_preAuthenticationLoginBanner;
     public @Nullable String preAuthenticationLoginBanner() {
-        if (preAuthenticationLoginBanner == null) return null;
-        return preAuthenticationLoginBanner.getValue("Server.preAuthenticationLoginBanner");
+        if (!unknown_preAuthenticationLoginBanner) return value_preAuthenticationLoginBanner;
+        throw new UndeferrableValueException("Value 'Server.preAuthenticationLoginBanner' is not present");
     }
 
     /**
      * The protocol settings that are configured for your server. See `protocol_details` Block below for details.
      * 
      */
-    private UndeferrableValue<ServerProtocolDetails> protocolDetails;
-
+    @PolicyResourceProperty(name="protocolDetails", flag="unknown_protocolDetails")
+    private ServerProtocolDetails value_protocolDetails;
+    private boolean unknown_protocolDetails;
     public ServerProtocolDetails protocolDetails() {
-        if (protocolDetails == null) return null;
-        return protocolDetails.getValue("Server.protocolDetails");
+        if (!unknown_protocolDetails) return value_protocolDetails;
+        throw new UndeferrableValueException("Value 'Server.protocolDetails' is not present");
     }
 
     /**
@@ -214,22 +232,24 @@ public final class Server extends com.pulumi.resources.PolicyResourceOutput {
      * * `FTP`: Unencrypted file transfer
      * 
      */
-    private UndeferrableValue<List<String>> protocols;
-
+    @PolicyResourceProperty(name="protocols", flag="unknown_protocols")
+    private List<String> value_protocols;
+    private boolean unknown_protocols;
     public List<String> protocols() {
-        if (protocols == null) return null;
-        return protocols.getValue("Server.protocols");
+        if (!unknown_protocols) return value_protocols;
+        throw new UndeferrableValueException("Value 'Server.protocols' is not present");
     }
 
     /**
      * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
      * 
      */
-    private UndeferrableValue<ServerS3StorageOptions> s3StorageOptions;
-
+    @PolicyResourceProperty(name="s3StorageOptions", flag="unknown_s3StorageOptions")
+    private ServerS3StorageOptions value_s3StorageOptions;
+    private boolean unknown_s3StorageOptions;
     public ServerS3StorageOptions s3StorageOptions() {
-        if (s3StorageOptions == null) return null;
-        return s3StorageOptions.getValue("Server.s3StorageOptions");
+        if (!unknown_s3StorageOptions) return value_s3StorageOptions;
+        throw new UndeferrableValueException("Value 'Server.s3StorageOptions' is not present");
     }
 
     /**
@@ -252,44 +272,48 @@ public final class Server extends com.pulumi.resources.PolicyResourceOutput {
      * See [Security policies for AWS Transfer Family servers](https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html) for details.
      * 
      */
-    private @Nullable UndeferrableValue<String> securityPolicyName;
-
+    @PolicyResourceProperty(name="securityPolicyName", flag="unknown_securityPolicyName")
+    private @Nullable String value_securityPolicyName;
+    private boolean unknown_securityPolicyName;
     public @Nullable String securityPolicyName() {
-        if (securityPolicyName == null) return null;
-        return securityPolicyName.getValue("Server.securityPolicyName");
+        if (!unknown_securityPolicyName) return value_securityPolicyName;
+        throw new UndeferrableValueException("Value 'Server.securityPolicyName' is not present");
     }
 
     /**
      * For SFTP-enabled servers, and for custom identity providers only. Valid values are `PASSWORD`, `PUBLIC_KEY`, `PUBLIC_KEY_OR_PASSWORD` and `PUBLIC_KEY_AND_PASSWORD`. Default value is: `PUBLIC_KEY_OR_PASSWORD`.
      * 
      */
-    private UndeferrableValue<String> sftpAuthenticationMethods;
-
+    @PolicyResourceProperty(name="sftpAuthenticationMethods", flag="unknown_sftpAuthenticationMethods")
+    private String value_sftpAuthenticationMethods;
+    private boolean unknown_sftpAuthenticationMethods;
     public String sftpAuthenticationMethods() {
-        if (sftpAuthenticationMethods == null) return null;
-        return sftpAuthenticationMethods.getValue("Server.sftpAuthenticationMethods");
+        if (!unknown_sftpAuthenticationMethods) return value_sftpAuthenticationMethods;
+        throw new UndeferrableValueException("Value 'Server.sftpAuthenticationMethods' is not present");
     }
 
     /**
      * A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> structuredLogDestinations;
-
+    @PolicyResourceProperty(name="structuredLogDestinations", flag="unknown_structuredLogDestinations")
+    private @Nullable List<String> value_structuredLogDestinations;
+    private boolean unknown_structuredLogDestinations;
     public @Nullable List<String> structuredLogDestinations() {
-        if (structuredLogDestinations == null) return null;
-        return structuredLogDestinations.getValue("Server.structuredLogDestinations");
+        if (!unknown_structuredLogDestinations) return value_structuredLogDestinations;
+        throw new UndeferrableValueException("Value 'Server.structuredLogDestinations' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Server.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Server.tags' is not present");
     }
 
     /**
@@ -300,33 +324,36 @@ public final class Server extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Server.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Server.tagsAll' is not present");
     }
 
     /**
      * URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
      * 
      */
-    private @Nullable UndeferrableValue<String> url;
-
+    @PolicyResourceProperty(name="url", flag="unknown_url")
+    private @Nullable String value_url;
+    private boolean unknown_url;
     public @Nullable String url() {
-        if (url == null) return null;
-        return url.getValue("Server.url");
+        if (!unknown_url) return value_url;
+        throw new UndeferrableValueException("Value 'Server.url' is not present");
     }
 
     /**
      * Specifies the workflow details. See `workflow_details` Block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<ServerWorkflowDetails> workflowDetails;
-
+    @PolicyResourceProperty(name="workflowDetails", flag="unknown_workflowDetails")
+    private @Nullable ServerWorkflowDetails value_workflowDetails;
+    private boolean unknown_workflowDetails;
     public @Nullable ServerWorkflowDetails workflowDetails() {
-        if (workflowDetails == null) return null;
-        return workflowDetails.getValue("Server.workflowDetails");
+        if (!unknown_workflowDetails) return value_workflowDetails;
+        throw new UndeferrableValueException("Value 'Server.workflowDetails' is not present");
     }
 
 }

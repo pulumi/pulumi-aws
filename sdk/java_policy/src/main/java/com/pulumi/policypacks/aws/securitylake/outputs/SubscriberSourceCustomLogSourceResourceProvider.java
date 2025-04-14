@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securitylake.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class SubscriberSourceCustomLogSourceResourceProvider {
      * The location of the partition in the Amazon S3 bucket for Security Lake.
      * 
      */
-    private UndeferrableValue<String> location;
-
+    @PolicyResourceProperty(name="location", flag="unknown_location")
+    private String value_location;
+    private boolean unknown_location;
     public String location() {
-        if (location == null) return null;
-        return location.getValue("SubscriberSourceCustomLogSourceResourceProvider.location");
+        if (!unknown_location) return value_location;
+        throw new UndeferrableValueException("Value 'SubscriberSourceCustomLogSourceResourceProvider.location' is not present");
     }
 
     /**
      * The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("SubscriberSourceCustomLogSourceResourceProvider.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'SubscriberSourceCustomLogSourceResourceProvider.roleArn' is not present");
     }
 
 }

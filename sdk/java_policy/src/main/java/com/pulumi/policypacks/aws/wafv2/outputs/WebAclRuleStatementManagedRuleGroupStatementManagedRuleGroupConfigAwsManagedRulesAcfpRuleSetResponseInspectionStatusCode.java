@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.util.List;
 
@@ -14,22 +15,24 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      * Status codes in the response that indicate a failed login attempt.
      * 
      */
-    private UndeferrableValue<List<Integer>> failureCodes;
-
+    @PolicyResourceProperty(name="failureCodes", flag="unknown_failureCodes")
+    private List<Integer> value_failureCodes;
+    private boolean unknown_failureCodes;
     public List<Integer> failureCodes() {
-        if (failureCodes == null) return null;
-        return failureCodes.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCode.failureCodes");
+        if (!unknown_failureCodes) return value_failureCodes;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCode.failureCodes' is not present");
     }
 
     /**
      * Status codes in the response that indicate a successful login attempt.
      * 
      */
-    private UndeferrableValue<List<Integer>> successCodes;
-
+    @PolicyResourceProperty(name="successCodes", flag="unknown_successCodes")
+    private List<Integer> value_successCodes;
+    private boolean unknown_successCodes;
     public List<Integer> successCodes() {
-        if (successCodes == null) return null;
-        return successCodes.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCode.successCodes");
+        if (!unknown_successCodes) return value_successCodes;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCode.successCodes' is not present");
     }
 
 }

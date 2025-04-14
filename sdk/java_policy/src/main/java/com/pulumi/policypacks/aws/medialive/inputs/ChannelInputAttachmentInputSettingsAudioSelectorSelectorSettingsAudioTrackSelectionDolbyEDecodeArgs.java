@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
      * Applies only to Dolby E. Enter the program ID (according to the metadata in the audio) of the Dolby E program to extract from the specified track. One program extracted per audio selector. To select multiple programs, create multiple selectors with the same Track and different Program numbers. “All channels” means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be incorrect.
      * 
      */
-    private UndeferrableValue<String> programSelection;
-
+    @PolicyResourceProperty(name="programSelection", flag="unknown_programSelection")
+    private String value_programSelection;
+    private boolean unknown_programSelection;
     public String programSelection() {
-        if (programSelection == null) return null;
-        return programSelection.getValue("ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs.programSelection");
+        if (!unknown_programSelection) return value_programSelection;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs.programSelection' is not present");
     }
 
 }

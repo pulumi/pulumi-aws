@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecr.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 
 
@@ -13,11 +14,12 @@ public final class RepositoryImageScanningConfigurationArgs {
      * Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
      * 
      */
-    private UndeferrableValue<Boolean> scanOnPush;
-
+    @PolicyResourceProperty(name="scanOnPush", flag="unknown_scanOnPush")
+    private Boolean value_scanOnPush;
+    private boolean unknown_scanOnPush;
     public Boolean scanOnPush() {
-        if (scanOnPush == null) return null;
-        return scanOnPush.getValue("RepositoryImageScanningConfigurationArgs.scanOnPush");
+        if (!unknown_scanOnPush) return value_scanOnPush;
+        throw new UndeferrableValueException("Value 'RepositoryImageScanningConfigurationArgs.scanOnPush' is not present");
     }
 
 }

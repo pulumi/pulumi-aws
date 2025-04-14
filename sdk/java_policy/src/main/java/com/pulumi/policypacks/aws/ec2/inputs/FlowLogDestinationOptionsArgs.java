@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class FlowLogDestinationOptionsArgs {
      * The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
      * 
      */
-    private UndeferrableValue<String> fileFormat;
-
+    @PolicyResourceProperty(name="fileFormat", flag="unknown_fileFormat")
+    private String value_fileFormat;
+    private boolean unknown_fileFormat;
     public String fileFormat() {
-        if (fileFormat == null) return null;
-        return fileFormat.getValue("FlowLogDestinationOptionsArgs.fileFormat");
+        if (!unknown_fileFormat) return value_fileFormat;
+        throw new UndeferrableValueException("Value 'FlowLogDestinationOptionsArgs.fileFormat' is not present");
     }
 
     /**
      * Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
      * 
      */
-    private UndeferrableValue<Boolean> hiveCompatiblePartitions;
-
+    @PolicyResourceProperty(name="hiveCompatiblePartitions", flag="unknown_hiveCompatiblePartitions")
+    private Boolean value_hiveCompatiblePartitions;
+    private boolean unknown_hiveCompatiblePartitions;
     public Boolean hiveCompatiblePartitions() {
-        if (hiveCompatiblePartitions == null) return null;
-        return hiveCompatiblePartitions.getValue("FlowLogDestinationOptionsArgs.hiveCompatiblePartitions");
+        if (!unknown_hiveCompatiblePartitions) return value_hiveCompatiblePartitions;
+        throw new UndeferrableValueException("Value 'FlowLogDestinationOptionsArgs.hiveCompatiblePartitions' is not present");
     }
 
     /**
      * Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
      * 
      */
-    private UndeferrableValue<Boolean> perHourPartition;
-
+    @PolicyResourceProperty(name="perHourPartition", flag="unknown_perHourPartition")
+    private Boolean value_perHourPartition;
+    private boolean unknown_perHourPartition;
     public Boolean perHourPartition() {
-        if (perHourPartition == null) return null;
-        return perHourPartition.getValue("FlowLogDestinationOptionsArgs.perHourPartition");
+        if (!unknown_perHourPartition) return value_perHourPartition;
+        throw new UndeferrableValueException("Value 'FlowLogDestinationOptionsArgs.perHourPartition' is not present");
     }
 
 }

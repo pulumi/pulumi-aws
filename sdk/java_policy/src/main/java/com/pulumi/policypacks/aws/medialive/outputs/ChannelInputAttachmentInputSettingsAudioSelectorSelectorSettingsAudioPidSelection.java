@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,11 +14,12 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
      * Selects a specific PID from within a source.
      * 
      */
-    private UndeferrableValue<Integer> pid;
-
+    @PolicyResourceProperty(name="pid", flag="unknown_pid")
+    private Integer value_pid;
+    private boolean unknown_pid;
     public Integer pid() {
-        if (pid == null) return null;
-        return pid.getValue("ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection.pid");
+        if (!unknown_pid) return value_pid;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection.pid' is not present");
     }
 
 }

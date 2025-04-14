@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ModelContainerMultiModelConfigArgs {
      * Whether to cache models for a multi-model endpoint. By default, multi-model endpoints cache models so that a model does not have to be loaded into memory each time it is invoked. Some use cases do not benefit from model caching. For example, if an endpoint hosts a large number of models that are each invoked infrequently, the endpoint might perform better if you disable model caching. To disable model caching, set the value of this parameter to `Disabled`. Allowed values are: `Enabled` and `Disabled`.
      * 
      */
-    private UndeferrableValue<String> modelCacheSetting;
-
+    @PolicyResourceProperty(name="modelCacheSetting", flag="unknown_modelCacheSetting")
+    private String value_modelCacheSetting;
+    private boolean unknown_modelCacheSetting;
     public String modelCacheSetting() {
-        if (modelCacheSetting == null) return null;
-        return modelCacheSetting.getValue("ModelContainerMultiModelConfigArgs.modelCacheSetting");
+        if (!unknown_modelCacheSetting) return value_modelCacheSetting;
+        throw new UndeferrableValueException("Value 'ModelContainerMultiModelConfigArgs.modelCacheSetting' is not present");
     }
 
 }

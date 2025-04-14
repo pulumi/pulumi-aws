@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamwrite.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.timestreamwrite.inputs.TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class TableMagneticStoreWritePropertiesArgs {
      * A flag to enable magnetic store writes.
      * 
      */
-    private UndeferrableValue<Boolean> enableMagneticStoreWrites;
-
+    @PolicyResourceProperty(name="enableMagneticStoreWrites", flag="unknown_enableMagneticStoreWrites")
+    private Boolean value_enableMagneticStoreWrites;
+    private boolean unknown_enableMagneticStoreWrites;
     public Boolean enableMagneticStoreWrites() {
-        if (enableMagneticStoreWrites == null) return null;
-        return enableMagneticStoreWrites.getValue("TableMagneticStoreWritePropertiesArgs.enableMagneticStoreWrites");
+        if (!unknown_enableMagneticStoreWrites) return value_enableMagneticStoreWrites;
+        throw new UndeferrableValueException("Value 'TableMagneticStoreWritePropertiesArgs.enableMagneticStoreWrites' is not present");
     }
 
     /**
      * The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
      * 
      */
-    private UndeferrableValue<TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs> magneticStoreRejectedDataLocation;
-
+    @PolicyResourceProperty(name="magneticStoreRejectedDataLocation", flag="unknown_magneticStoreRejectedDataLocation")
+    private TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs value_magneticStoreRejectedDataLocation;
+    private boolean unknown_magneticStoreRejectedDataLocation;
     public TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs magneticStoreRejectedDataLocation() {
-        if (magneticStoreRejectedDataLocation == null) return null;
-        return magneticStoreRejectedDataLocation.getValue("TableMagneticStoreWritePropertiesArgs.magneticStoreRejectedDataLocation");
+        if (!unknown_magneticStoreRejectedDataLocation) return value_magneticStoreRejectedDataLocation;
+        throw new UndeferrableValueException("Value 'TableMagneticStoreWritePropertiesArgs.magneticStoreRejectedDataLocation' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.transfer.inputs.UserHomeDirectoryMappingArgs;
 import com.pulumi.policypacks.aws.transfer.inputs.UserPosixProfileArgs;
@@ -20,99 +21,108 @@ public final class UserArgs extends com.pulumi.resources.PolicyResourceInput {
      * The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
      * 
      */
-    private UndeferrableValue<String> homeDirectory;
-
+    @PolicyResourceProperty(name="homeDirectory", flag="unknown_homeDirectory")
+    private String value_homeDirectory;
+    private boolean unknown_homeDirectory;
     public String homeDirectory() {
-        if (homeDirectory == null) return null;
-        return homeDirectory.getValue("UserArgs.homeDirectory");
+        if (!unknown_homeDirectory) return value_homeDirectory;
+        throw new UndeferrableValueException("Value 'UserArgs.homeDirectory' is not present");
     }
 
     /**
      * Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
      * 
      */
-    private UndeferrableValue<List<UserHomeDirectoryMappingArgs>> homeDirectoryMappings;
-
+    @PolicyResourceProperty(name="homeDirectoryMappings", flag="unknown_homeDirectoryMappings")
+    private List<UserHomeDirectoryMappingArgs> value_homeDirectoryMappings;
+    private boolean unknown_homeDirectoryMappings;
     public List<UserHomeDirectoryMappingArgs> homeDirectoryMappings() {
-        if (homeDirectoryMappings == null) return null;
-        return homeDirectoryMappings.getValue("UserArgs.homeDirectoryMappings");
+        if (!unknown_homeDirectoryMappings) return value_homeDirectoryMappings;
+        throw new UndeferrableValueException("Value 'UserArgs.homeDirectoryMappings' is not present");
     }
 
     /**
      * The type of landing directory (folder) you mapped for your users&#39; home directory. Valid values are `PATH` and `LOGICAL`.
      * 
      */
-    private UndeferrableValue<String> homeDirectoryType;
-
+    @PolicyResourceProperty(name="homeDirectoryType", flag="unknown_homeDirectoryType")
+    private String value_homeDirectoryType;
+    private boolean unknown_homeDirectoryType;
     public String homeDirectoryType() {
-        if (homeDirectoryType == null) return null;
-        return homeDirectoryType.getValue("UserArgs.homeDirectoryType");
+        if (!unknown_homeDirectoryType) return value_homeDirectoryType;
+        throw new UndeferrableValueException("Value 'UserArgs.homeDirectoryType' is not present");
     }
 
     /**
      * An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("UserArgs.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'UserArgs.policy' is not present");
     }
 
     /**
      * Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users&#39; access to your Amazon EFS file systems. See Posix Profile below.
      * 
      */
-    private UndeferrableValue<UserPosixProfileArgs> posixProfile;
-
+    @PolicyResourceProperty(name="posixProfile", flag="unknown_posixProfile")
+    private UserPosixProfileArgs value_posixProfile;
+    private boolean unknown_posixProfile;
     public UserPosixProfileArgs posixProfile() {
-        if (posixProfile == null) return null;
-        return posixProfile.getValue("UserArgs.posixProfile");
+        if (!unknown_posixProfile) return value_posixProfile;
+        throw new UndeferrableValueException("Value 'UserArgs.posixProfile' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
      * 
      */
-    private UndeferrableValue<String> role;
-
+    @PolicyResourceProperty(name="role", flag="unknown_role")
+    private String value_role;
+    private boolean unknown_role;
     public String role() {
-        if (role == null) return null;
-        return role.getValue("UserArgs.role");
+        if (!unknown_role) return value_role;
+        throw new UndeferrableValueException("Value 'UserArgs.role' is not present");
     }
 
     /**
      * The Server ID of the Transfer Server (e.g., `s-12345678`)
      * 
      */
-    private UndeferrableValue<String> serverId;
-
+    @PolicyResourceProperty(name="serverId", flag="unknown_serverId")
+    private String value_serverId;
+    private boolean unknown_serverId;
     public String serverId() {
-        if (serverId == null) return null;
-        return serverId.getValue("UserArgs.serverId");
+        if (!unknown_serverId) return value_serverId;
+        throw new UndeferrableValueException("Value 'UserArgs.serverId' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("UserArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'UserArgs.tags' is not present");
     }
 
     /**
      * The name used for log in to your SFTP server.
      * 
      */
-    private UndeferrableValue<String> userName;
-
+    @PolicyResourceProperty(name="userName", flag="unknown_userName")
+    private String value_userName;
+    private boolean unknown_userName;
     public String userName() {
-        if (userName == null) return null;
-        return userName.getValue("UserArgs.userName");
+        if (!unknown_userName) return value_userName;
+        throw new UndeferrableValueException("Value 'UserArgs.userName' is not present");
     }
 
 }

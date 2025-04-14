@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class VirtualServiceSpecProviderVirtualRouter {
      * Name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
      * 
      */
-    private UndeferrableValue<String> virtualRouterName;
-
+    @PolicyResourceProperty(name="virtualRouterName", flag="unknown_virtualRouterName")
+    private String value_virtualRouterName;
+    private boolean unknown_virtualRouterName;
     public String virtualRouterName() {
-        if (virtualRouterName == null) return null;
-        return virtualRouterName.getValue("VirtualServiceSpecProviderVirtualRouter.virtualRouterName");
+        if (!unknown_virtualRouterName) return value_virtualRouterName;
+        throw new UndeferrableValueException("Value 'VirtualServiceSpecProviderVirtualRouter.virtualRouterName' is not present");
     }
 
 }

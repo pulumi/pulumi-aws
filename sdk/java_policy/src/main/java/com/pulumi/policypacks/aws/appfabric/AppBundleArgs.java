@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appfabric;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,22 +18,24 @@ public final class AppBundleArgs extends com.pulumi.resources.PolicyResourceInpu
      * The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
      * 
      */
-    private UndeferrableValue<String> customerManagedKeyArn;
-
+    @PolicyResourceProperty(name="customerManagedKeyArn", flag="unknown_customerManagedKeyArn")
+    private String value_customerManagedKeyArn;
+    private boolean unknown_customerManagedKeyArn;
     public String customerManagedKeyArn() {
-        if (customerManagedKeyArn == null) return null;
-        return customerManagedKeyArn.getValue("AppBundleArgs.customerManagedKeyArn");
+        if (!unknown_customerManagedKeyArn) return value_customerManagedKeyArn;
+        throw new UndeferrableValueException("Value 'AppBundleArgs.customerManagedKeyArn' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AppBundleArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AppBundleArgs.tags' is not present");
     }
 
 }

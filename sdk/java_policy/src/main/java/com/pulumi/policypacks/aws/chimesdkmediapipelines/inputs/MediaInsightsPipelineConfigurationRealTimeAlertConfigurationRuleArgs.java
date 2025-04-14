@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chimesdkmediapipelines.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs;
 import com.pulumi.policypacks.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs;
 import com.pulumi.policypacks.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs;
@@ -17,44 +18,48 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
      * Configuration for an issue detection rule.
      * 
      */
-    private UndeferrableValue<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs> issueDetectionConfiguration;
-
+    @PolicyResourceProperty(name="issueDetectionConfiguration", flag="unknown_issueDetectionConfiguration")
+    private MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs value_issueDetectionConfiguration;
+    private boolean unknown_issueDetectionConfiguration;
     public MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs issueDetectionConfiguration() {
-        if (issueDetectionConfiguration == null) return null;
-        return issueDetectionConfiguration.getValue("MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs.issueDetectionConfiguration");
+        if (!unknown_issueDetectionConfiguration) return value_issueDetectionConfiguration;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs.issueDetectionConfiguration' is not present");
     }
 
     /**
      * Configuration for a keyword match rule.
      * 
      */
-    private UndeferrableValue<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs> keywordMatchConfiguration;
-
+    @PolicyResourceProperty(name="keywordMatchConfiguration", flag="unknown_keywordMatchConfiguration")
+    private MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs value_keywordMatchConfiguration;
+    private boolean unknown_keywordMatchConfiguration;
     public MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs keywordMatchConfiguration() {
-        if (keywordMatchConfiguration == null) return null;
-        return keywordMatchConfiguration.getValue("MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs.keywordMatchConfiguration");
+        if (!unknown_keywordMatchConfiguration) return value_keywordMatchConfiguration;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs.keywordMatchConfiguration' is not present");
     }
 
     /**
      * Configuration for a sentiment rule.
      * 
      */
-    private UndeferrableValue<MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs> sentimentConfiguration;
-
+    @PolicyResourceProperty(name="sentimentConfiguration", flag="unknown_sentimentConfiguration")
+    private MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs value_sentimentConfiguration;
+    private boolean unknown_sentimentConfiguration;
     public MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs sentimentConfiguration() {
-        if (sentimentConfiguration == null) return null;
-        return sentimentConfiguration.getValue("MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs.sentimentConfiguration");
+        if (!unknown_sentimentConfiguration) return value_sentimentConfiguration;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs.sentimentConfiguration' is not present");
     }
 
     /**
      * Rule type.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs.type' is not present");
     }
 
 }

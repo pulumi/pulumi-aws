@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class InternetGatewayAttachment extends com.pulumi.resources.Policy
      * The ID of the internet gateway.
      * 
      */
-    private UndeferrableValue<String> internetGatewayId;
-
+    @PolicyResourceProperty(name="internetGatewayId", flag="unknown_internetGatewayId")
+    private String value_internetGatewayId;
+    private boolean unknown_internetGatewayId;
     public String internetGatewayId() {
-        if (internetGatewayId == null) return null;
-        return internetGatewayId.getValue("InternetGatewayAttachment.internetGatewayId");
+        if (!unknown_internetGatewayId) return value_internetGatewayId;
+        throw new UndeferrableValueException("Value 'InternetGatewayAttachment.internetGatewayId' is not present");
     }
 
     /**
      * The ID of the VPC.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("InternetGatewayAttachment.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'InternetGatewayAttachment.vpcId' is not present");
     }
 
 }

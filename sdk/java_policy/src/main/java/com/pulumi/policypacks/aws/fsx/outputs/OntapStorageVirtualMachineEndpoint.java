@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.fsx.outputs.OntapStorageVirtualMachineEndpointIscsi;
 import com.pulumi.policypacks.aws.fsx.outputs.OntapStorageVirtualMachineEndpointManagement;
 import com.pulumi.policypacks.aws.fsx.outputs.OntapStorageVirtualMachineEndpointNf;
@@ -18,44 +19,48 @@ public final class OntapStorageVirtualMachineEndpoint {
      * An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
      * 
      */
-    private @Nullable UndeferrableValue<List<OntapStorageVirtualMachineEndpointIscsi>> iscsis;
-
+    @PolicyResourceProperty(name="iscsis", flag="unknown_iscsis")
+    private @Nullable List<OntapStorageVirtualMachineEndpointIscsi> value_iscsis;
+    private boolean unknown_iscsis;
     public @Nullable List<OntapStorageVirtualMachineEndpointIscsi> iscsis() {
-        if (iscsis == null) return null;
-        return iscsis.getValue("OntapStorageVirtualMachineEndpoint.iscsis");
+        if (!unknown_iscsis) return value_iscsis;
+        throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineEndpoint.iscsis' is not present");
     }
 
     /**
      * An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
      * 
      */
-    private @Nullable UndeferrableValue<List<OntapStorageVirtualMachineEndpointManagement>> managements;
-
+    @PolicyResourceProperty(name="managements", flag="unknown_managements")
+    private @Nullable List<OntapStorageVirtualMachineEndpointManagement> value_managements;
+    private boolean unknown_managements;
     public @Nullable List<OntapStorageVirtualMachineEndpointManagement> managements() {
-        if (managements == null) return null;
-        return managements.getValue("OntapStorageVirtualMachineEndpoint.managements");
+        if (!unknown_managements) return value_managements;
+        throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineEndpoint.managements' is not present");
     }
 
     /**
      * An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
      * 
      */
-    private @Nullable UndeferrableValue<List<OntapStorageVirtualMachineEndpointNf>> nfs;
-
+    @PolicyResourceProperty(name="nfs", flag="unknown_nfs")
+    private @Nullable List<OntapStorageVirtualMachineEndpointNf> value_nfs;
+    private boolean unknown_nfs;
     public @Nullable List<OntapStorageVirtualMachineEndpointNf> nfs() {
-        if (nfs == null) return null;
-        return nfs.getValue("OntapStorageVirtualMachineEndpoint.nfs");
+        if (!unknown_nfs) return value_nfs;
+        throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineEndpoint.nfs' is not present");
     }
 
     /**
      * An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
      * 
      */
-    private @Nullable UndeferrableValue<List<OntapStorageVirtualMachineEndpointSmb>> smbs;
-
+    @PolicyResourceProperty(name="smbs", flag="unknown_smbs")
+    private @Nullable List<OntapStorageVirtualMachineEndpointSmb> value_smbs;
+    private boolean unknown_smbs;
     public @Nullable List<OntapStorageVirtualMachineEndpointSmb> smbs() {
-        if (smbs == null) return null;
-        return smbs.getValue("OntapStorageVirtualMachineEndpoint.smbs");
+        if (!unknown_smbs) return value_smbs;
+        throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineEndpoint.smbs' is not present");
     }
 
 }

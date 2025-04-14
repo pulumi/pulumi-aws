@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rekognition.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class StreamProcessorNotificationChannelArgs {
      * The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
      * 
      */
-    private UndeferrableValue<String> snsTopicArn;
-
+    @PolicyResourceProperty(name="snsTopicArn", flag="unknown_snsTopicArn")
+    private String value_snsTopicArn;
+    private boolean unknown_snsTopicArn;
     public String snsTopicArn() {
-        if (snsTopicArn == null) return null;
-        return snsTopicArn.getValue("StreamProcessorNotificationChannelArgs.snsTopicArn");
+        if (!unknown_snsTopicArn) return value_snsTopicArn;
+        throw new UndeferrableValueException("Value 'StreamProcessorNotificationChannelArgs.snsTopicArn' is not present");
     }
 
 }

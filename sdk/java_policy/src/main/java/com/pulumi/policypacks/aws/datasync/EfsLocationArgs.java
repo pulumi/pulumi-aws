@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.datasync.inputs.EfsLocationEc2ConfigArgs;
 import java.lang.String;
@@ -18,77 +19,84 @@ public final class EfsLocationArgs extends com.pulumi.resources.PolicyResourceIn
      * Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
      * 
      */
-    private UndeferrableValue<String> accessPointArn;
-
+    @PolicyResourceProperty(name="accessPointArn", flag="unknown_accessPointArn")
+    private String value_accessPointArn;
+    private boolean unknown_accessPointArn;
     public String accessPointArn() {
-        if (accessPointArn == null) return null;
-        return accessPointArn.getValue("EfsLocationArgs.accessPointArn");
+        if (!unknown_accessPointArn) return value_accessPointArn;
+        throw new UndeferrableValueException("Value 'EfsLocationArgs.accessPointArn' is not present");
     }
 
     /**
      * Configuration block containing EC2 configurations for connecting to the EFS File System.
      * 
      */
-    private UndeferrableValue<EfsLocationEc2ConfigArgs> ec2Config;
-
+    @PolicyResourceProperty(name="ec2Config", flag="unknown_ec2Config")
+    private EfsLocationEc2ConfigArgs value_ec2Config;
+    private boolean unknown_ec2Config;
     public EfsLocationEc2ConfigArgs ec2Config() {
-        if (ec2Config == null) return null;
-        return ec2Config.getValue("EfsLocationArgs.ec2Config");
+        if (!unknown_ec2Config) return value_ec2Config;
+        throw new UndeferrableValueException("Value 'EfsLocationArgs.ec2Config' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of EFS File System.
      * 
      */
-    private UndeferrableValue<String> efsFileSystemArn;
-
+    @PolicyResourceProperty(name="efsFileSystemArn", flag="unknown_efsFileSystemArn")
+    private String value_efsFileSystemArn;
+    private boolean unknown_efsFileSystemArn;
     public String efsFileSystemArn() {
-        if (efsFileSystemArn == null) return null;
-        return efsFileSystemArn.getValue("EfsLocationArgs.efsFileSystemArn");
+        if (!unknown_efsFileSystemArn) return value_efsFileSystemArn;
+        throw new UndeferrableValueException("Value 'EfsLocationArgs.efsFileSystemArn' is not present");
     }
 
     /**
      * Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
      * 
      */
-    private UndeferrableValue<String> fileSystemAccessRoleArn;
-
+    @PolicyResourceProperty(name="fileSystemAccessRoleArn", flag="unknown_fileSystemAccessRoleArn")
+    private String value_fileSystemAccessRoleArn;
+    private boolean unknown_fileSystemAccessRoleArn;
     public String fileSystemAccessRoleArn() {
-        if (fileSystemAccessRoleArn == null) return null;
-        return fileSystemAccessRoleArn.getValue("EfsLocationArgs.fileSystemAccessRoleArn");
+        if (!unknown_fileSystemAccessRoleArn) return value_fileSystemAccessRoleArn;
+        throw new UndeferrableValueException("Value 'EfsLocationArgs.fileSystemAccessRoleArn' is not present");
     }
 
     /**
      * Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
      * 
      */
-    private UndeferrableValue<String> inTransitEncryption;
-
+    @PolicyResourceProperty(name="inTransitEncryption", flag="unknown_inTransitEncryption")
+    private String value_inTransitEncryption;
+    private boolean unknown_inTransitEncryption;
     public String inTransitEncryption() {
-        if (inTransitEncryption == null) return null;
-        return inTransitEncryption.getValue("EfsLocationArgs.inTransitEncryption");
+        if (!unknown_inTransitEncryption) return value_inTransitEncryption;
+        throw new UndeferrableValueException("Value 'EfsLocationArgs.inTransitEncryption' is not present");
     }
 
     /**
      * Subdirectory to perform actions as source or destination. Default `/`.
      * 
      */
-    private UndeferrableValue<String> subdirectory;
-
+    @PolicyResourceProperty(name="subdirectory", flag="unknown_subdirectory")
+    private String value_subdirectory;
+    private boolean unknown_subdirectory;
     public String subdirectory() {
-        if (subdirectory == null) return null;
-        return subdirectory.getValue("EfsLocationArgs.subdirectory");
+        if (!unknown_subdirectory) return value_subdirectory;
+        throw new UndeferrableValueException("Value 'EfsLocationArgs.subdirectory' is not present");
     }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("EfsLocationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'EfsLocationArgs.tags' is not present");
     }
 
 }

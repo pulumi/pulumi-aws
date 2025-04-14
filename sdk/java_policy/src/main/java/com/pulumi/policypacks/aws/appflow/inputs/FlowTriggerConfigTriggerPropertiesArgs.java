@@ -3,18 +3,20 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.inputs.FlowTriggerConfigTriggerPropertiesScheduledArgs;
 import javax.annotation.Nullable;
 
 
 public final class FlowTriggerConfigTriggerPropertiesArgs {
 
-    private UndeferrableValue<FlowTriggerConfigTriggerPropertiesScheduledArgs> scheduled;
-
+    @PolicyResourceProperty(name="scheduled", flag="unknown_scheduled")
+    private FlowTriggerConfigTriggerPropertiesScheduledArgs value_scheduled;
+    private boolean unknown_scheduled;
     public FlowTriggerConfigTriggerPropertiesScheduledArgs scheduled() {
-        if (scheduled == null) return null;
-        return scheduled.getValue("FlowTriggerConfigTriggerPropertiesArgs.scheduled");
+        if (!unknown_scheduled) return value_scheduled;
+        throw new UndeferrableValueException("Value 'FlowTriggerConfigTriggerPropertiesArgs.scheduled' is not present");
     }
 
 }

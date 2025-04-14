@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafregional.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class GeoMatchSetGeoMatchConstraintArgs {
      * The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("GeoMatchSetGeoMatchConstraintArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'GeoMatchSetGeoMatchConstraintArgs.type' is not present");
     }
 
     /**
@@ -26,11 +28,12 @@ public final class GeoMatchSetGeoMatchConstraintArgs {
      * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("GeoMatchSetGeoMatchConstraintArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'GeoMatchSetGeoMatchConstraintArgs.value' is not present");
     }
 
 }

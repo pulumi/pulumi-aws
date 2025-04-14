@@ -3,36 +3,40 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 
 
 public final class ResponseHeadersPolicyCustomHeadersConfigItem {
 
-    private UndeferrableValue<String> header;
-
+    @PolicyResourceProperty(name="header", flag="unknown_header")
+    private String value_header;
+    private boolean unknown_header;
     public String header() {
-        if (header == null) return null;
-        return header.getValue("ResponseHeadersPolicyCustomHeadersConfigItem.header");
+        if (!unknown_header) return value_header;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicyCustomHeadersConfigItem.header' is not present");
     }
 
-    private UndeferrableValue<Boolean> override;
-
+    @PolicyResourceProperty(name="override", flag="unknown_override")
+    private Boolean value_override;
+    private boolean unknown_override;
     public Boolean override() {
-        if (override == null) return null;
-        return override.getValue("ResponseHeadersPolicyCustomHeadersConfigItem.override");
+        if (!unknown_override) return value_override;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicyCustomHeadersConfigItem.override' is not present");
     }
 
     /**
      * The value for the HTTP response header.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("ResponseHeadersPolicyCustomHeadersConfigItem.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicyCustomHeadersConfigItem.value' is not present");
     }
 
 }

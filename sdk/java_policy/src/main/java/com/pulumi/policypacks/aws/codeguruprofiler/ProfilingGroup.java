@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codeguruprofiler;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.codeguruprofiler.outputs.ProfilingGroupAgentOrchestrationConfig;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class ProfilingGroup extends com.pulumi.resources.PolicyResourceOut
      * Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ProfilingGroupAgentOrchestrationConfig> agentOrchestrationConfig;
-
+    @PolicyResourceProperty(name="agentOrchestrationConfig", flag="unknown_agentOrchestrationConfig")
+    private @Nullable ProfilingGroupAgentOrchestrationConfig value_agentOrchestrationConfig;
+    private boolean unknown_agentOrchestrationConfig;
     public @Nullable ProfilingGroupAgentOrchestrationConfig agentOrchestrationConfig() {
-        if (agentOrchestrationConfig == null) return null;
-        return agentOrchestrationConfig.getValue("ProfilingGroup.agentOrchestrationConfig");
+        if (!unknown_agentOrchestrationConfig) return value_agentOrchestrationConfig;
+        throw new UndeferrableValueException("Value 'ProfilingGroup.agentOrchestrationConfig' is not present");
     }
 
     /**
      * ARN of the profiling group.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ProfilingGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ProfilingGroup.arn' is not present");
     }
 
     /**
      * Compute platform of the profiling group.
      * 
      */
-    private UndeferrableValue<String> computePlatform;
-
+    @PolicyResourceProperty(name="computePlatform", flag="unknown_computePlatform")
+    private String value_computePlatform;
+    private boolean unknown_computePlatform;
     public String computePlatform() {
-        if (computePlatform == null) return null;
-        return computePlatform.getValue("ProfilingGroup.computePlatform");
+        if (!unknown_computePlatform) return value_computePlatform;
+        throw new UndeferrableValueException("Value 'ProfilingGroup.computePlatform' is not present");
     }
 
     /**
@@ -53,22 +57,24 @@ public final class ProfilingGroup extends com.pulumi.resources.PolicyResourceOut
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ProfilingGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ProfilingGroup.name' is not present");
     }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ProfilingGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ProfilingGroup.tags' is not present");
     }
 
     /**
@@ -79,11 +85,12 @@ public final class ProfilingGroup extends com.pulumi.resources.PolicyResourceOut
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ProfilingGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ProfilingGroup.tagsAll' is not present");
     }
 
 }

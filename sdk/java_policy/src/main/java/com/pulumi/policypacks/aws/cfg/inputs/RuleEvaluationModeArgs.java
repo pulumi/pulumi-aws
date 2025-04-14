@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class RuleEvaluationModeArgs {
      * The mode of an evaluation.
      * 
      */
-    private UndeferrableValue<String> mode;
-
+    @PolicyResourceProperty(name="mode", flag="unknown_mode")
+    private String value_mode;
+    private boolean unknown_mode;
     public String mode() {
-        if (mode == null) return null;
-        return mode.getValue("RuleEvaluationModeArgs.mode");
+        if (!unknown_mode) return value_mode;
+        throw new UndeferrableValueException("Value 'RuleEvaluationModeArgs.mode' is not present");
     }
 
 }

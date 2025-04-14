@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ssm.inputs.QuicksetupConfigurationManagerConfigurationDefinitionArgs;
 import com.pulumi.policypacks.aws.ssm.inputs.QuicksetupConfigurationManagerTimeoutsArgs;
@@ -19,22 +20,24 @@ public final class QuicksetupConfigurationManagerArgs extends com.pulumi.resourc
      * Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
      * 
      */
-    private UndeferrableValue<QuicksetupConfigurationManagerConfigurationDefinitionArgs> configurationDefinition;
-
+    @PolicyResourceProperty(name="configurationDefinition", flag="unknown_configurationDefinition")
+    private QuicksetupConfigurationManagerConfigurationDefinitionArgs value_configurationDefinition;
+    private boolean unknown_configurationDefinition;
     public QuicksetupConfigurationManagerConfigurationDefinitionArgs configurationDefinition() {
-        if (configurationDefinition == null) return null;
-        return configurationDefinition.getValue("QuicksetupConfigurationManagerArgs.configurationDefinition");
+        if (!unknown_configurationDefinition) return value_configurationDefinition;
+        throw new UndeferrableValueException("Value 'QuicksetupConfigurationManagerArgs.configurationDefinition' is not present");
     }
 
     /**
      * Description of the configuration manager.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("QuicksetupConfigurationManagerArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'QuicksetupConfigurationManagerArgs.description' is not present");
     }
 
     /**
@@ -43,29 +46,32 @@ public final class QuicksetupConfigurationManagerArgs extends com.pulumi.resourc
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("QuicksetupConfigurationManagerArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'QuicksetupConfigurationManagerArgs.name' is not present");
     }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("QuicksetupConfigurationManagerArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'QuicksetupConfigurationManagerArgs.tags' is not present");
     }
 
-    private UndeferrableValue<QuicksetupConfigurationManagerTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private QuicksetupConfigurationManagerTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public QuicksetupConfigurationManagerTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("QuicksetupConfigurationManagerArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'QuicksetupConfigurationManagerArgs.timeouts' is not present");
     }
 
 }

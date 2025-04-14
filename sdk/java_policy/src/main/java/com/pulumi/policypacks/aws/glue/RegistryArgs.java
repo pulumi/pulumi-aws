@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class RegistryArgs extends com.pulumi.resources.PolicyResourceInput
      * A description of the registry.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("RegistryArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'RegistryArgs.description' is not present");
     }
 
     /**
      * The Name of the registry.
      * 
      */
-    private UndeferrableValue<String> registryName;
-
+    @PolicyResourceProperty(name="registryName", flag="unknown_registryName")
+    private String value_registryName;
+    private boolean unknown_registryName;
     public String registryName() {
-        if (registryName == null) return null;
-        return registryName.getValue("RegistryArgs.registryName");
+        if (!unknown_registryName) return value_registryName;
+        throw new UndeferrableValueException("Value 'RegistryArgs.registryName' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RegistryArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RegistryArgs.tags' is not present");
     }
 
 }

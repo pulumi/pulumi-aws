@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.datasync.inputs.TaskExcludesArgs;
 import com.pulumi.policypacks.aws.datasync.inputs.TaskIncludesArgs;
@@ -22,99 +23,108 @@ public final class TaskArgs extends com.pulumi.resources.PolicyResourceInput {
      * Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
      * 
      */
-    private UndeferrableValue<String> cloudwatchLogGroupArn;
-
+    @PolicyResourceProperty(name="cloudwatchLogGroupArn", flag="unknown_cloudwatchLogGroupArn")
+    private String value_cloudwatchLogGroupArn;
+    private boolean unknown_cloudwatchLogGroupArn;
     public String cloudwatchLogGroupArn() {
-        if (cloudwatchLogGroupArn == null) return null;
-        return cloudwatchLogGroupArn.getValue("TaskArgs.cloudwatchLogGroupArn");
+        if (!unknown_cloudwatchLogGroupArn) return value_cloudwatchLogGroupArn;
+        throw new UndeferrableValueException("Value 'TaskArgs.cloudwatchLogGroupArn' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of destination DataSync Location.
      * 
      */
-    private UndeferrableValue<String> destinationLocationArn;
-
+    @PolicyResourceProperty(name="destinationLocationArn", flag="unknown_destinationLocationArn")
+    private String value_destinationLocationArn;
+    private boolean unknown_destinationLocationArn;
     public String destinationLocationArn() {
-        if (destinationLocationArn == null) return null;
-        return destinationLocationArn.getValue("TaskArgs.destinationLocationArn");
+        if (!unknown_destinationLocationArn) return value_destinationLocationArn;
+        throw new UndeferrableValueException("Value 'TaskArgs.destinationLocationArn' is not present");
     }
 
     /**
      * Filter rules that determines which files to exclude from a task.
      * 
      */
-    private UndeferrableValue<TaskExcludesArgs> excludes;
-
+    @PolicyResourceProperty(name="excludes", flag="unknown_excludes")
+    private TaskExcludesArgs value_excludes;
+    private boolean unknown_excludes;
     public TaskExcludesArgs excludes() {
-        if (excludes == null) return null;
-        return excludes.getValue("TaskArgs.excludes");
+        if (!unknown_excludes) return value_excludes;
+        throw new UndeferrableValueException("Value 'TaskArgs.excludes' is not present");
     }
 
     /**
      * Filter rules that determines which files to include in a task.
      * 
      */
-    private UndeferrableValue<TaskIncludesArgs> includes;
-
+    @PolicyResourceProperty(name="includes", flag="unknown_includes")
+    private TaskIncludesArgs value_includes;
+    private boolean unknown_includes;
     public TaskIncludesArgs includes() {
-        if (includes == null) return null;
-        return includes.getValue("TaskArgs.includes");
+        if (!unknown_includes) return value_includes;
+        throw new UndeferrableValueException("Value 'TaskArgs.includes' is not present");
     }
 
     /**
      * Name of the DataSync Task.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TaskArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TaskArgs.name' is not present");
     }
 
     /**
      * Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
      * 
      */
-    private UndeferrableValue<TaskOptionsArgs> options;
-
+    @PolicyResourceProperty(name="options", flag="unknown_options")
+    private TaskOptionsArgs value_options;
+    private boolean unknown_options;
     public TaskOptionsArgs options() {
-        if (options == null) return null;
-        return options.getValue("TaskArgs.options");
+        if (!unknown_options) return value_options;
+        throw new UndeferrableValueException("Value 'TaskArgs.options' is not present");
     }
 
     /**
      * Specifies a schedule used to periodically transfer files from a source to a destination location.
      * 
      */
-    private UndeferrableValue<TaskScheduleArgs> schedule;
-
+    @PolicyResourceProperty(name="schedule", flag="unknown_schedule")
+    private TaskScheduleArgs value_schedule;
+    private boolean unknown_schedule;
     public TaskScheduleArgs schedule() {
-        if (schedule == null) return null;
-        return schedule.getValue("TaskArgs.schedule");
+        if (!unknown_schedule) return value_schedule;
+        throw new UndeferrableValueException("Value 'TaskArgs.schedule' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of source DataSync Location.
      * 
      */
-    private UndeferrableValue<String> sourceLocationArn;
-
+    @PolicyResourceProperty(name="sourceLocationArn", flag="unknown_sourceLocationArn")
+    private String value_sourceLocationArn;
+    private boolean unknown_sourceLocationArn;
     public String sourceLocationArn() {
-        if (sourceLocationArn == null) return null;
-        return sourceLocationArn.getValue("TaskArgs.sourceLocationArn");
+        if (!unknown_sourceLocationArn) return value_sourceLocationArn;
+        throw new UndeferrableValueException("Value 'TaskArgs.sourceLocationArn' is not present");
     }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TaskArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TaskArgs.tags' is not present");
     }
 
     /**
@@ -123,22 +133,24 @@ public final class TaskArgs extends com.pulumi.resources.PolicyResourceInput {
      * * `ENHANCED` - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.
      * 
      */
-    private UndeferrableValue<String> taskMode;
-
+    @PolicyResourceProperty(name="taskMode", flag="unknown_taskMode")
+    private String value_taskMode;
+    private boolean unknown_taskMode;
     public String taskMode() {
-        if (taskMode == null) return null;
-        return taskMode.getValue("TaskArgs.taskMode");
+        if (!unknown_taskMode) return value_taskMode;
+        throw new UndeferrableValueException("Value 'TaskArgs.taskMode' is not present");
     }
 
     /**
      * Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
      * 
      */
-    private UndeferrableValue<TaskTaskReportConfigArgs> taskReportConfig;
-
+    @PolicyResourceProperty(name="taskReportConfig", flag="unknown_taskReportConfig")
+    private TaskTaskReportConfigArgs value_taskReportConfig;
+    private boolean unknown_taskReportConfig;
     public TaskTaskReportConfigArgs taskReportConfig() {
-        if (taskReportConfig == null) return null;
-        return taskReportConfig.getValue("TaskArgs.taskReportConfig");
+        if (!unknown_taskReportConfig) return value_taskReportConfig;
+        throw new UndeferrableValueException("Value 'TaskArgs.taskReportConfig' is not present");
     }
 
 }

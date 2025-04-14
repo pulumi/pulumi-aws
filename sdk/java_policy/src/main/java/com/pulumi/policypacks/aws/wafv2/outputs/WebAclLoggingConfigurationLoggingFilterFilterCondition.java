@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterCondition {
      * Configuration for a single action condition. See Action Condition below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition> actionCondition;
-
+    @PolicyResourceProperty(name="actionCondition", flag="unknown_actionCondition")
+    private @Nullable WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition value_actionCondition;
+    private boolean unknown_actionCondition;
     public @Nullable WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition actionCondition() {
-        if (actionCondition == null) return null;
-        return actionCondition.getValue("WebAclLoggingConfigurationLoggingFilterFilterCondition.actionCondition");
+        if (!unknown_actionCondition) return value_actionCondition;
+        throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationLoggingFilterFilterCondition.actionCondition' is not present");
     }
 
     /**
      * Condition for a single label name. See Label Name Condition below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition> labelNameCondition;
-
+    @PolicyResourceProperty(name="labelNameCondition", flag="unknown_labelNameCondition")
+    private @Nullable WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition value_labelNameCondition;
+    private boolean unknown_labelNameCondition;
     public @Nullable WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition labelNameCondition() {
-        if (labelNameCondition == null) return null;
-        return labelNameCondition.getValue("WebAclLoggingConfigurationLoggingFilterFilterCondition.labelNameCondition");
+        if (!unknown_labelNameCondition) return value_labelNameCondition;
+        throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationLoggingFilterFilterCondition.labelNameCondition' is not present");
     }
 
 }

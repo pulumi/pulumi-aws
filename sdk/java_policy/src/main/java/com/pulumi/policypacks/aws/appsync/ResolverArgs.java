@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appsync.inputs.ResolverCachingConfigArgs;
 import com.pulumi.policypacks.aws.appsync.inputs.ResolverPipelineConfigArgs;
@@ -21,143 +22,156 @@ public final class ResolverArgs extends com.pulumi.resources.PolicyResourceInput
      * API ID for the GraphQL API.
      * 
      */
-    private UndeferrableValue<String> apiId;
-
+    @PolicyResourceProperty(name="apiId", flag="unknown_apiId")
+    private String value_apiId;
+    private boolean unknown_apiId;
     public String apiId() {
-        if (apiId == null) return null;
-        return apiId.getValue("ResolverArgs.apiId");
+        if (!unknown_apiId) return value_apiId;
+        throw new UndeferrableValueException("Value 'ResolverArgs.apiId' is not present");
     }
 
     /**
      * The Caching Config. See Caching Config.
      * 
      */
-    private UndeferrableValue<ResolverCachingConfigArgs> cachingConfig;
-
+    @PolicyResourceProperty(name="cachingConfig", flag="unknown_cachingConfig")
+    private ResolverCachingConfigArgs value_cachingConfig;
+    private boolean unknown_cachingConfig;
     public ResolverCachingConfigArgs cachingConfig() {
-        if (cachingConfig == null) return null;
-        return cachingConfig.getValue("ResolverArgs.cachingConfig");
+        if (!unknown_cachingConfig) return value_cachingConfig;
+        throw new UndeferrableValueException("Value 'ResolverArgs.cachingConfig' is not present");
     }
 
     /**
      * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
      * 
      */
-    private UndeferrableValue<String> code;
-
+    @PolicyResourceProperty(name="code", flag="unknown_code")
+    private String value_code;
+    private boolean unknown_code;
     public String code() {
-        if (code == null) return null;
-        return code.getValue("ResolverArgs.code");
+        if (!unknown_code) return value_code;
+        throw new UndeferrableValueException("Value 'ResolverArgs.code' is not present");
     }
 
     /**
      * Data source name.
      * 
      */
-    private UndeferrableValue<String> dataSource;
-
+    @PolicyResourceProperty(name="dataSource", flag="unknown_dataSource")
+    private String value_dataSource;
+    private boolean unknown_dataSource;
     public String dataSource() {
-        if (dataSource == null) return null;
-        return dataSource.getValue("ResolverArgs.dataSource");
+        if (!unknown_dataSource) return value_dataSource;
+        throw new UndeferrableValueException("Value 'ResolverArgs.dataSource' is not present");
     }
 
     /**
      * Field name from the schema defined in the GraphQL API.
      * 
      */
-    private UndeferrableValue<String> field;
-
+    @PolicyResourceProperty(name="field", flag="unknown_field")
+    private String value_field;
+    private boolean unknown_field;
     public String field() {
-        if (field == null) return null;
-        return field.getValue("ResolverArgs.field");
+        if (!unknown_field) return value_field;
+        throw new UndeferrableValueException("Value 'ResolverArgs.field' is not present");
     }
 
     /**
      * Resolver type. Valid values are `UNIT` and `PIPELINE`.
      * 
      */
-    private UndeferrableValue<String> kind;
-
+    @PolicyResourceProperty(name="kind", flag="unknown_kind")
+    private String value_kind;
+    private boolean unknown_kind;
     public String kind() {
-        if (kind == null) return null;
-        return kind.getValue("ResolverArgs.kind");
+        if (!unknown_kind) return value_kind;
+        throw new UndeferrableValueException("Value 'ResolverArgs.kind' is not present");
     }
 
     /**
      * Maximum batching size for a resolver. Valid values are between `0` and `2000`.
      * 
      */
-    private UndeferrableValue<Integer> maxBatchSize;
-
+    @PolicyResourceProperty(name="maxBatchSize", flag="unknown_maxBatchSize")
+    private Integer value_maxBatchSize;
+    private boolean unknown_maxBatchSize;
     public Integer maxBatchSize() {
-        if (maxBatchSize == null) return null;
-        return maxBatchSize.getValue("ResolverArgs.maxBatchSize");
+        if (!unknown_maxBatchSize) return value_maxBatchSize;
+        throw new UndeferrableValueException("Value 'ResolverArgs.maxBatchSize' is not present");
     }
 
     /**
      * The caching configuration for the resolver. See Pipeline Config.
      * 
      */
-    private UndeferrableValue<ResolverPipelineConfigArgs> pipelineConfig;
-
+    @PolicyResourceProperty(name="pipelineConfig", flag="unknown_pipelineConfig")
+    private ResolverPipelineConfigArgs value_pipelineConfig;
+    private boolean unknown_pipelineConfig;
     public ResolverPipelineConfigArgs pipelineConfig() {
-        if (pipelineConfig == null) return null;
-        return pipelineConfig.getValue("ResolverArgs.pipelineConfig");
+        if (!unknown_pipelineConfig) return value_pipelineConfig;
+        throw new UndeferrableValueException("Value 'ResolverArgs.pipelineConfig' is not present");
     }
 
     /**
      * Request mapping template for UNIT resolver or &#39;before mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
      * 
      */
-    private UndeferrableValue<String> requestTemplate;
-
+    @PolicyResourceProperty(name="requestTemplate", flag="unknown_requestTemplate")
+    private String value_requestTemplate;
+    private boolean unknown_requestTemplate;
     public String requestTemplate() {
-        if (requestTemplate == null) return null;
-        return requestTemplate.getValue("ResolverArgs.requestTemplate");
+        if (!unknown_requestTemplate) return value_requestTemplate;
+        throw new UndeferrableValueException("Value 'ResolverArgs.requestTemplate' is not present");
     }
 
     /**
      * Response mapping template for UNIT resolver or &#39;after mapping template&#39; for PIPELINE resolver. Required for non-Lambda resolvers.
      * 
      */
-    private UndeferrableValue<String> responseTemplate;
-
+    @PolicyResourceProperty(name="responseTemplate", flag="unknown_responseTemplate")
+    private String value_responseTemplate;
+    private boolean unknown_responseTemplate;
     public String responseTemplate() {
-        if (responseTemplate == null) return null;
-        return responseTemplate.getValue("ResolverArgs.responseTemplate");
+        if (!unknown_responseTemplate) return value_responseTemplate;
+        throw new UndeferrableValueException("Value 'ResolverArgs.responseTemplate' is not present");
     }
 
     /**
      * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
      * 
      */
-    private UndeferrableValue<ResolverRuntimeArgs> runtime;
-
+    @PolicyResourceProperty(name="runtime", flag="unknown_runtime")
+    private ResolverRuntimeArgs value_runtime;
+    private boolean unknown_runtime;
     public ResolverRuntimeArgs runtime() {
-        if (runtime == null) return null;
-        return runtime.getValue("ResolverArgs.runtime");
+        if (!unknown_runtime) return value_runtime;
+        throw new UndeferrableValueException("Value 'ResolverArgs.runtime' is not present");
     }
 
     /**
      * Describes a Sync configuration for a resolver. See Sync Config.
      * 
      */
-    private UndeferrableValue<ResolverSyncConfigArgs> syncConfig;
-
+    @PolicyResourceProperty(name="syncConfig", flag="unknown_syncConfig")
+    private ResolverSyncConfigArgs value_syncConfig;
+    private boolean unknown_syncConfig;
     public ResolverSyncConfigArgs syncConfig() {
-        if (syncConfig == null) return null;
-        return syncConfig.getValue("ResolverArgs.syncConfig");
+        if (!unknown_syncConfig) return value_syncConfig;
+        throw new UndeferrableValueException("Value 'ResolverArgs.syncConfig' is not present");
     }
 
     /**
      * Type name from the schema defined in the GraphQL API.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ResolverArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ResolverArgs.type' is not present");
     }
 
 }

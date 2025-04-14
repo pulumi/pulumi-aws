@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ServiceLoadBalancer {
      * Name of the container to associate with the load balancer (as it appears in a container definition).
      * 
      */
-    private UndeferrableValue<String> containerName;
-
+    @PolicyResourceProperty(name="containerName", flag="unknown_containerName")
+    private String value_containerName;
+    private boolean unknown_containerName;
     public String containerName() {
-        if (containerName == null) return null;
-        return containerName.getValue("ServiceLoadBalancer.containerName");
+        if (!unknown_containerName) return value_containerName;
+        throw new UndeferrableValueException("Value 'ServiceLoadBalancer.containerName' is not present");
     }
 
     /**
@@ -28,33 +30,36 @@ public final class ServiceLoadBalancer {
      * &gt; **Version note:** Multiple `load_balancer` configuration block support was added in version 2.22.0 of the provider. This allows configuration of [ECS service support for multiple target groups](https://aws.amazon.com/about-aws/whats-new/2019/07/amazon-ecs-services-now-support-multiple-load-balancer-target-groups/).
      * 
      */
-    private UndeferrableValue<Integer> containerPort;
-
+    @PolicyResourceProperty(name="containerPort", flag="unknown_containerPort")
+    private Integer value_containerPort;
+    private boolean unknown_containerPort;
     public Integer containerPort() {
-        if (containerPort == null) return null;
-        return containerPort.getValue("ServiceLoadBalancer.containerPort");
+        if (!unknown_containerPort) return value_containerPort;
+        throw new UndeferrableValueException("Value 'ServiceLoadBalancer.containerPort' is not present");
     }
 
     /**
      * Name of the ELB (Classic) to associate with the service.
      * 
      */
-    private @Nullable UndeferrableValue<String> elbName;
-
+    @PolicyResourceProperty(name="elbName", flag="unknown_elbName")
+    private @Nullable String value_elbName;
+    private boolean unknown_elbName;
     public @Nullable String elbName() {
-        if (elbName == null) return null;
-        return elbName.getValue("ServiceLoadBalancer.elbName");
+        if (!unknown_elbName) return value_elbName;
+        throw new UndeferrableValueException("Value 'ServiceLoadBalancer.elbName' is not present");
     }
 
     /**
      * ARN of the Load Balancer target group to associate with the service.
      * 
      */
-    private @Nullable UndeferrableValue<String> targetGroupArn;
-
+    @PolicyResourceProperty(name="targetGroupArn", flag="unknown_targetGroupArn")
+    private @Nullable String value_targetGroupArn;
+    private boolean unknown_targetGroupArn;
     public @Nullable String targetGroupArn() {
-        if (targetGroupArn == null) return null;
-        return targetGroupArn.getValue("ServiceLoadBalancer.targetGroupArn");
+        if (!unknown_targetGroupArn) return value_targetGroupArn;
+        throw new UndeferrableValueException("Value 'ServiceLoadBalancer.targetGroupArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.detective;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,55 +18,60 @@ public final class MemberArgs extends com.pulumi.resources.PolicyResourceInput {
      * AWS account ID for the account.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("MemberArgs.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'MemberArgs.accountId' is not present");
     }
 
     /**
      * If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> disableEmailNotification;
-
+    @PolicyResourceProperty(name="disableEmailNotification", flag="unknown_disableEmailNotification")
+    private Boolean value_disableEmailNotification;
+    private boolean unknown_disableEmailNotification;
     public Boolean disableEmailNotification() {
-        if (disableEmailNotification == null) return null;
-        return disableEmailNotification.getValue("MemberArgs.disableEmailNotification");
+        if (!unknown_disableEmailNotification) return value_disableEmailNotification;
+        throw new UndeferrableValueException("Value 'MemberArgs.disableEmailNotification' is not present");
     }
 
     /**
      * Email address for the account.
      * 
      */
-    private UndeferrableValue<String> emailAddress;
-
+    @PolicyResourceProperty(name="emailAddress", flag="unknown_emailAddress")
+    private String value_emailAddress;
+    private boolean unknown_emailAddress;
     public String emailAddress() {
-        if (emailAddress == null) return null;
-        return emailAddress.getValue("MemberArgs.emailAddress");
+        if (!unknown_emailAddress) return value_emailAddress;
+        throw new UndeferrableValueException("Value 'MemberArgs.emailAddress' is not present");
     }
 
     /**
      * ARN of the behavior graph to invite the member accounts to contribute their data to.
      * 
      */
-    private UndeferrableValue<String> graphArn;
-
+    @PolicyResourceProperty(name="graphArn", flag="unknown_graphArn")
+    private String value_graphArn;
+    private boolean unknown_graphArn;
     public String graphArn() {
-        if (graphArn == null) return null;
-        return graphArn.getValue("MemberArgs.graphArn");
+        if (!unknown_graphArn) return value_graphArn;
+        throw new UndeferrableValueException("Value 'MemberArgs.graphArn' is not present");
     }
 
     /**
      * A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
      * 
      */
-    private UndeferrableValue<String> message;
-
+    @PolicyResourceProperty(name="message", flag="unknown_message")
+    private String value_message;
+    private boolean unknown_message;
     public String message() {
-        if (message == null) return null;
-        return message.getValue("MemberArgs.message");
+        if (!unknown_message) return value_message;
+        throw new UndeferrableValueException("Value 'MemberArgs.message' is not present");
     }
 
 }

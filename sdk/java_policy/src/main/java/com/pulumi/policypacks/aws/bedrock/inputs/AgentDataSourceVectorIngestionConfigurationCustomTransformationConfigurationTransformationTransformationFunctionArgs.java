@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
      * The configuration of the lambda function.
      * 
      */
-    private UndeferrableValue<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs> transformationLambdaConfiguration;
-
+    @PolicyResourceProperty(name="transformationLambdaConfiguration", flag="unknown_transformationLambdaConfiguration")
+    private AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs value_transformationLambdaConfiguration;
+    private boolean unknown_transformationLambdaConfiguration;
     public AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs transformationLambdaConfiguration() {
-        if (transformationLambdaConfiguration == null) return null;
-        return transformationLambdaConfiguration.getValue("AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs.transformationLambdaConfiguration");
+        if (!unknown_transformationLambdaConfiguration) return value_transformationLambdaConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs.transformationLambdaConfiguration' is not present");
     }
 
 }

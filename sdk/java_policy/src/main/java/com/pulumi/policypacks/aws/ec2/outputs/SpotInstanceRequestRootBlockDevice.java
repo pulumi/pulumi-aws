@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,102 +18,112 @@ public final class SpotInstanceRequestRootBlockDevice {
      * Whether the volume should be destroyed on instance termination. Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> deleteOnTermination;
-
+    @PolicyResourceProperty(name="deleteOnTermination", flag="unknown_deleteOnTermination")
+    private @Nullable Boolean value_deleteOnTermination;
+    private boolean unknown_deleteOnTermination;
     public @Nullable Boolean deleteOnTermination() {
-        if (deleteOnTermination == null) return null;
-        return deleteOnTermination.getValue("SpotInstanceRequestRootBlockDevice.deleteOnTermination");
+        if (!unknown_deleteOnTermination) return value_deleteOnTermination;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequestRootBlockDevice.deleteOnTermination' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> deviceName;
-
+    @PolicyResourceProperty(name="deviceName", flag="unknown_deviceName")
+    private @Nullable String value_deviceName;
+    private boolean unknown_deviceName;
     public @Nullable String deviceName() {
-        if (deviceName == null) return null;
-        return deviceName.getValue("SpotInstanceRequestRootBlockDevice.deviceName");
+        if (!unknown_deviceName) return value_deviceName;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequestRootBlockDevice.deviceName' is not present");
     }
 
     /**
      * Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> encrypted;
-
+    @PolicyResourceProperty(name="encrypted", flag="unknown_encrypted")
+    private @Nullable Boolean value_encrypted;
+    private boolean unknown_encrypted;
     public @Nullable Boolean encrypted() {
-        if (encrypted == null) return null;
-        return encrypted.getValue("SpotInstanceRequestRootBlockDevice.encrypted");
+        if (!unknown_encrypted) return value_encrypted;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequestRootBlockDevice.encrypted' is not present");
     }
 
     /**
      * Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> iops;
-
+    @PolicyResourceProperty(name="iops", flag="unknown_iops")
+    private @Nullable Integer value_iops;
+    private boolean unknown_iops;
     public @Nullable Integer iops() {
-        if (iops == null) return null;
-        return iops.getValue("SpotInstanceRequestRootBlockDevice.iops");
+        if (!unknown_iops) return value_iops;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequestRootBlockDevice.iops' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("SpotInstanceRequestRootBlockDevice.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequestRootBlockDevice.kmsKeyId' is not present");
     }
 
     /**
      * Map of tags to assign to the device.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SpotInstanceRequestRootBlockDevice.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequestRootBlockDevice.tags' is not present");
     }
 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private @Nullable Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public @Nullable Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("SpotInstanceRequestRootBlockDevice.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequestRootBlockDevice.tagsAll' is not present");
     }
 
     /**
      * Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> throughput;
-
+    @PolicyResourceProperty(name="throughput", flag="unknown_throughput")
+    private @Nullable Integer value_throughput;
+    private boolean unknown_throughput;
     public @Nullable Integer throughput() {
-        if (throughput == null) return null;
-        return throughput.getValue("SpotInstanceRequestRootBlockDevice.throughput");
+        if (!unknown_throughput) return value_throughput;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequestRootBlockDevice.throughput' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> volumeId;
-
+    @PolicyResourceProperty(name="volumeId", flag="unknown_volumeId")
+    private @Nullable String value_volumeId;
+    private boolean unknown_volumeId;
     public @Nullable String volumeId() {
-        if (volumeId == null) return null;
-        return volumeId.getValue("SpotInstanceRequestRootBlockDevice.volumeId");
+        if (!unknown_volumeId) return value_volumeId;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequestRootBlockDevice.volumeId' is not present");
     }
 
     /**
      * Size of the volume in gibibytes (GiB).
      * 
      */
-    private @Nullable UndeferrableValue<Integer> volumeSize;
-
+    @PolicyResourceProperty(name="volumeSize", flag="unknown_volumeSize")
+    private @Nullable Integer value_volumeSize;
+    private boolean unknown_volumeSize;
     public @Nullable Integer volumeSize() {
-        if (volumeSize == null) return null;
-        return volumeSize.getValue("SpotInstanceRequestRootBlockDevice.volumeSize");
+        if (!unknown_volumeSize) return value_volumeSize;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequestRootBlockDevice.volumeSize' is not present");
     }
 
     /**
@@ -121,11 +132,12 @@ public final class SpotInstanceRequestRootBlockDevice {
      * Modifying the `encrypted` or `kms_key_id` settings of the `root_block_device` requires resource replacement.
      * 
      */
-    private @Nullable UndeferrableValue<String> volumeType;
-
+    @PolicyResourceProperty(name="volumeType", flag="unknown_volumeType")
+    private @Nullable String value_volumeType;
+    private boolean unknown_volumeType;
     public @Nullable String volumeType() {
-        if (volumeType == null) return null;
-        return volumeType.getValue("SpotInstanceRequestRootBlockDevice.volumeType");
+        if (!unknown_volumeType) return value_volumeType;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequestRootBlockDevice.volumeType' is not present");
     }
 
 }

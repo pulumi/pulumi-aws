@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pinpoint;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class BaiduChannel extends com.pulumi.resources.PolicyResourceOutpu
      * Platform credential API key from Baidu.
      * 
      */
-    private UndeferrableValue<String> apiKey;
-
+    @PolicyResourceProperty(name="apiKey", flag="unknown_apiKey")
+    private String value_apiKey;
+    private boolean unknown_apiKey;
     public String apiKey() {
-        if (apiKey == null) return null;
-        return apiKey.getValue("BaiduChannel.apiKey");
+        if (!unknown_apiKey) return value_apiKey;
+        throw new UndeferrableValueException("Value 'BaiduChannel.apiKey' is not present");
     }
 
     /**
      * The application ID.
      * 
      */
-    private UndeferrableValue<String> applicationId;
-
+    @PolicyResourceProperty(name="applicationId", flag="unknown_applicationId")
+    private String value_applicationId;
+    private boolean unknown_applicationId;
     public String applicationId() {
-        if (applicationId == null) return null;
-        return applicationId.getValue("BaiduChannel.applicationId");
+        if (!unknown_applicationId) return value_applicationId;
+        throw new UndeferrableValueException("Value 'BaiduChannel.applicationId' is not present");
     }
 
     /**
      * Specifies whether to enable the channel. Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("BaiduChannel.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'BaiduChannel.enabled' is not present");
     }
 
     /**
      * Platform credential Secret key from Baidu.
      * 
      */
-    private UndeferrableValue<String> secretKey;
-
+    @PolicyResourceProperty(name="secretKey", flag="unknown_secretKey")
+    private String value_secretKey;
+    private boolean unknown_secretKey;
     public String secretKey() {
-        if (secretKey == null) return null;
-        return secretKey.getValue("BaiduChannel.secretKey");
+        if (!unknown_secretKey) return value_secretKey;
+        throw new UndeferrableValueException("Value 'BaiduChannel.secretKey' is not present");
     }
 
 }

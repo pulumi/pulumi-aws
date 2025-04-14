@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class VaultPolicy extends com.pulumi.resources.PolicyResourceOutput
      * The ARN of the vault.
      * 
      */
-    private UndeferrableValue<String> backupVaultArn;
-
+    @PolicyResourceProperty(name="backupVaultArn", flag="unknown_backupVaultArn")
+    private String value_backupVaultArn;
+    private boolean unknown_backupVaultArn;
     public String backupVaultArn() {
-        if (backupVaultArn == null) return null;
-        return backupVaultArn.getValue("VaultPolicy.backupVaultArn");
+        if (!unknown_backupVaultArn) return value_backupVaultArn;
+        throw new UndeferrableValueException("Value 'VaultPolicy.backupVaultArn' is not present");
     }
 
     /**
      * Name of the backup vault to add policy for.
      * 
      */
-    private UndeferrableValue<String> backupVaultName;
-
+    @PolicyResourceProperty(name="backupVaultName", flag="unknown_backupVaultName")
+    private String value_backupVaultName;
+    private boolean unknown_backupVaultName;
     public String backupVaultName() {
-        if (backupVaultName == null) return null;
-        return backupVaultName.getValue("VaultPolicy.backupVaultName");
+        if (!unknown_backupVaultName) return value_backupVaultName;
+        throw new UndeferrableValueException("Value 'VaultPolicy.backupVaultName' is not present");
     }
 
     /**
      * The backup vault access policy document in JSON format.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("VaultPolicy.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'VaultPolicy.policy' is not present");
     }
 
 }

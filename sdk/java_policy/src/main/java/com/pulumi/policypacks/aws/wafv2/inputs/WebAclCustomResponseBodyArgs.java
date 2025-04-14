@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,33 +14,36 @@ public final class WebAclCustomResponseBodyArgs {
      * Payload of the custom response.
      * 
      */
-    private UndeferrableValue<String> content;
-
+    @PolicyResourceProperty(name="content", flag="unknown_content")
+    private String value_content;
+    private boolean unknown_content;
     public String content() {
-        if (content == null) return null;
-        return content.getValue("WebAclCustomResponseBodyArgs.content");
+        if (!unknown_content) return value_content;
+        throw new UndeferrableValueException("Value 'WebAclCustomResponseBodyArgs.content' is not present");
     }
 
     /**
      * Type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
      * 
      */
-    private UndeferrableValue<String> contentType;
-
+    @PolicyResourceProperty(name="contentType", flag="unknown_contentType")
+    private String value_contentType;
+    private boolean unknown_contentType;
     public String contentType() {
-        if (contentType == null) return null;
-        return contentType.getValue("WebAclCustomResponseBodyArgs.contentType");
+        if (!unknown_contentType) return value_contentType;
+        throw new UndeferrableValueException("Value 'WebAclCustomResponseBodyArgs.contentType' is not present");
     }
 
     /**
      * Unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the `custom_response` block.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("WebAclCustomResponseBodyArgs.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'WebAclCustomResponseBodyArgs.key' is not present");
     }
 
 }

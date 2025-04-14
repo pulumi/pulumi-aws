@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicecatalog.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class ProvisionedProductOutput {
      * The description of the output.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ProvisionedProductOutput.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ProvisionedProductOutput.description' is not present");
     }
 
     /**
      * The output key.
      * 
      */
-    private @Nullable UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private @Nullable String value_key;
+    private boolean unknown_key;
     public @Nullable String key() {
-        if (key == null) return null;
-        return key.getValue("ProvisionedProductOutput.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'ProvisionedProductOutput.key' is not present");
     }
 
     /**
      * The output value.
      * 
      */
-    private @Nullable UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private @Nullable String value_value;
+    private boolean unknown_value;
     public @Nullable String value() {
-        if (value == null) return null;
-        return value.getValue("ProvisionedProductOutput.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'ProvisionedProductOutput.value' is not present");
     }
 
 }

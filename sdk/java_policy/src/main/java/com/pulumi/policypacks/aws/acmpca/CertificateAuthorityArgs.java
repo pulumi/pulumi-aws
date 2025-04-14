@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.acmpca;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs;
 import com.pulumi.policypacks.aws.acmpca.inputs.CertificateAuthorityRevocationConfigurationArgs;
@@ -21,88 +22,96 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.PolicyR
      * Nested argument containing algorithms and certificate subject information. Defined below.
      * 
      */
-    private UndeferrableValue<CertificateAuthorityCertificateAuthorityConfigurationArgs> certificateAuthorityConfiguration;
-
+    @PolicyResourceProperty(name="certificateAuthorityConfiguration", flag="unknown_certificateAuthorityConfiguration")
+    private CertificateAuthorityCertificateAuthorityConfigurationArgs value_certificateAuthorityConfiguration;
+    private boolean unknown_certificateAuthorityConfiguration;
     public CertificateAuthorityCertificateAuthorityConfigurationArgs certificateAuthorityConfiguration() {
-        if (certificateAuthorityConfiguration == null) return null;
-        return certificateAuthorityConfiguration.getValue("CertificateAuthorityArgs.certificateAuthorityConfiguration");
+        if (!unknown_certificateAuthorityConfiguration) return value_certificateAuthorityConfiguration;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityArgs.certificateAuthorityConfiguration' is not present");
     }
 
     /**
      * Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("CertificateAuthorityArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityArgs.enabled' is not present");
     }
 
     /**
      * Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
      * 
      */
-    private UndeferrableValue<String> keyStorageSecurityStandard;
-
+    @PolicyResourceProperty(name="keyStorageSecurityStandard", flag="unknown_keyStorageSecurityStandard")
+    private String value_keyStorageSecurityStandard;
+    private boolean unknown_keyStorageSecurityStandard;
     public String keyStorageSecurityStandard() {
-        if (keyStorageSecurityStandard == null) return null;
-        return keyStorageSecurityStandard.getValue("CertificateAuthorityArgs.keyStorageSecurityStandard");
+        if (!unknown_keyStorageSecurityStandard) return value_keyStorageSecurityStandard;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityArgs.keyStorageSecurityStandard' is not present");
     }
 
     /**
      * Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
      * 
      */
-    private UndeferrableValue<Integer> permanentDeletionTimeInDays;
-
+    @PolicyResourceProperty(name="permanentDeletionTimeInDays", flag="unknown_permanentDeletionTimeInDays")
+    private Integer value_permanentDeletionTimeInDays;
+    private boolean unknown_permanentDeletionTimeInDays;
     public Integer permanentDeletionTimeInDays() {
-        if (permanentDeletionTimeInDays == null) return null;
-        return permanentDeletionTimeInDays.getValue("CertificateAuthorityArgs.permanentDeletionTimeInDays");
+        if (!unknown_permanentDeletionTimeInDays) return value_permanentDeletionTimeInDays;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityArgs.permanentDeletionTimeInDays' is not present");
     }
 
     /**
      * Nested argument containing revocation configuration. Defined below.
      * 
      */
-    private UndeferrableValue<CertificateAuthorityRevocationConfigurationArgs> revocationConfiguration;
-
+    @PolicyResourceProperty(name="revocationConfiguration", flag="unknown_revocationConfiguration")
+    private CertificateAuthorityRevocationConfigurationArgs value_revocationConfiguration;
+    private boolean unknown_revocationConfiguration;
     public CertificateAuthorityRevocationConfigurationArgs revocationConfiguration() {
-        if (revocationConfiguration == null) return null;
-        return revocationConfiguration.getValue("CertificateAuthorityArgs.revocationConfiguration");
+        if (!unknown_revocationConfiguration) return value_revocationConfiguration;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityArgs.revocationConfiguration' is not present");
     }
 
     /**
      * Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CertificateAuthorityArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityArgs.tags' is not present");
     }
 
     /**
      * Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("CertificateAuthorityArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityArgs.type' is not present");
     }
 
     /**
      * Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
      * 
      */
-    private UndeferrableValue<String> usageMode;
-
+    @PolicyResourceProperty(name="usageMode", flag="unknown_usageMode")
+    private String value_usageMode;
+    private boolean unknown_usageMode;
     public String usageMode() {
-        if (usageMode == null) return null;
-        return usageMode.getValue("CertificateAuthorityArgs.usageMode");
+        if (!unknown_usageMode) return value_usageMode;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityArgs.usageMode' is not present");
     }
 
 }

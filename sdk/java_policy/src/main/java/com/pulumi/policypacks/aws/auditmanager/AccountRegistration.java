@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.auditmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class AccountRegistration extends com.pulumi.resources.PolicyResour
      * Identifier for the delegated administrator account.
      * 
      */
-    private @Nullable UndeferrableValue<String> delegatedAdminAccount;
-
+    @PolicyResourceProperty(name="delegatedAdminAccount", flag="unknown_delegatedAdminAccount")
+    private @Nullable String value_delegatedAdminAccount;
+    private boolean unknown_delegatedAdminAccount;
     public @Nullable String delegatedAdminAccount() {
-        if (delegatedAdminAccount == null) return null;
-        return delegatedAdminAccount.getValue("AccountRegistration.delegatedAdminAccount");
+        if (!unknown_delegatedAdminAccount) return value_delegatedAdminAccount;
+        throw new UndeferrableValueException("Value 'AccountRegistration.delegatedAdminAccount' is not present");
     }
 
     /**
      * Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> deregisterOnDestroy;
-
+    @PolicyResourceProperty(name="deregisterOnDestroy", flag="unknown_deregisterOnDestroy")
+    private @Nullable Boolean value_deregisterOnDestroy;
+    private boolean unknown_deregisterOnDestroy;
     public @Nullable Boolean deregisterOnDestroy() {
-        if (deregisterOnDestroy == null) return null;
-        return deregisterOnDestroy.getValue("AccountRegistration.deregisterOnDestroy");
+        if (!unknown_deregisterOnDestroy) return value_deregisterOnDestroy;
+        throw new UndeferrableValueException("Value 'AccountRegistration.deregisterOnDestroy' is not present");
     }
 
     /**
      * KMS key identifier.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKey;
-
+    @PolicyResourceProperty(name="kmsKey", flag="unknown_kmsKey")
+    private @Nullable String value_kmsKey;
+    private boolean unknown_kmsKey;
     public @Nullable String kmsKey() {
-        if (kmsKey == null) return null;
-        return kmsKey.getValue("AccountRegistration.kmsKey");
+        if (!unknown_kmsKey) return value_kmsKey;
+        throw new UndeferrableValueException("Value 'AccountRegistration.kmsKey' is not present");
     }
 
     /**
      * Status of the account registration request.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("AccountRegistration.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'AccountRegistration.status' is not present");
     }
 
 }

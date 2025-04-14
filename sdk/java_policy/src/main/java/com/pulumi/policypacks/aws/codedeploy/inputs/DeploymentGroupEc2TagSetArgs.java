@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codedeploy.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codedeploy.inputs.DeploymentGroupEc2TagSetEc2TagFilterArgs;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class DeploymentGroupEc2TagSetArgs {
      * Tag filters associated with the deployment group. See the AWS docs for details.
      * 
      */
-    private UndeferrableValue<List<DeploymentGroupEc2TagSetEc2TagFilterArgs>> ec2TagFilters;
-
+    @PolicyResourceProperty(name="ec2TagFilters", flag="unknown_ec2TagFilters")
+    private List<DeploymentGroupEc2TagSetEc2TagFilterArgs> value_ec2TagFilters;
+    private boolean unknown_ec2TagFilters;
     public List<DeploymentGroupEc2TagSetEc2TagFilterArgs> ec2TagFilters() {
-        if (ec2TagFilters == null) return null;
-        return ec2TagFilters.getValue("DeploymentGroupEc2TagSetArgs.ec2TagFilters");
+        if (!unknown_ec2TagFilters) return value_ec2TagFilters;
+        throw new UndeferrableValueException("Value 'DeploymentGroupEc2TagSetArgs.ec2TagFilters' is not present");
     }
 
 }

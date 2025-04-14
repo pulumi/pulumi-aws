@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.organizations.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,18 +15,20 @@ public final class OrganizationRootPolicyType {
      * The status of the policy type as it relates to the associated root
      * 
      */
-    private @Nullable UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private @Nullable String value_status;
+    private boolean unknown_status;
     public @Nullable String status() {
-        if (status == null) return null;
-        return status.getValue("OrganizationRootPolicyType.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'OrganizationRootPolicyType.status' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("OrganizationRootPolicyType.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'OrganizationRootPolicyType.type' is not present");
     }
 
 }

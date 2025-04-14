@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class OrganizationConfigurationOrganizationConfigurationArgs {
      * Indicates whether the organization uses local or central configuration. If using central configuration, `auto_enable` must be set to `false` and `auto_enable_standards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
      * 
      */
-    private UndeferrableValue<String> configurationType;
-
+    @PolicyResourceProperty(name="configurationType", flag="unknown_configurationType")
+    private String value_configurationType;
+    private boolean unknown_configurationType;
     public String configurationType() {
-        if (configurationType == null) return null;
-        return configurationType.getValue("OrganizationConfigurationOrganizationConfigurationArgs.configurationType");
+        if (!unknown_configurationType) return value_configurationType;
+        throw new UndeferrableValueException("Value 'OrganizationConfigurationOrganizationConfigurationArgs.configurationType' is not present");
     }
 
 }

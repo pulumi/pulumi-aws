@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.GatewayRouteSpecHttp2RouteMatchQueryParameterMatch;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class GatewayRouteSpecHttp2RouteMatchQueryParameter {
      * The query parameter to match on.
      * 
      */
-    private @Nullable UndeferrableValue<GatewayRouteSpecHttp2RouteMatchQueryParameterMatch> match;
-
+    @PolicyResourceProperty(name="match", flag="unknown_match")
+    private @Nullable GatewayRouteSpecHttp2RouteMatchQueryParameterMatch value_match;
+    private boolean unknown_match;
     public @Nullable GatewayRouteSpecHttp2RouteMatchQueryParameterMatch match() {
-        if (match == null) return null;
-        return match.getValue("GatewayRouteSpecHttp2RouteMatchQueryParameter.match");
+        if (!unknown_match) return value_match;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttp2RouteMatchQueryParameter.match' is not present");
     }
 
     /**
      * Name for the query parameter that will be matched on.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("GatewayRouteSpecHttp2RouteMatchQueryParameter.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttp2RouteMatchQueryParameter.name' is not present");
     }
 
 }

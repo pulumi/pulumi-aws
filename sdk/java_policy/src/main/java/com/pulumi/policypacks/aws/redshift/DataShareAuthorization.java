@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class DataShareAuthorization extends com.pulumi.resources.PolicyRes
      * Whether to allow write operations for a datashare.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> allowWrites;
-
+    @PolicyResourceProperty(name="allowWrites", flag="unknown_allowWrites")
+    private @Nullable Boolean value_allowWrites;
+    private boolean unknown_allowWrites;
     public @Nullable Boolean allowWrites() {
-        if (allowWrites == null) return null;
-        return allowWrites.getValue("DataShareAuthorization.allowWrites");
+        if (!unknown_allowWrites) return value_allowWrites;
+        throw new UndeferrableValueException("Value 'DataShareAuthorization.allowWrites' is not present");
     }
 
     /**
      * Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
      * 
      */
-    private UndeferrableValue<String> consumerIdentifier;
-
+    @PolicyResourceProperty(name="consumerIdentifier", flag="unknown_consumerIdentifier")
+    private String value_consumerIdentifier;
+    private boolean unknown_consumerIdentifier;
     public String consumerIdentifier() {
-        if (consumerIdentifier == null) return null;
-        return consumerIdentifier.getValue("DataShareAuthorization.consumerIdentifier");
+        if (!unknown_consumerIdentifier) return value_consumerIdentifier;
+        throw new UndeferrableValueException("Value 'DataShareAuthorization.consumerIdentifier' is not present");
     }
 
     /**
@@ -41,33 +44,36 @@ public final class DataShareAuthorization extends com.pulumi.resources.PolicyRes
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> dataShareArn;
-
+    @PolicyResourceProperty(name="dataShareArn", flag="unknown_dataShareArn")
+    private String value_dataShareArn;
+    private boolean unknown_dataShareArn;
     public String dataShareArn() {
-        if (dataShareArn == null) return null;
-        return dataShareArn.getValue("DataShareAuthorization.dataShareArn");
+        if (!unknown_dataShareArn) return value_dataShareArn;
+        throw new UndeferrableValueException("Value 'DataShareAuthorization.dataShareArn' is not present");
     }
 
     /**
      * Identifier of a datashare to show its managing entity.
      * 
      */
-    private UndeferrableValue<String> managedBy;
-
+    @PolicyResourceProperty(name="managedBy", flag="unknown_managedBy")
+    private String value_managedBy;
+    private boolean unknown_managedBy;
     public String managedBy() {
-        if (managedBy == null) return null;
-        return managedBy.getValue("DataShareAuthorization.managedBy");
+        if (!unknown_managedBy) return value_managedBy;
+        throw new UndeferrableValueException("Value 'DataShareAuthorization.managedBy' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the producer.
      * 
      */
-    private UndeferrableValue<String> producerArn;
-
+    @PolicyResourceProperty(name="producerArn", flag="unknown_producerArn")
+    private String value_producerArn;
+    private boolean unknown_producerArn;
     public String producerArn() {
-        if (producerArn == null) return null;
-        return producerArn.getValue("DataShareAuthorization.producerArn");
+        if (!unknown_producerArn) return value_producerArn;
+        throw new UndeferrableValueException("Value 'DataShareAuthorization.producerArn' is not present");
     }
 
 }

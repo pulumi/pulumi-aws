@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.kinesis.inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs;
 import com.pulumi.policypacks.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
@@ -29,139 +30,152 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Polic
      * The Amazon Resource Name (ARN) specifying the Stream
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("FirehoseDeliveryStreamArgs.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.arn' is not present");
     }
 
     /**
      * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
      * 
      */
-    private UndeferrableValue<String> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private String value_destination;
+    private boolean unknown_destination;
     public String destination() {
-        if (destination == null) return null;
-        return destination.getValue("FirehoseDeliveryStreamArgs.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.destination' is not present");
     }
 
-    private UndeferrableValue<String> destinationId;
-
+    @PolicyResourceProperty(name="destinationId", flag="unknown_destinationId")
+    private String value_destinationId;
+    private boolean unknown_destinationId;
     public String destinationId() {
-        if (destinationId == null) return null;
-        return destinationId.getValue("FirehoseDeliveryStreamArgs.destinationId");
+        if (!unknown_destinationId) return value_destinationId;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.destinationId' is not present");
     }
 
     /**
      * Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamElasticsearchConfigurationArgs> elasticsearchConfiguration;
-
+    @PolicyResourceProperty(name="elasticsearchConfiguration", flag="unknown_elasticsearchConfiguration")
+    private FirehoseDeliveryStreamElasticsearchConfigurationArgs value_elasticsearchConfiguration;
+    private boolean unknown_elasticsearchConfiguration;
     public FirehoseDeliveryStreamElasticsearchConfigurationArgs elasticsearchConfiguration() {
-        if (elasticsearchConfiguration == null) return null;
-        return elasticsearchConfiguration.getValue("FirehoseDeliveryStreamArgs.elasticsearchConfiguration");
+        if (!unknown_elasticsearchConfiguration) return value_elasticsearchConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.elasticsearchConfiguration' is not present");
     }
 
     /**
      * Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamExtendedS3ConfigurationArgs> extendedS3Configuration;
-
+    @PolicyResourceProperty(name="extendedS3Configuration", flag="unknown_extendedS3Configuration")
+    private FirehoseDeliveryStreamExtendedS3ConfigurationArgs value_extendedS3Configuration;
+    private boolean unknown_extendedS3Configuration;
     public FirehoseDeliveryStreamExtendedS3ConfigurationArgs extendedS3Configuration() {
-        if (extendedS3Configuration == null) return null;
-        return extendedS3Configuration.getValue("FirehoseDeliveryStreamArgs.extendedS3Configuration");
+        if (!unknown_extendedS3Configuration) return value_extendedS3Configuration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.extendedS3Configuration' is not present");
     }
 
     /**
      * Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamHttpEndpointConfigurationArgs> httpEndpointConfiguration;
-
+    @PolicyResourceProperty(name="httpEndpointConfiguration", flag="unknown_httpEndpointConfiguration")
+    private FirehoseDeliveryStreamHttpEndpointConfigurationArgs value_httpEndpointConfiguration;
+    private boolean unknown_httpEndpointConfiguration;
     public FirehoseDeliveryStreamHttpEndpointConfigurationArgs httpEndpointConfiguration() {
-        if (httpEndpointConfiguration == null) return null;
-        return httpEndpointConfiguration.getValue("FirehoseDeliveryStreamArgs.httpEndpointConfiguration");
+        if (!unknown_httpEndpointConfiguration) return value_httpEndpointConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.httpEndpointConfiguration' is not present");
     }
 
     /**
      * Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamIcebergConfigurationArgs> icebergConfiguration;
-
+    @PolicyResourceProperty(name="icebergConfiguration", flag="unknown_icebergConfiguration")
+    private FirehoseDeliveryStreamIcebergConfigurationArgs value_icebergConfiguration;
+    private boolean unknown_icebergConfiguration;
     public FirehoseDeliveryStreamIcebergConfigurationArgs icebergConfiguration() {
-        if (icebergConfiguration == null) return null;
-        return icebergConfiguration.getValue("FirehoseDeliveryStreamArgs.icebergConfiguration");
+        if (!unknown_icebergConfiguration) return value_icebergConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.icebergConfiguration' is not present");
     }
 
     /**
      * The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamKinesisSourceConfigurationArgs> kinesisSourceConfiguration;
-
+    @PolicyResourceProperty(name="kinesisSourceConfiguration", flag="unknown_kinesisSourceConfiguration")
+    private FirehoseDeliveryStreamKinesisSourceConfigurationArgs value_kinesisSourceConfiguration;
+    private boolean unknown_kinesisSourceConfiguration;
     public FirehoseDeliveryStreamKinesisSourceConfigurationArgs kinesisSourceConfiguration() {
-        if (kinesisSourceConfiguration == null) return null;
-        return kinesisSourceConfiguration.getValue("FirehoseDeliveryStreamArgs.kinesisSourceConfiguration");
+        if (!unknown_kinesisSourceConfiguration) return value_kinesisSourceConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.kinesisSourceConfiguration' is not present");
     }
 
     /**
      * The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamMskSourceConfigurationArgs> mskSourceConfiguration;
-
+    @PolicyResourceProperty(name="mskSourceConfiguration", flag="unknown_mskSourceConfiguration")
+    private FirehoseDeliveryStreamMskSourceConfigurationArgs value_mskSourceConfiguration;
+    private boolean unknown_mskSourceConfiguration;
     public FirehoseDeliveryStreamMskSourceConfigurationArgs mskSourceConfiguration() {
-        if (mskSourceConfiguration == null) return null;
-        return mskSourceConfiguration.getValue("FirehoseDeliveryStreamArgs.mskSourceConfiguration");
+        if (!unknown_mskSourceConfiguration) return value_mskSourceConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.mskSourceConfiguration' is not present");
     }
 
     /**
      * A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("FirehoseDeliveryStreamArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.name' is not present");
     }
 
     /**
      * Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamOpensearchConfigurationArgs> opensearchConfiguration;
-
+    @PolicyResourceProperty(name="opensearchConfiguration", flag="unknown_opensearchConfiguration")
+    private FirehoseDeliveryStreamOpensearchConfigurationArgs value_opensearchConfiguration;
+    private boolean unknown_opensearchConfiguration;
     public FirehoseDeliveryStreamOpensearchConfigurationArgs opensearchConfiguration() {
-        if (opensearchConfiguration == null) return null;
-        return opensearchConfiguration.getValue("FirehoseDeliveryStreamArgs.opensearchConfiguration");
+        if (!unknown_opensearchConfiguration) return value_opensearchConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.opensearchConfiguration' is not present");
     }
 
     /**
      * Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs> opensearchserverlessConfiguration;
-
+    @PolicyResourceProperty(name="opensearchserverlessConfiguration", flag="unknown_opensearchserverlessConfiguration")
+    private FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs value_opensearchserverlessConfiguration;
+    private boolean unknown_opensearchserverlessConfiguration;
     public FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs opensearchserverlessConfiguration() {
-        if (opensearchserverlessConfiguration == null) return null;
-        return opensearchserverlessConfiguration.getValue("FirehoseDeliveryStreamArgs.opensearchserverlessConfiguration");
+        if (!unknown_opensearchserverlessConfiguration) return value_opensearchserverlessConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.opensearchserverlessConfiguration' is not present");
     }
 
     /**
      * Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamRedshiftConfigurationArgs> redshiftConfiguration;
-
+    @PolicyResourceProperty(name="redshiftConfiguration", flag="unknown_redshiftConfiguration")
+    private FirehoseDeliveryStreamRedshiftConfigurationArgs value_redshiftConfiguration;
+    private boolean unknown_redshiftConfiguration;
     public FirehoseDeliveryStreamRedshiftConfigurationArgs redshiftConfiguration() {
-        if (redshiftConfiguration == null) return null;
-        return redshiftConfiguration.getValue("FirehoseDeliveryStreamArgs.redshiftConfiguration");
+        if (!unknown_redshiftConfiguration) return value_redshiftConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.redshiftConfiguration' is not present");
     }
 
     /**
@@ -170,51 +184,56 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Polic
      * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamServerSideEncryptionArgs> serverSideEncryption;
-
+    @PolicyResourceProperty(name="serverSideEncryption", flag="unknown_serverSideEncryption")
+    private FirehoseDeliveryStreamServerSideEncryptionArgs value_serverSideEncryption;
+    private boolean unknown_serverSideEncryption;
     public FirehoseDeliveryStreamServerSideEncryptionArgs serverSideEncryption() {
-        if (serverSideEncryption == null) return null;
-        return serverSideEncryption.getValue("FirehoseDeliveryStreamArgs.serverSideEncryption");
+        if (!unknown_serverSideEncryption) return value_serverSideEncryption;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.serverSideEncryption' is not present");
     }
 
     /**
      * Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamSnowflakeConfigurationArgs> snowflakeConfiguration;
-
+    @PolicyResourceProperty(name="snowflakeConfiguration", flag="unknown_snowflakeConfiguration")
+    private FirehoseDeliveryStreamSnowflakeConfigurationArgs value_snowflakeConfiguration;
+    private boolean unknown_snowflakeConfiguration;
     public FirehoseDeliveryStreamSnowflakeConfigurationArgs snowflakeConfiguration() {
-        if (snowflakeConfiguration == null) return null;
-        return snowflakeConfiguration.getValue("FirehoseDeliveryStreamArgs.snowflakeConfiguration");
+        if (!unknown_snowflakeConfiguration) return value_snowflakeConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.snowflakeConfiguration' is not present");
     }
 
     /**
      * Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamSplunkConfigurationArgs> splunkConfiguration;
-
+    @PolicyResourceProperty(name="splunkConfiguration", flag="unknown_splunkConfiguration")
+    private FirehoseDeliveryStreamSplunkConfigurationArgs value_splunkConfiguration;
+    private boolean unknown_splunkConfiguration;
     public FirehoseDeliveryStreamSplunkConfigurationArgs splunkConfiguration() {
-        if (splunkConfiguration == null) return null;
-        return splunkConfiguration.getValue("FirehoseDeliveryStreamArgs.splunkConfiguration");
+        if (!unknown_splunkConfiguration) return value_splunkConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.splunkConfiguration' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("FirehoseDeliveryStreamArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.tags' is not present");
     }
 
-    private UndeferrableValue<String> versionId;
-
+    @PolicyResourceProperty(name="versionId", flag="unknown_versionId")
+    private String value_versionId;
+    private boolean unknown_versionId;
     public String versionId() {
-        if (versionId == null) return null;
-        return versionId.getValue("FirehoseDeliveryStreamArgs.versionId");
+        if (!unknown_versionId) return value_versionId;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamArgs.versionId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.finspace.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.finspace.outputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode;
 import com.pulumi.policypacks.aws.finspace.outputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange;
 import java.lang.Integer;
@@ -17,66 +18,72 @@ public final class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclC
      * The IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
      * 
      */
-    private UndeferrableValue<String> cidrBlock;
-
+    @PolicyResourceProperty(name="cidrBlock", flag="unknown_cidrBlock")
+    private String value_cidrBlock;
+    private boolean unknown_cidrBlock;
     public String cidrBlock() {
-        if (cidrBlock == null) return null;
-        return cidrBlock.getValue("KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration.cidrBlock");
+        if (!unknown_cidrBlock) return value_cidrBlock;
+        throw new UndeferrableValueException("Value 'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration.cidrBlock' is not present");
     }
 
     /**
      * Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
      * 
      */
-    private @Nullable UndeferrableValue<KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode> icmpTypeCode;
-
+    @PolicyResourceProperty(name="icmpTypeCode", flag="unknown_icmpTypeCode")
+    private @Nullable KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode value_icmpTypeCode;
+    private boolean unknown_icmpTypeCode;
     public @Nullable KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode icmpTypeCode() {
-        if (icmpTypeCode == null) return null;
-        return icmpTypeCode.getValue("KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration.icmpTypeCode");
+        if (!unknown_icmpTypeCode) return value_icmpTypeCode;
+        throw new UndeferrableValueException("Value 'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration.icmpTypeCode' is not present");
     }
 
     /**
      * Range of ports the rule applies to. Defined below.
      * 
      */
-    private @Nullable UndeferrableValue<KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange> portRange;
-
+    @PolicyResourceProperty(name="portRange", flag="unknown_portRange")
+    private @Nullable KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange value_portRange;
+    private boolean unknown_portRange;
     public @Nullable KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange portRange() {
-        if (portRange == null) return null;
-        return portRange.getValue("KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration.portRange");
+        if (!unknown_portRange) return value_portRange;
+        throw new UndeferrableValueException("Value 'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration.portRange' is not present");
     }
 
     /**
      * Protocol number. A value of `1` means all the protocols.
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration.protocol' is not present");
     }
 
     /**
      * Indicates whether to `allow` or `deny` the traffic that matches the rule.
      * 
      */
-    private UndeferrableValue<String> ruleAction;
-
+    @PolicyResourceProperty(name="ruleAction", flag="unknown_ruleAction")
+    private String value_ruleAction;
+    private boolean unknown_ruleAction;
     public String ruleAction() {
-        if (ruleAction == null) return null;
-        return ruleAction.getValue("KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration.ruleAction");
+        if (!unknown_ruleAction) return value_ruleAction;
+        throw new UndeferrableValueException("Value 'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration.ruleAction' is not present");
     }
 
     /**
      * Rule number for the entry. All the network ACL entries are processed in ascending order by rule number.
      * 
      */
-    private UndeferrableValue<Integer> ruleNumber;
-
+    @PolicyResourceProperty(name="ruleNumber", flag="unknown_ruleNumber")
+    private Integer value_ruleNumber;
+    private boolean unknown_ruleNumber;
     public Integer ruleNumber() {
-        if (ruleNumber == null) return null;
-        return ruleNumber.getValue("KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration.ruleNumber");
+        if (!unknown_ruleNumber) return value_ruleNumber;
+        throw new UndeferrableValueException("Value 'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration.ruleNumber' is not present");
     }
 
 }

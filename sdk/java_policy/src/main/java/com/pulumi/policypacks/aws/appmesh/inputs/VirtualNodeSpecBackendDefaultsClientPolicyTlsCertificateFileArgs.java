@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileA
      * Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
      * 
      */
-    private UndeferrableValue<String> certificateChain;
-
+    @PolicyResourceProperty(name="certificateChain", flag="unknown_certificateChain")
+    private String value_certificateChain;
+    private boolean unknown_certificateChain;
     public String certificateChain() {
-        if (certificateChain == null) return null;
-        return certificateChain.getValue("VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs.certificateChain");
+        if (!unknown_certificateChain) return value_certificateChain;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs.certificateChain' is not present");
     }
 
     /**
      * Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
      * 
      */
-    private UndeferrableValue<String> privateKey;
-
+    @PolicyResourceProperty(name="privateKey", flag="unknown_privateKey")
+    private String value_privateKey;
+    private boolean unknown_privateKey;
     public String privateKey() {
-        if (privateKey == null) return null;
-        return privateKey.getValue("VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs.privateKey");
+        if (!unknown_privateKey) return value_privateKey;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs.privateKey' is not present");
     }
 
 }

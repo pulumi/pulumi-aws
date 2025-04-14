@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -17,110 +18,120 @@ public final class AccountPasswordPolicy extends com.pulumi.resources.PolicyReso
      * Whether to allow users to change their own password
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> allowUsersToChangePassword;
-
+    @PolicyResourceProperty(name="allowUsersToChangePassword", flag="unknown_allowUsersToChangePassword")
+    private @Nullable Boolean value_allowUsersToChangePassword;
+    private boolean unknown_allowUsersToChangePassword;
     public @Nullable Boolean allowUsersToChangePassword() {
-        if (allowUsersToChangePassword == null) return null;
-        return allowUsersToChangePassword.getValue("AccountPasswordPolicy.allowUsersToChangePassword");
+        if (!unknown_allowUsersToChangePassword) return value_allowUsersToChangePassword;
+        throw new UndeferrableValueException("Value 'AccountPasswordPolicy.allowUsersToChangePassword' is not present");
     }
 
     /**
      * Indicates whether passwords in the account expire. Returns `true` if `max_password_age` contains a value greater than `0`. Returns `false` if it is `0` or _not present_.
      * 
      */
-    private UndeferrableValue<Boolean> expirePasswords;
-
+    @PolicyResourceProperty(name="expirePasswords", flag="unknown_expirePasswords")
+    private Boolean value_expirePasswords;
+    private boolean unknown_expirePasswords;
     public Boolean expirePasswords() {
-        if (expirePasswords == null) return null;
-        return expirePasswords.getValue("AccountPasswordPolicy.expirePasswords");
+        if (!unknown_expirePasswords) return value_expirePasswords;
+        throw new UndeferrableValueException("Value 'AccountPasswordPolicy.expirePasswords' is not present");
     }
 
     /**
      * Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
      * 
      */
-    private UndeferrableValue<Boolean> hardExpiry;
-
+    @PolicyResourceProperty(name="hardExpiry", flag="unknown_hardExpiry")
+    private Boolean value_hardExpiry;
+    private boolean unknown_hardExpiry;
     public Boolean hardExpiry() {
-        if (hardExpiry == null) return null;
-        return hardExpiry.getValue("AccountPasswordPolicy.hardExpiry");
+        if (!unknown_hardExpiry) return value_hardExpiry;
+        throw new UndeferrableValueException("Value 'AccountPasswordPolicy.hardExpiry' is not present");
     }
 
     /**
      * The number of days that an user password is valid.
      * 
      */
-    private UndeferrableValue<Integer> maxPasswordAge;
-
+    @PolicyResourceProperty(name="maxPasswordAge", flag="unknown_maxPasswordAge")
+    private Integer value_maxPasswordAge;
+    private boolean unknown_maxPasswordAge;
     public Integer maxPasswordAge() {
-        if (maxPasswordAge == null) return null;
-        return maxPasswordAge.getValue("AccountPasswordPolicy.maxPasswordAge");
+        if (!unknown_maxPasswordAge) return value_maxPasswordAge;
+        throw new UndeferrableValueException("Value 'AccountPasswordPolicy.maxPasswordAge' is not present");
     }
 
     /**
      * Minimum length to require for user passwords.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> minimumPasswordLength;
-
+    @PolicyResourceProperty(name="minimumPasswordLength", flag="unknown_minimumPasswordLength")
+    private @Nullable Integer value_minimumPasswordLength;
+    private boolean unknown_minimumPasswordLength;
     public @Nullable Integer minimumPasswordLength() {
-        if (minimumPasswordLength == null) return null;
-        return minimumPasswordLength.getValue("AccountPasswordPolicy.minimumPasswordLength");
+        if (!unknown_minimumPasswordLength) return value_minimumPasswordLength;
+        throw new UndeferrableValueException("Value 'AccountPasswordPolicy.minimumPasswordLength' is not present");
     }
 
     /**
      * The number of previous passwords that users are prevented from reusing.
      * 
      */
-    private UndeferrableValue<Integer> passwordReusePrevention;
-
+    @PolicyResourceProperty(name="passwordReusePrevention", flag="unknown_passwordReusePrevention")
+    private Integer value_passwordReusePrevention;
+    private boolean unknown_passwordReusePrevention;
     public Integer passwordReusePrevention() {
-        if (passwordReusePrevention == null) return null;
-        return passwordReusePrevention.getValue("AccountPasswordPolicy.passwordReusePrevention");
+        if (!unknown_passwordReusePrevention) return value_passwordReusePrevention;
+        throw new UndeferrableValueException("Value 'AccountPasswordPolicy.passwordReusePrevention' is not present");
     }
 
     /**
      * Whether to require lowercase characters for user passwords.
      * 
      */
-    private UndeferrableValue<Boolean> requireLowercaseCharacters;
-
+    @PolicyResourceProperty(name="requireLowercaseCharacters", flag="unknown_requireLowercaseCharacters")
+    private Boolean value_requireLowercaseCharacters;
+    private boolean unknown_requireLowercaseCharacters;
     public Boolean requireLowercaseCharacters() {
-        if (requireLowercaseCharacters == null) return null;
-        return requireLowercaseCharacters.getValue("AccountPasswordPolicy.requireLowercaseCharacters");
+        if (!unknown_requireLowercaseCharacters) return value_requireLowercaseCharacters;
+        throw new UndeferrableValueException("Value 'AccountPasswordPolicy.requireLowercaseCharacters' is not present");
     }
 
     /**
      * Whether to require numbers for user passwords.
      * 
      */
-    private UndeferrableValue<Boolean> requireNumbers;
-
+    @PolicyResourceProperty(name="requireNumbers", flag="unknown_requireNumbers")
+    private Boolean value_requireNumbers;
+    private boolean unknown_requireNumbers;
     public Boolean requireNumbers() {
-        if (requireNumbers == null) return null;
-        return requireNumbers.getValue("AccountPasswordPolicy.requireNumbers");
+        if (!unknown_requireNumbers) return value_requireNumbers;
+        throw new UndeferrableValueException("Value 'AccountPasswordPolicy.requireNumbers' is not present");
     }
 
     /**
      * Whether to require symbols for user passwords.
      * 
      */
-    private UndeferrableValue<Boolean> requireSymbols;
-
+    @PolicyResourceProperty(name="requireSymbols", flag="unknown_requireSymbols")
+    private Boolean value_requireSymbols;
+    private boolean unknown_requireSymbols;
     public Boolean requireSymbols() {
-        if (requireSymbols == null) return null;
-        return requireSymbols.getValue("AccountPasswordPolicy.requireSymbols");
+        if (!unknown_requireSymbols) return value_requireSymbols;
+        throw new UndeferrableValueException("Value 'AccountPasswordPolicy.requireSymbols' is not present");
     }
 
     /**
      * Whether to require uppercase characters for user passwords.
      * 
      */
-    private UndeferrableValue<Boolean> requireUppercaseCharacters;
-
+    @PolicyResourceProperty(name="requireUppercaseCharacters", flag="unknown_requireUppercaseCharacters")
+    private Boolean value_requireUppercaseCharacters;
+    private boolean unknown_requireUppercaseCharacters;
     public Boolean requireUppercaseCharacters() {
-        if (requireUppercaseCharacters == null) return null;
-        return requireUppercaseCharacters.getValue("AccountPasswordPolicy.requireUppercaseCharacters");
+        if (!unknown_requireUppercaseCharacters) return value_requireUppercaseCharacters;
+        throw new UndeferrableValueException("Value 'AccountPasswordPolicy.requireUppercaseCharacters' is not present");
     }
 
 }

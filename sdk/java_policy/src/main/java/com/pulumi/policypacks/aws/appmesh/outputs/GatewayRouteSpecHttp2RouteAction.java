@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.GatewayRouteSpecHttp2RouteActionRewrite;
 import com.pulumi.policypacks.aws.appmesh.outputs.GatewayRouteSpecHttp2RouteActionTarget;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class GatewayRouteSpecHttp2RouteAction {
      * Gateway route action to rewrite.
      * 
      */
-    private @Nullable UndeferrableValue<GatewayRouteSpecHttp2RouteActionRewrite> rewrite;
-
+    @PolicyResourceProperty(name="rewrite", flag="unknown_rewrite")
+    private @Nullable GatewayRouteSpecHttp2RouteActionRewrite value_rewrite;
+    private boolean unknown_rewrite;
     public @Nullable GatewayRouteSpecHttp2RouteActionRewrite rewrite() {
-        if (rewrite == null) return null;
-        return rewrite.getValue("GatewayRouteSpecHttp2RouteAction.rewrite");
+        if (!unknown_rewrite) return value_rewrite;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttp2RouteAction.rewrite' is not present");
     }
 
     /**
      * Target that traffic is routed to when a request matches the gateway route.
      * 
      */
-    private UndeferrableValue<GatewayRouteSpecHttp2RouteActionTarget> target;
-
+    @PolicyResourceProperty(name="target", flag="unknown_target")
+    private GatewayRouteSpecHttp2RouteActionTarget value_target;
+    private boolean unknown_target;
     public GatewayRouteSpecHttp2RouteActionTarget target() {
-        if (target == null) return null;
-        return target.getValue("GatewayRouteSpecHttp2RouteAction.target");
+        if (!unknown_target) return value_target;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttp2RouteAction.target' is not present");
     }
 
 }

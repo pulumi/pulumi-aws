@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,11 +18,12 @@ public final class GatewayAssociation extends com.pulumi.resources.PolicyResourc
      * VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
      * 
      */
-    private UndeferrableValue<List<String>> allowedPrefixes;
-
+    @PolicyResourceProperty(name="allowedPrefixes", flag="unknown_allowedPrefixes")
+    private List<String> value_allowedPrefixes;
+    private boolean unknown_allowedPrefixes;
     public List<String> allowedPrefixes() {
-        if (allowedPrefixes == null) return null;
-        return allowedPrefixes.getValue("GatewayAssociation.allowedPrefixes");
+        if (!unknown_allowedPrefixes) return value_allowedPrefixes;
+        throw new UndeferrableValueException("Value 'GatewayAssociation.allowedPrefixes' is not present");
     }
 
     /**
@@ -29,11 +31,12 @@ public final class GatewayAssociation extends com.pulumi.resources.PolicyResourc
      * Used for single account Direct Connect gateway associations.
      * 
      */
-    private UndeferrableValue<String> associatedGatewayId;
-
+    @PolicyResourceProperty(name="associatedGatewayId", flag="unknown_associatedGatewayId")
+    private String value_associatedGatewayId;
+    private boolean unknown_associatedGatewayId;
     public String associatedGatewayId() {
-        if (associatedGatewayId == null) return null;
-        return associatedGatewayId.getValue("GatewayAssociation.associatedGatewayId");
+        if (!unknown_associatedGatewayId) return value_associatedGatewayId;
+        throw new UndeferrableValueException("Value 'GatewayAssociation.associatedGatewayId' is not present");
     }
 
     /**
@@ -41,55 +44,60 @@ public final class GatewayAssociation extends com.pulumi.resources.PolicyResourc
      * Used for cross-account Direct Connect gateway associations.
      * 
      */
-    private UndeferrableValue<String> associatedGatewayOwnerAccountId;
-
+    @PolicyResourceProperty(name="associatedGatewayOwnerAccountId", flag="unknown_associatedGatewayOwnerAccountId")
+    private String value_associatedGatewayOwnerAccountId;
+    private boolean unknown_associatedGatewayOwnerAccountId;
     public String associatedGatewayOwnerAccountId() {
-        if (associatedGatewayOwnerAccountId == null) return null;
-        return associatedGatewayOwnerAccountId.getValue("GatewayAssociation.associatedGatewayOwnerAccountId");
+        if (!unknown_associatedGatewayOwnerAccountId) return value_associatedGatewayOwnerAccountId;
+        throw new UndeferrableValueException("Value 'GatewayAssociation.associatedGatewayOwnerAccountId' is not present");
     }
 
     /**
      * The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
      * 
      */
-    private UndeferrableValue<String> associatedGatewayType;
-
+    @PolicyResourceProperty(name="associatedGatewayType", flag="unknown_associatedGatewayType")
+    private String value_associatedGatewayType;
+    private boolean unknown_associatedGatewayType;
     public String associatedGatewayType() {
-        if (associatedGatewayType == null) return null;
-        return associatedGatewayType.getValue("GatewayAssociation.associatedGatewayType");
+        if (!unknown_associatedGatewayType) return value_associatedGatewayType;
+        throw new UndeferrableValueException("Value 'GatewayAssociation.associatedGatewayType' is not present");
     }
 
     /**
      * The ID of the Direct Connect gateway association.
      * 
      */
-    private UndeferrableValue<String> dxGatewayAssociationId;
-
+    @PolicyResourceProperty(name="dxGatewayAssociationId", flag="unknown_dxGatewayAssociationId")
+    private String value_dxGatewayAssociationId;
+    private boolean unknown_dxGatewayAssociationId;
     public String dxGatewayAssociationId() {
-        if (dxGatewayAssociationId == null) return null;
-        return dxGatewayAssociationId.getValue("GatewayAssociation.dxGatewayAssociationId");
+        if (!unknown_dxGatewayAssociationId) return value_dxGatewayAssociationId;
+        throw new UndeferrableValueException("Value 'GatewayAssociation.dxGatewayAssociationId' is not present");
     }
 
     /**
      * The ID of the Direct Connect gateway.
      * 
      */
-    private UndeferrableValue<String> dxGatewayId;
-
+    @PolicyResourceProperty(name="dxGatewayId", flag="unknown_dxGatewayId")
+    private String value_dxGatewayId;
+    private boolean unknown_dxGatewayId;
     public String dxGatewayId() {
-        if (dxGatewayId == null) return null;
-        return dxGatewayId.getValue("GatewayAssociation.dxGatewayId");
+        if (!unknown_dxGatewayId) return value_dxGatewayId;
+        throw new UndeferrableValueException("Value 'GatewayAssociation.dxGatewayId' is not present");
     }
 
     /**
      * The ID of the AWS account that owns the Direct Connect gateway.
      * 
      */
-    private UndeferrableValue<String> dxGatewayOwnerAccountId;
-
+    @PolicyResourceProperty(name="dxGatewayOwnerAccountId", flag="unknown_dxGatewayOwnerAccountId")
+    private String value_dxGatewayOwnerAccountId;
+    private boolean unknown_dxGatewayOwnerAccountId;
     public String dxGatewayOwnerAccountId() {
-        if (dxGatewayOwnerAccountId == null) return null;
-        return dxGatewayOwnerAccountId.getValue("GatewayAssociation.dxGatewayOwnerAccountId");
+        if (!unknown_dxGatewayOwnerAccountId) return value_dxGatewayOwnerAccountId;
+        throw new UndeferrableValueException("Value 'GatewayAssociation.dxGatewayOwnerAccountId' is not present");
     }
 
     /**
@@ -97,11 +105,12 @@ public final class GatewayAssociation extends com.pulumi.resources.PolicyResourc
      * Used for cross-account Direct Connect gateway associations.
      * 
      */
-    private @Nullable UndeferrableValue<String> proposalId;
-
+    @PolicyResourceProperty(name="proposalId", flag="unknown_proposalId")
+    private @Nullable String value_proposalId;
+    private boolean unknown_proposalId;
     public @Nullable String proposalId() {
-        if (proposalId == null) return null;
-        return proposalId.getValue("GatewayAssociation.proposalId");
+        if (!unknown_proposalId) return value_proposalId;
+        throw new UndeferrableValueException("Value 'GatewayAssociation.proposalId' is not present");
     }
 
     /**
@@ -110,11 +119,12 @@ public final class GatewayAssociation extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* vpn_gateway_id is deprecated. Use associated_gateway_id instead. */
-    private @Nullable UndeferrableValue<String> vpnGatewayId;
-
+    @PolicyResourceProperty(name="vpnGatewayId", flag="unknown_vpnGatewayId")
+    private @Nullable String value_vpnGatewayId;
+    private boolean unknown_vpnGatewayId;
     public @Nullable String vpnGatewayId() {
-        if (vpnGatewayId == null) return null;
-        return vpnGatewayId.getValue("GatewayAssociation.vpnGatewayId");
+        if (!unknown_vpnGatewayId) return value_vpnGatewayId;
+        throw new UndeferrableValueException("Value 'GatewayAssociation.vpnGatewayId' is not present");
     }
 
 }

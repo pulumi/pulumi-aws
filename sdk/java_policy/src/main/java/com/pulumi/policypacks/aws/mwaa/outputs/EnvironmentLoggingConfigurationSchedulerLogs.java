@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mwaa.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,33 +12,36 @@ import javax.annotation.Nullable;
 
 public final class EnvironmentLoggingConfigurationSchedulerLogs {
 
-    private @Nullable UndeferrableValue<String> cloudWatchLogGroupArn;
-
+    @PolicyResourceProperty(name="cloudWatchLogGroupArn", flag="unknown_cloudWatchLogGroupArn")
+    private @Nullable String value_cloudWatchLogGroupArn;
+    private boolean unknown_cloudWatchLogGroupArn;
     public @Nullable String cloudWatchLogGroupArn() {
-        if (cloudWatchLogGroupArn == null) return null;
-        return cloudWatchLogGroupArn.getValue("EnvironmentLoggingConfigurationSchedulerLogs.cloudWatchLogGroupArn");
+        if (!unknown_cloudWatchLogGroupArn) return value_cloudWatchLogGroupArn;
+        throw new UndeferrableValueException("Value 'EnvironmentLoggingConfigurationSchedulerLogs.cloudWatchLogGroupArn' is not present");
     }
 
     /**
      * Enabling or disabling the collection of logs
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("EnvironmentLoggingConfigurationSchedulerLogs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'EnvironmentLoggingConfigurationSchedulerLogs.enabled' is not present");
     }
 
     /**
      * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
      * 
      */
-    private @Nullable UndeferrableValue<String> logLevel;
-
+    @PolicyResourceProperty(name="logLevel", flag="unknown_logLevel")
+    private @Nullable String value_logLevel;
+    private boolean unknown_logLevel;
     public @Nullable String logLevel() {
-        if (logLevel == null) return null;
-        return logLevel.getValue("EnvironmentLoggingConfigurationSchedulerLogs.logLevel");
+        if (!unknown_logLevel) return value_logLevel;
+        throw new UndeferrableValueException("Value 'EnvironmentLoggingConfigurationSchedulerLogs.logLevel' is not present");
     }
 
 }

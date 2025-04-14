@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codedeploy;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class ApplicationArgs extends com.pulumi.resources.PolicyResourceIn
      * The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
      * 
      */
-    private UndeferrableValue<String> computePlatform;
-
+    @PolicyResourceProperty(name="computePlatform", flag="unknown_computePlatform")
+    private String value_computePlatform;
+    private boolean unknown_computePlatform;
     public String computePlatform() {
-        if (computePlatform == null) return null;
-        return computePlatform.getValue("ApplicationArgs.computePlatform");
+        if (!unknown_computePlatform) return value_computePlatform;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.computePlatform' is not present");
     }
 
     /**
      * The name of the application.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ApplicationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.name' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ApplicationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.tags' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.RuleGroupRuleGroupReferenceSetsIpSetReference;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -11,11 +12,12 @@ import javax.annotation.Nullable;
 
 public final class RuleGroupRuleGroupReferenceSets {
 
-    private @Nullable UndeferrableValue<List<RuleGroupRuleGroupReferenceSetsIpSetReference>> ipSetReferences;
-
+    @PolicyResourceProperty(name="ipSetReferences", flag="unknown_ipSetReferences")
+    private @Nullable List<RuleGroupRuleGroupReferenceSetsIpSetReference> value_ipSetReferences;
+    private boolean unknown_ipSetReferences;
     public @Nullable List<RuleGroupRuleGroupReferenceSetsIpSetReference> ipSetReferences() {
-        if (ipSetReferences == null) return null;
-        return ipSetReferences.getValue("RuleGroupRuleGroupReferenceSets.ipSetReferences");
+        if (!unknown_ipSetReferences) return value_ipSetReferences;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupReferenceSets.ipSetReferences' is not present");
     }
 
 }

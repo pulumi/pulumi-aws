@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.swf;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,55 +18,60 @@ public final class DomainArgs extends com.pulumi.resources.PolicyResourceInput {
      * The domain description.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("DomainArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'DomainArgs.description' is not present");
     }
 
     /**
      * The name of the domain. If omitted, this provider will assign a random, unique name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DomainArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DomainArgs.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("DomainArgs.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'DomainArgs.namePrefix' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DomainArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DomainArgs.tags' is not present");
     }
 
     /**
      * Length of time that SWF will continue to retain information about the workflow execution after the workflow execution is complete, must be between 0 and 90 days.
      * 
      */
-    private UndeferrableValue<String> workflowExecutionRetentionPeriodInDays;
-
+    @PolicyResourceProperty(name="workflowExecutionRetentionPeriodInDays", flag="unknown_workflowExecutionRetentionPeriodInDays")
+    private String value_workflowExecutionRetentionPeriodInDays;
+    private boolean unknown_workflowExecutionRetentionPeriodInDays;
     public String workflowExecutionRetentionPeriodInDays() {
-        if (workflowExecutionRetentionPeriodInDays == null) return null;
-        return workflowExecutionRetentionPeriodInDays.getValue("DomainArgs.workflowExecutionRetentionPeriodInDays");
+        if (!unknown_workflowExecutionRetentionPeriodInDays) return value_workflowExecutionRetentionPeriodInDays;
+        throw new UndeferrableValueException("Value 'DomainArgs.workflowExecutionRetentionPeriodInDays' is not present");
     }
 
 }

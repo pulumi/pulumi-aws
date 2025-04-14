@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshiftserverless;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,66 +18,72 @@ public final class UsageLimit extends com.pulumi.resources.PolicyResourceOutput 
      * The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
      * 
      */
-    private UndeferrableValue<Integer> amount;
-
+    @PolicyResourceProperty(name="amount", flag="unknown_amount")
+    private Integer value_amount;
+    private boolean unknown_amount;
     public Integer amount() {
-        if (amount == null) return null;
-        return amount.getValue("UsageLimit.amount");
+        if (!unknown_amount) return value_amount;
+        throw new UndeferrableValueException("Value 'UsageLimit.amount' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("UsageLimit.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'UsageLimit.arn' is not present");
     }
 
     /**
      * The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
      * 
      */
-    private @Nullable UndeferrableValue<String> breachAction;
-
+    @PolicyResourceProperty(name="breachAction", flag="unknown_breachAction")
+    private @Nullable String value_breachAction;
+    private boolean unknown_breachAction;
     public @Nullable String breachAction() {
-        if (breachAction == null) return null;
-        return breachAction.getValue("UsageLimit.breachAction");
+        if (!unknown_breachAction) return value_breachAction;
+        throw new UndeferrableValueException("Value 'UsageLimit.breachAction' is not present");
     }
 
     /**
      * The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
      * 
      */
-    private @Nullable UndeferrableValue<String> period;
-
+    @PolicyResourceProperty(name="period", flag="unknown_period")
+    private @Nullable String value_period;
+    private boolean unknown_period;
     public @Nullable String period() {
-        if (period == null) return null;
-        return period.getValue("UsageLimit.period");
+        if (!unknown_period) return value_period;
+        throw new UndeferrableValueException("Value 'UsageLimit.period' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("UsageLimit.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'UsageLimit.resourceArn' is not present");
     }
 
     /**
      * The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
      * 
      */
-    private UndeferrableValue<String> usageType;
-
+    @PolicyResourceProperty(name="usageType", flag="unknown_usageType")
+    private String value_usageType;
+    private boolean unknown_usageType;
     public String usageType() {
-        if (usageType == null) return null;
-        return usageType.getValue("UsageLimit.usageType");
+        if (!unknown_usageType) return value_usageType;
+        throw new UndeferrableValueException("Value 'UsageLimit.usageType' is not present");
     }
 
 }

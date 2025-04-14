@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.transfer.outputs.WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class WorkflowOnExceptionStepCopyStepDetails {
      * Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
      * 
      */
-    private @Nullable UndeferrableValue<WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation> destinationFileLocation;
-
+    @PolicyResourceProperty(name="destinationFileLocation", flag="unknown_destinationFileLocation")
+    private @Nullable WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation value_destinationFileLocation;
+    private boolean unknown_destinationFileLocation;
     public @Nullable WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation destinationFileLocation() {
-        if (destinationFileLocation == null) return null;
-        return destinationFileLocation.getValue("WorkflowOnExceptionStepCopyStepDetails.destinationFileLocation");
+        if (!unknown_destinationFileLocation) return value_destinationFileLocation;
+        throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepCopyStepDetails.destinationFileLocation' is not present");
     }
 
     /**
      * The name of the step, used as an identifier.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("WorkflowOnExceptionStepCopyStepDetails.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepCopyStepDetails.name' is not present");
     }
 
     /**
      * A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> overwriteExisting;
-
+    @PolicyResourceProperty(name="overwriteExisting", flag="unknown_overwriteExisting")
+    private @Nullable String value_overwriteExisting;
+    private boolean unknown_overwriteExisting;
     public @Nullable String overwriteExisting() {
-        if (overwriteExisting == null) return null;
-        return overwriteExisting.getValue("WorkflowOnExceptionStepCopyStepDetails.overwriteExisting");
+        if (!unknown_overwriteExisting) return value_overwriteExisting;
+        throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepCopyStepDetails.overwriteExisting' is not present");
     }
 
     /**
      * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
      * 
      */
-    private @Nullable UndeferrableValue<String> sourceFileLocation;
-
+    @PolicyResourceProperty(name="sourceFileLocation", flag="unknown_sourceFileLocation")
+    private @Nullable String value_sourceFileLocation;
+    private boolean unknown_sourceFileLocation;
     public @Nullable String sourceFileLocation() {
-        if (sourceFileLocation == null) return null;
-        return sourceFileLocation.getValue("WorkflowOnExceptionStepCopyStepDetails.sourceFileLocation");
+        if (!unknown_sourceFileLocation) return value_sourceFileLocation;
+        throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepCopyStepDetails.sourceFileLocation' is not present");
     }
 
 }

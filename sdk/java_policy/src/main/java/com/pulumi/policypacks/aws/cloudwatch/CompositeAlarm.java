@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudwatch.outputs.CompositeAlarmActionsSuppressor;
 import java.lang.Boolean;
@@ -20,110 +21,120 @@ public final class CompositeAlarm extends com.pulumi.resources.PolicyResourceOut
      * Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> actionsEnabled;
-
+    @PolicyResourceProperty(name="actionsEnabled", flag="unknown_actionsEnabled")
+    private @Nullable Boolean value_actionsEnabled;
+    private boolean unknown_actionsEnabled;
     public @Nullable Boolean actionsEnabled() {
-        if (actionsEnabled == null) return null;
-        return actionsEnabled.getValue("CompositeAlarm.actionsEnabled");
+        if (!unknown_actionsEnabled) return value_actionsEnabled;
+        throw new UndeferrableValueException("Value 'CompositeAlarm.actionsEnabled' is not present");
     }
 
     /**
      * Actions will be suppressed if the suppressor alarm is in the ALARM state.
      * 
      */
-    private @Nullable UndeferrableValue<CompositeAlarmActionsSuppressor> actionsSuppressor;
-
+    @PolicyResourceProperty(name="actionsSuppressor", flag="unknown_actionsSuppressor")
+    private @Nullable CompositeAlarmActionsSuppressor value_actionsSuppressor;
+    private boolean unknown_actionsSuppressor;
     public @Nullable CompositeAlarmActionsSuppressor actionsSuppressor() {
-        if (actionsSuppressor == null) return null;
-        return actionsSuppressor.getValue("CompositeAlarm.actionsSuppressor");
+        if (!unknown_actionsSuppressor) return value_actionsSuppressor;
+        throw new UndeferrableValueException("Value 'CompositeAlarm.actionsSuppressor' is not present");
     }
 
     /**
      * The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> alarmActions;
-
+    @PolicyResourceProperty(name="alarmActions", flag="unknown_alarmActions")
+    private @Nullable List<String> value_alarmActions;
+    private boolean unknown_alarmActions;
     public @Nullable List<String> alarmActions() {
-        if (alarmActions == null) return null;
-        return alarmActions.getValue("CompositeAlarm.alarmActions");
+        if (!unknown_alarmActions) return value_alarmActions;
+        throw new UndeferrableValueException("Value 'CompositeAlarm.alarmActions' is not present");
     }
 
     /**
      * The description for the composite alarm.
      * 
      */
-    private @Nullable UndeferrableValue<String> alarmDescription;
-
+    @PolicyResourceProperty(name="alarmDescription", flag="unknown_alarmDescription")
+    private @Nullable String value_alarmDescription;
+    private boolean unknown_alarmDescription;
     public @Nullable String alarmDescription() {
-        if (alarmDescription == null) return null;
-        return alarmDescription.getValue("CompositeAlarm.alarmDescription");
+        if (!unknown_alarmDescription) return value_alarmDescription;
+        throw new UndeferrableValueException("Value 'CompositeAlarm.alarmDescription' is not present");
     }
 
     /**
      * The name for the composite alarm. This name must be unique within the region.
      * 
      */
-    private UndeferrableValue<String> alarmName;
-
+    @PolicyResourceProperty(name="alarmName", flag="unknown_alarmName")
+    private String value_alarmName;
+    private boolean unknown_alarmName;
     public String alarmName() {
-        if (alarmName == null) return null;
-        return alarmName.getValue("CompositeAlarm.alarmName");
+        if (!unknown_alarmName) return value_alarmName;
+        throw new UndeferrableValueException("Value 'CompositeAlarm.alarmName' is not present");
     }
 
     /**
      * An expression that specifies which other alarms are to be evaluated to determine this composite alarm&#39;s state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
      * 
      */
-    private UndeferrableValue<String> alarmRule;
-
+    @PolicyResourceProperty(name="alarmRule", flag="unknown_alarmRule")
+    private String value_alarmRule;
+    private boolean unknown_alarmRule;
     public String alarmRule() {
-        if (alarmRule == null) return null;
-        return alarmRule.getValue("CompositeAlarm.alarmRule");
+        if (!unknown_alarmRule) return value_alarmRule;
+        throw new UndeferrableValueException("Value 'CompositeAlarm.alarmRule' is not present");
     }
 
     /**
      * The ARN of the composite alarm.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("CompositeAlarm.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'CompositeAlarm.arn' is not present");
     }
 
     /**
      * The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> insufficientDataActions;
-
+    @PolicyResourceProperty(name="insufficientDataActions", flag="unknown_insufficientDataActions")
+    private @Nullable List<String> value_insufficientDataActions;
+    private boolean unknown_insufficientDataActions;
     public @Nullable List<String> insufficientDataActions() {
-        if (insufficientDataActions == null) return null;
-        return insufficientDataActions.getValue("CompositeAlarm.insufficientDataActions");
+        if (!unknown_insufficientDataActions) return value_insufficientDataActions;
+        throw new UndeferrableValueException("Value 'CompositeAlarm.insufficientDataActions' is not present");
     }
 
     /**
      * The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> okActions;
-
+    @PolicyResourceProperty(name="okActions", flag="unknown_okActions")
+    private @Nullable List<String> value_okActions;
+    private boolean unknown_okActions;
     public @Nullable List<String> okActions() {
-        if (okActions == null) return null;
-        return okActions.getValue("CompositeAlarm.okActions");
+        if (!unknown_okActions) return value_okActions;
+        throw new UndeferrableValueException("Value 'CompositeAlarm.okActions' is not present");
     }
 
     /**
      * A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CompositeAlarm.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CompositeAlarm.tags' is not present");
     }
 
     /**
@@ -134,11 +145,12 @@ public final class CompositeAlarm extends com.pulumi.resources.PolicyResourceOut
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("CompositeAlarm.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'CompositeAlarm.tagsAll' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,66 +14,72 @@ public final class RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs {
      * The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY`.
      * 
      */
-    private UndeferrableValue<String> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private String value_destination;
+    private boolean unknown_destination;
     public String destination() {
-        if (destination == null) return null;
-        return destination.getValue("RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs.destination' is not present");
     }
 
     /**
      * The destination port to inspect for. To match with any address, specify `ANY`.
      * 
      */
-    private UndeferrableValue<String> destinationPort;
-
+    @PolicyResourceProperty(name="destinationPort", flag="unknown_destinationPort")
+    private String value_destinationPort;
+    private boolean unknown_destinationPort;
     public String destinationPort() {
-        if (destinationPort == null) return null;
-        return destinationPort.getValue("RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs.destinationPort");
+        if (!unknown_destinationPort) return value_destinationPort;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs.destinationPort' is not present");
     }
 
     /**
      * The direction of traffic flow to inspect. Valid values: `ANY` or `FORWARD`.
      * 
      */
-    private UndeferrableValue<String> direction;
-
+    @PolicyResourceProperty(name="direction", flag="unknown_direction")
+    private String value_direction;
+    private boolean unknown_direction;
     public String direction() {
-        if (direction == null) return null;
-        return direction.getValue("RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs.direction");
+        if (!unknown_direction) return value_direction;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs.direction' is not present");
     }
 
     /**
      * The protocol to inspect. Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs.protocol' is not present");
     }
 
     /**
      * The source IP address or address range for, in CIDR notation. To match with any address, specify `ANY`.
      * 
      */
-    private UndeferrableValue<String> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private String value_source;
+    private boolean unknown_source;
     public String source() {
-        if (source == null) return null;
-        return source.getValue("RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs.source' is not present");
     }
 
     /**
      * The source port to inspect for. To match with any address, specify `ANY`.
      * 
      */
-    private UndeferrableValue<String> sourcePort;
-
+    @PolicyResourceProperty(name="sourcePort", flag="unknown_sourcePort")
+    private String value_sourcePort;
+    private boolean unknown_sourcePort;
     public String sourcePort() {
-        if (sourcePort == null) return null;
-        return sourcePort.getValue("RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs.sourcePort");
+        if (!unknown_sourcePort) return value_sourcePort;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs.sourcePort' is not present");
     }
 
 }

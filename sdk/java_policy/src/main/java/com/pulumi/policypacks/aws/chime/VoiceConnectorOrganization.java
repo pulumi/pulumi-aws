@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chime;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.chime.outputs.VoiceConnectorOrganizationRoute;
 import java.lang.Boolean;
@@ -19,33 +20,36 @@ public final class VoiceConnectorOrganization extends com.pulumi.resources.Polic
      * When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> disabled;
-
+    @PolicyResourceProperty(name="disabled", flag="unknown_disabled")
+    private @Nullable Boolean value_disabled;
+    private boolean unknown_disabled;
     public @Nullable Boolean disabled() {
-        if (disabled == null) return null;
-        return disabled.getValue("VoiceConnectorOrganization.disabled");
+        if (!unknown_disabled) return value_disabled;
+        throw new UndeferrableValueException("Value 'VoiceConnectorOrganization.disabled' is not present");
     }
 
     /**
      * Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
      * 
      */
-    private UndeferrableValue<List<VoiceConnectorOrganizationRoute>> routes;
-
+    @PolicyResourceProperty(name="routes", flag="unknown_routes")
+    private List<VoiceConnectorOrganizationRoute> value_routes;
+    private boolean unknown_routes;
     public List<VoiceConnectorOrganizationRoute> routes() {
-        if (routes == null) return null;
-        return routes.getValue("VoiceConnectorOrganization.routes");
+        if (!unknown_routes) return value_routes;
+        throw new UndeferrableValueException("Value 'VoiceConnectorOrganization.routes' is not present");
     }
 
     /**
      * The Amazon Chime Voice Connector ID.
      * 
      */
-    private UndeferrableValue<String> voiceConnectorId;
-
+    @PolicyResourceProperty(name="voiceConnectorId", flag="unknown_voiceConnectorId")
+    private String value_voiceConnectorId;
+    private boolean unknown_voiceConnectorId;
     public String voiceConnectorId() {
-        if (voiceConnectorId == null) return null;
-        return voiceConnectorId.getValue("VoiceConnectorOrganization.voiceConnectorId");
+        if (!unknown_voiceConnectorId) return value_voiceConnectorId;
+        throw new UndeferrableValueException("Value 'VoiceConnectorOrganization.voiceConnectorId' is not present");
     }
 
 }

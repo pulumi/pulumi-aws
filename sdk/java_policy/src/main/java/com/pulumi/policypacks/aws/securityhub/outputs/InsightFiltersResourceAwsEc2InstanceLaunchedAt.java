@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.securityhub.outputs.InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class InsightFiltersResourceAwsEc2InstanceLaunchedAt {
      * A configuration block of the date range for the date filter. See date_range below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange> dateRange;
-
+    @PolicyResourceProperty(name="dateRange", flag="unknown_dateRange")
+    private @Nullable InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange value_dateRange;
+    private boolean unknown_dateRange;
     public @Nullable InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange dateRange() {
-        if (dateRange == null) return null;
-        return dateRange.getValue("InsightFiltersResourceAwsEc2InstanceLaunchedAt.dateRange");
+        if (!unknown_dateRange) return value_dateRange;
+        throw new UndeferrableValueException("Value 'InsightFiltersResourceAwsEc2InstanceLaunchedAt.dateRange' is not present");
     }
 
     /**
      * An end date for the date filter. Required with `start` if `date_range` is not specified.
      * 
      */
-    private @Nullable UndeferrableValue<String> end;
-
+    @PolicyResourceProperty(name="end", flag="unknown_end")
+    private @Nullable String value_end;
+    private boolean unknown_end;
     public @Nullable String end() {
-        if (end == null) return null;
-        return end.getValue("InsightFiltersResourceAwsEc2InstanceLaunchedAt.end");
+        if (!unknown_end) return value_end;
+        throw new UndeferrableValueException("Value 'InsightFiltersResourceAwsEc2InstanceLaunchedAt.end' is not present");
     }
 
     /**
      * A start date for the date filter. Required with `end` if `date_range` is not specified.
      * 
      */
-    private @Nullable UndeferrableValue<String> start;
-
+    @PolicyResourceProperty(name="start", flag="unknown_start")
+    private @Nullable String value_start;
+    private boolean unknown_start;
     public @Nullable String start() {
-        if (start == null) return null;
-        return start.getValue("InsightFiltersResourceAwsEc2InstanceLaunchedAt.start");
+        if (!unknown_start) return value_start;
+        throw new UndeferrableValueException("Value 'InsightFiltersResourceAwsEc2InstanceLaunchedAt.start' is not present");
     }
 
 }

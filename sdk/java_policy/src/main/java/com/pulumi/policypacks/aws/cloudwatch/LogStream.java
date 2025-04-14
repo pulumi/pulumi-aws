@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class LogStream extends com.pulumi.resources.PolicyResourceOutput {
      * The Amazon Resource Name (ARN) specifying the log stream.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("LogStream.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'LogStream.arn' is not present");
     }
 
     /**
      * The name of the log group under which the log stream is to be created.
      * 
      */
-    private UndeferrableValue<String> logGroupName;
-
+    @PolicyResourceProperty(name="logGroupName", flag="unknown_logGroupName")
+    private String value_logGroupName;
+    private boolean unknown_logGroupName;
     public String logGroupName() {
-        if (logGroupName == null) return null;
-        return logGroupName.getValue("LogStream.logGroupName");
+        if (!unknown_logGroupName) return value_logGroupName;
+        throw new UndeferrableValueException("Value 'LogStream.logGroupName' is not present");
     }
 
     /**
      * The name of the log stream. Must not be longer than 512 characters and must not contain `:`
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LogStream.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LogStream.name' is not present");
     }
 
 }

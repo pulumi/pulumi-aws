@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ApplicationApplicationConfigurationRunConfigurationFlinkRunCo
      * When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> allowNonRestoredState;
-
+    @PolicyResourceProperty(name="allowNonRestoredState", flag="unknown_allowNonRestoredState")
+    private Boolean value_allowNonRestoredState;
+    private boolean unknown_allowNonRestoredState;
     public Boolean allowNonRestoredState() {
-        if (allowNonRestoredState == null) return null;
-        return allowNonRestoredState.getValue("ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs.allowNonRestoredState");
+        if (!unknown_allowNonRestoredState) return value_allowNonRestoredState;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs.allowNonRestoredState' is not present");
     }
 
 }

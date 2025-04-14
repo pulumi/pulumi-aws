@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class CatalogTableStorageDescriptorColumn {
      * Free-form text comment.
      * 
      */
-    private @Nullable UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private @Nullable String value_comment;
+    private boolean unknown_comment;
     public @Nullable String comment() {
-        if (comment == null) return null;
-        return comment.getValue("CatalogTableStorageDescriptorColumn.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptorColumn.comment' is not present");
     }
 
     /**
      * Name of the Column.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("CatalogTableStorageDescriptorColumn.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptorColumn.name' is not present");
     }
 
     /**
      * Key-value pairs defining properties associated with the column.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private @Nullable Map<String,String> value_parameters;
+    private boolean unknown_parameters;
     public @Nullable Map<String,String> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("CatalogTableStorageDescriptorColumn.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptorColumn.parameters' is not present");
     }
 
     /**
      * Datatype of data in the Column.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("CatalogTableStorageDescriptorColumn.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptorColumn.type' is not present");
     }
 
 }

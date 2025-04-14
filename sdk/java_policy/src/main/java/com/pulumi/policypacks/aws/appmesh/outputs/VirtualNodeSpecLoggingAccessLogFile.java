@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualNodeSpecLoggingAccessLogFileFormat;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class VirtualNodeSpecLoggingAccessLogFile {
      * The specified format for the logs.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualNodeSpecLoggingAccessLogFileFormat> format;
-
+    @PolicyResourceProperty(name="format", flag="unknown_format")
+    private @Nullable VirtualNodeSpecLoggingAccessLogFileFormat value_format;
+    private boolean unknown_format;
     public @Nullable VirtualNodeSpecLoggingAccessLogFileFormat format() {
-        if (format == null) return null;
-        return format.getValue("VirtualNodeSpecLoggingAccessLogFile.format");
+        if (!unknown_format) return value_format;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecLoggingAccessLogFile.format' is not present");
     }
 
     /**
      * File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
      * 
      */
-    private UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private String value_path;
+    private boolean unknown_path;
     public String path() {
-        if (path == null) return null;
-        return path.getValue("VirtualNodeSpecLoggingAccessLogFile.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecLoggingAccessLogFile.path' is not present");
     }
 
 }

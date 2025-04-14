@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class ServiceSettingArgs extends com.pulumi.resources.PolicyResourc
      * ID of the service setting.
      * 
      */
-    private UndeferrableValue<String> settingId;
-
+    @PolicyResourceProperty(name="settingId", flag="unknown_settingId")
+    private String value_settingId;
+    private boolean unknown_settingId;
     public String settingId() {
-        if (settingId == null) return null;
-        return settingId.getValue("ServiceSettingArgs.settingId");
+        if (!unknown_settingId) return value_settingId;
+        throw new UndeferrableValueException("Value 'ServiceSettingArgs.settingId' is not present");
     }
 
     /**
      * Value of the service setting.
      * 
      */
-    private UndeferrableValue<String> settingValue;
-
+    @PolicyResourceProperty(name="settingValue", flag="unknown_settingValue")
+    private String value_settingValue;
+    private boolean unknown_settingValue;
     public String settingValue() {
-        if (settingValue == null) return null;
-        return settingValue.getValue("ServiceSettingArgs.settingValue");
+        if (!unknown_settingValue) return value_settingValue;
+        throw new UndeferrableValueException("Value 'ServiceSettingArgs.settingValue' is not present");
     }
 
 }

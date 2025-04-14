@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codebuild.outputs.ProjectBuildBatchConfigRestrictions;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -18,33 +19,36 @@ public final class ProjectBuildBatchConfig {
      * artifact location.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> combineArtifacts;
-
+    @PolicyResourceProperty(name="combineArtifacts", flag="unknown_combineArtifacts")
+    private @Nullable Boolean value_combineArtifacts;
+    private boolean unknown_combineArtifacts;
     public @Nullable Boolean combineArtifacts() {
-        if (combineArtifacts == null) return null;
-        return combineArtifacts.getValue("ProjectBuildBatchConfig.combineArtifacts");
+        if (!unknown_combineArtifacts) return value_combineArtifacts;
+        throw new UndeferrableValueException("Value 'ProjectBuildBatchConfig.combineArtifacts' is not present");
     }
 
     /**
      * Configuration block specifying the restrictions for the batch build. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<ProjectBuildBatchConfigRestrictions> restrictions;
-
+    @PolicyResourceProperty(name="restrictions", flag="unknown_restrictions")
+    private @Nullable ProjectBuildBatchConfigRestrictions value_restrictions;
+    private boolean unknown_restrictions;
     public @Nullable ProjectBuildBatchConfigRestrictions restrictions() {
-        if (restrictions == null) return null;
-        return restrictions.getValue("ProjectBuildBatchConfig.restrictions");
+        if (!unknown_restrictions) return value_restrictions;
+        throw new UndeferrableValueException("Value 'ProjectBuildBatchConfig.restrictions' is not present");
     }
 
     /**
      * Specifies the service role ARN for the batch build project.
      * 
      */
-    private UndeferrableValue<String> serviceRole;
-
+    @PolicyResourceProperty(name="serviceRole", flag="unknown_serviceRole")
+    private String value_serviceRole;
+    private boolean unknown_serviceRole;
     public String serviceRole() {
-        if (serviceRole == null) return null;
-        return serviceRole.getValue("ProjectBuildBatchConfig.serviceRole");
+        if (!unknown_serviceRole) return value_serviceRole;
+        throw new UndeferrableValueException("Value 'ProjectBuildBatchConfig.serviceRole' is not present");
     }
 
     /**
@@ -52,11 +56,12 @@ public final class ProjectBuildBatchConfig {
      * completed in.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> timeoutInMins;
-
+    @PolicyResourceProperty(name="timeoutInMins", flag="unknown_timeoutInMins")
+    private @Nullable Integer value_timeoutInMins;
+    private boolean unknown_timeoutInMins;
     public @Nullable Integer timeoutInMins() {
-        if (timeoutInMins == null) return null;
-        return timeoutInMins.getValue("ProjectBuildBatchConfig.timeoutInMins");
+        if (!unknown_timeoutInMins) return value_timeoutInMins;
+        throw new UndeferrableValueException("Value 'ProjectBuildBatchConfig.timeoutInMins' is not present");
     }
 
 }

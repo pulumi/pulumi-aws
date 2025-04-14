@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.autoscaling.outputs.GroupMixedInstancesPolicyInstancesDistribution;
 import com.pulumi.policypacks.aws.autoscaling.outputs.GroupMixedInstancesPolicyLaunchTemplate;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class GroupMixedInstancesPolicy {
      * Nested argument containing settings on how to mix on-demand and Spot instances in the Auto Scaling group. Defined below.
      * 
      */
-    private @Nullable UndeferrableValue<GroupMixedInstancesPolicyInstancesDistribution> instancesDistribution;
-
+    @PolicyResourceProperty(name="instancesDistribution", flag="unknown_instancesDistribution")
+    private @Nullable GroupMixedInstancesPolicyInstancesDistribution value_instancesDistribution;
+    private boolean unknown_instancesDistribution;
     public @Nullable GroupMixedInstancesPolicyInstancesDistribution instancesDistribution() {
-        if (instancesDistribution == null) return null;
-        return instancesDistribution.getValue("GroupMixedInstancesPolicy.instancesDistribution");
+        if (!unknown_instancesDistribution) return value_instancesDistribution;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicy.instancesDistribution' is not present");
     }
 
     /**
      * Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
      * 
      */
-    private UndeferrableValue<GroupMixedInstancesPolicyLaunchTemplate> launchTemplate;
-
+    @PolicyResourceProperty(name="launchTemplate", flag="unknown_launchTemplate")
+    private GroupMixedInstancesPolicyLaunchTemplate value_launchTemplate;
+    private boolean unknown_launchTemplate;
     public GroupMixedInstancesPolicyLaunchTemplate launchTemplate() {
-        if (launchTemplate == null) return null;
-        return launchTemplate.getValue("GroupMixedInstancesPolicy.launchTemplate");
+        if (!unknown_launchTemplate) return value_launchTemplate;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicy.launchTemplate' is not present");
     }
 
 }

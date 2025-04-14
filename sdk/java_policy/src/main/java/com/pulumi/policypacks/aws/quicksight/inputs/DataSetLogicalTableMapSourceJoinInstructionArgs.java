@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.inputs.DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs;
 import com.pulumi.policypacks.aws.quicksight.inputs.DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs;
 import java.lang.String;
@@ -16,66 +17,72 @@ public final class DataSetLogicalTableMapSourceJoinInstructionArgs {
      * Join key properties of the left operand. See left_join_key_properties.
      * 
      */
-    private UndeferrableValue<DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs> leftJoinKeyProperties;
-
+    @PolicyResourceProperty(name="leftJoinKeyProperties", flag="unknown_leftJoinKeyProperties")
+    private DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs value_leftJoinKeyProperties;
+    private boolean unknown_leftJoinKeyProperties;
     public DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs leftJoinKeyProperties() {
-        if (leftJoinKeyProperties == null) return null;
-        return leftJoinKeyProperties.getValue("DataSetLogicalTableMapSourceJoinInstructionArgs.leftJoinKeyProperties");
+        if (!unknown_leftJoinKeyProperties) return value_leftJoinKeyProperties;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapSourceJoinInstructionArgs.leftJoinKeyProperties' is not present");
     }
 
     /**
      * Operand on the left side of a join.
      * 
      */
-    private UndeferrableValue<String> leftOperand;
-
+    @PolicyResourceProperty(name="leftOperand", flag="unknown_leftOperand")
+    private String value_leftOperand;
+    private boolean unknown_leftOperand;
     public String leftOperand() {
-        if (leftOperand == null) return null;
-        return leftOperand.getValue("DataSetLogicalTableMapSourceJoinInstructionArgs.leftOperand");
+        if (!unknown_leftOperand) return value_leftOperand;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapSourceJoinInstructionArgs.leftOperand' is not present");
     }
 
     /**
      * Join instructions provided in the ON clause of a join.
      * 
      */
-    private UndeferrableValue<String> onClause;
-
+    @PolicyResourceProperty(name="onClause", flag="unknown_onClause")
+    private String value_onClause;
+    private boolean unknown_onClause;
     public String onClause() {
-        if (onClause == null) return null;
-        return onClause.getValue("DataSetLogicalTableMapSourceJoinInstructionArgs.onClause");
+        if (!unknown_onClause) return value_onClause;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapSourceJoinInstructionArgs.onClause' is not present");
     }
 
     /**
      * Join key properties of the right operand. See right_join_key_properties.
      * 
      */
-    private UndeferrableValue<DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs> rightJoinKeyProperties;
-
+    @PolicyResourceProperty(name="rightJoinKeyProperties", flag="unknown_rightJoinKeyProperties")
+    private DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs value_rightJoinKeyProperties;
+    private boolean unknown_rightJoinKeyProperties;
     public DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs rightJoinKeyProperties() {
-        if (rightJoinKeyProperties == null) return null;
-        return rightJoinKeyProperties.getValue("DataSetLogicalTableMapSourceJoinInstructionArgs.rightJoinKeyProperties");
+        if (!unknown_rightJoinKeyProperties) return value_rightJoinKeyProperties;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapSourceJoinInstructionArgs.rightJoinKeyProperties' is not present");
     }
 
     /**
      * Operand on the right side of a join.
      * 
      */
-    private UndeferrableValue<String> rightOperand;
-
+    @PolicyResourceProperty(name="rightOperand", flag="unknown_rightOperand")
+    private String value_rightOperand;
+    private boolean unknown_rightOperand;
     public String rightOperand() {
-        if (rightOperand == null) return null;
-        return rightOperand.getValue("DataSetLogicalTableMapSourceJoinInstructionArgs.rightOperand");
+        if (!unknown_rightOperand) return value_rightOperand;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapSourceJoinInstructionArgs.rightOperand' is not present");
     }
 
     /**
      * Type of join. Valid values are `INNER`, `OUTER`, `LEFT`, and `RIGHT`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("DataSetLogicalTableMapSourceJoinInstructionArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapSourceJoinInstructionArgs.type' is not present");
     }
 
 }

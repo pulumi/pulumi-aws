@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.inputs.DataSetColumnGroupGeoSpatialColumnGroupArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DataSetColumnGroupArgs {
      * Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
      * 
      */
-    private UndeferrableValue<DataSetColumnGroupGeoSpatialColumnGroupArgs> geoSpatialColumnGroup;
-
+    @PolicyResourceProperty(name="geoSpatialColumnGroup", flag="unknown_geoSpatialColumnGroup")
+    private DataSetColumnGroupGeoSpatialColumnGroupArgs value_geoSpatialColumnGroup;
+    private boolean unknown_geoSpatialColumnGroup;
     public DataSetColumnGroupGeoSpatialColumnGroupArgs geoSpatialColumnGroup() {
-        if (geoSpatialColumnGroup == null) return null;
-        return geoSpatialColumnGroup.getValue("DataSetColumnGroupArgs.geoSpatialColumnGroup");
+        if (!unknown_geoSpatialColumnGroup) return value_geoSpatialColumnGroup;
+        throw new UndeferrableValueException("Value 'DataSetColumnGroupArgs.geoSpatialColumnGroup' is not present");
     }
 
 }

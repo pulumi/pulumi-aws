@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettin
      * The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
      * 
      */
-    private @Nullable UndeferrableValue<String> crossAccountModelRegisterRoleArn;
-
+    @PolicyResourceProperty(name="crossAccountModelRegisterRoleArn", flag="unknown_crossAccountModelRegisterRoleArn")
+    private @Nullable String value_crossAccountModelRegisterRoleArn;
+    private boolean unknown_crossAccountModelRegisterRoleArn;
     public @Nullable String crossAccountModelRegisterRoleArn() {
-        if (crossAccountModelRegisterRoleArn == null) return null;
-        return crossAccountModelRegisterRoleArn.getValue("DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings.crossAccountModelRegisterRoleArn");
+        if (!unknown_crossAccountModelRegisterRoleArn) return value_crossAccountModelRegisterRoleArn;
+        throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings.crossAccountModelRegisterRoleArn' is not present");
     }
 
     /**
      * Describes whether the integration to the model registry is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private @Nullable String value_status;
+    private boolean unknown_status;
     public @Nullable String status() {
-        if (status == null) return null;
-        return status.getValue("DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings.status' is not present");
     }
 
 }

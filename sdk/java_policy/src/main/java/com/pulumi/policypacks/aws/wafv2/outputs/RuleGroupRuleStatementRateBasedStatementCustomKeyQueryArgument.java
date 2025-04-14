@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation;
 import java.lang.String;
 import java.util.List;
@@ -15,22 +16,24 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumen
      * A friendly name of the rule group.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument.name' is not present");
     }
 
     /**
      * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
      * 
      */
-    private UndeferrableValue<List<RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation>> textTransformations;
-
+    @PolicyResourceProperty(name="textTransformations", flag="unknown_textTransformations")
+    private List<RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation> value_textTransformations;
+    private boolean unknown_textTransformations;
     public List<RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation> textTransformations() {
-        if (textTransformations == null) return null;
-        return textTransformations.getValue("RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument.textTransformations");
+        if (!unknown_textTransformations) return value_textTransformations;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument.textTransformations' is not present");
     }
 
 }

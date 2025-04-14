@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.outputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements;
 import java.lang.Double;
 import java.lang.String;
@@ -16,77 +17,84 @@ public final class SpotFleetRequestLaunchTemplateConfigOverride {
      * The availability zone in which to place the request.
      * 
      */
-    private @Nullable UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private @Nullable String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public @Nullable String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("SpotFleetRequestLaunchTemplateConfigOverride.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverride.availabilityZone' is not present");
     }
 
     /**
      * The instance requirements. See below.
      * 
      */
-    private @Nullable UndeferrableValue<SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements> instanceRequirements;
-
+    @PolicyResourceProperty(name="instanceRequirements", flag="unknown_instanceRequirements")
+    private @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements value_instanceRequirements;
+    private boolean unknown_instanceRequirements;
     public @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements instanceRequirements() {
-        if (instanceRequirements == null) return null;
-        return instanceRequirements.getValue("SpotFleetRequestLaunchTemplateConfigOverride.instanceRequirements");
+        if (!unknown_instanceRequirements) return value_instanceRequirements;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverride.instanceRequirements' is not present");
     }
 
     /**
      * The type of instance to request.
      * 
      */
-    private @Nullable UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private @Nullable String value_instanceType;
+    private boolean unknown_instanceType;
     public @Nullable String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("SpotFleetRequestLaunchTemplateConfigOverride.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverride.instanceType' is not present");
     }
 
     /**
      * The priority for the launch template override. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
      * 
      */
-    private @Nullable UndeferrableValue<Double> priority;
-
+    @PolicyResourceProperty(name="priority", flag="unknown_priority")
+    private @Nullable Double value_priority;
+    private boolean unknown_priority;
     public @Nullable Double priority() {
-        if (priority == null) return null;
-        return priority.getValue("SpotFleetRequestLaunchTemplateConfigOverride.priority");
+        if (!unknown_priority) return value_priority;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverride.priority' is not present");
     }
 
     /**
      * The maximum spot bid for this override request.
      * 
      */
-    private @Nullable UndeferrableValue<String> spotPrice;
-
+    @PolicyResourceProperty(name="spotPrice", flag="unknown_spotPrice")
+    private @Nullable String value_spotPrice;
+    private boolean unknown_spotPrice;
     public @Nullable String spotPrice() {
-        if (spotPrice == null) return null;
-        return spotPrice.getValue("SpotFleetRequestLaunchTemplateConfigOverride.spotPrice");
+        if (!unknown_spotPrice) return value_spotPrice;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverride.spotPrice' is not present");
     }
 
     /**
      * The subnet in which to launch the requested instance.
      * 
      */
-    private @Nullable UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private @Nullable String value_subnetId;
+    private boolean unknown_subnetId;
     public @Nullable String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("SpotFleetRequestLaunchTemplateConfigOverride.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverride.subnetId' is not present");
     }
 
     /**
      * The capacity added to the fleet by a fulfilled request.
      * 
      */
-    private @Nullable UndeferrableValue<Double> weightedCapacity;
-
+    @PolicyResourceProperty(name="weightedCapacity", flag="unknown_weightedCapacity")
+    private @Nullable Double value_weightedCapacity;
+    private boolean unknown_weightedCapacity;
     public @Nullable Double weightedCapacity() {
-        if (weightedCapacity == null) return null;
-        return weightedCapacity.getValue("SpotFleetRequestLaunchTemplateConfigOverride.weightedCapacity");
+        if (!unknown_weightedCapacity) return value_weightedCapacity;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverride.weightedCapacity' is not present");
     }
 
 }

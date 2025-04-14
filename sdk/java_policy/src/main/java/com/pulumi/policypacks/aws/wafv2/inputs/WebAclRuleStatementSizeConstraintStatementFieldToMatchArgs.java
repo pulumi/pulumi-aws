@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchBodyArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesArgs;
@@ -27,143 +28,156 @@ public final class WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs {
      * Inspect all query arguments.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs> allQueryArguments;
-
+    @PolicyResourceProperty(name="allQueryArguments", flag="unknown_allQueryArguments")
+    private WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs value_allQueryArguments;
+    private boolean unknown_allQueryArguments;
     public WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs allQueryArguments() {
-        if (allQueryArguments == null) return null;
-        return allQueryArguments.getValue("WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.allQueryArguments");
+        if (!unknown_allQueryArguments) return value_allQueryArguments;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.allQueryArguments' is not present");
     }
 
     /**
      * Inspect the request body, which immediately follows the request headers. See `body` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementSizeConstraintStatementFieldToMatchBodyArgs> body;
-
+    @PolicyResourceProperty(name="body", flag="unknown_body")
+    private WebAclRuleStatementSizeConstraintStatementFieldToMatchBodyArgs value_body;
+    private boolean unknown_body;
     public WebAclRuleStatementSizeConstraintStatementFieldToMatchBodyArgs body() {
-        if (body == null) return null;
-        return body.getValue("WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.body");
+        if (!unknown_body) return value_body;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.body' is not present");
     }
 
     /**
      * Inspect the cookies in the web request. See `cookies` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesArgs> cookies;
-
+    @PolicyResourceProperty(name="cookies", flag="unknown_cookies")
+    private WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesArgs value_cookies;
+    private boolean unknown_cookies;
     public WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesArgs cookies() {
-        if (cookies == null) return null;
-        return cookies.getValue("WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.cookies");
+        if (!unknown_cookies) return value_cookies;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.cookies' is not present");
     }
 
     /**
      * Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
      * 
      */
-    private UndeferrableValue<List<WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs>> headerOrders;
-
+    @PolicyResourceProperty(name="headerOrders", flag="unknown_headerOrders")
+    private List<WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs> value_headerOrders;
+    private boolean unknown_headerOrders;
     public List<WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderOrderArgs> headerOrders() {
-        if (headerOrders == null) return null;
-        return headerOrders.getValue("WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.headerOrders");
+        if (!unknown_headerOrders) return value_headerOrders;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.headerOrders' is not present");
     }
 
     /**
      * Inspect the request headers. See `headers` below for details.
      * 
      */
-    private UndeferrableValue<List<WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderArgs>> headers;
-
+    @PolicyResourceProperty(name="headers", flag="unknown_headers")
+    private List<WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderArgs> value_headers;
+    private boolean unknown_headers;
     public List<WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderArgs> headers() {
-        if (headers == null) return null;
-        return headers.getValue("WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.headers");
+        if (!unknown_headers) return value_headers;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.headers' is not present");
     }
 
     /**
      * Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs> ja3Fingerprint;
-
+    @PolicyResourceProperty(name="ja3Fingerprint", flag="unknown_ja3Fingerprint")
+    private WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs value_ja3Fingerprint;
+    private boolean unknown_ja3Fingerprint;
     public WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs ja3Fingerprint() {
-        if (ja3Fingerprint == null) return null;
-        return ja3Fingerprint.getValue("WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.ja3Fingerprint");
+        if (!unknown_ja3Fingerprint) return value_ja3Fingerprint;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.ja3Fingerprint' is not present");
     }
 
     /**
      * Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs> ja4Fingerprint;
-
+    @PolicyResourceProperty(name="ja4Fingerprint", flag="unknown_ja4Fingerprint")
+    private WebAclRuleStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs value_ja4Fingerprint;
+    private boolean unknown_ja4Fingerprint;
     public WebAclRuleStatementSizeConstraintStatementFieldToMatchJa4FingerprintArgs ja4Fingerprint() {
-        if (ja4Fingerprint == null) return null;
-        return ja4Fingerprint.getValue("WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.ja4Fingerprint");
+        if (!unknown_ja4Fingerprint) return value_ja4Fingerprint;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.ja4Fingerprint' is not present");
     }
 
     /**
      * Inspect the request body as JSON. See `json_body` for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyArgs> jsonBody;
-
+    @PolicyResourceProperty(name="jsonBody", flag="unknown_jsonBody")
+    private WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyArgs value_jsonBody;
+    private boolean unknown_jsonBody;
     public WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyArgs jsonBody() {
-        if (jsonBody == null) return null;
-        return jsonBody.getValue("WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.jsonBody");
+        if (!unknown_jsonBody) return value_jsonBody;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.jsonBody' is not present");
     }
 
     /**
      * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementSizeConstraintStatementFieldToMatchMethodArgs> method;
-
+    @PolicyResourceProperty(name="method", flag="unknown_method")
+    private WebAclRuleStatementSizeConstraintStatementFieldToMatchMethodArgs value_method;
+    private boolean unknown_method;
     public WebAclRuleStatementSizeConstraintStatementFieldToMatchMethodArgs method() {
-        if (method == null) return null;
-        return method.getValue("WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.method");
+        if (!unknown_method) return value_method;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.method' is not present");
     }
 
     /**
      * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryStringArgs> queryString;
-
+    @PolicyResourceProperty(name="queryString", flag="unknown_queryString")
+    private WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryStringArgs value_queryString;
+    private boolean unknown_queryString;
     public WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryStringArgs queryString() {
-        if (queryString == null) return null;
-        return queryString.getValue("WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.queryString");
+        if (!unknown_queryString) return value_queryString;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.queryString' is not present");
     }
 
     /**
      * Inspect a single header. See `single_header` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs> singleHeader;
-
+    @PolicyResourceProperty(name="singleHeader", flag="unknown_singleHeader")
+    private WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs value_singleHeader;
+    private boolean unknown_singleHeader;
     public WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs singleHeader() {
-        if (singleHeader == null) return null;
-        return singleHeader.getValue("WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.singleHeader");
+        if (!unknown_singleHeader) return value_singleHeader;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.singleHeader' is not present");
     }
 
     /**
      * Inspect a single query argument. See `single_query_argument` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs> singleQueryArgument;
-
+    @PolicyResourceProperty(name="singleQueryArgument", flag="unknown_singleQueryArgument")
+    private WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs value_singleQueryArgument;
+    private boolean unknown_singleQueryArgument;
     public WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs singleQueryArgument() {
-        if (singleQueryArgument == null) return null;
-        return singleQueryArgument.getValue("WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.singleQueryArgument");
+        if (!unknown_singleQueryArgument) return value_singleQueryArgument;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.singleQueryArgument' is not present");
     }
 
     /**
      * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPathArgs> uriPath;
-
+    @PolicyResourceProperty(name="uriPath", flag="unknown_uriPath")
+    private WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPathArgs value_uriPath;
+    private boolean unknown_uriPath;
     public WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPathArgs uriPath() {
-        if (uriPath == null) return null;
-        return uriPath.getValue("WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.uriPath");
+        if (!unknown_uriPath) return value_uriPath;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs.uriPath' is not present");
     }
 
 }

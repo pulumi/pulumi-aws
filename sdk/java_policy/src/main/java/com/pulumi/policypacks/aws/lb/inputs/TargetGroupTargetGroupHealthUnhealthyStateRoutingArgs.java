@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lb.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs {
      * The minimum number of targets that must be healthy. If the number of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `1` to the maximum number of targets. The default is `1`.
      * 
      */
-    private UndeferrableValue<Integer> minimumHealthyTargetsCount;
-
+    @PolicyResourceProperty(name="minimumHealthyTargetsCount", flag="unknown_minimumHealthyTargetsCount")
+    private Integer value_minimumHealthyTargetsCount;
+    private boolean unknown_minimumHealthyTargetsCount;
     public Integer minimumHealthyTargetsCount() {
-        if (minimumHealthyTargetsCount == null) return null;
-        return minimumHealthyTargetsCount.getValue("TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs.minimumHealthyTargetsCount");
+        if (!unknown_minimumHealthyTargetsCount) return value_minimumHealthyTargetsCount;
+        throw new UndeferrableValueException("Value 'TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs.minimumHealthyTargetsCount' is not present");
     }
 
     /**
      * The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `off` or an integer from `1` to `100`. The default is `off`.
      * 
      */
-    private UndeferrableValue<String> minimumHealthyTargetsPercentage;
-
+    @PolicyResourceProperty(name="minimumHealthyTargetsPercentage", flag="unknown_minimumHealthyTargetsPercentage")
+    private String value_minimumHealthyTargetsPercentage;
+    private boolean unknown_minimumHealthyTargetsPercentage;
     public String minimumHealthyTargetsPercentage() {
-        if (minimumHealthyTargetsPercentage == null) return null;
-        return minimumHealthyTargetsPercentage.getValue("TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs.minimumHealthyTargetsPercentage");
+        if (!unknown_minimumHealthyTargetsPercentage) return value_minimumHealthyTargetsPercentage;
+        throw new UndeferrableValueException("Value 'TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs.minimumHealthyTargetsPercentage' is not present");
     }
 
 }

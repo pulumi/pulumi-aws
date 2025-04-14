@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.docdb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.docdb.outputs.ClusterRestoreToPointInTime;
 import java.lang.Boolean;
@@ -21,11 +22,12 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * A value that indicates whether major version upgrades are allowed. Constraints: You must allow major version upgrades when specifying a value for the EngineVersion parameter that is a different major version than the DB cluster&#39;s current version.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> allowMajorVersionUpgrade;
-
+    @PolicyResourceProperty(name="allowMajorVersionUpgrade", flag="unknown_allowMajorVersionUpgrade")
+    private @Nullable Boolean value_allowMajorVersionUpgrade;
+    private boolean unknown_allowMajorVersionUpgrade;
     public @Nullable Boolean allowMajorVersionUpgrade() {
-        if (allowMajorVersionUpgrade == null) return null;
-        return allowMajorVersionUpgrade.getValue("Cluster.allowMajorVersionUpgrade");
+        if (!unknown_allowMajorVersionUpgrade) return value_allowMajorVersionUpgrade;
+        throw new UndeferrableValueException("Value 'Cluster.allowMajorVersionUpgrade' is not present");
     }
 
     /**
@@ -34,22 +36,24 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> applyImmediately;
-
+    @PolicyResourceProperty(name="applyImmediately", flag="unknown_applyImmediately")
+    private @Nullable Boolean value_applyImmediately;
+    private boolean unknown_applyImmediately;
     public @Nullable Boolean applyImmediately() {
-        if (applyImmediately == null) return null;
-        return applyImmediately.getValue("Cluster.applyImmediately");
+        if (!unknown_applyImmediately) return value_applyImmediately;
+        throw new UndeferrableValueException("Value 'Cluster.applyImmediately' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of cluster
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Cluster.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Cluster.arn' is not present");
     }
 
     /**
@@ -57,99 +61,108 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * instances in the DB cluster can be created in.
      * 
      */
-    private UndeferrableValue<List<String>> availabilityZones;
-
+    @PolicyResourceProperty(name="availabilityZones", flag="unknown_availabilityZones")
+    private List<String> value_availabilityZones;
+    private boolean unknown_availabilityZones;
     public List<String> availabilityZones() {
-        if (availabilityZones == null) return null;
-        return availabilityZones.getValue("Cluster.availabilityZones");
+        if (!unknown_availabilityZones) return value_availabilityZones;
+        throw new UndeferrableValueException("Value 'Cluster.availabilityZones' is not present");
     }
 
     /**
      * The days to retain backups for. Default `1`
      * 
      */
-    private @Nullable UndeferrableValue<Integer> backupRetentionPeriod;
-
+    @PolicyResourceProperty(name="backupRetentionPeriod", flag="unknown_backupRetentionPeriod")
+    private @Nullable Integer value_backupRetentionPeriod;
+    private boolean unknown_backupRetentionPeriod;
     public @Nullable Integer backupRetentionPeriod() {
-        if (backupRetentionPeriod == null) return null;
-        return backupRetentionPeriod.getValue("Cluster.backupRetentionPeriod");
+        if (!unknown_backupRetentionPeriod) return value_backupRetentionPeriod;
+        throw new UndeferrableValueException("Value 'Cluster.backupRetentionPeriod' is not present");
     }
 
     /**
      * The cluster identifier. If omitted, the provider will assign a random, unique identifier.
      * 
      */
-    private UndeferrableValue<String> clusterIdentifier;
-
+    @PolicyResourceProperty(name="clusterIdentifier", flag="unknown_clusterIdentifier")
+    private String value_clusterIdentifier;
+    private boolean unknown_clusterIdentifier;
     public String clusterIdentifier() {
-        if (clusterIdentifier == null) return null;
-        return clusterIdentifier.getValue("Cluster.clusterIdentifier");
+        if (!unknown_clusterIdentifier) return value_clusterIdentifier;
+        throw new UndeferrableValueException("Value 'Cluster.clusterIdentifier' is not present");
     }
 
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
      * 
      */
-    private UndeferrableValue<String> clusterIdentifierPrefix;
-
+    @PolicyResourceProperty(name="clusterIdentifierPrefix", flag="unknown_clusterIdentifierPrefix")
+    private String value_clusterIdentifierPrefix;
+    private boolean unknown_clusterIdentifierPrefix;
     public String clusterIdentifierPrefix() {
-        if (clusterIdentifierPrefix == null) return null;
-        return clusterIdentifierPrefix.getValue("Cluster.clusterIdentifierPrefix");
+        if (!unknown_clusterIdentifierPrefix) return value_clusterIdentifierPrefix;
+        throw new UndeferrableValueException("Value 'Cluster.clusterIdentifierPrefix' is not present");
     }
 
     /**
      * List of DocumentDB Instances that are a part of this cluster
      * 
      */
-    private UndeferrableValue<List<String>> clusterMembers;
-
+    @PolicyResourceProperty(name="clusterMembers", flag="unknown_clusterMembers")
+    private List<String> value_clusterMembers;
+    private boolean unknown_clusterMembers;
     public List<String> clusterMembers() {
-        if (clusterMembers == null) return null;
-        return clusterMembers.getValue("Cluster.clusterMembers");
+        if (!unknown_clusterMembers) return value_clusterMembers;
+        throw new UndeferrableValueException("Value 'Cluster.clusterMembers' is not present");
     }
 
     /**
      * The DocumentDB Cluster Resource ID
      * 
      */
-    private UndeferrableValue<String> clusterResourceId;
-
+    @PolicyResourceProperty(name="clusterResourceId", flag="unknown_clusterResourceId")
+    private String value_clusterResourceId;
+    private boolean unknown_clusterResourceId;
     public String clusterResourceId() {
-        if (clusterResourceId == null) return null;
-        return clusterResourceId.getValue("Cluster.clusterResourceId");
+        if (!unknown_clusterResourceId) return value_clusterResourceId;
+        throw new UndeferrableValueException("Value 'Cluster.clusterResourceId' is not present");
     }
 
     /**
      * A cluster parameter group to associate with the cluster.
      * 
      */
-    private UndeferrableValue<String> dbClusterParameterGroupName;
-
+    @PolicyResourceProperty(name="dbClusterParameterGroupName", flag="unknown_dbClusterParameterGroupName")
+    private String value_dbClusterParameterGroupName;
+    private boolean unknown_dbClusterParameterGroupName;
     public String dbClusterParameterGroupName() {
-        if (dbClusterParameterGroupName == null) return null;
-        return dbClusterParameterGroupName.getValue("Cluster.dbClusterParameterGroupName");
+        if (!unknown_dbClusterParameterGroupName) return value_dbClusterParameterGroupName;
+        throw new UndeferrableValueException("Value 'Cluster.dbClusterParameterGroupName' is not present");
     }
 
     /**
      * A DB subnet group to associate with this DB instance.
      * 
      */
-    private UndeferrableValue<String> dbSubnetGroupName;
-
+    @PolicyResourceProperty(name="dbSubnetGroupName", flag="unknown_dbSubnetGroupName")
+    private String value_dbSubnetGroupName;
+    private boolean unknown_dbSubnetGroupName;
     public String dbSubnetGroupName() {
-        if (dbSubnetGroupName == null) return null;
-        return dbSubnetGroupName.getValue("Cluster.dbSubnetGroupName");
+        if (!unknown_dbSubnetGroupName) return value_dbSubnetGroupName;
+        throw new UndeferrableValueException("Value 'Cluster.dbSubnetGroupName' is not present");
     }
 
     /**
      * A boolean value that indicates whether the DB cluster has deletion protection enabled. The database can&#39;t be deleted when deletion protection is enabled. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> deletionProtection;
-
+    @PolicyResourceProperty(name="deletionProtection", flag="unknown_deletionProtection")
+    private @Nullable Boolean value_deletionProtection;
+    private boolean unknown_deletionProtection;
     public @Nullable Boolean deletionProtection() {
-        if (deletionProtection == null) return null;
-        return deletionProtection.getValue("Cluster.deletionProtection");
+        if (!unknown_deletionProtection) return value_deletionProtection;
+        throw new UndeferrableValueException("Value 'Cluster.deletionProtection' is not present");
     }
 
     /**
@@ -157,44 +170,48 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * The following log types are supported: `audit`, `profiler`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> enabledCloudwatchLogsExports;
-
+    @PolicyResourceProperty(name="enabledCloudwatchLogsExports", flag="unknown_enabledCloudwatchLogsExports")
+    private @Nullable List<String> value_enabledCloudwatchLogsExports;
+    private boolean unknown_enabledCloudwatchLogsExports;
     public @Nullable List<String> enabledCloudwatchLogsExports() {
-        if (enabledCloudwatchLogsExports == null) return null;
-        return enabledCloudwatchLogsExports.getValue("Cluster.enabledCloudwatchLogsExports");
+        if (!unknown_enabledCloudwatchLogsExports) return value_enabledCloudwatchLogsExports;
+        throw new UndeferrableValueException("Value 'Cluster.enabledCloudwatchLogsExports' is not present");
     }
 
     /**
      * The DNS address of the DocumentDB instance
      * 
      */
-    private UndeferrableValue<String> endpoint;
-
+    @PolicyResourceProperty(name="endpoint", flag="unknown_endpoint")
+    private String value_endpoint;
+    private boolean unknown_endpoint;
     public String endpoint() {
-        if (endpoint == null) return null;
-        return endpoint.getValue("Cluster.endpoint");
+        if (!unknown_endpoint) return value_endpoint;
+        throw new UndeferrableValueException("Value 'Cluster.endpoint' is not present");
     }
 
     /**
      * The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
      * 
      */
-    private @Nullable UndeferrableValue<String> engine;
-
+    @PolicyResourceProperty(name="engine", flag="unknown_engine")
+    private @Nullable String value_engine;
+    private boolean unknown_engine;
     public @Nullable String engine() {
-        if (engine == null) return null;
-        return engine.getValue("Cluster.engine");
+        if (!unknown_engine) return value_engine;
+        throw new UndeferrableValueException("Value 'Cluster.engine' is not present");
     }
 
     /**
      * The database engine version. Updating this argument results in an outage.
      * 
      */
-    private UndeferrableValue<String> engineVersion;
-
+    @PolicyResourceProperty(name="engineVersion", flag="unknown_engineVersion")
+    private String value_engineVersion;
+    private boolean unknown_engineVersion;
     public String engineVersion() {
-        if (engineVersion == null) return null;
-        return engineVersion.getValue("Cluster.engineVersion");
+        if (!unknown_engineVersion) return value_engineVersion;
+        throw new UndeferrableValueException("Value 'Cluster.engineVersion' is not present");
     }
 
     /**
@@ -203,44 +220,48 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * made.
      * 
      */
-    private @Nullable UndeferrableValue<String> finalSnapshotIdentifier;
-
+    @PolicyResourceProperty(name="finalSnapshotIdentifier", flag="unknown_finalSnapshotIdentifier")
+    private @Nullable String value_finalSnapshotIdentifier;
+    private boolean unknown_finalSnapshotIdentifier;
     public @Nullable String finalSnapshotIdentifier() {
-        if (finalSnapshotIdentifier == null) return null;
-        return finalSnapshotIdentifier.getValue("Cluster.finalSnapshotIdentifier");
+        if (!unknown_finalSnapshotIdentifier) return value_finalSnapshotIdentifier;
+        throw new UndeferrableValueException("Value 'Cluster.finalSnapshotIdentifier' is not present");
     }
 
     /**
      * The global cluster identifier specified on `aws.docdb.GlobalCluster`.
      * 
      */
-    private @Nullable UndeferrableValue<String> globalClusterIdentifier;
-
+    @PolicyResourceProperty(name="globalClusterIdentifier", flag="unknown_globalClusterIdentifier")
+    private @Nullable String value_globalClusterIdentifier;
+    private boolean unknown_globalClusterIdentifier;
     public @Nullable String globalClusterIdentifier() {
-        if (globalClusterIdentifier == null) return null;
-        return globalClusterIdentifier.getValue("Cluster.globalClusterIdentifier");
+        if (!unknown_globalClusterIdentifier) return value_globalClusterIdentifier;
+        throw new UndeferrableValueException("Value 'Cluster.globalClusterIdentifier' is not present");
     }
 
     /**
      * The Route53 Hosted Zone ID of the endpoint
      * 
      */
-    private UndeferrableValue<String> hostedZoneId;
-
+    @PolicyResourceProperty(name="hostedZoneId", flag="unknown_hostedZoneId")
+    private String value_hostedZoneId;
+    private boolean unknown_hostedZoneId;
     public String hostedZoneId() {
-        if (hostedZoneId == null) return null;
-        return hostedZoneId.getValue("Cluster.hostedZoneId");
+        if (!unknown_hostedZoneId) return value_hostedZoneId;
+        throw new UndeferrableValueException("Value 'Cluster.hostedZoneId' is not present");
     }
 
     /**
      * The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("Cluster.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'Cluster.kmsKeyId' is not present");
     }
 
     /**
@@ -248,33 +269,36 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo`.
      * 
      */
-    private @Nullable UndeferrableValue<String> masterPassword;
-
+    @PolicyResourceProperty(name="masterPassword", flag="unknown_masterPassword")
+    private @Nullable String value_masterPassword;
+    private boolean unknown_masterPassword;
     public @Nullable String masterPassword() {
-        if (masterPassword == null) return null;
-        return masterPassword.getValue("Cluster.masterPassword");
+        if (!unknown_masterPassword) return value_masterPassword;
+        throw new UndeferrableValueException("Value 'Cluster.masterPassword' is not present");
     }
 
     /**
      * Username for the master DB user.
      * 
      */
-    private UndeferrableValue<String> masterUsername;
-
+    @PolicyResourceProperty(name="masterUsername", flag="unknown_masterUsername")
+    private String value_masterUsername;
+    private boolean unknown_masterUsername;
     public String masterUsername() {
-        if (masterUsername == null) return null;
-        return masterUsername.getValue("Cluster.masterUsername");
+        if (!unknown_masterUsername) return value_masterUsername;
+        throw new UndeferrableValueException("Value 'Cluster.masterUsername' is not present");
     }
 
     /**
      * The port on which the DB accepts connections
      * 
      */
-    private @Nullable UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable Integer value_port;
+    private boolean unknown_port;
     public @Nullable Integer port() {
-        if (port == null) return null;
-        return port.getValue("Cluster.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'Cluster.port' is not present");
     }
 
     /**
@@ -282,99 +306,108 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      * 
      */
-    private UndeferrableValue<String> preferredBackupWindow;
-
+    @PolicyResourceProperty(name="preferredBackupWindow", flag="unknown_preferredBackupWindow")
+    private String value_preferredBackupWindow;
+    private boolean unknown_preferredBackupWindow;
     public String preferredBackupWindow() {
-        if (preferredBackupWindow == null) return null;
-        return preferredBackupWindow.getValue("Cluster.preferredBackupWindow");
+        if (!unknown_preferredBackupWindow) return value_preferredBackupWindow;
+        throw new UndeferrableValueException("Value 'Cluster.preferredBackupWindow' is not present");
     }
 
     /**
      * The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      * 
      */
-    private UndeferrableValue<String> preferredMaintenanceWindow;
-
+    @PolicyResourceProperty(name="preferredMaintenanceWindow", flag="unknown_preferredMaintenanceWindow")
+    private String value_preferredMaintenanceWindow;
+    private boolean unknown_preferredMaintenanceWindow;
     public String preferredMaintenanceWindow() {
-        if (preferredMaintenanceWindow == null) return null;
-        return preferredMaintenanceWindow.getValue("Cluster.preferredMaintenanceWindow");
+        if (!unknown_preferredMaintenanceWindow) return value_preferredMaintenanceWindow;
+        throw new UndeferrableValueException("Value 'Cluster.preferredMaintenanceWindow' is not present");
     }
 
     /**
      * A read-only endpoint for the DocumentDB cluster, automatically load-balanced across replicas
      * 
      */
-    private UndeferrableValue<String> readerEndpoint;
-
+    @PolicyResourceProperty(name="readerEndpoint", flag="unknown_readerEndpoint")
+    private String value_readerEndpoint;
+    private boolean unknown_readerEndpoint;
     public String readerEndpoint() {
-        if (readerEndpoint == null) return null;
-        return readerEndpoint.getValue("Cluster.readerEndpoint");
+        if (!unknown_readerEndpoint) return value_readerEndpoint;
+        throw new UndeferrableValueException("Value 'Cluster.readerEndpoint' is not present");
     }
 
     /**
      * A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
      * 
      */
-    private @Nullable UndeferrableValue<ClusterRestoreToPointInTime> restoreToPointInTime;
-
+    @PolicyResourceProperty(name="restoreToPointInTime", flag="unknown_restoreToPointInTime")
+    private @Nullable ClusterRestoreToPointInTime value_restoreToPointInTime;
+    private boolean unknown_restoreToPointInTime;
     public @Nullable ClusterRestoreToPointInTime restoreToPointInTime() {
-        if (restoreToPointInTime == null) return null;
-        return restoreToPointInTime.getValue("Cluster.restoreToPointInTime");
+        if (!unknown_restoreToPointInTime) return value_restoreToPointInTime;
+        throw new UndeferrableValueException("Value 'Cluster.restoreToPointInTime' is not present");
     }
 
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> skipFinalSnapshot;
-
+    @PolicyResourceProperty(name="skipFinalSnapshot", flag="unknown_skipFinalSnapshot")
+    private @Nullable Boolean value_skipFinalSnapshot;
+    private boolean unknown_skipFinalSnapshot;
     public @Nullable Boolean skipFinalSnapshot() {
-        if (skipFinalSnapshot == null) return null;
-        return skipFinalSnapshot.getValue("Cluster.skipFinalSnapshot");
+        if (!unknown_skipFinalSnapshot) return value_skipFinalSnapshot;
+        throw new UndeferrableValueException("Value 'Cluster.skipFinalSnapshot' is not present");
     }
 
     /**
      * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
      * 
      */
-    private @Nullable UndeferrableValue<String> snapshotIdentifier;
-
+    @PolicyResourceProperty(name="snapshotIdentifier", flag="unknown_snapshotIdentifier")
+    private @Nullable String value_snapshotIdentifier;
+    private boolean unknown_snapshotIdentifier;
     public @Nullable String snapshotIdentifier() {
-        if (snapshotIdentifier == null) return null;
-        return snapshotIdentifier.getValue("Cluster.snapshotIdentifier");
+        if (!unknown_snapshotIdentifier) return value_snapshotIdentifier;
+        throw new UndeferrableValueException("Value 'Cluster.snapshotIdentifier' is not present");
     }
 
     /**
      * Specifies whether the DB cluster is encrypted. The default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> storageEncrypted;
-
+    @PolicyResourceProperty(name="storageEncrypted", flag="unknown_storageEncrypted")
+    private @Nullable Boolean value_storageEncrypted;
+    private boolean unknown_storageEncrypted;
     public @Nullable Boolean storageEncrypted() {
-        if (storageEncrypted == null) return null;
-        return storageEncrypted.getValue("Cluster.storageEncrypted");
+        if (!unknown_storageEncrypted) return value_storageEncrypted;
+        throw new UndeferrableValueException("Value 'Cluster.storageEncrypted' is not present");
     }
 
     /**
      * The storage type to associate with the DB cluster. Valid values: `standard`, `iopt1`.
      * 
      */
-    private @Nullable UndeferrableValue<String> storageType;
-
+    @PolicyResourceProperty(name="storageType", flag="unknown_storageType")
+    private @Nullable String value_storageType;
+    private boolean unknown_storageType;
     public @Nullable String storageType() {
-        if (storageType == null) return null;
-        return storageType.getValue("Cluster.storageType");
+        if (!unknown_storageType) return value_storageType;
+        throw new UndeferrableValueException("Value 'Cluster.storageType' is not present");
     }
 
     /**
      * A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Cluster.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Cluster.tags' is not present");
     }
 
     /**
@@ -385,11 +418,12 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Cluster.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Cluster.tagsAll' is not present");
     }
 
     /**
@@ -397,11 +431,12 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * with the Cluster
      * 
      */
-    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
-
+    @PolicyResourceProperty(name="vpcSecurityGroupIds", flag="unknown_vpcSecurityGroupIds")
+    private List<String> value_vpcSecurityGroupIds;
+    private boolean unknown_vpcSecurityGroupIds;
     public List<String> vpcSecurityGroupIds() {
-        if (vpcSecurityGroupIds == null) return null;
-        return vpcSecurityGroupIds.getValue("Cluster.vpcSecurityGroupIds");
+        if (!unknown_vpcSecurityGroupIds) return value_vpcSecurityGroupIds;
+        throw new UndeferrableValueException("Value 'Cluster.vpcSecurityGroupIds' is not present");
     }
 
 }

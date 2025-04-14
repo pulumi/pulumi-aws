@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class WindowsFileSystemAuditLogConfiguration {
      * The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `file_access_audit_log_level` and `file_share_access_audit_log_level` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `audit_log_destionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
      * 
      */
-    private @Nullable UndeferrableValue<String> auditLogDestination;
-
+    @PolicyResourceProperty(name="auditLogDestination", flag="unknown_auditLogDestination")
+    private @Nullable String value_auditLogDestination;
+    private boolean unknown_auditLogDestination;
     public @Nullable String auditLogDestination() {
-        if (auditLogDestination == null) return null;
-        return auditLogDestination.getValue("WindowsFileSystemAuditLogConfiguration.auditLogDestination");
+        if (!unknown_auditLogDestination) return value_auditLogDestination;
+        throw new UndeferrableValueException("Value 'WindowsFileSystemAuditLogConfiguration.auditLogDestination' is not present");
     }
 
     /**
      * Sets which attempt type is logged by Amazon FSx for file and folder accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> fileAccessAuditLogLevel;
-
+    @PolicyResourceProperty(name="fileAccessAuditLogLevel", flag="unknown_fileAccessAuditLogLevel")
+    private @Nullable String value_fileAccessAuditLogLevel;
+    private boolean unknown_fileAccessAuditLogLevel;
     public @Nullable String fileAccessAuditLogLevel() {
-        if (fileAccessAuditLogLevel == null) return null;
-        return fileAccessAuditLogLevel.getValue("WindowsFileSystemAuditLogConfiguration.fileAccessAuditLogLevel");
+        if (!unknown_fileAccessAuditLogLevel) return value_fileAccessAuditLogLevel;
+        throw new UndeferrableValueException("Value 'WindowsFileSystemAuditLogConfiguration.fileAccessAuditLogLevel' is not present");
     }
 
     /**
      * Sets which attempt type is logged by Amazon FSx for file share accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> fileShareAccessAuditLogLevel;
-
+    @PolicyResourceProperty(name="fileShareAccessAuditLogLevel", flag="unknown_fileShareAccessAuditLogLevel")
+    private @Nullable String value_fileShareAccessAuditLogLevel;
+    private boolean unknown_fileShareAccessAuditLogLevel;
     public @Nullable String fileShareAccessAuditLogLevel() {
-        if (fileShareAccessAuditLogLevel == null) return null;
-        return fileShareAccessAuditLogLevel.getValue("WindowsFileSystemAuditLogConfiguration.fileShareAccessAuditLogLevel");
+        if (!unknown_fileShareAccessAuditLogLevel) return value_fileShareAccessAuditLogLevel;
+        throw new UndeferrableValueException("Value 'WindowsFileSystemAuditLogConfiguration.fileShareAccessAuditLogLevel' is not present");
     }
 
 }

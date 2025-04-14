@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.bedrock.inputs.ProvisionedModelThroughputTimeoutsArgs;
 import java.lang.Integer;
@@ -19,62 +20,68 @@ public final class ProvisionedModelThroughputArgs extends com.pulumi.resources.P
      * Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
      * 
      */
-    private UndeferrableValue<String> commitmentDuration;
-
+    @PolicyResourceProperty(name="commitmentDuration", flag="unknown_commitmentDuration")
+    private String value_commitmentDuration;
+    private boolean unknown_commitmentDuration;
     public String commitmentDuration() {
-        if (commitmentDuration == null) return null;
-        return commitmentDuration.getValue("ProvisionedModelThroughputArgs.commitmentDuration");
+        if (!unknown_commitmentDuration) return value_commitmentDuration;
+        throw new UndeferrableValueException("Value 'ProvisionedModelThroughputArgs.commitmentDuration' is not present");
     }
 
     /**
      * ARN of the model to associate with this Provisioned Throughput.
      * 
      */
-    private UndeferrableValue<String> modelArn;
-
+    @PolicyResourceProperty(name="modelArn", flag="unknown_modelArn")
+    private String value_modelArn;
+    private boolean unknown_modelArn;
     public String modelArn() {
-        if (modelArn == null) return null;
-        return modelArn.getValue("ProvisionedModelThroughputArgs.modelArn");
+        if (!unknown_modelArn) return value_modelArn;
+        throw new UndeferrableValueException("Value 'ProvisionedModelThroughputArgs.modelArn' is not present");
     }
 
     /**
      * Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
      * 
      */
-    private UndeferrableValue<Integer> modelUnits;
-
+    @PolicyResourceProperty(name="modelUnits", flag="unknown_modelUnits")
+    private Integer value_modelUnits;
+    private boolean unknown_modelUnits;
     public Integer modelUnits() {
-        if (modelUnits == null) return null;
-        return modelUnits.getValue("ProvisionedModelThroughputArgs.modelUnits");
+        if (!unknown_modelUnits) return value_modelUnits;
+        throw new UndeferrableValueException("Value 'ProvisionedModelThroughputArgs.modelUnits' is not present");
     }
 
     /**
      * Unique name for this Provisioned Throughput.
      * 
      */
-    private UndeferrableValue<String> provisionedModelName;
-
+    @PolicyResourceProperty(name="provisionedModelName", flag="unknown_provisionedModelName")
+    private String value_provisionedModelName;
+    private boolean unknown_provisionedModelName;
     public String provisionedModelName() {
-        if (provisionedModelName == null) return null;
-        return provisionedModelName.getValue("ProvisionedModelThroughputArgs.provisionedModelName");
+        if (!unknown_provisionedModelName) return value_provisionedModelName;
+        throw new UndeferrableValueException("Value 'ProvisionedModelThroughputArgs.provisionedModelName' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ProvisionedModelThroughputArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ProvisionedModelThroughputArgs.tags' is not present");
     }
 
-    private UndeferrableValue<ProvisionedModelThroughputTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private ProvisionedModelThroughputTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public ProvisionedModelThroughputTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ProvisionedModelThroughputArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ProvisionedModelThroughputArgs.timeouts' is not present");
     }
 
 }

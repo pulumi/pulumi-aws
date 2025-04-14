@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamquery.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.timestreamquery.inputs.ScheduledQueryNotificationConfigurationSnsConfigurationArgs;
 
 
@@ -13,11 +14,12 @@ public final class ScheduledQueryNotificationConfigurationArgs {
      * Configuration block for details about the Amazon Simple Notification Service (SNS) configuration. See below.
      * 
      */
-    private UndeferrableValue<ScheduledQueryNotificationConfigurationSnsConfigurationArgs> snsConfiguration;
-
+    @PolicyResourceProperty(name="snsConfiguration", flag="unknown_snsConfiguration")
+    private ScheduledQueryNotificationConfigurationSnsConfigurationArgs value_snsConfiguration;
+    private boolean unknown_snsConfiguration;
     public ScheduledQueryNotificationConfigurationSnsConfigurationArgs snsConfiguration() {
-        if (snsConfiguration == null) return null;
-        return snsConfiguration.getValue("ScheduledQueryNotificationConfigurationArgs.snsConfiguration");
+        if (!unknown_snsConfiguration) return value_snsConfiguration;
+        throw new UndeferrableValueException("Value 'ScheduledQueryNotificationConfigurationArgs.snsConfiguration' is not present");
     }
 
 }

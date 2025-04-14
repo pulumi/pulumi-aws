@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emrcontainers.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.emrcontainers.inputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs;
 import java.lang.String;
 import java.util.List;
@@ -17,33 +18,36 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesApplicationCo
      * The classification within a configuration.
      * 
      */
-    private UndeferrableValue<String> classification;
-
+    @PolicyResourceProperty(name="classification", flag="unknown_classification")
+    private String value_classification;
+    private boolean unknown_classification;
     public String classification() {
-        if (classification == null) return null;
-        return classification.getValue("JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs.classification");
+        if (!unknown_classification) return value_classification;
+        throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs.classification' is not present");
     }
 
     /**
      * A list of additional configurations to apply within a configuration object.
      * 
      */
-    private UndeferrableValue<List<JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs>> configurations;
-
+    @PolicyResourceProperty(name="configurations", flag="unknown_configurations")
+    private List<JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs> value_configurations;
+    private boolean unknown_configurations;
     public List<JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs> configurations() {
-        if (configurations == null) return null;
-        return configurations.getValue("JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs.configurations");
+        if (!unknown_configurations) return value_configurations;
+        throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs.configurations' is not present");
     }
 
     /**
      * A set of properties specified within a configuration classification.
      * 
      */
-    private UndeferrableValue<Map<String,String>> properties;
-
+    @PolicyResourceProperty(name="properties", flag="unknown_properties")
+    private Map<String,String> value_properties;
+    private boolean unknown_properties;
     public Map<String,String> properties() {
-        if (properties == null) return null;
-        return properties.getValue("JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs.properties");
+        if (!unknown_properties) return value_properties;
+        throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs.properties' is not present");
     }
 
 }

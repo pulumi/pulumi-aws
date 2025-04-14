@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class UsagePlanApiStageThrottleArgs {
      * The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
      * 
      */
-    private UndeferrableValue<Integer> burstLimit;
-
+    @PolicyResourceProperty(name="burstLimit", flag="unknown_burstLimit")
+    private Integer value_burstLimit;
+    private boolean unknown_burstLimit;
     public Integer burstLimit() {
-        if (burstLimit == null) return null;
-        return burstLimit.getValue("UsagePlanApiStageThrottleArgs.burstLimit");
+        if (!unknown_burstLimit) return value_burstLimit;
+        throw new UndeferrableValueException("Value 'UsagePlanApiStageThrottleArgs.burstLimit' is not present");
     }
 
     /**
      * Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
      * 
      */
-    private UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private String value_path;
+    private boolean unknown_path;
     public String path() {
-        if (path == null) return null;
-        return path.getValue("UsagePlanApiStageThrottleArgs.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'UsagePlanApiStageThrottleArgs.path' is not present");
     }
 
     /**
      * The API request steady-state rate limit.
      * 
      */
-    private UndeferrableValue<Double> rateLimit;
-
+    @PolicyResourceProperty(name="rateLimit", flag="unknown_rateLimit")
+    private Double value_rateLimit;
+    private boolean unknown_rateLimit;
     public Double rateLimit() {
-        if (rateLimit == null) return null;
-        return rateLimit.getValue("UsagePlanApiStageThrottleArgs.rateLimit");
+        if (!unknown_rateLimit) return value_rateLimit;
+        throw new UndeferrableValueException("Value 'UsagePlanApiStageThrottleArgs.rateLimit' is not present");
     }
 
 }

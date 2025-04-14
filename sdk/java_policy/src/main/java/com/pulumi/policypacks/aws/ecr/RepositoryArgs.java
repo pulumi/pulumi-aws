@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecr;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ecr.inputs.RepositoryEncryptionConfigurationArgs;
 import com.pulumi.policypacks.aws.ecr.inputs.RepositoryImageScanningConfigurationArgs;
@@ -21,11 +22,12 @@ public final class RepositoryArgs extends com.pulumi.resources.PolicyResourceInp
      * Encryption configuration for the repository. See below for schema.
      * 
      */
-    private UndeferrableValue<List<RepositoryEncryptionConfigurationArgs>> encryptionConfigurations;
-
+    @PolicyResourceProperty(name="encryptionConfigurations", flag="unknown_encryptionConfigurations")
+    private List<RepositoryEncryptionConfigurationArgs> value_encryptionConfigurations;
+    private boolean unknown_encryptionConfigurations;
     public List<RepositoryEncryptionConfigurationArgs> encryptionConfigurations() {
-        if (encryptionConfigurations == null) return null;
-        return encryptionConfigurations.getValue("RepositoryArgs.encryptionConfigurations");
+        if (!unknown_encryptionConfigurations) return value_encryptionConfigurations;
+        throw new UndeferrableValueException("Value 'RepositoryArgs.encryptionConfigurations' is not present");
     }
 
     /**
@@ -33,55 +35,60 @@ public final class RepositoryArgs extends com.pulumi.resources.PolicyResourceInp
      * Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> forceDelete;
-
+    @PolicyResourceProperty(name="forceDelete", flag="unknown_forceDelete")
+    private Boolean value_forceDelete;
+    private boolean unknown_forceDelete;
     public Boolean forceDelete() {
-        if (forceDelete == null) return null;
-        return forceDelete.getValue("RepositoryArgs.forceDelete");
+        if (!unknown_forceDelete) return value_forceDelete;
+        throw new UndeferrableValueException("Value 'RepositoryArgs.forceDelete' is not present");
     }
 
     /**
      * Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
      * 
      */
-    private UndeferrableValue<RepositoryImageScanningConfigurationArgs> imageScanningConfiguration;
-
+    @PolicyResourceProperty(name="imageScanningConfiguration", flag="unknown_imageScanningConfiguration")
+    private RepositoryImageScanningConfigurationArgs value_imageScanningConfiguration;
+    private boolean unknown_imageScanningConfiguration;
     public RepositoryImageScanningConfigurationArgs imageScanningConfiguration() {
-        if (imageScanningConfiguration == null) return null;
-        return imageScanningConfiguration.getValue("RepositoryArgs.imageScanningConfiguration");
+        if (!unknown_imageScanningConfiguration) return value_imageScanningConfiguration;
+        throw new UndeferrableValueException("Value 'RepositoryArgs.imageScanningConfiguration' is not present");
     }
 
     /**
      * The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
      * 
      */
-    private UndeferrableValue<String> imageTagMutability;
-
+    @PolicyResourceProperty(name="imageTagMutability", flag="unknown_imageTagMutability")
+    private String value_imageTagMutability;
+    private boolean unknown_imageTagMutability;
     public String imageTagMutability() {
-        if (imageTagMutability == null) return null;
-        return imageTagMutability.getValue("RepositoryArgs.imageTagMutability");
+        if (!unknown_imageTagMutability) return value_imageTagMutability;
+        throw new UndeferrableValueException("Value 'RepositoryArgs.imageTagMutability' is not present");
     }
 
     /**
      * Name of the repository.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RepositoryArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RepositoryArgs.name' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RepositoryArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RepositoryArgs.tags' is not present");
     }
 
 }

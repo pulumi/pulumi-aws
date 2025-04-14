@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kms;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class Alias extends com.pulumi.resources.PolicyResourceOutput {
      * The Amazon Resource Name (ARN) of the key alias.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Alias.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Alias.arn' is not present");
     }
 
     /**
      * The display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/)
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Alias.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Alias.name' is not present");
     }
 
     /**
@@ -38,33 +41,36 @@ public final class Alias extends com.pulumi.resources.PolicyResourceOutput {
      * The name must start with the word &#34;alias&#34; followed by a forward slash (alias/).  Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("Alias.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'Alias.namePrefix' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the target key identifier.
      * 
      */
-    private UndeferrableValue<String> targetKeyArn;
-
+    @PolicyResourceProperty(name="targetKeyArn", flag="unknown_targetKeyArn")
+    private String value_targetKeyArn;
+    private boolean unknown_targetKeyArn;
     public String targetKeyArn() {
-        if (targetKeyArn == null) return null;
-        return targetKeyArn.getValue("Alias.targetKeyArn");
+        if (!unknown_targetKeyArn) return value_targetKeyArn;
+        throw new UndeferrableValueException("Value 'Alias.targetKeyArn' is not present");
     }
 
     /**
      * Identifier for the key for which the alias is for, can be either an ARN or key_id.
      * 
      */
-    private UndeferrableValue<String> targetKeyId;
-
+    @PolicyResourceProperty(name="targetKeyId", flag="unknown_targetKeyId")
+    private String value_targetKeyId;
+    private boolean unknown_targetKeyId;
     public String targetKeyId() {
-        if (targetKeyId == null) return null;
-        return targetKeyId.getValue("Alias.targetKeyId");
+        if (!unknown_targetKeyId) return value_targetKeyId;
+        throw new UndeferrableValueException("Value 'Alias.targetKeyId' is not present");
     }
 
 }

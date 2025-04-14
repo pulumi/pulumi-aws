@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class UserPoliciesExclusiveArgs extends com.pulumi.resources.Policy
      * A list of inline policy names to be assigned to the user. Policies attached to this user but not configured in this argument will be removed.
      * 
      */
-    private UndeferrableValue<List<String>> policyNames;
-
+    @PolicyResourceProperty(name="policyNames", flag="unknown_policyNames")
+    private List<String> value_policyNames;
+    private boolean unknown_policyNames;
     public List<String> policyNames() {
-        if (policyNames == null) return null;
-        return policyNames.getValue("UserPoliciesExclusiveArgs.policyNames");
+        if (!unknown_policyNames) return value_policyNames;
+        throw new UndeferrableValueException("Value 'UserPoliciesExclusiveArgs.policyNames' is not present");
     }
 
     /**
      * IAM user name.
      * 
      */
-    private UndeferrableValue<String> userName;
-
+    @PolicyResourceProperty(name="userName", flag="unknown_userName")
+    private String value_userName;
+    private boolean unknown_userName;
     public String userName() {
-        if (userName == null) return null;
-        return userName.getValue("UserPoliciesExclusiveArgs.userName");
+        if (!unknown_userName) return value_userName;
+        throw new UndeferrableValueException("Value 'UserPoliciesExclusiveArgs.userName' is not present");
     }
 
 }

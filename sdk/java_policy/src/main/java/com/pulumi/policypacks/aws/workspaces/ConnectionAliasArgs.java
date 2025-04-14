@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.workspaces;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.workspaces.inputs.ConnectionAliasTimeoutsArgs;
 import java.lang.String;
@@ -18,29 +19,32 @@ public final class ConnectionAliasArgs extends com.pulumi.resources.PolicyResour
      * The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as www.example.com.
      * 
      */
-    private UndeferrableValue<String> connectionString;
-
+    @PolicyResourceProperty(name="connectionString", flag="unknown_connectionString")
+    private String value_connectionString;
+    private boolean unknown_connectionString;
     public String connectionString() {
-        if (connectionString == null) return null;
-        return connectionString.getValue("ConnectionAliasArgs.connectionString");
+        if (!unknown_connectionString) return value_connectionString;
+        throw new UndeferrableValueException("Value 'ConnectionAliasArgs.connectionString' is not present");
     }
 
     /**
      * A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ConnectionAliasArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ConnectionAliasArgs.tags' is not present");
     }
 
-    private UndeferrableValue<ConnectionAliasTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private ConnectionAliasTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public ConnectionAliasTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ConnectionAliasArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ConnectionAliasArgs.timeouts' is not present");
     }
 
 }

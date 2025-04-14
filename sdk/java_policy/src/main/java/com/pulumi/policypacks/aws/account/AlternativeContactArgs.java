@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.account;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,66 +17,72 @@ public final class AlternativeContactArgs extends com.pulumi.resources.PolicyRes
      * ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("AlternativeContactArgs.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'AlternativeContactArgs.accountId' is not present");
     }
 
     /**
      * Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
      * 
      */
-    private UndeferrableValue<String> alternateContactType;
-
+    @PolicyResourceProperty(name="alternateContactType", flag="unknown_alternateContactType")
+    private String value_alternateContactType;
+    private boolean unknown_alternateContactType;
     public String alternateContactType() {
-        if (alternateContactType == null) return null;
-        return alternateContactType.getValue("AlternativeContactArgs.alternateContactType");
+        if (!unknown_alternateContactType) return value_alternateContactType;
+        throw new UndeferrableValueException("Value 'AlternativeContactArgs.alternateContactType' is not present");
     }
 
     /**
      * An email address for the alternate contact.
      * 
      */
-    private UndeferrableValue<String> emailAddress;
-
+    @PolicyResourceProperty(name="emailAddress", flag="unknown_emailAddress")
+    private String value_emailAddress;
+    private boolean unknown_emailAddress;
     public String emailAddress() {
-        if (emailAddress == null) return null;
-        return emailAddress.getValue("AlternativeContactArgs.emailAddress");
+        if (!unknown_emailAddress) return value_emailAddress;
+        throw new UndeferrableValueException("Value 'AlternativeContactArgs.emailAddress' is not present");
     }
 
     /**
      * Name of the alternate contact.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AlternativeContactArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AlternativeContactArgs.name' is not present");
     }
 
     /**
      * Phone number for the alternate contact.
      * 
      */
-    private UndeferrableValue<String> phoneNumber;
-
+    @PolicyResourceProperty(name="phoneNumber", flag="unknown_phoneNumber")
+    private String value_phoneNumber;
+    private boolean unknown_phoneNumber;
     public String phoneNumber() {
-        if (phoneNumber == null) return null;
-        return phoneNumber.getValue("AlternativeContactArgs.phoneNumber");
+        if (!unknown_phoneNumber) return value_phoneNumber;
+        throw new UndeferrableValueException("Value 'AlternativeContactArgs.phoneNumber' is not present");
     }
 
     /**
      * Title for the alternate contact.
      * 
      */
-    private UndeferrableValue<String> title;
-
+    @PolicyResourceProperty(name="title", flag="unknown_title")
+    private String value_title;
+    private boolean unknown_title;
     public String title() {
-        if (title == null) return null;
-        return title.getValue("AlternativeContactArgs.title");
+        if (!unknown_title) return value_title;
+        throw new UndeferrableValueException("Value 'AlternativeContactArgs.title' is not present");
     }
 
 }

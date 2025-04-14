@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class DistributionOriginS3OriginConfigArgs {
      * The CloudFront origin access identity to associate with the origin.
      * 
      */
-    private UndeferrableValue<String> originAccessIdentity;
-
+    @PolicyResourceProperty(name="originAccessIdentity", flag="unknown_originAccessIdentity")
+    private String value_originAccessIdentity;
+    private boolean unknown_originAccessIdentity;
     public String originAccessIdentity() {
-        if (originAccessIdentity == null) return null;
-        return originAccessIdentity.getValue("DistributionOriginS3OriginConfigArgs.originAccessIdentity");
+        if (!unknown_originAccessIdentity) return value_originAccessIdentity;
+        throw new UndeferrableValueException("Value 'DistributionOriginS3OriginConfigArgs.originAccessIdentity' is not present");
     }
 
 }

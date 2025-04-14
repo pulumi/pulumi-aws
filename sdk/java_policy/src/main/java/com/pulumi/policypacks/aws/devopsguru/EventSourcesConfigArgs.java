@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.devopsguru;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.devopsguru.inputs.EventSourcesConfigEventSourceArgs;
 import java.util.List;
@@ -17,11 +18,12 @@ public final class EventSourcesConfigArgs extends com.pulumi.resources.PolicyRes
      * Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `event_sources` below.
      * 
      */
-    private UndeferrableValue<List<EventSourcesConfigEventSourceArgs>> eventSources;
-
+    @PolicyResourceProperty(name="eventSources", flag="unknown_eventSources")
+    private List<EventSourcesConfigEventSourceArgs> value_eventSources;
+    private boolean unknown_eventSources;
     public List<EventSourcesConfigEventSourceArgs> eventSources() {
-        if (eventSources == null) return null;
-        return eventSources.getValue("EventSourcesConfigArgs.eventSources");
+        if (!unknown_eventSources) return value_eventSources;
+        throw new UndeferrableValueException("Value 'EventSourcesConfigArgs.eventSources' is not present");
     }
 
 }

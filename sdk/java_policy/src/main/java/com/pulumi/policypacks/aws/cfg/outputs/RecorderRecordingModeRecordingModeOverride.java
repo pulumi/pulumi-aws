@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class RecorderRecordingModeRecordingModeOverride {
      * A description you provide of the override.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("RecorderRecordingModeRecordingModeOverride.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'RecorderRecordingModeRecordingModeOverride.description' is not present");
     }
 
     /**
      * The recording frequency for the resources in the override block. `CONTINUOUS` or `DAILY`.
      * 
      */
-    private UndeferrableValue<String> recordingFrequency;
-
+    @PolicyResourceProperty(name="recordingFrequency", flag="unknown_recordingFrequency")
+    private String value_recordingFrequency;
+    private boolean unknown_recordingFrequency;
     public String recordingFrequency() {
-        if (recordingFrequency == null) return null;
-        return recordingFrequency.getValue("RecorderRecordingModeRecordingModeOverride.recordingFrequency");
+        if (!unknown_recordingFrequency) return value_recordingFrequency;
+        throw new UndeferrableValueException("Value 'RecorderRecordingModeRecordingModeOverride.recordingFrequency' is not present");
     }
 
     /**
      * A list that specifies the types of AWS resources for which the override applies to.  See [restrictions in the AWS Docs](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingModeOverride.html)
      * 
      */
-    private UndeferrableValue<List<String>> resourceTypes;
-
+    @PolicyResourceProperty(name="resourceTypes", flag="unknown_resourceTypes")
+    private List<String> value_resourceTypes;
+    private boolean unknown_resourceTypes;
     public List<String> resourceTypes() {
-        if (resourceTypes == null) return null;
-        return resourceTypes.getValue("RecorderRecordingModeRecordingModeOverride.resourceTypes");
+        if (!unknown_resourceTypes) return value_resourceTypes;
+        throw new UndeferrableValueException("Value 'RecorderRecordingModeRecordingModeOverride.resourceTypes' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.workspaces;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.workspaces.outputs.WorkspaceWorkspaceProperties;
 import java.lang.Boolean;
@@ -19,77 +20,84 @@ public final class Workspace extends com.pulumi.resources.PolicyResourceOutput {
      * The ID of the bundle for the WorkSpace.
      * 
      */
-    private UndeferrableValue<String> bundleId;
-
+    @PolicyResourceProperty(name="bundleId", flag="unknown_bundleId")
+    private String value_bundleId;
+    private boolean unknown_bundleId;
     public String bundleId() {
-        if (bundleId == null) return null;
-        return bundleId.getValue("Workspace.bundleId");
+        if (!unknown_bundleId) return value_bundleId;
+        throw new UndeferrableValueException("Value 'Workspace.bundleId' is not present");
     }
 
     /**
      * The name of the WorkSpace, as seen by the operating system.
      * 
      */
-    private UndeferrableValue<String> computerName;
-
+    @PolicyResourceProperty(name="computerName", flag="unknown_computerName")
+    private String value_computerName;
+    private boolean unknown_computerName;
     public String computerName() {
-        if (computerName == null) return null;
-        return computerName.getValue("Workspace.computerName");
+        if (!unknown_computerName) return value_computerName;
+        throw new UndeferrableValueException("Value 'Workspace.computerName' is not present");
     }
 
     /**
      * The ID of the directory for the WorkSpace.
      * 
      */
-    private UndeferrableValue<String> directoryId;
-
+    @PolicyResourceProperty(name="directoryId", flag="unknown_directoryId")
+    private String value_directoryId;
+    private boolean unknown_directoryId;
     public String directoryId() {
-        if (directoryId == null) return null;
-        return directoryId.getValue("Workspace.directoryId");
+        if (!unknown_directoryId) return value_directoryId;
+        throw new UndeferrableValueException("Value 'Workspace.directoryId' is not present");
     }
 
     /**
      * The IP address of the WorkSpace.
      * 
      */
-    private UndeferrableValue<String> ipAddress;
-
+    @PolicyResourceProperty(name="ipAddress", flag="unknown_ipAddress")
+    private String value_ipAddress;
+    private boolean unknown_ipAddress;
     public String ipAddress() {
-        if (ipAddress == null) return null;
-        return ipAddress.getValue("Workspace.ipAddress");
+        if (!unknown_ipAddress) return value_ipAddress;
+        throw new UndeferrableValueException("Value 'Workspace.ipAddress' is not present");
     }
 
     /**
      * Indicates whether the data stored on the root volume is encrypted.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> rootVolumeEncryptionEnabled;
-
+    @PolicyResourceProperty(name="rootVolumeEncryptionEnabled", flag="unknown_rootVolumeEncryptionEnabled")
+    private @Nullable Boolean value_rootVolumeEncryptionEnabled;
+    private boolean unknown_rootVolumeEncryptionEnabled;
     public @Nullable Boolean rootVolumeEncryptionEnabled() {
-        if (rootVolumeEncryptionEnabled == null) return null;
-        return rootVolumeEncryptionEnabled.getValue("Workspace.rootVolumeEncryptionEnabled");
+        if (!unknown_rootVolumeEncryptionEnabled) return value_rootVolumeEncryptionEnabled;
+        throw new UndeferrableValueException("Value 'Workspace.rootVolumeEncryptionEnabled' is not present");
     }
 
     /**
      * The operational state of the WorkSpace.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("Workspace.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'Workspace.state' is not present");
     }
 
     /**
      * The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Workspace.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Workspace.tags' is not present");
     }
 
     /**
@@ -100,55 +108,60 @@ public final class Workspace extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Workspace.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Workspace.tagsAll' is not present");
     }
 
     /**
      * The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
      * 
      */
-    private UndeferrableValue<String> userName;
-
+    @PolicyResourceProperty(name="userName", flag="unknown_userName")
+    private String value_userName;
+    private boolean unknown_userName;
     public String userName() {
-        if (userName == null) return null;
-        return userName.getValue("Workspace.userName");
+        if (!unknown_userName) return value_userName;
+        throw new UndeferrableValueException("Value 'Workspace.userName' is not present");
     }
 
     /**
      * Indicates whether the data stored on the user volume is encrypted.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> userVolumeEncryptionEnabled;
-
+    @PolicyResourceProperty(name="userVolumeEncryptionEnabled", flag="unknown_userVolumeEncryptionEnabled")
+    private @Nullable Boolean value_userVolumeEncryptionEnabled;
+    private boolean unknown_userVolumeEncryptionEnabled;
     public @Nullable Boolean userVolumeEncryptionEnabled() {
-        if (userVolumeEncryptionEnabled == null) return null;
-        return userVolumeEncryptionEnabled.getValue("Workspace.userVolumeEncryptionEnabled");
+        if (!unknown_userVolumeEncryptionEnabled) return value_userVolumeEncryptionEnabled;
+        throw new UndeferrableValueException("Value 'Workspace.userVolumeEncryptionEnabled' is not present");
     }
 
     /**
      * The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
      * 
      */
-    private @Nullable UndeferrableValue<String> volumeEncryptionKey;
-
+    @PolicyResourceProperty(name="volumeEncryptionKey", flag="unknown_volumeEncryptionKey")
+    private @Nullable String value_volumeEncryptionKey;
+    private boolean unknown_volumeEncryptionKey;
     public @Nullable String volumeEncryptionKey() {
-        if (volumeEncryptionKey == null) return null;
-        return volumeEncryptionKey.getValue("Workspace.volumeEncryptionKey");
+        if (!unknown_volumeEncryptionKey) return value_volumeEncryptionKey;
+        throw new UndeferrableValueException("Value 'Workspace.volumeEncryptionKey' is not present");
     }
 
     /**
      * The WorkSpace properties.
      * 
      */
-    private UndeferrableValue<WorkspaceWorkspaceProperties> workspaceProperties;
-
+    @PolicyResourceProperty(name="workspaceProperties", flag="unknown_workspaceProperties")
+    private WorkspaceWorkspaceProperties value_workspaceProperties;
+    private boolean unknown_workspaceProperties;
     public WorkspaceWorkspaceProperties workspaceProperties() {
-        if (workspaceProperties == null) return null;
-        return workspaceProperties.getValue("Workspace.workspaceProperties");
+        if (!unknown_workspaceProperties) return value_workspaceProperties;
+        throw new UndeferrableValueException("Value 'Workspace.workspaceProperties' is not present");
     }
 
 }

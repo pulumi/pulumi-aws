@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.guardduty.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class OrganizationConfigurationFeatureAdditionalConfiguration {
      * The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
      * 
      */
-    private UndeferrableValue<String> autoEnable;
-
+    @PolicyResourceProperty(name="autoEnable", flag="unknown_autoEnable")
+    private String value_autoEnable;
+    private boolean unknown_autoEnable;
     public String autoEnable() {
-        if (autoEnable == null) return null;
-        return autoEnable.getValue("OrganizationConfigurationFeatureAdditionalConfiguration.autoEnable");
+        if (!unknown_autoEnable) return value_autoEnable;
+        throw new UndeferrableValueException("Value 'OrganizationConfigurationFeatureAdditionalConfiguration.autoEnable' is not present");
     }
 
     /**
      * The name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("OrganizationConfigurationFeatureAdditionalConfiguration.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'OrganizationConfigurationFeatureAdditionalConfiguration.name' is not present");
     }
 
 }

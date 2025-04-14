@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs;
 import java.lang.Integer;
 import java.util.List;
@@ -12,25 +13,28 @@ import javax.annotation.Nullable;
 
 public final class ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs {
 
-    private UndeferrableValue<List<ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs>> channelMappings;
-
+    @PolicyResourceProperty(name="channelMappings", flag="unknown_channelMappings")
+    private List<ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs> value_channelMappings;
+    private boolean unknown_channelMappings;
     public List<ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingArgs> channelMappings() {
-        if (channelMappings == null) return null;
-        return channelMappings.getValue("ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs.channelMappings");
+        if (!unknown_channelMappings) return value_channelMappings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs.channelMappings' is not present");
     }
 
-    private UndeferrableValue<Integer> channelsIn;
-
+    @PolicyResourceProperty(name="channelsIn", flag="unknown_channelsIn")
+    private Integer value_channelsIn;
+    private boolean unknown_channelsIn;
     public Integer channelsIn() {
-        if (channelsIn == null) return null;
-        return channelsIn.getValue("ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs.channelsIn");
+        if (!unknown_channelsIn) return value_channelsIn;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs.channelsIn' is not present");
     }
 
-    private UndeferrableValue<Integer> channelsOut;
-
+    @PolicyResourceProperty(name="channelsOut", flag="unknown_channelsOut")
+    private Integer value_channelsOut;
+    private boolean unknown_channelsOut;
     public Integer channelsOut() {
-        if (channelsOut == null) return null;
-        return channelsOut.getValue("ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs.channelsOut");
+        if (!unknown_channelsOut) return value_channelsOut;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs.channelsOut' is not present");
     }
 
 }

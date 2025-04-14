@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.quicksight.inputs.DashboardDashboardPublishOptionsArgs;
 import com.pulumi.policypacks.aws.quicksight.inputs.DashboardParametersArgs;
@@ -22,99 +23,108 @@ public final class DashboardArgs extends com.pulumi.resources.PolicyResourceInpu
      * AWS account ID.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("DashboardArgs.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'DashboardArgs.awsAccountId' is not present");
     }
 
     /**
      * Identifier for the dashboard.
      * 
      */
-    private UndeferrableValue<String> dashboardId;
-
+    @PolicyResourceProperty(name="dashboardId", flag="unknown_dashboardId")
+    private String value_dashboardId;
+    private boolean unknown_dashboardId;
     public String dashboardId() {
-        if (dashboardId == null) return null;
-        return dashboardId.getValue("DashboardArgs.dashboardId");
+        if (!unknown_dashboardId) return value_dashboardId;
+        throw new UndeferrableValueException("Value 'DashboardArgs.dashboardId' is not present");
     }
 
     /**
      * Options for publishing the dashboard. See dashboard_publish_options.
      * 
      */
-    private UndeferrableValue<DashboardDashboardPublishOptionsArgs> dashboardPublishOptions;
-
+    @PolicyResourceProperty(name="dashboardPublishOptions", flag="unknown_dashboardPublishOptions")
+    private DashboardDashboardPublishOptionsArgs value_dashboardPublishOptions;
+    private boolean unknown_dashboardPublishOptions;
     public DashboardDashboardPublishOptionsArgs dashboardPublishOptions() {
-        if (dashboardPublishOptions == null) return null;
-        return dashboardPublishOptions.getValue("DashboardArgs.dashboardPublishOptions");
+        if (!unknown_dashboardPublishOptions) return value_dashboardPublishOptions;
+        throw new UndeferrableValueException("Value 'DashboardArgs.dashboardPublishOptions' is not present");
     }
 
     /**
      * Display name for the dashboard.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DashboardArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DashboardArgs.name' is not present");
     }
 
     /**
      * The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
      * 
      */
-    private UndeferrableValue<DashboardParametersArgs> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private DashboardParametersArgs value_parameters;
+    private boolean unknown_parameters;
     public DashboardParametersArgs parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("DashboardArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'DashboardArgs.parameters' is not present");
     }
 
     /**
      * A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
      * 
      */
-    private UndeferrableValue<List<DashboardPermissionArgs>> permissions;
-
+    @PolicyResourceProperty(name="permissions", flag="unknown_permissions")
+    private List<DashboardPermissionArgs> value_permissions;
+    private boolean unknown_permissions;
     public List<DashboardPermissionArgs> permissions() {
-        if (permissions == null) return null;
-        return permissions.getValue("DashboardArgs.permissions");
+        if (!unknown_permissions) return value_permissions;
+        throw new UndeferrableValueException("Value 'DashboardArgs.permissions' is not present");
     }
 
     /**
      * The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
      * 
      */
-    private UndeferrableValue<DashboardSourceEntityArgs> sourceEntity;
-
+    @PolicyResourceProperty(name="sourceEntity", flag="unknown_sourceEntity")
+    private DashboardSourceEntityArgs value_sourceEntity;
+    private boolean unknown_sourceEntity;
     public DashboardSourceEntityArgs sourceEntity() {
-        if (sourceEntity == null) return null;
-        return sourceEntity.getValue("DashboardArgs.sourceEntity");
+        if (!unknown_sourceEntity) return value_sourceEntity;
+        throw new UndeferrableValueException("Value 'DashboardArgs.sourceEntity' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DashboardArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DashboardArgs.tags' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
      * 
      */
-    private UndeferrableValue<String> themeArn;
-
+    @PolicyResourceProperty(name="themeArn", flag="unknown_themeArn")
+    private String value_themeArn;
+    private boolean unknown_themeArn;
     public String themeArn() {
-        if (themeArn == null) return null;
-        return themeArn.getValue("DashboardArgs.themeArn");
+        if (!unknown_themeArn) return value_themeArn;
+        throw new UndeferrableValueException("Value 'DashboardArgs.themeArn' is not present");
     }
 
     /**
@@ -123,11 +133,12 @@ public final class DashboardArgs extends com.pulumi.resources.PolicyResourceInpu
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> versionDescription;
-
+    @PolicyResourceProperty(name="versionDescription", flag="unknown_versionDescription")
+    private String value_versionDescription;
+    private boolean unknown_versionDescription;
     public String versionDescription() {
-        if (versionDescription == null) return null;
-        return versionDescription.getValue("DashboardArgs.versionDescription");
+        if (!unknown_versionDescription) return value_versionDescription;
+        throw new UndeferrableValueException("Value 'DashboardArgs.versionDescription' is not present");
     }
 
 }

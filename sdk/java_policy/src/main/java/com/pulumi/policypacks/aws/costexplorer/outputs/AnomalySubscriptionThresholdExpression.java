@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.costexplorer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.costexplorer.outputs.AnomalySubscriptionThresholdExpressionAnd;
 import com.pulumi.policypacks.aws.costexplorer.outputs.AnomalySubscriptionThresholdExpressionCostCategory;
 import com.pulumi.policypacks.aws.costexplorer.outputs.AnomalySubscriptionThresholdExpressionDimension;
@@ -20,66 +21,72 @@ public final class AnomalySubscriptionThresholdExpression {
      * Return results that match both Dimension objects.
      * 
      */
-    private @Nullable UndeferrableValue<List<AnomalySubscriptionThresholdExpressionAnd>> ands;
-
+    @PolicyResourceProperty(name="ands", flag="unknown_ands")
+    private @Nullable List<AnomalySubscriptionThresholdExpressionAnd> value_ands;
+    private boolean unknown_ands;
     public @Nullable List<AnomalySubscriptionThresholdExpressionAnd> ands() {
-        if (ands == null) return null;
-        return ands.getValue("AnomalySubscriptionThresholdExpression.ands");
+        if (!unknown_ands) return value_ands;
+        throw new UndeferrableValueException("Value 'AnomalySubscriptionThresholdExpression.ands' is not present");
     }
 
     /**
      * Configuration block for the filter that&#39;s based on  values. See Cost Category below.
      * 
      */
-    private @Nullable UndeferrableValue<AnomalySubscriptionThresholdExpressionCostCategory> costCategory;
-
+    @PolicyResourceProperty(name="costCategory", flag="unknown_costCategory")
+    private @Nullable AnomalySubscriptionThresholdExpressionCostCategory value_costCategory;
+    private boolean unknown_costCategory;
     public @Nullable AnomalySubscriptionThresholdExpressionCostCategory costCategory() {
-        if (costCategory == null) return null;
-        return costCategory.getValue("AnomalySubscriptionThresholdExpression.costCategory");
+        if (!unknown_costCategory) return value_costCategory;
+        throw new UndeferrableValueException("Value 'AnomalySubscriptionThresholdExpression.costCategory' is not present");
     }
 
     /**
      * Configuration block for the specific Dimension to use for.
      * 
      */
-    private @Nullable UndeferrableValue<AnomalySubscriptionThresholdExpressionDimension> dimension;
-
+    @PolicyResourceProperty(name="dimension", flag="unknown_dimension")
+    private @Nullable AnomalySubscriptionThresholdExpressionDimension value_dimension;
+    private boolean unknown_dimension;
     public @Nullable AnomalySubscriptionThresholdExpressionDimension dimension() {
-        if (dimension == null) return null;
-        return dimension.getValue("AnomalySubscriptionThresholdExpression.dimension");
+        if (!unknown_dimension) return value_dimension;
+        throw new UndeferrableValueException("Value 'AnomalySubscriptionThresholdExpression.dimension' is not present");
     }
 
     /**
      * Return results that do not match the Dimension object.
      * 
      */
-    private @Nullable UndeferrableValue<AnomalySubscriptionThresholdExpressionNot> not;
-
+    @PolicyResourceProperty(name="not", flag="unknown_not")
+    private @Nullable AnomalySubscriptionThresholdExpressionNot value_not;
+    private boolean unknown_not;
     public @Nullable AnomalySubscriptionThresholdExpressionNot not() {
-        if (not == null) return null;
-        return not.getValue("AnomalySubscriptionThresholdExpression.not");
+        if (!unknown_not) return value_not;
+        throw new UndeferrableValueException("Value 'AnomalySubscriptionThresholdExpression.not' is not present");
     }
 
     /**
      * Return results that match either Dimension object.
      * 
      */
-    private @Nullable UndeferrableValue<List<AnomalySubscriptionThresholdExpressionOr>> ors;
-
+    @PolicyResourceProperty(name="ors", flag="unknown_ors")
+    private @Nullable List<AnomalySubscriptionThresholdExpressionOr> value_ors;
+    private boolean unknown_ors;
     public @Nullable List<AnomalySubscriptionThresholdExpressionOr> ors() {
-        if (ors == null) return null;
-        return ors.getValue("AnomalySubscriptionThresholdExpression.ors");
+        if (!unknown_ors) return value_ors;
+        throw new UndeferrableValueException("Value 'AnomalySubscriptionThresholdExpression.ors' is not present");
     }
 
     /**
      * Configuration block for the specific Tag to use for. See Tags below.
      * 
      */
-    private @Nullable UndeferrableValue<AnomalySubscriptionThresholdExpressionTags> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable AnomalySubscriptionThresholdExpressionTags value_tags;
+    private boolean unknown_tags;
     public @Nullable AnomalySubscriptionThresholdExpressionTags tags() {
-        if (tags == null) return null;
-        return tags.getValue("AnomalySubscriptionThresholdExpression.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AnomalySubscriptionThresholdExpression.tags' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,66 +18,72 @@ public final class ClientCertificate extends com.pulumi.resources.PolicyResource
      * ARN
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ClientCertificate.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ClientCertificate.arn' is not present");
     }
 
     /**
      * Date when the client certificate was created.
      * 
      */
-    private UndeferrableValue<String> createdDate;
-
+    @PolicyResourceProperty(name="createdDate", flag="unknown_createdDate")
+    private String value_createdDate;
+    private boolean unknown_createdDate;
     public String createdDate() {
-        if (createdDate == null) return null;
-        return createdDate.getValue("ClientCertificate.createdDate");
+        if (!unknown_createdDate) return value_createdDate;
+        throw new UndeferrableValueException("Value 'ClientCertificate.createdDate' is not present");
     }
 
     /**
      * Description of the client certificate.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ClientCertificate.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ClientCertificate.description' is not present");
     }
 
     /**
      * Date when the client certificate will expire.
      * 
      */
-    private UndeferrableValue<String> expirationDate;
-
+    @PolicyResourceProperty(name="expirationDate", flag="unknown_expirationDate")
+    private String value_expirationDate;
+    private boolean unknown_expirationDate;
     public String expirationDate() {
-        if (expirationDate == null) return null;
-        return expirationDate.getValue("ClientCertificate.expirationDate");
+        if (!unknown_expirationDate) return value_expirationDate;
+        throw new UndeferrableValueException("Value 'ClientCertificate.expirationDate' is not present");
     }
 
     /**
      * The PEM-encoded public key of the client certificate.
      * 
      */
-    private UndeferrableValue<String> pemEncodedCertificate;
-
+    @PolicyResourceProperty(name="pemEncodedCertificate", flag="unknown_pemEncodedCertificate")
+    private String value_pemEncodedCertificate;
+    private boolean unknown_pemEncodedCertificate;
     public String pemEncodedCertificate() {
-        if (pemEncodedCertificate == null) return null;
-        return pemEncodedCertificate.getValue("ClientCertificate.pemEncodedCertificate");
+        if (!unknown_pemEncodedCertificate) return value_pemEncodedCertificate;
+        throw new UndeferrableValueException("Value 'ClientCertificate.pemEncodedCertificate' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ClientCertificate.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ClientCertificate.tags' is not present");
     }
 
     /**
@@ -87,11 +94,12 @@ public final class ClientCertificate extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ClientCertificate.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ClientCertificate.tagsAll' is not present");
     }
 
 }

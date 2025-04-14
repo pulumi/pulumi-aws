@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs
      * Defines the unit of time that the lifecycle policy uses to calculate elapsed time since the last instance launched from the AMI. For example: days, weeks, months, or years. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
      * 
      */
-    private UndeferrableValue<String> unit;
-
+    @PolicyResourceProperty(name="unit", flag="unknown_unit")
+    private String value_unit;
+    private boolean unknown_unit;
     public String unit() {
-        if (unit == null) return null;
-        return unit.getValue("LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs.unit");
+        if (!unknown_unit) return value_unit;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs.unit' is not present");
     }
 
     /**
      * The integer number of units for the time period. For example 6 (months).
      * 
      */
-    private UndeferrableValue<Integer> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private Integer value_value;
+    private boolean unknown_value;
     public Integer value() {
-        if (value == null) return null;
-        return value.getValue("LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs.value' is not present");
     }
 
 }

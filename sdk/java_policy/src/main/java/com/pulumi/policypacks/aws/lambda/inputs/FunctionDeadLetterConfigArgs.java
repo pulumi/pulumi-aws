@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class FunctionDeadLetterConfigArgs {
      * ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function&#39;s IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
      * 
      */
-    private UndeferrableValue<String> targetArn;
-
+    @PolicyResourceProperty(name="targetArn", flag="unknown_targetArn")
+    private String value_targetArn;
+    private boolean unknown_targetArn;
     public String targetArn() {
-        if (targetArn == null) return null;
-        return targetArn.getValue("FunctionDeadLetterConfigArgs.targetArn");
+        if (!unknown_targetArn) return value_targetArn;
+        throw new UndeferrableValueException("Value 'FunctionDeadLetterConfigArgs.targetArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emrcontainers.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.emrcontainers.inputs.JobTemplateJobTemplateDataConfigurationOverridesArgs;
 import com.pulumi.policypacks.aws.emrcontainers.inputs.JobTemplateJobTemplateDataJobDriverArgs;
 import java.lang.String;
@@ -17,55 +18,60 @@ public final class JobTemplateJobTemplateDataArgs {
      * The configuration settings that are used to override defaults configuration.
      * 
      */
-    private UndeferrableValue<JobTemplateJobTemplateDataConfigurationOverridesArgs> configurationOverrides;
-
+    @PolicyResourceProperty(name="configurationOverrides", flag="unknown_configurationOverrides")
+    private JobTemplateJobTemplateDataConfigurationOverridesArgs value_configurationOverrides;
+    private boolean unknown_configurationOverrides;
     public JobTemplateJobTemplateDataConfigurationOverridesArgs configurationOverrides() {
-        if (configurationOverrides == null) return null;
-        return configurationOverrides.getValue("JobTemplateJobTemplateDataArgs.configurationOverrides");
+        if (!unknown_configurationOverrides) return value_configurationOverrides;
+        throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataArgs.configurationOverrides' is not present");
     }
 
     /**
      * The execution role ARN of the job run.
      * 
      */
-    private UndeferrableValue<String> executionRoleArn;
-
+    @PolicyResourceProperty(name="executionRoleArn", flag="unknown_executionRoleArn")
+    private String value_executionRoleArn;
+    private boolean unknown_executionRoleArn;
     public String executionRoleArn() {
-        if (executionRoleArn == null) return null;
-        return executionRoleArn.getValue("JobTemplateJobTemplateDataArgs.executionRoleArn");
+        if (!unknown_executionRoleArn) return value_executionRoleArn;
+        throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataArgs.executionRoleArn' is not present");
     }
 
     /**
      * Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.
      * 
      */
-    private UndeferrableValue<JobTemplateJobTemplateDataJobDriverArgs> jobDriver;
-
+    @PolicyResourceProperty(name="jobDriver", flag="unknown_jobDriver")
+    private JobTemplateJobTemplateDataJobDriverArgs value_jobDriver;
+    private boolean unknown_jobDriver;
     public JobTemplateJobTemplateDataJobDriverArgs jobDriver() {
-        if (jobDriver == null) return null;
-        return jobDriver.getValue("JobTemplateJobTemplateDataArgs.jobDriver");
+        if (!unknown_jobDriver) return value_jobDriver;
+        throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataArgs.jobDriver' is not present");
     }
 
     /**
      * The tags assigned to jobs started using the job template.
      * 
      */
-    private UndeferrableValue<Map<String,String>> jobTags;
-
+    @PolicyResourceProperty(name="jobTags", flag="unknown_jobTags")
+    private Map<String,String> value_jobTags;
+    private boolean unknown_jobTags;
     public Map<String,String> jobTags() {
-        if (jobTags == null) return null;
-        return jobTags.getValue("JobTemplateJobTemplateDataArgs.jobTags");
+        if (!unknown_jobTags) return value_jobTags;
+        throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataArgs.jobTags' is not present");
     }
 
     /**
      * The release version of Amazon EMR.
      * 
      */
-    private UndeferrableValue<String> releaseLabel;
-
+    @PolicyResourceProperty(name="releaseLabel", flag="unknown_releaseLabel")
+    private String value_releaseLabel;
+    private boolean unknown_releaseLabel;
     public String releaseLabel() {
-        if (releaseLabel == null) return null;
-        return releaseLabel.getValue("JobTemplateJobTemplateDataArgs.releaseLabel");
+        if (!unknown_releaseLabel) return value_releaseLabel;
+        throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataArgs.releaseLabel' is not present");
     }
 
 }

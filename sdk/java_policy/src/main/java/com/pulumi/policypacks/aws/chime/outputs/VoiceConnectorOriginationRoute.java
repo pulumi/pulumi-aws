@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chime.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,55 +16,60 @@ public final class VoiceConnectorOriginationRoute {
      * The FQDN or IP address to contact for origination traffic.
      * 
      */
-    private UndeferrableValue<String> host;
-
+    @PolicyResourceProperty(name="host", flag="unknown_host")
+    private String value_host;
+    private boolean unknown_host;
     public String host() {
-        if (host == null) return null;
-        return host.getValue("VoiceConnectorOriginationRoute.host");
+        if (!unknown_host) return value_host;
+        throw new UndeferrableValueException("Value 'VoiceConnectorOriginationRoute.host' is not present");
     }
 
     /**
      * The designated origination route port. Defaults to `5060`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable Integer value_port;
+    private boolean unknown_port;
     public @Nullable Integer port() {
-        if (port == null) return null;
-        return port.getValue("VoiceConnectorOriginationRoute.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'VoiceConnectorOriginationRoute.port' is not present");
     }
 
     /**
      * The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
      * 
      */
-    private UndeferrableValue<Integer> priority;
-
+    @PolicyResourceProperty(name="priority", flag="unknown_priority")
+    private Integer value_priority;
+    private boolean unknown_priority;
     public Integer priority() {
-        if (priority == null) return null;
-        return priority.getValue("VoiceConnectorOriginationRoute.priority");
+        if (!unknown_priority) return value_priority;
+        throw new UndeferrableValueException("Value 'VoiceConnectorOriginationRoute.priority' is not present");
     }
 
     /**
      * The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("VoiceConnectorOriginationRoute.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'VoiceConnectorOriginationRoute.protocol' is not present");
     }
 
     /**
      * The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
      * 
      */
-    private UndeferrableValue<Integer> weight;
-
+    @PolicyResourceProperty(name="weight", flag="unknown_weight")
+    private Integer value_weight;
+    private boolean unknown_weight;
     public Integer weight() {
-        if (weight == null) return null;
-        return weight.getValue("VoiceConnectorOriginationRoute.weight");
+        if (!unknown_weight) return value_weight;
+        throw new UndeferrableValueException("Value 'VoiceConnectorOriginationRoute.weight' is not present");
     }
 
 }

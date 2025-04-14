@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class TopicRuleCloudwatchLogArgs {
      * The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
      * 
      */
-    private UndeferrableValue<Boolean> batchMode;
-
+    @PolicyResourceProperty(name="batchMode", flag="unknown_batchMode")
+    private Boolean value_batchMode;
+    private boolean unknown_batchMode;
     public Boolean batchMode() {
-        if (batchMode == null) return null;
-        return batchMode.getValue("TopicRuleCloudwatchLogArgs.batchMode");
+        if (!unknown_batchMode) return value_batchMode;
+        throw new UndeferrableValueException("Value 'TopicRuleCloudwatchLogArgs.batchMode' is not present");
     }
 
     /**
      * The CloudWatch log group name.
      * 
      */
-    private UndeferrableValue<String> logGroupName;
-
+    @PolicyResourceProperty(name="logGroupName", flag="unknown_logGroupName")
+    private String value_logGroupName;
+    private boolean unknown_logGroupName;
     public String logGroupName() {
-        if (logGroupName == null) return null;
-        return logGroupName.getValue("TopicRuleCloudwatchLogArgs.logGroupName");
+        if (!unknown_logGroupName) return value_logGroupName;
+        throw new UndeferrableValueException("Value 'TopicRuleCloudwatchLogArgs.logGroupName' is not present");
     }
 
     /**
      * The IAM role ARN that allows access to the CloudWatch alarm.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("TopicRuleCloudwatchLogArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'TopicRuleCloudwatchLogArgs.roleArn' is not present");
     }
 
 }

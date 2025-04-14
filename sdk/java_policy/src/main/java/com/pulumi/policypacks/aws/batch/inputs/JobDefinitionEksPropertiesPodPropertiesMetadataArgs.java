@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class JobDefinitionEksPropertiesPodPropertiesMetadataArgs {
      * Key-value pairs used to identify, sort, and organize cube resources.
      * 
      */
-    private UndeferrableValue<Map<String,String>> labels;
-
+    @PolicyResourceProperty(name="labels", flag="unknown_labels")
+    private Map<String,String> value_labels;
+    private boolean unknown_labels;
     public Map<String,String> labels() {
-        if (labels == null) return null;
-        return labels.getValue("JobDefinitionEksPropertiesPodPropertiesMetadataArgs.labels");
+        if (!unknown_labels) return value_labels;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesMetadataArgs.labels' is not present");
     }
 
 }

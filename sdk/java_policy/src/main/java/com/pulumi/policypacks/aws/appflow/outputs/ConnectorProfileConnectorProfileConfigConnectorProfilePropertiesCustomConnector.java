@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties;
 import java.lang.String;
 import java.util.Map;
@@ -16,22 +17,24 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      * The OAuth 2.0 properties required for OAuth 2.0 authentication.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties> oauth2Properties;
-
+    @PolicyResourceProperty(name="oauth2Properties", flag="unknown_oauth2Properties")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties value_oauth2Properties;
+    private boolean unknown_oauth2Properties;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties oauth2Properties() {
-        if (oauth2Properties == null) return null;
-        return oauth2Properties.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector.oauth2Properties");
+        if (!unknown_oauth2Properties) return value_oauth2Properties;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector.oauth2Properties' is not present");
     }
 
     /**
      * A map of properties that are required to create a profile for the custom connector.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> profileProperties;
-
+    @PolicyResourceProperty(name="profileProperties", flag="unknown_profileProperties")
+    private @Nullable Map<String,String> value_profileProperties;
+    private boolean unknown_profileProperties;
     public @Nullable Map<String,String> profileProperties() {
-        if (profileProperties == null) return null;
-        return profileProperties.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector.profileProperties");
+        if (!unknown_profileProperties) return value_profileProperties;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector.profileProperties' is not present");
     }
 
 }

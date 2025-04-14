@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig {
      * Request header name to send to the staging distribution. The header must contain the prefix `aws-cf-cd-`.
      * 
      */
-    private UndeferrableValue<String> header;
-
+    @PolicyResourceProperty(name="header", flag="unknown_header")
+    private String value_header;
+    private boolean unknown_header;
     public String header() {
-        if (header == null) return null;
-        return header.getValue("ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig.header");
+        if (!unknown_header) return value_header;
+        throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig.header' is not present");
     }
 
     /**
      * Request header value.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig.value' is not present");
     }
 
 }

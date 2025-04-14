@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,55 +17,60 @@ public final class BasePathMapping extends com.pulumi.resources.PolicyResourceOu
      * Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
      * 
      */
-    private @Nullable UndeferrableValue<String> basePath;
-
+    @PolicyResourceProperty(name="basePath", flag="unknown_basePath")
+    private @Nullable String value_basePath;
+    private boolean unknown_basePath;
     public @Nullable String basePath() {
-        if (basePath == null) return null;
-        return basePath.getValue("BasePathMapping.basePath");
+        if (!unknown_basePath) return value_basePath;
+        throw new UndeferrableValueException("Value 'BasePathMapping.basePath' is not present");
     }
 
     /**
      * Already-registered domain name to connect the API to.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("BasePathMapping.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'BasePathMapping.domainName' is not present");
     }
 
     /**
      * The identifier for the domain name resource. Supported only for private custom domain names.
      * 
      */
-    private @Nullable UndeferrableValue<String> domainNameId;
-
+    @PolicyResourceProperty(name="domainNameId", flag="unknown_domainNameId")
+    private @Nullable String value_domainNameId;
+    private boolean unknown_domainNameId;
     public @Nullable String domainNameId() {
-        if (domainNameId == null) return null;
-        return domainNameId.getValue("BasePathMapping.domainNameId");
+        if (!unknown_domainNameId) return value_domainNameId;
+        throw new UndeferrableValueException("Value 'BasePathMapping.domainNameId' is not present");
     }
 
     /**
      * ID of the API to connect.
      * 
      */
-    private UndeferrableValue<String> restApi;
-
+    @PolicyResourceProperty(name="restApi", flag="unknown_restApi")
+    private String value_restApi;
+    private boolean unknown_restApi;
     public String restApi() {
-        if (restApi == null) return null;
-        return restApi.getValue("BasePathMapping.restApi");
+        if (!unknown_restApi) return value_restApi;
+        throw new UndeferrableValueException("Value 'BasePathMapping.restApi' is not present");
     }
 
     /**
      * Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
      * 
      */
-    private @Nullable UndeferrableValue<String> stageName;
-
+    @PolicyResourceProperty(name="stageName", flag="unknown_stageName")
+    private @Nullable String value_stageName;
+    private boolean unknown_stageName;
     public @Nullable String stageName() {
-        if (stageName == null) return null;
-        return stageName.getValue("BasePathMapping.stageName");
+        if (!unknown_stageName) return value_stageName;
+        throw new UndeferrableValueException("Value 'BasePathMapping.stageName' is not present");
     }
 
 }

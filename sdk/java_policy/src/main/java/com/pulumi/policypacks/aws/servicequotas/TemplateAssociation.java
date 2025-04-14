@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicequotas;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -13,22 +14,24 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:servicequotas/templateAssociation:TemplateAssociation")
 public final class TemplateAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
-    private @Nullable UndeferrableValue<Boolean> skipDestroy;
-
+    @PolicyResourceProperty(name="skipDestroy", flag="unknown_skipDestroy")
+    private @Nullable Boolean value_skipDestroy;
+    private boolean unknown_skipDestroy;
     public @Nullable Boolean skipDestroy() {
-        if (skipDestroy == null) return null;
-        return skipDestroy.getValue("TemplateAssociation.skipDestroy");
+        if (!unknown_skipDestroy) return value_skipDestroy;
+        throw new UndeferrableValueException("Value 'TemplateAssociation.skipDestroy' is not present");
     }
 
     /**
      * Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("TemplateAssociation.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'TemplateAssociation.status' is not present");
     }
 
 }

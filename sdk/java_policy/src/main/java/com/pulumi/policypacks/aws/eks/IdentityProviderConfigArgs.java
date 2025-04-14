@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.eks.inputs.IdentityProviderConfigOidcArgs;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class IdentityProviderConfigArgs extends com.pulumi.resources.Polic
      * Name of the EKS Cluster.
      * 
      */
-    private UndeferrableValue<String> clusterName;
-
+    @PolicyResourceProperty(name="clusterName", flag="unknown_clusterName")
+    private String value_clusterName;
+    private boolean unknown_clusterName;
     public String clusterName() {
-        if (clusterName == null) return null;
-        return clusterName.getValue("IdentityProviderConfigArgs.clusterName");
+        if (!unknown_clusterName) return value_clusterName;
+        throw new UndeferrableValueException("Value 'IdentityProviderConfigArgs.clusterName' is not present");
     }
 
     /**
      * Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
      * 
      */
-    private UndeferrableValue<IdentityProviderConfigOidcArgs> oidc;
-
+    @PolicyResourceProperty(name="oidc", flag="unknown_oidc")
+    private IdentityProviderConfigOidcArgs value_oidc;
+    private boolean unknown_oidc;
     public IdentityProviderConfigOidcArgs oidc() {
-        if (oidc == null) return null;
-        return oidc.getValue("IdentityProviderConfigArgs.oidc");
+        if (!unknown_oidc) return value_oidc;
+        throw new UndeferrableValueException("Value 'IdentityProviderConfigArgs.oidc' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("IdentityProviderConfigArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'IdentityProviderConfigArgs.tags' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class CustomActionTypeSettingsArgs {
      * The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system.
      * 
      */
-    private UndeferrableValue<String> entityUrlTemplate;
-
+    @PolicyResourceProperty(name="entityUrlTemplate", flag="unknown_entityUrlTemplate")
+    private String value_entityUrlTemplate;
+    private boolean unknown_entityUrlTemplate;
     public String entityUrlTemplate() {
-        if (entityUrlTemplate == null) return null;
-        return entityUrlTemplate.getValue("CustomActionTypeSettingsArgs.entityUrlTemplate");
+        if (!unknown_entityUrlTemplate) return value_entityUrlTemplate;
+        throw new UndeferrableValueException("Value 'CustomActionTypeSettingsArgs.entityUrlTemplate' is not present");
     }
 
     /**
      * The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system.
      * 
      */
-    private UndeferrableValue<String> executionUrlTemplate;
-
+    @PolicyResourceProperty(name="executionUrlTemplate", flag="unknown_executionUrlTemplate")
+    private String value_executionUrlTemplate;
+    private boolean unknown_executionUrlTemplate;
     public String executionUrlTemplate() {
-        if (executionUrlTemplate == null) return null;
-        return executionUrlTemplate.getValue("CustomActionTypeSettingsArgs.executionUrlTemplate");
+        if (!unknown_executionUrlTemplate) return value_executionUrlTemplate;
+        throw new UndeferrableValueException("Value 'CustomActionTypeSettingsArgs.executionUrlTemplate' is not present");
     }
 
     /**
      * The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
      * 
      */
-    private UndeferrableValue<String> revisionUrlTemplate;
-
+    @PolicyResourceProperty(name="revisionUrlTemplate", flag="unknown_revisionUrlTemplate")
+    private String value_revisionUrlTemplate;
+    private boolean unknown_revisionUrlTemplate;
     public String revisionUrlTemplate() {
-        if (revisionUrlTemplate == null) return null;
-        return revisionUrlTemplate.getValue("CustomActionTypeSettingsArgs.revisionUrlTemplate");
+        if (!unknown_revisionUrlTemplate) return value_revisionUrlTemplate;
+        throw new UndeferrableValueException("Value 'CustomActionTypeSettingsArgs.revisionUrlTemplate' is not present");
     }
 
     /**
      * The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
      * 
      */
-    private UndeferrableValue<String> thirdPartyConfigurationUrl;
-
+    @PolicyResourceProperty(name="thirdPartyConfigurationUrl", flag="unknown_thirdPartyConfigurationUrl")
+    private String value_thirdPartyConfigurationUrl;
+    private boolean unknown_thirdPartyConfigurationUrl;
     public String thirdPartyConfigurationUrl() {
-        if (thirdPartyConfigurationUrl == null) return null;
-        return thirdPartyConfigurationUrl.getValue("CustomActionTypeSettingsArgs.thirdPartyConfigurationUrl");
+        if (!unknown_thirdPartyConfigurationUrl) return value_thirdPartyConfigurationUrl;
+        throw new UndeferrableValueException("Value 'CustomActionTypeSettingsArgs.thirdPartyConfigurationUrl' is not present");
     }
 
 }

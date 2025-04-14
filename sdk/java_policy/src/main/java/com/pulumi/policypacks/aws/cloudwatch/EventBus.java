@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,44 +18,48 @@ public final class EventBus extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the event bus.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("EventBus.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'EventBus.arn' is not present");
     }
 
     /**
      * Event bus description.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("EventBus.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'EventBus.description' is not present");
     }
 
     /**
      * Partner event source that the new event bus will be matched with. Must match `name`.
      * 
      */
-    private @Nullable UndeferrableValue<String> eventSourceName;
-
+    @PolicyResourceProperty(name="eventSourceName", flag="unknown_eventSourceName")
+    private @Nullable String value_eventSourceName;
+    private boolean unknown_eventSourceName;
     public @Nullable String eventSourceName() {
-        if (eventSourceName == null) return null;
-        return eventSourceName.getValue("EventBus.eventSourceName");
+        if (!unknown_eventSourceName) return value_eventSourceName;
+        throw new UndeferrableValueException("Value 'EventBus.eventSourceName' is not present");
     }
 
     /**
      * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyIdentifier;
-
+    @PolicyResourceProperty(name="kmsKeyIdentifier", flag="unknown_kmsKeyIdentifier")
+    private @Nullable String value_kmsKeyIdentifier;
+    private boolean unknown_kmsKeyIdentifier;
     public @Nullable String kmsKeyIdentifier() {
-        if (kmsKeyIdentifier == null) return null;
-        return kmsKeyIdentifier.getValue("EventBus.kmsKeyIdentifier");
+        if (!unknown_kmsKeyIdentifier) return value_kmsKeyIdentifier;
+        throw new UndeferrableValueException("Value 'EventBus.kmsKeyIdentifier' is not present");
     }
 
     /**
@@ -63,22 +68,24 @@ public final class EventBus extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("EventBus.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'EventBus.name' is not present");
     }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("EventBus.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'EventBus.tags' is not present");
     }
 
     /**
@@ -89,11 +96,12 @@ public final class EventBus extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("EventBus.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'EventBus.tagsAll' is not present");
     }
 
 }

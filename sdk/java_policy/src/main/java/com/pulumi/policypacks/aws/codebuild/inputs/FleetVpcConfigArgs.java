@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,33 +15,36 @@ public final class FleetVpcConfigArgs {
      * A list of one or more security groups IDs in your Amazon VPC.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("FleetVpcConfigArgs.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'FleetVpcConfigArgs.securityGroupIds' is not present");
     }
 
     /**
      * A list of one or more subnet IDs in your Amazon VPC.
      * 
      */
-    private UndeferrableValue<List<String>> subnets;
-
+    @PolicyResourceProperty(name="subnets", flag="unknown_subnets")
+    private List<String> value_subnets;
+    private boolean unknown_subnets;
     public List<String> subnets() {
-        if (subnets == null) return null;
-        return subnets.getValue("FleetVpcConfigArgs.subnets");
+        if (!unknown_subnets) return value_subnets;
+        throw new UndeferrableValueException("Value 'FleetVpcConfigArgs.subnets' is not present");
     }
 
     /**
      * The ID of the Amazon VPC.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("FleetVpcConfigArgs.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'FleetVpcConfigArgs.vpcId' is not present");
     }
 
 }

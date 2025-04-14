@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ecs.inputs.TaskDefinitionVolumeDockerVolumeConfigurationArgs;
 import com.pulumi.policypacks.aws.ecs.inputs.TaskDefinitionVolumeEfsVolumeConfigurationArgs;
 import com.pulumi.policypacks.aws.ecs.inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs;
@@ -18,55 +19,60 @@ public final class TaskDefinitionVolumeArgs {
      * Whether the volume should be configured at launch time. This is used to create Amazon EBS volumes for standalone tasks or tasks created as part of a service. Each task definition revision may only have one volume configured at launch in the volume configuration.
      * 
      */
-    private UndeferrableValue<Boolean> configureAtLaunch;
-
+    @PolicyResourceProperty(name="configureAtLaunch", flag="unknown_configureAtLaunch")
+    private Boolean value_configureAtLaunch;
+    private boolean unknown_configureAtLaunch;
     public Boolean configureAtLaunch() {
-        if (configureAtLaunch == null) return null;
-        return configureAtLaunch.getValue("TaskDefinitionVolumeArgs.configureAtLaunch");
+        if (!unknown_configureAtLaunch) return value_configureAtLaunch;
+        throw new UndeferrableValueException("Value 'TaskDefinitionVolumeArgs.configureAtLaunch' is not present");
     }
 
     /**
      * Configuration block to configure a docker volume. Detailed below.
      * 
      */
-    private UndeferrableValue<TaskDefinitionVolumeDockerVolumeConfigurationArgs> dockerVolumeConfiguration;
-
+    @PolicyResourceProperty(name="dockerVolumeConfiguration", flag="unknown_dockerVolumeConfiguration")
+    private TaskDefinitionVolumeDockerVolumeConfigurationArgs value_dockerVolumeConfiguration;
+    private boolean unknown_dockerVolumeConfiguration;
     public TaskDefinitionVolumeDockerVolumeConfigurationArgs dockerVolumeConfiguration() {
-        if (dockerVolumeConfiguration == null) return null;
-        return dockerVolumeConfiguration.getValue("TaskDefinitionVolumeArgs.dockerVolumeConfiguration");
+        if (!unknown_dockerVolumeConfiguration) return value_dockerVolumeConfiguration;
+        throw new UndeferrableValueException("Value 'TaskDefinitionVolumeArgs.dockerVolumeConfiguration' is not present");
     }
 
     /**
      * Configuration block for an EFS volume. Detailed below.
      * 
      */
-    private UndeferrableValue<TaskDefinitionVolumeEfsVolumeConfigurationArgs> efsVolumeConfiguration;
-
+    @PolicyResourceProperty(name="efsVolumeConfiguration", flag="unknown_efsVolumeConfiguration")
+    private TaskDefinitionVolumeEfsVolumeConfigurationArgs value_efsVolumeConfiguration;
+    private boolean unknown_efsVolumeConfiguration;
     public TaskDefinitionVolumeEfsVolumeConfigurationArgs efsVolumeConfiguration() {
-        if (efsVolumeConfiguration == null) return null;
-        return efsVolumeConfiguration.getValue("TaskDefinitionVolumeArgs.efsVolumeConfiguration");
+        if (!unknown_efsVolumeConfiguration) return value_efsVolumeConfiguration;
+        throw new UndeferrableValueException("Value 'TaskDefinitionVolumeArgs.efsVolumeConfiguration' is not present");
     }
 
     /**
      * Configuration block for an FSX Windows File Server volume. Detailed below.
      * 
      */
-    private UndeferrableValue<TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs> fsxWindowsFileServerVolumeConfiguration;
-
+    @PolicyResourceProperty(name="fsxWindowsFileServerVolumeConfiguration", flag="unknown_fsxWindowsFileServerVolumeConfiguration")
+    private TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs value_fsxWindowsFileServerVolumeConfiguration;
+    private boolean unknown_fsxWindowsFileServerVolumeConfiguration;
     public TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs fsxWindowsFileServerVolumeConfiguration() {
-        if (fsxWindowsFileServerVolumeConfiguration == null) return null;
-        return fsxWindowsFileServerVolumeConfiguration.getValue("TaskDefinitionVolumeArgs.fsxWindowsFileServerVolumeConfiguration");
+        if (!unknown_fsxWindowsFileServerVolumeConfiguration) return value_fsxWindowsFileServerVolumeConfiguration;
+        throw new UndeferrableValueException("Value 'TaskDefinitionVolumeArgs.fsxWindowsFileServerVolumeConfiguration' is not present");
     }
 
     /**
      * Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
      * 
      */
-    private UndeferrableValue<String> hostPath;
-
+    @PolicyResourceProperty(name="hostPath", flag="unknown_hostPath")
+    private String value_hostPath;
+    private boolean unknown_hostPath;
     public String hostPath() {
-        if (hostPath == null) return null;
-        return hostPath.getValue("TaskDefinitionVolumeArgs.hostPath");
+        if (!unknown_hostPath) return value_hostPath;
+        throw new UndeferrableValueException("Value 'TaskDefinitionVolumeArgs.hostPath' is not present");
     }
 
     /**
@@ -74,11 +80,12 @@ public final class TaskDefinitionVolumeArgs {
      * parameter of container definition in the `mountPoints` section.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TaskDefinitionVolumeArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TaskDefinitionVolumeArgs.name' is not present");
     }
 
 }

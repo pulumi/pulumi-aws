@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.scheduler;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.scheduler.outputs.ScheduleFlexibleTimeWindow;
 import com.pulumi.policypacks.aws.scheduler.outputs.ScheduleTarget;
@@ -18,132 +19,144 @@ public final class Schedule extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the schedule.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Schedule.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Schedule.arn' is not present");
     }
 
     /**
      * Brief description of the schedule.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Schedule.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Schedule.description' is not present");
     }
 
     /**
      * The date, in UTC, before which the schedule can invoke its target. Depending on the schedule&#39;s recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
      * 
      */
-    private @Nullable UndeferrableValue<String> endDate;
-
+    @PolicyResourceProperty(name="endDate", flag="unknown_endDate")
+    private @Nullable String value_endDate;
+    private boolean unknown_endDate;
     public @Nullable String endDate() {
-        if (endDate == null) return null;
-        return endDate.getValue("Schedule.endDate");
+        if (!unknown_endDate) return value_endDate;
+        throw new UndeferrableValueException("Value 'Schedule.endDate' is not present");
     }
 
     /**
      * Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
      * 
      */
-    private UndeferrableValue<ScheduleFlexibleTimeWindow> flexibleTimeWindow;
-
+    @PolicyResourceProperty(name="flexibleTimeWindow", flag="unknown_flexibleTimeWindow")
+    private ScheduleFlexibleTimeWindow value_flexibleTimeWindow;
+    private boolean unknown_flexibleTimeWindow;
     public ScheduleFlexibleTimeWindow flexibleTimeWindow() {
-        if (flexibleTimeWindow == null) return null;
-        return flexibleTimeWindow.getValue("Schedule.flexibleTimeWindow");
+        if (!unknown_flexibleTimeWindow) return value_flexibleTimeWindow;
+        throw new UndeferrableValueException("Value 'Schedule.flexibleTimeWindow' is not present");
     }
 
     /**
      * Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
      * 
      */
-    private UndeferrableValue<String> groupName;
-
+    @PolicyResourceProperty(name="groupName", flag="unknown_groupName")
+    private String value_groupName;
+    private boolean unknown_groupName;
     public String groupName() {
-        if (groupName == null) return null;
-        return groupName.getValue("Schedule.groupName");
+        if (!unknown_groupName) return value_groupName;
+        throw new UndeferrableValueException("Value 'Schedule.groupName' is not present");
     }
 
     /**
      * ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private @Nullable String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public @Nullable String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("Schedule.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'Schedule.kmsKeyArn' is not present");
     }
 
     /**
      * Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Schedule.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Schedule.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("Schedule.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'Schedule.namePrefix' is not present");
     }
 
     /**
      * Defines when the schedule runs. Read more in [Schedule types on EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html).
      * 
      */
-    private UndeferrableValue<String> scheduleExpression;
-
+    @PolicyResourceProperty(name="scheduleExpression", flag="unknown_scheduleExpression")
+    private String value_scheduleExpression;
+    private boolean unknown_scheduleExpression;
     public String scheduleExpression() {
-        if (scheduleExpression == null) return null;
-        return scheduleExpression.getValue("Schedule.scheduleExpression");
+        if (!unknown_scheduleExpression) return value_scheduleExpression;
+        throw new UndeferrableValueException("Value 'Schedule.scheduleExpression' is not present");
     }
 
     /**
      * Timezone in which the scheduling expression is evaluated. Defaults to `UTC`. Example: `Australia/Sydney`.
      * 
      */
-    private @Nullable UndeferrableValue<String> scheduleExpressionTimezone;
-
+    @PolicyResourceProperty(name="scheduleExpressionTimezone", flag="unknown_scheduleExpressionTimezone")
+    private @Nullable String value_scheduleExpressionTimezone;
+    private boolean unknown_scheduleExpressionTimezone;
     public @Nullable String scheduleExpressionTimezone() {
-        if (scheduleExpressionTimezone == null) return null;
-        return scheduleExpressionTimezone.getValue("Schedule.scheduleExpressionTimezone");
+        if (!unknown_scheduleExpressionTimezone) return value_scheduleExpressionTimezone;
+        throw new UndeferrableValueException("Value 'Schedule.scheduleExpressionTimezone' is not present");
     }
 
     /**
      * The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule&#39;s recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
      * 
      */
-    private @Nullable UndeferrableValue<String> startDate;
-
+    @PolicyResourceProperty(name="startDate", flag="unknown_startDate")
+    private @Nullable String value_startDate;
+    private boolean unknown_startDate;
     public @Nullable String startDate() {
-        if (startDate == null) return null;
-        return startDate.getValue("Schedule.startDate");
+        if (!unknown_startDate) return value_startDate;
+        throw new UndeferrableValueException("Value 'Schedule.startDate' is not present");
     }
 
     /**
      * Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private @Nullable String value_state;
+    private boolean unknown_state;
     public @Nullable String state() {
-        if (state == null) return null;
-        return state.getValue("Schedule.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'Schedule.state' is not present");
     }
 
     /**
@@ -152,11 +165,12 @@ public final class Schedule extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<ScheduleTarget> target;
-
+    @PolicyResourceProperty(name="target", flag="unknown_target")
+    private ScheduleTarget value_target;
+    private boolean unknown_target;
     public ScheduleTarget target() {
-        if (target == null) return null;
-        return target.getValue("Schedule.target");
+        if (!unknown_target) return value_target;
+        throw new UndeferrableValueException("Value 'Schedule.target' is not present");
     }
 
 }

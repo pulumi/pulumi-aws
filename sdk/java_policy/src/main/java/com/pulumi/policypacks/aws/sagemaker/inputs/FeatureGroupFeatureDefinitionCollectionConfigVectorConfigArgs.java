@@ -3,18 +3,20 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
 
 public final class FeatureGroupFeatureDefinitionCollectionConfigVectorConfigArgs {
 
-    private UndeferrableValue<Integer> dimension;
-
+    @PolicyResourceProperty(name="dimension", flag="unknown_dimension")
+    private Integer value_dimension;
+    private boolean unknown_dimension;
     public Integer dimension() {
-        if (dimension == null) return null;
-        return dimension.getValue("FeatureGroupFeatureDefinitionCollectionConfigVectorConfigArgs.dimension");
+        if (!unknown_dimension) return value_dimension;
+        throw new UndeferrableValueException("Value 'FeatureGroupFeatureDefinitionCollectionConfigVectorConfigArgs.dimension' is not present");
     }
 
 }

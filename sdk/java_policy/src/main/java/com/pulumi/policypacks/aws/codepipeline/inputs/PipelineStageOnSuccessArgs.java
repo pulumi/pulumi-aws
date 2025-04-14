@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codepipeline.inputs.PipelineStageOnSuccessConditionArgs;
 
 
@@ -13,11 +14,12 @@ public final class PipelineStageOnSuccessArgs {
      * The conditions that are success conditions. Defined as a `condition` block below.
      * 
      */
-    private UndeferrableValue<PipelineStageOnSuccessConditionArgs> condition;
-
+    @PolicyResourceProperty(name="condition", flag="unknown_condition")
+    private PipelineStageOnSuccessConditionArgs value_condition;
+    private boolean unknown_condition;
     public PipelineStageOnSuccessConditionArgs condition() {
-        if (condition == null) return null;
-        return condition.getValue("PipelineStageOnSuccessArgs.condition");
+        if (!unknown_condition) return value_condition;
+        throw new UndeferrableValueException("Value 'PipelineStageOnSuccessArgs.condition' is not present");
     }
 
 }

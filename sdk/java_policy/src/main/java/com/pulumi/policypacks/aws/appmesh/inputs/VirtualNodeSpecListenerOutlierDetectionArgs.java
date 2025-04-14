@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecListenerOutlierDetectionIntervalArgs;
 import java.lang.Integer;
@@ -15,22 +16,24 @@ public final class VirtualNodeSpecListenerOutlierDetectionArgs {
      * Base amount of time for which a host is ejected.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs> baseEjectionDuration;
-
+    @PolicyResourceProperty(name="baseEjectionDuration", flag="unknown_baseEjectionDuration")
+    private VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs value_baseEjectionDuration;
+    private boolean unknown_baseEjectionDuration;
     public VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs baseEjectionDuration() {
-        if (baseEjectionDuration == null) return null;
-        return baseEjectionDuration.getValue("VirtualNodeSpecListenerOutlierDetectionArgs.baseEjectionDuration");
+        if (!unknown_baseEjectionDuration) return value_baseEjectionDuration;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerOutlierDetectionArgs.baseEjectionDuration' is not present");
     }
 
     /**
      * Time interval between ejection sweep analysis.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecListenerOutlierDetectionIntervalArgs> interval;
-
+    @PolicyResourceProperty(name="interval", flag="unknown_interval")
+    private VirtualNodeSpecListenerOutlierDetectionIntervalArgs value_interval;
+    private boolean unknown_interval;
     public VirtualNodeSpecListenerOutlierDetectionIntervalArgs interval() {
-        if (interval == null) return null;
-        return interval.getValue("VirtualNodeSpecListenerOutlierDetectionArgs.interval");
+        if (!unknown_interval) return value_interval;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerOutlierDetectionArgs.interval' is not present");
     }
 
     /**
@@ -38,22 +41,24 @@ public final class VirtualNodeSpecListenerOutlierDetectionArgs {
      * Minimum value of `0`. Maximum value of `100`.
      * 
      */
-    private UndeferrableValue<Integer> maxEjectionPercent;
-
+    @PolicyResourceProperty(name="maxEjectionPercent", flag="unknown_maxEjectionPercent")
+    private Integer value_maxEjectionPercent;
+    private boolean unknown_maxEjectionPercent;
     public Integer maxEjectionPercent() {
-        if (maxEjectionPercent == null) return null;
-        return maxEjectionPercent.getValue("VirtualNodeSpecListenerOutlierDetectionArgs.maxEjectionPercent");
+        if (!unknown_maxEjectionPercent) return value_maxEjectionPercent;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerOutlierDetectionArgs.maxEjectionPercent' is not present");
     }
 
     /**
      * Number of consecutive `5xx` errors required for ejection. Minimum value of `1`.
      * 
      */
-    private UndeferrableValue<Integer> maxServerErrors;
-
+    @PolicyResourceProperty(name="maxServerErrors", flag="unknown_maxServerErrors")
+    private Integer value_maxServerErrors;
+    private boolean unknown_maxServerErrors;
     public Integer maxServerErrors() {
-        if (maxServerErrors == null) return null;
-        return maxServerErrors.getValue("VirtualNodeSpecListenerOutlierDetectionArgs.maxServerErrors");
+        if (!unknown_maxServerErrors) return value_maxServerErrors;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerOutlierDetectionArgs.maxServerErrors' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceC
      * The URL configuration of your web data source. See `url_configuration` block for details.
      * 
      */
-    private @Nullable UndeferrableValue<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration> urlConfiguration;
-
+    @PolicyResourceProperty(name="urlConfiguration", flag="unknown_urlConfiguration")
+    private @Nullable AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration value_urlConfiguration;
+    private boolean unknown_urlConfiguration;
     public @Nullable AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration urlConfiguration() {
-        if (urlConfiguration == null) return null;
-        return urlConfiguration.getValue("AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration.urlConfiguration");
+        if (!unknown_urlConfiguration) return value_urlConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration.urlConfiguration' is not present");
     }
 
 }

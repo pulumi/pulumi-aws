@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class FargateProfileSelectorArgs {
      * Key-value map of Kubernetes labels for selection.
      * 
      */
-    private UndeferrableValue<Map<String,String>> labels;
-
+    @PolicyResourceProperty(name="labels", flag="unknown_labels")
+    private Map<String,String> value_labels;
+    private boolean unknown_labels;
     public Map<String,String> labels() {
-        if (labels == null) return null;
-        return labels.getValue("FargateProfileSelectorArgs.labels");
+        if (!unknown_labels) return value_labels;
+        throw new UndeferrableValueException("Value 'FargateProfileSelectorArgs.labels' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class FargateProfileSelectorArgs {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private String value_namespace;
+    private boolean unknown_namespace;
     public String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("FargateProfileSelectorArgs.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'FargateProfileSelectorArgs.namespace' is not present");
     }
 
 }

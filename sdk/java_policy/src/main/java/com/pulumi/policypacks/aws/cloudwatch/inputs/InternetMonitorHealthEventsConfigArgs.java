@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class InternetMonitorHealthEventsConfigArgs {
      * The health event threshold percentage set for availability scores.
      * 
      */
-    private UndeferrableValue<Double> availabilityScoreThreshold;
-
+    @PolicyResourceProperty(name="availabilityScoreThreshold", flag="unknown_availabilityScoreThreshold")
+    private Double value_availabilityScoreThreshold;
+    private boolean unknown_availabilityScoreThreshold;
     public Double availabilityScoreThreshold() {
-        if (availabilityScoreThreshold == null) return null;
-        return availabilityScoreThreshold.getValue("InternetMonitorHealthEventsConfigArgs.availabilityScoreThreshold");
+        if (!unknown_availabilityScoreThreshold) return value_availabilityScoreThreshold;
+        throw new UndeferrableValueException("Value 'InternetMonitorHealthEventsConfigArgs.availabilityScoreThreshold' is not present");
     }
 
     /**
      * The health event threshold percentage set for performance scores.
      * 
      */
-    private UndeferrableValue<Double> performanceScoreThreshold;
-
+    @PolicyResourceProperty(name="performanceScoreThreshold", flag="unknown_performanceScoreThreshold")
+    private Double value_performanceScoreThreshold;
+    private boolean unknown_performanceScoreThreshold;
     public Double performanceScoreThreshold() {
-        if (performanceScoreThreshold == null) return null;
-        return performanceScoreThreshold.getValue("InternetMonitorHealthEventsConfigArgs.performanceScoreThreshold");
+        if (!unknown_performanceScoreThreshold) return value_performanceScoreThreshold;
+        throw new UndeferrableValueException("Value 'InternetMonitorHealthEventsConfigArgs.performanceScoreThreshold' is not present");
     }
 
 }

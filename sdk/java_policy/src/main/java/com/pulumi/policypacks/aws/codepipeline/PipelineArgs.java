@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.codepipeline.inputs.PipelineArtifactStoreArgs;
 import com.pulumi.policypacks.aws.codepipeline.inputs.PipelineStageArgs;
@@ -22,11 +23,12 @@ public final class PipelineArgs extends com.pulumi.resources.PolicyResourceInput
      * One or more artifact_store blocks. Artifact stores are documented below.
      * 
      */
-    private UndeferrableValue<List<PipelineArtifactStoreArgs>> artifactStores;
-
+    @PolicyResourceProperty(name="artifactStores", flag="unknown_artifactStores")
+    private List<PipelineArtifactStoreArgs> value_artifactStores;
+    private boolean unknown_artifactStores;
     public List<PipelineArtifactStoreArgs> artifactStores() {
-        if (artifactStores == null) return null;
-        return artifactStores.getValue("PipelineArgs.artifactStores");
+        if (!unknown_artifactStores) return value_artifactStores;
+        throw new UndeferrableValueException("Value 'PipelineArgs.artifactStores' is not present");
     }
 
     /**
@@ -35,88 +37,96 @@ public final class PipelineArgs extends com.pulumi.resources.PolicyResourceInput
      * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
      * 
      */
-    private UndeferrableValue<String> executionMode;
-
+    @PolicyResourceProperty(name="executionMode", flag="unknown_executionMode")
+    private String value_executionMode;
+    private boolean unknown_executionMode;
     public String executionMode() {
-        if (executionMode == null) return null;
-        return executionMode.getValue("PipelineArgs.executionMode");
+        if (!unknown_executionMode) return value_executionMode;
+        throw new UndeferrableValueException("Value 'PipelineArgs.executionMode' is not present");
     }
 
     /**
      * The name of the pipeline.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PipelineArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PipelineArgs.name' is not present");
     }
 
     /**
      * Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
      * 
      */
-    private UndeferrableValue<String> pipelineType;
-
+    @PolicyResourceProperty(name="pipelineType", flag="unknown_pipelineType")
+    private String value_pipelineType;
+    private boolean unknown_pipelineType;
     public String pipelineType() {
-        if (pipelineType == null) return null;
-        return pipelineType.getValue("PipelineArgs.pipelineType");
+        if (!unknown_pipelineType) return value_pipelineType;
+        throw new UndeferrableValueException("Value 'PipelineArgs.pipelineType' is not present");
     }
 
     /**
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("PipelineArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'PipelineArgs.roleArn' is not present");
     }
 
     /**
      * A stage block. Stages are documented below.
      * 
      */
-    private UndeferrableValue<List<PipelineStageArgs>> stages;
-
+    @PolicyResourceProperty(name="stages", flag="unknown_stages")
+    private List<PipelineStageArgs> value_stages;
+    private boolean unknown_stages;
     public List<PipelineStageArgs> stages() {
-        if (stages == null) return null;
-        return stages.getValue("PipelineArgs.stages");
+        if (!unknown_stages) return value_stages;
+        throw new UndeferrableValueException("Value 'PipelineArgs.stages' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("PipelineArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'PipelineArgs.tags' is not present");
     }
 
     /**
      * A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
      * 
      */
-    private UndeferrableValue<List<PipelineTriggerArgs>> triggers;
-
+    @PolicyResourceProperty(name="triggers", flag="unknown_triggers")
+    private List<PipelineTriggerArgs> value_triggers;
+    private boolean unknown_triggers;
     public List<PipelineTriggerArgs> triggers() {
-        if (triggers == null) return null;
-        return triggers.getValue("PipelineArgs.triggers");
+        if (!unknown_triggers) return value_triggers;
+        throw new UndeferrableValueException("Value 'PipelineArgs.triggers' is not present");
     }
 
     /**
      * A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
      * 
      */
-    private UndeferrableValue<List<PipelineVariableArgs>> variables;
-
+    @PolicyResourceProperty(name="variables", flag="unknown_variables")
+    private List<PipelineVariableArgs> value_variables;
+    private boolean unknown_variables;
     public List<PipelineVariableArgs> variables() {
-        if (variables == null) return null;
-        return variables.getValue("PipelineArgs.variables");
+        if (!unknown_variables) return value_variables;
+        throw new UndeferrableValueException("Value 'PipelineArgs.variables' is not present");
     }
 
 }

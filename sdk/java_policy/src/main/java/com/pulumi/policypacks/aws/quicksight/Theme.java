@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.quicksight.outputs.ThemeConfiguration;
 import com.pulumi.policypacks.aws.quicksight.outputs.ThemePermission;
@@ -21,33 +22,36 @@ public final class Theme extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the theme.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Theme.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Theme.arn' is not present");
     }
 
     /**
      * AWS account ID.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("Theme.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'Theme.awsAccountId' is not present");
     }
 
     /**
      * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
      * 
      */
-    private UndeferrableValue<String> baseThemeId;
-
+    @PolicyResourceProperty(name="baseThemeId", flag="unknown_baseThemeId")
+    private String value_baseThemeId;
+    private boolean unknown_baseThemeId;
     public String baseThemeId() {
-        if (baseThemeId == null) return null;
-        return baseThemeId.getValue("Theme.baseThemeId");
+        if (!unknown_baseThemeId) return value_baseThemeId;
+        throw new UndeferrableValueException("Value 'Theme.baseThemeId' is not present");
     }
 
     /**
@@ -56,77 +60,84 @@ public final class Theme extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private @Nullable UndeferrableValue<ThemeConfiguration> configuration;
-
+    @PolicyResourceProperty(name="configuration", flag="unknown_configuration")
+    private @Nullable ThemeConfiguration value_configuration;
+    private boolean unknown_configuration;
     public @Nullable ThemeConfiguration configuration() {
-        if (configuration == null) return null;
-        return configuration.getValue("Theme.configuration");
+        if (!unknown_configuration) return value_configuration;
+        throw new UndeferrableValueException("Value 'Theme.configuration' is not present");
     }
 
     /**
      * The time that the theme was created.
      * 
      */
-    private UndeferrableValue<String> createdTime;
-
+    @PolicyResourceProperty(name="createdTime", flag="unknown_createdTime")
+    private String value_createdTime;
+    private boolean unknown_createdTime;
     public String createdTime() {
-        if (createdTime == null) return null;
-        return createdTime.getValue("Theme.createdTime");
+        if (!unknown_createdTime) return value_createdTime;
+        throw new UndeferrableValueException("Value 'Theme.createdTime' is not present");
     }
 
     /**
      * The time that the theme was last updated.
      * 
      */
-    private UndeferrableValue<String> lastUpdatedTime;
-
+    @PolicyResourceProperty(name="lastUpdatedTime", flag="unknown_lastUpdatedTime")
+    private String value_lastUpdatedTime;
+    private boolean unknown_lastUpdatedTime;
     public String lastUpdatedTime() {
-        if (lastUpdatedTime == null) return null;
-        return lastUpdatedTime.getValue("Theme.lastUpdatedTime");
+        if (!unknown_lastUpdatedTime) return value_lastUpdatedTime;
+        throw new UndeferrableValueException("Value 'Theme.lastUpdatedTime' is not present");
     }
 
     /**
      * Display name of the theme.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Theme.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Theme.name' is not present");
     }
 
     /**
      * A set of resource permissions on the theme. Maximum of 64 items. See permissions.
      * 
      */
-    private @Nullable UndeferrableValue<List<ThemePermission>> permissions;
-
+    @PolicyResourceProperty(name="permissions", flag="unknown_permissions")
+    private @Nullable List<ThemePermission> value_permissions;
+    private boolean unknown_permissions;
     public @Nullable List<ThemePermission> permissions() {
-        if (permissions == null) return null;
-        return permissions.getValue("Theme.permissions");
+        if (!unknown_permissions) return value_permissions;
+        throw new UndeferrableValueException("Value 'Theme.permissions' is not present");
     }
 
     /**
      * The theme creation status.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Theme.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Theme.status' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Theme.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Theme.tags' is not present");
     }
 
     /**
@@ -137,44 +148,48 @@ public final class Theme extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Theme.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Theme.tagsAll' is not present");
     }
 
     /**
      * Identifier of the theme.
      * 
      */
-    private UndeferrableValue<String> themeId;
-
+    @PolicyResourceProperty(name="themeId", flag="unknown_themeId")
+    private String value_themeId;
+    private boolean unknown_themeId;
     public String themeId() {
-        if (themeId == null) return null;
-        return themeId.getValue("Theme.themeId");
+        if (!unknown_themeId) return value_themeId;
+        throw new UndeferrableValueException("Value 'Theme.themeId' is not present");
     }
 
     /**
      * A description of the current theme version being created/updated.
      * 
      */
-    private @Nullable UndeferrableValue<String> versionDescription;
-
+    @PolicyResourceProperty(name="versionDescription", flag="unknown_versionDescription")
+    private @Nullable String value_versionDescription;
+    private boolean unknown_versionDescription;
     public @Nullable String versionDescription() {
-        if (versionDescription == null) return null;
-        return versionDescription.getValue("Theme.versionDescription");
+        if (!unknown_versionDescription) return value_versionDescription;
+        throw new UndeferrableValueException("Value 'Theme.versionDescription' is not present");
     }
 
     /**
      * The version number of the theme version.
      * 
      */
-    private UndeferrableValue<Integer> versionNumber;
-
+    @PolicyResourceProperty(name="versionNumber", flag="unknown_versionNumber")
+    private Integer value_versionNumber;
+    private boolean unknown_versionNumber;
     public Integer versionNumber() {
-        if (versionNumber == null) return null;
-        return versionNumber.getValue("Theme.versionNumber");
+        if (!unknown_versionNumber) return value_versionNumber;
+        throw new UndeferrableValueException("Value 'Theme.versionNumber' is not present");
     }
 
 }

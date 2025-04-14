@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.outputs.FieldLevelEncryptionProfileEncryptionEntitiesItem;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -11,11 +12,12 @@ import javax.annotation.Nullable;
 
 public final class FieldLevelEncryptionProfileEncryptionEntities {
 
-    private @Nullable UndeferrableValue<List<FieldLevelEncryptionProfileEncryptionEntitiesItem>> items;
-
+    @PolicyResourceProperty(name="items", flag="unknown_items")
+    private @Nullable List<FieldLevelEncryptionProfileEncryptionEntitiesItem> value_items;
+    private boolean unknown_items;
     public @Nullable List<FieldLevelEncryptionProfileEncryptionEntitiesItem> items() {
-        if (items == null) return null;
-        return items.getValue("FieldLevelEncryptionProfileEncryptionEntities.items");
+        if (!unknown_items) return value_items;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfileEncryptionEntities.items' is not present");
     }
 
 }

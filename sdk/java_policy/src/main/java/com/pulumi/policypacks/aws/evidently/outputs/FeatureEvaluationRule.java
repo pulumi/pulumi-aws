@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.evidently.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class FeatureEvaluationRule {
      * The name for the new feature. Minimum length of `1`. Maximum length of `127`.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("FeatureEvaluationRule.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FeatureEvaluationRule.name' is not present");
     }
 
     /**
      * This value is `aws.evidently.splits` if this is an evaluation rule for a launch, and it is `aws.evidently.onlineab` if this is an evaluation rule for an experiment.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("FeatureEvaluationRule.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'FeatureEvaluationRule.type' is not present");
     }
 
 }

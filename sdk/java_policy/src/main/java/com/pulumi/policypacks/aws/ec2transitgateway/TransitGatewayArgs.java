@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -21,121 +22,132 @@ public final class TransitGatewayArgs extends com.pulumi.resources.PolicyResourc
      * &gt; **NOTE:** Modifying `amazon_side_asn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazon_side_asn`.
      * 
      */
-    private UndeferrableValue<Integer> amazonSideAsn;
-
+    @PolicyResourceProperty(name="amazonSideAsn", flag="unknown_amazonSideAsn")
+    private Integer value_amazonSideAsn;
+    private boolean unknown_amazonSideAsn;
     public Integer amazonSideAsn() {
-        if (amazonSideAsn == null) return null;
-        return amazonSideAsn.getValue("TransitGatewayArgs.amazonSideAsn");
+        if (!unknown_amazonSideAsn) return value_amazonSideAsn;
+        throw new UndeferrableValueException("Value 'TransitGatewayArgs.amazonSideAsn' is not present");
     }
 
     /**
      * Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
      * 
      */
-    private UndeferrableValue<String> autoAcceptSharedAttachments;
-
+    @PolicyResourceProperty(name="autoAcceptSharedAttachments", flag="unknown_autoAcceptSharedAttachments")
+    private String value_autoAcceptSharedAttachments;
+    private boolean unknown_autoAcceptSharedAttachments;
     public String autoAcceptSharedAttachments() {
-        if (autoAcceptSharedAttachments == null) return null;
-        return autoAcceptSharedAttachments.getValue("TransitGatewayArgs.autoAcceptSharedAttachments");
+        if (!unknown_autoAcceptSharedAttachments) return value_autoAcceptSharedAttachments;
+        throw new UndeferrableValueException("Value 'TransitGatewayArgs.autoAcceptSharedAttachments' is not present");
     }
 
     /**
      * Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
      * 
      */
-    private UndeferrableValue<String> defaultRouteTableAssociation;
-
+    @PolicyResourceProperty(name="defaultRouteTableAssociation", flag="unknown_defaultRouteTableAssociation")
+    private String value_defaultRouteTableAssociation;
+    private boolean unknown_defaultRouteTableAssociation;
     public String defaultRouteTableAssociation() {
-        if (defaultRouteTableAssociation == null) return null;
-        return defaultRouteTableAssociation.getValue("TransitGatewayArgs.defaultRouteTableAssociation");
+        if (!unknown_defaultRouteTableAssociation) return value_defaultRouteTableAssociation;
+        throw new UndeferrableValueException("Value 'TransitGatewayArgs.defaultRouteTableAssociation' is not present");
     }
 
     /**
      * Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
      * 
      */
-    private UndeferrableValue<String> defaultRouteTablePropagation;
-
+    @PolicyResourceProperty(name="defaultRouteTablePropagation", flag="unknown_defaultRouteTablePropagation")
+    private String value_defaultRouteTablePropagation;
+    private boolean unknown_defaultRouteTablePropagation;
     public String defaultRouteTablePropagation() {
-        if (defaultRouteTablePropagation == null) return null;
-        return defaultRouteTablePropagation.getValue("TransitGatewayArgs.defaultRouteTablePropagation");
+        if (!unknown_defaultRouteTablePropagation) return value_defaultRouteTablePropagation;
+        throw new UndeferrableValueException("Value 'TransitGatewayArgs.defaultRouteTablePropagation' is not present");
     }
 
     /**
      * Description of the EC2 Transit Gateway.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("TransitGatewayArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'TransitGatewayArgs.description' is not present");
     }
 
     /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      * 
      */
-    private UndeferrableValue<String> dnsSupport;
-
+    @PolicyResourceProperty(name="dnsSupport", flag="unknown_dnsSupport")
+    private String value_dnsSupport;
+    private boolean unknown_dnsSupport;
     public String dnsSupport() {
-        if (dnsSupport == null) return null;
-        return dnsSupport.getValue("TransitGatewayArgs.dnsSupport");
+        if (!unknown_dnsSupport) return value_dnsSupport;
+        throw new UndeferrableValueException("Value 'TransitGatewayArgs.dnsSupport' is not present");
     }
 
     /**
      * Whether Multicast support is enabled. Required to use `ec2_transit_gateway_multicast_domain`. Valid values: `disable`, `enable`. Default value: `disable`.
      * 
      */
-    private UndeferrableValue<String> multicastSupport;
-
+    @PolicyResourceProperty(name="multicastSupport", flag="unknown_multicastSupport")
+    private String value_multicastSupport;
+    private boolean unknown_multicastSupport;
     public String multicastSupport() {
-        if (multicastSupport == null) return null;
-        return multicastSupport.getValue("TransitGatewayArgs.multicastSupport");
+        if (!unknown_multicastSupport) return value_multicastSupport;
+        throw new UndeferrableValueException("Value 'TransitGatewayArgs.multicastSupport' is not present");
     }
 
     /**
      * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
      * 
      */
-    private UndeferrableValue<String> securityGroupReferencingSupport;
-
+    @PolicyResourceProperty(name="securityGroupReferencingSupport", flag="unknown_securityGroupReferencingSupport")
+    private String value_securityGroupReferencingSupport;
+    private boolean unknown_securityGroupReferencingSupport;
     public String securityGroupReferencingSupport() {
-        if (securityGroupReferencingSupport == null) return null;
-        return securityGroupReferencingSupport.getValue("TransitGatewayArgs.securityGroupReferencingSupport");
+        if (!unknown_securityGroupReferencingSupport) return value_securityGroupReferencingSupport;
+        throw new UndeferrableValueException("Value 'TransitGatewayArgs.securityGroupReferencingSupport' is not present");
     }
 
     /**
      * Key-value tags for the EC2 Transit Gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TransitGatewayArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TransitGatewayArgs.tags' is not present");
     }
 
     /**
      * One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
      * 
      */
-    private UndeferrableValue<List<String>> transitGatewayCidrBlocks;
-
+    @PolicyResourceProperty(name="transitGatewayCidrBlocks", flag="unknown_transitGatewayCidrBlocks")
+    private List<String> value_transitGatewayCidrBlocks;
+    private boolean unknown_transitGatewayCidrBlocks;
     public List<String> transitGatewayCidrBlocks() {
-        if (transitGatewayCidrBlocks == null) return null;
-        return transitGatewayCidrBlocks.getValue("TransitGatewayArgs.transitGatewayCidrBlocks");
+        if (!unknown_transitGatewayCidrBlocks) return value_transitGatewayCidrBlocks;
+        throw new UndeferrableValueException("Value 'TransitGatewayArgs.transitGatewayCidrBlocks' is not present");
     }
 
     /**
      * Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      * 
      */
-    private UndeferrableValue<String> vpnEcmpSupport;
-
+    @PolicyResourceProperty(name="vpnEcmpSupport", flag="unknown_vpnEcmpSupport")
+    private String value_vpnEcmpSupport;
+    private boolean unknown_vpnEcmpSupport;
     public String vpnEcmpSupport() {
-        if (vpnEcmpSupport == null) return null;
-        return vpnEcmpSupport.getValue("TransitGatewayArgs.vpnEcmpSupport");
+        if (!unknown_vpnEcmpSupport) return value_vpnEcmpSupport;
+        throw new UndeferrableValueException("Value 'TransitGatewayArgs.vpnEcmpSupport' is not present");
     }
 
 }

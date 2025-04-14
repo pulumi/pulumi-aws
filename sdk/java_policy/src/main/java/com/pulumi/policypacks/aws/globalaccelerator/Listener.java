@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.globalaccelerator;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.globalaccelerator.outputs.ListenerPortRange;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class Listener extends com.pulumi.resources.PolicyResourceOutput {
      * The Amazon Resource Name (ARN) of your accelerator.
      * 
      */
-    private UndeferrableValue<String> acceleratorArn;
-
+    @PolicyResourceProperty(name="acceleratorArn", flag="unknown_acceleratorArn")
+    private String value_acceleratorArn;
+    private boolean unknown_acceleratorArn;
     public String acceleratorArn() {
-        if (acceleratorArn == null) return null;
-        return acceleratorArn.getValue("Listener.acceleratorArn");
+        if (!unknown_acceleratorArn) return value_acceleratorArn;
+        throw new UndeferrableValueException("Value 'Listener.acceleratorArn' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the listener.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Listener.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Listener.arn' is not present");
     }
 
     /**
      * Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the &#34;five-tuple&#34; properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the &#34;two-tuple&#34; properties of source (client) IP address and destination IP address to select the hash value.
      * 
      */
-    private @Nullable UndeferrableValue<String> clientAffinity;
-
+    @PolicyResourceProperty(name="clientAffinity", flag="unknown_clientAffinity")
+    private @Nullable String value_clientAffinity;
+    private boolean unknown_clientAffinity;
     public @Nullable String clientAffinity() {
-        if (clientAffinity == null) return null;
-        return clientAffinity.getValue("Listener.clientAffinity");
+        if (!unknown_clientAffinity) return value_clientAffinity;
+        throw new UndeferrableValueException("Value 'Listener.clientAffinity' is not present");
     }
 
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
      * 
      */
-    private UndeferrableValue<List<ListenerPortRange>> portRanges;
-
+    @PolicyResourceProperty(name="portRanges", flag="unknown_portRanges")
+    private List<ListenerPortRange> value_portRanges;
+    private boolean unknown_portRanges;
     public List<ListenerPortRange> portRanges() {
-        if (portRanges == null) return null;
-        return portRanges.getValue("Listener.portRanges");
+        if (!unknown_portRanges) return value_portRanges;
+        throw new UndeferrableValueException("Value 'Listener.portRanges' is not present");
     }
 
     /**
      * The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("Listener.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'Listener.protocol' is not present");
     }
 
 }

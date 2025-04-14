@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.alb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class LoadBalancerAccessLogs {
      * S3 bucket name to store the logs in.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("LoadBalancerAccessLogs.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'LoadBalancerAccessLogs.bucket' is not present");
     }
 
     /**
      * Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("LoadBalancerAccessLogs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'LoadBalancerAccessLogs.enabled' is not present");
     }
 
     /**
      * S3 bucket prefix. Logs are stored in the root if not configured.
      * 
      */
-    private @Nullable UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private @Nullable String value_prefix;
+    private boolean unknown_prefix;
     public @Nullable String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("LoadBalancerAccessLogs.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'LoadBalancerAccessLogs.prefix' is not present");
     }
 
 }

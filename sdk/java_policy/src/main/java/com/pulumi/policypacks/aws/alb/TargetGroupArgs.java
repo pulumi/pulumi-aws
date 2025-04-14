@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.alb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.alb.inputs.TargetGroupHealthCheckArgs;
 import com.pulumi.policypacks.aws.alb.inputs.TargetGroupStickinessArgs;
@@ -25,132 +26,144 @@ public final class TargetGroupArgs extends com.pulumi.resources.PolicyResourceIn
      * Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> connectionTermination;
-
+    @PolicyResourceProperty(name="connectionTermination", flag="unknown_connectionTermination")
+    private Boolean value_connectionTermination;
+    private boolean unknown_connectionTermination;
     public Boolean connectionTermination() {
-        if (connectionTermination == null) return null;
-        return connectionTermination.getValue("TargetGroupArgs.connectionTermination");
+        if (!unknown_connectionTermination) return value_connectionTermination;
+        throw new UndeferrableValueException("Value 'TargetGroupArgs.connectionTermination' is not present");
     }
 
     /**
      * Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
      * 
      */
-    private UndeferrableValue<Integer> deregistrationDelay;
-
+    @PolicyResourceProperty(name="deregistrationDelay", flag="unknown_deregistrationDelay")
+    private Integer value_deregistrationDelay;
+    private boolean unknown_deregistrationDelay;
     public Integer deregistrationDelay() {
-        if (deregistrationDelay == null) return null;
-        return deregistrationDelay.getValue("TargetGroupArgs.deregistrationDelay");
+        if (!unknown_deregistrationDelay) return value_deregistrationDelay;
+        throw new UndeferrableValueException("Value 'TargetGroupArgs.deregistrationDelay' is not present");
     }
 
     /**
      * Health Check configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<TargetGroupHealthCheckArgs> healthCheck;
-
+    @PolicyResourceProperty(name="healthCheck", flag="unknown_healthCheck")
+    private TargetGroupHealthCheckArgs value_healthCheck;
+    private boolean unknown_healthCheck;
     public TargetGroupHealthCheckArgs healthCheck() {
-        if (healthCheck == null) return null;
-        return healthCheck.getValue("TargetGroupArgs.healthCheck");
+        if (!unknown_healthCheck) return value_healthCheck;
+        throw new UndeferrableValueException("Value 'TargetGroupArgs.healthCheck' is not present");
     }
 
     /**
      * The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
      * 
      */
-    private UndeferrableValue<String> ipAddressType;
-
+    @PolicyResourceProperty(name="ipAddressType", flag="unknown_ipAddressType")
+    private String value_ipAddressType;
+    private boolean unknown_ipAddressType;
     public String ipAddressType() {
-        if (ipAddressType == null) return null;
-        return ipAddressType.getValue("TargetGroupArgs.ipAddressType");
+        if (!unknown_ipAddressType) return value_ipAddressType;
+        throw new UndeferrableValueException("Value 'TargetGroupArgs.ipAddressType' is not present");
     }
 
     /**
      * Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> lambdaMultiValueHeadersEnabled;
-
+    @PolicyResourceProperty(name="lambdaMultiValueHeadersEnabled", flag="unknown_lambdaMultiValueHeadersEnabled")
+    private Boolean value_lambdaMultiValueHeadersEnabled;
+    private boolean unknown_lambdaMultiValueHeadersEnabled;
     public Boolean lambdaMultiValueHeadersEnabled() {
-        if (lambdaMultiValueHeadersEnabled == null) return null;
-        return lambdaMultiValueHeadersEnabled.getValue("TargetGroupArgs.lambdaMultiValueHeadersEnabled");
+        if (!unknown_lambdaMultiValueHeadersEnabled) return value_lambdaMultiValueHeadersEnabled;
+        throw new UndeferrableValueException("Value 'TargetGroupArgs.lambdaMultiValueHeadersEnabled' is not present");
     }
 
     /**
      * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
      * 
      */
-    private UndeferrableValue<String> loadBalancingAlgorithmType;
-
+    @PolicyResourceProperty(name="loadBalancingAlgorithmType", flag="unknown_loadBalancingAlgorithmType")
+    private String value_loadBalancingAlgorithmType;
+    private boolean unknown_loadBalancingAlgorithmType;
     public String loadBalancingAlgorithmType() {
-        if (loadBalancingAlgorithmType == null) return null;
-        return loadBalancingAlgorithmType.getValue("TargetGroupArgs.loadBalancingAlgorithmType");
+        if (!unknown_loadBalancingAlgorithmType) return value_loadBalancingAlgorithmType;
+        throw new UndeferrableValueException("Value 'TargetGroupArgs.loadBalancingAlgorithmType' is not present");
     }
 
     /**
      * Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `&#34;on&#34;` or `&#34;off&#34;`. The default is `&#34;off&#34;`.
      * 
      */
-    private UndeferrableValue<String> loadBalancingAnomalyMitigation;
-
+    @PolicyResourceProperty(name="loadBalancingAnomalyMitigation", flag="unknown_loadBalancingAnomalyMitigation")
+    private String value_loadBalancingAnomalyMitigation;
+    private boolean unknown_loadBalancingAnomalyMitigation;
     public String loadBalancingAnomalyMitigation() {
-        if (loadBalancingAnomalyMitigation == null) return null;
-        return loadBalancingAnomalyMitigation.getValue("TargetGroupArgs.loadBalancingAnomalyMitigation");
+        if (!unknown_loadBalancingAnomalyMitigation) return value_loadBalancingAnomalyMitigation;
+        throw new UndeferrableValueException("Value 'TargetGroupArgs.loadBalancingAnomalyMitigation' is not present");
     }
 
     /**
      * Indicates whether cross zone load balancing is enabled. The value is `&#34;true&#34;`, `&#34;false&#34;` or `&#34;use_load_balancer_configuration&#34;`. The default is `&#34;use_load_balancer_configuration&#34;`.
      * 
      */
-    private UndeferrableValue<String> loadBalancingCrossZoneEnabled;
-
+    @PolicyResourceProperty(name="loadBalancingCrossZoneEnabled", flag="unknown_loadBalancingCrossZoneEnabled")
+    private String value_loadBalancingCrossZoneEnabled;
+    private boolean unknown_loadBalancingCrossZoneEnabled;
     public String loadBalancingCrossZoneEnabled() {
-        if (loadBalancingCrossZoneEnabled == null) return null;
-        return loadBalancingCrossZoneEnabled.getValue("TargetGroupArgs.loadBalancingCrossZoneEnabled");
+        if (!unknown_loadBalancingCrossZoneEnabled) return value_loadBalancingCrossZoneEnabled;
+        throw new UndeferrableValueException("Value 'TargetGroupArgs.loadBalancingCrossZoneEnabled' is not present");
     }
 
     /**
      * Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TargetGroupArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TargetGroupArgs.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("TargetGroupArgs.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'TargetGroupArgs.namePrefix' is not present");
     }
 
     /**
      * Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("TargetGroupArgs.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'TargetGroupArgs.port' is not present");
     }
 
     /**
      * Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
      * 
      */
-    private UndeferrableValue<String> preserveClientIp;
-
+    @PolicyResourceProperty(name="preserveClientIp", flag="unknown_preserveClientIp")
+    private String value_preserveClientIp;
+    private boolean unknown_preserveClientIp;
     public String preserveClientIp() {
-        if (preserveClientIp == null) return null;
-        return preserveClientIp.getValue("TargetGroupArgs.preserveClientIp");
+        if (!unknown_preserveClientIp) return value_preserveClientIp;
+        throw new UndeferrableValueException("Value 'TargetGroupArgs.preserveClientIp' is not present");
     }
 
     /**
@@ -160,99 +173,108 @@ public final class TargetGroupArgs extends com.pulumi.resources.PolicyResourceIn
      * Does not apply when `target_type` is `lambda`.
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("TargetGroupArgs.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'TargetGroupArgs.protocol' is not present");
     }
 
     /**
      * Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
      * 
      */
-    private UndeferrableValue<String> protocolVersion;
-
+    @PolicyResourceProperty(name="protocolVersion", flag="unknown_protocolVersion")
+    private String value_protocolVersion;
+    private boolean unknown_protocolVersion;
     public String protocolVersion() {
-        if (protocolVersion == null) return null;
-        return protocolVersion.getValue("TargetGroupArgs.protocolVersion");
+        if (!unknown_protocolVersion) return value_protocolVersion;
+        throw new UndeferrableValueException("Value 'TargetGroupArgs.protocolVersion' is not present");
     }
 
     /**
      * Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> proxyProtocolV2;
-
+    @PolicyResourceProperty(name="proxyProtocolV2", flag="unknown_proxyProtocolV2")
+    private Boolean value_proxyProtocolV2;
+    private boolean unknown_proxyProtocolV2;
     public Boolean proxyProtocolV2() {
-        if (proxyProtocolV2 == null) return null;
-        return proxyProtocolV2.getValue("TargetGroupArgs.proxyProtocolV2");
+        if (!unknown_proxyProtocolV2) return value_proxyProtocolV2;
+        throw new UndeferrableValueException("Value 'TargetGroupArgs.proxyProtocolV2' is not present");
     }
 
     /**
      * Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
      * 
      */
-    private UndeferrableValue<Integer> slowStart;
-
+    @PolicyResourceProperty(name="slowStart", flag="unknown_slowStart")
+    private Integer value_slowStart;
+    private boolean unknown_slowStart;
     public Integer slowStart() {
-        if (slowStart == null) return null;
-        return slowStart.getValue("TargetGroupArgs.slowStart");
+        if (!unknown_slowStart) return value_slowStart;
+        throw new UndeferrableValueException("Value 'TargetGroupArgs.slowStart' is not present");
     }
 
     /**
      * Stickiness configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<TargetGroupStickinessArgs> stickiness;
-
+    @PolicyResourceProperty(name="stickiness", flag="unknown_stickiness")
+    private TargetGroupStickinessArgs value_stickiness;
+    private boolean unknown_stickiness;
     public TargetGroupStickinessArgs stickiness() {
-        if (stickiness == null) return null;
-        return stickiness.getValue("TargetGroupArgs.stickiness");
+        if (!unknown_stickiness) return value_stickiness;
+        throw new UndeferrableValueException("Value 'TargetGroupArgs.stickiness' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TargetGroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TargetGroupArgs.tags' is not present");
     }
 
     /**
      * Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
      * 
      */
-    private UndeferrableValue<List<TargetGroupTargetFailoverArgs>> targetFailovers;
-
+    @PolicyResourceProperty(name="targetFailovers", flag="unknown_targetFailovers")
+    private List<TargetGroupTargetFailoverArgs> value_targetFailovers;
+    private boolean unknown_targetFailovers;
     public List<TargetGroupTargetFailoverArgs> targetFailovers() {
-        if (targetFailovers == null) return null;
-        return targetFailovers.getValue("TargetGroupArgs.targetFailovers");
+        if (!unknown_targetFailovers) return value_targetFailovers;
+        throw new UndeferrableValueException("Value 'TargetGroupArgs.targetFailovers' is not present");
     }
 
     /**
      * Target health requirements block. See target_group_health for more information.
      * 
      */
-    private UndeferrableValue<TargetGroupTargetGroupHealthArgs> targetGroupHealth;
-
+    @PolicyResourceProperty(name="targetGroupHealth", flag="unknown_targetGroupHealth")
+    private TargetGroupTargetGroupHealthArgs value_targetGroupHealth;
+    private boolean unknown_targetGroupHealth;
     public TargetGroupTargetGroupHealthArgs targetGroupHealth() {
-        if (targetGroupHealth == null) return null;
-        return targetGroupHealth.getValue("TargetGroupArgs.targetGroupHealth");
+        if (!unknown_targetGroupHealth) return value_targetGroupHealth;
+        throw new UndeferrableValueException("Value 'TargetGroupArgs.targetGroupHealth' is not present");
     }
 
     /**
      * Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
      * 
      */
-    private UndeferrableValue<List<TargetGroupTargetHealthStateArgs>> targetHealthStates;
-
+    @PolicyResourceProperty(name="targetHealthStates", flag="unknown_targetHealthStates")
+    private List<TargetGroupTargetHealthStateArgs> value_targetHealthStates;
+    private boolean unknown_targetHealthStates;
     public List<TargetGroupTargetHealthStateArgs> targetHealthStates() {
-        if (targetHealthStates == null) return null;
-        return targetHealthStates.getValue("TargetGroupArgs.targetHealthStates");
+        if (!unknown_targetHealthStates) return value_targetHealthStates;
+        throw new UndeferrableValueException("Value 'TargetGroupArgs.targetHealthStates' is not present");
     }
 
     /**
@@ -269,22 +291,24 @@ public final class TargetGroupArgs extends com.pulumi.resources.PolicyResourceIn
      * Application Load Balancers do not support the `alb` target type.
      * 
      */
-    private UndeferrableValue<String> targetType;
-
+    @PolicyResourceProperty(name="targetType", flag="unknown_targetType")
+    private String value_targetType;
+    private boolean unknown_targetType;
     public String targetType() {
-        if (targetType == null) return null;
-        return targetType.getValue("TargetGroupArgs.targetType");
+        if (!unknown_targetType) return value_targetType;
+        throw new UndeferrableValueException("Value 'TargetGroupArgs.targetType' is not present");
     }
 
     /**
      * Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("TargetGroupArgs.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'TargetGroupArgs.vpcId' is not present");
     }
 
 }

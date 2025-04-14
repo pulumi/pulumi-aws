@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class UserPoolSmsConfigurationArgs {
      * External ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
      * 
      */
-    private UndeferrableValue<String> externalId;
-
+    @PolicyResourceProperty(name="externalId", flag="unknown_externalId")
+    private String value_externalId;
+    private boolean unknown_externalId;
     public String externalId() {
-        if (externalId == null) return null;
-        return externalId.getValue("UserPoolSmsConfigurationArgs.externalId");
+        if (!unknown_externalId) return value_externalId;
+        throw new UndeferrableValueException("Value 'UserPoolSmsConfigurationArgs.externalId' is not present");
     }
 
     /**
      * ARN of the Amazon SNS caller. This is usually the IAM role that you&#39;ve given Cognito permission to assume.
      * 
      */
-    private UndeferrableValue<String> snsCallerArn;
-
+    @PolicyResourceProperty(name="snsCallerArn", flag="unknown_snsCallerArn")
+    private String value_snsCallerArn;
+    private boolean unknown_snsCallerArn;
     public String snsCallerArn() {
-        if (snsCallerArn == null) return null;
-        return snsCallerArn.getValue("UserPoolSmsConfigurationArgs.snsCallerArn");
+        if (!unknown_snsCallerArn) return value_snsCallerArn;
+        throw new UndeferrableValueException("Value 'UserPoolSmsConfigurationArgs.snsCallerArn' is not present");
     }
 
     /**
      * The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported Legacy Amazon SNS alternate Region. Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html).
      * 
      */
-    private UndeferrableValue<String> snsRegion;
-
+    @PolicyResourceProperty(name="snsRegion", flag="unknown_snsRegion")
+    private String value_snsRegion;
+    private boolean unknown_snsRegion;
     public String snsRegion() {
-        if (snsRegion == null) return null;
-        return snsRegion.getValue("UserPoolSmsConfigurationArgs.snsRegion");
+        if (!unknown_snsRegion) return value_snsRegion;
+        throw new UndeferrableValueException("Value 'UserPoolSmsConfigurationArgs.snsRegion' is not present");
     }
 
 }

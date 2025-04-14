@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.datazone.inputs.EnvironmentTimeoutsArgs;
 import com.pulumi.policypacks.aws.datazone.inputs.EnvironmentUserParameterArgs;
@@ -19,88 +20,96 @@ public final class EnvironmentArgs extends com.pulumi.resources.PolicyResourceIn
      * The ID of the Amazon Web Services account where the environment exists
      * 
      */
-    private UndeferrableValue<String> accountIdentifier;
-
+    @PolicyResourceProperty(name="accountIdentifier", flag="unknown_accountIdentifier")
+    private String value_accountIdentifier;
+    private boolean unknown_accountIdentifier;
     public String accountIdentifier() {
-        if (accountIdentifier == null) return null;
-        return accountIdentifier.getValue("EnvironmentArgs.accountIdentifier");
+        if (!unknown_accountIdentifier) return value_accountIdentifier;
+        throw new UndeferrableValueException("Value 'EnvironmentArgs.accountIdentifier' is not present");
     }
 
     /**
      * The Amazon Web Services region where the environment exists.
      * 
      */
-    private UndeferrableValue<String> accountRegion;
-
+    @PolicyResourceProperty(name="accountRegion", flag="unknown_accountRegion")
+    private String value_accountRegion;
+    private boolean unknown_accountRegion;
     public String accountRegion() {
-        if (accountRegion == null) return null;
-        return accountRegion.getValue("EnvironmentArgs.accountRegion");
+        if (!unknown_accountRegion) return value_accountRegion;
+        throw new UndeferrableValueException("Value 'EnvironmentArgs.accountRegion' is not present");
     }
 
     /**
      * The blueprint with which the environment is created.
      * 
      */
-    private UndeferrableValue<String> blueprintIdentifier;
-
+    @PolicyResourceProperty(name="blueprintIdentifier", flag="unknown_blueprintIdentifier")
+    private String value_blueprintIdentifier;
+    private boolean unknown_blueprintIdentifier;
     public String blueprintIdentifier() {
-        if (blueprintIdentifier == null) return null;
-        return blueprintIdentifier.getValue("EnvironmentArgs.blueprintIdentifier");
+        if (!unknown_blueprintIdentifier) return value_blueprintIdentifier;
+        throw new UndeferrableValueException("Value 'EnvironmentArgs.blueprintIdentifier' is not present");
     }
 
     /**
      * The description of the environment.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("EnvironmentArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'EnvironmentArgs.description' is not present");
     }
 
     /**
      * The ID of the domain where the environment exists.
      * 
      */
-    private UndeferrableValue<String> domainIdentifier;
-
+    @PolicyResourceProperty(name="domainIdentifier", flag="unknown_domainIdentifier")
+    private String value_domainIdentifier;
+    private boolean unknown_domainIdentifier;
     public String domainIdentifier() {
-        if (domainIdentifier == null) return null;
-        return domainIdentifier.getValue("EnvironmentArgs.domainIdentifier");
+        if (!unknown_domainIdentifier) return value_domainIdentifier;
+        throw new UndeferrableValueException("Value 'EnvironmentArgs.domainIdentifier' is not present");
     }
 
     /**
      * The business glossary terms that can be used in this environment.
      * 
      */
-    private UndeferrableValue<List<String>> glossaryTerms;
-
+    @PolicyResourceProperty(name="glossaryTerms", flag="unknown_glossaryTerms")
+    private List<String> value_glossaryTerms;
+    private boolean unknown_glossaryTerms;
     public List<String> glossaryTerms() {
-        if (glossaryTerms == null) return null;
-        return glossaryTerms.getValue("EnvironmentArgs.glossaryTerms");
+        if (!unknown_glossaryTerms) return value_glossaryTerms;
+        throw new UndeferrableValueException("Value 'EnvironmentArgs.glossaryTerms' is not present");
     }
 
     /**
      * The name of the environment.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("EnvironmentArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'EnvironmentArgs.name' is not present");
     }
 
     /**
      * The ID of the profile with which the environment is created.
      * 
      */
-    private UndeferrableValue<String> profileIdentifier;
-
+    @PolicyResourceProperty(name="profileIdentifier", flag="unknown_profileIdentifier")
+    private String value_profileIdentifier;
+    private boolean unknown_profileIdentifier;
     public String profileIdentifier() {
-        if (profileIdentifier == null) return null;
-        return profileIdentifier.getValue("EnvironmentArgs.profileIdentifier");
+        if (!unknown_profileIdentifier) return value_profileIdentifier;
+        throw new UndeferrableValueException("Value 'EnvironmentArgs.profileIdentifier' is not present");
     }
 
     /**
@@ -109,29 +118,32 @@ public final class EnvironmentArgs extends com.pulumi.resources.PolicyResourceIn
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> projectIdentifier;
-
+    @PolicyResourceProperty(name="projectIdentifier", flag="unknown_projectIdentifier")
+    private String value_projectIdentifier;
+    private boolean unknown_projectIdentifier;
     public String projectIdentifier() {
-        if (projectIdentifier == null) return null;
-        return projectIdentifier.getValue("EnvironmentArgs.projectIdentifier");
+        if (!unknown_projectIdentifier) return value_projectIdentifier;
+        throw new UndeferrableValueException("Value 'EnvironmentArgs.projectIdentifier' is not present");
     }
 
-    private UndeferrableValue<EnvironmentTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private EnvironmentTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public EnvironmentTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("EnvironmentArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'EnvironmentArgs.timeouts' is not present");
     }
 
     /**
      * The user parameters that are used in the environment. See User Parameters for more information.
      * 
      */
-    private UndeferrableValue<List<EnvironmentUserParameterArgs>> userParameters;
-
+    @PolicyResourceProperty(name="userParameters", flag="unknown_userParameters")
+    private List<EnvironmentUserParameterArgs> value_userParameters;
+    private boolean unknown_userParameters;
     public List<EnvironmentUserParameterArgs> userParameters() {
-        if (userParameters == null) return null;
-        return userParameters.getValue("EnvironmentArgs.userParameters");
+        if (!unknown_userParameters) return value_userParameters;
+        throw new UndeferrableValueException("Value 'EnvironmentArgs.userParameters' is not present");
     }
 
 }

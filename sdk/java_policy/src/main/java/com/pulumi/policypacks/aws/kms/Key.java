@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kms;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,11 +20,12 @@ public final class Key extends com.pulumi.resources.PolicyResourceOutput {
      * The Amazon Resource Name (ARN) of the key.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Key.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Key.arn' is not present");
     }
 
     /**
@@ -33,22 +35,24 @@ public final class Key extends com.pulumi.resources.PolicyResourceOutput {
      * The default value is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> bypassPolicyLockoutSafetyCheck;
-
+    @PolicyResourceProperty(name="bypassPolicyLockoutSafetyCheck", flag="unknown_bypassPolicyLockoutSafetyCheck")
+    private @Nullable Boolean value_bypassPolicyLockoutSafetyCheck;
+    private boolean unknown_bypassPolicyLockoutSafetyCheck;
     public @Nullable Boolean bypassPolicyLockoutSafetyCheck() {
-        if (bypassPolicyLockoutSafetyCheck == null) return null;
-        return bypassPolicyLockoutSafetyCheck.getValue("Key.bypassPolicyLockoutSafetyCheck");
+        if (!unknown_bypassPolicyLockoutSafetyCheck) return value_bypassPolicyLockoutSafetyCheck;
+        throw new UndeferrableValueException("Value 'Key.bypassPolicyLockoutSafetyCheck' is not present");
     }
 
     /**
      * ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
      * 
      */
-    private @Nullable UndeferrableValue<String> customKeyStoreId;
-
+    @PolicyResourceProperty(name="customKeyStoreId", flag="unknown_customKeyStoreId")
+    private @Nullable String value_customKeyStoreId;
+    private boolean unknown_customKeyStoreId;
     public @Nullable String customKeyStoreId() {
-        if (customKeyStoreId == null) return null;
-        return customKeyStoreId.getValue("Key.customKeyStoreId");
+        if (!unknown_customKeyStoreId) return value_customKeyStoreId;
+        throw new UndeferrableValueException("Value 'Key.customKeyStoreId' is not present");
     }
 
     /**
@@ -56,11 +60,12 @@ public final class Key extends com.pulumi.resources.PolicyResourceOutput {
      * Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_256`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
      * 
      */
-    private @Nullable UndeferrableValue<String> customerMasterKeySpec;
-
+    @PolicyResourceProperty(name="customerMasterKeySpec", flag="unknown_customerMasterKeySpec")
+    private @Nullable String value_customerMasterKeySpec;
+    private boolean unknown_customerMasterKeySpec;
     public @Nullable String customerMasterKeySpec() {
-        if (customerMasterKeySpec == null) return null;
-        return customerMasterKeySpec.getValue("Key.customerMasterKeySpec");
+        if (!unknown_customerMasterKeySpec) return value_customerMasterKeySpec;
+        throw new UndeferrableValueException("Value 'Key.customerMasterKeySpec' is not present");
     }
 
     /**
@@ -69,55 +74,60 @@ public final class Key extends com.pulumi.resources.PolicyResourceOutput {
      * If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> deletionWindowInDays;
-
+    @PolicyResourceProperty(name="deletionWindowInDays", flag="unknown_deletionWindowInDays")
+    private @Nullable Integer value_deletionWindowInDays;
+    private boolean unknown_deletionWindowInDays;
     public @Nullable Integer deletionWindowInDays() {
-        if (deletionWindowInDays == null) return null;
-        return deletionWindowInDays.getValue("Key.deletionWindowInDays");
+        if (!unknown_deletionWindowInDays) return value_deletionWindowInDays;
+        throw new UndeferrableValueException("Value 'Key.deletionWindowInDays' is not present");
     }
 
     /**
      * The description of the key as viewed in AWS console.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("Key.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Key.description' is not present");
     }
 
     /**
      * Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enableKeyRotation;
-
+    @PolicyResourceProperty(name="enableKeyRotation", flag="unknown_enableKeyRotation")
+    private @Nullable Boolean value_enableKeyRotation;
+    private boolean unknown_enableKeyRotation;
     public @Nullable Boolean enableKeyRotation() {
-        if (enableKeyRotation == null) return null;
-        return enableKeyRotation.getValue("Key.enableKeyRotation");
+        if (!unknown_enableKeyRotation) return value_enableKeyRotation;
+        throw new UndeferrableValueException("Value 'Key.enableKeyRotation' is not present");
     }
 
     /**
      * Specifies whether the key is enabled. Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> isEnabled;
-
+    @PolicyResourceProperty(name="isEnabled", flag="unknown_isEnabled")
+    private @Nullable Boolean value_isEnabled;
+    private boolean unknown_isEnabled;
     public @Nullable Boolean isEnabled() {
-        if (isEnabled == null) return null;
-        return isEnabled.getValue("Key.isEnabled");
+        if (!unknown_isEnabled) return value_isEnabled;
+        throw new UndeferrableValueException("Value 'Key.isEnabled' is not present");
     }
 
     /**
      * The globally unique identifier for the key.
      * 
      */
-    private UndeferrableValue<String> keyId;
-
+    @PolicyResourceProperty(name="keyId", flag="unknown_keyId")
+    private String value_keyId;
+    private boolean unknown_keyId;
     public String keyId() {
-        if (keyId == null) return null;
-        return keyId.getValue("Key.keyId");
+        if (!unknown_keyId) return value_keyId;
+        throw new UndeferrableValueException("Value 'Key.keyId' is not present");
     }
 
     /**
@@ -125,22 +135,24 @@ public final class Key extends com.pulumi.resources.PolicyResourceOutput {
      * Defaults to `ENCRYPT_DECRYPT`.
      * 
      */
-    private @Nullable UndeferrableValue<String> keyUsage;
-
+    @PolicyResourceProperty(name="keyUsage", flag="unknown_keyUsage")
+    private @Nullable String value_keyUsage;
+    private boolean unknown_keyUsage;
     public @Nullable String keyUsage() {
-        if (keyUsage == null) return null;
-        return keyUsage.getValue("Key.keyUsage");
+        if (!unknown_keyUsage) return value_keyUsage;
+        throw new UndeferrableValueException("Value 'Key.keyUsage' is not present");
     }
 
     /**
      * Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> multiRegion;
-
+    @PolicyResourceProperty(name="multiRegion", flag="unknown_multiRegion")
+    private Boolean value_multiRegion;
+    private boolean unknown_multiRegion;
     public Boolean multiRegion() {
-        if (multiRegion == null) return null;
-        return multiRegion.getValue("Key.multiRegion");
+        if (!unknown_multiRegion) return value_multiRegion;
+        throw new UndeferrableValueException("Value 'Key.multiRegion' is not present");
     }
 
     /**
@@ -149,33 +161,36 @@ public final class Key extends com.pulumi.resources.PolicyResourceOutput {
      * &gt; **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("Key.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'Key.policy' is not present");
     }
 
     /**
      * Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
      * 
      */
-    private UndeferrableValue<Integer> rotationPeriodInDays;
-
+    @PolicyResourceProperty(name="rotationPeriodInDays", flag="unknown_rotationPeriodInDays")
+    private Integer value_rotationPeriodInDays;
+    private boolean unknown_rotationPeriodInDays;
     public Integer rotationPeriodInDays() {
-        if (rotationPeriodInDays == null) return null;
-        return rotationPeriodInDays.getValue("Key.rotationPeriodInDays");
+        if (!unknown_rotationPeriodInDays) return value_rotationPeriodInDays;
+        throw new UndeferrableValueException("Value 'Key.rotationPeriodInDays' is not present");
     }
 
     /**
      * A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Key.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Key.tags' is not present");
     }
 
     /**
@@ -186,22 +201,24 @@ public final class Key extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Key.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Key.tagsAll' is not present");
     }
 
     /**
      * Identifies the external key that serves as key material for the KMS key in an external key store.
      * 
      */
-    private @Nullable UndeferrableValue<String> xksKeyId;
-
+    @PolicyResourceProperty(name="xksKeyId", flag="unknown_xksKeyId")
+    private @Nullable String value_xksKeyId;
+    private boolean unknown_xksKeyId;
     public @Nullable String xksKeyId() {
-        if (xksKeyId == null) return null;
-        return xksKeyId.getValue("Key.xksKeyId");
+        if (!unknown_xksKeyId) return value_xksKeyId;
+        throw new UndeferrableValueException("Value 'Key.xksKeyId' is not present");
     }
 
 }

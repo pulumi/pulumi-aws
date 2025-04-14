@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class VirtualNodeSpecListenerPortMappingArgs {
      * Port used for the port mapping.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("VirtualNodeSpecListenerPortMappingArgs.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerPortMappingArgs.port' is not present");
     }
 
     /**
      * Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("VirtualNodeSpecListenerPortMappingArgs.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerPortMappingArgs.protocol' is not present");
     }
 
 }

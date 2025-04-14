@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.redshift.outputs.EndpointAccessVpcEndpointNetworkInterface;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class EndpointAccessVpcEndpoint {
      * One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
      * 
      */
-    private @Nullable UndeferrableValue<List<EndpointAccessVpcEndpointNetworkInterface>> networkInterfaces;
-
+    @PolicyResourceProperty(name="networkInterfaces", flag="unknown_networkInterfaces")
+    private @Nullable List<EndpointAccessVpcEndpointNetworkInterface> value_networkInterfaces;
+    private boolean unknown_networkInterfaces;
     public @Nullable List<EndpointAccessVpcEndpointNetworkInterface> networkInterfaces() {
-        if (networkInterfaces == null) return null;
-        return networkInterfaces.getValue("EndpointAccessVpcEndpoint.networkInterfaces");
+        if (!unknown_networkInterfaces) return value_networkInterfaces;
+        throw new UndeferrableValueException("Value 'EndpointAccessVpcEndpoint.networkInterfaces' is not present");
     }
 
     /**
      * The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
      * 
      */
-    private @Nullable UndeferrableValue<String> vpcEndpointId;
-
+    @PolicyResourceProperty(name="vpcEndpointId", flag="unknown_vpcEndpointId")
+    private @Nullable String value_vpcEndpointId;
+    private boolean unknown_vpcEndpointId;
     public @Nullable String vpcEndpointId() {
-        if (vpcEndpointId == null) return null;
-        return vpcEndpointId.getValue("EndpointAccessVpcEndpoint.vpcEndpointId");
+        if (!unknown_vpcEndpointId) return value_vpcEndpointId;
+        throw new UndeferrableValueException("Value 'EndpointAccessVpcEndpoint.vpcEndpointId' is not present");
     }
 
     /**
      * The VPC identifier that the endpoint is associated.
      * 
      */
-    private @Nullable UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private @Nullable String value_vpcId;
+    private boolean unknown_vpcId;
     public @Nullable String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("EndpointAccessVpcEndpoint.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'EndpointAccessVpcEndpoint.vpcId' is not present");
     }
 
 }

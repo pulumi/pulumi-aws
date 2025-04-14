@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fms.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.fms.inputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
      * Defines NACL entries for Network ACL policy. See the `network_acl_entry_set` block.
      * 
      */
-    private UndeferrableValue<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs> networkAclEntrySet;
-
+    @PolicyResourceProperty(name="networkAclEntrySet", flag="unknown_networkAclEntrySet")
+    private PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs value_networkAclEntrySet;
+    private boolean unknown_networkAclEntrySet;
     public PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs networkAclEntrySet() {
-        if (networkAclEntrySet == null) return null;
-        return networkAclEntrySet.getValue("PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs.networkAclEntrySet");
+        if (!unknown_networkAclEntrySet) return value_networkAclEntrySet;
+        throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs.networkAclEntrySet' is not present");
     }
 
 }

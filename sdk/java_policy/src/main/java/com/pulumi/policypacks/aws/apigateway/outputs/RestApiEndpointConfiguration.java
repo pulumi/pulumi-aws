@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class RestApiEndpointConfiguration {
      * List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. If set to `PRIVATE` recommend to set `put_rest_api_mode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
      * 
      */
-    private UndeferrableValue<String> types;
-
+    @PolicyResourceProperty(name="types", flag="unknown_types")
+    private String value_types;
+    private boolean unknown_types;
     public String types() {
-        if (types == null) return null;
-        return types.getValue("RestApiEndpointConfiguration.types");
+        if (!unknown_types) return value_types;
+        throw new UndeferrableValueException("Value 'RestApiEndpointConfiguration.types' is not present");
     }
 
     /**
      * Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, **the argument value will override the OpenAPI value**.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> vpcEndpointIds;
-
+    @PolicyResourceProperty(name="vpcEndpointIds", flag="unknown_vpcEndpointIds")
+    private @Nullable List<String> value_vpcEndpointIds;
+    private boolean unknown_vpcEndpointIds;
     public @Nullable List<String> vpcEndpointIds() {
-        if (vpcEndpointIds == null) return null;
-        return vpcEndpointIds.getValue("RestApiEndpointConfiguration.vpcEndpointIds");
+        if (!unknown_vpcEndpointIds) return value_vpcEndpointIds;
+        throw new UndeferrableValueException("Value 'RestApiEndpointConfiguration.vpcEndpointIds' is not present");
     }
 
 }

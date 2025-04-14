@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscalingplans.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.autoscalingplans.inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs;
 import com.pulumi.policypacks.aws.autoscalingplans.inputs.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs;
 import java.lang.Boolean;
@@ -19,22 +20,24 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).
      * 
      */
-    private UndeferrableValue<ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs> customizedScalingMetricSpecification;
-
+    @PolicyResourceProperty(name="customizedScalingMetricSpecification", flag="unknown_customizedScalingMetricSpecification")
+    private ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs value_customizedScalingMetricSpecification;
+    private boolean unknown_customizedScalingMetricSpecification;
     public ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs customizedScalingMetricSpecification() {
-        if (customizedScalingMetricSpecification == null) return null;
-        return customizedScalingMetricSpecification.getValue("ScalingPlanScalingInstructionTargetTrackingConfigurationArgs.customizedScalingMetricSpecification");
+        if (!unknown_customizedScalingMetricSpecification) return value_customizedScalingMetricSpecification;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionTargetTrackingConfigurationArgs.customizedScalingMetricSpecification' is not present");
     }
 
     /**
      * Boolean indicating whether scale in by the target tracking scaling policy is disabled. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> disableScaleIn;
-
+    @PolicyResourceProperty(name="disableScaleIn", flag="unknown_disableScaleIn")
+    private Boolean value_disableScaleIn;
+    private boolean unknown_disableScaleIn;
     public Boolean disableScaleIn() {
-        if (disableScaleIn == null) return null;
-        return disableScaleIn.getValue("ScalingPlanScalingInstructionTargetTrackingConfigurationArgs.disableScaleIn");
+        if (!unknown_disableScaleIn) return value_disableScaleIn;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionTargetTrackingConfigurationArgs.disableScaleIn' is not present");
     }
 
     /**
@@ -42,11 +45,12 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
      * This value is used only if the resource is an Auto Scaling group.
      * 
      */
-    private UndeferrableValue<Integer> estimatedInstanceWarmup;
-
+    @PolicyResourceProperty(name="estimatedInstanceWarmup", flag="unknown_estimatedInstanceWarmup")
+    private Integer value_estimatedInstanceWarmup;
+    private boolean unknown_estimatedInstanceWarmup;
     public Integer estimatedInstanceWarmup() {
-        if (estimatedInstanceWarmup == null) return null;
-        return estimatedInstanceWarmup.getValue("ScalingPlanScalingInstructionTargetTrackingConfigurationArgs.estimatedInstanceWarmup");
+        if (!unknown_estimatedInstanceWarmup) return value_estimatedInstanceWarmup;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionTargetTrackingConfigurationArgs.estimatedInstanceWarmup' is not present");
     }
 
     /**
@@ -54,11 +58,12 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
      * More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).
      * 
      */
-    private UndeferrableValue<ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs> predefinedScalingMetricSpecification;
-
+    @PolicyResourceProperty(name="predefinedScalingMetricSpecification", flag="unknown_predefinedScalingMetricSpecification")
+    private ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs value_predefinedScalingMetricSpecification;
+    private boolean unknown_predefinedScalingMetricSpecification;
     public ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs predefinedScalingMetricSpecification() {
-        if (predefinedScalingMetricSpecification == null) return null;
-        return predefinedScalingMetricSpecification.getValue("ScalingPlanScalingInstructionTargetTrackingConfigurationArgs.predefinedScalingMetricSpecification");
+        if (!unknown_predefinedScalingMetricSpecification) return value_predefinedScalingMetricSpecification;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionTargetTrackingConfigurationArgs.predefinedScalingMetricSpecification' is not present");
     }
 
     /**
@@ -66,11 +71,12 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
      * This value is not used if the scalable resource is an Auto Scaling group.
      * 
      */
-    private UndeferrableValue<Integer> scaleInCooldown;
-
+    @PolicyResourceProperty(name="scaleInCooldown", flag="unknown_scaleInCooldown")
+    private Integer value_scaleInCooldown;
+    private boolean unknown_scaleInCooldown;
     public Integer scaleInCooldown() {
-        if (scaleInCooldown == null) return null;
-        return scaleInCooldown.getValue("ScalingPlanScalingInstructionTargetTrackingConfigurationArgs.scaleInCooldown");
+        if (!unknown_scaleInCooldown) return value_scaleInCooldown;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionTargetTrackingConfigurationArgs.scaleInCooldown' is not present");
     }
 
     /**
@@ -78,22 +84,24 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationArgs 
      * This value is not used if the scalable resource is an Auto Scaling group.
      * 
      */
-    private UndeferrableValue<Integer> scaleOutCooldown;
-
+    @PolicyResourceProperty(name="scaleOutCooldown", flag="unknown_scaleOutCooldown")
+    private Integer value_scaleOutCooldown;
+    private boolean unknown_scaleOutCooldown;
     public Integer scaleOutCooldown() {
-        if (scaleOutCooldown == null) return null;
-        return scaleOutCooldown.getValue("ScalingPlanScalingInstructionTargetTrackingConfigurationArgs.scaleOutCooldown");
+        if (!unknown_scaleOutCooldown) return value_scaleOutCooldown;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionTargetTrackingConfigurationArgs.scaleOutCooldown' is not present");
     }
 
     /**
      * Target value for the metric.
      * 
      */
-    private UndeferrableValue<Double> targetValue;
-
+    @PolicyResourceProperty(name="targetValue", flag="unknown_targetValue")
+    private Double value_targetValue;
+    private boolean unknown_targetValue;
     public Double targetValue() {
-        if (targetValue == null) return null;
-        return targetValue.getValue("ScalingPlanScalingInstructionTargetTrackingConfigurationArgs.targetValue");
+        if (!unknown_targetValue) return value_targetValue;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionTargetTrackingConfigurationArgs.targetValue' is not present");
     }
 
 }

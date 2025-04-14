@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.signer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.signer.inputs.SigningJobDestinationArgs;
 import com.pulumi.policypacks.aws.signer.inputs.SigningJobSourceArgs;
@@ -19,44 +20,48 @@ public final class SigningJobArgs extends com.pulumi.resources.PolicyResourceInp
      * The S3 bucket in which to save your signed object. See Destination below for details.
      * 
      */
-    private UndeferrableValue<SigningJobDestinationArgs> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private SigningJobDestinationArgs value_destination;
+    private boolean unknown_destination;
     public SigningJobDestinationArgs destination() {
-        if (destination == null) return null;
-        return destination.getValue("SigningJobArgs.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'SigningJobArgs.destination' is not present");
     }
 
     /**
      * Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
      * 
      */
-    private UndeferrableValue<Boolean> ignoreSigningJobFailure;
-
+    @PolicyResourceProperty(name="ignoreSigningJobFailure", flag="unknown_ignoreSigningJobFailure")
+    private Boolean value_ignoreSigningJobFailure;
+    private boolean unknown_ignoreSigningJobFailure;
     public Boolean ignoreSigningJobFailure() {
-        if (ignoreSigningJobFailure == null) return null;
-        return ignoreSigningJobFailure.getValue("SigningJobArgs.ignoreSigningJobFailure");
+        if (!unknown_ignoreSigningJobFailure) return value_ignoreSigningJobFailure;
+        throw new UndeferrableValueException("Value 'SigningJobArgs.ignoreSigningJobFailure' is not present");
     }
 
     /**
      * The name of the profile to initiate the signing operation.
      * 
      */
-    private UndeferrableValue<String> profileName;
-
+    @PolicyResourceProperty(name="profileName", flag="unknown_profileName")
+    private String value_profileName;
+    private boolean unknown_profileName;
     public String profileName() {
-        if (profileName == null) return null;
-        return profileName.getValue("SigningJobArgs.profileName");
+        if (!unknown_profileName) return value_profileName;
+        throw new UndeferrableValueException("Value 'SigningJobArgs.profileName' is not present");
     }
 
     /**
      * The S3 bucket that contains the object to sign. See Source below for details.
      * 
      */
-    private UndeferrableValue<SigningJobSourceArgs> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private SigningJobSourceArgs value_source;
+    private boolean unknown_source;
     public SigningJobSourceArgs source() {
-        if (source == null) return null;
-        return source.getValue("SigningJobArgs.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'SigningJobArgs.source' is not present");
     }
 
 }

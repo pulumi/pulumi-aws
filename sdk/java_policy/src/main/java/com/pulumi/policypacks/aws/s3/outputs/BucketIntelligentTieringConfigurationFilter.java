@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class BucketIntelligentTieringConfigurationFilter {
      * Object key name prefix that identifies the subset of objects to which the configuration applies.
      * 
      */
-    private @Nullable UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private @Nullable String value_prefix;
+    private boolean unknown_prefix;
     public @Nullable String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("BucketIntelligentTieringConfigurationFilter.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'BucketIntelligentTieringConfigurationFilter.prefix' is not present");
     }
 
     /**
      * All of these tags must exist in the object&#39;s tag set in order for the configuration to apply.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("BucketIntelligentTieringConfigurationFilter.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'BucketIntelligentTieringConfigurationFilter.tags' is not present");
     }
 
 }

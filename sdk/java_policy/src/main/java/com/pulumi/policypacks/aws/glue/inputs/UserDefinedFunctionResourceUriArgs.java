@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class UserDefinedFunctionResourceUriArgs {
      * The type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
      * 
      */
-    private UndeferrableValue<String> resourceType;
-
+    @PolicyResourceProperty(name="resourceType", flag="unknown_resourceType")
+    private String value_resourceType;
+    private boolean unknown_resourceType;
     public String resourceType() {
-        if (resourceType == null) return null;
-        return resourceType.getValue("UserDefinedFunctionResourceUriArgs.resourceType");
+        if (!unknown_resourceType) return value_resourceType;
+        throw new UndeferrableValueException("Value 'UserDefinedFunctionResourceUriArgs.resourceType' is not present");
     }
 
     /**
      * The URI for accessing the resource.
      * 
      */
-    private UndeferrableValue<String> uri;
-
+    @PolicyResourceProperty(name="uri", flag="unknown_uri")
+    private String value_uri;
+    private boolean unknown_uri;
     public String uri() {
-        if (uri == null) return null;
-        return uri.getValue("UserDefinedFunctionResourceUriArgs.uri");
+        if (!unknown_uri) return value_uri;
+        throw new UndeferrableValueException("Value 'UserDefinedFunctionResourceUriArgs.uri' is not present");
     }
 
 }

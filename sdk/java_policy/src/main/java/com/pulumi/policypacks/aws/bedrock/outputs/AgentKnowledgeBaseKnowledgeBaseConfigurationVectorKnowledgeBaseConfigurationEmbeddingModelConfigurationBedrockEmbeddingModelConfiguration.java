@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
      * Dimension details for the vector configuration used on the Bedrock embeddings model.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> dimensions;
-
+    @PolicyResourceProperty(name="dimensions", flag="unknown_dimensions")
+    private @Nullable Integer value_dimensions;
+    private boolean unknown_dimensions;
     public @Nullable Integer dimensions() {
-        if (dimensions == null) return null;
-        return dimensions.getValue("AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration.dimensions");
+        if (!unknown_dimensions) return value_dimensions;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration.dimensions' is not present");
     }
 
     /**
      * Data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings.  Valid values are `FLOAT32` and `BINARY`.
      * 
      */
-    private @Nullable UndeferrableValue<String> embeddingDataType;
-
+    @PolicyResourceProperty(name="embeddingDataType", flag="unknown_embeddingDataType")
+    private @Nullable String value_embeddingDataType;
+    private boolean unknown_embeddingDataType;
     public @Nullable String embeddingDataType() {
-        if (embeddingDataType == null) return null;
-        return embeddingDataType.getValue("AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration.embeddingDataType");
+        if (!unknown_embeddingDataType) return value_embeddingDataType;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration.embeddingDataType' is not present");
     }
 
 }

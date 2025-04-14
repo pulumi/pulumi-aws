@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elastictranscoder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,88 +15,96 @@ public final class PresetThumbnails {
      * The aspect ratio of thumbnails. The following values are valid: auto, 1:1, 4:3, 3:2, 16:9
      * 
      */
-    private @Nullable UndeferrableValue<String> aspectRatio;
-
+    @PolicyResourceProperty(name="aspectRatio", flag="unknown_aspectRatio")
+    private @Nullable String value_aspectRatio;
+    private boolean unknown_aspectRatio;
     public @Nullable String aspectRatio() {
-        if (aspectRatio == null) return null;
-        return aspectRatio.getValue("PresetThumbnails.aspectRatio");
+        if (!unknown_aspectRatio) return value_aspectRatio;
+        throw new UndeferrableValueException("Value 'PresetThumbnails.aspectRatio' is not present");
     }
 
     /**
      * The format of thumbnails, if any. Valid formats are jpg and png.
      * 
      */
-    private @Nullable UndeferrableValue<String> format;
-
+    @PolicyResourceProperty(name="format", flag="unknown_format")
+    private @Nullable String value_format;
+    private boolean unknown_format;
     public @Nullable String format() {
-        if (format == null) return null;
-        return format.getValue("PresetThumbnails.format");
+        if (!unknown_format) return value_format;
+        throw new UndeferrableValueException("Value 'PresetThumbnails.format' is not present");
     }
 
     /**
      * The approximate number of seconds between thumbnails. The value must be an integer. The actual interval can vary by several seconds from one thumbnail to the next.
      * 
      */
-    private @Nullable UndeferrableValue<String> interval;
-
+    @PolicyResourceProperty(name="interval", flag="unknown_interval")
+    private @Nullable String value_interval;
+    private boolean unknown_interval;
     public @Nullable String interval() {
-        if (interval == null) return null;
-        return interval.getValue("PresetThumbnails.interval");
+        if (!unknown_interval) return value_interval;
+        throw new UndeferrableValueException("Value 'PresetThumbnails.interval' is not present");
     }
 
     /**
      * The maximum height of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 3072, inclusive.
      * 
      */
-    private @Nullable UndeferrableValue<String> maxHeight;
-
+    @PolicyResourceProperty(name="maxHeight", flag="unknown_maxHeight")
+    private @Nullable String value_maxHeight;
+    private boolean unknown_maxHeight;
     public @Nullable String maxHeight() {
-        if (maxHeight == null) return null;
-        return maxHeight.getValue("PresetThumbnails.maxHeight");
+        if (!unknown_maxHeight) return value_maxHeight;
+        throw new UndeferrableValueException("Value 'PresetThumbnails.maxHeight' is not present");
     }
 
     /**
      * The maximum width of thumbnails, in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 32 and 4096, inclusive.
      * 
      */
-    private @Nullable UndeferrableValue<String> maxWidth;
-
+    @PolicyResourceProperty(name="maxWidth", flag="unknown_maxWidth")
+    private @Nullable String value_maxWidth;
+    private boolean unknown_maxWidth;
     public @Nullable String maxWidth() {
-        if (maxWidth == null) return null;
-        return maxWidth.getValue("PresetThumbnails.maxWidth");
+        if (!unknown_maxWidth) return value_maxWidth;
+        throw new UndeferrableValueException("Value 'PresetThumbnails.maxWidth' is not present");
     }
 
     /**
      * When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of thumbnails to make the total size of the thumbnails match the values that you specified for thumbnail MaxWidth and MaxHeight settings.
      * 
      */
-    private @Nullable UndeferrableValue<String> paddingPolicy;
-
+    @PolicyResourceProperty(name="paddingPolicy", flag="unknown_paddingPolicy")
+    private @Nullable String value_paddingPolicy;
+    private boolean unknown_paddingPolicy;
     public @Nullable String paddingPolicy() {
-        if (paddingPolicy == null) return null;
-        return paddingPolicy.getValue("PresetThumbnails.paddingPolicy");
+        if (!unknown_paddingPolicy) return value_paddingPolicy;
+        throw new UndeferrableValueException("Value 'PresetThumbnails.paddingPolicy' is not present");
     }
 
     /**
      * The width and height of thumbnail files in pixels, in the format WidthxHeight, where both values are even integers. The values cannot exceed the width and height that you specified in the Video:Resolution object. (To better control resolution and aspect ratio of thumbnails, we recommend that you use the thumbnail values `max_width`, `max_height`, `sizing_policy`, and `padding_policy` instead of `resolution` and `aspect_ratio`. The two groups of settings are mutually exclusive. Do not use them together)
      * 
      */
-    private @Nullable UndeferrableValue<String> resolution;
-
+    @PolicyResourceProperty(name="resolution", flag="unknown_resolution")
+    private @Nullable String value_resolution;
+    private boolean unknown_resolution;
     public @Nullable String resolution() {
-        if (resolution == null) return null;
-        return resolution.getValue("PresetThumbnails.resolution");
+        if (!unknown_resolution) return value_resolution;
+        throw new UndeferrableValueException("Value 'PresetThumbnails.resolution' is not present");
     }
 
     /**
      * A value that controls scaling of thumbnails. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, and `ShrinkToFill`.
      * 
      */
-    private @Nullable UndeferrableValue<String> sizingPolicy;
-
+    @PolicyResourceProperty(name="sizingPolicy", flag="unknown_sizingPolicy")
+    private @Nullable String value_sizingPolicy;
+    private boolean unknown_sizingPolicy;
     public @Nullable String sizingPolicy() {
-        if (sizingPolicy == null) return null;
-        return sizingPolicy.getValue("PresetThumbnails.sizingPolicy");
+        if (!unknown_sizingPolicy) return value_sizingPolicy;
+        throw new UndeferrableValueException("Value 'PresetThumbnails.sizingPolicy' is not present");
     }
 
 }

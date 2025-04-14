@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.batch.outputs.ComputeEnvironmentComputeResources;
 import com.pulumi.policypacks.aws.batch.outputs.ComputeEnvironmentEksConfiguration;
@@ -20,121 +21,132 @@ public final class ComputeEnvironment extends com.pulumi.resources.PolicyResourc
      * The Amazon Resource Name (ARN) of the compute environment.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ComputeEnvironment.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ComputeEnvironment.arn' is not present");
     }
 
     /**
      * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
      * 
      */
-    private UndeferrableValue<String> computeEnvironmentName;
-
+    @PolicyResourceProperty(name="computeEnvironmentName", flag="unknown_computeEnvironmentName")
+    private String value_computeEnvironmentName;
+    private boolean unknown_computeEnvironmentName;
     public String computeEnvironmentName() {
-        if (computeEnvironmentName == null) return null;
-        return computeEnvironmentName.getValue("ComputeEnvironment.computeEnvironmentName");
+        if (!unknown_computeEnvironmentName) return value_computeEnvironmentName;
+        throw new UndeferrableValueException("Value 'ComputeEnvironment.computeEnvironmentName' is not present");
     }
 
     /**
      * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
      * 
      */
-    private UndeferrableValue<String> computeEnvironmentNamePrefix;
-
+    @PolicyResourceProperty(name="computeEnvironmentNamePrefix", flag="unknown_computeEnvironmentNamePrefix")
+    private String value_computeEnvironmentNamePrefix;
+    private boolean unknown_computeEnvironmentNamePrefix;
     public String computeEnvironmentNamePrefix() {
-        if (computeEnvironmentNamePrefix == null) return null;
-        return computeEnvironmentNamePrefix.getValue("ComputeEnvironment.computeEnvironmentNamePrefix");
+        if (!unknown_computeEnvironmentNamePrefix) return value_computeEnvironmentNamePrefix;
+        throw new UndeferrableValueException("Value 'ComputeEnvironment.computeEnvironmentNamePrefix' is not present");
     }
 
     /**
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      * 
      */
-    private @Nullable UndeferrableValue<ComputeEnvironmentComputeResources> computeResources;
-
+    @PolicyResourceProperty(name="computeResources", flag="unknown_computeResources")
+    private @Nullable ComputeEnvironmentComputeResources value_computeResources;
+    private boolean unknown_computeResources;
     public @Nullable ComputeEnvironmentComputeResources computeResources() {
-        if (computeResources == null) return null;
-        return computeResources.getValue("ComputeEnvironment.computeResources");
+        if (!unknown_computeResources) return value_computeResources;
+        throw new UndeferrableValueException("Value 'ComputeEnvironment.computeResources' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
      * 
      */
-    private UndeferrableValue<String> ecsClusterArn;
-
+    @PolicyResourceProperty(name="ecsClusterArn", flag="unknown_ecsClusterArn")
+    private String value_ecsClusterArn;
+    private boolean unknown_ecsClusterArn;
     public String ecsClusterArn() {
-        if (ecsClusterArn == null) return null;
-        return ecsClusterArn.getValue("ComputeEnvironment.ecsClusterArn");
+        if (!unknown_ecsClusterArn) return value_ecsClusterArn;
+        throw new UndeferrableValueException("Value 'ComputeEnvironment.ecsClusterArn' is not present");
     }
 
     /**
      * Details for the Amazon EKS cluster that supports the compute environment. See details below.
      * 
      */
-    private @Nullable UndeferrableValue<ComputeEnvironmentEksConfiguration> eksConfiguration;
-
+    @PolicyResourceProperty(name="eksConfiguration", flag="unknown_eksConfiguration")
+    private @Nullable ComputeEnvironmentEksConfiguration value_eksConfiguration;
+    private boolean unknown_eksConfiguration;
     public @Nullable ComputeEnvironmentEksConfiguration eksConfiguration() {
-        if (eksConfiguration == null) return null;
-        return eksConfiguration.getValue("ComputeEnvironment.eksConfiguration");
+        if (!unknown_eksConfiguration) return value_eksConfiguration;
+        throw new UndeferrableValueException("Value 'ComputeEnvironment.eksConfiguration' is not present");
     }
 
     /**
      * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      * 
      */
-    private UndeferrableValue<String> serviceRole;
-
+    @PolicyResourceProperty(name="serviceRole", flag="unknown_serviceRole")
+    private String value_serviceRole;
+    private boolean unknown_serviceRole;
     public String serviceRole() {
-        if (serviceRole == null) return null;
-        return serviceRole.getValue("ComputeEnvironment.serviceRole");
+        if (!unknown_serviceRole) return value_serviceRole;
+        throw new UndeferrableValueException("Value 'ComputeEnvironment.serviceRole' is not present");
     }
 
     /**
      * The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private @Nullable String value_state;
+    private boolean unknown_state;
     public @Nullable String state() {
-        if (state == null) return null;
-        return state.getValue("ComputeEnvironment.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'ComputeEnvironment.state' is not present");
     }
 
     /**
      * The current status of the compute environment (for example, CREATING or VALID).
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("ComputeEnvironment.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'ComputeEnvironment.status' is not present");
     }
 
     /**
      * A short, human-readable string to provide additional details about the current status of the compute environment.
      * 
      */
-    private UndeferrableValue<String> statusReason;
-
+    @PolicyResourceProperty(name="statusReason", flag="unknown_statusReason")
+    private String value_statusReason;
+    private boolean unknown_statusReason;
     public String statusReason() {
-        if (statusReason == null) return null;
-        return statusReason.getValue("ComputeEnvironment.statusReason");
+        if (!unknown_statusReason) return value_statusReason;
+        throw new UndeferrableValueException("Value 'ComputeEnvironment.statusReason' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ComputeEnvironment.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ComputeEnvironment.tags' is not present");
     }
 
     /**
@@ -145,33 +157,36 @@ public final class ComputeEnvironment extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ComputeEnvironment.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ComputeEnvironment.tagsAll' is not present");
     }
 
     /**
      * The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ComputeEnvironment.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ComputeEnvironment.type' is not present");
     }
 
     /**
      * Specifies the infrastructure update policy for the compute environment. See details below.
      * 
      */
-    private @Nullable UndeferrableValue<ComputeEnvironmentUpdatePolicy> updatePolicy;
-
+    @PolicyResourceProperty(name="updatePolicy", flag="unknown_updatePolicy")
+    private @Nullable ComputeEnvironmentUpdatePolicy value_updatePolicy;
+    private boolean unknown_updatePolicy;
     public @Nullable ComputeEnvironmentUpdatePolicy updatePolicy() {
-        if (updatePolicy == null) return null;
-        return updatePolicy.getValue("ComputeEnvironment.updatePolicy");
+        if (!unknown_updatePolicy) return value_updatePolicy;
+        throw new UndeferrableValueException("Value 'ComputeEnvironment.updatePolicy' is not present");
     }
 
 }

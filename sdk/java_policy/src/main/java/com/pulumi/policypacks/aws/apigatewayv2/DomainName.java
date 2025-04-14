@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.apigatewayv2.outputs.DomainNameDomainNameConfiguration;
 import com.pulumi.policypacks.aws.apigatewayv2.outputs.DomainNameMutualTlsAuthentication;
@@ -19,66 +20,72 @@ public final class DomainName extends com.pulumi.resources.PolicyResourceOutput 
      * [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
      * 
      */
-    private UndeferrableValue<String> apiMappingSelectionExpression;
-
+    @PolicyResourceProperty(name="apiMappingSelectionExpression", flag="unknown_apiMappingSelectionExpression")
+    private String value_apiMappingSelectionExpression;
+    private boolean unknown_apiMappingSelectionExpression;
     public String apiMappingSelectionExpression() {
-        if (apiMappingSelectionExpression == null) return null;
-        return apiMappingSelectionExpression.getValue("DomainName.apiMappingSelectionExpression");
+        if (!unknown_apiMappingSelectionExpression) return value_apiMappingSelectionExpression;
+        throw new UndeferrableValueException("Value 'DomainName.apiMappingSelectionExpression' is not present");
     }
 
     /**
      * ARN of the domain name.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("DomainName.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'DomainName.arn' is not present");
     }
 
     /**
      * Domain name. Must be between 1 and 512 characters in length.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("DomainName.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'DomainName.domainName' is not present");
     }
 
     /**
      * Domain name configuration. See below.
      * 
      */
-    private UndeferrableValue<DomainNameDomainNameConfiguration> domainNameConfiguration;
-
+    @PolicyResourceProperty(name="domainNameConfiguration", flag="unknown_domainNameConfiguration")
+    private DomainNameDomainNameConfiguration value_domainNameConfiguration;
+    private boolean unknown_domainNameConfiguration;
     public DomainNameDomainNameConfiguration domainNameConfiguration() {
-        if (domainNameConfiguration == null) return null;
-        return domainNameConfiguration.getValue("DomainName.domainNameConfiguration");
+        if (!unknown_domainNameConfiguration) return value_domainNameConfiguration;
+        throw new UndeferrableValueException("Value 'DomainName.domainNameConfiguration' is not present");
     }
 
     /**
      * Mutual TLS authentication configuration for the domain name.
      * 
      */
-    private @Nullable UndeferrableValue<DomainNameMutualTlsAuthentication> mutualTlsAuthentication;
-
+    @PolicyResourceProperty(name="mutualTlsAuthentication", flag="unknown_mutualTlsAuthentication")
+    private @Nullable DomainNameMutualTlsAuthentication value_mutualTlsAuthentication;
+    private boolean unknown_mutualTlsAuthentication;
     public @Nullable DomainNameMutualTlsAuthentication mutualTlsAuthentication() {
-        if (mutualTlsAuthentication == null) return null;
-        return mutualTlsAuthentication.getValue("DomainName.mutualTlsAuthentication");
+        if (!unknown_mutualTlsAuthentication) return value_mutualTlsAuthentication;
+        throw new UndeferrableValueException("Value 'DomainName.mutualTlsAuthentication' is not present");
     }
 
     /**
      * Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DomainName.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DomainName.tags' is not present");
     }
 
     /**
@@ -89,11 +96,12 @@ public final class DomainName extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("DomainName.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'DomainName.tagsAll' is not present");
     }
 
 }

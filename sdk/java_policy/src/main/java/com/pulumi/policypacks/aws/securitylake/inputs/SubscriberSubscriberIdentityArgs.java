@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securitylake.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class SubscriberSubscriberIdentityArgs {
      * The AWS Regions where Security Lake is automatically enabled.
      * 
      */
-    private UndeferrableValue<String> externalId;
-
+    @PolicyResourceProperty(name="externalId", flag="unknown_externalId")
+    private String value_externalId;
+    private boolean unknown_externalId;
     public String externalId() {
-        if (externalId == null) return null;
-        return externalId.getValue("SubscriberSubscriberIdentityArgs.externalId");
+        if (!unknown_externalId) return value_externalId;
+        throw new UndeferrableValueException("Value 'SubscriberSubscriberIdentityArgs.externalId' is not present");
     }
 
     /**
      * Provides encryption details of Amazon Security Lake object.
      * 
      */
-    private UndeferrableValue<String> principal;
-
+    @PolicyResourceProperty(name="principal", flag="unknown_principal")
+    private String value_principal;
+    private boolean unknown_principal;
     public String principal() {
-        if (principal == null) return null;
-        return principal.getValue("SubscriberSubscriberIdentityArgs.principal");
+        if (!unknown_principal) return value_principal;
+        throw new UndeferrableValueException("Value 'SubscriberSubscriberIdentityArgs.principal' is not present");
     }
 
 }

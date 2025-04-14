@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.outputs.NetworkInsightsAnalysisReturnPathComponentAclRulePortRange;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -14,46 +15,52 @@ import javax.annotation.Nullable;
 
 public final class NetworkInsightsAnalysisReturnPathComponentAclRule {
 
-    private @Nullable UndeferrableValue<String> cidr;
-
+    @PolicyResourceProperty(name="cidr", flag="unknown_cidr")
+    private @Nullable String value_cidr;
+    private boolean unknown_cidr;
     public @Nullable String cidr() {
-        if (cidr == null) return null;
-        return cidr.getValue("NetworkInsightsAnalysisReturnPathComponentAclRule.cidr");
+        if (!unknown_cidr) return value_cidr;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentAclRule.cidr' is not present");
     }
 
-    private @Nullable UndeferrableValue<Boolean> egress;
-
+    @PolicyResourceProperty(name="egress", flag="unknown_egress")
+    private @Nullable Boolean value_egress;
+    private boolean unknown_egress;
     public @Nullable Boolean egress() {
-        if (egress == null) return null;
-        return egress.getValue("NetworkInsightsAnalysisReturnPathComponentAclRule.egress");
+        if (!unknown_egress) return value_egress;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentAclRule.egress' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisReturnPathComponentAclRulePortRange>> portRanges;
-
+    @PolicyResourceProperty(name="portRanges", flag="unknown_portRanges")
+    private @Nullable List<NetworkInsightsAnalysisReturnPathComponentAclRulePortRange> value_portRanges;
+    private boolean unknown_portRanges;
     public @Nullable List<NetworkInsightsAnalysisReturnPathComponentAclRulePortRange> portRanges() {
-        if (portRanges == null) return null;
-        return portRanges.getValue("NetworkInsightsAnalysisReturnPathComponentAclRule.portRanges");
+        if (!unknown_portRanges) return value_portRanges;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentAclRule.portRanges' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private @Nullable String value_protocol;
+    private boolean unknown_protocol;
     public @Nullable String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("NetworkInsightsAnalysisReturnPathComponentAclRule.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentAclRule.protocol' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> ruleAction;
-
+    @PolicyResourceProperty(name="ruleAction", flag="unknown_ruleAction")
+    private @Nullable String value_ruleAction;
+    private boolean unknown_ruleAction;
     public @Nullable String ruleAction() {
-        if (ruleAction == null) return null;
-        return ruleAction.getValue("NetworkInsightsAnalysisReturnPathComponentAclRule.ruleAction");
+        if (!unknown_ruleAction) return value_ruleAction;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentAclRule.ruleAction' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> ruleNumber;
-
+    @PolicyResourceProperty(name="ruleNumber", flag="unknown_ruleNumber")
+    private @Nullable Integer value_ruleNumber;
+    private boolean unknown_ruleNumber;
     public @Nullable Integer ruleNumber() {
-        if (ruleNumber == null) return null;
-        return ruleNumber.getValue("NetworkInsightsAnalysisReturnPathComponentAclRule.ruleNumber");
+        if (!unknown_ruleNumber) return value_ruleNumber;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentAclRule.ruleNumber' is not present");
     }
 
 }

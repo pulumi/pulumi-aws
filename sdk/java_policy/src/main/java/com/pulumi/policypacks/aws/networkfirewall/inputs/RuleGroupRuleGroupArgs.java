@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.networkfirewall.inputs.RuleGroupRuleGroupReferenceSetsArgs;
 import com.pulumi.policypacks.aws.networkfirewall.inputs.RuleGroupRuleGroupRuleVariablesArgs;
 import com.pulumi.policypacks.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceArgs;
@@ -17,44 +18,48 @@ public final class RuleGroupRuleGroupArgs {
      * A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details. Please notes that there can only be a maximum of 5 `reference_sets` in a `rule_group`. See the [AWS documentation](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-ip-set-reference-limits) for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleGroupReferenceSetsArgs> referenceSets;
-
+    @PolicyResourceProperty(name="referenceSets", flag="unknown_referenceSets")
+    private RuleGroupRuleGroupReferenceSetsArgs value_referenceSets;
+    private boolean unknown_referenceSets;
     public RuleGroupRuleGroupReferenceSetsArgs referenceSets() {
-        if (referenceSets == null) return null;
-        return referenceSets.getValue("RuleGroupRuleGroupArgs.referenceSets");
+        if (!unknown_referenceSets) return value_referenceSets;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupArgs.referenceSets' is not present");
     }
 
     /**
      * A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleGroupRuleVariablesArgs> ruleVariables;
-
+    @PolicyResourceProperty(name="ruleVariables", flag="unknown_ruleVariables")
+    private RuleGroupRuleGroupRuleVariablesArgs value_ruleVariables;
+    private boolean unknown_ruleVariables;
     public RuleGroupRuleGroupRuleVariablesArgs ruleVariables() {
-        if (ruleVariables == null) return null;
-        return ruleVariables.getValue("RuleGroupRuleGroupArgs.ruleVariables");
+        if (!unknown_ruleVariables) return value_ruleVariables;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupArgs.ruleVariables' is not present");
     }
 
     /**
      * A configuration block that defines the stateful or stateless rules for the rule group. See Rules Source below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleGroupRulesSourceArgs> rulesSource;
-
+    @PolicyResourceProperty(name="rulesSource", flag="unknown_rulesSource")
+    private RuleGroupRuleGroupRulesSourceArgs value_rulesSource;
+    private boolean unknown_rulesSource;
     public RuleGroupRuleGroupRulesSourceArgs rulesSource() {
-        if (rulesSource == null) return null;
-        return rulesSource.getValue("RuleGroupRuleGroupArgs.rulesSource");
+        if (!unknown_rulesSource) return value_rulesSource;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupArgs.rulesSource' is not present");
     }
 
     /**
      * A configuration block that defines stateful rule options for the rule group. See Stateful Rule Options below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleGroupStatefulRuleOptionsArgs> statefulRuleOptions;
-
+    @PolicyResourceProperty(name="statefulRuleOptions", flag="unknown_statefulRuleOptions")
+    private RuleGroupRuleGroupStatefulRuleOptionsArgs value_statefulRuleOptions;
+    private boolean unknown_statefulRuleOptions;
     public RuleGroupRuleGroupStatefulRuleOptionsArgs statefulRuleOptions() {
-        if (statefulRuleOptions == null) return null;
-        return statefulRuleOptions.getValue("RuleGroupRuleGroupArgs.statefulRuleOptions");
+        if (!unknown_statefulRuleOptions) return value_statefulRuleOptions;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupArgs.statefulRuleOptions' is not present");
     }
 
 }

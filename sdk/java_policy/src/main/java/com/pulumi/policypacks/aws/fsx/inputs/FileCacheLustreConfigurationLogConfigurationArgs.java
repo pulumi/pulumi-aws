@@ -3,25 +3,28 @@
 
 package com.pulumi.policypacks.aws.fsx.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class FileCacheLustreConfigurationLogConfigurationArgs {
 
-    private UndeferrableValue<String> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private String value_destination;
+    private boolean unknown_destination;
     public String destination() {
-        if (destination == null) return null;
-        return destination.getValue("FileCacheLustreConfigurationLogConfigurationArgs.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'FileCacheLustreConfigurationLogConfigurationArgs.destination' is not present");
     }
 
-    private UndeferrableValue<String> level;
-
+    @PolicyResourceProperty(name="level", flag="unknown_level")
+    private String value_level;
+    private boolean unknown_level;
     public String level() {
-        if (level == null) return null;
-        return level.getValue("FileCacheLustreConfigurationLogConfigurationArgs.level");
+        if (!unknown_level) return value_level;
+        throw new UndeferrableValueException("Value 'FileCacheLustreConfigurationLogConfigurationArgs.level' is not present");
     }
 
 }

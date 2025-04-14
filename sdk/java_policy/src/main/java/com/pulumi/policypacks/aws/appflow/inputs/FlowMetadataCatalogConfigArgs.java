@@ -3,18 +3,20 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.inputs.FlowMetadataCatalogConfigGlueDataCatalogArgs;
 import javax.annotation.Nullable;
 
 
 public final class FlowMetadataCatalogConfigArgs {
 
-    private UndeferrableValue<FlowMetadataCatalogConfigGlueDataCatalogArgs> glueDataCatalog;
-
+    @PolicyResourceProperty(name="glueDataCatalog", flag="unknown_glueDataCatalog")
+    private FlowMetadataCatalogConfigGlueDataCatalogArgs value_glueDataCatalog;
+    private boolean unknown_glueDataCatalog;
     public FlowMetadataCatalogConfigGlueDataCatalogArgs glueDataCatalog() {
-        if (glueDataCatalog == null) return null;
-        return glueDataCatalog.getValue("FlowMetadataCatalogConfigArgs.glueDataCatalog");
+        if (!unknown_glueDataCatalog) return value_glueDataCatalog;
+        throw new UndeferrableValueException("Value 'FlowMetadataCatalogConfigArgs.glueDataCatalog' is not present");
     }
 
 }

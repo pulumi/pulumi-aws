@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class AccessPolicyAssociationAccessScopeArgs {
      * The namespaces to which the access scope applies when type is namespace.
      * 
      */
-    private UndeferrableValue<List<String>> namespaces;
-
+    @PolicyResourceProperty(name="namespaces", flag="unknown_namespaces")
+    private List<String> value_namespaces;
+    private boolean unknown_namespaces;
     public List<String> namespaces() {
-        if (namespaces == null) return null;
-        return namespaces.getValue("AccessPolicyAssociationAccessScopeArgs.namespaces");
+        if (!unknown_namespaces) return value_namespaces;
+        throw new UndeferrableValueException("Value 'AccessPolicyAssociationAccessScopeArgs.namespaces' is not present");
     }
 
     /**
      * Valid values are `namespace` or `cluster`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("AccessPolicyAssociationAccessScopeArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'AccessPolicyAssociationAccessScopeArgs.type' is not present");
     }
 
 }

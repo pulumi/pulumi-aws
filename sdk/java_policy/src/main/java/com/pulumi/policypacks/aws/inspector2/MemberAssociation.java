@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.inspector2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,44 +16,48 @@ public final class MemberAssociation extends com.pulumi.resources.PolicyResource
      * ID of the account to associate
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("MemberAssociation.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'MemberAssociation.accountId' is not present");
     }
 
     /**
      * Account ID of the delegated administrator account
      * 
      */
-    private UndeferrableValue<String> delegatedAdminAccountId;
-
+    @PolicyResourceProperty(name="delegatedAdminAccountId", flag="unknown_delegatedAdminAccountId")
+    private String value_delegatedAdminAccountId;
+    private boolean unknown_delegatedAdminAccountId;
     public String delegatedAdminAccountId() {
-        if (delegatedAdminAccountId == null) return null;
-        return delegatedAdminAccountId.getValue("MemberAssociation.delegatedAdminAccountId");
+        if (!unknown_delegatedAdminAccountId) return value_delegatedAdminAccountId;
+        throw new UndeferrableValueException("Value 'MemberAssociation.delegatedAdminAccountId' is not present");
     }
 
     /**
      * Status of the member relationship
      * 
      */
-    private UndeferrableValue<String> relationshipStatus;
-
+    @PolicyResourceProperty(name="relationshipStatus", flag="unknown_relationshipStatus")
+    private String value_relationshipStatus;
+    private boolean unknown_relationshipStatus;
     public String relationshipStatus() {
-        if (relationshipStatus == null) return null;
-        return relationshipStatus.getValue("MemberAssociation.relationshipStatus");
+        if (!unknown_relationshipStatus) return value_relationshipStatus;
+        throw new UndeferrableValueException("Value 'MemberAssociation.relationshipStatus' is not present");
     }
 
     /**
      * Date and time of the last update of the relationship
      * 
      */
-    private UndeferrableValue<String> updatedAt;
-
+    @PolicyResourceProperty(name="updatedAt", flag="unknown_updatedAt")
+    private String value_updatedAt;
+    private boolean unknown_updatedAt;
     public String updatedAt() {
-        if (updatedAt == null) return null;
-        return updatedAt.getValue("MemberAssociation.updatedAt");
+        if (!unknown_updatedAt) return value_updatedAt;
+        throw new UndeferrableValueException("Value 'MemberAssociation.updatedAt' is not present");
     }
 
 }

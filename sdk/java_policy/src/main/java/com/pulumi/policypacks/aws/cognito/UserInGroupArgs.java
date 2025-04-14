@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class UserInGroupArgs extends com.pulumi.resources.PolicyResourceIn
      * The name of the group to which the user is to be added.
      * 
      */
-    private UndeferrableValue<String> groupName;
-
+    @PolicyResourceProperty(name="groupName", flag="unknown_groupName")
+    private String value_groupName;
+    private boolean unknown_groupName;
     public String groupName() {
-        if (groupName == null) return null;
-        return groupName.getValue("UserInGroupArgs.groupName");
+        if (!unknown_groupName) return value_groupName;
+        throw new UndeferrableValueException("Value 'UserInGroupArgs.groupName' is not present");
     }
 
     /**
      * The user pool ID of the user and group.
      * 
      */
-    private UndeferrableValue<String> userPoolId;
-
+    @PolicyResourceProperty(name="userPoolId", flag="unknown_userPoolId")
+    private String value_userPoolId;
+    private boolean unknown_userPoolId;
     public String userPoolId() {
-        if (userPoolId == null) return null;
-        return userPoolId.getValue("UserInGroupArgs.userPoolId");
+        if (!unknown_userPoolId) return value_userPoolId;
+        throw new UndeferrableValueException("Value 'UserInGroupArgs.userPoolId' is not present");
     }
 
     /**
      * The username of the user to be added to the group.
      * 
      */
-    private UndeferrableValue<String> username;
-
+    @PolicyResourceProperty(name="username", flag="unknown_username")
+    private String value_username;
+    private boolean unknown_username;
     public String username() {
-        if (username == null) return null;
-        return username.getValue("UserInGroupArgs.username");
+        if (!unknown_username) return value_username;
+        throw new UndeferrableValueException("Value 'UserInGroupArgs.username' is not present");
     }
 
 }

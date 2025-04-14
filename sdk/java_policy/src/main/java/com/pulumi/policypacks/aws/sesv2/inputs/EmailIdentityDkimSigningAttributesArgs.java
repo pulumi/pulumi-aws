@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class EmailIdentityDkimSigningAttributesArgs {
      * [Easy DKIM] The key length of the DKIM key pair in use.
      * 
      */
-    private UndeferrableValue<String> currentSigningKeyLength;
-
+    @PolicyResourceProperty(name="currentSigningKeyLength", flag="unknown_currentSigningKeyLength")
+    private String value_currentSigningKeyLength;
+    private boolean unknown_currentSigningKeyLength;
     public String currentSigningKeyLength() {
-        if (currentSigningKeyLength == null) return null;
-        return currentSigningKeyLength.getValue("EmailIdentityDkimSigningAttributesArgs.currentSigningKeyLength");
+        if (!unknown_currentSigningKeyLength) return value_currentSigningKeyLength;
+        throw new UndeferrableValueException("Value 'EmailIdentityDkimSigningAttributesArgs.currentSigningKeyLength' is not present");
     }
 
     /**
@@ -28,77 +30,84 @@ public final class EmailIdentityDkimSigningAttributesArgs {
      * &gt; **NOTE:** You have to delete the first and last lines (&#39;-----BEGIN PRIVATE KEY-----&#39; and &#39;-----END PRIVATE KEY-----&#39;, respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
      * 
      */
-    private UndeferrableValue<String> domainSigningPrivateKey;
-
+    @PolicyResourceProperty(name="domainSigningPrivateKey", flag="unknown_domainSigningPrivateKey")
+    private String value_domainSigningPrivateKey;
+    private boolean unknown_domainSigningPrivateKey;
     public String domainSigningPrivateKey() {
-        if (domainSigningPrivateKey == null) return null;
-        return domainSigningPrivateKey.getValue("EmailIdentityDkimSigningAttributesArgs.domainSigningPrivateKey");
+        if (!unknown_domainSigningPrivateKey) return value_domainSigningPrivateKey;
+        throw new UndeferrableValueException("Value 'EmailIdentityDkimSigningAttributesArgs.domainSigningPrivateKey' is not present");
     }
 
     /**
      * [Bring Your Own DKIM] A string that&#39;s used to identify a public key in the DNS configuration for a domain.
      * 
      */
-    private UndeferrableValue<String> domainSigningSelector;
-
+    @PolicyResourceProperty(name="domainSigningSelector", flag="unknown_domainSigningSelector")
+    private String value_domainSigningSelector;
+    private boolean unknown_domainSigningSelector;
     public String domainSigningSelector() {
-        if (domainSigningSelector == null) return null;
-        return domainSigningSelector.getValue("EmailIdentityDkimSigningAttributesArgs.domainSigningSelector");
+        if (!unknown_domainSigningSelector) return value_domainSigningSelector;
+        throw new UndeferrableValueException("Value 'EmailIdentityDkimSigningAttributesArgs.domainSigningSelector' is not present");
     }
 
     /**
      * [Easy DKIM] The last time a key pair was generated for this identity.
      * 
      */
-    private UndeferrableValue<String> lastKeyGenerationTimestamp;
-
+    @PolicyResourceProperty(name="lastKeyGenerationTimestamp", flag="unknown_lastKeyGenerationTimestamp")
+    private String value_lastKeyGenerationTimestamp;
+    private boolean unknown_lastKeyGenerationTimestamp;
     public String lastKeyGenerationTimestamp() {
-        if (lastKeyGenerationTimestamp == null) return null;
-        return lastKeyGenerationTimestamp.getValue("EmailIdentityDkimSigningAttributesArgs.lastKeyGenerationTimestamp");
+        if (!unknown_lastKeyGenerationTimestamp) return value_lastKeyGenerationTimestamp;
+        throw new UndeferrableValueException("Value 'EmailIdentityDkimSigningAttributesArgs.lastKeyGenerationTimestamp' is not present");
     }
 
     /**
      * [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
      * 
      */
-    private UndeferrableValue<String> nextSigningKeyLength;
-
+    @PolicyResourceProperty(name="nextSigningKeyLength", flag="unknown_nextSigningKeyLength")
+    private String value_nextSigningKeyLength;
+    private boolean unknown_nextSigningKeyLength;
     public String nextSigningKeyLength() {
-        if (nextSigningKeyLength == null) return null;
-        return nextSigningKeyLength.getValue("EmailIdentityDkimSigningAttributesArgs.nextSigningKeyLength");
+        if (!unknown_nextSigningKeyLength) return value_nextSigningKeyLength;
+        throw new UndeferrableValueException("Value 'EmailIdentityDkimSigningAttributesArgs.nextSigningKeyLength' is not present");
     }
 
     /**
      * A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
      * 
      */
-    private UndeferrableValue<String> signingAttributesOrigin;
-
+    @PolicyResourceProperty(name="signingAttributesOrigin", flag="unknown_signingAttributesOrigin")
+    private String value_signingAttributesOrigin;
+    private boolean unknown_signingAttributesOrigin;
     public String signingAttributesOrigin() {
-        if (signingAttributesOrigin == null) return null;
-        return signingAttributesOrigin.getValue("EmailIdentityDkimSigningAttributesArgs.signingAttributesOrigin");
+        if (!unknown_signingAttributesOrigin) return value_signingAttributesOrigin;
+        throw new UndeferrableValueException("Value 'EmailIdentityDkimSigningAttributesArgs.signingAttributesOrigin' is not present");
     }
 
     /**
      * Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("EmailIdentityDkimSigningAttributesArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'EmailIdentityDkimSigningAttributesArgs.status' is not present");
     }
 
     /**
      * If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
      * 
      */
-    private UndeferrableValue<List<String>> tokens;
-
+    @PolicyResourceProperty(name="tokens", flag="unknown_tokens")
+    private List<String> value_tokens;
+    private boolean unknown_tokens;
     public List<String> tokens() {
-        if (tokens == null) return null;
-        return tokens.getValue("EmailIdentityDkimSigningAttributesArgs.tokens");
+        if (!unknown_tokens) return value_tokens;
+        throw new UndeferrableValueException("Value 'EmailIdentityDkimSigningAttributesArgs.tokens' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class ConfigurationPolicyAssociation extends com.pulumi.resources.P
      * The universally unique identifier (UUID) of the configuration policy.
      * 
      */
-    private UndeferrableValue<String> policyId;
-
+    @PolicyResourceProperty(name="policyId", flag="unknown_policyId")
+    private String value_policyId;
+    private boolean unknown_policyId;
     public String policyId() {
-        if (policyId == null) return null;
-        return policyId.getValue("ConfigurationPolicyAssociation.policyId");
+        if (!unknown_policyId) return value_policyId;
+        throw new UndeferrableValueException("Value 'ConfigurationPolicyAssociation.policyId' is not present");
     }
 
     /**
      * The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
      * 
      */
-    private UndeferrableValue<String> targetId;
-
+    @PolicyResourceProperty(name="targetId", flag="unknown_targetId")
+    private String value_targetId;
+    private boolean unknown_targetId;
     public String targetId() {
-        if (targetId == null) return null;
-        return targetId.getValue("ConfigurationPolicyAssociation.targetId");
+        if (!unknown_targetId) return value_targetId;
+        throw new UndeferrableValueException("Value 'ConfigurationPolicyAssociation.targetId' is not present");
     }
 
 }

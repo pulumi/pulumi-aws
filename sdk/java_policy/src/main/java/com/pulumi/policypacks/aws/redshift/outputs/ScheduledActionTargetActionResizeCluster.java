@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,55 +17,60 @@ public final class ScheduledActionTargetActionResizeCluster {
      * A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> classic;
-
+    @PolicyResourceProperty(name="classic", flag="unknown_classic")
+    private @Nullable Boolean value_classic;
+    private boolean unknown_classic;
     public @Nullable Boolean classic() {
-        if (classic == null) return null;
-        return classic.getValue("ScheduledActionTargetActionResizeCluster.classic");
+        if (!unknown_classic) return value_classic;
+        throw new UndeferrableValueException("Value 'ScheduledActionTargetActionResizeCluster.classic' is not present");
     }
 
     /**
      * The unique identifier for the cluster to resize.
      * 
      */
-    private UndeferrableValue<String> clusterIdentifier;
-
+    @PolicyResourceProperty(name="clusterIdentifier", flag="unknown_clusterIdentifier")
+    private String value_clusterIdentifier;
+    private boolean unknown_clusterIdentifier;
     public String clusterIdentifier() {
-        if (clusterIdentifier == null) return null;
-        return clusterIdentifier.getValue("ScheduledActionTargetActionResizeCluster.clusterIdentifier");
+        if (!unknown_clusterIdentifier) return value_clusterIdentifier;
+        throw new UndeferrableValueException("Value 'ScheduledActionTargetActionResizeCluster.clusterIdentifier' is not present");
     }
 
     /**
      * The new cluster type for the specified cluster.
      * 
      */
-    private @Nullable UndeferrableValue<String> clusterType;
-
+    @PolicyResourceProperty(name="clusterType", flag="unknown_clusterType")
+    private @Nullable String value_clusterType;
+    private boolean unknown_clusterType;
     public @Nullable String clusterType() {
-        if (clusterType == null) return null;
-        return clusterType.getValue("ScheduledActionTargetActionResizeCluster.clusterType");
+        if (!unknown_clusterType) return value_clusterType;
+        throw new UndeferrableValueException("Value 'ScheduledActionTargetActionResizeCluster.clusterType' is not present");
     }
 
     /**
      * The new node type for the nodes you are adding.
      * 
      */
-    private @Nullable UndeferrableValue<String> nodeType;
-
+    @PolicyResourceProperty(name="nodeType", flag="unknown_nodeType")
+    private @Nullable String value_nodeType;
+    private boolean unknown_nodeType;
     public @Nullable String nodeType() {
-        if (nodeType == null) return null;
-        return nodeType.getValue("ScheduledActionTargetActionResizeCluster.nodeType");
+        if (!unknown_nodeType) return value_nodeType;
+        throw new UndeferrableValueException("Value 'ScheduledActionTargetActionResizeCluster.nodeType' is not present");
     }
 
     /**
      * The new number of nodes for the cluster.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> numberOfNodes;
-
+    @PolicyResourceProperty(name="numberOfNodes", flag="unknown_numberOfNodes")
+    private @Nullable Integer value_numberOfNodes;
+    private boolean unknown_numberOfNodes;
     public @Nullable Integer numberOfNodes() {
-        if (numberOfNodes == null) return null;
-        return numberOfNodes.getValue("ScheduledActionTargetActionResizeCluster.numberOfNodes");
+        if (!unknown_numberOfNodes) return value_numberOfNodes;
+        throw new UndeferrableValueException("Value 'ScheduledActionTargetActionResizeCluster.numberOfNodes' is not present");
     }
 
 }

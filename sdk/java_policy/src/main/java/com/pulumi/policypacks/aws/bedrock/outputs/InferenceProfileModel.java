@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class InferenceProfileModel {
      * The Amazon Resource Name (ARN) of the model.
      * 
      */
-    private UndeferrableValue<String> modelArn;
-
+    @PolicyResourceProperty(name="modelArn", flag="unknown_modelArn")
+    private String value_modelArn;
+    private boolean unknown_modelArn;
     public String modelArn() {
-        if (modelArn == null) return null;
-        return modelArn.getValue("InferenceProfileModel.modelArn");
+        if (!unknown_modelArn) return value_modelArn;
+        throw new UndeferrableValueException("Value 'InferenceProfileModel.modelArn' is not present");
     }
 
 }

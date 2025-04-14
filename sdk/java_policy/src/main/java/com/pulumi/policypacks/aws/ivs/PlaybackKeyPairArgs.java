@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ivs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,11 +18,12 @@ public final class PlaybackKeyPairArgs extends com.pulumi.resources.PolicyResour
      * Playback Key Pair name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PlaybackKeyPairArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PlaybackKeyPairArgs.name' is not present");
     }
 
     /**
@@ -30,22 +32,24 @@ public final class PlaybackKeyPairArgs extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> publicKey;
-
+    @PolicyResourceProperty(name="publicKey", flag="unknown_publicKey")
+    private String value_publicKey;
+    private boolean unknown_publicKey;
     public String publicKey() {
-        if (publicKey == null) return null;
-        return publicKey.getValue("PlaybackKeyPairArgs.publicKey");
+        if (!unknown_publicKey) return value_publicKey;
+        throw new UndeferrableValueException("Value 'PlaybackKeyPairArgs.publicKey' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("PlaybackKeyPairArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'PlaybackKeyPairArgs.tags' is not present");
     }
 
 }

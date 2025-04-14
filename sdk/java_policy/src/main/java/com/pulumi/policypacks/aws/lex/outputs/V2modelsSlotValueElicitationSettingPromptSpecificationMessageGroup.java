@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation;
 import java.util.List;
@@ -17,11 +18,12 @@ public final class V2modelsSlotValueElicitationSettingPromptSpecificationMessage
      * See the `aws.lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
      * 
      */
-    private UndeferrableValue<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage> message;
-
+    @PolicyResourceProperty(name="message", flag="unknown_message")
+    private V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage value_message;
+    private boolean unknown_message;
     public V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage message() {
-        if (message == null) return null;
-        return message.getValue("V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroup.message");
+        if (!unknown_message) return value_message;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroup.message' is not present");
     }
 
     /**
@@ -30,11 +32,12 @@ public final class V2modelsSlotValueElicitationSettingPromptSpecificationMessage
      * See the `aws.lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
      * 
      */
-    private @Nullable UndeferrableValue<List<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation>> variations;
-
+    @PolicyResourceProperty(name="variations", flag="unknown_variations")
+    private @Nullable List<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation> value_variations;
+    private boolean unknown_variations;
     public @Nullable List<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation> variations() {
-        if (variations == null) return null;
-        return variations.getValue("V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroup.variations");
+        if (!unknown_variations) return value_variations;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroup.variations' is not present");
     }
 
 }

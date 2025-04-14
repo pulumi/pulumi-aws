@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.keyspaces;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.keyspaces.inputs.KeyspaceReplicationSpecificationArgs;
 import java.lang.String;
@@ -20,33 +21,36 @@ public final class KeyspaceArgs extends com.pulumi.resources.PolicyResourceInput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("KeyspaceArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'KeyspaceArgs.name' is not present");
     }
 
     /**
      * The replication specification of the keyspace.
      * 
      */
-    private UndeferrableValue<KeyspaceReplicationSpecificationArgs> replicationSpecification;
-
+    @PolicyResourceProperty(name="replicationSpecification", flag="unknown_replicationSpecification")
+    private KeyspaceReplicationSpecificationArgs value_replicationSpecification;
+    private boolean unknown_replicationSpecification;
     public KeyspaceReplicationSpecificationArgs replicationSpecification() {
-        if (replicationSpecification == null) return null;
-        return replicationSpecification.getValue("KeyspaceArgs.replicationSpecification");
+        if (!unknown_replicationSpecification) return value_replicationSpecification;
+        throw new UndeferrableValueException("Value 'KeyspaceArgs.replicationSpecification' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("KeyspaceArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'KeyspaceArgs.tags' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration
      * Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> newerNoncurrentVersions;
-
+    @PolicyResourceProperty(name="newerNoncurrentVersions", flag="unknown_newerNoncurrentVersions")
+    private @Nullable Integer value_newerNoncurrentVersions;
+    private boolean unknown_newerNoncurrentVersions;
     public @Nullable Integer newerNoncurrentVersions() {
-        if (newerNoncurrentVersions == null) return null;
-        return newerNoncurrentVersions.getValue("BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration.newerNoncurrentVersions");
+        if (!unknown_newerNoncurrentVersions) return value_newerNoncurrentVersions;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration.newerNoncurrentVersions' is not present");
     }
 
     /**
      * Number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
      * 
      */
-    private UndeferrableValue<Integer> noncurrentDays;
-
+    @PolicyResourceProperty(name="noncurrentDays", flag="unknown_noncurrentDays")
+    private Integer value_noncurrentDays;
+    private boolean unknown_noncurrentDays;
     public Integer noncurrentDays() {
-        if (noncurrentDays == null) return null;
-        return noncurrentDays.getValue("BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration.noncurrentDays");
+        if (!unknown_noncurrentDays) return value_noncurrentDays;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration.noncurrentDays' is not present");
     }
 
 }

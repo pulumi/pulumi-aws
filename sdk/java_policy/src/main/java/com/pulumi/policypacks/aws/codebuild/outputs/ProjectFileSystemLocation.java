@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -16,11 +17,12 @@ public final class ProjectFileSystemLocation {
      * my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
      * 
      */
-    private @Nullable UndeferrableValue<String> identifier;
-
+    @PolicyResourceProperty(name="identifier", flag="unknown_identifier")
+    private @Nullable String value_identifier;
+    private boolean unknown_identifier;
     public @Nullable String identifier() {
-        if (identifier == null) return null;
-        return identifier.getValue("ProjectFileSystemLocation.identifier");
+        if (!unknown_identifier) return value_identifier;
+        throw new UndeferrableValueException("Value 'ProjectFileSystemLocation.identifier' is not present");
     }
 
     /**
@@ -28,44 +30,48 @@ public final class ProjectFileSystemLocation {
      * `efs-dns-name:/directory-path`.
      * 
      */
-    private @Nullable UndeferrableValue<String> location;
-
+    @PolicyResourceProperty(name="location", flag="unknown_location")
+    private @Nullable String value_location;
+    private boolean unknown_location;
     public @Nullable String location() {
-        if (location == null) return null;
-        return location.getValue("ProjectFileSystemLocation.location");
+        if (!unknown_location) return value_location;
+        throw new UndeferrableValueException("Value 'ProjectFileSystemLocation.location' is not present");
     }
 
     /**
      * The mount options for a file system created by AWS EFS.
      * 
      */
-    private @Nullable UndeferrableValue<String> mountOptions;
-
+    @PolicyResourceProperty(name="mountOptions", flag="unknown_mountOptions")
+    private @Nullable String value_mountOptions;
+    private boolean unknown_mountOptions;
     public @Nullable String mountOptions() {
-        if (mountOptions == null) return null;
-        return mountOptions.getValue("ProjectFileSystemLocation.mountOptions");
+        if (!unknown_mountOptions) return value_mountOptions;
+        throw new UndeferrableValueException("Value 'ProjectFileSystemLocation.mountOptions' is not present");
     }
 
     /**
      * The location in the container where you mount the file system.
      * 
      */
-    private @Nullable UndeferrableValue<String> mountPoint;
-
+    @PolicyResourceProperty(name="mountPoint", flag="unknown_mountPoint")
+    private @Nullable String value_mountPoint;
+    private boolean unknown_mountPoint;
     public @Nullable String mountPoint() {
-        if (mountPoint == null) return null;
-        return mountPoint.getValue("ProjectFileSystemLocation.mountPoint");
+        if (!unknown_mountPoint) return value_mountPoint;
+        throw new UndeferrableValueException("Value 'ProjectFileSystemLocation.mountPoint' is not present");
     }
 
     /**
      * The type of the file system. The one supported type is `EFS`.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("ProjectFileSystemLocation.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ProjectFileSystemLocation.type' is not present");
     }
 
 }

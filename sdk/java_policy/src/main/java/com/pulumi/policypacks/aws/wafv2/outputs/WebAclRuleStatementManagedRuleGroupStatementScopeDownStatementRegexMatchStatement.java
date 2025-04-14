@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformation;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * The part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch> fieldToMatch;
-
+    @PolicyResourceProperty(name="fieldToMatch", flag="unknown_fieldToMatch")
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch value_fieldToMatch;
+    private boolean unknown_fieldToMatch;
     public @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch fieldToMatch() {
-        if (fieldToMatch == null) return null;
-        return fieldToMatch.getValue("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement.fieldToMatch");
+        if (!unknown_fieldToMatch) return value_fieldToMatch;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement.fieldToMatch' is not present");
     }
 
     /**
      * String representing the regular expression. Minimum of `1` and maximum of `512` characters.
      * 
      */
-    private UndeferrableValue<String> regexString;
-
+    @PolicyResourceProperty(name="regexString", flag="unknown_regexString")
+    private String value_regexString;
+    private boolean unknown_regexString;
     public String regexString() {
-        if (regexString == null) return null;
-        return regexString.getValue("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement.regexString");
+        if (!unknown_regexString) return value_regexString;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement.regexString' is not present");
     }
 
     /**
      * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
      * 
      */
-    private UndeferrableValue<List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformation>> textTransformations;
-
+    @PolicyResourceProperty(name="textTransformations", flag="unknown_textTransformations")
+    private List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformation> value_textTransformations;
+    private boolean unknown_textTransformations;
     public List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformation> textTransformations() {
-        if (textTransformations == null) return null;
-        return textTransformations.getValue("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement.textTransformations");
+        if (!unknown_textTransformations) return value_textTransformations;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement.textTransformations' is not present");
     }
 
 }

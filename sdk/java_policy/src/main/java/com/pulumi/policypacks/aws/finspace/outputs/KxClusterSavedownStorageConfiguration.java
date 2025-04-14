@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.finspace.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class KxClusterSavedownStorageConfiguration {
      * Size of temporary storage in gigabytes. Must be between 10 and 16000.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> size;
-
+    @PolicyResourceProperty(name="size", flag="unknown_size")
+    private @Nullable Integer value_size;
+    private boolean unknown_size;
     public @Nullable Integer size() {
-        if (size == null) return null;
-        return size.getValue("KxClusterSavedownStorageConfiguration.size");
+        if (!unknown_size) return value_size;
+        throw new UndeferrableValueException("Value 'KxClusterSavedownStorageConfiguration.size' is not present");
     }
 
     /**
@@ -27,22 +29,24 @@ public final class KxClusterSavedownStorageConfiguration {
      * * SDS01 - This type represents 3000 IOPS and io2 ebs volume type.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("KxClusterSavedownStorageConfiguration.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'KxClusterSavedownStorageConfiguration.type' is not present");
     }
 
     /**
      * The name of the kdb volume that you want to use as writeable save-down storage for clusters.
      * 
      */
-    private @Nullable UndeferrableValue<String> volumeName;
-
+    @PolicyResourceProperty(name="volumeName", flag="unknown_volumeName")
+    private @Nullable String value_volumeName;
+    private boolean unknown_volumeName;
     public @Nullable String volumeName() {
-        if (volumeName == null) return null;
-        return volumeName.getValue("KxClusterSavedownStorageConfiguration.volumeName");
+        if (!unknown_volumeName) return value_volumeName;
+        throw new UndeferrableValueException("Value 'KxClusterSavedownStorageConfiguration.volumeName' is not present");
     }
 
 }

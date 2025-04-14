@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.outputs.AnalyticsApplicationInputsSchemaRecordColumn;
 import com.pulumi.policypacks.aws.kinesis.outputs.AnalyticsApplicationInputsSchemaRecordFormat;
 import java.lang.String;
@@ -18,22 +19,24 @@ public final class AnalyticsApplicationInputsSchema {
      * See Record Columns below for more details.
      * 
      */
-    private UndeferrableValue<List<AnalyticsApplicationInputsSchemaRecordColumn>> recordColumns;
-
+    @PolicyResourceProperty(name="recordColumns", flag="unknown_recordColumns")
+    private List<AnalyticsApplicationInputsSchemaRecordColumn> value_recordColumns;
+    private boolean unknown_recordColumns;
     public List<AnalyticsApplicationInputsSchemaRecordColumn> recordColumns() {
-        if (recordColumns == null) return null;
-        return recordColumns.getValue("AnalyticsApplicationInputsSchema.recordColumns");
+        if (!unknown_recordColumns) return value_recordColumns;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsSchema.recordColumns' is not present");
     }
 
     /**
      * The Encoding of the record in the streaming source.
      * 
      */
-    private @Nullable UndeferrableValue<String> recordEncoding;
-
+    @PolicyResourceProperty(name="recordEncoding", flag="unknown_recordEncoding")
+    private @Nullable String value_recordEncoding;
+    private boolean unknown_recordEncoding;
     public @Nullable String recordEncoding() {
-        if (recordEncoding == null) return null;
-        return recordEncoding.getValue("AnalyticsApplicationInputsSchema.recordEncoding");
+        if (!unknown_recordEncoding) return value_recordEncoding;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsSchema.recordEncoding' is not present");
     }
 
     /**
@@ -41,11 +44,12 @@ public final class AnalyticsApplicationInputsSchema {
      * See Record Format below for more details.
      * 
      */
-    private UndeferrableValue<AnalyticsApplicationInputsSchemaRecordFormat> recordFormat;
-
+    @PolicyResourceProperty(name="recordFormat", flag="unknown_recordFormat")
+    private AnalyticsApplicationInputsSchemaRecordFormat value_recordFormat;
+    private boolean unknown_recordFormat;
     public AnalyticsApplicationInputsSchemaRecordFormat recordFormat() {
-        if (recordFormat == null) return null;
-        return recordFormat.getValue("AnalyticsApplicationInputsSchema.recordFormat");
+        if (!unknown_recordFormat) return value_recordFormat;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsSchema.recordFormat' is not present");
     }
 
 }

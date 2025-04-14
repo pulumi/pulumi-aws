@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.identitystore;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.identitystore.inputs.UserAddressesArgs;
 import com.pulumi.policypacks.aws.identitystore.inputs.UserEmailsArgs;
@@ -20,132 +21,144 @@ public final class UserArgs extends com.pulumi.resources.PolicyResourceInput {
      * Details about the user&#39;s address. At most 1 address is allowed. Detailed below.
      * 
      */
-    private UndeferrableValue<UserAddressesArgs> addresses;
-
+    @PolicyResourceProperty(name="addresses", flag="unknown_addresses")
+    private UserAddressesArgs value_addresses;
+    private boolean unknown_addresses;
     public UserAddressesArgs addresses() {
-        if (addresses == null) return null;
-        return addresses.getValue("UserArgs.addresses");
+        if (!unknown_addresses) return value_addresses;
+        throw new UndeferrableValueException("Value 'UserArgs.addresses' is not present");
     }
 
     /**
      * The name that is typically displayed when the user is referenced.
      * 
      */
-    private UndeferrableValue<String> displayName;
-
+    @PolicyResourceProperty(name="displayName", flag="unknown_displayName")
+    private String value_displayName;
+    private boolean unknown_displayName;
     public String displayName() {
-        if (displayName == null) return null;
-        return displayName.getValue("UserArgs.displayName");
+        if (!unknown_displayName) return value_displayName;
+        throw new UndeferrableValueException("Value 'UserArgs.displayName' is not present");
     }
 
     /**
      * Details about the user&#39;s email. At most 1 email is allowed. Detailed below.
      * 
      */
-    private UndeferrableValue<UserEmailsArgs> emails;
-
+    @PolicyResourceProperty(name="emails", flag="unknown_emails")
+    private UserEmailsArgs value_emails;
+    private boolean unknown_emails;
     public UserEmailsArgs emails() {
-        if (emails == null) return null;
-        return emails.getValue("UserArgs.emails");
+        if (!unknown_emails) return value_emails;
+        throw new UndeferrableValueException("Value 'UserArgs.emails' is not present");
     }
 
     /**
      * The globally unique identifier for the identity store that this user is in.
      * 
      */
-    private UndeferrableValue<String> identityStoreId;
-
+    @PolicyResourceProperty(name="identityStoreId", flag="unknown_identityStoreId")
+    private String value_identityStoreId;
+    private boolean unknown_identityStoreId;
     public String identityStoreId() {
-        if (identityStoreId == null) return null;
-        return identityStoreId.getValue("UserArgs.identityStoreId");
+        if (!unknown_identityStoreId) return value_identityStoreId;
+        throw new UndeferrableValueException("Value 'UserArgs.identityStoreId' is not present");
     }
 
     /**
      * The user&#39;s geographical region or location.
      * 
      */
-    private UndeferrableValue<String> locale;
-
+    @PolicyResourceProperty(name="locale", flag="unknown_locale")
+    private String value_locale;
+    private boolean unknown_locale;
     public String locale() {
-        if (locale == null) return null;
-        return locale.getValue("UserArgs.locale");
+        if (!unknown_locale) return value_locale;
+        throw new UndeferrableValueException("Value 'UserArgs.locale' is not present");
     }
 
     /**
      * Details about the user&#39;s full name. Detailed below.
      * 
      */
-    private UndeferrableValue<UserNameArgs> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private UserNameArgs value_name;
+    private boolean unknown_name;
     public UserNameArgs name() {
-        if (name == null) return null;
-        return name.getValue("UserArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'UserArgs.name' is not present");
     }
 
     /**
      * An alternate name for the user.
      * 
      */
-    private UndeferrableValue<String> nickname;
-
+    @PolicyResourceProperty(name="nickname", flag="unknown_nickname")
+    private String value_nickname;
+    private boolean unknown_nickname;
     public String nickname() {
-        if (nickname == null) return null;
-        return nickname.getValue("UserArgs.nickname");
+        if (!unknown_nickname) return value_nickname;
+        throw new UndeferrableValueException("Value 'UserArgs.nickname' is not present");
     }
 
     /**
      * Details about the user&#39;s phone number. At most 1 phone number is allowed. Detailed below.
      * 
      */
-    private UndeferrableValue<UserPhoneNumbersArgs> phoneNumbers;
-
+    @PolicyResourceProperty(name="phoneNumbers", flag="unknown_phoneNumbers")
+    private UserPhoneNumbersArgs value_phoneNumbers;
+    private boolean unknown_phoneNumbers;
     public UserPhoneNumbersArgs phoneNumbers() {
-        if (phoneNumbers == null) return null;
-        return phoneNumbers.getValue("UserArgs.phoneNumbers");
+        if (!unknown_phoneNumbers) return value_phoneNumbers;
+        throw new UndeferrableValueException("Value 'UserArgs.phoneNumbers' is not present");
     }
 
     /**
      * The preferred language of the user.
      * 
      */
-    private UndeferrableValue<String> preferredLanguage;
-
+    @PolicyResourceProperty(name="preferredLanguage", flag="unknown_preferredLanguage")
+    private String value_preferredLanguage;
+    private boolean unknown_preferredLanguage;
     public String preferredLanguage() {
-        if (preferredLanguage == null) return null;
-        return preferredLanguage.getValue("UserArgs.preferredLanguage");
+        if (!unknown_preferredLanguage) return value_preferredLanguage;
+        throw new UndeferrableValueException("Value 'UserArgs.preferredLanguage' is not present");
     }
 
     /**
      * An URL that may be associated with the user.
      * 
      */
-    private UndeferrableValue<String> profileUrl;
-
+    @PolicyResourceProperty(name="profileUrl", flag="unknown_profileUrl")
+    private String value_profileUrl;
+    private boolean unknown_profileUrl;
     public String profileUrl() {
-        if (profileUrl == null) return null;
-        return profileUrl.getValue("UserArgs.profileUrl");
+        if (!unknown_profileUrl) return value_profileUrl;
+        throw new UndeferrableValueException("Value 'UserArgs.profileUrl' is not present");
     }
 
     /**
      * The user&#39;s time zone.
      * 
      */
-    private UndeferrableValue<String> timezone;
-
+    @PolicyResourceProperty(name="timezone", flag="unknown_timezone")
+    private String value_timezone;
+    private boolean unknown_timezone;
     public String timezone() {
-        if (timezone == null) return null;
-        return timezone.getValue("UserArgs.timezone");
+        if (!unknown_timezone) return value_timezone;
+        throw new UndeferrableValueException("Value 'UserArgs.timezone' is not present");
     }
 
     /**
      * The user&#39;s title.
      * 
      */
-    private UndeferrableValue<String> title;
-
+    @PolicyResourceProperty(name="title", flag="unknown_title")
+    private String value_title;
+    private boolean unknown_title;
     public String title() {
-        if (title == null) return null;
-        return title.getValue("UserArgs.title");
+        if (!unknown_title) return value_title;
+        throw new UndeferrableValueException("Value 'UserArgs.title' is not present");
     }
 
     /**
@@ -154,22 +167,24 @@ public final class UserArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> userName;
-
+    @PolicyResourceProperty(name="userName", flag="unknown_userName")
+    private String value_userName;
+    private boolean unknown_userName;
     public String userName() {
-        if (userName == null) return null;
-        return userName.getValue("UserArgs.userName");
+        if (!unknown_userName) return value_userName;
+        throw new UndeferrableValueException("Value 'UserArgs.userName' is not present");
     }
 
     /**
      * The user type.
      * 
      */
-    private UndeferrableValue<String> userType;
-
+    @PolicyResourceProperty(name="userType", flag="unknown_userType")
+    private String value_userType;
+    private boolean unknown_userType;
     public String userType() {
-        if (userType == null) return null;
-        return userType.getValue("UserArgs.userType");
+        if (!unknown_userType) return value_userType;
+        throw new UndeferrableValueException("Value 'UserArgs.userType' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class InstanceMaintenanceOptionsArgs {
      * Automatic recovery behavior of the Instance. Can be `&#34;default&#34;` or `&#34;disabled&#34;`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
      * 
      */
-    private UndeferrableValue<String> autoRecovery;
-
+    @PolicyResourceProperty(name="autoRecovery", flag="unknown_autoRecovery")
+    private String value_autoRecovery;
+    private boolean unknown_autoRecovery;
     public String autoRecovery() {
-        if (autoRecovery == null) return null;
-        return autoRecovery.getValue("InstanceMaintenanceOptionsArgs.autoRecovery");
+        if (!unknown_autoRecovery) return value_autoRecovery;
+        throw new UndeferrableValueException("Value 'InstanceMaintenanceOptionsArgs.autoRecovery' is not present");
     }
 
 }

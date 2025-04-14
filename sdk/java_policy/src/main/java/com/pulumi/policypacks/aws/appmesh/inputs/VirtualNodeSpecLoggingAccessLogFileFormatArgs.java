@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class VirtualNodeSpecLoggingAccessLogFileFormatArgs {
      * The logging format for JSON.
      * 
      */
-    private UndeferrableValue<List<VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs>> jsons;
-
+    @PolicyResourceProperty(name="jsons", flag="unknown_jsons")
+    private List<VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs> value_jsons;
+    private boolean unknown_jsons;
     public List<VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs> jsons() {
-        if (jsons == null) return null;
-        return jsons.getValue("VirtualNodeSpecLoggingAccessLogFileFormatArgs.jsons");
+        if (!unknown_jsons) return value_jsons;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecLoggingAccessLogFileFormatArgs.jsons' is not present");
     }
 
     /**
      * The logging format for text. Must be between 1 and 1000 characters in length.
      * 
      */
-    private UndeferrableValue<String> text;
-
+    @PolicyResourceProperty(name="text", flag="unknown_text")
+    private String value_text;
+    private boolean unknown_text;
     public String text() {
-        if (text == null) return null;
-        return text.getValue("VirtualNodeSpecLoggingAccessLogFileFormatArgs.text");
+        if (!unknown_text) return value_text;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecLoggingAccessLogFileFormatArgs.text' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class FleetComputeConfigurationArgs {
      * Amount of disk space of the instance type included in the fleet.
      * 
      */
-    private UndeferrableValue<Integer> disk;
-
+    @PolicyResourceProperty(name="disk", flag="unknown_disk")
+    private Integer value_disk;
+    private boolean unknown_disk;
     public Integer disk() {
-        if (disk == null) return null;
-        return disk.getValue("FleetComputeConfigurationArgs.disk");
+        if (!unknown_disk) return value_disk;
+        throw new UndeferrableValueException("Value 'FleetComputeConfigurationArgs.disk' is not present");
     }
 
     /**
      * Machine type of the instance type included in the fleet. Valid values: `GENERAL`, `NVME`.
      * 
      */
-    private UndeferrableValue<String> machineType;
-
+    @PolicyResourceProperty(name="machineType", flag="unknown_machineType")
+    private String value_machineType;
+    private boolean unknown_machineType;
     public String machineType() {
-        if (machineType == null) return null;
-        return machineType.getValue("FleetComputeConfigurationArgs.machineType");
+        if (!unknown_machineType) return value_machineType;
+        throw new UndeferrableValueException("Value 'FleetComputeConfigurationArgs.machineType' is not present");
     }
 
     /**
      * Amount of memory of the instance type included in the fleet.
      * 
      */
-    private UndeferrableValue<Integer> memory;
-
+    @PolicyResourceProperty(name="memory", flag="unknown_memory")
+    private Integer value_memory;
+    private boolean unknown_memory;
     public Integer memory() {
-        if (memory == null) return null;
-        return memory.getValue("FleetComputeConfigurationArgs.memory");
+        if (!unknown_memory) return value_memory;
+        throw new UndeferrableValueException("Value 'FleetComputeConfigurationArgs.memory' is not present");
     }
 
     /**
      * Number of vCPUs of the instance type included in the fleet.
      * 
      */
-    private UndeferrableValue<Integer> vcpu;
-
+    @PolicyResourceProperty(name="vcpu", flag="unknown_vcpu")
+    private Integer value_vcpu;
+    private boolean unknown_vcpu;
     public Integer vcpu() {
-        if (vcpu == null) return null;
-        return vcpu.getValue("FleetComputeConfigurationArgs.vcpu");
+        if (!unknown_vcpu) return value_vcpu;
+        throw new UndeferrableValueException("Value 'FleetComputeConfigurationArgs.vcpu' is not present");
     }
 
 }

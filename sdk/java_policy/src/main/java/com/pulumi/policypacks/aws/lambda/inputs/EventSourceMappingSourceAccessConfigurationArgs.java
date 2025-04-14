@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class EventSourceMappingSourceAccessConfigurationArgs {
      * The type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("EventSourceMappingSourceAccessConfigurationArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'EventSourceMappingSourceAccessConfigurationArgs.type' is not present");
     }
 
     /**
      * The URI for this configuration.  For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnet_id` is the value you would find in an aws.ec2.Subnet resource&#39;s id attribute.  For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `security_group_id` is the value you would find in an aws.ec2.SecurityGroup resource&#39;s id attribute.
      * 
      */
-    private UndeferrableValue<String> uri;
-
+    @PolicyResourceProperty(name="uri", flag="unknown_uri")
+    private String value_uri;
+    private boolean unknown_uri;
     public String uri() {
-        if (uri == null) return null;
-        return uri.getValue("EventSourceMappingSourceAccessConfigurationArgs.uri");
+        if (!unknown_uri) return value_uri;
+        throw new UndeferrableValueException("Value 'EventSourceMappingSourceAccessConfigurationArgs.uri' is not present");
     }
 
 }

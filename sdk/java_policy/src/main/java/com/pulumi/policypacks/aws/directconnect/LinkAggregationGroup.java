@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,121 +19,132 @@ public final class LinkAggregationGroup extends com.pulumi.resources.PolicyResou
      * The ARN of the LAG.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("LinkAggregationGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'LinkAggregationGroup.arn' is not present");
     }
 
     /**
      * The ID of an existing dedicated connection to migrate to the LAG.
      * 
      */
-    private @Nullable UndeferrableValue<String> connectionId;
-
+    @PolicyResourceProperty(name="connectionId", flag="unknown_connectionId")
+    private @Nullable String value_connectionId;
+    private boolean unknown_connectionId;
     public @Nullable String connectionId() {
-        if (connectionId == null) return null;
-        return connectionId.getValue("LinkAggregationGroup.connectionId");
+        if (!unknown_connectionId) return value_connectionId;
+        throw new UndeferrableValueException("Value 'LinkAggregationGroup.connectionId' is not present");
     }
 
     /**
      * The bandwidth of the individual dedicated connections bundled by the LAG. Valid values: 1Gbps, 10Gbps, 100Gbps, and 400Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Dedicated Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html).
      * 
      */
-    private UndeferrableValue<String> connectionsBandwidth;
-
+    @PolicyResourceProperty(name="connectionsBandwidth", flag="unknown_connectionsBandwidth")
+    private String value_connectionsBandwidth;
+    private boolean unknown_connectionsBandwidth;
     public String connectionsBandwidth() {
-        if (connectionsBandwidth == null) return null;
-        return connectionsBandwidth.getValue("LinkAggregationGroup.connectionsBandwidth");
+        if (!unknown_connectionsBandwidth) return value_connectionsBandwidth;
+        throw new UndeferrableValueException("Value 'LinkAggregationGroup.connectionsBandwidth' is not present");
     }
 
     /**
      * A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> forceDestroy;
-
+    @PolicyResourceProperty(name="forceDestroy", flag="unknown_forceDestroy")
+    private @Nullable Boolean value_forceDestroy;
+    private boolean unknown_forceDestroy;
     public @Nullable Boolean forceDestroy() {
-        if (forceDestroy == null) return null;
-        return forceDestroy.getValue("LinkAggregationGroup.forceDestroy");
+        if (!unknown_forceDestroy) return value_forceDestroy;
+        throw new UndeferrableValueException("Value 'LinkAggregationGroup.forceDestroy' is not present");
     }
 
     /**
      * Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
      * 
      */
-    private UndeferrableValue<String> hasLogicalRedundancy;
-
+    @PolicyResourceProperty(name="hasLogicalRedundancy", flag="unknown_hasLogicalRedundancy")
+    private String value_hasLogicalRedundancy;
+    private boolean unknown_hasLogicalRedundancy;
     public String hasLogicalRedundancy() {
-        if (hasLogicalRedundancy == null) return null;
-        return hasLogicalRedundancy.getValue("LinkAggregationGroup.hasLogicalRedundancy");
+        if (!unknown_hasLogicalRedundancy) return value_hasLogicalRedundancy;
+        throw new UndeferrableValueException("Value 'LinkAggregationGroup.hasLogicalRedundancy' is not present");
     }
 
     /**
      * Indicates whether jumbo frames (9001 MTU) are supported.
      * 
      */
-    private UndeferrableValue<Boolean> jumboFrameCapable;
-
+    @PolicyResourceProperty(name="jumboFrameCapable", flag="unknown_jumboFrameCapable")
+    private Boolean value_jumboFrameCapable;
+    private boolean unknown_jumboFrameCapable;
     public Boolean jumboFrameCapable() {
-        if (jumboFrameCapable == null) return null;
-        return jumboFrameCapable.getValue("LinkAggregationGroup.jumboFrameCapable");
+        if (!unknown_jumboFrameCapable) return value_jumboFrameCapable;
+        throw new UndeferrableValueException("Value 'LinkAggregationGroup.jumboFrameCapable' is not present");
     }
 
     /**
      * The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
      * 
      */
-    private UndeferrableValue<String> location;
-
+    @PolicyResourceProperty(name="location", flag="unknown_location")
+    private String value_location;
+    private boolean unknown_location;
     public String location() {
-        if (location == null) return null;
-        return location.getValue("LinkAggregationGroup.location");
+        if (!unknown_location) return value_location;
+        throw new UndeferrableValueException("Value 'LinkAggregationGroup.location' is not present");
     }
 
     /**
      * The name of the LAG.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LinkAggregationGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LinkAggregationGroup.name' is not present");
     }
 
     /**
      * The ID of the AWS account that owns the LAG.
      * 
      */
-    private UndeferrableValue<String> ownerAccountId;
-
+    @PolicyResourceProperty(name="ownerAccountId", flag="unknown_ownerAccountId")
+    private String value_ownerAccountId;
+    private boolean unknown_ownerAccountId;
     public String ownerAccountId() {
-        if (ownerAccountId == null) return null;
-        return ownerAccountId.getValue("LinkAggregationGroup.ownerAccountId");
+        if (!unknown_ownerAccountId) return value_ownerAccountId;
+        throw new UndeferrableValueException("Value 'LinkAggregationGroup.ownerAccountId' is not present");
     }
 
     /**
      * The name of the service provider associated with the LAG.
      * 
      */
-    private UndeferrableValue<String> providerName;
-
+    @PolicyResourceProperty(name="providerName", flag="unknown_providerName")
+    private String value_providerName;
+    private boolean unknown_providerName;
     public String providerName() {
-        if (providerName == null) return null;
-        return providerName.getValue("LinkAggregationGroup.providerName");
+        if (!unknown_providerName) return value_providerName;
+        throw new UndeferrableValueException("Value 'LinkAggregationGroup.providerName' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LinkAggregationGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LinkAggregationGroup.tags' is not present");
     }
 
     /**
@@ -143,11 +155,12 @@ public final class LinkAggregationGroup extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("LinkAggregationGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'LinkAggregationGroup.tagsAll' is not present");
     }
 
 }

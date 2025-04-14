@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticache.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,47 +12,52 @@ import javax.annotation.Nullable;
 
 public final class ClusterCacheNode {
 
-    private @Nullable UndeferrableValue<String> address;
-
+    @PolicyResourceProperty(name="address", flag="unknown_address")
+    private @Nullable String value_address;
+    private boolean unknown_address;
     public @Nullable String address() {
-        if (address == null) return null;
-        return address.getValue("ClusterCacheNode.address");
+        if (!unknown_address) return value_address;
+        throw new UndeferrableValueException("Value 'ClusterCacheNode.address' is not present");
     }
 
     /**
      * Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
      * 
      */
-    private @Nullable UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private @Nullable String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public @Nullable String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("ClusterCacheNode.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'ClusterCacheNode.availabilityZone' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private @Nullable String value_id;
+    private boolean unknown_id;
     public @Nullable String id() {
-        if (id == null) return null;
-        return id.getValue("ClusterCacheNode.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'ClusterCacheNode.id' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> outpostArn;
-
+    @PolicyResourceProperty(name="outpostArn", flag="unknown_outpostArn")
+    private @Nullable String value_outpostArn;
+    private boolean unknown_outpostArn;
     public @Nullable String outpostArn() {
-        if (outpostArn == null) return null;
-        return outpostArn.getValue("ClusterCacheNode.outpostArn");
+        if (!unknown_outpostArn) return value_outpostArn;
+        throw new UndeferrableValueException("Value 'ClusterCacheNode.outpostArn' is not present");
     }
 
     /**
      * The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable Integer value_port;
+    private boolean unknown_port;
     public @Nullable Integer port() {
-        if (port == null) return null;
-        return port.getValue("ClusterCacheNode.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'ClusterCacheNode.port' is not present");
     }
 
 }

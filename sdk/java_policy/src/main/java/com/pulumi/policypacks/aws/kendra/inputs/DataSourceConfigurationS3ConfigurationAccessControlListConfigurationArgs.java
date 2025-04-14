@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DataSourceConfigurationS3ConfigurationAccessControlListConfig
      * Path to the AWS S3 bucket that contains the ACL files.
      * 
      */
-    private UndeferrableValue<String> keyPath;
-
+    @PolicyResourceProperty(name="keyPath", flag="unknown_keyPath")
+    private String value_keyPath;
+    private boolean unknown_keyPath;
     public String keyPath() {
-        if (keyPath == null) return null;
-        return keyPath.getValue("DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs.keyPath");
+        if (!unknown_keyPath) return value_keyPath;
+        throw new UndeferrableValueException("Value 'DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs.keyPath' is not present");
     }
 
 }

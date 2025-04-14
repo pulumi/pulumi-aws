@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloud9;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,44 +16,48 @@ public final class EnvironmentMembership extends com.pulumi.resources.PolicyReso
      * The ID of the environment that contains the environment member you want to add.
      * 
      */
-    private UndeferrableValue<String> environmentId;
-
+    @PolicyResourceProperty(name="environmentId", flag="unknown_environmentId")
+    private String value_environmentId;
+    private boolean unknown_environmentId;
     public String environmentId() {
-        if (environmentId == null) return null;
-        return environmentId.getValue("EnvironmentMembership.environmentId");
+        if (!unknown_environmentId) return value_environmentId;
+        throw new UndeferrableValueException("Value 'EnvironmentMembership.environmentId' is not present");
     }
 
     /**
      * The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
      * 
      */
-    private UndeferrableValue<String> permissions;
-
+    @PolicyResourceProperty(name="permissions", flag="unknown_permissions")
+    private String value_permissions;
+    private boolean unknown_permissions;
     public String permissions() {
-        if (permissions == null) return null;
-        return permissions.getValue("EnvironmentMembership.permissions");
+        if (!unknown_permissions) return value_permissions;
+        throw new UndeferrableValueException("Value 'EnvironmentMembership.permissions' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the environment member you want to add.
      * 
      */
-    private UndeferrableValue<String> userArn;
-
+    @PolicyResourceProperty(name="userArn", flag="unknown_userArn")
+    private String value_userArn;
+    private boolean unknown_userArn;
     public String userArn() {
-        if (userArn == null) return null;
-        return userArn.getValue("EnvironmentMembership.userArn");
+        if (!unknown_userArn) return value_userArn;
+        throw new UndeferrableValueException("Value 'EnvironmentMembership.userArn' is not present");
     }
 
     /**
      * The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
      * 
      */
-    private UndeferrableValue<String> userId;
-
+    @PolicyResourceProperty(name="userId", flag="unknown_userId")
+    private String value_userId;
+    private boolean unknown_userId;
     public String userId() {
-        if (userId == null) return null;
-        return userId.getValue("EnvironmentMembership.userId");
+        if (!unknown_userId) return value_userId;
+        throw new UndeferrableValueException("Value 'EnvironmentMembership.userId' is not present");
     }
 
 }

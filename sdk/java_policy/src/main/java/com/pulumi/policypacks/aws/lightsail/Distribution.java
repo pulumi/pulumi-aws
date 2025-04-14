@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lightsail.outputs.DistributionCacheBehavior;
 import com.pulumi.policypacks.aws.lightsail.outputs.DistributionCacheBehaviorSettings;
@@ -24,33 +25,36 @@ public final class Distribution extends com.pulumi.resources.PolicyResourceOutpu
      * The alternate domain names of the distribution.
      * 
      */
-    private UndeferrableValue<List<String>> alternativeDomainNames;
-
+    @PolicyResourceProperty(name="alternativeDomainNames", flag="unknown_alternativeDomainNames")
+    private List<String> value_alternativeDomainNames;
+    private boolean unknown_alternativeDomainNames;
     public List<String> alternativeDomainNames() {
-        if (alternativeDomainNames == null) return null;
-        return alternativeDomainNames.getValue("Distribution.alternativeDomainNames");
+        if (!unknown_alternativeDomainNames) return value_alternativeDomainNames;
+        throw new UndeferrableValueException("Value 'Distribution.alternativeDomainNames' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the distribution.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Distribution.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Distribution.arn' is not present");
     }
 
     /**
      * Bundle ID to use for the distribution.
      * 
      */
-    private UndeferrableValue<String> bundleId;
-
+    @PolicyResourceProperty(name="bundleId", flag="unknown_bundleId")
+    private String value_bundleId;
+    private boolean unknown_bundleId;
     public String bundleId() {
-        if (bundleId == null) return null;
-        return bundleId.getValue("Distribution.bundleId");
+        if (!unknown_bundleId) return value_bundleId;
+        throw new UndeferrableValueException("Value 'Distribution.bundleId' is not present");
     }
 
     /**
@@ -59,176 +63,192 @@ public final class Distribution extends com.pulumi.resources.PolicyResourceOutpu
      * The following arguments are optional:
      * 
      */
-    private @Nullable UndeferrableValue<DistributionCacheBehaviorSettings> cacheBehaviorSettings;
-
+    @PolicyResourceProperty(name="cacheBehaviorSettings", flag="unknown_cacheBehaviorSettings")
+    private @Nullable DistributionCacheBehaviorSettings value_cacheBehaviorSettings;
+    private boolean unknown_cacheBehaviorSettings;
     public @Nullable DistributionCacheBehaviorSettings cacheBehaviorSettings() {
-        if (cacheBehaviorSettings == null) return null;
-        return cacheBehaviorSettings.getValue("Distribution.cacheBehaviorSettings");
+        if (!unknown_cacheBehaviorSettings) return value_cacheBehaviorSettings;
+        throw new UndeferrableValueException("Value 'Distribution.cacheBehaviorSettings' is not present");
     }
 
     /**
      * A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
      * 
      */
-    private @Nullable UndeferrableValue<List<DistributionCacheBehavior>> cacheBehaviors;
-
+    @PolicyResourceProperty(name="cacheBehaviors", flag="unknown_cacheBehaviors")
+    private @Nullable List<DistributionCacheBehavior> value_cacheBehaviors;
+    private boolean unknown_cacheBehaviors;
     public @Nullable List<DistributionCacheBehavior> cacheBehaviors() {
-        if (cacheBehaviors == null) return null;
-        return cacheBehaviors.getValue("Distribution.cacheBehaviors");
+        if (!unknown_cacheBehaviors) return value_cacheBehaviors;
+        throw new UndeferrableValueException("Value 'Distribution.cacheBehaviors' is not present");
     }
 
     /**
      * The name of the SSL/TLS certificate attached to the distribution, if any.
      * 
      */
-    private @Nullable UndeferrableValue<String> certificateName;
-
+    @PolicyResourceProperty(name="certificateName", flag="unknown_certificateName")
+    private @Nullable String value_certificateName;
+    private boolean unknown_certificateName;
     public @Nullable String certificateName() {
-        if (certificateName == null) return null;
-        return certificateName.getValue("Distribution.certificateName");
+        if (!unknown_certificateName) return value_certificateName;
+        throw new UndeferrableValueException("Value 'Distribution.certificateName' is not present");
     }
 
     /**
      * The timestamp when the distribution was created.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("Distribution.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'Distribution.createdAt' is not present");
     }
 
     /**
      * Object that describes the default cache behavior of the distribution. Detailed below
      * 
      */
-    private UndeferrableValue<DistributionDefaultCacheBehavior> defaultCacheBehavior;
-
+    @PolicyResourceProperty(name="defaultCacheBehavior", flag="unknown_defaultCacheBehavior")
+    private DistributionDefaultCacheBehavior value_defaultCacheBehavior;
+    private boolean unknown_defaultCacheBehavior;
     public DistributionDefaultCacheBehavior defaultCacheBehavior() {
-        if (defaultCacheBehavior == null) return null;
-        return defaultCacheBehavior.getValue("Distribution.defaultCacheBehavior");
+        if (!unknown_defaultCacheBehavior) return value_defaultCacheBehavior;
+        throw new UndeferrableValueException("Value 'Distribution.defaultCacheBehavior' is not present");
     }
 
     /**
      * The domain name of the distribution.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("Distribution.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'Distribution.domainName' is not present");
     }
 
     /**
      * The IP address type of the distribution. Default: `dualstack`.
      * 
      */
-    private @Nullable UndeferrableValue<String> ipAddressType;
-
+    @PolicyResourceProperty(name="ipAddressType", flag="unknown_ipAddressType")
+    private @Nullable String value_ipAddressType;
+    private boolean unknown_ipAddressType;
     public @Nullable String ipAddressType() {
-        if (ipAddressType == null) return null;
-        return ipAddressType.getValue("Distribution.ipAddressType");
+        if (!unknown_ipAddressType) return value_ipAddressType;
+        throw new UndeferrableValueException("Value 'Distribution.ipAddressType' is not present");
     }
 
     /**
      * Indicates whether the distribution is enabled. Default: `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> isEnabled;
-
+    @PolicyResourceProperty(name="isEnabled", flag="unknown_isEnabled")
+    private @Nullable Boolean value_isEnabled;
+    private boolean unknown_isEnabled;
     public @Nullable Boolean isEnabled() {
-        if (isEnabled == null) return null;
-        return isEnabled.getValue("Distribution.isEnabled");
+        if (!unknown_isEnabled) return value_isEnabled;
+        throw new UndeferrableValueException("Value 'Distribution.isEnabled' is not present");
     }
 
     /**
      * An object that describes the location of the distribution, such as the AWS Region and Availability Zone. Detailed below
      * 
      */
-    private UndeferrableValue<List<DistributionLocation>> locations;
-
+    @PolicyResourceProperty(name="locations", flag="unknown_locations")
+    private List<DistributionLocation> value_locations;
+    private boolean unknown_locations;
     public List<DistributionLocation> locations() {
-        if (locations == null) return null;
-        return locations.getValue("Distribution.locations");
+        if (!unknown_locations) return value_locations;
+        throw new UndeferrableValueException("Value 'Distribution.locations' is not present");
     }
 
     /**
      * Name of the distribution.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Distribution.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Distribution.name' is not present");
     }
 
     /**
      * Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
      * 
      */
-    private UndeferrableValue<DistributionOrigin> origin;
-
+    @PolicyResourceProperty(name="origin", flag="unknown_origin")
+    private DistributionOrigin value_origin;
+    private boolean unknown_origin;
     public DistributionOrigin origin() {
-        if (origin == null) return null;
-        return origin.getValue("Distribution.origin");
+        if (!unknown_origin) return value_origin;
+        throw new UndeferrableValueException("Value 'Distribution.origin' is not present");
     }
 
     /**
      * The public DNS of the origin.
      * 
      */
-    private UndeferrableValue<String> originPublicDns;
-
+    @PolicyResourceProperty(name="originPublicDns", flag="unknown_originPublicDns")
+    private String value_originPublicDns;
+    private boolean unknown_originPublicDns;
     public String originPublicDns() {
-        if (originPublicDns == null) return null;
-        return originPublicDns.getValue("Distribution.originPublicDns");
+        if (!unknown_originPublicDns) return value_originPublicDns;
+        throw new UndeferrableValueException("Value 'Distribution.originPublicDns' is not present");
     }
 
     /**
      * The Lightsail resource type (e.g., Distribution).
      * 
      */
-    private UndeferrableValue<String> resourceType;
-
+    @PolicyResourceProperty(name="resourceType", flag="unknown_resourceType")
+    private String value_resourceType;
+    private boolean unknown_resourceType;
     public String resourceType() {
-        if (resourceType == null) return null;
-        return resourceType.getValue("Distribution.resourceType");
+        if (!unknown_resourceType) return value_resourceType;
+        throw new UndeferrableValueException("Value 'Distribution.resourceType' is not present");
     }
 
     /**
      * The status of the distribution.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Distribution.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Distribution.status' is not present");
     }
 
     /**
      * The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
      * 
      */
-    private UndeferrableValue<String> supportCode;
-
+    @PolicyResourceProperty(name="supportCode", flag="unknown_supportCode")
+    private String value_supportCode;
+    private boolean unknown_supportCode;
     public String supportCode() {
-        if (supportCode == null) return null;
-        return supportCode.getValue("Distribution.supportCode");
+        if (!unknown_supportCode) return value_supportCode;
+        throw new UndeferrableValueException("Value 'Distribution.supportCode' is not present");
     }
 
     /**
      * Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Distribution.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Distribution.tags' is not present");
     }
 
     /**
@@ -239,11 +259,12 @@ public final class Distribution extends com.pulumi.resources.PolicyResourceOutpu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Distribution.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Distribution.tagsAll' is not present");
     }
 
 }

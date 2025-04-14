@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class DataSourceCredentialsCredentialPair {
      * Password, maximum length of 1024 characters.
      * 
      */
-    private UndeferrableValue<String> password;
-
+    @PolicyResourceProperty(name="password", flag="unknown_password")
+    private String value_password;
+    private boolean unknown_password;
     public String password() {
-        if (password == null) return null;
-        return password.getValue("DataSourceCredentialsCredentialPair.password");
+        if (!unknown_password) return value_password;
+        throw new UndeferrableValueException("Value 'DataSourceCredentialsCredentialPair.password' is not present");
     }
 
     /**
      * User name, maximum length of 64 characters.
      * 
      */
-    private UndeferrableValue<String> username;
-
+    @PolicyResourceProperty(name="username", flag="unknown_username")
+    private String value_username;
+    private boolean unknown_username;
     public String username() {
-        if (username == null) return null;
-        return username.getValue("DataSourceCredentialsCredentialPair.username");
+        if (!unknown_username) return value_username;
+        throw new UndeferrableValueException("Value 'DataSourceCredentialsCredentialPair.username' is not present");
     }
 
 }

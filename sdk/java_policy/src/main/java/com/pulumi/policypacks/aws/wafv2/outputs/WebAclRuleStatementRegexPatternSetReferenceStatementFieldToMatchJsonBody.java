@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMa
      * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
      * 
      */
-    private @Nullable UndeferrableValue<String> invalidFallbackBehavior;
-
+    @PolicyResourceProperty(name="invalidFallbackBehavior", flag="unknown_invalidFallbackBehavior")
+    private @Nullable String value_invalidFallbackBehavior;
+    private boolean unknown_invalidFallbackBehavior;
     public @Nullable String invalidFallbackBehavior() {
-        if (invalidFallbackBehavior == null) return null;
-        return invalidFallbackBehavior.getValue("WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody.invalidFallbackBehavior");
+        if (!unknown_invalidFallbackBehavior) return value_invalidFallbackBehavior;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody.invalidFallbackBehavior' is not present");
     }
 
     /**
      * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern> matchPattern;
-
+    @PolicyResourceProperty(name="matchPattern", flag="unknown_matchPattern")
+    private WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern value_matchPattern;
+    private boolean unknown_matchPattern;
     public WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern matchPattern() {
-        if (matchPattern == null) return null;
-        return matchPattern.getValue("WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody.matchPattern");
+        if (!unknown_matchPattern) return value_matchPattern;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody.matchPattern' is not present");
     }
 
     /**
      * The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
      * 
      */
-    private UndeferrableValue<String> matchScope;
-
+    @PolicyResourceProperty(name="matchScope", flag="unknown_matchScope")
+    private String value_matchScope;
+    private boolean unknown_matchScope;
     public String matchScope() {
-        if (matchScope == null) return null;
-        return matchScope.getValue("WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody.matchScope");
+        if (!unknown_matchScope) return value_matchScope;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody.matchScope' is not present");
     }
 
     /**
      * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
      * 
      */
-    private @Nullable UndeferrableValue<String> oversizeHandling;
-
+    @PolicyResourceProperty(name="oversizeHandling", flag="unknown_oversizeHandling")
+    private @Nullable String value_oversizeHandling;
+    private boolean unknown_oversizeHandling;
     public @Nullable String oversizeHandling() {
-        if (oversizeHandling == null) return null;
-        return oversizeHandling.getValue("WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody.oversizeHandling");
+        if (!unknown_oversizeHandling) return value_oversizeHandling;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody.oversizeHandling' is not present");
     }
 
 }

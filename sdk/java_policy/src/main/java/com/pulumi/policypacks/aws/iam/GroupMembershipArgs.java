@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,33 +18,36 @@ public final class GroupMembershipArgs extends com.pulumi.resources.PolicyResour
      * The IAM Group name to attach the list of `users` to
      * 
      */
-    private UndeferrableValue<String> group;
-
+    @PolicyResourceProperty(name="group", flag="unknown_group")
+    private String value_group;
+    private boolean unknown_group;
     public String group() {
-        if (group == null) return null;
-        return group.getValue("GroupMembershipArgs.group");
+        if (!unknown_group) return value_group;
+        throw new UndeferrableValueException("Value 'GroupMembershipArgs.group' is not present");
     }
 
     /**
      * The name to identify the Group Membership
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("GroupMembershipArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'GroupMembershipArgs.name' is not present");
     }
 
     /**
      * A list of IAM User names to associate with the Group
      * 
      */
-    private UndeferrableValue<List<String>> users;
-
+    @PolicyResourceProperty(name="users", flag="unknown_users")
+    private List<String> value_users;
+    private boolean unknown_users;
     public List<String> users() {
-        if (users == null) return null;
-        return users.getValue("GroupMembershipArgs.users");
+        if (!unknown_users) return value_users;
+        throw new UndeferrableValueException("Value 'GroupMembershipArgs.users' is not present");
     }
 
 }

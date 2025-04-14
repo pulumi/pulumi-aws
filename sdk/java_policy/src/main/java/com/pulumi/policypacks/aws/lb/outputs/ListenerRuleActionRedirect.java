@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,66 +15,72 @@ public final class ListenerRuleActionRedirect {
      * The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
      * 
      */
-    private @Nullable UndeferrableValue<String> host;
-
+    @PolicyResourceProperty(name="host", flag="unknown_host")
+    private @Nullable String value_host;
+    private boolean unknown_host;
     public @Nullable String host() {
-        if (host == null) return null;
-        return host.getValue("ListenerRuleActionRedirect.host");
+        if (!unknown_host) return value_host;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionRedirect.host' is not present");
     }
 
     /**
      * The absolute path, starting with the leading &#34;/&#34;. This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}. Defaults to `/#{path}`.
      * 
      */
-    private @Nullable UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private @Nullable String value_path;
+    private boolean unknown_path;
     public @Nullable String path() {
-        if (path == null) return null;
-        return path.getValue("ListenerRuleActionRedirect.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionRedirect.path' is not present");
     }
 
     /**
      * The port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
      * 
      */
-    private @Nullable UndeferrableValue<String> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable String value_port;
+    private boolean unknown_port;
     public @Nullable String port() {
-        if (port == null) return null;
-        return port.getValue("ListenerRuleActionRedirect.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionRedirect.port' is not present");
     }
 
     /**
      * The protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
      * 
      */
-    private @Nullable UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private @Nullable String value_protocol;
+    private boolean unknown_protocol;
     public @Nullable String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("ListenerRuleActionRedirect.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionRedirect.protocol' is not present");
     }
 
     /**
      * The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading &#34;?&#34;. Defaults to `#{query}`.
      * 
      */
-    private @Nullable UndeferrableValue<String> query;
-
+    @PolicyResourceProperty(name="query", flag="unknown_query")
+    private @Nullable String value_query;
+    private boolean unknown_query;
     public @Nullable String query() {
-        if (query == null) return null;
-        return query.getValue("ListenerRuleActionRedirect.query");
+        if (!unknown_query) return value_query;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionRedirect.query' is not present");
     }
 
     /**
      * The HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
      * 
      */
-    private UndeferrableValue<String> statusCode;
-
+    @PolicyResourceProperty(name="statusCode", flag="unknown_statusCode")
+    private String value_statusCode;
+    private boolean unknown_statusCode;
     public String statusCode() {
-        if (statusCode == null) return null;
-        return statusCode.getValue("ListenerRuleActionRedirect.statusCode");
+        if (!unknown_statusCode) return value_statusCode;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionRedirect.statusCode' is not present");
     }
 
 }

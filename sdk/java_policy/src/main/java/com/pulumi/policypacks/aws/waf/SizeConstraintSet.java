@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.waf;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.waf.outputs.SizeConstraintSetSizeConstraint;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class SizeConstraintSet extends com.pulumi.resources.PolicyResource
      * Amazon Resource Name (ARN).
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("SizeConstraintSet.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'SizeConstraintSet.arn' is not present");
     }
 
     /**
      * Name or description of the Size Constraint Set.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("SizeConstraintSet.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'SizeConstraintSet.name' is not present");
     }
 
     /**
      * Parts of web requests that you want to inspect the size of.
      * 
      */
-    private @Nullable UndeferrableValue<List<SizeConstraintSetSizeConstraint>> sizeConstraints;
-
+    @PolicyResourceProperty(name="sizeConstraints", flag="unknown_sizeConstraints")
+    private @Nullable List<SizeConstraintSetSizeConstraint> value_sizeConstraints;
+    private boolean unknown_sizeConstraints;
     public @Nullable List<SizeConstraintSetSizeConstraint> sizeConstraints() {
-        if (sizeConstraints == null) return null;
-        return sizeConstraints.getValue("SizeConstraintSet.sizeConstraints");
+        if (!unknown_sizeConstraints) return value_sizeConstraints;
+        throw new UndeferrableValueException("Value 'SizeConstraintSet.sizeConstraints' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSu
      * A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution. Valid values are `Enabled` and `Disabled`. See below.
      * 
      */
-    private UndeferrableValue<String> realtimeMetricsSubscriptionStatus;
-
+    @PolicyResourceProperty(name="realtimeMetricsSubscriptionStatus", flag="unknown_realtimeMetricsSubscriptionStatus")
+    private String value_realtimeMetricsSubscriptionStatus;
+    private boolean unknown_realtimeMetricsSubscriptionStatus;
     public String realtimeMetricsSubscriptionStatus() {
-        if (realtimeMetricsSubscriptionStatus == null) return null;
-        return realtimeMetricsSubscriptionStatus.getValue("MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs.realtimeMetricsSubscriptionStatus");
+        if (!unknown_realtimeMetricsSubscriptionStatus) return value_realtimeMetricsSubscriptionStatus;
+        throw new UndeferrableValueException("Value 'MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs.realtimeMetricsSubscriptionStatus' is not present");
     }
 
 }

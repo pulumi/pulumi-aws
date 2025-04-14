@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class DashboardArgs extends com.pulumi.resources.PolicyResourceInpu
      * The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
      * 
      */
-    private UndeferrableValue<String> dashboardBody;
-
+    @PolicyResourceProperty(name="dashboardBody", flag="unknown_dashboardBody")
+    private String value_dashboardBody;
+    private boolean unknown_dashboardBody;
     public String dashboardBody() {
-        if (dashboardBody == null) return null;
-        return dashboardBody.getValue("DashboardArgs.dashboardBody");
+        if (!unknown_dashboardBody) return value_dashboardBody;
+        throw new UndeferrableValueException("Value 'DashboardArgs.dashboardBody' is not present");
     }
 
     /**
      * The name of the dashboard.
      * 
      */
-    private UndeferrableValue<String> dashboardName;
-
+    @PolicyResourceProperty(name="dashboardName", flag="unknown_dashboardName")
+    private String value_dashboardName;
+    private boolean unknown_dashboardName;
     public String dashboardName() {
-        if (dashboardName == null) return null;
-        return dashboardName.getValue("DashboardArgs.dashboardName");
+        if (!unknown_dashboardName) return value_dashboardName;
+        throw new UndeferrableValueException("Value 'DashboardArgs.dashboardName' is not present");
     }
 
 }

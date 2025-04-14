@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.evidently.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class LaunchGroupArgs {
      * Specifies the description of the launch group.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("LaunchGroupArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'LaunchGroupArgs.description' is not present");
     }
 
     /**
      * Specifies the name of the feature that the launch is using.
      * 
      */
-    private UndeferrableValue<String> feature;
-
+    @PolicyResourceProperty(name="feature", flag="unknown_feature")
+    private String value_feature;
+    private boolean unknown_feature;
     public String feature() {
-        if (feature == null) return null;
-        return feature.getValue("LaunchGroupArgs.feature");
+        if (!unknown_feature) return value_feature;
+        throw new UndeferrableValueException("Value 'LaunchGroupArgs.feature' is not present");
     }
 
     /**
      * Specifies the name of the lahnch group.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LaunchGroupArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LaunchGroupArgs.name' is not present");
     }
 
     /**
      * Specifies the feature variation to use for this launch group.
      * 
      */
-    private UndeferrableValue<String> variation;
-
+    @PolicyResourceProperty(name="variation", flag="unknown_variation")
+    private String value_variation;
+    private boolean unknown_variation;
     public String variation() {
-        if (variation == null) return null;
-        return variation.getValue("LaunchGroupArgs.variation");
+        if (!unknown_variation) return value_variation;
+        throw new UndeferrableValueException("Value 'LaunchGroupArgs.variation' is not present");
     }
 
 }

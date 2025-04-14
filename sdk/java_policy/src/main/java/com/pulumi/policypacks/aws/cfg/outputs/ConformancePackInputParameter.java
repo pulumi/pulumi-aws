@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class ConformancePackInputParameter {
      * The input key.
      * 
      */
-    private UndeferrableValue<String> parameterName;
-
+    @PolicyResourceProperty(name="parameterName", flag="unknown_parameterName")
+    private String value_parameterName;
+    private boolean unknown_parameterName;
     public String parameterName() {
-        if (parameterName == null) return null;
-        return parameterName.getValue("ConformancePackInputParameter.parameterName");
+        if (!unknown_parameterName) return value_parameterName;
+        throw new UndeferrableValueException("Value 'ConformancePackInputParameter.parameterName' is not present");
     }
 
     /**
      * The input value.
      * 
      */
-    private UndeferrableValue<String> parameterValue;
-
+    @PolicyResourceProperty(name="parameterValue", flag="unknown_parameterValue")
+    private String value_parameterValue;
+    private boolean unknown_parameterValue;
     public String parameterValue() {
-        if (parameterValue == null) return null;
-        return parameterValue.getValue("ConformancePackInputParameter.parameterValue");
+        if (!unknown_parameterValue) return value_parameterValue;
+        throw new UndeferrableValueException("Value 'ConformancePackInputParameter.parameterValue' is not present");
     }
 
 }

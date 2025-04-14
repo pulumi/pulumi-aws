@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class TargetGroupAttachmentArgs extends com.pulumi.resources.Policy
      * The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("TargetGroupAttachmentArgs.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'TargetGroupAttachmentArgs.availabilityZone' is not present");
     }
 
     /**
      * The port on which targets receive traffic.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("TargetGroupAttachmentArgs.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'TargetGroupAttachmentArgs.port' is not present");
     }
 
     /**
      * The ARN of the target group with which to register targets.
      * 
      */
-    private UndeferrableValue<String> targetGroupArn;
-
+    @PolicyResourceProperty(name="targetGroupArn", flag="unknown_targetGroupArn")
+    private String value_targetGroupArn;
+    private boolean unknown_targetGroupArn;
     public String targetGroupArn() {
-        if (targetGroupArn == null) return null;
-        return targetGroupArn.getValue("TargetGroupAttachmentArgs.targetGroupArn");
+        if (!unknown_targetGroupArn) return value_targetGroupArn;
+        throw new UndeferrableValueException("Value 'TargetGroupAttachmentArgs.targetGroupArn' is not present");
     }
 
     /**
@@ -52,11 +56,12 @@ public final class TargetGroupAttachmentArgs extends com.pulumi.resources.Policy
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> targetId;
-
+    @PolicyResourceProperty(name="targetId", flag="unknown_targetId")
+    private String value_targetId;
+    private boolean unknown_targetId;
     public String targetId() {
-        if (targetId == null) return null;
-        return targetId.getValue("TargetGroupAttachmentArgs.targetId");
+        if (!unknown_targetId) return value_targetId;
+        throw new UndeferrableValueException("Value 'TargetGroupAttachmentArgs.targetId' is not present");
     }
 
 }

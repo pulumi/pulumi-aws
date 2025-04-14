@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig;
 import com.pulumi.policypacks.aws.appflow.outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
      * Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
      * 
      */
-    private @Nullable UndeferrableValue<FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig> aggregationConfig;
-
+    @PolicyResourceProperty(name="aggregationConfig", flag="unknown_aggregationConfig")
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig value_aggregationConfig;
+    private boolean unknown_aggregationConfig;
     public @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig aggregationConfig() {
-        if (aggregationConfig == null) return null;
-        return aggregationConfig.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig.aggregationConfig");
+        if (!unknown_aggregationConfig) return value_aggregationConfig;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig.aggregationConfig' is not present");
     }
 
     /**
      * File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
      * 
      */
-    private @Nullable UndeferrableValue<String> fileType;
-
+    @PolicyResourceProperty(name="fileType", flag="unknown_fileType")
+    private @Nullable String value_fileType;
+    private boolean unknown_fileType;
     public @Nullable String fileType() {
-        if (fileType == null) return null;
-        return fileType.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig.fileType");
+        if (!unknown_fileType) return value_fileType;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig.fileType' is not present");
     }
 
     /**
      * Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
      * 
      */
-    private UndeferrableValue<FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig> prefixConfig;
-
+    @PolicyResourceProperty(name="prefixConfig", flag="unknown_prefixConfig")
+    private FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig value_prefixConfig;
+    private boolean unknown_prefixConfig;
     public FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig prefixConfig() {
-        if (prefixConfig == null) return null;
-        return prefixConfig.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig.prefixConfig");
+        if (!unknown_prefixConfig) return value_prefixConfig;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig.prefixConfig' is not present");
     }
 
 }

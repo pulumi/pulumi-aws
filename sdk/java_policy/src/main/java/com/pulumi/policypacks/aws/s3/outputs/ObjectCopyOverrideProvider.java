@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.outputs.ObjectCopyOverrideProviderDefaultTags;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ObjectCopyOverrideProvider {
      * Override the provider `default_tags` configuration block.
      * 
      */
-    private @Nullable UndeferrableValue<ObjectCopyOverrideProviderDefaultTags> defaultTags;
-
+    @PolicyResourceProperty(name="defaultTags", flag="unknown_defaultTags")
+    private @Nullable ObjectCopyOverrideProviderDefaultTags value_defaultTags;
+    private boolean unknown_defaultTags;
     public @Nullable ObjectCopyOverrideProviderDefaultTags defaultTags() {
-        if (defaultTags == null) return null;
-        return defaultTags.getValue("ObjectCopyOverrideProvider.defaultTags");
+        if (!unknown_defaultTags) return value_defaultTags;
+        throw new UndeferrableValueException("Value 'ObjectCopyOverrideProvider.defaultTags' is not present");
     }
 
 }

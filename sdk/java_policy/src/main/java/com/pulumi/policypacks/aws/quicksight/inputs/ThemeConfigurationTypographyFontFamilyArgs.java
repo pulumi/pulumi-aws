@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ThemeConfigurationTypographyFontFamilyArgs {
      * Font family name.
      * 
      */
-    private UndeferrableValue<String> fontFamily;
-
+    @PolicyResourceProperty(name="fontFamily", flag="unknown_fontFamily")
+    private String value_fontFamily;
+    private boolean unknown_fontFamily;
     public String fontFamily() {
-        if (fontFamily == null) return null;
-        return fontFamily.getValue("ThemeConfigurationTypographyFontFamilyArgs.fontFamily");
+        if (!unknown_fontFamily) return value_fontFamily;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationTypographyFontFamilyArgs.fontFamily' is not present");
     }
 
 }

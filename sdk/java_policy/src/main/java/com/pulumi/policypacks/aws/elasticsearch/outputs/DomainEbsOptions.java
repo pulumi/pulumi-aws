@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticsearch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,55 +17,60 @@ public final class DomainEbsOptions {
      * Whether EBS volumes are attached to data nodes in the domain.
      * 
      */
-    private UndeferrableValue<Boolean> ebsEnabled;
-
+    @PolicyResourceProperty(name="ebsEnabled", flag="unknown_ebsEnabled")
+    private Boolean value_ebsEnabled;
+    private boolean unknown_ebsEnabled;
     public Boolean ebsEnabled() {
-        if (ebsEnabled == null) return null;
-        return ebsEnabled.getValue("DomainEbsOptions.ebsEnabled");
+        if (!unknown_ebsEnabled) return value_ebsEnabled;
+        throw new UndeferrableValueException("Value 'DomainEbsOptions.ebsEnabled' is not present");
     }
 
     /**
      * Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> iops;
-
+    @PolicyResourceProperty(name="iops", flag="unknown_iops")
+    private @Nullable Integer value_iops;
+    private boolean unknown_iops;
     public @Nullable Integer iops() {
-        if (iops == null) return null;
-        return iops.getValue("DomainEbsOptions.iops");
+        if (!unknown_iops) return value_iops;
+        throw new UndeferrableValueException("Value 'DomainEbsOptions.iops' is not present");
     }
 
     /**
      * Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> throughput;
-
+    @PolicyResourceProperty(name="throughput", flag="unknown_throughput")
+    private @Nullable Integer value_throughput;
+    private boolean unknown_throughput;
     public @Nullable Integer throughput() {
-        if (throughput == null) return null;
-        return throughput.getValue("DomainEbsOptions.throughput");
+        if (!unknown_throughput) return value_throughput;
+        throw new UndeferrableValueException("Value 'DomainEbsOptions.throughput' is not present");
     }
 
     /**
      * Size of EBS volumes attached to data nodes (in GiB).
      * 
      */
-    private @Nullable UndeferrableValue<Integer> volumeSize;
-
+    @PolicyResourceProperty(name="volumeSize", flag="unknown_volumeSize")
+    private @Nullable Integer value_volumeSize;
+    private boolean unknown_volumeSize;
     public @Nullable Integer volumeSize() {
-        if (volumeSize == null) return null;
-        return volumeSize.getValue("DomainEbsOptions.volumeSize");
+        if (!unknown_volumeSize) return value_volumeSize;
+        throw new UndeferrableValueException("Value 'DomainEbsOptions.volumeSize' is not present");
     }
 
     /**
      * Type of EBS volumes attached to data nodes.
      * 
      */
-    private @Nullable UndeferrableValue<String> volumeType;
-
+    @PolicyResourceProperty(name="volumeType", flag="unknown_volumeType")
+    private @Nullable String value_volumeType;
+    private boolean unknown_volumeType;
     public @Nullable String volumeType() {
-        if (volumeType == null) return null;
-        return volumeType.getValue("DomainEbsOptions.volumeType");
+        if (!unknown_volumeType) return value_volumeType;
+        throw new UndeferrableValueException("Value 'DomainEbsOptions.volumeType' is not present");
     }
 
 }

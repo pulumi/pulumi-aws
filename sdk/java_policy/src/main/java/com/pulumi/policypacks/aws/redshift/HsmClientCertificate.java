@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,44 +18,48 @@ public final class HsmClientCertificate extends com.pulumi.resources.PolicyResou
      * Amazon Resource Name (ARN) of the Hsm Client Certificate.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("HsmClientCertificate.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'HsmClientCertificate.arn' is not present");
     }
 
     /**
      * The identifier of the HSM client certificate.
      * 
      */
-    private UndeferrableValue<String> hsmClientCertificateIdentifier;
-
+    @PolicyResourceProperty(name="hsmClientCertificateIdentifier", flag="unknown_hsmClientCertificateIdentifier")
+    private String value_hsmClientCertificateIdentifier;
+    private boolean unknown_hsmClientCertificateIdentifier;
     public String hsmClientCertificateIdentifier() {
-        if (hsmClientCertificateIdentifier == null) return null;
-        return hsmClientCertificateIdentifier.getValue("HsmClientCertificate.hsmClientCertificateIdentifier");
+        if (!unknown_hsmClientCertificateIdentifier) return value_hsmClientCertificateIdentifier;
+        throw new UndeferrableValueException("Value 'HsmClientCertificate.hsmClientCertificateIdentifier' is not present");
     }
 
     /**
      * The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
      * 
      */
-    private UndeferrableValue<String> hsmClientCertificatePublicKey;
-
+    @PolicyResourceProperty(name="hsmClientCertificatePublicKey", flag="unknown_hsmClientCertificatePublicKey")
+    private String value_hsmClientCertificatePublicKey;
+    private boolean unknown_hsmClientCertificatePublicKey;
     public String hsmClientCertificatePublicKey() {
-        if (hsmClientCertificatePublicKey == null) return null;
-        return hsmClientCertificatePublicKey.getValue("HsmClientCertificate.hsmClientCertificatePublicKey");
+        if (!unknown_hsmClientCertificatePublicKey) return value_hsmClientCertificatePublicKey;
+        throw new UndeferrableValueException("Value 'HsmClientCertificate.hsmClientCertificatePublicKey' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("HsmClientCertificate.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'HsmClientCertificate.tags' is not present");
     }
 
     /**
@@ -65,11 +70,12 @@ public final class HsmClientCertificate extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("HsmClientCertificate.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'HsmClientCertificate.tagsAll' is not present");
     }
 
 }

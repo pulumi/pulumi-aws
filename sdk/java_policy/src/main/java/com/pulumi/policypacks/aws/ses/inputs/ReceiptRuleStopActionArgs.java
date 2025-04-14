@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ses.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ReceiptRuleStopActionArgs {
      * The position of the action in the receipt rule
      * 
      */
-    private UndeferrableValue<Integer> position;
-
+    @PolicyResourceProperty(name="position", flag="unknown_position")
+    private Integer value_position;
+    private boolean unknown_position;
     public Integer position() {
-        if (position == null) return null;
-        return position.getValue("ReceiptRuleStopActionArgs.position");
+        if (!unknown_position) return value_position;
+        throw new UndeferrableValueException("Value 'ReceiptRuleStopActionArgs.position' is not present");
     }
 
     /**
      * The scope to apply. The only acceptable value is `RuleSet`.
      * 
      */
-    private UndeferrableValue<String> scope;
-
+    @PolicyResourceProperty(name="scope", flag="unknown_scope")
+    private String value_scope;
+    private boolean unknown_scope;
     public String scope() {
-        if (scope == null) return null;
-        return scope.getValue("ReceiptRuleStopActionArgs.scope");
+        if (!unknown_scope) return value_scope;
+        throw new UndeferrableValueException("Value 'ReceiptRuleStopActionArgs.scope' is not present");
     }
 
     /**
      * The ARN of an SNS topic to notify
      * 
      */
-    private UndeferrableValue<String> topicArn;
-
+    @PolicyResourceProperty(name="topicArn", flag="unknown_topicArn")
+    private String value_topicArn;
+    private boolean unknown_topicArn;
     public String topicArn() {
-        if (topicArn == null) return null;
-        return topicArn.getValue("ReceiptRuleStopActionArgs.topicArn");
+        if (!unknown_topicArn) return value_topicArn;
+        throw new UndeferrableValueException("Value 'ReceiptRuleStopActionArgs.topicArn' is not present");
     }
 
 }

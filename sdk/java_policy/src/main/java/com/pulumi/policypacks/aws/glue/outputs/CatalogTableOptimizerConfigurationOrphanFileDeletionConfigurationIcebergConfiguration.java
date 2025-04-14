@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigura
      * Specifies a directory in which to look for files. You may choose a sub-directory rather than the top-level table location. Defaults to the table&#39;s location.
      * 
      */
-    private @Nullable UndeferrableValue<String> location;
-
+    @PolicyResourceProperty(name="location", flag="unknown_location")
+    private @Nullable String value_location;
+    private boolean unknown_location;
     public @Nullable String location() {
-        if (location == null) return null;
-        return location.getValue("CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration.location");
+        if (!unknown_location) return value_location;
+        throw new UndeferrableValueException("Value 'CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration.location' is not present");
     }
 
     /**
      * The number of days that orphan files should be retained before file deletion. Defaults to `3`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> orphanFileRetentionPeriodInDays;
-
+    @PolicyResourceProperty(name="orphanFileRetentionPeriodInDays", flag="unknown_orphanFileRetentionPeriodInDays")
+    private @Nullable Integer value_orphanFileRetentionPeriodInDays;
+    private boolean unknown_orphanFileRetentionPeriodInDays;
     public @Nullable Integer orphanFileRetentionPeriodInDays() {
-        if (orphanFileRetentionPeriodInDays == null) return null;
-        return orphanFileRetentionPeriodInDays.getValue("CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration.orphanFileRetentionPeriodInDays");
+        if (!unknown_orphanFileRetentionPeriodInDays) return value_orphanFileRetentionPeriodInDays;
+        throw new UndeferrableValueException("Value 'CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfiguration.orphanFileRetentionPeriodInDays' is not present");
     }
 
 }

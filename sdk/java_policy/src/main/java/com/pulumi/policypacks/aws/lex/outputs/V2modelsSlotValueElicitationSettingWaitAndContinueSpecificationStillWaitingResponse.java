@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -17,40 +18,44 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
      * Whether the user can interrupt a speech response from Amazon Lex.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> allowInterrupt;
-
+    @PolicyResourceProperty(name="allowInterrupt", flag="unknown_allowInterrupt")
+    private @Nullable Boolean value_allowInterrupt;
+    private boolean unknown_allowInterrupt;
     public @Nullable Boolean allowInterrupt() {
-        if (allowInterrupt == null) return null;
-        return allowInterrupt.getValue("V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse.allowInterrupt");
+        if (!unknown_allowInterrupt) return value_allowInterrupt;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse.allowInterrupt' is not present");
     }
 
     /**
      * How often a message should be sent to the user.
      * 
      */
-    private UndeferrableValue<Integer> frequencyInSeconds;
-
+    @PolicyResourceProperty(name="frequencyInSeconds", flag="unknown_frequencyInSeconds")
+    private Integer value_frequencyInSeconds;
+    private boolean unknown_frequencyInSeconds;
     public Integer frequencyInSeconds() {
-        if (frequencyInSeconds == null) return null;
-        return frequencyInSeconds.getValue("V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse.frequencyInSeconds");
+        if (!unknown_frequencyInSeconds) return value_frequencyInSeconds;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse.frequencyInSeconds' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup>> messageGroups;
-
+    @PolicyResourceProperty(name="messageGroups", flag="unknown_messageGroups")
+    private @Nullable List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup> value_messageGroups;
+    private boolean unknown_messageGroups;
     public @Nullable List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup> messageGroups() {
-        if (messageGroups == null) return null;
-        return messageGroups.getValue("V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse.messageGroups");
+        if (!unknown_messageGroups) return value_messageGroups;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse.messageGroups' is not present");
     }
 
     /**
      * If Amazon Lex waits longer than this length of time for a response, it will stop sending messages.
      * 
      */
-    private UndeferrableValue<Integer> timeoutInSeconds;
-
+    @PolicyResourceProperty(name="timeoutInSeconds", flag="unknown_timeoutInSeconds")
+    private Integer value_timeoutInSeconds;
+    private boolean unknown_timeoutInSeconds;
     public Integer timeoutInSeconds() {
-        if (timeoutInSeconds == null) return null;
-        return timeoutInSeconds.getValue("V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse.timeoutInSeconds");
+        if (!unknown_timeoutInSeconds) return value_timeoutInSeconds;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponse.timeoutInSeconds' is not present");
     }
 
 }

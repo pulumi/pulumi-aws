@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class OpenZfsFileSystemDiskIopsConfiguration {
      * The total number of SSD IOPS provisioned for the file system.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> iops;
-
+    @PolicyResourceProperty(name="iops", flag="unknown_iops")
+    private @Nullable Integer value_iops;
+    private boolean unknown_iops;
     public @Nullable Integer iops() {
-        if (iops == null) return null;
-        return iops.getValue("OpenZfsFileSystemDiskIopsConfiguration.iops");
+        if (!unknown_iops) return value_iops;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystemDiskIopsConfiguration.iops' is not present");
     }
 
     /**
      * Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
      * 
      */
-    private @Nullable UndeferrableValue<String> mode;
-
+    @PolicyResourceProperty(name="mode", flag="unknown_mode")
+    private @Nullable String value_mode;
+    private boolean unknown_mode;
     public @Nullable String mode() {
-        if (mode == null) return null;
-        return mode.getValue("OpenZfsFileSystemDiskIopsConfiguration.mode");
+        if (!unknown_mode) return value_mode;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystemDiskIopsConfiguration.mode' is not present");
     }
 
 }

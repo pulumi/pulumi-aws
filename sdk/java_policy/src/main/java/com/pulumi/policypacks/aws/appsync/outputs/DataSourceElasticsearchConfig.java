@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class DataSourceElasticsearchConfig {
      * HTTP endpoint of the Elasticsearch domain.
      * 
      */
-    private UndeferrableValue<String> endpoint;
-
+    @PolicyResourceProperty(name="endpoint", flag="unknown_endpoint")
+    private String value_endpoint;
+    private boolean unknown_endpoint;
     public String endpoint() {
-        if (endpoint == null) return null;
-        return endpoint.getValue("DataSourceElasticsearchConfig.endpoint");
+        if (!unknown_endpoint) return value_endpoint;
+        throw new UndeferrableValueException("Value 'DataSourceElasticsearchConfig.endpoint' is not present");
     }
 
     /**
      * AWS region of Elasticsearch domain. Defaults to current region.
      * 
      */
-    private @Nullable UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private @Nullable String value_region;
+    private boolean unknown_region;
     public @Nullable String region() {
-        if (region == null) return null;
-        return region.getValue("DataSourceElasticsearchConfig.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'DataSourceElasticsearchConfig.region' is not present");
     }
 
 }

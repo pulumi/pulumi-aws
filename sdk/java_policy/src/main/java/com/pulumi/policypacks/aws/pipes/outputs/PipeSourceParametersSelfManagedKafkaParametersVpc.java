@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -11,18 +12,20 @@ import javax.annotation.Nullable;
 
 public final class PipeSourceParametersSelfManagedKafkaParametersVpc {
 
-    private @Nullable UndeferrableValue<List<String>> securityGroups;
-
+    @PolicyResourceProperty(name="securityGroups", flag="unknown_securityGroups")
+    private @Nullable List<String> value_securityGroups;
+    private boolean unknown_securityGroups;
     public @Nullable List<String> securityGroups() {
-        if (securityGroups == null) return null;
-        return securityGroups.getValue("PipeSourceParametersSelfManagedKafkaParametersVpc.securityGroups");
+        if (!unknown_securityGroups) return value_securityGroups;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersVpc.securityGroups' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<String>> subnets;
-
+    @PolicyResourceProperty(name="subnets", flag="unknown_subnets")
+    private @Nullable List<String> value_subnets;
+    private boolean unknown_subnets;
     public @Nullable List<String> subnets() {
-        if (subnets == null) return null;
-        return subnets.getValue("PipeSourceParametersSelfManagedKafkaParametersVpc.subnets");
+        if (!unknown_subnets) return value_subnets;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersVpc.subnets' is not present");
     }
 
 }

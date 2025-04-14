@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.fsx.outputs.OpenZfsFileSystemRootVolumeConfigurationNfsExports;
 import com.pulumi.policypacks.aws.fsx.outputs.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota;
 import java.lang.Boolean;
@@ -19,66 +20,72 @@ public final class OpenZfsFileSystemRootVolumeConfiguration {
      * A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> copyTagsToSnapshots;
-
+    @PolicyResourceProperty(name="copyTagsToSnapshots", flag="unknown_copyTagsToSnapshots")
+    private @Nullable Boolean value_copyTagsToSnapshots;
+    private boolean unknown_copyTagsToSnapshots;
     public @Nullable Boolean copyTagsToSnapshots() {
-        if (copyTagsToSnapshots == null) return null;
-        return copyTagsToSnapshots.getValue("OpenZfsFileSystemRootVolumeConfiguration.copyTagsToSnapshots");
+        if (!unknown_copyTagsToSnapshots) return value_copyTagsToSnapshots;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystemRootVolumeConfiguration.copyTagsToSnapshots' is not present");
     }
 
     /**
      * Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
      * 
      */
-    private @Nullable UndeferrableValue<String> dataCompressionType;
-
+    @PolicyResourceProperty(name="dataCompressionType", flag="unknown_dataCompressionType")
+    private @Nullable String value_dataCompressionType;
+    private boolean unknown_dataCompressionType;
     public @Nullable String dataCompressionType() {
-        if (dataCompressionType == null) return null;
-        return dataCompressionType.getValue("OpenZfsFileSystemRootVolumeConfiguration.dataCompressionType");
+        if (!unknown_dataCompressionType) return value_dataCompressionType;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystemRootVolumeConfiguration.dataCompressionType' is not present");
     }
 
     /**
      * NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<OpenZfsFileSystemRootVolumeConfigurationNfsExports> nfsExports;
-
+    @PolicyResourceProperty(name="nfsExports", flag="unknown_nfsExports")
+    private @Nullable OpenZfsFileSystemRootVolumeConfigurationNfsExports value_nfsExports;
+    private boolean unknown_nfsExports;
     public @Nullable OpenZfsFileSystemRootVolumeConfigurationNfsExports nfsExports() {
-        if (nfsExports == null) return null;
-        return nfsExports.getValue("OpenZfsFileSystemRootVolumeConfiguration.nfsExports");
+        if (!unknown_nfsExports) return value_nfsExports;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystemRootVolumeConfiguration.nfsExports' is not present");
     }
 
     /**
      * specifies whether the volume is read-only. Default is false.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> readOnly;
-
+    @PolicyResourceProperty(name="readOnly", flag="unknown_readOnly")
+    private @Nullable Boolean value_readOnly;
+    private boolean unknown_readOnly;
     public @Nullable Boolean readOnly() {
-        if (readOnly == null) return null;
-        return readOnly.getValue("OpenZfsFileSystemRootVolumeConfiguration.readOnly");
+        if (!unknown_readOnly) return value_readOnly;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystemRootVolumeConfiguration.readOnly' is not present");
     }
 
     /**
      * Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> recordSizeKib;
-
+    @PolicyResourceProperty(name="recordSizeKib", flag="unknown_recordSizeKib")
+    private @Nullable Integer value_recordSizeKib;
+    private boolean unknown_recordSizeKib;
     public @Nullable Integer recordSizeKib() {
-        if (recordSizeKib == null) return null;
-        return recordSizeKib.getValue("OpenZfsFileSystemRootVolumeConfiguration.recordSizeKib");
+        if (!unknown_recordSizeKib) return value_recordSizeKib;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystemRootVolumeConfiguration.recordSizeKib' is not present");
     }
 
     /**
      * Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota>> userAndGroupQuotas;
-
+    @PolicyResourceProperty(name="userAndGroupQuotas", flag="unknown_userAndGroupQuotas")
+    private @Nullable List<OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota> value_userAndGroupQuotas;
+    private boolean unknown_userAndGroupQuotas;
     public @Nullable List<OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota> userAndGroupQuotas() {
-        if (userAndGroupQuotas == null) return null;
-        return userAndGroupQuotas.getValue("OpenZfsFileSystemRootVolumeConfiguration.userAndGroupQuotas");
+        if (!unknown_userAndGroupQuotas) return value_userAndGroupQuotas;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystemRootVolumeConfiguration.userAndGroupQuotas' is not present");
     }
 
 }

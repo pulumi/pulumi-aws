@@ -3,17 +3,19 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class V2modelsBotVersionLocaleSpecification {
 
-    private UndeferrableValue<String> sourceBotVersion;
-
+    @PolicyResourceProperty(name="sourceBotVersion", flag="unknown_sourceBotVersion")
+    private String value_sourceBotVersion;
+    private boolean unknown_sourceBotVersion;
     public String sourceBotVersion() {
-        if (sourceBotVersion == null) return null;
-        return sourceBotVersion.getValue("V2modelsBotVersionLocaleSpecification.sourceBotVersion");
+        if (!unknown_sourceBotVersion) return value_sourceBotVersion;
+        throw new UndeferrableValueException("Value 'V2modelsBotVersionLocaleSpecification.sourceBotVersion' is not present");
     }
 
 }

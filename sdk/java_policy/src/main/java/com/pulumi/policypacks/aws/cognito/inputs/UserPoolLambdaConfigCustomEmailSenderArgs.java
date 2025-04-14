@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class UserPoolLambdaConfigCustomEmailSenderArgs {
      * The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
      * 
      */
-    private UndeferrableValue<String> lambdaArn;
-
+    @PolicyResourceProperty(name="lambdaArn", flag="unknown_lambdaArn")
+    private String value_lambdaArn;
+    private boolean unknown_lambdaArn;
     public String lambdaArn() {
-        if (lambdaArn == null) return null;
-        return lambdaArn.getValue("UserPoolLambdaConfigCustomEmailSenderArgs.lambdaArn");
+        if (!unknown_lambdaArn) return value_lambdaArn;
+        throw new UndeferrableValueException("Value 'UserPoolLambdaConfigCustomEmailSenderArgs.lambdaArn' is not present");
     }
 
     /**
      * The Lambda version represents the signature of the &#34;request&#34; attribute in the &#34;event&#34; information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
      * 
      */
-    private UndeferrableValue<String> lambdaVersion;
-
+    @PolicyResourceProperty(name="lambdaVersion", flag="unknown_lambdaVersion")
+    private String value_lambdaVersion;
+    private boolean unknown_lambdaVersion;
     public String lambdaVersion() {
-        if (lambdaVersion == null) return null;
-        return lambdaVersion.getValue("UserPoolLambdaConfigCustomEmailSenderArgs.lambdaVersion");
+        if (!unknown_lambdaVersion) return value_lambdaVersion;
+        throw new UndeferrableValueException("Value 'UserPoolLambdaConfigCustomEmailSenderArgs.lambdaVersion' is not present");
     }
 
 }

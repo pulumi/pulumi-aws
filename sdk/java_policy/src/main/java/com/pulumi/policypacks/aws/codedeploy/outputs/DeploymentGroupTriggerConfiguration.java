@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codedeploy.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,33 +15,36 @@ public final class DeploymentGroupTriggerConfiguration {
      * The event type or types for which notifications are triggered. Some values that are supported: `DeploymentStart`, `DeploymentSuccess`, `DeploymentFailure`, `DeploymentStop`, `DeploymentRollback`, `InstanceStart`, `InstanceSuccess`, `InstanceFailure`.  See [the CodeDeploy documentation](http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html) for all possible values.
      * 
      */
-    private UndeferrableValue<List<String>> triggerEvents;
-
+    @PolicyResourceProperty(name="triggerEvents", flag="unknown_triggerEvents")
+    private List<String> value_triggerEvents;
+    private boolean unknown_triggerEvents;
     public List<String> triggerEvents() {
-        if (triggerEvents == null) return null;
-        return triggerEvents.getValue("DeploymentGroupTriggerConfiguration.triggerEvents");
+        if (!unknown_triggerEvents) return value_triggerEvents;
+        throw new UndeferrableValueException("Value 'DeploymentGroupTriggerConfiguration.triggerEvents' is not present");
     }
 
     /**
      * The name of the notification trigger.
      * 
      */
-    private UndeferrableValue<String> triggerName;
-
+    @PolicyResourceProperty(name="triggerName", flag="unknown_triggerName")
+    private String value_triggerName;
+    private boolean unknown_triggerName;
     public String triggerName() {
-        if (triggerName == null) return null;
-        return triggerName.getValue("DeploymentGroupTriggerConfiguration.triggerName");
+        if (!unknown_triggerName) return value_triggerName;
+        throw new UndeferrableValueException("Value 'DeploymentGroupTriggerConfiguration.triggerName' is not present");
     }
 
     /**
      * The ARN of the SNS topic through which notifications are sent.
      * 
      */
-    private UndeferrableValue<String> triggerTargetArn;
-
+    @PolicyResourceProperty(name="triggerTargetArn", flag="unknown_triggerTargetArn")
+    private String value_triggerTargetArn;
+    private boolean unknown_triggerTargetArn;
     public String triggerTargetArn() {
-        if (triggerTargetArn == null) return null;
-        return triggerTargetArn.getValue("DeploymentGroupTriggerConfiguration.triggerTargetArn");
+        if (!unknown_triggerTargetArn) return value_triggerTargetArn;
+        throw new UndeferrableValueException("Value 'DeploymentGroupTriggerConfiguration.triggerTargetArn' is not present");
     }
 
 }

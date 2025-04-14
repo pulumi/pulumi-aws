@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafregional.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 
@@ -14,11 +15,12 @@ public final class RateBasedRulePredicateArgs {
      * A unique identifier for a predicate in the rule, such as Byte Match Set ID or IPSet ID.
      * 
      */
-    private UndeferrableValue<String> dataId;
-
+    @PolicyResourceProperty(name="dataId", flag="unknown_dataId")
+    private String value_dataId;
+    private boolean unknown_dataId;
     public String dataId() {
-        if (dataId == null) return null;
-        return dataId.getValue("RateBasedRulePredicateArgs.dataId");
+        if (!unknown_dataId) return value_dataId;
+        throw new UndeferrableValueException("Value 'RateBasedRulePredicateArgs.dataId' is not present");
     }
 
     /**
@@ -28,22 +30,24 @@ public final class RateBasedRulePredicateArgs {
      * If set to `true`, AWS WAF will allow, block, or count requests based on all IP addresses _except_ `192.0.2.44`.
      * 
      */
-    private UndeferrableValue<Boolean> negated;
-
+    @PolicyResourceProperty(name="negated", flag="unknown_negated")
+    private Boolean value_negated;
+    private boolean unknown_negated;
     public Boolean negated() {
-        if (negated == null) return null;
-        return negated.getValue("RateBasedRulePredicateArgs.negated");
+        if (!unknown_negated) return value_negated;
+        throw new UndeferrableValueException("Value 'RateBasedRulePredicateArgs.negated' is not present");
     }
 
     /**
      * The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("RateBasedRulePredicateArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'RateBasedRulePredicateArgs.type' is not present");
     }
 
 }

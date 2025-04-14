@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -20,168 +21,184 @@ public final class ClusterSnapshot extends com.pulumi.resources.PolicyResourceOu
      * Allocated storage size in gigabytes (GB).
      * 
      */
-    private UndeferrableValue<Integer> allocatedStorage;
-
+    @PolicyResourceProperty(name="allocatedStorage", flag="unknown_allocatedStorage")
+    private Integer value_allocatedStorage;
+    private boolean unknown_allocatedStorage;
     public Integer allocatedStorage() {
-        if (allocatedStorage == null) return null;
-        return allocatedStorage.getValue("ClusterSnapshot.allocatedStorage");
+        if (!unknown_allocatedStorage) return value_allocatedStorage;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.allocatedStorage' is not present");
     }
 
     /**
      * List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
      * 
      */
-    private UndeferrableValue<List<String>> availabilityZones;
-
+    @PolicyResourceProperty(name="availabilityZones", flag="unknown_availabilityZones")
+    private List<String> value_availabilityZones;
+    private boolean unknown_availabilityZones;
     public List<String> availabilityZones() {
-        if (availabilityZones == null) return null;
-        return availabilityZones.getValue("ClusterSnapshot.availabilityZones");
+        if (!unknown_availabilityZones) return value_availabilityZones;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.availabilityZones' is not present");
     }
 
     /**
      * The DB Cluster Identifier from which to take the snapshot.
      * 
      */
-    private UndeferrableValue<String> dbClusterIdentifier;
-
+    @PolicyResourceProperty(name="dbClusterIdentifier", flag="unknown_dbClusterIdentifier")
+    private String value_dbClusterIdentifier;
+    private boolean unknown_dbClusterIdentifier;
     public String dbClusterIdentifier() {
-        if (dbClusterIdentifier == null) return null;
-        return dbClusterIdentifier.getValue("ClusterSnapshot.dbClusterIdentifier");
+        if (!unknown_dbClusterIdentifier) return value_dbClusterIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.dbClusterIdentifier' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
      * 
      */
-    private UndeferrableValue<String> dbClusterSnapshotArn;
-
+    @PolicyResourceProperty(name="dbClusterSnapshotArn", flag="unknown_dbClusterSnapshotArn")
+    private String value_dbClusterSnapshotArn;
+    private boolean unknown_dbClusterSnapshotArn;
     public String dbClusterSnapshotArn() {
-        if (dbClusterSnapshotArn == null) return null;
-        return dbClusterSnapshotArn.getValue("ClusterSnapshot.dbClusterSnapshotArn");
+        if (!unknown_dbClusterSnapshotArn) return value_dbClusterSnapshotArn;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.dbClusterSnapshotArn' is not present");
     }
 
     /**
      * The Identifier for the snapshot.
      * 
      */
-    private UndeferrableValue<String> dbClusterSnapshotIdentifier;
-
+    @PolicyResourceProperty(name="dbClusterSnapshotIdentifier", flag="unknown_dbClusterSnapshotIdentifier")
+    private String value_dbClusterSnapshotIdentifier;
+    private boolean unknown_dbClusterSnapshotIdentifier;
     public String dbClusterSnapshotIdentifier() {
-        if (dbClusterSnapshotIdentifier == null) return null;
-        return dbClusterSnapshotIdentifier.getValue("ClusterSnapshot.dbClusterSnapshotIdentifier");
+        if (!unknown_dbClusterSnapshotIdentifier) return value_dbClusterSnapshotIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.dbClusterSnapshotIdentifier' is not present");
     }
 
     /**
      * Name of the database engine.
      * 
      */
-    private UndeferrableValue<String> engine;
-
+    @PolicyResourceProperty(name="engine", flag="unknown_engine")
+    private String value_engine;
+    private boolean unknown_engine;
     public String engine() {
-        if (engine == null) return null;
-        return engine.getValue("ClusterSnapshot.engine");
+        if (!unknown_engine) return value_engine;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.engine' is not present");
     }
 
     /**
      * Version of the database engine for this DB cluster snapshot.
      * 
      */
-    private UndeferrableValue<String> engineVersion;
-
+    @PolicyResourceProperty(name="engineVersion", flag="unknown_engineVersion")
+    private String value_engineVersion;
+    private boolean unknown_engineVersion;
     public String engineVersion() {
-        if (engineVersion == null) return null;
-        return engineVersion.getValue("ClusterSnapshot.engineVersion");
+        if (!unknown_engineVersion) return value_engineVersion;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.engineVersion' is not present");
     }
 
     /**
      * If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("ClusterSnapshot.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.kmsKeyId' is not present");
     }
 
     /**
      * License model information for the restored DB cluster.
      * 
      */
-    private UndeferrableValue<String> licenseModel;
-
+    @PolicyResourceProperty(name="licenseModel", flag="unknown_licenseModel")
+    private String value_licenseModel;
+    private boolean unknown_licenseModel;
     public String licenseModel() {
-        if (licenseModel == null) return null;
-        return licenseModel.getValue("ClusterSnapshot.licenseModel");
+        if (!unknown_licenseModel) return value_licenseModel;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.licenseModel' is not present");
     }
 
     /**
      * Port that the DB cluster was listening on at the time of the snapshot.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("ClusterSnapshot.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.port' is not present");
     }
 
     /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> sharedAccounts;
-
+    @PolicyResourceProperty(name="sharedAccounts", flag="unknown_sharedAccounts")
+    private @Nullable List<String> value_sharedAccounts;
+    private boolean unknown_sharedAccounts;
     public @Nullable List<String> sharedAccounts() {
-        if (sharedAccounts == null) return null;
-        return sharedAccounts.getValue("ClusterSnapshot.sharedAccounts");
+        if (!unknown_sharedAccounts) return value_sharedAccounts;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.sharedAccounts' is not present");
     }
 
-    private UndeferrableValue<String> snapshotType;
-
+    @PolicyResourceProperty(name="snapshotType", flag="unknown_snapshotType")
+    private String value_snapshotType;
+    private boolean unknown_snapshotType;
     public String snapshotType() {
-        if (snapshotType == null) return null;
-        return snapshotType.getValue("ClusterSnapshot.snapshotType");
+        if (!unknown_snapshotType) return value_snapshotType;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.snapshotType' is not present");
     }
 
-    private UndeferrableValue<String> sourceDbClusterSnapshotArn;
-
+    @PolicyResourceProperty(name="sourceDbClusterSnapshotArn", flag="unknown_sourceDbClusterSnapshotArn")
+    private String value_sourceDbClusterSnapshotArn;
+    private boolean unknown_sourceDbClusterSnapshotArn;
     public String sourceDbClusterSnapshotArn() {
-        if (sourceDbClusterSnapshotArn == null) return null;
-        return sourceDbClusterSnapshotArn.getValue("ClusterSnapshot.sourceDbClusterSnapshotArn");
+        if (!unknown_sourceDbClusterSnapshotArn) return value_sourceDbClusterSnapshotArn;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.sourceDbClusterSnapshotArn' is not present");
     }
 
     /**
      * The status of this DB Cluster Snapshot.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("ClusterSnapshot.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.status' is not present");
     }
 
     /**
      * Whether the DB cluster snapshot is encrypted.
      * 
      */
-    private UndeferrableValue<Boolean> storageEncrypted;
-
+    @PolicyResourceProperty(name="storageEncrypted", flag="unknown_storageEncrypted")
+    private Boolean value_storageEncrypted;
+    private boolean unknown_storageEncrypted;
     public Boolean storageEncrypted() {
-        if (storageEncrypted == null) return null;
-        return storageEncrypted.getValue("ClusterSnapshot.storageEncrypted");
+        if (!unknown_storageEncrypted) return value_storageEncrypted;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.storageEncrypted' is not present");
     }
 
     /**
      * A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ClusterSnapshot.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.tags' is not present");
     }
 
     /**
@@ -192,22 +209,24 @@ public final class ClusterSnapshot extends com.pulumi.resources.PolicyResourceOu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ClusterSnapshot.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.tagsAll' is not present");
     }
 
     /**
      * The VPC ID associated with the DB cluster snapshot.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("ClusterSnapshot.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.vpcId' is not present");
     }
 
 }

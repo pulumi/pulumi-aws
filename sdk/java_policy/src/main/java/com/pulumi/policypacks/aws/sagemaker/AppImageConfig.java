@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.outputs.AppImageConfigCodeEditorAppImageConfig;
 import com.pulumi.policypacks.aws.sagemaker.outputs.AppImageConfigJupyterLabImageConfig;
@@ -20,66 +21,72 @@ public final class AppImageConfig extends com.pulumi.resources.PolicyResourceOut
      * The name of the App Image Config.
      * 
      */
-    private UndeferrableValue<String> appImageConfigName;
-
+    @PolicyResourceProperty(name="appImageConfigName", flag="unknown_appImageConfigName")
+    private String value_appImageConfigName;
+    private boolean unknown_appImageConfigName;
     public String appImageConfigName() {
-        if (appImageConfigName == null) return null;
-        return appImageConfigName.getValue("AppImageConfig.appImageConfigName");
+        if (!unknown_appImageConfigName) return value_appImageConfigName;
+        throw new UndeferrableValueException("Value 'AppImageConfig.appImageConfigName' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("AppImageConfig.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'AppImageConfig.arn' is not present");
     }
 
     /**
      * The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
      * 
      */
-    private @Nullable UndeferrableValue<AppImageConfigCodeEditorAppImageConfig> codeEditorAppImageConfig;
-
+    @PolicyResourceProperty(name="codeEditorAppImageConfig", flag="unknown_codeEditorAppImageConfig")
+    private @Nullable AppImageConfigCodeEditorAppImageConfig value_codeEditorAppImageConfig;
+    private boolean unknown_codeEditorAppImageConfig;
     public @Nullable AppImageConfigCodeEditorAppImageConfig codeEditorAppImageConfig() {
-        if (codeEditorAppImageConfig == null) return null;
-        return codeEditorAppImageConfig.getValue("AppImageConfig.codeEditorAppImageConfig");
+        if (!unknown_codeEditorAppImageConfig) return value_codeEditorAppImageConfig;
+        throw new UndeferrableValueException("Value 'AppImageConfig.codeEditorAppImageConfig' is not present");
     }
 
     /**
      * The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
      * 
      */
-    private @Nullable UndeferrableValue<AppImageConfigJupyterLabImageConfig> jupyterLabImageConfig;
-
+    @PolicyResourceProperty(name="jupyterLabImageConfig", flag="unknown_jupyterLabImageConfig")
+    private @Nullable AppImageConfigJupyterLabImageConfig value_jupyterLabImageConfig;
+    private boolean unknown_jupyterLabImageConfig;
     public @Nullable AppImageConfigJupyterLabImageConfig jupyterLabImageConfig() {
-        if (jupyterLabImageConfig == null) return null;
-        return jupyterLabImageConfig.getValue("AppImageConfig.jupyterLabImageConfig");
+        if (!unknown_jupyterLabImageConfig) return value_jupyterLabImageConfig;
+        throw new UndeferrableValueException("Value 'AppImageConfig.jupyterLabImageConfig' is not present");
     }
 
     /**
      * The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
      * 
      */
-    private @Nullable UndeferrableValue<AppImageConfigKernelGatewayImageConfig> kernelGatewayImageConfig;
-
+    @PolicyResourceProperty(name="kernelGatewayImageConfig", flag="unknown_kernelGatewayImageConfig")
+    private @Nullable AppImageConfigKernelGatewayImageConfig value_kernelGatewayImageConfig;
+    private boolean unknown_kernelGatewayImageConfig;
     public @Nullable AppImageConfigKernelGatewayImageConfig kernelGatewayImageConfig() {
-        if (kernelGatewayImageConfig == null) return null;
-        return kernelGatewayImageConfig.getValue("AppImageConfig.kernelGatewayImageConfig");
+        if (!unknown_kernelGatewayImageConfig) return value_kernelGatewayImageConfig;
+        throw new UndeferrableValueException("Value 'AppImageConfig.kernelGatewayImageConfig' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AppImageConfig.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AppImageConfig.tags' is not present");
     }
 
     /**
@@ -90,11 +97,12 @@ public final class AppImageConfig extends com.pulumi.resources.PolicyResourceOut
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("AppImageConfig.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'AppImageConfig.tagsAll' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecr.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ecr.inputs.RegistryScanningConfigurationRuleRepositoryFilterArgs;
 import java.lang.String;
 import java.util.List;
@@ -15,22 +16,24 @@ public final class RegistryScanningConfigurationRuleArgs {
      * One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).
      * 
      */
-    private UndeferrableValue<List<RegistryScanningConfigurationRuleRepositoryFilterArgs>> repositoryFilters;
-
+    @PolicyResourceProperty(name="repositoryFilters", flag="unknown_repositoryFilters")
+    private List<RegistryScanningConfigurationRuleRepositoryFilterArgs> value_repositoryFilters;
+    private boolean unknown_repositoryFilters;
     public List<RegistryScanningConfigurationRuleRepositoryFilterArgs> repositoryFilters() {
-        if (repositoryFilters == null) return null;
-        return repositoryFilters.getValue("RegistryScanningConfigurationRuleArgs.repositoryFilters");
+        if (!unknown_repositoryFilters) return value_repositoryFilters;
+        throw new UndeferrableValueException("Value 'RegistryScanningConfigurationRuleArgs.repositoryFilters' is not present");
     }
 
     /**
      * The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
      * 
      */
-    private UndeferrableValue<String> scanFrequency;
-
+    @PolicyResourceProperty(name="scanFrequency", flag="unknown_scanFrequency")
+    private String value_scanFrequency;
+    private boolean unknown_scanFrequency;
     public String scanFrequency() {
-        if (scanFrequency == null) return null;
-        return scanFrequency.getValue("RegistryScanningConfigurationRuleArgs.scanFrequency");
+        if (!unknown_scanFrequency) return value_scanFrequency;
+        throw new UndeferrableValueException("Value 'RegistryScanningConfigurationRuleArgs.scanFrequency' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.resourceexplorer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.resourceexplorer.inputs.ViewFiltersArgs;
 import com.pulumi.policypacks.aws.resourceexplorer.inputs.ViewIncludedPropertyArgs;
@@ -21,66 +22,72 @@ public final class ViewArgs extends com.pulumi.resources.PolicyResourceInput {
      * Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
      * 
      */
-    private UndeferrableValue<Boolean> defaultView;
-
+    @PolicyResourceProperty(name="defaultView", flag="unknown_defaultView")
+    private Boolean value_defaultView;
+    private boolean unknown_defaultView;
     public Boolean defaultView() {
-        if (defaultView == null) return null;
-        return defaultView.getValue("ViewArgs.defaultView");
+        if (!unknown_defaultView) return value_defaultView;
+        throw new UndeferrableValueException("Value 'ViewArgs.defaultView' is not present");
     }
 
     /**
      * Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
      * 
      */
-    private UndeferrableValue<ViewFiltersArgs> filters;
-
+    @PolicyResourceProperty(name="filters", flag="unknown_filters")
+    private ViewFiltersArgs value_filters;
+    private boolean unknown_filters;
     public ViewFiltersArgs filters() {
-        if (filters == null) return null;
-        return filters.getValue("ViewArgs.filters");
+        if (!unknown_filters) return value_filters;
+        throw new UndeferrableValueException("Value 'ViewArgs.filters' is not present");
     }
 
     /**
      * Optional fields to be included in search results from this view. See Included Properties below for more details.
      * 
      */
-    private UndeferrableValue<List<ViewIncludedPropertyArgs>> includedProperties;
-
+    @PolicyResourceProperty(name="includedProperties", flag="unknown_includedProperties")
+    private List<ViewIncludedPropertyArgs> value_includedProperties;
+    private boolean unknown_includedProperties;
     public List<ViewIncludedPropertyArgs> includedProperties() {
-        if (includedProperties == null) return null;
-        return includedProperties.getValue("ViewArgs.includedProperties");
+        if (!unknown_includedProperties) return value_includedProperties;
+        throw new UndeferrableValueException("Value 'ViewArgs.includedProperties' is not present");
     }
 
     /**
      * The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ViewArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ViewArgs.name' is not present");
     }
 
     /**
      * The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
      * 
      */
-    private UndeferrableValue<String> scope;
-
+    @PolicyResourceProperty(name="scope", flag="unknown_scope")
+    private String value_scope;
+    private boolean unknown_scope;
     public String scope() {
-        if (scope == null) return null;
-        return scope.getValue("ViewArgs.scope");
+        if (!unknown_scope) return value_scope;
+        throw new UndeferrableValueException("Value 'ViewArgs.scope' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ViewArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ViewArgs.tags' is not present");
     }
 
 }

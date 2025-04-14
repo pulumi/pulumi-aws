@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2clientvpn;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,44 +16,48 @@ public final class NetworkAssociation extends com.pulumi.resources.PolicyResourc
      * The unique ID of the target network association.
      * 
      */
-    private UndeferrableValue<String> associationId;
-
+    @PolicyResourceProperty(name="associationId", flag="unknown_associationId")
+    private String value_associationId;
+    private boolean unknown_associationId;
     public String associationId() {
-        if (associationId == null) return null;
-        return associationId.getValue("NetworkAssociation.associationId");
+        if (!unknown_associationId) return value_associationId;
+        throw new UndeferrableValueException("Value 'NetworkAssociation.associationId' is not present");
     }
 
     /**
      * The ID of the Client VPN endpoint.
      * 
      */
-    private UndeferrableValue<String> clientVpnEndpointId;
-
+    @PolicyResourceProperty(name="clientVpnEndpointId", flag="unknown_clientVpnEndpointId")
+    private String value_clientVpnEndpointId;
+    private boolean unknown_clientVpnEndpointId;
     public String clientVpnEndpointId() {
-        if (clientVpnEndpointId == null) return null;
-        return clientVpnEndpointId.getValue("NetworkAssociation.clientVpnEndpointId");
+        if (!unknown_clientVpnEndpointId) return value_clientVpnEndpointId;
+        throw new UndeferrableValueException("Value 'NetworkAssociation.clientVpnEndpointId' is not present");
     }
 
     /**
      * The ID of the subnet to associate with the Client VPN endpoint.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("NetworkAssociation.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'NetworkAssociation.subnetId' is not present");
     }
 
     /**
      * The ID of the VPC in which the target subnet is located.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("NetworkAssociation.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'NetworkAssociation.vpcId' is not present");
     }
 
 }

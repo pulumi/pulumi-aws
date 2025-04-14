@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class DataSourceDynamodbConfigDeltaSyncConfigArgs {
      * The number of minutes that an Item is stored in the data source.
      * 
      */
-    private UndeferrableValue<Integer> baseTableTtl;
-
+    @PolicyResourceProperty(name="baseTableTtl", flag="unknown_baseTableTtl")
+    private Integer value_baseTableTtl;
+    private boolean unknown_baseTableTtl;
     public Integer baseTableTtl() {
-        if (baseTableTtl == null) return null;
-        return baseTableTtl.getValue("DataSourceDynamodbConfigDeltaSyncConfigArgs.baseTableTtl");
+        if (!unknown_baseTableTtl) return value_baseTableTtl;
+        throw new UndeferrableValueException("Value 'DataSourceDynamodbConfigDeltaSyncConfigArgs.baseTableTtl' is not present");
     }
 
     /**
      * The table name.
      * 
      */
-    private UndeferrableValue<String> deltaSyncTableName;
-
+    @PolicyResourceProperty(name="deltaSyncTableName", flag="unknown_deltaSyncTableName")
+    private String value_deltaSyncTableName;
+    private boolean unknown_deltaSyncTableName;
     public String deltaSyncTableName() {
-        if (deltaSyncTableName == null) return null;
-        return deltaSyncTableName.getValue("DataSourceDynamodbConfigDeltaSyncConfigArgs.deltaSyncTableName");
+        if (!unknown_deltaSyncTableName) return value_deltaSyncTableName;
+        throw new UndeferrableValueException("Value 'DataSourceDynamodbConfigDeltaSyncConfigArgs.deltaSyncTableName' is not present");
     }
 
     /**
      * The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
      * 
      */
-    private UndeferrableValue<Integer> deltaSyncTableTtl;
-
+    @PolicyResourceProperty(name="deltaSyncTableTtl", flag="unknown_deltaSyncTableTtl")
+    private Integer value_deltaSyncTableTtl;
+    private boolean unknown_deltaSyncTableTtl;
     public Integer deltaSyncTableTtl() {
-        if (deltaSyncTableTtl == null) return null;
-        return deltaSyncTableTtl.getValue("DataSourceDynamodbConfigDeltaSyncConfigArgs.deltaSyncTableTtl");
+        if (!unknown_deltaSyncTableTtl) return value_deltaSyncTableTtl;
+        throw new UndeferrableValueException("Value 'DataSourceDynamodbConfigDeltaSyncConfigArgs.deltaSyncTableTtl' is not present");
     }
 
 }

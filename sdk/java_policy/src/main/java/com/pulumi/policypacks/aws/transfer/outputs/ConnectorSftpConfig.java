@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ConnectorSftpConfig {
      * A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> trustedHostKeys;
-
+    @PolicyResourceProperty(name="trustedHostKeys", flag="unknown_trustedHostKeys")
+    private @Nullable List<String> value_trustedHostKeys;
+    private boolean unknown_trustedHostKeys;
     public @Nullable List<String> trustedHostKeys() {
-        if (trustedHostKeys == null) return null;
-        return trustedHostKeys.getValue("ConnectorSftpConfig.trustedHostKeys");
+        if (!unknown_trustedHostKeys) return value_trustedHostKeys;
+        throw new UndeferrableValueException("Value 'ConnectorSftpConfig.trustedHostKeys' is not present");
     }
 
     /**
      * The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
      * 
      */
-    private @Nullable UndeferrableValue<String> userSecretId;
-
+    @PolicyResourceProperty(name="userSecretId", flag="unknown_userSecretId")
+    private @Nullable String value_userSecretId;
+    private boolean unknown_userSecretId;
     public @Nullable String userSecretId() {
-        if (userSecretId == null) return null;
-        return userSecretId.getValue("ConnectorSftpConfig.userSecretId");
+        if (!unknown_userSecretId) return value_userSecretId;
+        throw new UndeferrableValueException("Value 'ConnectorSftpConfig.userSecretId' is not present");
     }
 
 }

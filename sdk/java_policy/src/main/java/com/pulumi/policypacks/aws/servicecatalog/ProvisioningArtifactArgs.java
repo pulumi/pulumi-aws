@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,88 +18,96 @@ public final class ProvisioningArtifactArgs extends com.pulumi.resources.PolicyR
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
      * 
      */
-    private UndeferrableValue<String> acceptLanguage;
-
+    @PolicyResourceProperty(name="acceptLanguage", flag="unknown_acceptLanguage")
+    private String value_acceptLanguage;
+    private boolean unknown_acceptLanguage;
     public String acceptLanguage() {
-        if (acceptLanguage == null) return null;
-        return acceptLanguage.getValue("ProvisioningArtifactArgs.acceptLanguage");
+        if (!unknown_acceptLanguage) return value_acceptLanguage;
+        throw new UndeferrableValueException("Value 'ProvisioningArtifactArgs.acceptLanguage' is not present");
     }
 
     /**
      * Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `true`.
      * 
      */
-    private UndeferrableValue<Boolean> active;
-
+    @PolicyResourceProperty(name="active", flag="unknown_active")
+    private Boolean value_active;
+    private boolean unknown_active;
     public Boolean active() {
-        if (active == null) return null;
-        return active.getValue("ProvisioningArtifactArgs.active");
+        if (!unknown_active) return value_active;
+        throw new UndeferrableValueException("Value 'ProvisioningArtifactArgs.active' is not present");
     }
 
     /**
      * Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ProvisioningArtifactArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ProvisioningArtifactArgs.description' is not present");
     }
 
     /**
      * Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
      * 
      */
-    private UndeferrableValue<Boolean> disableTemplateValidation;
-
+    @PolicyResourceProperty(name="disableTemplateValidation", flag="unknown_disableTemplateValidation")
+    private Boolean value_disableTemplateValidation;
+    private boolean unknown_disableTemplateValidation;
     public Boolean disableTemplateValidation() {
-        if (disableTemplateValidation == null) return null;
-        return disableTemplateValidation.getValue("ProvisioningArtifactArgs.disableTemplateValidation");
+        if (!unknown_disableTemplateValidation) return value_disableTemplateValidation;
+        throw new UndeferrableValueException("Value 'ProvisioningArtifactArgs.disableTemplateValidation' is not present");
     }
 
     /**
      * Information set by the administrator to provide guidance to end users about which provisioning artifacts to use. Valid values are `DEFAULT` and `DEPRECATED`. The default is `DEFAULT`. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
      * 
      */
-    private UndeferrableValue<String> guidance;
-
+    @PolicyResourceProperty(name="guidance", flag="unknown_guidance")
+    private String value_guidance;
+    private boolean unknown_guidance;
     public String guidance() {
-        if (guidance == null) return null;
-        return guidance.getValue("ProvisioningArtifactArgs.guidance");
+        if (!unknown_guidance) return value_guidance;
+        throw new UndeferrableValueException("Value 'ProvisioningArtifactArgs.guidance' is not present");
     }
 
     /**
      * Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ProvisioningArtifactArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ProvisioningArtifactArgs.name' is not present");
     }
 
     /**
      * Identifier of the product.
      * 
      */
-    private UndeferrableValue<String> productId;
-
+    @PolicyResourceProperty(name="productId", flag="unknown_productId")
+    private String value_productId;
+    private boolean unknown_productId;
     public String productId() {
-        if (productId == null) return null;
-        return productId.getValue("ProvisioningArtifactArgs.productId");
+        if (!unknown_productId) return value_productId;
+        throw new UndeferrableValueException("Value 'ProvisioningArtifactArgs.productId' is not present");
     }
 
     /**
      * Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
      * 
      */
-    private UndeferrableValue<String> templatePhysicalId;
-
+    @PolicyResourceProperty(name="templatePhysicalId", flag="unknown_templatePhysicalId")
+    private String value_templatePhysicalId;
+    private boolean unknown_templatePhysicalId;
     public String templatePhysicalId() {
-        if (templatePhysicalId == null) return null;
-        return templatePhysicalId.getValue("ProvisioningArtifactArgs.templatePhysicalId");
+        if (!unknown_templatePhysicalId) return value_templatePhysicalId;
+        throw new UndeferrableValueException("Value 'ProvisioningArtifactArgs.templatePhysicalId' is not present");
     }
 
     /**
@@ -107,22 +116,24 @@ public final class ProvisioningArtifactArgs extends com.pulumi.resources.PolicyR
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> templateUrl;
-
+    @PolicyResourceProperty(name="templateUrl", flag="unknown_templateUrl")
+    private String value_templateUrl;
+    private boolean unknown_templateUrl;
     public String templateUrl() {
-        if (templateUrl == null) return null;
-        return templateUrl.getValue("ProvisioningArtifactArgs.templateUrl");
+        if (!unknown_templateUrl) return value_templateUrl;
+        throw new UndeferrableValueException("Value 'ProvisioningArtifactArgs.templateUrl' is not present");
     }
 
     /**
      * Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ProvisioningArtifactArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ProvisioningArtifactArgs.type' is not present");
     }
 
 }

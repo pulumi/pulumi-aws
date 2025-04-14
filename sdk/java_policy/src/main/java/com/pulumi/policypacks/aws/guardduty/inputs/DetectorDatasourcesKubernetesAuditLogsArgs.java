@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.guardduty.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 
 
@@ -14,11 +15,12 @@ public final class DetectorDatasourcesKubernetesAuditLogsArgs {
      * Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> enable;
-
+    @PolicyResourceProperty(name="enable", flag="unknown_enable")
+    private Boolean value_enable;
+    private boolean unknown_enable;
     public Boolean enable() {
-        if (enable == null) return null;
-        return enable.getValue("DetectorDatasourcesKubernetesAuditLogsArgs.enable");
+        if (!unknown_enable) return value_enable;
+        throw new UndeferrableValueException("Value 'DetectorDatasourcesKubernetesAuditLogsArgs.enable' is not present");
     }
 
 }

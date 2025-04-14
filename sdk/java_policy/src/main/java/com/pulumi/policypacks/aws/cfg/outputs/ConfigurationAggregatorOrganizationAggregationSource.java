@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class ConfigurationAggregatorOrganizationAggregationSource {
      * If true, aggregate existing AWS Config regions and future regions.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> allRegions;
-
+    @PolicyResourceProperty(name="allRegions", flag="unknown_allRegions")
+    private @Nullable Boolean value_allRegions;
+    private boolean unknown_allRegions;
     public @Nullable Boolean allRegions() {
-        if (allRegions == null) return null;
-        return allRegions.getValue("ConfigurationAggregatorOrganizationAggregationSource.allRegions");
+        if (!unknown_allRegions) return value_allRegions;
+        throw new UndeferrableValueException("Value 'ConfigurationAggregatorOrganizationAggregationSource.allRegions' is not present");
     }
 
     /**
      * List of source regions being aggregated.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> regions;
-
+    @PolicyResourceProperty(name="regions", flag="unknown_regions")
+    private @Nullable List<String> value_regions;
+    private boolean unknown_regions;
     public @Nullable List<String> regions() {
-        if (regions == null) return null;
-        return regions.getValue("ConfigurationAggregatorOrganizationAggregationSource.regions");
+        if (!unknown_regions) return value_regions;
+        throw new UndeferrableValueException("Value 'ConfigurationAggregatorOrganizationAggregationSource.regions' is not present");
     }
 
     /**
@@ -40,11 +43,12 @@ public final class ConfigurationAggregatorOrganizationAggregationSource {
      * Either `regions` or `all_regions` (as true) must be specified.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("ConfigurationAggregatorOrganizationAggregationSource.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'ConfigurationAggregatorOrganizationAggregationSource.roleArn' is not present");
     }
 
 }

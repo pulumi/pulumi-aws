@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class IntentFollowUpPromptRejectionStatementMessage {
      * The text of the message. Must be less than or equal to 1000 characters in length.
      * 
      */
-    private UndeferrableValue<String> content;
-
+    @PolicyResourceProperty(name="content", flag="unknown_content")
+    private String value_content;
+    private boolean unknown_content;
     public String content() {
-        if (content == null) return null;
-        return content.getValue("IntentFollowUpPromptRejectionStatementMessage.content");
+        if (!unknown_content) return value_content;
+        throw new UndeferrableValueException("Value 'IntentFollowUpPromptRejectionStatementMessage.content' is not present");
     }
 
     /**
      * The content type of the message string.
      * 
      */
-    private UndeferrableValue<String> contentType;
-
+    @PolicyResourceProperty(name="contentType", flag="unknown_contentType")
+    private String value_contentType;
+    private boolean unknown_contentType;
     public String contentType() {
-        if (contentType == null) return null;
-        return contentType.getValue("IntentFollowUpPromptRejectionStatementMessage.contentType");
+        if (!unknown_contentType) return value_contentType;
+        throw new UndeferrableValueException("Value 'IntentFollowUpPromptRejectionStatementMessage.contentType' is not present");
     }
 
     /**
@@ -38,11 +41,12 @@ public final class IntentFollowUpPromptRejectionStatementMessage {
      * is assigned to a message, Amazon Lex returns one message from each group in the response. Must be a number between 1 and 5 (inclusive).
      * 
      */
-    private @Nullable UndeferrableValue<Integer> groupNumber;
-
+    @PolicyResourceProperty(name="groupNumber", flag="unknown_groupNumber")
+    private @Nullable Integer value_groupNumber;
+    private boolean unknown_groupNumber;
     public @Nullable Integer groupNumber() {
-        if (groupNumber == null) return null;
-        return groupNumber.getValue("IntentFollowUpPromptRejectionStatementMessage.groupNumber");
+        if (!unknown_groupNumber) return value_groupNumber;
+        throw new UndeferrableValueException("Value 'IntentFollowUpPromptRejectionStatementMessage.groupNumber' is not present");
     }
 
 }

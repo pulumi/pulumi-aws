@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.inputs.VpcIpamPoolCidrCidrAuthorizationContextArgs;
 import java.lang.Integer;
@@ -18,44 +19,48 @@ public final class VpcIpamPoolCidrArgs extends com.pulumi.resources.PolicyResour
      * The CIDR you want to assign to the pool. Conflicts with `netmask_length`.
      * 
      */
-    private UndeferrableValue<String> cidr;
-
+    @PolicyResourceProperty(name="cidr", flag="unknown_cidr")
+    private String value_cidr;
+    private boolean unknown_cidr;
     public String cidr() {
-        if (cidr == null) return null;
-        return cidr.getValue("VpcIpamPoolCidrArgs.cidr");
+        if (!unknown_cidr) return value_cidr;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolCidrArgs.cidr' is not present");
     }
 
     /**
      * A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidr_authorization_context for more information.
      * 
      */
-    private UndeferrableValue<VpcIpamPoolCidrCidrAuthorizationContextArgs> cidrAuthorizationContext;
-
+    @PolicyResourceProperty(name="cidrAuthorizationContext", flag="unknown_cidrAuthorizationContext")
+    private VpcIpamPoolCidrCidrAuthorizationContextArgs value_cidrAuthorizationContext;
+    private boolean unknown_cidrAuthorizationContext;
     public VpcIpamPoolCidrCidrAuthorizationContextArgs cidrAuthorizationContext() {
-        if (cidrAuthorizationContext == null) return null;
-        return cidrAuthorizationContext.getValue("VpcIpamPoolCidrArgs.cidrAuthorizationContext");
+        if (!unknown_cidrAuthorizationContext) return value_cidrAuthorizationContext;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolCidrArgs.cidrAuthorizationContext' is not present");
     }
 
     /**
      * The ID of the pool to which you want to assign a CIDR.
      * 
      */
-    private UndeferrableValue<String> ipamPoolId;
-
+    @PolicyResourceProperty(name="ipamPoolId", flag="unknown_ipamPoolId")
+    private String value_ipamPoolId;
+    private boolean unknown_ipamPoolId;
     public String ipamPoolId() {
-        if (ipamPoolId == null) return null;
-        return ipamPoolId.getValue("VpcIpamPoolCidrArgs.ipamPoolId");
+        if (!unknown_ipamPoolId) return value_ipamPoolId;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolCidrArgs.ipamPoolId' is not present");
     }
 
     /**
      * If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
      * 
      */
-    private UndeferrableValue<Integer> netmaskLength;
-
+    @PolicyResourceProperty(name="netmaskLength", flag="unknown_netmaskLength")
+    private Integer value_netmaskLength;
+    private boolean unknown_netmaskLength;
     public Integer netmaskLength() {
-        if (netmaskLength == null) return null;
-        return netmaskLength.getValue("VpcIpamPoolCidrArgs.netmaskLength");
+        if (!unknown_netmaskLength) return value_netmaskLength;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolCidrArgs.netmaskLength' is not present");
     }
 
 }

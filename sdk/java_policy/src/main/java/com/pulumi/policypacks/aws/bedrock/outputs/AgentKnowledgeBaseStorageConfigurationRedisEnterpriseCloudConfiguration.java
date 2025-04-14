@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudCon
      * ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
      * 
      */
-    private UndeferrableValue<String> credentialsSecretArn;
-
+    @PolicyResourceProperty(name="credentialsSecretArn", flag="unknown_credentialsSecretArn")
+    private String value_credentialsSecretArn;
+    private boolean unknown_credentialsSecretArn;
     public String credentialsSecretArn() {
-        if (credentialsSecretArn == null) return null;
-        return credentialsSecretArn.getValue("AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration.credentialsSecretArn");
+        if (!unknown_credentialsSecretArn) return value_credentialsSecretArn;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration.credentialsSecretArn' is not present");
     }
 
     /**
      * Endpoint URL of the Redis Enterprise Cloud database.
      * 
      */
-    private UndeferrableValue<String> endpoint;
-
+    @PolicyResourceProperty(name="endpoint", flag="unknown_endpoint")
+    private String value_endpoint;
+    private boolean unknown_endpoint;
     public String endpoint() {
-        if (endpoint == null) return null;
-        return endpoint.getValue("AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration.endpoint");
+        if (!unknown_endpoint) return value_endpoint;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration.endpoint' is not present");
     }
 
     /**
      * The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    private @Nullable UndeferrableValue<AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping> fieldMapping;
-
+    @PolicyResourceProperty(name="fieldMapping", flag="unknown_fieldMapping")
+    private @Nullable AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping value_fieldMapping;
+    private boolean unknown_fieldMapping;
     public @Nullable AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping fieldMapping() {
-        if (fieldMapping == null) return null;
-        return fieldMapping.getValue("AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration.fieldMapping");
+        if (!unknown_fieldMapping) return value_fieldMapping;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration.fieldMapping' is not present");
     }
 
     /**
      * Name of the vector index.
      * 
      */
-    private UndeferrableValue<String> vectorIndexName;
-
+    @PolicyResourceProperty(name="vectorIndexName", flag="unknown_vectorIndexName")
+    private String value_vectorIndexName;
+    private boolean unknown_vectorIndexName;
     public String vectorIndexName() {
-        if (vectorIndexName == null) return null;
-        return vectorIndexName.getValue("AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration.vectorIndexName");
+        if (!unknown_vectorIndexName) return value_vectorIndexName;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration.vectorIndexName' is not present");
     }
 
 }

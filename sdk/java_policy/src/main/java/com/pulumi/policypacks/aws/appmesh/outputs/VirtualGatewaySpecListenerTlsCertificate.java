@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualGatewaySpecListenerTlsCertificateAcm;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualGatewaySpecListenerTlsCertificateFile;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualGatewaySpecListenerTlsCertificateSds;
@@ -16,33 +17,36 @@ public final class VirtualGatewaySpecListenerTlsCertificate {
      * An AWS Certificate Manager (ACM) certificate.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualGatewaySpecListenerTlsCertificateAcm> acm;
-
+    @PolicyResourceProperty(name="acm", flag="unknown_acm")
+    private @Nullable VirtualGatewaySpecListenerTlsCertificateAcm value_acm;
+    private boolean unknown_acm;
     public @Nullable VirtualGatewaySpecListenerTlsCertificateAcm acm() {
-        if (acm == null) return null;
-        return acm.getValue("VirtualGatewaySpecListenerTlsCertificate.acm");
+        if (!unknown_acm) return value_acm;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerTlsCertificate.acm' is not present");
     }
 
     /**
      * Local file certificate.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualGatewaySpecListenerTlsCertificateFile> file;
-
+    @PolicyResourceProperty(name="file", flag="unknown_file")
+    private @Nullable VirtualGatewaySpecListenerTlsCertificateFile value_file;
+    private boolean unknown_file;
     public @Nullable VirtualGatewaySpecListenerTlsCertificateFile file() {
-        if (file == null) return null;
-        return file.getValue("VirtualGatewaySpecListenerTlsCertificate.file");
+        if (!unknown_file) return value_file;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerTlsCertificate.file' is not present");
     }
 
     /**
      * A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualGatewaySpecListenerTlsCertificateSds> sds;
-
+    @PolicyResourceProperty(name="sds", flag="unknown_sds")
+    private @Nullable VirtualGatewaySpecListenerTlsCertificateSds value_sds;
+    private boolean unknown_sds;
     public @Nullable VirtualGatewaySpecListenerTlsCertificateSds sds() {
-        if (sds == null) return null;
-        return sds.getValue("VirtualGatewaySpecListenerTlsCertificate.sds");
+        if (!unknown_sds) return value_sds;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerTlsCertificate.sds' is not present");
     }
 
 }

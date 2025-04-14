@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.autoscaling.outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
      * Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
      * 
      */
-    private UndeferrableValue<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric> metric;
-
+    @PolicyResourceProperty(name="metric", flag="unknown_metric")
+    private PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric value_metric;
+    private boolean unknown_metric;
     public PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric metric() {
-        if (metric == null) return null;
-        return metric.getValue("PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat.metric");
+        if (!unknown_metric) return value_metric;
+        throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat.metric' is not present");
     }
 
     /**
      * Statistic of the metrics to return.
      * 
      */
-    private UndeferrableValue<String> stat;
-
+    @PolicyResourceProperty(name="stat", flag="unknown_stat")
+    private String value_stat;
+    private boolean unknown_stat;
     public String stat() {
-        if (stat == null) return null;
-        return stat.getValue("PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat.stat");
+        if (!unknown_stat) return value_stat;
+        throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat.stat' is not present");
     }
 
     /**
      * Unit of the metrics to return.
      * 
      */
-    private @Nullable UndeferrableValue<String> unit;
-
+    @PolicyResourceProperty(name="unit", flag="unknown_unit")
+    private @Nullable String value_unit;
+    private boolean unknown_unit;
     public @Nullable String unit() {
-        if (unit == null) return null;
-        return unit.getValue("PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat.unit");
+        if (!unknown_unit) return value_unit;
+        throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat.unit' is not present");
     }
 
 }

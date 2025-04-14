@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,29 +15,32 @@ public final class NetworkInsightsAnalysisExplanationAttachedTo {
      * ARN of the Network Insights Analysis.
      * 
      */
-    private @Nullable UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private @Nullable String value_arn;
+    private boolean unknown_arn;
     public @Nullable String arn() {
-        if (arn == null) return null;
-        return arn.getValue("NetworkInsightsAnalysisExplanationAttachedTo.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationAttachedTo.arn' is not present");
     }
 
     /**
      * ID of the Network Insights Analysis.
      * 
      */
-    private @Nullable UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private @Nullable String value_id;
+    private boolean unknown_id;
     public @Nullable String id() {
-        if (id == null) return null;
-        return id.getValue("NetworkInsightsAnalysisExplanationAttachedTo.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationAttachedTo.id' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("NetworkInsightsAnalysisExplanationAttachedTo.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationAttachedTo.name' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 
@@ -14,33 +15,36 @@ public final class RecordAliasArgs {
      * Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
      * 
      */
-    private UndeferrableValue<Boolean> evaluateTargetHealth;
-
+    @PolicyResourceProperty(name="evaluateTargetHealth", flag="unknown_evaluateTargetHealth")
+    private Boolean value_evaluateTargetHealth;
+    private boolean unknown_evaluateTargetHealth;
     public Boolean evaluateTargetHealth() {
-        if (evaluateTargetHealth == null) return null;
-        return evaluateTargetHealth.getValue("RecordAliasArgs.evaluateTargetHealth");
+        if (!unknown_evaluateTargetHealth) return value_evaluateTargetHealth;
+        throw new UndeferrableValueException("Value 'RecordAliasArgs.evaluateTargetHealth' is not present");
     }
 
     /**
      * DNS domain name for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or another resource record set in this hosted zone.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RecordAliasArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RecordAliasArgs.name' is not present");
     }
 
     /**
      * Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
      * 
      */
-    private UndeferrableValue<String> zoneId;
-
+    @PolicyResourceProperty(name="zoneId", flag="unknown_zoneId")
+    private String value_zoneId;
+    private boolean unknown_zoneId;
     public String zoneId() {
-        if (zoneId == null) return null;
-        return zoneId.getValue("RecordAliasArgs.zoneId");
+        if (!unknown_zoneId) return value_zoneId;
+        throw new UndeferrableValueException("Value 'RecordAliasArgs.zoneId' is not present");
     }
 
 }

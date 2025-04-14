@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,22 +14,24 @@ public final class RouteSpecHttp2RouteMatchHeaderMatchRangeArgs {
      * End of the range.
      * 
      */
-    private UndeferrableValue<Integer> end;
-
+    @PolicyResourceProperty(name="end", flag="unknown_end")
+    private Integer value_end;
+    private boolean unknown_end;
     public Integer end() {
-        if (end == null) return null;
-        return end.getValue("RouteSpecHttp2RouteMatchHeaderMatchRangeArgs.end");
+        if (!unknown_end) return value_end;
+        throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteMatchHeaderMatchRangeArgs.end' is not present");
     }
 
     /**
      * Start of the range.
      * 
      */
-    private UndeferrableValue<Integer> start;
-
+    @PolicyResourceProperty(name="start", flag="unknown_start")
+    private Integer value_start;
+    private boolean unknown_start;
     public Integer start() {
-        if (start == null) return null;
-        return start.getValue("RouteSpecHttp2RouteMatchHeaderMatchRangeArgs.start");
+        if (!unknown_start) return value_start;
+        throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteMatchHeaderMatchRangeArgs.start' is not present");
     }
 
 }

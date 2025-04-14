@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class TopicRuleFirehoseArgs {
      * The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
      * 
      */
-    private UndeferrableValue<Boolean> batchMode;
-
+    @PolicyResourceProperty(name="batchMode", flag="unknown_batchMode")
+    private Boolean value_batchMode;
+    private boolean unknown_batchMode;
     public Boolean batchMode() {
-        if (batchMode == null) return null;
-        return batchMode.getValue("TopicRuleFirehoseArgs.batchMode");
+        if (!unknown_batchMode) return value_batchMode;
+        throw new UndeferrableValueException("Value 'TopicRuleFirehoseArgs.batchMode' is not present");
     }
 
     /**
      * The delivery stream name.
      * 
      */
-    private UndeferrableValue<String> deliveryStreamName;
-
+    @PolicyResourceProperty(name="deliveryStreamName", flag="unknown_deliveryStreamName")
+    private String value_deliveryStreamName;
+    private boolean unknown_deliveryStreamName;
     public String deliveryStreamName() {
-        if (deliveryStreamName == null) return null;
-        return deliveryStreamName.getValue("TopicRuleFirehoseArgs.deliveryStreamName");
+        if (!unknown_deliveryStreamName) return value_deliveryStreamName;
+        throw new UndeferrableValueException("Value 'TopicRuleFirehoseArgs.deliveryStreamName' is not present");
     }
 
     /**
      * The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("TopicRuleFirehoseArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'TopicRuleFirehoseArgs.roleArn' is not present");
     }
 
     /**
      * A character separator that is used to separate records written to the Firehose stream. Valid values are: &#39;\n&#39; (newline), &#39;\t&#39; (tab), &#39;\r\n&#39; (Windows newline), &#39;,&#39; (comma).
      * 
      */
-    private UndeferrableValue<String> separator;
-
+    @PolicyResourceProperty(name="separator", flag="unknown_separator")
+    private String value_separator;
+    private boolean unknown_separator;
     public String separator() {
-        if (separator == null) return null;
-        return separator.getValue("TopicRuleFirehoseArgs.separator");
+        if (!unknown_separator) return value_separator;
+        throw new UndeferrableValueException("Value 'TopicRuleFirehoseArgs.separator' is not present");
     }
 
 }

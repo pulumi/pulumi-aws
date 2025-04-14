@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class ResolverRuleTargetIp {
      * One IPv4 address that you want to forward DNS queries to.
      * 
      */
-    private @Nullable UndeferrableValue<String> ip;
-
+    @PolicyResourceProperty(name="ip", flag="unknown_ip")
+    private @Nullable String value_ip;
+    private boolean unknown_ip;
     public @Nullable String ip() {
-        if (ip == null) return null;
-        return ip.getValue("ResolverRuleTargetIp.ip");
+        if (!unknown_ip) return value_ip;
+        throw new UndeferrableValueException("Value 'ResolverRuleTargetIp.ip' is not present");
     }
 
     /**
      * One IPv6 address that you want to forward DNS queries to.
      * 
      */
-    private @Nullable UndeferrableValue<String> ipv6;
-
+    @PolicyResourceProperty(name="ipv6", flag="unknown_ipv6")
+    private @Nullable String value_ipv6;
+    private boolean unknown_ipv6;
     public @Nullable String ipv6() {
-        if (ipv6 == null) return null;
-        return ipv6.getValue("ResolverRuleTargetIp.ipv6");
+        if (!unknown_ipv6) return value_ipv6;
+        throw new UndeferrableValueException("Value 'ResolverRuleTargetIp.ipv6' is not present");
     }
 
     /**
      * Port at `ip` that you want to forward DNS queries to. Default value is `53`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable Integer value_port;
+    private boolean unknown_port;
     public @Nullable Integer port() {
-        if (port == null) return null;
-        return port.getValue("ResolverRuleTargetIp.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'ResolverRuleTargetIp.port' is not present");
     }
 
     /**
      * Protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
      * 
      */
-    private @Nullable UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private @Nullable String value_protocol;
+    private boolean unknown_protocol;
     public @Nullable String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("ResolverRuleTargetIp.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'ResolverRuleTargetIp.protocol' is not present");
     }
 
 }

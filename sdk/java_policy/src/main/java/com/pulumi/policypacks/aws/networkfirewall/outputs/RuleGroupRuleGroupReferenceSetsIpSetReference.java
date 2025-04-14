@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference;
 import java.lang.String;
 import java.util.List;
@@ -15,18 +16,20 @@ public final class RuleGroupRuleGroupReferenceSetsIpSetReference {
      * Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
      * 
      */
-    private UndeferrableValue<List<RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference>> ipSetReferences;
-
+    @PolicyResourceProperty(name="ipSetReferences", flag="unknown_ipSetReferences")
+    private List<RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference> value_ipSetReferences;
+    private boolean unknown_ipSetReferences;
     public List<RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference> ipSetReferences() {
-        if (ipSetReferences == null) return null;
-        return ipSetReferences.getValue("RuleGroupRuleGroupReferenceSetsIpSetReference.ipSetReferences");
+        if (!unknown_ipSetReferences) return value_ipSetReferences;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupReferenceSetsIpSetReference.ipSetReferences' is not present");
     }
 
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("RuleGroupRuleGroupReferenceSetsIpSetReference.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupReferenceSetsIpSetReference.key' is not present");
     }
 
 }

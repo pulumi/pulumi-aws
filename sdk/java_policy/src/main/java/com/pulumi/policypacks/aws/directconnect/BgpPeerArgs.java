@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,11 +18,12 @@ public final class BgpPeerArgs extends com.pulumi.resources.PolicyResourceInput 
      * The address family for the BGP peer. ` ipv4  ` or `ipv6`.
      * 
      */
-    private UndeferrableValue<String> addressFamily;
-
+    @PolicyResourceProperty(name="addressFamily", flag="unknown_addressFamily")
+    private String value_addressFamily;
+    private boolean unknown_addressFamily;
     public String addressFamily() {
-        if (addressFamily == null) return null;
-        return addressFamily.getValue("BgpPeerArgs.addressFamily");
+        if (!unknown_addressFamily) return value_addressFamily;
+        throw new UndeferrableValueException("Value 'BgpPeerArgs.addressFamily' is not present");
     }
 
     /**
@@ -29,33 +31,36 @@ public final class BgpPeerArgs extends com.pulumi.resources.PolicyResourceInput 
      * Required for IPv4 BGP peers on public virtual interfaces.
      * 
      */
-    private UndeferrableValue<String> amazonAddress;
-
+    @PolicyResourceProperty(name="amazonAddress", flag="unknown_amazonAddress")
+    private String value_amazonAddress;
+    private boolean unknown_amazonAddress;
     public String amazonAddress() {
-        if (amazonAddress == null) return null;
-        return amazonAddress.getValue("BgpPeerArgs.amazonAddress");
+        if (!unknown_amazonAddress) return value_amazonAddress;
+        throw new UndeferrableValueException("Value 'BgpPeerArgs.amazonAddress' is not present");
     }
 
     /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      * 
      */
-    private UndeferrableValue<Integer> bgpAsn;
-
+    @PolicyResourceProperty(name="bgpAsn", flag="unknown_bgpAsn")
+    private Integer value_bgpAsn;
+    private boolean unknown_bgpAsn;
     public Integer bgpAsn() {
-        if (bgpAsn == null) return null;
-        return bgpAsn.getValue("BgpPeerArgs.bgpAsn");
+        if (!unknown_bgpAsn) return value_bgpAsn;
+        throw new UndeferrableValueException("Value 'BgpPeerArgs.bgpAsn' is not present");
     }
 
     /**
      * The authentication key for BGP configuration.
      * 
      */
-    private UndeferrableValue<String> bgpAuthKey;
-
+    @PolicyResourceProperty(name="bgpAuthKey", flag="unknown_bgpAuthKey")
+    private String value_bgpAuthKey;
+    private boolean unknown_bgpAuthKey;
     public String bgpAuthKey() {
-        if (bgpAuthKey == null) return null;
-        return bgpAuthKey.getValue("BgpPeerArgs.bgpAuthKey");
+        if (!unknown_bgpAuthKey) return value_bgpAuthKey;
+        throw new UndeferrableValueException("Value 'BgpPeerArgs.bgpAuthKey' is not present");
     }
 
     /**
@@ -63,22 +68,24 @@ public final class BgpPeerArgs extends com.pulumi.resources.PolicyResourceInput 
      * Required for IPv4 BGP peers on public virtual interfaces.
      * 
      */
-    private UndeferrableValue<String> customerAddress;
-
+    @PolicyResourceProperty(name="customerAddress", flag="unknown_customerAddress")
+    private String value_customerAddress;
+    private boolean unknown_customerAddress;
     public String customerAddress() {
-        if (customerAddress == null) return null;
-        return customerAddress.getValue("BgpPeerArgs.customerAddress");
+        if (!unknown_customerAddress) return value_customerAddress;
+        throw new UndeferrableValueException("Value 'BgpPeerArgs.customerAddress' is not present");
     }
 
     /**
      * The ID of the Direct Connect virtual interface on which to create the BGP peer.
      * 
      */
-    private UndeferrableValue<String> virtualInterfaceId;
-
+    @PolicyResourceProperty(name="virtualInterfaceId", flag="unknown_virtualInterfaceId")
+    private String value_virtualInterfaceId;
+    private boolean unknown_virtualInterfaceId;
     public String virtualInterfaceId() {
-        if (virtualInterfaceId == null) return null;
-        return virtualInterfaceId.getValue("BgpPeerArgs.virtualInterfaceId");
+        if (!unknown_virtualInterfaceId) return value_virtualInterfaceId;
+        throw new UndeferrableValueException("Value 'BgpPeerArgs.virtualInterfaceId' is not present");
     }
 
 }

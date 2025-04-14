@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,66 +18,72 @@ public final class VirtualMfaDevice extends com.pulumi.resources.PolicyResourceO
      * The Amazon Resource Name (ARN) specifying the virtual mfa device.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("VirtualMfaDevice.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'VirtualMfaDevice.arn' is not present");
     }
 
     /**
      * The base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.
      * 
      */
-    private UndeferrableValue<String> base32StringSeed;
-
+    @PolicyResourceProperty(name="base32StringSeed", flag="unknown_base32StringSeed")
+    private String value_base32StringSeed;
+    private boolean unknown_base32StringSeed;
     public String base32StringSeed() {
-        if (base32StringSeed == null) return null;
-        return base32StringSeed.getValue("VirtualMfaDevice.base32StringSeed");
+        if (!unknown_base32StringSeed) return value_base32StringSeed;
+        throw new UndeferrableValueException("Value 'VirtualMfaDevice.base32StringSeed' is not present");
     }
 
     /**
      * The date and time when the virtual MFA device was enabled.
      * 
      */
-    private UndeferrableValue<String> enableDate;
-
+    @PolicyResourceProperty(name="enableDate", flag="unknown_enableDate")
+    private String value_enableDate;
+    private boolean unknown_enableDate;
     public String enableDate() {
-        if (enableDate == null) return null;
-        return enableDate.getValue("VirtualMfaDevice.enableDate");
+        if (!unknown_enableDate) return value_enableDate;
+        throw new UndeferrableValueException("Value 'VirtualMfaDevice.enableDate' is not present");
     }
 
     /**
      * The path for the virtual MFA device.
      * 
      */
-    private @Nullable UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private @Nullable String value_path;
+    private boolean unknown_path;
     public @Nullable String path() {
-        if (path == null) return null;
-        return path.getValue("VirtualMfaDevice.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'VirtualMfaDevice.path' is not present");
     }
 
     /**
      * A QR code PNG image that encodes `otpauth://totp/$virtualMFADeviceName{@literal @}$AccountName?secret=$Base32String` where `$virtualMFADeviceName` is one of the create call arguments. AccountName is the user name if set (otherwise, the account ID), and Base32String is the seed in base32 format.
      * 
      */
-    private UndeferrableValue<String> qrCodePng;
-
+    @PolicyResourceProperty(name="qrCodePng", flag="unknown_qrCodePng")
+    private String value_qrCodePng;
+    private boolean unknown_qrCodePng;
     public String qrCodePng() {
-        if (qrCodePng == null) return null;
-        return qrCodePng.getValue("VirtualMfaDevice.qrCodePng");
+        if (!unknown_qrCodePng) return value_qrCodePng;
+        throw new UndeferrableValueException("Value 'VirtualMfaDevice.qrCodePng' is not present");
     }
 
     /**
      * Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VirtualMfaDevice.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VirtualMfaDevice.tags' is not present");
     }
 
     /**
@@ -87,33 +94,36 @@ public final class VirtualMfaDevice extends com.pulumi.resources.PolicyResourceO
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("VirtualMfaDevice.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'VirtualMfaDevice.tagsAll' is not present");
     }
 
     /**
      * The associated IAM User name if the virtual MFA device is enabled.
      * 
      */
-    private UndeferrableValue<String> userName;
-
+    @PolicyResourceProperty(name="userName", flag="unknown_userName")
+    private String value_userName;
+    private boolean unknown_userName;
     public String userName() {
-        if (userName == null) return null;
-        return userName.getValue("VirtualMfaDevice.userName");
+        if (!unknown_userName) return value_userName;
+        throw new UndeferrableValueException("Value 'VirtualMfaDevice.userName' is not present");
     }
 
     /**
      * The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
      * 
      */
-    private UndeferrableValue<String> virtualMfaDeviceName;
-
+    @PolicyResourceProperty(name="virtualMfaDeviceName", flag="unknown_virtualMfaDeviceName")
+    private String value_virtualMfaDeviceName;
+    private boolean unknown_virtualMfaDeviceName;
     public String virtualMfaDeviceName() {
-        if (virtualMfaDeviceName == null) return null;
-        return virtualMfaDeviceName.getValue("VirtualMfaDevice.virtualMfaDeviceName");
+        if (!unknown_virtualMfaDeviceName) return value_virtualMfaDeviceName;
+        throw new UndeferrableValueException("Value 'VirtualMfaDevice.virtualMfaDeviceName' is not present");
     }
 
 }

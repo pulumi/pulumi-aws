@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dynamodb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -16,11 +17,12 @@ public final class ResourcePolicy extends com.pulumi.resources.PolicyResourceOut
      * Set this parameter to true to confirm that you want to remove your permissions to change the policy of this resource in the future.
      * 
      */
-    private UndeferrableValue<Boolean> confirmRemoveSelfResourceAccess;
-
+    @PolicyResourceProperty(name="confirmRemoveSelfResourceAccess", flag="unknown_confirmRemoveSelfResourceAccess")
+    private Boolean value_confirmRemoveSelfResourceAccess;
+    private boolean unknown_confirmRemoveSelfResourceAccess;
     public Boolean confirmRemoveSelfResourceAccess() {
-        if (confirmRemoveSelfResourceAccess == null) return null;
-        return confirmRemoveSelfResourceAccess.getValue("ResourcePolicy.confirmRemoveSelfResourceAccess");
+        if (!unknown_confirmRemoveSelfResourceAccess) return value_confirmRemoveSelfResourceAccess;
+        throw new UndeferrableValueException("Value 'ResourcePolicy.confirmRemoveSelfResourceAccess' is not present");
     }
 
     /**
@@ -29,33 +31,36 @@ public final class ResourcePolicy extends com.pulumi.resources.PolicyResourceOut
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("ResourcePolicy.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'ResourcePolicy.policy' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table&#39;s policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("ResourcePolicy.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'ResourcePolicy.resourceArn' is not present");
     }
 
     /**
      * A unique string that represents the revision ID of the policy. If you are comparing revision IDs, make sure to always use string comparison logic.
      * 
      */
-    private UndeferrableValue<String> revisionId;
-
+    @PolicyResourceProperty(name="revisionId", flag="unknown_revisionId")
+    private String value_revisionId;
+    private boolean unknown_revisionId;
     public String revisionId() {
-        if (revisionId == null) return null;
-        return revisionId.getValue("ResourcePolicy.revisionId");
+        if (!unknown_revisionId) return value_revisionId;
+        throw new UndeferrableValueException("Value 'ResourcePolicy.revisionId' is not present");
     }
 
 }

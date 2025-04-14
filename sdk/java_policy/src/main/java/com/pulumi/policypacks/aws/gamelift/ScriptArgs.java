@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.gamelift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.gamelift.inputs.ScriptStorageLocationArgs;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class ScriptArgs extends com.pulumi.resources.PolicyResourceInput {
      * Name of the script
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ScriptArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ScriptArgs.name' is not present");
     }
 
     /**
      * Information indicating where your game script files are stored. See below.
      * 
      */
-    private UndeferrableValue<ScriptStorageLocationArgs> storageLocation;
-
+    @PolicyResourceProperty(name="storageLocation", flag="unknown_storageLocation")
+    private ScriptStorageLocationArgs value_storageLocation;
+    private boolean unknown_storageLocation;
     public ScriptStorageLocationArgs storageLocation() {
-        if (storageLocation == null) return null;
-        return storageLocation.getValue("ScriptArgs.storageLocation");
+        if (!unknown_storageLocation) return value_storageLocation;
+        throw new UndeferrableValueException("Value 'ScriptArgs.storageLocation' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ScriptArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ScriptArgs.tags' is not present");
     }
 
     /**
      * Version that is associated with this script.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("ScriptArgs.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'ScriptArgs.version' is not present");
     }
 
     /**
      * A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
      * 
      */
-    private UndeferrableValue<String> zipFile;
-
+    @PolicyResourceProperty(name="zipFile", flag="unknown_zipFile")
+    private String value_zipFile;
+    private boolean unknown_zipFile;
     public String zipFile() {
-        if (zipFile == null) return null;
-        return zipFile.getValue("ScriptArgs.zipFile");
+        if (!unknown_zipFile) return value_zipFile;
+        throw new UndeferrableValueException("Value 'ScriptArgs.zipFile' is not present");
     }
 
 }

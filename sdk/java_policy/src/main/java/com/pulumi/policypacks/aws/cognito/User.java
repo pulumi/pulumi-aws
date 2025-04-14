@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -19,149 +20,164 @@ public final class User extends com.pulumi.resources.PolicyResourceOutput {
      * A map that contains user attributes and attribute values to be set for the user.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> attributes;
-
+    @PolicyResourceProperty(name="attributes", flag="unknown_attributes")
+    private @Nullable Map<String,String> value_attributes;
+    private boolean unknown_attributes;
     public @Nullable Map<String,String> attributes() {
-        if (attributes == null) return null;
-        return attributes.getValue("User.attributes");
+        if (!unknown_attributes) return value_attributes;
+        throw new UndeferrableValueException("Value 'User.attributes' is not present");
     }
 
     /**
      * A map of custom key-value pairs that you can provide as input for any custom workflows that user creation triggers. Amazon Cognito does not store the `client_metadata` value. This data is available only to Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose. For more information, see [Customizing User Pool Workflows with Lambda Triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html).
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> clientMetadata;
-
+    @PolicyResourceProperty(name="clientMetadata", flag="unknown_clientMetadata")
+    private @Nullable Map<String,String> value_clientMetadata;
+    private boolean unknown_clientMetadata;
     public @Nullable Map<String,String> clientMetadata() {
-        if (clientMetadata == null) return null;
-        return clientMetadata.getValue("User.clientMetadata");
+        if (!unknown_clientMetadata) return value_clientMetadata;
+        throw new UndeferrableValueException("Value 'User.clientMetadata' is not present");
     }
 
-    private UndeferrableValue<String> creationDate;
-
+    @PolicyResourceProperty(name="creationDate", flag="unknown_creationDate")
+    private String value_creationDate;
+    private boolean unknown_creationDate;
     public String creationDate() {
-        if (creationDate == null) return null;
-        return creationDate.getValue("User.creationDate");
+        if (!unknown_creationDate) return value_creationDate;
+        throw new UndeferrableValueException("Value 'User.creationDate' is not present");
     }
 
     /**
      * A list of mediums to the welcome message will be sent through. Allowed values are `EMAIL` and `SMS`. If it&#39;s provided, make sure you have also specified `email` attribute for the `EMAIL` medium and `phone_number` for the `SMS`. More than one value can be specified. Amazon Cognito does not store the `desired_delivery_mediums` value. Defaults to `[&#34;SMS&#34;]`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> desiredDeliveryMediums;
-
+    @PolicyResourceProperty(name="desiredDeliveryMediums", flag="unknown_desiredDeliveryMediums")
+    private @Nullable List<String> value_desiredDeliveryMediums;
+    private boolean unknown_desiredDeliveryMediums;
     public @Nullable List<String> desiredDeliveryMediums() {
-        if (desiredDeliveryMediums == null) return null;
-        return desiredDeliveryMediums.getValue("User.desiredDeliveryMediums");
+        if (!unknown_desiredDeliveryMediums) return value_desiredDeliveryMediums;
+        throw new UndeferrableValueException("Value 'User.desiredDeliveryMediums' is not present");
     }
 
     /**
      * Specifies whether the user should be enabled after creation. The welcome message will be sent regardless of the `enabled` value. The behavior can be changed with `message_action` argument. Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("User.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'User.enabled' is not present");
     }
 
     /**
      * If this parameter is set to True and the `phone_number` or `email` address specified in the `attributes` parameter already exists as an alias with a different user, Amazon Cognito will migrate the alias from the previous user to the newly created user. The previous user will no longer be able to log in using that alias. Amazon Cognito does not store the `force_alias_creation` value. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> forceAliasCreation;
-
+    @PolicyResourceProperty(name="forceAliasCreation", flag="unknown_forceAliasCreation")
+    private @Nullable Boolean value_forceAliasCreation;
+    private boolean unknown_forceAliasCreation;
     public @Nullable Boolean forceAliasCreation() {
-        if (forceAliasCreation == null) return null;
-        return forceAliasCreation.getValue("User.forceAliasCreation");
+        if (!unknown_forceAliasCreation) return value_forceAliasCreation;
+        throw new UndeferrableValueException("Value 'User.forceAliasCreation' is not present");
     }
 
-    private UndeferrableValue<String> lastModifiedDate;
-
+    @PolicyResourceProperty(name="lastModifiedDate", flag="unknown_lastModifiedDate")
+    private String value_lastModifiedDate;
+    private boolean unknown_lastModifiedDate;
     public String lastModifiedDate() {
-        if (lastModifiedDate == null) return null;
-        return lastModifiedDate.getValue("User.lastModifiedDate");
+        if (!unknown_lastModifiedDate) return value_lastModifiedDate;
+        throw new UndeferrableValueException("Value 'User.lastModifiedDate' is not present");
     }
 
     /**
      * Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user&#39;s account. Set to `SUPPRESS` to suppress sending the message. Only one value can be specified. Amazon Cognito does not store the `message_action` value.
      * 
      */
-    private @Nullable UndeferrableValue<String> messageAction;
-
+    @PolicyResourceProperty(name="messageAction", flag="unknown_messageAction")
+    private @Nullable String value_messageAction;
+    private boolean unknown_messageAction;
     public @Nullable String messageAction() {
-        if (messageAction == null) return null;
-        return messageAction.getValue("User.messageAction");
+        if (!unknown_messageAction) return value_messageAction;
+        throw new UndeferrableValueException("Value 'User.messageAction' is not present");
     }
 
-    private UndeferrableValue<List<String>> mfaSettingLists;
-
+    @PolicyResourceProperty(name="mfaSettingLists", flag="unknown_mfaSettingLists")
+    private List<String> value_mfaSettingLists;
+    private boolean unknown_mfaSettingLists;
     public List<String> mfaSettingLists() {
-        if (mfaSettingLists == null) return null;
-        return mfaSettingLists.getValue("User.mfaSettingLists");
+        if (!unknown_mfaSettingLists) return value_mfaSettingLists;
+        throw new UndeferrableValueException("Value 'User.mfaSettingLists' is not present");
     }
 
     /**
      * The user&#39;s permanent password. This password must conform to the password policy specified by user pool the user belongs to. The welcome message always contains only `temporary_password` value. You can suppress sending the welcome message with the `message_action` argument. Amazon Cognito does not store the `password` value. Conflicts with `temporary_password`.
      * 
      */
-    private @Nullable UndeferrableValue<String> password;
-
+    @PolicyResourceProperty(name="password", flag="unknown_password")
+    private @Nullable String value_password;
+    private boolean unknown_password;
     public @Nullable String password() {
-        if (password == null) return null;
-        return password.getValue("User.password");
+        if (!unknown_password) return value_password;
+        throw new UndeferrableValueException("Value 'User.password' is not present");
     }
 
-    private UndeferrableValue<String> preferredMfaSetting;
-
+    @PolicyResourceProperty(name="preferredMfaSetting", flag="unknown_preferredMfaSetting")
+    private String value_preferredMfaSetting;
+    private boolean unknown_preferredMfaSetting;
     public String preferredMfaSetting() {
-        if (preferredMfaSetting == null) return null;
-        return preferredMfaSetting.getValue("User.preferredMfaSetting");
+        if (!unknown_preferredMfaSetting) return value_preferredMfaSetting;
+        throw new UndeferrableValueException("Value 'User.preferredMfaSetting' is not present");
     }
 
     /**
      * current user status.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("User.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'User.status' is not present");
     }
 
     /**
      * unique user id that is never reassignable to another user.
      * 
      */
-    private UndeferrableValue<String> sub;
-
+    @PolicyResourceProperty(name="sub", flag="unknown_sub")
+    private String value_sub;
+    private boolean unknown_sub;
     public String sub() {
-        if (sub == null) return null;
-        return sub.getValue("User.sub");
+        if (!unknown_sub) return value_sub;
+        throw new UndeferrableValueException("Value 'User.sub' is not present");
     }
 
     /**
      * The user&#39;s temporary password. Conflicts with `password`.
      * 
      */
-    private @Nullable UndeferrableValue<String> temporaryPassword;
-
+    @PolicyResourceProperty(name="temporaryPassword", flag="unknown_temporaryPassword")
+    private @Nullable String value_temporaryPassword;
+    private boolean unknown_temporaryPassword;
     public @Nullable String temporaryPassword() {
-        if (temporaryPassword == null) return null;
-        return temporaryPassword.getValue("User.temporaryPassword");
+        if (!unknown_temporaryPassword) return value_temporaryPassword;
+        throw new UndeferrableValueException("Value 'User.temporaryPassword' is not present");
     }
 
     /**
      * The user pool ID for the user pool where the user will be created.
      * 
      */
-    private UndeferrableValue<String> userPoolId;
-
+    @PolicyResourceProperty(name="userPoolId", flag="unknown_userPoolId")
+    private String value_userPoolId;
+    private boolean unknown_userPoolId;
     public String userPoolId() {
-        if (userPoolId == null) return null;
-        return userPoolId.getValue("User.userPoolId");
+        if (!unknown_userPoolId) return value_userPoolId;
+        throw new UndeferrableValueException("Value 'User.userPoolId' is not present");
     }
 
     /**
@@ -170,11 +186,12 @@ public final class User extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> username;
-
+    @PolicyResourceProperty(name="username", flag="unknown_username")
+    private String value_username;
+    private boolean unknown_username;
     public String username() {
-        if (username == null) return null;
-        return username.getValue("User.username");
+        if (!unknown_username) return value_username;
+        throw new UndeferrableValueException("Value 'User.username' is not present");
     }
 
     /**
@@ -183,11 +200,12 @@ public final class User extends com.pulumi.resources.PolicyResourceOutput {
      * &gt; **NOTE:** Clearing `password` or `temporary_password` does not reset user&#39;s password in Cognito.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> validationData;
-
+    @PolicyResourceProperty(name="validationData", flag="unknown_validationData")
+    private @Nullable Map<String,String> value_validationData;
+    private boolean unknown_validationData;
     public @Nullable Map<String,String> validationData() {
-        if (validationData == null) return null;
-        return validationData.getValue("User.validationData");
+        if (!unknown_validationData) return value_validationData;
+        throw new UndeferrableValueException("Value 'User.validationData' is not present");
     }
 
 }

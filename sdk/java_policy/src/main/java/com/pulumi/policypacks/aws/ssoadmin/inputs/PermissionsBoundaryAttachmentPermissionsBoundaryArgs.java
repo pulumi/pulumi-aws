@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssoadmin.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ssoadmin.inputs.PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class PermissionsBoundaryAttachmentPermissionsBoundaryArgs {
      * Specifies the name and path of a customer managed policy. See below.
      * 
      */
-    private UndeferrableValue<PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs> customerManagedPolicyReference;
-
+    @PolicyResourceProperty(name="customerManagedPolicyReference", flag="unknown_customerManagedPolicyReference")
+    private PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs value_customerManagedPolicyReference;
+    private boolean unknown_customerManagedPolicyReference;
     public PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs customerManagedPolicyReference() {
-        if (customerManagedPolicyReference == null) return null;
-        return customerManagedPolicyReference.getValue("PermissionsBoundaryAttachmentPermissionsBoundaryArgs.customerManagedPolicyReference");
+        if (!unknown_customerManagedPolicyReference) return value_customerManagedPolicyReference;
+        throw new UndeferrableValueException("Value 'PermissionsBoundaryAttachmentPermissionsBoundaryArgs.customerManagedPolicyReference' is not present");
     }
 
     /**
      * AWS-managed IAM policy ARN to use as the permissions boundary.
      * 
      */
-    private UndeferrableValue<String> managedPolicyArn;
-
+    @PolicyResourceProperty(name="managedPolicyArn", flag="unknown_managedPolicyArn")
+    private String value_managedPolicyArn;
+    private boolean unknown_managedPolicyArn;
     public String managedPolicyArn() {
-        if (managedPolicyArn == null) return null;
-        return managedPolicyArn.getValue("PermissionsBoundaryAttachmentPermissionsBoundaryArgs.managedPolicyArn");
+        if (!unknown_managedPolicyArn) return value_managedPolicyArn;
+        throw new UndeferrableValueException("Value 'PermissionsBoundaryAttachmentPermissionsBoundaryArgs.managedPolicyArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,55 +16,60 @@ public final class ManagedScalingPolicyComputeLimit {
      * The upper boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
      * 
      */
-    private UndeferrableValue<Integer> maximumCapacityUnits;
-
+    @PolicyResourceProperty(name="maximumCapacityUnits", flag="unknown_maximumCapacityUnits")
+    private Integer value_maximumCapacityUnits;
+    private boolean unknown_maximumCapacityUnits;
     public Integer maximumCapacityUnits() {
-        if (maximumCapacityUnits == null) return null;
-        return maximumCapacityUnits.getValue("ManagedScalingPolicyComputeLimit.maximumCapacityUnits");
+        if (!unknown_maximumCapacityUnits) return value_maximumCapacityUnits;
+        throw new UndeferrableValueException("Value 'ManagedScalingPolicyComputeLimit.maximumCapacityUnits' is not present");
     }
 
     /**
      * The upper boundary of EC2 units for core node type in a cluster. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maximumCoreCapacityUnits;
-
+    @PolicyResourceProperty(name="maximumCoreCapacityUnits", flag="unknown_maximumCoreCapacityUnits")
+    private @Nullable Integer value_maximumCoreCapacityUnits;
+    private boolean unknown_maximumCoreCapacityUnits;
     public @Nullable Integer maximumCoreCapacityUnits() {
-        if (maximumCoreCapacityUnits == null) return null;
-        return maximumCoreCapacityUnits.getValue("ManagedScalingPolicyComputeLimit.maximumCoreCapacityUnits");
+        if (!unknown_maximumCoreCapacityUnits) return value_maximumCoreCapacityUnits;
+        throw new UndeferrableValueException("Value 'ManagedScalingPolicyComputeLimit.maximumCoreCapacityUnits' is not present");
     }
 
     /**
      * The upper boundary of On-Demand EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot instances.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maximumOndemandCapacityUnits;
-
+    @PolicyResourceProperty(name="maximumOndemandCapacityUnits", flag="unknown_maximumOndemandCapacityUnits")
+    private @Nullable Integer value_maximumOndemandCapacityUnits;
+    private boolean unknown_maximumOndemandCapacityUnits;
     public @Nullable Integer maximumOndemandCapacityUnits() {
-        if (maximumOndemandCapacityUnits == null) return null;
-        return maximumOndemandCapacityUnits.getValue("ManagedScalingPolicyComputeLimit.maximumOndemandCapacityUnits");
+        if (!unknown_maximumOndemandCapacityUnits) return value_maximumOndemandCapacityUnits;
+        throw new UndeferrableValueException("Value 'ManagedScalingPolicyComputeLimit.maximumOndemandCapacityUnits' is not present");
     }
 
     /**
      * The lower boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
      * 
      */
-    private UndeferrableValue<Integer> minimumCapacityUnits;
-
+    @PolicyResourceProperty(name="minimumCapacityUnits", flag="unknown_minimumCapacityUnits")
+    private Integer value_minimumCapacityUnits;
+    private boolean unknown_minimumCapacityUnits;
     public Integer minimumCapacityUnits() {
-        if (minimumCapacityUnits == null) return null;
-        return minimumCapacityUnits.getValue("ManagedScalingPolicyComputeLimit.minimumCapacityUnits");
+        if (!unknown_minimumCapacityUnits) return value_minimumCapacityUnits;
+        throw new UndeferrableValueException("Value 'ManagedScalingPolicyComputeLimit.minimumCapacityUnits' is not present");
     }
 
     /**
      * The unit type used for specifying a managed scaling policy. Valid Values: `InstanceFleetUnits` | `Instances` | `VCPU`
      * 
      */
-    private UndeferrableValue<String> unitType;
-
+    @PolicyResourceProperty(name="unitType", flag="unknown_unitType")
+    private String value_unitType;
+    private boolean unknown_unitType;
     public String unitType() {
-        if (unitType == null) return null;
-        return unitType.getValue("ManagedScalingPolicyComputeLimit.unitType");
+        if (!unknown_unitType) return value_unitType;
+        throw new UndeferrableValueException("Value 'ManagedScalingPolicyComputeLimit.unitType' is not present");
     }
 
 }

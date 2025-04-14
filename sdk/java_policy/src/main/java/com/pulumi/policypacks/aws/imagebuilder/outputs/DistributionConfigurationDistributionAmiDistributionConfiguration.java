@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.imagebuilder.outputs.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission;
 import java.lang.String;
 import java.util.List;
@@ -17,66 +18,72 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
      * Key-value map of tags to apply to the distributed AMI.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> amiTags;
-
+    @PolicyResourceProperty(name="amiTags", flag="unknown_amiTags")
+    private @Nullable Map<String,String> value_amiTags;
+    private boolean unknown_amiTags;
     public @Nullable Map<String,String> amiTags() {
-        if (amiTags == null) return null;
-        return amiTags.getValue("DistributionConfigurationDistributionAmiDistributionConfiguration.amiTags");
+        if (!unknown_amiTags) return value_amiTags;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionAmiDistributionConfiguration.amiTags' is not present");
     }
 
     /**
      * Description to apply to the distributed AMI.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("DistributionConfigurationDistributionAmiDistributionConfiguration.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionAmiDistributionConfiguration.description' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("DistributionConfigurationDistributionAmiDistributionConfiguration.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionAmiDistributionConfiguration.kmsKeyId' is not present");
     }
 
     /**
      * Configuration block of EC2 launch permissions to apply to the distributed AMI. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission> launchPermission;
-
+    @PolicyResourceProperty(name="launchPermission", flag="unknown_launchPermission")
+    private @Nullable DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission value_launchPermission;
+    private boolean unknown_launchPermission;
     public @Nullable DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission launchPermission() {
-        if (launchPermission == null) return null;
-        return launchPermission.getValue("DistributionConfigurationDistributionAmiDistributionConfiguration.launchPermission");
+        if (!unknown_launchPermission) return value_launchPermission;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionAmiDistributionConfiguration.launchPermission' is not present");
     }
 
     /**
      * Name to apply to the distributed AMI.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("DistributionConfigurationDistributionAmiDistributionConfiguration.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionAmiDistributionConfiguration.name' is not present");
     }
 
     /**
      * Set of AWS Account identifiers to distribute the AMI.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> targetAccountIds;
-
+    @PolicyResourceProperty(name="targetAccountIds", flag="unknown_targetAccountIds")
+    private @Nullable List<String> value_targetAccountIds;
+    private boolean unknown_targetAccountIds;
     public @Nullable List<String> targetAccountIds() {
-        if (targetAccountIds == null) return null;
-        return targetAccountIds.getValue("DistributionConfigurationDistributionAmiDistributionConfiguration.targetAccountIds");
+        if (!unknown_targetAccountIds) return value_targetAccountIds;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionAmiDistributionConfiguration.targetAccountIds' is not present");
     }
 
 }

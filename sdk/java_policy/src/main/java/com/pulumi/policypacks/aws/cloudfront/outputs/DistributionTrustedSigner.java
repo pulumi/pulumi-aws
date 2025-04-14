@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.outputs.DistributionTrustedSignerItem;
 import java.lang.Boolean;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class DistributionTrustedSigner {
      * `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("DistributionTrustedSigner.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'DistributionTrustedSigner.enabled' is not present");
     }
 
     /**
      * List of nested attributes for each trusted signer
      * 
      */
-    private @Nullable UndeferrableValue<List<DistributionTrustedSignerItem>> items;
-
+    @PolicyResourceProperty(name="items", flag="unknown_items")
+    private @Nullable List<DistributionTrustedSignerItem> value_items;
+    private boolean unknown_items;
     public @Nullable List<DistributionTrustedSignerItem> items() {
-        if (items == null) return null;
-        return items.getValue("DistributionTrustedSigner.items");
+        if (!unknown_items) return value_items;
+        throw new UndeferrableValueException("Value 'DistributionTrustedSigner.items' is not present");
     }
 
 }

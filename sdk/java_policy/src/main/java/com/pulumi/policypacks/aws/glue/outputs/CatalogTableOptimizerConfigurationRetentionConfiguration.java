@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.glue.outputs.CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class CatalogTableOptimizerConfigurationRetentionConfiguration {
      * The configuration for an Iceberg snapshot retention optimizer.
      * 
      */
-    private @Nullable UndeferrableValue<CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration> icebergConfiguration;
-
+    @PolicyResourceProperty(name="icebergConfiguration", flag="unknown_icebergConfiguration")
+    private @Nullable CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration value_icebergConfiguration;
+    private boolean unknown_icebergConfiguration;
     public @Nullable CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfiguration icebergConfiguration() {
-        if (icebergConfiguration == null) return null;
-        return icebergConfiguration.getValue("CatalogTableOptimizerConfigurationRetentionConfiguration.icebergConfiguration");
+        if (!unknown_icebergConfiguration) return value_icebergConfiguration;
+        throw new UndeferrableValueException("Value 'CatalogTableOptimizerConfigurationRetentionConfiguration.icebergConfiguration' is not present");
     }
 
 }

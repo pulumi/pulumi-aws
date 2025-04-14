@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,66 +18,72 @@ public final class IntegrationResponse extends com.pulumi.resources.PolicyResour
      * API identifier.
      * 
      */
-    private UndeferrableValue<String> apiId;
-
+    @PolicyResourceProperty(name="apiId", flag="unknown_apiId")
+    private String value_apiId;
+    private boolean unknown_apiId;
     public String apiId() {
-        if (apiId == null) return null;
-        return apiId.getValue("IntegrationResponse.apiId");
+        if (!unknown_apiId) return value_apiId;
+        throw new UndeferrableValueException("Value 'IntegrationResponse.apiId' is not present");
     }
 
     /**
      * How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
      * 
      */
-    private @Nullable UndeferrableValue<String> contentHandlingStrategy;
-
+    @PolicyResourceProperty(name="contentHandlingStrategy", flag="unknown_contentHandlingStrategy")
+    private @Nullable String value_contentHandlingStrategy;
+    private boolean unknown_contentHandlingStrategy;
     public @Nullable String contentHandlingStrategy() {
-        if (contentHandlingStrategy == null) return null;
-        return contentHandlingStrategy.getValue("IntegrationResponse.contentHandlingStrategy");
+        if (!unknown_contentHandlingStrategy) return value_contentHandlingStrategy;
+        throw new UndeferrableValueException("Value 'IntegrationResponse.contentHandlingStrategy' is not present");
     }
 
     /**
      * Identifier of the `aws.apigatewayv2.Integration`.
      * 
      */
-    private UndeferrableValue<String> integrationId;
-
+    @PolicyResourceProperty(name="integrationId", flag="unknown_integrationId")
+    private String value_integrationId;
+    private boolean unknown_integrationId;
     public String integrationId() {
-        if (integrationId == null) return null;
-        return integrationId.getValue("IntegrationResponse.integrationId");
+        if (!unknown_integrationId) return value_integrationId;
+        throw new UndeferrableValueException("Value 'IntegrationResponse.integrationId' is not present");
     }
 
     /**
      * Integration response key.
      * 
      */
-    private UndeferrableValue<String> integrationResponseKey;
-
+    @PolicyResourceProperty(name="integrationResponseKey", flag="unknown_integrationResponseKey")
+    private String value_integrationResponseKey;
+    private boolean unknown_integrationResponseKey;
     public String integrationResponseKey() {
-        if (integrationResponseKey == null) return null;
-        return integrationResponseKey.getValue("IntegrationResponse.integrationResponseKey");
+        if (!unknown_integrationResponseKey) return value_integrationResponseKey;
+        throw new UndeferrableValueException("Value 'IntegrationResponse.integrationResponseKey' is not present");
     }
 
     /**
      * Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> responseTemplates;
-
+    @PolicyResourceProperty(name="responseTemplates", flag="unknown_responseTemplates")
+    private @Nullable Map<String,String> value_responseTemplates;
+    private boolean unknown_responseTemplates;
     public @Nullable Map<String,String> responseTemplates() {
-        if (responseTemplates == null) return null;
-        return responseTemplates.getValue("IntegrationResponse.responseTemplates");
+        if (!unknown_responseTemplates) return value_responseTemplates;
+        throw new UndeferrableValueException("Value 'IntegrationResponse.responseTemplates' is not present");
     }
 
     /**
      * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
      * 
      */
-    private @Nullable UndeferrableValue<String> templateSelectionExpression;
-
+    @PolicyResourceProperty(name="templateSelectionExpression", flag="unknown_templateSelectionExpression")
+    private @Nullable String value_templateSelectionExpression;
+    private boolean unknown_templateSelectionExpression;
     public @Nullable String templateSelectionExpression() {
-        if (templateSelectionExpression == null) return null;
-        return templateSelectionExpression.getValue("IntegrationResponse.templateSelectionExpression");
+        if (!unknown_templateSelectionExpression) return value_templateSelectionExpression;
+        throw new UndeferrableValueException("Value 'IntegrationResponse.templateSelectionExpression' is not present");
     }
 
 }

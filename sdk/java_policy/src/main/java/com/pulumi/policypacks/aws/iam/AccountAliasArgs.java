@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,11 +16,12 @@ public final class AccountAliasArgs extends com.pulumi.resources.PolicyResourceI
      * The account alias
      * 
      */
-    private UndeferrableValue<String> accountAlias;
-
+    @PolicyResourceProperty(name="accountAlias", flag="unknown_accountAlias")
+    private String value_accountAlias;
+    private boolean unknown_accountAlias;
     public String accountAlias() {
-        if (accountAlias == null) return null;
-        return accountAlias.getValue("AccountAliasArgs.accountAlias");
+        if (!unknown_accountAlias) return value_accountAlias;
+        throw new UndeferrableValueException("Value 'AccountAliasArgs.accountAlias' is not present");
     }
 
 }

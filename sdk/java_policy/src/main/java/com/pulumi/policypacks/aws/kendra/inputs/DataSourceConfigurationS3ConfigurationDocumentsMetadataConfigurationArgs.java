@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DataSourceConfigurationS3ConfigurationDocumentsMetadataConfig
      * A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3_prefix` to include only the desired metadata files.
      * 
      */
-    private UndeferrableValue<String> s3Prefix;
-
+    @PolicyResourceProperty(name="s3Prefix", flag="unknown_s3Prefix")
+    private String value_s3Prefix;
+    private boolean unknown_s3Prefix;
     public String s3Prefix() {
-        if (s3Prefix == null) return null;
-        return s3Prefix.getValue("DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs.s3Prefix");
+        if (!unknown_s3Prefix) return value_s3Prefix;
+        throw new UndeferrableValueException("Value 'DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs.s3Prefix' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.outputs.UserProfileUserSettings;
 import java.lang.String;
@@ -18,66 +19,72 @@ public final class UserProfile extends com.pulumi.resources.PolicyResourceOutput
      * The user profile Amazon Resource Name (ARN).
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("UserProfile.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'UserProfile.arn' is not present");
     }
 
     /**
      * The ID of the associated Domain.
      * 
      */
-    private UndeferrableValue<String> domainId;
-
+    @PolicyResourceProperty(name="domainId", flag="unknown_domainId")
+    private String value_domainId;
+    private boolean unknown_domainId;
     public String domainId() {
-        if (domainId == null) return null;
-        return domainId.getValue("UserProfile.domainId");
+        if (!unknown_domainId) return value_domainId;
+        throw new UndeferrableValueException("Value 'UserProfile.domainId' is not present");
     }
 
     /**
      * The ID of the user&#39;s profile in the Amazon Elastic File System (EFS) volume.
      * 
      */
-    private UndeferrableValue<String> homeEfsFileSystemUid;
-
+    @PolicyResourceProperty(name="homeEfsFileSystemUid", flag="unknown_homeEfsFileSystemUid")
+    private String value_homeEfsFileSystemUid;
+    private boolean unknown_homeEfsFileSystemUid;
     public String homeEfsFileSystemUid() {
-        if (homeEfsFileSystemUid == null) return null;
-        return homeEfsFileSystemUid.getValue("UserProfile.homeEfsFileSystemUid");
+        if (!unknown_homeEfsFileSystemUid) return value_homeEfsFileSystemUid;
+        throw new UndeferrableValueException("Value 'UserProfile.homeEfsFileSystemUid' is not present");
     }
 
     /**
      * A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain&#39;s AuthMode is SSO, this field is required. If the Domain&#39;s AuthMode is not SSO, this field cannot be specified.
      * 
      */
-    private @Nullable UndeferrableValue<String> singleSignOnUserIdentifier;
-
+    @PolicyResourceProperty(name="singleSignOnUserIdentifier", flag="unknown_singleSignOnUserIdentifier")
+    private @Nullable String value_singleSignOnUserIdentifier;
+    private boolean unknown_singleSignOnUserIdentifier;
     public @Nullable String singleSignOnUserIdentifier() {
-        if (singleSignOnUserIdentifier == null) return null;
-        return singleSignOnUserIdentifier.getValue("UserProfile.singleSignOnUserIdentifier");
+        if (!unknown_singleSignOnUserIdentifier) return value_singleSignOnUserIdentifier;
+        throw new UndeferrableValueException("Value 'UserProfile.singleSignOnUserIdentifier' is not present");
     }
 
     /**
      * The username of the associated AWS Single Sign-On User for this User Profile. If the Domain&#39;s AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain&#39;s AuthMode is not SSO, this field cannot be specified.
      * 
      */
-    private @Nullable UndeferrableValue<String> singleSignOnUserValue;
-
+    @PolicyResourceProperty(name="singleSignOnUserValue", flag="unknown_singleSignOnUserValue")
+    private @Nullable String value_singleSignOnUserValue;
+    private boolean unknown_singleSignOnUserValue;
     public @Nullable String singleSignOnUserValue() {
-        if (singleSignOnUserValue == null) return null;
-        return singleSignOnUserValue.getValue("UserProfile.singleSignOnUserValue");
+        if (!unknown_singleSignOnUserValue) return value_singleSignOnUserValue;
+        throw new UndeferrableValueException("Value 'UserProfile.singleSignOnUserValue' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("UserProfile.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'UserProfile.tags' is not present");
     }
 
     /**
@@ -88,33 +95,36 @@ public final class UserProfile extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("UserProfile.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'UserProfile.tagsAll' is not present");
     }
 
     /**
      * The name for the User Profile.
      * 
      */
-    private UndeferrableValue<String> userProfileName;
-
+    @PolicyResourceProperty(name="userProfileName", flag="unknown_userProfileName")
+    private String value_userProfileName;
+    private boolean unknown_userProfileName;
     public String userProfileName() {
-        if (userProfileName == null) return null;
-        return userProfileName.getValue("UserProfile.userProfileName");
+        if (!unknown_userProfileName) return value_userProfileName;
+        throw new UndeferrableValueException("Value 'UserProfile.userProfileName' is not present");
     }
 
     /**
      * The user settings. See User Settings below.
      * 
      */
-    private @Nullable UndeferrableValue<UserProfileUserSettings> userSettings;
-
+    @PolicyResourceProperty(name="userSettings", flag="unknown_userSettings")
+    private @Nullable UserProfileUserSettings value_userSettings;
+    private boolean unknown_userSettings;
     public @Nullable UserProfileUserSettings userSettings() {
-        if (userSettings == null) return null;
-        return userSettings.getValue("UserProfile.userSettings");
+        if (!unknown_userSettings) return value_userSettings;
+        throw new UndeferrableValueException("Value 'UserProfile.userSettings' is not present");
     }
 
 }

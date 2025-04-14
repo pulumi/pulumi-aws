@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudhsmv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,55 +19,60 @@ public final class ClusterArgs extends com.pulumi.resources.PolicyResourceInput 
      * The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
      * 
      */
-    private UndeferrableValue<String> hsmType;
-
+    @PolicyResourceProperty(name="hsmType", flag="unknown_hsmType")
+    private String value_hsmType;
+    private boolean unknown_hsmType;
     public String hsmType() {
-        if (hsmType == null) return null;
-        return hsmType.getValue("ClusterArgs.hsmType");
+        if (!unknown_hsmType) return value_hsmType;
+        throw new UndeferrableValueException("Value 'ClusterArgs.hsmType' is not present");
     }
 
     /**
      * The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
      * 
      */
-    private UndeferrableValue<String> mode;
-
+    @PolicyResourceProperty(name="mode", flag="unknown_mode")
+    private String value_mode;
+    private boolean unknown_mode;
     public String mode() {
-        if (mode == null) return null;
-        return mode.getValue("ClusterArgs.mode");
+        if (!unknown_mode) return value_mode;
+        throw new UndeferrableValueException("Value 'ClusterArgs.mode' is not present");
     }
 
     /**
      * ID of Cloud HSM v2 cluster backup to be restored.
      * 
      */
-    private UndeferrableValue<String> sourceBackupIdentifier;
-
+    @PolicyResourceProperty(name="sourceBackupIdentifier", flag="unknown_sourceBackupIdentifier")
+    private String value_sourceBackupIdentifier;
+    private boolean unknown_sourceBackupIdentifier;
     public String sourceBackupIdentifier() {
-        if (sourceBackupIdentifier == null) return null;
-        return sourceBackupIdentifier.getValue("ClusterArgs.sourceBackupIdentifier");
+        if (!unknown_sourceBackupIdentifier) return value_sourceBackupIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterArgs.sourceBackupIdentifier' is not present");
     }
 
     /**
      * The IDs of subnets in which cluster will operate.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("ClusterArgs.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'ClusterArgs.subnetIds' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ClusterArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ClusterArgs.tags' is not present");
     }
 
 }

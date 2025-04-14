@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class CrawlerRecrawlPolicyArgs {
      * Specifies whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
      * 
      */
-    private UndeferrableValue<String> recrawlBehavior;
-
+    @PolicyResourceProperty(name="recrawlBehavior", flag="unknown_recrawlBehavior")
+    private String value_recrawlBehavior;
+    private boolean unknown_recrawlBehavior;
     public String recrawlBehavior() {
-        if (recrawlBehavior == null) return null;
-        return recrawlBehavior.getValue("CrawlerRecrawlPolicyArgs.recrawlBehavior");
+        if (!unknown_recrawlBehavior) return value_recrawlBehavior;
+        throw new UndeferrableValueException("Value 'CrawlerRecrawlPolicyArgs.recrawlBehavior' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class DataSourceParametersSpark {
      * The host to which to connect.
      * 
      */
-    private UndeferrableValue<String> host;
-
+    @PolicyResourceProperty(name="host", flag="unknown_host")
+    private String value_host;
+    private boolean unknown_host;
     public String host() {
-        if (host == null) return null;
-        return host.getValue("DataSourceParametersSpark.host");
+        if (!unknown_host) return value_host;
+        throw new UndeferrableValueException("Value 'DataSourceParametersSpark.host' is not present");
     }
 
     /**
      * The warehouse to which to connect.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("DataSourceParametersSpark.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'DataSourceParametersSpark.port' is not present");
     }
 
 }

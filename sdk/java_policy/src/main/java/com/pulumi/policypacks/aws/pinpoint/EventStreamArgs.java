@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pinpoint;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class EventStreamArgs extends com.pulumi.resources.PolicyResourceIn
      * The application ID.
      * 
      */
-    private UndeferrableValue<String> applicationId;
-
+    @PolicyResourceProperty(name="applicationId", flag="unknown_applicationId")
+    private String value_applicationId;
+    private boolean unknown_applicationId;
     public String applicationId() {
-        if (applicationId == null) return null;
-        return applicationId.getValue("EventStreamArgs.applicationId");
+        if (!unknown_applicationId) return value_applicationId;
+        throw new UndeferrableValueException("Value 'EventStreamArgs.applicationId' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
      * 
      */
-    private UndeferrableValue<String> destinationStreamArn;
-
+    @PolicyResourceProperty(name="destinationStreamArn", flag="unknown_destinationStreamArn")
+    private String value_destinationStreamArn;
+    private boolean unknown_destinationStreamArn;
     public String destinationStreamArn() {
-        if (destinationStreamArn == null) return null;
-        return destinationStreamArn.getValue("EventStreamArgs.destinationStreamArn");
+        if (!unknown_destinationStreamArn) return value_destinationStreamArn;
+        throw new UndeferrableValueException("Value 'EventStreamArgs.destinationStreamArn' is not present");
     }
 
     /**
      * The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("EventStreamArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'EventStreamArgs.roleArn' is not present");
     }
 
 }

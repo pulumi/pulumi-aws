@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.resourcegroups;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.resourcegroups.inputs.GroupConfigurationArgs;
 import com.pulumi.policypacks.aws.resourcegroups.inputs.GroupResourceQueryArgs;
@@ -20,55 +21,60 @@ public final class GroupArgs extends com.pulumi.resources.PolicyResourceInput {
      * A configuration associates the resource group with an AWS service and specifies how the service can interact with the resources in the group. See below for details.
      * 
      */
-    private UndeferrableValue<List<GroupConfigurationArgs>> configurations;
-
+    @PolicyResourceProperty(name="configurations", flag="unknown_configurations")
+    private List<GroupConfigurationArgs> value_configurations;
+    private boolean unknown_configurations;
     public List<GroupConfigurationArgs> configurations() {
-        if (configurations == null) return null;
-        return configurations.getValue("GroupArgs.configurations");
+        if (!unknown_configurations) return value_configurations;
+        throw new UndeferrableValueException("Value 'GroupArgs.configurations' is not present");
     }
 
     /**
      * A description of the resource group.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("GroupArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'GroupArgs.description' is not present");
     }
 
     /**
      * The resource group&#39;s name. A resource group name can have a maximum of 127 characters, including letters, numbers, hyphens, dots, and underscores. The name cannot start with `AWS` or `aws`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("GroupArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'GroupArgs.name' is not present");
     }
 
     /**
      * A `resource_query` block. Resource queries are documented below.
      * 
      */
-    private UndeferrableValue<GroupResourceQueryArgs> resourceQuery;
-
+    @PolicyResourceProperty(name="resourceQuery", flag="unknown_resourceQuery")
+    private GroupResourceQueryArgs value_resourceQuery;
+    private boolean unknown_resourceQuery;
     public GroupResourceQueryArgs resourceQuery() {
-        if (resourceQuery == null) return null;
-        return resourceQuery.getValue("GroupArgs.resourceQuery");
+        if (!unknown_resourceQuery) return value_resourceQuery;
+        throw new UndeferrableValueException("Value 'GroupArgs.resourceQuery' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("GroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'GroupArgs.tags' is not present");
     }
 
 }

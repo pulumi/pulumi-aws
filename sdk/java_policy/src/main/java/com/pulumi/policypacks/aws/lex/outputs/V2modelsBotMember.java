@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,55 +14,60 @@ public final class V2modelsBotMember {
      * (Required) - Alias ID of a bot that is a member of this network of bots.
      * 
      */
-    private UndeferrableValue<String> aliasId;
-
+    @PolicyResourceProperty(name="aliasId", flag="unknown_aliasId")
+    private String value_aliasId;
+    private boolean unknown_aliasId;
     public String aliasId() {
-        if (aliasId == null) return null;
-        return aliasId.getValue("V2modelsBotMember.aliasId");
+        if (!unknown_aliasId) return value_aliasId;
+        throw new UndeferrableValueException("Value 'V2modelsBotMember.aliasId' is not present");
     }
 
     /**
      * (Required) - Alias name of a bot that is a member of this network of bots.
      * 
      */
-    private UndeferrableValue<String> aliasName;
-
+    @PolicyResourceProperty(name="aliasName", flag="unknown_aliasName")
+    private String value_aliasName;
+    private boolean unknown_aliasName;
     public String aliasName() {
-        if (aliasName == null) return null;
-        return aliasName.getValue("V2modelsBotMember.aliasName");
+        if (!unknown_aliasName) return value_aliasName;
+        throw new UndeferrableValueException("Value 'V2modelsBotMember.aliasName' is not present");
     }
 
     /**
      * (Required) - Unique ID of a bot that is a member of this network of bots.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("V2modelsBotMember.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'V2modelsBotMember.id' is not present");
     }
 
     /**
      * Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("V2modelsBotMember.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'V2modelsBotMember.name' is not present");
     }
 
     /**
      * (Required) - Version of a bot that is a member of this network of bots.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("V2modelsBotMember.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'V2modelsBotMember.version' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emrserverless.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ApplicationInteractiveConfiguration {
      * Enables an Apache Livy endpoint that you can connect to and run interactive jobs.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> livyEndpointEnabled;
-
+    @PolicyResourceProperty(name="livyEndpointEnabled", flag="unknown_livyEndpointEnabled")
+    private @Nullable Boolean value_livyEndpointEnabled;
+    private boolean unknown_livyEndpointEnabled;
     public @Nullable Boolean livyEndpointEnabled() {
-        if (livyEndpointEnabled == null) return null;
-        return livyEndpointEnabled.getValue("ApplicationInteractiveConfiguration.livyEndpointEnabled");
+        if (!unknown_livyEndpointEnabled) return value_livyEndpointEnabled;
+        throw new UndeferrableValueException("Value 'ApplicationInteractiveConfiguration.livyEndpointEnabled' is not present");
     }
 
     /**
      * Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> studioEnabled;
-
+    @PolicyResourceProperty(name="studioEnabled", flag="unknown_studioEnabled")
+    private @Nullable Boolean value_studioEnabled;
+    private boolean unknown_studioEnabled;
     public @Nullable Boolean studioEnabled() {
-        if (studioEnabled == null) return null;
-        return studioEnabled.getValue("ApplicationInteractiveConfiguration.studioEnabled");
+        if (!unknown_studioEnabled) return value_studioEnabled;
+        throw new UndeferrableValueException("Value 'ApplicationInteractiveConfiguration.studioEnabled' is not present");
     }
 
 }

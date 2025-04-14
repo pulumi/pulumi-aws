@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.rds.outputs.ParameterGroupParameter;
 import java.lang.Boolean;
@@ -20,84 +21,92 @@ public final class ParameterGroup extends com.pulumi.resources.PolicyResourceOut
      * The ARN of the db parameter group.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ParameterGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ParameterGroup.arn' is not present");
     }
 
     /**
      * The description of the DB parameter group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ParameterGroup.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ParameterGroup.description' is not present");
     }
 
     /**
      * The family of the DB parameter group.
      * 
      */
-    private UndeferrableValue<String> family;
-
+    @PolicyResourceProperty(name="family", flag="unknown_family")
+    private String value_family;
+    private boolean unknown_family;
     public String family() {
-        if (family == null) return null;
-        return family.getValue("ParameterGroup.family");
+        if (!unknown_family) return value_family;
+        throw new UndeferrableValueException("Value 'ParameterGroup.family' is not present");
     }
 
     /**
      * The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ParameterGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ParameterGroup.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("ParameterGroup.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'ParameterGroup.namePrefix' is not present");
     }
 
     /**
      * The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
      * 
      */
-    private @Nullable UndeferrableValue<List<ParameterGroupParameter>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private @Nullable List<ParameterGroupParameter> value_parameters;
+    private boolean unknown_parameters;
     public @Nullable List<ParameterGroupParameter> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("ParameterGroup.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'ParameterGroup.parameters' is not present");
     }
 
-    private @Nullable UndeferrableValue<Boolean> skipDestroy;
-
+    @PolicyResourceProperty(name="skipDestroy", flag="unknown_skipDestroy")
+    private @Nullable Boolean value_skipDestroy;
+    private boolean unknown_skipDestroy;
     public @Nullable Boolean skipDestroy() {
-        if (skipDestroy == null) return null;
-        return skipDestroy.getValue("ParameterGroup.skipDestroy");
+        if (!unknown_skipDestroy) return value_skipDestroy;
+        throw new UndeferrableValueException("Value 'ParameterGroup.skipDestroy' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ParameterGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ParameterGroup.tags' is not present");
     }
 
     /**
@@ -108,11 +117,12 @@ public final class ParameterGroup extends com.pulumi.resources.PolicyResourceOut
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ParameterGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ParameterGroup.tagsAll' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.opsworks.inputs.RailsAppLayerCloudwatchConfigurationArgs;
 import com.pulumi.policypacks.aws.opsworks.inputs.RailsAppLayerEbsVolumeArgs;
@@ -23,269 +24,296 @@ public final class RailsAppLayerArgs extends com.pulumi.resources.PolicyResource
      * Keyword for the app server to use. Defaults to &#34;apache_passenger&#34;.
      * 
      */
-    private UndeferrableValue<String> appServer;
-
+    @PolicyResourceProperty(name="appServer", flag="unknown_appServer")
+    private String value_appServer;
+    private boolean unknown_appServer;
     public String appServer() {
-        if (appServer == null) return null;
-        return appServer.getValue("RailsAppLayerArgs.appServer");
+        if (!unknown_appServer) return value_appServer;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.appServer' is not present");
     }
 
     /**
      * Whether to automatically assign an elastic IP address to the layer&#39;s instances.
      * 
      */
-    private UndeferrableValue<Boolean> autoAssignElasticIps;
-
+    @PolicyResourceProperty(name="autoAssignElasticIps", flag="unknown_autoAssignElasticIps")
+    private Boolean value_autoAssignElasticIps;
+    private boolean unknown_autoAssignElasticIps;
     public Boolean autoAssignElasticIps() {
-        if (autoAssignElasticIps == null) return null;
-        return autoAssignElasticIps.getValue("RailsAppLayerArgs.autoAssignElasticIps");
+        if (!unknown_autoAssignElasticIps) return value_autoAssignElasticIps;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.autoAssignElasticIps' is not present");
     }
 
     /**
      * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer&#39;s instances.
      * 
      */
-    private UndeferrableValue<Boolean> autoAssignPublicIps;
-
+    @PolicyResourceProperty(name="autoAssignPublicIps", flag="unknown_autoAssignPublicIps")
+    private Boolean value_autoAssignPublicIps;
+    private boolean unknown_autoAssignPublicIps;
     public Boolean autoAssignPublicIps() {
-        if (autoAssignPublicIps == null) return null;
-        return autoAssignPublicIps.getValue("RailsAppLayerArgs.autoAssignPublicIps");
+        if (!unknown_autoAssignPublicIps) return value_autoAssignPublicIps;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.autoAssignPublicIps' is not present");
     }
 
     /**
      * Whether to enable auto-healing for the layer.
      * 
      */
-    private UndeferrableValue<Boolean> autoHealing;
-
+    @PolicyResourceProperty(name="autoHealing", flag="unknown_autoHealing")
+    private Boolean value_autoHealing;
+    private boolean unknown_autoHealing;
     public Boolean autoHealing() {
-        if (autoHealing == null) return null;
-        return autoHealing.getValue("RailsAppLayerArgs.autoHealing");
+        if (!unknown_autoHealing) return value_autoHealing;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.autoHealing' is not present");
     }
 
     /**
      * When OpsWorks is managing Bundler, which version to use. Defaults to &#34;1.5.3&#34;.
      * 
      */
-    private UndeferrableValue<String> bundlerVersion;
-
+    @PolicyResourceProperty(name="bundlerVersion", flag="unknown_bundlerVersion")
+    private String value_bundlerVersion;
+    private boolean unknown_bundlerVersion;
     public String bundlerVersion() {
-        if (bundlerVersion == null) return null;
-        return bundlerVersion.getValue("RailsAppLayerArgs.bundlerVersion");
+        if (!unknown_bundlerVersion) return value_bundlerVersion;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.bundlerVersion' is not present");
     }
 
-    private UndeferrableValue<RailsAppLayerCloudwatchConfigurationArgs> cloudwatchConfiguration;
-
+    @PolicyResourceProperty(name="cloudwatchConfiguration", flag="unknown_cloudwatchConfiguration")
+    private RailsAppLayerCloudwatchConfigurationArgs value_cloudwatchConfiguration;
+    private boolean unknown_cloudwatchConfiguration;
     public RailsAppLayerCloudwatchConfigurationArgs cloudwatchConfiguration() {
-        if (cloudwatchConfiguration == null) return null;
-        return cloudwatchConfiguration.getValue("RailsAppLayerArgs.cloudwatchConfiguration");
+        if (!unknown_cloudwatchConfiguration) return value_cloudwatchConfiguration;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.cloudwatchConfiguration' is not present");
     }
 
-    private UndeferrableValue<List<String>> customConfigureRecipes;
-
+    @PolicyResourceProperty(name="customConfigureRecipes", flag="unknown_customConfigureRecipes")
+    private List<String> value_customConfigureRecipes;
+    private boolean unknown_customConfigureRecipes;
     public List<String> customConfigureRecipes() {
-        if (customConfigureRecipes == null) return null;
-        return customConfigureRecipes.getValue("RailsAppLayerArgs.customConfigureRecipes");
+        if (!unknown_customConfigureRecipes) return value_customConfigureRecipes;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.customConfigureRecipes' is not present");
     }
 
-    private UndeferrableValue<List<String>> customDeployRecipes;
-
+    @PolicyResourceProperty(name="customDeployRecipes", flag="unknown_customDeployRecipes")
+    private List<String> value_customDeployRecipes;
+    private boolean unknown_customDeployRecipes;
     public List<String> customDeployRecipes() {
-        if (customDeployRecipes == null) return null;
-        return customDeployRecipes.getValue("RailsAppLayerArgs.customDeployRecipes");
+        if (!unknown_customDeployRecipes) return value_customDeployRecipes;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.customDeployRecipes' is not present");
     }
 
     /**
      * The ARN of an IAM profile that will be used for the layer&#39;s instances.
      * 
      */
-    private UndeferrableValue<String> customInstanceProfileArn;
-
+    @PolicyResourceProperty(name="customInstanceProfileArn", flag="unknown_customInstanceProfileArn")
+    private String value_customInstanceProfileArn;
+    private boolean unknown_customInstanceProfileArn;
     public String customInstanceProfileArn() {
-        if (customInstanceProfileArn == null) return null;
-        return customInstanceProfileArn.getValue("RailsAppLayerArgs.customInstanceProfileArn");
+        if (!unknown_customInstanceProfileArn) return value_customInstanceProfileArn;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.customInstanceProfileArn' is not present");
     }
 
     /**
      * Custom JSON attributes to apply to the layer.
      * 
      */
-    private UndeferrableValue<String> customJson;
-
+    @PolicyResourceProperty(name="customJson", flag="unknown_customJson")
+    private String value_customJson;
+    private boolean unknown_customJson;
     public String customJson() {
-        if (customJson == null) return null;
-        return customJson.getValue("RailsAppLayerArgs.customJson");
+        if (!unknown_customJson) return value_customJson;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.customJson' is not present");
     }
 
     /**
      * Ids for a set of security groups to apply to the layer&#39;s instances.
      * 
      */
-    private UndeferrableValue<List<String>> customSecurityGroupIds;
-
+    @PolicyResourceProperty(name="customSecurityGroupIds", flag="unknown_customSecurityGroupIds")
+    private List<String> value_customSecurityGroupIds;
+    private boolean unknown_customSecurityGroupIds;
     public List<String> customSecurityGroupIds() {
-        if (customSecurityGroupIds == null) return null;
-        return customSecurityGroupIds.getValue("RailsAppLayerArgs.customSecurityGroupIds");
+        if (!unknown_customSecurityGroupIds) return value_customSecurityGroupIds;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.customSecurityGroupIds' is not present");
     }
 
-    private UndeferrableValue<List<String>> customSetupRecipes;
-
+    @PolicyResourceProperty(name="customSetupRecipes", flag="unknown_customSetupRecipes")
+    private List<String> value_customSetupRecipes;
+    private boolean unknown_customSetupRecipes;
     public List<String> customSetupRecipes() {
-        if (customSetupRecipes == null) return null;
-        return customSetupRecipes.getValue("RailsAppLayerArgs.customSetupRecipes");
+        if (!unknown_customSetupRecipes) return value_customSetupRecipes;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.customSetupRecipes' is not present");
     }
 
-    private UndeferrableValue<List<String>> customShutdownRecipes;
-
+    @PolicyResourceProperty(name="customShutdownRecipes", flag="unknown_customShutdownRecipes")
+    private List<String> value_customShutdownRecipes;
+    private boolean unknown_customShutdownRecipes;
     public List<String> customShutdownRecipes() {
-        if (customShutdownRecipes == null) return null;
-        return customShutdownRecipes.getValue("RailsAppLayerArgs.customShutdownRecipes");
+        if (!unknown_customShutdownRecipes) return value_customShutdownRecipes;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.customShutdownRecipes' is not present");
     }
 
-    private UndeferrableValue<List<String>> customUndeployRecipes;
-
+    @PolicyResourceProperty(name="customUndeployRecipes", flag="unknown_customUndeployRecipes")
+    private List<String> value_customUndeployRecipes;
+    private boolean unknown_customUndeployRecipes;
     public List<String> customUndeployRecipes() {
-        if (customUndeployRecipes == null) return null;
-        return customUndeployRecipes.getValue("RailsAppLayerArgs.customUndeployRecipes");
+        if (!unknown_customUndeployRecipes) return value_customUndeployRecipes;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.customUndeployRecipes' is not present");
     }
 
     /**
      * Whether to enable Elastic Load Balancing connection draining.
      * 
      */
-    private UndeferrableValue<Boolean> drainElbOnShutdown;
-
+    @PolicyResourceProperty(name="drainElbOnShutdown", flag="unknown_drainElbOnShutdown")
+    private Boolean value_drainElbOnShutdown;
+    private boolean unknown_drainElbOnShutdown;
     public Boolean drainElbOnShutdown() {
-        if (drainElbOnShutdown == null) return null;
-        return drainElbOnShutdown.getValue("RailsAppLayerArgs.drainElbOnShutdown");
+        if (!unknown_drainElbOnShutdown) return value_drainElbOnShutdown;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.drainElbOnShutdown' is not present");
     }
 
     /**
      * `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
      * 
      */
-    private UndeferrableValue<List<RailsAppLayerEbsVolumeArgs>> ebsVolumes;
-
+    @PolicyResourceProperty(name="ebsVolumes", flag="unknown_ebsVolumes")
+    private List<RailsAppLayerEbsVolumeArgs> value_ebsVolumes;
+    private boolean unknown_ebsVolumes;
     public List<RailsAppLayerEbsVolumeArgs> ebsVolumes() {
-        if (ebsVolumes == null) return null;
-        return ebsVolumes.getValue("RailsAppLayerArgs.ebsVolumes");
+        if (!unknown_ebsVolumes) return value_ebsVolumes;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.ebsVolumes' is not present");
     }
 
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      * 
      */
-    private UndeferrableValue<String> elasticLoadBalancer;
-
+    @PolicyResourceProperty(name="elasticLoadBalancer", flag="unknown_elasticLoadBalancer")
+    private String value_elasticLoadBalancer;
+    private boolean unknown_elasticLoadBalancer;
     public String elasticLoadBalancer() {
-        if (elasticLoadBalancer == null) return null;
-        return elasticLoadBalancer.getValue("RailsAppLayerArgs.elasticLoadBalancer");
+        if (!unknown_elasticLoadBalancer) return value_elasticLoadBalancer;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.elasticLoadBalancer' is not present");
     }
 
     /**
      * Whether to install OS and package updates on each instance when it boots.
      * 
      */
-    private UndeferrableValue<Boolean> installUpdatesOnBoot;
-
+    @PolicyResourceProperty(name="installUpdatesOnBoot", flag="unknown_installUpdatesOnBoot")
+    private Boolean value_installUpdatesOnBoot;
+    private boolean unknown_installUpdatesOnBoot;
     public Boolean installUpdatesOnBoot() {
-        if (installUpdatesOnBoot == null) return null;
-        return installUpdatesOnBoot.getValue("RailsAppLayerArgs.installUpdatesOnBoot");
+        if (!unknown_installUpdatesOnBoot) return value_installUpdatesOnBoot;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.installUpdatesOnBoot' is not present");
     }
 
     /**
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      * 
      */
-    private UndeferrableValue<Integer> instanceShutdownTimeout;
-
+    @PolicyResourceProperty(name="instanceShutdownTimeout", flag="unknown_instanceShutdownTimeout")
+    private Integer value_instanceShutdownTimeout;
+    private boolean unknown_instanceShutdownTimeout;
     public Integer instanceShutdownTimeout() {
-        if (instanceShutdownTimeout == null) return null;
-        return instanceShutdownTimeout.getValue("RailsAppLayerArgs.instanceShutdownTimeout");
+        if (!unknown_instanceShutdownTimeout) return value_instanceShutdownTimeout;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.instanceShutdownTimeout' is not present");
     }
 
-    private UndeferrableValue<RailsAppLayerLoadBasedAutoScalingArgs> loadBasedAutoScaling;
-
+    @PolicyResourceProperty(name="loadBasedAutoScaling", flag="unknown_loadBasedAutoScaling")
+    private RailsAppLayerLoadBasedAutoScalingArgs value_loadBasedAutoScaling;
+    private boolean unknown_loadBasedAutoScaling;
     public RailsAppLayerLoadBasedAutoScalingArgs loadBasedAutoScaling() {
-        if (loadBasedAutoScaling == null) return null;
-        return loadBasedAutoScaling.getValue("RailsAppLayerArgs.loadBasedAutoScaling");
+        if (!unknown_loadBasedAutoScaling) return value_loadBasedAutoScaling;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.loadBasedAutoScaling' is not present");
     }
 
     /**
      * Whether OpsWorks should manage bundler. On by default.
      * 
      */
-    private UndeferrableValue<Boolean> manageBundler;
-
+    @PolicyResourceProperty(name="manageBundler", flag="unknown_manageBundler")
+    private Boolean value_manageBundler;
+    private boolean unknown_manageBundler;
     public Boolean manageBundler() {
-        if (manageBundler == null) return null;
-        return manageBundler.getValue("RailsAppLayerArgs.manageBundler");
+        if (!unknown_manageBundler) return value_manageBundler;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.manageBundler' is not present");
     }
 
     /**
      * A human-readable name for the layer.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RailsAppLayerArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.name' is not present");
     }
 
     /**
      * The version of Passenger to use. Defaults to &#34;4.0.46&#34;.
      * 
      */
-    private UndeferrableValue<String> passengerVersion;
-
+    @PolicyResourceProperty(name="passengerVersion", flag="unknown_passengerVersion")
+    private String value_passengerVersion;
+    private boolean unknown_passengerVersion;
     public String passengerVersion() {
-        if (passengerVersion == null) return null;
-        return passengerVersion.getValue("RailsAppLayerArgs.passengerVersion");
+        if (!unknown_passengerVersion) return value_passengerVersion;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.passengerVersion' is not present");
     }
 
     /**
      * The version of Ruby to use. Defaults to &#34;2.0.0&#34;.
      * 
      */
-    private UndeferrableValue<String> rubyVersion;
-
+    @PolicyResourceProperty(name="rubyVersion", flag="unknown_rubyVersion")
+    private String value_rubyVersion;
+    private boolean unknown_rubyVersion;
     public String rubyVersion() {
-        if (rubyVersion == null) return null;
-        return rubyVersion.getValue("RailsAppLayerArgs.rubyVersion");
+        if (!unknown_rubyVersion) return value_rubyVersion;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.rubyVersion' is not present");
     }
 
     /**
      * The version of RubyGems to use. Defaults to &#34;2.2.2&#34;.
      * 
      */
-    private UndeferrableValue<String> rubygemsVersion;
-
+    @PolicyResourceProperty(name="rubygemsVersion", flag="unknown_rubygemsVersion")
+    private String value_rubygemsVersion;
+    private boolean unknown_rubygemsVersion;
     public String rubygemsVersion() {
-        if (rubygemsVersion == null) return null;
-        return rubygemsVersion.getValue("RailsAppLayerArgs.rubygemsVersion");
+        if (!unknown_rubygemsVersion) return value_rubygemsVersion;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.rubygemsVersion' is not present");
     }
 
     /**
      * ID of the stack the layer will belong to.
      * 
      */
-    private UndeferrableValue<String> stackId;
-
+    @PolicyResourceProperty(name="stackId", flag="unknown_stackId")
+    private String value_stackId;
+    private boolean unknown_stackId;
     public String stackId() {
-        if (stackId == null) return null;
-        return stackId.getValue("RailsAppLayerArgs.stackId");
+        if (!unknown_stackId) return value_stackId;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.stackId' is not present");
     }
 
     /**
      * Names of a set of system packages to install on the layer&#39;s instances.
      * 
      */
-    private UndeferrableValue<List<String>> systemPackages;
-
+    @PolicyResourceProperty(name="systemPackages", flag="unknown_systemPackages")
+    private List<String> value_systemPackages;
+    private boolean unknown_systemPackages;
     public List<String> systemPackages() {
-        if (systemPackages == null) return null;
-        return systemPackages.getValue("RailsAppLayerArgs.systemPackages");
+        if (!unknown_systemPackages) return value_systemPackages;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.systemPackages' is not present");
     }
 
     /**
@@ -296,22 +324,24 @@ public final class RailsAppLayerArgs extends com.pulumi.resources.PolicyResource
      * lifecycle events, if custom cookbooks are enabled on the layer&#39;s stack:
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RailsAppLayerArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.tags' is not present");
     }
 
     /**
      * Whether to use EBS-optimized instances.
      * 
      */
-    private UndeferrableValue<Boolean> useEbsOptimizedInstances;
-
+    @PolicyResourceProperty(name="useEbsOptimizedInstances", flag="unknown_useEbsOptimizedInstances")
+    private Boolean value_useEbsOptimizedInstances;
+    private boolean unknown_useEbsOptimizedInstances;
     public Boolean useEbsOptimizedInstances() {
-        if (useEbsOptimizedInstances == null) return null;
-        return useEbsOptimizedInstances.getValue("RailsAppLayerArgs.useEbsOptimizedInstances");
+        if (!unknown_useEbsOptimizedInstances) return value_useEbsOptimizedInstances;
+        throw new UndeferrableValueException("Value 'RailsAppLayerArgs.useEbsOptimizedInstances' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.outputs.DataSetLogicalTableMapDataTransform;
 import com.pulumi.policypacks.aws.quicksight.outputs.DataSetLogicalTableMapSource;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class DataSetLogicalTableMap {
      * A display name for the logical table.
      * 
      */
-    private UndeferrableValue<String> alias;
-
+    @PolicyResourceProperty(name="alias", flag="unknown_alias")
+    private String value_alias;
+    private boolean unknown_alias;
     public String alias() {
-        if (alias == null) return null;
-        return alias.getValue("DataSetLogicalTableMap.alias");
+        if (!unknown_alias) return value_alias;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMap.alias' is not present");
     }
 
     /**
      * Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
      * 
      */
-    private @Nullable UndeferrableValue<List<DataSetLogicalTableMapDataTransform>> dataTransforms;
-
+    @PolicyResourceProperty(name="dataTransforms", flag="unknown_dataTransforms")
+    private @Nullable List<DataSetLogicalTableMapDataTransform> value_dataTransforms;
+    private boolean unknown_dataTransforms;
     public @Nullable List<DataSetLogicalTableMapDataTransform> dataTransforms() {
-        if (dataTransforms == null) return null;
-        return dataTransforms.getValue("DataSetLogicalTableMap.dataTransforms");
+        if (!unknown_dataTransforms) return value_dataTransforms;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMap.dataTransforms' is not present");
     }
 
     /**
      * Key of the logical table map.
      * 
      */
-    private UndeferrableValue<String> logicalTableMapId;
-
+    @PolicyResourceProperty(name="logicalTableMapId", flag="unknown_logicalTableMapId")
+    private String value_logicalTableMapId;
+    private boolean unknown_logicalTableMapId;
     public String logicalTableMapId() {
-        if (logicalTableMapId == null) return null;
-        return logicalTableMapId.getValue("DataSetLogicalTableMap.logicalTableMapId");
+        if (!unknown_logicalTableMapId) return value_logicalTableMapId;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMap.logicalTableMapId' is not present");
     }
 
     /**
      * Source of this logical table. See source.
      * 
      */
-    private UndeferrableValue<DataSetLogicalTableMapSource> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private DataSetLogicalTableMapSource value_source;
+    private boolean unknown_source;
     public DataSetLogicalTableMapSource source() {
-        if (source == null) return null;
-        return source.getValue("DataSetLogicalTableMap.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMap.source' is not present");
     }
 
 }

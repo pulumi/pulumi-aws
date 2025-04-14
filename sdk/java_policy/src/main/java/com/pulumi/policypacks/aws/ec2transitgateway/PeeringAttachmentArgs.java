@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2transitgateway.inputs.PeeringAttachmentOptionsArgs;
 import java.lang.String;
@@ -18,66 +19,72 @@ public final class PeeringAttachmentArgs extends com.pulumi.resources.PolicyReso
      * Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
      * 
      */
-    private UndeferrableValue<PeeringAttachmentOptionsArgs> options;
-
+    @PolicyResourceProperty(name="options", flag="unknown_options")
+    private PeeringAttachmentOptionsArgs value_options;
+    private boolean unknown_options;
     public PeeringAttachmentOptionsArgs options() {
-        if (options == null) return null;
-        return options.getValue("PeeringAttachmentArgs.options");
+        if (!unknown_options) return value_options;
+        throw new UndeferrableValueException("Value 'PeeringAttachmentArgs.options' is not present");
     }
 
     /**
      * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
-    private UndeferrableValue<String> peerAccountId;
-
+    @PolicyResourceProperty(name="peerAccountId", flag="unknown_peerAccountId")
+    private String value_peerAccountId;
+    private boolean unknown_peerAccountId;
     public String peerAccountId() {
-        if (peerAccountId == null) return null;
-        return peerAccountId.getValue("PeeringAttachmentArgs.peerAccountId");
+        if (!unknown_peerAccountId) return value_peerAccountId;
+        throw new UndeferrableValueException("Value 'PeeringAttachmentArgs.peerAccountId' is not present");
     }
 
     /**
      * Region of EC2 Transit Gateway to peer with.
      * 
      */
-    private UndeferrableValue<String> peerRegion;
-
+    @PolicyResourceProperty(name="peerRegion", flag="unknown_peerRegion")
+    private String value_peerRegion;
+    private boolean unknown_peerRegion;
     public String peerRegion() {
-        if (peerRegion == null) return null;
-        return peerRegion.getValue("PeeringAttachmentArgs.peerRegion");
+        if (!unknown_peerRegion) return value_peerRegion;
+        throw new UndeferrableValueException("Value 'PeeringAttachmentArgs.peerRegion' is not present");
     }
 
     /**
      * Identifier of EC2 Transit Gateway to peer with.
      * 
      */
-    private UndeferrableValue<String> peerTransitGatewayId;
-
+    @PolicyResourceProperty(name="peerTransitGatewayId", flag="unknown_peerTransitGatewayId")
+    private String value_peerTransitGatewayId;
+    private boolean unknown_peerTransitGatewayId;
     public String peerTransitGatewayId() {
-        if (peerTransitGatewayId == null) return null;
-        return peerTransitGatewayId.getValue("PeeringAttachmentArgs.peerTransitGatewayId");
+        if (!unknown_peerTransitGatewayId) return value_peerTransitGatewayId;
+        throw new UndeferrableValueException("Value 'PeeringAttachmentArgs.peerTransitGatewayId' is not present");
     }
 
     /**
      * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("PeeringAttachmentArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'PeeringAttachmentArgs.tags' is not present");
     }
 
     /**
      * Identifier of EC2 Transit Gateway.
      * 
      */
-    private UndeferrableValue<String> transitGatewayId;
-
+    @PolicyResourceProperty(name="transitGatewayId", flag="unknown_transitGatewayId")
+    private String value_transitGatewayId;
+    private boolean unknown_transitGatewayId;
     public String transitGatewayId() {
-        if (transitGatewayId == null) return null;
-        return transitGatewayId.getValue("PeeringAttachmentArgs.transitGatewayId");
+        if (!unknown_transitGatewayId) return value_transitGatewayId;
+        throw new UndeferrableValueException("Value 'PeeringAttachmentArgs.transitGatewayId' is not present");
     }
 
 }

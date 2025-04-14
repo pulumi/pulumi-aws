@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appstream;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appstream.inputs.ImageBuilderAccessEndpointArgs;
 import com.pulumi.policypacks.aws.appstream.inputs.ImageBuilderDomainJoinInfoArgs;
@@ -22,110 +23,120 @@ public final class ImageBuilderArgs extends com.pulumi.resources.PolicyResourceI
      * Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
      * 
      */
-    private UndeferrableValue<List<ImageBuilderAccessEndpointArgs>> accessEndpoints;
-
+    @PolicyResourceProperty(name="accessEndpoints", flag="unknown_accessEndpoints")
+    private List<ImageBuilderAccessEndpointArgs> value_accessEndpoints;
+    private boolean unknown_accessEndpoints;
     public List<ImageBuilderAccessEndpointArgs> accessEndpoints() {
-        if (accessEndpoints == null) return null;
-        return accessEndpoints.getValue("ImageBuilderArgs.accessEndpoints");
+        if (!unknown_accessEndpoints) return value_accessEndpoints;
+        throw new UndeferrableValueException("Value 'ImageBuilderArgs.accessEndpoints' is not present");
     }
 
     /**
      * Version of the AppStream 2.0 agent to use for this image builder.
      * 
      */
-    private UndeferrableValue<String> appstreamAgentVersion;
-
+    @PolicyResourceProperty(name="appstreamAgentVersion", flag="unknown_appstreamAgentVersion")
+    private String value_appstreamAgentVersion;
+    private boolean unknown_appstreamAgentVersion;
     public String appstreamAgentVersion() {
-        if (appstreamAgentVersion == null) return null;
-        return appstreamAgentVersion.getValue("ImageBuilderArgs.appstreamAgentVersion");
+        if (!unknown_appstreamAgentVersion) return value_appstreamAgentVersion;
+        throw new UndeferrableValueException("Value 'ImageBuilderArgs.appstreamAgentVersion' is not present");
     }
 
     /**
      * Description to display.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ImageBuilderArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ImageBuilderArgs.description' is not present");
     }
 
     /**
      * Human-readable friendly name for the AppStream image builder.
      * 
      */
-    private UndeferrableValue<String> displayName;
-
+    @PolicyResourceProperty(name="displayName", flag="unknown_displayName")
+    private String value_displayName;
+    private boolean unknown_displayName;
     public String displayName() {
-        if (displayName == null) return null;
-        return displayName.getValue("ImageBuilderArgs.displayName");
+        if (!unknown_displayName) return value_displayName;
+        throw new UndeferrableValueException("Value 'ImageBuilderArgs.displayName' is not present");
     }
 
     /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
      * 
      */
-    private UndeferrableValue<ImageBuilderDomainJoinInfoArgs> domainJoinInfo;
-
+    @PolicyResourceProperty(name="domainJoinInfo", flag="unknown_domainJoinInfo")
+    private ImageBuilderDomainJoinInfoArgs value_domainJoinInfo;
+    private boolean unknown_domainJoinInfo;
     public ImageBuilderDomainJoinInfoArgs domainJoinInfo() {
-        if (domainJoinInfo == null) return null;
-        return domainJoinInfo.getValue("ImageBuilderArgs.domainJoinInfo");
+        if (!unknown_domainJoinInfo) return value_domainJoinInfo;
+        throw new UndeferrableValueException("Value 'ImageBuilderArgs.domainJoinInfo' is not present");
     }
 
     /**
      * Enables or disables default internet access for the image builder.
      * 
      */
-    private UndeferrableValue<Boolean> enableDefaultInternetAccess;
-
+    @PolicyResourceProperty(name="enableDefaultInternetAccess", flag="unknown_enableDefaultInternetAccess")
+    private Boolean value_enableDefaultInternetAccess;
+    private boolean unknown_enableDefaultInternetAccess;
     public Boolean enableDefaultInternetAccess() {
-        if (enableDefaultInternetAccess == null) return null;
-        return enableDefaultInternetAccess.getValue("ImageBuilderArgs.enableDefaultInternetAccess");
+        if (!unknown_enableDefaultInternetAccess) return value_enableDefaultInternetAccess;
+        throw new UndeferrableValueException("Value 'ImageBuilderArgs.enableDefaultInternetAccess' is not present");
     }
 
     /**
      * ARN of the IAM role to apply to the image builder.
      * 
      */
-    private UndeferrableValue<String> iamRoleArn;
-
+    @PolicyResourceProperty(name="iamRoleArn", flag="unknown_iamRoleArn")
+    private String value_iamRoleArn;
+    private boolean unknown_iamRoleArn;
     public String iamRoleArn() {
-        if (iamRoleArn == null) return null;
-        return iamRoleArn.getValue("ImageBuilderArgs.iamRoleArn");
+        if (!unknown_iamRoleArn) return value_iamRoleArn;
+        throw new UndeferrableValueException("Value 'ImageBuilderArgs.iamRoleArn' is not present");
     }
 
     /**
      * ARN of the public, private, or shared image to use.
      * 
      */
-    private UndeferrableValue<String> imageArn;
-
+    @PolicyResourceProperty(name="imageArn", flag="unknown_imageArn")
+    private String value_imageArn;
+    private boolean unknown_imageArn;
     public String imageArn() {
-        if (imageArn == null) return null;
-        return imageArn.getValue("ImageBuilderArgs.imageArn");
+        if (!unknown_imageArn) return value_imageArn;
+        throw new UndeferrableValueException("Value 'ImageBuilderArgs.imageArn' is not present");
     }
 
     /**
      * Name of the image used to create the image builder.
      * 
      */
-    private UndeferrableValue<String> imageName;
-
+    @PolicyResourceProperty(name="imageName", flag="unknown_imageName")
+    private String value_imageName;
+    private boolean unknown_imageName;
     public String imageName() {
-        if (imageName == null) return null;
-        return imageName.getValue("ImageBuilderArgs.imageName");
+        if (!unknown_imageName) return value_imageName;
+        throw new UndeferrableValueException("Value 'ImageBuilderArgs.imageName' is not present");
     }
 
     /**
      * Instance type to use when launching the image builder.
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("ImageBuilderArgs.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'ImageBuilderArgs.instanceType' is not present");
     }
 
     /**
@@ -134,33 +145,36 @@ public final class ImageBuilderArgs extends com.pulumi.resources.PolicyResourceI
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ImageBuilderArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ImageBuilderArgs.name' is not present");
     }
 
     /**
      * Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ImageBuilderArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ImageBuilderArgs.tags' is not present");
     }
 
     /**
      * Configuration block for the VPC configuration for the image builder. See below.
      * 
      */
-    private UndeferrableValue<ImageBuilderVpcConfigArgs> vpcConfig;
-
+    @PolicyResourceProperty(name="vpcConfig", flag="unknown_vpcConfig")
+    private ImageBuilderVpcConfigArgs value_vpcConfig;
+    private boolean unknown_vpcConfig;
     public ImageBuilderVpcConfigArgs vpcConfig() {
-        if (vpcConfig == null) return null;
-        return vpcConfig.getValue("ImageBuilderArgs.vpcConfig");
+        if (!unknown_vpcConfig) return value_vpcConfig;
+        throw new UndeferrableValueException("Value 'ImageBuilderArgs.vpcConfig' is not present");
     }
 
 }

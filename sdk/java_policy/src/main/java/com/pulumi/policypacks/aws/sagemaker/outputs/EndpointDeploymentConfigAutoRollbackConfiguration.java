@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.outputs.EndpointDeploymentConfigAutoRollbackConfigurationAlarm;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class EndpointDeploymentConfigAutoRollbackConfiguration {
      * List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker AI rolls back the deployment. See Alarms.
      * 
      */
-    private @Nullable UndeferrableValue<List<EndpointDeploymentConfigAutoRollbackConfigurationAlarm>> alarms;
-
+    @PolicyResourceProperty(name="alarms", flag="unknown_alarms")
+    private @Nullable List<EndpointDeploymentConfigAutoRollbackConfigurationAlarm> value_alarms;
+    private boolean unknown_alarms;
     public @Nullable List<EndpointDeploymentConfigAutoRollbackConfigurationAlarm> alarms() {
-        if (alarms == null) return null;
-        return alarms.getValue("EndpointDeploymentConfigAutoRollbackConfiguration.alarms");
+        if (!unknown_alarms) return value_alarms;
+        throw new UndeferrableValueException("Value 'EndpointDeploymentConfigAutoRollbackConfiguration.alarms' is not present");
     }
 
 }

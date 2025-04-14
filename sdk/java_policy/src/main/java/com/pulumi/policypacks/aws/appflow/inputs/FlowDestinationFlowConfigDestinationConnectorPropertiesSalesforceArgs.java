@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs;
 import java.lang.String;
 import java.util.List;
@@ -12,32 +13,36 @@ import javax.annotation.Nullable;
 
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs {
 
-    private UndeferrableValue<FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs> errorHandlingConfig;
-
+    @PolicyResourceProperty(name="errorHandlingConfig", flag="unknown_errorHandlingConfig")
+    private FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs value_errorHandlingConfig;
+    private boolean unknown_errorHandlingConfig;
     public FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs errorHandlingConfig() {
-        if (errorHandlingConfig == null) return null;
-        return errorHandlingConfig.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs.errorHandlingConfig");
+        if (!unknown_errorHandlingConfig) return value_errorHandlingConfig;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs.errorHandlingConfig' is not present");
     }
 
-    private UndeferrableValue<List<String>> idFieldNames;
-
+    @PolicyResourceProperty(name="idFieldNames", flag="unknown_idFieldNames")
+    private List<String> value_idFieldNames;
+    private boolean unknown_idFieldNames;
     public List<String> idFieldNames() {
-        if (idFieldNames == null) return null;
-        return idFieldNames.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs.idFieldNames");
+        if (!unknown_idFieldNames) return value_idFieldNames;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs.idFieldNames' is not present");
     }
 
-    private UndeferrableValue<String> object;
-
+    @PolicyResourceProperty(name="object", flag="unknown_object")
+    private String value_object;
+    private boolean unknown_object;
     public String object() {
-        if (object == null) return null;
-        return object.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs.object");
+        if (!unknown_object) return value_object;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs.object' is not present");
     }
 
-    private UndeferrableValue<String> writeOperationType;
-
+    @PolicyResourceProperty(name="writeOperationType", flag="unknown_writeOperationType")
+    private String value_writeOperationType;
+    private boolean unknown_writeOperationType;
     public String writeOperationType() {
-        if (writeOperationType == null) return null;
-        return writeOperationType.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs.writeOperationType");
+        if (!unknown_writeOperationType) return value_writeOperationType;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs.writeOperationType' is not present");
     }
 
 }

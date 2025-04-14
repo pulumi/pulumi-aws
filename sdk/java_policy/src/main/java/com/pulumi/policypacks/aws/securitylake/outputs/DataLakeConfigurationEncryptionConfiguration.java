@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securitylake.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class DataLakeConfigurationEncryptionConfiguration {
      * The id of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("DataLakeConfigurationEncryptionConfiguration.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'DataLakeConfigurationEncryptionConfiguration.kmsKeyId' is not present");
     }
 
 }

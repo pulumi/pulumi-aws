@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,22 +14,24 @@ public final class DomainDefaultSpaceSettingsCustomPosixUserConfig {
      * The POSIX group ID.
      * 
      */
-    private UndeferrableValue<Integer> gid;
-
+    @PolicyResourceProperty(name="gid", flag="unknown_gid")
+    private Integer value_gid;
+    private boolean unknown_gid;
     public Integer gid() {
-        if (gid == null) return null;
-        return gid.getValue("DomainDefaultSpaceSettingsCustomPosixUserConfig.gid");
+        if (!unknown_gid) return value_gid;
+        throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsCustomPosixUserConfig.gid' is not present");
     }
 
     /**
      * The POSIX user ID.
      * 
      */
-    private UndeferrableValue<Integer> uid;
-
+    @PolicyResourceProperty(name="uid", flag="unknown_uid")
+    private Integer value_uid;
+    private boolean unknown_uid;
     public Integer uid() {
-        if (uid == null) return null;
-        return uid.getValue("DomainDefaultSpaceSettingsCustomPosixUserConfig.uid");
+        if (!unknown_uid) return value_uid;
+        throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsCustomPosixUserConfig.uid' is not present");
     }
 
 }

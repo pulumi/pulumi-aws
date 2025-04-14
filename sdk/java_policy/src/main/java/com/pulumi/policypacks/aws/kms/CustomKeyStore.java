@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kms;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.kms.outputs.CustomKeyStoreXksProxyAuthenticationCredential;
 import java.lang.String;
@@ -13,11 +14,12 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:kms/customKeyStore:CustomKeyStore")
 public final class CustomKeyStore extends com.pulumi.resources.PolicyResourceOutput {
 
-    private @Nullable UndeferrableValue<String> cloudHsmClusterId;
-
+    @PolicyResourceProperty(name="cloudHsmClusterId", flag="unknown_cloudHsmClusterId")
+    private @Nullable String value_cloudHsmClusterId;
+    private boolean unknown_cloudHsmClusterId;
     public @Nullable String cloudHsmClusterId() {
-        if (cloudHsmClusterId == null) return null;
-        return cloudHsmClusterId.getValue("CustomKeyStore.cloudHsmClusterId");
+        if (!unknown_cloudHsmClusterId) return value_cloudHsmClusterId;
+        throw new UndeferrableValueException("Value 'CustomKeyStore.cloudHsmClusterId' is not present");
     }
 
     /**
@@ -26,71 +28,80 @@ public final class CustomKeyStore extends com.pulumi.resources.PolicyResourceOut
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> customKeyStoreName;
-
+    @PolicyResourceProperty(name="customKeyStoreName", flag="unknown_customKeyStoreName")
+    private String value_customKeyStoreName;
+    private boolean unknown_customKeyStoreName;
     public String customKeyStoreName() {
-        if (customKeyStoreName == null) return null;
-        return customKeyStoreName.getValue("CustomKeyStore.customKeyStoreName");
+        if (!unknown_customKeyStoreName) return value_customKeyStoreName;
+        throw new UndeferrableValueException("Value 'CustomKeyStore.customKeyStoreName' is not present");
     }
 
     /**
      * Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
      * 
      */
-    private UndeferrableValue<String> customKeyStoreType;
-
+    @PolicyResourceProperty(name="customKeyStoreType", flag="unknown_customKeyStoreType")
+    private String value_customKeyStoreType;
+    private boolean unknown_customKeyStoreType;
     public String customKeyStoreType() {
-        if (customKeyStoreType == null) return null;
-        return customKeyStoreType.getValue("CustomKeyStore.customKeyStoreType");
+        if (!unknown_customKeyStoreType) return value_customKeyStoreType;
+        throw new UndeferrableValueException("Value 'CustomKeyStore.customKeyStoreType' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> keyStorePassword;
-
+    @PolicyResourceProperty(name="keyStorePassword", flag="unknown_keyStorePassword")
+    private @Nullable String value_keyStorePassword;
+    private boolean unknown_keyStorePassword;
     public @Nullable String keyStorePassword() {
-        if (keyStorePassword == null) return null;
-        return keyStorePassword.getValue("CustomKeyStore.keyStorePassword");
+        if (!unknown_keyStorePassword) return value_keyStorePassword;
+        throw new UndeferrableValueException("Value 'CustomKeyStore.keyStorePassword' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> trustAnchorCertificate;
-
+    @PolicyResourceProperty(name="trustAnchorCertificate", flag="unknown_trustAnchorCertificate")
+    private @Nullable String value_trustAnchorCertificate;
+    private boolean unknown_trustAnchorCertificate;
     public @Nullable String trustAnchorCertificate() {
-        if (trustAnchorCertificate == null) return null;
-        return trustAnchorCertificate.getValue("CustomKeyStore.trustAnchorCertificate");
+        if (!unknown_trustAnchorCertificate) return value_trustAnchorCertificate;
+        throw new UndeferrableValueException("Value 'CustomKeyStore.trustAnchorCertificate' is not present");
     }
 
-    private @Nullable UndeferrableValue<CustomKeyStoreXksProxyAuthenticationCredential> xksProxyAuthenticationCredential;
-
+    @PolicyResourceProperty(name="xksProxyAuthenticationCredential", flag="unknown_xksProxyAuthenticationCredential")
+    private @Nullable CustomKeyStoreXksProxyAuthenticationCredential value_xksProxyAuthenticationCredential;
+    private boolean unknown_xksProxyAuthenticationCredential;
     public @Nullable CustomKeyStoreXksProxyAuthenticationCredential xksProxyAuthenticationCredential() {
-        if (xksProxyAuthenticationCredential == null) return null;
-        return xksProxyAuthenticationCredential.getValue("CustomKeyStore.xksProxyAuthenticationCredential");
+        if (!unknown_xksProxyAuthenticationCredential) return value_xksProxyAuthenticationCredential;
+        throw new UndeferrableValueException("Value 'CustomKeyStore.xksProxyAuthenticationCredential' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> xksProxyConnectivity;
-
+    @PolicyResourceProperty(name="xksProxyConnectivity", flag="unknown_xksProxyConnectivity")
+    private @Nullable String value_xksProxyConnectivity;
+    private boolean unknown_xksProxyConnectivity;
     public @Nullable String xksProxyConnectivity() {
-        if (xksProxyConnectivity == null) return null;
-        return xksProxyConnectivity.getValue("CustomKeyStore.xksProxyConnectivity");
+        if (!unknown_xksProxyConnectivity) return value_xksProxyConnectivity;
+        throw new UndeferrableValueException("Value 'CustomKeyStore.xksProxyConnectivity' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> xksProxyUriEndpoint;
-
+    @PolicyResourceProperty(name="xksProxyUriEndpoint", flag="unknown_xksProxyUriEndpoint")
+    private @Nullable String value_xksProxyUriEndpoint;
+    private boolean unknown_xksProxyUriEndpoint;
     public @Nullable String xksProxyUriEndpoint() {
-        if (xksProxyUriEndpoint == null) return null;
-        return xksProxyUriEndpoint.getValue("CustomKeyStore.xksProxyUriEndpoint");
+        if (!unknown_xksProxyUriEndpoint) return value_xksProxyUriEndpoint;
+        throw new UndeferrableValueException("Value 'CustomKeyStore.xksProxyUriEndpoint' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> xksProxyUriPath;
-
+    @PolicyResourceProperty(name="xksProxyUriPath", flag="unknown_xksProxyUriPath")
+    private @Nullable String value_xksProxyUriPath;
+    private boolean unknown_xksProxyUriPath;
     public @Nullable String xksProxyUriPath() {
-        if (xksProxyUriPath == null) return null;
-        return xksProxyUriPath.getValue("CustomKeyStore.xksProxyUriPath");
+        if (!unknown_xksProxyUriPath) return value_xksProxyUriPath;
+        throw new UndeferrableValueException("Value 'CustomKeyStore.xksProxyUriPath' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> xksProxyVpcEndpointServiceName;
-
+    @PolicyResourceProperty(name="xksProxyVpcEndpointServiceName", flag="unknown_xksProxyVpcEndpointServiceName")
+    private @Nullable String value_xksProxyVpcEndpointServiceName;
+    private boolean unknown_xksProxyVpcEndpointServiceName;
     public @Nullable String xksProxyVpcEndpointServiceName() {
-        if (xksProxyVpcEndpointServiceName == null) return null;
-        return xksProxyVpcEndpointServiceName.getValue("CustomKeyStore.xksProxyVpcEndpointServiceName");
+        if (!unknown_xksProxyVpcEndpointServiceName) return value_xksProxyVpcEndpointServiceName;
+        throw new UndeferrableValueException("Value 'CustomKeyStore.xksProxyVpcEndpointServiceName' is not present");
     }
 
 }

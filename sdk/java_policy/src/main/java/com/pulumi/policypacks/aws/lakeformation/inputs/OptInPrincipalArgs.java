@@ -3,17 +3,19 @@
 
 package com.pulumi.policypacks.aws.lakeformation.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class OptInPrincipalArgs {
 
-    private UndeferrableValue<String> dataLakePrincipalIdentifier;
-
+    @PolicyResourceProperty(name="dataLakePrincipalIdentifier", flag="unknown_dataLakePrincipalIdentifier")
+    private String value_dataLakePrincipalIdentifier;
+    private boolean unknown_dataLakePrincipalIdentifier;
     public String dataLakePrincipalIdentifier() {
-        if (dataLakePrincipalIdentifier == null) return null;
-        return dataLakePrincipalIdentifier.getValue("OptInPrincipalArgs.dataLakePrincipalIdentifier");
+        if (!unknown_dataLakePrincipalIdentifier) return value_dataLakePrincipalIdentifier;
+        throw new UndeferrableValueException("Value 'OptInPrincipalArgs.dataLakePrincipalIdentifier' is not present");
     }
 
 }

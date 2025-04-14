@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.shield;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.shield.inputs.DrtAccessRoleArnAssociationTimeoutsArgs;
 import java.lang.String;
@@ -17,18 +18,20 @@ public final class DrtAccessRoleArnAssociationArgs extends com.pulumi.resources.
      * The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("DrtAccessRoleArnAssociationArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'DrtAccessRoleArnAssociationArgs.roleArn' is not present");
     }
 
-    private UndeferrableValue<DrtAccessRoleArnAssociationTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private DrtAccessRoleArnAssociationTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public DrtAccessRoleArnAssociationTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("DrtAccessRoleArnAssociationArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'DrtAccessRoleArnAssociationArgs.timeouts' is not present");
     }
 
 }

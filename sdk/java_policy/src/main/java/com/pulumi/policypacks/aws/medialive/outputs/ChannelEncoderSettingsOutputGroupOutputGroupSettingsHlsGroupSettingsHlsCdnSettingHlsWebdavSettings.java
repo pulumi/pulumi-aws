@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,47 +16,52 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
      * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> connectionRetryInterval;
-
+    @PolicyResourceProperty(name="connectionRetryInterval", flag="unknown_connectionRetryInterval")
+    private @Nullable Integer value_connectionRetryInterval;
+    private boolean unknown_connectionRetryInterval;
     public @Nullable Integer connectionRetryInterval() {
-        if (connectionRetryInterval == null) return null;
-        return connectionRetryInterval.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings.connectionRetryInterval");
+        if (!unknown_connectionRetryInterval) return value_connectionRetryInterval;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings.connectionRetryInterval' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> filecacheDuration;
-
+    @PolicyResourceProperty(name="filecacheDuration", flag="unknown_filecacheDuration")
+    private @Nullable Integer value_filecacheDuration;
+    private boolean unknown_filecacheDuration;
     public @Nullable Integer filecacheDuration() {
-        if (filecacheDuration == null) return null;
-        return filecacheDuration.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings.filecacheDuration");
+        if (!unknown_filecacheDuration) return value_filecacheDuration;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings.filecacheDuration' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> httpTransferMode;
-
+    @PolicyResourceProperty(name="httpTransferMode", flag="unknown_httpTransferMode")
+    private @Nullable String value_httpTransferMode;
+    private boolean unknown_httpTransferMode;
     public @Nullable String httpTransferMode() {
-        if (httpTransferMode == null) return null;
-        return httpTransferMode.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings.httpTransferMode");
+        if (!unknown_httpTransferMode) return value_httpTransferMode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings.httpTransferMode' is not present");
     }
 
     /**
      * Number of retry attempts.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> numRetries;
-
+    @PolicyResourceProperty(name="numRetries", flag="unknown_numRetries")
+    private @Nullable Integer value_numRetries;
+    private boolean unknown_numRetries;
     public @Nullable Integer numRetries() {
-        if (numRetries == null) return null;
-        return numRetries.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings.numRetries");
+        if (!unknown_numRetries) return value_numRetries;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings.numRetries' is not present");
     }
 
     /**
      * Number of seconds to wait until a restart is initiated.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> restartDelay;
-
+    @PolicyResourceProperty(name="restartDelay", flag="unknown_restartDelay")
+    private @Nullable Integer value_restartDelay;
+    private boolean unknown_restartDelay;
     public @Nullable Integer restartDelay() {
-        if (restartDelay == null) return null;
-        return restartDelay.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings.restartDelay");
+        if (!unknown_restartDelay) return value_restartDelay;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings.restartDelay' is not present");
     }
 
 }

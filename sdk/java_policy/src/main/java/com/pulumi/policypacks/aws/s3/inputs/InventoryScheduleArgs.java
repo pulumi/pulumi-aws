@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class InventoryScheduleArgs {
      * Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
      * 
      */
-    private UndeferrableValue<String> frequency;
-
+    @PolicyResourceProperty(name="frequency", flag="unknown_frequency")
+    private String value_frequency;
+    private boolean unknown_frequency;
     public String frequency() {
-        if (frequency == null) return null;
-        return frequency.getValue("InventoryScheduleArgs.frequency");
+        if (!unknown_frequency) return value_frequency;
+        throw new UndeferrableValueException("Value 'InventoryScheduleArgs.frequency' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,55 +16,60 @@ public final class PipeTargetParametersEventbridgeEventBusParameters {
      * A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
      * 
      */
-    private @Nullable UndeferrableValue<String> detailType;
-
+    @PolicyResourceProperty(name="detailType", flag="unknown_detailType")
+    private @Nullable String value_detailType;
+    private boolean unknown_detailType;
     public @Nullable String detailType() {
-        if (detailType == null) return null;
-        return detailType.getValue("PipeTargetParametersEventbridgeEventBusParameters.detailType");
+        if (!unknown_detailType) return value_detailType;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEventbridgeEventBusParameters.detailType' is not present");
     }
 
     /**
      * The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
      * 
      */
-    private @Nullable UndeferrableValue<String> endpointId;
-
+    @PolicyResourceProperty(name="endpointId", flag="unknown_endpointId")
+    private @Nullable String value_endpointId;
+    private boolean unknown_endpointId;
     public @Nullable String endpointId() {
-        if (endpointId == null) return null;
-        return endpointId.getValue("PipeTargetParametersEventbridgeEventBusParameters.endpointId");
+        if (!unknown_endpointId) return value_endpointId;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEventbridgeEventBusParameters.endpointId' is not present");
     }
 
     /**
      * List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> resources;
-
+    @PolicyResourceProperty(name="resources", flag="unknown_resources")
+    private @Nullable List<String> value_resources;
+    private boolean unknown_resources;
     public @Nullable List<String> resources() {
-        if (resources == null) return null;
-        return resources.getValue("PipeTargetParametersEventbridgeEventBusParameters.resources");
+        if (!unknown_resources) return value_resources;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEventbridgeEventBusParameters.resources' is not present");
     }
 
     /**
      * Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
      * 
      */
-    private @Nullable UndeferrableValue<String> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private @Nullable String value_source;
+    private boolean unknown_source;
     public @Nullable String source() {
-        if (source == null) return null;
-        return source.getValue("PipeTargetParametersEventbridgeEventBusParameters.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEventbridgeEventBusParameters.source' is not present");
     }
 
     /**
      * The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
      * 
      */
-    private @Nullable UndeferrableValue<String> time;
-
+    @PolicyResourceProperty(name="time", flag="unknown_time")
+    private @Nullable String value_time;
+    private boolean unknown_time;
     public @Nullable String time() {
-        if (time == null) return null;
-        return time.getValue("PipeTargetParametersEventbridgeEventBusParameters.time");
+        if (!unknown_time) return value_time;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEventbridgeEventBusParameters.time' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssmcontacts;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class ContactArgs extends com.pulumi.resources.PolicyResourceInput 
      * A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
      * 
      */
-    private UndeferrableValue<String> alias;
-
+    @PolicyResourceProperty(name="alias", flag="unknown_alias")
+    private String value_alias;
+    private boolean unknown_alias;
     public String alias() {
-        if (alias == null) return null;
-        return alias.getValue("ContactArgs.alias");
+        if (!unknown_alias) return value_alias;
+        throw new UndeferrableValueException("Value 'ContactArgs.alias' is not present");
     }
 
     /**
      * Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      * 
      */
-    private UndeferrableValue<String> displayName;
-
+    @PolicyResourceProperty(name="displayName", flag="unknown_displayName")
+    private String value_displayName;
+    private boolean unknown_displayName;
     public String displayName() {
-        if (displayName == null) return null;
-        return displayName.getValue("ContactArgs.displayName");
+        if (!unknown_displayName) return value_displayName;
+        throw new UndeferrableValueException("Value 'ContactArgs.displayName' is not present");
     }
 
     /**
      * Map of tags to assign to the resource.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ContactArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ContactArgs.tags' is not present");
     }
 
     /**
@@ -53,11 +57,12 @@ public final class ContactArgs extends com.pulumi.resources.PolicyResourceInput 
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ContactArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ContactArgs.type' is not present");
     }
 
 }

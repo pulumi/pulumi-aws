@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.kendra.outputs.FaqS3Path;
 import java.lang.String;
@@ -18,127 +19,140 @@ public final class Faq extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the FAQ.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Faq.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Faq.arn' is not present");
     }
 
     /**
      * The Unix datetime that the FAQ was created.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("Faq.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'Faq.createdAt' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Faq.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Faq.description' is not present");
     }
 
     /**
      * When the Status field value is `FAILED`, this contains a message that explains why.
      * 
      */
-    private UndeferrableValue<String> errorMessage;
-
+    @PolicyResourceProperty(name="errorMessage", flag="unknown_errorMessage")
+    private String value_errorMessage;
+    private boolean unknown_errorMessage;
     public String errorMessage() {
-        if (errorMessage == null) return null;
-        return errorMessage.getValue("Faq.errorMessage");
+        if (!unknown_errorMessage) return value_errorMessage;
+        throw new UndeferrableValueException("Value 'Faq.errorMessage' is not present");
     }
 
     /**
      * The identifier of the FAQ.
      * 
      */
-    private UndeferrableValue<String> faqId;
-
+    @PolicyResourceProperty(name="faqId", flag="unknown_faqId")
+    private String value_faqId;
+    private boolean unknown_faqId;
     public String faqId() {
-        if (faqId == null) return null;
-        return faqId.getValue("Faq.faqId");
+        if (!unknown_faqId) return value_faqId;
+        throw new UndeferrableValueException("Value 'Faq.faqId' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> fileFormat;
-
+    @PolicyResourceProperty(name="fileFormat", flag="unknown_fileFormat")
+    private @Nullable String value_fileFormat;
+    private boolean unknown_fileFormat;
     public @Nullable String fileFormat() {
-        if (fileFormat == null) return null;
-        return fileFormat.getValue("Faq.fileFormat");
+        if (!unknown_fileFormat) return value_fileFormat;
+        throw new UndeferrableValueException("Value 'Faq.fileFormat' is not present");
     }
 
     /**
      * The identifier of the index for a FAQ.
      * 
      */
-    private UndeferrableValue<String> indexId;
-
+    @PolicyResourceProperty(name="indexId", flag="unknown_indexId")
+    private String value_indexId;
+    private boolean unknown_indexId;
     public String indexId() {
-        if (indexId == null) return null;
-        return indexId.getValue("Faq.indexId");
+        if (!unknown_indexId) return value_indexId;
+        throw new UndeferrableValueException("Value 'Faq.indexId' is not present");
     }
 
-    private UndeferrableValue<String> languageCode;
-
+    @PolicyResourceProperty(name="languageCode", flag="unknown_languageCode")
+    private String value_languageCode;
+    private boolean unknown_languageCode;
     public String languageCode() {
-        if (languageCode == null) return null;
-        return languageCode.getValue("Faq.languageCode");
+        if (!unknown_languageCode) return value_languageCode;
+        throw new UndeferrableValueException("Value 'Faq.languageCode' is not present");
     }
 
     /**
      * The name that should be associated with the FAQ.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Faq.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Faq.name' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("Faq.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'Faq.roleArn' is not present");
     }
 
     /**
      * The S3 location of the FAQ input data. Detailed below.
      * 
      */
-    private UndeferrableValue<FaqS3Path> s3Path;
-
+    @PolicyResourceProperty(name="s3Path", flag="unknown_s3Path")
+    private FaqS3Path value_s3Path;
+    private boolean unknown_s3Path;
     public FaqS3Path s3Path() {
-        if (s3Path == null) return null;
-        return s3Path.getValue("Faq.s3Path");
+        if (!unknown_s3Path) return value_s3Path;
+        throw new UndeferrableValueException("Value 'Faq.s3Path' is not present");
     }
 
     /**
      * The status of the FAQ. It is ready to use when the status is ACTIVE.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Faq.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Faq.status' is not present");
     }
 
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Faq.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Faq.tags' is not present");
     }
 
     /**
@@ -149,22 +163,24 @@ public final class Faq extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Faq.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Faq.tagsAll' is not present");
     }
 
     /**
      * The date and time that the FAQ was last updated.
      * 
      */
-    private UndeferrableValue<String> updatedAt;
-
+    @PolicyResourceProperty(name="updatedAt", flag="unknown_updatedAt")
+    private String value_updatedAt;
+    private boolean unknown_updatedAt;
     public String updatedAt() {
-        if (updatedAt == null) return null;
-        return updatedAt.getValue("Faq.updatedAt");
+        if (!unknown_updatedAt) return value_updatedAt;
+        throw new UndeferrableValueException("Value 'Faq.updatedAt' is not present");
     }
 
 }

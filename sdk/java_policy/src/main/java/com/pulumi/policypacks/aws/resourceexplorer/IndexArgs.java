@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.resourceexplorer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.resourceexplorer.inputs.IndexTimeoutsArgs;
 import java.lang.String;
@@ -18,29 +19,32 @@ public final class IndexArgs extends com.pulumi.resources.PolicyResourceInput {
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("IndexArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'IndexArgs.tags' is not present");
     }
 
-    private UndeferrableValue<IndexTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private IndexTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public IndexTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("IndexArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'IndexArgs.timeouts' is not present");
     }
 
     /**
      * The type of the index. Valid values: `AGGREGATOR`, `LOCAL`. To understand the difference between `LOCAL` and `AGGREGATOR`, see the [_AWS Resource Explorer User Guide_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html).
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("IndexArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'IndexArgs.type' is not present");
     }
 
 }

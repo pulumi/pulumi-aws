@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class ApiKeyArgs extends com.pulumi.resources.PolicyResourceInput {
      * ID of the associated AppSync API
      * 
      */
-    private UndeferrableValue<String> apiId;
-
+    @PolicyResourceProperty(name="apiId", flag="unknown_apiId")
+    private String value_apiId;
+    private boolean unknown_apiId;
     public String apiId() {
-        if (apiId == null) return null;
-        return apiId.getValue("ApiKeyArgs.apiId");
+        if (!unknown_apiId) return value_apiId;
+        throw new UndeferrableValueException("Value 'ApiKeyArgs.apiId' is not present");
     }
 
     /**
      * API key description. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ApiKeyArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ApiKeyArgs.description' is not present");
     }
 
     /**
      * RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
      * 
      */
-    private UndeferrableValue<String> expires;
-
+    @PolicyResourceProperty(name="expires", flag="unknown_expires")
+    private String value_expires;
+    private boolean unknown_expires;
     public String expires() {
-        if (expires == null) return null;
-        return expires.getValue("ApiKeyArgs.expires");
+        if (!unknown_expires) return value_expires;
+        throw new UndeferrableValueException("Value 'ApiKeyArgs.expires' is not present");
     }
 
 }

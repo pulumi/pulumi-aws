@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.finspace.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class KxClusterCodeArgs {
      * Unique name for the S3 bucket.
      * 
      */
-    private UndeferrableValue<String> s3Bucket;
-
+    @PolicyResourceProperty(name="s3Bucket", flag="unknown_s3Bucket")
+    private String value_s3Bucket;
+    private boolean unknown_s3Bucket;
     public String s3Bucket() {
-        if (s3Bucket == null) return null;
-        return s3Bucket.getValue("KxClusterCodeArgs.s3Bucket");
+        if (!unknown_s3Bucket) return value_s3Bucket;
+        throw new UndeferrableValueException("Value 'KxClusterCodeArgs.s3Bucket' is not present");
     }
 
     /**
      * Full S3 path (excluding bucket) to the .zip file that contains the code to be loaded onto the cluster when it’s started.
      * 
      */
-    private UndeferrableValue<String> s3Key;
-
+    @PolicyResourceProperty(name="s3Key", flag="unknown_s3Key")
+    private String value_s3Key;
+    private boolean unknown_s3Key;
     public String s3Key() {
-        if (s3Key == null) return null;
-        return s3Key.getValue("KxClusterCodeArgs.s3Key");
+        if (!unknown_s3Key) return value_s3Key;
+        throw new UndeferrableValueException("Value 'KxClusterCodeArgs.s3Key' is not present");
     }
 
     /**
      * Version of an S3 Object.
      * 
      */
-    private UndeferrableValue<String> s3ObjectVersion;
-
+    @PolicyResourceProperty(name="s3ObjectVersion", flag="unknown_s3ObjectVersion")
+    private String value_s3ObjectVersion;
+    private boolean unknown_s3ObjectVersion;
     public String s3ObjectVersion() {
-        if (s3ObjectVersion == null) return null;
-        return s3ObjectVersion.getValue("KxClusterCodeArgs.s3ObjectVersion");
+        if (!unknown_s3ObjectVersion) return value_s3ObjectVersion;
+        throw new UndeferrableValueException("Value 'KxClusterCodeArgs.s3ObjectVersion' is not present");
     }
 
 }

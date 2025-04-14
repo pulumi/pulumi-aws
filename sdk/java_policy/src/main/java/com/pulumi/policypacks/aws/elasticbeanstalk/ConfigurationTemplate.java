@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticbeanstalk;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.elasticbeanstalk.outputs.ConfigurationTemplateSetting;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class ConfigurationTemplate extends com.pulumi.resources.PolicyReso
      * name of the application to associate with this configuration template
      * 
      */
-    private UndeferrableValue<String> application;
-
+    @PolicyResourceProperty(name="application", flag="unknown_application")
+    private String value_application;
+    private boolean unknown_application;
     public String application() {
-        if (application == null) return null;
-        return application.getValue("ConfigurationTemplate.application");
+        if (!unknown_application) return value_application;
+        throw new UndeferrableValueException("Value 'ConfigurationTemplate.application' is not present");
     }
 
     /**
      * Short description of the Template
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ConfigurationTemplate.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ConfigurationTemplate.description' is not present");
     }
 
     /**
      * The ID of the environment used with this configuration template
      * 
      */
-    private @Nullable UndeferrableValue<String> environmentId;
-
+    @PolicyResourceProperty(name="environmentId", flag="unknown_environmentId")
+    private @Nullable String value_environmentId;
+    private boolean unknown_environmentId;
     public @Nullable String environmentId() {
-        if (environmentId == null) return null;
-        return environmentId.getValue("ConfigurationTemplate.environmentId");
+        if (!unknown_environmentId) return value_environmentId;
+        throw new UndeferrableValueException("Value 'ConfigurationTemplate.environmentId' is not present");
     }
 
     /**
      * A unique name for this Template.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ConfigurationTemplate.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ConfigurationTemplate.name' is not present");
     }
 
     /**
@@ -64,11 +69,12 @@ public final class ConfigurationTemplate extends com.pulumi.resources.PolicyReso
      * below in Option Settings
      * 
      */
-    private UndeferrableValue<List<ConfigurationTemplateSetting>> settings;
-
+    @PolicyResourceProperty(name="settings", flag="unknown_settings")
+    private List<ConfigurationTemplateSetting> value_settings;
+    private boolean unknown_settings;
     public List<ConfigurationTemplateSetting> settings() {
-        if (settings == null) return null;
-        return settings.getValue("ConfigurationTemplate.settings");
+        if (!unknown_settings) return value_settings;
+        throw new UndeferrableValueException("Value 'ConfigurationTemplate.settings' is not present");
     }
 
     /**
@@ -76,11 +82,12 @@ public final class ConfigurationTemplate extends com.pulumi.resources.PolicyReso
      * off of. Example stacks can be found in the [Amazon API documentation][1]
      * 
      */
-    private @Nullable UndeferrableValue<String> solutionStackName;
-
+    @PolicyResourceProperty(name="solutionStackName", flag="unknown_solutionStackName")
+    private @Nullable String value_solutionStackName;
+    private boolean unknown_solutionStackName;
     public @Nullable String solutionStackName() {
-        if (solutionStackName == null) return null;
-        return solutionStackName.getValue("ConfigurationTemplate.solutionStackName");
+        if (!unknown_solutionStackName) return value_solutionStackName;
+        throw new UndeferrableValueException("Value 'ConfigurationTemplate.solutionStackName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,22 +14,24 @@ public final class DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorag
      * The default size of the EBS storage volume for a private space.
      * 
      */
-    private UndeferrableValue<Integer> defaultEbsVolumeSizeInGb;
-
+    @PolicyResourceProperty(name="defaultEbsVolumeSizeInGb", flag="unknown_defaultEbsVolumeSizeInGb")
+    private Integer value_defaultEbsVolumeSizeInGb;
+    private boolean unknown_defaultEbsVolumeSizeInGb;
     public Integer defaultEbsVolumeSizeInGb() {
-        if (defaultEbsVolumeSizeInGb == null) return null;
-        return defaultEbsVolumeSizeInGb.getValue("DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings.defaultEbsVolumeSizeInGb");
+        if (!unknown_defaultEbsVolumeSizeInGb) return value_defaultEbsVolumeSizeInGb;
+        throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings.defaultEbsVolumeSizeInGb' is not present");
     }
 
     /**
      * The maximum size of the EBS storage volume for a private space.
      * 
      */
-    private UndeferrableValue<Integer> maximumEbsVolumeSizeInGb;
-
+    @PolicyResourceProperty(name="maximumEbsVolumeSizeInGb", flag="unknown_maximumEbsVolumeSizeInGb")
+    private Integer value_maximumEbsVolumeSizeInGb;
+    private boolean unknown_maximumEbsVolumeSizeInGb;
     public Integer maximumEbsVolumeSizeInGb() {
-        if (maximumEbsVolumeSizeInGb == null) return null;
-        return maximumEbsVolumeSizeInGb.getValue("DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings.maximumEbsVolumeSizeInGb");
+        if (!unknown_maximumEbsVolumeSizeInGb) return value_maximumEbsVolumeSizeInGb;
+        throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettings.maximumEbsVolumeSizeInGb' is not present");
     }
 
 }

@@ -3,25 +3,28 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus {
 
-    private @Nullable UndeferrableValue<String> revokedStatusAction;
-
+    @PolicyResourceProperty(name="revokedStatusAction", flag="unknown_revokedStatusAction")
+    private @Nullable String value_revokedStatusAction;
+    private boolean unknown_revokedStatusAction;
     public @Nullable String revokedStatusAction() {
-        if (revokedStatusAction == null) return null;
-        return revokedStatusAction.getValue("TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus.revokedStatusAction");
+        if (!unknown_revokedStatusAction) return value_revokedStatusAction;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus.revokedStatusAction' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> unknownStatusAction;
-
+    @PolicyResourceProperty(name="unknownStatusAction", flag="unknown_unknownStatusAction")
+    private @Nullable String value_unknownStatusAction;
+    private boolean unknown_unknownStatusAction;
     public @Nullable String unknownStatusAction() {
-        if (unknownStatusAction == null) return null;
-        return unknownStatusAction.getValue("TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus.unknownStatusAction");
+        if (!unknown_unknownStatusAction) return value_unknownStatusAction;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus.unknownStatusAction' is not present");
     }
 
 }

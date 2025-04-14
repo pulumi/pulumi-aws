@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,55 +14,60 @@ public final class TopicRuleErrorActionElasticsearchArgs {
      * The endpoint of your Elasticsearch domain.
      * 
      */
-    private UndeferrableValue<String> endpoint;
-
+    @PolicyResourceProperty(name="endpoint", flag="unknown_endpoint")
+    private String value_endpoint;
+    private boolean unknown_endpoint;
     public String endpoint() {
-        if (endpoint == null) return null;
-        return endpoint.getValue("TopicRuleErrorActionElasticsearchArgs.endpoint");
+        if (!unknown_endpoint) return value_endpoint;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionElasticsearchArgs.endpoint' is not present");
     }
 
     /**
      * The unique identifier for the document you are storing.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("TopicRuleErrorActionElasticsearchArgs.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionElasticsearchArgs.id' is not present");
     }
 
     /**
      * The Elasticsearch index where you want to store your data.
      * 
      */
-    private UndeferrableValue<String> index;
-
+    @PolicyResourceProperty(name="index", flag="unknown_index")
+    private String value_index;
+    private boolean unknown_index;
     public String index() {
-        if (index == null) return null;
-        return index.getValue("TopicRuleErrorActionElasticsearchArgs.index");
+        if (!unknown_index) return value_index;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionElasticsearchArgs.index' is not present");
     }
 
     /**
      * The IAM role ARN that has access to Elasticsearch.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("TopicRuleErrorActionElasticsearchArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionElasticsearchArgs.roleArn' is not present");
     }
 
     /**
      * The type of document you are storing.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("TopicRuleErrorActionElasticsearchArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionElasticsearchArgs.type' is not present");
     }
 
 }

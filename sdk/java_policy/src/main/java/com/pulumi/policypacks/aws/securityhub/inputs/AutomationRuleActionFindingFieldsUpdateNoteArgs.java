@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class AutomationRuleActionFindingFieldsUpdateNoteArgs {
      * The updated note text.
      * 
      */
-    private UndeferrableValue<String> text;
-
+    @PolicyResourceProperty(name="text", flag="unknown_text")
+    private String value_text;
+    private boolean unknown_text;
     public String text() {
-        if (text == null) return null;
-        return text.getValue("AutomationRuleActionFindingFieldsUpdateNoteArgs.text");
+        if (!unknown_text) return value_text;
+        throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdateNoteArgs.text' is not present");
     }
 
     /**
      * The principal that updated the note.
      * 
      */
-    private UndeferrableValue<String> updatedBy;
-
+    @PolicyResourceProperty(name="updatedBy", flag="unknown_updatedBy")
+    private String value_updatedBy;
+    private boolean unknown_updatedBy;
     public String updatedBy() {
-        if (updatedBy == null) return null;
-        return updatedBy.getValue("AutomationRuleActionFindingFieldsUpdateNoteArgs.updatedBy");
+        if (!unknown_updatedBy) return value_updatedBy;
+        throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdateNoteArgs.updatedBy' is not present");
     }
 
 }

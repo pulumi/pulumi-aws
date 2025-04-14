@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 
@@ -14,11 +15,12 @@ public final class EventSourceMappingSelfManagedEventSource {
      * A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
      * 
      */
-    private UndeferrableValue<Map<String,String>> endpoints;
-
+    @PolicyResourceProperty(name="endpoints", flag="unknown_endpoints")
+    private Map<String,String> value_endpoints;
+    private boolean unknown_endpoints;
     public Map<String,String> endpoints() {
-        if (endpoints == null) return null;
-        return endpoints.getValue("EventSourceMappingSelfManagedEventSource.endpoints");
+        if (!unknown_endpoints) return value_endpoints;
+        throw new UndeferrableValueException("Value 'EventSourceMappingSelfManagedEventSource.endpoints' is not present");
     }
 
 }

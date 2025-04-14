@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ClusterConfigurationManagedStorageConfiguration {
      * AWS Key Management Service key ID for the Fargate ephemeral storage.
      * 
      */
-    private @Nullable UndeferrableValue<String> fargateEphemeralStorageKmsKeyId;
-
+    @PolicyResourceProperty(name="fargateEphemeralStorageKmsKeyId", flag="unknown_fargateEphemeralStorageKmsKeyId")
+    private @Nullable String value_fargateEphemeralStorageKmsKeyId;
+    private boolean unknown_fargateEphemeralStorageKmsKeyId;
     public @Nullable String fargateEphemeralStorageKmsKeyId() {
-        if (fargateEphemeralStorageKmsKeyId == null) return null;
-        return fargateEphemeralStorageKmsKeyId.getValue("ClusterConfigurationManagedStorageConfiguration.fargateEphemeralStorageKmsKeyId");
+        if (!unknown_fargateEphemeralStorageKmsKeyId) return value_fargateEphemeralStorageKmsKeyId;
+        throw new UndeferrableValueException("Value 'ClusterConfigurationManagedStorageConfiguration.fargateEphemeralStorageKmsKeyId' is not present");
     }
 
     /**
      * AWS Key Management Service key ID to encrypt the managed storage.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("ClusterConfigurationManagedStorageConfiguration.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'ClusterConfigurationManagedStorageConfiguration.kmsKeyId' is not present");
     }
 
 }

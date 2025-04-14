@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentAgentGuardrailConfigurationArgs;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentAgentMemoryConfigurationArgs;
@@ -24,55 +25,60 @@ public final class AgentAgentArgs extends com.pulumi.resources.PolicyResourceInp
      * Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> agentCollaboration;
-
+    @PolicyResourceProperty(name="agentCollaboration", flag="unknown_agentCollaboration")
+    private String value_agentCollaboration;
+    private boolean unknown_agentCollaboration;
     public String agentCollaboration() {
-        if (agentCollaboration == null) return null;
-        return agentCollaboration.getValue("AgentAgentArgs.agentCollaboration");
+        if (!unknown_agentCollaboration) return value_agentCollaboration;
+        throw new UndeferrableValueException("Value 'AgentAgentArgs.agentCollaboration' is not present");
     }
 
     /**
      * Name of the agent.
      * 
      */
-    private UndeferrableValue<String> agentName;
-
+    @PolicyResourceProperty(name="agentName", flag="unknown_agentName")
+    private String value_agentName;
+    private boolean unknown_agentName;
     public String agentName() {
-        if (agentName == null) return null;
-        return agentName.getValue("AgentAgentArgs.agentName");
+        if (!unknown_agentName) return value_agentName;
+        throw new UndeferrableValueException("Value 'AgentAgentArgs.agentName' is not present");
     }
 
     /**
      * ARN of the IAM role with permissions to invoke API operations on the agent.
      * 
      */
-    private UndeferrableValue<String> agentResourceRoleArn;
-
+    @PolicyResourceProperty(name="agentResourceRoleArn", flag="unknown_agentResourceRoleArn")
+    private String value_agentResourceRoleArn;
+    private boolean unknown_agentResourceRoleArn;
     public String agentResourceRoleArn() {
-        if (agentResourceRoleArn == null) return null;
-        return agentResourceRoleArn.getValue("AgentAgentArgs.agentResourceRoleArn");
+        if (!unknown_agentResourceRoleArn) return value_agentResourceRoleArn;
+        throw new UndeferrableValueException("Value 'AgentAgentArgs.agentResourceRoleArn' is not present");
     }
 
     /**
      * ARN of the AWS KMS key that encrypts the agent.
      * 
      */
-    private UndeferrableValue<String> customerEncryptionKeyArn;
-
+    @PolicyResourceProperty(name="customerEncryptionKeyArn", flag="unknown_customerEncryptionKeyArn")
+    private String value_customerEncryptionKeyArn;
+    private boolean unknown_customerEncryptionKeyArn;
     public String customerEncryptionKeyArn() {
-        if (customerEncryptionKeyArn == null) return null;
-        return customerEncryptionKeyArn.getValue("AgentAgentArgs.customerEncryptionKeyArn");
+        if (!unknown_customerEncryptionKeyArn) return value_customerEncryptionKeyArn;
+        throw new UndeferrableValueException("Value 'AgentAgentArgs.customerEncryptionKeyArn' is not present");
     }
 
     /**
      * Description of the agent.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("AgentAgentArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AgentAgentArgs.description' is not present");
     }
 
     /**
@@ -81,106 +87,116 @@ public final class AgentAgentArgs extends com.pulumi.resources.PolicyResourceInp
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> foundationModel;
-
+    @PolicyResourceProperty(name="foundationModel", flag="unknown_foundationModel")
+    private String value_foundationModel;
+    private boolean unknown_foundationModel;
     public String foundationModel() {
-        if (foundationModel == null) return null;
-        return foundationModel.getValue("AgentAgentArgs.foundationModel");
+        if (!unknown_foundationModel) return value_foundationModel;
+        throw new UndeferrableValueException("Value 'AgentAgentArgs.foundationModel' is not present");
     }
 
     /**
      * Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
      * 
      */
-    private UndeferrableValue<List<AgentAgentGuardrailConfigurationArgs>> guardrailConfigurations;
-
+    @PolicyResourceProperty(name="guardrailConfigurations", flag="unknown_guardrailConfigurations")
+    private List<AgentAgentGuardrailConfigurationArgs> value_guardrailConfigurations;
+    private boolean unknown_guardrailConfigurations;
     public List<AgentAgentGuardrailConfigurationArgs> guardrailConfigurations() {
-        if (guardrailConfigurations == null) return null;
-        return guardrailConfigurations.getValue("AgentAgentArgs.guardrailConfigurations");
+        if (!unknown_guardrailConfigurations) return value_guardrailConfigurations;
+        throw new UndeferrableValueException("Value 'AgentAgentArgs.guardrailConfigurations' is not present");
     }
 
     /**
      * Number of seconds for which Amazon Bedrock keeps information about a user&#39;s conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
      * 
      */
-    private UndeferrableValue<Integer> idleSessionTtlInSeconds;
-
+    @PolicyResourceProperty(name="idleSessionTtlInSeconds", flag="unknown_idleSessionTtlInSeconds")
+    private Integer value_idleSessionTtlInSeconds;
+    private boolean unknown_idleSessionTtlInSeconds;
     public Integer idleSessionTtlInSeconds() {
-        if (idleSessionTtlInSeconds == null) return null;
-        return idleSessionTtlInSeconds.getValue("AgentAgentArgs.idleSessionTtlInSeconds");
+        if (!unknown_idleSessionTtlInSeconds) return value_idleSessionTtlInSeconds;
+        throw new UndeferrableValueException("Value 'AgentAgentArgs.idleSessionTtlInSeconds' is not present");
     }
 
     /**
      * Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
      * 
      */
-    private UndeferrableValue<String> instruction;
-
+    @PolicyResourceProperty(name="instruction", flag="unknown_instruction")
+    private String value_instruction;
+    private boolean unknown_instruction;
     public String instruction() {
-        if (instruction == null) return null;
-        return instruction.getValue("AgentAgentArgs.instruction");
+        if (!unknown_instruction) return value_instruction;
+        throw new UndeferrableValueException("Value 'AgentAgentArgs.instruction' is not present");
     }
 
     /**
      * Configurations for the agent&#39;s ability to retain the conversational context.
      * 
      */
-    private UndeferrableValue<List<AgentAgentMemoryConfigurationArgs>> memoryConfigurations;
-
+    @PolicyResourceProperty(name="memoryConfigurations", flag="unknown_memoryConfigurations")
+    private List<AgentAgentMemoryConfigurationArgs> value_memoryConfigurations;
+    private boolean unknown_memoryConfigurations;
     public List<AgentAgentMemoryConfigurationArgs> memoryConfigurations() {
-        if (memoryConfigurations == null) return null;
-        return memoryConfigurations.getValue("AgentAgentArgs.memoryConfigurations");
+        if (!unknown_memoryConfigurations) return value_memoryConfigurations;
+        throw new UndeferrableValueException("Value 'AgentAgentArgs.memoryConfigurations' is not present");
     }
 
     /**
      * Whether to prepare the agent after creation or modification. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> prepareAgent;
-
+    @PolicyResourceProperty(name="prepareAgent", flag="unknown_prepareAgent")
+    private Boolean value_prepareAgent;
+    private boolean unknown_prepareAgent;
     public Boolean prepareAgent() {
-        if (prepareAgent == null) return null;
-        return prepareAgent.getValue("AgentAgentArgs.prepareAgent");
+        if (!unknown_prepareAgent) return value_prepareAgent;
+        throw new UndeferrableValueException("Value 'AgentAgentArgs.prepareAgent' is not present");
     }
 
     /**
      * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
      * 
      */
-    private UndeferrableValue<List<AgentAgentPromptOverrideConfigurationArgs>> promptOverrideConfigurations;
-
+    @PolicyResourceProperty(name="promptOverrideConfigurations", flag="unknown_promptOverrideConfigurations")
+    private List<AgentAgentPromptOverrideConfigurationArgs> value_promptOverrideConfigurations;
+    private boolean unknown_promptOverrideConfigurations;
     public List<AgentAgentPromptOverrideConfigurationArgs> promptOverrideConfigurations() {
-        if (promptOverrideConfigurations == null) return null;
-        return promptOverrideConfigurations.getValue("AgentAgentArgs.promptOverrideConfigurations");
+        if (!unknown_promptOverrideConfigurations) return value_promptOverrideConfigurations;
+        throw new UndeferrableValueException("Value 'AgentAgentArgs.promptOverrideConfigurations' is not present");
     }
 
     /**
      * Whether the in-use check is skipped when deleting the agent.
      * 
      */
-    private UndeferrableValue<Boolean> skipResourceInUseCheck;
-
+    @PolicyResourceProperty(name="skipResourceInUseCheck", flag="unknown_skipResourceInUseCheck")
+    private Boolean value_skipResourceInUseCheck;
+    private boolean unknown_skipResourceInUseCheck;
     public Boolean skipResourceInUseCheck() {
-        if (skipResourceInUseCheck == null) return null;
-        return skipResourceInUseCheck.getValue("AgentAgentArgs.skipResourceInUseCheck");
+        if (!unknown_skipResourceInUseCheck) return value_skipResourceInUseCheck;
+        throw new UndeferrableValueException("Value 'AgentAgentArgs.skipResourceInUseCheck' is not present");
     }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AgentAgentArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AgentAgentArgs.tags' is not present");
     }
 
-    private UndeferrableValue<AgentAgentTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private AgentAgentTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public AgentAgentTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("AgentAgentArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'AgentAgentArgs.timeouts' is not present");
     }
 
 }

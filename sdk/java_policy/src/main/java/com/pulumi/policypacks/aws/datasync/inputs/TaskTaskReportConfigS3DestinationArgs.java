@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class TaskTaskReportConfigS3DestinationArgs {
      * Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
      * 
      */
-    private UndeferrableValue<String> bucketAccessRoleArn;
-
+    @PolicyResourceProperty(name="bucketAccessRoleArn", flag="unknown_bucketAccessRoleArn")
+    private String value_bucketAccessRoleArn;
+    private boolean unknown_bucketAccessRoleArn;
     public String bucketAccessRoleArn() {
-        if (bucketAccessRoleArn == null) return null;
-        return bucketAccessRoleArn.getValue("TaskTaskReportConfigS3DestinationArgs.bucketAccessRoleArn");
+        if (!unknown_bucketAccessRoleArn) return value_bucketAccessRoleArn;
+        throw new UndeferrableValueException("Value 'TaskTaskReportConfigS3DestinationArgs.bucketAccessRoleArn' is not present");
     }
 
     /**
      * Specifies the ARN of the S3 bucket where DataSync uploads your report.
      * 
      */
-    private UndeferrableValue<String> s3BucketArn;
-
+    @PolicyResourceProperty(name="s3BucketArn", flag="unknown_s3BucketArn")
+    private String value_s3BucketArn;
+    private boolean unknown_s3BucketArn;
     public String s3BucketArn() {
-        if (s3BucketArn == null) return null;
-        return s3BucketArn.getValue("TaskTaskReportConfigS3DestinationArgs.s3BucketArn");
+        if (!unknown_s3BucketArn) return value_s3BucketArn;
+        throw new UndeferrableValueException("Value 'TaskTaskReportConfigS3DestinationArgs.s3BucketArn' is not present");
     }
 
     /**
      * Specifies a bucket prefix for your report.
      * 
      */
-    private UndeferrableValue<String> subdirectory;
-
+    @PolicyResourceProperty(name="subdirectory", flag="unknown_subdirectory")
+    private String value_subdirectory;
+    private boolean unknown_subdirectory;
     public String subdirectory() {
-        if (subdirectory == null) return null;
-        return subdirectory.getValue("TaskTaskReportConfigS3DestinationArgs.subdirectory");
+        if (!unknown_subdirectory) return value_subdirectory;
+        throw new UndeferrableValueException("Value 'TaskTaskReportConfigS3DestinationArgs.subdirectory' is not present");
     }
 
 }

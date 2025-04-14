@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
@@ -18,110 +19,120 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
      * The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
      * 
      */
-    private UndeferrableValue<Integer> blockSizeBytes;
-
+    @PolicyResourceProperty(name="blockSizeBytes", flag="unknown_blockSizeBytes")
+    private Integer value_blockSizeBytes;
+    private boolean unknown_blockSizeBytes;
     public Integer blockSizeBytes() {
-        if (blockSizeBytes == null) return null;
-        return blockSizeBytes.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.blockSizeBytes");
+        if (!unknown_blockSizeBytes) return value_blockSizeBytes;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.blockSizeBytes' is not present");
     }
 
     /**
      * A list of column names for which you want Kinesis Data Firehose to create bloom filters.
      * 
      */
-    private UndeferrableValue<List<String>> bloomFilterColumns;
-
+    @PolicyResourceProperty(name="bloomFilterColumns", flag="unknown_bloomFilterColumns")
+    private List<String> value_bloomFilterColumns;
+    private boolean unknown_bloomFilterColumns;
     public List<String> bloomFilterColumns() {
-        if (bloomFilterColumns == null) return null;
-        return bloomFilterColumns.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.bloomFilterColumns");
+        if (!unknown_bloomFilterColumns) return value_bloomFilterColumns;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.bloomFilterColumns' is not present");
     }
 
     /**
      * The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
      * 
      */
-    private UndeferrableValue<Double> bloomFilterFalsePositiveProbability;
-
+    @PolicyResourceProperty(name="bloomFilterFalsePositiveProbability", flag="unknown_bloomFilterFalsePositiveProbability")
+    private Double value_bloomFilterFalsePositiveProbability;
+    private boolean unknown_bloomFilterFalsePositiveProbability;
     public Double bloomFilterFalsePositiveProbability() {
-        if (bloomFilterFalsePositiveProbability == null) return null;
-        return bloomFilterFalsePositiveProbability.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.bloomFilterFalsePositiveProbability");
+        if (!unknown_bloomFilterFalsePositiveProbability) return value_bloomFilterFalsePositiveProbability;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.bloomFilterFalsePositiveProbability' is not present");
     }
 
     /**
      * The compression code to use over data blocks. The default is `SNAPPY`.
      * 
      */
-    private UndeferrableValue<String> compression;
-
+    @PolicyResourceProperty(name="compression", flag="unknown_compression")
+    private String value_compression;
+    private boolean unknown_compression;
     public String compression() {
-        if (compression == null) return null;
-        return compression.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.compression");
+        if (!unknown_compression) return value_compression;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.compression' is not present");
     }
 
     /**
      * A float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
      * 
      */
-    private UndeferrableValue<Double> dictionaryKeyThreshold;
-
+    @PolicyResourceProperty(name="dictionaryKeyThreshold", flag="unknown_dictionaryKeyThreshold")
+    private Double value_dictionaryKeyThreshold;
+    private boolean unknown_dictionaryKeyThreshold;
     public Double dictionaryKeyThreshold() {
-        if (dictionaryKeyThreshold == null) return null;
-        return dictionaryKeyThreshold.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.dictionaryKeyThreshold");
+        if (!unknown_dictionaryKeyThreshold) return value_dictionaryKeyThreshold;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.dictionaryKeyThreshold' is not present");
     }
 
     /**
      * Set this to `true` to indicate that you want stripes to be padded to the HDFS block boundaries. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> enablePadding;
-
+    @PolicyResourceProperty(name="enablePadding", flag="unknown_enablePadding")
+    private Boolean value_enablePadding;
+    private boolean unknown_enablePadding;
     public Boolean enablePadding() {
-        if (enablePadding == null) return null;
-        return enablePadding.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.enablePadding");
+        if (!unknown_enablePadding) return value_enablePadding;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.enablePadding' is not present");
     }
 
     /**
      * The version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
      * 
      */
-    private UndeferrableValue<String> formatVersion;
-
+    @PolicyResourceProperty(name="formatVersion", flag="unknown_formatVersion")
+    private String value_formatVersion;
+    private boolean unknown_formatVersion;
     public String formatVersion() {
-        if (formatVersion == null) return null;
-        return formatVersion.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.formatVersion");
+        if (!unknown_formatVersion) return value_formatVersion;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.formatVersion' is not present");
     }
 
     /**
      * A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enable_padding` is `false`.
      * 
      */
-    private UndeferrableValue<Double> paddingTolerance;
-
+    @PolicyResourceProperty(name="paddingTolerance", flag="unknown_paddingTolerance")
+    private Double value_paddingTolerance;
+    private boolean unknown_paddingTolerance;
     public Double paddingTolerance() {
-        if (paddingTolerance == null) return null;
-        return paddingTolerance.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.paddingTolerance");
+        if (!unknown_paddingTolerance) return value_paddingTolerance;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.paddingTolerance' is not present");
     }
 
     /**
      * The number of rows between index entries. The default is `10000` and the minimum is `1000`.
      * 
      */
-    private UndeferrableValue<Integer> rowIndexStride;
-
+    @PolicyResourceProperty(name="rowIndexStride", flag="unknown_rowIndexStride")
+    private Integer value_rowIndexStride;
+    private boolean unknown_rowIndexStride;
     public Integer rowIndexStride() {
-        if (rowIndexStride == null) return null;
-        return rowIndexStride.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.rowIndexStride");
+        if (!unknown_rowIndexStride) return value_rowIndexStride;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.rowIndexStride' is not present");
     }
 
     /**
      * The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
      * 
      */
-    private UndeferrableValue<Integer> stripeSizeBytes;
-
+    @PolicyResourceProperty(name="stripeSizeBytes", flag="unknown_stripeSizeBytes")
+    private Integer value_stripeSizeBytes;
+    private boolean unknown_stripeSizeBytes;
     public Integer stripeSizeBytes() {
-        if (stripeSizeBytes == null) return null;
-        return stripeSizeBytes.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.stripeSizeBytes");
+        if (!unknown_stripeSizeBytes) return value_stripeSizeBytes;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.stripeSizeBytes' is not present");
     }
 
 }

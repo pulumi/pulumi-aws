@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chimesdkmediapipelines.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,33 +15,36 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
      * Rule name.
      * 
      */
-    private UndeferrableValue<String> ruleName;
-
+    @PolicyResourceProperty(name="ruleName", flag="unknown_ruleName")
+    private String value_ruleName;
+    private boolean unknown_ruleName;
     public String ruleName() {
-        if (ruleName == null) return null;
-        return ruleName.getValue("MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration.ruleName");
+        if (!unknown_ruleName) return value_ruleName;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration.ruleName' is not present");
     }
 
     /**
      * Sentiment type to match.
      * 
      */
-    private UndeferrableValue<String> sentimentType;
-
+    @PolicyResourceProperty(name="sentimentType", flag="unknown_sentimentType")
+    private String value_sentimentType;
+    private boolean unknown_sentimentType;
     public String sentimentType() {
-        if (sentimentType == null) return null;
-        return sentimentType.getValue("MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration.sentimentType");
+        if (!unknown_sentimentType) return value_sentimentType;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration.sentimentType' is not present");
     }
 
     /**
      * Analysis interval.
      * 
      */
-    private UndeferrableValue<Integer> timePeriod;
-
+    @PolicyResourceProperty(name="timePeriod", flag="unknown_timePeriod")
+    private Integer value_timePeriod;
+    private boolean unknown_timePeriod;
     public Integer timePeriod() {
-        if (timePeriod == null) return null;
-        return timePeriod.getValue("MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration.timePeriod");
+        if (!unknown_timePeriod) return value_timePeriod;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration.timePeriod' is not present");
     }
 
 }

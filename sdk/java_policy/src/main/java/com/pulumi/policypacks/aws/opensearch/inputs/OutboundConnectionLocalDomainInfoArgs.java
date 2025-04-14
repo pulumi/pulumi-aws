@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,33 +14,36 @@ public final class OutboundConnectionLocalDomainInfoArgs {
      * The name of the local domain.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("OutboundConnectionLocalDomainInfoArgs.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'OutboundConnectionLocalDomainInfoArgs.domainName' is not present");
     }
 
     /**
      * The Account ID of the owner of the local domain.
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("OutboundConnectionLocalDomainInfoArgs.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'OutboundConnectionLocalDomainInfoArgs.ownerId' is not present");
     }
 
     /**
      * The region of the local domain.
      * 
      */
-    private UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private String value_region;
+    private boolean unknown_region;
     public String region() {
-        if (region == null) return null;
-        return region.getValue("OutboundConnectionLocalDomainInfoArgs.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'OutboundConnectionLocalDomainInfoArgs.region' is not present");
     }
 
 }

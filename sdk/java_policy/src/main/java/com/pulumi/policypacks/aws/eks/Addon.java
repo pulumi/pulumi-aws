@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.eks.outputs.AddonPodIdentityAssociation;
 import java.lang.Boolean;
@@ -21,11 +22,12 @@ public final class Addon extends com.pulumi.resources.PolicyResourceOutput {
      * the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
      * 
      */
-    private UndeferrableValue<String> addonName;
-
+    @PolicyResourceProperty(name="addonName", flag="unknown_addonName")
+    private String value_addonName;
+    private boolean unknown_addonName;
     public String addonName() {
-        if (addonName == null) return null;
-        return addonName.getValue("Addon.addonName");
+        if (!unknown_addonName) return value_addonName;
+        throw new UndeferrableValueException("Value 'Addon.addonName' is not present");
     }
 
     /**
@@ -33,22 +35,24 @@ public final class Addon extends com.pulumi.resources.PolicyResourceOutput {
      * match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
      * 
      */
-    private UndeferrableValue<String> addonVersion;
-
+    @PolicyResourceProperty(name="addonVersion", flag="unknown_addonVersion")
+    private String value_addonVersion;
+    private boolean unknown_addonVersion;
     public String addonVersion() {
-        if (addonVersion == null) return null;
-        return addonVersion.getValue("Addon.addonVersion");
+        if (!unknown_addonVersion) return value_addonVersion;
+        throw new UndeferrableValueException("Value 'Addon.addonVersion' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the EKS add-on.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Addon.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Addon.arn' is not present");
     }
 
     /**
@@ -57,66 +61,72 @@ public final class Addon extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> clusterName;
-
+    @PolicyResourceProperty(name="clusterName", flag="unknown_clusterName")
+    private String value_clusterName;
+    private boolean unknown_clusterName;
     public String clusterName() {
-        if (clusterName == null) return null;
-        return clusterName.getValue("Addon.clusterName");
+        if (!unknown_clusterName) return value_clusterName;
+        throw new UndeferrableValueException("Value 'Addon.clusterName' is not present");
     }
 
     /**
      * custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
      * 
      */
-    private UndeferrableValue<String> configurationValues;
-
+    @PolicyResourceProperty(name="configurationValues", flag="unknown_configurationValues")
+    private String value_configurationValues;
+    private boolean unknown_configurationValues;
     public String configurationValues() {
-        if (configurationValues == null) return null;
-        return configurationValues.getValue("Addon.configurationValues");
+        if (!unknown_configurationValues) return value_configurationValues;
+        throw new UndeferrableValueException("Value 'Addon.configurationValues' is not present");
     }
 
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("Addon.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'Addon.createdAt' is not present");
     }
 
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
      * 
      */
-    private UndeferrableValue<String> modifiedAt;
-
+    @PolicyResourceProperty(name="modifiedAt", flag="unknown_modifiedAt")
+    private String value_modifiedAt;
+    private boolean unknown_modifiedAt;
     public String modifiedAt() {
-        if (modifiedAt == null) return null;
-        return modifiedAt.getValue("Addon.modifiedAt");
+        if (!unknown_modifiedAt) return value_modifiedAt;
+        throw new UndeferrableValueException("Value 'Addon.modifiedAt' is not present");
     }
 
     /**
      * Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<AddonPodIdentityAssociation>> podIdentityAssociations;
-
+    @PolicyResourceProperty(name="podIdentityAssociations", flag="unknown_podIdentityAssociations")
+    private @Nullable List<AddonPodIdentityAssociation> value_podIdentityAssociations;
+    private boolean unknown_podIdentityAssociations;
     public @Nullable List<AddonPodIdentityAssociation> podIdentityAssociations() {
-        if (podIdentityAssociations == null) return null;
-        return podIdentityAssociations.getValue("Addon.podIdentityAssociations");
+        if (!unknown_podIdentityAssociations) return value_podIdentityAssociations;
+        throw new UndeferrableValueException("Value 'Addon.podIdentityAssociations' is not present");
     }
 
     /**
      * Indicates if you want to preserve the created resources when deleting the EKS add-on.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> preserve;
-
+    @PolicyResourceProperty(name="preserve", flag="unknown_preserve")
+    private @Nullable Boolean value_preserve;
+    private boolean unknown_preserve;
     public @Nullable Boolean preserve() {
-        if (preserve == null) return null;
-        return preserve.getValue("Addon.preserve");
+        if (!unknown_preserve) return value_preserve;
+        throw new UndeferrableValueException("Value 'Addon.preserve' is not present");
     }
 
     /**
@@ -127,33 +137,36 @@ public final class Addon extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* resolve_conflicts is deprecated. The resolve_conflicts attribute can't be set to ""PRESERVE"" on initial resource creation. Use resolve_conflicts_on_create and/or resolve_conflicts_on_update instead. */
-    private @Nullable UndeferrableValue<String> resolveConflicts;
-
+    @PolicyResourceProperty(name="resolveConflicts", flag="unknown_resolveConflicts")
+    private @Nullable String value_resolveConflicts;
+    private boolean unknown_resolveConflicts;
     public @Nullable String resolveConflicts() {
-        if (resolveConflicts == null) return null;
-        return resolveConflicts.getValue("Addon.resolveConflicts");
+        if (!unknown_resolveConflicts) return value_resolveConflicts;
+        throw new UndeferrableValueException("Value 'Addon.resolveConflicts' is not present");
     }
 
     /**
      * How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.
      * 
      */
-    private @Nullable UndeferrableValue<String> resolveConflictsOnCreate;
-
+    @PolicyResourceProperty(name="resolveConflictsOnCreate", flag="unknown_resolveConflictsOnCreate")
+    private @Nullable String value_resolveConflictsOnCreate;
+    private boolean unknown_resolveConflictsOnCreate;
     public @Nullable String resolveConflictsOnCreate() {
-        if (resolveConflictsOnCreate == null) return null;
-        return resolveConflictsOnCreate.getValue("Addon.resolveConflictsOnCreate");
+        if (!unknown_resolveConflictsOnCreate) return value_resolveConflictsOnCreate;
+        throw new UndeferrableValueException("Value 'Addon.resolveConflictsOnCreate' is not present");
     }
 
     /**
      * How to resolve field value conflicts for an Amazon EKS add-on if you&#39;ve changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
      * 
      */
-    private @Nullable UndeferrableValue<String> resolveConflictsOnUpdate;
-
+    @PolicyResourceProperty(name="resolveConflictsOnUpdate", flag="unknown_resolveConflictsOnUpdate")
+    private @Nullable String value_resolveConflictsOnUpdate;
+    private boolean unknown_resolveConflictsOnUpdate;
     public @Nullable String resolveConflictsOnUpdate() {
-        if (resolveConflictsOnUpdate == null) return null;
-        return resolveConflictsOnUpdate.getValue("Addon.resolveConflictsOnUpdate");
+        if (!unknown_resolveConflictsOnUpdate) return value_resolveConflictsOnUpdate;
+        throw new UndeferrableValueException("Value 'Addon.resolveConflictsOnUpdate' is not present");
     }
 
     /**
@@ -170,22 +183,24 @@ public final class Addon extends com.pulumi.resources.PolicyResourceOutput {
      * in the Amazon EKS User Guide.
      * 
      */
-    private @Nullable UndeferrableValue<String> serviceAccountRoleArn;
-
+    @PolicyResourceProperty(name="serviceAccountRoleArn", flag="unknown_serviceAccountRoleArn")
+    private @Nullable String value_serviceAccountRoleArn;
+    private boolean unknown_serviceAccountRoleArn;
     public @Nullable String serviceAccountRoleArn() {
-        if (serviceAccountRoleArn == null) return null;
-        return serviceAccountRoleArn.getValue("Addon.serviceAccountRoleArn");
+        if (!unknown_serviceAccountRoleArn) return value_serviceAccountRoleArn;
+        throw new UndeferrableValueException("Value 'Addon.serviceAccountRoleArn' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Addon.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Addon.tags' is not present");
     }
 
     /**
@@ -196,11 +211,12 @@ public final class Addon extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Addon.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Addon.tagsAll' is not present");
     }
 
 }

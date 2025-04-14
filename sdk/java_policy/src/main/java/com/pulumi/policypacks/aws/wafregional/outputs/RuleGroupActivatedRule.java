@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafregional.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafregional.outputs.RuleGroupActivatedRuleAction;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,40 +17,44 @@ public final class RuleGroupActivatedRule {
      * Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
      * 
      */
-    private UndeferrableValue<RuleGroupActivatedRuleAction> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private RuleGroupActivatedRuleAction value_action;
+    private boolean unknown_action;
     public RuleGroupActivatedRuleAction action() {
-        if (action == null) return null;
-        return action.getValue("RuleGroupActivatedRule.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'RuleGroupActivatedRule.action' is not present");
     }
 
     /**
      * Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
      * 
      */
-    private UndeferrableValue<Integer> priority;
-
+    @PolicyResourceProperty(name="priority", flag="unknown_priority")
+    private Integer value_priority;
+    private boolean unknown_priority;
     public Integer priority() {
-        if (priority == null) return null;
-        return priority.getValue("RuleGroupActivatedRule.priority");
+        if (!unknown_priority) return value_priority;
+        throw new UndeferrableValueException("Value 'RuleGroupActivatedRule.priority' is not present");
     }
 
     /**
      * The ID of a rule
      * 
      */
-    private UndeferrableValue<String> ruleId;
-
+    @PolicyResourceProperty(name="ruleId", flag="unknown_ruleId")
+    private String value_ruleId;
+    private boolean unknown_ruleId;
     public String ruleId() {
-        if (ruleId == null) return null;
-        return ruleId.getValue("RuleGroupActivatedRule.ruleId");
+        if (!unknown_ruleId) return value_ruleId;
+        throw new UndeferrableValueException("Value 'RuleGroupActivatedRule.ruleId' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("RuleGroupActivatedRule.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'RuleGroupActivatedRule.type' is not present");
     }
 
 }

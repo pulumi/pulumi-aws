@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs;
 import com.pulumi.policypacks.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class GroupMixedInstancesPolicyLaunchTemplateArgs {
      * Override the instance launch template specification in the Launch Template.
      * 
      */
-    private UndeferrableValue<GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs> launchTemplateSpecification;
-
+    @PolicyResourceProperty(name="launchTemplateSpecification", flag="unknown_launchTemplateSpecification")
+    private GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs value_launchTemplateSpecification;
+    private boolean unknown_launchTemplateSpecification;
     public GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs launchTemplateSpecification() {
-        if (launchTemplateSpecification == null) return null;
-        return launchTemplateSpecification.getValue("GroupMixedInstancesPolicyLaunchTemplateArgs.launchTemplateSpecification");
+        if (!unknown_launchTemplateSpecification) return value_launchTemplateSpecification;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateArgs.launchTemplateSpecification' is not present");
     }
 
     /**
      * List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
      * 
      */
-    private UndeferrableValue<List<GroupMixedInstancesPolicyLaunchTemplateOverrideArgs>> overrides;
-
+    @PolicyResourceProperty(name="overrides", flag="unknown_overrides")
+    private List<GroupMixedInstancesPolicyLaunchTemplateOverrideArgs> value_overrides;
+    private boolean unknown_overrides;
     public List<GroupMixedInstancesPolicyLaunchTemplateOverrideArgs> overrides() {
-        if (overrides == null) return null;
-        return overrides.getValue("GroupMixedInstancesPolicyLaunchTemplateArgs.overrides");
+        if (!unknown_overrides) return value_overrides;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateArgs.overrides' is not present");
     }
 
 }

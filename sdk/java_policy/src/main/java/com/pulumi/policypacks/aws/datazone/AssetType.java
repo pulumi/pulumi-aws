@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.datazone.outputs.AssetTypeFormsInput;
 import com.pulumi.policypacks.aws.datazone.outputs.AssetTypeTimeouts;
@@ -19,66 +20,72 @@ public final class AssetType extends com.pulumi.resources.PolicyResourceOutput {
      * The timestamp when the custom asset type was created.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("AssetType.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'AssetType.createdAt' is not present");
     }
 
     /**
      * The user who created the custom asset type.
      * 
      */
-    private UndeferrableValue<String> createdBy;
-
+    @PolicyResourceProperty(name="createdBy", flag="unknown_createdBy")
+    private String value_createdBy;
+    private boolean unknown_createdBy;
     public String createdBy() {
-        if (createdBy == null) return null;
-        return createdBy.getValue("AssetType.createdBy");
+        if (!unknown_createdBy) return value_createdBy;
+        throw new UndeferrableValueException("Value 'AssetType.createdBy' is not present");
     }
 
     /**
      * The description of the custom asset type.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("AssetType.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AssetType.description' is not present");
     }
 
     /**
      * The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
      * 
      */
-    private UndeferrableValue<String> domainIdentifier;
-
+    @PolicyResourceProperty(name="domainIdentifier", flag="unknown_domainIdentifier")
+    private String value_domainIdentifier;
+    private boolean unknown_domainIdentifier;
     public String domainIdentifier() {
-        if (domainIdentifier == null) return null;
-        return domainIdentifier.getValue("AssetType.domainIdentifier");
+        if (!unknown_domainIdentifier) return value_domainIdentifier;
+        throw new UndeferrableValueException("Value 'AssetType.domainIdentifier' is not present");
     }
 
     /**
      * The metadata forms that are to be attached to the custom asset type.
      * 
      */
-    private @Nullable UndeferrableValue<List<AssetTypeFormsInput>> formsInputs;
-
+    @PolicyResourceProperty(name="formsInputs", flag="unknown_formsInputs")
+    private @Nullable List<AssetTypeFormsInput> value_formsInputs;
+    private boolean unknown_formsInputs;
     public @Nullable List<AssetTypeFormsInput> formsInputs() {
-        if (formsInputs == null) return null;
-        return formsInputs.getValue("AssetType.formsInputs");
+        if (!unknown_formsInputs) return value_formsInputs;
+        throw new UndeferrableValueException("Value 'AssetType.formsInputs' is not present");
     }
 
     /**
      * The name of the custom asset type.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AssetType.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AssetType.name' is not present");
     }
 
     /**
@@ -87,29 +94,32 @@ public final class AssetType extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> owningProjectIdentifier;
-
+    @PolicyResourceProperty(name="owningProjectIdentifier", flag="unknown_owningProjectIdentifier")
+    private String value_owningProjectIdentifier;
+    private boolean unknown_owningProjectIdentifier;
     public String owningProjectIdentifier() {
-        if (owningProjectIdentifier == null) return null;
-        return owningProjectIdentifier.getValue("AssetType.owningProjectIdentifier");
+        if (!unknown_owningProjectIdentifier) return value_owningProjectIdentifier;
+        throw new UndeferrableValueException("Value 'AssetType.owningProjectIdentifier' is not present");
     }
 
     /**
      * The revision of the asset type.
      * 
      */
-    private UndeferrableValue<String> revision;
-
+    @PolicyResourceProperty(name="revision", flag="unknown_revision")
+    private String value_revision;
+    private boolean unknown_revision;
     public String revision() {
-        if (revision == null) return null;
-        return revision.getValue("AssetType.revision");
+        if (!unknown_revision) return value_revision;
+        throw new UndeferrableValueException("Value 'AssetType.revision' is not present");
     }
 
-    private @Nullable UndeferrableValue<AssetTypeTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable AssetTypeTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable AssetTypeTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("AssetType.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'AssetType.timeouts' is not present");
     }
 
 }

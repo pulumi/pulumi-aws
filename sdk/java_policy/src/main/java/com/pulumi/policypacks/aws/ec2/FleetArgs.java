@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.inputs.FleetFleetInstanceSetArgs;
 import com.pulumi.policypacks.aws.ec2.inputs.FleetLaunchTemplateConfigArgs;
@@ -25,187 +26,204 @@ public final class FleetArgs extends com.pulumi.resources.PolicyResourceInput {
      * Reserved.
      * 
      */
-    private UndeferrableValue<String> context;
-
+    @PolicyResourceProperty(name="context", flag="unknown_context")
+    private String value_context;
+    private boolean unknown_context;
     public String context() {
-        if (context == null) return null;
-        return context.getValue("FleetArgs.context");
+        if (!unknown_context) return value_context;
+        throw new UndeferrableValueException("Value 'FleetArgs.context' is not present");
     }
 
     /**
      * Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`. Supported only for fleets of type `maintain`.
      * 
      */
-    private UndeferrableValue<String> excessCapacityTerminationPolicy;
-
+    @PolicyResourceProperty(name="excessCapacityTerminationPolicy", flag="unknown_excessCapacityTerminationPolicy")
+    private String value_excessCapacityTerminationPolicy;
+    private boolean unknown_excessCapacityTerminationPolicy;
     public String excessCapacityTerminationPolicy() {
-        if (excessCapacityTerminationPolicy == null) return null;
-        return excessCapacityTerminationPolicy.getValue("FleetArgs.excessCapacityTerminationPolicy");
+        if (!unknown_excessCapacityTerminationPolicy) return value_excessCapacityTerminationPolicy;
+        throw new UndeferrableValueException("Value 'FleetArgs.excessCapacityTerminationPolicy' is not present");
     }
 
     /**
      * Information about the instances that were launched by the fleet. Available only when `type` is set to `instant`.
      * 
      */
-    private UndeferrableValue<List<FleetFleetInstanceSetArgs>> fleetInstanceSets;
-
+    @PolicyResourceProperty(name="fleetInstanceSets", flag="unknown_fleetInstanceSets")
+    private List<FleetFleetInstanceSetArgs> value_fleetInstanceSets;
+    private boolean unknown_fleetInstanceSets;
     public List<FleetFleetInstanceSetArgs> fleetInstanceSets() {
-        if (fleetInstanceSets == null) return null;
-        return fleetInstanceSets.getValue("FleetArgs.fleetInstanceSets");
+        if (!unknown_fleetInstanceSets) return value_fleetInstanceSets;
+        throw new UndeferrableValueException("Value 'FleetArgs.fleetInstanceSets' is not present");
     }
 
     /**
      * The state of the EC2 Fleet.
      * 
      */
-    private UndeferrableValue<String> fleetState;
-
+    @PolicyResourceProperty(name="fleetState", flag="unknown_fleetState")
+    private String value_fleetState;
+    private boolean unknown_fleetState;
     public String fleetState() {
-        if (fleetState == null) return null;
-        return fleetState.getValue("FleetArgs.fleetState");
+        if (!unknown_fleetState) return value_fleetState;
+        throw new UndeferrableValueException("Value 'FleetArgs.fleetState' is not present");
     }
 
     /**
      * The number of units fulfilled by this request compared to the set target capacity.
      * 
      */
-    private UndeferrableValue<Double> fulfilledCapacity;
-
+    @PolicyResourceProperty(name="fulfilledCapacity", flag="unknown_fulfilledCapacity")
+    private Double value_fulfilledCapacity;
+    private boolean unknown_fulfilledCapacity;
     public Double fulfilledCapacity() {
-        if (fulfilledCapacity == null) return null;
-        return fulfilledCapacity.getValue("FleetArgs.fulfilledCapacity");
+        if (!unknown_fulfilledCapacity) return value_fulfilledCapacity;
+        throw new UndeferrableValueException("Value 'FleetArgs.fulfilledCapacity' is not present");
     }
 
     /**
      * The number of units fulfilled by this request compared to the set target On-Demand capacity.
      * 
      */
-    private UndeferrableValue<Double> fulfilledOnDemandCapacity;
-
+    @PolicyResourceProperty(name="fulfilledOnDemandCapacity", flag="unknown_fulfilledOnDemandCapacity")
+    private Double value_fulfilledOnDemandCapacity;
+    private boolean unknown_fulfilledOnDemandCapacity;
     public Double fulfilledOnDemandCapacity() {
-        if (fulfilledOnDemandCapacity == null) return null;
-        return fulfilledOnDemandCapacity.getValue("FleetArgs.fulfilledOnDemandCapacity");
+        if (!unknown_fulfilledOnDemandCapacity) return value_fulfilledOnDemandCapacity;
+        throw new UndeferrableValueException("Value 'FleetArgs.fulfilledOnDemandCapacity' is not present");
     }
 
     /**
      * Nested argument containing EC2 Launch Template configurations. Defined below.
      * 
      */
-    private UndeferrableValue<List<FleetLaunchTemplateConfigArgs>> launchTemplateConfigs;
-
+    @PolicyResourceProperty(name="launchTemplateConfigs", flag="unknown_launchTemplateConfigs")
+    private List<FleetLaunchTemplateConfigArgs> value_launchTemplateConfigs;
+    private boolean unknown_launchTemplateConfigs;
     public List<FleetLaunchTemplateConfigArgs> launchTemplateConfigs() {
-        if (launchTemplateConfigs == null) return null;
-        return launchTemplateConfigs.getValue("FleetArgs.launchTemplateConfigs");
+        if (!unknown_launchTemplateConfigs) return value_launchTemplateConfigs;
+        throw new UndeferrableValueException("Value 'FleetArgs.launchTemplateConfigs' is not present");
     }
 
     /**
      * Nested argument containing On-Demand configurations. Defined below.
      * 
      */
-    private UndeferrableValue<FleetOnDemandOptionsArgs> onDemandOptions;
-
+    @PolicyResourceProperty(name="onDemandOptions", flag="unknown_onDemandOptions")
+    private FleetOnDemandOptionsArgs value_onDemandOptions;
+    private boolean unknown_onDemandOptions;
     public FleetOnDemandOptionsArgs onDemandOptions() {
-        if (onDemandOptions == null) return null;
-        return onDemandOptions.getValue("FleetArgs.onDemandOptions");
+        if (!unknown_onDemandOptions) return value_onDemandOptions;
+        throw new UndeferrableValueException("Value 'FleetArgs.onDemandOptions' is not present");
     }
 
     /**
      * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
      * 
      */
-    private UndeferrableValue<Boolean> replaceUnhealthyInstances;
-
+    @PolicyResourceProperty(name="replaceUnhealthyInstances", flag="unknown_replaceUnhealthyInstances")
+    private Boolean value_replaceUnhealthyInstances;
+    private boolean unknown_replaceUnhealthyInstances;
     public Boolean replaceUnhealthyInstances() {
-        if (replaceUnhealthyInstances == null) return null;
-        return replaceUnhealthyInstances.getValue("FleetArgs.replaceUnhealthyInstances");
+        if (!unknown_replaceUnhealthyInstances) return value_replaceUnhealthyInstances;
+        throw new UndeferrableValueException("Value 'FleetArgs.replaceUnhealthyInstances' is not present");
     }
 
     /**
      * Nested argument containing Spot configurations. Defined below.
      * 
      */
-    private UndeferrableValue<FleetSpotOptionsArgs> spotOptions;
-
+    @PolicyResourceProperty(name="spotOptions", flag="unknown_spotOptions")
+    private FleetSpotOptionsArgs value_spotOptions;
+    private boolean unknown_spotOptions;
     public FleetSpotOptionsArgs spotOptions() {
-        if (spotOptions == null) return null;
-        return spotOptions.getValue("FleetArgs.spotOptions");
+        if (!unknown_spotOptions) return value_spotOptions;
+        throw new UndeferrableValueException("Value 'FleetArgs.spotOptions' is not present");
     }
 
     /**
      * Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("FleetArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'FleetArgs.tags' is not present");
     }
 
     /**
      * Nested argument containing target capacity configurations. Defined below.
      * 
      */
-    private UndeferrableValue<FleetTargetCapacitySpecificationArgs> targetCapacitySpecification;
-
+    @PolicyResourceProperty(name="targetCapacitySpecification", flag="unknown_targetCapacitySpecification")
+    private FleetTargetCapacitySpecificationArgs value_targetCapacitySpecification;
+    private boolean unknown_targetCapacitySpecification;
     public FleetTargetCapacitySpecificationArgs targetCapacitySpecification() {
-        if (targetCapacitySpecification == null) return null;
-        return targetCapacitySpecification.getValue("FleetArgs.targetCapacitySpecification");
+        if (!unknown_targetCapacitySpecification) return value_targetCapacitySpecification;
+        throw new UndeferrableValueException("Value 'FleetArgs.targetCapacitySpecification' is not present");
     }
 
     /**
      * Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> terminateInstances;
-
+    @PolicyResourceProperty(name="terminateInstances", flag="unknown_terminateInstances")
+    private Boolean value_terminateInstances;
+    private boolean unknown_terminateInstances;
     public Boolean terminateInstances() {
-        if (terminateInstances == null) return null;
-        return terminateInstances.getValue("FleetArgs.terminateInstances");
+        if (!unknown_terminateInstances) return value_terminateInstances;
+        throw new UndeferrableValueException("Value 'FleetArgs.terminateInstances' is not present");
     }
 
     /**
      * Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> terminateInstancesWithExpiration;
-
+    @PolicyResourceProperty(name="terminateInstancesWithExpiration", flag="unknown_terminateInstancesWithExpiration")
+    private Boolean value_terminateInstancesWithExpiration;
+    private boolean unknown_terminateInstancesWithExpiration;
     public Boolean terminateInstancesWithExpiration() {
-        if (terminateInstancesWithExpiration == null) return null;
-        return terminateInstancesWithExpiration.getValue("FleetArgs.terminateInstancesWithExpiration");
+        if (!unknown_terminateInstancesWithExpiration) return value_terminateInstancesWithExpiration;
+        throw new UndeferrableValueException("Value 'FleetArgs.terminateInstancesWithExpiration' is not present");
     }
 
     /**
      * The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("FleetArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'FleetArgs.type' is not present");
     }
 
     /**
      * The start date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
      * 
      */
-    private UndeferrableValue<String> validFrom;
-
+    @PolicyResourceProperty(name="validFrom", flag="unknown_validFrom")
+    private String value_validFrom;
+    private boolean unknown_validFrom;
     public String validFrom() {
-        if (validFrom == null) return null;
-        return validFrom.getValue("FleetArgs.validFrom");
+        if (!unknown_validFrom) return value_validFrom;
+        throw new UndeferrableValueException("Value 'FleetArgs.validFrom' is not present");
     }
 
     /**
      * The end date and time of the request, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new EC2 Fleet requests are placed or able to fulfill the request. If no value is specified, the request remains until you cancel it.
      * 
      */
-    private UndeferrableValue<String> validUntil;
-
+    @PolicyResourceProperty(name="validUntil", flag="unknown_validUntil")
+    private String value_validUntil;
+    private boolean unknown_validUntil;
     public String validUntil() {
-        if (validUntil == null) return null;
-        return validUntil.getValue("FleetArgs.validUntil");
+        if (!unknown_validUntil) return value_validUntil;
+        throw new UndeferrableValueException("Value 'FleetArgs.validUntil' is not present");
     }
 
 }

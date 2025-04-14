@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codebuild.outputs.FleetScalingConfigurationTargetTrackingScalingConfig;
 import java.lang.Integer;
 import java.lang.String;
@@ -13,44 +14,48 @@ import javax.annotation.Nullable;
 
 public final class FleetScalingConfiguration {
 
-    private @Nullable UndeferrableValue<Integer> desiredCapacity;
-
+    @PolicyResourceProperty(name="desiredCapacity", flag="unknown_desiredCapacity")
+    private @Nullable Integer value_desiredCapacity;
+    private boolean unknown_desiredCapacity;
     public @Nullable Integer desiredCapacity() {
-        if (desiredCapacity == null) return null;
-        return desiredCapacity.getValue("FleetScalingConfiguration.desiredCapacity");
+        if (!unknown_desiredCapacity) return value_desiredCapacity;
+        throw new UndeferrableValueException("Value 'FleetScalingConfiguration.desiredCapacity' is not present");
     }
 
     /**
      * Maximum number of instances in the ﬂeet when auto-scaling.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxCapacity;
-
+    @PolicyResourceProperty(name="maxCapacity", flag="unknown_maxCapacity")
+    private @Nullable Integer value_maxCapacity;
+    private boolean unknown_maxCapacity;
     public @Nullable Integer maxCapacity() {
-        if (maxCapacity == null) return null;
-        return maxCapacity.getValue("FleetScalingConfiguration.maxCapacity");
+        if (!unknown_maxCapacity) return value_maxCapacity;
+        throw new UndeferrableValueException("Value 'FleetScalingConfiguration.maxCapacity' is not present");
     }
 
     /**
      * Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
      * 
      */
-    private @Nullable UndeferrableValue<String> scalingType;
-
+    @PolicyResourceProperty(name="scalingType", flag="unknown_scalingType")
+    private @Nullable String value_scalingType;
+    private boolean unknown_scalingType;
     public @Nullable String scalingType() {
-        if (scalingType == null) return null;
-        return scalingType.getValue("FleetScalingConfiguration.scalingType");
+        if (!unknown_scalingType) return value_scalingType;
+        throw new UndeferrableValueException("Value 'FleetScalingConfiguration.scalingType' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<FleetScalingConfigurationTargetTrackingScalingConfig>> targetTrackingScalingConfigs;
-
+    @PolicyResourceProperty(name="targetTrackingScalingConfigs", flag="unknown_targetTrackingScalingConfigs")
+    private @Nullable List<FleetScalingConfigurationTargetTrackingScalingConfig> value_targetTrackingScalingConfigs;
+    private boolean unknown_targetTrackingScalingConfigs;
     public @Nullable List<FleetScalingConfigurationTargetTrackingScalingConfig> targetTrackingScalingConfigs() {
-        if (targetTrackingScalingConfigs == null) return null;
-        return targetTrackingScalingConfigs.getValue("FleetScalingConfiguration.targetTrackingScalingConfigs");
+        if (!unknown_targetTrackingScalingConfigs) return value_targetTrackingScalingConfigs;
+        throw new UndeferrableValueException("Value 'FleetScalingConfiguration.targetTrackingScalingConfigs' is not present");
     }
 
 }

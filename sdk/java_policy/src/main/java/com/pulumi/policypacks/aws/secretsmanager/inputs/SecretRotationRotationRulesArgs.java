@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.secretsmanager.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class SecretRotationRotationRulesArgs {
      * Specifies the number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
      * 
      */
-    private UndeferrableValue<Integer> automaticallyAfterDays;
-
+    @PolicyResourceProperty(name="automaticallyAfterDays", flag="unknown_automaticallyAfterDays")
+    private Integer value_automaticallyAfterDays;
+    private boolean unknown_automaticallyAfterDays;
     public Integer automaticallyAfterDays() {
-        if (automaticallyAfterDays == null) return null;
-        return automaticallyAfterDays.getValue("SecretRotationRotationRulesArgs.automaticallyAfterDays");
+        if (!unknown_automaticallyAfterDays) return value_automaticallyAfterDays;
+        throw new UndeferrableValueException("Value 'SecretRotationRotationRulesArgs.automaticallyAfterDays' is not present");
     }
 
     /**
      * The length of the rotation window in hours. For example, `3h` for a three hour window.
      * 
      */
-    private UndeferrableValue<String> duration;
-
+    @PolicyResourceProperty(name="duration", flag="unknown_duration")
+    private String value_duration;
+    private boolean unknown_duration;
     public String duration() {
-        if (duration == null) return null;
-        return duration.getValue("SecretRotationRotationRulesArgs.duration");
+        if (!unknown_duration) return value_duration;
+        throw new UndeferrableValueException("Value 'SecretRotationRotationRulesArgs.duration' is not present");
     }
 
     /**
      * A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
      * 
      */
-    private UndeferrableValue<String> scheduleExpression;
-
+    @PolicyResourceProperty(name="scheduleExpression", flag="unknown_scheduleExpression")
+    private String value_scheduleExpression;
+    private boolean unknown_scheduleExpression;
     public String scheduleExpression() {
-        if (scheduleExpression == null) return null;
-        return scheduleExpression.getValue("SecretRotationRotationRulesArgs.scheduleExpression");
+        if (!unknown_scheduleExpression) return value_scheduleExpression;
+        throw new UndeferrableValueException("Value 'SecretRotationRotationRulesArgs.scheduleExpression' is not present");
     }
 
 }

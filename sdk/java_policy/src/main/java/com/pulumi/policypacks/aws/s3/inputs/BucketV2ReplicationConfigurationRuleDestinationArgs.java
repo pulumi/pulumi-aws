@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.inputs.BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs;
 import com.pulumi.policypacks.aws.s3.inputs.BucketV2ReplicationConfigurationRuleDestinationMetricArgs;
 import com.pulumi.policypacks.aws.s3.inputs.BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs;
@@ -18,44 +19,48 @@ public final class BucketV2ReplicationConfigurationRuleDestinationArgs {
      * Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
      * 
      */
-    private UndeferrableValue<List<BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs>> accessControlTranslations;
-
+    @PolicyResourceProperty(name="accessControlTranslations", flag="unknown_accessControlTranslations")
+    private List<BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs> value_accessControlTranslations;
+    private boolean unknown_accessControlTranslations;
     public List<BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs> accessControlTranslations() {
-        if (accessControlTranslations == null) return null;
-        return accessControlTranslations.getValue("BucketV2ReplicationConfigurationRuleDestinationArgs.accessControlTranslations");
+        if (!unknown_accessControlTranslations) return value_accessControlTranslations;
+        throw new UndeferrableValueException("Value 'BucketV2ReplicationConfigurationRuleDestinationArgs.accessControlTranslations' is not present");
     }
 
     /**
      * Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("BucketV2ReplicationConfigurationRuleDestinationArgs.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'BucketV2ReplicationConfigurationRuleDestinationArgs.accountId' is not present");
     }
 
     /**
      * ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("BucketV2ReplicationConfigurationRuleDestinationArgs.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'BucketV2ReplicationConfigurationRuleDestinationArgs.bucket' is not present");
     }
 
     /**
      * Enables replication metrics (required for S3 RTC) (documented below).
      * 
      */
-    private UndeferrableValue<List<BucketV2ReplicationConfigurationRuleDestinationMetricArgs>> metrics;
-
+    @PolicyResourceProperty(name="metrics", flag="unknown_metrics")
+    private List<BucketV2ReplicationConfigurationRuleDestinationMetricArgs> value_metrics;
+    private boolean unknown_metrics;
     public List<BucketV2ReplicationConfigurationRuleDestinationMetricArgs> metrics() {
-        if (metrics == null) return null;
-        return metrics.getValue("BucketV2ReplicationConfigurationRuleDestinationArgs.metrics");
+        if (!unknown_metrics) return value_metrics;
+        throw new UndeferrableValueException("Value 'BucketV2ReplicationConfigurationRuleDestinationArgs.metrics' is not present");
     }
 
     /**
@@ -63,33 +68,36 @@ public final class BucketV2ReplicationConfigurationRuleDestinationArgs {
      * `sse_kms_encrypted_objects` source selection criteria.
      * 
      */
-    private UndeferrableValue<String> replicaKmsKeyId;
-
+    @PolicyResourceProperty(name="replicaKmsKeyId", flag="unknown_replicaKmsKeyId")
+    private String value_replicaKmsKeyId;
+    private boolean unknown_replicaKmsKeyId;
     public String replicaKmsKeyId() {
-        if (replicaKmsKeyId == null) return null;
-        return replicaKmsKeyId.getValue("BucketV2ReplicationConfigurationRuleDestinationArgs.replicaKmsKeyId");
+        if (!unknown_replicaKmsKeyId) return value_replicaKmsKeyId;
+        throw new UndeferrableValueException("Value 'BucketV2ReplicationConfigurationRuleDestinationArgs.replicaKmsKeyId' is not present");
     }
 
     /**
      * Enables S3 Replication Time Control (S3 RTC) (documented below).
      * 
      */
-    private UndeferrableValue<List<BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs>> replicationTimes;
-
+    @PolicyResourceProperty(name="replicationTimes", flag="unknown_replicationTimes")
+    private List<BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs> value_replicationTimes;
+    private boolean unknown_replicationTimes;
     public List<BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs> replicationTimes() {
-        if (replicationTimes == null) return null;
-        return replicationTimes.getValue("BucketV2ReplicationConfigurationRuleDestinationArgs.replicationTimes");
+        if (!unknown_replicationTimes) return value_replicationTimes;
+        throw new UndeferrableValueException("Value 'BucketV2ReplicationConfigurationRuleDestinationArgs.replicationTimes' is not present");
     }
 
     /**
      * The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
      * 
      */
-    private UndeferrableValue<String> storageClass;
-
+    @PolicyResourceProperty(name="storageClass", flag="unknown_storageClass")
+    private String value_storageClass;
+    private boolean unknown_storageClass;
     public String storageClass() {
-        if (storageClass == null) return null;
-        return storageClass.getValue("BucketV2ReplicationConfigurationRuleDestinationArgs.storageClass");
+        if (!unknown_storageClass) return value_storageClass;
+        throw new UndeferrableValueException("Value 'BucketV2ReplicationConfigurationRuleDestinationArgs.storageClass' is not present");
     }
 
 }

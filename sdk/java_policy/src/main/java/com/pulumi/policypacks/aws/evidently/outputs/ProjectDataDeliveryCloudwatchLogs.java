@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.evidently.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ProjectDataDeliveryCloudwatchLogs {
      * The name of the log group where the project stores evaluation events.
      * 
      */
-    private @Nullable UndeferrableValue<String> logGroup;
-
+    @PolicyResourceProperty(name="logGroup", flag="unknown_logGroup")
+    private @Nullable String value_logGroup;
+    private boolean unknown_logGroup;
     public @Nullable String logGroup() {
-        if (logGroup == null) return null;
-        return logGroup.getValue("ProjectDataDeliveryCloudwatchLogs.logGroup");
+        if (!unknown_logGroup) return value_logGroup;
+        throw new UndeferrableValueException("Value 'ProjectDataDeliveryCloudwatchLogs.logGroup' is not present");
     }
 
 }

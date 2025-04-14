@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,77 +18,84 @@ public final class CustomerGateway extends com.pulumi.resources.PolicyResourceOu
      * The ARN of the customer gateway.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("CustomerGateway.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'CustomerGateway.arn' is not present");
     }
 
     /**
      * The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
      * 
      */
-    private @Nullable UndeferrableValue<String> bgpAsn;
-
+    @PolicyResourceProperty(name="bgpAsn", flag="unknown_bgpAsn")
+    private @Nullable String value_bgpAsn;
+    private boolean unknown_bgpAsn;
     public @Nullable String bgpAsn() {
-        if (bgpAsn == null) return null;
-        return bgpAsn.getValue("CustomerGateway.bgpAsn");
+        if (!unknown_bgpAsn) return value_bgpAsn;
+        throw new UndeferrableValueException("Value 'CustomerGateway.bgpAsn' is not present");
     }
 
     /**
      * The gateway&#39;s Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
      * 
      */
-    private @Nullable UndeferrableValue<String> bgpAsnExtended;
-
+    @PolicyResourceProperty(name="bgpAsnExtended", flag="unknown_bgpAsnExtended")
+    private @Nullable String value_bgpAsnExtended;
+    private boolean unknown_bgpAsnExtended;
     public @Nullable String bgpAsnExtended() {
-        if (bgpAsnExtended == null) return null;
-        return bgpAsnExtended.getValue("CustomerGateway.bgpAsnExtended");
+        if (!unknown_bgpAsnExtended) return value_bgpAsnExtended;
+        throw new UndeferrableValueException("Value 'CustomerGateway.bgpAsnExtended' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) for the customer gateway certificate.
      * 
      */
-    private @Nullable UndeferrableValue<String> certificateArn;
-
+    @PolicyResourceProperty(name="certificateArn", flag="unknown_certificateArn")
+    private @Nullable String value_certificateArn;
+    private boolean unknown_certificateArn;
     public @Nullable String certificateArn() {
-        if (certificateArn == null) return null;
-        return certificateArn.getValue("CustomerGateway.certificateArn");
+        if (!unknown_certificateArn) return value_certificateArn;
+        throw new UndeferrableValueException("Value 'CustomerGateway.certificateArn' is not present");
     }
 
     /**
      * A name for the customer gateway device.
      * 
      */
-    private @Nullable UndeferrableValue<String> deviceName;
-
+    @PolicyResourceProperty(name="deviceName", flag="unknown_deviceName")
+    private @Nullable String value_deviceName;
+    private boolean unknown_deviceName;
     public @Nullable String deviceName() {
-        if (deviceName == null) return null;
-        return deviceName.getValue("CustomerGateway.deviceName");
+        if (!unknown_deviceName) return value_deviceName;
+        throw new UndeferrableValueException("Value 'CustomerGateway.deviceName' is not present");
     }
 
     /**
      * The IPv4 address for the customer gateway device&#39;s outside interface.
      * 
      */
-    private @Nullable UndeferrableValue<String> ipAddress;
-
+    @PolicyResourceProperty(name="ipAddress", flag="unknown_ipAddress")
+    private @Nullable String value_ipAddress;
+    private boolean unknown_ipAddress;
     public @Nullable String ipAddress() {
-        if (ipAddress == null) return null;
-        return ipAddress.getValue("CustomerGateway.ipAddress");
+        if (!unknown_ipAddress) return value_ipAddress;
+        throw new UndeferrableValueException("Value 'CustomerGateway.ipAddress' is not present");
     }
 
     /**
      * Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CustomerGateway.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CustomerGateway.tags' is not present");
     }
 
     /**
@@ -98,11 +106,12 @@ public final class CustomerGateway extends com.pulumi.resources.PolicyResourceOu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("CustomerGateway.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'CustomerGateway.tagsAll' is not present");
     }
 
     /**
@@ -110,11 +119,12 @@ public final class CustomerGateway extends com.pulumi.resources.PolicyResourceOu
      * supports at this time is &#34;ipsec.1&#34;.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("CustomerGateway.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'CustomerGateway.type' is not present");
     }
 
 }

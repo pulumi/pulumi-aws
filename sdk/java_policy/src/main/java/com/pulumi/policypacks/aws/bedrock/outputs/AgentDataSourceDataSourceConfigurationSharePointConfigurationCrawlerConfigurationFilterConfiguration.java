@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
      * The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter>> patternObjectFilters;
-
+    @PolicyResourceProperty(name="patternObjectFilters", flag="unknown_patternObjectFilters")
+    private @Nullable List<AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter> value_patternObjectFilters;
+    private boolean unknown_patternObjectFilters;
     public @Nullable List<AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter> patternObjectFilters() {
-        if (patternObjectFilters == null) return null;
-        return patternObjectFilters.getValue("AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration.patternObjectFilters");
+        if (!unknown_patternObjectFilters) return value_patternObjectFilters;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration.patternObjectFilters' is not present");
     }
 
     /**
      * The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfiguration.type' is not present");
     }
 
 }

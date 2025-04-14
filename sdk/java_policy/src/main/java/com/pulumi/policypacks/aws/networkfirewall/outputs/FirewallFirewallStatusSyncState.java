@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.FirewallFirewallStatusSyncStateAttachment;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class FirewallFirewallStatusSyncState {
      * Nested list describing the attachment status of the firewall&#39;s association with a single VPC subnet.
      * 
      */
-    private @Nullable UndeferrableValue<List<FirewallFirewallStatusSyncStateAttachment>> attachments;
-
+    @PolicyResourceProperty(name="attachments", flag="unknown_attachments")
+    private @Nullable List<FirewallFirewallStatusSyncStateAttachment> value_attachments;
+    private boolean unknown_attachments;
     public @Nullable List<FirewallFirewallStatusSyncStateAttachment> attachments() {
-        if (attachments == null) return null;
-        return attachments.getValue("FirewallFirewallStatusSyncState.attachments");
+        if (!unknown_attachments) return value_attachments;
+        throw new UndeferrableValueException("Value 'FirewallFirewallStatusSyncState.attachments' is not present");
     }
 
     /**
      * The Availability Zone where the subnet is configured.
      * 
      */
-    private @Nullable UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private @Nullable String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public @Nullable String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("FirewallFirewallStatusSyncState.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'FirewallFirewallStatusSyncState.availabilityZone' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -16,58 +17,64 @@ public final class DistributionOriginCustomOriginConfigArgs {
      * HTTP port the custom origin listens on.
      * 
      */
-    private UndeferrableValue<Integer> httpPort;
-
+    @PolicyResourceProperty(name="httpPort", flag="unknown_httpPort")
+    private Integer value_httpPort;
+    private boolean unknown_httpPort;
     public Integer httpPort() {
-        if (httpPort == null) return null;
-        return httpPort.getValue("DistributionOriginCustomOriginConfigArgs.httpPort");
+        if (!unknown_httpPort) return value_httpPort;
+        throw new UndeferrableValueException("Value 'DistributionOriginCustomOriginConfigArgs.httpPort' is not present");
     }
 
     /**
      * HTTPS port the custom origin listens on.
      * 
      */
-    private UndeferrableValue<Integer> httpsPort;
-
+    @PolicyResourceProperty(name="httpsPort", flag="unknown_httpsPort")
+    private Integer value_httpsPort;
+    private boolean unknown_httpsPort;
     public Integer httpsPort() {
-        if (httpsPort == null) return null;
-        return httpsPort.getValue("DistributionOriginCustomOriginConfigArgs.httpsPort");
+        if (!unknown_httpsPort) return value_httpsPort;
+        throw new UndeferrableValueException("Value 'DistributionOriginCustomOriginConfigArgs.httpsPort' is not present");
     }
 
-    private UndeferrableValue<Integer> originKeepaliveTimeout;
-
+    @PolicyResourceProperty(name="originKeepaliveTimeout", flag="unknown_originKeepaliveTimeout")
+    private Integer value_originKeepaliveTimeout;
+    private boolean unknown_originKeepaliveTimeout;
     public Integer originKeepaliveTimeout() {
-        if (originKeepaliveTimeout == null) return null;
-        return originKeepaliveTimeout.getValue("DistributionOriginCustomOriginConfigArgs.originKeepaliveTimeout");
+        if (!unknown_originKeepaliveTimeout) return value_originKeepaliveTimeout;
+        throw new UndeferrableValueException("Value 'DistributionOriginCustomOriginConfigArgs.originKeepaliveTimeout' is not present");
     }
 
     /**
      * Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
      * 
      */
-    private UndeferrableValue<String> originProtocolPolicy;
-
+    @PolicyResourceProperty(name="originProtocolPolicy", flag="unknown_originProtocolPolicy")
+    private String value_originProtocolPolicy;
+    private boolean unknown_originProtocolPolicy;
     public String originProtocolPolicy() {
-        if (originProtocolPolicy == null) return null;
-        return originProtocolPolicy.getValue("DistributionOriginCustomOriginConfigArgs.originProtocolPolicy");
+        if (!unknown_originProtocolPolicy) return value_originProtocolPolicy;
+        throw new UndeferrableValueException("Value 'DistributionOriginCustomOriginConfigArgs.originProtocolPolicy' is not present");
     }
 
-    private UndeferrableValue<Integer> originReadTimeout;
-
+    @PolicyResourceProperty(name="originReadTimeout", flag="unknown_originReadTimeout")
+    private Integer value_originReadTimeout;
+    private boolean unknown_originReadTimeout;
     public Integer originReadTimeout() {
-        if (originReadTimeout == null) return null;
-        return originReadTimeout.getValue("DistributionOriginCustomOriginConfigArgs.originReadTimeout");
+        if (!unknown_originReadTimeout) return value_originReadTimeout;
+        throw new UndeferrableValueException("Value 'DistributionOriginCustomOriginConfigArgs.originReadTimeout' is not present");
     }
 
     /**
      * List of SSL/TLS protocols that CloudFront can use when connecting to your origin over HTTPS. Valid values: `SSLv3`, `TLSv1`, `TLSv1.1`, `TLSv1.2`. For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the Amazon CloudFront Developer Guide.
      * 
      */
-    private UndeferrableValue<List<String>> originSslProtocols;
-
+    @PolicyResourceProperty(name="originSslProtocols", flag="unknown_originSslProtocols")
+    private List<String> value_originSslProtocols;
+    private boolean unknown_originSslProtocols;
     public List<String> originSslProtocols() {
-        if (originSslProtocols == null) return null;
-        return originSslProtocols.getValue("DistributionOriginCustomOriginConfigArgs.originSslProtocols");
+        if (!unknown_originSslProtocols) return value_originSslProtocols;
+        throw new UndeferrableValueException("Value 'DistributionOriginCustomOriginConfigArgs.originSslProtocols' is not present");
     }
 
 }

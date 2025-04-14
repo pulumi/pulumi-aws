@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput;
@@ -18,62 +19,68 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * Describes the data format when records are written to the destination.
      * 
      */
-    private UndeferrableValue<ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema> destinationSchema;
-
+    @PolicyResourceProperty(name="destinationSchema", flag="unknown_destinationSchema")
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema value_destinationSchema;
+    private boolean unknown_destinationSchema;
     public ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema destinationSchema() {
-        if (destinationSchema == null) return null;
-        return destinationSchema.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationOutput.destinationSchema");
+        if (!unknown_destinationSchema) return value_destinationSchema;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutput.destinationSchema' is not present");
     }
 
     /**
      * Identifies a Kinesis Data Firehose delivery stream as the destination.
      * 
      */
-    private @Nullable UndeferrableValue<ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput> kinesisFirehoseOutput;
-
+    @PolicyResourceProperty(name="kinesisFirehoseOutput", flag="unknown_kinesisFirehoseOutput")
+    private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput value_kinesisFirehoseOutput;
+    private boolean unknown_kinesisFirehoseOutput;
     public @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput kinesisFirehoseOutput() {
-        if (kinesisFirehoseOutput == null) return null;
-        return kinesisFirehoseOutput.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationOutput.kinesisFirehoseOutput");
+        if (!unknown_kinesisFirehoseOutput) return value_kinesisFirehoseOutput;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutput.kinesisFirehoseOutput' is not present");
     }
 
     /**
      * Identifies a Kinesis data stream as the destination.
      * 
      */
-    private @Nullable UndeferrableValue<ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput> kinesisStreamsOutput;
-
+    @PolicyResourceProperty(name="kinesisStreamsOutput", flag="unknown_kinesisStreamsOutput")
+    private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput value_kinesisStreamsOutput;
+    private boolean unknown_kinesisStreamsOutput;
     public @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput kinesisStreamsOutput() {
-        if (kinesisStreamsOutput == null) return null;
-        return kinesisStreamsOutput.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationOutput.kinesisStreamsOutput");
+        if (!unknown_kinesisStreamsOutput) return value_kinesisStreamsOutput;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutput.kinesisStreamsOutput' is not present");
     }
 
     /**
      * Identifies a Lambda function as the destination.
      * 
      */
-    private @Nullable UndeferrableValue<ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput> lambdaOutput;
-
+    @PolicyResourceProperty(name="lambdaOutput", flag="unknown_lambdaOutput")
+    private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput value_lambdaOutput;
+    private boolean unknown_lambdaOutput;
     public @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput lambdaOutput() {
-        if (lambdaOutput == null) return null;
-        return lambdaOutput.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationOutput.lambdaOutput");
+        if (!unknown_lambdaOutput) return value_lambdaOutput;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutput.lambdaOutput' is not present");
     }
 
     /**
      * The name of the in-application stream.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationOutput.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutput.name' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> outputId;
-
+    @PolicyResourceProperty(name="outputId", flag="unknown_outputId")
+    private @Nullable String value_outputId;
+    private boolean unknown_outputId;
     public @Nullable String outputId() {
-        if (outputId == null) return null;
-        return outputId.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationOutput.outputId");
+        if (!unknown_outputId) return value_outputId;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutput.outputId' is not present");
     }
 
 }

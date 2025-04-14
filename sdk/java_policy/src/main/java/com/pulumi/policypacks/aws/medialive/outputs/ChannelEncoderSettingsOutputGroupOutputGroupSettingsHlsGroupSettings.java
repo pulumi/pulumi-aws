@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting;
@@ -20,302 +21,344 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
      * The ad marker type for this output group.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> adMarkers;
-
+    @PolicyResourceProperty(name="adMarkers", flag="unknown_adMarkers")
+    private @Nullable List<String> value_adMarkers;
+    private boolean unknown_adMarkers;
     public @Nullable List<String> adMarkers() {
-        if (adMarkers == null) return null;
-        return adMarkers.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.adMarkers");
+        if (!unknown_adMarkers) return value_adMarkers;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.adMarkers' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> baseUrlContent;
-
+    @PolicyResourceProperty(name="baseUrlContent", flag="unknown_baseUrlContent")
+    private @Nullable String value_baseUrlContent;
+    private boolean unknown_baseUrlContent;
     public @Nullable String baseUrlContent() {
-        if (baseUrlContent == null) return null;
-        return baseUrlContent.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.baseUrlContent");
+        if (!unknown_baseUrlContent) return value_baseUrlContent;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.baseUrlContent' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> baseUrlContent1;
-
+    @PolicyResourceProperty(name="baseUrlContent1", flag="unknown_baseUrlContent1")
+    private @Nullable String value_baseUrlContent1;
+    private boolean unknown_baseUrlContent1;
     public @Nullable String baseUrlContent1() {
-        if (baseUrlContent1 == null) return null;
-        return baseUrlContent1.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.baseUrlContent1");
+        if (!unknown_baseUrlContent1) return value_baseUrlContent1;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.baseUrlContent1' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> baseUrlManifest;
-
+    @PolicyResourceProperty(name="baseUrlManifest", flag="unknown_baseUrlManifest")
+    private @Nullable String value_baseUrlManifest;
+    private boolean unknown_baseUrlManifest;
     public @Nullable String baseUrlManifest() {
-        if (baseUrlManifest == null) return null;
-        return baseUrlManifest.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.baseUrlManifest");
+        if (!unknown_baseUrlManifest) return value_baseUrlManifest;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.baseUrlManifest' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> baseUrlManifest1;
-
+    @PolicyResourceProperty(name="baseUrlManifest1", flag="unknown_baseUrlManifest1")
+    private @Nullable String value_baseUrlManifest1;
+    private boolean unknown_baseUrlManifest1;
     public @Nullable String baseUrlManifest1() {
-        if (baseUrlManifest1 == null) return null;
-        return baseUrlManifest1.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.baseUrlManifest1");
+        if (!unknown_baseUrlManifest1) return value_baseUrlManifest1;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.baseUrlManifest1' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping>> captionLanguageMappings;
-
+    @PolicyResourceProperty(name="captionLanguageMappings", flag="unknown_captionLanguageMappings")
+    private @Nullable List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping> value_captionLanguageMappings;
+    private boolean unknown_captionLanguageMappings;
     public @Nullable List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping> captionLanguageMappings() {
-        if (captionLanguageMappings == null) return null;
-        return captionLanguageMappings.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.captionLanguageMappings");
+        if (!unknown_captionLanguageMappings) return value_captionLanguageMappings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.captionLanguageMappings' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> captionLanguageSetting;
-
+    @PolicyResourceProperty(name="captionLanguageSetting", flag="unknown_captionLanguageSetting")
+    private @Nullable String value_captionLanguageSetting;
+    private boolean unknown_captionLanguageSetting;
     public @Nullable String captionLanguageSetting() {
-        if (captionLanguageSetting == null) return null;
-        return captionLanguageSetting.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.captionLanguageSetting");
+        if (!unknown_captionLanguageSetting) return value_captionLanguageSetting;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.captionLanguageSetting' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> clientCache;
-
+    @PolicyResourceProperty(name="clientCache", flag="unknown_clientCache")
+    private @Nullable String value_clientCache;
+    private boolean unknown_clientCache;
     public @Nullable String clientCache() {
-        if (clientCache == null) return null;
-        return clientCache.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.clientCache");
+        if (!unknown_clientCache) return value_clientCache;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.clientCache' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> codecSpecification;
-
+    @PolicyResourceProperty(name="codecSpecification", flag="unknown_codecSpecification")
+    private @Nullable String value_codecSpecification;
+    private boolean unknown_codecSpecification;
     public @Nullable String codecSpecification() {
-        if (codecSpecification == null) return null;
-        return codecSpecification.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.codecSpecification");
+        if (!unknown_codecSpecification) return value_codecSpecification;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.codecSpecification' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> constantIv;
-
+    @PolicyResourceProperty(name="constantIv", flag="unknown_constantIv")
+    private @Nullable String value_constantIv;
+    private boolean unknown_constantIv;
     public @Nullable String constantIv() {
-        if (constantIv == null) return null;
-        return constantIv.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.constantIv");
+        if (!unknown_constantIv) return value_constantIv;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.constantIv' is not present");
     }
 
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination value_destination;
+    private boolean unknown_destination;
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination destination() {
-        if (destination == null) return null;
-        return destination.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.destination' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> directoryStructure;
-
+    @PolicyResourceProperty(name="directoryStructure", flag="unknown_directoryStructure")
+    private @Nullable String value_directoryStructure;
+    private boolean unknown_directoryStructure;
     public @Nullable String directoryStructure() {
-        if (directoryStructure == null) return null;
-        return directoryStructure.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.directoryStructure");
+        if (!unknown_directoryStructure) return value_directoryStructure;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.directoryStructure' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> discontinuityTags;
-
+    @PolicyResourceProperty(name="discontinuityTags", flag="unknown_discontinuityTags")
+    private @Nullable String value_discontinuityTags;
+    private boolean unknown_discontinuityTags;
     public @Nullable String discontinuityTags() {
-        if (discontinuityTags == null) return null;
-        return discontinuityTags.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.discontinuityTags");
+        if (!unknown_discontinuityTags) return value_discontinuityTags;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.discontinuityTags' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> encryptionType;
-
+    @PolicyResourceProperty(name="encryptionType", flag="unknown_encryptionType")
+    private @Nullable String value_encryptionType;
+    private boolean unknown_encryptionType;
     public @Nullable String encryptionType() {
-        if (encryptionType == null) return null;
-        return encryptionType.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.encryptionType");
+        if (!unknown_encryptionType) return value_encryptionType;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.encryptionType' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting>> hlsCdnSettings;
-
+    @PolicyResourceProperty(name="hlsCdnSettings", flag="unknown_hlsCdnSettings")
+    private @Nullable List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting> value_hlsCdnSettings;
+    private boolean unknown_hlsCdnSettings;
     public @Nullable List<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting> hlsCdnSettings() {
-        if (hlsCdnSettings == null) return null;
-        return hlsCdnSettings.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.hlsCdnSettings");
+        if (!unknown_hlsCdnSettings) return value_hlsCdnSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.hlsCdnSettings' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> hlsId3SegmentTagging;
-
+    @PolicyResourceProperty(name="hlsId3SegmentTagging", flag="unknown_hlsId3SegmentTagging")
+    private @Nullable String value_hlsId3SegmentTagging;
+    private boolean unknown_hlsId3SegmentTagging;
     public @Nullable String hlsId3SegmentTagging() {
-        if (hlsId3SegmentTagging == null) return null;
-        return hlsId3SegmentTagging.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.hlsId3SegmentTagging");
+        if (!unknown_hlsId3SegmentTagging) return value_hlsId3SegmentTagging;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.hlsId3SegmentTagging' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> iframeOnlyPlaylists;
-
+    @PolicyResourceProperty(name="iframeOnlyPlaylists", flag="unknown_iframeOnlyPlaylists")
+    private @Nullable String value_iframeOnlyPlaylists;
+    private boolean unknown_iframeOnlyPlaylists;
     public @Nullable String iframeOnlyPlaylists() {
-        if (iframeOnlyPlaylists == null) return null;
-        return iframeOnlyPlaylists.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.iframeOnlyPlaylists");
+        if (!unknown_iframeOnlyPlaylists) return value_iframeOnlyPlaylists;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.iframeOnlyPlaylists' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> incompleteSegmentBehavior;
-
+    @PolicyResourceProperty(name="incompleteSegmentBehavior", flag="unknown_incompleteSegmentBehavior")
+    private @Nullable String value_incompleteSegmentBehavior;
+    private boolean unknown_incompleteSegmentBehavior;
     public @Nullable String incompleteSegmentBehavior() {
-        if (incompleteSegmentBehavior == null) return null;
-        return incompleteSegmentBehavior.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.incompleteSegmentBehavior");
+        if (!unknown_incompleteSegmentBehavior) return value_incompleteSegmentBehavior;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.incompleteSegmentBehavior' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> indexNSegments;
-
+    @PolicyResourceProperty(name="indexNSegments", flag="unknown_indexNSegments")
+    private @Nullable Integer value_indexNSegments;
+    private boolean unknown_indexNSegments;
     public @Nullable Integer indexNSegments() {
-        if (indexNSegments == null) return null;
-        return indexNSegments.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.indexNSegments");
+        if (!unknown_indexNSegments) return value_indexNSegments;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.indexNSegments' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> inputLossAction;
-
+    @PolicyResourceProperty(name="inputLossAction", flag="unknown_inputLossAction")
+    private @Nullable String value_inputLossAction;
+    private boolean unknown_inputLossAction;
     public @Nullable String inputLossAction() {
-        if (inputLossAction == null) return null;
-        return inputLossAction.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.inputLossAction");
+        if (!unknown_inputLossAction) return value_inputLossAction;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.inputLossAction' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> ivInManifest;
-
+    @PolicyResourceProperty(name="ivInManifest", flag="unknown_ivInManifest")
+    private @Nullable String value_ivInManifest;
+    private boolean unknown_ivInManifest;
     public @Nullable String ivInManifest() {
-        if (ivInManifest == null) return null;
-        return ivInManifest.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.ivInManifest");
+        if (!unknown_ivInManifest) return value_ivInManifest;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.ivInManifest' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> ivSource;
-
+    @PolicyResourceProperty(name="ivSource", flag="unknown_ivSource")
+    private @Nullable String value_ivSource;
+    private boolean unknown_ivSource;
     public @Nullable String ivSource() {
-        if (ivSource == null) return null;
-        return ivSource.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.ivSource");
+        if (!unknown_ivSource) return value_ivSource;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.ivSource' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> keepSegments;
-
+    @PolicyResourceProperty(name="keepSegments", flag="unknown_keepSegments")
+    private @Nullable Integer value_keepSegments;
+    private boolean unknown_keepSegments;
     public @Nullable Integer keepSegments() {
-        if (keepSegments == null) return null;
-        return keepSegments.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.keepSegments");
+        if (!unknown_keepSegments) return value_keepSegments;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.keepSegments' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> keyFormat;
-
+    @PolicyResourceProperty(name="keyFormat", flag="unknown_keyFormat")
+    private @Nullable String value_keyFormat;
+    private boolean unknown_keyFormat;
     public @Nullable String keyFormat() {
-        if (keyFormat == null) return null;
-        return keyFormat.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.keyFormat");
+        if (!unknown_keyFormat) return value_keyFormat;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.keyFormat' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> keyFormatVersions;
-
+    @PolicyResourceProperty(name="keyFormatVersions", flag="unknown_keyFormatVersions")
+    private @Nullable String value_keyFormatVersions;
+    private boolean unknown_keyFormatVersions;
     public @Nullable String keyFormatVersions() {
-        if (keyFormatVersions == null) return null;
-        return keyFormatVersions.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.keyFormatVersions");
+        if (!unknown_keyFormatVersions) return value_keyFormatVersions;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.keyFormatVersions' is not present");
     }
 
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings> keyProviderSettings;
-
+    @PolicyResourceProperty(name="keyProviderSettings", flag="unknown_keyProviderSettings")
+    private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings value_keyProviderSettings;
+    private boolean unknown_keyProviderSettings;
     public @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings keyProviderSettings() {
-        if (keyProviderSettings == null) return null;
-        return keyProviderSettings.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.keyProviderSettings");
+        if (!unknown_keyProviderSettings) return value_keyProviderSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.keyProviderSettings' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> manifestCompression;
-
+    @PolicyResourceProperty(name="manifestCompression", flag="unknown_manifestCompression")
+    private @Nullable String value_manifestCompression;
+    private boolean unknown_manifestCompression;
     public @Nullable String manifestCompression() {
-        if (manifestCompression == null) return null;
-        return manifestCompression.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.manifestCompression");
+        if (!unknown_manifestCompression) return value_manifestCompression;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.manifestCompression' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> manifestDurationFormat;
-
+    @PolicyResourceProperty(name="manifestDurationFormat", flag="unknown_manifestDurationFormat")
+    private @Nullable String value_manifestDurationFormat;
+    private boolean unknown_manifestDurationFormat;
     public @Nullable String manifestDurationFormat() {
-        if (manifestDurationFormat == null) return null;
-        return manifestDurationFormat.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.manifestDurationFormat");
+        if (!unknown_manifestDurationFormat) return value_manifestDurationFormat;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.manifestDurationFormat' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> minSegmentLength;
-
+    @PolicyResourceProperty(name="minSegmentLength", flag="unknown_minSegmentLength")
+    private @Nullable Integer value_minSegmentLength;
+    private boolean unknown_minSegmentLength;
     public @Nullable Integer minSegmentLength() {
-        if (minSegmentLength == null) return null;
-        return minSegmentLength.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.minSegmentLength");
+        if (!unknown_minSegmentLength) return value_minSegmentLength;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.minSegmentLength' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> mode;
-
+    @PolicyResourceProperty(name="mode", flag="unknown_mode")
+    private @Nullable String value_mode;
+    private boolean unknown_mode;
     public @Nullable String mode() {
-        if (mode == null) return null;
-        return mode.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.mode");
+        if (!unknown_mode) return value_mode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.mode' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> outputSelection;
-
+    @PolicyResourceProperty(name="outputSelection", flag="unknown_outputSelection")
+    private @Nullable String value_outputSelection;
+    private boolean unknown_outputSelection;
     public @Nullable String outputSelection() {
-        if (outputSelection == null) return null;
-        return outputSelection.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.outputSelection");
+        if (!unknown_outputSelection) return value_outputSelection;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.outputSelection' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> programDateTime;
-
+    @PolicyResourceProperty(name="programDateTime", flag="unknown_programDateTime")
+    private @Nullable String value_programDateTime;
+    private boolean unknown_programDateTime;
     public @Nullable String programDateTime() {
-        if (programDateTime == null) return null;
-        return programDateTime.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.programDateTime");
+        if (!unknown_programDateTime) return value_programDateTime;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.programDateTime' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> programDateTimeClock;
-
+    @PolicyResourceProperty(name="programDateTimeClock", flag="unknown_programDateTimeClock")
+    private @Nullable String value_programDateTimeClock;
+    private boolean unknown_programDateTimeClock;
     public @Nullable String programDateTimeClock() {
-        if (programDateTimeClock == null) return null;
-        return programDateTimeClock.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.programDateTimeClock");
+        if (!unknown_programDateTimeClock) return value_programDateTimeClock;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.programDateTimeClock' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> programDateTimePeriod;
-
+    @PolicyResourceProperty(name="programDateTimePeriod", flag="unknown_programDateTimePeriod")
+    private @Nullable Integer value_programDateTimePeriod;
+    private boolean unknown_programDateTimePeriod;
     public @Nullable Integer programDateTimePeriod() {
-        if (programDateTimePeriod == null) return null;
-        return programDateTimePeriod.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.programDateTimePeriod");
+        if (!unknown_programDateTimePeriod) return value_programDateTimePeriod;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.programDateTimePeriod' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> redundantManifest;
-
+    @PolicyResourceProperty(name="redundantManifest", flag="unknown_redundantManifest")
+    private @Nullable String value_redundantManifest;
+    private boolean unknown_redundantManifest;
     public @Nullable String redundantManifest() {
-        if (redundantManifest == null) return null;
-        return redundantManifest.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.redundantManifest");
+        if (!unknown_redundantManifest) return value_redundantManifest;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.redundantManifest' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> segmentLength;
-
+    @PolicyResourceProperty(name="segmentLength", flag="unknown_segmentLength")
+    private @Nullable Integer value_segmentLength;
+    private boolean unknown_segmentLength;
     public @Nullable Integer segmentLength() {
-        if (segmentLength == null) return null;
-        return segmentLength.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.segmentLength");
+        if (!unknown_segmentLength) return value_segmentLength;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.segmentLength' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> segmentsPerSubdirectory;
-
+    @PolicyResourceProperty(name="segmentsPerSubdirectory", flag="unknown_segmentsPerSubdirectory")
+    private @Nullable Integer value_segmentsPerSubdirectory;
+    private boolean unknown_segmentsPerSubdirectory;
     public @Nullable Integer segmentsPerSubdirectory() {
-        if (segmentsPerSubdirectory == null) return null;
-        return segmentsPerSubdirectory.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.segmentsPerSubdirectory");
+        if (!unknown_segmentsPerSubdirectory) return value_segmentsPerSubdirectory;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.segmentsPerSubdirectory' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> streamInfResolution;
-
+    @PolicyResourceProperty(name="streamInfResolution", flag="unknown_streamInfResolution")
+    private @Nullable String value_streamInfResolution;
+    private boolean unknown_streamInfResolution;
     public @Nullable String streamInfResolution() {
-        if (streamInfResolution == null) return null;
-        return streamInfResolution.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.streamInfResolution");
+        if (!unknown_streamInfResolution) return value_streamInfResolution;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.streamInfResolution' is not present");
     }
 
     /**
      * Indicates ID3 frame that has the timecode.
      * 
      */
-    private @Nullable UndeferrableValue<String> timedMetadataId3Frame;
-
+    @PolicyResourceProperty(name="timedMetadataId3Frame", flag="unknown_timedMetadataId3Frame")
+    private @Nullable String value_timedMetadataId3Frame;
+    private boolean unknown_timedMetadataId3Frame;
     public @Nullable String timedMetadataId3Frame() {
-        if (timedMetadataId3Frame == null) return null;
-        return timedMetadataId3Frame.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.timedMetadataId3Frame");
+        if (!unknown_timedMetadataId3Frame) return value_timedMetadataId3Frame;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.timedMetadataId3Frame' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> timedMetadataId3Period;
-
+    @PolicyResourceProperty(name="timedMetadataId3Period", flag="unknown_timedMetadataId3Period")
+    private @Nullable Integer value_timedMetadataId3Period;
+    private boolean unknown_timedMetadataId3Period;
     public @Nullable Integer timedMetadataId3Period() {
-        if (timedMetadataId3Period == null) return null;
-        return timedMetadataId3Period.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.timedMetadataId3Period");
+        if (!unknown_timedMetadataId3Period) return value_timedMetadataId3Period;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.timedMetadataId3Period' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> timestampDeltaMilliseconds;
-
+    @PolicyResourceProperty(name="timestampDeltaMilliseconds", flag="unknown_timestampDeltaMilliseconds")
+    private @Nullable Integer value_timestampDeltaMilliseconds;
+    private boolean unknown_timestampDeltaMilliseconds;
     public @Nullable Integer timestampDeltaMilliseconds() {
-        if (timestampDeltaMilliseconds == null) return null;
-        return timestampDeltaMilliseconds.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.timestampDeltaMilliseconds");
+        if (!unknown_timestampDeltaMilliseconds) return value_timestampDeltaMilliseconds;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.timestampDeltaMilliseconds' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> tsFileMode;
-
+    @PolicyResourceProperty(name="tsFileMode", flag="unknown_tsFileMode")
+    private @Nullable String value_tsFileMode;
+    private boolean unknown_tsFileMode;
     public @Nullable String tsFileMode() {
-        if (tsFileMode == null) return null;
-        return tsFileMode.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.tsFileMode");
+        if (!unknown_tsFileMode) return value_tsFileMode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings.tsFileMode' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.vpclattice.inputs.TargetGroupConfigHealthCheckArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,77 +17,84 @@ public final class TargetGroupConfigArgs {
      * The health check configuration.
      * 
      */
-    private UndeferrableValue<TargetGroupConfigHealthCheckArgs> healthCheck;
-
+    @PolicyResourceProperty(name="healthCheck", flag="unknown_healthCheck")
+    private TargetGroupConfigHealthCheckArgs value_healthCheck;
+    private boolean unknown_healthCheck;
     public TargetGroupConfigHealthCheckArgs healthCheck() {
-        if (healthCheck == null) return null;
-        return healthCheck.getValue("TargetGroupConfigArgs.healthCheck");
+        if (!unknown_healthCheck) return value_healthCheck;
+        throw new UndeferrableValueException("Value 'TargetGroupConfigArgs.healthCheck' is not present");
     }
 
     /**
      * The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
      * 
      */
-    private UndeferrableValue<String> ipAddressType;
-
+    @PolicyResourceProperty(name="ipAddressType", flag="unknown_ipAddressType")
+    private String value_ipAddressType;
+    private boolean unknown_ipAddressType;
     public String ipAddressType() {
-        if (ipAddressType == null) return null;
-        return ipAddressType.getValue("TargetGroupConfigArgs.ipAddressType");
+        if (!unknown_ipAddressType) return value_ipAddressType;
+        throw new UndeferrableValueException("Value 'TargetGroupConfigArgs.ipAddressType' is not present");
     }
 
     /**
      * The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
      * 
      */
-    private UndeferrableValue<String> lambdaEventStructureVersion;
-
+    @PolicyResourceProperty(name="lambdaEventStructureVersion", flag="unknown_lambdaEventStructureVersion")
+    private String value_lambdaEventStructureVersion;
+    private boolean unknown_lambdaEventStructureVersion;
     public String lambdaEventStructureVersion() {
-        if (lambdaEventStructureVersion == null) return null;
-        return lambdaEventStructureVersion.getValue("TargetGroupConfigArgs.lambdaEventStructureVersion");
+        if (!unknown_lambdaEventStructureVersion) return value_lambdaEventStructureVersion;
+        throw new UndeferrableValueException("Value 'TargetGroupConfigArgs.lambdaEventStructureVersion' is not present");
     }
 
     /**
      * The port on which the targets are listening.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("TargetGroupConfigArgs.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'TargetGroupConfigArgs.port' is not present");
     }
 
     /**
      * The protocol to use for routing traffic to the targets. Valid Values are `HTTP` | `HTTPS`.
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("TargetGroupConfigArgs.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'TargetGroupConfigArgs.protocol' is not present");
     }
 
     /**
      * The protocol version. Valid Values are `HTTP1` | `HTTP2` | `GRPC`. Default value is `HTTP1`.
      * 
      */
-    private UndeferrableValue<String> protocolVersion;
-
+    @PolicyResourceProperty(name="protocolVersion", flag="unknown_protocolVersion")
+    private String value_protocolVersion;
+    private boolean unknown_protocolVersion;
     public String protocolVersion() {
-        if (protocolVersion == null) return null;
-        return protocolVersion.getValue("TargetGroupConfigArgs.protocolVersion");
+        if (!unknown_protocolVersion) return value_protocolVersion;
+        throw new UndeferrableValueException("Value 'TargetGroupConfigArgs.protocolVersion' is not present");
     }
 
     /**
      * The ID of the VPC.
      * 
      */
-    private UndeferrableValue<String> vpcIdentifier;
-
+    @PolicyResourceProperty(name="vpcIdentifier", flag="unknown_vpcIdentifier")
+    private String value_vpcIdentifier;
+    private boolean unknown_vpcIdentifier;
     public String vpcIdentifier() {
-        if (vpcIdentifier == null) return null;
-        return vpcIdentifier.getValue("TargetGroupConfigArgs.vpcIdentifier");
+        if (!unknown_vpcIdentifier) return value_vpcIdentifier;
+        throw new UndeferrableValueException("Value 'TargetGroupConfigArgs.vpcIdentifier' is not present");
     }
 
 }

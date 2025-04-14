@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.inputs.ThemeConfigurationSheetTileLayoutGutterArgs;
 import com.pulumi.policypacks.aws.quicksight.inputs.ThemeConfigurationSheetTileLayoutMarginArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ThemeConfigurationSheetTileLayoutArgs {
      * The gutter settings that apply between tiles. See gutter.
      * 
      */
-    private UndeferrableValue<ThemeConfigurationSheetTileLayoutGutterArgs> gutter;
-
+    @PolicyResourceProperty(name="gutter", flag="unknown_gutter")
+    private ThemeConfigurationSheetTileLayoutGutterArgs value_gutter;
+    private boolean unknown_gutter;
     public ThemeConfigurationSheetTileLayoutGutterArgs gutter() {
-        if (gutter == null) return null;
-        return gutter.getValue("ThemeConfigurationSheetTileLayoutArgs.gutter");
+        if (!unknown_gutter) return value_gutter;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationSheetTileLayoutArgs.gutter' is not present");
     }
 
     /**
      * The margin settings that apply around the outside edge of sheets. See margin.
      * 
      */
-    private UndeferrableValue<ThemeConfigurationSheetTileLayoutMarginArgs> margin;
-
+    @PolicyResourceProperty(name="margin", flag="unknown_margin")
+    private ThemeConfigurationSheetTileLayoutMarginArgs value_margin;
+    private boolean unknown_margin;
     public ThemeConfigurationSheetTileLayoutMarginArgs margin() {
-        if (margin == null) return null;
-        return margin.getValue("ThemeConfigurationSheetTileLayoutArgs.margin");
+        if (!unknown_margin) return value_margin;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationSheetTileLayoutArgs.margin' is not present");
     }
 
 }

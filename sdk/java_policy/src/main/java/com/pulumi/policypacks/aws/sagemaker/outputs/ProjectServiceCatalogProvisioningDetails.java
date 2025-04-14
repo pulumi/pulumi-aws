@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.outputs.ProjectServiceCatalogProvisioningDetailsProvisioningParameter;
 import java.lang.String;
 import java.util.List;
@@ -16,44 +17,48 @@ public final class ProjectServiceCatalogProvisioningDetails {
      * The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
      * 
      */
-    private @Nullable UndeferrableValue<String> pathId;
-
+    @PolicyResourceProperty(name="pathId", flag="unknown_pathId")
+    private @Nullable String value_pathId;
+    private boolean unknown_pathId;
     public @Nullable String pathId() {
-        if (pathId == null) return null;
-        return pathId.getValue("ProjectServiceCatalogProvisioningDetails.pathId");
+        if (!unknown_pathId) return value_pathId;
+        throw new UndeferrableValueException("Value 'ProjectServiceCatalogProvisioningDetails.pathId' is not present");
     }
 
     /**
      * The ID of the product to provision.
      * 
      */
-    private UndeferrableValue<String> productId;
-
+    @PolicyResourceProperty(name="productId", flag="unknown_productId")
+    private String value_productId;
+    private boolean unknown_productId;
     public String productId() {
-        if (productId == null) return null;
-        return productId.getValue("ProjectServiceCatalogProvisioningDetails.productId");
+        if (!unknown_productId) return value_productId;
+        throw new UndeferrableValueException("Value 'ProjectServiceCatalogProvisioningDetails.productId' is not present");
     }
 
     /**
      * The ID of the provisioning artifact.
      * 
      */
-    private @Nullable UndeferrableValue<String> provisioningArtifactId;
-
+    @PolicyResourceProperty(name="provisioningArtifactId", flag="unknown_provisioningArtifactId")
+    private @Nullable String value_provisioningArtifactId;
+    private boolean unknown_provisioningArtifactId;
     public @Nullable String provisioningArtifactId() {
-        if (provisioningArtifactId == null) return null;
-        return provisioningArtifactId.getValue("ProjectServiceCatalogProvisioningDetails.provisioningArtifactId");
+        if (!unknown_provisioningArtifactId) return value_provisioningArtifactId;
+        throw new UndeferrableValueException("Value 'ProjectServiceCatalogProvisioningDetails.provisioningArtifactId' is not present");
     }
 
     /**
      * A list of key value pairs that you specify when you provision a product. See Provisioning Parameter below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ProjectServiceCatalogProvisioningDetailsProvisioningParameter>> provisioningParameters;
-
+    @PolicyResourceProperty(name="provisioningParameters", flag="unknown_provisioningParameters")
+    private @Nullable List<ProjectServiceCatalogProvisioningDetailsProvisioningParameter> value_provisioningParameters;
+    private boolean unknown_provisioningParameters;
     public @Nullable List<ProjectServiceCatalogProvisioningDetailsProvisioningParameter> provisioningParameters() {
-        if (provisioningParameters == null) return null;
-        return provisioningParameters.getValue("ProjectServiceCatalogProvisioningDetails.provisioningParameters");
+        if (!unknown_provisioningParameters) return value_provisioningParameters;
+        throw new UndeferrableValueException("Value 'ProjectServiceCatalogProvisioningDetails.provisioningParameters' is not present");
     }
 
 }

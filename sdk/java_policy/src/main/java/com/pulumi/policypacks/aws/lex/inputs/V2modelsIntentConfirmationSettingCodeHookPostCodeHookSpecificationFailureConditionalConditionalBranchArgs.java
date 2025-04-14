@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchConditionArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseArgs;
@@ -17,44 +18,48 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
      * Configuration block for the expression to evaluate. If the condition is true, the branch&#39;s actions are taken. See `condition`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchConditionArgs> condition;
-
+    @PolicyResourceProperty(name="condition", flag="unknown_condition")
+    private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchConditionArgs value_condition;
+    private boolean unknown_condition;
     public V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchConditionArgs condition() {
-        if (condition == null) return null;
-        return condition.getValue("V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchArgs.condition");
+        if (!unknown_condition) return value_condition;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchArgs.condition' is not present");
     }
 
     /**
      * Name of the branch.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchArgs.name' is not present");
     }
 
     /**
      * Configuration block for the next step in the conversation. See `next_step`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepArgs> nextStep;
-
+    @PolicyResourceProperty(name="nextStep", flag="unknown_nextStep")
+    private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepArgs value_nextStep;
+    private boolean unknown_nextStep;
     public V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepArgs nextStep() {
-        if (nextStep == null) return null;
-        return nextStep.getValue("V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchArgs.nextStep");
+        if (!unknown_nextStep) return value_nextStep;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchArgs.nextStep' is not present");
     }
 
     /**
      * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseArgs> response;
-
+    @PolicyResourceProperty(name="response", flag="unknown_response")
+    private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseArgs value_response;
+    private boolean unknown_response;
     public V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseArgs response() {
-        if (response == null) return null;
-        return response.getValue("V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchArgs.response");
+        if (!unknown_response) return value_response;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchArgs.response' is not present");
     }
 
 }

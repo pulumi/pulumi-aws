@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ImagePipelineImageTestsConfiguration {
      * Whether image tests are enabled. Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> imageTestsEnabled;
-
+    @PolicyResourceProperty(name="imageTestsEnabled", flag="unknown_imageTestsEnabled")
+    private @Nullable Boolean value_imageTestsEnabled;
+    private boolean unknown_imageTestsEnabled;
     public @Nullable Boolean imageTestsEnabled() {
-        if (imageTestsEnabled == null) return null;
-        return imageTestsEnabled.getValue("ImagePipelineImageTestsConfiguration.imageTestsEnabled");
+        if (!unknown_imageTestsEnabled) return value_imageTestsEnabled;
+        throw new UndeferrableValueException("Value 'ImagePipelineImageTestsConfiguration.imageTestsEnabled' is not present");
     }
 
     /**
      * Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> timeoutMinutes;
-
+    @PolicyResourceProperty(name="timeoutMinutes", flag="unknown_timeoutMinutes")
+    private @Nullable Integer value_timeoutMinutes;
+    private boolean unknown_timeoutMinutes;
     public @Nullable Integer timeoutMinutes() {
-        if (timeoutMinutes == null) return null;
-        return timeoutMinutes.getValue("ImagePipelineImageTestsConfiguration.timeoutMinutes");
+        if (!unknown_timeoutMinutes) return value_timeoutMinutes;
+        throw new UndeferrableValueException("Value 'ImagePipelineImageTestsConfiguration.timeoutMinutes' is not present");
     }
 
 }

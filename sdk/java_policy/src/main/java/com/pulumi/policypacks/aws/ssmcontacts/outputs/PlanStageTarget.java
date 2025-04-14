@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssmcontacts.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ssmcontacts.outputs.PlanStageTargetChannelTargetInfo;
 import com.pulumi.policypacks.aws.ssmcontacts.outputs.PlanStageTargetContactTargetInfo;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class PlanStageTarget {
      * A configuration block for specifying information about the contact channel that Incident Manager engages. See Channel Target Info for more details.
      * 
      */
-    private @Nullable UndeferrableValue<PlanStageTargetChannelTargetInfo> channelTargetInfo;
-
+    @PolicyResourceProperty(name="channelTargetInfo", flag="unknown_channelTargetInfo")
+    private @Nullable PlanStageTargetChannelTargetInfo value_channelTargetInfo;
+    private boolean unknown_channelTargetInfo;
     public @Nullable PlanStageTargetChannelTargetInfo channelTargetInfo() {
-        if (channelTargetInfo == null) return null;
-        return channelTargetInfo.getValue("PlanStageTarget.channelTargetInfo");
+        if (!unknown_channelTargetInfo) return value_channelTargetInfo;
+        throw new UndeferrableValueException("Value 'PlanStageTarget.channelTargetInfo' is not present");
     }
 
     /**
      * A configuration block for specifying information about the contact that Incident Manager engages. See Contact Target Info for more details.
      * 
      */
-    private @Nullable UndeferrableValue<PlanStageTargetContactTargetInfo> contactTargetInfo;
-
+    @PolicyResourceProperty(name="contactTargetInfo", flag="unknown_contactTargetInfo")
+    private @Nullable PlanStageTargetContactTargetInfo value_contactTargetInfo;
+    private boolean unknown_contactTargetInfo;
     public @Nullable PlanStageTargetContactTargetInfo contactTargetInfo() {
-        if (contactTargetInfo == null) return null;
-        return contactTargetInfo.getValue("PlanStageTarget.contactTargetInfo");
+        if (!unknown_contactTargetInfo) return value_contactTargetInfo;
+        throw new UndeferrableValueException("Value 'PlanStageTarget.contactTargetInfo' is not present");
     }
 
 }

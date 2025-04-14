@@ -3,24 +3,27 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
 public final class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs {
 
-    private UndeferrableValue<Integer> gain;
-
+    @PolicyResourceProperty(name="gain", flag="unknown_gain")
+    private Integer value_gain;
+    private boolean unknown_gain;
     public Integer gain() {
-        if (gain == null) return null;
-        return gain.getValue("ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs.gain");
+        if (!unknown_gain) return value_gain;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs.gain' is not present");
     }
 
-    private UndeferrableValue<Integer> inputChannel;
-
+    @PolicyResourceProperty(name="inputChannel", flag="unknown_inputChannel")
+    private Integer value_inputChannel;
+    private boolean unknown_inputChannel;
     public Integer inputChannel() {
-        if (inputChannel == null) return null;
-        return inputChannel.getValue("ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs.inputChannel");
+        if (!unknown_inputChannel) return value_inputChannel;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevelArgs.inputChannel' is not present");
     }
 
 }

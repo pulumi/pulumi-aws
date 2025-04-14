@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecr;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ecr.inputs.ReplicationConfigurationReplicationConfigurationArgs;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class ReplicationConfigurationArgs extends com.pulumi.resources.Pol
      * Replication configuration for a registry. See Replication Configuration.
      * 
      */
-    private UndeferrableValue<ReplicationConfigurationReplicationConfigurationArgs> replicationConfiguration;
-
+    @PolicyResourceProperty(name="replicationConfiguration", flag="unknown_replicationConfiguration")
+    private ReplicationConfigurationReplicationConfigurationArgs value_replicationConfiguration;
+    private boolean unknown_replicationConfiguration;
     public ReplicationConfigurationReplicationConfigurationArgs replicationConfiguration() {
-        if (replicationConfiguration == null) return null;
-        return replicationConfiguration.getValue("ReplicationConfigurationArgs.replicationConfiguration");
+        if (!unknown_replicationConfiguration) return value_replicationConfiguration;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationArgs.replicationConfiguration' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.globalaccelerator;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.globalaccelerator.outputs.CustomRoutingListenerPortRange;
 import java.lang.String;
@@ -17,29 +18,32 @@ public final class CustomRoutingListener extends com.pulumi.resources.PolicyReso
      * The Amazon Resource Name (ARN) of a custom routing accelerator.
      * 
      */
-    private UndeferrableValue<String> acceleratorArn;
-
+    @PolicyResourceProperty(name="acceleratorArn", flag="unknown_acceleratorArn")
+    private String value_acceleratorArn;
+    private boolean unknown_acceleratorArn;
     public String acceleratorArn() {
-        if (acceleratorArn == null) return null;
-        return acceleratorArn.getValue("CustomRoutingListener.acceleratorArn");
+        if (!unknown_acceleratorArn) return value_acceleratorArn;
+        throw new UndeferrableValueException("Value 'CustomRoutingListener.acceleratorArn' is not present");
     }
 
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("CustomRoutingListener.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'CustomRoutingListener.arn' is not present");
     }
 
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
      * 
      */
-    private UndeferrableValue<List<CustomRoutingListenerPortRange>> portRanges;
-
+    @PolicyResourceProperty(name="portRanges", flag="unknown_portRanges")
+    private List<CustomRoutingListenerPortRange> value_portRanges;
+    private boolean unknown_portRanges;
     public List<CustomRoutingListenerPortRange> portRanges() {
-        if (portRanges == null) return null;
-        return portRanges.getValue("CustomRoutingListener.portRanges");
+        if (!unknown_portRanges) return value_portRanges;
+        throw new UndeferrableValueException("Value 'CustomRoutingListener.portRanges' is not present");
     }
 
 }

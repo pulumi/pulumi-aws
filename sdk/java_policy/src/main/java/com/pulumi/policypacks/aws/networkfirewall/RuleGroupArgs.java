@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.networkfirewall.inputs.RuleGroupEncryptionConfigurationArgs;
 import com.pulumi.policypacks.aws.networkfirewall.inputs.RuleGroupRuleGroupArgs;
@@ -20,88 +21,96 @@ public final class RuleGroupArgs extends com.pulumi.resources.PolicyResourceInpu
      * The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
      * 
      */
-    private UndeferrableValue<Integer> capacity;
-
+    @PolicyResourceProperty(name="capacity", flag="unknown_capacity")
+    private Integer value_capacity;
+    private boolean unknown_capacity;
     public Integer capacity() {
-        if (capacity == null) return null;
-        return capacity.getValue("RuleGroupArgs.capacity");
+        if (!unknown_capacity) return value_capacity;
+        throw new UndeferrableValueException("Value 'RuleGroupArgs.capacity' is not present");
     }
 
     /**
      * A friendly description of the rule group.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("RuleGroupArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'RuleGroupArgs.description' is not present");
     }
 
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupEncryptionConfigurationArgs> encryptionConfiguration;
-
+    @PolicyResourceProperty(name="encryptionConfiguration", flag="unknown_encryptionConfiguration")
+    private RuleGroupEncryptionConfigurationArgs value_encryptionConfiguration;
+    private boolean unknown_encryptionConfiguration;
     public RuleGroupEncryptionConfigurationArgs encryptionConfiguration() {
-        if (encryptionConfiguration == null) return null;
-        return encryptionConfiguration.getValue("RuleGroupArgs.encryptionConfiguration");
+        if (!unknown_encryptionConfiguration) return value_encryptionConfiguration;
+        throw new UndeferrableValueException("Value 'RuleGroupArgs.encryptionConfiguration' is not present");
     }
 
     /**
      * A friendly name of the rule group.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RuleGroupArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RuleGroupArgs.name' is not present");
     }
 
     /**
      * A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleGroupArgs> ruleGroup;
-
+    @PolicyResourceProperty(name="ruleGroup", flag="unknown_ruleGroup")
+    private RuleGroupRuleGroupArgs value_ruleGroup;
+    private boolean unknown_ruleGroup;
     public RuleGroupRuleGroupArgs ruleGroup() {
-        if (ruleGroup == null) return null;
-        return ruleGroup.getValue("RuleGroupArgs.ruleGroup");
+        if (!unknown_ruleGroup) return value_ruleGroup;
+        throw new UndeferrableValueException("Value 'RuleGroupArgs.ruleGroup' is not present");
     }
 
     /**
      * The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
      * 
      */
-    private UndeferrableValue<String> rules;
-
+    @PolicyResourceProperty(name="rules", flag="unknown_rules")
+    private String value_rules;
+    private boolean unknown_rules;
     public String rules() {
-        if (rules == null) return null;
-        return rules.getValue("RuleGroupArgs.rules");
+        if (!unknown_rules) return value_rules;
+        throw new UndeferrableValueException("Value 'RuleGroupArgs.rules' is not present");
     }
 
     /**
      * A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RuleGroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RuleGroupArgs.tags' is not present");
     }
 
     /**
      * Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("RuleGroupArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'RuleGroupArgs.type' is not present");
     }
 
 }

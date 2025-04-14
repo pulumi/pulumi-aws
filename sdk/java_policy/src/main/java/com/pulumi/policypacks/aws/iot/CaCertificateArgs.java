@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.iot.inputs.CaCertificateRegistrationConfigArgs;
 import java.lang.Boolean;
@@ -19,66 +20,72 @@ public final class CaCertificateArgs extends com.pulumi.resources.PolicyResource
      * Boolean flag to indicate if the certificate should be active for device authentication.
      * 
      */
-    private UndeferrableValue<Boolean> active;
-
+    @PolicyResourceProperty(name="active", flag="unknown_active")
+    private Boolean value_active;
+    private boolean unknown_active;
     public Boolean active() {
-        if (active == null) return null;
-        return active.getValue("CaCertificateArgs.active");
+        if (!unknown_active) return value_active;
+        throw new UndeferrableValueException("Value 'CaCertificateArgs.active' is not present");
     }
 
     /**
      * Boolean flag to indicate if the certificate should be active for device regisration.
      * 
      */
-    private UndeferrableValue<Boolean> allowAutoRegistration;
-
+    @PolicyResourceProperty(name="allowAutoRegistration", flag="unknown_allowAutoRegistration")
+    private Boolean value_allowAutoRegistration;
+    private boolean unknown_allowAutoRegistration;
     public Boolean allowAutoRegistration() {
-        if (allowAutoRegistration == null) return null;
-        return allowAutoRegistration.getValue("CaCertificateArgs.allowAutoRegistration");
+        if (!unknown_allowAutoRegistration) return value_allowAutoRegistration;
+        throw new UndeferrableValueException("Value 'CaCertificateArgs.allowAutoRegistration' is not present");
     }
 
     /**
      * PEM encoded CA certificate.
      * 
      */
-    private UndeferrableValue<String> caCertificatePem;
-
+    @PolicyResourceProperty(name="caCertificatePem", flag="unknown_caCertificatePem")
+    private String value_caCertificatePem;
+    private boolean unknown_caCertificatePem;
     public String caCertificatePem() {
-        if (caCertificatePem == null) return null;
-        return caCertificatePem.getValue("CaCertificateArgs.caCertificatePem");
+        if (!unknown_caCertificatePem) return value_caCertificatePem;
+        throw new UndeferrableValueException("Value 'CaCertificateArgs.caCertificatePem' is not present");
     }
 
     /**
      * The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
      * 
      */
-    private UndeferrableValue<String> certificateMode;
-
+    @PolicyResourceProperty(name="certificateMode", flag="unknown_certificateMode")
+    private String value_certificateMode;
+    private boolean unknown_certificateMode;
     public String certificateMode() {
-        if (certificateMode == null) return null;
-        return certificateMode.getValue("CaCertificateArgs.certificateMode");
+        if (!unknown_certificateMode) return value_certificateMode;
+        throw new UndeferrableValueException("Value 'CaCertificateArgs.certificateMode' is not present");
     }
 
     /**
      * Information about the registration configuration. See below.
      * 
      */
-    private UndeferrableValue<CaCertificateRegistrationConfigArgs> registrationConfig;
-
+    @PolicyResourceProperty(name="registrationConfig", flag="unknown_registrationConfig")
+    private CaCertificateRegistrationConfigArgs value_registrationConfig;
+    private boolean unknown_registrationConfig;
     public CaCertificateRegistrationConfigArgs registrationConfig() {
-        if (registrationConfig == null) return null;
-        return registrationConfig.getValue("CaCertificateArgs.registrationConfig");
+        if (!unknown_registrationConfig) return value_registrationConfig;
+        throw new UndeferrableValueException("Value 'CaCertificateArgs.registrationConfig' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CaCertificateArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CaCertificateArgs.tags' is not present");
     }
 
     /**
@@ -86,11 +93,12 @@ public final class CaCertificateArgs extends com.pulumi.resources.PolicyResource
      * [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificate_mode` is `DEFAULT`.
      * 
      */
-    private UndeferrableValue<String> verificationCertificatePem;
-
+    @PolicyResourceProperty(name="verificationCertificatePem", flag="unknown_verificationCertificatePem")
+    private String value_verificationCertificatePem;
+    private boolean unknown_verificationCertificatePem;
     public String verificationCertificatePem() {
-        if (verificationCertificatePem == null) return null;
-        return verificationCertificatePem.getValue("CaCertificateArgs.verificationCertificatePem");
+        if (!unknown_verificationCertificatePem) return value_verificationCertificatePem;
+        throw new UndeferrableValueException("Value 'CaCertificateArgs.verificationCertificatePem' is not present");
     }
 
 }

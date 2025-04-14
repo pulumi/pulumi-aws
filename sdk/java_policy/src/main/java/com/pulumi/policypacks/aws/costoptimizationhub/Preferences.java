@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.costoptimizationhub;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class Preferences extends com.pulumi.resources.PolicyResourceOutput
      * Customize whether the member accounts can see the &#34;After Discounts&#34; savings estimates. Valid values are `All` and `None`. Default value is `All`.
      * 
      */
-    private UndeferrableValue<String> memberAccountDiscountVisibility;
-
+    @PolicyResourceProperty(name="memberAccountDiscountVisibility", flag="unknown_memberAccountDiscountVisibility")
+    private String value_memberAccountDiscountVisibility;
+    private boolean unknown_memberAccountDiscountVisibility;
     public String memberAccountDiscountVisibility() {
-        if (memberAccountDiscountVisibility == null) return null;
-        return memberAccountDiscountVisibility.getValue("Preferences.memberAccountDiscountVisibility");
+        if (!unknown_memberAccountDiscountVisibility) return value_memberAccountDiscountVisibility;
+        throw new UndeferrableValueException("Value 'Preferences.memberAccountDiscountVisibility' is not present");
     }
 
     /**
      * Customize how estimated monthly savings are calculated. Valid values are `BeforeDiscounts` and `AfterDiscounts`. Default value is `BeforeDiscounts`.
      * 
      */
-    private UndeferrableValue<String> savingsEstimationMode;
-
+    @PolicyResourceProperty(name="savingsEstimationMode", flag="unknown_savingsEstimationMode")
+    private String value_savingsEstimationMode;
+    private boolean unknown_savingsEstimationMode;
     public String savingsEstimationMode() {
-        if (savingsEstimationMode == null) return null;
-        return savingsEstimationMode.getValue("Preferences.savingsEstimationMode");
+        if (!unknown_savingsEstimationMode) return value_savingsEstimationMode;
+        throw new UndeferrableValueException("Value 'Preferences.savingsEstimationMode' is not present");
     }
 
 }

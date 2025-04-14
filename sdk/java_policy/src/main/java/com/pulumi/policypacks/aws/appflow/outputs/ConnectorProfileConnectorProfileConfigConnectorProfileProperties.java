@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude;
 import com.pulumi.policypacks.aws.appflow.outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector;
 import com.pulumi.policypacks.aws.appflow.outputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog;
@@ -31,198 +32,216 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      * The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude> amplitude;
-
+    @PolicyResourceProperty(name="amplitude", flag="unknown_amplitude")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude value_amplitude;
+    private boolean unknown_amplitude;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude amplitude() {
-        if (amplitude == null) return null;
-        return amplitude.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileProperties.amplitude");
+        if (!unknown_amplitude) return value_amplitude;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileProperties.amplitude' is not present");
     }
 
     /**
      * The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector> customConnector;
-
+    @PolicyResourceProperty(name="customConnector", flag="unknown_customConnector")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector value_customConnector;
+    private boolean unknown_customConnector;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector customConnector() {
-        if (customConnector == null) return null;
-        return customConnector.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileProperties.customConnector");
+        if (!unknown_customConnector) return value_customConnector;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileProperties.customConnector' is not present");
     }
 
     /**
      * Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog> datadog;
-
+    @PolicyResourceProperty(name="datadog", flag="unknown_datadog")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog value_datadog;
+    private boolean unknown_datadog;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog datadog() {
-        if (datadog == null) return null;
-        return datadog.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileProperties.datadog");
+        if (!unknown_datadog) return value_datadog;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileProperties.datadog' is not present");
     }
 
     /**
      * The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace> dynatrace;
-
+    @PolicyResourceProperty(name="dynatrace", flag="unknown_dynatrace")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace value_dynatrace;
+    private boolean unknown_dynatrace;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace dynatrace() {
-        if (dynatrace == null) return null;
-        return dynatrace.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileProperties.dynatrace");
+        if (!unknown_dynatrace) return value_dynatrace;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileProperties.dynatrace' is not present");
     }
 
     /**
      * The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics> googleAnalytics;
-
+    @PolicyResourceProperty(name="googleAnalytics", flag="unknown_googleAnalytics")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics value_googleAnalytics;
+    private boolean unknown_googleAnalytics;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics googleAnalytics() {
-        if (googleAnalytics == null) return null;
-        return googleAnalytics.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileProperties.googleAnalytics");
+        if (!unknown_googleAnalytics) return value_googleAnalytics;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileProperties.googleAnalytics' is not present");
     }
 
     /**
      * The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode> honeycode;
-
+    @PolicyResourceProperty(name="honeycode", flag="unknown_honeycode")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode value_honeycode;
+    private boolean unknown_honeycode;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode honeycode() {
-        if (honeycode == null) return null;
-        return honeycode.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileProperties.honeycode");
+        if (!unknown_honeycode) return value_honeycode;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileProperties.honeycode' is not present");
     }
 
     /**
      * The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus> inforNexus;
-
+    @PolicyResourceProperty(name="inforNexus", flag="unknown_inforNexus")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus value_inforNexus;
+    private boolean unknown_inforNexus;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus inforNexus() {
-        if (inforNexus == null) return null;
-        return inforNexus.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileProperties.inforNexus");
+        if (!unknown_inforNexus) return value_inforNexus;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileProperties.inforNexus' is not present");
     }
 
     /**
      * Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo> marketo;
-
+    @PolicyResourceProperty(name="marketo", flag="unknown_marketo")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo value_marketo;
+    private boolean unknown_marketo;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo marketo() {
-        if (marketo == null) return null;
-        return marketo.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileProperties.marketo");
+        if (!unknown_marketo) return value_marketo;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileProperties.marketo' is not present");
     }
 
     /**
      * Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift> redshift;
-
+    @PolicyResourceProperty(name="redshift", flag="unknown_redshift")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift value_redshift;
+    private boolean unknown_redshift;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift redshift() {
-        if (redshift == null) return null;
-        return redshift.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileProperties.redshift");
+        if (!unknown_redshift) return value_redshift;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileProperties.redshift' is not present");
     }
 
     /**
      * The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce> salesforce;
-
+    @PolicyResourceProperty(name="salesforce", flag="unknown_salesforce")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce value_salesforce;
+    private boolean unknown_salesforce;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce salesforce() {
-        if (salesforce == null) return null;
-        return salesforce.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileProperties.salesforce");
+        if (!unknown_salesforce) return value_salesforce;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileProperties.salesforce' is not present");
     }
 
     /**
      * The connector-specific properties required when using SAPOData. See SAPOData Connector Profile Properties for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData> sapoData;
-
+    @PolicyResourceProperty(name="sapoData", flag="unknown_sapoData")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData value_sapoData;
+    private boolean unknown_sapoData;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData sapoData() {
-        if (sapoData == null) return null;
-        return sapoData.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileProperties.sapoData");
+        if (!unknown_sapoData) return value_sapoData;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileProperties.sapoData' is not present");
     }
 
     /**
      * The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow> serviceNow;
-
+    @PolicyResourceProperty(name="serviceNow", flag="unknown_serviceNow")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow value_serviceNow;
+    private boolean unknown_serviceNow;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow serviceNow() {
-        if (serviceNow == null) return null;
-        return serviceNow.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileProperties.serviceNow");
+        if (!unknown_serviceNow) return value_serviceNow;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileProperties.serviceNow' is not present");
     }
 
     /**
      * Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular> singular;
-
+    @PolicyResourceProperty(name="singular", flag="unknown_singular")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular value_singular;
+    private boolean unknown_singular;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular singular() {
-        if (singular == null) return null;
-        return singular.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileProperties.singular");
+        if (!unknown_singular) return value_singular;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileProperties.singular' is not present");
     }
 
     /**
      * Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack> slack;
-
+    @PolicyResourceProperty(name="slack", flag="unknown_slack")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack value_slack;
+    private boolean unknown_slack;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack slack() {
-        if (slack == null) return null;
-        return slack.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileProperties.slack");
+        if (!unknown_slack) return value_slack;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileProperties.slack' is not present");
     }
 
     /**
      * The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake> snowflake;
-
+    @PolicyResourceProperty(name="snowflake", flag="unknown_snowflake")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake value_snowflake;
+    private boolean unknown_snowflake;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake snowflake() {
-        if (snowflake == null) return null;
-        return snowflake.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileProperties.snowflake");
+        if (!unknown_snowflake) return value_snowflake;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileProperties.snowflake' is not present");
     }
 
     /**
      * The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro> trendmicro;
-
+    @PolicyResourceProperty(name="trendmicro", flag="unknown_trendmicro")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro value_trendmicro;
+    private boolean unknown_trendmicro;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro trendmicro() {
-        if (trendmicro == null) return null;
-        return trendmicro.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileProperties.trendmicro");
+        if (!unknown_trendmicro) return value_trendmicro;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileProperties.trendmicro' is not present");
     }
 
     /**
      * Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva> veeva;
-
+    @PolicyResourceProperty(name="veeva", flag="unknown_veeva")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva value_veeva;
+    private boolean unknown_veeva;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva veeva() {
-        if (veeva == null) return null;
-        return veeva.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileProperties.veeva");
+        if (!unknown_veeva) return value_veeva;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileProperties.veeva' is not present");
     }
 
     /**
      * Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk> zendesk;
-
+    @PolicyResourceProperty(name="zendesk", flag="unknown_zendesk")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk value_zendesk;
+    private boolean unknown_zendesk;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk zendesk() {
-        if (zendesk == null) return null;
-        return zendesk.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileProperties.zendesk");
+        if (!unknown_zendesk) return value_zendesk;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileProperties.zendesk' is not present");
     }
 
 }

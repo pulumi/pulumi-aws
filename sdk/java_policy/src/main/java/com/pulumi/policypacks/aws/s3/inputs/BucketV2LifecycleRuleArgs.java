@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.inputs.BucketV2LifecycleRuleExpirationArgs;
 import com.pulumi.policypacks.aws.s3.inputs.BucketV2LifecycleRuleNoncurrentVersionExpirationArgs;
 import com.pulumi.policypacks.aws.s3.inputs.BucketV2LifecycleRuleNoncurrentVersionTransitionArgs;
@@ -22,99 +23,108 @@ public final class BucketV2LifecycleRuleArgs {
      * Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
      * 
      */
-    private UndeferrableValue<Integer> abortIncompleteMultipartUploadDays;
-
+    @PolicyResourceProperty(name="abortIncompleteMultipartUploadDays", flag="unknown_abortIncompleteMultipartUploadDays")
+    private Integer value_abortIncompleteMultipartUploadDays;
+    private boolean unknown_abortIncompleteMultipartUploadDays;
     public Integer abortIncompleteMultipartUploadDays() {
-        if (abortIncompleteMultipartUploadDays == null) return null;
-        return abortIncompleteMultipartUploadDays.getValue("BucketV2LifecycleRuleArgs.abortIncompleteMultipartUploadDays");
+        if (!unknown_abortIncompleteMultipartUploadDays) return value_abortIncompleteMultipartUploadDays;
+        throw new UndeferrableValueException("Value 'BucketV2LifecycleRuleArgs.abortIncompleteMultipartUploadDays' is not present");
     }
 
     /**
      * Specifies lifecycle rule status.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("BucketV2LifecycleRuleArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'BucketV2LifecycleRuleArgs.enabled' is not present");
     }
 
     /**
      * Specifies a period in the object&#39;s expire. See Expiration below for details.
      * 
      */
-    private UndeferrableValue<List<BucketV2LifecycleRuleExpirationArgs>> expirations;
-
+    @PolicyResourceProperty(name="expirations", flag="unknown_expirations")
+    private List<BucketV2LifecycleRuleExpirationArgs> value_expirations;
+    private boolean unknown_expirations;
     public List<BucketV2LifecycleRuleExpirationArgs> expirations() {
-        if (expirations == null) return null;
-        return expirations.getValue("BucketV2LifecycleRuleArgs.expirations");
+        if (!unknown_expirations) return value_expirations;
+        throw new UndeferrableValueException("Value 'BucketV2LifecycleRuleArgs.expirations' is not present");
     }
 
     /**
      * Unique identifier for the rule. Must be less than or equal to 255 characters in length.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("BucketV2LifecycleRuleArgs.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'BucketV2LifecycleRuleArgs.id' is not present");
     }
 
     /**
      * Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
      * 
      */
-    private UndeferrableValue<List<BucketV2LifecycleRuleNoncurrentVersionExpirationArgs>> noncurrentVersionExpirations;
-
+    @PolicyResourceProperty(name="noncurrentVersionExpirations", flag="unknown_noncurrentVersionExpirations")
+    private List<BucketV2LifecycleRuleNoncurrentVersionExpirationArgs> value_noncurrentVersionExpirations;
+    private boolean unknown_noncurrentVersionExpirations;
     public List<BucketV2LifecycleRuleNoncurrentVersionExpirationArgs> noncurrentVersionExpirations() {
-        if (noncurrentVersionExpirations == null) return null;
-        return noncurrentVersionExpirations.getValue("BucketV2LifecycleRuleArgs.noncurrentVersionExpirations");
+        if (!unknown_noncurrentVersionExpirations) return value_noncurrentVersionExpirations;
+        throw new UndeferrableValueException("Value 'BucketV2LifecycleRuleArgs.noncurrentVersionExpirations' is not present");
     }
 
     /**
      * Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
      * 
      */
-    private UndeferrableValue<List<BucketV2LifecycleRuleNoncurrentVersionTransitionArgs>> noncurrentVersionTransitions;
-
+    @PolicyResourceProperty(name="noncurrentVersionTransitions", flag="unknown_noncurrentVersionTransitions")
+    private List<BucketV2LifecycleRuleNoncurrentVersionTransitionArgs> value_noncurrentVersionTransitions;
+    private boolean unknown_noncurrentVersionTransitions;
     public List<BucketV2LifecycleRuleNoncurrentVersionTransitionArgs> noncurrentVersionTransitions() {
-        if (noncurrentVersionTransitions == null) return null;
-        return noncurrentVersionTransitions.getValue("BucketV2LifecycleRuleArgs.noncurrentVersionTransitions");
+        if (!unknown_noncurrentVersionTransitions) return value_noncurrentVersionTransitions;
+        throw new UndeferrableValueException("Value 'BucketV2LifecycleRuleArgs.noncurrentVersionTransitions' is not present");
     }
 
     /**
      * Object key prefix identifying one or more objects to which the rule applies.
      * 
      */
-    private UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private String value_prefix;
+    private boolean unknown_prefix;
     public String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("BucketV2LifecycleRuleArgs.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'BucketV2LifecycleRuleArgs.prefix' is not present");
     }
 
     /**
      * Specifies object tags key and value.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("BucketV2LifecycleRuleArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'BucketV2LifecycleRuleArgs.tags' is not present");
     }
 
     /**
      * Specifies a period in the object&#39;s transitions. See Transition below for details.
      * 
      */
-    private UndeferrableValue<List<BucketV2LifecycleRuleTransitionArgs>> transitions;
-
+    @PolicyResourceProperty(name="transitions", flag="unknown_transitions")
+    private List<BucketV2LifecycleRuleTransitionArgs> value_transitions;
+    private boolean unknown_transitions;
     public List<BucketV2LifecycleRuleTransitionArgs> transitions() {
-        if (transitions == null) return null;
-        return transitions.getValue("BucketV2LifecycleRuleArgs.transitions");
+        if (!unknown_transitions) return value_transitions;
+        throw new UndeferrableValueException("Value 'BucketV2LifecycleRuleArgs.transitions' is not present");
     }
 
 }

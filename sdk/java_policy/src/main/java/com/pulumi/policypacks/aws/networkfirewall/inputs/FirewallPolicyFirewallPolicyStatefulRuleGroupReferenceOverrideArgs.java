@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrid
      * The action that changes the rule group from DROP to ALERT . This only applies to managed rule groups.
      * 
      */
-    private UndeferrableValue<String> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private String value_action;
+    private boolean unknown_action;
     public String action() {
-        if (action == null) return null;
-        return action.getValue("FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs.action' is not present");
     }
 
 }

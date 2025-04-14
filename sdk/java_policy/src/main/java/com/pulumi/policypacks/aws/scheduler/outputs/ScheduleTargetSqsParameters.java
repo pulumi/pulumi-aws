@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.scheduler.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ScheduleTargetSqsParameters {
      * FIFO message group ID to use as the target.
      * 
      */
-    private @Nullable UndeferrableValue<String> messageGroupId;
-
+    @PolicyResourceProperty(name="messageGroupId", flag="unknown_messageGroupId")
+    private @Nullable String value_messageGroupId;
+    private boolean unknown_messageGroupId;
     public @Nullable String messageGroupId() {
-        if (messageGroupId == null) return null;
-        return messageGroupId.getValue("ScheduleTargetSqsParameters.messageGroupId");
+        if (!unknown_messageGroupId) return value_messageGroupId;
+        throw new UndeferrableValueException("Value 'ScheduleTargetSqsParameters.messageGroupId' is not present");
     }
 
 }

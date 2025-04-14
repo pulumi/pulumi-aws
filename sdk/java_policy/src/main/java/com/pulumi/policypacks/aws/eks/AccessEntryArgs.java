@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,22 +19,24 @@ public final class AccessEntryArgs extends com.pulumi.resources.PolicyResourceIn
      * Name of the EKS Cluster.
      * 
      */
-    private UndeferrableValue<String> clusterName;
-
+    @PolicyResourceProperty(name="clusterName", flag="unknown_clusterName")
+    private String value_clusterName;
+    private boolean unknown_clusterName;
     public String clusterName() {
-        if (clusterName == null) return null;
-        return clusterName.getValue("AccessEntryArgs.clusterName");
+        if (!unknown_clusterName) return value_clusterName;
+        throw new UndeferrableValueException("Value 'AccessEntryArgs.clusterName' is not present");
     }
 
     /**
      * List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
      * 
      */
-    private UndeferrableValue<List<String>> kubernetesGroups;
-
+    @PolicyResourceProperty(name="kubernetesGroups", flag="unknown_kubernetesGroups")
+    private List<String> value_kubernetesGroups;
+    private boolean unknown_kubernetesGroups;
     public List<String> kubernetesGroups() {
-        if (kubernetesGroups == null) return null;
-        return kubernetesGroups.getValue("AccessEntryArgs.kubernetesGroups");
+        if (!unknown_kubernetesGroups) return value_kubernetesGroups;
+        throw new UndeferrableValueException("Value 'AccessEntryArgs.kubernetesGroups' is not present");
     }
 
     /**
@@ -42,44 +45,48 @@ public final class AccessEntryArgs extends com.pulumi.resources.PolicyResourceIn
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> principalArn;
-
+    @PolicyResourceProperty(name="principalArn", flag="unknown_principalArn")
+    private String value_principalArn;
+    private boolean unknown_principalArn;
     public String principalArn() {
-        if (principalArn == null) return null;
-        return principalArn.getValue("AccessEntryArgs.principalArn");
+        if (!unknown_principalArn) return value_principalArn;
+        throw new UndeferrableValueException("Value 'AccessEntryArgs.principalArn' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AccessEntryArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AccessEntryArgs.tags' is not present");
     }
 
     /**
      * Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("AccessEntryArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'AccessEntryArgs.type' is not present");
     }
 
     /**
      * Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
      * 
      */
-    private UndeferrableValue<String> userName;
-
+    @PolicyResourceProperty(name="userName", flag="unknown_userName")
+    private String value_userName;
+    private boolean unknown_userName;
     public String userName() {
-        if (userName == null) return null;
-        return userName.getValue("AccessEntryArgs.userName");
+        if (!unknown_userName) return value_userName;
+        throw new UndeferrableValueException("Value 'AccessEntryArgs.userName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -11,18 +12,20 @@ import javax.annotation.Nullable;
 
 public final class JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs {
 
-    private UndeferrableValue<Map<String,String>> limits;
-
+    @PolicyResourceProperty(name="limits", flag="unknown_limits")
+    private Map<String,String> value_limits;
+    private boolean unknown_limits;
     public Map<String,String> limits() {
-        if (limits == null) return null;
-        return limits.getValue("JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs.limits");
+        if (!unknown_limits) return value_limits;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs.limits' is not present");
     }
 
-    private UndeferrableValue<Map<String,String>> requests;
-
+    @PolicyResourceProperty(name="requests", flag="unknown_requests")
+    private Map<String,String> value_requests;
+    private boolean unknown_requests;
     public Map<String,String> requests() {
-        if (requests == null) return null;
-        return requests.getValue("JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs.requests");
+        if (!unknown_requests) return value_requests;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs.requests' is not present");
     }
 
 }

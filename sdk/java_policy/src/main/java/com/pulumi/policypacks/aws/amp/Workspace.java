@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.amp;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.amp.outputs.WorkspaceLoggingConfiguration;
 import java.lang.String;
@@ -18,66 +19,72 @@ public final class Workspace extends com.pulumi.resources.PolicyResourceOutput {
      * The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
      * 
      */
-    private @Nullable UndeferrableValue<String> alias;
-
+    @PolicyResourceProperty(name="alias", flag="unknown_alias")
+    private @Nullable String value_alias;
+    private boolean unknown_alias;
     public @Nullable String alias() {
-        if (alias == null) return null;
-        return alias.getValue("Workspace.alias");
+        if (!unknown_alias) return value_alias;
+        throw new UndeferrableValueException("Value 'Workspace.alias' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the workspace.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Workspace.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Workspace.arn' is not present");
     }
 
     /**
      * The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private @Nullable String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public @Nullable String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("Workspace.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'Workspace.kmsKeyArn' is not present");
     }
 
     /**
      * Logging configuration for the workspace. See Logging Configuration below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WorkspaceLoggingConfiguration> loggingConfiguration;
-
+    @PolicyResourceProperty(name="loggingConfiguration", flag="unknown_loggingConfiguration")
+    private @Nullable WorkspaceLoggingConfiguration value_loggingConfiguration;
+    private boolean unknown_loggingConfiguration;
     public @Nullable WorkspaceLoggingConfiguration loggingConfiguration() {
-        if (loggingConfiguration == null) return null;
-        return loggingConfiguration.getValue("Workspace.loggingConfiguration");
+        if (!unknown_loggingConfiguration) return value_loggingConfiguration;
+        throw new UndeferrableValueException("Value 'Workspace.loggingConfiguration' is not present");
     }
 
     /**
      * Prometheus endpoint available for this workspace.
      * 
      */
-    private UndeferrableValue<String> prometheusEndpoint;
-
+    @PolicyResourceProperty(name="prometheusEndpoint", flag="unknown_prometheusEndpoint")
+    private String value_prometheusEndpoint;
+    private boolean unknown_prometheusEndpoint;
     public String prometheusEndpoint() {
-        if (prometheusEndpoint == null) return null;
-        return prometheusEndpoint.getValue("Workspace.prometheusEndpoint");
+        if (!unknown_prometheusEndpoint) return value_prometheusEndpoint;
+        throw new UndeferrableValueException("Value 'Workspace.prometheusEndpoint' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Workspace.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Workspace.tags' is not present");
     }
 
     /**
@@ -88,11 +95,12 @@ public final class Workspace extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Workspace.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Workspace.tagsAll' is not present");
     }
 
 }

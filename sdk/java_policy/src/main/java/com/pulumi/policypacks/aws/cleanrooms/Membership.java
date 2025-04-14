@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cleanrooms;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cleanrooms.outputs.MembershipDefaultResultConfiguration;
 import com.pulumi.policypacks.aws.cleanrooms.outputs.MembershipPaymentConfiguration;
@@ -20,139 +21,152 @@ public final class Membership extends com.pulumi.resources.PolicyResourceOutput 
      * The ARN of the membership.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Membership.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Membership.arn' is not present");
     }
 
     /**
      * The ARN of the joined collaboration.
      * 
      */
-    private UndeferrableValue<String> collaborationArn;
-
+    @PolicyResourceProperty(name="collaborationArn", flag="unknown_collaborationArn")
+    private String value_collaborationArn;
+    private boolean unknown_collaborationArn;
     public String collaborationArn() {
-        if (collaborationArn == null) return null;
-        return collaborationArn.getValue("Membership.collaborationArn");
+        if (!unknown_collaborationArn) return value_collaborationArn;
+        throw new UndeferrableValueException("Value 'Membership.collaborationArn' is not present");
     }
 
     /**
      * The account ID of the collaboration&#39;s creator.
      * 
      */
-    private UndeferrableValue<String> collaborationCreatorAccountId;
-
+    @PolicyResourceProperty(name="collaborationCreatorAccountId", flag="unknown_collaborationCreatorAccountId")
+    private String value_collaborationCreatorAccountId;
+    private boolean unknown_collaborationCreatorAccountId;
     public String collaborationCreatorAccountId() {
-        if (collaborationCreatorAccountId == null) return null;
-        return collaborationCreatorAccountId.getValue("Membership.collaborationCreatorAccountId");
+        if (!unknown_collaborationCreatorAccountId) return value_collaborationCreatorAccountId;
+        throw new UndeferrableValueException("Value 'Membership.collaborationCreatorAccountId' is not present");
     }
 
     /**
      * The display name of the collaboration&#39;s creator.
      * 
      */
-    private UndeferrableValue<String> collaborationCreatorDisplayName;
-
+    @PolicyResourceProperty(name="collaborationCreatorDisplayName", flag="unknown_collaborationCreatorDisplayName")
+    private String value_collaborationCreatorDisplayName;
+    private boolean unknown_collaborationCreatorDisplayName;
     public String collaborationCreatorDisplayName() {
-        if (collaborationCreatorDisplayName == null) return null;
-        return collaborationCreatorDisplayName.getValue("Membership.collaborationCreatorDisplayName");
+        if (!unknown_collaborationCreatorDisplayName) return value_collaborationCreatorDisplayName;
+        throw new UndeferrableValueException("Value 'Membership.collaborationCreatorDisplayName' is not present");
     }
 
     /**
      * The ID of the collaboration to which the member was invited.
      * 
      */
-    private UndeferrableValue<String> collaborationId;
-
+    @PolicyResourceProperty(name="collaborationId", flag="unknown_collaborationId")
+    private String value_collaborationId;
+    private boolean unknown_collaborationId;
     public String collaborationId() {
-        if (collaborationId == null) return null;
-        return collaborationId.getValue("Membership.collaborationId");
+        if (!unknown_collaborationId) return value_collaborationId;
+        throw new UndeferrableValueException("Value 'Membership.collaborationId' is not present");
     }
 
     /**
      * The name of the joined collaboration.
      * 
      */
-    private UndeferrableValue<String> collaborationName;
-
+    @PolicyResourceProperty(name="collaborationName", flag="unknown_collaborationName")
+    private String value_collaborationName;
+    private boolean unknown_collaborationName;
     public String collaborationName() {
-        if (collaborationName == null) return null;
-        return collaborationName.getValue("Membership.collaborationName");
+        if (!unknown_collaborationName) return value_collaborationName;
+        throw new UndeferrableValueException("Value 'Membership.collaborationName' is not present");
     }
 
     /**
      * The date and time the membership was created.
      * 
      */
-    private UndeferrableValue<String> createTime;
-
+    @PolicyResourceProperty(name="createTime", flag="unknown_createTime")
+    private String value_createTime;
+    private boolean unknown_createTime;
     public String createTime() {
-        if (createTime == null) return null;
-        return createTime.getValue("Membership.createTime");
+        if (!unknown_createTime) return value_createTime;
+        throw new UndeferrableValueException("Value 'Membership.createTime' is not present");
     }
 
     /**
      * The default configuration for a query result.
      * 
      */
-    private @Nullable UndeferrableValue<MembershipDefaultResultConfiguration> defaultResultConfiguration;
-
+    @PolicyResourceProperty(name="defaultResultConfiguration", flag="unknown_defaultResultConfiguration")
+    private @Nullable MembershipDefaultResultConfiguration value_defaultResultConfiguration;
+    private boolean unknown_defaultResultConfiguration;
     public @Nullable MembershipDefaultResultConfiguration defaultResultConfiguration() {
-        if (defaultResultConfiguration == null) return null;
-        return defaultResultConfiguration.getValue("Membership.defaultResultConfiguration");
+        if (!unknown_defaultResultConfiguration) return value_defaultResultConfiguration;
+        throw new UndeferrableValueException("Value 'Membership.defaultResultConfiguration' is not present");
     }
 
     /**
      * The list of abilities for the invited member.
      * 
      */
-    private UndeferrableValue<List<String>> memberAbilities;
-
+    @PolicyResourceProperty(name="memberAbilities", flag="unknown_memberAbilities")
+    private List<String> value_memberAbilities;
+    private boolean unknown_memberAbilities;
     public List<String> memberAbilities() {
-        if (memberAbilities == null) return null;
-        return memberAbilities.getValue("Membership.memberAbilities");
+        if (!unknown_memberAbilities) return value_memberAbilities;
+        throw new UndeferrableValueException("Value 'Membership.memberAbilities' is not present");
     }
 
-    private @Nullable UndeferrableValue<MembershipPaymentConfiguration> paymentConfiguration;
-
+    @PolicyResourceProperty(name="paymentConfiguration", flag="unknown_paymentConfiguration")
+    private @Nullable MembershipPaymentConfiguration value_paymentConfiguration;
+    private boolean unknown_paymentConfiguration;
     public @Nullable MembershipPaymentConfiguration paymentConfiguration() {
-        if (paymentConfiguration == null) return null;
-        return paymentConfiguration.getValue("Membership.paymentConfiguration");
+        if (!unknown_paymentConfiguration) return value_paymentConfiguration;
+        throw new UndeferrableValueException("Value 'Membership.paymentConfiguration' is not present");
     }
 
     /**
      * An indicator as to whether query logging has been enabled or disabled for the membership.
      * 
      */
-    private UndeferrableValue<String> queryLogStatus;
-
+    @PolicyResourceProperty(name="queryLogStatus", flag="unknown_queryLogStatus")
+    private String value_queryLogStatus;
+    private boolean unknown_queryLogStatus;
     public String queryLogStatus() {
-        if (queryLogStatus == null) return null;
-        return queryLogStatus.getValue("Membership.queryLogStatus");
+        if (!unknown_queryLogStatus) return value_queryLogStatus;
+        throw new UndeferrableValueException("Value 'Membership.queryLogStatus' is not present");
     }
 
     /**
      * The status of the membership.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Membership.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Membership.status' is not present");
     }
 
     /**
      * Key value pairs which tag the membership.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Membership.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Membership.tags' is not present");
     }
 
     /**
@@ -161,22 +175,24 @@ public final class Membership extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Membership.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Membership.tagsAll' is not present");
     }
 
     /**
      * The date and time the membership was last updated.
      * 
      */
-    private UndeferrableValue<String> updateTime;
-
+    @PolicyResourceProperty(name="updateTime", flag="unknown_updateTime")
+    private String value_updateTime;
+    private boolean unknown_updateTime;
     public String updateTime() {
-        if (updateTime == null) return null;
-        return updateTime.getValue("Membership.updateTime");
+        if (!unknown_updateTime) return value_updateTime;
+        throw new UndeferrableValueException("Value 'Membership.updateTime' is not present");
     }
 
 }

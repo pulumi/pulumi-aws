@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,55 +18,60 @@ public final class Connection extends com.pulumi.resources.PolicyResourceOutput 
      * ARN of the connection.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Connection.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Connection.arn' is not present");
     }
 
     /**
      * Name of the connection.
      * 
      */
-    private UndeferrableValue<String> connectionName;
-
+    @PolicyResourceProperty(name="connectionName", flag="unknown_connectionName")
+    private String value_connectionName;
+    private boolean unknown_connectionName;
     public String connectionName() {
-        if (connectionName == null) return null;
-        return connectionName.getValue("Connection.connectionName");
+        if (!unknown_connectionName) return value_connectionName;
+        throw new UndeferrableValueException("Value 'Connection.connectionName' is not present");
     }
 
     /**
      * Source repository provider. Valid values: `GITHUB`.
      * 
      */
-    private UndeferrableValue<String> providerType;
-
+    @PolicyResourceProperty(name="providerType", flag="unknown_providerType")
+    private String value_providerType;
+    private boolean unknown_providerType;
     public String providerType() {
-        if (providerType == null) return null;
-        return providerType.getValue("Connection.providerType");
+        if (!unknown_providerType) return value_providerType;
+        throw new UndeferrableValueException("Value 'Connection.providerType' is not present");
     }
 
     /**
      * Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `aws.apprunner.Service` resource.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Connection.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Connection.status' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Connection.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Connection.tags' is not present");
     }
 
     /**
@@ -76,11 +82,12 @@ public final class Connection extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Connection.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Connection.tagsAll' is not present");
     }
 
 }

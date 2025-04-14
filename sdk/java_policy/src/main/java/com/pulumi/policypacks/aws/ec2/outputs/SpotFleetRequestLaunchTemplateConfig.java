@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.outputs.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification;
 import com.pulumi.policypacks.aws.ec2.outputs.SpotFleetRequestLaunchTemplateConfigOverride;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class SpotFleetRequestLaunchTemplateConfig {
      * Launch template specification. See Launch Template Specification below for more details.
      * 
      */
-    private UndeferrableValue<SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification> launchTemplateSpecification;
-
+    @PolicyResourceProperty(name="launchTemplateSpecification", flag="unknown_launchTemplateSpecification")
+    private SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification value_launchTemplateSpecification;
+    private boolean unknown_launchTemplateSpecification;
     public SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification launchTemplateSpecification() {
-        if (launchTemplateSpecification == null) return null;
-        return launchTemplateSpecification.getValue("SpotFleetRequestLaunchTemplateConfig.launchTemplateSpecification");
+        if (!unknown_launchTemplateSpecification) return value_launchTemplateSpecification;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfig.launchTemplateSpecification' is not present");
     }
 
     /**
      * One or more override configurations. See Overrides below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<SpotFleetRequestLaunchTemplateConfigOverride>> overrides;
-
+    @PolicyResourceProperty(name="overrides", flag="unknown_overrides")
+    private @Nullable List<SpotFleetRequestLaunchTemplateConfigOverride> value_overrides;
+    private boolean unknown_overrides;
     public @Nullable List<SpotFleetRequestLaunchTemplateConfigOverride> overrides() {
-        if (overrides == null) return null;
-        return overrides.getValue("SpotFleetRequestLaunchTemplateConfig.overrides");
+        if (!unknown_overrides) return value_overrides;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfig.overrides' is not present");
     }
 
 }

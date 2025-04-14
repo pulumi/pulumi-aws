@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mediastore;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class ContainerPolicyArgs extends com.pulumi.resources.PolicyResour
      * The name of the container.
      * 
      */
-    private UndeferrableValue<String> containerName;
-
+    @PolicyResourceProperty(name="containerName", flag="unknown_containerName")
+    private String value_containerName;
+    private boolean unknown_containerName;
     public String containerName() {
-        if (containerName == null) return null;
-        return containerName.getValue("ContainerPolicyArgs.containerName");
+        if (!unknown_containerName) return value_containerName;
+        throw new UndeferrableValueException("Value 'ContainerPolicyArgs.containerName' is not present");
     }
 
     /**
      * The contents of the policy.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("ContainerPolicyArgs.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'ContainerPolicyArgs.policy' is not present");
     }
 
 }

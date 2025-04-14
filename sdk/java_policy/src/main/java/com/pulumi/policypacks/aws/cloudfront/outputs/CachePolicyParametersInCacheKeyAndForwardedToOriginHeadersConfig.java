@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersCon
      * Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `header_behavior` are `none` and `whitelist`.
      * 
      */
-    private @Nullable UndeferrableValue<String> headerBehavior;
-
+    @PolicyResourceProperty(name="headerBehavior", flag="unknown_headerBehavior")
+    private @Nullable String value_headerBehavior;
+    private boolean unknown_headerBehavior;
     public @Nullable String headerBehavior() {
-        if (headerBehavior == null) return null;
-        return headerBehavior.getValue("CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig.headerBehavior");
+        if (!unknown_headerBehavior) return value_headerBehavior;
+        throw new UndeferrableValueException("Value 'CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig.headerBehavior' is not present");
     }
 
     /**
      * Object contains a list of header names. See Items for more information.
      * 
      */
-    private @Nullable UndeferrableValue<CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders> headers;
-
+    @PolicyResourceProperty(name="headers", flag="unknown_headers")
+    private @Nullable CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders value_headers;
+    private boolean unknown_headers;
     public @Nullable CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders headers() {
-        if (headers == null) return null;
-        return headers.getValue("CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig.headers");
+        if (!unknown_headers) return value_headers;
+        throw new UndeferrableValueException("Value 'CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig.headers' is not present");
     }
 
 }

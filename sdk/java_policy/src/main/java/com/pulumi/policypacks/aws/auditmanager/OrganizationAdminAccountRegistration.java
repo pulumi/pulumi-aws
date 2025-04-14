@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.auditmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class OrganizationAdminAccountRegistration extends com.pulumi.resou
      * Identifier for the organization administrator account.
      * 
      */
-    private UndeferrableValue<String> adminAccountId;
-
+    @PolicyResourceProperty(name="adminAccountId", flag="unknown_adminAccountId")
+    private String value_adminAccountId;
+    private boolean unknown_adminAccountId;
     public String adminAccountId() {
-        if (adminAccountId == null) return null;
-        return adminAccountId.getValue("OrganizationAdminAccountRegistration.adminAccountId");
+        if (!unknown_adminAccountId) return value_adminAccountId;
+        throw new UndeferrableValueException("Value 'OrganizationAdminAccountRegistration.adminAccountId' is not present");
     }
 
     /**
      * Identifier for the organization.
      * 
      */
-    private UndeferrableValue<String> organizationId;
-
+    @PolicyResourceProperty(name="organizationId", flag="unknown_organizationId")
+    private String value_organizationId;
+    private boolean unknown_organizationId;
     public String organizationId() {
-        if (organizationId == null) return null;
-        return organizationId.getValue("OrganizationAdminAccountRegistration.organizationId");
+        if (!unknown_organizationId) return value_organizationId;
+        throw new UndeferrableValueException("Value 'OrganizationAdminAccountRegistration.organizationId' is not present");
     }
 
 }

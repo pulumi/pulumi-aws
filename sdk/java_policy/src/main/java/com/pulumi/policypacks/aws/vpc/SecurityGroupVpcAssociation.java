@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpc;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.vpc.outputs.SecurityGroupVpcAssociationTimeouts;
 import java.lang.String;
@@ -17,40 +18,44 @@ public final class SecurityGroupVpcAssociation extends com.pulumi.resources.Poli
      * The ID of the security group.
      * 
      */
-    private UndeferrableValue<String> securityGroupId;
-
+    @PolicyResourceProperty(name="securityGroupId", flag="unknown_securityGroupId")
+    private String value_securityGroupId;
+    private boolean unknown_securityGroupId;
     public String securityGroupId() {
-        if (securityGroupId == null) return null;
-        return securityGroupId.getValue("SecurityGroupVpcAssociation.securityGroupId");
+        if (!unknown_securityGroupId) return value_securityGroupId;
+        throw new UndeferrableValueException("Value 'SecurityGroupVpcAssociation.securityGroupId' is not present");
     }
 
     /**
      * State of the VPC association. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroupVpcAssociation.html) for possible values.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("SecurityGroupVpcAssociation.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'SecurityGroupVpcAssociation.state' is not present");
     }
 
-    private @Nullable UndeferrableValue<SecurityGroupVpcAssociationTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable SecurityGroupVpcAssociationTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable SecurityGroupVpcAssociationTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("SecurityGroupVpcAssociation.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'SecurityGroupVpcAssociation.timeouts' is not present");
     }
 
     /**
      * The ID of the VPC to make the association with.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("SecurityGroupVpcAssociation.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'SecurityGroupVpcAssociation.vpcId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.outputs.SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement;
 import com.pulumi.policypacks.aws.sagemaker.outputs.SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository;
 import com.pulumi.policypacks.aws.sagemaker.outputs.SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec;
@@ -17,33 +18,36 @@ public final class SpaceSpaceSettingsJupyterLabAppSettings {
      * Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
      * 
      */
-    private @Nullable UndeferrableValue<SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement> appLifecycleManagement;
-
+    @PolicyResourceProperty(name="appLifecycleManagement", flag="unknown_appLifecycleManagement")
+    private @Nullable SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement value_appLifecycleManagement;
+    private boolean unknown_appLifecycleManagement;
     public @Nullable SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagement appLifecycleManagement() {
-        if (appLifecycleManagement == null) return null;
-        return appLifecycleManagement.getValue("SpaceSpaceSettingsJupyterLabAppSettings.appLifecycleManagement");
+        if (!unknown_appLifecycleManagement) return value_appLifecycleManagement;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSettingsJupyterLabAppSettings.appLifecycleManagement' is not present");
     }
 
     /**
      * A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
      * 
      */
-    private @Nullable UndeferrableValue<List<SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository>> codeRepositories;
-
+    @PolicyResourceProperty(name="codeRepositories", flag="unknown_codeRepositories")
+    private @Nullable List<SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository> value_codeRepositories;
+    private boolean unknown_codeRepositories;
     public @Nullable List<SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository> codeRepositories() {
-        if (codeRepositories == null) return null;
-        return codeRepositories.getValue("SpaceSpaceSettingsJupyterLabAppSettings.codeRepositories");
+        if (!unknown_codeRepositories) return value_codeRepositories;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSettingsJupyterLabAppSettings.codeRepositories' is not present");
     }
 
     /**
      * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
      * 
      */
-    private UndeferrableValue<SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec> defaultResourceSpec;
-
+    @PolicyResourceProperty(name="defaultResourceSpec", flag="unknown_defaultResourceSpec")
+    private SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec value_defaultResourceSpec;
+    private boolean unknown_defaultResourceSpec;
     public SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec defaultResourceSpec() {
-        if (defaultResourceSpec == null) return null;
-        return defaultResourceSpec.getValue("SpaceSpaceSettingsJupyterLabAppSettings.defaultResourceSpec");
+        if (!unknown_defaultResourceSpec) return value_defaultResourceSpec;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSettingsJupyterLabAppSettings.defaultResourceSpec' is not present");
     }
 
 }

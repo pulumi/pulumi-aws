@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3.outputs.BucketOwnershipControlsRule;
 import java.lang.String;
@@ -16,22 +17,24 @@ public final class BucketOwnershipControls extends com.pulumi.resources.PolicyRe
      * Name of the bucket that you want to associate this access point with.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("BucketOwnershipControls.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'BucketOwnershipControls.bucket' is not present");
     }
 
     /**
      * Configuration block(s) with Ownership Controls rules. Detailed below.
      * 
      */
-    private UndeferrableValue<BucketOwnershipControlsRule> rule;
-
+    @PolicyResourceProperty(name="rule", flag="unknown_rule")
+    private BucketOwnershipControlsRule value_rule;
+    private boolean unknown_rule;
     public BucketOwnershipControlsRule rule() {
-        if (rule == null) return null;
-        return rule.getValue("BucketOwnershipControls.rule");
+        if (!unknown_rule) return value_rule;
+        throw new UndeferrableValueException("Value 'BucketOwnershipControls.rule' is not present");
     }
 
 }

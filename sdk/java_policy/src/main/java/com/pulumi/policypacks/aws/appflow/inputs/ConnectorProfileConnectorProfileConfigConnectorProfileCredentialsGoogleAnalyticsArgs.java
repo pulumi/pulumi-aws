@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,39 +12,44 @@ import javax.annotation.Nullable;
 
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs {
 
-    private UndeferrableValue<String> accessToken;
-
+    @PolicyResourceProperty(name="accessToken", flag="unknown_accessToken")
+    private String value_accessToken;
+    private boolean unknown_accessToken;
     public String accessToken() {
-        if (accessToken == null) return null;
-        return accessToken.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs.accessToken");
+        if (!unknown_accessToken) return value_accessToken;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs.accessToken' is not present");
     }
 
-    private UndeferrableValue<String> clientId;
-
+    @PolicyResourceProperty(name="clientId", flag="unknown_clientId")
+    private String value_clientId;
+    private boolean unknown_clientId;
     public String clientId() {
-        if (clientId == null) return null;
-        return clientId.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs.clientId");
+        if (!unknown_clientId) return value_clientId;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs.clientId' is not present");
     }
 
-    private UndeferrableValue<String> clientSecret;
-
+    @PolicyResourceProperty(name="clientSecret", flag="unknown_clientSecret")
+    private String value_clientSecret;
+    private boolean unknown_clientSecret;
     public String clientSecret() {
-        if (clientSecret == null) return null;
-        return clientSecret.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs.clientSecret");
+        if (!unknown_clientSecret) return value_clientSecret;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs.clientSecret' is not present");
     }
 
-    private UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgs> oauthRequest;
-
+    @PolicyResourceProperty(name="oauthRequest", flag="unknown_oauthRequest")
+    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgs value_oauthRequest;
+    private boolean unknown_oauthRequest;
     public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgs oauthRequest() {
-        if (oauthRequest == null) return null;
-        return oauthRequest.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs.oauthRequest");
+        if (!unknown_oauthRequest) return value_oauthRequest;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs.oauthRequest' is not present");
     }
 
-    private UndeferrableValue<String> refreshToken;
-
+    @PolicyResourceProperty(name="refreshToken", flag="unknown_refreshToken")
+    private String value_refreshToken;
+    private boolean unknown_refreshToken;
     public String refreshToken() {
-        if (refreshToken == null) return null;
-        return refreshToken.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs.refreshToken");
+        if (!unknown_refreshToken) return value_refreshToken;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs.refreshToken' is not present");
     }
 
 }

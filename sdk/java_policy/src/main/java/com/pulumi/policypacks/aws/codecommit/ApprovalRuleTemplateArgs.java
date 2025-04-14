@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codecommit;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class ApprovalRuleTemplateArgs extends com.pulumi.resources.PolicyR
      * The content of the approval rule template. Maximum of 3000 characters.
      * 
      */
-    private UndeferrableValue<String> content;
-
+    @PolicyResourceProperty(name="content", flag="unknown_content")
+    private String value_content;
+    private boolean unknown_content;
     public String content() {
-        if (content == null) return null;
-        return content.getValue("ApprovalRuleTemplateArgs.content");
+        if (!unknown_content) return value_content;
+        throw new UndeferrableValueException("Value 'ApprovalRuleTemplateArgs.content' is not present");
     }
 
     /**
      * The description of the approval rule template. Maximum of 1000 characters.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ApprovalRuleTemplateArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ApprovalRuleTemplateArgs.description' is not present");
     }
 
     /**
      * The name for the approval rule template. Maximum of 100 characters.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ApprovalRuleTemplateArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ApprovalRuleTemplateArgs.name' is not present");
     }
 
 }

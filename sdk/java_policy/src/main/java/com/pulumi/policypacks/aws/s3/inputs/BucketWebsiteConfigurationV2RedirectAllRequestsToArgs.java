@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class BucketWebsiteConfigurationV2RedirectAllRequestsToArgs {
      * Name of the host where requests are redirected.
      * 
      */
-    private UndeferrableValue<String> hostName;
-
+    @PolicyResourceProperty(name="hostName", flag="unknown_hostName")
+    private String value_hostName;
+    private boolean unknown_hostName;
     public String hostName() {
-        if (hostName == null) return null;
-        return hostName.getValue("BucketWebsiteConfigurationV2RedirectAllRequestsToArgs.hostName");
+        if (!unknown_hostName) return value_hostName;
+        throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2RedirectAllRequestsToArgs.hostName' is not present");
     }
 
     /**
      * Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("BucketWebsiteConfigurationV2RedirectAllRequestsToArgs.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2RedirectAllRequestsToArgs.protocol' is not present");
     }
 
 }

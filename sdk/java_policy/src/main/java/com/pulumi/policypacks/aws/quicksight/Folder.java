@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.quicksight.outputs.FolderPermission;
 import java.lang.String;
@@ -19,77 +20,84 @@ public final class Folder extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the folder.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Folder.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Folder.arn' is not present");
     }
 
     /**
      * AWS account ID.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("Folder.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'Folder.awsAccountId' is not present");
     }
 
     /**
      * The time that the folder was created.
      * 
      */
-    private UndeferrableValue<String> createdTime;
-
+    @PolicyResourceProperty(name="createdTime", flag="unknown_createdTime")
+    private String value_createdTime;
+    private boolean unknown_createdTime;
     public String createdTime() {
-        if (createdTime == null) return null;
-        return createdTime.getValue("Folder.createdTime");
+        if (!unknown_createdTime) return value_createdTime;
+        throw new UndeferrableValueException("Value 'Folder.createdTime' is not present");
     }
 
     /**
      * Identifier for the folder.
      * 
      */
-    private UndeferrableValue<String> folderId;
-
+    @PolicyResourceProperty(name="folderId", flag="unknown_folderId")
+    private String value_folderId;
+    private boolean unknown_folderId;
     public String folderId() {
-        if (folderId == null) return null;
-        return folderId.getValue("Folder.folderId");
+        if (!unknown_folderId) return value_folderId;
+        throw new UndeferrableValueException("Value 'Folder.folderId' is not present");
     }
 
     /**
      * An array of ancestor ARN strings for the folder. Empty for root-level folders.
      * 
      */
-    private UndeferrableValue<List<String>> folderPaths;
-
+    @PolicyResourceProperty(name="folderPaths", flag="unknown_folderPaths")
+    private List<String> value_folderPaths;
+    private boolean unknown_folderPaths;
     public List<String> folderPaths() {
-        if (folderPaths == null) return null;
-        return folderPaths.getValue("Folder.folderPaths");
+        if (!unknown_folderPaths) return value_folderPaths;
+        throw new UndeferrableValueException("Value 'Folder.folderPaths' is not present");
     }
 
     /**
      * The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> folderType;
-
+    @PolicyResourceProperty(name="folderType", flag="unknown_folderType")
+    private @Nullable String value_folderType;
+    private boolean unknown_folderType;
     public @Nullable String folderType() {
-        if (folderType == null) return null;
-        return folderType.getValue("Folder.folderType");
+        if (!unknown_folderType) return value_folderType;
+        throw new UndeferrableValueException("Value 'Folder.folderType' is not present");
     }
 
     /**
      * The time that the folder was last updated.
      * 
      */
-    private UndeferrableValue<String> lastUpdatedTime;
-
+    @PolicyResourceProperty(name="lastUpdatedTime", flag="unknown_lastUpdatedTime")
+    private String value_lastUpdatedTime;
+    private boolean unknown_lastUpdatedTime;
     public String lastUpdatedTime() {
-        if (lastUpdatedTime == null) return null;
-        return lastUpdatedTime.getValue("Folder.lastUpdatedTime");
+        if (!unknown_lastUpdatedTime) return value_lastUpdatedTime;
+        throw new UndeferrableValueException("Value 'Folder.lastUpdatedTime' is not present");
     }
 
     /**
@@ -98,44 +106,48 @@ public final class Folder extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Folder.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Folder.name' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
      * 
      */
-    private @Nullable UndeferrableValue<String> parentFolderArn;
-
+    @PolicyResourceProperty(name="parentFolderArn", flag="unknown_parentFolderArn")
+    private @Nullable String value_parentFolderArn;
+    private boolean unknown_parentFolderArn;
     public @Nullable String parentFolderArn() {
-        if (parentFolderArn == null) return null;
-        return parentFolderArn.getValue("Folder.parentFolderArn");
+        if (!unknown_parentFolderArn) return value_parentFolderArn;
+        throw new UndeferrableValueException("Value 'Folder.parentFolderArn' is not present");
     }
 
     /**
      * A set of resource permissions on the folder. Maximum of 64 items. See permissions.
      * 
      */
-    private @Nullable UndeferrableValue<List<FolderPermission>> permissions;
-
+    @PolicyResourceProperty(name="permissions", flag="unknown_permissions")
+    private @Nullable List<FolderPermission> value_permissions;
+    private boolean unknown_permissions;
     public @Nullable List<FolderPermission> permissions() {
-        if (permissions == null) return null;
-        return permissions.getValue("Folder.permissions");
+        if (!unknown_permissions) return value_permissions;
+        throw new UndeferrableValueException("Value 'Folder.permissions' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Folder.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Folder.tags' is not present");
     }
 
     /**
@@ -146,11 +158,12 @@ public final class Folder extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Folder.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Folder.tagsAll' is not present");
     }
 
 }

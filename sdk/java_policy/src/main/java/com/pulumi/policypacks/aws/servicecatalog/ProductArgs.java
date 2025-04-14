@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.servicecatalog.inputs.ProductProvisioningArtifactParametersArgs;
 import java.lang.String;
@@ -18,110 +19,120 @@ public final class ProductArgs extends com.pulumi.resources.PolicyResourceInput 
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      * 
      */
-    private UndeferrableValue<String> acceptLanguage;
-
+    @PolicyResourceProperty(name="acceptLanguage", flag="unknown_acceptLanguage")
+    private String value_acceptLanguage;
+    private boolean unknown_acceptLanguage;
     public String acceptLanguage() {
-        if (acceptLanguage == null) return null;
-        return acceptLanguage.getValue("ProductArgs.acceptLanguage");
+        if (!unknown_acceptLanguage) return value_acceptLanguage;
+        throw new UndeferrableValueException("Value 'ProductArgs.acceptLanguage' is not present");
     }
 
     /**
      * Description of the product.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ProductArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ProductArgs.description' is not present");
     }
 
     /**
      * Distributor (i.e., vendor) of the product.
      * 
      */
-    private UndeferrableValue<String> distributor;
-
+    @PolicyResourceProperty(name="distributor", flag="unknown_distributor")
+    private String value_distributor;
+    private boolean unknown_distributor;
     public String distributor() {
-        if (distributor == null) return null;
-        return distributor.getValue("ProductArgs.distributor");
+        if (!unknown_distributor) return value_distributor;
+        throw new UndeferrableValueException("Value 'ProductArgs.distributor' is not present");
     }
 
     /**
      * Name of the product.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ProductArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ProductArgs.name' is not present");
     }
 
     /**
      * Owner of the product.
      * 
      */
-    private UndeferrableValue<String> owner;
-
+    @PolicyResourceProperty(name="owner", flag="unknown_owner")
+    private String value_owner;
+    private boolean unknown_owner;
     public String owner() {
-        if (owner == null) return null;
-        return owner.getValue("ProductArgs.owner");
+        if (!unknown_owner) return value_owner;
+        throw new UndeferrableValueException("Value 'ProductArgs.owner' is not present");
     }
 
     /**
      * Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
      * 
      */
-    private UndeferrableValue<ProductProvisioningArtifactParametersArgs> provisioningArtifactParameters;
-
+    @PolicyResourceProperty(name="provisioningArtifactParameters", flag="unknown_provisioningArtifactParameters")
+    private ProductProvisioningArtifactParametersArgs value_provisioningArtifactParameters;
+    private boolean unknown_provisioningArtifactParameters;
     public ProductProvisioningArtifactParametersArgs provisioningArtifactParameters() {
-        if (provisioningArtifactParameters == null) return null;
-        return provisioningArtifactParameters.getValue("ProductArgs.provisioningArtifactParameters");
+        if (!unknown_provisioningArtifactParameters) return value_provisioningArtifactParameters;
+        throw new UndeferrableValueException("Value 'ProductArgs.provisioningArtifactParameters' is not present");
     }
 
     /**
      * Support information about the product.
      * 
      */
-    private UndeferrableValue<String> supportDescription;
-
+    @PolicyResourceProperty(name="supportDescription", flag="unknown_supportDescription")
+    private String value_supportDescription;
+    private boolean unknown_supportDescription;
     public String supportDescription() {
-        if (supportDescription == null) return null;
-        return supportDescription.getValue("ProductArgs.supportDescription");
+        if (!unknown_supportDescription) return value_supportDescription;
+        throw new UndeferrableValueException("Value 'ProductArgs.supportDescription' is not present");
     }
 
     /**
      * Contact email for product support.
      * 
      */
-    private UndeferrableValue<String> supportEmail;
-
+    @PolicyResourceProperty(name="supportEmail", flag="unknown_supportEmail")
+    private String value_supportEmail;
+    private boolean unknown_supportEmail;
     public String supportEmail() {
-        if (supportEmail == null) return null;
-        return supportEmail.getValue("ProductArgs.supportEmail");
+        if (!unknown_supportEmail) return value_supportEmail;
+        throw new UndeferrableValueException("Value 'ProductArgs.supportEmail' is not present");
     }
 
     /**
      * Contact URL for product support.
      * 
      */
-    private UndeferrableValue<String> supportUrl;
-
+    @PolicyResourceProperty(name="supportUrl", flag="unknown_supportUrl")
+    private String value_supportUrl;
+    private boolean unknown_supportUrl;
     public String supportUrl() {
-        if (supportUrl == null) return null;
-        return supportUrl.getValue("ProductArgs.supportUrl");
+        if (!unknown_supportUrl) return value_supportUrl;
+        throw new UndeferrableValueException("Value 'ProductArgs.supportUrl' is not present");
     }
 
     /**
      * Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ProductArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ProductArgs.tags' is not present");
     }
 
     /**
@@ -130,11 +141,12 @@ public final class ProductArgs extends com.pulumi.resources.PolicyResourceInput 
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ProductArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ProductArgs.type' is not present");
     }
 
 }

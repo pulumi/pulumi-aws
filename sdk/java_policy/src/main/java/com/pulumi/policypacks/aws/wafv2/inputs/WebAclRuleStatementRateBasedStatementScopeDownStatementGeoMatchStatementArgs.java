@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfigArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMat
      * Array of two-character country codes, for example, [ &#34;US&#34;, &#34;CN&#34; ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
      * 
      */
-    private UndeferrableValue<List<String>> countryCodes;
-
+    @PolicyResourceProperty(name="countryCodes", flag="unknown_countryCodes")
+    private List<String> value_countryCodes;
+    private boolean unknown_countryCodes;
     public List<String> countryCodes() {
-        if (countryCodes == null) return null;
-        return countryCodes.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs.countryCodes");
+        if (!unknown_countryCodes) return value_countryCodes;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs.countryCodes' is not present");
     }
 
     /**
      * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. See `forwarded_ip_config` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfigArgs> forwardedIpConfig;
-
+    @PolicyResourceProperty(name="forwardedIpConfig", flag="unknown_forwardedIpConfig")
+    private WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfigArgs value_forwardedIpConfig;
+    private boolean unknown_forwardedIpConfig;
     public WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfigArgs forwardedIpConfig() {
-        if (forwardedIpConfig == null) return null;
-        return forwardedIpConfig.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs.forwardedIpConfig");
+        if (!unknown_forwardedIpConfig) return value_forwardedIpConfig;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs.forwardedIpConfig' is not present");
     }
 
 }

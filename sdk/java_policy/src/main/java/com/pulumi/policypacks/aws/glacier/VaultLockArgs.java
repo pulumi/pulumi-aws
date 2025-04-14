@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glacier;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class VaultLockArgs extends com.pulumi.resources.PolicyResourceInpu
      * Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
      * 
      */
-    private UndeferrableValue<Boolean> completeLock;
-
+    @PolicyResourceProperty(name="completeLock", flag="unknown_completeLock")
+    private Boolean value_completeLock;
+    private boolean unknown_completeLock;
     public Boolean completeLock() {
-        if (completeLock == null) return null;
-        return completeLock.getValue("VaultLockArgs.completeLock");
+        if (!unknown_completeLock) return value_completeLock;
+        throw new UndeferrableValueException("Value 'VaultLockArgs.completeLock' is not present");
     }
 
     /**
      * Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> ignoreDeletionError;
-
+    @PolicyResourceProperty(name="ignoreDeletionError", flag="unknown_ignoreDeletionError")
+    private Boolean value_ignoreDeletionError;
+    private boolean unknown_ignoreDeletionError;
     public Boolean ignoreDeletionError() {
-        if (ignoreDeletionError == null) return null;
-        return ignoreDeletionError.getValue("VaultLockArgs.ignoreDeletionError");
+        if (!unknown_ignoreDeletionError) return value_ignoreDeletionError;
+        throw new UndeferrableValueException("Value 'VaultLockArgs.ignoreDeletionError' is not present");
     }
 
     /**
      * JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("VaultLockArgs.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'VaultLockArgs.policy' is not present");
     }
 
     /**
      * The name of the Glacier Vault.
      * 
      */
-    private UndeferrableValue<String> vaultName;
-
+    @PolicyResourceProperty(name="vaultName", flag="unknown_vaultName")
+    private String value_vaultName;
+    private boolean unknown_vaultName;
     public String vaultName() {
-        if (vaultName == null) return null;
-        return vaultName.getValue("VaultLockArgs.vaultName");
+        if (!unknown_vaultName) return value_vaultName;
+        throw new UndeferrableValueException("Value 'VaultLockArgs.vaultName' is not present");
     }
 
 }

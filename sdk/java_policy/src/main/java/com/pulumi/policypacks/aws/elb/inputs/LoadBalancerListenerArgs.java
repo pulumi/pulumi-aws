@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elb.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class LoadBalancerListenerArgs {
      * The port on the instance to route to
      * 
      */
-    private UndeferrableValue<Integer> instancePort;
-
+    @PolicyResourceProperty(name="instancePort", flag="unknown_instancePort")
+    private Integer value_instancePort;
+    private boolean unknown_instancePort;
     public Integer instancePort() {
-        if (instancePort == null) return null;
-        return instancePort.getValue("LoadBalancerListenerArgs.instancePort");
+        if (!unknown_instancePort) return value_instancePort;
+        throw new UndeferrableValueException("Value 'LoadBalancerListenerArgs.instancePort' is not present");
     }
 
     /**
@@ -27,22 +29,24 @@ public final class LoadBalancerListenerArgs {
      * values are `HTTP`, `HTTPS`, `TCP`, or `SSL`
      * 
      */
-    private UndeferrableValue<String> instanceProtocol;
-
+    @PolicyResourceProperty(name="instanceProtocol", flag="unknown_instanceProtocol")
+    private String value_instanceProtocol;
+    private boolean unknown_instanceProtocol;
     public String instanceProtocol() {
-        if (instanceProtocol == null) return null;
-        return instanceProtocol.getValue("LoadBalancerListenerArgs.instanceProtocol");
+        if (!unknown_instanceProtocol) return value_instanceProtocol;
+        throw new UndeferrableValueException("Value 'LoadBalancerListenerArgs.instanceProtocol' is not present");
     }
 
     /**
      * The port to listen on for the load balancer
      * 
      */
-    private UndeferrableValue<Integer> lbPort;
-
+    @PolicyResourceProperty(name="lbPort", flag="unknown_lbPort")
+    private Integer value_lbPort;
+    private boolean unknown_lbPort;
     public Integer lbPort() {
-        if (lbPort == null) return null;
-        return lbPort.getValue("LoadBalancerListenerArgs.lbPort");
+        if (!unknown_lbPort) return value_lbPort;
+        throw new UndeferrableValueException("Value 'LoadBalancerListenerArgs.lbPort' is not present");
     }
 
     /**
@@ -50,11 +54,12 @@ public final class LoadBalancerListenerArgs {
      * `HTTPS`, `TCP`, or `SSL`
      * 
      */
-    private UndeferrableValue<String> lbProtocol;
-
+    @PolicyResourceProperty(name="lbProtocol", flag="unknown_lbProtocol")
+    private String value_lbProtocol;
+    private boolean unknown_lbProtocol;
     public String lbProtocol() {
-        if (lbProtocol == null) return null;
-        return lbProtocol.getValue("LoadBalancerListenerArgs.lbProtocol");
+        if (!unknown_lbProtocol) return value_lbProtocol;
+        throw new UndeferrableValueException("Value 'LoadBalancerListenerArgs.lbProtocol' is not present");
     }
 
     /**
@@ -62,11 +67,12 @@ public final class LoadBalancerListenerArgs {
      * uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lb_protocol` is either HTTPS or SSL**
      * 
      */
-    private UndeferrableValue<String> sslCertificateId;
-
+    @PolicyResourceProperty(name="sslCertificateId", flag="unknown_sslCertificateId")
+    private String value_sslCertificateId;
+    private boolean unknown_sslCertificateId;
     public String sslCertificateId() {
-        if (sslCertificateId == null) return null;
-        return sslCertificateId.getValue("LoadBalancerListenerArgs.sslCertificateId");
+        if (!unknown_sslCertificateId) return value_sslCertificateId;
+        throw new UndeferrableValueException("Value 'LoadBalancerListenerArgs.sslCertificateId' is not present");
     }
 
 }

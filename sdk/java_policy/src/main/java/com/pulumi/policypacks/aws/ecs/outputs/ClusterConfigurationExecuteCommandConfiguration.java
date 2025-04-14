@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ecs.outputs.ClusterConfigurationExecuteCommandConfigurationLogConfiguration;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ClusterConfigurationExecuteCommandConfiguration {
      * AWS Key Management Service key ID to encrypt the data between the local client and the container.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("ClusterConfigurationExecuteCommandConfiguration.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'ClusterConfigurationExecuteCommandConfiguration.kmsKeyId' is not present");
     }
 
     /**
      * Log configuration for the results of the execute command actions. Required when `logging` is `OVERRIDE`. See `log_configuration` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<ClusterConfigurationExecuteCommandConfigurationLogConfiguration> logConfiguration;
-
+    @PolicyResourceProperty(name="logConfiguration", flag="unknown_logConfiguration")
+    private @Nullable ClusterConfigurationExecuteCommandConfigurationLogConfiguration value_logConfiguration;
+    private boolean unknown_logConfiguration;
     public @Nullable ClusterConfigurationExecuteCommandConfigurationLogConfiguration logConfiguration() {
-        if (logConfiguration == null) return null;
-        return logConfiguration.getValue("ClusterConfigurationExecuteCommandConfiguration.logConfiguration");
+        if (!unknown_logConfiguration) return value_logConfiguration;
+        throw new UndeferrableValueException("Value 'ClusterConfigurationExecuteCommandConfiguration.logConfiguration' is not present");
     }
 
     /**
      * Log setting to use for redirecting logs for your execute command results. Valid values: `NONE`, `DEFAULT`, `OVERRIDE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> logging;
-
+    @PolicyResourceProperty(name="logging", flag="unknown_logging")
+    private @Nullable String value_logging;
+    private boolean unknown_logging;
     public @Nullable String logging() {
-        if (logging == null) return null;
-        return logging.getValue("ClusterConfigurationExecuteCommandConfiguration.logging");
+        if (!unknown_logging) return value_logging;
+        throw new UndeferrableValueException("Value 'ClusterConfigurationExecuteCommandConfiguration.logging' is not present");
     }
 
 }

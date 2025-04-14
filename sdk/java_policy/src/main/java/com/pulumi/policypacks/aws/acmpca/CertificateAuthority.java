@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.acmpca;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.acmpca.outputs.CertificateAuthorityCertificateAuthorityConfiguration;
 import com.pulumi.policypacks.aws.acmpca.outputs.CertificateAuthorityRevocationConfiguration;
@@ -21,143 +22,156 @@ public final class CertificateAuthority extends com.pulumi.resources.PolicyResou
      * ARN of the certificate authority.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("CertificateAuthority.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'CertificateAuthority.arn' is not present");
     }
 
     /**
      * Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
      * 
      */
-    private UndeferrableValue<String> certificate;
-
+    @PolicyResourceProperty(name="certificate", flag="unknown_certificate")
+    private String value_certificate;
+    private boolean unknown_certificate;
     public String certificate() {
-        if (certificate == null) return null;
-        return certificate.getValue("CertificateAuthority.certificate");
+        if (!unknown_certificate) return value_certificate;
+        throw new UndeferrableValueException("Value 'CertificateAuthority.certificate' is not present");
     }
 
     /**
      * Nested argument containing algorithms and certificate subject information. Defined below.
      * 
      */
-    private UndeferrableValue<CertificateAuthorityCertificateAuthorityConfiguration> certificateAuthorityConfiguration;
-
+    @PolicyResourceProperty(name="certificateAuthorityConfiguration", flag="unknown_certificateAuthorityConfiguration")
+    private CertificateAuthorityCertificateAuthorityConfiguration value_certificateAuthorityConfiguration;
+    private boolean unknown_certificateAuthorityConfiguration;
     public CertificateAuthorityCertificateAuthorityConfiguration certificateAuthorityConfiguration() {
-        if (certificateAuthorityConfiguration == null) return null;
-        return certificateAuthorityConfiguration.getValue("CertificateAuthority.certificateAuthorityConfiguration");
+        if (!unknown_certificateAuthorityConfiguration) return value_certificateAuthorityConfiguration;
+        throw new UndeferrableValueException("Value 'CertificateAuthority.certificateAuthorityConfiguration' is not present");
     }
 
     /**
      * Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
      * 
      */
-    private UndeferrableValue<String> certificateChain;
-
+    @PolicyResourceProperty(name="certificateChain", flag="unknown_certificateChain")
+    private String value_certificateChain;
+    private boolean unknown_certificateChain;
     public String certificateChain() {
-        if (certificateChain == null) return null;
-        return certificateChain.getValue("CertificateAuthority.certificateChain");
+        if (!unknown_certificateChain) return value_certificateChain;
+        throw new UndeferrableValueException("Value 'CertificateAuthority.certificateChain' is not present");
     }
 
     /**
      * The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
      * 
      */
-    private UndeferrableValue<String> certificateSigningRequest;
-
+    @PolicyResourceProperty(name="certificateSigningRequest", flag="unknown_certificateSigningRequest")
+    private String value_certificateSigningRequest;
+    private boolean unknown_certificateSigningRequest;
     public String certificateSigningRequest() {
-        if (certificateSigningRequest == null) return null;
-        return certificateSigningRequest.getValue("CertificateAuthority.certificateSigningRequest");
+        if (!unknown_certificateSigningRequest) return value_certificateSigningRequest;
+        throw new UndeferrableValueException("Value 'CertificateAuthority.certificateSigningRequest' is not present");
     }
 
     /**
      * Whether the certificate authority is enabled or disabled. Defaults to `true`. Can only be disabled if the CA is in an `ACTIVE` state.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("CertificateAuthority.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'CertificateAuthority.enabled' is not present");
     }
 
     /**
      * Cryptographic key management compliance standard used for handling CA keys. Defaults to `FIPS_140_2_LEVEL_3_OR_HIGHER`. Valid values: `FIPS_140_2_LEVEL_3_OR_HIGHER` and `FIPS_140_2_LEVEL_2_OR_HIGHER`. Supported standard for each region can be found in the [Storage and security compliance of AWS Private CA private keys Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/data-protection.html#private-keys).
      * 
      */
-    private UndeferrableValue<String> keyStorageSecurityStandard;
-
+    @PolicyResourceProperty(name="keyStorageSecurityStandard", flag="unknown_keyStorageSecurityStandard")
+    private String value_keyStorageSecurityStandard;
+    private boolean unknown_keyStorageSecurityStandard;
     public String keyStorageSecurityStandard() {
-        if (keyStorageSecurityStandard == null) return null;
-        return keyStorageSecurityStandard.getValue("CertificateAuthority.keyStorageSecurityStandard");
+        if (!unknown_keyStorageSecurityStandard) return value_keyStorageSecurityStandard;
+        throw new UndeferrableValueException("Value 'CertificateAuthority.keyStorageSecurityStandard' is not present");
     }
 
     /**
      * Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      * 
      */
-    private UndeferrableValue<String> notAfter;
-
+    @PolicyResourceProperty(name="notAfter", flag="unknown_notAfter")
+    private String value_notAfter;
+    private boolean unknown_notAfter;
     public String notAfter() {
-        if (notAfter == null) return null;
-        return notAfter.getValue("CertificateAuthority.notAfter");
+        if (!unknown_notAfter) return value_notAfter;
+        throw new UndeferrableValueException("Value 'CertificateAuthority.notAfter' is not present");
     }
 
     /**
      * Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      * 
      */
-    private UndeferrableValue<String> notBefore;
-
+    @PolicyResourceProperty(name="notBefore", flag="unknown_notBefore")
+    private String value_notBefore;
+    private boolean unknown_notBefore;
     public String notBefore() {
-        if (notBefore == null) return null;
-        return notBefore.getValue("CertificateAuthority.notBefore");
+        if (!unknown_notBefore) return value_notBefore;
+        throw new UndeferrableValueException("Value 'CertificateAuthority.notBefore' is not present");
     }
 
     /**
      * Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> permanentDeletionTimeInDays;
-
+    @PolicyResourceProperty(name="permanentDeletionTimeInDays", flag="unknown_permanentDeletionTimeInDays")
+    private @Nullable Integer value_permanentDeletionTimeInDays;
+    private boolean unknown_permanentDeletionTimeInDays;
     public @Nullable Integer permanentDeletionTimeInDays() {
-        if (permanentDeletionTimeInDays == null) return null;
-        return permanentDeletionTimeInDays.getValue("CertificateAuthority.permanentDeletionTimeInDays");
+        if (!unknown_permanentDeletionTimeInDays) return value_permanentDeletionTimeInDays;
+        throw new UndeferrableValueException("Value 'CertificateAuthority.permanentDeletionTimeInDays' is not present");
     }
 
     /**
      * Nested argument containing revocation configuration. Defined below.
      * 
      */
-    private @Nullable UndeferrableValue<CertificateAuthorityRevocationConfiguration> revocationConfiguration;
-
+    @PolicyResourceProperty(name="revocationConfiguration", flag="unknown_revocationConfiguration")
+    private @Nullable CertificateAuthorityRevocationConfiguration value_revocationConfiguration;
+    private boolean unknown_revocationConfiguration;
     public @Nullable CertificateAuthorityRevocationConfiguration revocationConfiguration() {
-        if (revocationConfiguration == null) return null;
-        return revocationConfiguration.getValue("CertificateAuthority.revocationConfiguration");
+        if (!unknown_revocationConfiguration) return value_revocationConfiguration;
+        throw new UndeferrableValueException("Value 'CertificateAuthority.revocationConfiguration' is not present");
     }
 
     /**
      * Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
      * 
      */
-    private UndeferrableValue<String> serial;
-
+    @PolicyResourceProperty(name="serial", flag="unknown_serial")
+    private String value_serial;
+    private boolean unknown_serial;
     public String serial() {
-        if (serial == null) return null;
-        return serial.getValue("CertificateAuthority.serial");
+        if (!unknown_serial) return value_serial;
+        throw new UndeferrableValueException("Value 'CertificateAuthority.serial' is not present");
     }
 
     /**
      * Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CertificateAuthority.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CertificateAuthority.tags' is not present");
     }
 
     /**
@@ -168,33 +182,36 @@ public final class CertificateAuthority extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("CertificateAuthority.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'CertificateAuthority.tagsAll' is not present");
     }
 
     /**
      * Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("CertificateAuthority.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'CertificateAuthority.type' is not present");
     }
 
     /**
      * Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
      * 
      */
-    private UndeferrableValue<String> usageMode;
-
+    @PolicyResourceProperty(name="usageMode", flag="unknown_usageMode")
+    private String value_usageMode;
+    private boolean unknown_usageMode;
     public String usageMode() {
-        if (usageMode == null) return null;
-        return usageMode.getValue("CertificateAuthority.usageMode");
+        if (!unknown_usageMode) return value_usageMode;
+        throw new UndeferrableValueException("Value 'CertificateAuthority.usageMode' is not present");
     }
 
 }

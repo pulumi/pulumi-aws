@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,95 +19,104 @@ public final class IpSet extends com.pulumi.resources.PolicyResourceOutput {
      * Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> addresses;
-
+    @PolicyResourceProperty(name="addresses", flag="unknown_addresses")
+    private @Nullable List<String> value_addresses;
+    private boolean unknown_addresses;
     public @Nullable List<String> addresses() {
-        if (addresses == null) return null;
-        return addresses.getValue("IpSet.addresses");
+        if (!unknown_addresses) return value_addresses;
+        throw new UndeferrableValueException("Value 'IpSet.addresses' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the IP set.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("IpSet.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'IpSet.arn' is not present");
     }
 
     /**
      * A friendly description of the IP set.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("IpSet.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'IpSet.description' is not present");
     }
 
     /**
      * Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
      * 
      */
-    private UndeferrableValue<String> ipAddressVersion;
-
+    @PolicyResourceProperty(name="ipAddressVersion", flag="unknown_ipAddressVersion")
+    private String value_ipAddressVersion;
+    private boolean unknown_ipAddressVersion;
     public String ipAddressVersion() {
-        if (ipAddressVersion == null) return null;
-        return ipAddressVersion.getValue("IpSet.ipAddressVersion");
+        if (!unknown_ipAddressVersion) return value_ipAddressVersion;
+        throw new UndeferrableValueException("Value 'IpSet.ipAddressVersion' is not present");
     }
 
-    private UndeferrableValue<String> lockToken;
-
+    @PolicyResourceProperty(name="lockToken", flag="unknown_lockToken")
+    private String value_lockToken;
+    private boolean unknown_lockToken;
     public String lockToken() {
-        if (lockToken == null) return null;
-        return lockToken.getValue("IpSet.lockToken");
+        if (!unknown_lockToken) return value_lockToken;
+        throw new UndeferrableValueException("Value 'IpSet.lockToken' is not present");
     }
 
     /**
      * A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("IpSet.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'IpSet.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("IpSet.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'IpSet.namePrefix' is not present");
     }
 
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
      * 
      */
-    private UndeferrableValue<String> scope;
-
+    @PolicyResourceProperty(name="scope", flag="unknown_scope")
+    private String value_scope;
+    private boolean unknown_scope;
     public String scope() {
-        if (scope == null) return null;
-        return scope.getValue("IpSet.scope");
+        if (!unknown_scope) return value_scope;
+        throw new UndeferrableValueException("Value 'IpSet.scope' is not present");
     }
 
     /**
      * An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("IpSet.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'IpSet.tags' is not present");
     }
 
     /**
@@ -117,11 +127,12 @@ public final class IpSet extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("IpSet.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'IpSet.tagsAll' is not present");
     }
 
 }

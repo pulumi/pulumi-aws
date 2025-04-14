@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lightsail.inputs.DistributionCacheBehaviorSettingsForwardedCookiesArgs;
 import com.pulumi.policypacks.aws.lightsail.inputs.DistributionCacheBehaviorSettingsForwardedHeadersArgs;
 import com.pulumi.policypacks.aws.lightsail.inputs.DistributionCacheBehaviorSettingsForwardedQueryStringsArgs;
@@ -18,88 +19,96 @@ public final class DistributionCacheBehaviorSettingsArgs {
      * The HTTP methods that are processed and forwarded to the distribution&#39;s origin.
      * 
      */
-    private UndeferrableValue<String> allowedHttpMethods;
-
+    @PolicyResourceProperty(name="allowedHttpMethods", flag="unknown_allowedHttpMethods")
+    private String value_allowedHttpMethods;
+    private boolean unknown_allowedHttpMethods;
     public String allowedHttpMethods() {
-        if (allowedHttpMethods == null) return null;
-        return allowedHttpMethods.getValue("DistributionCacheBehaviorSettingsArgs.allowedHttpMethods");
+        if (!unknown_allowedHttpMethods) return value_allowedHttpMethods;
+        throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsArgs.allowedHttpMethods' is not present");
     }
 
     /**
      * The HTTP method responses that are cached by your distribution.
      * 
      */
-    private UndeferrableValue<String> cachedHttpMethods;
-
+    @PolicyResourceProperty(name="cachedHttpMethods", flag="unknown_cachedHttpMethods")
+    private String value_cachedHttpMethods;
+    private boolean unknown_cachedHttpMethods;
     public String cachedHttpMethods() {
-        if (cachedHttpMethods == null) return null;
-        return cachedHttpMethods.getValue("DistributionCacheBehaviorSettingsArgs.cachedHttpMethods");
+        if (!unknown_cachedHttpMethods) return value_cachedHttpMethods;
+        throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsArgs.cachedHttpMethods' is not present");
     }
 
     /**
      * The default amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the content has been updated.
      * 
      */
-    private UndeferrableValue<Integer> defaultTtl;
-
+    @PolicyResourceProperty(name="defaultTtl", flag="unknown_defaultTtl")
+    private Integer value_defaultTtl;
+    private boolean unknown_defaultTtl;
     public Integer defaultTtl() {
-        if (defaultTtl == null) return null;
-        return defaultTtl.getValue("DistributionCacheBehaviorSettingsArgs.defaultTtl");
+        if (!unknown_defaultTtl) return value_defaultTtl;
+        throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsArgs.defaultTtl' is not present");
     }
 
     /**
      * An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. Detailed below
      * 
      */
-    private UndeferrableValue<DistributionCacheBehaviorSettingsForwardedCookiesArgs> forwardedCookies;
-
+    @PolicyResourceProperty(name="forwardedCookies", flag="unknown_forwardedCookies")
+    private DistributionCacheBehaviorSettingsForwardedCookiesArgs value_forwardedCookies;
+    private boolean unknown_forwardedCookies;
     public DistributionCacheBehaviorSettingsForwardedCookiesArgs forwardedCookies() {
-        if (forwardedCookies == null) return null;
-        return forwardedCookies.getValue("DistributionCacheBehaviorSettingsArgs.forwardedCookies");
+        if (!unknown_forwardedCookies) return value_forwardedCookies;
+        throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsArgs.forwardedCookies' is not present");
     }
 
     /**
      * An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. Detailed below
      * 
      */
-    private UndeferrableValue<DistributionCacheBehaviorSettingsForwardedHeadersArgs> forwardedHeaders;
-
+    @PolicyResourceProperty(name="forwardedHeaders", flag="unknown_forwardedHeaders")
+    private DistributionCacheBehaviorSettingsForwardedHeadersArgs value_forwardedHeaders;
+    private boolean unknown_forwardedHeaders;
     public DistributionCacheBehaviorSettingsForwardedHeadersArgs forwardedHeaders() {
-        if (forwardedHeaders == null) return null;
-        return forwardedHeaders.getValue("DistributionCacheBehaviorSettingsArgs.forwardedHeaders");
+        if (!unknown_forwardedHeaders) return value_forwardedHeaders;
+        throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsArgs.forwardedHeaders' is not present");
     }
 
     /**
      * An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. Detailed below
      * 
      */
-    private UndeferrableValue<DistributionCacheBehaviorSettingsForwardedQueryStringsArgs> forwardedQueryStrings;
-
+    @PolicyResourceProperty(name="forwardedQueryStrings", flag="unknown_forwardedQueryStrings")
+    private DistributionCacheBehaviorSettingsForwardedQueryStringsArgs value_forwardedQueryStrings;
+    private boolean unknown_forwardedQueryStrings;
     public DistributionCacheBehaviorSettingsForwardedQueryStringsArgs forwardedQueryStrings() {
-        if (forwardedQueryStrings == null) return null;
-        return forwardedQueryStrings.getValue("DistributionCacheBehaviorSettingsArgs.forwardedQueryStrings");
+        if (!unknown_forwardedQueryStrings) return value_forwardedQueryStrings;
+        throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsArgs.forwardedQueryStrings' is not present");
     }
 
     /**
      * The maximum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
      * 
      */
-    private UndeferrableValue<Integer> maximumTtl;
-
+    @PolicyResourceProperty(name="maximumTtl", flag="unknown_maximumTtl")
+    private Integer value_maximumTtl;
+    private boolean unknown_maximumTtl;
     public Integer maximumTtl() {
-        if (maximumTtl == null) return null;
-        return maximumTtl.getValue("DistributionCacheBehaviorSettingsArgs.maximumTtl");
+        if (!unknown_maximumTtl) return value_maximumTtl;
+        throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsArgs.maximumTtl' is not present");
     }
 
     /**
      * The minimum amount of time that objects stay in the distribution&#39;s cache before the distribution forwards another request to the origin to determine whether the object has been updated.
      * 
      */
-    private UndeferrableValue<Integer> minimumTtl;
-
+    @PolicyResourceProperty(name="minimumTtl", flag="unknown_minimumTtl")
+    private Integer value_minimumTtl;
+    private boolean unknown_minimumTtl;
     public Integer minimumTtl() {
-        if (minimumTtl == null) return null;
-        return minimumTtl.getValue("DistributionCacheBehaviorSettingsArgs.minimumTtl");
+        if (!unknown_minimumTtl) return value_minimumTtl;
+        throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsArgs.minimumTtl' is not present");
     }
 
 }

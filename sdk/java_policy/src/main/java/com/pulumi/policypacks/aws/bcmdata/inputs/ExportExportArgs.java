@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bcmdata.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bcmdata.inputs.ExportExportDataQueryArgs;
 import com.pulumi.policypacks.aws.bcmdata.inputs.ExportExportDestinationConfigurationArgs;
 import com.pulumi.policypacks.aws.bcmdata.inputs.ExportExportRefreshCadenceArgs;
@@ -18,66 +19,72 @@ public final class ExportExportArgs {
      * Data query for this specific data export. See the `data_query` argument reference below.
      * 
      */
-    private UndeferrableValue<List<ExportExportDataQueryArgs>> dataQueries;
-
+    @PolicyResourceProperty(name="dataQueries", flag="unknown_dataQueries")
+    private List<ExportExportDataQueryArgs> value_dataQueries;
+    private boolean unknown_dataQueries;
     public List<ExportExportDataQueryArgs> dataQueries() {
-        if (dataQueries == null) return null;
-        return dataQueries.getValue("ExportExportArgs.dataQueries");
+        if (!unknown_dataQueries) return value_dataQueries;
+        throw new UndeferrableValueException("Value 'ExportExportArgs.dataQueries' is not present");
     }
 
     /**
      * Description for this specific data export.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ExportExportArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ExportExportArgs.description' is not present");
     }
 
     /**
      * Destination configuration for this specific data export. See the `destination_configurations` argument reference below.
      * 
      */
-    private UndeferrableValue<List<ExportExportDestinationConfigurationArgs>> destinationConfigurations;
-
+    @PolicyResourceProperty(name="destinationConfigurations", flag="unknown_destinationConfigurations")
+    private List<ExportExportDestinationConfigurationArgs> value_destinationConfigurations;
+    private boolean unknown_destinationConfigurations;
     public List<ExportExportDestinationConfigurationArgs> destinationConfigurations() {
-        if (destinationConfigurations == null) return null;
-        return destinationConfigurations.getValue("ExportExportArgs.destinationConfigurations");
+        if (!unknown_destinationConfigurations) return value_destinationConfigurations;
+        throw new UndeferrableValueException("Value 'ExportExportArgs.destinationConfigurations' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) for this export.
      * 
      */
-    private UndeferrableValue<String> exportArn;
-
+    @PolicyResourceProperty(name="exportArn", flag="unknown_exportArn")
+    private String value_exportArn;
+    private boolean unknown_exportArn;
     public String exportArn() {
-        if (exportArn == null) return null;
-        return exportArn.getValue("ExportExportArgs.exportArn");
+        if (!unknown_exportArn) return value_exportArn;
+        throw new UndeferrableValueException("Value 'ExportExportArgs.exportArn' is not present");
     }
 
     /**
      * Name of this specific data export.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ExportExportArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ExportExportArgs.name' is not present");
     }
 
     /**
      * Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refresh_cadence` argument reference below.
      * 
      */
-    private UndeferrableValue<List<ExportExportRefreshCadenceArgs>> refreshCadences;
-
+    @PolicyResourceProperty(name="refreshCadences", flag="unknown_refreshCadences")
+    private List<ExportExportRefreshCadenceArgs> value_refreshCadences;
+    private boolean unknown_refreshCadences;
     public List<ExportExportRefreshCadenceArgs> refreshCadences() {
-        if (refreshCadences == null) return null;
-        return refreshCadences.getValue("ExportExportArgs.refreshCadences");
+        if (!unknown_refreshCadences) return value_refreshCadences;
+        throw new UndeferrableValueException("Value 'ExportExportArgs.refreshCadences' is not present");
     }
 
 }

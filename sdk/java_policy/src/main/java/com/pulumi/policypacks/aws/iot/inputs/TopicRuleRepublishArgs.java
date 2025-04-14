@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class TopicRuleRepublishArgs {
      * The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
      * 
      */
-    private UndeferrableValue<Integer> qos;
-
+    @PolicyResourceProperty(name="qos", flag="unknown_qos")
+    private Integer value_qos;
+    private boolean unknown_qos;
     public Integer qos() {
-        if (qos == null) return null;
-        return qos.getValue("TopicRuleRepublishArgs.qos");
+        if (!unknown_qos) return value_qos;
+        throw new UndeferrableValueException("Value 'TopicRuleRepublishArgs.qos' is not present");
     }
 
     /**
      * The ARN of the IAM role that grants access.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("TopicRuleRepublishArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'TopicRuleRepublishArgs.roleArn' is not present");
     }
 
     /**
      * The name of the MQTT topic the message should be republished to.
      * 
      */
-    private UndeferrableValue<String> topic;
-
+    @PolicyResourceProperty(name="topic", flag="unknown_topic")
+    private String value_topic;
+    private boolean unknown_topic;
     public String topic() {
-        if (topic == null) return null;
-        return topic.getValue("TopicRuleRepublishArgs.topic");
+        if (!unknown_topic) return value_topic;
+        throw new UndeferrableValueException("Value 'TopicRuleRepublishArgs.topic' is not present");
     }
 
 }

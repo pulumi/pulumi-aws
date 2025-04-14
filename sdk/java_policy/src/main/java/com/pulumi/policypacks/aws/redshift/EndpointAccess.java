@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.redshift.outputs.EndpointAccessVpcEndpoint;
 import java.lang.Integer;
@@ -18,88 +19,96 @@ public final class EndpointAccess extends com.pulumi.resources.PolicyResourceOut
      * The DNS address of the endpoint.
      * 
      */
-    private UndeferrableValue<String> address;
-
+    @PolicyResourceProperty(name="address", flag="unknown_address")
+    private String value_address;
+    private boolean unknown_address;
     public String address() {
-        if (address == null) return null;
-        return address.getValue("EndpointAccess.address");
+        if (!unknown_address) return value_address;
+        throw new UndeferrableValueException("Value 'EndpointAccess.address' is not present");
     }
 
     /**
      * The cluster identifier of the cluster to access.
      * 
      */
-    private UndeferrableValue<String> clusterIdentifier;
-
+    @PolicyResourceProperty(name="clusterIdentifier", flag="unknown_clusterIdentifier")
+    private String value_clusterIdentifier;
+    private boolean unknown_clusterIdentifier;
     public String clusterIdentifier() {
-        if (clusterIdentifier == null) return null;
-        return clusterIdentifier.getValue("EndpointAccess.clusterIdentifier");
+        if (!unknown_clusterIdentifier) return value_clusterIdentifier;
+        throw new UndeferrableValueException("Value 'EndpointAccess.clusterIdentifier' is not present");
     }
 
     /**
      * The Redshift-managed VPC endpoint name.
      * 
      */
-    private UndeferrableValue<String> endpointName;
-
+    @PolicyResourceProperty(name="endpointName", flag="unknown_endpointName")
+    private String value_endpointName;
+    private boolean unknown_endpointName;
     public String endpointName() {
-        if (endpointName == null) return null;
-        return endpointName.getValue("EndpointAccess.endpointName");
+        if (!unknown_endpointName) return value_endpointName;
+        throw new UndeferrableValueException("Value 'EndpointAccess.endpointName' is not present");
     }
 
     /**
      * The port number on which the cluster accepts incoming connections.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("EndpointAccess.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'EndpointAccess.port' is not present");
     }
 
     /**
      * The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
      * 
      */
-    private UndeferrableValue<String> resourceOwner;
-
+    @PolicyResourceProperty(name="resourceOwner", flag="unknown_resourceOwner")
+    private String value_resourceOwner;
+    private boolean unknown_resourceOwner;
     public String resourceOwner() {
-        if (resourceOwner == null) return null;
-        return resourceOwner.getValue("EndpointAccess.resourceOwner");
+        if (!unknown_resourceOwner) return value_resourceOwner;
+        throw new UndeferrableValueException("Value 'EndpointAccess.resourceOwner' is not present");
     }
 
     /**
      * The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
      * 
      */
-    private UndeferrableValue<String> subnetGroupName;
-
+    @PolicyResourceProperty(name="subnetGroupName", flag="unknown_subnetGroupName")
+    private String value_subnetGroupName;
+    private boolean unknown_subnetGroupName;
     public String subnetGroupName() {
-        if (subnetGroupName == null) return null;
-        return subnetGroupName.getValue("EndpointAccess.subnetGroupName");
+        if (!unknown_subnetGroupName) return value_subnetGroupName;
+        throw new UndeferrableValueException("Value 'EndpointAccess.subnetGroupName' is not present");
     }
 
     /**
      * The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
      * 
      */
-    private UndeferrableValue<List<EndpointAccessVpcEndpoint>> vpcEndpoints;
-
+    @PolicyResourceProperty(name="vpcEndpoints", flag="unknown_vpcEndpoints")
+    private List<EndpointAccessVpcEndpoint> value_vpcEndpoints;
+    private boolean unknown_vpcEndpoints;
     public List<EndpointAccessVpcEndpoint> vpcEndpoints() {
-        if (vpcEndpoints == null) return null;
-        return vpcEndpoints.getValue("EndpointAccess.vpcEndpoints");
+        if (!unknown_vpcEndpoints) return value_vpcEndpoints;
+        throw new UndeferrableValueException("Value 'EndpointAccess.vpcEndpoints' is not present");
     }
 
     /**
      * The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
      * 
      */
-    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
-
+    @PolicyResourceProperty(name="vpcSecurityGroupIds", flag="unknown_vpcSecurityGroupIds")
+    private List<String> value_vpcSecurityGroupIds;
+    private boolean unknown_vpcSecurityGroupIds;
     public List<String> vpcSecurityGroupIds() {
-        if (vpcSecurityGroupIds == null) return null;
-        return vpcSecurityGroupIds.getValue("EndpointAccess.vpcSecurityGroupIds");
+        if (!unknown_vpcSecurityGroupIds) return value_vpcSecurityGroupIds;
+        throw new UndeferrableValueException("Value 'EndpointAccess.vpcSecurityGroupIds' is not present");
     }
 
 }

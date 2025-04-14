@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.macie2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,22 +17,24 @@ public final class AccountArgs extends com.pulumi.resources.PolicyResourceInput 
      * Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
      * 
      */
-    private UndeferrableValue<String> findingPublishingFrequency;
-
+    @PolicyResourceProperty(name="findingPublishingFrequency", flag="unknown_findingPublishingFrequency")
+    private String value_findingPublishingFrequency;
+    private boolean unknown_findingPublishingFrequency;
     public String findingPublishingFrequency() {
-        if (findingPublishingFrequency == null) return null;
-        return findingPublishingFrequency.getValue("AccountArgs.findingPublishingFrequency");
+        if (!unknown_findingPublishingFrequency) return value_findingPublishingFrequency;
+        throw new UndeferrableValueException("Value 'AccountArgs.findingPublishingFrequency' is not present");
     }
 
     /**
      * Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("AccountArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'AccountArgs.status' is not present");
     }
 
 }

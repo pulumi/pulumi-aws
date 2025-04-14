@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class TlsInspectionConfigurationTlsInspectionConfiguration {
      * Server certificate configurations that are associated with the TLS configuration. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration> serverCertificateConfiguration;
-
+    @PolicyResourceProperty(name="serverCertificateConfiguration", flag="unknown_serverCertificateConfiguration")
+    private @Nullable TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration value_serverCertificateConfiguration;
+    private boolean unknown_serverCertificateConfiguration;
     public @Nullable TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration serverCertificateConfiguration() {
-        if (serverCertificateConfiguration == null) return null;
-        return serverCertificateConfiguration.getValue("TlsInspectionConfigurationTlsInspectionConfiguration.serverCertificateConfiguration");
+        if (!unknown_serverCertificateConfiguration) return value_serverCertificateConfiguration;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfiguration.serverCertificateConfiguration' is not present");
     }
 
 }

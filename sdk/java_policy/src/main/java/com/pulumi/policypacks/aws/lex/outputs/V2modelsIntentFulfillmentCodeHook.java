@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecification;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification;
 import java.lang.Boolean;
@@ -16,44 +17,48 @@ public final class V2modelsIntentFulfillmentCodeHook {
      * Whether the fulfillment code hook is used. When active is false, the code hook doesn&#39;t run.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> active;
-
+    @PolicyResourceProperty(name="active", flag="unknown_active")
+    private @Nullable Boolean value_active;
+    private boolean unknown_active;
     public @Nullable Boolean active() {
-        if (active == null) return null;
-        return active.getValue("V2modelsIntentFulfillmentCodeHook.active");
+        if (!unknown_active) return value_active;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHook.active' is not present");
     }
 
     /**
      * Whether a Lambda function should be invoked to fulfill a specific intent.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("V2modelsIntentFulfillmentCodeHook.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHook.enabled' is not present");
     }
 
     /**
      * Configuration block for settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations. See `fulfillment_updates_specification`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecification> fulfillmentUpdatesSpecification;
-
+    @PolicyResourceProperty(name="fulfillmentUpdatesSpecification", flag="unknown_fulfillmentUpdatesSpecification")
+    private @Nullable V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecification value_fulfillmentUpdatesSpecification;
+    private boolean unknown_fulfillmentUpdatesSpecification;
     public @Nullable V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecification fulfillmentUpdatesSpecification() {
-        if (fulfillmentUpdatesSpecification == null) return null;
-        return fulfillmentUpdatesSpecification.getValue("V2modelsIntentFulfillmentCodeHook.fulfillmentUpdatesSpecification");
+        if (!unknown_fulfillmentUpdatesSpecification) return value_fulfillmentUpdatesSpecification;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHook.fulfillmentUpdatesSpecification' is not present");
     }
 
     /**
      * Configuration block for settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations. See `post_fulfillment_status_specification`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification> postFulfillmentStatusSpecification;
-
+    @PolicyResourceProperty(name="postFulfillmentStatusSpecification", flag="unknown_postFulfillmentStatusSpecification")
+    private @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification value_postFulfillmentStatusSpecification;
+    private boolean unknown_postFulfillmentStatusSpecification;
     public @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification postFulfillmentStatusSpecification() {
-        if (postFulfillmentStatusSpecification == null) return null;
-        return postFulfillmentStatusSpecification.getValue("V2modelsIntentFulfillmentCodeHook.postFulfillmentStatusSpecification");
+        if (!unknown_postFulfillmentStatusSpecification) return value_postFulfillmentStatusSpecification;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHook.postFulfillmentStatusSpecification' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.gamelift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.gamelift.outputs.GameSessionQueuePlayerLatencyPolicy;
 import java.lang.Integer;
@@ -20,77 +21,84 @@ public final class GameSessionQueue extends com.pulumi.resources.PolicyResourceO
      * Game Session Queue ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("GameSessionQueue.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'GameSessionQueue.arn' is not present");
     }
 
     /**
      * Information to be added to all events that are related to this game session queue.
      * 
      */
-    private @Nullable UndeferrableValue<String> customEventData;
-
+    @PolicyResourceProperty(name="customEventData", flag="unknown_customEventData")
+    private @Nullable String value_customEventData;
+    private boolean unknown_customEventData;
     public @Nullable String customEventData() {
-        if (customEventData == null) return null;
-        return customEventData.getValue("GameSessionQueue.customEventData");
+        if (!unknown_customEventData) return value_customEventData;
+        throw new UndeferrableValueException("Value 'GameSessionQueue.customEventData' is not present");
     }
 
     /**
      * List of fleet/alias ARNs used by session queue for placing game sessions.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> destinations;
-
+    @PolicyResourceProperty(name="destinations", flag="unknown_destinations")
+    private @Nullable List<String> value_destinations;
+    private boolean unknown_destinations;
     public @Nullable List<String> destinations() {
-        if (destinations == null) return null;
-        return destinations.getValue("GameSessionQueue.destinations");
+        if (!unknown_destinations) return value_destinations;
+        throw new UndeferrableValueException("Value 'GameSessionQueue.destinations' is not present");
     }
 
     /**
      * Name of the session queue.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("GameSessionQueue.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'GameSessionQueue.name' is not present");
     }
 
     /**
      * An SNS topic ARN that is set up to receive game session placement notifications.
      * 
      */
-    private @Nullable UndeferrableValue<String> notificationTarget;
-
+    @PolicyResourceProperty(name="notificationTarget", flag="unknown_notificationTarget")
+    private @Nullable String value_notificationTarget;
+    private boolean unknown_notificationTarget;
     public @Nullable String notificationTarget() {
-        if (notificationTarget == null) return null;
-        return notificationTarget.getValue("GameSessionQueue.notificationTarget");
+        if (!unknown_notificationTarget) return value_notificationTarget;
+        throw new UndeferrableValueException("Value 'GameSessionQueue.notificationTarget' is not present");
     }
 
     /**
      * One or more policies used to choose fleet based on player latency. See below.
      * 
      */
-    private @Nullable UndeferrableValue<List<GameSessionQueuePlayerLatencyPolicy>> playerLatencyPolicies;
-
+    @PolicyResourceProperty(name="playerLatencyPolicies", flag="unknown_playerLatencyPolicies")
+    private @Nullable List<GameSessionQueuePlayerLatencyPolicy> value_playerLatencyPolicies;
+    private boolean unknown_playerLatencyPolicies;
     public @Nullable List<GameSessionQueuePlayerLatencyPolicy> playerLatencyPolicies() {
-        if (playerLatencyPolicies == null) return null;
-        return playerLatencyPolicies.getValue("GameSessionQueue.playerLatencyPolicies");
+        if (!unknown_playerLatencyPolicies) return value_playerLatencyPolicies;
+        throw new UndeferrableValueException("Value 'GameSessionQueue.playerLatencyPolicies' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("GameSessionQueue.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'GameSessionQueue.tags' is not present");
     }
 
     /**
@@ -101,22 +109,24 @@ public final class GameSessionQueue extends com.pulumi.resources.PolicyResourceO
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("GameSessionQueue.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'GameSessionQueue.tagsAll' is not present");
     }
 
     /**
      * Maximum time a game session request can remain in the queue.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> timeoutInSeconds;
-
+    @PolicyResourceProperty(name="timeoutInSeconds", flag="unknown_timeoutInSeconds")
+    private @Nullable Integer value_timeoutInSeconds;
+    private boolean unknown_timeoutInSeconds;
     public @Nullable Integer timeoutInSeconds() {
-        if (timeoutInSeconds == null) return null;
-        return timeoutInSeconds.getValue("GameSessionQueue.timeoutInSeconds");
+        if (!unknown_timeoutInSeconds) return value_timeoutInSeconds;
+        throw new UndeferrableValueException("Value 'GameSessionQueue.timeoutInSeconds' is not present");
     }
 
 }

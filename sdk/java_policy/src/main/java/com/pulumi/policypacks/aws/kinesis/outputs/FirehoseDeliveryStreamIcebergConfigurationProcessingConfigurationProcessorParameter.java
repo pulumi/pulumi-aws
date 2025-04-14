@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class FirehoseDeliveryStreamIcebergConfigurationProcessingConfigura
      * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`, `CompressionFormat`, `DataMessageExtraction`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorParameterName); so values not explicitly listed may also work.
      * 
      */
-    private UndeferrableValue<String> parameterName;
-
+    @PolicyResourceProperty(name="parameterName", flag="unknown_parameterName")
+    private String value_parameterName;
+    private boolean unknown_parameterName;
     public String parameterName() {
-        if (parameterName == null) return null;
-        return parameterName.getValue("FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameter.parameterName");
+        if (!unknown_parameterName) return value_parameterName;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameter.parameterName' is not present");
     }
 
     /**
@@ -26,11 +28,12 @@ public final class FirehoseDeliveryStreamIcebergConfigurationProcessingConfigura
      * &gt; **NOTE:** Parameters with default values, including `NumberOfRetries`(default: 3), `RoleArn`(default: firehose role ARN), `BufferSizeInMBs`(default: 1), and `BufferIntervalInSeconds`(default: 60), are not stored in Pulumi state. To prevent perpetual differences, it is therefore recommended to only include parameters with non-default values.
      * 
      */
-    private UndeferrableValue<String> parameterValue;
-
+    @PolicyResourceProperty(name="parameterValue", flag="unknown_parameterValue")
+    private String value_parameterValue;
+    private boolean unknown_parameterValue;
     public String parameterValue() {
-        if (parameterValue == null) return null;
-        return parameterValue.getValue("FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameter.parameterValue");
+        if (!unknown_parameterValue) return value_parameterValue;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameter.parameterValue' is not present");
     }
 
 }

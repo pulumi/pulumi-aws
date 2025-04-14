@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class HostedTransitVirtualInterfaceAcceptorArgs extends com.pulumi.
      * The ID of the Direct Connect gateway to which to connect the virtual interface.
      * 
      */
-    private UndeferrableValue<String> dxGatewayId;
-
+    @PolicyResourceProperty(name="dxGatewayId", flag="unknown_dxGatewayId")
+    private String value_dxGatewayId;
+    private boolean unknown_dxGatewayId;
     public String dxGatewayId() {
-        if (dxGatewayId == null) return null;
-        return dxGatewayId.getValue("HostedTransitVirtualInterfaceAcceptorArgs.dxGatewayId");
+        if (!unknown_dxGatewayId) return value_dxGatewayId;
+        throw new UndeferrableValueException("Value 'HostedTransitVirtualInterfaceAcceptorArgs.dxGatewayId' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("HostedTransitVirtualInterfaceAcceptorArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'HostedTransitVirtualInterfaceAcceptorArgs.tags' is not present");
     }
 
     /**
      * The ID of the Direct Connect virtual interface to accept.
      * 
      */
-    private UndeferrableValue<String> virtualInterfaceId;
-
+    @PolicyResourceProperty(name="virtualInterfaceId", flag="unknown_virtualInterfaceId")
+    private String value_virtualInterfaceId;
+    private boolean unknown_virtualInterfaceId;
     public String virtualInterfaceId() {
-        if (virtualInterfaceId == null) return null;
-        return virtualInterfaceId.getValue("HostedTransitVirtualInterfaceAcceptorArgs.virtualInterfaceId");
+        if (!unknown_virtualInterfaceId) return value_virtualInterfaceId;
+        throw new UndeferrableValueException("Value 'HostedTransitVirtualInterfaceAcceptorArgs.virtualInterfaceId' is not present");
     }
 
 }

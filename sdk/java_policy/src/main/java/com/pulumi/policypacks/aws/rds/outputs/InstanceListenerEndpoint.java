@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class InstanceListenerEndpoint {
      * Specifies the DNS address of the DB instance.
      * 
      */
-    private @Nullable UndeferrableValue<String> address;
-
+    @PolicyResourceProperty(name="address", flag="unknown_address")
+    private @Nullable String value_address;
+    private boolean unknown_address;
     public @Nullable String address() {
-        if (address == null) return null;
-        return address.getValue("InstanceListenerEndpoint.address");
+        if (!unknown_address) return value_address;
+        throw new UndeferrableValueException("Value 'InstanceListenerEndpoint.address' is not present");
     }
 
     /**
      * Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
      * 
      */
-    private @Nullable UndeferrableValue<String> hostedZoneId;
-
+    @PolicyResourceProperty(name="hostedZoneId", flag="unknown_hostedZoneId")
+    private @Nullable String value_hostedZoneId;
+    private boolean unknown_hostedZoneId;
     public @Nullable String hostedZoneId() {
-        if (hostedZoneId == null) return null;
-        return hostedZoneId.getValue("InstanceListenerEndpoint.hostedZoneId");
+        if (!unknown_hostedZoneId) return value_hostedZoneId;
+        throw new UndeferrableValueException("Value 'InstanceListenerEndpoint.hostedZoneId' is not present");
     }
 
     /**
      * The port on which the DB accepts connections.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable Integer value_port;
+    private boolean unknown_port;
     public @Nullable Integer port() {
-        if (port == null) return null;
-        return port.getValue("InstanceListenerEndpoint.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'InstanceListenerEndpoint.port' is not present");
     }
 
 }

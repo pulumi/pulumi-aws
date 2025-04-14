@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rolesanywhere;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -20,99 +21,108 @@ public final class Profile extends com.pulumi.resources.PolicyResourceOutput {
      * Amazon Resource Name (ARN) of the Profile
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Profile.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Profile.arn' is not present");
     }
 
     /**
      * The number of seconds the vended session credentials are valid for. Defaults to 3600.
      * 
      */
-    private UndeferrableValue<Integer> durationSeconds;
-
+    @PolicyResourceProperty(name="durationSeconds", flag="unknown_durationSeconds")
+    private Integer value_durationSeconds;
+    private boolean unknown_durationSeconds;
     public Integer durationSeconds() {
-        if (durationSeconds == null) return null;
-        return durationSeconds.getValue("Profile.durationSeconds");
+        if (!unknown_durationSeconds) return value_durationSeconds;
+        throw new UndeferrableValueException("Value 'Profile.durationSeconds' is not present");
     }
 
     /**
      * Whether or not the Profile is enabled.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("Profile.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'Profile.enabled' is not present");
     }
 
     /**
      * A list of managed policy ARNs that apply to the vended session credentials.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> managedPolicyArns;
-
+    @PolicyResourceProperty(name="managedPolicyArns", flag="unknown_managedPolicyArns")
+    private @Nullable List<String> value_managedPolicyArns;
+    private boolean unknown_managedPolicyArns;
     public @Nullable List<String> managedPolicyArns() {
-        if (managedPolicyArns == null) return null;
-        return managedPolicyArns.getValue("Profile.managedPolicyArns");
+        if (!unknown_managedPolicyArns) return value_managedPolicyArns;
+        throw new UndeferrableValueException("Value 'Profile.managedPolicyArns' is not present");
     }
 
     /**
      * The name of the Profile.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Profile.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Profile.name' is not present");
     }
 
     /**
      * Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> requireInstanceProperties;
-
+    @PolicyResourceProperty(name="requireInstanceProperties", flag="unknown_requireInstanceProperties")
+    private @Nullable Boolean value_requireInstanceProperties;
+    private boolean unknown_requireInstanceProperties;
     public @Nullable Boolean requireInstanceProperties() {
-        if (requireInstanceProperties == null) return null;
-        return requireInstanceProperties.getValue("Profile.requireInstanceProperties");
+        if (!unknown_requireInstanceProperties) return value_requireInstanceProperties;
+        throw new UndeferrableValueException("Value 'Profile.requireInstanceProperties' is not present");
     }
 
     /**
      * A list of IAM roles that this profile can assume
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> roleArns;
-
+    @PolicyResourceProperty(name="roleArns", flag="unknown_roleArns")
+    private @Nullable List<String> value_roleArns;
+    private boolean unknown_roleArns;
     public @Nullable List<String> roleArns() {
-        if (roleArns == null) return null;
-        return roleArns.getValue("Profile.roleArns");
+        if (!unknown_roleArns) return value_roleArns;
+        throw new UndeferrableValueException("Value 'Profile.roleArns' is not present");
     }
 
     /**
      * A session policy that applies to the trust boundary of the vended session credentials.
      * 
      */
-    private @Nullable UndeferrableValue<String> sessionPolicy;
-
+    @PolicyResourceProperty(name="sessionPolicy", flag="unknown_sessionPolicy")
+    private @Nullable String value_sessionPolicy;
+    private boolean unknown_sessionPolicy;
     public @Nullable String sessionPolicy() {
-        if (sessionPolicy == null) return null;
-        return sessionPolicy.getValue("Profile.sessionPolicy");
+        if (!unknown_sessionPolicy) return value_sessionPolicy;
+        throw new UndeferrableValueException("Value 'Profile.sessionPolicy' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Profile.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Profile.tags' is not present");
     }
 
     /**
@@ -123,11 +133,12 @@ public final class Profile extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Profile.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Profile.tagsAll' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,11 +20,12 @@ public final class LogGroup extends com.pulumi.resources.PolicyResourceOutput {
      * The Amazon Resource Name (ARN) specifying the log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("LogGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'LogGroup.arn' is not present");
     }
 
     /**
@@ -32,44 +34,48 @@ public final class LogGroup extends com.pulumi.resources.PolicyResourceOutput {
      * permissions for the CMK whenever the encrypted data is requested.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("LogGroup.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'LogGroup.kmsKeyId' is not present");
     }
 
     /**
      * Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
      * 
      */
-    private UndeferrableValue<String> logGroupClass;
-
+    @PolicyResourceProperty(name="logGroupClass", flag="unknown_logGroupClass")
+    private String value_logGroupClass;
+    private boolean unknown_logGroupClass;
     public String logGroupClass() {
-        if (logGroupClass == null) return null;
-        return logGroupClass.getValue("LogGroup.logGroupClass");
+        if (!unknown_logGroupClass) return value_logGroupClass;
+        throw new UndeferrableValueException("Value 'LogGroup.logGroupClass' is not present");
     }
 
     /**
      * The name of the log group. If omitted, this provider will assign a random, unique name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LogGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LogGroup.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("LogGroup.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'LogGroup.namePrefix' is not present");
     }
 
     /**
@@ -78,33 +84,36 @@ public final class LogGroup extends com.pulumi.resources.PolicyResourceOutput {
      * If you select 0, the events in the log group are always retained and never expire.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> retentionInDays;
-
+    @PolicyResourceProperty(name="retentionInDays", flag="unknown_retentionInDays")
+    private @Nullable Integer value_retentionInDays;
+    private boolean unknown_retentionInDays;
     public @Nullable Integer retentionInDays() {
-        if (retentionInDays == null) return null;
-        return retentionInDays.getValue("LogGroup.retentionInDays");
+        if (!unknown_retentionInDays) return value_retentionInDays;
+        throw new UndeferrableValueException("Value 'LogGroup.retentionInDays' is not present");
     }
 
     /**
      * Set to true if you do not wish the log group (and any logs it may contain) to be deleted at destroy time, and instead just remove the log group from the state.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> skipDestroy;
-
+    @PolicyResourceProperty(name="skipDestroy", flag="unknown_skipDestroy")
+    private @Nullable Boolean value_skipDestroy;
+    private boolean unknown_skipDestroy;
     public @Nullable Boolean skipDestroy() {
-        if (skipDestroy == null) return null;
-        return skipDestroy.getValue("LogGroup.skipDestroy");
+        if (!unknown_skipDestroy) return value_skipDestroy;
+        throw new UndeferrableValueException("Value 'LogGroup.skipDestroy' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LogGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LogGroup.tags' is not present");
     }
 
     /**
@@ -115,11 +124,12 @@ public final class LogGroup extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("LogGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'LogGroup.tagsAll' is not present");
     }
 
 }

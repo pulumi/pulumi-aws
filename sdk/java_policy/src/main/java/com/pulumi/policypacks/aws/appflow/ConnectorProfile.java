@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appflow.outputs.ConnectorProfileConnectorProfileConfig;
 import java.lang.String;
@@ -17,84 +18,92 @@ public final class ConnectorProfile extends com.pulumi.resources.PolicyResourceO
      * ARN of the connector profile.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ConnectorProfile.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ConnectorProfile.arn' is not present");
     }
 
     /**
      * Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
      * 
      */
-    private UndeferrableValue<String> connectionMode;
-
+    @PolicyResourceProperty(name="connectionMode", flag="unknown_connectionMode")
+    private String value_connectionMode;
+    private boolean unknown_connectionMode;
     public String connectionMode() {
-        if (connectionMode == null) return null;
-        return connectionMode.getValue("ConnectorProfile.connectionMode");
+        if (!unknown_connectionMode) return value_connectionMode;
+        throw new UndeferrableValueException("Value 'ConnectorProfile.connectionMode' is not present");
     }
 
     /**
      * The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
      * 
      */
-    private @Nullable UndeferrableValue<String> connectorLabel;
-
+    @PolicyResourceProperty(name="connectorLabel", flag="unknown_connectorLabel")
+    private @Nullable String value_connectorLabel;
+    private boolean unknown_connectorLabel;
     public @Nullable String connectorLabel() {
-        if (connectorLabel == null) return null;
-        return connectorLabel.getValue("ConnectorProfile.connectorLabel");
+        if (!unknown_connectorLabel) return value_connectorLabel;
+        throw new UndeferrableValueException("Value 'ConnectorProfile.connectorLabel' is not present");
     }
 
     /**
      * Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
      * 
      */
-    private UndeferrableValue<ConnectorProfileConnectorProfileConfig> connectorProfileConfig;
-
+    @PolicyResourceProperty(name="connectorProfileConfig", flag="unknown_connectorProfileConfig")
+    private ConnectorProfileConnectorProfileConfig value_connectorProfileConfig;
+    private boolean unknown_connectorProfileConfig;
     public ConnectorProfileConnectorProfileConfig connectorProfileConfig() {
-        if (connectorProfileConfig == null) return null;
-        return connectorProfileConfig.getValue("ConnectorProfile.connectorProfileConfig");
+        if (!unknown_connectorProfileConfig) return value_connectorProfileConfig;
+        throw new UndeferrableValueException("Value 'ConnectorProfile.connectorProfileConfig' is not present");
     }
 
     /**
      * The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
      * 
      */
-    private UndeferrableValue<String> connectorType;
-
+    @PolicyResourceProperty(name="connectorType", flag="unknown_connectorType")
+    private String value_connectorType;
+    private boolean unknown_connectorType;
     public String connectorType() {
-        if (connectorType == null) return null;
-        return connectorType.getValue("ConnectorProfile.connectorType");
+        if (!unknown_connectorType) return value_connectorType;
+        throw new UndeferrableValueException("Value 'ConnectorProfile.connectorType' is not present");
     }
 
     /**
      * ARN of the connector profile credentials.
      * 
      */
-    private UndeferrableValue<String> credentialsArn;
-
+    @PolicyResourceProperty(name="credentialsArn", flag="unknown_credentialsArn")
+    private String value_credentialsArn;
+    private boolean unknown_credentialsArn;
     public String credentialsArn() {
-        if (credentialsArn == null) return null;
-        return credentialsArn.getValue("ConnectorProfile.credentialsArn");
+        if (!unknown_credentialsArn) return value_credentialsArn;
+        throw new UndeferrableValueException("Value 'ConnectorProfile.credentialsArn' is not present");
     }
 
     /**
      * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      * 
      */
-    private UndeferrableValue<String> kmsArn;
-
+    @PolicyResourceProperty(name="kmsArn", flag="unknown_kmsArn")
+    private String value_kmsArn;
+    private boolean unknown_kmsArn;
     public String kmsArn() {
-        if (kmsArn == null) return null;
-        return kmsArn.getValue("ConnectorProfile.kmsArn");
+        if (!unknown_kmsArn) return value_kmsArn;
+        throw new UndeferrableValueException("Value 'ConnectorProfile.kmsArn' is not present");
     }
 
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ConnectorProfile.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ConnectorProfile.name' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetenti
      * The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention.type' is not present");
     }
 
     /**
      * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private @Nullable Integer value_value;
+    private boolean unknown_value;
     public @Nullable Integer value() {
-        if (value == null) return null;
-        return value.getValue("OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention.value' is not present");
     }
 
 }

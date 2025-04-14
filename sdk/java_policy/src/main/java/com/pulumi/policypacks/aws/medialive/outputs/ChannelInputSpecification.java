@@ -3,31 +3,35 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class ChannelInputSpecification {
 
-    private UndeferrableValue<String> codec;
-
+    @PolicyResourceProperty(name="codec", flag="unknown_codec")
+    private String value_codec;
+    private boolean unknown_codec;
     public String codec() {
-        if (codec == null) return null;
-        return codec.getValue("ChannelInputSpecification.codec");
+        if (!unknown_codec) return value_codec;
+        throw new UndeferrableValueException("Value 'ChannelInputSpecification.codec' is not present");
     }
 
-    private UndeferrableValue<String> inputResolution;
-
+    @PolicyResourceProperty(name="inputResolution", flag="unknown_inputResolution")
+    private String value_inputResolution;
+    private boolean unknown_inputResolution;
     public String inputResolution() {
-        if (inputResolution == null) return null;
-        return inputResolution.getValue("ChannelInputSpecification.inputResolution");
+        if (!unknown_inputResolution) return value_inputResolution;
+        throw new UndeferrableValueException("Value 'ChannelInputSpecification.inputResolution' is not present");
     }
 
-    private UndeferrableValue<String> maximumBitrate;
-
+    @PolicyResourceProperty(name="maximumBitrate", flag="unknown_maximumBitrate")
+    private String value_maximumBitrate;
+    private boolean unknown_maximumBitrate;
     public String maximumBitrate() {
-        if (maximumBitrate == null) return null;
-        return maximumBitrate.getValue("ChannelInputSpecification.maximumBitrate");
+        if (!unknown_maximumBitrate) return value_maximumBitrate;
+        throw new UndeferrableValueException("Value 'ChannelInputSpecification.maximumBitrate' is not present");
     }
 
 }

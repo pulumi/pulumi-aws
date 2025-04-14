@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elastictranscoder;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.elastictranscoder.inputs.PresetAudioArgs;
 import com.pulumi.policypacks.aws.elastictranscoder.inputs.PresetAudioCodecOptionsArgs;
@@ -23,106 +24,116 @@ public final class PresetArgs extends com.pulumi.resources.PolicyResourceInput {
      * Audio parameters object (documented below).
      * 
      */
-    private UndeferrableValue<PresetAudioArgs> audio;
-
+    @PolicyResourceProperty(name="audio", flag="unknown_audio")
+    private PresetAudioArgs value_audio;
+    private boolean unknown_audio;
     public PresetAudioArgs audio() {
-        if (audio == null) return null;
-        return audio.getValue("PresetArgs.audio");
+        if (!unknown_audio) return value_audio;
+        throw new UndeferrableValueException("Value 'PresetArgs.audio' is not present");
     }
 
     /**
      * Codec options for the audio parameters (documented below)
      * 
      */
-    private UndeferrableValue<PresetAudioCodecOptionsArgs> audioCodecOptions;
-
+    @PolicyResourceProperty(name="audioCodecOptions", flag="unknown_audioCodecOptions")
+    private PresetAudioCodecOptionsArgs value_audioCodecOptions;
+    private boolean unknown_audioCodecOptions;
     public PresetAudioCodecOptionsArgs audioCodecOptions() {
-        if (audioCodecOptions == null) return null;
-        return audioCodecOptions.getValue("PresetArgs.audioCodecOptions");
+        if (!unknown_audioCodecOptions) return value_audioCodecOptions;
+        throw new UndeferrableValueException("Value 'PresetArgs.audioCodecOptions' is not present");
     }
 
     /**
      * The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
      * 
      */
-    private UndeferrableValue<String> container;
-
+    @PolicyResourceProperty(name="container", flag="unknown_container")
+    private String value_container;
+    private boolean unknown_container;
     public String container() {
-        if (container == null) return null;
-        return container.getValue("PresetArgs.container");
+        if (!unknown_container) return value_container;
+        throw new UndeferrableValueException("Value 'PresetArgs.container' is not present");
     }
 
     /**
      * A description of the preset (maximum 255 characters)
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("PresetArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'PresetArgs.description' is not present");
     }
 
     /**
      * The name of the preset. (maximum 40 characters)
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PresetArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PresetArgs.name' is not present");
     }
 
     /**
      * Thumbnail parameters object (documented below)
      * 
      */
-    private UndeferrableValue<PresetThumbnailsArgs> thumbnails;
-
+    @PolicyResourceProperty(name="thumbnails", flag="unknown_thumbnails")
+    private PresetThumbnailsArgs value_thumbnails;
+    private boolean unknown_thumbnails;
     public PresetThumbnailsArgs thumbnails() {
-        if (thumbnails == null) return null;
-        return thumbnails.getValue("PresetArgs.thumbnails");
+        if (!unknown_thumbnails) return value_thumbnails;
+        throw new UndeferrableValueException("Value 'PresetArgs.thumbnails' is not present");
     }
 
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("PresetArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'PresetArgs.type' is not present");
     }
 
     /**
      * Video parameters object (documented below)
      * 
      */
-    private UndeferrableValue<PresetVideoArgs> video;
-
+    @PolicyResourceProperty(name="video", flag="unknown_video")
+    private PresetVideoArgs value_video;
+    private boolean unknown_video;
     public PresetVideoArgs video() {
-        if (video == null) return null;
-        return video.getValue("PresetArgs.video");
+        if (!unknown_video) return value_video;
+        throw new UndeferrableValueException("Value 'PresetArgs.video' is not present");
     }
 
     /**
      * Codec options for the video parameters
      * 
      */
-    private UndeferrableValue<Map<String,String>> videoCodecOptions;
-
+    @PolicyResourceProperty(name="videoCodecOptions", flag="unknown_videoCodecOptions")
+    private Map<String,String> value_videoCodecOptions;
+    private boolean unknown_videoCodecOptions;
     public Map<String,String> videoCodecOptions() {
-        if (videoCodecOptions == null) return null;
-        return videoCodecOptions.getValue("PresetArgs.videoCodecOptions");
+        if (!unknown_videoCodecOptions) return value_videoCodecOptions;
+        throw new UndeferrableValueException("Value 'PresetArgs.videoCodecOptions' is not present");
     }
 
     /**
      * Watermark parameters for the video parameters (documented below)
      * 
      */
-    private UndeferrableValue<List<PresetVideoWatermarkArgs>> videoWatermarks;
-
+    @PolicyResourceProperty(name="videoWatermarks", flag="unknown_videoWatermarks")
+    private List<PresetVideoWatermarkArgs> value_videoWatermarks;
+    private boolean unknown_videoWatermarks;
     public List<PresetVideoWatermarkArgs> videoWatermarks() {
-        if (videoWatermarks == null) return null;
-        return videoWatermarks.getValue("PresetArgs.videoWatermarks");
+        if (!unknown_videoWatermarks) return value_videoWatermarks;
+        throw new UndeferrableValueException("Value 'PresetArgs.videoWatermarks' is not present");
     }
 
 }

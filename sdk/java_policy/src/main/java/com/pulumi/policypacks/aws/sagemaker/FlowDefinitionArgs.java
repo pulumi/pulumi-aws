@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.inputs.FlowDefinitionHumanLoopActivationConfigArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.FlowDefinitionHumanLoopConfigArgs;
@@ -21,77 +22,84 @@ public final class FlowDefinitionArgs extends com.pulumi.resources.PolicyResourc
      * The name of your flow definition.
      * 
      */
-    private UndeferrableValue<String> flowDefinitionName;
-
+    @PolicyResourceProperty(name="flowDefinitionName", flag="unknown_flowDefinitionName")
+    private String value_flowDefinitionName;
+    private boolean unknown_flowDefinitionName;
     public String flowDefinitionName() {
-        if (flowDefinitionName == null) return null;
-        return flowDefinitionName.getValue("FlowDefinitionArgs.flowDefinitionName");
+        if (!unknown_flowDefinitionName) return value_flowDefinitionName;
+        throw new UndeferrableValueException("Value 'FlowDefinitionArgs.flowDefinitionName' is not present");
     }
 
     /**
      * An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
      * 
      */
-    private UndeferrableValue<FlowDefinitionHumanLoopActivationConfigArgs> humanLoopActivationConfig;
-
+    @PolicyResourceProperty(name="humanLoopActivationConfig", flag="unknown_humanLoopActivationConfig")
+    private FlowDefinitionHumanLoopActivationConfigArgs value_humanLoopActivationConfig;
+    private boolean unknown_humanLoopActivationConfig;
     public FlowDefinitionHumanLoopActivationConfigArgs humanLoopActivationConfig() {
-        if (humanLoopActivationConfig == null) return null;
-        return humanLoopActivationConfig.getValue("FlowDefinitionArgs.humanLoopActivationConfig");
+        if (!unknown_humanLoopActivationConfig) return value_humanLoopActivationConfig;
+        throw new UndeferrableValueException("Value 'FlowDefinitionArgs.humanLoopActivationConfig' is not present");
     }
 
     /**
      * An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
      * 
      */
-    private UndeferrableValue<FlowDefinitionHumanLoopConfigArgs> humanLoopConfig;
-
+    @PolicyResourceProperty(name="humanLoopConfig", flag="unknown_humanLoopConfig")
+    private FlowDefinitionHumanLoopConfigArgs value_humanLoopConfig;
+    private boolean unknown_humanLoopConfig;
     public FlowDefinitionHumanLoopConfigArgs humanLoopConfig() {
-        if (humanLoopConfig == null) return null;
-        return humanLoopConfig.getValue("FlowDefinitionArgs.humanLoopConfig");
+        if (!unknown_humanLoopConfig) return value_humanLoopConfig;
+        throw new UndeferrableValueException("Value 'FlowDefinitionArgs.humanLoopConfig' is not present");
     }
 
     /**
      * Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
      * 
      */
-    private UndeferrableValue<FlowDefinitionHumanLoopRequestSourceArgs> humanLoopRequestSource;
-
+    @PolicyResourceProperty(name="humanLoopRequestSource", flag="unknown_humanLoopRequestSource")
+    private FlowDefinitionHumanLoopRequestSourceArgs value_humanLoopRequestSource;
+    private boolean unknown_humanLoopRequestSource;
     public FlowDefinitionHumanLoopRequestSourceArgs humanLoopRequestSource() {
-        if (humanLoopRequestSource == null) return null;
-        return humanLoopRequestSource.getValue("FlowDefinitionArgs.humanLoopRequestSource");
+        if (!unknown_humanLoopRequestSource) return value_humanLoopRequestSource;
+        throw new UndeferrableValueException("Value 'FlowDefinitionArgs.humanLoopRequestSource' is not present");
     }
 
     /**
      * An object containing information about where the human review results will be uploaded. See Output Config details below.
      * 
      */
-    private UndeferrableValue<FlowDefinitionOutputConfigArgs> outputConfig;
-
+    @PolicyResourceProperty(name="outputConfig", flag="unknown_outputConfig")
+    private FlowDefinitionOutputConfigArgs value_outputConfig;
+    private boolean unknown_outputConfig;
     public FlowDefinitionOutputConfigArgs outputConfig() {
-        if (outputConfig == null) return null;
-        return outputConfig.getValue("FlowDefinitionArgs.outputConfig");
+        if (!unknown_outputConfig) return value_outputConfig;
+        throw new UndeferrableValueException("Value 'FlowDefinitionArgs.outputConfig' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("FlowDefinitionArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'FlowDefinitionArgs.roleArn' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("FlowDefinitionArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'FlowDefinitionArgs.tags' is not present");
     }
 
 }

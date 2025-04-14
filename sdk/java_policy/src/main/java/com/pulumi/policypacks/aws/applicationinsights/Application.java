@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.applicationinsights;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,77 +19,84 @@ public final class Application extends com.pulumi.resources.PolicyResourceOutput
      * ARN of the Application.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Application.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Application.arn' is not present");
     }
 
     /**
      * Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> autoConfigEnabled;
-
+    @PolicyResourceProperty(name="autoConfigEnabled", flag="unknown_autoConfigEnabled")
+    private @Nullable Boolean value_autoConfigEnabled;
+    private boolean unknown_autoConfigEnabled;
     public @Nullable Boolean autoConfigEnabled() {
-        if (autoConfigEnabled == null) return null;
-        return autoConfigEnabled.getValue("Application.autoConfigEnabled");
+        if (!unknown_autoConfigEnabled) return value_autoConfigEnabled;
+        throw new UndeferrableValueException("Value 'Application.autoConfigEnabled' is not present");
     }
 
     /**
      * Configures all of the resources in the resource group by applying the recommended configurations.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> autoCreate;
-
+    @PolicyResourceProperty(name="autoCreate", flag="unknown_autoCreate")
+    private @Nullable Boolean value_autoCreate;
+    private boolean unknown_autoCreate;
     public @Nullable Boolean autoCreate() {
-        if (autoCreate == null) return null;
-        return autoCreate.getValue("Application.autoCreate");
+        if (!unknown_autoCreate) return value_autoCreate;
+        throw new UndeferrableValueException("Value 'Application.autoCreate' is not present");
     }
 
     /**
      * Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> cweMonitorEnabled;
-
+    @PolicyResourceProperty(name="cweMonitorEnabled", flag="unknown_cweMonitorEnabled")
+    private @Nullable Boolean value_cweMonitorEnabled;
+    private boolean unknown_cweMonitorEnabled;
     public @Nullable Boolean cweMonitorEnabled() {
-        if (cweMonitorEnabled == null) return null;
-        return cweMonitorEnabled.getValue("Application.cweMonitorEnabled");
+        if (!unknown_cweMonitorEnabled) return value_cweMonitorEnabled;
+        throw new UndeferrableValueException("Value 'Application.cweMonitorEnabled' is not present");
     }
 
     /**
      * Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> groupingType;
-
+    @PolicyResourceProperty(name="groupingType", flag="unknown_groupingType")
+    private @Nullable String value_groupingType;
+    private boolean unknown_groupingType;
     public @Nullable String groupingType() {
-        if (groupingType == null) return null;
-        return groupingType.getValue("Application.groupingType");
+        if (!unknown_groupingType) return value_groupingType;
+        throw new UndeferrableValueException("Value 'Application.groupingType' is not present");
     }
 
     /**
      * When set to `true`, creates opsItems for any problems detected on an application.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> opsCenterEnabled;
-
+    @PolicyResourceProperty(name="opsCenterEnabled", flag="unknown_opsCenterEnabled")
+    private @Nullable Boolean value_opsCenterEnabled;
+    private boolean unknown_opsCenterEnabled;
     public @Nullable Boolean opsCenterEnabled() {
-        if (opsCenterEnabled == null) return null;
-        return opsCenterEnabled.getValue("Application.opsCenterEnabled");
+        if (!unknown_opsCenterEnabled) return value_opsCenterEnabled;
+        throw new UndeferrableValueException("Value 'Application.opsCenterEnabled' is not present");
     }
 
     /**
      * SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
      * 
      */
-    private @Nullable UndeferrableValue<String> opsItemSnsTopicArn;
-
+    @PolicyResourceProperty(name="opsItemSnsTopicArn", flag="unknown_opsItemSnsTopicArn")
+    private @Nullable String value_opsItemSnsTopicArn;
+    private boolean unknown_opsItemSnsTopicArn;
     public @Nullable String opsItemSnsTopicArn() {
-        if (opsItemSnsTopicArn == null) return null;
-        return opsItemSnsTopicArn.getValue("Application.opsItemSnsTopicArn");
+        if (!unknown_opsItemSnsTopicArn) return value_opsItemSnsTopicArn;
+        throw new UndeferrableValueException("Value 'Application.opsItemSnsTopicArn' is not present");
     }
 
     /**
@@ -97,22 +105,24 @@ public final class Application extends com.pulumi.resources.PolicyResourceOutput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> resourceGroupName;
-
+    @PolicyResourceProperty(name="resourceGroupName", flag="unknown_resourceGroupName")
+    private String value_resourceGroupName;
+    private boolean unknown_resourceGroupName;
     public String resourceGroupName() {
-        if (resourceGroupName == null) return null;
-        return resourceGroupName.getValue("Application.resourceGroupName");
+        if (!unknown_resourceGroupName) return value_resourceGroupName;
+        throw new UndeferrableValueException("Value 'Application.resourceGroupName' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Application.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Application.tags' is not present");
     }
 
     /**
@@ -123,11 +133,12 @@ public final class Application extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Application.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Application.tagsAll' is not present");
     }
 
 }

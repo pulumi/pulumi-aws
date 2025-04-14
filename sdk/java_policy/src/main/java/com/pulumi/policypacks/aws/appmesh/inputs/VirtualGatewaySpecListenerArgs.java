@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualGatewaySpecListenerConnectionPoolArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualGatewaySpecListenerHealthCheckArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualGatewaySpecListenerPortMappingArgs;
@@ -17,44 +18,48 @@ public final class VirtualGatewaySpecListenerArgs {
      * Connection pool information for the listener.
      * 
      */
-    private UndeferrableValue<VirtualGatewaySpecListenerConnectionPoolArgs> connectionPool;
-
+    @PolicyResourceProperty(name="connectionPool", flag="unknown_connectionPool")
+    private VirtualGatewaySpecListenerConnectionPoolArgs value_connectionPool;
+    private boolean unknown_connectionPool;
     public VirtualGatewaySpecListenerConnectionPoolArgs connectionPool() {
-        if (connectionPool == null) return null;
-        return connectionPool.getValue("VirtualGatewaySpecListenerArgs.connectionPool");
+        if (!unknown_connectionPool) return value_connectionPool;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerArgs.connectionPool' is not present");
     }
 
     /**
      * Health check information for the listener.
      * 
      */
-    private UndeferrableValue<VirtualGatewaySpecListenerHealthCheckArgs> healthCheck;
-
+    @PolicyResourceProperty(name="healthCheck", flag="unknown_healthCheck")
+    private VirtualGatewaySpecListenerHealthCheckArgs value_healthCheck;
+    private boolean unknown_healthCheck;
     public VirtualGatewaySpecListenerHealthCheckArgs healthCheck() {
-        if (healthCheck == null) return null;
-        return healthCheck.getValue("VirtualGatewaySpecListenerArgs.healthCheck");
+        if (!unknown_healthCheck) return value_healthCheck;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerArgs.healthCheck' is not present");
     }
 
     /**
      * Port mapping information for the listener.
      * 
      */
-    private UndeferrableValue<VirtualGatewaySpecListenerPortMappingArgs> portMapping;
-
+    @PolicyResourceProperty(name="portMapping", flag="unknown_portMapping")
+    private VirtualGatewaySpecListenerPortMappingArgs value_portMapping;
+    private boolean unknown_portMapping;
     public VirtualGatewaySpecListenerPortMappingArgs portMapping() {
-        if (portMapping == null) return null;
-        return portMapping.getValue("VirtualGatewaySpecListenerArgs.portMapping");
+        if (!unknown_portMapping) return value_portMapping;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerArgs.portMapping' is not present");
     }
 
     /**
      * Transport Layer Security (TLS) properties for the listener
      * 
      */
-    private UndeferrableValue<VirtualGatewaySpecListenerTlsArgs> tls;
-
+    @PolicyResourceProperty(name="tls", flag="unknown_tls")
+    private VirtualGatewaySpecListenerTlsArgs value_tls;
+    private boolean unknown_tls;
     public VirtualGatewaySpecListenerTlsArgs tls() {
-        if (tls == null) return null;
-        return tls.getValue("VirtualGatewaySpecListenerArgs.tls");
+        if (!unknown_tls) return value_tls;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerArgs.tls' is not present");
     }
 
 }

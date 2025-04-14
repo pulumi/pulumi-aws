@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualNodeSpecServiceDiscoveryAwsCloudMap;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualNodeSpecServiceDiscoveryDns;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class VirtualNodeSpecServiceDiscovery {
      * Any AWS Cloud Map information for the virtual node.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualNodeSpecServiceDiscoveryAwsCloudMap> awsCloudMap;
-
+    @PolicyResourceProperty(name="awsCloudMap", flag="unknown_awsCloudMap")
+    private @Nullable VirtualNodeSpecServiceDiscoveryAwsCloudMap value_awsCloudMap;
+    private boolean unknown_awsCloudMap;
     public @Nullable VirtualNodeSpecServiceDiscoveryAwsCloudMap awsCloudMap() {
-        if (awsCloudMap == null) return null;
-        return awsCloudMap.getValue("VirtualNodeSpecServiceDiscovery.awsCloudMap");
+        if (!unknown_awsCloudMap) return value_awsCloudMap;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecServiceDiscovery.awsCloudMap' is not present");
     }
 
     /**
      * DNS service name for the virtual node.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualNodeSpecServiceDiscoveryDns> dns;
-
+    @PolicyResourceProperty(name="dns", flag="unknown_dns")
+    private @Nullable VirtualNodeSpecServiceDiscoveryDns value_dns;
+    private boolean unknown_dns;
     public @Nullable VirtualNodeSpecServiceDiscoveryDns dns() {
-        if (dns == null) return null;
-        return dns.getValue("VirtualNodeSpecServiceDiscovery.dns");
+        if (!unknown_dns) return value_dns;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecServiceDiscovery.dns' is not present");
     }
 
 }

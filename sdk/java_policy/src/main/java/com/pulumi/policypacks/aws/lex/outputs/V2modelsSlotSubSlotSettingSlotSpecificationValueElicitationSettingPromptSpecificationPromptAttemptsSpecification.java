@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification;
@@ -14,39 +15,44 @@ import javax.annotation.Nullable;
 
 public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecification {
 
-    private @Nullable UndeferrableValue<Boolean> allowInterrupt;
-
+    @PolicyResourceProperty(name="allowInterrupt", flag="unknown_allowInterrupt")
+    private @Nullable Boolean value_allowInterrupt;
+    private boolean unknown_allowInterrupt;
     public @Nullable Boolean allowInterrupt() {
-        if (allowInterrupt == null) return null;
-        return allowInterrupt.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecification.allowInterrupt");
+        if (!unknown_allowInterrupt) return value_allowInterrupt;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecification.allowInterrupt' is not present");
     }
 
-    private UndeferrableValue<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes> allowedInputTypes;
-
+    @PolicyResourceProperty(name="allowedInputTypes", flag="unknown_allowedInputTypes")
+    private V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes value_allowedInputTypes;
+    private boolean unknown_allowedInputTypes;
     public V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes allowedInputTypes() {
-        if (allowedInputTypes == null) return null;
-        return allowedInputTypes.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecification.allowedInputTypes");
+        if (!unknown_allowedInputTypes) return value_allowedInputTypes;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecification.allowedInputTypes' is not present");
     }
 
-    private @Nullable UndeferrableValue<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification> audioAndDtmfInputSpecification;
-
+    @PolicyResourceProperty(name="audioAndDtmfInputSpecification", flag="unknown_audioAndDtmfInputSpecification")
+    private @Nullable V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification value_audioAndDtmfInputSpecification;
+    private boolean unknown_audioAndDtmfInputSpecification;
     public @Nullable V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification audioAndDtmfInputSpecification() {
-        if (audioAndDtmfInputSpecification == null) return null;
-        return audioAndDtmfInputSpecification.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecification.audioAndDtmfInputSpecification");
+        if (!unknown_audioAndDtmfInputSpecification) return value_audioAndDtmfInputSpecification;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecification.audioAndDtmfInputSpecification' is not present");
     }
 
-    private UndeferrableValue<String> mapBlockKey;
-
+    @PolicyResourceProperty(name="mapBlockKey", flag="unknown_mapBlockKey")
+    private String value_mapBlockKey;
+    private boolean unknown_mapBlockKey;
     public String mapBlockKey() {
-        if (mapBlockKey == null) return null;
-        return mapBlockKey.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecification.mapBlockKey");
+        if (!unknown_mapBlockKey) return value_mapBlockKey;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecification.mapBlockKey' is not present");
     }
 
-    private @Nullable UndeferrableValue<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification> textInputSpecification;
-
+    @PolicyResourceProperty(name="textInputSpecification", flag="unknown_textInputSpecification")
+    private @Nullable V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification value_textInputSpecification;
+    private boolean unknown_textInputSpecification;
     public @Nullable V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification textInputSpecification() {
-        if (textInputSpecification == null) return null;
-        return textInputSpecification.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecification.textInputSpecification");
+        if (!unknown_textInputSpecification) return value_textInputSpecification;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecification.textInputSpecification' is not present");
     }
 
 }

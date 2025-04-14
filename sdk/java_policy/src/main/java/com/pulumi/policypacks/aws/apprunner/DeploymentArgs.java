@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.apprunner.inputs.DeploymentTimeoutsArgs;
 import java.lang.String;
@@ -17,18 +18,20 @@ public final class DeploymentArgs extends com.pulumi.resources.PolicyResourceInp
      * The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
      * 
      */
-    private UndeferrableValue<String> serviceArn;
-
+    @PolicyResourceProperty(name="serviceArn", flag="unknown_serviceArn")
+    private String value_serviceArn;
+    private boolean unknown_serviceArn;
     public String serviceArn() {
-        if (serviceArn == null) return null;
-        return serviceArn.getValue("DeploymentArgs.serviceArn");
+        if (!unknown_serviceArn) return value_serviceArn;
+        throw new UndeferrableValueException("Value 'DeploymentArgs.serviceArn' is not present");
     }
 
-    private UndeferrableValue<DeploymentTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private DeploymentTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public DeploymentTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("DeploymentArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'DeploymentArgs.timeouts' is not present");
     }
 
 }

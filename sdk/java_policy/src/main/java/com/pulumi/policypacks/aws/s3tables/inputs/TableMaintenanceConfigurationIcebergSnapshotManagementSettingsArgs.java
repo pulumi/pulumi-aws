@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3tables.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -14,11 +15,12 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
      * Must be at least `1`.
      * 
      */
-    private UndeferrableValue<Integer> maxSnapshotAgeHours;
-
+    @PolicyResourceProperty(name="maxSnapshotAgeHours", flag="unknown_maxSnapshotAgeHours")
+    private Integer value_maxSnapshotAgeHours;
+    private boolean unknown_maxSnapshotAgeHours;
     public Integer maxSnapshotAgeHours() {
-        if (maxSnapshotAgeHours == null) return null;
-        return maxSnapshotAgeHours.getValue("TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs.maxSnapshotAgeHours");
+        if (!unknown_maxSnapshotAgeHours) return value_maxSnapshotAgeHours;
+        throw new UndeferrableValueException("Value 'TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs.maxSnapshotAgeHours' is not present");
     }
 
     /**
@@ -26,11 +28,12 @@ public final class TableMaintenanceConfigurationIcebergSnapshotManagementSetting
      * Must be at least `1`.
      * 
      */
-    private UndeferrableValue<Integer> minSnapshotsToKeep;
-
+    @PolicyResourceProperty(name="minSnapshotsToKeep", flag="unknown_minSnapshotsToKeep")
+    private Integer value_minSnapshotsToKeep;
+    private boolean unknown_minSnapshotsToKeep;
     public Integer minSnapshotsToKeep() {
-        if (minSnapshotsToKeep == null) return null;
-        return minSnapshotsToKeep.getValue("TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs.minSnapshotsToKeep");
+        if (!unknown_minSnapshotsToKeep) return value_minSnapshotsToKeep;
+        throw new UndeferrableValueException("Value 'TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs.minSnapshotsToKeep' is not present");
     }
 
 }

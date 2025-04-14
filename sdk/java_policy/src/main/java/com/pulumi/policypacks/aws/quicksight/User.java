@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,99 +17,108 @@ public final class User extends com.pulumi.resources.PolicyResourceOutput {
      * Amazon Resource Name (ARN) for the user.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("User.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'User.arn' is not present");
     }
 
     /**
      * ID for the AWS account that the user is in. Use the ID for the AWS account that contains your Amazon QuickSight account.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("User.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'User.awsAccountId' is not present");
     }
 
     /**
      * Email address of the user that you want to register.
      * 
      */
-    private UndeferrableValue<String> email;
-
+    @PolicyResourceProperty(name="email", flag="unknown_email")
+    private String value_email;
+    private boolean unknown_email;
     public String email() {
-        if (email == null) return null;
-        return email.getValue("User.email");
+        if (!unknown_email) return value_email;
+        throw new UndeferrableValueException("Value 'User.email' is not present");
     }
 
     /**
      * ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
      * 
      */
-    private @Nullable UndeferrableValue<String> iamArn;
-
+    @PolicyResourceProperty(name="iamArn", flag="unknown_iamArn")
+    private @Nullable String value_iamArn;
+    private boolean unknown_iamArn;
     public @Nullable String iamArn() {
-        if (iamArn == null) return null;
-        return iamArn.getValue("User.iamArn");
+        if (!unknown_iamArn) return value_iamArn;
+        throw new UndeferrableValueException("Value 'User.iamArn' is not present");
     }
 
     /**
      * Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`.
      * 
      */
-    private UndeferrableValue<String> identityType;
-
+    @PolicyResourceProperty(name="identityType", flag="unknown_identityType")
+    private String value_identityType;
+    private boolean unknown_identityType;
     public String identityType() {
-        if (identityType == null) return null;
-        return identityType.getValue("User.identityType");
+        if (!unknown_identityType) return value_identityType;
+        throw new UndeferrableValueException("Value 'User.identityType' is not present");
     }
 
     /**
      * The Amazon Quicksight namespace to create the user in. Defaults to `default`.
      * 
      */
-    private @Nullable UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private @Nullable String value_namespace;
+    private boolean unknown_namespace;
     public @Nullable String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("User.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'User.namespace' is not present");
     }
 
     /**
      * Name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
      * 
      */
-    private @Nullable UndeferrableValue<String> sessionName;
-
+    @PolicyResourceProperty(name="sessionName", flag="unknown_sessionName")
+    private @Nullable String value_sessionName;
+    private boolean unknown_sessionName;
     public @Nullable String sessionName() {
-        if (sessionName == null) return null;
-        return sessionName.getValue("User.sessionName");
+        if (!unknown_sessionName) return value_sessionName;
+        throw new UndeferrableValueException("Value 'User.sessionName' is not present");
     }
 
     /**
      * URL the user visits to complete registration and provide a password. Returned only for users with an identity type of `QUICKSIGHT`.
      * 
      */
-    private UndeferrableValue<String> userInvitationUrl;
-
+    @PolicyResourceProperty(name="userInvitationUrl", flag="unknown_userInvitationUrl")
+    private String value_userInvitationUrl;
+    private boolean unknown_userInvitationUrl;
     public String userInvitationUrl() {
-        if (userInvitationUrl == null) return null;
-        return userInvitationUrl.getValue("User.userInvitationUrl");
+        if (!unknown_userInvitationUrl) return value_userInvitationUrl;
+        throw new UndeferrableValueException("Value 'User.userInvitationUrl' is not present");
     }
 
     /**
      * Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
      * 
      */
-    private @Nullable UndeferrableValue<String> userName;
-
+    @PolicyResourceProperty(name="userName", flag="unknown_userName")
+    private @Nullable String value_userName;
+    private boolean unknown_userName;
     public @Nullable String userName() {
-        if (userName == null) return null;
-        return userName.getValue("User.userName");
+        if (!unknown_userName) return value_userName;
+        throw new UndeferrableValueException("Value 'User.userName' is not present");
     }
 
     /**
@@ -117,11 +127,12 @@ public final class User extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> userRole;
-
+    @PolicyResourceProperty(name="userRole", flag="unknown_userRole")
+    private String value_userRole;
+    private boolean unknown_userRole;
     public String userRole() {
-        if (userRole == null) return null;
-        return userRole.getValue("User.userRole");
+        if (!unknown_userRole) return value_userRole;
+        throw new UndeferrableValueException("Value 'User.userRole' is not present");
     }
 
 }

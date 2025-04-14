@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class DistributionOriginGroupFailoverCriteriaArgs {
      * List of HTTP status codes for the origin group.
      * 
      */
-    private UndeferrableValue<List<Integer>> statusCodes;
-
+    @PolicyResourceProperty(name="statusCodes", flag="unknown_statusCodes")
+    private List<Integer> value_statusCodes;
+    private boolean unknown_statusCodes;
     public List<Integer> statusCodes() {
-        if (statusCodes == null) return null;
-        return statusCodes.getValue("DistributionOriginGroupFailoverCriteriaArgs.statusCodes");
+        if (!unknown_statusCodes) return value_statusCodes;
+        throw new UndeferrableValueException("Value 'DistributionOriginGroupFailoverCriteriaArgs.statusCodes' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,55 +15,60 @@ public final class BotAliasConversationLogsLogSetting {
      * The destination where logs are delivered. Options are `CLOUDWATCH_LOGS` or `S3`.
      * 
      */
-    private UndeferrableValue<String> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private String value_destination;
+    private boolean unknown_destination;
     public String destination() {
-        if (destination == null) return null;
-        return destination.getValue("BotAliasConversationLogsLogSetting.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'BotAliasConversationLogsLogSetting.destination' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private @Nullable String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public @Nullable String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("BotAliasConversationLogsLogSetting.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'BotAliasConversationLogsLogSetting.kmsKeyArn' is not present");
     }
 
     /**
      * The type of logging that is enabled. Options are `AUDIO` or `TEXT`.
      * 
      */
-    private UndeferrableValue<String> logType;
-
+    @PolicyResourceProperty(name="logType", flag="unknown_logType")
+    private String value_logType;
+    private boolean unknown_logType;
     public String logType() {
-        if (logType == null) return null;
-        return logType.getValue("BotAliasConversationLogsLogSetting.logType");
+        if (!unknown_logType) return value_logType;
+        throw new UndeferrableValueException("Value 'BotAliasConversationLogsLogSetting.logType' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("BotAliasConversationLogsLogSetting.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'BotAliasConversationLogsLogSetting.resourceArn' is not present");
     }
 
     /**
      * The prefix of the S3 object key for `AUDIO` logs or the log stream name for `TEXT` logs.
      * 
      */
-    private @Nullable UndeferrableValue<String> resourcePrefix;
-
+    @PolicyResourceProperty(name="resourcePrefix", flag="unknown_resourcePrefix")
+    private @Nullable String value_resourcePrefix;
+    private boolean unknown_resourcePrefix;
     public @Nullable String resourcePrefix() {
-        if (resourcePrefix == null) return null;
-        return resourcePrefix.getValue("BotAliasConversationLogsLogSetting.resourcePrefix");
+        if (!unknown_resourcePrefix) return value_resourcePrefix;
+        throw new UndeferrableValueException("Value 'BotAliasConversationLogsLogSetting.resourcePrefix' is not present");
     }
 
 }

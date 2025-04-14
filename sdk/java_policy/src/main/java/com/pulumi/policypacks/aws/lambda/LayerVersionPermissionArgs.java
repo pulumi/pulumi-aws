@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -18,77 +19,84 @@ public final class LayerVersionPermissionArgs extends com.pulumi.resources.Polic
      * Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
      * 
      */
-    private UndeferrableValue<String> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private String value_action;
+    private boolean unknown_action;
     public String action() {
-        if (action == null) return null;
-        return action.getValue("LayerVersionPermissionArgs.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'LayerVersionPermissionArgs.action' is not present");
     }
 
     /**
      * The name or ARN of the Lambda Layer, which you want to grant access to.
      * 
      */
-    private UndeferrableValue<String> layerName;
-
+    @PolicyResourceProperty(name="layerName", flag="unknown_layerName")
+    private String value_layerName;
+    private boolean unknown_layerName;
     public String layerName() {
-        if (layerName == null) return null;
-        return layerName.getValue("LayerVersionPermissionArgs.layerName");
+        if (!unknown_layerName) return value_layerName;
+        throw new UndeferrableValueException("Value 'LayerVersionPermissionArgs.layerName' is not present");
     }
 
     /**
      * An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
      * 
      */
-    private UndeferrableValue<String> organizationId;
-
+    @PolicyResourceProperty(name="organizationId", flag="unknown_organizationId")
+    private String value_organizationId;
+    private boolean unknown_organizationId;
     public String organizationId() {
-        if (organizationId == null) return null;
-        return organizationId.getValue("LayerVersionPermissionArgs.organizationId");
+        if (!unknown_organizationId) return value_organizationId;
+        throw new UndeferrableValueException("Value 'LayerVersionPermissionArgs.organizationId' is not present");
     }
 
     /**
      * AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
      * 
      */
-    private UndeferrableValue<String> principal;
-
+    @PolicyResourceProperty(name="principal", flag="unknown_principal")
+    private String value_principal;
+    private boolean unknown_principal;
     public String principal() {
-        if (principal == null) return null;
-        return principal.getValue("LayerVersionPermissionArgs.principal");
+        if (!unknown_principal) return value_principal;
+        throw new UndeferrableValueException("Value 'LayerVersionPermissionArgs.principal' is not present");
     }
 
     /**
      * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
      * 
      */
-    private UndeferrableValue<Boolean> skipDestroy;
-
+    @PolicyResourceProperty(name="skipDestroy", flag="unknown_skipDestroy")
+    private Boolean value_skipDestroy;
+    private boolean unknown_skipDestroy;
     public Boolean skipDestroy() {
-        if (skipDestroy == null) return null;
-        return skipDestroy.getValue("LayerVersionPermissionArgs.skipDestroy");
+        if (!unknown_skipDestroy) return value_skipDestroy;
+        throw new UndeferrableValueException("Value 'LayerVersionPermissionArgs.skipDestroy' is not present");
     }
 
     /**
      * The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
      * 
      */
-    private UndeferrableValue<String> statementId;
-
+    @PolicyResourceProperty(name="statementId", flag="unknown_statementId")
+    private String value_statementId;
+    private boolean unknown_statementId;
     public String statementId() {
-        if (statementId == null) return null;
-        return statementId.getValue("LayerVersionPermissionArgs.statementId");
+        if (!unknown_statementId) return value_statementId;
+        throw new UndeferrableValueException("Value 'LayerVersionPermissionArgs.statementId' is not present");
     }
 
     /**
      * Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
      * 
      */
-    private UndeferrableValue<Integer> versionNumber;
-
+    @PolicyResourceProperty(name="versionNumber", flag="unknown_versionNumber")
+    private Integer value_versionNumber;
+    private boolean unknown_versionNumber;
     public Integer versionNumber() {
-        if (versionNumber == null) return null;
-        return versionNumber.getValue("LayerVersionPermissionArgs.versionNumber");
+        if (!unknown_versionNumber) return value_versionNumber;
+        throw new UndeferrableValueException("Value 'LayerVersionPermissionArgs.versionNumber' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.rds.outputs.ReservedInstanceRecurringCharge;
 import java.lang.Boolean;
@@ -22,88 +23,96 @@ public final class ReservedInstance extends com.pulumi.resources.PolicyResourceO
      * ARN for the reserved DB instance.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ReservedInstance.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ReservedInstance.arn' is not present");
     }
 
     /**
      * Currency code for the reserved DB instance.
      * 
      */
-    private UndeferrableValue<String> currencyCode;
-
+    @PolicyResourceProperty(name="currencyCode", flag="unknown_currencyCode")
+    private String value_currencyCode;
+    private boolean unknown_currencyCode;
     public String currencyCode() {
-        if (currencyCode == null) return null;
-        return currencyCode.getValue("ReservedInstance.currencyCode");
+        if (!unknown_currencyCode) return value_currencyCode;
+        throw new UndeferrableValueException("Value 'ReservedInstance.currencyCode' is not present");
     }
 
     /**
      * DB instance class for the reserved DB instance.
      * 
      */
-    private UndeferrableValue<String> dbInstanceClass;
-
+    @PolicyResourceProperty(name="dbInstanceClass", flag="unknown_dbInstanceClass")
+    private String value_dbInstanceClass;
+    private boolean unknown_dbInstanceClass;
     public String dbInstanceClass() {
-        if (dbInstanceClass == null) return null;
-        return dbInstanceClass.getValue("ReservedInstance.dbInstanceClass");
+        if (!unknown_dbInstanceClass) return value_dbInstanceClass;
+        throw new UndeferrableValueException("Value 'ReservedInstance.dbInstanceClass' is not present");
     }
 
     /**
      * Duration of the reservation in seconds.
      * 
      */
-    private UndeferrableValue<Integer> duration;
-
+    @PolicyResourceProperty(name="duration", flag="unknown_duration")
+    private Integer value_duration;
+    private boolean unknown_duration;
     public Integer duration() {
-        if (duration == null) return null;
-        return duration.getValue("ReservedInstance.duration");
+        if (!unknown_duration) return value_duration;
+        throw new UndeferrableValueException("Value 'ReservedInstance.duration' is not present");
     }
 
     /**
      * Fixed price charged for this reserved DB instance.
      * 
      */
-    private UndeferrableValue<Double> fixedPrice;
-
+    @PolicyResourceProperty(name="fixedPrice", flag="unknown_fixedPrice")
+    private Double value_fixedPrice;
+    private boolean unknown_fixedPrice;
     public Double fixedPrice() {
-        if (fixedPrice == null) return null;
-        return fixedPrice.getValue("ReservedInstance.fixedPrice");
+        if (!unknown_fixedPrice) return value_fixedPrice;
+        throw new UndeferrableValueException("Value 'ReservedInstance.fixedPrice' is not present");
     }
 
     /**
      * Number of instances to reserve. Default value is `1`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> instanceCount;
-
+    @PolicyResourceProperty(name="instanceCount", flag="unknown_instanceCount")
+    private @Nullable Integer value_instanceCount;
+    private boolean unknown_instanceCount;
     public @Nullable Integer instanceCount() {
-        if (instanceCount == null) return null;
-        return instanceCount.getValue("ReservedInstance.instanceCount");
+        if (!unknown_instanceCount) return value_instanceCount;
+        throw new UndeferrableValueException("Value 'ReservedInstance.instanceCount' is not present");
     }
 
     /**
      * Unique identifier for the lease associated with the reserved DB instance. Amazon Web Services Support might request the lease ID for an issue related to a reserved DB instance.
      * 
      */
-    private UndeferrableValue<String> leaseId;
-
+    @PolicyResourceProperty(name="leaseId", flag="unknown_leaseId")
+    private String value_leaseId;
+    private boolean unknown_leaseId;
     public String leaseId() {
-        if (leaseId == null) return null;
-        return leaseId.getValue("ReservedInstance.leaseId");
+        if (!unknown_leaseId) return value_leaseId;
+        throw new UndeferrableValueException("Value 'ReservedInstance.leaseId' is not present");
     }
 
     /**
      * Whether the reservation applies to Multi-AZ deployments.
      * 
      */
-    private UndeferrableValue<Boolean> multiAz;
-
+    @PolicyResourceProperty(name="multiAz", flag="unknown_multiAz")
+    private Boolean value_multiAz;
+    private boolean unknown_multiAz;
     public Boolean multiAz() {
-        if (multiAz == null) return null;
-        return multiAz.getValue("ReservedInstance.multiAz");
+        if (!unknown_multiAz) return value_multiAz;
+        throw new UndeferrableValueException("Value 'ReservedInstance.multiAz' is not present");
     }
 
     /**
@@ -112,88 +121,96 @@ public final class ReservedInstance extends com.pulumi.resources.PolicyResourceO
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> offeringId;
-
+    @PolicyResourceProperty(name="offeringId", flag="unknown_offeringId")
+    private String value_offeringId;
+    private boolean unknown_offeringId;
     public String offeringId() {
-        if (offeringId == null) return null;
-        return offeringId.getValue("ReservedInstance.offeringId");
+        if (!unknown_offeringId) return value_offeringId;
+        throw new UndeferrableValueException("Value 'ReservedInstance.offeringId' is not present");
     }
 
     /**
      * Offering type of this reserved DB instance.
      * 
      */
-    private UndeferrableValue<String> offeringType;
-
+    @PolicyResourceProperty(name="offeringType", flag="unknown_offeringType")
+    private String value_offeringType;
+    private boolean unknown_offeringType;
     public String offeringType() {
-        if (offeringType == null) return null;
-        return offeringType.getValue("ReservedInstance.offeringType");
+        if (!unknown_offeringType) return value_offeringType;
+        throw new UndeferrableValueException("Value 'ReservedInstance.offeringType' is not present");
     }
 
     /**
      * Description of the reserved DB instance.
      * 
      */
-    private UndeferrableValue<String> productDescription;
-
+    @PolicyResourceProperty(name="productDescription", flag="unknown_productDescription")
+    private String value_productDescription;
+    private boolean unknown_productDescription;
     public String productDescription() {
-        if (productDescription == null) return null;
-        return productDescription.getValue("ReservedInstance.productDescription");
+        if (!unknown_productDescription) return value_productDescription;
+        throw new UndeferrableValueException("Value 'ReservedInstance.productDescription' is not present");
     }
 
     /**
      * Recurring price charged to run this reserved DB instance.
      * 
      */
-    private UndeferrableValue<List<ReservedInstanceRecurringCharge>> recurringCharges;
-
+    @PolicyResourceProperty(name="recurringCharges", flag="unknown_recurringCharges")
+    private List<ReservedInstanceRecurringCharge> value_recurringCharges;
+    private boolean unknown_recurringCharges;
     public List<ReservedInstanceRecurringCharge> recurringCharges() {
-        if (recurringCharges == null) return null;
-        return recurringCharges.getValue("ReservedInstance.recurringCharges");
+        if (!unknown_recurringCharges) return value_recurringCharges;
+        throw new UndeferrableValueException("Value 'ReservedInstance.recurringCharges' is not present");
     }
 
     /**
      * Customer-specified identifier to track this reservation.
      * 
      */
-    private @Nullable UndeferrableValue<String> reservationId;
-
+    @PolicyResourceProperty(name="reservationId", flag="unknown_reservationId")
+    private @Nullable String value_reservationId;
+    private boolean unknown_reservationId;
     public @Nullable String reservationId() {
-        if (reservationId == null) return null;
-        return reservationId.getValue("ReservedInstance.reservationId");
+        if (!unknown_reservationId) return value_reservationId;
+        throw new UndeferrableValueException("Value 'ReservedInstance.reservationId' is not present");
     }
 
     /**
      * Time the reservation started.
      * 
      */
-    private UndeferrableValue<String> startTime;
-
+    @PolicyResourceProperty(name="startTime", flag="unknown_startTime")
+    private String value_startTime;
+    private boolean unknown_startTime;
     public String startTime() {
-        if (startTime == null) return null;
-        return startTime.getValue("ReservedInstance.startTime");
+        if (!unknown_startTime) return value_startTime;
+        throw new UndeferrableValueException("Value 'ReservedInstance.startTime' is not present");
     }
 
     /**
      * State of the reserved DB instance.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("ReservedInstance.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'ReservedInstance.state' is not present");
     }
 
     /**
      * Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ReservedInstance.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ReservedInstance.tags' is not present");
     }
 
     /**
@@ -204,22 +221,24 @@ public final class ReservedInstance extends com.pulumi.resources.PolicyResourceO
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ReservedInstance.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ReservedInstance.tagsAll' is not present");
     }
 
     /**
      * Hourly price charged for this reserved DB instance.
      * 
      */
-    private UndeferrableValue<Double> usagePrice;
-
+    @PolicyResourceProperty(name="usagePrice", flag="unknown_usagePrice")
+    private Double value_usagePrice;
+    private boolean unknown_usagePrice;
     public Double usagePrice() {
-        if (usagePrice == null) return null;
-        return usagePrice.getValue("ReservedInstance.usagePrice");
+        if (!unknown_usagePrice) return value_usagePrice;
+        throw new UndeferrableValueException("Value 'ReservedInstance.usagePrice' is not present");
     }
 
 }

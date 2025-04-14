@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ebs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ebs.inputs.SnapshotImportDiskContainerUserBucketArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class SnapshotImportDiskContainerArgs {
      * The description of the disk image being imported.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("SnapshotImportDiskContainerArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'SnapshotImportDiskContainerArgs.description' is not present");
     }
 
     /**
      * The format of the disk image being imported. One of `VHD` or `VMDK`.
      * 
      */
-    private UndeferrableValue<String> format;
-
+    @PolicyResourceProperty(name="format", flag="unknown_format")
+    private String value_format;
+    private boolean unknown_format;
     public String format() {
-        if (format == null) return null;
-        return format.getValue("SnapshotImportDiskContainerArgs.format");
+        if (!unknown_format) return value_format;
+        throw new UndeferrableValueException("Value 'SnapshotImportDiskContainerArgs.format' is not present");
     }
 
     /**
      * The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `user_bucket` must be set.
      * 
      */
-    private UndeferrableValue<String> url;
-
+    @PolicyResourceProperty(name="url", flag="unknown_url")
+    private String value_url;
+    private boolean unknown_url;
     public String url() {
-        if (url == null) return null;
-        return url.getValue("SnapshotImportDiskContainerArgs.url");
+        if (!unknown_url) return value_url;
+        throw new UndeferrableValueException("Value 'SnapshotImportDiskContainerArgs.url' is not present");
     }
 
     /**
      * The Amazon S3 bucket for the disk image. One of `url` or `user_bucket` must be set. Detailed below.
      * 
      */
-    private UndeferrableValue<SnapshotImportDiskContainerUserBucketArgs> userBucket;
-
+    @PolicyResourceProperty(name="userBucket", flag="unknown_userBucket")
+    private SnapshotImportDiskContainerUserBucketArgs value_userBucket;
+    private boolean unknown_userBucket;
     public SnapshotImportDiskContainerUserBucketArgs userBucket() {
-        if (userBucket == null) return null;
-        return userBucket.getValue("SnapshotImportDiskContainerArgs.userBucket");
+        if (!unknown_userBucket) return value_userBucket;
+        throw new UndeferrableValueException("Value 'SnapshotImportDiskContainerArgs.userBucket' is not present");
     }
 
 }

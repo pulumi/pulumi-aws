@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.outputs.FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,29 +12,32 @@ import javax.annotation.Nullable;
 
 public final class FlowSourceFlowConfigSourceConnectorPropertiesS3 {
 
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("FlowSourceFlowConfigSourceConnectorPropertiesS3.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesS3.bucketName' is not present");
     }
 
-    private UndeferrableValue<String> bucketPrefix;
-
+    @PolicyResourceProperty(name="bucketPrefix", flag="unknown_bucketPrefix")
+    private String value_bucketPrefix;
+    private boolean unknown_bucketPrefix;
     public String bucketPrefix() {
-        if (bucketPrefix == null) return null;
-        return bucketPrefix.getValue("FlowSourceFlowConfigSourceConnectorPropertiesS3.bucketPrefix");
+        if (!unknown_bucketPrefix) return value_bucketPrefix;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesS3.bucketPrefix' is not present");
     }
 
     /**
      * When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
      * 
      */
-    private @Nullable UndeferrableValue<FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig> s3InputFormatConfig;
-
+    @PolicyResourceProperty(name="s3InputFormatConfig", flag="unknown_s3InputFormatConfig")
+    private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig value_s3InputFormatConfig;
+    private boolean unknown_s3InputFormatConfig;
     public @Nullable FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig s3InputFormatConfig() {
-        if (s3InputFormatConfig == null) return null;
-        return s3InputFormatConfig.getValue("FlowSourceFlowConfigSourceConnectorPropertiesS3.s3InputFormatConfig");
+        if (!unknown_s3InputFormatConfig) return value_s3InputFormatConfig;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesS3.s3InputFormatConfig' is not present");
     }
 
 }

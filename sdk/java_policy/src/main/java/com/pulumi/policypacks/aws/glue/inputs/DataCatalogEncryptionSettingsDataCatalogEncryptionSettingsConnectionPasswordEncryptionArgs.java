@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsCon
      * A KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
      * 
      */
-    private UndeferrableValue<String> awsKmsKeyId;
-
+    @PolicyResourceProperty(name="awsKmsKeyId", flag="unknown_awsKmsKeyId")
+    private String value_awsKmsKeyId;
+    private boolean unknown_awsKmsKeyId;
     public String awsKmsKeyId() {
-        if (awsKmsKeyId == null) return null;
-        return awsKmsKeyId.getValue("DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs.awsKmsKeyId");
+        if (!unknown_awsKmsKeyId) return value_awsKmsKeyId;
+        throw new UndeferrableValueException("Value 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs.awsKmsKeyId' is not present");
     }
 
     /**
      * When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
      * 
      */
-    private UndeferrableValue<Boolean> returnConnectionPasswordEncrypted;
-
+    @PolicyResourceProperty(name="returnConnectionPasswordEncrypted", flag="unknown_returnConnectionPasswordEncrypted")
+    private Boolean value_returnConnectionPasswordEncrypted;
+    private boolean unknown_returnConnectionPasswordEncrypted;
     public Boolean returnConnectionPasswordEncrypted() {
-        if (returnConnectionPasswordEncrypted == null) return null;
-        return returnConnectionPasswordEncrypted.getValue("DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs.returnConnectionPasswordEncrypted");
+        if (!unknown_returnConnectionPasswordEncrypted) return value_returnConnectionPasswordEncrypted;
+        throw new UndeferrableValueException("Value 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs.returnConnectionPasswordEncrypted' is not present");
     }
 
 }

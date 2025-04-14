@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.iot.inputs.IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs;
 import com.pulumi.policypacks.aws.iot.inputs.IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class IndexingConfigurationThingGroupIndexingConfigurationArgs {
      * A list of thing group fields to index. This list cannot contain any managed fields. See below.
      * 
      */
-    private UndeferrableValue<List<IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs>> customFields;
-
+    @PolicyResourceProperty(name="customFields", flag="unknown_customFields")
+    private List<IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs> value_customFields;
+    private boolean unknown_customFields;
     public List<IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs> customFields() {
-        if (customFields == null) return null;
-        return customFields.getValue("IndexingConfigurationThingGroupIndexingConfigurationArgs.customFields");
+        if (!unknown_customFields) return value_customFields;
+        throw new UndeferrableValueException("Value 'IndexingConfigurationThingGroupIndexingConfigurationArgs.customFields' is not present");
     }
 
     /**
      * Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
      * 
      */
-    private UndeferrableValue<List<IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs>> managedFields;
-
+    @PolicyResourceProperty(name="managedFields", flag="unknown_managedFields")
+    private List<IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs> value_managedFields;
+    private boolean unknown_managedFields;
     public List<IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs> managedFields() {
-        if (managedFields == null) return null;
-        return managedFields.getValue("IndexingConfigurationThingGroupIndexingConfigurationArgs.managedFields");
+        if (!unknown_managedFields) return value_managedFields;
+        throw new UndeferrableValueException("Value 'IndexingConfigurationThingGroupIndexingConfigurationArgs.managedFields' is not present");
     }
 
     /**
      * Thing group indexing mode. Valid values: `OFF`, `ON`.
      * 
      */
-    private UndeferrableValue<String> thingGroupIndexingMode;
-
+    @PolicyResourceProperty(name="thingGroupIndexingMode", flag="unknown_thingGroupIndexingMode")
+    private String value_thingGroupIndexingMode;
+    private boolean unknown_thingGroupIndexingMode;
     public String thingGroupIndexingMode() {
-        if (thingGroupIndexingMode == null) return null;
-        return thingGroupIndexingMode.getValue("IndexingConfigurationThingGroupIndexingConfigurationArgs.thingGroupIndexingMode");
+        if (!unknown_thingGroupIndexingMode) return value_thingGroupIndexingMode;
+        throw new UndeferrableValueException("Value 'IndexingConfigurationThingGroupIndexingConfigurationArgs.thingGroupIndexingMode' is not present");
     }
 
 }

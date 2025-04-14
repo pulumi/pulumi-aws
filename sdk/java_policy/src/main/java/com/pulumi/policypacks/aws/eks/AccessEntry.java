@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,55 +19,60 @@ public final class AccessEntry extends com.pulumi.resources.PolicyResourceOutput
      * Amazon Resource Name (ARN) of the Access Entry.
      * 
      */
-    private UndeferrableValue<String> accessEntryArn;
-
+    @PolicyResourceProperty(name="accessEntryArn", flag="unknown_accessEntryArn")
+    private String value_accessEntryArn;
+    private boolean unknown_accessEntryArn;
     public String accessEntryArn() {
-        if (accessEntryArn == null) return null;
-        return accessEntryArn.getValue("AccessEntry.accessEntryArn");
+        if (!unknown_accessEntryArn) return value_accessEntryArn;
+        throw new UndeferrableValueException("Value 'AccessEntry.accessEntryArn' is not present");
     }
 
     /**
      * Name of the EKS Cluster.
      * 
      */
-    private UndeferrableValue<String> clusterName;
-
+    @PolicyResourceProperty(name="clusterName", flag="unknown_clusterName")
+    private String value_clusterName;
+    private boolean unknown_clusterName;
     public String clusterName() {
-        if (clusterName == null) return null;
-        return clusterName.getValue("AccessEntry.clusterName");
+        if (!unknown_clusterName) return value_clusterName;
+        throw new UndeferrableValueException("Value 'AccessEntry.clusterName' is not present");
     }
 
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("AccessEntry.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'AccessEntry.createdAt' is not present");
     }
 
     /**
      * List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
      * 
      */
-    private UndeferrableValue<List<String>> kubernetesGroups;
-
+    @PolicyResourceProperty(name="kubernetesGroups", flag="unknown_kubernetesGroups")
+    private List<String> value_kubernetesGroups;
+    private boolean unknown_kubernetesGroups;
     public List<String> kubernetesGroups() {
-        if (kubernetesGroups == null) return null;
-        return kubernetesGroups.getValue("AccessEntry.kubernetesGroups");
+        if (!unknown_kubernetesGroups) return value_kubernetesGroups;
+        throw new UndeferrableValueException("Value 'AccessEntry.kubernetesGroups' is not present");
     }
 
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
      * 
      */
-    private UndeferrableValue<String> modifiedAt;
-
+    @PolicyResourceProperty(name="modifiedAt", flag="unknown_modifiedAt")
+    private String value_modifiedAt;
+    private boolean unknown_modifiedAt;
     public String modifiedAt() {
-        if (modifiedAt == null) return null;
-        return modifiedAt.getValue("AccessEntry.modifiedAt");
+        if (!unknown_modifiedAt) return value_modifiedAt;
+        throw new UndeferrableValueException("Value 'AccessEntry.modifiedAt' is not present");
     }
 
     /**
@@ -75,22 +81,24 @@ public final class AccessEntry extends com.pulumi.resources.PolicyResourceOutput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> principalArn;
-
+    @PolicyResourceProperty(name="principalArn", flag="unknown_principalArn")
+    private String value_principalArn;
+    private boolean unknown_principalArn;
     public String principalArn() {
-        if (principalArn == null) return null;
-        return principalArn.getValue("AccessEntry.principalArn");
+        if (!unknown_principalArn) return value_principalArn;
+        throw new UndeferrableValueException("Value 'AccessEntry.principalArn' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AccessEntry.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AccessEntry.tags' is not present");
     }
 
     /**
@@ -101,33 +109,36 @@ public final class AccessEntry extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("AccessEntry.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'AccessEntry.tagsAll' is not present");
     }
 
     /**
      * Defaults to STANDARD which provides the standard workflow. EC2_LINUX, EC2_WINDOWS, FARGATE_LINUX types disallow users to input a username or groups, and prevent associations.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("AccessEntry.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'AccessEntry.type' is not present");
     }
 
     /**
      * Defaults to principal ARN if user is principal else defaults to assume-role/session-name is role is used.
      * 
      */
-    private UndeferrableValue<String> userName;
-
+    @PolicyResourceProperty(name="userName", flag="unknown_userName")
+    private String value_userName;
+    private boolean unknown_userName;
     public String userName() {
-        if (userName == null) return null;
-        return userName.getValue("AccessEntry.userName");
+        if (!unknown_userName) return value_userName;
+        throw new UndeferrableValueException("Value 'AccessEntry.userName' is not present");
     }
 
 }

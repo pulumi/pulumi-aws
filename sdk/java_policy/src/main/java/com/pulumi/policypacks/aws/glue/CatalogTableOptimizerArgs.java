@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.glue.inputs.CatalogTableOptimizerConfigurationArgs;
 import java.lang.String;
@@ -17,55 +18,60 @@ public final class CatalogTableOptimizerArgs extends com.pulumi.resources.Policy
      * The Catalog ID of the table.
      * 
      */
-    private UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private String value_catalogId;
+    private boolean unknown_catalogId;
     public String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("CatalogTableOptimizerArgs.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'CatalogTableOptimizerArgs.catalogId' is not present");
     }
 
     /**
      * A configuration block that defines the table optimizer settings. See Configuration for additional details.
      * 
      */
-    private UndeferrableValue<CatalogTableOptimizerConfigurationArgs> configuration;
-
+    @PolicyResourceProperty(name="configuration", flag="unknown_configuration")
+    private CatalogTableOptimizerConfigurationArgs value_configuration;
+    private boolean unknown_configuration;
     public CatalogTableOptimizerConfigurationArgs configuration() {
-        if (configuration == null) return null;
-        return configuration.getValue("CatalogTableOptimizerArgs.configuration");
+        if (!unknown_configuration) return value_configuration;
+        throw new UndeferrableValueException("Value 'CatalogTableOptimizerArgs.configuration' is not present");
     }
 
     /**
      * The name of the database in the catalog in which the table resides.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("CatalogTableOptimizerArgs.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'CatalogTableOptimizerArgs.databaseName' is not present");
     }
 
     /**
      * The name of the table.
      * 
      */
-    private UndeferrableValue<String> tableName;
-
+    @PolicyResourceProperty(name="tableName", flag="unknown_tableName")
+    private String value_tableName;
+    private boolean unknown_tableName;
     public String tableName() {
-        if (tableName == null) return null;
-        return tableName.getValue("CatalogTableOptimizerArgs.tableName");
+        if (!unknown_tableName) return value_tableName;
+        throw new UndeferrableValueException("Value 'CatalogTableOptimizerArgs.tableName' is not present");
     }
 
     /**
      * The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("CatalogTableOptimizerArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'CatalogTableOptimizerArgs.type' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class VpnConnectionRouteArgs extends com.pulumi.resources.PolicyRes
      * The CIDR block associated with the local subnet of the customer network.
      * 
      */
-    private UndeferrableValue<String> destinationCidrBlock;
-
+    @PolicyResourceProperty(name="destinationCidrBlock", flag="unknown_destinationCidrBlock")
+    private String value_destinationCidrBlock;
+    private boolean unknown_destinationCidrBlock;
     public String destinationCidrBlock() {
-        if (destinationCidrBlock == null) return null;
-        return destinationCidrBlock.getValue("VpnConnectionRouteArgs.destinationCidrBlock");
+        if (!unknown_destinationCidrBlock) return value_destinationCidrBlock;
+        throw new UndeferrableValueException("Value 'VpnConnectionRouteArgs.destinationCidrBlock' is not present");
     }
 
     /**
      * The ID of the VPN connection.
      * 
      */
-    private UndeferrableValue<String> vpnConnectionId;
-
+    @PolicyResourceProperty(name="vpnConnectionId", flag="unknown_vpnConnectionId")
+    private String value_vpnConnectionId;
+    private boolean unknown_vpnConnectionId;
     public String vpnConnectionId() {
-        if (vpnConnectionId == null) return null;
-        return vpnConnectionId.getValue("VpnConnectionRouteArgs.vpnConnectionId");
+        if (!unknown_vpnConnectionId) return value_vpnConnectionId;
+        throw new UndeferrableValueException("Value 'VpnConnectionRouteArgs.vpnConnectionId' is not present");
     }
 
 }

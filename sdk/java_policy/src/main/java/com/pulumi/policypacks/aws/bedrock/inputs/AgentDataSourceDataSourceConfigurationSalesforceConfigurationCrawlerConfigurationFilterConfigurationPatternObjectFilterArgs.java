@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -17,11 +18,12 @@ public final class AgentDataSourceDataSourceConfigurationSalesforceConfiguration
      * Each filter object should contain the following configuration:
      * 
      */
-    private UndeferrableValue<List<AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs>> filters;
-
+    @PolicyResourceProperty(name="filters", flag="unknown_filters")
+    private List<AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs> value_filters;
+    private boolean unknown_filters;
     public List<AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs> filters() {
-        if (filters == null) return null;
-        return filters.getValue("AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs.filters");
+        if (!unknown_filters) return value_filters;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs.filters' is not present");
     }
 
 }

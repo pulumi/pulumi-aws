@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ClusterCertificateAuthority {
      * Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
      * 
      */
-    private @Nullable UndeferrableValue<String> data;
-
+    @PolicyResourceProperty(name="data", flag="unknown_data")
+    private @Nullable String value_data;
+    private boolean unknown_data;
     public @Nullable String data() {
-        if (data == null) return null;
-        return data.getValue("ClusterCertificateAuthority.data");
+        if (!unknown_data) return value_data;
+        throw new UndeferrableValueException("Value 'ClusterCertificateAuthority.data' is not present");
     }
 
 }

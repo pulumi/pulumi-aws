@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class FileCacheDataRepositoryAssociationNf {
      * A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> dnsIps;
-
+    @PolicyResourceProperty(name="dnsIps", flag="unknown_dnsIps")
+    private @Nullable List<String> value_dnsIps;
+    private boolean unknown_dnsIps;
     public @Nullable List<String> dnsIps() {
-        if (dnsIps == null) return null;
-        return dnsIps.getValue("FileCacheDataRepositoryAssociationNf.dnsIps");
+        if (!unknown_dnsIps) return value_dnsIps;
+        throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociationNf.dnsIps' is not present");
     }
 
     /**
      * The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("FileCacheDataRepositoryAssociationNf.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'FileCacheDataRepositoryAssociationNf.version' is not present");
     }
 
 }

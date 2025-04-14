@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class GatewayRouteSpecHttp2RouteActionRewritePrefix {
      * Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> defaultPrefix;
-
+    @PolicyResourceProperty(name="defaultPrefix", flag="unknown_defaultPrefix")
+    private @Nullable String value_defaultPrefix;
+    private boolean unknown_defaultPrefix;
     public @Nullable String defaultPrefix() {
-        if (defaultPrefix == null) return null;
-        return defaultPrefix.getValue("GatewayRouteSpecHttp2RouteActionRewritePrefix.defaultPrefix");
+        if (!unknown_defaultPrefix) return value_defaultPrefix;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttp2RouteActionRewritePrefix.defaultPrefix' is not present");
     }
 
     /**
      * Value used to replace the incoming route prefix when rewritten.
      * 
      */
-    private @Nullable UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private @Nullable String value_value;
+    private boolean unknown_value;
     public @Nullable String value() {
-        if (value == null) return null;
-        return value.getValue("GatewayRouteSpecHttp2RouteActionRewritePrefix.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttp2RouteActionRewritePrefix.value' is not present");
     }
 
 }

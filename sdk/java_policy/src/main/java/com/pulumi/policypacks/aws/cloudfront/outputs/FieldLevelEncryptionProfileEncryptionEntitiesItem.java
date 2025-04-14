@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.outputs.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns;
 import java.lang.String;
 
@@ -14,33 +15,36 @@ public final class FieldLevelEncryptionProfileEncryptionEntitiesItem {
      * Object that contains an attribute `items` that contains the list of field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted.
      * 
      */
-    private UndeferrableValue<FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns> fieldPatterns;
-
+    @PolicyResourceProperty(name="fieldPatterns", flag="unknown_fieldPatterns")
+    private FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns value_fieldPatterns;
+    private boolean unknown_fieldPatterns;
     public FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns fieldPatterns() {
-        if (fieldPatterns == null) return null;
-        return fieldPatterns.getValue("FieldLevelEncryptionProfileEncryptionEntitiesItem.fieldPatterns");
+        if (!unknown_fieldPatterns) return value_fieldPatterns;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfileEncryptionEntitiesItem.fieldPatterns' is not present");
     }
 
     /**
      * The provider associated with the public key being used for encryption.
      * 
      */
-    private UndeferrableValue<String> providerId;
-
+    @PolicyResourceProperty(name="providerId", flag="unknown_providerId")
+    private String value_providerId;
+    private boolean unknown_providerId;
     public String providerId() {
-        if (providerId == null) return null;
-        return providerId.getValue("FieldLevelEncryptionProfileEncryptionEntitiesItem.providerId");
+        if (!unknown_providerId) return value_providerId;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfileEncryptionEntitiesItem.providerId' is not present");
     }
 
     /**
      * The public key associated with a set of field-level encryption patterns, to be used when encrypting the fields that match the patterns.
      * 
      */
-    private UndeferrableValue<String> publicKeyId;
-
+    @PolicyResourceProperty(name="publicKeyId", flag="unknown_publicKeyId")
+    private String value_publicKeyId;
+    private boolean unknown_publicKeyId;
     public String publicKeyId() {
-        if (publicKeyId == null) return null;
-        return publicKeyId.getValue("FieldLevelEncryptionProfileEncryptionEntitiesItem.publicKeyId");
+        if (!unknown_publicKeyId) return value_publicKeyId;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfileEncryptionEntitiesItem.publicKeyId' is not present");
     }
 
 }

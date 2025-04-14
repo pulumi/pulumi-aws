@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,36 +12,40 @@ import javax.annotation.Nullable;
 
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings {
 
-    private @Nullable UndeferrableValue<String> h265PackagingType;
-
+    @PolicyResourceProperty(name="h265PackagingType", flag="unknown_h265PackagingType")
+    private @Nullable String value_h265PackagingType;
+    private boolean unknown_h265PackagingType;
     public @Nullable String h265PackagingType() {
-        if (h265PackagingType == null) return null;
-        return h265PackagingType.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings.h265PackagingType");
+        if (!unknown_h265PackagingType) return value_h265PackagingType;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings.h265PackagingType' is not present");
     }
 
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings> hlsSettings;
-
+    @PolicyResourceProperty(name="hlsSettings", flag="unknown_hlsSettings")
+    private ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings value_hlsSettings;
+    private boolean unknown_hlsSettings;
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings hlsSettings() {
-        if (hlsSettings == null) return null;
-        return hlsSettings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings.hlsSettings");
+        if (!unknown_hlsSettings) return value_hlsSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings.hlsSettings' is not present");
     }
 
     /**
      * String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
      * 
      */
-    private @Nullable UndeferrableValue<String> nameModifier;
-
+    @PolicyResourceProperty(name="nameModifier", flag="unknown_nameModifier")
+    private @Nullable String value_nameModifier;
+    private boolean unknown_nameModifier;
     public @Nullable String nameModifier() {
-        if (nameModifier == null) return null;
-        return nameModifier.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings.nameModifier");
+        if (!unknown_nameModifier) return value_nameModifier;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings.nameModifier' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> segmentModifier;
-
+    @PolicyResourceProperty(name="segmentModifier", flag="unknown_segmentModifier")
+    private @Nullable String value_segmentModifier;
+    private boolean unknown_segmentModifier;
     public @Nullable String segmentModifier() {
-        if (segmentModifier == null) return null;
-        return segmentModifier.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings.segmentModifier");
+        if (!unknown_segmentModifier) return value_segmentModifier;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings.segmentModifier' is not present");
     }
 
 }

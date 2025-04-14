@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.accessanalyzer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.accessanalyzer.outputs.AnalyzerConfigurationUnusedAccess;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class AnalyzerConfiguration {
      * A block that specifies the configuration of an unused access analyzer for an AWS organization or account. Documented below
      * 
      */
-    private @Nullable UndeferrableValue<AnalyzerConfigurationUnusedAccess> unusedAccess;
-
+    @PolicyResourceProperty(name="unusedAccess", flag="unknown_unusedAccess")
+    private @Nullable AnalyzerConfigurationUnusedAccess value_unusedAccess;
+    private boolean unknown_unusedAccess;
     public @Nullable AnalyzerConfigurationUnusedAccess unusedAccess() {
-        if (unusedAccess == null) return null;
-        return unusedAccess.getValue("AnalyzerConfiguration.unusedAccess");
+        if (!unknown_unusedAccess) return value_unusedAccess;
+        throw new UndeferrableValueException("Value 'AnalyzerConfiguration.unusedAccess' is not present");
     }
 
 }

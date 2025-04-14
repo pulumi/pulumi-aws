@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sns;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,319 +20,348 @@ public final class Topic extends com.pulumi.resources.PolicyResourceOutput {
      * IAM role for failure feedback
      * 
      */
-    private @Nullable UndeferrableValue<String> applicationFailureFeedbackRoleArn;
-
+    @PolicyResourceProperty(name="applicationFailureFeedbackRoleArn", flag="unknown_applicationFailureFeedbackRoleArn")
+    private @Nullable String value_applicationFailureFeedbackRoleArn;
+    private boolean unknown_applicationFailureFeedbackRoleArn;
     public @Nullable String applicationFailureFeedbackRoleArn() {
-        if (applicationFailureFeedbackRoleArn == null) return null;
-        return applicationFailureFeedbackRoleArn.getValue("Topic.applicationFailureFeedbackRoleArn");
+        if (!unknown_applicationFailureFeedbackRoleArn) return value_applicationFailureFeedbackRoleArn;
+        throw new UndeferrableValueException("Value 'Topic.applicationFailureFeedbackRoleArn' is not present");
     }
 
     /**
      * The IAM role permitted to receive success feedback for this topic
      * 
      */
-    private @Nullable UndeferrableValue<String> applicationSuccessFeedbackRoleArn;
-
+    @PolicyResourceProperty(name="applicationSuccessFeedbackRoleArn", flag="unknown_applicationSuccessFeedbackRoleArn")
+    private @Nullable String value_applicationSuccessFeedbackRoleArn;
+    private boolean unknown_applicationSuccessFeedbackRoleArn;
     public @Nullable String applicationSuccessFeedbackRoleArn() {
-        if (applicationSuccessFeedbackRoleArn == null) return null;
-        return applicationSuccessFeedbackRoleArn.getValue("Topic.applicationSuccessFeedbackRoleArn");
+        if (!unknown_applicationSuccessFeedbackRoleArn) return value_applicationSuccessFeedbackRoleArn;
+        throw new UndeferrableValueException("Value 'Topic.applicationSuccessFeedbackRoleArn' is not present");
     }
 
     /**
      * Percentage of success to sample
      * 
      */
-    private @Nullable UndeferrableValue<Integer> applicationSuccessFeedbackSampleRate;
-
+    @PolicyResourceProperty(name="applicationSuccessFeedbackSampleRate", flag="unknown_applicationSuccessFeedbackSampleRate")
+    private @Nullable Integer value_applicationSuccessFeedbackSampleRate;
+    private boolean unknown_applicationSuccessFeedbackSampleRate;
     public @Nullable Integer applicationSuccessFeedbackSampleRate() {
-        if (applicationSuccessFeedbackSampleRate == null) return null;
-        return applicationSuccessFeedbackSampleRate.getValue("Topic.applicationSuccessFeedbackSampleRate");
+        if (!unknown_applicationSuccessFeedbackSampleRate) return value_applicationSuccessFeedbackSampleRate;
+        throw new UndeferrableValueException("Value 'Topic.applicationSuccessFeedbackSampleRate' is not present");
     }
 
     /**
      * The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
      * 
      */
-    private @Nullable UndeferrableValue<String> archivePolicy;
-
+    @PolicyResourceProperty(name="archivePolicy", flag="unknown_archivePolicy")
+    private @Nullable String value_archivePolicy;
+    private boolean unknown_archivePolicy;
     public @Nullable String archivePolicy() {
-        if (archivePolicy == null) return null;
-        return archivePolicy.getValue("Topic.archivePolicy");
+        if (!unknown_archivePolicy) return value_archivePolicy;
+        throw new UndeferrableValueException("Value 'Topic.archivePolicy' is not present");
     }
 
     /**
      * The ARN of the SNS topic, as a more obvious property (clone of id)
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Topic.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Topic.arn' is not present");
     }
 
     /**
      * The oldest timestamp at which a FIFO topic subscriber can start a replay.
      * 
      */
-    private UndeferrableValue<String> beginningArchiveTime;
-
+    @PolicyResourceProperty(name="beginningArchiveTime", flag="unknown_beginningArchiveTime")
+    private String value_beginningArchiveTime;
+    private boolean unknown_beginningArchiveTime;
     public String beginningArchiveTime() {
-        if (beginningArchiveTime == null) return null;
-        return beginningArchiveTime.getValue("Topic.beginningArchiveTime");
+        if (!unknown_beginningArchiveTime) return value_beginningArchiveTime;
+        throw new UndeferrableValueException("Value 'Topic.beginningArchiveTime' is not present");
     }
 
     /**
      * Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> contentBasedDeduplication;
-
+    @PolicyResourceProperty(name="contentBasedDeduplication", flag="unknown_contentBasedDeduplication")
+    private @Nullable Boolean value_contentBasedDeduplication;
+    private boolean unknown_contentBasedDeduplication;
     public @Nullable Boolean contentBasedDeduplication() {
-        if (contentBasedDeduplication == null) return null;
-        return contentBasedDeduplication.getValue("Topic.contentBasedDeduplication");
+        if (!unknown_contentBasedDeduplication) return value_contentBasedDeduplication;
+        throw new UndeferrableValueException("Value 'Topic.contentBasedDeduplication' is not present");
     }
 
     /**
      * The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
      * 
      */
-    private @Nullable UndeferrableValue<String> deliveryPolicy;
-
+    @PolicyResourceProperty(name="deliveryPolicy", flag="unknown_deliveryPolicy")
+    private @Nullable String value_deliveryPolicy;
+    private boolean unknown_deliveryPolicy;
     public @Nullable String deliveryPolicy() {
-        if (deliveryPolicy == null) return null;
-        return deliveryPolicy.getValue("Topic.deliveryPolicy");
+        if (!unknown_deliveryPolicy) return value_deliveryPolicy;
+        throw new UndeferrableValueException("Value 'Topic.deliveryPolicy' is not present");
     }
 
     /**
      * The display name for the topic
      * 
      */
-    private @Nullable UndeferrableValue<String> displayName;
-
+    @PolicyResourceProperty(name="displayName", flag="unknown_displayName")
+    private @Nullable String value_displayName;
+    private boolean unknown_displayName;
     public @Nullable String displayName() {
-        if (displayName == null) return null;
-        return displayName.getValue("Topic.displayName");
+        if (!unknown_displayName) return value_displayName;
+        throw new UndeferrableValueException("Value 'Topic.displayName' is not present");
     }
 
     /**
      * Boolean indicating whether or not to create a FIFO (first-in-first-out) topic. FIFO topics can&#39;t deliver messages to customer managed endpoints, such as email addresses, mobile apps, SMS, or HTTP(S) endpoints. These endpoint types aren&#39;t guaranteed to preserve strict message ordering. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> fifoTopic;
-
+    @PolicyResourceProperty(name="fifoTopic", flag="unknown_fifoTopic")
+    private @Nullable Boolean value_fifoTopic;
+    private boolean unknown_fifoTopic;
     public @Nullable Boolean fifoTopic() {
-        if (fifoTopic == null) return null;
-        return fifoTopic.getValue("Topic.fifoTopic");
+        if (!unknown_fifoTopic) return value_fifoTopic;
+        throw new UndeferrableValueException("Value 'Topic.fifoTopic' is not present");
     }
 
     /**
      * IAM role for failure feedback
      * 
      */
-    private @Nullable UndeferrableValue<String> firehoseFailureFeedbackRoleArn;
-
+    @PolicyResourceProperty(name="firehoseFailureFeedbackRoleArn", flag="unknown_firehoseFailureFeedbackRoleArn")
+    private @Nullable String value_firehoseFailureFeedbackRoleArn;
+    private boolean unknown_firehoseFailureFeedbackRoleArn;
     public @Nullable String firehoseFailureFeedbackRoleArn() {
-        if (firehoseFailureFeedbackRoleArn == null) return null;
-        return firehoseFailureFeedbackRoleArn.getValue("Topic.firehoseFailureFeedbackRoleArn");
+        if (!unknown_firehoseFailureFeedbackRoleArn) return value_firehoseFailureFeedbackRoleArn;
+        throw new UndeferrableValueException("Value 'Topic.firehoseFailureFeedbackRoleArn' is not present");
     }
 
     /**
      * The IAM role permitted to receive success feedback for this topic
      * 
      */
-    private @Nullable UndeferrableValue<String> firehoseSuccessFeedbackRoleArn;
-
+    @PolicyResourceProperty(name="firehoseSuccessFeedbackRoleArn", flag="unknown_firehoseSuccessFeedbackRoleArn")
+    private @Nullable String value_firehoseSuccessFeedbackRoleArn;
+    private boolean unknown_firehoseSuccessFeedbackRoleArn;
     public @Nullable String firehoseSuccessFeedbackRoleArn() {
-        if (firehoseSuccessFeedbackRoleArn == null) return null;
-        return firehoseSuccessFeedbackRoleArn.getValue("Topic.firehoseSuccessFeedbackRoleArn");
+        if (!unknown_firehoseSuccessFeedbackRoleArn) return value_firehoseSuccessFeedbackRoleArn;
+        throw new UndeferrableValueException("Value 'Topic.firehoseSuccessFeedbackRoleArn' is not present");
     }
 
     /**
      * Percentage of success to sample
      * 
      */
-    private @Nullable UndeferrableValue<Integer> firehoseSuccessFeedbackSampleRate;
-
+    @PolicyResourceProperty(name="firehoseSuccessFeedbackSampleRate", flag="unknown_firehoseSuccessFeedbackSampleRate")
+    private @Nullable Integer value_firehoseSuccessFeedbackSampleRate;
+    private boolean unknown_firehoseSuccessFeedbackSampleRate;
     public @Nullable Integer firehoseSuccessFeedbackSampleRate() {
-        if (firehoseSuccessFeedbackSampleRate == null) return null;
-        return firehoseSuccessFeedbackSampleRate.getValue("Topic.firehoseSuccessFeedbackSampleRate");
+        if (!unknown_firehoseSuccessFeedbackSampleRate) return value_firehoseSuccessFeedbackSampleRate;
+        throw new UndeferrableValueException("Value 'Topic.firehoseSuccessFeedbackSampleRate' is not present");
     }
 
     /**
      * IAM role for failure feedback
      * 
      */
-    private @Nullable UndeferrableValue<String> httpFailureFeedbackRoleArn;
-
+    @PolicyResourceProperty(name="httpFailureFeedbackRoleArn", flag="unknown_httpFailureFeedbackRoleArn")
+    private @Nullable String value_httpFailureFeedbackRoleArn;
+    private boolean unknown_httpFailureFeedbackRoleArn;
     public @Nullable String httpFailureFeedbackRoleArn() {
-        if (httpFailureFeedbackRoleArn == null) return null;
-        return httpFailureFeedbackRoleArn.getValue("Topic.httpFailureFeedbackRoleArn");
+        if (!unknown_httpFailureFeedbackRoleArn) return value_httpFailureFeedbackRoleArn;
+        throw new UndeferrableValueException("Value 'Topic.httpFailureFeedbackRoleArn' is not present");
     }
 
     /**
      * The IAM role permitted to receive success feedback for this topic
      * 
      */
-    private @Nullable UndeferrableValue<String> httpSuccessFeedbackRoleArn;
-
+    @PolicyResourceProperty(name="httpSuccessFeedbackRoleArn", flag="unknown_httpSuccessFeedbackRoleArn")
+    private @Nullable String value_httpSuccessFeedbackRoleArn;
+    private boolean unknown_httpSuccessFeedbackRoleArn;
     public @Nullable String httpSuccessFeedbackRoleArn() {
-        if (httpSuccessFeedbackRoleArn == null) return null;
-        return httpSuccessFeedbackRoleArn.getValue("Topic.httpSuccessFeedbackRoleArn");
+        if (!unknown_httpSuccessFeedbackRoleArn) return value_httpSuccessFeedbackRoleArn;
+        throw new UndeferrableValueException("Value 'Topic.httpSuccessFeedbackRoleArn' is not present");
     }
 
     /**
      * Percentage of success to sample
      * 
      */
-    private @Nullable UndeferrableValue<Integer> httpSuccessFeedbackSampleRate;
-
+    @PolicyResourceProperty(name="httpSuccessFeedbackSampleRate", flag="unknown_httpSuccessFeedbackSampleRate")
+    private @Nullable Integer value_httpSuccessFeedbackSampleRate;
+    private boolean unknown_httpSuccessFeedbackSampleRate;
     public @Nullable Integer httpSuccessFeedbackSampleRate() {
-        if (httpSuccessFeedbackSampleRate == null) return null;
-        return httpSuccessFeedbackSampleRate.getValue("Topic.httpSuccessFeedbackSampleRate");
+        if (!unknown_httpSuccessFeedbackSampleRate) return value_httpSuccessFeedbackSampleRate;
+        throw new UndeferrableValueException("Value 'Topic.httpSuccessFeedbackSampleRate' is not present");
     }
 
     /**
      * The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see [Key Terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms)
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsMasterKeyId;
-
+    @PolicyResourceProperty(name="kmsMasterKeyId", flag="unknown_kmsMasterKeyId")
+    private @Nullable String value_kmsMasterKeyId;
+    private boolean unknown_kmsMasterKeyId;
     public @Nullable String kmsMasterKeyId() {
-        if (kmsMasterKeyId == null) return null;
-        return kmsMasterKeyId.getValue("Topic.kmsMasterKeyId");
+        if (!unknown_kmsMasterKeyId) return value_kmsMasterKeyId;
+        throw new UndeferrableValueException("Value 'Topic.kmsMasterKeyId' is not present");
     }
 
     /**
      * IAM role for failure feedback
      * 
      */
-    private @Nullable UndeferrableValue<String> lambdaFailureFeedbackRoleArn;
-
+    @PolicyResourceProperty(name="lambdaFailureFeedbackRoleArn", flag="unknown_lambdaFailureFeedbackRoleArn")
+    private @Nullable String value_lambdaFailureFeedbackRoleArn;
+    private boolean unknown_lambdaFailureFeedbackRoleArn;
     public @Nullable String lambdaFailureFeedbackRoleArn() {
-        if (lambdaFailureFeedbackRoleArn == null) return null;
-        return lambdaFailureFeedbackRoleArn.getValue("Topic.lambdaFailureFeedbackRoleArn");
+        if (!unknown_lambdaFailureFeedbackRoleArn) return value_lambdaFailureFeedbackRoleArn;
+        throw new UndeferrableValueException("Value 'Topic.lambdaFailureFeedbackRoleArn' is not present");
     }
 
     /**
      * The IAM role permitted to receive success feedback for this topic
      * 
      */
-    private @Nullable UndeferrableValue<String> lambdaSuccessFeedbackRoleArn;
-
+    @PolicyResourceProperty(name="lambdaSuccessFeedbackRoleArn", flag="unknown_lambdaSuccessFeedbackRoleArn")
+    private @Nullable String value_lambdaSuccessFeedbackRoleArn;
+    private boolean unknown_lambdaSuccessFeedbackRoleArn;
     public @Nullable String lambdaSuccessFeedbackRoleArn() {
-        if (lambdaSuccessFeedbackRoleArn == null) return null;
-        return lambdaSuccessFeedbackRoleArn.getValue("Topic.lambdaSuccessFeedbackRoleArn");
+        if (!unknown_lambdaSuccessFeedbackRoleArn) return value_lambdaSuccessFeedbackRoleArn;
+        throw new UndeferrableValueException("Value 'Topic.lambdaSuccessFeedbackRoleArn' is not present");
     }
 
     /**
      * Percentage of success to sample
      * 
      */
-    private @Nullable UndeferrableValue<Integer> lambdaSuccessFeedbackSampleRate;
-
+    @PolicyResourceProperty(name="lambdaSuccessFeedbackSampleRate", flag="unknown_lambdaSuccessFeedbackSampleRate")
+    private @Nullable Integer value_lambdaSuccessFeedbackSampleRate;
+    private boolean unknown_lambdaSuccessFeedbackSampleRate;
     public @Nullable Integer lambdaSuccessFeedbackSampleRate() {
-        if (lambdaSuccessFeedbackSampleRate == null) return null;
-        return lambdaSuccessFeedbackSampleRate.getValue("Topic.lambdaSuccessFeedbackSampleRate");
+        if (!unknown_lambdaSuccessFeedbackSampleRate) return value_lambdaSuccessFeedbackSampleRate;
+        throw new UndeferrableValueException("Value 'Topic.lambdaSuccessFeedbackSampleRate' is not present");
     }
 
     /**
      * The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Topic.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Topic.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("Topic.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'Topic.namePrefix' is not present");
     }
 
     /**
      * The AWS Account ID of the SNS topic owner
      * 
      */
-    private UndeferrableValue<String> owner;
-
+    @PolicyResourceProperty(name="owner", flag="unknown_owner")
+    private String value_owner;
+    private boolean unknown_owner;
     public String owner() {
-        if (owner == null) return null;
-        return owner.getValue("Topic.owner");
+        if (!unknown_owner) return value_owner;
+        throw new UndeferrableValueException("Value 'Topic.owner' is not present");
     }
 
     /**
      * The fully-formed AWS policy as JSON.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("Topic.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'Topic.policy' is not present");
     }
 
     /**
      * If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
      * 
      */
-    private UndeferrableValue<Integer> signatureVersion;
-
+    @PolicyResourceProperty(name="signatureVersion", flag="unknown_signatureVersion")
+    private Integer value_signatureVersion;
+    private boolean unknown_signatureVersion;
     public Integer signatureVersion() {
-        if (signatureVersion == null) return null;
-        return signatureVersion.getValue("Topic.signatureVersion");
+        if (!unknown_signatureVersion) return value_signatureVersion;
+        throw new UndeferrableValueException("Value 'Topic.signatureVersion' is not present");
     }
 
     /**
      * IAM role for failure feedback
      * 
      */
-    private @Nullable UndeferrableValue<String> sqsFailureFeedbackRoleArn;
-
+    @PolicyResourceProperty(name="sqsFailureFeedbackRoleArn", flag="unknown_sqsFailureFeedbackRoleArn")
+    private @Nullable String value_sqsFailureFeedbackRoleArn;
+    private boolean unknown_sqsFailureFeedbackRoleArn;
     public @Nullable String sqsFailureFeedbackRoleArn() {
-        if (sqsFailureFeedbackRoleArn == null) return null;
-        return sqsFailureFeedbackRoleArn.getValue("Topic.sqsFailureFeedbackRoleArn");
+        if (!unknown_sqsFailureFeedbackRoleArn) return value_sqsFailureFeedbackRoleArn;
+        throw new UndeferrableValueException("Value 'Topic.sqsFailureFeedbackRoleArn' is not present");
     }
 
     /**
      * The IAM role permitted to receive success feedback for this topic
      * 
      */
-    private @Nullable UndeferrableValue<String> sqsSuccessFeedbackRoleArn;
-
+    @PolicyResourceProperty(name="sqsSuccessFeedbackRoleArn", flag="unknown_sqsSuccessFeedbackRoleArn")
+    private @Nullable String value_sqsSuccessFeedbackRoleArn;
+    private boolean unknown_sqsSuccessFeedbackRoleArn;
     public @Nullable String sqsSuccessFeedbackRoleArn() {
-        if (sqsSuccessFeedbackRoleArn == null) return null;
-        return sqsSuccessFeedbackRoleArn.getValue("Topic.sqsSuccessFeedbackRoleArn");
+        if (!unknown_sqsSuccessFeedbackRoleArn) return value_sqsSuccessFeedbackRoleArn;
+        throw new UndeferrableValueException("Value 'Topic.sqsSuccessFeedbackRoleArn' is not present");
     }
 
     /**
      * Percentage of success to sample
      * 
      */
-    private @Nullable UndeferrableValue<Integer> sqsSuccessFeedbackSampleRate;
-
+    @PolicyResourceProperty(name="sqsSuccessFeedbackSampleRate", flag="unknown_sqsSuccessFeedbackSampleRate")
+    private @Nullable Integer value_sqsSuccessFeedbackSampleRate;
+    private boolean unknown_sqsSuccessFeedbackSampleRate;
     public @Nullable Integer sqsSuccessFeedbackSampleRate() {
-        if (sqsSuccessFeedbackSampleRate == null) return null;
-        return sqsSuccessFeedbackSampleRate.getValue("Topic.sqsSuccessFeedbackSampleRate");
+        if (!unknown_sqsSuccessFeedbackSampleRate) return value_sqsSuccessFeedbackSampleRate;
+        throw new UndeferrableValueException("Value 'Topic.sqsSuccessFeedbackSampleRate' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Topic.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Topic.tags' is not present");
     }
 
     /**
@@ -342,22 +372,24 @@ public final class Topic extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Topic.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Topic.tagsAll' is not present");
     }
 
     /**
      * Tracing mode of an Amazon SNS topic. Valid values: `&#34;PassThrough&#34;`, `&#34;Active&#34;`.
      * 
      */
-    private UndeferrableValue<String> tracingConfig;
-
+    @PolicyResourceProperty(name="tracingConfig", flag="unknown_tracingConfig")
+    private String value_tracingConfig;
+    private boolean unknown_tracingConfig;
     public String tracingConfig() {
-        if (tracingConfig == null) return null;
-        return tracingConfig.getValue("Topic.tracingConfig");
+        if (!unknown_tracingConfig) return value_tracingConfig;
+        throw new UndeferrableValueException("Value 'Topic.tracingConfig' is not present");
     }
 
 }

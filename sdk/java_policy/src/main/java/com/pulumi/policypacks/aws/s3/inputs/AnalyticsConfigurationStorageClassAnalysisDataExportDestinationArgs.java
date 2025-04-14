@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs;
 
 
@@ -13,11 +14,12 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
      * Analytics data export currently only supports an S3 bucket destination (documented below).
      * 
      */
-    private UndeferrableValue<AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs> s3BucketDestination;
-
+    @PolicyResourceProperty(name="s3BucketDestination", flag="unknown_s3BucketDestination")
+    private AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs value_s3BucketDestination;
+    private boolean unknown_s3BucketDestination;
     public AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs s3BucketDestination() {
-        if (s3BucketDestination == null) return null;
-        return s3BucketDestination.getValue("AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs.s3BucketDestination");
+        if (!unknown_s3BucketDestination) return value_s3BucketDestination;
+        throw new UndeferrableValueException("Value 'AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs.s3BucketDestination' is not present");
     }
 
 }

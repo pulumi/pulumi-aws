@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
      * Name of the secret for a virtual gateway&#39;s Transport Layer Security (TLS) Secret Discovery Service validation context trust.
      * 
      */
-    private UndeferrableValue<String> secretName;
-
+    @PolicyResourceProperty(name="secretName", flag="unknown_secretName")
+    private String value_secretName;
+    private boolean unknown_secretName;
     public String secretName() {
-        if (secretName == null) return null;
-        return secretName.getValue("VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs.secretName");
+        if (!unknown_secretName) return value_secretName;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs.secretName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53recoveryreadiness.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.route53recoveryreadiness.outputs.ResourceSetResourceDnsTargetResource;
 import java.lang.String;
 import java.util.List;
@@ -12,44 +13,48 @@ import javax.annotation.Nullable;
 
 public final class ResourceSetResource {
 
-    private @Nullable UndeferrableValue<String> componentId;
-
+    @PolicyResourceProperty(name="componentId", flag="unknown_componentId")
+    private @Nullable String value_componentId;
+    private boolean unknown_componentId;
     public @Nullable String componentId() {
-        if (componentId == null) return null;
-        return componentId.getValue("ResourceSetResource.componentId");
+        if (!unknown_componentId) return value_componentId;
+        throw new UndeferrableValueException("Value 'ResourceSetResource.componentId' is not present");
     }
 
     /**
      * Component for DNS/Routing Control Readiness Checks.
      * 
      */
-    private @Nullable UndeferrableValue<ResourceSetResourceDnsTargetResource> dnsTargetResource;
-
+    @PolicyResourceProperty(name="dnsTargetResource", flag="unknown_dnsTargetResource")
+    private @Nullable ResourceSetResourceDnsTargetResource value_dnsTargetResource;
+    private boolean unknown_dnsTargetResource;
     public @Nullable ResourceSetResourceDnsTargetResource dnsTargetResource() {
-        if (dnsTargetResource == null) return null;
-        return dnsTargetResource.getValue("ResourceSetResource.dnsTargetResource");
+        if (!unknown_dnsTargetResource) return value_dnsTargetResource;
+        throw new UndeferrableValueException("Value 'ResourceSetResource.dnsTargetResource' is not present");
     }
 
     /**
      * Recovery group ARN or cell ARN that contains this resource set.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> readinessScopes;
-
+    @PolicyResourceProperty(name="readinessScopes", flag="unknown_readinessScopes")
+    private @Nullable List<String> value_readinessScopes;
+    private boolean unknown_readinessScopes;
     public @Nullable List<String> readinessScopes() {
-        if (readinessScopes == null) return null;
-        return readinessScopes.getValue("ResourceSetResource.readinessScopes");
+        if (!unknown_readinessScopes) return value_readinessScopes;
+        throw new UndeferrableValueException("Value 'ResourceSetResource.readinessScopes' is not present");
     }
 
     /**
      * ARN of the resource.
      * 
      */
-    private @Nullable UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private @Nullable String value_resourceArn;
+    private boolean unknown_resourceArn;
     public @Nullable String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("ResourceSetResource.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'ResourceSetResource.resourceArn' is not present");
     }
 
 }

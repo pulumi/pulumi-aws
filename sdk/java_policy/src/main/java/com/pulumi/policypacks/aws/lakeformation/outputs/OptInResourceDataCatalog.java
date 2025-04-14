@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class OptInResourceDataCatalog {
      * Identifier for the catalog resource.
      * 
      */
-    private @Nullable UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private @Nullable String value_id;
+    private boolean unknown_id;
     public @Nullable String id() {
-        if (id == null) return null;
-        return id.getValue("OptInResourceDataCatalog.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'OptInResourceDataCatalog.id' is not present");
     }
 
 }

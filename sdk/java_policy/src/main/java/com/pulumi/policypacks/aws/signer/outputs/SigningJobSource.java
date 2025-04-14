@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.signer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.signer.outputs.SigningJobSourceS3;
 
 
@@ -13,11 +14,12 @@ public final class SigningJobSource {
      * A configuration block describing the S3 Source object: See S3 Source below for details.
      * 
      */
-    private UndeferrableValue<SigningJobSourceS3> s3;
-
+    @PolicyResourceProperty(name="s3", flag="unknown_s3")
+    private SigningJobSourceS3 value_s3;
+    private boolean unknown_s3;
     public SigningJobSourceS3 s3() {
-        if (s3 == null) return null;
-        return s3.getValue("SigningJobSource.s3");
+        if (!unknown_s3) return value_s3;
+        throw new UndeferrableValueException("Value 'SigningJobSource.s3' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appfabric.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appfabric.inputs.IngestionDestinationProcessingConfigurationAuditLogArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class IngestionDestinationProcessingConfigurationArgs {
      * Contains information about an audit log processing configuration.
      * 
      */
-    private UndeferrableValue<IngestionDestinationProcessingConfigurationAuditLogArgs> auditLog;
-
+    @PolicyResourceProperty(name="auditLog", flag="unknown_auditLog")
+    private IngestionDestinationProcessingConfigurationAuditLogArgs value_auditLog;
+    private boolean unknown_auditLog;
     public IngestionDestinationProcessingConfigurationAuditLogArgs auditLog() {
-        if (auditLog == null) return null;
-        return auditLog.getValue("IngestionDestinationProcessingConfigurationArgs.auditLog");
+        if (!unknown_auditLog) return value_auditLog;
+        throw new UndeferrableValueException("Value 'IngestionDestinationProcessingConfigurationArgs.auditLog' is not present");
     }
 
 }

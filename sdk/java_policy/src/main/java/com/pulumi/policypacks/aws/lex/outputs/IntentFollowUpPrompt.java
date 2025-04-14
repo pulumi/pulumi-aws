@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.IntentFollowUpPromptPrompt;
 import com.pulumi.policypacks.aws.lex.outputs.IntentFollowUpPromptRejectionStatement;
 
@@ -14,11 +15,12 @@ public final class IntentFollowUpPrompt {
      * Prompts for information from the user. Attributes are documented under prompt.
      * 
      */
-    private UndeferrableValue<IntentFollowUpPromptPrompt> prompt;
-
+    @PolicyResourceProperty(name="prompt", flag="unknown_prompt")
+    private IntentFollowUpPromptPrompt value_prompt;
+    private boolean unknown_prompt;
     public IntentFollowUpPromptPrompt prompt() {
-        if (prompt == null) return null;
-        return prompt.getValue("IntentFollowUpPrompt.prompt");
+        if (!unknown_prompt) return value_prompt;
+        throw new UndeferrableValueException("Value 'IntentFollowUpPrompt.prompt' is not present");
     }
 
     /**
@@ -27,11 +29,12 @@ public final class IntentFollowUpPrompt {
      * documented below under statement.
      * 
      */
-    private UndeferrableValue<IntentFollowUpPromptRejectionStatement> rejectionStatement;
-
+    @PolicyResourceProperty(name="rejectionStatement", flag="unknown_rejectionStatement")
+    private IntentFollowUpPromptRejectionStatement value_rejectionStatement;
+    private boolean unknown_rejectionStatement;
     public IntentFollowUpPromptRejectionStatement rejectionStatement() {
-        if (rejectionStatement == null) return null;
-        return rejectionStatement.getValue("IntentFollowUpPrompt.rejectionStatement");
+        if (!unknown_rejectionStatement) return value_rejectionStatement;
+        throw new UndeferrableValueException("Value 'IntentFollowUpPrompt.rejectionStatement' is not present");
     }
 
 }

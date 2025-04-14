@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ebs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,121 +20,132 @@ public final class VolumeArgs extends com.pulumi.resources.PolicyResourceInput {
      * Availability zone where the EBS volume will exist.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("VolumeArgs.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'VolumeArgs.availabilityZone' is not present");
     }
 
     /**
      * If true, the disk will be encrypted.
      * 
      */
-    private UndeferrableValue<Boolean> encrypted;
-
+    @PolicyResourceProperty(name="encrypted", flag="unknown_encrypted")
+    private Boolean value_encrypted;
+    private boolean unknown_encrypted;
     public Boolean encrypted() {
-        if (encrypted == null) return null;
-        return encrypted.getValue("VolumeArgs.encrypted");
+        if (!unknown_encrypted) return value_encrypted;
+        throw new UndeferrableValueException("Value 'VolumeArgs.encrypted' is not present");
     }
 
     /**
      * If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
      * 
      */
-    private UndeferrableValue<Boolean> finalSnapshot;
-
+    @PolicyResourceProperty(name="finalSnapshot", flag="unknown_finalSnapshot")
+    private Boolean value_finalSnapshot;
+    private boolean unknown_finalSnapshot;
     public Boolean finalSnapshot() {
-        if (finalSnapshot == null) return null;
-        return finalSnapshot.getValue("VolumeArgs.finalSnapshot");
+        if (!unknown_finalSnapshot) return value_finalSnapshot;
+        throw new UndeferrableValueException("Value 'VolumeArgs.finalSnapshot' is not present");
     }
 
     /**
      * Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
      * 
      */
-    private UndeferrableValue<Integer> iops;
-
+    @PolicyResourceProperty(name="iops", flag="unknown_iops")
+    private Integer value_iops;
+    private boolean unknown_iops;
     public Integer iops() {
-        if (iops == null) return null;
-        return iops.getValue("VolumeArgs.iops");
+        if (!unknown_iops) return value_iops;
+        throw new UndeferrableValueException("Value 'VolumeArgs.iops' is not present");
     }
 
     /**
      * ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("VolumeArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'VolumeArgs.kmsKeyId' is not present");
     }
 
     /**
      * Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
      * 
      */
-    private UndeferrableValue<Boolean> multiAttachEnabled;
-
+    @PolicyResourceProperty(name="multiAttachEnabled", flag="unknown_multiAttachEnabled")
+    private Boolean value_multiAttachEnabled;
+    private boolean unknown_multiAttachEnabled;
     public Boolean multiAttachEnabled() {
-        if (multiAttachEnabled == null) return null;
-        return multiAttachEnabled.getValue("VolumeArgs.multiAttachEnabled");
+        if (!unknown_multiAttachEnabled) return value_multiAttachEnabled;
+        throw new UndeferrableValueException("Value 'VolumeArgs.multiAttachEnabled' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the Outpost.
      * 
      */
-    private UndeferrableValue<String> outpostArn;
-
+    @PolicyResourceProperty(name="outpostArn", flag="unknown_outpostArn")
+    private String value_outpostArn;
+    private boolean unknown_outpostArn;
     public String outpostArn() {
-        if (outpostArn == null) return null;
-        return outpostArn.getValue("VolumeArgs.outpostArn");
+        if (!unknown_outpostArn) return value_outpostArn;
+        throw new UndeferrableValueException("Value 'VolumeArgs.outpostArn' is not present");
     }
 
     /**
      * Size of the drive in GiBs.
      * 
      */
-    private UndeferrableValue<Integer> size;
-
+    @PolicyResourceProperty(name="size", flag="unknown_size")
+    private Integer value_size;
+    private boolean unknown_size;
     public Integer size() {
-        if (size == null) return null;
-        return size.getValue("VolumeArgs.size");
+        if (!unknown_size) return value_size;
+        throw new UndeferrableValueException("Value 'VolumeArgs.size' is not present");
     }
 
     /**
      * A snapshot to base the EBS volume off of.
      * 
      */
-    private UndeferrableValue<String> snapshotId;
-
+    @PolicyResourceProperty(name="snapshotId", flag="unknown_snapshotId")
+    private String value_snapshotId;
+    private boolean unknown_snapshotId;
     public String snapshotId() {
-        if (snapshotId == null) return null;
-        return snapshotId.getValue("VolumeArgs.snapshotId");
+        if (!unknown_snapshotId) return value_snapshotId;
+        throw new UndeferrableValueException("Value 'VolumeArgs.snapshotId' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VolumeArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VolumeArgs.tags' is not present");
     }
 
     /**
      * Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
      * 
      */
-    private UndeferrableValue<Integer> throughput;
-
+    @PolicyResourceProperty(name="throughput", flag="unknown_throughput")
+    private Integer value_throughput;
+    private boolean unknown_throughput;
     public Integer throughput() {
-        if (throughput == null) return null;
-        return throughput.getValue("VolumeArgs.throughput");
+        if (!unknown_throughput) return value_throughput;
+        throw new UndeferrableValueException("Value 'VolumeArgs.throughput' is not present");
     }
 
     /**
@@ -142,11 +154,12 @@ public final class VolumeArgs extends com.pulumi.resources.PolicyResourceInput {
      * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("VolumeArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'VolumeArgs.type' is not present");
     }
 
 }

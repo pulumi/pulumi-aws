@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securitylake.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class AwsLogSourceSourceArgs {
      * If not specified, uses all accounts included in the Security Lake.
      * 
      */
-    private UndeferrableValue<List<String>> accounts;
-
+    @PolicyResourceProperty(name="accounts", flag="unknown_accounts")
+    private List<String> value_accounts;
+    private boolean unknown_accounts;
     public List<String> accounts() {
-        if (accounts == null) return null;
-        return accounts.getValue("AwsLogSourceSourceArgs.accounts");
+        if (!unknown_accounts) return value_accounts;
+        throw new UndeferrableValueException("Value 'AwsLogSourceSourceArgs.accounts' is not present");
     }
 
     /**
      * Specify the Regions where you want to enable Security Lake.
      * 
      */
-    private UndeferrableValue<List<String>> regions;
-
+    @PolicyResourceProperty(name="regions", flag="unknown_regions")
+    private List<String> value_regions;
+    private boolean unknown_regions;
     public List<String> regions() {
-        if (regions == null) return null;
-        return regions.getValue("AwsLogSourceSourceArgs.regions");
+        if (!unknown_regions) return value_regions;
+        throw new UndeferrableValueException("Value 'AwsLogSourceSourceArgs.regions' is not present");
     }
 
     /**
      * The name for a AWS source. This must be a Regionally unique value. Valid values: `ROUTE53`, `VPC_FLOW`, `SH_FINDINGS`, `CLOUD_TRAIL_MGMT`, `LAMBDA_EXECUTION`, `S3_DATA`, `EKS_AUDIT`, `WAF`.
      * 
      */
-    private UndeferrableValue<String> sourceName;
-
+    @PolicyResourceProperty(name="sourceName", flag="unknown_sourceName")
+    private String value_sourceName;
+    private boolean unknown_sourceName;
     public String sourceName() {
-        if (sourceName == null) return null;
-        return sourceName.getValue("AwsLogSourceSourceArgs.sourceName");
+        if (!unknown_sourceName) return value_sourceName;
+        throw new UndeferrableValueException("Value 'AwsLogSourceSourceArgs.sourceName' is not present");
     }
 
     /**
@@ -51,11 +55,12 @@ public final class AwsLogSourceSourceArgs {
      * This must be a Regionally unique value.
      * 
      */
-    private UndeferrableValue<String> sourceVersion;
-
+    @PolicyResourceProperty(name="sourceVersion", flag="unknown_sourceVersion")
+    private String value_sourceVersion;
+    private boolean unknown_sourceVersion;
     public String sourceVersion() {
-        if (sourceVersion == null) return null;
-        return sourceVersion.getValue("AwsLogSourceSourceArgs.sourceVersion");
+        if (!unknown_sourceVersion) return value_sourceVersion;
+        throw new UndeferrableValueException("Value 'AwsLogSourceSourceArgs.sourceVersion' is not present");
     }
 
 }

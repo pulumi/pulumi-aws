@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class VpcIpamPreviewNextCidrArgs extends com.pulumi.resources.Polic
      * Exclude a particular CIDR range from being returned by the pool.
      * 
      */
-    private UndeferrableValue<List<String>> disallowedCidrs;
-
+    @PolicyResourceProperty(name="disallowedCidrs", flag="unknown_disallowedCidrs")
+    private List<String> value_disallowedCidrs;
+    private boolean unknown_disallowedCidrs;
     public List<String> disallowedCidrs() {
-        if (disallowedCidrs == null) return null;
-        return disallowedCidrs.getValue("VpcIpamPreviewNextCidrArgs.disallowedCidrs");
+        if (!unknown_disallowedCidrs) return value_disallowedCidrs;
+        throw new UndeferrableValueException("Value 'VpcIpamPreviewNextCidrArgs.disallowedCidrs' is not present");
     }
 
     /**
      * The ID of the pool to which you want to assign a CIDR.
      * 
      */
-    private UndeferrableValue<String> ipamPoolId;
-
+    @PolicyResourceProperty(name="ipamPoolId", flag="unknown_ipamPoolId")
+    private String value_ipamPoolId;
+    private boolean unknown_ipamPoolId;
     public String ipamPoolId() {
-        if (ipamPoolId == null) return null;
-        return ipamPoolId.getValue("VpcIpamPreviewNextCidrArgs.ipamPoolId");
+        if (!unknown_ipamPoolId) return value_ipamPoolId;
+        throw new UndeferrableValueException("Value 'VpcIpamPreviewNextCidrArgs.ipamPoolId' is not present");
     }
 
     /**
      * The netmask length of the CIDR you would like to preview from the IPAM pool.
      * 
      */
-    private UndeferrableValue<Integer> netmaskLength;
-
+    @PolicyResourceProperty(name="netmaskLength", flag="unknown_netmaskLength")
+    private Integer value_netmaskLength;
+    private boolean unknown_netmaskLength;
     public Integer netmaskLength() {
-        if (netmaskLength == null) return null;
-        return netmaskLength.getValue("VpcIpamPreviewNextCidrArgs.netmaskLength");
+        if (!unknown_netmaskLength) return value_netmaskLength;
+        throw new UndeferrableValueException("Value 'VpcIpamPreviewNextCidrArgs.netmaskLength' is not present");
     }
 
 }

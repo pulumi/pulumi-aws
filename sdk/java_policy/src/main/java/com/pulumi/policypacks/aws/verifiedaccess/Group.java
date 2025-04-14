@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.verifiedaccess.outputs.GroupSseConfiguration;
 import java.lang.String;
@@ -18,88 +19,96 @@ public final class Group extends com.pulumi.resources.PolicyResourceOutput {
      * Timestamp when the access group was created.
      * 
      */
-    private UndeferrableValue<String> creationTime;
-
+    @PolicyResourceProperty(name="creationTime", flag="unknown_creationTime")
+    private String value_creationTime;
+    private boolean unknown_creationTime;
     public String creationTime() {
-        if (creationTime == null) return null;
-        return creationTime.getValue("Group.creationTime");
+        if (!unknown_creationTime) return value_creationTime;
+        throw new UndeferrableValueException("Value 'Group.creationTime' is not present");
     }
 
     /**
      * Timestamp when the access group was deleted.
      * 
      */
-    private UndeferrableValue<String> deletionTime;
-
+    @PolicyResourceProperty(name="deletionTime", flag="unknown_deletionTime")
+    private String value_deletionTime;
+    private boolean unknown_deletionTime;
     public String deletionTime() {
-        if (deletionTime == null) return null;
-        return deletionTime.getValue("Group.deletionTime");
+        if (!unknown_deletionTime) return value_deletionTime;
+        throw new UndeferrableValueException("Value 'Group.deletionTime' is not present");
     }
 
     /**
      * Description of the verified access group.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("Group.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Group.description' is not present");
     }
 
     /**
      * Timestamp when the access group was last updated.
      * 
      */
-    private UndeferrableValue<String> lastUpdatedTime;
-
+    @PolicyResourceProperty(name="lastUpdatedTime", flag="unknown_lastUpdatedTime")
+    private String value_lastUpdatedTime;
+    private boolean unknown_lastUpdatedTime;
     public String lastUpdatedTime() {
-        if (lastUpdatedTime == null) return null;
-        return lastUpdatedTime.getValue("Group.lastUpdatedTime");
+        if (!unknown_lastUpdatedTime) return value_lastUpdatedTime;
+        throw new UndeferrableValueException("Value 'Group.lastUpdatedTime' is not present");
     }
 
     /**
      * AWS account number owning this resource.
      * 
      */
-    private UndeferrableValue<String> owner;
-
+    @PolicyResourceProperty(name="owner", flag="unknown_owner")
+    private String value_owner;
+    private boolean unknown_owner;
     public String owner() {
-        if (owner == null) return null;
-        return owner.getValue("Group.owner");
+        if (!unknown_owner) return value_owner;
+        throw new UndeferrableValueException("Value 'Group.owner' is not present");
     }
 
     /**
      * The policy document that is associated with this resource.
      * 
      */
-    private @Nullable UndeferrableValue<String> policyDocument;
-
+    @PolicyResourceProperty(name="policyDocument", flag="unknown_policyDocument")
+    private @Nullable String value_policyDocument;
+    private boolean unknown_policyDocument;
     public @Nullable String policyDocument() {
-        if (policyDocument == null) return null;
-        return policyDocument.getValue("Group.policyDocument");
+        if (!unknown_policyDocument) return value_policyDocument;
+        throw new UndeferrableValueException("Value 'Group.policyDocument' is not present");
     }
 
     /**
      * Configuration block to use KMS keys for server-side encryption.
      * 
      */
-    private UndeferrableValue<GroupSseConfiguration> sseConfiguration;
-
+    @PolicyResourceProperty(name="sseConfiguration", flag="unknown_sseConfiguration")
+    private GroupSseConfiguration value_sseConfiguration;
+    private boolean unknown_sseConfiguration;
     public GroupSseConfiguration sseConfiguration() {
-        if (sseConfiguration == null) return null;
-        return sseConfiguration.getValue("Group.sseConfiguration");
+        if (!unknown_sseConfiguration) return value_sseConfiguration;
+        throw new UndeferrableValueException("Value 'Group.sseConfiguration' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Group.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Group.tags' is not present");
     }
 
     /**
@@ -108,33 +117,36 @@ public final class Group extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Group.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Group.tagsAll' is not present");
     }
 
     /**
      * ARN of this verified acess group.
      * 
      */
-    private UndeferrableValue<String> verifiedaccessGroupArn;
-
+    @PolicyResourceProperty(name="verifiedaccessGroupArn", flag="unknown_verifiedaccessGroupArn")
+    private String value_verifiedaccessGroupArn;
+    private boolean unknown_verifiedaccessGroupArn;
     public String verifiedaccessGroupArn() {
-        if (verifiedaccessGroupArn == null) return null;
-        return verifiedaccessGroupArn.getValue("Group.verifiedaccessGroupArn");
+        if (!unknown_verifiedaccessGroupArn) return value_verifiedaccessGroupArn;
+        throw new UndeferrableValueException("Value 'Group.verifiedaccessGroupArn' is not present");
     }
 
     /**
      * ID of this verified access group.
      * 
      */
-    private UndeferrableValue<String> verifiedaccessGroupId;
-
+    @PolicyResourceProperty(name="verifiedaccessGroupId", flag="unknown_verifiedaccessGroupId")
+    private String value_verifiedaccessGroupId;
+    private boolean unknown_verifiedaccessGroupId;
     public String verifiedaccessGroupId() {
-        if (verifiedaccessGroupId == null) return null;
-        return verifiedaccessGroupId.getValue("Group.verifiedaccessGroupId");
+        if (!unknown_verifiedaccessGroupId) return value_verifiedaccessGroupId;
+        throw new UndeferrableValueException("Value 'Group.verifiedaccessGroupId' is not present");
     }
 
     /**
@@ -143,11 +155,12 @@ public final class Group extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> verifiedaccessInstanceId;
-
+    @PolicyResourceProperty(name="verifiedaccessInstanceId", flag="unknown_verifiedaccessInstanceId")
+    private String value_verifiedaccessInstanceId;
+    private boolean unknown_verifiedaccessInstanceId;
     public String verifiedaccessInstanceId() {
-        if (verifiedaccessInstanceId == null) return null;
-        return verifiedaccessInstanceId.getValue("Group.verifiedaccessInstanceId");
+        if (!unknown_verifiedaccessInstanceId) return value_verifiedaccessInstanceId;
+        throw new UndeferrableValueException("Value 'Group.verifiedaccessInstanceId' is not present");
     }
 
 }

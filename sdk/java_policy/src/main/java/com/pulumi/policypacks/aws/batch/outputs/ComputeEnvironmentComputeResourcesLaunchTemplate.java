@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class ComputeEnvironmentComputeResourcesLaunchTemplate {
      * ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
      * 
      */
-    private @Nullable UndeferrableValue<String> launchTemplateId;
-
+    @PolicyResourceProperty(name="launchTemplateId", flag="unknown_launchTemplateId")
+    private @Nullable String value_launchTemplateId;
+    private boolean unknown_launchTemplateId;
     public @Nullable String launchTemplateId() {
-        if (launchTemplateId == null) return null;
-        return launchTemplateId.getValue("ComputeEnvironmentComputeResourcesLaunchTemplate.launchTemplateId");
+        if (!unknown_launchTemplateId) return value_launchTemplateId;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResourcesLaunchTemplate.launchTemplateId' is not present");
     }
 
     /**
      * Name of the launch template.
      * 
      */
-    private @Nullable UndeferrableValue<String> launchTemplateName;
-
+    @PolicyResourceProperty(name="launchTemplateName", flag="unknown_launchTemplateName")
+    private @Nullable String value_launchTemplateName;
+    private boolean unknown_launchTemplateName;
     public @Nullable String launchTemplateName() {
-        if (launchTemplateName == null) return null;
-        return launchTemplateName.getValue("ComputeEnvironmentComputeResourcesLaunchTemplate.launchTemplateName");
+        if (!unknown_launchTemplateName) return value_launchTemplateName;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResourcesLaunchTemplate.launchTemplateName' is not present");
     }
 
     /**
      * The version number of the launch template. Default: The default version of the launch template.
      * 
      */
-    private @Nullable UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private @Nullable String value_version;
+    private boolean unknown_version;
     public @Nullable String version() {
-        if (version == null) return null;
-        return version.getValue("ComputeEnvironmentComputeResourcesLaunchTemplate.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResourcesLaunchTemplate.version' is not present");
     }
 
 }

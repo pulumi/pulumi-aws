@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directoryservice;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,55 +16,60 @@ public final class SharedDirectoryAccepter extends com.pulumi.resources.PolicyRe
      * Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
      * 
      */
-    private UndeferrableValue<String> method;
-
+    @PolicyResourceProperty(name="method", flag="unknown_method")
+    private String value_method;
+    private boolean unknown_method;
     public String method() {
-        if (method == null) return null;
-        return method.getValue("SharedDirectoryAccepter.method");
+        if (!unknown_method) return value_method;
+        throw new UndeferrableValueException("Value 'SharedDirectoryAccepter.method' is not present");
     }
 
     /**
      * Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
      * 
      */
-    private UndeferrableValue<String> notes;
-
+    @PolicyResourceProperty(name="notes", flag="unknown_notes")
+    private String value_notes;
+    private boolean unknown_notes;
     public String notes() {
-        if (notes == null) return null;
-        return notes.getValue("SharedDirectoryAccepter.notes");
+        if (!unknown_notes) return value_notes;
+        throw new UndeferrableValueException("Value 'SharedDirectoryAccepter.notes' is not present");
     }
 
     /**
      * Account identifier of the directory owner.
      * 
      */
-    private UndeferrableValue<String> ownerAccountId;
-
+    @PolicyResourceProperty(name="ownerAccountId", flag="unknown_ownerAccountId")
+    private String value_ownerAccountId;
+    private boolean unknown_ownerAccountId;
     public String ownerAccountId() {
-        if (ownerAccountId == null) return null;
-        return ownerAccountId.getValue("SharedDirectoryAccepter.ownerAccountId");
+        if (!unknown_ownerAccountId) return value_ownerAccountId;
+        throw new UndeferrableValueException("Value 'SharedDirectoryAccepter.ownerAccountId' is not present");
     }
 
     /**
      * Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
      * 
      */
-    private UndeferrableValue<String> ownerDirectoryId;
-
+    @PolicyResourceProperty(name="ownerDirectoryId", flag="unknown_ownerDirectoryId")
+    private String value_ownerDirectoryId;
+    private boolean unknown_ownerDirectoryId;
     public String ownerDirectoryId() {
-        if (ownerDirectoryId == null) return null;
-        return ownerDirectoryId.getValue("SharedDirectoryAccepter.ownerDirectoryId");
+        if (!unknown_ownerDirectoryId) return value_ownerDirectoryId;
+        throw new UndeferrableValueException("Value 'SharedDirectoryAccepter.ownerDirectoryId' is not present");
     }
 
     /**
      * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
      * 
      */
-    private UndeferrableValue<String> sharedDirectoryId;
-
+    @PolicyResourceProperty(name="sharedDirectoryId", flag="unknown_sharedDirectoryId")
+    private String value_sharedDirectoryId;
+    private boolean unknown_sharedDirectoryId;
     public String sharedDirectoryId() {
-        if (sharedDirectoryId == null) return null;
-        return sharedDirectoryId.getValue("SharedDirectoryAccepter.sharedDirectoryId");
+        if (!unknown_sharedDirectoryId) return value_sharedDirectoryId;
+        throw new UndeferrableValueException("Value 'SharedDirectoryAccepter.sharedDirectoryId' is not present");
     }
 
 }

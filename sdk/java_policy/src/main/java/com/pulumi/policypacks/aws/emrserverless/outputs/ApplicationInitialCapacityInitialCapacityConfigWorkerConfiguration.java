@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emrserverless.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class ApplicationInitialCapacityInitialCapacityConfigWorkerConfigur
      * The CPU requirements for every worker instance of the worker type.
      * 
      */
-    private UndeferrableValue<String> cpu;
-
+    @PolicyResourceProperty(name="cpu", flag="unknown_cpu")
+    private String value_cpu;
+    private boolean unknown_cpu;
     public String cpu() {
-        if (cpu == null) return null;
-        return cpu.getValue("ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration.cpu");
+        if (!unknown_cpu) return value_cpu;
+        throw new UndeferrableValueException("Value 'ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration.cpu' is not present");
     }
 
     /**
      * The disk requirements for every worker instance of the worker type.
      * 
      */
-    private @Nullable UndeferrableValue<String> disk;
-
+    @PolicyResourceProperty(name="disk", flag="unknown_disk")
+    private @Nullable String value_disk;
+    private boolean unknown_disk;
     public @Nullable String disk() {
-        if (disk == null) return null;
-        return disk.getValue("ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration.disk");
+        if (!unknown_disk) return value_disk;
+        throw new UndeferrableValueException("Value 'ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration.disk' is not present");
     }
 
     /**
      * The memory requirements for every worker instance of the worker type.
      * 
      */
-    private UndeferrableValue<String> memory;
-
+    @PolicyResourceProperty(name="memory", flag="unknown_memory")
+    private String value_memory;
+    private boolean unknown_memory;
     public String memory() {
-        if (memory == null) return null;
-        return memory.getValue("ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration.memory");
+        if (!unknown_memory) return value_memory;
+        throw new UndeferrableValueException("Value 'ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration.memory' is not present");
     }
 
 }

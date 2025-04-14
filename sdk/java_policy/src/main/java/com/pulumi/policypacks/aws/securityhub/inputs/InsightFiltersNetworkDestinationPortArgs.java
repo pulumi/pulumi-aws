@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class InsightFiltersNetworkDestinationPortArgs {
      * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
      * 
      */
-    private UndeferrableValue<String> eq;
-
+    @PolicyResourceProperty(name="eq", flag="unknown_eq")
+    private String value_eq;
+    private boolean unknown_eq;
     public String eq() {
-        if (eq == null) return null;
-        return eq.getValue("InsightFiltersNetworkDestinationPortArgs.eq");
+        if (!unknown_eq) return value_eq;
+        throw new UndeferrableValueException("Value 'InsightFiltersNetworkDestinationPortArgs.eq' is not present");
     }
 
     /**
      * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
      * 
      */
-    private UndeferrableValue<String> gte;
-
+    @PolicyResourceProperty(name="gte", flag="unknown_gte")
+    private String value_gte;
+    private boolean unknown_gte;
     public String gte() {
-        if (gte == null) return null;
-        return gte.getValue("InsightFiltersNetworkDestinationPortArgs.gte");
+        if (!unknown_gte) return value_gte;
+        throw new UndeferrableValueException("Value 'InsightFiltersNetworkDestinationPortArgs.gte' is not present");
     }
 
     /**
      * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
      * 
      */
-    private UndeferrableValue<String> lte;
-
+    @PolicyResourceProperty(name="lte", flag="unknown_lte")
+    private String value_lte;
+    private boolean unknown_lte;
     public String lte() {
-        if (lte == null) return null;
-        return lte.getValue("InsightFiltersNetworkDestinationPortArgs.lte");
+        if (!unknown_lte) return value_lte;
+        throw new UndeferrableValueException("Value 'InsightFiltersNetworkDestinationPortArgs.lte' is not present");
     }
 
 }

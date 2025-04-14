@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.finspace;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,11 +18,12 @@ public final class KxUserArgs extends com.pulumi.resources.PolicyResourceInput {
      * Unique identifier for the KX environment.
      * 
      */
-    private UndeferrableValue<String> environmentId;
-
+    @PolicyResourceProperty(name="environmentId", flag="unknown_environmentId")
+    private String value_environmentId;
+    private boolean unknown_environmentId;
     public String environmentId() {
-        if (environmentId == null) return null;
-        return environmentId.getValue("KxUserArgs.environmentId");
+        if (!unknown_environmentId) return value_environmentId;
+        throw new UndeferrableValueException("Value 'KxUserArgs.environmentId' is not present");
     }
 
     /**
@@ -30,33 +32,36 @@ public final class KxUserArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> iamRole;
-
+    @PolicyResourceProperty(name="iamRole", flag="unknown_iamRole")
+    private String value_iamRole;
+    private boolean unknown_iamRole;
     public String iamRole() {
-        if (iamRole == null) return null;
-        return iamRole.getValue("KxUserArgs.iamRole");
+        if (!unknown_iamRole) return value_iamRole;
+        throw new UndeferrableValueException("Value 'KxUserArgs.iamRole' is not present");
     }
 
     /**
      * A unique identifier for the user.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("KxUserArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'KxUserArgs.name' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("KxUserArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'KxUserArgs.tags' is not present");
     }
 
 }

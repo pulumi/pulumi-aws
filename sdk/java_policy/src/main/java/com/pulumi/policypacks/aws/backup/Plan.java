@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.backup.outputs.PlanAdvancedBackupSetting;
 import com.pulumi.policypacks.aws.backup.outputs.PlanRule;
@@ -20,55 +21,60 @@ public final class Plan extends com.pulumi.resources.PolicyResourceOutput {
      * An object that specifies backup options for each resource type.
      * 
      */
-    private @Nullable UndeferrableValue<List<PlanAdvancedBackupSetting>> advancedBackupSettings;
-
+    @PolicyResourceProperty(name="advancedBackupSettings", flag="unknown_advancedBackupSettings")
+    private @Nullable List<PlanAdvancedBackupSetting> value_advancedBackupSettings;
+    private boolean unknown_advancedBackupSettings;
     public @Nullable List<PlanAdvancedBackupSetting> advancedBackupSettings() {
-        if (advancedBackupSettings == null) return null;
-        return advancedBackupSettings.getValue("Plan.advancedBackupSettings");
+        if (!unknown_advancedBackupSettings) return value_advancedBackupSettings;
+        throw new UndeferrableValueException("Value 'Plan.advancedBackupSettings' is not present");
     }
 
     /**
      * The ARN of the backup plan.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Plan.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Plan.arn' is not present");
     }
 
     /**
      * The display name of a backup plan.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Plan.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Plan.name' is not present");
     }
 
     /**
      * A rule object that specifies a scheduled task that is used to back up a selection of resources.
      * 
      */
-    private UndeferrableValue<List<PlanRule>> rules;
-
+    @PolicyResourceProperty(name="rules", flag="unknown_rules")
+    private List<PlanRule> value_rules;
+    private boolean unknown_rules;
     public List<PlanRule> rules() {
-        if (rules == null) return null;
-        return rules.getValue("Plan.rules");
+        if (!unknown_rules) return value_rules;
+        throw new UndeferrableValueException("Value 'Plan.rules' is not present");
     }
 
     /**
      * Metadata that you can assign to help organize the plans you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Plan.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Plan.tags' is not present");
     }
 
     /**
@@ -79,22 +85,24 @@ public final class Plan extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Plan.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Plan.tagsAll' is not present");
     }
 
     /**
      * Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("Plan.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'Plan.version' is not present");
     }
 
 }

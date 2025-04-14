@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ssm.outputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd;
 import com.pulumi.policypacks.aws.ssm.outputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeStart;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ContactsRotationRecurrenceShiftCoverageCoverageTime {
      * (Required) The end time of the on-call shift. See Hand Off Time for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd> end;
-
+    @PolicyResourceProperty(name="end", flag="unknown_end")
+    private @Nullable ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd value_end;
+    private boolean unknown_end;
     public @Nullable ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd end() {
-        if (end == null) return null;
-        return end.getValue("ContactsRotationRecurrenceShiftCoverageCoverageTime.end");
+        if (!unknown_end) return value_end;
+        throw new UndeferrableValueException("Value 'ContactsRotationRecurrenceShiftCoverageCoverageTime.end' is not present");
     }
 
     /**
      * (Required) The start time of the on-call shift. See Hand Off Time for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ContactsRotationRecurrenceShiftCoverageCoverageTimeStart> start;
-
+    @PolicyResourceProperty(name="start", flag="unknown_start")
+    private @Nullable ContactsRotationRecurrenceShiftCoverageCoverageTimeStart value_start;
+    private boolean unknown_start;
     public @Nullable ContactsRotationRecurrenceShiftCoverageCoverageTimeStart start() {
-        if (start == null) return null;
-        return start.getValue("ContactsRotationRecurrenceShiftCoverageCoverageTime.start");
+        if (!unknown_start) return value_start;
+        throw new UndeferrableValueException("Value 'ContactsRotationRecurrenceShiftCoverageCoverageTime.start' is not present");
     }
 
 }

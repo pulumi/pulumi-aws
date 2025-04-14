@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecLoggingAccessLogFileArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class VirtualNodeSpecLoggingAccessLogArgs {
      * File object to send virtual node access logs to.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecLoggingAccessLogFileArgs> file;
-
+    @PolicyResourceProperty(name="file", flag="unknown_file")
+    private VirtualNodeSpecLoggingAccessLogFileArgs value_file;
+    private boolean unknown_file;
     public VirtualNodeSpecLoggingAccessLogFileArgs file() {
-        if (file == null) return null;
-        return file.getValue("VirtualNodeSpecLoggingAccessLogArgs.file");
+        if (!unknown_file) return value_file;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecLoggingAccessLogArgs.file' is not present");
     }
 
 }

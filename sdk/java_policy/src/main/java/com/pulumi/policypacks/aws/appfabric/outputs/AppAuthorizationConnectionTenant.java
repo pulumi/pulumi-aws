@@ -3,24 +3,27 @@
 
 package com.pulumi.policypacks.aws.appfabric.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class AppAuthorizationConnectionTenant {
 
-    private UndeferrableValue<String> tenantDisplayName;
-
+    @PolicyResourceProperty(name="tenantDisplayName", flag="unknown_tenantDisplayName")
+    private String value_tenantDisplayName;
+    private boolean unknown_tenantDisplayName;
     public String tenantDisplayName() {
-        if (tenantDisplayName == null) return null;
-        return tenantDisplayName.getValue("AppAuthorizationConnectionTenant.tenantDisplayName");
+        if (!unknown_tenantDisplayName) return value_tenantDisplayName;
+        throw new UndeferrableValueException("Value 'AppAuthorizationConnectionTenant.tenantDisplayName' is not present");
     }
 
-    private UndeferrableValue<String> tenantIdentifier;
-
+    @PolicyResourceProperty(name="tenantIdentifier", flag="unknown_tenantIdentifier")
+    private String value_tenantIdentifier;
+    private boolean unknown_tenantIdentifier;
     public String tenantIdentifier() {
-        if (tenantIdentifier == null) return null;
-        return tenantIdentifier.getValue("AppAuthorizationConnectionTenant.tenantIdentifier");
+        if (!unknown_tenantIdentifier) return value_tenantIdentifier;
+        throw new UndeferrableValueException("Value 'AppAuthorizationConnectionTenant.tenantIdentifier' is not present");
     }
 
 }

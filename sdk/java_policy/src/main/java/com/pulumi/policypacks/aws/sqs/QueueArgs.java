@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sqs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,198 +20,216 @@ public final class QueueArgs extends com.pulumi.resources.PolicyResourceInput {
      * Enables content-based deduplication for FIFO queues. For more information, see the [related documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing).
      * 
      */
-    private UndeferrableValue<Boolean> contentBasedDeduplication;
-
+    @PolicyResourceProperty(name="contentBasedDeduplication", flag="unknown_contentBasedDeduplication")
+    private Boolean value_contentBasedDeduplication;
+    private boolean unknown_contentBasedDeduplication;
     public Boolean contentBasedDeduplication() {
-        if (contentBasedDeduplication == null) return null;
-        return contentBasedDeduplication.getValue("QueueArgs.contentBasedDeduplication");
+        if (!unknown_contentBasedDeduplication) return value_contentBasedDeduplication;
+        throw new UndeferrableValueException("Value 'QueueArgs.contentBasedDeduplication' is not present");
     }
 
     /**
      * Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
      * 
      */
-    private UndeferrableValue<String> deduplicationScope;
-
+    @PolicyResourceProperty(name="deduplicationScope", flag="unknown_deduplicationScope")
+    private String value_deduplicationScope;
+    private boolean unknown_deduplicationScope;
     public String deduplicationScope() {
-        if (deduplicationScope == null) return null;
-        return deduplicationScope.getValue("QueueArgs.deduplicationScope");
+        if (!unknown_deduplicationScope) return value_deduplicationScope;
+        throw new UndeferrableValueException("Value 'QueueArgs.deduplicationScope' is not present");
     }
 
     /**
      * Time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 seconds.
      * 
      */
-    private UndeferrableValue<Integer> delaySeconds;
-
+    @PolicyResourceProperty(name="delaySeconds", flag="unknown_delaySeconds")
+    private Integer value_delaySeconds;
+    private boolean unknown_delaySeconds;
     public Integer delaySeconds() {
-        if (delaySeconds == null) return null;
-        return delaySeconds.getValue("QueueArgs.delaySeconds");
+        if (!unknown_delaySeconds) return value_delaySeconds;
+        throw new UndeferrableValueException("Value 'QueueArgs.delaySeconds' is not present");
     }
 
     /**
      * Boolean designating a FIFO queue. If not set, it defaults to `false` making it standard.
      * 
      */
-    private UndeferrableValue<Boolean> fifoQueue;
-
+    @PolicyResourceProperty(name="fifoQueue", flag="unknown_fifoQueue")
+    private Boolean value_fifoQueue;
+    private boolean unknown_fifoQueue;
     public Boolean fifoQueue() {
-        if (fifoQueue == null) return null;
-        return fifoQueue.getValue("QueueArgs.fifoQueue");
+        if (!unknown_fifoQueue) return value_fifoQueue;
+        throw new UndeferrableValueException("Value 'QueueArgs.fifoQueue' is not present");
     }
 
     /**
      * Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are `perQueue` (default) and `perMessageGroupId`.
      * 
      */
-    private UndeferrableValue<String> fifoThroughputLimit;
-
+    @PolicyResourceProperty(name="fifoThroughputLimit", flag="unknown_fifoThroughputLimit")
+    private String value_fifoThroughputLimit;
+    private boolean unknown_fifoThroughputLimit;
     public String fifoThroughputLimit() {
-        if (fifoThroughputLimit == null) return null;
-        return fifoThroughputLimit.getValue("QueueArgs.fifoThroughputLimit");
+        if (!unknown_fifoThroughputLimit) return value_fifoThroughputLimit;
+        throw new UndeferrableValueException("Value 'QueueArgs.fifoThroughputLimit' is not present");
     }
 
     /**
      * Length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
      * 
      */
-    private UndeferrableValue<Integer> kmsDataKeyReusePeriodSeconds;
-
+    @PolicyResourceProperty(name="kmsDataKeyReusePeriodSeconds", flag="unknown_kmsDataKeyReusePeriodSeconds")
+    private Integer value_kmsDataKeyReusePeriodSeconds;
+    private boolean unknown_kmsDataKeyReusePeriodSeconds;
     public Integer kmsDataKeyReusePeriodSeconds() {
-        if (kmsDataKeyReusePeriodSeconds == null) return null;
-        return kmsDataKeyReusePeriodSeconds.getValue("QueueArgs.kmsDataKeyReusePeriodSeconds");
+        if (!unknown_kmsDataKeyReusePeriodSeconds) return value_kmsDataKeyReusePeriodSeconds;
+        throw new UndeferrableValueException("Value 'QueueArgs.kmsDataKeyReusePeriodSeconds' is not present");
     }
 
     /**
      * ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
      * 
      */
-    private UndeferrableValue<String> kmsMasterKeyId;
-
+    @PolicyResourceProperty(name="kmsMasterKeyId", flag="unknown_kmsMasterKeyId")
+    private String value_kmsMasterKeyId;
+    private boolean unknown_kmsMasterKeyId;
     public String kmsMasterKeyId() {
-        if (kmsMasterKeyId == null) return null;
-        return kmsMasterKeyId.getValue("QueueArgs.kmsMasterKeyId");
+        if (!unknown_kmsMasterKeyId) return value_kmsMasterKeyId;
+        throw new UndeferrableValueException("Value 'QueueArgs.kmsMasterKeyId' is not present");
     }
 
     /**
      * Limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
      * 
      */
-    private UndeferrableValue<Integer> maxMessageSize;
-
+    @PolicyResourceProperty(name="maxMessageSize", flag="unknown_maxMessageSize")
+    private Integer value_maxMessageSize;
+    private boolean unknown_maxMessageSize;
     public Integer maxMessageSize() {
-        if (maxMessageSize == null) return null;
-        return maxMessageSize.getValue("QueueArgs.maxMessageSize");
+        if (!unknown_maxMessageSize) return value_maxMessageSize;
+        throw new UndeferrableValueException("Value 'QueueArgs.maxMessageSize' is not present");
     }
 
     /**
      * Number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
      * 
      */
-    private UndeferrableValue<Integer> messageRetentionSeconds;
-
+    @PolicyResourceProperty(name="messageRetentionSeconds", flag="unknown_messageRetentionSeconds")
+    private Integer value_messageRetentionSeconds;
+    private boolean unknown_messageRetentionSeconds;
     public Integer messageRetentionSeconds() {
-        if (messageRetentionSeconds == null) return null;
-        return messageRetentionSeconds.getValue("QueueArgs.messageRetentionSeconds");
+        if (!unknown_messageRetentionSeconds) return value_messageRetentionSeconds;
+        throw new UndeferrableValueException("Value 'QueueArgs.messageRetentionSeconds' is not present");
     }
 
     /**
      * Name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("QueueArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'QueueArgs.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("QueueArgs.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'QueueArgs.namePrefix' is not present");
     }
 
     /**
      * JSON policy for the SQS queue. For more information about building AWS IAM policy documents see the AWS IAM Policy Document Guide. The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws.sqs.QueuePolicy` resource instead.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("QueueArgs.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'QueueArgs.policy' is not present");
     }
 
     /**
      * Time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
      * 
      */
-    private UndeferrableValue<Integer> receiveWaitTimeSeconds;
-
+    @PolicyResourceProperty(name="receiveWaitTimeSeconds", flag="unknown_receiveWaitTimeSeconds")
+    private Integer value_receiveWaitTimeSeconds;
+    private boolean unknown_receiveWaitTimeSeconds;
     public Integer receiveWaitTimeSeconds() {
-        if (receiveWaitTimeSeconds == null) return null;
-        return receiveWaitTimeSeconds.getValue("QueueArgs.receiveWaitTimeSeconds");
+        if (!unknown_receiveWaitTimeSeconds) return value_receiveWaitTimeSeconds;
+        throw new UndeferrableValueException("Value 'QueueArgs.receiveWaitTimeSeconds' is not present");
     }
 
     /**
      * JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws.sqs.RedriveAllowPolicy` resource instead.
      * 
      */
-    private UndeferrableValue<String> redriveAllowPolicy;
-
+    @PolicyResourceProperty(name="redriveAllowPolicy", flag="unknown_redriveAllowPolicy")
+    private String value_redriveAllowPolicy;
+    private boolean unknown_redriveAllowPolicy;
     public String redriveAllowPolicy() {
-        if (redriveAllowPolicy == null) return null;
-        return redriveAllowPolicy.getValue("QueueArgs.redriveAllowPolicy");
+        if (!unknown_redriveAllowPolicy) return value_redriveAllowPolicy;
+        throw new UndeferrableValueException("Value 'QueueArgs.redriveAllowPolicy' is not present");
     }
 
     /**
      * JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `aws.sqs.RedrivePolicy` resource instead. **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`&#34;5&#34;`).
      * 
      */
-    private UndeferrableValue<String> redrivePolicy;
-
+    @PolicyResourceProperty(name="redrivePolicy", flag="unknown_redrivePolicy")
+    private String value_redrivePolicy;
+    private boolean unknown_redrivePolicy;
     public String redrivePolicy() {
-        if (redrivePolicy == null) return null;
-        return redrivePolicy.getValue("QueueArgs.redrivePolicy");
+        if (!unknown_redrivePolicy) return value_redrivePolicy;
+        throw new UndeferrableValueException("Value 'QueueArgs.redrivePolicy' is not present");
     }
 
     /**
      * Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
      * 
      */
-    private UndeferrableValue<Boolean> sqsManagedSseEnabled;
-
+    @PolicyResourceProperty(name="sqsManagedSseEnabled", flag="unknown_sqsManagedSseEnabled")
+    private Boolean value_sqsManagedSseEnabled;
+    private boolean unknown_sqsManagedSseEnabled;
     public Boolean sqsManagedSseEnabled() {
-        if (sqsManagedSseEnabled == null) return null;
-        return sqsManagedSseEnabled.getValue("QueueArgs.sqsManagedSseEnabled");
+        if (!unknown_sqsManagedSseEnabled) return value_sqsManagedSseEnabled;
+        throw new UndeferrableValueException("Value 'QueueArgs.sqsManagedSseEnabled' is not present");
     }
 
     /**
      * Map of tags to assign to the queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("QueueArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'QueueArgs.tags' is not present");
     }
 
     /**
      * Visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
      * 
      */
-    private UndeferrableValue<Integer> visibilityTimeoutSeconds;
-
+    @PolicyResourceProperty(name="visibilityTimeoutSeconds", flag="unknown_visibilityTimeoutSeconds")
+    private Integer value_visibilityTimeoutSeconds;
+    private boolean unknown_visibilityTimeoutSeconds;
     public Integer visibilityTimeoutSeconds() {
-        if (visibilityTimeoutSeconds == null) return null;
-        return visibilityTimeoutSeconds.getValue("QueueArgs.visibilityTimeoutSeconds");
+        if (!unknown_visibilityTimeoutSeconds) return value_visibilityTimeoutSeconds;
+        throw new UndeferrableValueException("Value 'QueueArgs.visibilityTimeoutSeconds' is not present");
     }
 
 }

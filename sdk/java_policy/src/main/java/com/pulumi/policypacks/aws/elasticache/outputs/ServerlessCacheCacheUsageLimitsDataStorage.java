@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticache.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ServerlessCacheCacheUsageLimitsDataStorage {
      * The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maximum;
-
+    @PolicyResourceProperty(name="maximum", flag="unknown_maximum")
+    private @Nullable Integer value_maximum;
+    private boolean unknown_maximum;
     public @Nullable Integer maximum() {
-        if (maximum == null) return null;
-        return maximum.getValue("ServerlessCacheCacheUsageLimitsDataStorage.maximum");
+        if (!unknown_maximum) return value_maximum;
+        throw new UndeferrableValueException("Value 'ServerlessCacheCacheUsageLimitsDataStorage.maximum' is not present");
     }
 
     /**
      * The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> minimum;
-
+    @PolicyResourceProperty(name="minimum", flag="unknown_minimum")
+    private @Nullable Integer value_minimum;
+    private boolean unknown_minimum;
     public @Nullable Integer minimum() {
-        if (minimum == null) return null;
-        return minimum.getValue("ServerlessCacheCacheUsageLimitsDataStorage.minimum");
+        if (!unknown_minimum) return value_minimum;
+        throw new UndeferrableValueException("Value 'ServerlessCacheCacheUsageLimitsDataStorage.minimum' is not present");
     }
 
     /**
      * The unit that the storage is measured in, in GB.
      * 
      */
-    private UndeferrableValue<String> unit;
-
+    @PolicyResourceProperty(name="unit", flag="unknown_unit")
+    private String value_unit;
+    private boolean unknown_unit;
     public String unit() {
-        if (unit == null) return null;
-        return unit.getValue("ServerlessCacheCacheUsageLimitsDataStorage.unit");
+        if (!unknown_unit) return value_unit;
+        throw new UndeferrableValueException("Value 'ServerlessCacheCacheUsageLimitsDataStorage.unit' is not present");
     }
 
 }

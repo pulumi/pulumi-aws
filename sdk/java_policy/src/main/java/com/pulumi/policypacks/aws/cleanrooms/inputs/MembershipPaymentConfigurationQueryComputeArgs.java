@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cleanrooms.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 
 
@@ -13,11 +14,12 @@ public final class MembershipPaymentConfigurationQueryComputeArgs {
      * Indicates whether the collaboration member has accepted to pay for query compute costs.
      * 
      */
-    private UndeferrableValue<Boolean> isResponsible;
-
+    @PolicyResourceProperty(name="isResponsible", flag="unknown_isResponsible")
+    private Boolean value_isResponsible;
+    private boolean unknown_isResponsible;
     public Boolean isResponsible() {
-        if (isResponsible == null) return null;
-        return isResponsible.getValue("MembershipPaymentConfigurationQueryComputeArgs.isResponsible");
+        if (!unknown_isResponsible) return value_isResponsible;
+        throw new UndeferrableValueException("Value 'MembershipPaymentConfigurationQueryComputeArgs.isResponsible' is not present");
     }
 
 }

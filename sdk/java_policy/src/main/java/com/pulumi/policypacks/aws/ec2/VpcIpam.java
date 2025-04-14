@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.outputs.VpcIpamOperatingRegion;
 import java.lang.Boolean;
@@ -21,88 +22,96 @@ public final class VpcIpam extends com.pulumi.resources.PolicyResourceOutput {
      * Amazon Resource Name (ARN) of IPAM
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("VpcIpam.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'VpcIpam.arn' is not present");
     }
 
     /**
      * Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> cascade;
-
+    @PolicyResourceProperty(name="cascade", flag="unknown_cascade")
+    private @Nullable Boolean value_cascade;
+    private boolean unknown_cascade;
     public @Nullable Boolean cascade() {
-        if (cascade == null) return null;
-        return cascade.getValue("VpcIpam.cascade");
+        if (!unknown_cascade) return value_cascade;
+        throw new UndeferrableValueException("Value 'VpcIpam.cascade' is not present");
     }
 
     /**
      * The IPAM&#39;s default resource discovery association ID.
      * 
      */
-    private UndeferrableValue<String> defaultResourceDiscoveryAssociationId;
-
+    @PolicyResourceProperty(name="defaultResourceDiscoveryAssociationId", flag="unknown_defaultResourceDiscoveryAssociationId")
+    private String value_defaultResourceDiscoveryAssociationId;
+    private boolean unknown_defaultResourceDiscoveryAssociationId;
     public String defaultResourceDiscoveryAssociationId() {
-        if (defaultResourceDiscoveryAssociationId == null) return null;
-        return defaultResourceDiscoveryAssociationId.getValue("VpcIpam.defaultResourceDiscoveryAssociationId");
+        if (!unknown_defaultResourceDiscoveryAssociationId) return value_defaultResourceDiscoveryAssociationId;
+        throw new UndeferrableValueException("Value 'VpcIpam.defaultResourceDiscoveryAssociationId' is not present");
     }
 
     /**
      * The IPAM&#39;s default resource discovery ID.
      * 
      */
-    private UndeferrableValue<String> defaultResourceDiscoveryId;
-
+    @PolicyResourceProperty(name="defaultResourceDiscoveryId", flag="unknown_defaultResourceDiscoveryId")
+    private String value_defaultResourceDiscoveryId;
+    private boolean unknown_defaultResourceDiscoveryId;
     public String defaultResourceDiscoveryId() {
-        if (defaultResourceDiscoveryId == null) return null;
-        return defaultResourceDiscoveryId.getValue("VpcIpam.defaultResourceDiscoveryId");
+        if (!unknown_defaultResourceDiscoveryId) return value_defaultResourceDiscoveryId;
+        throw new UndeferrableValueException("Value 'VpcIpam.defaultResourceDiscoveryId' is not present");
     }
 
     /**
      * A description for the IPAM.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("VpcIpam.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'VpcIpam.description' is not present");
     }
 
     /**
      * Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enablePrivateGua;
-
+    @PolicyResourceProperty(name="enablePrivateGua", flag="unknown_enablePrivateGua")
+    private @Nullable Boolean value_enablePrivateGua;
+    private boolean unknown_enablePrivateGua;
     public @Nullable Boolean enablePrivateGua() {
-        if (enablePrivateGua == null) return null;
-        return enablePrivateGua.getValue("VpcIpam.enablePrivateGua");
+        if (!unknown_enablePrivateGua) return value_enablePrivateGua;
+        throw new UndeferrableValueException("Value 'VpcIpam.enablePrivateGua' is not present");
     }
 
     /**
      * Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
      * 
      */
-    private UndeferrableValue<List<VpcIpamOperatingRegion>> operatingRegions;
-
+    @PolicyResourceProperty(name="operatingRegions", flag="unknown_operatingRegions")
+    private List<VpcIpamOperatingRegion> value_operatingRegions;
+    private boolean unknown_operatingRegions;
     public List<VpcIpamOperatingRegion> operatingRegions() {
-        if (operatingRegions == null) return null;
-        return operatingRegions.getValue("VpcIpam.operatingRegions");
+        if (!unknown_operatingRegions) return value_operatingRegions;
+        throw new UndeferrableValueException("Value 'VpcIpam.operatingRegions' is not present");
     }
 
     /**
      * The ID of the IPAM&#39;s private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
      * 
      */
-    private UndeferrableValue<String> privateDefaultScopeId;
-
+    @PolicyResourceProperty(name="privateDefaultScopeId", flag="unknown_privateDefaultScopeId")
+    private String value_privateDefaultScopeId;
+    private boolean unknown_privateDefaultScopeId;
     public String privateDefaultScopeId() {
-        if (privateDefaultScopeId == null) return null;
-        return privateDefaultScopeId.getValue("VpcIpam.privateDefaultScopeId");
+        if (!unknown_privateDefaultScopeId) return value_privateDefaultScopeId;
+        throw new UndeferrableValueException("Value 'VpcIpam.privateDefaultScopeId' is not present");
     }
 
     /**
@@ -110,33 +119,36 @@ public final class VpcIpam extends com.pulumi.resources.PolicyResourceOutput {
      * IP space. The public scope is intended for all internet-routable IP space.
      * 
      */
-    private UndeferrableValue<String> publicDefaultScopeId;
-
+    @PolicyResourceProperty(name="publicDefaultScopeId", flag="unknown_publicDefaultScopeId")
+    private String value_publicDefaultScopeId;
+    private boolean unknown_publicDefaultScopeId;
     public String publicDefaultScopeId() {
-        if (publicDefaultScopeId == null) return null;
-        return publicDefaultScopeId.getValue("VpcIpam.publicDefaultScopeId");
+        if (!unknown_publicDefaultScopeId) return value_publicDefaultScopeId;
+        throw new UndeferrableValueException("Value 'VpcIpam.publicDefaultScopeId' is not present");
     }
 
     /**
      * The number of scopes in the IPAM.
      * 
      */
-    private UndeferrableValue<Integer> scopeCount;
-
+    @PolicyResourceProperty(name="scopeCount", flag="unknown_scopeCount")
+    private Integer value_scopeCount;
+    private boolean unknown_scopeCount;
     public Integer scopeCount() {
-        if (scopeCount == null) return null;
-        return scopeCount.getValue("VpcIpam.scopeCount");
+        if (!unknown_scopeCount) return value_scopeCount;
+        throw new UndeferrableValueException("Value 'VpcIpam.scopeCount' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VpcIpam.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VpcIpam.tags' is not present");
     }
 
     /**
@@ -147,22 +159,24 @@ public final class VpcIpam extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("VpcIpam.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'VpcIpam.tagsAll' is not present");
     }
 
     /**
      * specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
      * 
      */
-    private @Nullable UndeferrableValue<String> tier;
-
+    @PolicyResourceProperty(name="tier", flag="unknown_tier")
+    private @Nullable String value_tier;
+    private boolean unknown_tier;
     public @Nullable String tier() {
-        if (tier == null) return null;
-        return tier.getValue("VpcIpam.tier");
+        if (!unknown_tier) return value_tier;
+        throw new UndeferrableValueException("Value 'VpcIpam.tier' is not present");
     }
 
 }

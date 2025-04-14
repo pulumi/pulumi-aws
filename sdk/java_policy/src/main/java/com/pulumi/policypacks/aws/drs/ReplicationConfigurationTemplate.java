@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.drs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.drs.outputs.ReplicationConfigurationTemplatePitPolicy;
 import com.pulumi.policypacks.aws.drs.outputs.ReplicationConfigurationTemplateTimeouts;
@@ -22,165 +23,180 @@ public final class ReplicationConfigurationTemplate extends com.pulumi.resources
      * Replication configuration template ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ReplicationConfigurationTemplate.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplate.arn' is not present");
     }
 
     /**
      * Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.
      * 
      */
-    private UndeferrableValue<Boolean> associateDefaultSecurityGroup;
-
+    @PolicyResourceProperty(name="associateDefaultSecurityGroup", flag="unknown_associateDefaultSecurityGroup")
+    private Boolean value_associateDefaultSecurityGroup;
+    private boolean unknown_associateDefaultSecurityGroup;
     public Boolean associateDefaultSecurityGroup() {
-        if (associateDefaultSecurityGroup == null) return null;
-        return associateDefaultSecurityGroup.getValue("ReplicationConfigurationTemplate.associateDefaultSecurityGroup");
+        if (!unknown_associateDefaultSecurityGroup) return value_associateDefaultSecurityGroup;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplate.associateDefaultSecurityGroup' is not present");
     }
 
     /**
      * Whether to allow the AWS replication agent to automatically replicate newly added disks.
      * 
      */
-    private UndeferrableValue<Boolean> autoReplicateNewDisks;
-
+    @PolicyResourceProperty(name="autoReplicateNewDisks", flag="unknown_autoReplicateNewDisks")
+    private Boolean value_autoReplicateNewDisks;
+    private boolean unknown_autoReplicateNewDisks;
     public Boolean autoReplicateNewDisks() {
-        if (autoReplicateNewDisks == null) return null;
-        return autoReplicateNewDisks.getValue("ReplicationConfigurationTemplate.autoReplicateNewDisks");
+        if (!unknown_autoReplicateNewDisks) return value_autoReplicateNewDisks;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplate.autoReplicateNewDisks' is not present");
     }
 
     /**
      * Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
      * 
      */
-    private UndeferrableValue<Integer> bandwidthThrottling;
-
+    @PolicyResourceProperty(name="bandwidthThrottling", flag="unknown_bandwidthThrottling")
+    private Integer value_bandwidthThrottling;
+    private boolean unknown_bandwidthThrottling;
     public Integer bandwidthThrottling() {
-        if (bandwidthThrottling == null) return null;
-        return bandwidthThrottling.getValue("ReplicationConfigurationTemplate.bandwidthThrottling");
+        if (!unknown_bandwidthThrottling) return value_bandwidthThrottling;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplate.bandwidthThrottling' is not present");
     }
 
     /**
      * Whether to create a Public IP for the Recovery Instance by default.
      * 
      */
-    private UndeferrableValue<Boolean> createPublicIp;
-
+    @PolicyResourceProperty(name="createPublicIp", flag="unknown_createPublicIp")
+    private Boolean value_createPublicIp;
+    private boolean unknown_createPublicIp;
     public Boolean createPublicIp() {
-        if (createPublicIp == null) return null;
-        return createPublicIp.getValue("ReplicationConfigurationTemplate.createPublicIp");
+        if (!unknown_createPublicIp) return value_createPublicIp;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplate.createPublicIp' is not present");
     }
 
     /**
      * Data plane routing mechanism that will be used for replication. Valid values are `PUBLIC_IP` and `PRIVATE_IP`.
      * 
      */
-    private UndeferrableValue<String> dataPlaneRouting;
-
+    @PolicyResourceProperty(name="dataPlaneRouting", flag="unknown_dataPlaneRouting")
+    private String value_dataPlaneRouting;
+    private boolean unknown_dataPlaneRouting;
     public String dataPlaneRouting() {
-        if (dataPlaneRouting == null) return null;
-        return dataPlaneRouting.getValue("ReplicationConfigurationTemplate.dataPlaneRouting");
+        if (!unknown_dataPlaneRouting) return value_dataPlaneRouting;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplate.dataPlaneRouting' is not present");
     }
 
     /**
      * Staging Disk EBS volume type to be used during replication. Valid values are `GP2`, `GP3`, `ST1`, or `AUTO`.
      * 
      */
-    private UndeferrableValue<String> defaultLargeStagingDiskType;
-
+    @PolicyResourceProperty(name="defaultLargeStagingDiskType", flag="unknown_defaultLargeStagingDiskType")
+    private String value_defaultLargeStagingDiskType;
+    private boolean unknown_defaultLargeStagingDiskType;
     public String defaultLargeStagingDiskType() {
-        if (defaultLargeStagingDiskType == null) return null;
-        return defaultLargeStagingDiskType.getValue("ReplicationConfigurationTemplate.defaultLargeStagingDiskType");
+        if (!unknown_defaultLargeStagingDiskType) return value_defaultLargeStagingDiskType;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplate.defaultLargeStagingDiskType' is not present");
     }
 
     /**
      * Type of EBS encryption to be used during replication. Valid values are `DEFAULT` and `CUSTOM`.
      * 
      */
-    private UndeferrableValue<String> ebsEncryption;
-
+    @PolicyResourceProperty(name="ebsEncryption", flag="unknown_ebsEncryption")
+    private String value_ebsEncryption;
+    private boolean unknown_ebsEncryption;
     public String ebsEncryption() {
-        if (ebsEncryption == null) return null;
-        return ebsEncryption.getValue("ReplicationConfigurationTemplate.ebsEncryption");
+        if (!unknown_ebsEncryption) return value_ebsEncryption;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplate.ebsEncryption' is not present");
     }
 
     /**
      * ARN of the EBS encryption key to be used during replication.
      * 
      */
-    private @Nullable UndeferrableValue<String> ebsEncryptionKeyArn;
-
+    @PolicyResourceProperty(name="ebsEncryptionKeyArn", flag="unknown_ebsEncryptionKeyArn")
+    private @Nullable String value_ebsEncryptionKeyArn;
+    private boolean unknown_ebsEncryptionKeyArn;
     public @Nullable String ebsEncryptionKeyArn() {
-        if (ebsEncryptionKeyArn == null) return null;
-        return ebsEncryptionKeyArn.getValue("ReplicationConfigurationTemplate.ebsEncryptionKeyArn");
+        if (!unknown_ebsEncryptionKeyArn) return value_ebsEncryptionKeyArn;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplate.ebsEncryptionKeyArn' is not present");
     }
 
     /**
      * Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ReplicationConfigurationTemplatePitPolicy>> pitPolicies;
-
+    @PolicyResourceProperty(name="pitPolicies", flag="unknown_pitPolicies")
+    private @Nullable List<ReplicationConfigurationTemplatePitPolicy> value_pitPolicies;
+    private boolean unknown_pitPolicies;
     public @Nullable List<ReplicationConfigurationTemplatePitPolicy> pitPolicies() {
-        if (pitPolicies == null) return null;
-        return pitPolicies.getValue("ReplicationConfigurationTemplate.pitPolicies");
+        if (!unknown_pitPolicies) return value_pitPolicies;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplate.pitPolicies' is not present");
     }
 
     /**
      * Instance type to be used for the replication server.
      * 
      */
-    private UndeferrableValue<String> replicationServerInstanceType;
-
+    @PolicyResourceProperty(name="replicationServerInstanceType", flag="unknown_replicationServerInstanceType")
+    private String value_replicationServerInstanceType;
+    private boolean unknown_replicationServerInstanceType;
     public String replicationServerInstanceType() {
-        if (replicationServerInstanceType == null) return null;
-        return replicationServerInstanceType.getValue("ReplicationConfigurationTemplate.replicationServerInstanceType");
+        if (!unknown_replicationServerInstanceType) return value_replicationServerInstanceType;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplate.replicationServerInstanceType' is not present");
     }
 
     /**
      * Security group IDs that will be used by the replication server.
      * 
      */
-    private UndeferrableValue<List<String>> replicationServersSecurityGroupsIds;
-
+    @PolicyResourceProperty(name="replicationServersSecurityGroupsIds", flag="unknown_replicationServersSecurityGroupsIds")
+    private List<String> value_replicationServersSecurityGroupsIds;
+    private boolean unknown_replicationServersSecurityGroupsIds;
     public List<String> replicationServersSecurityGroupsIds() {
-        if (replicationServersSecurityGroupsIds == null) return null;
-        return replicationServersSecurityGroupsIds.getValue("ReplicationConfigurationTemplate.replicationServersSecurityGroupsIds");
+        if (!unknown_replicationServersSecurityGroupsIds) return value_replicationServersSecurityGroupsIds;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplate.replicationServersSecurityGroupsIds' is not present");
     }
 
     /**
      * Subnet to be used by the replication staging area.
      * 
      */
-    private UndeferrableValue<String> stagingAreaSubnetId;
-
+    @PolicyResourceProperty(name="stagingAreaSubnetId", flag="unknown_stagingAreaSubnetId")
+    private String value_stagingAreaSubnetId;
+    private boolean unknown_stagingAreaSubnetId;
     public String stagingAreaSubnetId() {
-        if (stagingAreaSubnetId == null) return null;
-        return stagingAreaSubnetId.getValue("ReplicationConfigurationTemplate.stagingAreaSubnetId");
+        if (!unknown_stagingAreaSubnetId) return value_stagingAreaSubnetId;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplate.stagingAreaSubnetId' is not present");
     }
 
     /**
      * Set of tags to be associated with all resources created in the replication staging area: EC2 replication server, EBS volumes, EBS snapshots, etc.
      * 
      */
-    private UndeferrableValue<Map<String,String>> stagingAreaTags;
-
+    @PolicyResourceProperty(name="stagingAreaTags", flag="unknown_stagingAreaTags")
+    private Map<String,String> value_stagingAreaTags;
+    private boolean unknown_stagingAreaTags;
     public Map<String,String> stagingAreaTags() {
-        if (stagingAreaTags == null) return null;
-        return stagingAreaTags.getValue("ReplicationConfigurationTemplate.stagingAreaTags");
+        if (!unknown_stagingAreaTags) return value_stagingAreaTags;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplate.stagingAreaTags' is not present");
     }
 
     /**
      * Set of tags to be associated with the Replication Configuration Template resource.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ReplicationConfigurationTemplate.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplate.tags' is not present");
     }
 
     /**
@@ -191,18 +207,20 @@ public final class ReplicationConfigurationTemplate extends com.pulumi.resources
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ReplicationConfigurationTemplate.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplate.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<ReplicationConfigurationTemplateTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable ReplicationConfigurationTemplateTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable ReplicationConfigurationTemplateTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ReplicationConfigurationTemplate.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplate.timeouts' is not present");
     }
 
     /**
@@ -211,11 +229,12 @@ public final class ReplicationConfigurationTemplate extends com.pulumi.resources
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<Boolean> useDedicatedReplicationServer;
-
+    @PolicyResourceProperty(name="useDedicatedReplicationServer", flag="unknown_useDedicatedReplicationServer")
+    private Boolean value_useDedicatedReplicationServer;
+    private boolean unknown_useDedicatedReplicationServer;
     public Boolean useDedicatedReplicationServer() {
-        if (useDedicatedReplicationServer == null) return null;
-        return useDedicatedReplicationServer.getValue("ReplicationConfigurationTemplate.useDedicatedReplicationServer");
+        if (!unknown_useDedicatedReplicationServer) return value_useDedicatedReplicationServer;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplate.useDedicatedReplicationServer' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.macie;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -19,88 +20,96 @@ public final class CustomDataIdentifierArgs extends com.pulumi.resources.PolicyR
      * A custom description of the custom data identifier. The description can contain as many as 512 characters.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("CustomDataIdentifierArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'CustomDataIdentifierArgs.description' is not present");
     }
 
     /**
      * An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
      * 
      */
-    private UndeferrableValue<List<String>> ignoreWords;
-
+    @PolicyResourceProperty(name="ignoreWords", flag="unknown_ignoreWords")
+    private List<String> value_ignoreWords;
+    private boolean unknown_ignoreWords;
     public List<String> ignoreWords() {
-        if (ignoreWords == null) return null;
-        return ignoreWords.getValue("CustomDataIdentifierArgs.ignoreWords");
+        if (!unknown_ignoreWords) return value_ignoreWords;
+        throw new UndeferrableValueException("Value 'CustomDataIdentifierArgs.ignoreWords' is not present");
     }
 
     /**
      * An array that lists specific character sequences (keywords), one of which must be within proximity (`maximum_match_distance`) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren&#39;t case sensitive.
      * 
      */
-    private UndeferrableValue<List<String>> keywords;
-
+    @PolicyResourceProperty(name="keywords", flag="unknown_keywords")
+    private List<String> value_keywords;
+    private boolean unknown_keywords;
     public List<String> keywords() {
-        if (keywords == null) return null;
-        return keywords.getValue("CustomDataIdentifierArgs.keywords");
+        if (!unknown_keywords) return value_keywords;
+        throw new UndeferrableValueException("Value 'CustomDataIdentifierArgs.keywords' is not present");
     }
 
     /**
      * The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.
      * 
      */
-    private UndeferrableValue<Integer> maximumMatchDistance;
-
+    @PolicyResourceProperty(name="maximumMatchDistance", flag="unknown_maximumMatchDistance")
+    private Integer value_maximumMatchDistance;
+    private boolean unknown_maximumMatchDistance;
     public Integer maximumMatchDistance() {
-        if (maximumMatchDistance == null) return null;
-        return maximumMatchDistance.getValue("CustomDataIdentifierArgs.maximumMatchDistance");
+        if (!unknown_maximumMatchDistance) return value_maximumMatchDistance;
+        throw new UndeferrableValueException("Value 'CustomDataIdentifierArgs.maximumMatchDistance' is not present");
     }
 
     /**
      * A custom name for the custom data identifier. The name can contain as many as 128 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("CustomDataIdentifierArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'CustomDataIdentifierArgs.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("CustomDataIdentifierArgs.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'CustomDataIdentifierArgs.namePrefix' is not present");
     }
 
     /**
      * The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
      * 
      */
-    private UndeferrableValue<String> regex;
-
+    @PolicyResourceProperty(name="regex", flag="unknown_regex")
+    private String value_regex;
+    private boolean unknown_regex;
     public String regex() {
-        if (regex == null) return null;
-        return regex.getValue("CustomDataIdentifierArgs.regex");
+        if (!unknown_regex) return value_regex;
+        throw new UndeferrableValueException("Value 'CustomDataIdentifierArgs.regex' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CustomDataIdentifierArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CustomDataIdentifierArgs.tags' is not present");
     }
 
 }

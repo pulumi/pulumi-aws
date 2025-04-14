@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.backup.inputs.PlanAdvancedBackupSettingArgs;
 import com.pulumi.policypacks.aws.backup.inputs.PlanRuleArgs;
@@ -20,44 +21,48 @@ public final class PlanArgs extends com.pulumi.resources.PolicyResourceInput {
      * An object that specifies backup options for each resource type.
      * 
      */
-    private UndeferrableValue<List<PlanAdvancedBackupSettingArgs>> advancedBackupSettings;
-
+    @PolicyResourceProperty(name="advancedBackupSettings", flag="unknown_advancedBackupSettings")
+    private List<PlanAdvancedBackupSettingArgs> value_advancedBackupSettings;
+    private boolean unknown_advancedBackupSettings;
     public List<PlanAdvancedBackupSettingArgs> advancedBackupSettings() {
-        if (advancedBackupSettings == null) return null;
-        return advancedBackupSettings.getValue("PlanArgs.advancedBackupSettings");
+        if (!unknown_advancedBackupSettings) return value_advancedBackupSettings;
+        throw new UndeferrableValueException("Value 'PlanArgs.advancedBackupSettings' is not present");
     }
 
     /**
      * The display name of a backup plan.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PlanArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PlanArgs.name' is not present");
     }
 
     /**
      * A rule object that specifies a scheduled task that is used to back up a selection of resources.
      * 
      */
-    private UndeferrableValue<List<PlanRuleArgs>> rules;
-
+    @PolicyResourceProperty(name="rules", flag="unknown_rules")
+    private List<PlanRuleArgs> value_rules;
+    private boolean unknown_rules;
     public List<PlanRuleArgs> rules() {
-        if (rules == null) return null;
-        return rules.getValue("PlanArgs.rules");
+        if (!unknown_rules) return value_rules;
+        throw new UndeferrableValueException("Value 'PlanArgs.rules' is not present");
     }
 
     /**
      * Metadata that you can assign to help organize the plans you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("PlanArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'PlanArgs.tags' is not present");
     }
 
 }

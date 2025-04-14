@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,18 +15,20 @@ public final class DashboardParametersStringParameter {
      * Display name for the dashboard.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DashboardParametersStringParameter.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DashboardParametersStringParameter.name' is not present");
     }
 
-    private UndeferrableValue<List<String>> values;
-
+    @PolicyResourceProperty(name="values", flag="unknown_values")
+    private List<String> value_values;
+    private boolean unknown_values;
     public List<String> values() {
-        if (values == null) return null;
-        return values.getValue("DashboardParametersStringParameter.values");
+        if (!unknown_values) return value_values;
+        throw new UndeferrableValueException("Value 'DashboardParametersStringParameter.values' is not present");
     }
 
 }

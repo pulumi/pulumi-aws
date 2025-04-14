@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appfabric;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -18,55 +19,60 @@ public final class IngestionArgs extends com.pulumi.resources.PolicyResourceInpu
      * Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app)
      * 
      */
-    private UndeferrableValue<String> app;
-
+    @PolicyResourceProperty(name="app", flag="unknown_app")
+    private String value_app;
+    private boolean unknown_app;
     public String app() {
-        if (app == null) return null;
-        return app.getValue("IngestionArgs.app");
+        if (!unknown_app) return value_app;
+        throw new UndeferrableValueException("Value 'IngestionArgs.app' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the app bundle to use for the request.
      * 
      */
-    private UndeferrableValue<String> appBundleArn;
-
+    @PolicyResourceProperty(name="appBundleArn", flag="unknown_appBundleArn")
+    private String value_appBundleArn;
+    private boolean unknown_appBundleArn;
     public String appBundleArn() {
-        if (appBundleArn == null) return null;
-        return appBundleArn.getValue("IngestionArgs.appBundleArn");
+        if (!unknown_appBundleArn) return value_appBundleArn;
+        throw new UndeferrableValueException("Value 'IngestionArgs.appBundleArn' is not present");
     }
 
     /**
      * Ingestion type. Valid values are `auditLog`.
      * 
      */
-    private UndeferrableValue<String> ingestionType;
-
+    @PolicyResourceProperty(name="ingestionType", flag="unknown_ingestionType")
+    private String value_ingestionType;
+    private boolean unknown_ingestionType;
     public String ingestionType() {
-        if (ingestionType == null) return null;
-        return ingestionType.getValue("IngestionArgs.ingestionType");
+        if (!unknown_ingestionType) return value_ingestionType;
+        throw new UndeferrableValueException("Value 'IngestionArgs.ingestionType' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("IngestionArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'IngestionArgs.tags' is not present");
     }
 
     /**
      * ID of the application tenant.
      * 
      */
-    private UndeferrableValue<String> tenantId;
-
+    @PolicyResourceProperty(name="tenantId", flag="unknown_tenantId")
+    private String value_tenantId;
+    private boolean unknown_tenantId;
     public String tenantId() {
-        if (tenantId == null) return null;
-        return tenantId.getValue("IngestionArgs.tenantId");
+        if (!unknown_tenantId) return value_tenantId;
+        throw new UndeferrableValueException("Value 'IngestionArgs.tenantId' is not present");
     }
 
 }

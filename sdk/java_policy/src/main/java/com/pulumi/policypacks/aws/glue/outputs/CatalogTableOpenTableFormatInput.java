@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.glue.outputs.CatalogTableOpenTableFormatInputIcebergInput;
 
 
@@ -13,11 +14,12 @@ public final class CatalogTableOpenTableFormatInput {
      * Configuration block for iceberg table config. See `iceberg_input` below.
      * 
      */
-    private UndeferrableValue<CatalogTableOpenTableFormatInputIcebergInput> icebergInput;
-
+    @PolicyResourceProperty(name="icebergInput", flag="unknown_icebergInput")
+    private CatalogTableOpenTableFormatInputIcebergInput value_icebergInput;
+    private boolean unknown_icebergInput;
     public CatalogTableOpenTableFormatInputIcebergInput icebergInput() {
-        if (icebergInput == null) return null;
-        return icebergInput.getValue("CatalogTableOpenTableFormatInput.icebergInput");
+        if (!unknown_icebergInput) return value_icebergInput;
+        throw new UndeferrableValueException("Value 'CatalogTableOpenTableFormatInput.icebergInput' is not present");
     }
 
 }

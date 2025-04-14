@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearchingest.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class PipelineVpcOptions {
      * A list of security groups associated with the VPC endpoint.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private @Nullable List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public @Nullable List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("PipelineVpcOptions.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'PipelineVpcOptions.securityGroupIds' is not present");
     }
 
     /**
      * A list of subnet IDs associated with the VPC endpoint.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("PipelineVpcOptions.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'PipelineVpcOptions.subnetIds' is not present");
     }
 
     /**
      * Whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline. Valid values are `CUSTOMER` or `SERVICE`
      * 
      */
-    private @Nullable UndeferrableValue<String> vpcEndpointManagement;
-
+    @PolicyResourceProperty(name="vpcEndpointManagement", flag="unknown_vpcEndpointManagement")
+    private @Nullable String value_vpcEndpointManagement;
+    private boolean unknown_vpcEndpointManagement;
     public @Nullable String vpcEndpointManagement() {
-        if (vpcEndpointManagement == null) return null;
-        return vpcEndpointManagement.getValue("PipelineVpcOptions.vpcEndpointManagement");
+        if (!unknown_vpcEndpointManagement) return value_vpcEndpointManagement;
+        throw new UndeferrableValueException("Value 'PipelineVpcOptions.vpcEndpointManagement' is not present");
     }
 
 }

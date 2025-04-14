@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lambda.outputs.AliasRoutingConfig;
 import java.lang.String;
@@ -17,77 +18,84 @@ public final class Alias extends com.pulumi.resources.PolicyResourceOutput {
      * The Amazon Resource Name (ARN) identifying your Lambda function alias.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Alias.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Alias.arn' is not present");
     }
 
     /**
      * Description of the alias.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Alias.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Alias.description' is not present");
     }
 
     /**
      * Lambda Function name or ARN.
      * 
      */
-    private UndeferrableValue<String> functionName;
-
+    @PolicyResourceProperty(name="functionName", flag="unknown_functionName")
+    private String value_functionName;
+    private boolean unknown_functionName;
     public String functionName() {
-        if (functionName == null) return null;
-        return functionName.getValue("Alias.functionName");
+        if (!unknown_functionName) return value_functionName;
+        throw new UndeferrableValueException("Value 'Alias.functionName' is not present");
     }
 
     /**
      * Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
      * 
      */
-    private UndeferrableValue<String> functionVersion;
-
+    @PolicyResourceProperty(name="functionVersion", flag="unknown_functionVersion")
+    private String value_functionVersion;
+    private boolean unknown_functionVersion;
     public String functionVersion() {
-        if (functionVersion == null) return null;
-        return functionVersion.getValue("Alias.functionVersion");
+        if (!unknown_functionVersion) return value_functionVersion;
+        throw new UndeferrableValueException("Value 'Alias.functionVersion' is not present");
     }
 
     /**
      * The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`
      * 
      */
-    private UndeferrableValue<String> invokeArn;
-
+    @PolicyResourceProperty(name="invokeArn", flag="unknown_invokeArn")
+    private String value_invokeArn;
+    private boolean unknown_invokeArn;
     public String invokeArn() {
-        if (invokeArn == null) return null;
-        return invokeArn.getValue("Alias.invokeArn");
+        if (!unknown_invokeArn) return value_invokeArn;
+        throw new UndeferrableValueException("Value 'Alias.invokeArn' is not present");
     }
 
     /**
      * Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Alias.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Alias.name' is not present");
     }
 
     /**
      * The Lambda alias&#39; route configuration settings. Fields documented below
      * 
      */
-    private @Nullable UndeferrableValue<AliasRoutingConfig> routingConfig;
-
+    @PolicyResourceProperty(name="routingConfig", flag="unknown_routingConfig")
+    private @Nullable AliasRoutingConfig value_routingConfig;
+    private boolean unknown_routingConfig;
     public @Nullable AliasRoutingConfig routingConfig() {
-        if (routingConfig == null) return null;
-        return routingConfig.getValue("Alias.routingConfig");
+        if (!unknown_routingConfig) return value_routingConfig;
+        throw new UndeferrableValueException("Value 'Alias.routingConfig' is not present");
     }
 
 }

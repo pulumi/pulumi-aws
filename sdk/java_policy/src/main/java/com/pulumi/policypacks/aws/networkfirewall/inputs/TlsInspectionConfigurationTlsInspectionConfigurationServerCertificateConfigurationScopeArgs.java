@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs;
 import com.pulumi.policypacks.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs;
 import com.pulumi.policypacks.aws.networkfirewall.inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs;
@@ -19,55 +20,60 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
      * Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Ports below for details.
      * 
      */
-    private UndeferrableValue<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs>> destinationPorts;
-
+    @PolicyResourceProperty(name="destinationPorts", flag="unknown_destinationPorts")
+    private List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs> value_destinationPorts;
+    private boolean unknown_destinationPorts;
     public List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs> destinationPorts() {
-        if (destinationPorts == null) return null;
-        return destinationPorts.getValue("TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs.destinationPorts");
+        if (!unknown_destinationPorts) return value_destinationPorts;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs.destinationPorts' is not present");
     }
 
     /**
      * Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
      * 
      */
-    private UndeferrableValue<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs>> destinations;
-
+    @PolicyResourceProperty(name="destinations", flag="unknown_destinations")
+    private List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs> value_destinations;
+    private boolean unknown_destinations;
     public List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs> destinations() {
-        if (destinations == null) return null;
-        return destinations.getValue("TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs.destinations");
+        if (!unknown_destinations) return value_destinations;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs.destinations' is not present");
     }
 
     /**
      * Set of protocols to inspect for, specified using the protocol&#39;s assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
      * 
      */
-    private UndeferrableValue<List<Integer>> protocols;
-
+    @PolicyResourceProperty(name="protocols", flag="unknown_protocols")
+    private List<Integer> value_protocols;
+    private boolean unknown_protocols;
     public List<Integer> protocols() {
-        if (protocols == null) return null;
-        return protocols.getValue("TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs.protocols");
+        if (!unknown_protocols) return value_protocols;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs.protocols' is not present");
     }
 
     /**
      * Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Ports below for details.
      * 
      */
-    private UndeferrableValue<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs>> sourcePorts;
-
+    @PolicyResourceProperty(name="sourcePorts", flag="unknown_sourcePorts")
+    private List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs> value_sourcePorts;
+    private boolean unknown_sourcePorts;
     public List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs> sourcePorts() {
-        if (sourcePorts == null) return null;
-        return sourcePorts.getValue("TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs.sourcePorts");
+        if (!unknown_sourcePorts) return value_sourcePorts;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs.sourcePorts' is not present");
     }
 
     /**
      * Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
      * 
      */
-    private UndeferrableValue<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs>> sources;
-
+    @PolicyResourceProperty(name="sources", flag="unknown_sources")
+    private List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs> value_sources;
+    private boolean unknown_sources;
     public List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs> sources() {
-        if (sources == null) return null;
-        return sources.getValue("TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs.sources");
+        if (!unknown_sources) return value_sources;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs.sources' is not present");
     }
 
 }

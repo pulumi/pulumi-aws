@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.inputs.OriginRequestPolicyQueryStringsConfigQueryStringsArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,18 +12,20 @@ import javax.annotation.Nullable;
 
 public final class OriginRequestPolicyQueryStringsConfigArgs {
 
-    private UndeferrableValue<String> queryStringBehavior;
-
+    @PolicyResourceProperty(name="queryStringBehavior", flag="unknown_queryStringBehavior")
+    private String value_queryStringBehavior;
+    private boolean unknown_queryStringBehavior;
     public String queryStringBehavior() {
-        if (queryStringBehavior == null) return null;
-        return queryStringBehavior.getValue("OriginRequestPolicyQueryStringsConfigArgs.queryStringBehavior");
+        if (!unknown_queryStringBehavior) return value_queryStringBehavior;
+        throw new UndeferrableValueException("Value 'OriginRequestPolicyQueryStringsConfigArgs.queryStringBehavior' is not present");
     }
 
-    private UndeferrableValue<OriginRequestPolicyQueryStringsConfigQueryStringsArgs> queryStrings;
-
+    @PolicyResourceProperty(name="queryStrings", flag="unknown_queryStrings")
+    private OriginRequestPolicyQueryStringsConfigQueryStringsArgs value_queryStrings;
+    private boolean unknown_queryStrings;
     public OriginRequestPolicyQueryStringsConfigQueryStringsArgs queryStrings() {
-        if (queryStrings == null) return null;
-        return queryStrings.getValue("OriginRequestPolicyQueryStringsConfigArgs.queryStrings");
+        if (!unknown_queryStrings) return value_queryStrings;
+        throw new UndeferrableValueException("Value 'OriginRequestPolicyQueryStringsConfigArgs.queryStrings' is not present");
     }
 
 }

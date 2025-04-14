@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appconfig;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appconfig.inputs.EventIntegrationEventFilterArgs;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class EventIntegrationArgs extends com.pulumi.resources.PolicyResou
      * Description of the Event Integration.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("EventIntegrationArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'EventIntegrationArgs.description' is not present");
     }
 
     /**
      * Block that defines the configuration information for the event filter. The Event Filter block is documented below.
      * 
      */
-    private UndeferrableValue<EventIntegrationEventFilterArgs> eventFilter;
-
+    @PolicyResourceProperty(name="eventFilter", flag="unknown_eventFilter")
+    private EventIntegrationEventFilterArgs value_eventFilter;
+    private boolean unknown_eventFilter;
     public EventIntegrationEventFilterArgs eventFilter() {
-        if (eventFilter == null) return null;
-        return eventFilter.getValue("EventIntegrationArgs.eventFilter");
+        if (!unknown_eventFilter) return value_eventFilter;
+        throw new UndeferrableValueException("Value 'EventIntegrationArgs.eventFilter' is not present");
     }
 
     /**
      * EventBridge bus.
      * 
      */
-    private UndeferrableValue<String> eventbridgeBus;
-
+    @PolicyResourceProperty(name="eventbridgeBus", flag="unknown_eventbridgeBus")
+    private String value_eventbridgeBus;
+    private boolean unknown_eventbridgeBus;
     public String eventbridgeBus() {
-        if (eventbridgeBus == null) return null;
-        return eventbridgeBus.getValue("EventIntegrationArgs.eventbridgeBus");
+        if (!unknown_eventbridgeBus) return value_eventbridgeBus;
+        throw new UndeferrableValueException("Value 'EventIntegrationArgs.eventbridgeBus' is not present");
     }
 
     /**
      * Name of the Event Integration.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("EventIntegrationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'EventIntegrationArgs.name' is not present");
     }
 
     /**
      * Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("EventIntegrationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'EventIntegrationArgs.tags' is not present");
     }
 
 }

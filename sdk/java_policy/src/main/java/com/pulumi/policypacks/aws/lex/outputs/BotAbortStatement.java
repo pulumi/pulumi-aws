@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.BotAbortStatementMessage;
 import java.lang.String;
 import java.util.List;
@@ -12,18 +13,20 @@ import javax.annotation.Nullable;
 
 public final class BotAbortStatement {
 
-    private UndeferrableValue<List<BotAbortStatementMessage>> messages;
-
+    @PolicyResourceProperty(name="messages", flag="unknown_messages")
+    private List<BotAbortStatementMessage> value_messages;
+    private boolean unknown_messages;
     public List<BotAbortStatementMessage> messages() {
-        if (messages == null) return null;
-        return messages.getValue("BotAbortStatement.messages");
+        if (!unknown_messages) return value_messages;
+        throw new UndeferrableValueException("Value 'BotAbortStatement.messages' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> responseCard;
-
+    @PolicyResourceProperty(name="responseCard", flag="unknown_responseCard")
+    private @Nullable String value_responseCard;
+    private boolean unknown_responseCard;
     public @Nullable String responseCard() {
-        if (responseCard == null) return null;
-        return responseCard.getValue("BotAbortStatement.responseCard");
+        if (!unknown_responseCard) return value_responseCard;
+        throw new UndeferrableValueException("Value 'BotAbortStatement.responseCard' is not present");
     }
 
 }

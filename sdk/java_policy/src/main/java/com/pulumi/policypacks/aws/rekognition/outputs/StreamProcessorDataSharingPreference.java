@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rekognition.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 
 
@@ -13,11 +14,12 @@ public final class StreamProcessorDataSharingPreference {
      * Whether you are sharing data with Rekognition to improve model performance.
      * 
      */
-    private UndeferrableValue<Boolean> optIn;
-
+    @PolicyResourceProperty(name="optIn", flag="unknown_optIn")
+    private Boolean value_optIn;
+    private boolean unknown_optIn;
     public Boolean optIn() {
-        if (optIn == null) return null;
-        return optIn.getValue("StreamProcessorDataSharingPreference.optIn");
+        if (!unknown_optIn) return value_optIn;
+        throw new UndeferrableValueException("Value 'StreamProcessorDataSharingPreference.optIn' is not present");
     }
 
 }

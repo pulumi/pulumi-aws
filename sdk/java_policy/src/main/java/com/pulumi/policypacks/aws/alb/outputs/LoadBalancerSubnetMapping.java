@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.alb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,51 +15,56 @@ public final class LoadBalancerSubnetMapping {
      * Allocation ID of the Elastic IP address for an internet-facing load balancer.
      * 
      */
-    private @Nullable UndeferrableValue<String> allocationId;
-
+    @PolicyResourceProperty(name="allocationId", flag="unknown_allocationId")
+    private @Nullable String value_allocationId;
+    private boolean unknown_allocationId;
     public @Nullable String allocationId() {
-        if (allocationId == null) return null;
-        return allocationId.getValue("LoadBalancerSubnetMapping.allocationId");
+        if (!unknown_allocationId) return value_allocationId;
+        throw new UndeferrableValueException("Value 'LoadBalancerSubnetMapping.allocationId' is not present");
     }
 
     /**
      * IPv6 address. You associate IPv6 CIDR blocks with your VPC and choose the subnets where you launch both internet-facing and internal Application Load Balancers or Network Load Balancers.
      * 
      */
-    private @Nullable UndeferrableValue<String> ipv6Address;
-
+    @PolicyResourceProperty(name="ipv6Address", flag="unknown_ipv6Address")
+    private @Nullable String value_ipv6Address;
+    private boolean unknown_ipv6Address;
     public @Nullable String ipv6Address() {
-        if (ipv6Address == null) return null;
-        return ipv6Address.getValue("LoadBalancerSubnetMapping.ipv6Address");
+        if (!unknown_ipv6Address) return value_ipv6Address;
+        throw new UndeferrableValueException("Value 'LoadBalancerSubnetMapping.ipv6Address' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> outpostId;
-
+    @PolicyResourceProperty(name="outpostId", flag="unknown_outpostId")
+    private @Nullable String value_outpostId;
+    private boolean unknown_outpostId;
     public @Nullable String outpostId() {
-        if (outpostId == null) return null;
-        return outpostId.getValue("LoadBalancerSubnetMapping.outpostId");
+        if (!unknown_outpostId) return value_outpostId;
+        throw new UndeferrableValueException("Value 'LoadBalancerSubnetMapping.outpostId' is not present");
     }
 
     /**
      * Private IPv4 address for an internal load balancer.
      * 
      */
-    private @Nullable UndeferrableValue<String> privateIpv4Address;
-
+    @PolicyResourceProperty(name="privateIpv4Address", flag="unknown_privateIpv4Address")
+    private @Nullable String value_privateIpv4Address;
+    private boolean unknown_privateIpv4Address;
     public @Nullable String privateIpv4Address() {
-        if (privateIpv4Address == null) return null;
-        return privateIpv4Address.getValue("LoadBalancerSubnetMapping.privateIpv4Address");
+        if (!unknown_privateIpv4Address) return value_privateIpv4Address;
+        throw new UndeferrableValueException("Value 'LoadBalancerSubnetMapping.privateIpv4Address' is not present");
     }
 
     /**
      * ID of the subnet of which to attach to the load balancer. You can specify only one subnet per Availability Zone.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("LoadBalancerSubnetMapping.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'LoadBalancerSubnetMapping.subnetId' is not present");
     }
 
 }

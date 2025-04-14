@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.opsworks.inputs.GangliaLayerLoadBasedAutoScalingDownscalingArgs;
 import com.pulumi.policypacks.aws.opsworks.inputs.GangliaLayerLoadBasedAutoScalingUpscalingArgs;
 import java.lang.Boolean;
@@ -12,25 +13,28 @@ import javax.annotation.Nullable;
 
 public final class GangliaLayerLoadBasedAutoScalingArgs {
 
-    private UndeferrableValue<GangliaLayerLoadBasedAutoScalingDownscalingArgs> downscaling;
-
+    @PolicyResourceProperty(name="downscaling", flag="unknown_downscaling")
+    private GangliaLayerLoadBasedAutoScalingDownscalingArgs value_downscaling;
+    private boolean unknown_downscaling;
     public GangliaLayerLoadBasedAutoScalingDownscalingArgs downscaling() {
-        if (downscaling == null) return null;
-        return downscaling.getValue("GangliaLayerLoadBasedAutoScalingArgs.downscaling");
+        if (!unknown_downscaling) return value_downscaling;
+        throw new UndeferrableValueException("Value 'GangliaLayerLoadBasedAutoScalingArgs.downscaling' is not present");
     }
 
-    private UndeferrableValue<Boolean> enable;
-
+    @PolicyResourceProperty(name="enable", flag="unknown_enable")
+    private Boolean value_enable;
+    private boolean unknown_enable;
     public Boolean enable() {
-        if (enable == null) return null;
-        return enable.getValue("GangliaLayerLoadBasedAutoScalingArgs.enable");
+        if (!unknown_enable) return value_enable;
+        throw new UndeferrableValueException("Value 'GangliaLayerLoadBasedAutoScalingArgs.enable' is not present");
     }
 
-    private UndeferrableValue<GangliaLayerLoadBasedAutoScalingUpscalingArgs> upscaling;
-
+    @PolicyResourceProperty(name="upscaling", flag="unknown_upscaling")
+    private GangliaLayerLoadBasedAutoScalingUpscalingArgs value_upscaling;
+    private boolean unknown_upscaling;
     public GangliaLayerLoadBasedAutoScalingUpscalingArgs upscaling() {
-        if (upscaling == null) return null;
-        return upscaling.getValue("GangliaLayerLoadBasedAutoScalingArgs.upscaling");
+        if (!unknown_upscaling) return value_upscaling;
+        throw new UndeferrableValueException("Value 'GangliaLayerLoadBasedAutoScalingArgs.upscaling' is not present");
     }
 
 }

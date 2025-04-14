@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ClusterBootstrapAction {
      * List of command line arguments to pass to the bootstrap action script.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> args;
-
+    @PolicyResourceProperty(name="args", flag="unknown_args")
+    private @Nullable List<String> value_args;
+    private boolean unknown_args;
     public @Nullable List<String> args() {
-        if (args == null) return null;
-        return args.getValue("ClusterBootstrapAction.args");
+        if (!unknown_args) return value_args;
+        throw new UndeferrableValueException("Value 'ClusterBootstrapAction.args' is not present");
     }
 
     /**
      * Name of the bootstrap action.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ClusterBootstrapAction.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ClusterBootstrapAction.name' is not present");
     }
 
     /**
      * Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
      * 
      */
-    private UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private String value_path;
+    private boolean unknown_path;
     public String path() {
-        if (path == null) return null;
-        return path.getValue("ClusterBootstrapAction.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'ClusterBootstrapAction.path' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.imagebuilder.inputs.LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class LifecyclePolicyPolicyDetailExclusionRulesAmisArgs {
      * Configures whether public AMIs are excluded from the lifecycle action.
      * 
      */
-    private UndeferrableValue<Boolean> isPublic;
-
+    @PolicyResourceProperty(name="isPublic", flag="unknown_isPublic")
+    private Boolean value_isPublic;
+    private boolean unknown_isPublic;
     public Boolean isPublic() {
-        if (isPublic == null) return null;
-        return isPublic.getValue("LifecyclePolicyPolicyDetailExclusionRulesAmisArgs.isPublic");
+        if (!unknown_isPublic) return value_isPublic;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailExclusionRulesAmisArgs.isPublic' is not present");
     }
 
     /**
      * Specifies configuration details for Image Builder to exclude the most recent resources from lifecycle actions. Detailed below.
      * 
      */
-    private UndeferrableValue<LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs> lastLaunched;
-
+    @PolicyResourceProperty(name="lastLaunched", flag="unknown_lastLaunched")
+    private LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs value_lastLaunched;
+    private boolean unknown_lastLaunched;
     public LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs lastLaunched() {
-        if (lastLaunched == null) return null;
-        return lastLaunched.getValue("LifecyclePolicyPolicyDetailExclusionRulesAmisArgs.lastLaunched");
+        if (!unknown_lastLaunched) return value_lastLaunched;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailExclusionRulesAmisArgs.lastLaunched' is not present");
     }
 
     /**
      * Configures AWS Regions that are excluded from the lifecycle action.
      * 
      */
-    private UndeferrableValue<List<String>> regions;
-
+    @PolicyResourceProperty(name="regions", flag="unknown_regions")
+    private List<String> value_regions;
+    private boolean unknown_regions;
     public List<String> regions() {
-        if (regions == null) return null;
-        return regions.getValue("LifecyclePolicyPolicyDetailExclusionRulesAmisArgs.regions");
+        if (!unknown_regions) return value_regions;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailExclusionRulesAmisArgs.regions' is not present");
     }
 
     /**
      * Specifies AWS accounts whose resources are excluded from the lifecycle action.
      * 
      */
-    private UndeferrableValue<List<String>> sharedAccounts;
-
+    @PolicyResourceProperty(name="sharedAccounts", flag="unknown_sharedAccounts")
+    private List<String> value_sharedAccounts;
+    private boolean unknown_sharedAccounts;
     public List<String> sharedAccounts() {
-        if (sharedAccounts == null) return null;
-        return sharedAccounts.getValue("LifecyclePolicyPolicyDetailExclusionRulesAmisArgs.sharedAccounts");
+        if (!unknown_sharedAccounts) return value_sharedAccounts;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailExclusionRulesAmisArgs.sharedAccounts' is not present");
     }
 
     /**
      * Lists tags that should be excluded from lifecycle actions for the AMIs that have them.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tagMap;
-
+    @PolicyResourceProperty(name="tagMap", flag="unknown_tagMap")
+    private Map<String,String> value_tagMap;
+    private boolean unknown_tagMap;
     public Map<String,String> tagMap() {
-        if (tagMap == null) return null;
-        return tagMap.getValue("LifecyclePolicyPolicyDetailExclusionRulesAmisArgs.tagMap");
+        if (!unknown_tagMap) return value_tagMap;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailExclusionRulesAmisArgs.tagMap' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.storagegateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.storagegateway.inputs.FileSystemAssociationCacheAttributesArgs;
 import java.lang.String;
@@ -18,77 +19,84 @@ public final class FileSystemAssociationArgs extends com.pulumi.resources.Policy
      * The Amazon Resource Name (ARN) of the storage used for the audit logs.
      * 
      */
-    private UndeferrableValue<String> auditDestinationArn;
-
+    @PolicyResourceProperty(name="auditDestinationArn", flag="unknown_auditDestinationArn")
+    private String value_auditDestinationArn;
+    private boolean unknown_auditDestinationArn;
     public String auditDestinationArn() {
-        if (auditDestinationArn == null) return null;
-        return auditDestinationArn.getValue("FileSystemAssociationArgs.auditDestinationArn");
+        if (!unknown_auditDestinationArn) return value_auditDestinationArn;
+        throw new UndeferrableValueException("Value 'FileSystemAssociationArgs.auditDestinationArn' is not present");
     }
 
     /**
      * Refresh cache information. see Cache Attributes for more details.
      * 
      */
-    private UndeferrableValue<FileSystemAssociationCacheAttributesArgs> cacheAttributes;
-
+    @PolicyResourceProperty(name="cacheAttributes", flag="unknown_cacheAttributes")
+    private FileSystemAssociationCacheAttributesArgs value_cacheAttributes;
+    private boolean unknown_cacheAttributes;
     public FileSystemAssociationCacheAttributesArgs cacheAttributes() {
-        if (cacheAttributes == null) return null;
-        return cacheAttributes.getValue("FileSystemAssociationArgs.cacheAttributes");
+        if (!unknown_cacheAttributes) return value_cacheAttributes;
+        throw new UndeferrableValueException("Value 'FileSystemAssociationArgs.cacheAttributes' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      * 
      */
-    private UndeferrableValue<String> gatewayArn;
-
+    @PolicyResourceProperty(name="gatewayArn", flag="unknown_gatewayArn")
+    private String value_gatewayArn;
+    private boolean unknown_gatewayArn;
     public String gatewayArn() {
-        if (gatewayArn == null) return null;
-        return gatewayArn.getValue("FileSystemAssociationArgs.gatewayArn");
+        if (!unknown_gatewayArn) return value_gatewayArn;
+        throw new UndeferrableValueException("Value 'FileSystemAssociationArgs.gatewayArn' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
      * 
      */
-    private UndeferrableValue<String> locationArn;
-
+    @PolicyResourceProperty(name="locationArn", flag="unknown_locationArn")
+    private String value_locationArn;
+    private boolean unknown_locationArn;
     public String locationArn() {
-        if (locationArn == null) return null;
-        return locationArn.getValue("FileSystemAssociationArgs.locationArn");
+        if (!unknown_locationArn) return value_locationArn;
+        throw new UndeferrableValueException("Value 'FileSystemAssociationArgs.locationArn' is not present");
     }
 
     /**
      * The password of the user credential.
      * 
      */
-    private UndeferrableValue<String> password;
-
+    @PolicyResourceProperty(name="password", flag="unknown_password")
+    private String value_password;
+    private boolean unknown_password;
     public String password() {
-        if (password == null) return null;
-        return password.getValue("FileSystemAssociationArgs.password");
+        if (!unknown_password) return value_password;
+        throw new UndeferrableValueException("Value 'FileSystemAssociationArgs.password' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("FileSystemAssociationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'FileSystemAssociationArgs.tags' is not present");
     }
 
     /**
      * The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
      * 
      */
-    private UndeferrableValue<String> username;
-
+    @PolicyResourceProperty(name="username", flag="unknown_username")
+    private String value_username;
+    private boolean unknown_username;
     public String username() {
-        if (username == null) return null;
-        return username.getValue("FileSystemAssociationArgs.username");
+        if (!unknown_username) return value_username;
+        throw new UndeferrableValueException("Value 'FileSystemAssociationArgs.username' is not present");
     }
 
 }

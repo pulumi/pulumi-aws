@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class TopicRuleErrorActionIotAnalyticsArgs {
      * The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
      * 
      */
-    private UndeferrableValue<Boolean> batchMode;
-
+    @PolicyResourceProperty(name="batchMode", flag="unknown_batchMode")
+    private Boolean value_batchMode;
+    private boolean unknown_batchMode;
     public Boolean batchMode() {
-        if (batchMode == null) return null;
-        return batchMode.getValue("TopicRuleErrorActionIotAnalyticsArgs.batchMode");
+        if (!unknown_batchMode) return value_batchMode;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionIotAnalyticsArgs.batchMode' is not present");
     }
 
     /**
      * Name of AWS IOT Analytics channel.
      * 
      */
-    private UndeferrableValue<String> channelName;
-
+    @PolicyResourceProperty(name="channelName", flag="unknown_channelName")
+    private String value_channelName;
+    private boolean unknown_channelName;
     public String channelName() {
-        if (channelName == null) return null;
-        return channelName.getValue("TopicRuleErrorActionIotAnalyticsArgs.channelName");
+        if (!unknown_channelName) return value_channelName;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionIotAnalyticsArgs.channelName' is not present");
     }
 
     /**
      * The ARN of the IAM role that grants access.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("TopicRuleErrorActionIotAnalyticsArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionIotAnalyticsArgs.roleArn' is not present");
     }
 
 }

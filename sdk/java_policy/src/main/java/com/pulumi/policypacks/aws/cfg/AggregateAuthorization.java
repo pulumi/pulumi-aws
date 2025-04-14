@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,44 +18,48 @@ public final class AggregateAuthorization extends com.pulumi.resources.PolicyRes
      * Account ID
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("AggregateAuthorization.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'AggregateAuthorization.accountId' is not present");
     }
 
     /**
      * The ARN of the authorization
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("AggregateAuthorization.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'AggregateAuthorization.arn' is not present");
     }
 
     /**
      * Region
      * 
      */
-    private UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private String value_region;
+    private boolean unknown_region;
     public String region() {
-        if (region == null) return null;
-        return region.getValue("AggregateAuthorization.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'AggregateAuthorization.region' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AggregateAuthorization.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AggregateAuthorization.tags' is not present");
     }
 
     /**
@@ -65,11 +70,12 @@ public final class AggregateAuthorization extends com.pulumi.resources.PolicyRes
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("AggregateAuthorization.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'AggregateAuthorization.tagsAll' is not present");
     }
 
 }

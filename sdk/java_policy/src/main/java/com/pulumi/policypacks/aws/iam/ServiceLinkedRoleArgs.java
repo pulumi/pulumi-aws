@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,44 +18,48 @@ public final class ServiceLinkedRoleArgs extends com.pulumi.resources.PolicyReso
      * The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
      * 
      */
-    private UndeferrableValue<String> awsServiceName;
-
+    @PolicyResourceProperty(name="awsServiceName", flag="unknown_awsServiceName")
+    private String value_awsServiceName;
+    private boolean unknown_awsServiceName;
     public String awsServiceName() {
-        if (awsServiceName == null) return null;
-        return awsServiceName.getValue("ServiceLinkedRoleArgs.awsServiceName");
+        if (!unknown_awsServiceName) return value_awsServiceName;
+        throw new UndeferrableValueException("Value 'ServiceLinkedRoleArgs.awsServiceName' is not present");
     }
 
     /**
      * Additional string appended to the role name. Not all AWS services support custom suffixes.
      * 
      */
-    private UndeferrableValue<String> customSuffix;
-
+    @PolicyResourceProperty(name="customSuffix", flag="unknown_customSuffix")
+    private String value_customSuffix;
+    private boolean unknown_customSuffix;
     public String customSuffix() {
-        if (customSuffix == null) return null;
-        return customSuffix.getValue("ServiceLinkedRoleArgs.customSuffix");
+        if (!unknown_customSuffix) return value_customSuffix;
+        throw new UndeferrableValueException("Value 'ServiceLinkedRoleArgs.customSuffix' is not present");
     }
 
     /**
      * The description of the role.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ServiceLinkedRoleArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ServiceLinkedRoleArgs.description' is not present");
     }
 
     /**
      * Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ServiceLinkedRoleArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ServiceLinkedRoleArgs.tags' is not present");
     }
 
 }

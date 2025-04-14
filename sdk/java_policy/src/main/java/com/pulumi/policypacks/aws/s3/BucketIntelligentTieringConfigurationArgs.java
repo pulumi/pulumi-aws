@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3.inputs.BucketIntelligentTieringConfigurationFilterArgs;
 import com.pulumi.policypacks.aws.s3.inputs.BucketIntelligentTieringConfigurationTieringArgs;
@@ -19,55 +20,60 @@ public final class BucketIntelligentTieringConfigurationArgs extends com.pulumi.
      * Name of the bucket this intelligent tiering configuration is associated with.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("BucketIntelligentTieringConfigurationArgs.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'BucketIntelligentTieringConfigurationArgs.bucket' is not present");
     }
 
     /**
      * Bucket filter. The configuration only includes objects that meet the filter&#39;s criteria (documented below).
      * 
      */
-    private UndeferrableValue<BucketIntelligentTieringConfigurationFilterArgs> filter;
-
+    @PolicyResourceProperty(name="filter", flag="unknown_filter")
+    private BucketIntelligentTieringConfigurationFilterArgs value_filter;
+    private boolean unknown_filter;
     public BucketIntelligentTieringConfigurationFilterArgs filter() {
-        if (filter == null) return null;
-        return filter.getValue("BucketIntelligentTieringConfigurationArgs.filter");
+        if (!unknown_filter) return value_filter;
+        throw new UndeferrableValueException("Value 'BucketIntelligentTieringConfigurationArgs.filter' is not present");
     }
 
     /**
      * Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("BucketIntelligentTieringConfigurationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'BucketIntelligentTieringConfigurationArgs.name' is not present");
     }
 
     /**
      * Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("BucketIntelligentTieringConfigurationArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'BucketIntelligentTieringConfigurationArgs.status' is not present");
     }
 
     /**
      * S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
      * 
      */
-    private UndeferrableValue<List<BucketIntelligentTieringConfigurationTieringArgs>> tierings;
-
+    @PolicyResourceProperty(name="tierings", flag="unknown_tierings")
+    private List<BucketIntelligentTieringConfigurationTieringArgs> value_tierings;
+    private boolean unknown_tierings;
     public List<BucketIntelligentTieringConfigurationTieringArgs> tierings() {
-        if (tierings == null) return null;
-        return tierings.getValue("BucketIntelligentTieringConfigurationArgs.tierings");
+        if (!unknown_tierings) return value_tierings;
+        throw new UndeferrableValueException("Value 'BucketIntelligentTieringConfigurationArgs.tierings' is not present");
     }
 
 }

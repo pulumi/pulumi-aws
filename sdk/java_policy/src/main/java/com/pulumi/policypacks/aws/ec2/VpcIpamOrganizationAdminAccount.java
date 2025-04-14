@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,51 +16,56 @@ public final class VpcIpamOrganizationAdminAccount extends com.pulumi.resources.
      * The Organizations ARN for the delegate account.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("VpcIpamOrganizationAdminAccount.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'VpcIpamOrganizationAdminAccount.arn' is not present");
     }
 
-    private UndeferrableValue<String> delegatedAdminAccountId;
-
+    @PolicyResourceProperty(name="delegatedAdminAccountId", flag="unknown_delegatedAdminAccountId")
+    private String value_delegatedAdminAccountId;
+    private boolean unknown_delegatedAdminAccountId;
     public String delegatedAdminAccountId() {
-        if (delegatedAdminAccountId == null) return null;
-        return delegatedAdminAccountId.getValue("VpcIpamOrganizationAdminAccount.delegatedAdminAccountId");
+        if (!unknown_delegatedAdminAccountId) return value_delegatedAdminAccountId;
+        throw new UndeferrableValueException("Value 'VpcIpamOrganizationAdminAccount.delegatedAdminAccountId' is not present");
     }
 
     /**
      * The Organizations email for the delegate account.
      * 
      */
-    private UndeferrableValue<String> email;
-
+    @PolicyResourceProperty(name="email", flag="unknown_email")
+    private String value_email;
+    private boolean unknown_email;
     public String email() {
-        if (email == null) return null;
-        return email.getValue("VpcIpamOrganizationAdminAccount.email");
+        if (!unknown_email) return value_email;
+        throw new UndeferrableValueException("Value 'VpcIpamOrganizationAdminAccount.email' is not present");
     }
 
     /**
      * The Organizations name for the delegate account.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("VpcIpamOrganizationAdminAccount.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'VpcIpamOrganizationAdminAccount.name' is not present");
     }
 
     /**
      * The AWS service principal.
      * 
      */
-    private UndeferrableValue<String> servicePrincipal;
-
+    @PolicyResourceProperty(name="servicePrincipal", flag="unknown_servicePrincipal")
+    private String value_servicePrincipal;
+    private boolean unknown_servicePrincipal;
     public String servicePrincipal() {
-        if (servicePrincipal == null) return null;
-        return servicePrincipal.getValue("VpcIpamOrganizationAdminAccount.servicePrincipal");
+        if (!unknown_servicePrincipal) return value_servicePrincipal;
+        throw new UndeferrableValueException("Value 'VpcIpamOrganizationAdminAccount.servicePrincipal' is not present");
     }
 
 }

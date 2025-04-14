@@ -3,17 +3,19 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular {
 
-    private UndeferrableValue<String> apiKey;
-
+    @PolicyResourceProperty(name="apiKey", flag="unknown_apiKey")
+    private String value_apiKey;
+    private boolean unknown_apiKey;
     public String apiKey() {
-        if (apiKey == null) return null;
-        return apiKey.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular.apiKey");
+        if (!unknown_apiKey) return value_apiKey;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular.apiKey' is not present");
     }
 
 }

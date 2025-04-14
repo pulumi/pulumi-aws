@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.customerprofiles.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,110 +15,120 @@ public final class ProfileBillingAddressArgs {
      * The first line of a customer address.
      * 
      */
-    private UndeferrableValue<String> address1;
-
+    @PolicyResourceProperty(name="address1", flag="unknown_address1")
+    private String value_address1;
+    private boolean unknown_address1;
     public String address1() {
-        if (address1 == null) return null;
-        return address1.getValue("ProfileBillingAddressArgs.address1");
+        if (!unknown_address1) return value_address1;
+        throw new UndeferrableValueException("Value 'ProfileBillingAddressArgs.address1' is not present");
     }
 
     /**
      * The second line of a customer address.
      * 
      */
-    private UndeferrableValue<String> address2;
-
+    @PolicyResourceProperty(name="address2", flag="unknown_address2")
+    private String value_address2;
+    private boolean unknown_address2;
     public String address2() {
-        if (address2 == null) return null;
-        return address2.getValue("ProfileBillingAddressArgs.address2");
+        if (!unknown_address2) return value_address2;
+        throw new UndeferrableValueException("Value 'ProfileBillingAddressArgs.address2' is not present");
     }
 
     /**
      * The third line of a customer address.
      * 
      */
-    private UndeferrableValue<String> address3;
-
+    @PolicyResourceProperty(name="address3", flag="unknown_address3")
+    private String value_address3;
+    private boolean unknown_address3;
     public String address3() {
-        if (address3 == null) return null;
-        return address3.getValue("ProfileBillingAddressArgs.address3");
+        if (!unknown_address3) return value_address3;
+        throw new UndeferrableValueException("Value 'ProfileBillingAddressArgs.address3' is not present");
     }
 
     /**
      * The fourth line of a customer address.
      * 
      */
-    private UndeferrableValue<String> address4;
-
+    @PolicyResourceProperty(name="address4", flag="unknown_address4")
+    private String value_address4;
+    private boolean unknown_address4;
     public String address4() {
-        if (address4 == null) return null;
-        return address4.getValue("ProfileBillingAddressArgs.address4");
+        if (!unknown_address4) return value_address4;
+        throw new UndeferrableValueException("Value 'ProfileBillingAddressArgs.address4' is not present");
     }
 
     /**
      * The city in which a customer lives.
      * 
      */
-    private UndeferrableValue<String> city;
-
+    @PolicyResourceProperty(name="city", flag="unknown_city")
+    private String value_city;
+    private boolean unknown_city;
     public String city() {
-        if (city == null) return null;
-        return city.getValue("ProfileBillingAddressArgs.city");
+        if (!unknown_city) return value_city;
+        throw new UndeferrableValueException("Value 'ProfileBillingAddressArgs.city' is not present");
     }
 
     /**
      * The country in which a customer lives.
      * 
      */
-    private UndeferrableValue<String> country;
-
+    @PolicyResourceProperty(name="country", flag="unknown_country")
+    private String value_country;
+    private boolean unknown_country;
     public String country() {
-        if (country == null) return null;
-        return country.getValue("ProfileBillingAddressArgs.country");
+        if (!unknown_country) return value_country;
+        throw new UndeferrableValueException("Value 'ProfileBillingAddressArgs.country' is not present");
     }
 
     /**
      * The county in which a customer lives.
      * 
      */
-    private UndeferrableValue<String> county;
-
+    @PolicyResourceProperty(name="county", flag="unknown_county")
+    private String value_county;
+    private boolean unknown_county;
     public String county() {
-        if (county == null) return null;
-        return county.getValue("ProfileBillingAddressArgs.county");
+        if (!unknown_county) return value_county;
+        throw new UndeferrableValueException("Value 'ProfileBillingAddressArgs.county' is not present");
     }
 
     /**
      * The postal code of a customer address.
      * 
      */
-    private UndeferrableValue<String> postalCode;
-
+    @PolicyResourceProperty(name="postalCode", flag="unknown_postalCode")
+    private String value_postalCode;
+    private boolean unknown_postalCode;
     public String postalCode() {
-        if (postalCode == null) return null;
-        return postalCode.getValue("ProfileBillingAddressArgs.postalCode");
+        if (!unknown_postalCode) return value_postalCode;
+        throw new UndeferrableValueException("Value 'ProfileBillingAddressArgs.postalCode' is not present");
     }
 
     /**
      * The province in which a customer lives.
      * 
      */
-    private UndeferrableValue<String> province;
-
+    @PolicyResourceProperty(name="province", flag="unknown_province")
+    private String value_province;
+    private boolean unknown_province;
     public String province() {
-        if (province == null) return null;
-        return province.getValue("ProfileBillingAddressArgs.province");
+        if (!unknown_province) return value_province;
+        throw new UndeferrableValueException("Value 'ProfileBillingAddressArgs.province' is not present");
     }
 
     /**
      * The state in which a customer lives.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("ProfileBillingAddressArgs.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'ProfileBillingAddressArgs.state' is not present");
     }
 
 }

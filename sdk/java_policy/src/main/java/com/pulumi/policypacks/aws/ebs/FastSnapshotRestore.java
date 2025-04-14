@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ebs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ebs.outputs.FastSnapshotRestoreTimeouts;
 import java.lang.String;
@@ -17,40 +18,44 @@ public final class FastSnapshotRestore extends com.pulumi.resources.PolicyResour
      * Availability zone in which to enable fast snapshot restores.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("FastSnapshotRestore.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'FastSnapshotRestore.availabilityZone' is not present");
     }
 
     /**
      * ID of the snapshot.
      * 
      */
-    private UndeferrableValue<String> snapshotId;
-
+    @PolicyResourceProperty(name="snapshotId", flag="unknown_snapshotId")
+    private String value_snapshotId;
+    private boolean unknown_snapshotId;
     public String snapshotId() {
-        if (snapshotId == null) return null;
-        return snapshotId.getValue("FastSnapshotRestore.snapshotId");
+        if (!unknown_snapshotId) return value_snapshotId;
+        throw new UndeferrableValueException("Value 'FastSnapshotRestore.snapshotId' is not present");
     }
 
     /**
      * State of fast snapshot restores. Valid values are `enabling`, `optimizing`, `enabled`, `disabling`, `disabled`.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("FastSnapshotRestore.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'FastSnapshotRestore.state' is not present");
     }
 
-    private @Nullable UndeferrableValue<FastSnapshotRestoreTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable FastSnapshotRestoreTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable FastSnapshotRestoreTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("FastSnapshotRestore.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'FastSnapshotRestore.timeouts' is not present");
     }
 
 }

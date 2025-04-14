@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCap
      * String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
      * 
      */
-    private @Nullable UndeferrableValue<String> nameModifier;
-
+    @PolicyResourceProperty(name="nameModifier", flag="unknown_nameModifier")
+    private @Nullable String value_nameModifier;
+    private boolean unknown_nameModifier;
     public @Nullable String nameModifier() {
-        if (nameModifier == null) return null;
-        return nameModifier.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings.nameModifier");
+        if (!unknown_nameModifier) return value_nameModifier;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings.nameModifier' is not present");
     }
 
 }

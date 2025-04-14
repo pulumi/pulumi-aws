@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.macie2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.macie2.outputs.ClassificationJobS3JobDefinitionScopingExcludes;
 import com.pulumi.policypacks.aws.macie2.outputs.ClassificationJobS3JobDefinitionScopingIncludes;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ClassificationJobS3JobDefinitionScoping {
      * The property- or tag-based conditions that determine which objects to exclude from the analysis. (documented below)
      * 
      */
-    private @Nullable UndeferrableValue<ClassificationJobS3JobDefinitionScopingExcludes> excludes;
-
+    @PolicyResourceProperty(name="excludes", flag="unknown_excludes")
+    private @Nullable ClassificationJobS3JobDefinitionScopingExcludes value_excludes;
+    private boolean unknown_excludes;
     public @Nullable ClassificationJobS3JobDefinitionScopingExcludes excludes() {
-        if (excludes == null) return null;
-        return excludes.getValue("ClassificationJobS3JobDefinitionScoping.excludes");
+        if (!unknown_excludes) return value_excludes;
+        throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionScoping.excludes' is not present");
     }
 
     /**
      * The property- or tag-based conditions that determine which objects to include in the analysis. (documented below)
      * 
      */
-    private @Nullable UndeferrableValue<ClassificationJobS3JobDefinitionScopingIncludes> includes;
-
+    @PolicyResourceProperty(name="includes", flag="unknown_includes")
+    private @Nullable ClassificationJobS3JobDefinitionScopingIncludes value_includes;
+    private boolean unknown_includes;
     public @Nullable ClassificationJobS3JobDefinitionScopingIncludes includes() {
-        if (includes == null) return null;
-        return includes.getValue("ClassificationJobS3JobDefinitionScoping.includes");
+        if (!unknown_includes) return value_includes;
+        throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionScoping.includes' is not present");
     }
 
 }

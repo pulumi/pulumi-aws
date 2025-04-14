@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.inputs.AnalyticsApplicationInputsKinesisFirehoseArgs;
 import com.pulumi.policypacks.aws.kinesis.inputs.AnalyticsApplicationInputsKinesisStreamArgs;
 import com.pulumi.policypacks.aws.kinesis.inputs.AnalyticsApplicationInputsParallelismArgs;
@@ -21,11 +22,12 @@ public final class AnalyticsApplicationInputsArgs {
      * The ARN of the Kinesis Analytics Application.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("AnalyticsApplicationInputsArgs.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsArgs.id' is not present");
     }
 
     /**
@@ -33,11 +35,12 @@ public final class AnalyticsApplicationInputsArgs {
      * See Kinesis Firehose below for more details.
      * 
      */
-    private UndeferrableValue<AnalyticsApplicationInputsKinesisFirehoseArgs> kinesisFirehose;
-
+    @PolicyResourceProperty(name="kinesisFirehose", flag="unknown_kinesisFirehose")
+    private AnalyticsApplicationInputsKinesisFirehoseArgs value_kinesisFirehose;
+    private boolean unknown_kinesisFirehose;
     public AnalyticsApplicationInputsKinesisFirehoseArgs kinesisFirehose() {
-        if (kinesisFirehose == null) return null;
-        return kinesisFirehose.getValue("AnalyticsApplicationInputsArgs.kinesisFirehose");
+        if (!unknown_kinesisFirehose) return value_kinesisFirehose;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsArgs.kinesisFirehose' is not present");
     }
 
     /**
@@ -45,22 +48,24 @@ public final class AnalyticsApplicationInputsArgs {
      * See Kinesis Stream below for more details.
      * 
      */
-    private UndeferrableValue<AnalyticsApplicationInputsKinesisStreamArgs> kinesisStream;
-
+    @PolicyResourceProperty(name="kinesisStream", flag="unknown_kinesisStream")
+    private AnalyticsApplicationInputsKinesisStreamArgs value_kinesisStream;
+    private boolean unknown_kinesisStream;
     public AnalyticsApplicationInputsKinesisStreamArgs kinesisStream() {
-        if (kinesisStream == null) return null;
-        return kinesisStream.getValue("AnalyticsApplicationInputsArgs.kinesisStream");
+        if (!unknown_kinesisStream) return value_kinesisStream;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsArgs.kinesisStream' is not present");
     }
 
     /**
      * The Name Prefix to use when creating an in-application stream.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("AnalyticsApplicationInputsArgs.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsArgs.namePrefix' is not present");
     }
 
     /**
@@ -68,11 +73,12 @@ public final class AnalyticsApplicationInputsArgs {
      * See Parallelism below for more details.
      * 
      */
-    private UndeferrableValue<AnalyticsApplicationInputsParallelismArgs> parallelism;
-
+    @PolicyResourceProperty(name="parallelism", flag="unknown_parallelism")
+    private AnalyticsApplicationInputsParallelismArgs value_parallelism;
+    private boolean unknown_parallelism;
     public AnalyticsApplicationInputsParallelismArgs parallelism() {
-        if (parallelism == null) return null;
-        return parallelism.getValue("AnalyticsApplicationInputsArgs.parallelism");
+        if (!unknown_parallelism) return value_parallelism;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsArgs.parallelism' is not present");
     }
 
     /**
@@ -80,22 +86,24 @@ public final class AnalyticsApplicationInputsArgs {
      * See Processing Configuration below for more details.
      * 
      */
-    private UndeferrableValue<AnalyticsApplicationInputsProcessingConfigurationArgs> processingConfiguration;
-
+    @PolicyResourceProperty(name="processingConfiguration", flag="unknown_processingConfiguration")
+    private AnalyticsApplicationInputsProcessingConfigurationArgs value_processingConfiguration;
+    private boolean unknown_processingConfiguration;
     public AnalyticsApplicationInputsProcessingConfigurationArgs processingConfiguration() {
-        if (processingConfiguration == null) return null;
-        return processingConfiguration.getValue("AnalyticsApplicationInputsArgs.processingConfiguration");
+        if (!unknown_processingConfiguration) return value_processingConfiguration;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsArgs.processingConfiguration' is not present");
     }
 
     /**
      * The Schema format of the data in the streaming source. See Source Schema below for more details.
      * 
      */
-    private UndeferrableValue<AnalyticsApplicationInputsSchemaArgs> schema;
-
+    @PolicyResourceProperty(name="schema", flag="unknown_schema")
+    private AnalyticsApplicationInputsSchemaArgs value_schema;
+    private boolean unknown_schema;
     public AnalyticsApplicationInputsSchemaArgs schema() {
-        if (schema == null) return null;
-        return schema.getValue("AnalyticsApplicationInputsArgs.schema");
+        if (!unknown_schema) return value_schema;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsArgs.schema' is not present");
     }
 
     /**
@@ -103,18 +111,20 @@ public final class AnalyticsApplicationInputsArgs {
      * See Starting Position Configuration below for more details.
      * 
      */
-    private UndeferrableValue<List<AnalyticsApplicationInputsStartingPositionConfigurationArgs>> startingPositionConfigurations;
-
+    @PolicyResourceProperty(name="startingPositionConfigurations", flag="unknown_startingPositionConfigurations")
+    private List<AnalyticsApplicationInputsStartingPositionConfigurationArgs> value_startingPositionConfigurations;
+    private boolean unknown_startingPositionConfigurations;
     public List<AnalyticsApplicationInputsStartingPositionConfigurationArgs> startingPositionConfigurations() {
-        if (startingPositionConfigurations == null) return null;
-        return startingPositionConfigurations.getValue("AnalyticsApplicationInputsArgs.startingPositionConfigurations");
+        if (!unknown_startingPositionConfigurations) return value_startingPositionConfigurations;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsArgs.startingPositionConfigurations' is not present");
     }
 
-    private UndeferrableValue<List<String>> streamNames;
-
+    @PolicyResourceProperty(name="streamNames", flag="unknown_streamNames")
+    private List<String> value_streamNames;
+    private boolean unknown_streamNames;
     public List<String> streamNames() {
-        if (streamNames == null) return null;
-        return streamNames.getValue("AnalyticsApplicationInputsArgs.streamNames");
+        if (!unknown_streamNames) return value_streamNames;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsArgs.streamNames' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class MethodResponse extends com.pulumi.resources.PolicyResourceOut
      * The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
      * 
      */
-    private UndeferrableValue<String> httpMethod;
-
+    @PolicyResourceProperty(name="httpMethod", flag="unknown_httpMethod")
+    private String value_httpMethod;
+    private boolean unknown_httpMethod;
     public String httpMethod() {
-        if (httpMethod == null) return null;
-        return httpMethod.getValue("MethodResponse.httpMethod");
+        if (!unknown_httpMethod) return value_httpMethod;
+        throw new UndeferrableValueException("Value 'MethodResponse.httpMethod' is not present");
     }
 
     /**
      * The Resource identifier for the method resource.
      * 
      */
-    private UndeferrableValue<String> resourceId;
-
+    @PolicyResourceProperty(name="resourceId", flag="unknown_resourceId")
+    private String value_resourceId;
+    private boolean unknown_resourceId;
     public String resourceId() {
-        if (resourceId == null) return null;
-        return resourceId.getValue("MethodResponse.resourceId");
+        if (!unknown_resourceId) return value_resourceId;
+        throw new UndeferrableValueException("Value 'MethodResponse.resourceId' is not present");
     }
 
     /**
      * A map specifying the model resources used for the response&#39;s content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> responseModels;
-
+    @PolicyResourceProperty(name="responseModels", flag="unknown_responseModels")
+    private @Nullable Map<String,String> value_responseModels;
+    private boolean unknown_responseModels;
     public @Nullable Map<String,String> responseModels() {
-        if (responseModels == null) return null;
-        return responseModels.getValue("MethodResponse.responseModels");
+        if (!unknown_responseModels) return value_responseModels;
+        throw new UndeferrableValueException("Value 'MethodResponse.responseModels' is not present");
     }
 
     /**
@@ -53,33 +57,36 @@ public final class MethodResponse extends com.pulumi.resources.PolicyResourceOut
      * The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., &#39;`application/json&#39;`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,Boolean>> responseParameters;
-
+    @PolicyResourceProperty(name="responseParameters", flag="unknown_responseParameters")
+    private @Nullable Map<String,Boolean> value_responseParameters;
+    private boolean unknown_responseParameters;
     public @Nullable Map<String,Boolean> responseParameters() {
-        if (responseParameters == null) return null;
-        return responseParameters.getValue("MethodResponse.responseParameters");
+        if (!unknown_responseParameters) return value_responseParameters;
+        throw new UndeferrableValueException("Value 'MethodResponse.responseParameters' is not present");
     }
 
     /**
      * The string identifier of the associated REST API.
      * 
      */
-    private UndeferrableValue<String> restApi;
-
+    @PolicyResourceProperty(name="restApi", flag="unknown_restApi")
+    private String value_restApi;
+    private boolean unknown_restApi;
     public String restApi() {
-        if (restApi == null) return null;
-        return restApi.getValue("MethodResponse.restApi");
+        if (!unknown_restApi) return value_restApi;
+        throw new UndeferrableValueException("Value 'MethodResponse.restApi' is not present");
     }
 
     /**
      * The method response&#39;s status code.
      * 
      */
-    private UndeferrableValue<String> statusCode;
-
+    @PolicyResourceProperty(name="statusCode", flag="unknown_statusCode")
+    private String value_statusCode;
+    private boolean unknown_statusCode;
     public String statusCode() {
-        if (statusCode == null) return null;
-        return statusCode.getValue("MethodResponse.statusCode");
+        if (!unknown_statusCode) return value_statusCode;
+        throw new UndeferrableValueException("Value 'MethodResponse.statusCode' is not present");
     }
 
 }

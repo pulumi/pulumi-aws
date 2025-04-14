@@ -3,25 +3,28 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs {
 
-    private UndeferrableValue<String> revokedStatusAction;
-
+    @PolicyResourceProperty(name="revokedStatusAction", flag="unknown_revokedStatusAction")
+    private String value_revokedStatusAction;
+    private boolean unknown_revokedStatusAction;
     public String revokedStatusAction() {
-        if (revokedStatusAction == null) return null;
-        return revokedStatusAction.getValue("TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs.revokedStatusAction");
+        if (!unknown_revokedStatusAction) return value_revokedStatusAction;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs.revokedStatusAction' is not present");
     }
 
-    private UndeferrableValue<String> unknownStatusAction;
-
+    @PolicyResourceProperty(name="unknownStatusAction", flag="unknown_unknownStatusAction")
+    private String value_unknownStatusAction;
+    private boolean unknown_unknownStatusAction;
     public String unknownStatusAction() {
-        if (unknownStatusAction == null) return null;
-        return unknownStatusAction.getValue("TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs.unknownStatusAction");
+        if (!unknown_unknownStatusAction) return value_unknownStatusAction;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs.unknownStatusAction' is not present");
     }
 
 }

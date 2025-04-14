@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class TaskDefinitionPlacementConstraint {
      * Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
      * 
      */
-    private @Nullable UndeferrableValue<String> expression;
-
+    @PolicyResourceProperty(name="expression", flag="unknown_expression")
+    private @Nullable String value_expression;
+    private boolean unknown_expression;
     public @Nullable String expression() {
-        if (expression == null) return null;
-        return expression.getValue("TaskDefinitionPlacementConstraint.expression");
+        if (!unknown_expression) return value_expression;
+        throw new UndeferrableValueException("Value 'TaskDefinitionPlacementConstraint.expression' is not present");
     }
 
     /**
      * Type of constraint. Use `memberOf` to restrict selection to a group of valid candidates. Note that `distinctInstance` is not supported in task definitions.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("TaskDefinitionPlacementConstraint.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'TaskDefinitionPlacementConstraint.type' is not present");
     }
 
 }

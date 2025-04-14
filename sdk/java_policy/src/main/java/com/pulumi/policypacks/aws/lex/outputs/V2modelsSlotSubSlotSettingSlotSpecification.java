@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting;
 import java.lang.String;
 import java.util.List;
@@ -12,22 +13,24 @@ import javax.annotation.Nullable;
 
 public final class V2modelsSlotSubSlotSettingSlotSpecification {
 
-    private UndeferrableValue<String> mapBlockKey;
-
+    @PolicyResourceProperty(name="mapBlockKey", flag="unknown_mapBlockKey")
+    private String value_mapBlockKey;
+    private boolean unknown_mapBlockKey;
     public String mapBlockKey() {
-        if (mapBlockKey == null) return null;
-        return mapBlockKey.getValue("V2modelsSlotSubSlotSettingSlotSpecification.mapBlockKey");
+        if (!unknown_mapBlockKey) return value_mapBlockKey;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecification.mapBlockKey' is not present");
     }
 
     /**
      * Unique identifier assigned to the slot type.
      * 
      */
-    private UndeferrableValue<String> slotTypeId;
-
+    @PolicyResourceProperty(name="slotTypeId", flag="unknown_slotTypeId")
+    private String value_slotTypeId;
+    private boolean unknown_slotTypeId;
     public String slotTypeId() {
-        if (slotTypeId == null) return null;
-        return slotTypeId.getValue("V2modelsSlotSubSlotSettingSlotSpecification.slotTypeId");
+        if (!unknown_slotTypeId) return value_slotTypeId;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecification.slotTypeId' is not present");
     }
 
     /**
@@ -35,11 +38,12 @@ public final class V2modelsSlotSubSlotSettingSlotSpecification {
      * See the `value_elicitation_setting` argument reference below.
      * 
      */
-    private @Nullable UndeferrableValue<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting>> valueElicitationSettings;
-
+    @PolicyResourceProperty(name="valueElicitationSettings", flag="unknown_valueElicitationSettings")
+    private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting> value_valueElicitationSettings;
+    private boolean unknown_valueElicitationSettings;
     public @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting> valueElicitationSettings() {
-        if (valueElicitationSettings == null) return null;
-        return valueElicitationSettings.getValue("V2modelsSlotSubSlotSettingSlotSpecification.valueElicitationSettings");
+        if (!unknown_valueElicitationSettings) return value_valueElicitationSettings;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecification.valueElicitationSettings' is not present");
     }
 
 }

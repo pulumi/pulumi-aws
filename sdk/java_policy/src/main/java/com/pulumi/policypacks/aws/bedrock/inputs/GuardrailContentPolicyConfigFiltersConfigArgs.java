@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,33 +14,36 @@ public final class GuardrailContentPolicyConfigFiltersConfigArgs {
      * Strength for filters.
      * 
      */
-    private UndeferrableValue<String> inputStrength;
-
+    @PolicyResourceProperty(name="inputStrength", flag="unknown_inputStrength")
+    private String value_inputStrength;
+    private boolean unknown_inputStrength;
     public String inputStrength() {
-        if (inputStrength == null) return null;
-        return inputStrength.getValue("GuardrailContentPolicyConfigFiltersConfigArgs.inputStrength");
+        if (!unknown_inputStrength) return value_inputStrength;
+        throw new UndeferrableValueException("Value 'GuardrailContentPolicyConfigFiltersConfigArgs.inputStrength' is not present");
     }
 
     /**
      * Strength for filters.
      * 
      */
-    private UndeferrableValue<String> outputStrength;
-
+    @PolicyResourceProperty(name="outputStrength", flag="unknown_outputStrength")
+    private String value_outputStrength;
+    private boolean unknown_outputStrength;
     public String outputStrength() {
-        if (outputStrength == null) return null;
-        return outputStrength.getValue("GuardrailContentPolicyConfigFiltersConfigArgs.outputStrength");
+        if (!unknown_outputStrength) return value_outputStrength;
+        throw new UndeferrableValueException("Value 'GuardrailContentPolicyConfigFiltersConfigArgs.outputStrength' is not present");
     }
 
     /**
      * Type of contextual grounding filter.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("GuardrailContentPolicyConfigFiltersConfigArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'GuardrailContentPolicyConfigFiltersConfigArgs.type' is not present");
     }
 
 }

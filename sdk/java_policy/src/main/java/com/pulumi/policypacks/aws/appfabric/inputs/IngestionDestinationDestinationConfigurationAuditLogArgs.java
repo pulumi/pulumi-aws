@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appfabric.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appfabric.inputs.IngestionDestinationDestinationConfigurationAuditLogDestinationArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class IngestionDestinationDestinationConfigurationAuditLogArgs {
      * Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
      * 
      */
-    private UndeferrableValue<IngestionDestinationDestinationConfigurationAuditLogDestinationArgs> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private IngestionDestinationDestinationConfigurationAuditLogDestinationArgs value_destination;
+    private boolean unknown_destination;
     public IngestionDestinationDestinationConfigurationAuditLogDestinationArgs destination() {
-        if (destination == null) return null;
-        return destination.getValue("IngestionDestinationDestinationConfigurationAuditLogArgs.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'IngestionDestinationDestinationConfigurationAuditLogArgs.destination' is not present");
     }
 
 }

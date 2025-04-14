@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.guardduty.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.guardduty.inputs.OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs;
 
 
@@ -14,11 +15,12 @@ public final class OrganizationConfigurationDatasourcesKubernetesArgs {
      * See Kubernetes Audit Logs below for more details.
      * 
      */
-    private UndeferrableValue<OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs> auditLogs;
-
+    @PolicyResourceProperty(name="auditLogs", flag="unknown_auditLogs")
+    private OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs value_auditLogs;
+    private boolean unknown_auditLogs;
     public OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs auditLogs() {
-        if (auditLogs == null) return null;
-        return auditLogs.getValue("OrganizationConfigurationDatasourcesKubernetesArgs.auditLogs");
+        if (!unknown_auditLogs) return value_auditLogs;
+        throw new UndeferrableValueException("Value 'OrganizationConfigurationDatasourcesKubernetesArgs.auditLogs' is not present");
     }
 
 }

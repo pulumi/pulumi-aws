@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53recoveryreadiness;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,11 +19,12 @@ public final class Cell extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the cell
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Cell.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Cell.arn' is not present");
     }
 
     /**
@@ -31,44 +33,48 @@ public final class Cell extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> cellName;
-
+    @PolicyResourceProperty(name="cellName", flag="unknown_cellName")
+    private String value_cellName;
+    private boolean unknown_cellName;
     public String cellName() {
-        if (cellName == null) return null;
-        return cellName.getValue("Cell.cellName");
+        if (!unknown_cellName) return value_cellName;
+        throw new UndeferrableValueException("Value 'Cell.cellName' is not present");
     }
 
     /**
      * List of cell arns to add as nested fault domains within this cell.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> cells;
-
+    @PolicyResourceProperty(name="cells", flag="unknown_cells")
+    private @Nullable List<String> value_cells;
+    private boolean unknown_cells;
     public @Nullable List<String> cells() {
-        if (cells == null) return null;
-        return cells.getValue("Cell.cells");
+        if (!unknown_cells) return value_cells;
+        throw new UndeferrableValueException("Value 'Cell.cells' is not present");
     }
 
     /**
      * List of readiness scopes (recovery groups or cells) that contain this cell.
      * 
      */
-    private UndeferrableValue<List<String>> parentReadinessScopes;
-
+    @PolicyResourceProperty(name="parentReadinessScopes", flag="unknown_parentReadinessScopes")
+    private List<String> value_parentReadinessScopes;
+    private boolean unknown_parentReadinessScopes;
     public List<String> parentReadinessScopes() {
-        if (parentReadinessScopes == null) return null;
-        return parentReadinessScopes.getValue("Cell.parentReadinessScopes");
+        if (!unknown_parentReadinessScopes) return value_parentReadinessScopes;
+        throw new UndeferrableValueException("Value 'Cell.parentReadinessScopes' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Cell.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Cell.tags' is not present");
     }
 
     /**
@@ -79,11 +85,12 @@ public final class Cell extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Cell.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Cell.tagsAll' is not present");
     }
 
 }

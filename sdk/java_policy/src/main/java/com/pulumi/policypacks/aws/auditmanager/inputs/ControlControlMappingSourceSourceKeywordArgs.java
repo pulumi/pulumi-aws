@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.auditmanager.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class ControlControlMappingSourceSourceKeywordArgs {
      * Input method for the keyword. Valid values are `INPUT_TEXT`, `SELECT_FROM_LIST`, or `UPLOAD_FILE`.
      * 
      */
-    private UndeferrableValue<String> keywordInputType;
-
+    @PolicyResourceProperty(name="keywordInputType", flag="unknown_keywordInputType")
+    private String value_keywordInputType;
+    private boolean unknown_keywordInputType;
     public String keywordInputType() {
-        if (keywordInputType == null) return null;
-        return keywordInputType.getValue("ControlControlMappingSourceSourceKeywordArgs.keywordInputType");
+        if (!unknown_keywordInputType) return value_keywordInputType;
+        throw new UndeferrableValueException("Value 'ControlControlMappingSourceSourceKeywordArgs.keywordInputType' is not present");
     }
 
     /**
      * The value of the keyword that&#39;s used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
      * 
      */
-    private UndeferrableValue<String> keywordValue;
-
+    @PolicyResourceProperty(name="keywordValue", flag="unknown_keywordValue")
+    private String value_keywordValue;
+    private boolean unknown_keywordValue;
     public String keywordValue() {
-        if (keywordValue == null) return null;
-        return keywordValue.getValue("ControlControlMappingSourceSourceKeywordArgs.keywordValue");
+        if (!unknown_keywordValue) return value_keywordValue;
+        throw new UndeferrableValueException("Value 'ControlControlMappingSourceSourceKeywordArgs.keywordValue' is not present");
     }
 
 }

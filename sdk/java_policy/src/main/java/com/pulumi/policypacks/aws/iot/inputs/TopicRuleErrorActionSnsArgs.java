@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class TopicRuleErrorActionSnsArgs {
      * The message format of the message to publish. Accepted values are &#34;JSON&#34; and &#34;RAW&#34;.
      * 
      */
-    private UndeferrableValue<String> messageFormat;
-
+    @PolicyResourceProperty(name="messageFormat", flag="unknown_messageFormat")
+    private String value_messageFormat;
+    private boolean unknown_messageFormat;
     public String messageFormat() {
-        if (messageFormat == null) return null;
-        return messageFormat.getValue("TopicRuleErrorActionSnsArgs.messageFormat");
+        if (!unknown_messageFormat) return value_messageFormat;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionSnsArgs.messageFormat' is not present");
     }
 
     /**
      * The ARN of the IAM role that grants access.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("TopicRuleErrorActionSnsArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionSnsArgs.roleArn' is not present");
     }
 
     /**
      * The ARN of the SNS topic.
      * 
      */
-    private UndeferrableValue<String> targetArn;
-
+    @PolicyResourceProperty(name="targetArn", flag="unknown_targetArn")
+    private String value_targetArn;
+    private boolean unknown_targetArn;
     public String targetArn() {
-        if (targetArn == null) return null;
-        return targetArn.getValue("TopicRuleErrorActionSnsArgs.targetArn");
+        if (!unknown_targetArn) return value_targetArn;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionSnsArgs.targetArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securitylake;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.securitylake.outputs.SubscriberNotificationConfiguration;
 import java.lang.String;
@@ -17,11 +18,12 @@ public final class SubscriberNotification extends com.pulumi.resources.PolicyRes
      * Specify the configuration using which you want to create the subscriber notification..
      * 
      */
-    private @Nullable UndeferrableValue<SubscriberNotificationConfiguration> configuration;
-
+    @PolicyResourceProperty(name="configuration", flag="unknown_configuration")
+    private @Nullable SubscriberNotificationConfiguration value_configuration;
+    private boolean unknown_configuration;
     public @Nullable SubscriberNotificationConfiguration configuration() {
-        if (configuration == null) return null;
-        return configuration.getValue("SubscriberNotification.configuration");
+        if (!unknown_configuration) return value_configuration;
+        throw new UndeferrableValueException("Value 'SubscriberNotification.configuration' is not present");
     }
 
     /**
@@ -32,33 +34,36 @@ public final class SubscriberNotification extends com.pulumi.resources.PolicyRes
      * 
      */
     @Deprecated /* Use subscriber_endpoint instead */
-    private UndeferrableValue<String> endpointId;
-
+    @PolicyResourceProperty(name="endpointId", flag="unknown_endpointId")
+    private String value_endpointId;
+    private boolean unknown_endpointId;
     public String endpointId() {
-        if (endpointId == null) return null;
-        return endpointId.getValue("SubscriberNotification.endpointId");
+        if (!unknown_endpointId) return value_endpointId;
+        throw new UndeferrableValueException("Value 'SubscriberNotification.endpointId' is not present");
     }
 
     /**
      * The subscriber endpoint to which exception messages are posted.
      * 
      */
-    private UndeferrableValue<String> subscriberEndpoint;
-
+    @PolicyResourceProperty(name="subscriberEndpoint", flag="unknown_subscriberEndpoint")
+    private String value_subscriberEndpoint;
+    private boolean unknown_subscriberEndpoint;
     public String subscriberEndpoint() {
-        if (subscriberEndpoint == null) return null;
-        return subscriberEndpoint.getValue("SubscriberNotification.subscriberEndpoint");
+        if (!unknown_subscriberEndpoint) return value_subscriberEndpoint;
+        throw new UndeferrableValueException("Value 'SubscriberNotification.subscriberEndpoint' is not present");
     }
 
     /**
      * The subscriber ID for the notification subscription.
      * 
      */
-    private UndeferrableValue<String> subscriberId;
-
+    @PolicyResourceProperty(name="subscriberId", flag="unknown_subscriberId")
+    private String value_subscriberId;
+    private boolean unknown_subscriberId;
     public String subscriberId() {
-        if (subscriberId == null) return null;
-        return subscriberId.getValue("SubscriberNotification.subscriberId");
+        if (!unknown_subscriberId) return value_subscriberId;
+        throw new UndeferrableValueException("Value 'SubscriberNotification.subscriberId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs;
 import com.pulumi.policypacks.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
      * SSE-KMS encryption. See SSE KMS below for more details.
      * 
      */
-    private UndeferrableValue<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs> sseKms;
-
+    @PolicyResourceProperty(name="sseKms", flag="unknown_sseKms")
+    private StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs value_sseKms;
+    private boolean unknown_sseKms;
     public StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs sseKms() {
-        if (sseKms == null) return null;
-        return sseKms.getValue("StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs.sseKms");
+        if (!unknown_sseKms) return value_sseKms;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs.sseKms' is not present");
     }
 
     /**
      * SSE-S3 encryption. An empty configuration block `{}` should be used.
      * 
      */
-    private UndeferrableValue<List<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args>> sseS3s;
-
+    @PolicyResourceProperty(name="sseS3s", flag="unknown_sseS3s")
+    private List<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args> value_sseS3s;
+    private boolean unknown_sseS3s;
     public List<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args> sseS3s() {
-        if (sseS3s == null) return null;
-        return sseS3s.getValue("StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs.sseS3s");
+        if (!unknown_sseS3s) return value_sseS3s;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs.sseS3s' is not present");
     }
 
 }

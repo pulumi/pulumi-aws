@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.macie2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.macie2.outputs.ClassificationJobS3JobDefinition;
 import com.pulumi.policypacks.aws.macie2.outputs.ClassificationJobScheduleFrequency;
@@ -23,146 +24,160 @@ public final class ClassificationJob extends com.pulumi.resources.PolicyResource
      * The date and time, in UTC and extended RFC 3339 format, when the job was created.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("ClassificationJob.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'ClassificationJob.createdAt' is not present");
     }
 
     /**
      * The custom data identifiers to use for data analysis and classification.
      * 
      */
-    private UndeferrableValue<List<String>> customDataIdentifierIds;
-
+    @PolicyResourceProperty(name="customDataIdentifierIds", flag="unknown_customDataIdentifierIds")
+    private List<String> value_customDataIdentifierIds;
+    private boolean unknown_customDataIdentifierIds;
     public List<String> customDataIdentifierIds() {
-        if (customDataIdentifierIds == null) return null;
-        return customDataIdentifierIds.getValue("ClassificationJob.customDataIdentifierIds");
+        if (!unknown_customDataIdentifierIds) return value_customDataIdentifierIds;
+        throw new UndeferrableValueException("Value 'ClassificationJob.customDataIdentifierIds' is not present");
     }
 
     /**
      * A custom description of the job. The description can contain as many as 200 characters.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ClassificationJob.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ClassificationJob.description' is not present");
     }
 
     /**
      * Specifies whether to analyze all existing, eligible objects immediately after the job is created.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> initialRun;
-
+    @PolicyResourceProperty(name="initialRun", flag="unknown_initialRun")
+    private @Nullable Boolean value_initialRun;
+    private boolean unknown_initialRun;
     public @Nullable Boolean initialRun() {
-        if (initialRun == null) return null;
-        return initialRun.getValue("ClassificationJob.initialRun");
+        if (!unknown_initialRun) return value_initialRun;
+        throw new UndeferrableValueException("Value 'ClassificationJob.initialRun' is not present");
     }
 
-    private UndeferrableValue<String> jobArn;
-
+    @PolicyResourceProperty(name="jobArn", flag="unknown_jobArn")
+    private String value_jobArn;
+    private boolean unknown_jobArn;
     public String jobArn() {
-        if (jobArn == null) return null;
-        return jobArn.getValue("ClassificationJob.jobArn");
+        if (!unknown_jobArn) return value_jobArn;
+        throw new UndeferrableValueException("Value 'ClassificationJob.jobArn' is not present");
     }
 
-    private UndeferrableValue<String> jobId;
-
+    @PolicyResourceProperty(name="jobId", flag="unknown_jobId")
+    private String value_jobId;
+    private boolean unknown_jobId;
     public String jobId() {
-        if (jobId == null) return null;
-        return jobId.getValue("ClassificationJob.jobId");
+        if (!unknown_jobId) return value_jobId;
+        throw new UndeferrableValueException("Value 'ClassificationJob.jobId' is not present");
     }
 
     /**
      * The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
      * 
      */
-    private UndeferrableValue<String> jobStatus;
-
+    @PolicyResourceProperty(name="jobStatus", flag="unknown_jobStatus")
+    private String value_jobStatus;
+    private boolean unknown_jobStatus;
     public String jobStatus() {
-        if (jobStatus == null) return null;
-        return jobStatus.getValue("ClassificationJob.jobStatus");
+        if (!unknown_jobStatus) return value_jobStatus;
+        throw new UndeferrableValueException("Value 'ClassificationJob.jobStatus' is not present");
     }
 
     /**
      * The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don&#39;t specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
      * 
      */
-    private UndeferrableValue<String> jobType;
-
+    @PolicyResourceProperty(name="jobType", flag="unknown_jobType")
+    private String value_jobType;
+    private boolean unknown_jobType;
     public String jobType() {
-        if (jobType == null) return null;
-        return jobType.getValue("ClassificationJob.jobType");
+        if (!unknown_jobType) return value_jobType;
+        throw new UndeferrableValueException("Value 'ClassificationJob.jobType' is not present");
     }
 
     /**
      * A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ClassificationJob.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ClassificationJob.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("ClassificationJob.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'ClassificationJob.namePrefix' is not present");
     }
 
     /**
      * The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
      * 
      */
-    private UndeferrableValue<ClassificationJobS3JobDefinition> s3JobDefinition;
-
+    @PolicyResourceProperty(name="s3JobDefinition", flag="unknown_s3JobDefinition")
+    private ClassificationJobS3JobDefinition value_s3JobDefinition;
+    private boolean unknown_s3JobDefinition;
     public ClassificationJobS3JobDefinition s3JobDefinition() {
-        if (s3JobDefinition == null) return null;
-        return s3JobDefinition.getValue("ClassificationJob.s3JobDefinition");
+        if (!unknown_s3JobDefinition) return value_s3JobDefinition;
+        throw new UndeferrableValueException("Value 'ClassificationJob.s3JobDefinition' is not present");
     }
 
     /**
      * The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
      * 
      */
-    private UndeferrableValue<Integer> samplingPercentage;
-
+    @PolicyResourceProperty(name="samplingPercentage", flag="unknown_samplingPercentage")
+    private Integer value_samplingPercentage;
+    private boolean unknown_samplingPercentage;
     public Integer samplingPercentage() {
-        if (samplingPercentage == null) return null;
-        return samplingPercentage.getValue("ClassificationJob.samplingPercentage");
+        if (!unknown_samplingPercentage) return value_samplingPercentage;
+        throw new UndeferrableValueException("Value 'ClassificationJob.samplingPercentage' is not present");
     }
 
     /**
      * The recurrence pattern for running the job. To run the job only once, don&#39;t specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
      * 
      */
-    private UndeferrableValue<ClassificationJobScheduleFrequency> scheduleFrequency;
-
+    @PolicyResourceProperty(name="scheduleFrequency", flag="unknown_scheduleFrequency")
+    private ClassificationJobScheduleFrequency value_scheduleFrequency;
+    private boolean unknown_scheduleFrequency;
     public ClassificationJobScheduleFrequency scheduleFrequency() {
-        if (scheduleFrequency == null) return null;
-        return scheduleFrequency.getValue("ClassificationJob.scheduleFrequency");
+        if (!unknown_scheduleFrequency) return value_scheduleFrequency;
+        throw new UndeferrableValueException("Value 'ClassificationJob.scheduleFrequency' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ClassificationJob.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ClassificationJob.tags' is not present");
     }
 
     /**
@@ -173,22 +188,24 @@ public final class ClassificationJob extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ClassificationJob.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ClassificationJob.tagsAll' is not present");
     }
 
     /**
      * If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn&#39;t resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
      * 
      */
-    private UndeferrableValue<List<ClassificationJobUserPausedDetail>> userPausedDetails;
-
+    @PolicyResourceProperty(name="userPausedDetails", flag="unknown_userPausedDetails")
+    private List<ClassificationJobUserPausedDetail> value_userPausedDetails;
+    private boolean unknown_userPausedDetails;
     public List<ClassificationJobUserPausedDetail> userPausedDetails() {
-        if (userPausedDetails == null) return null;
-        return userPausedDetails.getValue("ClassificationJob.userPausedDetails");
+        if (!unknown_userPausedDetails) return value_userPausedDetails;
+        throw new UndeferrableValueException("Value 'ClassificationJob.userPausedDetails' is not present");
     }
 
 }

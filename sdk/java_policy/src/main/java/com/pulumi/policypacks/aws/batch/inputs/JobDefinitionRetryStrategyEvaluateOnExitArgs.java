@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class JobDefinitionRetryStrategyEvaluateOnExitArgs {
      * Action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
      * 
      */
-    private UndeferrableValue<String> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private String value_action;
+    private boolean unknown_action;
     public String action() {
-        if (action == null) return null;
-        return action.getValue("JobDefinitionRetryStrategyEvaluateOnExitArgs.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'JobDefinitionRetryStrategyEvaluateOnExitArgs.action' is not present");
     }
 
     /**
      * Glob pattern to match against the decimal representation of the exit code returned for a job.
      * 
      */
-    private UndeferrableValue<String> onExitCode;
-
+    @PolicyResourceProperty(name="onExitCode", flag="unknown_onExitCode")
+    private String value_onExitCode;
+    private boolean unknown_onExitCode;
     public String onExitCode() {
-        if (onExitCode == null) return null;
-        return onExitCode.getValue("JobDefinitionRetryStrategyEvaluateOnExitArgs.onExitCode");
+        if (!unknown_onExitCode) return value_onExitCode;
+        throw new UndeferrableValueException("Value 'JobDefinitionRetryStrategyEvaluateOnExitArgs.onExitCode' is not present");
     }
 
     /**
      * Glob pattern to match against the reason returned for a job.
      * 
      */
-    private UndeferrableValue<String> onReason;
-
+    @PolicyResourceProperty(name="onReason", flag="unknown_onReason")
+    private String value_onReason;
+    private boolean unknown_onReason;
     public String onReason() {
-        if (onReason == null) return null;
-        return onReason.getValue("JobDefinitionRetryStrategyEvaluateOnExitArgs.onReason");
+        if (!unknown_onReason) return value_onReason;
+        throw new UndeferrableValueException("Value 'JobDefinitionRetryStrategyEvaluateOnExitArgs.onReason' is not present");
     }
 
     /**
      * Glob pattern to match against the status reason returned for a job.
      * 
      */
-    private UndeferrableValue<String> onStatusReason;
-
+    @PolicyResourceProperty(name="onStatusReason", flag="unknown_onStatusReason")
+    private String value_onStatusReason;
+    private boolean unknown_onStatusReason;
     public String onStatusReason() {
-        if (onStatusReason == null) return null;
-        return onStatusReason.getValue("JobDefinitionRetryStrategyEvaluateOnExitArgs.onStatusReason");
+        if (!unknown_onStatusReason) return value_onStatusReason;
+        throw new UndeferrableValueException("Value 'JobDefinitionRetryStrategyEvaluateOnExitArgs.onStatusReason' is not present");
     }
 
 }

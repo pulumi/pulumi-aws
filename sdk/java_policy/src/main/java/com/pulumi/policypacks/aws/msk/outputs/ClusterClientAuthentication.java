@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.msk.outputs.ClusterClientAuthenticationSasl;
 import com.pulumi.policypacks.aws.msk.outputs.ClusterClientAuthenticationTls;
 import java.lang.Boolean;
@@ -16,33 +17,36 @@ public final class ClusterClientAuthentication {
      * Configuration block for specifying SASL client authentication. See below.
      * 
      */
-    private @Nullable UndeferrableValue<ClusterClientAuthenticationSasl> sasl;
-
+    @PolicyResourceProperty(name="sasl", flag="unknown_sasl")
+    private @Nullable ClusterClientAuthenticationSasl value_sasl;
+    private boolean unknown_sasl;
     public @Nullable ClusterClientAuthenticationSasl sasl() {
-        if (sasl == null) return null;
-        return sasl.getValue("ClusterClientAuthentication.sasl");
+        if (!unknown_sasl) return value_sasl;
+        throw new UndeferrableValueException("Value 'ClusterClientAuthentication.sasl' is not present");
     }
 
     /**
      * Configuration block for specifying TLS client authentication. See below.
      * 
      */
-    private @Nullable UndeferrableValue<ClusterClientAuthenticationTls> tls;
-
+    @PolicyResourceProperty(name="tls", flag="unknown_tls")
+    private @Nullable ClusterClientAuthenticationTls value_tls;
+    private boolean unknown_tls;
     public @Nullable ClusterClientAuthenticationTls tls() {
-        if (tls == null) return null;
-        return tls.getValue("ClusterClientAuthentication.tls");
+        if (!unknown_tls) return value_tls;
+        throw new UndeferrableValueException("Value 'ClusterClientAuthentication.tls' is not present");
     }
 
     /**
      * Enables unauthenticated access.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> unauthenticated;
-
+    @PolicyResourceProperty(name="unauthenticated", flag="unknown_unauthenticated")
+    private @Nullable Boolean value_unauthenticated;
+    private boolean unknown_unauthenticated;
     public @Nullable Boolean unauthenticated() {
-        if (unauthenticated == null) return null;
-        return unauthenticated.getValue("ClusterClientAuthentication.unauthenticated");
+        if (!unknown_unauthenticated) return value_unauthenticated;
+        throw new UndeferrableValueException("Value 'ClusterClientAuthentication.unauthenticated' is not present");
     }
 
 }

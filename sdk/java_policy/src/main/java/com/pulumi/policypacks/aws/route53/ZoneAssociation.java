@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,44 +16,48 @@ public final class ZoneAssociation extends com.pulumi.resources.PolicyResourceOu
      * The account ID of the account that created the hosted zone.
      * 
      */
-    private UndeferrableValue<String> owningAccount;
-
+    @PolicyResourceProperty(name="owningAccount", flag="unknown_owningAccount")
+    private String value_owningAccount;
+    private boolean unknown_owningAccount;
     public String owningAccount() {
-        if (owningAccount == null) return null;
-        return owningAccount.getValue("ZoneAssociation.owningAccount");
+        if (!unknown_owningAccount) return value_owningAccount;
+        throw new UndeferrableValueException("Value 'ZoneAssociation.owningAccount' is not present");
     }
 
     /**
      * The VPC to associate with the private hosted zone.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("ZoneAssociation.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'ZoneAssociation.vpcId' is not present");
     }
 
     /**
      * The VPC&#39;s region. Defaults to the region of the AWS provider.
      * 
      */
-    private UndeferrableValue<String> vpcRegion;
-
+    @PolicyResourceProperty(name="vpcRegion", flag="unknown_vpcRegion")
+    private String value_vpcRegion;
+    private boolean unknown_vpcRegion;
     public String vpcRegion() {
-        if (vpcRegion == null) return null;
-        return vpcRegion.getValue("ZoneAssociation.vpcRegion");
+        if (!unknown_vpcRegion) return value_vpcRegion;
+        throw new UndeferrableValueException("Value 'ZoneAssociation.vpcRegion' is not present");
     }
 
     /**
      * The private hosted zone to associate.
      * 
      */
-    private UndeferrableValue<String> zoneId;
-
+    @PolicyResourceProperty(name="zoneId", flag="unknown_zoneId")
+    private String value_zoneId;
+    private boolean unknown_zoneId;
     public String zoneId() {
-        if (zoneId == null) return null;
-        return zoneId.getValue("ZoneAssociation.zoneId");
+        if (!unknown_zoneId) return value_zoneId;
+        throw new UndeferrableValueException("Value 'ZoneAssociation.zoneId' is not present");
     }
 
 }

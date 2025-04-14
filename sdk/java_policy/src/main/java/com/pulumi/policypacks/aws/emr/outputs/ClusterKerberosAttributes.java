@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,55 +15,60 @@ public final class ClusterKerberosAttributes {
      * Active Directory password for `ad_domain_join_user`. This provider cannot perform drift detection of this configuration.
      * 
      */
-    private @Nullable UndeferrableValue<String> adDomainJoinPassword;
-
+    @PolicyResourceProperty(name="adDomainJoinPassword", flag="unknown_adDomainJoinPassword")
+    private @Nullable String value_adDomainJoinPassword;
+    private boolean unknown_adDomainJoinPassword;
     public @Nullable String adDomainJoinPassword() {
-        if (adDomainJoinPassword == null) return null;
-        return adDomainJoinPassword.getValue("ClusterKerberosAttributes.adDomainJoinPassword");
+        if (!unknown_adDomainJoinPassword) return value_adDomainJoinPassword;
+        throw new UndeferrableValueException("Value 'ClusterKerberosAttributes.adDomainJoinPassword' is not present");
     }
 
     /**
      * Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain. This provider cannot perform drift detection of this configuration.
      * 
      */
-    private @Nullable UndeferrableValue<String> adDomainJoinUser;
-
+    @PolicyResourceProperty(name="adDomainJoinUser", flag="unknown_adDomainJoinUser")
+    private @Nullable String value_adDomainJoinUser;
+    private boolean unknown_adDomainJoinUser;
     public @Nullable String adDomainJoinUser() {
-        if (adDomainJoinUser == null) return null;
-        return adDomainJoinUser.getValue("ClusterKerberosAttributes.adDomainJoinUser");
+        if (!unknown_adDomainJoinUser) return value_adDomainJoinUser;
+        throw new UndeferrableValueException("Value 'ClusterKerberosAttributes.adDomainJoinUser' is not present");
     }
 
     /**
      * Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms. This provider cannot perform drift detection of this configuration.
      * 
      */
-    private @Nullable UndeferrableValue<String> crossRealmTrustPrincipalPassword;
-
+    @PolicyResourceProperty(name="crossRealmTrustPrincipalPassword", flag="unknown_crossRealmTrustPrincipalPassword")
+    private @Nullable String value_crossRealmTrustPrincipalPassword;
+    private boolean unknown_crossRealmTrustPrincipalPassword;
     public @Nullable String crossRealmTrustPrincipalPassword() {
-        if (crossRealmTrustPrincipalPassword == null) return null;
-        return crossRealmTrustPrincipalPassword.getValue("ClusterKerberosAttributes.crossRealmTrustPrincipalPassword");
+        if (!unknown_crossRealmTrustPrincipalPassword) return value_crossRealmTrustPrincipalPassword;
+        throw new UndeferrableValueException("Value 'ClusterKerberosAttributes.crossRealmTrustPrincipalPassword' is not present");
     }
 
     /**
      * Password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
      * 
      */
-    private UndeferrableValue<String> kdcAdminPassword;
-
+    @PolicyResourceProperty(name="kdcAdminPassword", flag="unknown_kdcAdminPassword")
+    private String value_kdcAdminPassword;
+    private boolean unknown_kdcAdminPassword;
     public String kdcAdminPassword() {
-        if (kdcAdminPassword == null) return null;
-        return kdcAdminPassword.getValue("ClusterKerberosAttributes.kdcAdminPassword");
+        if (!unknown_kdcAdminPassword) return value_kdcAdminPassword;
+        throw new UndeferrableValueException("Value 'ClusterKerberosAttributes.kdcAdminPassword' is not present");
     }
 
     /**
      * Name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
      * 
      */
-    private UndeferrableValue<String> realm;
-
+    @PolicyResourceProperty(name="realm", flag="unknown_realm")
+    private String value_realm;
+    private boolean unknown_realm;
     public String realm() {
-        if (realm == null) return null;
-        return realm.getValue("ClusterKerberosAttributes.realm");
+        if (!unknown_realm) return value_realm;
+        throw new UndeferrableValueException("Value 'ClusterKerberosAttributes.realm' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.identitystore.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class UserNameArgs {
      * The family name of the user.
      * 
      */
-    private UndeferrableValue<String> familyName;
-
+    @PolicyResourceProperty(name="familyName", flag="unknown_familyName")
+    private String value_familyName;
+    private boolean unknown_familyName;
     public String familyName() {
-        if (familyName == null) return null;
-        return familyName.getValue("UserNameArgs.familyName");
+        if (!unknown_familyName) return value_familyName;
+        throw new UndeferrableValueException("Value 'UserNameArgs.familyName' is not present");
     }
 
     /**
      * The name that is typically displayed when the name is shown for display.
      * 
      */
-    private UndeferrableValue<String> formatted;
-
+    @PolicyResourceProperty(name="formatted", flag="unknown_formatted")
+    private String value_formatted;
+    private boolean unknown_formatted;
     public String formatted() {
-        if (formatted == null) return null;
-        return formatted.getValue("UserNameArgs.formatted");
+        if (!unknown_formatted) return value_formatted;
+        throw new UndeferrableValueException("Value 'UserNameArgs.formatted' is not present");
     }
 
     /**
@@ -38,44 +41,48 @@ public final class UserNameArgs {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> givenName;
-
+    @PolicyResourceProperty(name="givenName", flag="unknown_givenName")
+    private String value_givenName;
+    private boolean unknown_givenName;
     public String givenName() {
-        if (givenName == null) return null;
-        return givenName.getValue("UserNameArgs.givenName");
+        if (!unknown_givenName) return value_givenName;
+        throw new UndeferrableValueException("Value 'UserNameArgs.givenName' is not present");
     }
 
     /**
      * The honorific prefix of the user.
      * 
      */
-    private UndeferrableValue<String> honorificPrefix;
-
+    @PolicyResourceProperty(name="honorificPrefix", flag="unknown_honorificPrefix")
+    private String value_honorificPrefix;
+    private boolean unknown_honorificPrefix;
     public String honorificPrefix() {
-        if (honorificPrefix == null) return null;
-        return honorificPrefix.getValue("UserNameArgs.honorificPrefix");
+        if (!unknown_honorificPrefix) return value_honorificPrefix;
+        throw new UndeferrableValueException("Value 'UserNameArgs.honorificPrefix' is not present");
     }
 
     /**
      * The honorific suffix of the user.
      * 
      */
-    private UndeferrableValue<String> honorificSuffix;
-
+    @PolicyResourceProperty(name="honorificSuffix", flag="unknown_honorificSuffix")
+    private String value_honorificSuffix;
+    private boolean unknown_honorificSuffix;
     public String honorificSuffix() {
-        if (honorificSuffix == null) return null;
-        return honorificSuffix.getValue("UserNameArgs.honorificSuffix");
+        if (!unknown_honorificSuffix) return value_honorificSuffix;
+        throw new UndeferrableValueException("Value 'UserNameArgs.honorificSuffix' is not present");
     }
 
     /**
      * The middle name of the user.
      * 
      */
-    private UndeferrableValue<String> middleName;
-
+    @PolicyResourceProperty(name="middleName", flag="unknown_middleName")
+    private String value_middleName;
+    private boolean unknown_middleName;
     public String middleName() {
-        if (middleName == null) return null;
-        return middleName.getValue("UserNameArgs.middleName");
+        if (!unknown_middleName) return value_middleName;
+        throw new UndeferrableValueException("Value 'UserNameArgs.middleName' is not present");
     }
 
 }

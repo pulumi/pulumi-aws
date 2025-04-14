@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class WebAclRuleStatementRateBasedStatementCustomKeyQueryString {
      * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
      * 
      */
-    private UndeferrableValue<List<WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation>> textTransformations;
-
+    @PolicyResourceProperty(name="textTransformations", flag="unknown_textTransformations")
+    private List<WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation> value_textTransformations;
+    private boolean unknown_textTransformations;
     public List<WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation> textTransformations() {
-        if (textTransformations == null) return null;
-        return textTransformations.getValue("WebAclRuleStatementRateBasedStatementCustomKeyQueryString.textTransformations");
+        if (!unknown_textTransformations) return value_textTransformations;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementCustomKeyQueryString.textTransformations' is not present");
     }
 
 }

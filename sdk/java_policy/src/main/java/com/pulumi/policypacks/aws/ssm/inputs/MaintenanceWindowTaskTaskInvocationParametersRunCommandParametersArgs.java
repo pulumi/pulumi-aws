@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs;
 import com.pulumi.policypacks.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs;
 import com.pulumi.policypacks.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs;
@@ -19,121 +20,132 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
      * Configuration options for sending command output to CloudWatch Logs. Documented below.
      * 
      */
-    private UndeferrableValue<MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs> cloudwatchConfig;
-
+    @PolicyResourceProperty(name="cloudwatchConfig", flag="unknown_cloudwatchConfig")
+    private MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs value_cloudwatchConfig;
+    private boolean unknown_cloudwatchConfig;
     public MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs cloudwatchConfig() {
-        if (cloudwatchConfig == null) return null;
-        return cloudwatchConfig.getValue("MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.cloudwatchConfig");
+        if (!unknown_cloudwatchConfig) return value_cloudwatchConfig;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.cloudwatchConfig' is not present");
     }
 
     /**
      * Information about the command(s) to execute.
      * 
      */
-    private UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private String value_comment;
+    private boolean unknown_comment;
     public String comment() {
-        if (comment == null) return null;
-        return comment.getValue("MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.comment' is not present");
     }
 
     /**
      * The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
      * 
      */
-    private UndeferrableValue<String> documentHash;
-
+    @PolicyResourceProperty(name="documentHash", flag="unknown_documentHash")
+    private String value_documentHash;
+    private boolean unknown_documentHash;
     public String documentHash() {
-        if (documentHash == null) return null;
-        return documentHash.getValue("MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.documentHash");
+        if (!unknown_documentHash) return value_documentHash;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.documentHash' is not present");
     }
 
     /**
      * SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
      * 
      */
-    private UndeferrableValue<String> documentHashType;
-
+    @PolicyResourceProperty(name="documentHashType", flag="unknown_documentHashType")
+    private String value_documentHashType;
+    private boolean unknown_documentHashType;
     public String documentHashType() {
-        if (documentHashType == null) return null;
-        return documentHashType.getValue("MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.documentHashType");
+        if (!unknown_documentHashType) return value_documentHashType;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.documentHashType' is not present");
     }
 
     /**
      * The version of an Automation document to use during task execution.
      * 
      */
-    private UndeferrableValue<String> documentVersion;
-
+    @PolicyResourceProperty(name="documentVersion", flag="unknown_documentVersion")
+    private String value_documentVersion;
+    private boolean unknown_documentVersion;
     public String documentVersion() {
-        if (documentVersion == null) return null;
-        return documentVersion.getValue("MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.documentVersion");
+        if (!unknown_documentVersion) return value_documentVersion;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.documentVersion' is not present");
     }
 
     /**
      * Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
      * 
      */
-    private UndeferrableValue<MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs> notificationConfig;
-
+    @PolicyResourceProperty(name="notificationConfig", flag="unknown_notificationConfig")
+    private MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs value_notificationConfig;
+    private boolean unknown_notificationConfig;
     public MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs notificationConfig() {
-        if (notificationConfig == null) return null;
-        return notificationConfig.getValue("MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.notificationConfig");
+        if (!unknown_notificationConfig) return value_notificationConfig;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.notificationConfig' is not present");
     }
 
     /**
      * The name of the Amazon S3 bucket.
      * 
      */
-    private UndeferrableValue<String> outputS3Bucket;
-
+    @PolicyResourceProperty(name="outputS3Bucket", flag="unknown_outputS3Bucket")
+    private String value_outputS3Bucket;
+    private boolean unknown_outputS3Bucket;
     public String outputS3Bucket() {
-        if (outputS3Bucket == null) return null;
-        return outputS3Bucket.getValue("MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.outputS3Bucket");
+        if (!unknown_outputS3Bucket) return value_outputS3Bucket;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.outputS3Bucket' is not present");
     }
 
     /**
      * The Amazon S3 bucket subfolder.
      * 
      */
-    private UndeferrableValue<String> outputS3KeyPrefix;
-
+    @PolicyResourceProperty(name="outputS3KeyPrefix", flag="unknown_outputS3KeyPrefix")
+    private String value_outputS3KeyPrefix;
+    private boolean unknown_outputS3KeyPrefix;
     public String outputS3KeyPrefix() {
-        if (outputS3KeyPrefix == null) return null;
-        return outputS3KeyPrefix.getValue("MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.outputS3KeyPrefix");
+        if (!unknown_outputS3KeyPrefix) return value_outputS3KeyPrefix;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.outputS3KeyPrefix' is not present");
     }
 
     /**
      * The parameters for the RUN_COMMAND task execution. Documented below.
      * 
      */
-    private UndeferrableValue<List<MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private List<MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs> value_parameters;
+    private boolean unknown_parameters;
     public List<MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.parameters' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
      * 
      */
-    private UndeferrableValue<String> serviceRoleArn;
-
+    @PolicyResourceProperty(name="serviceRoleArn", flag="unknown_serviceRoleArn")
+    private String value_serviceRoleArn;
+    private boolean unknown_serviceRoleArn;
     public String serviceRoleArn() {
-        if (serviceRoleArn == null) return null;
-        return serviceRoleArn.getValue("MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.serviceRoleArn");
+        if (!unknown_serviceRoleArn) return value_serviceRoleArn;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.serviceRoleArn' is not present");
     }
 
     /**
      * If this time is reached and the command has not already started executing, it doesn&#39;t run.
      * 
      */
-    private UndeferrableValue<Integer> timeoutSeconds;
-
+    @PolicyResourceProperty(name="timeoutSeconds", flag="unknown_timeoutSeconds")
+    private Integer value_timeoutSeconds;
+    private boolean unknown_timeoutSeconds;
     public Integer timeoutSeconds() {
-        if (timeoutSeconds == null) return null;
-        return timeoutSeconds.getValue("MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.timeoutSeconds");
+        if (!unknown_timeoutSeconds) return value_timeoutSeconds;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs.timeoutSeconds' is not present");
     }
 
 }

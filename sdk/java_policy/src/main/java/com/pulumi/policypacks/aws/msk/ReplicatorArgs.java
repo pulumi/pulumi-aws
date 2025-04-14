@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.msk.inputs.ReplicatorKafkaClusterArgs;
 import com.pulumi.policypacks.aws.msk.inputs.ReplicatorReplicationInfoListArgs;
@@ -20,66 +21,72 @@ public final class ReplicatorArgs extends com.pulumi.resources.PolicyResourceInp
      * A summary description of the replicator.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ReplicatorArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ReplicatorArgs.description' is not present");
     }
 
     /**
      * A list of Kafka clusters which are targets of the replicator.
      * 
      */
-    private UndeferrableValue<List<ReplicatorKafkaClusterArgs>> kafkaClusters;
-
+    @PolicyResourceProperty(name="kafkaClusters", flag="unknown_kafkaClusters")
+    private List<ReplicatorKafkaClusterArgs> value_kafkaClusters;
+    private boolean unknown_kafkaClusters;
     public List<ReplicatorKafkaClusterArgs> kafkaClusters() {
-        if (kafkaClusters == null) return null;
-        return kafkaClusters.getValue("ReplicatorArgs.kafkaClusters");
+        if (!unknown_kafkaClusters) return value_kafkaClusters;
+        throw new UndeferrableValueException("Value 'ReplicatorArgs.kafkaClusters' is not present");
     }
 
     /**
      * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
      * 
      */
-    private UndeferrableValue<ReplicatorReplicationInfoListArgs> replicationInfoList;
-
+    @PolicyResourceProperty(name="replicationInfoList", flag="unknown_replicationInfoList")
+    private ReplicatorReplicationInfoListArgs value_replicationInfoList;
+    private boolean unknown_replicationInfoList;
     public ReplicatorReplicationInfoListArgs replicationInfoList() {
-        if (replicationInfoList == null) return null;
-        return replicationInfoList.getValue("ReplicatorArgs.replicationInfoList");
+        if (!unknown_replicationInfoList) return value_replicationInfoList;
+        throw new UndeferrableValueException("Value 'ReplicatorArgs.replicationInfoList' is not present");
     }
 
     /**
      * The name of the replicator.
      * 
      */
-    private UndeferrableValue<String> replicatorName;
-
+    @PolicyResourceProperty(name="replicatorName", flag="unknown_replicatorName")
+    private String value_replicatorName;
+    private boolean unknown_replicatorName;
     public String replicatorName() {
-        if (replicatorName == null) return null;
-        return replicatorName.getValue("ReplicatorArgs.replicatorName");
+        if (!unknown_replicatorName) return value_replicatorName;
+        throw new UndeferrableValueException("Value 'ReplicatorArgs.replicatorName' is not present");
     }
 
     /**
      * The ARN of the IAM role used by the replicator to access resources in the customer&#39;s account (e.g source and target clusters).
      * 
      */
-    private UndeferrableValue<String> serviceExecutionRoleArn;
-
+    @PolicyResourceProperty(name="serviceExecutionRoleArn", flag="unknown_serviceExecutionRoleArn")
+    private String value_serviceExecutionRoleArn;
+    private boolean unknown_serviceExecutionRoleArn;
     public String serviceExecutionRoleArn() {
-        if (serviceExecutionRoleArn == null) return null;
-        return serviceExecutionRoleArn.getValue("ReplicatorArgs.serviceExecutionRoleArn");
+        if (!unknown_serviceExecutionRoleArn) return value_serviceExecutionRoleArn;
+        throw new UndeferrableValueException("Value 'ReplicatorArgs.serviceExecutionRoleArn' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ReplicatorArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ReplicatorArgs.tags' is not present");
     }
 
 }

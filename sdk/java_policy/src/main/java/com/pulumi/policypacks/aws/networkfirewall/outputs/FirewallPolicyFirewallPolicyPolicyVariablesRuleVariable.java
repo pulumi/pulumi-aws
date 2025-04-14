@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable {
      * A configuration block that defines a set of IP addresses. See IP Set below for details.
      * 
      */
-    private UndeferrableValue<FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet> ipSet;
-
+    @PolicyResourceProperty(name="ipSet", flag="unknown_ipSet")
+    private FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet value_ipSet;
+    private boolean unknown_ipSet;
     public FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSet ipSet() {
-        if (ipSet == null) return null;
-        return ipSet.getValue("FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable.ipSet");
+        if (!unknown_ipSet) return value_ipSet;
+        throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable.ipSet' is not present");
     }
 
     /**
      * An alphanumeric string to identify the `ip_set`. Valid values: `HOME_NET`
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicyPolicyVariablesRuleVariable.key' is not present");
     }
 
 }

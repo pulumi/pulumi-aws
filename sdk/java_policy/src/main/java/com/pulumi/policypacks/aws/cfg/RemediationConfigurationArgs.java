@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cfg.inputs.RemediationConfigurationExecutionControlsArgs;
 import com.pulumi.policypacks.aws.cfg.inputs.RemediationConfigurationParameterArgs;
@@ -21,88 +22,96 @@ public final class RemediationConfigurationArgs extends com.pulumi.resources.Pol
      * Remediation is triggered automatically if `true`.
      * 
      */
-    private UndeferrableValue<Boolean> automatic;
-
+    @PolicyResourceProperty(name="automatic", flag="unknown_automatic")
+    private Boolean value_automatic;
+    private boolean unknown_automatic;
     public Boolean automatic() {
-        if (automatic == null) return null;
-        return automatic.getValue("RemediationConfigurationArgs.automatic");
+        if (!unknown_automatic) return value_automatic;
+        throw new UndeferrableValueException("Value 'RemediationConfigurationArgs.automatic' is not present");
     }
 
     /**
      * Name of the AWS Config rule.
      * 
      */
-    private UndeferrableValue<String> configRuleName;
-
+    @PolicyResourceProperty(name="configRuleName", flag="unknown_configRuleName")
+    private String value_configRuleName;
+    private boolean unknown_configRuleName;
     public String configRuleName() {
-        if (configRuleName == null) return null;
-        return configRuleName.getValue("RemediationConfigurationArgs.configRuleName");
+        if (!unknown_configRuleName) return value_configRuleName;
+        throw new UndeferrableValueException("Value 'RemediationConfigurationArgs.configRuleName' is not present");
     }
 
     /**
      * Configuration block for execution controls. See below.
      * 
      */
-    private UndeferrableValue<RemediationConfigurationExecutionControlsArgs> executionControls;
-
+    @PolicyResourceProperty(name="executionControls", flag="unknown_executionControls")
+    private RemediationConfigurationExecutionControlsArgs value_executionControls;
+    private boolean unknown_executionControls;
     public RemediationConfigurationExecutionControlsArgs executionControls() {
-        if (executionControls == null) return null;
-        return executionControls.getValue("RemediationConfigurationArgs.executionControls");
+        if (!unknown_executionControls) return value_executionControls;
+        throw new UndeferrableValueException("Value 'RemediationConfigurationArgs.executionControls' is not present");
     }
 
     /**
      * Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
      * 
      */
-    private UndeferrableValue<Integer> maximumAutomaticAttempts;
-
+    @PolicyResourceProperty(name="maximumAutomaticAttempts", flag="unknown_maximumAutomaticAttempts")
+    private Integer value_maximumAutomaticAttempts;
+    private boolean unknown_maximumAutomaticAttempts;
     public Integer maximumAutomaticAttempts() {
-        if (maximumAutomaticAttempts == null) return null;
-        return maximumAutomaticAttempts.getValue("RemediationConfigurationArgs.maximumAutomaticAttempts");
+        if (!unknown_maximumAutomaticAttempts) return value_maximumAutomaticAttempts;
+        throw new UndeferrableValueException("Value 'RemediationConfigurationArgs.maximumAutomaticAttempts' is not present");
     }
 
     /**
      * Can be specified multiple times for each parameter. Each parameter block supports arguments below.
      * 
      */
-    private UndeferrableValue<List<RemediationConfigurationParameterArgs>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private List<RemediationConfigurationParameterArgs> value_parameters;
+    private boolean unknown_parameters;
     public List<RemediationConfigurationParameterArgs> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("RemediationConfigurationArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'RemediationConfigurationArgs.parameters' is not present");
     }
 
     /**
      * Type of resource.
      * 
      */
-    private UndeferrableValue<String> resourceType;
-
+    @PolicyResourceProperty(name="resourceType", flag="unknown_resourceType")
+    private String value_resourceType;
+    private boolean unknown_resourceType;
     public String resourceType() {
-        if (resourceType == null) return null;
-        return resourceType.getValue("RemediationConfigurationArgs.resourceType");
+        if (!unknown_resourceType) return value_resourceType;
+        throw new UndeferrableValueException("Value 'RemediationConfigurationArgs.resourceType' is not present");
     }
 
     /**
      * Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
      * 
      */
-    private UndeferrableValue<Integer> retryAttemptSeconds;
-
+    @PolicyResourceProperty(name="retryAttemptSeconds", flag="unknown_retryAttemptSeconds")
+    private Integer value_retryAttemptSeconds;
+    private boolean unknown_retryAttemptSeconds;
     public Integer retryAttemptSeconds() {
-        if (retryAttemptSeconds == null) return null;
-        return retryAttemptSeconds.getValue("RemediationConfigurationArgs.retryAttemptSeconds");
+        if (!unknown_retryAttemptSeconds) return value_retryAttemptSeconds;
+        throw new UndeferrableValueException("Value 'RemediationConfigurationArgs.retryAttemptSeconds' is not present");
     }
 
     /**
      * Target ID is the name of the public document.
      * 
      */
-    private UndeferrableValue<String> targetId;
-
+    @PolicyResourceProperty(name="targetId", flag="unknown_targetId")
+    private String value_targetId;
+    private boolean unknown_targetId;
     public String targetId() {
-        if (targetId == null) return null;
-        return targetId.getValue("RemediationConfigurationArgs.targetId");
+        if (!unknown_targetId) return value_targetId;
+        throw new UndeferrableValueException("Value 'RemediationConfigurationArgs.targetId' is not present");
     }
 
     /**
@@ -111,22 +120,24 @@ public final class RemediationConfigurationArgs extends com.pulumi.resources.Pol
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> targetType;
-
+    @PolicyResourceProperty(name="targetType", flag="unknown_targetType")
+    private String value_targetType;
+    private boolean unknown_targetType;
     public String targetType() {
-        if (targetType == null) return null;
-        return targetType.getValue("RemediationConfigurationArgs.targetType");
+        if (!unknown_targetType) return value_targetType;
+        throw new UndeferrableValueException("Value 'RemediationConfigurationArgs.targetType' is not present");
     }
 
     /**
      * Version of the target. For example, version of the SSM document
      * 
      */
-    private UndeferrableValue<String> targetVersion;
-
+    @PolicyResourceProperty(name="targetVersion", flag="unknown_targetVersion")
+    private String value_targetVersion;
+    private boolean unknown_targetVersion;
     public String targetVersion() {
-        if (targetVersion == null) return null;
-        return targetVersion.getValue("RemediationConfigurationArgs.targetVersion");
+        if (!unknown_targetVersion) return value_targetVersion;
+        throw new UndeferrableValueException("Value 'RemediationConfigurationArgs.targetVersion' is not present");
     }
 
 }

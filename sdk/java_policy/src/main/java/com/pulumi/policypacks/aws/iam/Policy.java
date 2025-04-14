@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,99 +19,108 @@ public final class Policy extends com.pulumi.resources.PolicyResourceOutput {
      * ARN assigned by AWS to this policy.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Policy.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Policy.arn' is not present");
     }
 
     /**
      * Number of entities (users, groups, and roles) that the policy is attached to.
      * 
      */
-    private UndeferrableValue<Integer> attachmentCount;
-
+    @PolicyResourceProperty(name="attachmentCount", flag="unknown_attachmentCount")
+    private Integer value_attachmentCount;
+    private boolean unknown_attachmentCount;
     public Integer attachmentCount() {
-        if (attachmentCount == null) return null;
-        return attachmentCount.getValue("Policy.attachmentCount");
+        if (!unknown_attachmentCount) return value_attachmentCount;
+        throw new UndeferrableValueException("Value 'Policy.attachmentCount' is not present");
     }
 
     /**
      * Description of the IAM policy.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Policy.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Policy.description' is not present");
     }
 
     /**
      * Name of the policy. If omitted, the provider will assign a random, unique name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Policy.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Policy.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("Policy.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'Policy.namePrefix' is not present");
     }
 
     /**
      * Path in which to create the policy. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      * 
      */
-    private @Nullable UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private @Nullable String value_path;
+    private boolean unknown_path;
     public @Nullable String path() {
-        if (path == null) return null;
-        return path.getValue("Policy.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'Policy.path' is not present");
     }
 
     /**
      * Policy document. This is a JSON formatted string. For more information about building AWS IAM policy documents, see the AWS IAM Policy Document Guide
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("Policy.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'Policy.policy' is not present");
     }
 
     /**
      * Policy&#39;s ID.
      * 
      */
-    private UndeferrableValue<String> policyId;
-
+    @PolicyResourceProperty(name="policyId", flag="unknown_policyId")
+    private String value_policyId;
+    private boolean unknown_policyId;
     public String policyId() {
-        if (policyId == null) return null;
-        return policyId.getValue("Policy.policyId");
+        if (!unknown_policyId) return value_policyId;
+        throw new UndeferrableValueException("Value 'Policy.policyId' is not present");
     }
 
     /**
      * Map of resource tags for the IAM Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Policy.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Policy.tags' is not present");
     }
 
     /**
@@ -121,11 +131,12 @@ public final class Policy extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Policy.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Policy.tagsAll' is not present");
     }
 
 }

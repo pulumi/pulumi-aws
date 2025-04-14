@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamquery.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.timestreamquery.outputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverage;
 import com.pulumi.policypacks.aws.timestreamquery.outputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRange;
 import java.lang.Integer;
@@ -17,55 +18,60 @@ public final class ScheduledQueryLastRunSummaryQueryInsightsResponse {
      * Size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> outputBytes;
-
+    @PolicyResourceProperty(name="outputBytes", flag="unknown_outputBytes")
+    private @Nullable Integer value_outputBytes;
+    private boolean unknown_outputBytes;
     public @Nullable Integer outputBytes() {
-        if (outputBytes == null) return null;
-        return outputBytes.getValue("ScheduledQueryLastRunSummaryQueryInsightsResponse.outputBytes");
+        if (!unknown_outputBytes) return value_outputBytes;
+        throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryQueryInsightsResponse.outputBytes' is not present");
     }
 
     /**
      * Total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> outputRows;
-
+    @PolicyResourceProperty(name="outputRows", flag="unknown_outputRows")
+    private @Nullable Integer value_outputRows;
+    private boolean unknown_outputRows;
     public @Nullable Integer outputRows() {
-        if (outputRows == null) return null;
-        return outputRows.getValue("ScheduledQueryLastRunSummaryQueryInsightsResponse.outputRows");
+        if (!unknown_outputRows) return value_outputRows;
+        throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryQueryInsightsResponse.outputRows' is not present");
     }
 
     /**
      * Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
      * 
      */
-    private @Nullable UndeferrableValue<List<ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverage>> querySpatialCoverages;
-
+    @PolicyResourceProperty(name="querySpatialCoverages", flag="unknown_querySpatialCoverages")
+    private @Nullable List<ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverage> value_querySpatialCoverages;
+    private boolean unknown_querySpatialCoverages;
     public @Nullable List<ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverage> querySpatialCoverages() {
-        if (querySpatialCoverages == null) return null;
-        return querySpatialCoverages.getValue("ScheduledQueryLastRunSummaryQueryInsightsResponse.querySpatialCoverages");
+        if (!unknown_querySpatialCoverages) return value_querySpatialCoverages;
+        throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryQueryInsightsResponse.querySpatialCoverages' is not present");
     }
 
     /**
      * Number of tables in the query.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> queryTableCount;
-
+    @PolicyResourceProperty(name="queryTableCount", flag="unknown_queryTableCount")
+    private @Nullable Integer value_queryTableCount;
+    private boolean unknown_queryTableCount;
     public @Nullable Integer queryTableCount() {
-        if (queryTableCount == null) return null;
-        return queryTableCount.getValue("ScheduledQueryLastRunSummaryQueryInsightsResponse.queryTableCount");
+        if (!unknown_queryTableCount) return value_queryTableCount;
+        throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryQueryInsightsResponse.queryTableCount' is not present");
     }
 
     /**
      * Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
      * 
      */
-    private @Nullable UndeferrableValue<List<ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRange>> queryTemporalRanges;
-
+    @PolicyResourceProperty(name="queryTemporalRanges", flag="unknown_queryTemporalRanges")
+    private @Nullable List<ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRange> value_queryTemporalRanges;
+    private boolean unknown_queryTemporalRanges;
     public @Nullable List<ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRange> queryTemporalRanges() {
-        if (queryTemporalRanges == null) return null;
-        return queryTemporalRanges.getValue("ScheduledQueryLastRunSummaryQueryInsightsResponse.queryTemporalRanges");
+        if (!unknown_queryTemporalRanges) return value_queryTemporalRanges;
+        throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryQueryInsightsResponse.queryTemporalRanges' is not present");
     }
 
 }

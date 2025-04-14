@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleActionCountCustomRequestHandling;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class WebAclRuleActionCount {
      * Defines custom handling for the web request. See `custom_request_handling` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleActionCountCustomRequestHandling> customRequestHandling;
-
+    @PolicyResourceProperty(name="customRequestHandling", flag="unknown_customRequestHandling")
+    private @Nullable WebAclRuleActionCountCustomRequestHandling value_customRequestHandling;
+    private boolean unknown_customRequestHandling;
     public @Nullable WebAclRuleActionCountCustomRequestHandling customRequestHandling() {
-        if (customRequestHandling == null) return null;
-        return customRequestHandling.getValue("WebAclRuleActionCount.customRequestHandling");
+        if (!unknown_customRequestHandling) return value_customRequestHandling;
+        throw new UndeferrableValueException("Value 'WebAclRuleActionCount.customRequestHandling' is not present");
     }
 
 }

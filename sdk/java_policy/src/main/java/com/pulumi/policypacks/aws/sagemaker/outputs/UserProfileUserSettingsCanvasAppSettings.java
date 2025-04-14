@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.outputs.UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings;
 import com.pulumi.policypacks.aws.sagemaker.outputs.UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings;
 import com.pulumi.policypacks.aws.sagemaker.outputs.UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings;
@@ -22,84 +23,92 @@ public final class UserProfileUserSettingsCanvasAppSettings {
      * The model deployment settings for the SageMaker AI Canvas application. See Direct Deploy Settings below.
      * 
      */
-    private @Nullable UndeferrableValue<UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings> directDeploySettings;
-
+    @PolicyResourceProperty(name="directDeploySettings", flag="unknown_directDeploySettings")
+    private @Nullable UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings value_directDeploySettings;
+    private boolean unknown_directDeploySettings;
     public @Nullable UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings directDeploySettings() {
-        if (directDeploySettings == null) return null;
-        return directDeploySettings.getValue("UserProfileUserSettingsCanvasAppSettings.directDeploySettings");
+        if (!unknown_directDeploySettings) return value_directDeploySettings;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsCanvasAppSettings.directDeploySettings' is not present");
     }
 
     /**
      * The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
      * 
      */
-    private @Nullable UndeferrableValue<UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings> emrServerlessSettings;
-
+    @PolicyResourceProperty(name="emrServerlessSettings", flag="unknown_emrServerlessSettings")
+    private @Nullable UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings value_emrServerlessSettings;
+    private boolean unknown_emrServerlessSettings;
     public @Nullable UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings emrServerlessSettings() {
-        if (emrServerlessSettings == null) return null;
-        return emrServerlessSettings.getValue("UserProfileUserSettingsCanvasAppSettings.emrServerlessSettings");
+        if (!unknown_emrServerlessSettings) return value_emrServerlessSettings;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsCanvasAppSettings.emrServerlessSettings' is not present");
     }
 
-    private @Nullable UndeferrableValue<UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings> generativeAiSettings;
-
+    @PolicyResourceProperty(name="generativeAiSettings", flag="unknown_generativeAiSettings")
+    private @Nullable UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings value_generativeAiSettings;
+    private boolean unknown_generativeAiSettings;
     public @Nullable UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings generativeAiSettings() {
-        if (generativeAiSettings == null) return null;
-        return generativeAiSettings.getValue("UserProfileUserSettingsCanvasAppSettings.generativeAiSettings");
+        if (!unknown_generativeAiSettings) return value_generativeAiSettings;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsCanvasAppSettings.generativeAiSettings' is not present");
     }
 
     /**
      * The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
      * 
      */
-    private @Nullable UndeferrableValue<List<UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting>> identityProviderOauthSettings;
-
+    @PolicyResourceProperty(name="identityProviderOauthSettings", flag="unknown_identityProviderOauthSettings")
+    private @Nullable List<UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting> value_identityProviderOauthSettings;
+    private boolean unknown_identityProviderOauthSettings;
     public @Nullable List<UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting> identityProviderOauthSettings() {
-        if (identityProviderOauthSettings == null) return null;
-        return identityProviderOauthSettings.getValue("UserProfileUserSettingsCanvasAppSettings.identityProviderOauthSettings");
+        if (!unknown_identityProviderOauthSettings) return value_identityProviderOauthSettings;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsCanvasAppSettings.identityProviderOauthSettings' is not present");
     }
 
     /**
      * The settings for document querying. See Kendra Settings below.
      * 
      */
-    private @Nullable UndeferrableValue<UserProfileUserSettingsCanvasAppSettingsKendraSettings> kendraSettings;
-
+    @PolicyResourceProperty(name="kendraSettings", flag="unknown_kendraSettings")
+    private @Nullable UserProfileUserSettingsCanvasAppSettingsKendraSettings value_kendraSettings;
+    private boolean unknown_kendraSettings;
     public @Nullable UserProfileUserSettingsCanvasAppSettingsKendraSettings kendraSettings() {
-        if (kendraSettings == null) return null;
-        return kendraSettings.getValue("UserProfileUserSettingsCanvasAppSettings.kendraSettings");
+        if (!unknown_kendraSettings) return value_kendraSettings;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsCanvasAppSettings.kendraSettings' is not present");
     }
 
     /**
      * The model registry settings for the SageMaker AI Canvas application. See Model Register Settings below.
      * 
      */
-    private @Nullable UndeferrableValue<UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings> modelRegisterSettings;
-
+    @PolicyResourceProperty(name="modelRegisterSettings", flag="unknown_modelRegisterSettings")
+    private @Nullable UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings value_modelRegisterSettings;
+    private boolean unknown_modelRegisterSettings;
     public @Nullable UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings modelRegisterSettings() {
-        if (modelRegisterSettings == null) return null;
-        return modelRegisterSettings.getValue("UserProfileUserSettingsCanvasAppSettings.modelRegisterSettings");
+        if (!unknown_modelRegisterSettings) return value_modelRegisterSettings;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsCanvasAppSettings.modelRegisterSettings' is not present");
     }
 
     /**
      * Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
      * 
      */
-    private @Nullable UndeferrableValue<UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings> timeSeriesForecastingSettings;
-
+    @PolicyResourceProperty(name="timeSeriesForecastingSettings", flag="unknown_timeSeriesForecastingSettings")
+    private @Nullable UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings value_timeSeriesForecastingSettings;
+    private boolean unknown_timeSeriesForecastingSettings;
     public @Nullable UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings timeSeriesForecastingSettings() {
-        if (timeSeriesForecastingSettings == null) return null;
-        return timeSeriesForecastingSettings.getValue("UserProfileUserSettingsCanvasAppSettings.timeSeriesForecastingSettings");
+        if (!unknown_timeSeriesForecastingSettings) return value_timeSeriesForecastingSettings;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsCanvasAppSettings.timeSeriesForecastingSettings' is not present");
     }
 
     /**
      * The workspace settings for the SageMaker AI Canvas application. See Workspace Settings below.
      * 
      */
-    private @Nullable UndeferrableValue<UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings> workspaceSettings;
-
+    @PolicyResourceProperty(name="workspaceSettings", flag="unknown_workspaceSettings")
+    private @Nullable UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings value_workspaceSettings;
+    private boolean unknown_workspaceSettings;
     public @Nullable UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings workspaceSettings() {
-        if (workspaceSettings == null) return null;
-        return workspaceSettings.getValue("UserProfileUserSettingsCanvasAppSettings.workspaceSettings");
+        if (!unknown_workspaceSettings) return value_workspaceSettings;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsCanvasAppSettings.workspaceSettings' is not present");
     }
 
 }

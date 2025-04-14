@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ivschat.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -16,22 +17,24 @@ public final class RoomMessageReviewHandlerArgs {
      * encounters an error, or times out. Valid values: `ALLOW`, `DENY`.
      * 
      */
-    private UndeferrableValue<String> fallbackResult;
-
+    @PolicyResourceProperty(name="fallbackResult", flag="unknown_fallbackResult")
+    private String value_fallbackResult;
+    private boolean unknown_fallbackResult;
     public String fallbackResult() {
-        if (fallbackResult == null) return null;
-        return fallbackResult.getValue("RoomMessageReviewHandlerArgs.fallbackResult");
+        if (!unknown_fallbackResult) return value_fallbackResult;
+        throw new UndeferrableValueException("Value 'RoomMessageReviewHandlerArgs.fallbackResult' is not present");
     }
 
     /**
      * ARN of the lambda message review handler function.
      * 
      */
-    private UndeferrableValue<String> uri;
-
+    @PolicyResourceProperty(name="uri", flag="unknown_uri")
+    private String value_uri;
+    private boolean unknown_uri;
     public String uri() {
-        if (uri == null) return null;
-        return uri.getValue("RoomMessageReviewHandlerArgs.uri");
+        if (!unknown_uri) return value_uri;
+        throw new UndeferrableValueException("Value 'RoomMessageReviewHandlerArgs.uri' is not present");
     }
 
 }

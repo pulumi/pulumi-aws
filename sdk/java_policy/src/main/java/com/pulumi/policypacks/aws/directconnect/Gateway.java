@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,44 +16,48 @@ public final class Gateway extends com.pulumi.resources.PolicyResourceOutput {
      * The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
      * 
      */
-    private UndeferrableValue<String> amazonSideAsn;
-
+    @PolicyResourceProperty(name="amazonSideAsn", flag="unknown_amazonSideAsn")
+    private String value_amazonSideAsn;
+    private boolean unknown_amazonSideAsn;
     public String amazonSideAsn() {
-        if (amazonSideAsn == null) return null;
-        return amazonSideAsn.getValue("Gateway.amazonSideAsn");
+        if (!unknown_amazonSideAsn) return value_amazonSideAsn;
+        throw new UndeferrableValueException("Value 'Gateway.amazonSideAsn' is not present");
     }
 
     /**
      * The ARN of the gateway.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Gateway.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Gateway.arn' is not present");
     }
 
     /**
      * The name of the connection.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Gateway.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Gateway.name' is not present");
     }
 
     /**
      * AWS Account ID of the gateway.
      * 
      */
-    private UndeferrableValue<String> ownerAccountId;
-
+    @PolicyResourceProperty(name="ownerAccountId", flag="unknown_ownerAccountId")
+    private String value_ownerAccountId;
+    private boolean unknown_ownerAccountId;
     public String ownerAccountId() {
-        if (ownerAccountId == null) return null;
-        return ownerAccountId.getValue("Gateway.ownerAccountId");
+        if (!unknown_ownerAccountId) return value_ownerAccountId;
+        throw new UndeferrableValueException("Value 'Gateway.ownerAccountId' is not present");
     }
 
 }

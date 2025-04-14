@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class SigningCertificateArgs extends com.pulumi.resources.PolicyRes
      * The contents of the signing certificate in PEM-encoded format.
      * 
      */
-    private UndeferrableValue<String> certificateBody;
-
+    @PolicyResourceProperty(name="certificateBody", flag="unknown_certificateBody")
+    private String value_certificateBody;
+    private boolean unknown_certificateBody;
     public String certificateBody() {
-        if (certificateBody == null) return null;
-        return certificateBody.getValue("SigningCertificateArgs.certificateBody");
+        if (!unknown_certificateBody) return value_certificateBody;
+        throw new UndeferrableValueException("Value 'SigningCertificateArgs.certificateBody' is not present");
     }
 
     /**
      * The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("SigningCertificateArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'SigningCertificateArgs.status' is not present");
     }
 
     /**
      * The name of the user the signing certificate is for.
      * 
      */
-    private UndeferrableValue<String> userName;
-
+    @PolicyResourceProperty(name="userName", flag="unknown_userName")
+    private String value_userName;
+    private boolean unknown_userName;
     public String userName() {
-        if (userName == null) return null;
-        return userName.getValue("SigningCertificateArgs.userName");
+        if (!unknown_userName) return value_userName;
+        throw new UndeferrableValueException("Value 'SigningCertificateArgs.userName' is not present");
     }
 
 }

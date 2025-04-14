@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class AmiCopyEphemeralBlockDeviceArgs {
      * Path at which the device is exposed to created instances.
      * 
      */
-    private UndeferrableValue<String> deviceName;
-
+    @PolicyResourceProperty(name="deviceName", flag="unknown_deviceName")
+    private String value_deviceName;
+    private boolean unknown_deviceName;
     public String deviceName() {
-        if (deviceName == null) return null;
-        return deviceName.getValue("AmiCopyEphemeralBlockDeviceArgs.deviceName");
+        if (!unknown_deviceName) return value_deviceName;
+        throw new UndeferrableValueException("Value 'AmiCopyEphemeralBlockDeviceArgs.deviceName' is not present");
     }
 
     /**
@@ -26,11 +28,12 @@ public final class AmiCopyEphemeralBlockDeviceArgs {
      * *N* is a volume number starting from zero.
      * 
      */
-    private UndeferrableValue<String> virtualName;
-
+    @PolicyResourceProperty(name="virtualName", flag="unknown_virtualName")
+    private String value_virtualName;
+    private boolean unknown_virtualName;
     public String virtualName() {
-        if (virtualName == null) return null;
-        return virtualName.getValue("AmiCopyEphemeralBlockDeviceArgs.virtualName");
+        if (!unknown_virtualName) return value_virtualName;
+        throw new UndeferrableValueException("Value 'AmiCopyEphemeralBlockDeviceArgs.virtualName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.evidently;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.evidently.outputs.LaunchExecution;
 import com.pulumi.policypacks.aws.evidently.outputs.LaunchGroup;
@@ -22,154 +23,168 @@ public final class Launch extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN of the launch.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Launch.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Launch.arn' is not present");
     }
 
     /**
      * The date and time that the launch is created.
      * 
      */
-    private UndeferrableValue<String> createdTime;
-
+    @PolicyResourceProperty(name="createdTime", flag="unknown_createdTime")
+    private String value_createdTime;
+    private boolean unknown_createdTime;
     public String createdTime() {
-        if (createdTime == null) return null;
-        return createdTime.getValue("Launch.createdTime");
+        if (!unknown_createdTime) return value_createdTime;
+        throw new UndeferrableValueException("Value 'Launch.createdTime' is not present");
     }
 
     /**
      * Specifies the description of the launch.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Launch.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Launch.description' is not present");
     }
 
     /**
      * A block that contains information about the start and end times of the launch. Detailed below
      * 
      */
-    private UndeferrableValue<List<LaunchExecution>> executions;
-
+    @PolicyResourceProperty(name="executions", flag="unknown_executions")
+    private List<LaunchExecution> value_executions;
+    private boolean unknown_executions;
     public List<LaunchExecution> executions() {
-        if (executions == null) return null;
-        return executions.getValue("Launch.executions");
+        if (!unknown_executions) return value_executions;
+        throw new UndeferrableValueException("Value 'Launch.executions' is not present");
     }
 
     /**
      * One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
      * 
      */
-    private UndeferrableValue<List<LaunchGroup>> groups;
-
+    @PolicyResourceProperty(name="groups", flag="unknown_groups")
+    private List<LaunchGroup> value_groups;
+    private boolean unknown_groups;
     public List<LaunchGroup> groups() {
-        if (groups == null) return null;
-        return groups.getValue("Launch.groups");
+        if (!unknown_groups) return value_groups;
+        throw new UndeferrableValueException("Value 'Launch.groups' is not present");
     }
 
     /**
      * The date and time that the launch was most recently updated.
      * 
      */
-    private UndeferrableValue<String> lastUpdatedTime;
-
+    @PolicyResourceProperty(name="lastUpdatedTime", flag="unknown_lastUpdatedTime")
+    private String value_lastUpdatedTime;
+    private boolean unknown_lastUpdatedTime;
     public String lastUpdatedTime() {
-        if (lastUpdatedTime == null) return null;
-        return lastUpdatedTime.getValue("Launch.lastUpdatedTime");
+        if (!unknown_lastUpdatedTime) return value_lastUpdatedTime;
+        throw new UndeferrableValueException("Value 'Launch.lastUpdatedTime' is not present");
     }
 
     /**
      * One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<LaunchMetricMonitor>> metricMonitors;
-
+    @PolicyResourceProperty(name="metricMonitors", flag="unknown_metricMonitors")
+    private @Nullable List<LaunchMetricMonitor> value_metricMonitors;
+    private boolean unknown_metricMonitors;
     public @Nullable List<LaunchMetricMonitor> metricMonitors() {
-        if (metricMonitors == null) return null;
-        return metricMonitors.getValue("Launch.metricMonitors");
+        if (!unknown_metricMonitors) return value_metricMonitors;
+        throw new UndeferrableValueException("Value 'Launch.metricMonitors' is not present");
     }
 
     /**
      * The name for the new launch. Minimum length of `1`. Maximum length of `127`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Launch.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Launch.name' is not present");
     }
 
     /**
      * The name or ARN of the project that is to contain the new launch.
      * 
      */
-    private UndeferrableValue<String> project;
-
+    @PolicyResourceProperty(name="project", flag="unknown_project")
+    private String value_project;
+    private boolean unknown_project;
     public String project() {
-        if (project == null) return null;
-        return project.getValue("Launch.project");
+        if (!unknown_project) return value_project;
+        throw new UndeferrableValueException("Value 'Launch.project' is not present");
     }
 
     /**
      * When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
      * 
      */
-    private @Nullable UndeferrableValue<String> randomizationSalt;
-
+    @PolicyResourceProperty(name="randomizationSalt", flag="unknown_randomizationSalt")
+    private @Nullable String value_randomizationSalt;
+    private boolean unknown_randomizationSalt;
     public @Nullable String randomizationSalt() {
-        if (randomizationSalt == null) return null;
-        return randomizationSalt.getValue("Launch.randomizationSalt");
+        if (!unknown_randomizationSalt) return value_randomizationSalt;
+        throw new UndeferrableValueException("Value 'Launch.randomizationSalt' is not present");
     }
 
     /**
      * A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<LaunchScheduledSplitsConfig> scheduledSplitsConfig;
-
+    @PolicyResourceProperty(name="scheduledSplitsConfig", flag="unknown_scheduledSplitsConfig")
+    private @Nullable LaunchScheduledSplitsConfig value_scheduledSplitsConfig;
+    private boolean unknown_scheduledSplitsConfig;
     public @Nullable LaunchScheduledSplitsConfig scheduledSplitsConfig() {
-        if (scheduledSplitsConfig == null) return null;
-        return scheduledSplitsConfig.getValue("Launch.scheduledSplitsConfig");
+        if (!unknown_scheduledSplitsConfig) return value_scheduledSplitsConfig;
+        throw new UndeferrableValueException("Value 'Launch.scheduledSplitsConfig' is not present");
     }
 
     /**
      * The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Launch.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Launch.status' is not present");
     }
 
     /**
      * If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.
      * 
      */
-    private UndeferrableValue<String> statusReason;
-
+    @PolicyResourceProperty(name="statusReason", flag="unknown_statusReason")
+    private String value_statusReason;
+    private boolean unknown_statusReason;
     public String statusReason() {
-        if (statusReason == null) return null;
-        return statusReason.getValue("Launch.statusReason");
+        if (!unknown_statusReason) return value_statusReason;
+        throw new UndeferrableValueException("Value 'Launch.statusReason' is not present");
     }
 
     /**
      * Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Launch.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Launch.tags' is not present");
     }
 
     /**
@@ -180,22 +195,24 @@ public final class Launch extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Launch.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Launch.tagsAll' is not present");
     }
 
     /**
      * The type of launch.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("Launch.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'Launch.type' is not present");
     }
 
 }

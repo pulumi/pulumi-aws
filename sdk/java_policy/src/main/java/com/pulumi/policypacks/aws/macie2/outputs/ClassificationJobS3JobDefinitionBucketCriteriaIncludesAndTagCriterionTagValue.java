@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.macie2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagC
      * The tag key.
      * 
      */
-    private @Nullable UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private @Nullable String value_key;
+    private boolean unknown_key;
     public @Nullable String key() {
-        if (key == null) return null;
-        return key.getValue("ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue.key' is not present");
     }
 
     /**
      * The tag value.
      * 
      */
-    private @Nullable UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private @Nullable String value_value;
+    private boolean unknown_value;
     public @Nullable String value() {
-        if (value == null) return null;
-        return value.getValue("ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue.value' is not present");
     }
 
 }

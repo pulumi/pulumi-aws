@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamquery.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.timestreamquery.inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ScheduledQueryTargetConfigurationArgs {
      * Configuration block for information needed to write data into the Timestream database and table. See below.
      * 
      */
-    private UndeferrableValue<ScheduledQueryTargetConfigurationTimestreamConfigurationArgs> timestreamConfiguration;
-
+    @PolicyResourceProperty(name="timestreamConfiguration", flag="unknown_timestreamConfiguration")
+    private ScheduledQueryTargetConfigurationTimestreamConfigurationArgs value_timestreamConfiguration;
+    private boolean unknown_timestreamConfiguration;
     public ScheduledQueryTargetConfigurationTimestreamConfigurationArgs timestreamConfiguration() {
-        if (timestreamConfiguration == null) return null;
-        return timestreamConfiguration.getValue("ScheduledQueryTargetConfigurationArgs.timestreamConfiguration");
+        if (!unknown_timestreamConfiguration) return value_timestreamConfiguration;
+        throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationArgs.timestreamConfiguration' is not present");
     }
 
 }

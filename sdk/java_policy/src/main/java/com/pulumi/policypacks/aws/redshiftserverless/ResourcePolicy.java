@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshiftserverless;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class ResourcePolicy extends com.pulumi.resources.PolicyResourceOut
      * The policy to create or update. For example, the following policy grants a user authorization to restore a snapshot.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("ResourcePolicy.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'ResourcePolicy.policy' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("ResourcePolicy.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'ResourcePolicy.resourceArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
      * Post filter sharpening.
      * 
      */
-    private @Nullable UndeferrableValue<String> postFilterSharpening;
-
+    @PolicyResourceProperty(name="postFilterSharpening", flag="unknown_postFilterSharpening")
+    private @Nullable String value_postFilterSharpening;
+    private boolean unknown_postFilterSharpening;
     public @Nullable String postFilterSharpening() {
-        if (postFilterSharpening == null) return null;
-        return postFilterSharpening.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings.postFilterSharpening");
+        if (!unknown_postFilterSharpening) return value_postFilterSharpening;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings.postFilterSharpening' is not present");
     }
 
     /**
      * Filter strength.
      * 
      */
-    private @Nullable UndeferrableValue<String> strength;
-
+    @PolicyResourceProperty(name="strength", flag="unknown_strength")
+    private @Nullable String value_strength;
+    private boolean unknown_strength;
     public @Nullable String strength() {
-        if (strength == null) return null;
-        return strength.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings.strength");
+        if (!unknown_strength) return value_strength;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings.strength' is not present");
     }
 
 }

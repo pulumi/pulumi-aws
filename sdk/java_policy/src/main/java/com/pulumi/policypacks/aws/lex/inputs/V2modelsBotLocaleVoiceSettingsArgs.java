@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class V2modelsBotLocaleVoiceSettingsArgs {
      * Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. Valid values are `standard` and `neural`. If not specified, the default is `standard`.
      * 
      */
-    private UndeferrableValue<String> engine;
-
+    @PolicyResourceProperty(name="engine", flag="unknown_engine")
+    private String value_engine;
+    private boolean unknown_engine;
     public String engine() {
-        if (engine == null) return null;
-        return engine.getValue("V2modelsBotLocaleVoiceSettingsArgs.engine");
+        if (!unknown_engine) return value_engine;
+        throw new UndeferrableValueException("Value 'V2modelsBotLocaleVoiceSettingsArgs.engine' is not present");
     }
 
     /**
      * Identifier of the Amazon Polly voice to use.
      * 
      */
-    private UndeferrableValue<String> voiceId;
-
+    @PolicyResourceProperty(name="voiceId", flag="unknown_voiceId")
+    private String value_voiceId;
+    private boolean unknown_voiceId;
     public String voiceId() {
-        if (voiceId == null) return null;
-        return voiceId.getValue("V2modelsBotLocaleVoiceSettingsArgs.voiceId");
+        if (!unknown_voiceId) return value_voiceId;
+        throw new UndeferrableValueException("Value 'V2modelsBotLocaleVoiceSettingsArgs.voiceId' is not present");
     }
 
 }

@@ -3,32 +3,36 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs {
 
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs.bucketName' is not present");
     }
 
-    private UndeferrableValue<String> bucketPrefix;
-
+    @PolicyResourceProperty(name="bucketPrefix", flag="unknown_bucketPrefix")
+    private String value_bucketPrefix;
+    private boolean unknown_bucketPrefix;
     public String bucketPrefix() {
-        if (bucketPrefix == null) return null;
-        return bucketPrefix.getValue("InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs.bucketPrefix");
+        if (!unknown_bucketPrefix) return value_bucketPrefix;
+        throw new UndeferrableValueException("Value 'InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs.bucketPrefix' is not present");
     }
 
-    private UndeferrableValue<String> logDeliveryStatus;
-
+    @PolicyResourceProperty(name="logDeliveryStatus", flag="unknown_logDeliveryStatus")
+    private String value_logDeliveryStatus;
+    private boolean unknown_logDeliveryStatus;
     public String logDeliveryStatus() {
-        if (logDeliveryStatus == null) return null;
-        return logDeliveryStatus.getValue("InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs.logDeliveryStatus");
+        if (!unknown_logDeliveryStatus) return value_logDeliveryStatus;
+        throw new UndeferrableValueException("Value 'InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs.logDeliveryStatus' is not present");
     }
 
 }

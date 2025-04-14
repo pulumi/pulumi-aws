@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutp
      * Setting to allow self signed or verified RTMP certificates.
      * 
      */
-    private @Nullable UndeferrableValue<String> certificateMode;
-
+    @PolicyResourceProperty(name="certificateMode", flag="unknown_certificateMode")
+    private @Nullable String value_certificateMode;
+    private boolean unknown_certificateMode;
     public @Nullable String certificateMode() {
-        if (certificateMode == null) return null;
-        return certificateMode.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings.certificateMode");
+        if (!unknown_certificateMode) return value_certificateMode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings.certificateMode' is not present");
     }
 
     /**
      * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> connectionRetryInterval;
-
+    @PolicyResourceProperty(name="connectionRetryInterval", flag="unknown_connectionRetryInterval")
+    private @Nullable Integer value_connectionRetryInterval;
+    private boolean unknown_connectionRetryInterval;
     public @Nullable Integer connectionRetryInterval() {
-        if (connectionRetryInterval == null) return null;
-        return connectionRetryInterval.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings.connectionRetryInterval");
+        if (!unknown_connectionRetryInterval) return value_connectionRetryInterval;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings.connectionRetryInterval' is not present");
     }
 
     /**
      * The RTMP endpoint excluding the stream name. See Destination for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination value_destination;
+    private boolean unknown_destination;
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination destination() {
-        if (destination == null) return null;
-        return destination.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings.destination' is not present");
     }
 
     /**
      * Number of retry attempts.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> numRetries;
-
+    @PolicyResourceProperty(name="numRetries", flag="unknown_numRetries")
+    private @Nullable Integer value_numRetries;
+    private boolean unknown_numRetries;
     public @Nullable Integer numRetries() {
-        if (numRetries == null) return null;
-        return numRetries.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings.numRetries");
+        if (!unknown_numRetries) return value_numRetries;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings.numRetries' is not present");
     }
 
 }

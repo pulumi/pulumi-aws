@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securitylake.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.securitylake.inputs.SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs;
 import com.pulumi.policypacks.aws.securitylake.inputs.SubscriberNotificationConfigurationSqsNotificationConfigurationArgs;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class SubscriberNotificationConfigurationArgs {
      * The configurations for HTTPS subscriber notification.
      * 
      */
-    private UndeferrableValue<SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs> httpsNotificationConfiguration;
-
+    @PolicyResourceProperty(name="httpsNotificationConfiguration", flag="unknown_httpsNotificationConfiguration")
+    private SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs value_httpsNotificationConfiguration;
+    private boolean unknown_httpsNotificationConfiguration;
     public SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs httpsNotificationConfiguration() {
-        if (httpsNotificationConfiguration == null) return null;
-        return httpsNotificationConfiguration.getValue("SubscriberNotificationConfigurationArgs.httpsNotificationConfiguration");
+        if (!unknown_httpsNotificationConfiguration) return value_httpsNotificationConfiguration;
+        throw new UndeferrableValueException("Value 'SubscriberNotificationConfigurationArgs.httpsNotificationConfiguration' is not present");
     }
 
     /**
@@ -27,11 +29,12 @@ public final class SubscriberNotificationConfigurationArgs {
      * There are no parameters within `sqs_notification_configuration`.
      * 
      */
-    private UndeferrableValue<SubscriberNotificationConfigurationSqsNotificationConfigurationArgs> sqsNotificationConfiguration;
-
+    @PolicyResourceProperty(name="sqsNotificationConfiguration", flag="unknown_sqsNotificationConfiguration")
+    private SubscriberNotificationConfigurationSqsNotificationConfigurationArgs value_sqsNotificationConfiguration;
+    private boolean unknown_sqsNotificationConfiguration;
     public SubscriberNotificationConfigurationSqsNotificationConfigurationArgs sqsNotificationConfiguration() {
-        if (sqsNotificationConfiguration == null) return null;
-        return sqsNotificationConfiguration.getValue("SubscriberNotificationConfigurationArgs.sqsNotificationConfiguration");
+        if (!unknown_sqsNotificationConfiguration) return value_sqsNotificationConfiguration;
+        throw new UndeferrableValueException("Value 'SubscriberNotificationConfigurationArgs.sqsNotificationConfiguration' is not present");
     }
 
 }

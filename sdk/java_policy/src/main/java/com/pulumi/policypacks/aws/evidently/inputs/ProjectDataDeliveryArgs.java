@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.evidently.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.evidently.inputs.ProjectDataDeliveryCloudwatchLogsArgs;
 import com.pulumi.policypacks.aws.evidently.inputs.ProjectDataDeliveryS3DestinationArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ProjectDataDeliveryArgs {
      * A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
      * 
      */
-    private UndeferrableValue<ProjectDataDeliveryCloudwatchLogsArgs> cloudwatchLogs;
-
+    @PolicyResourceProperty(name="cloudwatchLogs", flag="unknown_cloudwatchLogs")
+    private ProjectDataDeliveryCloudwatchLogsArgs value_cloudwatchLogs;
+    private boolean unknown_cloudwatchLogs;
     public ProjectDataDeliveryCloudwatchLogsArgs cloudwatchLogs() {
-        if (cloudwatchLogs == null) return null;
-        return cloudwatchLogs.getValue("ProjectDataDeliveryArgs.cloudwatchLogs");
+        if (!unknown_cloudwatchLogs) return value_cloudwatchLogs;
+        throw new UndeferrableValueException("Value 'ProjectDataDeliveryArgs.cloudwatchLogs' is not present");
     }
 
     /**
      * A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
      * 
      */
-    private UndeferrableValue<ProjectDataDeliveryS3DestinationArgs> s3Destination;
-
+    @PolicyResourceProperty(name="s3Destination", flag="unknown_s3Destination")
+    private ProjectDataDeliveryS3DestinationArgs value_s3Destination;
+    private boolean unknown_s3Destination;
     public ProjectDataDeliveryS3DestinationArgs s3Destination() {
-        if (s3Destination == null) return null;
-        return s3Destination.getValue("ProjectDataDeliveryArgs.s3Destination");
+        if (!unknown_s3Destination) return value_s3Destination;
+        throw new UndeferrableValueException("Value 'ProjectDataDeliveryArgs.s3Destination' is not present");
     }
 
 }

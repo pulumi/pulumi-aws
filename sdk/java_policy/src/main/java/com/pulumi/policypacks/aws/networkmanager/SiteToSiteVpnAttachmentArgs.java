@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,22 +18,24 @@ public final class SiteToSiteVpnAttachmentArgs extends com.pulumi.resources.Poli
      * The ID of a core network for the VPN attachment.
      * 
      */
-    private UndeferrableValue<String> coreNetworkId;
-
+    @PolicyResourceProperty(name="coreNetworkId", flag="unknown_coreNetworkId")
+    private String value_coreNetworkId;
+    private boolean unknown_coreNetworkId;
     public String coreNetworkId() {
-        if (coreNetworkId == null) return null;
-        return coreNetworkId.getValue("SiteToSiteVpnAttachmentArgs.coreNetworkId");
+        if (!unknown_coreNetworkId) return value_coreNetworkId;
+        throw new UndeferrableValueException("Value 'SiteToSiteVpnAttachmentArgs.coreNetworkId' is not present");
     }
 
     /**
      * Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SiteToSiteVpnAttachmentArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SiteToSiteVpnAttachmentArgs.tags' is not present");
     }
 
     /**
@@ -41,11 +44,12 @@ public final class SiteToSiteVpnAttachmentArgs extends com.pulumi.resources.Poli
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> vpnConnectionArn;
-
+    @PolicyResourceProperty(name="vpnConnectionArn", flag="unknown_vpnConnectionArn")
+    private String value_vpnConnectionArn;
+    private boolean unknown_vpnConnectionArn;
     public String vpnConnectionArn() {
-        if (vpnConnectionArn == null) return null;
-        return vpnConnectionArn.getValue("SiteToSiteVpnAttachmentArgs.vpnConnectionArn");
+        if (!unknown_vpnConnectionArn) return value_vpnConnectionArn;
+        throw new UndeferrableValueException("Value 'SiteToSiteVpnAttachmentArgs.vpnConnectionArn' is not present");
     }
 
 }

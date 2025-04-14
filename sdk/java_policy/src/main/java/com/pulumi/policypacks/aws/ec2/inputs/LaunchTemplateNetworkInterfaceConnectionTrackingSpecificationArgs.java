@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class LaunchTemplateNetworkInterfaceConnectionTrackingSpecification
      * Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
      * 
      */
-    private UndeferrableValue<Integer> tcpEstablishedTimeout;
-
+    @PolicyResourceProperty(name="tcpEstablishedTimeout", flag="unknown_tcpEstablishedTimeout")
+    private Integer value_tcpEstablishedTimeout;
+    private boolean unknown_tcpEstablishedTimeout;
     public Integer tcpEstablishedTimeout() {
-        if (tcpEstablishedTimeout == null) return null;
-        return tcpEstablishedTimeout.getValue("LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs.tcpEstablishedTimeout");
+        if (!unknown_tcpEstablishedTimeout) return value_tcpEstablishedTimeout;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs.tcpEstablishedTimeout' is not present");
     }
 
     /**
      * Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
      * 
      */
-    private UndeferrableValue<Integer> udpStreamTimeout;
-
+    @PolicyResourceProperty(name="udpStreamTimeout", flag="unknown_udpStreamTimeout")
+    private Integer value_udpStreamTimeout;
+    private boolean unknown_udpStreamTimeout;
     public Integer udpStreamTimeout() {
-        if (udpStreamTimeout == null) return null;
-        return udpStreamTimeout.getValue("LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs.udpStreamTimeout");
+        if (!unknown_udpStreamTimeout) return value_udpStreamTimeout;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs.udpStreamTimeout' is not present");
     }
 
     /**
      * Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
      * 
      */
-    private UndeferrableValue<Integer> udpTimeout;
-
+    @PolicyResourceProperty(name="udpTimeout", flag="unknown_udpTimeout")
+    private Integer value_udpTimeout;
+    private boolean unknown_udpTimeout;
     public Integer udpTimeout() {
-        if (udpTimeout == null) return null;
-        return udpTimeout.getValue("LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs.udpTimeout");
+        if (!unknown_udpTimeout) return value_udpTimeout;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs.udpTimeout' is not present");
     }
 
 }

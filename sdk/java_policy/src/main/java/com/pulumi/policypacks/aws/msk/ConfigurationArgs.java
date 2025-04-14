@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,44 +18,48 @@ public final class ConfigurationArgs extends com.pulumi.resources.PolicyResource
      * Description of the configuration.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ConfigurationArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ConfigurationArgs.description' is not present");
     }
 
     /**
      * List of Apache Kafka versions which can use this configuration.
      * 
      */
-    private UndeferrableValue<List<String>> kafkaVersions;
-
+    @PolicyResourceProperty(name="kafkaVersions", flag="unknown_kafkaVersions")
+    private List<String> value_kafkaVersions;
+    private boolean unknown_kafkaVersions;
     public List<String> kafkaVersions() {
-        if (kafkaVersions == null) return null;
-        return kafkaVersions.getValue("ConfigurationArgs.kafkaVersions");
+        if (!unknown_kafkaVersions) return value_kafkaVersions;
+        throw new UndeferrableValueException("Value 'ConfigurationArgs.kafkaVersions' is not present");
     }
 
     /**
      * Name of the configuration.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ConfigurationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ConfigurationArgs.name' is not present");
     }
 
     /**
      * Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
      * 
      */
-    private UndeferrableValue<String> serverProperties;
-
+    @PolicyResourceProperty(name="serverProperties", flag="unknown_serverProperties")
+    private String value_serverProperties;
+    private boolean unknown_serverProperties;
     public String serverProperties() {
-        if (serverProperties == null) return null;
-        return serverProperties.getValue("ConfigurationArgs.serverProperties");
+        if (!unknown_serverProperties) return value_serverProperties;
+        throw new UndeferrableValueException("Value 'ConfigurationArgs.serverProperties' is not present");
     }
 
 }

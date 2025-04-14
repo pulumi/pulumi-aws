@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.inspector;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.inspector.inputs.AssessmentTemplateEventSubscriptionArgs;
 import java.lang.Integer;
@@ -20,66 +21,72 @@ public final class AssessmentTemplateArgs extends com.pulumi.resources.PolicyRes
      * The duration of the inspector run.
      * 
      */
-    private UndeferrableValue<Integer> duration;
-
+    @PolicyResourceProperty(name="duration", flag="unknown_duration")
+    private Integer value_duration;
+    private boolean unknown_duration;
     public Integer duration() {
-        if (duration == null) return null;
-        return duration.getValue("AssessmentTemplateArgs.duration");
+        if (!unknown_duration) return value_duration;
+        throw new UndeferrableValueException("Value 'AssessmentTemplateArgs.duration' is not present");
     }
 
     /**
      * A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
      * 
      */
-    private UndeferrableValue<List<AssessmentTemplateEventSubscriptionArgs>> eventSubscriptions;
-
+    @PolicyResourceProperty(name="eventSubscriptions", flag="unknown_eventSubscriptions")
+    private List<AssessmentTemplateEventSubscriptionArgs> value_eventSubscriptions;
+    private boolean unknown_eventSubscriptions;
     public List<AssessmentTemplateEventSubscriptionArgs> eventSubscriptions() {
-        if (eventSubscriptions == null) return null;
-        return eventSubscriptions.getValue("AssessmentTemplateArgs.eventSubscriptions");
+        if (!unknown_eventSubscriptions) return value_eventSubscriptions;
+        throw new UndeferrableValueException("Value 'AssessmentTemplateArgs.eventSubscriptions' is not present");
     }
 
     /**
      * The name of the assessment template.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AssessmentTemplateArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AssessmentTemplateArgs.name' is not present");
     }
 
     /**
      * The rules to be used during the run.
      * 
      */
-    private UndeferrableValue<List<String>> rulesPackageArns;
-
+    @PolicyResourceProperty(name="rulesPackageArns", flag="unknown_rulesPackageArns")
+    private List<String> value_rulesPackageArns;
+    private boolean unknown_rulesPackageArns;
     public List<String> rulesPackageArns() {
-        if (rulesPackageArns == null) return null;
-        return rulesPackageArns.getValue("AssessmentTemplateArgs.rulesPackageArns");
+        if (!unknown_rulesPackageArns) return value_rulesPackageArns;
+        throw new UndeferrableValueException("Value 'AssessmentTemplateArgs.rulesPackageArns' is not present");
     }
 
     /**
      * Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AssessmentTemplateArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AssessmentTemplateArgs.tags' is not present");
     }
 
     /**
      * The assessment target ARN to attach the template to.
      * 
      */
-    private UndeferrableValue<String> targetArn;
-
+    @PolicyResourceProperty(name="targetArn", flag="unknown_targetArn")
+    private String value_targetArn;
+    private boolean unknown_targetArn;
     public String targetArn() {
-        if (targetArn == null) return null;
-        return targetArn.getValue("AssessmentTemplateArgs.targetArn");
+        if (!unknown_targetArn) return value_targetArn;
+        throw new UndeferrableValueException("Value 'AssessmentTemplateArgs.targetArn' is not present");
     }
 
 }

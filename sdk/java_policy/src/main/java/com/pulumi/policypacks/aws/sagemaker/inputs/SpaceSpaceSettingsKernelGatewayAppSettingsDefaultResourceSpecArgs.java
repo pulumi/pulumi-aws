@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,55 +15,60 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec
      * The instance type.
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs.instanceType' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
      * 
      */
-    private UndeferrableValue<String> lifecycleConfigArn;
-
+    @PolicyResourceProperty(name="lifecycleConfigArn", flag="unknown_lifecycleConfigArn")
+    private String value_lifecycleConfigArn;
+    private boolean unknown_lifecycleConfigArn;
     public String lifecycleConfigArn() {
-        if (lifecycleConfigArn == null) return null;
-        return lifecycleConfigArn.getValue("SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs.lifecycleConfigArn");
+        if (!unknown_lifecycleConfigArn) return value_lifecycleConfigArn;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs.lifecycleConfigArn' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
      * 
      */
-    private UndeferrableValue<String> sagemakerImageArn;
-
+    @PolicyResourceProperty(name="sagemakerImageArn", flag="unknown_sagemakerImageArn")
+    private String value_sagemakerImageArn;
+    private boolean unknown_sagemakerImageArn;
     public String sagemakerImageArn() {
-        if (sagemakerImageArn == null) return null;
-        return sagemakerImageArn.getValue("SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs.sagemakerImageArn");
+        if (!unknown_sagemakerImageArn) return value_sagemakerImageArn;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs.sagemakerImageArn' is not present");
     }
 
     /**
      * The SageMaker AI Image Version Alias.
      * 
      */
-    private UndeferrableValue<String> sagemakerImageVersionAlias;
-
+    @PolicyResourceProperty(name="sagemakerImageVersionAlias", flag="unknown_sagemakerImageVersionAlias")
+    private String value_sagemakerImageVersionAlias;
+    private boolean unknown_sagemakerImageVersionAlias;
     public String sagemakerImageVersionAlias() {
-        if (sagemakerImageVersionAlias == null) return null;
-        return sagemakerImageVersionAlias.getValue("SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs.sagemakerImageVersionAlias");
+        if (!unknown_sagemakerImageVersionAlias) return value_sagemakerImageVersionAlias;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs.sagemakerImageVersionAlias' is not present");
     }
 
     /**
      * The ARN of the image version created on the instance.
      * 
      */
-    private UndeferrableValue<String> sagemakerImageVersionArn;
-
+    @PolicyResourceProperty(name="sagemakerImageVersionArn", flag="unknown_sagemakerImageVersionArn")
+    private String value_sagemakerImageVersionArn;
+    private boolean unknown_sagemakerImageVersionArn;
     public String sagemakerImageVersionArn() {
-        if (sagemakerImageVersionArn == null) return null;
-        return sagemakerImageVersionArn.getValue("SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs.sagemakerImageVersionArn");
+        if (!unknown_sagemakerImageVersionArn) return value_sagemakerImageVersionArn;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs.sagemakerImageVersionArn' is not present");
     }
 
 }

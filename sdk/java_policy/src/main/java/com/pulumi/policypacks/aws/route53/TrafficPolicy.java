@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class TrafficPolicy extends com.pulumi.resources.PolicyResourceOutp
      * Amazon Resource Name (ARN) of the traffic policy.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("TrafficPolicy.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'TrafficPolicy.arn' is not present");
     }
 
     /**
      * Comment for the traffic policy.
      * 
      */
-    private @Nullable UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private @Nullable String value_comment;
+    private boolean unknown_comment;
     public @Nullable String comment() {
-        if (comment == null) return null;
-        return comment.getValue("TrafficPolicy.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'TrafficPolicy.comment' is not present");
     }
 
     /**
@@ -41,44 +44,48 @@ public final class TrafficPolicy extends com.pulumi.resources.PolicyResourceOutp
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> document;
-
+    @PolicyResourceProperty(name="document", flag="unknown_document")
+    private String value_document;
+    private boolean unknown_document;
     public String document() {
-        if (document == null) return null;
-        return document.getValue("TrafficPolicy.document");
+        if (!unknown_document) return value_document;
+        throw new UndeferrableValueException("Value 'TrafficPolicy.document' is not present");
     }
 
     /**
      * Name of the traffic policy.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TrafficPolicy.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TrafficPolicy.name' is not present");
     }
 
     /**
      * DNS type of the resource record sets that Amazon Route 53 creates when you use a traffic policy to create a traffic policy instance.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("TrafficPolicy.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'TrafficPolicy.type' is not present");
     }
 
     /**
      * Version number of the traffic policy. This value is automatically incremented by AWS after each update of this resource.
      * 
      */
-    private UndeferrableValue<Integer> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private Integer value_version;
+    private boolean unknown_version;
     public Integer version() {
-        if (version == null) return null;
-        return version.getValue("TrafficPolicy.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'TrafficPolicy.version' is not present");
     }
 
 }

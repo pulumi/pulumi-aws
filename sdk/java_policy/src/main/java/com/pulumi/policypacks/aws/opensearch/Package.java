@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.opensearch.outputs.PackagePackageSource;
 import java.lang.String;
@@ -17,62 +18,68 @@ public final class Package extends com.pulumi.resources.PolicyResourceOutput {
      * The current version of the package.
      * 
      */
-    private UndeferrableValue<String> availablePackageVersion;
-
+    @PolicyResourceProperty(name="availablePackageVersion", flag="unknown_availablePackageVersion")
+    private String value_availablePackageVersion;
+    private boolean unknown_availablePackageVersion;
     public String availablePackageVersion() {
-        if (availablePackageVersion == null) return null;
-        return availablePackageVersion.getValue("Package.availablePackageVersion");
+        if (!unknown_availablePackageVersion) return value_availablePackageVersion;
+        throw new UndeferrableValueException("Value 'Package.availablePackageVersion' is not present");
     }
 
     /**
      * Description of the package.
      * 
      */
-    private @Nullable UndeferrableValue<String> packageDescription;
-
+    @PolicyResourceProperty(name="packageDescription", flag="unknown_packageDescription")
+    private @Nullable String value_packageDescription;
+    private boolean unknown_packageDescription;
     public @Nullable String packageDescription() {
-        if (packageDescription == null) return null;
-        return packageDescription.getValue("Package.packageDescription");
+        if (!unknown_packageDescription) return value_packageDescription;
+        throw new UndeferrableValueException("Value 'Package.packageDescription' is not present");
     }
 
-    private UndeferrableValue<String> packageId;
-
+    @PolicyResourceProperty(name="packageId", flag="unknown_packageId")
+    private String value_packageId;
+    private boolean unknown_packageId;
     public String packageId() {
-        if (packageId == null) return null;
-        return packageId.getValue("Package.packageId");
+        if (!unknown_packageId) return value_packageId;
+        throw new UndeferrableValueException("Value 'Package.packageId' is not present");
     }
 
     /**
      * Unique name for the package.
      * 
      */
-    private UndeferrableValue<String> packageName;
-
+    @PolicyResourceProperty(name="packageName", flag="unknown_packageName")
+    private String value_packageName;
+    private boolean unknown_packageName;
     public String packageName() {
-        if (packageName == null) return null;
-        return packageName.getValue("Package.packageName");
+        if (!unknown_packageName) return value_packageName;
+        throw new UndeferrableValueException("Value 'Package.packageName' is not present");
     }
 
     /**
      * Configuration block for the package source options.
      * 
      */
-    private UndeferrableValue<PackagePackageSource> packageSource;
-
+    @PolicyResourceProperty(name="packageSource", flag="unknown_packageSource")
+    private PackagePackageSource value_packageSource;
+    private boolean unknown_packageSource;
     public PackagePackageSource packageSource() {
-        if (packageSource == null) return null;
-        return packageSource.getValue("Package.packageSource");
+        if (!unknown_packageSource) return value_packageSource;
+        throw new UndeferrableValueException("Value 'Package.packageSource' is not present");
     }
 
     /**
      * The type of package.
      * 
      */
-    private UndeferrableValue<String> packageType;
-
+    @PolicyResourceProperty(name="packageType", flag="unknown_packageType")
+    private String value_packageType;
+    private boolean unknown_packageType;
     public String packageType() {
-        if (packageType == null) return null;
-        return packageType.getValue("Package.packageType");
+        if (!unknown_packageType) return value_packageType;
+        throw new UndeferrableValueException("Value 'Package.packageType' is not present");
     }
 
 }

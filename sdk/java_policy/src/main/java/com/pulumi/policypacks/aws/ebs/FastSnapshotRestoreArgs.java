@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ebs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ebs.inputs.FastSnapshotRestoreTimeoutsArgs;
 import java.lang.String;
@@ -17,29 +18,32 @@ public final class FastSnapshotRestoreArgs extends com.pulumi.resources.PolicyRe
      * Availability zone in which to enable fast snapshot restores.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("FastSnapshotRestoreArgs.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'FastSnapshotRestoreArgs.availabilityZone' is not present");
     }
 
     /**
      * ID of the snapshot.
      * 
      */
-    private UndeferrableValue<String> snapshotId;
-
+    @PolicyResourceProperty(name="snapshotId", flag="unknown_snapshotId")
+    private String value_snapshotId;
+    private boolean unknown_snapshotId;
     public String snapshotId() {
-        if (snapshotId == null) return null;
-        return snapshotId.getValue("FastSnapshotRestoreArgs.snapshotId");
+        if (!unknown_snapshotId) return value_snapshotId;
+        throw new UndeferrableValueException("Value 'FastSnapshotRestoreArgs.snapshotId' is not present");
     }
 
-    private UndeferrableValue<FastSnapshotRestoreTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private FastSnapshotRestoreTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public FastSnapshotRestoreTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("FastSnapshotRestoreArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'FastSnapshotRestoreArgs.timeouts' is not present");
     }
 
 }

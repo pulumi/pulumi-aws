@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ApplicationEnvironment {
      * Variable name.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("ApplicationEnvironment.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'ApplicationEnvironment.key' is not present");
     }
 
     /**
      * Set visibility of the variable value to `true` or `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> secure;
-
+    @PolicyResourceProperty(name="secure", flag="unknown_secure")
+    private @Nullable Boolean value_secure;
+    private boolean unknown_secure;
     public @Nullable Boolean secure() {
-        if (secure == null) return null;
-        return secure.getValue("ApplicationEnvironment.secure");
+        if (!unknown_secure) return value_secure;
+        throw new UndeferrableValueException("Value 'ApplicationEnvironment.secure' is not present");
     }
 
     /**
      * Variable value.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("ApplicationEnvironment.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'ApplicationEnvironment.value' is not present");
     }
 
 }

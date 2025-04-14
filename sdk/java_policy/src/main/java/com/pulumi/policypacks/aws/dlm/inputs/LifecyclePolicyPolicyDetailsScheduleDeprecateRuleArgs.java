@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dlm.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,25 +12,28 @@ import javax.annotation.Nullable;
 
 public final class LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs {
 
-    private UndeferrableValue<Integer> count;
-
+    @PolicyResourceProperty(name="count", flag="unknown_count")
+    private Integer value_count;
+    private boolean unknown_count;
     public Integer count() {
-        if (count == null) return null;
-        return count.getValue("LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs.count");
+        if (!unknown_count) return value_count;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs.count' is not present");
     }
 
-    private UndeferrableValue<Integer> interval;
-
+    @PolicyResourceProperty(name="interval", flag="unknown_interval")
+    private Integer value_interval;
+    private boolean unknown_interval;
     public Integer interval() {
-        if (interval == null) return null;
-        return interval.getValue("LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs.interval");
+        if (!unknown_interval) return value_interval;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs.interval' is not present");
     }
 
-    private UndeferrableValue<String> intervalUnit;
-
+    @PolicyResourceProperty(name="intervalUnit", flag="unknown_intervalUnit")
+    private String value_intervalUnit;
+    private boolean unknown_intervalUnit;
     public String intervalUnit() {
-        if (intervalUnit == null) return null;
-        return intervalUnit.getValue("LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs.intervalUnit");
+        if (!unknown_intervalUnit) return value_intervalUnit;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs.intervalUnit' is not present");
     }
 
 }

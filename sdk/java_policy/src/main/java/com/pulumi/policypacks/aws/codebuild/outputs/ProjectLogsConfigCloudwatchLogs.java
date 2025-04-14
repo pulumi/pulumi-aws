@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ProjectLogsConfigCloudwatchLogs {
      * Group name of the logs in CloudWatch Logs.
      * 
      */
-    private @Nullable UndeferrableValue<String> groupName;
-
+    @PolicyResourceProperty(name="groupName", flag="unknown_groupName")
+    private @Nullable String value_groupName;
+    private boolean unknown_groupName;
     public @Nullable String groupName() {
-        if (groupName == null) return null;
-        return groupName.getValue("ProjectLogsConfigCloudwatchLogs.groupName");
+        if (!unknown_groupName) return value_groupName;
+        throw new UndeferrableValueException("Value 'ProjectLogsConfigCloudwatchLogs.groupName' is not present");
     }
 
     /**
@@ -26,22 +28,24 @@ public final class ProjectLogsConfigCloudwatchLogs {
      * `DISABLED`. Defaults to `ENABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private @Nullable String value_status;
+    private boolean unknown_status;
     public @Nullable String status() {
-        if (status == null) return null;
-        return status.getValue("ProjectLogsConfigCloudwatchLogs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'ProjectLogsConfigCloudwatchLogs.status' is not present");
     }
 
     /**
      * Prefix of the log stream name of the logs in CloudWatch Logs.
      * 
      */
-    private @Nullable UndeferrableValue<String> streamName;
-
+    @PolicyResourceProperty(name="streamName", flag="unknown_streamName")
+    private @Nullable String value_streamName;
+    private boolean unknown_streamName;
     public @Nullable String streamName() {
-        if (streamName == null) return null;
-        return streamName.getValue("ProjectLogsConfigCloudwatchLogs.streamName");
+        if (!unknown_streamName) return value_streamName;
+        throw new UndeferrableValueException("Value 'ProjectLogsConfigCloudwatchLogs.streamName' is not present");
     }
 
 }

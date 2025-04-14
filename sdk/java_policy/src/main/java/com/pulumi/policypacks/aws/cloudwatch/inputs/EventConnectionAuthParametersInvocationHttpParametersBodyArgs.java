@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class EventConnectionAuthParametersInvocationHttpParametersBodyArgs
      * Specified whether the value is secret.
      * 
      */
-    private UndeferrableValue<Boolean> isValueSecret;
-
+    @PolicyResourceProperty(name="isValueSecret", flag="unknown_isValueSecret")
+    private Boolean value_isValueSecret;
+    private boolean unknown_isValueSecret;
     public Boolean isValueSecret() {
-        if (isValueSecret == null) return null;
-        return isValueSecret.getValue("EventConnectionAuthParametersInvocationHttpParametersBodyArgs.isValueSecret");
+        if (!unknown_isValueSecret) return value_isValueSecret;
+        throw new UndeferrableValueException("Value 'EventConnectionAuthParametersInvocationHttpParametersBodyArgs.isValueSecret' is not present");
     }
 
     /**
      * The key for the parameter.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("EventConnectionAuthParametersInvocationHttpParametersBodyArgs.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'EventConnectionAuthParametersInvocationHttpParametersBodyArgs.key' is not present");
     }
 
     /**
      * The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("EventConnectionAuthParametersInvocationHttpParametersBodyArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'EventConnectionAuthParametersInvocationHttpParametersBodyArgs.value' is not present");
     }
 
 }

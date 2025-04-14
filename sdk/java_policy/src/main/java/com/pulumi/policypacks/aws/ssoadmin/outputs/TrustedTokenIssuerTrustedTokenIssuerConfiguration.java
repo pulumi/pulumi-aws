@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssoadmin.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ssoadmin.outputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class TrustedTokenIssuerTrustedTokenIssuerConfiguration {
      * A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
      * 
      */
-    private @Nullable UndeferrableValue<TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration> oidcJwtConfiguration;
-
+    @PolicyResourceProperty(name="oidcJwtConfiguration", flag="unknown_oidcJwtConfiguration")
+    private @Nullable TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration value_oidcJwtConfiguration;
+    private boolean unknown_oidcJwtConfiguration;
     public @Nullable TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration oidcJwtConfiguration() {
-        if (oidcJwtConfiguration == null) return null;
-        return oidcJwtConfiguration.getValue("TrustedTokenIssuerTrustedTokenIssuerConfiguration.oidcJwtConfiguration");
+        if (!unknown_oidcJwtConfiguration) return value_oidcJwtConfiguration;
+        throw new UndeferrableValueException("Value 'TrustedTokenIssuerTrustedTokenIssuerConfiguration.oidcJwtConfiguration' is not present");
     }
 
 }

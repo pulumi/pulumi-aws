@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs;
 
 
@@ -13,11 +14,12 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
      * 
      */
-    private UndeferrableValue<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs> inputLambdaProcessor;
-
+    @PolicyResourceProperty(name="inputLambdaProcessor", flag="unknown_inputLambdaProcessor")
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs value_inputLambdaProcessor;
+    private boolean unknown_inputLambdaProcessor;
     public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs inputLambdaProcessor() {
-        if (inputLambdaProcessor == null) return null;
-        return inputLambdaProcessor.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs.inputLambdaProcessor");
+        if (!unknown_inputLambdaProcessor) return value_inputLambdaProcessor;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs.inputLambdaProcessor' is not present");
     }
 
 }

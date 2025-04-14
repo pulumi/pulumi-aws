@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,11 +19,12 @@ public final class EipAssociationArgs extends com.pulumi.resources.PolicyResourc
      * This argument is required despite being optional at the resource level due to legacy support for EC2-Classic networking.
      * 
      */
-    private UndeferrableValue<String> allocationId;
-
+    @PolicyResourceProperty(name="allocationId", flag="unknown_allocationId")
+    private String value_allocationId;
+    private boolean unknown_allocationId;
     public String allocationId() {
-        if (allocationId == null) return null;
-        return allocationId.getValue("EipAssociationArgs.allocationId");
+        if (!unknown_allocationId) return value_allocationId;
+        throw new UndeferrableValueException("Value 'EipAssociationArgs.allocationId' is not present");
     }
 
     /**
@@ -30,11 +32,12 @@ public final class EipAssociationArgs extends com.pulumi.resources.PolicyResourc
      * Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> allowReassociation;
-
+    @PolicyResourceProperty(name="allowReassociation", flag="unknown_allowReassociation")
+    private Boolean value_allowReassociation;
+    private boolean unknown_allowReassociation;
     public Boolean allowReassociation() {
-        if (allowReassociation == null) return null;
-        return allowReassociation.getValue("EipAssociationArgs.allowReassociation");
+        if (!unknown_allowReassociation) return value_allowReassociation;
+        throw new UndeferrableValueException("Value 'EipAssociationArgs.allowReassociation' is not present");
     }
 
     /**
@@ -43,11 +46,12 @@ public final class EipAssociationArgs extends com.pulumi.resources.PolicyResourc
      * You can specify either the instance ID or the network interface ID, but not both.
      * 
      */
-    private UndeferrableValue<String> instanceId;
-
+    @PolicyResourceProperty(name="instanceId", flag="unknown_instanceId")
+    private String value_instanceId;
+    private boolean unknown_instanceId;
     public String instanceId() {
-        if (instanceId == null) return null;
-        return instanceId.getValue("EipAssociationArgs.instanceId");
+        if (!unknown_instanceId) return value_instanceId;
+        throw new UndeferrableValueException("Value 'EipAssociationArgs.instanceId' is not present");
     }
 
     /**
@@ -56,11 +60,12 @@ public final class EipAssociationArgs extends com.pulumi.resources.PolicyResourc
      * You can specify either the instance ID or the network interface ID, but not both.
      * 
      */
-    private UndeferrableValue<String> networkInterfaceId;
-
+    @PolicyResourceProperty(name="networkInterfaceId", flag="unknown_networkInterfaceId")
+    private String value_networkInterfaceId;
+    private boolean unknown_networkInterfaceId;
     public String networkInterfaceId() {
-        if (networkInterfaceId == null) return null;
-        return networkInterfaceId.getValue("EipAssociationArgs.networkInterfaceId");
+        if (!unknown_networkInterfaceId) return value_networkInterfaceId;
+        throw new UndeferrableValueException("Value 'EipAssociationArgs.networkInterfaceId' is not present");
     }
 
     /**
@@ -68,22 +73,24 @@ public final class EipAssociationArgs extends com.pulumi.resources.PolicyResourc
      * If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
      * 
      */
-    private UndeferrableValue<String> privateIpAddress;
-
+    @PolicyResourceProperty(name="privateIpAddress", flag="unknown_privateIpAddress")
+    private String value_privateIpAddress;
+    private boolean unknown_privateIpAddress;
     public String privateIpAddress() {
-        if (privateIpAddress == null) return null;
-        return privateIpAddress.getValue("EipAssociationArgs.privateIpAddress");
+        if (!unknown_privateIpAddress) return value_privateIpAddress;
+        throw new UndeferrableValueException("Value 'EipAssociationArgs.privateIpAddress' is not present");
     }
 
     /**
      * ) Address of the associated Elastic IP.
      * 
      */
-    private UndeferrableValue<String> publicIp;
-
+    @PolicyResourceProperty(name="publicIp", flag="unknown_publicIp")
+    private String value_publicIp;
+    private boolean unknown_publicIp;
     public String publicIp() {
-        if (publicIp == null) return null;
-        return publicIp.getValue("EipAssociationArgs.publicIp");
+        if (!unknown_publicIp) return value_publicIp;
+        throw new UndeferrableValueException("Value 'EipAssociationArgs.publicIp' is not present");
     }
 
 }

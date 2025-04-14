@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appsync.outputs.GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig;
 import com.pulumi.policypacks.aws.appsync.outputs.GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig;
 import com.pulumi.policypacks.aws.appsync.outputs.GraphQLApiAdditionalAuthenticationProviderUserPoolConfig;
@@ -17,44 +18,48 @@ public final class GraphQLApiAdditionalAuthenticationProvider {
      * Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
      * 
      */
-    private UndeferrableValue<String> authenticationType;
-
+    @PolicyResourceProperty(name="authenticationType", flag="unknown_authenticationType")
+    private String value_authenticationType;
+    private boolean unknown_authenticationType;
     public String authenticationType() {
-        if (authenticationType == null) return null;
-        return authenticationType.getValue("GraphQLApiAdditionalAuthenticationProvider.authenticationType");
+        if (!unknown_authenticationType) return value_authenticationType;
+        throw new UndeferrableValueException("Value 'GraphQLApiAdditionalAuthenticationProvider.authenticationType' is not present");
     }
 
     /**
      * Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig> lambdaAuthorizerConfig;
-
+    @PolicyResourceProperty(name="lambdaAuthorizerConfig", flag="unknown_lambdaAuthorizerConfig")
+    private @Nullable GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig value_lambdaAuthorizerConfig;
+    private boolean unknown_lambdaAuthorizerConfig;
     public @Nullable GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig lambdaAuthorizerConfig() {
-        if (lambdaAuthorizerConfig == null) return null;
-        return lambdaAuthorizerConfig.getValue("GraphQLApiAdditionalAuthenticationProvider.lambdaAuthorizerConfig");
+        if (!unknown_lambdaAuthorizerConfig) return value_lambdaAuthorizerConfig;
+        throw new UndeferrableValueException("Value 'GraphQLApiAdditionalAuthenticationProvider.lambdaAuthorizerConfig' is not present");
     }
 
     /**
      * Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig> openidConnectConfig;
-
+    @PolicyResourceProperty(name="openidConnectConfig", flag="unknown_openidConnectConfig")
+    private @Nullable GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig value_openidConnectConfig;
+    private boolean unknown_openidConnectConfig;
     public @Nullable GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig openidConnectConfig() {
-        if (openidConnectConfig == null) return null;
-        return openidConnectConfig.getValue("GraphQLApiAdditionalAuthenticationProvider.openidConnectConfig");
+        if (!unknown_openidConnectConfig) return value_openidConnectConfig;
+        throw new UndeferrableValueException("Value 'GraphQLApiAdditionalAuthenticationProvider.openidConnectConfig' is not present");
     }
 
     /**
      * Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<GraphQLApiAdditionalAuthenticationProviderUserPoolConfig> userPoolConfig;
-
+    @PolicyResourceProperty(name="userPoolConfig", flag="unknown_userPoolConfig")
+    private @Nullable GraphQLApiAdditionalAuthenticationProviderUserPoolConfig value_userPoolConfig;
+    private boolean unknown_userPoolConfig;
     public @Nullable GraphQLApiAdditionalAuthenticationProviderUserPoolConfig userPoolConfig() {
-        if (userPoolConfig == null) return null;
-        return userPoolConfig.getValue("GraphQLApiAdditionalAuthenticationProvider.userPoolConfig");
+        if (!unknown_userPoolConfig) return value_userPoolConfig;
+        throw new UndeferrableValueException("Value 'GraphQLApiAdditionalAuthenticationProvider.userPoolConfig' is not present");
     }
 
 }

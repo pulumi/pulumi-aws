@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,65 +15,72 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      * The name of the account.
      * 
      */
-    private @Nullable UndeferrableValue<String> accountName;
-
+    @PolicyResourceProperty(name="accountName", flag="unknown_accountName")
+    private @Nullable String value_accountName;
+    private boolean unknown_accountName;
     public @Nullable String accountName() {
-        if (accountName == null) return null;
-        return accountName.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake.accountName");
+        if (!unknown_accountName) return value_accountName;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake.accountName' is not present");
     }
 
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake.bucketName' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> bucketPrefix;
-
+    @PolicyResourceProperty(name="bucketPrefix", flag="unknown_bucketPrefix")
+    private @Nullable String value_bucketPrefix;
+    private boolean unknown_bucketPrefix;
     public @Nullable String bucketPrefix() {
-        if (bucketPrefix == null) return null;
-        return bucketPrefix.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake.bucketPrefix");
+        if (!unknown_bucketPrefix) return value_bucketPrefix;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake.bucketPrefix' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> privateLinkServiceName;
-
+    @PolicyResourceProperty(name="privateLinkServiceName", flag="unknown_privateLinkServiceName")
+    private @Nullable String value_privateLinkServiceName;
+    private boolean unknown_privateLinkServiceName;
     public @Nullable String privateLinkServiceName() {
-        if (privateLinkServiceName == null) return null;
-        return privateLinkServiceName.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake.privateLinkServiceName");
+        if (!unknown_privateLinkServiceName) return value_privateLinkServiceName;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake.privateLinkServiceName' is not present");
     }
 
     /**
      * AWS Region of the Snowflake account.
      * 
      */
-    private @Nullable UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private @Nullable String value_region;
+    private boolean unknown_region;
     public @Nullable String region() {
-        if (region == null) return null;
-        return region.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake.region' is not present");
     }
 
     /**
      * Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `&lt;Database&gt;.&lt;Schema&gt;.&lt;Stage Name&gt;`.
      * 
      */
-    private UndeferrableValue<String> stage;
-
+    @PolicyResourceProperty(name="stage", flag="unknown_stage")
+    private String value_stage;
+    private boolean unknown_stage;
     public String stage() {
-        if (stage == null) return null;
-        return stage.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake.stage");
+        if (!unknown_stage) return value_stage;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake.stage' is not present");
     }
 
     /**
      * The name of the Snowflake warehouse.
      * 
      */
-    private UndeferrableValue<String> warehouse;
-
+    @PolicyResourceProperty(name="warehouse", flag="unknown_warehouse")
+    private String value_warehouse;
+    private boolean unknown_warehouse;
     public String warehouse() {
-        if (warehouse == null) return null;
-        return warehouse.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake.warehouse");
+        if (!unknown_warehouse) return value_warehouse;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake.warehouse' is not present");
     }
 
 }

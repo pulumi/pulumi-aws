@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.evidently.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class FeatureVariationValueArgs {
      * If this feature uses the Boolean variation type, this field contains the Boolean value of this variation.
      * 
      */
-    private UndeferrableValue<String> boolValue;
-
+    @PolicyResourceProperty(name="boolValue", flag="unknown_boolValue")
+    private String value_boolValue;
+    private boolean unknown_boolValue;
     public String boolValue() {
-        if (boolValue == null) return null;
-        return boolValue.getValue("FeatureVariationValueArgs.boolValue");
+        if (!unknown_boolValue) return value_boolValue;
+        throw new UndeferrableValueException("Value 'FeatureVariationValueArgs.boolValue' is not present");
     }
 
     /**
      * If this feature uses the double integer variation type, this field contains the double integer value of this variation.
      * 
      */
-    private UndeferrableValue<String> doubleValue;
-
+    @PolicyResourceProperty(name="doubleValue", flag="unknown_doubleValue")
+    private String value_doubleValue;
+    private boolean unknown_doubleValue;
     public String doubleValue() {
-        if (doubleValue == null) return null;
-        return doubleValue.getValue("FeatureVariationValueArgs.doubleValue");
+        if (!unknown_doubleValue) return value_doubleValue;
+        throw new UndeferrableValueException("Value 'FeatureVariationValueArgs.doubleValue' is not present");
     }
 
     /**
      * If this feature uses the long variation type, this field contains the long value of this variation. Minimum value of `-9007199254740991`. Maximum value of `9007199254740991`.
      * 
      */
-    private UndeferrableValue<String> longValue;
-
+    @PolicyResourceProperty(name="longValue", flag="unknown_longValue")
+    private String value_longValue;
+    private boolean unknown_longValue;
     public String longValue() {
-        if (longValue == null) return null;
-        return longValue.getValue("FeatureVariationValueArgs.longValue");
+        if (!unknown_longValue) return value_longValue;
+        throw new UndeferrableValueException("Value 'FeatureVariationValueArgs.longValue' is not present");
     }
 
     /**
      * If this feature uses the string variation type, this field contains the string value of this variation. Minimum length of `0`. Maximum length of `512`.
      * 
      */
-    private UndeferrableValue<String> stringValue;
-
+    @PolicyResourceProperty(name="stringValue", flag="unknown_stringValue")
+    private String value_stringValue;
+    private boolean unknown_stringValue;
     public String stringValue() {
-        if (stringValue == null) return null;
-        return stringValue.getValue("FeatureVariationValueArgs.stringValue");
+        if (!unknown_stringValue) return value_stringValue;
+        throw new UndeferrableValueException("Value 'FeatureVariationValueArgs.stringValue' is not present");
     }
 
 }

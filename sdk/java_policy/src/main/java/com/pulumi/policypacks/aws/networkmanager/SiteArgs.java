@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.networkmanager.inputs.SiteLocationArgs;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class SiteArgs extends com.pulumi.resources.PolicyResourceInput {
      * Description of the Site.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("SiteArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'SiteArgs.description' is not present");
     }
 
     /**
      * The ID of the Global Network to create the site in.
      * 
      */
-    private UndeferrableValue<String> globalNetworkId;
-
+    @PolicyResourceProperty(name="globalNetworkId", flag="unknown_globalNetworkId")
+    private String value_globalNetworkId;
+    private boolean unknown_globalNetworkId;
     public String globalNetworkId() {
-        if (globalNetworkId == null) return null;
-        return globalNetworkId.getValue("SiteArgs.globalNetworkId");
+        if (!unknown_globalNetworkId) return value_globalNetworkId;
+        throw new UndeferrableValueException("Value 'SiteArgs.globalNetworkId' is not present");
     }
 
     /**
      * The site location as documented below.
      * 
      */
-    private UndeferrableValue<SiteLocationArgs> location;
-
+    @PolicyResourceProperty(name="location", flag="unknown_location")
+    private SiteLocationArgs value_location;
+    private boolean unknown_location;
     public SiteLocationArgs location() {
-        if (location == null) return null;
-        return location.getValue("SiteArgs.location");
+        if (!unknown_location) return value_location;
+        throw new UndeferrableValueException("Value 'SiteArgs.location' is not present");
     }
 
     /**
      * Key-value tags for the Site. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SiteArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SiteArgs.tags' is not present");
     }
 
 }

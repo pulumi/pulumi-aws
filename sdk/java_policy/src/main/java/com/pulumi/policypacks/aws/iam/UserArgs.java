@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -20,55 +21,60 @@ public final class UserArgs extends com.pulumi.resources.PolicyResourceInput {
      * a user with non-provider-managed access keys and login profile will fail to be destroyed.
      * 
      */
-    private UndeferrableValue<Boolean> forceDestroy;
-
+    @PolicyResourceProperty(name="forceDestroy", flag="unknown_forceDestroy")
+    private Boolean value_forceDestroy;
+    private boolean unknown_forceDestroy;
     public Boolean forceDestroy() {
-        if (forceDestroy == null) return null;
-        return forceDestroy.getValue("UserArgs.forceDestroy");
+        if (!unknown_forceDestroy) return value_forceDestroy;
+        throw new UndeferrableValueException("Value 'UserArgs.forceDestroy' is not present");
     }
 
     /**
      * The user&#39;s name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.{@literal @}-_.`. User names are not distinguished by case. For example, you cannot create users named both &#34;TESTUSER&#34; and &#34;testuser&#34;.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("UserArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'UserArgs.name' is not present");
     }
 
     /**
      * Path in which to create the user.
      * 
      */
-    private UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private String value_path;
+    private boolean unknown_path;
     public String path() {
-        if (path == null) return null;
-        return path.getValue("UserArgs.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'UserArgs.path' is not present");
     }
 
     /**
      * The ARN of the policy that is used to set the permissions boundary for the user.
      * 
      */
-    private UndeferrableValue<String> permissionsBoundary;
-
+    @PolicyResourceProperty(name="permissionsBoundary", flag="unknown_permissionsBoundary")
+    private String value_permissionsBoundary;
+    private boolean unknown_permissionsBoundary;
     public String permissionsBoundary() {
-        if (permissionsBoundary == null) return null;
-        return permissionsBoundary.getValue("UserArgs.permissionsBoundary");
+        if (!unknown_permissionsBoundary) return value_permissionsBoundary;
+        throw new UndeferrableValueException("Value 'UserArgs.permissionsBoundary' is not present");
     }
 
     /**
      * Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("UserArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'UserArgs.tags' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.eks.inputs.AccessPolicyAssociationAccessScopeArgs;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class AccessPolicyAssociationArgs extends com.pulumi.resources.Poli
      * The configuration block to determine the scope of the access. See `access_scope` Block below.
      * 
      */
-    private UndeferrableValue<AccessPolicyAssociationAccessScopeArgs> accessScope;
-
+    @PolicyResourceProperty(name="accessScope", flag="unknown_accessScope")
+    private AccessPolicyAssociationAccessScopeArgs value_accessScope;
+    private boolean unknown_accessScope;
     public AccessPolicyAssociationAccessScopeArgs accessScope() {
-        if (accessScope == null) return null;
-        return accessScope.getValue("AccessPolicyAssociationArgs.accessScope");
+        if (!unknown_accessScope) return value_accessScope;
+        throw new UndeferrableValueException("Value 'AccessPolicyAssociationArgs.accessScope' is not present");
     }
 
     /**
      * Name of the EKS Cluster.
      * 
      */
-    private UndeferrableValue<String> clusterName;
-
+    @PolicyResourceProperty(name="clusterName", flag="unknown_clusterName")
+    private String value_clusterName;
+    private boolean unknown_clusterName;
     public String clusterName() {
-        if (clusterName == null) return null;
-        return clusterName.getValue("AccessPolicyAssociationArgs.clusterName");
+        if (!unknown_clusterName) return value_clusterName;
+        throw new UndeferrableValueException("Value 'AccessPolicyAssociationArgs.clusterName' is not present");
     }
 
     /**
      * The ARN of the access policy that you&#39;re associating.
      * 
      */
-    private UndeferrableValue<String> policyArn;
-
+    @PolicyResourceProperty(name="policyArn", flag="unknown_policyArn")
+    private String value_policyArn;
+    private boolean unknown_policyArn;
     public String policyArn() {
-        if (policyArn == null) return null;
-        return policyArn.getValue("AccessPolicyAssociationArgs.policyArn");
+        if (!unknown_policyArn) return value_policyArn;
+        throw new UndeferrableValueException("Value 'AccessPolicyAssociationArgs.policyArn' is not present");
     }
 
     /**
      * The IAM Principal ARN which requires Authentication access to the EKS cluster.
      * 
      */
-    private UndeferrableValue<String> principalArn;
-
+    @PolicyResourceProperty(name="principalArn", flag="unknown_principalArn")
+    private String value_principalArn;
+    private boolean unknown_principalArn;
     public String principalArn() {
-        if (principalArn == null) return null;
-        return principalArn.getValue("AccessPolicyAssociationArgs.principalArn");
+        if (!unknown_principalArn) return value_principalArn;
+        throw new UndeferrableValueException("Value 'AccessPolicyAssociationArgs.principalArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafregional;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.wafregional.inputs.RulePredicateArgs;
 import java.lang.String;
@@ -19,44 +20,48 @@ public final class RuleArgs extends com.pulumi.resources.PolicyResourceInput {
      * The name or description for the Amazon CloudWatch metric of this rule.
      * 
      */
-    private UndeferrableValue<String> metricName;
-
+    @PolicyResourceProperty(name="metricName", flag="unknown_metricName")
+    private String value_metricName;
+    private boolean unknown_metricName;
     public String metricName() {
-        if (metricName == null) return null;
-        return metricName.getValue("RuleArgs.metricName");
+        if (!unknown_metricName) return value_metricName;
+        throw new UndeferrableValueException("Value 'RuleArgs.metricName' is not present");
     }
 
     /**
      * The name or description of the rule.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RuleArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RuleArgs.name' is not present");
     }
 
     /**
      * The objects to include in a rule (documented below).
      * 
      */
-    private UndeferrableValue<List<RulePredicateArgs>> predicates;
-
+    @PolicyResourceProperty(name="predicates", flag="unknown_predicates")
+    private List<RulePredicateArgs> value_predicates;
+    private boolean unknown_predicates;
     public List<RulePredicateArgs> predicates() {
-        if (predicates == null) return null;
-        return predicates.getValue("RuleArgs.predicates");
+        if (!unknown_predicates) return value_predicates;
+        throw new UndeferrableValueException("Value 'RuleArgs.predicates' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RuleArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RuleArgs.tags' is not present");
     }
 
 }

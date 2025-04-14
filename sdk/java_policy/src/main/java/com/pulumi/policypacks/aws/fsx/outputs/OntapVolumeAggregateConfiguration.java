@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class OntapVolumeAggregateConfiguration {
      * Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> aggregates;
-
+    @PolicyResourceProperty(name="aggregates", flag="unknown_aggregates")
+    private @Nullable List<String> value_aggregates;
+    private boolean unknown_aggregates;
     public @Nullable List<String> aggregates() {
-        if (aggregates == null) return null;
-        return aggregates.getValue("OntapVolumeAggregateConfiguration.aggregates");
+        if (!unknown_aggregates) return value_aggregates;
+        throw new UndeferrableValueException("Value 'OntapVolumeAggregateConfiguration.aggregates' is not present");
     }
 
     /**
      * Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> constituentsPerAggregate;
-
+    @PolicyResourceProperty(name="constituentsPerAggregate", flag="unknown_constituentsPerAggregate")
+    private @Nullable Integer value_constituentsPerAggregate;
+    private boolean unknown_constituentsPerAggregate;
     public @Nullable Integer constituentsPerAggregate() {
-        if (constituentsPerAggregate == null) return null;
-        return constituentsPerAggregate.getValue("OntapVolumeAggregateConfiguration.constituentsPerAggregate");
+        if (!unknown_constituentsPerAggregate) return value_constituentsPerAggregate;
+        throw new UndeferrableValueException("Value 'OntapVolumeAggregateConfiguration.constituentsPerAggregate' is not present");
     }
 
     /**
      * The total amount of constituents for a `FLEXGROUP` volume. This would equal constituents_per_aggregate x aggregates.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> totalConstituents;
-
+    @PolicyResourceProperty(name="totalConstituents", flag="unknown_totalConstituents")
+    private @Nullable Integer value_totalConstituents;
+    private boolean unknown_totalConstituents;
     public @Nullable Integer totalConstituents() {
-        if (totalConstituents == null) return null;
-        return totalConstituents.getValue("OntapVolumeAggregateConfiguration.totalConstituents");
+        if (!unknown_totalConstituents) return value_totalConstituents;
+        throw new UndeferrableValueException("Value 'OntapVolumeAggregateConfiguration.totalConstituents' is not present");
     }
 
 }

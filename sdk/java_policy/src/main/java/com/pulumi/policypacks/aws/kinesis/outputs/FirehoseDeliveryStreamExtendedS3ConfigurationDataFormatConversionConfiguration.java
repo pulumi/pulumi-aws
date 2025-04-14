@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration;
 import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration;
 import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration;
@@ -17,44 +18,48 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
      * Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration.enabled' is not present");
     }
 
     /**
      * Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. See `input_format_configuration` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration> inputFormatConfiguration;
-
+    @PolicyResourceProperty(name="inputFormatConfiguration", flag="unknown_inputFormatConfiguration")
+    private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration value_inputFormatConfiguration;
+    private boolean unknown_inputFormatConfiguration;
     public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration inputFormatConfiguration() {
-        if (inputFormatConfiguration == null) return null;
-        return inputFormatConfiguration.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration.inputFormatConfiguration");
+        if (!unknown_inputFormatConfiguration) return value_inputFormatConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration.inputFormatConfiguration' is not present");
     }
 
     /**
      * Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. See `output_format_configuration` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration> outputFormatConfiguration;
-
+    @PolicyResourceProperty(name="outputFormatConfiguration", flag="unknown_outputFormatConfiguration")
+    private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration value_outputFormatConfiguration;
+    private boolean unknown_outputFormatConfiguration;
     public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration outputFormatConfiguration() {
-        if (outputFormatConfiguration == null) return null;
-        return outputFormatConfiguration.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration.outputFormatConfiguration");
+        if (!unknown_outputFormatConfiguration) return value_outputFormatConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration.outputFormatConfiguration' is not present");
     }
 
     /**
      * Specifies the AWS Glue Data Catalog table that contains the column information. See `schema_configuration` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration> schemaConfiguration;
-
+    @PolicyResourceProperty(name="schemaConfiguration", flag="unknown_schemaConfiguration")
+    private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration value_schemaConfiguration;
+    private boolean unknown_schemaConfiguration;
     public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration schemaConfiguration() {
-        if (schemaConfiguration == null) return null;
-        return schemaConfiguration.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration.schemaConfiguration");
+        if (!unknown_schemaConfiguration) return value_schemaConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration.schemaConfiguration' is not present");
     }
 
 }

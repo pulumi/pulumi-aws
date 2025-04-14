@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securitylake.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class SubscriberSourceAwsLogSourceResource {
      * Provides data expiration details of Amazon Security Lake object.
      * 
      */
-    private UndeferrableValue<String> sourceName;
-
+    @PolicyResourceProperty(name="sourceName", flag="unknown_sourceName")
+    private String value_sourceName;
+    private boolean unknown_sourceName;
     public String sourceName() {
-        if (sourceName == null) return null;
-        return sourceName.getValue("SubscriberSourceAwsLogSourceResource.sourceName");
+        if (!unknown_sourceName) return value_sourceName;
+        throw new UndeferrableValueException("Value 'SubscriberSourceAwsLogSourceResource.sourceName' is not present");
     }
 
     /**
      * Provides data storage transition details of Amazon Security Lake object.
      * 
      */
-    private @Nullable UndeferrableValue<String> sourceVersion;
-
+    @PolicyResourceProperty(name="sourceVersion", flag="unknown_sourceVersion")
+    private @Nullable String value_sourceVersion;
+    private boolean unknown_sourceVersion;
     public @Nullable String sourceVersion() {
-        if (sourceVersion == null) return null;
-        return sourceVersion.getValue("SubscriberSourceAwsLogSourceResource.sourceVersion");
+        if (!unknown_sourceVersion) return value_sourceVersion;
+        throw new UndeferrableValueException("Value 'SubscriberSourceAwsLogSourceResource.sourceVersion' is not present");
     }
 
 }

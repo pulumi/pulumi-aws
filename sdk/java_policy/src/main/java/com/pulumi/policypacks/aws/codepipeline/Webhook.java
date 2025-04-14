@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.codepipeline.outputs.WebhookAuthenticationConfiguration;
 import com.pulumi.policypacks.aws.codepipeline.outputs.WebhookFilter;
@@ -20,66 +21,72 @@ public final class Webhook extends com.pulumi.resources.PolicyResourceOutput {
      * The CodePipeline webhook&#39;s ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Webhook.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Webhook.arn' is not present");
     }
 
     /**
      * The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
      * 
      */
-    private UndeferrableValue<String> authentication;
-
+    @PolicyResourceProperty(name="authentication", flag="unknown_authentication")
+    private String value_authentication;
+    private boolean unknown_authentication;
     public String authentication() {
-        if (authentication == null) return null;
-        return authentication.getValue("Webhook.authentication");
+        if (!unknown_authentication) return value_authentication;
+        throw new UndeferrableValueException("Value 'Webhook.authentication' is not present");
     }
 
     /**
      * An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
      * 
      */
-    private @Nullable UndeferrableValue<WebhookAuthenticationConfiguration> authenticationConfiguration;
-
+    @PolicyResourceProperty(name="authenticationConfiguration", flag="unknown_authenticationConfiguration")
+    private @Nullable WebhookAuthenticationConfiguration value_authenticationConfiguration;
+    private boolean unknown_authenticationConfiguration;
     public @Nullable WebhookAuthenticationConfiguration authenticationConfiguration() {
-        if (authenticationConfiguration == null) return null;
-        return authenticationConfiguration.getValue("Webhook.authenticationConfiguration");
+        if (!unknown_authenticationConfiguration) return value_authenticationConfiguration;
+        throw new UndeferrableValueException("Value 'Webhook.authenticationConfiguration' is not present");
     }
 
     /**
      * One or more `filter` blocks. Filter blocks are documented below.
      * 
      */
-    private UndeferrableValue<List<WebhookFilter>> filters;
-
+    @PolicyResourceProperty(name="filters", flag="unknown_filters")
+    private List<WebhookFilter> value_filters;
+    private boolean unknown_filters;
     public List<WebhookFilter> filters() {
-        if (filters == null) return null;
-        return filters.getValue("Webhook.filters");
+        if (!unknown_filters) return value_filters;
+        throw new UndeferrableValueException("Value 'Webhook.filters' is not present");
     }
 
     /**
      * The name of the webhook.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Webhook.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Webhook.name' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Webhook.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Webhook.tags' is not present");
     }
 
     /**
@@ -90,44 +97,48 @@ public final class Webhook extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Webhook.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Webhook.tagsAll' is not present");
     }
 
     /**
      * The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
      * 
      */
-    private UndeferrableValue<String> targetAction;
-
+    @PolicyResourceProperty(name="targetAction", flag="unknown_targetAction")
+    private String value_targetAction;
+    private boolean unknown_targetAction;
     public String targetAction() {
-        if (targetAction == null) return null;
-        return targetAction.getValue("Webhook.targetAction");
+        if (!unknown_targetAction) return value_targetAction;
+        throw new UndeferrableValueException("Value 'Webhook.targetAction' is not present");
     }
 
     /**
      * The name of the pipeline.
      * 
      */
-    private UndeferrableValue<String> targetPipeline;
-
+    @PolicyResourceProperty(name="targetPipeline", flag="unknown_targetPipeline")
+    private String value_targetPipeline;
+    private boolean unknown_targetPipeline;
     public String targetPipeline() {
-        if (targetPipeline == null) return null;
-        return targetPipeline.getValue("Webhook.targetPipeline");
+        if (!unknown_targetPipeline) return value_targetPipeline;
+        throw new UndeferrableValueException("Value 'Webhook.targetPipeline' is not present");
     }
 
     /**
      * The CodePipeline webhook&#39;s URL. POST events to this endpoint to trigger the target.
      * 
      */
-    private UndeferrableValue<String> url;
-
+    @PolicyResourceProperty(name="url", flag="unknown_url")
+    private String value_url;
+    private boolean unknown_url;
     public String url() {
-        if (url == null) return null;
-        return url.getValue("Webhook.url");
+        if (!unknown_url) return value_url;
+        throw new UndeferrableValueException("Value 'Webhook.url' is not present");
     }
 
 }

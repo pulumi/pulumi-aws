@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions;
 import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration;
 import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamSplunkConfigurationS3Configuration;
@@ -19,99 +20,108 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
      * Buffer incoming data for the specified period of time, in seconds between 0 to 60, before delivering it to the destination.  The default value is 60s.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> bufferingInterval;
-
+    @PolicyResourceProperty(name="bufferingInterval", flag="unknown_bufferingInterval")
+    private @Nullable Integer value_bufferingInterval;
+    private boolean unknown_bufferingInterval;
     public @Nullable Integer bufferingInterval() {
-        if (bufferingInterval == null) return null;
-        return bufferingInterval.getValue("FirehoseDeliveryStreamSplunkConfiguration.bufferingInterval");
+        if (!unknown_bufferingInterval) return value_bufferingInterval;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfiguration.bufferingInterval' is not present");
     }
 
     /**
      * Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> bufferingSize;
-
+    @PolicyResourceProperty(name="bufferingSize", flag="unknown_bufferingSize")
+    private @Nullable Integer value_bufferingSize;
+    private boolean unknown_bufferingSize;
     public @Nullable Integer bufferingSize() {
-        if (bufferingSize == null) return null;
-        return bufferingSize.getValue("FirehoseDeliveryStreamSplunkConfiguration.bufferingSize");
+        if (!unknown_bufferingSize) return value_bufferingSize;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfiguration.bufferingSize' is not present");
     }
 
     /**
      * The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions;
-
+    @PolicyResourceProperty(name="cloudwatchLoggingOptions", flag="unknown_cloudwatchLoggingOptions")
+    private @Nullable FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions value_cloudwatchLoggingOptions;
+    private boolean unknown_cloudwatchLoggingOptions;
     public @Nullable FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions() {
-        if (cloudwatchLoggingOptions == null) return null;
-        return cloudwatchLoggingOptions.getValue("FirehoseDeliveryStreamSplunkConfiguration.cloudwatchLoggingOptions");
+        if (!unknown_cloudwatchLoggingOptions) return value_cloudwatchLoggingOptions;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfiguration.cloudwatchLoggingOptions' is not present");
     }
 
     /**
      * The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> hecAcknowledgmentTimeout;
-
+    @PolicyResourceProperty(name="hecAcknowledgmentTimeout", flag="unknown_hecAcknowledgmentTimeout")
+    private @Nullable Integer value_hecAcknowledgmentTimeout;
+    private boolean unknown_hecAcknowledgmentTimeout;
     public @Nullable Integer hecAcknowledgmentTimeout() {
-        if (hecAcknowledgmentTimeout == null) return null;
-        return hecAcknowledgmentTimeout.getValue("FirehoseDeliveryStreamSplunkConfiguration.hecAcknowledgmentTimeout");
+        if (!unknown_hecAcknowledgmentTimeout) return value_hecAcknowledgmentTimeout;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfiguration.hecAcknowledgmentTimeout' is not present");
     }
 
     /**
      * The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
      * 
      */
-    private UndeferrableValue<String> hecEndpoint;
-
+    @PolicyResourceProperty(name="hecEndpoint", flag="unknown_hecEndpoint")
+    private String value_hecEndpoint;
+    private boolean unknown_hecEndpoint;
     public String hecEndpoint() {
-        if (hecEndpoint == null) return null;
-        return hecEndpoint.getValue("FirehoseDeliveryStreamSplunkConfiguration.hecEndpoint");
+        if (!unknown_hecEndpoint) return value_hecEndpoint;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfiguration.hecEndpoint' is not present");
     }
 
     /**
      * The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
      * 
      */
-    private @Nullable UndeferrableValue<String> hecEndpointType;
-
+    @PolicyResourceProperty(name="hecEndpointType", flag="unknown_hecEndpointType")
+    private @Nullable String value_hecEndpointType;
+    private boolean unknown_hecEndpointType;
     public @Nullable String hecEndpointType() {
-        if (hecEndpointType == null) return null;
-        return hecEndpointType.getValue("FirehoseDeliveryStreamSplunkConfiguration.hecEndpointType");
+        if (!unknown_hecEndpointType) return value_hecEndpointType;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfiguration.hecEndpointType' is not present");
     }
 
     /**
      * The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secrets_manager_configuration` is not provided.
      * 
      */
-    private @Nullable UndeferrableValue<String> hecToken;
-
+    @PolicyResourceProperty(name="hecToken", flag="unknown_hecToken")
+    private @Nullable String value_hecToken;
+    private boolean unknown_hecToken;
     public @Nullable String hecToken() {
-        if (hecToken == null) return null;
-        return hecToken.getValue("FirehoseDeliveryStreamSplunkConfiguration.hecToken");
+        if (!unknown_hecToken) return value_hecToken;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfiguration.hecToken' is not present");
     }
 
     /**
      * The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration> processingConfiguration;
-
+    @PolicyResourceProperty(name="processingConfiguration", flag="unknown_processingConfiguration")
+    private @Nullable FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration value_processingConfiguration;
+    private boolean unknown_processingConfiguration;
     public @Nullable FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration processingConfiguration() {
-        if (processingConfiguration == null) return null;
-        return processingConfiguration.getValue("FirehoseDeliveryStreamSplunkConfiguration.processingConfiguration");
+        if (!unknown_processingConfiguration) return value_processingConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfiguration.processingConfiguration' is not present");
     }
 
     /**
      * After an initial failure to deliver to Splunk, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> retryDuration;
-
+    @PolicyResourceProperty(name="retryDuration", flag="unknown_retryDuration")
+    private @Nullable Integer value_retryDuration;
+    private boolean unknown_retryDuration;
     public @Nullable Integer retryDuration() {
-        if (retryDuration == null) return null;
-        return retryDuration.getValue("FirehoseDeliveryStreamSplunkConfiguration.retryDuration");
+        if (!unknown_retryDuration) return value_retryDuration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfiguration.retryDuration' is not present");
     }
 
     /**
@@ -119,29 +129,32 @@ public final class FirehoseDeliveryStreamSplunkConfiguration {
      * `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `hec_token` is not provided.
      * 
      */
-    private @Nullable UndeferrableValue<String> s3BackupMode;
-
+    @PolicyResourceProperty(name="s3BackupMode", flag="unknown_s3BackupMode")
+    private @Nullable String value_s3BackupMode;
+    private boolean unknown_s3BackupMode;
     public @Nullable String s3BackupMode() {
-        if (s3BackupMode == null) return null;
-        return s3BackupMode.getValue("FirehoseDeliveryStreamSplunkConfiguration.s3BackupMode");
+        if (!unknown_s3BackupMode) return value_s3BackupMode;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfiguration.s3BackupMode' is not present");
     }
 
     /**
      * The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamSplunkConfigurationS3Configuration> s3Configuration;
-
+    @PolicyResourceProperty(name="s3Configuration", flag="unknown_s3Configuration")
+    private FirehoseDeliveryStreamSplunkConfigurationS3Configuration value_s3Configuration;
+    private boolean unknown_s3Configuration;
     public FirehoseDeliveryStreamSplunkConfigurationS3Configuration s3Configuration() {
-        if (s3Configuration == null) return null;
-        return s3Configuration.getValue("FirehoseDeliveryStreamSplunkConfiguration.s3Configuration");
+        if (!unknown_s3Configuration) return value_s3Configuration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfiguration.s3Configuration' is not present");
     }
 
-    private @Nullable UndeferrableValue<FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration> secretsManagerConfiguration;
-
+    @PolicyResourceProperty(name="secretsManagerConfiguration", flag="unknown_secretsManagerConfiguration")
+    private @Nullable FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration value_secretsManagerConfiguration;
+    private boolean unknown_secretsManagerConfiguration;
     public @Nullable FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration secretsManagerConfiguration() {
-        if (secretsManagerConfiguration == null) return null;
-        return secretsManagerConfiguration.getValue("FirehoseDeliveryStreamSplunkConfiguration.secretsManagerConfiguration");
+        if (!unknown_secretsManagerConfiguration) return value_secretsManagerConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfiguration.secretsManagerConfiguration' is not present");
     }
 
 }

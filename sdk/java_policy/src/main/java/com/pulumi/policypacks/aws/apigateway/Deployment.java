@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.apigateway.outputs.DeploymentCanarySettings;
 import java.lang.String;
@@ -24,33 +25,36 @@ public final class Deployment extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* canary_settings is deprecated. Use the aws.apigateway.Stage resource instead. */
-    private @Nullable UndeferrableValue<DeploymentCanarySettings> canarySettings;
-
+    @PolicyResourceProperty(name="canarySettings", flag="unknown_canarySettings")
+    private @Nullable DeploymentCanarySettings value_canarySettings;
+    private boolean unknown_canarySettings;
     public @Nullable DeploymentCanarySettings canarySettings() {
-        if (canarySettings == null) return null;
-        return canarySettings.getValue("Deployment.canarySettings");
+        if (!unknown_canarySettings) return value_canarySettings;
+        throw new UndeferrableValueException("Value 'Deployment.canarySettings' is not present");
     }
 
     /**
      * Creation date of the deployment
      * 
      */
-    private UndeferrableValue<String> createdDate;
-
+    @PolicyResourceProperty(name="createdDate", flag="unknown_createdDate")
+    private String value_createdDate;
+    private boolean unknown_createdDate;
     public String createdDate() {
-        if (createdDate == null) return null;
-        return createdDate.getValue("Deployment.createdDate");
+        if (!unknown_createdDate) return value_createdDate;
+        throw new UndeferrableValueException("Value 'Deployment.createdDate' is not present");
     }
 
     /**
      * Description of the deployment
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Deployment.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Deployment.description' is not present");
     }
 
     /**
@@ -59,11 +63,12 @@ public final class Deployment extends com.pulumi.resources.PolicyResourceOutput 
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      * 
      */
-    private UndeferrableValue<String> executionArn;
-
+    @PolicyResourceProperty(name="executionArn", flag="unknown_executionArn")
+    private String value_executionArn;
+    private boolean unknown_executionArn;
     public String executionArn() {
-        if (executionArn == null) return null;
-        return executionArn.getValue("Deployment.executionArn");
+        if (!unknown_executionArn) return value_executionArn;
+        throw new UndeferrableValueException("Value 'Deployment.executionArn' is not present");
     }
 
     /**
@@ -71,22 +76,24 @@ public final class Deployment extends com.pulumi.resources.PolicyResourceOutput 
      * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      * 
      */
-    private UndeferrableValue<String> invokeUrl;
-
+    @PolicyResourceProperty(name="invokeUrl", flag="unknown_invokeUrl")
+    private String value_invokeUrl;
+    private boolean unknown_invokeUrl;
     public String invokeUrl() {
-        if (invokeUrl == null) return null;
-        return invokeUrl.getValue("Deployment.invokeUrl");
+        if (!unknown_invokeUrl) return value_invokeUrl;
+        throw new UndeferrableValueException("Value 'Deployment.invokeUrl' is not present");
     }
 
     /**
      * REST API identifier.
      * 
      */
-    private UndeferrableValue<String> restApi;
-
+    @PolicyResourceProperty(name="restApi", flag="unknown_restApi")
+    private String value_restApi;
+    private boolean unknown_restApi;
     public String restApi() {
-        if (restApi == null) return null;
-        return restApi.getValue("Deployment.restApi");
+        if (!unknown_restApi) return value_restApi;
+        throw new UndeferrableValueException("Value 'Deployment.restApi' is not present");
     }
 
     /**
@@ -98,11 +105,12 @@ public final class Deployment extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* stage_description is deprecated. Use the aws.apigateway.Stage resource instead. */
-    private @Nullable UndeferrableValue<String> stageDescription;
-
+    @PolicyResourceProperty(name="stageDescription", flag="unknown_stageDescription")
+    private @Nullable String value_stageDescription;
+    private boolean unknown_stageDescription;
     public @Nullable String stageDescription() {
-        if (stageDescription == null) return null;
-        return stageDescription.getValue("Deployment.stageDescription");
+        if (!unknown_stageDescription) return value_stageDescription;
+        throw new UndeferrableValueException("Value 'Deployment.stageDescription' is not present");
     }
 
     /**
@@ -115,33 +123,36 @@ public final class Deployment extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* stage_name is deprecated. Use the aws.apigateway.Stage resource instead. */
-    private @Nullable UndeferrableValue<String> stageName;
-
+    @PolicyResourceProperty(name="stageName", flag="unknown_stageName")
+    private @Nullable String value_stageName;
+    private boolean unknown_stageName;
     public @Nullable String stageName() {
-        if (stageName == null) return null;
-        return stageName.getValue("Deployment.stageName");
+        if (!unknown_stageName) return value_stageName;
+        throw new UndeferrableValueException("Value 'Deployment.stageName' is not present");
     }
 
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> triggers;
-
+    @PolicyResourceProperty(name="triggers", flag="unknown_triggers")
+    private @Nullable Map<String,String> value_triggers;
+    private boolean unknown_triggers;
     public @Nullable Map<String,String> triggers() {
-        if (triggers == null) return null;
-        return triggers.getValue("Deployment.triggers");
+        if (!unknown_triggers) return value_triggers;
+        throw new UndeferrableValueException("Value 'Deployment.triggers' is not present");
     }
 
     /**
      * Map to set on the stage managed by the `stage_name` argument.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> variables;
-
+    @PolicyResourceProperty(name="variables", flag="unknown_variables")
+    private @Nullable Map<String,String> value_variables;
+    private boolean unknown_variables;
     public @Nullable Map<String,String> variables() {
-        if (variables == null) return null;
-        return variables.getValue("Deployment.variables");
+        if (!unknown_variables) return value_variables;
+        throw new UndeferrableValueException("Value 'Deployment.variables' is not present");
     }
 
 }

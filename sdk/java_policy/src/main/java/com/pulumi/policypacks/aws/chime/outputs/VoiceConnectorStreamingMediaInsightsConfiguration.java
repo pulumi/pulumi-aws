@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chime.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class VoiceConnectorStreamingMediaInsightsConfiguration {
      * The media insights configuration that will be invoked by the Voice Connector.
      * 
      */
-    private @Nullable UndeferrableValue<String> configurationArn;
-
+    @PolicyResourceProperty(name="configurationArn", flag="unknown_configurationArn")
+    private @Nullable String value_configurationArn;
+    private boolean unknown_configurationArn;
     public @Nullable String configurationArn() {
-        if (configurationArn == null) return null;
-        return configurationArn.getValue("VoiceConnectorStreamingMediaInsightsConfiguration.configurationArn");
+        if (!unknown_configurationArn) return value_configurationArn;
+        throw new UndeferrableValueException("Value 'VoiceConnectorStreamingMediaInsightsConfiguration.configurationArn' is not present");
     }
 
     /**
      * When `true`, the media insights configuration is not enabled. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> disabled;
-
+    @PolicyResourceProperty(name="disabled", flag="unknown_disabled")
+    private @Nullable Boolean value_disabled;
+    private boolean unknown_disabled;
     public @Nullable Boolean disabled() {
-        if (disabled == null) return null;
-        return disabled.getValue("VoiceConnectorStreamingMediaInsightsConfiguration.disabled");
+        if (!unknown_disabled) return value_disabled;
+        throw new UndeferrableValueException("Value 'VoiceConnectorStreamingMediaInsightsConfiguration.disabled' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.outputs.CodeRepositoryGitConfig;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class CodeRepository extends com.pulumi.resources.PolicyResourceOut
      * The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("CodeRepository.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'CodeRepository.arn' is not present");
     }
 
     /**
      * The name of the Code Repository (must be unique).
      * 
      */
-    private UndeferrableValue<String> codeRepositoryName;
-
+    @PolicyResourceProperty(name="codeRepositoryName", flag="unknown_codeRepositoryName")
+    private String value_codeRepositoryName;
+    private boolean unknown_codeRepositoryName;
     public String codeRepositoryName() {
-        if (codeRepositoryName == null) return null;
-        return codeRepositoryName.getValue("CodeRepository.codeRepositoryName");
+        if (!unknown_codeRepositoryName) return value_codeRepositoryName;
+        throw new UndeferrableValueException("Value 'CodeRepository.codeRepositoryName' is not present");
     }
 
     /**
      * Specifies details about the repository. see Git Config details below.
      * 
      */
-    private UndeferrableValue<CodeRepositoryGitConfig> gitConfig;
-
+    @PolicyResourceProperty(name="gitConfig", flag="unknown_gitConfig")
+    private CodeRepositoryGitConfig value_gitConfig;
+    private boolean unknown_gitConfig;
     public CodeRepositoryGitConfig gitConfig() {
-        if (gitConfig == null) return null;
-        return gitConfig.getValue("CodeRepository.gitConfig");
+        if (!unknown_gitConfig) return value_gitConfig;
+        throw new UndeferrableValueException("Value 'CodeRepository.gitConfig' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CodeRepository.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CodeRepository.tags' is not present");
     }
 
     /**
@@ -66,11 +71,12 @@ public final class CodeRepository extends com.pulumi.resources.PolicyResourceOut
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("CodeRepository.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'CodeRepository.tagsAll' is not present");
     }
 
 }

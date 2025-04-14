@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ivs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class PlaybackKeyPair extends com.pulumi.resources.PolicyResourceOu
      * ARN of the Playback Key Pair.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("PlaybackKeyPair.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'PlaybackKeyPair.arn' is not present");
     }
 
     /**
      * Key-pair identifier.
      * 
      */
-    private UndeferrableValue<String> fingerprint;
-
+    @PolicyResourceProperty(name="fingerprint", flag="unknown_fingerprint")
+    private String value_fingerprint;
+    private boolean unknown_fingerprint;
     public String fingerprint() {
-        if (fingerprint == null) return null;
-        return fingerprint.getValue("PlaybackKeyPair.fingerprint");
+        if (!unknown_fingerprint) return value_fingerprint;
+        throw new UndeferrableValueException("Value 'PlaybackKeyPair.fingerprint' is not present");
     }
 
     /**
      * Playback Key Pair name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PlaybackKeyPair.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PlaybackKeyPair.name' is not present");
     }
 
     /**
@@ -52,22 +56,24 @@ public final class PlaybackKeyPair extends com.pulumi.resources.PolicyResourceOu
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> publicKey;
-
+    @PolicyResourceProperty(name="publicKey", flag="unknown_publicKey")
+    private String value_publicKey;
+    private boolean unknown_publicKey;
     public String publicKey() {
-        if (publicKey == null) return null;
-        return publicKey.getValue("PlaybackKeyPair.publicKey");
+        if (!unknown_publicKey) return value_publicKey;
+        throw new UndeferrableValueException("Value 'PlaybackKeyPair.publicKey' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("PlaybackKeyPair.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'PlaybackKeyPair.tags' is not present");
     }
 
     /**
@@ -78,11 +84,12 @@ public final class PlaybackKeyPair extends com.pulumi.resources.PolicyResourceOu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("PlaybackKeyPair.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'PlaybackKeyPair.tagsAll' is not present");
     }
 
 }

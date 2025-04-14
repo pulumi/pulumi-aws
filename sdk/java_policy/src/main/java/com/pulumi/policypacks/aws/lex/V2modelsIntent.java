@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentClosingSetting;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentConfirmationSetting;
@@ -28,150 +29,164 @@ public final class V2modelsIntent extends com.pulumi.resources.PolicyResourceOut
      * Identifier of the bot associated with this intent.
      * 
      */
-    private UndeferrableValue<String> botId;
-
+    @PolicyResourceProperty(name="botId", flag="unknown_botId")
+    private String value_botId;
+    private boolean unknown_botId;
     public String botId() {
-        if (botId == null) return null;
-        return botId.getValue("V2modelsIntent.botId");
+        if (!unknown_botId) return value_botId;
+        throw new UndeferrableValueException("Value 'V2modelsIntent.botId' is not present");
     }
 
     /**
      * Version of the bot associated with this intent.
      * 
      */
-    private UndeferrableValue<String> botVersion;
-
+    @PolicyResourceProperty(name="botVersion", flag="unknown_botVersion")
+    private String value_botVersion;
+    private boolean unknown_botVersion;
     public String botVersion() {
-        if (botVersion == null) return null;
-        return botVersion.getValue("V2modelsIntent.botVersion");
+        if (!unknown_botVersion) return value_botVersion;
+        throw new UndeferrableValueException("Value 'V2modelsIntent.botVersion' is not present");
     }
 
     /**
      * Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closing_setting`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentClosingSetting> closingSetting;
-
+    @PolicyResourceProperty(name="closingSetting", flag="unknown_closingSetting")
+    private @Nullable V2modelsIntentClosingSetting value_closingSetting;
+    private boolean unknown_closingSetting;
     public @Nullable V2modelsIntentClosingSetting closingSetting() {
-        if (closingSetting == null) return null;
-        return closingSetting.getValue("V2modelsIntent.closingSetting");
+        if (!unknown_closingSetting) return value_closingSetting;
+        throw new UndeferrableValueException("Value 'V2modelsIntent.closingSetting' is not present");
     }
 
-    private @Nullable UndeferrableValue<V2modelsIntentConfirmationSetting> confirmationSetting;
-
+    @PolicyResourceProperty(name="confirmationSetting", flag="unknown_confirmationSetting")
+    private @Nullable V2modelsIntentConfirmationSetting value_confirmationSetting;
+    private boolean unknown_confirmationSetting;
     public @Nullable V2modelsIntentConfirmationSetting confirmationSetting() {
-        if (confirmationSetting == null) return null;
-        return confirmationSetting.getValue("V2modelsIntent.confirmationSetting");
+        if (!unknown_confirmationSetting) return value_confirmationSetting;
+        throw new UndeferrableValueException("Value 'V2modelsIntent.confirmationSetting' is not present");
     }
 
     /**
      * Timestamp of the date and time that the intent was created.
      * 
      */
-    private UndeferrableValue<String> creationDateTime;
-
+    @PolicyResourceProperty(name="creationDateTime", flag="unknown_creationDateTime")
+    private String value_creationDateTime;
+    private boolean unknown_creationDateTime;
     public String creationDateTime() {
-        if (creationDateTime == null) return null;
-        return creationDateTime.getValue("V2modelsIntent.creationDateTime");
+        if (!unknown_creationDateTime) return value_creationDateTime;
+        throw new UndeferrableValueException("Value 'V2modelsIntent.creationDateTime' is not present");
     }
 
     /**
      * Description of the intent. Use the description to help identify the intent in lists.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("V2modelsIntent.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'V2modelsIntent.description' is not present");
     }
 
     /**
      * Configuration block for invoking the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction. See `dialog_code_hook`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentDialogCodeHook> dialogCodeHook;
-
+    @PolicyResourceProperty(name="dialogCodeHook", flag="unknown_dialogCodeHook")
+    private @Nullable V2modelsIntentDialogCodeHook value_dialogCodeHook;
+    private boolean unknown_dialogCodeHook;
     public @Nullable V2modelsIntentDialogCodeHook dialogCodeHook() {
-        if (dialogCodeHook == null) return null;
-        return dialogCodeHook.getValue("V2modelsIntent.dialogCodeHook");
+        if (!unknown_dialogCodeHook) return value_dialogCodeHook;
+        throw new UndeferrableValueException("Value 'V2modelsIntent.dialogCodeHook' is not present");
     }
 
     /**
      * Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot&#39;s transaction with the user. See `fulfillment_code_hook`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentFulfillmentCodeHook> fulfillmentCodeHook;
-
+    @PolicyResourceProperty(name="fulfillmentCodeHook", flag="unknown_fulfillmentCodeHook")
+    private @Nullable V2modelsIntentFulfillmentCodeHook value_fulfillmentCodeHook;
+    private boolean unknown_fulfillmentCodeHook;
     public @Nullable V2modelsIntentFulfillmentCodeHook fulfillmentCodeHook() {
-        if (fulfillmentCodeHook == null) return null;
-        return fulfillmentCodeHook.getValue("V2modelsIntent.fulfillmentCodeHook");
+        if (!unknown_fulfillmentCodeHook) return value_fulfillmentCodeHook;
+        throw new UndeferrableValueException("Value 'V2modelsIntent.fulfillmentCodeHook' is not present");
     }
 
     /**
      * Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initial_response_setting`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentInitialResponseSetting> initialResponseSetting;
-
+    @PolicyResourceProperty(name="initialResponseSetting", flag="unknown_initialResponseSetting")
+    private @Nullable V2modelsIntentInitialResponseSetting value_initialResponseSetting;
+    private boolean unknown_initialResponseSetting;
     public @Nullable V2modelsIntentInitialResponseSetting initialResponseSetting() {
-        if (initialResponseSetting == null) return null;
-        return initialResponseSetting.getValue("V2modelsIntent.initialResponseSetting");
+        if (!unknown_initialResponseSetting) return value_initialResponseSetting;
+        throw new UndeferrableValueException("Value 'V2modelsIntent.initialResponseSetting' is not present");
     }
 
     /**
      * Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `input_context`.
      * 
      */
-    private @Nullable UndeferrableValue<List<V2modelsIntentInputContext>> inputContexts;
-
+    @PolicyResourceProperty(name="inputContexts", flag="unknown_inputContexts")
+    private @Nullable List<V2modelsIntentInputContext> value_inputContexts;
+    private boolean unknown_inputContexts;
     public @Nullable List<V2modelsIntentInputContext> inputContexts() {
-        if (inputContexts == null) return null;
-        return inputContexts.getValue("V2modelsIntent.inputContexts");
+        if (!unknown_inputContexts) return value_inputContexts;
+        throw new UndeferrableValueException("Value 'V2modelsIntent.inputContexts' is not present");
     }
 
     /**
      * Unique identifier for the intent.
      * 
      */
-    private UndeferrableValue<String> intentId;
-
+    @PolicyResourceProperty(name="intentId", flag="unknown_intentId")
+    private String value_intentId;
+    private boolean unknown_intentId;
     public String intentId() {
-        if (intentId == null) return null;
-        return intentId.getValue("V2modelsIntent.intentId");
+        if (!unknown_intentId) return value_intentId;
+        throw new UndeferrableValueException("Value 'V2modelsIntent.intentId' is not present");
     }
 
     /**
      * Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can&#39;t determine another intent to invoke. See `kendra_configuration`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentKendraConfiguration> kendraConfiguration;
-
+    @PolicyResourceProperty(name="kendraConfiguration", flag="unknown_kendraConfiguration")
+    private @Nullable V2modelsIntentKendraConfiguration value_kendraConfiguration;
+    private boolean unknown_kendraConfiguration;
     public @Nullable V2modelsIntentKendraConfiguration kendraConfiguration() {
-        if (kendraConfiguration == null) return null;
-        return kendraConfiguration.getValue("V2modelsIntent.kendraConfiguration");
+        if (!unknown_kendraConfiguration) return value_kendraConfiguration;
+        throw new UndeferrableValueException("Value 'V2modelsIntent.kendraConfiguration' is not present");
     }
 
     /**
      * Timestamp of the last time that the intent was modified.
      * 
      */
-    private UndeferrableValue<String> lastUpdatedDateTime;
-
+    @PolicyResourceProperty(name="lastUpdatedDateTime", flag="unknown_lastUpdatedDateTime")
+    private String value_lastUpdatedDateTime;
+    private boolean unknown_lastUpdatedDateTime;
     public String lastUpdatedDateTime() {
-        if (lastUpdatedDateTime == null) return null;
-        return lastUpdatedDateTime.getValue("V2modelsIntent.lastUpdatedDateTime");
+        if (!unknown_lastUpdatedDateTime) return value_lastUpdatedDateTime;
+        throw new UndeferrableValueException("Value 'V2modelsIntent.lastUpdatedDateTime' is not present");
     }
 
     /**
      * Identifier of the language and locale where this intent is used. All of the bots, slot types, and slots used by the intent must have the same locale.
      * 
      */
-    private UndeferrableValue<String> localeId;
-
+    @PolicyResourceProperty(name="localeId", flag="unknown_localeId")
+    private String value_localeId;
+    private boolean unknown_localeId;
     public String localeId() {
-        if (localeId == null) return null;
-        return localeId.getValue("V2modelsIntent.localeId");
+        if (!unknown_localeId) return value_localeId;
+        throw new UndeferrableValueException("Value 'V2modelsIntent.localeId' is not present");
     }
 
     /**
@@ -180,62 +195,68 @@ public final class V2modelsIntent extends com.pulumi.resources.PolicyResourceOut
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("V2modelsIntent.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'V2modelsIntent.name' is not present");
     }
 
     /**
      * Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
      * 
      */
-    private @Nullable UndeferrableValue<List<V2modelsIntentOutputContext>> outputContexts;
-
+    @PolicyResourceProperty(name="outputContexts", flag="unknown_outputContexts")
+    private @Nullable List<V2modelsIntentOutputContext> value_outputContexts;
+    private boolean unknown_outputContexts;
     public @Nullable List<V2modelsIntentOutputContext> outputContexts() {
-        if (outputContexts == null) return null;
-        return outputContexts.getValue("V2modelsIntent.outputContexts");
+        if (!unknown_outputContexts) return value_outputContexts;
+        throw new UndeferrableValueException("Value 'V2modelsIntent.outputContexts' is not present");
     }
 
     /**
      * Identifier for the built-in intent to base this intent on.
      * 
      */
-    private @Nullable UndeferrableValue<String> parentIntentSignature;
-
+    @PolicyResourceProperty(name="parentIntentSignature", flag="unknown_parentIntentSignature")
+    private @Nullable String value_parentIntentSignature;
+    private boolean unknown_parentIntentSignature;
     public @Nullable String parentIntentSignature() {
-        if (parentIntentSignature == null) return null;
-        return parentIntentSignature.getValue("V2modelsIntent.parentIntentSignature");
+        if (!unknown_parentIntentSignature) return value_parentIntentSignature;
+        throw new UndeferrableValueException("Value 'V2modelsIntent.parentIntentSignature' is not present");
     }
 
     /**
      * Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
      * 
      */
-    private @Nullable UndeferrableValue<List<V2modelsIntentSampleUtterance>> sampleUtterances;
-
+    @PolicyResourceProperty(name="sampleUtterances", flag="unknown_sampleUtterances")
+    private @Nullable List<V2modelsIntentSampleUtterance> value_sampleUtterances;
+    private boolean unknown_sampleUtterances;
     public @Nullable List<V2modelsIntentSampleUtterance> sampleUtterances() {
-        if (sampleUtterances == null) return null;
-        return sampleUtterances.getValue("V2modelsIntent.sampleUtterances");
+        if (!unknown_sampleUtterances) return value_sampleUtterances;
+        throw new UndeferrableValueException("Value 'V2modelsIntent.sampleUtterances' is not present");
     }
 
     /**
      * Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
      * 
      */
-    private @Nullable UndeferrableValue<List<V2modelsIntentSlotPriority>> slotPriorities;
-
+    @PolicyResourceProperty(name="slotPriorities", flag="unknown_slotPriorities")
+    private @Nullable List<V2modelsIntentSlotPriority> value_slotPriorities;
+    private boolean unknown_slotPriorities;
     public @Nullable List<V2modelsIntentSlotPriority> slotPriorities() {
-        if (slotPriorities == null) return null;
-        return slotPriorities.getValue("V2modelsIntent.slotPriorities");
+        if (!unknown_slotPriorities) return value_slotPriorities;
+        throw new UndeferrableValueException("Value 'V2modelsIntent.slotPriorities' is not present");
     }
 
-    private @Nullable UndeferrableValue<V2modelsIntentTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable V2modelsIntentTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable V2modelsIntentTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("V2modelsIntent.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'V2modelsIntent.timeouts' is not present");
     }
 
 }

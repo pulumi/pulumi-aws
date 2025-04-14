@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class CustomActionTypeSettings {
      * The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system.
      * 
      */
-    private @Nullable UndeferrableValue<String> entityUrlTemplate;
-
+    @PolicyResourceProperty(name="entityUrlTemplate", flag="unknown_entityUrlTemplate")
+    private @Nullable String value_entityUrlTemplate;
+    private boolean unknown_entityUrlTemplate;
     public @Nullable String entityUrlTemplate() {
-        if (entityUrlTemplate == null) return null;
-        return entityUrlTemplate.getValue("CustomActionTypeSettings.entityUrlTemplate");
+        if (!unknown_entityUrlTemplate) return value_entityUrlTemplate;
+        throw new UndeferrableValueException("Value 'CustomActionTypeSettings.entityUrlTemplate' is not present");
     }
 
     /**
      * The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system.
      * 
      */
-    private @Nullable UndeferrableValue<String> executionUrlTemplate;
-
+    @PolicyResourceProperty(name="executionUrlTemplate", flag="unknown_executionUrlTemplate")
+    private @Nullable String value_executionUrlTemplate;
+    private boolean unknown_executionUrlTemplate;
     public @Nullable String executionUrlTemplate() {
-        if (executionUrlTemplate == null) return null;
-        return executionUrlTemplate.getValue("CustomActionTypeSettings.executionUrlTemplate");
+        if (!unknown_executionUrlTemplate) return value_executionUrlTemplate;
+        throw new UndeferrableValueException("Value 'CustomActionTypeSettings.executionUrlTemplate' is not present");
     }
 
     /**
      * The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
      * 
      */
-    private @Nullable UndeferrableValue<String> revisionUrlTemplate;
-
+    @PolicyResourceProperty(name="revisionUrlTemplate", flag="unknown_revisionUrlTemplate")
+    private @Nullable String value_revisionUrlTemplate;
+    private boolean unknown_revisionUrlTemplate;
     public @Nullable String revisionUrlTemplate() {
-        if (revisionUrlTemplate == null) return null;
-        return revisionUrlTemplate.getValue("CustomActionTypeSettings.revisionUrlTemplate");
+        if (!unknown_revisionUrlTemplate) return value_revisionUrlTemplate;
+        throw new UndeferrableValueException("Value 'CustomActionTypeSettings.revisionUrlTemplate' is not present");
     }
 
     /**
      * The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
      * 
      */
-    private @Nullable UndeferrableValue<String> thirdPartyConfigurationUrl;
-
+    @PolicyResourceProperty(name="thirdPartyConfigurationUrl", flag="unknown_thirdPartyConfigurationUrl")
+    private @Nullable String value_thirdPartyConfigurationUrl;
+    private boolean unknown_thirdPartyConfigurationUrl;
     public @Nullable String thirdPartyConfigurationUrl() {
-        if (thirdPartyConfigurationUrl == null) return null;
-        return thirdPartyConfigurationUrl.getValue("CustomActionTypeSettings.thirdPartyConfigurationUrl");
+        if (!unknown_thirdPartyConfigurationUrl) return value_thirdPartyConfigurationUrl;
+        throw new UndeferrableValueException("Value 'CustomActionTypeSettings.thirdPartyConfigurationUrl' is not present");
     }
 
 }

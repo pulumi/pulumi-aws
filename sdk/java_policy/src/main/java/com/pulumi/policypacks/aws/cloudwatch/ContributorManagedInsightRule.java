@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,43 +18,48 @@ public final class ContributorManagedInsightRule extends com.pulumi.resources.Po
      * ARN of the Contributor Managed Insight Rule.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ContributorManagedInsightRule.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ContributorManagedInsightRule.arn' is not present");
     }
 
     /**
      * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("ContributorManagedInsightRule.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'ContributorManagedInsightRule.resourceArn' is not present");
     }
 
-    private UndeferrableValue<String> ruleName;
-
+    @PolicyResourceProperty(name="ruleName", flag="unknown_ruleName")
+    private String value_ruleName;
+    private boolean unknown_ruleName;
     public String ruleName() {
-        if (ruleName == null) return null;
-        return ruleName.getValue("ContributorManagedInsightRule.ruleName");
+        if (!unknown_ruleName) return value_ruleName;
+        throw new UndeferrableValueException("Value 'ContributorManagedInsightRule.ruleName' is not present");
     }
 
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("ContributorManagedInsightRule.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'ContributorManagedInsightRule.state' is not present");
     }
 
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ContributorManagedInsightRule.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ContributorManagedInsightRule.tags' is not present");
     }
 
     /**
@@ -62,11 +68,12 @@ public final class ContributorManagedInsightRule extends com.pulumi.resources.Po
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ContributorManagedInsightRule.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ContributorManagedInsightRule.tagsAll' is not present");
     }
 
     /**
@@ -75,11 +82,12 @@ public final class ContributorManagedInsightRule extends com.pulumi.resources.Po
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> templateName;
-
+    @PolicyResourceProperty(name="templateName", flag="unknown_templateName")
+    private String value_templateName;
+    private boolean unknown_templateName;
     public String templateName() {
-        if (templateName == null) return null;
-        return templateName.getValue("ContributorManagedInsightRule.templateName");
+        if (!unknown_templateName) return value_templateName;
+        throw new UndeferrableValueException("Value 'ContributorManagedInsightRule.templateName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.bedrock.outputs.InferenceProfileModel;
 import com.pulumi.policypacks.aws.bedrock.outputs.InferenceProfileModelSource;
@@ -21,33 +22,36 @@ public final class InferenceProfile extends com.pulumi.resources.PolicyResourceO
      * The Amazon Resource Name (ARN) of the inference profile.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("InferenceProfile.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'InferenceProfile.arn' is not present");
     }
 
     /**
      * The time at which the inference profile was created.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("InferenceProfile.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'InferenceProfile.createdAt' is not present");
     }
 
     /**
      * The description of the inference profile.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("InferenceProfile.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'InferenceProfile.description' is not present");
     }
 
     /**
@@ -56,55 +60,60 @@ public final class InferenceProfile extends com.pulumi.resources.PolicyResourceO
      * The following arguments are optional:
      * 
      */
-    private @Nullable UndeferrableValue<InferenceProfileModelSource> modelSource;
-
+    @PolicyResourceProperty(name="modelSource", flag="unknown_modelSource")
+    private @Nullable InferenceProfileModelSource value_modelSource;
+    private boolean unknown_modelSource;
     public @Nullable InferenceProfileModelSource modelSource() {
-        if (modelSource == null) return null;
-        return modelSource.getValue("InferenceProfile.modelSource");
+        if (!unknown_modelSource) return value_modelSource;
+        throw new UndeferrableValueException("Value 'InferenceProfile.modelSource' is not present");
     }
 
     /**
      * A list of information about each model in the inference profile. See `models`.
      * 
      */
-    private UndeferrableValue<List<InferenceProfileModel>> models;
-
+    @PolicyResourceProperty(name="models", flag="unknown_models")
+    private List<InferenceProfileModel> value_models;
+    private boolean unknown_models;
     public List<InferenceProfileModel> models() {
-        if (models == null) return null;
-        return models.getValue("InferenceProfile.models");
+        if (!unknown_models) return value_models;
+        throw new UndeferrableValueException("Value 'InferenceProfile.models' is not present");
     }
 
     /**
      * The name of the inference profile.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("InferenceProfile.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'InferenceProfile.name' is not present");
     }
 
     /**
      * The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("InferenceProfile.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'InferenceProfile.status' is not present");
     }
 
     /**
      * Key-value mapping of resource tags for the inference profile.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("InferenceProfile.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'InferenceProfile.tags' is not present");
     }
 
     /**
@@ -113,40 +122,44 @@ public final class InferenceProfile extends com.pulumi.resources.PolicyResourceO
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("InferenceProfile.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'InferenceProfile.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<InferenceProfileTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable InferenceProfileTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable InferenceProfileTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("InferenceProfile.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'InferenceProfile.timeouts' is not present");
     }
 
     /**
      * The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("InferenceProfile.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'InferenceProfile.type' is not present");
     }
 
     /**
      * The time at which the inference profile was last updated.
      * 
      */
-    private UndeferrableValue<String> updatedAt;
-
+    @PolicyResourceProperty(name="updatedAt", flag="unknown_updatedAt")
+    private String value_updatedAt;
+    private boolean unknown_updatedAt;
     public String updatedAt() {
-        if (updatedAt == null) return null;
-        return updatedAt.getValue("InferenceProfile.updatedAt");
+        if (!unknown_updatedAt) return value_updatedAt;
+        throw new UndeferrableValueException("Value 'InferenceProfile.updatedAt' is not present");
     }
 
 }

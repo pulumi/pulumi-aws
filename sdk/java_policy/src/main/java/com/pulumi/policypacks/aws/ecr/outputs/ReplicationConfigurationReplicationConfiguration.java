@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecr.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ecr.outputs.ReplicationConfigurationReplicationConfigurationRule;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class ReplicationConfigurationReplicationConfiguration {
      * The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
      * 
      */
-    private UndeferrableValue<List<ReplicationConfigurationReplicationConfigurationRule>> rules;
-
+    @PolicyResourceProperty(name="rules", flag="unknown_rules")
+    private List<ReplicationConfigurationReplicationConfigurationRule> value_rules;
+    private boolean unknown_rules;
     public List<ReplicationConfigurationReplicationConfigurationRule> rules() {
-        if (rules == null) return null;
-        return rules.getValue("ReplicationConfigurationReplicationConfiguration.rules");
+        if (!unknown_rules) return value_rules;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationReplicationConfiguration.rules' is not present");
     }
 
 }

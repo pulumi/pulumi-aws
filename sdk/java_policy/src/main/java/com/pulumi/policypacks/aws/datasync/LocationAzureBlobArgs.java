@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.datasync.inputs.LocationAzureBlobSasConfigurationArgs;
 import java.lang.String;
@@ -19,88 +20,96 @@ public final class LocationAzureBlobArgs extends com.pulumi.resources.PolicyReso
      * The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
      * 
      */
-    private UndeferrableValue<String> accessTier;
-
+    @PolicyResourceProperty(name="accessTier", flag="unknown_accessTier")
+    private String value_accessTier;
+    private boolean unknown_accessTier;
     public String accessTier() {
-        if (accessTier == null) return null;
-        return accessTier.getValue("LocationAzureBlobArgs.accessTier");
+        if (!unknown_accessTier) return value_accessTier;
+        throw new UndeferrableValueException("Value 'LocationAzureBlobArgs.accessTier' is not present");
     }
 
     /**
      * A list of DataSync Agent ARNs with which this location will be associated.
      * 
      */
-    private UndeferrableValue<List<String>> agentArns;
-
+    @PolicyResourceProperty(name="agentArns", flag="unknown_agentArns")
+    private List<String> value_agentArns;
+    private boolean unknown_agentArns;
     public List<String> agentArns() {
-        if (agentArns == null) return null;
-        return agentArns.getValue("LocationAzureBlobArgs.agentArns");
+        if (!unknown_agentArns) return value_agentArns;
+        throw new UndeferrableValueException("Value 'LocationAzureBlobArgs.agentArns' is not present");
     }
 
     /**
      * The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
      * 
      */
-    private UndeferrableValue<String> authenticationType;
-
+    @PolicyResourceProperty(name="authenticationType", flag="unknown_authenticationType")
+    private String value_authenticationType;
+    private boolean unknown_authenticationType;
     public String authenticationType() {
-        if (authenticationType == null) return null;
-        return authenticationType.getValue("LocationAzureBlobArgs.authenticationType");
+        if (!unknown_authenticationType) return value_authenticationType;
+        throw new UndeferrableValueException("Value 'LocationAzureBlobArgs.authenticationType' is not present");
     }
 
     /**
      * The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
      * 
      */
-    private UndeferrableValue<String> blobType;
-
+    @PolicyResourceProperty(name="blobType", flag="unknown_blobType")
+    private String value_blobType;
+    private boolean unknown_blobType;
     public String blobType() {
-        if (blobType == null) return null;
-        return blobType.getValue("LocationAzureBlobArgs.blobType");
+        if (!unknown_blobType) return value_blobType;
+        throw new UndeferrableValueException("Value 'LocationAzureBlobArgs.blobType' is not present");
     }
 
     /**
      * The URL of the Azure Blob Storage container involved in your transfer.
      * 
      */
-    private UndeferrableValue<String> containerUrl;
-
+    @PolicyResourceProperty(name="containerUrl", flag="unknown_containerUrl")
+    private String value_containerUrl;
+    private boolean unknown_containerUrl;
     public String containerUrl() {
-        if (containerUrl == null) return null;
-        return containerUrl.getValue("LocationAzureBlobArgs.containerUrl");
+        if (!unknown_containerUrl) return value_containerUrl;
+        throw new UndeferrableValueException("Value 'LocationAzureBlobArgs.containerUrl' is not present");
     }
 
     /**
      * The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
      * 
      */
-    private UndeferrableValue<LocationAzureBlobSasConfigurationArgs> sasConfiguration;
-
+    @PolicyResourceProperty(name="sasConfiguration", flag="unknown_sasConfiguration")
+    private LocationAzureBlobSasConfigurationArgs value_sasConfiguration;
+    private boolean unknown_sasConfiguration;
     public LocationAzureBlobSasConfigurationArgs sasConfiguration() {
-        if (sasConfiguration == null) return null;
-        return sasConfiguration.getValue("LocationAzureBlobArgs.sasConfiguration");
+        if (!unknown_sasConfiguration) return value_sasConfiguration;
+        throw new UndeferrableValueException("Value 'LocationAzureBlobArgs.sasConfiguration' is not present");
     }
 
     /**
      * Path segments if you want to limit your transfer to a virtual directory in the container.
      * 
      */
-    private UndeferrableValue<String> subdirectory;
-
+    @PolicyResourceProperty(name="subdirectory", flag="unknown_subdirectory")
+    private String value_subdirectory;
+    private boolean unknown_subdirectory;
     public String subdirectory() {
-        if (subdirectory == null) return null;
-        return subdirectory.getValue("LocationAzureBlobArgs.subdirectory");
+        if (!unknown_subdirectory) return value_subdirectory;
+        throw new UndeferrableValueException("Value 'LocationAzureBlobArgs.subdirectory' is not present");
     }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LocationAzureBlobArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LocationAzureBlobArgs.tags' is not present");
     }
 
 }

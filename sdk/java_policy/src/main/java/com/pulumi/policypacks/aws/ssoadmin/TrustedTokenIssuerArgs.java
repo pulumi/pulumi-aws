@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssoadmin;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ssoadmin.inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class TrustedTokenIssuerArgs extends com.pulumi.resources.PolicyRes
      * A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
      * 
      */
-    private UndeferrableValue<String> clientToken;
-
+    @PolicyResourceProperty(name="clientToken", flag="unknown_clientToken")
+    private String value_clientToken;
+    private boolean unknown_clientToken;
     public String clientToken() {
-        if (clientToken == null) return null;
-        return clientToken.getValue("TrustedTokenIssuerArgs.clientToken");
+        if (!unknown_clientToken) return value_clientToken;
+        throw new UndeferrableValueException("Value 'TrustedTokenIssuerArgs.clientToken' is not present");
     }
 
     /**
      * ARN of the instance of IAM Identity Center.
      * 
      */
-    private UndeferrableValue<String> instanceArn;
-
+    @PolicyResourceProperty(name="instanceArn", flag="unknown_instanceArn")
+    private String value_instanceArn;
+    private boolean unknown_instanceArn;
     public String instanceArn() {
-        if (instanceArn == null) return null;
-        return instanceArn.getValue("TrustedTokenIssuerArgs.instanceArn");
+        if (!unknown_instanceArn) return value_instanceArn;
+        throw new UndeferrableValueException("Value 'TrustedTokenIssuerArgs.instanceArn' is not present");
     }
 
     /**
      * Name of the trusted token issuer.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TrustedTokenIssuerArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TrustedTokenIssuerArgs.name' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TrustedTokenIssuerArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TrustedTokenIssuerArgs.tags' is not present");
     }
 
     /**
      * A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
      * 
      */
-    private UndeferrableValue<TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs> trustedTokenIssuerConfiguration;
-
+    @PolicyResourceProperty(name="trustedTokenIssuerConfiguration", flag="unknown_trustedTokenIssuerConfiguration")
+    private TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs value_trustedTokenIssuerConfiguration;
+    private boolean unknown_trustedTokenIssuerConfiguration;
     public TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs trustedTokenIssuerConfiguration() {
-        if (trustedTokenIssuerConfiguration == null) return null;
-        return trustedTokenIssuerConfiguration.getValue("TrustedTokenIssuerArgs.trustedTokenIssuerConfiguration");
+        if (!unknown_trustedTokenIssuerConfiguration) return value_trustedTokenIssuerConfiguration;
+        throw new UndeferrableValueException("Value 'TrustedTokenIssuerArgs.trustedTokenIssuerConfiguration' is not present");
     }
 
     /**
@@ -75,11 +81,12 @@ public final class TrustedTokenIssuerArgs extends com.pulumi.resources.PolicyRes
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> trustedTokenIssuerType;
-
+    @PolicyResourceProperty(name="trustedTokenIssuerType", flag="unknown_trustedTokenIssuerType")
+    private String value_trustedTokenIssuerType;
+    private boolean unknown_trustedTokenIssuerType;
     public String trustedTokenIssuerType() {
-        if (trustedTokenIssuerType == null) return null;
-        return trustedTokenIssuerType.getValue("TrustedTokenIssuerArgs.trustedTokenIssuerType");
+        if (!unknown_trustedTokenIssuerType) return value_trustedTokenIssuerType;
+        throw new UndeferrableValueException("Value 'TrustedTokenIssuerArgs.trustedTokenIssuerType' is not present");
     }
 
 }

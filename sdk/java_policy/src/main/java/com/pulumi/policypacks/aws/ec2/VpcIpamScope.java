@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,84 +20,92 @@ public final class VpcIpamScope extends com.pulumi.resources.PolicyResourceOutpu
      * The Amazon Resource Name (ARN) of the scope.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("VpcIpamScope.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'VpcIpamScope.arn' is not present");
     }
 
     /**
      * A description for the scope you&#39;re creating.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("VpcIpamScope.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'VpcIpamScope.description' is not present");
     }
 
     /**
      * The ARN of the IPAM for which you&#39;re creating this scope.
      * 
      */
-    private UndeferrableValue<String> ipamArn;
-
+    @PolicyResourceProperty(name="ipamArn", flag="unknown_ipamArn")
+    private String value_ipamArn;
+    private boolean unknown_ipamArn;
     public String ipamArn() {
-        if (ipamArn == null) return null;
-        return ipamArn.getValue("VpcIpamScope.ipamArn");
+        if (!unknown_ipamArn) return value_ipamArn;
+        throw new UndeferrableValueException("Value 'VpcIpamScope.ipamArn' is not present");
     }
 
     /**
      * The ID of the IPAM for which you&#39;re creating this scope.
      * 
      */
-    private UndeferrableValue<String> ipamId;
-
+    @PolicyResourceProperty(name="ipamId", flag="unknown_ipamId")
+    private String value_ipamId;
+    private boolean unknown_ipamId;
     public String ipamId() {
-        if (ipamId == null) return null;
-        return ipamId.getValue("VpcIpamScope.ipamId");
+        if (!unknown_ipamId) return value_ipamId;
+        throw new UndeferrableValueException("Value 'VpcIpamScope.ipamId' is not present");
     }
 
-    private UndeferrableValue<String> ipamScopeType;
-
+    @PolicyResourceProperty(name="ipamScopeType", flag="unknown_ipamScopeType")
+    private String value_ipamScopeType;
+    private boolean unknown_ipamScopeType;
     public String ipamScopeType() {
-        if (ipamScopeType == null) return null;
-        return ipamScopeType.getValue("VpcIpamScope.ipamScopeType");
+        if (!unknown_ipamScopeType) return value_ipamScopeType;
+        throw new UndeferrableValueException("Value 'VpcIpamScope.ipamScopeType' is not present");
     }
 
     /**
      * Defines if the scope is the default scope or not.
      * 
      */
-    private UndeferrableValue<Boolean> isDefault;
-
+    @PolicyResourceProperty(name="isDefault", flag="unknown_isDefault")
+    private Boolean value_isDefault;
+    private boolean unknown_isDefault;
     public Boolean isDefault() {
-        if (isDefault == null) return null;
-        return isDefault.getValue("VpcIpamScope.isDefault");
+        if (!unknown_isDefault) return value_isDefault;
+        throw new UndeferrableValueException("Value 'VpcIpamScope.isDefault' is not present");
     }
 
     /**
      * The number of pools in the scope.
      * 
      */
-    private UndeferrableValue<Integer> poolCount;
-
+    @PolicyResourceProperty(name="poolCount", flag="unknown_poolCount")
+    private Integer value_poolCount;
+    private boolean unknown_poolCount;
     public Integer poolCount() {
-        if (poolCount == null) return null;
-        return poolCount.getValue("VpcIpamScope.poolCount");
+        if (!unknown_poolCount) return value_poolCount;
+        throw new UndeferrableValueException("Value 'VpcIpamScope.poolCount' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VpcIpamScope.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VpcIpamScope.tags' is not present");
     }
 
     /**
@@ -105,11 +114,12 @@ public final class VpcIpamScope extends com.pulumi.resources.PolicyResourceOutpu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("VpcIpamScope.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'VpcIpamScope.tagsAll' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dynamodb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,22 +17,24 @@ public final class ContributorInsights extends com.pulumi.resources.PolicyResour
      * The global secondary index name
      * 
      */
-    private @Nullable UndeferrableValue<String> indexName;
-
+    @PolicyResourceProperty(name="indexName", flag="unknown_indexName")
+    private @Nullable String value_indexName;
+    private boolean unknown_indexName;
     public @Nullable String indexName() {
-        if (indexName == null) return null;
-        return indexName.getValue("ContributorInsights.indexName");
+        if (!unknown_indexName) return value_indexName;
+        throw new UndeferrableValueException("Value 'ContributorInsights.indexName' is not present");
     }
 
     /**
      * The name of the table to enable contributor insights
      * 
      */
-    private UndeferrableValue<String> tableName;
-
+    @PolicyResourceProperty(name="tableName", flag="unknown_tableName")
+    private String value_tableName;
+    private boolean unknown_tableName;
     public String tableName() {
-        if (tableName == null) return null;
-        return tableName.getValue("ContributorInsights.tableName");
+        if (!unknown_tableName) return value_tableName;
+        throw new UndeferrableValueException("Value 'ContributorInsights.tableName' is not present");
     }
 
 }

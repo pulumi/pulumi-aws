@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.imagebuilder.inputs.ImageWorkflowParameterArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class ImageWorkflowArgs {
      * The action to take if the workflow fails. Must be one of `CONTINUE` or `ABORT`.
      * 
      */
-    private UndeferrableValue<String> onFailure;
-
+    @PolicyResourceProperty(name="onFailure", flag="unknown_onFailure")
+    private String value_onFailure;
+    private boolean unknown_onFailure;
     public String onFailure() {
-        if (onFailure == null) return null;
-        return onFailure.getValue("ImageWorkflowArgs.onFailure");
+        if (!unknown_onFailure) return value_onFailure;
+        throw new UndeferrableValueException("Value 'ImageWorkflowArgs.onFailure' is not present");
     }
 
     /**
      * The parallel group in which to run a test Workflow.
      * 
      */
-    private UndeferrableValue<String> parallelGroup;
-
+    @PolicyResourceProperty(name="parallelGroup", flag="unknown_parallelGroup")
+    private String value_parallelGroup;
+    private boolean unknown_parallelGroup;
     public String parallelGroup() {
-        if (parallelGroup == null) return null;
-        return parallelGroup.getValue("ImageWorkflowArgs.parallelGroup");
+        if (!unknown_parallelGroup) return value_parallelGroup;
+        throw new UndeferrableValueException("Value 'ImageWorkflowArgs.parallelGroup' is not present");
     }
 
     /**
      * Configuration block for the workflow parameters. Detailed below.
      * 
      */
-    private UndeferrableValue<List<ImageWorkflowParameterArgs>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private List<ImageWorkflowParameterArgs> value_parameters;
+    private boolean unknown_parameters;
     public List<ImageWorkflowParameterArgs> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("ImageWorkflowArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'ImageWorkflowArgs.parameters' is not present");
     }
 
     /**
@@ -51,11 +55,12 @@ public final class ImageWorkflowArgs {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> workflowArn;
-
+    @PolicyResourceProperty(name="workflowArn", flag="unknown_workflowArn")
+    private String value_workflowArn;
+    private boolean unknown_workflowArn;
     public String workflowArn() {
-        if (workflowArn == null) return null;
-        return workflowArn.getValue("ImageWorkflowArgs.workflowArn");
+        if (!unknown_workflowArn) return value_workflowArn;
+        throw new UndeferrableValueException("Value 'ImageWorkflowArgs.workflowArn' is not present");
     }
 
 }

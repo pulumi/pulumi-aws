@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mq.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class BrokerInstance {
      * The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
      * 
      */
-    private @Nullable UndeferrableValue<String> consoleUrl;
-
+    @PolicyResourceProperty(name="consoleUrl", flag="unknown_consoleUrl")
+    private @Nullable String value_consoleUrl;
+    private boolean unknown_consoleUrl;
     public @Nullable String consoleUrl() {
-        if (consoleUrl == null) return null;
-        return consoleUrl.getValue("BrokerInstance.consoleUrl");
+        if (!unknown_consoleUrl) return value_consoleUrl;
+        throw new UndeferrableValueException("Value 'BrokerInstance.consoleUrl' is not present");
     }
 
     /**
@@ -34,22 +36,24 @@ public final class BrokerInstance {
      * * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> endpoints;
-
+    @PolicyResourceProperty(name="endpoints", flag="unknown_endpoints")
+    private @Nullable List<String> value_endpoints;
+    private boolean unknown_endpoints;
     public @Nullable List<String> endpoints() {
-        if (endpoints == null) return null;
-        return endpoints.getValue("BrokerInstance.endpoints");
+        if (!unknown_endpoints) return value_endpoints;
+        throw new UndeferrableValueException("Value 'BrokerInstance.endpoints' is not present");
     }
 
     /**
      * IP Address of the broker.
      * 
      */
-    private @Nullable UndeferrableValue<String> ipAddress;
-
+    @PolicyResourceProperty(name="ipAddress", flag="unknown_ipAddress")
+    private @Nullable String value_ipAddress;
+    private boolean unknown_ipAddress;
     public @Nullable String ipAddress() {
-        if (ipAddress == null) return null;
-        return ipAddress.getValue("BrokerInstance.ipAddress");
+        if (!unknown_ipAddress) return value_ipAddress;
+        throw new UndeferrableValueException("Value 'BrokerInstance.ipAddress' is not present");
     }
 
 }

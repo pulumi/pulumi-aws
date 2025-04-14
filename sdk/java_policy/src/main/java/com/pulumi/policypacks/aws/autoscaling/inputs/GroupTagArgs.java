@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 
@@ -14,11 +15,12 @@ public final class GroupTagArgs {
      * Key
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("GroupTagArgs.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'GroupTagArgs.key' is not present");
     }
 
     /**
@@ -30,22 +32,24 @@ public final class GroupTagArgs {
      * &gt; **NOTE:** Other AWS APIs may automatically add special tags to their associated Auto Scaling Group for management purposes, such as ECS Capacity Providers adding the `AmazonECSManaged` tag. These generally should be included in the configuration so the provider does not attempt to remove them and so if the `min_size` was greater than zero on creation, that these tag(s) are applied to any initial EC2 Instances in the Auto Scaling Group. If these tag(s) were missing in the Auto Scaling Group configuration on creation, affected EC2 Instances missing the tags may require manual intervention of adding the tags to ensure they work properly with the other AWS service.
      * 
      */
-    private UndeferrableValue<Boolean> propagateAtLaunch;
-
+    @PolicyResourceProperty(name="propagateAtLaunch", flag="unknown_propagateAtLaunch")
+    private Boolean value_propagateAtLaunch;
+    private boolean unknown_propagateAtLaunch;
     public Boolean propagateAtLaunch() {
-        if (propagateAtLaunch == null) return null;
-        return propagateAtLaunch.getValue("GroupTagArgs.propagateAtLaunch");
+        if (!unknown_propagateAtLaunch) return value_propagateAtLaunch;
+        throw new UndeferrableValueException("Value 'GroupTagArgs.propagateAtLaunch' is not present");
     }
 
     /**
      * Value
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("GroupTagArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'GroupTagArgs.value' is not present");
     }
 
 }

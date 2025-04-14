@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -16,66 +17,72 @@ public final class ReportPlanReportSettingArgs {
      * Specifies the list of accounts a report covers.
      * 
      */
-    private UndeferrableValue<List<String>> accounts;
-
+    @PolicyResourceProperty(name="accounts", flag="unknown_accounts")
+    private List<String> value_accounts;
+    private boolean unknown_accounts;
     public List<String> accounts() {
-        if (accounts == null) return null;
-        return accounts.getValue("ReportPlanReportSettingArgs.accounts");
+        if (!unknown_accounts) return value_accounts;
+        throw new UndeferrableValueException("Value 'ReportPlanReportSettingArgs.accounts' is not present");
     }
 
     /**
      * Specifies the Amazon Resource Names (ARNs) of the frameworks a report covers.
      * 
      */
-    private UndeferrableValue<List<String>> frameworkArns;
-
+    @PolicyResourceProperty(name="frameworkArns", flag="unknown_frameworkArns")
+    private List<String> value_frameworkArns;
+    private boolean unknown_frameworkArns;
     public List<String> frameworkArns() {
-        if (frameworkArns == null) return null;
-        return frameworkArns.getValue("ReportPlanReportSettingArgs.frameworkArns");
+        if (!unknown_frameworkArns) return value_frameworkArns;
+        throw new UndeferrableValueException("Value 'ReportPlanReportSettingArgs.frameworkArns' is not present");
     }
 
     /**
      * Specifies the number of frameworks a report covers.
      * 
      */
-    private UndeferrableValue<Integer> numberOfFrameworks;
-
+    @PolicyResourceProperty(name="numberOfFrameworks", flag="unknown_numberOfFrameworks")
+    private Integer value_numberOfFrameworks;
+    private boolean unknown_numberOfFrameworks;
     public Integer numberOfFrameworks() {
-        if (numberOfFrameworks == null) return null;
-        return numberOfFrameworks.getValue("ReportPlanReportSettingArgs.numberOfFrameworks");
+        if (!unknown_numberOfFrameworks) return value_numberOfFrameworks;
+        throw new UndeferrableValueException("Value 'ReportPlanReportSettingArgs.numberOfFrameworks' is not present");
     }
 
     /**
      * Specifies the list of Organizational Units a report covers.
      * 
      */
-    private UndeferrableValue<List<String>> organizationUnits;
-
+    @PolicyResourceProperty(name="organizationUnits", flag="unknown_organizationUnits")
+    private List<String> value_organizationUnits;
+    private boolean unknown_organizationUnits;
     public List<String> organizationUnits() {
-        if (organizationUnits == null) return null;
-        return organizationUnits.getValue("ReportPlanReportSettingArgs.organizationUnits");
+        if (!unknown_organizationUnits) return value_organizationUnits;
+        throw new UndeferrableValueException("Value 'ReportPlanReportSettingArgs.organizationUnits' is not present");
     }
 
     /**
      * Specifies the list of regions a report covers.
      * 
      */
-    private UndeferrableValue<List<String>> regions;
-
+    @PolicyResourceProperty(name="regions", flag="unknown_regions")
+    private List<String> value_regions;
+    private boolean unknown_regions;
     public List<String> regions() {
-        if (regions == null) return null;
-        return regions.getValue("ReportPlanReportSettingArgs.regions");
+        if (!unknown_regions) return value_regions;
+        throw new UndeferrableValueException("Value 'ReportPlanReportSettingArgs.regions' is not present");
     }
 
     /**
      * Identifies the report template for the report. Reports are built using a report template. The report templates are: `RESOURCE_COMPLIANCE_REPORT` | `CONTROL_COMPLIANCE_REPORT` | `BACKUP_JOB_REPORT` | `COPY_JOB_REPORT` | `RESTORE_JOB_REPORT`.
      * 
      */
-    private UndeferrableValue<String> reportTemplate;
-
+    @PolicyResourceProperty(name="reportTemplate", flag="unknown_reportTemplate")
+    private String value_reportTemplate;
+    private boolean unknown_reportTemplate;
     public String reportTemplate() {
-        if (reportTemplate == null) return null;
-        return reportTemplate.getValue("ReportPlanReportSettingArgs.reportTemplate");
+        if (!unknown_reportTemplate) return value_reportTemplate;
+        throw new UndeferrableValueException("Value 'ReportPlanReportSettingArgs.reportTemplate' is not present");
     }
 
 }

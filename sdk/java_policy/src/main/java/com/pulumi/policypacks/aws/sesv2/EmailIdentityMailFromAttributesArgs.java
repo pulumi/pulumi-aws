@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class EmailIdentityMailFromAttributesArgs extends com.pulumi.resour
      * The action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
      * 
      */
-    private UndeferrableValue<String> behaviorOnMxFailure;
-
+    @PolicyResourceProperty(name="behaviorOnMxFailure", flag="unknown_behaviorOnMxFailure")
+    private String value_behaviorOnMxFailure;
+    private boolean unknown_behaviorOnMxFailure;
     public String behaviorOnMxFailure() {
-        if (behaviorOnMxFailure == null) return null;
-        return behaviorOnMxFailure.getValue("EmailIdentityMailFromAttributesArgs.behaviorOnMxFailure");
+        if (!unknown_behaviorOnMxFailure) return value_behaviorOnMxFailure;
+        throw new UndeferrableValueException("Value 'EmailIdentityMailFromAttributesArgs.behaviorOnMxFailure' is not present");
     }
 
     /**
      * The verified email identity.
      * 
      */
-    private UndeferrableValue<String> emailIdentity;
-
+    @PolicyResourceProperty(name="emailIdentity", flag="unknown_emailIdentity")
+    private String value_emailIdentity;
+    private boolean unknown_emailIdentity;
     public String emailIdentity() {
-        if (emailIdentity == null) return null;
-        return emailIdentity.getValue("EmailIdentityMailFromAttributesArgs.emailIdentity");
+        if (!unknown_emailIdentity) return value_emailIdentity;
+        throw new UndeferrableValueException("Value 'EmailIdentityMailFromAttributesArgs.emailIdentity' is not present");
     }
 
     /**
      * The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
      * 
      */
-    private UndeferrableValue<String> mailFromDomain;
-
+    @PolicyResourceProperty(name="mailFromDomain", flag="unknown_mailFromDomain")
+    private String value_mailFromDomain;
+    private boolean unknown_mailFromDomain;
     public String mailFromDomain() {
-        if (mailFromDomain == null) return null;
-        return mailFromDomain.getValue("EmailIdentityMailFromAttributesArgs.mailFromDomain");
+        if (!unknown_mailFromDomain) return value_mailFromDomain;
+        throw new UndeferrableValueException("Value 'EmailIdentityMailFromAttributesArgs.mailFromDomain' is not present");
     }
 
 }

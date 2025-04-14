@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.codebuild.inputs.FleetComputeConfigurationArgs;
 import com.pulumi.policypacks.aws.codebuild.inputs.FleetScalingConfigurationArgs;
@@ -22,33 +23,36 @@ public final class FleetArgs extends com.pulumi.resources.PolicyResourceInput {
      * Number of machines allocated to the ﬂeet.
      * 
      */
-    private UndeferrableValue<Integer> baseCapacity;
-
+    @PolicyResourceProperty(name="baseCapacity", flag="unknown_baseCapacity")
+    private Integer value_baseCapacity;
+    private boolean unknown_baseCapacity;
     public Integer baseCapacity() {
-        if (baseCapacity == null) return null;
-        return baseCapacity.getValue("FleetArgs.baseCapacity");
+        if (!unknown_baseCapacity) return value_baseCapacity;
+        throw new UndeferrableValueException("Value 'FleetArgs.baseCapacity' is not present");
     }
 
     /**
      * The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE`. See `compute_configuration` below.
      * 
      */
-    private UndeferrableValue<FleetComputeConfigurationArgs> computeConfiguration;
-
+    @PolicyResourceProperty(name="computeConfiguration", flag="unknown_computeConfiguration")
+    private FleetComputeConfigurationArgs value_computeConfiguration;
+    private boolean unknown_computeConfiguration;
     public FleetComputeConfigurationArgs computeConfiguration() {
-        if (computeConfiguration == null) return null;
-        return computeConfiguration.getValue("FleetArgs.computeConfiguration");
+        if (!unknown_computeConfiguration) return value_computeConfiguration;
+        throw new UndeferrableValueException("Value 'FleetArgs.computeConfiguration' is not present");
     }
 
     /**
      * Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
      * 
      */
-    private UndeferrableValue<String> computeType;
-
+    @PolicyResourceProperty(name="computeType", flag="unknown_computeType")
+    private String value_computeType;
+    private boolean unknown_computeType;
     public String computeType() {
-        if (computeType == null) return null;
-        return computeType.getValue("FleetArgs.computeType");
+        if (!unknown_computeType) return value_computeType;
+        throw new UndeferrableValueException("Value 'FleetArgs.computeType' is not present");
     }
 
     /**
@@ -57,88 +61,96 @@ public final class FleetArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> environmentType;
-
+    @PolicyResourceProperty(name="environmentType", flag="unknown_environmentType")
+    private String value_environmentType;
+    private boolean unknown_environmentType;
     public String environmentType() {
-        if (environmentType == null) return null;
-        return environmentType.getValue("FleetArgs.environmentType");
+        if (!unknown_environmentType) return value_environmentType;
+        throw new UndeferrableValueException("Value 'FleetArgs.environmentType' is not present");
     }
 
     /**
      * The service role associated with the compute fleet.
      * 
      */
-    private UndeferrableValue<String> fleetServiceRole;
-
+    @PolicyResourceProperty(name="fleetServiceRole", flag="unknown_fleetServiceRole")
+    private String value_fleetServiceRole;
+    private boolean unknown_fleetServiceRole;
     public String fleetServiceRole() {
-        if (fleetServiceRole == null) return null;
-        return fleetServiceRole.getValue("FleetArgs.fleetServiceRole");
+        if (!unknown_fleetServiceRole) return value_fleetServiceRole;
+        throw new UndeferrableValueException("Value 'FleetArgs.fleetServiceRole' is not present");
     }
 
     /**
      * The Amazon Machine Image (AMI) of the compute fleet.
      * 
      */
-    private UndeferrableValue<String> imageId;
-
+    @PolicyResourceProperty(name="imageId", flag="unknown_imageId")
+    private String value_imageId;
+    private boolean unknown_imageId;
     public String imageId() {
-        if (imageId == null) return null;
-        return imageId.getValue("FleetArgs.imageId");
+        if (!unknown_imageId) return value_imageId;
+        throw new UndeferrableValueException("Value 'FleetArgs.imageId' is not present");
     }
 
     /**
      * Fleet name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("FleetArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FleetArgs.name' is not present");
     }
 
     /**
      * Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
      * 
      */
-    private UndeferrableValue<String> overflowBehavior;
-
+    @PolicyResourceProperty(name="overflowBehavior", flag="unknown_overflowBehavior")
+    private String value_overflowBehavior;
+    private boolean unknown_overflowBehavior;
     public String overflowBehavior() {
-        if (overflowBehavior == null) return null;
-        return overflowBehavior.getValue("FleetArgs.overflowBehavior");
+        if (!unknown_overflowBehavior) return value_overflowBehavior;
+        throw new UndeferrableValueException("Value 'FleetArgs.overflowBehavior' is not present");
     }
 
     /**
      * Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
      * 
      */
-    private UndeferrableValue<FleetScalingConfigurationArgs> scalingConfiguration;
-
+    @PolicyResourceProperty(name="scalingConfiguration", flag="unknown_scalingConfiguration")
+    private FleetScalingConfigurationArgs value_scalingConfiguration;
+    private boolean unknown_scalingConfiguration;
     public FleetScalingConfigurationArgs scalingConfiguration() {
-        if (scalingConfiguration == null) return null;
-        return scalingConfiguration.getValue("FleetArgs.scalingConfiguration");
+        if (!unknown_scalingConfiguration) return value_scalingConfiguration;
+        throw new UndeferrableValueException("Value 'FleetArgs.scalingConfiguration' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("FleetArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'FleetArgs.tags' is not present");
     }
 
     /**
      * Configuration block. See `vpc_config` below.
      * 
      */
-    private UndeferrableValue<List<FleetVpcConfigArgs>> vpcConfigs;
-
+    @PolicyResourceProperty(name="vpcConfigs", flag="unknown_vpcConfigs")
+    private List<FleetVpcConfigArgs> value_vpcConfigs;
+    private boolean unknown_vpcConfigs;
     public List<FleetVpcConfigArgs> vpcConfigs() {
-        if (vpcConfigs == null) return null;
-        return vpcConfigs.getValue("FleetArgs.vpcConfigs");
+        if (!unknown_vpcConfigs) return value_vpcConfigs;
+        throw new UndeferrableValueException("Value 'FleetArgs.vpcConfigs' is not present");
     }
 
 }

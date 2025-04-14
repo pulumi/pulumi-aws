@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,77 +19,84 @@ public final class ClusterSnapshot extends com.pulumi.resources.PolicyResourceOu
      * Amazon Resource Name (ARN) of the snapshot.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ClusterSnapshot.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.arn' is not present");
     }
 
     /**
      * The cluster identifier for which you want a snapshot.
      * 
      */
-    private UndeferrableValue<String> clusterIdentifier;
-
+    @PolicyResourceProperty(name="clusterIdentifier", flag="unknown_clusterIdentifier")
+    private String value_clusterIdentifier;
+    private boolean unknown_clusterIdentifier;
     public String clusterIdentifier() {
-        if (clusterIdentifier == null) return null;
-        return clusterIdentifier.getValue("ClusterSnapshot.clusterIdentifier");
+        if (!unknown_clusterIdentifier) return value_clusterIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.clusterIdentifier' is not present");
     }
 
     /**
      * The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("ClusterSnapshot.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.kmsKeyId' is not present");
     }
 
     /**
      * The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> manualSnapshotRetentionPeriod;
-
+    @PolicyResourceProperty(name="manualSnapshotRetentionPeriod", flag="unknown_manualSnapshotRetentionPeriod")
+    private @Nullable Integer value_manualSnapshotRetentionPeriod;
+    private boolean unknown_manualSnapshotRetentionPeriod;
     public @Nullable Integer manualSnapshotRetentionPeriod() {
-        if (manualSnapshotRetentionPeriod == null) return null;
-        return manualSnapshotRetentionPeriod.getValue("ClusterSnapshot.manualSnapshotRetentionPeriod");
+        if (!unknown_manualSnapshotRetentionPeriod) return value_manualSnapshotRetentionPeriod;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.manualSnapshotRetentionPeriod' is not present");
     }
 
     /**
      * For manual snapshots, the Amazon Web Services account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
      * 
      */
-    private UndeferrableValue<String> ownerAccount;
-
+    @PolicyResourceProperty(name="ownerAccount", flag="unknown_ownerAccount")
+    private String value_ownerAccount;
+    private boolean unknown_ownerAccount;
     public String ownerAccount() {
-        if (ownerAccount == null) return null;
-        return ownerAccount.getValue("ClusterSnapshot.ownerAccount");
+        if (!unknown_ownerAccount) return value_ownerAccount;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.ownerAccount' is not present");
     }
 
     /**
      * A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
      * 
      */
-    private UndeferrableValue<String> snapshotIdentifier;
-
+    @PolicyResourceProperty(name="snapshotIdentifier", flag="unknown_snapshotIdentifier")
+    private String value_snapshotIdentifier;
+    private boolean unknown_snapshotIdentifier;
     public String snapshotIdentifier() {
-        if (snapshotIdentifier == null) return null;
-        return snapshotIdentifier.getValue("ClusterSnapshot.snapshotIdentifier");
+        if (!unknown_snapshotIdentifier) return value_snapshotIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.snapshotIdentifier' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ClusterSnapshot.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.tags' is not present");
     }
 
     /**
@@ -99,11 +107,12 @@ public final class ClusterSnapshot extends com.pulumi.resources.PolicyResourceOu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ClusterSnapshot.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ClusterSnapshot.tagsAll' is not present");
     }
 
 }

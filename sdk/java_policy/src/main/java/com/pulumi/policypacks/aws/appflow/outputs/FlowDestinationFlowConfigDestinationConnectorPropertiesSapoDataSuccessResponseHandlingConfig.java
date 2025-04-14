@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
      * Name of the Amazon S3 bucket.
      * 
      */
-    private @Nullable UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private @Nullable String value_bucketName;
+    private boolean unknown_bucketName;
     public @Nullable String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig.bucketName' is not present");
     }
 
     /**
      * Amazon S3 bucket prefix.
      * 
      */
-    private @Nullable UndeferrableValue<String> bucketPrefix;
-
+    @PolicyResourceProperty(name="bucketPrefix", flag="unknown_bucketPrefix")
+    private @Nullable String value_bucketPrefix;
+    private boolean unknown_bucketPrefix;
     public @Nullable String bucketPrefix() {
-        if (bucketPrefix == null) return null;
-        return bucketPrefix.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig.bucketPrefix");
+        if (!unknown_bucketPrefix) return value_bucketPrefix;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig.bucketPrefix' is not present");
     }
 
 }

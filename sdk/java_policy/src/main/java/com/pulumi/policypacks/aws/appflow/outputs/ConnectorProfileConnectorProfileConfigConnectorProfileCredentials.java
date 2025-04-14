@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude;
 import com.pulumi.policypacks.aws.appflow.outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector;
 import com.pulumi.policypacks.aws.appflow.outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog;
@@ -31,198 +32,216 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      * The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude> amplitude;
-
+    @PolicyResourceProperty(name="amplitude", flag="unknown_amplitude")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude value_amplitude;
+    private boolean unknown_amplitude;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude amplitude() {
-        if (amplitude == null) return null;
-        return amplitude.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.amplitude");
+        if (!unknown_amplitude) return value_amplitude;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.amplitude' is not present");
     }
 
     /**
      * The connector-specific profile credentials required when using the custom connector. See Custom Connector Profile Credentials for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector> customConnector;
-
+    @PolicyResourceProperty(name="customConnector", flag="unknown_customConnector")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector value_customConnector;
+    private boolean unknown_customConnector;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector customConnector() {
-        if (customConnector == null) return null;
-        return customConnector.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.customConnector");
+        if (!unknown_customConnector) return value_customConnector;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.customConnector' is not present");
     }
 
     /**
      * Connector-specific credentials required when using Datadog. See Datadog Connector Profile Credentials for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog> datadog;
-
+    @PolicyResourceProperty(name="datadog", flag="unknown_datadog")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog value_datadog;
+    private boolean unknown_datadog;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog datadog() {
-        if (datadog == null) return null;
-        return datadog.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.datadog");
+        if (!unknown_datadog) return value_datadog;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.datadog' is not present");
     }
 
     /**
      * The connector-specific credentials required when using Dynatrace. See Dynatrace Connector Profile Credentials for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace> dynatrace;
-
+    @PolicyResourceProperty(name="dynatrace", flag="unknown_dynatrace")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace value_dynatrace;
+    private boolean unknown_dynatrace;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace dynatrace() {
-        if (dynatrace == null) return null;
-        return dynatrace.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.dynatrace");
+        if (!unknown_dynatrace) return value_dynatrace;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.dynatrace' is not present");
     }
 
     /**
      * The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics> googleAnalytics;
-
+    @PolicyResourceProperty(name="googleAnalytics", flag="unknown_googleAnalytics")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics value_googleAnalytics;
+    private boolean unknown_googleAnalytics;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics googleAnalytics() {
-        if (googleAnalytics == null) return null;
-        return googleAnalytics.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.googleAnalytics");
+        if (!unknown_googleAnalytics) return value_googleAnalytics;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.googleAnalytics' is not present");
     }
 
     /**
      * The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode> honeycode;
-
+    @PolicyResourceProperty(name="honeycode", flag="unknown_honeycode")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode value_honeycode;
+    private boolean unknown_honeycode;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode honeycode() {
-        if (honeycode == null) return null;
-        return honeycode.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.honeycode");
+        if (!unknown_honeycode) return value_honeycode;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.honeycode' is not present");
     }
 
     /**
      * The connector-specific credentials required when using Infor Nexus. See Infor Nexus Connector Profile Credentials for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus> inforNexus;
-
+    @PolicyResourceProperty(name="inforNexus", flag="unknown_inforNexus")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus value_inforNexus;
+    private boolean unknown_inforNexus;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus inforNexus() {
-        if (inforNexus == null) return null;
-        return inforNexus.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.inforNexus");
+        if (!unknown_inforNexus) return value_inforNexus;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.inforNexus' is not present");
     }
 
     /**
      * Connector-specific credentials required when using Marketo. See Marketo Connector Profile Credentials for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo> marketo;
-
+    @PolicyResourceProperty(name="marketo", flag="unknown_marketo")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo value_marketo;
+    private boolean unknown_marketo;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo marketo() {
-        if (marketo == null) return null;
-        return marketo.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.marketo");
+        if (!unknown_marketo) return value_marketo;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.marketo' is not present");
     }
 
     /**
      * Connector-specific credentials required when using Amazon Redshift. See Redshift Connector Profile Credentials for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift> redshift;
-
+    @PolicyResourceProperty(name="redshift", flag="unknown_redshift")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift value_redshift;
+    private boolean unknown_redshift;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift redshift() {
-        if (redshift == null) return null;
-        return redshift.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.redshift");
+        if (!unknown_redshift) return value_redshift;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.redshift' is not present");
     }
 
     /**
      * The connector-specific credentials required when using Salesforce. See Salesforce Connector Profile Credentials for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce> salesforce;
-
+    @PolicyResourceProperty(name="salesforce", flag="unknown_salesforce")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce value_salesforce;
+    private boolean unknown_salesforce;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce salesforce() {
-        if (salesforce == null) return null;
-        return salesforce.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.salesforce");
+        if (!unknown_salesforce) return value_salesforce;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.salesforce' is not present");
     }
 
     /**
      * The connector-specific credentials required when using SAPOData. See SAPOData Connector Profile Credentials for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData> sapoData;
-
+    @PolicyResourceProperty(name="sapoData", flag="unknown_sapoData")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData value_sapoData;
+    private boolean unknown_sapoData;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData sapoData() {
-        if (sapoData == null) return null;
-        return sapoData.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.sapoData");
+        if (!unknown_sapoData) return value_sapoData;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.sapoData' is not present");
     }
 
     /**
      * The connector-specific credentials required when using ServiceNow. See ServiceNow Connector Profile Credentials for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow> serviceNow;
-
+    @PolicyResourceProperty(name="serviceNow", flag="unknown_serviceNow")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow value_serviceNow;
+    private boolean unknown_serviceNow;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow serviceNow() {
-        if (serviceNow == null) return null;
-        return serviceNow.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.serviceNow");
+        if (!unknown_serviceNow) return value_serviceNow;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.serviceNow' is not present");
     }
 
     /**
      * Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular> singular;
-
+    @PolicyResourceProperty(name="singular", flag="unknown_singular")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular value_singular;
+    private boolean unknown_singular;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular singular() {
-        if (singular == null) return null;
-        return singular.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.singular");
+        if (!unknown_singular) return value_singular;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.singular' is not present");
     }
 
     /**
      * Connector-specific credentials required when using Slack. See Slack Connector Profile Credentials for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack> slack;
-
+    @PolicyResourceProperty(name="slack", flag="unknown_slack")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack value_slack;
+    private boolean unknown_slack;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack slack() {
-        if (slack == null) return null;
-        return slack.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.slack");
+        if (!unknown_slack) return value_slack;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.slack' is not present");
     }
 
     /**
      * The connector-specific credentials required when using Snowflake. See Snowflake Connector Profile Credentials for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake> snowflake;
-
+    @PolicyResourceProperty(name="snowflake", flag="unknown_snowflake")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake value_snowflake;
+    private boolean unknown_snowflake;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake snowflake() {
-        if (snowflake == null) return null;
-        return snowflake.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.snowflake");
+        if (!unknown_snowflake) return value_snowflake;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.snowflake' is not present");
     }
 
     /**
      * The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro> trendmicro;
-
+    @PolicyResourceProperty(name="trendmicro", flag="unknown_trendmicro")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro value_trendmicro;
+    private boolean unknown_trendmicro;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro trendmicro() {
-        if (trendmicro == null) return null;
-        return trendmicro.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.trendmicro");
+        if (!unknown_trendmicro) return value_trendmicro;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.trendmicro' is not present");
     }
 
     /**
      * Connector-specific credentials required when using Veeva. See Veeva Connector Profile Credentials for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva> veeva;
-
+    @PolicyResourceProperty(name="veeva", flag="unknown_veeva")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva value_veeva;
+    private boolean unknown_veeva;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva veeva() {
-        if (veeva == null) return null;
-        return veeva.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.veeva");
+        if (!unknown_veeva) return value_veeva;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.veeva' is not present");
     }
 
     /**
      * Connector-specific credentials required when using Zendesk. See Zendesk Connector Profile Credentials for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk> zendesk;
-
+    @PolicyResourceProperty(name="zendesk", flag="unknown_zendesk")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk value_zendesk;
+    private boolean unknown_zendesk;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk zendesk() {
-        if (zendesk == null) return null;
-        return zendesk.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.zendesk");
+        if (!unknown_zendesk) return value_zendesk;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentials.zendesk' is not present");
     }
 
 }

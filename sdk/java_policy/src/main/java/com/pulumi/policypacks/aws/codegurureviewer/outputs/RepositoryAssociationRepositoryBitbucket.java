@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codegurureviewer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,33 +14,36 @@ public final class RepositoryAssociationRepositoryBitbucket {
      * The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
      * 
      */
-    private UndeferrableValue<String> connectionArn;
-
+    @PolicyResourceProperty(name="connectionArn", flag="unknown_connectionArn")
+    private String value_connectionArn;
+    private boolean unknown_connectionArn;
     public String connectionArn() {
-        if (connectionArn == null) return null;
-        return connectionArn.getValue("RepositoryAssociationRepositoryBitbucket.connectionArn");
+        if (!unknown_connectionArn) return value_connectionArn;
+        throw new UndeferrableValueException("Value 'RepositoryAssociationRepositoryBitbucket.connectionArn' is not present");
     }
 
     /**
      * The name of the third party source repository.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RepositoryAssociationRepositoryBitbucket.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RepositoryAssociationRepositoryBitbucket.name' is not present");
     }
 
     /**
      * The username for the account that owns the repository.
      * 
      */
-    private UndeferrableValue<String> owner;
-
+    @PolicyResourceProperty(name="owner", flag="unknown_owner")
+    private String value_owner;
+    private boolean unknown_owner;
     public String owner() {
-        if (owner == null) return null;
-        return owner.getValue("RepositoryAssociationRepositoryBitbucket.owner");
+        if (!unknown_owner) return value_owner;
+        throw new UndeferrableValueException("Value 'RepositoryAssociationRepositoryBitbucket.owner' is not present");
     }
 
 }

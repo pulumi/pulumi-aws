@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class PolicyTable extends com.pulumi.resources.PolicyResourceOutput
      * EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("PolicyTable.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'PolicyTable.arn' is not present");
     }
 
     /**
      * The state of the EC2 Transit Gateway Policy Table.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("PolicyTable.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'PolicyTable.state' is not present");
     }
 
     /**
      * Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("PolicyTable.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'PolicyTable.tags' is not present");
     }
 
     /**
@@ -54,22 +58,24 @@ public final class PolicyTable extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("PolicyTable.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'PolicyTable.tagsAll' is not present");
     }
 
     /**
      * EC2 Transit Gateway identifier.
      * 
      */
-    private UndeferrableValue<String> transitGatewayId;
-
+    @PolicyResourceProperty(name="transitGatewayId", flag="unknown_transitGatewayId")
+    private String value_transitGatewayId;
+    private boolean unknown_transitGatewayId;
     public String transitGatewayId() {
-        if (transitGatewayId == null) return null;
-        return transitGatewayId.getValue("PolicyTable.transitGatewayId");
+        if (!unknown_transitGatewayId) return value_transitGatewayId;
+        throw new UndeferrableValueException("Value 'PolicyTable.transitGatewayId' is not present");
     }
 
 }

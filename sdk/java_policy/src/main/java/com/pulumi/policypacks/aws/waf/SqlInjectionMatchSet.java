@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.waf;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.waf.outputs.SqlInjectionMatchSetSqlInjectionMatchTuple;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class SqlInjectionMatchSet extends com.pulumi.resources.PolicyResou
      * Amazon Resource Name (ARN) of the SQL injection match set.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("SqlInjectionMatchSet.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'SqlInjectionMatchSet.arn' is not present");
     }
 
     /**
      * The name or description of the SQL Injection Match Set.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("SqlInjectionMatchSet.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'SqlInjectionMatchSet.name' is not present");
     }
 
     /**
      * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
      * 
      */
-    private @Nullable UndeferrableValue<List<SqlInjectionMatchSetSqlInjectionMatchTuple>> sqlInjectionMatchTuples;
-
+    @PolicyResourceProperty(name="sqlInjectionMatchTuples", flag="unknown_sqlInjectionMatchTuples")
+    private @Nullable List<SqlInjectionMatchSetSqlInjectionMatchTuple> value_sqlInjectionMatchTuples;
+    private boolean unknown_sqlInjectionMatchTuples;
     public @Nullable List<SqlInjectionMatchSetSqlInjectionMatchTuple> sqlInjectionMatchTuples() {
-        if (sqlInjectionMatchTuples == null) return null;
-        return sqlInjectionMatchTuples.getValue("SqlInjectionMatchSet.sqlInjectionMatchTuples");
+        if (!unknown_sqlInjectionMatchTuples) return value_sqlInjectionMatchTuples;
+        throw new UndeferrableValueException("Value 'SqlInjectionMatchSet.sqlInjectionMatchTuples' is not present");
     }
 
 }

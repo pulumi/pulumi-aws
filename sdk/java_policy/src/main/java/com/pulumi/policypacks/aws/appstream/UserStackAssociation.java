@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appstream;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class UserStackAssociation extends com.pulumi.resources.PolicyResou
      * Authentication type for the user.
      * 
      */
-    private UndeferrableValue<String> authenticationType;
-
+    @PolicyResourceProperty(name="authenticationType", flag="unknown_authenticationType")
+    private String value_authenticationType;
+    private boolean unknown_authenticationType;
     public String authenticationType() {
-        if (authenticationType == null) return null;
-        return authenticationType.getValue("UserStackAssociation.authenticationType");
+        if (!unknown_authenticationType) return value_authenticationType;
+        throw new UndeferrableValueException("Value 'UserStackAssociation.authenticationType' is not present");
     }
 
     /**
      * Whether a welcome email is sent to a user after the user is created in the user pool.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> sendEmailNotification;
-
+    @PolicyResourceProperty(name="sendEmailNotification", flag="unknown_sendEmailNotification")
+    private @Nullable Boolean value_sendEmailNotification;
+    private boolean unknown_sendEmailNotification;
     public @Nullable Boolean sendEmailNotification() {
-        if (sendEmailNotification == null) return null;
-        return sendEmailNotification.getValue("UserStackAssociation.sendEmailNotification");
+        if (!unknown_sendEmailNotification) return value_sendEmailNotification;
+        throw new UndeferrableValueException("Value 'UserStackAssociation.sendEmailNotification' is not present");
     }
 
     /**
      * Name of the stack that is associated with the user.
      * 
      */
-    private UndeferrableValue<String> stackName;
-
+    @PolicyResourceProperty(name="stackName", flag="unknown_stackName")
+    private String value_stackName;
+    private boolean unknown_stackName;
     public String stackName() {
-        if (stackName == null) return null;
-        return stackName.getValue("UserStackAssociation.stackName");
+        if (!unknown_stackName) return value_stackName;
+        throw new UndeferrableValueException("Value 'UserStackAssociation.stackName' is not present");
     }
 
     /**
@@ -52,11 +56,12 @@ public final class UserStackAssociation extends com.pulumi.resources.PolicyResou
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> userName;
-
+    @PolicyResourceProperty(name="userName", flag="unknown_userName")
+    private String value_userName;
+    private boolean unknown_userName;
     public String userName() {
-        if (userName == null) return null;
-        return userName.getValue("UserStackAssociation.userName");
+        if (!unknown_userName) return value_userName;
+        throw new UndeferrableValueException("Value 'UserStackAssociation.userName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DataQualityJobDefinitionDataQualityJobInputBatchTransformInpu
      * Indicates if the file should be read as a json object per line.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> line;
-
+    @PolicyResourceProperty(name="line", flag="unknown_line")
+    private @Nullable Boolean value_line;
+    private boolean unknown_line;
     public @Nullable Boolean line() {
-        if (line == null) return null;
-        return line.getValue("DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson.line");
+        if (!unknown_line) return value_line;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson.line' is not present");
     }
 
 }

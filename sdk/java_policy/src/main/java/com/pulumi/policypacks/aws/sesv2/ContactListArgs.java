@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sesv2.inputs.ContactListTopicArgs;
 import java.lang.String;
@@ -21,44 +22,48 @@ public final class ContactListArgs extends com.pulumi.resources.PolicyResourceIn
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> contactListName;
-
+    @PolicyResourceProperty(name="contactListName", flag="unknown_contactListName")
+    private String value_contactListName;
+    private boolean unknown_contactListName;
     public String contactListName() {
-        if (contactListName == null) return null;
-        return contactListName.getValue("ContactListArgs.contactListName");
+        if (!unknown_contactListName) return value_contactListName;
+        throw new UndeferrableValueException("Value 'ContactListArgs.contactListName' is not present");
     }
 
     /**
      * Description of what the contact list is about.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ContactListArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ContactListArgs.description' is not present");
     }
 
     /**
      * Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ContactListArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ContactListArgs.tags' is not present");
     }
 
     /**
      * Configuration block(s) with topic for the contact list. Detailed below.
      * 
      */
-    private UndeferrableValue<List<ContactListTopicArgs>> topics;
-
+    @PolicyResourceProperty(name="topics", flag="unknown_topics")
+    private List<ContactListTopicArgs> value_topics;
+    private boolean unknown_topics;
     public List<ContactListTopicArgs> topics() {
-        if (topics == null) return null;
-        return topics.getValue("ContactListArgs.topics");
+        if (!unknown_topics) return value_topics;
+        throw new UndeferrableValueException("Value 'ContactListArgs.topics' is not present");
     }
 
 }

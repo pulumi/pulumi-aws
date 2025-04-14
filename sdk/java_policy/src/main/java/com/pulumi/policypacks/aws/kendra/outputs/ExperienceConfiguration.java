@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kendra.outputs.ExperienceConfigurationContentSourceConfiguration;
 import com.pulumi.policypacks.aws.kendra.outputs.ExperienceConfigurationUserIdentityConfiguration;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ExperienceConfiguration {
      * The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<ExperienceConfigurationContentSourceConfiguration> contentSourceConfiguration;
-
+    @PolicyResourceProperty(name="contentSourceConfiguration", flag="unknown_contentSourceConfiguration")
+    private @Nullable ExperienceConfigurationContentSourceConfiguration value_contentSourceConfiguration;
+    private boolean unknown_contentSourceConfiguration;
     public @Nullable ExperienceConfigurationContentSourceConfiguration contentSourceConfiguration() {
-        if (contentSourceConfiguration == null) return null;
-        return contentSourceConfiguration.getValue("ExperienceConfiguration.contentSourceConfiguration");
+        if (!unknown_contentSourceConfiguration) return value_contentSourceConfiguration;
+        throw new UndeferrableValueException("Value 'ExperienceConfiguration.contentSourceConfiguration' is not present");
     }
 
     /**
      * The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<ExperienceConfigurationUserIdentityConfiguration> userIdentityConfiguration;
-
+    @PolicyResourceProperty(name="userIdentityConfiguration", flag="unknown_userIdentityConfiguration")
+    private @Nullable ExperienceConfigurationUserIdentityConfiguration value_userIdentityConfiguration;
+    private boolean unknown_userIdentityConfiguration;
     public @Nullable ExperienceConfigurationUserIdentityConfiguration userIdentityConfiguration() {
-        if (userIdentityConfiguration == null) return null;
-        return userIdentityConfiguration.getValue("ExperienceConfiguration.userIdentityConfiguration");
+        if (!unknown_userIdentityConfiguration) return value_userIdentityConfiguration;
+        throw new UndeferrableValueException("Value 'ExperienceConfiguration.userIdentityConfiguration' is not present");
     }
 
 }

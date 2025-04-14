@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamquery.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.timestreamquery.inputs.ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArgs;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpat
      * Insights into the most sub-optimal performing table on the temporal axis:
      * 
      */
-    private UndeferrableValue<List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArgs>> maxes;
-
+    @PolicyResourceProperty(name="maxes", flag="unknown_maxes")
+    private List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArgs> value_maxes;
+    private boolean unknown_maxes;
     public List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArgs> maxes() {
-        if (maxes == null) return null;
-        return maxes.getValue("ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArgs.maxes");
+        if (!unknown_maxes) return value_maxes;
+        throw new UndeferrableValueException("Value 'ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArgs.maxes' is not present");
     }
 
 }

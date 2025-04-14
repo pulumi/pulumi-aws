@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecListenerTimeoutGrpcIdleArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class VirtualNodeSpecListenerTimeoutGrpcArgs {
      * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecListenerTimeoutGrpcIdleArgs> idle;
-
+    @PolicyResourceProperty(name="idle", flag="unknown_idle")
+    private VirtualNodeSpecListenerTimeoutGrpcIdleArgs value_idle;
+    private boolean unknown_idle;
     public VirtualNodeSpecListenerTimeoutGrpcIdleArgs idle() {
-        if (idle == null) return null;
-        return idle.getValue("VirtualNodeSpecListenerTimeoutGrpcArgs.idle");
+        if (!unknown_idle) return value_idle;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerTimeoutGrpcArgs.idle' is not present");
     }
 
     /**
      * Per request timeout.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs> perRequest;
-
+    @PolicyResourceProperty(name="perRequest", flag="unknown_perRequest")
+    private VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs value_perRequest;
+    private boolean unknown_perRequest;
     public VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs perRequest() {
-        if (perRequest == null) return null;
-        return perRequest.getValue("VirtualNodeSpecListenerTimeoutGrpcArgs.perRequest");
+        if (!unknown_perRequest) return value_perRequest;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerTimeoutGrpcArgs.perRequest' is not present");
     }
 
 }

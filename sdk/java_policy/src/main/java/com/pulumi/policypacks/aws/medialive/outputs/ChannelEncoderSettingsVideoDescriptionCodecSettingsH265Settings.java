@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings;
@@ -19,403 +20,440 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
      * Enables or disables adaptive quantization.
      * 
      */
-    private @Nullable UndeferrableValue<String> adaptiveQuantization;
-
+    @PolicyResourceProperty(name="adaptiveQuantization", flag="unknown_adaptiveQuantization")
+    private @Nullable String value_adaptiveQuantization;
+    private boolean unknown_adaptiveQuantization;
     public @Nullable String adaptiveQuantization() {
-        if (adaptiveQuantization == null) return null;
-        return adaptiveQuantization.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.adaptiveQuantization");
+        if (!unknown_adaptiveQuantization) return value_adaptiveQuantization;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.adaptiveQuantization' is not present");
     }
 
     /**
      * Indicates that AFD values will be written into the output stream.
      * 
      */
-    private @Nullable UndeferrableValue<String> afdSignaling;
-
+    @PolicyResourceProperty(name="afdSignaling", flag="unknown_afdSignaling")
+    private @Nullable String value_afdSignaling;
+    private boolean unknown_afdSignaling;
     public @Nullable String afdSignaling() {
-        if (afdSignaling == null) return null;
-        return afdSignaling.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.afdSignaling");
+        if (!unknown_afdSignaling) return value_afdSignaling;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.afdSignaling' is not present");
     }
 
     /**
      * Whether or not EML should insert an Alternative Transfer Function SEI message.
      * 
      */
-    private @Nullable UndeferrableValue<String> alternativeTransferFunction;
-
+    @PolicyResourceProperty(name="alternativeTransferFunction", flag="unknown_alternativeTransferFunction")
+    private @Nullable String value_alternativeTransferFunction;
+    private boolean unknown_alternativeTransferFunction;
     public @Nullable String alternativeTransferFunction() {
-        if (alternativeTransferFunction == null) return null;
-        return alternativeTransferFunction.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.alternativeTransferFunction");
+        if (!unknown_alternativeTransferFunction) return value_alternativeTransferFunction;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.alternativeTransferFunction' is not present");
     }
 
     /**
      * Average bitrate in bits/second.
      * 
      */
-    private UndeferrableValue<Integer> bitrate;
-
+    @PolicyResourceProperty(name="bitrate", flag="unknown_bitrate")
+    private Integer value_bitrate;
+    private boolean unknown_bitrate;
     public Integer bitrate() {
-        if (bitrate == null) return null;
-        return bitrate.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.bitrate");
+        if (!unknown_bitrate) return value_bitrate;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.bitrate' is not present");
     }
 
     /**
      * Size of buffer in bits.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> bufSize;
-
+    @PolicyResourceProperty(name="bufSize", flag="unknown_bufSize")
+    private @Nullable Integer value_bufSize;
+    private boolean unknown_bufSize;
     public @Nullable Integer bufSize() {
-        if (bufSize == null) return null;
-        return bufSize.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.bufSize");
+        if (!unknown_bufSize) return value_bufSize;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.bufSize' is not present");
     }
 
     /**
      * Includes color space metadata in the output.
      * 
      */
-    private @Nullable UndeferrableValue<String> colorMetadata;
-
+    @PolicyResourceProperty(name="colorMetadata", flag="unknown_colorMetadata")
+    private @Nullable String value_colorMetadata;
+    private boolean unknown_colorMetadata;
     public @Nullable String colorMetadata() {
-        if (colorMetadata == null) return null;
-        return colorMetadata.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.colorMetadata");
+        if (!unknown_colorMetadata) return value_colorMetadata;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.colorMetadata' is not present");
     }
 
     /**
      * Define the color metadata for the output. H265 Color Space Settings for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings> colorSpaceSettings;
-
+    @PolicyResourceProperty(name="colorSpaceSettings", flag="unknown_colorSpaceSettings")
+    private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings value_colorSpaceSettings;
+    private boolean unknown_colorSpaceSettings;
     public @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings colorSpaceSettings() {
-        if (colorSpaceSettings == null) return null;
-        return colorSpaceSettings.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.colorSpaceSettings");
+        if (!unknown_colorSpaceSettings) return value_colorSpaceSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.colorSpaceSettings' is not present");
     }
 
     /**
      * Filters to apply to an encode. See H265 Filter Settings for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings> filterSettings;
-
+    @PolicyResourceProperty(name="filterSettings", flag="unknown_filterSettings")
+    private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings value_filterSettings;
+    private boolean unknown_filterSettings;
     public @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings filterSettings() {
-        if (filterSettings == null) return null;
-        return filterSettings.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.filterSettings");
+        if (!unknown_filterSettings) return value_filterSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.filterSettings' is not present");
     }
 
     /**
      * Four bit AFD value to write on all frames of video in the output stream.
      * 
      */
-    private @Nullable UndeferrableValue<String> fixedAfd;
-
+    @PolicyResourceProperty(name="fixedAfd", flag="unknown_fixedAfd")
+    private @Nullable String value_fixedAfd;
+    private boolean unknown_fixedAfd;
     public @Nullable String fixedAfd() {
-        if (fixedAfd == null) return null;
-        return fixedAfd.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.fixedAfd");
+        if (!unknown_fixedAfd) return value_fixedAfd;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.fixedAfd' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> flickerAq;
-
+    @PolicyResourceProperty(name="flickerAq", flag="unknown_flickerAq")
+    private @Nullable String value_flickerAq;
+    private boolean unknown_flickerAq;
     public @Nullable String flickerAq() {
-        if (flickerAq == null) return null;
-        return flickerAq.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.flickerAq");
+        if (!unknown_flickerAq) return value_flickerAq;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.flickerAq' is not present");
     }
 
     /**
      * Framerate denominator.
      * 
      */
-    private UndeferrableValue<Integer> framerateDenominator;
-
+    @PolicyResourceProperty(name="framerateDenominator", flag="unknown_framerateDenominator")
+    private Integer value_framerateDenominator;
+    private boolean unknown_framerateDenominator;
     public Integer framerateDenominator() {
-        if (framerateDenominator == null) return null;
-        return framerateDenominator.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.framerateDenominator");
+        if (!unknown_framerateDenominator) return value_framerateDenominator;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.framerateDenominator' is not present");
     }
 
     /**
      * Framerate numerator.
      * 
      */
-    private UndeferrableValue<Integer> framerateNumerator;
-
+    @PolicyResourceProperty(name="framerateNumerator", flag="unknown_framerateNumerator")
+    private Integer value_framerateNumerator;
+    private boolean unknown_framerateNumerator;
     public Integer framerateNumerator() {
-        if (framerateNumerator == null) return null;
-        return framerateNumerator.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.framerateNumerator");
+        if (!unknown_framerateNumerator) return value_framerateNumerator;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.framerateNumerator' is not present");
     }
 
     /**
      * Frequency of closed GOPs.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> gopClosedCadence;
-
+    @PolicyResourceProperty(name="gopClosedCadence", flag="unknown_gopClosedCadence")
+    private @Nullable Integer value_gopClosedCadence;
+    private boolean unknown_gopClosedCadence;
     public @Nullable Integer gopClosedCadence() {
-        if (gopClosedCadence == null) return null;
-        return gopClosedCadence.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.gopClosedCadence");
+        if (!unknown_gopClosedCadence) return value_gopClosedCadence;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.gopClosedCadence' is not present");
     }
 
     /**
      * GOP size in units of either frames of seconds per `gop_size_units`.
      * 
      */
-    private @Nullable UndeferrableValue<Double> gopSize;
-
+    @PolicyResourceProperty(name="gopSize", flag="unknown_gopSize")
+    private @Nullable Double value_gopSize;
+    private boolean unknown_gopSize;
     public @Nullable Double gopSize() {
-        if (gopSize == null) return null;
-        return gopSize.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.gopSize");
+        if (!unknown_gopSize) return value_gopSize;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.gopSize' is not present");
     }
 
     /**
      * Indicates if the `gop_size` is specified in frames or seconds.
      * 
      */
-    private @Nullable UndeferrableValue<String> gopSizeUnits;
-
+    @PolicyResourceProperty(name="gopSizeUnits", flag="unknown_gopSizeUnits")
+    private @Nullable String value_gopSizeUnits;
+    private boolean unknown_gopSizeUnits;
     public @Nullable String gopSizeUnits() {
-        if (gopSizeUnits == null) return null;
-        return gopSizeUnits.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.gopSizeUnits");
+        if (!unknown_gopSizeUnits) return value_gopSizeUnits;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.gopSizeUnits' is not present");
     }
 
     /**
      * H265 level.
      * 
      */
-    private @Nullable UndeferrableValue<String> level;
-
+    @PolicyResourceProperty(name="level", flag="unknown_level")
+    private @Nullable String value_level;
+    private boolean unknown_level;
     public @Nullable String level() {
-        if (level == null) return null;
-        return level.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.level");
+        if (!unknown_level) return value_level;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.level' is not present");
     }
 
     /**
      * Amount of lookahead.
      * 
      */
-    private @Nullable UndeferrableValue<String> lookAheadRateControl;
-
+    @PolicyResourceProperty(name="lookAheadRateControl", flag="unknown_lookAheadRateControl")
+    private @Nullable String value_lookAheadRateControl;
+    private boolean unknown_lookAheadRateControl;
     public @Nullable String lookAheadRateControl() {
-        if (lookAheadRateControl == null) return null;
-        return lookAheadRateControl.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.lookAheadRateControl");
+        if (!unknown_lookAheadRateControl) return value_lookAheadRateControl;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.lookAheadRateControl' is not present");
     }
 
     /**
      * Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxBitrate;
-
+    @PolicyResourceProperty(name="maxBitrate", flag="unknown_maxBitrate")
+    private @Nullable Integer value_maxBitrate;
+    private boolean unknown_maxBitrate;
     public @Nullable Integer maxBitrate() {
-        if (maxBitrate == null) return null;
-        return maxBitrate.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.maxBitrate");
+        if (!unknown_maxBitrate) return value_maxBitrate;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.maxBitrate' is not present");
     }
 
     /**
      * Min interval.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> minIInterval;
-
+    @PolicyResourceProperty(name="minIInterval", flag="unknown_minIInterval")
+    private @Nullable Integer value_minIInterval;
+    private boolean unknown_minIInterval;
     public @Nullable Integer minIInterval() {
-        if (minIInterval == null) return null;
-        return minIInterval.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.minIInterval");
+        if (!unknown_minIInterval) return value_minIInterval;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.minIInterval' is not present");
     }
 
     /**
      * Set the minimum QP.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> minQp;
-
+    @PolicyResourceProperty(name="minQp", flag="unknown_minQp")
+    private @Nullable Integer value_minQp;
+    private boolean unknown_minQp;
     public @Nullable Integer minQp() {
-        if (minQp == null) return null;
-        return minQp.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.minQp");
+        if (!unknown_minQp) return value_minQp;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.minQp' is not present");
     }
 
     /**
      * Enables or disables motion vector over picture boundaries.
      * 
      */
-    private @Nullable UndeferrableValue<String> mvOverPictureBoundaries;
-
+    @PolicyResourceProperty(name="mvOverPictureBoundaries", flag="unknown_mvOverPictureBoundaries")
+    private @Nullable String value_mvOverPictureBoundaries;
+    private boolean unknown_mvOverPictureBoundaries;
     public @Nullable String mvOverPictureBoundaries() {
-        if (mvOverPictureBoundaries == null) return null;
-        return mvOverPictureBoundaries.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.mvOverPictureBoundaries");
+        if (!unknown_mvOverPictureBoundaries) return value_mvOverPictureBoundaries;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.mvOverPictureBoundaries' is not present");
     }
 
     /**
      * Enables or disables the motion vector temporal predictor.
      * 
      */
-    private @Nullable UndeferrableValue<String> mvTemporalPredictor;
-
+    @PolicyResourceProperty(name="mvTemporalPredictor", flag="unknown_mvTemporalPredictor")
+    private @Nullable String value_mvTemporalPredictor;
+    private boolean unknown_mvTemporalPredictor;
     public @Nullable String mvTemporalPredictor() {
-        if (mvTemporalPredictor == null) return null;
-        return mvTemporalPredictor.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.mvTemporalPredictor");
+        if (!unknown_mvTemporalPredictor) return value_mvTemporalPredictor;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.mvTemporalPredictor' is not present");
     }
 
     /**
      * Pixel Aspect Ratio denominator.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> parDenominator;
-
+    @PolicyResourceProperty(name="parDenominator", flag="unknown_parDenominator")
+    private @Nullable Integer value_parDenominator;
+    private boolean unknown_parDenominator;
     public @Nullable Integer parDenominator() {
-        if (parDenominator == null) return null;
-        return parDenominator.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.parDenominator");
+        if (!unknown_parDenominator) return value_parDenominator;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.parDenominator' is not present");
     }
 
     /**
      * Pixel Aspect Ratio numerator.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> parNumerator;
-
+    @PolicyResourceProperty(name="parNumerator", flag="unknown_parNumerator")
+    private @Nullable Integer value_parNumerator;
+    private boolean unknown_parNumerator;
     public @Nullable Integer parNumerator() {
-        if (parNumerator == null) return null;
-        return parNumerator.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.parNumerator");
+        if (!unknown_parNumerator) return value_parNumerator;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.parNumerator' is not present");
     }
 
     /**
      * H265 profile.
      * 
      */
-    private @Nullable UndeferrableValue<String> profile;
-
+    @PolicyResourceProperty(name="profile", flag="unknown_profile")
+    private @Nullable String value_profile;
+    private boolean unknown_profile;
     public @Nullable String profile() {
-        if (profile == null) return null;
-        return profile.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.profile");
+        if (!unknown_profile) return value_profile;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.profile' is not present");
     }
 
     /**
      * Controls the target quality for the video encode.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> qvbrQualityLevel;
-
+    @PolicyResourceProperty(name="qvbrQualityLevel", flag="unknown_qvbrQualityLevel")
+    private @Nullable Integer value_qvbrQualityLevel;
+    private boolean unknown_qvbrQualityLevel;
     public @Nullable Integer qvbrQualityLevel() {
-        if (qvbrQualityLevel == null) return null;
-        return qvbrQualityLevel.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.qvbrQualityLevel");
+        if (!unknown_qvbrQualityLevel) return value_qvbrQualityLevel;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.qvbrQualityLevel' is not present");
     }
 
     /**
      * Rate control mode.
      * 
      */
-    private @Nullable UndeferrableValue<String> rateControlMode;
-
+    @PolicyResourceProperty(name="rateControlMode", flag="unknown_rateControlMode")
+    private @Nullable String value_rateControlMode;
+    private boolean unknown_rateControlMode;
     public @Nullable String rateControlMode() {
-        if (rateControlMode == null) return null;
-        return rateControlMode.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.rateControlMode");
+        if (!unknown_rateControlMode) return value_rateControlMode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.rateControlMode' is not present");
     }
 
     /**
      * Sets the scan type of the output.
      * 
      */
-    private @Nullable UndeferrableValue<String> scanType;
-
+    @PolicyResourceProperty(name="scanType", flag="unknown_scanType")
+    private @Nullable String value_scanType;
+    private boolean unknown_scanType;
     public @Nullable String scanType() {
-        if (scanType == null) return null;
-        return scanType.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.scanType");
+        if (!unknown_scanType) return value_scanType;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.scanType' is not present");
     }
 
     /**
      * Scene change detection.
      * 
      */
-    private @Nullable UndeferrableValue<String> sceneChangeDetect;
-
+    @PolicyResourceProperty(name="sceneChangeDetect", flag="unknown_sceneChangeDetect")
+    private @Nullable String value_sceneChangeDetect;
+    private boolean unknown_sceneChangeDetect;
     public @Nullable String sceneChangeDetect() {
-        if (sceneChangeDetect == null) return null;
-        return sceneChangeDetect.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.sceneChangeDetect");
+        if (!unknown_sceneChangeDetect) return value_sceneChangeDetect;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.sceneChangeDetect' is not present");
     }
 
     /**
      * Number of slices per picture.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> slices;
-
+    @PolicyResourceProperty(name="slices", flag="unknown_slices")
+    private @Nullable Integer value_slices;
+    private boolean unknown_slices;
     public @Nullable Integer slices() {
-        if (slices == null) return null;
-        return slices.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.slices");
+        if (!unknown_slices) return value_slices;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.slices' is not present");
     }
 
     /**
      * Set the H265 tier in the output.
      * 
      */
-    private @Nullable UndeferrableValue<String> tier;
-
+    @PolicyResourceProperty(name="tier", flag="unknown_tier")
+    private @Nullable String value_tier;
+    private boolean unknown_tier;
     public @Nullable String tier() {
-        if (tier == null) return null;
-        return tier.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.tier");
+        if (!unknown_tier) return value_tier;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.tier' is not present");
     }
 
     /**
      * Sets the height of tiles.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> tileHeight;
-
+    @PolicyResourceProperty(name="tileHeight", flag="unknown_tileHeight")
+    private @Nullable Integer value_tileHeight;
+    private boolean unknown_tileHeight;
     public @Nullable Integer tileHeight() {
-        if (tileHeight == null) return null;
-        return tileHeight.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.tileHeight");
+        if (!unknown_tileHeight) return value_tileHeight;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.tileHeight' is not present");
     }
 
     /**
      * Enables or disables padding of tiles.
      * 
      */
-    private @Nullable UndeferrableValue<String> tilePadding;
-
+    @PolicyResourceProperty(name="tilePadding", flag="unknown_tilePadding")
+    private @Nullable String value_tilePadding;
+    private boolean unknown_tilePadding;
     public @Nullable String tilePadding() {
-        if (tilePadding == null) return null;
-        return tilePadding.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.tilePadding");
+        if (!unknown_tilePadding) return value_tilePadding;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.tilePadding' is not present");
     }
 
     /**
      * Sets the width of tiles.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> tileWidth;
-
+    @PolicyResourceProperty(name="tileWidth", flag="unknown_tileWidth")
+    private @Nullable Integer value_tileWidth;
+    private boolean unknown_tileWidth;
     public @Nullable Integer tileWidth() {
-        if (tileWidth == null) return null;
-        return tileWidth.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.tileWidth");
+        if (!unknown_tileWidth) return value_tileWidth;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.tileWidth' is not present");
     }
 
     /**
      * Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings> timecodeBurninSettings;
-
+    @PolicyResourceProperty(name="timecodeBurninSettings", flag="unknown_timecodeBurninSettings")
+    private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings value_timecodeBurninSettings;
+    private boolean unknown_timecodeBurninSettings;
     public @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings timecodeBurninSettings() {
-        if (timecodeBurninSettings == null) return null;
-        return timecodeBurninSettings.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.timecodeBurninSettings");
+        if (!unknown_timecodeBurninSettings) return value_timecodeBurninSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.timecodeBurninSettings' is not present");
     }
 
     /**
      * Determines how timecodes should be inserted into the video elementary stream.
      * 
      */
-    private @Nullable UndeferrableValue<String> timecodeInsertion;
-
+    @PolicyResourceProperty(name="timecodeInsertion", flag="unknown_timecodeInsertion")
+    private @Nullable String value_timecodeInsertion;
+    private boolean unknown_timecodeInsertion;
     public @Nullable String timecodeInsertion() {
-        if (timecodeInsertion == null) return null;
-        return timecodeInsertion.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.timecodeInsertion");
+        if (!unknown_timecodeInsertion) return value_timecodeInsertion;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.timecodeInsertion' is not present");
     }
 
     /**
      * Sets the size of the treeblock.
      * 
      */
-    private @Nullable UndeferrableValue<String> treeblockSize;
-
+    @PolicyResourceProperty(name="treeblockSize", flag="unknown_treeblockSize")
+    private @Nullable String value_treeblockSize;
+    private boolean unknown_treeblockSize;
     public @Nullable String treeblockSize() {
-        if (treeblockSize == null) return null;
-        return treeblockSize.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.treeblockSize");
+        if (!unknown_treeblockSize) return value_treeblockSize;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings.treeblockSize' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dynamodb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.dynamodb.inputs.TableAttributeArgs;
 import com.pulumi.policypacks.aws.dynamodb.inputs.TableGlobalSecondaryIndexArgs;
@@ -29,77 +30,84 @@ public final class TableArgs extends com.pulumi.resources.PolicyResourceInput {
      * Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
      * 
      */
-    private UndeferrableValue<List<TableAttributeArgs>> attributes;
-
+    @PolicyResourceProperty(name="attributes", flag="unknown_attributes")
+    private List<TableAttributeArgs> value_attributes;
+    private boolean unknown_attributes;
     public List<TableAttributeArgs> attributes() {
-        if (attributes == null) return null;
-        return attributes.getValue("TableArgs.attributes");
+        if (!unknown_attributes) return value_attributes;
+        throw new UndeferrableValueException("Value 'TableArgs.attributes' is not present");
     }
 
     /**
      * Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
      * 
      */
-    private UndeferrableValue<String> billingMode;
-
+    @PolicyResourceProperty(name="billingMode", flag="unknown_billingMode")
+    private String value_billingMode;
+    private boolean unknown_billingMode;
     public String billingMode() {
-        if (billingMode == null) return null;
-        return billingMode.getValue("TableArgs.billingMode");
+        if (!unknown_billingMode) return value_billingMode;
+        throw new UndeferrableValueException("Value 'TableArgs.billingMode' is not present");
     }
 
     /**
      * Enables deletion protection for table. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> deletionProtectionEnabled;
-
+    @PolicyResourceProperty(name="deletionProtectionEnabled", flag="unknown_deletionProtectionEnabled")
+    private Boolean value_deletionProtectionEnabled;
+    private boolean unknown_deletionProtectionEnabled;
     public Boolean deletionProtectionEnabled() {
-        if (deletionProtectionEnabled == null) return null;
-        return deletionProtectionEnabled.getValue("TableArgs.deletionProtectionEnabled");
+        if (!unknown_deletionProtectionEnabled) return value_deletionProtectionEnabled;
+        throw new UndeferrableValueException("Value 'TableArgs.deletionProtectionEnabled' is not present");
     }
 
     /**
      * Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
      * 
      */
-    private UndeferrableValue<List<TableGlobalSecondaryIndexArgs>> globalSecondaryIndexes;
-
+    @PolicyResourceProperty(name="globalSecondaryIndexes", flag="unknown_globalSecondaryIndexes")
+    private List<TableGlobalSecondaryIndexArgs> value_globalSecondaryIndexes;
+    private boolean unknown_globalSecondaryIndexes;
     public List<TableGlobalSecondaryIndexArgs> globalSecondaryIndexes() {
-        if (globalSecondaryIndexes == null) return null;
-        return globalSecondaryIndexes.getValue("TableArgs.globalSecondaryIndexes");
+        if (!unknown_globalSecondaryIndexes) return value_globalSecondaryIndexes;
+        throw new UndeferrableValueException("Value 'TableArgs.globalSecondaryIndexes' is not present");
     }
 
     /**
      * Attribute to use as the hash (partition) key. Must also be defined as an `attribute`. See below.
      * 
      */
-    private UndeferrableValue<String> hashKey;
-
+    @PolicyResourceProperty(name="hashKey", flag="unknown_hashKey")
+    private String value_hashKey;
+    private boolean unknown_hashKey;
     public String hashKey() {
-        if (hashKey == null) return null;
-        return hashKey.getValue("TableArgs.hashKey");
+        if (!unknown_hashKey) return value_hashKey;
+        throw new UndeferrableValueException("Value 'TableArgs.hashKey' is not present");
     }
 
     /**
      * Import Amazon S3 data into a new table. See below.
      * 
      */
-    private UndeferrableValue<TableImportTableArgs> importTable;
-
+    @PolicyResourceProperty(name="importTable", flag="unknown_importTable")
+    private TableImportTableArgs value_importTable;
+    private boolean unknown_importTable;
     public TableImportTableArgs importTable() {
-        if (importTable == null) return null;
-        return importTable.getValue("TableArgs.importTable");
+        if (!unknown_importTable) return value_importTable;
+        throw new UndeferrableValueException("Value 'TableArgs.importTable' is not present");
     }
 
     /**
      * Describe an LSI on the table; these can only be allocated _at creation_ so you cannot change this definition after you have created the resource. See below.
      * 
      */
-    private UndeferrableValue<List<TableLocalSecondaryIndexArgs>> localSecondaryIndexes;
-
+    @PolicyResourceProperty(name="localSecondaryIndexes", flag="unknown_localSecondaryIndexes")
+    private List<TableLocalSecondaryIndexArgs> value_localSecondaryIndexes;
+    private boolean unknown_localSecondaryIndexes;
     public List<TableLocalSecondaryIndexArgs> localSecondaryIndexes() {
-        if (localSecondaryIndexes == null) return null;
-        return localSecondaryIndexes.getValue("TableArgs.localSecondaryIndexes");
+        if (!unknown_localSecondaryIndexes) return value_localSecondaryIndexes;
+        throw new UndeferrableValueException("Value 'TableArgs.localSecondaryIndexes' is not present");
     }
 
     /**
@@ -108,143 +116,156 @@ public final class TableArgs extends com.pulumi.resources.PolicyResourceInput {
      * Optional arguments:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TableArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TableArgs.name' is not present");
     }
 
     /**
      * Sets the maximum number of read and write units for the specified on-demand table. See below.
      * 
      */
-    private UndeferrableValue<TableOnDemandThroughputArgs> onDemandThroughput;
-
+    @PolicyResourceProperty(name="onDemandThroughput", flag="unknown_onDemandThroughput")
+    private TableOnDemandThroughputArgs value_onDemandThroughput;
+    private boolean unknown_onDemandThroughput;
     public TableOnDemandThroughputArgs onDemandThroughput() {
-        if (onDemandThroughput == null) return null;
-        return onDemandThroughput.getValue("TableArgs.onDemandThroughput");
+        if (!unknown_onDemandThroughput) return value_onDemandThroughput;
+        throw new UndeferrableValueException("Value 'TableArgs.onDemandThroughput' is not present");
     }
 
     /**
      * Enable point-in-time recovery options. See below.
      * 
      */
-    private UndeferrableValue<TablePointInTimeRecoveryArgs> pointInTimeRecovery;
-
+    @PolicyResourceProperty(name="pointInTimeRecovery", flag="unknown_pointInTimeRecovery")
+    private TablePointInTimeRecoveryArgs value_pointInTimeRecovery;
+    private boolean unknown_pointInTimeRecovery;
     public TablePointInTimeRecoveryArgs pointInTimeRecovery() {
-        if (pointInTimeRecovery == null) return null;
-        return pointInTimeRecovery.getValue("TableArgs.pointInTimeRecovery");
+        if (!unknown_pointInTimeRecovery) return value_pointInTimeRecovery;
+        throw new UndeferrableValueException("Value 'TableArgs.pointInTimeRecovery' is not present");
     }
 
     /**
      * Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
      * 
      */
-    private UndeferrableValue<String> rangeKey;
-
+    @PolicyResourceProperty(name="rangeKey", flag="unknown_rangeKey")
+    private String value_rangeKey;
+    private boolean unknown_rangeKey;
     public String rangeKey() {
-        if (rangeKey == null) return null;
-        return rangeKey.getValue("TableArgs.rangeKey");
+        if (!unknown_rangeKey) return value_rangeKey;
+        throw new UndeferrableValueException("Value 'TableArgs.rangeKey' is not present");
     }
 
     /**
      * Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
      * 
      */
-    private UndeferrableValue<Integer> readCapacity;
-
+    @PolicyResourceProperty(name="readCapacity", flag="unknown_readCapacity")
+    private Integer value_readCapacity;
+    private boolean unknown_readCapacity;
     public Integer readCapacity() {
-        if (readCapacity == null) return null;
-        return readCapacity.getValue("TableArgs.readCapacity");
+        if (!unknown_readCapacity) return value_readCapacity;
+        throw new UndeferrableValueException("Value 'TableArgs.readCapacity' is not present");
     }
 
     /**
      * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
      * 
      */
-    private UndeferrableValue<List<TableReplicaArgs>> replicas;
-
+    @PolicyResourceProperty(name="replicas", flag="unknown_replicas")
+    private List<TableReplicaArgs> value_replicas;
+    private boolean unknown_replicas;
     public List<TableReplicaArgs> replicas() {
-        if (replicas == null) return null;
-        return replicas.getValue("TableArgs.replicas");
+        if (!unknown_replicas) return value_replicas;
+        throw new UndeferrableValueException("Value 'TableArgs.replicas' is not present");
     }
 
     /**
      * Time of the point-in-time recovery point to restore.
      * 
      */
-    private UndeferrableValue<String> restoreDateTime;
-
+    @PolicyResourceProperty(name="restoreDateTime", flag="unknown_restoreDateTime")
+    private String value_restoreDateTime;
+    private boolean unknown_restoreDateTime;
     public String restoreDateTime() {
-        if (restoreDateTime == null) return null;
-        return restoreDateTime.getValue("TableArgs.restoreDateTime");
+        if (!unknown_restoreDateTime) return value_restoreDateTime;
+        throw new UndeferrableValueException("Value 'TableArgs.restoreDateTime' is not present");
     }
 
     /**
      * Name of the table to restore. Must match the name of an existing table.
      * 
      */
-    private UndeferrableValue<String> restoreSourceName;
-
+    @PolicyResourceProperty(name="restoreSourceName", flag="unknown_restoreSourceName")
+    private String value_restoreSourceName;
+    private boolean unknown_restoreSourceName;
     public String restoreSourceName() {
-        if (restoreSourceName == null) return null;
-        return restoreSourceName.getValue("TableArgs.restoreSourceName");
+        if (!unknown_restoreSourceName) return value_restoreSourceName;
+        throw new UndeferrableValueException("Value 'TableArgs.restoreSourceName' is not present");
     }
 
     /**
      * ARN of the source table to restore. Must be supplied for cross-region restores.
      * 
      */
-    private UndeferrableValue<String> restoreSourceTableArn;
-
+    @PolicyResourceProperty(name="restoreSourceTableArn", flag="unknown_restoreSourceTableArn")
+    private String value_restoreSourceTableArn;
+    private boolean unknown_restoreSourceTableArn;
     public String restoreSourceTableArn() {
-        if (restoreSourceTableArn == null) return null;
-        return restoreSourceTableArn.getValue("TableArgs.restoreSourceTableArn");
+        if (!unknown_restoreSourceTableArn) return value_restoreSourceTableArn;
+        throw new UndeferrableValueException("Value 'TableArgs.restoreSourceTableArn' is not present");
     }
 
     /**
      * If set, restores table to the most recent point-in-time recovery point.
      * 
      */
-    private UndeferrableValue<Boolean> restoreToLatestTime;
-
+    @PolicyResourceProperty(name="restoreToLatestTime", flag="unknown_restoreToLatestTime")
+    private Boolean value_restoreToLatestTime;
+    private boolean unknown_restoreToLatestTime;
     public Boolean restoreToLatestTime() {
-        if (restoreToLatestTime == null) return null;
-        return restoreToLatestTime.getValue("TableArgs.restoreToLatestTime");
+        if (!unknown_restoreToLatestTime) return value_restoreToLatestTime;
+        throw new UndeferrableValueException("Value 'TableArgs.restoreToLatestTime' is not present");
     }
 
     /**
      * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn&#39;t specified. Must be supplied for cross-region restores. See below.
      * 
      */
-    private UndeferrableValue<TableServerSideEncryptionArgs> serverSideEncryption;
-
+    @PolicyResourceProperty(name="serverSideEncryption", flag="unknown_serverSideEncryption")
+    private TableServerSideEncryptionArgs value_serverSideEncryption;
+    private boolean unknown_serverSideEncryption;
     public TableServerSideEncryptionArgs serverSideEncryption() {
-        if (serverSideEncryption == null) return null;
-        return serverSideEncryption.getValue("TableArgs.serverSideEncryption");
+        if (!unknown_serverSideEncryption) return value_serverSideEncryption;
+        throw new UndeferrableValueException("Value 'TableArgs.serverSideEncryption' is not present");
     }
 
     /**
      * Whether Streams are enabled.
      * 
      */
-    private UndeferrableValue<Boolean> streamEnabled;
-
+    @PolicyResourceProperty(name="streamEnabled", flag="unknown_streamEnabled")
+    private Boolean value_streamEnabled;
+    private boolean unknown_streamEnabled;
     public Boolean streamEnabled() {
-        if (streamEnabled == null) return null;
-        return streamEnabled.getValue("TableArgs.streamEnabled");
+        if (!unknown_streamEnabled) return value_streamEnabled;
+        throw new UndeferrableValueException("Value 'TableArgs.streamEnabled' is not present");
     }
 
     /**
      * When an item in the table is modified, StreamViewType determines what information is written to the table&#39;s stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
      * 
      */
-    private UndeferrableValue<String> streamViewType;
-
+    @PolicyResourceProperty(name="streamViewType", flag="unknown_streamViewType")
+    private String value_streamViewType;
+    private boolean unknown_streamViewType;
     public String streamViewType() {
-        if (streamViewType == null) return null;
-        return streamViewType.getValue("TableArgs.streamViewType");
+        if (!unknown_streamViewType) return value_streamViewType;
+        throw new UndeferrableValueException("Value 'TableArgs.streamViewType' is not present");
     }
 
     /**
@@ -253,44 +274,48 @@ public final class TableArgs extends com.pulumi.resources.PolicyResourceInput {
      * Default value is `STANDARD`.
      * 
      */
-    private UndeferrableValue<String> tableClass;
-
+    @PolicyResourceProperty(name="tableClass", flag="unknown_tableClass")
+    private String value_tableClass;
+    private boolean unknown_tableClass;
     public String tableClass() {
-        if (tableClass == null) return null;
-        return tableClass.getValue("TableArgs.tableClass");
+        if (!unknown_tableClass) return value_tableClass;
+        throw new UndeferrableValueException("Value 'TableArgs.tableClass' is not present");
     }
 
     /**
      * A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TableArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TableArgs.tags' is not present");
     }
 
     /**
      * Configuration block for TTL. See below.
      * 
      */
-    private UndeferrableValue<TableTtlArgs> ttl;
-
+    @PolicyResourceProperty(name="ttl", flag="unknown_ttl")
+    private TableTtlArgs value_ttl;
+    private boolean unknown_ttl;
     public TableTtlArgs ttl() {
-        if (ttl == null) return null;
-        return ttl.getValue("TableArgs.ttl");
+        if (!unknown_ttl) return value_ttl;
+        throw new UndeferrableValueException("Value 'TableArgs.ttl' is not present");
     }
 
     /**
      * Number of write units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
      * 
      */
-    private UndeferrableValue<Integer> writeCapacity;
-
+    @PolicyResourceProperty(name="writeCapacity", flag="unknown_writeCapacity")
+    private Integer value_writeCapacity;
+    private boolean unknown_writeCapacity;
     public Integer writeCapacity() {
-        if (writeCapacity == null) return null;
-        return writeCapacity.getValue("TableArgs.writeCapacity");
+        if (!unknown_writeCapacity) return value_writeCapacity;
+        throw new UndeferrableValueException("Value 'TableArgs.writeCapacity' is not present");
     }
 
 }

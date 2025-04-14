@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class MaintenanceWindowTaskTaskInvocationParametersLambdaParameters
      * Pass client-specific information to the Lambda function that you are invoking.
      * 
      */
-    private @Nullable UndeferrableValue<String> clientContext;
-
+    @PolicyResourceProperty(name="clientContext", flag="unknown_clientContext")
+    private @Nullable String value_clientContext;
+    private boolean unknown_clientContext;
     public @Nullable String clientContext() {
-        if (clientContext == null) return null;
-        return clientContext.getValue("MaintenanceWindowTaskTaskInvocationParametersLambdaParameters.clientContext");
+        if (!unknown_clientContext) return value_clientContext;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersLambdaParameters.clientContext' is not present");
     }
 
     /**
      * JSON to provide to your Lambda function as input.
      * 
      */
-    private @Nullable UndeferrableValue<String> payload;
-
+    @PolicyResourceProperty(name="payload", flag="unknown_payload")
+    private @Nullable String value_payload;
+    private boolean unknown_payload;
     public @Nullable String payload() {
-        if (payload == null) return null;
-        return payload.getValue("MaintenanceWindowTaskTaskInvocationParametersLambdaParameters.payload");
+        if (!unknown_payload) return value_payload;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersLambdaParameters.payload' is not present");
     }
 
     /**
      * Specify a Lambda function version or alias name.
      * 
      */
-    private @Nullable UndeferrableValue<String> qualifier;
-
+    @PolicyResourceProperty(name="qualifier", flag="unknown_qualifier")
+    private @Nullable String value_qualifier;
+    private boolean unknown_qualifier;
     public @Nullable String qualifier() {
-        if (qualifier == null) return null;
-        return qualifier.getValue("MaintenanceWindowTaskTaskInvocationParametersLambdaParameters.qualifier");
+        if (!unknown_qualifier) return value_qualifier;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersLambdaParameters.qualifier' is not present");
     }
 
 }

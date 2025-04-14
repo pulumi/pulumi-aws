@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class DataSetRowLevelPermissionTagConfigurationTagRule {
      * Column name that a tag key is assigned to.
      * 
      */
-    private UndeferrableValue<String> columnName;
-
+    @PolicyResourceProperty(name="columnName", flag="unknown_columnName")
+    private String value_columnName;
+    private boolean unknown_columnName;
     public String columnName() {
-        if (columnName == null) return null;
-        return columnName.getValue("DataSetRowLevelPermissionTagConfigurationTagRule.columnName");
+        if (!unknown_columnName) return value_columnName;
+        throw new UndeferrableValueException("Value 'DataSetRowLevelPermissionTagConfigurationTagRule.columnName' is not present");
     }
 
     /**
      * A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
      * 
      */
-    private @Nullable UndeferrableValue<String> matchAllValue;
-
+    @PolicyResourceProperty(name="matchAllValue", flag="unknown_matchAllValue")
+    private @Nullable String value_matchAllValue;
+    private boolean unknown_matchAllValue;
     public @Nullable String matchAllValue() {
-        if (matchAllValue == null) return null;
-        return matchAllValue.getValue("DataSetRowLevelPermissionTagConfigurationTagRule.matchAllValue");
+        if (!unknown_matchAllValue) return value_matchAllValue;
+        throw new UndeferrableValueException("Value 'DataSetRowLevelPermissionTagConfigurationTagRule.matchAllValue' is not present");
     }
 
     /**
      * Unique key for a tag.
      * 
      */
-    private UndeferrableValue<String> tagKey;
-
+    @PolicyResourceProperty(name="tagKey", flag="unknown_tagKey")
+    private String value_tagKey;
+    private boolean unknown_tagKey;
     public String tagKey() {
-        if (tagKey == null) return null;
-        return tagKey.getValue("DataSetRowLevelPermissionTagConfigurationTagRule.tagKey");
+        if (!unknown_tagKey) return value_tagKey;
+        throw new UndeferrableValueException("Value 'DataSetRowLevelPermissionTagConfigurationTagRule.tagKey' is not present");
     }
 
     /**
      * A string that you want to use to delimit the values when you pass the values at run time.
      * 
      */
-    private @Nullable UndeferrableValue<String> tagMultiValueDelimiter;
-
+    @PolicyResourceProperty(name="tagMultiValueDelimiter", flag="unknown_tagMultiValueDelimiter")
+    private @Nullable String value_tagMultiValueDelimiter;
+    private boolean unknown_tagMultiValueDelimiter;
     public @Nullable String tagMultiValueDelimiter() {
-        if (tagMultiValueDelimiter == null) return null;
-        return tagMultiValueDelimiter.getValue("DataSetRowLevelPermissionTagConfigurationTagRule.tagMultiValueDelimiter");
+        if (!unknown_tagMultiValueDelimiter) return value_tagMultiValueDelimiter;
+        throw new UndeferrableValueException("Value 'DataSetRowLevelPermissionTagConfigurationTagRule.tagMultiValueDelimiter' is not present");
     }
 
 }

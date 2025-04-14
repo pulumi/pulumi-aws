@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.bedrock.inputs.CustomModelOutputDataConfigArgs;
 import com.pulumi.policypacks.aws.bedrock.inputs.CustomModelTimeoutsArgs;
@@ -22,139 +23,152 @@ public final class CustomModelArgs extends com.pulumi.resources.PolicyResourceIn
      * The Amazon Resource Name (ARN) of the base model.
      * 
      */
-    private UndeferrableValue<String> baseModelIdentifier;
-
+    @PolicyResourceProperty(name="baseModelIdentifier", flag="unknown_baseModelIdentifier")
+    private String value_baseModelIdentifier;
+    private boolean unknown_baseModelIdentifier;
     public String baseModelIdentifier() {
-        if (baseModelIdentifier == null) return null;
-        return baseModelIdentifier.getValue("CustomModelArgs.baseModelIdentifier");
+        if (!unknown_baseModelIdentifier) return value_baseModelIdentifier;
+        throw new UndeferrableValueException("Value 'CustomModelArgs.baseModelIdentifier' is not present");
     }
 
     /**
      * The custom model is encrypted at rest using this key. Specify the key ARN.
      * 
      */
-    private UndeferrableValue<String> customModelKmsKeyId;
-
+    @PolicyResourceProperty(name="customModelKmsKeyId", flag="unknown_customModelKmsKeyId")
+    private String value_customModelKmsKeyId;
+    private boolean unknown_customModelKmsKeyId;
     public String customModelKmsKeyId() {
-        if (customModelKmsKeyId == null) return null;
-        return customModelKmsKeyId.getValue("CustomModelArgs.customModelKmsKeyId");
+        if (!unknown_customModelKmsKeyId) return value_customModelKmsKeyId;
+        throw new UndeferrableValueException("Value 'CustomModelArgs.customModelKmsKeyId' is not present");
     }
 
     /**
      * Name for the custom model.
      * 
      */
-    private UndeferrableValue<String> customModelName;
-
+    @PolicyResourceProperty(name="customModelName", flag="unknown_customModelName")
+    private String value_customModelName;
+    private boolean unknown_customModelName;
     public String customModelName() {
-        if (customModelName == null) return null;
-        return customModelName.getValue("CustomModelArgs.customModelName");
+        if (!unknown_customModelName) return value_customModelName;
+        throw new UndeferrableValueException("Value 'CustomModelArgs.customModelName' is not present");
     }
 
     /**
      * The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
      * 
      */
-    private UndeferrableValue<String> customizationType;
-
+    @PolicyResourceProperty(name="customizationType", flag="unknown_customizationType")
+    private String value_customizationType;
+    private boolean unknown_customizationType;
     public String customizationType() {
-        if (customizationType == null) return null;
-        return customizationType.getValue("CustomModelArgs.customizationType");
+        if (!unknown_customizationType) return value_customizationType;
+        throw new UndeferrableValueException("Value 'CustomModelArgs.customizationType' is not present");
     }
 
     /**
      * [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
      * 
      */
-    private UndeferrableValue<Map<String,String>> hyperparameters;
-
+    @PolicyResourceProperty(name="hyperparameters", flag="unknown_hyperparameters")
+    private Map<String,String> value_hyperparameters;
+    private boolean unknown_hyperparameters;
     public Map<String,String> hyperparameters() {
-        if (hyperparameters == null) return null;
-        return hyperparameters.getValue("CustomModelArgs.hyperparameters");
+        if (!unknown_hyperparameters) return value_hyperparameters;
+        throw new UndeferrableValueException("Value 'CustomModelArgs.hyperparameters' is not present");
     }
 
     /**
      * A name for the customization job.
      * 
      */
-    private UndeferrableValue<String> jobName;
-
+    @PolicyResourceProperty(name="jobName", flag="unknown_jobName")
+    private String value_jobName;
+    private boolean unknown_jobName;
     public String jobName() {
-        if (jobName == null) return null;
-        return jobName.getValue("CustomModelArgs.jobName");
+        if (!unknown_jobName) return value_jobName;
+        throw new UndeferrableValueException("Value 'CustomModelArgs.jobName' is not present");
     }
 
     /**
      * S3 location for the output data.
      * 
      */
-    private UndeferrableValue<CustomModelOutputDataConfigArgs> outputDataConfig;
-
+    @PolicyResourceProperty(name="outputDataConfig", flag="unknown_outputDataConfig")
+    private CustomModelOutputDataConfigArgs value_outputDataConfig;
+    private boolean unknown_outputDataConfig;
     public CustomModelOutputDataConfigArgs outputDataConfig() {
-        if (outputDataConfig == null) return null;
-        return outputDataConfig.getValue("CustomModelArgs.outputDataConfig");
+        if (!unknown_outputDataConfig) return value_outputDataConfig;
+        throw new UndeferrableValueException("Value 'CustomModelArgs.outputDataConfig' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("CustomModelArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'CustomModelArgs.roleArn' is not present");
     }
 
     /**
      * A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CustomModelArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CustomModelArgs.tags' is not present");
     }
 
-    private UndeferrableValue<CustomModelTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private CustomModelTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public CustomModelTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("CustomModelArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'CustomModelArgs.timeouts' is not present");
     }
 
     /**
      * Information about the training dataset.
      * 
      */
-    private UndeferrableValue<CustomModelTrainingDataConfigArgs> trainingDataConfig;
-
+    @PolicyResourceProperty(name="trainingDataConfig", flag="unknown_trainingDataConfig")
+    private CustomModelTrainingDataConfigArgs value_trainingDataConfig;
+    private boolean unknown_trainingDataConfig;
     public CustomModelTrainingDataConfigArgs trainingDataConfig() {
-        if (trainingDataConfig == null) return null;
-        return trainingDataConfig.getValue("CustomModelArgs.trainingDataConfig");
+        if (!unknown_trainingDataConfig) return value_trainingDataConfig;
+        throw new UndeferrableValueException("Value 'CustomModelArgs.trainingDataConfig' is not present");
     }
 
     /**
      * Information about the validation dataset.
      * 
      */
-    private UndeferrableValue<CustomModelValidationDataConfigArgs> validationDataConfig;
-
+    @PolicyResourceProperty(name="validationDataConfig", flag="unknown_validationDataConfig")
+    private CustomModelValidationDataConfigArgs value_validationDataConfig;
+    private boolean unknown_validationDataConfig;
     public CustomModelValidationDataConfigArgs validationDataConfig() {
-        if (validationDataConfig == null) return null;
-        return validationDataConfig.getValue("CustomModelArgs.validationDataConfig");
+        if (!unknown_validationDataConfig) return value_validationDataConfig;
+        throw new UndeferrableValueException("Value 'CustomModelArgs.validationDataConfig' is not present");
     }
 
     /**
      * Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
      * 
      */
-    private UndeferrableValue<CustomModelVpcConfigArgs> vpcConfig;
-
+    @PolicyResourceProperty(name="vpcConfig", flag="unknown_vpcConfig")
+    private CustomModelVpcConfigArgs value_vpcConfig;
+    private boolean unknown_vpcConfig;
     public CustomModelVpcConfigArgs vpcConfig() {
-        if (vpcConfig == null) return null;
-        return vpcConfig.getValue("CustomModelArgs.vpcConfig");
+        if (!unknown_vpcConfig) return value_vpcConfig;
+        throw new UndeferrableValueException("Value 'CustomModelArgs.vpcConfig' is not present");
     }
 
 }

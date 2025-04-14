@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53recoverycontrol;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.route53recoverycontrol.inputs.SafetyRuleRuleConfigArgs;
 import java.lang.Integer;
@@ -19,66 +20,72 @@ public final class SafetyRuleArgs extends com.pulumi.resources.PolicyResourceInp
      * Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
      * 
      */
-    private UndeferrableValue<List<String>> assertedControls;
-
+    @PolicyResourceProperty(name="assertedControls", flag="unknown_assertedControls")
+    private List<String> value_assertedControls;
+    private boolean unknown_assertedControls;
     public List<String> assertedControls() {
-        if (assertedControls == null) return null;
-        return assertedControls.getValue("SafetyRuleArgs.assertedControls");
+        if (!unknown_assertedControls) return value_assertedControls;
+        throw new UndeferrableValueException("Value 'SafetyRuleArgs.assertedControls' is not present");
     }
 
     /**
      * ARN of the control panel in which this safety rule will reside.
      * 
      */
-    private UndeferrableValue<String> controlPanelArn;
-
+    @PolicyResourceProperty(name="controlPanelArn", flag="unknown_controlPanelArn")
+    private String value_controlPanelArn;
+    private boolean unknown_controlPanelArn;
     public String controlPanelArn() {
-        if (controlPanelArn == null) return null;
-        return controlPanelArn.getValue("SafetyRuleArgs.controlPanelArn");
+        if (!unknown_controlPanelArn) return value_controlPanelArn;
+        throw new UndeferrableValueException("Value 'SafetyRuleArgs.controlPanelArn' is not present");
     }
 
     /**
      * Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
      * 
      */
-    private UndeferrableValue<List<String>> gatingControls;
-
+    @PolicyResourceProperty(name="gatingControls", flag="unknown_gatingControls")
+    private List<String> value_gatingControls;
+    private boolean unknown_gatingControls;
     public List<String> gatingControls() {
-        if (gatingControls == null) return null;
-        return gatingControls.getValue("SafetyRuleArgs.gatingControls");
+        if (!unknown_gatingControls) return value_gatingControls;
+        throw new UndeferrableValueException("Value 'SafetyRuleArgs.gatingControls' is not present");
     }
 
     /**
      * Name describing the safety rule.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("SafetyRuleArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'SafetyRuleArgs.name' is not present");
     }
 
     /**
      * Configuration block for safety rule criteria. See below.
      * 
      */
-    private UndeferrableValue<SafetyRuleRuleConfigArgs> ruleConfig;
-
+    @PolicyResourceProperty(name="ruleConfig", flag="unknown_ruleConfig")
+    private SafetyRuleRuleConfigArgs value_ruleConfig;
+    private boolean unknown_ruleConfig;
     public SafetyRuleRuleConfigArgs ruleConfig() {
-        if (ruleConfig == null) return null;
-        return ruleConfig.getValue("SafetyRuleArgs.ruleConfig");
+        if (!unknown_ruleConfig) return value_ruleConfig;
+        throw new UndeferrableValueException("Value 'SafetyRuleArgs.ruleConfig' is not present");
     }
 
     /**
      * Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
      * 
      */
-    private UndeferrableValue<List<String>> targetControls;
-
+    @PolicyResourceProperty(name="targetControls", flag="unknown_targetControls")
+    private List<String> value_targetControls;
+    private boolean unknown_targetControls;
     public List<String> targetControls() {
-        if (targetControls == null) return null;
-        return targetControls.getValue("SafetyRuleArgs.targetControls");
+        if (!unknown_targetControls) return value_targetControls;
+        throw new UndeferrableValueException("Value 'SafetyRuleArgs.targetControls' is not present");
     }
 
     /**
@@ -87,11 +94,12 @@ public final class SafetyRuleArgs extends com.pulumi.resources.PolicyResourceInp
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<Integer> waitPeriodMs;
-
+    @PolicyResourceProperty(name="waitPeriodMs", flag="unknown_waitPeriodMs")
+    private Integer value_waitPeriodMs;
+    private boolean unknown_waitPeriodMs;
     public Integer waitPeriodMs() {
-        if (waitPeriodMs == null) return null;
-        return waitPeriodMs.getValue("SafetyRuleArgs.waitPeriodMs");
+        if (!unknown_waitPeriodMs) return value_waitPeriodMs;
+        throw new UndeferrableValueException("Value 'SafetyRuleArgs.waitPeriodMs' is not present");
     }
 
 }

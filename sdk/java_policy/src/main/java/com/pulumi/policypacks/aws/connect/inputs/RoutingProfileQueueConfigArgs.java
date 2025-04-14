@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,66 +16,72 @@ public final class RoutingProfileQueueConfigArgs {
      * Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
      * 
      */
-    private UndeferrableValue<String> channel;
-
+    @PolicyResourceProperty(name="channel", flag="unknown_channel")
+    private String value_channel;
+    private boolean unknown_channel;
     public String channel() {
-        if (channel == null) return null;
-        return channel.getValue("RoutingProfileQueueConfigArgs.channel");
+        if (!unknown_channel) return value_channel;
+        throw new UndeferrableValueException("Value 'RoutingProfileQueueConfigArgs.channel' is not present");
     }
 
     /**
      * Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
      * 
      */
-    private UndeferrableValue<Integer> delay;
-
+    @PolicyResourceProperty(name="delay", flag="unknown_delay")
+    private Integer value_delay;
+    private boolean unknown_delay;
     public Integer delay() {
-        if (delay == null) return null;
-        return delay.getValue("RoutingProfileQueueConfigArgs.delay");
+        if (!unknown_delay) return value_delay;
+        throw new UndeferrableValueException("Value 'RoutingProfileQueueConfigArgs.delay' is not present");
     }
 
     /**
      * Specifies the order in which contacts are to be handled for the queue.
      * 
      */
-    private UndeferrableValue<Integer> priority;
-
+    @PolicyResourceProperty(name="priority", flag="unknown_priority")
+    private Integer value_priority;
+    private boolean unknown_priority;
     public Integer priority() {
-        if (priority == null) return null;
-        return priority.getValue("RoutingProfileQueueConfigArgs.priority");
+        if (!unknown_priority) return value_priority;
+        throw new UndeferrableValueException("Value 'RoutingProfileQueueConfigArgs.priority' is not present");
     }
 
     /**
      * ARN for the queue.
      * 
      */
-    private UndeferrableValue<String> queueArn;
-
+    @PolicyResourceProperty(name="queueArn", flag="unknown_queueArn")
+    private String value_queueArn;
+    private boolean unknown_queueArn;
     public String queueArn() {
-        if (queueArn == null) return null;
-        return queueArn.getValue("RoutingProfileQueueConfigArgs.queueArn");
+        if (!unknown_queueArn) return value_queueArn;
+        throw new UndeferrableValueException("Value 'RoutingProfileQueueConfigArgs.queueArn' is not present");
     }
 
     /**
      * Specifies the identifier for the queue.
      * 
      */
-    private UndeferrableValue<String> queueId;
-
+    @PolicyResourceProperty(name="queueId", flag="unknown_queueId")
+    private String value_queueId;
+    private boolean unknown_queueId;
     public String queueId() {
-        if (queueId == null) return null;
-        return queueId.getValue("RoutingProfileQueueConfigArgs.queueId");
+        if (!unknown_queueId) return value_queueId;
+        throw new UndeferrableValueException("Value 'RoutingProfileQueueConfigArgs.queueId' is not present");
     }
 
     /**
      * Name for the queue.
      * 
      */
-    private UndeferrableValue<String> queueName;
-
+    @PolicyResourceProperty(name="queueName", flag="unknown_queueName")
+    private String value_queueName;
+    private boolean unknown_queueName;
     public String queueName() {
-        if (queueName == null) return null;
-        return queueName.getValue("RoutingProfileQueueConfigArgs.queueName");
+        if (!unknown_queueName) return value_queueName;
+        throw new UndeferrableValueException("Value 'RoutingProfileQueueConfigArgs.queueName' is not present");
     }
 
 }

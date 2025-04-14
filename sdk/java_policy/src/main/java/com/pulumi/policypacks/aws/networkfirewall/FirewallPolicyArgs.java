@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.networkfirewall.inputs.FirewallPolicyEncryptionConfigurationArgs;
 import com.pulumi.policypacks.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyArgs;
@@ -19,55 +20,60 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.PolicyResourc
      * A friendly description of the firewall policy.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("FirewallPolicyArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'FirewallPolicyArgs.description' is not present");
     }
 
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      * 
      */
-    private UndeferrableValue<FirewallPolicyEncryptionConfigurationArgs> encryptionConfiguration;
-
+    @PolicyResourceProperty(name="encryptionConfiguration", flag="unknown_encryptionConfiguration")
+    private FirewallPolicyEncryptionConfigurationArgs value_encryptionConfiguration;
+    private boolean unknown_encryptionConfiguration;
     public FirewallPolicyEncryptionConfigurationArgs encryptionConfiguration() {
-        if (encryptionConfiguration == null) return null;
-        return encryptionConfiguration.getValue("FirewallPolicyArgs.encryptionConfiguration");
+        if (!unknown_encryptionConfiguration) return value_encryptionConfiguration;
+        throw new UndeferrableValueException("Value 'FirewallPolicyArgs.encryptionConfiguration' is not present");
     }
 
     /**
      * A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
      * 
      */
-    private UndeferrableValue<FirewallPolicyFirewallPolicyArgs> firewallPolicy;
-
+    @PolicyResourceProperty(name="firewallPolicy", flag="unknown_firewallPolicy")
+    private FirewallPolicyFirewallPolicyArgs value_firewallPolicy;
+    private boolean unknown_firewallPolicy;
     public FirewallPolicyFirewallPolicyArgs firewallPolicy() {
-        if (firewallPolicy == null) return null;
-        return firewallPolicy.getValue("FirewallPolicyArgs.firewallPolicy");
+        if (!unknown_firewallPolicy) return value_firewallPolicy;
+        throw new UndeferrableValueException("Value 'FirewallPolicyArgs.firewallPolicy' is not present");
     }
 
     /**
      * A friendly name of the firewall policy.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("FirewallPolicyArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FirewallPolicyArgs.name' is not present");
     }
 
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("FirewallPolicyArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'FirewallPolicyArgs.tags' is not present");
     }
 
 }

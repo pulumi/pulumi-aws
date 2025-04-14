@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -19,11 +20,12 @@ public final class NetworkInsightsAnalysisArgs extends com.pulumi.resources.Poli
      * A list of ARNs for resources the path must traverse.
      * 
      */
-    private UndeferrableValue<List<String>> filterInArns;
-
+    @PolicyResourceProperty(name="filterInArns", flag="unknown_filterInArns")
+    private List<String> value_filterInArns;
+    private boolean unknown_filterInArns;
     public List<String> filterInArns() {
-        if (filterInArns == null) return null;
-        return filterInArns.getValue("NetworkInsightsAnalysisArgs.filterInArns");
+        if (!unknown_filterInArns) return value_filterInArns;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisArgs.filterInArns' is not present");
     }
 
     /**
@@ -32,33 +34,36 @@ public final class NetworkInsightsAnalysisArgs extends com.pulumi.resources.Poli
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> networkInsightsPathId;
-
+    @PolicyResourceProperty(name="networkInsightsPathId", flag="unknown_networkInsightsPathId")
+    private String value_networkInsightsPathId;
+    private boolean unknown_networkInsightsPathId;
     public String networkInsightsPathId() {
-        if (networkInsightsPathId == null) return null;
-        return networkInsightsPathId.getValue("NetworkInsightsAnalysisArgs.networkInsightsPathId");
+        if (!unknown_networkInsightsPathId) return value_networkInsightsPathId;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisArgs.networkInsightsPathId' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("NetworkInsightsAnalysisArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisArgs.tags' is not present");
     }
 
     /**
      * If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
      * 
      */
-    private UndeferrableValue<Boolean> waitForCompletion;
-
+    @PolicyResourceProperty(name="waitForCompletion", flag="unknown_waitForCompletion")
+    private Boolean value_waitForCompletion;
+    private boolean unknown_waitForCompletion;
     public Boolean waitForCompletion() {
-        if (waitForCompletion == null) return null;
-        return waitForCompletion.getValue("NetworkInsightsAnalysisArgs.waitForCompletion");
+        if (!unknown_waitForCompletion) return value_waitForCompletion;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisArgs.waitForCompletion' is not present");
     }
 
 }

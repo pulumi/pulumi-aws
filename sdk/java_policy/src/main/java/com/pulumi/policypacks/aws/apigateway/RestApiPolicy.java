@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class RestApiPolicy extends com.pulumi.resources.PolicyResourceOutp
      * JSON formatted policy document that controls access to the API Gateway.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("RestApiPolicy.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'RestApiPolicy.policy' is not present");
     }
 
     /**
      * ID of the REST API.
      * 
      */
-    private UndeferrableValue<String> restApiId;
-
+    @PolicyResourceProperty(name="restApiId", flag="unknown_restApiId")
+    private String value_restApiId;
+    private boolean unknown_restApiId;
     public String restApiId() {
-        if (restApiId == null) return null;
-        return restApiId.getValue("RestApiPolicy.restApiId");
+        if (!unknown_restApiId) return value_restApiId;
+        throw new UndeferrableValueException("Value 'RestApiPolicy.restApiId' is not present");
     }
 
 }

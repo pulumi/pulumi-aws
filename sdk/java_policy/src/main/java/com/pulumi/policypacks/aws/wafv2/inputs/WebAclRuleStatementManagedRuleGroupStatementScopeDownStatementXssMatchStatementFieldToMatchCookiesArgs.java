@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs;
 import java.lang.String;
 import java.util.List;
@@ -15,33 +16,36 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
      * 
      */
-    private UndeferrableValue<List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs>> matchPatterns;
-
+    @PolicyResourceProperty(name="matchPatterns", flag="unknown_matchPatterns")
+    private List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs> value_matchPatterns;
+    private boolean unknown_matchPatterns;
     public List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs> matchPatterns() {
-        if (matchPatterns == null) return null;
-        return matchPatterns.getValue("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesArgs.matchPatterns");
+        if (!unknown_matchPatterns) return value_matchPatterns;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesArgs.matchPatterns' is not present");
     }
 
     /**
      * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
      * 
      */
-    private UndeferrableValue<String> matchScope;
-
+    @PolicyResourceProperty(name="matchScope", flag="unknown_matchScope")
+    private String value_matchScope;
+    private boolean unknown_matchScope;
     public String matchScope() {
-        if (matchScope == null) return null;
-        return matchScope.getValue("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesArgs.matchScope");
+        if (!unknown_matchScope) return value_matchScope;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesArgs.matchScope' is not present");
     }
 
     /**
      * What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
      * 
      */
-    private UndeferrableValue<String> oversizeHandling;
-
+    @PolicyResourceProperty(name="oversizeHandling", flag="unknown_oversizeHandling")
+    private String value_oversizeHandling;
+    private boolean unknown_oversizeHandling;
     public String oversizeHandling() {
-        if (oversizeHandling == null) return null;
-        return oversizeHandling.getValue("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesArgs.oversizeHandling");
+        if (!unknown_oversizeHandling) return value_oversizeHandling;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesArgs.oversizeHandling' is not present");
     }
 
 }

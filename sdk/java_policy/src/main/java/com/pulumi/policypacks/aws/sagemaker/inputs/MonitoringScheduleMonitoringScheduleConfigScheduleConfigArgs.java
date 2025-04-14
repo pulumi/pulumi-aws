@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs 
      * A cron expression that describes details about the monitoring schedule. For example, and hourly schedule would be `cron(0 * ? * * *)`.
      * 
      */
-    private UndeferrableValue<String> scheduleExpression;
-
+    @PolicyResourceProperty(name="scheduleExpression", flag="unknown_scheduleExpression")
+    private String value_scheduleExpression;
+    private boolean unknown_scheduleExpression;
     public String scheduleExpression() {
-        if (scheduleExpression == null) return null;
-        return scheduleExpression.getValue("MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs.scheduleExpression");
+        if (!unknown_scheduleExpression) return value_scheduleExpression;
+        throw new UndeferrableValueException("Value 'MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs.scheduleExpression' is not present");
     }
 
 }

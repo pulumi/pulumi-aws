@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.controltower;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.controltower.outputs.ControlTowerControlParameter;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class ControlTowerControl extends com.pulumi.resources.PolicyResour
      * The ARN of the EnabledControl resource.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ControlTowerControl.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ControlTowerControl.arn' is not present");
     }
 
     /**
      * The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
      * 
      */
-    private UndeferrableValue<String> controlIdentifier;
-
+    @PolicyResourceProperty(name="controlIdentifier", flag="unknown_controlIdentifier")
+    private String value_controlIdentifier;
+    private boolean unknown_controlIdentifier;
     public String controlIdentifier() {
-        if (controlIdentifier == null) return null;
-        return controlIdentifier.getValue("ControlTowerControl.controlIdentifier");
+        if (!unknown_controlIdentifier) return value_controlIdentifier;
+        throw new UndeferrableValueException("Value 'ControlTowerControl.controlIdentifier' is not present");
     }
 
     /**
      * Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<ControlTowerControlParameter>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private @Nullable List<ControlTowerControlParameter> value_parameters;
+    private boolean unknown_parameters;
     public @Nullable List<ControlTowerControlParameter> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("ControlTowerControl.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'ControlTowerControl.parameters' is not present");
     }
 
     /**
@@ -53,11 +57,12 @@ public final class ControlTowerControl extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> targetIdentifier;
-
+    @PolicyResourceProperty(name="targetIdentifier", flag="unknown_targetIdentifier")
+    private String value_targetIdentifier;
+    private boolean unknown_targetIdentifier;
     public String targetIdentifier() {
-        if (targetIdentifier == null) return null;
-        return targetIdentifier.getValue("ControlTowerControl.targetIdentifier");
+        if (!unknown_targetIdentifier) return value_targetIdentifier;
+        throw new UndeferrableValueException("Value 'ControlTowerControl.targetIdentifier' is not present");
     }
 
 }

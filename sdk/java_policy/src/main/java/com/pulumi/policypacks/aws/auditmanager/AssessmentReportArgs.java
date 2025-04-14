@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.auditmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -18,33 +19,36 @@ public final class AssessmentReportArgs extends com.pulumi.resources.PolicyResou
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> assessmentId;
-
+    @PolicyResourceProperty(name="assessmentId", flag="unknown_assessmentId")
+    private String value_assessmentId;
+    private boolean unknown_assessmentId;
     public String assessmentId() {
-        if (assessmentId == null) return null;
-        return assessmentId.getValue("AssessmentReportArgs.assessmentId");
+        if (!unknown_assessmentId) return value_assessmentId;
+        throw new UndeferrableValueException("Value 'AssessmentReportArgs.assessmentId' is not present");
     }
 
     /**
      * Description of the assessment report.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("AssessmentReportArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AssessmentReportArgs.description' is not present");
     }
 
     /**
      * Name of the assessment report.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AssessmentReportArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AssessmentReportArgs.name' is not present");
     }
 
 }

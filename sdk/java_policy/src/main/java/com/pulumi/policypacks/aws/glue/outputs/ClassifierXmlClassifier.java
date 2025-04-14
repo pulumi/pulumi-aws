@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class ClassifierXmlClassifier {
      * An identifier of the data format that the classifier matches.
      * 
      */
-    private UndeferrableValue<String> classification;
-
+    @PolicyResourceProperty(name="classification", flag="unknown_classification")
+    private String value_classification;
+    private boolean unknown_classification;
     public String classification() {
-        if (classification == null) return null;
-        return classification.getValue("ClassifierXmlClassifier.classification");
+        if (!unknown_classification) return value_classification;
+        throw new UndeferrableValueException("Value 'ClassifierXmlClassifier.classification' is not present");
     }
 
     /**
      * The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/&gt;`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `&lt;row item_a=&#34;A&#34; item_b=&#34;B&#34;&gt;&lt;/row&gt;` is okay, but `&lt;row item_a=&#34;A&#34; item_b=&#34;B&#34; /&gt;` is not).
      * 
      */
-    private UndeferrableValue<String> rowTag;
-
+    @PolicyResourceProperty(name="rowTag", flag="unknown_rowTag")
+    private String value_rowTag;
+    private boolean unknown_rowTag;
     public String rowTag() {
-        if (rowTag == null) return null;
-        return rowTag.getValue("ClassifierXmlClassifier.rowTag");
+        if (!unknown_rowTag) return value_rowTag;
+        throw new UndeferrableValueException("Value 'ClassifierXmlClassifier.rowTag' is not present");
     }
 
 }

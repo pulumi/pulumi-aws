@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEnc
      * The type of encryption. Valid Values: `KMS`.
      * 
      */
-    private UndeferrableValue<String> encryptionType;
-
+    @PolicyResourceProperty(name="encryptionType", flag="unknown_encryptionType")
+    private String value_encryptionType;
+    private boolean unknown_encryptionType;
     public String encryptionType() {
-        if (encryptionType == null) return null;
-        return encryptionType.getValue("InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs.encryptionType");
+        if (!unknown_encryptionType) return value_encryptionType;
+        throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs.encryptionType' is not present");
     }
 
     /**
      * The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
      * 
      */
-    private UndeferrableValue<String> keyId;
-
+    @PolicyResourceProperty(name="keyId", flag="unknown_keyId")
+    private String value_keyId;
+    private boolean unknown_keyId;
     public String keyId() {
-        if (keyId == null) return null;
-        return keyId.getValue("InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs.keyId");
+        if (!unknown_keyId) return value_keyId;
+        throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs.keyId' is not present");
     }
 
 }

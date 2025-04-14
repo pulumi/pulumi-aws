@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudwatch.outputs.EventConnectionAuthParametersApiKey;
 import com.pulumi.policypacks.aws.cloudwatch.outputs.EventConnectionAuthParametersBasic;
 import com.pulumi.policypacks.aws.cloudwatch.outputs.EventConnectionAuthParametersInvocationHttpParameters;
@@ -17,44 +18,48 @@ public final class EventConnectionAuthParameters {
      * Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<EventConnectionAuthParametersApiKey> apiKey;
-
+    @PolicyResourceProperty(name="apiKey", flag="unknown_apiKey")
+    private @Nullable EventConnectionAuthParametersApiKey value_apiKey;
+    private boolean unknown_apiKey;
     public @Nullable EventConnectionAuthParametersApiKey apiKey() {
-        if (apiKey == null) return null;
-        return apiKey.getValue("EventConnectionAuthParameters.apiKey");
+        if (!unknown_apiKey) return value_apiKey;
+        throw new UndeferrableValueException("Value 'EventConnectionAuthParameters.apiKey' is not present");
     }
 
     /**
      * Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `api_key` and `oauth`. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<EventConnectionAuthParametersBasic> basic;
-
+    @PolicyResourceProperty(name="basic", flag="unknown_basic")
+    private @Nullable EventConnectionAuthParametersBasic value_basic;
+    private boolean unknown_basic;
     public @Nullable EventConnectionAuthParametersBasic basic() {
-        if (basic == null) return null;
-        return basic.getValue("EventConnectionAuthParameters.basic");
+        if (!unknown_basic) return value_basic;
+        throw new UndeferrableValueException("Value 'EventConnectionAuthParameters.basic' is not present");
     }
 
     /**
      * Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<EventConnectionAuthParametersInvocationHttpParameters> invocationHttpParameters;
-
+    @PolicyResourceProperty(name="invocationHttpParameters", flag="unknown_invocationHttpParameters")
+    private @Nullable EventConnectionAuthParametersInvocationHttpParameters value_invocationHttpParameters;
+    private boolean unknown_invocationHttpParameters;
     public @Nullable EventConnectionAuthParametersInvocationHttpParameters invocationHttpParameters() {
-        if (invocationHttpParameters == null) return null;
-        return invocationHttpParameters.getValue("EventConnectionAuthParameters.invocationHttpParameters");
+        if (!unknown_invocationHttpParameters) return value_invocationHttpParameters;
+        throw new UndeferrableValueException("Value 'EventConnectionAuthParameters.invocationHttpParameters' is not present");
     }
 
     /**
      * Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `api_key`. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<EventConnectionAuthParametersOauth> oauth;
-
+    @PolicyResourceProperty(name="oauth", flag="unknown_oauth")
+    private @Nullable EventConnectionAuthParametersOauth value_oauth;
+    private boolean unknown_oauth;
     public @Nullable EventConnectionAuthParametersOauth oauth() {
-        if (oauth == null) return null;
-        return oauth.getValue("EventConnectionAuthParameters.oauth");
+        if (!unknown_oauth) return value_oauth;
+        throw new UndeferrableValueException("Value 'EventConnectionAuthParameters.oauth' is not present");
     }
 
 }

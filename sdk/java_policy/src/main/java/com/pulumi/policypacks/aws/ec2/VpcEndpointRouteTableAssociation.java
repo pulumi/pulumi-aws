@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class VpcEndpointRouteTableAssociation extends com.pulumi.resources
      * Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
      * 
      */
-    private UndeferrableValue<String> routeTableId;
-
+    @PolicyResourceProperty(name="routeTableId", flag="unknown_routeTableId")
+    private String value_routeTableId;
+    private boolean unknown_routeTableId;
     public String routeTableId() {
-        if (routeTableId == null) return null;
-        return routeTableId.getValue("VpcEndpointRouteTableAssociation.routeTableId");
+        if (!unknown_routeTableId) return value_routeTableId;
+        throw new UndeferrableValueException("Value 'VpcEndpointRouteTableAssociation.routeTableId' is not present");
     }
 
     /**
      * Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
      * 
      */
-    private UndeferrableValue<String> vpcEndpointId;
-
+    @PolicyResourceProperty(name="vpcEndpointId", flag="unknown_vpcEndpointId")
+    private String value_vpcEndpointId;
+    private boolean unknown_vpcEndpointId;
     public String vpcEndpointId() {
-        if (vpcEndpointId == null) return null;
-        return vpcEndpointId.getValue("VpcEndpointRouteTableAssociation.vpcEndpointId");
+        if (!unknown_vpcEndpointId) return value_vpcEndpointId;
+        throw new UndeferrableValueException("Value 'VpcEndpointRouteTableAssociation.vpcEndpointId' is not present");
     }
 
 }

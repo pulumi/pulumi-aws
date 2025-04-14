@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class DistributionConfigurationDistributionAmiDistributionConfigura
      * Set of AWS Organization ARNs to assign.
      * 
      */
-    private UndeferrableValue<List<String>> organizationArns;
-
+    @PolicyResourceProperty(name="organizationArns", flag="unknown_organizationArns")
+    private List<String> value_organizationArns;
+    private boolean unknown_organizationArns;
     public List<String> organizationArns() {
-        if (organizationArns == null) return null;
-        return organizationArns.getValue("DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs.organizationArns");
+        if (!unknown_organizationArns) return value_organizationArns;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs.organizationArns' is not present");
     }
 
     /**
      * Set of AWS Organizational Unit ARNs to assign.
      * 
      */
-    private UndeferrableValue<List<String>> organizationalUnitArns;
-
+    @PolicyResourceProperty(name="organizationalUnitArns", flag="unknown_organizationalUnitArns")
+    private List<String> value_organizationalUnitArns;
+    private boolean unknown_organizationalUnitArns;
     public List<String> organizationalUnitArns() {
-        if (organizationalUnitArns == null) return null;
-        return organizationalUnitArns.getValue("DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs.organizationalUnitArns");
+        if (!unknown_organizationalUnitArns) return value_organizationalUnitArns;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs.organizationalUnitArns' is not present");
     }
 
     /**
      * Set of EC2 launch permission user groups to assign. Use `all` to distribute a public AMI.
      * 
      */
-    private UndeferrableValue<List<String>> userGroups;
-
+    @PolicyResourceProperty(name="userGroups", flag="unknown_userGroups")
+    private List<String> value_userGroups;
+    private boolean unknown_userGroups;
     public List<String> userGroups() {
-        if (userGroups == null) return null;
-        return userGroups.getValue("DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs.userGroups");
+        if (!unknown_userGroups) return value_userGroups;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs.userGroups' is not present");
     }
 
     /**
      * Set of AWS Account identifiers to assign.
      * 
      */
-    private UndeferrableValue<List<String>> userIds;
-
+    @PolicyResourceProperty(name="userIds", flag="unknown_userIds")
+    private List<String> value_userIds;
+    private boolean unknown_userIds;
     public List<String> userIds() {
-        if (userIds == null) return null;
-        return userIds.getValue("DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs.userIds");
+        if (!unknown_userIds) return value_userIds;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs.userIds' is not present");
     }
 
 }

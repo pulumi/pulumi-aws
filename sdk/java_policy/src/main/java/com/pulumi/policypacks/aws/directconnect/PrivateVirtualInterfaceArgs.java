@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,77 +20,84 @@ public final class PrivateVirtualInterfaceArgs extends com.pulumi.resources.Poli
      * The address family for the BGP peer. ` ipv4  ` or `ipv6`.
      * 
      */
-    private UndeferrableValue<String> addressFamily;
-
+    @PolicyResourceProperty(name="addressFamily", flag="unknown_addressFamily")
+    private String value_addressFamily;
+    private boolean unknown_addressFamily;
     public String addressFamily() {
-        if (addressFamily == null) return null;
-        return addressFamily.getValue("PrivateVirtualInterfaceArgs.addressFamily");
+        if (!unknown_addressFamily) return value_addressFamily;
+        throw new UndeferrableValueException("Value 'PrivateVirtualInterfaceArgs.addressFamily' is not present");
     }
 
     /**
      * The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
      * 
      */
-    private UndeferrableValue<String> amazonAddress;
-
+    @PolicyResourceProperty(name="amazonAddress", flag="unknown_amazonAddress")
+    private String value_amazonAddress;
+    private boolean unknown_amazonAddress;
     public String amazonAddress() {
-        if (amazonAddress == null) return null;
-        return amazonAddress.getValue("PrivateVirtualInterfaceArgs.amazonAddress");
+        if (!unknown_amazonAddress) return value_amazonAddress;
+        throw new UndeferrableValueException("Value 'PrivateVirtualInterfaceArgs.amazonAddress' is not present");
     }
 
     /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      * 
      */
-    private UndeferrableValue<Integer> bgpAsn;
-
+    @PolicyResourceProperty(name="bgpAsn", flag="unknown_bgpAsn")
+    private Integer value_bgpAsn;
+    private boolean unknown_bgpAsn;
     public Integer bgpAsn() {
-        if (bgpAsn == null) return null;
-        return bgpAsn.getValue("PrivateVirtualInterfaceArgs.bgpAsn");
+        if (!unknown_bgpAsn) return value_bgpAsn;
+        throw new UndeferrableValueException("Value 'PrivateVirtualInterfaceArgs.bgpAsn' is not present");
     }
 
     /**
      * The authentication key for BGP configuration.
      * 
      */
-    private UndeferrableValue<String> bgpAuthKey;
-
+    @PolicyResourceProperty(name="bgpAuthKey", flag="unknown_bgpAuthKey")
+    private String value_bgpAuthKey;
+    private boolean unknown_bgpAuthKey;
     public String bgpAuthKey() {
-        if (bgpAuthKey == null) return null;
-        return bgpAuthKey.getValue("PrivateVirtualInterfaceArgs.bgpAuthKey");
+        if (!unknown_bgpAuthKey) return value_bgpAuthKey;
+        throw new UndeferrableValueException("Value 'PrivateVirtualInterfaceArgs.bgpAuthKey' is not present");
     }
 
     /**
      * The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
      * 
      */
-    private UndeferrableValue<String> connectionId;
-
+    @PolicyResourceProperty(name="connectionId", flag="unknown_connectionId")
+    private String value_connectionId;
+    private boolean unknown_connectionId;
     public String connectionId() {
-        if (connectionId == null) return null;
-        return connectionId.getValue("PrivateVirtualInterfaceArgs.connectionId");
+        if (!unknown_connectionId) return value_connectionId;
+        throw new UndeferrableValueException("Value 'PrivateVirtualInterfaceArgs.connectionId' is not present");
     }
 
     /**
      * The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
      * 
      */
-    private UndeferrableValue<String> customerAddress;
-
+    @PolicyResourceProperty(name="customerAddress", flag="unknown_customerAddress")
+    private String value_customerAddress;
+    private boolean unknown_customerAddress;
     public String customerAddress() {
-        if (customerAddress == null) return null;
-        return customerAddress.getValue("PrivateVirtualInterfaceArgs.customerAddress");
+        if (!unknown_customerAddress) return value_customerAddress;
+        throw new UndeferrableValueException("Value 'PrivateVirtualInterfaceArgs.customerAddress' is not present");
     }
 
     /**
      * The ID of the Direct Connect gateway to which to connect the virtual interface.
      * 
      */
-    private UndeferrableValue<String> dxGatewayId;
-
+    @PolicyResourceProperty(name="dxGatewayId", flag="unknown_dxGatewayId")
+    private String value_dxGatewayId;
+    private boolean unknown_dxGatewayId;
     public String dxGatewayId() {
-        if (dxGatewayId == null) return null;
-        return dxGatewayId.getValue("PrivateVirtualInterfaceArgs.dxGatewayId");
+        if (!unknown_dxGatewayId) return value_dxGatewayId;
+        throw new UndeferrableValueException("Value 'PrivateVirtualInterfaceArgs.dxGatewayId' is not present");
     }
 
     /**
@@ -97,66 +105,72 @@ public final class PrivateVirtualInterfaceArgs extends com.pulumi.resources.Poli
      * The MTU of a virtual private interface can be either `1500` or `9001` (jumbo frames). Default is `1500`.
      * 
      */
-    private UndeferrableValue<Integer> mtu;
-
+    @PolicyResourceProperty(name="mtu", flag="unknown_mtu")
+    private Integer value_mtu;
+    private boolean unknown_mtu;
     public Integer mtu() {
-        if (mtu == null) return null;
-        return mtu.getValue("PrivateVirtualInterfaceArgs.mtu");
+        if (!unknown_mtu) return value_mtu;
+        throw new UndeferrableValueException("Value 'PrivateVirtualInterfaceArgs.mtu' is not present");
     }
 
     /**
      * The name for the virtual interface.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PrivateVirtualInterfaceArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PrivateVirtualInterfaceArgs.name' is not present");
     }
 
     /**
      * Indicates whether to enable or disable SiteLink.
      * 
      */
-    private UndeferrableValue<Boolean> sitelinkEnabled;
-
+    @PolicyResourceProperty(name="sitelinkEnabled", flag="unknown_sitelinkEnabled")
+    private Boolean value_sitelinkEnabled;
+    private boolean unknown_sitelinkEnabled;
     public Boolean sitelinkEnabled() {
-        if (sitelinkEnabled == null) return null;
-        return sitelinkEnabled.getValue("PrivateVirtualInterfaceArgs.sitelinkEnabled");
+        if (!unknown_sitelinkEnabled) return value_sitelinkEnabled;
+        throw new UndeferrableValueException("Value 'PrivateVirtualInterfaceArgs.sitelinkEnabled' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("PrivateVirtualInterfaceArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'PrivateVirtualInterfaceArgs.tags' is not present");
     }
 
     /**
      * The VLAN ID.
      * 
      */
-    private UndeferrableValue<Integer> vlan;
-
+    @PolicyResourceProperty(name="vlan", flag="unknown_vlan")
+    private Integer value_vlan;
+    private boolean unknown_vlan;
     public Integer vlan() {
-        if (vlan == null) return null;
-        return vlan.getValue("PrivateVirtualInterfaceArgs.vlan");
+        if (!unknown_vlan) return value_vlan;
+        throw new UndeferrableValueException("Value 'PrivateVirtualInterfaceArgs.vlan' is not present");
     }
 
     /**
      * The ID of the virtual private gateway to which to connect the virtual interface.
      * 
      */
-    private UndeferrableValue<String> vpnGatewayId;
-
+    @PolicyResourceProperty(name="vpnGatewayId", flag="unknown_vpnGatewayId")
+    private String value_vpnGatewayId;
+    private boolean unknown_vpnGatewayId;
     public String vpnGatewayId() {
-        if (vpnGatewayId == null) return null;
-        return vpnGatewayId.getValue("PrivateVirtualInterfaceArgs.vpnGatewayId");
+        if (!unknown_vpnGatewayId) return value_vpnGatewayId;
+        throw new UndeferrableValueException("Value 'PrivateVirtualInterfaceArgs.vpnGatewayId' is not present");
     }
 
 }

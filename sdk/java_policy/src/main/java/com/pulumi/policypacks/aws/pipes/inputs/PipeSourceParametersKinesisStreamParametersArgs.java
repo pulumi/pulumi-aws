@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.pipes.inputs.PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,99 +17,108 @@ public final class PipeSourceParametersKinesisStreamParametersArgs {
      * The maximum number of records to include in each batch. Maximum value of 10000.
      * 
      */
-    private UndeferrableValue<Integer> batchSize;
-
+    @PolicyResourceProperty(name="batchSize", flag="unknown_batchSize")
+    private Integer value_batchSize;
+    private boolean unknown_batchSize;
     public Integer batchSize() {
-        if (batchSize == null) return null;
-        return batchSize.getValue("PipeSourceParametersKinesisStreamParametersArgs.batchSize");
+        if (!unknown_batchSize) return value_batchSize;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersKinesisStreamParametersArgs.batchSize' is not present");
     }
 
     /**
      * Define the target queue to send dead-letter queue events to. Detailed below.
      * 
      */
-    private UndeferrableValue<PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgs> deadLetterConfig;
-
+    @PolicyResourceProperty(name="deadLetterConfig", flag="unknown_deadLetterConfig")
+    private PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgs value_deadLetterConfig;
+    private boolean unknown_deadLetterConfig;
     public PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgs deadLetterConfig() {
-        if (deadLetterConfig == null) return null;
-        return deadLetterConfig.getValue("PipeSourceParametersKinesisStreamParametersArgs.deadLetterConfig");
+        if (!unknown_deadLetterConfig) return value_deadLetterConfig;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersKinesisStreamParametersArgs.deadLetterConfig' is not present");
     }
 
     /**
      * The maximum length of a time to wait for events. Maximum value of 300.
      * 
      */
-    private UndeferrableValue<Integer> maximumBatchingWindowInSeconds;
-
+    @PolicyResourceProperty(name="maximumBatchingWindowInSeconds", flag="unknown_maximumBatchingWindowInSeconds")
+    private Integer value_maximumBatchingWindowInSeconds;
+    private boolean unknown_maximumBatchingWindowInSeconds;
     public Integer maximumBatchingWindowInSeconds() {
-        if (maximumBatchingWindowInSeconds == null) return null;
-        return maximumBatchingWindowInSeconds.getValue("PipeSourceParametersKinesisStreamParametersArgs.maximumBatchingWindowInSeconds");
+        if (!unknown_maximumBatchingWindowInSeconds) return value_maximumBatchingWindowInSeconds;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersKinesisStreamParametersArgs.maximumBatchingWindowInSeconds' is not present");
     }
 
     /**
      * Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
      * 
      */
-    private UndeferrableValue<Integer> maximumRecordAgeInSeconds;
-
+    @PolicyResourceProperty(name="maximumRecordAgeInSeconds", flag="unknown_maximumRecordAgeInSeconds")
+    private Integer value_maximumRecordAgeInSeconds;
+    private boolean unknown_maximumRecordAgeInSeconds;
     public Integer maximumRecordAgeInSeconds() {
-        if (maximumRecordAgeInSeconds == null) return null;
-        return maximumRecordAgeInSeconds.getValue("PipeSourceParametersKinesisStreamParametersArgs.maximumRecordAgeInSeconds");
+        if (!unknown_maximumRecordAgeInSeconds) return value_maximumRecordAgeInSeconds;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersKinesisStreamParametersArgs.maximumRecordAgeInSeconds' is not present");
     }
 
     /**
      * Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
      * 
      */
-    private UndeferrableValue<Integer> maximumRetryAttempts;
-
+    @PolicyResourceProperty(name="maximumRetryAttempts", flag="unknown_maximumRetryAttempts")
+    private Integer value_maximumRetryAttempts;
+    private boolean unknown_maximumRetryAttempts;
     public Integer maximumRetryAttempts() {
-        if (maximumRetryAttempts == null) return null;
-        return maximumRetryAttempts.getValue("PipeSourceParametersKinesisStreamParametersArgs.maximumRetryAttempts");
+        if (!unknown_maximumRetryAttempts) return value_maximumRetryAttempts;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersKinesisStreamParametersArgs.maximumRetryAttempts' is not present");
     }
 
     /**
      * Define how to handle item process failures. AUTOMATIC_BISECT halves each batch and retry each half until all the records are processed or there is one failed message left in the batch. Valid values: AUTOMATIC_BISECT.
      * 
      */
-    private UndeferrableValue<String> onPartialBatchItemFailure;
-
+    @PolicyResourceProperty(name="onPartialBatchItemFailure", flag="unknown_onPartialBatchItemFailure")
+    private String value_onPartialBatchItemFailure;
+    private boolean unknown_onPartialBatchItemFailure;
     public String onPartialBatchItemFailure() {
-        if (onPartialBatchItemFailure == null) return null;
-        return onPartialBatchItemFailure.getValue("PipeSourceParametersKinesisStreamParametersArgs.onPartialBatchItemFailure");
+        if (!unknown_onPartialBatchItemFailure) return value_onPartialBatchItemFailure;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersKinesisStreamParametersArgs.onPartialBatchItemFailure' is not present");
     }
 
     /**
      * The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
      * 
      */
-    private UndeferrableValue<Integer> parallelizationFactor;
-
+    @PolicyResourceProperty(name="parallelizationFactor", flag="unknown_parallelizationFactor")
+    private Integer value_parallelizationFactor;
+    private boolean unknown_parallelizationFactor;
     public Integer parallelizationFactor() {
-        if (parallelizationFactor == null) return null;
-        return parallelizationFactor.getValue("PipeSourceParametersKinesisStreamParametersArgs.parallelizationFactor");
+        if (!unknown_parallelizationFactor) return value_parallelizationFactor;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersKinesisStreamParametersArgs.parallelizationFactor' is not present");
     }
 
     /**
      * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
      * 
      */
-    private UndeferrableValue<String> startingPosition;
-
+    @PolicyResourceProperty(name="startingPosition", flag="unknown_startingPosition")
+    private String value_startingPosition;
+    private boolean unknown_startingPosition;
     public String startingPosition() {
-        if (startingPosition == null) return null;
-        return startingPosition.getValue("PipeSourceParametersKinesisStreamParametersArgs.startingPosition");
+        if (!unknown_startingPosition) return value_startingPosition;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersKinesisStreamParametersArgs.startingPosition' is not present");
     }
 
     /**
      * With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
      * 
      */
-    private UndeferrableValue<String> startingPositionTimestamp;
-
+    @PolicyResourceProperty(name="startingPositionTimestamp", flag="unknown_startingPositionTimestamp")
+    private String value_startingPositionTimestamp;
+    private boolean unknown_startingPositionTimestamp;
     public String startingPositionTimestamp() {
-        if (startingPositionTimestamp == null) return null;
-        return startingPositionTimestamp.getValue("PipeSourceParametersKinesisStreamParametersArgs.startingPositionTimestamp");
+        if (!unknown_startingPositionTimestamp) return value_startingPositionTimestamp;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersKinesisStreamParametersArgs.startingPositionTimestamp' is not present");
     }
 
 }

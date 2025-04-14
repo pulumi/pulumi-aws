@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.inputs.FlowTriggerConfigTriggerPropertiesArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class FlowTriggerConfigArgs {
      * Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
      * 
      */
-    private UndeferrableValue<FlowTriggerConfigTriggerPropertiesArgs> triggerProperties;
-
+    @PolicyResourceProperty(name="triggerProperties", flag="unknown_triggerProperties")
+    private FlowTriggerConfigTriggerPropertiesArgs value_triggerProperties;
+    private boolean unknown_triggerProperties;
     public FlowTriggerConfigTriggerPropertiesArgs triggerProperties() {
-        if (triggerProperties == null) return null;
-        return triggerProperties.getValue("FlowTriggerConfigArgs.triggerProperties");
+        if (!unknown_triggerProperties) return value_triggerProperties;
+        throw new UndeferrableValueException("Value 'FlowTriggerConfigArgs.triggerProperties' is not present");
     }
 
     /**
      * Type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
      * 
      */
-    private UndeferrableValue<String> triggerType;
-
+    @PolicyResourceProperty(name="triggerType", flag="unknown_triggerType")
+    private String value_triggerType;
+    private boolean unknown_triggerType;
     public String triggerType() {
-        if (triggerType == null) return null;
-        return triggerType.getValue("FlowTriggerConfigArgs.triggerType");
+        if (!unknown_triggerType) return value_triggerType;
+        throw new UndeferrableValueException("Value 'FlowTriggerConfigArgs.triggerType' is not present");
     }
 
 }

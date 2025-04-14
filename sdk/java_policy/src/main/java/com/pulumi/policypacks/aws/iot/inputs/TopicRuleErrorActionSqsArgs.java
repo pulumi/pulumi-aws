@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 
@@ -14,33 +15,36 @@ public final class TopicRuleErrorActionSqsArgs {
      * The URL of the Amazon SQS queue.
      * 
      */
-    private UndeferrableValue<String> queueUrl;
-
+    @PolicyResourceProperty(name="queueUrl", flag="unknown_queueUrl")
+    private String value_queueUrl;
+    private boolean unknown_queueUrl;
     public String queueUrl() {
-        if (queueUrl == null) return null;
-        return queueUrl.getValue("TopicRuleErrorActionSqsArgs.queueUrl");
+        if (!unknown_queueUrl) return value_queueUrl;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionSqsArgs.queueUrl' is not present");
     }
 
     /**
      * The ARN of the IAM role that grants access.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("TopicRuleErrorActionSqsArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionSqsArgs.roleArn' is not present");
     }
 
     /**
      * Specifies whether to use Base64 encoding.
      * 
      */
-    private UndeferrableValue<Boolean> useBase64;
-
+    @PolicyResourceProperty(name="useBase64", flag="unknown_useBase64")
+    private Boolean value_useBase64;
+    private boolean unknown_useBase64;
     public Boolean useBase64() {
-        if (useBase64 == null) return null;
-        return useBase64.getValue("TopicRuleErrorActionSqsArgs.useBase64");
+        if (!unknown_useBase64) return value_useBase64;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionSqsArgs.useBase64' is not present");
     }
 
 }

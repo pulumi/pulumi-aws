@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,165 +19,180 @@ public final class DatabaseArgs extends com.pulumi.resources.PolicyResourceInput
      * When true , applies changes immediately. When false , applies changes during the preferred maintenance window. Some changes may cause an outage.
      * 
      */
-    private UndeferrableValue<Boolean> applyImmediately;
-
+    @PolicyResourceProperty(name="applyImmediately", flag="unknown_applyImmediately")
+    private Boolean value_applyImmediately;
+    private boolean unknown_applyImmediately;
     public Boolean applyImmediately() {
-        if (applyImmediately == null) return null;
-        return applyImmediately.getValue("DatabaseArgs.applyImmediately");
+        if (!unknown_applyImmediately) return value_applyImmediately;
+        throw new UndeferrableValueException("Value 'DatabaseArgs.applyImmediately' is not present");
     }
 
     /**
      * The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("DatabaseArgs.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'DatabaseArgs.availabilityZone' is not present");
     }
 
     /**
      * When true, enables automated backup retention for your database. When false, disables automated backup retention for your database. Disabling backup retention deletes all automated database backups. Before disabling this, you may want to create a snapshot of your database.
      * 
      */
-    private UndeferrableValue<Boolean> backupRetentionEnabled;
-
+    @PolicyResourceProperty(name="backupRetentionEnabled", flag="unknown_backupRetentionEnabled")
+    private Boolean value_backupRetentionEnabled;
+    private boolean unknown_backupRetentionEnabled;
     public Boolean backupRetentionEnabled() {
-        if (backupRetentionEnabled == null) return null;
-        return backupRetentionEnabled.getValue("DatabaseArgs.backupRetentionEnabled");
+        if (!unknown_backupRetentionEnabled) return value_backupRetentionEnabled;
+        throw new UndeferrableValueException("Value 'DatabaseArgs.backupRetentionEnabled' is not present");
     }
 
     /**
      * The blueprint ID for your new database. A blueprint describes the major engine version of a database. You can get a list of database blueprints IDs by using the AWS CLI command: `aws lightsail get-relational-database-blueprints`
      * 
      */
-    private UndeferrableValue<String> blueprintId;
-
+    @PolicyResourceProperty(name="blueprintId", flag="unknown_blueprintId")
+    private String value_blueprintId;
+    private boolean unknown_blueprintId;
     public String blueprintId() {
-        if (blueprintId == null) return null;
-        return blueprintId.getValue("DatabaseArgs.blueprintId");
+        if (!unknown_blueprintId) return value_blueprintId;
+        throw new UndeferrableValueException("Value 'DatabaseArgs.blueprintId' is not present");
     }
 
     /**
      * The bundle ID for your new database. A bundle describes the performance specifications for your database (see list below). You can get a list of database bundle IDs by using the AWS CLI command: `aws lightsail get-relational-database-bundles`.
      * 
      */
-    private UndeferrableValue<String> bundleId;
-
+    @PolicyResourceProperty(name="bundleId", flag="unknown_bundleId")
+    private String value_bundleId;
+    private boolean unknown_bundleId;
     public String bundleId() {
-        if (bundleId == null) return null;
-        return bundleId.getValue("DatabaseArgs.bundleId");
+        if (!unknown_bundleId) return value_bundleId;
+        throw new UndeferrableValueException("Value 'DatabaseArgs.bundleId' is not present");
     }
 
     /**
      * The name of the database snapshot created if skip final snapshot is false, which is the default value for that parameter.
      * 
      */
-    private UndeferrableValue<String> finalSnapshotName;
-
+    @PolicyResourceProperty(name="finalSnapshotName", flag="unknown_finalSnapshotName")
+    private String value_finalSnapshotName;
+    private boolean unknown_finalSnapshotName;
     public String finalSnapshotName() {
-        if (finalSnapshotName == null) return null;
-        return finalSnapshotName.getValue("DatabaseArgs.finalSnapshotName");
+        if (!unknown_finalSnapshotName) return value_finalSnapshotName;
+        throw new UndeferrableValueException("Value 'DatabaseArgs.finalSnapshotName' is not present");
     }
 
     /**
      * The name of the master database created when the Lightsail database resource is created.
      * 
      */
-    private UndeferrableValue<String> masterDatabaseName;
-
+    @PolicyResourceProperty(name="masterDatabaseName", flag="unknown_masterDatabaseName")
+    private String value_masterDatabaseName;
+    private boolean unknown_masterDatabaseName;
     public String masterDatabaseName() {
-        if (masterDatabaseName == null) return null;
-        return masterDatabaseName.getValue("DatabaseArgs.masterDatabaseName");
+        if (!unknown_masterDatabaseName) return value_masterDatabaseName;
+        throw new UndeferrableValueException("Value 'DatabaseArgs.masterDatabaseName' is not present");
     }
 
     /**
      * The password for the master user of your new database. The password can include any printable ASCII character except &#34;/&#34;, &#34;&#34;&#34;, or &#34;{@literal @}&#34;.
      * 
      */
-    private UndeferrableValue<String> masterPassword;
-
+    @PolicyResourceProperty(name="masterPassword", flag="unknown_masterPassword")
+    private String value_masterPassword;
+    private boolean unknown_masterPassword;
     public String masterPassword() {
-        if (masterPassword == null) return null;
-        return masterPassword.getValue("DatabaseArgs.masterPassword");
+        if (!unknown_masterPassword) return value_masterPassword;
+        throw new UndeferrableValueException("Value 'DatabaseArgs.masterPassword' is not present");
     }
 
     /**
      * The master user name for your new database.
      * 
      */
-    private UndeferrableValue<String> masterUsername;
-
+    @PolicyResourceProperty(name="masterUsername", flag="unknown_masterUsername")
+    private String value_masterUsername;
+    private boolean unknown_masterUsername;
     public String masterUsername() {
-        if (masterUsername == null) return null;
-        return masterUsername.getValue("DatabaseArgs.masterUsername");
+        if (!unknown_masterUsername) return value_masterUsername;
+        throw new UndeferrableValueException("Value 'DatabaseArgs.masterUsername' is not present");
     }
 
     /**
      * The daily time range during which automated backups are created for your new database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
      * 
      */
-    private UndeferrableValue<String> preferredBackupWindow;
-
+    @PolicyResourceProperty(name="preferredBackupWindow", flag="unknown_preferredBackupWindow")
+    private String value_preferredBackupWindow;
+    private boolean unknown_preferredBackupWindow;
     public String preferredBackupWindow() {
-        if (preferredBackupWindow == null) return null;
-        return preferredBackupWindow.getValue("DatabaseArgs.preferredBackupWindow");
+        if (!unknown_preferredBackupWindow) return value_preferredBackupWindow;
+        throw new UndeferrableValueException("Value 'DatabaseArgs.preferredBackupWindow' is not present");
     }
 
     /**
      * The weekly time range during which system maintenance can occur on your new database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
      * 
      */
-    private UndeferrableValue<String> preferredMaintenanceWindow;
-
+    @PolicyResourceProperty(name="preferredMaintenanceWindow", flag="unknown_preferredMaintenanceWindow")
+    private String value_preferredMaintenanceWindow;
+    private boolean unknown_preferredMaintenanceWindow;
     public String preferredMaintenanceWindow() {
-        if (preferredMaintenanceWindow == null) return null;
-        return preferredMaintenanceWindow.getValue("DatabaseArgs.preferredMaintenanceWindow");
+        if (!unknown_preferredMaintenanceWindow) return value_preferredMaintenanceWindow;
+        throw new UndeferrableValueException("Value 'DatabaseArgs.preferredMaintenanceWindow' is not present");
     }
 
     /**
      * Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
      * 
      */
-    private UndeferrableValue<Boolean> publiclyAccessible;
-
+    @PolicyResourceProperty(name="publiclyAccessible", flag="unknown_publiclyAccessible")
+    private Boolean value_publiclyAccessible;
+    private boolean unknown_publiclyAccessible;
     public Boolean publiclyAccessible() {
-        if (publiclyAccessible == null) return null;
-        return publiclyAccessible.getValue("DatabaseArgs.publiclyAccessible");
+        if (!unknown_publiclyAccessible) return value_publiclyAccessible;
+        throw new UndeferrableValueException("Value 'DatabaseArgs.publiclyAccessible' is not present");
     }
 
     /**
      * The name to use for your new Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
      * 
      */
-    private UndeferrableValue<String> relationalDatabaseName;
-
+    @PolicyResourceProperty(name="relationalDatabaseName", flag="unknown_relationalDatabaseName")
+    private String value_relationalDatabaseName;
+    private boolean unknown_relationalDatabaseName;
     public String relationalDatabaseName() {
-        if (relationalDatabaseName == null) return null;
-        return relationalDatabaseName.getValue("DatabaseArgs.relationalDatabaseName");
+        if (!unknown_relationalDatabaseName) return value_relationalDatabaseName;
+        throw new UndeferrableValueException("Value 'DatabaseArgs.relationalDatabaseName' is not present");
     }
 
     /**
      * Determines whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
      * 
      */
-    private UndeferrableValue<Boolean> skipFinalSnapshot;
-
+    @PolicyResourceProperty(name="skipFinalSnapshot", flag="unknown_skipFinalSnapshot")
+    private Boolean value_skipFinalSnapshot;
+    private boolean unknown_skipFinalSnapshot;
     public Boolean skipFinalSnapshot() {
-        if (skipFinalSnapshot == null) return null;
-        return skipFinalSnapshot.getValue("DatabaseArgs.skipFinalSnapshot");
+        if (!unknown_skipFinalSnapshot) return value_skipFinalSnapshot;
+        throw new UndeferrableValueException("Value 'DatabaseArgs.skipFinalSnapshot' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DatabaseArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DatabaseArgs.tags' is not present");
     }
 
 }

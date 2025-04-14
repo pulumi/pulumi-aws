@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.opensearch.outputs.VpcEndpointVpcOptions;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class VpcEndpoint extends com.pulumi.resources.PolicyResourceOutput
      * Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
      * 
      */
-    private UndeferrableValue<String> domainArn;
-
+    @PolicyResourceProperty(name="domainArn", flag="unknown_domainArn")
+    private String value_domainArn;
+    private boolean unknown_domainArn;
     public String domainArn() {
-        if (domainArn == null) return null;
-        return domainArn.getValue("VpcEndpoint.domainArn");
+        if (!unknown_domainArn) return value_domainArn;
+        throw new UndeferrableValueException("Value 'VpcEndpoint.domainArn' is not present");
     }
 
     /**
      * The connection endpoint ID for connecting to the domain.
      * 
      */
-    private UndeferrableValue<String> endpoint;
-
+    @PolicyResourceProperty(name="endpoint", flag="unknown_endpoint")
+    private String value_endpoint;
+    private boolean unknown_endpoint;
     public String endpoint() {
-        if (endpoint == null) return null;
-        return endpoint.getValue("VpcEndpoint.endpoint");
+        if (!unknown_endpoint) return value_endpoint;
+        throw new UndeferrableValueException("Value 'VpcEndpoint.endpoint' is not present");
     }
 
     /**
      * Options to specify the subnets and security groups for the endpoint.
      * 
      */
-    private UndeferrableValue<VpcEndpointVpcOptions> vpcOptions;
-
+    @PolicyResourceProperty(name="vpcOptions", flag="unknown_vpcOptions")
+    private VpcEndpointVpcOptions value_vpcOptions;
+    private boolean unknown_vpcOptions;
     public VpcEndpointVpcOptions vpcOptions() {
-        if (vpcOptions == null) return null;
-        return vpcOptions.getValue("VpcEndpoint.vpcOptions");
+        if (!unknown_vpcOptions) return value_vpcOptions;
+        throw new UndeferrableValueException("Value 'VpcEndpoint.vpcOptions' is not present");
     }
 
 }

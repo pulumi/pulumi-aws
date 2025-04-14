@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssmincidents.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,22 +15,24 @@ public final class ResponsePlanActionSsmAutomationParameterArgs {
      * The name of the response plan.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ResponsePlanActionSsmAutomationParameterArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ResponsePlanActionSsmAutomationParameterArgs.name' is not present");
     }
 
     /**
      * The values for the associated parameter name.
      * 
      */
-    private UndeferrableValue<List<String>> values;
-
+    @PolicyResourceProperty(name="values", flag="unknown_values")
+    private List<String> value_values;
+    private boolean unknown_values;
     public List<String> values() {
-        if (values == null) return null;
-        return values.getValue("ResponsePlanActionSsmAutomationParameterArgs.values");
+        if (!unknown_values) return value_values;
+        throw new UndeferrableValueException("Value 'ResponsePlanActionSsmAutomationParameterArgs.values' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,55 +16,60 @@ public final class InstanceRestoreToPointInTime {
      * The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
      * 
      */
-    private @Nullable UndeferrableValue<String> restoreTime;
-
+    @PolicyResourceProperty(name="restoreTime", flag="unknown_restoreTime")
+    private @Nullable String value_restoreTime;
+    private boolean unknown_restoreTime;
     public @Nullable String restoreTime() {
-        if (restoreTime == null) return null;
-        return restoreTime.getValue("InstanceRestoreToPointInTime.restoreTime");
+        if (!unknown_restoreTime) return value_restoreTime;
+        throw new UndeferrableValueException("Value 'InstanceRestoreToPointInTime.restoreTime' is not present");
     }
 
     /**
      * The ARN of the automated backup from which to restore. Required if `source_db_instance_identifier` or `source_dbi_resource_id` is not specified.
      * 
      */
-    private @Nullable UndeferrableValue<String> sourceDbInstanceAutomatedBackupsArn;
-
+    @PolicyResourceProperty(name="sourceDbInstanceAutomatedBackupsArn", flag="unknown_sourceDbInstanceAutomatedBackupsArn")
+    private @Nullable String value_sourceDbInstanceAutomatedBackupsArn;
+    private boolean unknown_sourceDbInstanceAutomatedBackupsArn;
     public @Nullable String sourceDbInstanceAutomatedBackupsArn() {
-        if (sourceDbInstanceAutomatedBackupsArn == null) return null;
-        return sourceDbInstanceAutomatedBackupsArn.getValue("InstanceRestoreToPointInTime.sourceDbInstanceAutomatedBackupsArn");
+        if (!unknown_sourceDbInstanceAutomatedBackupsArn) return value_sourceDbInstanceAutomatedBackupsArn;
+        throw new UndeferrableValueException("Value 'InstanceRestoreToPointInTime.sourceDbInstanceAutomatedBackupsArn' is not present");
     }
 
     /**
      * The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_db_instance_automated_backups_arn` or `source_dbi_resource_id` is not specified.
      * 
      */
-    private @Nullable UndeferrableValue<String> sourceDbInstanceIdentifier;
-
+    @PolicyResourceProperty(name="sourceDbInstanceIdentifier", flag="unknown_sourceDbInstanceIdentifier")
+    private @Nullable String value_sourceDbInstanceIdentifier;
+    private boolean unknown_sourceDbInstanceIdentifier;
     public @Nullable String sourceDbInstanceIdentifier() {
-        if (sourceDbInstanceIdentifier == null) return null;
-        return sourceDbInstanceIdentifier.getValue("InstanceRestoreToPointInTime.sourceDbInstanceIdentifier");
+        if (!unknown_sourceDbInstanceIdentifier) return value_sourceDbInstanceIdentifier;
+        throw new UndeferrableValueException("Value 'InstanceRestoreToPointInTime.sourceDbInstanceIdentifier' is not present");
     }
 
     /**
      * The resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` or `source_db_instance_automated_backups_arn` is not specified.
      * 
      */
-    private @Nullable UndeferrableValue<String> sourceDbiResourceId;
-
+    @PolicyResourceProperty(name="sourceDbiResourceId", flag="unknown_sourceDbiResourceId")
+    private @Nullable String value_sourceDbiResourceId;
+    private boolean unknown_sourceDbiResourceId;
     public @Nullable String sourceDbiResourceId() {
-        if (sourceDbiResourceId == null) return null;
-        return sourceDbiResourceId.getValue("InstanceRestoreToPointInTime.sourceDbiResourceId");
+        if (!unknown_sourceDbiResourceId) return value_sourceDbiResourceId;
+        throw new UndeferrableValueException("Value 'InstanceRestoreToPointInTime.sourceDbiResourceId' is not present");
     }
 
     /**
      * A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_time`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> useLatestRestorableTime;
-
+    @PolicyResourceProperty(name="useLatestRestorableTime", flag="unknown_useLatestRestorableTime")
+    private @Nullable Boolean value_useLatestRestorableTime;
+    private boolean unknown_useLatestRestorableTime;
     public @Nullable Boolean useLatestRestorableTime() {
-        if (useLatestRestorableTime == null) return null;
-        return useLatestRestorableTime.getValue("InstanceRestoreToPointInTime.useLatestRestorableTime");
+        if (!unknown_useLatestRestorableTime) return value_useLatestRestorableTime;
+        throw new UndeferrableValueException("Value 'InstanceRestoreToPointInTime.useLatestRestorableTime' is not present");
     }
 
 }

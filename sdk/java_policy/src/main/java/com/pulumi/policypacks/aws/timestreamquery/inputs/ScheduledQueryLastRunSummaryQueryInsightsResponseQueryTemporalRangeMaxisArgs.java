@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamquery.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTempora
      * ARN of the table which is queried with the largest time range.
      * 
      */
-    private UndeferrableValue<String> tableArn;
-
+    @PolicyResourceProperty(name="tableArn", flag="unknown_tableArn")
+    private String value_tableArn;
+    private boolean unknown_tableArn;
     public String tableArn() {
-        if (tableArn == null) return null;
-        return tableArn.getValue("ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs.tableArn");
+        if (!unknown_tableArn) return value_tableArn;
+        throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs.tableArn' is not present");
     }
 
     /**
      * Maximum duration in nanoseconds between the start and end of the query.
      * 
      */
-    private UndeferrableValue<Integer> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private Integer value_value;
+    private boolean unknown_value;
     public Integer value() {
-        if (value == null) return null;
-        return value.getValue("ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs.value' is not present");
     }
 
 }

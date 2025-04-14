@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securitylake;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.securitylake.outputs.CustomLogSourceAttribute;
 import com.pulumi.policypacks.aws.securitylake.outputs.CustomLogSourceConfiguration;
@@ -20,44 +21,48 @@ public final class CustomLogSource extends com.pulumi.resources.PolicyResourceOu
      * The attributes of a third-party custom source.
      * 
      */
-    private UndeferrableValue<List<CustomLogSourceAttribute>> attributes;
-
+    @PolicyResourceProperty(name="attributes", flag="unknown_attributes")
+    private List<CustomLogSourceAttribute> value_attributes;
+    private boolean unknown_attributes;
     public List<CustomLogSourceAttribute> attributes() {
-        if (attributes == null) return null;
-        return attributes.getValue("CustomLogSource.attributes");
+        if (!unknown_attributes) return value_attributes;
+        throw new UndeferrableValueException("Value 'CustomLogSource.attributes' is not present");
     }
 
     /**
      * The configuration for the third-party custom source.
      * 
      */
-    private @Nullable UndeferrableValue<CustomLogSourceConfiguration> configuration;
-
+    @PolicyResourceProperty(name="configuration", flag="unknown_configuration")
+    private @Nullable CustomLogSourceConfiguration value_configuration;
+    private boolean unknown_configuration;
     public @Nullable CustomLogSourceConfiguration configuration() {
-        if (configuration == null) return null;
-        return configuration.getValue("CustomLogSource.configuration");
+        if (!unknown_configuration) return value_configuration;
+        throw new UndeferrableValueException("Value 'CustomLogSource.configuration' is not present");
     }
 
     /**
      * The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> eventClasses;
-
+    @PolicyResourceProperty(name="eventClasses", flag="unknown_eventClasses")
+    private @Nullable List<String> value_eventClasses;
+    private boolean unknown_eventClasses;
     public @Nullable List<String> eventClasses() {
-        if (eventClasses == null) return null;
-        return eventClasses.getValue("CustomLogSource.eventClasses");
+        if (!unknown_eventClasses) return value_eventClasses;
+        throw new UndeferrableValueException("Value 'CustomLogSource.eventClasses' is not present");
     }
 
     /**
      * The details of the log provider for a third-party custom source.
      * 
      */
-    private UndeferrableValue<List<CustomLogSourceProviderDetail>> providerDetails;
-
+    @PolicyResourceProperty(name="providerDetails", flag="unknown_providerDetails")
+    private List<CustomLogSourceProviderDetail> value_providerDetails;
+    private boolean unknown_providerDetails;
     public List<CustomLogSourceProviderDetail> providerDetails() {
-        if (providerDetails == null) return null;
-        return providerDetails.getValue("CustomLogSource.providerDetails");
+        if (!unknown_providerDetails) return value_providerDetails;
+        throw new UndeferrableValueException("Value 'CustomLogSource.providerDetails' is not present");
     }
 
     /**
@@ -66,22 +71,24 @@ public final class CustomLogSource extends com.pulumi.resources.PolicyResourceOu
      * Has a maximum length of 20.
      * 
      */
-    private UndeferrableValue<String> sourceName;
-
+    @PolicyResourceProperty(name="sourceName", flag="unknown_sourceName")
+    private String value_sourceName;
+    private boolean unknown_sourceName;
     public String sourceName() {
-        if (sourceName == null) return null;
-        return sourceName.getValue("CustomLogSource.sourceName");
+        if (!unknown_sourceName) return value_sourceName;
+        throw new UndeferrableValueException("Value 'CustomLogSource.sourceName' is not present");
     }
 
     /**
      * Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
      * 
      */
-    private UndeferrableValue<String> sourceVersion;
-
+    @PolicyResourceProperty(name="sourceVersion", flag="unknown_sourceVersion")
+    private String value_sourceVersion;
+    private boolean unknown_sourceVersion;
     public String sourceVersion() {
-        if (sourceVersion == null) return null;
-        return sourceVersion.getValue("CustomLogSource.sourceVersion");
+        if (!unknown_sourceVersion) return value_sourceVersion;
+        throw new UndeferrableValueException("Value 'CustomLogSource.sourceVersion' is not present");
     }
 
 }

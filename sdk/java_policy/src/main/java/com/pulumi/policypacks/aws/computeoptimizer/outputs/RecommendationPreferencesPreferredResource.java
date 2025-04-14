@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.computeoptimizer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,29 +16,32 @@ public final class RecommendationPreferencesPreferredResource {
      * The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported resources are included by default.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> excludeLists;
-
+    @PolicyResourceProperty(name="excludeLists", flag="unknown_excludeLists")
+    private @Nullable List<String> value_excludeLists;
+    private boolean unknown_excludeLists;
     public @Nullable List<String> excludeLists() {
-        if (excludeLists == null) return null;
-        return excludeLists.getValue("RecommendationPreferencesPreferredResource.excludeLists");
+        if (!unknown_excludeLists) return value_excludeLists;
+        throw new UndeferrableValueException("Value 'RecommendationPreferencesPreferredResource.excludeLists' is not present");
     }
 
     /**
      * The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, such as `&#34;m5.large&#34;`, or use wild card expressions, such as `&#34;m5&#34;`. If this isn’t specified, all supported resources are included by default.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> includeLists;
-
+    @PolicyResourceProperty(name="includeLists", flag="unknown_includeLists")
+    private @Nullable List<String> value_includeLists;
+    private boolean unknown_includeLists;
     public @Nullable List<String> includeLists() {
-        if (includeLists == null) return null;
-        return includeLists.getValue("RecommendationPreferencesPreferredResource.includeLists");
+        if (!unknown_includeLists) return value_includeLists;
+        throw new UndeferrableValueException("Value 'RecommendationPreferencesPreferredResource.includeLists' is not present");
     }
 
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RecommendationPreferencesPreferredResource.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RecommendationPreferencesPreferredResource.name' is not present");
     }
 
 }

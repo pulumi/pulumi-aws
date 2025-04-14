@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transcribe;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.transcribe.inputs.LanguageModelInputDataConfigArgs;
 import java.lang.String;
@@ -18,51 +19,56 @@ public final class LanguageModelArgs extends com.pulumi.resources.PolicyResource
      * Name of reference base model.
      * 
      */
-    private UndeferrableValue<String> baseModelName;
-
+    @PolicyResourceProperty(name="baseModelName", flag="unknown_baseModelName")
+    private String value_baseModelName;
+    private boolean unknown_baseModelName;
     public String baseModelName() {
-        if (baseModelName == null) return null;
-        return baseModelName.getValue("LanguageModelArgs.baseModelName");
+        if (!unknown_baseModelName) return value_baseModelName;
+        throw new UndeferrableValueException("Value 'LanguageModelArgs.baseModelName' is not present");
     }
 
     /**
      * The input data config for the LanguageModel. See Input Data Config for more details.
      * 
      */
-    private UndeferrableValue<LanguageModelInputDataConfigArgs> inputDataConfig;
-
+    @PolicyResourceProperty(name="inputDataConfig", flag="unknown_inputDataConfig")
+    private LanguageModelInputDataConfigArgs value_inputDataConfig;
+    private boolean unknown_inputDataConfig;
     public LanguageModelInputDataConfigArgs inputDataConfig() {
-        if (inputDataConfig == null) return null;
-        return inputDataConfig.getValue("LanguageModelArgs.inputDataConfig");
+        if (!unknown_inputDataConfig) return value_inputDataConfig;
+        throw new UndeferrableValueException("Value 'LanguageModelArgs.inputDataConfig' is not present");
     }
 
     /**
      * The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      * 
      */
-    private UndeferrableValue<String> languageCode;
-
+    @PolicyResourceProperty(name="languageCode", flag="unknown_languageCode")
+    private String value_languageCode;
+    private boolean unknown_languageCode;
     public String languageCode() {
-        if (languageCode == null) return null;
-        return languageCode.getValue("LanguageModelArgs.languageCode");
+        if (!unknown_languageCode) return value_languageCode;
+        throw new UndeferrableValueException("Value 'LanguageModelArgs.languageCode' is not present");
     }
 
     /**
      * The model name.
      * 
      */
-    private UndeferrableValue<String> modelName;
-
+    @PolicyResourceProperty(name="modelName", flag="unknown_modelName")
+    private String value_modelName;
+    private boolean unknown_modelName;
     public String modelName() {
-        if (modelName == null) return null;
-        return modelName.getValue("LanguageModelArgs.modelName");
+        if (!unknown_modelName) return value_modelName;
+        throw new UndeferrableValueException("Value 'LanguageModelArgs.modelName' is not present");
     }
 
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LanguageModelArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LanguageModelArgs.tags' is not present");
     }
 
 }

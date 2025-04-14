@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedpermissions;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.verifiedpermissions.outputs.PolicyDefinition;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class Policy extends com.pulumi.resources.PolicyResourceOutput {
      * The date the policy was created.
      * 
      */
-    private UndeferrableValue<String> createdDate;
-
+    @PolicyResourceProperty(name="createdDate", flag="unknown_createdDate")
+    private String value_createdDate;
+    private boolean unknown_createdDate;
     public String createdDate() {
-        if (createdDate == null) return null;
-        return createdDate.getValue("Policy.createdDate");
+        if (!unknown_createdDate) return value_createdDate;
+        throw new UndeferrableValueException("Value 'Policy.createdDate' is not present");
     }
 
     /**
      * The definition of the policy. See Definition below.
      * 
      */
-    private @Nullable UndeferrableValue<PolicyDefinition> definition;
-
+    @PolicyResourceProperty(name="definition", flag="unknown_definition")
+    private @Nullable PolicyDefinition value_definition;
+    private boolean unknown_definition;
     public @Nullable PolicyDefinition definition() {
-        if (definition == null) return null;
-        return definition.getValue("Policy.definition");
+        if (!unknown_definition) return value_definition;
+        throw new UndeferrableValueException("Value 'Policy.definition' is not present");
     }
 
     /**
      * The Policy ID of the policy.
      * 
      */
-    private UndeferrableValue<String> policyId;
-
+    @PolicyResourceProperty(name="policyId", flag="unknown_policyId")
+    private String value_policyId;
+    private boolean unknown_policyId;
     public String policyId() {
-        if (policyId == null) return null;
-        return policyId.getValue("Policy.policyId");
+        if (!unknown_policyId) return value_policyId;
+        throw new UndeferrableValueException("Value 'Policy.policyId' is not present");
     }
 
     /**
      * The Policy Store ID of the policy store.
      * 
      */
-    private UndeferrableValue<String> policyStoreId;
-
+    @PolicyResourceProperty(name="policyStoreId", flag="unknown_policyStoreId")
+    private String value_policyStoreId;
+    private boolean unknown_policyStoreId;
     public String policyStoreId() {
-        if (policyStoreId == null) return null;
-        return policyStoreId.getValue("Policy.policyStoreId");
+        if (!unknown_policyStoreId) return value_policyStoreId;
+        throw new UndeferrableValueException("Value 'Policy.policyStoreId' is not present");
     }
 
 }

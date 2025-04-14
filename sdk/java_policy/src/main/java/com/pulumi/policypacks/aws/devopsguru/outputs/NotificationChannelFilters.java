@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.devopsguru.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class NotificationChannelFilters {
      * Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> messageTypes;
-
+    @PolicyResourceProperty(name="messageTypes", flag="unknown_messageTypes")
+    private @Nullable List<String> value_messageTypes;
+    private boolean unknown_messageTypes;
     public @Nullable List<String> messageTypes() {
-        if (messageTypes == null) return null;
-        return messageTypes.getValue("NotificationChannelFilters.messageTypes");
+        if (!unknown_messageTypes) return value_messageTypes;
+        throw new UndeferrableValueException("Value 'NotificationChannelFilters.messageTypes' is not present");
     }
 
     /**
      * Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> severities;
-
+    @PolicyResourceProperty(name="severities", flag="unknown_severities")
+    private @Nullable List<String> value_severities;
+    private boolean unknown_severities;
     public @Nullable List<String> severities() {
-        if (severities == null) return null;
-        return severities.getValue("NotificationChannelFilters.severities");
+        if (!unknown_severities) return value_severities;
+        throw new UndeferrableValueException("Value 'NotificationChannelFilters.severities' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentials;
 import com.pulumi.policypacks.aws.appflow.outputs.ConnectorProfileConnectorProfileConfigConnectorProfileProperties;
 
@@ -14,22 +15,24 @@ public final class ConnectorProfileConnectorProfileConfig {
      * The connector-specific credentials required by each connector. See Connector Profile Credentials for more details.
      * 
      */
-    private UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentials> connectorProfileCredentials;
-
+    @PolicyResourceProperty(name="connectorProfileCredentials", flag="unknown_connectorProfileCredentials")
+    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentials value_connectorProfileCredentials;
+    private boolean unknown_connectorProfileCredentials;
     public ConnectorProfileConnectorProfileConfigConnectorProfileCredentials connectorProfileCredentials() {
-        if (connectorProfileCredentials == null) return null;
-        return connectorProfileCredentials.getValue("ConnectorProfileConnectorProfileConfig.connectorProfileCredentials");
+        if (!unknown_connectorProfileCredentials) return value_connectorProfileCredentials;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfig.connectorProfileCredentials' is not present");
     }
 
     /**
      * The connector-specific properties of the profile configuration. See Connector Profile Properties for more details.
      * 
      */
-    private UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileProperties> connectorProfileProperties;
-
+    @PolicyResourceProperty(name="connectorProfileProperties", flag="unknown_connectorProfileProperties")
+    private ConnectorProfileConnectorProfileConfigConnectorProfileProperties value_connectorProfileProperties;
+    private boolean unknown_connectorProfileProperties;
     public ConnectorProfileConnectorProfileConfigConnectorProfileProperties connectorProfileProperties() {
-        if (connectorProfileProperties == null) return null;
-        return connectorProfileProperties.getValue("ConnectorProfileConnectorProfileConfig.connectorProfileProperties");
+        if (!unknown_connectorProfileProperties) return value_connectorProfileProperties;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfig.connectorProfileProperties' is not present");
     }
 
 }

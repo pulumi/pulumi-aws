@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,44 +14,48 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMa
      * Name of the field in which Amazon Bedrock stores metadata about the vector store.
      * 
      */
-    private UndeferrableValue<String> metadataField;
-
+    @PolicyResourceProperty(name="metadataField", flag="unknown_metadataField")
+    private String value_metadataField;
+    private boolean unknown_metadataField;
     public String metadataField() {
-        if (metadataField == null) return null;
-        return metadataField.getValue("AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping.metadataField");
+        if (!unknown_metadataField) return value_metadataField;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping.metadataField' is not present");
     }
 
     /**
      * Name of the field in which Amazon Bedrock stores the ID for each entry.
      * 
      */
-    private UndeferrableValue<String> primaryKeyField;
-
+    @PolicyResourceProperty(name="primaryKeyField", flag="unknown_primaryKeyField")
+    private String value_primaryKeyField;
+    private boolean unknown_primaryKeyField;
     public String primaryKeyField() {
-        if (primaryKeyField == null) return null;
-        return primaryKeyField.getValue("AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping.primaryKeyField");
+        if (!unknown_primaryKeyField) return value_primaryKeyField;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping.primaryKeyField' is not present");
     }
 
     /**
      * Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
      * 
      */
-    private UndeferrableValue<String> textField;
-
+    @PolicyResourceProperty(name="textField", flag="unknown_textField")
+    private String value_textField;
+    private boolean unknown_textField;
     public String textField() {
-        if (textField == null) return null;
-        return textField.getValue("AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping.textField");
+        if (!unknown_textField) return value_textField;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping.textField' is not present");
     }
 
     /**
      * Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
      * 
      */
-    private UndeferrableValue<String> vectorField;
-
+    @PolicyResourceProperty(name="vectorField", flag="unknown_vectorField")
+    private String value_vectorField;
+    private boolean unknown_vectorField;
     public String vectorField() {
-        if (vectorField == null) return null;
-        return vectorField.getValue("AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping.vectorField");
+        if (!unknown_vectorField) return value_vectorField;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping.vectorField' is not present");
     }
 
 }

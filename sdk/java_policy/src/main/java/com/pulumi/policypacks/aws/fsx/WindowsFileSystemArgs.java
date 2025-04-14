@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.fsx.inputs.WindowsFileSystemAuditLogConfigurationArgs;
 import com.pulumi.policypacks.aws.fsx.inputs.WindowsFileSystemDiskIopsConfigurationArgs;
@@ -23,209 +24,228 @@ public final class WindowsFileSystemArgs extends com.pulumi.resources.PolicyReso
      * The ID for an existing Microsoft Active Directory instance that the file system should join when it&#39;s created. Cannot be specified with `self_managed_active_directory`.
      * 
      */
-    private UndeferrableValue<String> activeDirectoryId;
-
+    @PolicyResourceProperty(name="activeDirectoryId", flag="unknown_activeDirectoryId")
+    private String value_activeDirectoryId;
+    private boolean unknown_activeDirectoryId;
     public String activeDirectoryId() {
-        if (activeDirectoryId == null) return null;
-        return activeDirectoryId.getValue("WindowsFileSystemArgs.activeDirectoryId");
+        if (!unknown_activeDirectoryId) return value_activeDirectoryId;
+        throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.activeDirectoryId' is not present");
     }
 
     /**
      * An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
      * 
      */
-    private UndeferrableValue<List<String>> aliases;
-
+    @PolicyResourceProperty(name="aliases", flag="unknown_aliases")
+    private List<String> value_aliases;
+    private boolean unknown_aliases;
     public List<String> aliases() {
-        if (aliases == null) return null;
-        return aliases.getValue("WindowsFileSystemArgs.aliases");
+        if (!unknown_aliases) return value_aliases;
+        throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.aliases' is not present");
     }
 
     /**
      * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `audit_log_configuration` Block for details.
      * 
      */
-    private UndeferrableValue<WindowsFileSystemAuditLogConfigurationArgs> auditLogConfiguration;
-
+    @PolicyResourceProperty(name="auditLogConfiguration", flag="unknown_auditLogConfiguration")
+    private WindowsFileSystemAuditLogConfigurationArgs value_auditLogConfiguration;
+    private boolean unknown_auditLogConfiguration;
     public WindowsFileSystemAuditLogConfigurationArgs auditLogConfiguration() {
-        if (auditLogConfiguration == null) return null;
-        return auditLogConfiguration.getValue("WindowsFileSystemArgs.auditLogConfiguration");
+        if (!unknown_auditLogConfiguration) return value_auditLogConfiguration;
+        throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.auditLogConfiguration' is not present");
     }
 
     /**
      * The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
      * 
      */
-    private UndeferrableValue<Integer> automaticBackupRetentionDays;
-
+    @PolicyResourceProperty(name="automaticBackupRetentionDays", flag="unknown_automaticBackupRetentionDays")
+    private Integer value_automaticBackupRetentionDays;
+    private boolean unknown_automaticBackupRetentionDays;
     public Integer automaticBackupRetentionDays() {
-        if (automaticBackupRetentionDays == null) return null;
-        return automaticBackupRetentionDays.getValue("WindowsFileSystemArgs.automaticBackupRetentionDays");
+        if (!unknown_automaticBackupRetentionDays) return value_automaticBackupRetentionDays;
+        throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.automaticBackupRetentionDays' is not present");
     }
 
     /**
      * The ID of the source backup to create the filesystem from.
      * 
      */
-    private UndeferrableValue<String> backupId;
-
+    @PolicyResourceProperty(name="backupId", flag="unknown_backupId")
+    private String value_backupId;
+    private boolean unknown_backupId;
     public String backupId() {
-        if (backupId == null) return null;
-        return backupId.getValue("WindowsFileSystemArgs.backupId");
+        if (!unknown_backupId) return value_backupId;
+        throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.backupId' is not present");
     }
 
     /**
      * A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> copyTagsToBackups;
-
+    @PolicyResourceProperty(name="copyTagsToBackups", flag="unknown_copyTagsToBackups")
+    private Boolean value_copyTagsToBackups;
+    private boolean unknown_copyTagsToBackups;
     public Boolean copyTagsToBackups() {
-        if (copyTagsToBackups == null) return null;
-        return copyTagsToBackups.getValue("WindowsFileSystemArgs.copyTagsToBackups");
+        if (!unknown_copyTagsToBackups) return value_copyTagsToBackups;
+        throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.copyTagsToBackups' is not present");
     }
 
     /**
      * The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
      * 
      */
-    private UndeferrableValue<String> dailyAutomaticBackupStartTime;
-
+    @PolicyResourceProperty(name="dailyAutomaticBackupStartTime", flag="unknown_dailyAutomaticBackupStartTime")
+    private String value_dailyAutomaticBackupStartTime;
+    private boolean unknown_dailyAutomaticBackupStartTime;
     public String dailyAutomaticBackupStartTime() {
-        if (dailyAutomaticBackupStartTime == null) return null;
-        return dailyAutomaticBackupStartTime.getValue("WindowsFileSystemArgs.dailyAutomaticBackupStartTime");
+        if (!unknown_dailyAutomaticBackupStartTime) return value_dailyAutomaticBackupStartTime;
+        throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.dailyAutomaticBackupStartTime' is not present");
     }
 
     /**
      * Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
      * 
      */
-    private UndeferrableValue<String> deploymentType;
-
+    @PolicyResourceProperty(name="deploymentType", flag="unknown_deploymentType")
+    private String value_deploymentType;
+    private boolean unknown_deploymentType;
     public String deploymentType() {
-        if (deploymentType == null) return null;
-        return deploymentType.getValue("WindowsFileSystemArgs.deploymentType");
+        if (!unknown_deploymentType) return value_deploymentType;
+        throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.deploymentType' is not present");
     }
 
     /**
      * The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See `disk_iops_configuration` Block for details.
      * 
      */
-    private UndeferrableValue<WindowsFileSystemDiskIopsConfigurationArgs> diskIopsConfiguration;
-
+    @PolicyResourceProperty(name="diskIopsConfiguration", flag="unknown_diskIopsConfiguration")
+    private WindowsFileSystemDiskIopsConfigurationArgs value_diskIopsConfiguration;
+    private boolean unknown_diskIopsConfiguration;
     public WindowsFileSystemDiskIopsConfigurationArgs diskIopsConfiguration() {
-        if (diskIopsConfiguration == null) return null;
-        return diskIopsConfiguration.getValue("WindowsFileSystemArgs.diskIopsConfiguration");
+        if (!unknown_diskIopsConfiguration) return value_diskIopsConfiguration;
+        throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.diskIopsConfiguration' is not present");
     }
 
     /**
      * A map of tags to apply to the file system&#39;s final backup.
      * 
      */
-    private UndeferrableValue<Map<String,String>> finalBackupTags;
-
+    @PolicyResourceProperty(name="finalBackupTags", flag="unknown_finalBackupTags")
+    private Map<String,String> value_finalBackupTags;
+    private boolean unknown_finalBackupTags;
     public Map<String,String> finalBackupTags() {
-        if (finalBackupTags == null) return null;
-        return finalBackupTags.getValue("WindowsFileSystemArgs.finalBackupTags");
+        if (!unknown_finalBackupTags) return value_finalBackupTags;
+        throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.finalBackupTags' is not present");
     }
 
     /**
      * ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("WindowsFileSystemArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.kmsKeyId' is not present");
     }
 
     /**
      * Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
      * 
      */
-    private UndeferrableValue<String> preferredSubnetId;
-
+    @PolicyResourceProperty(name="preferredSubnetId", flag="unknown_preferredSubnetId")
+    private String value_preferredSubnetId;
+    private boolean unknown_preferredSubnetId;
     public String preferredSubnetId() {
-        if (preferredSubnetId == null) return null;
-        return preferredSubnetId.getValue("WindowsFileSystemArgs.preferredSubnetId");
+        if (!unknown_preferredSubnetId) return value_preferredSubnetId;
+        throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.preferredSubnetId' is not present");
     }
 
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("WindowsFileSystemArgs.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.securityGroupIds' is not present");
     }
 
     /**
      * Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
      * 
      */
-    private UndeferrableValue<WindowsFileSystemSelfManagedActiveDirectoryArgs> selfManagedActiveDirectory;
-
+    @PolicyResourceProperty(name="selfManagedActiveDirectory", flag="unknown_selfManagedActiveDirectory")
+    private WindowsFileSystemSelfManagedActiveDirectoryArgs value_selfManagedActiveDirectory;
+    private boolean unknown_selfManagedActiveDirectory;
     public WindowsFileSystemSelfManagedActiveDirectoryArgs selfManagedActiveDirectory() {
-        if (selfManagedActiveDirectory == null) return null;
-        return selfManagedActiveDirectory.getValue("WindowsFileSystemArgs.selfManagedActiveDirectory");
+        if (!unknown_selfManagedActiveDirectory) return value_selfManagedActiveDirectory;
+        throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.selfManagedActiveDirectory' is not present");
     }
 
     /**
      * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> skipFinalBackup;
-
+    @PolicyResourceProperty(name="skipFinalBackup", flag="unknown_skipFinalBackup")
+    private Boolean value_skipFinalBackup;
+    private boolean unknown_skipFinalBackup;
     public Boolean skipFinalBackup() {
-        if (skipFinalBackup == null) return null;
-        return skipFinalBackup.getValue("WindowsFileSystemArgs.skipFinalBackup");
+        if (!unknown_skipFinalBackup) return value_skipFinalBackup;
+        throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.skipFinalBackup' is not present");
     }
 
     /**
      * Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
      * 
      */
-    private UndeferrableValue<Integer> storageCapacity;
-
+    @PolicyResourceProperty(name="storageCapacity", flag="unknown_storageCapacity")
+    private Integer value_storageCapacity;
+    private boolean unknown_storageCapacity;
     public Integer storageCapacity() {
-        if (storageCapacity == null) return null;
-        return storageCapacity.getValue("WindowsFileSystemArgs.storageCapacity");
+        if (!unknown_storageCapacity) return value_storageCapacity;
+        throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.storageCapacity' is not present");
     }
 
     /**
      * Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
      * 
      */
-    private UndeferrableValue<String> storageType;
-
+    @PolicyResourceProperty(name="storageType", flag="unknown_storageType")
+    private String value_storageType;
+    private boolean unknown_storageType;
     public String storageType() {
-        if (storageType == null) return null;
-        return storageType.getValue("WindowsFileSystemArgs.storageType");
+        if (!unknown_storageType) return value_storageType;
+        throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.storageType' is not present");
     }
 
     /**
      * A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("WindowsFileSystemArgs.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.subnetIds' is not present");
     }
 
     /**
      * A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("WindowsFileSystemArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.tags' is not present");
     }
 
     /**
@@ -234,22 +254,24 @@ public final class WindowsFileSystemArgs extends com.pulumi.resources.PolicyReso
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<Integer> throughputCapacity;
-
+    @PolicyResourceProperty(name="throughputCapacity", flag="unknown_throughputCapacity")
+    private Integer value_throughputCapacity;
+    private boolean unknown_throughputCapacity;
     public Integer throughputCapacity() {
-        if (throughputCapacity == null) return null;
-        return throughputCapacity.getValue("WindowsFileSystemArgs.throughputCapacity");
+        if (!unknown_throughputCapacity) return value_throughputCapacity;
+        throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.throughputCapacity' is not present");
     }
 
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
-    private UndeferrableValue<String> weeklyMaintenanceStartTime;
-
+    @PolicyResourceProperty(name="weeklyMaintenanceStartTime", flag="unknown_weeklyMaintenanceStartTime")
+    private String value_weeklyMaintenanceStartTime;
+    private boolean unknown_weeklyMaintenanceStartTime;
     public String weeklyMaintenanceStartTime() {
-        if (weeklyMaintenanceStartTime == null) return null;
-        return weeklyMaintenanceStartTime.getValue("WindowsFileSystemArgs.weeklyMaintenanceStartTime");
+        if (!unknown_weeklyMaintenanceStartTime) return value_weeklyMaintenanceStartTime;
+        throw new UndeferrableValueException("Value 'WindowsFileSystemArgs.weeklyMaintenanceStartTime' is not present");
     }
 
 }

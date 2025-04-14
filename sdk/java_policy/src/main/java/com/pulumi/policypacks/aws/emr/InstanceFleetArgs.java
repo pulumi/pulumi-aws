@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.emr.inputs.InstanceFleetInstanceTypeConfigArgs;
 import com.pulumi.policypacks.aws.emr.inputs.InstanceFleetLaunchSpecificationsArgs;
@@ -20,66 +21,72 @@ public final class InstanceFleetArgs extends com.pulumi.resources.PolicyResource
      * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
      * 
      */
-    private UndeferrableValue<String> clusterId;
-
+    @PolicyResourceProperty(name="clusterId", flag="unknown_clusterId")
+    private String value_clusterId;
+    private boolean unknown_clusterId;
     public String clusterId() {
-        if (clusterId == null) return null;
-        return clusterId.getValue("InstanceFleetArgs.clusterId");
+        if (!unknown_clusterId) return value_clusterId;
+        throw new UndeferrableValueException("Value 'InstanceFleetArgs.clusterId' is not present");
     }
 
     /**
      * Configuration block for instance fleet
      * 
      */
-    private UndeferrableValue<List<InstanceFleetInstanceTypeConfigArgs>> instanceTypeConfigs;
-
+    @PolicyResourceProperty(name="instanceTypeConfigs", flag="unknown_instanceTypeConfigs")
+    private List<InstanceFleetInstanceTypeConfigArgs> value_instanceTypeConfigs;
+    private boolean unknown_instanceTypeConfigs;
     public List<InstanceFleetInstanceTypeConfigArgs> instanceTypeConfigs() {
-        if (instanceTypeConfigs == null) return null;
-        return instanceTypeConfigs.getValue("InstanceFleetArgs.instanceTypeConfigs");
+        if (!unknown_instanceTypeConfigs) return value_instanceTypeConfigs;
+        throw new UndeferrableValueException("Value 'InstanceFleetArgs.instanceTypeConfigs' is not present");
     }
 
     /**
      * Configuration block for launch specification
      * 
      */
-    private UndeferrableValue<InstanceFleetLaunchSpecificationsArgs> launchSpecifications;
-
+    @PolicyResourceProperty(name="launchSpecifications", flag="unknown_launchSpecifications")
+    private InstanceFleetLaunchSpecificationsArgs value_launchSpecifications;
+    private boolean unknown_launchSpecifications;
     public InstanceFleetLaunchSpecificationsArgs launchSpecifications() {
-        if (launchSpecifications == null) return null;
-        return launchSpecifications.getValue("InstanceFleetArgs.launchSpecifications");
+        if (!unknown_launchSpecifications) return value_launchSpecifications;
+        throw new UndeferrableValueException("Value 'InstanceFleetArgs.launchSpecifications' is not present");
     }
 
     /**
      * Friendly name given to the instance fleet.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("InstanceFleetArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'InstanceFleetArgs.name' is not present");
     }
 
     /**
      * The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
      * 
      */
-    private UndeferrableValue<Integer> targetOnDemandCapacity;
-
+    @PolicyResourceProperty(name="targetOnDemandCapacity", flag="unknown_targetOnDemandCapacity")
+    private Integer value_targetOnDemandCapacity;
+    private boolean unknown_targetOnDemandCapacity;
     public Integer targetOnDemandCapacity() {
-        if (targetOnDemandCapacity == null) return null;
-        return targetOnDemandCapacity.getValue("InstanceFleetArgs.targetOnDemandCapacity");
+        if (!unknown_targetOnDemandCapacity) return value_targetOnDemandCapacity;
+        throw new UndeferrableValueException("Value 'InstanceFleetArgs.targetOnDemandCapacity' is not present");
     }
 
     /**
      * The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
      * 
      */
-    private UndeferrableValue<Integer> targetSpotCapacity;
-
+    @PolicyResourceProperty(name="targetSpotCapacity", flag="unknown_targetSpotCapacity")
+    private Integer value_targetSpotCapacity;
+    private boolean unknown_targetSpotCapacity;
     public Integer targetSpotCapacity() {
-        if (targetSpotCapacity == null) return null;
-        return targetSpotCapacity.getValue("InstanceFleetArgs.targetSpotCapacity");
+        if (!unknown_targetSpotCapacity) return value_targetSpotCapacity;
+        throw new UndeferrableValueException("Value 'InstanceFleetArgs.targetSpotCapacity' is not present");
     }
 
 }

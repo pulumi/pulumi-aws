@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleActionChallengeCustomRequestHandling;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class WebAclRuleActionChallenge {
      * Defines custom handling for the web request. See `custom_request_handling` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleActionChallengeCustomRequestHandling> customRequestHandling;
-
+    @PolicyResourceProperty(name="customRequestHandling", flag="unknown_customRequestHandling")
+    private @Nullable WebAclRuleActionChallengeCustomRequestHandling value_customRequestHandling;
+    private boolean unknown_customRequestHandling;
     public @Nullable WebAclRuleActionChallengeCustomRequestHandling customRequestHandling() {
-        if (customRequestHandling == null) return null;
-        return customRequestHandling.getValue("WebAclRuleActionChallenge.customRequestHandling");
+        if (!unknown_customRequestHandling) return value_customRequestHandling;
+        throw new UndeferrableValueException("Value 'WebAclRuleActionChallenge.customRequestHandling' is not present");
     }
 
 }

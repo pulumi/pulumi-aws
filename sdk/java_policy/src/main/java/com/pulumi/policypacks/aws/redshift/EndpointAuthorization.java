@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,88 +20,96 @@ public final class EndpointAuthorization extends com.pulumi.resources.PolicyReso
      * The Amazon Web Services account ID to grant access to.
      * 
      */
-    private UndeferrableValue<String> account;
-
+    @PolicyResourceProperty(name="account", flag="unknown_account")
+    private String value_account;
+    private boolean unknown_account;
     public String account() {
-        if (account == null) return null;
-        return account.getValue("EndpointAuthorization.account");
+        if (!unknown_account) return value_account;
+        throw new UndeferrableValueException("Value 'EndpointAuthorization.account' is not present");
     }
 
     /**
      * Indicates whether all VPCs in the grantee account are allowed access to the cluster.
      * 
      */
-    private UndeferrableValue<Boolean> allowedAllVpcs;
-
+    @PolicyResourceProperty(name="allowedAllVpcs", flag="unknown_allowedAllVpcs")
+    private Boolean value_allowedAllVpcs;
+    private boolean unknown_allowedAllVpcs;
     public Boolean allowedAllVpcs() {
-        if (allowedAllVpcs == null) return null;
-        return allowedAllVpcs.getValue("EndpointAuthorization.allowedAllVpcs");
+        if (!unknown_allowedAllVpcs) return value_allowedAllVpcs;
+        throw new UndeferrableValueException("Value 'EndpointAuthorization.allowedAllVpcs' is not present");
     }
 
     /**
      * The cluster identifier of the cluster to grant access to.
      * 
      */
-    private UndeferrableValue<String> clusterIdentifier;
-
+    @PolicyResourceProperty(name="clusterIdentifier", flag="unknown_clusterIdentifier")
+    private String value_clusterIdentifier;
+    private boolean unknown_clusterIdentifier;
     public String clusterIdentifier() {
-        if (clusterIdentifier == null) return null;
-        return clusterIdentifier.getValue("EndpointAuthorization.clusterIdentifier");
+        if (!unknown_clusterIdentifier) return value_clusterIdentifier;
+        throw new UndeferrableValueException("Value 'EndpointAuthorization.clusterIdentifier' is not present");
     }
 
     /**
      * The number of Redshift-managed VPC endpoints created for the authorization.
      * 
      */
-    private UndeferrableValue<Integer> endpointCount;
-
+    @PolicyResourceProperty(name="endpointCount", flag="unknown_endpointCount")
+    private Integer value_endpointCount;
+    private boolean unknown_endpointCount;
     public Integer endpointCount() {
-        if (endpointCount == null) return null;
-        return endpointCount.getValue("EndpointAuthorization.endpointCount");
+        if (!unknown_endpointCount) return value_endpointCount;
+        throw new UndeferrableValueException("Value 'EndpointAuthorization.endpointCount' is not present");
     }
 
     /**
      * Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> forceDelete;
-
+    @PolicyResourceProperty(name="forceDelete", flag="unknown_forceDelete")
+    private @Nullable Boolean value_forceDelete;
+    private boolean unknown_forceDelete;
     public @Nullable Boolean forceDelete() {
-        if (forceDelete == null) return null;
-        return forceDelete.getValue("EndpointAuthorization.forceDelete");
+        if (!unknown_forceDelete) return value_forceDelete;
+        throw new UndeferrableValueException("Value 'EndpointAuthorization.forceDelete' is not present");
     }
 
     /**
      * The Amazon Web Services account ID of the grantee of the cluster.
      * 
      */
-    private UndeferrableValue<String> grantee;
-
+    @PolicyResourceProperty(name="grantee", flag="unknown_grantee")
+    private String value_grantee;
+    private boolean unknown_grantee;
     public String grantee() {
-        if (grantee == null) return null;
-        return grantee.getValue("EndpointAuthorization.grantee");
+        if (!unknown_grantee) return value_grantee;
+        throw new UndeferrableValueException("Value 'EndpointAuthorization.grantee' is not present");
     }
 
     /**
      * The Amazon Web Services account ID of the cluster owner.
      * 
      */
-    private UndeferrableValue<String> grantor;
-
+    @PolicyResourceProperty(name="grantor", flag="unknown_grantor")
+    private String value_grantor;
+    private boolean unknown_grantor;
     public String grantor() {
-        if (grantor == null) return null;
-        return grantor.getValue("EndpointAuthorization.grantor");
+        if (!unknown_grantor) return value_grantor;
+        throw new UndeferrableValueException("Value 'EndpointAuthorization.grantor' is not present");
     }
 
     /**
      * The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> vpcIds;
-
+    @PolicyResourceProperty(name="vpcIds", flag="unknown_vpcIds")
+    private @Nullable List<String> value_vpcIds;
+    private boolean unknown_vpcIds;
     public @Nullable List<String> vpcIds() {
-        if (vpcIds == null) return null;
-        return vpcIds.getValue("EndpointAuthorization.vpcIds");
+        if (!unknown_vpcIds) return value_vpcIds;
+        throw new UndeferrableValueException("Value 'EndpointAuthorization.vpcIds' is not present");
     }
 
 }

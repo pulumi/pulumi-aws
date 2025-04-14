@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.opensearch.inputs.DomainSamlOptionsSamlOptionsIdpArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -17,77 +18,84 @@ public final class DomainSamlOptionsSamlOptionsArgs {
      * Whether SAML authentication is enabled.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("DomainSamlOptionsSamlOptionsArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'DomainSamlOptionsSamlOptionsArgs.enabled' is not present");
     }
 
     /**
      * Information from your identity provider.
      * 
      */
-    private UndeferrableValue<DomainSamlOptionsSamlOptionsIdpArgs> idp;
-
+    @PolicyResourceProperty(name="idp", flag="unknown_idp")
+    private DomainSamlOptionsSamlOptionsIdpArgs value_idp;
+    private boolean unknown_idp;
     public DomainSamlOptionsSamlOptionsIdpArgs idp() {
-        if (idp == null) return null;
-        return idp.getValue("DomainSamlOptionsSamlOptionsArgs.idp");
+        if (!unknown_idp) return value_idp;
+        throw new UndeferrableValueException("Value 'DomainSamlOptionsSamlOptionsArgs.idp' is not present");
     }
 
     /**
      * This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
      * 
      */
-    private UndeferrableValue<String> masterBackendRole;
-
+    @PolicyResourceProperty(name="masterBackendRole", flag="unknown_masterBackendRole")
+    private String value_masterBackendRole;
+    private boolean unknown_masterBackendRole;
     public String masterBackendRole() {
-        if (masterBackendRole == null) return null;
-        return masterBackendRole.getValue("DomainSamlOptionsSamlOptionsArgs.masterBackendRole");
+        if (!unknown_masterBackendRole) return value_masterBackendRole;
+        throw new UndeferrableValueException("Value 'DomainSamlOptionsSamlOptionsArgs.masterBackendRole' is not present");
     }
 
     /**
      * This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
      * 
      */
-    private UndeferrableValue<String> masterUserName;
-
+    @PolicyResourceProperty(name="masterUserName", flag="unknown_masterUserName")
+    private String value_masterUserName;
+    private boolean unknown_masterUserName;
     public String masterUserName() {
-        if (masterUserName == null) return null;
-        return masterUserName.getValue("DomainSamlOptionsSamlOptionsArgs.masterUserName");
+        if (!unknown_masterUserName) return value_masterUserName;
+        throw new UndeferrableValueException("Value 'DomainSamlOptionsSamlOptionsArgs.masterUserName' is not present");
     }
 
     /**
      * Element of the SAML assertion to use for backend roles. Default is roles.
      * 
      */
-    private UndeferrableValue<String> rolesKey;
-
+    @PolicyResourceProperty(name="rolesKey", flag="unknown_rolesKey")
+    private String value_rolesKey;
+    private boolean unknown_rolesKey;
     public String rolesKey() {
-        if (rolesKey == null) return null;
-        return rolesKey.getValue("DomainSamlOptionsSamlOptionsArgs.rolesKey");
+        if (!unknown_rolesKey) return value_rolesKey;
+        throw new UndeferrableValueException("Value 'DomainSamlOptionsSamlOptionsArgs.rolesKey' is not present");
     }
 
     /**
      * Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
      * 
      */
-    private UndeferrableValue<Integer> sessionTimeoutMinutes;
-
+    @PolicyResourceProperty(name="sessionTimeoutMinutes", flag="unknown_sessionTimeoutMinutes")
+    private Integer value_sessionTimeoutMinutes;
+    private boolean unknown_sessionTimeoutMinutes;
     public Integer sessionTimeoutMinutes() {
-        if (sessionTimeoutMinutes == null) return null;
-        return sessionTimeoutMinutes.getValue("DomainSamlOptionsSamlOptionsArgs.sessionTimeoutMinutes");
+        if (!unknown_sessionTimeoutMinutes) return value_sessionTimeoutMinutes;
+        throw new UndeferrableValueException("Value 'DomainSamlOptionsSamlOptionsArgs.sessionTimeoutMinutes' is not present");
     }
 
     /**
      * Element of the SAML assertion to use for username. Default is NameID.
      * 
      */
-    private UndeferrableValue<String> subjectKey;
-
+    @PolicyResourceProperty(name="subjectKey", flag="unknown_subjectKey")
+    private String value_subjectKey;
+    private boolean unknown_subjectKey;
     public String subjectKey() {
-        if (subjectKey == null) return null;
-        return subjectKey.getValue("DomainSamlOptionsSamlOptionsArgs.subjectKey");
+        if (!unknown_subjectKey) return value_subjectKey;
+        throw new UndeferrableValueException("Value 'DomainSamlOptionsSamlOptionsArgs.subjectKey' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class DataQualityJobDefinitionDataQualityAppSpecification {
      * Sets the environment variables in the container that the monitoring job runs. A list of key value pairs.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> environment;
-
+    @PolicyResourceProperty(name="environment", flag="unknown_environment")
+    private @Nullable Map<String,String> value_environment;
+    private boolean unknown_environment;
     public @Nullable Map<String,String> environment() {
-        if (environment == null) return null;
-        return environment.getValue("DataQualityJobDefinitionDataQualityAppSpecification.environment");
+        if (!unknown_environment) return value_environment;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityAppSpecification.environment' is not present");
     }
 
     /**
      * The container image that the data quality monitoring job runs.
      * 
      */
-    private UndeferrableValue<String> imageUri;
-
+    @PolicyResourceProperty(name="imageUri", flag="unknown_imageUri")
+    private String value_imageUri;
+    private boolean unknown_imageUri;
     public String imageUri() {
-        if (imageUri == null) return null;
-        return imageUri.getValue("DataQualityJobDefinitionDataQualityAppSpecification.imageUri");
+        if (!unknown_imageUri) return value_imageUri;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityAppSpecification.imageUri' is not present");
     }
 
     /**
      * An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
      * 
      */
-    private @Nullable UndeferrableValue<String> postAnalyticsProcessorSourceUri;
-
+    @PolicyResourceProperty(name="postAnalyticsProcessorSourceUri", flag="unknown_postAnalyticsProcessorSourceUri")
+    private @Nullable String value_postAnalyticsProcessorSourceUri;
+    private boolean unknown_postAnalyticsProcessorSourceUri;
     public @Nullable String postAnalyticsProcessorSourceUri() {
-        if (postAnalyticsProcessorSourceUri == null) return null;
-        return postAnalyticsProcessorSourceUri.getValue("DataQualityJobDefinitionDataQualityAppSpecification.postAnalyticsProcessorSourceUri");
+        if (!unknown_postAnalyticsProcessorSourceUri) return value_postAnalyticsProcessorSourceUri;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityAppSpecification.postAnalyticsProcessorSourceUri' is not present");
     }
 
     /**
      * An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers.
      * 
      */
-    private @Nullable UndeferrableValue<String> recordPreprocessorSourceUri;
-
+    @PolicyResourceProperty(name="recordPreprocessorSourceUri", flag="unknown_recordPreprocessorSourceUri")
+    private @Nullable String value_recordPreprocessorSourceUri;
+    private boolean unknown_recordPreprocessorSourceUri;
     public @Nullable String recordPreprocessorSourceUri() {
-        if (recordPreprocessorSourceUri == null) return null;
-        return recordPreprocessorSourceUri.getValue("DataQualityJobDefinitionDataQualityAppSpecification.recordPreprocessorSourceUri");
+        if (!unknown_recordPreprocessorSourceUri) return value_recordPreprocessorSourceUri;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityAppSpecification.recordPreprocessorSourceUri' is not present");
     }
 
 }

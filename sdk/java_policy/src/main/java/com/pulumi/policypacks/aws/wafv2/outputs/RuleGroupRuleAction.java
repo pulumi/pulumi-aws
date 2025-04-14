@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRuleActionAllow;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRuleActionBlock;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRuleActionCaptcha;
@@ -18,55 +19,60 @@ public final class RuleGroupRuleAction {
      * Instructs AWS WAF to allow the web request. See Allow below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleActionAllow> allow;
-
+    @PolicyResourceProperty(name="allow", flag="unknown_allow")
+    private @Nullable RuleGroupRuleActionAllow value_allow;
+    private boolean unknown_allow;
     public @Nullable RuleGroupRuleActionAllow allow() {
-        if (allow == null) return null;
-        return allow.getValue("RuleGroupRuleAction.allow");
+        if (!unknown_allow) return value_allow;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleAction.allow' is not present");
     }
 
     /**
      * Instructs AWS WAF to block the web request. See Block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleActionBlock> block;
-
+    @PolicyResourceProperty(name="block", flag="unknown_block")
+    private @Nullable RuleGroupRuleActionBlock value_block;
+    private boolean unknown_block;
     public @Nullable RuleGroupRuleActionBlock block() {
-        if (block == null) return null;
-        return block.getValue("RuleGroupRuleAction.block");
+        if (!unknown_block) return value_block;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleAction.block' is not present");
     }
 
     /**
      * Instructs AWS WAF to run a `CAPTCHA` check against the web request. See Captcha below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleActionCaptcha> captcha;
-
+    @PolicyResourceProperty(name="captcha", flag="unknown_captcha")
+    private @Nullable RuleGroupRuleActionCaptcha value_captcha;
+    private boolean unknown_captcha;
     public @Nullable RuleGroupRuleActionCaptcha captcha() {
-        if (captcha == null) return null;
-        return captcha.getValue("RuleGroupRuleAction.captcha");
+        if (!unknown_captcha) return value_captcha;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleAction.captcha' is not present");
     }
 
     /**
      * Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See Challenge below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleActionChallenge> challenge;
-
+    @PolicyResourceProperty(name="challenge", flag="unknown_challenge")
+    private @Nullable RuleGroupRuleActionChallenge value_challenge;
+    private boolean unknown_challenge;
     public @Nullable RuleGroupRuleActionChallenge challenge() {
-        if (challenge == null) return null;
-        return challenge.getValue("RuleGroupRuleAction.challenge");
+        if (!unknown_challenge) return value_challenge;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleAction.challenge' is not present");
     }
 
     /**
      * Instructs AWS WAF to count the web request and allow it. See Count below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleActionCount> count;
-
+    @PolicyResourceProperty(name="count", flag="unknown_count")
+    private @Nullable RuleGroupRuleActionCount value_count;
+    private boolean unknown_count;
     public @Nullable RuleGroupRuleActionCount count() {
-        if (count == null) return null;
-        return count.getValue("RuleGroupRuleAction.count");
+        if (!unknown_count) return value_count;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleAction.count' is not present");
     }
 
 }

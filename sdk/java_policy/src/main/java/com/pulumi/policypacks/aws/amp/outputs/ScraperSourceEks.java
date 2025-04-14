@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.amp.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -11,33 +12,36 @@ import javax.annotation.Nullable;
 
 public final class ScraperSourceEks {
 
-    private UndeferrableValue<String> clusterArn;
-
+    @PolicyResourceProperty(name="clusterArn", flag="unknown_clusterArn")
+    private String value_clusterArn;
+    private boolean unknown_clusterArn;
     public String clusterArn() {
-        if (clusterArn == null) return null;
-        return clusterArn.getValue("ScraperSourceEks.clusterArn");
+        if (!unknown_clusterArn) return value_clusterArn;
+        throw new UndeferrableValueException("Value 'ScraperSourceEks.clusterArn' is not present");
     }
 
     /**
      * List of the security group IDs for the Amazon EKS cluster VPC configuration.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private @Nullable List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public @Nullable List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("ScraperSourceEks.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'ScraperSourceEks.securityGroupIds' is not present");
     }
 
     /**
      * List of subnet IDs. Must be in at least two different availability zones.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("ScraperSourceEks.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'ScraperSourceEks.subnetIds' is not present");
     }
 
 }

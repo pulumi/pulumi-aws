@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class ClusterComputeConfigArgs {
      * Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your Amazon Web Services account.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("ClusterComputeConfigArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'ClusterComputeConfigArgs.enabled' is not present");
     }
 
     /**
      * Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. Valid options are `general-purpose` and `system`.
      * 
      */
-    private UndeferrableValue<List<String>> nodePools;
-
+    @PolicyResourceProperty(name="nodePools", flag="unknown_nodePools")
+    private List<String> value_nodePools;
+    private boolean unknown_nodePools;
     public List<String> nodePools() {
-        if (nodePools == null) return null;
-        return nodePools.getValue("ClusterComputeConfigArgs.nodePools");
+        if (!unknown_nodePools) return value_nodePools;
+        throw new UndeferrableValueException("Value 'ClusterComputeConfigArgs.nodePools' is not present");
     }
 
     /**
      * The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled..
      * 
      */
-    private UndeferrableValue<String> nodeRoleArn;
-
+    @PolicyResourceProperty(name="nodeRoleArn", flag="unknown_nodeRoleArn")
+    private String value_nodeRoleArn;
+    private boolean unknown_nodeRoleArn;
     public String nodeRoleArn() {
-        if (nodeRoleArn == null) return null;
-        return nodeRoleArn.getValue("ClusterComputeConfigArgs.nodeRoleArn");
+        if (!unknown_nodeRoleArn) return value_nodeRoleArn;
+        throw new UndeferrableValueException("Value 'ClusterComputeConfigArgs.nodeRoleArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dataexchange.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.dataexchange.inputs.EventActionActionExportRevisionToS3Args;
 import javax.annotation.Nullable;
 
@@ -15,11 +16,12 @@ public final class EventActionActionArgs {
      * Described in `export_revision_to_s3` Configuration Block
      * 
      */
-    private UndeferrableValue<EventActionActionExportRevisionToS3Args> exportRevisionToS3;
-
+    @PolicyResourceProperty(name="exportRevisionToS3", flag="unknown_exportRevisionToS3")
+    private EventActionActionExportRevisionToS3Args value_exportRevisionToS3;
+    private boolean unknown_exportRevisionToS3;
     public EventActionActionExportRevisionToS3Args exportRevisionToS3() {
-        if (exportRevisionToS3 == null) return null;
-        return exportRevisionToS3.getValue("EventActionActionArgs.exportRevisionToS3");
+        if (!unknown_exportRevisionToS3) return value_exportRevisionToS3;
+        throw new UndeferrableValueException("Value 'EventActionActionArgs.exportRevisionToS3' is not present");
     }
 
 }

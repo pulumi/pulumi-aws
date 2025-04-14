@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.inputs.CapacityBlockReservationTimeoutsArgs;
 import java.lang.String;
@@ -18,40 +19,44 @@ public final class CapacityBlockReservationArgs extends com.pulumi.resources.Pol
      * The Capacity Block Reservation ID.
      * 
      */
-    private UndeferrableValue<String> capacityBlockOfferingId;
-
+    @PolicyResourceProperty(name="capacityBlockOfferingId", flag="unknown_capacityBlockOfferingId")
+    private String value_capacityBlockOfferingId;
+    private boolean unknown_capacityBlockOfferingId;
     public String capacityBlockOfferingId() {
-        if (capacityBlockOfferingId == null) return null;
-        return capacityBlockOfferingId.getValue("CapacityBlockReservationArgs.capacityBlockOfferingId");
+        if (!unknown_capacityBlockOfferingId) return value_capacityBlockOfferingId;
+        throw new UndeferrableValueException("Value 'CapacityBlockReservationArgs.capacityBlockOfferingId' is not present");
     }
 
     /**
      * The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
      * 
      */
-    private UndeferrableValue<String> instancePlatform;
-
+    @PolicyResourceProperty(name="instancePlatform", flag="unknown_instancePlatform")
+    private String value_instancePlatform;
+    private boolean unknown_instancePlatform;
     public String instancePlatform() {
-        if (instancePlatform == null) return null;
-        return instancePlatform.getValue("CapacityBlockReservationArgs.instancePlatform");
+        if (!unknown_instancePlatform) return value_instancePlatform;
+        throw new UndeferrableValueException("Value 'CapacityBlockReservationArgs.instancePlatform' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CapacityBlockReservationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CapacityBlockReservationArgs.tags' is not present");
     }
 
-    private UndeferrableValue<CapacityBlockReservationTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private CapacityBlockReservationTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public CapacityBlockReservationTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("CapacityBlockReservationArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'CapacityBlockReservationArgs.timeouts' is not present");
     }
 
 }

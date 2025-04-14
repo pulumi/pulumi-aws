@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class LaunchTemplateInstanceMarketOptionsSpotOptions {
      * The required duration in minutes. This value must be a multiple of 60.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> blockDurationMinutes;
-
+    @PolicyResourceProperty(name="blockDurationMinutes", flag="unknown_blockDurationMinutes")
+    private @Nullable Integer value_blockDurationMinutes;
+    private boolean unknown_blockDurationMinutes;
     public @Nullable Integer blockDurationMinutes() {
-        if (blockDurationMinutes == null) return null;
-        return blockDurationMinutes.getValue("LaunchTemplateInstanceMarketOptionsSpotOptions.blockDurationMinutes");
+        if (!unknown_blockDurationMinutes) return value_blockDurationMinutes;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceMarketOptionsSpotOptions.blockDurationMinutes' is not present");
     }
 
     /**
@@ -27,44 +29,48 @@ public final class LaunchTemplateInstanceMarketOptionsSpotOptions {
      * `stop`, or `terminate`. (Default: `terminate`).
      * 
      */
-    private @Nullable UndeferrableValue<String> instanceInterruptionBehavior;
-
+    @PolicyResourceProperty(name="instanceInterruptionBehavior", flag="unknown_instanceInterruptionBehavior")
+    private @Nullable String value_instanceInterruptionBehavior;
+    private boolean unknown_instanceInterruptionBehavior;
     public @Nullable String instanceInterruptionBehavior() {
-        if (instanceInterruptionBehavior == null) return null;
-        return instanceInterruptionBehavior.getValue("LaunchTemplateInstanceMarketOptionsSpotOptions.instanceInterruptionBehavior");
+        if (!unknown_instanceInterruptionBehavior) return value_instanceInterruptionBehavior;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceMarketOptionsSpotOptions.instanceInterruptionBehavior' is not present");
     }
 
     /**
      * The maximum hourly price you&#39;re willing to pay for the Spot Instances.
      * 
      */
-    private @Nullable UndeferrableValue<String> maxPrice;
-
+    @PolicyResourceProperty(name="maxPrice", flag="unknown_maxPrice")
+    private @Nullable String value_maxPrice;
+    private boolean unknown_maxPrice;
     public @Nullable String maxPrice() {
-        if (maxPrice == null) return null;
-        return maxPrice.getValue("LaunchTemplateInstanceMarketOptionsSpotOptions.maxPrice");
+        if (!unknown_maxPrice) return value_maxPrice;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceMarketOptionsSpotOptions.maxPrice' is not present");
     }
 
     /**
      * The Spot Instance request type. Can be `one-time`, or `persistent`.
      * 
      */
-    private @Nullable UndeferrableValue<String> spotInstanceType;
-
+    @PolicyResourceProperty(name="spotInstanceType", flag="unknown_spotInstanceType")
+    private @Nullable String value_spotInstanceType;
+    private boolean unknown_spotInstanceType;
     public @Nullable String spotInstanceType() {
-        if (spotInstanceType == null) return null;
-        return spotInstanceType.getValue("LaunchTemplateInstanceMarketOptionsSpotOptions.spotInstanceType");
+        if (!unknown_spotInstanceType) return value_spotInstanceType;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceMarketOptionsSpotOptions.spotInstanceType' is not present");
     }
 
     /**
      * The end date of the request.
      * 
      */
-    private @Nullable UndeferrableValue<String> validUntil;
-
+    @PolicyResourceProperty(name="validUntil", flag="unknown_validUntil")
+    private @Nullable String value_validUntil;
+    private boolean unknown_validUntil;
     public @Nullable String validUntil() {
-        if (validUntil == null) return null;
-        return validUntil.getValue("LaunchTemplateInstanceMarketOptionsSpotOptions.validUntil");
+        if (!unknown_validUntil) return value_validUntil;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceMarketOptionsSpotOptions.validUntil' is not present");
     }
 
 }

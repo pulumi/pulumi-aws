@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ivs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,66 +19,72 @@ public final class ChannelArgs extends com.pulumi.resources.PolicyResourceInput 
      * If `true`, channel is private (enabled for playback authorization).
      * 
      */
-    private UndeferrableValue<Boolean> authorized;
-
+    @PolicyResourceProperty(name="authorized", flag="unknown_authorized")
+    private Boolean value_authorized;
+    private boolean unknown_authorized;
     public Boolean authorized() {
-        if (authorized == null) return null;
-        return authorized.getValue("ChannelArgs.authorized");
+        if (!unknown_authorized) return value_authorized;
+        throw new UndeferrableValueException("Value 'ChannelArgs.authorized' is not present");
     }
 
     /**
      * Channel latency mode. Valid values: `NORMAL`, `LOW`.
      * 
      */
-    private UndeferrableValue<String> latencyMode;
-
+    @PolicyResourceProperty(name="latencyMode", flag="unknown_latencyMode")
+    private String value_latencyMode;
+    private boolean unknown_latencyMode;
     public String latencyMode() {
-        if (latencyMode == null) return null;
-        return latencyMode.getValue("ChannelArgs.latencyMode");
+        if (!unknown_latencyMode) return value_latencyMode;
+        throw new UndeferrableValueException("Value 'ChannelArgs.latencyMode' is not present");
     }
 
     /**
      * Channel name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ChannelArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ChannelArgs.name' is not present");
     }
 
     /**
      * Recording configuration ARN.
      * 
      */
-    private UndeferrableValue<String> recordingConfigurationArn;
-
+    @PolicyResourceProperty(name="recordingConfigurationArn", flag="unknown_recordingConfigurationArn")
+    private String value_recordingConfigurationArn;
+    private boolean unknown_recordingConfigurationArn;
     public String recordingConfigurationArn() {
-        if (recordingConfigurationArn == null) return null;
-        return recordingConfigurationArn.getValue("ChannelArgs.recordingConfigurationArn");
+        if (!unknown_recordingConfigurationArn) return value_recordingConfigurationArn;
+        throw new UndeferrableValueException("Value 'ChannelArgs.recordingConfigurationArn' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ChannelArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ChannelArgs.tags' is not present");
     }
 
     /**
      * Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ChannelArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ChannelArgs.type' is not present");
     }
 
 }

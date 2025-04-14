@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.imagebuilder.inputs.LifecyclePolicyPolicyDetailActionIncludeResourcesArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class LifecyclePolicyPolicyDetailActionArgs {
      * Specifies the resources that the lifecycle policy applies to. Detailed below.
      * 
      */
-    private UndeferrableValue<LifecyclePolicyPolicyDetailActionIncludeResourcesArgs> includeResources;
-
+    @PolicyResourceProperty(name="includeResources", flag="unknown_includeResources")
+    private LifecyclePolicyPolicyDetailActionIncludeResourcesArgs value_includeResources;
+    private boolean unknown_includeResources;
     public LifecyclePolicyPolicyDetailActionIncludeResourcesArgs includeResources() {
-        if (includeResources == null) return null;
-        return includeResources.getValue("LifecyclePolicyPolicyDetailActionArgs.includeResources");
+        if (!unknown_includeResources) return value_includeResources;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailActionArgs.includeResources' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class LifecyclePolicyPolicyDetailActionArgs {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("LifecyclePolicyPolicyDetailActionArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailActionArgs.type' is not present");
     }
 
 }

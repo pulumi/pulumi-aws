@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.kendra.outputs.ExperienceConfiguration;
 import com.pulumi.policypacks.aws.kendra.outputs.ExperienceEndpoint;
@@ -19,77 +20,84 @@ public final class Experience extends com.pulumi.resources.PolicyResourceOutput 
      * ARN of the Experience.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Experience.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Experience.arn' is not present");
     }
 
     /**
      * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
      * 
      */
-    private UndeferrableValue<ExperienceConfiguration> configuration;
-
+    @PolicyResourceProperty(name="configuration", flag="unknown_configuration")
+    private ExperienceConfiguration value_configuration;
+    private boolean unknown_configuration;
     public ExperienceConfiguration configuration() {
-        if (configuration == null) return null;
-        return configuration.getValue("Experience.configuration");
+        if (!unknown_configuration) return value_configuration;
+        throw new UndeferrableValueException("Value 'Experience.configuration' is not present");
     }
 
     /**
      * A description for your Amazon Kendra experience.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Experience.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Experience.description' is not present");
     }
 
     /**
      * Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
      * 
      */
-    private UndeferrableValue<List<ExperienceEndpoint>> endpoints;
-
+    @PolicyResourceProperty(name="endpoints", flag="unknown_endpoints")
+    private List<ExperienceEndpoint> value_endpoints;
+    private boolean unknown_endpoints;
     public List<ExperienceEndpoint> endpoints() {
-        if (endpoints == null) return null;
-        return endpoints.getValue("Experience.endpoints");
+        if (!unknown_endpoints) return value_endpoints;
+        throw new UndeferrableValueException("Value 'Experience.endpoints' is not present");
     }
 
     /**
      * The unique identifier of the experience.
      * 
      */
-    private UndeferrableValue<String> experienceId;
-
+    @PolicyResourceProperty(name="experienceId", flag="unknown_experienceId")
+    private String value_experienceId;
+    private boolean unknown_experienceId;
     public String experienceId() {
-        if (experienceId == null) return null;
-        return experienceId.getValue("Experience.experienceId");
+        if (!unknown_experienceId) return value_experienceId;
+        throw new UndeferrableValueException("Value 'Experience.experienceId' is not present");
     }
 
     /**
      * The identifier of the index for your Amazon Kendra experience.
      * 
      */
-    private UndeferrableValue<String> indexId;
-
+    @PolicyResourceProperty(name="indexId", flag="unknown_indexId")
+    private String value_indexId;
+    private boolean unknown_indexId;
     public String indexId() {
-        if (indexId == null) return null;
-        return indexId.getValue("Experience.indexId");
+        if (!unknown_indexId) return value_indexId;
+        throw new UndeferrableValueException("Value 'Experience.indexId' is not present");
     }
 
     /**
      * A name for your Amazon Kendra experience.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Experience.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Experience.name' is not present");
     }
 
     /**
@@ -98,22 +106,24 @@ public final class Experience extends com.pulumi.resources.PolicyResourceOutput 
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("Experience.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'Experience.roleArn' is not present");
     }
 
     /**
      * The current processing status of your Amazon Kendra experience.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Experience.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Experience.status' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBody;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies;
@@ -27,143 +28,156 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
      * Inspect all query arguments.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments> allQueryArguments;
-
+    @PolicyResourceProperty(name="allQueryArguments", flag="unknown_allQueryArguments")
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments value_allQueryArguments;
+    private boolean unknown_allQueryArguments;
     public @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments allQueryArguments() {
-        if (allQueryArguments == null) return null;
-        return allQueryArguments.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.allQueryArguments");
+        if (!unknown_allQueryArguments) return value_allQueryArguments;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.allQueryArguments' is not present");
     }
 
     /**
      * Inspect the request body, which immediately follows the request headers. See `body` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBody> body;
-
+    @PolicyResourceProperty(name="body", flag="unknown_body")
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBody value_body;
+    private boolean unknown_body;
     public @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBody body() {
-        if (body == null) return null;
-        return body.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.body");
+        if (!unknown_body) return value_body;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.body' is not present");
     }
 
     /**
      * Inspect the cookies in the web request. See `cookies` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies> cookies;
-
+    @PolicyResourceProperty(name="cookies", flag="unknown_cookies")
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies value_cookies;
+    private boolean unknown_cookies;
     public @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies cookies() {
-        if (cookies == null) return null;
-        return cookies.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.cookies");
+        if (!unknown_cookies) return value_cookies;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.cookies' is not present");
     }
 
     /**
      * Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder>> headerOrders;
-
+    @PolicyResourceProperty(name="headerOrders", flag="unknown_headerOrders")
+    private @Nullable List<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder> value_headerOrders;
+    private boolean unknown_headerOrders;
     public @Nullable List<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderOrder> headerOrders() {
-        if (headerOrders == null) return null;
-        return headerOrders.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.headerOrders");
+        if (!unknown_headerOrders) return value_headerOrders;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.headerOrders' is not present");
     }
 
     /**
      * Inspect the request headers. See `headers` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader>> headers;
-
+    @PolicyResourceProperty(name="headers", flag="unknown_headers")
+    private @Nullable List<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader> value_headers;
+    private boolean unknown_headers;
     public @Nullable List<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader> headers() {
-        if (headers == null) return null;
-        return headers.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.headers");
+        if (!unknown_headers) return value_headers;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.headers' is not present");
     }
 
     /**
      * Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint> ja3Fingerprint;
-
+    @PolicyResourceProperty(name="ja3Fingerprint", flag="unknown_ja3Fingerprint")
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint value_ja3Fingerprint;
+    private boolean unknown_ja3Fingerprint;
     public @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint() {
-        if (ja3Fingerprint == null) return null;
-        return ja3Fingerprint.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.ja3Fingerprint");
+        if (!unknown_ja3Fingerprint) return value_ja3Fingerprint;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.ja3Fingerprint' is not present");
     }
 
     /**
      * Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint> ja4Fingerprint;
-
+    @PolicyResourceProperty(name="ja4Fingerprint", flag="unknown_ja4Fingerprint")
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint value_ja4Fingerprint;
+    private boolean unknown_ja4Fingerprint;
     public @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint ja4Fingerprint() {
-        if (ja4Fingerprint == null) return null;
-        return ja4Fingerprint.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.ja4Fingerprint");
+        if (!unknown_ja4Fingerprint) return value_ja4Fingerprint;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.ja4Fingerprint' is not present");
     }
 
     /**
      * Inspect the request body as JSON. See `json_body` for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody> jsonBody;
-
+    @PolicyResourceProperty(name="jsonBody", flag="unknown_jsonBody")
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody value_jsonBody;
+    private boolean unknown_jsonBody;
     public @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody jsonBody() {
-        if (jsonBody == null) return null;
-        return jsonBody.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.jsonBody");
+        if (!unknown_jsonBody) return value_jsonBody;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.jsonBody' is not present");
     }
 
     /**
      * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod> method;
-
+    @PolicyResourceProperty(name="method", flag="unknown_method")
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod value_method;
+    private boolean unknown_method;
     public @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod method() {
-        if (method == null) return null;
-        return method.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.method");
+        if (!unknown_method) return value_method;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.method' is not present");
     }
 
     /**
      * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString> queryString;
-
+    @PolicyResourceProperty(name="queryString", flag="unknown_queryString")
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString value_queryString;
+    private boolean unknown_queryString;
     public @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString queryString() {
-        if (queryString == null) return null;
-        return queryString.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.queryString");
+        if (!unknown_queryString) return value_queryString;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.queryString' is not present");
     }
 
     /**
      * Inspect a single header. See `single_header` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader> singleHeader;
-
+    @PolicyResourceProperty(name="singleHeader", flag="unknown_singleHeader")
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader value_singleHeader;
+    private boolean unknown_singleHeader;
     public @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader singleHeader() {
-        if (singleHeader == null) return null;
-        return singleHeader.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.singleHeader");
+        if (!unknown_singleHeader) return value_singleHeader;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.singleHeader' is not present");
     }
 
     /**
      * Inspect a single query argument. See `single_query_argument` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument> singleQueryArgument;
-
+    @PolicyResourceProperty(name="singleQueryArgument", flag="unknown_singleQueryArgument")
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument value_singleQueryArgument;
+    private boolean unknown_singleQueryArgument;
     public @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument singleQueryArgument() {
-        if (singleQueryArgument == null) return null;
-        return singleQueryArgument.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.singleQueryArgument");
+        if (!unknown_singleQueryArgument) return value_singleQueryArgument;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.singleQueryArgument' is not present");
     }
 
     /**
      * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath> uriPath;
-
+    @PolicyResourceProperty(name="uriPath", flag="unknown_uriPath")
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath value_uriPath;
+    private boolean unknown_uriPath;
     public @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath uriPath() {
-        if (uriPath == null) return null;
-        return uriPath.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.uriPath");
+        if (!unknown_uriPath) return value_uriPath;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch.uriPath' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rekognition;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.rekognition.outputs.ProjectTimeouts;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class Project extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the Project.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Project.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Project.arn' is not present");
     }
 
     /**
      * Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> autoUpdate;
-
+    @PolicyResourceProperty(name="autoUpdate", flag="unknown_autoUpdate")
+    private String value_autoUpdate;
+    private boolean unknown_autoUpdate;
     public String autoUpdate() {
-        if (autoUpdate == null) return null;
-        return autoUpdate.getValue("Project.autoUpdate");
+        if (!unknown_autoUpdate) return value_autoUpdate;
+        throw new UndeferrableValueException("Value 'Project.autoUpdate' is not present");
     }
 
     /**
      * Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`.
      * 
      */
-    private @Nullable UndeferrableValue<String> feature;
-
+    @PolicyResourceProperty(name="feature", flag="unknown_feature")
+    private @Nullable String value_feature;
+    private boolean unknown_feature;
     public @Nullable String feature() {
-        if (feature == null) return null;
-        return feature.getValue("Project.feature");
+        if (!unknown_feature) return value_feature;
+        throw new UndeferrableValueException("Value 'Project.feature' is not present");
     }
 
     /**
@@ -53,22 +57,24 @@ public final class Project extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Project.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Project.name' is not present");
     }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Project.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Project.tags' is not present");
     }
 
     /**
@@ -79,18 +85,20 @@ public final class Project extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Project.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Project.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<ProjectTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable ProjectTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable ProjectTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("Project.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'Project.timeouts' is not present");
     }
 
 }

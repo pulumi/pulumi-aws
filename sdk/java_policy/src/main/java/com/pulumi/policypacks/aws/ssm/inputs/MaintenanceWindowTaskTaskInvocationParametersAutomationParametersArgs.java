@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class MaintenanceWindowTaskTaskInvocationParametersAutomationParame
      * The version of an Automation document to use during task execution.
      * 
      */
-    private UndeferrableValue<String> documentVersion;
-
+    @PolicyResourceProperty(name="documentVersion", flag="unknown_documentVersion")
+    private String value_documentVersion;
+    private boolean unknown_documentVersion;
     public String documentVersion() {
-        if (documentVersion == null) return null;
-        return documentVersion.getValue("MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs.documentVersion");
+        if (!unknown_documentVersion) return value_documentVersion;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs.documentVersion' is not present");
     }
 
     /**
      * The parameters for the RUN_COMMAND task execution. Documented below.
      * 
      */
-    private UndeferrableValue<List<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private List<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs> value_parameters;
+    private boolean unknown_parameters;
     public List<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs.parameters' is not present");
     }
 
 }

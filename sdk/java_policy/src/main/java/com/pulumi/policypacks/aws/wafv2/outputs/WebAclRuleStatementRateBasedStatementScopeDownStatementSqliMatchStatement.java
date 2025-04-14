@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
      * Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch> fieldToMatch;
-
+    @PolicyResourceProperty(name="fieldToMatch", flag="unknown_fieldToMatch")
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch value_fieldToMatch;
+    private boolean unknown_fieldToMatch;
     public @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch fieldToMatch() {
-        if (fieldToMatch == null) return null;
-        return fieldToMatch.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement.fieldToMatch");
+        if (!unknown_fieldToMatch) return value_fieldToMatch;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement.fieldToMatch' is not present");
     }
 
     /**
      * Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
      * 
      */
-    private @Nullable UndeferrableValue<String> sensitivityLevel;
-
+    @PolicyResourceProperty(name="sensitivityLevel", flag="unknown_sensitivityLevel")
+    private @Nullable String value_sensitivityLevel;
+    private boolean unknown_sensitivityLevel;
     public @Nullable String sensitivityLevel() {
-        if (sensitivityLevel == null) return null;
-        return sensitivityLevel.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement.sensitivityLevel");
+        if (!unknown_sensitivityLevel) return value_sensitivityLevel;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement.sensitivityLevel' is not present");
     }
 
     /**
      * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
      * 
      */
-    private UndeferrableValue<List<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation>> textTransformations;
-
+    @PolicyResourceProperty(name="textTransformations", flag="unknown_textTransformations")
+    private List<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation> value_textTransformations;
+    private boolean unknown_textTransformations;
     public List<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation> textTransformations() {
-        if (textTransformations == null) return null;
-        return textTransformations.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement.textTransformations");
+        if (!unknown_textTransformations) return value_textTransformations;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement.textTransformations' is not present");
     }
 
 }

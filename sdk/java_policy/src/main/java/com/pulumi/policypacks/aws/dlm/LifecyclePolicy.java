@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dlm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.dlm.outputs.LifecyclePolicyPolicyDetails;
 import java.lang.String;
@@ -18,66 +19,72 @@ public final class LifecyclePolicy extends com.pulumi.resources.PolicyResourceOu
      * Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("LifecyclePolicy.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'LifecyclePolicy.arn' is not present");
     }
 
     /**
      * A description for the DLM lifecycle policy.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("LifecyclePolicy.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'LifecyclePolicy.description' is not present");
     }
 
     /**
      * The ARN of an IAM role that is able to be assumed by the DLM service.
      * 
      */
-    private UndeferrableValue<String> executionRoleArn;
-
+    @PolicyResourceProperty(name="executionRoleArn", flag="unknown_executionRoleArn")
+    private String value_executionRoleArn;
+    private boolean unknown_executionRoleArn;
     public String executionRoleArn() {
-        if (executionRoleArn == null) return null;
-        return executionRoleArn.getValue("LifecyclePolicy.executionRoleArn");
+        if (!unknown_executionRoleArn) return value_executionRoleArn;
+        throw new UndeferrableValueException("Value 'LifecyclePolicy.executionRoleArn' is not present");
     }
 
     /**
      * See the `policy_details` configuration block. Max of 1.
      * 
      */
-    private UndeferrableValue<LifecyclePolicyPolicyDetails> policyDetails;
-
+    @PolicyResourceProperty(name="policyDetails", flag="unknown_policyDetails")
+    private LifecyclePolicyPolicyDetails value_policyDetails;
+    private boolean unknown_policyDetails;
     public LifecyclePolicyPolicyDetails policyDetails() {
-        if (policyDetails == null) return null;
-        return policyDetails.getValue("LifecyclePolicy.policyDetails");
+        if (!unknown_policyDetails) return value_policyDetails;
+        throw new UndeferrableValueException("Value 'LifecyclePolicy.policyDetails' is not present");
     }
 
     /**
      * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private @Nullable String value_state;
+    private boolean unknown_state;
     public @Nullable String state() {
-        if (state == null) return null;
-        return state.getValue("LifecyclePolicy.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'LifecyclePolicy.state' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LifecyclePolicy.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LifecyclePolicy.tags' is not present");
     }
 
     /**
@@ -88,11 +95,12 @@ public final class LifecyclePolicy extends com.pulumi.resources.PolicyResourceOu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("LifecyclePolicy.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'LifecyclePolicy.tagsAll' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codecommit;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class ApprovalRuleTemplateAssociation extends com.pulumi.resources.
      * The name for the approval rule template.
      * 
      */
-    private UndeferrableValue<String> approvalRuleTemplateName;
-
+    @PolicyResourceProperty(name="approvalRuleTemplateName", flag="unknown_approvalRuleTemplateName")
+    private String value_approvalRuleTemplateName;
+    private boolean unknown_approvalRuleTemplateName;
     public String approvalRuleTemplateName() {
-        if (approvalRuleTemplateName == null) return null;
-        return approvalRuleTemplateName.getValue("ApprovalRuleTemplateAssociation.approvalRuleTemplateName");
+        if (!unknown_approvalRuleTemplateName) return value_approvalRuleTemplateName;
+        throw new UndeferrableValueException("Value 'ApprovalRuleTemplateAssociation.approvalRuleTemplateName' is not present");
     }
 
     /**
      * The name of the repository that you want to associate with the template.
      * 
      */
-    private UndeferrableValue<String> repositoryName;
-
+    @PolicyResourceProperty(name="repositoryName", flag="unknown_repositoryName")
+    private String value_repositoryName;
+    private boolean unknown_repositoryName;
     public String repositoryName() {
-        if (repositoryName == null) return null;
-        return repositoryName.getValue("ApprovalRuleTemplateAssociation.repositoryName");
+        if (!unknown_repositoryName) return value_repositoryName;
+        throw new UndeferrableValueException("Value 'ApprovalRuleTemplateAssociation.repositoryName' is not present");
     }
 
 }

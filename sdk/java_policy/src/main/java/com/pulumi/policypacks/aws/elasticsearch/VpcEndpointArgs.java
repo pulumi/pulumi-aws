@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticsearch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.elasticsearch.inputs.VpcEndpointVpcOptionsArgs;
 import java.lang.String;
@@ -16,22 +17,24 @@ public final class VpcEndpointArgs extends com.pulumi.resources.PolicyResourceIn
      * Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
      * 
      */
-    private UndeferrableValue<String> domainArn;
-
+    @PolicyResourceProperty(name="domainArn", flag="unknown_domainArn")
+    private String value_domainArn;
+    private boolean unknown_domainArn;
     public String domainArn() {
-        if (domainArn == null) return null;
-        return domainArn.getValue("VpcEndpointArgs.domainArn");
+        if (!unknown_domainArn) return value_domainArn;
+        throw new UndeferrableValueException("Value 'VpcEndpointArgs.domainArn' is not present");
     }
 
     /**
      * Options to specify the subnets and security groups for the endpoint.
      * 
      */
-    private UndeferrableValue<VpcEndpointVpcOptionsArgs> vpcOptions;
-
+    @PolicyResourceProperty(name="vpcOptions", flag="unknown_vpcOptions")
+    private VpcEndpointVpcOptionsArgs value_vpcOptions;
+    private boolean unknown_vpcOptions;
     public VpcEndpointVpcOptionsArgs vpcOptions() {
-        if (vpcOptions == null) return null;
-        return vpcOptions.getValue("VpcEndpointArgs.vpcOptions");
+        if (!unknown_vpcOptions) return value_vpcOptions;
+        throw new UndeferrableValueException("Value 'VpcEndpointArgs.vpcOptions' is not present");
     }
 
 }

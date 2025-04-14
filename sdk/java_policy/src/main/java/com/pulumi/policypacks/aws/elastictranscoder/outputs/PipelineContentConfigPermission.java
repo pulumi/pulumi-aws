@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elastictranscoder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class PipelineContentConfigPermission {
      * The permission that you want to give to the AWS user that you specified in `content_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> accesses;
-
+    @PolicyResourceProperty(name="accesses", flag="unknown_accesses")
+    private @Nullable List<String> value_accesses;
+    private boolean unknown_accesses;
     public @Nullable List<String> accesses() {
-        if (accesses == null) return null;
-        return accesses.getValue("PipelineContentConfigPermission.accesses");
+        if (!unknown_accesses) return value_accesses;
+        throw new UndeferrableValueException("Value 'PipelineContentConfigPermission.accesses' is not present");
     }
 
     /**
      * The AWS user or group that you want to have access to transcoded files and playlists.
      * 
      */
-    private @Nullable UndeferrableValue<String> grantee;
-
+    @PolicyResourceProperty(name="grantee", flag="unknown_grantee")
+    private @Nullable String value_grantee;
+    private boolean unknown_grantee;
     public @Nullable String grantee() {
-        if (grantee == null) return null;
-        return grantee.getValue("PipelineContentConfigPermission.grantee");
+        if (!unknown_grantee) return value_grantee;
+        throw new UndeferrableValueException("Value 'PipelineContentConfigPermission.grantee' is not present");
     }
 
     /**
      * Specify the type of value that appears in the `content_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
      * 
      */
-    private @Nullable UndeferrableValue<String> granteeType;
-
+    @PolicyResourceProperty(name="granteeType", flag="unknown_granteeType")
+    private @Nullable String value_granteeType;
+    private boolean unknown_granteeType;
     public @Nullable String granteeType() {
-        if (granteeType == null) return null;
-        return granteeType.getValue("PipelineContentConfigPermission.granteeType");
+        if (!unknown_granteeType) return value_granteeType;
+        throw new UndeferrableValueException("Value 'PipelineContentConfigPermission.granteeType' is not present");
     }
 
 }

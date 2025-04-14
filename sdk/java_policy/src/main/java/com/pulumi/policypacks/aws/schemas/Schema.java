@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.schemas;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,77 +18,84 @@ public final class Schema extends com.pulumi.resources.PolicyResourceOutput {
      * The Amazon Resource Name (ARN) of the discoverer.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Schema.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Schema.arn' is not present");
     }
 
     /**
      * The schema specification. Must be a valid Open API 3.0 spec.
      * 
      */
-    private UndeferrableValue<String> content;
-
+    @PolicyResourceProperty(name="content", flag="unknown_content")
+    private String value_content;
+    private boolean unknown_content;
     public String content() {
-        if (content == null) return null;
-        return content.getValue("Schema.content");
+        if (!unknown_content) return value_content;
+        throw new UndeferrableValueException("Value 'Schema.content' is not present");
     }
 
     /**
      * The description of the schema. Maximum of 256 characters.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Schema.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Schema.description' is not present");
     }
 
     /**
      * The last modified date of the schema.
      * 
      */
-    private UndeferrableValue<String> lastModified;
-
+    @PolicyResourceProperty(name="lastModified", flag="unknown_lastModified")
+    private String value_lastModified;
+    private boolean unknown_lastModified;
     public String lastModified() {
-        if (lastModified == null) return null;
-        return lastModified.getValue("Schema.lastModified");
+        if (!unknown_lastModified) return value_lastModified;
+        throw new UndeferrableValueException("Value 'Schema.lastModified' is not present");
     }
 
     /**
      * The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, {@literal @}.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Schema.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Schema.name' is not present");
     }
 
     /**
      * The name of the registry in which this schema belongs.
      * 
      */
-    private UndeferrableValue<String> registryName;
-
+    @PolicyResourceProperty(name="registryName", flag="unknown_registryName")
+    private String value_registryName;
+    private boolean unknown_registryName;
     public String registryName() {
-        if (registryName == null) return null;
-        return registryName.getValue("Schema.registryName");
+        if (!unknown_registryName) return value_registryName;
+        throw new UndeferrableValueException("Value 'Schema.registryName' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Schema.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Schema.tags' is not present");
     }
 
     /**
@@ -98,44 +106,48 @@ public final class Schema extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Schema.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Schema.tagsAll' is not present");
     }
 
     /**
      * The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("Schema.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'Schema.type' is not present");
     }
 
     /**
      * The version of the schema.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("Schema.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'Schema.version' is not present");
     }
 
     /**
      * The created date of the version of the schema.
      * 
      */
-    private UndeferrableValue<String> versionCreatedDate;
-
+    @PolicyResourceProperty(name="versionCreatedDate", flag="unknown_versionCreatedDate")
+    private String value_versionCreatedDate;
+    private boolean unknown_versionCreatedDate;
     public String versionCreatedDate() {
-        if (versionCreatedDate == null) return null;
-        return versionCreatedDate.getValue("Schema.versionCreatedDate");
+        if (!unknown_versionCreatedDate) return value_versionCreatedDate;
+        throw new UndeferrableValueException("Value 'Schema.versionCreatedDate' is not present");
     }
 
 }

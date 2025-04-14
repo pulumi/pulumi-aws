@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,66 +18,72 @@ public final class ApiCorsConfigurationArgs {
      * Whether credentials are included in the CORS request.
      * 
      */
-    private UndeferrableValue<Boolean> allowCredentials;
-
+    @PolicyResourceProperty(name="allowCredentials", flag="unknown_allowCredentials")
+    private Boolean value_allowCredentials;
+    private boolean unknown_allowCredentials;
     public Boolean allowCredentials() {
-        if (allowCredentials == null) return null;
-        return allowCredentials.getValue("ApiCorsConfigurationArgs.allowCredentials");
+        if (!unknown_allowCredentials) return value_allowCredentials;
+        throw new UndeferrableValueException("Value 'ApiCorsConfigurationArgs.allowCredentials' is not present");
     }
 
     /**
      * Set of allowed HTTP headers.
      * 
      */
-    private UndeferrableValue<List<String>> allowHeaders;
-
+    @PolicyResourceProperty(name="allowHeaders", flag="unknown_allowHeaders")
+    private List<String> value_allowHeaders;
+    private boolean unknown_allowHeaders;
     public List<String> allowHeaders() {
-        if (allowHeaders == null) return null;
-        return allowHeaders.getValue("ApiCorsConfigurationArgs.allowHeaders");
+        if (!unknown_allowHeaders) return value_allowHeaders;
+        throw new UndeferrableValueException("Value 'ApiCorsConfigurationArgs.allowHeaders' is not present");
     }
 
     /**
      * Set of allowed HTTP methods.
      * 
      */
-    private UndeferrableValue<List<String>> allowMethods;
-
+    @PolicyResourceProperty(name="allowMethods", flag="unknown_allowMethods")
+    private List<String> value_allowMethods;
+    private boolean unknown_allowMethods;
     public List<String> allowMethods() {
-        if (allowMethods == null) return null;
-        return allowMethods.getValue("ApiCorsConfigurationArgs.allowMethods");
+        if (!unknown_allowMethods) return value_allowMethods;
+        throw new UndeferrableValueException("Value 'ApiCorsConfigurationArgs.allowMethods' is not present");
     }
 
     /**
      * Set of allowed origins.
      * 
      */
-    private UndeferrableValue<List<String>> allowOrigins;
-
+    @PolicyResourceProperty(name="allowOrigins", flag="unknown_allowOrigins")
+    private List<String> value_allowOrigins;
+    private boolean unknown_allowOrigins;
     public List<String> allowOrigins() {
-        if (allowOrigins == null) return null;
-        return allowOrigins.getValue("ApiCorsConfigurationArgs.allowOrigins");
+        if (!unknown_allowOrigins) return value_allowOrigins;
+        throw new UndeferrableValueException("Value 'ApiCorsConfigurationArgs.allowOrigins' is not present");
     }
 
     /**
      * Set of exposed HTTP headers.
      * 
      */
-    private UndeferrableValue<List<String>> exposeHeaders;
-
+    @PolicyResourceProperty(name="exposeHeaders", flag="unknown_exposeHeaders")
+    private List<String> value_exposeHeaders;
+    private boolean unknown_exposeHeaders;
     public List<String> exposeHeaders() {
-        if (exposeHeaders == null) return null;
-        return exposeHeaders.getValue("ApiCorsConfigurationArgs.exposeHeaders");
+        if (!unknown_exposeHeaders) return value_exposeHeaders;
+        throw new UndeferrableValueException("Value 'ApiCorsConfigurationArgs.exposeHeaders' is not present");
     }
 
     /**
      * Number of seconds that the browser should cache preflight request results.
      * 
      */
-    private UndeferrableValue<Integer> maxAge;
-
+    @PolicyResourceProperty(name="maxAge", flag="unknown_maxAge")
+    private Integer value_maxAge;
+    private boolean unknown_maxAge;
     public Integer maxAge() {
-        if (maxAge == null) return null;
-        return maxAge.getValue("ApiCorsConfigurationArgs.maxAge");
+        if (!unknown_maxAge) return value_maxAge;
+        throw new UndeferrableValueException("Value 'ApiCorsConfigurationArgs.maxAge' is not present");
     }
 
 }

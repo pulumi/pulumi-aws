@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class JobCommandArgs {
      * The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("JobCommandArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'JobCommandArgs.name' is not present");
     }
 
     /**
      * The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.11 when `glue_version` is set to 5.0.
      * 
      */
-    private UndeferrableValue<String> pythonVersion;
-
+    @PolicyResourceProperty(name="pythonVersion", flag="unknown_pythonVersion")
+    private String value_pythonVersion;
+    private boolean unknown_pythonVersion;
     public String pythonVersion() {
-        if (pythonVersion == null) return null;
-        return pythonVersion.getValue("JobCommandArgs.pythonVersion");
+        if (!unknown_pythonVersion) return value_pythonVersion;
+        throw new UndeferrableValueException("Value 'JobCommandArgs.pythonVersion' is not present");
     }
 
     /**
      * In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
      * 
      */
-    private UndeferrableValue<String> runtime;
-
+    @PolicyResourceProperty(name="runtime", flag="unknown_runtime")
+    private String value_runtime;
+    private boolean unknown_runtime;
     public String runtime() {
-        if (runtime == null) return null;
-        return runtime.getValue("JobCommandArgs.runtime");
+        if (!unknown_runtime) return value_runtime;
+        throw new UndeferrableValueException("Value 'JobCommandArgs.runtime' is not present");
     }
 
     /**
      * Specifies the S3 path to a script that executes a job.
      * 
      */
-    private UndeferrableValue<String> scriptLocation;
-
+    @PolicyResourceProperty(name="scriptLocation", flag="unknown_scriptLocation")
+    private String value_scriptLocation;
+    private boolean unknown_scriptLocation;
     public String scriptLocation() {
-        if (scriptLocation == null) return null;
-        return scriptLocation.getValue("JobCommandArgs.scriptLocation");
+        if (!unknown_scriptLocation) return value_scriptLocation;
+        throw new UndeferrableValueException("Value 'JobCommandArgs.scriptLocation' is not present");
     }
 
 }

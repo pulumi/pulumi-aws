@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssoadmin;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,22 +18,24 @@ public final class ApplicationAccessScope extends com.pulumi.resources.PolicyRes
      * Specifies the ARN of the application with the access scope with the targets to add or update.
      * 
      */
-    private UndeferrableValue<String> applicationArn;
-
+    @PolicyResourceProperty(name="applicationArn", flag="unknown_applicationArn")
+    private String value_applicationArn;
+    private boolean unknown_applicationArn;
     public String applicationArn() {
-        if (applicationArn == null) return null;
-        return applicationArn.getValue("ApplicationAccessScope.applicationArn");
+        if (!unknown_applicationArn) return value_applicationArn;
+        throw new UndeferrableValueException("Value 'ApplicationAccessScope.applicationArn' is not present");
     }
 
     /**
      * Specifies an array list of ARNs that represent the authorized targets for this access scope.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> authorizedTargets;
-
+    @PolicyResourceProperty(name="authorizedTargets", flag="unknown_authorizedTargets")
+    private @Nullable List<String> value_authorizedTargets;
+    private boolean unknown_authorizedTargets;
     public @Nullable List<String> authorizedTargets() {
-        if (authorizedTargets == null) return null;
-        return authorizedTargets.getValue("ApplicationAccessScope.authorizedTargets");
+        if (!unknown_authorizedTargets) return value_authorizedTargets;
+        throw new UndeferrableValueException("Value 'ApplicationAccessScope.authorizedTargets' is not present");
     }
 
     /**
@@ -41,11 +44,12 @@ public final class ApplicationAccessScope extends com.pulumi.resources.PolicyRes
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> scope;
-
+    @PolicyResourceProperty(name="scope", flag="unknown_scope")
+    private String value_scope;
+    private boolean unknown_scope;
     public String scope() {
-        if (scope == null) return null;
-        return scope.getValue("ApplicationAccessScope.scope");
+        if (!unknown_scope) return value_scope;
+        throw new UndeferrableValueException("Value 'ApplicationAccessScope.scope' is not present");
     }
 
 }

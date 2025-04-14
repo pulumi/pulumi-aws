@@ -3,32 +3,36 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs {
 
-    private UndeferrableValue<String> audioRenditionSets;
-
+    @PolicyResourceProperty(name="audioRenditionSets", flag="unknown_audioRenditionSets")
+    private String value_audioRenditionSets;
+    private boolean unknown_audioRenditionSets;
     public String audioRenditionSets() {
-        if (audioRenditionSets == null) return null;
-        return audioRenditionSets.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs.audioRenditionSets");
+        if (!unknown_audioRenditionSets) return value_audioRenditionSets;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs.audioRenditionSets' is not present");
     }
 
-    private UndeferrableValue<String> nielsenId3Behavior;
-
+    @PolicyResourceProperty(name="nielsenId3Behavior", flag="unknown_nielsenId3Behavior")
+    private String value_nielsenId3Behavior;
+    private boolean unknown_nielsenId3Behavior;
     public String nielsenId3Behavior() {
-        if (nielsenId3Behavior == null) return null;
-        return nielsenId3Behavior.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs.nielsenId3Behavior");
+        if (!unknown_nielsenId3Behavior) return value_nielsenId3Behavior;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs.nielsenId3Behavior' is not present");
     }
 
-    private UndeferrableValue<String> timedMetadataBehavior;
-
+    @PolicyResourceProperty(name="timedMetadataBehavior", flag="unknown_timedMetadataBehavior")
+    private String value_timedMetadataBehavior;
+    private boolean unknown_timedMetadataBehavior;
     public String timedMetadataBehavior() {
-        if (timedMetadataBehavior == null) return null;
-        return timedMetadataBehavior.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs.timedMetadataBehavior");
+        if (!unknown_timedMetadataBehavior) return value_timedMetadataBehavior;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs.timedMetadataBehavior' is not present");
     }
 
 }

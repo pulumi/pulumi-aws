@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class EventConnectionAuthParametersOauthClientParametersArgs {
      * The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
      * 
      */
-    private UndeferrableValue<String> clientId;
-
+    @PolicyResourceProperty(name="clientId", flag="unknown_clientId")
+    private String value_clientId;
+    private boolean unknown_clientId;
     public String clientId() {
-        if (clientId == null) return null;
-        return clientId.getValue("EventConnectionAuthParametersOauthClientParametersArgs.clientId");
+        if (!unknown_clientId) return value_clientId;
+        throw new UndeferrableValueException("Value 'EventConnectionAuthParametersOauthClientParametersArgs.clientId' is not present");
     }
 
     /**
      * The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
      * 
      */
-    private UndeferrableValue<String> clientSecret;
-
+    @PolicyResourceProperty(name="clientSecret", flag="unknown_clientSecret")
+    private String value_clientSecret;
+    private boolean unknown_clientSecret;
     public String clientSecret() {
-        if (clientSecret == null) return null;
-        return clientSecret.getValue("EventConnectionAuthParametersOauthClientParametersArgs.clientSecret");
+        if (!unknown_clientSecret) return value_clientSecret;
+        throw new UndeferrableValueException("Value 'EventConnectionAuthParametersOauthClientParametersArgs.clientSecret' is not present");
     }
 
 }

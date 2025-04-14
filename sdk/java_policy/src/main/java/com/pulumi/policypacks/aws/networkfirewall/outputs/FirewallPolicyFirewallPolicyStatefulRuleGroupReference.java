@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReference {
      * Configuration block for override values
      * 
      */
-    private @Nullable UndeferrableValue<FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride> override;
-
+    @PolicyResourceProperty(name="override", flag="unknown_override")
+    private @Nullable FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride value_override;
+    private boolean unknown_override;
     public @Nullable FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride override() {
-        if (override == null) return null;
-        return override.getValue("FirewallPolicyFirewallPolicyStatefulRuleGroupReference.override");
+        if (!unknown_override) return value_override;
+        throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicyStatefulRuleGroupReference.override' is not present");
     }
 
     /**
      * An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> priority;
-
+    @PolicyResourceProperty(name="priority", flag="unknown_priority")
+    private @Nullable Integer value_priority;
+    private boolean unknown_priority;
     public @Nullable Integer priority() {
-        if (priority == null) return null;
-        return priority.getValue("FirewallPolicyFirewallPolicyStatefulRuleGroupReference.priority");
+        if (!unknown_priority) return value_priority;
+        throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicyStatefulRuleGroupReference.priority' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the stateful rule group.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("FirewallPolicyFirewallPolicyStatefulRuleGroupReference.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicyStatefulRuleGroupReference.resourceArn' is not present");
     }
 
 }

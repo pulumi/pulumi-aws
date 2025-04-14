@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudwatch.inputs.MetricAlarmMetricQueryArgs;
 import java.lang.Boolean;
@@ -22,66 +23,72 @@ public final class MetricAlarmArgs extends com.pulumi.resources.PolicyResourceIn
      * Indicates whether or not actions should be executed during any changes to the alarm&#39;s state. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> actionsEnabled;
-
+    @PolicyResourceProperty(name="actionsEnabled", flag="unknown_actionsEnabled")
+    private Boolean value_actionsEnabled;
+    private boolean unknown_actionsEnabled;
     public Boolean actionsEnabled() {
-        if (actionsEnabled == null) return null;
-        return actionsEnabled.getValue("MetricAlarmArgs.actionsEnabled");
+        if (!unknown_actionsEnabled) return value_actionsEnabled;
+        throw new UndeferrableValueException("Value 'MetricAlarmArgs.actionsEnabled' is not present");
     }
 
     /**
      * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      * 
      */
-    private UndeferrableValue<List<String>> alarmActions;
-
+    @PolicyResourceProperty(name="alarmActions", flag="unknown_alarmActions")
+    private List<String> value_alarmActions;
+    private boolean unknown_alarmActions;
     public List<String> alarmActions() {
-        if (alarmActions == null) return null;
-        return alarmActions.getValue("MetricAlarmArgs.alarmActions");
+        if (!unknown_alarmActions) return value_alarmActions;
+        throw new UndeferrableValueException("Value 'MetricAlarmArgs.alarmActions' is not present");
     }
 
     /**
      * The description for the alarm.
      * 
      */
-    private UndeferrableValue<String> alarmDescription;
-
+    @PolicyResourceProperty(name="alarmDescription", flag="unknown_alarmDescription")
+    private String value_alarmDescription;
+    private boolean unknown_alarmDescription;
     public String alarmDescription() {
-        if (alarmDescription == null) return null;
-        return alarmDescription.getValue("MetricAlarmArgs.alarmDescription");
+        if (!unknown_alarmDescription) return value_alarmDescription;
+        throw new UndeferrableValueException("Value 'MetricAlarmArgs.alarmDescription' is not present");
     }
 
     /**
      * The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
      * 
      */
-    private UndeferrableValue<String> comparisonOperator;
-
+    @PolicyResourceProperty(name="comparisonOperator", flag="unknown_comparisonOperator")
+    private String value_comparisonOperator;
+    private boolean unknown_comparisonOperator;
     public String comparisonOperator() {
-        if (comparisonOperator == null) return null;
-        return comparisonOperator.getValue("MetricAlarmArgs.comparisonOperator");
+        if (!unknown_comparisonOperator) return value_comparisonOperator;
+        throw new UndeferrableValueException("Value 'MetricAlarmArgs.comparisonOperator' is not present");
     }
 
     /**
      * The number of datapoints that must be breaching to trigger the alarm.
      * 
      */
-    private UndeferrableValue<Integer> datapointsToAlarm;
-
+    @PolicyResourceProperty(name="datapointsToAlarm", flag="unknown_datapointsToAlarm")
+    private Integer value_datapointsToAlarm;
+    private boolean unknown_datapointsToAlarm;
     public Integer datapointsToAlarm() {
-        if (datapointsToAlarm == null) return null;
-        return datapointsToAlarm.getValue("MetricAlarmArgs.datapointsToAlarm");
+        if (!unknown_datapointsToAlarm) return value_datapointsToAlarm;
+        throw new UndeferrableValueException("Value 'MetricAlarmArgs.datapointsToAlarm' is not present");
     }
 
     /**
      * The dimensions for the alarm&#39;s associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      * 
      */
-    private UndeferrableValue<Map<String,String>> dimensions;
-
+    @PolicyResourceProperty(name="dimensions", flag="unknown_dimensions")
+    private Map<String,String> value_dimensions;
+    private boolean unknown_dimensions;
     public Map<String,String> dimensions() {
-        if (dimensions == null) return null;
-        return dimensions.getValue("MetricAlarmArgs.dimensions");
+        if (!unknown_dimensions) return value_dimensions;
+        throw new UndeferrableValueException("Value 'MetricAlarmArgs.dimensions' is not present");
     }
 
     /**
@@ -91,44 +98,48 @@ public final class MetricAlarmArgs extends com.pulumi.resources.PolicyResourceIn
      * The following values are supported: `ignore`, and `evaluate`.
      * 
      */
-    private UndeferrableValue<String> evaluateLowSampleCountPercentiles;
-
+    @PolicyResourceProperty(name="evaluateLowSampleCountPercentiles", flag="unknown_evaluateLowSampleCountPercentiles")
+    private String value_evaluateLowSampleCountPercentiles;
+    private boolean unknown_evaluateLowSampleCountPercentiles;
     public String evaluateLowSampleCountPercentiles() {
-        if (evaluateLowSampleCountPercentiles == null) return null;
-        return evaluateLowSampleCountPercentiles.getValue("MetricAlarmArgs.evaluateLowSampleCountPercentiles");
+        if (!unknown_evaluateLowSampleCountPercentiles) return value_evaluateLowSampleCountPercentiles;
+        throw new UndeferrableValueException("Value 'MetricAlarmArgs.evaluateLowSampleCountPercentiles' is not present");
     }
 
     /**
      * The number of periods over which data is compared to the specified threshold.
      * 
      */
-    private UndeferrableValue<Integer> evaluationPeriods;
-
+    @PolicyResourceProperty(name="evaluationPeriods", flag="unknown_evaluationPeriods")
+    private Integer value_evaluationPeriods;
+    private boolean unknown_evaluationPeriods;
     public Integer evaluationPeriods() {
-        if (evaluationPeriods == null) return null;
-        return evaluationPeriods.getValue("MetricAlarmArgs.evaluationPeriods");
+        if (!unknown_evaluationPeriods) return value_evaluationPeriods;
+        throw new UndeferrableValueException("Value 'MetricAlarmArgs.evaluationPeriods' is not present");
     }
 
     /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
      * 
      */
-    private UndeferrableValue<String> extendedStatistic;
-
+    @PolicyResourceProperty(name="extendedStatistic", flag="unknown_extendedStatistic")
+    private String value_extendedStatistic;
+    private boolean unknown_extendedStatistic;
     public String extendedStatistic() {
-        if (extendedStatistic == null) return null;
-        return extendedStatistic.getValue("MetricAlarmArgs.extendedStatistic");
+        if (!unknown_extendedStatistic) return value_extendedStatistic;
+        throw new UndeferrableValueException("Value 'MetricAlarmArgs.extendedStatistic' is not present");
     }
 
     /**
      * The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      * 
      */
-    private UndeferrableValue<List<String>> insufficientDataActions;
-
+    @PolicyResourceProperty(name="insufficientDataActions", flag="unknown_insufficientDataActions")
+    private List<String> value_insufficientDataActions;
+    private boolean unknown_insufficientDataActions;
     public List<String> insufficientDataActions() {
-        if (insufficientDataActions == null) return null;
-        return insufficientDataActions.getValue("MetricAlarmArgs.insufficientDataActions");
+        if (!unknown_insufficientDataActions) return value_insufficientDataActions;
+        throw new UndeferrableValueException("Value 'MetricAlarmArgs.insufficientDataActions' is not present");
     }
 
     /**
@@ -136,33 +147,36 @@ public final class MetricAlarmArgs extends com.pulumi.resources.PolicyResourceIn
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      * 
      */
-    private UndeferrableValue<String> metricName;
-
+    @PolicyResourceProperty(name="metricName", flag="unknown_metricName")
+    private String value_metricName;
+    private boolean unknown_metricName;
     public String metricName() {
-        if (metricName == null) return null;
-        return metricName.getValue("MetricAlarmArgs.metricName");
+        if (!unknown_metricName) return value_metricName;
+        throw new UndeferrableValueException("Value 'MetricAlarmArgs.metricName' is not present");
     }
 
     /**
      * Enables you to create an alarm based on a metric math expression. You may specify at most 20.
      * 
      */
-    private UndeferrableValue<List<MetricAlarmMetricQueryArgs>> metricQueries;
-
+    @PolicyResourceProperty(name="metricQueries", flag="unknown_metricQueries")
+    private List<MetricAlarmMetricQueryArgs> value_metricQueries;
+    private boolean unknown_metricQueries;
     public List<MetricAlarmMetricQueryArgs> metricQueries() {
-        if (metricQueries == null) return null;
-        return metricQueries.getValue("MetricAlarmArgs.metricQueries");
+        if (!unknown_metricQueries) return value_metricQueries;
+        throw new UndeferrableValueException("Value 'MetricAlarmArgs.metricQueries' is not present");
     }
 
     /**
      * The descriptive name for the alarm. This name must be unique within the user&#39;s AWS account
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("MetricAlarmArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'MetricAlarmArgs.name' is not present");
     }
 
     /**
@@ -170,22 +184,24 @@ public final class MetricAlarmArgs extends com.pulumi.resources.PolicyResourceIn
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      * 
      */
-    private UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private String value_namespace;
+    private boolean unknown_namespace;
     public String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("MetricAlarmArgs.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'MetricAlarmArgs.namespace' is not present");
     }
 
     /**
      * The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      * 
      */
-    private UndeferrableValue<List<String>> okActions;
-
+    @PolicyResourceProperty(name="okActions", flag="unknown_okActions")
+    private List<String> value_okActions;
+    private boolean unknown_okActions;
     public List<String> okActions() {
-        if (okActions == null) return null;
-        return okActions.getValue("MetricAlarmArgs.okActions");
+        if (!unknown_okActions) return value_okActions;
+        throw new UndeferrableValueException("Value 'MetricAlarmArgs.okActions' is not present");
     }
 
     /**
@@ -193,11 +209,12 @@ public final class MetricAlarmArgs extends com.pulumi.resources.PolicyResourceIn
      * Valid values are `10`, `30`, or any multiple of `60`.
      * 
      */
-    private UndeferrableValue<Integer> period;
-
+    @PolicyResourceProperty(name="period", flag="unknown_period")
+    private Integer value_period;
+    private boolean unknown_period;
     public Integer period() {
-        if (period == null) return null;
-        return period.getValue("MetricAlarmArgs.period");
+        if (!unknown_period) return value_period;
+        throw new UndeferrableValueException("Value 'MetricAlarmArgs.period' is not present");
     }
 
     /**
@@ -205,11 +222,12 @@ public final class MetricAlarmArgs extends com.pulumi.resources.PolicyResourceIn
      * Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
      * 
      */
-    private UndeferrableValue<String> statistic;
-
+    @PolicyResourceProperty(name="statistic", flag="unknown_statistic")
+    private String value_statistic;
+    private boolean unknown_statistic;
     public String statistic() {
-        if (statistic == null) return null;
-        return statistic.getValue("MetricAlarmArgs.statistic");
+        if (!unknown_statistic) return value_statistic;
+        throw new UndeferrableValueException("Value 'MetricAlarmArgs.statistic' is not present");
     }
 
     /**
@@ -218,55 +236,60 @@ public final class MetricAlarmArgs extends com.pulumi.resources.PolicyResourceIn
      * &gt; **NOTE:**  If you specify at least one `metric_query`, you may not specify a `metric_name`, `namespace`, `period` or `statistic`. If you do not specify a `metric_query`, you must specify each of these (although you may use `extended_statistic` instead of `statistic`).
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("MetricAlarmArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'MetricAlarmArgs.tags' is not present");
     }
 
     /**
      * The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
      * 
      */
-    private UndeferrableValue<Double> threshold;
-
+    @PolicyResourceProperty(name="threshold", flag="unknown_threshold")
+    private Double value_threshold;
+    private boolean unknown_threshold;
     public Double threshold() {
-        if (threshold == null) return null;
-        return threshold.getValue("MetricAlarmArgs.threshold");
+        if (!unknown_threshold) return value_threshold;
+        throw new UndeferrableValueException("Value 'MetricAlarmArgs.threshold' is not present");
     }
 
     /**
      * If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
      * 
      */
-    private UndeferrableValue<String> thresholdMetricId;
-
+    @PolicyResourceProperty(name="thresholdMetricId", flag="unknown_thresholdMetricId")
+    private String value_thresholdMetricId;
+    private boolean unknown_thresholdMetricId;
     public String thresholdMetricId() {
-        if (thresholdMetricId == null) return null;
-        return thresholdMetricId.getValue("MetricAlarmArgs.thresholdMetricId");
+        if (!unknown_thresholdMetricId) return value_thresholdMetricId;
+        throw new UndeferrableValueException("Value 'MetricAlarmArgs.thresholdMetricId' is not present");
     }
 
     /**
      * Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
      * 
      */
-    private UndeferrableValue<String> treatMissingData;
-
+    @PolicyResourceProperty(name="treatMissingData", flag="unknown_treatMissingData")
+    private String value_treatMissingData;
+    private boolean unknown_treatMissingData;
     public String treatMissingData() {
-        if (treatMissingData == null) return null;
-        return treatMissingData.getValue("MetricAlarmArgs.treatMissingData");
+        if (!unknown_treatMissingData) return value_treatMissingData;
+        throw new UndeferrableValueException("Value 'MetricAlarmArgs.treatMissingData' is not present");
     }
 
     /**
      * The unit for the alarm&#39;s associated metric.
      * 
      */
-    private UndeferrableValue<String> unit;
-
+    @PolicyResourceProperty(name="unit", flag="unknown_unit")
+    private String value_unit;
+    private boolean unknown_unit;
     public String unit() {
-        if (unit == null) return null;
-        return unit.getValue("MetricAlarmArgs.unit");
+        if (!unknown_unit) return value_unit;
+        throw new UndeferrableValueException("Value 'MetricAlarmArgs.unit' is not present");
     }
 
 }

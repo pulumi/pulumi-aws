@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmonitor;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class ProbeArgs extends com.pulumi.resources.PolicyResourceInput {
      * The destination IP address. This must be either IPV4 or IPV6.
      * 
      */
-    private UndeferrableValue<String> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private String value_destination;
+    private boolean unknown_destination;
     public String destination() {
-        if (destination == null) return null;
-        return destination.getValue("ProbeArgs.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'ProbeArgs.destination' is not present");
     }
 
     /**
      * The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
      * 
      */
-    private UndeferrableValue<Integer> destinationPort;
-
+    @PolicyResourceProperty(name="destinationPort", flag="unknown_destinationPort")
+    private Integer value_destinationPort;
+    private boolean unknown_destinationPort;
     public Integer destinationPort() {
-        if (destinationPort == null) return null;
-        return destinationPort.getValue("ProbeArgs.destinationPort");
+        if (!unknown_destinationPort) return value_destinationPort;
+        throw new UndeferrableValueException("Value 'ProbeArgs.destinationPort' is not present");
     }
 
     /**
      * The name of the monitor.
      * 
      */
-    private UndeferrableValue<String> monitorName;
-
+    @PolicyResourceProperty(name="monitorName", flag="unknown_monitorName")
+    private String value_monitorName;
+    private boolean unknown_monitorName;
     public String monitorName() {
-        if (monitorName == null) return null;
-        return monitorName.getValue("ProbeArgs.monitorName");
+        if (!unknown_monitorName) return value_monitorName;
+        throw new UndeferrableValueException("Value 'ProbeArgs.monitorName' is not present");
     }
 
     /**
@@ -53,44 +57,48 @@ public final class ProbeArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<Integer> packetSize;
-
+    @PolicyResourceProperty(name="packetSize", flag="unknown_packetSize")
+    private Integer value_packetSize;
+    private boolean unknown_packetSize;
     public Integer packetSize() {
-        if (packetSize == null) return null;
-        return packetSize.getValue("ProbeArgs.packetSize");
+        if (!unknown_packetSize) return value_packetSize;
+        throw new UndeferrableValueException("Value 'ProbeArgs.packetSize' is not present");
     }
 
     /**
      * The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("ProbeArgs.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'ProbeArgs.protocol' is not present");
     }
 
     /**
      * The ARN of the subnet.
      * 
      */
-    private UndeferrableValue<String> sourceArn;
-
+    @PolicyResourceProperty(name="sourceArn", flag="unknown_sourceArn")
+    private String value_sourceArn;
+    private boolean unknown_sourceArn;
     public String sourceArn() {
-        if (sourceArn == null) return null;
-        return sourceArn.getValue("ProbeArgs.sourceArn");
+        if (!unknown_sourceArn) return value_sourceArn;
+        throw new UndeferrableValueException("Value 'ProbeArgs.sourceArn' is not present");
     }
 
     /**
      * Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ProbeArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ProbeArgs.tags' is not present");
     }
 
 }

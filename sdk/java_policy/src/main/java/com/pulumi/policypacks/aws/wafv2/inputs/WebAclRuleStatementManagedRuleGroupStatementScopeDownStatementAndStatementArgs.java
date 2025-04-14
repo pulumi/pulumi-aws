@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementArgs;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * The statements to combine.
      * 
      */
-    private UndeferrableValue<List<WebAclRuleStatementArgs>> statements;
-
+    @PolicyResourceProperty(name="statements", flag="unknown_statements")
+    private List<WebAclRuleStatementArgs> value_statements;
+    private boolean unknown_statements;
     public List<WebAclRuleStatementArgs> statements() {
-        if (statements == null) return null;
-        return statements.getValue("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgs.statements");
+        if (!unknown_statements) return value_statements;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgs.statements' is not present");
     }
 
 }

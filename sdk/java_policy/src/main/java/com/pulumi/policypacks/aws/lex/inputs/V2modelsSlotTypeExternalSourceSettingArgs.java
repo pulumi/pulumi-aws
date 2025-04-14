@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs;
 import javax.annotation.Nullable;
 
@@ -15,11 +16,12 @@ public final class V2modelsSlotTypeExternalSourceSettingArgs {
      * See `grammar_slot_type_setting` argument reference below.
      * 
      */
-    private UndeferrableValue<V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs> grammarSlotTypeSetting;
-
+    @PolicyResourceProperty(name="grammarSlotTypeSetting", flag="unknown_grammarSlotTypeSetting")
+    private V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs value_grammarSlotTypeSetting;
+    private boolean unknown_grammarSlotTypeSetting;
     public V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs grammarSlotTypeSetting() {
-        if (grammarSlotTypeSetting == null) return null;
-        return grammarSlotTypeSetting.getValue("V2modelsSlotTypeExternalSourceSettingArgs.grammarSlotTypeSetting");
+        if (!unknown_grammarSlotTypeSetting) return value_grammarSlotTypeSetting;
+        throw new UndeferrableValueException("Value 'V2modelsSlotTypeExternalSourceSettingArgs.grammarSlotTypeSetting' is not present");
     }
 
 }

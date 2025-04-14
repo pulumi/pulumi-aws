@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
      * 
      */
-    private @Nullable UndeferrableValue<String> inputStartingPosition;
-
+    @PolicyResourceProperty(name="inputStartingPosition", flag="unknown_inputStartingPosition")
+    private @Nullable String value_inputStartingPosition;
+    private boolean unknown_inputStartingPosition;
     public @Nullable String inputStartingPosition() {
-        if (inputStartingPosition == null) return null;
-        return inputStartingPosition.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration.inputStartingPosition");
+        if (!unknown_inputStartingPosition) return value_inputStartingPosition;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration.inputStartingPosition' is not present");
     }
 
 }

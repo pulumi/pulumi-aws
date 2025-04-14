@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigKernelSpecArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class AppImageConfigKernelGatewayImageConfigArgs {
      * The URL where the Git repository is located. See File System Config details below.
      * 
      */
-    private UndeferrableValue<AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs> fileSystemConfig;
-
+    @PolicyResourceProperty(name="fileSystemConfig", flag="unknown_fileSystemConfig")
+    private AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs value_fileSystemConfig;
+    private boolean unknown_fileSystemConfig;
     public AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs fileSystemConfig() {
-        if (fileSystemConfig == null) return null;
-        return fileSystemConfig.getValue("AppImageConfigKernelGatewayImageConfigArgs.fileSystemConfig");
+        if (!unknown_fileSystemConfig) return value_fileSystemConfig;
+        throw new UndeferrableValueException("Value 'AppImageConfigKernelGatewayImageConfigArgs.fileSystemConfig' is not present");
     }
 
     /**
      * The default branch for the Git repository. See Kernel Spec details below.
      * 
      */
-    private UndeferrableValue<AppImageConfigKernelGatewayImageConfigKernelSpecArgs> kernelSpec;
-
+    @PolicyResourceProperty(name="kernelSpec", flag="unknown_kernelSpec")
+    private AppImageConfigKernelGatewayImageConfigKernelSpecArgs value_kernelSpec;
+    private boolean unknown_kernelSpec;
     public AppImageConfigKernelGatewayImageConfigKernelSpecArgs kernelSpec() {
-        if (kernelSpec == null) return null;
-        return kernelSpec.getValue("AppImageConfigKernelGatewayImageConfigArgs.kernelSpec");
+        if (!unknown_kernelSpec) return value_kernelSpec;
+        throw new UndeferrableValueException("Value 'AppImageConfigKernelGatewayImageConfigArgs.kernelSpec' is not present");
     }
 
 }

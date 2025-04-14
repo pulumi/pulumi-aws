@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.imagebuilder.inputs.ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class ContainerRecipeInstanceConfigurationArgs {
      * Configuration block(s) with block device mappings for the container recipe. Detailed below.
      * 
      */
-    private UndeferrableValue<List<ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs>> blockDeviceMappings;
-
+    @PolicyResourceProperty(name="blockDeviceMappings", flag="unknown_blockDeviceMappings")
+    private List<ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs> value_blockDeviceMappings;
+    private boolean unknown_blockDeviceMappings;
     public List<ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs> blockDeviceMappings() {
-        if (blockDeviceMappings == null) return null;
-        return blockDeviceMappings.getValue("ContainerRecipeInstanceConfigurationArgs.blockDeviceMappings");
+        if (!unknown_blockDeviceMappings) return value_blockDeviceMappings;
+        throw new UndeferrableValueException("Value 'ContainerRecipeInstanceConfigurationArgs.blockDeviceMappings' is not present");
     }
 
     /**
      * The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
      * 
      */
-    private UndeferrableValue<String> image;
-
+    @PolicyResourceProperty(name="image", flag="unknown_image")
+    private String value_image;
+    private boolean unknown_image;
     public String image() {
-        if (image == null) return null;
-        return image.getValue("ContainerRecipeInstanceConfigurationArgs.image");
+        if (!unknown_image) return value_image;
+        throw new UndeferrableValueException("Value 'ContainerRecipeInstanceConfigurationArgs.image' is not present");
     }
 
 }

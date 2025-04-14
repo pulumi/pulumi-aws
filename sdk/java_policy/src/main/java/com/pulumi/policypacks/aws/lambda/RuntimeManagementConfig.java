@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class RuntimeManagementConfig extends com.pulumi.resources.PolicyRe
      * ARN of the function.
      * 
      */
-    private UndeferrableValue<String> functionArn;
-
+    @PolicyResourceProperty(name="functionArn", flag="unknown_functionArn")
+    private String value_functionArn;
+    private boolean unknown_functionArn;
     public String functionArn() {
-        if (functionArn == null) return null;
-        return functionArn.getValue("RuntimeManagementConfig.functionArn");
+        if (!unknown_functionArn) return value_functionArn;
+        throw new UndeferrableValueException("Value 'RuntimeManagementConfig.functionArn' is not present");
     }
 
     /**
@@ -29,44 +31,48 @@ public final class RuntimeManagementConfig extends com.pulumi.resources.PolicyRe
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> functionName;
-
+    @PolicyResourceProperty(name="functionName", flag="unknown_functionName")
+    private String value_functionName;
+    private boolean unknown_functionName;
     public String functionName() {
-        if (functionName == null) return null;
-        return functionName.getValue("RuntimeManagementConfig.functionName");
+        if (!unknown_functionName) return value_functionName;
+        throw new UndeferrableValueException("Value 'RuntimeManagementConfig.functionName' is not present");
     }
 
     /**
      * Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
      * 
      */
-    private @Nullable UndeferrableValue<String> qualifier;
-
+    @PolicyResourceProperty(name="qualifier", flag="unknown_qualifier")
+    private @Nullable String value_qualifier;
+    private boolean unknown_qualifier;
     public @Nullable String qualifier() {
-        if (qualifier == null) return null;
-        return qualifier.getValue("RuntimeManagementConfig.qualifier");
+        if (!unknown_qualifier) return value_qualifier;
+        throw new UndeferrableValueException("Value 'RuntimeManagementConfig.qualifier' is not present");
     }
 
     /**
      * ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
      * 
      */
-    private @Nullable UndeferrableValue<String> runtimeVersionArn;
-
+    @PolicyResourceProperty(name="runtimeVersionArn", flag="unknown_runtimeVersionArn")
+    private @Nullable String value_runtimeVersionArn;
+    private boolean unknown_runtimeVersionArn;
     public @Nullable String runtimeVersionArn() {
-        if (runtimeVersionArn == null) return null;
-        return runtimeVersionArn.getValue("RuntimeManagementConfig.runtimeVersionArn");
+        if (!unknown_runtimeVersionArn) return value_runtimeVersionArn;
+        throw new UndeferrableValueException("Value 'RuntimeManagementConfig.runtimeVersionArn' is not present");
     }
 
     /**
      * Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
      * 
      */
-    private @Nullable UndeferrableValue<String> updateRuntimeOn;
-
+    @PolicyResourceProperty(name="updateRuntimeOn", flag="unknown_updateRuntimeOn")
+    private @Nullable String value_updateRuntimeOn;
+    private boolean unknown_updateRuntimeOn;
     public @Nullable String updateRuntimeOn() {
-        if (updateRuntimeOn == null) return null;
-        return updateRuntimeOn.getValue("RuntimeManagementConfig.updateRuntimeOn");
+        if (!unknown_updateRuntimeOn) return value_updateRuntimeOn;
+        throw new UndeferrableValueException("Value 'RuntimeManagementConfig.updateRuntimeOn' is not present");
     }
 
 }

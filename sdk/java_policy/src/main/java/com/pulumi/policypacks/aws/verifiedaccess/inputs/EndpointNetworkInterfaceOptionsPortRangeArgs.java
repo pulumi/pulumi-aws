@@ -3,24 +3,27 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
 public final class EndpointNetworkInterfaceOptionsPortRangeArgs {
 
-    private UndeferrableValue<Integer> fromPort;
-
+    @PolicyResourceProperty(name="fromPort", flag="unknown_fromPort")
+    private Integer value_fromPort;
+    private boolean unknown_fromPort;
     public Integer fromPort() {
-        if (fromPort == null) return null;
-        return fromPort.getValue("EndpointNetworkInterfaceOptionsPortRangeArgs.fromPort");
+        if (!unknown_fromPort) return value_fromPort;
+        throw new UndeferrableValueException("Value 'EndpointNetworkInterfaceOptionsPortRangeArgs.fromPort' is not present");
     }
 
-    private UndeferrableValue<Integer> toPort;
-
+    @PolicyResourceProperty(name="toPort", flag="unknown_toPort")
+    private Integer value_toPort;
+    private boolean unknown_toPort;
     public Integer toPort() {
-        if (toPort == null) return null;
-        return toPort.getValue("EndpointNetworkInterfaceOptionsPortRangeArgs.toPort");
+        if (!unknown_toPort) return value_toPort;
+        throw new UndeferrableValueException("Value 'EndpointNetworkInterfaceOptionsPortRangeArgs.toPort' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,88 +19,96 @@ public final class MlflowTrackingServerArgs extends com.pulumi.resources.PolicyR
      * The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
      * 
      */
-    private UndeferrableValue<String> artifactStoreUri;
-
+    @PolicyResourceProperty(name="artifactStoreUri", flag="unknown_artifactStoreUri")
+    private String value_artifactStoreUri;
+    private boolean unknown_artifactStoreUri;
     public String artifactStoreUri() {
-        if (artifactStoreUri == null) return null;
-        return artifactStoreUri.getValue("MlflowTrackingServerArgs.artifactStoreUri");
+        if (!unknown_artifactStoreUri) return value_artifactStoreUri;
+        throw new UndeferrableValueException("Value 'MlflowTrackingServerArgs.artifactStoreUri' is not present");
     }
 
     /**
      * A list of Member Definitions that contains objects that identify the workers that make up the work team.
      * 
      */
-    private UndeferrableValue<Boolean> automaticModelRegistration;
-
+    @PolicyResourceProperty(name="automaticModelRegistration", flag="unknown_automaticModelRegistration")
+    private Boolean value_automaticModelRegistration;
+    private boolean unknown_automaticModelRegistration;
     public Boolean automaticModelRegistration() {
-        if (automaticModelRegistration == null) return null;
-        return automaticModelRegistration.getValue("MlflowTrackingServerArgs.automaticModelRegistration");
+        if (!unknown_automaticModelRegistration) return value_automaticModelRegistration;
+        throw new UndeferrableValueException("Value 'MlflowTrackingServerArgs.automaticModelRegistration' is not present");
     }
 
     /**
      * The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
      * 
      */
-    private UndeferrableValue<String> mlflowVersion;
-
+    @PolicyResourceProperty(name="mlflowVersion", flag="unknown_mlflowVersion")
+    private String value_mlflowVersion;
+    private boolean unknown_mlflowVersion;
     public String mlflowVersion() {
-        if (mlflowVersion == null) return null;
-        return mlflowVersion.getValue("MlflowTrackingServerArgs.mlflowVersion");
+        if (!unknown_mlflowVersion) return value_mlflowVersion;
+        throw new UndeferrableValueException("Value 'MlflowTrackingServerArgs.mlflowVersion' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("MlflowTrackingServerArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'MlflowTrackingServerArgs.roleArn' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("MlflowTrackingServerArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'MlflowTrackingServerArgs.tags' is not present");
     }
 
     /**
      * A unique string identifying the tracking server name. This string is part of the tracking server ARN.
      * 
      */
-    private UndeferrableValue<String> trackingServerName;
-
+    @PolicyResourceProperty(name="trackingServerName", flag="unknown_trackingServerName")
+    private String value_trackingServerName;
+    private boolean unknown_trackingServerName;
     public String trackingServerName() {
-        if (trackingServerName == null) return null;
-        return trackingServerName.getValue("MlflowTrackingServerArgs.trackingServerName");
+        if (!unknown_trackingServerName) return value_trackingServerName;
+        throw new UndeferrableValueException("Value 'MlflowTrackingServerArgs.trackingServerName' is not present");
     }
 
     /**
      * The size of the tracking server you want to create. You can choose between &#34;Small&#34;, &#34;Medium&#34;, and &#34;Large&#34;. The default MLflow Tracking Server configuration size is &#34;Small&#34;. You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
      * 
      */
-    private UndeferrableValue<String> trackingServerSize;
-
+    @PolicyResourceProperty(name="trackingServerSize", flag="unknown_trackingServerSize")
+    private String value_trackingServerSize;
+    private boolean unknown_trackingServerSize;
     public String trackingServerSize() {
-        if (trackingServerSize == null) return null;
-        return trackingServerSize.getValue("MlflowTrackingServerArgs.trackingServerSize");
+        if (!unknown_trackingServerSize) return value_trackingServerSize;
+        throw new UndeferrableValueException("Value 'MlflowTrackingServerArgs.trackingServerSize' is not present");
     }
 
     /**
      * The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
      * 
      */
-    private UndeferrableValue<String> weeklyMaintenanceWindowStart;
-
+    @PolicyResourceProperty(name="weeklyMaintenanceWindowStart", flag="unknown_weeklyMaintenanceWindowStart")
+    private String value_weeklyMaintenanceWindowStart;
+    private boolean unknown_weeklyMaintenanceWindowStart;
     public String weeklyMaintenanceWindowStart() {
-        if (weeklyMaintenanceWindowStart == null) return null;
-        return weeklyMaintenanceWindowStart.getValue("MlflowTrackingServerArgs.weeklyMaintenanceWindowStart");
+        if (!unknown_weeklyMaintenanceWindowStart) return value_weeklyMaintenanceWindowStart;
+        throw new UndeferrableValueException("Value 'MlflowTrackingServerArgs.weeklyMaintenanceWindowStart' is not present");
     }
 
 }

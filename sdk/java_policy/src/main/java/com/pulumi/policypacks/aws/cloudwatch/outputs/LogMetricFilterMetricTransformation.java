@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -15,66 +16,72 @@ public final class LogMetricFilterMetricTransformation {
      * The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
      * 
      */
-    private @Nullable UndeferrableValue<String> defaultValue;
-
+    @PolicyResourceProperty(name="defaultValue", flag="unknown_defaultValue")
+    private @Nullable String value_defaultValue;
+    private boolean unknown_defaultValue;
     public @Nullable String defaultValue() {
-        if (defaultValue == null) return null;
-        return defaultValue.getValue("LogMetricFilterMetricTransformation.defaultValue");
+        if (!unknown_defaultValue) return value_defaultValue;
+        throw new UndeferrableValueException("Value 'LogMetricFilterMetricTransformation.defaultValue' is not present");
     }
 
     /**
      * Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> dimensions;
-
+    @PolicyResourceProperty(name="dimensions", flag="unknown_dimensions")
+    private @Nullable Map<String,String> value_dimensions;
+    private boolean unknown_dimensions;
     public @Nullable Map<String,String> dimensions() {
-        if (dimensions == null) return null;
-        return dimensions.getValue("LogMetricFilterMetricTransformation.dimensions");
+        if (!unknown_dimensions) return value_dimensions;
+        throw new UndeferrableValueException("Value 'LogMetricFilterMetricTransformation.dimensions' is not present");
     }
 
     /**
      * The name of the CloudWatch metric to which the monitored log information should be published (e.g., `ErrorCount`)
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LogMetricFilterMetricTransformation.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LogMetricFilterMetricTransformation.name' is not present");
     }
 
     /**
      * The destination namespace of the CloudWatch metric.
      * 
      */
-    private UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private String value_namespace;
+    private boolean unknown_namespace;
     public String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("LogMetricFilterMetricTransformation.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'LogMetricFilterMetricTransformation.namespace' is not present");
     }
 
     /**
      * The unit to assign to the metric. If you omit this, the unit is set as `None`.
      * 
      */
-    private @Nullable UndeferrableValue<String> unit;
-
+    @PolicyResourceProperty(name="unit", flag="unknown_unit")
+    private @Nullable String value_unit;
+    private boolean unknown_unit;
     public @Nullable String unit() {
-        if (unit == null) return null;
-        return unit.getValue("LogMetricFilterMetricTransformation.unit");
+        if (!unknown_unit) return value_unit;
+        throw new UndeferrableValueException("Value 'LogMetricFilterMetricTransformation.unit' is not present");
     }
 
     /**
      * What to publish to the metric. For example, if you&#39;re counting the occurrences of a particular term like &#34;Error&#34;, the value will be &#34;1&#34; for each occurrence. If you&#39;re counting the bytes transferred the published value will be the value in the log event.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("LogMetricFilterMetricTransformation.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'LogMetricFilterMetricTransformation.value' is not present");
     }
 
 }

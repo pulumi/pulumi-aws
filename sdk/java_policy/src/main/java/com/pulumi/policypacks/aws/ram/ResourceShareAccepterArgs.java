@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ram;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,11 +16,12 @@ public final class ResourceShareAccepterArgs extends com.pulumi.resources.Policy
      * The ARN of the resource share.
      * 
      */
-    private UndeferrableValue<String> shareArn;
-
+    @PolicyResourceProperty(name="shareArn", flag="unknown_shareArn")
+    private String value_shareArn;
+    private boolean unknown_shareArn;
     public String shareArn() {
-        if (shareArn == null) return null;
-        return shareArn.getValue("ResourceShareAccepterArgs.shareArn");
+        if (!unknown_shareArn) return value_shareArn;
+        throw new UndeferrableValueException("Value 'ResourceShareAccepterArgs.shareArn' is not present");
     }
 
 }

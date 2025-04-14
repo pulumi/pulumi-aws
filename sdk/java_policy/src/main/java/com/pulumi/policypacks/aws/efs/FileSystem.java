@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.efs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.efs.outputs.FileSystemLifecyclePolicy;
 import com.pulumi.policypacks.aws.efs.outputs.FileSystemProtection;
@@ -24,33 +25,36 @@ public final class FileSystem extends com.pulumi.resources.PolicyResourceOutput 
      * Amazon Resource Name of the file system.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("FileSystem.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'FileSystem.arn' is not present");
     }
 
     /**
      * The identifier of the Availability Zone in which the file system&#39;s One Zone storage classes exist.
      * 
      */
-    private UndeferrableValue<String> availabilityZoneId;
-
+    @PolicyResourceProperty(name="availabilityZoneId", flag="unknown_availabilityZoneId")
+    private String value_availabilityZoneId;
+    private boolean unknown_availabilityZoneId;
     public String availabilityZoneId() {
-        if (availabilityZoneId == null) return null;
-        return availabilityZoneId.getValue("FileSystem.availabilityZoneId");
+        if (!unknown_availabilityZoneId) return value_availabilityZoneId;
+        throw new UndeferrableValueException("Value 'FileSystem.availabilityZoneId' is not present");
     }
 
     /**
      * the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
      * 
      */
-    private UndeferrableValue<String> availabilityZoneName;
-
+    @PolicyResourceProperty(name="availabilityZoneName", flag="unknown_availabilityZoneName")
+    private String value_availabilityZoneName;
+    private boolean unknown_availabilityZoneName;
     public String availabilityZoneName() {
-        if (availabilityZoneName == null) return null;
-        return availabilityZoneName.getValue("FileSystem.availabilityZoneName");
+        if (!unknown_availabilityZoneName) return value_availabilityZoneName;
+        throw new UndeferrableValueException("Value 'FileSystem.availabilityZoneName' is not present");
     }
 
     /**
@@ -60,143 +64,156 @@ public final class FileSystem extends com.pulumi.resources.PolicyResourceOutput 
      * user guide for more information.
      * 
      */
-    private UndeferrableValue<String> creationToken;
-
+    @PolicyResourceProperty(name="creationToken", flag="unknown_creationToken")
+    private String value_creationToken;
+    private boolean unknown_creationToken;
     public String creationToken() {
-        if (creationToken == null) return null;
-        return creationToken.getValue("FileSystem.creationToken");
+        if (!unknown_creationToken) return value_creationToken;
+        throw new UndeferrableValueException("Value 'FileSystem.creationToken' is not present");
     }
 
     /**
      * The DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      * 
      */
-    private UndeferrableValue<String> dnsName;
-
+    @PolicyResourceProperty(name="dnsName", flag="unknown_dnsName")
+    private String value_dnsName;
+    private boolean unknown_dnsName;
     public String dnsName() {
-        if (dnsName == null) return null;
-        return dnsName.getValue("FileSystem.dnsName");
+        if (!unknown_dnsName) return value_dnsName;
+        throw new UndeferrableValueException("Value 'FileSystem.dnsName' is not present");
     }
 
     /**
      * If true, the disk will be encrypted.
      * 
      */
-    private UndeferrableValue<Boolean> encrypted;
-
+    @PolicyResourceProperty(name="encrypted", flag="unknown_encrypted")
+    private Boolean value_encrypted;
+    private boolean unknown_encrypted;
     public Boolean encrypted() {
-        if (encrypted == null) return null;
-        return encrypted.getValue("FileSystem.encrypted");
+        if (!unknown_encrypted) return value_encrypted;
+        throw new UndeferrableValueException("Value 'FileSystem.encrypted' is not present");
     }
 
     /**
      * The ARN for the KMS encryption key. When specifying kms_key_id, encrypted needs to be set to true.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("FileSystem.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'FileSystem.kmsKeyId' is not present");
     }
 
     /**
      * A file system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object. See `lifecycle_policy` block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<FileSystemLifecyclePolicy>> lifecyclePolicies;
-
+    @PolicyResourceProperty(name="lifecyclePolicies", flag="unknown_lifecyclePolicies")
+    private @Nullable List<FileSystemLifecyclePolicy> value_lifecyclePolicies;
+    private boolean unknown_lifecyclePolicies;
     public @Nullable List<FileSystemLifecyclePolicy> lifecyclePolicies() {
-        if (lifecyclePolicies == null) return null;
-        return lifecyclePolicies.getValue("FileSystem.lifecyclePolicies");
+        if (!unknown_lifecyclePolicies) return value_lifecyclePolicies;
+        throw new UndeferrableValueException("Value 'FileSystem.lifecyclePolicies' is not present");
     }
 
     /**
      * The value of the file system&#39;s `Name` tag.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("FileSystem.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FileSystem.name' is not present");
     }
 
     /**
      * The current number of mount targets that the file system has.
      * 
      */
-    private UndeferrableValue<Integer> numberOfMountTargets;
-
+    @PolicyResourceProperty(name="numberOfMountTargets", flag="unknown_numberOfMountTargets")
+    private Integer value_numberOfMountTargets;
+    private boolean unknown_numberOfMountTargets;
     public Integer numberOfMountTargets() {
-        if (numberOfMountTargets == null) return null;
-        return numberOfMountTargets.getValue("FileSystem.numberOfMountTargets");
+        if (!unknown_numberOfMountTargets) return value_numberOfMountTargets;
+        throw new UndeferrableValueException("Value 'FileSystem.numberOfMountTargets' is not present");
     }
 
     /**
      * The AWS account that created the file system. If the file system was createdby an IAM user, the parent account to which the user belongs is the owner.
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("FileSystem.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'FileSystem.ownerId' is not present");
     }
 
     /**
      * The file system performance mode. Can be either `&#34;generalPurpose&#34;` or `&#34;maxIO&#34;` (Default: `&#34;generalPurpose&#34;`).
      * 
      */
-    private UndeferrableValue<String> performanceMode;
-
+    @PolicyResourceProperty(name="performanceMode", flag="unknown_performanceMode")
+    private String value_performanceMode;
+    private boolean unknown_performanceMode;
     public String performanceMode() {
-        if (performanceMode == null) return null;
-        return performanceMode.getValue("FileSystem.performanceMode");
+        if (!unknown_performanceMode) return value_performanceMode;
+        throw new UndeferrableValueException("Value 'FileSystem.performanceMode' is not present");
     }
 
     /**
      * A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
      * 
      */
-    private UndeferrableValue<FileSystemProtection> protection;
-
+    @PolicyResourceProperty(name="protection", flag="unknown_protection")
+    private FileSystemProtection value_protection;
+    private boolean unknown_protection;
     public FileSystemProtection protection() {
-        if (protection == null) return null;
-        return protection.getValue("FileSystem.protection");
+        if (!unknown_protection) return value_protection;
+        throw new UndeferrableValueException("Value 'FileSystem.protection' is not present");
     }
 
     /**
      * The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
      * 
      */
-    private @Nullable UndeferrableValue<Double> provisionedThroughputInMibps;
-
+    @PolicyResourceProperty(name="provisionedThroughputInMibps", flag="unknown_provisionedThroughputInMibps")
+    private @Nullable Double value_provisionedThroughputInMibps;
+    private boolean unknown_provisionedThroughputInMibps;
     public @Nullable Double provisionedThroughputInMibps() {
-        if (provisionedThroughputInMibps == null) return null;
-        return provisionedThroughputInMibps.getValue("FileSystem.provisionedThroughputInMibps");
+        if (!unknown_provisionedThroughputInMibps) return value_provisionedThroughputInMibps;
+        throw new UndeferrableValueException("Value 'FileSystem.provisionedThroughputInMibps' is not present");
     }
 
     /**
      * The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
      * 
      */
-    private UndeferrableValue<List<FileSystemSizeInByte>> sizeInBytes;
-
+    @PolicyResourceProperty(name="sizeInBytes", flag="unknown_sizeInBytes")
+    private List<FileSystemSizeInByte> value_sizeInBytes;
+    private boolean unknown_sizeInBytes;
     public List<FileSystemSizeInByte> sizeInBytes() {
-        if (sizeInBytes == null) return null;
-        return sizeInBytes.getValue("FileSystem.sizeInBytes");
+        if (!unknown_sizeInBytes) return value_sizeInBytes;
+        throw new UndeferrableValueException("Value 'FileSystem.sizeInBytes' is not present");
     }
 
     /**
      * A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("FileSystem.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'FileSystem.tags' is not present");
     }
 
     /**
@@ -207,22 +224,24 @@ public final class FileSystem extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("FileSystem.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'FileSystem.tagsAll' is not present");
     }
 
     /**
      * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
      * 
      */
-    private @Nullable UndeferrableValue<String> throughputMode;
-
+    @PolicyResourceProperty(name="throughputMode", flag="unknown_throughputMode")
+    private @Nullable String value_throughputMode;
+    private boolean unknown_throughputMode;
     public @Nullable String throughputMode() {
-        if (throughputMode == null) return null;
-        return throughputMode.getValue("FileSystem.throughputMode");
+        if (!unknown_throughputMode) return value_throughputMode;
+        throw new UndeferrableValueException("Value 'FileSystem.throughputMode' is not present");
     }
 
 }

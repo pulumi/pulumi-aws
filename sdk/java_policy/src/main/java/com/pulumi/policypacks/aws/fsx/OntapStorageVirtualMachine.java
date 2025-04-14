@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.fsx.outputs.OntapStorageVirtualMachineActiveDirectoryConfiguration;
 import com.pulumi.policypacks.aws.fsx.outputs.OntapStorageVirtualMachineEndpoint;
@@ -20,99 +21,108 @@ public final class OntapStorageVirtualMachine extends com.pulumi.resources.Polic
      * Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<OntapStorageVirtualMachineActiveDirectoryConfiguration> activeDirectoryConfiguration;
-
+    @PolicyResourceProperty(name="activeDirectoryConfiguration", flag="unknown_activeDirectoryConfiguration")
+    private @Nullable OntapStorageVirtualMachineActiveDirectoryConfiguration value_activeDirectoryConfiguration;
+    private boolean unknown_activeDirectoryConfiguration;
     public @Nullable OntapStorageVirtualMachineActiveDirectoryConfiguration activeDirectoryConfiguration() {
-        if (activeDirectoryConfiguration == null) return null;
-        return activeDirectoryConfiguration.getValue("OntapStorageVirtualMachine.activeDirectoryConfiguration");
+        if (!unknown_activeDirectoryConfiguration) return value_activeDirectoryConfiguration;
+        throw new UndeferrableValueException("Value 'OntapStorageVirtualMachine.activeDirectoryConfiguration' is not present");
     }
 
     /**
      * Amazon Resource Name of the storage virtual machine.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("OntapStorageVirtualMachine.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'OntapStorageVirtualMachine.arn' is not present");
     }
 
     /**
      * The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
      * 
      */
-    private UndeferrableValue<List<OntapStorageVirtualMachineEndpoint>> endpoints;
-
+    @PolicyResourceProperty(name="endpoints", flag="unknown_endpoints")
+    private List<OntapStorageVirtualMachineEndpoint> value_endpoints;
+    private boolean unknown_endpoints;
     public List<OntapStorageVirtualMachineEndpoint> endpoints() {
-        if (endpoints == null) return null;
-        return endpoints.getValue("OntapStorageVirtualMachine.endpoints");
+        if (!unknown_endpoints) return value_endpoints;
+        throw new UndeferrableValueException("Value 'OntapStorageVirtualMachine.endpoints' is not present");
     }
 
     /**
      * The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
      * 
      */
-    private UndeferrableValue<String> fileSystemId;
-
+    @PolicyResourceProperty(name="fileSystemId", flag="unknown_fileSystemId")
+    private String value_fileSystemId;
+    private boolean unknown_fileSystemId;
     public String fileSystemId() {
-        if (fileSystemId == null) return null;
-        return fileSystemId.getValue("OntapStorageVirtualMachine.fileSystemId");
+        if (!unknown_fileSystemId) return value_fileSystemId;
+        throw new UndeferrableValueException("Value 'OntapStorageVirtualMachine.fileSystemId' is not present");
     }
 
     /**
      * The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("OntapStorageVirtualMachine.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'OntapStorageVirtualMachine.name' is not present");
     }
 
     /**
      * Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
      * 
      */
-    private @Nullable UndeferrableValue<String> rootVolumeSecurityStyle;
-
+    @PolicyResourceProperty(name="rootVolumeSecurityStyle", flag="unknown_rootVolumeSecurityStyle")
+    private @Nullable String value_rootVolumeSecurityStyle;
+    private boolean unknown_rootVolumeSecurityStyle;
     public @Nullable String rootVolumeSecurityStyle() {
-        if (rootVolumeSecurityStyle == null) return null;
-        return rootVolumeSecurityStyle.getValue("OntapStorageVirtualMachine.rootVolumeSecurityStyle");
+        if (!unknown_rootVolumeSecurityStyle) return value_rootVolumeSecurityStyle;
+        throw new UndeferrableValueException("Value 'OntapStorageVirtualMachine.rootVolumeSecurityStyle' is not present");
     }
 
     /**
      * Describes the SVM&#39;s subtype, e.g. `DEFAULT`
      * 
      */
-    private UndeferrableValue<String> subtype;
-
+    @PolicyResourceProperty(name="subtype", flag="unknown_subtype")
+    private String value_subtype;
+    private boolean unknown_subtype;
     public String subtype() {
-        if (subtype == null) return null;
-        return subtype.getValue("OntapStorageVirtualMachine.subtype");
+        if (!unknown_subtype) return value_subtype;
+        throw new UndeferrableValueException("Value 'OntapStorageVirtualMachine.subtype' is not present");
     }
 
     /**
      * Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM&#39;s management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system&#39;s fsxadmin user to manage the SVM.
      * 
      */
-    private @Nullable UndeferrableValue<String> svmAdminPassword;
-
+    @PolicyResourceProperty(name="svmAdminPassword", flag="unknown_svmAdminPassword")
+    private @Nullable String value_svmAdminPassword;
+    private boolean unknown_svmAdminPassword;
     public @Nullable String svmAdminPassword() {
-        if (svmAdminPassword == null) return null;
-        return svmAdminPassword.getValue("OntapStorageVirtualMachine.svmAdminPassword");
+        if (!unknown_svmAdminPassword) return value_svmAdminPassword;
+        throw new UndeferrableValueException("Value 'OntapStorageVirtualMachine.svmAdminPassword' is not present");
     }
 
     /**
      * A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("OntapStorageVirtualMachine.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'OntapStorageVirtualMachine.tags' is not present");
     }
 
     /**
@@ -123,22 +133,24 @@ public final class OntapStorageVirtualMachine extends com.pulumi.resources.Polic
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("OntapStorageVirtualMachine.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'OntapStorageVirtualMachine.tagsAll' is not present");
     }
 
     /**
      * The SVM&#39;s UUID (universally unique identifier).
      * 
      */
-    private UndeferrableValue<String> uuid;
-
+    @PolicyResourceProperty(name="uuid", flag="unknown_uuid")
+    private String value_uuid;
+    private boolean unknown_uuid;
     public String uuid() {
-        if (uuid == null) return null;
-        return uuid.getValue("OntapStorageVirtualMachine.uuid");
+        if (!unknown_uuid) return value_uuid;
+        throw new UndeferrableValueException("Value 'OntapStorageVirtualMachine.uuid' is not present");
     }
 
 }

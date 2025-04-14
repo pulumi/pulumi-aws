@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedpermissions.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class PolicyDefinitionStatic {
      * The description of the static policy.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("PolicyDefinitionStatic.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'PolicyDefinitionStatic.description' is not present");
     }
 
     /**
      * The statement of the static policy.
      * 
      */
-    private UndeferrableValue<String> statement;
-
+    @PolicyResourceProperty(name="statement", flag="unknown_statement")
+    private String value_statement;
+    private boolean unknown_statement;
     public String statement() {
-        if (statement == null) return null;
-        return statement.getValue("PolicyDefinitionStatic.statement");
+        if (!unknown_statement) return value_statement;
+        throw new UndeferrableValueException("Value 'PolicyDefinitionStatic.statement' is not present");
     }
 
 }

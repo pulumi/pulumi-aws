@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclLoggingConfigurationLoggingFilter;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclLoggingConfigurationRedactedField;
@@ -19,44 +20,48 @@ public final class WebAclLoggingConfiguration extends com.pulumi.resources.Polic
      * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
      * 
      */
-    private UndeferrableValue<List<String>> logDestinationConfigs;
-
+    @PolicyResourceProperty(name="logDestinationConfigs", flag="unknown_logDestinationConfigs")
+    private List<String> value_logDestinationConfigs;
+    private boolean unknown_logDestinationConfigs;
     public List<String> logDestinationConfigs() {
-        if (logDestinationConfigs == null) return null;
-        return logDestinationConfigs.getValue("WebAclLoggingConfiguration.logDestinationConfigs");
+        if (!unknown_logDestinationConfigs) return value_logDestinationConfigs;
+        throw new UndeferrableValueException("Value 'WebAclLoggingConfiguration.logDestinationConfigs' is not present");
     }
 
     /**
      * Configuration block that specifies which web requests are kept in the logs and which are dropped. It allows filtering based on the rule action and the web request labels applied by matching rules during web ACL evaluation. For more details, refer to the Logging Filter section below.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclLoggingConfigurationLoggingFilter> loggingFilter;
-
+    @PolicyResourceProperty(name="loggingFilter", flag="unknown_loggingFilter")
+    private @Nullable WebAclLoggingConfigurationLoggingFilter value_loggingFilter;
+    private boolean unknown_loggingFilter;
     public @Nullable WebAclLoggingConfigurationLoggingFilter loggingFilter() {
-        if (loggingFilter == null) return null;
-        return loggingFilter.getValue("WebAclLoggingConfiguration.loggingFilter");
+        if (!unknown_loggingFilter) return value_loggingFilter;
+        throw new UndeferrableValueException("Value 'WebAclLoggingConfiguration.loggingFilter' is not present");
     }
 
     /**
      * Configuration for parts of the request that you want to keep out of the logs. Up to 100 `redacted_fields` blocks are supported. See Redacted Fields below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<WebAclLoggingConfigurationRedactedField>> redactedFields;
-
+    @PolicyResourceProperty(name="redactedFields", flag="unknown_redactedFields")
+    private @Nullable List<WebAclLoggingConfigurationRedactedField> value_redactedFields;
+    private boolean unknown_redactedFields;
     public @Nullable List<WebAclLoggingConfigurationRedactedField> redactedFields() {
-        if (redactedFields == null) return null;
-        return redactedFields.getValue("WebAclLoggingConfiguration.redactedFields");
+        if (!unknown_redactedFields) return value_redactedFields;
+        throw new UndeferrableValueException("Value 'WebAclLoggingConfiguration.redactedFields' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("WebAclLoggingConfiguration.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'WebAclLoggingConfiguration.resourceArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ChannelDestinationMediaPackageSetting {
      * ID of the channel in MediaPackage that is the destination for this output group.
      * 
      */
-    private UndeferrableValue<String> channelId;
-
+    @PolicyResourceProperty(name="channelId", flag="unknown_channelId")
+    private String value_channelId;
+    private boolean unknown_channelId;
     public String channelId() {
-        if (channelId == null) return null;
-        return channelId.getValue("ChannelDestinationMediaPackageSetting.channelId");
+        if (!unknown_channelId) return value_channelId;
+        throw new UndeferrableValueException("Value 'ChannelDestinationMediaPackageSetting.channelId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ThemeConfigurationDataColorPalette {
      * List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> colors;
-
+    @PolicyResourceProperty(name="colors", flag="unknown_colors")
+    private @Nullable List<String> value_colors;
+    private boolean unknown_colors;
     public @Nullable List<String> colors() {
-        if (colors == null) return null;
-        return colors.getValue("ThemeConfigurationDataColorPalette.colors");
+        if (!unknown_colors) return value_colors;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationDataColorPalette.colors' is not present");
     }
 
     /**
      * The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
      * 
      */
-    private @Nullable UndeferrableValue<String> emptyFillColor;
-
+    @PolicyResourceProperty(name="emptyFillColor", flag="unknown_emptyFillColor")
+    private @Nullable String value_emptyFillColor;
+    private boolean unknown_emptyFillColor;
     public @Nullable String emptyFillColor() {
-        if (emptyFillColor == null) return null;
-        return emptyFillColor.getValue("ThemeConfigurationDataColorPalette.emptyFillColor");
+        if (!unknown_emptyFillColor) return value_emptyFillColor;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationDataColorPalette.emptyFillColor' is not present");
     }
 
     /**
      * The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> minMaxGradients;
-
+    @PolicyResourceProperty(name="minMaxGradients", flag="unknown_minMaxGradients")
+    private @Nullable List<String> value_minMaxGradients;
+    private boolean unknown_minMaxGradients;
     public @Nullable List<String> minMaxGradients() {
-        if (minMaxGradients == null) return null;
-        return minMaxGradients.getValue("ThemeConfigurationDataColorPalette.minMaxGradients");
+        if (!unknown_minMaxGradients) return value_minMaxGradients;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationDataColorPalette.minMaxGradients' is not present");
     }
 
 }

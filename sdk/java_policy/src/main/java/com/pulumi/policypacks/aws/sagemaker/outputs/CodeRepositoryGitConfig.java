@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class CodeRepositoryGitConfig {
      * The default branch for the Git repository.
      * 
      */
-    private @Nullable UndeferrableValue<String> branch;
-
+    @PolicyResourceProperty(name="branch", flag="unknown_branch")
+    private @Nullable String value_branch;
+    private boolean unknown_branch;
     public @Nullable String branch() {
-        if (branch == null) return null;
-        return branch.getValue("CodeRepositoryGitConfig.branch");
+        if (!unknown_branch) return value_branch;
+        throw new UndeferrableValueException("Value 'CodeRepositoryGitConfig.branch' is not present");
     }
 
     /**
      * The URL where the Git repository is located.
      * 
      */
-    private UndeferrableValue<String> repositoryUrl;
-
+    @PolicyResourceProperty(name="repositoryUrl", flag="unknown_repositoryUrl")
+    private String value_repositoryUrl;
+    private boolean unknown_repositoryUrl;
     public String repositoryUrl() {
-        if (repositoryUrl == null) return null;
-        return repositoryUrl.getValue("CodeRepositoryGitConfig.repositoryUrl");
+        if (!unknown_repositoryUrl) return value_repositoryUrl;
+        throw new UndeferrableValueException("Value 'CodeRepositoryGitConfig.repositoryUrl' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{&#34;username&#34;: UserName, &#34;password&#34;: Password}`
      * 
      */
-    private @Nullable UndeferrableValue<String> secretArn;
-
+    @PolicyResourceProperty(name="secretArn", flag="unknown_secretArn")
+    private @Nullable String value_secretArn;
+    private boolean unknown_secretArn;
     public @Nullable String secretArn() {
-        if (secretArn == null) return null;
-        return secretArn.getValue("CodeRepositoryGitConfig.secretArn");
+        if (!unknown_secretArn) return value_secretArn;
+        throw new UndeferrableValueException("Value 'CodeRepositoryGitConfig.secretArn' is not present");
     }
 
 }

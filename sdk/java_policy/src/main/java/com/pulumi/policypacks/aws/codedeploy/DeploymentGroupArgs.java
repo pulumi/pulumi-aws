@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codedeploy;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.codedeploy.inputs.DeploymentGroupAlarmConfigurationArgs;
 import com.pulumi.policypacks.aws.codedeploy.inputs.DeploymentGroupAutoRollbackConfigurationArgs;
@@ -29,198 +30,216 @@ public final class DeploymentGroupArgs extends com.pulumi.resources.PolicyResour
      * Configuration block of alarms associated with the deployment group (documented below).
      * 
      */
-    private UndeferrableValue<DeploymentGroupAlarmConfigurationArgs> alarmConfiguration;
-
+    @PolicyResourceProperty(name="alarmConfiguration", flag="unknown_alarmConfiguration")
+    private DeploymentGroupAlarmConfigurationArgs value_alarmConfiguration;
+    private boolean unknown_alarmConfiguration;
     public DeploymentGroupAlarmConfigurationArgs alarmConfiguration() {
-        if (alarmConfiguration == null) return null;
-        return alarmConfiguration.getValue("DeploymentGroupArgs.alarmConfiguration");
+        if (!unknown_alarmConfiguration) return value_alarmConfiguration;
+        throw new UndeferrableValueException("Value 'DeploymentGroupArgs.alarmConfiguration' is not present");
     }
 
     /**
      * The name of the application.
      * 
      */
-    private UndeferrableValue<String> appName;
-
+    @PolicyResourceProperty(name="appName", flag="unknown_appName")
+    private String value_appName;
+    private boolean unknown_appName;
     public String appName() {
-        if (appName == null) return null;
-        return appName.getValue("DeploymentGroupArgs.appName");
+        if (!unknown_appName) return value_appName;
+        throw new UndeferrableValueException("Value 'DeploymentGroupArgs.appName' is not present");
     }
 
     /**
      * Configuration block of the automatic rollback configuration associated with the deployment group (documented below).
      * 
      */
-    private UndeferrableValue<DeploymentGroupAutoRollbackConfigurationArgs> autoRollbackConfiguration;
-
+    @PolicyResourceProperty(name="autoRollbackConfiguration", flag="unknown_autoRollbackConfiguration")
+    private DeploymentGroupAutoRollbackConfigurationArgs value_autoRollbackConfiguration;
+    private boolean unknown_autoRollbackConfiguration;
     public DeploymentGroupAutoRollbackConfigurationArgs autoRollbackConfiguration() {
-        if (autoRollbackConfiguration == null) return null;
-        return autoRollbackConfiguration.getValue("DeploymentGroupArgs.autoRollbackConfiguration");
+        if (!unknown_autoRollbackConfiguration) return value_autoRollbackConfiguration;
+        throw new UndeferrableValueException("Value 'DeploymentGroupArgs.autoRollbackConfiguration' is not present");
     }
 
     /**
      * Autoscaling groups associated with the deployment group.
      * 
      */
-    private UndeferrableValue<List<String>> autoscalingGroups;
-
+    @PolicyResourceProperty(name="autoscalingGroups", flag="unknown_autoscalingGroups")
+    private List<String> value_autoscalingGroups;
+    private boolean unknown_autoscalingGroups;
     public List<String> autoscalingGroups() {
-        if (autoscalingGroups == null) return null;
-        return autoscalingGroups.getValue("DeploymentGroupArgs.autoscalingGroups");
+        if (!unknown_autoscalingGroups) return value_autoscalingGroups;
+        throw new UndeferrableValueException("Value 'DeploymentGroupArgs.autoscalingGroups' is not present");
     }
 
     /**
      * Configuration block of the blue/green deployment options for a deployment group (documented below).
      * 
      */
-    private UndeferrableValue<DeploymentGroupBlueGreenDeploymentConfigArgs> blueGreenDeploymentConfig;
-
+    @PolicyResourceProperty(name="blueGreenDeploymentConfig", flag="unknown_blueGreenDeploymentConfig")
+    private DeploymentGroupBlueGreenDeploymentConfigArgs value_blueGreenDeploymentConfig;
+    private boolean unknown_blueGreenDeploymentConfig;
     public DeploymentGroupBlueGreenDeploymentConfigArgs blueGreenDeploymentConfig() {
-        if (blueGreenDeploymentConfig == null) return null;
-        return blueGreenDeploymentConfig.getValue("DeploymentGroupArgs.blueGreenDeploymentConfig");
+        if (!unknown_blueGreenDeploymentConfig) return value_blueGreenDeploymentConfig;
+        throw new UndeferrableValueException("Value 'DeploymentGroupArgs.blueGreenDeploymentConfig' is not present");
     }
 
     /**
      * The name of the group&#39;s deployment config. The default is &#34;CodeDeployDefault.OneAtATime&#34;.
      * 
      */
-    private UndeferrableValue<String> deploymentConfigName;
-
+    @PolicyResourceProperty(name="deploymentConfigName", flag="unknown_deploymentConfigName")
+    private String value_deploymentConfigName;
+    private boolean unknown_deploymentConfigName;
     public String deploymentConfigName() {
-        if (deploymentConfigName == null) return null;
-        return deploymentConfigName.getValue("DeploymentGroupArgs.deploymentConfigName");
+        if (!unknown_deploymentConfigName) return value_deploymentConfigName;
+        throw new UndeferrableValueException("Value 'DeploymentGroupArgs.deploymentConfigName' is not present");
     }
 
     /**
      * The name of the deployment group.
      * 
      */
-    private UndeferrableValue<String> deploymentGroupName;
-
+    @PolicyResourceProperty(name="deploymentGroupName", flag="unknown_deploymentGroupName")
+    private String value_deploymentGroupName;
+    private boolean unknown_deploymentGroupName;
     public String deploymentGroupName() {
-        if (deploymentGroupName == null) return null;
-        return deploymentGroupName.getValue("DeploymentGroupArgs.deploymentGroupName");
+        if (!unknown_deploymentGroupName) return value_deploymentGroupName;
+        throw new UndeferrableValueException("Value 'DeploymentGroupArgs.deploymentGroupName' is not present");
     }
 
     /**
      * Configuration block of the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer (documented below).
      * 
      */
-    private UndeferrableValue<DeploymentGroupDeploymentStyleArgs> deploymentStyle;
-
+    @PolicyResourceProperty(name="deploymentStyle", flag="unknown_deploymentStyle")
+    private DeploymentGroupDeploymentStyleArgs value_deploymentStyle;
+    private boolean unknown_deploymentStyle;
     public DeploymentGroupDeploymentStyleArgs deploymentStyle() {
-        if (deploymentStyle == null) return null;
-        return deploymentStyle.getValue("DeploymentGroupArgs.deploymentStyle");
+        if (!unknown_deploymentStyle) return value_deploymentStyle;
+        throw new UndeferrableValueException("Value 'DeploymentGroupArgs.deploymentStyle' is not present");
     }
 
     /**
      * Tag filters associated with the deployment group. See the AWS docs for details.
      * 
      */
-    private UndeferrableValue<List<DeploymentGroupEc2TagFilterArgs>> ec2TagFilters;
-
+    @PolicyResourceProperty(name="ec2TagFilters", flag="unknown_ec2TagFilters")
+    private List<DeploymentGroupEc2TagFilterArgs> value_ec2TagFilters;
+    private boolean unknown_ec2TagFilters;
     public List<DeploymentGroupEc2TagFilterArgs> ec2TagFilters() {
-        if (ec2TagFilters == null) return null;
-        return ec2TagFilters.getValue("DeploymentGroupArgs.ec2TagFilters");
+        if (!unknown_ec2TagFilters) return value_ec2TagFilters;
+        throw new UndeferrableValueException("Value 'DeploymentGroupArgs.ec2TagFilters' is not present");
     }
 
     /**
      * Configuration block(s) of Tag filters associated with the deployment group, which are also referred to as tag groups (documented below). See the AWS docs for details.
      * 
      */
-    private UndeferrableValue<List<DeploymentGroupEc2TagSetArgs>> ec2TagSets;
-
+    @PolicyResourceProperty(name="ec2TagSets", flag="unknown_ec2TagSets")
+    private List<DeploymentGroupEc2TagSetArgs> value_ec2TagSets;
+    private boolean unknown_ec2TagSets;
     public List<DeploymentGroupEc2TagSetArgs> ec2TagSets() {
-        if (ec2TagSets == null) return null;
-        return ec2TagSets.getValue("DeploymentGroupArgs.ec2TagSets");
+        if (!unknown_ec2TagSets) return value_ec2TagSets;
+        throw new UndeferrableValueException("Value 'DeploymentGroupArgs.ec2TagSets' is not present");
     }
 
     /**
      * Configuration block(s) of the ECS services for a deployment group (documented below).
      * 
      */
-    private UndeferrableValue<DeploymentGroupEcsServiceArgs> ecsService;
-
+    @PolicyResourceProperty(name="ecsService", flag="unknown_ecsService")
+    private DeploymentGroupEcsServiceArgs value_ecsService;
+    private boolean unknown_ecsService;
     public DeploymentGroupEcsServiceArgs ecsService() {
-        if (ecsService == null) return null;
-        return ecsService.getValue("DeploymentGroupArgs.ecsService");
+        if (!unknown_ecsService) return value_ecsService;
+        throw new UndeferrableValueException("Value 'DeploymentGroupArgs.ecsService' is not present");
     }
 
     /**
      * Single configuration block of the load balancer to use in a blue/green deployment (documented below).
      * 
      */
-    private UndeferrableValue<DeploymentGroupLoadBalancerInfoArgs> loadBalancerInfo;
-
+    @PolicyResourceProperty(name="loadBalancerInfo", flag="unknown_loadBalancerInfo")
+    private DeploymentGroupLoadBalancerInfoArgs value_loadBalancerInfo;
+    private boolean unknown_loadBalancerInfo;
     public DeploymentGroupLoadBalancerInfoArgs loadBalancerInfo() {
-        if (loadBalancerInfo == null) return null;
-        return loadBalancerInfo.getValue("DeploymentGroupArgs.loadBalancerInfo");
+        if (!unknown_loadBalancerInfo) return value_loadBalancerInfo;
+        throw new UndeferrableValueException("Value 'DeploymentGroupArgs.loadBalancerInfo' is not present");
     }
 
     /**
      * On premise tag filters associated with the group. See the AWS docs for details.
      * 
      */
-    private UndeferrableValue<List<DeploymentGroupOnPremisesInstanceTagFilterArgs>> onPremisesInstanceTagFilters;
-
+    @PolicyResourceProperty(name="onPremisesInstanceTagFilters", flag="unknown_onPremisesInstanceTagFilters")
+    private List<DeploymentGroupOnPremisesInstanceTagFilterArgs> value_onPremisesInstanceTagFilters;
+    private boolean unknown_onPremisesInstanceTagFilters;
     public List<DeploymentGroupOnPremisesInstanceTagFilterArgs> onPremisesInstanceTagFilters() {
-        if (onPremisesInstanceTagFilters == null) return null;
-        return onPremisesInstanceTagFilters.getValue("DeploymentGroupArgs.onPremisesInstanceTagFilters");
+        if (!unknown_onPremisesInstanceTagFilters) return value_onPremisesInstanceTagFilters;
+        throw new UndeferrableValueException("Value 'DeploymentGroupArgs.onPremisesInstanceTagFilters' is not present");
     }
 
     /**
      * Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
      * 
      */
-    private UndeferrableValue<String> outdatedInstancesStrategy;
-
+    @PolicyResourceProperty(name="outdatedInstancesStrategy", flag="unknown_outdatedInstancesStrategy")
+    private String value_outdatedInstancesStrategy;
+    private boolean unknown_outdatedInstancesStrategy;
     public String outdatedInstancesStrategy() {
-        if (outdatedInstancesStrategy == null) return null;
-        return outdatedInstancesStrategy.getValue("DeploymentGroupArgs.outdatedInstancesStrategy");
+        if (!unknown_outdatedInstancesStrategy) return value_outdatedInstancesStrategy;
+        throw new UndeferrableValueException("Value 'DeploymentGroupArgs.outdatedInstancesStrategy' is not present");
     }
 
     /**
      * The service role ARN that allows deployments.
      * 
      */
-    private UndeferrableValue<String> serviceRoleArn;
-
+    @PolicyResourceProperty(name="serviceRoleArn", flag="unknown_serviceRoleArn")
+    private String value_serviceRoleArn;
+    private boolean unknown_serviceRoleArn;
     public String serviceRoleArn() {
-        if (serviceRoleArn == null) return null;
-        return serviceRoleArn.getValue("DeploymentGroupArgs.serviceRoleArn");
+        if (!unknown_serviceRoleArn) return value_serviceRoleArn;
+        throw new UndeferrableValueException("Value 'DeploymentGroupArgs.serviceRoleArn' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DeploymentGroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DeploymentGroupArgs.tags' is not present");
     }
 
     /**
      * Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
      * 
      */
-    private UndeferrableValue<Boolean> terminationHookEnabled;
-
+    @PolicyResourceProperty(name="terminationHookEnabled", flag="unknown_terminationHookEnabled")
+    private Boolean value_terminationHookEnabled;
+    private boolean unknown_terminationHookEnabled;
     public Boolean terminationHookEnabled() {
-        if (terminationHookEnabled == null) return null;
-        return terminationHookEnabled.getValue("DeploymentGroupArgs.terminationHookEnabled");
+        if (!unknown_terminationHookEnabled) return value_terminationHookEnabled;
+        throw new UndeferrableValueException("Value 'DeploymentGroupArgs.terminationHookEnabled' is not present");
     }
 
     /**
      * Configuration block(s) of the triggers for the deployment group (documented below).
      * 
      */
-    private UndeferrableValue<List<DeploymentGroupTriggerConfigurationArgs>> triggerConfigurations;
-
+    @PolicyResourceProperty(name="triggerConfigurations", flag="unknown_triggerConfigurations")
+    private List<DeploymentGroupTriggerConfigurationArgs> value_triggerConfigurations;
+    private boolean unknown_triggerConfigurations;
     public List<DeploymentGroupTriggerConfigurationArgs> triggerConfigurations() {
-        if (triggerConfigurations == null) return null;
-        return triggerConfigurations.getValue("DeploymentGroupArgs.triggerConfigurations");
+        if (!unknown_triggerConfigurations) return value_triggerConfigurations;
+        throw new UndeferrableValueException("Value 'DeploymentGroupArgs.triggerConfigurations' is not present");
     }
 
 }

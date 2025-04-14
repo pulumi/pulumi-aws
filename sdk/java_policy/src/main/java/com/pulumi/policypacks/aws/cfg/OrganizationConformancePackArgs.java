@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cfg.inputs.OrganizationConformancePackInputParameterArgs;
 import java.lang.String;
@@ -18,77 +19,84 @@ public final class OrganizationConformancePackArgs extends com.pulumi.resources.
      * Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
      * 
      */
-    private UndeferrableValue<String> deliveryS3Bucket;
-
+    @PolicyResourceProperty(name="deliveryS3Bucket", flag="unknown_deliveryS3Bucket")
+    private String value_deliveryS3Bucket;
+    private boolean unknown_deliveryS3Bucket;
     public String deliveryS3Bucket() {
-        if (deliveryS3Bucket == null) return null;
-        return deliveryS3Bucket.getValue("OrganizationConformancePackArgs.deliveryS3Bucket");
+        if (!unknown_deliveryS3Bucket) return value_deliveryS3Bucket;
+        throw new UndeferrableValueException("Value 'OrganizationConformancePackArgs.deliveryS3Bucket' is not present");
     }
 
     /**
      * The prefix for the Amazon S3 bucket. Maximum length of 1024.
      * 
      */
-    private UndeferrableValue<String> deliveryS3KeyPrefix;
-
+    @PolicyResourceProperty(name="deliveryS3KeyPrefix", flag="unknown_deliveryS3KeyPrefix")
+    private String value_deliveryS3KeyPrefix;
+    private boolean unknown_deliveryS3KeyPrefix;
     public String deliveryS3KeyPrefix() {
-        if (deliveryS3KeyPrefix == null) return null;
-        return deliveryS3KeyPrefix.getValue("OrganizationConformancePackArgs.deliveryS3KeyPrefix");
+        if (!unknown_deliveryS3KeyPrefix) return value_deliveryS3KeyPrefix;
+        throw new UndeferrableValueException("Value 'OrganizationConformancePackArgs.deliveryS3KeyPrefix' is not present");
     }
 
     /**
      * Set of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack. Maximum of 1000 accounts.
      * 
      */
-    private UndeferrableValue<List<String>> excludedAccounts;
-
+    @PolicyResourceProperty(name="excludedAccounts", flag="unknown_excludedAccounts")
+    private List<String> value_excludedAccounts;
+    private boolean unknown_excludedAccounts;
     public List<String> excludedAccounts() {
-        if (excludedAccounts == null) return null;
-        return excludedAccounts.getValue("OrganizationConformancePackArgs.excludedAccounts");
+        if (!unknown_excludedAccounts) return value_excludedAccounts;
+        throw new UndeferrableValueException("Value 'OrganizationConformancePackArgs.excludedAccounts' is not present");
     }
 
     /**
      * Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
      * 
      */
-    private UndeferrableValue<List<OrganizationConformancePackInputParameterArgs>> inputParameters;
-
+    @PolicyResourceProperty(name="inputParameters", flag="unknown_inputParameters")
+    private List<OrganizationConformancePackInputParameterArgs> value_inputParameters;
+    private boolean unknown_inputParameters;
     public List<OrganizationConformancePackInputParameterArgs> inputParameters() {
-        if (inputParameters == null) return null;
-        return inputParameters.getValue("OrganizationConformancePackArgs.inputParameters");
+        if (!unknown_inputParameters) return value_inputParameters;
+        throw new UndeferrableValueException("Value 'OrganizationConformancePackArgs.inputParameters' is not present");
     }
 
     /**
      * The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("OrganizationConformancePackArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'OrganizationConformancePackArgs.name' is not present");
     }
 
     /**
      * A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
      * 
      */
-    private UndeferrableValue<String> templateBody;
-
+    @PolicyResourceProperty(name="templateBody", flag="unknown_templateBody")
+    private String value_templateBody;
+    private boolean unknown_templateBody;
     public String templateBody() {
-        if (templateBody == null) return null;
-        return templateBody.getValue("OrganizationConformancePackArgs.templateBody");
+        if (!unknown_templateBody) return value_templateBody;
+        throw new UndeferrableValueException("Value 'OrganizationConformancePackArgs.templateBody' is not present");
     }
 
     /**
      * Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
      * 
      */
-    private UndeferrableValue<String> templateS3Uri;
-
+    @PolicyResourceProperty(name="templateS3Uri", flag="unknown_templateS3Uri")
+    private String value_templateS3Uri;
+    private boolean unknown_templateS3Uri;
     public String templateS3Uri() {
-        if (templateS3Uri == null) return null;
-        return templateS3Uri.getValue("OrganizationConformancePackArgs.templateS3Uri");
+        if (!unknown_templateS3Uri) return value_templateS3Uri;
+        throw new UndeferrableValueException("Value 'OrganizationConformancePackArgs.templateS3Uri' is not present");
     }
 
 }

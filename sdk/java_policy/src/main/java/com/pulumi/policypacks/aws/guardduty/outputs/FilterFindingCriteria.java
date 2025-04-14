@@ -3,18 +3,20 @@
 
 package com.pulumi.policypacks.aws.guardduty.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.guardduty.outputs.FilterFindingCriteriaCriterion;
 import java.util.List;
 
 
 public final class FilterFindingCriteria {
 
-    private UndeferrableValue<List<FilterFindingCriteriaCriterion>> criterions;
-
+    @PolicyResourceProperty(name="criterions", flag="unknown_criterions")
+    private List<FilterFindingCriteriaCriterion> value_criterions;
+    private boolean unknown_criterions;
     public List<FilterFindingCriteriaCriterion> criterions() {
-        if (criterions == null) return null;
-        return criterions.getValue("FilterFindingCriteria.criterions");
+        if (!unknown_criterions) return value_criterions;
+        throw new UndeferrableValueException("Value 'FilterFindingCriteria.criterions' is not present");
     }
 
 }

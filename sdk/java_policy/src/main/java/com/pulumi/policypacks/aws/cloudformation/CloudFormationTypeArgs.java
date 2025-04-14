@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudformation;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudformation.inputs.CloudFormationTypeLoggingConfigArgs;
 import java.lang.String;
@@ -17,55 +18,60 @@ public final class CloudFormationTypeArgs extends com.pulumi.resources.PolicyRes
      * Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
      * 
      */
-    private UndeferrableValue<String> executionRoleArn;
-
+    @PolicyResourceProperty(name="executionRoleArn", flag="unknown_executionRoleArn")
+    private String value_executionRoleArn;
+    private boolean unknown_executionRoleArn;
     public String executionRoleArn() {
-        if (executionRoleArn == null) return null;
-        return executionRoleArn.getValue("CloudFormationTypeArgs.executionRoleArn");
+        if (!unknown_executionRoleArn) return value_executionRoleArn;
+        throw new UndeferrableValueException("Value 'CloudFormationTypeArgs.executionRoleArn' is not present");
     }
 
     /**
      * Configuration block containing logging configuration.
      * 
      */
-    private UndeferrableValue<CloudFormationTypeLoggingConfigArgs> loggingConfig;
-
+    @PolicyResourceProperty(name="loggingConfig", flag="unknown_loggingConfig")
+    private CloudFormationTypeLoggingConfigArgs value_loggingConfig;
+    private boolean unknown_loggingConfig;
     public CloudFormationTypeLoggingConfigArgs loggingConfig() {
-        if (loggingConfig == null) return null;
-        return loggingConfig.getValue("CloudFormationTypeArgs.loggingConfig");
+        if (!unknown_loggingConfig) return value_loggingConfig;
+        throw new UndeferrableValueException("Value 'CloudFormationTypeArgs.loggingConfig' is not present");
     }
 
     /**
      * URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
      * 
      */
-    private UndeferrableValue<String> schemaHandlerPackage;
-
+    @PolicyResourceProperty(name="schemaHandlerPackage", flag="unknown_schemaHandlerPackage")
+    private String value_schemaHandlerPackage;
+    private boolean unknown_schemaHandlerPackage;
     public String schemaHandlerPackage() {
-        if (schemaHandlerPackage == null) return null;
-        return schemaHandlerPackage.getValue("CloudFormationTypeArgs.schemaHandlerPackage");
+        if (!unknown_schemaHandlerPackage) return value_schemaHandlerPackage;
+        throw new UndeferrableValueException("Value 'CloudFormationTypeArgs.schemaHandlerPackage' is not present");
     }
 
     /**
      * CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("CloudFormationTypeArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'CloudFormationTypeArgs.type' is not present");
     }
 
     /**
      * CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
      * 
      */
-    private UndeferrableValue<String> typeName;
-
+    @PolicyResourceProperty(name="typeName", flag="unknown_typeName")
+    private String value_typeName;
+    private boolean unknown_typeName;
     public String typeName() {
-        if (typeName == null) return null;
-        return typeName.getValue("CloudFormationTypeArgs.typeName");
+        if (!unknown_typeName) return value_typeName;
+        throw new UndeferrableValueException("Value 'CloudFormationTypeArgs.typeName' is not present");
     }
 
 }

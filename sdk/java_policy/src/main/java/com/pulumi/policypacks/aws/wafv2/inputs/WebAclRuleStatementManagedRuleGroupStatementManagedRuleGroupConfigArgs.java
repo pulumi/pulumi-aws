@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs;
@@ -19,77 +20,84 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      * Additional configuration for using the Account Creation Fraud Prevention managed rule group. Use this to specify information such as the registration page of your application and the type of content to accept or reject from the client.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs> awsManagedRulesAcfpRuleSet;
-
+    @PolicyResourceProperty(name="awsManagedRulesAcfpRuleSet", flag="unknown_awsManagedRulesAcfpRuleSet")
+    private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs value_awsManagedRulesAcfpRuleSet;
+    private boolean unknown_awsManagedRulesAcfpRuleSet;
     public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs awsManagedRulesAcfpRuleSet() {
-        if (awsManagedRulesAcfpRuleSet == null) return null;
-        return awsManagedRulesAcfpRuleSet.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs.awsManagedRulesAcfpRuleSet");
+        if (!unknown_awsManagedRulesAcfpRuleSet) return value_awsManagedRulesAcfpRuleSet;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs.awsManagedRulesAcfpRuleSet' is not present");
     }
 
     /**
      * Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs> awsManagedRulesAtpRuleSet;
-
+    @PolicyResourceProperty(name="awsManagedRulesAtpRuleSet", flag="unknown_awsManagedRulesAtpRuleSet")
+    private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs value_awsManagedRulesAtpRuleSet;
+    private boolean unknown_awsManagedRulesAtpRuleSet;
     public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs awsManagedRulesAtpRuleSet() {
-        if (awsManagedRulesAtpRuleSet == null) return null;
-        return awsManagedRulesAtpRuleSet.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs.awsManagedRulesAtpRuleSet");
+        if (!unknown_awsManagedRulesAtpRuleSet) return value_awsManagedRulesAtpRuleSet;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs.awsManagedRulesAtpRuleSet' is not present");
     }
 
     /**
      * Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See `aws_managed_rules_bot_control_rule_set` for more details
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs> awsManagedRulesBotControlRuleSet;
-
+    @PolicyResourceProperty(name="awsManagedRulesBotControlRuleSet", flag="unknown_awsManagedRulesBotControlRuleSet")
+    private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs value_awsManagedRulesBotControlRuleSet;
+    private boolean unknown_awsManagedRulesBotControlRuleSet;
     public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs awsManagedRulesBotControlRuleSet() {
-        if (awsManagedRulesBotControlRuleSet == null) return null;
-        return awsManagedRulesBotControlRuleSet.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs.awsManagedRulesBotControlRuleSet");
+        if (!unknown_awsManagedRulesBotControlRuleSet) return value_awsManagedRulesBotControlRuleSet;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs.awsManagedRulesBotControlRuleSet' is not present");
     }
 
     /**
      * The path of the login endpoint for your application.
      * 
      */
-    private UndeferrableValue<String> loginPath;
-
+    @PolicyResourceProperty(name="loginPath", flag="unknown_loginPath")
+    private String value_loginPath;
+    private boolean unknown_loginPath;
     public String loginPath() {
-        if (loginPath == null) return null;
-        return loginPath.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs.loginPath");
+        if (!unknown_loginPath) return value_loginPath;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs.loginPath' is not present");
     }
 
     /**
      * Details about your login page password field. See `password_field` for more details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs> passwordField;
-
+    @PolicyResourceProperty(name="passwordField", flag="unknown_passwordField")
+    private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs value_passwordField;
+    private boolean unknown_passwordField;
     public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs passwordField() {
-        if (passwordField == null) return null;
-        return passwordField.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs.passwordField");
+        if (!unknown_passwordField) return value_passwordField;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs.passwordField' is not present");
     }
 
     /**
      * The payload type for your login endpoint, either JSON or form encoded.
      * 
      */
-    private UndeferrableValue<String> payloadType;
-
+    @PolicyResourceProperty(name="payloadType", flag="unknown_payloadType")
+    private String value_payloadType;
+    private boolean unknown_payloadType;
     public String payloadType() {
-        if (payloadType == null) return null;
-        return payloadType.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs.payloadType");
+        if (!unknown_payloadType) return value_payloadType;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs.payloadType' is not present");
     }
 
     /**
      * Details about your login page username field. See `username_field` for more details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameFieldArgs> usernameField;
-
+    @PolicyResourceProperty(name="usernameField", flag="unknown_usernameField")
+    private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameFieldArgs value_usernameField;
+    private boolean unknown_usernameField;
     public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameFieldArgs usernameField() {
-        if (usernameField == null) return null;
-        return usernameField.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs.usernameField");
+        if (!unknown_usernameField) return value_usernameField;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs.usernameField' is not present");
     }
 
 }

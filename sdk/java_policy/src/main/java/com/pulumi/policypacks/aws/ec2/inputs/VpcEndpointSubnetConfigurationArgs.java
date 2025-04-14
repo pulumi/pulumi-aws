@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,29 +15,32 @@ public final class VpcEndpointSubnetConfigurationArgs {
      * The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
      * 
      */
-    private UndeferrableValue<String> ipv4;
-
+    @PolicyResourceProperty(name="ipv4", flag="unknown_ipv4")
+    private String value_ipv4;
+    private boolean unknown_ipv4;
     public String ipv4() {
-        if (ipv4 == null) return null;
-        return ipv4.getValue("VpcEndpointSubnetConfigurationArgs.ipv4");
+        if (!unknown_ipv4) return value_ipv4;
+        throw new UndeferrableValueException("Value 'VpcEndpointSubnetConfigurationArgs.ipv4' is not present");
     }
 
     /**
      * The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
      * 
      */
-    private UndeferrableValue<String> ipv6;
-
+    @PolicyResourceProperty(name="ipv6", flag="unknown_ipv6")
+    private String value_ipv6;
+    private boolean unknown_ipv6;
     public String ipv6() {
-        if (ipv6 == null) return null;
-        return ipv6.getValue("VpcEndpointSubnetConfigurationArgs.ipv6");
+        if (!unknown_ipv6) return value_ipv6;
+        throw new UndeferrableValueException("Value 'VpcEndpointSubnetConfigurationArgs.ipv6' is not present");
     }
 
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("VpcEndpointSubnetConfigurationArgs.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'VpcEndpointSubnetConfigurationArgs.subnetId' is not present");
     }
 
 }

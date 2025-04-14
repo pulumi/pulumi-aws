@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dynamodb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,44 +17,48 @@ public final class TableItemArgs extends com.pulumi.resources.PolicyResourceInpu
      * Hash key to use for lookups and identification of the item
      * 
      */
-    private UndeferrableValue<String> hashKey;
-
+    @PolicyResourceProperty(name="hashKey", flag="unknown_hashKey")
+    private String value_hashKey;
+    private boolean unknown_hashKey;
     public String hashKey() {
-        if (hashKey == null) return null;
-        return hashKey.getValue("TableItemArgs.hashKey");
+        if (!unknown_hashKey) return value_hashKey;
+        throw new UndeferrableValueException("Value 'TableItemArgs.hashKey' is not present");
     }
 
     /**
      * JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
      * 
      */
-    private UndeferrableValue<String> item;
-
+    @PolicyResourceProperty(name="item", flag="unknown_item")
+    private String value_item;
+    private boolean unknown_item;
     public String item() {
-        if (item == null) return null;
-        return item.getValue("TableItemArgs.item");
+        if (!unknown_item) return value_item;
+        throw new UndeferrableValueException("Value 'TableItemArgs.item' is not present");
     }
 
     /**
      * Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
      * 
      */
-    private UndeferrableValue<String> rangeKey;
-
+    @PolicyResourceProperty(name="rangeKey", flag="unknown_rangeKey")
+    private String value_rangeKey;
+    private boolean unknown_rangeKey;
     public String rangeKey() {
-        if (rangeKey == null) return null;
-        return rangeKey.getValue("TableItemArgs.rangeKey");
+        if (!unknown_rangeKey) return value_rangeKey;
+        throw new UndeferrableValueException("Value 'TableItemArgs.rangeKey' is not present");
     }
 
     /**
      * Name of the table to contain the item.
      * 
      */
-    private UndeferrableValue<String> tableName;
-
+    @PolicyResourceProperty(name="tableName", flag="unknown_tableName")
+    private String value_tableName;
+    private boolean unknown_tableName;
     public String tableName() {
-        if (tableName == null) return null;
-        return tableName.getValue("TableItemArgs.tableName");
+        if (!unknown_tableName) return value_tableName;
+        throw new UndeferrableValueException("Value 'TableItemArgs.tableName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.evidently;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,99 +19,108 @@ public final class Segment extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN of the segment.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Segment.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Segment.arn' is not present");
     }
 
     /**
      * The date and time that the segment is created.
      * 
      */
-    private UndeferrableValue<String> createdTime;
-
+    @PolicyResourceProperty(name="createdTime", flag="unknown_createdTime")
+    private String value_createdTime;
+    private boolean unknown_createdTime;
     public String createdTime() {
-        if (createdTime == null) return null;
-        return createdTime.getValue("Segment.createdTime");
+        if (!unknown_createdTime) return value_createdTime;
+        throw new UndeferrableValueException("Value 'Segment.createdTime' is not present");
     }
 
     /**
      * Specifies the description of the segment.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Segment.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Segment.description' is not present");
     }
 
     /**
      * The number of experiments that this segment is used in. This count includes all current experiments, not just those that are currently running.
      * 
      */
-    private UndeferrableValue<Integer> experimentCount;
-
+    @PolicyResourceProperty(name="experimentCount", flag="unknown_experimentCount")
+    private Integer value_experimentCount;
+    private boolean unknown_experimentCount;
     public Integer experimentCount() {
-        if (experimentCount == null) return null;
-        return experimentCount.getValue("Segment.experimentCount");
+        if (!unknown_experimentCount) return value_experimentCount;
+        throw new UndeferrableValueException("Value 'Segment.experimentCount' is not present");
     }
 
     /**
      * The date and time that this segment was most recently updated.
      * 
      */
-    private UndeferrableValue<String> lastUpdatedTime;
-
+    @PolicyResourceProperty(name="lastUpdatedTime", flag="unknown_lastUpdatedTime")
+    private String value_lastUpdatedTime;
+    private boolean unknown_lastUpdatedTime;
     public String lastUpdatedTime() {
-        if (lastUpdatedTime == null) return null;
-        return lastUpdatedTime.getValue("Segment.lastUpdatedTime");
+        if (!unknown_lastUpdatedTime) return value_lastUpdatedTime;
+        throw new UndeferrableValueException("Value 'Segment.lastUpdatedTime' is not present");
     }
 
     /**
      * The number of launches that this segment is used in. This count includes all current launches, not just those that are currently running.
      * 
      */
-    private UndeferrableValue<Integer> launchCount;
-
+    @PolicyResourceProperty(name="launchCount", flag="unknown_launchCount")
+    private Integer value_launchCount;
+    private boolean unknown_launchCount;
     public Integer launchCount() {
-        if (launchCount == null) return null;
-        return launchCount.getValue("Segment.launchCount");
+        if (!unknown_launchCount) return value_launchCount;
+        throw new UndeferrableValueException("Value 'Segment.launchCount' is not present");
     }
 
     /**
      * A name for the segment.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Segment.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Segment.name' is not present");
     }
 
     /**
      * The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
      * 
      */
-    private UndeferrableValue<String> pattern;
-
+    @PolicyResourceProperty(name="pattern", flag="unknown_pattern")
+    private String value_pattern;
+    private boolean unknown_pattern;
     public String pattern() {
-        if (pattern == null) return null;
-        return pattern.getValue("Segment.pattern");
+        if (!unknown_pattern) return value_pattern;
+        throw new UndeferrableValueException("Value 'Segment.pattern' is not present");
     }
 
     /**
      * Tags to apply to the segment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Segment.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Segment.tags' is not present");
     }
 
     /**
@@ -121,11 +131,12 @@ public final class Segment extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Segment.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Segment.tagsAll' is not present");
     }
 
 }

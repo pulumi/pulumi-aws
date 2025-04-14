@@ -3,32 +3,36 @@
 
 package com.pulumi.policypacks.aws.cleanrooms.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class MembershipDefaultResultConfigurationOutputConfigurationS3 {
 
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("MembershipDefaultResultConfigurationOutputConfigurationS3.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'MembershipDefaultResultConfigurationOutputConfigurationS3.bucket' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> keyPrefix;
-
+    @PolicyResourceProperty(name="keyPrefix", flag="unknown_keyPrefix")
+    private @Nullable String value_keyPrefix;
+    private boolean unknown_keyPrefix;
     public @Nullable String keyPrefix() {
-        if (keyPrefix == null) return null;
-        return keyPrefix.getValue("MembershipDefaultResultConfigurationOutputConfigurationS3.keyPrefix");
+        if (!unknown_keyPrefix) return value_keyPrefix;
+        throw new UndeferrableValueException("Value 'MembershipDefaultResultConfigurationOutputConfigurationS3.keyPrefix' is not present");
     }
 
-    private UndeferrableValue<String> resultFormat;
-
+    @PolicyResourceProperty(name="resultFormat", flag="unknown_resultFormat")
+    private String value_resultFormat;
+    private boolean unknown_resultFormat;
     public String resultFormat() {
-        if (resultFormat == null) return null;
-        return resultFormat.getValue("MembershipDefaultResultConfigurationOutputConfigurationS3.resultFormat");
+        if (!unknown_resultFormat) return value_resultFormat;
+        throw new UndeferrableValueException("Value 'MembershipDefaultResultConfigurationOutputConfigurationS3.resultFormat' is not present");
     }
 
 }

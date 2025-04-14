@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafregional;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.wafregional.outputs.XssMatchSetXssMatchTuple;
 import java.lang.String;
@@ -18,22 +19,24 @@ public final class XssMatchSet extends com.pulumi.resources.PolicyResourceOutput
      * The name of the set
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("XssMatchSet.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'XssMatchSet.name' is not present");
     }
 
     /**
      * The parts of web requests that you want to inspect for cross-site scripting attacks.
      * 
      */
-    private @Nullable UndeferrableValue<List<XssMatchSetXssMatchTuple>> xssMatchTuples;
-
+    @PolicyResourceProperty(name="xssMatchTuples", flag="unknown_xssMatchTuples")
+    private @Nullable List<XssMatchSetXssMatchTuple> value_xssMatchTuples;
+    private boolean unknown_xssMatchTuples;
     public @Nullable List<XssMatchSetXssMatchTuple> xssMatchTuples() {
-        if (xssMatchTuples == null) return null;
-        return xssMatchTuples.getValue("XssMatchSet.xssMatchTuples");
+        if (!unknown_xssMatchTuples) return value_xssMatchTuples;
+        throw new UndeferrableValueException("Value 'XssMatchSet.xssMatchTuples' is not present");
     }
 
 }

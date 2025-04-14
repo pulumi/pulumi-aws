@@ -3,39 +3,43 @@
 
 package com.pulumi.policypacks.aws.signer.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class SigningJobSourceS3Args {
 
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("SigningJobSourceS3Args.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'SigningJobSourceS3Args.bucket' is not present");
     }
 
     /**
      * Key name of the object that contains your unsigned code.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("SigningJobSourceS3Args.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'SigningJobSourceS3Args.key' is not present");
     }
 
     /**
      * Version of your source image in your version enabled S3 bucket.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("SigningJobSourceS3Args.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'SigningJobSourceS3Args.version' is not present");
     }
 
 }

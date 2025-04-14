@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transcribe;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class MedicalVocabularyArgs extends com.pulumi.resources.PolicyReso
      * The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
      * 
      */
-    private UndeferrableValue<String> languageCode;
-
+    @PolicyResourceProperty(name="languageCode", flag="unknown_languageCode")
+    private String value_languageCode;
+    private boolean unknown_languageCode;
     public String languageCode() {
-        if (languageCode == null) return null;
-        return languageCode.getValue("MedicalVocabularyArgs.languageCode");
+        if (!unknown_languageCode) return value_languageCode;
+        throw new UndeferrableValueException("Value 'MedicalVocabularyArgs.languageCode' is not present");
     }
 
     /**
      * A map of tags to assign to the MedicalVocabulary. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("MedicalVocabularyArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'MedicalVocabularyArgs.tags' is not present");
     }
 
     /**
      * The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
      * 
      */
-    private UndeferrableValue<String> vocabularyFileUri;
-
+    @PolicyResourceProperty(name="vocabularyFileUri", flag="unknown_vocabularyFileUri")
+    private String value_vocabularyFileUri;
+    private boolean unknown_vocabularyFileUri;
     public String vocabularyFileUri() {
-        if (vocabularyFileUri == null) return null;
-        return vocabularyFileUri.getValue("MedicalVocabularyArgs.vocabularyFileUri");
+        if (!unknown_vocabularyFileUri) return value_vocabularyFileUri;
+        throw new UndeferrableValueException("Value 'MedicalVocabularyArgs.vocabularyFileUri' is not present");
     }
 
     /**
@@ -52,11 +56,12 @@ public final class MedicalVocabularyArgs extends com.pulumi.resources.PolicyReso
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> vocabularyName;
-
+    @PolicyResourceProperty(name="vocabularyName", flag="unknown_vocabularyName")
+    private String value_vocabularyName;
+    private boolean unknown_vocabularyName;
     public String vocabularyName() {
-        if (vocabularyName == null) return null;
-        return vocabularyName.getValue("MedicalVocabularyArgs.vocabularyName");
+        if (!unknown_vocabularyName) return value_vocabularyName;
+        throw new UndeferrableValueException("Value 'MedicalVocabularyArgs.vocabularyName' is not present");
     }
 
 }

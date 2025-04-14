@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,22 +14,24 @@ public final class GroupInstanceMaintenancePolicy {
      * Specifies the upper limit on the number of instances that are in the InService or Pending state with a healthy status during an instance replacement activity.
      * 
      */
-    private UndeferrableValue<Integer> maxHealthyPercentage;
-
+    @PolicyResourceProperty(name="maxHealthyPercentage", flag="unknown_maxHealthyPercentage")
+    private Integer value_maxHealthyPercentage;
+    private boolean unknown_maxHealthyPercentage;
     public Integer maxHealthyPercentage() {
-        if (maxHealthyPercentage == null) return null;
-        return maxHealthyPercentage.getValue("GroupInstanceMaintenancePolicy.maxHealthyPercentage");
+        if (!unknown_maxHealthyPercentage) return value_maxHealthyPercentage;
+        throw new UndeferrableValueException("Value 'GroupInstanceMaintenancePolicy.maxHealthyPercentage' is not present");
     }
 
     /**
      * Specifies the lower limit on the number of instances that must be in the InService state with a healthy status during an instance replacement activity.
      * 
      */
-    private UndeferrableValue<Integer> minHealthyPercentage;
-
+    @PolicyResourceProperty(name="minHealthyPercentage", flag="unknown_minHealthyPercentage")
+    private Integer value_minHealthyPercentage;
+    private boolean unknown_minHealthyPercentage;
     public Integer minHealthyPercentage() {
-        if (minHealthyPercentage == null) return null;
-        return minHealthyPercentage.getValue("GroupInstanceMaintenancePolicy.minHealthyPercentage");
+        if (!unknown_minHealthyPercentage) return value_minHealthyPercentage;
+        throw new UndeferrableValueException("Value 'GroupInstanceMaintenancePolicy.minHealthyPercentage' is not present");
     }
 
 }

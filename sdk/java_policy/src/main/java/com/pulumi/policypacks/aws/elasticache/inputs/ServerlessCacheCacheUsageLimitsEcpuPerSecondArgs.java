@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticache.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs {
      * The maximum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
      * 
      */
-    private UndeferrableValue<Integer> maximum;
-
+    @PolicyResourceProperty(name="maximum", flag="unknown_maximum")
+    private Integer value_maximum;
+    private boolean unknown_maximum;
     public Integer maximum() {
-        if (maximum == null) return null;
-        return maximum.getValue("ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs.maximum");
+        if (!unknown_maximum) return value_maximum;
+        throw new UndeferrableValueException("Value 'ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs.maximum' is not present");
     }
 
     /**
      * The minimum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
      * 
      */
-    private UndeferrableValue<Integer> minimum;
-
+    @PolicyResourceProperty(name="minimum", flag="unknown_minimum")
+    private Integer value_minimum;
+    private boolean unknown_minimum;
     public Integer minimum() {
-        if (minimum == null) return null;
-        return minimum.getValue("ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs.minimum");
+        if (!unknown_minimum) return value_minimum;
+        throw new UndeferrableValueException("Value 'ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs.minimum' is not present");
     }
 
 }

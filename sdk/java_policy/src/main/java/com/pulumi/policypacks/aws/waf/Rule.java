@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.waf;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.waf.outputs.RulePredicate;
 import java.lang.String;
@@ -19,55 +20,60 @@ public final class Rule extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN of the WAF rule.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Rule.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Rule.arn' is not present");
     }
 
     /**
      * The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can&#39;t contain whitespace.
      * 
      */
-    private UndeferrableValue<String> metricName;
-
+    @PolicyResourceProperty(name="metricName", flag="unknown_metricName")
+    private String value_metricName;
+    private boolean unknown_metricName;
     public String metricName() {
-        if (metricName == null) return null;
-        return metricName.getValue("Rule.metricName");
+        if (!unknown_metricName) return value_metricName;
+        throw new UndeferrableValueException("Value 'Rule.metricName' is not present");
     }
 
     /**
      * The name or description of the rule.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Rule.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Rule.name' is not present");
     }
 
     /**
      * The objects to include in a rule (documented below).
      * 
      */
-    private @Nullable UndeferrableValue<List<RulePredicate>> predicates;
-
+    @PolicyResourceProperty(name="predicates", flag="unknown_predicates")
+    private @Nullable List<RulePredicate> value_predicates;
+    private boolean unknown_predicates;
     public @Nullable List<RulePredicate> predicates() {
-        if (predicates == null) return null;
-        return predicates.getValue("Rule.predicates");
+        if (!unknown_predicates) return value_predicates;
+        throw new UndeferrableValueException("Value 'Rule.predicates' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Rule.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Rule.tags' is not present");
     }
 
     /**
@@ -78,11 +84,12 @@ public final class Rule extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Rule.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Rule.tagsAll' is not present");
     }
 
 }

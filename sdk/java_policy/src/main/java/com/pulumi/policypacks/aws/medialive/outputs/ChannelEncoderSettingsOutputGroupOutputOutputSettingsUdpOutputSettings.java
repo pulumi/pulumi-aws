@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings;
@@ -17,40 +18,44 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
      * UDP output buffering in milliseconds.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> bufferMsec;
-
+    @PolicyResourceProperty(name="bufferMsec", flag="unknown_bufferMsec")
+    private @Nullable Integer value_bufferMsec;
+    private boolean unknown_bufferMsec;
     public @Nullable Integer bufferMsec() {
-        if (bufferMsec == null) return null;
-        return bufferMsec.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings.bufferMsec");
+        if (!unknown_bufferMsec) return value_bufferMsec;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings.bufferMsec' is not present");
     }
 
     /**
      * UDP container settings. See Container Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings> containerSettings;
-
+    @PolicyResourceProperty(name="containerSettings", flag="unknown_containerSettings")
+    private ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings value_containerSettings;
+    private boolean unknown_containerSettings;
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings containerSettings() {
-        if (containerSettings == null) return null;
-        return containerSettings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings.containerSettings");
+        if (!unknown_containerSettings) return value_containerSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings.containerSettings' is not present");
     }
 
     /**
      * Destination address and port number for RTP or UDP packets. See Destination for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination value_destination;
+    private boolean unknown_destination;
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination destination() {
-        if (destination == null) return null;
-        return destination.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings.destination' is not present");
     }
 
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings> fecOutputSettings;
-
+    @PolicyResourceProperty(name="fecOutputSettings", flag="unknown_fecOutputSettings")
+    private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings value_fecOutputSettings;
+    private boolean unknown_fecOutputSettings;
     public @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings fecOutputSettings() {
-        if (fecOutputSettings == null) return null;
-        return fecOutputSettings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings.fecOutputSettings");
+        if (!unknown_fecOutputSettings) return value_fecOutputSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings.fecOutputSettings' is not present");
     }
 
 }

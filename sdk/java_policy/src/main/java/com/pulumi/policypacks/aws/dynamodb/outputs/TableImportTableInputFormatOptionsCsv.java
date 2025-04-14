@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dynamodb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class TableImportTableInputFormatOptionsCsv {
      * The delimiter used for separating items in the CSV file being imported.
      * 
      */
-    private @Nullable UndeferrableValue<String> delimiter;
-
+    @PolicyResourceProperty(name="delimiter", flag="unknown_delimiter")
+    private @Nullable String value_delimiter;
+    private boolean unknown_delimiter;
     public @Nullable String delimiter() {
-        if (delimiter == null) return null;
-        return delimiter.getValue("TableImportTableInputFormatOptionsCsv.delimiter");
+        if (!unknown_delimiter) return value_delimiter;
+        throw new UndeferrableValueException("Value 'TableImportTableInputFormatOptionsCsv.delimiter' is not present");
     }
 
     /**
      * List of the headers used to specify a common header for all source CSV files being imported.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> headerLists;
-
+    @PolicyResourceProperty(name="headerLists", flag="unknown_headerLists")
+    private @Nullable List<String> value_headerLists;
+    private boolean unknown_headerLists;
     public @Nullable List<String> headerLists() {
-        if (headerLists == null) return null;
-        return headerLists.getValue("TableImportTableInputFormatOptionsCsv.headerLists");
+        if (!unknown_headerLists) return value_headerLists;
+        throw new UndeferrableValueException("Value 'TableImportTableInputFormatOptionsCsv.headerLists' is not present");
     }
 
 }

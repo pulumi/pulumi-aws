@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directoryservice;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -19,66 +20,72 @@ public final class Trust extends com.pulumi.resources.PolicyResourceOutput {
      * Can contain between 1 and 4 values.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> conditionalForwarderIpAddrs;
-
+    @PolicyResourceProperty(name="conditionalForwarderIpAddrs", flag="unknown_conditionalForwarderIpAddrs")
+    private @Nullable List<String> value_conditionalForwarderIpAddrs;
+    private boolean unknown_conditionalForwarderIpAddrs;
     public @Nullable List<String> conditionalForwarderIpAddrs() {
-        if (conditionalForwarderIpAddrs == null) return null;
-        return conditionalForwarderIpAddrs.getValue("Trust.conditionalForwarderIpAddrs");
+        if (!unknown_conditionalForwarderIpAddrs) return value_conditionalForwarderIpAddrs;
+        throw new UndeferrableValueException("Value 'Trust.conditionalForwarderIpAddrs' is not present");
     }
 
     /**
      * Date and time when the Trust was created.
      * 
      */
-    private UndeferrableValue<String> createdDateTime;
-
+    @PolicyResourceProperty(name="createdDateTime", flag="unknown_createdDateTime")
+    private String value_createdDateTime;
+    private boolean unknown_createdDateTime;
     public String createdDateTime() {
-        if (createdDateTime == null) return null;
-        return createdDateTime.getValue("Trust.createdDateTime");
+        if (!unknown_createdDateTime) return value_createdDateTime;
+        throw new UndeferrableValueException("Value 'Trust.createdDateTime' is not present");
     }
 
     /**
      * Whether to delete the conditional forwarder when deleting the Trust relationship.
      * 
      */
-    private UndeferrableValue<Boolean> deleteAssociatedConditionalForwarder;
-
+    @PolicyResourceProperty(name="deleteAssociatedConditionalForwarder", flag="unknown_deleteAssociatedConditionalForwarder")
+    private Boolean value_deleteAssociatedConditionalForwarder;
+    private boolean unknown_deleteAssociatedConditionalForwarder;
     public Boolean deleteAssociatedConditionalForwarder() {
-        if (deleteAssociatedConditionalForwarder == null) return null;
-        return deleteAssociatedConditionalForwarder.getValue("Trust.deleteAssociatedConditionalForwarder");
+        if (!unknown_deleteAssociatedConditionalForwarder) return value_deleteAssociatedConditionalForwarder;
+        throw new UndeferrableValueException("Value 'Trust.deleteAssociatedConditionalForwarder' is not present");
     }
 
     /**
      * ID of the Directory.
      * 
      */
-    private UndeferrableValue<String> directoryId;
-
+    @PolicyResourceProperty(name="directoryId", flag="unknown_directoryId")
+    private String value_directoryId;
+    private boolean unknown_directoryId;
     public String directoryId() {
-        if (directoryId == null) return null;
-        return directoryId.getValue("Trust.directoryId");
+        if (!unknown_directoryId) return value_directoryId;
+        throw new UndeferrableValueException("Value 'Trust.directoryId' is not present");
     }
 
     /**
      * Date and time when the Trust was last updated.
      * 
      */
-    private UndeferrableValue<String> lastUpdatedDateTime;
-
+    @PolicyResourceProperty(name="lastUpdatedDateTime", flag="unknown_lastUpdatedDateTime")
+    private String value_lastUpdatedDateTime;
+    private boolean unknown_lastUpdatedDateTime;
     public String lastUpdatedDateTime() {
-        if (lastUpdatedDateTime == null) return null;
-        return lastUpdatedDateTime.getValue("Trust.lastUpdatedDateTime");
+        if (!unknown_lastUpdatedDateTime) return value_lastUpdatedDateTime;
+        throw new UndeferrableValueException("Value 'Trust.lastUpdatedDateTime' is not present");
     }
 
     /**
      * Fully qualified domain name of the remote Directory.
      * 
      */
-    private UndeferrableValue<String> remoteDomainName;
-
+    @PolicyResourceProperty(name="remoteDomainName", flag="unknown_remoteDomainName")
+    private String value_remoteDomainName;
+    private boolean unknown_remoteDomainName;
     public String remoteDomainName() {
-        if (remoteDomainName == null) return null;
-        return remoteDomainName.getValue("Trust.remoteDomainName");
+        if (!unknown_remoteDomainName) return value_remoteDomainName;
+        throw new UndeferrableValueException("Value 'Trust.remoteDomainName' is not present");
     }
 
     /**
@@ -87,22 +94,24 @@ public final class Trust extends com.pulumi.resources.PolicyResourceOutput {
      * Default value is `Disabled`.
      * 
      */
-    private UndeferrableValue<String> selectiveAuth;
-
+    @PolicyResourceProperty(name="selectiveAuth", flag="unknown_selectiveAuth")
+    private String value_selectiveAuth;
+    private boolean unknown_selectiveAuth;
     public String selectiveAuth() {
-        if (selectiveAuth == null) return null;
-        return selectiveAuth.getValue("Trust.selectiveAuth");
+        if (!unknown_selectiveAuth) return value_selectiveAuth;
+        throw new UndeferrableValueException("Value 'Trust.selectiveAuth' is not present");
     }
 
     /**
      * Date and time when the Trust state in `trust_state` was last updated.
      * 
      */
-    private UndeferrableValue<String> stateLastUpdatedDateTime;
-
+    @PolicyResourceProperty(name="stateLastUpdatedDateTime", flag="unknown_stateLastUpdatedDateTime")
+    private String value_stateLastUpdatedDateTime;
+    private boolean unknown_stateLastUpdatedDateTime;
     public String stateLastUpdatedDateTime() {
-        if (stateLastUpdatedDateTime == null) return null;
-        return stateLastUpdatedDateTime.getValue("Trust.stateLastUpdatedDateTime");
+        if (!unknown_stateLastUpdatedDateTime) return value_stateLastUpdatedDateTime;
+        throw new UndeferrableValueException("Value 'Trust.stateLastUpdatedDateTime' is not present");
     }
 
     /**
@@ -110,11 +119,12 @@ public final class Trust extends com.pulumi.resources.PolicyResourceOutput {
      * Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
      * 
      */
-    private UndeferrableValue<String> trustDirection;
-
+    @PolicyResourceProperty(name="trustDirection", flag="unknown_trustDirection")
+    private String value_trustDirection;
+    private boolean unknown_trustDirection;
     public String trustDirection() {
-        if (trustDirection == null) return null;
-        return trustDirection.getValue("Trust.trustDirection");
+        if (!unknown_trustDirection) return value_trustDirection;
+        throw new UndeferrableValueException("Value 'Trust.trustDirection' is not present");
     }
 
     /**
@@ -124,11 +134,12 @@ public final class Trust extends com.pulumi.resources.PolicyResourceOutput {
      * May be up to 128 characters long.
      * 
      */
-    private UndeferrableValue<String> trustPassword;
-
+    @PolicyResourceProperty(name="trustPassword", flag="unknown_trustPassword")
+    private String value_trustPassword;
+    private boolean unknown_trustPassword;
     public String trustPassword() {
-        if (trustPassword == null) return null;
-        return trustPassword.getValue("Trust.trustPassword");
+        if (!unknown_trustPassword) return value_trustPassword;
+        throw new UndeferrableValueException("Value 'Trust.trustPassword' is not present");
     }
 
     /**
@@ -136,22 +147,24 @@ public final class Trust extends com.pulumi.resources.PolicyResourceOutput {
      * One of `Created`, `VerifyFailed`,`Verified`, `UpdateFailed`,`Updated`,`Deleted`, or `Failed`.
      * 
      */
-    private UndeferrableValue<String> trustState;
-
+    @PolicyResourceProperty(name="trustState", flag="unknown_trustState")
+    private String value_trustState;
+    private boolean unknown_trustState;
     public String trustState() {
-        if (trustState == null) return null;
-        return trustState.getValue("Trust.trustState");
+        if (!unknown_trustState) return value_trustState;
+        throw new UndeferrableValueException("Value 'Trust.trustState' is not present");
     }
 
     /**
      * Reason for the Trust state set in `trust_state`.
      * 
      */
-    private UndeferrableValue<String> trustStateReason;
-
+    @PolicyResourceProperty(name="trustStateReason", flag="unknown_trustStateReason")
+    private String value_trustStateReason;
+    private boolean unknown_trustStateReason;
     public String trustStateReason() {
-        if (trustStateReason == null) return null;
-        return trustStateReason.getValue("Trust.trustStateReason");
+        if (!unknown_trustStateReason) return value_trustStateReason;
+        throw new UndeferrableValueException("Value 'Trust.trustStateReason' is not present");
     }
 
     /**
@@ -160,11 +173,12 @@ public final class Trust extends com.pulumi.resources.PolicyResourceOutput {
      * Default value is `Forest`.
      * 
      */
-    private UndeferrableValue<String> trustType;
-
+    @PolicyResourceProperty(name="trustType", flag="unknown_trustType")
+    private String value_trustType;
+    private boolean unknown_trustType;
     public String trustType() {
-        if (trustType == null) return null;
-        return trustType.getValue("Trust.trustType");
+        if (!unknown_trustType) return value_trustType;
+        throw new UndeferrableValueException("Value 'Trust.trustType' is not present");
     }
 
 }

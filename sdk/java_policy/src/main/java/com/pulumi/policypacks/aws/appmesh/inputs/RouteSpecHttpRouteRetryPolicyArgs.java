@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class RouteSpecHttpRouteRetryPolicyArgs {
      * Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
      * 
      */
-    private UndeferrableValue<List<String>> httpRetryEvents;
-
+    @PolicyResourceProperty(name="httpRetryEvents", flag="unknown_httpRetryEvents")
+    private List<String> value_httpRetryEvents;
+    private boolean unknown_httpRetryEvents;
     public List<String> httpRetryEvents() {
-        if (httpRetryEvents == null) return null;
-        return httpRetryEvents.getValue("RouteSpecHttpRouteRetryPolicyArgs.httpRetryEvents");
+        if (!unknown_httpRetryEvents) return value_httpRetryEvents;
+        throw new UndeferrableValueException("Value 'RouteSpecHttpRouteRetryPolicyArgs.httpRetryEvents' is not present");
     }
 
     /**
      * Maximum number of retries.
      * 
      */
-    private UndeferrableValue<Integer> maxRetries;
-
+    @PolicyResourceProperty(name="maxRetries", flag="unknown_maxRetries")
+    private Integer value_maxRetries;
+    private boolean unknown_maxRetries;
     public Integer maxRetries() {
-        if (maxRetries == null) return null;
-        return maxRetries.getValue("RouteSpecHttpRouteRetryPolicyArgs.maxRetries");
+        if (!unknown_maxRetries) return value_maxRetries;
+        throw new UndeferrableValueException("Value 'RouteSpecHttpRouteRetryPolicyArgs.maxRetries' is not present");
     }
 
     /**
      * Per-retry timeout.
      * 
      */
-    private UndeferrableValue<RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs> perRetryTimeout;
-
+    @PolicyResourceProperty(name="perRetryTimeout", flag="unknown_perRetryTimeout")
+    private RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs value_perRetryTimeout;
+    private boolean unknown_perRetryTimeout;
     public RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs perRetryTimeout() {
-        if (perRetryTimeout == null) return null;
-        return perRetryTimeout.getValue("RouteSpecHttpRouteRetryPolicyArgs.perRetryTimeout");
+        if (!unknown_perRetryTimeout) return value_perRetryTimeout;
+        throw new UndeferrableValueException("Value 'RouteSpecHttpRouteRetryPolicyArgs.perRetryTimeout' is not present");
     }
 
     /**
@@ -53,11 +57,12 @@ public final class RouteSpecHttpRouteRetryPolicyArgs {
      * You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
      * 
      */
-    private UndeferrableValue<List<String>> tcpRetryEvents;
-
+    @PolicyResourceProperty(name="tcpRetryEvents", flag="unknown_tcpRetryEvents")
+    private List<String> value_tcpRetryEvents;
+    private boolean unknown_tcpRetryEvents;
     public List<String> tcpRetryEvents() {
-        if (tcpRetryEvents == null) return null;
-        return tcpRetryEvents.getValue("RouteSpecHttpRouteRetryPolicyArgs.tcpRetryEvents");
+        if (!unknown_tcpRetryEvents) return value_tcpRetryEvents;
+        throw new UndeferrableValueException("Value 'RouteSpecHttpRouteRetryPolicyArgs.tcpRetryEvents' is not present");
     }
 
 }

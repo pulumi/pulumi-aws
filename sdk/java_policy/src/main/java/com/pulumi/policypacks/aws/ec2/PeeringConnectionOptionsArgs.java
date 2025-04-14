@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.inputs.PeeringConnectionOptionsAccepterArgs;
 import com.pulumi.policypacks.aws.ec2.inputs.PeeringConnectionOptionsRequesterArgs;
@@ -18,33 +19,36 @@ public final class PeeringConnectionOptionsArgs extends com.pulumi.resources.Pol
      * An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts the peering connection (a maximum of one).
      * 
      */
-    private UndeferrableValue<PeeringConnectionOptionsAccepterArgs> accepter;
-
+    @PolicyResourceProperty(name="accepter", flag="unknown_accepter")
+    private PeeringConnectionOptionsAccepterArgs value_accepter;
+    private boolean unknown_accepter;
     public PeeringConnectionOptionsAccepterArgs accepter() {
-        if (accepter == null) return null;
-        return accepter.getValue("PeeringConnectionOptionsArgs.accepter");
+        if (!unknown_accepter) return value_accepter;
+        throw new UndeferrableValueException("Value 'PeeringConnectionOptionsArgs.accepter' is not present");
     }
 
     /**
      * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests the peering connection (a maximum of one).
      * 
      */
-    private UndeferrableValue<PeeringConnectionOptionsRequesterArgs> requester;
-
+    @PolicyResourceProperty(name="requester", flag="unknown_requester")
+    private PeeringConnectionOptionsRequesterArgs value_requester;
+    private boolean unknown_requester;
     public PeeringConnectionOptionsRequesterArgs requester() {
-        if (requester == null) return null;
-        return requester.getValue("PeeringConnectionOptionsArgs.requester");
+        if (!unknown_requester) return value_requester;
+        throw new UndeferrableValueException("Value 'PeeringConnectionOptionsArgs.requester' is not present");
     }
 
     /**
      * The ID of the requester VPC peering connection.
      * 
      */
-    private UndeferrableValue<String> vpcPeeringConnectionId;
-
+    @PolicyResourceProperty(name="vpcPeeringConnectionId", flag="unknown_vpcPeeringConnectionId")
+    private String value_vpcPeeringConnectionId;
+    private boolean unknown_vpcPeeringConnectionId;
     public String vpcPeeringConnectionId() {
-        if (vpcPeeringConnectionId == null) return null;
-        return vpcPeeringConnectionId.getValue("PeeringConnectionOptionsArgs.vpcPeeringConnectionId");
+        if (!unknown_vpcPeeringConnectionId) return value_vpcPeeringConnectionId;
+        throw new UndeferrableValueException("Value 'PeeringConnectionOptionsArgs.vpcPeeringConnectionId' is not present");
     }
 
 }

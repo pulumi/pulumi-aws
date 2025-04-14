@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicediscovery.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ServiceHealthCheckCustomConfig {
      * The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> failureThreshold;
-
+    @PolicyResourceProperty(name="failureThreshold", flag="unknown_failureThreshold")
+    private @Nullable Integer value_failureThreshold;
+    private boolean unknown_failureThreshold;
     public @Nullable Integer failureThreshold() {
-        if (failureThreshold == null) return null;
-        return failureThreshold.getValue("ServiceHealthCheckCustomConfig.failureThreshold");
+        if (!unknown_failureThreshold) return value_failureThreshold;
+        throw new UndeferrableValueException("Value 'ServiceHealthCheckCustomConfig.failureThreshold' is not present");
     }
 
 }

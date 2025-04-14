@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualGatewaySpecLoggingAccessLogFileArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class VirtualGatewaySpecLoggingAccessLogArgs {
      * File object to send virtual gateway access logs to.
      * 
      */
-    private UndeferrableValue<VirtualGatewaySpecLoggingAccessLogFileArgs> file;
-
+    @PolicyResourceProperty(name="file", flag="unknown_file")
+    private VirtualGatewaySpecLoggingAccessLogFileArgs value_file;
+    private boolean unknown_file;
     public VirtualGatewaySpecLoggingAccessLogFileArgs file() {
-        if (file == null) return null;
-        return file.getValue("VirtualGatewaySpecLoggingAccessLogArgs.file");
+        if (!unknown_file) return value_file;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecLoggingAccessLogArgs.file' is not present");
     }
 
 }

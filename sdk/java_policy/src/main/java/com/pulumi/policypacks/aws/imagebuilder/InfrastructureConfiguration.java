@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.imagebuilder.outputs.InfrastructureConfigurationInstanceMetadataOptions;
 import com.pulumi.policypacks.aws.imagebuilder.outputs.InfrastructureConfigurationLogging;
@@ -21,99 +22,108 @@ public final class InfrastructureConfiguration extends com.pulumi.resources.Poli
      * Amazon Resource Name (ARN) of the configuration.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("InfrastructureConfiguration.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'InfrastructureConfiguration.arn' is not present");
     }
 
     /**
      * Date when the configuration was created.
      * 
      */
-    private UndeferrableValue<String> dateCreated;
-
+    @PolicyResourceProperty(name="dateCreated", flag="unknown_dateCreated")
+    private String value_dateCreated;
+    private boolean unknown_dateCreated;
     public String dateCreated() {
-        if (dateCreated == null) return null;
-        return dateCreated.getValue("InfrastructureConfiguration.dateCreated");
+        if (!unknown_dateCreated) return value_dateCreated;
+        throw new UndeferrableValueException("Value 'InfrastructureConfiguration.dateCreated' is not present");
     }
 
     /**
      * Date when the configuration was updated.
      * 
      */
-    private UndeferrableValue<String> dateUpdated;
-
+    @PolicyResourceProperty(name="dateUpdated", flag="unknown_dateUpdated")
+    private String value_dateUpdated;
+    private boolean unknown_dateUpdated;
     public String dateUpdated() {
-        if (dateUpdated == null) return null;
-        return dateUpdated.getValue("InfrastructureConfiguration.dateUpdated");
+        if (!unknown_dateUpdated) return value_dateUpdated;
+        throw new UndeferrableValueException("Value 'InfrastructureConfiguration.dateUpdated' is not present");
     }
 
     /**
      * Description for the configuration.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("InfrastructureConfiguration.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'InfrastructureConfiguration.description' is not present");
     }
 
     /**
      * Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<InfrastructureConfigurationInstanceMetadataOptions> instanceMetadataOptions;
-
+    @PolicyResourceProperty(name="instanceMetadataOptions", flag="unknown_instanceMetadataOptions")
+    private @Nullable InfrastructureConfigurationInstanceMetadataOptions value_instanceMetadataOptions;
+    private boolean unknown_instanceMetadataOptions;
     public @Nullable InfrastructureConfigurationInstanceMetadataOptions instanceMetadataOptions() {
-        if (instanceMetadataOptions == null) return null;
-        return instanceMetadataOptions.getValue("InfrastructureConfiguration.instanceMetadataOptions");
+        if (!unknown_instanceMetadataOptions) return value_instanceMetadataOptions;
+        throw new UndeferrableValueException("Value 'InfrastructureConfiguration.instanceMetadataOptions' is not present");
     }
 
     /**
      * Name of IAM Instance Profile.
      * 
      */
-    private UndeferrableValue<String> instanceProfileName;
-
+    @PolicyResourceProperty(name="instanceProfileName", flag="unknown_instanceProfileName")
+    private String value_instanceProfileName;
+    private boolean unknown_instanceProfileName;
     public String instanceProfileName() {
-        if (instanceProfileName == null) return null;
-        return instanceProfileName.getValue("InfrastructureConfiguration.instanceProfileName");
+        if (!unknown_instanceProfileName) return value_instanceProfileName;
+        throw new UndeferrableValueException("Value 'InfrastructureConfiguration.instanceProfileName' is not present");
     }
 
     /**
      * Set of EC2 Instance Types.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> instanceTypes;
-
+    @PolicyResourceProperty(name="instanceTypes", flag="unknown_instanceTypes")
+    private @Nullable List<String> value_instanceTypes;
+    private boolean unknown_instanceTypes;
     public @Nullable List<String> instanceTypes() {
-        if (instanceTypes == null) return null;
-        return instanceTypes.getValue("InfrastructureConfiguration.instanceTypes");
+        if (!unknown_instanceTypes) return value_instanceTypes;
+        throw new UndeferrableValueException("Value 'InfrastructureConfiguration.instanceTypes' is not present");
     }
 
     /**
      * Name of EC2 Key Pair.
      * 
      */
-    private @Nullable UndeferrableValue<String> keyPair;
-
+    @PolicyResourceProperty(name="keyPair", flag="unknown_keyPair")
+    private @Nullable String value_keyPair;
+    private boolean unknown_keyPair;
     public @Nullable String keyPair() {
-        if (keyPair == null) return null;
-        return keyPair.getValue("InfrastructureConfiguration.keyPair");
+        if (!unknown_keyPair) return value_keyPair;
+        throw new UndeferrableValueException("Value 'InfrastructureConfiguration.keyPair' is not present");
     }
 
     /**
      * Configuration block with logging settings. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<InfrastructureConfigurationLogging> logging;
-
+    @PolicyResourceProperty(name="logging", flag="unknown_logging")
+    private @Nullable InfrastructureConfigurationLogging value_logging;
+    private boolean unknown_logging;
     public @Nullable InfrastructureConfigurationLogging logging() {
-        if (logging == null) return null;
-        return logging.getValue("InfrastructureConfiguration.logging");
+        if (!unknown_logging) return value_logging;
+        throw new UndeferrableValueException("Value 'InfrastructureConfiguration.logging' is not present");
     }
 
     /**
@@ -122,66 +132,72 @@ public final class InfrastructureConfiguration extends com.pulumi.resources.Poli
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("InfrastructureConfiguration.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'InfrastructureConfiguration.name' is not present");
     }
 
     /**
      * Key-value map of resource tags to assign to infrastructure created by the configuration.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> resourceTags;
-
+    @PolicyResourceProperty(name="resourceTags", flag="unknown_resourceTags")
+    private @Nullable Map<String,String> value_resourceTags;
+    private boolean unknown_resourceTags;
     public @Nullable Map<String,String> resourceTags() {
-        if (resourceTags == null) return null;
-        return resourceTags.getValue("InfrastructureConfiguration.resourceTags");
+        if (!unknown_resourceTags) return value_resourceTags;
+        throw new UndeferrableValueException("Value 'InfrastructureConfiguration.resourceTags' is not present");
     }
 
     /**
      * Set of EC2 Security Group identifiers.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private @Nullable List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public @Nullable List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("InfrastructureConfiguration.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'InfrastructureConfiguration.securityGroupIds' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of SNS Topic.
      * 
      */
-    private @Nullable UndeferrableValue<String> snsTopicArn;
-
+    @PolicyResourceProperty(name="snsTopicArn", flag="unknown_snsTopicArn")
+    private @Nullable String value_snsTopicArn;
+    private boolean unknown_snsTopicArn;
     public @Nullable String snsTopicArn() {
-        if (snsTopicArn == null) return null;
-        return snsTopicArn.getValue("InfrastructureConfiguration.snsTopicArn");
+        if (!unknown_snsTopicArn) return value_snsTopicArn;
+        throw new UndeferrableValueException("Value 'InfrastructureConfiguration.snsTopicArn' is not present");
     }
 
     /**
      * EC2 Subnet identifier. Also requires `security_group_ids` argument.
      * 
      */
-    private @Nullable UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private @Nullable String value_subnetId;
+    private boolean unknown_subnetId;
     public @Nullable String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("InfrastructureConfiguration.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'InfrastructureConfiguration.subnetId' is not present");
     }
 
     /**
      * Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("InfrastructureConfiguration.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'InfrastructureConfiguration.tags' is not present");
     }
 
     /**
@@ -192,22 +208,24 @@ public final class InfrastructureConfiguration extends com.pulumi.resources.Poli
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("InfrastructureConfiguration.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'InfrastructureConfiguration.tagsAll' is not present");
     }
 
     /**
      * Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> terminateInstanceOnFailure;
-
+    @PolicyResourceProperty(name="terminateInstanceOnFailure", flag="unknown_terminateInstanceOnFailure")
+    private @Nullable Boolean value_terminateInstanceOnFailure;
+    private boolean unknown_terminateInstanceOnFailure;
     public @Nullable Boolean terminateInstanceOnFailure() {
-        if (terminateInstanceOnFailure == null) return null;
-        return terminateInstanceOnFailure.getValue("InfrastructureConfiguration.terminateInstanceOnFailure");
+        if (!unknown_terminateInstanceOnFailure) return value_terminateInstanceOnFailure;
+        throw new UndeferrableValueException("Value 'InfrastructureConfiguration.terminateInstanceOnFailure' is not present");
     }
 
 }

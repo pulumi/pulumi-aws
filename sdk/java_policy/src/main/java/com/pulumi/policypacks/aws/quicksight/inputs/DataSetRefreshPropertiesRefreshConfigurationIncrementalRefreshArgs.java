@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.inputs.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs;
 
 
@@ -13,11 +14,12 @@ public final class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefres
      * The lookback window setup for an incremental refresh configuration. See lookback_window.
      * 
      */
-    private UndeferrableValue<DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs> lookbackWindow;
-
+    @PolicyResourceProperty(name="lookbackWindow", flag="unknown_lookbackWindow")
+    private DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs value_lookbackWindow;
+    private boolean unknown_lookbackWindow;
     public DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs lookbackWindow() {
-        if (lookbackWindow == null) return null;
-        return lookbackWindow.getValue("DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs.lookbackWindow");
+        if (!unknown_lookbackWindow) return value_lookbackWindow;
+        throw new UndeferrableValueException("Value 'DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs.lookbackWindow' is not present");
     }
 
 }

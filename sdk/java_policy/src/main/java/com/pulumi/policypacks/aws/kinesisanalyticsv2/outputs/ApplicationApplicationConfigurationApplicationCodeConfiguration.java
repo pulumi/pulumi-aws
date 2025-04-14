@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
      * The location and type of the application code.
      * 
      */
-    private @Nullable UndeferrableValue<ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent> codeContent;
-
+    @PolicyResourceProperty(name="codeContent", flag="unknown_codeContent")
+    private @Nullable ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent value_codeContent;
+    private boolean unknown_codeContent;
     public @Nullable ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent codeContent() {
-        if (codeContent == null) return null;
-        return codeContent.getValue("ApplicationApplicationConfigurationApplicationCodeConfiguration.codeContent");
+        if (!unknown_codeContent) return value_codeContent;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationApplicationCodeConfiguration.codeContent' is not present");
     }
 
     /**
      * Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
      * 
      */
-    private UndeferrableValue<String> codeContentType;
-
+    @PolicyResourceProperty(name="codeContentType", flag="unknown_codeContentType")
+    private String value_codeContentType;
+    private boolean unknown_codeContentType;
     public String codeContentType() {
-        if (codeContentType == null) return null;
-        return codeContentType.getValue("ApplicationApplicationConfigurationApplicationCodeConfiguration.codeContentType");
+        if (!unknown_codeContentType) return value_codeContentType;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationApplicationCodeConfiguration.codeContentType' is not present");
     }
 
 }

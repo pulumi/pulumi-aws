@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.neptune;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.neptune.outputs.ClusterServerlessV2ScalingConfiguration;
 import java.lang.Boolean;
@@ -21,385 +22,420 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster&#39;s current version. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> allowMajorVersionUpgrade;
-
+    @PolicyResourceProperty(name="allowMajorVersionUpgrade", flag="unknown_allowMajorVersionUpgrade")
+    private Boolean value_allowMajorVersionUpgrade;
+    private boolean unknown_allowMajorVersionUpgrade;
     public Boolean allowMajorVersionUpgrade() {
-        if (allowMajorVersionUpgrade == null) return null;
-        return allowMajorVersionUpgrade.getValue("Cluster.allowMajorVersionUpgrade");
+        if (!unknown_allowMajorVersionUpgrade) return value_allowMajorVersionUpgrade;
+        throw new UndeferrableValueException("Value 'Cluster.allowMajorVersionUpgrade' is not present");
     }
 
     /**
      * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> applyImmediately;
-
+    @PolicyResourceProperty(name="applyImmediately", flag="unknown_applyImmediately")
+    private Boolean value_applyImmediately;
+    private boolean unknown_applyImmediately;
     public Boolean applyImmediately() {
-        if (applyImmediately == null) return null;
-        return applyImmediately.getValue("Cluster.applyImmediately");
+        if (!unknown_applyImmediately) return value_applyImmediately;
+        throw new UndeferrableValueException("Value 'Cluster.applyImmediately' is not present");
     }
 
     /**
      * The Neptune Cluster Amazon Resource Name (ARN)
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Cluster.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Cluster.arn' is not present");
     }
 
     /**
      * A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
      * 
      */
-    private UndeferrableValue<List<String>> availabilityZones;
-
+    @PolicyResourceProperty(name="availabilityZones", flag="unknown_availabilityZones")
+    private List<String> value_availabilityZones;
+    private boolean unknown_availabilityZones;
     public List<String> availabilityZones() {
-        if (availabilityZones == null) return null;
-        return availabilityZones.getValue("Cluster.availabilityZones");
+        if (!unknown_availabilityZones) return value_availabilityZones;
+        throw new UndeferrableValueException("Value 'Cluster.availabilityZones' is not present");
     }
 
     /**
      * The days to retain backups for. Default `1`
      * 
      */
-    private @Nullable UndeferrableValue<Integer> backupRetentionPeriod;
-
+    @PolicyResourceProperty(name="backupRetentionPeriod", flag="unknown_backupRetentionPeriod")
+    private @Nullable Integer value_backupRetentionPeriod;
+    private boolean unknown_backupRetentionPeriod;
     public @Nullable Integer backupRetentionPeriod() {
-        if (backupRetentionPeriod == null) return null;
-        return backupRetentionPeriod.getValue("Cluster.backupRetentionPeriod");
+        if (!unknown_backupRetentionPeriod) return value_backupRetentionPeriod;
+        throw new UndeferrableValueException("Value 'Cluster.backupRetentionPeriod' is not present");
     }
 
     /**
      * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
      * 
      */
-    private UndeferrableValue<String> clusterIdentifier;
-
+    @PolicyResourceProperty(name="clusterIdentifier", flag="unknown_clusterIdentifier")
+    private String value_clusterIdentifier;
+    private boolean unknown_clusterIdentifier;
     public String clusterIdentifier() {
-        if (clusterIdentifier == null) return null;
-        return clusterIdentifier.getValue("Cluster.clusterIdentifier");
+        if (!unknown_clusterIdentifier) return value_clusterIdentifier;
+        throw new UndeferrableValueException("Value 'Cluster.clusterIdentifier' is not present");
     }
 
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
      * 
      */
-    private UndeferrableValue<String> clusterIdentifierPrefix;
-
+    @PolicyResourceProperty(name="clusterIdentifierPrefix", flag="unknown_clusterIdentifierPrefix")
+    private String value_clusterIdentifierPrefix;
+    private boolean unknown_clusterIdentifierPrefix;
     public String clusterIdentifierPrefix() {
-        if (clusterIdentifierPrefix == null) return null;
-        return clusterIdentifierPrefix.getValue("Cluster.clusterIdentifierPrefix");
+        if (!unknown_clusterIdentifierPrefix) return value_clusterIdentifierPrefix;
+        throw new UndeferrableValueException("Value 'Cluster.clusterIdentifierPrefix' is not present");
     }
 
     /**
      * List of Neptune Instances that are a part of this cluster
      * 
      */
-    private UndeferrableValue<List<String>> clusterMembers;
-
+    @PolicyResourceProperty(name="clusterMembers", flag="unknown_clusterMembers")
+    private List<String> value_clusterMembers;
+    private boolean unknown_clusterMembers;
     public List<String> clusterMembers() {
-        if (clusterMembers == null) return null;
-        return clusterMembers.getValue("Cluster.clusterMembers");
+        if (!unknown_clusterMembers) return value_clusterMembers;
+        throw new UndeferrableValueException("Value 'Cluster.clusterMembers' is not present");
     }
 
     /**
      * The Neptune Cluster Resource ID
      * 
      */
-    private UndeferrableValue<String> clusterResourceId;
-
+    @PolicyResourceProperty(name="clusterResourceId", flag="unknown_clusterResourceId")
+    private String value_clusterResourceId;
+    private boolean unknown_clusterResourceId;
     public String clusterResourceId() {
-        if (clusterResourceId == null) return null;
-        return clusterResourceId.getValue("Cluster.clusterResourceId");
+        if (!unknown_clusterResourceId) return value_clusterResourceId;
+        throw new UndeferrableValueException("Value 'Cluster.clusterResourceId' is not present");
     }
 
     /**
      * If set to true, tags are copied to any snapshot of the DB cluster that is created.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> copyTagsToSnapshot;
-
+    @PolicyResourceProperty(name="copyTagsToSnapshot", flag="unknown_copyTagsToSnapshot")
+    private @Nullable Boolean value_copyTagsToSnapshot;
+    private boolean unknown_copyTagsToSnapshot;
     public @Nullable Boolean copyTagsToSnapshot() {
-        if (copyTagsToSnapshot == null) return null;
-        return copyTagsToSnapshot.getValue("Cluster.copyTagsToSnapshot");
+        if (!unknown_copyTagsToSnapshot) return value_copyTagsToSnapshot;
+        throw new UndeferrableValueException("Value 'Cluster.copyTagsToSnapshot' is not present");
     }
 
     /**
      * A value that indicates whether the DB cluster has deletion protection enabled.The database can&#39;t be deleted when deletion protection is enabled. By default, deletion protection is disabled.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> deletionProtection;
-
+    @PolicyResourceProperty(name="deletionProtection", flag="unknown_deletionProtection")
+    private @Nullable Boolean value_deletionProtection;
+    private boolean unknown_deletionProtection;
     public @Nullable Boolean deletionProtection() {
-        if (deletionProtection == null) return null;
-        return deletionProtection.getValue("Cluster.deletionProtection");
+        if (!unknown_deletionProtection) return value_deletionProtection;
+        throw new UndeferrableValueException("Value 'Cluster.deletionProtection' is not present");
     }
 
     /**
      * A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> enableCloudwatchLogsExports;
-
+    @PolicyResourceProperty(name="enableCloudwatchLogsExports", flag="unknown_enableCloudwatchLogsExports")
+    private @Nullable List<String> value_enableCloudwatchLogsExports;
+    private boolean unknown_enableCloudwatchLogsExports;
     public @Nullable List<String> enableCloudwatchLogsExports() {
-        if (enableCloudwatchLogsExports == null) return null;
-        return enableCloudwatchLogsExports.getValue("Cluster.enableCloudwatchLogsExports");
+        if (!unknown_enableCloudwatchLogsExports) return value_enableCloudwatchLogsExports;
+        throw new UndeferrableValueException("Value 'Cluster.enableCloudwatchLogsExports' is not present");
     }
 
     /**
      * The DNS address of the Neptune instance
      * 
      */
-    private UndeferrableValue<String> endpoint;
-
+    @PolicyResourceProperty(name="endpoint", flag="unknown_endpoint")
+    private String value_endpoint;
+    private boolean unknown_endpoint;
     public String endpoint() {
-        if (endpoint == null) return null;
-        return endpoint.getValue("Cluster.endpoint");
+        if (!unknown_endpoint) return value_endpoint;
+        throw new UndeferrableValueException("Value 'Cluster.endpoint' is not present");
     }
 
     /**
      * The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
      * 
      */
-    private @Nullable UndeferrableValue<String> engine;
-
+    @PolicyResourceProperty(name="engine", flag="unknown_engine")
+    private @Nullable String value_engine;
+    private boolean unknown_engine;
     public @Nullable String engine() {
-        if (engine == null) return null;
-        return engine.getValue("Cluster.engine");
+        if (!unknown_engine) return value_engine;
+        throw new UndeferrableValueException("Value 'Cluster.engine' is not present");
     }
 
     /**
      * The database engine version.
      * 
      */
-    private UndeferrableValue<String> engineVersion;
-
+    @PolicyResourceProperty(name="engineVersion", flag="unknown_engineVersion")
+    private String value_engineVersion;
+    private boolean unknown_engineVersion;
     public String engineVersion() {
-        if (engineVersion == null) return null;
-        return engineVersion.getValue("Cluster.engineVersion");
+        if (!unknown_engineVersion) return value_engineVersion;
+        throw new UndeferrableValueException("Value 'Cluster.engineVersion' is not present");
     }
 
     /**
      * The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
      * 
      */
-    private @Nullable UndeferrableValue<String> finalSnapshotIdentifier;
-
+    @PolicyResourceProperty(name="finalSnapshotIdentifier", flag="unknown_finalSnapshotIdentifier")
+    private @Nullable String value_finalSnapshotIdentifier;
+    private boolean unknown_finalSnapshotIdentifier;
     public @Nullable String finalSnapshotIdentifier() {
-        if (finalSnapshotIdentifier == null) return null;
-        return finalSnapshotIdentifier.getValue("Cluster.finalSnapshotIdentifier");
+        if (!unknown_finalSnapshotIdentifier) return value_finalSnapshotIdentifier;
+        throw new UndeferrableValueException("Value 'Cluster.finalSnapshotIdentifier' is not present");
     }
 
     /**
      * The global cluster identifier specified on `aws.neptune.GlobalCluster`.
      * 
      */
-    private @Nullable UndeferrableValue<String> globalClusterIdentifier;
-
+    @PolicyResourceProperty(name="globalClusterIdentifier", flag="unknown_globalClusterIdentifier")
+    private @Nullable String value_globalClusterIdentifier;
+    private boolean unknown_globalClusterIdentifier;
     public @Nullable String globalClusterIdentifier() {
-        if (globalClusterIdentifier == null) return null;
-        return globalClusterIdentifier.getValue("Cluster.globalClusterIdentifier");
+        if (!unknown_globalClusterIdentifier) return value_globalClusterIdentifier;
+        throw new UndeferrableValueException("Value 'Cluster.globalClusterIdentifier' is not present");
     }
 
     /**
      * The Route53 Hosted Zone ID of the endpoint
      * 
      */
-    private UndeferrableValue<String> hostedZoneId;
-
+    @PolicyResourceProperty(name="hostedZoneId", flag="unknown_hostedZoneId")
+    private String value_hostedZoneId;
+    private boolean unknown_hostedZoneId;
     public String hostedZoneId() {
-        if (hostedZoneId == null) return null;
-        return hostedZoneId.getValue("Cluster.hostedZoneId");
+        if (!unknown_hostedZoneId) return value_hostedZoneId;
+        throw new UndeferrableValueException("Value 'Cluster.hostedZoneId' is not present");
     }
 
     /**
      * Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> iamDatabaseAuthenticationEnabled;
-
+    @PolicyResourceProperty(name="iamDatabaseAuthenticationEnabled", flag="unknown_iamDatabaseAuthenticationEnabled")
+    private @Nullable Boolean value_iamDatabaseAuthenticationEnabled;
+    private boolean unknown_iamDatabaseAuthenticationEnabled;
     public @Nullable Boolean iamDatabaseAuthenticationEnabled() {
-        if (iamDatabaseAuthenticationEnabled == null) return null;
-        return iamDatabaseAuthenticationEnabled.getValue("Cluster.iamDatabaseAuthenticationEnabled");
+        if (!unknown_iamDatabaseAuthenticationEnabled) return value_iamDatabaseAuthenticationEnabled;
+        throw new UndeferrableValueException("Value 'Cluster.iamDatabaseAuthenticationEnabled' is not present");
     }
 
     /**
      * A List of ARNs for the IAM roles to associate to the Neptune Cluster.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> iamRoles;
-
+    @PolicyResourceProperty(name="iamRoles", flag="unknown_iamRoles")
+    private @Nullable List<String> value_iamRoles;
+    private boolean unknown_iamRoles;
     public @Nullable List<String> iamRoles() {
-        if (iamRoles == null) return null;
-        return iamRoles.getValue("Cluster.iamRoles");
+        if (!unknown_iamRoles) return value_iamRoles;
+        throw new UndeferrableValueException("Value 'Cluster.iamRoles' is not present");
     }
 
     /**
      * The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
      * 
      */
-    private UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("Cluster.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'Cluster.kmsKeyArn' is not present");
     }
 
     /**
      * A cluster parameter group to associate with the cluster.
      * 
      */
-    private UndeferrableValue<String> neptuneClusterParameterGroupName;
-
+    @PolicyResourceProperty(name="neptuneClusterParameterGroupName", flag="unknown_neptuneClusterParameterGroupName")
+    private String value_neptuneClusterParameterGroupName;
+    private boolean unknown_neptuneClusterParameterGroupName;
     public String neptuneClusterParameterGroupName() {
-        if (neptuneClusterParameterGroupName == null) return null;
-        return neptuneClusterParameterGroupName.getValue("Cluster.neptuneClusterParameterGroupName");
+        if (!unknown_neptuneClusterParameterGroupName) return value_neptuneClusterParameterGroupName;
+        throw new UndeferrableValueException("Value 'Cluster.neptuneClusterParameterGroupName' is not present");
     }
 
     /**
      * The name of the DB parameter group to apply to all instances of the DB cluster.
      * 
      */
-    private @Nullable UndeferrableValue<String> neptuneInstanceParameterGroupName;
-
+    @PolicyResourceProperty(name="neptuneInstanceParameterGroupName", flag="unknown_neptuneInstanceParameterGroupName")
+    private @Nullable String value_neptuneInstanceParameterGroupName;
+    private boolean unknown_neptuneInstanceParameterGroupName;
     public @Nullable String neptuneInstanceParameterGroupName() {
-        if (neptuneInstanceParameterGroupName == null) return null;
-        return neptuneInstanceParameterGroupName.getValue("Cluster.neptuneInstanceParameterGroupName");
+        if (!unknown_neptuneInstanceParameterGroupName) return value_neptuneInstanceParameterGroupName;
+        throw new UndeferrableValueException("Value 'Cluster.neptuneInstanceParameterGroupName' is not present");
     }
 
     /**
      * A Neptune subnet group to associate with this Neptune instance.
      * 
      */
-    private UndeferrableValue<String> neptuneSubnetGroupName;
-
+    @PolicyResourceProperty(name="neptuneSubnetGroupName", flag="unknown_neptuneSubnetGroupName")
+    private String value_neptuneSubnetGroupName;
+    private boolean unknown_neptuneSubnetGroupName;
     public String neptuneSubnetGroupName() {
-        if (neptuneSubnetGroupName == null) return null;
-        return neptuneSubnetGroupName.getValue("Cluster.neptuneSubnetGroupName");
+        if (!unknown_neptuneSubnetGroupName) return value_neptuneSubnetGroupName;
+        throw new UndeferrableValueException("Value 'Cluster.neptuneSubnetGroupName' is not present");
     }
 
     /**
      * The port on which the Neptune accepts connections. Default is `8182`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable Integer value_port;
+    private boolean unknown_port;
     public @Nullable Integer port() {
-        if (port == null) return null;
-        return port.getValue("Cluster.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'Cluster.port' is not present");
     }
 
     /**
      * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      * 
      */
-    private UndeferrableValue<String> preferredBackupWindow;
-
+    @PolicyResourceProperty(name="preferredBackupWindow", flag="unknown_preferredBackupWindow")
+    private String value_preferredBackupWindow;
+    private boolean unknown_preferredBackupWindow;
     public String preferredBackupWindow() {
-        if (preferredBackupWindow == null) return null;
-        return preferredBackupWindow.getValue("Cluster.preferredBackupWindow");
+        if (!unknown_preferredBackupWindow) return value_preferredBackupWindow;
+        throw new UndeferrableValueException("Value 'Cluster.preferredBackupWindow' is not present");
     }
 
     /**
      * The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      * 
      */
-    private UndeferrableValue<String> preferredMaintenanceWindow;
-
+    @PolicyResourceProperty(name="preferredMaintenanceWindow", flag="unknown_preferredMaintenanceWindow")
+    private String value_preferredMaintenanceWindow;
+    private boolean unknown_preferredMaintenanceWindow;
     public String preferredMaintenanceWindow() {
-        if (preferredMaintenanceWindow == null) return null;
-        return preferredMaintenanceWindow.getValue("Cluster.preferredMaintenanceWindow");
+        if (!unknown_preferredMaintenanceWindow) return value_preferredMaintenanceWindow;
+        throw new UndeferrableValueException("Value 'Cluster.preferredMaintenanceWindow' is not present");
     }
 
     /**
      * A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
      * 
      */
-    private UndeferrableValue<String> readerEndpoint;
-
+    @PolicyResourceProperty(name="readerEndpoint", flag="unknown_readerEndpoint")
+    private String value_readerEndpoint;
+    private boolean unknown_readerEndpoint;
     public String readerEndpoint() {
-        if (readerEndpoint == null) return null;
-        return readerEndpoint.getValue("Cluster.readerEndpoint");
+        if (!unknown_readerEndpoint) return value_readerEndpoint;
+        throw new UndeferrableValueException("Value 'Cluster.readerEndpoint' is not present");
     }
 
     /**
      * ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
      * 
      */
-    private @Nullable UndeferrableValue<String> replicationSourceIdentifier;
-
+    @PolicyResourceProperty(name="replicationSourceIdentifier", flag="unknown_replicationSourceIdentifier")
+    private @Nullable String value_replicationSourceIdentifier;
+    private boolean unknown_replicationSourceIdentifier;
     public @Nullable String replicationSourceIdentifier() {
-        if (replicationSourceIdentifier == null) return null;
-        return replicationSourceIdentifier.getValue("Cluster.replicationSourceIdentifier");
+        if (!unknown_replicationSourceIdentifier) return value_replicationSourceIdentifier;
+        throw new UndeferrableValueException("Value 'Cluster.replicationSourceIdentifier' is not present");
     }
 
     /**
      * If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
      * 
      */
-    private @Nullable UndeferrableValue<ClusterServerlessV2ScalingConfiguration> serverlessV2ScalingConfiguration;
-
+    @PolicyResourceProperty(name="serverlessV2ScalingConfiguration", flag="unknown_serverlessV2ScalingConfiguration")
+    private @Nullable ClusterServerlessV2ScalingConfiguration value_serverlessV2ScalingConfiguration;
+    private boolean unknown_serverlessV2ScalingConfiguration;
     public @Nullable ClusterServerlessV2ScalingConfiguration serverlessV2ScalingConfiguration() {
-        if (serverlessV2ScalingConfiguration == null) return null;
-        return serverlessV2ScalingConfiguration.getValue("Cluster.serverlessV2ScalingConfiguration");
+        if (!unknown_serverlessV2ScalingConfiguration) return value_serverlessV2ScalingConfiguration;
+        throw new UndeferrableValueException("Value 'Cluster.serverlessV2ScalingConfiguration' is not present");
     }
 
     /**
      * Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> skipFinalSnapshot;
-
+    @PolicyResourceProperty(name="skipFinalSnapshot", flag="unknown_skipFinalSnapshot")
+    private @Nullable Boolean value_skipFinalSnapshot;
+    private boolean unknown_skipFinalSnapshot;
     public @Nullable Boolean skipFinalSnapshot() {
-        if (skipFinalSnapshot == null) return null;
-        return skipFinalSnapshot.getValue("Cluster.skipFinalSnapshot");
+        if (!unknown_skipFinalSnapshot) return value_skipFinalSnapshot;
+        throw new UndeferrableValueException("Value 'Cluster.skipFinalSnapshot' is not present");
     }
 
     /**
      * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
      * 
      */
-    private @Nullable UndeferrableValue<String> snapshotIdentifier;
-
+    @PolicyResourceProperty(name="snapshotIdentifier", flag="unknown_snapshotIdentifier")
+    private @Nullable String value_snapshotIdentifier;
+    private boolean unknown_snapshotIdentifier;
     public @Nullable String snapshotIdentifier() {
-        if (snapshotIdentifier == null) return null;
-        return snapshotIdentifier.getValue("Cluster.snapshotIdentifier");
+        if (!unknown_snapshotIdentifier) return value_snapshotIdentifier;
+        throw new UndeferrableValueException("Value 'Cluster.snapshotIdentifier' is not present");
     }
 
     /**
      * Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> storageEncrypted;
-
+    @PolicyResourceProperty(name="storageEncrypted", flag="unknown_storageEncrypted")
+    private @Nullable Boolean value_storageEncrypted;
+    private boolean unknown_storageEncrypted;
     public @Nullable Boolean storageEncrypted() {
-        if (storageEncrypted == null) return null;
-        return storageEncrypted.getValue("Cluster.storageEncrypted");
+        if (!unknown_storageEncrypted) return value_storageEncrypted;
+        throw new UndeferrableValueException("Value 'Cluster.storageEncrypted' is not present");
     }
 
     /**
      * Storage type associated with the cluster `standard/iopt1`. Default: `standard`
      * 
      */
-    private UndeferrableValue<String> storageType;
-
+    @PolicyResourceProperty(name="storageType", flag="unknown_storageType")
+    private String value_storageType;
+    private boolean unknown_storageType;
     public String storageType() {
-        if (storageType == null) return null;
-        return storageType.getValue("Cluster.storageType");
+        if (!unknown_storageType) return value_storageType;
+        throw new UndeferrableValueException("Value 'Cluster.storageType' is not present");
     }
 
     /**
      * A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Cluster.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Cluster.tags' is not present");
     }
 
     /**
@@ -410,22 +446,24 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Cluster.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Cluster.tagsAll' is not present");
     }
 
     /**
      * List of VPC security groups to associate with the Cluster
      * 
      */
-    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
-
+    @PolicyResourceProperty(name="vpcSecurityGroupIds", flag="unknown_vpcSecurityGroupIds")
+    private List<String> value_vpcSecurityGroupIds;
+    private boolean unknown_vpcSecurityGroupIds;
     public List<String> vpcSecurityGroupIds() {
-        if (vpcSecurityGroupIds == null) return null;
-        return vpcSecurityGroupIds.getValue("Cluster.vpcSecurityGroupIds");
+        if (!unknown_vpcSecurityGroupIds) return value_vpcSecurityGroupIds;
+        throw new UndeferrableValueException("Value 'Cluster.vpcSecurityGroupIds' is not present");
     }
 
 }

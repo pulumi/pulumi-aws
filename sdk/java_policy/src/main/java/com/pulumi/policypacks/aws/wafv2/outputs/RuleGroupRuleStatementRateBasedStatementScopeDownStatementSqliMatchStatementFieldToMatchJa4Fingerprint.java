@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSql
      * The match status to assign to the web request if the request doesn&#39;t have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
      * 
      */
-    private UndeferrableValue<String> fallbackBehavior;
-
+    @PolicyResourceProperty(name="fallbackBehavior", flag="unknown_fallbackBehavior")
+    private String value_fallbackBehavior;
+    private boolean unknown_fallbackBehavior;
     public String fallbackBehavior() {
-        if (fallbackBehavior == null) return null;
-        return fallbackBehavior.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint.fallbackBehavior");
+        if (!unknown_fallbackBehavior) return value_fallbackBehavior;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa4Fingerprint.fallbackBehavior' is not present");
     }
 
 }

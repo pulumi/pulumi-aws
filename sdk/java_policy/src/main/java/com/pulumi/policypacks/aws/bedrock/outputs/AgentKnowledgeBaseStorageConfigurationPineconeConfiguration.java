@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfiguration {
      * Endpoint URL for your index management page.
      * 
      */
-    private UndeferrableValue<String> connectionString;
-
+    @PolicyResourceProperty(name="connectionString", flag="unknown_connectionString")
+    private String value_connectionString;
+    private boolean unknown_connectionString;
     public String connectionString() {
-        if (connectionString == null) return null;
-        return connectionString.getValue("AgentKnowledgeBaseStorageConfigurationPineconeConfiguration.connectionString");
+        if (!unknown_connectionString) return value_connectionString;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationPineconeConfiguration.connectionString' is not present");
     }
 
     /**
      * ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
      * 
      */
-    private UndeferrableValue<String> credentialsSecretArn;
-
+    @PolicyResourceProperty(name="credentialsSecretArn", flag="unknown_credentialsSecretArn")
+    private String value_credentialsSecretArn;
+    private boolean unknown_credentialsSecretArn;
     public String credentialsSecretArn() {
-        if (credentialsSecretArn == null) return null;
-        return credentialsSecretArn.getValue("AgentKnowledgeBaseStorageConfigurationPineconeConfiguration.credentialsSecretArn");
+        if (!unknown_credentialsSecretArn) return value_credentialsSecretArn;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationPineconeConfiguration.credentialsSecretArn' is not present");
     }
 
     /**
      * The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    private @Nullable UndeferrableValue<AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping> fieldMapping;
-
+    @PolicyResourceProperty(name="fieldMapping", flag="unknown_fieldMapping")
+    private @Nullable AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping value_fieldMapping;
+    private boolean unknown_fieldMapping;
     public @Nullable AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping fieldMapping() {
-        if (fieldMapping == null) return null;
-        return fieldMapping.getValue("AgentKnowledgeBaseStorageConfigurationPineconeConfiguration.fieldMapping");
+        if (!unknown_fieldMapping) return value_fieldMapping;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationPineconeConfiguration.fieldMapping' is not present");
     }
 
     /**
      * Namespace to be used to write new data to your database.
      * 
      */
-    private @Nullable UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private @Nullable String value_namespace;
+    private boolean unknown_namespace;
     public @Nullable String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("AgentKnowledgeBaseStorageConfigurationPineconeConfiguration.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationPineconeConfiguration.namespace' is not present");
     }
 
 }

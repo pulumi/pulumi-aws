@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.outputs.NetworkInsightsAnalysisForwardPathComponentAclRule;
 import com.pulumi.policypacks.aws.ec2.outputs.NetworkInsightsAnalysisForwardPathComponentAdditionalDetail;
 import com.pulumi.policypacks.aws.ec2.outputs.NetworkInsightsAnalysisForwardPathComponentAttachedTo;
@@ -25,109 +26,124 @@ import javax.annotation.Nullable;
 
 public final class NetworkInsightsAnalysisForwardPathComponent {
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisForwardPathComponentAclRule>> aclRules;
-
+    @PolicyResourceProperty(name="aclRules", flag="unknown_aclRules")
+    private @Nullable List<NetworkInsightsAnalysisForwardPathComponentAclRule> value_aclRules;
+    private boolean unknown_aclRules;
     public @Nullable List<NetworkInsightsAnalysisForwardPathComponentAclRule> aclRules() {
-        if (aclRules == null) return null;
-        return aclRules.getValue("NetworkInsightsAnalysisForwardPathComponent.aclRules");
+        if (!unknown_aclRules) return value_aclRules;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisForwardPathComponent.aclRules' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisForwardPathComponentAdditionalDetail>> additionalDetails;
-
+    @PolicyResourceProperty(name="additionalDetails", flag="unknown_additionalDetails")
+    private @Nullable List<NetworkInsightsAnalysisForwardPathComponentAdditionalDetail> value_additionalDetails;
+    private boolean unknown_additionalDetails;
     public @Nullable List<NetworkInsightsAnalysisForwardPathComponentAdditionalDetail> additionalDetails() {
-        if (additionalDetails == null) return null;
-        return additionalDetails.getValue("NetworkInsightsAnalysisForwardPathComponent.additionalDetails");
+        if (!unknown_additionalDetails) return value_additionalDetails;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisForwardPathComponent.additionalDetails' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisForwardPathComponentAttachedTo>> attachedTos;
-
+    @PolicyResourceProperty(name="attachedTos", flag="unknown_attachedTos")
+    private @Nullable List<NetworkInsightsAnalysisForwardPathComponentAttachedTo> value_attachedTos;
+    private boolean unknown_attachedTos;
     public @Nullable List<NetworkInsightsAnalysisForwardPathComponentAttachedTo> attachedTos() {
-        if (attachedTos == null) return null;
-        return attachedTos.getValue("NetworkInsightsAnalysisForwardPathComponent.attachedTos");
+        if (!unknown_attachedTos) return value_attachedTos;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisForwardPathComponent.attachedTos' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisForwardPathComponentComponent>> components;
-
+    @PolicyResourceProperty(name="components", flag="unknown_components")
+    private @Nullable List<NetworkInsightsAnalysisForwardPathComponentComponent> value_components;
+    private boolean unknown_components;
     public @Nullable List<NetworkInsightsAnalysisForwardPathComponentComponent> components() {
-        if (components == null) return null;
-        return components.getValue("NetworkInsightsAnalysisForwardPathComponent.components");
+        if (!unknown_components) return value_components;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisForwardPathComponent.components' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisForwardPathComponentDestinationVpc>> destinationVpcs;
-
+    @PolicyResourceProperty(name="destinationVpcs", flag="unknown_destinationVpcs")
+    private @Nullable List<NetworkInsightsAnalysisForwardPathComponentDestinationVpc> value_destinationVpcs;
+    private boolean unknown_destinationVpcs;
     public @Nullable List<NetworkInsightsAnalysisForwardPathComponentDestinationVpc> destinationVpcs() {
-        if (destinationVpcs == null) return null;
-        return destinationVpcs.getValue("NetworkInsightsAnalysisForwardPathComponent.destinationVpcs");
+        if (!unknown_destinationVpcs) return value_destinationVpcs;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisForwardPathComponent.destinationVpcs' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisForwardPathComponentInboundHeader>> inboundHeaders;
-
+    @PolicyResourceProperty(name="inboundHeaders", flag="unknown_inboundHeaders")
+    private @Nullable List<NetworkInsightsAnalysisForwardPathComponentInboundHeader> value_inboundHeaders;
+    private boolean unknown_inboundHeaders;
     public @Nullable List<NetworkInsightsAnalysisForwardPathComponentInboundHeader> inboundHeaders() {
-        if (inboundHeaders == null) return null;
-        return inboundHeaders.getValue("NetworkInsightsAnalysisForwardPathComponent.inboundHeaders");
+        if (!unknown_inboundHeaders) return value_inboundHeaders;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisForwardPathComponent.inboundHeaders' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisForwardPathComponentOutboundHeader>> outboundHeaders;
-
+    @PolicyResourceProperty(name="outboundHeaders", flag="unknown_outboundHeaders")
+    private @Nullable List<NetworkInsightsAnalysisForwardPathComponentOutboundHeader> value_outboundHeaders;
+    private boolean unknown_outboundHeaders;
     public @Nullable List<NetworkInsightsAnalysisForwardPathComponentOutboundHeader> outboundHeaders() {
-        if (outboundHeaders == null) return null;
-        return outboundHeaders.getValue("NetworkInsightsAnalysisForwardPathComponent.outboundHeaders");
+        if (!unknown_outboundHeaders) return value_outboundHeaders;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisForwardPathComponent.outboundHeaders' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisForwardPathComponentRouteTableRoute>> routeTableRoutes;
-
+    @PolicyResourceProperty(name="routeTableRoutes", flag="unknown_routeTableRoutes")
+    private @Nullable List<NetworkInsightsAnalysisForwardPathComponentRouteTableRoute> value_routeTableRoutes;
+    private boolean unknown_routeTableRoutes;
     public @Nullable List<NetworkInsightsAnalysisForwardPathComponentRouteTableRoute> routeTableRoutes() {
-        if (routeTableRoutes == null) return null;
-        return routeTableRoutes.getValue("NetworkInsightsAnalysisForwardPathComponent.routeTableRoutes");
+        if (!unknown_routeTableRoutes) return value_routeTableRoutes;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisForwardPathComponent.routeTableRoutes' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule>> securityGroupRules;
-
+    @PolicyResourceProperty(name="securityGroupRules", flag="unknown_securityGroupRules")
+    private @Nullable List<NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule> value_securityGroupRules;
+    private boolean unknown_securityGroupRules;
     public @Nullable List<NetworkInsightsAnalysisForwardPathComponentSecurityGroupRule> securityGroupRules() {
-        if (securityGroupRules == null) return null;
-        return securityGroupRules.getValue("NetworkInsightsAnalysisForwardPathComponent.securityGroupRules");
+        if (!unknown_securityGroupRules) return value_securityGroupRules;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisForwardPathComponent.securityGroupRules' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> sequenceNumber;
-
+    @PolicyResourceProperty(name="sequenceNumber", flag="unknown_sequenceNumber")
+    private @Nullable Integer value_sequenceNumber;
+    private boolean unknown_sequenceNumber;
     public @Nullable Integer sequenceNumber() {
-        if (sequenceNumber == null) return null;
-        return sequenceNumber.getValue("NetworkInsightsAnalysisForwardPathComponent.sequenceNumber");
+        if (!unknown_sequenceNumber) return value_sequenceNumber;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisForwardPathComponent.sequenceNumber' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisForwardPathComponentSourceVpc>> sourceVpcs;
-
+    @PolicyResourceProperty(name="sourceVpcs", flag="unknown_sourceVpcs")
+    private @Nullable List<NetworkInsightsAnalysisForwardPathComponentSourceVpc> value_sourceVpcs;
+    private boolean unknown_sourceVpcs;
     public @Nullable List<NetworkInsightsAnalysisForwardPathComponentSourceVpc> sourceVpcs() {
-        if (sourceVpcs == null) return null;
-        return sourceVpcs.getValue("NetworkInsightsAnalysisForwardPathComponent.sourceVpcs");
+        if (!unknown_sourceVpcs) return value_sourceVpcs;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisForwardPathComponent.sourceVpcs' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisForwardPathComponentSubnet>> subnets;
-
+    @PolicyResourceProperty(name="subnets", flag="unknown_subnets")
+    private @Nullable List<NetworkInsightsAnalysisForwardPathComponentSubnet> value_subnets;
+    private boolean unknown_subnets;
     public @Nullable List<NetworkInsightsAnalysisForwardPathComponentSubnet> subnets() {
-        if (subnets == null) return null;
-        return subnets.getValue("NetworkInsightsAnalysisForwardPathComponent.subnets");
+        if (!unknown_subnets) return value_subnets;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisForwardPathComponent.subnets' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRoute>> transitGatewayRouteTableRoutes;
-
+    @PolicyResourceProperty(name="transitGatewayRouteTableRoutes", flag="unknown_transitGatewayRouteTableRoutes")
+    private @Nullable List<NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRoute> value_transitGatewayRouteTableRoutes;
+    private boolean unknown_transitGatewayRouteTableRoutes;
     public @Nullable List<NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRoute> transitGatewayRouteTableRoutes() {
-        if (transitGatewayRouteTableRoutes == null) return null;
-        return transitGatewayRouteTableRoutes.getValue("NetworkInsightsAnalysisForwardPathComponent.transitGatewayRouteTableRoutes");
+        if (!unknown_transitGatewayRouteTableRoutes) return value_transitGatewayRouteTableRoutes;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisForwardPathComponent.transitGatewayRouteTableRoutes' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisForwardPathComponentTransitGateway>> transitGateways;
-
+    @PolicyResourceProperty(name="transitGateways", flag="unknown_transitGateways")
+    private @Nullable List<NetworkInsightsAnalysisForwardPathComponentTransitGateway> value_transitGateways;
+    private boolean unknown_transitGateways;
     public @Nullable List<NetworkInsightsAnalysisForwardPathComponentTransitGateway> transitGateways() {
-        if (transitGateways == null) return null;
-        return transitGateways.getValue("NetworkInsightsAnalysisForwardPathComponent.transitGateways");
+        if (!unknown_transitGateways) return value_transitGateways;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisForwardPathComponent.transitGateways' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisForwardPathComponentVpc>> vpcs;
-
+    @PolicyResourceProperty(name="vpcs", flag="unknown_vpcs")
+    private @Nullable List<NetworkInsightsAnalysisForwardPathComponentVpc> value_vpcs;
+    private boolean unknown_vpcs;
     public @Nullable List<NetworkInsightsAnalysisForwardPathComponentVpc> vpcs() {
-        if (vpcs == null) return null;
-        return vpcs.getValue("NetworkInsightsAnalysisForwardPathComponent.vpcs");
+        if (!unknown_vpcs) return value_vpcs;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisForwardPathComponent.vpcs' is not present");
     }
 
 }

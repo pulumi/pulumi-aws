@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudfront.outputs.CachePolicyParametersInCacheKeyAndForwardedToOrigin;
 import java.lang.Integer;
@@ -18,88 +19,96 @@ public final class CachePolicy extends com.pulumi.resources.PolicyResourceOutput
      * The cache policy ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("CachePolicy.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'CachePolicy.arn' is not present");
     }
 
     /**
      * Description for the cache policy.
      * 
      */
-    private @Nullable UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private @Nullable String value_comment;
+    private boolean unknown_comment;
     public @Nullable String comment() {
-        if (comment == null) return null;
-        return comment.getValue("CachePolicy.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'CachePolicy.comment' is not present");
     }
 
     /**
      * Amount of time, in seconds, that objects are allowed to remain in the CloudFront cache before CloudFront sends a new request to the origin server to check if the object has been updated.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> defaultTtl;
-
+    @PolicyResourceProperty(name="defaultTtl", flag="unknown_defaultTtl")
+    private @Nullable Integer value_defaultTtl;
+    private boolean unknown_defaultTtl;
     public @Nullable Integer defaultTtl() {
-        if (defaultTtl == null) return null;
-        return defaultTtl.getValue("CachePolicy.defaultTtl");
+        if (!unknown_defaultTtl) return value_defaultTtl;
+        throw new UndeferrableValueException("Value 'CachePolicy.defaultTtl' is not present");
     }
 
     /**
      * Current version of the cache policy.
      * 
      */
-    private UndeferrableValue<String> etag;
-
+    @PolicyResourceProperty(name="etag", flag="unknown_etag")
+    private String value_etag;
+    private boolean unknown_etag;
     public String etag() {
-        if (etag == null) return null;
-        return etag.getValue("CachePolicy.etag");
+        if (!unknown_etag) return value_etag;
+        throw new UndeferrableValueException("Value 'CachePolicy.etag' is not present");
     }
 
     /**
      * Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxTtl;
-
+    @PolicyResourceProperty(name="maxTtl", flag="unknown_maxTtl")
+    private @Nullable Integer value_maxTtl;
+    private boolean unknown_maxTtl;
     public @Nullable Integer maxTtl() {
-        if (maxTtl == null) return null;
-        return maxTtl.getValue("CachePolicy.maxTtl");
+        if (!unknown_maxTtl) return value_maxTtl;
+        throw new UndeferrableValueException("Value 'CachePolicy.maxTtl' is not present");
     }
 
     /**
      * Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> minTtl;
-
+    @PolicyResourceProperty(name="minTtl", flag="unknown_minTtl")
+    private @Nullable Integer value_minTtl;
+    private boolean unknown_minTtl;
     public @Nullable Integer minTtl() {
-        if (minTtl == null) return null;
-        return minTtl.getValue("CachePolicy.minTtl");
+        if (!unknown_minTtl) return value_minTtl;
+        throw new UndeferrableValueException("Value 'CachePolicy.minTtl' is not present");
     }
 
     /**
      * Unique name used to identify the cache policy.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("CachePolicy.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'CachePolicy.name' is not present");
     }
 
     /**
      * Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
      * 
      */
-    private UndeferrableValue<CachePolicyParametersInCacheKeyAndForwardedToOrigin> parametersInCacheKeyAndForwardedToOrigin;
-
+    @PolicyResourceProperty(name="parametersInCacheKeyAndForwardedToOrigin", flag="unknown_parametersInCacheKeyAndForwardedToOrigin")
+    private CachePolicyParametersInCacheKeyAndForwardedToOrigin value_parametersInCacheKeyAndForwardedToOrigin;
+    private boolean unknown_parametersInCacheKeyAndForwardedToOrigin;
     public CachePolicyParametersInCacheKeyAndForwardedToOrigin parametersInCacheKeyAndForwardedToOrigin() {
-        if (parametersInCacheKeyAndForwardedToOrigin == null) return null;
-        return parametersInCacheKeyAndForwardedToOrigin.getValue("CachePolicy.parametersInCacheKeyAndForwardedToOrigin");
+        if (!unknown_parametersInCacheKeyAndForwardedToOrigin) return value_parametersInCacheKeyAndForwardedToOrigin;
+        throw new UndeferrableValueException("Value 'CachePolicy.parametersInCacheKeyAndForwardedToOrigin' is not present");
     }
 
 }

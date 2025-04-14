@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,44 +16,48 @@ public final class RdsDbInstanceArgs extends com.pulumi.resources.PolicyResource
      * A db password
      * 
      */
-    private UndeferrableValue<String> dbPassword;
-
+    @PolicyResourceProperty(name="dbPassword", flag="unknown_dbPassword")
+    private String value_dbPassword;
+    private boolean unknown_dbPassword;
     public String dbPassword() {
-        if (dbPassword == null) return null;
-        return dbPassword.getValue("RdsDbInstanceArgs.dbPassword");
+        if (!unknown_dbPassword) return value_dbPassword;
+        throw new UndeferrableValueException("Value 'RdsDbInstanceArgs.dbPassword' is not present");
     }
 
     /**
      * A db username
      * 
      */
-    private UndeferrableValue<String> dbUser;
-
+    @PolicyResourceProperty(name="dbUser", flag="unknown_dbUser")
+    private String value_dbUser;
+    private boolean unknown_dbUser;
     public String dbUser() {
-        if (dbUser == null) return null;
-        return dbUser.getValue("RdsDbInstanceArgs.dbUser");
+        if (!unknown_dbUser) return value_dbUser;
+        throw new UndeferrableValueException("Value 'RdsDbInstanceArgs.dbUser' is not present");
     }
 
     /**
      * The db instance to register for this stack. Changing this will force a new resource.
      * 
      */
-    private UndeferrableValue<String> rdsDbInstanceArn;
-
+    @PolicyResourceProperty(name="rdsDbInstanceArn", flag="unknown_rdsDbInstanceArn")
+    private String value_rdsDbInstanceArn;
+    private boolean unknown_rdsDbInstanceArn;
     public String rdsDbInstanceArn() {
-        if (rdsDbInstanceArn == null) return null;
-        return rdsDbInstanceArn.getValue("RdsDbInstanceArgs.rdsDbInstanceArn");
+        if (!unknown_rdsDbInstanceArn) return value_rdsDbInstanceArn;
+        throw new UndeferrableValueException("Value 'RdsDbInstanceArgs.rdsDbInstanceArn' is not present");
     }
 
     /**
      * The stack to register a db instance for. Changing this will force a new resource.
      * 
      */
-    private UndeferrableValue<String> stackId;
-
+    @PolicyResourceProperty(name="stackId", flag="unknown_stackId")
+    private String value_stackId;
+    private boolean unknown_stackId;
     public String stackId() {
-        if (stackId == null) return null;
-        return stackId.getValue("RdsDbInstanceArgs.stackId");
+        if (!unknown_stackId) return value_stackId;
+        throw new UndeferrableValueException("Value 'RdsDbInstanceArgs.stackId' is not present");
     }
 
 }

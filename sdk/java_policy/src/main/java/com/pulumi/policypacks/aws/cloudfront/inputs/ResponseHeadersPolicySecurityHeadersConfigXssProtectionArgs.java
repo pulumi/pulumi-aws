@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs {
      * Whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
      * 
      */
-    private UndeferrableValue<Boolean> modeBlock;
-
+    @PolicyResourceProperty(name="modeBlock", flag="unknown_modeBlock")
+    private Boolean value_modeBlock;
+    private boolean unknown_modeBlock;
     public Boolean modeBlock() {
-        if (modeBlock == null) return null;
-        return modeBlock.getValue("ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs.modeBlock");
+        if (!unknown_modeBlock) return value_modeBlock;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs.modeBlock' is not present");
     }
 
     /**
      * Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    private UndeferrableValue<Boolean> override;
-
+    @PolicyResourceProperty(name="override", flag="unknown_override")
+    private Boolean value_override;
+    private boolean unknown_override;
     public Boolean override() {
-        if (override == null) return null;
-        return override.getValue("ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs.override");
+        if (!unknown_override) return value_override;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs.override' is not present");
     }
 
     /**
      * A Boolean value that determines the value of the `X-XSS-Protection` HTTP response header. When this setting is `true`, the value of the `X-XSS-Protection` header is `1`. When this setting is `false`, the value of the `X-XSS-Protection` header is `0`.
      * 
      */
-    private UndeferrableValue<Boolean> protection;
-
+    @PolicyResourceProperty(name="protection", flag="unknown_protection")
+    private Boolean value_protection;
+    private boolean unknown_protection;
     public Boolean protection() {
-        if (protection == null) return null;
-        return protection.getValue("ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs.protection");
+        if (!unknown_protection) return value_protection;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs.protection' is not present");
     }
 
     /**
      * A reporting URI, which CloudFront uses as the value of the report directive in the `X-XSS-Protection` header. You cannot specify a `report_uri` when `mode_block` is `true`.
      * 
      */
-    private UndeferrableValue<String> reportUri;
-
+    @PolicyResourceProperty(name="reportUri", flag="unknown_reportUri")
+    private String value_reportUri;
+    private boolean unknown_reportUri;
     public String reportUri() {
-        if (reportUri == null) return null;
-        return reportUri.getValue("ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs.reportUri");
+        if (!unknown_reportUri) return value_reportUri;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs.reportUri' is not present");
     }
 
 }

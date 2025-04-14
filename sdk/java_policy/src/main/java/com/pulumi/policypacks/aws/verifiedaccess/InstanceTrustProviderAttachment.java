@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class InstanceTrustProviderAttachment extends com.pulumi.resources.
      * The ID of the Verified Access instance to attach the Trust Provider to.
      * 
      */
-    private UndeferrableValue<String> verifiedaccessInstanceId;
-
+    @PolicyResourceProperty(name="verifiedaccessInstanceId", flag="unknown_verifiedaccessInstanceId")
+    private String value_verifiedaccessInstanceId;
+    private boolean unknown_verifiedaccessInstanceId;
     public String verifiedaccessInstanceId() {
-        if (verifiedaccessInstanceId == null) return null;
-        return verifiedaccessInstanceId.getValue("InstanceTrustProviderAttachment.verifiedaccessInstanceId");
+        if (!unknown_verifiedaccessInstanceId) return value_verifiedaccessInstanceId;
+        throw new UndeferrableValueException("Value 'InstanceTrustProviderAttachment.verifiedaccessInstanceId' is not present");
     }
 
     /**
      * The ID of the Verified Access trust provider.
      * 
      */
-    private UndeferrableValue<String> verifiedaccessTrustProviderId;
-
+    @PolicyResourceProperty(name="verifiedaccessTrustProviderId", flag="unknown_verifiedaccessTrustProviderId")
+    private String value_verifiedaccessTrustProviderId;
+    private boolean unknown_verifiedaccessTrustProviderId;
     public String verifiedaccessTrustProviderId() {
-        if (verifiedaccessTrustProviderId == null) return null;
-        return verifiedaccessTrustProviderId.getValue("InstanceTrustProviderAttachment.verifiedaccessTrustProviderId");
+        if (!unknown_verifiedaccessTrustProviderId) return value_verifiedaccessTrustProviderId;
+        throw new UndeferrableValueException("Value 'InstanceTrustProviderAttachment.verifiedaccessTrustProviderId' is not present");
     }
 
 }

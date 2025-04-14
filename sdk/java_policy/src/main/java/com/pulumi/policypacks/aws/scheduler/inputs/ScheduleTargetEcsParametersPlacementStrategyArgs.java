@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.scheduler.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ScheduleTargetEcsParametersPlacementStrategyArgs {
      * The field to apply the placement strategy against.
      * 
      */
-    private UndeferrableValue<String> field;
-
+    @PolicyResourceProperty(name="field", flag="unknown_field")
+    private String value_field;
+    private boolean unknown_field;
     public String field() {
-        if (field == null) return null;
-        return field.getValue("ScheduleTargetEcsParametersPlacementStrategyArgs.field");
+        if (!unknown_field) return value_field;
+        throw new UndeferrableValueException("Value 'ScheduleTargetEcsParametersPlacementStrategyArgs.field' is not present");
     }
 
     /**
      * The type of placement strategy. One of: `random`, `spread`, `binpack`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ScheduleTargetEcsParametersPlacementStrategyArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ScheduleTargetEcsParametersPlacementStrategyArgs.type' is not present");
     }
 
 }

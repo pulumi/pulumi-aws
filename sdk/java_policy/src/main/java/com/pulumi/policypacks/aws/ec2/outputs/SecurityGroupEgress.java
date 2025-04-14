@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,88 +18,96 @@ public final class SecurityGroupEgress {
      * List of CIDR blocks.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> cidrBlocks;
-
+    @PolicyResourceProperty(name="cidrBlocks", flag="unknown_cidrBlocks")
+    private @Nullable List<String> value_cidrBlocks;
+    private boolean unknown_cidrBlocks;
     public @Nullable List<String> cidrBlocks() {
-        if (cidrBlocks == null) return null;
-        return cidrBlocks.getValue("SecurityGroupEgress.cidrBlocks");
+        if (!unknown_cidrBlocks) return value_cidrBlocks;
+        throw new UndeferrableValueException("Value 'SecurityGroupEgress.cidrBlocks' is not present");
     }
 
     /**
      * Description of this egress rule.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("SecurityGroupEgress.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'SecurityGroupEgress.description' is not present");
     }
 
     /**
      * Start port (or ICMP type number if protocol is `icmp`)
      * 
      */
-    private UndeferrableValue<Integer> fromPort;
-
+    @PolicyResourceProperty(name="fromPort", flag="unknown_fromPort")
+    private Integer value_fromPort;
+    private boolean unknown_fromPort;
     public Integer fromPort() {
-        if (fromPort == null) return null;
-        return fromPort.getValue("SecurityGroupEgress.fromPort");
+        if (!unknown_fromPort) return value_fromPort;
+        throw new UndeferrableValueException("Value 'SecurityGroupEgress.fromPort' is not present");
     }
 
     /**
      * List of IPv6 CIDR blocks.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> ipv6CidrBlocks;
-
+    @PolicyResourceProperty(name="ipv6CidrBlocks", flag="unknown_ipv6CidrBlocks")
+    private @Nullable List<String> value_ipv6CidrBlocks;
+    private boolean unknown_ipv6CidrBlocks;
     public @Nullable List<String> ipv6CidrBlocks() {
-        if (ipv6CidrBlocks == null) return null;
-        return ipv6CidrBlocks.getValue("SecurityGroupEgress.ipv6CidrBlocks");
+        if (!unknown_ipv6CidrBlocks) return value_ipv6CidrBlocks;
+        throw new UndeferrableValueException("Value 'SecurityGroupEgress.ipv6CidrBlocks' is not present");
     }
 
     /**
      * List of Prefix List IDs.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> prefixListIds;
-
+    @PolicyResourceProperty(name="prefixListIds", flag="unknown_prefixListIds")
+    private @Nullable List<String> value_prefixListIds;
+    private boolean unknown_prefixListIds;
     public @Nullable List<String> prefixListIds() {
-        if (prefixListIds == null) return null;
-        return prefixListIds.getValue("SecurityGroupEgress.prefixListIds");
+        if (!unknown_prefixListIds) return value_prefixListIds;
+        throw new UndeferrableValueException("Value 'SecurityGroupEgress.prefixListIds' is not present");
     }
 
     /**
      * Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("SecurityGroupEgress.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'SecurityGroupEgress.protocol' is not present");
     }
 
     /**
      * List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> securityGroups;
-
+    @PolicyResourceProperty(name="securityGroups", flag="unknown_securityGroups")
+    private @Nullable List<String> value_securityGroups;
+    private boolean unknown_securityGroups;
     public @Nullable List<String> securityGroups() {
-        if (securityGroups == null) return null;
-        return securityGroups.getValue("SecurityGroupEgress.securityGroups");
+        if (!unknown_securityGroups) return value_securityGroups;
+        throw new UndeferrableValueException("Value 'SecurityGroupEgress.securityGroups' is not present");
     }
 
     /**
      * Whether the security group itself will be added as a source to this egress rule.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> self;
-
+    @PolicyResourceProperty(name="self", flag="unknown_self")
+    private @Nullable Boolean value_self;
+    private boolean unknown_self;
     public @Nullable Boolean self() {
-        if (self == null) return null;
-        return self.getValue("SecurityGroupEgress.self");
+        if (!unknown_self) return value_self;
+        throw new UndeferrableValueException("Value 'SecurityGroupEgress.self' is not present");
     }
 
     /**
@@ -109,11 +118,12 @@ public final class SecurityGroupEgress {
      * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `security_groups` are all marked as optional, you _must_ provide one of them in order to configure the destination of the traffic.
      * 
      */
-    private UndeferrableValue<Integer> toPort;
-
+    @PolicyResourceProperty(name="toPort", flag="unknown_toPort")
+    private Integer value_toPort;
+    private boolean unknown_toPort;
     public Integer toPort() {
-        if (toPort == null) return null;
-        return toPort.getValue("SecurityGroupEgress.toPort");
+        if (!unknown_toPort) return value_toPort;
+        throw new UndeferrableValueException("Value 'SecurityGroupEgress.toPort' is not present");
     }
 
 }

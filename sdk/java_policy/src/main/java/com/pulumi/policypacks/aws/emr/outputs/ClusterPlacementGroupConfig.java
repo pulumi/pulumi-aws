@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ClusterPlacementGroupConfig {
      * Role of the instance in the cluster. Valid Values: `MASTER`, `CORE`, `TASK`.
      * 
      */
-    private UndeferrableValue<String> instanceRole;
-
+    @PolicyResourceProperty(name="instanceRole", flag="unknown_instanceRole")
+    private String value_instanceRole;
+    private boolean unknown_instanceRole;
     public String instanceRole() {
-        if (instanceRole == null) return null;
-        return instanceRole.getValue("ClusterPlacementGroupConfig.instanceRole");
+        if (!unknown_instanceRole) return value_instanceRole;
+        throw new UndeferrableValueException("Value 'ClusterPlacementGroupConfig.instanceRole' is not present");
     }
 
     /**
      * EC2 Placement Group strategy associated with instance role. Valid Values: `SPREAD`, `PARTITION`, `CLUSTER`, `NONE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> placementStrategy;
-
+    @PolicyResourceProperty(name="placementStrategy", flag="unknown_placementStrategy")
+    private @Nullable String value_placementStrategy;
+    private boolean unknown_placementStrategy;
     public @Nullable String placementStrategy() {
-        if (placementStrategy == null) return null;
-        return placementStrategy.getValue("ClusterPlacementGroupConfig.placementStrategy");
+        if (!unknown_placementStrategy) return value_placementStrategy;
+        throw new UndeferrableValueException("Value 'ClusterPlacementGroupConfig.placementStrategy' is not present");
     }
 
 }

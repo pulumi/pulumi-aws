@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,18 +16,20 @@ public final class ConnectPeerConfigurationBgpConfiguration {
      * A Connect peer core network address.
      * 
      */
-    private @Nullable UndeferrableValue<String> coreNetworkAddress;
-
+    @PolicyResourceProperty(name="coreNetworkAddress", flag="unknown_coreNetworkAddress")
+    private @Nullable String value_coreNetworkAddress;
+    private boolean unknown_coreNetworkAddress;
     public @Nullable String coreNetworkAddress() {
-        if (coreNetworkAddress == null) return null;
-        return coreNetworkAddress.getValue("ConnectPeerConfigurationBgpConfiguration.coreNetworkAddress");
+        if (!unknown_coreNetworkAddress) return value_coreNetworkAddress;
+        throw new UndeferrableValueException("Value 'ConnectPeerConfigurationBgpConfiguration.coreNetworkAddress' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> coreNetworkAsn;
-
+    @PolicyResourceProperty(name="coreNetworkAsn", flag="unknown_coreNetworkAsn")
+    private @Nullable Integer value_coreNetworkAsn;
+    private boolean unknown_coreNetworkAsn;
     public @Nullable Integer coreNetworkAsn() {
-        if (coreNetworkAsn == null) return null;
-        return coreNetworkAsn.getValue("ConnectPeerConfigurationBgpConfiguration.coreNetworkAsn");
+        if (!unknown_coreNetworkAsn) return value_coreNetworkAsn;
+        throw new UndeferrableValueException("Value 'ConnectPeerConfigurationBgpConfiguration.coreNetworkAsn' is not present");
     }
 
     /**
@@ -35,18 +38,20 @@ public final class ConnectPeerConfigurationBgpConfiguration {
      * The following arguments are optional:
      * 
      */
-    private @Nullable UndeferrableValue<String> peerAddress;
-
+    @PolicyResourceProperty(name="peerAddress", flag="unknown_peerAddress")
+    private @Nullable String value_peerAddress;
+    private boolean unknown_peerAddress;
     public @Nullable String peerAddress() {
-        if (peerAddress == null) return null;
-        return peerAddress.getValue("ConnectPeerConfigurationBgpConfiguration.peerAddress");
+        if (!unknown_peerAddress) return value_peerAddress;
+        throw new UndeferrableValueException("Value 'ConnectPeerConfigurationBgpConfiguration.peerAddress' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> peerAsn;
-
+    @PolicyResourceProperty(name="peerAsn", flag="unknown_peerAsn")
+    private @Nullable Integer value_peerAsn;
+    private boolean unknown_peerAsn;
     public @Nullable Integer peerAsn() {
-        if (peerAsn == null) return null;
-        return peerAsn.getValue("ConnectPeerConfigurationBgpConfiguration.peerAsn");
+        if (!unknown_peerAsn) return value_peerAsn;
+        throw new UndeferrableValueException("Value 'ConnectPeerConfigurationBgpConfiguration.peerAsn' is not present");
     }
 
 }

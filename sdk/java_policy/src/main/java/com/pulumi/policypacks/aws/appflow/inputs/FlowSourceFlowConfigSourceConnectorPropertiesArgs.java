@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.inputs.FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs;
 import com.pulumi.policypacks.aws.appflow.inputs.FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs;
 import com.pulumi.policypacks.aws.appflow.inputs.FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs;
@@ -29,176 +30,192 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs {
      * Information that is required for querying Amplitude. See Generic Source Properties for more details.
      * 
      */
-    private UndeferrableValue<FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs> amplitude;
-
+    @PolicyResourceProperty(name="amplitude", flag="unknown_amplitude")
+    private FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs value_amplitude;
+    private boolean unknown_amplitude;
     public FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs amplitude() {
-        if (amplitude == null) return null;
-        return amplitude.getValue("FlowSourceFlowConfigSourceConnectorPropertiesArgs.amplitude");
+        if (!unknown_amplitude) return value_amplitude;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.amplitude' is not present");
     }
 
     /**
      * Properties that are applied when the custom connector is being used as a source. See Custom Connector Source Properties.
      * 
      */
-    private UndeferrableValue<FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs> customConnector;
-
+    @PolicyResourceProperty(name="customConnector", flag="unknown_customConnector")
+    private FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs value_customConnector;
+    private boolean unknown_customConnector;
     public FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs customConnector() {
-        if (customConnector == null) return null;
-        return customConnector.getValue("FlowSourceFlowConfigSourceConnectorPropertiesArgs.customConnector");
+        if (!unknown_customConnector) return value_customConnector;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.customConnector' is not present");
     }
 
     /**
      * Information that is required for querying Datadog. See Generic Source Properties for more details.
      * 
      */
-    private UndeferrableValue<FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs> datadog;
-
+    @PolicyResourceProperty(name="datadog", flag="unknown_datadog")
+    private FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs value_datadog;
+    private boolean unknown_datadog;
     public FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs datadog() {
-        if (datadog == null) return null;
-        return datadog.getValue("FlowSourceFlowConfigSourceConnectorPropertiesArgs.datadog");
+        if (!unknown_datadog) return value_datadog;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.datadog' is not present");
     }
 
     /**
      * Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private UndeferrableValue<FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs> dynatrace;
-
+    @PolicyResourceProperty(name="dynatrace", flag="unknown_dynatrace")
+    private FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs value_dynatrace;
+    private boolean unknown_dynatrace;
     public FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs dynatrace() {
-        if (dynatrace == null) return null;
-        return dynatrace.getValue("FlowSourceFlowConfigSourceConnectorPropertiesArgs.dynatrace");
+        if (!unknown_dynatrace) return value_dynatrace;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.dynatrace' is not present");
     }
 
     /**
      * Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
      * 
      */
-    private UndeferrableValue<FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs> googleAnalytics;
-
+    @PolicyResourceProperty(name="googleAnalytics", flag="unknown_googleAnalytics")
+    private FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs value_googleAnalytics;
+    private boolean unknown_googleAnalytics;
     public FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs googleAnalytics() {
-        if (googleAnalytics == null) return null;
-        return googleAnalytics.getValue("FlowSourceFlowConfigSourceConnectorPropertiesArgs.googleAnalytics");
+        if (!unknown_googleAnalytics) return value_googleAnalytics;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.googleAnalytics' is not present");
     }
 
     /**
      * Information that is required for querying Infor Nexus. See Generic Source Properties for more details.
      * 
      */
-    private UndeferrableValue<FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs> inforNexus;
-
+    @PolicyResourceProperty(name="inforNexus", flag="unknown_inforNexus")
+    private FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs value_inforNexus;
+    private boolean unknown_inforNexus;
     public FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs inforNexus() {
-        if (inforNexus == null) return null;
-        return inforNexus.getValue("FlowSourceFlowConfigSourceConnectorPropertiesArgs.inforNexus");
+        if (!unknown_inforNexus) return value_inforNexus;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.inforNexus' is not present");
     }
 
     /**
      * Information that is required for querying Marketo. See Generic Source Properties for more details.
      * 
      */
-    private UndeferrableValue<FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs> marketo;
-
+    @PolicyResourceProperty(name="marketo", flag="unknown_marketo")
+    private FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs value_marketo;
+    private boolean unknown_marketo;
     public FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs marketo() {
-        if (marketo == null) return null;
-        return marketo.getValue("FlowSourceFlowConfigSourceConnectorPropertiesArgs.marketo");
+        if (!unknown_marketo) return value_marketo;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.marketo' is not present");
     }
 
     /**
      * Information that is required for querying Amazon S3. See S3 Source Properties for more details.
      * 
      */
-    private UndeferrableValue<FlowSourceFlowConfigSourceConnectorPropertiesS3Args> s3;
-
+    @PolicyResourceProperty(name="s3", flag="unknown_s3")
+    private FlowSourceFlowConfigSourceConnectorPropertiesS3Args value_s3;
+    private boolean unknown_s3;
     public FlowSourceFlowConfigSourceConnectorPropertiesS3Args s3() {
-        if (s3 == null) return null;
-        return s3.getValue("FlowSourceFlowConfigSourceConnectorPropertiesArgs.s3");
+        if (!unknown_s3) return value_s3;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.s3' is not present");
     }
 
     /**
      * Information that is required for querying Salesforce. See Salesforce Source Properties for more details.
      * 
      */
-    private UndeferrableValue<FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs> salesforce;
-
+    @PolicyResourceProperty(name="salesforce", flag="unknown_salesforce")
+    private FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs value_salesforce;
+    private boolean unknown_salesforce;
     public FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs salesforce() {
-        if (salesforce == null) return null;
-        return salesforce.getValue("FlowSourceFlowConfigSourceConnectorPropertiesArgs.salesforce");
+        if (!unknown_salesforce) return value_salesforce;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.salesforce' is not present");
     }
 
     /**
      * Information that is required for querying SAPOData as a flow source. See SAPO Source Properties for more details.
      * 
      */
-    private UndeferrableValue<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs> sapoData;
-
+    @PolicyResourceProperty(name="sapoData", flag="unknown_sapoData")
+    private FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs value_sapoData;
+    private boolean unknown_sapoData;
     public FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs sapoData() {
-        if (sapoData == null) return null;
-        return sapoData.getValue("FlowSourceFlowConfigSourceConnectorPropertiesArgs.sapoData");
+        if (!unknown_sapoData) return value_sapoData;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.sapoData' is not present");
     }
 
     /**
      * Information that is required for querying ServiceNow. See Generic Source Properties for more details.
      * 
      */
-    private UndeferrableValue<FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs> serviceNow;
-
+    @PolicyResourceProperty(name="serviceNow", flag="unknown_serviceNow")
+    private FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs value_serviceNow;
+    private boolean unknown_serviceNow;
     public FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs serviceNow() {
-        if (serviceNow == null) return null;
-        return serviceNow.getValue("FlowSourceFlowConfigSourceConnectorPropertiesArgs.serviceNow");
+        if (!unknown_serviceNow) return value_serviceNow;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.serviceNow' is not present");
     }
 
     /**
      * Information that is required for querying Singular. See Generic Source Properties for more details.
      * 
      */
-    private UndeferrableValue<FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs> singular;
-
+    @PolicyResourceProperty(name="singular", flag="unknown_singular")
+    private FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs value_singular;
+    private boolean unknown_singular;
     public FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs singular() {
-        if (singular == null) return null;
-        return singular.getValue("FlowSourceFlowConfigSourceConnectorPropertiesArgs.singular");
+        if (!unknown_singular) return value_singular;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.singular' is not present");
     }
 
     /**
      * Information that is required for querying Slack. See Generic Source Properties for more details.
      * 
      */
-    private UndeferrableValue<FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs> slack;
-
+    @PolicyResourceProperty(name="slack", flag="unknown_slack")
+    private FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs value_slack;
+    private boolean unknown_slack;
     public FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs slack() {
-        if (slack == null) return null;
-        return slack.getValue("FlowSourceFlowConfigSourceConnectorPropertiesArgs.slack");
+        if (!unknown_slack) return value_slack;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.slack' is not present");
     }
 
     /**
      * Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private UndeferrableValue<FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs> trendmicro;
-
+    @PolicyResourceProperty(name="trendmicro", flag="unknown_trendmicro")
+    private FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs value_trendmicro;
+    private boolean unknown_trendmicro;
     public FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs trendmicro() {
-        if (trendmicro == null) return null;
-        return trendmicro.getValue("FlowSourceFlowConfigSourceConnectorPropertiesArgs.trendmicro");
+        if (!unknown_trendmicro) return value_trendmicro;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.trendmicro' is not present");
     }
 
     /**
      * Information that is required for querying Veeva. See Veeva Source Properties for more details.
      * 
      */
-    private UndeferrableValue<FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs> veeva;
-
+    @PolicyResourceProperty(name="veeva", flag="unknown_veeva")
+    private FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs value_veeva;
+    private boolean unknown_veeva;
     public FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs veeva() {
-        if (veeva == null) return null;
-        return veeva.getValue("FlowSourceFlowConfigSourceConnectorPropertiesArgs.veeva");
+        if (!unknown_veeva) return value_veeva;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.veeva' is not present");
     }
 
     /**
      * Information that is required for querying Zendesk. See Generic Source Properties for more details.
      * 
      */
-    private UndeferrableValue<FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs> zendesk;
-
+    @PolicyResourceProperty(name="zendesk", flag="unknown_zendesk")
+    private FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs value_zendesk;
+    private boolean unknown_zendesk;
     public FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs zendesk() {
-        if (zendesk == null) return null;
-        return zendesk.getValue("FlowSourceFlowConfigSourceConnectorPropertiesArgs.zendesk");
+        if (!unknown_zendesk) return value_zendesk;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesArgs.zendesk' is not present");
     }
 
 }

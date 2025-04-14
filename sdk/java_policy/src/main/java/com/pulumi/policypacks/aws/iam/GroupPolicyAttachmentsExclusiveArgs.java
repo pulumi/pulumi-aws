@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class GroupPolicyAttachmentsExclusiveArgs extends com.pulumi.resour
      * IAM group name.
      * 
      */
-    private UndeferrableValue<String> groupName;
-
+    @PolicyResourceProperty(name="groupName", flag="unknown_groupName")
+    private String value_groupName;
+    private boolean unknown_groupName;
     public String groupName() {
-        if (groupName == null) return null;
-        return groupName.getValue("GroupPolicyAttachmentsExclusiveArgs.groupName");
+        if (!unknown_groupName) return value_groupName;
+        throw new UndeferrableValueException("Value 'GroupPolicyAttachmentsExclusiveArgs.groupName' is not present");
     }
 
     /**
      * A list of managed IAM policy ARNs to be attached to the group. Policies attached to this group but not configured in this argument will be removed.
      * 
      */
-    private UndeferrableValue<List<String>> policyArns;
-
+    @PolicyResourceProperty(name="policyArns", flag="unknown_policyArns")
+    private List<String> value_policyArns;
+    private boolean unknown_policyArns;
     public List<String> policyArns() {
-        if (policyArns == null) return null;
-        return policyArns.getValue("GroupPolicyAttachmentsExclusiveArgs.policyArns");
+        if (!unknown_policyArns) return value_policyArns;
+        throw new UndeferrableValueException("Value 'GroupPolicyAttachmentsExclusiveArgs.policyArns' is not present");
     }
 
 }

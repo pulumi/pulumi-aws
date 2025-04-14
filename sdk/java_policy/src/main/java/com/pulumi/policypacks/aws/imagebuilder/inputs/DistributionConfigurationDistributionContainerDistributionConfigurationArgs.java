@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.imagebuilder.inputs.DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class DistributionConfigurationDistributionContainerDistributionCon
      * Set of tags that are attached to the container distribution configuration.
      * 
      */
-    private UndeferrableValue<List<String>> containerTags;
-
+    @PolicyResourceProperty(name="containerTags", flag="unknown_containerTags")
+    private List<String> value_containerTags;
+    private boolean unknown_containerTags;
     public List<String> containerTags() {
-        if (containerTags == null) return null;
-        return containerTags.getValue("DistributionConfigurationDistributionContainerDistributionConfigurationArgs.containerTags");
+        if (!unknown_containerTags) return value_containerTags;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionContainerDistributionConfigurationArgs.containerTags' is not present");
     }
 
     /**
      * Description of the container distribution configuration.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("DistributionConfigurationDistributionContainerDistributionConfigurationArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionContainerDistributionConfigurationArgs.description' is not present");
     }
 
     /**
      * Configuration block with the destination repository for the container distribution configuration.
      * 
      */
-    private UndeferrableValue<DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs> targetRepository;
-
+    @PolicyResourceProperty(name="targetRepository", flag="unknown_targetRepository")
+    private DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs value_targetRepository;
+    private boolean unknown_targetRepository;
     public DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs targetRepository() {
-        if (targetRepository == null) return null;
-        return targetRepository.getValue("DistributionConfigurationDistributionContainerDistributionConfigurationArgs.targetRepository");
+        if (!unknown_targetRepository) return value_targetRepository;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionContainerDistributionConfigurationArgs.targetRepository' is not present");
     }
 
 }

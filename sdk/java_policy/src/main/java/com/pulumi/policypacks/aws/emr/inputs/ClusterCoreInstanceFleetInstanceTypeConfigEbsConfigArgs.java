@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs {
      * Number of I/O operations per second (IOPS) that the volume supports.
      * 
      */
-    private UndeferrableValue<Integer> iops;
-
+    @PolicyResourceProperty(name="iops", flag="unknown_iops")
+    private Integer value_iops;
+    private boolean unknown_iops;
     public Integer iops() {
-        if (iops == null) return null;
-        return iops.getValue("ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.iops");
+        if (!unknown_iops) return value_iops;
+        throw new UndeferrableValueException("Value 'ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.iops' is not present");
     }
 
     /**
      * Volume size, in gibibytes (GiB).
      * 
      */
-    private UndeferrableValue<Integer> size;
-
+    @PolicyResourceProperty(name="size", flag="unknown_size")
+    private Integer value_size;
+    private boolean unknown_size;
     public Integer size() {
-        if (size == null) return null;
-        return size.getValue("ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.size");
+        if (!unknown_size) return value_size;
+        throw new UndeferrableValueException("Value 'ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.size' is not present");
     }
 
     /**
      * Volume type. Valid options are `gp3`, `gp2`, `io1`, `io2`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.type' is not present");
     }
 
     /**
      * Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
      * 
      */
-    private UndeferrableValue<Integer> volumesPerInstance;
-
+    @PolicyResourceProperty(name="volumesPerInstance", flag="unknown_volumesPerInstance")
+    private Integer value_volumesPerInstance;
+    private boolean unknown_volumesPerInstance;
     public Integer volumesPerInstance() {
-        if (volumesPerInstance == null) return null;
-        return volumesPerInstance.getValue("ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.volumesPerInstance");
+        if (!unknown_volumesPerInstance) return value_volumesPerInstance;
+        throw new UndeferrableValueException("Value 'ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.volumesPerInstance' is not present");
     }
 
 }

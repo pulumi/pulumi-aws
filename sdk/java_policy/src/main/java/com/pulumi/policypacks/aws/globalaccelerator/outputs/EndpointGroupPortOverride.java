@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.globalaccelerator.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,22 +14,24 @@ public final class EndpointGroupPortOverride {
      * The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
      * 
      */
-    private UndeferrableValue<Integer> endpointPort;
-
+    @PolicyResourceProperty(name="endpointPort", flag="unknown_endpointPort")
+    private Integer value_endpointPort;
+    private boolean unknown_endpointPort;
     public Integer endpointPort() {
-        if (endpointPort == null) return null;
-        return endpointPort.getValue("EndpointGroupPortOverride.endpointPort");
+        if (!unknown_endpointPort) return value_endpointPort;
+        throw new UndeferrableValueException("Value 'EndpointGroupPortOverride.endpointPort' is not present");
     }
 
     /**
      * The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
      * 
      */
-    private UndeferrableValue<Integer> listenerPort;
-
+    @PolicyResourceProperty(name="listenerPort", flag="unknown_listenerPort")
+    private Integer value_listenerPort;
+    private boolean unknown_listenerPort;
     public Integer listenerPort() {
-        if (listenerPort == null) return null;
-        return listenerPort.getValue("EndpointGroupPortOverride.listenerPort");
+        if (!unknown_listenerPort) return value_listenerPort;
+        throw new UndeferrableValueException("Value 'EndpointGroupPortOverride.listenerPort' is not present");
     }
 
 }

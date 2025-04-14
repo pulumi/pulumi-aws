@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.evidently.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.evidently.outputs.FeatureVariationValue;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class FeatureVariation {
      * The name of the variation. Minimum length of `1`. Maximum length of `127`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("FeatureVariation.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FeatureVariation.name' is not present");
     }
 
     /**
      * A block that specifies the value assigned to this variation. Detailed below
      * 
      */
-    private UndeferrableValue<FeatureVariationValue> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private FeatureVariationValue value_value;
+    private boolean unknown_value;
     public FeatureVariationValue value() {
-        if (value == null) return null;
-        return value.getValue("FeatureVariation.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'FeatureVariation.value' is not present");
     }
 
 }

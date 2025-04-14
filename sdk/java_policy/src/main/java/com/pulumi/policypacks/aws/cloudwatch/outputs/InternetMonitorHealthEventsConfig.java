@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class InternetMonitorHealthEventsConfig {
      * The health event threshold percentage set for availability scores.
      * 
      */
-    private @Nullable UndeferrableValue<Double> availabilityScoreThreshold;
-
+    @PolicyResourceProperty(name="availabilityScoreThreshold", flag="unknown_availabilityScoreThreshold")
+    private @Nullable Double value_availabilityScoreThreshold;
+    private boolean unknown_availabilityScoreThreshold;
     public @Nullable Double availabilityScoreThreshold() {
-        if (availabilityScoreThreshold == null) return null;
-        return availabilityScoreThreshold.getValue("InternetMonitorHealthEventsConfig.availabilityScoreThreshold");
+        if (!unknown_availabilityScoreThreshold) return value_availabilityScoreThreshold;
+        throw new UndeferrableValueException("Value 'InternetMonitorHealthEventsConfig.availabilityScoreThreshold' is not present");
     }
 
     /**
      * The health event threshold percentage set for performance scores.
      * 
      */
-    private @Nullable UndeferrableValue<Double> performanceScoreThreshold;
-
+    @PolicyResourceProperty(name="performanceScoreThreshold", flag="unknown_performanceScoreThreshold")
+    private @Nullable Double value_performanceScoreThreshold;
+    private boolean unknown_performanceScoreThreshold;
     public @Nullable Double performanceScoreThreshold() {
-        if (performanceScoreThreshold == null) return null;
-        return performanceScoreThreshold.getValue("InternetMonitorHealthEventsConfig.performanceScoreThreshold");
+        if (!unknown_performanceScoreThreshold) return value_performanceScoreThreshold;
+        throw new UndeferrableValueException("Value 'InternetMonitorHealthEventsConfig.performanceScoreThreshold' is not present");
     }
 
 }

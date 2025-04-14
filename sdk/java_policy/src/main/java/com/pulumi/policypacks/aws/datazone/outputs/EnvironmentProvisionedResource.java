@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datazone.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,36 +14,40 @@ public final class EnvironmentProvisionedResource {
      * The name of the environment.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("EnvironmentProvisionedResource.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'EnvironmentProvisionedResource.name' is not present");
     }
 
-    private UndeferrableValue<String> provider;
-
+    @PolicyResourceProperty(name="provider", flag="unknown_provider")
+    private String value_provider;
+    private boolean unknown_provider;
     public String provider() {
-        if (provider == null) return null;
-        return provider.getValue("EnvironmentProvisionedResource.provider");
+        if (!unknown_provider) return value_provider;
+        throw new UndeferrableValueException("Value 'EnvironmentProvisionedResource.provider' is not present");
     }
 
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("EnvironmentProvisionedResource.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'EnvironmentProvisionedResource.type' is not present");
     }
 
     /**
      * The value of an environment profile parameter.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("EnvironmentProvisionedResource.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'EnvironmentProvisionedResource.value' is not present");
     }
 
 }

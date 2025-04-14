@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ModelPrimaryContainerImageConfigArgs {
      * Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
      * 
      */
-    private UndeferrableValue<String> repositoryAccessMode;
-
+    @PolicyResourceProperty(name="repositoryAccessMode", flag="unknown_repositoryAccessMode")
+    private String value_repositoryAccessMode;
+    private boolean unknown_repositoryAccessMode;
     public String repositoryAccessMode() {
-        if (repositoryAccessMode == null) return null;
-        return repositoryAccessMode.getValue("ModelPrimaryContainerImageConfigArgs.repositoryAccessMode");
+        if (!unknown_repositoryAccessMode) return value_repositoryAccessMode;
+        throw new UndeferrableValueException("Value 'ModelPrimaryContainerImageConfigArgs.repositoryAccessMode' is not present");
     }
 
     /**
      * Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
      * 
      */
-    private UndeferrableValue<ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs> repositoryAuthConfig;
-
+    @PolicyResourceProperty(name="repositoryAuthConfig", flag="unknown_repositoryAuthConfig")
+    private ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs value_repositoryAuthConfig;
+    private boolean unknown_repositoryAuthConfig;
     public ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs repositoryAuthConfig() {
-        if (repositoryAuthConfig == null) return null;
-        return repositoryAuthConfig.getValue("ModelPrimaryContainerImageConfigArgs.repositoryAuthConfig");
+        if (!unknown_repositoryAuthConfig) return value_repositoryAuthConfig;
+        throw new UndeferrableValueException("Value 'ModelPrimaryContainerImageConfigArgs.repositoryAuthConfig' is not present");
     }
 
 }

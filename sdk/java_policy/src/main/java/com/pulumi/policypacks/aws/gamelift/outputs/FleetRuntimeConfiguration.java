@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.gamelift.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.gamelift.outputs.FleetRuntimeConfigurationServerProcess;
 import java.lang.Integer;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class FleetRuntimeConfiguration {
      * Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> gameSessionActivationTimeoutSeconds;
-
+    @PolicyResourceProperty(name="gameSessionActivationTimeoutSeconds", flag="unknown_gameSessionActivationTimeoutSeconds")
+    private @Nullable Integer value_gameSessionActivationTimeoutSeconds;
+    private boolean unknown_gameSessionActivationTimeoutSeconds;
     public @Nullable Integer gameSessionActivationTimeoutSeconds() {
-        if (gameSessionActivationTimeoutSeconds == null) return null;
-        return gameSessionActivationTimeoutSeconds.getValue("FleetRuntimeConfiguration.gameSessionActivationTimeoutSeconds");
+        if (!unknown_gameSessionActivationTimeoutSeconds) return value_gameSessionActivationTimeoutSeconds;
+        throw new UndeferrableValueException("Value 'FleetRuntimeConfiguration.gameSessionActivationTimeoutSeconds' is not present");
     }
 
     /**
      * Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxConcurrentGameSessionActivations;
-
+    @PolicyResourceProperty(name="maxConcurrentGameSessionActivations", flag="unknown_maxConcurrentGameSessionActivations")
+    private @Nullable Integer value_maxConcurrentGameSessionActivations;
+    private boolean unknown_maxConcurrentGameSessionActivations;
     public @Nullable Integer maxConcurrentGameSessionActivations() {
-        if (maxConcurrentGameSessionActivations == null) return null;
-        return maxConcurrentGameSessionActivations.getValue("FleetRuntimeConfiguration.maxConcurrentGameSessionActivations");
+        if (!unknown_maxConcurrentGameSessionActivations) return value_maxConcurrentGameSessionActivations;
+        throw new UndeferrableValueException("Value 'FleetRuntimeConfiguration.maxConcurrentGameSessionActivations' is not present");
     }
 
     /**
      * Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
      * 
      */
-    private @Nullable UndeferrableValue<List<FleetRuntimeConfigurationServerProcess>> serverProcesses;
-
+    @PolicyResourceProperty(name="serverProcesses", flag="unknown_serverProcesses")
+    private @Nullable List<FleetRuntimeConfigurationServerProcess> value_serverProcesses;
+    private boolean unknown_serverProcesses;
     public @Nullable List<FleetRuntimeConfigurationServerProcess> serverProcesses() {
-        if (serverProcesses == null) return null;
-        return serverProcesses.getValue("FleetRuntimeConfiguration.serverProcesses");
+        if (!unknown_serverProcesses) return value_serverProcesses;
+        throw new UndeferrableValueException("Value 'FleetRuntimeConfiguration.serverProcesses' is not present");
     }
 
 }

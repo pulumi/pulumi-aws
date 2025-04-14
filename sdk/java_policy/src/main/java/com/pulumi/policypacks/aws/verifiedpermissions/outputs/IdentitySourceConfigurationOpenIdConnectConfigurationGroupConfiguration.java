@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedpermissions.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationGroupCon
      * The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
      * 
      */
-    private UndeferrableValue<String> groupClaim;
-
+    @PolicyResourceProperty(name="groupClaim", flag="unknown_groupClaim")
+    private String value_groupClaim;
+    private boolean unknown_groupClaim;
     public String groupClaim() {
-        if (groupClaim == null) return null;
-        return groupClaim.getValue("IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration.groupClaim");
+        if (!unknown_groupClaim) return value_groupClaim;
+        throw new UndeferrableValueException("Value 'IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration.groupClaim' is not present");
     }
 
     /**
      * The name of the schema entity type that&#39;s mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
      * 
      */
-    private UndeferrableValue<String> groupEntityType;
-
+    @PolicyResourceProperty(name="groupEntityType", flag="unknown_groupEntityType")
+    private String value_groupEntityType;
+    private boolean unknown_groupEntityType;
     public String groupEntityType() {
-        if (groupEntityType == null) return null;
-        return groupEntityType.getValue("IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration.groupEntityType");
+        if (!unknown_groupEntityType) return value_groupEntityType;
+        throw new UndeferrableValueException("Value 'IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration.groupEntityType' is not present");
     }
 
 }

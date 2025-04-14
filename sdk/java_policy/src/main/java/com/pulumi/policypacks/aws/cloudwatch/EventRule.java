@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,22 +19,24 @@ public final class EventRule extends com.pulumi.resources.PolicyResourceOutput {
      * The Amazon Resource Name (ARN) of the rule.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("EventRule.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'EventRule.arn' is not present");
     }
 
     /**
      * The description of the rule.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("EventRule.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'EventRule.description' is not present");
     }
 
     /**
@@ -41,33 +44,36 @@ public final class EventRule extends com.pulumi.resources.PolicyResourceOutput {
      * If you omit this, the `default` event bus is used.
      * 
      */
-    private @Nullable UndeferrableValue<String> eventBusName;
-
+    @PolicyResourceProperty(name="eventBusName", flag="unknown_eventBusName")
+    private @Nullable String value_eventBusName;
+    private boolean unknown_eventBusName;
     public @Nullable String eventBusName() {
-        if (eventBusName == null) return null;
-        return eventBusName.getValue("EventRule.eventBusName");
+        if (!unknown_eventBusName) return value_eventBusName;
+        throw new UndeferrableValueException("Value 'EventRule.eventBusName' is not present");
     }
 
     /**
      * The event pattern described a JSON object. At least one of `schedule_expression` or `event_pattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details. **Note**: The event pattern size is 2048 by default but it is adjustable up to 4096 characters by submitting a service quota increase request. See [Amazon EventBridge quotas](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-quota.html) for details.
      * 
      */
-    private @Nullable UndeferrableValue<String> eventPattern;
-
+    @PolicyResourceProperty(name="eventPattern", flag="unknown_eventPattern")
+    private @Nullable String value_eventPattern;
+    private boolean unknown_eventPattern;
     public @Nullable String eventPattern() {
-        if (eventPattern == null) return null;
-        return eventPattern.getValue("EventRule.eventPattern");
+        if (!unknown_eventPattern) return value_eventPattern;
+        throw new UndeferrableValueException("Value 'EventRule.eventPattern' is not present");
     }
 
     /**
      * Used to delete managed rules created by AWS. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> forceDestroy;
-
+    @PolicyResourceProperty(name="forceDestroy", flag="unknown_forceDestroy")
+    private @Nullable Boolean value_forceDestroy;
+    private boolean unknown_forceDestroy;
     public @Nullable Boolean forceDestroy() {
-        if (forceDestroy == null) return null;
-        return forceDestroy.getValue("EventRule.forceDestroy");
+        if (!unknown_forceDestroy) return value_forceDestroy;
+        throw new UndeferrableValueException("Value 'EventRule.forceDestroy' is not present");
     }
 
     /**
@@ -80,55 +86,60 @@ public final class EventRule extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* is_enabled is deprecated. Use state instead. */
-    private @Nullable UndeferrableValue<Boolean> isEnabled;
-
+    @PolicyResourceProperty(name="isEnabled", flag="unknown_isEnabled")
+    private @Nullable Boolean value_isEnabled;
+    private boolean unknown_isEnabled;
     public @Nullable Boolean isEnabled() {
-        if (isEnabled == null) return null;
-        return isEnabled.getValue("EventRule.isEnabled");
+        if (!unknown_isEnabled) return value_isEnabled;
+        throw new UndeferrableValueException("Value 'EventRule.isEnabled' is not present");
     }
 
     /**
      * The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("EventRule.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'EventRule.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("EventRule.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'EventRule.namePrefix' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
      * 
      */
-    private @Nullable UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private @Nullable String value_roleArn;
+    private boolean unknown_roleArn;
     public @Nullable String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("EventRule.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'EventRule.roleArn' is not present");
     }
 
     /**
      * The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `schedule_expression` or `event_pattern` is required. Can only be used on the default event bus. For more information, refer to the AWS documentation [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
      * 
      */
-    private @Nullable UndeferrableValue<String> scheduleExpression;
-
+    @PolicyResourceProperty(name="scheduleExpression", flag="unknown_scheduleExpression")
+    private @Nullable String value_scheduleExpression;
+    private boolean unknown_scheduleExpression;
     public @Nullable String scheduleExpression() {
-        if (scheduleExpression == null) return null;
-        return scheduleExpression.getValue("EventRule.scheduleExpression");
+        if (!unknown_scheduleExpression) return value_scheduleExpression;
+        throw new UndeferrableValueException("Value 'EventRule.scheduleExpression' is not present");
     }
 
     /**
@@ -142,22 +153,24 @@ public final class EventRule extends com.pulumi.resources.PolicyResourceOutput {
      * **NOTE:** The rule state  `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS` cannot be used in conjunction with the `schedule_expression` argument.
      * 
      */
-    private @Nullable UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private @Nullable String value_state;
+    private boolean unknown_state;
     public @Nullable String state() {
-        if (state == null) return null;
-        return state.getValue("EventRule.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'EventRule.state' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("EventRule.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'EventRule.tags' is not present");
     }
 
     /**
@@ -168,11 +181,12 @@ public final class EventRule extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("EventRule.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'EventRule.tagsAll' is not present");
     }
 
 }

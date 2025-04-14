@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,33 +14,36 @@ public final class ServiceVpcLatticeConfiguration {
      * The name of the port for a target group associated with the VPC Lattice configuration.
      * 
      */
-    private UndeferrableValue<String> portName;
-
+    @PolicyResourceProperty(name="portName", flag="unknown_portName")
+    private String value_portName;
+    private boolean unknown_portName;
     public String portName() {
-        if (portName == null) return null;
-        return portName.getValue("ServiceVpcLatticeConfiguration.portName");
+        if (!unknown_portName) return value_portName;
+        throw new UndeferrableValueException("Value 'ServiceVpcLatticeConfiguration.portName' is not present");
     }
 
     /**
      * The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("ServiceVpcLatticeConfiguration.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'ServiceVpcLatticeConfiguration.roleArn' is not present");
     }
 
     /**
      * The full ARN of the target group or groups associated with the VPC Lattice configuration.
      * 
      */
-    private UndeferrableValue<String> targetGroupArn;
-
+    @PolicyResourceProperty(name="targetGroupArn", flag="unknown_targetGroupArn")
+    private String value_targetGroupArn;
+    private boolean unknown_targetGroupArn;
     public String targetGroupArn() {
-        if (targetGroupArn == null) return null;
-        return targetGroupArn.getValue("ServiceVpcLatticeConfiguration.targetGroupArn");
+        if (!unknown_targetGroupArn) return value_targetGroupArn;
+        throw new UndeferrableValueException("Value 'ServiceVpcLatticeConfiguration.targetGroupArn' is not present");
     }
 
 }

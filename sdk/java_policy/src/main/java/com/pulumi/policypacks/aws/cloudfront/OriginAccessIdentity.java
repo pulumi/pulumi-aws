@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class OriginAccessIdentity extends com.pulumi.resources.PolicyResou
      * The origin access identity ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("OriginAccessIdentity.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'OriginAccessIdentity.arn' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class OriginAccessIdentity extends com.pulumi.resources.PolicyResou
      * updates to the origin access identity.
      * 
      */
-    private UndeferrableValue<String> callerReference;
-
+    @PolicyResourceProperty(name="callerReference", flag="unknown_callerReference")
+    private String value_callerReference;
+    private boolean unknown_callerReference;
     public String callerReference() {
-        if (callerReference == null) return null;
-        return callerReference.getValue("OriginAccessIdentity.callerReference");
+        if (!unknown_callerReference) return value_callerReference;
+        throw new UndeferrableValueException("Value 'OriginAccessIdentity.callerReference' is not present");
     }
 
     /**
@@ -40,22 +43,24 @@ public final class OriginAccessIdentity extends com.pulumi.resources.PolicyResou
      * origin access identity to use in CloudFront, see below.
      * 
      */
-    private UndeferrableValue<String> cloudfrontAccessIdentityPath;
-
+    @PolicyResourceProperty(name="cloudfrontAccessIdentityPath", flag="unknown_cloudfrontAccessIdentityPath")
+    private String value_cloudfrontAccessIdentityPath;
+    private boolean unknown_cloudfrontAccessIdentityPath;
     public String cloudfrontAccessIdentityPath() {
-        if (cloudfrontAccessIdentityPath == null) return null;
-        return cloudfrontAccessIdentityPath.getValue("OriginAccessIdentity.cloudfrontAccessIdentityPath");
+        if (!unknown_cloudfrontAccessIdentityPath) return value_cloudfrontAccessIdentityPath;
+        throw new UndeferrableValueException("Value 'OriginAccessIdentity.cloudfrontAccessIdentityPath' is not present");
     }
 
     /**
      * An optional comment for the origin access identity.
      * 
      */
-    private @Nullable UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private @Nullable String value_comment;
+    private boolean unknown_comment;
     public @Nullable String comment() {
-        if (comment == null) return null;
-        return comment.getValue("OriginAccessIdentity.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'OriginAccessIdentity.comment' is not present");
     }
 
     /**
@@ -63,11 +68,12 @@ public final class OriginAccessIdentity extends com.pulumi.resources.PolicyResou
      * For example: `E2QWRUHAPOMQZL`.
      * 
      */
-    private UndeferrableValue<String> etag;
-
+    @PolicyResourceProperty(name="etag", flag="unknown_etag")
+    private String value_etag;
+    private boolean unknown_etag;
     public String etag() {
-        if (etag == null) return null;
-        return etag.getValue("OriginAccessIdentity.etag");
+        if (!unknown_etag) return value_etag;
+        throw new UndeferrableValueException("Value 'OriginAccessIdentity.etag' is not present");
     }
 
     /**
@@ -76,11 +82,12 @@ public final class OriginAccessIdentity extends com.pulumi.resources.PolicyResou
      * E2QWRUHAPOMQZL`.
      * 
      */
-    private UndeferrableValue<String> iamArn;
-
+    @PolicyResourceProperty(name="iamArn", flag="unknown_iamArn")
+    private String value_iamArn;
+    private boolean unknown_iamArn;
     public String iamArn() {
-        if (iamArn == null) return null;
-        return iamArn.getValue("OriginAccessIdentity.iamArn");
+        if (!unknown_iamArn) return value_iamArn;
+        throw new UndeferrableValueException("Value 'OriginAccessIdentity.iamArn' is not present");
     }
 
     /**
@@ -89,11 +96,12 @@ public final class OriginAccessIdentity extends com.pulumi.resources.PolicyResou
      * permission to an object in Amazon S3.
      * 
      */
-    private UndeferrableValue<String> s3CanonicalUserId;
-
+    @PolicyResourceProperty(name="s3CanonicalUserId", flag="unknown_s3CanonicalUserId")
+    private String value_s3CanonicalUserId;
+    private boolean unknown_s3CanonicalUserId;
     public String s3CanonicalUserId() {
-        if (s3CanonicalUserId == null) return null;
-        return s3CanonicalUserId.getValue("OriginAccessIdentity.s3CanonicalUserId");
+        if (!unknown_s3CanonicalUserId) return value_s3CanonicalUserId;
+        throw new UndeferrableValueException("Value 'OriginAccessIdentity.s3CanonicalUserId' is not present");
     }
 
 }

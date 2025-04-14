@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.storagegateway.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class NfsFileShareNfsFileShareDefaults {
      * The Unix directory mode in the string form &#34;nnnn&#34;. Defaults to `&#34;0777&#34;`.
      * 
      */
-    private @Nullable UndeferrableValue<String> directoryMode;
-
+    @PolicyResourceProperty(name="directoryMode", flag="unknown_directoryMode")
+    private @Nullable String value_directoryMode;
+    private boolean unknown_directoryMode;
     public @Nullable String directoryMode() {
-        if (directoryMode == null) return null;
-        return directoryMode.getValue("NfsFileShareNfsFileShareDefaults.directoryMode");
+        if (!unknown_directoryMode) return value_directoryMode;
+        throw new UndeferrableValueException("Value 'NfsFileShareNfsFileShareDefaults.directoryMode' is not present");
     }
 
     /**
      * The Unix file mode in the string form &#34;nnnn&#34;. Defaults to `&#34;0666&#34;`.
      * 
      */
-    private @Nullable UndeferrableValue<String> fileMode;
-
+    @PolicyResourceProperty(name="fileMode", flag="unknown_fileMode")
+    private @Nullable String value_fileMode;
+    private boolean unknown_fileMode;
     public @Nullable String fileMode() {
-        if (fileMode == null) return null;
-        return fileMode.getValue("NfsFileShareNfsFileShareDefaults.fileMode");
+        if (!unknown_fileMode) return value_fileMode;
+        throw new UndeferrableValueException("Value 'NfsFileShareNfsFileShareDefaults.fileMode' is not present");
     }
 
     /**
      * The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
      * 
      */
-    private @Nullable UndeferrableValue<String> groupId;
-
+    @PolicyResourceProperty(name="groupId", flag="unknown_groupId")
+    private @Nullable String value_groupId;
+    private boolean unknown_groupId;
     public @Nullable String groupId() {
-        if (groupId == null) return null;
-        return groupId.getValue("NfsFileShareNfsFileShareDefaults.groupId");
+        if (!unknown_groupId) return value_groupId;
+        throw new UndeferrableValueException("Value 'NfsFileShareNfsFileShareDefaults.groupId' is not present");
     }
 
     /**
      * The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
      * 
      */
-    private @Nullable UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private @Nullable String value_ownerId;
+    private boolean unknown_ownerId;
     public @Nullable String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("NfsFileShareNfsFileShareDefaults.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'NfsFileShareNfsFileShareDefaults.ownerId' is not present");
     }
 
 }

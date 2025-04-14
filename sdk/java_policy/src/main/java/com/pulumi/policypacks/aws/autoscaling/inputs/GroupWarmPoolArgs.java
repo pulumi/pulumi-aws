@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.autoscaling.inputs.GroupWarmPoolInstanceReusePolicyArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class GroupWarmPoolArgs {
      * Whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
      * 
      */
-    private UndeferrableValue<GroupWarmPoolInstanceReusePolicyArgs> instanceReusePolicy;
-
+    @PolicyResourceProperty(name="instanceReusePolicy", flag="unknown_instanceReusePolicy")
+    private GroupWarmPoolInstanceReusePolicyArgs value_instanceReusePolicy;
+    private boolean unknown_instanceReusePolicy;
     public GroupWarmPoolInstanceReusePolicyArgs instanceReusePolicy() {
-        if (instanceReusePolicy == null) return null;
-        return instanceReusePolicy.getValue("GroupWarmPoolArgs.instanceReusePolicy");
+        if (!unknown_instanceReusePolicy) return value_instanceReusePolicy;
+        throw new UndeferrableValueException("Value 'GroupWarmPoolArgs.instanceReusePolicy' is not present");
     }
 
     /**
      * Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
      * 
      */
-    private UndeferrableValue<Integer> maxGroupPreparedCapacity;
-
+    @PolicyResourceProperty(name="maxGroupPreparedCapacity", flag="unknown_maxGroupPreparedCapacity")
+    private Integer value_maxGroupPreparedCapacity;
+    private boolean unknown_maxGroupPreparedCapacity;
     public Integer maxGroupPreparedCapacity() {
-        if (maxGroupPreparedCapacity == null) return null;
-        return maxGroupPreparedCapacity.getValue("GroupWarmPoolArgs.maxGroupPreparedCapacity");
+        if (!unknown_maxGroupPreparedCapacity) return value_maxGroupPreparedCapacity;
+        throw new UndeferrableValueException("Value 'GroupWarmPoolArgs.maxGroupPreparedCapacity' is not present");
     }
 
     /**
      * Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
      * 
      */
-    private UndeferrableValue<Integer> minSize;
-
+    @PolicyResourceProperty(name="minSize", flag="unknown_minSize")
+    private Integer value_minSize;
+    private boolean unknown_minSize;
     public Integer minSize() {
-        if (minSize == null) return null;
-        return minSize.getValue("GroupWarmPoolArgs.minSize");
+        if (!unknown_minSize) return value_minSize;
+        throw new UndeferrableValueException("Value 'GroupWarmPoolArgs.minSize' is not present");
     }
 
     /**
      * Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default), Running or Hibernated.
      * 
      */
-    private UndeferrableValue<String> poolState;
-
+    @PolicyResourceProperty(name="poolState", flag="unknown_poolState")
+    private String value_poolState;
+    private boolean unknown_poolState;
     public String poolState() {
-        if (poolState == null) return null;
-        return poolState.getValue("GroupWarmPoolArgs.poolState");
+        if (!unknown_poolState) return value_poolState;
+        throw new UndeferrableValueException("Value 'GroupWarmPoolArgs.poolState' is not present");
     }
 
 }

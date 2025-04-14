@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.RuleGroupRuleStatementRegexMatchStatementTextTransformationArgs;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class RuleGroupRuleStatementRegexMatchStatementArgs {
      * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs> fieldToMatch;
-
+    @PolicyResourceProperty(name="fieldToMatch", flag="unknown_fieldToMatch")
+    private RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs value_fieldToMatch;
+    private boolean unknown_fieldToMatch;
     public RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs fieldToMatch() {
-        if (fieldToMatch == null) return null;
-        return fieldToMatch.getValue("RuleGroupRuleStatementRegexMatchStatementArgs.fieldToMatch");
+        if (!unknown_fieldToMatch) return value_fieldToMatch;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexMatchStatementArgs.fieldToMatch' is not present");
     }
 
     /**
      * The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can&#39;t be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
      * 
      */
-    private UndeferrableValue<String> regexString;
-
+    @PolicyResourceProperty(name="regexString", flag="unknown_regexString")
+    private String value_regexString;
+    private boolean unknown_regexString;
     public String regexString() {
-        if (regexString == null) return null;
-        return regexString.getValue("RuleGroupRuleStatementRegexMatchStatementArgs.regexString");
+        if (!unknown_regexString) return value_regexString;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexMatchStatementArgs.regexString' is not present");
     }
 
     /**
@@ -41,11 +44,12 @@ public final class RuleGroupRuleStatementRegexMatchStatementArgs {
      * See Text Transformation below for details.
      * 
      */
-    private UndeferrableValue<List<RuleGroupRuleStatementRegexMatchStatementTextTransformationArgs>> textTransformations;
-
+    @PolicyResourceProperty(name="textTransformations", flag="unknown_textTransformations")
+    private List<RuleGroupRuleStatementRegexMatchStatementTextTransformationArgs> value_textTransformations;
+    private boolean unknown_textTransformations;
     public List<RuleGroupRuleStatementRegexMatchStatementTextTransformationArgs> textTransformations() {
-        if (textTransformations == null) return null;
-        return textTransformations.getValue("RuleGroupRuleStatementRegexMatchStatementArgs.textTransformations");
+        if (!unknown_textTransformations) return value_textTransformations;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexMatchStatementArgs.textTransformations' is not present");
     }
 
 }

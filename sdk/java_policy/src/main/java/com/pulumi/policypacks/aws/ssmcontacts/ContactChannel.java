@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssmcontacts;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ssmcontacts.outputs.ContactChannelDeliveryAddress;
 import java.lang.String;
@@ -16,66 +17,72 @@ public final class ContactChannel extends com.pulumi.resources.PolicyResourceOut
      * Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
      * 
      */
-    private UndeferrableValue<String> activationStatus;
-
+    @PolicyResourceProperty(name="activationStatus", flag="unknown_activationStatus")
+    private String value_activationStatus;
+    private boolean unknown_activationStatus;
     public String activationStatus() {
-        if (activationStatus == null) return null;
-        return activationStatus.getValue("ContactChannel.activationStatus");
+        if (!unknown_activationStatus) return value_activationStatus;
+        throw new UndeferrableValueException("Value 'ContactChannel.activationStatus' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the contact channel.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ContactChannel.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ContactChannel.arn' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
      * 
      */
-    private UndeferrableValue<String> contactId;
-
+    @PolicyResourceProperty(name="contactId", flag="unknown_contactId")
+    private String value_contactId;
+    private boolean unknown_contactId;
     public String contactId() {
-        if (contactId == null) return null;
-        return contactId.getValue("ContactChannel.contactId");
+        if (!unknown_contactId) return value_contactId;
+        throw new UndeferrableValueException("Value 'ContactChannel.contactId' is not present");
     }
 
     /**
      * Block that contains contact engagement details. See details below.
      * 
      */
-    private UndeferrableValue<ContactChannelDeliveryAddress> deliveryAddress;
-
+    @PolicyResourceProperty(name="deliveryAddress", flag="unknown_deliveryAddress")
+    private ContactChannelDeliveryAddress value_deliveryAddress;
+    private boolean unknown_deliveryAddress;
     public ContactChannelDeliveryAddress deliveryAddress() {
-        if (deliveryAddress == null) return null;
-        return deliveryAddress.getValue("ContactChannel.deliveryAddress");
+        if (!unknown_deliveryAddress) return value_deliveryAddress;
+        throw new UndeferrableValueException("Value 'ContactChannel.deliveryAddress' is not present");
     }
 
     /**
      * Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ContactChannel.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ContactChannel.name' is not present");
     }
 
     /**
      * Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ContactChannel.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ContactChannel.type' is not present");
     }
 
 }

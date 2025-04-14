@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dataexchange;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,55 +18,60 @@ public final class Revision extends com.pulumi.resources.PolicyResourceOutput {
      * The Amazon Resource Name of this data set.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Revision.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Revision.arn' is not present");
     }
 
     /**
      * An optional comment about the revision.
      * 
      */
-    private @Nullable UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private @Nullable String value_comment;
+    private boolean unknown_comment;
     public @Nullable String comment() {
-        if (comment == null) return null;
-        return comment.getValue("Revision.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'Revision.comment' is not present");
     }
 
     /**
      * The dataset id.
      * 
      */
-    private UndeferrableValue<String> dataSetId;
-
+    @PolicyResourceProperty(name="dataSetId", flag="unknown_dataSetId")
+    private String value_dataSetId;
+    private boolean unknown_dataSetId;
     public String dataSetId() {
-        if (dataSetId == null) return null;
-        return dataSetId.getValue("Revision.dataSetId");
+        if (!unknown_dataSetId) return value_dataSetId;
+        throw new UndeferrableValueException("Value 'Revision.dataSetId' is not present");
     }
 
     /**
      * The Id of the revision.
      * 
      */
-    private UndeferrableValue<String> revisionId;
-
+    @PolicyResourceProperty(name="revisionId", flag="unknown_revisionId")
+    private String value_revisionId;
+    private boolean unknown_revisionId;
     public String revisionId() {
-        if (revisionId == null) return null;
-        return revisionId.getValue("Revision.revisionId");
+        if (!unknown_revisionId) return value_revisionId;
+        throw new UndeferrableValueException("Value 'Revision.revisionId' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Revision.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Revision.tags' is not present");
     }
 
     /**
@@ -76,11 +82,12 @@ public final class Revision extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Revision.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Revision.tagsAll' is not present");
     }
 
 }

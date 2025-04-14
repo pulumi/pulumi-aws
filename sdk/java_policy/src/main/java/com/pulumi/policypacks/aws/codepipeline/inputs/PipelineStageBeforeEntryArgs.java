@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codepipeline.inputs.PipelineStageBeforeEntryConditionArgs;
 
 
@@ -13,11 +14,12 @@ public final class PipelineStageBeforeEntryArgs {
      * The conditions that are configured as entry condition. Defined as a `condition` block below.
      * 
      */
-    private UndeferrableValue<PipelineStageBeforeEntryConditionArgs> condition;
-
+    @PolicyResourceProperty(name="condition", flag="unknown_condition")
+    private PipelineStageBeforeEntryConditionArgs value_condition;
+    private boolean unknown_condition;
     public PipelineStageBeforeEntryConditionArgs condition() {
-        if (condition == null) return null;
-        return condition.getValue("PipelineStageBeforeEntryArgs.condition");
+        if (!unknown_condition) return value_condition;
+        throw new UndeferrableValueException("Value 'PipelineStageBeforeEntryArgs.condition' is not present");
     }
 
 }

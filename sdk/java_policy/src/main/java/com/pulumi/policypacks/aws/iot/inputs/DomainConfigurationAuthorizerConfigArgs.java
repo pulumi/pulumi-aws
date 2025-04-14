@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DomainConfigurationAuthorizerConfigArgs {
      * A Boolean that specifies whether the domain configuration&#39;s authorization service can be overridden.
      * 
      */
-    private UndeferrableValue<Boolean> allowAuthorizerOverride;
-
+    @PolicyResourceProperty(name="allowAuthorizerOverride", flag="unknown_allowAuthorizerOverride")
+    private Boolean value_allowAuthorizerOverride;
+    private boolean unknown_allowAuthorizerOverride;
     public Boolean allowAuthorizerOverride() {
-        if (allowAuthorizerOverride == null) return null;
-        return allowAuthorizerOverride.getValue("DomainConfigurationAuthorizerConfigArgs.allowAuthorizerOverride");
+        if (!unknown_allowAuthorizerOverride) return value_allowAuthorizerOverride;
+        throw new UndeferrableValueException("Value 'DomainConfigurationAuthorizerConfigArgs.allowAuthorizerOverride' is not present");
     }
 
     /**
      * The name of the authorization service for a domain configuration.
      * 
      */
-    private UndeferrableValue<String> defaultAuthorizerName;
-
+    @PolicyResourceProperty(name="defaultAuthorizerName", flag="unknown_defaultAuthorizerName")
+    private String value_defaultAuthorizerName;
+    private boolean unknown_defaultAuthorizerName;
     public String defaultAuthorizerName() {
-        if (defaultAuthorizerName == null) return null;
-        return defaultAuthorizerName.getValue("DomainConfigurationAuthorizerConfigArgs.defaultAuthorizerName");
+        if (!unknown_defaultAuthorizerName) return value_defaultAuthorizerName;
+        throw new UndeferrableValueException("Value 'DomainConfigurationAuthorizerConfigArgs.defaultAuthorizerName' is not present");
     }
 
 }

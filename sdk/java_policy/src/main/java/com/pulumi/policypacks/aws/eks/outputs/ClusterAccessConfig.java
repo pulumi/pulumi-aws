@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ClusterAccessConfig {
      * The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
      * 
      */
-    private @Nullable UndeferrableValue<String> authenticationMode;
-
+    @PolicyResourceProperty(name="authenticationMode", flag="unknown_authenticationMode")
+    private @Nullable String value_authenticationMode;
+    private boolean unknown_authenticationMode;
     public @Nullable String authenticationMode() {
-        if (authenticationMode == null) return null;
-        return authenticationMode.getValue("ClusterAccessConfig.authenticationMode");
+        if (!unknown_authenticationMode) return value_authenticationMode;
+        throw new UndeferrableValueException("Value 'ClusterAccessConfig.authenticationMode' is not present");
     }
 
     /**
      * Whether or not to bootstrap the access config values to the cluster. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> bootstrapClusterCreatorAdminPermissions;
-
+    @PolicyResourceProperty(name="bootstrapClusterCreatorAdminPermissions", flag="unknown_bootstrapClusterCreatorAdminPermissions")
+    private @Nullable Boolean value_bootstrapClusterCreatorAdminPermissions;
+    private boolean unknown_bootstrapClusterCreatorAdminPermissions;
     public @Nullable Boolean bootstrapClusterCreatorAdminPermissions() {
-        if (bootstrapClusterCreatorAdminPermissions == null) return null;
-        return bootstrapClusterCreatorAdminPermissions.getValue("ClusterAccessConfig.bootstrapClusterCreatorAdminPermissions");
+        if (!unknown_bootstrapClusterCreatorAdminPermissions) return value_bootstrapClusterCreatorAdminPermissions;
+        throw new UndeferrableValueException("Value 'ClusterAccessConfig.bootstrapClusterCreatorAdminPermissions' is not present");
     }
 
 }

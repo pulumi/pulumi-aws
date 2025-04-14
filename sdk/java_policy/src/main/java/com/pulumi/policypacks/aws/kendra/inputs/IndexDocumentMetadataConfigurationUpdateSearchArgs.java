@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class IndexDocumentMetadataConfigurationUpdateSearchArgs {
      * Determines whether the field is returned in the query response. The default is `true`.
      * 
      */
-    private UndeferrableValue<Boolean> displayable;
-
+    @PolicyResourceProperty(name="displayable", flag="unknown_displayable")
+    private Boolean value_displayable;
+    private boolean unknown_displayable;
     public Boolean displayable() {
-        if (displayable == null) return null;
-        return displayable.getValue("IndexDocumentMetadataConfigurationUpdateSearchArgs.displayable");
+        if (!unknown_displayable) return value_displayable;
+        throw new UndeferrableValueException("Value 'IndexDocumentMetadataConfigurationUpdateSearchArgs.displayable' is not present");
     }
 
     /**
      * Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> facetable;
-
+    @PolicyResourceProperty(name="facetable", flag="unknown_facetable")
+    private Boolean value_facetable;
+    private boolean unknown_facetable;
     public Boolean facetable() {
-        if (facetable == null) return null;
-        return facetable.getValue("IndexDocumentMetadataConfigurationUpdateSearchArgs.facetable");
+        if (!unknown_facetable) return value_facetable;
+        throw new UndeferrableValueException("Value 'IndexDocumentMetadataConfigurationUpdateSearchArgs.facetable' is not present");
     }
 
     /**
      * Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
      * 
      */
-    private UndeferrableValue<Boolean> searchable;
-
+    @PolicyResourceProperty(name="searchable", flag="unknown_searchable")
+    private Boolean value_searchable;
+    private boolean unknown_searchable;
     public Boolean searchable() {
-        if (searchable == null) return null;
-        return searchable.getValue("IndexDocumentMetadataConfigurationUpdateSearchArgs.searchable");
+        if (!unknown_searchable) return value_searchable;
+        throw new UndeferrableValueException("Value 'IndexDocumentMetadataConfigurationUpdateSearchArgs.searchable' is not present");
     }
 
     /**
      * Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> sortable;
-
+    @PolicyResourceProperty(name="sortable", flag="unknown_sortable")
+    private Boolean value_sortable;
+    private boolean unknown_sortable;
     public Boolean sortable() {
-        if (sortable == null) return null;
-        return sortable.getValue("IndexDocumentMetadataConfigurationUpdateSearchArgs.sortable");
+        if (!unknown_sortable) return value_sortable;
+        throw new UndeferrableValueException("Value 'IndexDocumentMetadataConfigurationUpdateSearchArgs.sortable' is not present");
     }
 
 }

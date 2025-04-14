@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.controltower;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class LandingZoneArgs extends com.pulumi.resources.PolicyResourceIn
      * The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
      * 
      */
-    private UndeferrableValue<String> manifestJson;
-
+    @PolicyResourceProperty(name="manifestJson", flag="unknown_manifestJson")
+    private String value_manifestJson;
+    private boolean unknown_manifestJson;
     public String manifestJson() {
-        if (manifestJson == null) return null;
-        return manifestJson.getValue("LandingZoneArgs.manifestJson");
+        if (!unknown_manifestJson) return value_manifestJson;
+        throw new UndeferrableValueException("Value 'LandingZoneArgs.manifestJson' is not present");
     }
 
     /**
      * Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LandingZoneArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LandingZoneArgs.tags' is not present");
     }
 
     /**
      * The landing zone version.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("LandingZoneArgs.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'LandingZoneArgs.version' is not present");
     }
 
 }

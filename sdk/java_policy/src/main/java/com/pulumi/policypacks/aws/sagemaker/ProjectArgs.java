@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.inputs.ProjectServiceCatalogProvisioningDetailsArgs;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class ProjectArgs extends com.pulumi.resources.PolicyResourceInput 
      * A description for the project.
      * 
      */
-    private UndeferrableValue<String> projectDescription;
-
+    @PolicyResourceProperty(name="projectDescription", flag="unknown_projectDescription")
+    private String value_projectDescription;
+    private boolean unknown_projectDescription;
     public String projectDescription() {
-        if (projectDescription == null) return null;
-        return projectDescription.getValue("ProjectArgs.projectDescription");
+        if (!unknown_projectDescription) return value_projectDescription;
+        throw new UndeferrableValueException("Value 'ProjectArgs.projectDescription' is not present");
     }
 
     /**
      * The name of the Project.
      * 
      */
-    private UndeferrableValue<String> projectName;
-
+    @PolicyResourceProperty(name="projectName", flag="unknown_projectName")
+    private String value_projectName;
+    private boolean unknown_projectName;
     public String projectName() {
-        if (projectName == null) return null;
-        return projectName.getValue("ProjectArgs.projectName");
+        if (!unknown_projectName) return value_projectName;
+        throw new UndeferrableValueException("Value 'ProjectArgs.projectName' is not present");
     }
 
     /**
      * The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
      * 
      */
-    private UndeferrableValue<ProjectServiceCatalogProvisioningDetailsArgs> serviceCatalogProvisioningDetails;
-
+    @PolicyResourceProperty(name="serviceCatalogProvisioningDetails", flag="unknown_serviceCatalogProvisioningDetails")
+    private ProjectServiceCatalogProvisioningDetailsArgs value_serviceCatalogProvisioningDetails;
+    private boolean unknown_serviceCatalogProvisioningDetails;
     public ProjectServiceCatalogProvisioningDetailsArgs serviceCatalogProvisioningDetails() {
-        if (serviceCatalogProvisioningDetails == null) return null;
-        return serviceCatalogProvisioningDetails.getValue("ProjectArgs.serviceCatalogProvisioningDetails");
+        if (!unknown_serviceCatalogProvisioningDetails) return value_serviceCatalogProvisioningDetails;
+        throw new UndeferrableValueException("Value 'ProjectArgs.serviceCatalogProvisioningDetails' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ProjectArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ProjectArgs.tags' is not present");
     }
 
 }

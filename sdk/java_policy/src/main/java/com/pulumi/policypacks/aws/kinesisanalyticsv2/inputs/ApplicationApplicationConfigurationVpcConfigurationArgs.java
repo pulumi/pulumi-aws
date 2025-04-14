@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,36 +16,40 @@ public final class ApplicationApplicationConfigurationVpcConfigurationArgs {
      * The Security Group IDs used by the VPC configuration.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("ApplicationApplicationConfigurationVpcConfigurationArgs.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationVpcConfigurationArgs.securityGroupIds' is not present");
     }
 
     /**
      * The Subnet IDs used by the VPC configuration.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("ApplicationApplicationConfigurationVpcConfigurationArgs.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationVpcConfigurationArgs.subnetIds' is not present");
     }
 
-    private UndeferrableValue<String> vpcConfigurationId;
-
+    @PolicyResourceProperty(name="vpcConfigurationId", flag="unknown_vpcConfigurationId")
+    private String value_vpcConfigurationId;
+    private boolean unknown_vpcConfigurationId;
     public String vpcConfigurationId() {
-        if (vpcConfigurationId == null) return null;
-        return vpcConfigurationId.getValue("ApplicationApplicationConfigurationVpcConfigurationArgs.vpcConfigurationId");
+        if (!unknown_vpcConfigurationId) return value_vpcConfigurationId;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationVpcConfigurationArgs.vpcConfigurationId' is not present");
     }
 
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("ApplicationApplicationConfigurationVpcConfigurationArgs.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationVpcConfigurationArgs.vpcId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.athena;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,55 +17,60 @@ public final class NamedQuery extends com.pulumi.resources.PolicyResourceOutput 
      * Database to which the query belongs.
      * 
      */
-    private UndeferrableValue<String> database;
-
+    @PolicyResourceProperty(name="database", flag="unknown_database")
+    private String value_database;
+    private boolean unknown_database;
     public String database() {
-        if (database == null) return null;
-        return database.getValue("NamedQuery.database");
+        if (!unknown_database) return value_database;
+        throw new UndeferrableValueException("Value 'NamedQuery.database' is not present");
     }
 
     /**
      * Brief explanation of the query. Maximum length of 1024.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("NamedQuery.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'NamedQuery.description' is not present");
     }
 
     /**
      * Plain language name for the query. Maximum length of 128.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("NamedQuery.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'NamedQuery.name' is not present");
     }
 
     /**
      * Text of the query itself. In other words, all query statements. Maximum length of 262144.
      * 
      */
-    private UndeferrableValue<String> query;
-
+    @PolicyResourceProperty(name="query", flag="unknown_query")
+    private String value_query;
+    private boolean unknown_query;
     public String query() {
-        if (query == null) return null;
-        return query.getValue("NamedQuery.query");
+        if (!unknown_query) return value_query;
+        throw new UndeferrableValueException("Value 'NamedQuery.query' is not present");
     }
 
     /**
      * Workgroup to which the query belongs. Defaults to `primary`
      * 
      */
-    private @Nullable UndeferrableValue<String> workgroup;
-
+    @PolicyResourceProperty(name="workgroup", flag="unknown_workgroup")
+    private @Nullable String value_workgroup;
+    private boolean unknown_workgroup;
     public @Nullable String workgroup() {
-        if (workgroup == null) return null;
-        return workgroup.getValue("NamedQuery.workgroup");
+        if (!unknown_workgroup) return value_workgroup;
+        throw new UndeferrableValueException("Value 'NamedQuery.workgroup' is not present");
     }
 
 }

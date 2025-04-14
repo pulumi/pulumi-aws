@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,66 +16,72 @@ public final class ChannelEncoderSettingsCaptionDescriptionArgs {
      * Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
      * 
      */
-    private UndeferrableValue<String> accessibility;
-
+    @PolicyResourceProperty(name="accessibility", flag="unknown_accessibility")
+    private String value_accessibility;
+    private boolean unknown_accessibility;
     public String accessibility() {
-        if (accessibility == null) return null;
-        return accessibility.getValue("ChannelEncoderSettingsCaptionDescriptionArgs.accessibility");
+        if (!unknown_accessibility) return value_accessibility;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionArgs.accessibility' is not present");
     }
 
     /**
      * Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
      * 
      */
-    private UndeferrableValue<String> captionSelectorName;
-
+    @PolicyResourceProperty(name="captionSelectorName", flag="unknown_captionSelectorName")
+    private String value_captionSelectorName;
+    private boolean unknown_captionSelectorName;
     public String captionSelectorName() {
-        if (captionSelectorName == null) return null;
-        return captionSelectorName.getValue("ChannelEncoderSettingsCaptionDescriptionArgs.captionSelectorName");
+        if (!unknown_captionSelectorName) return value_captionSelectorName;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionArgs.captionSelectorName' is not present");
     }
 
     /**
      * Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs> destinationSettings;
-
+    @PolicyResourceProperty(name="destinationSettings", flag="unknown_destinationSettings")
+    private ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs value_destinationSettings;
+    private boolean unknown_destinationSettings;
     public ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs destinationSettings() {
-        if (destinationSettings == null) return null;
-        return destinationSettings.getValue("ChannelEncoderSettingsCaptionDescriptionArgs.destinationSettings");
+        if (!unknown_destinationSettings) return value_destinationSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionArgs.destinationSettings' is not present");
     }
 
     /**
      * ISO 639-2 three-digit code.
      * 
      */
-    private UndeferrableValue<String> languageCode;
-
+    @PolicyResourceProperty(name="languageCode", flag="unknown_languageCode")
+    private String value_languageCode;
+    private boolean unknown_languageCode;
     public String languageCode() {
-        if (languageCode == null) return null;
-        return languageCode.getValue("ChannelEncoderSettingsCaptionDescriptionArgs.languageCode");
+        if (!unknown_languageCode) return value_languageCode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionArgs.languageCode' is not present");
     }
 
     /**
      * Human readable information to indicate captions available for players (eg. English, or Spanish).
      * 
      */
-    private UndeferrableValue<String> languageDescription;
-
+    @PolicyResourceProperty(name="languageDescription", flag="unknown_languageDescription")
+    private String value_languageDescription;
+    private boolean unknown_languageDescription;
     public String languageDescription() {
-        if (languageDescription == null) return null;
-        return languageDescription.getValue("ChannelEncoderSettingsCaptionDescriptionArgs.languageDescription");
+        if (!unknown_languageDescription) return value_languageDescription;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionArgs.languageDescription' is not present");
     }
 
     /**
      * Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ChannelEncoderSettingsCaptionDescriptionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionArgs.name' is not present");
     }
 
 }

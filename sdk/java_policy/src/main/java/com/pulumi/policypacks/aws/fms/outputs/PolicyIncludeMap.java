@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fms.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class PolicyIncludeMap {
      * A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> accounts;
-
+    @PolicyResourceProperty(name="accounts", flag="unknown_accounts")
+    private @Nullable List<String> value_accounts;
+    private boolean unknown_accounts;
     public @Nullable List<String> accounts() {
-        if (accounts == null) return null;
-        return accounts.getValue("PolicyIncludeMap.accounts");
+        if (!unknown_accounts) return value_accounts;
+        throw new UndeferrableValueException("Value 'PolicyIncludeMap.accounts' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class PolicyIncludeMap {
      * You can specify inclusions or exclusions, but not both. If you specify an `include_map`, AWS Firewall Manager applies the policy to all accounts specified by the `include_map`, and does not evaluate any `exclude_map` specifications. If you do not specify an `include_map`, then Firewall Manager applies the policy to all accounts except for those specified by the `exclude_map`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> orgunits;
-
+    @PolicyResourceProperty(name="orgunits", flag="unknown_orgunits")
+    private @Nullable List<String> value_orgunits;
+    private boolean unknown_orgunits;
     public @Nullable List<String> orgunits() {
-        if (orgunits == null) return null;
-        return orgunits.getValue("PolicyIncludeMap.orgunits");
+        if (!unknown_orgunits) return value_orgunits;
+        throw new UndeferrableValueException("Value 'PolicyIncludeMap.orgunits' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class InstanceLaunchTemplateArgs {
      * ID of the launch template. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("InstanceLaunchTemplateArgs.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'InstanceLaunchTemplateArgs.id' is not present");
     }
 
     /**
      * Name of the launch template. Conflicts with `id`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("InstanceLaunchTemplateArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'InstanceLaunchTemplateArgs.name' is not present");
     }
 
     /**
      * Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("InstanceLaunchTemplateArgs.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'InstanceLaunchTemplateArgs.version' is not present");
     }
 
 }

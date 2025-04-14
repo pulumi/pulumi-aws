@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class VpcEndpointDnsOptions {
      * The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
      * 
      */
-    private @Nullable UndeferrableValue<String> dnsRecordIpType;
-
+    @PolicyResourceProperty(name="dnsRecordIpType", flag="unknown_dnsRecordIpType")
+    private @Nullable String value_dnsRecordIpType;
+    private boolean unknown_dnsRecordIpType;
     public @Nullable String dnsRecordIpType() {
-        if (dnsRecordIpType == null) return null;
-        return dnsRecordIpType.getValue("VpcEndpointDnsOptions.dnsRecordIpType");
+        if (!unknown_dnsRecordIpType) return value_dnsRecordIpType;
+        throw new UndeferrableValueException("Value 'VpcEndpointDnsOptions.dnsRecordIpType' is not present");
     }
 
     /**
      * Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Default is `false`. Can only be specified if private_dns_enabled is `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> privateDnsOnlyForInboundResolverEndpoint;
-
+    @PolicyResourceProperty(name="privateDnsOnlyForInboundResolverEndpoint", flag="unknown_privateDnsOnlyForInboundResolverEndpoint")
+    private @Nullable Boolean value_privateDnsOnlyForInboundResolverEndpoint;
+    private boolean unknown_privateDnsOnlyForInboundResolverEndpoint;
     public @Nullable Boolean privateDnsOnlyForInboundResolverEndpoint() {
-        if (privateDnsOnlyForInboundResolverEndpoint == null) return null;
-        return privateDnsOnlyForInboundResolverEndpoint.getValue("VpcEndpointDnsOptions.privateDnsOnlyForInboundResolverEndpoint");
+        if (!unknown_privateDnsOnlyForInboundResolverEndpoint) return value_privateDnsOnlyForInboundResolverEndpoint;
+        throw new UndeferrableValueException("Value 'VpcEndpointDnsOptions.privateDnsOnlyForInboundResolverEndpoint' is not present");
     }
 
 }

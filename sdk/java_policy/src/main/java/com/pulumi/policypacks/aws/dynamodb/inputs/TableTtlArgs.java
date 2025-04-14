@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dynamodb.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class TableTtlArgs {
      * Required if `enabled` is `true`, must not be set otherwise.
      * 
      */
-    private UndeferrableValue<String> attributeName;
-
+    @PolicyResourceProperty(name="attributeName", flag="unknown_attributeName")
+    private String value_attributeName;
+    private boolean unknown_attributeName;
     public String attributeName() {
-        if (attributeName == null) return null;
-        return attributeName.getValue("TableTtlArgs.attributeName");
+        if (!unknown_attributeName) return value_attributeName;
+        throw new UndeferrableValueException("Value 'TableTtlArgs.attributeName' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class TableTtlArgs {
      * Default value is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("TableTtlArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'TableTtlArgs.enabled' is not present");
     }
 
 }

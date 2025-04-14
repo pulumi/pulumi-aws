@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ecs.inputs.ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs;
 import java.lang.String;
 import java.util.List;
@@ -17,33 +18,36 @@ public final class ServiceServiceConnectConfigurationLogConfigurationArgs {
      * Log driver to use for the container.
      * 
      */
-    private UndeferrableValue<String> logDriver;
-
+    @PolicyResourceProperty(name="logDriver", flag="unknown_logDriver")
+    private String value_logDriver;
+    private boolean unknown_logDriver;
     public String logDriver() {
-        if (logDriver == null) return null;
-        return logDriver.getValue("ServiceServiceConnectConfigurationLogConfigurationArgs.logDriver");
+        if (!unknown_logDriver) return value_logDriver;
+        throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationLogConfigurationArgs.logDriver' is not present");
     }
 
     /**
      * Configuration options to send to the log driver.
      * 
      */
-    private UndeferrableValue<Map<String,String>> options;
-
+    @PolicyResourceProperty(name="options", flag="unknown_options")
+    private Map<String,String> value_options;
+    private boolean unknown_options;
     public Map<String,String> options() {
-        if (options == null) return null;
-        return options.getValue("ServiceServiceConnectConfigurationLogConfigurationArgs.options");
+        if (!unknown_options) return value_options;
+        throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationLogConfigurationArgs.options' is not present");
     }
 
     /**
      * Secrets to pass to the log configuration. See below.
      * 
      */
-    private UndeferrableValue<List<ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs>> secretOptions;
-
+    @PolicyResourceProperty(name="secretOptions", flag="unknown_secretOptions")
+    private List<ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs> value_secretOptions;
+    private boolean unknown_secretOptions;
     public List<ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs> secretOptions() {
-        if (secretOptions == null) return null;
-        return secretOptions.getValue("ServiceServiceConnectConfigurationLogConfigurationArgs.secretOptions");
+        if (!unknown_secretOptions) return value_secretOptions;
+        throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationLogConfigurationArgs.secretOptions' is not present");
     }
 
 }

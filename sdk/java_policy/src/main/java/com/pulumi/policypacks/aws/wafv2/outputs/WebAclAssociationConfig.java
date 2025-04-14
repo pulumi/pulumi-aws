@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclAssociationConfigRequestBody;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class WebAclAssociationConfig {
      * Customizes the request body that your protected resource forward to AWS WAF for inspection. See `request_body` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<WebAclAssociationConfigRequestBody>> requestBodies;
-
+    @PolicyResourceProperty(name="requestBodies", flag="unknown_requestBodies")
+    private @Nullable List<WebAclAssociationConfigRequestBody> value_requestBodies;
+    private boolean unknown_requestBodies;
     public @Nullable List<WebAclAssociationConfigRequestBody> requestBodies() {
-        if (requestBodies == null) return null;
-        return requestBodies.getValue("WebAclAssociationConfig.requestBodies");
+        if (!unknown_requestBodies) return value_requestBodies;
+        throw new UndeferrableValueException("Value 'WebAclAssociationConfig.requestBodies' is not present");
     }
 
 }

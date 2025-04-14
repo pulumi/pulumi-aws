@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class ResolverQueryLogConfigAssociation extends com.pulumi.resource
      * The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
      * 
      */
-    private UndeferrableValue<String> resolverQueryLogConfigId;
-
+    @PolicyResourceProperty(name="resolverQueryLogConfigId", flag="unknown_resolverQueryLogConfigId")
+    private String value_resolverQueryLogConfigId;
+    private boolean unknown_resolverQueryLogConfigId;
     public String resolverQueryLogConfigId() {
-        if (resolverQueryLogConfigId == null) return null;
-        return resolverQueryLogConfigId.getValue("ResolverQueryLogConfigAssociation.resolverQueryLogConfigId");
+        if (!unknown_resolverQueryLogConfigId) return value_resolverQueryLogConfigId;
+        throw new UndeferrableValueException("Value 'ResolverQueryLogConfigAssociation.resolverQueryLogConfigId' is not present");
     }
 
     /**
      * The ID of a VPC that you want this query logging configuration to log queries for.
      * 
      */
-    private UndeferrableValue<String> resourceId;
-
+    @PolicyResourceProperty(name="resourceId", flag="unknown_resourceId")
+    private String value_resourceId;
+    private boolean unknown_resourceId;
     public String resourceId() {
-        if (resourceId == null) return null;
-        return resourceId.getValue("ResolverQueryLogConfigAssociation.resourceId");
+        if (!unknown_resourceId) return value_resourceId;
+        throw new UndeferrableValueException("Value 'ResolverQueryLogConfigAssociation.resourceId' is not present");
     }
 
 }

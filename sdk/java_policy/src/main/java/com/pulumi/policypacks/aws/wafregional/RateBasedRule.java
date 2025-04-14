@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafregional;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.wafregional.outputs.RateBasedRulePredicate;
 import java.lang.Integer;
@@ -20,77 +21,84 @@ public final class RateBasedRule extends com.pulumi.resources.PolicyResourceOutp
      * The ARN of the WAF Regional Rate Based Rule.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("RateBasedRule.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'RateBasedRule.arn' is not present");
     }
 
     /**
      * The name or description for the Amazon CloudWatch metric of this rule.
      * 
      */
-    private UndeferrableValue<String> metricName;
-
+    @PolicyResourceProperty(name="metricName", flag="unknown_metricName")
+    private String value_metricName;
+    private boolean unknown_metricName;
     public String metricName() {
-        if (metricName == null) return null;
-        return metricName.getValue("RateBasedRule.metricName");
+        if (!unknown_metricName) return value_metricName;
+        throw new UndeferrableValueException("Value 'RateBasedRule.metricName' is not present");
     }
 
     /**
      * The name or description of the rule.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RateBasedRule.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RateBasedRule.name' is not present");
     }
 
     /**
      * The objects to include in a rule (documented below).
      * 
      */
-    private @Nullable UndeferrableValue<List<RateBasedRulePredicate>> predicates;
-
+    @PolicyResourceProperty(name="predicates", flag="unknown_predicates")
+    private @Nullable List<RateBasedRulePredicate> value_predicates;
+    private boolean unknown_predicates;
     public @Nullable List<RateBasedRulePredicate> predicates() {
-        if (predicates == null) return null;
-        return predicates.getValue("RateBasedRule.predicates");
+        if (!unknown_predicates) return value_predicates;
+        throw new UndeferrableValueException("Value 'RateBasedRule.predicates' is not present");
     }
 
     /**
      * Valid value is IP.
      * 
      */
-    private UndeferrableValue<String> rateKey;
-
+    @PolicyResourceProperty(name="rateKey", flag="unknown_rateKey")
+    private String value_rateKey;
+    private boolean unknown_rateKey;
     public String rateKey() {
-        if (rateKey == null) return null;
-        return rateKey.getValue("RateBasedRule.rateKey");
+        if (!unknown_rateKey) return value_rateKey;
+        throw new UndeferrableValueException("Value 'RateBasedRule.rateKey' is not present");
     }
 
     /**
      * The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
      * 
      */
-    private UndeferrableValue<Integer> rateLimit;
-
+    @PolicyResourceProperty(name="rateLimit", flag="unknown_rateLimit")
+    private Integer value_rateLimit;
+    private boolean unknown_rateLimit;
     public Integer rateLimit() {
-        if (rateLimit == null) return null;
-        return rateLimit.getValue("RateBasedRule.rateLimit");
+        if (!unknown_rateLimit) return value_rateLimit;
+        throw new UndeferrableValueException("Value 'RateBasedRule.rateLimit' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RateBasedRule.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RateBasedRule.tags' is not present");
     }
 
     /**
@@ -101,11 +109,12 @@ public final class RateBasedRule extends com.pulumi.resources.PolicyResourceOutp
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("RateBasedRule.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'RateBasedRule.tagsAll' is not present");
     }
 
 }

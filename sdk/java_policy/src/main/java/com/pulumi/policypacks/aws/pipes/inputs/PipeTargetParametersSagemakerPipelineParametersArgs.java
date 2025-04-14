@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.pipes.inputs.PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class PipeTargetParametersSagemakerPipelineParametersArgs {
      * List of Parameter names and values for SageMaker AI Model Building Pipeline execution. Detailed below.
      * 
      */
-    private UndeferrableValue<List<PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs>> pipelineParameters;
-
+    @PolicyResourceProperty(name="pipelineParameters", flag="unknown_pipelineParameters")
+    private List<PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs> value_pipelineParameters;
+    private boolean unknown_pipelineParameters;
     public List<PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs> pipelineParameters() {
-        if (pipelineParameters == null) return null;
-        return pipelineParameters.getValue("PipeTargetParametersSagemakerPipelineParametersArgs.pipelineParameters");
+        if (!unknown_pipelineParameters) return value_pipelineParameters;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersSagemakerPipelineParametersArgs.pipelineParameters' is not present");
     }
 
 }

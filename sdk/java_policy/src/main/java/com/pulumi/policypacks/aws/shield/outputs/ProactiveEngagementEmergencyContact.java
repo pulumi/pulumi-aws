@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.shield.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class ProactiveEngagementEmergencyContact {
      * Additional notes regarding the contact.
      * 
      */
-    private @Nullable UndeferrableValue<String> contactNotes;
-
+    @PolicyResourceProperty(name="contactNotes", flag="unknown_contactNotes")
+    private @Nullable String value_contactNotes;
+    private boolean unknown_contactNotes;
     public @Nullable String contactNotes() {
-        if (contactNotes == null) return null;
-        return contactNotes.getValue("ProactiveEngagementEmergencyContact.contactNotes");
+        if (!unknown_contactNotes) return value_contactNotes;
+        throw new UndeferrableValueException("Value 'ProactiveEngagementEmergencyContact.contactNotes' is not present");
     }
 
     /**
      * A valid email address that will be used for this contact.
      * 
      */
-    private UndeferrableValue<String> emailAddress;
-
+    @PolicyResourceProperty(name="emailAddress", flag="unknown_emailAddress")
+    private String value_emailAddress;
+    private boolean unknown_emailAddress;
     public String emailAddress() {
-        if (emailAddress == null) return null;
-        return emailAddress.getValue("ProactiveEngagementEmergencyContact.emailAddress");
+        if (!unknown_emailAddress) return value_emailAddress;
+        throw new UndeferrableValueException("Value 'ProactiveEngagementEmergencyContact.emailAddress' is not present");
     }
 
     /**
      * A phone number, starting with `+` and up to 15 digits that will be used for this contact.
      * 
      */
-    private @Nullable UndeferrableValue<String> phoneNumber;
-
+    @PolicyResourceProperty(name="phoneNumber", flag="unknown_phoneNumber")
+    private @Nullable String value_phoneNumber;
+    private boolean unknown_phoneNumber;
     public @Nullable String phoneNumber() {
-        if (phoneNumber == null) return null;
-        return phoneNumber.getValue("ProactiveEngagementEmergencyContact.phoneNumber");
+        if (!unknown_phoneNumber) return value_phoneNumber;
+        throw new UndeferrableValueException("Value 'ProactiveEngagementEmergencyContact.phoneNumber' is not present");
     }
 
 }

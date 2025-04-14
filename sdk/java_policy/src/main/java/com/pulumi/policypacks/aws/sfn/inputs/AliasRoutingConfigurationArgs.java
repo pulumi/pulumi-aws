@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sfn.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class AliasRoutingConfigurationArgs {
      * The Amazon Resource Name (ARN) of the state machine version.
      * 
      */
-    private UndeferrableValue<String> stateMachineVersionArn;
-
+    @PolicyResourceProperty(name="stateMachineVersionArn", flag="unknown_stateMachineVersionArn")
+    private String value_stateMachineVersionArn;
+    private boolean unknown_stateMachineVersionArn;
     public String stateMachineVersionArn() {
-        if (stateMachineVersionArn == null) return null;
-        return stateMachineVersionArn.getValue("AliasRoutingConfigurationArgs.stateMachineVersionArn");
+        if (!unknown_stateMachineVersionArn) return value_stateMachineVersionArn;
+        throw new UndeferrableValueException("Value 'AliasRoutingConfigurationArgs.stateMachineVersionArn' is not present");
     }
 
     /**
      * Percentage of traffic routed to the state machine version.
      * 
      */
-    private UndeferrableValue<Integer> weight;
-
+    @PolicyResourceProperty(name="weight", flag="unknown_weight")
+    private Integer value_weight;
+    private boolean unknown_weight;
     public Integer weight() {
-        if (weight == null) return null;
-        return weight.getValue("AliasRoutingConfigurationArgs.weight");
+        if (!unknown_weight) return value_weight;
+        throw new UndeferrableValueException("Value 'AliasRoutingConfigurationArgs.weight' is not present");
     }
 
 }

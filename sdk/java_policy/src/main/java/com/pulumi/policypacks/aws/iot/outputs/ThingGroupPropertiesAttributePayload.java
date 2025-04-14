@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ThingGroupPropertiesAttributePayload {
      * Key-value map.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> attributes;
-
+    @PolicyResourceProperty(name="attributes", flag="unknown_attributes")
+    private @Nullable Map<String,String> value_attributes;
+    private boolean unknown_attributes;
     public @Nullable Map<String,String> attributes() {
-        if (attributes == null) return null;
-        return attributes.getValue("ThingGroupPropertiesAttributePayload.attributes");
+        if (!unknown_attributes) return value_attributes;
+        throw new UndeferrableValueException("Value 'ThingGroupPropertiesAttributePayload.attributes' is not present");
     }
 
 }

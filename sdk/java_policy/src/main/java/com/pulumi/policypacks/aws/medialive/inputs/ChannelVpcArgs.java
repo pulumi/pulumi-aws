@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -11,51 +12,56 @@ import javax.annotation.Nullable;
 
 public final class ChannelVpcArgs {
 
-    private UndeferrableValue<List<String>> availabilityZones;
-
+    @PolicyResourceProperty(name="availabilityZones", flag="unknown_availabilityZones")
+    private List<String> value_availabilityZones;
+    private boolean unknown_availabilityZones;
     public List<String> availabilityZones() {
-        if (availabilityZones == null) return null;
-        return availabilityZones.getValue("ChannelVpcArgs.availabilityZones");
+        if (!unknown_availabilityZones) return value_availabilityZones;
+        throw new UndeferrableValueException("Value 'ChannelVpcArgs.availabilityZones' is not present");
     }
 
-    private UndeferrableValue<List<String>> networkInterfaceIds;
-
+    @PolicyResourceProperty(name="networkInterfaceIds", flag="unknown_networkInterfaceIds")
+    private List<String> value_networkInterfaceIds;
+    private boolean unknown_networkInterfaceIds;
     public List<String> networkInterfaceIds() {
-        if (networkInterfaceIds == null) return null;
-        return networkInterfaceIds.getValue("ChannelVpcArgs.networkInterfaceIds");
+        if (!unknown_networkInterfaceIds) return value_networkInterfaceIds;
+        throw new UndeferrableValueException("Value 'ChannelVpcArgs.networkInterfaceIds' is not present");
     }
 
     /**
      * List of public address allocation ids to associate with ENIs that will be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for STANDARD channels.
      * 
      */
-    private UndeferrableValue<List<String>> publicAddressAllocationIds;
-
+    @PolicyResourceProperty(name="publicAddressAllocationIds", flag="unknown_publicAddressAllocationIds")
+    private List<String> value_publicAddressAllocationIds;
+    private boolean unknown_publicAddressAllocationIds;
     public List<String> publicAddressAllocationIds() {
-        if (publicAddressAllocationIds == null) return null;
-        return publicAddressAllocationIds.getValue("ChannelVpcArgs.publicAddressAllocationIds");
+        if (!unknown_publicAddressAllocationIds) return value_publicAddressAllocationIds;
+        throw new UndeferrableValueException("Value 'ChannelVpcArgs.publicAddressAllocationIds' is not present");
     }
 
     /**
      * A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC network interfaces. If none are specified then the VPC default security group will be used.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("ChannelVpcArgs.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'ChannelVpcArgs.securityGroupIds' is not present");
     }
 
     /**
      * A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet IDs must be mapped to two unique availability zones (AZ).
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("ChannelVpcArgs.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'ChannelVpcArgs.subnetIds' is not present");
     }
 
 }

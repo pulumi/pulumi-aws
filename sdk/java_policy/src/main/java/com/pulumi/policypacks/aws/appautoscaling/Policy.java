@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appautoscaling;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appautoscaling.outputs.PolicyStepScalingPolicyConfiguration;
 import com.pulumi.policypacks.aws.appautoscaling.outputs.PolicyTargetTrackingScalingPolicyConfiguration;
@@ -19,99 +20,108 @@ public final class Policy extends com.pulumi.resources.PolicyResourceOutput {
      * List of CloudWatch alarm ARNs associated with the scaling policy.
      * 
      */
-    private UndeferrableValue<List<String>> alarmArns;
-
+    @PolicyResourceProperty(name="alarmArns", flag="unknown_alarmArns")
+    private List<String> value_alarmArns;
+    private boolean unknown_alarmArns;
     public List<String> alarmArns() {
-        if (alarmArns == null) return null;
-        return alarmArns.getValue("Policy.alarmArns");
+        if (!unknown_alarmArns) return value_alarmArns;
+        throw new UndeferrableValueException("Value 'Policy.alarmArns' is not present");
     }
 
     /**
      * ARN assigned by AWS to the scaling policy.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Policy.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Policy.arn' is not present");
     }
 
     /**
      * Name of the policy. Must be between 1 and 255 characters in length.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Policy.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Policy.name' is not present");
     }
 
     /**
      * Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
      * 
      */
-    private @Nullable UndeferrableValue<String> policyType;
-
+    @PolicyResourceProperty(name="policyType", flag="unknown_policyType")
+    private @Nullable String value_policyType;
+    private boolean unknown_policyType;
     public @Nullable String policyType() {
-        if (policyType == null) return null;
-        return policyType.getValue("Policy.policyType");
+        if (!unknown_policyType) return value_policyType;
+        throw new UndeferrableValueException("Value 'Policy.policyType' is not present");
     }
 
     /**
      * Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
      * 
      */
-    private UndeferrableValue<String> resourceId;
-
+    @PolicyResourceProperty(name="resourceId", flag="unknown_resourceId")
+    private String value_resourceId;
+    private boolean unknown_resourceId;
     public String resourceId() {
-        if (resourceId == null) return null;
-        return resourceId.getValue("Policy.resourceId");
+        if (!unknown_resourceId) return value_resourceId;
+        throw new UndeferrableValueException("Value 'Policy.resourceId' is not present");
     }
 
     /**
      * Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
      * 
      */
-    private UndeferrableValue<String> scalableDimension;
-
+    @PolicyResourceProperty(name="scalableDimension", flag="unknown_scalableDimension")
+    private String value_scalableDimension;
+    private boolean unknown_scalableDimension;
     public String scalableDimension() {
-        if (scalableDimension == null) return null;
-        return scalableDimension.getValue("Policy.scalableDimension");
+        if (!unknown_scalableDimension) return value_scalableDimension;
+        throw new UndeferrableValueException("Value 'Policy.scalableDimension' is not present");
     }
 
     /**
      * AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
      * 
      */
-    private UndeferrableValue<String> serviceNamespace;
-
+    @PolicyResourceProperty(name="serviceNamespace", flag="unknown_serviceNamespace")
+    private String value_serviceNamespace;
+    private boolean unknown_serviceNamespace;
     public String serviceNamespace() {
-        if (serviceNamespace == null) return null;
-        return serviceNamespace.getValue("Policy.serviceNamespace");
+        if (!unknown_serviceNamespace) return value_serviceNamespace;
+        throw new UndeferrableValueException("Value 'Policy.serviceNamespace' is not present");
     }
 
     /**
      * Step scaling policy configuration, requires `policy_type = &#34;StepScaling&#34;` (default). See supported fields below.
      * 
      */
-    private @Nullable UndeferrableValue<PolicyStepScalingPolicyConfiguration> stepScalingPolicyConfiguration;
-
+    @PolicyResourceProperty(name="stepScalingPolicyConfiguration", flag="unknown_stepScalingPolicyConfiguration")
+    private @Nullable PolicyStepScalingPolicyConfiguration value_stepScalingPolicyConfiguration;
+    private boolean unknown_stepScalingPolicyConfiguration;
     public @Nullable PolicyStepScalingPolicyConfiguration stepScalingPolicyConfiguration() {
-        if (stepScalingPolicyConfiguration == null) return null;
-        return stepScalingPolicyConfiguration.getValue("Policy.stepScalingPolicyConfiguration");
+        if (!unknown_stepScalingPolicyConfiguration) return value_stepScalingPolicyConfiguration;
+        throw new UndeferrableValueException("Value 'Policy.stepScalingPolicyConfiguration' is not present");
     }
 
     /**
      * Target tracking policy, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
      * 
      */
-    private @Nullable UndeferrableValue<PolicyTargetTrackingScalingPolicyConfiguration> targetTrackingScalingPolicyConfiguration;
-
+    @PolicyResourceProperty(name="targetTrackingScalingPolicyConfiguration", flag="unknown_targetTrackingScalingPolicyConfiguration")
+    private @Nullable PolicyTargetTrackingScalingPolicyConfiguration value_targetTrackingScalingPolicyConfiguration;
+    private boolean unknown_targetTrackingScalingPolicyConfiguration;
     public @Nullable PolicyTargetTrackingScalingPolicyConfiguration targetTrackingScalingPolicyConfiguration() {
-        if (targetTrackingScalingPolicyConfiguration == null) return null;
-        return targetTrackingScalingPolicyConfiguration.getValue("Policy.targetTrackingScalingPolicyConfiguration");
+        if (!unknown_targetTrackingScalingPolicyConfiguration) return value_targetTrackingScalingPolicyConfiguration;
+        throw new UndeferrableValueException("Value 'Policy.targetTrackingScalingPolicyConfiguration' is not present");
     }
 
 }

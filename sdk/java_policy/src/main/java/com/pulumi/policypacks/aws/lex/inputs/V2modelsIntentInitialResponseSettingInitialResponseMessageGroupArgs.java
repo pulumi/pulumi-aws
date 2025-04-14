@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationArgs;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class V2modelsIntentInitialResponseSettingInitialResponseMessageGro
      * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageArgs> message;
-
+    @PolicyResourceProperty(name="message", flag="unknown_message")
+    private V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageArgs value_message;
+    private boolean unknown_message;
     public V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageArgs message() {
-        if (message == null) return null;
-        return message.getValue("V2modelsIntentInitialResponseSettingInitialResponseMessageGroupArgs.message");
+        if (!unknown_message) return value_message;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingInitialResponseMessageGroupArgs.message' is not present");
     }
 
     /**
      * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
      * 
      */
-    private UndeferrableValue<List<V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationArgs>> variations;
-
+    @PolicyResourceProperty(name="variations", flag="unknown_variations")
+    private List<V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationArgs> value_variations;
+    private boolean unknown_variations;
     public List<V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationArgs> variations() {
-        if (variations == null) return null;
-        return variations.getValue("V2modelsIntentInitialResponseSettingInitialResponseMessageGroupArgs.variations");
+        if (!unknown_variations) return value_variations;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingInitialResponseMessageGroupArgs.variations' is not present");
     }
 
 }

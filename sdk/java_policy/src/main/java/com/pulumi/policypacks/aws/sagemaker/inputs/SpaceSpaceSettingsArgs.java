@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.SpaceSpaceSettingsCodeEditorAppSettingsArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.SpaceSpaceSettingsCustomFileSystemArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.SpaceSpaceSettingsJupyterLabAppSettingsArgs;
@@ -21,77 +22,84 @@ public final class SpaceSpaceSettingsArgs {
      * The type of app created within the space.
      * 
      */
-    private UndeferrableValue<String> appType;
-
+    @PolicyResourceProperty(name="appType", flag="unknown_appType")
+    private String value_appType;
+    private boolean unknown_appType;
     public String appType() {
-        if (appType == null) return null;
-        return appType.getValue("SpaceSpaceSettingsArgs.appType");
+        if (!unknown_appType) return value_appType;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSettingsArgs.appType' is not present");
     }
 
     /**
      * The Code Editor application settings. See `code_editor_app_settings` Block below.
      * 
      */
-    private UndeferrableValue<SpaceSpaceSettingsCodeEditorAppSettingsArgs> codeEditorAppSettings;
-
+    @PolicyResourceProperty(name="codeEditorAppSettings", flag="unknown_codeEditorAppSettings")
+    private SpaceSpaceSettingsCodeEditorAppSettingsArgs value_codeEditorAppSettings;
+    private boolean unknown_codeEditorAppSettings;
     public SpaceSpaceSettingsCodeEditorAppSettingsArgs codeEditorAppSettings() {
-        if (codeEditorAppSettings == null) return null;
-        return codeEditorAppSettings.getValue("SpaceSpaceSettingsArgs.codeEditorAppSettings");
+        if (!unknown_codeEditorAppSettings) return value_codeEditorAppSettings;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSettingsArgs.codeEditorAppSettings' is not present");
     }
 
     /**
      * A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. See `custom_file_system` Block below.
      * 
      */
-    private UndeferrableValue<List<SpaceSpaceSettingsCustomFileSystemArgs>> customFileSystems;
-
+    @PolicyResourceProperty(name="customFileSystems", flag="unknown_customFileSystems")
+    private List<SpaceSpaceSettingsCustomFileSystemArgs> value_customFileSystems;
+    private boolean unknown_customFileSystems;
     public List<SpaceSpaceSettingsCustomFileSystemArgs> customFileSystems() {
-        if (customFileSystems == null) return null;
-        return customFileSystems.getValue("SpaceSpaceSettingsArgs.customFileSystems");
+        if (!unknown_customFileSystems) return value_customFileSystems;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSettingsArgs.customFileSystems' is not present");
     }
 
     /**
      * The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
      * 
      */
-    private UndeferrableValue<SpaceSpaceSettingsJupyterLabAppSettingsArgs> jupyterLabAppSettings;
-
+    @PolicyResourceProperty(name="jupyterLabAppSettings", flag="unknown_jupyterLabAppSettings")
+    private SpaceSpaceSettingsJupyterLabAppSettingsArgs value_jupyterLabAppSettings;
+    private boolean unknown_jupyterLabAppSettings;
     public SpaceSpaceSettingsJupyterLabAppSettingsArgs jupyterLabAppSettings() {
-        if (jupyterLabAppSettings == null) return null;
-        return jupyterLabAppSettings.getValue("SpaceSpaceSettingsArgs.jupyterLabAppSettings");
+        if (!unknown_jupyterLabAppSettings) return value_jupyterLabAppSettings;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSettingsArgs.jupyterLabAppSettings' is not present");
     }
 
     /**
      * The Jupyter server&#39;s app settings. See `jupyter_server_app_settings` Block below.
      * 
      */
-    private UndeferrableValue<SpaceSpaceSettingsJupyterServerAppSettingsArgs> jupyterServerAppSettings;
-
+    @PolicyResourceProperty(name="jupyterServerAppSettings", flag="unknown_jupyterServerAppSettings")
+    private SpaceSpaceSettingsJupyterServerAppSettingsArgs value_jupyterServerAppSettings;
+    private boolean unknown_jupyterServerAppSettings;
     public SpaceSpaceSettingsJupyterServerAppSettingsArgs jupyterServerAppSettings() {
-        if (jupyterServerAppSettings == null) return null;
-        return jupyterServerAppSettings.getValue("SpaceSpaceSettingsArgs.jupyterServerAppSettings");
+        if (!unknown_jupyterServerAppSettings) return value_jupyterServerAppSettings;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSettingsArgs.jupyterServerAppSettings' is not present");
     }
 
     /**
      * The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
      * 
      */
-    private UndeferrableValue<SpaceSpaceSettingsKernelGatewayAppSettingsArgs> kernelGatewayAppSettings;
-
+    @PolicyResourceProperty(name="kernelGatewayAppSettings", flag="unknown_kernelGatewayAppSettings")
+    private SpaceSpaceSettingsKernelGatewayAppSettingsArgs value_kernelGatewayAppSettings;
+    private boolean unknown_kernelGatewayAppSettings;
     public SpaceSpaceSettingsKernelGatewayAppSettingsArgs kernelGatewayAppSettings() {
-        if (kernelGatewayAppSettings == null) return null;
-        return kernelGatewayAppSettings.getValue("SpaceSpaceSettingsArgs.kernelGatewayAppSettings");
+        if (!unknown_kernelGatewayAppSettings) return value_kernelGatewayAppSettings;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSettingsArgs.kernelGatewayAppSettings' is not present");
     }
 
     /**
      * The storage settings. See `space_storage_settings` Block below.
      * 
      */
-    private UndeferrableValue<SpaceSpaceSettingsSpaceStorageSettingsArgs> spaceStorageSettings;
-
+    @PolicyResourceProperty(name="spaceStorageSettings", flag="unknown_spaceStorageSettings")
+    private SpaceSpaceSettingsSpaceStorageSettingsArgs value_spaceStorageSettings;
+    private boolean unknown_spaceStorageSettings;
     public SpaceSpaceSettingsSpaceStorageSettingsArgs spaceStorageSettings() {
-        if (spaceStorageSettings == null) return null;
-        return spaceStorageSettings.getValue("SpaceSpaceSettingsArgs.spaceStorageSettings");
+        if (!unknown_spaceStorageSettings) return value_spaceStorageSettings;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSettingsArgs.spaceStorageSettings' is not present");
     }
 
 }

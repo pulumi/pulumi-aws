@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,33 +14,36 @@ public final class DataSourceParametersSnowflakeArgs {
      * The database to which to connect.
      * 
      */
-    private UndeferrableValue<String> database;
-
+    @PolicyResourceProperty(name="database", flag="unknown_database")
+    private String value_database;
+    private boolean unknown_database;
     public String database() {
-        if (database == null) return null;
-        return database.getValue("DataSourceParametersSnowflakeArgs.database");
+        if (!unknown_database) return value_database;
+        throw new UndeferrableValueException("Value 'DataSourceParametersSnowflakeArgs.database' is not present");
     }
 
     /**
      * The host to which to connect.
      * 
      */
-    private UndeferrableValue<String> host;
-
+    @PolicyResourceProperty(name="host", flag="unknown_host")
+    private String value_host;
+    private boolean unknown_host;
     public String host() {
-        if (host == null) return null;
-        return host.getValue("DataSourceParametersSnowflakeArgs.host");
+        if (!unknown_host) return value_host;
+        throw new UndeferrableValueException("Value 'DataSourceParametersSnowflakeArgs.host' is not present");
     }
 
     /**
      * The warehouse to which to connect.
      * 
      */
-    private UndeferrableValue<String> warehouse;
-
+    @PolicyResourceProperty(name="warehouse", flag="unknown_warehouse")
+    private String value_warehouse;
+    private boolean unknown_warehouse;
     public String warehouse() {
-        if (warehouse == null) return null;
-        return warehouse.getValue("DataSourceParametersSnowflakeArgs.warehouse");
+        if (!unknown_warehouse) return value_warehouse;
+        throw new UndeferrableValueException("Value 'DataSourceParametersSnowflakeArgs.warehouse' is not present");
     }
 
 }

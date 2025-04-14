@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsPar
      * The inputs for the STEP_FUNCTION task.
      * 
      */
-    private UndeferrableValue<String> input;
-
+    @PolicyResourceProperty(name="input", flag="unknown_input")
+    private String value_input;
+    private boolean unknown_input;
     public String input() {
-        if (input == null) return null;
-        return input.getValue("MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs.input");
+        if (!unknown_input) return value_input;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs.input' is not present");
     }
 
     /**
      * The name of the STEP_FUNCTION task.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs.name' is not present");
     }
 
 }

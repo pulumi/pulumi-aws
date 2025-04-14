@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.auditmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class FrameworkShare extends com.pulumi.resources.PolicyResourceOut
      * Comment from the sender about the share request.
      * 
      */
-    private @Nullable UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private @Nullable String value_comment;
+    private boolean unknown_comment;
     public @Nullable String comment() {
-        if (comment == null) return null;
-        return comment.getValue("FrameworkShare.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'FrameworkShare.comment' is not present");
     }
 
     /**
      * Amazon Web Services account of the recipient.
      * 
      */
-    private UndeferrableValue<String> destinationAccount;
-
+    @PolicyResourceProperty(name="destinationAccount", flag="unknown_destinationAccount")
+    private String value_destinationAccount;
+    private boolean unknown_destinationAccount;
     public String destinationAccount() {
-        if (destinationAccount == null) return null;
-        return destinationAccount.getValue("FrameworkShare.destinationAccount");
+        if (!unknown_destinationAccount) return value_destinationAccount;
+        throw new UndeferrableValueException("Value 'FrameworkShare.destinationAccount' is not present");
     }
 
     /**
      * Amazon Web Services region of the recipient.
      * 
      */
-    private UndeferrableValue<String> destinationRegion;
-
+    @PolicyResourceProperty(name="destinationRegion", flag="unknown_destinationRegion")
+    private String value_destinationRegion;
+    private boolean unknown_destinationRegion;
     public String destinationRegion() {
-        if (destinationRegion == null) return null;
-        return destinationRegion.getValue("FrameworkShare.destinationRegion");
+        if (!unknown_destinationRegion) return value_destinationRegion;
+        throw new UndeferrableValueException("Value 'FrameworkShare.destinationRegion' is not present");
     }
 
     /**
@@ -51,22 +55,24 @@ public final class FrameworkShare extends com.pulumi.resources.PolicyResourceOut
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> frameworkId;
-
+    @PolicyResourceProperty(name="frameworkId", flag="unknown_frameworkId")
+    private String value_frameworkId;
+    private boolean unknown_frameworkId;
     public String frameworkId() {
-        if (frameworkId == null) return null;
-        return frameworkId.getValue("FrameworkShare.frameworkId");
+        if (!unknown_frameworkId) return value_frameworkId;
+        throw new UndeferrableValueException("Value 'FrameworkShare.frameworkId' is not present");
     }
 
     /**
      * Status of the share request.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("FrameworkShare.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'FrameworkShare.status' is not present");
     }
 
 }

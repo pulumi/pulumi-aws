@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -13,11 +14,12 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:s3control/accessGrantsLocation:AccessGrantsLocation")
 public final class AccessGrantsLocationArgs extends com.pulumi.resources.PolicyResourceInput {
 
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("AccessGrantsLocationArgs.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'AccessGrantsLocationArgs.accountId' is not present");
     }
 
     /**
@@ -25,33 +27,36 @@ public final class AccessGrantsLocationArgs extends com.pulumi.resources.PolicyR
      * requests to the location.
      * 
      */
-    private UndeferrableValue<String> iamRoleArn;
-
+    @PolicyResourceProperty(name="iamRoleArn", flag="unknown_iamRoleArn")
+    private String value_iamRoleArn;
+    private boolean unknown_iamRoleArn;
     public String iamRoleArn() {
-        if (iamRoleArn == null) return null;
-        return iamRoleArn.getValue("AccessGrantsLocationArgs.iamRoleArn");
+        if (!unknown_iamRoleArn) return value_iamRoleArn;
+        throw new UndeferrableValueException("Value 'AccessGrantsLocationArgs.iamRoleArn' is not present");
     }
 
     /**
      * The default S3 URI `s3://` or the URI to a custom location, a specific bucket or prefix.
      * 
      */
-    private UndeferrableValue<String> locationScope;
-
+    @PolicyResourceProperty(name="locationScope", flag="unknown_locationScope")
+    private String value_locationScope;
+    private boolean unknown_locationScope;
     public String locationScope() {
-        if (locationScope == null) return null;
-        return locationScope.getValue("AccessGrantsLocationArgs.locationScope");
+        if (!unknown_locationScope) return value_locationScope;
+        throw new UndeferrableValueException("Value 'AccessGrantsLocationArgs.locationScope' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AccessGrantsLocationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AccessGrantsLocationArgs.tags' is not present");
     }
 
 }

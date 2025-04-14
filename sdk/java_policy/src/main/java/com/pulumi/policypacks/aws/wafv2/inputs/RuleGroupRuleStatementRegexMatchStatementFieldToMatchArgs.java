@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchAllQueryArgumentsArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchBodyArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesArgs;
@@ -27,143 +28,156 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs {
      * Inspect all query arguments.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRegexMatchStatementFieldToMatchAllQueryArgumentsArgs> allQueryArguments;
-
+    @PolicyResourceProperty(name="allQueryArguments", flag="unknown_allQueryArguments")
+    private RuleGroupRuleStatementRegexMatchStatementFieldToMatchAllQueryArgumentsArgs value_allQueryArguments;
+    private boolean unknown_allQueryArguments;
     public RuleGroupRuleStatementRegexMatchStatementFieldToMatchAllQueryArgumentsArgs allQueryArguments() {
-        if (allQueryArguments == null) return null;
-        return allQueryArguments.getValue("RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.allQueryArguments");
+        if (!unknown_allQueryArguments) return value_allQueryArguments;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.allQueryArguments' is not present");
     }
 
     /**
      * Inspect the request body, which immediately follows the request headers.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRegexMatchStatementFieldToMatchBodyArgs> body;
-
+    @PolicyResourceProperty(name="body", flag="unknown_body")
+    private RuleGroupRuleStatementRegexMatchStatementFieldToMatchBodyArgs value_body;
+    private boolean unknown_body;
     public RuleGroupRuleStatementRegexMatchStatementFieldToMatchBodyArgs body() {
-        if (body == null) return null;
-        return body.getValue("RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.body");
+        if (!unknown_body) return value_body;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.body' is not present");
     }
 
     /**
      * Inspect the cookies in the web request. See Cookies below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesArgs> cookies;
-
+    @PolicyResourceProperty(name="cookies", flag="unknown_cookies")
+    private RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesArgs value_cookies;
+    private boolean unknown_cookies;
     public RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesArgs cookies() {
-        if (cookies == null) return null;
-        return cookies.getValue("RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.cookies");
+        if (!unknown_cookies) return value_cookies;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.cookies' is not present");
     }
 
     /**
      * Inspect the request headers. See Header Order below for details.
      * 
      */
-    private UndeferrableValue<List<RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOrderArgs>> headerOrders;
-
+    @PolicyResourceProperty(name="headerOrders", flag="unknown_headerOrders")
+    private List<RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOrderArgs> value_headerOrders;
+    private boolean unknown_headerOrders;
     public List<RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderOrderArgs> headerOrders() {
-        if (headerOrders == null) return null;
-        return headerOrders.getValue("RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.headerOrders");
+        if (!unknown_headerOrders) return value_headerOrders;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.headerOrders' is not present");
     }
 
     /**
      * Inspect the request headers. See Headers below for details.
      * 
      */
-    private UndeferrableValue<List<RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderArgs>> headers;
-
+    @PolicyResourceProperty(name="headers", flag="unknown_headers")
+    private List<RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderArgs> value_headers;
+    private boolean unknown_headers;
     public List<RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderArgs> headers() {
-        if (headers == null) return null;
-        return headers.getValue("RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.headers");
+        if (!unknown_headers) return value_headers;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.headers' is not present");
     }
 
     /**
      * Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs> ja3Fingerprint;
-
+    @PolicyResourceProperty(name="ja3Fingerprint", flag="unknown_ja3Fingerprint")
+    private RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs value_ja3Fingerprint;
+    private boolean unknown_ja3Fingerprint;
     public RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs ja3Fingerprint() {
-        if (ja3Fingerprint == null) return null;
-        return ja3Fingerprint.getValue("RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.ja3Fingerprint");
+        if (!unknown_ja3Fingerprint) return value_ja3Fingerprint;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.ja3Fingerprint' is not present");
     }
 
     /**
      * Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4FingerprintArgs> ja4Fingerprint;
-
+    @PolicyResourceProperty(name="ja4Fingerprint", flag="unknown_ja4Fingerprint")
+    private RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4FingerprintArgs value_ja4Fingerprint;
+    private boolean unknown_ja4Fingerprint;
     public RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4FingerprintArgs ja4Fingerprint() {
-        if (ja4Fingerprint == null) return null;
-        return ja4Fingerprint.getValue("RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.ja4Fingerprint");
+        if (!unknown_ja4Fingerprint) return value_ja4Fingerprint;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.ja4Fingerprint' is not present");
     }
 
     /**
      * Inspect the request body as JSON. See JSON Body for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyArgs> jsonBody;
-
+    @PolicyResourceProperty(name="jsonBody", flag="unknown_jsonBody")
+    private RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyArgs value_jsonBody;
+    private boolean unknown_jsonBody;
     public RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyArgs jsonBody() {
-        if (jsonBody == null) return null;
-        return jsonBody.getValue("RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.jsonBody");
+        if (!unknown_jsonBody) return value_jsonBody;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.jsonBody' is not present");
     }
 
     /**
      * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRegexMatchStatementFieldToMatchMethodArgs> method;
-
+    @PolicyResourceProperty(name="method", flag="unknown_method")
+    private RuleGroupRuleStatementRegexMatchStatementFieldToMatchMethodArgs value_method;
+    private boolean unknown_method;
     public RuleGroupRuleStatementRegexMatchStatementFieldToMatchMethodArgs method() {
-        if (method == null) return null;
-        return method.getValue("RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.method");
+        if (!unknown_method) return value_method;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.method' is not present");
     }
 
     /**
      * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryStringArgs> queryString;
-
+    @PolicyResourceProperty(name="queryString", flag="unknown_queryString")
+    private RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryStringArgs value_queryString;
+    private boolean unknown_queryString;
     public RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryStringArgs queryString() {
-        if (queryString == null) return null;
-        return queryString.getValue("RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.queryString");
+        if (!unknown_queryString) return value_queryString;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.queryString' is not present");
     }
 
     /**
      * Inspect a single header. See Single Header below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderArgs> singleHeader;
-
+    @PolicyResourceProperty(name="singleHeader", flag="unknown_singleHeader")
+    private RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderArgs value_singleHeader;
+    private boolean unknown_singleHeader;
     public RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderArgs singleHeader() {
-        if (singleHeader == null) return null;
-        return singleHeader.getValue("RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.singleHeader");
+        if (!unknown_singleHeader) return value_singleHeader;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.singleHeader' is not present");
     }
 
     /**
      * Inspect a single query argument. See Single Query Argument below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs> singleQueryArgument;
-
+    @PolicyResourceProperty(name="singleQueryArgument", flag="unknown_singleQueryArgument")
+    private RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs value_singleQueryArgument;
+    private boolean unknown_singleQueryArgument;
     public RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs singleQueryArgument() {
-        if (singleQueryArgument == null) return null;
-        return singleQueryArgument.getValue("RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.singleQueryArgument");
+        if (!unknown_singleQueryArgument) return value_singleQueryArgument;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.singleQueryArgument' is not present");
     }
 
     /**
      * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPathArgs> uriPath;
-
+    @PolicyResourceProperty(name="uriPath", flag="unknown_uriPath")
+    private RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPathArgs value_uriPath;
+    private boolean unknown_uriPath;
     public RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPathArgs uriPath() {
-        if (uriPath == null) return null;
-        return uriPath.getValue("RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.uriPath");
+        if (!unknown_uriPath) return value_uriPath;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs.uriPath' is not present");
     }
 
 }

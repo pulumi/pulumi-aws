@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafregional.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -15,11 +16,12 @@ public final class RegexMatchSetRegexMatchTupleFieldToMatchArgs {
      * If `type` is any other value, omit this field.
      * 
      */
-    private UndeferrableValue<String> data;
-
+    @PolicyResourceProperty(name="data", flag="unknown_data")
+    private String value_data;
+    private boolean unknown_data;
     public String data() {
-        if (data == null) return null;
-        return data.getValue("RegexMatchSetRegexMatchTupleFieldToMatchArgs.data");
+        if (!unknown_data) return value_data;
+        throw new UndeferrableValueException("Value 'RegexMatchSetRegexMatchTupleFieldToMatchArgs.data' is not present");
     }
 
     /**
@@ -29,11 +31,12 @@ public final class RegexMatchSetRegexMatchTupleFieldToMatchArgs {
      * for all supported values.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("RegexMatchSetRegexMatchTupleFieldToMatchArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'RegexMatchSetRegexMatchTupleFieldToMatchArgs.type' is not present");
     }
 
 }

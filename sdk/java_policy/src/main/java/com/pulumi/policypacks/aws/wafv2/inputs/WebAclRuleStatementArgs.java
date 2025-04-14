@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementAndStatementArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementByteMatchStatementArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementGeoMatchStatementArgs;
@@ -28,165 +29,180 @@ public final class WebAclRuleStatementArgs {
      * Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementAndStatementArgs> andStatement;
-
+    @PolicyResourceProperty(name="andStatement", flag="unknown_andStatement")
+    private WebAclRuleStatementAndStatementArgs value_andStatement;
+    private boolean unknown_andStatement;
     public WebAclRuleStatementAndStatementArgs andStatement() {
-        if (andStatement == null) return null;
-        return andStatement.getValue("WebAclRuleStatementArgs.andStatement");
+        if (!unknown_andStatement) return value_andStatement;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementArgs.andStatement' is not present");
     }
 
     /**
      * Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementByteMatchStatementArgs> byteMatchStatement;
-
+    @PolicyResourceProperty(name="byteMatchStatement", flag="unknown_byteMatchStatement")
+    private WebAclRuleStatementByteMatchStatementArgs value_byteMatchStatement;
+    private boolean unknown_byteMatchStatement;
     public WebAclRuleStatementByteMatchStatementArgs byteMatchStatement() {
-        if (byteMatchStatement == null) return null;
-        return byteMatchStatement.getValue("WebAclRuleStatementArgs.byteMatchStatement");
+        if (!unknown_byteMatchStatement) return value_byteMatchStatement;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementArgs.byteMatchStatement' is not present");
     }
 
     /**
      * Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementGeoMatchStatementArgs> geoMatchStatement;
-
+    @PolicyResourceProperty(name="geoMatchStatement", flag="unknown_geoMatchStatement")
+    private WebAclRuleStatementGeoMatchStatementArgs value_geoMatchStatement;
+    private boolean unknown_geoMatchStatement;
     public WebAclRuleStatementGeoMatchStatementArgs geoMatchStatement() {
-        if (geoMatchStatement == null) return null;
-        return geoMatchStatement.getValue("WebAclRuleStatementArgs.geoMatchStatement");
+        if (!unknown_geoMatchStatement) return value_geoMatchStatement;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementArgs.geoMatchStatement' is not present");
     }
 
     /**
      * Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementIpSetReferenceStatementArgs> ipSetReferenceStatement;
-
+    @PolicyResourceProperty(name="ipSetReferenceStatement", flag="unknown_ipSetReferenceStatement")
+    private WebAclRuleStatementIpSetReferenceStatementArgs value_ipSetReferenceStatement;
+    private boolean unknown_ipSetReferenceStatement;
     public WebAclRuleStatementIpSetReferenceStatementArgs ipSetReferenceStatement() {
-        if (ipSetReferenceStatement == null) return null;
-        return ipSetReferenceStatement.getValue("WebAclRuleStatementArgs.ipSetReferenceStatement");
+        if (!unknown_ipSetReferenceStatement) return value_ipSetReferenceStatement;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementArgs.ipSetReferenceStatement' is not present");
     }
 
     /**
      * Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementLabelMatchStatementArgs> labelMatchStatement;
-
+    @PolicyResourceProperty(name="labelMatchStatement", flag="unknown_labelMatchStatement")
+    private WebAclRuleStatementLabelMatchStatementArgs value_labelMatchStatement;
+    private boolean unknown_labelMatchStatement;
     public WebAclRuleStatementLabelMatchStatementArgs labelMatchStatement() {
-        if (labelMatchStatement == null) return null;
-        return labelMatchStatement.getValue("WebAclRuleStatementArgs.labelMatchStatement");
+        if (!unknown_labelMatchStatement) return value_labelMatchStatement;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementArgs.labelMatchStatement' is not present");
     }
 
     /**
      * Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See `managed_rule_group_statement` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementArgs> managedRuleGroupStatement;
-
+    @PolicyResourceProperty(name="managedRuleGroupStatement", flag="unknown_managedRuleGroupStatement")
+    private WebAclRuleStatementManagedRuleGroupStatementArgs value_managedRuleGroupStatement;
+    private boolean unknown_managedRuleGroupStatement;
     public WebAclRuleStatementManagedRuleGroupStatementArgs managedRuleGroupStatement() {
-        if (managedRuleGroupStatement == null) return null;
-        return managedRuleGroupStatement.getValue("WebAclRuleStatementArgs.managedRuleGroupStatement");
+        if (!unknown_managedRuleGroupStatement) return value_managedRuleGroupStatement;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementArgs.managedRuleGroupStatement' is not present");
     }
 
     /**
      * Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementNotStatementArgs> notStatement;
-
+    @PolicyResourceProperty(name="notStatement", flag="unknown_notStatement")
+    private WebAclRuleStatementNotStatementArgs value_notStatement;
+    private boolean unknown_notStatement;
     public WebAclRuleStatementNotStatementArgs notStatement() {
-        if (notStatement == null) return null;
-        return notStatement.getValue("WebAclRuleStatementArgs.notStatement");
+        if (!unknown_notStatement) return value_notStatement;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementArgs.notStatement' is not present");
     }
 
     /**
      * Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementOrStatementArgs> orStatement;
-
+    @PolicyResourceProperty(name="orStatement", flag="unknown_orStatement")
+    private WebAclRuleStatementOrStatementArgs value_orStatement;
+    private boolean unknown_orStatement;
     public WebAclRuleStatementOrStatementArgs orStatement() {
-        if (orStatement == null) return null;
-        return orStatement.getValue("WebAclRuleStatementArgs.orStatement");
+        if (!unknown_orStatement) return value_orStatement;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementArgs.orStatement' is not present");
     }
 
     /**
      * Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See `rate_based_statement` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementRateBasedStatementArgs> rateBasedStatement;
-
+    @PolicyResourceProperty(name="rateBasedStatement", flag="unknown_rateBasedStatement")
+    private WebAclRuleStatementRateBasedStatementArgs value_rateBasedStatement;
+    private boolean unknown_rateBasedStatement;
     public WebAclRuleStatementRateBasedStatementArgs rateBasedStatement() {
-        if (rateBasedStatement == null) return null;
-        return rateBasedStatement.getValue("WebAclRuleStatementArgs.rateBasedStatement");
+        if (!unknown_rateBasedStatement) return value_rateBasedStatement;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementArgs.rateBasedStatement' is not present");
     }
 
     /**
      * Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementRegexMatchStatementArgs> regexMatchStatement;
-
+    @PolicyResourceProperty(name="regexMatchStatement", flag="unknown_regexMatchStatement")
+    private WebAclRuleStatementRegexMatchStatementArgs value_regexMatchStatement;
+    private boolean unknown_regexMatchStatement;
     public WebAclRuleStatementRegexMatchStatementArgs regexMatchStatement() {
-        if (regexMatchStatement == null) return null;
-        return regexMatchStatement.getValue("WebAclRuleStatementArgs.regexMatchStatement");
+        if (!unknown_regexMatchStatement) return value_regexMatchStatement;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementArgs.regexMatchStatement' is not present");
     }
 
     /**
      * Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementRegexPatternSetReferenceStatementArgs> regexPatternSetReferenceStatement;
-
+    @PolicyResourceProperty(name="regexPatternSetReferenceStatement", flag="unknown_regexPatternSetReferenceStatement")
+    private WebAclRuleStatementRegexPatternSetReferenceStatementArgs value_regexPatternSetReferenceStatement;
+    private boolean unknown_regexPatternSetReferenceStatement;
     public WebAclRuleStatementRegexPatternSetReferenceStatementArgs regexPatternSetReferenceStatement() {
-        if (regexPatternSetReferenceStatement == null) return null;
-        return regexPatternSetReferenceStatement.getValue("WebAclRuleStatementArgs.regexPatternSetReferenceStatement");
+        if (!unknown_regexPatternSetReferenceStatement) return value_regexPatternSetReferenceStatement;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementArgs.regexPatternSetReferenceStatement' is not present");
     }
 
     /**
      * Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See `rule_group_reference_statement` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementRuleGroupReferenceStatementArgs> ruleGroupReferenceStatement;
-
+    @PolicyResourceProperty(name="ruleGroupReferenceStatement", flag="unknown_ruleGroupReferenceStatement")
+    private WebAclRuleStatementRuleGroupReferenceStatementArgs value_ruleGroupReferenceStatement;
+    private boolean unknown_ruleGroupReferenceStatement;
     public WebAclRuleStatementRuleGroupReferenceStatementArgs ruleGroupReferenceStatement() {
-        if (ruleGroupReferenceStatement == null) return null;
-        return ruleGroupReferenceStatement.getValue("WebAclRuleStatementArgs.ruleGroupReferenceStatement");
+        if (!unknown_ruleGroupReferenceStatement) return value_ruleGroupReferenceStatement;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementArgs.ruleGroupReferenceStatement' is not present");
     }
 
     /**
      * Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See `size_constraint_statement` below for more details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementSizeConstraintStatementArgs> sizeConstraintStatement;
-
+    @PolicyResourceProperty(name="sizeConstraintStatement", flag="unknown_sizeConstraintStatement")
+    private WebAclRuleStatementSizeConstraintStatementArgs value_sizeConstraintStatement;
+    private boolean unknown_sizeConstraintStatement;
     public WebAclRuleStatementSizeConstraintStatementArgs sizeConstraintStatement() {
-        if (sizeConstraintStatement == null) return null;
-        return sizeConstraintStatement.getValue("WebAclRuleStatementArgs.sizeConstraintStatement");
+        if (!unknown_sizeConstraintStatement) return value_sizeConstraintStatement;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementArgs.sizeConstraintStatement' is not present");
     }
 
     /**
      * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementSqliMatchStatementArgs> sqliMatchStatement;
-
+    @PolicyResourceProperty(name="sqliMatchStatement", flag="unknown_sqliMatchStatement")
+    private WebAclRuleStatementSqliMatchStatementArgs value_sqliMatchStatement;
+    private boolean unknown_sqliMatchStatement;
     public WebAclRuleStatementSqliMatchStatementArgs sqliMatchStatement() {
-        if (sqliMatchStatement == null) return null;
-        return sqliMatchStatement.getValue("WebAclRuleStatementArgs.sqliMatchStatement");
+        if (!unknown_sqliMatchStatement) return value_sqliMatchStatement;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementArgs.sqliMatchStatement' is not present");
     }
 
     /**
      * Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementXssMatchStatementArgs> xssMatchStatement;
-
+    @PolicyResourceProperty(name="xssMatchStatement", flag="unknown_xssMatchStatement")
+    private WebAclRuleStatementXssMatchStatementArgs value_xssMatchStatement;
+    private boolean unknown_xssMatchStatement;
     public WebAclRuleStatementXssMatchStatementArgs xssMatchStatement() {
-        if (xssMatchStatement == null) return null;
-        return xssMatchStatement.getValue("WebAclRuleStatementArgs.xssMatchStatement");
+        if (!unknown_xssMatchStatement) return value_xssMatchStatement;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementArgs.xssMatchStatement' is not present");
     }
 
 }

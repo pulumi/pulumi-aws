@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.inputs.EndpointDeploymentConfigArgs;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class EndpointArgs extends com.pulumi.resources.PolicyResourceInput
      * The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
      * 
      */
-    private UndeferrableValue<EndpointDeploymentConfigArgs> deploymentConfig;
-
+    @PolicyResourceProperty(name="deploymentConfig", flag="unknown_deploymentConfig")
+    private EndpointDeploymentConfigArgs value_deploymentConfig;
+    private boolean unknown_deploymentConfig;
     public EndpointDeploymentConfigArgs deploymentConfig() {
-        if (deploymentConfig == null) return null;
-        return deploymentConfig.getValue("EndpointArgs.deploymentConfig");
+        if (!unknown_deploymentConfig) return value_deploymentConfig;
+        throw new UndeferrableValueException("Value 'EndpointArgs.deploymentConfig' is not present");
     }
 
     /**
      * The name of the endpoint configuration to use.
      * 
      */
-    private UndeferrableValue<String> endpointConfigName;
-
+    @PolicyResourceProperty(name="endpointConfigName", flag="unknown_endpointConfigName")
+    private String value_endpointConfigName;
+    private boolean unknown_endpointConfigName;
     public String endpointConfigName() {
-        if (endpointConfigName == null) return null;
-        return endpointConfigName.getValue("EndpointArgs.endpointConfigName");
+        if (!unknown_endpointConfigName) return value_endpointConfigName;
+        throw new UndeferrableValueException("Value 'EndpointArgs.endpointConfigName' is not present");
     }
 
     /**
      * The name of the endpoint. If omitted, the provider will assign a random, unique name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("EndpointArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'EndpointArgs.name' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("EndpointArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'EndpointArgs.tags' is not present");
     }
 
 }

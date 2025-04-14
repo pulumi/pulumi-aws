@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.shield;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,66 +19,72 @@ public final class ProtectionGroupArgs extends com.pulumi.resources.PolicyResour
      * Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
      * 
      */
-    private UndeferrableValue<String> aggregation;
-
+    @PolicyResourceProperty(name="aggregation", flag="unknown_aggregation")
+    private String value_aggregation;
+    private boolean unknown_aggregation;
     public String aggregation() {
-        if (aggregation == null) return null;
-        return aggregation.getValue("ProtectionGroupArgs.aggregation");
+        if (!unknown_aggregation) return value_aggregation;
+        throw new UndeferrableValueException("Value 'ProtectionGroupArgs.aggregation' is not present");
     }
 
     /**
      * The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
      * 
      */
-    private UndeferrableValue<List<String>> members;
-
+    @PolicyResourceProperty(name="members", flag="unknown_members")
+    private List<String> value_members;
+    private boolean unknown_members;
     public List<String> members() {
-        if (members == null) return null;
-        return members.getValue("ProtectionGroupArgs.members");
+        if (!unknown_members) return value_members;
+        throw new UndeferrableValueException("Value 'ProtectionGroupArgs.members' is not present");
     }
 
     /**
      * The criteria to use to choose the protected resources for inclusion in the group.
      * 
      */
-    private UndeferrableValue<String> pattern;
-
+    @PolicyResourceProperty(name="pattern", flag="unknown_pattern")
+    private String value_pattern;
+    private boolean unknown_pattern;
     public String pattern() {
-        if (pattern == null) return null;
-        return pattern.getValue("ProtectionGroupArgs.pattern");
+        if (!unknown_pattern) return value_pattern;
+        throw new UndeferrableValueException("Value 'ProtectionGroupArgs.pattern' is not present");
     }
 
     /**
      * The name of the protection group.
      * 
      */
-    private UndeferrableValue<String> protectionGroupId;
-
+    @PolicyResourceProperty(name="protectionGroupId", flag="unknown_protectionGroupId")
+    private String value_protectionGroupId;
+    private boolean unknown_protectionGroupId;
     public String protectionGroupId() {
-        if (protectionGroupId == null) return null;
-        return protectionGroupId.getValue("ProtectionGroupArgs.protectionGroupId");
+        if (!unknown_protectionGroupId) return value_protectionGroupId;
+        throw new UndeferrableValueException("Value 'ProtectionGroupArgs.protectionGroupId' is not present");
     }
 
     /**
      * The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
      * 
      */
-    private UndeferrableValue<String> resourceType;
-
+    @PolicyResourceProperty(name="resourceType", flag="unknown_resourceType")
+    private String value_resourceType;
+    private boolean unknown_resourceType;
     public String resourceType() {
-        if (resourceType == null) return null;
-        return resourceType.getValue("ProtectionGroupArgs.resourceType");
+        if (!unknown_resourceType) return value_resourceType;
+        throw new UndeferrableValueException("Value 'ProtectionGroupArgs.resourceType' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ProtectionGroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ProtectionGroupArgs.tags' is not present");
     }
 
 }

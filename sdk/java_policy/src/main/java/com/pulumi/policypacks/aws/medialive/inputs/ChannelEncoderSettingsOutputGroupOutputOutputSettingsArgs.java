@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgs;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs;
@@ -21,76 +22,84 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs {
      * Archive output settings. See Archive Output Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs> archiveOutputSettings;
-
+    @PolicyResourceProperty(name="archiveOutputSettings", flag="unknown_archiveOutputSettings")
+    private ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs value_archiveOutputSettings;
+    private boolean unknown_archiveOutputSettings;
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs archiveOutputSettings() {
-        if (archiveOutputSettings == null) return null;
-        return archiveOutputSettings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs.archiveOutputSettings");
+        if (!unknown_archiveOutputSettings) return value_archiveOutputSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs.archiveOutputSettings' is not present");
     }
 
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgs> frameCaptureOutputSettings;
-
+    @PolicyResourceProperty(name="frameCaptureOutputSettings", flag="unknown_frameCaptureOutputSettings")
+    private ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgs value_frameCaptureOutputSettings;
+    private boolean unknown_frameCaptureOutputSettings;
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgs frameCaptureOutputSettings() {
-        if (frameCaptureOutputSettings == null) return null;
-        return frameCaptureOutputSettings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs.frameCaptureOutputSettings");
+        if (!unknown_frameCaptureOutputSettings) return value_frameCaptureOutputSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs.frameCaptureOutputSettings' is not present");
     }
 
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs> hlsOutputSettings;
-
+    @PolicyResourceProperty(name="hlsOutputSettings", flag="unknown_hlsOutputSettings")
+    private ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs value_hlsOutputSettings;
+    private boolean unknown_hlsOutputSettings;
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs hlsOutputSettings() {
-        if (hlsOutputSettings == null) return null;
-        return hlsOutputSettings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs.hlsOutputSettings");
+        if (!unknown_hlsOutputSettings) return value_hlsOutputSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs.hlsOutputSettings' is not present");
     }
 
     /**
      * Media package output settings. This can be set as an empty block.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArgs> mediaPackageOutputSettings;
-
+    @PolicyResourceProperty(name="mediaPackageOutputSettings", flag="unknown_mediaPackageOutputSettings")
+    private ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArgs value_mediaPackageOutputSettings;
+    private boolean unknown_mediaPackageOutputSettings;
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArgs mediaPackageOutputSettings() {
-        if (mediaPackageOutputSettings == null) return null;
-        return mediaPackageOutputSettings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs.mediaPackageOutputSettings");
+        if (!unknown_mediaPackageOutputSettings) return value_mediaPackageOutputSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs.mediaPackageOutputSettings' is not present");
     }
 
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs> msSmoothOutputSettings;
-
+    @PolicyResourceProperty(name="msSmoothOutputSettings", flag="unknown_msSmoothOutputSettings")
+    private ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs value_msSmoothOutputSettings;
+    private boolean unknown_msSmoothOutputSettings;
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs msSmoothOutputSettings() {
-        if (msSmoothOutputSettings == null) return null;
-        return msSmoothOutputSettings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs.msSmoothOutputSettings");
+        if (!unknown_msSmoothOutputSettings) return value_msSmoothOutputSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs.msSmoothOutputSettings' is not present");
     }
 
     /**
      * Multiplex output settings. See Multiplex Output Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs> multiplexOutputSettings;
-
+    @PolicyResourceProperty(name="multiplexOutputSettings", flag="unknown_multiplexOutputSettings")
+    private ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs value_multiplexOutputSettings;
+    private boolean unknown_multiplexOutputSettings;
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs multiplexOutputSettings() {
-        if (multiplexOutputSettings == null) return null;
-        return multiplexOutputSettings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs.multiplexOutputSettings");
+        if (!unknown_multiplexOutputSettings) return value_multiplexOutputSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs.multiplexOutputSettings' is not present");
     }
 
     /**
      * RTMP output settings. See RTMP Output Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs> rtmpOutputSettings;
-
+    @PolicyResourceProperty(name="rtmpOutputSettings", flag="unknown_rtmpOutputSettings")
+    private ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs value_rtmpOutputSettings;
+    private boolean unknown_rtmpOutputSettings;
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs rtmpOutputSettings() {
-        if (rtmpOutputSettings == null) return null;
-        return rtmpOutputSettings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs.rtmpOutputSettings");
+        if (!unknown_rtmpOutputSettings) return value_rtmpOutputSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs.rtmpOutputSettings' is not present");
     }
 
     /**
      * UDP output settings. See UDP Output Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs> udpOutputSettings;
-
+    @PolicyResourceProperty(name="udpOutputSettings", flag="unknown_udpOutputSettings")
+    private ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs value_udpOutputSettings;
+    private boolean unknown_udpOutputSettings;
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs udpOutputSettings() {
-        if (udpOutputSettings == null) return null;
-        return udpOutputSettings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs.udpOutputSettings");
+        if (!unknown_udpOutputSettings) return value_udpOutputSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs.udpOutputSettings' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.auditmanager.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class AssessmentScopeAwsService {
      * Name of the Amazon Web Service.
      * 
      */
-    private UndeferrableValue<String> serviceName;
-
+    @PolicyResourceProperty(name="serviceName", flag="unknown_serviceName")
+    private String value_serviceName;
+    private boolean unknown_serviceName;
     public String serviceName() {
-        if (serviceName == null) return null;
-        return serviceName.getValue("AssessmentScopeAwsService.serviceName");
+        if (!unknown_serviceName) return value_serviceName;
+        throw new UndeferrableValueException("Value 'AssessmentScopeAwsService.serviceName' is not present");
     }
 
 }

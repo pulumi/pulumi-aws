@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.memorydb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -20,132 +21,144 @@ public final class ClusterArgs extends com.pulumi.resources.PolicyResourceInput 
      * The name of the Access Control List to associate with the cluster.
      * 
      */
-    private UndeferrableValue<String> aclName;
-
+    @PolicyResourceProperty(name="aclName", flag="unknown_aclName")
+    private String value_aclName;
+    private boolean unknown_aclName;
     public String aclName() {
-        if (aclName == null) return null;
-        return aclName.getValue("ClusterArgs.aclName");
+        if (!unknown_aclName) return value_aclName;
+        throw new UndeferrableValueException("Value 'ClusterArgs.aclName' is not present");
     }
 
     /**
      * When set to `true`, the cluster will automatically receive minor engine version upgrades after launch. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> autoMinorVersionUpgrade;
-
+    @PolicyResourceProperty(name="autoMinorVersionUpgrade", flag="unknown_autoMinorVersionUpgrade")
+    private Boolean value_autoMinorVersionUpgrade;
+    private boolean unknown_autoMinorVersionUpgrade;
     public Boolean autoMinorVersionUpgrade() {
-        if (autoMinorVersionUpgrade == null) return null;
-        return autoMinorVersionUpgrade.getValue("ClusterArgs.autoMinorVersionUpgrade");
+        if (!unknown_autoMinorVersionUpgrade) return value_autoMinorVersionUpgrade;
+        throw new UndeferrableValueException("Value 'ClusterArgs.autoMinorVersionUpgrade' is not present");
     }
 
     /**
      * Enables data tiering. This option is not supported by all instance types. For more information, see [Data tiering](https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html).
      * 
      */
-    private UndeferrableValue<Boolean> dataTiering;
-
+    @PolicyResourceProperty(name="dataTiering", flag="unknown_dataTiering")
+    private Boolean value_dataTiering;
+    private boolean unknown_dataTiering;
     public Boolean dataTiering() {
-        if (dataTiering == null) return null;
-        return dataTiering.getValue("ClusterArgs.dataTiering");
+        if (!unknown_dataTiering) return value_dataTiering;
+        throw new UndeferrableValueException("Value 'ClusterArgs.dataTiering' is not present");
     }
 
     /**
      * Description for the cluster. Defaults to `&#34;Managed by Pulumi&#34;`.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ClusterArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ClusterArgs.description' is not present");
     }
 
     /**
      * The engine that will run on your nodes. Supported values are `redis` and `valkey`.
      * 
      */
-    private UndeferrableValue<String> engine;
-
+    @PolicyResourceProperty(name="engine", flag="unknown_engine")
+    private String value_engine;
+    private boolean unknown_engine;
     public String engine() {
-        if (engine == null) return null;
-        return engine.getValue("ClusterArgs.engine");
+        if (!unknown_engine) return value_engine;
+        throw new UndeferrableValueException("Value 'ClusterArgs.engine' is not present");
     }
 
     /**
      * Version number of the engine to be used for the cluster. Downgrades are not supported.
      * 
      */
-    private UndeferrableValue<String> engineVersion;
-
+    @PolicyResourceProperty(name="engineVersion", flag="unknown_engineVersion")
+    private String value_engineVersion;
+    private boolean unknown_engineVersion;
     public String engineVersion() {
-        if (engineVersion == null) return null;
-        return engineVersion.getValue("ClusterArgs.engineVersion");
+        if (!unknown_engineVersion) return value_engineVersion;
+        throw new UndeferrableValueException("Value 'ClusterArgs.engineVersion' is not present");
     }
 
     /**
      * Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
      * 
      */
-    private UndeferrableValue<String> finalSnapshotName;
-
+    @PolicyResourceProperty(name="finalSnapshotName", flag="unknown_finalSnapshotName")
+    private String value_finalSnapshotName;
+    private boolean unknown_finalSnapshotName;
     public String finalSnapshotName() {
-        if (finalSnapshotName == null) return null;
-        return finalSnapshotName.getValue("ClusterArgs.finalSnapshotName");
+        if (!unknown_finalSnapshotName) return value_finalSnapshotName;
+        throw new UndeferrableValueException("Value 'ClusterArgs.finalSnapshotName' is not present");
     }
 
     /**
      * ARN of the KMS key used to encrypt the cluster at rest.
      * 
      */
-    private UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("ClusterArgs.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'ClusterArgs.kmsKeyArn' is not present");
     }
 
     /**
      * Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
      * 
      */
-    private UndeferrableValue<String> maintenanceWindow;
-
+    @PolicyResourceProperty(name="maintenanceWindow", flag="unknown_maintenanceWindow")
+    private String value_maintenanceWindow;
+    private boolean unknown_maintenanceWindow;
     public String maintenanceWindow() {
-        if (maintenanceWindow == null) return null;
-        return maintenanceWindow.getValue("ClusterArgs.maintenanceWindow");
+        if (!unknown_maintenanceWindow) return value_maintenanceWindow;
+        throw new UndeferrableValueException("Value 'ClusterArgs.maintenanceWindow' is not present");
     }
 
     /**
      * The multi region cluster identifier specified on `aws.memorydb.MultiRegionCluster`.
      * 
      */
-    private UndeferrableValue<String> multiRegionClusterName;
-
+    @PolicyResourceProperty(name="multiRegionClusterName", flag="unknown_multiRegionClusterName")
+    private String value_multiRegionClusterName;
+    private boolean unknown_multiRegionClusterName;
     public String multiRegionClusterName() {
-        if (multiRegionClusterName == null) return null;
-        return multiRegionClusterName.getValue("ClusterArgs.multiRegionClusterName");
+        if (!unknown_multiRegionClusterName) return value_multiRegionClusterName;
+        throw new UndeferrableValueException("Value 'ClusterArgs.multiRegionClusterName' is not present");
     }
 
     /**
      * Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ClusterArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ClusterArgs.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("ClusterArgs.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'ClusterArgs.namePrefix' is not present");
     }
 
     /**
@@ -154,154 +167,168 @@ public final class ClusterArgs extends com.pulumi.resources.PolicyResourceInput 
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> nodeType;
-
+    @PolicyResourceProperty(name="nodeType", flag="unknown_nodeType")
+    private String value_nodeType;
+    private boolean unknown_nodeType;
     public String nodeType() {
-        if (nodeType == null) return null;
-        return nodeType.getValue("ClusterArgs.nodeType");
+        if (!unknown_nodeType) return value_nodeType;
+        throw new UndeferrableValueException("Value 'ClusterArgs.nodeType' is not present");
     }
 
     /**
      * The number of replicas to apply to each shard, up to a maximum of 5. Defaults to `1` (i.e. 2 nodes per shard).
      * 
      */
-    private UndeferrableValue<Integer> numReplicasPerShard;
-
+    @PolicyResourceProperty(name="numReplicasPerShard", flag="unknown_numReplicasPerShard")
+    private Integer value_numReplicasPerShard;
+    private boolean unknown_numReplicasPerShard;
     public Integer numReplicasPerShard() {
-        if (numReplicasPerShard == null) return null;
-        return numReplicasPerShard.getValue("ClusterArgs.numReplicasPerShard");
+        if (!unknown_numReplicasPerShard) return value_numReplicasPerShard;
+        throw new UndeferrableValueException("Value 'ClusterArgs.numReplicasPerShard' is not present");
     }
 
     /**
      * The number of shards in the cluster. Defaults to `1`.
      * 
      */
-    private UndeferrableValue<Integer> numShards;
-
+    @PolicyResourceProperty(name="numShards", flag="unknown_numShards")
+    private Integer value_numShards;
+    private boolean unknown_numShards;
     public Integer numShards() {
-        if (numShards == null) return null;
-        return numShards.getValue("ClusterArgs.numShards");
+        if (!unknown_numShards) return value_numShards;
+        throw new UndeferrableValueException("Value 'ClusterArgs.numShards' is not present");
     }
 
     /**
      * The name of the parameter group associated with the cluster.
      * 
      */
-    private UndeferrableValue<String> parameterGroupName;
-
+    @PolicyResourceProperty(name="parameterGroupName", flag="unknown_parameterGroupName")
+    private String value_parameterGroupName;
+    private boolean unknown_parameterGroupName;
     public String parameterGroupName() {
-        if (parameterGroupName == null) return null;
-        return parameterGroupName.getValue("ClusterArgs.parameterGroupName");
+        if (!unknown_parameterGroupName) return value_parameterGroupName;
+        throw new UndeferrableValueException("Value 'ClusterArgs.parameterGroupName' is not present");
     }
 
     /**
      * The port number on which each of the nodes accepts connections. Defaults to `6379`.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("ClusterArgs.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'ClusterArgs.port' is not present");
     }
 
     /**
      * Set of VPC Security Group ID-s to associate with this cluster.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("ClusterArgs.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'ClusterArgs.securityGroupIds' is not present");
     }
 
     /**
      * List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
      * 
      */
-    private UndeferrableValue<List<String>> snapshotArns;
-
+    @PolicyResourceProperty(name="snapshotArns", flag="unknown_snapshotArns")
+    private List<String> value_snapshotArns;
+    private boolean unknown_snapshotArns;
     public List<String> snapshotArns() {
-        if (snapshotArns == null) return null;
-        return snapshotArns.getValue("ClusterArgs.snapshotArns");
+        if (!unknown_snapshotArns) return value_snapshotArns;
+        throw new UndeferrableValueException("Value 'ClusterArgs.snapshotArns' is not present");
     }
 
     /**
      * The name of a snapshot from which to restore data into the new cluster.
      * 
      */
-    private UndeferrableValue<String> snapshotName;
-
+    @PolicyResourceProperty(name="snapshotName", flag="unknown_snapshotName")
+    private String value_snapshotName;
+    private boolean unknown_snapshotName;
     public String snapshotName() {
-        if (snapshotName == null) return null;
-        return snapshotName.getValue("ClusterArgs.snapshotName");
+        if (!unknown_snapshotName) return value_snapshotName;
+        throw new UndeferrableValueException("Value 'ClusterArgs.snapshotName' is not present");
     }
 
     /**
      * The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
      * 
      */
-    private UndeferrableValue<Integer> snapshotRetentionLimit;
-
+    @PolicyResourceProperty(name="snapshotRetentionLimit", flag="unknown_snapshotRetentionLimit")
+    private Integer value_snapshotRetentionLimit;
+    private boolean unknown_snapshotRetentionLimit;
     public Integer snapshotRetentionLimit() {
-        if (snapshotRetentionLimit == null) return null;
-        return snapshotRetentionLimit.getValue("ClusterArgs.snapshotRetentionLimit");
+        if (!unknown_snapshotRetentionLimit) return value_snapshotRetentionLimit;
+        throw new UndeferrableValueException("Value 'ClusterArgs.snapshotRetentionLimit' is not present");
     }
 
     /**
      * The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
      * 
      */
-    private UndeferrableValue<String> snapshotWindow;
-
+    @PolicyResourceProperty(name="snapshotWindow", flag="unknown_snapshotWindow")
+    private String value_snapshotWindow;
+    private boolean unknown_snapshotWindow;
     public String snapshotWindow() {
-        if (snapshotWindow == null) return null;
-        return snapshotWindow.getValue("ClusterArgs.snapshotWindow");
+        if (!unknown_snapshotWindow) return value_snapshotWindow;
+        throw new UndeferrableValueException("Value 'ClusterArgs.snapshotWindow' is not present");
     }
 
     /**
      * ARN of the SNS topic to which cluster notifications are sent.
      * 
      */
-    private UndeferrableValue<String> snsTopicArn;
-
+    @PolicyResourceProperty(name="snsTopicArn", flag="unknown_snsTopicArn")
+    private String value_snsTopicArn;
+    private boolean unknown_snsTopicArn;
     public String snsTopicArn() {
-        if (snsTopicArn == null) return null;
-        return snsTopicArn.getValue("ClusterArgs.snsTopicArn");
+        if (!unknown_snsTopicArn) return value_snsTopicArn;
+        throw new UndeferrableValueException("Value 'ClusterArgs.snsTopicArn' is not present");
     }
 
     /**
      * The name of the subnet group to be used for the cluster. Defaults to a subnet group consisting of default VPC subnets.
      * 
      */
-    private UndeferrableValue<String> subnetGroupName;
-
+    @PolicyResourceProperty(name="subnetGroupName", flag="unknown_subnetGroupName")
+    private String value_subnetGroupName;
+    private boolean unknown_subnetGroupName;
     public String subnetGroupName() {
-        if (subnetGroupName == null) return null;
-        return subnetGroupName.getValue("ClusterArgs.subnetGroupName");
+        if (!unknown_subnetGroupName) return value_subnetGroupName;
+        throw new UndeferrableValueException("Value 'ClusterArgs.subnetGroupName' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ClusterArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ClusterArgs.tags' is not present");
     }
 
     /**
      * A flag to enable in-transit encryption on the cluster. When set to `false`, the `acl_name` must be `open-access`. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> tlsEnabled;
-
+    @PolicyResourceProperty(name="tlsEnabled", flag="unknown_tlsEnabled")
+    private Boolean value_tlsEnabled;
+    private boolean unknown_tlsEnabled;
     public Boolean tlsEnabled() {
-        if (tlsEnabled == null) return null;
-        return tlsEnabled.getValue("ClusterArgs.tlsEnabled");
+        if (!unknown_tlsEnabled) return value_tlsEnabled;
+        throw new UndeferrableValueException("Value 'ClusterArgs.tlsEnabled' is not present");
     }
 
 }

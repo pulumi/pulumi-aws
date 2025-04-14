@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStep;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponse;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
      * Configuration block for the next step in the conversation. See `next_step`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStep> nextStep;
-
+    @PolicyResourceProperty(name="nextStep", flag="unknown_nextStep")
+    private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStep value_nextStep;
+    private boolean unknown_nextStep;
     public @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStep nextStep() {
-        if (nextStep == null) return null;
-        return nextStep.getValue("V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranch.nextStep");
+        if (!unknown_nextStep) return value_nextStep;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranch.nextStep' is not present");
     }
 
     /**
      * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponse> response;
-
+    @PolicyResourceProperty(name="response", flag="unknown_response")
+    private @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponse value_response;
+    private boolean unknown_response;
     public @Nullable V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponse response() {
-        if (response == null) return null;
-        return response.getValue("V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranch.response");
+        if (!unknown_response) return value_response;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranch.response' is not present");
     }
 
 }

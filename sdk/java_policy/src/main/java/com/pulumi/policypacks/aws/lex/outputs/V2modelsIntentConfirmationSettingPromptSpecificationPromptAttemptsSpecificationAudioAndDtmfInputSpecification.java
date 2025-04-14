@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification;
 import java.lang.Integer;
@@ -16,33 +17,36 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
      * Configuration block for the settings on audio input. See `audio_specification`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification> audioSpecification;
-
+    @PolicyResourceProperty(name="audioSpecification", flag="unknown_audioSpecification")
+    private @Nullable V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification value_audioSpecification;
+    private boolean unknown_audioSpecification;
     public @Nullable V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecification audioSpecification() {
-        if (audioSpecification == null) return null;
-        return audioSpecification.getValue("V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification.audioSpecification");
+        if (!unknown_audioSpecification) return value_audioSpecification;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification.audioSpecification' is not present");
     }
 
     /**
      * Configuration block for the settings on DTMF input. See `dtmf_specification`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification> dtmfSpecification;
-
+    @PolicyResourceProperty(name="dtmfSpecification", flag="unknown_dtmfSpecification")
+    private @Nullable V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification value_dtmfSpecification;
+    private boolean unknown_dtmfSpecification;
     public @Nullable V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecification dtmfSpecification() {
-        if (dtmfSpecification == null) return null;
-        return dtmfSpecification.getValue("V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification.dtmfSpecification");
+        if (!unknown_dtmfSpecification) return value_dtmfSpecification;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification.dtmfSpecification' is not present");
     }
 
     /**
      * Time for which a bot waits before assuming that the customer isn&#39;t going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
      * 
      */
-    private UndeferrableValue<Integer> startTimeoutMs;
-
+    @PolicyResourceProperty(name="startTimeoutMs", flag="unknown_startTimeoutMs")
+    private Integer value_startTimeoutMs;
+    private boolean unknown_startTimeoutMs;
     public Integer startTimeoutMs() {
-        if (startTimeoutMs == null) return null;
-        return startTimeoutMs.getValue("V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification.startTimeoutMs");
+        if (!unknown_startTimeoutMs) return value_startTimeoutMs;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification.startTimeoutMs' is not present");
     }
 
 }

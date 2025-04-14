@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53recoveryreadiness;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,22 +18,24 @@ public final class ReadinessCheck extends com.pulumi.resources.PolicyResourceOut
      * ARN of the readiness_check
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ReadinessCheck.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ReadinessCheck.arn' is not present");
     }
 
     /**
      * Unique name describing the readiness check.
      * 
      */
-    private UndeferrableValue<String> readinessCheckName;
-
+    @PolicyResourceProperty(name="readinessCheckName", flag="unknown_readinessCheckName")
+    private String value_readinessCheckName;
+    private boolean unknown_readinessCheckName;
     public String readinessCheckName() {
-        if (readinessCheckName == null) return null;
-        return readinessCheckName.getValue("ReadinessCheck.readinessCheckName");
+        if (!unknown_readinessCheckName) return value_readinessCheckName;
+        throw new UndeferrableValueException("Value 'ReadinessCheck.readinessCheckName' is not present");
     }
 
     /**
@@ -41,22 +44,24 @@ public final class ReadinessCheck extends com.pulumi.resources.PolicyResourceOut
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> resourceSetName;
-
+    @PolicyResourceProperty(name="resourceSetName", flag="unknown_resourceSetName")
+    private String value_resourceSetName;
+    private boolean unknown_resourceSetName;
     public String resourceSetName() {
-        if (resourceSetName == null) return null;
-        return resourceSetName.getValue("ReadinessCheck.resourceSetName");
+        if (!unknown_resourceSetName) return value_resourceSetName;
+        throw new UndeferrableValueException("Value 'ReadinessCheck.resourceSetName' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ReadinessCheck.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ReadinessCheck.tags' is not present");
     }
 
     /**
@@ -67,11 +72,12 @@ public final class ReadinessCheck extends com.pulumi.resources.PolicyResourceOut
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ReadinessCheck.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ReadinessCheck.tagsAll' is not present");
     }
 
 }

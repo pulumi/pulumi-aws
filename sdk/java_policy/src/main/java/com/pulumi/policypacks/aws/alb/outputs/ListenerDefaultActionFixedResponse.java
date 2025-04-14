@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.alb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -16,33 +17,36 @@ public final class ListenerDefaultActionFixedResponse {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> contentType;
-
+    @PolicyResourceProperty(name="contentType", flag="unknown_contentType")
+    private String value_contentType;
+    private boolean unknown_contentType;
     public String contentType() {
-        if (contentType == null) return null;
-        return contentType.getValue("ListenerDefaultActionFixedResponse.contentType");
+        if (!unknown_contentType) return value_contentType;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionFixedResponse.contentType' is not present");
     }
 
     /**
      * Message body.
      * 
      */
-    private @Nullable UndeferrableValue<String> messageBody;
-
+    @PolicyResourceProperty(name="messageBody", flag="unknown_messageBody")
+    private @Nullable String value_messageBody;
+    private boolean unknown_messageBody;
     public @Nullable String messageBody() {
-        if (messageBody == null) return null;
-        return messageBody.getValue("ListenerDefaultActionFixedResponse.messageBody");
+        if (!unknown_messageBody) return value_messageBody;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionFixedResponse.messageBody' is not present");
     }
 
     /**
      * HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
      * 
      */
-    private @Nullable UndeferrableValue<String> statusCode;
-
+    @PolicyResourceProperty(name="statusCode", flag="unknown_statusCode")
+    private @Nullable String value_statusCode;
+    private boolean unknown_statusCode;
     public @Nullable String statusCode() {
-        if (statusCode == null) return null;
-        return statusCode.getValue("ListenerDefaultActionFixedResponse.statusCode");
+        if (!unknown_statusCode) return value_statusCode;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionFixedResponse.statusCode' is not present");
     }
 
 }

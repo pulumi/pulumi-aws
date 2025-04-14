@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButton;
 import java.lang.String;
 import java.util.List;
@@ -12,32 +13,36 @@ import javax.annotation.Nullable;
 
 public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard {
 
-    private @Nullable UndeferrableValue<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButton>> buttons;
-
+    @PolicyResourceProperty(name="buttons", flag="unknown_buttons")
+    private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButton> value_buttons;
+    private boolean unknown_buttons;
     public @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButton> buttons() {
-        if (buttons == null) return null;
-        return buttons.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard.buttons");
+        if (!unknown_buttons) return value_buttons;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard.buttons' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> imageUrl;
-
+    @PolicyResourceProperty(name="imageUrl", flag="unknown_imageUrl")
+    private @Nullable String value_imageUrl;
+    private boolean unknown_imageUrl;
     public @Nullable String imageUrl() {
-        if (imageUrl == null) return null;
-        return imageUrl.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard.imageUrl");
+        if (!unknown_imageUrl) return value_imageUrl;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard.imageUrl' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> subtitle;
-
+    @PolicyResourceProperty(name="subtitle", flag="unknown_subtitle")
+    private @Nullable String value_subtitle;
+    private boolean unknown_subtitle;
     public @Nullable String subtitle() {
-        if (subtitle == null) return null;
-        return subtitle.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard.subtitle");
+        if (!unknown_subtitle) return value_subtitle;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard.subtitle' is not present");
     }
 
-    private UndeferrableValue<String> title;
-
+    @PolicyResourceProperty(name="title", flag="unknown_title")
+    private String value_title;
+    private boolean unknown_title;
     public String title() {
-        if (title == null) return null;
-        return title.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard.title");
+        if (!unknown_title) return value_title;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard.title' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chime;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.chime.inputs.SdkvoiceSipRuleTargetApplicationArgs;
 import java.lang.Boolean;
@@ -19,44 +20,48 @@ public final class SdkvoiceSipRuleArgs extends com.pulumi.resources.PolicyResour
      * Enables or disables a rule. You must disable rules before you can delete them.
      * 
      */
-    private UndeferrableValue<Boolean> disabled;
-
+    @PolicyResourceProperty(name="disabled", flag="unknown_disabled")
+    private Boolean value_disabled;
+    private boolean unknown_disabled;
     public Boolean disabled() {
-        if (disabled == null) return null;
-        return disabled.getValue("SdkvoiceSipRuleArgs.disabled");
+        if (!unknown_disabled) return value_disabled;
+        throw new UndeferrableValueException("Value 'SdkvoiceSipRuleArgs.disabled' is not present");
     }
 
     /**
      * The name of the SIP rule.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("SdkvoiceSipRuleArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'SdkvoiceSipRuleArgs.name' is not present");
     }
 
     /**
      * List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `target_applications`.
      * 
      */
-    private UndeferrableValue<List<SdkvoiceSipRuleTargetApplicationArgs>> targetApplications;
-
+    @PolicyResourceProperty(name="targetApplications", flag="unknown_targetApplications")
+    private List<SdkvoiceSipRuleTargetApplicationArgs> value_targetApplications;
+    private boolean unknown_targetApplications;
     public List<SdkvoiceSipRuleTargetApplicationArgs> targetApplications() {
-        if (targetApplications == null) return null;
-        return targetApplications.getValue("SdkvoiceSipRuleArgs.targetApplications");
+        if (!unknown_targetApplications) return value_targetApplications;
+        throw new UndeferrableValueException("Value 'SdkvoiceSipRuleArgs.targetApplications' is not present");
     }
 
     /**
      * The type of trigger assigned to the SIP rule in `trigger_value`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
      * 
      */
-    private UndeferrableValue<String> triggerType;
-
+    @PolicyResourceProperty(name="triggerType", flag="unknown_triggerType")
+    private String value_triggerType;
+    private boolean unknown_triggerType;
     public String triggerType() {
-        if (triggerType == null) return null;
-        return triggerType.getValue("SdkvoiceSipRuleArgs.triggerType");
+        if (!unknown_triggerType) return value_triggerType;
+        throw new UndeferrableValueException("Value 'SdkvoiceSipRuleArgs.triggerType' is not present");
     }
 
     /**
@@ -65,11 +70,12 @@ public final class SdkvoiceSipRuleArgs extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> triggerValue;
-
+    @PolicyResourceProperty(name="triggerValue", flag="unknown_triggerValue")
+    private String value_triggerValue;
+    private boolean unknown_triggerValue;
     public String triggerValue() {
-        if (triggerValue == null) return null;
-        return triggerValue.getValue("SdkvoiceSipRuleArgs.triggerValue");
+        if (!unknown_triggerValue) return value_triggerValue;
+        throw new UndeferrableValueException("Value 'SdkvoiceSipRuleArgs.triggerValue' is not present");
     }
 
 }

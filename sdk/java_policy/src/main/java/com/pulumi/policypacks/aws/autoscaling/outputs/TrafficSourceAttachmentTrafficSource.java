@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class TrafficSourceAttachmentTrafficSource {
      * Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
      * 
      */
-    private UndeferrableValue<String> identifier;
-
+    @PolicyResourceProperty(name="identifier", flag="unknown_identifier")
+    private String value_identifier;
+    private boolean unknown_identifier;
     public String identifier() {
-        if (identifier == null) return null;
-        return identifier.getValue("TrafficSourceAttachmentTrafficSource.identifier");
+        if (!unknown_identifier) return value_identifier;
+        throw new UndeferrableValueException("Value 'TrafficSourceAttachmentTrafficSource.identifier' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class TrafficSourceAttachmentTrafficSource {
      * `vpc-lattice` if `identifier` is the ARN of a VPC Lattice target group.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("TrafficSourceAttachmentTrafficSource.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'TrafficSourceAttachmentTrafficSource.type' is not present");
     }
 
 }

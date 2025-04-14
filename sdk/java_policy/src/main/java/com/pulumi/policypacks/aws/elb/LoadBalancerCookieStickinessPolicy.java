@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,11 +19,12 @@ public final class LoadBalancerCookieStickinessPolicy extends com.pulumi.resourc
      * the session cookie should be considered stale, expressed in seconds.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> cookieExpirationPeriod;
-
+    @PolicyResourceProperty(name="cookieExpirationPeriod", flag="unknown_cookieExpirationPeriod")
+    private @Nullable Integer value_cookieExpirationPeriod;
+    private boolean unknown_cookieExpirationPeriod;
     public @Nullable Integer cookieExpirationPeriod() {
-        if (cookieExpirationPeriod == null) return null;
-        return cookieExpirationPeriod.getValue("LoadBalancerCookieStickinessPolicy.cookieExpirationPeriod");
+        if (!unknown_cookieExpirationPeriod) return value_cookieExpirationPeriod;
+        throw new UndeferrableValueException("Value 'LoadBalancerCookieStickinessPolicy.cookieExpirationPeriod' is not present");
     }
 
     /**
@@ -31,11 +33,12 @@ public final class LoadBalancerCookieStickinessPolicy extends com.pulumi.resourc
      * balancer.
      * 
      */
-    private UndeferrableValue<Integer> lbPort;
-
+    @PolicyResourceProperty(name="lbPort", flag="unknown_lbPort")
+    private Integer value_lbPort;
+    private boolean unknown_lbPort;
     public Integer lbPort() {
-        if (lbPort == null) return null;
-        return lbPort.getValue("LoadBalancerCookieStickinessPolicy.lbPort");
+        if (!unknown_lbPort) return value_lbPort;
+        throw new UndeferrableValueException("Value 'LoadBalancerCookieStickinessPolicy.lbPort' is not present");
     }
 
     /**
@@ -43,22 +46,24 @@ public final class LoadBalancerCookieStickinessPolicy extends com.pulumi.resourc
      * should be attached.
      * 
      */
-    private UndeferrableValue<String> loadBalancer;
-
+    @PolicyResourceProperty(name="loadBalancer", flag="unknown_loadBalancer")
+    private String value_loadBalancer;
+    private boolean unknown_loadBalancer;
     public String loadBalancer() {
-        if (loadBalancer == null) return null;
-        return loadBalancer.getValue("LoadBalancerCookieStickinessPolicy.loadBalancer");
+        if (!unknown_loadBalancer) return value_loadBalancer;
+        throw new UndeferrableValueException("Value 'LoadBalancerCookieStickinessPolicy.loadBalancer' is not present");
     }
 
     /**
      * The name of the stickiness policy.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LoadBalancerCookieStickinessPolicy.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LoadBalancerCookieStickinessPolicy.name' is not present");
     }
 
 }

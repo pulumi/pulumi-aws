@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,44 +16,48 @@ public final class PolicyTableAssociation extends com.pulumi.resources.PolicyRes
      * Identifier of the resource
      * 
      */
-    private UndeferrableValue<String> resourceId;
-
+    @PolicyResourceProperty(name="resourceId", flag="unknown_resourceId")
+    private String value_resourceId;
+    private boolean unknown_resourceId;
     public String resourceId() {
-        if (resourceId == null) return null;
-        return resourceId.getValue("PolicyTableAssociation.resourceId");
+        if (!unknown_resourceId) return value_resourceId;
+        throw new UndeferrableValueException("Value 'PolicyTableAssociation.resourceId' is not present");
     }
 
     /**
      * Type of the resource
      * 
      */
-    private UndeferrableValue<String> resourceType;
-
+    @PolicyResourceProperty(name="resourceType", flag="unknown_resourceType")
+    private String value_resourceType;
+    private boolean unknown_resourceType;
     public String resourceType() {
-        if (resourceType == null) return null;
-        return resourceType.getValue("PolicyTableAssociation.resourceType");
+        if (!unknown_resourceType) return value_resourceType;
+        throw new UndeferrableValueException("Value 'PolicyTableAssociation.resourceType' is not present");
     }
 
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      * 
      */
-    private UndeferrableValue<String> transitGatewayAttachmentId;
-
+    @PolicyResourceProperty(name="transitGatewayAttachmentId", flag="unknown_transitGatewayAttachmentId")
+    private String value_transitGatewayAttachmentId;
+    private boolean unknown_transitGatewayAttachmentId;
     public String transitGatewayAttachmentId() {
-        if (transitGatewayAttachmentId == null) return null;
-        return transitGatewayAttachmentId.getValue("PolicyTableAssociation.transitGatewayAttachmentId");
+        if (!unknown_transitGatewayAttachmentId) return value_transitGatewayAttachmentId;
+        throw new UndeferrableValueException("Value 'PolicyTableAssociation.transitGatewayAttachmentId' is not present");
     }
 
     /**
      * Identifier of EC2 Transit Gateway Policy Table.
      * 
      */
-    private UndeferrableValue<String> transitGatewayPolicyTableId;
-
+    @PolicyResourceProperty(name="transitGatewayPolicyTableId", flag="unknown_transitGatewayPolicyTableId")
+    private String value_transitGatewayPolicyTableId;
+    private boolean unknown_transitGatewayPolicyTableId;
     public String transitGatewayPolicyTableId() {
-        if (transitGatewayPolicyTableId == null) return null;
-        return transitGatewayPolicyTableId.getValue("PolicyTableAssociation.transitGatewayPolicyTableId");
+        if (!unknown_transitGatewayPolicyTableId) return value_transitGatewayPolicyTableId;
+        throw new UndeferrableValueException("Value 'PolicyTableAssociation.transitGatewayPolicyTableId' is not present");
     }
 
 }

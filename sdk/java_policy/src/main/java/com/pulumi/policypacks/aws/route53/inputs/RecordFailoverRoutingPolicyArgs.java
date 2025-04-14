@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class RecordFailoverRoutingPolicyArgs {
      * `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("RecordFailoverRoutingPolicyArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'RecordFailoverRoutingPolicyArgs.type' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclLoggingConfigurationLoggingFilterFilterCondition;
 import java.lang.String;
 import java.util.List;
@@ -15,33 +16,36 @@ public final class WebAclLoggingConfigurationLoggingFilterFilter {
      * Parameter that determines how to handle logs that meet the conditions and requirements of the filter. The valid values for `behavior` are `KEEP` or `DROP`.
      * 
      */
-    private UndeferrableValue<String> behavior;
-
+    @PolicyResourceProperty(name="behavior", flag="unknown_behavior")
+    private String value_behavior;
+    private boolean unknown_behavior;
     public String behavior() {
-        if (behavior == null) return null;
-        return behavior.getValue("WebAclLoggingConfigurationLoggingFilterFilter.behavior");
+        if (!unknown_behavior) return value_behavior;
+        throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationLoggingFilterFilter.behavior' is not present");
     }
 
     /**
      * Match condition(s) for the filter. See Condition below for more details.
      * 
      */
-    private UndeferrableValue<List<WebAclLoggingConfigurationLoggingFilterFilterCondition>> conditions;
-
+    @PolicyResourceProperty(name="conditions", flag="unknown_conditions")
+    private List<WebAclLoggingConfigurationLoggingFilterFilterCondition> value_conditions;
+    private boolean unknown_conditions;
     public List<WebAclLoggingConfigurationLoggingFilterFilterCondition> conditions() {
-        if (conditions == null) return null;
-        return conditions.getValue("WebAclLoggingConfigurationLoggingFilterFilter.conditions");
+        if (!unknown_conditions) return value_conditions;
+        throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationLoggingFilterFilter.conditions' is not present");
     }
 
     /**
      * Logic to apply to the filtering conditions. You can specify that a log must match all conditions or at least one condition in order to satisfy the filter. Valid values for `requirement` are `MEETS_ALL` or `MEETS_ANY`.
      * 
      */
-    private UndeferrableValue<String> requirement;
-
+    @PolicyResourceProperty(name="requirement", flag="unknown_requirement")
+    private String value_requirement;
+    private boolean unknown_requirement;
     public String requirement() {
-        if (requirement == null) return null;
-        return requirement.getValue("WebAclLoggingConfigurationLoggingFilterFilter.requirement");
+        if (!unknown_requirement) return value_requirement;
+        throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationLoggingFilterFilter.requirement' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.customerprofiles.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class DomainRuleBasedMatchingExportingConfigS3Exporting {
      * The name of the S3 bucket where Identity Resolution Jobs write result files.
      * 
      */
-    private UndeferrableValue<String> s3BucketName;
-
+    @PolicyResourceProperty(name="s3BucketName", flag="unknown_s3BucketName")
+    private String value_s3BucketName;
+    private boolean unknown_s3BucketName;
     public String s3BucketName() {
-        if (s3BucketName == null) return null;
-        return s3BucketName.getValue("DomainRuleBasedMatchingExportingConfigS3Exporting.s3BucketName");
+        if (!unknown_s3BucketName) return value_s3BucketName;
+        throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingExportingConfigS3Exporting.s3BucketName' is not present");
     }
 
     /**
      * The S3 key name of the location where Identity Resolution Jobs write result files.
      * 
      */
-    private @Nullable UndeferrableValue<String> s3KeyName;
-
+    @PolicyResourceProperty(name="s3KeyName", flag="unknown_s3KeyName")
+    private @Nullable String value_s3KeyName;
+    private boolean unknown_s3KeyName;
     public @Nullable String s3KeyName() {
-        if (s3KeyName == null) return null;
-        return s3KeyName.getValue("DomainRuleBasedMatchingExportingConfigS3Exporting.s3KeyName");
+        if (!unknown_s3KeyName) return value_s3KeyName;
+        throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingExportingConfigS3Exporting.s3KeyName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -17,11 +18,12 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
      * See the `default_value_list` argument reference below.
      * 
      */
-    private UndeferrableValue<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs>> defaultValueLists;
-
+    @PolicyResourceProperty(name="defaultValueLists", flag="unknown_defaultValueLists")
+    private List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs> value_defaultValueLists;
+    private boolean unknown_defaultValueLists;
     public List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs> defaultValueLists() {
-        if (defaultValueLists == null) return null;
-        return defaultValueLists.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs.defaultValueLists");
+        if (!unknown_defaultValueLists) return value_defaultValueLists;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs.defaultValueLists' is not present");
     }
 
 }

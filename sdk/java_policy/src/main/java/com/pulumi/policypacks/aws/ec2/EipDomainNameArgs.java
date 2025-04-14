@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.inputs.EipDomainNameTimeoutsArgs;
 import java.lang.String;
@@ -17,29 +18,32 @@ public final class EipDomainNameArgs extends com.pulumi.resources.PolicyResource
      * The allocation ID.
      * 
      */
-    private UndeferrableValue<String> allocationId;
-
+    @PolicyResourceProperty(name="allocationId", flag="unknown_allocationId")
+    private String value_allocationId;
+    private boolean unknown_allocationId;
     public String allocationId() {
-        if (allocationId == null) return null;
-        return allocationId.getValue("EipDomainNameArgs.allocationId");
+        if (!unknown_allocationId) return value_allocationId;
+        throw new UndeferrableValueException("Value 'EipDomainNameArgs.allocationId' is not present");
     }
 
     /**
      * The domain name to modify for the IP address.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("EipDomainNameArgs.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'EipDomainNameArgs.domainName' is not present");
     }
 
-    private UndeferrableValue<EipDomainNameTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private EipDomainNameTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public EipDomainNameTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("EipDomainNameArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'EipDomainNameArgs.timeouts' is not present");
     }
 
 }

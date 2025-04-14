@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class TopicRuleErrorActionKinesis {
      * The partition key.
      * 
      */
-    private @Nullable UndeferrableValue<String> partitionKey;
-
+    @PolicyResourceProperty(name="partitionKey", flag="unknown_partitionKey")
+    private @Nullable String value_partitionKey;
+    private boolean unknown_partitionKey;
     public @Nullable String partitionKey() {
-        if (partitionKey == null) return null;
-        return partitionKey.getValue("TopicRuleErrorActionKinesis.partitionKey");
+        if (!unknown_partitionKey) return value_partitionKey;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionKinesis.partitionKey' is not present");
     }
 
     /**
      * The ARN of the IAM role that grants access to the Amazon Kinesis stream.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("TopicRuleErrorActionKinesis.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionKinesis.roleArn' is not present");
     }
 
     /**
      * The name of the Amazon Kinesis stream.
      * 
      */
-    private UndeferrableValue<String> streamName;
-
+    @PolicyResourceProperty(name="streamName", flag="unknown_streamName")
+    private String value_streamName;
+    private boolean unknown_streamName;
     public String streamName() {
-        if (streamName == null) return null;
-        return streamName.getValue("TopicRuleErrorActionKinesis.streamName");
+        if (!unknown_streamName) return value_streamName;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionKinesis.streamName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -18,22 +19,24 @@ public final class SourceCredentialArgs extends com.pulumi.resources.PolicyResou
      * `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
      * 
      */
-    private UndeferrableValue<String> authType;
-
+    @PolicyResourceProperty(name="authType", flag="unknown_authType")
+    private String value_authType;
+    private boolean unknown_authType;
     public String authType() {
-        if (authType == null) return null;
-        return authType.getValue("SourceCredentialArgs.authType");
+        if (!unknown_authType) return value_authType;
+        throw new UndeferrableValueException("Value 'SourceCredentialArgs.authType' is not present");
     }
 
     /**
      * The source provider used for this project.
      * 
      */
-    private UndeferrableValue<String> serverType;
-
+    @PolicyResourceProperty(name="serverType", flag="unknown_serverType")
+    private String value_serverType;
+    private boolean unknown_serverType;
     public String serverType() {
-        if (serverType == null) return null;
-        return serverType.getValue("SourceCredentialArgs.serverType");
+        if (!unknown_serverType) return value_serverType;
+        throw new UndeferrableValueException("Value 'SourceCredentialArgs.serverType' is not present");
     }
 
     /**
@@ -42,11 +45,12 @@ public final class SourceCredentialArgs extends com.pulumi.resources.PolicyResou
      * Connection ARN.
      * 
      */
-    private UndeferrableValue<String> token;
-
+    @PolicyResourceProperty(name="token", flag="unknown_token")
+    private String value_token;
+    private boolean unknown_token;
     public String token() {
-        if (token == null) return null;
-        return token.getValue("SourceCredentialArgs.token");
+        if (!unknown_token) return value_token;
+        throw new UndeferrableValueException("Value 'SourceCredentialArgs.token' is not present");
     }
 
     /**
@@ -54,11 +58,12 @@ public final class SourceCredentialArgs extends com.pulumi.resources.PolicyResou
      * other types of source providers or connections.
      * 
      */
-    private UndeferrableValue<String> userName;
-
+    @PolicyResourceProperty(name="userName", flag="unknown_userName")
+    private String value_userName;
+    private boolean unknown_userName;
     public String userName() {
-        if (userName == null) return null;
-        return userName.getValue("SourceCredentialArgs.userName");
+        if (!unknown_userName) return value_userName;
+        throw new UndeferrableValueException("Value 'SourceCredentialArgs.userName' is not present");
     }
 
 }

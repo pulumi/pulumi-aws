@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.outputs.TemplateSourceEntitySourceAnalysis;
 import com.pulumi.policypacks.aws.quicksight.outputs.TemplateSourceEntitySourceTemplate;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class TemplateSourceEntity {
      * The source analysis, if it is based on an analysis.. Only one of `source_analysis` or `source_template` should be configured. See source_analysis.
      * 
      */
-    private @Nullable UndeferrableValue<TemplateSourceEntitySourceAnalysis> sourceAnalysis;
-
+    @PolicyResourceProperty(name="sourceAnalysis", flag="unknown_sourceAnalysis")
+    private @Nullable TemplateSourceEntitySourceAnalysis value_sourceAnalysis;
+    private boolean unknown_sourceAnalysis;
     public @Nullable TemplateSourceEntitySourceAnalysis sourceAnalysis() {
-        if (sourceAnalysis == null) return null;
-        return sourceAnalysis.getValue("TemplateSourceEntity.sourceAnalysis");
+        if (!unknown_sourceAnalysis) return value_sourceAnalysis;
+        throw new UndeferrableValueException("Value 'TemplateSourceEntity.sourceAnalysis' is not present");
     }
 
     /**
      * The source template, if it is based on an template.. Only one of `source_analysis` or `source_template` should be configured. See source_template.
      * 
      */
-    private @Nullable UndeferrableValue<TemplateSourceEntitySourceTemplate> sourceTemplate;
-
+    @PolicyResourceProperty(name="sourceTemplate", flag="unknown_sourceTemplate")
+    private @Nullable TemplateSourceEntitySourceTemplate value_sourceTemplate;
+    private boolean unknown_sourceTemplate;
     public @Nullable TemplateSourceEntitySourceTemplate sourceTemplate() {
-        if (sourceTemplate == null) return null;
-        return sourceTemplate.getValue("TemplateSourceEntity.sourceTemplate");
+        if (!unknown_sourceTemplate) return value_sourceTemplate;
+        throw new UndeferrableValueException("Value 'TemplateSourceEntity.sourceTemplate' is not present");
     }
 
 }

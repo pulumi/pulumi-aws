@@ -3,18 +3,20 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings;
 import javax.annotation.Nullable;
 
 
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings {
 
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings> frameCaptureS3Settings;
-
+    @PolicyResourceProperty(name="frameCaptureS3Settings", flag="unknown_frameCaptureS3Settings")
+    private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings value_frameCaptureS3Settings;
+    private boolean unknown_frameCaptureS3Settings;
     public @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings frameCaptureS3Settings() {
-        if (frameCaptureS3Settings == null) return null;
-        return frameCaptureS3Settings.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings.frameCaptureS3Settings");
+        if (!unknown_frameCaptureS3Settings) return value_frameCaptureS3Settings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings.frameCaptureS3Settings' is not present");
     }
 
 }

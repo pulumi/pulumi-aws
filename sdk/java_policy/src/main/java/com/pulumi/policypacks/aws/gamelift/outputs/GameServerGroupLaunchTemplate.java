@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.gamelift.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class GameServerGroupLaunchTemplate {
      * A unique identifier for an existing EC2 launch template.
      * 
      */
-    private @Nullable UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private @Nullable String value_id;
+    private boolean unknown_id;
     public @Nullable String id() {
-        if (id == null) return null;
-        return id.getValue("GameServerGroupLaunchTemplate.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'GameServerGroupLaunchTemplate.id' is not present");
     }
 
     /**
      * A readable identifier for an existing EC2 launch template.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("GameServerGroupLaunchTemplate.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'GameServerGroupLaunchTemplate.name' is not present");
     }
 
     /**
      * The version of the EC2 launch template to use. If none is set, the default is the first version created.
      * 
      */
-    private @Nullable UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private @Nullable String value_version;
+    private boolean unknown_version;
     public @Nullable String version() {
-        if (version == null) return null;
-        return version.getValue("GameServerGroupLaunchTemplate.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'GameServerGroupLaunchTemplate.version' is not present");
     }
 
 }

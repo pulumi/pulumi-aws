@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix {
      * Specifies the partition date source for the partitioned prefix. Valid values: `EventTime`, `DeliveryTime`.
      * 
      */
-    private UndeferrableValue<String> partitionDateSource;
-
+    @PolicyResourceProperty(name="partitionDateSource", flag="unknown_partitionDateSource")
+    private String value_partitionDateSource;
+    private boolean unknown_partitionDateSource;
     public String partitionDateSource() {
-        if (partitionDateSource == null) return null;
-        return partitionDateSource.getValue("BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix.partitionDateSource");
+        if (!unknown_partitionDateSource) return value_partitionDateSource;
+        throw new UndeferrableValueException("Value 'BucketLoggingV2TargetObjectKeyFormatPartitionedPrefix.partitionDateSource' is not present");
     }
 
 }

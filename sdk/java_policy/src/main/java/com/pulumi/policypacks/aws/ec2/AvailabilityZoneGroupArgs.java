@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class AvailabilityZoneGroupArgs extends com.pulumi.resources.Policy
      * Name of the Availability Zone Group.
      * 
      */
-    private UndeferrableValue<String> groupName;
-
+    @PolicyResourceProperty(name="groupName", flag="unknown_groupName")
+    private String value_groupName;
+    private boolean unknown_groupName;
     public String groupName() {
-        if (groupName == null) return null;
-        return groupName.getValue("AvailabilityZoneGroupArgs.groupName");
+        if (!unknown_groupName) return value_groupName;
+        throw new UndeferrableValueException("Value 'AvailabilityZoneGroupArgs.groupName' is not present");
     }
 
     /**
      * Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
      * 
      */
-    private UndeferrableValue<String> optInStatus;
-
+    @PolicyResourceProperty(name="optInStatus", flag="unknown_optInStatus")
+    private String value_optInStatus;
+    private boolean unknown_optInStatus;
     public String optInStatus() {
-        if (optInStatus == null) return null;
-        return optInStatus.getValue("AvailabilityZoneGroupArgs.optInStatus");
+        if (!unknown_optInStatus) return value_optInStatus;
+        throw new UndeferrableValueException("Value 'AvailabilityZoneGroupArgs.optInStatus' is not present");
     }
 
 }

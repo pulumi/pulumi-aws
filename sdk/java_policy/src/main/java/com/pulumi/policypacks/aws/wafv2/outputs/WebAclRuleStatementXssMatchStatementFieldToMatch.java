@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementXssMatchStatementFieldToMatchBody;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementXssMatchStatementFieldToMatchCookies;
@@ -27,143 +28,156 @@ public final class WebAclRuleStatementXssMatchStatementFieldToMatch {
      * Inspect all query arguments.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments> allQueryArguments;
-
+    @PolicyResourceProperty(name="allQueryArguments", flag="unknown_allQueryArguments")
+    private @Nullable WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments value_allQueryArguments;
+    private boolean unknown_allQueryArguments;
     public @Nullable WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments allQueryArguments() {
-        if (allQueryArguments == null) return null;
-        return allQueryArguments.getValue("WebAclRuleStatementXssMatchStatementFieldToMatch.allQueryArguments");
+        if (!unknown_allQueryArguments) return value_allQueryArguments;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementXssMatchStatementFieldToMatch.allQueryArguments' is not present");
     }
 
     /**
      * Inspect the request body, which immediately follows the request headers. See `body` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementXssMatchStatementFieldToMatchBody> body;
-
+    @PolicyResourceProperty(name="body", flag="unknown_body")
+    private @Nullable WebAclRuleStatementXssMatchStatementFieldToMatchBody value_body;
+    private boolean unknown_body;
     public @Nullable WebAclRuleStatementXssMatchStatementFieldToMatchBody body() {
-        if (body == null) return null;
-        return body.getValue("WebAclRuleStatementXssMatchStatementFieldToMatch.body");
+        if (!unknown_body) return value_body;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementXssMatchStatementFieldToMatch.body' is not present");
     }
 
     /**
      * Inspect the cookies in the web request. See `cookies` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementXssMatchStatementFieldToMatchCookies> cookies;
-
+    @PolicyResourceProperty(name="cookies", flag="unknown_cookies")
+    private @Nullable WebAclRuleStatementXssMatchStatementFieldToMatchCookies value_cookies;
+    private boolean unknown_cookies;
     public @Nullable WebAclRuleStatementXssMatchStatementFieldToMatchCookies cookies() {
-        if (cookies == null) return null;
-        return cookies.getValue("WebAclRuleStatementXssMatchStatementFieldToMatch.cookies");
+        if (!unknown_cookies) return value_cookies;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementXssMatchStatementFieldToMatch.cookies' is not present");
     }
 
     /**
      * Inspect a string containing the list of the request&#39;s header names, ordered as they appear in the web request that AWS WAF receives for inspection. See `header_order` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder>> headerOrders;
-
+    @PolicyResourceProperty(name="headerOrders", flag="unknown_headerOrders")
+    private @Nullable List<WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder> value_headerOrders;
+    private boolean unknown_headerOrders;
     public @Nullable List<WebAclRuleStatementXssMatchStatementFieldToMatchHeaderOrder> headerOrders() {
-        if (headerOrders == null) return null;
-        return headerOrders.getValue("WebAclRuleStatementXssMatchStatementFieldToMatch.headerOrders");
+        if (!unknown_headerOrders) return value_headerOrders;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementXssMatchStatementFieldToMatch.headerOrders' is not present");
     }
 
     /**
      * Inspect the request headers. See `headers` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<WebAclRuleStatementXssMatchStatementFieldToMatchHeader>> headers;
-
+    @PolicyResourceProperty(name="headers", flag="unknown_headers")
+    private @Nullable List<WebAclRuleStatementXssMatchStatementFieldToMatchHeader> value_headers;
+    private boolean unknown_headers;
     public @Nullable List<WebAclRuleStatementXssMatchStatementFieldToMatchHeader> headers() {
-        if (headers == null) return null;
-        return headers.getValue("WebAclRuleStatementXssMatchStatementFieldToMatch.headers");
+        if (!unknown_headers) return value_headers;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementXssMatchStatementFieldToMatch.headers' is not present");
     }
 
     /**
      * Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint> ja3Fingerprint;
-
+    @PolicyResourceProperty(name="ja3Fingerprint", flag="unknown_ja3Fingerprint")
+    private @Nullable WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint value_ja3Fingerprint;
+    private boolean unknown_ja3Fingerprint;
     public @Nullable WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint ja3Fingerprint() {
-        if (ja3Fingerprint == null) return null;
-        return ja3Fingerprint.getValue("WebAclRuleStatementXssMatchStatementFieldToMatch.ja3Fingerprint");
+        if (!unknown_ja3Fingerprint) return value_ja3Fingerprint;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementXssMatchStatementFieldToMatch.ja3Fingerprint' is not present");
     }
 
     /**
      * Inspect the JA3 fingerprint. See `ja4_fingerprint` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint> ja4Fingerprint;
-
+    @PolicyResourceProperty(name="ja4Fingerprint", flag="unknown_ja4Fingerprint")
+    private @Nullable WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint value_ja4Fingerprint;
+    private boolean unknown_ja4Fingerprint;
     public @Nullable WebAclRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint ja4Fingerprint() {
-        if (ja4Fingerprint == null) return null;
-        return ja4Fingerprint.getValue("WebAclRuleStatementXssMatchStatementFieldToMatch.ja4Fingerprint");
+        if (!unknown_ja4Fingerprint) return value_ja4Fingerprint;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementXssMatchStatementFieldToMatch.ja4Fingerprint' is not present");
     }
 
     /**
      * Inspect the request body as JSON. See `json_body` for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody> jsonBody;
-
+    @PolicyResourceProperty(name="jsonBody", flag="unknown_jsonBody")
+    private @Nullable WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody value_jsonBody;
+    private boolean unknown_jsonBody;
     public @Nullable WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody jsonBody() {
-        if (jsonBody == null) return null;
-        return jsonBody.getValue("WebAclRuleStatementXssMatchStatementFieldToMatch.jsonBody");
+        if (!unknown_jsonBody) return value_jsonBody;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementXssMatchStatementFieldToMatch.jsonBody' is not present");
     }
 
     /**
      * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementXssMatchStatementFieldToMatchMethod> method;
-
+    @PolicyResourceProperty(name="method", flag="unknown_method")
+    private @Nullable WebAclRuleStatementXssMatchStatementFieldToMatchMethod value_method;
+    private boolean unknown_method;
     public @Nullable WebAclRuleStatementXssMatchStatementFieldToMatchMethod method() {
-        if (method == null) return null;
-        return method.getValue("WebAclRuleStatementXssMatchStatementFieldToMatch.method");
+        if (!unknown_method) return value_method;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementXssMatchStatementFieldToMatch.method' is not present");
     }
 
     /**
      * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementXssMatchStatementFieldToMatchQueryString> queryString;
-
+    @PolicyResourceProperty(name="queryString", flag="unknown_queryString")
+    private @Nullable WebAclRuleStatementXssMatchStatementFieldToMatchQueryString value_queryString;
+    private boolean unknown_queryString;
     public @Nullable WebAclRuleStatementXssMatchStatementFieldToMatchQueryString queryString() {
-        if (queryString == null) return null;
-        return queryString.getValue("WebAclRuleStatementXssMatchStatementFieldToMatch.queryString");
+        if (!unknown_queryString) return value_queryString;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementXssMatchStatementFieldToMatch.queryString' is not present");
     }
 
     /**
      * Inspect a single header. See `single_header` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader> singleHeader;
-
+    @PolicyResourceProperty(name="singleHeader", flag="unknown_singleHeader")
+    private @Nullable WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader value_singleHeader;
+    private boolean unknown_singleHeader;
     public @Nullable WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader singleHeader() {
-        if (singleHeader == null) return null;
-        return singleHeader.getValue("WebAclRuleStatementXssMatchStatementFieldToMatch.singleHeader");
+        if (!unknown_singleHeader) return value_singleHeader;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementXssMatchStatementFieldToMatch.singleHeader' is not present");
     }
 
     /**
      * Inspect a single query argument. See `single_query_argument` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument> singleQueryArgument;
-
+    @PolicyResourceProperty(name="singleQueryArgument", flag="unknown_singleQueryArgument")
+    private @Nullable WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument value_singleQueryArgument;
+    private boolean unknown_singleQueryArgument;
     public @Nullable WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument singleQueryArgument() {
-        if (singleQueryArgument == null) return null;
-        return singleQueryArgument.getValue("WebAclRuleStatementXssMatchStatementFieldToMatch.singleQueryArgument");
+        if (!unknown_singleQueryArgument) return value_singleQueryArgument;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementXssMatchStatementFieldToMatch.singleQueryArgument' is not present");
     }
 
     /**
      * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementXssMatchStatementFieldToMatchUriPath> uriPath;
-
+    @PolicyResourceProperty(name="uriPath", flag="unknown_uriPath")
+    private @Nullable WebAclRuleStatementXssMatchStatementFieldToMatchUriPath value_uriPath;
+    private boolean unknown_uriPath;
     public @Nullable WebAclRuleStatementXssMatchStatementFieldToMatchUriPath uriPath() {
-        if (uriPath == null) return null;
-        return uriPath.getValue("WebAclRuleStatementXssMatchStatementFieldToMatch.uriPath");
+        if (!unknown_uriPath) return value_uriPath;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementXssMatchStatementFieldToMatch.uriPath' is not present");
     }
 
 }

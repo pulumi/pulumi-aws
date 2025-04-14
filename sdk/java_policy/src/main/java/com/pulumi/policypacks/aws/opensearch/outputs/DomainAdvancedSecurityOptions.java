@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.opensearch.outputs.DomainAdvancedSecurityOptionsMasterUserOptions;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class DomainAdvancedSecurityOptions {
      * Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> anonymousAuthEnabled;
-
+    @PolicyResourceProperty(name="anonymousAuthEnabled", flag="unknown_anonymousAuthEnabled")
+    private @Nullable Boolean value_anonymousAuthEnabled;
+    private boolean unknown_anonymousAuthEnabled;
     public @Nullable Boolean anonymousAuthEnabled() {
-        if (anonymousAuthEnabled == null) return null;
-        return anonymousAuthEnabled.getValue("DomainAdvancedSecurityOptions.anonymousAuthEnabled");
+        if (!unknown_anonymousAuthEnabled) return value_anonymousAuthEnabled;
+        throw new UndeferrableValueException("Value 'DomainAdvancedSecurityOptions.anonymousAuthEnabled' is not present");
     }
 
     /**
      * Whether advanced security is enabled.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("DomainAdvancedSecurityOptions.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'DomainAdvancedSecurityOptions.enabled' is not present");
     }
 
     /**
      * Whether the internal user database is enabled. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> internalUserDatabaseEnabled;
-
+    @PolicyResourceProperty(name="internalUserDatabaseEnabled", flag="unknown_internalUserDatabaseEnabled")
+    private @Nullable Boolean value_internalUserDatabaseEnabled;
+    private boolean unknown_internalUserDatabaseEnabled;
     public @Nullable Boolean internalUserDatabaseEnabled() {
-        if (internalUserDatabaseEnabled == null) return null;
-        return internalUserDatabaseEnabled.getValue("DomainAdvancedSecurityOptions.internalUserDatabaseEnabled");
+        if (!unknown_internalUserDatabaseEnabled) return value_internalUserDatabaseEnabled;
+        throw new UndeferrableValueException("Value 'DomainAdvancedSecurityOptions.internalUserDatabaseEnabled' is not present");
     }
 
     /**
      * Configuration block for the main user. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<DomainAdvancedSecurityOptionsMasterUserOptions> masterUserOptions;
-
+    @PolicyResourceProperty(name="masterUserOptions", flag="unknown_masterUserOptions")
+    private @Nullable DomainAdvancedSecurityOptionsMasterUserOptions value_masterUserOptions;
+    private boolean unknown_masterUserOptions;
     public @Nullable DomainAdvancedSecurityOptionsMasterUserOptions masterUserOptions() {
-        if (masterUserOptions == null) return null;
-        return masterUserOptions.getValue("DomainAdvancedSecurityOptions.masterUserOptions");
+        if (!unknown_masterUserOptions) return value_masterUserOptions;
+        throw new UndeferrableValueException("Value 'DomainAdvancedSecurityOptions.masterUserOptions' is not present");
     }
 
 }

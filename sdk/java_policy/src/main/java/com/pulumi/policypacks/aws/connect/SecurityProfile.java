@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,77 +19,84 @@ public final class SecurityProfile extends com.pulumi.resources.PolicyResourceOu
      * The Amazon Resource Name (ARN) of the Security Profile.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("SecurityProfile.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'SecurityProfile.arn' is not present");
     }
 
     /**
      * Specifies the description of the Security Profile.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("SecurityProfile.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'SecurityProfile.description' is not present");
     }
 
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    private UndeferrableValue<String> instanceId;
-
+    @PolicyResourceProperty(name="instanceId", flag="unknown_instanceId")
+    private String value_instanceId;
+    private boolean unknown_instanceId;
     public String instanceId() {
-        if (instanceId == null) return null;
-        return instanceId.getValue("SecurityProfile.instanceId");
+        if (!unknown_instanceId) return value_instanceId;
+        throw new UndeferrableValueException("Value 'SecurityProfile.instanceId' is not present");
     }
 
     /**
      * Specifies the name of the Security Profile.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("SecurityProfile.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'SecurityProfile.name' is not present");
     }
 
     /**
      * The organization resource identifier for the security profile.
      * 
      */
-    private UndeferrableValue<String> organizationResourceId;
-
+    @PolicyResourceProperty(name="organizationResourceId", flag="unknown_organizationResourceId")
+    private String value_organizationResourceId;
+    private boolean unknown_organizationResourceId;
     public String organizationResourceId() {
-        if (organizationResourceId == null) return null;
-        return organizationResourceId.getValue("SecurityProfile.organizationResourceId");
+        if (!unknown_organizationResourceId) return value_organizationResourceId;
+        throw new UndeferrableValueException("Value 'SecurityProfile.organizationResourceId' is not present");
     }
 
     /**
      * Specifies a list of permissions assigned to the security profile.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> permissions;
-
+    @PolicyResourceProperty(name="permissions", flag="unknown_permissions")
+    private @Nullable List<String> value_permissions;
+    private boolean unknown_permissions;
     public @Nullable List<String> permissions() {
-        if (permissions == null) return null;
-        return permissions.getValue("SecurityProfile.permissions");
+        if (!unknown_permissions) return value_permissions;
+        throw new UndeferrableValueException("Value 'SecurityProfile.permissions' is not present");
     }
 
     /**
      * The identifier for the Security Profile.
      * 
      */
-    private UndeferrableValue<String> securityProfileId;
-
+    @PolicyResourceProperty(name="securityProfileId", flag="unknown_securityProfileId")
+    private String value_securityProfileId;
+    private boolean unknown_securityProfileId;
     public String securityProfileId() {
-        if (securityProfileId == null) return null;
-        return securityProfileId.getValue("SecurityProfile.securityProfileId");
+        if (!unknown_securityProfileId) return value_securityProfileId;
+        throw new UndeferrableValueException("Value 'SecurityProfile.securityProfileId' is not present");
     }
 
     /**
@@ -96,11 +104,12 @@ public final class SecurityProfile extends com.pulumi.resources.PolicyResourceOu
      * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SecurityProfile.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SecurityProfile.tags' is not present");
     }
 
     /**
@@ -111,11 +120,12 @@ public final class SecurityProfile extends com.pulumi.resources.PolicyResourceOu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("SecurityProfile.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'SecurityProfile.tagsAll' is not present");
     }
 
 }

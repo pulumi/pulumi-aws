@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class EventSourceMappingScalingConfig {
      * Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be greater than or equal to `2`. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency). You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase the concurrency beyond 1000.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maximumConcurrency;
-
+    @PolicyResourceProperty(name="maximumConcurrency", flag="unknown_maximumConcurrency")
+    private @Nullable Integer value_maximumConcurrency;
+    private boolean unknown_maximumConcurrency;
     public @Nullable Integer maximumConcurrency() {
-        if (maximumConcurrency == null) return null;
-        return maximumConcurrency.getValue("EventSourceMappingScalingConfig.maximumConcurrency");
+        if (!unknown_maximumConcurrency) return value_maximumConcurrency;
+        throw new UndeferrableValueException("Value 'EventSourceMappingScalingConfig.maximumConcurrency' is not present");
     }
 
 }

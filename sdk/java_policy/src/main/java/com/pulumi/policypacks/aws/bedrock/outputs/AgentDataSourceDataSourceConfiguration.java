@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentDataSourceDataSourceConfigurationConfluenceConfiguration;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentDataSourceDataSourceConfigurationS3Configuration;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentDataSourceDataSourceConfigurationSalesforceConfiguration;
@@ -19,66 +20,72 @@ public final class AgentDataSourceDataSourceConfiguration {
      * Details about the configuration of the Confluence data source. See `confluence_data_source_configuration` block for details.
      * 
      */
-    private @Nullable UndeferrableValue<AgentDataSourceDataSourceConfigurationConfluenceConfiguration> confluenceConfiguration;
-
+    @PolicyResourceProperty(name="confluenceConfiguration", flag="unknown_confluenceConfiguration")
+    private @Nullable AgentDataSourceDataSourceConfigurationConfluenceConfiguration value_confluenceConfiguration;
+    private boolean unknown_confluenceConfiguration;
     public @Nullable AgentDataSourceDataSourceConfigurationConfluenceConfiguration confluenceConfiguration() {
-        if (confluenceConfiguration == null) return null;
-        return confluenceConfiguration.getValue("AgentDataSourceDataSourceConfiguration.confluenceConfiguration");
+        if (!unknown_confluenceConfiguration) return value_confluenceConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfiguration.confluenceConfiguration' is not present");
     }
 
     /**
      * Details about the configuration of the S3 object containing the data source. See `s3_data_source_configuration` block for details.
      * 
      */
-    private @Nullable UndeferrableValue<AgentDataSourceDataSourceConfigurationS3Configuration> s3Configuration;
-
+    @PolicyResourceProperty(name="s3Configuration", flag="unknown_s3Configuration")
+    private @Nullable AgentDataSourceDataSourceConfigurationS3Configuration value_s3Configuration;
+    private boolean unknown_s3Configuration;
     public @Nullable AgentDataSourceDataSourceConfigurationS3Configuration s3Configuration() {
-        if (s3Configuration == null) return null;
-        return s3Configuration.getValue("AgentDataSourceDataSourceConfiguration.s3Configuration");
+        if (!unknown_s3Configuration) return value_s3Configuration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfiguration.s3Configuration' is not present");
     }
 
     /**
      * Details about the configuration of the Salesforce data source. See `salesforce_data_source_configuration` block for details.
      * 
      */
-    private @Nullable UndeferrableValue<AgentDataSourceDataSourceConfigurationSalesforceConfiguration> salesforceConfiguration;
-
+    @PolicyResourceProperty(name="salesforceConfiguration", flag="unknown_salesforceConfiguration")
+    private @Nullable AgentDataSourceDataSourceConfigurationSalesforceConfiguration value_salesforceConfiguration;
+    private boolean unknown_salesforceConfiguration;
     public @Nullable AgentDataSourceDataSourceConfigurationSalesforceConfiguration salesforceConfiguration() {
-        if (salesforceConfiguration == null) return null;
-        return salesforceConfiguration.getValue("AgentDataSourceDataSourceConfiguration.salesforceConfiguration");
+        if (!unknown_salesforceConfiguration) return value_salesforceConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfiguration.salesforceConfiguration' is not present");
     }
 
     /**
      * Details about the configuration of the SharePoint data source. See `share_point_data_source_configuration` block for details.
      * 
      */
-    private @Nullable UndeferrableValue<AgentDataSourceDataSourceConfigurationSharePointConfiguration> sharePointConfiguration;
-
+    @PolicyResourceProperty(name="sharePointConfiguration", flag="unknown_sharePointConfiguration")
+    private @Nullable AgentDataSourceDataSourceConfigurationSharePointConfiguration value_sharePointConfiguration;
+    private boolean unknown_sharePointConfiguration;
     public @Nullable AgentDataSourceDataSourceConfigurationSharePointConfiguration sharePointConfiguration() {
-        if (sharePointConfiguration == null) return null;
-        return sharePointConfiguration.getValue("AgentDataSourceDataSourceConfiguration.sharePointConfiguration");
+        if (!unknown_sharePointConfiguration) return value_sharePointConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfiguration.sharePointConfiguration' is not present");
     }
 
     /**
      * Type of storage for the data source. Valid values: `S3`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("AgentDataSourceDataSourceConfiguration.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfiguration.type' is not present");
     }
 
     /**
      * Details about the configuration of the web data source. See `web_data_source_configuration` block for details.
      * 
      */
-    private @Nullable UndeferrableValue<AgentDataSourceDataSourceConfigurationWebConfiguration> webConfiguration;
-
+    @PolicyResourceProperty(name="webConfiguration", flag="unknown_webConfiguration")
+    private @Nullable AgentDataSourceDataSourceConfigurationWebConfiguration value_webConfiguration;
+    private boolean unknown_webConfiguration;
     public @Nullable AgentDataSourceDataSourceConfigurationWebConfiguration webConfiguration() {
-        if (webConfiguration == null) return null;
-        return webConfiguration.getValue("AgentDataSourceDataSourceConfiguration.webConfiguration");
+        if (!unknown_webConfiguration) return value_webConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfiguration.webConfiguration' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class GroupInstanceRefreshPreferencesAlarmSpecificationArgs {
      * List of Cloudwatch alarms. If any of these alarms goes into ALARM state, Instance Refresh is failed.
      * 
      */
-    private UndeferrableValue<List<String>> alarms;
-
+    @PolicyResourceProperty(name="alarms", flag="unknown_alarms")
+    private List<String> value_alarms;
+    private boolean unknown_alarms;
     public List<String> alarms() {
-        if (alarms == null) return null;
-        return alarms.getValue("GroupInstanceRefreshPreferencesAlarmSpecificationArgs.alarms");
+        if (!unknown_alarms) return value_alarms;
+        throw new UndeferrableValueException("Value 'GroupInstanceRefreshPreferencesAlarmSpecificationArgs.alarms' is not present");
     }
 
 }

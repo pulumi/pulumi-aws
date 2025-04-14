@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.keyspaces.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class TableCapacitySpecificationArgs {
      * The throughput capacity specified for read operations defined in read capacity units (RCUs).
      * 
      */
-    private UndeferrableValue<Integer> readCapacityUnits;
-
+    @PolicyResourceProperty(name="readCapacityUnits", flag="unknown_readCapacityUnits")
+    private Integer value_readCapacityUnits;
+    private boolean unknown_readCapacityUnits;
     public Integer readCapacityUnits() {
-        if (readCapacityUnits == null) return null;
-        return readCapacityUnits.getValue("TableCapacitySpecificationArgs.readCapacityUnits");
+        if (!unknown_readCapacityUnits) return value_readCapacityUnits;
+        throw new UndeferrableValueException("Value 'TableCapacitySpecificationArgs.readCapacityUnits' is not present");
     }
 
     /**
      * The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
      * 
      */
-    private UndeferrableValue<String> throughputMode;
-
+    @PolicyResourceProperty(name="throughputMode", flag="unknown_throughputMode")
+    private String value_throughputMode;
+    private boolean unknown_throughputMode;
     public String throughputMode() {
-        if (throughputMode == null) return null;
-        return throughputMode.getValue("TableCapacitySpecificationArgs.throughputMode");
+        if (!unknown_throughputMode) return value_throughputMode;
+        throw new UndeferrableValueException("Value 'TableCapacitySpecificationArgs.throughputMode' is not present");
     }
 
     /**
      * The throughput capacity specified for write operations defined in write capacity units (WCUs).
      * 
      */
-    private UndeferrableValue<Integer> writeCapacityUnits;
-
+    @PolicyResourceProperty(name="writeCapacityUnits", flag="unknown_writeCapacityUnits")
+    private Integer value_writeCapacityUnits;
+    private boolean unknown_writeCapacityUnits;
     public Integer writeCapacityUnits() {
-        if (writeCapacityUnits == null) return null;
-        return writeCapacityUnits.getValue("TableCapacitySpecificationArgs.writeCapacityUnits");
+        if (!unknown_writeCapacityUnits) return value_writeCapacityUnits;
+        throw new UndeferrableValueException("Value 'TableCapacitySpecificationArgs.writeCapacityUnits' is not present");
     }
 
 }

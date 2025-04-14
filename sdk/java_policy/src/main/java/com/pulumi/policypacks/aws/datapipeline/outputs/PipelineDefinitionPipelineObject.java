@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datapipeline.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.datapipeline.outputs.PipelineDefinitionPipelineObjectField;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class PipelineDefinitionPipelineObject {
      * Configuration block for Key-value pairs that define the properties of the object. See below
      * 
      */
-    private @Nullable UndeferrableValue<List<PipelineDefinitionPipelineObjectField>> fields;
-
+    @PolicyResourceProperty(name="fields", flag="unknown_fields")
+    private @Nullable List<PipelineDefinitionPipelineObjectField> value_fields;
+    private boolean unknown_fields;
     public @Nullable List<PipelineDefinitionPipelineObjectField> fields() {
-        if (fields == null) return null;
-        return fields.getValue("PipelineDefinitionPipelineObject.fields");
+        if (!unknown_fields) return value_fields;
+        throw new UndeferrableValueException("Value 'PipelineDefinitionPipelineObject.fields' is not present");
     }
 
     /**
      * ID of the object.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("PipelineDefinitionPipelineObject.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'PipelineDefinitionPipelineObject.id' is not present");
     }
 
     /**
      * ARN of the storage connector.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PipelineDefinitionPipelineObject.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PipelineDefinitionPipelineObject.name' is not present");
     }
 
 }

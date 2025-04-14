@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2transitgateway.inputs.InstanceConnectEndpointTimeoutsArgs;
 import java.lang.Boolean;
@@ -20,51 +21,56 @@ public final class InstanceConnectEndpointArgs extends com.pulumi.resources.Poli
      * Indicates whether your client&#39;s IP address is preserved as the source. Default: `true`.
      * 
      */
-    private UndeferrableValue<Boolean> preserveClientIp;
-
+    @PolicyResourceProperty(name="preserveClientIp", flag="unknown_preserveClientIp")
+    private Boolean value_preserveClientIp;
+    private boolean unknown_preserveClientIp;
     public Boolean preserveClientIp() {
-        if (preserveClientIp == null) return null;
-        return preserveClientIp.getValue("InstanceConnectEndpointArgs.preserveClientIp");
+        if (!unknown_preserveClientIp) return value_preserveClientIp;
+        throw new UndeferrableValueException("Value 'InstanceConnectEndpointArgs.preserveClientIp' is not present");
     }
 
     /**
      * One or more security groups to associate with the endpoint. If you don&#39;t specify a security group, the default security group for the VPC will be associated with the endpoint.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("InstanceConnectEndpointArgs.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'InstanceConnectEndpointArgs.securityGroupIds' is not present");
     }
 
     /**
      * The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("InstanceConnectEndpointArgs.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'InstanceConnectEndpointArgs.subnetId' is not present");
     }
 
     /**
      * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("InstanceConnectEndpointArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'InstanceConnectEndpointArgs.tags' is not present");
     }
 
-    private UndeferrableValue<InstanceConnectEndpointTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private InstanceConnectEndpointTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public InstanceConnectEndpointTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("InstanceConnectEndpointArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'InstanceConnectEndpointArgs.timeouts' is not present");
     }
 
 }

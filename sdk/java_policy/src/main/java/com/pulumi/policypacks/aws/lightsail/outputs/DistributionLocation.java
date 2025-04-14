@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class DistributionLocation {
      * The Availability Zone. Follows the format us-east-2a (case-sensitive).
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("DistributionLocation.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'DistributionLocation.availabilityZone' is not present");
     }
 
     /**
      * The AWS Region name.
      * 
      */
-    private UndeferrableValue<String> regionName;
-
+    @PolicyResourceProperty(name="regionName", flag="unknown_regionName")
+    private String value_regionName;
+    private boolean unknown_regionName;
     public String regionName() {
-        if (regionName == null) return null;
-        return regionName.getValue("DistributionLocation.regionName");
+        if (!unknown_regionName) return value_regionName;
+        throw new UndeferrableValueException("Value 'DistributionLocation.regionName' is not present");
     }
 
 }

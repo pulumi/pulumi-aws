@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,77 +17,84 @@ public final class OriginAccessControl extends com.pulumi.resources.PolicyResour
      * The Origin Access Control ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("OriginAccessControl.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'OriginAccessControl.arn' is not present");
     }
 
     /**
      * The description of the Origin Access Control. Defaults to &#34;Managed by Pulumi&#34; if omitted.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("OriginAccessControl.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'OriginAccessControl.description' is not present");
     }
 
     /**
      * The current version of this Origin Access Control.
      * 
      */
-    private UndeferrableValue<String> etag;
-
+    @PolicyResourceProperty(name="etag", flag="unknown_etag")
+    private String value_etag;
+    private boolean unknown_etag;
     public String etag() {
-        if (etag == null) return null;
-        return etag.getValue("OriginAccessControl.etag");
+        if (!unknown_etag) return value_etag;
+        throw new UndeferrableValueException("Value 'OriginAccessControl.etag' is not present");
     }
 
     /**
      * A name that identifies the Origin Access Control.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("OriginAccessControl.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'OriginAccessControl.name' is not present");
     }
 
     /**
      * The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
      * 
      */
-    private UndeferrableValue<String> originAccessControlOriginType;
-
+    @PolicyResourceProperty(name="originAccessControlOriginType", flag="unknown_originAccessControlOriginType")
+    private String value_originAccessControlOriginType;
+    private boolean unknown_originAccessControlOriginType;
     public String originAccessControlOriginType() {
-        if (originAccessControlOriginType == null) return null;
-        return originAccessControlOriginType.getValue("OriginAccessControl.originAccessControlOriginType");
+        if (!unknown_originAccessControlOriginType) return value_originAccessControlOriginType;
+        throw new UndeferrableValueException("Value 'OriginAccessControl.originAccessControlOriginType' is not present");
     }
 
     /**
      * Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
      * 
      */
-    private UndeferrableValue<String> signingBehavior;
-
+    @PolicyResourceProperty(name="signingBehavior", flag="unknown_signingBehavior")
+    private String value_signingBehavior;
+    private boolean unknown_signingBehavior;
     public String signingBehavior() {
-        if (signingBehavior == null) return null;
-        return signingBehavior.getValue("OriginAccessControl.signingBehavior");
+        if (!unknown_signingBehavior) return value_signingBehavior;
+        throw new UndeferrableValueException("Value 'OriginAccessControl.signingBehavior' is not present");
     }
 
     /**
      * Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
      * 
      */
-    private UndeferrableValue<String> signingProtocol;
-
+    @PolicyResourceProperty(name="signingProtocol", flag="unknown_signingProtocol")
+    private String value_signingProtocol;
+    private boolean unknown_signingProtocol;
     public String signingProtocol() {
-        if (signingProtocol == null) return null;
-        return signingProtocol.getValue("OriginAccessControl.signingProtocol");
+        if (!unknown_signingProtocol) return value_signingProtocol;
+        throw new UndeferrableValueException("Value 'OriginAccessControl.signingProtocol' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dynamodb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.dynamodb.outputs.GlobalTableReplica;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class GlobalTable extends com.pulumi.resources.PolicyResourceOutput
      * The ARN of the DynamoDB Global Table
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("GlobalTable.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'GlobalTable.arn' is not present");
     }
 
     /**
      * The name of the global table. Must match underlying DynamoDB Table names in all regions.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("GlobalTable.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'GlobalTable.name' is not present");
     }
 
     /**
      * Underlying DynamoDB Table. At least 1 replica must be defined. See below.
      * 
      */
-    private UndeferrableValue<List<GlobalTableReplica>> replicas;
-
+    @PolicyResourceProperty(name="replicas", flag="unknown_replicas")
+    private List<GlobalTableReplica> value_replicas;
+    private boolean unknown_replicas;
     public List<GlobalTableReplica> replicas() {
-        if (replicas == null) return null;
-        return replicas.getValue("GlobalTable.replicas");
+        if (!unknown_replicas) return value_replicas;
+        throw new UndeferrableValueException("Value 'GlobalTable.replicas' is not present");
     }
 
 }

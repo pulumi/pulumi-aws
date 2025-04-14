@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.outputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig;
 import com.pulumi.policypacks.aws.appflow.outputs.FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig;
 import java.lang.String;
@@ -12,33 +13,36 @@ import javax.annotation.Nullable;
 
 public final class FlowSourceFlowConfigSourceConnectorPropertiesSapoData {
 
-    private UndeferrableValue<String> objectPath;
-
+    @PolicyResourceProperty(name="objectPath", flag="unknown_objectPath")
+    private String value_objectPath;
+    private boolean unknown_objectPath;
     public String objectPath() {
-        if (objectPath == null) return null;
-        return objectPath.getValue("FlowSourceFlowConfigSourceConnectorPropertiesSapoData.objectPath");
+        if (!unknown_objectPath) return value_objectPath;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesSapoData.objectPath' is not present");
     }
 
     /**
      * Sets the page size for each concurrent process that transfers OData records from your SAP instance.
      * 
      */
-    private @Nullable UndeferrableValue<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig> paginationConfig;
-
+    @PolicyResourceProperty(name="paginationConfig", flag="unknown_paginationConfig")
+    private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig value_paginationConfig;
+    private boolean unknown_paginationConfig;
     public @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfig paginationConfig() {
-        if (paginationConfig == null) return null;
-        return paginationConfig.getValue("FlowSourceFlowConfigSourceConnectorPropertiesSapoData.paginationConfig");
+        if (!unknown_paginationConfig) return value_paginationConfig;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesSapoData.paginationConfig' is not present");
     }
 
     /**
      * Sets the number of concurrent processes that transfers OData records from your SAP instance.
      * 
      */
-    private @Nullable UndeferrableValue<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig> parallelismConfig;
-
+    @PolicyResourceProperty(name="parallelismConfig", flag="unknown_parallelismConfig")
+    private @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig value_parallelismConfig;
+    private boolean unknown_parallelismConfig;
     public @Nullable FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfig parallelismConfig() {
-        if (parallelismConfig == null) return null;
-        return parallelismConfig.getValue("FlowSourceFlowConfigSourceConnectorPropertiesSapoData.parallelismConfig");
+        if (!unknown_parallelismConfig) return value_parallelismConfig;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesSapoData.parallelismConfig' is not present");
     }
 
 }

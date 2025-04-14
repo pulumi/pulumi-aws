@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.customerprofiles.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.customerprofiles.outputs.DomainMatchingAutoMerging;
 import com.pulumi.policypacks.aws.customerprofiles.outputs.DomainMatchingExportingConfig;
 import com.pulumi.policypacks.aws.customerprofiles.outputs.DomainMatchingJobSchedule;
@@ -17,44 +18,48 @@ public final class DomainMatching {
      * A block that specifies the configuration about the auto-merging process. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<DomainMatchingAutoMerging> autoMerging;
-
+    @PolicyResourceProperty(name="autoMerging", flag="unknown_autoMerging")
+    private @Nullable DomainMatchingAutoMerging value_autoMerging;
+    private boolean unknown_autoMerging;
     public @Nullable DomainMatchingAutoMerging autoMerging() {
-        if (autoMerging == null) return null;
-        return autoMerging.getValue("DomainMatching.autoMerging");
+        if (!unknown_autoMerging) return value_autoMerging;
+        throw new UndeferrableValueException("Value 'DomainMatching.autoMerging' is not present");
     }
 
     /**
      * The flag that enables the matching process of duplicate profiles.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("DomainMatching.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'DomainMatching.enabled' is not present");
     }
 
     /**
      * A block that specifies the configuration for exporting Identity Resolution results. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<DomainMatchingExportingConfig> exportingConfig;
-
+    @PolicyResourceProperty(name="exportingConfig", flag="unknown_exportingConfig")
+    private @Nullable DomainMatchingExportingConfig value_exportingConfig;
+    private boolean unknown_exportingConfig;
     public @Nullable DomainMatchingExportingConfig exportingConfig() {
-        if (exportingConfig == null) return null;
-        return exportingConfig.getValue("DomainMatching.exportingConfig");
+        if (!unknown_exportingConfig) return value_exportingConfig;
+        throw new UndeferrableValueException("Value 'DomainMatching.exportingConfig' is not present");
     }
 
     /**
      * A block that specifies the day and time when you want to start the Identity Resolution Job every week. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<DomainMatchingJobSchedule> jobSchedule;
-
+    @PolicyResourceProperty(name="jobSchedule", flag="unknown_jobSchedule")
+    private @Nullable DomainMatchingJobSchedule value_jobSchedule;
+    private boolean unknown_jobSchedule;
     public @Nullable DomainMatchingJobSchedule jobSchedule() {
-        if (jobSchedule == null) return null;
-        return jobSchedule.getValue("DomainMatching.jobSchedule");
+        if (!unknown_jobSchedule) return value_jobSchedule;
+        throw new UndeferrableValueException("Value 'DomainMatching.jobSchedule' is not present");
     }
 
 }

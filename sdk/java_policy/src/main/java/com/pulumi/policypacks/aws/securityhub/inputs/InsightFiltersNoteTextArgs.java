@@ -3,24 +3,27 @@
 
 package com.pulumi.policypacks.aws.securityhub.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class InsightFiltersNoteTextArgs {
 
-    private UndeferrableValue<String> comparison;
-
+    @PolicyResourceProperty(name="comparison", flag="unknown_comparison")
+    private String value_comparison;
+    private boolean unknown_comparison;
     public String comparison() {
-        if (comparison == null) return null;
-        return comparison.getValue("InsightFiltersNoteTextArgs.comparison");
+        if (!unknown_comparison) return value_comparison;
+        throw new UndeferrableValueException("Value 'InsightFiltersNoteTextArgs.comparison' is not present");
     }
 
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("InsightFiltersNoteTextArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'InsightFiltersNoteTextArgs.value' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 
 
@@ -13,11 +14,12 @@ public final class ApplicationApplicationConfigurationApplicationSnapshotConfigu
      * Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
      * 
      */
-    private UndeferrableValue<Boolean> snapshotsEnabled;
-
+    @PolicyResourceProperty(name="snapshotsEnabled", flag="unknown_snapshotsEnabled")
+    private Boolean value_snapshotsEnabled;
+    private boolean unknown_snapshotsEnabled;
     public Boolean snapshotsEnabled() {
-        if (snapshotsEnabled == null) return null;
-        return snapshotsEnabled.getValue("ApplicationApplicationConfigurationApplicationSnapshotConfiguration.snapshotsEnabled");
+        if (!unknown_snapshotsEnabled) return value_snapshotsEnabled;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationApplicationSnapshotConfiguration.snapshotsEnabled' is not present");
     }
 
 }

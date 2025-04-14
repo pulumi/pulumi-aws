@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelCdiInputSpecificationArgs;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelDestinationArgs;
@@ -26,88 +27,96 @@ public final class ChannelArgs extends com.pulumi.resources.PolicyResourceInput 
      * Specification of CDI inputs for this channel. See CDI Input Specification for more details.
      * 
      */
-    private UndeferrableValue<ChannelCdiInputSpecificationArgs> cdiInputSpecification;
-
+    @PolicyResourceProperty(name="cdiInputSpecification", flag="unknown_cdiInputSpecification")
+    private ChannelCdiInputSpecificationArgs value_cdiInputSpecification;
+    private boolean unknown_cdiInputSpecification;
     public ChannelCdiInputSpecificationArgs cdiInputSpecification() {
-        if (cdiInputSpecification == null) return null;
-        return cdiInputSpecification.getValue("ChannelArgs.cdiInputSpecification");
+        if (!unknown_cdiInputSpecification) return value_cdiInputSpecification;
+        throw new UndeferrableValueException("Value 'ChannelArgs.cdiInputSpecification' is not present");
     }
 
     /**
      * Concise argument description.
      * 
      */
-    private UndeferrableValue<String> channelClass;
-
+    @PolicyResourceProperty(name="channelClass", flag="unknown_channelClass")
+    private String value_channelClass;
+    private boolean unknown_channelClass;
     public String channelClass() {
-        if (channelClass == null) return null;
-        return channelClass.getValue("ChannelArgs.channelClass");
+        if (!unknown_channelClass) return value_channelClass;
+        throw new UndeferrableValueException("Value 'ChannelArgs.channelClass' is not present");
     }
 
     /**
      * Destinations for channel. See Destinations for more details.
      * 
      */
-    private UndeferrableValue<List<ChannelDestinationArgs>> destinations;
-
+    @PolicyResourceProperty(name="destinations", flag="unknown_destinations")
+    private List<ChannelDestinationArgs> value_destinations;
+    private boolean unknown_destinations;
     public List<ChannelDestinationArgs> destinations() {
-        if (destinations == null) return null;
-        return destinations.getValue("ChannelArgs.destinations");
+        if (!unknown_destinations) return value_destinations;
+        throw new UndeferrableValueException("Value 'ChannelArgs.destinations' is not present");
     }
 
     /**
      * Encoder settings. See Encoder Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsArgs> encoderSettings;
-
+    @PolicyResourceProperty(name="encoderSettings", flag="unknown_encoderSettings")
+    private ChannelEncoderSettingsArgs value_encoderSettings;
+    private boolean unknown_encoderSettings;
     public ChannelEncoderSettingsArgs encoderSettings() {
-        if (encoderSettings == null) return null;
-        return encoderSettings.getValue("ChannelArgs.encoderSettings");
+        if (!unknown_encoderSettings) return value_encoderSettings;
+        throw new UndeferrableValueException("Value 'ChannelArgs.encoderSettings' is not present");
     }
 
     /**
      * Input attachments for the channel. See Input Attachments for more details.
      * 
      */
-    private UndeferrableValue<List<ChannelInputAttachmentArgs>> inputAttachments;
-
+    @PolicyResourceProperty(name="inputAttachments", flag="unknown_inputAttachments")
+    private List<ChannelInputAttachmentArgs> value_inputAttachments;
+    private boolean unknown_inputAttachments;
     public List<ChannelInputAttachmentArgs> inputAttachments() {
-        if (inputAttachments == null) return null;
-        return inputAttachments.getValue("ChannelArgs.inputAttachments");
+        if (!unknown_inputAttachments) return value_inputAttachments;
+        throw new UndeferrableValueException("Value 'ChannelArgs.inputAttachments' is not present");
     }
 
     /**
      * Specification of network and file inputs for the channel.
      * 
      */
-    private UndeferrableValue<ChannelInputSpecificationArgs> inputSpecification;
-
+    @PolicyResourceProperty(name="inputSpecification", flag="unknown_inputSpecification")
+    private ChannelInputSpecificationArgs value_inputSpecification;
+    private boolean unknown_inputSpecification;
     public ChannelInputSpecificationArgs inputSpecification() {
-        if (inputSpecification == null) return null;
-        return inputSpecification.getValue("ChannelArgs.inputSpecification");
+        if (!unknown_inputSpecification) return value_inputSpecification;
+        throw new UndeferrableValueException("Value 'ChannelArgs.inputSpecification' is not present");
     }
 
     /**
      * The log level to write to Cloudwatch logs.
      * 
      */
-    private UndeferrableValue<String> logLevel;
-
+    @PolicyResourceProperty(name="logLevel", flag="unknown_logLevel")
+    private String value_logLevel;
+    private boolean unknown_logLevel;
     public String logLevel() {
-        if (logLevel == null) return null;
-        return logLevel.getValue("ChannelArgs.logLevel");
+        if (!unknown_logLevel) return value_logLevel;
+        throw new UndeferrableValueException("Value 'ChannelArgs.logLevel' is not present");
     }
 
     /**
      * Maintenance settings for this channel. See Maintenance for more details.
      * 
      */
-    private UndeferrableValue<ChannelMaintenanceArgs> maintenance;
-
+    @PolicyResourceProperty(name="maintenance", flag="unknown_maintenance")
+    private ChannelMaintenanceArgs value_maintenance;
+    private boolean unknown_maintenance;
     public ChannelMaintenanceArgs maintenance() {
-        if (maintenance == null) return null;
-        return maintenance.getValue("ChannelArgs.maintenance");
+        if (!unknown_maintenance) return value_maintenance;
+        throw new UndeferrableValueException("Value 'ChannelArgs.maintenance' is not present");
     }
 
     /**
@@ -116,55 +125,60 @@ public final class ChannelArgs extends com.pulumi.resources.PolicyResourceInput 
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ChannelArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ChannelArgs.name' is not present");
     }
 
     /**
      * Concise argument description.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("ChannelArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'ChannelArgs.roleArn' is not present");
     }
 
     /**
      * Whether to start/stop channel. Default: `false`
      * 
      */
-    private UndeferrableValue<Boolean> startChannel;
-
+    @PolicyResourceProperty(name="startChannel", flag="unknown_startChannel")
+    private Boolean value_startChannel;
+    private boolean unknown_startChannel;
     public Boolean startChannel() {
-        if (startChannel == null) return null;
-        return startChannel.getValue("ChannelArgs.startChannel");
+        if (!unknown_startChannel) return value_startChannel;
+        throw new UndeferrableValueException("Value 'ChannelArgs.startChannel' is not present");
     }
 
     /**
      * A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ChannelArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ChannelArgs.tags' is not present");
     }
 
     /**
      * Settings for the VPC outputs. See VPC for more details.
      * 
      */
-    private UndeferrableValue<ChannelVpcArgs> vpc;
-
+    @PolicyResourceProperty(name="vpc", flag="unknown_vpc")
+    private ChannelVpcArgs value_vpc;
+    private boolean unknown_vpc;
     public ChannelVpcArgs vpc() {
-        if (vpc == null) return null;
-        return vpc.getValue("ChannelArgs.vpc");
+        if (!unknown_vpc) return value_vpc;
+        throw new UndeferrableValueException("Value 'ChannelArgs.vpc' is not present");
     }
 
 }

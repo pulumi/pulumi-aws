@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecasting
      * The IAM role that Canvas passes to Amazon Forecast for time series forecasting. By default, Canvas uses the execution role specified in the UserProfile that launches the Canvas app. If an execution role is not specified in the UserProfile, Canvas uses the execution role specified in the Domain that owns the UserProfile. To allow time series forecasting, this IAM role should have the [AmazonSageMakerCanvasForecastAccess](https://docs.aws.amazon.com/sagemaker/latest/dg/security-iam-awsmanpol-canvas.html#security-iam-awsmanpol-AmazonSageMakerCanvasForecastAccess) policy attached and forecast.amazonaws.com added in the trust relationship as a service principal.
      * 
      */
-    private UndeferrableValue<String> amazonForecastRoleArn;
-
+    @PolicyResourceProperty(name="amazonForecastRoleArn", flag="unknown_amazonForecastRoleArn")
+    private String value_amazonForecastRoleArn;
+    private boolean unknown_amazonForecastRoleArn;
     public String amazonForecastRoleArn() {
-        if (amazonForecastRoleArn == null) return null;
-        return amazonForecastRoleArn.getValue("UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs.amazonForecastRoleArn");
+        if (!unknown_amazonForecastRoleArn) return value_amazonForecastRoleArn;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs.amazonForecastRoleArn' is not present");
     }
 
     /**
      * Describes whether time series forecasting is enabled or disabled in the Canvas app. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs.status' is not present");
     }
 
 }

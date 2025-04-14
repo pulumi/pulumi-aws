@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
      * The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
      * 
      */
-    private UndeferrableValue<Integer> inputLossThresholdMsec;
-
+    @PolicyResourceProperty(name="inputLossThresholdMsec", flag="unknown_inputLossThresholdMsec")
+    private Integer value_inputLossThresholdMsec;
+    private boolean unknown_inputLossThresholdMsec;
     public Integer inputLossThresholdMsec() {
-        if (inputLossThresholdMsec == null) return null;
-        return inputLossThresholdMsec.getValue("ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs.inputLossThresholdMsec");
+        if (!unknown_inputLossThresholdMsec) return value_inputLossThresholdMsec;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs.inputLossThresholdMsec' is not present");
     }
 
 }

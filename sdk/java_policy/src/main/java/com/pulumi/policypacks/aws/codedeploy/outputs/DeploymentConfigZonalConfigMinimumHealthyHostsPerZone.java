@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codedeploy.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DeploymentConfigZonalConfigMinimumHealthyHostsPerZone {
      * The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("DeploymentConfigZonalConfigMinimumHealthyHostsPerZone.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'DeploymentConfigZonalConfigMinimumHealthyHostsPerZone.type' is not present");
     }
 
     /**
      * The value when the type is `FLEET_PERCENT` represents the minimum number of healthy instances as a percentage of the total number of instances in the Availability Zone during a deployment. If you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances. When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances in the Availability Zone as an absolute value.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private @Nullable Integer value_value;
+    private boolean unknown_value;
     public @Nullable Integer value() {
-        if (value == null) return null;
-        return value.getValue("DeploymentConfigZonalConfigMinimumHealthyHostsPerZone.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'DeploymentConfigZonalConfigMinimumHealthyHostsPerZone.value' is not present");
     }
 
 }

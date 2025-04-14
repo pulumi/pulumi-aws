@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -16,44 +17,48 @@ public final class BucketLifecycleConfigurationV2RuleFilterAndArgs {
      * Minimum object size to which the rule applies. Value must be at least `0` if specified. Defaults to 128000 (128 KB) for all `storage_class` values unless `transition_default_minimum_object_size` specifies otherwise.
      * 
      */
-    private UndeferrableValue<Integer> objectSizeGreaterThan;
-
+    @PolicyResourceProperty(name="objectSizeGreaterThan", flag="unknown_objectSizeGreaterThan")
+    private Integer value_objectSizeGreaterThan;
+    private boolean unknown_objectSizeGreaterThan;
     public Integer objectSizeGreaterThan() {
-        if (objectSizeGreaterThan == null) return null;
-        return objectSizeGreaterThan.getValue("BucketLifecycleConfigurationV2RuleFilterAndArgs.objectSizeGreaterThan");
+        if (!unknown_objectSizeGreaterThan) return value_objectSizeGreaterThan;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleFilterAndArgs.objectSizeGreaterThan' is not present");
     }
 
     /**
      * Maximum object size to which the rule applies. Value must be at least `1` if specified.
      * 
      */
-    private UndeferrableValue<Integer> objectSizeLessThan;
-
+    @PolicyResourceProperty(name="objectSizeLessThan", flag="unknown_objectSizeLessThan")
+    private Integer value_objectSizeLessThan;
+    private boolean unknown_objectSizeLessThan;
     public Integer objectSizeLessThan() {
-        if (objectSizeLessThan == null) return null;
-        return objectSizeLessThan.getValue("BucketLifecycleConfigurationV2RuleFilterAndArgs.objectSizeLessThan");
+        if (!unknown_objectSizeLessThan) return value_objectSizeLessThan;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleFilterAndArgs.objectSizeLessThan' is not present");
     }
 
     /**
      * Prefix identifying one or more objects to which the rule applies.
      * 
      */
-    private UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private String value_prefix;
+    private boolean unknown_prefix;
     public String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("BucketLifecycleConfigurationV2RuleFilterAndArgs.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleFilterAndArgs.prefix' is not present");
     }
 
     /**
      * Key-value map of resource tags. All of these tags must exist in the object&#39;s tag set in order for the rule to apply.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("BucketLifecycleConfigurationV2RuleFilterAndArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleFilterAndArgs.tags' is not present");
     }
 
 }

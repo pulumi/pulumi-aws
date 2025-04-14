@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,11 +18,12 @@ public final class InvocationArgs extends com.pulumi.resources.PolicyResourceInp
      * Name of the lambda function.
      * 
      */
-    private UndeferrableValue<String> functionName;
-
+    @PolicyResourceProperty(name="functionName", flag="unknown_functionName")
+    private String value_functionName;
+    private boolean unknown_functionName;
     public String functionName() {
-        if (functionName == null) return null;
-        return functionName.getValue("InvocationArgs.functionName");
+        if (!unknown_functionName) return value_functionName;
+        throw new UndeferrableValueException("Value 'InvocationArgs.functionName' is not present");
     }
 
     /**
@@ -30,51 +32,56 @@ public final class InvocationArgs extends com.pulumi.resources.PolicyResourceInp
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> input;
-
+    @PolicyResourceProperty(name="input", flag="unknown_input")
+    private String value_input;
+    private boolean unknown_input;
     public String input() {
-        if (input == null) return null;
-        return input.getValue("InvocationArgs.input");
+        if (!unknown_input) return value_input;
+        throw new UndeferrableValueException("Value 'InvocationArgs.input' is not present");
     }
 
     /**
      * Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
      * 
      */
-    private UndeferrableValue<String> lifecycleScope;
-
+    @PolicyResourceProperty(name="lifecycleScope", flag="unknown_lifecycleScope")
+    private String value_lifecycleScope;
+    private boolean unknown_lifecycleScope;
     public String lifecycleScope() {
-        if (lifecycleScope == null) return null;
-        return lifecycleScope.getValue("InvocationArgs.lifecycleScope");
+        if (!unknown_lifecycleScope) return value_lifecycleScope;
+        throw new UndeferrableValueException("Value 'InvocationArgs.lifecycleScope' is not present");
     }
 
     /**
      * Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
      * 
      */
-    private UndeferrableValue<String> qualifier;
-
+    @PolicyResourceProperty(name="qualifier", flag="unknown_qualifier")
+    private String value_qualifier;
+    private boolean unknown_qualifier;
     public String qualifier() {
-        if (qualifier == null) return null;
-        return qualifier.getValue("InvocationArgs.qualifier");
+        if (!unknown_qualifier) return value_qualifier;
+        throw new UndeferrableValueException("Value 'InvocationArgs.qualifier' is not present");
     }
 
-    private UndeferrableValue<String> terraformKey;
-
+    @PolicyResourceProperty(name="terraformKey", flag="unknown_terraformKey")
+    private String value_terraformKey;
+    private boolean unknown_terraformKey;
     public String terraformKey() {
-        if (terraformKey == null) return null;
-        return terraformKey.getValue("InvocationArgs.terraformKey");
+        if (!unknown_terraformKey) return value_terraformKey;
+        throw new UndeferrableValueException("Value 'InvocationArgs.terraformKey' is not present");
     }
 
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
      * 
      */
-    private UndeferrableValue<Map<String,String>> triggers;
-
+    @PolicyResourceProperty(name="triggers", flag="unknown_triggers")
+    private Map<String,String> value_triggers;
+    private boolean unknown_triggers;
     public Map<String,String> triggers() {
-        if (triggers == null) return null;
-        return triggers.getValue("InvocationArgs.triggers");
+        if (!unknown_triggers) return value_triggers;
+        throw new UndeferrableValueException("Value 'InvocationArgs.triggers' is not present");
     }
 
 }

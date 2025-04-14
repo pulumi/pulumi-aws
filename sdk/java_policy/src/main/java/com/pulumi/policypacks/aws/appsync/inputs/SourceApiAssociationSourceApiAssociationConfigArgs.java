@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class SourceApiAssociationSourceApiAssociationConfigArgs {
      * Merge type. Valid values: `MANUAL_MERGE`, `AUTO_MERGE`
      * 
      */
-    private UndeferrableValue<String> mergeType;
-
+    @PolicyResourceProperty(name="mergeType", flag="unknown_mergeType")
+    private String value_mergeType;
+    private boolean unknown_mergeType;
     public String mergeType() {
-        if (mergeType == null) return null;
-        return mergeType.getValue("SourceApiAssociationSourceApiAssociationConfigArgs.mergeType");
+        if (!unknown_mergeType) return value_mergeType;
+        throw new UndeferrableValueException("Value 'SourceApiAssociationSourceApiAssociationConfigArgs.mergeType' is not present");
     }
 
 }

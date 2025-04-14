@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.backup.inputs.RestoreTestingPlanRecoveryPointSelectionArgs;
 import java.lang.Integer;
@@ -19,62 +20,68 @@ public final class RestoreTestingPlanArgs extends com.pulumi.resources.PolicyRes
      * The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RestoreTestingPlanArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RestoreTestingPlanArgs.name' is not present");
     }
 
     /**
      * Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
      * 
      */
-    private UndeferrableValue<RestoreTestingPlanRecoveryPointSelectionArgs> recoveryPointSelection;
-
+    @PolicyResourceProperty(name="recoveryPointSelection", flag="unknown_recoveryPointSelection")
+    private RestoreTestingPlanRecoveryPointSelectionArgs value_recoveryPointSelection;
+    private boolean unknown_recoveryPointSelection;
     public RestoreTestingPlanRecoveryPointSelectionArgs recoveryPointSelection() {
-        if (recoveryPointSelection == null) return null;
-        return recoveryPointSelection.getValue("RestoreTestingPlanArgs.recoveryPointSelection");
+        if (!unknown_recoveryPointSelection) return value_recoveryPointSelection;
+        throw new UndeferrableValueException("Value 'RestoreTestingPlanArgs.recoveryPointSelection' is not present");
     }
 
     /**
      * The schedule expression for the restore testing plan.
      * 
      */
-    private UndeferrableValue<String> scheduleExpression;
-
+    @PolicyResourceProperty(name="scheduleExpression", flag="unknown_scheduleExpression")
+    private String value_scheduleExpression;
+    private boolean unknown_scheduleExpression;
     public String scheduleExpression() {
-        if (scheduleExpression == null) return null;
-        return scheduleExpression.getValue("RestoreTestingPlanArgs.scheduleExpression");
+        if (!unknown_scheduleExpression) return value_scheduleExpression;
+        throw new UndeferrableValueException("Value 'RestoreTestingPlanArgs.scheduleExpression' is not present");
     }
 
     /**
      * The timezone for the schedule expression. If not provided, the state value will be used.
      * 
      */
-    private UndeferrableValue<String> scheduleExpressionTimezone;
-
+    @PolicyResourceProperty(name="scheduleExpressionTimezone", flag="unknown_scheduleExpressionTimezone")
+    private String value_scheduleExpressionTimezone;
+    private boolean unknown_scheduleExpressionTimezone;
     public String scheduleExpressionTimezone() {
-        if (scheduleExpressionTimezone == null) return null;
-        return scheduleExpressionTimezone.getValue("RestoreTestingPlanArgs.scheduleExpressionTimezone");
+        if (!unknown_scheduleExpressionTimezone) return value_scheduleExpressionTimezone;
+        throw new UndeferrableValueException("Value 'RestoreTestingPlanArgs.scheduleExpressionTimezone' is not present");
     }
 
     /**
      * The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
      * 
      */
-    private UndeferrableValue<Integer> startWindowHours;
-
+    @PolicyResourceProperty(name="startWindowHours", flag="unknown_startWindowHours")
+    private Integer value_startWindowHours;
+    private boolean unknown_startWindowHours;
     public Integer startWindowHours() {
-        if (startWindowHours == null) return null;
-        return startWindowHours.getValue("RestoreTestingPlanArgs.startWindowHours");
+        if (!unknown_startWindowHours) return value_startWindowHours;
+        throw new UndeferrableValueException("Value 'RestoreTestingPlanArgs.startWindowHours' is not present");
     }
 
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RestoreTestingPlanArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RestoreTestingPlanArgs.tags' is not present");
     }
 
 }

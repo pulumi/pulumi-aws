@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
      * The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
      * 
      */
-    private UndeferrableValue<List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs>> insertHeaders;
-
+    @PolicyResourceProperty(name="insertHeaders", flag="unknown_insertHeaders")
+    private List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs> value_insertHeaders;
+    private boolean unknown_insertHeaders;
     public List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs> insertHeaders() {
-        if (insertHeaders == null) return null;
-        return insertHeaders.getValue("WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs.insertHeaders");
+        if (!unknown_insertHeaders) return value_insertHeaders;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs.insertHeaders' is not present");
     }
 
 }

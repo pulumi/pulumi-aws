@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.neptune;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -20,143 +21,156 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.PolicyResour
      * are applied immediately, or during the next maintenance window. Default is`false`.
      * 
      */
-    private UndeferrableValue<Boolean> applyImmediately;
-
+    @PolicyResourceProperty(name="applyImmediately", flag="unknown_applyImmediately")
+    private Boolean value_applyImmediately;
+    private boolean unknown_applyImmediately;
     public Boolean applyImmediately() {
-        if (applyImmediately == null) return null;
-        return applyImmediately.getValue("ClusterInstanceArgs.applyImmediately");
+        if (!unknown_applyImmediately) return value_applyImmediately;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.applyImmediately' is not present");
     }
 
     /**
      * Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
      * 
      */
-    private UndeferrableValue<Boolean> autoMinorVersionUpgrade;
-
+    @PolicyResourceProperty(name="autoMinorVersionUpgrade", flag="unknown_autoMinorVersionUpgrade")
+    private Boolean value_autoMinorVersionUpgrade;
+    private boolean unknown_autoMinorVersionUpgrade;
     public Boolean autoMinorVersionUpgrade() {
-        if (autoMinorVersionUpgrade == null) return null;
-        return autoMinorVersionUpgrade.getValue("ClusterInstanceArgs.autoMinorVersionUpgrade");
+        if (!unknown_autoMinorVersionUpgrade) return value_autoMinorVersionUpgrade;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.autoMinorVersionUpgrade' is not present");
     }
 
     /**
      * The EC2 Availability Zone that the neptune instance is created in.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("ClusterInstanceArgs.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.availabilityZone' is not present");
     }
 
     /**
      * The identifier of the `aws.neptune.Cluster` in which to launch this instance.
      * 
      */
-    private UndeferrableValue<String> clusterIdentifier;
-
+    @PolicyResourceProperty(name="clusterIdentifier", flag="unknown_clusterIdentifier")
+    private String value_clusterIdentifier;
+    private boolean unknown_clusterIdentifier;
     public String clusterIdentifier() {
-        if (clusterIdentifier == null) return null;
-        return clusterIdentifier.getValue("ClusterInstanceArgs.clusterIdentifier");
+        if (!unknown_clusterIdentifier) return value_clusterIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.clusterIdentifier' is not present");
     }
 
     /**
      * The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
      * 
      */
-    private UndeferrableValue<String> engine;
-
+    @PolicyResourceProperty(name="engine", flag="unknown_engine")
+    private String value_engine;
+    private boolean unknown_engine;
     public String engine() {
-        if (engine == null) return null;
-        return engine.getValue("ClusterInstanceArgs.engine");
+        if (!unknown_engine) return value_engine;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.engine' is not present");
     }
 
     /**
      * The neptune engine version. Currently configuring this argumnet has no effect.
      * 
      */
-    private UndeferrableValue<String> engineVersion;
-
+    @PolicyResourceProperty(name="engineVersion", flag="unknown_engineVersion")
+    private String value_engineVersion;
+    private boolean unknown_engineVersion;
     public String engineVersion() {
-        if (engineVersion == null) return null;
-        return engineVersion.getValue("ClusterInstanceArgs.engineVersion");
+        if (!unknown_engineVersion) return value_engineVersion;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.engineVersion' is not present");
     }
 
     /**
      * The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
      * 
      */
-    private UndeferrableValue<String> identifier;
-
+    @PolicyResourceProperty(name="identifier", flag="unknown_identifier")
+    private String value_identifier;
+    private boolean unknown_identifier;
     public String identifier() {
-        if (identifier == null) return null;
-        return identifier.getValue("ClusterInstanceArgs.identifier");
+        if (!unknown_identifier) return value_identifier;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.identifier' is not present");
     }
 
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
-    private UndeferrableValue<String> identifierPrefix;
-
+    @PolicyResourceProperty(name="identifierPrefix", flag="unknown_identifierPrefix")
+    private String value_identifierPrefix;
+    private boolean unknown_identifierPrefix;
     public String identifierPrefix() {
-        if (identifierPrefix == null) return null;
-        return identifierPrefix.getValue("ClusterInstanceArgs.identifierPrefix");
+        if (!unknown_identifierPrefix) return value_identifierPrefix;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.identifierPrefix' is not present");
     }
 
     /**
      * The instance class to use.
      * 
      */
-    private UndeferrableValue<String> instanceClass;
-
+    @PolicyResourceProperty(name="instanceClass", flag="unknown_instanceClass")
+    private String value_instanceClass;
+    private boolean unknown_instanceClass;
     public String instanceClass() {
-        if (instanceClass == null) return null;
-        return instanceClass.getValue("ClusterInstanceArgs.instanceClass");
+        if (!unknown_instanceClass) return value_instanceClass;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.instanceClass' is not present");
     }
 
     /**
      * The name of the neptune parameter group to associate with this instance.
      * 
      */
-    private UndeferrableValue<String> neptuneParameterGroupName;
-
+    @PolicyResourceProperty(name="neptuneParameterGroupName", flag="unknown_neptuneParameterGroupName")
+    private String value_neptuneParameterGroupName;
+    private boolean unknown_neptuneParameterGroupName;
     public String neptuneParameterGroupName() {
-        if (neptuneParameterGroupName == null) return null;
-        return neptuneParameterGroupName.getValue("ClusterInstanceArgs.neptuneParameterGroupName");
+        if (!unknown_neptuneParameterGroupName) return value_neptuneParameterGroupName;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.neptuneParameterGroupName' is not present");
     }
 
     /**
      * A subnet group to associate with this neptune instance. **NOTE:** This must match the `neptune_subnet_group_name` of the attached `aws.neptune.Cluster`.
      * 
      */
-    private UndeferrableValue<String> neptuneSubnetGroupName;
-
+    @PolicyResourceProperty(name="neptuneSubnetGroupName", flag="unknown_neptuneSubnetGroupName")
+    private String value_neptuneSubnetGroupName;
+    private boolean unknown_neptuneSubnetGroupName;
     public String neptuneSubnetGroupName() {
-        if (neptuneSubnetGroupName == null) return null;
-        return neptuneSubnetGroupName.getValue("ClusterInstanceArgs.neptuneSubnetGroupName");
+        if (!unknown_neptuneSubnetGroupName) return value_neptuneSubnetGroupName;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.neptuneSubnetGroupName' is not present");
     }
 
     /**
      * The port on which the DB accepts connections. Defaults to `8182`.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("ClusterInstanceArgs.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.port' is not present");
     }
 
     /**
      * The daily time range during which automated backups are created if automated backups are enabled. Eg: &#34;04:00-09:00&#34;
      * 
      */
-    private UndeferrableValue<String> preferredBackupWindow;
-
+    @PolicyResourceProperty(name="preferredBackupWindow", flag="unknown_preferredBackupWindow")
+    private String value_preferredBackupWindow;
+    private boolean unknown_preferredBackupWindow;
     public String preferredBackupWindow() {
-        if (preferredBackupWindow == null) return null;
-        return preferredBackupWindow.getValue("ClusterInstanceArgs.preferredBackupWindow");
+        if (!unknown_preferredBackupWindow) return value_preferredBackupWindow;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.preferredBackupWindow' is not present");
     }
 
     /**
@@ -164,55 +178,60 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.PolicyResour
      * Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
      * 
      */
-    private UndeferrableValue<String> preferredMaintenanceWindow;
-
+    @PolicyResourceProperty(name="preferredMaintenanceWindow", flag="unknown_preferredMaintenanceWindow")
+    private String value_preferredMaintenanceWindow;
+    private boolean unknown_preferredMaintenanceWindow;
     public String preferredMaintenanceWindow() {
-        if (preferredMaintenanceWindow == null) return null;
-        return preferredMaintenanceWindow.getValue("ClusterInstanceArgs.preferredMaintenanceWindow");
+        if (!unknown_preferredMaintenanceWindow) return value_preferredMaintenanceWindow;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.preferredMaintenanceWindow' is not present");
     }
 
     /**
      * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
      * 
      */
-    private UndeferrableValue<Integer> promotionTier;
-
+    @PolicyResourceProperty(name="promotionTier", flag="unknown_promotionTier")
+    private Integer value_promotionTier;
+    private boolean unknown_promotionTier;
     public Integer promotionTier() {
-        if (promotionTier == null) return null;
-        return promotionTier.getValue("ClusterInstanceArgs.promotionTier");
+        if (!unknown_promotionTier) return value_promotionTier;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.promotionTier' is not present");
     }
 
     /**
      * Bool to control if instance is publicly accessible. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> publiclyAccessible;
-
+    @PolicyResourceProperty(name="publiclyAccessible", flag="unknown_publiclyAccessible")
+    private Boolean value_publiclyAccessible;
+    private boolean unknown_publiclyAccessible;
     public Boolean publiclyAccessible() {
-        if (publiclyAccessible == null) return null;
-        return publiclyAccessible.getValue("ClusterInstanceArgs.publiclyAccessible");
+        if (!unknown_publiclyAccessible) return value_publiclyAccessible;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.publiclyAccessible' is not present");
     }
 
     /**
      * Determines whether a final DB snapshot is created before the DB instance is deleted.
      * 
      */
-    private UndeferrableValue<Boolean> skipFinalSnapshot;
-
+    @PolicyResourceProperty(name="skipFinalSnapshot", flag="unknown_skipFinalSnapshot")
+    private Boolean value_skipFinalSnapshot;
+    private boolean unknown_skipFinalSnapshot;
     public Boolean skipFinalSnapshot() {
-        if (skipFinalSnapshot == null) return null;
-        return skipFinalSnapshot.getValue("ClusterInstanceArgs.skipFinalSnapshot");
+        if (!unknown_skipFinalSnapshot) return value_skipFinalSnapshot;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.skipFinalSnapshot' is not present");
     }
 
     /**
      * A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ClusterInstanceArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ClusterInstanceArgs.tags' is not present");
     }
 
 }

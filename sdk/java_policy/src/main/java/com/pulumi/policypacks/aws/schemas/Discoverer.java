@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.schemas;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,44 +18,48 @@ public final class Discoverer extends com.pulumi.resources.PolicyResourceOutput 
      * The Amazon Resource Name (ARN) of the discoverer.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Discoverer.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Discoverer.arn' is not present");
     }
 
     /**
      * The description of the discoverer. Maximum of 256 characters.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Discoverer.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Discoverer.description' is not present");
     }
 
     /**
      * The ARN of the event bus to discover event schemas on.
      * 
      */
-    private UndeferrableValue<String> sourceArn;
-
+    @PolicyResourceProperty(name="sourceArn", flag="unknown_sourceArn")
+    private String value_sourceArn;
+    private boolean unknown_sourceArn;
     public String sourceArn() {
-        if (sourceArn == null) return null;
-        return sourceArn.getValue("Discoverer.sourceArn");
+        if (!unknown_sourceArn) return value_sourceArn;
+        throw new UndeferrableValueException("Value 'Discoverer.sourceArn' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Discoverer.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Discoverer.tags' is not present");
     }
 
     /**
@@ -65,11 +70,12 @@ public final class Discoverer extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Discoverer.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Discoverer.tagsAll' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kendra.inputs.DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
      * A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
      * 
      */
-    private UndeferrableValue<DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs> invocationCondition;
-
+    @PolicyResourceProperty(name="invocationCondition", flag="unknown_invocationCondition")
+    private DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs value_invocationCondition;
+    private boolean unknown_invocationCondition;
     public DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs invocationCondition() {
-        if (invocationCondition == null) return null;
-        return invocationCondition.getValue("DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs.invocationCondition");
+        if (!unknown_invocationCondition) return value_invocationCondition;
+        throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs.invocationCondition' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
      * 
      */
-    private UndeferrableValue<String> lambdaArn;
-
+    @PolicyResourceProperty(name="lambdaArn", flag="unknown_lambdaArn")
+    private String value_lambdaArn;
+    private boolean unknown_lambdaArn;
     public String lambdaArn() {
-        if (lambdaArn == null) return null;
-        return lambdaArn.getValue("DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs.lambdaArn");
+        if (!unknown_lambdaArn) return value_lambdaArn;
+        throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs.lambdaArn' is not present");
     }
 
     /**
      * Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
      * 
      */
-    private UndeferrableValue<String> s3Bucket;
-
+    @PolicyResourceProperty(name="s3Bucket", flag="unknown_s3Bucket")
+    private String value_s3Bucket;
+    private boolean unknown_s3Bucket;
     public String s3Bucket() {
-        if (s3Bucket == null) return null;
-        return s3Bucket.getValue("DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs.s3Bucket");
+        if (!unknown_s3Bucket) return value_s3Bucket;
+        throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs.s3Bucket' is not present");
     }
 
 }

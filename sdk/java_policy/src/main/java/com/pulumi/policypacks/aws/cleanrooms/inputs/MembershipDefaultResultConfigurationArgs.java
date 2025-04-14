@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cleanrooms.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cleanrooms.inputs.MembershipDefaultResultConfigurationOutputConfigurationArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,11 +12,12 @@ import javax.annotation.Nullable;
 
 public final class MembershipDefaultResultConfigurationArgs {
 
-    private UndeferrableValue<MembershipDefaultResultConfigurationOutputConfigurationArgs> outputConfiguration;
-
+    @PolicyResourceProperty(name="outputConfiguration", flag="unknown_outputConfiguration")
+    private MembershipDefaultResultConfigurationOutputConfigurationArgs value_outputConfiguration;
+    private boolean unknown_outputConfiguration;
     public MembershipDefaultResultConfigurationOutputConfigurationArgs outputConfiguration() {
-        if (outputConfiguration == null) return null;
-        return outputConfiguration.getValue("MembershipDefaultResultConfigurationArgs.outputConfiguration");
+        if (!unknown_outputConfiguration) return value_outputConfiguration;
+        throw new UndeferrableValueException("Value 'MembershipDefaultResultConfigurationArgs.outputConfiguration' is not present");
     }
 
     /**
@@ -25,11 +27,12 @@ public final class MembershipDefaultResultConfigurationArgs {
      * - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("MembershipDefaultResultConfigurationArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'MembershipDefaultResultConfigurationArgs.roleArn' is not present");
     }
 
 }

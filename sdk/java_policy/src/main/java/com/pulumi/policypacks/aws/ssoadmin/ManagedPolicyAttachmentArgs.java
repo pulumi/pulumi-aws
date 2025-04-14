@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssoadmin;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class ManagedPolicyAttachmentArgs extends com.pulumi.resources.Poli
      * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
      * 
      */
-    private UndeferrableValue<String> instanceArn;
-
+    @PolicyResourceProperty(name="instanceArn", flag="unknown_instanceArn")
+    private String value_instanceArn;
+    private boolean unknown_instanceArn;
     public String instanceArn() {
-        if (instanceArn == null) return null;
-        return instanceArn.getValue("ManagedPolicyAttachmentArgs.instanceArn");
+        if (!unknown_instanceArn) return value_instanceArn;
+        throw new UndeferrableValueException("Value 'ManagedPolicyAttachmentArgs.instanceArn' is not present");
     }
 
     /**
      * The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
      * 
      */
-    private UndeferrableValue<String> managedPolicyArn;
-
+    @PolicyResourceProperty(name="managedPolicyArn", flag="unknown_managedPolicyArn")
+    private String value_managedPolicyArn;
+    private boolean unknown_managedPolicyArn;
     public String managedPolicyArn() {
-        if (managedPolicyArn == null) return null;
-        return managedPolicyArn.getValue("ManagedPolicyAttachmentArgs.managedPolicyArn");
+        if (!unknown_managedPolicyArn) return value_managedPolicyArn;
+        throw new UndeferrableValueException("Value 'ManagedPolicyAttachmentArgs.managedPolicyArn' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Permission Set.
      * 
      */
-    private UndeferrableValue<String> permissionSetArn;
-
+    @PolicyResourceProperty(name="permissionSetArn", flag="unknown_permissionSetArn")
+    private String value_permissionSetArn;
+    private boolean unknown_permissionSetArn;
     public String permissionSetArn() {
-        if (permissionSetArn == null) return null;
-        return permissionSetArn.getValue("ManagedPolicyAttachmentArgs.permissionSetArn");
+        if (!unknown_permissionSetArn) return value_permissionSetArn;
+        throw new UndeferrableValueException("Value 'ManagedPolicyAttachmentArgs.permissionSetArn' is not present");
     }
 
 }

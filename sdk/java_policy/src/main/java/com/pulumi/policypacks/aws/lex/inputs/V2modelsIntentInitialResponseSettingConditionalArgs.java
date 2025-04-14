@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranchArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranchArgs;
 import java.lang.Boolean;
@@ -17,33 +18,36 @@ public final class V2modelsIntentInitialResponseSettingConditionalArgs {
      * Whether a conditional branch is active. When active is false, the conditions are not evaluated.
      * 
      */
-    private UndeferrableValue<Boolean> active;
-
+    @PolicyResourceProperty(name="active", flag="unknown_active")
+    private Boolean value_active;
+    private boolean unknown_active;
     public Boolean active() {
-        if (active == null) return null;
-        return active.getValue("V2modelsIntentInitialResponseSettingConditionalArgs.active");
+        if (!unknown_active) return value_active;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingConditionalArgs.active' is not present");
     }
 
     /**
      * Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
      * 
      */
-    private UndeferrableValue<List<V2modelsIntentInitialResponseSettingConditionalConditionalBranchArgs>> conditionalBranches;
-
+    @PolicyResourceProperty(name="conditionalBranches", flag="unknown_conditionalBranches")
+    private List<V2modelsIntentInitialResponseSettingConditionalConditionalBranchArgs> value_conditionalBranches;
+    private boolean unknown_conditionalBranches;
     public List<V2modelsIntentInitialResponseSettingConditionalConditionalBranchArgs> conditionalBranches() {
-        if (conditionalBranches == null) return null;
-        return conditionalBranches.getValue("V2modelsIntentInitialResponseSettingConditionalArgs.conditionalBranches");
+        if (!unknown_conditionalBranches) return value_conditionalBranches;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingConditionalArgs.conditionalBranches' is not present");
     }
 
     /**
      * Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentInitialResponseSettingConditionalDefaultBranchArgs> defaultBranch;
-
+    @PolicyResourceProperty(name="defaultBranch", flag="unknown_defaultBranch")
+    private V2modelsIntentInitialResponseSettingConditionalDefaultBranchArgs value_defaultBranch;
+    private boolean unknown_defaultBranch;
     public V2modelsIntentInitialResponseSettingConditionalDefaultBranchArgs defaultBranch() {
-        if (defaultBranch == null) return null;
-        return defaultBranch.getValue("V2modelsIntentInitialResponseSettingConditionalArgs.defaultBranch");
+        if (!unknown_defaultBranch) return value_defaultBranch;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingConditionalArgs.defaultBranch' is not present");
     }
 
 }

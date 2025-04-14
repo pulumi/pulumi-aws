@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class EventTargetEcsTargetPlacementConstraintArgs {
      * Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
      * 
      */
-    private UndeferrableValue<String> expression;
-
+    @PolicyResourceProperty(name="expression", flag="unknown_expression")
+    private String value_expression;
+    private boolean unknown_expression;
     public String expression() {
-        if (expression == null) return null;
-        return expression.getValue("EventTargetEcsTargetPlacementConstraintArgs.expression");
+        if (!unknown_expression) return value_expression;
+        throw new UndeferrableValueException("Value 'EventTargetEcsTargetPlacementConstraintArgs.expression' is not present");
     }
 
     /**
      * Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("EventTargetEcsTargetPlacementConstraintArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'EventTargetEcsTargetPlacementConstraintArgs.type' is not present");
     }
 
 }

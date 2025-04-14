@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ecs.outputs.ClusterConfiguration;
 import com.pulumi.policypacks.aws.ecs.outputs.ClusterServiceConnectDefaults;
@@ -21,22 +22,24 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * ARN that identifies the cluster.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Cluster.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Cluster.arn' is not present");
     }
 
     /**
      * Execute command configuration for the cluster. See `configuration` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<ClusterConfiguration> configuration;
-
+    @PolicyResourceProperty(name="configuration", flag="unknown_configuration")
+    private @Nullable ClusterConfiguration value_configuration;
+    private boolean unknown_configuration;
     public @Nullable ClusterConfiguration configuration() {
-        if (configuration == null) return null;
-        return configuration.getValue("Cluster.configuration");
+        if (!unknown_configuration) return value_configuration;
+        throw new UndeferrableValueException("Value 'Cluster.configuration' is not present");
     }
 
     /**
@@ -45,44 +48,48 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Cluster.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Cluster.name' is not present");
     }
 
     /**
      * Default Service Connect namespace. See `service_connect_defaults` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<ClusterServiceConnectDefaults> serviceConnectDefaults;
-
+    @PolicyResourceProperty(name="serviceConnectDefaults", flag="unknown_serviceConnectDefaults")
+    private @Nullable ClusterServiceConnectDefaults value_serviceConnectDefaults;
+    private boolean unknown_serviceConnectDefaults;
     public @Nullable ClusterServiceConnectDefaults serviceConnectDefaults() {
-        if (serviceConnectDefaults == null) return null;
-        return serviceConnectDefaults.getValue("Cluster.serviceConnectDefaults");
+        if (!unknown_serviceConnectDefaults) return value_serviceConnectDefaults;
+        throw new UndeferrableValueException("Value 'Cluster.serviceConnectDefaults' is not present");
     }
 
     /**
      * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
      * 
      */
-    private UndeferrableValue<List<ClusterSetting>> settings;
-
+    @PolicyResourceProperty(name="settings", flag="unknown_settings")
+    private List<ClusterSetting> value_settings;
+    private boolean unknown_settings;
     public List<ClusterSetting> settings() {
-        if (settings == null) return null;
-        return settings.getValue("Cluster.settings");
+        if (!unknown_settings) return value_settings;
+        throw new UndeferrableValueException("Value 'Cluster.settings' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Cluster.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Cluster.tags' is not present");
     }
 
     /**
@@ -93,11 +100,12 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Cluster.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Cluster.tagsAll' is not present");
     }
 
 }

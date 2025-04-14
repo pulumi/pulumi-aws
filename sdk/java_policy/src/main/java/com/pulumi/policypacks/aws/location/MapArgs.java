@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.location;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.location.inputs.MapConfigurationArgs;
 import java.lang.String;
@@ -18,22 +19,24 @@ public final class MapArgs extends com.pulumi.resources.PolicyResourceInput {
      * Configuration block with the map style selected from an available data provider. Detailed below.
      * 
      */
-    private UndeferrableValue<MapConfigurationArgs> configuration;
-
+    @PolicyResourceProperty(name="configuration", flag="unknown_configuration")
+    private MapConfigurationArgs value_configuration;
+    private boolean unknown_configuration;
     public MapConfigurationArgs configuration() {
-        if (configuration == null) return null;
-        return configuration.getValue("MapArgs.configuration");
+        if (!unknown_configuration) return value_configuration;
+        throw new UndeferrableValueException("Value 'MapArgs.configuration' is not present");
     }
 
     /**
      * An optional description for the map resource.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("MapArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'MapArgs.description' is not present");
     }
 
     /**
@@ -42,22 +45,24 @@ public final class MapArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> mapName;
-
+    @PolicyResourceProperty(name="mapName", flag="unknown_mapName")
+    private String value_mapName;
+    private boolean unknown_mapName;
     public String mapName() {
-        if (mapName == null) return null;
-        return mapName.getValue("MapArgs.mapName");
+        if (!unknown_mapName) return value_mapName;
+        throw new UndeferrableValueException("Value 'MapArgs.mapName' is not present");
     }
 
     /**
      * Key-value tags for the map. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("MapArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'MapArgs.tags' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecr;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ecr.outputs.ReplicationConfigurationReplicationConfiguration;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class ReplicationConfiguration extends com.pulumi.resources.PolicyR
      * The registry ID where the replication configuration was created.
      * 
      */
-    private UndeferrableValue<String> registryId;
-
+    @PolicyResourceProperty(name="registryId", flag="unknown_registryId")
+    private String value_registryId;
+    private boolean unknown_registryId;
     public String registryId() {
-        if (registryId == null) return null;
-        return registryId.getValue("ReplicationConfiguration.registryId");
+        if (!unknown_registryId) return value_registryId;
+        throw new UndeferrableValueException("Value 'ReplicationConfiguration.registryId' is not present");
     }
 
     /**
      * Replication configuration for a registry. See Replication Configuration.
      * 
      */
-    private @Nullable UndeferrableValue<ReplicationConfigurationReplicationConfiguration> replicationConfiguration;
-
+    @PolicyResourceProperty(name="replicationConfiguration", flag="unknown_replicationConfiguration")
+    private @Nullable ReplicationConfigurationReplicationConfiguration value_replicationConfiguration;
+    private boolean unknown_replicationConfiguration;
     public @Nullable ReplicationConfigurationReplicationConfiguration replicationConfiguration() {
-        if (replicationConfiguration == null) return null;
-        return replicationConfiguration.getValue("ReplicationConfiguration.replicationConfiguration");
+        if (!unknown_replicationConfiguration) return value_replicationConfiguration;
+        throw new UndeferrableValueException("Value 'ReplicationConfiguration.replicationConfiguration' is not present");
     }
 
 }

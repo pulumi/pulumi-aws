@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.pipes.inputs.PipeEnrichmentParametersArgs;
 import com.pulumi.policypacks.aws.pipes.inputs.PipeLogConfigurationArgs;
@@ -21,132 +22,144 @@ public final class PipeArgs extends com.pulumi.resources.PolicyResourceInput {
      * A description of the pipe. At most 512 characters.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("PipeArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'PipeArgs.description' is not present");
     }
 
     /**
      * The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
      * 
      */
-    private UndeferrableValue<String> desiredState;
-
+    @PolicyResourceProperty(name="desiredState", flag="unknown_desiredState")
+    private String value_desiredState;
+    private boolean unknown_desiredState;
     public String desiredState() {
-        if (desiredState == null) return null;
-        return desiredState.getValue("PipeArgs.desiredState");
+        if (!unknown_desiredState) return value_desiredState;
+        throw new UndeferrableValueException("Value 'PipeArgs.desiredState' is not present");
     }
 
     /**
      * Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
      * 
      */
-    private UndeferrableValue<String> enrichment;
-
+    @PolicyResourceProperty(name="enrichment", flag="unknown_enrichment")
+    private String value_enrichment;
+    private boolean unknown_enrichment;
     public String enrichment() {
-        if (enrichment == null) return null;
-        return enrichment.getValue("PipeArgs.enrichment");
+        if (!unknown_enrichment) return value_enrichment;
+        throw new UndeferrableValueException("Value 'PipeArgs.enrichment' is not present");
     }
 
     /**
      * Parameters to configure enrichment for your pipe. Detailed below.
      * 
      */
-    private UndeferrableValue<PipeEnrichmentParametersArgs> enrichmentParameters;
-
+    @PolicyResourceProperty(name="enrichmentParameters", flag="unknown_enrichmentParameters")
+    private PipeEnrichmentParametersArgs value_enrichmentParameters;
+    private boolean unknown_enrichmentParameters;
     public PipeEnrichmentParametersArgs enrichmentParameters() {
-        if (enrichmentParameters == null) return null;
-        return enrichmentParameters.getValue("PipeArgs.enrichmentParameters");
+        if (!unknown_enrichmentParameters) return value_enrichmentParameters;
+        throw new UndeferrableValueException("Value 'PipeArgs.enrichmentParameters' is not present");
     }
 
     /**
      * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
      * 
      */
-    private UndeferrableValue<String> kmsKeyIdentifier;
-
+    @PolicyResourceProperty(name="kmsKeyIdentifier", flag="unknown_kmsKeyIdentifier")
+    private String value_kmsKeyIdentifier;
+    private boolean unknown_kmsKeyIdentifier;
     public String kmsKeyIdentifier() {
-        if (kmsKeyIdentifier == null) return null;
-        return kmsKeyIdentifier.getValue("PipeArgs.kmsKeyIdentifier");
+        if (!unknown_kmsKeyIdentifier) return value_kmsKeyIdentifier;
+        throw new UndeferrableValueException("Value 'PipeArgs.kmsKeyIdentifier' is not present");
     }
 
     /**
      * Logging configuration settings for the pipe. Detailed below.
      * 
      */
-    private UndeferrableValue<PipeLogConfigurationArgs> logConfiguration;
-
+    @PolicyResourceProperty(name="logConfiguration", flag="unknown_logConfiguration")
+    private PipeLogConfigurationArgs value_logConfiguration;
+    private boolean unknown_logConfiguration;
     public PipeLogConfigurationArgs logConfiguration() {
-        if (logConfiguration == null) return null;
-        return logConfiguration.getValue("PipeArgs.logConfiguration");
+        if (!unknown_logConfiguration) return value_logConfiguration;
+        throw new UndeferrableValueException("Value 'PipeArgs.logConfiguration' is not present");
     }
 
     /**
      * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PipeArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PipeArgs.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("PipeArgs.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'PipeArgs.namePrefix' is not present");
     }
 
     /**
      * ARN of the role that allows the pipe to send data to the target.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("PipeArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'PipeArgs.roleArn' is not present");
     }
 
     /**
      * Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
      * 
      */
-    private UndeferrableValue<String> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private String value_source;
+    private boolean unknown_source;
     public String source() {
-        if (source == null) return null;
-        return source.getValue("PipeArgs.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'PipeArgs.source' is not present");
     }
 
     /**
      * Parameters to configure a source for the pipe. Detailed below.
      * 
      */
-    private UndeferrableValue<PipeSourceParametersArgs> sourceParameters;
-
+    @PolicyResourceProperty(name="sourceParameters", flag="unknown_sourceParameters")
+    private PipeSourceParametersArgs value_sourceParameters;
+    private boolean unknown_sourceParameters;
     public PipeSourceParametersArgs sourceParameters() {
-        if (sourceParameters == null) return null;
-        return sourceParameters.getValue("PipeArgs.sourceParameters");
+        if (!unknown_sourceParameters) return value_sourceParameters;
+        throw new UndeferrableValueException("Value 'PipeArgs.sourceParameters' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("PipeArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'PipeArgs.tags' is not present");
     }
 
     /**
@@ -155,22 +168,24 @@ public final class PipeArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> target;
-
+    @PolicyResourceProperty(name="target", flag="unknown_target")
+    private String value_target;
+    private boolean unknown_target;
     public String target() {
-        if (target == null) return null;
-        return target.getValue("PipeArgs.target");
+        if (!unknown_target) return value_target;
+        throw new UndeferrableValueException("Value 'PipeArgs.target' is not present");
     }
 
     /**
      * Parameters to configure a target for your pipe. Detailed below.
      * 
      */
-    private UndeferrableValue<PipeTargetParametersArgs> targetParameters;
-
+    @PolicyResourceProperty(name="targetParameters", flag="unknown_targetParameters")
+    private PipeTargetParametersArgs value_targetParameters;
+    private boolean unknown_targetParameters;
     public PipeTargetParametersArgs targetParameters() {
-        if (targetParameters == null) return null;
-        return targetParameters.getValue("PipeArgs.targetParameters");
+        if (!unknown_targetParameters) return value_targetParameters;
+        throw new UndeferrableValueException("Value 'PipeArgs.targetParameters' is not present");
     }
 
 }

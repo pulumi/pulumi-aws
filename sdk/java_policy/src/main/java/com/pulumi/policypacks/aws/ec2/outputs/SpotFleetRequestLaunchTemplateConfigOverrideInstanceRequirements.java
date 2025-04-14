@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.outputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount;
 import com.pulumi.policypacks.aws.ec2.outputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib;
 import com.pulumi.policypacks.aws.ec2.outputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps;
@@ -26,55 +27,60 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
      * Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
      * 
      */
-    private @Nullable UndeferrableValue<SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount> acceleratorCount;
-
+    @PolicyResourceProperty(name="acceleratorCount", flag="unknown_acceleratorCount")
+    private @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount value_acceleratorCount;
+    private boolean unknown_acceleratorCount;
     public @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount acceleratorCount() {
-        if (acceleratorCount == null) return null;
-        return acceleratorCount.getValue("SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.acceleratorCount");
+        if (!unknown_acceleratorCount) return value_acceleratorCount;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.acceleratorCount' is not present");
     }
 
     /**
      * List of accelerator manufacturer names. Default is any manufacturer.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> acceleratorManufacturers;
-
+    @PolicyResourceProperty(name="acceleratorManufacturers", flag="unknown_acceleratorManufacturers")
+    private @Nullable List<String> value_acceleratorManufacturers;
+    private boolean unknown_acceleratorManufacturers;
     public @Nullable List<String> acceleratorManufacturers() {
-        if (acceleratorManufacturers == null) return null;
-        return acceleratorManufacturers.getValue("SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.acceleratorManufacturers");
+        if (!unknown_acceleratorManufacturers) return value_acceleratorManufacturers;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.acceleratorManufacturers' is not present");
     }
 
     /**
      * List of accelerator names. Default is any acclerator.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> acceleratorNames;
-
+    @PolicyResourceProperty(name="acceleratorNames", flag="unknown_acceleratorNames")
+    private @Nullable List<String> value_acceleratorNames;
+    private boolean unknown_acceleratorNames;
     public @Nullable List<String> acceleratorNames() {
-        if (acceleratorNames == null) return null;
-        return acceleratorNames.getValue("SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.acceleratorNames");
+        if (!unknown_acceleratorNames) return value_acceleratorNames;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.acceleratorNames' is not present");
     }
 
     /**
      * Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
      * 
      */
-    private @Nullable UndeferrableValue<SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib> acceleratorTotalMemoryMib;
-
+    @PolicyResourceProperty(name="acceleratorTotalMemoryMib", flag="unknown_acceleratorTotalMemoryMib")
+    private @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib value_acceleratorTotalMemoryMib;
+    private boolean unknown_acceleratorTotalMemoryMib;
     public @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib acceleratorTotalMemoryMib() {
-        if (acceleratorTotalMemoryMib == null) return null;
-        return acceleratorTotalMemoryMib.getValue("SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.acceleratorTotalMemoryMib");
+        if (!unknown_acceleratorTotalMemoryMib) return value_acceleratorTotalMemoryMib;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.acceleratorTotalMemoryMib' is not present");
     }
 
     /**
      * List of accelerator types. Default is any accelerator type.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> acceleratorTypes;
-
+    @PolicyResourceProperty(name="acceleratorTypes", flag="unknown_acceleratorTypes")
+    private @Nullable List<String> value_acceleratorTypes;
+    private boolean unknown_acceleratorTypes;
     public @Nullable List<String> acceleratorTypes() {
-        if (acceleratorTypes == null) return null;
-        return acceleratorTypes.getValue("SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.acceleratorTypes");
+        if (!unknown_acceleratorTypes) return value_acceleratorTypes;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.acceleratorTypes' is not present");
     }
 
     /**
@@ -83,44 +89,48 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
      * &gt; **NOTE:** If you specify `allowed_instance_types`, you can&#39;t specify `excluded_instance_types`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> allowedInstanceTypes;
-
+    @PolicyResourceProperty(name="allowedInstanceTypes", flag="unknown_allowedInstanceTypes")
+    private @Nullable List<String> value_allowedInstanceTypes;
+    private boolean unknown_allowedInstanceTypes;
     public @Nullable List<String> allowedInstanceTypes() {
-        if (allowedInstanceTypes == null) return null;
-        return allowedInstanceTypes.getValue("SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.allowedInstanceTypes");
+        if (!unknown_allowedInstanceTypes) return value_allowedInstanceTypes;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.allowedInstanceTypes' is not present");
     }
 
     /**
      * Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
      * 
      */
-    private @Nullable UndeferrableValue<String> bareMetal;
-
+    @PolicyResourceProperty(name="bareMetal", flag="unknown_bareMetal")
+    private @Nullable String value_bareMetal;
+    private boolean unknown_bareMetal;
     public @Nullable String bareMetal() {
-        if (bareMetal == null) return null;
-        return bareMetal.getValue("SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.bareMetal");
+        if (!unknown_bareMetal) return value_bareMetal;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.bareMetal' is not present");
     }
 
     /**
      * Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
      * 
      */
-    private @Nullable UndeferrableValue<SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps> baselineEbsBandwidthMbps;
-
+    @PolicyResourceProperty(name="baselineEbsBandwidthMbps", flag="unknown_baselineEbsBandwidthMbps")
+    private @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps value_baselineEbsBandwidthMbps;
+    private boolean unknown_baselineEbsBandwidthMbps;
     public @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps baselineEbsBandwidthMbps() {
-        if (baselineEbsBandwidthMbps == null) return null;
-        return baselineEbsBandwidthMbps.getValue("SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.baselineEbsBandwidthMbps");
+        if (!unknown_baselineEbsBandwidthMbps) return value_baselineEbsBandwidthMbps;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.baselineEbsBandwidthMbps' is not present");
     }
 
     /**
      * Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
      * 
      */
-    private @Nullable UndeferrableValue<String> burstablePerformance;
-
+    @PolicyResourceProperty(name="burstablePerformance", flag="unknown_burstablePerformance")
+    private @Nullable String value_burstablePerformance;
+    private boolean unknown_burstablePerformance;
     public @Nullable String burstablePerformance() {
-        if (burstablePerformance == null) return null;
-        return burstablePerformance.getValue("SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.burstablePerformance");
+        if (!unknown_burstablePerformance) return value_burstablePerformance;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.burstablePerformance' is not present");
     }
 
     /**
@@ -129,11 +139,12 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
      * &gt; **NOTE:** Don&#39;t confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> cpuManufacturers;
-
+    @PolicyResourceProperty(name="cpuManufacturers", flag="unknown_cpuManufacturers")
+    private @Nullable List<String> value_cpuManufacturers;
+    private boolean unknown_cpuManufacturers;
     public @Nullable List<String> cpuManufacturers() {
-        if (cpuManufacturers == null) return null;
-        return cpuManufacturers.getValue("SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.cpuManufacturers");
+        if (!unknown_cpuManufacturers) return value_cpuManufacturers;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.cpuManufacturers' is not present");
     }
 
     /**
@@ -142,88 +153,96 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
      * &gt; **NOTE:** If you specify `excluded_instance_types`, you can&#39;t specify `allowed_instance_types`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> excludedInstanceTypes;
-
+    @PolicyResourceProperty(name="excludedInstanceTypes", flag="unknown_excludedInstanceTypes")
+    private @Nullable List<String> value_excludedInstanceTypes;
+    private boolean unknown_excludedInstanceTypes;
     public @Nullable List<String> excludedInstanceTypes() {
-        if (excludedInstanceTypes == null) return null;
-        return excludedInstanceTypes.getValue("SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.excludedInstanceTypes");
+        if (!unknown_excludedInstanceTypes) return value_excludedInstanceTypes;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.excludedInstanceTypes' is not present");
     }
 
     /**
      * List of instance generation names. Default is any generation.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> instanceGenerations;
-
+    @PolicyResourceProperty(name="instanceGenerations", flag="unknown_instanceGenerations")
+    private @Nullable List<String> value_instanceGenerations;
+    private boolean unknown_instanceGenerations;
     public @Nullable List<String> instanceGenerations() {
-        if (instanceGenerations == null) return null;
-        return instanceGenerations.getValue("SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.instanceGenerations");
+        if (!unknown_instanceGenerations) return value_instanceGenerations;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.instanceGenerations' is not present");
     }
 
     /**
      * Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
      * 
      */
-    private @Nullable UndeferrableValue<String> localStorage;
-
+    @PolicyResourceProperty(name="localStorage", flag="unknown_localStorage")
+    private @Nullable String value_localStorage;
+    private boolean unknown_localStorage;
     public @Nullable String localStorage() {
-        if (localStorage == null) return null;
-        return localStorage.getValue("SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.localStorage");
+        if (!unknown_localStorage) return value_localStorage;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.localStorage' is not present");
     }
 
     /**
      * List of local storage type names. Default any storage type.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> localStorageTypes;
-
+    @PolicyResourceProperty(name="localStorageTypes", flag="unknown_localStorageTypes")
+    private @Nullable List<String> value_localStorageTypes;
+    private boolean unknown_localStorageTypes;
     public @Nullable List<String> localStorageTypes() {
-        if (localStorageTypes == null) return null;
-        return localStorageTypes.getValue("SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.localStorageTypes");
+        if (!unknown_localStorageTypes) return value_localStorageTypes;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.localStorageTypes' is not present");
     }
 
     /**
      * Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
      * 
      */
-    private @Nullable UndeferrableValue<SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu> memoryGibPerVcpu;
-
+    @PolicyResourceProperty(name="memoryGibPerVcpu", flag="unknown_memoryGibPerVcpu")
+    private @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu value_memoryGibPerVcpu;
+    private boolean unknown_memoryGibPerVcpu;
     public @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu memoryGibPerVcpu() {
-        if (memoryGibPerVcpu == null) return null;
-        return memoryGibPerVcpu.getValue("SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.memoryGibPerVcpu");
+        if (!unknown_memoryGibPerVcpu) return value_memoryGibPerVcpu;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.memoryGibPerVcpu' is not present");
     }
 
     /**
      * Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
      * 
      */
-    private @Nullable UndeferrableValue<SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib> memoryMib;
-
+    @PolicyResourceProperty(name="memoryMib", flag="unknown_memoryMib")
+    private @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib value_memoryMib;
+    private boolean unknown_memoryMib;
     public @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib memoryMib() {
-        if (memoryMib == null) return null;
-        return memoryMib.getValue("SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.memoryMib");
+        if (!unknown_memoryMib) return value_memoryMib;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.memoryMib' is not present");
     }
 
     /**
      * Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
      * 
      */
-    private @Nullable UndeferrableValue<SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps> networkBandwidthGbps;
-
+    @PolicyResourceProperty(name="networkBandwidthGbps", flag="unknown_networkBandwidthGbps")
+    private @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps value_networkBandwidthGbps;
+    private boolean unknown_networkBandwidthGbps;
     public @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps networkBandwidthGbps() {
-        if (networkBandwidthGbps == null) return null;
-        return networkBandwidthGbps.getValue("SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.networkBandwidthGbps");
+        if (!unknown_networkBandwidthGbps) return value_networkBandwidthGbps;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.networkBandwidthGbps' is not present");
     }
 
     /**
      * Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
      * 
      */
-    private @Nullable UndeferrableValue<SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount> networkInterfaceCount;
-
+    @PolicyResourceProperty(name="networkInterfaceCount", flag="unknown_networkInterfaceCount")
+    private @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount value_networkInterfaceCount;
+    private boolean unknown_networkInterfaceCount;
     public @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount networkInterfaceCount() {
-        if (networkInterfaceCount == null) return null;
-        return networkInterfaceCount.getValue("SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.networkInterfaceCount");
+        if (!unknown_networkInterfaceCount) return value_networkInterfaceCount;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.networkInterfaceCount' is not present");
     }
 
     /**
@@ -232,22 +251,24 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
      * If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> onDemandMaxPricePercentageOverLowestPrice;
-
+    @PolicyResourceProperty(name="onDemandMaxPricePercentageOverLowestPrice", flag="unknown_onDemandMaxPricePercentageOverLowestPrice")
+    private @Nullable Integer value_onDemandMaxPricePercentageOverLowestPrice;
+    private boolean unknown_onDemandMaxPricePercentageOverLowestPrice;
     public @Nullable Integer onDemandMaxPricePercentageOverLowestPrice() {
-        if (onDemandMaxPricePercentageOverLowestPrice == null) return null;
-        return onDemandMaxPricePercentageOverLowestPrice.getValue("SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.onDemandMaxPricePercentageOverLowestPrice");
+        if (!unknown_onDemandMaxPricePercentageOverLowestPrice) return value_onDemandMaxPricePercentageOverLowestPrice;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.onDemandMaxPricePercentageOverLowestPrice' is not present");
     }
 
     /**
      * Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> requireHibernateSupport;
-
+    @PolicyResourceProperty(name="requireHibernateSupport", flag="unknown_requireHibernateSupport")
+    private @Nullable Boolean value_requireHibernateSupport;
+    private boolean unknown_requireHibernateSupport;
     public @Nullable Boolean requireHibernateSupport() {
-        if (requireHibernateSupport == null) return null;
-        return requireHibernateSupport.getValue("SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.requireHibernateSupport");
+        if (!unknown_requireHibernateSupport) return value_requireHibernateSupport;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.requireHibernateSupport' is not present");
     }
 
     /**
@@ -256,33 +277,36 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
      * If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> spotMaxPricePercentageOverLowestPrice;
-
+    @PolicyResourceProperty(name="spotMaxPricePercentageOverLowestPrice", flag="unknown_spotMaxPricePercentageOverLowestPrice")
+    private @Nullable Integer value_spotMaxPricePercentageOverLowestPrice;
+    private boolean unknown_spotMaxPricePercentageOverLowestPrice;
     public @Nullable Integer spotMaxPricePercentageOverLowestPrice() {
-        if (spotMaxPricePercentageOverLowestPrice == null) return null;
-        return spotMaxPricePercentageOverLowestPrice.getValue("SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.spotMaxPricePercentageOverLowestPrice");
+        if (!unknown_spotMaxPricePercentageOverLowestPrice) return value_spotMaxPricePercentageOverLowestPrice;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.spotMaxPricePercentageOverLowestPrice' is not present");
     }
 
     /**
      * Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
      * 
      */
-    private @Nullable UndeferrableValue<SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb> totalLocalStorageGb;
-
+    @PolicyResourceProperty(name="totalLocalStorageGb", flag="unknown_totalLocalStorageGb")
+    private @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb value_totalLocalStorageGb;
+    private boolean unknown_totalLocalStorageGb;
     public @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb totalLocalStorageGb() {
-        if (totalLocalStorageGb == null) return null;
-        return totalLocalStorageGb.getValue("SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.totalLocalStorageGb");
+        if (!unknown_totalLocalStorageGb) return value_totalLocalStorageGb;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.totalLocalStorageGb' is not present");
     }
 
     /**
      * Block describing the minimum and maximum number of vCPUs. Default is no maximum.
      * 
      */
-    private @Nullable UndeferrableValue<SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount> vcpuCount;
-
+    @PolicyResourceProperty(name="vcpuCount", flag="unknown_vcpuCount")
+    private @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount value_vcpuCount;
+    private boolean unknown_vcpuCount;
     public @Nullable SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount vcpuCount() {
-        if (vcpuCount == null) return null;
-        return vcpuCount.getValue("SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.vcpuCount");
+        if (!unknown_vcpuCount) return value_vcpuCount;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements.vcpuCount' is not present");
     }
 
 }

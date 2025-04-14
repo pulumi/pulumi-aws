@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudwatch.inputs.MetricStreamStatisticsConfigurationIncludeMetricArgs;
 import java.lang.String;
 import java.util.List;
@@ -15,22 +16,24 @@ public final class MetricStreamStatisticsConfigurationArgs {
      * The additional statistics to stream for the metrics listed in `include_metrics`.
      * 
      */
-    private UndeferrableValue<List<String>> additionalStatistics;
-
+    @PolicyResourceProperty(name="additionalStatistics", flag="unknown_additionalStatistics")
+    private List<String> value_additionalStatistics;
+    private boolean unknown_additionalStatistics;
     public List<String> additionalStatistics() {
-        if (additionalStatistics == null) return null;
-        return additionalStatistics.getValue("MetricStreamStatisticsConfigurationArgs.additionalStatistics");
+        if (!unknown_additionalStatistics) return value_additionalStatistics;
+        throw new UndeferrableValueException("Value 'MetricStreamStatisticsConfigurationArgs.additionalStatistics' is not present");
     }
 
     /**
      * An array that defines the metrics that are to have additional statistics streamed. See details below.
      * 
      */
-    private UndeferrableValue<List<MetricStreamStatisticsConfigurationIncludeMetricArgs>> includeMetrics;
-
+    @PolicyResourceProperty(name="includeMetrics", flag="unknown_includeMetrics")
+    private List<MetricStreamStatisticsConfigurationIncludeMetricArgs> value_includeMetrics;
+    private boolean unknown_includeMetrics;
     public List<MetricStreamStatisticsConfigurationIncludeMetricArgs> includeMetrics() {
-        if (includeMetrics == null) return null;
-        return includeMetrics.getValue("MetricStreamStatisticsConfigurationArgs.includeMetrics");
+        if (!unknown_includeMetrics) return value_includeMetrics;
+        throw new UndeferrableValueException("Value 'MetricStreamStatisticsConfigurationArgs.includeMetrics' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class Account extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the SecurityHub Hub created in the account.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Account.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Account.arn' is not present");
     }
 
     /**
      * Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> autoEnableControls;
-
+    @PolicyResourceProperty(name="autoEnableControls", flag="unknown_autoEnableControls")
+    private @Nullable Boolean value_autoEnableControls;
+    private boolean unknown_autoEnableControls;
     public @Nullable Boolean autoEnableControls() {
-        if (autoEnableControls == null) return null;
-        return autoEnableControls.getValue("Account.autoEnableControls");
+        if (!unknown_autoEnableControls) return value_autoEnableControls;
+        throw new UndeferrableValueException("Value 'Account.autoEnableControls' is not present");
     }
 
     /**
      * Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
      * 
      */
-    private UndeferrableValue<String> controlFindingGenerator;
-
+    @PolicyResourceProperty(name="controlFindingGenerator", flag="unknown_controlFindingGenerator")
+    private String value_controlFindingGenerator;
+    private boolean unknown_controlFindingGenerator;
     public String controlFindingGenerator() {
-        if (controlFindingGenerator == null) return null;
-        return controlFindingGenerator.getValue("Account.controlFindingGenerator");
+        if (!unknown_controlFindingGenerator) return value_controlFindingGenerator;
+        throw new UndeferrableValueException("Value 'Account.controlFindingGenerator' is not present");
     }
 
     /**
      * Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enableDefaultStandards;
-
+    @PolicyResourceProperty(name="enableDefaultStandards", flag="unknown_enableDefaultStandards")
+    private @Nullable Boolean value_enableDefaultStandards;
+    private boolean unknown_enableDefaultStandards;
     public @Nullable Boolean enableDefaultStandards() {
-        if (enableDefaultStandards == null) return null;
-        return enableDefaultStandards.getValue("Account.enableDefaultStandards");
+        if (!unknown_enableDefaultStandards) return value_enableDefaultStandards;
+        throw new UndeferrableValueException("Value 'Account.enableDefaultStandards' is not present");
     }
 
 }

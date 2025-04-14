@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class PipelinePipelineDefinitionS3LocationArgs {
      * Name of the S3 bucket.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("PipelinePipelineDefinitionS3LocationArgs.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'PipelinePipelineDefinitionS3LocationArgs.bucket' is not present");
     }
 
     /**
      * The object key (or key name) uniquely identifies the object in an S3 bucket.
      * 
      */
-    private UndeferrableValue<String> objectKey;
-
+    @PolicyResourceProperty(name="objectKey", flag="unknown_objectKey")
+    private String value_objectKey;
+    private boolean unknown_objectKey;
     public String objectKey() {
-        if (objectKey == null) return null;
-        return objectKey.getValue("PipelinePipelineDefinitionS3LocationArgs.objectKey");
+        if (!unknown_objectKey) return value_objectKey;
+        throw new UndeferrableValueException("Value 'PipelinePipelineDefinitionS3LocationArgs.objectKey' is not present");
     }
 
     /**
      * Version Id of the pipeline definition file. If not specified, Amazon SageMaker AI will retrieve the latest version.
      * 
      */
-    private UndeferrableValue<String> versionId;
-
+    @PolicyResourceProperty(name="versionId", flag="unknown_versionId")
+    private String value_versionId;
+    private boolean unknown_versionId;
     public String versionId() {
-        if (versionId == null) return null;
-        return versionId.getValue("PipelinePipelineDefinitionS3LocationArgs.versionId");
+        if (!unknown_versionId) return value_versionId;
+        throw new UndeferrableValueException("Value 'PipelinePipelineDefinitionS3LocationArgs.versionId' is not present");
     }
 
 }

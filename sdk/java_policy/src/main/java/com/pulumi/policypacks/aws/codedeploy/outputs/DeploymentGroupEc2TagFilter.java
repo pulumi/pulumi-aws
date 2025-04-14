@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codedeploy.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class DeploymentGroupEc2TagFilter {
      * The key of the tag filter.
      * 
      */
-    private @Nullable UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private @Nullable String value_key;
+    private boolean unknown_key;
     public @Nullable String key() {
-        if (key == null) return null;
-        return key.getValue("DeploymentGroupEc2TagFilter.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'DeploymentGroupEc2TagFilter.key' is not present");
     }
 
     /**
      * The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("DeploymentGroupEc2TagFilter.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'DeploymentGroupEc2TagFilter.type' is not present");
     }
 
     /**
@@ -38,11 +41,12 @@ public final class DeploymentGroupEc2TagFilter {
      * Multiple occurrences of `ec2_tag_filter` are allowed, where any instance that matches to at least one of the tag filters is selected.
      * 
      */
-    private @Nullable UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private @Nullable String value_value;
+    private boolean unknown_value;
     public @Nullable String value() {
-        if (value == null) return null;
-        return value.getValue("DeploymentGroupEc2TagFilter.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'DeploymentGroupEc2TagFilter.value' is not present");
     }
 
 }

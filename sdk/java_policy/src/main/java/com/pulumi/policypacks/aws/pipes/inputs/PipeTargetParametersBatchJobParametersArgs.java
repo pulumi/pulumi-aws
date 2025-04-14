@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.pipes.inputs.PipeTargetParametersBatchJobParametersArrayPropertiesArgs;
 import com.pulumi.policypacks.aws.pipes.inputs.PipeTargetParametersBatchJobParametersContainerOverridesArgs;
 import com.pulumi.policypacks.aws.pipes.inputs.PipeTargetParametersBatchJobParametersDependsOnArgs;
@@ -20,77 +21,84 @@ public final class PipeTargetParametersBatchJobParametersArgs {
      * The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. Detailed below.
      * 
      */
-    private UndeferrableValue<PipeTargetParametersBatchJobParametersArrayPropertiesArgs> arrayProperties;
-
+    @PolicyResourceProperty(name="arrayProperties", flag="unknown_arrayProperties")
+    private PipeTargetParametersBatchJobParametersArrayPropertiesArgs value_arrayProperties;
+    private boolean unknown_arrayProperties;
     public PipeTargetParametersBatchJobParametersArrayPropertiesArgs arrayProperties() {
-        if (arrayProperties == null) return null;
-        return arrayProperties.getValue("PipeTargetParametersBatchJobParametersArgs.arrayProperties");
+        if (!unknown_arrayProperties) return value_arrayProperties;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParametersArgs.arrayProperties' is not present");
     }
 
     /**
      * The overrides that are sent to a container. Detailed below.
      * 
      */
-    private UndeferrableValue<PipeTargetParametersBatchJobParametersContainerOverridesArgs> containerOverrides;
-
+    @PolicyResourceProperty(name="containerOverrides", flag="unknown_containerOverrides")
+    private PipeTargetParametersBatchJobParametersContainerOverridesArgs value_containerOverrides;
+    private boolean unknown_containerOverrides;
     public PipeTargetParametersBatchJobParametersContainerOverridesArgs containerOverrides() {
-        if (containerOverrides == null) return null;
-        return containerOverrides.getValue("PipeTargetParametersBatchJobParametersArgs.containerOverrides");
+        if (!unknown_containerOverrides) return value_containerOverrides;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParametersArgs.containerOverrides' is not present");
     }
 
     /**
      * A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
      * 
      */
-    private UndeferrableValue<List<PipeTargetParametersBatchJobParametersDependsOnArgs>> dependsOns;
-
+    @PolicyResourceProperty(name="dependsOns", flag="unknown_dependsOns")
+    private List<PipeTargetParametersBatchJobParametersDependsOnArgs> value_dependsOns;
+    private boolean unknown_dependsOns;
     public List<PipeTargetParametersBatchJobParametersDependsOnArgs> dependsOns() {
-        if (dependsOns == null) return null;
-        return dependsOns.getValue("PipeTargetParametersBatchJobParametersArgs.dependsOns");
+        if (!unknown_dependsOns) return value_dependsOns;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParametersArgs.dependsOns' is not present");
     }
 
     /**
      * The job definition used by this job. This value can be one of name, name:revision, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
      * 
      */
-    private UndeferrableValue<String> jobDefinition;
-
+    @PolicyResourceProperty(name="jobDefinition", flag="unknown_jobDefinition")
+    private String value_jobDefinition;
+    private boolean unknown_jobDefinition;
     public String jobDefinition() {
-        if (jobDefinition == null) return null;
-        return jobDefinition.getValue("PipeTargetParametersBatchJobParametersArgs.jobDefinition");
+        if (!unknown_jobDefinition) return value_jobDefinition;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParametersArgs.jobDefinition' is not present");
     }
 
     /**
      * The name of the job. It can be up to 128 letters long.
      * 
      */
-    private UndeferrableValue<String> jobName;
-
+    @PolicyResourceProperty(name="jobName", flag="unknown_jobName")
+    private String value_jobName;
+    private boolean unknown_jobName;
     public String jobName() {
-        if (jobName == null) return null;
-        return jobName.getValue("PipeTargetParametersBatchJobParametersArgs.jobName");
+        if (!unknown_jobName) return value_jobName;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParametersArgs.jobName' is not present");
     }
 
     /**
      * Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition. Detailed below.
      * 
      */
-    private UndeferrableValue<Map<String,String>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private Map<String,String> value_parameters;
+    private boolean unknown_parameters;
     public Map<String,String> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("PipeTargetParametersBatchJobParametersArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParametersArgs.parameters' is not present");
     }
 
     /**
      * The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. Detailed below.
      * 
      */
-    private UndeferrableValue<PipeTargetParametersBatchJobParametersRetryStrategyArgs> retryStrategy;
-
+    @PolicyResourceProperty(name="retryStrategy", flag="unknown_retryStrategy")
+    private PipeTargetParametersBatchJobParametersRetryStrategyArgs value_retryStrategy;
+    private boolean unknown_retryStrategy;
     public PipeTargetParametersBatchJobParametersRetryStrategyArgs retryStrategy() {
-        if (retryStrategy == null) return null;
-        return retryStrategy.getValue("PipeTargetParametersBatchJobParametersArgs.retryStrategy");
+        if (!unknown_retryStrategy) return value_retryStrategy;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParametersArgs.retryStrategy' is not present");
     }
 
 }

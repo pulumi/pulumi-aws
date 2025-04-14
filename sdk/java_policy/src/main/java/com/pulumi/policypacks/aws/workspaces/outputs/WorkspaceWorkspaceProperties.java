@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.workspaces.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,55 +16,60 @@ public final class WorkspaceWorkspaceProperties {
      * The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
      * 
      */
-    private @Nullable UndeferrableValue<String> computeTypeName;
-
+    @PolicyResourceProperty(name="computeTypeName", flag="unknown_computeTypeName")
+    private @Nullable String value_computeTypeName;
+    private boolean unknown_computeTypeName;
     public @Nullable String computeTypeName() {
-        if (computeTypeName == null) return null;
-        return computeTypeName.getValue("WorkspaceWorkspaceProperties.computeTypeName");
+        if (!unknown_computeTypeName) return value_computeTypeName;
+        throw new UndeferrableValueException("Value 'WorkspaceWorkspaceProperties.computeTypeName' is not present");
     }
 
     /**
      * The size of the root volume.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> rootVolumeSizeGib;
-
+    @PolicyResourceProperty(name="rootVolumeSizeGib", flag="unknown_rootVolumeSizeGib")
+    private @Nullable Integer value_rootVolumeSizeGib;
+    private boolean unknown_rootVolumeSizeGib;
     public @Nullable Integer rootVolumeSizeGib() {
-        if (rootVolumeSizeGib == null) return null;
-        return rootVolumeSizeGib.getValue("WorkspaceWorkspaceProperties.rootVolumeSizeGib");
+        if (!unknown_rootVolumeSizeGib) return value_rootVolumeSizeGib;
+        throw new UndeferrableValueException("Value 'WorkspaceWorkspaceProperties.rootVolumeSizeGib' is not present");
     }
 
     /**
      * The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
      * 
      */
-    private @Nullable UndeferrableValue<String> runningMode;
-
+    @PolicyResourceProperty(name="runningMode", flag="unknown_runningMode")
+    private @Nullable String value_runningMode;
+    private boolean unknown_runningMode;
     public @Nullable String runningMode() {
-        if (runningMode == null) return null;
-        return runningMode.getValue("WorkspaceWorkspaceProperties.runningMode");
+        if (!unknown_runningMode) return value_runningMode;
+        throw new UndeferrableValueException("Value 'WorkspaceWorkspaceProperties.runningMode' is not present");
     }
 
     /**
      * The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> runningModeAutoStopTimeoutInMinutes;
-
+    @PolicyResourceProperty(name="runningModeAutoStopTimeoutInMinutes", flag="unknown_runningModeAutoStopTimeoutInMinutes")
+    private @Nullable Integer value_runningModeAutoStopTimeoutInMinutes;
+    private boolean unknown_runningModeAutoStopTimeoutInMinutes;
     public @Nullable Integer runningModeAutoStopTimeoutInMinutes() {
-        if (runningModeAutoStopTimeoutInMinutes == null) return null;
-        return runningModeAutoStopTimeoutInMinutes.getValue("WorkspaceWorkspaceProperties.runningModeAutoStopTimeoutInMinutes");
+        if (!unknown_runningModeAutoStopTimeoutInMinutes) return value_runningModeAutoStopTimeoutInMinutes;
+        throw new UndeferrableValueException("Value 'WorkspaceWorkspaceProperties.runningModeAutoStopTimeoutInMinutes' is not present");
     }
 
     /**
      * The size of the user storage.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> userVolumeSizeGib;
-
+    @PolicyResourceProperty(name="userVolumeSizeGib", flag="unknown_userVolumeSizeGib")
+    private @Nullable Integer value_userVolumeSizeGib;
+    private boolean unknown_userVolumeSizeGib;
     public @Nullable Integer userVolumeSizeGib() {
-        if (userVolumeSizeGib == null) return null;
-        return userVolumeSizeGib.getValue("WorkspaceWorkspaceProperties.userVolumeSizeGib");
+        if (!unknown_userVolumeSizeGib) return value_userVolumeSizeGib;
+        throw new UndeferrableValueException("Value 'WorkspaceWorkspaceProperties.userVolumeSizeGib' is not present");
     }
 
 }

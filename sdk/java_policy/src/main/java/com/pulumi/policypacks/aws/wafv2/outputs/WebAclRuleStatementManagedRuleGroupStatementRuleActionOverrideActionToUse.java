@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha;
@@ -14,47 +15,52 @@ import javax.annotation.Nullable;
 
 public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse {
 
-    private @Nullable UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow> allow;
-
+    @PolicyResourceProperty(name="allow", flag="unknown_allow")
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow value_allow;
+    private boolean unknown_allow;
     public @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow allow() {
-        if (allow == null) return null;
-        return allow.getValue("WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse.allow");
+        if (!unknown_allow) return value_allow;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse.allow' is not present");
     }
 
-    private @Nullable UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock> block;
-
+    @PolicyResourceProperty(name="block", flag="unknown_block")
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock value_block;
+    private boolean unknown_block;
     public @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock block() {
-        if (block == null) return null;
-        return block.getValue("WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse.block");
+        if (!unknown_block) return value_block;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse.block' is not present");
     }
 
     /**
      * Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha> captcha;
-
+    @PolicyResourceProperty(name="captcha", flag="unknown_captcha")
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha value_captcha;
+    private boolean unknown_captcha;
     public @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha captcha() {
-        if (captcha == null) return null;
-        return captcha.getValue("WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse.captcha");
+        if (!unknown_captcha) return value_captcha;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse.captcha' is not present");
     }
 
     /**
      * Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge> challenge;
-
+    @PolicyResourceProperty(name="challenge", flag="unknown_challenge")
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge value_challenge;
+    private boolean unknown_challenge;
     public @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge challenge() {
-        if (challenge == null) return null;
-        return challenge.getValue("WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse.challenge");
+        if (!unknown_challenge) return value_challenge;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse.challenge' is not present");
     }
 
-    private @Nullable UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount> count;
-
+    @PolicyResourceProperty(name="count", flag="unknown_count")
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount value_count;
+    private boolean unknown_count;
     public @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount count() {
-        if (count == null) return null;
-        return count.getValue("WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse.count");
+        if (!unknown_count) return value_count;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse.count' is not present");
     }
 
 }

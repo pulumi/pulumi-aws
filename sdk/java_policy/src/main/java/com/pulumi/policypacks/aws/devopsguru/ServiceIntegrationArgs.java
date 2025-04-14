@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.devopsguru;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.devopsguru.inputs.ServiceIntegrationKmsServerSideEncryptionArgs;
 import com.pulumi.policypacks.aws.devopsguru.inputs.ServiceIntegrationLogsAnomalyDetectionArgs;
@@ -18,33 +19,36 @@ public final class ServiceIntegrationArgs extends com.pulumi.resources.PolicyRes
      * Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kms_server_side_encryption` below.
      * 
      */
-    private UndeferrableValue<ServiceIntegrationKmsServerSideEncryptionArgs> kmsServerSideEncryption;
-
+    @PolicyResourceProperty(name="kmsServerSideEncryption", flag="unknown_kmsServerSideEncryption")
+    private ServiceIntegrationKmsServerSideEncryptionArgs value_kmsServerSideEncryption;
+    private boolean unknown_kmsServerSideEncryption;
     public ServiceIntegrationKmsServerSideEncryptionArgs kmsServerSideEncryption() {
-        if (kmsServerSideEncryption == null) return null;
-        return kmsServerSideEncryption.getValue("ServiceIntegrationArgs.kmsServerSideEncryption");
+        if (!unknown_kmsServerSideEncryption) return value_kmsServerSideEncryption;
+        throw new UndeferrableValueException("Value 'ServiceIntegrationArgs.kmsServerSideEncryption' is not present");
     }
 
     /**
      * Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logs_anomaly_detection` below.
      * 
      */
-    private UndeferrableValue<ServiceIntegrationLogsAnomalyDetectionArgs> logsAnomalyDetection;
-
+    @PolicyResourceProperty(name="logsAnomalyDetection", flag="unknown_logsAnomalyDetection")
+    private ServiceIntegrationLogsAnomalyDetectionArgs value_logsAnomalyDetection;
+    private boolean unknown_logsAnomalyDetection;
     public ServiceIntegrationLogsAnomalyDetectionArgs logsAnomalyDetection() {
-        if (logsAnomalyDetection == null) return null;
-        return logsAnomalyDetection.getValue("ServiceIntegrationArgs.logsAnomalyDetection");
+        if (!unknown_logsAnomalyDetection) return value_logsAnomalyDetection;
+        throw new UndeferrableValueException("Value 'ServiceIntegrationArgs.logsAnomalyDetection' is not present");
     }
 
     /**
      * Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `ops_center` below.
      * 
      */
-    private UndeferrableValue<ServiceIntegrationOpsCenterArgs> opsCenter;
-
+    @PolicyResourceProperty(name="opsCenter", flag="unknown_opsCenter")
+    private ServiceIntegrationOpsCenterArgs value_opsCenter;
+    private boolean unknown_opsCenter;
     public ServiceIntegrationOpsCenterArgs opsCenter() {
-        if (opsCenter == null) return null;
-        return opsCenter.getValue("ServiceIntegrationArgs.opsCenter");
+        if (!unknown_opsCenter) return value_opsCenter;
+        throw new UndeferrableValueException("Value 'ServiceIntegrationArgs.opsCenter' is not present");
     }
 
 }

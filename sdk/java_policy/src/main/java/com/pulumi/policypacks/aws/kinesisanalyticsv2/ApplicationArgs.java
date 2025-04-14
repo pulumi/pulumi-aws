@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationArgs;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.inputs.ApplicationCloudwatchLoggingOptionsArgs;
@@ -20,110 +21,120 @@ public final class ApplicationArgs extends com.pulumi.resources.PolicyResourceIn
      * The application&#39;s configuration
      * 
      */
-    private UndeferrableValue<ApplicationApplicationConfigurationArgs> applicationConfiguration;
-
+    @PolicyResourceProperty(name="applicationConfiguration", flag="unknown_applicationConfiguration")
+    private ApplicationApplicationConfigurationArgs value_applicationConfiguration;
+    private boolean unknown_applicationConfiguration;
     public ApplicationApplicationConfigurationArgs applicationConfiguration() {
-        if (applicationConfiguration == null) return null;
-        return applicationConfiguration.getValue("ApplicationArgs.applicationConfiguration");
+        if (!unknown_applicationConfiguration) return value_applicationConfiguration;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.applicationConfiguration' is not present");
     }
 
     /**
      * The application&#39;s mode. Valid values are `STREAMING`, `INTERACTIVE`.
      * 
      */
-    private UndeferrableValue<String> applicationMode;
-
+    @PolicyResourceProperty(name="applicationMode", flag="unknown_applicationMode")
+    private String value_applicationMode;
+    private boolean unknown_applicationMode;
     public String applicationMode() {
-        if (applicationMode == null) return null;
-        return applicationMode.getValue("ApplicationArgs.applicationMode");
+        if (!unknown_applicationMode) return value_applicationMode;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.applicationMode' is not present");
     }
 
     /**
      * A CloudWatch log stream to monitor application configuration errors.
      * 
      */
-    private UndeferrableValue<ApplicationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
-
+    @PolicyResourceProperty(name="cloudwatchLoggingOptions", flag="unknown_cloudwatchLoggingOptions")
+    private ApplicationCloudwatchLoggingOptionsArgs value_cloudwatchLoggingOptions;
+    private boolean unknown_cloudwatchLoggingOptions;
     public ApplicationCloudwatchLoggingOptionsArgs cloudwatchLoggingOptions() {
-        if (cloudwatchLoggingOptions == null) return null;
-        return cloudwatchLoggingOptions.getValue("ApplicationArgs.cloudwatchLoggingOptions");
+        if (!unknown_cloudwatchLoggingOptions) return value_cloudwatchLoggingOptions;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.cloudwatchLoggingOptions' is not present");
     }
 
     /**
      * A summary description of the application.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ApplicationArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.description' is not present");
     }
 
     /**
      * Whether to force stop an unresponsive Flink-based application.
      * 
      */
-    private UndeferrableValue<Boolean> forceStop;
-
+    @PolicyResourceProperty(name="forceStop", flag="unknown_forceStop")
+    private Boolean value_forceStop;
+    private boolean unknown_forceStop;
     public Boolean forceStop() {
-        if (forceStop == null) return null;
-        return forceStop.getValue("ApplicationArgs.forceStop");
+        if (!unknown_forceStop) return value_forceStop;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.forceStop' is not present");
     }
 
     /**
      * The name of the application.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ApplicationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.name' is not present");
     }
 
     /**
      * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
      * 
      */
-    private UndeferrableValue<String> runtimeEnvironment;
-
+    @PolicyResourceProperty(name="runtimeEnvironment", flag="unknown_runtimeEnvironment")
+    private String value_runtimeEnvironment;
+    private boolean unknown_runtimeEnvironment;
     public String runtimeEnvironment() {
-        if (runtimeEnvironment == null) return null;
-        return runtimeEnvironment.getValue("ApplicationArgs.runtimeEnvironment");
+        if (!unknown_runtimeEnvironment) return value_runtimeEnvironment;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.runtimeEnvironment' is not present");
     }
 
     /**
      * The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
      * 
      */
-    private UndeferrableValue<String> serviceExecutionRole;
-
+    @PolicyResourceProperty(name="serviceExecutionRole", flag="unknown_serviceExecutionRole")
+    private String value_serviceExecutionRole;
+    private boolean unknown_serviceExecutionRole;
     public String serviceExecutionRole() {
-        if (serviceExecutionRole == null) return null;
-        return serviceExecutionRole.getValue("ApplicationArgs.serviceExecutionRole");
+        if (!unknown_serviceExecutionRole) return value_serviceExecutionRole;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.serviceExecutionRole' is not present");
     }
 
     /**
      * Whether to start or stop the application.
      * 
      */
-    private UndeferrableValue<Boolean> startApplication;
-
+    @PolicyResourceProperty(name="startApplication", flag="unknown_startApplication")
+    private Boolean value_startApplication;
+    private boolean unknown_startApplication;
     public Boolean startApplication() {
-        if (startApplication == null) return null;
-        return startApplication.getValue("ApplicationArgs.startApplication");
+        if (!unknown_startApplication) return value_startApplication;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.startApplication' is not present");
     }
 
     /**
      * A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ApplicationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.tags' is not present");
     }
 
 }

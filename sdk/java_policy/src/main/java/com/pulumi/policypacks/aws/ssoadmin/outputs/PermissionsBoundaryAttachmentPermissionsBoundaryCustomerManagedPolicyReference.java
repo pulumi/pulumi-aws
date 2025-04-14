@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssoadmin.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManag
      * Name of the customer managed IAM Policy to be attached.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference.name' is not present");
     }
 
     /**
      * The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
      * 
      */
-    private @Nullable UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private @Nullable String value_path;
+    private boolean unknown_path;
     public @Nullable String path() {
-        if (path == null) return null;
-        return path.getValue("PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference.path' is not present");
     }
 
 }

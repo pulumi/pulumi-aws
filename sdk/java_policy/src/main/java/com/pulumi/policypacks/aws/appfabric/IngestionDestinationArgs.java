@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appfabric;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appfabric.inputs.IngestionDestinationDestinationConfigurationArgs;
 import com.pulumi.policypacks.aws.appfabric.inputs.IngestionDestinationProcessingConfigurationArgs;
@@ -20,62 +21,68 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.PolicyR
      * The Amazon Resource Name (ARN) of the app bundle to use for the request.
      * 
      */
-    private UndeferrableValue<String> appBundleArn;
-
+    @PolicyResourceProperty(name="appBundleArn", flag="unknown_appBundleArn")
+    private String value_appBundleArn;
+    private boolean unknown_appBundleArn;
     public String appBundleArn() {
-        if (appBundleArn == null) return null;
-        return appBundleArn.getValue("IngestionDestinationArgs.appBundleArn");
+        if (!unknown_appBundleArn) return value_appBundleArn;
+        throw new UndeferrableValueException("Value 'IngestionDestinationArgs.appBundleArn' is not present");
     }
 
     /**
      * Contains information about the destination of ingested data.
      * 
      */
-    private UndeferrableValue<IngestionDestinationDestinationConfigurationArgs> destinationConfiguration;
-
+    @PolicyResourceProperty(name="destinationConfiguration", flag="unknown_destinationConfiguration")
+    private IngestionDestinationDestinationConfigurationArgs value_destinationConfiguration;
+    private boolean unknown_destinationConfiguration;
     public IngestionDestinationDestinationConfigurationArgs destinationConfiguration() {
-        if (destinationConfiguration == null) return null;
-        return destinationConfiguration.getValue("IngestionDestinationArgs.destinationConfiguration");
+        if (!unknown_destinationConfiguration) return value_destinationConfiguration;
+        throw new UndeferrableValueException("Value 'IngestionDestinationArgs.destinationConfiguration' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the ingestion to use for the request.
      * 
      */
-    private UndeferrableValue<String> ingestionArn;
-
+    @PolicyResourceProperty(name="ingestionArn", flag="unknown_ingestionArn")
+    private String value_ingestionArn;
+    private boolean unknown_ingestionArn;
     public String ingestionArn() {
-        if (ingestionArn == null) return null;
-        return ingestionArn.getValue("IngestionDestinationArgs.ingestionArn");
+        if (!unknown_ingestionArn) return value_ingestionArn;
+        throw new UndeferrableValueException("Value 'IngestionDestinationArgs.ingestionArn' is not present");
     }
 
     /**
      * Contains information about how ingested data is processed.
      * 
      */
-    private UndeferrableValue<IngestionDestinationProcessingConfigurationArgs> processingConfiguration;
-
+    @PolicyResourceProperty(name="processingConfiguration", flag="unknown_processingConfiguration")
+    private IngestionDestinationProcessingConfigurationArgs value_processingConfiguration;
+    private boolean unknown_processingConfiguration;
     public IngestionDestinationProcessingConfigurationArgs processingConfiguration() {
-        if (processingConfiguration == null) return null;
-        return processingConfiguration.getValue("IngestionDestinationArgs.processingConfiguration");
+        if (!unknown_processingConfiguration) return value_processingConfiguration;
+        throw new UndeferrableValueException("Value 'IngestionDestinationArgs.processingConfiguration' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("IngestionDestinationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'IngestionDestinationArgs.tags' is not present");
     }
 
-    private UndeferrableValue<IngestionDestinationTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private IngestionDestinationTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public IngestionDestinationTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("IngestionDestinationArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'IngestionDestinationArgs.timeouts' is not present");
     }
 
 }

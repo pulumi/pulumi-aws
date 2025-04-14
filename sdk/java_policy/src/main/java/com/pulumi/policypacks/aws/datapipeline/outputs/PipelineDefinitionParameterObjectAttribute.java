@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datapipeline.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class PipelineDefinitionParameterObjectAttribute {
      * Field identifier.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("PipelineDefinitionParameterObjectAttribute.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'PipelineDefinitionParameterObjectAttribute.key' is not present");
     }
 
     /**
      * Field value, expressed as a String.
      * 
      */
-    private UndeferrableValue<String> stringValue;
-
+    @PolicyResourceProperty(name="stringValue", flag="unknown_stringValue")
+    private String value_stringValue;
+    private boolean unknown_stringValue;
     public String stringValue() {
-        if (stringValue == null) return null;
-        return stringValue.getValue("PipelineDefinitionParameterObjectAttribute.stringValue");
+        if (!unknown_stringValue) return value_stringValue;
+        throw new UndeferrableValueException("Value 'PipelineDefinitionParameterObjectAttribute.stringValue' is not present");
     }
 
 }

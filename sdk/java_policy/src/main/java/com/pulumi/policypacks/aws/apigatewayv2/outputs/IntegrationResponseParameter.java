@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 
@@ -15,22 +16,24 @@ public final class IntegrationResponseParameter {
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
      * 
      */
-    private UndeferrableValue<Map<String,String>> mappings;
-
+    @PolicyResourceProperty(name="mappings", flag="unknown_mappings")
+    private Map<String,String> value_mappings;
+    private boolean unknown_mappings;
     public Map<String,String> mappings() {
-        if (mappings == null) return null;
-        return mappings.getValue("IntegrationResponseParameter.mappings");
+        if (!unknown_mappings) return value_mappings;
+        throw new UndeferrableValueException("Value 'IntegrationResponseParameter.mappings' is not present");
     }
 
     /**
      * HTTP status code in the range 200-599.
      * 
      */
-    private UndeferrableValue<String> statusCode;
-
+    @PolicyResourceProperty(name="statusCode", flag="unknown_statusCode")
+    private String value_statusCode;
+    private boolean unknown_statusCode;
     public String statusCode() {
-        if (statusCode == null) return null;
-        return statusCode.getValue("IntegrationResponseParameter.statusCode");
+        if (!unknown_statusCode) return value_statusCode;
+        throw new UndeferrableValueException("Value 'IntegrationResponseParameter.statusCode' is not present");
     }
 
 }

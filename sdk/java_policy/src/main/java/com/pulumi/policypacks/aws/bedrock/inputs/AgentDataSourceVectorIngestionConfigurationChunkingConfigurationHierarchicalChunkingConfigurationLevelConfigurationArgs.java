@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,11 +14,12 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
      * The maximum number of tokens that a chunk can contain in this layer.
      * 
      */
-    private UndeferrableValue<Integer> maxTokens;
-
+    @PolicyResourceProperty(name="maxTokens", flag="unknown_maxTokens")
+    private Integer value_maxTokens;
+    private boolean unknown_maxTokens;
     public Integer maxTokens() {
-        if (maxTokens == null) return null;
-        return maxTokens.getValue("AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs.maxTokens");
+        if (!unknown_maxTokens) return value_maxTokens;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs.maxTokens' is not present");
     }
 
 }

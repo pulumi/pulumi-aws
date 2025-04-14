@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.outputs.FleetLaunchTemplateConfigLaunchTemplateSpecification;
 import com.pulumi.policypacks.aws.ec2.outputs.FleetLaunchTemplateConfigOverride;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class FleetLaunchTemplateConfig {
      * Nested argument containing EC2 Launch Template to use. Defined below.
      * 
      */
-    private @Nullable UndeferrableValue<FleetLaunchTemplateConfigLaunchTemplateSpecification> launchTemplateSpecification;
-
+    @PolicyResourceProperty(name="launchTemplateSpecification", flag="unknown_launchTemplateSpecification")
+    private @Nullable FleetLaunchTemplateConfigLaunchTemplateSpecification value_launchTemplateSpecification;
+    private boolean unknown_launchTemplateSpecification;
     public @Nullable FleetLaunchTemplateConfigLaunchTemplateSpecification launchTemplateSpecification() {
-        if (launchTemplateSpecification == null) return null;
-        return launchTemplateSpecification.getValue("FleetLaunchTemplateConfig.launchTemplateSpecification");
+        if (!unknown_launchTemplateSpecification) return value_launchTemplateSpecification;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfig.launchTemplateSpecification' is not present");
     }
 
     /**
      * Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
      * 
      */
-    private @Nullable UndeferrableValue<List<FleetLaunchTemplateConfigOverride>> overrides;
-
+    @PolicyResourceProperty(name="overrides", flag="unknown_overrides")
+    private @Nullable List<FleetLaunchTemplateConfigOverride> value_overrides;
+    private boolean unknown_overrides;
     public @Nullable List<FleetLaunchTemplateConfigOverride> overrides() {
-        if (overrides == null) return null;
-        return overrides.getValue("FleetLaunchTemplateConfig.overrides");
+        if (!unknown_overrides) return value_overrides;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfig.overrides' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class ConnectionAssociationArgs extends com.pulumi.resources.Policy
      * The ID of the connection.
      * 
      */
-    private UndeferrableValue<String> connectionId;
-
+    @PolicyResourceProperty(name="connectionId", flag="unknown_connectionId")
+    private String value_connectionId;
+    private boolean unknown_connectionId;
     public String connectionId() {
-        if (connectionId == null) return null;
-        return connectionId.getValue("ConnectionAssociationArgs.connectionId");
+        if (!unknown_connectionId) return value_connectionId;
+        throw new UndeferrableValueException("Value 'ConnectionAssociationArgs.connectionId' is not present");
     }
 
     /**
      * The ID of the LAG with which to associate the connection.
      * 
      */
-    private UndeferrableValue<String> lagId;
-
+    @PolicyResourceProperty(name="lagId", flag="unknown_lagId")
+    private String value_lagId;
+    private boolean unknown_lagId;
     public String lagId() {
-        if (lagId == null) return null;
-        return lagId.getValue("ConnectionAssociationArgs.lagId");
+        if (!unknown_lagId) return value_lagId;
+        throw new UndeferrableValueException("Value 'ConnectionAssociationArgs.lagId' is not present");
     }
 
 }

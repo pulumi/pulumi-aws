@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class LustreFileSystemLogConfiguration {
      * The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
      * 
      */
-    private @Nullable UndeferrableValue<String> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private @Nullable String value_destination;
+    private boolean unknown_destination;
     public @Nullable String destination() {
-        if (destination == null) return null;
-        return destination.getValue("LustreFileSystemLogConfiguration.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'LustreFileSystemLogConfiguration.destination' is not present");
     }
 
     /**
      * Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> level;
-
+    @PolicyResourceProperty(name="level", flag="unknown_level")
+    private @Nullable String value_level;
+    private boolean unknown_level;
     public @Nullable String level() {
-        if (level == null) return null;
-        return level.getValue("LustreFileSystemLogConfiguration.level");
+        if (!unknown_level) return value_level;
+        throw new UndeferrableValueException("Value 'LustreFileSystemLogConfiguration.level' is not present");
     }
 
 }

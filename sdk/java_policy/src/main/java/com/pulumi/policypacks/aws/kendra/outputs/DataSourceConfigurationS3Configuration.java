@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kendra.outputs.DataSourceConfigurationS3ConfigurationAccessControlListConfiguration;
 import com.pulumi.policypacks.aws.kendra.outputs.DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration;
 import java.lang.String;
@@ -17,66 +18,72 @@ public final class DataSourceConfigurationS3Configuration {
      * A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<DataSourceConfigurationS3ConfigurationAccessControlListConfiguration> accessControlListConfiguration;
-
+    @PolicyResourceProperty(name="accessControlListConfiguration", flag="unknown_accessControlListConfiguration")
+    private @Nullable DataSourceConfigurationS3ConfigurationAccessControlListConfiguration value_accessControlListConfiguration;
+    private boolean unknown_accessControlListConfiguration;
     public @Nullable DataSourceConfigurationS3ConfigurationAccessControlListConfiguration accessControlListConfiguration() {
-        if (accessControlListConfiguration == null) return null;
-        return accessControlListConfiguration.getValue("DataSourceConfigurationS3Configuration.accessControlListConfiguration");
+        if (!unknown_accessControlListConfiguration) return value_accessControlListConfiguration;
+        throw new UndeferrableValueException("Value 'DataSourceConfigurationS3Configuration.accessControlListConfiguration' is not present");
     }
 
     /**
      * The name of the bucket that contains the documents.
      * 
      */
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("DataSourceConfigurationS3Configuration.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'DataSourceConfigurationS3Configuration.bucketName' is not present");
     }
 
     /**
      * A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration> documentsMetadataConfiguration;
-
+    @PolicyResourceProperty(name="documentsMetadataConfiguration", flag="unknown_documentsMetadataConfiguration")
+    private @Nullable DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration value_documentsMetadataConfiguration;
+    private boolean unknown_documentsMetadataConfiguration;
     public @Nullable DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration documentsMetadataConfiguration() {
-        if (documentsMetadataConfiguration == null) return null;
-        return documentsMetadataConfiguration.getValue("DataSourceConfigurationS3Configuration.documentsMetadataConfiguration");
+        if (!unknown_documentsMetadataConfiguration) return value_documentsMetadataConfiguration;
+        throw new UndeferrableValueException("Value 'DataSourceConfigurationS3Configuration.documentsMetadataConfiguration' is not present");
     }
 
     /**
      * A list of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> exclusionPatterns;
-
+    @PolicyResourceProperty(name="exclusionPatterns", flag="unknown_exclusionPatterns")
+    private @Nullable List<String> value_exclusionPatterns;
+    private boolean unknown_exclusionPatterns;
     public @Nullable List<String> exclusionPatterns() {
-        if (exclusionPatterns == null) return null;
-        return exclusionPatterns.getValue("DataSourceConfigurationS3Configuration.exclusionPatterns");
+        if (!unknown_exclusionPatterns) return value_exclusionPatterns;
+        throw new UndeferrableValueException("Value 'DataSourceConfigurationS3Configuration.exclusionPatterns' is not present");
     }
 
     /**
      * A list of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> inclusionPatterns;
-
+    @PolicyResourceProperty(name="inclusionPatterns", flag="unknown_inclusionPatterns")
+    private @Nullable List<String> value_inclusionPatterns;
+    private boolean unknown_inclusionPatterns;
     public @Nullable List<String> inclusionPatterns() {
-        if (inclusionPatterns == null) return null;
-        return inclusionPatterns.getValue("DataSourceConfigurationS3Configuration.inclusionPatterns");
+        if (!unknown_inclusionPatterns) return value_inclusionPatterns;
+        throw new UndeferrableValueException("Value 'DataSourceConfigurationS3Configuration.inclusionPatterns' is not present");
     }
 
     /**
      * A list of S3 prefixes for the documents that should be included in the index.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> inclusionPrefixes;
-
+    @PolicyResourceProperty(name="inclusionPrefixes", flag="unknown_inclusionPrefixes")
+    private @Nullable List<String> value_inclusionPrefixes;
+    private boolean unknown_inclusionPrefixes;
     public @Nullable List<String> inclusionPrefixes() {
-        if (inclusionPrefixes == null) return null;
-        return inclusionPrefixes.getValue("DataSourceConfigurationS3Configuration.inclusionPrefixes");
+        if (!unknown_inclusionPrefixes) return value_inclusionPrefixes;
+        throw new UndeferrableValueException("Value 'DataSourceConfigurationS3Configuration.inclusionPrefixes' is not present");
     }
 
 }

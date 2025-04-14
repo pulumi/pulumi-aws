@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,29 +15,32 @@ public final class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecific
      * ID of the launch template. Conflicts with `launch_template_name`.
      * 
      */
-    private UndeferrableValue<String> launchTemplateId;
-
+    @PolicyResourceProperty(name="launchTemplateId", flag="unknown_launchTemplateId")
+    private String value_launchTemplateId;
+    private boolean unknown_launchTemplateId;
     public String launchTemplateId() {
-        if (launchTemplateId == null) return null;
-        return launchTemplateId.getValue("GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.launchTemplateId");
+        if (!unknown_launchTemplateId) return value_launchTemplateId;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.launchTemplateId' is not present");
     }
 
     /**
      * Name of the launch template. Conflicts with `launch_template_id`.
      * 
      */
-    private UndeferrableValue<String> launchTemplateName;
-
+    @PolicyResourceProperty(name="launchTemplateName", flag="unknown_launchTemplateName")
+    private String value_launchTemplateName;
+    private boolean unknown_launchTemplateName;
     public String launchTemplateName() {
-        if (launchTemplateName == null) return null;
-        return launchTemplateName.getValue("GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.launchTemplateName");
+        if (!unknown_launchTemplateName) return value_launchTemplateName;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.launchTemplateName' is not present");
     }
 
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.version' is not present");
     }
 
 }

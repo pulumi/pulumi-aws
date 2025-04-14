@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNa
      * Name of the label that a log record must contain in order to meet the condition. It must be a fully qualified label name, which includes a prefix, optional namespaces, and the label name itself. The prefix identifies the rule group or web ACL context of the rule that added the label.
      * 
      */
-    private UndeferrableValue<String> labelName;
-
+    @PolicyResourceProperty(name="labelName", flag="unknown_labelName")
+    private String value_labelName;
+    private boolean unknown_labelName;
     public String labelName() {
-        if (labelName == null) return null;
-        return labelName.getValue("WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs.labelName");
+        if (!unknown_labelName) return value_labelName;
+        throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs.labelName' is not present");
     }
 
 }

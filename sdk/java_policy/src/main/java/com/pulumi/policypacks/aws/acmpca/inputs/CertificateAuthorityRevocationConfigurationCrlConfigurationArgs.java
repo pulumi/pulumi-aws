@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.acmpca.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,55 +17,60 @@ public final class CertificateAuthorityRevocationConfigurationCrlConfigurationAr
      * Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don&#39;t want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
      * 
      */
-    private UndeferrableValue<String> customCname;
-
+    @PolicyResourceProperty(name="customCname", flag="unknown_customCname")
+    private String value_customCname;
+    private boolean unknown_customCname;
     public String customCname() {
-        if (customCname == null) return null;
-        return customCname.getValue("CertificateAuthorityRevocationConfigurationCrlConfigurationArgs.customCname");
+        if (!unknown_customCname) return value_customCname;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityRevocationConfigurationCrlConfigurationArgs.customCname' is not present");
     }
 
     /**
      * Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("CertificateAuthorityRevocationConfigurationCrlConfigurationArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityRevocationConfigurationCrlConfigurationArgs.enabled' is not present");
     }
 
     /**
      * Number of days until a certificate expires. Must be between 1 and 5000.
      * 
      */
-    private UndeferrableValue<Integer> expirationInDays;
-
+    @PolicyResourceProperty(name="expirationInDays", flag="unknown_expirationInDays")
+    private Integer value_expirationInDays;
+    private boolean unknown_expirationInDays;
     public Integer expirationInDays() {
-        if (expirationInDays == null) return null;
-        return expirationInDays.getValue("CertificateAuthorityRevocationConfigurationCrlConfigurationArgs.expirationInDays");
+        if (!unknown_expirationInDays) return value_expirationInDays;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityRevocationConfigurationCrlConfigurationArgs.expirationInDays' is not present");
     }
 
     /**
      * Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be between 3 and 255 characters in length.
      * 
      */
-    private UndeferrableValue<String> s3BucketName;
-
+    @PolicyResourceProperty(name="s3BucketName", flag="unknown_s3BucketName")
+    private String value_s3BucketName;
+    private boolean unknown_s3BucketName;
     public String s3BucketName() {
-        if (s3BucketName == null) return null;
-        return s3BucketName.getValue("CertificateAuthorityRevocationConfigurationCrlConfigurationArgs.s3BucketName");
+        if (!unknown_s3BucketName) return value_s3BucketName;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityRevocationConfigurationCrlConfigurationArgs.s3BucketName' is not present");
     }
 
     /**
      * Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. Defaults to `PUBLIC_READ`.
      * 
      */
-    private UndeferrableValue<String> s3ObjectAcl;
-
+    @PolicyResourceProperty(name="s3ObjectAcl", flag="unknown_s3ObjectAcl")
+    private String value_s3ObjectAcl;
+    private boolean unknown_s3ObjectAcl;
     public String s3ObjectAcl() {
-        if (s3ObjectAcl == null) return null;
-        return s3ObjectAcl.getValue("CertificateAuthorityRevocationConfigurationCrlConfigurationArgs.s3ObjectAcl");
+        if (!unknown_s3ObjectAcl) return value_s3ObjectAcl;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityRevocationConfigurationCrlConfigurationArgs.s3ObjectAcl' is not present");
     }
 
 }

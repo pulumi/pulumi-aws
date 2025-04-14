@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 
 
@@ -13,11 +14,12 @@ public final class ImageRecipeSystemsManagerAgent {
      * Whether to remove the Systems Manager Agent after the image has been built.
      * 
      */
-    private UndeferrableValue<Boolean> uninstallAfterBuild;
-
+    @PolicyResourceProperty(name="uninstallAfterBuild", flag="unknown_uninstallAfterBuild")
+    private Boolean value_uninstallAfterBuild;
+    private boolean unknown_uninstallAfterBuild;
     public Boolean uninstallAfterBuild() {
-        if (uninstallAfterBuild == null) return null;
-        return uninstallAfterBuild.getValue("ImageRecipeSystemsManagerAgent.uninstallAfterBuild");
+        if (!unknown_uninstallAfterBuild) return value_uninstallAfterBuild;
+        throw new UndeferrableValueException("Value 'ImageRecipeSystemsManagerAgent.uninstallAfterBuild' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class BucketV2WebsiteArgs {
      * Absolute path to the document to return in case of a 4XX error.
      * 
      */
-    private UndeferrableValue<String> errorDocument;
-
+    @PolicyResourceProperty(name="errorDocument", flag="unknown_errorDocument")
+    private String value_errorDocument;
+    private boolean unknown_errorDocument;
     public String errorDocument() {
-        if (errorDocument == null) return null;
-        return errorDocument.getValue("BucketV2WebsiteArgs.errorDocument");
+        if (!unknown_errorDocument) return value_errorDocument;
+        throw new UndeferrableValueException("Value 'BucketV2WebsiteArgs.errorDocument' is not present");
     }
 
     /**
      * Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
      * 
      */
-    private UndeferrableValue<String> indexDocument;
-
+    @PolicyResourceProperty(name="indexDocument", flag="unknown_indexDocument")
+    private String value_indexDocument;
+    private boolean unknown_indexDocument;
     public String indexDocument() {
-        if (indexDocument == null) return null;
-        return indexDocument.getValue("BucketV2WebsiteArgs.indexDocument");
+        if (!unknown_indexDocument) return value_indexDocument;
+        throw new UndeferrableValueException("Value 'BucketV2WebsiteArgs.indexDocument' is not present");
     }
 
     /**
      * Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
      * 
      */
-    private UndeferrableValue<String> redirectAllRequestsTo;
-
+    @PolicyResourceProperty(name="redirectAllRequestsTo", flag="unknown_redirectAllRequestsTo")
+    private String value_redirectAllRequestsTo;
+    private boolean unknown_redirectAllRequestsTo;
     public String redirectAllRequestsTo() {
-        if (redirectAllRequestsTo == null) return null;
-        return redirectAllRequestsTo.getValue("BucketV2WebsiteArgs.redirectAllRequestsTo");
+        if (!unknown_redirectAllRequestsTo) return value_redirectAllRequestsTo;
+        throw new UndeferrableValueException("Value 'BucketV2WebsiteArgs.redirectAllRequestsTo' is not present");
     }
 
     /**
@@ -48,11 +52,12 @@ public final class BucketV2WebsiteArgs {
      * describing redirect behavior and when redirects are applied.
      * 
      */
-    private UndeferrableValue<String> routingRules;
-
+    @PolicyResourceProperty(name="routingRules", flag="unknown_routingRules")
+    private String value_routingRules;
+    private boolean unknown_routingRules;
     public String routingRules() {
-        if (routingRules == null) return null;
-        return routingRules.getValue("BucketV2WebsiteArgs.routingRules");
+        if (!unknown_routingRules) return value_routingRules;
+        throw new UndeferrableValueException("Value 'BucketV2WebsiteArgs.routingRules' is not present");
     }
 
 }

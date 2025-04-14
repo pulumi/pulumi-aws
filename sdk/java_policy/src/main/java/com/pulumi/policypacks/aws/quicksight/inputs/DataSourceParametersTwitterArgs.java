@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class DataSourceParametersTwitterArgs {
      * The maximum number of rows to query.
      * 
      */
-    private UndeferrableValue<Integer> maxRows;
-
+    @PolicyResourceProperty(name="maxRows", flag="unknown_maxRows")
+    private Integer value_maxRows;
+    private boolean unknown_maxRows;
     public Integer maxRows() {
-        if (maxRows == null) return null;
-        return maxRows.getValue("DataSourceParametersTwitterArgs.maxRows");
+        if (!unknown_maxRows) return value_maxRows;
+        throw new UndeferrableValueException("Value 'DataSourceParametersTwitterArgs.maxRows' is not present");
     }
 
     /**
      * The Twitter query to retrieve the data.
      * 
      */
-    private UndeferrableValue<String> query;
-
+    @PolicyResourceProperty(name="query", flag="unknown_query")
+    private String value_query;
+    private boolean unknown_query;
     public String query() {
-        if (query == null) return null;
-        return query.getValue("DataSourceParametersTwitterArgs.query");
+        if (!unknown_query) return value_query;
+        throw new UndeferrableValueException("Value 'DataSourceParametersTwitterArgs.query' is not present");
     }
 
 }

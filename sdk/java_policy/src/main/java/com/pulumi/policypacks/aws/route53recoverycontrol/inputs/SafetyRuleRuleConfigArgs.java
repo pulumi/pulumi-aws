@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53recoverycontrol.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -15,33 +16,36 @@ public final class SafetyRuleRuleConfigArgs {
      * Logical negation of the rule.
      * 
      */
-    private UndeferrableValue<Boolean> inverted;
-
+    @PolicyResourceProperty(name="inverted", flag="unknown_inverted")
+    private Boolean value_inverted;
+    private boolean unknown_inverted;
     public Boolean inverted() {
-        if (inverted == null) return null;
-        return inverted.getValue("SafetyRuleRuleConfigArgs.inverted");
+        if (!unknown_inverted) return value_inverted;
+        throw new UndeferrableValueException("Value 'SafetyRuleRuleConfigArgs.inverted' is not present");
     }
 
     /**
      * Number of controls that must be set when you specify an `ATLEAST` type rule.
      * 
      */
-    private UndeferrableValue<Integer> threshold;
-
+    @PolicyResourceProperty(name="threshold", flag="unknown_threshold")
+    private Integer value_threshold;
+    private boolean unknown_threshold;
     public Integer threshold() {
-        if (threshold == null) return null;
-        return threshold.getValue("SafetyRuleRuleConfigArgs.threshold");
+        if (!unknown_threshold) return value_threshold;
+        throw new UndeferrableValueException("Value 'SafetyRuleRuleConfigArgs.threshold' is not present");
     }
 
     /**
      * Rule type. Valid values are `ATLEAST`, `AND`, and `OR`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("SafetyRuleRuleConfigArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'SafetyRuleRuleConfigArgs.type' is not present");
     }
 
 }

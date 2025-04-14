@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class FlowDefinitionOutputConfig {
      * The Amazon Key Management Service (KMS) key ARN for server-side encryption.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("FlowDefinitionOutputConfig.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'FlowDefinitionOutputConfig.kmsKeyId' is not present");
     }
 
     /**
      * The Amazon S3 path where the object containing human output will be made available.
      * 
      */
-    private UndeferrableValue<String> s3OutputPath;
-
+    @PolicyResourceProperty(name="s3OutputPath", flag="unknown_s3OutputPath")
+    private String value_s3OutputPath;
+    private boolean unknown_s3OutputPath;
     public String s3OutputPath() {
-        if (s3OutputPath == null) return null;
-        return s3OutputPath.getValue("FlowDefinitionOutputConfig.s3OutputPath");
+        if (!unknown_s3OutputPath) return value_s3OutputPath;
+        throw new UndeferrableValueException("Value 'FlowDefinitionOutputConfig.s3OutputPath' is not present");
     }
 
 }

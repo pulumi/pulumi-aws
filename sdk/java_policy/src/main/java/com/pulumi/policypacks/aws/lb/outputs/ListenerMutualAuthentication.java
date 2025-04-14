@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class ListenerMutualAuthentication {
      * Valid values are `off` and `on`.
      * 
      */
-    private @Nullable UndeferrableValue<String> advertiseTrustStoreCaNames;
-
+    @PolicyResourceProperty(name="advertiseTrustStoreCaNames", flag="unknown_advertiseTrustStoreCaNames")
+    private @Nullable String value_advertiseTrustStoreCaNames;
+    private boolean unknown_advertiseTrustStoreCaNames;
     public @Nullable String advertiseTrustStoreCaNames() {
-        if (advertiseTrustStoreCaNames == null) return null;
-        return advertiseTrustStoreCaNames.getValue("ListenerMutualAuthentication.advertiseTrustStoreCaNames");
+        if (!unknown_advertiseTrustStoreCaNames) return value_advertiseTrustStoreCaNames;
+        throw new UndeferrableValueException("Value 'ListenerMutualAuthentication.advertiseTrustStoreCaNames' is not present");
     }
 
     /**
      * Whether client certificate expiry is ignored. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> ignoreClientCertificateExpiry;
-
+    @PolicyResourceProperty(name="ignoreClientCertificateExpiry", flag="unknown_ignoreClientCertificateExpiry")
+    private @Nullable Boolean value_ignoreClientCertificateExpiry;
+    private boolean unknown_ignoreClientCertificateExpiry;
     public @Nullable Boolean ignoreClientCertificateExpiry() {
-        if (ignoreClientCertificateExpiry == null) return null;
-        return ignoreClientCertificateExpiry.getValue("ListenerMutualAuthentication.ignoreClientCertificateExpiry");
+        if (!unknown_ignoreClientCertificateExpiry) return value_ignoreClientCertificateExpiry;
+        throw new UndeferrableValueException("Value 'ListenerMutualAuthentication.ignoreClientCertificateExpiry' is not present");
     }
 
     /**
      * Valid values are `off`, `verify` and `passthrough`.
      * 
      */
-    private UndeferrableValue<String> mode;
-
+    @PolicyResourceProperty(name="mode", flag="unknown_mode")
+    private String value_mode;
+    private boolean unknown_mode;
     public String mode() {
-        if (mode == null) return null;
-        return mode.getValue("ListenerMutualAuthentication.mode");
+        if (!unknown_mode) return value_mode;
+        throw new UndeferrableValueException("Value 'ListenerMutualAuthentication.mode' is not present");
     }
 
     /**
      * ARN of the elbv2 Trust Store.
      * 
      */
-    private @Nullable UndeferrableValue<String> trustStoreArn;
-
+    @PolicyResourceProperty(name="trustStoreArn", flag="unknown_trustStoreArn")
+    private @Nullable String value_trustStoreArn;
+    private boolean unknown_trustStoreArn;
     public @Nullable String trustStoreArn() {
-        if (trustStoreArn == null) return null;
-        return trustStoreArn.getValue("ListenerMutualAuthentication.trustStoreArn");
+        if (!unknown_trustStoreArn) return value_trustStoreArn;
+        throw new UndeferrableValueException("Value 'ListenerMutualAuthentication.trustStoreArn' is not present");
     }
 
 }

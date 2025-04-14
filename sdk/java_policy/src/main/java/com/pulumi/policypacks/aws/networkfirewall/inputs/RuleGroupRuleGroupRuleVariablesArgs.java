@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.networkfirewall.inputs.RuleGroupRuleGroupRuleVariablesIpSetArgs;
 import com.pulumi.policypacks.aws.networkfirewall.inputs.RuleGroupRuleGroupRuleVariablesPortSetArgs;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class RuleGroupRuleGroupRuleVariablesArgs {
      * Set of configuration blocks that define IP address information. See IP Sets below for details.
      * 
      */
-    private UndeferrableValue<List<RuleGroupRuleGroupRuleVariablesIpSetArgs>> ipSets;
-
+    @PolicyResourceProperty(name="ipSets", flag="unknown_ipSets")
+    private List<RuleGroupRuleGroupRuleVariablesIpSetArgs> value_ipSets;
+    private boolean unknown_ipSets;
     public List<RuleGroupRuleGroupRuleVariablesIpSetArgs> ipSets() {
-        if (ipSets == null) return null;
-        return ipSets.getValue("RuleGroupRuleGroupRuleVariablesArgs.ipSets");
+        if (!unknown_ipSets) return value_ipSets;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRuleVariablesArgs.ipSets' is not present");
     }
 
     /**
      * Set of configuration blocks that define port range information. See Port Sets below for details.
      * 
      */
-    private UndeferrableValue<List<RuleGroupRuleGroupRuleVariablesPortSetArgs>> portSets;
-
+    @PolicyResourceProperty(name="portSets", flag="unknown_portSets")
+    private List<RuleGroupRuleGroupRuleVariablesPortSetArgs> value_portSets;
+    private boolean unknown_portSets;
     public List<RuleGroupRuleGroupRuleVariablesPortSetArgs> portSets() {
-        if (portSets == null) return null;
-        return portSets.getValue("RuleGroupRuleGroupRuleVariablesArgs.portSets");
+        if (!unknown_portSets) return value_portSets;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRuleVariablesArgs.portSets' is not present");
     }
 
 }

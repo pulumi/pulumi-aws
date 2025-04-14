@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codepipeline.outputs.PipelineTriggerGitConfiguration;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class PipelineTrigger {
      * Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `git_configuration` block is documented below.
      * 
      */
-    private UndeferrableValue<PipelineTriggerGitConfiguration> gitConfiguration;
-
+    @PolicyResourceProperty(name="gitConfiguration", flag="unknown_gitConfiguration")
+    private PipelineTriggerGitConfiguration value_gitConfiguration;
+    private boolean unknown_gitConfiguration;
     public PipelineTriggerGitConfiguration gitConfiguration() {
-        if (gitConfiguration == null) return null;
-        return gitConfiguration.getValue("PipelineTrigger.gitConfiguration");
+        if (!unknown_gitConfiguration) return value_gitConfiguration;
+        throw new UndeferrableValueException("Value 'PipelineTrigger.gitConfiguration' is not present");
     }
 
     /**
      * The source provider for the event. Possible value is `CodeStarSourceConnection`.
      * 
      */
-    private UndeferrableValue<String> providerType;
-
+    @PolicyResourceProperty(name="providerType", flag="unknown_providerType")
+    private String value_providerType;
+    private boolean unknown_providerType;
     public String providerType() {
-        if (providerType == null) return null;
-        return providerType.getValue("PipelineTrigger.providerType");
+        if (!unknown_providerType) return value_providerType;
+        throw new UndeferrableValueException("Value 'PipelineTrigger.providerType' is not present");
     }
 
 }

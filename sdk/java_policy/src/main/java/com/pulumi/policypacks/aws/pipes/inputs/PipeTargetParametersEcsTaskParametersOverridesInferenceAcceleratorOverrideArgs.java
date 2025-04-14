@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class PipeTargetParametersEcsTaskParametersOverridesInferenceAccele
      * The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
      * 
      */
-    private UndeferrableValue<String> deviceName;
-
+    @PolicyResourceProperty(name="deviceName", flag="unknown_deviceName")
+    private String value_deviceName;
+    private boolean unknown_deviceName;
     public String deviceName() {
-        if (deviceName == null) return null;
-        return deviceName.getValue("PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgs.deviceName");
+        if (!unknown_deviceName) return value_deviceName;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgs.deviceName' is not present");
     }
 
     /**
      * The Elastic Inference accelerator type to use.
      * 
      */
-    private UndeferrableValue<String> deviceType;
-
+    @PolicyResourceProperty(name="deviceType", flag="unknown_deviceType")
+    private String value_deviceType;
+    private boolean unknown_deviceType;
     public String deviceType() {
-        if (deviceType == null) return null;
-        return deviceType.getValue("PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgs.deviceType");
+        if (!unknown_deviceType) return value_deviceType;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgs.deviceType' is not present");
     }
 
 }

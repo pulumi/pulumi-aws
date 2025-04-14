@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lakeformation.inputs.DataLakeSettingsCreateDatabaseDefaultPermissionArgs;
 import com.pulumi.policypacks.aws.lakeformation.inputs.DataLakeSettingsCreateTableDefaultPermissionArgs;
@@ -21,110 +22,120 @@ public final class DataLakeSettingsArgs extends com.pulumi.resources.PolicyResou
      * Set of ARNs of AWS Lake Formation principals (IAM users or roles).
      * 
      */
-    private UndeferrableValue<List<String>> admins;
-
+    @PolicyResourceProperty(name="admins", flag="unknown_admins")
+    private List<String> value_admins;
+    private boolean unknown_admins;
     public List<String> admins() {
-        if (admins == null) return null;
-        return admins.getValue("DataLakeSettingsArgs.admins");
+        if (!unknown_admins) return value_admins;
+        throw new UndeferrableValueException("Value 'DataLakeSettingsArgs.admins' is not present");
     }
 
     /**
      * Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
      * 
      */
-    private UndeferrableValue<Boolean> allowExternalDataFiltering;
-
+    @PolicyResourceProperty(name="allowExternalDataFiltering", flag="unknown_allowExternalDataFiltering")
+    private Boolean value_allowExternalDataFiltering;
+    private boolean unknown_allowExternalDataFiltering;
     public Boolean allowExternalDataFiltering() {
-        if (allowExternalDataFiltering == null) return null;
-        return allowExternalDataFiltering.getValue("DataLakeSettingsArgs.allowExternalDataFiltering");
+        if (!unknown_allowExternalDataFiltering) return value_allowExternalDataFiltering;
+        throw new UndeferrableValueException("Value 'DataLakeSettingsArgs.allowExternalDataFiltering' is not present");
     }
 
     /**
      * Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
      * 
      */
-    private UndeferrableValue<Boolean> allowFullTableExternalDataAccess;
-
+    @PolicyResourceProperty(name="allowFullTableExternalDataAccess", flag="unknown_allowFullTableExternalDataAccess")
+    private Boolean value_allowFullTableExternalDataAccess;
+    private boolean unknown_allowFullTableExternalDataAccess;
     public Boolean allowFullTableExternalDataAccess() {
-        if (allowFullTableExternalDataAccess == null) return null;
-        return allowFullTableExternalDataAccess.getValue("DataLakeSettingsArgs.allowFullTableExternalDataAccess");
+        if (!unknown_allowFullTableExternalDataAccess) return value_allowFullTableExternalDataAccess;
+        throw new UndeferrableValueException("Value 'DataLakeSettingsArgs.allowFullTableExternalDataAccess' is not present");
     }
 
     /**
      * Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user&#39;s role while assuming it.
      * 
      */
-    private UndeferrableValue<List<String>> authorizedSessionTagValueLists;
-
+    @PolicyResourceProperty(name="authorizedSessionTagValueLists", flag="unknown_authorizedSessionTagValueLists")
+    private List<String> value_authorizedSessionTagValueLists;
+    private boolean unknown_authorizedSessionTagValueLists;
     public List<String> authorizedSessionTagValueLists() {
-        if (authorizedSessionTagValueLists == null) return null;
-        return authorizedSessionTagValueLists.getValue("DataLakeSettingsArgs.authorizedSessionTagValueLists");
+        if (!unknown_authorizedSessionTagValueLists) return value_authorizedSessionTagValueLists;
+        throw new UndeferrableValueException("Value 'DataLakeSettingsArgs.authorizedSessionTagValueLists' is not present");
     }
 
     /**
      * Identifier for the Data Catalog. By default, the account ID.
      * 
      */
-    private UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private String value_catalogId;
+    private boolean unknown_catalogId;
     public String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("DataLakeSettingsArgs.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'DataLakeSettingsArgs.catalogId' is not present");
     }
 
     /**
      * Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
      * 
      */
-    private UndeferrableValue<List<DataLakeSettingsCreateDatabaseDefaultPermissionArgs>> createDatabaseDefaultPermissions;
-
+    @PolicyResourceProperty(name="createDatabaseDefaultPermissions", flag="unknown_createDatabaseDefaultPermissions")
+    private List<DataLakeSettingsCreateDatabaseDefaultPermissionArgs> value_createDatabaseDefaultPermissions;
+    private boolean unknown_createDatabaseDefaultPermissions;
     public List<DataLakeSettingsCreateDatabaseDefaultPermissionArgs> createDatabaseDefaultPermissions() {
-        if (createDatabaseDefaultPermissions == null) return null;
-        return createDatabaseDefaultPermissions.getValue("DataLakeSettingsArgs.createDatabaseDefaultPermissions");
+        if (!unknown_createDatabaseDefaultPermissions) return value_createDatabaseDefaultPermissions;
+        throw new UndeferrableValueException("Value 'DataLakeSettingsArgs.createDatabaseDefaultPermissions' is not present");
     }
 
     /**
      * Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
      * 
      */
-    private UndeferrableValue<List<DataLakeSettingsCreateTableDefaultPermissionArgs>> createTableDefaultPermissions;
-
+    @PolicyResourceProperty(name="createTableDefaultPermissions", flag="unknown_createTableDefaultPermissions")
+    private List<DataLakeSettingsCreateTableDefaultPermissionArgs> value_createTableDefaultPermissions;
+    private boolean unknown_createTableDefaultPermissions;
     public List<DataLakeSettingsCreateTableDefaultPermissionArgs> createTableDefaultPermissions() {
-        if (createTableDefaultPermissions == null) return null;
-        return createTableDefaultPermissions.getValue("DataLakeSettingsArgs.createTableDefaultPermissions");
+        if (!unknown_createTableDefaultPermissions) return value_createTableDefaultPermissions;
+        throw new UndeferrableValueException("Value 'DataLakeSettingsArgs.createTableDefaultPermissions' is not present");
     }
 
     /**
      * A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
      * 
      */
-    private UndeferrableValue<List<String>> externalDataFilteringAllowLists;
-
+    @PolicyResourceProperty(name="externalDataFilteringAllowLists", flag="unknown_externalDataFilteringAllowLists")
+    private List<String> value_externalDataFilteringAllowLists;
+    private boolean unknown_externalDataFilteringAllowLists;
     public List<String> externalDataFilteringAllowLists() {
-        if (externalDataFilteringAllowLists == null) return null;
-        return externalDataFilteringAllowLists.getValue("DataLakeSettingsArgs.externalDataFilteringAllowLists");
+        if (!unknown_externalDataFilteringAllowLists) return value_externalDataFilteringAllowLists;
+        throw new UndeferrableValueException("Value 'DataLakeSettingsArgs.externalDataFilteringAllowLists' is not present");
     }
 
     /**
      * Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `&#34;1&#34;`, `&#34;2&#34;`, `&#34;3&#34;`, or `&#34;4&#34;`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `&#34;1&#34;`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `&#34;1&#34;`.
      * 
      */
-    private UndeferrableValue<Map<String,String>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private Map<String,String> value_parameters;
+    private boolean unknown_parameters;
     public Map<String,String> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("DataLakeSettingsArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'DataLakeSettingsArgs.parameters' is not present");
     }
 
     /**
      * Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
      * 
      */
-    private UndeferrableValue<List<String>> readOnlyAdmins;
-
+    @PolicyResourceProperty(name="readOnlyAdmins", flag="unknown_readOnlyAdmins")
+    private List<String> value_readOnlyAdmins;
+    private boolean unknown_readOnlyAdmins;
     public List<String> readOnlyAdmins() {
-        if (readOnlyAdmins == null) return null;
-        return readOnlyAdmins.getValue("DataLakeSettingsArgs.readOnlyAdmins");
+        if (!unknown_readOnlyAdmins) return value_readOnlyAdmins;
+        throw new UndeferrableValueException("Value 'DataLakeSettingsArgs.readOnlyAdmins' is not present");
     }
 
     /**
@@ -133,11 +144,12 @@ public final class DataLakeSettingsArgs extends com.pulumi.resources.PolicyResou
      * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
      * 
      */
-    private UndeferrableValue<List<String>> trustedResourceOwners;
-
+    @PolicyResourceProperty(name="trustedResourceOwners", flag="unknown_trustedResourceOwners")
+    private List<String> value_trustedResourceOwners;
+    private boolean unknown_trustedResourceOwners;
     public List<String> trustedResourceOwners() {
-        if (trustedResourceOwners == null) return null;
-        return trustedResourceOwners.getValue("DataLakeSettingsArgs.trustedResourceOwners");
+        if (!unknown_trustedResourceOwners) return value_trustedResourceOwners;
+        throw new UndeferrableValueException("Value 'DataLakeSettingsArgs.trustedResourceOwners' is not present");
     }
 
 }

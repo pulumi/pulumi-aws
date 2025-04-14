@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.scheduler;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,77 +18,84 @@ public final class ScheduleGroup extends com.pulumi.resources.PolicyResourceOutp
      * ARN of the schedule group.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ScheduleGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ScheduleGroup.arn' is not present");
     }
 
     /**
      * Time at which the schedule group was created.
      * 
      */
-    private UndeferrableValue<String> creationDate;
-
+    @PolicyResourceProperty(name="creationDate", flag="unknown_creationDate")
+    private String value_creationDate;
+    private boolean unknown_creationDate;
     public String creationDate() {
-        if (creationDate == null) return null;
-        return creationDate.getValue("ScheduleGroup.creationDate");
+        if (!unknown_creationDate) return value_creationDate;
+        throw new UndeferrableValueException("Value 'ScheduleGroup.creationDate' is not present");
     }
 
     /**
      * Time at which the schedule group was last modified.
      * 
      */
-    private UndeferrableValue<String> lastModificationDate;
-
+    @PolicyResourceProperty(name="lastModificationDate", flag="unknown_lastModificationDate")
+    private String value_lastModificationDate;
+    private boolean unknown_lastModificationDate;
     public String lastModificationDate() {
-        if (lastModificationDate == null) return null;
-        return lastModificationDate.getValue("ScheduleGroup.lastModificationDate");
+        if (!unknown_lastModificationDate) return value_lastModificationDate;
+        throw new UndeferrableValueException("Value 'ScheduleGroup.lastModificationDate' is not present");
     }
 
     /**
      * Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ScheduleGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ScheduleGroup.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("ScheduleGroup.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'ScheduleGroup.namePrefix' is not present");
     }
 
     /**
      * State of the schedule group. Can be `ACTIVE` or `DELETING`.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("ScheduleGroup.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'ScheduleGroup.state' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ScheduleGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ScheduleGroup.tags' is not present");
     }
 
     /**
@@ -98,11 +106,12 @@ public final class ScheduleGroup extends com.pulumi.resources.PolicyResourceOutp
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ScheduleGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ScheduleGroup.tagsAll' is not present");
     }
 
 }

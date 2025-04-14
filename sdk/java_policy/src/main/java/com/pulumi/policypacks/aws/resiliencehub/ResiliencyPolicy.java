@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.resiliencehub;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.resiliencehub.outputs.ResiliencyPolicyPolicy;
 import com.pulumi.policypacks.aws.resiliencehub.outputs.ResiliencyPolicyTimeouts;
@@ -19,11 +20,12 @@ public final class ResiliencyPolicy extends com.pulumi.resources.PolicyResourceO
      * ARN of the Resiliency Policy.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ResiliencyPolicy.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ResiliencyPolicy.arn' is not present");
     }
 
     /**
@@ -31,33 +33,36 @@ public final class ResiliencyPolicy extends com.pulumi.resources.PolicyResourceO
      * Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
      * 
      */
-    private UndeferrableValue<String> dataLocationConstraint;
-
+    @PolicyResourceProperty(name="dataLocationConstraint", flag="unknown_dataLocationConstraint")
+    private String value_dataLocationConstraint;
+    private boolean unknown_dataLocationConstraint;
     public String dataLocationConstraint() {
-        if (dataLocationConstraint == null) return null;
-        return dataLocationConstraint.getValue("ResiliencyPolicy.dataLocationConstraint");
+        if (!unknown_dataLocationConstraint) return value_dataLocationConstraint;
+        throw new UndeferrableValueException("Value 'ResiliencyPolicy.dataLocationConstraint' is not present");
     }
 
     /**
      * Description of Resiliency Policy.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ResiliencyPolicy.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ResiliencyPolicy.description' is not present");
     }
 
     /**
      * Estimated Cost Tier of the Resiliency Policy.
      * 
      */
-    private UndeferrableValue<String> estimatedCostTier;
-
+    @PolicyResourceProperty(name="estimatedCostTier", flag="unknown_estimatedCostTier")
+    private String value_estimatedCostTier;
+    private boolean unknown_estimatedCostTier;
     public String estimatedCostTier() {
-        if (estimatedCostTier == null) return null;
-        return estimatedCostTier.getValue("ResiliencyPolicy.estimatedCostTier");
+        if (!unknown_estimatedCostTier) return value_estimatedCostTier;
+        throw new UndeferrableValueException("Value 'ResiliencyPolicy.estimatedCostTier' is not present");
     }
 
     /**
@@ -66,11 +71,12 @@ public final class ResiliencyPolicy extends com.pulumi.resources.PolicyResourceO
      * Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ResiliencyPolicy.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ResiliencyPolicy.name' is not present");
     }
 
     /**
@@ -79,22 +85,24 @@ public final class ResiliencyPolicy extends com.pulumi.resources.PolicyResourceO
      * The following arguments are optional:
      * 
      */
-    private @Nullable UndeferrableValue<ResiliencyPolicyPolicy> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private @Nullable ResiliencyPolicyPolicy value_policy;
+    private boolean unknown_policy;
     public @Nullable ResiliencyPolicyPolicy policy() {
-        if (policy == null) return null;
-        return policy.getValue("ResiliencyPolicy.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'ResiliencyPolicy.policy' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ResiliencyPolicy.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ResiliencyPolicy.tags' is not present");
     }
 
     /**
@@ -105,11 +113,12 @@ public final class ResiliencyPolicy extends com.pulumi.resources.PolicyResourceO
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ResiliencyPolicy.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ResiliencyPolicy.tagsAll' is not present");
     }
 
     /**
@@ -117,18 +126,20 @@ public final class ResiliencyPolicy extends com.pulumi.resources.PolicyResourceO
      * Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
      * 
      */
-    private UndeferrableValue<String> tier;
-
+    @PolicyResourceProperty(name="tier", flag="unknown_tier")
+    private String value_tier;
+    private boolean unknown_tier;
     public String tier() {
-        if (tier == null) return null;
-        return tier.getValue("ResiliencyPolicy.tier");
+        if (!unknown_tier) return value_tier;
+        throw new UndeferrableValueException("Value 'ResiliencyPolicy.tier' is not present");
     }
 
-    private @Nullable UndeferrableValue<ResiliencyPolicyTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable ResiliencyPolicyTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable ResiliencyPolicyTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ResiliencyPolicy.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ResiliencyPolicy.timeouts' is not present");
     }
 
 }

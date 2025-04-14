@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.imagebuilder.outputs.InfrastructureConfigurationLoggingS3Logs;
 
 
@@ -13,11 +14,12 @@ public final class InfrastructureConfigurationLogging {
      * Configuration block with S3 logging settings. Detailed below.
      * 
      */
-    private UndeferrableValue<InfrastructureConfigurationLoggingS3Logs> s3Logs;
-
+    @PolicyResourceProperty(name="s3Logs", flag="unknown_s3Logs")
+    private InfrastructureConfigurationLoggingS3Logs value_s3Logs;
+    private boolean unknown_s3Logs;
     public InfrastructureConfigurationLoggingS3Logs s3Logs() {
-        if (s3Logs == null) return null;
-        return s3Logs.getValue("InfrastructureConfigurationLogging.s3Logs");
+        if (!unknown_s3Logs) return value_s3Logs;
+        throw new UndeferrableValueException("Value 'InfrastructureConfigurationLogging.s3Logs' is not present");
     }
 
 }

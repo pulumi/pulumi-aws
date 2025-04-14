@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.evidently.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.evidently.inputs.LaunchScheduledSplitsConfigStepArgs;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class LaunchScheduledSplitsConfigArgs {
      * One or up to six blocks that define the traffic allocation percentages among the feature variations during each step of the launch. This also defines the start time of each step. Detailed below.
      * 
      */
-    private UndeferrableValue<List<LaunchScheduledSplitsConfigStepArgs>> steps;
-
+    @PolicyResourceProperty(name="steps", flag="unknown_steps")
+    private List<LaunchScheduledSplitsConfigStepArgs> value_steps;
+    private boolean unknown_steps;
     public List<LaunchScheduledSplitsConfigStepArgs> steps() {
-        if (steps == null) return null;
-        return steps.getValue("LaunchScheduledSplitsConfigArgs.steps");
+        if (!unknown_steps) return value_steps;
+        throw new UndeferrableValueException("Value 'LaunchScheduledSplitsConfigArgs.steps' is not present");
     }
 
 }

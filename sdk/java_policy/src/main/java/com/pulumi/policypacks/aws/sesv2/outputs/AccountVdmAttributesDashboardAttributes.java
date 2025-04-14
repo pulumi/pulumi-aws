@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class AccountVdmAttributesDashboardAttributes {
      * Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> engagementMetrics;
-
+    @PolicyResourceProperty(name="engagementMetrics", flag="unknown_engagementMetrics")
+    private @Nullable String value_engagementMetrics;
+    private boolean unknown_engagementMetrics;
     public @Nullable String engagementMetrics() {
-        if (engagementMetrics == null) return null;
-        return engagementMetrics.getValue("AccountVdmAttributesDashboardAttributes.engagementMetrics");
+        if (!unknown_engagementMetrics) return value_engagementMetrics;
+        throw new UndeferrableValueException("Value 'AccountVdmAttributesDashboardAttributes.engagementMetrics' is not present");
     }
 
 }

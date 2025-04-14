@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.acm.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class CertificateOptionsArgs {
      * Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
      * 
      */
-    private UndeferrableValue<String> certificateTransparencyLoggingPreference;
-
+    @PolicyResourceProperty(name="certificateTransparencyLoggingPreference", flag="unknown_certificateTransparencyLoggingPreference")
+    private String value_certificateTransparencyLoggingPreference;
+    private boolean unknown_certificateTransparencyLoggingPreference;
     public String certificateTransparencyLoggingPreference() {
-        if (certificateTransparencyLoggingPreference == null) return null;
-        return certificateTransparencyLoggingPreference.getValue("CertificateOptionsArgs.certificateTransparencyLoggingPreference");
+        if (!unknown_certificateTransparencyLoggingPreference) return value_certificateTransparencyLoggingPreference;
+        throw new UndeferrableValueException("Value 'CertificateOptionsArgs.certificateTransparencyLoggingPreference' is not present");
     }
 
 }

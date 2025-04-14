@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lb.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -17,22 +18,24 @@ public final class ListenerDefaultActionForwardTargetGroupArgs {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ListenerDefaultActionForwardTargetGroupArgs.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionForwardTargetGroupArgs.arn' is not present");
     }
 
     /**
      * Weight. The range is 0 to 999.
      * 
      */
-    private UndeferrableValue<Integer> weight;
-
+    @PolicyResourceProperty(name="weight", flag="unknown_weight")
+    private Integer value_weight;
+    private boolean unknown_weight;
     public Integer weight() {
-        if (weight == null) return null;
-        return weight.getValue("ListenerDefaultActionForwardTargetGroupArgs.weight");
+        if (!unknown_weight) return value_weight;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionForwardTargetGroupArgs.weight' is not present");
     }
 
 }

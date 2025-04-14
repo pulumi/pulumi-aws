@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class InstanceStorageConfigStorageConfigKinesisStreamConfigArgs {
      * The Amazon Resource Name (ARN) of the data stream.
      * 
      */
-    private UndeferrableValue<String> streamArn;
-
+    @PolicyResourceProperty(name="streamArn", flag="unknown_streamArn")
+    private String value_streamArn;
+    private boolean unknown_streamArn;
     public String streamArn() {
-        if (streamArn == null) return null;
-        return streamArn.getValue("InstanceStorageConfigStorageConfigKinesisStreamConfigArgs.streamArn");
+        if (!unknown_streamArn) return value_streamArn;
+        throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigKinesisStreamConfigArgs.streamArn' is not present");
     }
 
 }

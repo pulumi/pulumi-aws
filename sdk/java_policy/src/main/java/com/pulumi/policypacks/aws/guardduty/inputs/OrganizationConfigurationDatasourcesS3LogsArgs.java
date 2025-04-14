@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.guardduty.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 
 
@@ -13,11 +14,12 @@ public final class OrganizationConfigurationDatasourcesS3LogsArgs {
      * Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
      * 
      */
-    private UndeferrableValue<Boolean> autoEnable;
-
+    @PolicyResourceProperty(name="autoEnable", flag="unknown_autoEnable")
+    private Boolean value_autoEnable;
+    private boolean unknown_autoEnable;
     public Boolean autoEnable() {
-        if (autoEnable == null) return null;
-        return autoEnable.getValue("OrganizationConfigurationDatasourcesS3LogsArgs.autoEnable");
+        if (!unknown_autoEnable) return value_autoEnable;
+        throw new UndeferrableValueException("Value 'OrganizationConfigurationDatasourcesS3LogsArgs.autoEnable' is not present");
     }
 
 }

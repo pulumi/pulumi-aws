@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ecs.inputs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,55 +17,60 @@ public final class TaskDefinitionVolumeEfsVolumeConfigurationArgs {
      * Configuration block for authorization for the Amazon EFS file system. Detailed below.
      * 
      */
-    private UndeferrableValue<TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs> authorizationConfig;
-
+    @PolicyResourceProperty(name="authorizationConfig", flag="unknown_authorizationConfig")
+    private TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs value_authorizationConfig;
+    private boolean unknown_authorizationConfig;
     public TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs authorizationConfig() {
-        if (authorizationConfig == null) return null;
-        return authorizationConfig.getValue("TaskDefinitionVolumeEfsVolumeConfigurationArgs.authorizationConfig");
+        if (!unknown_authorizationConfig) return value_authorizationConfig;
+        throw new UndeferrableValueException("Value 'TaskDefinitionVolumeEfsVolumeConfigurationArgs.authorizationConfig' is not present");
     }
 
     /**
      * ID of the EFS File System.
      * 
      */
-    private UndeferrableValue<String> fileSystemId;
-
+    @PolicyResourceProperty(name="fileSystemId", flag="unknown_fileSystemId")
+    private String value_fileSystemId;
+    private boolean unknown_fileSystemId;
     public String fileSystemId() {
-        if (fileSystemId == null) return null;
-        return fileSystemId.getValue("TaskDefinitionVolumeEfsVolumeConfigurationArgs.fileSystemId");
+        if (!unknown_fileSystemId) return value_fileSystemId;
+        throw new UndeferrableValueException("Value 'TaskDefinitionVolumeEfsVolumeConfigurationArgs.fileSystemId' is not present");
     }
 
     /**
      * Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorization_config`.
      * 
      */
-    private UndeferrableValue<String> rootDirectory;
-
+    @PolicyResourceProperty(name="rootDirectory", flag="unknown_rootDirectory")
+    private String value_rootDirectory;
+    private boolean unknown_rootDirectory;
     public String rootDirectory() {
-        if (rootDirectory == null) return null;
-        return rootDirectory.getValue("TaskDefinitionVolumeEfsVolumeConfigurationArgs.rootDirectory");
+        if (!unknown_rootDirectory) return value_rootDirectory;
+        throw new UndeferrableValueException("Value 'TaskDefinitionVolumeEfsVolumeConfigurationArgs.rootDirectory' is not present");
     }
 
     /**
      * Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
      * 
      */
-    private UndeferrableValue<String> transitEncryption;
-
+    @PolicyResourceProperty(name="transitEncryption", flag="unknown_transitEncryption")
+    private String value_transitEncryption;
+    private boolean unknown_transitEncryption;
     public String transitEncryption() {
-        if (transitEncryption == null) return null;
-        return transitEncryption.getValue("TaskDefinitionVolumeEfsVolumeConfigurationArgs.transitEncryption");
+        if (!unknown_transitEncryption) return value_transitEncryption;
+        throw new UndeferrableValueException("Value 'TaskDefinitionVolumeEfsVolumeConfigurationArgs.transitEncryption' is not present");
     }
 
     /**
      * Port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
      * 
      */
-    private UndeferrableValue<Integer> transitEncryptionPort;
-
+    @PolicyResourceProperty(name="transitEncryptionPort", flag="unknown_transitEncryptionPort")
+    private Integer value_transitEncryptionPort;
+    private boolean unknown_transitEncryptionPort;
     public Integer transitEncryptionPort() {
-        if (transitEncryptionPort == null) return null;
-        return transitEncryptionPort.getValue("TaskDefinitionVolumeEfsVolumeConfigurationArgs.transitEncryptionPort");
+        if (!unknown_transitEncryptionPort) return value_transitEncryptionPort;
+        throw new UndeferrableValueException("Value 'TaskDefinitionVolumeEfsVolumeConfigurationArgs.transitEncryptionPort' is not present");
     }
 
 }

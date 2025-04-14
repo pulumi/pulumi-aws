@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ses;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ses.outputs.ReceiptRuleAddHeaderAction;
 import com.pulumi.policypacks.aws.ses.outputs.ReceiptRuleBounceAction;
@@ -25,165 +26,180 @@ public final class ReceiptRule extends com.pulumi.resources.PolicyResourceOutput
      * A list of Add Header Action blocks. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ReceiptRuleAddHeaderAction>> addHeaderActions;
-
+    @PolicyResourceProperty(name="addHeaderActions", flag="unknown_addHeaderActions")
+    private @Nullable List<ReceiptRuleAddHeaderAction> value_addHeaderActions;
+    private boolean unknown_addHeaderActions;
     public @Nullable List<ReceiptRuleAddHeaderAction> addHeaderActions() {
-        if (addHeaderActions == null) return null;
-        return addHeaderActions.getValue("ReceiptRule.addHeaderActions");
+        if (!unknown_addHeaderActions) return value_addHeaderActions;
+        throw new UndeferrableValueException("Value 'ReceiptRule.addHeaderActions' is not present");
     }
 
     /**
      * The name of the rule to place this rule after
      * 
      */
-    private @Nullable UndeferrableValue<String> after;
-
+    @PolicyResourceProperty(name="after", flag="unknown_after")
+    private @Nullable String value_after;
+    private boolean unknown_after;
     public @Nullable String after() {
-        if (after == null) return null;
-        return after.getValue("ReceiptRule.after");
+        if (!unknown_after) return value_after;
+        throw new UndeferrableValueException("Value 'ReceiptRule.after' is not present");
     }
 
     /**
      * The SES receipt rule ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ReceiptRule.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ReceiptRule.arn' is not present");
     }
 
     /**
      * A list of Bounce Action blocks. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ReceiptRuleBounceAction>> bounceActions;
-
+    @PolicyResourceProperty(name="bounceActions", flag="unknown_bounceActions")
+    private @Nullable List<ReceiptRuleBounceAction> value_bounceActions;
+    private boolean unknown_bounceActions;
     public @Nullable List<ReceiptRuleBounceAction> bounceActions() {
-        if (bounceActions == null) return null;
-        return bounceActions.getValue("ReceiptRule.bounceActions");
+        if (!unknown_bounceActions) return value_bounceActions;
+        throw new UndeferrableValueException("Value 'ReceiptRule.bounceActions' is not present");
     }
 
     /**
      * If true, the rule will be enabled
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("ReceiptRule.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'ReceiptRule.enabled' is not present");
     }
 
     /**
      * A list of Lambda Action blocks. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ReceiptRuleLambdaAction>> lambdaActions;
-
+    @PolicyResourceProperty(name="lambdaActions", flag="unknown_lambdaActions")
+    private @Nullable List<ReceiptRuleLambdaAction> value_lambdaActions;
+    private boolean unknown_lambdaActions;
     public @Nullable List<ReceiptRuleLambdaAction> lambdaActions() {
-        if (lambdaActions == null) return null;
-        return lambdaActions.getValue("ReceiptRule.lambdaActions");
+        if (!unknown_lambdaActions) return value_lambdaActions;
+        throw new UndeferrableValueException("Value 'ReceiptRule.lambdaActions' is not present");
     }
 
     /**
      * The name of the rule
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ReceiptRule.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ReceiptRule.name' is not present");
     }
 
     /**
      * A list of email addresses
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> recipients;
-
+    @PolicyResourceProperty(name="recipients", flag="unknown_recipients")
+    private @Nullable List<String> value_recipients;
+    private boolean unknown_recipients;
     public @Nullable List<String> recipients() {
-        if (recipients == null) return null;
-        return recipients.getValue("ReceiptRule.recipients");
+        if (!unknown_recipients) return value_recipients;
+        throw new UndeferrableValueException("Value 'ReceiptRule.recipients' is not present");
     }
 
     /**
      * The name of the rule set
      * 
      */
-    private UndeferrableValue<String> ruleSetName;
-
+    @PolicyResourceProperty(name="ruleSetName", flag="unknown_ruleSetName")
+    private String value_ruleSetName;
+    private boolean unknown_ruleSetName;
     public String ruleSetName() {
-        if (ruleSetName == null) return null;
-        return ruleSetName.getValue("ReceiptRule.ruleSetName");
+        if (!unknown_ruleSetName) return value_ruleSetName;
+        throw new UndeferrableValueException("Value 'ReceiptRule.ruleSetName' is not present");
     }
 
     /**
      * A list of S3 Action blocks. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ReceiptRuleS3Action>> s3Actions;
-
+    @PolicyResourceProperty(name="s3Actions", flag="unknown_s3Actions")
+    private @Nullable List<ReceiptRuleS3Action> value_s3Actions;
+    private boolean unknown_s3Actions;
     public @Nullable List<ReceiptRuleS3Action> s3Actions() {
-        if (s3Actions == null) return null;
-        return s3Actions.getValue("ReceiptRule.s3Actions");
+        if (!unknown_s3Actions) return value_s3Actions;
+        throw new UndeferrableValueException("Value 'ReceiptRule.s3Actions' is not present");
     }
 
     /**
      * If true, incoming emails will be scanned for spam and viruses
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> scanEnabled;
-
+    @PolicyResourceProperty(name="scanEnabled", flag="unknown_scanEnabled")
+    private @Nullable Boolean value_scanEnabled;
+    private boolean unknown_scanEnabled;
     public @Nullable Boolean scanEnabled() {
-        if (scanEnabled == null) return null;
-        return scanEnabled.getValue("ReceiptRule.scanEnabled");
+        if (!unknown_scanEnabled) return value_scanEnabled;
+        throw new UndeferrableValueException("Value 'ReceiptRule.scanEnabled' is not present");
     }
 
     /**
      * A list of SNS Action blocks. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ReceiptRuleSnsAction>> snsActions;
-
+    @PolicyResourceProperty(name="snsActions", flag="unknown_snsActions")
+    private @Nullable List<ReceiptRuleSnsAction> value_snsActions;
+    private boolean unknown_snsActions;
     public @Nullable List<ReceiptRuleSnsAction> snsActions() {
-        if (snsActions == null) return null;
-        return snsActions.getValue("ReceiptRule.snsActions");
+        if (!unknown_snsActions) return value_snsActions;
+        throw new UndeferrableValueException("Value 'ReceiptRule.snsActions' is not present");
     }
 
     /**
      * A list of Stop Action blocks. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ReceiptRuleStopAction>> stopActions;
-
+    @PolicyResourceProperty(name="stopActions", flag="unknown_stopActions")
+    private @Nullable List<ReceiptRuleStopAction> value_stopActions;
+    private boolean unknown_stopActions;
     public @Nullable List<ReceiptRuleStopAction> stopActions() {
-        if (stopActions == null) return null;
-        return stopActions.getValue("ReceiptRule.stopActions");
+        if (!unknown_stopActions) return value_stopActions;
+        throw new UndeferrableValueException("Value 'ReceiptRule.stopActions' is not present");
     }
 
     /**
      * `Require` or `Optional`
      * 
      */
-    private UndeferrableValue<String> tlsPolicy;
-
+    @PolicyResourceProperty(name="tlsPolicy", flag="unknown_tlsPolicy")
+    private String value_tlsPolicy;
+    private boolean unknown_tlsPolicy;
     public String tlsPolicy() {
-        if (tlsPolicy == null) return null;
-        return tlsPolicy.getValue("ReceiptRule.tlsPolicy");
+        if (!unknown_tlsPolicy) return value_tlsPolicy;
+        throw new UndeferrableValueException("Value 'ReceiptRule.tlsPolicy' is not present");
     }
 
     /**
      * A list of WorkMail Action blocks. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ReceiptRuleWorkmailAction>> workmailActions;
-
+    @PolicyResourceProperty(name="workmailActions", flag="unknown_workmailActions")
+    private @Nullable List<ReceiptRuleWorkmailAction> value_workmailActions;
+    private boolean unknown_workmailActions;
     public @Nullable List<ReceiptRuleWorkmailAction> workmailActions() {
-        if (workmailActions == null) return null;
-        return workmailActions.getValue("ReceiptRule.workmailActions");
+        if (!unknown_workmailActions) return value_workmailActions;
+        throw new UndeferrableValueException("Value 'ReceiptRule.workmailActions' is not present");
     }
 
 }

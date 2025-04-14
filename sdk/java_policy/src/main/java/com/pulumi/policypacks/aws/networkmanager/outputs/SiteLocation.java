@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class SiteLocation {
      * Address of the location.
      * 
      */
-    private @Nullable UndeferrableValue<String> address;
-
+    @PolicyResourceProperty(name="address", flag="unknown_address")
+    private @Nullable String value_address;
+    private boolean unknown_address;
     public @Nullable String address() {
-        if (address == null) return null;
-        return address.getValue("SiteLocation.address");
+        if (!unknown_address) return value_address;
+        throw new UndeferrableValueException("Value 'SiteLocation.address' is not present");
     }
 
     /**
      * Latitude of the location.
      * 
      */
-    private @Nullable UndeferrableValue<String> latitude;
-
+    @PolicyResourceProperty(name="latitude", flag="unknown_latitude")
+    private @Nullable String value_latitude;
+    private boolean unknown_latitude;
     public @Nullable String latitude() {
-        if (latitude == null) return null;
-        return latitude.getValue("SiteLocation.latitude");
+        if (!unknown_latitude) return value_latitude;
+        throw new UndeferrableValueException("Value 'SiteLocation.latitude' is not present");
     }
 
     /**
      * Longitude of the location.
      * 
      */
-    private @Nullable UndeferrableValue<String> longitude;
-
+    @PolicyResourceProperty(name="longitude", flag="unknown_longitude")
+    private @Nullable String value_longitude;
+    private boolean unknown_longitude;
     public @Nullable String longitude() {
-        if (longitude == null) return null;
-        return longitude.getValue("SiteLocation.longitude");
+        if (!unknown_longitude) return value_longitude;
+        throw new UndeferrableValueException("Value 'SiteLocation.longitude' is not present");
     }
 
 }

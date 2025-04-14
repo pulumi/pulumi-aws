@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,25 +12,28 @@ import javax.annotation.Nullable;
 
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs {
 
-    private UndeferrableValue<Integer> networkId;
-
+    @PolicyResourceProperty(name="networkId", flag="unknown_networkId")
+    private Integer value_networkId;
+    private boolean unknown_networkId;
     public Integer networkId() {
-        if (networkId == null) return null;
-        return networkId.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs.networkId");
+        if (!unknown_networkId) return value_networkId;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs.networkId' is not present");
     }
 
-    private UndeferrableValue<String> networkName;
-
+    @PolicyResourceProperty(name="networkName", flag="unknown_networkName")
+    private String value_networkName;
+    private boolean unknown_networkName;
     public String networkName() {
-        if (networkName == null) return null;
-        return networkName.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs.networkName");
+        if (!unknown_networkName) return value_networkName;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs.networkName' is not present");
     }
 
-    private UndeferrableValue<Integer> repInterval;
-
+    @PolicyResourceProperty(name="repInterval", flag="unknown_repInterval")
+    private Integer value_repInterval;
+    private boolean unknown_repInterval;
     public Integer repInterval() {
-        if (repInterval == null) return null;
-        return repInterval.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs.repInterval");
+        if (!unknown_repInterval) return value_repInterval;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs.repInterval' is not present");
     }
 
 }

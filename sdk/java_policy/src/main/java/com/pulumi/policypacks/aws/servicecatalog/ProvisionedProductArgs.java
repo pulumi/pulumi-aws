@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.servicecatalog.inputs.ProvisionedProductProvisioningParameterArgs;
 import com.pulumi.policypacks.aws.servicecatalog.inputs.ProvisionedProductStackSetProvisioningPreferencesArgs;
@@ -21,22 +22,24 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.PolicyRes
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      * 
      */
-    private UndeferrableValue<String> acceptLanguage;
-
+    @PolicyResourceProperty(name="acceptLanguage", flag="unknown_acceptLanguage")
+    private String value_acceptLanguage;
+    private boolean unknown_acceptLanguage;
     public String acceptLanguage() {
-        if (acceptLanguage == null) return null;
-        return acceptLanguage.getValue("ProvisionedProductArgs.acceptLanguage");
+        if (!unknown_acceptLanguage) return value_acceptLanguage;
+        throw new UndeferrableValueException("Value 'ProvisionedProductArgs.acceptLanguage' is not present");
     }
 
     /**
      * _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> ignoreErrors;
-
+    @PolicyResourceProperty(name="ignoreErrors", flag="unknown_ignoreErrors")
+    private Boolean value_ignoreErrors;
+    private boolean unknown_ignoreErrors;
     public Boolean ignoreErrors() {
-        if (ignoreErrors == null) return null;
-        return ignoreErrors.getValue("ProvisionedProductArgs.ignoreErrors");
+        if (!unknown_ignoreErrors) return value_ignoreErrors;
+        throw new UndeferrableValueException("Value 'ProvisionedProductArgs.ignoreErrors' is not present");
     }
 
     /**
@@ -45,132 +48,144 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.PolicyRes
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ProvisionedProductArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ProvisionedProductArgs.name' is not present");
     }
 
     /**
      * Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
      * 
      */
-    private UndeferrableValue<List<String>> notificationArns;
-
+    @PolicyResourceProperty(name="notificationArns", flag="unknown_notificationArns")
+    private List<String> value_notificationArns;
+    private boolean unknown_notificationArns;
     public List<String> notificationArns() {
-        if (notificationArns == null) return null;
-        return notificationArns.getValue("ProvisionedProductArgs.notificationArns");
+        if (!unknown_notificationArns) return value_notificationArns;
+        throw new UndeferrableValueException("Value 'ProvisionedProductArgs.notificationArns' is not present");
     }
 
     /**
      * Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.
      * 
      */
-    private UndeferrableValue<String> pathId;
-
+    @PolicyResourceProperty(name="pathId", flag="unknown_pathId")
+    private String value_pathId;
+    private boolean unknown_pathId;
     public String pathId() {
-        if (pathId == null) return null;
-        return pathId.getValue("ProvisionedProductArgs.pathId");
+        if (!unknown_pathId) return value_pathId;
+        throw new UndeferrableValueException("Value 'ProvisionedProductArgs.pathId' is not present");
     }
 
     /**
      * Name of the path. You must provide `path_id` or `path_name`, but not both.
      * 
      */
-    private UndeferrableValue<String> pathName;
-
+    @PolicyResourceProperty(name="pathName", flag="unknown_pathName")
+    private String value_pathName;
+    private boolean unknown_pathName;
     public String pathName() {
-        if (pathName == null) return null;
-        return pathName.getValue("ProvisionedProductArgs.pathName");
+        if (!unknown_pathName) return value_pathName;
+        throw new UndeferrableValueException("Value 'ProvisionedProductArgs.pathName' is not present");
     }
 
     /**
      * Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
      * 
      */
-    private UndeferrableValue<String> productId;
-
+    @PolicyResourceProperty(name="productId", flag="unknown_productId")
+    private String value_productId;
+    private boolean unknown_productId;
     public String productId() {
-        if (productId == null) return null;
-        return productId.getValue("ProvisionedProductArgs.productId");
+        if (!unknown_productId) return value_productId;
+        throw new UndeferrableValueException("Value 'ProvisionedProductArgs.productId' is not present");
     }
 
     /**
      * Name of the product. You must provide `product_id` or `product_name`, but not both.
      * 
      */
-    private UndeferrableValue<String> productName;
-
+    @PolicyResourceProperty(name="productName", flag="unknown_productName")
+    private String value_productName;
+    private boolean unknown_productName;
     public String productName() {
-        if (productName == null) return null;
-        return productName.getValue("ProvisionedProductArgs.productName");
+        if (!unknown_productName) return value_productName;
+        throw new UndeferrableValueException("Value 'ProvisionedProductArgs.productName' is not present");
     }
 
     /**
      * Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
      * 
      */
-    private UndeferrableValue<String> provisioningArtifactId;
-
+    @PolicyResourceProperty(name="provisioningArtifactId", flag="unknown_provisioningArtifactId")
+    private String value_provisioningArtifactId;
+    private boolean unknown_provisioningArtifactId;
     public String provisioningArtifactId() {
-        if (provisioningArtifactId == null) return null;
-        return provisioningArtifactId.getValue("ProvisionedProductArgs.provisioningArtifactId");
+        if (!unknown_provisioningArtifactId) return value_provisioningArtifactId;
+        throw new UndeferrableValueException("Value 'ProvisionedProductArgs.provisioningArtifactId' is not present");
     }
 
     /**
      * Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
      * 
      */
-    private UndeferrableValue<String> provisioningArtifactName;
-
+    @PolicyResourceProperty(name="provisioningArtifactName", flag="unknown_provisioningArtifactName")
+    private String value_provisioningArtifactName;
+    private boolean unknown_provisioningArtifactName;
     public String provisioningArtifactName() {
-        if (provisioningArtifactName == null) return null;
-        return provisioningArtifactName.getValue("ProvisionedProductArgs.provisioningArtifactName");
+        if (!unknown_provisioningArtifactName) return value_provisioningArtifactName;
+        throw new UndeferrableValueException("Value 'ProvisionedProductArgs.provisioningArtifactName' is not present");
     }
 
     /**
      * Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
      * 
      */
-    private UndeferrableValue<List<ProvisionedProductProvisioningParameterArgs>> provisioningParameters;
-
+    @PolicyResourceProperty(name="provisioningParameters", flag="unknown_provisioningParameters")
+    private List<ProvisionedProductProvisioningParameterArgs> value_provisioningParameters;
+    private boolean unknown_provisioningParameters;
     public List<ProvisionedProductProvisioningParameterArgs> provisioningParameters() {
-        if (provisioningParameters == null) return null;
-        return provisioningParameters.getValue("ProvisionedProductArgs.provisioningParameters");
+        if (!unknown_provisioningParameters) return value_provisioningParameters;
+        throw new UndeferrableValueException("Value 'ProvisionedProductArgs.provisioningParameters' is not present");
     }
 
     /**
      * _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> retainPhysicalResources;
-
+    @PolicyResourceProperty(name="retainPhysicalResources", flag="unknown_retainPhysicalResources")
+    private Boolean value_retainPhysicalResources;
+    private boolean unknown_retainPhysicalResources;
     public Boolean retainPhysicalResources() {
-        if (retainPhysicalResources == null) return null;
-        return retainPhysicalResources.getValue("ProvisionedProductArgs.retainPhysicalResources");
+        if (!unknown_retainPhysicalResources) return value_retainPhysicalResources;
+        throw new UndeferrableValueException("Value 'ProvisionedProductArgs.retainPhysicalResources' is not present");
     }
 
     /**
      * Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
      * 
      */
-    private UndeferrableValue<ProvisionedProductStackSetProvisioningPreferencesArgs> stackSetProvisioningPreferences;
-
+    @PolicyResourceProperty(name="stackSetProvisioningPreferences", flag="unknown_stackSetProvisioningPreferences")
+    private ProvisionedProductStackSetProvisioningPreferencesArgs value_stackSetProvisioningPreferences;
+    private boolean unknown_stackSetProvisioningPreferences;
     public ProvisionedProductStackSetProvisioningPreferencesArgs stackSetProvisioningPreferences() {
-        if (stackSetProvisioningPreferences == null) return null;
-        return stackSetProvisioningPreferences.getValue("ProvisionedProductArgs.stackSetProvisioningPreferences");
+        if (!unknown_stackSetProvisioningPreferences) return value_stackSetProvisioningPreferences;
+        throw new UndeferrableValueException("Value 'ProvisionedProductArgs.stackSetProvisioningPreferences' is not present");
     }
 
     /**
      * Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ProvisionedProductArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ProvisionedProductArgs.tags' is not present");
     }
 
 }

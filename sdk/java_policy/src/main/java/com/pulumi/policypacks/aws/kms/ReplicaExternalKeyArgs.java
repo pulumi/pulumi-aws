@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kms;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -22,11 +23,12 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.PolicyRes
      * The default value is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> bypassPolicyLockoutSafetyCheck;
-
+    @PolicyResourceProperty(name="bypassPolicyLockoutSafetyCheck", flag="unknown_bypassPolicyLockoutSafetyCheck")
+    private Boolean value_bypassPolicyLockoutSafetyCheck;
+    private boolean unknown_bypassPolicyLockoutSafetyCheck;
     public Boolean bypassPolicyLockoutSafetyCheck() {
-        if (bypassPolicyLockoutSafetyCheck == null) return null;
-        return bypassPolicyLockoutSafetyCheck.getValue("ReplicaExternalKeyArgs.bypassPolicyLockoutSafetyCheck");
+        if (!unknown_bypassPolicyLockoutSafetyCheck) return value_bypassPolicyLockoutSafetyCheck;
+        throw new UndeferrableValueException("Value 'ReplicaExternalKeyArgs.bypassPolicyLockoutSafetyCheck' is not present");
     }
 
     /**
@@ -34,88 +36,96 @@ public final class ReplicaExternalKeyArgs extends com.pulumi.resources.PolicyRes
      * If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
      * 
      */
-    private UndeferrableValue<Integer> deletionWindowInDays;
-
+    @PolicyResourceProperty(name="deletionWindowInDays", flag="unknown_deletionWindowInDays")
+    private Integer value_deletionWindowInDays;
+    private boolean unknown_deletionWindowInDays;
     public Integer deletionWindowInDays() {
-        if (deletionWindowInDays == null) return null;
-        return deletionWindowInDays.getValue("ReplicaExternalKeyArgs.deletionWindowInDays");
+        if (!unknown_deletionWindowInDays) return value_deletionWindowInDays;
+        throw new UndeferrableValueException("Value 'ReplicaExternalKeyArgs.deletionWindowInDays' is not present");
     }
 
     /**
      * A description of the KMS key.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ReplicaExternalKeyArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ReplicaExternalKeyArgs.description' is not present");
     }
 
     /**
      * Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("ReplicaExternalKeyArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'ReplicaExternalKeyArgs.enabled' is not present");
     }
 
     /**
      * Base64 encoded 256-bit symmetric encryption key material to import. The KMS key is permanently associated with this key material. The same key material can be [reimported](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material), but you cannot import different key material.
      * 
      */
-    private UndeferrableValue<String> keyMaterialBase64;
-
+    @PolicyResourceProperty(name="keyMaterialBase64", flag="unknown_keyMaterialBase64")
+    private String value_keyMaterialBase64;
+    private boolean unknown_keyMaterialBase64;
     public String keyMaterialBase64() {
-        if (keyMaterialBase64 == null) return null;
-        return keyMaterialBase64.getValue("ReplicaExternalKeyArgs.keyMaterialBase64");
+        if (!unknown_keyMaterialBase64) return value_keyMaterialBase64;
+        throw new UndeferrableValueException("Value 'ReplicaExternalKeyArgs.keyMaterialBase64' is not present");
     }
 
     /**
      * The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("ReplicaExternalKeyArgs.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'ReplicaExternalKeyArgs.policy' is not present");
     }
 
     /**
      * The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
      * 
      */
-    private UndeferrableValue<String> primaryKeyArn;
-
+    @PolicyResourceProperty(name="primaryKeyArn", flag="unknown_primaryKeyArn")
+    private String value_primaryKeyArn;
+    private boolean unknown_primaryKeyArn;
     public String primaryKeyArn() {
-        if (primaryKeyArn == null) return null;
-        return primaryKeyArn.getValue("ReplicaExternalKeyArgs.primaryKeyArn");
+        if (!unknown_primaryKeyArn) return value_primaryKeyArn;
+        throw new UndeferrableValueException("Value 'ReplicaExternalKeyArgs.primaryKeyArn' is not present");
     }
 
     /**
      * A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ReplicaExternalKeyArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ReplicaExternalKeyArgs.tags' is not present");
     }
 
     /**
      * Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the key becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
-    private UndeferrableValue<String> validTo;
-
+    @PolicyResourceProperty(name="validTo", flag="unknown_validTo")
+    private String value_validTo;
+    private boolean unknown_validTo;
     public String validTo() {
-        if (validTo == null) return null;
-        return validTo.getValue("ReplicaExternalKeyArgs.validTo");
+        if (!unknown_validTo) return value_validTo;
+        throw new UndeferrableValueException("Value 'ReplicaExternalKeyArgs.validTo' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.drs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,55 +17,60 @@ public final class ReplicationConfigurationTemplatePitPolicyArgs {
      * Whether this rule is enabled or not.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("ReplicationConfigurationTemplatePitPolicyArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplatePitPolicyArgs.enabled' is not present");
     }
 
     /**
      * How often, in the chosen units, a snapshot should be taken.
      * 
      */
-    private UndeferrableValue<Integer> interval;
-
+    @PolicyResourceProperty(name="interval", flag="unknown_interval")
+    private Integer value_interval;
+    private boolean unknown_interval;
     public Integer interval() {
-        if (interval == null) return null;
-        return interval.getValue("ReplicationConfigurationTemplatePitPolicyArgs.interval");
+        if (!unknown_interval) return value_interval;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplatePitPolicyArgs.interval' is not present");
     }
 
     /**
      * Duration to retain a snapshot for, in the chosen `units`.
      * 
      */
-    private UndeferrableValue<Integer> retentionDuration;
-
+    @PolicyResourceProperty(name="retentionDuration", flag="unknown_retentionDuration")
+    private Integer value_retentionDuration;
+    private boolean unknown_retentionDuration;
     public Integer retentionDuration() {
-        if (retentionDuration == null) return null;
-        return retentionDuration.getValue("ReplicationConfigurationTemplatePitPolicyArgs.retentionDuration");
+        if (!unknown_retentionDuration) return value_retentionDuration;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplatePitPolicyArgs.retentionDuration' is not present");
     }
 
     /**
      * ID of the rule. Valid values are integers.
      * 
      */
-    private UndeferrableValue<Integer> ruleId;
-
+    @PolicyResourceProperty(name="ruleId", flag="unknown_ruleId")
+    private Integer value_ruleId;
+    private boolean unknown_ruleId;
     public Integer ruleId() {
-        if (ruleId == null) return null;
-        return ruleId.getValue("ReplicationConfigurationTemplatePitPolicyArgs.ruleId");
+        if (!unknown_ruleId) return value_ruleId;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplatePitPolicyArgs.ruleId' is not present");
     }
 
     /**
      * Units used to measure the `interval` and `retention_duration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
      * 
      */
-    private UndeferrableValue<String> units;
-
+    @PolicyResourceProperty(name="units", flag="unknown_units")
+    private String value_units;
+    private boolean unknown_units;
     public String units() {
-        if (units == null) return null;
-        return units.getValue("ReplicationConfigurationTemplatePitPolicyArgs.units");
+        if (!unknown_units) return value_units;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationTemplatePitPolicyArgs.units' is not present");
     }
 
 }

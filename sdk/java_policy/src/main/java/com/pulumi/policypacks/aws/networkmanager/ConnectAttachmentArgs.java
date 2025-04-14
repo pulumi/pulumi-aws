@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.networkmanager.inputs.ConnectAttachmentOptionsArgs;
 import java.lang.String;
@@ -18,22 +19,24 @@ public final class ConnectAttachmentArgs extends com.pulumi.resources.PolicyReso
      * The ID of a core network where you want to create the attachment.
      * 
      */
-    private UndeferrableValue<String> coreNetworkId;
-
+    @PolicyResourceProperty(name="coreNetworkId", flag="unknown_coreNetworkId")
+    private String value_coreNetworkId;
+    private boolean unknown_coreNetworkId;
     public String coreNetworkId() {
-        if (coreNetworkId == null) return null;
-        return coreNetworkId.getValue("ConnectAttachmentArgs.coreNetworkId");
+        if (!unknown_coreNetworkId) return value_coreNetworkId;
+        throw new UndeferrableValueException("Value 'ConnectAttachmentArgs.coreNetworkId' is not present");
     }
 
     /**
      * The Region where the edge is located.
      * 
      */
-    private UndeferrableValue<String> edgeLocation;
-
+    @PolicyResourceProperty(name="edgeLocation", flag="unknown_edgeLocation")
+    private String value_edgeLocation;
+    private boolean unknown_edgeLocation;
     public String edgeLocation() {
-        if (edgeLocation == null) return null;
-        return edgeLocation.getValue("ConnectAttachmentArgs.edgeLocation");
+        if (!unknown_edgeLocation) return value_edgeLocation;
+        throw new UndeferrableValueException("Value 'ConnectAttachmentArgs.edgeLocation' is not present");
     }
 
     /**
@@ -42,33 +45,36 @@ public final class ConnectAttachmentArgs extends com.pulumi.resources.PolicyReso
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<ConnectAttachmentOptionsArgs> options;
-
+    @PolicyResourceProperty(name="options", flag="unknown_options")
+    private ConnectAttachmentOptionsArgs value_options;
+    private boolean unknown_options;
     public ConnectAttachmentOptionsArgs options() {
-        if (options == null) return null;
-        return options.getValue("ConnectAttachmentArgs.options");
+        if (!unknown_options) return value_options;
+        throw new UndeferrableValueException("Value 'ConnectAttachmentArgs.options' is not present");
     }
 
     /**
      * Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ConnectAttachmentArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ConnectAttachmentArgs.tags' is not present");
     }
 
     /**
      * The ID of the attachment between the two connections.
      * 
      */
-    private UndeferrableValue<String> transportAttachmentId;
-
+    @PolicyResourceProperty(name="transportAttachmentId", flag="unknown_transportAttachmentId")
+    private String value_transportAttachmentId;
+    private boolean unknown_transportAttachmentId;
     public String transportAttachmentId() {
-        if (transportAttachmentId == null) return null;
-        return transportAttachmentId.getValue("ConnectAttachmentArgs.transportAttachmentId");
+        if (!unknown_transportAttachmentId) return value_transportAttachmentId;
+        throw new UndeferrableValueException("Value 'ConnectAttachmentArgs.transportAttachmentId' is not present");
     }
 
 }

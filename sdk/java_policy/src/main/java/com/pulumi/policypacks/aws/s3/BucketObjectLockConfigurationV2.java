@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3.outputs.BucketObjectLockConfigurationV2Rule;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class BucketObjectLockConfigurationV2 extends com.pulumi.resources.
      * Name of the bucket.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("BucketObjectLockConfigurationV2.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'BucketObjectLockConfigurationV2.bucket' is not present");
     }
 
     /**
      * Account ID of the expected bucket owner.
      * 
      */
-    private @Nullable UndeferrableValue<String> expectedBucketOwner;
-
+    @PolicyResourceProperty(name="expectedBucketOwner", flag="unknown_expectedBucketOwner")
+    private @Nullable String value_expectedBucketOwner;
+    private boolean unknown_expectedBucketOwner;
     public @Nullable String expectedBucketOwner() {
-        if (expectedBucketOwner == null) return null;
-        return expectedBucketOwner.getValue("BucketObjectLockConfigurationV2.expectedBucketOwner");
+        if (!unknown_expectedBucketOwner) return value_expectedBucketOwner;
+        throw new UndeferrableValueException("Value 'BucketObjectLockConfigurationV2.expectedBucketOwner' is not present");
     }
 
     /**
      * Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
      * 
      */
-    private @Nullable UndeferrableValue<String> objectLockEnabled;
-
+    @PolicyResourceProperty(name="objectLockEnabled", flag="unknown_objectLockEnabled")
+    private @Nullable String value_objectLockEnabled;
+    private boolean unknown_objectLockEnabled;
     public @Nullable String objectLockEnabled() {
-        if (objectLockEnabled == null) return null;
-        return objectLockEnabled.getValue("BucketObjectLockConfigurationV2.objectLockEnabled");
+        if (!unknown_objectLockEnabled) return value_objectLockEnabled;
+        throw new UndeferrableValueException("Value 'BucketObjectLockConfigurationV2.objectLockEnabled' is not present");
     }
 
     /**
      * Configuration block for specifying the Object Lock rule for the specified object. See below.
      * 
      */
-    private @Nullable UndeferrableValue<BucketObjectLockConfigurationV2Rule> rule;
-
+    @PolicyResourceProperty(name="rule", flag="unknown_rule")
+    private @Nullable BucketObjectLockConfigurationV2Rule value_rule;
+    private boolean unknown_rule;
     public @Nullable BucketObjectLockConfigurationV2Rule rule() {
-        if (rule == null) return null;
-        return rule.getValue("BucketObjectLockConfigurationV2.rule");
+        if (!unknown_rule) return value_rule;
+        throw new UndeferrableValueException("Value 'BucketObjectLockConfigurationV2.rule' is not present");
     }
 
     /**
@@ -62,11 +67,12 @@ public final class BucketObjectLockConfigurationV2 extends com.pulumi.resources.
      * To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioningV2` resource.
      * 
      */
-    private @Nullable UndeferrableValue<String> token;
-
+    @PolicyResourceProperty(name="token", flag="unknown_token")
+    private @Nullable String value_token;
+    private boolean unknown_token;
     public @Nullable String token() {
-        if (token == null) return null;
-        return token.getValue("BucketObjectLockConfigurationV2.token");
+        if (!unknown_token) return value_token;
+        throw new UndeferrableValueException("Value 'BucketObjectLockConfigurationV2.token' is not present");
     }
 
 }

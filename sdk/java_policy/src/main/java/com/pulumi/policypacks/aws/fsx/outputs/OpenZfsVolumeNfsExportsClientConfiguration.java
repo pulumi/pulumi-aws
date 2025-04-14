@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,22 +15,24 @@ public final class OpenZfsVolumeNfsExportsClientConfiguration {
      * A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
      * 
      */
-    private UndeferrableValue<String> clients;
-
+    @PolicyResourceProperty(name="clients", flag="unknown_clients")
+    private String value_clients;
+    private boolean unknown_clients;
     public String clients() {
-        if (clients == null) return null;
-        return clients.getValue("OpenZfsVolumeNfsExportsClientConfiguration.clients");
+        if (!unknown_clients) return value_clients;
+        throw new UndeferrableValueException("Value 'OpenZfsVolumeNfsExportsClientConfiguration.clients' is not present");
     }
 
     /**
      * The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
      * 
      */
-    private UndeferrableValue<List<String>> options;
-
+    @PolicyResourceProperty(name="options", flag="unknown_options")
+    private List<String> value_options;
+    private boolean unknown_options;
     public List<String> options() {
-        if (options == null) return null;
-        return options.getValue("OpenZfsVolumeNfsExportsClientConfiguration.options");
+        if (!unknown_options) return value_options;
+        throw new UndeferrableValueException("Value 'OpenZfsVolumeNfsExportsClientConfiguration.options' is not present");
     }
 
 }

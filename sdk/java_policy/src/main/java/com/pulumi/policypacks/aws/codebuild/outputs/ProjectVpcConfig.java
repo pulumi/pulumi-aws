@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,33 +15,36 @@ public final class ProjectVpcConfig {
      * Security group IDs to assign to running builds.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("ProjectVpcConfig.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'ProjectVpcConfig.securityGroupIds' is not present");
     }
 
     /**
      * Subnet IDs within which to run builds.
      * 
      */
-    private UndeferrableValue<List<String>> subnets;
-
+    @PolicyResourceProperty(name="subnets", flag="unknown_subnets")
+    private List<String> value_subnets;
+    private boolean unknown_subnets;
     public List<String> subnets() {
-        if (subnets == null) return null;
-        return subnets.getValue("ProjectVpcConfig.subnets");
+        if (!unknown_subnets) return value_subnets;
+        throw new UndeferrableValueException("Value 'ProjectVpcConfig.subnets' is not present");
     }
 
     /**
      * ID of the VPC within which to run builds.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("ProjectVpcConfig.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'ProjectVpcConfig.vpcId' is not present");
     }
 
 }

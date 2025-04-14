@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.organizations;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class OrganizationalUnitArgs extends com.pulumi.resources.PolicyRes
      * The name for the organizational unit
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("OrganizationalUnitArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'OrganizationalUnitArgs.name' is not present");
     }
 
     /**
      * ID of the parent organizational unit, which may be the root
      * 
      */
-    private UndeferrableValue<String> parentId;
-
+    @PolicyResourceProperty(name="parentId", flag="unknown_parentId")
+    private String value_parentId;
+    private boolean unknown_parentId;
     public String parentId() {
-        if (parentId == null) return null;
-        return parentId.getValue("OrganizationalUnitArgs.parentId");
+        if (!unknown_parentId) return value_parentId;
+        throw new UndeferrableValueException("Value 'OrganizationalUnitArgs.parentId' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("OrganizationalUnitArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'OrganizationalUnitArgs.tags' is not present");
     }
 
 }

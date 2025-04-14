@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.UserProfileUserSettingsCanvasAppSettingsArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.UserProfileUserSettingsCodeEditorAppSettingsArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.UserProfileUserSettingsCustomFileSystemConfigArgs;
@@ -28,198 +29,216 @@ public final class UserProfileUserSettingsArgs {
      * Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
      * 
      */
-    private UndeferrableValue<String> autoMountHomeEfs;
-
+    @PolicyResourceProperty(name="autoMountHomeEfs", flag="unknown_autoMountHomeEfs")
+    private String value_autoMountHomeEfs;
+    private boolean unknown_autoMountHomeEfs;
     public String autoMountHomeEfs() {
-        if (autoMountHomeEfs == null) return null;
-        return autoMountHomeEfs.getValue("UserProfileUserSettingsArgs.autoMountHomeEfs");
+        if (!unknown_autoMountHomeEfs) return value_autoMountHomeEfs;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsArgs.autoMountHomeEfs' is not present");
     }
 
     /**
      * The Canvas app settings. See Canvas App Settings below.
      * 
      */
-    private UndeferrableValue<UserProfileUserSettingsCanvasAppSettingsArgs> canvasAppSettings;
-
+    @PolicyResourceProperty(name="canvasAppSettings", flag="unknown_canvasAppSettings")
+    private UserProfileUserSettingsCanvasAppSettingsArgs value_canvasAppSettings;
+    private boolean unknown_canvasAppSettings;
     public UserProfileUserSettingsCanvasAppSettingsArgs canvasAppSettings() {
-        if (canvasAppSettings == null) return null;
-        return canvasAppSettings.getValue("UserProfileUserSettingsArgs.canvasAppSettings");
+        if (!unknown_canvasAppSettings) return value_canvasAppSettings;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsArgs.canvasAppSettings' is not present");
     }
 
     /**
      * The Code Editor application settings. See Code Editor App Settings below.
      * 
      */
-    private UndeferrableValue<UserProfileUserSettingsCodeEditorAppSettingsArgs> codeEditorAppSettings;
-
+    @PolicyResourceProperty(name="codeEditorAppSettings", flag="unknown_codeEditorAppSettings")
+    private UserProfileUserSettingsCodeEditorAppSettingsArgs value_codeEditorAppSettings;
+    private boolean unknown_codeEditorAppSettings;
     public UserProfileUserSettingsCodeEditorAppSettingsArgs codeEditorAppSettings() {
-        if (codeEditorAppSettings == null) return null;
-        return codeEditorAppSettings.getValue("UserProfileUserSettingsArgs.codeEditorAppSettings");
+        if (!unknown_codeEditorAppSettings) return value_codeEditorAppSettings;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsArgs.codeEditorAppSettings' is not present");
     }
 
     /**
      * The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See Custom File System Config below.
      * 
      */
-    private UndeferrableValue<List<UserProfileUserSettingsCustomFileSystemConfigArgs>> customFileSystemConfigs;
-
+    @PolicyResourceProperty(name="customFileSystemConfigs", flag="unknown_customFileSystemConfigs")
+    private List<UserProfileUserSettingsCustomFileSystemConfigArgs> value_customFileSystemConfigs;
+    private boolean unknown_customFileSystemConfigs;
     public List<UserProfileUserSettingsCustomFileSystemConfigArgs> customFileSystemConfigs() {
-        if (customFileSystemConfigs == null) return null;
-        return customFileSystemConfigs.getValue("UserProfileUserSettingsArgs.customFileSystemConfigs");
+        if (!unknown_customFileSystemConfigs) return value_customFileSystemConfigs;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsArgs.customFileSystemConfigs' is not present");
     }
 
     /**
      * Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
      * 
      */
-    private UndeferrableValue<UserProfileUserSettingsCustomPosixUserConfigArgs> customPosixUserConfig;
-
+    @PolicyResourceProperty(name="customPosixUserConfig", flag="unknown_customPosixUserConfig")
+    private UserProfileUserSettingsCustomPosixUserConfigArgs value_customPosixUserConfig;
+    private boolean unknown_customPosixUserConfig;
     public UserProfileUserSettingsCustomPosixUserConfigArgs customPosixUserConfig() {
-        if (customPosixUserConfig == null) return null;
-        return customPosixUserConfig.getValue("UserProfileUserSettingsArgs.customPosixUserConfig");
+        if (!unknown_customPosixUserConfig) return value_customPosixUserConfig;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsArgs.customPosixUserConfig' is not present");
     }
 
     /**
      * The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
      * 
      */
-    private UndeferrableValue<String> defaultLandingUri;
-
+    @PolicyResourceProperty(name="defaultLandingUri", flag="unknown_defaultLandingUri")
+    private String value_defaultLandingUri;
+    private boolean unknown_defaultLandingUri;
     public String defaultLandingUri() {
-        if (defaultLandingUri == null) return null;
-        return defaultLandingUri.getValue("UserProfileUserSettingsArgs.defaultLandingUri");
+        if (!unknown_defaultLandingUri) return value_defaultLandingUri;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsArgs.defaultLandingUri' is not present");
     }
 
     /**
      * The execution role ARN for the user.
      * 
      */
-    private UndeferrableValue<String> executionRole;
-
+    @PolicyResourceProperty(name="executionRole", flag="unknown_executionRole")
+    private String value_executionRole;
+    private boolean unknown_executionRole;
     public String executionRole() {
-        if (executionRole == null) return null;
-        return executionRole.getValue("UserProfileUserSettingsArgs.executionRole");
+        if (!unknown_executionRole) return value_executionRole;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsArgs.executionRole' is not present");
     }
 
     /**
      * The settings for the JupyterLab application. See Jupyter Lab App Settings below.
      * 
      */
-    private UndeferrableValue<UserProfileUserSettingsJupyterLabAppSettingsArgs> jupyterLabAppSettings;
-
+    @PolicyResourceProperty(name="jupyterLabAppSettings", flag="unknown_jupyterLabAppSettings")
+    private UserProfileUserSettingsJupyterLabAppSettingsArgs value_jupyterLabAppSettings;
+    private boolean unknown_jupyterLabAppSettings;
     public UserProfileUserSettingsJupyterLabAppSettingsArgs jupyterLabAppSettings() {
-        if (jupyterLabAppSettings == null) return null;
-        return jupyterLabAppSettings.getValue("UserProfileUserSettingsArgs.jupyterLabAppSettings");
+        if (!unknown_jupyterLabAppSettings) return value_jupyterLabAppSettings;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsArgs.jupyterLabAppSettings' is not present");
     }
 
     /**
      * The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
      * 
      */
-    private UndeferrableValue<UserProfileUserSettingsJupyterServerAppSettingsArgs> jupyterServerAppSettings;
-
+    @PolicyResourceProperty(name="jupyterServerAppSettings", flag="unknown_jupyterServerAppSettings")
+    private UserProfileUserSettingsJupyterServerAppSettingsArgs value_jupyterServerAppSettings;
+    private boolean unknown_jupyterServerAppSettings;
     public UserProfileUserSettingsJupyterServerAppSettingsArgs jupyterServerAppSettings() {
-        if (jupyterServerAppSettings == null) return null;
-        return jupyterServerAppSettings.getValue("UserProfileUserSettingsArgs.jupyterServerAppSettings");
+        if (!unknown_jupyterServerAppSettings) return value_jupyterServerAppSettings;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsArgs.jupyterServerAppSettings' is not present");
     }
 
     /**
      * The kernel gateway app settings. See Kernel Gateway App Settings below.
      * 
      */
-    private UndeferrableValue<UserProfileUserSettingsKernelGatewayAppSettingsArgs> kernelGatewayAppSettings;
-
+    @PolicyResourceProperty(name="kernelGatewayAppSettings", flag="unknown_kernelGatewayAppSettings")
+    private UserProfileUserSettingsKernelGatewayAppSettingsArgs value_kernelGatewayAppSettings;
+    private boolean unknown_kernelGatewayAppSettings;
     public UserProfileUserSettingsKernelGatewayAppSettingsArgs kernelGatewayAppSettings() {
-        if (kernelGatewayAppSettings == null) return null;
-        return kernelGatewayAppSettings.getValue("UserProfileUserSettingsArgs.kernelGatewayAppSettings");
+        if (!unknown_kernelGatewayAppSettings) return value_kernelGatewayAppSettings;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsArgs.kernelGatewayAppSettings' is not present");
     }
 
     /**
      * The RSession app settings. See RSession App Settings below.
      * 
      */
-    private UndeferrableValue<UserProfileUserSettingsRSessionAppSettingsArgs> rSessionAppSettings;
-
+    @PolicyResourceProperty(name="rSessionAppSettings", flag="unknown_rSessionAppSettings")
+    private UserProfileUserSettingsRSessionAppSettingsArgs value_rSessionAppSettings;
+    private boolean unknown_rSessionAppSettings;
     public UserProfileUserSettingsRSessionAppSettingsArgs rSessionAppSettings() {
-        if (rSessionAppSettings == null) return null;
-        return rSessionAppSettings.getValue("UserProfileUserSettingsArgs.rSessionAppSettings");
+        if (!unknown_rSessionAppSettings) return value_rSessionAppSettings;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsArgs.rSessionAppSettings' is not present");
     }
 
     /**
      * A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
      * 
      */
-    private UndeferrableValue<UserProfileUserSettingsRStudioServerProAppSettingsArgs> rStudioServerProAppSettings;
-
+    @PolicyResourceProperty(name="rStudioServerProAppSettings", flag="unknown_rStudioServerProAppSettings")
+    private UserProfileUserSettingsRStudioServerProAppSettingsArgs value_rStudioServerProAppSettings;
+    private boolean unknown_rStudioServerProAppSettings;
     public UserProfileUserSettingsRStudioServerProAppSettingsArgs rStudioServerProAppSettings() {
-        if (rStudioServerProAppSettings == null) return null;
-        return rStudioServerProAppSettings.getValue("UserProfileUserSettingsArgs.rStudioServerProAppSettings");
+        if (!unknown_rStudioServerProAppSettings) return value_rStudioServerProAppSettings;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsArgs.rStudioServerProAppSettings' is not present");
     }
 
     /**
      * A list of security group IDs that will be attached to the user.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroups;
-
+    @PolicyResourceProperty(name="securityGroups", flag="unknown_securityGroups")
+    private List<String> value_securityGroups;
+    private boolean unknown_securityGroups;
     public List<String> securityGroups() {
-        if (securityGroups == null) return null;
-        return securityGroups.getValue("UserProfileUserSettingsArgs.securityGroups");
+        if (!unknown_securityGroups) return value_securityGroups;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsArgs.securityGroups' is not present");
     }
 
     /**
      * The sharing settings. See Sharing Settings below.
      * 
      */
-    private UndeferrableValue<UserProfileUserSettingsSharingSettingsArgs> sharingSettings;
-
+    @PolicyResourceProperty(name="sharingSettings", flag="unknown_sharingSettings")
+    private UserProfileUserSettingsSharingSettingsArgs value_sharingSettings;
+    private boolean unknown_sharingSettings;
     public UserProfileUserSettingsSharingSettingsArgs sharingSettings() {
-        if (sharingSettings == null) return null;
-        return sharingSettings.getValue("UserProfileUserSettingsArgs.sharingSettings");
+        if (!unknown_sharingSettings) return value_sharingSettings;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsArgs.sharingSettings' is not present");
     }
 
     /**
      * The storage settings for a private space. See Space Storage Settings below.
      * 
      */
-    private UndeferrableValue<UserProfileUserSettingsSpaceStorageSettingsArgs> spaceStorageSettings;
-
+    @PolicyResourceProperty(name="spaceStorageSettings", flag="unknown_spaceStorageSettings")
+    private UserProfileUserSettingsSpaceStorageSettingsArgs value_spaceStorageSettings;
+    private boolean unknown_spaceStorageSettings;
     public UserProfileUserSettingsSpaceStorageSettingsArgs spaceStorageSettings() {
-        if (spaceStorageSettings == null) return null;
-        return spaceStorageSettings.getValue("UserProfileUserSettingsArgs.spaceStorageSettings");
+        if (!unknown_spaceStorageSettings) return value_spaceStorageSettings;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsArgs.spaceStorageSettings' is not present");
     }
 
     /**
      * Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> studioWebPortal;
-
+    @PolicyResourceProperty(name="studioWebPortal", flag="unknown_studioWebPortal")
+    private String value_studioWebPortal;
+    private boolean unknown_studioWebPortal;
     public String studioWebPortal() {
-        if (studioWebPortal == null) return null;
-        return studioWebPortal.getValue("UserProfileUserSettingsArgs.studioWebPortal");
+        if (!unknown_studioWebPortal) return value_studioWebPortal;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsArgs.studioWebPortal' is not present");
     }
 
     /**
      * The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
      * 
      */
-    private UndeferrableValue<UserProfileUserSettingsStudioWebPortalSettingsArgs> studioWebPortalSettings;
-
+    @PolicyResourceProperty(name="studioWebPortalSettings", flag="unknown_studioWebPortalSettings")
+    private UserProfileUserSettingsStudioWebPortalSettingsArgs value_studioWebPortalSettings;
+    private boolean unknown_studioWebPortalSettings;
     public UserProfileUserSettingsStudioWebPortalSettingsArgs studioWebPortalSettings() {
-        if (studioWebPortalSettings == null) return null;
-        return studioWebPortalSettings.getValue("UserProfileUserSettingsArgs.studioWebPortalSettings");
+        if (!unknown_studioWebPortalSettings) return value_studioWebPortalSettings;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsArgs.studioWebPortalSettings' is not present");
     }
 
     /**
      * The TensorBoard app settings. See TensorBoard App Settings below.
      * 
      */
-    private UndeferrableValue<UserProfileUserSettingsTensorBoardAppSettingsArgs> tensorBoardAppSettings;
-
+    @PolicyResourceProperty(name="tensorBoardAppSettings", flag="unknown_tensorBoardAppSettings")
+    private UserProfileUserSettingsTensorBoardAppSettingsArgs value_tensorBoardAppSettings;
+    private boolean unknown_tensorBoardAppSettings;
     public UserProfileUserSettingsTensorBoardAppSettingsArgs tensorBoardAppSettings() {
-        if (tensorBoardAppSettings == null) return null;
-        return tensorBoardAppSettings.getValue("UserProfileUserSettingsArgs.tensorBoardAppSettings");
+        if (!unknown_tensorBoardAppSettings) return value_tensorBoardAppSettings;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsArgs.tensorBoardAppSettings' is not present");
     }
 
 }

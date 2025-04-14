@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.datazone.outputs.EnvironmentProfileUserParameter;
 import java.lang.String;
@@ -18,88 +19,96 @@ public final class EnvironmentProfile extends com.pulumi.resources.PolicyResourc
      * Id of the AWS account being used.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("EnvironmentProfile.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'EnvironmentProfile.awsAccountId' is not present");
     }
 
     /**
      * Desired region for environment profile.
      * 
      */
-    private UndeferrableValue<String> awsAccountRegion;
-
+    @PolicyResourceProperty(name="awsAccountRegion", flag="unknown_awsAccountRegion")
+    private String value_awsAccountRegion;
+    private boolean unknown_awsAccountRegion;
     public String awsAccountRegion() {
-        if (awsAccountRegion == null) return null;
-        return awsAccountRegion.getValue("EnvironmentProfile.awsAccountRegion");
+        if (!unknown_awsAccountRegion) return value_awsAccountRegion;
+        throw new UndeferrableValueException("Value 'EnvironmentProfile.awsAccountRegion' is not present");
     }
 
     /**
      * Creation time of environment profile.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("EnvironmentProfile.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'EnvironmentProfile.createdAt' is not present");
     }
 
     /**
      * Creator of environment profile.
      * 
      */
-    private UndeferrableValue<String> createdBy;
-
+    @PolicyResourceProperty(name="createdBy", flag="unknown_createdBy")
+    private String value_createdBy;
+    private boolean unknown_createdBy;
     public String createdBy() {
-        if (createdBy == null) return null;
-        return createdBy.getValue("EnvironmentProfile.createdBy");
+        if (!unknown_createdBy) return value_createdBy;
+        throw new UndeferrableValueException("Value 'EnvironmentProfile.createdBy' is not present");
     }
 
     /**
      * Description of environment profile.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("EnvironmentProfile.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'EnvironmentProfile.description' is not present");
     }
 
     /**
      * Domain Identifier for environment profile.
      * 
      */
-    private UndeferrableValue<String> domainIdentifier;
-
+    @PolicyResourceProperty(name="domainIdentifier", flag="unknown_domainIdentifier")
+    private String value_domainIdentifier;
+    private boolean unknown_domainIdentifier;
     public String domainIdentifier() {
-        if (domainIdentifier == null) return null;
-        return domainIdentifier.getValue("EnvironmentProfile.domainIdentifier");
+        if (!unknown_domainIdentifier) return value_domainIdentifier;
+        throw new UndeferrableValueException("Value 'EnvironmentProfile.domainIdentifier' is not present");
     }
 
     /**
      * ID of the blueprint which the environment will be created with.
      * 
      */
-    private UndeferrableValue<String> environmentBlueprintIdentifier;
-
+    @PolicyResourceProperty(name="environmentBlueprintIdentifier", flag="unknown_environmentBlueprintIdentifier")
+    private String value_environmentBlueprintIdentifier;
+    private boolean unknown_environmentBlueprintIdentifier;
     public String environmentBlueprintIdentifier() {
-        if (environmentBlueprintIdentifier == null) return null;
-        return environmentBlueprintIdentifier.getValue("EnvironmentProfile.environmentBlueprintIdentifier");
+        if (!unknown_environmentBlueprintIdentifier) return value_environmentBlueprintIdentifier;
+        throw new UndeferrableValueException("Value 'EnvironmentProfile.environmentBlueprintIdentifier' is not present");
     }
 
     /**
      * Name of the environment profile.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("EnvironmentProfile.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'EnvironmentProfile.name' is not present");
     }
 
     /**
@@ -108,33 +117,36 @@ public final class EnvironmentProfile extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> projectIdentifier;
-
+    @PolicyResourceProperty(name="projectIdentifier", flag="unknown_projectIdentifier")
+    private String value_projectIdentifier;
+    private boolean unknown_projectIdentifier;
     public String projectIdentifier() {
-        if (projectIdentifier == null) return null;
-        return projectIdentifier.getValue("EnvironmentProfile.projectIdentifier");
+        if (!unknown_projectIdentifier) return value_projectIdentifier;
+        throw new UndeferrableValueException("Value 'EnvironmentProfile.projectIdentifier' is not present");
     }
 
     /**
      * Time of last update to environment profile.
      * 
      */
-    private UndeferrableValue<String> updatedAt;
-
+    @PolicyResourceProperty(name="updatedAt", flag="unknown_updatedAt")
+    private String value_updatedAt;
+    private boolean unknown_updatedAt;
     public String updatedAt() {
-        if (updatedAt == null) return null;
-        return updatedAt.getValue("EnvironmentProfile.updatedAt");
+        if (!unknown_updatedAt) return value_updatedAt;
+        throw new UndeferrableValueException("Value 'EnvironmentProfile.updatedAt' is not present");
     }
 
     /**
      * Array of user parameters of the environment profile with the following attributes:
      * 
      */
-    private @Nullable UndeferrableValue<List<EnvironmentProfileUserParameter>> userParameters;
-
+    @PolicyResourceProperty(name="userParameters", flag="unknown_userParameters")
+    private @Nullable List<EnvironmentProfileUserParameter> value_userParameters;
+    private boolean unknown_userParameters;
     public @Nullable List<EnvironmentProfileUserParameter> userParameters() {
-        if (userParameters == null) return null;
-        return userParameters.getValue("EnvironmentProfile.userParameters");
+        if (!unknown_userParameters) return value_userParameters;
+        throw new UndeferrableValueException("Value 'EnvironmentProfile.userParameters' is not present");
     }
 
 }

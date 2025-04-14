@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.connect.inputs.QuickConnectQuickConnectConfigPhoneConfigArgs;
 import com.pulumi.policypacks.aws.connect.inputs.QuickConnectQuickConnectConfigQueueConfigArgs;
 import com.pulumi.policypacks.aws.connect.inputs.QuickConnectQuickConnectConfigUserConfigArgs;
@@ -18,44 +19,48 @@ public final class QuickConnectQuickConnectConfigArgs {
      * Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
      * 
      */
-    private UndeferrableValue<List<QuickConnectQuickConnectConfigPhoneConfigArgs>> phoneConfigs;
-
+    @PolicyResourceProperty(name="phoneConfigs", flag="unknown_phoneConfigs")
+    private List<QuickConnectQuickConnectConfigPhoneConfigArgs> value_phoneConfigs;
+    private boolean unknown_phoneConfigs;
     public List<QuickConnectQuickConnectConfigPhoneConfigArgs> phoneConfigs() {
-        if (phoneConfigs == null) return null;
-        return phoneConfigs.getValue("QuickConnectQuickConnectConfigArgs.phoneConfigs");
+        if (!unknown_phoneConfigs) return value_phoneConfigs;
+        throw new UndeferrableValueException("Value 'QuickConnectQuickConnectConfigArgs.phoneConfigs' is not present");
     }
 
     /**
      * Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
      * 
      */
-    private UndeferrableValue<List<QuickConnectQuickConnectConfigQueueConfigArgs>> queueConfigs;
-
+    @PolicyResourceProperty(name="queueConfigs", flag="unknown_queueConfigs")
+    private List<QuickConnectQuickConnectConfigQueueConfigArgs> value_queueConfigs;
+    private boolean unknown_queueConfigs;
     public List<QuickConnectQuickConnectConfigQueueConfigArgs> queueConfigs() {
-        if (queueConfigs == null) return null;
-        return queueConfigs.getValue("QuickConnectQuickConnectConfigArgs.queueConfigs");
+        if (!unknown_queueConfigs) return value_queueConfigs;
+        throw new UndeferrableValueException("Value 'QuickConnectQuickConnectConfigArgs.queueConfigs' is not present");
     }
 
     /**
      * Specifies the configuration type of the quick connect. valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
      * 
      */
-    private UndeferrableValue<String> quickConnectType;
-
+    @PolicyResourceProperty(name="quickConnectType", flag="unknown_quickConnectType")
+    private String value_quickConnectType;
+    private boolean unknown_quickConnectType;
     public String quickConnectType() {
-        if (quickConnectType == null) return null;
-        return quickConnectType.getValue("QuickConnectQuickConnectConfigArgs.quickConnectType");
+        if (!unknown_quickConnectType) return value_quickConnectType;
+        throw new UndeferrableValueException("Value 'QuickConnectQuickConnectConfigArgs.quickConnectType' is not present");
     }
 
     /**
      * Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
      * 
      */
-    private UndeferrableValue<List<QuickConnectQuickConnectConfigUserConfigArgs>> userConfigs;
-
+    @PolicyResourceProperty(name="userConfigs", flag="unknown_userConfigs")
+    private List<QuickConnectQuickConnectConfigUserConfigArgs> value_userConfigs;
+    private boolean unknown_userConfigs;
     public List<QuickConnectQuickConnectConfigUserConfigArgs> userConfigs() {
-        if (userConfigs == null) return null;
-        return userConfigs.getValue("QuickConnectQuickConnectConfigArgs.userConfigs");
+        if (!unknown_userConfigs) return value_userConfigs;
+        throw new UndeferrableValueException("Value 'QuickConnectQuickConnectConfigArgs.userConfigs' is not present");
     }
 
 }

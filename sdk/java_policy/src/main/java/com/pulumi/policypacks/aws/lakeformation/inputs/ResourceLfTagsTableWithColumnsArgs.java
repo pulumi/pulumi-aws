@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -16,55 +17,60 @@ public final class ResourceLfTagsTableWithColumnsArgs {
      * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    private UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private String value_catalogId;
+    private boolean unknown_catalogId;
     public String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("ResourceLfTagsTableWithColumnsArgs.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'ResourceLfTagsTableWithColumnsArgs.catalogId' is not present");
     }
 
     /**
      * Set of column names for the table.
      * 
      */
-    private UndeferrableValue<List<String>> columnNames;
-
+    @PolicyResourceProperty(name="columnNames", flag="unknown_columnNames")
+    private List<String> value_columnNames;
+    private boolean unknown_columnNames;
     public List<String> columnNames() {
-        if (columnNames == null) return null;
-        return columnNames.getValue("ResourceLfTagsTableWithColumnsArgs.columnNames");
+        if (!unknown_columnNames) return value_columnNames;
+        throw new UndeferrableValueException("Value 'ResourceLfTagsTableWithColumnsArgs.columnNames' is not present");
     }
 
     /**
      * Name of the database for the table with columns resource. Unique to the Data Catalog.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("ResourceLfTagsTableWithColumnsArgs.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'ResourceLfTagsTableWithColumnsArgs.databaseName' is not present");
     }
 
     /**
      * Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
      * 
      */
-    private UndeferrableValue<List<String>> excludedColumnNames;
-
+    @PolicyResourceProperty(name="excludedColumnNames", flag="unknown_excludedColumnNames")
+    private List<String> value_excludedColumnNames;
+    private boolean unknown_excludedColumnNames;
     public List<String> excludedColumnNames() {
-        if (excludedColumnNames == null) return null;
-        return excludedColumnNames.getValue("ResourceLfTagsTableWithColumnsArgs.excludedColumnNames");
+        if (!unknown_excludedColumnNames) return value_excludedColumnNames;
+        throw new UndeferrableValueException("Value 'ResourceLfTagsTableWithColumnsArgs.excludedColumnNames' is not present");
     }
 
     /**
      * Name of the table resource.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ResourceLfTagsTableWithColumnsArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ResourceLfTagsTableWithColumnsArgs.name' is not present");
     }
 
     /**
@@ -73,11 +79,12 @@ public final class ResourceLfTagsTableWithColumnsArgs {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<Boolean> wildcard;
-
+    @PolicyResourceProperty(name="wildcard", flag="unknown_wildcard")
+    private Boolean value_wildcard;
+    private boolean unknown_wildcard;
     public Boolean wildcard() {
-        if (wildcard == null) return null;
-        return wildcard.getValue("ResourceLfTagsTableWithColumnsArgs.wildcard");
+        if (!unknown_wildcard) return value_wildcard;
+        throw new UndeferrableValueException("Value 'ResourceLfTagsTableWithColumnsArgs.wildcard' is not present");
     }
 
 }

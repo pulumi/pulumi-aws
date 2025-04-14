@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3.inputs.BucketV2CorsRuleArgs;
 import com.pulumi.policypacks.aws.s3.inputs.BucketV2GrantArgs;
@@ -33,11 +34,12 @@ public final class BucketV2Args extends com.pulumi.resources.PolicyResourceInput
      * 
      */
     @Deprecated /* acceleration_status is deprecated. Use the aws.s3.BucketAccelerateConfigurationV2 resource instead. */
-    private UndeferrableValue<String> accelerationStatus;
-
+    @PolicyResourceProperty(name="accelerationStatus", flag="unknown_accelerationStatus")
+    private String value_accelerationStatus;
+    private boolean unknown_accelerationStatus;
     public String accelerationStatus() {
-        if (accelerationStatus == null) return null;
-        return accelerationStatus.getValue("BucketV2Args.accelerationStatus");
+        if (!unknown_accelerationStatus) return value_accelerationStatus;
+        throw new UndeferrableValueException("Value 'BucketV2Args.accelerationStatus' is not present");
     }
 
     /**
@@ -48,33 +50,36 @@ public final class BucketV2Args extends com.pulumi.resources.PolicyResourceInput
      * 
      */
     @Deprecated /* acl is deprecated. Use the aws.s3.BucketAclV2 resource instead. */
-    private UndeferrableValue<String> acl;
-
+    @PolicyResourceProperty(name="acl", flag="unknown_acl")
+    private String value_acl;
+    private boolean unknown_acl;
     public String acl() {
-        if (acl == null) return null;
-        return acl.getValue("BucketV2Args.acl");
+        if (!unknown_acl) return value_acl;
+        throw new UndeferrableValueException("Value 'BucketV2Args.acl' is not present");
     }
 
     /**
      * Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.DirectoryBucket` resource to manage S3 Express buckets.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("BucketV2Args.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'BucketV2Args.bucket' is not present");
     }
 
     /**
      * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      * 
      */
-    private UndeferrableValue<String> bucketPrefix;
-
+    @PolicyResourceProperty(name="bucketPrefix", flag="unknown_bucketPrefix")
+    private String value_bucketPrefix;
+    private boolean unknown_bucketPrefix;
     public String bucketPrefix() {
-        if (bucketPrefix == null) return null;
-        return bucketPrefix.getValue("BucketV2Args.bucketPrefix");
+        if (!unknown_bucketPrefix) return value_bucketPrefix;
+        throw new UndeferrableValueException("Value 'BucketV2Args.bucketPrefix' is not present");
     }
 
     /**
@@ -85,22 +90,24 @@ public final class BucketV2Args extends com.pulumi.resources.PolicyResourceInput
      * 
      */
     @Deprecated /* cors_rule is deprecated. Use the aws.s3.BucketCorsConfigurationV2 resource instead. */
-    private UndeferrableValue<List<BucketV2CorsRuleArgs>> corsRules;
-
+    @PolicyResourceProperty(name="corsRules", flag="unknown_corsRules")
+    private List<BucketV2CorsRuleArgs> value_corsRules;
+    private boolean unknown_corsRules;
     public List<BucketV2CorsRuleArgs> corsRules() {
-        if (corsRules == null) return null;
-        return corsRules.getValue("BucketV2Args.corsRules");
+        if (!unknown_corsRules) return value_corsRules;
+        throw new UndeferrableValueException("Value 'BucketV2Args.corsRules' is not present");
     }
 
     /**
      * Boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
      * 
      */
-    private UndeferrableValue<Boolean> forceDestroy;
-
+    @PolicyResourceProperty(name="forceDestroy", flag="unknown_forceDestroy")
+    private Boolean value_forceDestroy;
+    private boolean unknown_forceDestroy;
     public Boolean forceDestroy() {
-        if (forceDestroy == null) return null;
-        return forceDestroy.getValue("BucketV2Args.forceDestroy");
+        if (!unknown_forceDestroy) return value_forceDestroy;
+        throw new UndeferrableValueException("Value 'BucketV2Args.forceDestroy' is not present");
     }
 
     /**
@@ -111,11 +118,12 @@ public final class BucketV2Args extends com.pulumi.resources.PolicyResourceInput
      * 
      */
     @Deprecated /* grant is deprecated. Use the aws.s3.BucketAclV2 resource instead. */
-    private UndeferrableValue<List<BucketV2GrantArgs>> grants;
-
+    @PolicyResourceProperty(name="grants", flag="unknown_grants")
+    private List<BucketV2GrantArgs> value_grants;
+    private boolean unknown_grants;
     public List<BucketV2GrantArgs> grants() {
-        if (grants == null) return null;
-        return grants.getValue("BucketV2Args.grants");
+        if (!unknown_grants) return value_grants;
+        throw new UndeferrableValueException("Value 'BucketV2Args.grants' is not present");
     }
 
     /**
@@ -127,11 +135,12 @@ public final class BucketV2Args extends com.pulumi.resources.PolicyResourceInput
      * 
      */
     @Deprecated /* lifecycle_rule is deprecated. Use the aws.s3.BucketLifecycleConfigurationV2 resource instead. */
-    private UndeferrableValue<List<BucketV2LifecycleRuleArgs>> lifecycleRules;
-
+    @PolicyResourceProperty(name="lifecycleRules", flag="unknown_lifecycleRules")
+    private List<BucketV2LifecycleRuleArgs> value_lifecycleRules;
+    private boolean unknown_lifecycleRules;
     public List<BucketV2LifecycleRuleArgs> lifecycleRules() {
-        if (lifecycleRules == null) return null;
-        return lifecycleRules.getValue("BucketV2Args.lifecycleRules");
+        if (!unknown_lifecycleRules) return value_lifecycleRules;
+        throw new UndeferrableValueException("Value 'BucketV2Args.lifecycleRules' is not present");
     }
 
     /**
@@ -143,11 +152,12 @@ public final class BucketV2Args extends com.pulumi.resources.PolicyResourceInput
      * 
      */
     @Deprecated /* logging is deprecated. Use the aws.s3.BucketLoggingV2 resource instead. */
-    private UndeferrableValue<List<BucketV2LoggingArgs>> loggings;
-
+    @PolicyResourceProperty(name="loggings", flag="unknown_loggings")
+    private List<BucketV2LoggingArgs> value_loggings;
+    private boolean unknown_loggings;
     public List<BucketV2LoggingArgs> loggings() {
-        if (loggings == null) return null;
-        return loggings.getValue("BucketV2Args.loggings");
+        if (!unknown_loggings) return value_loggings;
+        throw new UndeferrableValueException("Value 'BucketV2Args.loggings' is not present");
     }
 
     /**
@@ -160,22 +170,24 @@ public final class BucketV2Args extends com.pulumi.resources.PolicyResourceInput
      * 
      */
     @Deprecated /* object_lock_configuration is deprecated. Use the top-level parameter object_lock_enabled and the aws.s3.BucketObjectLockConfigurationV2 resource instead. */
-    private UndeferrableValue<BucketV2ObjectLockConfigurationArgs> objectLockConfiguration;
-
+    @PolicyResourceProperty(name="objectLockConfiguration", flag="unknown_objectLockConfiguration")
+    private BucketV2ObjectLockConfigurationArgs value_objectLockConfiguration;
+    private boolean unknown_objectLockConfiguration;
     public BucketV2ObjectLockConfigurationArgs objectLockConfiguration() {
-        if (objectLockConfiguration == null) return null;
-        return objectLockConfiguration.getValue("BucketV2Args.objectLockConfiguration");
+        if (!unknown_objectLockConfiguration) return value_objectLockConfiguration;
+        throw new UndeferrableValueException("Value 'BucketV2Args.objectLockConfiguration' is not present");
     }
 
     /**
      * Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
      * 
      */
-    private UndeferrableValue<Boolean> objectLockEnabled;
-
+    @PolicyResourceProperty(name="objectLockEnabled", flag="unknown_objectLockEnabled")
+    private Boolean value_objectLockEnabled;
+    private boolean unknown_objectLockEnabled;
     public Boolean objectLockEnabled() {
-        if (objectLockEnabled == null) return null;
-        return objectLockEnabled.getValue("BucketV2Args.objectLockEnabled");
+        if (!unknown_objectLockEnabled) return value_objectLockEnabled;
+        throw new UndeferrableValueException("Value 'BucketV2Args.objectLockEnabled' is not present");
     }
 
     /**
@@ -188,11 +200,12 @@ public final class BucketV2Args extends com.pulumi.resources.PolicyResourceInput
      * 
      */
     @Deprecated /* policy is deprecated. Use the aws.s3.BucketPolicy resource instead. */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("BucketV2Args.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'BucketV2Args.policy' is not present");
     }
 
     /**
@@ -204,11 +217,12 @@ public final class BucketV2Args extends com.pulumi.resources.PolicyResourceInput
      * 
      */
     @Deprecated /* replication_configuration is deprecated. Use the aws.s3.BucketReplicationConfig resource instead. */
-    private UndeferrableValue<List<BucketV2ReplicationConfigurationArgs>> replicationConfigurations;
-
+    @PolicyResourceProperty(name="replicationConfigurations", flag="unknown_replicationConfigurations")
+    private List<BucketV2ReplicationConfigurationArgs> value_replicationConfigurations;
+    private boolean unknown_replicationConfigurations;
     public List<BucketV2ReplicationConfigurationArgs> replicationConfigurations() {
-        if (replicationConfigurations == null) return null;
-        return replicationConfigurations.getValue("BucketV2Args.replicationConfigurations");
+        if (!unknown_replicationConfigurations) return value_replicationConfigurations;
+        throw new UndeferrableValueException("Value 'BucketV2Args.replicationConfigurations' is not present");
     }
 
     /**
@@ -223,11 +237,12 @@ public final class BucketV2Args extends com.pulumi.resources.PolicyResourceInput
      * 
      */
     @Deprecated /* request_payer is deprecated. Use the aws.s3.BucketRequestPaymentConfigurationV2 resource instead. */
-    private UndeferrableValue<String> requestPayer;
-
+    @PolicyResourceProperty(name="requestPayer", flag="unknown_requestPayer")
+    private String value_requestPayer;
+    private boolean unknown_requestPayer;
     public String requestPayer() {
-        if (requestPayer == null) return null;
-        return requestPayer.getValue("BucketV2Args.requestPayer");
+        if (!unknown_requestPayer) return value_requestPayer;
+        throw new UndeferrableValueException("Value 'BucketV2Args.requestPayer' is not present");
     }
 
     /**
@@ -240,11 +255,12 @@ public final class BucketV2Args extends com.pulumi.resources.PolicyResourceInput
      * 
      */
     @Deprecated /* server_side_encryption_configuration is deprecated. Use the aws.s3.BucketServerSideEncryptionConfigurationV2 resource instead. */
-    private UndeferrableValue<List<BucketV2ServerSideEncryptionConfigurationArgs>> serverSideEncryptionConfigurations;
-
+    @PolicyResourceProperty(name="serverSideEncryptionConfigurations", flag="unknown_serverSideEncryptionConfigurations")
+    private List<BucketV2ServerSideEncryptionConfigurationArgs> value_serverSideEncryptionConfigurations;
+    private boolean unknown_serverSideEncryptionConfigurations;
     public List<BucketV2ServerSideEncryptionConfigurationArgs> serverSideEncryptionConfigurations() {
-        if (serverSideEncryptionConfigurations == null) return null;
-        return serverSideEncryptionConfigurations.getValue("BucketV2Args.serverSideEncryptionConfigurations");
+        if (!unknown_serverSideEncryptionConfigurations) return value_serverSideEncryptionConfigurations;
+        throw new UndeferrableValueException("Value 'BucketV2Args.serverSideEncryptionConfigurations' is not present");
     }
 
     /**
@@ -253,11 +269,12 @@ public final class BucketV2Args extends com.pulumi.resources.PolicyResourceInput
      * The following arguments are deprecated, and will be removed in a future major version:
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("BucketV2Args.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'BucketV2Args.tags' is not present");
     }
 
     /**
@@ -268,11 +285,12 @@ public final class BucketV2Args extends com.pulumi.resources.PolicyResourceInput
      * 
      */
     @Deprecated /* versioning is deprecated. Use the aws.s3.BucketVersioningV2 resource instead. */
-    private UndeferrableValue<List<BucketV2VersioningArgs>> versionings;
-
+    @PolicyResourceProperty(name="versionings", flag="unknown_versionings")
+    private List<BucketV2VersioningArgs> value_versionings;
+    private boolean unknown_versionings;
     public List<BucketV2VersioningArgs> versionings() {
-        if (versionings == null) return null;
-        return versionings.getValue("BucketV2Args.versionings");
+        if (!unknown_versionings) return value_versionings;
+        throw new UndeferrableValueException("Value 'BucketV2Args.versionings' is not present");
     }
 
     /**
@@ -284,11 +302,12 @@ public final class BucketV2Args extends com.pulumi.resources.PolicyResourceInput
      * 
      */
     @Deprecated /* website is deprecated. Use the aws.s3.BucketWebsiteConfigurationV2 resource instead. */
-    private UndeferrableValue<List<BucketV2WebsiteArgs>> websites;
-
+    @PolicyResourceProperty(name="websites", flag="unknown_websites")
+    private List<BucketV2WebsiteArgs> value_websites;
+    private boolean unknown_websites;
     public List<BucketV2WebsiteArgs> websites() {
-        if (websites == null) return null;
-        return websites.getValue("BucketV2Args.websites");
+        if (!unknown_websites) return value_websites;
+        throw new UndeferrableValueException("Value 'BucketV2Args.websites' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 
@@ -14,22 +15,24 @@ public final class ComputeEnvironmentUpdatePolicyArgs {
      * Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
      * 
      */
-    private UndeferrableValue<Integer> jobExecutionTimeoutMinutes;
-
+    @PolicyResourceProperty(name="jobExecutionTimeoutMinutes", flag="unknown_jobExecutionTimeoutMinutes")
+    private Integer value_jobExecutionTimeoutMinutes;
+    private boolean unknown_jobExecutionTimeoutMinutes;
     public Integer jobExecutionTimeoutMinutes() {
-        if (jobExecutionTimeoutMinutes == null) return null;
-        return jobExecutionTimeoutMinutes.getValue("ComputeEnvironmentUpdatePolicyArgs.jobExecutionTimeoutMinutes");
+        if (!unknown_jobExecutionTimeoutMinutes) return value_jobExecutionTimeoutMinutes;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentUpdatePolicyArgs.jobExecutionTimeoutMinutes' is not present");
     }
 
     /**
      * Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
      * 
      */
-    private UndeferrableValue<Boolean> terminateJobsOnUpdate;
-
+    @PolicyResourceProperty(name="terminateJobsOnUpdate", flag="unknown_terminateJobsOnUpdate")
+    private Boolean value_terminateJobsOnUpdate;
+    private boolean unknown_terminateJobsOnUpdate;
     public Boolean terminateJobsOnUpdate() {
-        if (terminateJobsOnUpdate == null) return null;
-        return terminateJobsOnUpdate.getValue("ComputeEnvironmentUpdatePolicyArgs.terminateJobsOnUpdate");
+        if (!unknown_terminateJobsOnUpdate) return value_terminateJobsOnUpdate;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentUpdatePolicyArgs.terminateJobsOnUpdate' is not present");
     }
 
 }

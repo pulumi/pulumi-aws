@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions;
 import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration;
 import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration;
@@ -21,231 +22,252 @@ public final class FirehoseDeliveryStreamSnowflakeConfiguration {
      * The URL of the Snowflake account. Format: https://[account_identifier].snowflakecomputing.com.
      * 
      */
-    private UndeferrableValue<String> accountUrl;
-
+    @PolicyResourceProperty(name="accountUrl", flag="unknown_accountUrl")
+    private String value_accountUrl;
+    private boolean unknown_accountUrl;
     public String accountUrl() {
-        if (accountUrl == null) return null;
-        return accountUrl.getValue("FirehoseDeliveryStreamSnowflakeConfiguration.accountUrl");
+        if (!unknown_accountUrl) return value_accountUrl;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfiguration.accountUrl' is not present");
     }
 
     /**
      * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 0s.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> bufferingInterval;
-
+    @PolicyResourceProperty(name="bufferingInterval", flag="unknown_bufferingInterval")
+    private @Nullable Integer value_bufferingInterval;
+    private boolean unknown_bufferingInterval;
     public @Nullable Integer bufferingInterval() {
-        if (bufferingInterval == null) return null;
-        return bufferingInterval.getValue("FirehoseDeliveryStreamSnowflakeConfiguration.bufferingInterval");
+        if (!unknown_bufferingInterval) return value_bufferingInterval;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfiguration.bufferingInterval' is not present");
     }
 
     /**
      * Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> bufferingSize;
-
+    @PolicyResourceProperty(name="bufferingSize", flag="unknown_bufferingSize")
+    private @Nullable Integer value_bufferingSize;
+    private boolean unknown_bufferingSize;
     public @Nullable Integer bufferingSize() {
-        if (bufferingSize == null) return null;
-        return bufferingSize.getValue("FirehoseDeliveryStreamSnowflakeConfiguration.bufferingSize");
+        if (!unknown_bufferingSize) return value_bufferingSize;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfiguration.bufferingSize' is not present");
     }
 
     /**
      * The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions;
-
+    @PolicyResourceProperty(name="cloudwatchLoggingOptions", flag="unknown_cloudwatchLoggingOptions")
+    private @Nullable FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions value_cloudwatchLoggingOptions;
+    private boolean unknown_cloudwatchLoggingOptions;
     public @Nullable FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions() {
-        if (cloudwatchLoggingOptions == null) return null;
-        return cloudwatchLoggingOptions.getValue("FirehoseDeliveryStreamSnowflakeConfiguration.cloudwatchLoggingOptions");
+        if (!unknown_cloudwatchLoggingOptions) return value_cloudwatchLoggingOptions;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfiguration.cloudwatchLoggingOptions' is not present");
     }
 
     /**
      * The name of the content column.
      * 
      */
-    private @Nullable UndeferrableValue<String> contentColumnName;
-
+    @PolicyResourceProperty(name="contentColumnName", flag="unknown_contentColumnName")
+    private @Nullable String value_contentColumnName;
+    private boolean unknown_contentColumnName;
     public @Nullable String contentColumnName() {
-        if (contentColumnName == null) return null;
-        return contentColumnName.getValue("FirehoseDeliveryStreamSnowflakeConfiguration.contentColumnName");
+        if (!unknown_contentColumnName) return value_contentColumnName;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfiguration.contentColumnName' is not present");
     }
 
     /**
      * The data loading option.
      * 
      */
-    private @Nullable UndeferrableValue<String> dataLoadingOption;
-
+    @PolicyResourceProperty(name="dataLoadingOption", flag="unknown_dataLoadingOption")
+    private @Nullable String value_dataLoadingOption;
+    private boolean unknown_dataLoadingOption;
     public @Nullable String dataLoadingOption() {
-        if (dataLoadingOption == null) return null;
-        return dataLoadingOption.getValue("FirehoseDeliveryStreamSnowflakeConfiguration.dataLoadingOption");
+        if (!unknown_dataLoadingOption) return value_dataLoadingOption;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfiguration.dataLoadingOption' is not present");
     }
 
     /**
      * The Snowflake database name.
      * 
      */
-    private UndeferrableValue<String> database;
-
+    @PolicyResourceProperty(name="database", flag="unknown_database")
+    private String value_database;
+    private boolean unknown_database;
     public String database() {
-        if (database == null) return null;
-        return database.getValue("FirehoseDeliveryStreamSnowflakeConfiguration.database");
+        if (!unknown_database) return value_database;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfiguration.database' is not present");
     }
 
     /**
      * The passphrase for the private key.
      * 
      */
-    private @Nullable UndeferrableValue<String> keyPassphrase;
-
+    @PolicyResourceProperty(name="keyPassphrase", flag="unknown_keyPassphrase")
+    private @Nullable String value_keyPassphrase;
+    private boolean unknown_keyPassphrase;
     public @Nullable String keyPassphrase() {
-        if (keyPassphrase == null) return null;
-        return keyPassphrase.getValue("FirehoseDeliveryStreamSnowflakeConfiguration.keyPassphrase");
+        if (!unknown_keyPassphrase) return value_keyPassphrase;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfiguration.keyPassphrase' is not present");
     }
 
     /**
      * The name of the metadata column.
      * 
      */
-    private @Nullable UndeferrableValue<String> metadataColumnName;
-
+    @PolicyResourceProperty(name="metadataColumnName", flag="unknown_metadataColumnName")
+    private @Nullable String value_metadataColumnName;
+    private boolean unknown_metadataColumnName;
     public @Nullable String metadataColumnName() {
-        if (metadataColumnName == null) return null;
-        return metadataColumnName.getValue("FirehoseDeliveryStreamSnowflakeConfiguration.metadataColumnName");
+        if (!unknown_metadataColumnName) return value_metadataColumnName;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfiguration.metadataColumnName' is not present");
     }
 
     /**
      * The private key for authentication. This value is required if `secrets_manager_configuration` is not provided.
      * 
      */
-    private @Nullable UndeferrableValue<String> privateKey;
-
+    @PolicyResourceProperty(name="privateKey", flag="unknown_privateKey")
+    private @Nullable String value_privateKey;
+    private boolean unknown_privateKey;
     public @Nullable String privateKey() {
-        if (privateKey == null) return null;
-        return privateKey.getValue("FirehoseDeliveryStreamSnowflakeConfiguration.privateKey");
+        if (!unknown_privateKey) return value_privateKey;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfiguration.privateKey' is not present");
     }
 
     /**
      * The processing configuration. See `processing_configuration` block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration> processingConfiguration;
-
+    @PolicyResourceProperty(name="processingConfiguration", flag="unknown_processingConfiguration")
+    private @Nullable FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration value_processingConfiguration;
+    private boolean unknown_processingConfiguration;
     public @Nullable FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration processingConfiguration() {
-        if (processingConfiguration == null) return null;
-        return processingConfiguration.getValue("FirehoseDeliveryStreamSnowflakeConfiguration.processingConfiguration");
+        if (!unknown_processingConfiguration) return value_processingConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfiguration.processingConfiguration' is not present");
     }
 
     /**
      * After an initial failure to deliver to Snowflake, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 60s.  There will be no retry if the value is 0.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> retryDuration;
-
+    @PolicyResourceProperty(name="retryDuration", flag="unknown_retryDuration")
+    private @Nullable Integer value_retryDuration;
+    private boolean unknown_retryDuration;
     public @Nullable Integer retryDuration() {
-        if (retryDuration == null) return null;
-        return retryDuration.getValue("FirehoseDeliveryStreamSnowflakeConfiguration.retryDuration");
+        if (!unknown_retryDuration) return value_retryDuration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfiguration.retryDuration' is not present");
     }
 
     /**
      * The ARN of the IAM role.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("FirehoseDeliveryStreamSnowflakeConfiguration.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfiguration.roleArn' is not present");
     }
 
     /**
      * The S3 backup mode.
      * 
      */
-    private @Nullable UndeferrableValue<String> s3BackupMode;
-
+    @PolicyResourceProperty(name="s3BackupMode", flag="unknown_s3BackupMode")
+    private @Nullable String value_s3BackupMode;
+    private boolean unknown_s3BackupMode;
     public @Nullable String s3BackupMode() {
-        if (s3BackupMode == null) return null;
-        return s3BackupMode.getValue("FirehoseDeliveryStreamSnowflakeConfiguration.s3BackupMode");
+        if (!unknown_s3BackupMode) return value_s3BackupMode;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfiguration.s3BackupMode' is not present");
     }
 
     /**
      * The S3 configuration. See `s3_configuration` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration> s3Configuration;
-
+    @PolicyResourceProperty(name="s3Configuration", flag="unknown_s3Configuration")
+    private FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration value_s3Configuration;
+    private boolean unknown_s3Configuration;
     public FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration s3Configuration() {
-        if (s3Configuration == null) return null;
-        return s3Configuration.getValue("FirehoseDeliveryStreamSnowflakeConfiguration.s3Configuration");
+        if (!unknown_s3Configuration) return value_s3Configuration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfiguration.s3Configuration' is not present");
     }
 
     /**
      * The Snowflake schema name.
      * 
      */
-    private UndeferrableValue<String> schema;
-
+    @PolicyResourceProperty(name="schema", flag="unknown_schema")
+    private String value_schema;
+    private boolean unknown_schema;
     public String schema() {
-        if (schema == null) return null;
-        return schema.getValue("FirehoseDeliveryStreamSnowflakeConfiguration.schema");
+        if (!unknown_schema) return value_schema;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfiguration.schema' is not present");
     }
 
     /**
      * The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `user` and `private_key` are not provided.
      * 
      */
-    private @Nullable UndeferrableValue<FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration> secretsManagerConfiguration;
-
+    @PolicyResourceProperty(name="secretsManagerConfiguration", flag="unknown_secretsManagerConfiguration")
+    private @Nullable FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration value_secretsManagerConfiguration;
+    private boolean unknown_secretsManagerConfiguration;
     public @Nullable FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration secretsManagerConfiguration() {
-        if (secretsManagerConfiguration == null) return null;
-        return secretsManagerConfiguration.getValue("FirehoseDeliveryStreamSnowflakeConfiguration.secretsManagerConfiguration");
+        if (!unknown_secretsManagerConfiguration) return value_secretsManagerConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfiguration.secretsManagerConfiguration' is not present");
     }
 
     /**
      * The configuration for Snowflake role.
      * 
      */
-    private @Nullable UndeferrableValue<FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration> snowflakeRoleConfiguration;
-
+    @PolicyResourceProperty(name="snowflakeRoleConfiguration", flag="unknown_snowflakeRoleConfiguration")
+    private @Nullable FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration value_snowflakeRoleConfiguration;
+    private boolean unknown_snowflakeRoleConfiguration;
     public @Nullable FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration snowflakeRoleConfiguration() {
-        if (snowflakeRoleConfiguration == null) return null;
-        return snowflakeRoleConfiguration.getValue("FirehoseDeliveryStreamSnowflakeConfiguration.snowflakeRoleConfiguration");
+        if (!unknown_snowflakeRoleConfiguration) return value_snowflakeRoleConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfiguration.snowflakeRoleConfiguration' is not present");
     }
 
     /**
      * The VPC configuration for Snowflake.
      * 
      */
-    private @Nullable UndeferrableValue<FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration> snowflakeVpcConfiguration;
-
+    @PolicyResourceProperty(name="snowflakeVpcConfiguration", flag="unknown_snowflakeVpcConfiguration")
+    private @Nullable FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration value_snowflakeVpcConfiguration;
+    private boolean unknown_snowflakeVpcConfiguration;
     public @Nullable FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration snowflakeVpcConfiguration() {
-        if (snowflakeVpcConfiguration == null) return null;
-        return snowflakeVpcConfiguration.getValue("FirehoseDeliveryStreamSnowflakeConfiguration.snowflakeVpcConfiguration");
+        if (!unknown_snowflakeVpcConfiguration) return value_snowflakeVpcConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfiguration.snowflakeVpcConfiguration' is not present");
     }
 
     /**
      * The Snowflake table name.
      * 
      */
-    private UndeferrableValue<String> table;
-
+    @PolicyResourceProperty(name="table", flag="unknown_table")
+    private String value_table;
+    private boolean unknown_table;
     public String table() {
-        if (table == null) return null;
-        return table.getValue("FirehoseDeliveryStreamSnowflakeConfiguration.table");
+        if (!unknown_table) return value_table;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfiguration.table' is not present");
     }
 
     /**
      * The user for authentication. This value is required if `secrets_manager_configuration` is not provided.
      * 
      */
-    private @Nullable UndeferrableValue<String> user;
-
+    @PolicyResourceProperty(name="user", flag="unknown_user")
+    private @Nullable String value_user;
+    private boolean unknown_user;
     public @Nullable String user() {
-        if (user == null) return null;
-        return user.getValue("FirehoseDeliveryStreamSnowflakeConfiguration.user");
+        if (!unknown_user) return value_user;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfiguration.user' is not present");
     }
 
 }

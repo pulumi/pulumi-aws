@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chime.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,33 +15,36 @@ public final class SdkvoiceSipRuleTargetApplicationArgs {
      * The AWS Region of the target application.
      * 
      */
-    private UndeferrableValue<String> awsRegion;
-
+    @PolicyResourceProperty(name="awsRegion", flag="unknown_awsRegion")
+    private String value_awsRegion;
+    private boolean unknown_awsRegion;
     public String awsRegion() {
-        if (awsRegion == null) return null;
-        return awsRegion.getValue("SdkvoiceSipRuleTargetApplicationArgs.awsRegion");
+        if (!unknown_awsRegion) return value_awsRegion;
+        throw new UndeferrableValueException("Value 'SdkvoiceSipRuleTargetApplicationArgs.awsRegion' is not present");
     }
 
     /**
      * Priority of the SIP media application in the target list.
      * 
      */
-    private UndeferrableValue<Integer> priority;
-
+    @PolicyResourceProperty(name="priority", flag="unknown_priority")
+    private Integer value_priority;
+    private boolean unknown_priority;
     public Integer priority() {
-        if (priority == null) return null;
-        return priority.getValue("SdkvoiceSipRuleTargetApplicationArgs.priority");
+        if (!unknown_priority) return value_priority;
+        throw new UndeferrableValueException("Value 'SdkvoiceSipRuleTargetApplicationArgs.priority' is not present");
     }
 
     /**
      * The SIP media application ID.
      * 
      */
-    private UndeferrableValue<String> sipMediaApplicationId;
-
+    @PolicyResourceProperty(name="sipMediaApplicationId", flag="unknown_sipMediaApplicationId")
+    private String value_sipMediaApplicationId;
+    private boolean unknown_sipMediaApplicationId;
     public String sipMediaApplicationId() {
-        if (sipMediaApplicationId == null) return null;
-        return sipMediaApplicationId.getValue("SdkvoiceSipRuleTargetApplicationArgs.sipMediaApplicationId");
+        if (!unknown_sipMediaApplicationId) return value_sipMediaApplicationId;
+        throw new UndeferrableValueException("Value 'SdkvoiceSipRuleTargetApplicationArgs.sipMediaApplicationId' is not present");
     }
 
 }

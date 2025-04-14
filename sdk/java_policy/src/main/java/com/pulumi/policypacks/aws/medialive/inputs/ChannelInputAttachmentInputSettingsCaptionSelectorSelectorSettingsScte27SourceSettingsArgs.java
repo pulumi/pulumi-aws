@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,18 +12,20 @@ import javax.annotation.Nullable;
 
 public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs {
 
-    private UndeferrableValue<String> ocrLanguage;
-
+    @PolicyResourceProperty(name="ocrLanguage", flag="unknown_ocrLanguage")
+    private String value_ocrLanguage;
+    private boolean unknown_ocrLanguage;
     public String ocrLanguage() {
-        if (ocrLanguage == null) return null;
-        return ocrLanguage.getValue("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs.ocrLanguage");
+        if (!unknown_ocrLanguage) return value_ocrLanguage;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs.ocrLanguage' is not present");
     }
 
-    private UndeferrableValue<Integer> pid;
-
+    @PolicyResourceProperty(name="pid", flag="unknown_pid")
+    private Integer value_pid;
+    private boolean unknown_pid;
     public Integer pid() {
-        if (pid == null) return null;
-        return pid.getValue("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs.pid");
+        if (!unknown_pid) return value_pid;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs.pid' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cognito.outputs.RiskConfigurationAccountTakeoverRiskConfigurationActions;
 import com.pulumi.policypacks.aws.cognito.outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration;
 
@@ -14,22 +15,24 @@ public final class RiskConfigurationAccountTakeoverRiskConfiguration {
      * Account takeover risk configuration actions. See details below.
      * 
      */
-    private UndeferrableValue<RiskConfigurationAccountTakeoverRiskConfigurationActions> actions;
-
+    @PolicyResourceProperty(name="actions", flag="unknown_actions")
+    private RiskConfigurationAccountTakeoverRiskConfigurationActions value_actions;
+    private boolean unknown_actions;
     public RiskConfigurationAccountTakeoverRiskConfigurationActions actions() {
-        if (actions == null) return null;
-        return actions.getValue("RiskConfigurationAccountTakeoverRiskConfiguration.actions");
+        if (!unknown_actions) return value_actions;
+        throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfiguration.actions' is not present");
     }
 
     /**
      * The notify configuration used to construct email notifications. See details below.
      * 
      */
-    private UndeferrableValue<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration> notifyConfiguration;
-
+    @PolicyResourceProperty(name="notifyConfiguration", flag="unknown_notifyConfiguration")
+    private RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration value_notifyConfiguration;
+    private boolean unknown_notifyConfiguration;
     public RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration notifyConfiguration() {
-        if (notifyConfiguration == null) return null;
-        return notifyConfiguration.getValue("RiskConfigurationAccountTakeoverRiskConfiguration.notifyConfiguration");
+        if (!unknown_notifyConfiguration) return value_notifyConfiguration;
+        throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfiguration.notifyConfiguration' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mskconnect.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.mskconnect.inputs.ConnectorPluginCustomPluginArgs;
 
 
@@ -13,11 +14,12 @@ public final class ConnectorPluginArgs {
      * Details about a custom plugin. See `custom_plugin` Block for details.
      * 
      */
-    private UndeferrableValue<ConnectorPluginCustomPluginArgs> customPlugin;
-
+    @PolicyResourceProperty(name="customPlugin", flag="unknown_customPlugin")
+    private ConnectorPluginCustomPluginArgs value_customPlugin;
+    private boolean unknown_customPlugin;
     public ConnectorPluginCustomPluginArgs customPlugin() {
-        if (customPlugin == null) return null;
-        return customPlugin.getValue("ConnectorPluginArgs.customPlugin");
+        if (!unknown_customPlugin) return value_customPlugin;
+        throw new UndeferrableValueException("Value 'ConnectorPluginArgs.customPlugin' is not present");
     }
 
 }

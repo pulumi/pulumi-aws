@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -20,212 +21,232 @@ public final class Snapshot extends com.pulumi.resources.PolicyResourceOutput {
      * Specifies the allocated storage size in gigabytes (GB).
      * 
      */
-    private UndeferrableValue<Integer> allocatedStorage;
-
+    @PolicyResourceProperty(name="allocatedStorage", flag="unknown_allocatedStorage")
+    private Integer value_allocatedStorage;
+    private boolean unknown_allocatedStorage;
     public Integer allocatedStorage() {
-        if (allocatedStorage == null) return null;
-        return allocatedStorage.getValue("Snapshot.allocatedStorage");
+        if (!unknown_allocatedStorage) return value_allocatedStorage;
+        throw new UndeferrableValueException("Value 'Snapshot.allocatedStorage' is not present");
     }
 
     /**
      * Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("Snapshot.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'Snapshot.availabilityZone' is not present");
     }
 
     /**
      * The DB Instance Identifier from which to take the snapshot.
      * 
      */
-    private UndeferrableValue<String> dbInstanceIdentifier;
-
+    @PolicyResourceProperty(name="dbInstanceIdentifier", flag="unknown_dbInstanceIdentifier")
+    private String value_dbInstanceIdentifier;
+    private boolean unknown_dbInstanceIdentifier;
     public String dbInstanceIdentifier() {
-        if (dbInstanceIdentifier == null) return null;
-        return dbInstanceIdentifier.getValue("Snapshot.dbInstanceIdentifier");
+        if (!unknown_dbInstanceIdentifier) return value_dbInstanceIdentifier;
+        throw new UndeferrableValueException("Value 'Snapshot.dbInstanceIdentifier' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) for the DB snapshot.
      * 
      */
-    private UndeferrableValue<String> dbSnapshotArn;
-
+    @PolicyResourceProperty(name="dbSnapshotArn", flag="unknown_dbSnapshotArn")
+    private String value_dbSnapshotArn;
+    private boolean unknown_dbSnapshotArn;
     public String dbSnapshotArn() {
-        if (dbSnapshotArn == null) return null;
-        return dbSnapshotArn.getValue("Snapshot.dbSnapshotArn");
+        if (!unknown_dbSnapshotArn) return value_dbSnapshotArn;
+        throw new UndeferrableValueException("Value 'Snapshot.dbSnapshotArn' is not present");
     }
 
     /**
      * The Identifier for the snapshot.
      * 
      */
-    private UndeferrableValue<String> dbSnapshotIdentifier;
-
+    @PolicyResourceProperty(name="dbSnapshotIdentifier", flag="unknown_dbSnapshotIdentifier")
+    private String value_dbSnapshotIdentifier;
+    private boolean unknown_dbSnapshotIdentifier;
     public String dbSnapshotIdentifier() {
-        if (dbSnapshotIdentifier == null) return null;
-        return dbSnapshotIdentifier.getValue("Snapshot.dbSnapshotIdentifier");
+        if (!unknown_dbSnapshotIdentifier) return value_dbSnapshotIdentifier;
+        throw new UndeferrableValueException("Value 'Snapshot.dbSnapshotIdentifier' is not present");
     }
 
     /**
      * Specifies whether the DB snapshot is encrypted.
      * 
      */
-    private UndeferrableValue<Boolean> encrypted;
-
+    @PolicyResourceProperty(name="encrypted", flag="unknown_encrypted")
+    private Boolean value_encrypted;
+    private boolean unknown_encrypted;
     public Boolean encrypted() {
-        if (encrypted == null) return null;
-        return encrypted.getValue("Snapshot.encrypted");
+        if (!unknown_encrypted) return value_encrypted;
+        throw new UndeferrableValueException("Value 'Snapshot.encrypted' is not present");
     }
 
     /**
      * Specifies the name of the database engine.
      * 
      */
-    private UndeferrableValue<String> engine;
-
+    @PolicyResourceProperty(name="engine", flag="unknown_engine")
+    private String value_engine;
+    private boolean unknown_engine;
     public String engine() {
-        if (engine == null) return null;
-        return engine.getValue("Snapshot.engine");
+        if (!unknown_engine) return value_engine;
+        throw new UndeferrableValueException("Value 'Snapshot.engine' is not present");
     }
 
     /**
      * Specifies the version of the database engine.
      * 
      */
-    private UndeferrableValue<String> engineVersion;
-
+    @PolicyResourceProperty(name="engineVersion", flag="unknown_engineVersion")
+    private String value_engineVersion;
+    private boolean unknown_engineVersion;
     public String engineVersion() {
-        if (engineVersion == null) return null;
-        return engineVersion.getValue("Snapshot.engineVersion");
+        if (!unknown_engineVersion) return value_engineVersion;
+        throw new UndeferrableValueException("Value 'Snapshot.engineVersion' is not present");
     }
 
     /**
      * Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
      * 
      */
-    private UndeferrableValue<Integer> iops;
-
+    @PolicyResourceProperty(name="iops", flag="unknown_iops")
+    private Integer value_iops;
+    private boolean unknown_iops;
     public Integer iops() {
-        if (iops == null) return null;
-        return iops.getValue("Snapshot.iops");
+        if (!unknown_iops) return value_iops;
+        throw new UndeferrableValueException("Value 'Snapshot.iops' is not present");
     }
 
     /**
      * The ARN for the KMS encryption key.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("Snapshot.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'Snapshot.kmsKeyId' is not present");
     }
 
     /**
      * License model information for the restored DB instance.
      * 
      */
-    private UndeferrableValue<String> licenseModel;
-
+    @PolicyResourceProperty(name="licenseModel", flag="unknown_licenseModel")
+    private String value_licenseModel;
+    private boolean unknown_licenseModel;
     public String licenseModel() {
-        if (licenseModel == null) return null;
-        return licenseModel.getValue("Snapshot.licenseModel");
+        if (!unknown_licenseModel) return value_licenseModel;
+        throw new UndeferrableValueException("Value 'Snapshot.licenseModel' is not present");
     }
 
     /**
      * Provides the option group name for the DB snapshot.
      * 
      */
-    private UndeferrableValue<String> optionGroupName;
-
+    @PolicyResourceProperty(name="optionGroupName", flag="unknown_optionGroupName")
+    private String value_optionGroupName;
+    private boolean unknown_optionGroupName;
     public String optionGroupName() {
-        if (optionGroupName == null) return null;
-        return optionGroupName.getValue("Snapshot.optionGroupName");
+        if (!unknown_optionGroupName) return value_optionGroupName;
+        throw new UndeferrableValueException("Value 'Snapshot.optionGroupName' is not present");
     }
 
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("Snapshot.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'Snapshot.port' is not present");
     }
 
     /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> sharedAccounts;
-
+    @PolicyResourceProperty(name="sharedAccounts", flag="unknown_sharedAccounts")
+    private @Nullable List<String> value_sharedAccounts;
+    private boolean unknown_sharedAccounts;
     public @Nullable List<String> sharedAccounts() {
-        if (sharedAccounts == null) return null;
-        return sharedAccounts.getValue("Snapshot.sharedAccounts");
+        if (!unknown_sharedAccounts) return value_sharedAccounts;
+        throw new UndeferrableValueException("Value 'Snapshot.sharedAccounts' is not present");
     }
 
-    private UndeferrableValue<String> snapshotType;
-
+    @PolicyResourceProperty(name="snapshotType", flag="unknown_snapshotType")
+    private String value_snapshotType;
+    private boolean unknown_snapshotType;
     public String snapshotType() {
-        if (snapshotType == null) return null;
-        return snapshotType.getValue("Snapshot.snapshotType");
+        if (!unknown_snapshotType) return value_snapshotType;
+        throw new UndeferrableValueException("Value 'Snapshot.snapshotType' is not present");
     }
 
     /**
      * The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
      * 
      */
-    private UndeferrableValue<String> sourceDbSnapshotIdentifier;
-
+    @PolicyResourceProperty(name="sourceDbSnapshotIdentifier", flag="unknown_sourceDbSnapshotIdentifier")
+    private String value_sourceDbSnapshotIdentifier;
+    private boolean unknown_sourceDbSnapshotIdentifier;
     public String sourceDbSnapshotIdentifier() {
-        if (sourceDbSnapshotIdentifier == null) return null;
-        return sourceDbSnapshotIdentifier.getValue("Snapshot.sourceDbSnapshotIdentifier");
+        if (!unknown_sourceDbSnapshotIdentifier) return value_sourceDbSnapshotIdentifier;
+        throw new UndeferrableValueException("Value 'Snapshot.sourceDbSnapshotIdentifier' is not present");
     }
 
     /**
      * The region that the DB snapshot was created in or copied from.
      * 
      */
-    private UndeferrableValue<String> sourceRegion;
-
+    @PolicyResourceProperty(name="sourceRegion", flag="unknown_sourceRegion")
+    private String value_sourceRegion;
+    private boolean unknown_sourceRegion;
     public String sourceRegion() {
-        if (sourceRegion == null) return null;
-        return sourceRegion.getValue("Snapshot.sourceRegion");
+        if (!unknown_sourceRegion) return value_sourceRegion;
+        throw new UndeferrableValueException("Value 'Snapshot.sourceRegion' is not present");
     }
 
     /**
      * Specifies the status of this DB snapshot.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Snapshot.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Snapshot.status' is not present");
     }
 
     /**
      * Specifies the storage type associated with DB snapshot.
      * 
      */
-    private UndeferrableValue<String> storageType;
-
+    @PolicyResourceProperty(name="storageType", flag="unknown_storageType")
+    private String value_storageType;
+    private boolean unknown_storageType;
     public String storageType() {
-        if (storageType == null) return null;
-        return storageType.getValue("Snapshot.storageType");
+        if (!unknown_storageType) return value_storageType;
+        throw new UndeferrableValueException("Value 'Snapshot.storageType' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Snapshot.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Snapshot.tags' is not present");
     }
 
     /**
@@ -236,22 +257,24 @@ public final class Snapshot extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Snapshot.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Snapshot.tagsAll' is not present");
     }
 
     /**
      * Provides the VPC ID associated with the DB snapshot.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("Snapshot.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'Snapshot.vpcId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.IntentConfirmationPromptMessage;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,25 +18,28 @@ public final class IntentConfirmationPrompt {
      * The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
      * 
      */
-    private UndeferrableValue<Integer> maxAttempts;
-
+    @PolicyResourceProperty(name="maxAttempts", flag="unknown_maxAttempts")
+    private Integer value_maxAttempts;
+    private boolean unknown_maxAttempts;
     public Integer maxAttempts() {
-        if (maxAttempts == null) return null;
-        return maxAttempts.getValue("IntentConfirmationPrompt.maxAttempts");
+        if (!unknown_maxAttempts) return value_maxAttempts;
+        throw new UndeferrableValueException("Value 'IntentConfirmationPrompt.maxAttempts' is not present");
     }
 
-    private UndeferrableValue<List<IntentConfirmationPromptMessage>> messages;
-
+    @PolicyResourceProperty(name="messages", flag="unknown_messages")
+    private List<IntentConfirmationPromptMessage> value_messages;
+    private boolean unknown_messages;
     public List<IntentConfirmationPromptMessage> messages() {
-        if (messages == null) return null;
-        return messages.getValue("IntentConfirmationPrompt.messages");
+        if (!unknown_messages) return value_messages;
+        throw new UndeferrableValueException("Value 'IntentConfirmationPrompt.messages' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> responseCard;
-
+    @PolicyResourceProperty(name="responseCard", flag="unknown_responseCard")
+    private @Nullable String value_responseCard;
+    private boolean unknown_responseCard;
     public @Nullable String responseCard() {
-        if (responseCard == null) return null;
-        return responseCard.getValue("IntentConfirmationPrompt.responseCard");
+        if (!unknown_responseCard) return value_responseCard;
+        throw new UndeferrableValueException("Value 'IntentConfirmationPrompt.responseCard' is not present");
     }
 
 }

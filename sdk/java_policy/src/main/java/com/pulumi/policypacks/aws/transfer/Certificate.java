@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,99 +18,108 @@ public final class Certificate extends com.pulumi.resources.PolicyResourceOutput
      * An date when the certificate becomes active
      * 
      */
-    private UndeferrableValue<String> activeDate;
-
+    @PolicyResourceProperty(name="activeDate", flag="unknown_activeDate")
+    private String value_activeDate;
+    private boolean unknown_activeDate;
     public String activeDate() {
-        if (activeDate == null) return null;
-        return activeDate.getValue("Certificate.activeDate");
+        if (!unknown_activeDate) return value_activeDate;
+        throw new UndeferrableValueException("Value 'Certificate.activeDate' is not present");
     }
 
     /**
      * The ARN of the certificate
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Certificate.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Certificate.arn' is not present");
     }
 
     /**
      * The valid certificate file required for the transfer.
      * 
      */
-    private UndeferrableValue<String> certificate;
-
+    @PolicyResourceProperty(name="certificate", flag="unknown_certificate")
+    private String value_certificate;
+    private boolean unknown_certificate;
     public String certificate() {
-        if (certificate == null) return null;
-        return certificate.getValue("Certificate.certificate");
+        if (!unknown_certificate) return value_certificate;
+        throw new UndeferrableValueException("Value 'Certificate.certificate' is not present");
     }
 
     /**
      * The optional list of certificate that make up the chain for the certificate that is being imported.
      * 
      */
-    private @Nullable UndeferrableValue<String> certificateChain;
-
+    @PolicyResourceProperty(name="certificateChain", flag="unknown_certificateChain")
+    private @Nullable String value_certificateChain;
+    private boolean unknown_certificateChain;
     public @Nullable String certificateChain() {
-        if (certificateChain == null) return null;
-        return certificateChain.getValue("Certificate.certificateChain");
+        if (!unknown_certificateChain) return value_certificateChain;
+        throw new UndeferrableValueException("Value 'Certificate.certificateChain' is not present");
     }
 
     /**
      * The unique identifier for the AS2 certificate
      * 
      */
-    private UndeferrableValue<String> certificateId;
-
+    @PolicyResourceProperty(name="certificateId", flag="unknown_certificateId")
+    private String value_certificateId;
+    private boolean unknown_certificateId;
     public String certificateId() {
-        if (certificateId == null) return null;
-        return certificateId.getValue("Certificate.certificateId");
+        if (!unknown_certificateId) return value_certificateId;
+        throw new UndeferrableValueException("Value 'Certificate.certificateId' is not present");
     }
 
     /**
      * A short description that helps identify the certificate.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Certificate.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Certificate.description' is not present");
     }
 
     /**
      * An date when the certificate becomes inactive
      * 
      */
-    private UndeferrableValue<String> inactiveDate;
-
+    @PolicyResourceProperty(name="inactiveDate", flag="unknown_inactiveDate")
+    private String value_inactiveDate;
+    private boolean unknown_inactiveDate;
     public String inactiveDate() {
-        if (inactiveDate == null) return null;
-        return inactiveDate.getValue("Certificate.inactiveDate");
+        if (!unknown_inactiveDate) return value_inactiveDate;
+        throw new UndeferrableValueException("Value 'Certificate.inactiveDate' is not present");
     }
 
     /**
      * The private key associated with the certificate being imported.
      * 
      */
-    private @Nullable UndeferrableValue<String> privateKey;
-
+    @PolicyResourceProperty(name="privateKey", flag="unknown_privateKey")
+    private @Nullable String value_privateKey;
+    private boolean unknown_privateKey;
     public @Nullable String privateKey() {
-        if (privateKey == null) return null;
-        return privateKey.getValue("Certificate.privateKey");
+        if (!unknown_privateKey) return value_privateKey;
+        throw new UndeferrableValueException("Value 'Certificate.privateKey' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Certificate.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Certificate.tags' is not present");
     }
 
     /**
@@ -118,22 +128,24 @@ public final class Certificate extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Certificate.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Certificate.tagsAll' is not present");
     }
 
     /**
      * Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
      * 
      */
-    private UndeferrableValue<String> usage;
-
+    @PolicyResourceProperty(name="usage", flag="unknown_usage")
+    private String value_usage;
+    private boolean unknown_usage;
     public String usage() {
-        if (usage == null) return null;
-        return usage.getValue("Certificate.usage");
+        if (!unknown_usage) return value_usage;
+        throw new UndeferrableValueException("Value 'Certificate.usage' is not present");
     }
 
 }

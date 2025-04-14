@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dynamodb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.dynamodb.inputs.TableExportIncrementalExportSpecificationArgs;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class TableExportArgs extends com.pulumi.resources.PolicyResourceIn
      * Format for the exported data. Valid values are: `DYNAMODB_JSON`, `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
      * 
      */
-    private UndeferrableValue<String> exportFormat;
-
+    @PolicyResourceProperty(name="exportFormat", flag="unknown_exportFormat")
+    private String value_exportFormat;
+    private boolean unknown_exportFormat;
     public String exportFormat() {
-        if (exportFormat == null) return null;
-        return exportFormat.getValue("TableExportArgs.exportFormat");
+        if (!unknown_exportFormat) return value_exportFormat;
+        throw new UndeferrableValueException("Value 'TableExportArgs.exportFormat' is not present");
     }
 
     /**
      * Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table&#39;s state at this point in time. Omitting this value will result in a snapshot from the current time.
      * 
      */
-    private UndeferrableValue<String> exportTime;
-
+    @PolicyResourceProperty(name="exportTime", flag="unknown_exportTime")
+    private String value_exportTime;
+    private boolean unknown_exportTime;
     public String exportTime() {
-        if (exportTime == null) return null;
-        return exportTime.getValue("TableExportArgs.exportTime");
+        if (!unknown_exportTime) return value_exportTime;
+        throw new UndeferrableValueException("Value 'TableExportArgs.exportTime' is not present");
     }
 
     /**
@@ -40,73 +43,80 @@ public final class TableExportArgs extends com.pulumi.resources.PolicyResourceIn
      * `incremental_export_specification` - (Optional, Forces new resource) Parameters specific to an incremental export. See `incremental_export_specification` Block for details.
      * 
      */
-    private UndeferrableValue<String> exportType;
-
+    @PolicyResourceProperty(name="exportType", flag="unknown_exportType")
+    private String value_exportType;
+    private boolean unknown_exportType;
     public String exportType() {
-        if (exportType == null) return null;
-        return exportType.getValue("TableExportArgs.exportType");
+        if (!unknown_exportType) return value_exportType;
+        throw new UndeferrableValueException("Value 'TableExportArgs.exportType' is not present");
     }
 
-    private UndeferrableValue<TableExportIncrementalExportSpecificationArgs> incrementalExportSpecification;
-
+    @PolicyResourceProperty(name="incrementalExportSpecification", flag="unknown_incrementalExportSpecification")
+    private TableExportIncrementalExportSpecificationArgs value_incrementalExportSpecification;
+    private boolean unknown_incrementalExportSpecification;
     public TableExportIncrementalExportSpecificationArgs incrementalExportSpecification() {
-        if (incrementalExportSpecification == null) return null;
-        return incrementalExportSpecification.getValue("TableExportArgs.incrementalExportSpecification");
+        if (!unknown_incrementalExportSpecification) return value_incrementalExportSpecification;
+        throw new UndeferrableValueException("Value 'TableExportArgs.incrementalExportSpecification' is not present");
     }
 
     /**
      * Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
      * 
      */
-    private UndeferrableValue<String> s3Bucket;
-
+    @PolicyResourceProperty(name="s3Bucket", flag="unknown_s3Bucket")
+    private String value_s3Bucket;
+    private boolean unknown_s3Bucket;
     public String s3Bucket() {
-        if (s3Bucket == null) return null;
-        return s3Bucket.getValue("TableExportArgs.s3Bucket");
+        if (!unknown_s3Bucket) return value_s3Bucket;
+        throw new UndeferrableValueException("Value 'TableExportArgs.s3Bucket' is not present");
     }
 
     /**
      * ID of the AWS account that owns the bucket the export will be stored in.
      * 
      */
-    private UndeferrableValue<String> s3BucketOwner;
-
+    @PolicyResourceProperty(name="s3BucketOwner", flag="unknown_s3BucketOwner")
+    private String value_s3BucketOwner;
+    private boolean unknown_s3BucketOwner;
     public String s3BucketOwner() {
-        if (s3BucketOwner == null) return null;
-        return s3BucketOwner.getValue("TableExportArgs.s3BucketOwner");
+        if (!unknown_s3BucketOwner) return value_s3BucketOwner;
+        throw new UndeferrableValueException("Value 'TableExportArgs.s3BucketOwner' is not present");
     }
 
     /**
      * Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
      * 
      */
-    private UndeferrableValue<String> s3Prefix;
-
+    @PolicyResourceProperty(name="s3Prefix", flag="unknown_s3Prefix")
+    private String value_s3Prefix;
+    private boolean unknown_s3Prefix;
     public String s3Prefix() {
-        if (s3Prefix == null) return null;
-        return s3Prefix.getValue("TableExportArgs.s3Prefix");
+        if (!unknown_s3Prefix) return value_s3Prefix;
+        throw new UndeferrableValueException("Value 'TableExportArgs.s3Prefix' is not present");
     }
 
     /**
      * Type of encryption used on the bucket where export data will be stored. Valid values are: `AES256`, `KMS`.
      * 
      */
-    private UndeferrableValue<String> s3SseAlgorithm;
-
+    @PolicyResourceProperty(name="s3SseAlgorithm", flag="unknown_s3SseAlgorithm")
+    private String value_s3SseAlgorithm;
+    private boolean unknown_s3SseAlgorithm;
     public String s3SseAlgorithm() {
-        if (s3SseAlgorithm == null) return null;
-        return s3SseAlgorithm.getValue("TableExportArgs.s3SseAlgorithm");
+        if (!unknown_s3SseAlgorithm) return value_s3SseAlgorithm;
+        throw new UndeferrableValueException("Value 'TableExportArgs.s3SseAlgorithm' is not present");
     }
 
     /**
      * ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
      * 
      */
-    private UndeferrableValue<String> s3SseKmsKeyId;
-
+    @PolicyResourceProperty(name="s3SseKmsKeyId", flag="unknown_s3SseKmsKeyId")
+    private String value_s3SseKmsKeyId;
+    private boolean unknown_s3SseKmsKeyId;
     public String s3SseKmsKeyId() {
-        if (s3SseKmsKeyId == null) return null;
-        return s3SseKmsKeyId.getValue("TableExportArgs.s3SseKmsKeyId");
+        if (!unknown_s3SseKmsKeyId) return value_s3SseKmsKeyId;
+        throw new UndeferrableValueException("Value 'TableExportArgs.s3SseKmsKeyId' is not present");
     }
 
     /**
@@ -115,11 +125,12 @@ public final class TableExportArgs extends com.pulumi.resources.PolicyResourceIn
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> tableArn;
-
+    @PolicyResourceProperty(name="tableArn", flag="unknown_tableArn")
+    private String value_tableArn;
+    private boolean unknown_tableArn;
     public String tableArn() {
-        if (tableArn == null) return null;
-        return tableArn.getValue("TableExportArgs.tableArn");
+        if (!unknown_tableArn) return value_tableArn;
+        throw new UndeferrableValueException("Value 'TableExportArgs.tableArn' is not present");
     }
 
 }

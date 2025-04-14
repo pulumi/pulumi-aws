@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appstream.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class FleetDomainJoinInfo {
      * Fully qualified name of the directory (for example, corp.example.com).
      * 
      */
-    private @Nullable UndeferrableValue<String> directoryName;
-
+    @PolicyResourceProperty(name="directoryName", flag="unknown_directoryName")
+    private @Nullable String value_directoryName;
+    private boolean unknown_directoryName;
     public @Nullable String directoryName() {
-        if (directoryName == null) return null;
-        return directoryName.getValue("FleetDomainJoinInfo.directoryName");
+        if (!unknown_directoryName) return value_directoryName;
+        throw new UndeferrableValueException("Value 'FleetDomainJoinInfo.directoryName' is not present");
     }
 
     /**
      * Distinguished name of the organizational unit for computer accounts.
      * 
      */
-    private @Nullable UndeferrableValue<String> organizationalUnitDistinguishedName;
-
+    @PolicyResourceProperty(name="organizationalUnitDistinguishedName", flag="unknown_organizationalUnitDistinguishedName")
+    private @Nullable String value_organizationalUnitDistinguishedName;
+    private boolean unknown_organizationalUnitDistinguishedName;
     public @Nullable String organizationalUnitDistinguishedName() {
-        if (organizationalUnitDistinguishedName == null) return null;
-        return organizationalUnitDistinguishedName.getValue("FleetDomainJoinInfo.organizationalUnitDistinguishedName");
+        if (!unknown_organizationalUnitDistinguishedName) return value_organizationalUnitDistinguishedName;
+        throw new UndeferrableValueException("Value 'FleetDomainJoinInfo.organizationalUnitDistinguishedName' is not present");
     }
 
 }

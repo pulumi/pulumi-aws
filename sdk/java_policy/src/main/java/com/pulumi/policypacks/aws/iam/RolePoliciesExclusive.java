@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class RolePoliciesExclusive extends com.pulumi.resources.PolicyReso
      * A list of inline policy names to be assigned to the role. Policies attached to this role but not configured in this argument will be removed.
      * 
      */
-    private UndeferrableValue<List<String>> policyNames;
-
+    @PolicyResourceProperty(name="policyNames", flag="unknown_policyNames")
+    private List<String> value_policyNames;
+    private boolean unknown_policyNames;
     public List<String> policyNames() {
-        if (policyNames == null) return null;
-        return policyNames.getValue("RolePoliciesExclusive.policyNames");
+        if (!unknown_policyNames) return value_policyNames;
+        throw new UndeferrableValueException("Value 'RolePoliciesExclusive.policyNames' is not present");
     }
 
     /**
      * IAM role name.
      * 
      */
-    private UndeferrableValue<String> roleName;
-
+    @PolicyResourceProperty(name="roleName", flag="unknown_roleName")
+    private String value_roleName;
+    private boolean unknown_roleName;
     public String roleName() {
-        if (roleName == null) return null;
-        return roleName.getValue("RolePoliciesExclusive.roleName");
+        if (!unknown_roleName) return value_roleName;
+        throw new UndeferrableValueException("Value 'RolePoliciesExclusive.roleName' is not present");
     }
 
 }

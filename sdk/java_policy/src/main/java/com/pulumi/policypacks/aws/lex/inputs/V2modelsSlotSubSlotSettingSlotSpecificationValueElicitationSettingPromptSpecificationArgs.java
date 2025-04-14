@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs;
 import java.lang.Boolean;
@@ -15,39 +16,44 @@ import javax.annotation.Nullable;
 
 public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs {
 
-    private UndeferrableValue<Boolean> allowInterrupt;
-
+    @PolicyResourceProperty(name="allowInterrupt", flag="unknown_allowInterrupt")
+    private Boolean value_allowInterrupt;
+    private boolean unknown_allowInterrupt;
     public Boolean allowInterrupt() {
-        if (allowInterrupt == null) return null;
-        return allowInterrupt.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs.allowInterrupt");
+        if (!unknown_allowInterrupt) return value_allowInterrupt;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs.allowInterrupt' is not present");
     }
 
-    private UndeferrableValue<Integer> maxRetries;
-
+    @PolicyResourceProperty(name="maxRetries", flag="unknown_maxRetries")
+    private Integer value_maxRetries;
+    private boolean unknown_maxRetries;
     public Integer maxRetries() {
-        if (maxRetries == null) return null;
-        return maxRetries.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs.maxRetries");
+        if (!unknown_maxRetries) return value_maxRetries;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs.maxRetries' is not present");
     }
 
-    private UndeferrableValue<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgs>> messageGroups;
-
+    @PolicyResourceProperty(name="messageGroups", flag="unknown_messageGroups")
+    private List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgs> value_messageGroups;
+    private boolean unknown_messageGroups;
     public List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgs> messageGroups() {
-        if (messageGroups == null) return null;
-        return messageGroups.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs.messageGroups");
+        if (!unknown_messageGroups) return value_messageGroups;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs.messageGroups' is not present");
     }
 
-    private UndeferrableValue<String> messageSelectionStrategy;
-
+    @PolicyResourceProperty(name="messageSelectionStrategy", flag="unknown_messageSelectionStrategy")
+    private String value_messageSelectionStrategy;
+    private boolean unknown_messageSelectionStrategy;
     public String messageSelectionStrategy() {
-        if (messageSelectionStrategy == null) return null;
-        return messageSelectionStrategy.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs.messageSelectionStrategy");
+        if (!unknown_messageSelectionStrategy) return value_messageSelectionStrategy;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs.messageSelectionStrategy' is not present");
     }
 
-    private UndeferrableValue<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs>> promptAttemptsSpecifications;
-
+    @PolicyResourceProperty(name="promptAttemptsSpecifications", flag="unknown_promptAttemptsSpecifications")
+    private List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs> value_promptAttemptsSpecifications;
+    private boolean unknown_promptAttemptsSpecifications;
     public List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs> promptAttemptsSpecifications() {
-        if (promptAttemptsSpecifications == null) return null;
-        return promptAttemptsSpecifications.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs.promptAttemptsSpecifications");
+        if (!unknown_promptAttemptsSpecifications) return value_promptAttemptsSpecifications;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs.promptAttemptsSpecifications' is not present");
     }
 
 }

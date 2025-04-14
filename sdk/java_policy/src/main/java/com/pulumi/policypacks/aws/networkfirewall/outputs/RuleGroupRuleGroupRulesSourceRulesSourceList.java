@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,33 +15,36 @@ public final class RuleGroupRuleGroupRulesSourceRulesSourceList {
      * String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
      * 
      */
-    private UndeferrableValue<String> generatedRulesType;
-
+    @PolicyResourceProperty(name="generatedRulesType", flag="unknown_generatedRulesType")
+    private String value_generatedRulesType;
+    private boolean unknown_generatedRulesType;
     public String generatedRulesType() {
-        if (generatedRulesType == null) return null;
-        return generatedRulesType.getValue("RuleGroupRuleGroupRulesSourceRulesSourceList.generatedRulesType");
+        if (!unknown_generatedRulesType) return value_generatedRulesType;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceRulesSourceList.generatedRulesType' is not present");
     }
 
     /**
      * Set of types of domain specifications that are provided in the `targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
      * 
      */
-    private UndeferrableValue<List<String>> targetTypes;
-
+    @PolicyResourceProperty(name="targetTypes", flag="unknown_targetTypes")
+    private List<String> value_targetTypes;
+    private boolean unknown_targetTypes;
     public List<String> targetTypes() {
-        if (targetTypes == null) return null;
-        return targetTypes.getValue("RuleGroupRuleGroupRulesSourceRulesSourceList.targetTypes");
+        if (!unknown_targetTypes) return value_targetTypes;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceRulesSourceList.targetTypes' is not present");
     }
 
     /**
      * Set of domains that you want to inspect for in your traffic flows.
      * 
      */
-    private UndeferrableValue<List<String>> targets;
-
+    @PolicyResourceProperty(name="targets", flag="unknown_targets")
+    private List<String> value_targets;
+    private boolean unknown_targets;
     public List<String> targets() {
-        if (targets == null) return null;
-        return targets.getValue("RuleGroupRuleGroupRulesSourceRulesSourceList.targets");
+        if (!unknown_targets) return value_targets;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceRulesSourceList.targets' is not present");
     }
 
 }

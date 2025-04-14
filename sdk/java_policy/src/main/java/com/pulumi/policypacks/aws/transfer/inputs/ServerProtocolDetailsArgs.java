@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class ServerProtocolDetailsArgs {
      * Indicates the transport method for the AS2 messages. Currently, only `HTTP` is supported.
      * 
      */
-    private UndeferrableValue<List<String>> as2Transports;
-
+    @PolicyResourceProperty(name="as2Transports", flag="unknown_as2Transports")
+    private List<String> value_as2Transports;
+    private boolean unknown_as2Transports;
     public List<String> as2Transports() {
-        if (as2Transports == null) return null;
-        return as2Transports.getValue("ServerProtocolDetailsArgs.as2Transports");
+        if (!unknown_as2Transports) return value_as2Transports;
+        throw new UndeferrableValueException("Value 'ServerProtocolDetailsArgs.as2Transports' is not present");
     }
 
     /**
      * Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer.
      * 
      */
-    private UndeferrableValue<String> passiveIp;
-
+    @PolicyResourceProperty(name="passiveIp", flag="unknown_passiveIp")
+    private String value_passiveIp;
+    private boolean unknown_passiveIp;
     public String passiveIp() {
-        if (passiveIp == null) return null;
-        return passiveIp.getValue("ServerProtocolDetailsArgs.passiveIp");
+        if (!unknown_passiveIp) return value_passiveIp;
+        throw new UndeferrableValueException("Value 'ServerProtocolDetailsArgs.passiveIp' is not present");
     }
 
     /**
      * Use to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket. Valid values: `DEFAULT`, `ENABLE_NO_OP`.
      * 
      */
-    private UndeferrableValue<String> setStatOption;
-
+    @PolicyResourceProperty(name="setStatOption", flag="unknown_setStatOption")
+    private String value_setStatOption;
+    private boolean unknown_setStatOption;
     public String setStatOption() {
-        if (setStatOption == null) return null;
-        return setStatOption.getValue("ServerProtocolDetailsArgs.setStatOption");
+        if (!unknown_setStatOption) return value_setStatOption;
+        throw new UndeferrableValueException("Value 'ServerProtocolDetailsArgs.setStatOption' is not present");
     }
 
     /**
      * A property used with Transfer Family servers that use the FTPS protocol. Provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. Valid values: `DISABLED`, `ENABLED`, `ENFORCED`.
      * 
      */
-    private UndeferrableValue<String> tlsSessionResumptionMode;
-
+    @PolicyResourceProperty(name="tlsSessionResumptionMode", flag="unknown_tlsSessionResumptionMode")
+    private String value_tlsSessionResumptionMode;
+    private boolean unknown_tlsSessionResumptionMode;
     public String tlsSessionResumptionMode() {
-        if (tlsSessionResumptionMode == null) return null;
-        return tlsSessionResumptionMode.getValue("ServerProtocolDetailsArgs.tlsSessionResumptionMode");
+        if (!unknown_tlsSessionResumptionMode) return value_tlsSessionResumptionMode;
+        throw new UndeferrableValueException("Value 'ServerProtocolDetailsArgs.tlsSessionResumptionMode' is not present");
     }
 
 }

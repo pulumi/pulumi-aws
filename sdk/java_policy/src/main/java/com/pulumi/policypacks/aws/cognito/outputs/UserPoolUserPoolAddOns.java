@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class UserPoolUserPoolAddOns {
      * Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
      * 
      */
-    private UndeferrableValue<String> advancedSecurityMode;
-
+    @PolicyResourceProperty(name="advancedSecurityMode", flag="unknown_advancedSecurityMode")
+    private String value_advancedSecurityMode;
+    private boolean unknown_advancedSecurityMode;
     public String advancedSecurityMode() {
-        if (advancedSecurityMode == null) return null;
-        return advancedSecurityMode.getValue("UserPoolUserPoolAddOns.advancedSecurityMode");
+        if (!unknown_advancedSecurityMode) return value_advancedSecurityMode;
+        throw new UndeferrableValueException("Value 'UserPoolUserPoolAddOns.advancedSecurityMode' is not present");
     }
 
 }

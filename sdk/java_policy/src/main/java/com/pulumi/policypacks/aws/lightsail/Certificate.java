@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lightsail.outputs.CertificateDomainValidationOption;
 import java.lang.String;
@@ -19,77 +20,84 @@ public final class Certificate extends com.pulumi.resources.PolicyResourceOutput
      * The ARN of the lightsail certificate.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Certificate.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Certificate.arn' is not present");
     }
 
     /**
      * The timestamp when the instance was created.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("Certificate.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'Certificate.createdAt' is not present");
     }
 
     /**
      * A domain name for which the certificate should be issued.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("Certificate.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'Certificate.domainName' is not present");
     }
 
     /**
      * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
      * 
      */
-    private UndeferrableValue<List<CertificateDomainValidationOption>> domainValidationOptions;
-
+    @PolicyResourceProperty(name="domainValidationOptions", flag="unknown_domainValidationOptions")
+    private List<CertificateDomainValidationOption> value_domainValidationOptions;
+    private boolean unknown_domainValidationOptions;
     public List<CertificateDomainValidationOption> domainValidationOptions() {
-        if (domainValidationOptions == null) return null;
-        return domainValidationOptions.getValue("Certificate.domainValidationOptions");
+        if (!unknown_domainValidationOptions) return value_domainValidationOptions;
+        throw new UndeferrableValueException("Value 'Certificate.domainValidationOptions' is not present");
     }
 
     /**
      * The name of the Lightsail load balancer.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Certificate.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Certificate.name' is not present");
     }
 
     /**
      * Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
      * 
      */
-    private UndeferrableValue<List<String>> subjectAlternativeNames;
-
+    @PolicyResourceProperty(name="subjectAlternativeNames", flag="unknown_subjectAlternativeNames")
+    private List<String> value_subjectAlternativeNames;
+    private boolean unknown_subjectAlternativeNames;
     public List<String> subjectAlternativeNames() {
-        if (subjectAlternativeNames == null) return null;
-        return subjectAlternativeNames.getValue("Certificate.subjectAlternativeNames");
+        if (!unknown_subjectAlternativeNames) return value_subjectAlternativeNames;
+        throw new UndeferrableValueException("Value 'Certificate.subjectAlternativeNames' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Certificate.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Certificate.tags' is not present");
     }
 
     /**
@@ -100,11 +108,12 @@ public final class Certificate extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Certificate.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Certificate.tagsAll' is not present");
     }
 
 }

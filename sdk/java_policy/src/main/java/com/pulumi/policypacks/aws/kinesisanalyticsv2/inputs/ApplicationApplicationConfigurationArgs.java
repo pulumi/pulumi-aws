@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationEnvironmentPropertiesArgs;
@@ -20,77 +21,84 @@ public final class ApplicationApplicationConfigurationArgs {
      * The code location and type parameters for the application.
      * 
      */
-    private UndeferrableValue<ApplicationApplicationConfigurationApplicationCodeConfigurationArgs> applicationCodeConfiguration;
-
+    @PolicyResourceProperty(name="applicationCodeConfiguration", flag="unknown_applicationCodeConfiguration")
+    private ApplicationApplicationConfigurationApplicationCodeConfigurationArgs value_applicationCodeConfiguration;
+    private boolean unknown_applicationCodeConfiguration;
     public ApplicationApplicationConfigurationApplicationCodeConfigurationArgs applicationCodeConfiguration() {
-        if (applicationCodeConfiguration == null) return null;
-        return applicationCodeConfiguration.getValue("ApplicationApplicationConfigurationArgs.applicationCodeConfiguration");
+        if (!unknown_applicationCodeConfiguration) return value_applicationCodeConfiguration;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationArgs.applicationCodeConfiguration' is not present");
     }
 
     /**
      * Describes whether snapshots are enabled for a Flink-based application.
      * 
      */
-    private UndeferrableValue<ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs> applicationSnapshotConfiguration;
-
+    @PolicyResourceProperty(name="applicationSnapshotConfiguration", flag="unknown_applicationSnapshotConfiguration")
+    private ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs value_applicationSnapshotConfiguration;
+    private boolean unknown_applicationSnapshotConfiguration;
     public ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs applicationSnapshotConfiguration() {
-        if (applicationSnapshotConfiguration == null) return null;
-        return applicationSnapshotConfiguration.getValue("ApplicationApplicationConfigurationArgs.applicationSnapshotConfiguration");
+        if (!unknown_applicationSnapshotConfiguration) return value_applicationSnapshotConfiguration;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationArgs.applicationSnapshotConfiguration' is not present");
     }
 
     /**
      * Describes execution properties for a Flink-based application.
      * 
      */
-    private UndeferrableValue<ApplicationApplicationConfigurationEnvironmentPropertiesArgs> environmentProperties;
-
+    @PolicyResourceProperty(name="environmentProperties", flag="unknown_environmentProperties")
+    private ApplicationApplicationConfigurationEnvironmentPropertiesArgs value_environmentProperties;
+    private boolean unknown_environmentProperties;
     public ApplicationApplicationConfigurationEnvironmentPropertiesArgs environmentProperties() {
-        if (environmentProperties == null) return null;
-        return environmentProperties.getValue("ApplicationApplicationConfigurationArgs.environmentProperties");
+        if (!unknown_environmentProperties) return value_environmentProperties;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationArgs.environmentProperties' is not present");
     }
 
     /**
      * The configuration of a Flink-based application.
      * 
      */
-    private UndeferrableValue<ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs> flinkApplicationConfiguration;
-
+    @PolicyResourceProperty(name="flinkApplicationConfiguration", flag="unknown_flinkApplicationConfiguration")
+    private ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs value_flinkApplicationConfiguration;
+    private boolean unknown_flinkApplicationConfiguration;
     public ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs flinkApplicationConfiguration() {
-        if (flinkApplicationConfiguration == null) return null;
-        return flinkApplicationConfiguration.getValue("ApplicationApplicationConfigurationArgs.flinkApplicationConfiguration");
+        if (!unknown_flinkApplicationConfiguration) return value_flinkApplicationConfiguration;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationArgs.flinkApplicationConfiguration' is not present");
     }
 
     /**
      * Describes the starting properties for a Flink-based application.
      * 
      */
-    private UndeferrableValue<ApplicationApplicationConfigurationRunConfigurationArgs> runConfiguration;
-
+    @PolicyResourceProperty(name="runConfiguration", flag="unknown_runConfiguration")
+    private ApplicationApplicationConfigurationRunConfigurationArgs value_runConfiguration;
+    private boolean unknown_runConfiguration;
     public ApplicationApplicationConfigurationRunConfigurationArgs runConfiguration() {
-        if (runConfiguration == null) return null;
-        return runConfiguration.getValue("ApplicationApplicationConfigurationArgs.runConfiguration");
+        if (!unknown_runConfiguration) return value_runConfiguration;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationArgs.runConfiguration' is not present");
     }
 
     /**
      * The configuration of a SQL-based application.
      * 
      */
-    private UndeferrableValue<ApplicationApplicationConfigurationSqlApplicationConfigurationArgs> sqlApplicationConfiguration;
-
+    @PolicyResourceProperty(name="sqlApplicationConfiguration", flag="unknown_sqlApplicationConfiguration")
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationArgs value_sqlApplicationConfiguration;
+    private boolean unknown_sqlApplicationConfiguration;
     public ApplicationApplicationConfigurationSqlApplicationConfigurationArgs sqlApplicationConfiguration() {
-        if (sqlApplicationConfiguration == null) return null;
-        return sqlApplicationConfiguration.getValue("ApplicationApplicationConfigurationArgs.sqlApplicationConfiguration");
+        if (!unknown_sqlApplicationConfiguration) return value_sqlApplicationConfiguration;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationArgs.sqlApplicationConfiguration' is not present");
     }
 
     /**
      * The VPC configuration of a Flink-based application.
      * 
      */
-    private UndeferrableValue<ApplicationApplicationConfigurationVpcConfigurationArgs> vpcConfiguration;
-
+    @PolicyResourceProperty(name="vpcConfiguration", flag="unknown_vpcConfiguration")
+    private ApplicationApplicationConfigurationVpcConfigurationArgs value_vpcConfiguration;
+    private boolean unknown_vpcConfiguration;
     public ApplicationApplicationConfigurationVpcConfigurationArgs vpcConfiguration() {
-        if (vpcConfiguration == null) return null;
-        return vpcConfiguration.getValue("ApplicationApplicationConfigurationArgs.vpcConfiguration");
+        if (!unknown_vpcConfiguration) return value_vpcConfiguration;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationArgs.vpcConfiguration' is not present");
     }
 
 }

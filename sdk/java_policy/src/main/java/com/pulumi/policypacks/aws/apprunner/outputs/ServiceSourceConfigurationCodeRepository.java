@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.apprunner.outputs.ServiceSourceConfigurationCodeRepositoryCodeConfiguration;
 import com.pulumi.policypacks.aws.apprunner.outputs.ServiceSourceConfigurationCodeRepositorySourceCodeVersion;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class ServiceSourceConfigurationCodeRepository {
      * Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ServiceSourceConfigurationCodeRepositoryCodeConfiguration> codeConfiguration;
-
+    @PolicyResourceProperty(name="codeConfiguration", flag="unknown_codeConfiguration")
+    private @Nullable ServiceSourceConfigurationCodeRepositoryCodeConfiguration value_codeConfiguration;
+    private boolean unknown_codeConfiguration;
     public @Nullable ServiceSourceConfigurationCodeRepositoryCodeConfiguration codeConfiguration() {
-        if (codeConfiguration == null) return null;
-        return codeConfiguration.getValue("ServiceSourceConfigurationCodeRepository.codeConfiguration");
+        if (!unknown_codeConfiguration) return value_codeConfiguration;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationCodeRepository.codeConfiguration' is not present");
     }
 
     /**
      * Location of the repository that contains the source code.
      * 
      */
-    private UndeferrableValue<String> repositoryUrl;
-
+    @PolicyResourceProperty(name="repositoryUrl", flag="unknown_repositoryUrl")
+    private String value_repositoryUrl;
+    private boolean unknown_repositoryUrl;
     public String repositoryUrl() {
-        if (repositoryUrl == null) return null;
-        return repositoryUrl.getValue("ServiceSourceConfigurationCodeRepository.repositoryUrl");
+        if (!unknown_repositoryUrl) return value_repositoryUrl;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationCodeRepository.repositoryUrl' is not present");
     }
 
     /**
      * Version that should be used within the source code repository. See Source Code Version below for more details.
      * 
      */
-    private UndeferrableValue<ServiceSourceConfigurationCodeRepositorySourceCodeVersion> sourceCodeVersion;
-
+    @PolicyResourceProperty(name="sourceCodeVersion", flag="unknown_sourceCodeVersion")
+    private ServiceSourceConfigurationCodeRepositorySourceCodeVersion value_sourceCodeVersion;
+    private boolean unknown_sourceCodeVersion;
     public ServiceSourceConfigurationCodeRepositorySourceCodeVersion sourceCodeVersion() {
-        if (sourceCodeVersion == null) return null;
-        return sourceCodeVersion.getValue("ServiceSourceConfigurationCodeRepository.sourceCodeVersion");
+        if (!unknown_sourceCodeVersion) return value_sourceCodeVersion;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationCodeRepository.sourceCodeVersion' is not present");
     }
 
     /**
      * The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute from root and, if not specified, defaults to the repository root.
      * 
      */
-    private @Nullable UndeferrableValue<String> sourceDirectory;
-
+    @PolicyResourceProperty(name="sourceDirectory", flag="unknown_sourceDirectory")
+    private @Nullable String value_sourceDirectory;
+    private boolean unknown_sourceDirectory;
     public @Nullable String sourceDirectory() {
-        if (sourceDirectory == null) return null;
-        return sourceDirectory.getValue("ServiceSourceConfigurationCodeRepository.sourceDirectory");
+        if (!unknown_sourceDirectory) return value_sourceDirectory;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationCodeRepository.sourceDirectory' is not present");
     }
 
 }

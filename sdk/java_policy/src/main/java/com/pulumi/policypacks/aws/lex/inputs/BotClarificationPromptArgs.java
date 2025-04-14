@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.BotClarificationPromptMessageArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,25 +18,28 @@ public final class BotClarificationPromptArgs {
      * The number of times to prompt the user for information.
      * 
      */
-    private UndeferrableValue<Integer> maxAttempts;
-
+    @PolicyResourceProperty(name="maxAttempts", flag="unknown_maxAttempts")
+    private Integer value_maxAttempts;
+    private boolean unknown_maxAttempts;
     public Integer maxAttempts() {
-        if (maxAttempts == null) return null;
-        return maxAttempts.getValue("BotClarificationPromptArgs.maxAttempts");
+        if (!unknown_maxAttempts) return value_maxAttempts;
+        throw new UndeferrableValueException("Value 'BotClarificationPromptArgs.maxAttempts' is not present");
     }
 
-    private UndeferrableValue<List<BotClarificationPromptMessageArgs>> messages;
-
+    @PolicyResourceProperty(name="messages", flag="unknown_messages")
+    private List<BotClarificationPromptMessageArgs> value_messages;
+    private boolean unknown_messages;
     public List<BotClarificationPromptMessageArgs> messages() {
-        if (messages == null) return null;
-        return messages.getValue("BotClarificationPromptArgs.messages");
+        if (!unknown_messages) return value_messages;
+        throw new UndeferrableValueException("Value 'BotClarificationPromptArgs.messages' is not present");
     }
 
-    private UndeferrableValue<String> responseCard;
-
+    @PolicyResourceProperty(name="responseCard", flag="unknown_responseCard")
+    private String value_responseCard;
+    private boolean unknown_responseCard;
     public String responseCard() {
-        if (responseCard == null) return null;
-        return responseCard.getValue("BotClarificationPromptArgs.responseCard");
+        if (!unknown_responseCard) return value_responseCard;
+        throw new UndeferrableValueException("Value 'BotClarificationPromptArgs.responseCard' is not present");
     }
 
 }

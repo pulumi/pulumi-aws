@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecrpublic;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class RepositoryPolicy extends com.pulumi.resources.PolicyResourceO
      * The policy document. This is a JSON formatted string.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("RepositoryPolicy.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'RepositoryPolicy.policy' is not present");
     }
 
     /**
      * The registry ID where the repository was created.
      * 
      */
-    private UndeferrableValue<String> registryId;
-
+    @PolicyResourceProperty(name="registryId", flag="unknown_registryId")
+    private String value_registryId;
+    private boolean unknown_registryId;
     public String registryId() {
-        if (registryId == null) return null;
-        return registryId.getValue("RepositoryPolicy.registryId");
+        if (!unknown_registryId) return value_registryId;
+        throw new UndeferrableValueException("Value 'RepositoryPolicy.registryId' is not present");
     }
 
     /**
      * Name of the repository to apply the policy.
      * 
      */
-    private UndeferrableValue<String> repositoryName;
-
+    @PolicyResourceProperty(name="repositoryName", flag="unknown_repositoryName")
+    private String value_repositoryName;
+    private boolean unknown_repositoryName;
     public String repositoryName() {
-        if (repositoryName == null) return null;
-        return repositoryName.getValue("RepositoryPolicy.repositoryName");
+        if (!unknown_repositoryName) return value_repositoryName;
+        throw new UndeferrableValueException("Value 'RepositoryPolicy.repositoryName' is not present");
     }
 
 }

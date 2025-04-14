@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.opsworks.inputs.CustomLayerCloudwatchConfigurationLogStreamArgs;
 import java.lang.Boolean;
 import java.util.List;
@@ -12,22 +13,24 @@ import javax.annotation.Nullable;
 
 public final class CustomLayerCloudwatchConfigurationArgs {
 
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("CustomLayerCloudwatchConfigurationArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationArgs.enabled' is not present");
     }
 
     /**
      * A block the specifies how an opsworks logs look like. See Log Streams.
      * 
      */
-    private UndeferrableValue<List<CustomLayerCloudwatchConfigurationLogStreamArgs>> logStreams;
-
+    @PolicyResourceProperty(name="logStreams", flag="unknown_logStreams")
+    private List<CustomLayerCloudwatchConfigurationLogStreamArgs> value_logStreams;
+    private boolean unknown_logStreams;
     public List<CustomLayerCloudwatchConfigurationLogStreamArgs> logStreams() {
-        if (logStreams == null) return null;
-        return logStreams.getValue("CustomLayerCloudwatchConfigurationArgs.logStreams");
+        if (!unknown_logStreams) return value_logStreams;
+        throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationArgs.logStreams' is not present");
     }
 
 }

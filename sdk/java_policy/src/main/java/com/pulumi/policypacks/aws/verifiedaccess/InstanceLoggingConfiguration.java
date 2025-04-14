@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.verifiedaccess.outputs.InstanceLoggingConfigurationAccessLogs;
 import java.lang.String;
@@ -16,22 +17,24 @@ public final class InstanceLoggingConfiguration extends com.pulumi.resources.Pol
      * A block that specifies the configuration options for Verified Access instances. Detailed below.
      * 
      */
-    private UndeferrableValue<InstanceLoggingConfigurationAccessLogs> accessLogs;
-
+    @PolicyResourceProperty(name="accessLogs", flag="unknown_accessLogs")
+    private InstanceLoggingConfigurationAccessLogs value_accessLogs;
+    private boolean unknown_accessLogs;
     public InstanceLoggingConfigurationAccessLogs accessLogs() {
-        if (accessLogs == null) return null;
-        return accessLogs.getValue("InstanceLoggingConfiguration.accessLogs");
+        if (!unknown_accessLogs) return value_accessLogs;
+        throw new UndeferrableValueException("Value 'InstanceLoggingConfiguration.accessLogs' is not present");
     }
 
     /**
      * The ID of the Verified Access instance.
      * 
      */
-    private UndeferrableValue<String> verifiedaccessInstanceId;
-
+    @PolicyResourceProperty(name="verifiedaccessInstanceId", flag="unknown_verifiedaccessInstanceId")
+    private String value_verifiedaccessInstanceId;
+    private boolean unknown_verifiedaccessInstanceId;
     public String verifiedaccessInstanceId() {
-        if (verifiedaccessInstanceId == null) return null;
-        return verifiedaccessInstanceId.getValue("InstanceLoggingConfiguration.verifiedaccessInstanceId");
+        if (!unknown_verifiedaccessInstanceId) return value_verifiedaccessInstanceId;
+        throw new UndeferrableValueException("Value 'InstanceLoggingConfiguration.verifiedaccessInstanceId' is not present");
     }
 
 }

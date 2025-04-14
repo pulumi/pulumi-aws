@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mq.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -16,44 +17,48 @@ public final class BrokerUser {
      * Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> consoleAccess;
-
+    @PolicyResourceProperty(name="consoleAccess", flag="unknown_consoleAccess")
+    private @Nullable Boolean value_consoleAccess;
+    private boolean unknown_consoleAccess;
     public @Nullable Boolean consoleAccess() {
-        if (consoleAccess == null) return null;
-        return consoleAccess.getValue("BrokerUser.consoleAccess");
+        if (!unknown_consoleAccess) return value_consoleAccess;
+        throw new UndeferrableValueException("Value 'BrokerUser.consoleAccess' is not present");
     }
 
     /**
      * List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> groups;
-
+    @PolicyResourceProperty(name="groups", flag="unknown_groups")
+    private @Nullable List<String> value_groups;
+    private boolean unknown_groups;
     public @Nullable List<String> groups() {
-        if (groups == null) return null;
-        return groups.getValue("BrokerUser.groups");
+        if (!unknown_groups) return value_groups;
+        throw new UndeferrableValueException("Value 'BrokerUser.groups' is not present");
     }
 
     /**
      * Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
      * 
      */
-    private UndeferrableValue<String> password;
-
+    @PolicyResourceProperty(name="password", flag="unknown_password")
+    private String value_password;
+    private boolean unknown_password;
     public String password() {
-        if (password == null) return null;
-        return password.getValue("BrokerUser.password");
+        if (!unknown_password) return value_password;
+        throw new UndeferrableValueException("Value 'BrokerUser.password' is not present");
     }
 
     /**
      * Whether to set set replication user. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> replicationUser;
-
+    @PolicyResourceProperty(name="replicationUser", flag="unknown_replicationUser")
+    private @Nullable Boolean value_replicationUser;
+    private boolean unknown_replicationUser;
     public @Nullable Boolean replicationUser() {
-        if (replicationUser == null) return null;
-        return replicationUser.getValue("BrokerUser.replicationUser");
+        if (!unknown_replicationUser) return value_replicationUser;
+        throw new UndeferrableValueException("Value 'BrokerUser.replicationUser' is not present");
     }
 
     /**
@@ -62,11 +67,12 @@ public final class BrokerUser {
      * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
      * 
      */
-    private UndeferrableValue<String> username;
-
+    @PolicyResourceProperty(name="username", flag="unknown_username")
+    private String value_username;
+    private boolean unknown_username;
     public String username() {
-        if (username == null) return null;
-        return username.getValue("BrokerUser.username");
+        if (!unknown_username) return value_username;
+        throw new UndeferrableValueException("Value 'BrokerUser.username' is not present");
     }
 
 }

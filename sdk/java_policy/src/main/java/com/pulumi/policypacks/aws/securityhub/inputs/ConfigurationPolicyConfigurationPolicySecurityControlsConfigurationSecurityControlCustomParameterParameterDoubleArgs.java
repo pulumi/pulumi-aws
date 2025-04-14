@@ -3,17 +3,19 @@
 
 package com.pulumi.policypacks.aws.securityhub.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 
 
 public final class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs {
 
-    private UndeferrableValue<Double> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private Double value_value;
+    private boolean unknown_value;
     public Double value() {
-        if (value == null) return null;
-        return value.getValue("ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs.value' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,66 +16,72 @@ public final class ServiceHealthCheckConfiguration {
      * Number of consecutive checks that must succeed before App Runner decides that the service is healthy. Defaults to 1. Minimum value of 1. Maximum value of 20.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> healthyThreshold;
-
+    @PolicyResourceProperty(name="healthyThreshold", flag="unknown_healthyThreshold")
+    private @Nullable Integer value_healthyThreshold;
+    private boolean unknown_healthyThreshold;
     public @Nullable Integer healthyThreshold() {
-        if (healthyThreshold == null) return null;
-        return healthyThreshold.getValue("ServiceHealthCheckConfiguration.healthyThreshold");
+        if (!unknown_healthyThreshold) return value_healthyThreshold;
+        throw new UndeferrableValueException("Value 'ServiceHealthCheckConfiguration.healthyThreshold' is not present");
     }
 
     /**
      * Time interval, in seconds, between health checks. Defaults to 5. Minimum value of 1. Maximum value of 20.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> interval;
-
+    @PolicyResourceProperty(name="interval", flag="unknown_interval")
+    private @Nullable Integer value_interval;
+    private boolean unknown_interval;
     public @Nullable Integer interval() {
-        if (interval == null) return null;
-        return interval.getValue("ServiceHealthCheckConfiguration.interval");
+        if (!unknown_interval) return value_interval;
+        throw new UndeferrableValueException("Value 'ServiceHealthCheckConfiguration.interval' is not present");
     }
 
     /**
      * URL to send requests to for health checks. Defaults to `/`. Minimum length of 0. Maximum length of 51200.
      * 
      */
-    private @Nullable UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private @Nullable String value_path;
+    private boolean unknown_path;
     public @Nullable String path() {
-        if (path == null) return null;
-        return path.getValue("ServiceHealthCheckConfiguration.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'ServiceHealthCheckConfiguration.path' is not present");
     }
 
     /**
      * IP protocol that App Runner uses to perform health checks for your service. Valid values: `TCP`, `HTTP`. Defaults to `TCP`. If you set protocol to `HTTP`, App Runner sends health check requests to the HTTP path specified by `path`.
      * 
      */
-    private @Nullable UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private @Nullable String value_protocol;
+    private boolean unknown_protocol;
     public @Nullable String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("ServiceHealthCheckConfiguration.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'ServiceHealthCheckConfiguration.protocol' is not present");
     }
 
     /**
      * Time, in seconds, to wait for a health check response before deciding it failed. Defaults to 2. Minimum value of  1. Maximum value of 20.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> timeout;
-
+    @PolicyResourceProperty(name="timeout", flag="unknown_timeout")
+    private @Nullable Integer value_timeout;
+    private boolean unknown_timeout;
     public @Nullable Integer timeout() {
-        if (timeout == null) return null;
-        return timeout.getValue("ServiceHealthCheckConfiguration.timeout");
+        if (!unknown_timeout) return value_timeout;
+        throw new UndeferrableValueException("Value 'ServiceHealthCheckConfiguration.timeout' is not present");
     }
 
     /**
      * Number of consecutive checks that must fail before App Runner decides that the service is unhealthy. Defaults to 5. Minimum value of  1. Maximum value of 20.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> unhealthyThreshold;
-
+    @PolicyResourceProperty(name="unhealthyThreshold", flag="unknown_unhealthyThreshold")
+    private @Nullable Integer value_unhealthyThreshold;
+    private boolean unknown_unhealthyThreshold;
     public @Nullable Integer unhealthyThreshold() {
-        if (unhealthyThreshold == null) return null;
-        return unhealthyThreshold.getValue("ServiceHealthCheckConfiguration.unhealthyThreshold");
+        if (!unknown_unhealthyThreshold) return value_unhealthyThreshold;
+        throw new UndeferrableValueException("Value 'ServiceHealthCheckConfiguration.unhealthyThreshold' is not present");
     }
 
 }

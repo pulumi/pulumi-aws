@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.pipes.inputs.PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs
      * Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. Detailed below.
      * 
      */
-    private UndeferrableValue<PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs> awsVpcConfiguration;
-
+    @PolicyResourceProperty(name="awsVpcConfiguration", flag="unknown_awsVpcConfiguration")
+    private PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs value_awsVpcConfiguration;
+    private boolean unknown_awsVpcConfiguration;
     public PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs awsVpcConfiguration() {
-        if (awsVpcConfiguration == null) return null;
-        return awsVpcConfiguration.getValue("PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs.awsVpcConfiguration");
+        if (!unknown_awsVpcConfiguration) return value_awsVpcConfiguration;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs.awsVpcConfiguration' is not present");
     }
 
 }

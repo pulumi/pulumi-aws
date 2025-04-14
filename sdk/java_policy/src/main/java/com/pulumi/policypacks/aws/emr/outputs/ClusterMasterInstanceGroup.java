@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.emr.outputs.ClusterMasterInstanceGroupEbsConfig;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,66 +18,72 @@ public final class ClusterMasterInstanceGroup {
      * Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
      * 
      */
-    private @Nullable UndeferrableValue<String> bidPrice;
-
+    @PolicyResourceProperty(name="bidPrice", flag="unknown_bidPrice")
+    private @Nullable String value_bidPrice;
+    private boolean unknown_bidPrice;
     public @Nullable String bidPrice() {
-        if (bidPrice == null) return null;
-        return bidPrice.getValue("ClusterMasterInstanceGroup.bidPrice");
+        if (!unknown_bidPrice) return value_bidPrice;
+        throw new UndeferrableValueException("Value 'ClusterMasterInstanceGroup.bidPrice' is not present");
     }
 
     /**
      * Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ClusterMasterInstanceGroupEbsConfig>> ebsConfigs;
-
+    @PolicyResourceProperty(name="ebsConfigs", flag="unknown_ebsConfigs")
+    private @Nullable List<ClusterMasterInstanceGroupEbsConfig> value_ebsConfigs;
+    private boolean unknown_ebsConfigs;
     public @Nullable List<ClusterMasterInstanceGroupEbsConfig> ebsConfigs() {
-        if (ebsConfigs == null) return null;
-        return ebsConfigs.getValue("ClusterMasterInstanceGroup.ebsConfigs");
+        if (!unknown_ebsConfigs) return value_ebsConfigs;
+        throw new UndeferrableValueException("Value 'ClusterMasterInstanceGroup.ebsConfigs' is not present");
     }
 
     /**
      * Master node type Instance Group ID, if using Instance Group for this node type.
      * 
      */
-    private @Nullable UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private @Nullable String value_id;
+    private boolean unknown_id;
     public @Nullable String id() {
-        if (id == null) return null;
-        return id.getValue("ClusterMasterInstanceGroup.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'ClusterMasterInstanceGroup.id' is not present");
     }
 
     /**
      * Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource&#39;s `core_instance_group` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `termination_protection = false` configuration applied before destroying this resource.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> instanceCount;
-
+    @PolicyResourceProperty(name="instanceCount", flag="unknown_instanceCount")
+    private @Nullable Integer value_instanceCount;
+    private boolean unknown_instanceCount;
     public @Nullable Integer instanceCount() {
-        if (instanceCount == null) return null;
-        return instanceCount.getValue("ClusterMasterInstanceGroup.instanceCount");
+        if (!unknown_instanceCount) return value_instanceCount;
+        throw new UndeferrableValueException("Value 'ClusterMasterInstanceGroup.instanceCount' is not present");
     }
 
     /**
      * EC2 instance type for all instances in the instance group.
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("ClusterMasterInstanceGroup.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'ClusterMasterInstanceGroup.instanceType' is not present");
     }
 
     /**
      * Friendly name given to the instance group.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("ClusterMasterInstanceGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ClusterMasterInstanceGroup.name' is not present");
     }
 
 }

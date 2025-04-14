@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.opensearch.inputs.ServerlessSecurityConfigSamlOptionsArgs;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class ServerlessSecurityConfigArgs extends com.pulumi.resources.Pol
      * Description of the security configuration.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ServerlessSecurityConfigArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ServerlessSecurityConfigArgs.description' is not present");
     }
 
     /**
      * Name of the policy.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ServerlessSecurityConfigArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ServerlessSecurityConfigArgs.name' is not present");
     }
 
     /**
      * Configuration block for SAML options.
      * 
      */
-    private UndeferrableValue<ServerlessSecurityConfigSamlOptionsArgs> samlOptions;
-
+    @PolicyResourceProperty(name="samlOptions", flag="unknown_samlOptions")
+    private ServerlessSecurityConfigSamlOptionsArgs value_samlOptions;
+    private boolean unknown_samlOptions;
     public ServerlessSecurityConfigSamlOptionsArgs samlOptions() {
-        if (samlOptions == null) return null;
-        return samlOptions.getValue("ServerlessSecurityConfigArgs.samlOptions");
+        if (!unknown_samlOptions) return value_samlOptions;
+        throw new UndeferrableValueException("Value 'ServerlessSecurityConfigArgs.samlOptions' is not present");
     }
 
     /**
@@ -52,11 +56,12 @@ public final class ServerlessSecurityConfigArgs extends com.pulumi.resources.Pol
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ServerlessSecurityConfigArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ServerlessSecurityConfigArgs.type' is not present");
     }
 
 }

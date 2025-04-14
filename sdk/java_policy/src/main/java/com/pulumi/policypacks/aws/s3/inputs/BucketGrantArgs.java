@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class BucketGrantArgs {
      * Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("BucketGrantArgs.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'BucketGrantArgs.id' is not present");
     }
 
     /**
      * List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
      * 
      */
-    private UndeferrableValue<List<String>> permissions;
-
+    @PolicyResourceProperty(name="permissions", flag="unknown_permissions")
+    private List<String> value_permissions;
+    private boolean unknown_permissions;
     public List<String> permissions() {
-        if (permissions == null) return null;
-        return permissions.getValue("BucketGrantArgs.permissions");
+        if (!unknown_permissions) return value_permissions;
+        throw new UndeferrableValueException("Value 'BucketGrantArgs.permissions' is not present");
     }
 
     /**
      * Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("BucketGrantArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'BucketGrantArgs.type' is not present");
     }
 
     /**
      * Uri address to grant for. Used only when `type` is `Group`.
      * 
      */
-    private UndeferrableValue<String> uri;
-
+    @PolicyResourceProperty(name="uri", flag="unknown_uri")
+    private String value_uri;
+    private boolean unknown_uri;
     public String uri() {
-        if (uri == null) return null;
-        return uri.getValue("BucketGrantArgs.uri");
+        if (!unknown_uri) return value_uri;
+        throw new UndeferrableValueException("Value 'BucketGrantArgs.uri' is not present");
     }
 
 }

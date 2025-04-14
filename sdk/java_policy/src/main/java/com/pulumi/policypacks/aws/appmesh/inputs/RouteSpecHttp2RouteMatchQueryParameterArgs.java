@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.RouteSpecHttp2RouteMatchQueryParameterMatchArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class RouteSpecHttp2RouteMatchQueryParameterArgs {
      * The query parameter to match on.
      * 
      */
-    private UndeferrableValue<RouteSpecHttp2RouteMatchQueryParameterMatchArgs> match;
-
+    @PolicyResourceProperty(name="match", flag="unknown_match")
+    private RouteSpecHttp2RouteMatchQueryParameterMatchArgs value_match;
+    private boolean unknown_match;
     public RouteSpecHttp2RouteMatchQueryParameterMatchArgs match() {
-        if (match == null) return null;
-        return match.getValue("RouteSpecHttp2RouteMatchQueryParameterArgs.match");
+        if (!unknown_match) return value_match;
+        throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteMatchQueryParameterArgs.match' is not present");
     }
 
     /**
      * Name for the query parameter that will be matched on.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RouteSpecHttp2RouteMatchQueryParameterArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteMatchQueryParameterArgs.name' is not present");
     }
 
 }

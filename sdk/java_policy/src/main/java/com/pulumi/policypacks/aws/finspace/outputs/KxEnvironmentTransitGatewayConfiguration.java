@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.finspace.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.finspace.outputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class KxEnvironmentTransitGatewayConfiguration {
      * Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
      * 
      */
-    private @Nullable UndeferrableValue<List<KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration>> attachmentNetworkAclConfigurations;
-
+    @PolicyResourceProperty(name="attachmentNetworkAclConfigurations", flag="unknown_attachmentNetworkAclConfigurations")
+    private @Nullable List<KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration> value_attachmentNetworkAclConfigurations;
+    private boolean unknown_attachmentNetworkAclConfigurations;
     public @Nullable List<KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration> attachmentNetworkAclConfigurations() {
-        if (attachmentNetworkAclConfigurations == null) return null;
-        return attachmentNetworkAclConfigurations.getValue("KxEnvironmentTransitGatewayConfiguration.attachmentNetworkAclConfigurations");
+        if (!unknown_attachmentNetworkAclConfigurations) return value_attachmentNetworkAclConfigurations;
+        throw new UndeferrableValueException("Value 'KxEnvironmentTransitGatewayConfiguration.attachmentNetworkAclConfigurations' is not present");
     }
 
     /**
      * Routing CIDR on behalf of KX environment. It could be any “/26 range in the 100.64.0.0 CIDR space. After providing, it will be added to the customer’s transit gateway routing table so that the traffics could be routed to KX network.
      * 
      */
-    private UndeferrableValue<String> routableCidrSpace;
-
+    @PolicyResourceProperty(name="routableCidrSpace", flag="unknown_routableCidrSpace")
+    private String value_routableCidrSpace;
+    private boolean unknown_routableCidrSpace;
     public String routableCidrSpace() {
-        if (routableCidrSpace == null) return null;
-        return routableCidrSpace.getValue("KxEnvironmentTransitGatewayConfiguration.routableCidrSpace");
+        if (!unknown_routableCidrSpace) return value_routableCidrSpace;
+        throw new UndeferrableValueException("Value 'KxEnvironmentTransitGatewayConfiguration.routableCidrSpace' is not present");
     }
 
     /**
      * Identifier of the transit gateway created by the customer to connect outbound traffics from KX network to your internal network.
      * 
      */
-    private UndeferrableValue<String> transitGatewayId;
-
+    @PolicyResourceProperty(name="transitGatewayId", flag="unknown_transitGatewayId")
+    private String value_transitGatewayId;
+    private boolean unknown_transitGatewayId;
     public String transitGatewayId() {
-        if (transitGatewayId == null) return null;
-        return transitGatewayId.getValue("KxEnvironmentTransitGatewayConfiguration.transitGatewayId");
+        if (!unknown_transitGatewayId) return value_transitGatewayId;
+        throw new UndeferrableValueException("Value 'KxEnvironmentTransitGatewayConfiguration.transitGatewayId' is not present");
     }
 
 }

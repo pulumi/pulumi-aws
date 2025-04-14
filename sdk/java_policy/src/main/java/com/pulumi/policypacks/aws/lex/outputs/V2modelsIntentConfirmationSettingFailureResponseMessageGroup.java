@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessage;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariation;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class V2modelsIntentConfirmationSettingFailureResponseMessageGroup 
      * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessage> message;
-
+    @PolicyResourceProperty(name="message", flag="unknown_message")
+    private V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessage value_message;
+    private boolean unknown_message;
     public V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessage message() {
-        if (message == null) return null;
-        return message.getValue("V2modelsIntentConfirmationSettingFailureResponseMessageGroup.message");
+        if (!unknown_message) return value_message;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingFailureResponseMessageGroup.message' is not present");
     }
 
     /**
      * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
      * 
      */
-    private @Nullable UndeferrableValue<List<V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariation>> variations;
-
+    @PolicyResourceProperty(name="variations", flag="unknown_variations")
+    private @Nullable List<V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariation> value_variations;
+    private boolean unknown_variations;
     public @Nullable List<V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariation> variations() {
-        if (variations == null) return null;
-        return variations.getValue("V2modelsIntentConfirmationSettingFailureResponseMessageGroup.variations");
+        if (!unknown_variations) return value_variations;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingFailureResponseMessageGroup.variations' is not present");
     }
 
 }

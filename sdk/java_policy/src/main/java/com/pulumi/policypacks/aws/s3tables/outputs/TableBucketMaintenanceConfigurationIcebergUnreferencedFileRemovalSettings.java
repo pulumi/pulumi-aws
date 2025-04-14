@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3tables.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -14,11 +15,12 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
      * Must be at least `1`.
      * 
      */
-    private UndeferrableValue<Integer> nonCurrentDays;
-
+    @PolicyResourceProperty(name="nonCurrentDays", flag="unknown_nonCurrentDays")
+    private Integer value_nonCurrentDays;
+    private boolean unknown_nonCurrentDays;
     public Integer nonCurrentDays() {
-        if (nonCurrentDays == null) return null;
-        return nonCurrentDays.getValue("TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings.nonCurrentDays");
+        if (!unknown_nonCurrentDays) return value_nonCurrentDays;
+        throw new UndeferrableValueException("Value 'TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings.nonCurrentDays' is not present");
     }
 
     /**
@@ -26,11 +28,12 @@ public final class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRem
      * Must be at least `1`.
      * 
      */
-    private UndeferrableValue<Integer> unreferencedDays;
-
+    @PolicyResourceProperty(name="unreferencedDays", flag="unknown_unreferencedDays")
+    private Integer value_unreferencedDays;
+    private boolean unknown_unreferencedDays;
     public Integer unreferencedDays() {
-        if (unreferencedDays == null) return null;
-        return unreferencedDays.getValue("TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings.unreferencedDays");
+        if (!unknown_unreferencedDays) return value_unreferencedDays;
+        throw new UndeferrableValueException("Value 'TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings.unreferencedDays' is not present");
     }
 
 }

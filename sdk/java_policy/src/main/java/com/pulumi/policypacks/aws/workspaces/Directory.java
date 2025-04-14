@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.workspaces;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.workspaces.outputs.DirectorySamlProperties;
 import com.pulumi.policypacks.aws.workspaces.outputs.DirectorySelfServicePermissions;
@@ -22,143 +23,156 @@ public final class Directory extends com.pulumi.resources.PolicyResourceOutput {
      * The directory alias.
      * 
      */
-    private UndeferrableValue<String> alias;
-
+    @PolicyResourceProperty(name="alias", flag="unknown_alias")
+    private String value_alias;
+    private boolean unknown_alias;
     public String alias() {
-        if (alias == null) return null;
-        return alias.getValue("Directory.alias");
+        if (!unknown_alias) return value_alias;
+        throw new UndeferrableValueException("Value 'Directory.alias' is not present");
     }
 
     /**
      * The user name for the service account.
      * 
      */
-    private UndeferrableValue<String> customerUserName;
-
+    @PolicyResourceProperty(name="customerUserName", flag="unknown_customerUserName")
+    private String value_customerUserName;
+    private boolean unknown_customerUserName;
     public String customerUserName() {
-        if (customerUserName == null) return null;
-        return customerUserName.getValue("Directory.customerUserName");
+        if (!unknown_customerUserName) return value_customerUserName;
+        throw new UndeferrableValueException("Value 'Directory.customerUserName' is not present");
     }
 
     /**
      * The directory identifier for registration in WorkSpaces service.
      * 
      */
-    private UndeferrableValue<String> directoryId;
-
+    @PolicyResourceProperty(name="directoryId", flag="unknown_directoryId")
+    private String value_directoryId;
+    private boolean unknown_directoryId;
     public String directoryId() {
-        if (directoryId == null) return null;
-        return directoryId.getValue("Directory.directoryId");
+        if (!unknown_directoryId) return value_directoryId;
+        throw new UndeferrableValueException("Value 'Directory.directoryId' is not present");
     }
 
     /**
      * The name of the directory.
      * 
      */
-    private UndeferrableValue<String> directoryName;
-
+    @PolicyResourceProperty(name="directoryName", flag="unknown_directoryName")
+    private String value_directoryName;
+    private boolean unknown_directoryName;
     public String directoryName() {
-        if (directoryName == null) return null;
-        return directoryName.getValue("Directory.directoryName");
+        if (!unknown_directoryName) return value_directoryName;
+        throw new UndeferrableValueException("Value 'Directory.directoryName' is not present");
     }
 
     /**
      * The directory type.
      * 
      */
-    private UndeferrableValue<String> directoryType;
-
+    @PolicyResourceProperty(name="directoryType", flag="unknown_directoryType")
+    private String value_directoryType;
+    private boolean unknown_directoryType;
     public String directoryType() {
-        if (directoryType == null) return null;
-        return directoryType.getValue("Directory.directoryType");
+        if (!unknown_directoryType) return value_directoryType;
+        throw new UndeferrableValueException("Value 'Directory.directoryType' is not present");
     }
 
     /**
      * The IP addresses of the DNS servers for the directory.
      * 
      */
-    private UndeferrableValue<List<String>> dnsIpAddresses;
-
+    @PolicyResourceProperty(name="dnsIpAddresses", flag="unknown_dnsIpAddresses")
+    private List<String> value_dnsIpAddresses;
+    private boolean unknown_dnsIpAddresses;
     public List<String> dnsIpAddresses() {
-        if (dnsIpAddresses == null) return null;
-        return dnsIpAddresses.getValue("Directory.dnsIpAddresses");
+        if (!unknown_dnsIpAddresses) return value_dnsIpAddresses;
+        throw new UndeferrableValueException("Value 'Directory.dnsIpAddresses' is not present");
     }
 
     /**
      * The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
      * 
      */
-    private UndeferrableValue<String> iamRoleId;
-
+    @PolicyResourceProperty(name="iamRoleId", flag="unknown_iamRoleId")
+    private String value_iamRoleId;
+    private boolean unknown_iamRoleId;
     public String iamRoleId() {
-        if (iamRoleId == null) return null;
-        return iamRoleId.getValue("Directory.iamRoleId");
+        if (!unknown_iamRoleId) return value_iamRoleId;
+        throw new UndeferrableValueException("Value 'Directory.iamRoleId' is not present");
     }
 
     /**
      * The identifiers of the IP access control groups associated with the directory.
      * 
      */
-    private UndeferrableValue<List<String>> ipGroupIds;
-
+    @PolicyResourceProperty(name="ipGroupIds", flag="unknown_ipGroupIds")
+    private List<String> value_ipGroupIds;
+    private boolean unknown_ipGroupIds;
     public List<String> ipGroupIds() {
-        if (ipGroupIds == null) return null;
-        return ipGroupIds.getValue("Directory.ipGroupIds");
+        if (!unknown_ipGroupIds) return value_ipGroupIds;
+        throw new UndeferrableValueException("Value 'Directory.ipGroupIds' is not present");
     }
 
     /**
      * The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
      * 
      */
-    private UndeferrableValue<String> registrationCode;
-
+    @PolicyResourceProperty(name="registrationCode", flag="unknown_registrationCode")
+    private String value_registrationCode;
+    private boolean unknown_registrationCode;
     public String registrationCode() {
-        if (registrationCode == null) return null;
-        return registrationCode.getValue("Directory.registrationCode");
+        if (!unknown_registrationCode) return value_registrationCode;
+        throw new UndeferrableValueException("Value 'Directory.registrationCode' is not present");
     }
 
     /**
      * Configuration of SAML authentication integration. Defined below.
      * 
      */
-    private UndeferrableValue<DirectorySamlProperties> samlProperties;
-
+    @PolicyResourceProperty(name="samlProperties", flag="unknown_samlProperties")
+    private DirectorySamlProperties value_samlProperties;
+    private boolean unknown_samlProperties;
     public DirectorySamlProperties samlProperties() {
-        if (samlProperties == null) return null;
-        return samlProperties.getValue("Directory.samlProperties");
+        if (!unknown_samlProperties) return value_samlProperties;
+        throw new UndeferrableValueException("Value 'Directory.samlProperties' is not present");
     }
 
     /**
      * Permissions to enable or disable self-service capabilities. Defined below.
      * 
      */
-    private UndeferrableValue<DirectorySelfServicePermissions> selfServicePermissions;
-
+    @PolicyResourceProperty(name="selfServicePermissions", flag="unknown_selfServicePermissions")
+    private DirectorySelfServicePermissions value_selfServicePermissions;
+    private boolean unknown_selfServicePermissions;
     public DirectorySelfServicePermissions selfServicePermissions() {
-        if (selfServicePermissions == null) return null;
-        return selfServicePermissions.getValue("Directory.selfServicePermissions");
+        if (!unknown_selfServicePermissions) return value_selfServicePermissions;
+        throw new UndeferrableValueException("Value 'Directory.selfServicePermissions' is not present");
     }
 
     /**
      * The identifiers of the subnets where the directory resides.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("Directory.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'Directory.subnetIds' is not present");
     }
 
     /**
      * A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Directory.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Directory.tags' is not present");
     }
 
     /**
@@ -169,44 +183,48 @@ public final class Directory extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Directory.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Directory.tagsAll' is not present");
     }
 
     /**
      * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      * 
      */
-    private UndeferrableValue<DirectoryWorkspaceAccessProperties> workspaceAccessProperties;
-
+    @PolicyResourceProperty(name="workspaceAccessProperties", flag="unknown_workspaceAccessProperties")
+    private DirectoryWorkspaceAccessProperties value_workspaceAccessProperties;
+    private boolean unknown_workspaceAccessProperties;
     public DirectoryWorkspaceAccessProperties workspaceAccessProperties() {
-        if (workspaceAccessProperties == null) return null;
-        return workspaceAccessProperties.getValue("Directory.workspaceAccessProperties");
+        if (!unknown_workspaceAccessProperties) return value_workspaceAccessProperties;
+        throw new UndeferrableValueException("Value 'Directory.workspaceAccessProperties' is not present");
     }
 
     /**
      * Default properties that are used for creating WorkSpaces. Defined below.
      * 
      */
-    private UndeferrableValue<DirectoryWorkspaceCreationProperties> workspaceCreationProperties;
-
+    @PolicyResourceProperty(name="workspaceCreationProperties", flag="unknown_workspaceCreationProperties")
+    private DirectoryWorkspaceCreationProperties value_workspaceCreationProperties;
+    private boolean unknown_workspaceCreationProperties;
     public DirectoryWorkspaceCreationProperties workspaceCreationProperties() {
-        if (workspaceCreationProperties == null) return null;
-        return workspaceCreationProperties.getValue("Directory.workspaceCreationProperties");
+        if (!unknown_workspaceCreationProperties) return value_workspaceCreationProperties;
+        throw new UndeferrableValueException("Value 'Directory.workspaceCreationProperties' is not present");
     }
 
     /**
      * The identifier of the security group that is assigned to new WorkSpaces.
      * 
      */
-    private UndeferrableValue<String> workspaceSecurityGroupId;
-
+    @PolicyResourceProperty(name="workspaceSecurityGroupId", flag="unknown_workspaceSecurityGroupId")
+    private String value_workspaceSecurityGroupId;
+    private boolean unknown_workspaceSecurityGroupId;
     public String workspaceSecurityGroupId() {
-        if (workspaceSecurityGroupId == null) return null;
-        return workspaceSecurityGroupId.getValue("Directory.workspaceSecurityGroupId");
+        if (!unknown_workspaceSecurityGroupId) return value_workspaceSecurityGroupId;
+        throw new UndeferrableValueException("Value 'Directory.workspaceSecurityGroupId' is not present");
     }
 
 }

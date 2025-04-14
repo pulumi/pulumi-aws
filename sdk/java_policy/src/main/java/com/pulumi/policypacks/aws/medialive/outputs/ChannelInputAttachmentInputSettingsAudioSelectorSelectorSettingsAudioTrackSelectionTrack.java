@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,11 +14,12 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
      * 1-based integer value that maps to a specific audio track.
      * 
      */
-    private UndeferrableValue<Integer> track;
-
+    @PolicyResourceProperty(name="track", flag="unknown_track")
+    private Integer value_track;
+    private boolean unknown_track;
     public Integer track() {
-        if (track == null) return null;
-        return track.getValue("ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack.track");
+        if (!unknown_track) return value_track;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack.track' is not present");
     }
 
 }

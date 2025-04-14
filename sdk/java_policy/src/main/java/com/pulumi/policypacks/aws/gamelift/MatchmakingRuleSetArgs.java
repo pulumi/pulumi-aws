@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.gamelift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,29 +18,32 @@ public final class MatchmakingRuleSetArgs extends com.pulumi.resources.PolicyRes
      * Name of the matchmaking rule set.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("MatchmakingRuleSetArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'MatchmakingRuleSetArgs.name' is not present");
     }
 
     /**
      * JSON encoded string containing rule set data.
      * 
      */
-    private UndeferrableValue<String> ruleSetBody;
-
+    @PolicyResourceProperty(name="ruleSetBody", flag="unknown_ruleSetBody")
+    private String value_ruleSetBody;
+    private boolean unknown_ruleSetBody;
     public String ruleSetBody() {
-        if (ruleSetBody == null) return null;
-        return ruleSetBody.getValue("MatchmakingRuleSetArgs.ruleSetBody");
+        if (!unknown_ruleSetBody) return value_ruleSetBody;
+        throw new UndeferrableValueException("Value 'MatchmakingRuleSetArgs.ruleSetBody' is not present");
     }
 
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("MatchmakingRuleSetArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'MatchmakingRuleSetArgs.tags' is not present");
     }
 
 }

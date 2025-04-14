@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.synthetics.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class CanaryArtifactConfigS3Encryption {
      * The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
      * 
      */
-    private @Nullable UndeferrableValue<String> encryptionMode;
-
+    @PolicyResourceProperty(name="encryptionMode", flag="unknown_encryptionMode")
+    private @Nullable String value_encryptionMode;
+    private boolean unknown_encryptionMode;
     public @Nullable String encryptionMode() {
-        if (encryptionMode == null) return null;
-        return encryptionMode.getValue("CanaryArtifactConfigS3Encryption.encryptionMode");
+        if (!unknown_encryptionMode) return value_encryptionMode;
+        throw new UndeferrableValueException("Value 'CanaryArtifactConfigS3Encryption.encryptionMode' is not present");
     }
 
     /**
      * The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryption_mode`.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private @Nullable String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public @Nullable String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("CanaryArtifactConfigS3Encryption.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'CanaryArtifactConfigS3Encryption.kmsKeyArn' is not present");
     }
 
 }

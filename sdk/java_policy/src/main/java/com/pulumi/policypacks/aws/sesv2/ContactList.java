@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sesv2.outputs.ContactListTopic;
 import java.lang.String;
@@ -15,11 +16,12 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:sesv2/contactList:ContactList")
 public final class ContactList extends com.pulumi.resources.PolicyResourceOutput {
 
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ContactList.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ContactList.arn' is not present");
     }
 
     /**
@@ -28,55 +30,60 @@ public final class ContactList extends com.pulumi.resources.PolicyResourceOutput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> contactListName;
-
+    @PolicyResourceProperty(name="contactListName", flag="unknown_contactListName")
+    private String value_contactListName;
+    private boolean unknown_contactListName;
     public String contactListName() {
-        if (contactListName == null) return null;
-        return contactListName.getValue("ContactList.contactListName");
+        if (!unknown_contactListName) return value_contactListName;
+        throw new UndeferrableValueException("Value 'ContactList.contactListName' is not present");
     }
 
     /**
      * Timestamp noting when the contact list was created in ISO 8601 format.
      * 
      */
-    private UndeferrableValue<String> createdTimestamp;
-
+    @PolicyResourceProperty(name="createdTimestamp", flag="unknown_createdTimestamp")
+    private String value_createdTimestamp;
+    private boolean unknown_createdTimestamp;
     public String createdTimestamp() {
-        if (createdTimestamp == null) return null;
-        return createdTimestamp.getValue("ContactList.createdTimestamp");
+        if (!unknown_createdTimestamp) return value_createdTimestamp;
+        throw new UndeferrableValueException("Value 'ContactList.createdTimestamp' is not present");
     }
 
     /**
      * Description of what the contact list is about.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ContactList.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ContactList.description' is not present");
     }
 
     /**
      * Timestamp noting the last time the contact list was updated in ISO 8601 format.
      * 
      */
-    private UndeferrableValue<String> lastUpdatedTimestamp;
-
+    @PolicyResourceProperty(name="lastUpdatedTimestamp", flag="unknown_lastUpdatedTimestamp")
+    private String value_lastUpdatedTimestamp;
+    private boolean unknown_lastUpdatedTimestamp;
     public String lastUpdatedTimestamp() {
-        if (lastUpdatedTimestamp == null) return null;
-        return lastUpdatedTimestamp.getValue("ContactList.lastUpdatedTimestamp");
+        if (!unknown_lastUpdatedTimestamp) return value_lastUpdatedTimestamp;
+        throw new UndeferrableValueException("Value 'ContactList.lastUpdatedTimestamp' is not present");
     }
 
     /**
      * Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ContactList.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ContactList.tags' is not present");
     }
 
     /**
@@ -85,22 +92,24 @@ public final class ContactList extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ContactList.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ContactList.tagsAll' is not present");
     }
 
     /**
      * Configuration block(s) with topic for the contact list. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ContactListTopic>> topics;
-
+    @PolicyResourceProperty(name="topics", flag="unknown_topics")
+    private @Nullable List<ContactListTopic> value_topics;
+    private boolean unknown_topics;
     public @Nullable List<ContactListTopic> topics() {
-        if (topics == null) return null;
-        return topics.getValue("ContactList.topics");
+        if (!unknown_topics) return value_topics;
+        throw new UndeferrableValueException("Value 'ContactList.topics' is not present");
     }
 
 }

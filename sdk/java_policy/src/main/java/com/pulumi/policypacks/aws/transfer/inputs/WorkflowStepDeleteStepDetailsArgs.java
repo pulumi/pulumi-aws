@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class WorkflowStepDeleteStepDetailsArgs {
      * The name of the step, used as an identifier.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("WorkflowStepDeleteStepDetailsArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'WorkflowStepDeleteStepDetailsArgs.name' is not present");
     }
 
     /**
      * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
      * 
      */
-    private UndeferrableValue<String> sourceFileLocation;
-
+    @PolicyResourceProperty(name="sourceFileLocation", flag="unknown_sourceFileLocation")
+    private String value_sourceFileLocation;
+    private boolean unknown_sourceFileLocation;
     public String sourceFileLocation() {
-        if (sourceFileLocation == null) return null;
-        return sourceFileLocation.getValue("WorkflowStepDeleteStepDetailsArgs.sourceFileLocation");
+        if (!unknown_sourceFileLocation) return value_sourceFileLocation;
+        throw new UndeferrableValueException("Value 'WorkflowStepDeleteStepDetailsArgs.sourceFileLocation' is not present");
     }
 
 }

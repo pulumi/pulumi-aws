@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class WorkteamMemberDefinitionOidcMemberDefinitionArgs {
      * A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
      * 
      */
-    private UndeferrableValue<List<String>> groups;
-
+    @PolicyResourceProperty(name="groups", flag="unknown_groups")
+    private List<String> value_groups;
+    private boolean unknown_groups;
     public List<String> groups() {
-        if (groups == null) return null;
-        return groups.getValue("WorkteamMemberDefinitionOidcMemberDefinitionArgs.groups");
+        if (!unknown_groups) return value_groups;
+        throw new UndeferrableValueException("Value 'WorkteamMemberDefinitionOidcMemberDefinitionArgs.groups' is not present");
     }
 
 }

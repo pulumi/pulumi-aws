@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class UserProfileArgs extends com.pulumi.resources.PolicyResourceIn
      * Whether users can specify their own SSH public key through the My Settings page
      * 
      */
-    private UndeferrableValue<Boolean> allowSelfManagement;
-
+    @PolicyResourceProperty(name="allowSelfManagement", flag="unknown_allowSelfManagement")
+    private Boolean value_allowSelfManagement;
+    private boolean unknown_allowSelfManagement;
     public Boolean allowSelfManagement() {
-        if (allowSelfManagement == null) return null;
-        return allowSelfManagement.getValue("UserProfileArgs.allowSelfManagement");
+        if (!unknown_allowSelfManagement) return value_allowSelfManagement;
+        throw new UndeferrableValueException("Value 'UserProfileArgs.allowSelfManagement' is not present");
     }
 
     /**
      * The users public key
      * 
      */
-    private UndeferrableValue<String> sshPublicKey;
-
+    @PolicyResourceProperty(name="sshPublicKey", flag="unknown_sshPublicKey")
+    private String value_sshPublicKey;
+    private boolean unknown_sshPublicKey;
     public String sshPublicKey() {
-        if (sshPublicKey == null) return null;
-        return sshPublicKey.getValue("UserProfileArgs.sshPublicKey");
+        if (!unknown_sshPublicKey) return value_sshPublicKey;
+        throw new UndeferrableValueException("Value 'UserProfileArgs.sshPublicKey' is not present");
     }
 
     /**
      * The ssh username, with witch this user wants to log in
      * 
      */
-    private UndeferrableValue<String> sshUsername;
-
+    @PolicyResourceProperty(name="sshUsername", flag="unknown_sshUsername")
+    private String value_sshUsername;
+    private boolean unknown_sshUsername;
     public String sshUsername() {
-        if (sshUsername == null) return null;
-        return sshUsername.getValue("UserProfileArgs.sshUsername");
+        if (!unknown_sshUsername) return value_sshUsername;
+        throw new UndeferrableValueException("Value 'UserProfileArgs.sshUsername' is not present");
     }
 
     /**
      * The user&#39;s IAM ARN
      * 
      */
-    private UndeferrableValue<String> userArn;
-
+    @PolicyResourceProperty(name="userArn", flag="unknown_userArn")
+    private String value_userArn;
+    private boolean unknown_userArn;
     public String userArn() {
-        if (userArn == null) return null;
-        return userArn.getValue("UserProfileArgs.userArn");
+        if (!unknown_userArn) return value_userArn;
+        throw new UndeferrableValueException("Value 'UserProfileArgs.userArn' is not present");
     }
 
 }

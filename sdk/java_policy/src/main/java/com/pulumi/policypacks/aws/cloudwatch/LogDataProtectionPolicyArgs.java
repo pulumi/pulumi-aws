@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class LogDataProtectionPolicyArgs extends com.pulumi.resources.Poli
      * The name of the log group under which the log stream is to be created.
      * 
      */
-    private UndeferrableValue<String> logGroupName;
-
+    @PolicyResourceProperty(name="logGroupName", flag="unknown_logGroupName")
+    private String value_logGroupName;
+    private boolean unknown_logGroupName;
     public String logGroupName() {
-        if (logGroupName == null) return null;
-        return logGroupName.getValue("LogDataProtectionPolicyArgs.logGroupName");
+        if (!unknown_logGroupName) return value_logGroupName;
+        throw new UndeferrableValueException("Value 'LogDataProtectionPolicyArgs.logGroupName' is not present");
     }
 
     /**
      * Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
      * 
      */
-    private UndeferrableValue<String> policyDocument;
-
+    @PolicyResourceProperty(name="policyDocument", flag="unknown_policyDocument")
+    private String value_policyDocument;
+    private boolean unknown_policyDocument;
     public String policyDocument() {
-        if (policyDocument == null) return null;
-        return policyDocument.getValue("LogDataProtectionPolicyArgs.policyDocument");
+        if (!unknown_policyDocument) return value_policyDocument;
+        throw new UndeferrableValueException("Value 'LogDataProtectionPolicyArgs.policyDocument' is not present");
     }
 
 }

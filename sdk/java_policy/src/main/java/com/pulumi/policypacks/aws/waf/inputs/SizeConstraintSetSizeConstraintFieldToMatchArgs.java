@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.waf.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class SizeConstraintSetSizeConstraintFieldToMatchArgs {
      * When the `type` is `HEADER`, specify the name of the header that you want to search using the `data` field, for example, `User-Agent` or `Referer`. If the `type` is any other value, you can omit this field.
      * 
      */
-    private UndeferrableValue<String> data;
-
+    @PolicyResourceProperty(name="data", flag="unknown_data")
+    private String value_data;
+    private boolean unknown_data;
     public String data() {
-        if (data == null) return null;
-        return data.getValue("SizeConstraintSetSizeConstraintFieldToMatchArgs.data");
+        if (!unknown_data) return value_data;
+        throw new UndeferrableValueException("Value 'SizeConstraintSetSizeConstraintFieldToMatchArgs.data' is not present");
     }
 
     /**
      * Part of the web request that you want AWS WAF to search for a specified string. For example, `HEADER`, `METHOD`, or `BODY`. See the [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html) for all supported values.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("SizeConstraintSetSizeConstraintFieldToMatchArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'SizeConstraintSetSizeConstraintFieldToMatchArgs.type' is not present");
     }
 
 }

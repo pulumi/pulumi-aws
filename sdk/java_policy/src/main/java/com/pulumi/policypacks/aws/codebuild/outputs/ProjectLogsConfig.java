@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codebuild.outputs.ProjectLogsConfigCloudwatchLogs;
 import com.pulumi.policypacks.aws.codebuild.outputs.ProjectLogsConfigS3Logs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ProjectLogsConfig {
      * Configuration block. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<ProjectLogsConfigCloudwatchLogs> cloudwatchLogs;
-
+    @PolicyResourceProperty(name="cloudwatchLogs", flag="unknown_cloudwatchLogs")
+    private @Nullable ProjectLogsConfigCloudwatchLogs value_cloudwatchLogs;
+    private boolean unknown_cloudwatchLogs;
     public @Nullable ProjectLogsConfigCloudwatchLogs cloudwatchLogs() {
-        if (cloudwatchLogs == null) return null;
-        return cloudwatchLogs.getValue("ProjectLogsConfig.cloudwatchLogs");
+        if (!unknown_cloudwatchLogs) return value_cloudwatchLogs;
+        throw new UndeferrableValueException("Value 'ProjectLogsConfig.cloudwatchLogs' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<ProjectLogsConfigS3Logs> s3Logs;
-
+    @PolicyResourceProperty(name="s3Logs", flag="unknown_s3Logs")
+    private @Nullable ProjectLogsConfigS3Logs value_s3Logs;
+    private boolean unknown_s3Logs;
     public @Nullable ProjectLogsConfigS3Logs s3Logs() {
-        if (s3Logs == null) return null;
-        return s3Logs.getValue("ProjectLogsConfig.s3Logs");
+        if (!unknown_s3Logs) return value_s3Logs;
+        throw new UndeferrableValueException("Value 'ProjectLogsConfig.s3Logs' is not present");
     }
 
 }

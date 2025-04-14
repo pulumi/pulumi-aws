@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.outputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfig {
      * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("DataQualityJobDefinitionDataQualityJobOutputConfig.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobOutputConfig.kmsKeyId' is not present");
     }
 
     /**
      * Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded. Fields are documented below.
      * 
      */
-    private UndeferrableValue<DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs> monitoringOutputs;
-
+    @PolicyResourceProperty(name="monitoringOutputs", flag="unknown_monitoringOutputs")
+    private DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs value_monitoringOutputs;
+    private boolean unknown_monitoringOutputs;
     public DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs monitoringOutputs() {
-        if (monitoringOutputs == null) return null;
-        return monitoringOutputs.getValue("DataQualityJobDefinitionDataQualityJobOutputConfig.monitoringOutputs");
+        if (!unknown_monitoringOutputs) return value_monitoringOutputs;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobOutputConfig.monitoringOutputs' is not present");
     }
 
 }

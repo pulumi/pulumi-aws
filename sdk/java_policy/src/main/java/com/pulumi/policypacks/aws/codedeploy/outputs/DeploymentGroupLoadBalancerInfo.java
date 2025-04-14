@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codedeploy.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codedeploy.outputs.DeploymentGroupLoadBalancerInfoElbInfo;
 import com.pulumi.policypacks.aws.codedeploy.outputs.DeploymentGroupLoadBalancerInfoTargetGroupInfo;
 import com.pulumi.policypacks.aws.codedeploy.outputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfo;
@@ -17,33 +18,36 @@ public final class DeploymentGroupLoadBalancerInfo {
      * The Classic Elastic Load Balancer to use in a deployment. Conflicts with `target_group_info` and `target_group_pair_info`.
      * 
      */
-    private @Nullable UndeferrableValue<List<DeploymentGroupLoadBalancerInfoElbInfo>> elbInfos;
-
+    @PolicyResourceProperty(name="elbInfos", flag="unknown_elbInfos")
+    private @Nullable List<DeploymentGroupLoadBalancerInfoElbInfo> value_elbInfos;
+    private boolean unknown_elbInfos;
     public @Nullable List<DeploymentGroupLoadBalancerInfoElbInfo> elbInfos() {
-        if (elbInfos == null) return null;
-        return elbInfos.getValue("DeploymentGroupLoadBalancerInfo.elbInfos");
+        if (!unknown_elbInfos) return value_elbInfos;
+        throw new UndeferrableValueException("Value 'DeploymentGroupLoadBalancerInfo.elbInfos' is not present");
     }
 
     /**
      * The (Application/Network Load Balancer) target group to use in a deployment. Conflicts with `elb_info` and `target_group_pair_info`.
      * 
      */
-    private @Nullable UndeferrableValue<List<DeploymentGroupLoadBalancerInfoTargetGroupInfo>> targetGroupInfos;
-
+    @PolicyResourceProperty(name="targetGroupInfos", flag="unknown_targetGroupInfos")
+    private @Nullable List<DeploymentGroupLoadBalancerInfoTargetGroupInfo> value_targetGroupInfos;
+    private boolean unknown_targetGroupInfos;
     public @Nullable List<DeploymentGroupLoadBalancerInfoTargetGroupInfo> targetGroupInfos() {
-        if (targetGroupInfos == null) return null;
-        return targetGroupInfos.getValue("DeploymentGroupLoadBalancerInfo.targetGroupInfos");
+        if (!unknown_targetGroupInfos) return value_targetGroupInfos;
+        throw new UndeferrableValueException("Value 'DeploymentGroupLoadBalancerInfo.targetGroupInfos' is not present");
     }
 
     /**
      * The (Application/Network Load Balancer) target group pair to use in a deployment. Conflicts with `elb_info` and `target_group_info`.
      * 
      */
-    private @Nullable UndeferrableValue<DeploymentGroupLoadBalancerInfoTargetGroupPairInfo> targetGroupPairInfo;
-
+    @PolicyResourceProperty(name="targetGroupPairInfo", flag="unknown_targetGroupPairInfo")
+    private @Nullable DeploymentGroupLoadBalancerInfoTargetGroupPairInfo value_targetGroupPairInfo;
+    private boolean unknown_targetGroupPairInfo;
     public @Nullable DeploymentGroupLoadBalancerInfoTargetGroupPairInfo targetGroupPairInfo() {
-        if (targetGroupPairInfo == null) return null;
-        return targetGroupPairInfo.getValue("DeploymentGroupLoadBalancerInfo.targetGroupPairInfo");
+        if (!unknown_targetGroupPairInfo) return value_targetGroupPairInfo;
+        throw new UndeferrableValueException("Value 'DeploymentGroupLoadBalancerInfo.targetGroupPairInfo' is not present");
     }
 
 }

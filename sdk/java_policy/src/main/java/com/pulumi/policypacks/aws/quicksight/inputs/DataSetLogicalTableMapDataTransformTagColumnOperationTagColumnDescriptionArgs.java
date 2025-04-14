@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperationTagColum
      * The text of a description for a column.
      * 
      */
-    private UndeferrableValue<String> text;
-
+    @PolicyResourceProperty(name="text", flag="unknown_text")
+    private String value_text;
+    private boolean unknown_text;
     public String text() {
-        if (text == null) return null;
-        return text.getValue("DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs.text");
+        if (!unknown_text) return value_text;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs.text' is not present");
     }
 
 }

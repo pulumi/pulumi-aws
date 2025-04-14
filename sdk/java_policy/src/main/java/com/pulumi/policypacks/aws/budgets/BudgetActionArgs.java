@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.budgets;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.budgets.inputs.BudgetActionActionThresholdArgs;
 import com.pulumi.policypacks.aws.budgets.inputs.BudgetActionDefinitionArgs;
@@ -21,110 +22,120 @@ public final class BudgetActionArgs extends com.pulumi.resources.PolicyResourceI
      * The ID of the target account for budget. Will use current user&#39;s account_id by default if omitted.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("BudgetActionArgs.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'BudgetActionArgs.accountId' is not present");
     }
 
     /**
      * The trigger threshold of the action. See Action Threshold.
      * 
      */
-    private UndeferrableValue<BudgetActionActionThresholdArgs> actionThreshold;
-
+    @PolicyResourceProperty(name="actionThreshold", flag="unknown_actionThreshold")
+    private BudgetActionActionThresholdArgs value_actionThreshold;
+    private boolean unknown_actionThreshold;
     public BudgetActionActionThresholdArgs actionThreshold() {
-        if (actionThreshold == null) return null;
-        return actionThreshold.getValue("BudgetActionArgs.actionThreshold");
+        if (!unknown_actionThreshold) return value_actionThreshold;
+        throw new UndeferrableValueException("Value 'BudgetActionArgs.actionThreshold' is not present");
     }
 
     /**
      * The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
      * 
      */
-    private UndeferrableValue<String> actionType;
-
+    @PolicyResourceProperty(name="actionType", flag="unknown_actionType")
+    private String value_actionType;
+    private boolean unknown_actionType;
     public String actionType() {
-        if (actionType == null) return null;
-        return actionType.getValue("BudgetActionArgs.actionType");
+        if (!unknown_actionType) return value_actionType;
+        throw new UndeferrableValueException("Value 'BudgetActionArgs.actionType' is not present");
     }
 
     /**
      * This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
      * 
      */
-    private UndeferrableValue<String> approvalModel;
-
+    @PolicyResourceProperty(name="approvalModel", flag="unknown_approvalModel")
+    private String value_approvalModel;
+    private boolean unknown_approvalModel;
     public String approvalModel() {
-        if (approvalModel == null) return null;
-        return approvalModel.getValue("BudgetActionArgs.approvalModel");
+        if (!unknown_approvalModel) return value_approvalModel;
+        throw new UndeferrableValueException("Value 'BudgetActionArgs.approvalModel' is not present");
     }
 
     /**
      * The name of a budget.
      * 
      */
-    private UndeferrableValue<String> budgetName;
-
+    @PolicyResourceProperty(name="budgetName", flag="unknown_budgetName")
+    private String value_budgetName;
+    private boolean unknown_budgetName;
     public String budgetName() {
-        if (budgetName == null) return null;
-        return budgetName.getValue("BudgetActionArgs.budgetName");
+        if (!unknown_budgetName) return value_budgetName;
+        throw new UndeferrableValueException("Value 'BudgetActionArgs.budgetName' is not present");
     }
 
     /**
      * Specifies all of the type-specific parameters. See Definition.
      * 
      */
-    private UndeferrableValue<BudgetActionDefinitionArgs> definition;
-
+    @PolicyResourceProperty(name="definition", flag="unknown_definition")
+    private BudgetActionDefinitionArgs value_definition;
+    private boolean unknown_definition;
     public BudgetActionDefinitionArgs definition() {
-        if (definition == null) return null;
-        return definition.getValue("BudgetActionArgs.definition");
+        if (!unknown_definition) return value_definition;
+        throw new UndeferrableValueException("Value 'BudgetActionArgs.definition' is not present");
     }
 
     /**
      * The role passed for action execution and reversion. Roles and actions must be in the same account.
      * 
      */
-    private UndeferrableValue<String> executionRoleArn;
-
+    @PolicyResourceProperty(name="executionRoleArn", flag="unknown_executionRoleArn")
+    private String value_executionRoleArn;
+    private boolean unknown_executionRoleArn;
     public String executionRoleArn() {
-        if (executionRoleArn == null) return null;
-        return executionRoleArn.getValue("BudgetActionArgs.executionRoleArn");
+        if (!unknown_executionRoleArn) return value_executionRoleArn;
+        throw new UndeferrableValueException("Value 'BudgetActionArgs.executionRoleArn' is not present");
     }
 
     /**
      * The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
      * 
      */
-    private UndeferrableValue<String> notificationType;
-
+    @PolicyResourceProperty(name="notificationType", flag="unknown_notificationType")
+    private String value_notificationType;
+    private boolean unknown_notificationType;
     public String notificationType() {
-        if (notificationType == null) return null;
-        return notificationType.getValue("BudgetActionArgs.notificationType");
+        if (!unknown_notificationType) return value_notificationType;
+        throw new UndeferrableValueException("Value 'BudgetActionArgs.notificationType' is not present");
     }
 
     /**
      * A list of subscribers. See Subscriber.
      * 
      */
-    private UndeferrableValue<List<BudgetActionSubscriberArgs>> subscribers;
-
+    @PolicyResourceProperty(name="subscribers", flag="unknown_subscribers")
+    private List<BudgetActionSubscriberArgs> value_subscribers;
+    private boolean unknown_subscribers;
     public List<BudgetActionSubscriberArgs> subscribers() {
-        if (subscribers == null) return null;
-        return subscribers.getValue("BudgetActionArgs.subscribers");
+        if (!unknown_subscribers) return value_subscribers;
+        throw new UndeferrableValueException("Value 'BudgetActionArgs.subscribers' is not present");
     }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("BudgetActionArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'BudgetActionArgs.tags' is not present");
     }
 
 }

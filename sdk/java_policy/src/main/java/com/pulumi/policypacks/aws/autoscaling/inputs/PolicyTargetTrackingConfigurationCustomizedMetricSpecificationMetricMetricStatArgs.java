@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.autoscaling.inputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
      * Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
      * 
      */
-    private UndeferrableValue<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs> metric;
-
+    @PolicyResourceProperty(name="metric", flag="unknown_metric")
+    private PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs value_metric;
+    private boolean unknown_metric;
     public PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs metric() {
-        if (metric == null) return null;
-        return metric.getValue("PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs.metric");
+        if (!unknown_metric) return value_metric;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs.metric' is not present");
     }
 
     /**
      * The period of the metric in seconds.
      * 
      */
-    private UndeferrableValue<Integer> period;
-
+    @PolicyResourceProperty(name="period", flag="unknown_period")
+    private Integer value_period;
+    private boolean unknown_period;
     public Integer period() {
-        if (period == null) return null;
-        return period.getValue("PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs.period");
+        if (!unknown_period) return value_period;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs.period' is not present");
     }
 
     /**
      * Statistic of the metrics to return.
      * 
      */
-    private UndeferrableValue<String> stat;
-
+    @PolicyResourceProperty(name="stat", flag="unknown_stat")
+    private String value_stat;
+    private boolean unknown_stat;
     public String stat() {
-        if (stat == null) return null;
-        return stat.getValue("PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs.stat");
+        if (!unknown_stat) return value_stat;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs.stat' is not present");
     }
 
     /**
      * Unit of the metrics to return.
      * 
      */
-    private UndeferrableValue<String> unit;
-
+    @PolicyResourceProperty(name="unit", flag="unknown_unit")
+    private String value_unit;
+    private boolean unknown_unit;
     public String unit() {
-        if (unit == null) return null;
-        return unit.getValue("PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs.unit");
+        if (!unknown_unit) return value_unit;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs.unit' is not present");
     }
 
 }

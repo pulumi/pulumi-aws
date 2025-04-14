@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,33 +15,36 @@ public final class DataSourceParametersMysql {
      * The database to which to connect.
      * 
      */
-    private UndeferrableValue<String> database;
-
+    @PolicyResourceProperty(name="database", flag="unknown_database")
+    private String value_database;
+    private boolean unknown_database;
     public String database() {
-        if (database == null) return null;
-        return database.getValue("DataSourceParametersMysql.database");
+        if (!unknown_database) return value_database;
+        throw new UndeferrableValueException("Value 'DataSourceParametersMysql.database' is not present");
     }
 
     /**
      * The host to which to connect.
      * 
      */
-    private UndeferrableValue<String> host;
-
+    @PolicyResourceProperty(name="host", flag="unknown_host")
+    private String value_host;
+    private boolean unknown_host;
     public String host() {
-        if (host == null) return null;
-        return host.getValue("DataSourceParametersMysql.host");
+        if (!unknown_host) return value_host;
+        throw new UndeferrableValueException("Value 'DataSourceParametersMysql.host' is not present");
     }
 
     /**
      * The port to which to connect.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("DataSourceParametersMysql.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'DataSourceParametersMysql.port' is not present");
     }
 
 }

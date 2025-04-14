@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentKnowledgeBaseKnowledgeBaseConfiguration;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentKnowledgeBaseStorageConfiguration;
@@ -21,73 +22,80 @@ public final class AgentKnowledgeBase extends com.pulumi.resources.PolicyResourc
      * ARN of the knowledge base.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("AgentKnowledgeBase.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBase.arn' is not present");
     }
 
     /**
      * Time at which the knowledge base was created.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("AgentKnowledgeBase.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBase.createdAt' is not present");
     }
 
     /**
      * Description of the knowledge base.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("AgentKnowledgeBase.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBase.description' is not present");
     }
 
-    private UndeferrableValue<List<String>> failureReasons;
-
+    @PolicyResourceProperty(name="failureReasons", flag="unknown_failureReasons")
+    private List<String> value_failureReasons;
+    private boolean unknown_failureReasons;
     public List<String> failureReasons() {
-        if (failureReasons == null) return null;
-        return failureReasons.getValue("AgentKnowledgeBase.failureReasons");
+        if (!unknown_failureReasons) return value_failureReasons;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBase.failureReasons' is not present");
     }
 
     /**
      * Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
      * 
      */
-    private @Nullable UndeferrableValue<AgentKnowledgeBaseKnowledgeBaseConfiguration> knowledgeBaseConfiguration;
-
+    @PolicyResourceProperty(name="knowledgeBaseConfiguration", flag="unknown_knowledgeBaseConfiguration")
+    private @Nullable AgentKnowledgeBaseKnowledgeBaseConfiguration value_knowledgeBaseConfiguration;
+    private boolean unknown_knowledgeBaseConfiguration;
     public @Nullable AgentKnowledgeBaseKnowledgeBaseConfiguration knowledgeBaseConfiguration() {
-        if (knowledgeBaseConfiguration == null) return null;
-        return knowledgeBaseConfiguration.getValue("AgentKnowledgeBase.knowledgeBaseConfiguration");
+        if (!unknown_knowledgeBaseConfiguration) return value_knowledgeBaseConfiguration;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBase.knowledgeBaseConfiguration' is not present");
     }
 
     /**
      * Name of the knowledge base.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AgentKnowledgeBase.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBase.name' is not present");
     }
 
     /**
      * ARN of the IAM role with permissions to invoke API operations on the knowledge base.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("AgentKnowledgeBase.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBase.roleArn' is not present");
     }
 
     /**
@@ -96,22 +104,24 @@ public final class AgentKnowledgeBase extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    private @Nullable UndeferrableValue<AgentKnowledgeBaseStorageConfiguration> storageConfiguration;
-
+    @PolicyResourceProperty(name="storageConfiguration", flag="unknown_storageConfiguration")
+    private @Nullable AgentKnowledgeBaseStorageConfiguration value_storageConfiguration;
+    private boolean unknown_storageConfiguration;
     public @Nullable AgentKnowledgeBaseStorageConfiguration storageConfiguration() {
-        if (storageConfiguration == null) return null;
-        return storageConfiguration.getValue("AgentKnowledgeBase.storageConfiguration");
+        if (!unknown_storageConfiguration) return value_storageConfiguration;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBase.storageConfiguration' is not present");
     }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AgentKnowledgeBase.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBase.tags' is not present");
     }
 
     /**
@@ -122,29 +132,32 @@ public final class AgentKnowledgeBase extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("AgentKnowledgeBase.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBase.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<AgentKnowledgeBaseTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable AgentKnowledgeBaseTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable AgentKnowledgeBaseTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("AgentKnowledgeBase.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBase.timeouts' is not present");
     }
 
     /**
      * Time at which the knowledge base was last updated.
      * 
      */
-    private UndeferrableValue<String> updatedAt;
-
+    @PolicyResourceProperty(name="updatedAt", flag="unknown_updatedAt")
+    private String value_updatedAt;
+    private boolean unknown_updatedAt;
     public String updatedAt() {
-        if (updatedAt == null) return null;
-        return updatedAt.getValue("AgentKnowledgeBase.updatedAt");
+        if (!unknown_updatedAt) return value_updatedAt;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBase.updatedAt' is not present");
     }
 
 }

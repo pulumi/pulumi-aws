@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.datasync.outputs.EfsLocationEc2Config;
 import java.lang.String;
@@ -18,88 +19,96 @@ public final class EfsLocation extends com.pulumi.resources.PolicyResourceOutput
      * Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
      * 
      */
-    private @Nullable UndeferrableValue<String> accessPointArn;
-
+    @PolicyResourceProperty(name="accessPointArn", flag="unknown_accessPointArn")
+    private @Nullable String value_accessPointArn;
+    private boolean unknown_accessPointArn;
     public @Nullable String accessPointArn() {
-        if (accessPointArn == null) return null;
-        return accessPointArn.getValue("EfsLocation.accessPointArn");
+        if (!unknown_accessPointArn) return value_accessPointArn;
+        throw new UndeferrableValueException("Value 'EfsLocation.accessPointArn' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("EfsLocation.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'EfsLocation.arn' is not present");
     }
 
     /**
      * Configuration block containing EC2 configurations for connecting to the EFS File System.
      * 
      */
-    private UndeferrableValue<EfsLocationEc2Config> ec2Config;
-
+    @PolicyResourceProperty(name="ec2Config", flag="unknown_ec2Config")
+    private EfsLocationEc2Config value_ec2Config;
+    private boolean unknown_ec2Config;
     public EfsLocationEc2Config ec2Config() {
-        if (ec2Config == null) return null;
-        return ec2Config.getValue("EfsLocation.ec2Config");
+        if (!unknown_ec2Config) return value_ec2Config;
+        throw new UndeferrableValueException("Value 'EfsLocation.ec2Config' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of EFS File System.
      * 
      */
-    private UndeferrableValue<String> efsFileSystemArn;
-
+    @PolicyResourceProperty(name="efsFileSystemArn", flag="unknown_efsFileSystemArn")
+    private String value_efsFileSystemArn;
+    private boolean unknown_efsFileSystemArn;
     public String efsFileSystemArn() {
-        if (efsFileSystemArn == null) return null;
-        return efsFileSystemArn.getValue("EfsLocation.efsFileSystemArn");
+        if (!unknown_efsFileSystemArn) return value_efsFileSystemArn;
+        throw new UndeferrableValueException("Value 'EfsLocation.efsFileSystemArn' is not present");
     }
 
     /**
      * Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
      * 
      */
-    private @Nullable UndeferrableValue<String> fileSystemAccessRoleArn;
-
+    @PolicyResourceProperty(name="fileSystemAccessRoleArn", flag="unknown_fileSystemAccessRoleArn")
+    private @Nullable String value_fileSystemAccessRoleArn;
+    private boolean unknown_fileSystemAccessRoleArn;
     public @Nullable String fileSystemAccessRoleArn() {
-        if (fileSystemAccessRoleArn == null) return null;
-        return fileSystemAccessRoleArn.getValue("EfsLocation.fileSystemAccessRoleArn");
+        if (!unknown_fileSystemAccessRoleArn) return value_fileSystemAccessRoleArn;
+        throw new UndeferrableValueException("Value 'EfsLocation.fileSystemAccessRoleArn' is not present");
     }
 
     /**
      * Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
      * 
      */
-    private @Nullable UndeferrableValue<String> inTransitEncryption;
-
+    @PolicyResourceProperty(name="inTransitEncryption", flag="unknown_inTransitEncryption")
+    private @Nullable String value_inTransitEncryption;
+    private boolean unknown_inTransitEncryption;
     public @Nullable String inTransitEncryption() {
-        if (inTransitEncryption == null) return null;
-        return inTransitEncryption.getValue("EfsLocation.inTransitEncryption");
+        if (!unknown_inTransitEncryption) return value_inTransitEncryption;
+        throw new UndeferrableValueException("Value 'EfsLocation.inTransitEncryption' is not present");
     }
 
     /**
      * Subdirectory to perform actions as source or destination. Default `/`.
      * 
      */
-    private @Nullable UndeferrableValue<String> subdirectory;
-
+    @PolicyResourceProperty(name="subdirectory", flag="unknown_subdirectory")
+    private @Nullable String value_subdirectory;
+    private boolean unknown_subdirectory;
     public @Nullable String subdirectory() {
-        if (subdirectory == null) return null;
-        return subdirectory.getValue("EfsLocation.subdirectory");
+        if (!unknown_subdirectory) return value_subdirectory;
+        throw new UndeferrableValueException("Value 'EfsLocation.subdirectory' is not present");
     }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("EfsLocation.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'EfsLocation.tags' is not present");
     }
 
     /**
@@ -110,18 +119,20 @@ public final class EfsLocation extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("EfsLocation.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'EfsLocation.tagsAll' is not present");
     }
 
-    private UndeferrableValue<String> uri;
-
+    @PolicyResourceProperty(name="uri", flag="unknown_uri")
+    private String value_uri;
+    private boolean unknown_uri;
     public String uri() {
-        if (uri == null) return null;
-        return uri.getValue("EfsLocation.uri");
+        if (!unknown_uri) return value_uri;
+        throw new UndeferrableValueException("Value 'EfsLocation.uri' is not present");
     }
 
 }

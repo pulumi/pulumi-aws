@@ -3,32 +3,36 @@
 
 package com.pulumi.policypacks.aws.signer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class SigningJobRevocationRecord {
 
-    private @Nullable UndeferrableValue<String> reason;
-
+    @PolicyResourceProperty(name="reason", flag="unknown_reason")
+    private @Nullable String value_reason;
+    private boolean unknown_reason;
     public @Nullable String reason() {
-        if (reason == null) return null;
-        return reason.getValue("SigningJobRevocationRecord.reason");
+        if (!unknown_reason) return value_reason;
+        throw new UndeferrableValueException("Value 'SigningJobRevocationRecord.reason' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> revokedAt;
-
+    @PolicyResourceProperty(name="revokedAt", flag="unknown_revokedAt")
+    private @Nullable String value_revokedAt;
+    private boolean unknown_revokedAt;
     public @Nullable String revokedAt() {
-        if (revokedAt == null) return null;
-        return revokedAt.getValue("SigningJobRevocationRecord.revokedAt");
+        if (!unknown_revokedAt) return value_revokedAt;
+        throw new UndeferrableValueException("Value 'SigningJobRevocationRecord.revokedAt' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> revokedBy;
-
+    @PolicyResourceProperty(name="revokedBy", flag="unknown_revokedBy")
+    private @Nullable String value_revokedBy;
+    private boolean unknown_revokedBy;
     public @Nullable String revokedBy() {
-        if (revokedBy == null) return null;
-        return revokedBy.getValue("SigningJobRevocationRecord.revokedBy");
+        if (!unknown_revokedBy) return value_revokedBy;
+        throw new UndeferrableValueException("Value 'SigningJobRevocationRecord.revokedBy' is not present");
     }
 
 }

@@ -3,81 +3,92 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class NetworkInsightsAnalysisExplanationRouteTableRoute {
 
-    private @Nullable UndeferrableValue<String> destinationCidr;
-
+    @PolicyResourceProperty(name="destinationCidr", flag="unknown_destinationCidr")
+    private @Nullable String value_destinationCidr;
+    private boolean unknown_destinationCidr;
     public @Nullable String destinationCidr() {
-        if (destinationCidr == null) return null;
-        return destinationCidr.getValue("NetworkInsightsAnalysisExplanationRouteTableRoute.destinationCidr");
+        if (!unknown_destinationCidr) return value_destinationCidr;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationRouteTableRoute.destinationCidr' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> destinationPrefixListId;
-
+    @PolicyResourceProperty(name="destinationPrefixListId", flag="unknown_destinationPrefixListId")
+    private @Nullable String value_destinationPrefixListId;
+    private boolean unknown_destinationPrefixListId;
     public @Nullable String destinationPrefixListId() {
-        if (destinationPrefixListId == null) return null;
-        return destinationPrefixListId.getValue("NetworkInsightsAnalysisExplanationRouteTableRoute.destinationPrefixListId");
+        if (!unknown_destinationPrefixListId) return value_destinationPrefixListId;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationRouteTableRoute.destinationPrefixListId' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> egressOnlyInternetGatewayId;
-
+    @PolicyResourceProperty(name="egressOnlyInternetGatewayId", flag="unknown_egressOnlyInternetGatewayId")
+    private @Nullable String value_egressOnlyInternetGatewayId;
+    private boolean unknown_egressOnlyInternetGatewayId;
     public @Nullable String egressOnlyInternetGatewayId() {
-        if (egressOnlyInternetGatewayId == null) return null;
-        return egressOnlyInternetGatewayId.getValue("NetworkInsightsAnalysisExplanationRouteTableRoute.egressOnlyInternetGatewayId");
+        if (!unknown_egressOnlyInternetGatewayId) return value_egressOnlyInternetGatewayId;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationRouteTableRoute.egressOnlyInternetGatewayId' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> gatewayId;
-
+    @PolicyResourceProperty(name="gatewayId", flag="unknown_gatewayId")
+    private @Nullable String value_gatewayId;
+    private boolean unknown_gatewayId;
     public @Nullable String gatewayId() {
-        if (gatewayId == null) return null;
-        return gatewayId.getValue("NetworkInsightsAnalysisExplanationRouteTableRoute.gatewayId");
+        if (!unknown_gatewayId) return value_gatewayId;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationRouteTableRoute.gatewayId' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> instanceId;
-
+    @PolicyResourceProperty(name="instanceId", flag="unknown_instanceId")
+    private @Nullable String value_instanceId;
+    private boolean unknown_instanceId;
     public @Nullable String instanceId() {
-        if (instanceId == null) return null;
-        return instanceId.getValue("NetworkInsightsAnalysisExplanationRouteTableRoute.instanceId");
+        if (!unknown_instanceId) return value_instanceId;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationRouteTableRoute.instanceId' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> natGatewayId;
-
+    @PolicyResourceProperty(name="natGatewayId", flag="unknown_natGatewayId")
+    private @Nullable String value_natGatewayId;
+    private boolean unknown_natGatewayId;
     public @Nullable String natGatewayId() {
-        if (natGatewayId == null) return null;
-        return natGatewayId.getValue("NetworkInsightsAnalysisExplanationRouteTableRoute.natGatewayId");
+        if (!unknown_natGatewayId) return value_natGatewayId;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationRouteTableRoute.natGatewayId' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> networkInterfaceId;
-
+    @PolicyResourceProperty(name="networkInterfaceId", flag="unknown_networkInterfaceId")
+    private @Nullable String value_networkInterfaceId;
+    private boolean unknown_networkInterfaceId;
     public @Nullable String networkInterfaceId() {
-        if (networkInterfaceId == null) return null;
-        return networkInterfaceId.getValue("NetworkInsightsAnalysisExplanationRouteTableRoute.networkInterfaceId");
+        if (!unknown_networkInterfaceId) return value_networkInterfaceId;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationRouteTableRoute.networkInterfaceId' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> origin;
-
+    @PolicyResourceProperty(name="origin", flag="unknown_origin")
+    private @Nullable String value_origin;
+    private boolean unknown_origin;
     public @Nullable String origin() {
-        if (origin == null) return null;
-        return origin.getValue("NetworkInsightsAnalysisExplanationRouteTableRoute.origin");
+        if (!unknown_origin) return value_origin;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationRouteTableRoute.origin' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> transitGatewayId;
-
+    @PolicyResourceProperty(name="transitGatewayId", flag="unknown_transitGatewayId")
+    private @Nullable String value_transitGatewayId;
+    private boolean unknown_transitGatewayId;
     public @Nullable String transitGatewayId() {
-        if (transitGatewayId == null) return null;
-        return transitGatewayId.getValue("NetworkInsightsAnalysisExplanationRouteTableRoute.transitGatewayId");
+        if (!unknown_transitGatewayId) return value_transitGatewayId;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationRouteTableRoute.transitGatewayId' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> vpcPeeringConnectionId;
-
+    @PolicyResourceProperty(name="vpcPeeringConnectionId", flag="unknown_vpcPeeringConnectionId")
+    private @Nullable String value_vpcPeeringConnectionId;
+    private boolean unknown_vpcPeeringConnectionId;
     public @Nullable String vpcPeeringConnectionId() {
-        if (vpcPeeringConnectionId == null) return null;
-        return vpcPeeringConnectionId.getValue("NetworkInsightsAnalysisExplanationRouteTableRoute.vpcPeeringConnectionId");
+        if (!unknown_vpcPeeringConnectionId) return value_vpcPeeringConnectionId;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationRouteTableRoute.vpcPeeringConnectionId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.synthetics.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class CanaryTimeline {
      * Date and time the canary was created.
      * 
      */
-    private @Nullable UndeferrableValue<String> created;
-
+    @PolicyResourceProperty(name="created", flag="unknown_created")
+    private @Nullable String value_created;
+    private boolean unknown_created;
     public @Nullable String created() {
-        if (created == null) return null;
-        return created.getValue("CanaryTimeline.created");
+        if (!unknown_created) return value_created;
+        throw new UndeferrableValueException("Value 'CanaryTimeline.created' is not present");
     }
 
     /**
      * Date and time the canary was most recently modified.
      * 
      */
-    private @Nullable UndeferrableValue<String> lastModified;
-
+    @PolicyResourceProperty(name="lastModified", flag="unknown_lastModified")
+    private @Nullable String value_lastModified;
+    private boolean unknown_lastModified;
     public @Nullable String lastModified() {
-        if (lastModified == null) return null;
-        return lastModified.getValue("CanaryTimeline.lastModified");
+        if (!unknown_lastModified) return value_lastModified;
+        throw new UndeferrableValueException("Value 'CanaryTimeline.lastModified' is not present");
     }
 
     /**
      * Date and time that the canary&#39;s most recent run started.
      * 
      */
-    private @Nullable UndeferrableValue<String> lastStarted;
-
+    @PolicyResourceProperty(name="lastStarted", flag="unknown_lastStarted")
+    private @Nullable String value_lastStarted;
+    private boolean unknown_lastStarted;
     public @Nullable String lastStarted() {
-        if (lastStarted == null) return null;
-        return lastStarted.getValue("CanaryTimeline.lastStarted");
+        if (!unknown_lastStarted) return value_lastStarted;
+        throw new UndeferrableValueException("Value 'CanaryTimeline.lastStarted' is not present");
     }
 
     /**
      * Date and time that the canary&#39;s most recent run ended.
      * 
      */
-    private @Nullable UndeferrableValue<String> lastStopped;
-
+    @PolicyResourceProperty(name="lastStopped", flag="unknown_lastStopped")
+    private @Nullable String value_lastStopped;
+    private boolean unknown_lastStopped;
     public @Nullable String lastStopped() {
-        if (lastStopped == null) return null;
-        return lastStopped.getValue("CanaryTimeline.lastStopped");
+        if (!unknown_lastStopped) return value_lastStopped;
+        throw new UndeferrableValueException("Value 'CanaryTimeline.lastStopped' is not present");
     }
 
 }

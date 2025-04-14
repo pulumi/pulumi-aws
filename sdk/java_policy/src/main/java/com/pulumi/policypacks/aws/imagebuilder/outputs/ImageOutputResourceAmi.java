@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,55 +15,60 @@ public final class ImageOutputResourceAmi {
      * Account identifier of the AMI.
      * 
      */
-    private @Nullable UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private @Nullable String value_accountId;
+    private boolean unknown_accountId;
     public @Nullable String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("ImageOutputResourceAmi.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'ImageOutputResourceAmi.accountId' is not present");
     }
 
     /**
      * Description of the AMI.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ImageOutputResourceAmi.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ImageOutputResourceAmi.description' is not present");
     }
 
     /**
      * Identifier of the AMI.
      * 
      */
-    private @Nullable UndeferrableValue<String> image;
-
+    @PolicyResourceProperty(name="image", flag="unknown_image")
+    private @Nullable String value_image;
+    private boolean unknown_image;
     public @Nullable String image() {
-        if (image == null) return null;
-        return image.getValue("ImageOutputResourceAmi.image");
+        if (!unknown_image) return value_image;
+        throw new UndeferrableValueException("Value 'ImageOutputResourceAmi.image' is not present");
     }
 
     /**
      * Name of the AMI.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("ImageOutputResourceAmi.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ImageOutputResourceAmi.name' is not present");
     }
 
     /**
      * Region of the container image.
      * 
      */
-    private @Nullable UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private @Nullable String value_region;
+    private boolean unknown_region;
     public @Nullable String region() {
-        if (region == null) return null;
-        return region.getValue("ImageOutputResourceAmi.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'ImageOutputResourceAmi.region' is not present");
     }
 
 }

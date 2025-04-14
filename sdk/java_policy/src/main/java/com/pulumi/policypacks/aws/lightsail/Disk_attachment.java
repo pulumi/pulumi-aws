@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class Disk_attachment extends com.pulumi.resources.PolicyResourceOu
      * The name of the Lightsail Disk.
      * 
      */
-    private UndeferrableValue<String> diskName;
-
+    @PolicyResourceProperty(name="diskName", flag="unknown_diskName")
+    private String value_diskName;
+    private boolean unknown_diskName;
     public String diskName() {
-        if (diskName == null) return null;
-        return diskName.getValue("Disk_attachment.diskName");
+        if (!unknown_diskName) return value_diskName;
+        throw new UndeferrableValueException("Value 'Disk_attachment.diskName' is not present");
     }
 
     /**
      * The disk path to expose to the instance.
      * 
      */
-    private UndeferrableValue<String> diskPath;
-
+    @PolicyResourceProperty(name="diskPath", flag="unknown_diskPath")
+    private String value_diskPath;
+    private boolean unknown_diskPath;
     public String diskPath() {
-        if (diskPath == null) return null;
-        return diskPath.getValue("Disk_attachment.diskPath");
+        if (!unknown_diskPath) return value_diskPath;
+        throw new UndeferrableValueException("Value 'Disk_attachment.diskPath' is not present");
     }
 
     /**
      * The name of the Lightsail Instance to attach to.
      * 
      */
-    private UndeferrableValue<String> instanceName;
-
+    @PolicyResourceProperty(name="instanceName", flag="unknown_instanceName")
+    private String value_instanceName;
+    private boolean unknown_instanceName;
     public String instanceName() {
-        if (instanceName == null) return null;
-        return instanceName.getValue("Disk_attachment.instanceName");
+        if (!unknown_instanceName) return value_instanceName;
+        throw new UndeferrableValueException("Value 'Disk_attachment.instanceName' is not present");
     }
 
 }

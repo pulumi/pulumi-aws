@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.costexplorer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.costexplorer.outputs.CostCategoryRuleRuleAndAnd;
 import com.pulumi.policypacks.aws.costexplorer.outputs.CostCategoryRuleRuleAndCostCategory;
 import com.pulumi.policypacks.aws.costexplorer.outputs.CostCategoryRuleRuleAndDimension;
@@ -20,66 +21,72 @@ public final class CostCategoryRuleRuleAnd {
      * Return results that match both `Dimension` objects.
      * 
      */
-    private @Nullable UndeferrableValue<List<CostCategoryRuleRuleAndAnd>> ands;
-
+    @PolicyResourceProperty(name="ands", flag="unknown_ands")
+    private @Nullable List<CostCategoryRuleRuleAndAnd> value_ands;
+    private boolean unknown_ands;
     public @Nullable List<CostCategoryRuleRuleAndAnd> ands() {
-        if (ands == null) return null;
-        return ands.getValue("CostCategoryRuleRuleAnd.ands");
+        if (!unknown_ands) return value_ands;
+        throw new UndeferrableValueException("Value 'CostCategoryRuleRuleAnd.ands' is not present");
     }
 
     /**
      * Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
      * 
      */
-    private @Nullable UndeferrableValue<CostCategoryRuleRuleAndCostCategory> costCategory;
-
+    @PolicyResourceProperty(name="costCategory", flag="unknown_costCategory")
+    private @Nullable CostCategoryRuleRuleAndCostCategory value_costCategory;
+    private boolean unknown_costCategory;
     public @Nullable CostCategoryRuleRuleAndCostCategory costCategory() {
-        if (costCategory == null) return null;
-        return costCategory.getValue("CostCategoryRuleRuleAnd.costCategory");
+        if (!unknown_costCategory) return value_costCategory;
+        throw new UndeferrableValueException("Value 'CostCategoryRuleRuleAnd.costCategory' is not present");
     }
 
     /**
      * Configuration block for the specific `Dimension` to use for `Expression`. See below.
      * 
      */
-    private @Nullable UndeferrableValue<CostCategoryRuleRuleAndDimension> dimension;
-
+    @PolicyResourceProperty(name="dimension", flag="unknown_dimension")
+    private @Nullable CostCategoryRuleRuleAndDimension value_dimension;
+    private boolean unknown_dimension;
     public @Nullable CostCategoryRuleRuleAndDimension dimension() {
-        if (dimension == null) return null;
-        return dimension.getValue("CostCategoryRuleRuleAnd.dimension");
+        if (!unknown_dimension) return value_dimension;
+        throw new UndeferrableValueException("Value 'CostCategoryRuleRuleAnd.dimension' is not present");
     }
 
     /**
      * Return results that match both `Dimension` object.
      * 
      */
-    private @Nullable UndeferrableValue<CostCategoryRuleRuleAndNot> not;
-
+    @PolicyResourceProperty(name="not", flag="unknown_not")
+    private @Nullable CostCategoryRuleRuleAndNot value_not;
+    private boolean unknown_not;
     public @Nullable CostCategoryRuleRuleAndNot not() {
-        if (not == null) return null;
-        return not.getValue("CostCategoryRuleRuleAnd.not");
+        if (!unknown_not) return value_not;
+        throw new UndeferrableValueException("Value 'CostCategoryRuleRuleAnd.not' is not present");
     }
 
     /**
      * Return results that match both `Dimension` object.
      * 
      */
-    private @Nullable UndeferrableValue<List<CostCategoryRuleRuleAndOr>> ors;
-
+    @PolicyResourceProperty(name="ors", flag="unknown_ors")
+    private @Nullable List<CostCategoryRuleRuleAndOr> value_ors;
+    private boolean unknown_ors;
     public @Nullable List<CostCategoryRuleRuleAndOr> ors() {
-        if (ors == null) return null;
-        return ors.getValue("CostCategoryRuleRuleAnd.ors");
+        if (!unknown_ors) return value_ors;
+        throw new UndeferrableValueException("Value 'CostCategoryRuleRuleAnd.ors' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<CostCategoryRuleRuleAndTags> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable CostCategoryRuleRuleAndTags value_tags;
+    private boolean unknown_tags;
     public @Nullable CostCategoryRuleRuleAndTags tags() {
-        if (tags == null) return null;
-        return tags.getValue("CostCategoryRuleRuleAnd.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CostCategoryRuleRuleAnd.tags' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.outputs.DashboardParametersDateTimeParameter;
 import com.pulumi.policypacks.aws.quicksight.outputs.DashboardParametersDecimalParameter;
 import com.pulumi.policypacks.aws.quicksight.outputs.DashboardParametersIntegerParameter;
@@ -18,44 +19,48 @@ public final class DashboardParameters {
      * A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
      * 
      */
-    private @Nullable UndeferrableValue<List<DashboardParametersDateTimeParameter>> dateTimeParameters;
-
+    @PolicyResourceProperty(name="dateTimeParameters", flag="unknown_dateTimeParameters")
+    private @Nullable List<DashboardParametersDateTimeParameter> value_dateTimeParameters;
+    private boolean unknown_dateTimeParameters;
     public @Nullable List<DashboardParametersDateTimeParameter> dateTimeParameters() {
-        if (dateTimeParameters == null) return null;
-        return dateTimeParameters.getValue("DashboardParameters.dateTimeParameters");
+        if (!unknown_dateTimeParameters) return value_dateTimeParameters;
+        throw new UndeferrableValueException("Value 'DashboardParameters.dateTimeParameters' is not present");
     }
 
     /**
      * A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
      * 
      */
-    private @Nullable UndeferrableValue<List<DashboardParametersDecimalParameter>> decimalParameters;
-
+    @PolicyResourceProperty(name="decimalParameters", flag="unknown_decimalParameters")
+    private @Nullable List<DashboardParametersDecimalParameter> value_decimalParameters;
+    private boolean unknown_decimalParameters;
     public @Nullable List<DashboardParametersDecimalParameter> decimalParameters() {
-        if (decimalParameters == null) return null;
-        return decimalParameters.getValue("DashboardParameters.decimalParameters");
+        if (!unknown_decimalParameters) return value_decimalParameters;
+        throw new UndeferrableValueException("Value 'DashboardParameters.decimalParameters' is not present");
     }
 
     /**
      * A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
      * 
      */
-    private @Nullable UndeferrableValue<List<DashboardParametersIntegerParameter>> integerParameters;
-
+    @PolicyResourceProperty(name="integerParameters", flag="unknown_integerParameters")
+    private @Nullable List<DashboardParametersIntegerParameter> value_integerParameters;
+    private boolean unknown_integerParameters;
     public @Nullable List<DashboardParametersIntegerParameter> integerParameters() {
-        if (integerParameters == null) return null;
-        return integerParameters.getValue("DashboardParameters.integerParameters");
+        if (!unknown_integerParameters) return value_integerParameters;
+        throw new UndeferrableValueException("Value 'DashboardParameters.integerParameters' is not present");
     }
 
     /**
      * A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
      * 
      */
-    private @Nullable UndeferrableValue<List<DashboardParametersStringParameter>> stringParameters;
-
+    @PolicyResourceProperty(name="stringParameters", flag="unknown_stringParameters")
+    private @Nullable List<DashboardParametersStringParameter> value_stringParameters;
+    private boolean unknown_stringParameters;
     public @Nullable List<DashboardParametersStringParameter> stringParameters() {
-        if (stringParameters == null) return null;
-        return stringParameters.getValue("DashboardParameters.stringParameters");
+        if (!unknown_stringParameters) return value_stringParameters;
+        throw new UndeferrableValueException("Value 'DashboardParameters.stringParameters' is not present");
     }
 
 }

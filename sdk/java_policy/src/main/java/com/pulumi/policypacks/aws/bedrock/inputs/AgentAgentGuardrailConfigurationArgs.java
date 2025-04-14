@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class AgentAgentGuardrailConfigurationArgs {
      * Unique identifier of the guardrail.
      * 
      */
-    private UndeferrableValue<String> guardrailIdentifier;
-
+    @PolicyResourceProperty(name="guardrailIdentifier", flag="unknown_guardrailIdentifier")
+    private String value_guardrailIdentifier;
+    private boolean unknown_guardrailIdentifier;
     public String guardrailIdentifier() {
-        if (guardrailIdentifier == null) return null;
-        return guardrailIdentifier.getValue("AgentAgentGuardrailConfigurationArgs.guardrailIdentifier");
+        if (!unknown_guardrailIdentifier) return value_guardrailIdentifier;
+        throw new UndeferrableValueException("Value 'AgentAgentGuardrailConfigurationArgs.guardrailIdentifier' is not present");
     }
 
     /**
      * Version of the guardrail.
      * 
      */
-    private UndeferrableValue<String> guardrailVersion;
-
+    @PolicyResourceProperty(name="guardrailVersion", flag="unknown_guardrailVersion")
+    private String value_guardrailVersion;
+    private boolean unknown_guardrailVersion;
     public String guardrailVersion() {
-        if (guardrailVersion == null) return null;
-        return guardrailVersion.getValue("AgentAgentGuardrailConfigurationArgs.guardrailVersion");
+        if (!unknown_guardrailVersion) return value_guardrailVersion;
+        throw new UndeferrableValueException("Value 'AgentAgentGuardrailConfigurationArgs.guardrailVersion' is not present");
     }
 
 }

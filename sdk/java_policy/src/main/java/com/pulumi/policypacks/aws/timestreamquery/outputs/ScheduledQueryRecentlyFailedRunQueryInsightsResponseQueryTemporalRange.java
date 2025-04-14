@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamquery.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.timestreamquery.outputs.ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxis;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemp
      * Insights into the most sub-optimal performing table on the temporal axis:
      * 
      */
-    private @Nullable UndeferrableValue<List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxis>> maxes;
-
+    @PolicyResourceProperty(name="maxes", flag="unknown_maxes")
+    private @Nullable List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxis> value_maxes;
+    private boolean unknown_maxes;
     public @Nullable List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxis> maxes() {
-        if (maxes == null) return null;
-        return maxes.getValue("ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRange.maxes");
+        if (!unknown_maxes) return value_maxes;
+        throw new UndeferrableValueException("Value 'ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRange.maxes' is not present");
     }
 
 }

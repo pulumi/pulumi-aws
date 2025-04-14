@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.outputs.NetworkInsightsAnalysisExplanationAcl;
 import com.pulumi.policypacks.aws.ec2.outputs.NetworkInsightsAnalysisExplanationAclRule;
 import com.pulumi.policypacks.aws.ec2.outputs.NetworkInsightsAnalysisExplanationAttachedTo;
@@ -44,340 +45,388 @@ import javax.annotation.Nullable;
 
 public final class NetworkInsightsAnalysisExplanation {
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationAclRule>> aclRules;
-
+    @PolicyResourceProperty(name="aclRules", flag="unknown_aclRules")
+    private @Nullable List<NetworkInsightsAnalysisExplanationAclRule> value_aclRules;
+    private boolean unknown_aclRules;
     public @Nullable List<NetworkInsightsAnalysisExplanationAclRule> aclRules() {
-        if (aclRules == null) return null;
-        return aclRules.getValue("NetworkInsightsAnalysisExplanation.aclRules");
+        if (!unknown_aclRules) return value_aclRules;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.aclRules' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationAcl>> acls;
-
+    @PolicyResourceProperty(name="acls", flag="unknown_acls")
+    private @Nullable List<NetworkInsightsAnalysisExplanationAcl> value_acls;
+    private boolean unknown_acls;
     public @Nullable List<NetworkInsightsAnalysisExplanationAcl> acls() {
-        if (acls == null) return null;
-        return acls.getValue("NetworkInsightsAnalysisExplanation.acls");
+        if (!unknown_acls) return value_acls;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.acls' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> address;
-
+    @PolicyResourceProperty(name="address", flag="unknown_address")
+    private @Nullable String value_address;
+    private boolean unknown_address;
     public @Nullable String address() {
-        if (address == null) return null;
-        return address.getValue("NetworkInsightsAnalysisExplanation.address");
+        if (!unknown_address) return value_address;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.address' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<String>> addresses;
-
+    @PolicyResourceProperty(name="addresses", flag="unknown_addresses")
+    private @Nullable List<String> value_addresses;
+    private boolean unknown_addresses;
     public @Nullable List<String> addresses() {
-        if (addresses == null) return null;
-        return addresses.getValue("NetworkInsightsAnalysisExplanation.addresses");
+        if (!unknown_addresses) return value_addresses;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.addresses' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationAttachedTo>> attachedTos;
-
+    @PolicyResourceProperty(name="attachedTos", flag="unknown_attachedTos")
+    private @Nullable List<NetworkInsightsAnalysisExplanationAttachedTo> value_attachedTos;
+    private boolean unknown_attachedTos;
     public @Nullable List<NetworkInsightsAnalysisExplanationAttachedTo> attachedTos() {
-        if (attachedTos == null) return null;
-        return attachedTos.getValue("NetworkInsightsAnalysisExplanation.attachedTos");
+        if (!unknown_attachedTos) return value_attachedTos;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.attachedTos' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<String>> availabilityZones;
-
+    @PolicyResourceProperty(name="availabilityZones", flag="unknown_availabilityZones")
+    private @Nullable List<String> value_availabilityZones;
+    private boolean unknown_availabilityZones;
     public @Nullable List<String> availabilityZones() {
-        if (availabilityZones == null) return null;
-        return availabilityZones.getValue("NetworkInsightsAnalysisExplanation.availabilityZones");
+        if (!unknown_availabilityZones) return value_availabilityZones;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.availabilityZones' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<String>> cidrs;
-
+    @PolicyResourceProperty(name="cidrs", flag="unknown_cidrs")
+    private @Nullable List<String> value_cidrs;
+    private boolean unknown_cidrs;
     public @Nullable List<String> cidrs() {
-        if (cidrs == null) return null;
-        return cidrs.getValue("NetworkInsightsAnalysisExplanation.cidrs");
+        if (!unknown_cidrs) return value_cidrs;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.cidrs' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationClassicLoadBalancerListener>> classicLoadBalancerListeners;
-
+    @PolicyResourceProperty(name="classicLoadBalancerListeners", flag="unknown_classicLoadBalancerListeners")
+    private @Nullable List<NetworkInsightsAnalysisExplanationClassicLoadBalancerListener> value_classicLoadBalancerListeners;
+    private boolean unknown_classicLoadBalancerListeners;
     public @Nullable List<NetworkInsightsAnalysisExplanationClassicLoadBalancerListener> classicLoadBalancerListeners() {
-        if (classicLoadBalancerListeners == null) return null;
-        return classicLoadBalancerListeners.getValue("NetworkInsightsAnalysisExplanation.classicLoadBalancerListeners");
+        if (!unknown_classicLoadBalancerListeners) return value_classicLoadBalancerListeners;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.classicLoadBalancerListeners' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationComponent>> components;
-
+    @PolicyResourceProperty(name="components", flag="unknown_components")
+    private @Nullable List<NetworkInsightsAnalysisExplanationComponent> value_components;
+    private boolean unknown_components;
     public @Nullable List<NetworkInsightsAnalysisExplanationComponent> components() {
-        if (components == null) return null;
-        return components.getValue("NetworkInsightsAnalysisExplanation.components");
+        if (!unknown_components) return value_components;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.components' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationCustomerGateway>> customerGateways;
-
+    @PolicyResourceProperty(name="customerGateways", flag="unknown_customerGateways")
+    private @Nullable List<NetworkInsightsAnalysisExplanationCustomerGateway> value_customerGateways;
+    private boolean unknown_customerGateways;
     public @Nullable List<NetworkInsightsAnalysisExplanationCustomerGateway> customerGateways() {
-        if (customerGateways == null) return null;
-        return customerGateways.getValue("NetworkInsightsAnalysisExplanation.customerGateways");
+        if (!unknown_customerGateways) return value_customerGateways;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.customerGateways' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationDestinationVpc>> destinationVpcs;
-
+    @PolicyResourceProperty(name="destinationVpcs", flag="unknown_destinationVpcs")
+    private @Nullable List<NetworkInsightsAnalysisExplanationDestinationVpc> value_destinationVpcs;
+    private boolean unknown_destinationVpcs;
     public @Nullable List<NetworkInsightsAnalysisExplanationDestinationVpc> destinationVpcs() {
-        if (destinationVpcs == null) return null;
-        return destinationVpcs.getValue("NetworkInsightsAnalysisExplanation.destinationVpcs");
+        if (!unknown_destinationVpcs) return value_destinationVpcs;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.destinationVpcs' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationDestination>> destinations;
-
+    @PolicyResourceProperty(name="destinations", flag="unknown_destinations")
+    private @Nullable List<NetworkInsightsAnalysisExplanationDestination> value_destinations;
+    private boolean unknown_destinations;
     public @Nullable List<NetworkInsightsAnalysisExplanationDestination> destinations() {
-        if (destinations == null) return null;
-        return destinations.getValue("NetworkInsightsAnalysisExplanation.destinations");
+        if (!unknown_destinations) return value_destinations;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.destinations' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> direction;
-
+    @PolicyResourceProperty(name="direction", flag="unknown_direction")
+    private @Nullable String value_direction;
+    private boolean unknown_direction;
     public @Nullable String direction() {
-        if (direction == null) return null;
-        return direction.getValue("NetworkInsightsAnalysisExplanation.direction");
+        if (!unknown_direction) return value_direction;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.direction' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationElasticLoadBalancerListener>> elasticLoadBalancerListeners;
-
+    @PolicyResourceProperty(name="elasticLoadBalancerListeners", flag="unknown_elasticLoadBalancerListeners")
+    private @Nullable List<NetworkInsightsAnalysisExplanationElasticLoadBalancerListener> value_elasticLoadBalancerListeners;
+    private boolean unknown_elasticLoadBalancerListeners;
     public @Nullable List<NetworkInsightsAnalysisExplanationElasticLoadBalancerListener> elasticLoadBalancerListeners() {
-        if (elasticLoadBalancerListeners == null) return null;
-        return elasticLoadBalancerListeners.getValue("NetworkInsightsAnalysisExplanation.elasticLoadBalancerListeners");
+        if (!unknown_elasticLoadBalancerListeners) return value_elasticLoadBalancerListeners;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.elasticLoadBalancerListeners' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> explanationCode;
-
+    @PolicyResourceProperty(name="explanationCode", flag="unknown_explanationCode")
+    private @Nullable String value_explanationCode;
+    private boolean unknown_explanationCode;
     public @Nullable String explanationCode() {
-        if (explanationCode == null) return null;
-        return explanationCode.getValue("NetworkInsightsAnalysisExplanation.explanationCode");
+        if (!unknown_explanationCode) return value_explanationCode;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.explanationCode' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationIngressRouteTable>> ingressRouteTables;
-
+    @PolicyResourceProperty(name="ingressRouteTables", flag="unknown_ingressRouteTables")
+    private @Nullable List<NetworkInsightsAnalysisExplanationIngressRouteTable> value_ingressRouteTables;
+    private boolean unknown_ingressRouteTables;
     public @Nullable List<NetworkInsightsAnalysisExplanationIngressRouteTable> ingressRouteTables() {
-        if (ingressRouteTables == null) return null;
-        return ingressRouteTables.getValue("NetworkInsightsAnalysisExplanation.ingressRouteTables");
+        if (!unknown_ingressRouteTables) return value_ingressRouteTables;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.ingressRouteTables' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationInternetGateway>> internetGateways;
-
+    @PolicyResourceProperty(name="internetGateways", flag="unknown_internetGateways")
+    private @Nullable List<NetworkInsightsAnalysisExplanationInternetGateway> value_internetGateways;
+    private boolean unknown_internetGateways;
     public @Nullable List<NetworkInsightsAnalysisExplanationInternetGateway> internetGateways() {
-        if (internetGateways == null) return null;
-        return internetGateways.getValue("NetworkInsightsAnalysisExplanation.internetGateways");
+        if (!unknown_internetGateways) return value_internetGateways;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.internetGateways' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> loadBalancerArn;
-
+    @PolicyResourceProperty(name="loadBalancerArn", flag="unknown_loadBalancerArn")
+    private @Nullable String value_loadBalancerArn;
+    private boolean unknown_loadBalancerArn;
     public @Nullable String loadBalancerArn() {
-        if (loadBalancerArn == null) return null;
-        return loadBalancerArn.getValue("NetworkInsightsAnalysisExplanation.loadBalancerArn");
+        if (!unknown_loadBalancerArn) return value_loadBalancerArn;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.loadBalancerArn' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> loadBalancerListenerPort;
-
+    @PolicyResourceProperty(name="loadBalancerListenerPort", flag="unknown_loadBalancerListenerPort")
+    private @Nullable Integer value_loadBalancerListenerPort;
+    private boolean unknown_loadBalancerListenerPort;
     public @Nullable Integer loadBalancerListenerPort() {
-        if (loadBalancerListenerPort == null) return null;
-        return loadBalancerListenerPort.getValue("NetworkInsightsAnalysisExplanation.loadBalancerListenerPort");
+        if (!unknown_loadBalancerListenerPort) return value_loadBalancerListenerPort;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.loadBalancerListenerPort' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup>> loadBalancerTargetGroup;
-
+    @PolicyResourceProperty(name="loadBalancerTargetGroup", flag="unknown_loadBalancerTargetGroup")
+    private @Nullable List<NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> value_loadBalancerTargetGroup;
+    private boolean unknown_loadBalancerTargetGroup;
     public @Nullable List<NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroup() {
-        if (loadBalancerTargetGroup == null) return null;
-        return loadBalancerTargetGroup.getValue("NetworkInsightsAnalysisExplanation.loadBalancerTargetGroup");
+        if (!unknown_loadBalancerTargetGroup) return value_loadBalancerTargetGroup;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.loadBalancerTargetGroup' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup>> loadBalancerTargetGroups;
-
+    @PolicyResourceProperty(name="loadBalancerTargetGroups", flag="unknown_loadBalancerTargetGroups")
+    private @Nullable List<NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> value_loadBalancerTargetGroups;
+    private boolean unknown_loadBalancerTargetGroups;
     public @Nullable List<NetworkInsightsAnalysisExplanationLoadBalancerTargetGroup> loadBalancerTargetGroups() {
-        if (loadBalancerTargetGroups == null) return null;
-        return loadBalancerTargetGroups.getValue("NetworkInsightsAnalysisExplanation.loadBalancerTargetGroups");
+        if (!unknown_loadBalancerTargetGroups) return value_loadBalancerTargetGroups;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.loadBalancerTargetGroups' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> loadBalancerTargetPort;
-
+    @PolicyResourceProperty(name="loadBalancerTargetPort", flag="unknown_loadBalancerTargetPort")
+    private @Nullable Integer value_loadBalancerTargetPort;
+    private boolean unknown_loadBalancerTargetPort;
     public @Nullable Integer loadBalancerTargetPort() {
-        if (loadBalancerTargetPort == null) return null;
-        return loadBalancerTargetPort.getValue("NetworkInsightsAnalysisExplanation.loadBalancerTargetPort");
+        if (!unknown_loadBalancerTargetPort) return value_loadBalancerTargetPort;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.loadBalancerTargetPort' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> missingComponent;
-
+    @PolicyResourceProperty(name="missingComponent", flag="unknown_missingComponent")
+    private @Nullable String value_missingComponent;
+    private boolean unknown_missingComponent;
     public @Nullable String missingComponent() {
-        if (missingComponent == null) return null;
-        return missingComponent.getValue("NetworkInsightsAnalysisExplanation.missingComponent");
+        if (!unknown_missingComponent) return value_missingComponent;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.missingComponent' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationNatGateway>> natGateways;
-
+    @PolicyResourceProperty(name="natGateways", flag="unknown_natGateways")
+    private @Nullable List<NetworkInsightsAnalysisExplanationNatGateway> value_natGateways;
+    private boolean unknown_natGateways;
     public @Nullable List<NetworkInsightsAnalysisExplanationNatGateway> natGateways() {
-        if (natGateways == null) return null;
-        return natGateways.getValue("NetworkInsightsAnalysisExplanation.natGateways");
+        if (!unknown_natGateways) return value_natGateways;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.natGateways' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationNetworkInterface>> networkInterfaces;
-
+    @PolicyResourceProperty(name="networkInterfaces", flag="unknown_networkInterfaces")
+    private @Nullable List<NetworkInsightsAnalysisExplanationNetworkInterface> value_networkInterfaces;
+    private boolean unknown_networkInterfaces;
     public @Nullable List<NetworkInsightsAnalysisExplanationNetworkInterface> networkInterfaces() {
-        if (networkInterfaces == null) return null;
-        return networkInterfaces.getValue("NetworkInsightsAnalysisExplanation.networkInterfaces");
+        if (!unknown_networkInterfaces) return value_networkInterfaces;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.networkInterfaces' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> packetField;
-
+    @PolicyResourceProperty(name="packetField", flag="unknown_packetField")
+    private @Nullable String value_packetField;
+    private boolean unknown_packetField;
     public @Nullable String packetField() {
-        if (packetField == null) return null;
-        return packetField.getValue("NetworkInsightsAnalysisExplanation.packetField");
+        if (!unknown_packetField) return value_packetField;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.packetField' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable Integer value_port;
+    private boolean unknown_port;
     public @Nullable Integer port() {
-        if (port == null) return null;
-        return port.getValue("NetworkInsightsAnalysisExplanation.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.port' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationPortRange>> portRanges;
-
+    @PolicyResourceProperty(name="portRanges", flag="unknown_portRanges")
+    private @Nullable List<NetworkInsightsAnalysisExplanationPortRange> value_portRanges;
+    private boolean unknown_portRanges;
     public @Nullable List<NetworkInsightsAnalysisExplanationPortRange> portRanges() {
-        if (portRanges == null) return null;
-        return portRanges.getValue("NetworkInsightsAnalysisExplanation.portRanges");
+        if (!unknown_portRanges) return value_portRanges;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.portRanges' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationPrefixList>> prefixLists;
-
+    @PolicyResourceProperty(name="prefixLists", flag="unknown_prefixLists")
+    private @Nullable List<NetworkInsightsAnalysisExplanationPrefixList> value_prefixLists;
+    private boolean unknown_prefixLists;
     public @Nullable List<NetworkInsightsAnalysisExplanationPrefixList> prefixLists() {
-        if (prefixLists == null) return null;
-        return prefixLists.getValue("NetworkInsightsAnalysisExplanation.prefixLists");
+        if (!unknown_prefixLists) return value_prefixLists;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.prefixLists' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<String>> protocols;
-
+    @PolicyResourceProperty(name="protocols", flag="unknown_protocols")
+    private @Nullable List<String> value_protocols;
+    private boolean unknown_protocols;
     public @Nullable List<String> protocols() {
-        if (protocols == null) return null;
-        return protocols.getValue("NetworkInsightsAnalysisExplanation.protocols");
+        if (!unknown_protocols) return value_protocols;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.protocols' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationRouteTableRoute>> routeTableRoutes;
-
+    @PolicyResourceProperty(name="routeTableRoutes", flag="unknown_routeTableRoutes")
+    private @Nullable List<NetworkInsightsAnalysisExplanationRouteTableRoute> value_routeTableRoutes;
+    private boolean unknown_routeTableRoutes;
     public @Nullable List<NetworkInsightsAnalysisExplanationRouteTableRoute> routeTableRoutes() {
-        if (routeTableRoutes == null) return null;
-        return routeTableRoutes.getValue("NetworkInsightsAnalysisExplanation.routeTableRoutes");
+        if (!unknown_routeTableRoutes) return value_routeTableRoutes;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.routeTableRoutes' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationRouteTable>> routeTables;
-
+    @PolicyResourceProperty(name="routeTables", flag="unknown_routeTables")
+    private @Nullable List<NetworkInsightsAnalysisExplanationRouteTable> value_routeTables;
+    private boolean unknown_routeTables;
     public @Nullable List<NetworkInsightsAnalysisExplanationRouteTable> routeTables() {
-        if (routeTables == null) return null;
-        return routeTables.getValue("NetworkInsightsAnalysisExplanation.routeTables");
+        if (!unknown_routeTables) return value_routeTables;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.routeTables' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationSecurityGroup>> securityGroup;
-
+    @PolicyResourceProperty(name="securityGroup", flag="unknown_securityGroup")
+    private @Nullable List<NetworkInsightsAnalysisExplanationSecurityGroup> value_securityGroup;
+    private boolean unknown_securityGroup;
     public @Nullable List<NetworkInsightsAnalysisExplanationSecurityGroup> securityGroup() {
-        if (securityGroup == null) return null;
-        return securityGroup.getValue("NetworkInsightsAnalysisExplanation.securityGroup");
+        if (!unknown_securityGroup) return value_securityGroup;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.securityGroup' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationSecurityGroupRule>> securityGroupRules;
-
+    @PolicyResourceProperty(name="securityGroupRules", flag="unknown_securityGroupRules")
+    private @Nullable List<NetworkInsightsAnalysisExplanationSecurityGroupRule> value_securityGroupRules;
+    private boolean unknown_securityGroupRules;
     public @Nullable List<NetworkInsightsAnalysisExplanationSecurityGroupRule> securityGroupRules() {
-        if (securityGroupRules == null) return null;
-        return securityGroupRules.getValue("NetworkInsightsAnalysisExplanation.securityGroupRules");
+        if (!unknown_securityGroupRules) return value_securityGroupRules;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.securityGroupRules' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationSecurityGroup>> securityGroups;
-
+    @PolicyResourceProperty(name="securityGroups", flag="unknown_securityGroups")
+    private @Nullable List<NetworkInsightsAnalysisExplanationSecurityGroup> value_securityGroups;
+    private boolean unknown_securityGroups;
     public @Nullable List<NetworkInsightsAnalysisExplanationSecurityGroup> securityGroups() {
-        if (securityGroups == null) return null;
-        return securityGroups.getValue("NetworkInsightsAnalysisExplanation.securityGroups");
+        if (!unknown_securityGroups) return value_securityGroups;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.securityGroups' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationSourceVpc>> sourceVpcs;
-
+    @PolicyResourceProperty(name="sourceVpcs", flag="unknown_sourceVpcs")
+    private @Nullable List<NetworkInsightsAnalysisExplanationSourceVpc> value_sourceVpcs;
+    private boolean unknown_sourceVpcs;
     public @Nullable List<NetworkInsightsAnalysisExplanationSourceVpc> sourceVpcs() {
-        if (sourceVpcs == null) return null;
-        return sourceVpcs.getValue("NetworkInsightsAnalysisExplanation.sourceVpcs");
+        if (!unknown_sourceVpcs) return value_sourceVpcs;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.sourceVpcs' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private @Nullable String value_state;
+    private boolean unknown_state;
     public @Nullable String state() {
-        if (state == null) return null;
-        return state.getValue("NetworkInsightsAnalysisExplanation.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.state' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationSubnetRouteTable>> subnetRouteTables;
-
+    @PolicyResourceProperty(name="subnetRouteTables", flag="unknown_subnetRouteTables")
+    private @Nullable List<NetworkInsightsAnalysisExplanationSubnetRouteTable> value_subnetRouteTables;
+    private boolean unknown_subnetRouteTables;
     public @Nullable List<NetworkInsightsAnalysisExplanationSubnetRouteTable> subnetRouteTables() {
-        if (subnetRouteTables == null) return null;
-        return subnetRouteTables.getValue("NetworkInsightsAnalysisExplanation.subnetRouteTables");
+        if (!unknown_subnetRouteTables) return value_subnetRouteTables;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.subnetRouteTables' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationSubnet>> subnets;
-
+    @PolicyResourceProperty(name="subnets", flag="unknown_subnets")
+    private @Nullable List<NetworkInsightsAnalysisExplanationSubnet> value_subnets;
+    private boolean unknown_subnets;
     public @Nullable List<NetworkInsightsAnalysisExplanationSubnet> subnets() {
-        if (subnets == null) return null;
-        return subnets.getValue("NetworkInsightsAnalysisExplanation.subnets");
+        if (!unknown_subnets) return value_subnets;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.subnets' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationTransitGatewayAttachment>> transitGatewayAttachments;
-
+    @PolicyResourceProperty(name="transitGatewayAttachments", flag="unknown_transitGatewayAttachments")
+    private @Nullable List<NetworkInsightsAnalysisExplanationTransitGatewayAttachment> value_transitGatewayAttachments;
+    private boolean unknown_transitGatewayAttachments;
     public @Nullable List<NetworkInsightsAnalysisExplanationTransitGatewayAttachment> transitGatewayAttachments() {
-        if (transitGatewayAttachments == null) return null;
-        return transitGatewayAttachments.getValue("NetworkInsightsAnalysisExplanation.transitGatewayAttachments");
+        if (!unknown_transitGatewayAttachments) return value_transitGatewayAttachments;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.transitGatewayAttachments' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute>> transitGatewayRouteTableRoutes;
-
+    @PolicyResourceProperty(name="transitGatewayRouteTableRoutes", flag="unknown_transitGatewayRouteTableRoutes")
+    private @Nullable List<NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute> value_transitGatewayRouteTableRoutes;
+    private boolean unknown_transitGatewayRouteTableRoutes;
     public @Nullable List<NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRoute> transitGatewayRouteTableRoutes() {
-        if (transitGatewayRouteTableRoutes == null) return null;
-        return transitGatewayRouteTableRoutes.getValue("NetworkInsightsAnalysisExplanation.transitGatewayRouteTableRoutes");
+        if (!unknown_transitGatewayRouteTableRoutes) return value_transitGatewayRouteTableRoutes;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.transitGatewayRouteTableRoutes' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationTransitGatewayRouteTable>> transitGatewayRouteTables;
-
+    @PolicyResourceProperty(name="transitGatewayRouteTables", flag="unknown_transitGatewayRouteTables")
+    private @Nullable List<NetworkInsightsAnalysisExplanationTransitGatewayRouteTable> value_transitGatewayRouteTables;
+    private boolean unknown_transitGatewayRouteTables;
     public @Nullable List<NetworkInsightsAnalysisExplanationTransitGatewayRouteTable> transitGatewayRouteTables() {
-        if (transitGatewayRouteTables == null) return null;
-        return transitGatewayRouteTables.getValue("NetworkInsightsAnalysisExplanation.transitGatewayRouteTables");
+        if (!unknown_transitGatewayRouteTables) return value_transitGatewayRouteTables;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.transitGatewayRouteTables' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationTransitGateway>> transitGateways;
-
+    @PolicyResourceProperty(name="transitGateways", flag="unknown_transitGateways")
+    private @Nullable List<NetworkInsightsAnalysisExplanationTransitGateway> value_transitGateways;
+    private boolean unknown_transitGateways;
     public @Nullable List<NetworkInsightsAnalysisExplanationTransitGateway> transitGateways() {
-        if (transitGateways == null) return null;
-        return transitGateways.getValue("NetworkInsightsAnalysisExplanation.transitGateways");
+        if (!unknown_transitGateways) return value_transitGateways;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.transitGateways' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationVpcEndpoint>> vpcEndpoints;
-
+    @PolicyResourceProperty(name="vpcEndpoints", flag="unknown_vpcEndpoints")
+    private @Nullable List<NetworkInsightsAnalysisExplanationVpcEndpoint> value_vpcEndpoints;
+    private boolean unknown_vpcEndpoints;
     public @Nullable List<NetworkInsightsAnalysisExplanationVpcEndpoint> vpcEndpoints() {
-        if (vpcEndpoints == null) return null;
-        return vpcEndpoints.getValue("NetworkInsightsAnalysisExplanation.vpcEndpoints");
+        if (!unknown_vpcEndpoints) return value_vpcEndpoints;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.vpcEndpoints' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationVpcPeeringConnection>> vpcPeeringConnections;
-
+    @PolicyResourceProperty(name="vpcPeeringConnections", flag="unknown_vpcPeeringConnections")
+    private @Nullable List<NetworkInsightsAnalysisExplanationVpcPeeringConnection> value_vpcPeeringConnections;
+    private boolean unknown_vpcPeeringConnections;
     public @Nullable List<NetworkInsightsAnalysisExplanationVpcPeeringConnection> vpcPeeringConnections() {
-        if (vpcPeeringConnections == null) return null;
-        return vpcPeeringConnections.getValue("NetworkInsightsAnalysisExplanation.vpcPeeringConnections");
+        if (!unknown_vpcPeeringConnections) return value_vpcPeeringConnections;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.vpcPeeringConnections' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationVpc>> vpcs;
-
+    @PolicyResourceProperty(name="vpcs", flag="unknown_vpcs")
+    private @Nullable List<NetworkInsightsAnalysisExplanationVpc> value_vpcs;
+    private boolean unknown_vpcs;
     public @Nullable List<NetworkInsightsAnalysisExplanationVpc> vpcs() {
-        if (vpcs == null) return null;
-        return vpcs.getValue("NetworkInsightsAnalysisExplanation.vpcs");
+        if (!unknown_vpcs) return value_vpcs;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.vpcs' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationVpnConnection>> vpnConnections;
-
+    @PolicyResourceProperty(name="vpnConnections", flag="unknown_vpnConnections")
+    private @Nullable List<NetworkInsightsAnalysisExplanationVpnConnection> value_vpnConnections;
+    private boolean unknown_vpnConnections;
     public @Nullable List<NetworkInsightsAnalysisExplanationVpnConnection> vpnConnections() {
-        if (vpnConnections == null) return null;
-        return vpnConnections.getValue("NetworkInsightsAnalysisExplanation.vpnConnections");
+        if (!unknown_vpnConnections) return value_vpnConnections;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.vpnConnections' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationVpnGateway>> vpnGateways;
-
+    @PolicyResourceProperty(name="vpnGateways", flag="unknown_vpnGateways")
+    private @Nullable List<NetworkInsightsAnalysisExplanationVpnGateway> value_vpnGateways;
+    private boolean unknown_vpnGateways;
     public @Nullable List<NetworkInsightsAnalysisExplanationVpnGateway> vpnGateways() {
-        if (vpnGateways == null) return null;
-        return vpnGateways.getValue("NetworkInsightsAnalysisExplanation.vpnGateways");
+        if (!unknown_vpnGateways) return value_vpnGateways;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanation.vpnGateways' is not present");
     }
 
 }

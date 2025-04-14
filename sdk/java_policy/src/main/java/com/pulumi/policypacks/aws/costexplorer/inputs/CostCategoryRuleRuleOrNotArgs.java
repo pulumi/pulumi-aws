@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.costexplorer.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.costexplorer.inputs.CostCategoryRuleRuleOrNotCostCategoryArgs;
 import com.pulumi.policypacks.aws.costexplorer.inputs.CostCategoryRuleRuleOrNotDimensionArgs;
 import com.pulumi.policypacks.aws.costexplorer.inputs.CostCategoryRuleRuleOrNotTagsArgs;
@@ -16,33 +17,36 @@ public final class CostCategoryRuleRuleOrNotArgs {
      * Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
      * 
      */
-    private UndeferrableValue<CostCategoryRuleRuleOrNotCostCategoryArgs> costCategory;
-
+    @PolicyResourceProperty(name="costCategory", flag="unknown_costCategory")
+    private CostCategoryRuleRuleOrNotCostCategoryArgs value_costCategory;
+    private boolean unknown_costCategory;
     public CostCategoryRuleRuleOrNotCostCategoryArgs costCategory() {
-        if (costCategory == null) return null;
-        return costCategory.getValue("CostCategoryRuleRuleOrNotArgs.costCategory");
+        if (!unknown_costCategory) return value_costCategory;
+        throw new UndeferrableValueException("Value 'CostCategoryRuleRuleOrNotArgs.costCategory' is not present");
     }
 
     /**
      * Configuration block for the specific `Dimension` to use for `Expression`. See below.
      * 
      */
-    private UndeferrableValue<CostCategoryRuleRuleOrNotDimensionArgs> dimension;
-
+    @PolicyResourceProperty(name="dimension", flag="unknown_dimension")
+    private CostCategoryRuleRuleOrNotDimensionArgs value_dimension;
+    private boolean unknown_dimension;
     public CostCategoryRuleRuleOrNotDimensionArgs dimension() {
-        if (dimension == null) return null;
-        return dimension.getValue("CostCategoryRuleRuleOrNotArgs.dimension");
+        if (!unknown_dimension) return value_dimension;
+        throw new UndeferrableValueException("Value 'CostCategoryRuleRuleOrNotArgs.dimension' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<CostCategoryRuleRuleOrNotTagsArgs> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private CostCategoryRuleRuleOrNotTagsArgs value_tags;
+    private boolean unknown_tags;
     public CostCategoryRuleRuleOrNotTagsArgs tags() {
-        if (tags == null) return null;
-        return tags.getValue("CostCategoryRuleRuleOrNotArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CostCategoryRuleRuleOrNotArgs.tags' is not present");
     }
 
 }

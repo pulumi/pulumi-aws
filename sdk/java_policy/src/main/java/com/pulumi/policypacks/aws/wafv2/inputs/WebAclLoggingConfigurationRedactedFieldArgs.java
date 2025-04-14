@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclLoggingConfigurationRedactedFieldMethodArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclLoggingConfigurationRedactedFieldQueryStringArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs;
@@ -17,44 +18,48 @@ public final class WebAclLoggingConfigurationRedactedFieldArgs {
      * HTTP method to be redacted. It must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
      * 
      */
-    private UndeferrableValue<WebAclLoggingConfigurationRedactedFieldMethodArgs> method;
-
+    @PolicyResourceProperty(name="method", flag="unknown_method")
+    private WebAclLoggingConfigurationRedactedFieldMethodArgs value_method;
+    private boolean unknown_method;
     public WebAclLoggingConfigurationRedactedFieldMethodArgs method() {
-        if (method == null) return null;
-        return method.getValue("WebAclLoggingConfigurationRedactedFieldArgs.method");
+        if (!unknown_method) return value_method;
+        throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationRedactedFieldArgs.method' is not present");
     }
 
     /**
      * Whether to redact the query string. It must be specified as an empty configuration block `{}`. The query string is the part of a URL that appears after a `?` character, if any.
      * 
      */
-    private UndeferrableValue<WebAclLoggingConfigurationRedactedFieldQueryStringArgs> queryString;
-
+    @PolicyResourceProperty(name="queryString", flag="unknown_queryString")
+    private WebAclLoggingConfigurationRedactedFieldQueryStringArgs value_queryString;
+    private boolean unknown_queryString;
     public WebAclLoggingConfigurationRedactedFieldQueryStringArgs queryString() {
-        if (queryString == null) return null;
-        return queryString.getValue("WebAclLoggingConfigurationRedactedFieldArgs.queryString");
+        if (!unknown_queryString) return value_queryString;
+        throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationRedactedFieldArgs.queryString' is not present");
     }
 
     /**
      * &#34;single_header&#34; refers to the redaction of a single header. For more information, please see the details below under Single Header.
      * 
      */
-    private UndeferrableValue<WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs> singleHeader;
-
+    @PolicyResourceProperty(name="singleHeader", flag="unknown_singleHeader")
+    private WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs value_singleHeader;
+    private boolean unknown_singleHeader;
     public WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs singleHeader() {
-        if (singleHeader == null) return null;
-        return singleHeader.getValue("WebAclLoggingConfigurationRedactedFieldArgs.singleHeader");
+        if (!unknown_singleHeader) return value_singleHeader;
+        throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationRedactedFieldArgs.singleHeader' is not present");
     }
 
     /**
      * Configuration block that redacts the request URI path. It should be specified as an empty configuration block `{}`. The URI path is the part of a web request that identifies a resource, such as `/images/daily-ad.jpg`.
      * 
      */
-    private UndeferrableValue<WebAclLoggingConfigurationRedactedFieldUriPathArgs> uriPath;
-
+    @PolicyResourceProperty(name="uriPath", flag="unknown_uriPath")
+    private WebAclLoggingConfigurationRedactedFieldUriPathArgs value_uriPath;
+    private boolean unknown_uriPath;
     public WebAclLoggingConfigurationRedactedFieldUriPathArgs uriPath() {
-        if (uriPath == null) return null;
-        return uriPath.getValue("WebAclLoggingConfigurationRedactedFieldArgs.uriPath");
+        if (!unknown_uriPath) return value_uriPath;
+        throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationRedactedFieldArgs.uriPath' is not present");
     }
 
 }

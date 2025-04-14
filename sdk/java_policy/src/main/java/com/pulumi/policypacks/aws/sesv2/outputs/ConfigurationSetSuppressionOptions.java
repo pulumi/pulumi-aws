@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ConfigurationSetSuppressionOptions {
      * A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> suppressedReasons;
-
+    @PolicyResourceProperty(name="suppressedReasons", flag="unknown_suppressedReasons")
+    private @Nullable List<String> value_suppressedReasons;
+    private boolean unknown_suppressedReasons;
     public @Nullable List<String> suppressedReasons() {
-        if (suppressedReasons == null) return null;
-        return suppressedReasons.getValue("ConfigurationSetSuppressionOptions.suppressedReasons");
+        if (!unknown_suppressedReasons) return value_suppressedReasons;
+        throw new UndeferrableValueException("Value 'ConfigurationSetSuppressionOptions.suppressedReasons' is not present");
     }
 
 }

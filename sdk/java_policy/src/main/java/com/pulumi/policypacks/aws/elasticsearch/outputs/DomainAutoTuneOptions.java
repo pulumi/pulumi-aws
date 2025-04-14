@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticsearch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.elasticsearch.outputs.DomainAutoTuneOptionsMaintenanceSchedule;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class DomainAutoTuneOptions {
      * The Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> desiredState;
-
+    @PolicyResourceProperty(name="desiredState", flag="unknown_desiredState")
+    private String value_desiredState;
+    private boolean unknown_desiredState;
     public String desiredState() {
-        if (desiredState == null) return null;
-        return desiredState.getValue("DomainAutoTuneOptions.desiredState");
+        if (!unknown_desiredState) return value_desiredState;
+        throw new UndeferrableValueException("Value 'DomainAutoTuneOptions.desiredState' is not present");
     }
 
     /**
      * Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<DomainAutoTuneOptionsMaintenanceSchedule>> maintenanceSchedules;
-
+    @PolicyResourceProperty(name="maintenanceSchedules", flag="unknown_maintenanceSchedules")
+    private @Nullable List<DomainAutoTuneOptionsMaintenanceSchedule> value_maintenanceSchedules;
+    private boolean unknown_maintenanceSchedules;
     public @Nullable List<DomainAutoTuneOptionsMaintenanceSchedule> maintenanceSchedules() {
-        if (maintenanceSchedules == null) return null;
-        return maintenanceSchedules.getValue("DomainAutoTuneOptions.maintenanceSchedules");
+        if (!unknown_maintenanceSchedules) return value_maintenanceSchedules;
+        throw new UndeferrableValueException("Value 'DomainAutoTuneOptions.maintenanceSchedules' is not present");
     }
 
     /**
      * Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
      * 
      */
-    private @Nullable UndeferrableValue<String> rollbackOnDisable;
-
+    @PolicyResourceProperty(name="rollbackOnDisable", flag="unknown_rollbackOnDisable")
+    private @Nullable String value_rollbackOnDisable;
+    private boolean unknown_rollbackOnDisable;
     public @Nullable String rollbackOnDisable() {
-        if (rollbackOnDisable == null) return null;
-        return rollbackOnDisable.getValue("DomainAutoTuneOptions.rollbackOnDisable");
+        if (!unknown_rollbackOnDisable) return value_rollbackOnDisable;
+        throw new UndeferrableValueException("Value 'DomainAutoTuneOptions.rollbackOnDisable' is not present");
     }
 
 }

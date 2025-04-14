@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudfront.outputs.OriginRequestPolicyCookiesConfig;
 import com.pulumi.policypacks.aws.cloudfront.outputs.OriginRequestPolicyHeadersConfig;
@@ -19,77 +20,84 @@ public final class OriginRequestPolicy extends com.pulumi.resources.PolicyResour
      * The origin request policy ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("OriginRequestPolicy.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'OriginRequestPolicy.arn' is not present");
     }
 
     /**
      * Comment to describe the origin request policy.
      * 
      */
-    private @Nullable UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private @Nullable String value_comment;
+    private boolean unknown_comment;
     public @Nullable String comment() {
-        if (comment == null) return null;
-        return comment.getValue("OriginRequestPolicy.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'OriginRequestPolicy.comment' is not present");
     }
 
     /**
      * Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
      * 
      */
-    private UndeferrableValue<OriginRequestPolicyCookiesConfig> cookiesConfig;
-
+    @PolicyResourceProperty(name="cookiesConfig", flag="unknown_cookiesConfig")
+    private OriginRequestPolicyCookiesConfig value_cookiesConfig;
+    private boolean unknown_cookiesConfig;
     public OriginRequestPolicyCookiesConfig cookiesConfig() {
-        if (cookiesConfig == null) return null;
-        return cookiesConfig.getValue("OriginRequestPolicy.cookiesConfig");
+        if (!unknown_cookiesConfig) return value_cookiesConfig;
+        throw new UndeferrableValueException("Value 'OriginRequestPolicy.cookiesConfig' is not present");
     }
 
     /**
      * The current version of the origin request policy.
      * 
      */
-    private UndeferrableValue<String> etag;
-
+    @PolicyResourceProperty(name="etag", flag="unknown_etag")
+    private String value_etag;
+    private boolean unknown_etag;
     public String etag() {
-        if (etag == null) return null;
-        return etag.getValue("OriginRequestPolicy.etag");
+        if (!unknown_etag) return value_etag;
+        throw new UndeferrableValueException("Value 'OriginRequestPolicy.etag' is not present");
     }
 
     /**
      * Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
      * 
      */
-    private UndeferrableValue<OriginRequestPolicyHeadersConfig> headersConfig;
-
+    @PolicyResourceProperty(name="headersConfig", flag="unknown_headersConfig")
+    private OriginRequestPolicyHeadersConfig value_headersConfig;
+    private boolean unknown_headersConfig;
     public OriginRequestPolicyHeadersConfig headersConfig() {
-        if (headersConfig == null) return null;
-        return headersConfig.getValue("OriginRequestPolicy.headersConfig");
+        if (!unknown_headersConfig) return value_headersConfig;
+        throw new UndeferrableValueException("Value 'OriginRequestPolicy.headersConfig' is not present");
     }
 
     /**
      * Unique name to identify the origin request policy.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("OriginRequestPolicy.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'OriginRequestPolicy.name' is not present");
     }
 
     /**
      * Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
      * 
      */
-    private UndeferrableValue<OriginRequestPolicyQueryStringsConfig> queryStringsConfig;
-
+    @PolicyResourceProperty(name="queryStringsConfig", flag="unknown_queryStringsConfig")
+    private OriginRequestPolicyQueryStringsConfig value_queryStringsConfig;
+    private boolean unknown_queryStringsConfig;
     public OriginRequestPolicyQueryStringsConfig queryStringsConfig() {
-        if (queryStringsConfig == null) return null;
-        return queryStringsConfig.getValue("OriginRequestPolicy.queryStringsConfig");
+        if (!unknown_queryStringsConfig) return value_queryStringsConfig;
+        throw new UndeferrableValueException("Value 'OriginRequestPolicy.queryStringsConfig' is not present");
     }
 
 }

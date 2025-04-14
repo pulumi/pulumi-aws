@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.oam.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class LinkLinkConfigurationLogGroupConfigurationArgs {
      * Filter string that specifies which log groups are to share their log events with the monitoring account. See [LogGroupConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_LogGroupConfiguration.html) for details.
      * 
      */
-    private UndeferrableValue<String> filter;
-
+    @PolicyResourceProperty(name="filter", flag="unknown_filter")
+    private String value_filter;
+    private boolean unknown_filter;
     public String filter() {
-        if (filter == null) return null;
-        return filter.getValue("LinkLinkConfigurationLogGroupConfigurationArgs.filter");
+        if (!unknown_filter) return value_filter;
+        throw new UndeferrableValueException("Value 'LinkLinkConfigurationLogGroupConfigurationArgs.filter' is not present");
     }
 
 }

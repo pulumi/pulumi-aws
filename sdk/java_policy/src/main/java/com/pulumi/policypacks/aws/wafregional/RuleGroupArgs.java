@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafregional;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.wafregional.inputs.RuleGroupActivatedRuleArgs;
 import java.lang.String;
@@ -19,44 +20,48 @@ public final class RuleGroupArgs extends com.pulumi.resources.PolicyResourceInpu
      * A list of activated rules, see below
      * 
      */
-    private UndeferrableValue<List<RuleGroupActivatedRuleArgs>> activatedRules;
-
+    @PolicyResourceProperty(name="activatedRules", flag="unknown_activatedRules")
+    private List<RuleGroupActivatedRuleArgs> value_activatedRules;
+    private boolean unknown_activatedRules;
     public List<RuleGroupActivatedRuleArgs> activatedRules() {
-        if (activatedRules == null) return null;
-        return activatedRules.getValue("RuleGroupArgs.activatedRules");
+        if (!unknown_activatedRules) return value_activatedRules;
+        throw new UndeferrableValueException("Value 'RuleGroupArgs.activatedRules' is not present");
     }
 
     /**
      * A friendly name for the metrics from the rule group
      * 
      */
-    private UndeferrableValue<String> metricName;
-
+    @PolicyResourceProperty(name="metricName", flag="unknown_metricName")
+    private String value_metricName;
+    private boolean unknown_metricName;
     public String metricName() {
-        if (metricName == null) return null;
-        return metricName.getValue("RuleGroupArgs.metricName");
+        if (!unknown_metricName) return value_metricName;
+        throw new UndeferrableValueException("Value 'RuleGroupArgs.metricName' is not present");
     }
 
     /**
      * A friendly name of the rule group
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RuleGroupArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RuleGroupArgs.name' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RuleGroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RuleGroupArgs.tags' is not present");
     }
 
 }

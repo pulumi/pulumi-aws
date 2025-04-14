@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.RuleGroupRuleStatementSqliMatchStatementTextTransformationArgs;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class RuleGroupRuleStatementSqliMatchStatementArgs {
      * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs> fieldToMatch;
-
+    @PolicyResourceProperty(name="fieldToMatch", flag="unknown_fieldToMatch")
+    private RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs value_fieldToMatch;
+    private boolean unknown_fieldToMatch;
     public RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs fieldToMatch() {
-        if (fieldToMatch == null) return null;
-        return fieldToMatch.getValue("RuleGroupRuleStatementSqliMatchStatementArgs.fieldToMatch");
+        if (!unknown_fieldToMatch) return value_fieldToMatch;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementSqliMatchStatementArgs.fieldToMatch' is not present");
     }
 
     /**
      * Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
      * 
      */
-    private UndeferrableValue<String> sensitivityLevel;
-
+    @PolicyResourceProperty(name="sensitivityLevel", flag="unknown_sensitivityLevel")
+    private String value_sensitivityLevel;
+    private boolean unknown_sensitivityLevel;
     public String sensitivityLevel() {
-        if (sensitivityLevel == null) return null;
-        return sensitivityLevel.getValue("RuleGroupRuleStatementSqliMatchStatementArgs.sensitivityLevel");
+        if (!unknown_sensitivityLevel) return value_sensitivityLevel;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementSqliMatchStatementArgs.sensitivityLevel' is not present");
     }
 
     /**
@@ -41,11 +44,12 @@ public final class RuleGroupRuleStatementSqliMatchStatementArgs {
      * See Text Transformation below for details.
      * 
      */
-    private UndeferrableValue<List<RuleGroupRuleStatementSqliMatchStatementTextTransformationArgs>> textTransformations;
-
+    @PolicyResourceProperty(name="textTransformations", flag="unknown_textTransformations")
+    private List<RuleGroupRuleStatementSqliMatchStatementTextTransformationArgs> value_textTransformations;
+    private boolean unknown_textTransformations;
     public List<RuleGroupRuleStatementSqliMatchStatementTextTransformationArgs> textTransformations() {
-        if (textTransformations == null) return null;
-        return textTransformations.getValue("RuleGroupRuleStatementSqliMatchStatementArgs.textTransformations");
+        if (!unknown_textTransformations) return value_textTransformations;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementSqliMatchStatementArgs.textTransformations' is not present");
     }
 
 }

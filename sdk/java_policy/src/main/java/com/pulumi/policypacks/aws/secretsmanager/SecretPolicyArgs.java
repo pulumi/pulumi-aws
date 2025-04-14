@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.secretsmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class SecretPolicyArgs extends com.pulumi.resources.PolicyResourceI
      * Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
      * 
      */
-    private UndeferrableValue<Boolean> blockPublicPolicy;
-
+    @PolicyResourceProperty(name="blockPublicPolicy", flag="unknown_blockPublicPolicy")
+    private Boolean value_blockPublicPolicy;
+    private boolean unknown_blockPublicPolicy;
     public Boolean blockPublicPolicy() {
-        if (blockPublicPolicy == null) return null;
-        return blockPublicPolicy.getValue("SecretPolicyArgs.blockPublicPolicy");
+        if (!unknown_blockPublicPolicy) return value_blockPublicPolicy;
+        throw new UndeferrableValueException("Value 'SecretPolicyArgs.blockPublicPolicy' is not present");
     }
 
     /**
      * Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `policy` can be set to `&#34;{}&#34;` to delete the policy, `&#34;{}&#34;` is not a valid policy since `policy` is required.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("SecretPolicyArgs.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'SecretPolicyArgs.policy' is not present");
     }
 
     /**
@@ -41,11 +44,12 @@ public final class SecretPolicyArgs extends com.pulumi.resources.PolicyResourceI
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> secretArn;
-
+    @PolicyResourceProperty(name="secretArn", flag="unknown_secretArn")
+    private String value_secretArn;
+    private boolean unknown_secretArn;
     public String secretArn() {
-        if (secretArn == null) return null;
-        return secretArn.getValue("SecretPolicyArgs.secretArn");
+        if (!unknown_secretArn) return value_secretArn;
+        throw new UndeferrableValueException("Value 'SecretPolicyArgs.secretArn' is not present");
     }
 
 }

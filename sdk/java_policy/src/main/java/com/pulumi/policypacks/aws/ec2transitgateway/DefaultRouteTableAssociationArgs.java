@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2transitgateway.inputs.DefaultRouteTableAssociationTimeoutsArgs;
 import java.lang.String;
@@ -13,33 +14,36 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:ec2transitgateway/defaultRouteTableAssociation:DefaultRouteTableAssociation")
 public final class DefaultRouteTableAssociationArgs extends com.pulumi.resources.PolicyResourceInput {
 
-    private UndeferrableValue<DefaultRouteTableAssociationTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private DefaultRouteTableAssociationTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public DefaultRouteTableAssociationTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("DefaultRouteTableAssociationArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'DefaultRouteTableAssociationArgs.timeouts' is not present");
     }
 
     /**
      * ID of the Transit Gateway to change the default association route table on.
      * 
      */
-    private UndeferrableValue<String> transitGatewayId;
-
+    @PolicyResourceProperty(name="transitGatewayId", flag="unknown_transitGatewayId")
+    private String value_transitGatewayId;
+    private boolean unknown_transitGatewayId;
     public String transitGatewayId() {
-        if (transitGatewayId == null) return null;
-        return transitGatewayId.getValue("DefaultRouteTableAssociationArgs.transitGatewayId");
+        if (!unknown_transitGatewayId) return value_transitGatewayId;
+        throw new UndeferrableValueException("Value 'DefaultRouteTableAssociationArgs.transitGatewayId' is not present");
     }
 
     /**
      * ID of the Transit Gateway Route Table to be made the default association route table.
      * 
      */
-    private UndeferrableValue<String> transitGatewayRouteTableId;
-
+    @PolicyResourceProperty(name="transitGatewayRouteTableId", flag="unknown_transitGatewayRouteTableId")
+    private String value_transitGatewayRouteTableId;
+    private boolean unknown_transitGatewayRouteTableId;
     public String transitGatewayRouteTableId() {
-        if (transitGatewayRouteTableId == null) return null;
-        return transitGatewayRouteTableId.getValue("DefaultRouteTableAssociationArgs.transitGatewayRouteTableId");
+        if (!unknown_transitGatewayRouteTableId) return value_transitGatewayRouteTableId;
+        throw new UndeferrableValueException("Value 'DefaultRouteTableAssociationArgs.transitGatewayRouteTableId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.macie2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.macie2.outputs.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagC
      * The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
      * 
      */
-    private @Nullable UndeferrableValue<String> comparator;
-
+    @PolicyResourceProperty(name="comparator", flag="unknown_comparator")
+    private @Nullable String value_comparator;
+    private boolean unknown_comparator;
     public @Nullable String comparator() {
-        if (comparator == null) return null;
-        return comparator.getValue("ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion.comparator");
+        if (!unknown_comparator) return value_comparator;
+        throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion.comparator' is not present");
     }
 
     /**
      * The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
      * 
      */
-    private @Nullable UndeferrableValue<List<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue>> tagValues;
-
+    @PolicyResourceProperty(name="tagValues", flag="unknown_tagValues")
+    private @Nullable List<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue> value_tagValues;
+    private boolean unknown_tagValues;
     public @Nullable List<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue> tagValues() {
-        if (tagValues == null) return null;
-        return tagValues.getValue("ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion.tagValues");
+        if (!unknown_tagValues) return value_tagValues;
+        throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion.tagValues' is not present");
     }
 
 }

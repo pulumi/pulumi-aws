@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,22 +14,24 @@ public final class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSess
      * The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` – `3600` (5–60 minutes). The value must be less than or equal to `maximum_ttl`.
      * 
      */
-    private UndeferrableValue<Integer> idleTtl;
-
+    @PolicyResourceProperty(name="idleTtl", flag="unknown_idleTtl")
+    private Integer value_idleTtl;
+    private boolean unknown_idleTtl;
     public Integer idleTtl() {
-        if (idleTtl == null) return null;
-        return idleTtl.getValue("ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig.idleTtl");
+        if (!unknown_idleTtl) return value_idleTtl;
+        throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig.idleTtl' is not present");
     }
 
     /**
      * The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` – `3600` (5–60 minutes). The value must be greater than or equal to `idle_ttl`.
      * 
      */
-    private UndeferrableValue<Integer> maximumTtl;
-
+    @PolicyResourceProperty(name="maximumTtl", flag="unknown_maximumTtl")
+    private Integer value_maximumTtl;
+    private boolean unknown_maximumTtl;
     public Integer maximumTtl() {
-        if (maximumTtl == null) return null;
-        return maximumTtl.getValue("ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig.maximumTtl");
+        if (!unknown_maximumTtl) return value_maximumTtl;
+        throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig.maximumTtl' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codepipeline.inputs.PipelineArtifactStoreEncryptionKeyArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class PipelineArtifactStoreArgs {
      * The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don&#39;t specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryption_key` block is documented below.
      * 
      */
-    private UndeferrableValue<PipelineArtifactStoreEncryptionKeyArgs> encryptionKey;
-
+    @PolicyResourceProperty(name="encryptionKey", flag="unknown_encryptionKey")
+    private PipelineArtifactStoreEncryptionKeyArgs value_encryptionKey;
+    private boolean unknown_encryptionKey;
     public PipelineArtifactStoreEncryptionKeyArgs encryptionKey() {
-        if (encryptionKey == null) return null;
-        return encryptionKey.getValue("PipelineArtifactStoreArgs.encryptionKey");
+        if (!unknown_encryptionKey) return value_encryptionKey;
+        throw new UndeferrableValueException("Value 'PipelineArtifactStoreArgs.encryptionKey' is not present");
     }
 
     /**
      * The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
      * 
      */
-    private UndeferrableValue<String> location;
-
+    @PolicyResourceProperty(name="location", flag="unknown_location")
+    private String value_location;
+    private boolean unknown_location;
     public String location() {
-        if (location == null) return null;
-        return location.getValue("PipelineArtifactStoreArgs.location");
+        if (!unknown_location) return value_location;
+        throw new UndeferrableValueException("Value 'PipelineArtifactStoreArgs.location' is not present");
     }
 
     /**
      * The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
      * 
      */
-    private UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private String value_region;
+    private boolean unknown_region;
     public String region() {
-        if (region == null) return null;
-        return region.getValue("PipelineArtifactStoreArgs.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'PipelineArtifactStoreArgs.region' is not present");
     }
 
     /**
      * The type of the artifact store, such as Amazon S3
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("PipelineArtifactStoreArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'PipelineArtifactStoreArgs.type' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directoryservice;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.directoryservice.outputs.ServiceRegionVpcSettings;
 import java.lang.Integer;
@@ -19,44 +20,48 @@ public final class ServiceRegion extends com.pulumi.resources.PolicyResourceOutp
      * The number of domain controllers desired in the replicated directory. Minimum value of `2`.
      * 
      */
-    private UndeferrableValue<Integer> desiredNumberOfDomainControllers;
-
+    @PolicyResourceProperty(name="desiredNumberOfDomainControllers", flag="unknown_desiredNumberOfDomainControllers")
+    private Integer value_desiredNumberOfDomainControllers;
+    private boolean unknown_desiredNumberOfDomainControllers;
     public Integer desiredNumberOfDomainControllers() {
-        if (desiredNumberOfDomainControllers == null) return null;
-        return desiredNumberOfDomainControllers.getValue("ServiceRegion.desiredNumberOfDomainControllers");
+        if (!unknown_desiredNumberOfDomainControllers) return value_desiredNumberOfDomainControllers;
+        throw new UndeferrableValueException("Value 'ServiceRegion.desiredNumberOfDomainControllers' is not present");
     }
 
     /**
      * The identifier of the directory to which you want to add Region replication.
      * 
      */
-    private UndeferrableValue<String> directoryId;
-
+    @PolicyResourceProperty(name="directoryId", flag="unknown_directoryId")
+    private String value_directoryId;
+    private boolean unknown_directoryId;
     public String directoryId() {
-        if (directoryId == null) return null;
-        return directoryId.getValue("ServiceRegion.directoryId");
+        if (!unknown_directoryId) return value_directoryId;
+        throw new UndeferrableValueException("Value 'ServiceRegion.directoryId' is not present");
     }
 
     /**
      * The name of the Region where you want to add domain controllers for replication.
      * 
      */
-    private UndeferrableValue<String> regionName;
-
+    @PolicyResourceProperty(name="regionName", flag="unknown_regionName")
+    private String value_regionName;
+    private boolean unknown_regionName;
     public String regionName() {
-        if (regionName == null) return null;
-        return regionName.getValue("ServiceRegion.regionName");
+        if (!unknown_regionName) return value_regionName;
+        throw new UndeferrableValueException("Value 'ServiceRegion.regionName' is not present");
     }
 
     /**
      * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ServiceRegion.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ServiceRegion.tags' is not present");
     }
 
     /**
@@ -67,22 +72,24 @@ public final class ServiceRegion extends com.pulumi.resources.PolicyResourceOutp
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ServiceRegion.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ServiceRegion.tagsAll' is not present");
     }
 
     /**
      * VPC information in the replicated Region. Detailed below.
      * 
      */
-    private UndeferrableValue<ServiceRegionVpcSettings> vpcSettings;
-
+    @PolicyResourceProperty(name="vpcSettings", flag="unknown_vpcSettings")
+    private ServiceRegionVpcSettings value_vpcSettings;
+    private boolean unknown_vpcSettings;
     public ServiceRegionVpcSettings vpcSettings() {
-        if (vpcSettings == null) return null;
-        return vpcSettings.getValue("ServiceRegion.vpcSettings");
+        if (!unknown_vpcSettings) return value_vpcSettings;
+        throw new UndeferrableValueException("Value 'ServiceRegion.vpcSettings' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.outputs.NetworkInsightsAnalysisExplanationSecurityGroupRulePortRange;
 import java.lang.String;
 import java.util.List;
@@ -12,46 +13,52 @@ import javax.annotation.Nullable;
 
 public final class NetworkInsightsAnalysisExplanationSecurityGroupRule {
 
-    private @Nullable UndeferrableValue<String> cidr;
-
+    @PolicyResourceProperty(name="cidr", flag="unknown_cidr")
+    private @Nullable String value_cidr;
+    private boolean unknown_cidr;
     public @Nullable String cidr() {
-        if (cidr == null) return null;
-        return cidr.getValue("NetworkInsightsAnalysisExplanationSecurityGroupRule.cidr");
+        if (!unknown_cidr) return value_cidr;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationSecurityGroupRule.cidr' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> direction;
-
+    @PolicyResourceProperty(name="direction", flag="unknown_direction")
+    private @Nullable String value_direction;
+    private boolean unknown_direction;
     public @Nullable String direction() {
-        if (direction == null) return null;
-        return direction.getValue("NetworkInsightsAnalysisExplanationSecurityGroupRule.direction");
+        if (!unknown_direction) return value_direction;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationSecurityGroupRule.direction' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisExplanationSecurityGroupRulePortRange>> portRanges;
-
+    @PolicyResourceProperty(name="portRanges", flag="unknown_portRanges")
+    private @Nullable List<NetworkInsightsAnalysisExplanationSecurityGroupRulePortRange> value_portRanges;
+    private boolean unknown_portRanges;
     public @Nullable List<NetworkInsightsAnalysisExplanationSecurityGroupRulePortRange> portRanges() {
-        if (portRanges == null) return null;
-        return portRanges.getValue("NetworkInsightsAnalysisExplanationSecurityGroupRule.portRanges");
+        if (!unknown_portRanges) return value_portRanges;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationSecurityGroupRule.portRanges' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> prefixListId;
-
+    @PolicyResourceProperty(name="prefixListId", flag="unknown_prefixListId")
+    private @Nullable String value_prefixListId;
+    private boolean unknown_prefixListId;
     public @Nullable String prefixListId() {
-        if (prefixListId == null) return null;
-        return prefixListId.getValue("NetworkInsightsAnalysisExplanationSecurityGroupRule.prefixListId");
+        if (!unknown_prefixListId) return value_prefixListId;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationSecurityGroupRule.prefixListId' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private @Nullable String value_protocol;
+    private boolean unknown_protocol;
     public @Nullable String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("NetworkInsightsAnalysisExplanationSecurityGroupRule.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationSecurityGroupRule.protocol' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> securityGroupId;
-
+    @PolicyResourceProperty(name="securityGroupId", flag="unknown_securityGroupId")
+    private @Nullable String value_securityGroupId;
+    private boolean unknown_securityGroupId;
     public @Nullable String securityGroupId() {
-        if (securityGroupId == null) return null;
-        return securityGroupId.getValue("NetworkInsightsAnalysisExplanationSecurityGroupRule.securityGroupId");
+        if (!unknown_securityGroupId) return value_securityGroupId;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationSecurityGroupRule.securityGroupId' is not present");
     }
 
 }

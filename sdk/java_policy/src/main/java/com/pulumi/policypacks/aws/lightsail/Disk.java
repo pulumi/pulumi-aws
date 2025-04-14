@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,77 +19,84 @@ public final class Disk extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN of the Lightsail disk.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Disk.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Disk.arn' is not present");
     }
 
     /**
      * The Availability Zone in which to create your disk.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("Disk.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'Disk.availabilityZone' is not present");
     }
 
     /**
      * The timestamp when the disk was created.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("Disk.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'Disk.createdAt' is not present");
     }
 
     /**
      * The name of the disk.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Disk.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Disk.name' is not present");
     }
 
     /**
      * The size of the disk in GB.
      * 
      */
-    private UndeferrableValue<Integer> sizeInGb;
-
+    @PolicyResourceProperty(name="sizeInGb", flag="unknown_sizeInGb")
+    private Integer value_sizeInGb;
+    private boolean unknown_sizeInGb;
     public Integer sizeInGb() {
-        if (sizeInGb == null) return null;
-        return sizeInGb.getValue("Disk.sizeInGb");
+        if (!unknown_sizeInGb) return value_sizeInGb;
+        throw new UndeferrableValueException("Value 'Disk.sizeInGb' is not present");
     }
 
     /**
      * The support code for the disk. Include this code in your email to support when you have questions about a disk in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      * 
      */
-    private UndeferrableValue<String> supportCode;
-
+    @PolicyResourceProperty(name="supportCode", flag="unknown_supportCode")
+    private String value_supportCode;
+    private boolean unknown_supportCode;
     public String supportCode() {
-        if (supportCode == null) return null;
-        return supportCode.getValue("Disk.supportCode");
+        if (!unknown_supportCode) return value_supportCode;
+        throw new UndeferrableValueException("Value 'Disk.supportCode' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Disk.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Disk.tags' is not present");
     }
 
     /**
@@ -99,11 +107,12 @@ public final class Disk extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Disk.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Disk.tagsAll' is not present");
     }
 
 }

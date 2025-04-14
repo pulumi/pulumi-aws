@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.outputs.DataSourceCredentialsCredentialPair;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class DataSourceCredentials {
      * When the value is not null, the `credential_pair` from the data source in the ARN is used.
      * 
      */
-    private @Nullable UndeferrableValue<String> copySourceArn;
-
+    @PolicyResourceProperty(name="copySourceArn", flag="unknown_copySourceArn")
+    private @Nullable String value_copySourceArn;
+    private boolean unknown_copySourceArn;
     public @Nullable String copySourceArn() {
-        if (copySourceArn == null) return null;
-        return copySourceArn.getValue("DataSourceCredentials.copySourceArn");
+        if (!unknown_copySourceArn) return value_copySourceArn;
+        throw new UndeferrableValueException("Value 'DataSourceCredentials.copySourceArn' is not present");
     }
 
     /**
      * Credential pair. See Credential Pair below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<DataSourceCredentialsCredentialPair> credentialPair;
-
+    @PolicyResourceProperty(name="credentialPair", flag="unknown_credentialPair")
+    private @Nullable DataSourceCredentialsCredentialPair value_credentialPair;
+    private boolean unknown_credentialPair;
     public @Nullable DataSourceCredentialsCredentialPair credentialPair() {
-        if (credentialPair == null) return null;
-        return credentialPair.getValue("DataSourceCredentials.credentialPair");
+        if (!unknown_credentialPair) return value_credentialPair;
+        throw new UndeferrableValueException("Value 'DataSourceCredentials.credentialPair' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
      * 
      */
-    private @Nullable UndeferrableValue<String> secretArn;
-
+    @PolicyResourceProperty(name="secretArn", flag="unknown_secretArn")
+    private @Nullable String value_secretArn;
+    private boolean unknown_secretArn;
     public @Nullable String secretArn() {
-        if (secretArn == null) return null;
-        return secretArn.getValue("DataSourceCredentials.secretArn");
+        if (!unknown_secretArn) return value_secretArn;
+        throw new UndeferrableValueException("Value 'DataSourceCredentials.secretArn' is not present");
     }
 
 }

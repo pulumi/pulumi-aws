@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -19,11 +20,12 @@ public final class CoreNetworkArgs extends com.pulumi.resources.PolicyResourceIn
      * Sets the base policy document for the core network. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
      * 
      */
-    private UndeferrableValue<String> basePolicyDocument;
-
+    @PolicyResourceProperty(name="basePolicyDocument", flag="unknown_basePolicyDocument")
+    private String value_basePolicyDocument;
+    private boolean unknown_basePolicyDocument;
     public String basePolicyDocument() {
-        if (basePolicyDocument == null) return null;
-        return basePolicyDocument.getValue("CoreNetworkArgs.basePolicyDocument");
+        if (!unknown_basePolicyDocument) return value_basePolicyDocument;
+        throw new UndeferrableValueException("Value 'CoreNetworkArgs.basePolicyDocument' is not present");
     }
 
     /**
@@ -34,66 +36,72 @@ public final class CoreNetworkArgs extends com.pulumi.resources.PolicyResourceIn
      * 
      */
     @Deprecated /* base_policy_region is deprecated. Use base_policy_regions instead. This argument will be removed in the next major version of the provider. */
-    private UndeferrableValue<String> basePolicyRegion;
-
+    @PolicyResourceProperty(name="basePolicyRegion", flag="unknown_basePolicyRegion")
+    private String value_basePolicyRegion;
+    private boolean unknown_basePolicyRegion;
     public String basePolicyRegion() {
-        if (basePolicyRegion == null) return null;
-        return basePolicyRegion.getValue("CoreNetworkArgs.basePolicyRegion");
+        if (!unknown_basePolicyRegion) return value_basePolicyRegion;
+        throw new UndeferrableValueException("Value 'CoreNetworkArgs.basePolicyRegion' is not present");
     }
 
     /**
      * A list of regions to add to the base policy. The base policy created by setting the `create_base_policy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `base_policy_regions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
      * 
      */
-    private UndeferrableValue<List<String>> basePolicyRegions;
-
+    @PolicyResourceProperty(name="basePolicyRegions", flag="unknown_basePolicyRegions")
+    private List<String> value_basePolicyRegions;
+    private boolean unknown_basePolicyRegions;
     public List<String> basePolicyRegions() {
-        if (basePolicyRegions == null) return null;
-        return basePolicyRegions.getValue("CoreNetworkArgs.basePolicyRegions");
+        if (!unknown_basePolicyRegions) return value_basePolicyRegions;
+        throw new UndeferrableValueException("Value 'CoreNetworkArgs.basePolicyRegions' is not present");
     }
 
     /**
      * Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
      * 
      */
-    private UndeferrableValue<Boolean> createBasePolicy;
-
+    @PolicyResourceProperty(name="createBasePolicy", flag="unknown_createBasePolicy")
+    private Boolean value_createBasePolicy;
+    private boolean unknown_createBasePolicy;
     public Boolean createBasePolicy() {
-        if (createBasePolicy == null) return null;
-        return createBasePolicy.getValue("CoreNetworkArgs.createBasePolicy");
+        if (!unknown_createBasePolicy) return value_createBasePolicy;
+        throw new UndeferrableValueException("Value 'CoreNetworkArgs.createBasePolicy' is not present");
     }
 
     /**
      * Description of the Core Network.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("CoreNetworkArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'CoreNetworkArgs.description' is not present");
     }
 
     /**
      * The ID of the global network that a core network will be a part of.
      * 
      */
-    private UndeferrableValue<String> globalNetworkId;
-
+    @PolicyResourceProperty(name="globalNetworkId", flag="unknown_globalNetworkId")
+    private String value_globalNetworkId;
+    private boolean unknown_globalNetworkId;
     public String globalNetworkId() {
-        if (globalNetworkId == null) return null;
-        return globalNetworkId.getValue("CoreNetworkArgs.globalNetworkId");
+        if (!unknown_globalNetworkId) return value_globalNetworkId;
+        throw new UndeferrableValueException("Value 'CoreNetworkArgs.globalNetworkId' is not present");
     }
 
     /**
      * Key-value tags for the Core Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CoreNetworkArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CoreNetworkArgs.tags' is not present");
     }
 
 }

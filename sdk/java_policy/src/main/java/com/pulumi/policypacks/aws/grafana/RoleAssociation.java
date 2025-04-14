@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.grafana;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,33 +18,36 @@ public final class RoleAssociation extends com.pulumi.resources.PolicyResourceOu
      * The AWS SSO group ids to be assigned the role given in `role`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> groupIds;
-
+    @PolicyResourceProperty(name="groupIds", flag="unknown_groupIds")
+    private @Nullable List<String> value_groupIds;
+    private boolean unknown_groupIds;
     public @Nullable List<String> groupIds() {
-        if (groupIds == null) return null;
-        return groupIds.getValue("RoleAssociation.groupIds");
+        if (!unknown_groupIds) return value_groupIds;
+        throw new UndeferrableValueException("Value 'RoleAssociation.groupIds' is not present");
     }
 
     /**
      * The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
      * 
      */
-    private UndeferrableValue<String> role;
-
+    @PolicyResourceProperty(name="role", flag="unknown_role")
+    private String value_role;
+    private boolean unknown_role;
     public String role() {
-        if (role == null) return null;
-        return role.getValue("RoleAssociation.role");
+        if (!unknown_role) return value_role;
+        throw new UndeferrableValueException("Value 'RoleAssociation.role' is not present");
     }
 
     /**
      * The AWS SSO user ids to be assigned the role given in `role`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> userIds;
-
+    @PolicyResourceProperty(name="userIds", flag="unknown_userIds")
+    private @Nullable List<String> value_userIds;
+    private boolean unknown_userIds;
     public @Nullable List<String> userIds() {
-        if (userIds == null) return null;
-        return userIds.getValue("RoleAssociation.userIds");
+        if (!unknown_userIds) return value_userIds;
+        throw new UndeferrableValueException("Value 'RoleAssociation.userIds' is not present");
     }
 
     /**
@@ -52,11 +56,12 @@ public final class RoleAssociation extends com.pulumi.resources.PolicyResourceOu
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> workspaceId;
-
+    @PolicyResourceProperty(name="workspaceId", flag="unknown_workspaceId")
+    private String value_workspaceId;
+    private boolean unknown_workspaceId;
     public String workspaceId() {
-        if (workspaceId == null) return null;
-        return workspaceId.getValue("RoleAssociation.workspaceId");
+        if (!unknown_workspaceId) return value_workspaceId;
+        throw new UndeferrableValueException("Value 'RoleAssociation.workspaceId' is not present");
     }
 
 }

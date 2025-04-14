@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.msk.inputs.ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs;
 import com.pulumi.policypacks.aws.msk.inputs.ClusterLoggingInfoBrokerLogsFirehoseArgs;
 import com.pulumi.policypacks.aws.msk.inputs.ClusterLoggingInfoBrokerLogsS3Args;
@@ -12,25 +13,28 @@ import javax.annotation.Nullable;
 
 public final class ClusterLoggingInfoBrokerLogsArgs {
 
-    private UndeferrableValue<ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs> cloudwatchLogs;
-
+    @PolicyResourceProperty(name="cloudwatchLogs", flag="unknown_cloudwatchLogs")
+    private ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs value_cloudwatchLogs;
+    private boolean unknown_cloudwatchLogs;
     public ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs cloudwatchLogs() {
-        if (cloudwatchLogs == null) return null;
-        return cloudwatchLogs.getValue("ClusterLoggingInfoBrokerLogsArgs.cloudwatchLogs");
+        if (!unknown_cloudwatchLogs) return value_cloudwatchLogs;
+        throw new UndeferrableValueException("Value 'ClusterLoggingInfoBrokerLogsArgs.cloudwatchLogs' is not present");
     }
 
-    private UndeferrableValue<ClusterLoggingInfoBrokerLogsFirehoseArgs> firehose;
-
+    @PolicyResourceProperty(name="firehose", flag="unknown_firehose")
+    private ClusterLoggingInfoBrokerLogsFirehoseArgs value_firehose;
+    private boolean unknown_firehose;
     public ClusterLoggingInfoBrokerLogsFirehoseArgs firehose() {
-        if (firehose == null) return null;
-        return firehose.getValue("ClusterLoggingInfoBrokerLogsArgs.firehose");
+        if (!unknown_firehose) return value_firehose;
+        throw new UndeferrableValueException("Value 'ClusterLoggingInfoBrokerLogsArgs.firehose' is not present");
     }
 
-    private UndeferrableValue<ClusterLoggingInfoBrokerLogsS3Args> s3;
-
+    @PolicyResourceProperty(name="s3", flag="unknown_s3")
+    private ClusterLoggingInfoBrokerLogsS3Args value_s3;
+    private boolean unknown_s3;
     public ClusterLoggingInfoBrokerLogsS3Args s3() {
-        if (s3 == null) return null;
-        return s3.getValue("ClusterLoggingInfoBrokerLogsArgs.s3");
+        if (!unknown_s3) return value_s3;
+        throw new UndeferrableValueException("Value 'ClusterLoggingInfoBrokerLogsArgs.s3' is not present");
     }
 
 }

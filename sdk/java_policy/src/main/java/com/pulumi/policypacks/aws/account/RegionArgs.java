@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.account;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class RegionArgs extends com.pulumi.resources.PolicyResourceInput {
      * The ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted. To use this parameter, the caller must be an identity in the organization&#39;s management account or a delegated administrator account. The specified account ID must also be a member account in the same organization. The organization must have all features enabled, and the organization must have trusted access enabled for the Account Management service, and optionally a delegated admin account assigned.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("RegionArgs.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'RegionArgs.accountId' is not present");
     }
 
     /**
      * Whether the region is enabled.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("RegionArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'RegionArgs.enabled' is not present");
     }
 
     /**
      * The region name to manage.
      * 
      */
-    private UndeferrableValue<String> regionName;
-
+    @PolicyResourceProperty(name="regionName", flag="unknown_regionName")
+    private String value_regionName;
+    private boolean unknown_regionName;
     public String regionName() {
-        if (regionName == null) return null;
-        return regionName.getValue("RegionArgs.regionName");
+        if (!unknown_regionName) return value_regionName;
+        throw new UndeferrableValueException("Value 'RegionArgs.regionName' is not present");
     }
 
 }

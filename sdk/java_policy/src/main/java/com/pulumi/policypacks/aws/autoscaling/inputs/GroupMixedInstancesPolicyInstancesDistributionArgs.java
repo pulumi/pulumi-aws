@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,66 +16,72 @@ public final class GroupMixedInstancesPolicyInstancesDistributionArgs {
      * Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
      * 
      */
-    private UndeferrableValue<String> onDemandAllocationStrategy;
-
+    @PolicyResourceProperty(name="onDemandAllocationStrategy", flag="unknown_onDemandAllocationStrategy")
+    private String value_onDemandAllocationStrategy;
+    private boolean unknown_onDemandAllocationStrategy;
     public String onDemandAllocationStrategy() {
-        if (onDemandAllocationStrategy == null) return null;
-        return onDemandAllocationStrategy.getValue("GroupMixedInstancesPolicyInstancesDistributionArgs.onDemandAllocationStrategy");
+        if (!unknown_onDemandAllocationStrategy) return value_onDemandAllocationStrategy;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyInstancesDistributionArgs.onDemandAllocationStrategy' is not present");
     }
 
     /**
      * Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
      * 
      */
-    private UndeferrableValue<Integer> onDemandBaseCapacity;
-
+    @PolicyResourceProperty(name="onDemandBaseCapacity", flag="unknown_onDemandBaseCapacity")
+    private Integer value_onDemandBaseCapacity;
+    private boolean unknown_onDemandBaseCapacity;
     public Integer onDemandBaseCapacity() {
-        if (onDemandBaseCapacity == null) return null;
-        return onDemandBaseCapacity.getValue("GroupMixedInstancesPolicyInstancesDistributionArgs.onDemandBaseCapacity");
+        if (!unknown_onDemandBaseCapacity) return value_onDemandBaseCapacity;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyInstancesDistributionArgs.onDemandBaseCapacity' is not present");
     }
 
     /**
      * Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
      * 
      */
-    private UndeferrableValue<Integer> onDemandPercentageAboveBaseCapacity;
-
+    @PolicyResourceProperty(name="onDemandPercentageAboveBaseCapacity", flag="unknown_onDemandPercentageAboveBaseCapacity")
+    private Integer value_onDemandPercentageAboveBaseCapacity;
+    private boolean unknown_onDemandPercentageAboveBaseCapacity;
     public Integer onDemandPercentageAboveBaseCapacity() {
-        if (onDemandPercentageAboveBaseCapacity == null) return null;
-        return onDemandPercentageAboveBaseCapacity.getValue("GroupMixedInstancesPolicyInstancesDistributionArgs.onDemandPercentageAboveBaseCapacity");
+        if (!unknown_onDemandPercentageAboveBaseCapacity) return value_onDemandPercentageAboveBaseCapacity;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyInstancesDistributionArgs.onDemandPercentageAboveBaseCapacity' is not present");
     }
 
     /**
      * How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`, and `price-capacity-optimized`. Default: `lowest-price`.
      * 
      */
-    private UndeferrableValue<String> spotAllocationStrategy;
-
+    @PolicyResourceProperty(name="spotAllocationStrategy", flag="unknown_spotAllocationStrategy")
+    private String value_spotAllocationStrategy;
+    private boolean unknown_spotAllocationStrategy;
     public String spotAllocationStrategy() {
-        if (spotAllocationStrategy == null) return null;
-        return spotAllocationStrategy.getValue("GroupMixedInstancesPolicyInstancesDistributionArgs.spotAllocationStrategy");
+        if (!unknown_spotAllocationStrategy) return value_spotAllocationStrategy;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyInstancesDistributionArgs.spotAllocationStrategy' is not present");
     }
 
     /**
      * Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spot_allocation_strategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
      * 
      */
-    private UndeferrableValue<Integer> spotInstancePools;
-
+    @PolicyResourceProperty(name="spotInstancePools", flag="unknown_spotInstancePools")
+    private Integer value_spotInstancePools;
+    private boolean unknown_spotInstancePools;
     public Integer spotInstancePools() {
-        if (spotInstancePools == null) return null;
-        return spotInstancePools.getValue("GroupMixedInstancesPolicyInstancesDistributionArgs.spotInstancePools");
+        if (!unknown_spotInstancePools) return value_spotInstancePools;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyInstancesDistributionArgs.spotInstancePools' is not present");
     }
 
     /**
      * Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
      * 
      */
-    private UndeferrableValue<String> spotMaxPrice;
-
+    @PolicyResourceProperty(name="spotMaxPrice", flag="unknown_spotMaxPrice")
+    private String value_spotMaxPrice;
+    private boolean unknown_spotMaxPrice;
     public String spotMaxPrice() {
-        if (spotMaxPrice == null) return null;
-        return spotMaxPrice.getValue("GroupMixedInstancesPolicyInstancesDistributionArgs.spotMaxPrice");
+        if (!unknown_spotMaxPrice) return value_spotMaxPrice;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyInstancesDistributionArgs.spotMaxPrice' is not present");
     }
 
 }

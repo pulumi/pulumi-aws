@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class ListenerRuleMatchHttpMatchHeaderMatchMatch {
      * Specifies a contains type match.
      * 
      */
-    private @Nullable UndeferrableValue<String> contains;
-
+    @PolicyResourceProperty(name="contains", flag="unknown_contains")
+    private @Nullable String value_contains;
+    private boolean unknown_contains;
     public @Nullable String contains() {
-        if (contains == null) return null;
-        return contains.getValue("ListenerRuleMatchHttpMatchHeaderMatchMatch.contains");
+        if (!unknown_contains) return value_contains;
+        throw new UndeferrableValueException("Value 'ListenerRuleMatchHttpMatchHeaderMatchMatch.contains' is not present");
     }
 
     /**
      * Specifies an exact type match.
      * 
      */
-    private @Nullable UndeferrableValue<String> exact;
-
+    @PolicyResourceProperty(name="exact", flag="unknown_exact")
+    private @Nullable String value_exact;
+    private boolean unknown_exact;
     public @Nullable String exact() {
-        if (exact == null) return null;
-        return exact.getValue("ListenerRuleMatchHttpMatchHeaderMatchMatch.exact");
+        if (!unknown_exact) return value_exact;
+        throw new UndeferrableValueException("Value 'ListenerRuleMatchHttpMatchHeaderMatchMatch.exact' is not present");
     }
 
     /**
      * Specifies a prefix type match. Matches the value with the prefix.
      * 
      */
-    private @Nullable UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private @Nullable String value_prefix;
+    private boolean unknown_prefix;
     public @Nullable String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("ListenerRuleMatchHttpMatchHeaderMatchMatch.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'ListenerRuleMatchHttpMatchHeaderMatchMatch.prefix' is not present");
     }
 
 }

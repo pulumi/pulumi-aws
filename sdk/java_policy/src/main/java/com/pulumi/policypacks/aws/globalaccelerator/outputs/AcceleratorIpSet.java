@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.globalaccelerator.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class AcceleratorIpSet {
      * The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> ipAddresses;
-
+    @PolicyResourceProperty(name="ipAddresses", flag="unknown_ipAddresses")
+    private @Nullable List<String> value_ipAddresses;
+    private boolean unknown_ipAddresses;
     public @Nullable List<String> ipAddresses() {
-        if (ipAddresses == null) return null;
-        return ipAddresses.getValue("AcceleratorIpSet.ipAddresses");
+        if (!unknown_ipAddresses) return value_ipAddresses;
+        throw new UndeferrableValueException("Value 'AcceleratorIpSet.ipAddresses' is not present");
     }
 
     /**
      * The type of IP addresses included in this IP set.
      * 
      */
-    private @Nullable UndeferrableValue<String> ipFamily;
-
+    @PolicyResourceProperty(name="ipFamily", flag="unknown_ipFamily")
+    private @Nullable String value_ipFamily;
+    private boolean unknown_ipFamily;
     public @Nullable String ipFamily() {
-        if (ipFamily == null) return null;
-        return ipFamily.getValue("AcceleratorIpSet.ipFamily");
+        if (!unknown_ipFamily) return value_ipFamily;
+        throw new UndeferrableValueException("Value 'AcceleratorIpSet.ipFamily' is not present");
     }
 
 }

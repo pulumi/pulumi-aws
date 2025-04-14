@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class UserPoolWebAuthnConfiguration {
      * The authentication domain that passkeys providers use as a relying party.
      * 
      */
-    private @Nullable UndeferrableValue<String> relyingPartyId;
-
+    @PolicyResourceProperty(name="relyingPartyId", flag="unknown_relyingPartyId")
+    private @Nullable String value_relyingPartyId;
+    private boolean unknown_relyingPartyId;
     public @Nullable String relyingPartyId() {
-        if (relyingPartyId == null) return null;
-        return relyingPartyId.getValue("UserPoolWebAuthnConfiguration.relyingPartyId");
+        if (!unknown_relyingPartyId) return value_relyingPartyId;
+        throw new UndeferrableValueException("Value 'UserPoolWebAuthnConfiguration.relyingPartyId' is not present");
     }
 
     /**
      * If your user pool should require a passkey. Must be one of `required` or `preferred`.
      * 
      */
-    private @Nullable UndeferrableValue<String> userVerification;
-
+    @PolicyResourceProperty(name="userVerification", flag="unknown_userVerification")
+    private @Nullable String value_userVerification;
+    private boolean unknown_userVerification;
     public @Nullable String userVerification() {
-        if (userVerification == null) return null;
-        return userVerification.getValue("UserPoolWebAuthnConfiguration.userVerification");
+        if (!unknown_userVerification) return value_userVerification;
+        throw new UndeferrableValueException("Value 'UserPoolWebAuthnConfiguration.userVerification' is not present");
     }
 
 }

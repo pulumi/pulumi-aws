@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.resourceexplorer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.resourceexplorer.outputs.ViewFilters;
 import com.pulumi.policypacks.aws.resourceexplorer.outputs.ViewIncludedProperty;
@@ -21,77 +22,84 @@ public final class View extends com.pulumi.resources.PolicyResourceOutput {
      * Amazon Resource Name (ARN) of the Resource Explorer view.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("View.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'View.arn' is not present");
     }
 
     /**
      * Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
      * 
      */
-    private UndeferrableValue<Boolean> defaultView;
-
+    @PolicyResourceProperty(name="defaultView", flag="unknown_defaultView")
+    private Boolean value_defaultView;
+    private boolean unknown_defaultView;
     public Boolean defaultView() {
-        if (defaultView == null) return null;
-        return defaultView.getValue("View.defaultView");
+        if (!unknown_defaultView) return value_defaultView;
+        throw new UndeferrableValueException("Value 'View.defaultView' is not present");
     }
 
     /**
      * Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ViewFilters> filters;
-
+    @PolicyResourceProperty(name="filters", flag="unknown_filters")
+    private @Nullable ViewFilters value_filters;
+    private boolean unknown_filters;
     public @Nullable ViewFilters filters() {
-        if (filters == null) return null;
-        return filters.getValue("View.filters");
+        if (!unknown_filters) return value_filters;
+        throw new UndeferrableValueException("Value 'View.filters' is not present");
     }
 
     /**
      * Optional fields to be included in search results from this view. See Included Properties below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<ViewIncludedProperty>> includedProperties;
-
+    @PolicyResourceProperty(name="includedProperties", flag="unknown_includedProperties")
+    private @Nullable List<ViewIncludedProperty> value_includedProperties;
+    private boolean unknown_includedProperties;
     public @Nullable List<ViewIncludedProperty> includedProperties() {
-        if (includedProperties == null) return null;
-        return includedProperties.getValue("View.includedProperties");
+        if (!unknown_includedProperties) return value_includedProperties;
+        throw new UndeferrableValueException("Value 'View.includedProperties' is not present");
     }
 
     /**
      * The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("View.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'View.name' is not present");
     }
 
     /**
      * The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
      * 
      */
-    private UndeferrableValue<String> scope;
-
+    @PolicyResourceProperty(name="scope", flag="unknown_scope")
+    private String value_scope;
+    private boolean unknown_scope;
     public String scope() {
-        if (scope == null) return null;
-        return scope.getValue("View.scope");
+        if (!unknown_scope) return value_scope;
+        throw new UndeferrableValueException("Value 'View.scope' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("View.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'View.tags' is not present");
     }
 
     /**
@@ -102,11 +110,12 @@ public final class View extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("View.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'View.tagsAll' is not present");
     }
 
 }

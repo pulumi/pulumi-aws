@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,22 +18,24 @@ public final class HsmClientCertificateArgs extends com.pulumi.resources.PolicyR
      * The identifier of the HSM client certificate.
      * 
      */
-    private UndeferrableValue<String> hsmClientCertificateIdentifier;
-
+    @PolicyResourceProperty(name="hsmClientCertificateIdentifier", flag="unknown_hsmClientCertificateIdentifier")
+    private String value_hsmClientCertificateIdentifier;
+    private boolean unknown_hsmClientCertificateIdentifier;
     public String hsmClientCertificateIdentifier() {
-        if (hsmClientCertificateIdentifier == null) return null;
-        return hsmClientCertificateIdentifier.getValue("HsmClientCertificateArgs.hsmClientCertificateIdentifier");
+        if (!unknown_hsmClientCertificateIdentifier) return value_hsmClientCertificateIdentifier;
+        throw new UndeferrableValueException("Value 'HsmClientCertificateArgs.hsmClientCertificateIdentifier' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("HsmClientCertificateArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'HsmClientCertificateArgs.tags' is not present");
     }
 
 }

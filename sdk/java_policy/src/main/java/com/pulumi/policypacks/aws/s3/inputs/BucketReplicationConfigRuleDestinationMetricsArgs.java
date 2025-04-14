@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.inputs.BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class BucketReplicationConfigRuleDestinationMetricsArgs {
      * Configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event. See below.
      * 
      */
-    private UndeferrableValue<BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs> eventThreshold;
-
+    @PolicyResourceProperty(name="eventThreshold", flag="unknown_eventThreshold")
+    private BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs value_eventThreshold;
+    private boolean unknown_eventThreshold;
     public BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs eventThreshold() {
-        if (eventThreshold == null) return null;
-        return eventThreshold.getValue("BucketReplicationConfigRuleDestinationMetricsArgs.eventThreshold");
+        if (!unknown_eventThreshold) return value_eventThreshold;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleDestinationMetricsArgs.eventThreshold' is not present");
     }
 
     /**
      * Status of the Destination Metrics. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("BucketReplicationConfigRuleDestinationMetricsArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleDestinationMetricsArgs.status' is not present");
     }
 
 }

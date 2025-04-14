@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.bedrock.inputs.InferenceProfileModelSourceArgs;
 import com.pulumi.policypacks.aws.bedrock.inputs.InferenceProfileTimeoutsArgs;
@@ -19,11 +20,12 @@ public final class InferenceProfileArgs extends com.pulumi.resources.PolicyResou
      * The description of the inference profile.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("InferenceProfileArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'InferenceProfileArgs.description' is not present");
     }
 
     /**
@@ -32,40 +34,44 @@ public final class InferenceProfileArgs extends com.pulumi.resources.PolicyResou
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<InferenceProfileModelSourceArgs> modelSource;
-
+    @PolicyResourceProperty(name="modelSource", flag="unknown_modelSource")
+    private InferenceProfileModelSourceArgs value_modelSource;
+    private boolean unknown_modelSource;
     public InferenceProfileModelSourceArgs modelSource() {
-        if (modelSource == null) return null;
-        return modelSource.getValue("InferenceProfileArgs.modelSource");
+        if (!unknown_modelSource) return value_modelSource;
+        throw new UndeferrableValueException("Value 'InferenceProfileArgs.modelSource' is not present");
     }
 
     /**
      * The name of the inference profile.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("InferenceProfileArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'InferenceProfileArgs.name' is not present");
     }
 
     /**
      * Key-value mapping of resource tags for the inference profile.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("InferenceProfileArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'InferenceProfileArgs.tags' is not present");
     }
 
-    private UndeferrableValue<InferenceProfileTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private InferenceProfileTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public InferenceProfileTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("InferenceProfileArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'InferenceProfileArgs.timeouts' is not present");
     }
 
 }

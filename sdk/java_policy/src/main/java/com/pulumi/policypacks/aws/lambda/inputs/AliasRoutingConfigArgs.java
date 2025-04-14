@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.String;
 import java.util.Map;
@@ -16,11 +17,12 @@ public final class AliasRoutingConfigArgs {
      * A map that defines the proportion of events that should be sent to different versions of a lambda function.
      * 
      */
-    private UndeferrableValue<Map<String,Double>> additionalVersionWeights;
-
+    @PolicyResourceProperty(name="additionalVersionWeights", flag="unknown_additionalVersionWeights")
+    private Map<String,Double> value_additionalVersionWeights;
+    private boolean unknown_additionalVersionWeights;
     public Map<String,Double> additionalVersionWeights() {
-        if (additionalVersionWeights == null) return null;
-        return additionalVersionWeights.getValue("AliasRoutingConfigArgs.additionalVersionWeights");
+        if (!unknown_additionalVersionWeights) return value_additionalVersionWeights;
+        throw new UndeferrableValueException("Value 'AliasRoutingConfigArgs.additionalVersionWeights' is not present");
     }
 
 }

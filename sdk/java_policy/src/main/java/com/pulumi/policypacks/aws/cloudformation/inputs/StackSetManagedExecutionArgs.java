@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudformation.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class StackSetManagedExecutionArgs {
      * When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
      * 
      */
-    private UndeferrableValue<Boolean> active;
-
+    @PolicyResourceProperty(name="active", flag="unknown_active")
+    private Boolean value_active;
+    private boolean unknown_active;
     public Boolean active() {
-        if (active == null) return null;
-        return active.getValue("StackSetManagedExecutionArgs.active");
+        if (!unknown_active) return value_active;
+        throw new UndeferrableValueException("Value 'StackSetManagedExecutionArgs.active' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appsync.inputs.DataSourceHttpConfigAuthorizationConfigArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DataSourceHttpConfigArgs {
      * Authorization configuration in case the HTTP endpoint requires authorization. See `authorization_config` Block for details.
      * 
      */
-    private UndeferrableValue<DataSourceHttpConfigAuthorizationConfigArgs> authorizationConfig;
-
+    @PolicyResourceProperty(name="authorizationConfig", flag="unknown_authorizationConfig")
+    private DataSourceHttpConfigAuthorizationConfigArgs value_authorizationConfig;
+    private boolean unknown_authorizationConfig;
     public DataSourceHttpConfigAuthorizationConfigArgs authorizationConfig() {
-        if (authorizationConfig == null) return null;
-        return authorizationConfig.getValue("DataSourceHttpConfigArgs.authorizationConfig");
+        if (!unknown_authorizationConfig) return value_authorizationConfig;
+        throw new UndeferrableValueException("Value 'DataSourceHttpConfigArgs.authorizationConfig' is not present");
     }
 
     /**
      * HTTP URL.
      * 
      */
-    private UndeferrableValue<String> endpoint;
-
+    @PolicyResourceProperty(name="endpoint", flag="unknown_endpoint")
+    private String value_endpoint;
+    private boolean unknown_endpoint;
     public String endpoint() {
-        if (endpoint == null) return null;
-        return endpoint.getValue("DataSourceHttpConfigArgs.endpoint");
+        if (!unknown_endpoint) return value_endpoint;
+        throw new UndeferrableValueException("Value 'DataSourceHttpConfigArgs.endpoint' is not present");
     }
 
 }

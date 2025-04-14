@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ApplicationApplicationConfigurationRunConfigurationApplicatio
      * Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
      * 
      */
-    private @Nullable UndeferrableValue<String> applicationRestoreType;
-
+    @PolicyResourceProperty(name="applicationRestoreType", flag="unknown_applicationRestoreType")
+    private @Nullable String value_applicationRestoreType;
+    private boolean unknown_applicationRestoreType;
     public @Nullable String applicationRestoreType() {
-        if (applicationRestoreType == null) return null;
-        return applicationRestoreType.getValue("ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration.applicationRestoreType");
+        if (!unknown_applicationRestoreType) return value_applicationRestoreType;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration.applicationRestoreType' is not present");
     }
 
     /**
      * The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `application_restore_type`.
      * 
      */
-    private @Nullable UndeferrableValue<String> snapshotName;
-
+    @PolicyResourceProperty(name="snapshotName", flag="unknown_snapshotName")
+    private @Nullable String value_snapshotName;
+    private boolean unknown_snapshotName;
     public @Nullable String snapshotName() {
-        if (snapshotName == null) return null;
-        return snapshotName.getValue("ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration.snapshotName");
+        if (!unknown_snapshotName) return value_snapshotName;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration.snapshotName' is not present");
     }
 
 }

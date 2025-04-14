@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,132 +18,144 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Policy
      * The name of the Amazon S3 bucket that contains the database installation files.
      * 
      */
-    private UndeferrableValue<String> databaseInstallationFilesS3BucketName;
-
+    @PolicyResourceProperty(name="databaseInstallationFilesS3BucketName", flag="unknown_databaseInstallationFilesS3BucketName")
+    private String value_databaseInstallationFilesS3BucketName;
+    private boolean unknown_databaseInstallationFilesS3BucketName;
     public String databaseInstallationFilesS3BucketName() {
-        if (databaseInstallationFilesS3BucketName == null) return null;
-        return databaseInstallationFilesS3BucketName.getValue("CustomDbEngineVersionArgs.databaseInstallationFilesS3BucketName");
+        if (!unknown_databaseInstallationFilesS3BucketName) return value_databaseInstallationFilesS3BucketName;
+        throw new UndeferrableValueException("Value 'CustomDbEngineVersionArgs.databaseInstallationFilesS3BucketName' is not present");
     }
 
     /**
      * The prefix for the Amazon S3 bucket that contains the database installation files.
      * 
      */
-    private UndeferrableValue<String> databaseInstallationFilesS3Prefix;
-
+    @PolicyResourceProperty(name="databaseInstallationFilesS3Prefix", flag="unknown_databaseInstallationFilesS3Prefix")
+    private String value_databaseInstallationFilesS3Prefix;
+    private boolean unknown_databaseInstallationFilesS3Prefix;
     public String databaseInstallationFilesS3Prefix() {
-        if (databaseInstallationFilesS3Prefix == null) return null;
-        return databaseInstallationFilesS3Prefix.getValue("CustomDbEngineVersionArgs.databaseInstallationFilesS3Prefix");
+        if (!unknown_databaseInstallationFilesS3Prefix) return value_databaseInstallationFilesS3Prefix;
+        throw new UndeferrableValueException("Value 'CustomDbEngineVersionArgs.databaseInstallationFilesS3Prefix' is not present");
     }
 
     /**
      * The description of the CEV.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("CustomDbEngineVersionArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'CustomDbEngineVersionArgs.description' is not present");
     }
 
     /**
      * The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
      * 
      */
-    private UndeferrableValue<String> engine;
-
+    @PolicyResourceProperty(name="engine", flag="unknown_engine")
+    private String value_engine;
+    private boolean unknown_engine;
     public String engine() {
-        if (engine == null) return null;
-        return engine.getValue("CustomDbEngineVersionArgs.engine");
+        if (!unknown_engine) return value_engine;
+        throw new UndeferrableValueException("Value 'CustomDbEngineVersionArgs.engine' is not present");
     }
 
     /**
      * The version of the database engine.
      * 
      */
-    private UndeferrableValue<String> engineVersion;
-
+    @PolicyResourceProperty(name="engineVersion", flag="unknown_engineVersion")
+    private String value_engineVersion;
+    private boolean unknown_engineVersion;
     public String engineVersion() {
-        if (engineVersion == null) return null;
-        return engineVersion.getValue("CustomDbEngineVersionArgs.engineVersion");
+        if (!unknown_engineVersion) return value_engineVersion;
+        throw new UndeferrableValueException("Value 'CustomDbEngineVersionArgs.engineVersion' is not present");
     }
 
     /**
      * The name of the manifest file within the local filesystem. Conflicts with `manifest`.
      * 
      */
-    private UndeferrableValue<String> filename;
-
+    @PolicyResourceProperty(name="filename", flag="unknown_filename")
+    private String value_filename;
+    private boolean unknown_filename;
     public String filename() {
-        if (filename == null) return null;
-        return filename.getValue("CustomDbEngineVersionArgs.filename");
+        if (!unknown_filename) return value_filename;
+        throw new UndeferrableValueException("Value 'CustomDbEngineVersionArgs.filename' is not present");
     }
 
     /**
      * The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("CustomDbEngineVersionArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'CustomDbEngineVersionArgs.kmsKeyId' is not present");
     }
 
     /**
      * The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
      * 
      */
-    private UndeferrableValue<String> manifest;
-
+    @PolicyResourceProperty(name="manifest", flag="unknown_manifest")
+    private String value_manifest;
+    private boolean unknown_manifest;
     public String manifest() {
-        if (manifest == null) return null;
-        return manifest.getValue("CustomDbEngineVersionArgs.manifest");
+        if (!unknown_manifest) return value_manifest;
+        throw new UndeferrableValueException("Value 'CustomDbEngineVersionArgs.manifest' is not present");
     }
 
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256(&#34;manifest.json&#34;) where &#34;manifest.json&#34; is the local filename of the manifest source.
      * 
      */
-    private UndeferrableValue<String> manifestHash;
-
+    @PolicyResourceProperty(name="manifestHash", flag="unknown_manifestHash")
+    private String value_manifestHash;
+    private boolean unknown_manifestHash;
     public String manifestHash() {
-        if (manifestHash == null) return null;
-        return manifestHash.getValue("CustomDbEngineVersionArgs.manifestHash");
+        if (!unknown_manifestHash) return value_manifestHash;
+        throw new UndeferrableValueException("Value 'CustomDbEngineVersionArgs.manifestHash' is not present");
     }
 
     /**
      * The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
      * 
      */
-    private UndeferrableValue<String> sourceImageId;
-
+    @PolicyResourceProperty(name="sourceImageId", flag="unknown_sourceImageId")
+    private String value_sourceImageId;
+    private boolean unknown_sourceImageId;
     public String sourceImageId() {
-        if (sourceImageId == null) return null;
-        return sourceImageId.getValue("CustomDbEngineVersionArgs.sourceImageId");
+        if (!unknown_sourceImageId) return value_sourceImageId;
+        throw new UndeferrableValueException("Value 'CustomDbEngineVersionArgs.sourceImageId' is not present");
     }
 
     /**
      * The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("CustomDbEngineVersionArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'CustomDbEngineVersionArgs.status' is not present");
     }
 
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CustomDbEngineVersionArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CustomDbEngineVersionArgs.tags' is not present");
     }
 
 }

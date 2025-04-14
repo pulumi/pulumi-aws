@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -19,66 +20,72 @@ public final class MethodArgs extends com.pulumi.resources.PolicyResourceInput {
      * Specify if the method requires an API key
      * 
      */
-    private UndeferrableValue<Boolean> apiKeyRequired;
-
+    @PolicyResourceProperty(name="apiKeyRequired", flag="unknown_apiKeyRequired")
+    private Boolean value_apiKeyRequired;
+    private boolean unknown_apiKeyRequired;
     public Boolean apiKeyRequired() {
-        if (apiKeyRequired == null) return null;
-        return apiKeyRequired.getValue("MethodArgs.apiKeyRequired");
+        if (!unknown_apiKeyRequired) return value_apiKeyRequired;
+        throw new UndeferrableValueException("Value 'MethodArgs.apiKeyRequired' is not present");
     }
 
     /**
      * Type of authorization used for the method (`NONE`, `CUSTOM`, `AWS_IAM`, `COGNITO_USER_POOLS`)
      * 
      */
-    private UndeferrableValue<String> authorization;
-
+    @PolicyResourceProperty(name="authorization", flag="unknown_authorization")
+    private String value_authorization;
+    private boolean unknown_authorization;
     public String authorization() {
-        if (authorization == null) return null;
-        return authorization.getValue("MethodArgs.authorization");
+        if (!unknown_authorization) return value_authorization;
+        throw new UndeferrableValueException("Value 'MethodArgs.authorization' is not present");
     }
 
     /**
      * Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
      * 
      */
-    private UndeferrableValue<List<String>> authorizationScopes;
-
+    @PolicyResourceProperty(name="authorizationScopes", flag="unknown_authorizationScopes")
+    private List<String> value_authorizationScopes;
+    private boolean unknown_authorizationScopes;
     public List<String> authorizationScopes() {
-        if (authorizationScopes == null) return null;
-        return authorizationScopes.getValue("MethodArgs.authorizationScopes");
+        if (!unknown_authorizationScopes) return value_authorizationScopes;
+        throw new UndeferrableValueException("Value 'MethodArgs.authorizationScopes' is not present");
     }
 
     /**
      * Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
      * 
      */
-    private UndeferrableValue<String> authorizerId;
-
+    @PolicyResourceProperty(name="authorizerId", flag="unknown_authorizerId")
+    private String value_authorizerId;
+    private boolean unknown_authorizerId;
     public String authorizerId() {
-        if (authorizerId == null) return null;
-        return authorizerId.getValue("MethodArgs.authorizerId");
+        if (!unknown_authorizerId) return value_authorizerId;
+        throw new UndeferrableValueException("Value 'MethodArgs.authorizerId' is not present");
     }
 
     /**
      * HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      * 
      */
-    private UndeferrableValue<String> httpMethod;
-
+    @PolicyResourceProperty(name="httpMethod", flag="unknown_httpMethod")
+    private String value_httpMethod;
+    private boolean unknown_httpMethod;
     public String httpMethod() {
-        if (httpMethod == null) return null;
-        return httpMethod.getValue("MethodArgs.httpMethod");
+        if (!unknown_httpMethod) return value_httpMethod;
+        throw new UndeferrableValueException("Value 'MethodArgs.httpMethod' is not present");
     }
 
     /**
      * Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
      * 
      */
-    private UndeferrableValue<String> operationName;
-
+    @PolicyResourceProperty(name="operationName", flag="unknown_operationName")
+    private String value_operationName;
+    private boolean unknown_operationName;
     public String operationName() {
-        if (operationName == null) return null;
-        return operationName.getValue("MethodArgs.operationName");
+        if (!unknown_operationName) return value_operationName;
+        throw new UndeferrableValueException("Value 'MethodArgs.operationName' is not present");
     }
 
     /**
@@ -87,11 +94,12 @@ public final class MethodArgs extends com.pulumi.resources.PolicyResourceInput {
      * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`&#39;s `name`.
      * 
      */
-    private UndeferrableValue<Map<String,String>> requestModels;
-
+    @PolicyResourceProperty(name="requestModels", flag="unknown_requestModels")
+    private Map<String,String> value_requestModels;
+    private boolean unknown_requestModels;
     public Map<String,String> requestModels() {
-        if (requestModels == null) return null;
-        return requestModels.getValue("MethodArgs.requestModels");
+        if (!unknown_requestModels) return value_requestModels;
+        throw new UndeferrableValueException("Value 'MethodArgs.requestModels' is not present");
     }
 
     /**
@@ -99,44 +107,48 @@ public final class MethodArgs extends com.pulumi.resources.PolicyResourceInput {
      * For example: `request_parameters = {&#34;method.request.header.X-Some-Header&#34; = true &#34;method.request.querystring.some-query-param&#34; = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
      * 
      */
-    private UndeferrableValue<Map<String,Boolean>> requestParameters;
-
+    @PolicyResourceProperty(name="requestParameters", flag="unknown_requestParameters")
+    private Map<String,Boolean> value_requestParameters;
+    private boolean unknown_requestParameters;
     public Map<String,Boolean> requestParameters() {
-        if (requestParameters == null) return null;
-        return requestParameters.getValue("MethodArgs.requestParameters");
+        if (!unknown_requestParameters) return value_requestParameters;
+        throw new UndeferrableValueException("Value 'MethodArgs.requestParameters' is not present");
     }
 
     /**
      * ID of a `aws.apigateway.RequestValidator`
      * 
      */
-    private UndeferrableValue<String> requestValidatorId;
-
+    @PolicyResourceProperty(name="requestValidatorId", flag="unknown_requestValidatorId")
+    private String value_requestValidatorId;
+    private boolean unknown_requestValidatorId;
     public String requestValidatorId() {
-        if (requestValidatorId == null) return null;
-        return requestValidatorId.getValue("MethodArgs.requestValidatorId");
+        if (!unknown_requestValidatorId) return value_requestValidatorId;
+        throw new UndeferrableValueException("Value 'MethodArgs.requestValidatorId' is not present");
     }
 
     /**
      * API resource ID
      * 
      */
-    private UndeferrableValue<String> resourceId;
-
+    @PolicyResourceProperty(name="resourceId", flag="unknown_resourceId")
+    private String value_resourceId;
+    private boolean unknown_resourceId;
     public String resourceId() {
-        if (resourceId == null) return null;
-        return resourceId.getValue("MethodArgs.resourceId");
+        if (!unknown_resourceId) return value_resourceId;
+        throw new UndeferrableValueException("Value 'MethodArgs.resourceId' is not present");
     }
 
     /**
      * ID of the associated REST API
      * 
      */
-    private UndeferrableValue<String> restApi;
-
+    @PolicyResourceProperty(name="restApi", flag="unknown_restApi")
+    private String value_restApi;
+    private boolean unknown_restApi;
     public String restApi() {
-        if (restApi == null) return null;
-        return restApi.getValue("MethodArgs.restApi");
+        if (!unknown_restApi) return value_restApi;
+        throw new UndeferrableValueException("Value 'MethodArgs.restApi' is not present");
     }
 
 }

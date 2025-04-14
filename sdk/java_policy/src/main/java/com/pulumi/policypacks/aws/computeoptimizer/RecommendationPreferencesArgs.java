@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.computeoptimizer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.computeoptimizer.inputs.RecommendationPreferencesExternalMetricsPreferenceArgs;
 import com.pulumi.policypacks.aws.computeoptimizer.inputs.RecommendationPreferencesPreferredResourceArgs;
@@ -21,99 +22,108 @@ public final class RecommendationPreferencesArgs extends com.pulumi.resources.Po
      * The status of the enhanced infrastructure metrics recommendation preference. Valid values: `Active`, `Inactive`.
      * 
      */
-    private UndeferrableValue<String> enhancedInfrastructureMetrics;
-
+    @PolicyResourceProperty(name="enhancedInfrastructureMetrics", flag="unknown_enhancedInfrastructureMetrics")
+    private String value_enhancedInfrastructureMetrics;
+    private boolean unknown_enhancedInfrastructureMetrics;
     public String enhancedInfrastructureMetrics() {
-        if (enhancedInfrastructureMetrics == null) return null;
-        return enhancedInfrastructureMetrics.getValue("RecommendationPreferencesArgs.enhancedInfrastructureMetrics");
+        if (!unknown_enhancedInfrastructureMetrics) return value_enhancedInfrastructureMetrics;
+        throw new UndeferrableValueException("Value 'RecommendationPreferencesArgs.enhancedInfrastructureMetrics' is not present");
     }
 
     /**
      * The provider of the external metrics recommendation preference. See External Metrics Preference below.
      * 
      */
-    private UndeferrableValue<RecommendationPreferencesExternalMetricsPreferenceArgs> externalMetricsPreference;
-
+    @PolicyResourceProperty(name="externalMetricsPreference", flag="unknown_externalMetricsPreference")
+    private RecommendationPreferencesExternalMetricsPreferenceArgs value_externalMetricsPreference;
+    private boolean unknown_externalMetricsPreference;
     public RecommendationPreferencesExternalMetricsPreferenceArgs externalMetricsPreference() {
-        if (externalMetricsPreference == null) return null;
-        return externalMetricsPreference.getValue("RecommendationPreferencesArgs.externalMetricsPreference");
+        if (!unknown_externalMetricsPreference) return value_externalMetricsPreference;
+        throw new UndeferrableValueException("Value 'RecommendationPreferencesArgs.externalMetricsPreference' is not present");
     }
 
     /**
      * The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
      * 
      */
-    private UndeferrableValue<String> inferredWorkloadTypes;
-
+    @PolicyResourceProperty(name="inferredWorkloadTypes", flag="unknown_inferredWorkloadTypes")
+    private String value_inferredWorkloadTypes;
+    private boolean unknown_inferredWorkloadTypes;
     public String inferredWorkloadTypes() {
-        if (inferredWorkloadTypes == null) return null;
-        return inferredWorkloadTypes.getValue("RecommendationPreferencesArgs.inferredWorkloadTypes");
+        if (!unknown_inferredWorkloadTypes) return value_inferredWorkloadTypes;
+        throw new UndeferrableValueException("Value 'RecommendationPreferencesArgs.inferredWorkloadTypes' is not present");
     }
 
     /**
      * The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
      * 
      */
-    private UndeferrableValue<String> lookBackPeriod;
-
+    @PolicyResourceProperty(name="lookBackPeriod", flag="unknown_lookBackPeriod")
+    private String value_lookBackPeriod;
+    private boolean unknown_lookBackPeriod;
     public String lookBackPeriod() {
-        if (lookBackPeriod == null) return null;
-        return lookBackPeriod.getValue("RecommendationPreferencesArgs.lookBackPeriod");
+        if (!unknown_lookBackPeriod) return value_lookBackPeriod;
+        throw new UndeferrableValueException("Value 'RecommendationPreferencesArgs.lookBackPeriod' is not present");
     }
 
     /**
      * The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
      * 
      */
-    private UndeferrableValue<List<RecommendationPreferencesPreferredResourceArgs>> preferredResources;
-
+    @PolicyResourceProperty(name="preferredResources", flag="unknown_preferredResources")
+    private List<RecommendationPreferencesPreferredResourceArgs> value_preferredResources;
+    private boolean unknown_preferredResources;
     public List<RecommendationPreferencesPreferredResourceArgs> preferredResources() {
-        if (preferredResources == null) return null;
-        return preferredResources.getValue("RecommendationPreferencesArgs.preferredResources");
+        if (!unknown_preferredResources) return value_preferredResources;
+        throw new UndeferrableValueException("Value 'RecommendationPreferencesArgs.preferredResources' is not present");
     }
 
     /**
      * The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
      * 
      */
-    private UndeferrableValue<String> resourceType;
-
+    @PolicyResourceProperty(name="resourceType", flag="unknown_resourceType")
+    private String value_resourceType;
+    private boolean unknown_resourceType;
     public String resourceType() {
-        if (resourceType == null) return null;
-        return resourceType.getValue("RecommendationPreferencesArgs.resourceType");
+        if (!unknown_resourceType) return value_resourceType;
+        throw new UndeferrableValueException("Value 'RecommendationPreferencesArgs.resourceType' is not present");
     }
 
     /**
      * The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
      * 
      */
-    private UndeferrableValue<String> savingsEstimationMode;
-
+    @PolicyResourceProperty(name="savingsEstimationMode", flag="unknown_savingsEstimationMode")
+    private String value_savingsEstimationMode;
+    private boolean unknown_savingsEstimationMode;
     public String savingsEstimationMode() {
-        if (savingsEstimationMode == null) return null;
-        return savingsEstimationMode.getValue("RecommendationPreferencesArgs.savingsEstimationMode");
+        if (!unknown_savingsEstimationMode) return value_savingsEstimationMode;
+        throw new UndeferrableValueException("Value 'RecommendationPreferencesArgs.savingsEstimationMode' is not present");
     }
 
     /**
      * The scope of the recommendation preferences. See Scope below.
      * 
      */
-    private UndeferrableValue<RecommendationPreferencesScopeArgs> scope;
-
+    @PolicyResourceProperty(name="scope", flag="unknown_scope")
+    private RecommendationPreferencesScopeArgs value_scope;
+    private boolean unknown_scope;
     public RecommendationPreferencesScopeArgs scope() {
-        if (scope == null) return null;
-        return scope.getValue("RecommendationPreferencesArgs.scope");
+        if (!unknown_scope) return value_scope;
+        throw new UndeferrableValueException("Value 'RecommendationPreferencesArgs.scope' is not present");
     }
 
     /**
      * The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
      * 
      */
-    private UndeferrableValue<List<RecommendationPreferencesUtilizationPreferenceArgs>> utilizationPreferences;
-
+    @PolicyResourceProperty(name="utilizationPreferences", flag="unknown_utilizationPreferences")
+    private List<RecommendationPreferencesUtilizationPreferenceArgs> value_utilizationPreferences;
+    private boolean unknown_utilizationPreferences;
     public List<RecommendationPreferencesUtilizationPreferenceArgs> utilizationPreferences() {
-        if (utilizationPreferences == null) return null;
-        return utilizationPreferences.getValue("RecommendationPreferencesArgs.utilizationPreferences");
+        if (!unknown_utilizationPreferences) return value_utilizationPreferences;
+        throw new UndeferrableValueException("Value 'RecommendationPreferencesArgs.utilizationPreferences' is not present");
     }
 
 }

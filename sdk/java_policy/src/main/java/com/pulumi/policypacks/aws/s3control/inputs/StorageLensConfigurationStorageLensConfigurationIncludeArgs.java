@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class StorageLensConfigurationStorageLensConfigurationIncludeArgs {
      * List of S3 bucket ARNs.
      * 
      */
-    private UndeferrableValue<List<String>> buckets;
-
+    @PolicyResourceProperty(name="buckets", flag="unknown_buckets")
+    private List<String> value_buckets;
+    private boolean unknown_buckets;
     public List<String> buckets() {
-        if (buckets == null) return null;
-        return buckets.getValue("StorageLensConfigurationStorageLensConfigurationIncludeArgs.buckets");
+        if (!unknown_buckets) return value_buckets;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationIncludeArgs.buckets' is not present");
     }
 
     /**
      * List of AWS Regions.
      * 
      */
-    private UndeferrableValue<List<String>> regions;
-
+    @PolicyResourceProperty(name="regions", flag="unknown_regions")
+    private List<String> value_regions;
+    private boolean unknown_regions;
     public List<String> regions() {
-        if (regions == null) return null;
-        return regions.getValue("StorageLensConfigurationStorageLensConfigurationIncludeArgs.regions");
+        if (!unknown_regions) return value_regions;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationIncludeArgs.regions' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.iot.inputs.ThingGroupPropertiesArgs;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class ThingGroupArgs extends com.pulumi.resources.PolicyResourceInp
      * The name of the Thing Group.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ThingGroupArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ThingGroupArgs.name' is not present");
     }
 
     /**
      * The name of the parent Thing Group.
      * 
      */
-    private UndeferrableValue<String> parentGroupName;
-
+    @PolicyResourceProperty(name="parentGroupName", flag="unknown_parentGroupName")
+    private String value_parentGroupName;
+    private boolean unknown_parentGroupName;
     public String parentGroupName() {
-        if (parentGroupName == null) return null;
-        return parentGroupName.getValue("ThingGroupArgs.parentGroupName");
+        if (!unknown_parentGroupName) return value_parentGroupName;
+        throw new UndeferrableValueException("Value 'ThingGroupArgs.parentGroupName' is not present");
     }
 
     /**
      * The Thing Group properties. Defined below.
      * 
      */
-    private UndeferrableValue<ThingGroupPropertiesArgs> properties;
-
+    @PolicyResourceProperty(name="properties", flag="unknown_properties")
+    private ThingGroupPropertiesArgs value_properties;
+    private boolean unknown_properties;
     public ThingGroupPropertiesArgs properties() {
-        if (properties == null) return null;
-        return properties.getValue("ThingGroupArgs.properties");
+        if (!unknown_properties) return value_properties;
+        throw new UndeferrableValueException("Value 'ThingGroupArgs.properties' is not present");
     }
 
     /**
      * Key-value mapping of resource tags
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ThingGroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ThingGroupArgs.tags' is not present");
     }
 
 }

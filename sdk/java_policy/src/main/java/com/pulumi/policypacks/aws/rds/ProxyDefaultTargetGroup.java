@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.rds.outputs.ProxyDefaultTargetGroupConnectionPoolConfig;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class ProxyDefaultTargetGroup extends com.pulumi.resources.PolicyRe
      * The Amazon Resource Name (ARN) representing the target group.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ProxyDefaultTargetGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ProxyDefaultTargetGroup.arn' is not present");
     }
 
     /**
      * The settings that determine the size and behavior of the connection pool for the target group.
      * 
      */
-    private UndeferrableValue<ProxyDefaultTargetGroupConnectionPoolConfig> connectionPoolConfig;
-
+    @PolicyResourceProperty(name="connectionPoolConfig", flag="unknown_connectionPoolConfig")
+    private ProxyDefaultTargetGroupConnectionPoolConfig value_connectionPoolConfig;
+    private boolean unknown_connectionPoolConfig;
     public ProxyDefaultTargetGroupConnectionPoolConfig connectionPoolConfig() {
-        if (connectionPoolConfig == null) return null;
-        return connectionPoolConfig.getValue("ProxyDefaultTargetGroup.connectionPoolConfig");
+        if (!unknown_connectionPoolConfig) return value_connectionPoolConfig;
+        throw new UndeferrableValueException("Value 'ProxyDefaultTargetGroup.connectionPoolConfig' is not present");
     }
 
     /**
      * Name of the RDS DB Proxy.
      * 
      */
-    private UndeferrableValue<String> dbProxyName;
-
+    @PolicyResourceProperty(name="dbProxyName", flag="unknown_dbProxyName")
+    private String value_dbProxyName;
+    private boolean unknown_dbProxyName;
     public String dbProxyName() {
-        if (dbProxyName == null) return null;
-        return dbProxyName.getValue("ProxyDefaultTargetGroup.dbProxyName");
+        if (!unknown_dbProxyName) return value_dbProxyName;
+        throw new UndeferrableValueException("Value 'ProxyDefaultTargetGroup.dbProxyName' is not present");
     }
 
     /**
      * The name of the default target group.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ProxyDefaultTargetGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ProxyDefaultTargetGroup.name' is not present");
     }
 
 }

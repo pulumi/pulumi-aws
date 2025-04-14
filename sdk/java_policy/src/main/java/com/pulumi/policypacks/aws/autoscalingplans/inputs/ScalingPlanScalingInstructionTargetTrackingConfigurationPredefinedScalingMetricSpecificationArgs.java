@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscalingplans.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ScalingPlanScalingInstructionTargetTrackingConfigurationPrede
      * Metric type. Valid values: `ALBRequestCountPerTarget`, `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, `DynamoDBReadCapacityUtilization`, `DynamoDBWriteCapacityUtilization`, `ECSServiceAverageCPUUtilization`, `ECSServiceAverageMemoryUtilization`, `EC2SpotFleetRequestAverageCPUUtilization`, `EC2SpotFleetRequestAverageNetworkIn`, `EC2SpotFleetRequestAverageNetworkOut`, `RDSReaderAverageCPUUtilization`, `RDSReaderAverageDatabaseConnections`.
      * 
      */
-    private UndeferrableValue<String> predefinedScalingMetricType;
-
+    @PolicyResourceProperty(name="predefinedScalingMetricType", flag="unknown_predefinedScalingMetricType")
+    private String value_predefinedScalingMetricType;
+    private boolean unknown_predefinedScalingMetricType;
     public String predefinedScalingMetricType() {
-        if (predefinedScalingMetricType == null) return null;
-        return predefinedScalingMetricType.getValue("ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs.predefinedScalingMetricType");
+        if (!unknown_predefinedScalingMetricType) return value_predefinedScalingMetricType;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs.predefinedScalingMetricType' is not present");
     }
 
     /**
      * Identifies the resource associated with the metric type.
      * 
      */
-    private UndeferrableValue<String> resourceLabel;
-
+    @PolicyResourceProperty(name="resourceLabel", flag="unknown_resourceLabel")
+    private String value_resourceLabel;
+    private boolean unknown_resourceLabel;
     public String resourceLabel() {
-        if (resourceLabel == null) return null;
-        return resourceLabel.getValue("ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs.resourceLabel");
+        if (!unknown_resourceLabel) return value_resourceLabel;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs.resourceLabel' is not present");
     }
 
 }

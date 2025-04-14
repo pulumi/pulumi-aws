@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.inputs.GuardrailContentPolicyConfigFiltersConfigArgs;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class GuardrailContentPolicyConfigArgs {
      * See Filters Config for more information.
      * 
      */
-    private UndeferrableValue<List<GuardrailContentPolicyConfigFiltersConfigArgs>> filtersConfigs;
-
+    @PolicyResourceProperty(name="filtersConfigs", flag="unknown_filtersConfigs")
+    private List<GuardrailContentPolicyConfigFiltersConfigArgs> value_filtersConfigs;
+    private boolean unknown_filtersConfigs;
     public List<GuardrailContentPolicyConfigFiltersConfigArgs> filtersConfigs() {
-        if (filtersConfigs == null) return null;
-        return filtersConfigs.getValue("GuardrailContentPolicyConfigArgs.filtersConfigs");
+        if (!unknown_filtersConfigs) return value_filtersConfigs;
+        throw new UndeferrableValueException("Value 'GuardrailContentPolicyConfigArgs.filtersConfigs' is not present");
     }
 
 }

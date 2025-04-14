@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DomainSoftwareUpdateOptionsArgs {
      * Whether automatic service software updates are enabled for the domain. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> autoSoftwareUpdateEnabled;
-
+    @PolicyResourceProperty(name="autoSoftwareUpdateEnabled", flag="unknown_autoSoftwareUpdateEnabled")
+    private Boolean value_autoSoftwareUpdateEnabled;
+    private boolean unknown_autoSoftwareUpdateEnabled;
     public Boolean autoSoftwareUpdateEnabled() {
-        if (autoSoftwareUpdateEnabled == null) return null;
-        return autoSoftwareUpdateEnabled.getValue("DomainSoftwareUpdateOptionsArgs.autoSoftwareUpdateEnabled");
+        if (!unknown_autoSoftwareUpdateEnabled) return value_autoSoftwareUpdateEnabled;
+        throw new UndeferrableValueException("Value 'DomainSoftwareUpdateOptionsArgs.autoSoftwareUpdateEnabled' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
      * The ARN of the model used to parse documents
      * 
      */
-    private UndeferrableValue<String> modelArn;
-
+    @PolicyResourceProperty(name="modelArn", flag="unknown_modelArn")
+    private String value_modelArn;
+    private boolean unknown_modelArn;
     public String modelArn() {
-        if (modelArn == null) return null;
-        return modelArn.getValue("AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs.modelArn");
+        if (!unknown_modelArn) return value_modelArn;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs.modelArn' is not present");
     }
 
     /**
      * Instructions for interpreting the contents of the document. See `parsing_prompt` block for details.
      * 
      */
-    private UndeferrableValue<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs> parsingPrompt;
-
+    @PolicyResourceProperty(name="parsingPrompt", flag="unknown_parsingPrompt")
+    private AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs value_parsingPrompt;
+    private boolean unknown_parsingPrompt;
     public AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs parsingPrompt() {
-        if (parsingPrompt == null) return null;
-        return parsingPrompt.getValue("AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs.parsingPrompt");
+        if (!unknown_parsingPrompt) return value_parsingPrompt;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs.parsingPrompt' is not present");
     }
 
 }

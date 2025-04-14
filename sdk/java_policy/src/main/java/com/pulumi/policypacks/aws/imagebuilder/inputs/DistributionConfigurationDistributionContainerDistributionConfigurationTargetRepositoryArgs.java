@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class DistributionConfigurationDistributionContainerDistributionCon
      * The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
      * 
      */
-    private UndeferrableValue<String> repositoryName;
-
+    @PolicyResourceProperty(name="repositoryName", flag="unknown_repositoryName")
+    private String value_repositoryName;
+    private boolean unknown_repositoryName;
     public String repositoryName() {
-        if (repositoryName == null) return null;
-        return repositoryName.getValue("DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs.repositoryName");
+        if (!unknown_repositoryName) return value_repositoryName;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs.repositoryName' is not present");
     }
 
     /**
      * The service in which this image is registered. Valid values: `ECR`.
      * 
      */
-    private UndeferrableValue<String> service;
-
+    @PolicyResourceProperty(name="service", flag="unknown_service")
+    private String value_service;
+    private boolean unknown_service;
     public String service() {
-        if (service == null) return null;
-        return service.getValue("DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs.service");
+        if (!unknown_service) return value_service;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs.service' is not present");
     }
 
 }

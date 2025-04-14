@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class ServiceSpecificCredentialArgs extends com.pulumi.resources.Po
      * The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
      * 
      */
-    private UndeferrableValue<String> serviceName;
-
+    @PolicyResourceProperty(name="serviceName", flag="unknown_serviceName")
+    private String value_serviceName;
+    private boolean unknown_serviceName;
     public String serviceName() {
-        if (serviceName == null) return null;
-        return serviceName.getValue("ServiceSpecificCredentialArgs.serviceName");
+        if (!unknown_serviceName) return value_serviceName;
+        throw new UndeferrableValueException("Value 'ServiceSpecificCredentialArgs.serviceName' is not present");
     }
 
     /**
      * The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("ServiceSpecificCredentialArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'ServiceSpecificCredentialArgs.status' is not present");
     }
 
     /**
      * The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service.
      * 
      */
-    private UndeferrableValue<String> userName;
-
+    @PolicyResourceProperty(name="userName", flag="unknown_userName")
+    private String value_userName;
+    private boolean unknown_userName;
     public String userName() {
-        if (userName == null) return null;
-        return userName.getValue("ServiceSpecificCredentialArgs.userName");
+        if (!unknown_userName) return value_userName;
+        throw new UndeferrableValueException("Value 'ServiceSpecificCredentialArgs.userName' is not present");
     }
 
 }

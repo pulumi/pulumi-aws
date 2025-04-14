@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssoadmin;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -16,22 +17,24 @@ public final class ApplicationAssignmentConfigurationArgs extends com.pulumi.res
      * ARN of the application.
      * 
      */
-    private UndeferrableValue<String> applicationArn;
-
+    @PolicyResourceProperty(name="applicationArn", flag="unknown_applicationArn")
+    private String value_applicationArn;
+    private boolean unknown_applicationArn;
     public String applicationArn() {
-        if (applicationArn == null) return null;
-        return applicationArn.getValue("ApplicationAssignmentConfigurationArgs.applicationArn");
+        if (!unknown_applicationArn) return value_applicationArn;
+        throw new UndeferrableValueException("Value 'ApplicationAssignmentConfigurationArgs.applicationArn' is not present");
     }
 
     /**
      * Indicates whether users must have an explicit assignment to access the application. If `false`, all users have access to the application.
      * 
      */
-    private UndeferrableValue<Boolean> assignmentRequired;
-
+    @PolicyResourceProperty(name="assignmentRequired", flag="unknown_assignmentRequired")
+    private Boolean value_assignmentRequired;
+    private boolean unknown_assignmentRequired;
     public Boolean assignmentRequired() {
-        if (assignmentRequired == null) return null;
-        return assignmentRequired.getValue("ApplicationAssignmentConfigurationArgs.assignmentRequired");
+        if (!unknown_assignmentRequired) return value_assignmentRequired;
+        throw new UndeferrableValueException("Value 'ApplicationAssignmentConfigurationArgs.assignmentRequired' is not present");
     }
 
 }

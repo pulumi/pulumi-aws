@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamquery.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class ScheduledQueryErrorReportConfigurationS3Configuration {
      * Name of the S3 bucket under which error reports will be created.
      * 
      */
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("ScheduledQueryErrorReportConfigurationS3Configuration.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'ScheduledQueryErrorReportConfigurationS3Configuration.bucketName' is not present");
     }
 
     /**
      * Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose `SSE_S3` as default. Valid values are `SSE_S3`, `SSE_KMS`.
      * 
      */
-    private @Nullable UndeferrableValue<String> encryptionOption;
-
+    @PolicyResourceProperty(name="encryptionOption", flag="unknown_encryptionOption")
+    private @Nullable String value_encryptionOption;
+    private boolean unknown_encryptionOption;
     public @Nullable String encryptionOption() {
-        if (encryptionOption == null) return null;
-        return encryptionOption.getValue("ScheduledQueryErrorReportConfigurationS3Configuration.encryptionOption");
+        if (!unknown_encryptionOption) return value_encryptionOption;
+        throw new UndeferrableValueException("Value 'ScheduledQueryErrorReportConfigurationS3Configuration.encryptionOption' is not present");
     }
 
     /**
      * Prefix for the error report key.
      * 
      */
-    private @Nullable UndeferrableValue<String> objectKeyPrefix;
-
+    @PolicyResourceProperty(name="objectKeyPrefix", flag="unknown_objectKeyPrefix")
+    private @Nullable String value_objectKeyPrefix;
+    private boolean unknown_objectKeyPrefix;
     public @Nullable String objectKeyPrefix() {
-        if (objectKeyPrefix == null) return null;
-        return objectKeyPrefix.getValue("ScheduledQueryErrorReportConfigurationS3Configuration.objectKeyPrefix");
+        if (!unknown_objectKeyPrefix) return value_objectKeyPrefix;
+        throw new UndeferrableValueException("Value 'ScheduledQueryErrorReportConfigurationS3Configuration.objectKeyPrefix' is not present");
     }
 
 }

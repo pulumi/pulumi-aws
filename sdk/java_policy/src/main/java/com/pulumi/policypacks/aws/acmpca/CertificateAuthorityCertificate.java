@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.acmpca;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class CertificateAuthorityCertificate extends com.pulumi.resources.
      * PEM-encoded certificate for the Certificate Authority.
      * 
      */
-    private UndeferrableValue<String> certificate;
-
+    @PolicyResourceProperty(name="certificate", flag="unknown_certificate")
+    private String value_certificate;
+    private boolean unknown_certificate;
     public String certificate() {
-        if (certificate == null) return null;
-        return certificate.getValue("CertificateAuthorityCertificate.certificate");
+        if (!unknown_certificate) return value_certificate;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityCertificate.certificate' is not present");
     }
 
     /**
      * ARN of the Certificate Authority.
      * 
      */
-    private UndeferrableValue<String> certificateAuthorityArn;
-
+    @PolicyResourceProperty(name="certificateAuthorityArn", flag="unknown_certificateAuthorityArn")
+    private String value_certificateAuthorityArn;
+    private boolean unknown_certificateAuthorityArn;
     public String certificateAuthorityArn() {
-        if (certificateAuthorityArn == null) return null;
-        return certificateAuthorityArn.getValue("CertificateAuthorityCertificate.certificateAuthorityArn");
+        if (!unknown_certificateAuthorityArn) return value_certificateAuthorityArn;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityCertificate.certificateAuthorityArn' is not present");
     }
 
     /**
      * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
      * 
      */
-    private @Nullable UndeferrableValue<String> certificateChain;
-
+    @PolicyResourceProperty(name="certificateChain", flag="unknown_certificateChain")
+    private @Nullable String value_certificateChain;
+    private boolean unknown_certificateChain;
     public @Nullable String certificateChain() {
-        if (certificateChain == null) return null;
-        return certificateChain.getValue("CertificateAuthorityCertificate.certificateChain");
+        if (!unknown_certificateChain) return value_certificateChain;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityCertificate.certificateChain' is not present");
     }
 
 }

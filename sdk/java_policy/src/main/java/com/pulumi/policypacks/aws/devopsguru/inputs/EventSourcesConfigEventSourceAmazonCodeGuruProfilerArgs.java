@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.devopsguru.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs {
      * Status of the CodeGuru Profiler integration. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs.status' is not present");
     }
 
 }

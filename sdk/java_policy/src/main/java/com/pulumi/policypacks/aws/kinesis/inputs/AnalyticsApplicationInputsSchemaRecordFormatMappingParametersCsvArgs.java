@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class AnalyticsApplicationInputsSchemaRecordFormatMappingParameters
      * The Column Delimiter.
      * 
      */
-    private UndeferrableValue<String> recordColumnDelimiter;
-
+    @PolicyResourceProperty(name="recordColumnDelimiter", flag="unknown_recordColumnDelimiter")
+    private String value_recordColumnDelimiter;
+    private boolean unknown_recordColumnDelimiter;
     public String recordColumnDelimiter() {
-        if (recordColumnDelimiter == null) return null;
-        return recordColumnDelimiter.getValue("AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs.recordColumnDelimiter");
+        if (!unknown_recordColumnDelimiter) return value_recordColumnDelimiter;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs.recordColumnDelimiter' is not present");
     }
 
     /**
      * The Row Delimiter.
      * 
      */
-    private UndeferrableValue<String> recordRowDelimiter;
-
+    @PolicyResourceProperty(name="recordRowDelimiter", flag="unknown_recordRowDelimiter")
+    private String value_recordRowDelimiter;
+    private boolean unknown_recordRowDelimiter;
     public String recordRowDelimiter() {
-        if (recordRowDelimiter == null) return null;
-        return recordRowDelimiter.getValue("AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs.recordRowDelimiter");
+        if (!unknown_recordRowDelimiter) return value_recordRowDelimiter;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs.recordRowDelimiter' is not present");
     }
 
 }

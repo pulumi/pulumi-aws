@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualGatewaySpecBackendDefaultsArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualGatewaySpecListenerArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualGatewaySpecLoggingArgs;
@@ -17,33 +18,36 @@ public final class VirtualGatewaySpecArgs {
      * Defaults for backends.
      * 
      */
-    private UndeferrableValue<VirtualGatewaySpecBackendDefaultsArgs> backendDefaults;
-
+    @PolicyResourceProperty(name="backendDefaults", flag="unknown_backendDefaults")
+    private VirtualGatewaySpecBackendDefaultsArgs value_backendDefaults;
+    private boolean unknown_backendDefaults;
     public VirtualGatewaySpecBackendDefaultsArgs backendDefaults() {
-        if (backendDefaults == null) return null;
-        return backendDefaults.getValue("VirtualGatewaySpecArgs.backendDefaults");
+        if (!unknown_backendDefaults) return value_backendDefaults;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecArgs.backendDefaults' is not present");
     }
 
     /**
      * Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
      * 
      */
-    private UndeferrableValue<List<VirtualGatewaySpecListenerArgs>> listeners;
-
+    @PolicyResourceProperty(name="listeners", flag="unknown_listeners")
+    private List<VirtualGatewaySpecListenerArgs> value_listeners;
+    private boolean unknown_listeners;
     public List<VirtualGatewaySpecListenerArgs> listeners() {
-        if (listeners == null) return null;
-        return listeners.getValue("VirtualGatewaySpecArgs.listeners");
+        if (!unknown_listeners) return value_listeners;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecArgs.listeners' is not present");
     }
 
     /**
      * Inbound and outbound access logging information for the virtual gateway.
      * 
      */
-    private UndeferrableValue<VirtualGatewaySpecLoggingArgs> logging;
-
+    @PolicyResourceProperty(name="logging", flag="unknown_logging")
+    private VirtualGatewaySpecLoggingArgs value_logging;
+    private boolean unknown_logging;
     public VirtualGatewaySpecLoggingArgs logging() {
-        if (logging == null) return null;
-        return logging.getValue("VirtualGatewaySpecArgs.logging");
+        if (!unknown_logging) return value_logging;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecArgs.logging' is not present");
     }
 
 }

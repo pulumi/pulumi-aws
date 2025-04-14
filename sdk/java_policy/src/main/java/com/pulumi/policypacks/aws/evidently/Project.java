@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.evidently;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.evidently.outputs.ProjectDataDelivery;
 import java.lang.Integer;
@@ -19,143 +20,156 @@ public final class Project extends com.pulumi.resources.PolicyResourceOutput {
      * The number of ongoing experiments currently in the project.
      * 
      */
-    private UndeferrableValue<Integer> activeExperimentCount;
-
+    @PolicyResourceProperty(name="activeExperimentCount", flag="unknown_activeExperimentCount")
+    private Integer value_activeExperimentCount;
+    private boolean unknown_activeExperimentCount;
     public Integer activeExperimentCount() {
-        if (activeExperimentCount == null) return null;
-        return activeExperimentCount.getValue("Project.activeExperimentCount");
+        if (!unknown_activeExperimentCount) return value_activeExperimentCount;
+        throw new UndeferrableValueException("Value 'Project.activeExperimentCount' is not present");
     }
 
     /**
      * The number of ongoing launches currently in the project.
      * 
      */
-    private UndeferrableValue<Integer> activeLaunchCount;
-
+    @PolicyResourceProperty(name="activeLaunchCount", flag="unknown_activeLaunchCount")
+    private Integer value_activeLaunchCount;
+    private boolean unknown_activeLaunchCount;
     public Integer activeLaunchCount() {
-        if (activeLaunchCount == null) return null;
-        return activeLaunchCount.getValue("Project.activeLaunchCount");
+        if (!unknown_activeLaunchCount) return value_activeLaunchCount;
+        throw new UndeferrableValueException("Value 'Project.activeLaunchCount' is not present");
     }
 
     /**
      * The ARN of the project.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Project.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Project.arn' is not present");
     }
 
     /**
      * The date and time that the project is created.
      * 
      */
-    private UndeferrableValue<String> createdTime;
-
+    @PolicyResourceProperty(name="createdTime", flag="unknown_createdTime")
+    private String value_createdTime;
+    private boolean unknown_createdTime;
     public String createdTime() {
-        if (createdTime == null) return null;
-        return createdTime.getValue("Project.createdTime");
+        if (!unknown_createdTime) return value_createdTime;
+        throw new UndeferrableValueException("Value 'Project.createdTime' is not present");
     }
 
     /**
      * A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
      * 
      */
-    private @Nullable UndeferrableValue<ProjectDataDelivery> dataDelivery;
-
+    @PolicyResourceProperty(name="dataDelivery", flag="unknown_dataDelivery")
+    private @Nullable ProjectDataDelivery value_dataDelivery;
+    private boolean unknown_dataDelivery;
     public @Nullable ProjectDataDelivery dataDelivery() {
-        if (dataDelivery == null) return null;
-        return dataDelivery.getValue("Project.dataDelivery");
+        if (!unknown_dataDelivery) return value_dataDelivery;
+        throw new UndeferrableValueException("Value 'Project.dataDelivery' is not present");
     }
 
     /**
      * Specifies the description of the project.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Project.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Project.description' is not present");
     }
 
     /**
      * The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
      * 
      */
-    private UndeferrableValue<Integer> experimentCount;
-
+    @PolicyResourceProperty(name="experimentCount", flag="unknown_experimentCount")
+    private Integer value_experimentCount;
+    private boolean unknown_experimentCount;
     public Integer experimentCount() {
-        if (experimentCount == null) return null;
-        return experimentCount.getValue("Project.experimentCount");
+        if (!unknown_experimentCount) return value_experimentCount;
+        throw new UndeferrableValueException("Value 'Project.experimentCount' is not present");
     }
 
     /**
      * The number of features currently in the project.
      * 
      */
-    private UndeferrableValue<Integer> featureCount;
-
+    @PolicyResourceProperty(name="featureCount", flag="unknown_featureCount")
+    private Integer value_featureCount;
+    private boolean unknown_featureCount;
     public Integer featureCount() {
-        if (featureCount == null) return null;
-        return featureCount.getValue("Project.featureCount");
+        if (!unknown_featureCount) return value_featureCount;
+        throw new UndeferrableValueException("Value 'Project.featureCount' is not present");
     }
 
     /**
      * The date and time that the project was most recently updated.
      * 
      */
-    private UndeferrableValue<String> lastUpdatedTime;
-
+    @PolicyResourceProperty(name="lastUpdatedTime", flag="unknown_lastUpdatedTime")
+    private String value_lastUpdatedTime;
+    private boolean unknown_lastUpdatedTime;
     public String lastUpdatedTime() {
-        if (lastUpdatedTime == null) return null;
-        return lastUpdatedTime.getValue("Project.lastUpdatedTime");
+        if (!unknown_lastUpdatedTime) return value_lastUpdatedTime;
+        throw new UndeferrableValueException("Value 'Project.lastUpdatedTime' is not present");
     }
 
     /**
      * The number of launches currently in the project. This includes all launches that have been created and not deleted, whether they are ongoing or not.
      * 
      */
-    private UndeferrableValue<Integer> launchCount;
-
+    @PolicyResourceProperty(name="launchCount", flag="unknown_launchCount")
+    private Integer value_launchCount;
+    private boolean unknown_launchCount;
     public Integer launchCount() {
-        if (launchCount == null) return null;
-        return launchCount.getValue("Project.launchCount");
+        if (!unknown_launchCount) return value_launchCount;
+        throw new UndeferrableValueException("Value 'Project.launchCount' is not present");
     }
 
     /**
      * A name for the project.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Project.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Project.name' is not present");
     }
 
     /**
      * The current state of the project. Valid values are `AVAILABLE` and `UPDATING`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Project.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Project.status' is not present");
     }
 
     /**
      * Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Project.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Project.tags' is not present");
     }
 
     /**
@@ -166,11 +180,12 @@ public final class Project extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Project.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Project.tagsAll' is not present");
     }
 
 }

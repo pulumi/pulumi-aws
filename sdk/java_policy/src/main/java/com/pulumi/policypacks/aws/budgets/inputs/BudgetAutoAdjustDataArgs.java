@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.budgets.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.budgets.inputs.BudgetAutoAdjustDataHistoricalOptionsArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class BudgetAutoAdjustDataArgs {
      * (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
      * 
      */
-    private UndeferrableValue<String> autoAdjustType;
-
+    @PolicyResourceProperty(name="autoAdjustType", flag="unknown_autoAdjustType")
+    private String value_autoAdjustType;
+    private boolean unknown_autoAdjustType;
     public String autoAdjustType() {
-        if (autoAdjustType == null) return null;
-        return autoAdjustType.getValue("BudgetAutoAdjustDataArgs.autoAdjustType");
+        if (!unknown_autoAdjustType) return value_autoAdjustType;
+        throw new UndeferrableValueException("Value 'BudgetAutoAdjustDataArgs.autoAdjustType' is not present");
     }
 
     /**
      * (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
      * 
      */
-    private UndeferrableValue<BudgetAutoAdjustDataHistoricalOptionsArgs> historicalOptions;
-
+    @PolicyResourceProperty(name="historicalOptions", flag="unknown_historicalOptions")
+    private BudgetAutoAdjustDataHistoricalOptionsArgs value_historicalOptions;
+    private boolean unknown_historicalOptions;
     public BudgetAutoAdjustDataHistoricalOptionsArgs historicalOptions() {
-        if (historicalOptions == null) return null;
-        return historicalOptions.getValue("BudgetAutoAdjustDataArgs.historicalOptions");
+        if (!unknown_historicalOptions) return value_historicalOptions;
+        throw new UndeferrableValueException("Value 'BudgetAutoAdjustDataArgs.historicalOptions' is not present");
     }
 
     /**
      * (Optional) - The last time that your budget was auto-adjusted.
      * 
      */
-    private UndeferrableValue<String> lastAutoAdjustTime;
-
+    @PolicyResourceProperty(name="lastAutoAdjustTime", flag="unknown_lastAutoAdjustTime")
+    private String value_lastAutoAdjustTime;
+    private boolean unknown_lastAutoAdjustTime;
     public String lastAutoAdjustTime() {
-        if (lastAutoAdjustTime == null) return null;
-        return lastAutoAdjustTime.getValue("BudgetAutoAdjustDataArgs.lastAutoAdjustTime");
+        if (!unknown_lastAutoAdjustTime) return value_lastAutoAdjustTime;
+        throw new UndeferrableValueException("Value 'BudgetAutoAdjustDataArgs.lastAutoAdjustTime' is not present");
     }
 
 }

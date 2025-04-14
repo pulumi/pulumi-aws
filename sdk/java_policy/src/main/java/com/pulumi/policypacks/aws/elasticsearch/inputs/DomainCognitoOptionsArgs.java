@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticsearch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class DomainCognitoOptionsArgs {
      * Whether Amazon Cognito authentication with Kibana is enabled or not.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("DomainCognitoOptionsArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'DomainCognitoOptionsArgs.enabled' is not present");
     }
 
     /**
      * ID of the Cognito Identity Pool to use.
      * 
      */
-    private UndeferrableValue<String> identityPoolId;
-
+    @PolicyResourceProperty(name="identityPoolId", flag="unknown_identityPoolId")
+    private String value_identityPoolId;
+    private boolean unknown_identityPoolId;
     public String identityPoolId() {
-        if (identityPoolId == null) return null;
-        return identityPoolId.getValue("DomainCognitoOptionsArgs.identityPoolId");
+        if (!unknown_identityPoolId) return value_identityPoolId;
+        throw new UndeferrableValueException("Value 'DomainCognitoOptionsArgs.identityPoolId' is not present");
     }
 
     /**
      * ARN of the IAM role that has the AmazonESCognitoAccess policy attached.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("DomainCognitoOptionsArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'DomainCognitoOptionsArgs.roleArn' is not present");
     }
 
     /**
      * ID of the Cognito User Pool to use.
      * 
      */
-    private UndeferrableValue<String> userPoolId;
-
+    @PolicyResourceProperty(name="userPoolId", flag="unknown_userPoolId")
+    private String value_userPoolId;
+    private boolean unknown_userPoolId;
     public String userPoolId() {
-        if (userPoolId == null) return null;
-        return userPoolId.getValue("DomainCognitoOptionsArgs.userPoolId");
+        if (!unknown_userPoolId) return value_userPoolId;
+        throw new UndeferrableValueException("Value 'DomainCognitoOptionsArgs.userPoolId' is not present");
     }
 
 }

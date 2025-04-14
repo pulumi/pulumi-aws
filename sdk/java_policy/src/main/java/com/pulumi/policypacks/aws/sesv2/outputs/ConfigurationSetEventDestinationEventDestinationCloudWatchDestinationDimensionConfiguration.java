@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,33 +14,36 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
      * The default value of the dimension that is published to Amazon CloudWatch if you don&#39;t provide the value of the dimension when you send an email.
      * 
      */
-    private UndeferrableValue<String> defaultDimensionValue;
-
+    @PolicyResourceProperty(name="defaultDimensionValue", flag="unknown_defaultDimensionValue")
+    private String value_defaultDimensionValue;
+    private boolean unknown_defaultDimensionValue;
     public String defaultDimensionValue() {
-        if (defaultDimensionValue == null) return null;
-        return defaultDimensionValue.getValue("ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration.defaultDimensionValue");
+        if (!unknown_defaultDimensionValue) return value_defaultDimensionValue;
+        throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration.defaultDimensionValue' is not present");
     }
 
     /**
      * The name of an Amazon CloudWatch dimension associated with an email sending metric.
      * 
      */
-    private UndeferrableValue<String> dimensionName;
-
+    @PolicyResourceProperty(name="dimensionName", flag="unknown_dimensionName")
+    private String value_dimensionName;
+    private boolean unknown_dimensionName;
     public String dimensionName() {
-        if (dimensionName == null) return null;
-        return dimensionName.getValue("ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration.dimensionName");
+        if (!unknown_dimensionName) return value_dimensionName;
+        throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration.dimensionName' is not present");
     }
 
     /**
      * The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
      * 
      */
-    private UndeferrableValue<String> dimensionValueSource;
-
+    @PolicyResourceProperty(name="dimensionValueSource", flag="unknown_dimensionValueSource")
+    private String value_dimensionValueSource;
+    private boolean unknown_dimensionValueSource;
     public String dimensionValueSource() {
-        if (dimensionValueSource == null) return null;
-        return dimensionValueSource.getValue("ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration.dimensionValueSource");
+        if (!unknown_dimensionValueSource) return value_dimensionValueSource;
+        throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration.dimensionValueSource' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class RecordLatencyRoutingPolicy {
      * An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
      * 
      */
-    private UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private String value_region;
+    private boolean unknown_region;
     public String region() {
-        if (region == null) return null;
-        return region.getValue("RecordLatencyRoutingPolicy.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'RecordLatencyRoutingPolicy.region' is not present");
     }
 
 }

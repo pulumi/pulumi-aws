@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssmcontacts.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ContactChannelDeliveryAddressArgs {
      * Details to engage this contact channel. The expected format depends on the contact channel type and is described in the [`ContactChannelAddress` section of the SSM Contacts API Reference](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_ContactChannelAddress.html).
      * 
      */
-    private UndeferrableValue<String> simpleAddress;
-
+    @PolicyResourceProperty(name="simpleAddress", flag="unknown_simpleAddress")
+    private String value_simpleAddress;
+    private boolean unknown_simpleAddress;
     public String simpleAddress() {
-        if (simpleAddress == null) return null;
-        return simpleAddress.getValue("ContactChannelDeliveryAddressArgs.simpleAddress");
+        if (!unknown_simpleAddress) return value_simpleAddress;
+        throw new UndeferrableValueException("Value 'ContactChannelDeliveryAddressArgs.simpleAddress' is not present");
     }
 
 }

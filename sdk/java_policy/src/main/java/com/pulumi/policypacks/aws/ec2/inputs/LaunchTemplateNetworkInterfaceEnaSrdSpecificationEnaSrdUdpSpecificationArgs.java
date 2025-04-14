@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -16,11 +17,12 @@ public final class LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpe
      * NOTE: ENA Express requires [specific instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html#ena-express-requirements) and minimum bandwidth of 25 Gbps.
      * 
      */
-    private UndeferrableValue<Boolean> enaSrdUdpEnabled;
-
+    @PolicyResourceProperty(name="enaSrdUdpEnabled", flag="unknown_enaSrdUdpEnabled")
+    private Boolean value_enaSrdUdpEnabled;
+    private boolean unknown_enaSrdUdpEnabled;
     public Boolean enaSrdUdpEnabled() {
-        if (enaSrdUdpEnabled == null) return null;
-        return enaSrdUdpEnabled.getValue("LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs.enaSrdUdpEnabled");
+        if (!unknown_enaSrdUdpEnabled) return value_enaSrdUdpEnabled;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs.enaSrdUdpEnabled' is not present");
     }
 
 }

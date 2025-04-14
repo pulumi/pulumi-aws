@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentAgentPromptOverrideConfigurationPromptConfigurationArgs;
 import java.lang.String;
 import java.util.List;
@@ -15,22 +16,24 @@ public final class AgentAgentPromptOverrideConfigurationArgs {
      * ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `prompt_configurations` block must contain a `parser_mode` value that is set to `OVERRIDDEN`.
      * 
      */
-    private UndeferrableValue<String> overrideLambda;
-
+    @PolicyResourceProperty(name="overrideLambda", flag="unknown_overrideLambda")
+    private String value_overrideLambda;
+    private boolean unknown_overrideLambda;
     public String overrideLambda() {
-        if (overrideLambda == null) return null;
-        return overrideLambda.getValue("AgentAgentPromptOverrideConfigurationArgs.overrideLambda");
+        if (!unknown_overrideLambda) return value_overrideLambda;
+        throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfigurationArgs.overrideLambda' is not present");
     }
 
     /**
      * Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` Block for details.
      * 
      */
-    private UndeferrableValue<List<AgentAgentPromptOverrideConfigurationPromptConfigurationArgs>> promptConfigurations;
-
+    @PolicyResourceProperty(name="promptConfigurations", flag="unknown_promptConfigurations")
+    private List<AgentAgentPromptOverrideConfigurationPromptConfigurationArgs> value_promptConfigurations;
+    private boolean unknown_promptConfigurations;
     public List<AgentAgentPromptOverrideConfigurationPromptConfigurationArgs> promptConfigurations() {
-        if (promptConfigurations == null) return null;
-        return promptConfigurations.getValue("AgentAgentPromptOverrideConfigurationArgs.promptConfigurations");
+        if (!unknown_promptConfigurations) return value_promptConfigurations;
+        throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfigurationArgs.promptConfigurations' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mskconnect.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.mskconnect.inputs.ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs;
 import com.pulumi.policypacks.aws.mskconnect.inputs.ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs;
 import com.pulumi.policypacks.aws.mskconnect.inputs.ConnectorLogDeliveryWorkerLogDeliveryS3Args;
@@ -16,33 +17,36 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryArgs {
      * Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatch_logs` Block for details.
      * 
      */
-    private UndeferrableValue<ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs> cloudwatchLogs;
-
+    @PolicyResourceProperty(name="cloudwatchLogs", flag="unknown_cloudwatchLogs")
+    private ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs value_cloudwatchLogs;
+    private boolean unknown_cloudwatchLogs;
     public ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs cloudwatchLogs() {
-        if (cloudwatchLogs == null) return null;
-        return cloudwatchLogs.getValue("ConnectorLogDeliveryWorkerLogDeliveryArgs.cloudwatchLogs");
+        if (!unknown_cloudwatchLogs) return value_cloudwatchLogs;
+        throw new UndeferrableValueException("Value 'ConnectorLogDeliveryWorkerLogDeliveryArgs.cloudwatchLogs' is not present");
     }
 
     /**
      * Details about delivering logs to Amazon Kinesis Data Firehose. See `firehose` Block for details.
      * 
      */
-    private UndeferrableValue<ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs> firehose;
-
+    @PolicyResourceProperty(name="firehose", flag="unknown_firehose")
+    private ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs value_firehose;
+    private boolean unknown_firehose;
     public ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs firehose() {
-        if (firehose == null) return null;
-        return firehose.getValue("ConnectorLogDeliveryWorkerLogDeliveryArgs.firehose");
+        if (!unknown_firehose) return value_firehose;
+        throw new UndeferrableValueException("Value 'ConnectorLogDeliveryWorkerLogDeliveryArgs.firehose' is not present");
     }
 
     /**
      * Details about delivering logs to Amazon S3. See `s3` Block for deetails.
      * 
      */
-    private UndeferrableValue<ConnectorLogDeliveryWorkerLogDeliveryS3Args> s3;
-
+    @PolicyResourceProperty(name="s3", flag="unknown_s3")
+    private ConnectorLogDeliveryWorkerLogDeliveryS3Args value_s3;
+    private boolean unknown_s3;
     public ConnectorLogDeliveryWorkerLogDeliveryS3Args s3() {
-        if (s3 == null) return null;
-        return s3.getValue("ConnectorLogDeliveryWorkerLogDeliveryArgs.s3");
+        if (!unknown_s3) return value_s3;
+        throw new UndeferrableValueException("Value 'ConnectorLogDeliveryWorkerLogDeliveryArgs.s3' is not present");
     }
 
 }

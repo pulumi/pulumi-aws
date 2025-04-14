@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appfabric;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appfabric.outputs.AppAuthorizationCredential;
 import com.pulumi.policypacks.aws.appfabric.outputs.AppAuthorizationTenant;
@@ -21,62 +22,68 @@ public final class AppAuthorization extends com.pulumi.resources.PolicyResourceO
      * The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
      * 
      */
-    private UndeferrableValue<String> app;
-
+    @PolicyResourceProperty(name="app", flag="unknown_app")
+    private String value_app;
+    private boolean unknown_app;
     public String app() {
-        if (app == null) return null;
-        return app.getValue("AppAuthorization.app");
+        if (!unknown_app) return value_app;
+        throw new UndeferrableValueException("Value 'AppAuthorization.app' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the app bundle to use for the request.
      * 
      */
-    private UndeferrableValue<String> appBundleArn;
-
+    @PolicyResourceProperty(name="appBundleArn", flag="unknown_appBundleArn")
+    private String value_appBundleArn;
+    private boolean unknown_appBundleArn;
     public String appBundleArn() {
-        if (appBundleArn == null) return null;
-        return appBundleArn.getValue("AppAuthorization.appBundleArn");
+        if (!unknown_appBundleArn) return value_appBundleArn;
+        throw new UndeferrableValueException("Value 'AppAuthorization.appBundleArn' is not present");
     }
 
     /**
      * ARN of the App Authorization. Do not begin the description with &#34;An&#34;, &#34;The&#34;, &#34;Defines&#34;, &#34;Indicates&#34;, or &#34;Specifies,&#34; as these are verbose. In other words, &#34;Indicates the amount of storage,&#34; can be rewritten as &#34;Amount of storage,&#34; without losing any information.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("AppAuthorization.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'AppAuthorization.arn' is not present");
     }
 
     /**
      * The authorization type for the app authorization valid values are oauth2 and apiKey.
      * 
      */
-    private UndeferrableValue<String> authType;
-
+    @PolicyResourceProperty(name="authType", flag="unknown_authType")
+    private String value_authType;
+    private boolean unknown_authType;
     public String authType() {
-        if (authType == null) return null;
-        return authType.getValue("AppAuthorization.authType");
+        if (!unknown_authType) return value_authType;
+        throw new UndeferrableValueException("Value 'AppAuthorization.authType' is not present");
     }
 
     /**
      * The application URL for the OAuth flow.
      * 
      */
-    private UndeferrableValue<String> authUrl;
-
+    @PolicyResourceProperty(name="authUrl", flag="unknown_authUrl")
+    private String value_authUrl;
+    private boolean unknown_authUrl;
     public String authUrl() {
-        if (authUrl == null) return null;
-        return authUrl.getValue("AppAuthorization.authUrl");
+        if (!unknown_authUrl) return value_authUrl;
+        throw new UndeferrableValueException("Value 'AppAuthorization.authUrl' is not present");
     }
 
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("AppAuthorization.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'AppAuthorization.createdAt' is not present");
     }
 
     /**
@@ -84,29 +91,32 @@ public final class AppAuthorization extends com.pulumi.resources.PolicyResourceO
      * Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
      * 
      */
-    private @Nullable UndeferrableValue<AppAuthorizationCredential> credential;
-
+    @PolicyResourceProperty(name="credential", flag="unknown_credential")
+    private @Nullable AppAuthorizationCredential value_credential;
+    private boolean unknown_credential;
     public @Nullable AppAuthorizationCredential credential() {
-        if (credential == null) return null;
-        return credential.getValue("AppAuthorization.credential");
+        if (!unknown_credential) return value_credential;
+        throw new UndeferrableValueException("Value 'AppAuthorization.credential' is not present");
     }
 
     /**
      * The user persona of the app authorization.
      * 
      */
-    private UndeferrableValue<String> persona;
-
+    @PolicyResourceProperty(name="persona", flag="unknown_persona")
+    private String value_persona;
+    private boolean unknown_persona;
     public String persona() {
-        if (persona == null) return null;
-        return persona.getValue("AppAuthorization.persona");
+        if (!unknown_persona) return value_persona;
+        throw new UndeferrableValueException("Value 'AppAuthorization.persona' is not present");
     }
 
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AppAuthorization.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AppAuthorization.tags' is not present");
     }
 
     /**
@@ -115,36 +125,40 @@ public final class AppAuthorization extends com.pulumi.resources.PolicyResourceO
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("AppAuthorization.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'AppAuthorization.tagsAll' is not present");
     }
 
     /**
      * Contains information about an application tenant, such as the application display name and identifier.
      * 
      */
-    private @Nullable UndeferrableValue<List<AppAuthorizationTenant>> tenants;
-
+    @PolicyResourceProperty(name="tenants", flag="unknown_tenants")
+    private @Nullable List<AppAuthorizationTenant> value_tenants;
+    private boolean unknown_tenants;
     public @Nullable List<AppAuthorizationTenant> tenants() {
-        if (tenants == null) return null;
-        return tenants.getValue("AppAuthorization.tenants");
+        if (!unknown_tenants) return value_tenants;
+        throw new UndeferrableValueException("Value 'AppAuthorization.tenants' is not present");
     }
 
-    private @Nullable UndeferrableValue<AppAuthorizationTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable AppAuthorizationTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable AppAuthorizationTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("AppAuthorization.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'AppAuthorization.timeouts' is not present");
     }
 
-    private UndeferrableValue<String> updatedAt;
-
+    @PolicyResourceProperty(name="updatedAt", flag="unknown_updatedAt")
+    private String value_updatedAt;
+    private boolean unknown_updatedAt;
     public String updatedAt() {
-        if (updatedAt == null) return null;
-        return updatedAt.getValue("AppAuthorization.updatedAt");
+        if (!unknown_updatedAt) return value_updatedAt;
+        throw new UndeferrableValueException("Value 'AppAuthorization.updatedAt' is not present");
     }
 
 }

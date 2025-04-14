@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecListenerTlsCertificateAcmArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecListenerTlsCertificateFileArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecListenerTlsCertificateSdsArgs;
@@ -16,33 +17,36 @@ public final class VirtualNodeSpecListenerTlsCertificateArgs {
      * An AWS Certificate Manager (ACM) certificate.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecListenerTlsCertificateAcmArgs> acm;
-
+    @PolicyResourceProperty(name="acm", flag="unknown_acm")
+    private VirtualNodeSpecListenerTlsCertificateAcmArgs value_acm;
+    private boolean unknown_acm;
     public VirtualNodeSpecListenerTlsCertificateAcmArgs acm() {
-        if (acm == null) return null;
-        return acm.getValue("VirtualNodeSpecListenerTlsCertificateArgs.acm");
+        if (!unknown_acm) return value_acm;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerTlsCertificateArgs.acm' is not present");
     }
 
     /**
      * Local file certificate.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecListenerTlsCertificateFileArgs> file;
-
+    @PolicyResourceProperty(name="file", flag="unknown_file")
+    private VirtualNodeSpecListenerTlsCertificateFileArgs value_file;
+    private boolean unknown_file;
     public VirtualNodeSpecListenerTlsCertificateFileArgs file() {
-        if (file == null) return null;
-        return file.getValue("VirtualNodeSpecListenerTlsCertificateArgs.file");
+        if (!unknown_file) return value_file;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerTlsCertificateArgs.file' is not present");
     }
 
     /**
      * A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecListenerTlsCertificateSdsArgs> sds;
-
+    @PolicyResourceProperty(name="sds", flag="unknown_sds")
+    private VirtualNodeSpecListenerTlsCertificateSdsArgs value_sds;
+    private boolean unknown_sds;
     public VirtualNodeSpecListenerTlsCertificateSdsArgs sds() {
-        if (sds == null) return null;
-        return sds.getValue("VirtualNodeSpecListenerTlsCertificateArgs.sds");
+        if (!unknown_sds) return value_sds;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerTlsCertificateArgs.sds' is not present");
     }
 
 }

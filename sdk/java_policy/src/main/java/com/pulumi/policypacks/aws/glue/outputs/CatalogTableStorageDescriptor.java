@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.glue.outputs.CatalogTableStorageDescriptorColumn;
 import com.pulumi.policypacks.aws.glue.outputs.CatalogTableStorageDescriptorSchemaReference;
 import com.pulumi.policypacks.aws.glue.outputs.CatalogTableStorageDescriptorSerDeInfo;
@@ -23,154 +24,168 @@ public final class CatalogTableStorageDescriptor {
      * List of locations that point to the path where a Delta table is located.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> additionalLocations;
-
+    @PolicyResourceProperty(name="additionalLocations", flag="unknown_additionalLocations")
+    private @Nullable List<String> value_additionalLocations;
+    private boolean unknown_additionalLocations;
     public @Nullable List<String> additionalLocations() {
-        if (additionalLocations == null) return null;
-        return additionalLocations.getValue("CatalogTableStorageDescriptor.additionalLocations");
+        if (!unknown_additionalLocations) return value_additionalLocations;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptor.additionalLocations' is not present");
     }
 
     /**
      * List of reducer grouping columns, clustering columns, and bucketing columns in the table.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> bucketColumns;
-
+    @PolicyResourceProperty(name="bucketColumns", flag="unknown_bucketColumns")
+    private @Nullable List<String> value_bucketColumns;
+    private boolean unknown_bucketColumns;
     public @Nullable List<String> bucketColumns() {
-        if (bucketColumns == null) return null;
-        return bucketColumns.getValue("CatalogTableStorageDescriptor.bucketColumns");
+        if (!unknown_bucketColumns) return value_bucketColumns;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptor.bucketColumns' is not present");
     }
 
     /**
      * Configuration block for columns in the table. See `columns` below.
      * 
      */
-    private @Nullable UndeferrableValue<List<CatalogTableStorageDescriptorColumn>> columns;
-
+    @PolicyResourceProperty(name="columns", flag="unknown_columns")
+    private @Nullable List<CatalogTableStorageDescriptorColumn> value_columns;
+    private boolean unknown_columns;
     public @Nullable List<CatalogTableStorageDescriptorColumn> columns() {
-        if (columns == null) return null;
-        return columns.getValue("CatalogTableStorageDescriptor.columns");
+        if (!unknown_columns) return value_columns;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptor.columns' is not present");
     }
 
     /**
      * Whether the data in the table is compressed.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> compressed;
-
+    @PolicyResourceProperty(name="compressed", flag="unknown_compressed")
+    private @Nullable Boolean value_compressed;
+    private boolean unknown_compressed;
     public @Nullable Boolean compressed() {
-        if (compressed == null) return null;
-        return compressed.getValue("CatalogTableStorageDescriptor.compressed");
+        if (!unknown_compressed) return value_compressed;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptor.compressed' is not present");
     }
 
     /**
      * Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
      * 
      */
-    private @Nullable UndeferrableValue<String> inputFormat;
-
+    @PolicyResourceProperty(name="inputFormat", flag="unknown_inputFormat")
+    private @Nullable String value_inputFormat;
+    private boolean unknown_inputFormat;
     public @Nullable String inputFormat() {
-        if (inputFormat == null) return null;
-        return inputFormat.getValue("CatalogTableStorageDescriptor.inputFormat");
+        if (!unknown_inputFormat) return value_inputFormat;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptor.inputFormat' is not present");
     }
 
     /**
      * Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
      * 
      */
-    private @Nullable UndeferrableValue<String> location;
-
+    @PolicyResourceProperty(name="location", flag="unknown_location")
+    private @Nullable String value_location;
+    private boolean unknown_location;
     public @Nullable String location() {
-        if (location == null) return null;
-        return location.getValue("CatalogTableStorageDescriptor.location");
+        if (!unknown_location) return value_location;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptor.location' is not present");
     }
 
     /**
      * Must be specified if the table contains any dimension columns.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> numberOfBuckets;
-
+    @PolicyResourceProperty(name="numberOfBuckets", flag="unknown_numberOfBuckets")
+    private @Nullable Integer value_numberOfBuckets;
+    private boolean unknown_numberOfBuckets;
     public @Nullable Integer numberOfBuckets() {
-        if (numberOfBuckets == null) return null;
-        return numberOfBuckets.getValue("CatalogTableStorageDescriptor.numberOfBuckets");
+        if (!unknown_numberOfBuckets) return value_numberOfBuckets;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptor.numberOfBuckets' is not present");
     }
 
     /**
      * Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
      * 
      */
-    private @Nullable UndeferrableValue<String> outputFormat;
-
+    @PolicyResourceProperty(name="outputFormat", flag="unknown_outputFormat")
+    private @Nullable String value_outputFormat;
+    private boolean unknown_outputFormat;
     public @Nullable String outputFormat() {
-        if (outputFormat == null) return null;
-        return outputFormat.getValue("CatalogTableStorageDescriptor.outputFormat");
+        if (!unknown_outputFormat) return value_outputFormat;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptor.outputFormat' is not present");
     }
 
     /**
      * User-supplied properties in key-value form.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private @Nullable Map<String,String> value_parameters;
+    private boolean unknown_parameters;
     public @Nullable Map<String,String> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("CatalogTableStorageDescriptor.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptor.parameters' is not present");
     }
 
     /**
      * Object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
      * 
      */
-    private @Nullable UndeferrableValue<CatalogTableStorageDescriptorSchemaReference> schemaReference;
-
+    @PolicyResourceProperty(name="schemaReference", flag="unknown_schemaReference")
+    private @Nullable CatalogTableStorageDescriptorSchemaReference value_schemaReference;
+    private boolean unknown_schemaReference;
     public @Nullable CatalogTableStorageDescriptorSchemaReference schemaReference() {
-        if (schemaReference == null) return null;
-        return schemaReference.getValue("CatalogTableStorageDescriptor.schemaReference");
+        if (!unknown_schemaReference) return value_schemaReference;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptor.schemaReference' is not present");
     }
 
     /**
      * Configuration block for serialization and deserialization (&#34;SerDe&#34;) information. See `ser_de_info` below.
      * 
      */
-    private @Nullable UndeferrableValue<CatalogTableStorageDescriptorSerDeInfo> serDeInfo;
-
+    @PolicyResourceProperty(name="serDeInfo", flag="unknown_serDeInfo")
+    private @Nullable CatalogTableStorageDescriptorSerDeInfo value_serDeInfo;
+    private boolean unknown_serDeInfo;
     public @Nullable CatalogTableStorageDescriptorSerDeInfo serDeInfo() {
-        if (serDeInfo == null) return null;
-        return serDeInfo.getValue("CatalogTableStorageDescriptor.serDeInfo");
+        if (!unknown_serDeInfo) return value_serDeInfo;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptor.serDeInfo' is not present");
     }
 
     /**
      * Configuration block with information about values that appear very frequently in a column (skewed values). See `skewed_info` below.
      * 
      */
-    private @Nullable UndeferrableValue<CatalogTableStorageDescriptorSkewedInfo> skewedInfo;
-
+    @PolicyResourceProperty(name="skewedInfo", flag="unknown_skewedInfo")
+    private @Nullable CatalogTableStorageDescriptorSkewedInfo value_skewedInfo;
+    private boolean unknown_skewedInfo;
     public @Nullable CatalogTableStorageDescriptorSkewedInfo skewedInfo() {
-        if (skewedInfo == null) return null;
-        return skewedInfo.getValue("CatalogTableStorageDescriptor.skewedInfo");
+        if (!unknown_skewedInfo) return value_skewedInfo;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptor.skewedInfo' is not present");
     }
 
     /**
      * Configuration block for the sort order of each bucket in the table. See `sort_columns` below.
      * 
      */
-    private @Nullable UndeferrableValue<List<CatalogTableStorageDescriptorSortColumn>> sortColumns;
-
+    @PolicyResourceProperty(name="sortColumns", flag="unknown_sortColumns")
+    private @Nullable List<CatalogTableStorageDescriptorSortColumn> value_sortColumns;
+    private boolean unknown_sortColumns;
     public @Nullable List<CatalogTableStorageDescriptorSortColumn> sortColumns() {
-        if (sortColumns == null) return null;
-        return sortColumns.getValue("CatalogTableStorageDescriptor.sortColumns");
+        if (!unknown_sortColumns) return value_sortColumns;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptor.sortColumns' is not present");
     }
 
     /**
      * Whether the table data is stored in subdirectories.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> storedAsSubDirectories;
-
+    @PolicyResourceProperty(name="storedAsSubDirectories", flag="unknown_storedAsSubDirectories")
+    private @Nullable Boolean value_storedAsSubDirectories;
+    private boolean unknown_storedAsSubDirectories;
     public @Nullable Boolean storedAsSubDirectories() {
-        if (storedAsSubDirectories == null) return null;
-        return storedAsSubDirectories.getValue("CatalogTableStorageDescriptor.storedAsSubDirectories");
+        if (!unknown_storedAsSubDirectories) return value_storedAsSubDirectories;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptor.storedAsSubDirectories' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -11,22 +12,24 @@ import javax.annotation.Nullable;
 
 public final class ImagePipelineImageScanningConfigurationEcrConfiguration {
 
-    private @Nullable UndeferrableValue<List<String>> containerTags;
-
+    @PolicyResourceProperty(name="containerTags", flag="unknown_containerTags")
+    private @Nullable List<String> value_containerTags;
+    private boolean unknown_containerTags;
     public @Nullable List<String> containerTags() {
-        if (containerTags == null) return null;
-        return containerTags.getValue("ImagePipelineImageScanningConfigurationEcrConfiguration.containerTags");
+        if (!unknown_containerTags) return value_containerTags;
+        throw new UndeferrableValueException("Value 'ImagePipelineImageScanningConfigurationEcrConfiguration.containerTags' is not present");
     }
 
     /**
      * The name of the repository to scan
      * 
      */
-    private @Nullable UndeferrableValue<String> repositoryName;
-
+    @PolicyResourceProperty(name="repositoryName", flag="unknown_repositoryName")
+    private @Nullable String value_repositoryName;
+    private boolean unknown_repositoryName;
     public @Nullable String repositoryName() {
-        if (repositoryName == null) return null;
-        return repositoryName.getValue("ImagePipelineImageScanningConfigurationEcrConfiguration.repositoryName");
+        if (!unknown_repositoryName) return value_repositoryName;
+        throw new UndeferrableValueException("Value 'ImagePipelineImageScanningConfigurationEcrConfiguration.repositoryName' is not present");
     }
 
 }

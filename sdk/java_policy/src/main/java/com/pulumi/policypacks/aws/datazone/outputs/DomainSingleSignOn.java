@@ -3,25 +3,28 @@
 
 package com.pulumi.policypacks.aws.datazone.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class DomainSingleSignOn {
 
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("DomainSingleSignOn.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'DomainSingleSignOn.type' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> userAssignment;
-
+    @PolicyResourceProperty(name="userAssignment", flag="unknown_userAssignment")
+    private @Nullable String value_userAssignment;
+    private boolean unknown_userAssignment;
     public @Nullable String userAssignment() {
-        if (userAssignment == null) return null;
-        return userAssignment.getValue("DomainSingleSignOn.userAssignment");
+        if (!unknown_userAssignment) return value_userAssignment;
+        throw new UndeferrableValueException("Value 'DomainSingleSignOn.userAssignment' is not present");
     }
 
 }

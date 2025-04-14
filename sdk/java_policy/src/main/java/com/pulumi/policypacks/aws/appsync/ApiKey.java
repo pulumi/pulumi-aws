@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,51 +17,56 @@ public final class ApiKey extends com.pulumi.resources.PolicyResourceOutput {
      * ID of the associated AppSync API
      * 
      */
-    private UndeferrableValue<String> apiId;
-
+    @PolicyResourceProperty(name="apiId", flag="unknown_apiId")
+    private String value_apiId;
+    private boolean unknown_apiId;
     public String apiId() {
-        if (apiId == null) return null;
-        return apiId.getValue("ApiKey.apiId");
+        if (!unknown_apiId) return value_apiId;
+        throw new UndeferrableValueException("Value 'ApiKey.apiId' is not present");
     }
 
-    private UndeferrableValue<String> apiKeyId;
-
+    @PolicyResourceProperty(name="apiKeyId", flag="unknown_apiKeyId")
+    private String value_apiKeyId;
+    private boolean unknown_apiKeyId;
     public String apiKeyId() {
-        if (apiKeyId == null) return null;
-        return apiKeyId.getValue("ApiKey.apiKeyId");
+        if (!unknown_apiKeyId) return value_apiKeyId;
+        throw new UndeferrableValueException("Value 'ApiKey.apiKeyId' is not present");
     }
 
     /**
      * API key description. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ApiKey.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ApiKey.description' is not present");
     }
 
     /**
      * RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
      * 
      */
-    private @Nullable UndeferrableValue<String> expires;
-
+    @PolicyResourceProperty(name="expires", flag="unknown_expires")
+    private @Nullable String value_expires;
+    private boolean unknown_expires;
     public @Nullable String expires() {
-        if (expires == null) return null;
-        return expires.getValue("ApiKey.expires");
+        if (!unknown_expires) return value_expires;
+        throw new UndeferrableValueException("Value 'ApiKey.expires' is not present");
     }
 
     /**
      * API key
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("ApiKey.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'ApiKey.key' is not present");
     }
 
 }

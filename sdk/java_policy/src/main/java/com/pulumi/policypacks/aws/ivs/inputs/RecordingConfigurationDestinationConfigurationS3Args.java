@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ivs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -15,11 +16,12 @@ public final class RecordingConfigurationDestinationConfigurationS3Args {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("RecordingConfigurationDestinationConfigurationS3Args.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'RecordingConfigurationDestinationConfigurationS3Args.bucketName' is not present");
     }
 
 }

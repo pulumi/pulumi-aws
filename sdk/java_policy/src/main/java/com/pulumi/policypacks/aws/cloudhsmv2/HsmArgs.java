@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudhsmv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,44 +17,48 @@ public final class HsmArgs extends com.pulumi.resources.PolicyResourceInput {
      * The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("HsmArgs.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'HsmArgs.availabilityZone' is not present");
     }
 
     /**
      * The ID of Cloud HSM v2 cluster to which HSM will be added.
      * 
      */
-    private UndeferrableValue<String> clusterId;
-
+    @PolicyResourceProperty(name="clusterId", flag="unknown_clusterId")
+    private String value_clusterId;
+    private boolean unknown_clusterId;
     public String clusterId() {
-        if (clusterId == null) return null;
-        return clusterId.getValue("HsmArgs.clusterId");
+        if (!unknown_clusterId) return value_clusterId;
+        throw new UndeferrableValueException("Value 'HsmArgs.clusterId' is not present");
     }
 
     /**
      * The IP address of HSM module. Must be within the CIDR of selected subnet.
      * 
      */
-    private UndeferrableValue<String> ipAddress;
-
+    @PolicyResourceProperty(name="ipAddress", flag="unknown_ipAddress")
+    private String value_ipAddress;
+    private boolean unknown_ipAddress;
     public String ipAddress() {
-        if (ipAddress == null) return null;
-        return ipAddress.getValue("HsmArgs.ipAddress");
+        if (!unknown_ipAddress) return value_ipAddress;
+        throw new UndeferrableValueException("Value 'HsmArgs.ipAddress' is not present");
     }
 
     /**
      * The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("HsmArgs.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'HsmArgs.subnetId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.gamelift.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class FleetCertificateConfigurationArgs {
      * Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> certificateType;
-
+    @PolicyResourceProperty(name="certificateType", flag="unknown_certificateType")
+    private String value_certificateType;
+    private boolean unknown_certificateType;
     public String certificateType() {
-        if (certificateType == null) return null;
-        return certificateType.getValue("FleetCertificateConfigurationArgs.certificateType");
+        if (!unknown_certificateType) return value_certificateType;
+        throw new UndeferrableValueException("Value 'FleetCertificateConfigurationArgs.certificateType' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.rds.outputs.OptionGroupOption;
 import java.lang.Boolean;
@@ -20,99 +21,108 @@ public final class OptionGroup extends com.pulumi.resources.PolicyResourceOutput
      * ARN of the DB option group.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("OptionGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'OptionGroup.arn' is not present");
     }
 
     /**
      * Specifies the name of the engine that this option group should be associated with.
      * 
      */
-    private UndeferrableValue<String> engineName;
-
+    @PolicyResourceProperty(name="engineName", flag="unknown_engineName")
+    private String value_engineName;
+    private boolean unknown_engineName;
     public String engineName() {
-        if (engineName == null) return null;
-        return engineName.getValue("OptionGroup.engineName");
+        if (!unknown_engineName) return value_engineName;
+        throw new UndeferrableValueException("Value 'OptionGroup.engineName' is not present");
     }
 
     /**
      * Specifies the major version of the engine that this option group should be associated with.
      * 
      */
-    private UndeferrableValue<String> majorEngineVersion;
-
+    @PolicyResourceProperty(name="majorEngineVersion", flag="unknown_majorEngineVersion")
+    private String value_majorEngineVersion;
+    private boolean unknown_majorEngineVersion;
     public String majorEngineVersion() {
-        if (majorEngineVersion == null) return null;
-        return majorEngineVersion.getValue("OptionGroup.majorEngineVersion");
+        if (!unknown_majorEngineVersion) return value_majorEngineVersion;
+        throw new UndeferrableValueException("Value 'OptionGroup.majorEngineVersion' is not present");
     }
 
     /**
      * Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("OptionGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'OptionGroup.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("OptionGroup.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'OptionGroup.namePrefix' is not present");
     }
 
     /**
      * Description of the option group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
-    private UndeferrableValue<String> optionGroupDescription;
-
+    @PolicyResourceProperty(name="optionGroupDescription", flag="unknown_optionGroupDescription")
+    private String value_optionGroupDescription;
+    private boolean unknown_optionGroupDescription;
     public String optionGroupDescription() {
-        if (optionGroupDescription == null) return null;
-        return optionGroupDescription.getValue("OptionGroup.optionGroupDescription");
+        if (!unknown_optionGroupDescription) return value_optionGroupDescription;
+        throw new UndeferrableValueException("Value 'OptionGroup.optionGroupDescription' is not present");
     }
 
     /**
      * The options to apply. See `option` Block below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<OptionGroupOption>> options;
-
+    @PolicyResourceProperty(name="options", flag="unknown_options")
+    private @Nullable List<OptionGroupOption> value_options;
+    private boolean unknown_options;
     public @Nullable List<OptionGroupOption> options() {
-        if (options == null) return null;
-        return options.getValue("OptionGroup.options");
+        if (!unknown_options) return value_options;
+        throw new UndeferrableValueException("Value 'OptionGroup.options' is not present");
     }
 
     /**
      * Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> skipDestroy;
-
+    @PolicyResourceProperty(name="skipDestroy", flag="unknown_skipDestroy")
+    private @Nullable Boolean value_skipDestroy;
+    private boolean unknown_skipDestroy;
     public @Nullable Boolean skipDestroy() {
-        if (skipDestroy == null) return null;
-        return skipDestroy.getValue("OptionGroup.skipDestroy");
+        if (!unknown_skipDestroy) return value_skipDestroy;
+        throw new UndeferrableValueException("Value 'OptionGroup.skipDestroy' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("OptionGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'OptionGroup.tags' is not present");
     }
 
     /**
@@ -123,11 +133,12 @@ public final class OptionGroup extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("OptionGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'OptionGroup.tagsAll' is not present");
     }
 
 }

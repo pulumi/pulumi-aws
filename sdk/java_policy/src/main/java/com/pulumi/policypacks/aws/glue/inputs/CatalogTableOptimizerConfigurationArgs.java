@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.glue.inputs.CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs;
 import com.pulumi.policypacks.aws.glue.inputs.CatalogTableOptimizerConfigurationRetentionConfigurationArgs;
 import java.lang.Boolean;
@@ -17,44 +18,48 @@ public final class CatalogTableOptimizerConfigurationArgs {
      * Indicates whether the table optimizer is enabled.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("CatalogTableOptimizerConfigurationArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'CatalogTableOptimizerConfigurationArgs.enabled' is not present");
     }
 
     /**
      * The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
      * 
      */
-    private UndeferrableValue<CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs> orphanFileDeletionConfiguration;
-
+    @PolicyResourceProperty(name="orphanFileDeletionConfiguration", flag="unknown_orphanFileDeletionConfiguration")
+    private CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs value_orphanFileDeletionConfiguration;
+    private boolean unknown_orphanFileDeletionConfiguration;
     public CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs orphanFileDeletionConfiguration() {
-        if (orphanFileDeletionConfiguration == null) return null;
-        return orphanFileDeletionConfiguration.getValue("CatalogTableOptimizerConfigurationArgs.orphanFileDeletionConfiguration");
+        if (!unknown_orphanFileDeletionConfiguration) return value_orphanFileDeletionConfiguration;
+        throw new UndeferrableValueException("Value 'CatalogTableOptimizerConfigurationArgs.orphanFileDeletionConfiguration' is not present");
     }
 
     /**
      * The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
      * 
      */
-    private UndeferrableValue<CatalogTableOptimizerConfigurationRetentionConfigurationArgs> retentionConfiguration;
-
+    @PolicyResourceProperty(name="retentionConfiguration", flag="unknown_retentionConfiguration")
+    private CatalogTableOptimizerConfigurationRetentionConfigurationArgs value_retentionConfiguration;
+    private boolean unknown_retentionConfiguration;
     public CatalogTableOptimizerConfigurationRetentionConfigurationArgs retentionConfiguration() {
-        if (retentionConfiguration == null) return null;
-        return retentionConfiguration.getValue("CatalogTableOptimizerConfigurationArgs.retentionConfiguration");
+        if (!unknown_retentionConfiguration) return value_retentionConfiguration;
+        throw new UndeferrableValueException("Value 'CatalogTableOptimizerConfigurationArgs.retentionConfiguration' is not present");
     }
 
     /**
      * The ARN of the IAM role to use for the table optimizer.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("CatalogTableOptimizerConfigurationArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'CatalogTableOptimizerConfigurationArgs.roleArn' is not present");
     }
 
 }

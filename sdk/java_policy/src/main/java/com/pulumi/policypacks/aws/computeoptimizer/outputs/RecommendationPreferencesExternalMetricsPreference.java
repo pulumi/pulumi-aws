@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.computeoptimizer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class RecommendationPreferencesExternalMetricsPreference {
      * The source options for external metrics preferences. Valid values: `Datadog`, `Dynatrace`, `NewRelic`, `Instana`.
      * 
      */
-    private UndeferrableValue<String> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private String value_source;
+    private boolean unknown_source;
     public String source() {
-        if (source == null) return null;
-        return source.getValue("RecommendationPreferencesExternalMetricsPreference.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'RecommendationPreferencesExternalMetricsPreference.source' is not present");
     }
 
 }

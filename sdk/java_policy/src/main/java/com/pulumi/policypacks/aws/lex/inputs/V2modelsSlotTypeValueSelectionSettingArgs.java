@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsSlotTypeValueSelectionSettingRegexFilterArgs;
 import java.lang.String;
@@ -19,11 +20,12 @@ public final class V2modelsSlotTypeValueSelectionSettingArgs {
      * See `advanced_recognition_setting` argument reference below.
      * 
      */
-    private UndeferrableValue<List<V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs>> advancedRecognitionSettings;
-
+    @PolicyResourceProperty(name="advancedRecognitionSettings", flag="unknown_advancedRecognitionSettings")
+    private List<V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs> value_advancedRecognitionSettings;
+    private boolean unknown_advancedRecognitionSettings;
     public List<V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs> advancedRecognitionSettings() {
-        if (advancedRecognitionSettings == null) return null;
-        return advancedRecognitionSettings.getValue("V2modelsSlotTypeValueSelectionSettingArgs.advancedRecognitionSettings");
+        if (!unknown_advancedRecognitionSettings) return value_advancedRecognitionSettings;
+        throw new UndeferrableValueException("Value 'V2modelsSlotTypeValueSelectionSettingArgs.advancedRecognitionSettings' is not present");
     }
 
     /**
@@ -31,11 +33,12 @@ public final class V2modelsSlotTypeValueSelectionSettingArgs {
      * See `regex_filter` argument reference below.
      * 
      */
-    private UndeferrableValue<List<V2modelsSlotTypeValueSelectionSettingRegexFilterArgs>> regexFilters;
-
+    @PolicyResourceProperty(name="regexFilters", flag="unknown_regexFilters")
+    private List<V2modelsSlotTypeValueSelectionSettingRegexFilterArgs> value_regexFilters;
+    private boolean unknown_regexFilters;
     public List<V2modelsSlotTypeValueSelectionSettingRegexFilterArgs> regexFilters() {
-        if (regexFilters == null) return null;
-        return regexFilters.getValue("V2modelsSlotTypeValueSelectionSettingArgs.regexFilters");
+        if (!unknown_regexFilters) return value_regexFilters;
+        throw new UndeferrableValueException("Value 'V2modelsSlotTypeValueSelectionSettingArgs.regexFilters' is not present");
     }
 
     /**
@@ -43,11 +46,12 @@ public final class V2modelsSlotTypeValueSelectionSettingArgs {
      * Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
      * 
      */
-    private UndeferrableValue<String> resolutionStrategy;
-
+    @PolicyResourceProperty(name="resolutionStrategy", flag="unknown_resolutionStrategy")
+    private String value_resolutionStrategy;
+    private boolean unknown_resolutionStrategy;
     public String resolutionStrategy() {
-        if (resolutionStrategy == null) return null;
-        return resolutionStrategy.getValue("V2modelsSlotTypeValueSelectionSettingArgs.resolutionStrategy");
+        if (!unknown_resolutionStrategy) return value_resolutionStrategy;
+        throw new UndeferrableValueException("Value 'V2modelsSlotTypeValueSelectionSettingArgs.resolutionStrategy' is not present");
     }
 
 }

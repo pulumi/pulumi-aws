@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dlm.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.dlm.inputs.LifecyclePolicyPolicyDetailsActionArgs;
 import com.pulumi.policypacks.aws.dlm.inputs.LifecyclePolicyPolicyDetailsEventSourceArgs;
 import com.pulumi.policypacks.aws.dlm.inputs.LifecyclePolicyPolicyDetailsParametersArgs;
@@ -20,73 +21,80 @@ public final class LifecyclePolicyPolicyDetailsArgs {
      * The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
      * 
      */
-    private UndeferrableValue<LifecyclePolicyPolicyDetailsActionArgs> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private LifecyclePolicyPolicyDetailsActionArgs value_action;
+    private boolean unknown_action;
     public LifecyclePolicyPolicyDetailsActionArgs action() {
-        if (action == null) return null;
-        return action.getValue("LifecyclePolicyPolicyDetailsArgs.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsArgs.action' is not present");
     }
 
     /**
      * The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `event_source` configuration block.
      * 
      */
-    private UndeferrableValue<LifecyclePolicyPolicyDetailsEventSourceArgs> eventSource;
-
+    @PolicyResourceProperty(name="eventSource", flag="unknown_eventSource")
+    private LifecyclePolicyPolicyDetailsEventSourceArgs value_eventSource;
+    private boolean unknown_eventSource;
     public LifecyclePolicyPolicyDetailsEventSourceArgs eventSource() {
-        if (eventSource == null) return null;
-        return eventSource.getValue("LifecyclePolicyPolicyDetailsArgs.eventSource");
+        if (!unknown_eventSource) return value_eventSource;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsArgs.eventSource' is not present");
     }
 
-    private UndeferrableValue<LifecyclePolicyPolicyDetailsParametersArgs> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private LifecyclePolicyPolicyDetailsParametersArgs value_parameters;
+    private boolean unknown_parameters;
     public LifecyclePolicyPolicyDetailsParametersArgs parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("LifecyclePolicyPolicyDetailsArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsArgs.parameters' is not present");
     }
 
     /**
      * The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
      * 
      */
-    private UndeferrableValue<String> policyType;
-
+    @PolicyResourceProperty(name="policyType", flag="unknown_policyType")
+    private String value_policyType;
+    private boolean unknown_policyType;
     public String policyType() {
-        if (policyType == null) return null;
-        return policyType.getValue("LifecyclePolicyPolicyDetailsArgs.policyType");
+        if (!unknown_policyType) return value_policyType;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsArgs.policyType' is not present");
     }
 
     /**
      * The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
      * 
      */
-    private UndeferrableValue<String> resourceLocations;
-
+    @PolicyResourceProperty(name="resourceLocations", flag="unknown_resourceLocations")
+    private String value_resourceLocations;
+    private boolean unknown_resourceLocations;
     public String resourceLocations() {
-        if (resourceLocations == null) return null;
-        return resourceLocations.getValue("LifecyclePolicyPolicyDetailsArgs.resourceLocations");
+        if (!unknown_resourceLocations) return value_resourceLocations;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsArgs.resourceLocations' is not present");
     }
 
     /**
      * A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
      * 
      */
-    private UndeferrableValue<List<String>> resourceTypes;
-
+    @PolicyResourceProperty(name="resourceTypes", flag="unknown_resourceTypes")
+    private List<String> value_resourceTypes;
+    private boolean unknown_resourceTypes;
     public List<String> resourceTypes() {
-        if (resourceTypes == null) return null;
-        return resourceTypes.getValue("LifecyclePolicyPolicyDetailsArgs.resourceTypes");
+        if (!unknown_resourceTypes) return value_resourceTypes;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsArgs.resourceTypes' is not present");
     }
 
     /**
      * See the `schedule` configuration block.
      * 
      */
-    private UndeferrableValue<List<LifecyclePolicyPolicyDetailsScheduleArgs>> schedules;
-
+    @PolicyResourceProperty(name="schedules", flag="unknown_schedules")
+    private List<LifecyclePolicyPolicyDetailsScheduleArgs> value_schedules;
+    private boolean unknown_schedules;
     public List<LifecyclePolicyPolicyDetailsScheduleArgs> schedules() {
-        if (schedules == null) return null;
-        return schedules.getValue("LifecyclePolicyPolicyDetailsArgs.schedules");
+        if (!unknown_schedules) return value_schedules;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsArgs.schedules' is not present");
     }
 
     /**
@@ -95,11 +103,12 @@ public final class LifecyclePolicyPolicyDetailsArgs {
      * &gt; Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. Pulumi is unable to detect this at plan time but it will fail during apply.
      * 
      */
-    private UndeferrableValue<Map<String,String>> targetTags;
-
+    @PolicyResourceProperty(name="targetTags", flag="unknown_targetTags")
+    private Map<String,String> value_targetTags;
+    private boolean unknown_targetTags;
     public Map<String,String> targetTags() {
-        if (targetTags == null) return null;
-        return targetTags.getValue("LifecyclePolicyPolicyDetailsArgs.targetTags");
+        if (!unknown_targetTags) return value_targetTags;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsArgs.targetTags' is not present");
     }
 
 }

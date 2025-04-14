@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.vpclattice.inputs.ListenerRuleMatchHttpMatchPathMatchMatchArgs;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ListenerRuleMatchHttpMatchPathMatchArgs {
      * Indicates whether the match is case sensitive. Defaults to false.
      * 
      */
-    private UndeferrableValue<Boolean> caseSensitive;
-
+    @PolicyResourceProperty(name="caseSensitive", flag="unknown_caseSensitive")
+    private Boolean value_caseSensitive;
+    private boolean unknown_caseSensitive;
     public Boolean caseSensitive() {
-        if (caseSensitive == null) return null;
-        return caseSensitive.getValue("ListenerRuleMatchHttpMatchPathMatchArgs.caseSensitive");
+        if (!unknown_caseSensitive) return value_caseSensitive;
+        throw new UndeferrableValueException("Value 'ListenerRuleMatchHttpMatchPathMatchArgs.caseSensitive' is not present");
     }
 
     /**
      * The header match type.
      * 
      */
-    private UndeferrableValue<ListenerRuleMatchHttpMatchPathMatchMatchArgs> match;
-
+    @PolicyResourceProperty(name="match", flag="unknown_match")
+    private ListenerRuleMatchHttpMatchPathMatchMatchArgs value_match;
+    private boolean unknown_match;
     public ListenerRuleMatchHttpMatchPathMatchMatchArgs match() {
-        if (match == null) return null;
-        return match.getValue("ListenerRuleMatchHttpMatchPathMatchArgs.match");
+        if (!unknown_match) return value_match;
+        throw new UndeferrableValueException("Value 'ListenerRuleMatchHttpMatchPathMatchArgs.match' is not present");
     }
 
 }

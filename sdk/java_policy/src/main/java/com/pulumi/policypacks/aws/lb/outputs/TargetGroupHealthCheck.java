@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class TargetGroupHealthCheck {
      * Whether health checks are enabled. Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("TargetGroupHealthCheck.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'TargetGroupHealthCheck.enabled' is not present");
     }
 
     /**
      * Number of consecutive health check successes required before considering a target healthy. The range is 2-10. Defaults to 3.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> healthyThreshold;
-
+    @PolicyResourceProperty(name="healthyThreshold", flag="unknown_healthyThreshold")
+    private @Nullable Integer value_healthyThreshold;
+    private boolean unknown_healthyThreshold;
     public @Nullable Integer healthyThreshold() {
-        if (healthyThreshold == null) return null;
-        return healthyThreshold.getValue("TargetGroupHealthCheck.healthyThreshold");
+        if (!unknown_healthyThreshold) return value_healthyThreshold;
+        throw new UndeferrableValueException("Value 'TargetGroupHealthCheck.healthyThreshold' is not present");
     }
 
     /**
      * Approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300. For `lambda` target groups, it needs to be greater than the timeout of the underlying `lambda`. Defaults to 30.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> interval;
-
+    @PolicyResourceProperty(name="interval", flag="unknown_interval")
+    private @Nullable Integer value_interval;
+    private boolean unknown_interval;
     public @Nullable Integer interval() {
-        if (interval == null) return null;
-        return interval.getValue("TargetGroupHealthCheck.interval");
+        if (!unknown_interval) return value_interval;
+        throw new UndeferrableValueException("Value 'TargetGroupHealthCheck.interval' is not present");
     }
 
     /**
@@ -55,11 +59,12 @@ public final class TargetGroupHealthCheck {
      * * When the `target_type` is `lambda`, values can be between `200` and `499`. The default is `200`.
      * 
      */
-    private @Nullable UndeferrableValue<String> matcher;
-
+    @PolicyResourceProperty(name="matcher", flag="unknown_matcher")
+    private @Nullable String value_matcher;
+    private boolean unknown_matcher;
     public @Nullable String matcher() {
-        if (matcher == null) return null;
-        return matcher.getValue("TargetGroupHealthCheck.matcher");
+        if (!unknown_matcher) return value_matcher;
+        throw new UndeferrableValueException("Value 'TargetGroupHealthCheck.matcher' is not present");
     }
 
     /**
@@ -68,11 +73,12 @@ public final class TargetGroupHealthCheck {
      * * For gRPC health checks, the default is `/AWS.ALB/healthcheck`.
      * 
      */
-    private @Nullable UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private @Nullable String value_path;
+    private boolean unknown_path;
     public @Nullable String path() {
-        if (path == null) return null;
-        return path.getValue("TargetGroupHealthCheck.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'TargetGroupHealthCheck.path' is not present");
     }
 
     /**
@@ -81,11 +87,12 @@ public final class TargetGroupHealthCheck {
      * Default is `traffic-port`.
      * 
      */
-    private @Nullable UndeferrableValue<String> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable String value_port;
+    private boolean unknown_port;
     public @Nullable String port() {
-        if (port == null) return null;
-        return port.getValue("TargetGroupHealthCheck.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'TargetGroupHealthCheck.port' is not present");
     }
 
     /**
@@ -96,33 +103,36 @@ public final class TargetGroupHealthCheck {
      * Cannot be specified when the `target_type` is `lambda`.
      * 
      */
-    private @Nullable UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private @Nullable String value_protocol;
+    private boolean unknown_protocol;
     public @Nullable String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("TargetGroupHealthCheck.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'TargetGroupHealthCheck.protocol' is not present");
     }
 
     /**
      * Amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If the target type is lambda, the default is 30 seconds.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> timeout;
-
+    @PolicyResourceProperty(name="timeout", flag="unknown_timeout")
+    private @Nullable Integer value_timeout;
+    private boolean unknown_timeout;
     public @Nullable Integer timeout() {
-        if (timeout == null) return null;
-        return timeout.getValue("TargetGroupHealthCheck.timeout");
+        if (!unknown_timeout) return value_timeout;
+        throw new UndeferrableValueException("Value 'TargetGroupHealthCheck.timeout' is not present");
     }
 
     /**
      * Number of consecutive health check failures required before considering a target unhealthy. The range is 2-10. Defaults to 3.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> unhealthyThreshold;
-
+    @PolicyResourceProperty(name="unhealthyThreshold", flag="unknown_unhealthyThreshold")
+    private @Nullable Integer value_unhealthyThreshold;
+    private boolean unknown_unhealthyThreshold;
     public @Nullable Integer unhealthyThreshold() {
-        if (unhealthyThreshold == null) return null;
-        return unhealthyThreshold.getValue("TargetGroupHealthCheck.unhealthyThreshold");
+        if (!unknown_unhealthyThreshold) return value_unhealthyThreshold;
+        throw new UndeferrableValueException("Value 'TargetGroupHealthCheck.unhealthyThreshold' is not present");
     }
 
 }

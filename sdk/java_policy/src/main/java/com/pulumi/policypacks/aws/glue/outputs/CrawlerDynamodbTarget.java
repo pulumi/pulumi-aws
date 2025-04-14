@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class CrawlerDynamodbTarget {
      * The name of the DynamoDB table to crawl.
      * 
      */
-    private UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private String value_path;
+    private boolean unknown_path;
     public String path() {
-        if (path == null) return null;
-        return path.getValue("CrawlerDynamodbTarget.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'CrawlerDynamodbTarget.path' is not present");
     }
 
     /**
      * Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> scanAll;
-
+    @PolicyResourceProperty(name="scanAll", flag="unknown_scanAll")
+    private @Nullable Boolean value_scanAll;
+    private boolean unknown_scanAll;
     public @Nullable Boolean scanAll() {
-        if (scanAll == null) return null;
-        return scanAll.getValue("CrawlerDynamodbTarget.scanAll");
+        if (!unknown_scanAll) return value_scanAll;
+        throw new UndeferrableValueException("Value 'CrawlerDynamodbTarget.scanAll' is not present");
     }
 
     /**
      * The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
      * 
      */
-    private @Nullable UndeferrableValue<Double> scanRate;
-
+    @PolicyResourceProperty(name="scanRate", flag="unknown_scanRate")
+    private @Nullable Double value_scanRate;
+    private boolean unknown_scanRate;
     public @Nullable Double scanRate() {
-        if (scanRate == null) return null;
-        return scanRate.getValue("CrawlerDynamodbTarget.scanRate");
+        if (!unknown_scanRate) return value_scanRate;
+        throw new UndeferrableValueException("Value 'CrawlerDynamodbTarget.scanRate' is not present");
     }
 
 }

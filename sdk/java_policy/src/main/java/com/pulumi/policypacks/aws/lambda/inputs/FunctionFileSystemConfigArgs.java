@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class FunctionFileSystemConfigArgs {
      * Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("FunctionFileSystemConfigArgs.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'FunctionFileSystemConfigArgs.arn' is not present");
     }
 
     /**
      * Path where the function can access the file system, starting with /mnt/.
      * 
      */
-    private UndeferrableValue<String> localMountPath;
-
+    @PolicyResourceProperty(name="localMountPath", flag="unknown_localMountPath")
+    private String value_localMountPath;
+    private boolean unknown_localMountPath;
     public String localMountPath() {
-        if (localMountPath == null) return null;
-        return localMountPath.getValue("FunctionFileSystemConfigArgs.localMountPath");
+        if (!unknown_localMountPath) return value_localMountPath;
+        throw new UndeferrableValueException("Value 'FunctionFileSystemConfigArgs.localMountPath' is not present");
     }
 
 }

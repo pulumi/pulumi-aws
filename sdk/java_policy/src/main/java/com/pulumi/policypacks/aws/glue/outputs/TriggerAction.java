@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.glue.outputs.TriggerActionNotificationProperty;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,66 +18,72 @@ public final class TriggerAction {
      * Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> arguments;
-
+    @PolicyResourceProperty(name="arguments", flag="unknown_arguments")
+    private @Nullable Map<String,String> value_arguments;
+    private boolean unknown_arguments;
     public @Nullable Map<String,String> arguments() {
-        if (arguments == null) return null;
-        return arguments.getValue("TriggerAction.arguments");
+        if (!unknown_arguments) return value_arguments;
+        throw new UndeferrableValueException("Value 'TriggerAction.arguments' is not present");
     }
 
     /**
      * The name of the crawler to be executed. Conflicts with `job_name`.
      * 
      */
-    private @Nullable UndeferrableValue<String> crawlerName;
-
+    @PolicyResourceProperty(name="crawlerName", flag="unknown_crawlerName")
+    private @Nullable String value_crawlerName;
+    private boolean unknown_crawlerName;
     public @Nullable String crawlerName() {
-        if (crawlerName == null) return null;
-        return crawlerName.getValue("TriggerAction.crawlerName");
+        if (!unknown_crawlerName) return value_crawlerName;
+        throw new UndeferrableValueException("Value 'TriggerAction.crawlerName' is not present");
     }
 
     /**
      * The name of a job to be executed. Conflicts with `crawler_name`.
      * 
      */
-    private @Nullable UndeferrableValue<String> jobName;
-
+    @PolicyResourceProperty(name="jobName", flag="unknown_jobName")
+    private @Nullable String value_jobName;
+    private boolean unknown_jobName;
     public @Nullable String jobName() {
-        if (jobName == null) return null;
-        return jobName.getValue("TriggerAction.jobName");
+        if (!unknown_jobName) return value_jobName;
+        throw new UndeferrableValueException("Value 'TriggerAction.jobName' is not present");
     }
 
     /**
      * Specifies configuration properties of a job run notification. See Notification Property details below.
      * 
      */
-    private @Nullable UndeferrableValue<TriggerActionNotificationProperty> notificationProperty;
-
+    @PolicyResourceProperty(name="notificationProperty", flag="unknown_notificationProperty")
+    private @Nullable TriggerActionNotificationProperty value_notificationProperty;
+    private boolean unknown_notificationProperty;
     public @Nullable TriggerActionNotificationProperty notificationProperty() {
-        if (notificationProperty == null) return null;
-        return notificationProperty.getValue("TriggerAction.notificationProperty");
+        if (!unknown_notificationProperty) return value_notificationProperty;
+        throw new UndeferrableValueException("Value 'TriggerAction.notificationProperty' is not present");
     }
 
     /**
      * The name of the Security Configuration structure to be used with this action.
      * 
      */
-    private @Nullable UndeferrableValue<String> securityConfiguration;
-
+    @PolicyResourceProperty(name="securityConfiguration", flag="unknown_securityConfiguration")
+    private @Nullable String value_securityConfiguration;
+    private boolean unknown_securityConfiguration;
     public @Nullable String securityConfiguration() {
-        if (securityConfiguration == null) return null;
-        return securityConfiguration.getValue("TriggerAction.securityConfiguration");
+        if (!unknown_securityConfiguration) return value_securityConfiguration;
+        throw new UndeferrableValueException("Value 'TriggerAction.securityConfiguration' is not present");
     }
 
     /**
      * The job run timeout in minutes. It overrides the timeout value of the job.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> timeout;
-
+    @PolicyResourceProperty(name="timeout", flag="unknown_timeout")
+    private @Nullable Integer value_timeout;
+    private boolean unknown_timeout;
     public @Nullable Integer timeout() {
-        if (timeout == null) return null;
-        return timeout.getValue("TriggerAction.timeout");
+        if (!unknown_timeout) return value_timeout;
+        throw new UndeferrableValueException("Value 'TriggerAction.timeout' is not present");
     }
 
 }

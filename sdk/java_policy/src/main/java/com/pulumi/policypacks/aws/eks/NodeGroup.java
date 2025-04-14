@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.eks.outputs.NodeGroupLaunchTemplate;
 import com.pulumi.policypacks.aws.eks.outputs.NodeGroupNodeRepairConfig;
@@ -27,198 +28,216 @@ public final class NodeGroup extends com.pulumi.resources.PolicyResourceOutput {
      * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    private UndeferrableValue<String> amiType;
-
+    @PolicyResourceProperty(name="amiType", flag="unknown_amiType")
+    private String value_amiType;
+    private boolean unknown_amiType;
     public String amiType() {
-        if (amiType == null) return null;
-        return amiType.getValue("NodeGroup.amiType");
+        if (!unknown_amiType) return value_amiType;
+        throw new UndeferrableValueException("Value 'NodeGroup.amiType' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the EKS Node Group.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("NodeGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'NodeGroup.arn' is not present");
     }
 
     /**
      * Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    private UndeferrableValue<String> capacityType;
-
+    @PolicyResourceProperty(name="capacityType", flag="unknown_capacityType")
+    private String value_capacityType;
+    private boolean unknown_capacityType;
     public String capacityType() {
-        if (capacityType == null) return null;
-        return capacityType.getValue("NodeGroup.capacityType");
+        if (!unknown_capacityType) return value_capacityType;
+        throw new UndeferrableValueException("Value 'NodeGroup.capacityType' is not present");
     }
 
     /**
      * Name of the EKS Cluster.
      * 
      */
-    private UndeferrableValue<String> clusterName;
-
+    @PolicyResourceProperty(name="clusterName", flag="unknown_clusterName")
+    private String value_clusterName;
+    private boolean unknown_clusterName;
     public String clusterName() {
-        if (clusterName == null) return null;
-        return clusterName.getValue("NodeGroup.clusterName");
+        if (!unknown_clusterName) return value_clusterName;
+        throw new UndeferrableValueException("Value 'NodeGroup.clusterName' is not present");
     }
 
     /**
      * Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    private UndeferrableValue<Integer> diskSize;
-
+    @PolicyResourceProperty(name="diskSize", flag="unknown_diskSize")
+    private Integer value_diskSize;
+    private boolean unknown_diskSize;
     public Integer diskSize() {
-        if (diskSize == null) return null;
-        return diskSize.getValue("NodeGroup.diskSize");
+        if (!unknown_diskSize) return value_diskSize;
+        throw new UndeferrableValueException("Value 'NodeGroup.diskSize' is not present");
     }
 
     /**
      * Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> forceUpdateVersion;
-
+    @PolicyResourceProperty(name="forceUpdateVersion", flag="unknown_forceUpdateVersion")
+    private @Nullable Boolean value_forceUpdateVersion;
+    private boolean unknown_forceUpdateVersion;
     public @Nullable Boolean forceUpdateVersion() {
-        if (forceUpdateVersion == null) return null;
-        return forceUpdateVersion.getValue("NodeGroup.forceUpdateVersion");
+        if (!unknown_forceUpdateVersion) return value_forceUpdateVersion;
+        throw new UndeferrableValueException("Value 'NodeGroup.forceUpdateVersion' is not present");
     }
 
     /**
      * List of instance types associated with the EKS Node Group. Defaults to `[&#34;t3.medium&#34;]`. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    private UndeferrableValue<List<String>> instanceTypes;
-
+    @PolicyResourceProperty(name="instanceTypes", flag="unknown_instanceTypes")
+    private List<String> value_instanceTypes;
+    private boolean unknown_instanceTypes;
     public List<String> instanceTypes() {
-        if (instanceTypes == null) return null;
-        return instanceTypes.getValue("NodeGroup.instanceTypes");
+        if (!unknown_instanceTypes) return value_instanceTypes;
+        throw new UndeferrableValueException("Value 'NodeGroup.instanceTypes' is not present");
     }
 
     /**
      * Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> labels;
-
+    @PolicyResourceProperty(name="labels", flag="unknown_labels")
+    private @Nullable Map<String,String> value_labels;
+    private boolean unknown_labels;
     public @Nullable Map<String,String> labels() {
-        if (labels == null) return null;
-        return labels.getValue("NodeGroup.labels");
+        if (!unknown_labels) return value_labels;
+        throw new UndeferrableValueException("Value 'NodeGroup.labels' is not present");
     }
 
     /**
      * Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
      * 
      */
-    private @Nullable UndeferrableValue<NodeGroupLaunchTemplate> launchTemplate;
-
+    @PolicyResourceProperty(name="launchTemplate", flag="unknown_launchTemplate")
+    private @Nullable NodeGroupLaunchTemplate value_launchTemplate;
+    private boolean unknown_launchTemplate;
     public @Nullable NodeGroupLaunchTemplate launchTemplate() {
-        if (launchTemplate == null) return null;
-        return launchTemplate.getValue("NodeGroup.launchTemplate");
+        if (!unknown_launchTemplate) return value_launchTemplate;
+        throw new UndeferrableValueException("Value 'NodeGroup.launchTemplate' is not present");
     }
 
     /**
      * Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can&#39;t be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
      * 
      */
-    private UndeferrableValue<String> nodeGroupName;
-
+    @PolicyResourceProperty(name="nodeGroupName", flag="unknown_nodeGroupName")
+    private String value_nodeGroupName;
+    private boolean unknown_nodeGroupName;
     public String nodeGroupName() {
-        if (nodeGroupName == null) return null;
-        return nodeGroupName.getValue("NodeGroup.nodeGroupName");
+        if (!unknown_nodeGroupName) return value_nodeGroupName;
+        throw new UndeferrableValueException("Value 'NodeGroup.nodeGroupName' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
      * 
      */
-    private UndeferrableValue<String> nodeGroupNamePrefix;
-
+    @PolicyResourceProperty(name="nodeGroupNamePrefix", flag="unknown_nodeGroupNamePrefix")
+    private String value_nodeGroupNamePrefix;
+    private boolean unknown_nodeGroupNamePrefix;
     public String nodeGroupNamePrefix() {
-        if (nodeGroupNamePrefix == null) return null;
-        return nodeGroupNamePrefix.getValue("NodeGroup.nodeGroupNamePrefix");
+        if (!unknown_nodeGroupNamePrefix) return value_nodeGroupNamePrefix;
+        throw new UndeferrableValueException("Value 'NodeGroup.nodeGroupNamePrefix' is not present");
     }
 
     /**
      * The node auto repair configuration for the node group. See `node_repair_config` below for details.
      * 
      */
-    private UndeferrableValue<NodeGroupNodeRepairConfig> nodeRepairConfig;
-
+    @PolicyResourceProperty(name="nodeRepairConfig", flag="unknown_nodeRepairConfig")
+    private NodeGroupNodeRepairConfig value_nodeRepairConfig;
+    private boolean unknown_nodeRepairConfig;
     public NodeGroupNodeRepairConfig nodeRepairConfig() {
-        if (nodeRepairConfig == null) return null;
-        return nodeRepairConfig.getValue("NodeGroup.nodeRepairConfig");
+        if (!unknown_nodeRepairConfig) return value_nodeRepairConfig;
+        throw new UndeferrableValueException("Value 'NodeGroup.nodeRepairConfig' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
      * 
      */
-    private UndeferrableValue<String> nodeRoleArn;
-
+    @PolicyResourceProperty(name="nodeRoleArn", flag="unknown_nodeRoleArn")
+    private String value_nodeRoleArn;
+    private boolean unknown_nodeRoleArn;
     public String nodeRoleArn() {
-        if (nodeRoleArn == null) return null;
-        return nodeRoleArn.getValue("NodeGroup.nodeRoleArn");
+        if (!unknown_nodeRoleArn) return value_nodeRoleArn;
+        throw new UndeferrableValueException("Value 'NodeGroup.nodeRoleArn' is not present");
     }
 
     /**
      * AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
      * 
      */
-    private UndeferrableValue<String> releaseVersion;
-
+    @PolicyResourceProperty(name="releaseVersion", flag="unknown_releaseVersion")
+    private String value_releaseVersion;
+    private boolean unknown_releaseVersion;
     public String releaseVersion() {
-        if (releaseVersion == null) return null;
-        return releaseVersion.getValue("NodeGroup.releaseVersion");
+        if (!unknown_releaseVersion) return value_releaseVersion;
+        throw new UndeferrableValueException("Value 'NodeGroup.releaseVersion' is not present");
     }
 
     /**
      * Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
      * 
      */
-    private @Nullable UndeferrableValue<NodeGroupRemoteAccess> remoteAccess;
-
+    @PolicyResourceProperty(name="remoteAccess", flag="unknown_remoteAccess")
+    private @Nullable NodeGroupRemoteAccess value_remoteAccess;
+    private boolean unknown_remoteAccess;
     public @Nullable NodeGroupRemoteAccess remoteAccess() {
-        if (remoteAccess == null) return null;
-        return remoteAccess.getValue("NodeGroup.remoteAccess");
+        if (!unknown_remoteAccess) return value_remoteAccess;
+        throw new UndeferrableValueException("Value 'NodeGroup.remoteAccess' is not present");
     }
 
     /**
      * List of objects containing information about underlying resources.
      * 
      */
-    private UndeferrableValue<List<NodeGroupResource>> resources;
-
+    @PolicyResourceProperty(name="resources", flag="unknown_resources")
+    private List<NodeGroupResource> value_resources;
+    private boolean unknown_resources;
     public List<NodeGroupResource> resources() {
-        if (resources == null) return null;
-        return resources.getValue("NodeGroup.resources");
+        if (!unknown_resources) return value_resources;
+        throw new UndeferrableValueException("Value 'NodeGroup.resources' is not present");
     }
 
     /**
      * Configuration block with scaling settings. See `scaling_config` below for details.
      * 
      */
-    private UndeferrableValue<NodeGroupScalingConfig> scalingConfig;
-
+    @PolicyResourceProperty(name="scalingConfig", flag="unknown_scalingConfig")
+    private NodeGroupScalingConfig value_scalingConfig;
+    private boolean unknown_scalingConfig;
     public NodeGroupScalingConfig scalingConfig() {
-        if (scalingConfig == null) return null;
-        return scalingConfig.getValue("NodeGroup.scalingConfig");
+        if (!unknown_scalingConfig) return value_scalingConfig;
+        throw new UndeferrableValueException("Value 'NodeGroup.scalingConfig' is not present");
     }
 
     /**
      * Status of the EKS Node Group.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("NodeGroup.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'NodeGroup.status' is not present");
     }
 
     /**
@@ -227,22 +246,24 @@ public final class NodeGroup extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("NodeGroup.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'NodeGroup.subnetIds' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("NodeGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'NodeGroup.tags' is not present");
     }
 
     /**
@@ -253,44 +274,48 @@ public final class NodeGroup extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("NodeGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'NodeGroup.tagsAll' is not present");
     }
 
     /**
      * The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<NodeGroupTaint>> taints;
-
+    @PolicyResourceProperty(name="taints", flag="unknown_taints")
+    private @Nullable List<NodeGroupTaint> value_taints;
+    private boolean unknown_taints;
     public @Nullable List<NodeGroupTaint> taints() {
-        if (taints == null) return null;
-        return taints.getValue("NodeGroup.taints");
+        if (!unknown_taints) return value_taints;
+        throw new UndeferrableValueException("Value 'NodeGroup.taints' is not present");
     }
 
     /**
      * Configuration block with update settings. See `update_config` below for details.
      * 
      */
-    private UndeferrableValue<NodeGroupUpdateConfig> updateConfig;
-
+    @PolicyResourceProperty(name="updateConfig", flag="unknown_updateConfig")
+    private NodeGroupUpdateConfig value_updateConfig;
+    private boolean unknown_updateConfig;
     public NodeGroupUpdateConfig updateConfig() {
-        if (updateConfig == null) return null;
-        return updateConfig.getValue("NodeGroup.updateConfig");
+        if (!unknown_updateConfig) return value_updateConfig;
+        throw new UndeferrableValueException("Value 'NodeGroup.updateConfig' is not present");
     }
 
     /**
      * Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("NodeGroup.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'NodeGroup.version' is not present");
     }
 
 }

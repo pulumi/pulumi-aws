@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.gamelift.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class AliasRoutingStrategy {
      * ID of the GameLift Fleet to point the alias to.
      * 
      */
-    private @Nullable UndeferrableValue<String> fleetId;
-
+    @PolicyResourceProperty(name="fleetId", flag="unknown_fleetId")
+    private @Nullable String value_fleetId;
+    private boolean unknown_fleetId;
     public @Nullable String fleetId() {
-        if (fleetId == null) return null;
-        return fleetId.getValue("AliasRoutingStrategy.fleetId");
+        if (!unknown_fleetId) return value_fleetId;
+        throw new UndeferrableValueException("Value 'AliasRoutingStrategy.fleetId' is not present");
     }
 
     /**
      * Message text to be used with the `TERMINAL` routing strategy.
      * 
      */
-    private @Nullable UndeferrableValue<String> message;
-
+    @PolicyResourceProperty(name="message", flag="unknown_message")
+    private @Nullable String value_message;
+    private boolean unknown_message;
     public @Nullable String message() {
-        if (message == null) return null;
-        return message.getValue("AliasRoutingStrategy.message");
+        if (!unknown_message) return value_message;
+        throw new UndeferrableValueException("Value 'AliasRoutingStrategy.message' is not present");
     }
 
     /**
      * Type of routing strategyE.g., `SIMPLE` or `TERMINAL`
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("AliasRoutingStrategy.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'AliasRoutingStrategy.type' is not present");
     }
 
 }

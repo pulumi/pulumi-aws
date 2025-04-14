@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.kinesis.outputs.AnalyticsApplicationCloudwatchLoggingOptions;
 import com.pulumi.policypacks.aws.kinesis.outputs.AnalyticsApplicationInputs;
@@ -24,11 +25,12 @@ public final class AnalyticsApplication extends com.pulumi.resources.PolicyResou
      * The ARN of the Kinesis Analytics Appliation.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("AnalyticsApplication.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'AnalyticsApplication.arn' is not present");
     }
 
     /**
@@ -36,88 +38,96 @@ public final class AnalyticsApplication extends com.pulumi.resources.PolicyResou
      * See CloudWatch Logging Options below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<AnalyticsApplicationCloudwatchLoggingOptions> cloudwatchLoggingOptions;
-
+    @PolicyResourceProperty(name="cloudwatchLoggingOptions", flag="unknown_cloudwatchLoggingOptions")
+    private @Nullable AnalyticsApplicationCloudwatchLoggingOptions value_cloudwatchLoggingOptions;
+    private boolean unknown_cloudwatchLoggingOptions;
     public @Nullable AnalyticsApplicationCloudwatchLoggingOptions cloudwatchLoggingOptions() {
-        if (cloudwatchLoggingOptions == null) return null;
-        return cloudwatchLoggingOptions.getValue("AnalyticsApplication.cloudwatchLoggingOptions");
+        if (!unknown_cloudwatchLoggingOptions) return value_cloudwatchLoggingOptions;
+        throw new UndeferrableValueException("Value 'AnalyticsApplication.cloudwatchLoggingOptions' is not present");
     }
 
     /**
      * SQL Code to transform input data, and generate output.
      * 
      */
-    private @Nullable UndeferrableValue<String> code;
-
+    @PolicyResourceProperty(name="code", flag="unknown_code")
+    private @Nullable String value_code;
+    private boolean unknown_code;
     public @Nullable String code() {
-        if (code == null) return null;
-        return code.getValue("AnalyticsApplication.code");
+        if (!unknown_code) return value_code;
+        throw new UndeferrableValueException("Value 'AnalyticsApplication.code' is not present");
     }
 
     /**
      * The Timestamp when the application version was created.
      * 
      */
-    private UndeferrableValue<String> createTimestamp;
-
+    @PolicyResourceProperty(name="createTimestamp", flag="unknown_createTimestamp")
+    private String value_createTimestamp;
+    private boolean unknown_createTimestamp;
     public String createTimestamp() {
-        if (createTimestamp == null) return null;
-        return createTimestamp.getValue("AnalyticsApplication.createTimestamp");
+        if (!unknown_createTimestamp) return value_createTimestamp;
+        throw new UndeferrableValueException("Value 'AnalyticsApplication.createTimestamp' is not present");
     }
 
     /**
      * Description of the application.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("AnalyticsApplication.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AnalyticsApplication.description' is not present");
     }
 
     /**
      * Input configuration of the application. See Inputs below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<AnalyticsApplicationInputs> inputs;
-
+    @PolicyResourceProperty(name="inputs", flag="unknown_inputs")
+    private @Nullable AnalyticsApplicationInputs value_inputs;
+    private boolean unknown_inputs;
     public @Nullable AnalyticsApplicationInputs inputs() {
-        if (inputs == null) return null;
-        return inputs.getValue("AnalyticsApplication.inputs");
+        if (!unknown_inputs) return value_inputs;
+        throw new UndeferrableValueException("Value 'AnalyticsApplication.inputs' is not present");
     }
 
     /**
      * The Timestamp when the application was last updated.
      * 
      */
-    private UndeferrableValue<String> lastUpdateTimestamp;
-
+    @PolicyResourceProperty(name="lastUpdateTimestamp", flag="unknown_lastUpdateTimestamp")
+    private String value_lastUpdateTimestamp;
+    private boolean unknown_lastUpdateTimestamp;
     public String lastUpdateTimestamp() {
-        if (lastUpdateTimestamp == null) return null;
-        return lastUpdateTimestamp.getValue("AnalyticsApplication.lastUpdateTimestamp");
+        if (!unknown_lastUpdateTimestamp) return value_lastUpdateTimestamp;
+        throw new UndeferrableValueException("Value 'AnalyticsApplication.lastUpdateTimestamp' is not present");
     }
 
     /**
      * Name of the Kinesis Analytics Application.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AnalyticsApplication.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AnalyticsApplication.name' is not present");
     }
 
     /**
      * Output destination configuration of the application. See Outputs below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<AnalyticsApplicationOutput>> outputs;
-
+    @PolicyResourceProperty(name="outputs", flag="unknown_outputs")
+    private @Nullable List<AnalyticsApplicationOutput> value_outputs;
+    private boolean unknown_outputs;
     public @Nullable List<AnalyticsApplicationOutput> outputs() {
-        if (outputs == null) return null;
-        return outputs.getValue("AnalyticsApplication.outputs");
+        if (!unknown_outputs) return value_outputs;
+        throw new UndeferrableValueException("Value 'AnalyticsApplication.outputs' is not present");
     }
 
     /**
@@ -125,11 +135,12 @@ public final class AnalyticsApplication extends com.pulumi.resources.PolicyResou
      * See Reference Data Sources below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<AnalyticsApplicationReferenceDataSources> referenceDataSources;
-
+    @PolicyResourceProperty(name="referenceDataSources", flag="unknown_referenceDataSources")
+    private @Nullable AnalyticsApplicationReferenceDataSources value_referenceDataSources;
+    private boolean unknown_referenceDataSources;
     public @Nullable AnalyticsApplicationReferenceDataSources referenceDataSources() {
-        if (referenceDataSources == null) return null;
-        return referenceDataSources.getValue("AnalyticsApplication.referenceDataSources");
+        if (!unknown_referenceDataSources) return value_referenceDataSources;
+        throw new UndeferrableValueException("Value 'AnalyticsApplication.referenceDataSources' is not present");
     }
 
     /**
@@ -137,33 +148,36 @@ public final class AnalyticsApplication extends com.pulumi.resources.PolicyResou
      * To modify an application&#39;s starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> startApplication;
-
+    @PolicyResourceProperty(name="startApplication", flag="unknown_startApplication")
+    private @Nullable Boolean value_startApplication;
+    private boolean unknown_startApplication;
     public @Nullable Boolean startApplication() {
-        if (startApplication == null) return null;
-        return startApplication.getValue("AnalyticsApplication.startApplication");
+        if (!unknown_startApplication) return value_startApplication;
+        throw new UndeferrableValueException("Value 'AnalyticsApplication.startApplication' is not present");
     }
 
     /**
      * The Status of the application.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("AnalyticsApplication.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'AnalyticsApplication.status' is not present");
     }
 
     /**
      * Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AnalyticsApplication.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AnalyticsApplication.tags' is not present");
     }
 
     /**
@@ -174,22 +188,24 @@ public final class AnalyticsApplication extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("AnalyticsApplication.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'AnalyticsApplication.tagsAll' is not present");
     }
 
     /**
      * The Version of the application.
      * 
      */
-    private UndeferrableValue<Integer> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private Integer value_version;
+    private boolean unknown_version;
     public Integer version() {
-        if (version == null) return null;
-        return version.getValue("AnalyticsApplication.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'AnalyticsApplication.version' is not present");
     }
 
 }

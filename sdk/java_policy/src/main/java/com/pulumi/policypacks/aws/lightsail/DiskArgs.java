@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class DiskArgs extends com.pulumi.resources.PolicyResourceInput {
      * The Availability Zone in which to create your disk.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("DiskArgs.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'DiskArgs.availabilityZone' is not present");
     }
 
     /**
      * The name of the disk.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DiskArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DiskArgs.name' is not present");
     }
 
     /**
      * The size of the disk in GB.
      * 
      */
-    private UndeferrableValue<Integer> sizeInGb;
-
+    @PolicyResourceProperty(name="sizeInGb", flag="unknown_sizeInGb")
+    private Integer value_sizeInGb;
+    private boolean unknown_sizeInGb;
     public Integer sizeInGb() {
-        if (sizeInGb == null) return null;
-        return sizeInGb.getValue("DiskArgs.sizeInGb");
+        if (!unknown_sizeInGb) return value_sizeInGb;
+        throw new UndeferrableValueException("Value 'DiskArgs.sizeInGb' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DiskArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DiskArgs.tags' is not present");
     }
 
 }

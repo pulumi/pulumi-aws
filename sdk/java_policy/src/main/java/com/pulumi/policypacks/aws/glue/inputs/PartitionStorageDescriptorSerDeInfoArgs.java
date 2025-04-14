@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class PartitionStorageDescriptorSerDeInfoArgs {
      * Name of the SerDe.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PartitionStorageDescriptorSerDeInfoArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PartitionStorageDescriptorSerDeInfoArgs.name' is not present");
     }
 
     /**
      * A map of initialization parameters for the SerDe, in key-value form.
      * 
      */
-    private UndeferrableValue<Map<String,String>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private Map<String,String> value_parameters;
+    private boolean unknown_parameters;
     public Map<String,String> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("PartitionStorageDescriptorSerDeInfoArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'PartitionStorageDescriptorSerDeInfoArgs.parameters' is not present");
     }
 
     /**
      * Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
      * 
      */
-    private UndeferrableValue<String> serializationLibrary;
-
+    @PolicyResourceProperty(name="serializationLibrary", flag="unknown_serializationLibrary")
+    private String value_serializationLibrary;
+    private boolean unknown_serializationLibrary;
     public String serializationLibrary() {
-        if (serializationLibrary == null) return null;
-        return serializationLibrary.getValue("PartitionStorageDescriptorSerDeInfoArgs.serializationLibrary");
+        if (!unknown_serializationLibrary) return value_serializationLibrary;
+        throw new UndeferrableValueException("Value 'PartitionStorageDescriptorSerDeInfoArgs.serializationLibrary' is not present");
     }
 
 }

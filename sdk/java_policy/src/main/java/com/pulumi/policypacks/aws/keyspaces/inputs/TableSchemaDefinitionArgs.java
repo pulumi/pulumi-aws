@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.keyspaces.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.keyspaces.inputs.TableSchemaDefinitionClusteringKeyArgs;
 import com.pulumi.policypacks.aws.keyspaces.inputs.TableSchemaDefinitionColumnArgs;
 import com.pulumi.policypacks.aws.keyspaces.inputs.TableSchemaDefinitionPartitionKeyArgs;
@@ -18,44 +19,48 @@ public final class TableSchemaDefinitionArgs {
      * The columns that are part of the clustering key of the table.
      * 
      */
-    private UndeferrableValue<List<TableSchemaDefinitionClusteringKeyArgs>> clusteringKeys;
-
+    @PolicyResourceProperty(name="clusteringKeys", flag="unknown_clusteringKeys")
+    private List<TableSchemaDefinitionClusteringKeyArgs> value_clusteringKeys;
+    private boolean unknown_clusteringKeys;
     public List<TableSchemaDefinitionClusteringKeyArgs> clusteringKeys() {
-        if (clusteringKeys == null) return null;
-        return clusteringKeys.getValue("TableSchemaDefinitionArgs.clusteringKeys");
+        if (!unknown_clusteringKeys) return value_clusteringKeys;
+        throw new UndeferrableValueException("Value 'TableSchemaDefinitionArgs.clusteringKeys' is not present");
     }
 
     /**
      * The regular columns of the table.
      * 
      */
-    private UndeferrableValue<List<TableSchemaDefinitionColumnArgs>> columns;
-
+    @PolicyResourceProperty(name="columns", flag="unknown_columns")
+    private List<TableSchemaDefinitionColumnArgs> value_columns;
+    private boolean unknown_columns;
     public List<TableSchemaDefinitionColumnArgs> columns() {
-        if (columns == null) return null;
-        return columns.getValue("TableSchemaDefinitionArgs.columns");
+        if (!unknown_columns) return value_columns;
+        throw new UndeferrableValueException("Value 'TableSchemaDefinitionArgs.columns' is not present");
     }
 
     /**
      * The columns that are part of the partition key of the table .
      * 
      */
-    private UndeferrableValue<List<TableSchemaDefinitionPartitionKeyArgs>> partitionKeys;
-
+    @PolicyResourceProperty(name="partitionKeys", flag="unknown_partitionKeys")
+    private List<TableSchemaDefinitionPartitionKeyArgs> value_partitionKeys;
+    private boolean unknown_partitionKeys;
     public List<TableSchemaDefinitionPartitionKeyArgs> partitionKeys() {
-        if (partitionKeys == null) return null;
-        return partitionKeys.getValue("TableSchemaDefinitionArgs.partitionKeys");
+        if (!unknown_partitionKeys) return value_partitionKeys;
+        throw new UndeferrableValueException("Value 'TableSchemaDefinitionArgs.partitionKeys' is not present");
     }
 
     /**
      * The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
      * 
      */
-    private UndeferrableValue<List<TableSchemaDefinitionStaticColumnArgs>> staticColumns;
-
+    @PolicyResourceProperty(name="staticColumns", flag="unknown_staticColumns")
+    private List<TableSchemaDefinitionStaticColumnArgs> value_staticColumns;
+    private boolean unknown_staticColumns;
     public List<TableSchemaDefinitionStaticColumnArgs> staticColumns() {
-        if (staticColumns == null) return null;
-        return staticColumns.getValue("TableSchemaDefinitionArgs.staticColumns");
+        if (!unknown_staticColumns) return value_staticColumns;
+        throw new UndeferrableValueException("Value 'TableSchemaDefinitionArgs.staticColumns' is not present");
     }
 
 }

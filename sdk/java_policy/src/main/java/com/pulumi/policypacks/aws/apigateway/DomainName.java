@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.apigateway.outputs.DomainNameEndpointConfiguration;
 import com.pulumi.policypacks.aws.apigateway.outputs.DomainNameMutualTlsAuthentication;
@@ -19,165 +20,180 @@ public final class DomainName extends com.pulumi.resources.PolicyResourceOutput 
      * ARN of domain name.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("DomainName.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'DomainName.arn' is not present");
     }
 
     /**
      * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
      * 
      */
-    private @Nullable UndeferrableValue<String> certificateArn;
-
+    @PolicyResourceProperty(name="certificateArn", flag="unknown_certificateArn")
+    private @Nullable String value_certificateArn;
+    private boolean unknown_certificateArn;
     public @Nullable String certificateArn() {
-        if (certificateArn == null) return null;
-        return certificateArn.getValue("DomainName.certificateArn");
+        if (!unknown_certificateArn) return value_certificateArn;
+        throw new UndeferrableValueException("Value 'DomainName.certificateArn' is not present");
     }
 
     /**
      * Certificate issued for the domain name being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
      * 
      */
-    private @Nullable UndeferrableValue<String> certificateBody;
-
+    @PolicyResourceProperty(name="certificateBody", flag="unknown_certificateBody")
+    private @Nullable String value_certificateBody;
+    private boolean unknown_certificateBody;
     public @Nullable String certificateBody() {
-        if (certificateBody == null) return null;
-        return certificateBody.getValue("DomainName.certificateBody");
+        if (!unknown_certificateBody) return value_certificateBody;
+        throw new UndeferrableValueException("Value 'DomainName.certificateBody' is not present");
     }
 
     /**
      * Certificate for the CA that issued the certificate, along with any intermediate CA certificates required to create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
      * 
      */
-    private @Nullable UndeferrableValue<String> certificateChain;
-
+    @PolicyResourceProperty(name="certificateChain", flag="unknown_certificateChain")
+    private @Nullable String value_certificateChain;
+    private boolean unknown_certificateChain;
     public @Nullable String certificateChain() {
-        if (certificateChain == null) return null;
-        return certificateChain.getValue("DomainName.certificateChain");
+        if (!unknown_certificateChain) return value_certificateChain;
+        throw new UndeferrableValueException("Value 'DomainName.certificateChain' is not present");
     }
 
     /**
      * Unique name to use when registering this certificate as an IAM server certificate. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`. Required if `certificate_arn` is not set.
      * 
      */
-    private @Nullable UndeferrableValue<String> certificateName;
-
+    @PolicyResourceProperty(name="certificateName", flag="unknown_certificateName")
+    private @Nullable String value_certificateName;
+    private boolean unknown_certificateName;
     public @Nullable String certificateName() {
-        if (certificateName == null) return null;
-        return certificateName.getValue("DomainName.certificateName");
+        if (!unknown_certificateName) return value_certificateName;
+        throw new UndeferrableValueException("Value 'DomainName.certificateName' is not present");
     }
 
     /**
      * Private key associated with the domain certificate given in `certificate_body`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
      * 
      */
-    private @Nullable UndeferrableValue<String> certificatePrivateKey;
-
+    @PolicyResourceProperty(name="certificatePrivateKey", flag="unknown_certificatePrivateKey")
+    private @Nullable String value_certificatePrivateKey;
+    private boolean unknown_certificatePrivateKey;
     public @Nullable String certificatePrivateKey() {
-        if (certificatePrivateKey == null) return null;
-        return certificatePrivateKey.getValue("DomainName.certificatePrivateKey");
+        if (!unknown_certificatePrivateKey) return value_certificatePrivateKey;
+        throw new UndeferrableValueException("Value 'DomainName.certificatePrivateKey' is not present");
     }
 
     /**
      * Upload date associated with the domain certificate.
      * 
      */
-    private UndeferrableValue<String> certificateUploadDate;
-
+    @PolicyResourceProperty(name="certificateUploadDate", flag="unknown_certificateUploadDate")
+    private String value_certificateUploadDate;
+    private boolean unknown_certificateUploadDate;
     public String certificateUploadDate() {
-        if (certificateUploadDate == null) return null;
-        return certificateUploadDate.getValue("DomainName.certificateUploadDate");
+        if (!unknown_certificateUploadDate) return value_certificateUploadDate;
+        throw new UndeferrableValueException("Value 'DomainName.certificateUploadDate' is not present");
     }
 
     /**
      * Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
      * 
      */
-    private UndeferrableValue<String> cloudfrontDomainName;
-
+    @PolicyResourceProperty(name="cloudfrontDomainName", flag="unknown_cloudfrontDomainName")
+    private String value_cloudfrontDomainName;
+    private boolean unknown_cloudfrontDomainName;
     public String cloudfrontDomainName() {
-        if (cloudfrontDomainName == null) return null;
-        return cloudfrontDomainName.getValue("DomainName.cloudfrontDomainName");
+        if (!unknown_cloudfrontDomainName) return value_cloudfrontDomainName;
+        throw new UndeferrableValueException("Value 'DomainName.cloudfrontDomainName' is not present");
     }
 
     /**
      * For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
      * 
      */
-    private UndeferrableValue<String> cloudfrontZoneId;
-
+    @PolicyResourceProperty(name="cloudfrontZoneId", flag="unknown_cloudfrontZoneId")
+    private String value_cloudfrontZoneId;
+    private boolean unknown_cloudfrontZoneId;
     public String cloudfrontZoneId() {
-        if (cloudfrontZoneId == null) return null;
-        return cloudfrontZoneId.getValue("DomainName.cloudfrontZoneId");
+        if (!unknown_cloudfrontZoneId) return value_cloudfrontZoneId;
+        throw new UndeferrableValueException("Value 'DomainName.cloudfrontZoneId' is not present");
     }
 
     /**
      * Fully-qualified domain name to register.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("DomainName.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'DomainName.domainName' is not present");
     }
 
     /**
      * The identifier for the domain name resource. Supported only for private custom domain names.
      * 
      */
-    private UndeferrableValue<String> domainNameId;
-
+    @PolicyResourceProperty(name="domainNameId", flag="unknown_domainNameId")
+    private String value_domainNameId;
+    private boolean unknown_domainNameId;
     public String domainNameId() {
-        if (domainNameId == null) return null;
-        return domainNameId.getValue("DomainName.domainNameId");
+        if (!unknown_domainNameId) return value_domainNameId;
+        throw new UndeferrableValueException("Value 'DomainName.domainNameId' is not present");
     }
 
     /**
      * Configuration block defining API endpoint information including type. See below.
      * 
      */
-    private UndeferrableValue<DomainNameEndpointConfiguration> endpointConfiguration;
-
+    @PolicyResourceProperty(name="endpointConfiguration", flag="unknown_endpointConfiguration")
+    private DomainNameEndpointConfiguration value_endpointConfiguration;
+    private boolean unknown_endpointConfiguration;
     public DomainNameEndpointConfiguration endpointConfiguration() {
-        if (endpointConfiguration == null) return null;
-        return endpointConfiguration.getValue("DomainName.endpointConfiguration");
+        if (!unknown_endpointConfiguration) return value_endpointConfiguration;
+        throw new UndeferrableValueException("Value 'DomainName.endpointConfiguration' is not present");
     }
 
     /**
      * Mutual TLS authentication configuration for the domain name. See below.
      * 
      */
-    private @Nullable UndeferrableValue<DomainNameMutualTlsAuthentication> mutualTlsAuthentication;
-
+    @PolicyResourceProperty(name="mutualTlsAuthentication", flag="unknown_mutualTlsAuthentication")
+    private @Nullable DomainNameMutualTlsAuthentication value_mutualTlsAuthentication;
+    private boolean unknown_mutualTlsAuthentication;
     public @Nullable DomainNameMutualTlsAuthentication mutualTlsAuthentication() {
-        if (mutualTlsAuthentication == null) return null;
-        return mutualTlsAuthentication.getValue("DomainName.mutualTlsAuthentication");
+        if (!unknown_mutualTlsAuthentication) return value_mutualTlsAuthentication;
+        throw new UndeferrableValueException("Value 'DomainName.mutualTlsAuthentication' is not present");
     }
 
     /**
      * ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
      * 
      */
-    private UndeferrableValue<String> ownershipVerificationCertificateArn;
-
+    @PolicyResourceProperty(name="ownershipVerificationCertificateArn", flag="unknown_ownershipVerificationCertificateArn")
+    private String value_ownershipVerificationCertificateArn;
+    private boolean unknown_ownershipVerificationCertificateArn;
     public String ownershipVerificationCertificateArn() {
-        if (ownershipVerificationCertificateArn == null) return null;
-        return ownershipVerificationCertificateArn.getValue("DomainName.ownershipVerificationCertificateArn");
+        if (!unknown_ownershipVerificationCertificateArn) return value_ownershipVerificationCertificateArn;
+        throw new UndeferrableValueException("Value 'DomainName.ownershipVerificationCertificateArn' is not present");
     }
 
     /**
      * A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
      * 
      */
-    private @Nullable UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private @Nullable String value_policy;
+    private boolean unknown_policy;
     public @Nullable String policy() {
-        if (policy == null) return null;
-        return policy.getValue("DomainName.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'DomainName.policy' is not present");
     }
 
     /**
@@ -186,55 +202,60 @@ public final class DomainName extends com.pulumi.resources.PolicyResourceOutput 
      * When uploading a certificate, the following arguments are supported:
      * 
      */
-    private @Nullable UndeferrableValue<String> regionalCertificateArn;
-
+    @PolicyResourceProperty(name="regionalCertificateArn", flag="unknown_regionalCertificateArn")
+    private @Nullable String value_regionalCertificateArn;
+    private boolean unknown_regionalCertificateArn;
     public @Nullable String regionalCertificateArn() {
-        if (regionalCertificateArn == null) return null;
-        return regionalCertificateArn.getValue("DomainName.regionalCertificateArn");
+        if (!unknown_regionalCertificateArn) return value_regionalCertificateArn;
+        throw new UndeferrableValueException("Value 'DomainName.regionalCertificateArn' is not present");
     }
 
     /**
      * User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
      * 
      */
-    private @Nullable UndeferrableValue<String> regionalCertificateName;
-
+    @PolicyResourceProperty(name="regionalCertificateName", flag="unknown_regionalCertificateName")
+    private @Nullable String value_regionalCertificateName;
+    private boolean unknown_regionalCertificateName;
     public @Nullable String regionalCertificateName() {
-        if (regionalCertificateName == null) return null;
-        return regionalCertificateName.getValue("DomainName.regionalCertificateName");
+        if (!unknown_regionalCertificateName) return value_regionalCertificateName;
+        throw new UndeferrableValueException("Value 'DomainName.regionalCertificateName' is not present");
     }
 
     /**
      * Hostname for the custom domain&#39;s regional endpoint.
      * 
      */
-    private UndeferrableValue<String> regionalDomainName;
-
+    @PolicyResourceProperty(name="regionalDomainName", flag="unknown_regionalDomainName")
+    private String value_regionalDomainName;
+    private boolean unknown_regionalDomainName;
     public String regionalDomainName() {
-        if (regionalDomainName == null) return null;
-        return regionalDomainName.getValue("DomainName.regionalDomainName");
+        if (!unknown_regionalDomainName) return value_regionalDomainName;
+        throw new UndeferrableValueException("Value 'DomainName.regionalDomainName' is not present");
     }
 
     /**
      * Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
      * 
      */
-    private UndeferrableValue<String> regionalZoneId;
-
+    @PolicyResourceProperty(name="regionalZoneId", flag="unknown_regionalZoneId")
+    private String value_regionalZoneId;
+    private boolean unknown_regionalZoneId;
     public String regionalZoneId() {
-        if (regionalZoneId == null) return null;
-        return regionalZoneId.getValue("DomainName.regionalZoneId");
+        if (!unknown_regionalZoneId) return value_regionalZoneId;
+        throw new UndeferrableValueException("Value 'DomainName.regionalZoneId' is not present");
     }
 
     /**
      * Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
      * 
      */
-    private UndeferrableValue<String> securityPolicy;
-
+    @PolicyResourceProperty(name="securityPolicy", flag="unknown_securityPolicy")
+    private String value_securityPolicy;
+    private boolean unknown_securityPolicy;
     public String securityPolicy() {
-        if (securityPolicy == null) return null;
-        return securityPolicy.getValue("DomainName.securityPolicy");
+        if (!unknown_securityPolicy) return value_securityPolicy;
+        throw new UndeferrableValueException("Value 'DomainName.securityPolicy' is not present");
     }
 
     /**
@@ -243,11 +264,12 @@ public final class DomainName extends com.pulumi.resources.PolicyResourceOutput 
      * When referencing an AWS-managed certificate, the following arguments are supported:
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DomainName.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DomainName.tags' is not present");
     }
 
     /**
@@ -258,11 +280,12 @@ public final class DomainName extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("DomainName.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'DomainName.tagsAll' is not present");
     }
 
 }

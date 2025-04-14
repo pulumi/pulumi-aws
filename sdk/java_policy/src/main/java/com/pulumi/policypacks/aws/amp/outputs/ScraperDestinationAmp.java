@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.amp.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ScraperDestinationAmp {
      * The Amazon Resource Name (ARN) of the prometheus workspace.
      * 
      */
-    private UndeferrableValue<String> workspaceArn;
-
+    @PolicyResourceProperty(name="workspaceArn", flag="unknown_workspaceArn")
+    private String value_workspaceArn;
+    private boolean unknown_workspaceArn;
     public String workspaceArn() {
-        if (workspaceArn == null) return null;
-        return workspaceArn.getValue("ScraperDestinationAmp.workspaceArn");
+        if (!unknown_workspaceArn) return value_workspaceArn;
+        throw new UndeferrableValueException("Value 'ScraperDestinationAmp.workspaceArn' is not present");
     }
 
 }

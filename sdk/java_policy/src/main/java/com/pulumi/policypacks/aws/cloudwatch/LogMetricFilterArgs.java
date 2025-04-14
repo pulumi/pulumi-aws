@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudwatch.inputs.LogMetricFilterMetricTransformationArgs;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class LogMetricFilterArgs extends com.pulumi.resources.PolicyResour
      * The name of the log group to associate the metric filter with.
      * 
      */
-    private UndeferrableValue<String> logGroupName;
-
+    @PolicyResourceProperty(name="logGroupName", flag="unknown_logGroupName")
+    private String value_logGroupName;
+    private boolean unknown_logGroupName;
     public String logGroupName() {
-        if (logGroupName == null) return null;
-        return logGroupName.getValue("LogMetricFilterArgs.logGroupName");
+        if (!unknown_logGroupName) return value_logGroupName;
+        throw new UndeferrableValueException("Value 'LogMetricFilterArgs.logGroupName' is not present");
     }
 
     /**
      * A block defining collection of information needed to define how metric data gets emitted. See below.
      * 
      */
-    private UndeferrableValue<LogMetricFilterMetricTransformationArgs> metricTransformation;
-
+    @PolicyResourceProperty(name="metricTransformation", flag="unknown_metricTransformation")
+    private LogMetricFilterMetricTransformationArgs value_metricTransformation;
+    private boolean unknown_metricTransformation;
     public LogMetricFilterMetricTransformationArgs metricTransformation() {
-        if (metricTransformation == null) return null;
-        return metricTransformation.getValue("LogMetricFilterArgs.metricTransformation");
+        if (!unknown_metricTransformation) return value_metricTransformation;
+        throw new UndeferrableValueException("Value 'LogMetricFilterArgs.metricTransformation' is not present");
     }
 
     /**
      * A name for the metric filter.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LogMetricFilterArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LogMetricFilterArgs.name' is not present");
     }
 
     /**
@@ -51,11 +55,12 @@ public final class LogMetricFilterArgs extends com.pulumi.resources.PolicyResour
      * for extracting metric data out of ingested log events.
      * 
      */
-    private UndeferrableValue<String> pattern;
-
+    @PolicyResourceProperty(name="pattern", flag="unknown_pattern")
+    private String value_pattern;
+    private boolean unknown_pattern;
     public String pattern() {
-        if (pattern == null) return null;
-        return pattern.getValue("LogMetricFilterArgs.pattern");
+        if (!unknown_pattern) return value_pattern;
+        throw new UndeferrableValueException("Value 'LogMetricFilterArgs.pattern' is not present");
     }
 
 }

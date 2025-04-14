@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
      * The delimiter of the selection criteria being used.
      * 
      */
-    private UndeferrableValue<String> delimiter;
-
+    @PolicyResourceProperty(name="delimiter", flag="unknown_delimiter")
+    private String value_delimiter;
+    private boolean unknown_delimiter;
     public String delimiter() {
-        if (delimiter == null) return null;
-        return delimiter.getValue("StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs.delimiter");
+        if (!unknown_delimiter) return value_delimiter;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs.delimiter' is not present");
     }
 
     /**
      * The max depth of the selection criteria.
      * 
      */
-    private UndeferrableValue<Integer> maxDepth;
-
+    @PolicyResourceProperty(name="maxDepth", flag="unknown_maxDepth")
+    private Integer value_maxDepth;
+    private boolean unknown_maxDepth;
     public Integer maxDepth() {
-        if (maxDepth == null) return null;
-        return maxDepth.getValue("StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs.maxDepth");
+        if (!unknown_maxDepth) return value_maxDepth;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs.maxDepth' is not present");
     }
 
     /**
      * The minimum number of storage bytes percentage whose metrics will be selected.
      * 
      */
-    private UndeferrableValue<Double> minStorageBytesPercentage;
-
+    @PolicyResourceProperty(name="minStorageBytesPercentage", flag="unknown_minStorageBytesPercentage")
+    private Double value_minStorageBytesPercentage;
+    private boolean unknown_minStorageBytesPercentage;
     public Double minStorageBytesPercentage() {
-        if (minStorageBytesPercentage == null) return null;
-        return minStorageBytesPercentage.getValue("StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs.minStorageBytesPercentage");
+        if (!unknown_minStorageBytesPercentage) return value_minStorageBytesPercentage;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs.minStorageBytesPercentage' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directoryservice;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,11 +16,12 @@ public final class SharedDirectoryAccepterArgs extends com.pulumi.resources.Poli
      * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
      * 
      */
-    private UndeferrableValue<String> sharedDirectoryId;
-
+    @PolicyResourceProperty(name="sharedDirectoryId", flag="unknown_sharedDirectoryId")
+    private String value_sharedDirectoryId;
+    private boolean unknown_sharedDirectoryId;
     public String sharedDirectoryId() {
-        if (sharedDirectoryId == null) return null;
-        return sharedDirectoryId.getValue("SharedDirectoryAccepterArgs.sharedDirectoryId");
+        if (!unknown_sharedDirectoryId) return value_sharedDirectoryId;
+        throw new UndeferrableValueException("Value 'SharedDirectoryAccepterArgs.sharedDirectoryId' is not present");
     }
 
 }

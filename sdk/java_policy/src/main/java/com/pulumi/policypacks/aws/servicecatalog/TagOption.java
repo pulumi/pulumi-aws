@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,29 +18,32 @@ public final class TagOption extends com.pulumi.resources.PolicyResourceOutput {
      * Whether tag option is active. Default is `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> active;
-
+    @PolicyResourceProperty(name="active", flag="unknown_active")
+    private @Nullable Boolean value_active;
+    private boolean unknown_active;
     public @Nullable Boolean active() {
-        if (active == null) return null;
-        return active.getValue("TagOption.active");
+        if (!unknown_active) return value_active;
+        throw new UndeferrableValueException("Value 'TagOption.active' is not present");
     }
 
     /**
      * Tag option key.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("TagOption.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'TagOption.key' is not present");
     }
 
-    private UndeferrableValue<String> owner;
-
+    @PolicyResourceProperty(name="owner", flag="unknown_owner")
+    private String value_owner;
+    private boolean unknown_owner;
     public String owner() {
-        if (owner == null) return null;
-        return owner.getValue("TagOption.owner");
+        if (!unknown_owner) return value_owner;
+        throw new UndeferrableValueException("Value 'TagOption.owner' is not present");
     }
 
     /**
@@ -48,11 +52,12 @@ public final class TagOption extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("TagOption.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'TagOption.value' is not present");
     }
 
 }

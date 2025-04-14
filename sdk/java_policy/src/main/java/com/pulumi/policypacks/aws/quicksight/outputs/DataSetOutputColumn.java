@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,29 +15,32 @@ public final class DataSetOutputColumn {
      * Field folder description.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("DataSetOutputColumn.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'DataSetOutputColumn.description' is not present");
     }
 
     /**
      * Display name for the dataset.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("DataSetOutputColumn.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DataSetOutputColumn.name' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("DataSetOutputColumn.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'DataSetOutputColumn.type' is not present");
     }
 
 }

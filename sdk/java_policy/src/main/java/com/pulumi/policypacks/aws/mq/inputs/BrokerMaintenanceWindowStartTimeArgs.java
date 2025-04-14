@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mq.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,33 +14,36 @@ public final class BrokerMaintenanceWindowStartTimeArgs {
      * Day of the week, e.g., `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
      * 
      */
-    private UndeferrableValue<String> dayOfWeek;
-
+    @PolicyResourceProperty(name="dayOfWeek", flag="unknown_dayOfWeek")
+    private String value_dayOfWeek;
+    private boolean unknown_dayOfWeek;
     public String dayOfWeek() {
-        if (dayOfWeek == null) return null;
-        return dayOfWeek.getValue("BrokerMaintenanceWindowStartTimeArgs.dayOfWeek");
+        if (!unknown_dayOfWeek) return value_dayOfWeek;
+        throw new UndeferrableValueException("Value 'BrokerMaintenanceWindowStartTimeArgs.dayOfWeek' is not present");
     }
 
     /**
      * Time, in 24-hour format, e.g., `02:00`.
      * 
      */
-    private UndeferrableValue<String> timeOfDay;
-
+    @PolicyResourceProperty(name="timeOfDay", flag="unknown_timeOfDay")
+    private String value_timeOfDay;
+    private boolean unknown_timeOfDay;
     public String timeOfDay() {
-        if (timeOfDay == null) return null;
-        return timeOfDay.getValue("BrokerMaintenanceWindowStartTimeArgs.timeOfDay");
+        if (!unknown_timeOfDay) return value_timeOfDay;
+        throw new UndeferrableValueException("Value 'BrokerMaintenanceWindowStartTimeArgs.timeOfDay' is not present");
     }
 
     /**
      * Time zone in either the Country/City format or the UTC offset format, e.g., `CET`.
      * 
      */
-    private UndeferrableValue<String> timeZone;
-
+    @PolicyResourceProperty(name="timeZone", flag="unknown_timeZone")
+    private String value_timeZone;
+    private boolean unknown_timeZone;
     public String timeZone() {
-        if (timeZone == null) return null;
-        return timeZone.getValue("BrokerMaintenanceWindowStartTimeArgs.timeZone");
+        if (!unknown_timeZone) return value_timeZone;
+        throw new UndeferrableValueException("Value 'BrokerMaintenanceWindowStartTimeArgs.timeZone' is not present");
     }
 
 }

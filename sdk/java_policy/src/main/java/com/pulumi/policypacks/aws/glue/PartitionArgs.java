@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.glue.inputs.PartitionStorageDescriptorArgs;
 import java.lang.String;
@@ -19,62 +20,68 @@ public final class PartitionArgs extends com.pulumi.resources.PolicyResourceInpu
      * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      * 
      */
-    private UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private String value_catalogId;
+    private boolean unknown_catalogId;
     public String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("PartitionArgs.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'PartitionArgs.catalogId' is not present");
     }
 
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("PartitionArgs.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'PartitionArgs.databaseName' is not present");
     }
 
     /**
      * Properties associated with this table, as a list of key-value pairs.
      * 
      */
-    private UndeferrableValue<Map<String,String>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private Map<String,String> value_parameters;
+    private boolean unknown_parameters;
     public Map<String,String> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("PartitionArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'PartitionArgs.parameters' is not present");
     }
 
     /**
      * The values that define the partition.
      * 
      */
-    private UndeferrableValue<List<String>> partitionValues;
-
+    @PolicyResourceProperty(name="partitionValues", flag="unknown_partitionValues")
+    private List<String> value_partitionValues;
+    private boolean unknown_partitionValues;
     public List<String> partitionValues() {
-        if (partitionValues == null) return null;
-        return partitionValues.getValue("PartitionArgs.partitionValues");
+        if (!unknown_partitionValues) return value_partitionValues;
+        throw new UndeferrableValueException("Value 'PartitionArgs.partitionValues' is not present");
     }
 
     /**
      * A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      * 
      */
-    private UndeferrableValue<PartitionStorageDescriptorArgs> storageDescriptor;
-
+    @PolicyResourceProperty(name="storageDescriptor", flag="unknown_storageDescriptor")
+    private PartitionStorageDescriptorArgs value_storageDescriptor;
+    private boolean unknown_storageDescriptor;
     public PartitionStorageDescriptorArgs storageDescriptor() {
-        if (storageDescriptor == null) return null;
-        return storageDescriptor.getValue("PartitionArgs.storageDescriptor");
+        if (!unknown_storageDescriptor) return value_storageDescriptor;
+        throw new UndeferrableValueException("Value 'PartitionArgs.storageDescriptor' is not present");
     }
 
-    private UndeferrableValue<String> tableName;
-
+    @PolicyResourceProperty(name="tableName", flag="unknown_tableName")
+    private String value_tableName;
+    private boolean unknown_tableName;
     public String tableName() {
-        if (tableName == null) return null;
-        return tableName.getValue("PartitionArgs.tableName");
+        if (!unknown_tableName) return value_tableName;
+        throw new UndeferrableValueException("Value 'PartitionArgs.tableName' is not present");
     }
 
 }

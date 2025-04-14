@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.qbusiness.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ApplicationAttachmentsConfigurationArgs {
      * Status information about whether file upload functionality is activated or deactivated for your end user. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> attachmentsControlMode;
-
+    @PolicyResourceProperty(name="attachmentsControlMode", flag="unknown_attachmentsControlMode")
+    private String value_attachmentsControlMode;
+    private boolean unknown_attachmentsControlMode;
     public String attachmentsControlMode() {
-        if (attachmentsControlMode == null) return null;
-        return attachmentsControlMode.getValue("ApplicationAttachmentsConfigurationArgs.attachmentsControlMode");
+        if (!unknown_attachmentsControlMode) return value_attachmentsControlMode;
+        throw new UndeferrableValueException("Value 'ApplicationAttachmentsConfigurationArgs.attachmentsControlMode' is not present");
     }
 
 }

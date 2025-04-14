@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class DataSourceConfigurationTemplateConfigurationArgs {
      * JSON string containing a [data source template schema](https://docs.aws.amazon.com/kendra/latest/dg/ds-schemas.html).
      * 
      */
-    private UndeferrableValue<String> template;
-
+    @PolicyResourceProperty(name="template", flag="unknown_template")
+    private String value_template;
+    private boolean unknown_template;
     public String template() {
-        if (template == null) return null;
-        return template.getValue("DataSourceConfigurationTemplateConfigurationArgs.template");
+        if (!unknown_template) return value_template;
+        throw new UndeferrableValueException("Value 'DataSourceConfigurationTemplateConfigurationArgs.template' is not present");
     }
 
 }

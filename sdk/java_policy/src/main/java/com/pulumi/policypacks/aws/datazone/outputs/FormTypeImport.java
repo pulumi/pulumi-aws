@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datazone.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class FormTypeImport {
      * Name of the form type. Must be the name of the structure in smithy document.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("FormTypeImport.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FormTypeImport.name' is not present");
     }
 
     /**
      * Revision of the Form Type.
      * 
      */
-    private UndeferrableValue<String> revision;
-
+    @PolicyResourceProperty(name="revision", flag="unknown_revision")
+    private String value_revision;
+    private boolean unknown_revision;
     public String revision() {
-        if (revision == null) return null;
-        return revision.getValue("FormTypeImport.revision");
+        if (!unknown_revision) return value_revision;
+        throw new UndeferrableValueException("Value 'FormTypeImport.revision' is not present");
     }
 
 }

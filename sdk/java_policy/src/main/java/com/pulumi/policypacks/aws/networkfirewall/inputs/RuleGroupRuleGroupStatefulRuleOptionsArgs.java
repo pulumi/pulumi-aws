@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class RuleGroupRuleGroupStatefulRuleOptionsArgs {
      * Indicates how to manage the order of the rule evaluation for the rule group. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
      * 
      */
-    private UndeferrableValue<String> ruleOrder;
-
+    @PolicyResourceProperty(name="ruleOrder", flag="unknown_ruleOrder")
+    private String value_ruleOrder;
+    private boolean unknown_ruleOrder;
     public String ruleOrder() {
-        if (ruleOrder == null) return null;
-        return ruleOrder.getValue("RuleGroupRuleGroupStatefulRuleOptionsArgs.ruleOrder");
+        if (!unknown_ruleOrder) return value_ruleOrder;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupStatefulRuleOptionsArgs.ruleOrder' is not present");
     }
 
 }

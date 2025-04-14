@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class PipeTargetParametersCloudwatchLogsParameters {
      * The name of the log stream.
      * 
      */
-    private @Nullable UndeferrableValue<String> logStreamName;
-
+    @PolicyResourceProperty(name="logStreamName", flag="unknown_logStreamName")
+    private @Nullable String value_logStreamName;
+    private boolean unknown_logStreamName;
     public @Nullable String logStreamName() {
-        if (logStreamName == null) return null;
-        return logStreamName.getValue("PipeTargetParametersCloudwatchLogsParameters.logStreamName");
+        if (!unknown_logStreamName) return value_logStreamName;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersCloudwatchLogsParameters.logStreamName' is not present");
     }
 
     /**
      * The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
      * 
      */
-    private @Nullable UndeferrableValue<String> timestamp;
-
+    @PolicyResourceProperty(name="timestamp", flag="unknown_timestamp")
+    private @Nullable String value_timestamp;
+    private boolean unknown_timestamp;
     public @Nullable String timestamp() {
-        if (timestamp == null) return null;
-        return timestamp.getValue("PipeTargetParametersCloudwatchLogsParameters.timestamp");
+        if (!unknown_timestamp) return value_timestamp;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersCloudwatchLogsParameters.timestamp' is not present");
     }
 
 }

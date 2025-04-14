@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.networkmanager.inputs.LinkBandwidthArgs;
 import java.lang.String;
@@ -18,77 +19,84 @@ public final class LinkArgs extends com.pulumi.resources.PolicyResourceInput {
      * The upload speed and download speed in Mbps. Documented below.
      * 
      */
-    private UndeferrableValue<LinkBandwidthArgs> bandwidth;
-
+    @PolicyResourceProperty(name="bandwidth", flag="unknown_bandwidth")
+    private LinkBandwidthArgs value_bandwidth;
+    private boolean unknown_bandwidth;
     public LinkBandwidthArgs bandwidth() {
-        if (bandwidth == null) return null;
-        return bandwidth.getValue("LinkArgs.bandwidth");
+        if (!unknown_bandwidth) return value_bandwidth;
+        throw new UndeferrableValueException("Value 'LinkArgs.bandwidth' is not present");
     }
 
     /**
      * A description of the link.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("LinkArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'LinkArgs.description' is not present");
     }
 
     /**
      * The ID of the global network.
      * 
      */
-    private UndeferrableValue<String> globalNetworkId;
-
+    @PolicyResourceProperty(name="globalNetworkId", flag="unknown_globalNetworkId")
+    private String value_globalNetworkId;
+    private boolean unknown_globalNetworkId;
     public String globalNetworkId() {
-        if (globalNetworkId == null) return null;
-        return globalNetworkId.getValue("LinkArgs.globalNetworkId");
+        if (!unknown_globalNetworkId) return value_globalNetworkId;
+        throw new UndeferrableValueException("Value 'LinkArgs.globalNetworkId' is not present");
     }
 
     /**
      * The provider of the link.
      * 
      */
-    private UndeferrableValue<String> providerName;
-
+    @PolicyResourceProperty(name="providerName", flag="unknown_providerName")
+    private String value_providerName;
+    private boolean unknown_providerName;
     public String providerName() {
-        if (providerName == null) return null;
-        return providerName.getValue("LinkArgs.providerName");
+        if (!unknown_providerName) return value_providerName;
+        throw new UndeferrableValueException("Value 'LinkArgs.providerName' is not present");
     }
 
     /**
      * The ID of the site.
      * 
      */
-    private UndeferrableValue<String> siteId;
-
+    @PolicyResourceProperty(name="siteId", flag="unknown_siteId")
+    private String value_siteId;
+    private boolean unknown_siteId;
     public String siteId() {
-        if (siteId == null) return null;
-        return siteId.getValue("LinkArgs.siteId");
+        if (!unknown_siteId) return value_siteId;
+        throw new UndeferrableValueException("Value 'LinkArgs.siteId' is not present");
     }
 
     /**
      * Key-value tags for the link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LinkArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LinkArgs.tags' is not present");
     }
 
     /**
      * The type of the link.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("LinkArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'LinkArgs.type' is not present");
     }
 
 }

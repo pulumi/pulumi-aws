@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudwatch.inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class LogDeliveryDestinationArgs extends com.pulumi.resources.Polic
      * The AWS resource that will receive the logs.
      * 
      */
-    private UndeferrableValue<LogDeliveryDestinationDeliveryDestinationConfigurationArgs> deliveryDestinationConfiguration;
-
+    @PolicyResourceProperty(name="deliveryDestinationConfiguration", flag="unknown_deliveryDestinationConfiguration")
+    private LogDeliveryDestinationDeliveryDestinationConfigurationArgs value_deliveryDestinationConfiguration;
+    private boolean unknown_deliveryDestinationConfiguration;
     public LogDeliveryDestinationDeliveryDestinationConfigurationArgs deliveryDestinationConfiguration() {
-        if (deliveryDestinationConfiguration == null) return null;
-        return deliveryDestinationConfiguration.getValue("LogDeliveryDestinationArgs.deliveryDestinationConfiguration");
+        if (!unknown_deliveryDestinationConfiguration) return value_deliveryDestinationConfiguration;
+        throw new UndeferrableValueException("Value 'LogDeliveryDestinationArgs.deliveryDestinationConfiguration' is not present");
     }
 
     /**
      * The name for this delivery destination.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LogDeliveryDestinationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LogDeliveryDestinationArgs.name' is not present");
     }
 
     /**
      * The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
      * 
      */
-    private UndeferrableValue<String> outputFormat;
-
+    @PolicyResourceProperty(name="outputFormat", flag="unknown_outputFormat")
+    private String value_outputFormat;
+    private boolean unknown_outputFormat;
     public String outputFormat() {
-        if (outputFormat == null) return null;
-        return outputFormat.getValue("LogDeliveryDestinationArgs.outputFormat");
+        if (!unknown_outputFormat) return value_outputFormat;
+        throw new UndeferrableValueException("Value 'LogDeliveryDestinationArgs.outputFormat' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LogDeliveryDestinationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LogDeliveryDestinationArgs.tags' is not present");
     }
 
 }

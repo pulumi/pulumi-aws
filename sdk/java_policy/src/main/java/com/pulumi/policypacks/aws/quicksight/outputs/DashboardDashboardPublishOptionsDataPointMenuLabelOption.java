@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DashboardDashboardPublishOptionsDataPointMenuLabelOption {
      * Availability status. Possibles values: ENABLED, DISABLED.
      * 
      */
-    private @Nullable UndeferrableValue<String> availabilityStatus;
-
+    @PolicyResourceProperty(name="availabilityStatus", flag="unknown_availabilityStatus")
+    private @Nullable String value_availabilityStatus;
+    private boolean unknown_availabilityStatus;
     public @Nullable String availabilityStatus() {
-        if (availabilityStatus == null) return null;
-        return availabilityStatus.getValue("DashboardDashboardPublishOptionsDataPointMenuLabelOption.availabilityStatus");
+        if (!unknown_availabilityStatus) return value_availabilityStatus;
+        throw new UndeferrableValueException("Value 'DashboardDashboardPublishOptionsDataPointMenuLabelOption.availabilityStatus' is not present");
     }
 
 }

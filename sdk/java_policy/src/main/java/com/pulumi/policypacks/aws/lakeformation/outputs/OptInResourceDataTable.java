@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,40 +16,44 @@ public final class OptInResourceDataTable {
      * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    private @Nullable UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private @Nullable String value_catalogId;
+    private boolean unknown_catalogId;
     public @Nullable String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("OptInResourceDataTable.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'OptInResourceDataTable.catalogId' is not present");
     }
 
     /**
      * The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("OptInResourceDataTable.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'OptInResourceDataTable.databaseName' is not present");
     }
 
     /**
      * Name of the table.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("OptInResourceDataTable.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'OptInResourceDataTable.name' is not present");
     }
 
-    private @Nullable UndeferrableValue<Boolean> wildcard;
-
+    @PolicyResourceProperty(name="wildcard", flag="unknown_wildcard")
+    private @Nullable Boolean value_wildcard;
+    private boolean unknown_wildcard;
     public @Nullable Boolean wildcard() {
-        if (wildcard == null) return null;
-        return wildcard.getValue("OptInResourceDataTable.wildcard");
+        if (!unknown_wildcard) return value_wildcard;
+        throw new UndeferrableValueException("Value 'OptInResourceDataTable.wildcard' is not present");
     }
 
 }

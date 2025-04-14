@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.costexplorer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.costexplorer.outputs.CostCategoryRuleInheritedValue;
 import com.pulumi.policypacks.aws.costexplorer.outputs.CostCategoryRuleRule;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class CostCategoryRule {
      * Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
      * 
      */
-    private @Nullable UndeferrableValue<CostCategoryRuleInheritedValue> inheritedValue;
-
+    @PolicyResourceProperty(name="inheritedValue", flag="unknown_inheritedValue")
+    private @Nullable CostCategoryRuleInheritedValue value_inheritedValue;
+    private boolean unknown_inheritedValue;
     public @Nullable CostCategoryRuleInheritedValue inheritedValue() {
-        if (inheritedValue == null) return null;
-        return inheritedValue.getValue("CostCategoryRule.inheritedValue");
+        if (!unknown_inheritedValue) return value_inheritedValue;
+        throw new UndeferrableValueException("Value 'CostCategoryRule.inheritedValue' is not present");
     }
 
     /**
      * Configuration block for the `Expression` object used to categorize costs. See below.
      * 
      */
-    private @Nullable UndeferrableValue<CostCategoryRuleRule> rule;
-
+    @PolicyResourceProperty(name="rule", flag="unknown_rule")
+    private @Nullable CostCategoryRuleRule value_rule;
+    private boolean unknown_rule;
     public @Nullable CostCategoryRuleRule rule() {
-        if (rule == null) return null;
-        return rule.getValue("CostCategoryRule.rule");
+        if (!unknown_rule) return value_rule;
+        throw new UndeferrableValueException("Value 'CostCategoryRule.rule' is not present");
     }
 
     /**
      * You can define the CostCategoryRule rule type as either `REGULAR` or `INHERITED_VALUE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("CostCategoryRule.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'CostCategoryRule.type' is not present");
     }
 
     /**
      * Default value for the cost category.
      * 
      */
-    private @Nullable UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private @Nullable String value_value;
+    private boolean unknown_value;
     public @Nullable String value() {
-        if (value == null) return null;
-        return value.getValue("CostCategoryRule.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'CostCategoryRule.value' is not present");
     }
 
 }

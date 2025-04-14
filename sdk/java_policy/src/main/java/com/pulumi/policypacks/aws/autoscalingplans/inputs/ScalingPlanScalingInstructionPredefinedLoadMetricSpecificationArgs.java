@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscalingplans.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ScalingPlanScalingInstructionPredefinedLoadMetricSpecificatio
      * Metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
      * 
      */
-    private UndeferrableValue<String> predefinedLoadMetricType;
-
+    @PolicyResourceProperty(name="predefinedLoadMetricType", flag="unknown_predefinedLoadMetricType")
+    private String value_predefinedLoadMetricType;
+    private boolean unknown_predefinedLoadMetricType;
     public String predefinedLoadMetricType() {
-        if (predefinedLoadMetricType == null) return null;
-        return predefinedLoadMetricType.getValue("ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs.predefinedLoadMetricType");
+        if (!unknown_predefinedLoadMetricType) return value_predefinedLoadMetricType;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs.predefinedLoadMetricType' is not present");
     }
 
     /**
      * Identifies the resource associated with the metric type.
      * 
      */
-    private UndeferrableValue<String> resourceLabel;
-
+    @PolicyResourceProperty(name="resourceLabel", flag="unknown_resourceLabel")
+    private String value_resourceLabel;
+    private boolean unknown_resourceLabel;
     public String resourceLabel() {
-        if (resourceLabel == null) return null;
-        return resourceLabel.getValue("ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs.resourceLabel");
+        if (!unknown_resourceLabel) return value_resourceLabel;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs.resourceLabel' is not present");
     }
 
 }

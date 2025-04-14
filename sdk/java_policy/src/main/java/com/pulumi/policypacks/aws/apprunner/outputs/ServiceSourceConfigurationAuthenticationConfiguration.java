@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ServiceSourceConfigurationAuthenticationConfiguration {
      * ARN of the IAM role that grants the App Runner service access to a source repository. Required for ECR image repositories (but not for ECR Public)
      * 
      */
-    private @Nullable UndeferrableValue<String> accessRoleArn;
-
+    @PolicyResourceProperty(name="accessRoleArn", flag="unknown_accessRoleArn")
+    private @Nullable String value_accessRoleArn;
+    private boolean unknown_accessRoleArn;
     public @Nullable String accessRoleArn() {
-        if (accessRoleArn == null) return null;
-        return accessRoleArn.getValue("ServiceSourceConfigurationAuthenticationConfiguration.accessRoleArn");
+        if (!unknown_accessRoleArn) return value_accessRoleArn;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationAuthenticationConfiguration.accessRoleArn' is not present");
     }
 
     /**
      * ARN of the App Runner connection that enables the App Runner service to connect to a source repository. Required for GitHub code repositories.
      * 
      */
-    private @Nullable UndeferrableValue<String> connectionArn;
-
+    @PolicyResourceProperty(name="connectionArn", flag="unknown_connectionArn")
+    private @Nullable String value_connectionArn;
+    private boolean unknown_connectionArn;
     public @Nullable String connectionArn() {
-        if (connectionArn == null) return null;
-        return connectionArn.getValue("ServiceSourceConfigurationAuthenticationConfiguration.connectionArn");
+        if (!unknown_connectionArn) return value_connectionArn;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationAuthenticationConfiguration.connectionArn' is not present");
     }
 
 }

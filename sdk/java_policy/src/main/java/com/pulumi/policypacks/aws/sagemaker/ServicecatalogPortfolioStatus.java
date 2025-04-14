@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,11 +16,12 @@ public final class ServicecatalogPortfolioStatus extends com.pulumi.resources.Po
      * Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("ServicecatalogPortfolioStatus.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'ServicecatalogPortfolioStatus.status' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification;
@@ -18,55 +19,60 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
      * Whether the user can interrupt a speech prompt attempt from the bot.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> allowInterrupt;
-
+    @PolicyResourceProperty(name="allowInterrupt", flag="unknown_allowInterrupt")
+    private @Nullable Boolean value_allowInterrupt;
+    private boolean unknown_allowInterrupt;
     public @Nullable Boolean allowInterrupt() {
-        if (allowInterrupt == null) return null;
-        return allowInterrupt.getValue("V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification.allowInterrupt");
+        if (!unknown_allowInterrupt) return value_allowInterrupt;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification.allowInterrupt' is not present");
     }
 
     /**
      * Configuration block for the allowed input types of the prompt attempt. See `allowed_input_types`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes> allowedInputTypes;
-
+    @PolicyResourceProperty(name="allowedInputTypes", flag="unknown_allowedInputTypes")
+    private V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes value_allowedInputTypes;
+    private boolean unknown_allowedInputTypes;
     public V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes allowedInputTypes() {
-        if (allowedInputTypes == null) return null;
-        return allowedInputTypes.getValue("V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification.allowedInputTypes");
+        if (!unknown_allowedInputTypes) return value_allowedInputTypes;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification.allowedInputTypes' is not present");
     }
 
     /**
      * Configuration block for settings on audio and DTMF input. See `audio_and_dtmf_input_specification`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification> audioAndDtmfInputSpecification;
-
+    @PolicyResourceProperty(name="audioAndDtmfInputSpecification", flag="unknown_audioAndDtmfInputSpecification")
+    private @Nullable V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification value_audioAndDtmfInputSpecification;
+    private boolean unknown_audioAndDtmfInputSpecification;
     public @Nullable V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification audioAndDtmfInputSpecification() {
-        if (audioAndDtmfInputSpecification == null) return null;
-        return audioAndDtmfInputSpecification.getValue("V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification.audioAndDtmfInputSpecification");
+        if (!unknown_audioAndDtmfInputSpecification) return value_audioAndDtmfInputSpecification;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification.audioAndDtmfInputSpecification' is not present");
     }
 
     /**
      * Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
      * 
      */
-    private UndeferrableValue<String> mapBlockKey;
-
+    @PolicyResourceProperty(name="mapBlockKey", flag="unknown_mapBlockKey")
+    private String value_mapBlockKey;
+    private boolean unknown_mapBlockKey;
     public String mapBlockKey() {
-        if (mapBlockKey == null) return null;
-        return mapBlockKey.getValue("V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification.mapBlockKey");
+        if (!unknown_mapBlockKey) return value_mapBlockKey;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification.mapBlockKey' is not present");
     }
 
     /**
      * Configuration block for the settings on text input. See `text_input_specification`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification> textInputSpecification;
-
+    @PolicyResourceProperty(name="textInputSpecification", flag="unknown_textInputSpecification")
+    private @Nullable V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification value_textInputSpecification;
+    private boolean unknown_textInputSpecification;
     public @Nullable V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification textInputSpecification() {
-        if (textInputSpecification == null) return null;
-        return textInputSpecification.getValue("V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification.textInputSpecification");
+        if (!unknown_textInputSpecification) return value_textInputSpecification;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification.textInputSpecification' is not present");
     }
 
 }

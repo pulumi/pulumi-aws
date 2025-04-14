@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs {
      * The product-generated identifier for a related finding.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs.id' is not present");
     }
 
     /**
      * The ARN of the product that generated a related finding.
      * 
      */
-    private UndeferrableValue<String> productArn;
-
+    @PolicyResourceProperty(name="productArn", flag="unknown_productArn")
+    private String value_productArn;
+    private boolean unknown_productArn;
     public String productArn() {
-        if (productArn == null) return null;
-        return productArn.getValue("AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs.productArn");
+        if (!unknown_productArn) return value_productArn;
+        throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs.productArn' is not present");
     }
 
 }

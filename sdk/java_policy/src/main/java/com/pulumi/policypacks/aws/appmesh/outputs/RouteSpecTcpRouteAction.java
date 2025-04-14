@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.RouteSpecTcpRouteActionWeightedTarget;
 import java.util.List;
 
@@ -15,11 +16,12 @@ public final class RouteSpecTcpRouteAction {
      * You can specify one or more targets and their relative weights with which to distribute traffic.
      * 
      */
-    private UndeferrableValue<List<RouteSpecTcpRouteActionWeightedTarget>> weightedTargets;
-
+    @PolicyResourceProperty(name="weightedTargets", flag="unknown_weightedTargets")
+    private List<RouteSpecTcpRouteActionWeightedTarget> value_weightedTargets;
+    private boolean unknown_weightedTargets;
     public List<RouteSpecTcpRouteActionWeightedTarget> weightedTargets() {
-        if (weightedTargets == null) return null;
-        return weightedTargets.getValue("RouteSpecTcpRouteAction.weightedTargets");
+        if (!unknown_weightedTargets) return value_weightedTargets;
+        throw new UndeferrableValueException("Value 'RouteSpecTcpRouteAction.weightedTargets' is not present");
     }
 
 }

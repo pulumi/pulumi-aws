@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class UserHierarchyGroupArgs extends com.pulumi.resources.PolicyRes
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    private UndeferrableValue<String> instanceId;
-
+    @PolicyResourceProperty(name="instanceId", flag="unknown_instanceId")
+    private String value_instanceId;
+    private boolean unknown_instanceId;
     public String instanceId() {
-        if (instanceId == null) return null;
-        return instanceId.getValue("UserHierarchyGroupArgs.instanceId");
+        if (!unknown_instanceId) return value_instanceId;
+        throw new UndeferrableValueException("Value 'UserHierarchyGroupArgs.instanceId' is not present");
     }
 
     /**
      * The name of the user hierarchy group. Must not be more than 100 characters.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("UserHierarchyGroupArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'UserHierarchyGroupArgs.name' is not present");
     }
 
     /**
      * The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
      * 
      */
-    private UndeferrableValue<String> parentGroupId;
-
+    @PolicyResourceProperty(name="parentGroupId", flag="unknown_parentGroupId")
+    private String value_parentGroupId;
+    private boolean unknown_parentGroupId;
     public String parentGroupId() {
-        if (parentGroupId == null) return null;
-        return parentGroupId.getValue("UserHierarchyGroupArgs.parentGroupId");
+        if (!unknown_parentGroupId) return value_parentGroupId;
+        throw new UndeferrableValueException("Value 'UserHierarchyGroupArgs.parentGroupId' is not present");
     }
 
     /**
@@ -51,11 +55,12 @@ public final class UserHierarchyGroupArgs extends com.pulumi.resources.PolicyRes
      * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("UserHierarchyGroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'UserHierarchyGroupArgs.tags' is not present");
     }
 
 }

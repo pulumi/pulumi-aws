@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,44 +18,48 @@ public final class StudioLifecycleConfigArgs extends com.pulumi.resources.Policy
      * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
      * 
      */
-    private UndeferrableValue<String> studioLifecycleConfigAppType;
-
+    @PolicyResourceProperty(name="studioLifecycleConfigAppType", flag="unknown_studioLifecycleConfigAppType")
+    private String value_studioLifecycleConfigAppType;
+    private boolean unknown_studioLifecycleConfigAppType;
     public String studioLifecycleConfigAppType() {
-        if (studioLifecycleConfigAppType == null) return null;
-        return studioLifecycleConfigAppType.getValue("StudioLifecycleConfigArgs.studioLifecycleConfigAppType");
+        if (!unknown_studioLifecycleConfigAppType) return value_studioLifecycleConfigAppType;
+        throw new UndeferrableValueException("Value 'StudioLifecycleConfigArgs.studioLifecycleConfigAppType' is not present");
     }
 
     /**
      * The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
      * 
      */
-    private UndeferrableValue<String> studioLifecycleConfigContent;
-
+    @PolicyResourceProperty(name="studioLifecycleConfigContent", flag="unknown_studioLifecycleConfigContent")
+    private String value_studioLifecycleConfigContent;
+    private boolean unknown_studioLifecycleConfigContent;
     public String studioLifecycleConfigContent() {
-        if (studioLifecycleConfigContent == null) return null;
-        return studioLifecycleConfigContent.getValue("StudioLifecycleConfigArgs.studioLifecycleConfigContent");
+        if (!unknown_studioLifecycleConfigContent) return value_studioLifecycleConfigContent;
+        throw new UndeferrableValueException("Value 'StudioLifecycleConfigArgs.studioLifecycleConfigContent' is not present");
     }
 
     /**
      * The name of the Studio Lifecycle Configuration to create.
      * 
      */
-    private UndeferrableValue<String> studioLifecycleConfigName;
-
+    @PolicyResourceProperty(name="studioLifecycleConfigName", flag="unknown_studioLifecycleConfigName")
+    private String value_studioLifecycleConfigName;
+    private boolean unknown_studioLifecycleConfigName;
     public String studioLifecycleConfigName() {
-        if (studioLifecycleConfigName == null) return null;
-        return studioLifecycleConfigName.getValue("StudioLifecycleConfigArgs.studioLifecycleConfigName");
+        if (!unknown_studioLifecycleConfigName) return value_studioLifecycleConfigName;
+        throw new UndeferrableValueException("Value 'StudioLifecycleConfigArgs.studioLifecycleConfigName' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("StudioLifecycleConfigArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'StudioLifecycleConfigArgs.tags' is not present");
     }
 
 }

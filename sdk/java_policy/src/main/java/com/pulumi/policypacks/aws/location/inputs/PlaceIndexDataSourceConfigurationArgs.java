@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.location.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class PlaceIndexDataSourceConfigurationArgs {
      * Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
      * 
      */
-    private UndeferrableValue<String> intendedUse;
-
+    @PolicyResourceProperty(name="intendedUse", flag="unknown_intendedUse")
+    private String value_intendedUse;
+    private boolean unknown_intendedUse;
     public String intendedUse() {
-        if (intendedUse == null) return null;
-        return intendedUse.getValue("PlaceIndexDataSourceConfigurationArgs.intendedUse");
+        if (!unknown_intendedUse) return value_intendedUse;
+        throw new UndeferrableValueException("Value 'PlaceIndexDataSourceConfigurationArgs.intendedUse' is not present");
     }
 
 }

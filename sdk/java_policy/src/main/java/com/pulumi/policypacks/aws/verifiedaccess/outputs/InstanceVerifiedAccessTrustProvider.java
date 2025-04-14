@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,55 +15,60 @@ public final class InstanceVerifiedAccessTrustProvider {
      * A description for the AWS Verified Access Instance.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("InstanceVerifiedAccessTrustProvider.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'InstanceVerifiedAccessTrustProvider.description' is not present");
     }
 
     /**
      * The type of device-based trust provider.
      * 
      */
-    private @Nullable UndeferrableValue<String> deviceTrustProviderType;
-
+    @PolicyResourceProperty(name="deviceTrustProviderType", flag="unknown_deviceTrustProviderType")
+    private @Nullable String value_deviceTrustProviderType;
+    private boolean unknown_deviceTrustProviderType;
     public @Nullable String deviceTrustProviderType() {
-        if (deviceTrustProviderType == null) return null;
-        return deviceTrustProviderType.getValue("InstanceVerifiedAccessTrustProvider.deviceTrustProviderType");
+        if (!unknown_deviceTrustProviderType) return value_deviceTrustProviderType;
+        throw new UndeferrableValueException("Value 'InstanceVerifiedAccessTrustProvider.deviceTrustProviderType' is not present");
     }
 
     /**
      * The type of trust provider (user- or device-based).
      * 
      */
-    private @Nullable UndeferrableValue<String> trustProviderType;
-
+    @PolicyResourceProperty(name="trustProviderType", flag="unknown_trustProviderType")
+    private @Nullable String value_trustProviderType;
+    private boolean unknown_trustProviderType;
     public @Nullable String trustProviderType() {
-        if (trustProviderType == null) return null;
-        return trustProviderType.getValue("InstanceVerifiedAccessTrustProvider.trustProviderType");
+        if (!unknown_trustProviderType) return value_trustProviderType;
+        throw new UndeferrableValueException("Value 'InstanceVerifiedAccessTrustProvider.trustProviderType' is not present");
     }
 
     /**
      * The type of user-based trust provider.
      * 
      */
-    private @Nullable UndeferrableValue<String> userTrustProviderType;
-
+    @PolicyResourceProperty(name="userTrustProviderType", flag="unknown_userTrustProviderType")
+    private @Nullable String value_userTrustProviderType;
+    private boolean unknown_userTrustProviderType;
     public @Nullable String userTrustProviderType() {
-        if (userTrustProviderType == null) return null;
-        return userTrustProviderType.getValue("InstanceVerifiedAccessTrustProvider.userTrustProviderType");
+        if (!unknown_userTrustProviderType) return value_userTrustProviderType;
+        throw new UndeferrableValueException("Value 'InstanceVerifiedAccessTrustProvider.userTrustProviderType' is not present");
     }
 
     /**
      * The ID of the trust provider.
      * 
      */
-    private @Nullable UndeferrableValue<String> verifiedAccessTrustProviderId;
-
+    @PolicyResourceProperty(name="verifiedAccessTrustProviderId", flag="unknown_verifiedAccessTrustProviderId")
+    private @Nullable String value_verifiedAccessTrustProviderId;
+    private boolean unknown_verifiedAccessTrustProviderId;
     public @Nullable String verifiedAccessTrustProviderId() {
-        if (verifiedAccessTrustProviderId == null) return null;
-        return verifiedAccessTrustProviderId.getValue("InstanceVerifiedAccessTrustProvider.verifiedAccessTrustProviderId");
+        if (!unknown_verifiedAccessTrustProviderId) return value_verifiedAccessTrustProviderId;
+        throw new UndeferrableValueException("Value 'InstanceVerifiedAccessTrustProvider.verifiedAccessTrustProviderId' is not present");
     }
 
 }

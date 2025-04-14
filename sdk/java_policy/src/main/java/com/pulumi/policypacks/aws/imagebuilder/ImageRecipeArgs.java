@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.imagebuilder.inputs.ImageRecipeBlockDeviceMappingArgs;
 import com.pulumi.policypacks.aws.imagebuilder.inputs.ImageRecipeComponentArgs;
@@ -21,88 +22,96 @@ public final class ImageRecipeArgs extends com.pulumi.resources.PolicyResourceIn
      * Configuration block(s) with block device mappings for the image recipe. Detailed below.
      * 
      */
-    private UndeferrableValue<List<ImageRecipeBlockDeviceMappingArgs>> blockDeviceMappings;
-
+    @PolicyResourceProperty(name="blockDeviceMappings", flag="unknown_blockDeviceMappings")
+    private List<ImageRecipeBlockDeviceMappingArgs> value_blockDeviceMappings;
+    private boolean unknown_blockDeviceMappings;
     public List<ImageRecipeBlockDeviceMappingArgs> blockDeviceMappings() {
-        if (blockDeviceMappings == null) return null;
-        return blockDeviceMappings.getValue("ImageRecipeArgs.blockDeviceMappings");
+        if (!unknown_blockDeviceMappings) return value_blockDeviceMappings;
+        throw new UndeferrableValueException("Value 'ImageRecipeArgs.blockDeviceMappings' is not present");
     }
 
     /**
      * Ordered configuration block(s) with components for the image recipe. Detailed below.
      * 
      */
-    private UndeferrableValue<List<ImageRecipeComponentArgs>> components;
-
+    @PolicyResourceProperty(name="components", flag="unknown_components")
+    private List<ImageRecipeComponentArgs> value_components;
+    private boolean unknown_components;
     public List<ImageRecipeComponentArgs> components() {
-        if (components == null) return null;
-        return components.getValue("ImageRecipeArgs.components");
+        if (!unknown_components) return value_components;
+        throw new UndeferrableValueException("Value 'ImageRecipeArgs.components' is not present");
     }
 
     /**
      * Description of the image recipe.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ImageRecipeArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ImageRecipeArgs.description' is not present");
     }
 
     /**
      * Name of the image recipe.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ImageRecipeArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ImageRecipeArgs.name' is not present");
     }
 
     /**
      * The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
      * 
      */
-    private UndeferrableValue<String> parentImage;
-
+    @PolicyResourceProperty(name="parentImage", flag="unknown_parentImage")
+    private String value_parentImage;
+    private boolean unknown_parentImage;
     public String parentImage() {
-        if (parentImage == null) return null;
-        return parentImage.getValue("ImageRecipeArgs.parentImage");
+        if (!unknown_parentImage) return value_parentImage;
+        throw new UndeferrableValueException("Value 'ImageRecipeArgs.parentImage' is not present");
     }
 
     /**
      * Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
      * 
      */
-    private UndeferrableValue<ImageRecipeSystemsManagerAgentArgs> systemsManagerAgent;
-
+    @PolicyResourceProperty(name="systemsManagerAgent", flag="unknown_systemsManagerAgent")
+    private ImageRecipeSystemsManagerAgentArgs value_systemsManagerAgent;
+    private boolean unknown_systemsManagerAgent;
     public ImageRecipeSystemsManagerAgentArgs systemsManagerAgent() {
-        if (systemsManagerAgent == null) return null;
-        return systemsManagerAgent.getValue("ImageRecipeArgs.systemsManagerAgent");
+        if (!unknown_systemsManagerAgent) return value_systemsManagerAgent;
+        throw new UndeferrableValueException("Value 'ImageRecipeArgs.systemsManagerAgent' is not present");
     }
 
     /**
      * Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ImageRecipeArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ImageRecipeArgs.tags' is not present");
     }
 
     /**
      * Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
      * 
      */
-    private UndeferrableValue<String> userDataBase64;
-
+    @PolicyResourceProperty(name="userDataBase64", flag="unknown_userDataBase64")
+    private String value_userDataBase64;
+    private boolean unknown_userDataBase64;
     public String userDataBase64() {
-        if (userDataBase64 == null) return null;
-        return userDataBase64.getValue("ImageRecipeArgs.userDataBase64");
+        if (!unknown_userDataBase64) return value_userDataBase64;
+        throw new UndeferrableValueException("Value 'ImageRecipeArgs.userDataBase64' is not present");
     }
 
     /**
@@ -111,22 +120,24 @@ public final class ImageRecipeArgs extends com.pulumi.resources.PolicyResourceIn
      * The following attributes are optional:
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("ImageRecipeArgs.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'ImageRecipeArgs.version' is not present");
     }
 
     /**
      * The working directory to be used during build and test workflows.
      * 
      */
-    private UndeferrableValue<String> workingDirectory;
-
+    @PolicyResourceProperty(name="workingDirectory", flag="unknown_workingDirectory")
+    private String value_workingDirectory;
+    private boolean unknown_workingDirectory;
     public String workingDirectory() {
-        if (workingDirectory == null) return null;
-        return workingDirectory.getValue("ImageRecipeArgs.workingDirectory");
+        if (!unknown_workingDirectory) return value_workingDirectory;
+        throw new UndeferrableValueException("Value 'ImageRecipeArgs.workingDirectory' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,55 +20,60 @@ public final class VpcIpamPoolArgs extends com.pulumi.resources.PolicyResourceIn
      * The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
      * 
      */
-    private UndeferrableValue<String> addressFamily;
-
+    @PolicyResourceProperty(name="addressFamily", flag="unknown_addressFamily")
+    private String value_addressFamily;
+    private boolean unknown_addressFamily;
     public String addressFamily() {
-        if (addressFamily == null) return null;
-        return addressFamily.getValue("VpcIpamPoolArgs.addressFamily");
+        if (!unknown_addressFamily) return value_addressFamily;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolArgs.addressFamily' is not present");
     }
 
     /**
      * A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
      * 
      */
-    private UndeferrableValue<Integer> allocationDefaultNetmaskLength;
-
+    @PolicyResourceProperty(name="allocationDefaultNetmaskLength", flag="unknown_allocationDefaultNetmaskLength")
+    private Integer value_allocationDefaultNetmaskLength;
+    private boolean unknown_allocationDefaultNetmaskLength;
     public Integer allocationDefaultNetmaskLength() {
-        if (allocationDefaultNetmaskLength == null) return null;
-        return allocationDefaultNetmaskLength.getValue("VpcIpamPoolArgs.allocationDefaultNetmaskLength");
+        if (!unknown_allocationDefaultNetmaskLength) return value_allocationDefaultNetmaskLength;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolArgs.allocationDefaultNetmaskLength' is not present");
     }
 
     /**
      * The maximum netmask length that will be required for CIDR allocations in this pool.
      * 
      */
-    private UndeferrableValue<Integer> allocationMaxNetmaskLength;
-
+    @PolicyResourceProperty(name="allocationMaxNetmaskLength", flag="unknown_allocationMaxNetmaskLength")
+    private Integer value_allocationMaxNetmaskLength;
+    private boolean unknown_allocationMaxNetmaskLength;
     public Integer allocationMaxNetmaskLength() {
-        if (allocationMaxNetmaskLength == null) return null;
-        return allocationMaxNetmaskLength.getValue("VpcIpamPoolArgs.allocationMaxNetmaskLength");
+        if (!unknown_allocationMaxNetmaskLength) return value_allocationMaxNetmaskLength;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolArgs.allocationMaxNetmaskLength' is not present");
     }
 
     /**
      * The minimum netmask length that will be required for CIDR allocations in this pool.
      * 
      */
-    private UndeferrableValue<Integer> allocationMinNetmaskLength;
-
+    @PolicyResourceProperty(name="allocationMinNetmaskLength", flag="unknown_allocationMinNetmaskLength")
+    private Integer value_allocationMinNetmaskLength;
+    private boolean unknown_allocationMinNetmaskLength;
     public Integer allocationMinNetmaskLength() {
-        if (allocationMinNetmaskLength == null) return null;
-        return allocationMinNetmaskLength.getValue("VpcIpamPoolArgs.allocationMinNetmaskLength");
+        if (!unknown_allocationMinNetmaskLength) return value_allocationMinNetmaskLength;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolArgs.allocationMinNetmaskLength' is not present");
     }
 
     /**
      * Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
      * 
      */
-    private UndeferrableValue<Map<String,String>> allocationResourceTags;
-
+    @PolicyResourceProperty(name="allocationResourceTags", flag="unknown_allocationResourceTags")
+    private Map<String,String> value_allocationResourceTags;
+    private boolean unknown_allocationResourceTags;
     public Map<String,String> allocationResourceTags() {
-        if (allocationResourceTags == null) return null;
-        return allocationResourceTags.getValue("VpcIpamPoolArgs.allocationResourceTags");
+        if (!unknown_allocationResourceTags) return value_allocationResourceTags;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolArgs.allocationResourceTags' is not present");
     }
 
     /**
@@ -75,110 +81,120 @@ public final class VpcIpamPoolArgs extends com.pulumi.resources.PolicyResourceIn
      * within the CIDR range in the pool.
      * 
      */
-    private UndeferrableValue<Boolean> autoImport;
-
+    @PolicyResourceProperty(name="autoImport", flag="unknown_autoImport")
+    private Boolean value_autoImport;
+    private boolean unknown_autoImport;
     public Boolean autoImport() {
-        if (autoImport == null) return null;
-        return autoImport.getValue("VpcIpamPoolArgs.autoImport");
+        if (!unknown_autoImport) return value_autoImport;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolArgs.autoImport' is not present");
     }
 
     /**
      * Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
      * 
      */
-    private UndeferrableValue<String> awsService;
-
+    @PolicyResourceProperty(name="awsService", flag="unknown_awsService")
+    private String value_awsService;
+    private boolean unknown_awsService;
     public String awsService() {
-        if (awsService == null) return null;
-        return awsService.getValue("VpcIpamPoolArgs.awsService");
+        if (!unknown_awsService) return value_awsService;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolArgs.awsService' is not present");
     }
 
     /**
      * Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
      * 
      */
-    private UndeferrableValue<Boolean> cascade;
-
+    @PolicyResourceProperty(name="cascade", flag="unknown_cascade")
+    private Boolean value_cascade;
+    private boolean unknown_cascade;
     public Boolean cascade() {
-        if (cascade == null) return null;
-        return cascade.getValue("VpcIpamPoolArgs.cascade");
+        if (!unknown_cascade) return value_cascade;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolArgs.cascade' is not present");
     }
 
     /**
      * A description for the IPAM pool.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("VpcIpamPoolArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolArgs.description' is not present");
     }
 
     /**
      * The ID of the scope in which you would like to create the IPAM pool.
      * 
      */
-    private UndeferrableValue<String> ipamScopeId;
-
+    @PolicyResourceProperty(name="ipamScopeId", flag="unknown_ipamScopeId")
+    private String value_ipamScopeId;
+    private boolean unknown_ipamScopeId;
     public String ipamScopeId() {
-        if (ipamScopeId == null) return null;
-        return ipamScopeId.getValue("VpcIpamPoolArgs.ipamScopeId");
+        if (!unknown_ipamScopeId) return value_ipamScopeId;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolArgs.ipamScopeId' is not present");
     }
 
     /**
      * The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. Possible values: Any AWS region, such as `us-east-1`.
      * 
      */
-    private UndeferrableValue<String> locale;
-
+    @PolicyResourceProperty(name="locale", flag="unknown_locale")
+    private String value_locale;
+    private boolean unknown_locale;
     public String locale() {
-        if (locale == null) return null;
-        return locale.getValue("VpcIpamPoolArgs.locale");
+        if (!unknown_locale) return value_locale;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolArgs.locale' is not present");
     }
 
     /**
      * The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
      * 
      */
-    private UndeferrableValue<String> publicIpSource;
-
+    @PolicyResourceProperty(name="publicIpSource", flag="unknown_publicIpSource")
+    private String value_publicIpSource;
+    private boolean unknown_publicIpSource;
     public String publicIpSource() {
-        if (publicIpSource == null) return null;
-        return publicIpSource.getValue("VpcIpamPoolArgs.publicIpSource");
+        if (!unknown_publicIpSource) return value_publicIpSource;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolArgs.publicIpSource' is not present");
     }
 
     /**
      * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `address_family = &#34;ipv6&#34;` and `public_ip_source = &#34;byoip&#34;`, default is `false`. This option is not available for IPv4 pool space or if `public_ip_source = &#34;amazon&#34;`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
      * 
      */
-    private UndeferrableValue<Boolean> publiclyAdvertisable;
-
+    @PolicyResourceProperty(name="publiclyAdvertisable", flag="unknown_publiclyAdvertisable")
+    private Boolean value_publiclyAdvertisable;
+    private boolean unknown_publiclyAdvertisable;
     public Boolean publiclyAdvertisable() {
-        if (publiclyAdvertisable == null) return null;
-        return publiclyAdvertisable.getValue("VpcIpamPoolArgs.publiclyAdvertisable");
+        if (!unknown_publiclyAdvertisable) return value_publiclyAdvertisable;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolArgs.publiclyAdvertisable' is not present");
     }
 
     /**
      * The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
      * 
      */
-    private UndeferrableValue<String> sourceIpamPoolId;
-
+    @PolicyResourceProperty(name="sourceIpamPoolId", flag="unknown_sourceIpamPoolId")
+    private String value_sourceIpamPoolId;
+    private boolean unknown_sourceIpamPoolId;
     public String sourceIpamPoolId() {
-        if (sourceIpamPoolId == null) return null;
-        return sourceIpamPoolId.getValue("VpcIpamPoolArgs.sourceIpamPoolId");
+        if (!unknown_sourceIpamPoolId) return value_sourceIpamPoolId;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolArgs.sourceIpamPoolId' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VpcIpamPoolArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolArgs.tags' is not present");
     }
 
 }

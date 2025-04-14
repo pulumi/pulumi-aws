@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.imagebuilder.outputs.LifecyclePolicyResourceSelectionRecipe;
 import java.lang.String;
 import java.util.List;
@@ -17,22 +18,24 @@ public final class LifecyclePolicyResourceSelection {
      * A list of recipe that are used as selection criteria for the output images that the lifecycle policy applies to. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<LifecyclePolicyResourceSelectionRecipe>> recipes;
-
+    @PolicyResourceProperty(name="recipes", flag="unknown_recipes")
+    private @Nullable List<LifecyclePolicyResourceSelectionRecipe> value_recipes;
+    private boolean unknown_recipes;
     public @Nullable List<LifecyclePolicyResourceSelectionRecipe> recipes() {
-        if (recipes == null) return null;
-        return recipes.getValue("LifecyclePolicyResourceSelection.recipes");
+        if (!unknown_recipes) return value_recipes;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyResourceSelection.recipes' is not present");
     }
 
     /**
      * A list of tags that are used as selection criteria for the Image Builder image resources that the lifecycle policy applies to.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tagMap;
-
+    @PolicyResourceProperty(name="tagMap", flag="unknown_tagMap")
+    private @Nullable Map<String,String> value_tagMap;
+    private boolean unknown_tagMap;
     public @Nullable Map<String,String> tagMap() {
-        if (tagMap == null) return null;
-        return tagMap.getValue("LifecyclePolicyResourceSelection.tagMap");
+        if (!unknown_tagMap) return value_tagMap;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyResourceSelection.tagMap' is not present");
     }
 
 }

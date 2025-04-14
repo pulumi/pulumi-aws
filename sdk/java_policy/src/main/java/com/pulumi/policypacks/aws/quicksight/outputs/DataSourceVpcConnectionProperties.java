@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class DataSourceVpcConnectionProperties {
      * The Amazon Resource Name (ARN) for the VPC connection.
      * 
      */
-    private UndeferrableValue<String> vpcConnectionArn;
-
+    @PolicyResourceProperty(name="vpcConnectionArn", flag="unknown_vpcConnectionArn")
+    private String value_vpcConnectionArn;
+    private boolean unknown_vpcConnectionArn;
     public String vpcConnectionArn() {
-        if (vpcConnectionArn == null) return null;
-        return vpcConnectionArn.getValue("DataSourceVpcConnectionProperties.vpcConnectionArn");
+        if (!unknown_vpcConnectionArn) return value_vpcConnectionArn;
+        throw new UndeferrableValueException("Value 'DataSourceVpcConnectionProperties.vpcConnectionArn' is not present");
     }
 
 }

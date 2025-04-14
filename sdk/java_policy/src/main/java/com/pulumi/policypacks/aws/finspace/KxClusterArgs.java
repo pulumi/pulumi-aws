@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.finspace;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.finspace.inputs.KxClusterAutoScalingConfigurationArgs;
 import com.pulumi.policypacks.aws.finspace.inputs.KxClusterCacheStorageConfigurationArgs;
@@ -27,22 +28,24 @@ public final class KxClusterArgs extends com.pulumi.resources.PolicyResourceInpu
      * Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
      * 
      */
-    private UndeferrableValue<KxClusterAutoScalingConfigurationArgs> autoScalingConfiguration;
-
+    @PolicyResourceProperty(name="autoScalingConfiguration", flag="unknown_autoScalingConfiguration")
+    private KxClusterAutoScalingConfigurationArgs value_autoScalingConfiguration;
+    private boolean unknown_autoScalingConfiguration;
     public KxClusterAutoScalingConfigurationArgs autoScalingConfiguration() {
-        if (autoScalingConfiguration == null) return null;
-        return autoScalingConfiguration.getValue("KxClusterArgs.autoScalingConfiguration");
+        if (!unknown_autoScalingConfiguration) return value_autoScalingConfiguration;
+        throw new UndeferrableValueException("Value 'KxClusterArgs.autoScalingConfiguration' is not present");
     }
 
     /**
      * The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
      * 
      */
-    private UndeferrableValue<String> availabilityZoneId;
-
+    @PolicyResourceProperty(name="availabilityZoneId", flag="unknown_availabilityZoneId")
+    private String value_availabilityZoneId;
+    private boolean unknown_availabilityZoneId;
     public String availabilityZoneId() {
-        if (availabilityZoneId == null) return null;
-        return availabilityZoneId.getValue("KxClusterArgs.availabilityZoneId");
+        if (!unknown_availabilityZoneId) return value_availabilityZoneId;
+        throw new UndeferrableValueException("Value 'KxClusterArgs.availabilityZoneId' is not present");
     }
 
     /**
@@ -51,176 +54,192 @@ public final class KxClusterArgs extends com.pulumi.resources.PolicyResourceInpu
      * * MULTI - Assigns all the availability zones per cluster.
      * 
      */
-    private UndeferrableValue<String> azMode;
-
+    @PolicyResourceProperty(name="azMode", flag="unknown_azMode")
+    private String value_azMode;
+    private boolean unknown_azMode;
     public String azMode() {
-        if (azMode == null) return null;
-        return azMode.getValue("KxClusterArgs.azMode");
+        if (!unknown_azMode) return value_azMode;
+        throw new UndeferrableValueException("Value 'KxClusterArgs.azMode' is not present");
     }
 
     /**
      * Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
      * 
      */
-    private UndeferrableValue<List<KxClusterCacheStorageConfigurationArgs>> cacheStorageConfigurations;
-
+    @PolicyResourceProperty(name="cacheStorageConfigurations", flag="unknown_cacheStorageConfigurations")
+    private List<KxClusterCacheStorageConfigurationArgs> value_cacheStorageConfigurations;
+    private boolean unknown_cacheStorageConfigurations;
     public List<KxClusterCacheStorageConfigurationArgs> cacheStorageConfigurations() {
-        if (cacheStorageConfigurations == null) return null;
-        return cacheStorageConfigurations.getValue("KxClusterArgs.cacheStorageConfigurations");
+        if (!unknown_cacheStorageConfigurations) return value_cacheStorageConfigurations;
+        throw new UndeferrableValueException("Value 'KxClusterArgs.cacheStorageConfigurations' is not present");
     }
 
     /**
      * Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
      * 
      */
-    private UndeferrableValue<KxClusterCapacityConfigurationArgs> capacityConfiguration;
-
+    @PolicyResourceProperty(name="capacityConfiguration", flag="unknown_capacityConfiguration")
+    private KxClusterCapacityConfigurationArgs value_capacityConfiguration;
+    private boolean unknown_capacityConfiguration;
     public KxClusterCapacityConfigurationArgs capacityConfiguration() {
-        if (capacityConfiguration == null) return null;
-        return capacityConfiguration.getValue("KxClusterArgs.capacityConfiguration");
+        if (!unknown_capacityConfiguration) return value_capacityConfiguration;
+        throw new UndeferrableValueException("Value 'KxClusterArgs.capacityConfiguration' is not present");
     }
 
     /**
      * Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
      * 
      */
-    private UndeferrableValue<KxClusterCodeArgs> code;
-
+    @PolicyResourceProperty(name="code", flag="unknown_code")
+    private KxClusterCodeArgs value_code;
+    private boolean unknown_code;
     public KxClusterCodeArgs code() {
-        if (code == null) return null;
-        return code.getValue("KxClusterArgs.code");
+        if (!unknown_code) return value_code;
+        throw new UndeferrableValueException("Value 'KxClusterArgs.code' is not present");
     }
 
     /**
      * List of key-value pairs to make available inside the cluster.
      * 
      */
-    private UndeferrableValue<Map<String,String>> commandLineArguments;
-
+    @PolicyResourceProperty(name="commandLineArguments", flag="unknown_commandLineArguments")
+    private Map<String,String> value_commandLineArguments;
+    private boolean unknown_commandLineArguments;
     public Map<String,String> commandLineArguments() {
-        if (commandLineArguments == null) return null;
-        return commandLineArguments.getValue("KxClusterArgs.commandLineArguments");
+        if (!unknown_commandLineArguments) return value_commandLineArguments;
+        throw new UndeferrableValueException("Value 'KxClusterArgs.commandLineArguments' is not present");
     }
 
     /**
      * KX database that will be available for querying. Defined below.
      * 
      */
-    private UndeferrableValue<List<KxClusterDatabaseArgs>> databases;
-
+    @PolicyResourceProperty(name="databases", flag="unknown_databases")
+    private List<KxClusterDatabaseArgs> value_databases;
+    private boolean unknown_databases;
     public List<KxClusterDatabaseArgs> databases() {
-        if (databases == null) return null;
-        return databases.getValue("KxClusterArgs.databases");
+        if (!unknown_databases) return value_databases;
+        throw new UndeferrableValueException("Value 'KxClusterArgs.databases' is not present");
     }
 
     /**
      * Description of the cluster.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("KxClusterArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'KxClusterArgs.description' is not present");
     }
 
     /**
      * Unique identifier for the KX environment.
      * 
      */
-    private UndeferrableValue<String> environmentId;
-
+    @PolicyResourceProperty(name="environmentId", flag="unknown_environmentId")
+    private String value_environmentId;
+    private boolean unknown_environmentId;
     public String environmentId() {
-        if (environmentId == null) return null;
-        return environmentId.getValue("KxClusterArgs.environmentId");
+        if (!unknown_environmentId) return value_environmentId;
+        throw new UndeferrableValueException("Value 'KxClusterArgs.environmentId' is not present");
     }
 
     /**
      * An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
      * 
      */
-    private UndeferrableValue<String> executionRole;
-
+    @PolicyResourceProperty(name="executionRole", flag="unknown_executionRole")
+    private String value_executionRole;
+    private boolean unknown_executionRole;
     public String executionRole() {
-        if (executionRole == null) return null;
-        return executionRole.getValue("KxClusterArgs.executionRole");
+        if (!unknown_executionRole) return value_executionRole;
+        throw new UndeferrableValueException("Value 'KxClusterArgs.executionRole' is not present");
     }
 
     /**
      * Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
      * 
      */
-    private UndeferrableValue<String> initializationScript;
-
+    @PolicyResourceProperty(name="initializationScript", flag="unknown_initializationScript")
+    private String value_initializationScript;
+    private boolean unknown_initializationScript;
     public String initializationScript() {
-        if (initializationScript == null) return null;
-        return initializationScript.getValue("KxClusterArgs.initializationScript");
+        if (!unknown_initializationScript) return value_initializationScript;
+        throw new UndeferrableValueException("Value 'KxClusterArgs.initializationScript' is not present");
     }
 
     /**
      * Unique name for the cluster that you want to create.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("KxClusterArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'KxClusterArgs.name' is not present");
     }
 
     /**
      * Version of FinSpace Managed kdb to run.
      * 
      */
-    private UndeferrableValue<String> releaseLabel;
-
+    @PolicyResourceProperty(name="releaseLabel", flag="unknown_releaseLabel")
+    private String value_releaseLabel;
+    private boolean unknown_releaseLabel;
     public String releaseLabel() {
-        if (releaseLabel == null) return null;
-        return releaseLabel.getValue("KxClusterArgs.releaseLabel");
+        if (!unknown_releaseLabel) return value_releaseLabel;
+        throw new UndeferrableValueException("Value 'KxClusterArgs.releaseLabel' is not present");
     }
 
     /**
      * Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
      * 
      */
-    private UndeferrableValue<KxClusterSavedownStorageConfigurationArgs> savedownStorageConfiguration;
-
+    @PolicyResourceProperty(name="savedownStorageConfiguration", flag="unknown_savedownStorageConfiguration")
+    private KxClusterSavedownStorageConfigurationArgs value_savedownStorageConfiguration;
+    private boolean unknown_savedownStorageConfiguration;
     public KxClusterSavedownStorageConfigurationArgs savedownStorageConfiguration() {
-        if (savedownStorageConfiguration == null) return null;
-        return savedownStorageConfiguration.getValue("KxClusterArgs.savedownStorageConfiguration");
+        if (!unknown_savedownStorageConfiguration) return value_savedownStorageConfiguration;
+        throw new UndeferrableValueException("Value 'KxClusterArgs.savedownStorageConfiguration' is not present");
     }
 
     /**
      * The structure that stores the configuration details of a scaling group.
      * 
      */
-    private UndeferrableValue<KxClusterScalingGroupConfigurationArgs> scalingGroupConfiguration;
-
+    @PolicyResourceProperty(name="scalingGroupConfiguration", flag="unknown_scalingGroupConfiguration")
+    private KxClusterScalingGroupConfigurationArgs value_scalingGroupConfiguration;
+    private boolean unknown_scalingGroupConfiguration;
     public KxClusterScalingGroupConfigurationArgs scalingGroupConfiguration() {
-        if (scalingGroupConfiguration == null) return null;
-        return scalingGroupConfiguration.getValue("KxClusterArgs.scalingGroupConfiguration");
+        if (!unknown_scalingGroupConfiguration) return value_scalingGroupConfiguration;
+        throw new UndeferrableValueException("Value 'KxClusterArgs.scalingGroupConfiguration' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("KxClusterArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'KxClusterArgs.tags' is not present");
     }
 
     /**
      * A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
      * 
      */
-    private UndeferrableValue<List<KxClusterTickerplantLogConfigurationArgs>> tickerplantLogConfigurations;
-
+    @PolicyResourceProperty(name="tickerplantLogConfigurations", flag="unknown_tickerplantLogConfigurations")
+    private List<KxClusterTickerplantLogConfigurationArgs> value_tickerplantLogConfigurations;
+    private boolean unknown_tickerplantLogConfigurations;
     public List<KxClusterTickerplantLogConfigurationArgs> tickerplantLogConfigurations() {
-        if (tickerplantLogConfigurations == null) return null;
-        return tickerplantLogConfigurations.getValue("KxClusterArgs.tickerplantLogConfigurations");
+        if (!unknown_tickerplantLogConfigurations) return value_tickerplantLogConfigurations;
+        throw new UndeferrableValueException("Value 'KxClusterArgs.tickerplantLogConfigurations' is not present");
     }
 
     /**
@@ -232,11 +251,12 @@ public final class KxClusterArgs extends com.pulumi.resources.PolicyResourceInpu
      * * Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("KxClusterArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'KxClusterArgs.type' is not present");
     }
 
     /**
@@ -245,11 +265,12 @@ public final class KxClusterArgs extends com.pulumi.resources.PolicyResourceInpu
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<KxClusterVpcConfigurationArgs> vpcConfiguration;
-
+    @PolicyResourceProperty(name="vpcConfiguration", flag="unknown_vpcConfiguration")
+    private KxClusterVpcConfigurationArgs value_vpcConfiguration;
+    private boolean unknown_vpcConfiguration;
     public KxClusterVpcConfigurationArgs vpcConfiguration() {
-        if (vpcConfiguration == null) return null;
-        return vpcConfiguration.getValue("KxClusterArgs.vpcConfiguration");
+        if (!unknown_vpcConfiguration) return value_vpcConfiguration;
+        throw new UndeferrableValueException("Value 'KxClusterArgs.vpcConfiguration' is not present");
     }
 
 }

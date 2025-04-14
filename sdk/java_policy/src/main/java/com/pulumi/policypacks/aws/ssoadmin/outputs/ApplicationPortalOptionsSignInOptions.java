@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssoadmin.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ApplicationPortalOptionsSignInOptions {
      * URL that accepts authentication requests for an application.
      * 
      */
-    private @Nullable UndeferrableValue<String> applicationUrl;
-
+    @PolicyResourceProperty(name="applicationUrl", flag="unknown_applicationUrl")
+    private @Nullable String value_applicationUrl;
+    private boolean unknown_applicationUrl;
     public @Nullable String applicationUrl() {
-        if (applicationUrl == null) return null;
-        return applicationUrl.getValue("ApplicationPortalOptionsSignInOptions.applicationUrl");
+        if (!unknown_applicationUrl) return value_applicationUrl;
+        throw new UndeferrableValueException("Value 'ApplicationPortalOptionsSignInOptions.applicationUrl' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class ApplicationPortalOptionsSignInOptions {
      * If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
      * 
      */
-    private UndeferrableValue<String> origin;
-
+    @PolicyResourceProperty(name="origin", flag="unknown_origin")
+    private String value_origin;
+    private boolean unknown_origin;
     public String origin() {
-        if (origin == null) return null;
-        return origin.getValue("ApplicationPortalOptionsSignInOptions.origin");
+        if (!unknown_origin) return value_origin;
+        throw new UndeferrableValueException("Value 'ApplicationPortalOptionsSignInOptions.origin' is not present");
     }
 
 }

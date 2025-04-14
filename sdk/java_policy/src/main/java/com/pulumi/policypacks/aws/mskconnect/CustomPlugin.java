@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mskconnect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.mskconnect.outputs.CustomPluginLocation;
 import java.lang.Integer;
@@ -19,77 +20,84 @@ public final class CustomPlugin extends com.pulumi.resources.PolicyResourceOutpu
      * the Amazon Resource Name (ARN) of the custom plugin.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("CustomPlugin.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'CustomPlugin.arn' is not present");
     }
 
     /**
      * The type of the plugin file. Allowed values are `ZIP` and `JAR`.
      * 
      */
-    private UndeferrableValue<String> contentType;
-
+    @PolicyResourceProperty(name="contentType", flag="unknown_contentType")
+    private String value_contentType;
+    private boolean unknown_contentType;
     public String contentType() {
-        if (contentType == null) return null;
-        return contentType.getValue("CustomPlugin.contentType");
+        if (!unknown_contentType) return value_contentType;
+        throw new UndeferrableValueException("Value 'CustomPlugin.contentType' is not present");
     }
 
     /**
      * A summary description of the custom plugin.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("CustomPlugin.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'CustomPlugin.description' is not present");
     }
 
     /**
      * an ID of the latest successfully created revision of the custom plugin.
      * 
      */
-    private UndeferrableValue<Integer> latestRevision;
-
+    @PolicyResourceProperty(name="latestRevision", flag="unknown_latestRevision")
+    private Integer value_latestRevision;
+    private boolean unknown_latestRevision;
     public Integer latestRevision() {
-        if (latestRevision == null) return null;
-        return latestRevision.getValue("CustomPlugin.latestRevision");
+        if (!unknown_latestRevision) return value_latestRevision;
+        throw new UndeferrableValueException("Value 'CustomPlugin.latestRevision' is not present");
     }
 
     /**
      * Information about the location of a custom plugin. See `location` Block for details.
      * 
      */
-    private UndeferrableValue<CustomPluginLocation> location;
-
+    @PolicyResourceProperty(name="location", flag="unknown_location")
+    private CustomPluginLocation value_location;
+    private boolean unknown_location;
     public CustomPluginLocation location() {
-        if (location == null) return null;
-        return location.getValue("CustomPlugin.location");
+        if (!unknown_location) return value_location;
+        throw new UndeferrableValueException("Value 'CustomPlugin.location' is not present");
     }
 
     /**
      * The name of the custom plugin..
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("CustomPlugin.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'CustomPlugin.name' is not present");
     }
 
     /**
      * the state of the custom plugin.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("CustomPlugin.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'CustomPlugin.state' is not present");
     }
 
     /**
@@ -98,11 +106,12 @@ public final class CustomPlugin extends com.pulumi.resources.PolicyResourceOutpu
      * The following arguments are optional:
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CustomPlugin.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CustomPlugin.tags' is not present");
     }
 
     /**
@@ -113,11 +122,12 @@ public final class CustomPlugin extends com.pulumi.resources.PolicyResourceOutpu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("CustomPlugin.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'CustomPlugin.tagsAll' is not present");
     }
 
 }

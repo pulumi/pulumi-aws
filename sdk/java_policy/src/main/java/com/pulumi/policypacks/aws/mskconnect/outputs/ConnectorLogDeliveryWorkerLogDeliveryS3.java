@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mskconnect.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryS3 {
      * The name of the S3 bucket that is the destination for log delivery.
      * 
      */
-    private @Nullable UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private @Nullable String value_bucket;
+    private boolean unknown_bucket;
     public @Nullable String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("ConnectorLogDeliveryWorkerLogDeliveryS3.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'ConnectorLogDeliveryWorkerLogDeliveryS3.bucket' is not present");
     }
 
     /**
      * Specifies whether connector logs get sent to the specified Amazon S3 destination.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("ConnectorLogDeliveryWorkerLogDeliveryS3.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'ConnectorLogDeliveryWorkerLogDeliveryS3.enabled' is not present");
     }
 
     /**
      * The S3 prefix that is the destination for log delivery.
      * 
      */
-    private @Nullable UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private @Nullable String value_prefix;
+    private boolean unknown_prefix;
     public @Nullable String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("ConnectorLogDeliveryWorkerLogDeliveryS3.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'ConnectorLogDeliveryWorkerLogDeliveryS3.prefix' is not present");
     }
 
 }

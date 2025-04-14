@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds;
@@ -16,33 +17,36 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTru
      * TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm> acm;
-
+    @PolicyResourceProperty(name="acm", flag="unknown_acm")
+    private @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm value_acm;
+    private boolean unknown_acm;
     public @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm acm() {
-        if (acm == null) return null;
-        return acm.getValue("VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust.acm");
+        if (!unknown_acm) return value_acm;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust.acm' is not present");
     }
 
     /**
      * TLS validation context trust for a local file certificate.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile> file;
-
+    @PolicyResourceProperty(name="file", flag="unknown_file")
+    private @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile value_file;
+    private boolean unknown_file;
     public @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile file() {
-        if (file == null) return null;
-        return file.getValue("VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust.file");
+        if (!unknown_file) return value_file;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust.file' is not present");
     }
 
     /**
      * TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds> sds;
-
+    @PolicyResourceProperty(name="sds", flag="unknown_sds")
+    private @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds value_sds;
+    private boolean unknown_sds;
     public @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds sds() {
-        if (sds == null) return null;
-        return sds.getValue("VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust.sds");
+        if (!unknown_sds) return value_sds;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust.sds' is not present");
     }
 
 }

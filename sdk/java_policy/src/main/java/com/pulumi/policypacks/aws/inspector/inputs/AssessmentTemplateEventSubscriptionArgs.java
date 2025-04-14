@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.inspector.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class AssessmentTemplateEventSubscriptionArgs {
      * The event for which you want to receive SNS notifications. Valid values are `ASSESSMENT_RUN_STARTED`, `ASSESSMENT_RUN_COMPLETED`, `ASSESSMENT_RUN_STATE_CHANGED`, and `FINDING_REPORTED`.
      * 
      */
-    private UndeferrableValue<String> event;
-
+    @PolicyResourceProperty(name="event", flag="unknown_event")
+    private String value_event;
+    private boolean unknown_event;
     public String event() {
-        if (event == null) return null;
-        return event.getValue("AssessmentTemplateEventSubscriptionArgs.event");
+        if (!unknown_event) return value_event;
+        throw new UndeferrableValueException("Value 'AssessmentTemplateEventSubscriptionArgs.event' is not present");
     }
 
     /**
      * The ARN of the SNS topic to which notifications are sent.
      * 
      */
-    private UndeferrableValue<String> topicArn;
-
+    @PolicyResourceProperty(name="topicArn", flag="unknown_topicArn")
+    private String value_topicArn;
+    private boolean unknown_topicArn;
     public String topicArn() {
-        if (topicArn == null) return null;
-        return topicArn.getValue("AssessmentTemplateEventSubscriptionArgs.topicArn");
+        if (!unknown_topicArn) return value_topicArn;
+        throw new UndeferrableValueException("Value 'AssessmentTemplateEventSubscriptionArgs.topicArn' is not present");
     }
 
 }

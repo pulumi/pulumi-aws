@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class FunctionSyncConfigLambdaConflictHandlerConfig {
      * ARN for the Lambda function to use as the Conflict Handler.
      * 
      */
-    private @Nullable UndeferrableValue<String> lambdaConflictHandlerArn;
-
+    @PolicyResourceProperty(name="lambdaConflictHandlerArn", flag="unknown_lambdaConflictHandlerArn")
+    private @Nullable String value_lambdaConflictHandlerArn;
+    private boolean unknown_lambdaConflictHandlerArn;
     public @Nullable String lambdaConflictHandlerArn() {
-        if (lambdaConflictHandlerArn == null) return null;
-        return lambdaConflictHandlerArn.getValue("FunctionSyncConfigLambdaConflictHandlerConfig.lambdaConflictHandlerArn");
+        if (!unknown_lambdaConflictHandlerArn) return value_lambdaConflictHandlerArn;
+        throw new UndeferrableValueException("Value 'FunctionSyncConfigLambdaConflictHandlerConfig.lambdaConflictHandlerArn' is not present");
     }
 
 }

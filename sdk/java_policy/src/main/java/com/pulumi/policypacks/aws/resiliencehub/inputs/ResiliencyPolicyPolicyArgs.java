@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.resiliencehub.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.resiliencehub.inputs.ResiliencyPolicyPolicyAzArgs;
 import com.pulumi.policypacks.aws.resiliencehub.inputs.ResiliencyPolicyPolicyHardwareArgs;
 import com.pulumi.policypacks.aws.resiliencehub.inputs.ResiliencyPolicyPolicyRegionArgs;
@@ -17,33 +18,36 @@ public final class ResiliencyPolicyPolicyArgs {
      * Specifies Availability Zone failure policy. See `policy.az`
      * 
      */
-    private UndeferrableValue<ResiliencyPolicyPolicyAzArgs> az;
-
+    @PolicyResourceProperty(name="az", flag="unknown_az")
+    private ResiliencyPolicyPolicyAzArgs value_az;
+    private boolean unknown_az;
     public ResiliencyPolicyPolicyAzArgs az() {
-        if (az == null) return null;
-        return az.getValue("ResiliencyPolicyPolicyArgs.az");
+        if (!unknown_az) return value_az;
+        throw new UndeferrableValueException("Value 'ResiliencyPolicyPolicyArgs.az' is not present");
     }
 
     /**
      * Specifies Infrastructure failure policy. See `policy.hardware`
      * 
      */
-    private UndeferrableValue<ResiliencyPolicyPolicyHardwareArgs> hardware;
-
+    @PolicyResourceProperty(name="hardware", flag="unknown_hardware")
+    private ResiliencyPolicyPolicyHardwareArgs value_hardware;
+    private boolean unknown_hardware;
     public ResiliencyPolicyPolicyHardwareArgs hardware() {
-        if (hardware == null) return null;
-        return hardware.getValue("ResiliencyPolicyPolicyArgs.hardware");
+        if (!unknown_hardware) return value_hardware;
+        throw new UndeferrableValueException("Value 'ResiliencyPolicyPolicyArgs.hardware' is not present");
     }
 
     /**
      * Specifies Region failure policy. `policy.region`
      * 
      */
-    private UndeferrableValue<ResiliencyPolicyPolicyRegionArgs> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private ResiliencyPolicyPolicyRegionArgs value_region;
+    private boolean unknown_region;
     public ResiliencyPolicyPolicyRegionArgs region() {
-        if (region == null) return null;
-        return region.getValue("ResiliencyPolicyPolicyArgs.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'ResiliencyPolicyPolicyArgs.region' is not present");
     }
 
     /**
@@ -52,11 +56,12 @@ public final class ResiliencyPolicyPolicyArgs {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<ResiliencyPolicyPolicySoftwareArgs> software;
-
+    @PolicyResourceProperty(name="software", flag="unknown_software")
+    private ResiliencyPolicyPolicySoftwareArgs value_software;
+    private boolean unknown_software;
     public ResiliencyPolicyPolicySoftwareArgs software() {
-        if (software == null) return null;
-        return software.getValue("ResiliencyPolicyPolicyArgs.software");
+        if (!unknown_software) return value_software;
+        throw new UndeferrableValueException("Value 'ResiliencyPolicyPolicyArgs.software' is not present");
     }
 
 }

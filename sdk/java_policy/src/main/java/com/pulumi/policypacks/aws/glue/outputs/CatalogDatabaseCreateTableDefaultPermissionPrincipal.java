@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class CatalogDatabaseCreateTableDefaultPermissionPrincipal {
      * An identifier for the Lake Formation principal.
      * 
      */
-    private @Nullable UndeferrableValue<String> dataLakePrincipalIdentifier;
-
+    @PolicyResourceProperty(name="dataLakePrincipalIdentifier", flag="unknown_dataLakePrincipalIdentifier")
+    private @Nullable String value_dataLakePrincipalIdentifier;
+    private boolean unknown_dataLakePrincipalIdentifier;
     public @Nullable String dataLakePrincipalIdentifier() {
-        if (dataLakePrincipalIdentifier == null) return null;
-        return dataLakePrincipalIdentifier.getValue("CatalogDatabaseCreateTableDefaultPermissionPrincipal.dataLakePrincipalIdentifier");
+        if (!unknown_dataLakePrincipalIdentifier) return value_dataLakePrincipalIdentifier;
+        throw new UndeferrableValueException("Value 'CatalogDatabaseCreateTableDefaultPermissionPrincipal.dataLakePrincipalIdentifier' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustA
      * One or more ACM ARNs.
      * 
      */
-    private UndeferrableValue<List<String>> certificateAuthorityArns;
-
+    @PolicyResourceProperty(name="certificateAuthorityArns", flag="unknown_certificateAuthorityArns")
+    private List<String> value_certificateAuthorityArns;
+    private boolean unknown_certificateAuthorityArns;
     public List<String> certificateAuthorityArns() {
-        if (certificateAuthorityArns == null) return null;
-        return certificateAuthorityArns.getValue("VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm.certificateAuthorityArns");
+        if (!unknown_certificateAuthorityArns) return value_certificateAuthorityArns;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm.certificateAuthorityArns' is not present");
     }
 
 }

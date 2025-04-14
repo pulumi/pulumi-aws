@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.customerprofiles.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class DomainMatchingJobSchedule {
      * The day when the Identity Resolution Job should run every week.
      * 
      */
-    private UndeferrableValue<String> dayOfTheWeek;
-
+    @PolicyResourceProperty(name="dayOfTheWeek", flag="unknown_dayOfTheWeek")
+    private String value_dayOfTheWeek;
+    private boolean unknown_dayOfTheWeek;
     public String dayOfTheWeek() {
-        if (dayOfTheWeek == null) return null;
-        return dayOfTheWeek.getValue("DomainMatchingJobSchedule.dayOfTheWeek");
+        if (!unknown_dayOfTheWeek) return value_dayOfTheWeek;
+        throw new UndeferrableValueException("Value 'DomainMatchingJobSchedule.dayOfTheWeek' is not present");
     }
 
     /**
      * The time when the Identity Resolution Job should run every week.
      * 
      */
-    private UndeferrableValue<String> time;
-
+    @PolicyResourceProperty(name="time", flag="unknown_time")
+    private String value_time;
+    private boolean unknown_time;
     public String time() {
-        if (time == null) return null;
-        return time.getValue("DomainMatchingJobSchedule.time");
+        if (!unknown_time) return value_time;
+        throw new UndeferrableValueException("Value 'DomainMatchingJobSchedule.time' is not present");
     }
 
 }

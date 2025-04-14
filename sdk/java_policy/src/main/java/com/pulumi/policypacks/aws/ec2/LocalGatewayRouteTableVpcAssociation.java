@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -13,33 +14,36 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation")
 public final class LocalGatewayRouteTableVpcAssociation extends com.pulumi.resources.PolicyResourceOutput {
 
-    private UndeferrableValue<String> localGatewayId;
-
+    @PolicyResourceProperty(name="localGatewayId", flag="unknown_localGatewayId")
+    private String value_localGatewayId;
+    private boolean unknown_localGatewayId;
     public String localGatewayId() {
-        if (localGatewayId == null) return null;
-        return localGatewayId.getValue("LocalGatewayRouteTableVpcAssociation.localGatewayId");
+        if (!unknown_localGatewayId) return value_localGatewayId;
+        throw new UndeferrableValueException("Value 'LocalGatewayRouteTableVpcAssociation.localGatewayId' is not present");
     }
 
     /**
      * Identifier of EC2 Local Gateway Route Table.
      * 
      */
-    private UndeferrableValue<String> localGatewayRouteTableId;
-
+    @PolicyResourceProperty(name="localGatewayRouteTableId", flag="unknown_localGatewayRouteTableId")
+    private String value_localGatewayRouteTableId;
+    private boolean unknown_localGatewayRouteTableId;
     public String localGatewayRouteTableId() {
-        if (localGatewayRouteTableId == null) return null;
-        return localGatewayRouteTableId.getValue("LocalGatewayRouteTableVpcAssociation.localGatewayRouteTableId");
+        if (!unknown_localGatewayRouteTableId) return value_localGatewayRouteTableId;
+        throw new UndeferrableValueException("Value 'LocalGatewayRouteTableVpcAssociation.localGatewayRouteTableId' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LocalGatewayRouteTableVpcAssociation.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LocalGatewayRouteTableVpcAssociation.tags' is not present");
     }
 
     /**
@@ -50,11 +54,12 @@ public final class LocalGatewayRouteTableVpcAssociation extends com.pulumi.resou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("LocalGatewayRouteTableVpcAssociation.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'LocalGatewayRouteTableVpcAssociation.tagsAll' is not present");
     }
 
     /**
@@ -63,11 +68,12 @@ public final class LocalGatewayRouteTableVpcAssociation extends com.pulumi.resou
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("LocalGatewayRouteTableVpcAssociation.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'LocalGatewayRouteTableVpcAssociation.vpcId' is not present");
     }
 
 }

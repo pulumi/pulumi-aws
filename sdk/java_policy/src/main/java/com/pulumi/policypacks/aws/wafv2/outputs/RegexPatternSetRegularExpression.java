@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class RegexPatternSetRegularExpression {
      * The string representing the regular expression, see the AWS WAF [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-regex-pattern-set-creating.html) for more information.
      * 
      */
-    private UndeferrableValue<String> regexString;
-
+    @PolicyResourceProperty(name="regexString", flag="unknown_regexString")
+    private String value_regexString;
+    private boolean unknown_regexString;
     public String regexString() {
-        if (regexString == null) return null;
-        return regexString.getValue("RegexPatternSetRegularExpression.regexString");
+        if (!unknown_regexString) return value_regexString;
+        throw new UndeferrableValueException("Value 'RegexPatternSetRegularExpression.regexString' is not present");
     }
 
 }

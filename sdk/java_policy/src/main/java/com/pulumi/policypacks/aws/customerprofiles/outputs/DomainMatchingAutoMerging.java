@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.customerprofiles.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.customerprofiles.outputs.DomainMatchingAutoMergingConflictResolution;
 import com.pulumi.policypacks.aws.customerprofiles.outputs.DomainMatchingAutoMergingConsolidation;
 import java.lang.Boolean;
@@ -17,11 +18,12 @@ public final class DomainMatchingAutoMerging {
      * A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<DomainMatchingAutoMergingConflictResolution> conflictResolution;
-
+    @PolicyResourceProperty(name="conflictResolution", flag="unknown_conflictResolution")
+    private @Nullable DomainMatchingAutoMergingConflictResolution value_conflictResolution;
+    private boolean unknown_conflictResolution;
     public @Nullable DomainMatchingAutoMergingConflictResolution conflictResolution() {
-        if (conflictResolution == null) return null;
-        return conflictResolution.getValue("DomainMatchingAutoMerging.conflictResolution");
+        if (!unknown_conflictResolution) return value_conflictResolution;
+        throw new UndeferrableValueException("Value 'DomainMatchingAutoMerging.conflictResolution' is not present");
     }
 
     /**
@@ -29,29 +31,32 @@ public final class DomainMatchingAutoMerging {
      * * ` min_allowed_confidence_score_for_merging  ` - (Optional) A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
      * 
      */
-    private @Nullable UndeferrableValue<DomainMatchingAutoMergingConsolidation> consolidation;
-
+    @PolicyResourceProperty(name="consolidation", flag="unknown_consolidation")
+    private @Nullable DomainMatchingAutoMergingConsolidation value_consolidation;
+    private boolean unknown_consolidation;
     public @Nullable DomainMatchingAutoMergingConsolidation consolidation() {
-        if (consolidation == null) return null;
-        return consolidation.getValue("DomainMatchingAutoMerging.consolidation");
+        if (!unknown_consolidation) return value_consolidation;
+        throw new UndeferrableValueException("Value 'DomainMatchingAutoMerging.consolidation' is not present");
     }
 
     /**
      * The flag that enables the auto-merging of duplicate profiles.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("DomainMatchingAutoMerging.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'DomainMatchingAutoMerging.enabled' is not present");
     }
 
-    private @Nullable UndeferrableValue<Double> minAllowedConfidenceScoreForMerging;
-
+    @PolicyResourceProperty(name="minAllowedConfidenceScoreForMerging", flag="unknown_minAllowedConfidenceScoreForMerging")
+    private @Nullable Double value_minAllowedConfidenceScoreForMerging;
+    private boolean unknown_minAllowedConfidenceScoreForMerging;
     public @Nullable Double minAllowedConfidenceScoreForMerging() {
-        if (minAllowedConfidenceScoreForMerging == null) return null;
-        return minAllowedConfidenceScoreForMerging.getValue("DomainMatchingAutoMerging.minAllowedConfidenceScoreForMerging");
+        if (!unknown_minAllowedConfidenceScoreForMerging) return value_minAllowedConfidenceScoreForMerging;
+        throw new UndeferrableValueException("Value 'DomainMatchingAutoMerging.minAllowedConfidenceScoreForMerging' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafregional.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafregional.inputs.ByteMatchSetByteMatchTupleFieldToMatchArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ByteMatchSetByteMatchTupleArgs {
      * Settings for the ByteMatchTuple. FieldToMatch documented below.
      * 
      */
-    private UndeferrableValue<ByteMatchSetByteMatchTupleFieldToMatchArgs> fieldToMatch;
-
+    @PolicyResourceProperty(name="fieldToMatch", flag="unknown_fieldToMatch")
+    private ByteMatchSetByteMatchTupleFieldToMatchArgs value_fieldToMatch;
+    private boolean unknown_fieldToMatch;
     public ByteMatchSetByteMatchTupleFieldToMatchArgs fieldToMatch() {
-        if (fieldToMatch == null) return null;
-        return fieldToMatch.getValue("ByteMatchSetByteMatchTupleArgs.fieldToMatch");
+        if (!unknown_fieldToMatch) return value_fieldToMatch;
+        throw new UndeferrableValueException("Value 'ByteMatchSetByteMatchTupleArgs.fieldToMatch' is not present");
     }
 
     /**
      * Within the portion of a web request that you want to search.
      * 
      */
-    private UndeferrableValue<String> positionalConstraint;
-
+    @PolicyResourceProperty(name="positionalConstraint", flag="unknown_positionalConstraint")
+    private String value_positionalConstraint;
+    private boolean unknown_positionalConstraint;
     public String positionalConstraint() {
-        if (positionalConstraint == null) return null;
-        return positionalConstraint.getValue("ByteMatchSetByteMatchTupleArgs.positionalConstraint");
+        if (!unknown_positionalConstraint) return value_positionalConstraint;
+        throw new UndeferrableValueException("Value 'ByteMatchSetByteMatchTupleArgs.positionalConstraint' is not present");
     }
 
     /**
      * The value that you want AWS WAF to search for. The maximum length of the value is 50 bytes.
      * 
      */
-    private UndeferrableValue<String> targetString;
-
+    @PolicyResourceProperty(name="targetString", flag="unknown_targetString")
+    private String value_targetString;
+    private boolean unknown_targetString;
     public String targetString() {
-        if (targetString == null) return null;
-        return targetString.getValue("ByteMatchSetByteMatchTupleArgs.targetString");
+        if (!unknown_targetString) return value_targetString;
+        throw new UndeferrableValueException("Value 'ByteMatchSetByteMatchTupleArgs.targetString' is not present");
     }
 
     /**
@@ -50,11 +54,12 @@ public final class ByteMatchSetByteMatchTupleArgs {
      * FieldToMatch(field_to_match) support following:
      * 
      */
-    private UndeferrableValue<String> textTransformation;
-
+    @PolicyResourceProperty(name="textTransformation", flag="unknown_textTransformation")
+    private String value_textTransformation;
+    private boolean unknown_textTransformation;
     public String textTransformation() {
-        if (textTransformation == null) return null;
-        return textTransformation.getValue("ByteMatchSetByteMatchTupleArgs.textTransformation");
+        if (!unknown_textTransformation) return value_textTransformation;
+        throw new UndeferrableValueException("Value 'ByteMatchSetByteMatchTupleArgs.textTransformation' is not present");
     }
 
 }

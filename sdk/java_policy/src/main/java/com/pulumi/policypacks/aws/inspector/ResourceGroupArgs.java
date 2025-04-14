@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.inspector;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -16,11 +17,12 @@ public final class ResourceGroupArgs extends com.pulumi.resources.PolicyResource
      * Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ResourceGroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ResourceGroupArgs.tags' is not present");
     }
 
 }

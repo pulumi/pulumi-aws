@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class FunctionEventInvokeConfigDestinationConfigOnSuccess {
      * Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
      * 
      */
-    private UndeferrableValue<String> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private String value_destination;
+    private boolean unknown_destination;
     public String destination() {
-        if (destination == null) return null;
-        return destination.getValue("FunctionEventInvokeConfigDestinationConfigOnSuccess.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'FunctionEventInvokeConfigDestinationConfigOnSuccess.destination' is not present");
     }
 
 }

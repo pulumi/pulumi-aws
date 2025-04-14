@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fms.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.fms.outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode;
 import com.pulumi.policypacks.aws.fms.outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange;
 import java.lang.Boolean;
@@ -18,77 +19,84 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
      * A string value containing the IPv4 network range to allow or deny, in CIDR notation.
      * 
      */
-    private @Nullable UndeferrableValue<String> cidrBlock;
-
+    @PolicyResourceProperty(name="cidrBlock", flag="unknown_cidrBlock")
+    private @Nullable String value_cidrBlock;
+    private boolean unknown_cidrBlock;
     public @Nullable String cidrBlock() {
-        if (cidrBlock == null) return null;
-        return cidrBlock.getValue("PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry.cidrBlock");
+        if (!unknown_cidrBlock) return value_cidrBlock;
+        throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry.cidrBlock' is not present");
     }
 
     /**
      * A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
      * 
      */
-    private UndeferrableValue<Boolean> egress;
-
+    @PolicyResourceProperty(name="egress", flag="unknown_egress")
+    private Boolean value_egress;
+    private boolean unknown_egress;
     public Boolean egress() {
-        if (egress == null) return null;
-        return egress.getValue("PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry.egress");
+        if (!unknown_egress) return value_egress;
+        throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry.egress' is not present");
     }
 
     /**
      * A configuration block for ICMP protocol: The ICMP type and code. See the `icmp_type_code` block.
      * 
      */
-    private @Nullable UndeferrableValue<List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode>> icmpTypeCodes;
-
+    @PolicyResourceProperty(name="icmpTypeCodes", flag="unknown_icmpTypeCodes")
+    private @Nullable List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode> value_icmpTypeCodes;
+    private boolean unknown_icmpTypeCodes;
     public @Nullable List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCode> icmpTypeCodes() {
-        if (icmpTypeCodes == null) return null;
-        return icmpTypeCodes.getValue("PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry.icmpTypeCodes");
+        if (!unknown_icmpTypeCodes) return value_icmpTypeCodes;
+        throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry.icmpTypeCodes' is not present");
     }
 
     /**
      * A string value containing the IPv6 network range to allow or deny, in CIDR notation.
      * 
      */
-    private @Nullable UndeferrableValue<String> ipv6CidrBlock;
-
+    @PolicyResourceProperty(name="ipv6CidrBlock", flag="unknown_ipv6CidrBlock")
+    private @Nullable String value_ipv6CidrBlock;
+    private boolean unknown_ipv6CidrBlock;
     public @Nullable String ipv6CidrBlock() {
-        if (ipv6CidrBlock == null) return null;
-        return ipv6CidrBlock.getValue("PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry.ipv6CidrBlock");
+        if (!unknown_ipv6CidrBlock) return value_ipv6CidrBlock;
+        throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry.ipv6CidrBlock' is not present");
     }
 
     /**
      * A configuration block for PortRange. See the `port_range` block.
      * 
      */
-    private @Nullable UndeferrableValue<List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange>> portRanges;
-
+    @PolicyResourceProperty(name="portRanges", flag="unknown_portRanges")
+    private @Nullable List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange> value_portRanges;
+    private boolean unknown_portRanges;
     public @Nullable List<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRange> portRanges() {
-        if (portRanges == null) return null;
-        return portRanges.getValue("PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry.portRanges");
+        if (!unknown_portRanges) return value_portRanges;
+        throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry.portRanges' is not present");
     }
 
     /**
      * The protocol number. A value of &#34;-1&#34; means all protocols.
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry.protocol' is not present");
     }
 
     /**
      * A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
      * 
      */
-    private UndeferrableValue<String> ruleAction;
-
+    @PolicyResourceProperty(name="ruleAction", flag="unknown_ruleAction")
+    private String value_ruleAction;
+    private boolean unknown_ruleAction;
     public String ruleAction() {
-        if (ruleAction == null) return null;
-        return ruleAction.getValue("PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry.ruleAction");
+        if (!unknown_ruleAction) return value_ruleAction;
+        throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntry.ruleAction' is not present");
     }
 
 }

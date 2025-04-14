@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,77 +18,84 @@ public final class CustomLayerLoadBasedAutoScalingUpscaling {
      * Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> alarms;
-
+    @PolicyResourceProperty(name="alarms", flag="unknown_alarms")
+    private @Nullable List<String> value_alarms;
+    private boolean unknown_alarms;
     public @Nullable List<String> alarms() {
-        if (alarms == null) return null;
-        return alarms.getValue("CustomLayerLoadBasedAutoScalingUpscaling.alarms");
+        if (!unknown_alarms) return value_alarms;
+        throw new UndeferrableValueException("Value 'CustomLayerLoadBasedAutoScalingUpscaling.alarms' is not present");
     }
 
     /**
      * The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
      * 
      */
-    private @Nullable UndeferrableValue<Double> cpuThreshold;
-
+    @PolicyResourceProperty(name="cpuThreshold", flag="unknown_cpuThreshold")
+    private @Nullable Double value_cpuThreshold;
+    private boolean unknown_cpuThreshold;
     public @Nullable Double cpuThreshold() {
-        if (cpuThreshold == null) return null;
-        return cpuThreshold.getValue("CustomLayerLoadBasedAutoScalingUpscaling.cpuThreshold");
+        if (!unknown_cpuThreshold) return value_cpuThreshold;
+        throw new UndeferrableValueException("Value 'CustomLayerLoadBasedAutoScalingUpscaling.cpuThreshold' is not present");
     }
 
     /**
      * The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> ignoreMetricsTime;
-
+    @PolicyResourceProperty(name="ignoreMetricsTime", flag="unknown_ignoreMetricsTime")
+    private @Nullable Integer value_ignoreMetricsTime;
+    private boolean unknown_ignoreMetricsTime;
     public @Nullable Integer ignoreMetricsTime() {
-        if (ignoreMetricsTime == null) return null;
-        return ignoreMetricsTime.getValue("CustomLayerLoadBasedAutoScalingUpscaling.ignoreMetricsTime");
+        if (!unknown_ignoreMetricsTime) return value_ignoreMetricsTime;
+        throw new UndeferrableValueException("Value 'CustomLayerLoadBasedAutoScalingUpscaling.ignoreMetricsTime' is not present");
     }
 
     /**
      * The number of instances to add or remove when the load exceeds a threshold.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> instanceCount;
-
+    @PolicyResourceProperty(name="instanceCount", flag="unknown_instanceCount")
+    private @Nullable Integer value_instanceCount;
+    private boolean unknown_instanceCount;
     public @Nullable Integer instanceCount() {
-        if (instanceCount == null) return null;
-        return instanceCount.getValue("CustomLayerLoadBasedAutoScalingUpscaling.instanceCount");
+        if (!unknown_instanceCount) return value_instanceCount;
+        throw new UndeferrableValueException("Value 'CustomLayerLoadBasedAutoScalingUpscaling.instanceCount' is not present");
     }
 
     /**
      * The load threshold. A value of -1 disables the threshold.
      * 
      */
-    private @Nullable UndeferrableValue<Double> loadThreshold;
-
+    @PolicyResourceProperty(name="loadThreshold", flag="unknown_loadThreshold")
+    private @Nullable Double value_loadThreshold;
+    private boolean unknown_loadThreshold;
     public @Nullable Double loadThreshold() {
-        if (loadThreshold == null) return null;
-        return loadThreshold.getValue("CustomLayerLoadBasedAutoScalingUpscaling.loadThreshold");
+        if (!unknown_loadThreshold) return value_loadThreshold;
+        throw new UndeferrableValueException("Value 'CustomLayerLoadBasedAutoScalingUpscaling.loadThreshold' is not present");
     }
 
     /**
      * The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
      * 
      */
-    private @Nullable UndeferrableValue<Double> memoryThreshold;
-
+    @PolicyResourceProperty(name="memoryThreshold", flag="unknown_memoryThreshold")
+    private @Nullable Double value_memoryThreshold;
+    private boolean unknown_memoryThreshold;
     public @Nullable Double memoryThreshold() {
-        if (memoryThreshold == null) return null;
-        return memoryThreshold.getValue("CustomLayerLoadBasedAutoScalingUpscaling.memoryThreshold");
+        if (!unknown_memoryThreshold) return value_memoryThreshold;
+        throw new UndeferrableValueException("Value 'CustomLayerLoadBasedAutoScalingUpscaling.memoryThreshold' is not present");
     }
 
     /**
      * The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> thresholdsWaitTime;
-
+    @PolicyResourceProperty(name="thresholdsWaitTime", flag="unknown_thresholdsWaitTime")
+    private @Nullable Integer value_thresholdsWaitTime;
+    private boolean unknown_thresholdsWaitTime;
     public @Nullable Integer thresholdsWaitTime() {
-        if (thresholdsWaitTime == null) return null;
-        return thresholdsWaitTime.getValue("CustomLayerLoadBasedAutoScalingUpscaling.thresholdsWaitTime");
+        if (!unknown_thresholdsWaitTime) return value_thresholdsWaitTime;
+        throw new UndeferrableValueException("Value 'CustomLayerLoadBasedAutoScalingUpscaling.thresholdsWaitTime' is not present");
     }
 
 }

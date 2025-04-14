@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,22 +15,24 @@ public final class DataSetLogicalTableMapDataTransformUntagColumnOperation {
      * Column name.
      * 
      */
-    private UndeferrableValue<String> columnName;
-
+    @PolicyResourceProperty(name="columnName", flag="unknown_columnName")
+    private String value_columnName;
+    private boolean unknown_columnName;
     public String columnName() {
-        if (columnName == null) return null;
-        return columnName.getValue("DataSetLogicalTableMapDataTransformUntagColumnOperation.columnName");
+        if (!unknown_columnName) return value_columnName;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformUntagColumnOperation.columnName' is not present");
     }
 
     /**
      * The column tags to remove from this column.
      * 
      */
-    private UndeferrableValue<List<String>> tagNames;
-
+    @PolicyResourceProperty(name="tagNames", flag="unknown_tagNames")
+    private List<String> value_tagNames;
+    private boolean unknown_tagNames;
     public List<String> tagNames() {
-        if (tagNames == null) return null;
-        return tagNames.getValue("DataSetLogicalTableMapDataTransformUntagColumnOperation.tagNames");
+        if (!unknown_tagNames) return value_tagNames;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformUntagColumnOperation.tagNames' is not present");
     }
 
 }

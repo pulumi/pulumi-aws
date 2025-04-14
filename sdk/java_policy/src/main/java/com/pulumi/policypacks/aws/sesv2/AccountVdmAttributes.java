@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sesv2.outputs.AccountVdmAttributesDashboardAttributes;
 import com.pulumi.policypacks.aws.sesv2.outputs.AccountVdmAttributesGuardianAttributes;
@@ -17,22 +18,24 @@ public final class AccountVdmAttributes extends com.pulumi.resources.PolicyResou
      * Specifies additional settings for your VDM configuration as applicable to the Dashboard.
      * 
      */
-    private UndeferrableValue<AccountVdmAttributesDashboardAttributes> dashboardAttributes;
-
+    @PolicyResourceProperty(name="dashboardAttributes", flag="unknown_dashboardAttributes")
+    private AccountVdmAttributesDashboardAttributes value_dashboardAttributes;
+    private boolean unknown_dashboardAttributes;
     public AccountVdmAttributesDashboardAttributes dashboardAttributes() {
-        if (dashboardAttributes == null) return null;
-        return dashboardAttributes.getValue("AccountVdmAttributes.dashboardAttributes");
+        if (!unknown_dashboardAttributes) return value_dashboardAttributes;
+        throw new UndeferrableValueException("Value 'AccountVdmAttributes.dashboardAttributes' is not present");
     }
 
     /**
      * Specifies additional settings for your VDM configuration as applicable to the Guardian.
      * 
      */
-    private UndeferrableValue<AccountVdmAttributesGuardianAttributes> guardianAttributes;
-
+    @PolicyResourceProperty(name="guardianAttributes", flag="unknown_guardianAttributes")
+    private AccountVdmAttributesGuardianAttributes value_guardianAttributes;
+    private boolean unknown_guardianAttributes;
     public AccountVdmAttributesGuardianAttributes guardianAttributes() {
-        if (guardianAttributes == null) return null;
-        return guardianAttributes.getValue("AccountVdmAttributes.guardianAttributes");
+        if (!unknown_guardianAttributes) return value_guardianAttributes;
+        throw new UndeferrableValueException("Value 'AccountVdmAttributes.guardianAttributes' is not present");
     }
 
     /**
@@ -41,11 +44,12 @@ public final class AccountVdmAttributes extends com.pulumi.resources.PolicyResou
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> vdmEnabled;
-
+    @PolicyResourceProperty(name="vdmEnabled", flag="unknown_vdmEnabled")
+    private String value_vdmEnabled;
+    private boolean unknown_vdmEnabled;
     public String vdmEnabled() {
-        if (vdmEnabled == null) return null;
-        return vdmEnabled.getValue("AccountVdmAttributes.vdmEnabled");
+        if (!unknown_vdmEnabled) return value_vdmEnabled;
+        throw new UndeferrableValueException("Value 'AccountVdmAttributes.vdmEnabled' is not present");
     }
 
 }

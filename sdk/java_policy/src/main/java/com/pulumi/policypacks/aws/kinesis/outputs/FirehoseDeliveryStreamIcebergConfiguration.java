@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions;
 import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration;
 import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration;
@@ -20,106 +21,116 @@ public final class FirehoseDeliveryStreamIcebergConfiguration {
      * Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> bufferingInterval;
-
+    @PolicyResourceProperty(name="bufferingInterval", flag="unknown_bufferingInterval")
+    private @Nullable Integer value_bufferingInterval;
+    private boolean unknown_bufferingInterval;
     public @Nullable Integer bufferingInterval() {
-        if (bufferingInterval == null) return null;
-        return bufferingInterval.getValue("FirehoseDeliveryStreamIcebergConfiguration.bufferingInterval");
+        if (!unknown_bufferingInterval) return value_bufferingInterval;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfiguration.bufferingInterval' is not present");
     }
 
     /**
      * Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> bufferingSize;
-
+    @PolicyResourceProperty(name="bufferingSize", flag="unknown_bufferingSize")
+    private @Nullable Integer value_bufferingSize;
+    private boolean unknown_bufferingSize;
     public @Nullable Integer bufferingSize() {
-        if (bufferingSize == null) return null;
-        return bufferingSize.getValue("FirehoseDeliveryStreamIcebergConfiguration.bufferingSize");
+        if (!unknown_bufferingSize) return value_bufferingSize;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfiguration.bufferingSize' is not present");
     }
 
     /**
      * Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`
      * 
      */
-    private UndeferrableValue<String> catalogArn;
-
+    @PolicyResourceProperty(name="catalogArn", flag="unknown_catalogArn")
+    private String value_catalogArn;
+    private boolean unknown_catalogArn;
     public String catalogArn() {
-        if (catalogArn == null) return null;
-        return catalogArn.getValue("FirehoseDeliveryStreamIcebergConfiguration.catalogArn");
+        if (!unknown_catalogArn) return value_catalogArn;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfiguration.catalogArn' is not present");
     }
 
     /**
      * The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions;
-
+    @PolicyResourceProperty(name="cloudwatchLoggingOptions", flag="unknown_cloudwatchLoggingOptions")
+    private @Nullable FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions value_cloudwatchLoggingOptions;
+    private boolean unknown_cloudwatchLoggingOptions;
     public @Nullable FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions() {
-        if (cloudwatchLoggingOptions == null) return null;
-        return cloudwatchLoggingOptions.getValue("FirehoseDeliveryStreamIcebergConfiguration.cloudwatchLoggingOptions");
+        if (!unknown_cloudwatchLoggingOptions) return value_cloudwatchLoggingOptions;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfiguration.cloudwatchLoggingOptions' is not present");
     }
 
     /**
      * Destination table configurations which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided. See `destination_table_configuration` block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration>> destinationTableConfigurations;
-
+    @PolicyResourceProperty(name="destinationTableConfigurations", flag="unknown_destinationTableConfigurations")
+    private @Nullable List<FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration> value_destinationTableConfigurations;
+    private boolean unknown_destinationTableConfigurations;
     public @Nullable List<FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration> destinationTableConfigurations() {
-        if (destinationTableConfigurations == null) return null;
-        return destinationTableConfigurations.getValue("FirehoseDeliveryStreamIcebergConfiguration.destinationTableConfigurations");
+        if (!unknown_destinationTableConfigurations) return value_destinationTableConfigurations;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfiguration.destinationTableConfigurations' is not present");
     }
 
     /**
      * The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration> processingConfiguration;
-
+    @PolicyResourceProperty(name="processingConfiguration", flag="unknown_processingConfiguration")
+    private @Nullable FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration value_processingConfiguration;
+    private boolean unknown_processingConfiguration;
     public @Nullable FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration processingConfiguration() {
-        if (processingConfiguration == null) return null;
-        return processingConfiguration.getValue("FirehoseDeliveryStreamIcebergConfiguration.processingConfiguration");
+        if (!unknown_processingConfiguration) return value_processingConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfiguration.processingConfiguration' is not present");
     }
 
     /**
      * The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> retryDuration;
-
+    @PolicyResourceProperty(name="retryDuration", flag="unknown_retryDuration")
+    private @Nullable Integer value_retryDuration;
+    private boolean unknown_retryDuration;
     public @Nullable Integer retryDuration() {
-        if (retryDuration == null) return null;
-        return retryDuration.getValue("FirehoseDeliveryStreamIcebergConfiguration.retryDuration");
+        if (!unknown_retryDuration) return value_retryDuration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfiguration.retryDuration' is not present");
     }
 
     /**
      * The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("FirehoseDeliveryStreamIcebergConfiguration.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfiguration.roleArn' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> s3BackupMode;
-
+    @PolicyResourceProperty(name="s3BackupMode", flag="unknown_s3BackupMode")
+    private @Nullable String value_s3BackupMode;
+    private boolean unknown_s3BackupMode;
     public @Nullable String s3BackupMode() {
-        if (s3BackupMode == null) return null;
-        return s3BackupMode.getValue("FirehoseDeliveryStreamIcebergConfiguration.s3BackupMode");
+        if (!unknown_s3BackupMode) return value_s3BackupMode;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfiguration.s3BackupMode' is not present");
     }
 
     /**
      * The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamIcebergConfigurationS3Configuration> s3Configuration;
-
+    @PolicyResourceProperty(name="s3Configuration", flag="unknown_s3Configuration")
+    private FirehoseDeliveryStreamIcebergConfigurationS3Configuration value_s3Configuration;
+    private boolean unknown_s3Configuration;
     public FirehoseDeliveryStreamIcebergConfigurationS3Configuration s3Configuration() {
-        if (s3Configuration == null) return null;
-        return s3Configuration.getValue("FirehoseDeliveryStreamIcebergConfiguration.s3Configuration");
+        if (!unknown_s3Configuration) return value_s3Configuration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamIcebergConfiguration.s3Configuration' is not present");
     }
 
 }

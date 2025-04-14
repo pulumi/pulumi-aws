@@ -3,17 +3,19 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.outputs.DistributionRestrictionsGeoRestriction;
 
 
 public final class DistributionRestrictions {
 
-    private UndeferrableValue<DistributionRestrictionsGeoRestriction> geoRestriction;
-
+    @PolicyResourceProperty(name="geoRestriction", flag="unknown_geoRestriction")
+    private DistributionRestrictionsGeoRestriction value_geoRestriction;
+    private boolean unknown_geoRestriction;
     public DistributionRestrictionsGeoRestriction geoRestriction() {
-        if (geoRestriction == null) return null;
-        return geoRestriction.getValue("DistributionRestrictions.geoRestriction");
+        if (!unknown_geoRestriction) return value_geoRestriction;
+        throw new UndeferrableValueException("Value 'DistributionRestrictions.geoRestriction' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudtrail.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class TrailInsightSelector {
      * Type of insights to log on a trail. Valid values are: `ApiCallRateInsight` and `ApiErrorRateInsight`.
      * 
      */
-    private UndeferrableValue<String> insightType;
-
+    @PolicyResourceProperty(name="insightType", flag="unknown_insightType")
+    private String value_insightType;
+    private boolean unknown_insightType;
     public String insightType() {
-        if (insightType == null) return null;
-        return insightType.getValue("TrailInsightSelector.insightType");
+        if (!unknown_insightType) return value_insightType;
+        throw new UndeferrableValueException("Value 'TrailInsightSelector.insightType' is not present");
     }
 
 }

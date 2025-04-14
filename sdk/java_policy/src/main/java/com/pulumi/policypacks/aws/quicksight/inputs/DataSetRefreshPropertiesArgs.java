@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.inputs.DataSetRefreshPropertiesRefreshConfigurationArgs;
 
 
@@ -13,11 +14,12 @@ public final class DataSetRefreshPropertiesArgs {
      * The refresh configuration for the data set. See refresh_configuration.
      * 
      */
-    private UndeferrableValue<DataSetRefreshPropertiesRefreshConfigurationArgs> refreshConfiguration;
-
+    @PolicyResourceProperty(name="refreshConfiguration", flag="unknown_refreshConfiguration")
+    private DataSetRefreshPropertiesRefreshConfigurationArgs value_refreshConfiguration;
+    private boolean unknown_refreshConfiguration;
     public DataSetRefreshPropertiesRefreshConfigurationArgs refreshConfiguration() {
-        if (refreshConfiguration == null) return null;
-        return refreshConfiguration.getValue("DataSetRefreshPropertiesArgs.refreshConfiguration");
+        if (!unknown_refreshConfiguration) return value_refreshConfiguration;
+        throw new UndeferrableValueException("Value 'DataSetRefreshPropertiesArgs.refreshConfiguration' is not present");
     }
 
 }

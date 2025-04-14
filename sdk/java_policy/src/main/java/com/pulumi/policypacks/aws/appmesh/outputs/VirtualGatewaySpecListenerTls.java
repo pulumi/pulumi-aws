@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualGatewaySpecListenerTlsCertificate;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualGatewaySpecListenerTlsValidation;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class VirtualGatewaySpecListenerTls {
      * Listener&#39;s TLS certificate.
      * 
      */
-    private UndeferrableValue<VirtualGatewaySpecListenerTlsCertificate> certificate;
-
+    @PolicyResourceProperty(name="certificate", flag="unknown_certificate")
+    private VirtualGatewaySpecListenerTlsCertificate value_certificate;
+    private boolean unknown_certificate;
     public VirtualGatewaySpecListenerTlsCertificate certificate() {
-        if (certificate == null) return null;
-        return certificate.getValue("VirtualGatewaySpecListenerTls.certificate");
+        if (!unknown_certificate) return value_certificate;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerTls.certificate' is not present");
     }
 
     /**
      * Listener&#39;s TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
      * 
      */
-    private UndeferrableValue<String> mode;
-
+    @PolicyResourceProperty(name="mode", flag="unknown_mode")
+    private String value_mode;
+    private boolean unknown_mode;
     public String mode() {
-        if (mode == null) return null;
-        return mode.getValue("VirtualGatewaySpecListenerTls.mode");
+        if (!unknown_mode) return value_mode;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerTls.mode' is not present");
     }
 
     /**
      * Listener&#39;s Transport Layer Security (TLS) validation context.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualGatewaySpecListenerTlsValidation> validation;
-
+    @PolicyResourceProperty(name="validation", flag="unknown_validation")
+    private @Nullable VirtualGatewaySpecListenerTlsValidation value_validation;
+    private boolean unknown_validation;
     public @Nullable VirtualGatewaySpecListenerTlsValidation validation() {
-        if (validation == null) return null;
-        return validation.getValue("VirtualGatewaySpecListenerTls.validation");
+        if (!unknown_validation) return value_validation;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerTls.validation' is not present");
     }
 
 }

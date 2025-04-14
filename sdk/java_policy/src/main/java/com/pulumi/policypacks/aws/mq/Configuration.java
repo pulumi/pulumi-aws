@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mq;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,77 +19,84 @@ public final class Configuration extends com.pulumi.resources.PolicyResourceOutp
      * ARN of the configuration.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Configuration.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Configuration.arn' is not present");
     }
 
     /**
      * Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
      * 
      */
-    private UndeferrableValue<String> authenticationStrategy;
-
+    @PolicyResourceProperty(name="authenticationStrategy", flag="unknown_authenticationStrategy")
+    private String value_authenticationStrategy;
+    private boolean unknown_authenticationStrategy;
     public String authenticationStrategy() {
-        if (authenticationStrategy == null) return null;
-        return authenticationStrategy.getValue("Configuration.authenticationStrategy");
+        if (!unknown_authenticationStrategy) return value_authenticationStrategy;
+        throw new UndeferrableValueException("Value 'Configuration.authenticationStrategy' is not present");
     }
 
     /**
      * Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
      * 
      */
-    private UndeferrableValue<String> data;
-
+    @PolicyResourceProperty(name="data", flag="unknown_data")
+    private String value_data;
+    private boolean unknown_data;
     public String data() {
-        if (data == null) return null;
-        return data.getValue("Configuration.data");
+        if (!unknown_data) return value_data;
+        throw new UndeferrableValueException("Value 'Configuration.data' is not present");
     }
 
     /**
      * Description of the configuration.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Configuration.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Configuration.description' is not present");
     }
 
     /**
      * Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
      * 
      */
-    private UndeferrableValue<String> engineType;
-
+    @PolicyResourceProperty(name="engineType", flag="unknown_engineType")
+    private String value_engineType;
+    private boolean unknown_engineType;
     public String engineType() {
-        if (engineType == null) return null;
-        return engineType.getValue("Configuration.engineType");
+        if (!unknown_engineType) return value_engineType;
+        throw new UndeferrableValueException("Value 'Configuration.engineType' is not present");
     }
 
     /**
      * Version of the broker engine.
      * 
      */
-    private UndeferrableValue<String> engineVersion;
-
+    @PolicyResourceProperty(name="engineVersion", flag="unknown_engineVersion")
+    private String value_engineVersion;
+    private boolean unknown_engineVersion;
     public String engineVersion() {
-        if (engineVersion == null) return null;
-        return engineVersion.getValue("Configuration.engineVersion");
+        if (!unknown_engineVersion) return value_engineVersion;
+        throw new UndeferrableValueException("Value 'Configuration.engineVersion' is not present");
     }
 
     /**
      * Latest revision of the configuration.
      * 
      */
-    private UndeferrableValue<Integer> latestRevision;
-
+    @PolicyResourceProperty(name="latestRevision", flag="unknown_latestRevision")
+    private Integer value_latestRevision;
+    private boolean unknown_latestRevision;
     public Integer latestRevision() {
-        if (latestRevision == null) return null;
-        return latestRevision.getValue("Configuration.latestRevision");
+        if (!unknown_latestRevision) return value_latestRevision;
+        throw new UndeferrableValueException("Value 'Configuration.latestRevision' is not present");
     }
 
     /**
@@ -97,22 +105,24 @@ public final class Configuration extends com.pulumi.resources.PolicyResourceOutp
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Configuration.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Configuration.name' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Configuration.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Configuration.tags' is not present");
     }
 
     /**
@@ -123,11 +133,12 @@ public final class Configuration extends com.pulumi.resources.PolicyResourceOutp
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Configuration.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Configuration.tagsAll' is not present");
     }
 
 }

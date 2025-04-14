@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.amplify.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DomainAssociationCertificateSettings {
      * DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).
      * 
      */
-    private @Nullable UndeferrableValue<String> certificateVerificationDnsRecord;
-
+    @PolicyResourceProperty(name="certificateVerificationDnsRecord", flag="unknown_certificateVerificationDnsRecord")
+    private @Nullable String value_certificateVerificationDnsRecord;
+    private boolean unknown_certificateVerificationDnsRecord;
     public @Nullable String certificateVerificationDnsRecord() {
-        if (certificateVerificationDnsRecord == null) return null;
-        return certificateVerificationDnsRecord.getValue("DomainAssociationCertificateSettings.certificateVerificationDnsRecord");
+        if (!unknown_certificateVerificationDnsRecord) return value_certificateVerificationDnsRecord;
+        throw new UndeferrableValueException("Value 'DomainAssociationCertificateSettings.certificateVerificationDnsRecord' is not present");
     }
 
     /**
@@ -26,11 +28,12 @@ public final class DomainAssociationCertificateSettings {
      * Required when `type` is `CUSTOM`.
      * 
      */
-    private @Nullable UndeferrableValue<String> customCertificateArn;
-
+    @PolicyResourceProperty(name="customCertificateArn", flag="unknown_customCertificateArn")
+    private @Nullable String value_customCertificateArn;
+    private boolean unknown_customCertificateArn;
     public @Nullable String customCertificateArn() {
-        if (customCertificateArn == null) return null;
-        return customCertificateArn.getValue("DomainAssociationCertificateSettings.customCertificateArn");
+        if (!unknown_customCertificateArn) return value_customCertificateArn;
+        throw new UndeferrableValueException("Value 'DomainAssociationCertificateSettings.customCertificateArn' is not present");
     }
 
     /**
@@ -38,11 +41,12 @@ public final class DomainAssociationCertificateSettings {
      * Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("DomainAssociationCertificateSettings.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'DomainAssociationCertificateSettings.type' is not present");
     }
 
 }

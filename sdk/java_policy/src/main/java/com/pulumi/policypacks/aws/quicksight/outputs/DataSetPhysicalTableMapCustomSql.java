@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.outputs.DataSetPhysicalTableMapCustomSqlColumn;
 import java.lang.String;
 import java.util.List;
@@ -16,44 +17,48 @@ public final class DataSetPhysicalTableMapCustomSql {
      * Column schema from the SQL query result set. See columns.
      * 
      */
-    private @Nullable UndeferrableValue<List<DataSetPhysicalTableMapCustomSqlColumn>> columns;
-
+    @PolicyResourceProperty(name="columns", flag="unknown_columns")
+    private @Nullable List<DataSetPhysicalTableMapCustomSqlColumn> value_columns;
+    private boolean unknown_columns;
     public @Nullable List<DataSetPhysicalTableMapCustomSqlColumn> columns() {
-        if (columns == null) return null;
-        return columns.getValue("DataSetPhysicalTableMapCustomSql.columns");
+        if (!unknown_columns) return value_columns;
+        throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapCustomSql.columns' is not present");
     }
 
     /**
      * ARN of the data source.
      * 
      */
-    private UndeferrableValue<String> dataSourceArn;
-
+    @PolicyResourceProperty(name="dataSourceArn", flag="unknown_dataSourceArn")
+    private String value_dataSourceArn;
+    private boolean unknown_dataSourceArn;
     public String dataSourceArn() {
-        if (dataSourceArn == null) return null;
-        return dataSourceArn.getValue("DataSetPhysicalTableMapCustomSql.dataSourceArn");
+        if (!unknown_dataSourceArn) return value_dataSourceArn;
+        throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapCustomSql.dataSourceArn' is not present");
     }
 
     /**
      * Display name for the SQL query result.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DataSetPhysicalTableMapCustomSql.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapCustomSql.name' is not present");
     }
 
     /**
      * SQL query.
      * 
      */
-    private UndeferrableValue<String> sqlQuery;
-
+    @PolicyResourceProperty(name="sqlQuery", flag="unknown_sqlQuery")
+    private String value_sqlQuery;
+    private boolean unknown_sqlQuery;
     public String sqlQuery() {
-        if (sqlQuery == null) return null;
-        return sqlQuery.getValue("DataSetPhysicalTableMapCustomSql.sqlQuery");
+        if (!unknown_sqlQuery) return value_sqlQuery;
+        throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapCustomSql.sqlQuery' is not present");
     }
 
 }

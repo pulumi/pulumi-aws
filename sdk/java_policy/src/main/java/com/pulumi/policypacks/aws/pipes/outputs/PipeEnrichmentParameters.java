@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.pipes.outputs.PipeEnrichmentParametersHttpParameters;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class PipeEnrichmentParameters {
      * Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you&#39;re using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<PipeEnrichmentParametersHttpParameters> httpParameters;
-
+    @PolicyResourceProperty(name="httpParameters", flag="unknown_httpParameters")
+    private @Nullable PipeEnrichmentParametersHttpParameters value_httpParameters;
+    private boolean unknown_httpParameters;
     public @Nullable PipeEnrichmentParametersHttpParameters httpParameters() {
-        if (httpParameters == null) return null;
-        return httpParameters.getValue("PipeEnrichmentParameters.httpParameters");
+        if (!unknown_httpParameters) return value_httpParameters;
+        throw new UndeferrableValueException("Value 'PipeEnrichmentParameters.httpParameters' is not present");
     }
 
     /**
      * Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. Maximum length of 8192 characters.
      * 
      */
-    private @Nullable UndeferrableValue<String> inputTemplate;
-
+    @PolicyResourceProperty(name="inputTemplate", flag="unknown_inputTemplate")
+    private @Nullable String value_inputTemplate;
+    private boolean unknown_inputTemplate;
     public @Nullable String inputTemplate() {
-        if (inputTemplate == null) return null;
-        return inputTemplate.getValue("PipeEnrichmentParameters.inputTemplate");
+        if (!unknown_inputTemplate) return value_inputTemplate;
+        throw new UndeferrableValueException("Value 'PipeEnrichmentParameters.inputTemplate' is not present");
     }
 
 }

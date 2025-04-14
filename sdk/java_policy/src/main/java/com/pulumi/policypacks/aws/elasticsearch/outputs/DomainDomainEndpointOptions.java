@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticsearch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,55 +16,60 @@ public final class DomainDomainEndpointOptions {
      * Fully qualified domain for your custom endpoint.
      * 
      */
-    private @Nullable UndeferrableValue<String> customEndpoint;
-
+    @PolicyResourceProperty(name="customEndpoint", flag="unknown_customEndpoint")
+    private @Nullable String value_customEndpoint;
+    private boolean unknown_customEndpoint;
     public @Nullable String customEndpoint() {
-        if (customEndpoint == null) return null;
-        return customEndpoint.getValue("DomainDomainEndpointOptions.customEndpoint");
+        if (!unknown_customEndpoint) return value_customEndpoint;
+        throw new UndeferrableValueException("Value 'DomainDomainEndpointOptions.customEndpoint' is not present");
     }
 
     /**
      * ACM certificate ARN for your custom endpoint.
      * 
      */
-    private @Nullable UndeferrableValue<String> customEndpointCertificateArn;
-
+    @PolicyResourceProperty(name="customEndpointCertificateArn", flag="unknown_customEndpointCertificateArn")
+    private @Nullable String value_customEndpointCertificateArn;
+    private boolean unknown_customEndpointCertificateArn;
     public @Nullable String customEndpointCertificateArn() {
-        if (customEndpointCertificateArn == null) return null;
-        return customEndpointCertificateArn.getValue("DomainDomainEndpointOptions.customEndpointCertificateArn");
+        if (!unknown_customEndpointCertificateArn) return value_customEndpointCertificateArn;
+        throw new UndeferrableValueException("Value 'DomainDomainEndpointOptions.customEndpointCertificateArn' is not present");
     }
 
     /**
      * Whether to enable custom endpoint for the Elasticsearch domain.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> customEndpointEnabled;
-
+    @PolicyResourceProperty(name="customEndpointEnabled", flag="unknown_customEndpointEnabled")
+    private @Nullable Boolean value_customEndpointEnabled;
+    private boolean unknown_customEndpointEnabled;
     public @Nullable Boolean customEndpointEnabled() {
-        if (customEndpointEnabled == null) return null;
-        return customEndpointEnabled.getValue("DomainDomainEndpointOptions.customEndpointEnabled");
+        if (!unknown_customEndpointEnabled) return value_customEndpointEnabled;
+        throw new UndeferrableValueException("Value 'DomainDomainEndpointOptions.customEndpointEnabled' is not present");
     }
 
     /**
      * Whether or not to require HTTPS. Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enforceHttps;
-
+    @PolicyResourceProperty(name="enforceHttps", flag="unknown_enforceHttps")
+    private @Nullable Boolean value_enforceHttps;
+    private boolean unknown_enforceHttps;
     public @Nullable Boolean enforceHttps() {
-        if (enforceHttps == null) return null;
-        return enforceHttps.getValue("DomainDomainEndpointOptions.enforceHttps");
+        if (!unknown_enforceHttps) return value_enforceHttps;
+        throw new UndeferrableValueException("Value 'DomainDomainEndpointOptions.enforceHttps' is not present");
     }
 
     /**
      * Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07`, `Policy-Min-TLS-1-2-2019-07`, and `Policy-Min-TLS-1-2-PFS-2023-10`. Pulumi will only perform drift detection if a configuration value is provided.
      * 
      */
-    private @Nullable UndeferrableValue<String> tlsSecurityPolicy;
-
+    @PolicyResourceProperty(name="tlsSecurityPolicy", flag="unknown_tlsSecurityPolicy")
+    private @Nullable String value_tlsSecurityPolicy;
+    private boolean unknown_tlsSecurityPolicy;
     public @Nullable String tlsSecurityPolicy() {
-        if (tlsSecurityPolicy == null) return null;
-        return tlsSecurityPolicy.getValue("DomainDomainEndpointOptions.tlsSecurityPolicy");
+        if (!unknown_tlsSecurityPolicy) return value_tlsSecurityPolicy;
+        throw new UndeferrableValueException("Value 'DomainDomainEndpointOptions.tlsSecurityPolicy' is not present");
     }
 
 }

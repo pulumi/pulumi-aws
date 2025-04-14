@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53recoveryreadiness;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,11 +19,12 @@ public final class RecoveryGroupArgs extends com.pulumi.resources.PolicyResource
      * List of cell arns to add as nested fault domains within this recovery group
      * 
      */
-    private UndeferrableValue<List<String>> cells;
-
+    @PolicyResourceProperty(name="cells", flag="unknown_cells")
+    private List<String> value_cells;
+    private boolean unknown_cells;
     public List<String> cells() {
-        if (cells == null) return null;
-        return cells.getValue("RecoveryGroupArgs.cells");
+        if (!unknown_cells) return value_cells;
+        throw new UndeferrableValueException("Value 'RecoveryGroupArgs.cells' is not present");
     }
 
     /**
@@ -31,22 +33,24 @@ public final class RecoveryGroupArgs extends com.pulumi.resources.PolicyResource
      * The following argument are optional:
      * 
      */
-    private UndeferrableValue<String> recoveryGroupName;
-
+    @PolicyResourceProperty(name="recoveryGroupName", flag="unknown_recoveryGroupName")
+    private String value_recoveryGroupName;
+    private boolean unknown_recoveryGroupName;
     public String recoveryGroupName() {
-        if (recoveryGroupName == null) return null;
-        return recoveryGroupName.getValue("RecoveryGroupArgs.recoveryGroupName");
+        if (!unknown_recoveryGroupName) return value_recoveryGroupName;
+        throw new UndeferrableValueException("Value 'RecoveryGroupArgs.recoveryGroupName' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RecoveryGroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RecoveryGroupArgs.tags' is not present");
     }
 
 }

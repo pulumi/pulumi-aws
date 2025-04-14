@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class VirtualNodeSpecListenerTlsValidationTrustFile {
      * Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
      * 
      */
-    private UndeferrableValue<String> certificateChain;
-
+    @PolicyResourceProperty(name="certificateChain", flag="unknown_certificateChain")
+    private String value_certificateChain;
+    private boolean unknown_certificateChain;
     public String certificateChain() {
-        if (certificateChain == null) return null;
-        return certificateChain.getValue("VirtualNodeSpecListenerTlsValidationTrustFile.certificateChain");
+        if (!unknown_certificateChain) return value_certificateChain;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerTlsValidationTrustFile.certificateChain' is not present");
     }
 
 }

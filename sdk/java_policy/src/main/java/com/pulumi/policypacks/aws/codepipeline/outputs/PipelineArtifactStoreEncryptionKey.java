@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class PipelineArtifactStoreEncryptionKey {
      * The KMS key ARN or ID
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("PipelineArtifactStoreEncryptionKey.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'PipelineArtifactStoreEncryptionKey.id' is not present");
     }
 
     /**
      * The type of key; currently only `KMS` is supported
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("PipelineArtifactStoreEncryptionKey.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'PipelineArtifactStoreEncryptionKey.type' is not present");
     }
 
 }

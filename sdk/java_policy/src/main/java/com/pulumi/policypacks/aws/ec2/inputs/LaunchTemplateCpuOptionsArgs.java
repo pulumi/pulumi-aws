@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class LaunchTemplateCpuOptionsArgs {
      * Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
      * 
      */
-    private UndeferrableValue<String> amdSevSnp;
-
+    @PolicyResourceProperty(name="amdSevSnp", flag="unknown_amdSevSnp")
+    private String value_amdSevSnp;
+    private boolean unknown_amdSevSnp;
     public String amdSevSnp() {
-        if (amdSevSnp == null) return null;
-        return amdSevSnp.getValue("LaunchTemplateCpuOptionsArgs.amdSevSnp");
+        if (!unknown_amdSevSnp) return value_amdSevSnp;
+        throw new UndeferrableValueException("Value 'LaunchTemplateCpuOptionsArgs.amdSevSnp' is not present");
     }
 
     /**
      * The number of CPU cores for the instance.
      * 
      */
-    private UndeferrableValue<Integer> coreCount;
-
+    @PolicyResourceProperty(name="coreCount", flag="unknown_coreCount")
+    private Integer value_coreCount;
+    private boolean unknown_coreCount;
     public Integer coreCount() {
-        if (coreCount == null) return null;
-        return coreCount.getValue("LaunchTemplateCpuOptionsArgs.coreCount");
+        if (!unknown_coreCount) return value_coreCount;
+        throw new UndeferrableValueException("Value 'LaunchTemplateCpuOptionsArgs.coreCount' is not present");
     }
 
     /**
@@ -41,11 +44,12 @@ public final class LaunchTemplateCpuOptionsArgs {
      * Both number of CPU cores and threads per core must be specified. Valid number of CPU cores and threads per core for the instance type can be found in the [CPU Options Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html?shortFooter=true#cpu-options-supported-instances-values)
      * 
      */
-    private UndeferrableValue<Integer> threadsPerCore;
-
+    @PolicyResourceProperty(name="threadsPerCore", flag="unknown_threadsPerCore")
+    private Integer value_threadsPerCore;
+    private boolean unknown_threadsPerCore;
     public Integer threadsPerCore() {
-        if (threadsPerCore == null) return null;
-        return threadsPerCore.getValue("LaunchTemplateCpuOptionsArgs.threadsPerCore");
+        if (!unknown_threadsPerCore) return value_threadsPerCore;
+        throw new UndeferrableValueException("Value 'LaunchTemplateCpuOptionsArgs.threadsPerCore' is not present");
     }
 
 }

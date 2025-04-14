@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class LocationAzureBlobSasConfigurationArgs {
      * A SAS token that provides permissions to access your Azure Blob Storage.
      * 
      */
-    private UndeferrableValue<String> token;
-
+    @PolicyResourceProperty(name="token", flag="unknown_token")
+    private String value_token;
+    private boolean unknown_token;
     public String token() {
-        if (token == null) return null;
-        return token.getValue("LocationAzureBlobSasConfigurationArgs.token");
+        if (!unknown_token) return value_token;
+        throw new UndeferrableValueException("Value 'LocationAzureBlobSasConfigurationArgs.token' is not present");
     }
 
 }

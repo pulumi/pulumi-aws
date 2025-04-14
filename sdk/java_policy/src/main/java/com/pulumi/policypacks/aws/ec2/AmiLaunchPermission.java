@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,55 +17,60 @@ public final class AmiLaunchPermission extends com.pulumi.resources.PolicyResour
      * AWS account ID for the launch permission.
      * 
      */
-    private @Nullable UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private @Nullable String value_accountId;
+    private boolean unknown_accountId;
     public @Nullable String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("AmiLaunchPermission.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'AmiLaunchPermission.accountId' is not present");
     }
 
     /**
      * Name of the group for the launch permission. Valid values: `&#34;all&#34;`.
      * 
      */
-    private @Nullable UndeferrableValue<String> group;
-
+    @PolicyResourceProperty(name="group", flag="unknown_group")
+    private @Nullable String value_group;
+    private boolean unknown_group;
     public @Nullable String group() {
-        if (group == null) return null;
-        return group.getValue("AmiLaunchPermission.group");
+        if (!unknown_group) return value_group;
+        throw new UndeferrableValueException("Value 'AmiLaunchPermission.group' is not present");
     }
 
     /**
      * ID of the AMI.
      * 
      */
-    private UndeferrableValue<String> imageId;
-
+    @PolicyResourceProperty(name="imageId", flag="unknown_imageId")
+    private String value_imageId;
+    private boolean unknown_imageId;
     public String imageId() {
-        if (imageId == null) return null;
-        return imageId.getValue("AmiLaunchPermission.imageId");
+        if (!unknown_imageId) return value_imageId;
+        throw new UndeferrableValueException("Value 'AmiLaunchPermission.imageId' is not present");
     }
 
     /**
      * ARN of an organization for the launch permission.
      * 
      */
-    private @Nullable UndeferrableValue<String> organizationArn;
-
+    @PolicyResourceProperty(name="organizationArn", flag="unknown_organizationArn")
+    private @Nullable String value_organizationArn;
+    private boolean unknown_organizationArn;
     public @Nullable String organizationArn() {
-        if (organizationArn == null) return null;
-        return organizationArn.getValue("AmiLaunchPermission.organizationArn");
+        if (!unknown_organizationArn) return value_organizationArn;
+        throw new UndeferrableValueException("Value 'AmiLaunchPermission.organizationArn' is not present");
     }
 
     /**
      * ARN of an organizational unit for the launch permission.
      * 
      */
-    private @Nullable UndeferrableValue<String> organizationalUnitArn;
-
+    @PolicyResourceProperty(name="organizationalUnitArn", flag="unknown_organizationalUnitArn")
+    private @Nullable String value_organizationalUnitArn;
+    private boolean unknown_organizationalUnitArn;
     public @Nullable String organizationalUnitArn() {
-        if (organizationalUnitArn == null) return null;
-        return organizationalUnitArn.getValue("AmiLaunchPermission.organizationalUnitArn");
+        if (!unknown_organizationalUnitArn) return value_organizationalUnitArn;
+        throw new UndeferrableValueException("Value 'AmiLaunchPermission.organizationalUnitArn' is not present");
     }
 
 }

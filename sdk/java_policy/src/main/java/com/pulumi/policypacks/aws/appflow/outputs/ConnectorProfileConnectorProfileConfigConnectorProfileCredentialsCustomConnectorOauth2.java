@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,39 +12,44 @@ import javax.annotation.Nullable;
 
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 {
 
-    private @Nullable UndeferrableValue<String> accessToken;
-
+    @PolicyResourceProperty(name="accessToken", flag="unknown_accessToken")
+    private @Nullable String value_accessToken;
+    private boolean unknown_accessToken;
     public @Nullable String accessToken() {
-        if (accessToken == null) return null;
-        return accessToken.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2.accessToken");
+        if (!unknown_accessToken) return value_accessToken;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2.accessToken' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> clientId;
-
+    @PolicyResourceProperty(name="clientId", flag="unknown_clientId")
+    private @Nullable String value_clientId;
+    private boolean unknown_clientId;
     public @Nullable String clientId() {
-        if (clientId == null) return null;
-        return clientId.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2.clientId");
+        if (!unknown_clientId) return value_clientId;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2.clientId' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> clientSecret;
-
+    @PolicyResourceProperty(name="clientSecret", flag="unknown_clientSecret")
+    private @Nullable String value_clientSecret;
+    private boolean unknown_clientSecret;
     public @Nullable String clientSecret() {
-        if (clientSecret == null) return null;
-        return clientSecret.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2.clientSecret");
+        if (!unknown_clientSecret) return value_clientSecret;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2.clientSecret' is not present");
     }
 
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest> oauthRequest;
-
+    @PolicyResourceProperty(name="oauthRequest", flag="unknown_oauthRequest")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest value_oauthRequest;
+    private boolean unknown_oauthRequest;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest oauthRequest() {
-        if (oauthRequest == null) return null;
-        return oauthRequest.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2.oauthRequest");
+        if (!unknown_oauthRequest) return value_oauthRequest;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2.oauthRequest' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> refreshToken;
-
+    @PolicyResourceProperty(name="refreshToken", flag="unknown_refreshToken")
+    private @Nullable String value_refreshToken;
+    private boolean unknown_refreshToken;
     public @Nullable String refreshToken() {
-        if (refreshToken == null) return null;
-        return refreshToken.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2.refreshToken");
+        if (!unknown_refreshToken) return value_refreshToken;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2.refreshToken' is not present");
     }
 
 }

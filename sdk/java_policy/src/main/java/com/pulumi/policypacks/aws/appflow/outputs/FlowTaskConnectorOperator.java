@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,176 +15,192 @@ public final class FlowTaskConnectorOperator {
      * Operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
      * 
      */
-    private @Nullable UndeferrableValue<String> amplitude;
-
+    @PolicyResourceProperty(name="amplitude", flag="unknown_amplitude")
+    private @Nullable String value_amplitude;
+    private boolean unknown_amplitude;
     public @Nullable String amplitude() {
-        if (amplitude == null) return null;
-        return amplitude.getValue("FlowTaskConnectorOperator.amplitude");
+        if (!unknown_amplitude) return value_amplitude;
+        throw new UndeferrableValueException("Value 'FlowTaskConnectorOperator.amplitude' is not present");
     }
 
     /**
      * Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private @Nullable UndeferrableValue<String> customConnector;
-
+    @PolicyResourceProperty(name="customConnector", flag="unknown_customConnector")
+    private @Nullable String value_customConnector;
+    private boolean unknown_customConnector;
     public @Nullable String customConnector() {
-        if (customConnector == null) return null;
-        return customConnector.getValue("FlowTaskConnectorOperator.customConnector");
+        if (!unknown_customConnector) return value_customConnector;
+        throw new UndeferrableValueException("Value 'FlowTaskConnectorOperator.customConnector' is not present");
     }
 
     /**
      * Operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private @Nullable UndeferrableValue<String> datadog;
-
+    @PolicyResourceProperty(name="datadog", flag="unknown_datadog")
+    private @Nullable String value_datadog;
+    private boolean unknown_datadog;
     public @Nullable String datadog() {
-        if (datadog == null) return null;
-        return datadog.getValue("FlowTaskConnectorOperator.datadog");
+        if (!unknown_datadog) return value_datadog;
+        throw new UndeferrableValueException("Value 'FlowTaskConnectorOperator.datadog' is not present");
     }
 
     /**
      * Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private @Nullable UndeferrableValue<String> dynatrace;
-
+    @PolicyResourceProperty(name="dynatrace", flag="unknown_dynatrace")
+    private @Nullable String value_dynatrace;
+    private boolean unknown_dynatrace;
     public @Nullable String dynatrace() {
-        if (dynatrace == null) return null;
-        return dynatrace.getValue("FlowTaskConnectorOperator.dynatrace");
+        if (!unknown_dynatrace) return value_dynatrace;
+        throw new UndeferrableValueException("Value 'FlowTaskConnectorOperator.dynatrace' is not present");
     }
 
     /**
      * Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
      * 
      */
-    private @Nullable UndeferrableValue<String> googleAnalytics;
-
+    @PolicyResourceProperty(name="googleAnalytics", flag="unknown_googleAnalytics")
+    private @Nullable String value_googleAnalytics;
+    private boolean unknown_googleAnalytics;
     public @Nullable String googleAnalytics() {
-        if (googleAnalytics == null) return null;
-        return googleAnalytics.getValue("FlowTaskConnectorOperator.googleAnalytics");
+        if (!unknown_googleAnalytics) return value_googleAnalytics;
+        throw new UndeferrableValueException("Value 'FlowTaskConnectorOperator.googleAnalytics' is not present");
     }
 
     /**
      * Operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private @Nullable UndeferrableValue<String> inforNexus;
-
+    @PolicyResourceProperty(name="inforNexus", flag="unknown_inforNexus")
+    private @Nullable String value_inforNexus;
+    private boolean unknown_inforNexus;
     public @Nullable String inforNexus() {
-        if (inforNexus == null) return null;
-        return inforNexus.getValue("FlowTaskConnectorOperator.inforNexus");
+        if (!unknown_inforNexus) return value_inforNexus;
+        throw new UndeferrableValueException("Value 'FlowTaskConnectorOperator.inforNexus' is not present");
     }
 
     /**
      * Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private @Nullable UndeferrableValue<String> marketo;
-
+    @PolicyResourceProperty(name="marketo", flag="unknown_marketo")
+    private @Nullable String value_marketo;
+    private boolean unknown_marketo;
     public @Nullable String marketo() {
-        if (marketo == null) return null;
-        return marketo.getValue("FlowTaskConnectorOperator.marketo");
+        if (!unknown_marketo) return value_marketo;
+        throw new UndeferrableValueException("Value 'FlowTaskConnectorOperator.marketo' is not present");
     }
 
     /**
      * Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private @Nullable UndeferrableValue<String> s3;
-
+    @PolicyResourceProperty(name="s3", flag="unknown_s3")
+    private @Nullable String value_s3;
+    private boolean unknown_s3;
     public @Nullable String s3() {
-        if (s3 == null) return null;
-        return s3.getValue("FlowTaskConnectorOperator.s3");
+        if (!unknown_s3) return value_s3;
+        throw new UndeferrableValueException("Value 'FlowTaskConnectorOperator.s3' is not present");
     }
 
     /**
      * Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private @Nullable UndeferrableValue<String> salesforce;
-
+    @PolicyResourceProperty(name="salesforce", flag="unknown_salesforce")
+    private @Nullable String value_salesforce;
+    private boolean unknown_salesforce;
     public @Nullable String salesforce() {
-        if (salesforce == null) return null;
-        return salesforce.getValue("FlowTaskConnectorOperator.salesforce");
+        if (!unknown_salesforce) return value_salesforce;
+        throw new UndeferrableValueException("Value 'FlowTaskConnectorOperator.salesforce' is not present");
     }
 
     /**
      * Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private @Nullable UndeferrableValue<String> sapoData;
-
+    @PolicyResourceProperty(name="sapoData", flag="unknown_sapoData")
+    private @Nullable String value_sapoData;
+    private boolean unknown_sapoData;
     public @Nullable String sapoData() {
-        if (sapoData == null) return null;
-        return sapoData.getValue("FlowTaskConnectorOperator.sapoData");
+        if (!unknown_sapoData) return value_sapoData;
+        throw new UndeferrableValueException("Value 'FlowTaskConnectorOperator.sapoData' is not present");
     }
 
     /**
      * Operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private @Nullable UndeferrableValue<String> serviceNow;
-
+    @PolicyResourceProperty(name="serviceNow", flag="unknown_serviceNow")
+    private @Nullable String value_serviceNow;
+    private boolean unknown_serviceNow;
     public @Nullable String serviceNow() {
-        if (serviceNow == null) return null;
-        return serviceNow.getValue("FlowTaskConnectorOperator.serviceNow");
+        if (!unknown_serviceNow) return value_serviceNow;
+        throw new UndeferrableValueException("Value 'FlowTaskConnectorOperator.serviceNow' is not present");
     }
 
     /**
      * Operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private @Nullable UndeferrableValue<String> singular;
-
+    @PolicyResourceProperty(name="singular", flag="unknown_singular")
+    private @Nullable String value_singular;
+    private boolean unknown_singular;
     public @Nullable String singular() {
-        if (singular == null) return null;
-        return singular.getValue("FlowTaskConnectorOperator.singular");
+        if (!unknown_singular) return value_singular;
+        throw new UndeferrableValueException("Value 'FlowTaskConnectorOperator.singular' is not present");
     }
 
     /**
      * Operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private @Nullable UndeferrableValue<String> slack;
-
+    @PolicyResourceProperty(name="slack", flag="unknown_slack")
+    private @Nullable String value_slack;
+    private boolean unknown_slack;
     public @Nullable String slack() {
-        if (slack == null) return null;
-        return slack.getValue("FlowTaskConnectorOperator.slack");
+        if (!unknown_slack) return value_slack;
+        throw new UndeferrableValueException("Value 'FlowTaskConnectorOperator.slack' is not present");
     }
 
     /**
      * Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private @Nullable UndeferrableValue<String> trendmicro;
-
+    @PolicyResourceProperty(name="trendmicro", flag="unknown_trendmicro")
+    private @Nullable String value_trendmicro;
+    private boolean unknown_trendmicro;
     public @Nullable String trendmicro() {
-        if (trendmicro == null) return null;
-        return trendmicro.getValue("FlowTaskConnectorOperator.trendmicro");
+        if (!unknown_trendmicro) return value_trendmicro;
+        throw new UndeferrableValueException("Value 'FlowTaskConnectorOperator.trendmicro' is not present");
     }
 
     /**
      * Operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private @Nullable UndeferrableValue<String> veeva;
-
+    @PolicyResourceProperty(name="veeva", flag="unknown_veeva")
+    private @Nullable String value_veeva;
+    private boolean unknown_veeva;
     public @Nullable String veeva() {
-        if (veeva == null) return null;
-        return veeva.getValue("FlowTaskConnectorOperator.veeva");
+        if (!unknown_veeva) return value_veeva;
+        throw new UndeferrableValueException("Value 'FlowTaskConnectorOperator.veeva' is not present");
     }
 
     /**
      * Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
      * 
      */
-    private @Nullable UndeferrableValue<String> zendesk;
-
+    @PolicyResourceProperty(name="zendesk", flag="unknown_zendesk")
+    private @Nullable String value_zendesk;
+    private boolean unknown_zendesk;
     public @Nullable String zendesk() {
-        if (zendesk == null) return null;
-        return zendesk.getValue("FlowTaskConnectorOperator.zendesk");
+        if (!unknown_zendesk) return value_zendesk;
+        throw new UndeferrableValueException("Value 'FlowTaskConnectorOperator.zendesk' is not present");
     }
 
 }

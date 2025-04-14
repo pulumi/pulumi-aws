@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class TrafficMirrorFilterRuleDestinationPortRangeArgs {
      * Starting port of the range
      * 
      */
-    private UndeferrableValue<Integer> fromPort;
-
+    @PolicyResourceProperty(name="fromPort", flag="unknown_fromPort")
+    private Integer value_fromPort;
+    private boolean unknown_fromPort;
     public Integer fromPort() {
-        if (fromPort == null) return null;
-        return fromPort.getValue("TrafficMirrorFilterRuleDestinationPortRangeArgs.fromPort");
+        if (!unknown_fromPort) return value_fromPort;
+        throw new UndeferrableValueException("Value 'TrafficMirrorFilterRuleDestinationPortRangeArgs.fromPort' is not present");
     }
 
     /**
      * Ending port of the range
      * 
      */
-    private UndeferrableValue<Integer> toPort;
-
+    @PolicyResourceProperty(name="toPort", flag="unknown_toPort")
+    private Integer value_toPort;
+    private boolean unknown_toPort;
     public Integer toPort() {
-        if (toPort == null) return null;
-        return toPort.getValue("TrafficMirrorFilterRuleDestinationPortRangeArgs.toPort");
+        if (!unknown_toPort) return value_toPort;
+        throw new UndeferrableValueException("Value 'TrafficMirrorFilterRuleDestinationPortRangeArgs.toPort' is not present");
     }
 
 }

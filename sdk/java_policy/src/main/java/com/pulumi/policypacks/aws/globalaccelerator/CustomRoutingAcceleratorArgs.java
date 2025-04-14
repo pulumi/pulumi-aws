@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.globalaccelerator;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.globalaccelerator.inputs.CustomRoutingAcceleratorAttributesArgs;
 import java.lang.Boolean;
@@ -20,66 +21,72 @@ public final class CustomRoutingAcceleratorArgs extends com.pulumi.resources.Pol
      * The attributes of the accelerator. Fields documented below.
      * 
      */
-    private UndeferrableValue<CustomRoutingAcceleratorAttributesArgs> attributes;
-
+    @PolicyResourceProperty(name="attributes", flag="unknown_attributes")
+    private CustomRoutingAcceleratorAttributesArgs value_attributes;
+    private boolean unknown_attributes;
     public CustomRoutingAcceleratorAttributesArgs attributes() {
-        if (attributes == null) return null;
-        return attributes.getValue("CustomRoutingAcceleratorArgs.attributes");
+        if (!unknown_attributes) return value_attributes;
+        throw new UndeferrableValueException("Value 'CustomRoutingAcceleratorArgs.attributes' is not present");
     }
 
     /**
      * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("CustomRoutingAcceleratorArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'CustomRoutingAcceleratorArgs.enabled' is not present");
     }
 
     /**
      * The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `&#34;IPV4&#34;`.
      * 
      */
-    private UndeferrableValue<String> ipAddressType;
-
+    @PolicyResourceProperty(name="ipAddressType", flag="unknown_ipAddressType")
+    private String value_ipAddressType;
+    private boolean unknown_ipAddressType;
     public String ipAddressType() {
-        if (ipAddressType == null) return null;
-        return ipAddressType.getValue("CustomRoutingAcceleratorArgs.ipAddressType");
+        if (!unknown_ipAddressType) return value_ipAddressType;
+        throw new UndeferrableValueException("Value 'CustomRoutingAcceleratorArgs.ipAddressType' is not present");
     }
 
     /**
      * The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
      * 
      */
-    private UndeferrableValue<List<String>> ipAddresses;
-
+    @PolicyResourceProperty(name="ipAddresses", flag="unknown_ipAddresses")
+    private List<String> value_ipAddresses;
+    private boolean unknown_ipAddresses;
     public List<String> ipAddresses() {
-        if (ipAddresses == null) return null;
-        return ipAddresses.getValue("CustomRoutingAcceleratorArgs.ipAddresses");
+        if (!unknown_ipAddresses) return value_ipAddresses;
+        throw new UndeferrableValueException("Value 'CustomRoutingAcceleratorArgs.ipAddresses' is not present");
     }
 
     /**
      * The name of a custom routing accelerator.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("CustomRoutingAcceleratorArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'CustomRoutingAcceleratorArgs.name' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CustomRoutingAcceleratorArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CustomRoutingAcceleratorArgs.tags' is not present");
     }
 
 }

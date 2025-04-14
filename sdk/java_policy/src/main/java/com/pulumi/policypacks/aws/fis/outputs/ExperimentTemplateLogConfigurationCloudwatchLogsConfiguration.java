@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration
      * The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.
      * 
      */
-    private UndeferrableValue<String> logGroupArn;
-
+    @PolicyResourceProperty(name="logGroupArn", flag="unknown_logGroupArn")
+    private String value_logGroupArn;
+    private boolean unknown_logGroupArn;
     public String logGroupArn() {
-        if (logGroupArn == null) return null;
-        return logGroupArn.getValue("ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration.logGroupArn");
+        if (!unknown_logGroupArn) return value_logGroupArn;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration.logGroupArn' is not present");
     }
 
 }

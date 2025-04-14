@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class LocationHdfsNameNode {
      * The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that&#39;s installed on-premises uses this hostname to communicate with the NameNode in the network.
      * 
      */
-    private UndeferrableValue<String> hostname;
-
+    @PolicyResourceProperty(name="hostname", flag="unknown_hostname")
+    private String value_hostname;
+    private boolean unknown_hostname;
     public String hostname() {
-        if (hostname == null) return null;
-        return hostname.getValue("LocationHdfsNameNode.hostname");
+        if (!unknown_hostname) return value_hostname;
+        throw new UndeferrableValueException("Value 'LocationHdfsNameNode.hostname' is not present");
     }
 
     /**
      * The port that the NameNode uses to listen to client requests.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("LocationHdfsNameNode.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'LocationHdfsNameNode.port' is not present");
     }
 
 }

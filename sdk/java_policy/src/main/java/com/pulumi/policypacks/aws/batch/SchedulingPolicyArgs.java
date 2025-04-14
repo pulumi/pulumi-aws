@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.batch.inputs.SchedulingPolicyFairSharePolicyArgs;
 import java.lang.String;
@@ -14,33 +15,36 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:batch/schedulingPolicy:SchedulingPolicy")
 public final class SchedulingPolicyArgs extends com.pulumi.resources.PolicyResourceInput {
 
-    private UndeferrableValue<SchedulingPolicyFairSharePolicyArgs> fairSharePolicy;
-
+    @PolicyResourceProperty(name="fairSharePolicy", flag="unknown_fairSharePolicy")
+    private SchedulingPolicyFairSharePolicyArgs value_fairSharePolicy;
+    private boolean unknown_fairSharePolicy;
     public SchedulingPolicyFairSharePolicyArgs fairSharePolicy() {
-        if (fairSharePolicy == null) return null;
-        return fairSharePolicy.getValue("SchedulingPolicyArgs.fairSharePolicy");
+        if (!unknown_fairSharePolicy) return value_fairSharePolicy;
+        throw new UndeferrableValueException("Value 'SchedulingPolicyArgs.fairSharePolicy' is not present");
     }
 
     /**
      * Specifies the name of the scheduling policy.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("SchedulingPolicyArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'SchedulingPolicyArgs.name' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SchedulingPolicyArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SchedulingPolicyArgs.tags' is not present");
     }
 
 }

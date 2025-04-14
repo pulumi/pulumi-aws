@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicequotas;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Double;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class ServiceQuotaArgs extends com.pulumi.resources.PolicyResourceI
      * Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
      * 
      */
-    private UndeferrableValue<String> quotaCode;
-
+    @PolicyResourceProperty(name="quotaCode", flag="unknown_quotaCode")
+    private String value_quotaCode;
+    private boolean unknown_quotaCode;
     public String quotaCode() {
-        if (quotaCode == null) return null;
-        return quotaCode.getValue("ServiceQuotaArgs.quotaCode");
+        if (!unknown_quotaCode) return value_quotaCode;
+        throw new UndeferrableValueException("Value 'ServiceQuotaArgs.quotaCode' is not present");
     }
 
     /**
      * Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
      * 
      */
-    private UndeferrableValue<String> serviceCode;
-
+    @PolicyResourceProperty(name="serviceCode", flag="unknown_serviceCode")
+    private String value_serviceCode;
+    private boolean unknown_serviceCode;
     public String serviceCode() {
-        if (serviceCode == null) return null;
-        return serviceCode.getValue("ServiceQuotaArgs.serviceCode");
+        if (!unknown_serviceCode) return value_serviceCode;
+        throw new UndeferrableValueException("Value 'ServiceQuotaArgs.serviceCode' is not present");
     }
 
     /**
      * Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
      * 
      */
-    private UndeferrableValue<Double> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private Double value_value;
+    private boolean unknown_value;
     public Double value() {
-        if (value == null) return null;
-        return value.getValue("ServiceQuotaArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'ServiceQuotaArgs.value' is not present");
     }
 
 }

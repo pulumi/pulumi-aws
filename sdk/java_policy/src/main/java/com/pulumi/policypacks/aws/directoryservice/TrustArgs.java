@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directoryservice;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -19,44 +20,48 @@ public final class TrustArgs extends com.pulumi.resources.PolicyResourceInput {
      * Can contain between 1 and 4 values.
      * 
      */
-    private UndeferrableValue<List<String>> conditionalForwarderIpAddrs;
-
+    @PolicyResourceProperty(name="conditionalForwarderIpAddrs", flag="unknown_conditionalForwarderIpAddrs")
+    private List<String> value_conditionalForwarderIpAddrs;
+    private boolean unknown_conditionalForwarderIpAddrs;
     public List<String> conditionalForwarderIpAddrs() {
-        if (conditionalForwarderIpAddrs == null) return null;
-        return conditionalForwarderIpAddrs.getValue("TrustArgs.conditionalForwarderIpAddrs");
+        if (!unknown_conditionalForwarderIpAddrs) return value_conditionalForwarderIpAddrs;
+        throw new UndeferrableValueException("Value 'TrustArgs.conditionalForwarderIpAddrs' is not present");
     }
 
     /**
      * Whether to delete the conditional forwarder when deleting the Trust relationship.
      * 
      */
-    private UndeferrableValue<Boolean> deleteAssociatedConditionalForwarder;
-
+    @PolicyResourceProperty(name="deleteAssociatedConditionalForwarder", flag="unknown_deleteAssociatedConditionalForwarder")
+    private Boolean value_deleteAssociatedConditionalForwarder;
+    private boolean unknown_deleteAssociatedConditionalForwarder;
     public Boolean deleteAssociatedConditionalForwarder() {
-        if (deleteAssociatedConditionalForwarder == null) return null;
-        return deleteAssociatedConditionalForwarder.getValue("TrustArgs.deleteAssociatedConditionalForwarder");
+        if (!unknown_deleteAssociatedConditionalForwarder) return value_deleteAssociatedConditionalForwarder;
+        throw new UndeferrableValueException("Value 'TrustArgs.deleteAssociatedConditionalForwarder' is not present");
     }
 
     /**
      * ID of the Directory.
      * 
      */
-    private UndeferrableValue<String> directoryId;
-
+    @PolicyResourceProperty(name="directoryId", flag="unknown_directoryId")
+    private String value_directoryId;
+    private boolean unknown_directoryId;
     public String directoryId() {
-        if (directoryId == null) return null;
-        return directoryId.getValue("TrustArgs.directoryId");
+        if (!unknown_directoryId) return value_directoryId;
+        throw new UndeferrableValueException("Value 'TrustArgs.directoryId' is not present");
     }
 
     /**
      * Fully qualified domain name of the remote Directory.
      * 
      */
-    private UndeferrableValue<String> remoteDomainName;
-
+    @PolicyResourceProperty(name="remoteDomainName", flag="unknown_remoteDomainName")
+    private String value_remoteDomainName;
+    private boolean unknown_remoteDomainName;
     public String remoteDomainName() {
-        if (remoteDomainName == null) return null;
-        return remoteDomainName.getValue("TrustArgs.remoteDomainName");
+        if (!unknown_remoteDomainName) return value_remoteDomainName;
+        throw new UndeferrableValueException("Value 'TrustArgs.remoteDomainName' is not present");
     }
 
     /**
@@ -65,11 +70,12 @@ public final class TrustArgs extends com.pulumi.resources.PolicyResourceInput {
      * Default value is `Disabled`.
      * 
      */
-    private UndeferrableValue<String> selectiveAuth;
-
+    @PolicyResourceProperty(name="selectiveAuth", flag="unknown_selectiveAuth")
+    private String value_selectiveAuth;
+    private boolean unknown_selectiveAuth;
     public String selectiveAuth() {
-        if (selectiveAuth == null) return null;
-        return selectiveAuth.getValue("TrustArgs.selectiveAuth");
+        if (!unknown_selectiveAuth) return value_selectiveAuth;
+        throw new UndeferrableValueException("Value 'TrustArgs.selectiveAuth' is not present");
     }
 
     /**
@@ -77,11 +83,12 @@ public final class TrustArgs extends com.pulumi.resources.PolicyResourceInput {
      * Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
      * 
      */
-    private UndeferrableValue<String> trustDirection;
-
+    @PolicyResourceProperty(name="trustDirection", flag="unknown_trustDirection")
+    private String value_trustDirection;
+    private boolean unknown_trustDirection;
     public String trustDirection() {
-        if (trustDirection == null) return null;
-        return trustDirection.getValue("TrustArgs.trustDirection");
+        if (!unknown_trustDirection) return value_trustDirection;
+        throw new UndeferrableValueException("Value 'TrustArgs.trustDirection' is not present");
     }
 
     /**
@@ -91,11 +98,12 @@ public final class TrustArgs extends com.pulumi.resources.PolicyResourceInput {
      * May be up to 128 characters long.
      * 
      */
-    private UndeferrableValue<String> trustPassword;
-
+    @PolicyResourceProperty(name="trustPassword", flag="unknown_trustPassword")
+    private String value_trustPassword;
+    private boolean unknown_trustPassword;
     public String trustPassword() {
-        if (trustPassword == null) return null;
-        return trustPassword.getValue("TrustArgs.trustPassword");
+        if (!unknown_trustPassword) return value_trustPassword;
+        throw new UndeferrableValueException("Value 'TrustArgs.trustPassword' is not present");
     }
 
     /**
@@ -104,11 +112,12 @@ public final class TrustArgs extends com.pulumi.resources.PolicyResourceInput {
      * Default value is `Forest`.
      * 
      */
-    private UndeferrableValue<String> trustType;
-
+    @PolicyResourceProperty(name="trustType", flag="unknown_trustType")
+    private String value_trustType;
+    private boolean unknown_trustType;
     public String trustType() {
-        if (trustType == null) return null;
-        return trustType.getValue("TrustArgs.trustType");
+        if (!unknown_trustType) return value_trustType;
+        throw new UndeferrableValueException("Value 'TrustArgs.trustType' is not present");
     }
 
 }

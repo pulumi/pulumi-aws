@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appstream.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class StackStorageConnectorArgs {
      * Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
      * 
      */
-    private UndeferrableValue<String> connectorType;
-
+    @PolicyResourceProperty(name="connectorType", flag="unknown_connectorType")
+    private String value_connectorType;
+    private boolean unknown_connectorType;
     public String connectorType() {
-        if (connectorType == null) return null;
-        return connectorType.getValue("StackStorageConnectorArgs.connectorType");
+        if (!unknown_connectorType) return value_connectorType;
+        throw new UndeferrableValueException("Value 'StackStorageConnectorArgs.connectorType' is not present");
     }
 
     /**
      * Names of the domains for the account.
      * 
      */
-    private UndeferrableValue<List<String>> domains;
-
+    @PolicyResourceProperty(name="domains", flag="unknown_domains")
+    private List<String> value_domains;
+    private boolean unknown_domains;
     public List<String> domains() {
-        if (domains == null) return null;
-        return domains.getValue("StackStorageConnectorArgs.domains");
+        if (!unknown_domains) return value_domains;
+        throw new UndeferrableValueException("Value 'StackStorageConnectorArgs.domains' is not present");
     }
 
     /**
      * ARN of the storage connector.
      * 
      */
-    private UndeferrableValue<String> resourceIdentifier;
-
+    @PolicyResourceProperty(name="resourceIdentifier", flag="unknown_resourceIdentifier")
+    private String value_resourceIdentifier;
+    private boolean unknown_resourceIdentifier;
     public String resourceIdentifier() {
-        if (resourceIdentifier == null) return null;
-        return resourceIdentifier.getValue("StackStorageConnectorArgs.resourceIdentifier");
+        if (!unknown_resourceIdentifier) return value_resourceIdentifier;
+        throw new UndeferrableValueException("Value 'StackStorageConnectorArgs.resourceIdentifier' is not present");
     }
 
 }

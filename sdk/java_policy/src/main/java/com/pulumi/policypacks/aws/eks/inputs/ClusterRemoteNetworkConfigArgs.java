@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.eks.inputs.ClusterRemoteNetworkConfigRemoteNodeNetworksArgs;
 import com.pulumi.policypacks.aws.eks.inputs.ClusterRemoteNetworkConfigRemotePodNetworksArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ClusterRemoteNetworkConfigArgs {
      * Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
      * 
      */
-    private UndeferrableValue<ClusterRemoteNetworkConfigRemoteNodeNetworksArgs> remoteNodeNetworks;
-
+    @PolicyResourceProperty(name="remoteNodeNetworks", flag="unknown_remoteNodeNetworks")
+    private ClusterRemoteNetworkConfigRemoteNodeNetworksArgs value_remoteNodeNetworks;
+    private boolean unknown_remoteNodeNetworks;
     public ClusterRemoteNetworkConfigRemoteNodeNetworksArgs remoteNodeNetworks() {
-        if (remoteNodeNetworks == null) return null;
-        return remoteNodeNetworks.getValue("ClusterRemoteNetworkConfigArgs.remoteNodeNetworks");
+        if (!unknown_remoteNodeNetworks) return value_remoteNodeNetworks;
+        throw new UndeferrableValueException("Value 'ClusterRemoteNetworkConfigArgs.remoteNodeNetworks' is not present");
     }
 
     /**
      * Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
      * 
      */
-    private UndeferrableValue<ClusterRemoteNetworkConfigRemotePodNetworksArgs> remotePodNetworks;
-
+    @PolicyResourceProperty(name="remotePodNetworks", flag="unknown_remotePodNetworks")
+    private ClusterRemoteNetworkConfigRemotePodNetworksArgs value_remotePodNetworks;
+    private boolean unknown_remotePodNetworks;
     public ClusterRemoteNetworkConfigRemotePodNetworksArgs remotePodNetworks() {
-        if (remotePodNetworks == null) return null;
-        return remotePodNetworks.getValue("ClusterRemoteNetworkConfigArgs.remotePodNetworks");
+        if (!unknown_remotePodNetworks) return value_remotePodNetworks;
+        throw new UndeferrableValueException("Value 'ClusterRemoteNetworkConfigArgs.remotePodNetworks' is not present");
     }
 
 }

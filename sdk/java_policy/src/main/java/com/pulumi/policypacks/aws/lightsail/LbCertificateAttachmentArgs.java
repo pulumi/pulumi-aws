@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class LbCertificateAttachmentArgs extends com.pulumi.resources.Poli
      * The name of your SSL/TLS certificate.
      * 
      */
-    private UndeferrableValue<String> certificateName;
-
+    @PolicyResourceProperty(name="certificateName", flag="unknown_certificateName")
+    private String value_certificateName;
+    private boolean unknown_certificateName;
     public String certificateName() {
-        if (certificateName == null) return null;
-        return certificateName.getValue("LbCertificateAttachmentArgs.certificateName");
+        if (!unknown_certificateName) return value_certificateName;
+        throw new UndeferrableValueException("Value 'LbCertificateAttachmentArgs.certificateName' is not present");
     }
 
     /**
      * The name of the load balancer to which you want to associate the SSL/TLS certificate.
      * 
      */
-    private UndeferrableValue<String> lbName;
-
+    @PolicyResourceProperty(name="lbName", flag="unknown_lbName")
+    private String value_lbName;
+    private boolean unknown_lbName;
     public String lbName() {
-        if (lbName == null) return null;
-        return lbName.getValue("LbCertificateAttachmentArgs.lbName");
+        if (!unknown_lbName) return value_lbName;
+        throw new UndeferrableValueException("Value 'LbCertificateAttachmentArgs.lbName' is not present");
     }
 
 }

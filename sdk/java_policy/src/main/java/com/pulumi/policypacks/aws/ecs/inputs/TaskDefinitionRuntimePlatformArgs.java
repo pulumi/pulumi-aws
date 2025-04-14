@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class TaskDefinitionRuntimePlatformArgs {
      * Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
      * 
      */
-    private UndeferrableValue<String> cpuArchitecture;
-
+    @PolicyResourceProperty(name="cpuArchitecture", flag="unknown_cpuArchitecture")
+    private String value_cpuArchitecture;
+    private boolean unknown_cpuArchitecture;
     public String cpuArchitecture() {
-        if (cpuArchitecture == null) return null;
-        return cpuArchitecture.getValue("TaskDefinitionRuntimePlatformArgs.cpuArchitecture");
+        if (!unknown_cpuArchitecture) return value_cpuArchitecture;
+        throw new UndeferrableValueException("Value 'TaskDefinitionRuntimePlatformArgs.cpuArchitecture' is not present");
     }
 
     /**
      * If the `requires_compatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
      * 
      */
-    private UndeferrableValue<String> operatingSystemFamily;
-
+    @PolicyResourceProperty(name="operatingSystemFamily", flag="unknown_operatingSystemFamily")
+    private String value_operatingSystemFamily;
+    private boolean unknown_operatingSystemFamily;
     public String operatingSystemFamily() {
-        if (operatingSystemFamily == null) return null;
-        return operatingSystemFamily.getValue("TaskDefinitionRuntimePlatformArgs.operatingSystemFamily");
+        if (!unknown_operatingSystemFamily) return value_operatingSystemFamily;
+        throw new UndeferrableValueException("Value 'TaskDefinitionRuntimePlatformArgs.operatingSystemFamily' is not present");
     }
 
 }

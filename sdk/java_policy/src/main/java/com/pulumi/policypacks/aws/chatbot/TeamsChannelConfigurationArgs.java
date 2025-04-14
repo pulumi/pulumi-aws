@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chatbot;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.chatbot.inputs.TeamsChannelConfigurationTimeoutsArgs;
 import java.lang.Boolean;
@@ -20,110 +21,120 @@ public final class TeamsChannelConfigurationArgs extends com.pulumi.resources.Po
      * ID of the Microsoft Teams channel.
      * 
      */
-    private UndeferrableValue<String> channelId;
-
+    @PolicyResourceProperty(name="channelId", flag="unknown_channelId")
+    private String value_channelId;
+    private boolean unknown_channelId;
     public String channelId() {
-        if (channelId == null) return null;
-        return channelId.getValue("TeamsChannelConfigurationArgs.channelId");
+        if (!unknown_channelId) return value_channelId;
+        throw new UndeferrableValueException("Value 'TeamsChannelConfigurationArgs.channelId' is not present");
     }
 
     /**
      * Name of the Microsoft Teams channel.
      * 
      */
-    private UndeferrableValue<String> channelName;
-
+    @PolicyResourceProperty(name="channelName", flag="unknown_channelName")
+    private String value_channelName;
+    private boolean unknown_channelName;
     public String channelName() {
-        if (channelName == null) return null;
-        return channelName.getValue("TeamsChannelConfigurationArgs.channelName");
+        if (!unknown_channelName) return value_channelName;
+        throw new UndeferrableValueException("Value 'TeamsChannelConfigurationArgs.channelName' is not present");
     }
 
     /**
      * Name of the Microsoft Teams channel configuration.
      * 
      */
-    private UndeferrableValue<String> configurationName;
-
+    @PolicyResourceProperty(name="configurationName", flag="unknown_configurationName")
+    private String value_configurationName;
+    private boolean unknown_configurationName;
     public String configurationName() {
-        if (configurationName == null) return null;
-        return configurationName.getValue("TeamsChannelConfigurationArgs.configurationName");
+        if (!unknown_configurationName) return value_configurationName;
+        throw new UndeferrableValueException("Value 'TeamsChannelConfigurationArgs.configurationName' is not present");
     }
 
     /**
      * List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
      * 
      */
-    private UndeferrableValue<List<String>> guardrailPolicyArns;
-
+    @PolicyResourceProperty(name="guardrailPolicyArns", flag="unknown_guardrailPolicyArns")
+    private List<String> value_guardrailPolicyArns;
+    private boolean unknown_guardrailPolicyArns;
     public List<String> guardrailPolicyArns() {
-        if (guardrailPolicyArns == null) return null;
-        return guardrailPolicyArns.getValue("TeamsChannelConfigurationArgs.guardrailPolicyArns");
+        if (!unknown_guardrailPolicyArns) return value_guardrailPolicyArns;
+        throw new UndeferrableValueException("Value 'TeamsChannelConfigurationArgs.guardrailPolicyArns' is not present");
     }
 
     /**
      * ARN of the IAM role that defines the permissions for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role.
      * 
      */
-    private UndeferrableValue<String> iamRoleArn;
-
+    @PolicyResourceProperty(name="iamRoleArn", flag="unknown_iamRoleArn")
+    private String value_iamRoleArn;
+    private boolean unknown_iamRoleArn;
     public String iamRoleArn() {
-        if (iamRoleArn == null) return null;
-        return iamRoleArn.getValue("TeamsChannelConfigurationArgs.iamRoleArn");
+        if (!unknown_iamRoleArn) return value_iamRoleArn;
+        throw new UndeferrableValueException("Value 'TeamsChannelConfigurationArgs.iamRoleArn' is not present");
     }
 
     /**
      * Logging levels include `ERROR`, `INFO`, or `NONE`.
      * 
      */
-    private UndeferrableValue<String> loggingLevel;
-
+    @PolicyResourceProperty(name="loggingLevel", flag="unknown_loggingLevel")
+    private String value_loggingLevel;
+    private boolean unknown_loggingLevel;
     public String loggingLevel() {
-        if (loggingLevel == null) return null;
-        return loggingLevel.getValue("TeamsChannelConfigurationArgs.loggingLevel");
+        if (!unknown_loggingLevel) return value_loggingLevel;
+        throw new UndeferrableValueException("Value 'TeamsChannelConfigurationArgs.loggingLevel' is not present");
     }
 
     /**
      * ARNs of the SNS topics that deliver notifications to AWS Chatbot.
      * 
      */
-    private UndeferrableValue<List<String>> snsTopicArns;
-
+    @PolicyResourceProperty(name="snsTopicArns", flag="unknown_snsTopicArns")
+    private List<String> value_snsTopicArns;
+    private boolean unknown_snsTopicArns;
     public List<String> snsTopicArns() {
-        if (snsTopicArns == null) return null;
-        return snsTopicArns.getValue("TeamsChannelConfigurationArgs.snsTopicArns");
+        if (!unknown_snsTopicArns) return value_snsTopicArns;
+        throw new UndeferrableValueException("Value 'TeamsChannelConfigurationArgs.snsTopicArns' is not present");
     }
 
     /**
      * Map of tags assigned to the resource.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TeamsChannelConfigurationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TeamsChannelConfigurationArgs.tags' is not present");
     }
 
     /**
      * ID of the Microsoft Team authorized with AWS Chatbot. To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console.
      * 
      */
-    private UndeferrableValue<String> teamId;
-
+    @PolicyResourceProperty(name="teamId", flag="unknown_teamId")
+    private String value_teamId;
+    private boolean unknown_teamId;
     public String teamId() {
-        if (teamId == null) return null;
-        return teamId.getValue("TeamsChannelConfigurationArgs.teamId");
+        if (!unknown_teamId) return value_teamId;
+        throw new UndeferrableValueException("Value 'TeamsChannelConfigurationArgs.teamId' is not present");
     }
 
     /**
      * Name of the Microsoft Teams team.
      * 
      */
-    private UndeferrableValue<String> teamName;
-
+    @PolicyResourceProperty(name="teamName", flag="unknown_teamName")
+    private String value_teamName;
+    private boolean unknown_teamName;
     public String teamName() {
-        if (teamName == null) return null;
-        return teamName.getValue("TeamsChannelConfigurationArgs.teamName");
+        if (!unknown_teamName) return value_teamName;
+        throw new UndeferrableValueException("Value 'TeamsChannelConfigurationArgs.teamName' is not present");
     }
 
     /**
@@ -132,29 +143,32 @@ public final class TeamsChannelConfigurationArgs extends com.pulumi.resources.Po
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> tenantId;
-
+    @PolicyResourceProperty(name="tenantId", flag="unknown_tenantId")
+    private String value_tenantId;
+    private boolean unknown_tenantId;
     public String tenantId() {
-        if (tenantId == null) return null;
-        return tenantId.getValue("TeamsChannelConfigurationArgs.tenantId");
+        if (!unknown_tenantId) return value_tenantId;
+        throw new UndeferrableValueException("Value 'TeamsChannelConfigurationArgs.tenantId' is not present");
     }
 
-    private UndeferrableValue<TeamsChannelConfigurationTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private TeamsChannelConfigurationTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public TeamsChannelConfigurationTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("TeamsChannelConfigurationArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'TeamsChannelConfigurationArgs.timeouts' is not present");
     }
 
     /**
      * Enables use of a user role requirement in your chat configuration.
      * 
      */
-    private UndeferrableValue<Boolean> userAuthorizationRequired;
-
+    @PolicyResourceProperty(name="userAuthorizationRequired", flag="unknown_userAuthorizationRequired")
+    private Boolean value_userAuthorizationRequired;
+    private boolean unknown_userAuthorizationRequired;
     public Boolean userAuthorizationRequired() {
-        if (userAuthorizationRequired == null) return null;
-        return userAuthorizationRequired.getValue("TeamsChannelConfigurationArgs.userAuthorizationRequired");
+        if (!unknown_userAuthorizationRequired) return value_userAuthorizationRequired;
+        throw new UndeferrableValueException("Value 'TeamsChannelConfigurationArgs.userAuthorizationRequired' is not present");
     }
 
 }

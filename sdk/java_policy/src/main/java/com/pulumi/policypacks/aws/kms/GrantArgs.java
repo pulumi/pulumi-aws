@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kms;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.kms.inputs.GrantConstraintArgs;
 import java.lang.Boolean;
@@ -19,66 +20,72 @@ public final class GrantArgs extends com.pulumi.resources.PolicyResourceInput {
      * A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
      * 
      */
-    private UndeferrableValue<List<GrantConstraintArgs>> constraints;
-
+    @PolicyResourceProperty(name="constraints", flag="unknown_constraints")
+    private List<GrantConstraintArgs> value_constraints;
+    private boolean unknown_constraints;
     public List<GrantConstraintArgs> constraints() {
-        if (constraints == null) return null;
-        return constraints.getValue("GrantArgs.constraints");
+        if (!unknown_constraints) return value_constraints;
+        throw new UndeferrableValueException("Value 'GrantArgs.constraints' is not present");
     }
 
     /**
      * A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
      * 
      */
-    private UndeferrableValue<List<String>> grantCreationTokens;
-
+    @PolicyResourceProperty(name="grantCreationTokens", flag="unknown_grantCreationTokens")
+    private List<String> value_grantCreationTokens;
+    private boolean unknown_grantCreationTokens;
     public List<String> grantCreationTokens() {
-        if (grantCreationTokens == null) return null;
-        return grantCreationTokens.getValue("GrantArgs.grantCreationTokens");
+        if (!unknown_grantCreationTokens) return value_grantCreationTokens;
+        throw new UndeferrableValueException("Value 'GrantArgs.grantCreationTokens' is not present");
     }
 
     /**
      * The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers&#39;s state may not always be refreshed to reflect what is true in AWS.
      * 
      */
-    private UndeferrableValue<String> granteePrincipal;
-
+    @PolicyResourceProperty(name="granteePrincipal", flag="unknown_granteePrincipal")
+    private String value_granteePrincipal;
+    private boolean unknown_granteePrincipal;
     public String granteePrincipal() {
-        if (granteePrincipal == null) return null;
-        return granteePrincipal.getValue("GrantArgs.granteePrincipal");
+        if (!unknown_granteePrincipal) return value_granteePrincipal;
+        throw new UndeferrableValueException("Value 'GrantArgs.granteePrincipal' is not present");
     }
 
     /**
      * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
      * 
      */
-    private UndeferrableValue<String> keyId;
-
+    @PolicyResourceProperty(name="keyId", flag="unknown_keyId")
+    private String value_keyId;
+    private boolean unknown_keyId;
     public String keyId() {
-        if (keyId == null) return null;
-        return keyId.getValue("GrantArgs.keyId");
+        if (!unknown_keyId) return value_keyId;
+        throw new UndeferrableValueException("Value 'GrantArgs.keyId' is not present");
     }
 
     /**
      * A friendly name for identifying the grant.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("GrantArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'GrantArgs.name' is not present");
     }
 
     /**
      * A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
      * 
      */
-    private UndeferrableValue<List<String>> operations;
-
+    @PolicyResourceProperty(name="operations", flag="unknown_operations")
+    private List<String> value_operations;
+    private boolean unknown_operations;
     public List<String> operations() {
-        if (operations == null) return null;
-        return operations.getValue("GrantArgs.operations");
+        if (!unknown_operations) return value_operations;
+        throw new UndeferrableValueException("Value 'GrantArgs.operations' is not present");
     }
 
     /**
@@ -86,22 +93,24 @@ public final class GrantArgs extends com.pulumi.resources.PolicyResourceInput {
      * See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
      * 
      */
-    private UndeferrableValue<Boolean> retireOnDelete;
-
+    @PolicyResourceProperty(name="retireOnDelete", flag="unknown_retireOnDelete")
+    private Boolean value_retireOnDelete;
+    private boolean unknown_retireOnDelete;
     public Boolean retireOnDelete() {
-        if (retireOnDelete == null) return null;
-        return retireOnDelete.getValue("GrantArgs.retireOnDelete");
+        if (!unknown_retireOnDelete) return value_retireOnDelete;
+        throw new UndeferrableValueException("Value 'GrantArgs.retireOnDelete' is not present");
     }
 
     /**
      * The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers&#39;s state may not always be refreshed to reflect what is true in AWS.
      * 
      */
-    private UndeferrableValue<String> retiringPrincipal;
-
+    @PolicyResourceProperty(name="retiringPrincipal", flag="unknown_retiringPrincipal")
+    private String value_retiringPrincipal;
+    private boolean unknown_retiringPrincipal;
     public String retiringPrincipal() {
-        if (retiringPrincipal == null) return null;
-        return retiringPrincipal.getValue("GrantArgs.retiringPrincipal");
+        if (!unknown_retiringPrincipal) return value_retiringPrincipal;
+        throw new UndeferrableValueException("Value 'GrantArgs.retiringPrincipal' is not present");
     }
 
 }

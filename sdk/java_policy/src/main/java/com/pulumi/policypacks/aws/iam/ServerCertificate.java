@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,11 +18,12 @@ public final class ServerCertificate extends com.pulumi.resources.PolicyResource
      * The Amazon Resource Name (ARN) specifying the server certificate.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ServerCertificate.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ServerCertificate.arn' is not present");
     }
 
     /**
@@ -29,11 +31,12 @@ public final class ServerCertificate extends com.pulumi.resources.PolicyResource
      * PEM-encoded format.
      * 
      */
-    private UndeferrableValue<String> certificateBody;
-
+    @PolicyResourceProperty(name="certificateBody", flag="unknown_certificateBody")
+    private String value_certificateBody;
+    private boolean unknown_certificateBody;
     public String certificateBody() {
-        if (certificateBody == null) return null;
-        return certificateBody.getValue("ServerCertificate.certificateBody");
+        if (!unknown_certificateBody) return value_certificateBody;
+        throw new UndeferrableValueException("Value 'ServerCertificate.certificateBody' is not present");
     }
 
     /**
@@ -42,33 +45,36 @@ public final class ServerCertificate extends com.pulumi.resources.PolicyResource
      * of the chain.
      * 
      */
-    private @Nullable UndeferrableValue<String> certificateChain;
-
+    @PolicyResourceProperty(name="certificateChain", flag="unknown_certificateChain")
+    private @Nullable String value_certificateChain;
+    private boolean unknown_certificateChain;
     public @Nullable String certificateChain() {
-        if (certificateChain == null) return null;
-        return certificateChain.getValue("ServerCertificate.certificateChain");
+        if (!unknown_certificateChain) return value_certificateChain;
+        throw new UndeferrableValueException("Value 'ServerCertificate.certificateChain' is not present");
     }
 
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
      * 
      */
-    private UndeferrableValue<String> expiration;
-
+    @PolicyResourceProperty(name="expiration", flag="unknown_expiration")
+    private String value_expiration;
+    private boolean unknown_expiration;
     public String expiration() {
-        if (expiration == null) return null;
-        return expiration.getValue("ServerCertificate.expiration");
+        if (!unknown_expiration) return value_expiration;
+        throw new UndeferrableValueException("Value 'ServerCertificate.expiration' is not present");
     }
 
     /**
      * The name of the Server Certificate. Do not include the path in this value. If omitted, the provider will assign a random, unique name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ServerCertificate.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ServerCertificate.name' is not present");
     }
 
     /**
@@ -76,11 +82,12 @@ public final class ServerCertificate extends com.pulumi.resources.PolicyResource
      * prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("ServerCertificate.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'ServerCertificate.namePrefix' is not present");
     }
 
     /**
@@ -90,22 +97,24 @@ public final class ServerCertificate extends com.pulumi.resources.PolicyResource
      * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
      * 
      */
-    private @Nullable UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private @Nullable String value_path;
+    private boolean unknown_path;
     public @Nullable String path() {
-        if (path == null) return null;
-        return path.getValue("ServerCertificate.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'ServerCertificate.path' is not present");
     }
 
     /**
      * The contents of the private key in PEM-encoded format.
      * 
      */
-    private UndeferrableValue<String> privateKey;
-
+    @PolicyResourceProperty(name="privateKey", flag="unknown_privateKey")
+    private String value_privateKey;
+    private boolean unknown_privateKey;
     public String privateKey() {
-        if (privateKey == null) return null;
-        return privateKey.getValue("ServerCertificate.privateKey");
+        if (!unknown_privateKey) return value_privateKey;
+        throw new UndeferrableValueException("Value 'ServerCertificate.privateKey' is not present");
     }
 
     /**
@@ -114,11 +123,12 @@ public final class ServerCertificate extends com.pulumi.resources.PolicyResource
      * &gt; **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificate_body` contains only one certificate. All other certificates should go in `certificate_chain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ServerCertificate.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ServerCertificate.tags' is not present");
     }
 
     /**
@@ -129,22 +139,24 @@ public final class ServerCertificate extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ServerCertificate.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ServerCertificate.tagsAll' is not present");
     }
 
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
      * 
      */
-    private UndeferrableValue<String> uploadDate;
-
+    @PolicyResourceProperty(name="uploadDate", flag="unknown_uploadDate")
+    private String value_uploadDate;
+    private boolean unknown_uploadDate;
     public String uploadDate() {
-        if (uploadDate == null) return null;
-        return uploadDate.getValue("ServerCertificate.uploadDate");
+        if (!unknown_uploadDate) return value_uploadDate;
+        throw new UndeferrableValueException("Value 'ServerCertificate.uploadDate' is not present");
     }
 
 }

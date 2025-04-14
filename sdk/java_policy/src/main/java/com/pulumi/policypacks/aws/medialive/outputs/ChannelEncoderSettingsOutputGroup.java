@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutput;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettings;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class ChannelEncoderSettingsOutputGroup {
      * Custom output group name defined by the user.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("ChannelEncoderSettingsOutputGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroup.name' is not present");
     }
 
     /**
      * Settings associated with the output group. See Output Group Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputGroupSettings> outputGroupSettings;
-
+    @PolicyResourceProperty(name="outputGroupSettings", flag="unknown_outputGroupSettings")
+    private ChannelEncoderSettingsOutputGroupOutputGroupSettings value_outputGroupSettings;
+    private boolean unknown_outputGroupSettings;
     public ChannelEncoderSettingsOutputGroupOutputGroupSettings outputGroupSettings() {
-        if (outputGroupSettings == null) return null;
-        return outputGroupSettings.getValue("ChannelEncoderSettingsOutputGroup.outputGroupSettings");
+        if (!unknown_outputGroupSettings) return value_outputGroupSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroup.outputGroupSettings' is not present");
     }
 
     /**
      * List of outputs. See Outputs for more details.
      * 
      */
-    private UndeferrableValue<List<ChannelEncoderSettingsOutputGroupOutput>> outputs;
-
+    @PolicyResourceProperty(name="outputs", flag="unknown_outputs")
+    private List<ChannelEncoderSettingsOutputGroupOutput> value_outputs;
+    private boolean unknown_outputs;
     public List<ChannelEncoderSettingsOutputGroupOutput> outputs() {
-        if (outputs == null) return null;
-        return outputs.getValue("ChannelEncoderSettingsOutputGroup.outputs");
+        if (!unknown_outputs) return value_outputs;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroup.outputs' is not present");
     }
 
 }

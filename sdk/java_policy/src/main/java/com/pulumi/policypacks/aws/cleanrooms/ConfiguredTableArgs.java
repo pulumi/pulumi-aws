@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cleanrooms;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cleanrooms.inputs.ConfiguredTableTableReferenceArgs;
 import java.lang.String;
@@ -19,44 +20,48 @@ public final class ConfiguredTableArgs extends com.pulumi.resources.PolicyResour
      * The columns of the references table which will be included in the configured table.
      * 
      */
-    private UndeferrableValue<List<String>> allowedColumns;
-
+    @PolicyResourceProperty(name="allowedColumns", flag="unknown_allowedColumns")
+    private List<String> value_allowedColumns;
+    private boolean unknown_allowedColumns;
     public List<String> allowedColumns() {
-        if (allowedColumns == null) return null;
-        return allowedColumns.getValue("ConfiguredTableArgs.allowedColumns");
+        if (!unknown_allowedColumns) return value_allowedColumns;
+        throw new UndeferrableValueException("Value 'ConfiguredTableArgs.allowedColumns' is not present");
     }
 
     /**
      * The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
      * 
      */
-    private UndeferrableValue<String> analysisMethod;
-
+    @PolicyResourceProperty(name="analysisMethod", flag="unknown_analysisMethod")
+    private String value_analysisMethod;
+    private boolean unknown_analysisMethod;
     public String analysisMethod() {
-        if (analysisMethod == null) return null;
-        return analysisMethod.getValue("ConfiguredTableArgs.analysisMethod");
+        if (!unknown_analysisMethod) return value_analysisMethod;
+        throw new UndeferrableValueException("Value 'ConfiguredTableArgs.analysisMethod' is not present");
     }
 
     /**
      * A description for the configured table.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ConfiguredTableArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ConfiguredTableArgs.description' is not present");
     }
 
     /**
      * The name of the configured table.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ConfiguredTableArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ConfiguredTableArgs.name' is not present");
     }
 
     /**
@@ -65,22 +70,24 @@ public final class ConfiguredTableArgs extends com.pulumi.resources.PolicyResour
      * * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
      * 
      */
-    private UndeferrableValue<ConfiguredTableTableReferenceArgs> tableReference;
-
+    @PolicyResourceProperty(name="tableReference", flag="unknown_tableReference")
+    private ConfiguredTableTableReferenceArgs value_tableReference;
+    private boolean unknown_tableReference;
     public ConfiguredTableTableReferenceArgs tableReference() {
-        if (tableReference == null) return null;
-        return tableReference.getValue("ConfiguredTableArgs.tableReference");
+        if (!unknown_tableReference) return value_tableReference;
+        throw new UndeferrableValueException("Value 'ConfiguredTableArgs.tableReference' is not present");
     }
 
     /**
      * Key value pairs which tag the configured table.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ConfiguredTableArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ConfiguredTableArgs.tags' is not present");
     }
 
 }

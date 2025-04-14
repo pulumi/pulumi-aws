@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.inputs.LaunchTemplateBlockDeviceMappingArgs;
 import com.pulumi.policypacks.aws.ec2.inputs.LaunchTemplateCapacityReservationSpecificationArgs;
@@ -40,33 +41,36 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.PolicyResourc
      * See Block Devices below for details.
      * 
      */
-    private UndeferrableValue<List<LaunchTemplateBlockDeviceMappingArgs>> blockDeviceMappings;
-
+    @PolicyResourceProperty(name="blockDeviceMappings", flag="unknown_blockDeviceMappings")
+    private List<LaunchTemplateBlockDeviceMappingArgs> value_blockDeviceMappings;
+    private boolean unknown_blockDeviceMappings;
     public List<LaunchTemplateBlockDeviceMappingArgs> blockDeviceMappings() {
-        if (blockDeviceMappings == null) return null;
-        return blockDeviceMappings.getValue("LaunchTemplateArgs.blockDeviceMappings");
+        if (!unknown_blockDeviceMappings) return value_blockDeviceMappings;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.blockDeviceMappings' is not present");
     }
 
     /**
      * Targeting for EC2 capacity reservations. See Capacity Reservation Specification below for more details.
      * 
      */
-    private UndeferrableValue<LaunchTemplateCapacityReservationSpecificationArgs> capacityReservationSpecification;
-
+    @PolicyResourceProperty(name="capacityReservationSpecification", flag="unknown_capacityReservationSpecification")
+    private LaunchTemplateCapacityReservationSpecificationArgs value_capacityReservationSpecification;
+    private boolean unknown_capacityReservationSpecification;
     public LaunchTemplateCapacityReservationSpecificationArgs capacityReservationSpecification() {
-        if (capacityReservationSpecification == null) return null;
-        return capacityReservationSpecification.getValue("LaunchTemplateArgs.capacityReservationSpecification");
+        if (!unknown_capacityReservationSpecification) return value_capacityReservationSpecification;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.capacityReservationSpecification' is not present");
     }
 
     /**
      * The CPU options for the instance. See CPU Options below for more details.
      * 
      */
-    private UndeferrableValue<LaunchTemplateCpuOptionsArgs> cpuOptions;
-
+    @PolicyResourceProperty(name="cpuOptions", flag="unknown_cpuOptions")
+    private LaunchTemplateCpuOptionsArgs value_cpuOptions;
+    private boolean unknown_cpuOptions;
     public LaunchTemplateCpuOptionsArgs cpuOptions() {
-        if (cpuOptions == null) return null;
-        return cpuOptions.getValue("LaunchTemplateArgs.cpuOptions");
+        if (!unknown_cpuOptions) return value_cpuOptions;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.cpuOptions' is not present");
     }
 
     /**
@@ -74,44 +78,48 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.PolicyResourc
      * Specification below for more details.
      * 
      */
-    private UndeferrableValue<LaunchTemplateCreditSpecificationArgs> creditSpecification;
-
+    @PolicyResourceProperty(name="creditSpecification", flag="unknown_creditSpecification")
+    private LaunchTemplateCreditSpecificationArgs value_creditSpecification;
+    private boolean unknown_creditSpecification;
     public LaunchTemplateCreditSpecificationArgs creditSpecification() {
-        if (creditSpecification == null) return null;
-        return creditSpecification.getValue("LaunchTemplateArgs.creditSpecification");
+        if (!unknown_creditSpecification) return value_creditSpecification;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.creditSpecification' is not present");
     }
 
     /**
      * Default Version of the launch template.
      * 
      */
-    private UndeferrableValue<Integer> defaultVersion;
-
+    @PolicyResourceProperty(name="defaultVersion", flag="unknown_defaultVersion")
+    private Integer value_defaultVersion;
+    private boolean unknown_defaultVersion;
     public Integer defaultVersion() {
-        if (defaultVersion == null) return null;
-        return defaultVersion.getValue("LaunchTemplateArgs.defaultVersion");
+        if (!unknown_defaultVersion) return value_defaultVersion;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.defaultVersion' is not present");
     }
 
     /**
      * Description of the launch template.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("LaunchTemplateArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.description' is not present");
     }
 
     /**
      * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html).
      * 
      */
-    private UndeferrableValue<Boolean> disableApiStop;
-
+    @PolicyResourceProperty(name="disableApiStop", flag="unknown_disableApiStop")
+    private Boolean value_disableApiStop;
+    private boolean unknown_disableApiStop;
     public Boolean disableApiStop() {
-        if (disableApiStop == null) return null;
-        return disableApiStop.getValue("LaunchTemplateArgs.disableApiStop");
+        if (!unknown_disableApiStop) return value_disableApiStop;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.disableApiStop' is not present");
     }
 
     /**
@@ -119,22 +127,24 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.PolicyResourc
      * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
      * 
      */
-    private UndeferrableValue<Boolean> disableApiTermination;
-
+    @PolicyResourceProperty(name="disableApiTermination", flag="unknown_disableApiTermination")
+    private Boolean value_disableApiTermination;
+    private boolean unknown_disableApiTermination;
     public Boolean disableApiTermination() {
-        if (disableApiTermination == null) return null;
-        return disableApiTermination.getValue("LaunchTemplateArgs.disableApiTermination");
+        if (!unknown_disableApiTermination) return value_disableApiTermination;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.disableApiTermination' is not present");
     }
 
     /**
      * If `true`, the launched EC2 instance will be EBS-optimized.
      * 
      */
-    private UndeferrableValue<String> ebsOptimized;
-
+    @PolicyResourceProperty(name="ebsOptimized", flag="unknown_ebsOptimized")
+    private String value_ebsOptimized;
+    private boolean unknown_ebsOptimized;
     public String ebsOptimized() {
-        if (ebsOptimized == null) return null;
-        return ebsOptimized.getValue("LaunchTemplateArgs.ebsOptimized");
+        if (!unknown_ebsOptimized) return value_ebsOptimized;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.ebsOptimized' is not present");
     }
 
     /**
@@ -146,11 +156,12 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service. */
-    private UndeferrableValue<List<LaunchTemplateElasticGpuSpecificationArgs>> elasticGpuSpecifications;
-
+    @PolicyResourceProperty(name="elasticGpuSpecifications", flag="unknown_elasticGpuSpecifications")
+    private List<LaunchTemplateElasticGpuSpecificationArgs> value_elasticGpuSpecifications;
+    private boolean unknown_elasticGpuSpecifications;
     public List<LaunchTemplateElasticGpuSpecificationArgs> elasticGpuSpecifications() {
-        if (elasticGpuSpecifications == null) return null;
-        return elasticGpuSpecifications.getValue("LaunchTemplateArgs.elasticGpuSpecifications");
+        if (!unknown_elasticGpuSpecifications) return value_elasticGpuSpecifications;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.elasticGpuSpecifications' is not present");
     }
 
     /**
@@ -161,33 +172,36 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service. */
-    private UndeferrableValue<LaunchTemplateElasticInferenceAcceleratorArgs> elasticInferenceAccelerator;
-
+    @PolicyResourceProperty(name="elasticInferenceAccelerator", flag="unknown_elasticInferenceAccelerator")
+    private LaunchTemplateElasticInferenceAcceleratorArgs value_elasticInferenceAccelerator;
+    private boolean unknown_elasticInferenceAccelerator;
     public LaunchTemplateElasticInferenceAcceleratorArgs elasticInferenceAccelerator() {
-        if (elasticInferenceAccelerator == null) return null;
-        return elasticInferenceAccelerator.getValue("LaunchTemplateArgs.elasticInferenceAccelerator");
+        if (!unknown_elasticInferenceAccelerator) return value_elasticInferenceAccelerator;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.elasticInferenceAccelerator' is not present");
     }
 
     /**
      * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
      * 
      */
-    private UndeferrableValue<LaunchTemplateEnclaveOptionsArgs> enclaveOptions;
-
+    @PolicyResourceProperty(name="enclaveOptions", flag="unknown_enclaveOptions")
+    private LaunchTemplateEnclaveOptionsArgs value_enclaveOptions;
+    private boolean unknown_enclaveOptions;
     public LaunchTemplateEnclaveOptionsArgs enclaveOptions() {
-        if (enclaveOptions == null) return null;
-        return enclaveOptions.getValue("LaunchTemplateArgs.enclaveOptions");
+        if (!unknown_enclaveOptions) return value_enclaveOptions;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.enclaveOptions' is not present");
     }
 
     /**
      * The hibernation options for the instance. See Hibernation Options below for more details.
      * 
      */
-    private UndeferrableValue<LaunchTemplateHibernationOptionsArgs> hibernationOptions;
-
+    @PolicyResourceProperty(name="hibernationOptions", flag="unknown_hibernationOptions")
+    private LaunchTemplateHibernationOptionsArgs value_hibernationOptions;
+    private boolean unknown_hibernationOptions;
     public LaunchTemplateHibernationOptionsArgs hibernationOptions() {
-        if (hibernationOptions == null) return null;
-        return hibernationOptions.getValue("LaunchTemplateArgs.hibernationOptions");
+        if (!unknown_hibernationOptions) return value_hibernationOptions;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.hibernationOptions' is not present");
     }
 
     /**
@@ -195,22 +209,24 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.PolicyResourc
      * below for more details.
      * 
      */
-    private UndeferrableValue<LaunchTemplateIamInstanceProfileArgs> iamInstanceProfile;
-
+    @PolicyResourceProperty(name="iamInstanceProfile", flag="unknown_iamInstanceProfile")
+    private LaunchTemplateIamInstanceProfileArgs value_iamInstanceProfile;
+    private boolean unknown_iamInstanceProfile;
     public LaunchTemplateIamInstanceProfileArgs iamInstanceProfile() {
-        if (iamInstanceProfile == null) return null;
-        return iamInstanceProfile.getValue("LaunchTemplateArgs.iamInstanceProfile");
+        if (!unknown_iamInstanceProfile) return value_iamInstanceProfile;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.iamInstanceProfile' is not present");
     }
 
     /**
      * The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
      * 
      */
-    private UndeferrableValue<String> imageId;
-
+    @PolicyResourceProperty(name="imageId", flag="unknown_imageId")
+    private String value_imageId;
+    private boolean unknown_imageId;
     public String imageId() {
-        if (imageId == null) return null;
-        return imageId.getValue("LaunchTemplateArgs.imageId");
+        if (!unknown_imageId) return value_imageId;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.imageId' is not present");
     }
 
     /**
@@ -218,11 +234,12 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.PolicyResourc
      * (Default: `stop`).
      * 
      */
-    private UndeferrableValue<String> instanceInitiatedShutdownBehavior;
-
+    @PolicyResourceProperty(name="instanceInitiatedShutdownBehavior", flag="unknown_instanceInitiatedShutdownBehavior")
+    private String value_instanceInitiatedShutdownBehavior;
+    private boolean unknown_instanceInitiatedShutdownBehavior;
     public String instanceInitiatedShutdownBehavior() {
-        if (instanceInitiatedShutdownBehavior == null) return null;
-        return instanceInitiatedShutdownBehavior.getValue("LaunchTemplateArgs.instanceInitiatedShutdownBehavior");
+        if (!unknown_instanceInitiatedShutdownBehavior) return value_instanceInitiatedShutdownBehavior;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.instanceInitiatedShutdownBehavior' is not present");
     }
 
     /**
@@ -230,121 +247,132 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.PolicyResourc
      * below for details.
      * 
      */
-    private UndeferrableValue<LaunchTemplateInstanceMarketOptionsArgs> instanceMarketOptions;
-
+    @PolicyResourceProperty(name="instanceMarketOptions", flag="unknown_instanceMarketOptions")
+    private LaunchTemplateInstanceMarketOptionsArgs value_instanceMarketOptions;
+    private boolean unknown_instanceMarketOptions;
     public LaunchTemplateInstanceMarketOptionsArgs instanceMarketOptions() {
-        if (instanceMarketOptions == null) return null;
-        return instanceMarketOptions.getValue("LaunchTemplateArgs.instanceMarketOptions");
+        if (!unknown_instanceMarketOptions) return value_instanceMarketOptions;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.instanceMarketOptions' is not present");
     }
 
     /**
      * The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
      * 
      */
-    private UndeferrableValue<LaunchTemplateInstanceRequirementsArgs> instanceRequirements;
-
+    @PolicyResourceProperty(name="instanceRequirements", flag="unknown_instanceRequirements")
+    private LaunchTemplateInstanceRequirementsArgs value_instanceRequirements;
+    private boolean unknown_instanceRequirements;
     public LaunchTemplateInstanceRequirementsArgs instanceRequirements() {
-        if (instanceRequirements == null) return null;
-        return instanceRequirements.getValue("LaunchTemplateArgs.instanceRequirements");
+        if (!unknown_instanceRequirements) return value_instanceRequirements;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.instanceRequirements' is not present");
     }
 
     /**
      * The type of the instance. If present then `instance_requirements` cannot be present.
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("LaunchTemplateArgs.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.instanceType' is not present");
     }
 
     /**
      * The kernel ID.
      * 
      */
-    private UndeferrableValue<String> kernelId;
-
+    @PolicyResourceProperty(name="kernelId", flag="unknown_kernelId")
+    private String value_kernelId;
+    private boolean unknown_kernelId;
     public String kernelId() {
-        if (kernelId == null) return null;
-        return kernelId.getValue("LaunchTemplateArgs.kernelId");
+        if (!unknown_kernelId) return value_kernelId;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.kernelId' is not present");
     }
 
     /**
      * The key name to use for the instance.
      * 
      */
-    private UndeferrableValue<String> keyName;
-
+    @PolicyResourceProperty(name="keyName", flag="unknown_keyName")
+    private String value_keyName;
+    private boolean unknown_keyName;
     public String keyName() {
-        if (keyName == null) return null;
-        return keyName.getValue("LaunchTemplateArgs.keyName");
+        if (!unknown_keyName) return value_keyName;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.keyName' is not present");
     }
 
     /**
      * A list of license specifications to associate with. See License Specification below for more details.
      * 
      */
-    private UndeferrableValue<List<LaunchTemplateLicenseSpecificationArgs>> licenseSpecifications;
-
+    @PolicyResourceProperty(name="licenseSpecifications", flag="unknown_licenseSpecifications")
+    private List<LaunchTemplateLicenseSpecificationArgs> value_licenseSpecifications;
+    private boolean unknown_licenseSpecifications;
     public List<LaunchTemplateLicenseSpecificationArgs> licenseSpecifications() {
-        if (licenseSpecifications == null) return null;
-        return licenseSpecifications.getValue("LaunchTemplateArgs.licenseSpecifications");
+        if (!unknown_licenseSpecifications) return value_licenseSpecifications;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.licenseSpecifications' is not present");
     }
 
     /**
      * The maintenance options for the instance. See Maintenance Options below for more details.
      * 
      */
-    private UndeferrableValue<LaunchTemplateMaintenanceOptionsArgs> maintenanceOptions;
-
+    @PolicyResourceProperty(name="maintenanceOptions", flag="unknown_maintenanceOptions")
+    private LaunchTemplateMaintenanceOptionsArgs value_maintenanceOptions;
+    private boolean unknown_maintenanceOptions;
     public LaunchTemplateMaintenanceOptionsArgs maintenanceOptions() {
-        if (maintenanceOptions == null) return null;
-        return maintenanceOptions.getValue("LaunchTemplateArgs.maintenanceOptions");
+        if (!unknown_maintenanceOptions) return value_maintenanceOptions;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.maintenanceOptions' is not present");
     }
 
     /**
      * Customize the metadata options for the instance. See Metadata Options below for more details.
      * 
      */
-    private UndeferrableValue<LaunchTemplateMetadataOptionsArgs> metadataOptions;
-
+    @PolicyResourceProperty(name="metadataOptions", flag="unknown_metadataOptions")
+    private LaunchTemplateMetadataOptionsArgs value_metadataOptions;
+    private boolean unknown_metadataOptions;
     public LaunchTemplateMetadataOptionsArgs metadataOptions() {
-        if (metadataOptions == null) return null;
-        return metadataOptions.getValue("LaunchTemplateArgs.metadataOptions");
+        if (!unknown_metadataOptions) return value_metadataOptions;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.metadataOptions' is not present");
     }
 
     /**
      * The monitoring option for the instance. See Monitoring below for more details.
      * 
      */
-    private UndeferrableValue<LaunchTemplateMonitoringArgs> monitoring;
-
+    @PolicyResourceProperty(name="monitoring", flag="unknown_monitoring")
+    private LaunchTemplateMonitoringArgs value_monitoring;
+    private boolean unknown_monitoring;
     public LaunchTemplateMonitoringArgs monitoring() {
-        if (monitoring == null) return null;
-        return monitoring.getValue("LaunchTemplateArgs.monitoring");
+        if (!unknown_monitoring) return value_monitoring;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.monitoring' is not present");
     }
 
     /**
      * The name of the launch template. If you leave this blank, the provider will auto-generate a unique name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LaunchTemplateArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("LaunchTemplateArgs.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.namePrefix' is not present");
     }
 
     /**
@@ -352,44 +380,48 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.PolicyResourc
      * Interfaces below for more details.
      * 
      */
-    private UndeferrableValue<List<LaunchTemplateNetworkInterfaceArgs>> networkInterfaces;
-
+    @PolicyResourceProperty(name="networkInterfaces", flag="unknown_networkInterfaces")
+    private List<LaunchTemplateNetworkInterfaceArgs> value_networkInterfaces;
+    private boolean unknown_networkInterfaces;
     public List<LaunchTemplateNetworkInterfaceArgs> networkInterfaces() {
-        if (networkInterfaces == null) return null;
-        return networkInterfaces.getValue("LaunchTemplateArgs.networkInterfaces");
+        if (!unknown_networkInterfaces) return value_networkInterfaces;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.networkInterfaces' is not present");
     }
 
     /**
      * The placement of the instance. See Placement below for more details.
      * 
      */
-    private UndeferrableValue<LaunchTemplatePlacementArgs> placement;
-
+    @PolicyResourceProperty(name="placement", flag="unknown_placement")
+    private LaunchTemplatePlacementArgs value_placement;
+    private boolean unknown_placement;
     public LaunchTemplatePlacementArgs placement() {
-        if (placement == null) return null;
-        return placement.getValue("LaunchTemplateArgs.placement");
+        if (!unknown_placement) return value_placement;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.placement' is not present");
     }
 
     /**
      * The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      * 
      */
-    private UndeferrableValue<LaunchTemplatePrivateDnsNameOptionsArgs> privateDnsNameOptions;
-
+    @PolicyResourceProperty(name="privateDnsNameOptions", flag="unknown_privateDnsNameOptions")
+    private LaunchTemplatePrivateDnsNameOptionsArgs value_privateDnsNameOptions;
+    private boolean unknown_privateDnsNameOptions;
     public LaunchTemplatePrivateDnsNameOptionsArgs privateDnsNameOptions() {
-        if (privateDnsNameOptions == null) return null;
-        return privateDnsNameOptions.getValue("LaunchTemplateArgs.privateDnsNameOptions");
+        if (!unknown_privateDnsNameOptions) return value_privateDnsNameOptions;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.privateDnsNameOptions' is not present");
     }
 
     /**
      * The ID of the RAM disk.
      * 
      */
-    private UndeferrableValue<String> ramDiskId;
-
+    @PolicyResourceProperty(name="ramDiskId", flag="unknown_ramDiskId")
+    private String value_ramDiskId;
+    private boolean unknown_ramDiskId;
     public String ramDiskId() {
-        if (ramDiskId == null) return null;
-        return ramDiskId.getValue("LaunchTemplateArgs.ramDiskId");
+        if (!unknown_ramDiskId) return value_ramDiskId;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.ramDiskId' is not present");
     }
 
     /**
@@ -397,66 +429,72 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.PolicyResourc
      * `vpc_security_group_ids` instead.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupNames;
-
+    @PolicyResourceProperty(name="securityGroupNames", flag="unknown_securityGroupNames")
+    private List<String> value_securityGroupNames;
+    private boolean unknown_securityGroupNames;
     public List<String> securityGroupNames() {
-        if (securityGroupNames == null) return null;
-        return securityGroupNames.getValue("LaunchTemplateArgs.securityGroupNames");
+        if (!unknown_securityGroupNames) return value_securityGroupNames;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.securityGroupNames' is not present");
     }
 
     /**
      * The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
      * 
      */
-    private UndeferrableValue<List<LaunchTemplateTagSpecificationArgs>> tagSpecifications;
-
+    @PolicyResourceProperty(name="tagSpecifications", flag="unknown_tagSpecifications")
+    private List<LaunchTemplateTagSpecificationArgs> value_tagSpecifications;
+    private boolean unknown_tagSpecifications;
     public List<LaunchTemplateTagSpecificationArgs> tagSpecifications() {
-        if (tagSpecifications == null) return null;
-        return tagSpecifications.getValue("LaunchTemplateArgs.tagSpecifications");
+        if (!unknown_tagSpecifications) return value_tagSpecifications;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.tagSpecifications' is not present");
     }
 
     /**
      * A map of tags to assign to the launch template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LaunchTemplateArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.tags' is not present");
     }
 
     /**
      * Whether to update Default Version each update. Conflicts with `default_version`.
      * 
      */
-    private UndeferrableValue<Boolean> updateDefaultVersion;
-
+    @PolicyResourceProperty(name="updateDefaultVersion", flag="unknown_updateDefaultVersion")
+    private Boolean value_updateDefaultVersion;
+    private boolean unknown_updateDefaultVersion;
     public Boolean updateDefaultVersion() {
-        if (updateDefaultVersion == null) return null;
-        return updateDefaultVersion.getValue("LaunchTemplateArgs.updateDefaultVersion");
+        if (!unknown_updateDefaultVersion) return value_updateDefaultVersion;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.updateDefaultVersion' is not present");
     }
 
     /**
      * The base64-encoded user data to provide when launching the instance.
      * 
      */
-    private UndeferrableValue<String> userData;
-
+    @PolicyResourceProperty(name="userData", flag="unknown_userData")
+    private String value_userData;
+    private boolean unknown_userData;
     public String userData() {
-        if (userData == null) return null;
-        return userData.getValue("LaunchTemplateArgs.userData");
+        if (!unknown_userData) return value_userData;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.userData' is not present");
     }
 
     /**
      * A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
      * 
      */
-    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
-
+    @PolicyResourceProperty(name="vpcSecurityGroupIds", flag="unknown_vpcSecurityGroupIds")
+    private List<String> value_vpcSecurityGroupIds;
+    private boolean unknown_vpcSecurityGroupIds;
     public List<String> vpcSecurityGroupIds() {
-        if (vpcSecurityGroupIds == null) return null;
-        return vpcSecurityGroupIds.getValue("LaunchTemplateArgs.vpcSecurityGroupIds");
+        if (!unknown_vpcSecurityGroupIds) return value_vpcSecurityGroupIds;
+        throw new UndeferrableValueException("Value 'LaunchTemplateArgs.vpcSecurityGroupIds' is not present");
     }
 
 }

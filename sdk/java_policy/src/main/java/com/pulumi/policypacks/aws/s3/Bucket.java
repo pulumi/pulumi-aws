@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3.outputs.BucketCorsRule;
 import com.pulumi.policypacks.aws.s3.outputs.BucketGrant;
@@ -28,143 +29,156 @@ public final class Bucket extends com.pulumi.resources.PolicyResourceOutput {
      * Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
      * 
      */
-    private UndeferrableValue<String> accelerationStatus;
-
+    @PolicyResourceProperty(name="accelerationStatus", flag="unknown_accelerationStatus")
+    private String value_accelerationStatus;
+    private boolean unknown_accelerationStatus;
     public String accelerationStatus() {
-        if (accelerationStatus == null) return null;
-        return accelerationStatus.getValue("Bucket.accelerationStatus");
+        if (!unknown_accelerationStatus) return value_accelerationStatus;
+        throw new UndeferrableValueException("Value 'Bucket.accelerationStatus' is not present");
     }
 
     /**
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
      * 
      */
-    private @Nullable UndeferrableValue<String> acl;
-
+    @PolicyResourceProperty(name="acl", flag="unknown_acl")
+    private @Nullable String value_acl;
+    private boolean unknown_acl;
     public @Nullable String acl() {
-        if (acl == null) return null;
-        return acl.getValue("Bucket.acl");
+        if (!unknown_acl) return value_acl;
+        throw new UndeferrableValueException("Value 'Bucket.acl' is not present");
     }
 
     /**
      * The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Bucket.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Bucket.arn' is not present");
     }
 
     /**
      * The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("Bucket.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'Bucket.bucket' is not present");
     }
 
     /**
      * The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
      * 
      */
-    private UndeferrableValue<String> bucketDomainName;
-
+    @PolicyResourceProperty(name="bucketDomainName", flag="unknown_bucketDomainName")
+    private String value_bucketDomainName;
+    private boolean unknown_bucketDomainName;
     public String bucketDomainName() {
-        if (bucketDomainName == null) return null;
-        return bucketDomainName.getValue("Bucket.bucketDomainName");
+        if (!unknown_bucketDomainName) return value_bucketDomainName;
+        throw new UndeferrableValueException("Value 'Bucket.bucketDomainName' is not present");
     }
 
     /**
      * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      * 
      */
-    private @Nullable UndeferrableValue<String> bucketPrefix;
-
+    @PolicyResourceProperty(name="bucketPrefix", flag="unknown_bucketPrefix")
+    private @Nullable String value_bucketPrefix;
+    private boolean unknown_bucketPrefix;
     public @Nullable String bucketPrefix() {
-        if (bucketPrefix == null) return null;
-        return bucketPrefix.getValue("Bucket.bucketPrefix");
+        if (!unknown_bucketPrefix) return value_bucketPrefix;
+        throw new UndeferrableValueException("Value 'Bucket.bucketPrefix' is not present");
     }
 
     /**
      * The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
      * 
      */
-    private UndeferrableValue<String> bucketRegionalDomainName;
-
+    @PolicyResourceProperty(name="bucketRegionalDomainName", flag="unknown_bucketRegionalDomainName")
+    private String value_bucketRegionalDomainName;
+    private boolean unknown_bucketRegionalDomainName;
     public String bucketRegionalDomainName() {
-        if (bucketRegionalDomainName == null) return null;
-        return bucketRegionalDomainName.getValue("Bucket.bucketRegionalDomainName");
+        if (!unknown_bucketRegionalDomainName) return value_bucketRegionalDomainName;
+        throw new UndeferrableValueException("Value 'Bucket.bucketRegionalDomainName' is not present");
     }
 
     /**
      * A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
      * 
      */
-    private @Nullable UndeferrableValue<List<BucketCorsRule>> corsRules;
-
+    @PolicyResourceProperty(name="corsRules", flag="unknown_corsRules")
+    private @Nullable List<BucketCorsRule> value_corsRules;
+    private boolean unknown_corsRules;
     public @Nullable List<BucketCorsRule> corsRules() {
-        if (corsRules == null) return null;
-        return corsRules.getValue("Bucket.corsRules");
+        if (!unknown_corsRules) return value_corsRules;
+        throw new UndeferrableValueException("Value 'Bucket.corsRules' is not present");
     }
 
     /**
      * A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> forceDestroy;
-
+    @PolicyResourceProperty(name="forceDestroy", flag="unknown_forceDestroy")
+    private @Nullable Boolean value_forceDestroy;
+    private boolean unknown_forceDestroy;
     public @Nullable Boolean forceDestroy() {
-        if (forceDestroy == null) return null;
-        return forceDestroy.getValue("Bucket.forceDestroy");
+        if (!unknown_forceDestroy) return value_forceDestroy;
+        throw new UndeferrableValueException("Value 'Bucket.forceDestroy' is not present");
     }
 
     /**
      * An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
      * 
      */
-    private @Nullable UndeferrableValue<List<BucketGrant>> grants;
-
+    @PolicyResourceProperty(name="grants", flag="unknown_grants")
+    private @Nullable List<BucketGrant> value_grants;
+    private boolean unknown_grants;
     public @Nullable List<BucketGrant> grants() {
-        if (grants == null) return null;
-        return grants.getValue("Bucket.grants");
+        if (!unknown_grants) return value_grants;
+        throw new UndeferrableValueException("Value 'Bucket.grants' is not present");
     }
 
     /**
      * The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket&#39;s region.
      * 
      */
-    private UndeferrableValue<String> hostedZoneId;
-
+    @PolicyResourceProperty(name="hostedZoneId", flag="unknown_hostedZoneId")
+    private String value_hostedZoneId;
+    private boolean unknown_hostedZoneId;
     public String hostedZoneId() {
-        if (hostedZoneId == null) return null;
-        return hostedZoneId.getValue("Bucket.hostedZoneId");
+        if (!unknown_hostedZoneId) return value_hostedZoneId;
+        throw new UndeferrableValueException("Value 'Bucket.hostedZoneId' is not present");
     }
 
     /**
      * A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
      * 
      */
-    private @Nullable UndeferrableValue<List<BucketLifecycleRule>> lifecycleRules;
-
+    @PolicyResourceProperty(name="lifecycleRules", flag="unknown_lifecycleRules")
+    private @Nullable List<BucketLifecycleRule> value_lifecycleRules;
+    private boolean unknown_lifecycleRules;
     public @Nullable List<BucketLifecycleRule> lifecycleRules() {
-        if (lifecycleRules == null) return null;
-        return lifecycleRules.getValue("Bucket.lifecycleRules");
+        if (!unknown_lifecycleRules) return value_lifecycleRules;
+        throw new UndeferrableValueException("Value 'Bucket.lifecycleRules' is not present");
     }
 
     /**
      * A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
      * 
      */
-    private @Nullable UndeferrableValue<List<BucketLogging>> loggings;
-
+    @PolicyResourceProperty(name="loggings", flag="unknown_loggings")
+    private @Nullable List<BucketLogging> value_loggings;
+    private boolean unknown_loggings;
     public @Nullable List<BucketLogging> loggings() {
-        if (loggings == null) return null;
-        return loggings.getValue("Bucket.loggings");
+        if (!unknown_loggings) return value_loggings;
+        throw new UndeferrableValueException("Value 'Bucket.loggings' is not present");
     }
 
     /**
@@ -173,44 +187,48 @@ public final class Bucket extends com.pulumi.resources.PolicyResourceOutput {
      * &gt; **NOTE:** You cannot use `acceleration_status` in `cn-north-1` or `us-gov-west-1`
      * 
      */
-    private @Nullable UndeferrableValue<BucketObjectLockConfiguration> objectLockConfiguration;
-
+    @PolicyResourceProperty(name="objectLockConfiguration", flag="unknown_objectLockConfiguration")
+    private @Nullable BucketObjectLockConfiguration value_objectLockConfiguration;
+    private boolean unknown_objectLockConfiguration;
     public @Nullable BucketObjectLockConfiguration objectLockConfiguration() {
-        if (objectLockConfiguration == null) return null;
-        return objectLockConfiguration.getValue("Bucket.objectLockConfiguration");
+        if (!unknown_objectLockConfiguration) return value_objectLockConfiguration;
+        throw new UndeferrableValueException("Value 'Bucket.objectLockConfiguration' is not present");
     }
 
     /**
      * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing in a `pulumi preview`. In this case, please make sure you use the verbose/specific version of the policy.
      * 
      */
-    private @Nullable UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private @Nullable String value_policy;
+    private boolean unknown_policy;
     public @Nullable String policy() {
-        if (policy == null) return null;
-        return policy.getValue("Bucket.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'Bucket.policy' is not present");
     }
 
     /**
      * The AWS region this bucket resides in.
      * 
      */
-    private UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private String value_region;
+    private boolean unknown_region;
     public String region() {
-        if (region == null) return null;
-        return region.getValue("Bucket.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'Bucket.region' is not present");
     }
 
     /**
      * A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
      * 
      */
-    private @Nullable UndeferrableValue<BucketReplicationConfiguration> replicationConfiguration;
-
+    @PolicyResourceProperty(name="replicationConfiguration", flag="unknown_replicationConfiguration")
+    private @Nullable BucketReplicationConfiguration value_replicationConfiguration;
+    private boolean unknown_replicationConfiguration;
     public @Nullable BucketReplicationConfiguration replicationConfiguration() {
-        if (replicationConfiguration == null) return null;
-        return replicationConfiguration.getValue("Bucket.replicationConfiguration");
+        if (!unknown_replicationConfiguration) return value_replicationConfiguration;
+        throw new UndeferrableValueException("Value 'Bucket.replicationConfiguration' is not present");
     }
 
     /**
@@ -220,33 +238,36 @@ public final class Bucket extends com.pulumi.resources.PolicyResourceOutput {
      * developer guide for more information.
      * 
      */
-    private UndeferrableValue<String> requestPayer;
-
+    @PolicyResourceProperty(name="requestPayer", flag="unknown_requestPayer")
+    private String value_requestPayer;
+    private boolean unknown_requestPayer;
     public String requestPayer() {
-        if (requestPayer == null) return null;
-        return requestPayer.getValue("Bucket.requestPayer");
+        if (!unknown_requestPayer) return value_requestPayer;
+        throw new UndeferrableValueException("Value 'Bucket.requestPayer' is not present");
     }
 
     /**
      * A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
      * 
      */
-    private UndeferrableValue<BucketServerSideEncryptionConfiguration> serverSideEncryptionConfiguration;
-
+    @PolicyResourceProperty(name="serverSideEncryptionConfiguration", flag="unknown_serverSideEncryptionConfiguration")
+    private BucketServerSideEncryptionConfiguration value_serverSideEncryptionConfiguration;
+    private boolean unknown_serverSideEncryptionConfiguration;
     public BucketServerSideEncryptionConfiguration serverSideEncryptionConfiguration() {
-        if (serverSideEncryptionConfiguration == null) return null;
-        return serverSideEncryptionConfiguration.getValue("Bucket.serverSideEncryptionConfiguration");
+        if (!unknown_serverSideEncryptionConfiguration) return value_serverSideEncryptionConfiguration;
+        throw new UndeferrableValueException("Value 'Bucket.serverSideEncryptionConfiguration' is not present");
     }
 
     /**
      * A map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Bucket.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Bucket.tags' is not present");
     }
 
     /**
@@ -257,55 +278,60 @@ public final class Bucket extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Bucket.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Bucket.tagsAll' is not present");
     }
 
     /**
      * A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
      * 
      */
-    private UndeferrableValue<BucketVersioning> versioning;
-
+    @PolicyResourceProperty(name="versioning", flag="unknown_versioning")
+    private BucketVersioning value_versioning;
+    private boolean unknown_versioning;
     public BucketVersioning versioning() {
-        if (versioning == null) return null;
-        return versioning.getValue("Bucket.versioning");
+        if (!unknown_versioning) return value_versioning;
+        throw new UndeferrableValueException("Value 'Bucket.versioning' is not present");
     }
 
     /**
      * A website object (documented below).
      * 
      */
-    private @Nullable UndeferrableValue<BucketWebsite> website;
-
+    @PolicyResourceProperty(name="website", flag="unknown_website")
+    private @Nullable BucketWebsite value_website;
+    private boolean unknown_website;
     public @Nullable BucketWebsite website() {
-        if (website == null) return null;
-        return website.getValue("Bucket.website");
+        if (!unknown_website) return value_website;
+        throw new UndeferrableValueException("Value 'Bucket.website' is not present");
     }
 
     /**
      * The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
      * 
      */
-    private UndeferrableValue<String> websiteDomain;
-
+    @PolicyResourceProperty(name="websiteDomain", flag="unknown_websiteDomain")
+    private String value_websiteDomain;
+    private boolean unknown_websiteDomain;
     public String websiteDomain() {
-        if (websiteDomain == null) return null;
-        return websiteDomain.getValue("Bucket.websiteDomain");
+        if (!unknown_websiteDomain) return value_websiteDomain;
+        throw new UndeferrableValueException("Value 'Bucket.websiteDomain' is not present");
     }
 
     /**
      * The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
      * 
      */
-    private UndeferrableValue<String> websiteEndpoint;
-
+    @PolicyResourceProperty(name="websiteEndpoint", flag="unknown_websiteEndpoint")
+    private String value_websiteEndpoint;
+    private boolean unknown_websiteEndpoint;
     public String websiteEndpoint() {
-        if (websiteEndpoint == null) return null;
-        return websiteEndpoint.getValue("Bucket.websiteEndpoint");
+        if (!unknown_websiteEndpoint) return value_websiteEndpoint;
+        throw new UndeferrableValueException("Value 'Bucket.websiteEndpoint' is not present");
     }
 
 }

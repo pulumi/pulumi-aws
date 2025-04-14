@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.comprehend;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.comprehend.inputs.DocumentClassifierInputDataConfigArgs;
 import com.pulumi.policypacks.aws.comprehend.inputs.DocumentClassifierOutputDataConfigArgs;
@@ -20,11 +21,12 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.PolicyRes
      * The ARN for an IAM Role which allows Comprehend to read the training and testing data.
      * 
      */
-    private UndeferrableValue<String> dataAccessRoleArn;
-
+    @PolicyResourceProperty(name="dataAccessRoleArn", flag="unknown_dataAccessRoleArn")
+    private String value_dataAccessRoleArn;
+    private boolean unknown_dataAccessRoleArn;
     public String dataAccessRoleArn() {
-        if (dataAccessRoleArn == null) return null;
-        return dataAccessRoleArn.getValue("DocumentClassifierArgs.dataAccessRoleArn");
+        if (!unknown_dataAccessRoleArn) return value_dataAccessRoleArn;
+        throw new UndeferrableValueException("Value 'DocumentClassifierArgs.dataAccessRoleArn' is not present");
     }
 
     /**
@@ -32,11 +34,12 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.PolicyRes
      * See the `input_data_config` Configuration Block section below.
      * 
      */
-    private UndeferrableValue<DocumentClassifierInputDataConfigArgs> inputDataConfig;
-
+    @PolicyResourceProperty(name="inputDataConfig", flag="unknown_inputDataConfig")
+    private DocumentClassifierInputDataConfigArgs value_inputDataConfig;
+    private boolean unknown_inputDataConfig;
     public DocumentClassifierInputDataConfigArgs inputDataConfig() {
-        if (inputDataConfig == null) return null;
-        return inputDataConfig.getValue("DocumentClassifierArgs.inputDataConfig");
+        if (!unknown_inputDataConfig) return value_inputDataConfig;
+        throw new UndeferrableValueException("Value 'DocumentClassifierArgs.inputDataConfig' is not present");
     }
 
     /**
@@ -44,11 +47,12 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.PolicyRes
      * One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
      * 
      */
-    private UndeferrableValue<String> languageCode;
-
+    @PolicyResourceProperty(name="languageCode", flag="unknown_languageCode")
+    private String value_languageCode;
+    private boolean unknown_languageCode;
     public String languageCode() {
-        if (languageCode == null) return null;
-        return languageCode.getValue("DocumentClassifierArgs.languageCode");
+        if (!unknown_languageCode) return value_languageCode;
+        throw new UndeferrableValueException("Value 'DocumentClassifierArgs.languageCode' is not present");
     }
 
     /**
@@ -57,11 +61,12 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.PolicyRes
      * `MULTI_CLASS` is also known as &#34;Single Label&#34; in the AWS Console.
      * 
      */
-    private UndeferrableValue<String> mode;
-
+    @PolicyResourceProperty(name="mode", flag="unknown_mode")
+    private String value_mode;
+    private boolean unknown_mode;
     public String mode() {
-        if (mode == null) return null;
-        return mode.getValue("DocumentClassifierArgs.mode");
+        if (!unknown_mode) return value_mode;
+        throw new UndeferrableValueException("Value 'DocumentClassifierArgs.mode' is not present");
     }
 
     /**
@@ -69,11 +74,12 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.PolicyRes
      * Can be a KMS Key ID or a KMS Key ARN.
      * 
      */
-    private UndeferrableValue<String> modelKmsKeyId;
-
+    @PolicyResourceProperty(name="modelKmsKeyId", flag="unknown_modelKmsKeyId")
+    private String value_modelKmsKeyId;
+    private boolean unknown_modelKmsKeyId;
     public String modelKmsKeyId() {
-        if (modelKmsKeyId == null) return null;
-        return modelKmsKeyId.getValue("DocumentClassifierArgs.modelKmsKeyId");
+        if (!unknown_modelKmsKeyId) return value_modelKmsKeyId;
+        throw new UndeferrableValueException("Value 'DocumentClassifierArgs.modelKmsKeyId' is not present");
     }
 
     /**
@@ -84,11 +90,12 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.PolicyRes
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DocumentClassifierArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DocumentClassifierArgs.name' is not present");
     }
 
     /**
@@ -96,22 +103,24 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.PolicyRes
      * See the `output_data_config` Configuration Block section below.
      * 
      */
-    private UndeferrableValue<DocumentClassifierOutputDataConfigArgs> outputDataConfig;
-
+    @PolicyResourceProperty(name="outputDataConfig", flag="unknown_outputDataConfig")
+    private DocumentClassifierOutputDataConfigArgs value_outputDataConfig;
+    private boolean unknown_outputDataConfig;
     public DocumentClassifierOutputDataConfigArgs outputDataConfig() {
-        if (outputDataConfig == null) return null;
-        return outputDataConfig.getValue("DocumentClassifierArgs.outputDataConfig");
+        if (!unknown_outputDataConfig) return value_outputDataConfig;
+        throw new UndeferrableValueException("Value 'DocumentClassifierArgs.outputDataConfig' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DocumentClassifierArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DocumentClassifierArgs.tags' is not present");
     }
 
     /**
@@ -124,11 +133,12 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.PolicyRes
      * Conflicts with `version_name_prefix`.
      * 
      */
-    private UndeferrableValue<String> versionName;
-
+    @PolicyResourceProperty(name="versionName", flag="unknown_versionName")
+    private String value_versionName;
+    private boolean unknown_versionName;
     public String versionName() {
-        if (versionName == null) return null;
-        return versionName.getValue("DocumentClassifierArgs.versionName");
+        if (!unknown_versionName) return value_versionName;
+        throw new UndeferrableValueException("Value 'DocumentClassifierArgs.versionName' is not present");
     }
 
     /**
@@ -138,11 +148,12 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.PolicyRes
      * Conflicts with `version_name`.
      * 
      */
-    private UndeferrableValue<String> versionNamePrefix;
-
+    @PolicyResourceProperty(name="versionNamePrefix", flag="unknown_versionNamePrefix")
+    private String value_versionNamePrefix;
+    private boolean unknown_versionNamePrefix;
     public String versionNamePrefix() {
-        if (versionNamePrefix == null) return null;
-        return versionNamePrefix.getValue("DocumentClassifierArgs.versionNamePrefix");
+        if (!unknown_versionNamePrefix) return value_versionNamePrefix;
+        throw new UndeferrableValueException("Value 'DocumentClassifierArgs.versionNamePrefix' is not present");
     }
 
     /**
@@ -150,11 +161,12 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.PolicyRes
      * Can be a KMS Key ID or a KMS Key ARN.
      * 
      */
-    private UndeferrableValue<String> volumeKmsKeyId;
-
+    @PolicyResourceProperty(name="volumeKmsKeyId", flag="unknown_volumeKmsKeyId")
+    private String value_volumeKmsKeyId;
+    private boolean unknown_volumeKmsKeyId;
     public String volumeKmsKeyId() {
-        if (volumeKmsKeyId == null) return null;
-        return volumeKmsKeyId.getValue("DocumentClassifierArgs.volumeKmsKeyId");
+        if (!unknown_volumeKmsKeyId) return value_volumeKmsKeyId;
+        throw new UndeferrableValueException("Value 'DocumentClassifierArgs.volumeKmsKeyId' is not present");
     }
 
     /**
@@ -162,11 +174,12 @@ public final class DocumentClassifierArgs extends com.pulumi.resources.PolicyRes
      * See the `vpc_config` Configuration Block section below.
      * 
      */
-    private UndeferrableValue<DocumentClassifierVpcConfigArgs> vpcConfig;
-
+    @PolicyResourceProperty(name="vpcConfig", flag="unknown_vpcConfig")
+    private DocumentClassifierVpcConfigArgs value_vpcConfig;
+    private boolean unknown_vpcConfig;
     public DocumentClassifierVpcConfigArgs vpcConfig() {
-        if (vpcConfig == null) return null;
-        return vpcConfig.getValue("DocumentClassifierArgs.vpcConfig");
+        if (!unknown_vpcConfig) return value_vpcConfig;
+        throw new UndeferrableValueException("Value 'DocumentClassifierArgs.vpcConfig' is not present");
     }
 
 }

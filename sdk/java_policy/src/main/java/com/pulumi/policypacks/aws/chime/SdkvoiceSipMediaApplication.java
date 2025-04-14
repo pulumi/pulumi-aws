@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chime;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.chime.outputs.SdkvoiceSipMediaApplicationEndpoints;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class SdkvoiceSipMediaApplication extends com.pulumi.resources.Poli
      * ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("SdkvoiceSipMediaApplication.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'SdkvoiceSipMediaApplication.arn' is not present");
     }
 
     /**
      * The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
      * 
      */
-    private UndeferrableValue<String> awsRegion;
-
+    @PolicyResourceProperty(name="awsRegion", flag="unknown_awsRegion")
+    private String value_awsRegion;
+    private boolean unknown_awsRegion;
     public String awsRegion() {
-        if (awsRegion == null) return null;
-        return awsRegion.getValue("SdkvoiceSipMediaApplication.awsRegion");
+        if (!unknown_awsRegion) return value_awsRegion;
+        throw new UndeferrableValueException("Value 'SdkvoiceSipMediaApplication.awsRegion' is not present");
     }
 
     /**
      * List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
      * 
      */
-    private UndeferrableValue<SdkvoiceSipMediaApplicationEndpoints> endpoints;
-
+    @PolicyResourceProperty(name="endpoints", flag="unknown_endpoints")
+    private SdkvoiceSipMediaApplicationEndpoints value_endpoints;
+    private boolean unknown_endpoints;
     public SdkvoiceSipMediaApplicationEndpoints endpoints() {
-        if (endpoints == null) return null;
-        return endpoints.getValue("SdkvoiceSipMediaApplication.endpoints");
+        if (!unknown_endpoints) return value_endpoints;
+        throw new UndeferrableValueException("Value 'SdkvoiceSipMediaApplication.endpoints' is not present");
     }
 
     /**
@@ -53,22 +57,24 @@ public final class SdkvoiceSipMediaApplication extends com.pulumi.resources.Poli
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("SdkvoiceSipMediaApplication.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'SdkvoiceSipMediaApplication.name' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SdkvoiceSipMediaApplication.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SdkvoiceSipMediaApplication.tags' is not present");
     }
 
     /**
@@ -79,11 +85,12 @@ public final class SdkvoiceSipMediaApplication extends com.pulumi.resources.Poli
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("SdkvoiceSipMediaApplication.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'SdkvoiceSipMediaApplication.tagsAll' is not present");
     }
 
 }

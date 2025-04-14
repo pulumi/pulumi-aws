@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.finspace.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class KxEnvironmentCustomDnsConfigurationArgs {
      * IP address of the DNS server.
      * 
      */
-    private UndeferrableValue<String> customDnsServerIp;
-
+    @PolicyResourceProperty(name="customDnsServerIp", flag="unknown_customDnsServerIp")
+    private String value_customDnsServerIp;
+    private boolean unknown_customDnsServerIp;
     public String customDnsServerIp() {
-        if (customDnsServerIp == null) return null;
-        return customDnsServerIp.getValue("KxEnvironmentCustomDnsConfigurationArgs.customDnsServerIp");
+        if (!unknown_customDnsServerIp) return value_customDnsServerIp;
+        throw new UndeferrableValueException("Value 'KxEnvironmentCustomDnsConfigurationArgs.customDnsServerIp' is not present");
     }
 
     /**
      * Name of the DNS server.
      * 
      */
-    private UndeferrableValue<String> customDnsServerName;
-
+    @PolicyResourceProperty(name="customDnsServerName", flag="unknown_customDnsServerName")
+    private String value_customDnsServerName;
+    private boolean unknown_customDnsServerName;
     public String customDnsServerName() {
-        if (customDnsServerName == null) return null;
-        return customDnsServerName.getValue("KxEnvironmentCustomDnsConfigurationArgs.customDnsServerName");
+        if (!unknown_customDnsServerName) return value_customDnsServerName;
+        throw new UndeferrableValueException("Value 'KxEnvironmentCustomDnsConfigurationArgs.customDnsServerName' is not present");
     }
 
 }

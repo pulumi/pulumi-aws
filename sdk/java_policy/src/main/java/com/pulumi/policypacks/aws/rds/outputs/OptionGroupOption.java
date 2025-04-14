@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.rds.outputs.OptionGroupOptionOptionSetting;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,66 +18,72 @@ public final class OptionGroupOption {
      * List of DB Security Groups for which the option is enabled.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> dbSecurityGroupMemberships;
-
+    @PolicyResourceProperty(name="dbSecurityGroupMemberships", flag="unknown_dbSecurityGroupMemberships")
+    private @Nullable List<String> value_dbSecurityGroupMemberships;
+    private boolean unknown_dbSecurityGroupMemberships;
     public @Nullable List<String> dbSecurityGroupMemberships() {
-        if (dbSecurityGroupMemberships == null) return null;
-        return dbSecurityGroupMemberships.getValue("OptionGroupOption.dbSecurityGroupMemberships");
+        if (!unknown_dbSecurityGroupMemberships) return value_dbSecurityGroupMemberships;
+        throw new UndeferrableValueException("Value 'OptionGroupOption.dbSecurityGroupMemberships' is not present");
     }
 
     /**
      * Name of the option (e.g., MEMCACHED).
      * 
      */
-    private UndeferrableValue<String> optionName;
-
+    @PolicyResourceProperty(name="optionName", flag="unknown_optionName")
+    private String value_optionName;
+    private boolean unknown_optionName;
     public String optionName() {
-        if (optionName == null) return null;
-        return optionName.getValue("OptionGroupOption.optionName");
+        if (!unknown_optionName) return value_optionName;
+        throw new UndeferrableValueException("Value 'OptionGroupOption.optionName' is not present");
     }
 
     /**
      * The option settings to apply. See `option_settings` Block below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<OptionGroupOptionOptionSetting>> optionSettings;
-
+    @PolicyResourceProperty(name="optionSettings", flag="unknown_optionSettings")
+    private @Nullable List<OptionGroupOptionOptionSetting> value_optionSettings;
+    private boolean unknown_optionSettings;
     public @Nullable List<OptionGroupOptionOptionSetting> optionSettings() {
-        if (optionSettings == null) return null;
-        return optionSettings.getValue("OptionGroupOption.optionSettings");
+        if (!unknown_optionSettings) return value_optionSettings;
+        throw new UndeferrableValueException("Value 'OptionGroupOption.optionSettings' is not present");
     }
 
     /**
      * Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable Integer value_port;
+    private boolean unknown_port;
     public @Nullable Integer port() {
-        if (port == null) return null;
-        return port.getValue("OptionGroupOption.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'OptionGroupOption.port' is not present");
     }
 
     /**
      * Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
      * 
      */
-    private @Nullable UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private @Nullable String value_version;
+    private boolean unknown_version;
     public @Nullable String version() {
-        if (version == null) return null;
-        return version.getValue("OptionGroupOption.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'OptionGroupOption.version' is not present");
     }
 
     /**
      * List of VPC Security Groups for which the option is enabled.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> vpcSecurityGroupMemberships;
-
+    @PolicyResourceProperty(name="vpcSecurityGroupMemberships", flag="unknown_vpcSecurityGroupMemberships")
+    private @Nullable List<String> value_vpcSecurityGroupMemberships;
+    private boolean unknown_vpcSecurityGroupMemberships;
     public @Nullable List<String> vpcSecurityGroupMemberships() {
-        if (vpcSecurityGroupMemberships == null) return null;
-        return vpcSecurityGroupMemberships.getValue("OptionGroupOption.vpcSecurityGroupMemberships");
+        if (!unknown_vpcSecurityGroupMemberships) return value_vpcSecurityGroupMemberships;
+        throw new UndeferrableValueException("Value 'OptionGroupOption.vpcSecurityGroupMemberships' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.pipes.inputs.PipeSourceParametersFilterCriteriaFilterArgs;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class PipeSourceParametersFilterCriteriaArgs {
      * An array of up to 5 event patterns. Detailed below.
      * 
      */
-    private UndeferrableValue<List<PipeSourceParametersFilterCriteriaFilterArgs>> filters;
-
+    @PolicyResourceProperty(name="filters", flag="unknown_filters")
+    private List<PipeSourceParametersFilterCriteriaFilterArgs> value_filters;
+    private boolean unknown_filters;
     public List<PipeSourceParametersFilterCriteriaFilterArgs> filters() {
-        if (filters == null) return null;
-        return filters.getValue("PipeSourceParametersFilterCriteriaArgs.filters");
+        if (!unknown_filters) return value_filters;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersFilterCriteriaArgs.filters' is not present");
     }
 
 }

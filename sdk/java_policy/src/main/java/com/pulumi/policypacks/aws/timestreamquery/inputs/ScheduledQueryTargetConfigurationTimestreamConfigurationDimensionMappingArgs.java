@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamquery.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationDimen
      * Type for the dimension. Valid value: `VARCHAR`.
      * 
      */
-    private UndeferrableValue<String> dimensionValueType;
-
+    @PolicyResourceProperty(name="dimensionValueType", flag="unknown_dimensionValueType")
+    private String value_dimensionValueType;
+    private boolean unknown_dimensionValueType;
     public String dimensionValueType() {
-        if (dimensionValueType == null) return null;
-        return dimensionValueType.getValue("ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs.dimensionValueType");
+        if (!unknown_dimensionValueType) return value_dimensionValueType;
+        throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs.dimensionValueType' is not present");
     }
 
     /**
      * Column name from query result.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs.name' is not present");
     }
 
 }

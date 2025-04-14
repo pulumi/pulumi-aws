@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.securityhub.outputs.AutomationRuleActionFindingFieldsUpdate;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class AutomationRuleAction {
      * A block that specifies that the automation rule action is an update to a finding field.  Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<AutomationRuleActionFindingFieldsUpdate> findingFieldsUpdate;
-
+    @PolicyResourceProperty(name="findingFieldsUpdate", flag="unknown_findingFieldsUpdate")
+    private @Nullable AutomationRuleActionFindingFieldsUpdate value_findingFieldsUpdate;
+    private boolean unknown_findingFieldsUpdate;
     public @Nullable AutomationRuleActionFindingFieldsUpdate findingFieldsUpdate() {
-        if (findingFieldsUpdate == null) return null;
-        return findingFieldsUpdate.getValue("AutomationRuleAction.findingFieldsUpdate");
+        if (!unknown_findingFieldsUpdate) return value_findingFieldsUpdate;
+        throw new UndeferrableValueException("Value 'AutomationRuleAction.findingFieldsUpdate' is not present");
     }
 
     /**
      * Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("AutomationRuleAction.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'AutomationRuleAction.type' is not present");
     }
 
 }

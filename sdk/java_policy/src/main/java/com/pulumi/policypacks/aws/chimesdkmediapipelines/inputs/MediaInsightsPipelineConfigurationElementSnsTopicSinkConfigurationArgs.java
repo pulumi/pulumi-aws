@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chimesdkmediapipelines.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigur
      * SNS topic to deliver results.
      * 
      */
-    private UndeferrableValue<String> insightsTarget;
-
+    @PolicyResourceProperty(name="insightsTarget", flag="unknown_insightsTarget")
+    private String value_insightsTarget;
+    private boolean unknown_insightsTarget;
     public String insightsTarget() {
-        if (insightsTarget == null) return null;
-        return insightsTarget.getValue("MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs.insightsTarget");
+        if (!unknown_insightsTarget) return value_insightsTarget;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs.insightsTarget' is not present");
     }
 
 }

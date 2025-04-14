@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,66 +16,72 @@ public final class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfMan
      * A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
      * 
      */
-    private UndeferrableValue<List<String>> dnsIps;
-
+    @PolicyResourceProperty(name="dnsIps", flag="unknown_dnsIps")
+    private List<String> value_dnsIps;
+    private boolean unknown_dnsIps;
     public List<String> dnsIps() {
-        if (dnsIps == null) return null;
-        return dnsIps.getValue("OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs.dnsIps");
+        if (!unknown_dnsIps) return value_dnsIps;
+        throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs.dnsIps' is not present");
     }
 
     /**
      * The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs.domainName' is not present");
     }
 
     /**
      * The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
      * 
      */
-    private UndeferrableValue<String> fileSystemAdministratorsGroup;
-
+    @PolicyResourceProperty(name="fileSystemAdministratorsGroup", flag="unknown_fileSystemAdministratorsGroup")
+    private String value_fileSystemAdministratorsGroup;
+    private boolean unknown_fileSystemAdministratorsGroup;
     public String fileSystemAdministratorsGroup() {
-        if (fileSystemAdministratorsGroup == null) return null;
-        return fileSystemAdministratorsGroup.getValue("OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs.fileSystemAdministratorsGroup");
+        if (!unknown_fileSystemAdministratorsGroup) return value_fileSystemAdministratorsGroup;
+        throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs.fileSystemAdministratorsGroup' is not present");
     }
 
     /**
      * The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
      * 
      */
-    private UndeferrableValue<String> organizationalUnitDistinguishedName;
-
+    @PolicyResourceProperty(name="organizationalUnitDistinguishedName", flag="unknown_organizationalUnitDistinguishedName")
+    private String value_organizationalUnitDistinguishedName;
+    private boolean unknown_organizationalUnitDistinguishedName;
     public String organizationalUnitDistinguishedName() {
-        if (organizationalUnitDistinguishedName == null) return null;
-        return organizationalUnitDistinguishedName.getValue("OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs.organizationalUnitDistinguishedName");
+        if (!unknown_organizationalUnitDistinguishedName) return value_organizationalUnitDistinguishedName;
+        throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs.organizationalUnitDistinguishedName' is not present");
     }
 
     /**
      * The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
      * 
      */
-    private UndeferrableValue<String> password;
-
+    @PolicyResourceProperty(name="password", flag="unknown_password")
+    private String value_password;
+    private boolean unknown_password;
     public String password() {
-        if (password == null) return null;
-        return password.getValue("OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs.password");
+        if (!unknown_password) return value_password;
+        throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs.password' is not present");
     }
 
     /**
      * The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
      * 
      */
-    private UndeferrableValue<String> username;
-
+    @PolicyResourceProperty(name="username", flag="unknown_username")
+    private String value_username;
+    private boolean unknown_username;
     public String username() {
-        if (username == null) return null;
-        return username.getValue("OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs.username");
+        if (!unknown_username) return value_username;
+        throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs.username' is not present");
     }
 
 }

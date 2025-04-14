@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.transfer.inputs.WorkflowStepCopyStepDetailsDestinationFileLocationArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class WorkflowStepCopyStepDetailsArgs {
      * Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
      * 
      */
-    private UndeferrableValue<WorkflowStepCopyStepDetailsDestinationFileLocationArgs> destinationFileLocation;
-
+    @PolicyResourceProperty(name="destinationFileLocation", flag="unknown_destinationFileLocation")
+    private WorkflowStepCopyStepDetailsDestinationFileLocationArgs value_destinationFileLocation;
+    private boolean unknown_destinationFileLocation;
     public WorkflowStepCopyStepDetailsDestinationFileLocationArgs destinationFileLocation() {
-        if (destinationFileLocation == null) return null;
-        return destinationFileLocation.getValue("WorkflowStepCopyStepDetailsArgs.destinationFileLocation");
+        if (!unknown_destinationFileLocation) return value_destinationFileLocation;
+        throw new UndeferrableValueException("Value 'WorkflowStepCopyStepDetailsArgs.destinationFileLocation' is not present");
     }
 
     /**
      * The name of the step, used as an identifier.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("WorkflowStepCopyStepDetailsArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'WorkflowStepCopyStepDetailsArgs.name' is not present");
     }
 
     /**
      * A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
      * 
      */
-    private UndeferrableValue<String> overwriteExisting;
-
+    @PolicyResourceProperty(name="overwriteExisting", flag="unknown_overwriteExisting")
+    private String value_overwriteExisting;
+    private boolean unknown_overwriteExisting;
     public String overwriteExisting() {
-        if (overwriteExisting == null) return null;
-        return overwriteExisting.getValue("WorkflowStepCopyStepDetailsArgs.overwriteExisting");
+        if (!unknown_overwriteExisting) return value_overwriteExisting;
+        throw new UndeferrableValueException("Value 'WorkflowStepCopyStepDetailsArgs.overwriteExisting' is not present");
     }
 
     /**
      * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
      * 
      */
-    private UndeferrableValue<String> sourceFileLocation;
-
+    @PolicyResourceProperty(name="sourceFileLocation", flag="unknown_sourceFileLocation")
+    private String value_sourceFileLocation;
+    private boolean unknown_sourceFileLocation;
     public String sourceFileLocation() {
-        if (sourceFileLocation == null) return null;
-        return sourceFileLocation.getValue("WorkflowStepCopyStepDetailsArgs.sourceFileLocation");
+        if (!unknown_sourceFileLocation) return value_sourceFileLocation;
+        throw new UndeferrableValueException("Value 'WorkflowStepCopyStepDetailsArgs.sourceFileLocation' is not present");
     }
 
 }

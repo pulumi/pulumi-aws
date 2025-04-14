@@ -3,29 +3,32 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class ApplicationCloudwatchLoggingOptionsArgs {
 
-    private UndeferrableValue<String> cloudwatchLoggingOptionId;
-
+    @PolicyResourceProperty(name="cloudwatchLoggingOptionId", flag="unknown_cloudwatchLoggingOptionId")
+    private String value_cloudwatchLoggingOptionId;
+    private boolean unknown_cloudwatchLoggingOptionId;
     public String cloudwatchLoggingOptionId() {
-        if (cloudwatchLoggingOptionId == null) return null;
-        return cloudwatchLoggingOptionId.getValue("ApplicationCloudwatchLoggingOptionsArgs.cloudwatchLoggingOptionId");
+        if (!unknown_cloudwatchLoggingOptionId) return value_cloudwatchLoggingOptionId;
+        throw new UndeferrableValueException("Value 'ApplicationCloudwatchLoggingOptionsArgs.cloudwatchLoggingOptionId' is not present");
     }
 
     /**
      * The ARN of the CloudWatch log stream to receive application messages.
      * 
      */
-    private UndeferrableValue<String> logStreamArn;
-
+    @PolicyResourceProperty(name="logStreamArn", flag="unknown_logStreamArn")
+    private String value_logStreamArn;
+    private boolean unknown_logStreamArn;
     public String logStreamArn() {
-        if (logStreamArn == null) return null;
-        return logStreamArn.getValue("ApplicationCloudwatchLoggingOptionsArgs.logStreamArn");
+        if (!unknown_logStreamArn) return value_logStreamArn;
+        throw new UndeferrableValueException("Value 'ApplicationCloudwatchLoggingOptionsArgs.logStreamArn' is not present");
     }
 
 }

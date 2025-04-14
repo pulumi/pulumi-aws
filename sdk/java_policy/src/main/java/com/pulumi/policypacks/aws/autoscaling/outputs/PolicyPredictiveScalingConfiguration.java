@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.autoscaling.outputs.PolicyPredictiveScalingConfigurationMetricSpecification;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,55 +16,60 @@ public final class PolicyPredictiveScalingConfiguration {
      * Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity of the Auto Scaling group. Valid values are `HonorMaxCapacity` or `IncreaseMaxCapacity`. Default is `HonorMaxCapacity`.
      * 
      */
-    private @Nullable UndeferrableValue<String> maxCapacityBreachBehavior;
-
+    @PolicyResourceProperty(name="maxCapacityBreachBehavior", flag="unknown_maxCapacityBreachBehavior")
+    private @Nullable String value_maxCapacityBreachBehavior;
+    private boolean unknown_maxCapacityBreachBehavior;
     public @Nullable String maxCapacityBreachBehavior() {
-        if (maxCapacityBreachBehavior == null) return null;
-        return maxCapacityBreachBehavior.getValue("PolicyPredictiveScalingConfiguration.maxCapacityBreachBehavior");
+        if (!unknown_maxCapacityBreachBehavior) return value_maxCapacityBreachBehavior;
+        throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfiguration.maxCapacityBreachBehavior' is not present");
     }
 
     /**
      * Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
      * 
      */
-    private @Nullable UndeferrableValue<String> maxCapacityBuffer;
-
+    @PolicyResourceProperty(name="maxCapacityBuffer", flag="unknown_maxCapacityBuffer")
+    private @Nullable String value_maxCapacityBuffer;
+    private boolean unknown_maxCapacityBuffer;
     public @Nullable String maxCapacityBuffer() {
-        if (maxCapacityBuffer == null) return null;
-        return maxCapacityBuffer.getValue("PolicyPredictiveScalingConfiguration.maxCapacityBuffer");
+        if (!unknown_maxCapacityBuffer) return value_maxCapacityBuffer;
+        throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfiguration.maxCapacityBuffer' is not present");
     }
 
     /**
      * This structure includes the metrics and target utilization to use for predictive scaling.
      * 
      */
-    private UndeferrableValue<PolicyPredictiveScalingConfigurationMetricSpecification> metricSpecification;
-
+    @PolicyResourceProperty(name="metricSpecification", flag="unknown_metricSpecification")
+    private PolicyPredictiveScalingConfigurationMetricSpecification value_metricSpecification;
+    private boolean unknown_metricSpecification;
     public PolicyPredictiveScalingConfigurationMetricSpecification metricSpecification() {
-        if (metricSpecification == null) return null;
-        return metricSpecification.getValue("PolicyPredictiveScalingConfiguration.metricSpecification");
+        if (!unknown_metricSpecification) return value_metricSpecification;
+        throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfiguration.metricSpecification' is not present");
     }
 
     /**
      * Predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
      * 
      */
-    private @Nullable UndeferrableValue<String> mode;
-
+    @PolicyResourceProperty(name="mode", flag="unknown_mode")
+    private @Nullable String value_mode;
+    private boolean unknown_mode;
     public @Nullable String mode() {
-        if (mode == null) return null;
-        return mode.getValue("PolicyPredictiveScalingConfiguration.mode");
+        if (!unknown_mode) return value_mode;
+        throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfiguration.mode' is not present");
     }
 
     /**
      * Amount of time, in seconds, by which the instance launch time can be advanced. Minimum is `0`.
      * 
      */
-    private @Nullable UndeferrableValue<String> schedulingBufferTime;
-
+    @PolicyResourceProperty(name="schedulingBufferTime", flag="unknown_schedulingBufferTime")
+    private @Nullable String value_schedulingBufferTime;
+    private boolean unknown_schedulingBufferTime;
     public @Nullable String schedulingBufferTime() {
-        if (schedulingBufferTime == null) return null;
-        return schedulingBufferTime.getValue("PolicyPredictiveScalingConfiguration.schedulingBufferTime");
+        if (!unknown_schedulingBufferTime) return value_schedulingBufferTime;
+        throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfiguration.schedulingBufferTime' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class LogDeliveryS3DeliveryConfigurationArgs {
      * This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
      * 
      */
-    private UndeferrableValue<Boolean> enableHiveCompatiblePath;
-
+    @PolicyResourceProperty(name="enableHiveCompatiblePath", flag="unknown_enableHiveCompatiblePath")
+    private Boolean value_enableHiveCompatiblePath;
+    private boolean unknown_enableHiveCompatiblePath;
     public Boolean enableHiveCompatiblePath() {
-        if (enableHiveCompatiblePath == null) return null;
-        return enableHiveCompatiblePath.getValue("LogDeliveryS3DeliveryConfigurationArgs.enableHiveCompatiblePath");
+        if (!unknown_enableHiveCompatiblePath) return value_enableHiveCompatiblePath;
+        throw new UndeferrableValueException("Value 'LogDeliveryS3DeliveryConfigurationArgs.enableHiveCompatiblePath' is not present");
     }
 
     /**
      * This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
      * 
      */
-    private UndeferrableValue<String> suffixPath;
-
+    @PolicyResourceProperty(name="suffixPath", flag="unknown_suffixPath")
+    private String value_suffixPath;
+    private boolean unknown_suffixPath;
     public String suffixPath() {
-        if (suffixPath == null) return null;
-        return suffixPath.getValue("LogDeliveryS3DeliveryConfigurationArgs.suffixPath");
+        if (!unknown_suffixPath) return value_suffixPath;
+        throw new UndeferrableValueException("Value 'LogDeliveryS3DeliveryConfigurationArgs.suffixPath' is not present");
     }
 
 }

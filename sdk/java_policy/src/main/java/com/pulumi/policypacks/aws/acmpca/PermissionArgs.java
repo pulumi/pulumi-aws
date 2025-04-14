@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.acmpca;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,44 +18,48 @@ public final class PermissionArgs extends com.pulumi.resources.PolicyResourceInp
      * Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
      * 
      */
-    private UndeferrableValue<List<String>> actions;
-
+    @PolicyResourceProperty(name="actions", flag="unknown_actions")
+    private List<String> value_actions;
+    private boolean unknown_actions;
     public List<String> actions() {
-        if (actions == null) return null;
-        return actions.getValue("PermissionArgs.actions");
+        if (!unknown_actions) return value_actions;
+        throw new UndeferrableValueException("Value 'PermissionArgs.actions' is not present");
     }
 
     /**
      * ARN of the CA that grants the permissions.
      * 
      */
-    private UndeferrableValue<String> certificateAuthorityArn;
-
+    @PolicyResourceProperty(name="certificateAuthorityArn", flag="unknown_certificateAuthorityArn")
+    private String value_certificateAuthorityArn;
+    private boolean unknown_certificateAuthorityArn;
     public String certificateAuthorityArn() {
-        if (certificateAuthorityArn == null) return null;
-        return certificateAuthorityArn.getValue("PermissionArgs.certificateAuthorityArn");
+        if (!unknown_certificateAuthorityArn) return value_certificateAuthorityArn;
+        throw new UndeferrableValueException("Value 'PermissionArgs.certificateAuthorityArn' is not present");
     }
 
     /**
      * AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
      * 
      */
-    private UndeferrableValue<String> principal;
-
+    @PolicyResourceProperty(name="principal", flag="unknown_principal")
+    private String value_principal;
+    private boolean unknown_principal;
     public String principal() {
-        if (principal == null) return null;
-        return principal.getValue("PermissionArgs.principal");
+        if (!unknown_principal) return value_principal;
+        throw new UndeferrableValueException("Value 'PermissionArgs.principal' is not present");
     }
 
     /**
      * ID of the calling account
      * 
      */
-    private UndeferrableValue<String> sourceAccount;
-
+    @PolicyResourceProperty(name="sourceAccount", flag="unknown_sourceAccount")
+    private String value_sourceAccount;
+    private boolean unknown_sourceAccount;
     public String sourceAccount() {
-        if (sourceAccount == null) return null;
-        return sourceAccount.getValue("PermissionArgs.sourceAccount");
+        if (!unknown_sourceAccount) return value_sourceAccount;
+        throw new UndeferrableValueException("Value 'PermissionArgs.sourceAccount' is not present");
     }
 
 }

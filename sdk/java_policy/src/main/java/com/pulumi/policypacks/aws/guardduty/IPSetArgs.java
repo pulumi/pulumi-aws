@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.guardduty;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,66 +19,72 @@ public final class IPSetArgs extends com.pulumi.resources.PolicyResourceInput {
      * Specifies whether GuardDuty is to start using the uploaded IPSet.
      * 
      */
-    private UndeferrableValue<Boolean> activate;
-
+    @PolicyResourceProperty(name="activate", flag="unknown_activate")
+    private Boolean value_activate;
+    private boolean unknown_activate;
     public Boolean activate() {
-        if (activate == null) return null;
-        return activate.getValue("IPSetArgs.activate");
+        if (!unknown_activate) return value_activate;
+        throw new UndeferrableValueException("Value 'IPSetArgs.activate' is not present");
     }
 
     /**
      * The detector ID of the GuardDuty.
      * 
      */
-    private UndeferrableValue<String> detectorId;
-
+    @PolicyResourceProperty(name="detectorId", flag="unknown_detectorId")
+    private String value_detectorId;
+    private boolean unknown_detectorId;
     public String detectorId() {
-        if (detectorId == null) return null;
-        return detectorId.getValue("IPSetArgs.detectorId");
+        if (!unknown_detectorId) return value_detectorId;
+        throw new UndeferrableValueException("Value 'IPSetArgs.detectorId' is not present");
     }
 
     /**
      * The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
      * 
      */
-    private UndeferrableValue<String> format;
-
+    @PolicyResourceProperty(name="format", flag="unknown_format")
+    private String value_format;
+    private boolean unknown_format;
     public String format() {
-        if (format == null) return null;
-        return format.getValue("IPSetArgs.format");
+        if (!unknown_format) return value_format;
+        throw new UndeferrableValueException("Value 'IPSetArgs.format' is not present");
     }
 
     /**
      * The URI of the file that contains the IPSet.
      * 
      */
-    private UndeferrableValue<String> location;
-
+    @PolicyResourceProperty(name="location", flag="unknown_location")
+    private String value_location;
+    private boolean unknown_location;
     public String location() {
-        if (location == null) return null;
-        return location.getValue("IPSetArgs.location");
+        if (!unknown_location) return value_location;
+        throw new UndeferrableValueException("Value 'IPSetArgs.location' is not present");
     }
 
     /**
      * The friendly name to identify the IPSet.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("IPSetArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'IPSetArgs.name' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("IPSetArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'IPSetArgs.tags' is not present");
     }
 
 }

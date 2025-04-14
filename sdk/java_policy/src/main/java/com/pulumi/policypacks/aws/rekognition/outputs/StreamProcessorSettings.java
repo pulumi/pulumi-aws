@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rekognition.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.rekognition.outputs.StreamProcessorSettingsConnectedHome;
 import com.pulumi.policypacks.aws.rekognition.outputs.StreamProcessorSettingsFaceSearch;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class StreamProcessorSettings {
      * Label detection settings to use on a streaming video. See `connected_home`.
      * 
      */
-    private @Nullable UndeferrableValue<StreamProcessorSettingsConnectedHome> connectedHome;
-
+    @PolicyResourceProperty(name="connectedHome", flag="unknown_connectedHome")
+    private @Nullable StreamProcessorSettingsConnectedHome value_connectedHome;
+    private boolean unknown_connectedHome;
     public @Nullable StreamProcessorSettingsConnectedHome connectedHome() {
-        if (connectedHome == null) return null;
-        return connectedHome.getValue("StreamProcessorSettings.connectedHome");
+        if (!unknown_connectedHome) return value_connectedHome;
+        throw new UndeferrableValueException("Value 'StreamProcessorSettings.connectedHome' is not present");
     }
 
     /**
      * Input face recognition parameters for an Amazon Rekognition stream processor. See `face_search`.
      * 
      */
-    private @Nullable UndeferrableValue<StreamProcessorSettingsFaceSearch> faceSearch;
-
+    @PolicyResourceProperty(name="faceSearch", flag="unknown_faceSearch")
+    private @Nullable StreamProcessorSettingsFaceSearch value_faceSearch;
+    private boolean unknown_faceSearch;
     public @Nullable StreamProcessorSettingsFaceSearch faceSearch() {
-        if (faceSearch == null) return null;
-        return faceSearch.getValue("StreamProcessorSettings.faceSearch");
+        if (!unknown_faceSearch) return value_faceSearch;
+        throw new UndeferrableValueException("Value 'StreamProcessorSettings.faceSearch' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs;
@@ -18,66 +19,72 @@ public final class WebAclRuleStatementManagedRuleGroupStatementArgs {
      * Additional information that&#39;s used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
      * 
      */
-    private UndeferrableValue<List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs>> managedRuleGroupConfigs;
-
+    @PolicyResourceProperty(name="managedRuleGroupConfigs", flag="unknown_managedRuleGroupConfigs")
+    private List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs> value_managedRuleGroupConfigs;
+    private boolean unknown_managedRuleGroupConfigs;
     public List<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs> managedRuleGroupConfigs() {
-        if (managedRuleGroupConfigs == null) return null;
-        return managedRuleGroupConfigs.getValue("WebAclRuleStatementManagedRuleGroupStatementArgs.managedRuleGroupConfigs");
+        if (!unknown_managedRuleGroupConfigs) return value_managedRuleGroupConfigs;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementArgs.managedRuleGroupConfigs' is not present");
     }
 
     /**
      * Name of the managed rule group.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("WebAclRuleStatementManagedRuleGroupStatementArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementArgs.name' is not present");
     }
 
     /**
      * Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
      * 
      */
-    private UndeferrableValue<List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs>> ruleActionOverrides;
-
+    @PolicyResourceProperty(name="ruleActionOverrides", flag="unknown_ruleActionOverrides")
+    private List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs> value_ruleActionOverrides;
+    private boolean unknown_ruleActionOverrides;
     public List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs> ruleActionOverrides() {
-        if (ruleActionOverrides == null) return null;
-        return ruleActionOverrides.getValue("WebAclRuleStatementManagedRuleGroupStatementArgs.ruleActionOverrides");
+        if (!unknown_ruleActionOverrides) return value_ruleActionOverrides;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementArgs.ruleActionOverrides' is not present");
     }
 
     /**
      * Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs> scopeDownStatement;
-
+    @PolicyResourceProperty(name="scopeDownStatement", flag="unknown_scopeDownStatement")
+    private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs value_scopeDownStatement;
+    private boolean unknown_scopeDownStatement;
     public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs scopeDownStatement() {
-        if (scopeDownStatement == null) return null;
-        return scopeDownStatement.getValue("WebAclRuleStatementManagedRuleGroupStatementArgs.scopeDownStatement");
+        if (!unknown_scopeDownStatement) return value_scopeDownStatement;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementArgs.scopeDownStatement' is not present");
     }
 
     /**
      * Name of the managed rule group vendor.
      * 
      */
-    private UndeferrableValue<String> vendorName;
-
+    @PolicyResourceProperty(name="vendorName", flag="unknown_vendorName")
+    private String value_vendorName;
+    private boolean unknown_vendorName;
     public String vendorName() {
-        if (vendorName == null) return null;
-        return vendorName.getValue("WebAclRuleStatementManagedRuleGroupStatementArgs.vendorName");
+        if (!unknown_vendorName) return value_vendorName;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementArgs.vendorName' is not present");
     }
 
     /**
      * Version of the managed rule group. You can set `Version_1.0` or `Version_1.1` etc. If you want to use the default version, do not set anything.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("WebAclRuleStatementManagedRuleGroupStatementArgs.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementArgs.version' is not present");
     }
 
 }

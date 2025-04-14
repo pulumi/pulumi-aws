@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.inputs.BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class BucketV2ObjectLockConfigurationRuleArgs {
      * Default retention period that you want to apply to new objects placed in this bucket (documented below).
      * 
      */
-    private UndeferrableValue<List<BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs>> defaultRetentions;
-
+    @PolicyResourceProperty(name="defaultRetentions", flag="unknown_defaultRetentions")
+    private List<BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs> value_defaultRetentions;
+    private boolean unknown_defaultRetentions;
     public List<BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs> defaultRetentions() {
-        if (defaultRetentions == null) return null;
-        return defaultRetentions.getValue("BucketV2ObjectLockConfigurationRuleArgs.defaultRetentions");
+        if (!unknown_defaultRetentions) return value_defaultRetentions;
+        throw new UndeferrableValueException("Value 'BucketV2ObjectLockConfigurationRuleArgs.defaultRetentions' is not present");
     }
 
 }

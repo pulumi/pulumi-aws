@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
      * ARN of the OpenSearch Service vector store.
      * 
      */
-    private UndeferrableValue<String> collectionArn;
-
+    @PolicyResourceProperty(name="collectionArn", flag="unknown_collectionArn")
+    private String value_collectionArn;
+    private boolean unknown_collectionArn;
     public String collectionArn() {
-        if (collectionArn == null) return null;
-        return collectionArn.getValue("AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration.collectionArn");
+        if (!unknown_collectionArn) return value_collectionArn;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration.collectionArn' is not present");
     }
 
     /**
      * The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    private @Nullable UndeferrableValue<AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping> fieldMapping;
-
+    @PolicyResourceProperty(name="fieldMapping", flag="unknown_fieldMapping")
+    private @Nullable AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping value_fieldMapping;
+    private boolean unknown_fieldMapping;
     public @Nullable AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping fieldMapping() {
-        if (fieldMapping == null) return null;
-        return fieldMapping.getValue("AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration.fieldMapping");
+        if (!unknown_fieldMapping) return value_fieldMapping;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration.fieldMapping' is not present");
     }
 
     /**
      * Name of the vector store.
      * 
      */
-    private UndeferrableValue<String> vectorIndexName;
-
+    @PolicyResourceProperty(name="vectorIndexName", flag="unknown_vectorIndexName")
+    private String value_vectorIndexName;
+    private boolean unknown_vectorIndexName;
     public String vectorIndexName() {
-        if (vectorIndexName == null) return null;
-        return vectorIndexName.getValue("AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration.vectorIndexName");
+        if (!unknown_vectorIndexName) return value_vectorIndexName;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration.vectorIndexName' is not present");
     }
 
 }

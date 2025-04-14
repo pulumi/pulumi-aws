@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
      * Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `log_level` or `metrics_level` attribute values to be effective.
      * 
      */
-    private UndeferrableValue<String> configurationType;
-
+    @PolicyResourceProperty(name="configurationType", flag="unknown_configurationType")
+    private String value_configurationType;
+    private boolean unknown_configurationType;
     public String configurationType() {
-        if (configurationType == null) return null;
-        return configurationType.getValue("ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration.configurationType");
+        if (!unknown_configurationType) return value_configurationType;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration.configurationType' is not present");
     }
 
     /**
      * Describes the verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
      * 
      */
-    private @Nullable UndeferrableValue<String> logLevel;
-
+    @PolicyResourceProperty(name="logLevel", flag="unknown_logLevel")
+    private @Nullable String value_logLevel;
+    private boolean unknown_logLevel;
     public @Nullable String logLevel() {
-        if (logLevel == null) return null;
-        return logLevel.getValue("ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration.logLevel");
+        if (!unknown_logLevel) return value_logLevel;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration.logLevel' is not present");
     }
 
     /**
      * Describes the granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
      * 
      */
-    private @Nullable UndeferrableValue<String> metricsLevel;
-
+    @PolicyResourceProperty(name="metricsLevel", flag="unknown_metricsLevel")
+    private @Nullable String value_metricsLevel;
+    private boolean unknown_metricsLevel;
     public @Nullable String metricsLevel() {
-        if (metricsLevel == null) return null;
-        return metricsLevel.getValue("ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration.metricsLevel");
+        if (!unknown_metricsLevel) return value_metricsLevel;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration.metricsLevel' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class LifecyclePolicyPolicyDetailFilter {
      * For age-based filters, this is the number of resources to keep on hand after the lifecycle DELETE action is applied. Impacted resources are only deleted if you have more than this number of resources. If you have fewer resources than this number, the impacted resource is not deleted.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> retainAtLeast;
-
+    @PolicyResourceProperty(name="retainAtLeast", flag="unknown_retainAtLeast")
+    private @Nullable Integer value_retainAtLeast;
+    private boolean unknown_retainAtLeast;
     public @Nullable Integer retainAtLeast() {
-        if (retainAtLeast == null) return null;
-        return retainAtLeast.getValue("LifecyclePolicyPolicyDetailFilter.retainAtLeast");
+        if (!unknown_retainAtLeast) return value_retainAtLeast;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailFilter.retainAtLeast' is not present");
     }
 
     /**
      * Filter resources based on either age or count. Valid values: `AGE` or `COUNT`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("LifecyclePolicyPolicyDetailFilter.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailFilter.type' is not present");
     }
 
     /**
      * Defines the unit of time that the lifecycle policy uses to determine impacted resources. This is required for age-based rules. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
      * 
      */
-    private @Nullable UndeferrableValue<String> unit;
-
+    @PolicyResourceProperty(name="unit", flag="unknown_unit")
+    private @Nullable String value_unit;
+    private boolean unknown_unit;
     public @Nullable String unit() {
-        if (unit == null) return null;
-        return unit.getValue("LifecyclePolicyPolicyDetailFilter.unit");
+        if (!unknown_unit) return value_unit;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailFilter.unit' is not present");
     }
 
     /**
@@ -50,11 +54,12 @@ public final class LifecyclePolicyPolicyDetailFilter {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<Integer> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private Integer value_value;
+    private boolean unknown_value;
     public Integer value() {
-        if (value == null) return null;
-        return value.getValue("LifecyclePolicyPolicyDetailFilter.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailFilter.value' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.inputs.VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class VpnConnectionTunnel2LogOptionsArgs {
      * Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
      * 
      */
-    private UndeferrableValue<VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs> cloudwatchLogOptions;
-
+    @PolicyResourceProperty(name="cloudwatchLogOptions", flag="unknown_cloudwatchLogOptions")
+    private VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs value_cloudwatchLogOptions;
+    private boolean unknown_cloudwatchLogOptions;
     public VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs cloudwatchLogOptions() {
-        if (cloudwatchLogOptions == null) return null;
-        return cloudwatchLogOptions.getValue("VpnConnectionTunnel2LogOptionsArgs.cloudwatchLogOptions");
+        if (!unknown_cloudwatchLogOptions) return value_cloudwatchLogOptions;
+        throw new UndeferrableValueException("Value 'VpnConnectionTunnel2LogOptionsArgs.cloudwatchLogOptions' is not present");
     }
 
 }

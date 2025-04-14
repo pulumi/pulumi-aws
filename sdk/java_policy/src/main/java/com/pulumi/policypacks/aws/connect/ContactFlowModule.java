@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,99 +18,108 @@ public final class ContactFlowModule extends com.pulumi.resources.PolicyResource
      * The Amazon Resource Name (ARN) of the Contact Flow Module.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ContactFlowModule.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ContactFlowModule.arn' is not present");
     }
 
     /**
      * The identifier of the Contact Flow Module.
      * 
      */
-    private UndeferrableValue<String> contactFlowModuleId;
-
+    @PolicyResourceProperty(name="contactFlowModuleId", flag="unknown_contactFlowModuleId")
+    private String value_contactFlowModuleId;
+    private boolean unknown_contactFlowModuleId;
     public String contactFlowModuleId() {
-        if (contactFlowModuleId == null) return null;
-        return contactFlowModuleId.getValue("ContactFlowModule.contactFlowModuleId");
+        if (!unknown_contactFlowModuleId) return value_contactFlowModuleId;
+        throw new UndeferrableValueException("Value 'ContactFlowModule.contactFlowModuleId' is not present");
     }
 
     /**
      * Specifies the content of the Contact Flow Module, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
      * 
      */
-    private UndeferrableValue<String> content;
-
+    @PolicyResourceProperty(name="content", flag="unknown_content")
+    private String value_content;
+    private boolean unknown_content;
     public String content() {
-        if (content == null) return null;
-        return content.getValue("ContactFlowModule.content");
+        if (!unknown_content) return value_content;
+        throw new UndeferrableValueException("Value 'ContactFlowModule.content' is not present");
     }
 
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
      * 
      */
-    private @Nullable UndeferrableValue<String> contentHash;
-
+    @PolicyResourceProperty(name="contentHash", flag="unknown_contentHash")
+    private @Nullable String value_contentHash;
+    private boolean unknown_contentHash;
     public @Nullable String contentHash() {
-        if (contentHash == null) return null;
-        return contentHash.getValue("ContactFlowModule.contentHash");
+        if (!unknown_contentHash) return value_contentHash;
+        throw new UndeferrableValueException("Value 'ContactFlowModule.contentHash' is not present");
     }
 
     /**
      * Specifies the description of the Contact Flow Module.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ContactFlowModule.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ContactFlowModule.description' is not present");
     }
 
     /**
      * The path to the Contact Flow Module source within the local filesystem. Conflicts with `content`.
      * 
      */
-    private @Nullable UndeferrableValue<String> filename;
-
+    @PolicyResourceProperty(name="filename", flag="unknown_filename")
+    private @Nullable String value_filename;
+    private boolean unknown_filename;
     public @Nullable String filename() {
-        if (filename == null) return null;
-        return filename.getValue("ContactFlowModule.filename");
+        if (!unknown_filename) return value_filename;
+        throw new UndeferrableValueException("Value 'ContactFlowModule.filename' is not present");
     }
 
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    private UndeferrableValue<String> instanceId;
-
+    @PolicyResourceProperty(name="instanceId", flag="unknown_instanceId")
+    private String value_instanceId;
+    private boolean unknown_instanceId;
     public String instanceId() {
-        if (instanceId == null) return null;
-        return instanceId.getValue("ContactFlowModule.instanceId");
+        if (!unknown_instanceId) return value_instanceId;
+        throw new UndeferrableValueException("Value 'ContactFlowModule.instanceId' is not present");
     }
 
     /**
      * Specifies the name of the Contact Flow Module.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ContactFlowModule.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ContactFlowModule.name' is not present");
     }
 
     /**
      * Tags to apply to the Contact Flow Module. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ContactFlowModule.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ContactFlowModule.tags' is not present");
     }
 
     /**
@@ -120,11 +130,12 @@ public final class ContactFlowModule extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ContactFlowModule.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ContactFlowModule.tagsAll' is not present");
     }
 
 }

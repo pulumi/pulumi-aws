@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.eks.outputs.ClusterKubernetesNetworkConfigElasticLoadBalancing;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ClusterKubernetesNetworkConfig {
      * Configuration block with elastic load balancing configuration for the cluster. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<ClusterKubernetesNetworkConfigElasticLoadBalancing> elasticLoadBalancing;
-
+    @PolicyResourceProperty(name="elasticLoadBalancing", flag="unknown_elasticLoadBalancing")
+    private @Nullable ClusterKubernetesNetworkConfigElasticLoadBalancing value_elasticLoadBalancing;
+    private boolean unknown_elasticLoadBalancing;
     public @Nullable ClusterKubernetesNetworkConfigElasticLoadBalancing elasticLoadBalancing() {
-        if (elasticLoadBalancing == null) return null;
-        return elasticLoadBalancing.getValue("ClusterKubernetesNetworkConfig.elasticLoadBalancing");
+        if (!unknown_elasticLoadBalancing) return value_elasticLoadBalancing;
+        throw new UndeferrableValueException("Value 'ClusterKubernetesNetworkConfig.elasticLoadBalancing' is not present");
     }
 
     /**
      * The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
      * 
      */
-    private @Nullable UndeferrableValue<String> ipFamily;
-
+    @PolicyResourceProperty(name="ipFamily", flag="unknown_ipFamily")
+    private @Nullable String value_ipFamily;
+    private boolean unknown_ipFamily;
     public @Nullable String ipFamily() {
-        if (ipFamily == null) return null;
-        return ipFamily.getValue("ClusterKubernetesNetworkConfig.ipFamily");
+        if (!unknown_ipFamily) return value_ipFamily;
+        throw new UndeferrableValueException("Value 'ClusterKubernetesNetworkConfig.ipFamily' is not present");
     }
 
     /**
@@ -43,22 +46,24 @@ public final class ClusterKubernetesNetworkConfig {
      * * Between /24 and /12.
      * 
      */
-    private @Nullable UndeferrableValue<String> serviceIpv4Cidr;
-
+    @PolicyResourceProperty(name="serviceIpv4Cidr", flag="unknown_serviceIpv4Cidr")
+    private @Nullable String value_serviceIpv4Cidr;
+    private boolean unknown_serviceIpv4Cidr;
     public @Nullable String serviceIpv4Cidr() {
-        if (serviceIpv4Cidr == null) return null;
-        return serviceIpv4Cidr.getValue("ClusterKubernetesNetworkConfig.serviceIpv4Cidr");
+        if (!unknown_serviceIpv4Cidr) return value_serviceIpv4Cidr;
+        throw new UndeferrableValueException("Value 'ClusterKubernetesNetworkConfig.serviceIpv4Cidr' is not present");
     }
 
     /**
      * The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specify `ipv6` for `ip_family` when you create the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can&#39;t specify a custom IPv6 CIDR block when you create the cluster.
      * 
      */
-    private @Nullable UndeferrableValue<String> serviceIpv6Cidr;
-
+    @PolicyResourceProperty(name="serviceIpv6Cidr", flag="unknown_serviceIpv6Cidr")
+    private @Nullable String value_serviceIpv6Cidr;
+    private boolean unknown_serviceIpv6Cidr;
     public @Nullable String serviceIpv6Cidr() {
-        if (serviceIpv6Cidr == null) return null;
-        return serviceIpv6Cidr.getValue("ClusterKubernetesNetworkConfig.serviceIpv6Cidr");
+        if (!unknown_serviceIpv6Cidr) return value_serviceIpv6Cidr;
+        throw new UndeferrableValueException("Value 'ClusterKubernetesNetworkConfig.serviceIpv6Cidr' is not present");
     }
 
 }

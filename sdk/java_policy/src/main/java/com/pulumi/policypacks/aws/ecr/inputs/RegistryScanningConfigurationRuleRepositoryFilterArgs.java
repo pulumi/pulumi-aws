@@ -3,24 +3,27 @@
 
 package com.pulumi.policypacks.aws.ecr.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class RegistryScanningConfigurationRuleRepositoryFilterArgs {
 
-    private UndeferrableValue<String> filter;
-
+    @PolicyResourceProperty(name="filter", flag="unknown_filter")
+    private String value_filter;
+    private boolean unknown_filter;
     public String filter() {
-        if (filter == null) return null;
-        return filter.getValue("RegistryScanningConfigurationRuleRepositoryFilterArgs.filter");
+        if (!unknown_filter) return value_filter;
+        throw new UndeferrableValueException("Value 'RegistryScanningConfigurationRuleRepositoryFilterArgs.filter' is not present");
     }
 
-    private UndeferrableValue<String> filterType;
-
+    @PolicyResourceProperty(name="filterType", flag="unknown_filterType")
+    private String value_filterType;
+    private boolean unknown_filterType;
     public String filterType() {
-        if (filterType == null) return null;
-        return filterType.getValue("RegistryScanningConfigurationRuleRepositoryFilterArgs.filterType");
+        if (!unknown_filterType) return value_filterType;
+        throw new UndeferrableValueException("Value 'RegistryScanningConfigurationRuleRepositoryFilterArgs.filterType' is not present");
     }
 
 }

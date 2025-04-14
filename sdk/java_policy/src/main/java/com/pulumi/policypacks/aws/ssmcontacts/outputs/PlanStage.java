@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssmcontacts.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ssmcontacts.outputs.PlanStageTarget;
 import java.lang.Integer;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class PlanStage {
      * The time to wait until beginning the next stage. The duration can only be set to 0 if a target is specified.
      * 
      */
-    private UndeferrableValue<Integer> durationInMinutes;
-
+    @PolicyResourceProperty(name="durationInMinutes", flag="unknown_durationInMinutes")
+    private Integer value_durationInMinutes;
+    private boolean unknown_durationInMinutes;
     public Integer durationInMinutes() {
-        if (durationInMinutes == null) return null;
-        return durationInMinutes.getValue("PlanStage.durationInMinutes");
+        if (!unknown_durationInMinutes) return value_durationInMinutes;
+        throw new UndeferrableValueException("Value 'PlanStage.durationInMinutes' is not present");
     }
 
     /**
      * One or more configuration blocks for specifying the contacts or contact methods that the escalation plan or engagement plan is engaging. See Target below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<PlanStageTarget>> targets;
-
+    @PolicyResourceProperty(name="targets", flag="unknown_targets")
+    private @Nullable List<PlanStageTarget> value_targets;
+    private boolean unknown_targets;
     public @Nullable List<PlanStageTarget> targets() {
-        if (targets == null) return null;
-        return targets.getValue("PlanStage.targets");
+        if (!unknown_targets) return value_targets;
+        throw new UndeferrableValueException("Value 'PlanStage.targets' is not present");
     }
 
 }

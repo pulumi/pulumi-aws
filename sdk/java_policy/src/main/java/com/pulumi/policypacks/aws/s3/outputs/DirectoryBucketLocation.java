@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class DirectoryBucketLocation {
      * [Availability Zone ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#az-ids) or Local Zone ID.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DirectoryBucketLocation.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DirectoryBucketLocation.name' is not present");
     }
 
     /**
      * Location type. Valid values: `AvailabilityZone`, `LocalZone`.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("DirectoryBucketLocation.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'DirectoryBucketLocation.type' is not present");
     }
 
 }

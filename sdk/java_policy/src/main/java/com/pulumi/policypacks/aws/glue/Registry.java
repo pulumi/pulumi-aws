@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,44 +18,48 @@ public final class Registry extends com.pulumi.resources.PolicyResourceOutput {
      * Amazon Resource Name (ARN) of Glue Registry.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Registry.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Registry.arn' is not present");
     }
 
     /**
      * A description of the registry.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Registry.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Registry.description' is not present");
     }
 
     /**
      * The Name of the registry.
      * 
      */
-    private UndeferrableValue<String> registryName;
-
+    @PolicyResourceProperty(name="registryName", flag="unknown_registryName")
+    private String value_registryName;
+    private boolean unknown_registryName;
     public String registryName() {
-        if (registryName == null) return null;
-        return registryName.getValue("Registry.registryName");
+        if (!unknown_registryName) return value_registryName;
+        throw new UndeferrableValueException("Value 'Registry.registryName' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Registry.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Registry.tags' is not present");
     }
 
     /**
@@ -65,11 +70,12 @@ public final class Registry extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Registry.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Registry.tagsAll' is not present");
     }
 
 }

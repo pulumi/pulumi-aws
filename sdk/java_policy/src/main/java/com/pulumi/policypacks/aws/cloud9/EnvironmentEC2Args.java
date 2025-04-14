@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloud9;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class EnvironmentEC2Args extends com.pulumi.resources.PolicyResourc
      * The number of minutes until the running instance is shut down after the environment has last been used.
      * 
      */
-    private UndeferrableValue<Integer> automaticStopTimeMinutes;
-
+    @PolicyResourceProperty(name="automaticStopTimeMinutes", flag="unknown_automaticStopTimeMinutes")
+    private Integer value_automaticStopTimeMinutes;
+    private boolean unknown_automaticStopTimeMinutes;
     public Integer automaticStopTimeMinutes() {
-        if (automaticStopTimeMinutes == null) return null;
-        return automaticStopTimeMinutes.getValue("EnvironmentEC2Args.automaticStopTimeMinutes");
+        if (!unknown_automaticStopTimeMinutes) return value_automaticStopTimeMinutes;
+        throw new UndeferrableValueException("Value 'EnvironmentEC2Args.automaticStopTimeMinutes' is not present");
     }
 
     /**
      * The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
      * 
      */
-    private UndeferrableValue<String> connectionType;
-
+    @PolicyResourceProperty(name="connectionType", flag="unknown_connectionType")
+    private String value_connectionType;
+    private boolean unknown_connectionType;
     public String connectionType() {
-        if (connectionType == null) return null;
-        return connectionType.getValue("EnvironmentEC2Args.connectionType");
+        if (!unknown_connectionType) return value_connectionType;
+        throw new UndeferrableValueException("Value 'EnvironmentEC2Args.connectionType' is not present");
     }
 
     /**
      * The description of the environment.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("EnvironmentEC2Args.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'EnvironmentEC2Args.description' is not present");
     }
 
     /**
@@ -59,66 +63,72 @@ public final class EnvironmentEC2Args extends com.pulumi.resources.PolicyResourc
      * * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
      * 
      */
-    private UndeferrableValue<String> imageId;
-
+    @PolicyResourceProperty(name="imageId", flag="unknown_imageId")
+    private String value_imageId;
+    private boolean unknown_imageId;
     public String imageId() {
-        if (imageId == null) return null;
-        return imageId.getValue("EnvironmentEC2Args.imageId");
+        if (!unknown_imageId) return value_imageId;
+        throw new UndeferrableValueException("Value 'EnvironmentEC2Args.imageId' is not present");
     }
 
     /**
      * The type of instance to connect to the environment, e.g., `t2.micro`.
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("EnvironmentEC2Args.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'EnvironmentEC2Args.instanceType' is not present");
     }
 
     /**
      * The name of the environment.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("EnvironmentEC2Args.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'EnvironmentEC2Args.name' is not present");
     }
 
     /**
      * The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment&#39;s creator.
      * 
      */
-    private UndeferrableValue<String> ownerArn;
-
+    @PolicyResourceProperty(name="ownerArn", flag="unknown_ownerArn")
+    private String value_ownerArn;
+    private boolean unknown_ownerArn;
     public String ownerArn() {
-        if (ownerArn == null) return null;
-        return ownerArn.getValue("EnvironmentEC2Args.ownerArn");
+        if (!unknown_ownerArn) return value_ownerArn;
+        throw new UndeferrableValueException("Value 'EnvironmentEC2Args.ownerArn' is not present");
     }
 
     /**
      * The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("EnvironmentEC2Args.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'EnvironmentEC2Args.subnetId' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("EnvironmentEC2Args.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'EnvironmentEC2Args.tags' is not present");
     }
 
 }

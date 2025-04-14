@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticache.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class ServerlessCacheEndpoint {
      * The DNS hostname of the cache node.
      * 
      */
-    private UndeferrableValue<String> address;
-
+    @PolicyResourceProperty(name="address", flag="unknown_address")
+    private String value_address;
+    private boolean unknown_address;
     public String address() {
-        if (address == null) return null;
-        return address.getValue("ServerlessCacheEndpoint.address");
+        if (!unknown_address) return value_address;
+        throw new UndeferrableValueException("Value 'ServerlessCacheEndpoint.address' is not present");
     }
 
     /**
      * The port number that the cache engine is listening on. Set as integer.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("ServerlessCacheEndpoint.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'ServerlessCacheEndpoint.port' is not present");
     }
 
 }

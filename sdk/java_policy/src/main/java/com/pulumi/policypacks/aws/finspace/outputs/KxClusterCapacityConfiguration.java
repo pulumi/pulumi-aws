@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.finspace.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,11 +15,12 @@ public final class KxClusterCapacityConfiguration {
      * Number of instances running in a cluster. Must be at least 1 and at most 5.
      * 
      */
-    private UndeferrableValue<Integer> nodeCount;
-
+    @PolicyResourceProperty(name="nodeCount", flag="unknown_nodeCount")
+    private Integer value_nodeCount;
+    private boolean unknown_nodeCount;
     public Integer nodeCount() {
-        if (nodeCount == null) return null;
-        return nodeCount.getValue("KxClusterCapacityConfiguration.nodeCount");
+        if (!unknown_nodeCount) return value_nodeCount;
+        throw new UndeferrableValueException("Value 'KxClusterCapacityConfiguration.nodeCount' is not present");
     }
 
     /**
@@ -34,11 +36,12 @@ public final class KxClusterCapacityConfiguration {
      * * kx.s.32xlarge – The node type with a configuration of 864 GiB memory and 128 vCPUs.
      * 
      */
-    private UndeferrableValue<String> nodeType;
-
+    @PolicyResourceProperty(name="nodeType", flag="unknown_nodeType")
+    private String value_nodeType;
+    private boolean unknown_nodeType;
     public String nodeType() {
-        if (nodeType == null) return null;
-        return nodeType.getValue("KxClusterCapacityConfiguration.nodeType");
+        if (!unknown_nodeType) return value_nodeType;
+        throw new UndeferrableValueException("Value 'KxClusterCapacityConfiguration.nodeType' is not present");
     }
 
 }

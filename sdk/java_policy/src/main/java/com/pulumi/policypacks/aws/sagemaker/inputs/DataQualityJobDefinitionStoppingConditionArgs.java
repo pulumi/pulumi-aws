@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DataQualityJobDefinitionStoppingConditionArgs {
      * The maximum runtime allowed in seconds.
      * 
      */
-    private UndeferrableValue<Integer> maxRuntimeInSeconds;
-
+    @PolicyResourceProperty(name="maxRuntimeInSeconds", flag="unknown_maxRuntimeInSeconds")
+    private Integer value_maxRuntimeInSeconds;
+    private boolean unknown_maxRuntimeInSeconds;
     public Integer maxRuntimeInSeconds() {
-        if (maxRuntimeInSeconds == null) return null;
-        return maxRuntimeInSeconds.getValue("DataQualityJobDefinitionStoppingConditionArgs.maxRuntimeInSeconds");
+        if (!unknown_maxRuntimeInSeconds) return value_maxRuntimeInSeconds;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionStoppingConditionArgs.maxRuntimeInSeconds' is not present");
     }
 
 }

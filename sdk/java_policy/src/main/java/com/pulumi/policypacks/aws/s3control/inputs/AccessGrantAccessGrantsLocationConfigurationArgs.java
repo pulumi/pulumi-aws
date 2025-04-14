@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class AccessGrantAccessGrantsLocationConfigurationArgs {
      * Sub-prefix.
      * 
      */
-    private UndeferrableValue<String> s3SubPrefix;
-
+    @PolicyResourceProperty(name="s3SubPrefix", flag="unknown_s3SubPrefix")
+    private String value_s3SubPrefix;
+    private boolean unknown_s3SubPrefix;
     public String s3SubPrefix() {
-        if (s3SubPrefix == null) return null;
-        return s3SubPrefix.getValue("AccessGrantAccessGrantsLocationConfigurationArgs.s3SubPrefix");
+        if (!unknown_s3SubPrefix) return value_s3SubPrefix;
+        throw new UndeferrableValueException("Value 'AccessGrantAccessGrantsLocationConfigurationArgs.s3SubPrefix' is not present");
     }
 
 }

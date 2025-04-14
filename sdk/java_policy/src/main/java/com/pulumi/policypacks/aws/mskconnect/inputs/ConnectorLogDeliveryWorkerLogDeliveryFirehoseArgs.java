@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mskconnect.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs {
      * The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
      * 
      */
-    private UndeferrableValue<String> deliveryStream;
-
+    @PolicyResourceProperty(name="deliveryStream", flag="unknown_deliveryStream")
+    private String value_deliveryStream;
+    private boolean unknown_deliveryStream;
     public String deliveryStream() {
-        if (deliveryStream == null) return null;
-        return deliveryStream.getValue("ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs.deliveryStream");
+        if (!unknown_deliveryStream) return value_deliveryStream;
+        throw new UndeferrableValueException("Value 'ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs.deliveryStream' is not present");
     }
 
     /**
      * Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs.enabled' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,22 +17,24 @@ public final class ProductPortfolioAssociation extends com.pulumi.resources.Poli
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      * 
      */
-    private @Nullable UndeferrableValue<String> acceptLanguage;
-
+    @PolicyResourceProperty(name="acceptLanguage", flag="unknown_acceptLanguage")
+    private @Nullable String value_acceptLanguage;
+    private boolean unknown_acceptLanguage;
     public @Nullable String acceptLanguage() {
-        if (acceptLanguage == null) return null;
-        return acceptLanguage.getValue("ProductPortfolioAssociation.acceptLanguage");
+        if (!unknown_acceptLanguage) return value_acceptLanguage;
+        throw new UndeferrableValueException("Value 'ProductPortfolioAssociation.acceptLanguage' is not present");
     }
 
     /**
      * Portfolio identifier.
      * 
      */
-    private UndeferrableValue<String> portfolioId;
-
+    @PolicyResourceProperty(name="portfolioId", flag="unknown_portfolioId")
+    private String value_portfolioId;
+    private boolean unknown_portfolioId;
     public String portfolioId() {
-        if (portfolioId == null) return null;
-        return portfolioId.getValue("ProductPortfolioAssociation.portfolioId");
+        if (!unknown_portfolioId) return value_portfolioId;
+        throw new UndeferrableValueException("Value 'ProductPortfolioAssociation.portfolioId' is not present");
     }
 
     /**
@@ -40,22 +43,24 @@ public final class ProductPortfolioAssociation extends com.pulumi.resources.Poli
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> productId;
-
+    @PolicyResourceProperty(name="productId", flag="unknown_productId")
+    private String value_productId;
+    private boolean unknown_productId;
     public String productId() {
-        if (productId == null) return null;
-        return productId.getValue("ProductPortfolioAssociation.productId");
+        if (!unknown_productId) return value_productId;
+        throw new UndeferrableValueException("Value 'ProductPortfolioAssociation.productId' is not present");
     }
 
     /**
      * Identifier of the source portfolio.
      * 
      */
-    private @Nullable UndeferrableValue<String> sourcePortfolioId;
-
+    @PolicyResourceProperty(name="sourcePortfolioId", flag="unknown_sourcePortfolioId")
+    private @Nullable String value_sourcePortfolioId;
+    private boolean unknown_sourcePortfolioId;
     public @Nullable String sourcePortfolioId() {
-        if (sourcePortfolioId == null) return null;
-        return sourcePortfolioId.getValue("ProductPortfolioAssociation.sourcePortfolioId");
+        if (!unknown_sourcePortfolioId) return value_sourcePortfolioId;
+        throw new UndeferrableValueException("Value 'ProductPortfolioAssociation.sourcePortfolioId' is not present");
     }
 
 }

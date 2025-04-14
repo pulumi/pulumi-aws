@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dynamodb.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class GlobalTableReplicaArgs {
      * AWS region name of replica DynamoDB TableE.g., `us-east-1`
      * 
      */
-    private UndeferrableValue<String> regionName;
-
+    @PolicyResourceProperty(name="regionName", flag="unknown_regionName")
+    private String value_regionName;
+    private boolean unknown_regionName;
     public String regionName() {
-        if (regionName == null) return null;
-        return regionName.getValue("GlobalTableReplicaArgs.regionName");
+        if (!unknown_regionName) return value_regionName;
+        throw new UndeferrableValueException("Value 'GlobalTableReplicaArgs.regionName' is not present");
     }
 
 }

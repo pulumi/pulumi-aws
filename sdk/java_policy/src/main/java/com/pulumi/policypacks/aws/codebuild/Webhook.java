@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.codebuild.outputs.WebhookFilterGroup;
 import com.pulumi.policypacks.aws.codebuild.outputs.WebhookScopeConfiguration;
@@ -19,88 +20,96 @@ public final class Webhook extends com.pulumi.resources.PolicyResourceOutput {
      * A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filter_group` over `branch_filter`.
      * 
      */
-    private @Nullable UndeferrableValue<String> branchFilter;
-
+    @PolicyResourceProperty(name="branchFilter", flag="unknown_branchFilter")
+    private @Nullable String value_branchFilter;
+    private boolean unknown_branchFilter;
     public @Nullable String branchFilter() {
-        if (branchFilter == null) return null;
-        return branchFilter.getValue("Webhook.branchFilter");
+        if (!unknown_branchFilter) return value_branchFilter;
+        throw new UndeferrableValueException("Value 'Webhook.branchFilter' is not present");
     }
 
     /**
      * The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
      * 
      */
-    private @Nullable UndeferrableValue<String> buildType;
-
+    @PolicyResourceProperty(name="buildType", flag="unknown_buildType")
+    private @Nullable String value_buildType;
+    private boolean unknown_buildType;
     public @Nullable String buildType() {
-        if (buildType == null) return null;
-        return buildType.getValue("Webhook.buildType");
+        if (!unknown_buildType) return value_buildType;
+        throw new UndeferrableValueException("Value 'Webhook.buildType' is not present");
     }
 
     /**
      * Information about the webhook&#39;s trigger. Filter group blocks are documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<WebhookFilterGroup>> filterGroups;
-
+    @PolicyResourceProperty(name="filterGroups", flag="unknown_filterGroups")
+    private @Nullable List<WebhookFilterGroup> value_filterGroups;
+    private boolean unknown_filterGroups;
     public @Nullable List<WebhookFilterGroup> filterGroups() {
-        if (filterGroups == null) return null;
-        return filterGroups.getValue("Webhook.filterGroups");
+        if (!unknown_filterGroups) return value_filterGroups;
+        throw new UndeferrableValueException("Value 'Webhook.filterGroups' is not present");
     }
 
     /**
      * The CodeBuild endpoint where webhook events are sent.
      * 
      */
-    private UndeferrableValue<String> payloadUrl;
-
+    @PolicyResourceProperty(name="payloadUrl", flag="unknown_payloadUrl")
+    private String value_payloadUrl;
+    private boolean unknown_payloadUrl;
     public String payloadUrl() {
-        if (payloadUrl == null) return null;
-        return payloadUrl.getValue("Webhook.payloadUrl");
+        if (!unknown_payloadUrl) return value_payloadUrl;
+        throw new UndeferrableValueException("Value 'Webhook.payloadUrl' is not present");
     }
 
     /**
      * The name of the build project.
      * 
      */
-    private UndeferrableValue<String> projectName;
-
+    @PolicyResourceProperty(name="projectName", flag="unknown_projectName")
+    private String value_projectName;
+    private boolean unknown_projectName;
     public String projectName() {
-        if (projectName == null) return null;
-        return projectName.getValue("Webhook.projectName");
+        if (!unknown_projectName) return value_projectName;
+        throw new UndeferrableValueException("Value 'Webhook.projectName' is not present");
     }
 
     /**
      * Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
      * 
      */
-    private @Nullable UndeferrableValue<WebhookScopeConfiguration> scopeConfiguration;
-
+    @PolicyResourceProperty(name="scopeConfiguration", flag="unknown_scopeConfiguration")
+    private @Nullable WebhookScopeConfiguration value_scopeConfiguration;
+    private boolean unknown_scopeConfiguration;
     public @Nullable WebhookScopeConfiguration scopeConfiguration() {
-        if (scopeConfiguration == null) return null;
-        return scopeConfiguration.getValue("Webhook.scopeConfiguration");
+        if (!unknown_scopeConfiguration) return value_scopeConfiguration;
+        throw new UndeferrableValueException("Value 'Webhook.scopeConfiguration' is not present");
     }
 
     /**
      * The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
      * 
      */
-    private UndeferrableValue<String> secret;
-
+    @PolicyResourceProperty(name="secret", flag="unknown_secret")
+    private String value_secret;
+    private boolean unknown_secret;
     public String secret() {
-        if (secret == null) return null;
-        return secret.getValue("Webhook.secret");
+        if (!unknown_secret) return value_secret;
+        throw new UndeferrableValueException("Value 'Webhook.secret' is not present");
     }
 
     /**
      * The URL to the webhook.
      * 
      */
-    private UndeferrableValue<String> url;
-
+    @PolicyResourceProperty(name="url", flag="unknown_url")
+    private String value_url;
+    private boolean unknown_url;
     public String url() {
-        if (url == null) return null;
-        return url.getValue("Webhook.url");
+        if (!unknown_url) return value_url;
+        throw new UndeferrableValueException("Value 'Webhook.url' is not present");
     }
 
 }

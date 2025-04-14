@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,33 +14,36 @@ public final class NodeGroupScalingConfig {
      * Desired number of worker nodes.
      * 
      */
-    private UndeferrableValue<Integer> desiredSize;
-
+    @PolicyResourceProperty(name="desiredSize", flag="unknown_desiredSize")
+    private Integer value_desiredSize;
+    private boolean unknown_desiredSize;
     public Integer desiredSize() {
-        if (desiredSize == null) return null;
-        return desiredSize.getValue("NodeGroupScalingConfig.desiredSize");
+        if (!unknown_desiredSize) return value_desiredSize;
+        throw new UndeferrableValueException("Value 'NodeGroupScalingConfig.desiredSize' is not present");
     }
 
     /**
      * Maximum number of worker nodes.
      * 
      */
-    private UndeferrableValue<Integer> maxSize;
-
+    @PolicyResourceProperty(name="maxSize", flag="unknown_maxSize")
+    private Integer value_maxSize;
+    private boolean unknown_maxSize;
     public Integer maxSize() {
-        if (maxSize == null) return null;
-        return maxSize.getValue("NodeGroupScalingConfig.maxSize");
+        if (!unknown_maxSize) return value_maxSize;
+        throw new UndeferrableValueException("Value 'NodeGroupScalingConfig.maxSize' is not present");
     }
 
     /**
      * Minimum number of worker nodes.
      * 
      */
-    private UndeferrableValue<Integer> minSize;
-
+    @PolicyResourceProperty(name="minSize", flag="unknown_minSize")
+    private Integer value_minSize;
+    private boolean unknown_minSize;
     public Integer minSize() {
-        if (minSize == null) return null;
-        return minSize.getValue("NodeGroupScalingConfig.minSize");
+        if (!unknown_minSize) return value_minSize;
+        throw new UndeferrableValueException("Value 'NodeGroupScalingConfig.minSize' is not present");
     }
 
 }

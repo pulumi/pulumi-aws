@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elb.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class LoadBalancerAccessLogsArgs {
      * The S3 bucket name to store the logs in.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("LoadBalancerAccessLogsArgs.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'LoadBalancerAccessLogsArgs.bucket' is not present");
     }
 
     /**
      * The S3 bucket prefix. Logs are stored in the root if not configured.
      * 
      */
-    private UndeferrableValue<String> bucketPrefix;
-
+    @PolicyResourceProperty(name="bucketPrefix", flag="unknown_bucketPrefix")
+    private String value_bucketPrefix;
+    private boolean unknown_bucketPrefix;
     public String bucketPrefix() {
-        if (bucketPrefix == null) return null;
-        return bucketPrefix.getValue("LoadBalancerAccessLogsArgs.bucketPrefix");
+        if (!unknown_bucketPrefix) return value_bucketPrefix;
+        throw new UndeferrableValueException("Value 'LoadBalancerAccessLogsArgs.bucketPrefix' is not present");
     }
 
     /**
      * Boolean to enable / disable `access_logs`. Default is `true`
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("LoadBalancerAccessLogsArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'LoadBalancerAccessLogsArgs.enabled' is not present");
     }
 
     /**
      * The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
      * 
      */
-    private UndeferrableValue<Integer> interval;
-
+    @PolicyResourceProperty(name="interval", flag="unknown_interval")
+    private Integer value_interval;
+    private boolean unknown_interval;
     public Integer interval() {
-        if (interval == null) return null;
-        return interval.getValue("LoadBalancerAccessLogsArgs.interval");
+        if (!unknown_interval) return value_interval;
+        throw new UndeferrableValueException("Value 'LoadBalancerAccessLogsArgs.interval' is not present");
     }
 
 }

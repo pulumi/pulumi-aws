@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class CrawlerLineageConfigurationArgs {
      * Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
      * 
      */
-    private UndeferrableValue<String> crawlerLineageSettings;
-
+    @PolicyResourceProperty(name="crawlerLineageSettings", flag="unknown_crawlerLineageSettings")
+    private String value_crawlerLineageSettings;
+    private boolean unknown_crawlerLineageSettings;
     public String crawlerLineageSettings() {
-        if (crawlerLineageSettings == null) return null;
-        return crawlerLineageSettings.getValue("CrawlerLineageConfigurationArgs.crawlerLineageSettings");
+        if (!unknown_crawlerLineageSettings) return value_crawlerLineageSettings;
+        throw new UndeferrableValueException("Value 'CrawlerLineageConfigurationArgs.crawlerLineageSettings' is not present");
     }
 
 }

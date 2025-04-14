@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sesv2.outputs.EmailIdentityDkimSigningAttributes;
 import java.lang.Boolean;
@@ -19,33 +20,36 @@ public final class EmailIdentity extends com.pulumi.resources.PolicyResourceOutp
      * ARN of the Email Identity.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("EmailIdentity.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'EmailIdentity.arn' is not present");
     }
 
     /**
      * The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
      * 
      */
-    private @Nullable UndeferrableValue<String> configurationSetName;
-
+    @PolicyResourceProperty(name="configurationSetName", flag="unknown_configurationSetName")
+    private @Nullable String value_configurationSetName;
+    private boolean unknown_configurationSetName;
     public @Nullable String configurationSetName() {
-        if (configurationSetName == null) return null;
-        return configurationSetName.getValue("EmailIdentity.configurationSetName");
+        if (!unknown_configurationSetName) return value_configurationSetName;
+        throw new UndeferrableValueException("Value 'EmailIdentity.configurationSetName' is not present");
     }
 
     /**
      * The configuration of the DKIM authentication settings for an email domain identity.
      * 
      */
-    private UndeferrableValue<EmailIdentityDkimSigningAttributes> dkimSigningAttributes;
-
+    @PolicyResourceProperty(name="dkimSigningAttributes", flag="unknown_dkimSigningAttributes")
+    private EmailIdentityDkimSigningAttributes value_dkimSigningAttributes;
+    private boolean unknown_dkimSigningAttributes;
     public EmailIdentityDkimSigningAttributes dkimSigningAttributes() {
-        if (dkimSigningAttributes == null) return null;
-        return dkimSigningAttributes.getValue("EmailIdentity.dkimSigningAttributes");
+        if (!unknown_dkimSigningAttributes) return value_dkimSigningAttributes;
+        throw new UndeferrableValueException("Value 'EmailIdentity.dkimSigningAttributes' is not present");
     }
 
     /**
@@ -54,33 +58,36 @@ public final class EmailIdentity extends com.pulumi.resources.PolicyResourceOutp
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> emailIdentity;
-
+    @PolicyResourceProperty(name="emailIdentity", flag="unknown_emailIdentity")
+    private String value_emailIdentity;
+    private boolean unknown_emailIdentity;
     public String emailIdentity() {
-        if (emailIdentity == null) return null;
-        return emailIdentity.getValue("EmailIdentity.emailIdentity");
+        if (!unknown_emailIdentity) return value_emailIdentity;
+        throw new UndeferrableValueException("Value 'EmailIdentity.emailIdentity' is not present");
     }
 
     /**
      * The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
      * 
      */
-    private UndeferrableValue<String> identityType;
-
+    @PolicyResourceProperty(name="identityType", flag="unknown_identityType")
+    private String value_identityType;
+    private boolean unknown_identityType;
     public String identityType() {
-        if (identityType == null) return null;
-        return identityType.getValue("EmailIdentity.identityType");
+        if (!unknown_identityType) return value_identityType;
+        throw new UndeferrableValueException("Value 'EmailIdentity.identityType' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("EmailIdentity.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'EmailIdentity.tags' is not present");
     }
 
     /**
@@ -91,22 +98,24 @@ public final class EmailIdentity extends com.pulumi.resources.PolicyResourceOutp
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("EmailIdentity.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'EmailIdentity.tagsAll' is not present");
     }
 
     /**
      * Specifies whether or not the identity is verified.
      * 
      */
-    private UndeferrableValue<Boolean> verifiedForSendingStatus;
-
+    @PolicyResourceProperty(name="verifiedForSendingStatus", flag="unknown_verifiedForSendingStatus")
+    private Boolean value_verifiedForSendingStatus;
+    private boolean unknown_verifiedForSendingStatus;
     public Boolean verifiedForSendingStatus() {
-        if (verifiedForSendingStatus == null) return null;
-        return verifiedForSendingStatus.getValue("EmailIdentity.verifiedForSendingStatus");
+        if (!unknown_verifiedForSendingStatus) return value_verifiedForSendingStatus;
+        throw new UndeferrableValueException("Value 'EmailIdentity.verifiedForSendingStatus' is not present");
     }
 
 }

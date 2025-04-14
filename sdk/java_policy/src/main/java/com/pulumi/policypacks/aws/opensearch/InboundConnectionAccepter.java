@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class InboundConnectionAccepter extends com.pulumi.resources.Policy
      * Specifies the ID of the connection to accept.
      * 
      */
-    private UndeferrableValue<String> connectionId;
-
+    @PolicyResourceProperty(name="connectionId", flag="unknown_connectionId")
+    private String value_connectionId;
+    private boolean unknown_connectionId;
     public String connectionId() {
-        if (connectionId == null) return null;
-        return connectionId.getValue("InboundConnectionAccepter.connectionId");
+        if (!unknown_connectionId) return value_connectionId;
+        throw new UndeferrableValueException("Value 'InboundConnectionAccepter.connectionId' is not present");
     }
 
     /**
      * Status of the connection request.
      * 
      */
-    private UndeferrableValue<String> connectionStatus;
-
+    @PolicyResourceProperty(name="connectionStatus", flag="unknown_connectionStatus")
+    private String value_connectionStatus;
+    private boolean unknown_connectionStatus;
     public String connectionStatus() {
-        if (connectionStatus == null) return null;
-        return connectionStatus.getValue("InboundConnectionAccepter.connectionStatus");
+        if (!unknown_connectionStatus) return value_connectionStatus;
+        throw new UndeferrableValueException("Value 'InboundConnectionAccepter.connectionStatus' is not present");
     }
 
 }

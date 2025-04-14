@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class ResponseHeadersPolicySecurityHeadersConfigContentSecurityPoli
      * The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
      * 
      */
-    private UndeferrableValue<String> contentSecurityPolicy;
-
+    @PolicyResourceProperty(name="contentSecurityPolicy", flag="unknown_contentSecurityPolicy")
+    private String value_contentSecurityPolicy;
+    private boolean unknown_contentSecurityPolicy;
     public String contentSecurityPolicy() {
-        if (contentSecurityPolicy == null) return null;
-        return contentSecurityPolicy.getValue("ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy.contentSecurityPolicy");
+        if (!unknown_contentSecurityPolicy) return value_contentSecurityPolicy;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy.contentSecurityPolicy' is not present");
     }
 
     /**
      * Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    private UndeferrableValue<Boolean> override;
-
+    @PolicyResourceProperty(name="override", flag="unknown_override")
+    private Boolean value_override;
+    private boolean unknown_override;
     public Boolean override() {
-        if (override == null) return null;
-        return override.getValue("ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy.override");
+        if (!unknown_override) return value_override;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy.override' is not present");
     }
 
 }

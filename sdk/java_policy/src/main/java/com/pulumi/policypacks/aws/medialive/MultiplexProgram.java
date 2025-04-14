@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.medialive.outputs.MultiplexProgramMultiplexProgramSettings;
 import com.pulumi.policypacks.aws.medialive.outputs.MultiplexProgramTimeouts;
@@ -18,11 +19,12 @@ public final class MultiplexProgram extends com.pulumi.resources.PolicyResourceO
      * Multiplex ID.
      * 
      */
-    private UndeferrableValue<String> multiplexId;
-
+    @PolicyResourceProperty(name="multiplexId", flag="unknown_multiplexId")
+    private String value_multiplexId;
+    private boolean unknown_multiplexId;
     public String multiplexId() {
-        if (multiplexId == null) return null;
-        return multiplexId.getValue("MultiplexProgram.multiplexId");
+        if (!unknown_multiplexId) return value_multiplexId;
+        throw new UndeferrableValueException("Value 'MultiplexProgram.multiplexId' is not present");
     }
 
     /**
@@ -31,29 +33,32 @@ public final class MultiplexProgram extends com.pulumi.resources.PolicyResourceO
      * The following arguments are optional:
      * 
      */
-    private @Nullable UndeferrableValue<MultiplexProgramMultiplexProgramSettings> multiplexProgramSettings;
-
+    @PolicyResourceProperty(name="multiplexProgramSettings", flag="unknown_multiplexProgramSettings")
+    private @Nullable MultiplexProgramMultiplexProgramSettings value_multiplexProgramSettings;
+    private boolean unknown_multiplexProgramSettings;
     public @Nullable MultiplexProgramMultiplexProgramSettings multiplexProgramSettings() {
-        if (multiplexProgramSettings == null) return null;
-        return multiplexProgramSettings.getValue("MultiplexProgram.multiplexProgramSettings");
+        if (!unknown_multiplexProgramSettings) return value_multiplexProgramSettings;
+        throw new UndeferrableValueException("Value 'MultiplexProgram.multiplexProgramSettings' is not present");
     }
 
     /**
      * Unique program name.
      * 
      */
-    private UndeferrableValue<String> programName;
-
+    @PolicyResourceProperty(name="programName", flag="unknown_programName")
+    private String value_programName;
+    private boolean unknown_programName;
     public String programName() {
-        if (programName == null) return null;
-        return programName.getValue("MultiplexProgram.programName");
+        if (!unknown_programName) return value_programName;
+        throw new UndeferrableValueException("Value 'MultiplexProgram.programName' is not present");
     }
 
-    private @Nullable UndeferrableValue<MultiplexProgramTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable MultiplexProgramTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable MultiplexProgramTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("MultiplexProgram.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'MultiplexProgram.timeouts' is not present");
     }
 
 }

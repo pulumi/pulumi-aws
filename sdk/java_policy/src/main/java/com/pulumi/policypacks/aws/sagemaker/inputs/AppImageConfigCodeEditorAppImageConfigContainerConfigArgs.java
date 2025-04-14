@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -16,33 +17,36 @@ public final class AppImageConfigCodeEditorAppImageConfigContainerConfigArgs {
      * The arguments for the container when you&#39;re running the application.
      * 
      */
-    private UndeferrableValue<List<String>> containerArguments;
-
+    @PolicyResourceProperty(name="containerArguments", flag="unknown_containerArguments")
+    private List<String> value_containerArguments;
+    private boolean unknown_containerArguments;
     public List<String> containerArguments() {
-        if (containerArguments == null) return null;
-        return containerArguments.getValue("AppImageConfigCodeEditorAppImageConfigContainerConfigArgs.containerArguments");
+        if (!unknown_containerArguments) return value_containerArguments;
+        throw new UndeferrableValueException("Value 'AppImageConfigCodeEditorAppImageConfigContainerConfigArgs.containerArguments' is not present");
     }
 
     /**
      * The entrypoint used to run the application in the container.
      * 
      */
-    private UndeferrableValue<List<String>> containerEntrypoints;
-
+    @PolicyResourceProperty(name="containerEntrypoints", flag="unknown_containerEntrypoints")
+    private List<String> value_containerEntrypoints;
+    private boolean unknown_containerEntrypoints;
     public List<String> containerEntrypoints() {
-        if (containerEntrypoints == null) return null;
-        return containerEntrypoints.getValue("AppImageConfigCodeEditorAppImageConfigContainerConfigArgs.containerEntrypoints");
+        if (!unknown_containerEntrypoints) return value_containerEntrypoints;
+        throw new UndeferrableValueException("Value 'AppImageConfigCodeEditorAppImageConfigContainerConfigArgs.containerEntrypoints' is not present");
     }
 
     /**
      * The environment variables to set in the container.
      * 
      */
-    private UndeferrableValue<Map<String,String>> containerEnvironmentVariables;
-
+    @PolicyResourceProperty(name="containerEnvironmentVariables", flag="unknown_containerEnvironmentVariables")
+    private Map<String,String> value_containerEnvironmentVariables;
+    private boolean unknown_containerEnvironmentVariables;
     public Map<String,String> containerEnvironmentVariables() {
-        if (containerEnvironmentVariables == null) return null;
-        return containerEnvironmentVariables.getValue("AppImageConfigCodeEditorAppImageConfigContainerConfigArgs.containerEnvironmentVariables");
+        if (!unknown_containerEnvironmentVariables) return value_containerEnvironmentVariables;
+        throw new UndeferrableValueException("Value 'AppImageConfigCodeEditorAppImageConfigContainerConfigArgs.containerEnvironmentVariables' is not present");
     }
 
 }

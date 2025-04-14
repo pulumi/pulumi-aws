@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.acmpca;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.acmpca.outputs.CertificateValidity;
 import java.lang.String;
@@ -17,77 +18,84 @@ public final class Certificate extends com.pulumi.resources.PolicyResourceOutput
      * Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
      * 
      */
-    private @Nullable UndeferrableValue<String> apiPassthrough;
-
+    @PolicyResourceProperty(name="apiPassthrough", flag="unknown_apiPassthrough")
+    private @Nullable String value_apiPassthrough;
+    private boolean unknown_apiPassthrough;
     public @Nullable String apiPassthrough() {
-        if (apiPassthrough == null) return null;
-        return apiPassthrough.getValue("Certificate.apiPassthrough");
+        if (!unknown_apiPassthrough) return value_apiPassthrough;
+        throw new UndeferrableValueException("Value 'Certificate.apiPassthrough' is not present");
     }
 
     /**
      * ARN of the certificate.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Certificate.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Certificate.arn' is not present");
     }
 
     /**
      * PEM-encoded certificate value.
      * 
      */
-    private UndeferrableValue<String> certificate;
-
+    @PolicyResourceProperty(name="certificate", flag="unknown_certificate")
+    private String value_certificate;
+    private boolean unknown_certificate;
     public String certificate() {
-        if (certificate == null) return null;
-        return certificate.getValue("Certificate.certificate");
+        if (!unknown_certificate) return value_certificate;
+        throw new UndeferrableValueException("Value 'Certificate.certificate' is not present");
     }
 
     /**
      * ARN of the certificate authority.
      * 
      */
-    private UndeferrableValue<String> certificateAuthorityArn;
-
+    @PolicyResourceProperty(name="certificateAuthorityArn", flag="unknown_certificateAuthorityArn")
+    private String value_certificateAuthorityArn;
+    private boolean unknown_certificateAuthorityArn;
     public String certificateAuthorityArn() {
-        if (certificateAuthorityArn == null) return null;
-        return certificateAuthorityArn.getValue("Certificate.certificateAuthorityArn");
+        if (!unknown_certificateAuthorityArn) return value_certificateAuthorityArn;
+        throw new UndeferrableValueException("Value 'Certificate.certificateAuthorityArn' is not present");
     }
 
     /**
      * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
      * 
      */
-    private UndeferrableValue<String> certificateChain;
-
+    @PolicyResourceProperty(name="certificateChain", flag="unknown_certificateChain")
+    private String value_certificateChain;
+    private boolean unknown_certificateChain;
     public String certificateChain() {
-        if (certificateChain == null) return null;
-        return certificateChain.getValue("Certificate.certificateChain");
+        if (!unknown_certificateChain) return value_certificateChain;
+        throw new UndeferrableValueException("Value 'Certificate.certificateChain' is not present");
     }
 
     /**
      * Certificate Signing Request in PEM format.
      * 
      */
-    private UndeferrableValue<String> certificateSigningRequest;
-
+    @PolicyResourceProperty(name="certificateSigningRequest", flag="unknown_certificateSigningRequest")
+    private String value_certificateSigningRequest;
+    private boolean unknown_certificateSigningRequest;
     public String certificateSigningRequest() {
-        if (certificateSigningRequest == null) return null;
-        return certificateSigningRequest.getValue("Certificate.certificateSigningRequest");
+        if (!unknown_certificateSigningRequest) return value_certificateSigningRequest;
+        throw new UndeferrableValueException("Value 'Certificate.certificateSigningRequest' is not present");
     }
 
     /**
      * Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
      * 
      */
-    private UndeferrableValue<String> signingAlgorithm;
-
+    @PolicyResourceProperty(name="signingAlgorithm", flag="unknown_signingAlgorithm")
+    private String value_signingAlgorithm;
+    private boolean unknown_signingAlgorithm;
     public String signingAlgorithm() {
-        if (signingAlgorithm == null) return null;
-        return signingAlgorithm.getValue("Certificate.signingAlgorithm");
+        if (!unknown_signingAlgorithm) return value_signingAlgorithm;
+        throw new UndeferrableValueException("Value 'Certificate.signingAlgorithm' is not present");
     }
 
     /**
@@ -95,22 +103,24 @@ public final class Certificate extends com.pulumi.resources.PolicyResourceOutput
      * See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
      * 
      */
-    private @Nullable UndeferrableValue<String> templateArn;
-
+    @PolicyResourceProperty(name="templateArn", flag="unknown_templateArn")
+    private @Nullable String value_templateArn;
+    private boolean unknown_templateArn;
     public @Nullable String templateArn() {
-        if (templateArn == null) return null;
-        return templateArn.getValue("Certificate.templateArn");
+        if (!unknown_templateArn) return value_templateArn;
+        throw new UndeferrableValueException("Value 'Certificate.templateArn' is not present");
     }
 
     /**
      * Configures end of the validity period for the certificate. See validity block below.
      * 
      */
-    private UndeferrableValue<CertificateValidity> validity;
-
+    @PolicyResourceProperty(name="validity", flag="unknown_validity")
+    private CertificateValidity value_validity;
+    private boolean unknown_validity;
     public CertificateValidity validity() {
-        if (validity == null) return null;
-        return validity.getValue("Certificate.validity");
+        if (!unknown_validity) return value_validity;
+        throw new UndeferrableValueException("Value 'Certificate.validity' is not present");
     }
 
 }

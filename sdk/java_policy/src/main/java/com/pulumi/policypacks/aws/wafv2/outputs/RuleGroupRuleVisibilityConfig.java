@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 
@@ -14,33 +15,36 @@ public final class RuleGroupRuleVisibilityConfig {
      * A boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
      * 
      */
-    private UndeferrableValue<Boolean> cloudwatchMetricsEnabled;
-
+    @PolicyResourceProperty(name="cloudwatchMetricsEnabled", flag="unknown_cloudwatchMetricsEnabled")
+    private Boolean value_cloudwatchMetricsEnabled;
+    private boolean unknown_cloudwatchMetricsEnabled;
     public Boolean cloudwatchMetricsEnabled() {
-        if (cloudwatchMetricsEnabled == null) return null;
-        return cloudwatchMetricsEnabled.getValue("RuleGroupRuleVisibilityConfig.cloudwatchMetricsEnabled");
+        if (!unknown_cloudwatchMetricsEnabled) return value_cloudwatchMetricsEnabled;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleVisibilityConfig.cloudwatchMetricsEnabled' is not present");
     }
 
     /**
      * A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can&#39;t contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
      * 
      */
-    private UndeferrableValue<String> metricName;
-
+    @PolicyResourceProperty(name="metricName", flag="unknown_metricName")
+    private String value_metricName;
+    private boolean unknown_metricName;
     public String metricName() {
-        if (metricName == null) return null;
-        return metricName.getValue("RuleGroupRuleVisibilityConfig.metricName");
+        if (!unknown_metricName) return value_metricName;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleVisibilityConfig.metricName' is not present");
     }
 
     /**
      * A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
      * 
      */
-    private UndeferrableValue<Boolean> sampledRequestsEnabled;
-
+    @PolicyResourceProperty(name="sampledRequestsEnabled", flag="unknown_sampledRequestsEnabled")
+    private Boolean value_sampledRequestsEnabled;
+    private boolean unknown_sampledRequestsEnabled;
     public Boolean sampledRequestsEnabled() {
-        if (sampledRequestsEnabled == null) return null;
-        return sampledRequestsEnabled.getValue("RuleGroupRuleVisibilityConfig.sampledRequestsEnabled");
+        if (!unknown_sampledRequestsEnabled) return value_sampledRequestsEnabled;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleVisibilityConfig.sampledRequestsEnabled' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -12,67 +13,76 @@ import javax.annotation.Nullable;
 
 public final class SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs {
 
-    private UndeferrableValue<Boolean> deleteOnTermination;
-
+    @PolicyResourceProperty(name="deleteOnTermination", flag="unknown_deleteOnTermination")
+    private Boolean value_deleteOnTermination;
+    private boolean unknown_deleteOnTermination;
     public Boolean deleteOnTermination() {
-        if (deleteOnTermination == null) return null;
-        return deleteOnTermination.getValue("SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs.deleteOnTermination");
+        if (!unknown_deleteOnTermination) return value_deleteOnTermination;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs.deleteOnTermination' is not present");
     }
 
-    private UndeferrableValue<String> deviceName;
-
+    @PolicyResourceProperty(name="deviceName", flag="unknown_deviceName")
+    private String value_deviceName;
+    private boolean unknown_deviceName;
     public String deviceName() {
-        if (deviceName == null) return null;
-        return deviceName.getValue("SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs.deviceName");
+        if (!unknown_deviceName) return value_deviceName;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs.deviceName' is not present");
     }
 
-    private UndeferrableValue<Boolean> encrypted;
-
+    @PolicyResourceProperty(name="encrypted", flag="unknown_encrypted")
+    private Boolean value_encrypted;
+    private boolean unknown_encrypted;
     public Boolean encrypted() {
-        if (encrypted == null) return null;
-        return encrypted.getValue("SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs.encrypted");
+        if (!unknown_encrypted) return value_encrypted;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs.encrypted' is not present");
     }
 
-    private UndeferrableValue<Integer> iops;
-
+    @PolicyResourceProperty(name="iops", flag="unknown_iops")
+    private Integer value_iops;
+    private boolean unknown_iops;
     public Integer iops() {
-        if (iops == null) return null;
-        return iops.getValue("SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs.iops");
+        if (!unknown_iops) return value_iops;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs.iops' is not present");
     }
 
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs.kmsKeyId' is not present");
     }
 
-    private UndeferrableValue<String> snapshotId;
-
+    @PolicyResourceProperty(name="snapshotId", flag="unknown_snapshotId")
+    private String value_snapshotId;
+    private boolean unknown_snapshotId;
     public String snapshotId() {
-        if (snapshotId == null) return null;
-        return snapshotId.getValue("SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs.snapshotId");
+        if (!unknown_snapshotId) return value_snapshotId;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs.snapshotId' is not present");
     }
 
-    private UndeferrableValue<Integer> throughput;
-
+    @PolicyResourceProperty(name="throughput", flag="unknown_throughput")
+    private Integer value_throughput;
+    private boolean unknown_throughput;
     public Integer throughput() {
-        if (throughput == null) return null;
-        return throughput.getValue("SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs.throughput");
+        if (!unknown_throughput) return value_throughput;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs.throughput' is not present");
     }
 
-    private UndeferrableValue<Integer> volumeSize;
-
+    @PolicyResourceProperty(name="volumeSize", flag="unknown_volumeSize")
+    private Integer value_volumeSize;
+    private boolean unknown_volumeSize;
     public Integer volumeSize() {
-        if (volumeSize == null) return null;
-        return volumeSize.getValue("SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs.volumeSize");
+        if (!unknown_volumeSize) return value_volumeSize;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs.volumeSize' is not present");
     }
 
-    private UndeferrableValue<String> volumeType;
-
+    @PolicyResourceProperty(name="volumeType", flag="unknown_volumeType")
+    private String value_volumeType;
+    private boolean unknown_volumeType;
     public String volumeType() {
-        if (volumeType == null) return null;
-        return volumeType.getValue("SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs.volumeType");
+        if (!unknown_volumeType) return value_volumeType;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs.volumeType' is not present");
     }
 
 }

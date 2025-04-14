@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.finspace;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.finspace.outputs.KxEnvironmentCustomDnsConfiguration;
 import com.pulumi.policypacks.aws.finspace.outputs.KxEnvironmentTransitGatewayConfiguration;
@@ -20,66 +21,72 @@ public final class KxEnvironment extends com.pulumi.resources.PolicyResourceOutp
      * Amazon Resource Name (ARN) identifier of the KX environment.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("KxEnvironment.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'KxEnvironment.arn' is not present");
     }
 
     /**
      * AWS Availability Zone IDs that this environment is available in. Important when selecting VPC subnets to use in cluster creation.
      * 
      */
-    private UndeferrableValue<List<String>> availabilityZones;
-
+    @PolicyResourceProperty(name="availabilityZones", flag="unknown_availabilityZones")
+    private List<String> value_availabilityZones;
+    private boolean unknown_availabilityZones;
     public List<String> availabilityZones() {
-        if (availabilityZones == null) return null;
-        return availabilityZones.getValue("KxEnvironment.availabilityZones");
+        if (!unknown_availabilityZones) return value_availabilityZones;
+        throw new UndeferrableValueException("Value 'KxEnvironment.availabilityZones' is not present");
     }
 
     /**
      * Timestamp at which the environment is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      * 
      */
-    private UndeferrableValue<String> createdTimestamp;
-
+    @PolicyResourceProperty(name="createdTimestamp", flag="unknown_createdTimestamp")
+    private String value_createdTimestamp;
+    private boolean unknown_createdTimestamp;
     public String createdTimestamp() {
-        if (createdTimestamp == null) return null;
-        return createdTimestamp.getValue("KxEnvironment.createdTimestamp");
+        if (!unknown_createdTimestamp) return value_createdTimestamp;
+        throw new UndeferrableValueException("Value 'KxEnvironment.createdTimestamp' is not present");
     }
 
     /**
      * List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
      * 
      */
-    private @Nullable UndeferrableValue<List<KxEnvironmentCustomDnsConfiguration>> customDnsConfigurations;
-
+    @PolicyResourceProperty(name="customDnsConfigurations", flag="unknown_customDnsConfigurations")
+    private @Nullable List<KxEnvironmentCustomDnsConfiguration> value_customDnsConfigurations;
+    private boolean unknown_customDnsConfigurations;
     public @Nullable List<KxEnvironmentCustomDnsConfiguration> customDnsConfigurations() {
-        if (customDnsConfigurations == null) return null;
-        return customDnsConfigurations.getValue("KxEnvironment.customDnsConfigurations");
+        if (!unknown_customDnsConfigurations) return value_customDnsConfigurations;
+        throw new UndeferrableValueException("Value 'KxEnvironment.customDnsConfigurations' is not present");
     }
 
     /**
      * Description for the KX environment.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("KxEnvironment.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'KxEnvironment.description' is not present");
     }
 
     /**
      * Unique identifier for the AWS environment infrastructure account.
      * 
      */
-    private UndeferrableValue<String> infrastructureAccountId;
-
+    @PolicyResourceProperty(name="infrastructureAccountId", flag="unknown_infrastructureAccountId")
+    private String value_infrastructureAccountId;
+    private boolean unknown_infrastructureAccountId;
     public String infrastructureAccountId() {
-        if (infrastructureAccountId == null) return null;
-        return infrastructureAccountId.getValue("KxEnvironment.infrastructureAccountId");
+        if (!unknown_infrastructureAccountId) return value_infrastructureAccountId;
+        throw new UndeferrableValueException("Value 'KxEnvironment.infrastructureAccountId' is not present");
     }
 
     /**
@@ -88,55 +95,60 @@ public final class KxEnvironment extends com.pulumi.resources.PolicyResourceOutp
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("KxEnvironment.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'KxEnvironment.kmsKeyId' is not present");
     }
 
     /**
      * Last timestamp at which the environment was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      * 
      */
-    private UndeferrableValue<String> lastModifiedTimestamp;
-
+    @PolicyResourceProperty(name="lastModifiedTimestamp", flag="unknown_lastModifiedTimestamp")
+    private String value_lastModifiedTimestamp;
+    private boolean unknown_lastModifiedTimestamp;
     public String lastModifiedTimestamp() {
-        if (lastModifiedTimestamp == null) return null;
-        return lastModifiedTimestamp.getValue("KxEnvironment.lastModifiedTimestamp");
+        if (!unknown_lastModifiedTimestamp) return value_lastModifiedTimestamp;
+        throw new UndeferrableValueException("Value 'KxEnvironment.lastModifiedTimestamp' is not present");
     }
 
     /**
      * Name of the KX environment that you want to create.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("KxEnvironment.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'KxEnvironment.name' is not present");
     }
 
     /**
      * Status of environment creation
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("KxEnvironment.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'KxEnvironment.status' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("KxEnvironment.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'KxEnvironment.tags' is not present");
     }
 
     /**
@@ -147,22 +159,24 @@ public final class KxEnvironment extends com.pulumi.resources.PolicyResourceOutp
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("KxEnvironment.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'KxEnvironment.tagsAll' is not present");
     }
 
     /**
      * Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
      * 
      */
-    private @Nullable UndeferrableValue<KxEnvironmentTransitGatewayConfiguration> transitGatewayConfiguration;
-
+    @PolicyResourceProperty(name="transitGatewayConfiguration", flag="unknown_transitGatewayConfiguration")
+    private @Nullable KxEnvironmentTransitGatewayConfiguration value_transitGatewayConfiguration;
+    private boolean unknown_transitGatewayConfiguration;
     public @Nullable KxEnvironmentTransitGatewayConfiguration transitGatewayConfiguration() {
-        if (transitGatewayConfiguration == null) return null;
-        return transitGatewayConfiguration.getValue("KxEnvironment.transitGatewayConfiguration");
+        if (!unknown_transitGatewayConfiguration) return value_transitGatewayConfiguration;
+        throw new UndeferrableValueException("Value 'KxEnvironment.transitGatewayConfiguration' is not present");
     }
 
 }

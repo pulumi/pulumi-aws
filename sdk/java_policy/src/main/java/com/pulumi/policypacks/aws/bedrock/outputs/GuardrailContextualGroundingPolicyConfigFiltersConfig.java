@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class GuardrailContextualGroundingPolicyConfigFiltersConfig {
      * The threshold for this filter.
      * 
      */
-    private UndeferrableValue<Double> threshold;
-
+    @PolicyResourceProperty(name="threshold", flag="unknown_threshold")
+    private Double value_threshold;
+    private boolean unknown_threshold;
     public Double threshold() {
-        if (threshold == null) return null;
-        return threshold.getValue("GuardrailContextualGroundingPolicyConfigFiltersConfig.threshold");
+        if (!unknown_threshold) return value_threshold;
+        throw new UndeferrableValueException("Value 'GuardrailContextualGroundingPolicyConfigFiltersConfig.threshold' is not present");
     }
 
     /**
      * Type of contextual grounding filter.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("GuardrailContextualGroundingPolicyConfigFiltersConfig.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'GuardrailContextualGroundingPolicyConfigFiltersConfig.type' is not present");
     }
 
 }

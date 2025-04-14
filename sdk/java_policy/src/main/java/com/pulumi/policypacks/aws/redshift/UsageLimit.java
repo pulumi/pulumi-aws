@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,88 +19,96 @@ public final class UsageLimit extends com.pulumi.resources.PolicyResourceOutput 
      * The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
      * 
      */
-    private UndeferrableValue<Integer> amount;
-
+    @PolicyResourceProperty(name="amount", flag="unknown_amount")
+    private Integer value_amount;
+    private boolean unknown_amount;
     public Integer amount() {
-        if (amount == null) return null;
-        return amount.getValue("UsageLimit.amount");
+        if (!unknown_amount) return value_amount;
+        throw new UndeferrableValueException("Value 'UsageLimit.amount' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the Redshift Usage Limit.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("UsageLimit.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'UsageLimit.arn' is not present");
     }
 
     /**
      * The action that Amazon Redshift takes when the limit is reached. The default is `log`. Valid values are `log`, `emit-metric`, and `disable`.
      * 
      */
-    private @Nullable UndeferrableValue<String> breachAction;
-
+    @PolicyResourceProperty(name="breachAction", flag="unknown_breachAction")
+    private @Nullable String value_breachAction;
+    private boolean unknown_breachAction;
     public @Nullable String breachAction() {
-        if (breachAction == null) return null;
-        return breachAction.getValue("UsageLimit.breachAction");
+        if (!unknown_breachAction) return value_breachAction;
+        throw new UndeferrableValueException("Value 'UsageLimit.breachAction' is not present");
     }
 
     /**
      * The identifier of the cluster that you want to limit usage.
      * 
      */
-    private UndeferrableValue<String> clusterIdentifier;
-
+    @PolicyResourceProperty(name="clusterIdentifier", flag="unknown_clusterIdentifier")
+    private String value_clusterIdentifier;
+    private boolean unknown_clusterIdentifier;
     public String clusterIdentifier() {
-        if (clusterIdentifier == null) return null;
-        return clusterIdentifier.getValue("UsageLimit.clusterIdentifier");
+        if (!unknown_clusterIdentifier) return value_clusterIdentifier;
+        throw new UndeferrableValueException("Value 'UsageLimit.clusterIdentifier' is not present");
     }
 
     /**
      * The Amazon Redshift feature that you want to limit. Valid values are `spectrum`, `concurrency-scaling`, and `cross-region-datasharing`.
      * 
      */
-    private UndeferrableValue<String> featureType;
-
+    @PolicyResourceProperty(name="featureType", flag="unknown_featureType")
+    private String value_featureType;
+    private boolean unknown_featureType;
     public String featureType() {
-        if (featureType == null) return null;
-        return featureType.getValue("UsageLimit.featureType");
+        if (!unknown_featureType) return value_featureType;
+        throw new UndeferrableValueException("Value 'UsageLimit.featureType' is not present");
     }
 
     /**
      * The type of limit. Depending on the feature type, this can be based on a time duration or data size. If FeatureType is `spectrum`, then LimitType must be `data-scanned`. If FeatureType is `concurrency-scaling`, then LimitType must be `time`. If FeatureType is `cross-region-datasharing`, then LimitType must be `data-scanned`. Valid values are `data-scanned`, and `time`.
      * 
      */
-    private UndeferrableValue<String> limitType;
-
+    @PolicyResourceProperty(name="limitType", flag="unknown_limitType")
+    private String value_limitType;
+    private boolean unknown_limitType;
     public String limitType() {
-        if (limitType == null) return null;
-        return limitType.getValue("UsageLimit.limitType");
+        if (!unknown_limitType) return value_limitType;
+        throw new UndeferrableValueException("Value 'UsageLimit.limitType' is not present");
     }
 
     /**
      * The time period that the amount applies to. A weekly period begins on Sunday. The default is `monthly`. Valid values are `daily`, `weekly`, and `monthly`.
      * 
      */
-    private @Nullable UndeferrableValue<String> period;
-
+    @PolicyResourceProperty(name="period", flag="unknown_period")
+    private @Nullable String value_period;
+    private boolean unknown_period;
     public @Nullable String period() {
-        if (period == null) return null;
-        return period.getValue("UsageLimit.period");
+        if (!unknown_period) return value_period;
+        throw new UndeferrableValueException("Value 'UsageLimit.period' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("UsageLimit.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'UsageLimit.tags' is not present");
     }
 
     /**
@@ -110,11 +119,12 @@ public final class UsageLimit extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("UsageLimit.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'UsageLimit.tagsAll' is not present");
     }
 
 }

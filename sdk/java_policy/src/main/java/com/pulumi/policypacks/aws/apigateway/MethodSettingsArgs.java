@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.apigateway.inputs.MethodSettingsSettingsArgs;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class MethodSettingsArgs extends com.pulumi.resources.PolicyResourc
      * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, &#34;/&#34;)`).
      * 
      */
-    private UndeferrableValue<String> methodPath;
-
+    @PolicyResourceProperty(name="methodPath", flag="unknown_methodPath")
+    private String value_methodPath;
+    private boolean unknown_methodPath;
     public String methodPath() {
-        if (methodPath == null) return null;
-        return methodPath.getValue("MethodSettingsArgs.methodPath");
+        if (!unknown_methodPath) return value_methodPath;
+        throw new UndeferrableValueException("Value 'MethodSettingsArgs.methodPath' is not present");
     }
 
     /**
      * ID of the REST API
      * 
      */
-    private UndeferrableValue<String> restApi;
-
+    @PolicyResourceProperty(name="restApi", flag="unknown_restApi")
+    private String value_restApi;
+    private boolean unknown_restApi;
     public String restApi() {
-        if (restApi == null) return null;
-        return restApi.getValue("MethodSettingsArgs.restApi");
+        if (!unknown_restApi) return value_restApi;
+        throw new UndeferrableValueException("Value 'MethodSettingsArgs.restApi' is not present");
     }
 
     /**
      * Settings block, see below.
      * 
      */
-    private UndeferrableValue<MethodSettingsSettingsArgs> settings;
-
+    @PolicyResourceProperty(name="settings", flag="unknown_settings")
+    private MethodSettingsSettingsArgs value_settings;
+    private boolean unknown_settings;
     public MethodSettingsSettingsArgs settings() {
-        if (settings == null) return null;
-        return settings.getValue("MethodSettingsArgs.settings");
+        if (!unknown_settings) return value_settings;
+        throw new UndeferrableValueException("Value 'MethodSettingsArgs.settings' is not present");
     }
 
     /**
      * Name of the stage
      * 
      */
-    private UndeferrableValue<String> stageName;
-
+    @PolicyResourceProperty(name="stageName", flag="unknown_stageName")
+    private String value_stageName;
+    private boolean unknown_stageName;
     public String stageName() {
-        if (stageName == null) return null;
-        return stageName.getValue("MethodSettingsArgs.stageName");
+        if (!unknown_stageName) return value_stageName;
+        throw new UndeferrableValueException("Value 'MethodSettingsArgs.stageName' is not present");
     }
 
 }

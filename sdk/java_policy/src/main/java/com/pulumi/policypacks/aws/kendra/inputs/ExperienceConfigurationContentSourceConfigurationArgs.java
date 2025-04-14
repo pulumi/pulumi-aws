@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class ExperienceConfigurationContentSourceConfigurationArgs {
      * The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
      * 
      */
-    private UndeferrableValue<List<String>> dataSourceIds;
-
+    @PolicyResourceProperty(name="dataSourceIds", flag="unknown_dataSourceIds")
+    private List<String> value_dataSourceIds;
+    private boolean unknown_dataSourceIds;
     public List<String> dataSourceIds() {
-        if (dataSourceIds == null) return null;
-        return dataSourceIds.getValue("ExperienceConfigurationContentSourceConfigurationArgs.dataSourceIds");
+        if (!unknown_dataSourceIds) return value_dataSourceIds;
+        throw new UndeferrableValueException("Value 'ExperienceConfigurationContentSourceConfigurationArgs.dataSourceIds' is not present");
     }
 
     /**
      * Whether to use documents you indexed directly using the `BatchPutDocument API`. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> directPutContent;
-
+    @PolicyResourceProperty(name="directPutContent", flag="unknown_directPutContent")
+    private Boolean value_directPutContent;
+    private boolean unknown_directPutContent;
     public Boolean directPutContent() {
-        if (directPutContent == null) return null;
-        return directPutContent.getValue("ExperienceConfigurationContentSourceConfigurationArgs.directPutContent");
+        if (!unknown_directPutContent) return value_directPutContent;
+        throw new UndeferrableValueException("Value 'ExperienceConfigurationContentSourceConfigurationArgs.directPutContent' is not present");
     }
 
     /**
      * The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
      * 
      */
-    private UndeferrableValue<List<String>> faqIds;
-
+    @PolicyResourceProperty(name="faqIds", flag="unknown_faqIds")
+    private List<String> value_faqIds;
+    private boolean unknown_faqIds;
     public List<String> faqIds() {
-        if (faqIds == null) return null;
-        return faqIds.getValue("ExperienceConfigurationContentSourceConfigurationArgs.faqIds");
+        if (!unknown_faqIds) return value_faqIds;
+        throw new UndeferrableValueException("Value 'ExperienceConfigurationContentSourceConfigurationArgs.faqIds' is not present");
     }
 
 }

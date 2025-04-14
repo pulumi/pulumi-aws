@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualServiceSpecProviderVirtualNode;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualServiceSpecProviderVirtualRouter;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class VirtualServiceSpecProvider {
      * Virtual node associated with a virtual service.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualServiceSpecProviderVirtualNode> virtualNode;
-
+    @PolicyResourceProperty(name="virtualNode", flag="unknown_virtualNode")
+    private @Nullable VirtualServiceSpecProviderVirtualNode value_virtualNode;
+    private boolean unknown_virtualNode;
     public @Nullable VirtualServiceSpecProviderVirtualNode virtualNode() {
-        if (virtualNode == null) return null;
-        return virtualNode.getValue("VirtualServiceSpecProvider.virtualNode");
+        if (!unknown_virtualNode) return value_virtualNode;
+        throw new UndeferrableValueException("Value 'VirtualServiceSpecProvider.virtualNode' is not present");
     }
 
     /**
      * Virtual router associated with a virtual service.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualServiceSpecProviderVirtualRouter> virtualRouter;
-
+    @PolicyResourceProperty(name="virtualRouter", flag="unknown_virtualRouter")
+    private @Nullable VirtualServiceSpecProviderVirtualRouter value_virtualRouter;
+    private boolean unknown_virtualRouter;
     public @Nullable VirtualServiceSpecProviderVirtualRouter virtualRouter() {
-        if (virtualRouter == null) return null;
-        return virtualRouter.getValue("VirtualServiceSpecProvider.virtualRouter");
+        if (!unknown_virtualRouter) return value_virtualRouter;
+        throw new UndeferrableValueException("Value 'VirtualServiceSpecProvider.virtualRouter' is not present");
     }
 
 }

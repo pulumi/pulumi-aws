@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class SingleScramSecretAssociationArgs extends com.pulumi.resources
      * Amazon Resource Name (ARN) of the MSK cluster.
      * 
      */
-    private UndeferrableValue<String> clusterArn;
-
+    @PolicyResourceProperty(name="clusterArn", flag="unknown_clusterArn")
+    private String value_clusterArn;
+    private boolean unknown_clusterArn;
     public String clusterArn() {
-        if (clusterArn == null) return null;
-        return clusterArn.getValue("SingleScramSecretAssociationArgs.clusterArn");
+        if (!unknown_clusterArn) return value_clusterArn;
+        throw new UndeferrableValueException("Value 'SingleScramSecretAssociationArgs.clusterArn' is not present");
     }
 
     /**
      * AWS Secrets Manager secret ARN.
      * 
      */
-    private UndeferrableValue<String> secretArn;
-
+    @PolicyResourceProperty(name="secretArn", flag="unknown_secretArn")
+    private String value_secretArn;
+    private boolean unknown_secretArn;
     public String secretArn() {
-        if (secretArn == null) return null;
-        return secretArn.getValue("SingleScramSecretAssociationArgs.secretArn");
+        if (!unknown_secretArn) return value_secretArn;
+        throw new UndeferrableValueException("Value 'SingleScramSecretAssociationArgs.secretArn' is not present");
     }
 
 }

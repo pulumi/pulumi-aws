@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class DataRepositoryAssociationS3AutoImportPolicyArgs {
      * A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
      * 
      */
-    private UndeferrableValue<List<String>> events;
-
+    @PolicyResourceProperty(name="events", flag="unknown_events")
+    private List<String> value_events;
+    private boolean unknown_events;
     public List<String> events() {
-        if (events == null) return null;
-        return events.getValue("DataRepositoryAssociationS3AutoImportPolicyArgs.events");
+        if (!unknown_events) return value_events;
+        throw new UndeferrableValueException("Value 'DataRepositoryAssociationS3AutoImportPolicyArgs.events' is not present");
     }
 
 }

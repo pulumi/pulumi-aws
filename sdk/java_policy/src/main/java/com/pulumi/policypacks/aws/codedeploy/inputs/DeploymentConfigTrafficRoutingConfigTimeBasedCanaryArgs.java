@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codedeploy.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs {
      * The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
      * 
      */
-    private UndeferrableValue<Integer> interval;
-
+    @PolicyResourceProperty(name="interval", flag="unknown_interval")
+    private Integer value_interval;
+    private boolean unknown_interval;
     public Integer interval() {
-        if (interval == null) return null;
-        return interval.getValue("DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs.interval");
+        if (!unknown_interval) return value_interval;
+        throw new UndeferrableValueException("Value 'DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs.interval' is not present");
     }
 
     /**
      * The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
      * 
      */
-    private UndeferrableValue<Integer> percentage;
-
+    @PolicyResourceProperty(name="percentage", flag="unknown_percentage")
+    private Integer value_percentage;
+    private boolean unknown_percentage;
     public Integer percentage() {
-        if (percentage == null) return null;
-        return percentage.getValue("DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs.percentage");
+        if (!unknown_percentage) return value_percentage;
+        throw new UndeferrableValueException("Value 'DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs.percentage' is not present");
     }
 
 }

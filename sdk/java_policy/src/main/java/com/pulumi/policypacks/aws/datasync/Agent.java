@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,88 +19,96 @@ public final class Agent extends com.pulumi.resources.PolicyResourceOutput {
      * DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
      * 
      */
-    private UndeferrableValue<String> activationKey;
-
+    @PolicyResourceProperty(name="activationKey", flag="unknown_activationKey")
+    private String value_activationKey;
+    private boolean unknown_activationKey;
     public String activationKey() {
-        if (activationKey == null) return null;
-        return activationKey.getValue("Agent.activationKey");
+        if (!unknown_activationKey) return value_activationKey;
+        throw new UndeferrableValueException("Value 'Agent.activationKey' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the DataSync Agent.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Agent.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Agent.arn' is not present");
     }
 
     /**
      * DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
      * 
      */
-    private UndeferrableValue<String> ipAddress;
-
+    @PolicyResourceProperty(name="ipAddress", flag="unknown_ipAddress")
+    private String value_ipAddress;
+    private boolean unknown_ipAddress;
     public String ipAddress() {
-        if (ipAddress == null) return null;
-        return ipAddress.getValue("Agent.ipAddress");
+        if (!unknown_ipAddress) return value_ipAddress;
+        throw new UndeferrableValueException("Value 'Agent.ipAddress' is not present");
     }
 
     /**
      * Name of the DataSync Agent.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Agent.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Agent.name' is not present");
     }
 
     /**
      * The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
      * 
      */
-    private UndeferrableValue<String> privateLinkEndpoint;
-
+    @PolicyResourceProperty(name="privateLinkEndpoint", flag="unknown_privateLinkEndpoint")
+    private String value_privateLinkEndpoint;
+    private boolean unknown_privateLinkEndpoint;
     public String privateLinkEndpoint() {
-        if (privateLinkEndpoint == null) return null;
-        return privateLinkEndpoint.getValue("Agent.privateLinkEndpoint");
+        if (!unknown_privateLinkEndpoint) return value_privateLinkEndpoint;
+        throw new UndeferrableValueException("Value 'Agent.privateLinkEndpoint' is not present");
     }
 
     /**
      * The ARNs of the security groups used to protect your data transfer task subnets.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> securityGroupArns;
-
+    @PolicyResourceProperty(name="securityGroupArns", flag="unknown_securityGroupArns")
+    private @Nullable List<String> value_securityGroupArns;
+    private boolean unknown_securityGroupArns;
     public @Nullable List<String> securityGroupArns() {
-        if (securityGroupArns == null) return null;
-        return securityGroupArns.getValue("Agent.securityGroupArns");
+        if (!unknown_securityGroupArns) return value_securityGroupArns;
+        throw new UndeferrableValueException("Value 'Agent.securityGroupArns' is not present");
     }
 
     /**
      * The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> subnetArns;
-
+    @PolicyResourceProperty(name="subnetArns", flag="unknown_subnetArns")
+    private @Nullable List<String> value_subnetArns;
+    private boolean unknown_subnetArns;
     public @Nullable List<String> subnetArns() {
-        if (subnetArns == null) return null;
-        return subnetArns.getValue("Agent.subnetArns");
+        if (!unknown_subnetArns) return value_subnetArns;
+        throw new UndeferrableValueException("Value 'Agent.subnetArns' is not present");
     }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Agent.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Agent.tags' is not present");
     }
 
     /**
@@ -110,22 +119,24 @@ public final class Agent extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Agent.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Agent.tagsAll' is not present");
     }
 
     /**
      * The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
      * 
      */
-    private @Nullable UndeferrableValue<String> vpcEndpointId;
-
+    @PolicyResourceProperty(name="vpcEndpointId", flag="unknown_vpcEndpointId")
+    private @Nullable String value_vpcEndpointId;
+    private boolean unknown_vpcEndpointId;
     public @Nullable String vpcEndpointId() {
-        if (vpcEndpointId == null) return null;
-        return vpcEndpointId.getValue("Agent.vpcEndpointId");
+        if (!unknown_vpcEndpointId) return value_vpcEndpointId;
+        throw new UndeferrableValueException("Value 'Agent.vpcEndpointId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.outputs.OriginRequestPolicyCookiesConfigCookies;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,18 +12,20 @@ import javax.annotation.Nullable;
 
 public final class OriginRequestPolicyCookiesConfig {
 
-    private UndeferrableValue<String> cookieBehavior;
-
+    @PolicyResourceProperty(name="cookieBehavior", flag="unknown_cookieBehavior")
+    private String value_cookieBehavior;
+    private boolean unknown_cookieBehavior;
     public String cookieBehavior() {
-        if (cookieBehavior == null) return null;
-        return cookieBehavior.getValue("OriginRequestPolicyCookiesConfig.cookieBehavior");
+        if (!unknown_cookieBehavior) return value_cookieBehavior;
+        throw new UndeferrableValueException("Value 'OriginRequestPolicyCookiesConfig.cookieBehavior' is not present");
     }
 
-    private @Nullable UndeferrableValue<OriginRequestPolicyCookiesConfigCookies> cookies;
-
+    @PolicyResourceProperty(name="cookies", flag="unknown_cookies")
+    private @Nullable OriginRequestPolicyCookiesConfigCookies value_cookies;
+    private boolean unknown_cookies;
     public @Nullable OriginRequestPolicyCookiesConfigCookies cookies() {
-        if (cookies == null) return null;
-        return cookies.getValue("OriginRequestPolicyCookiesConfig.cookies");
+        if (!unknown_cookies) return value_cookies;
+        throw new UndeferrableValueException("Value 'OriginRequestPolicyCookiesConfig.cookies' is not present");
     }
 
 }

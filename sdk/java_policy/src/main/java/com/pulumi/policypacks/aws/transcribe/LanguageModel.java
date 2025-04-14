@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transcribe;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.transcribe.outputs.LanguageModelInputDataConfig;
 import java.lang.String;
@@ -18,62 +19,68 @@ public final class LanguageModel extends com.pulumi.resources.PolicyResourceOutp
      * ARN of the LanguageModel.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("LanguageModel.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'LanguageModel.arn' is not present");
     }
 
     /**
      * Name of reference base model.
      * 
      */
-    private UndeferrableValue<String> baseModelName;
-
+    @PolicyResourceProperty(name="baseModelName", flag="unknown_baseModelName")
+    private String value_baseModelName;
+    private boolean unknown_baseModelName;
     public String baseModelName() {
-        if (baseModelName == null) return null;
-        return baseModelName.getValue("LanguageModel.baseModelName");
+        if (!unknown_baseModelName) return value_baseModelName;
+        throw new UndeferrableValueException("Value 'LanguageModel.baseModelName' is not present");
     }
 
     /**
      * The input data config for the LanguageModel. See Input Data Config for more details.
      * 
      */
-    private UndeferrableValue<LanguageModelInputDataConfig> inputDataConfig;
-
+    @PolicyResourceProperty(name="inputDataConfig", flag="unknown_inputDataConfig")
+    private LanguageModelInputDataConfig value_inputDataConfig;
+    private boolean unknown_inputDataConfig;
     public LanguageModelInputDataConfig inputDataConfig() {
-        if (inputDataConfig == null) return null;
-        return inputDataConfig.getValue("LanguageModel.inputDataConfig");
+        if (!unknown_inputDataConfig) return value_inputDataConfig;
+        throw new UndeferrableValueException("Value 'LanguageModel.inputDataConfig' is not present");
     }
 
     /**
      * The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      * 
      */
-    private UndeferrableValue<String> languageCode;
-
+    @PolicyResourceProperty(name="languageCode", flag="unknown_languageCode")
+    private String value_languageCode;
+    private boolean unknown_languageCode;
     public String languageCode() {
-        if (languageCode == null) return null;
-        return languageCode.getValue("LanguageModel.languageCode");
+        if (!unknown_languageCode) return value_languageCode;
+        throw new UndeferrableValueException("Value 'LanguageModel.languageCode' is not present");
     }
 
     /**
      * The model name.
      * 
      */
-    private UndeferrableValue<String> modelName;
-
+    @PolicyResourceProperty(name="modelName", flag="unknown_modelName")
+    private String value_modelName;
+    private boolean unknown_modelName;
     public String modelName() {
-        if (modelName == null) return null;
-        return modelName.getValue("LanguageModel.modelName");
+        if (!unknown_modelName) return value_modelName;
+        throw new UndeferrableValueException("Value 'LanguageModel.modelName' is not present");
     }
 
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LanguageModel.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LanguageModel.tags' is not present");
     }
 
     /**
@@ -82,11 +89,12 @@ public final class LanguageModel extends com.pulumi.resources.PolicyResourceOutp
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("LanguageModel.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'LanguageModel.tagsAll' is not present");
     }
 
 }

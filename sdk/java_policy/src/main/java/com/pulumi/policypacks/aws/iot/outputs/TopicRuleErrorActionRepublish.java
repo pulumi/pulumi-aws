@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class TopicRuleErrorActionRepublish {
      * The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> qos;
-
+    @PolicyResourceProperty(name="qos", flag="unknown_qos")
+    private @Nullable Integer value_qos;
+    private boolean unknown_qos;
     public @Nullable Integer qos() {
-        if (qos == null) return null;
-        return qos.getValue("TopicRuleErrorActionRepublish.qos");
+        if (!unknown_qos) return value_qos;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionRepublish.qos' is not present");
     }
 
     /**
      * The ARN of the IAM role that grants access.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("TopicRuleErrorActionRepublish.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionRepublish.roleArn' is not present");
     }
 
     /**
      * The name of the MQTT topic the message should be republished to.
      * 
      */
-    private UndeferrableValue<String> topic;
-
+    @PolicyResourceProperty(name="topic", flag="unknown_topic")
+    private String value_topic;
+    private boolean unknown_topic;
     public String topic() {
-        if (topic == null) return null;
-        return topic.getValue("TopicRuleErrorActionRepublish.topic");
+        if (!unknown_topic) return value_topic;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionRepublish.topic' is not present");
     }
 
 }

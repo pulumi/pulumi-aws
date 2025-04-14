@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cognito.outputs.UserPoolLambdaConfigCustomEmailSender;
 import com.pulumi.policypacks.aws.cognito.outputs.UserPoolLambdaConfigCustomSmsSender;
 import com.pulumi.policypacks.aws.cognito.outputs.UserPoolLambdaConfigPreTokenGenerationConfig;
@@ -17,154 +18,168 @@ public final class UserPoolLambdaConfig {
      * ARN of the lambda creating an authentication challenge.
      * 
      */
-    private @Nullable UndeferrableValue<String> createAuthChallenge;
-
+    @PolicyResourceProperty(name="createAuthChallenge", flag="unknown_createAuthChallenge")
+    private @Nullable String value_createAuthChallenge;
+    private boolean unknown_createAuthChallenge;
     public @Nullable String createAuthChallenge() {
-        if (createAuthChallenge == null) return null;
-        return createAuthChallenge.getValue("UserPoolLambdaConfig.createAuthChallenge");
+        if (!unknown_createAuthChallenge) return value_createAuthChallenge;
+        throw new UndeferrableValueException("Value 'UserPoolLambdaConfig.createAuthChallenge' is not present");
     }
 
     /**
      * A custom email sender AWS Lambda trigger. See custom_email_sender Below.
      * 
      */
-    private @Nullable UndeferrableValue<UserPoolLambdaConfigCustomEmailSender> customEmailSender;
-
+    @PolicyResourceProperty(name="customEmailSender", flag="unknown_customEmailSender")
+    private @Nullable UserPoolLambdaConfigCustomEmailSender value_customEmailSender;
+    private boolean unknown_customEmailSender;
     public @Nullable UserPoolLambdaConfigCustomEmailSender customEmailSender() {
-        if (customEmailSender == null) return null;
-        return customEmailSender.getValue("UserPoolLambdaConfig.customEmailSender");
+        if (!unknown_customEmailSender) return value_customEmailSender;
+        throw new UndeferrableValueException("Value 'UserPoolLambdaConfig.customEmailSender' is not present");
     }
 
     /**
      * Custom Message AWS Lambda trigger.
      * 
      */
-    private @Nullable UndeferrableValue<String> customMessage;
-
+    @PolicyResourceProperty(name="customMessage", flag="unknown_customMessage")
+    private @Nullable String value_customMessage;
+    private boolean unknown_customMessage;
     public @Nullable String customMessage() {
-        if (customMessage == null) return null;
-        return customMessage.getValue("UserPoolLambdaConfig.customMessage");
+        if (!unknown_customMessage) return value_customMessage;
+        throw new UndeferrableValueException("Value 'UserPoolLambdaConfig.customMessage' is not present");
     }
 
     /**
      * A custom SMS sender AWS Lambda trigger. See custom_sms_sender Below.
      * 
      */
-    private @Nullable UndeferrableValue<UserPoolLambdaConfigCustomSmsSender> customSmsSender;
-
+    @PolicyResourceProperty(name="customSmsSender", flag="unknown_customSmsSender")
+    private @Nullable UserPoolLambdaConfigCustomSmsSender value_customSmsSender;
+    private boolean unknown_customSmsSender;
     public @Nullable UserPoolLambdaConfigCustomSmsSender customSmsSender() {
-        if (customSmsSender == null) return null;
-        return customSmsSender.getValue("UserPoolLambdaConfig.customSmsSender");
+        if (!unknown_customSmsSender) return value_customSmsSender;
+        throw new UndeferrableValueException("Value 'UserPoolLambdaConfig.customSmsSender' is not present");
     }
 
     /**
      * Defines the authentication challenge.
      * 
      */
-    private @Nullable UndeferrableValue<String> defineAuthChallenge;
-
+    @PolicyResourceProperty(name="defineAuthChallenge", flag="unknown_defineAuthChallenge")
+    private @Nullable String value_defineAuthChallenge;
+    private boolean unknown_defineAuthChallenge;
     public @Nullable String defineAuthChallenge() {
-        if (defineAuthChallenge == null) return null;
-        return defineAuthChallenge.getValue("UserPoolLambdaConfig.defineAuthChallenge");
+        if (!unknown_defineAuthChallenge) return value_defineAuthChallenge;
+        throw new UndeferrableValueException("Value 'UserPoolLambdaConfig.defineAuthChallenge' is not present");
     }
 
     /**
      * The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("UserPoolLambdaConfig.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'UserPoolLambdaConfig.kmsKeyId' is not present");
     }
 
     /**
      * Post-authentication AWS Lambda trigger.
      * 
      */
-    private @Nullable UndeferrableValue<String> postAuthentication;
-
+    @PolicyResourceProperty(name="postAuthentication", flag="unknown_postAuthentication")
+    private @Nullable String value_postAuthentication;
+    private boolean unknown_postAuthentication;
     public @Nullable String postAuthentication() {
-        if (postAuthentication == null) return null;
-        return postAuthentication.getValue("UserPoolLambdaConfig.postAuthentication");
+        if (!unknown_postAuthentication) return value_postAuthentication;
+        throw new UndeferrableValueException("Value 'UserPoolLambdaConfig.postAuthentication' is not present");
     }
 
     /**
      * Post-confirmation AWS Lambda trigger.
      * 
      */
-    private @Nullable UndeferrableValue<String> postConfirmation;
-
+    @PolicyResourceProperty(name="postConfirmation", flag="unknown_postConfirmation")
+    private @Nullable String value_postConfirmation;
+    private boolean unknown_postConfirmation;
     public @Nullable String postConfirmation() {
-        if (postConfirmation == null) return null;
-        return postConfirmation.getValue("UserPoolLambdaConfig.postConfirmation");
+        if (!unknown_postConfirmation) return value_postConfirmation;
+        throw new UndeferrableValueException("Value 'UserPoolLambdaConfig.postConfirmation' is not present");
     }
 
     /**
      * Pre-authentication AWS Lambda trigger.
      * 
      */
-    private @Nullable UndeferrableValue<String> preAuthentication;
-
+    @PolicyResourceProperty(name="preAuthentication", flag="unknown_preAuthentication")
+    private @Nullable String value_preAuthentication;
+    private boolean unknown_preAuthentication;
     public @Nullable String preAuthentication() {
-        if (preAuthentication == null) return null;
-        return preAuthentication.getValue("UserPoolLambdaConfig.preAuthentication");
+        if (!unknown_preAuthentication) return value_preAuthentication;
+        throw new UndeferrableValueException("Value 'UserPoolLambdaConfig.preAuthentication' is not present");
     }
 
     /**
      * Pre-registration AWS Lambda trigger.
      * 
      */
-    private @Nullable UndeferrableValue<String> preSignUp;
-
+    @PolicyResourceProperty(name="preSignUp", flag="unknown_preSignUp")
+    private @Nullable String value_preSignUp;
+    private boolean unknown_preSignUp;
     public @Nullable String preSignUp() {
-        if (preSignUp == null) return null;
-        return preSignUp.getValue("UserPoolLambdaConfig.preSignUp");
+        if (!unknown_preSignUp) return value_preSignUp;
+        throw new UndeferrableValueException("Value 'UserPoolLambdaConfig.preSignUp' is not present");
     }
 
     /**
      * Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
      * 
      */
-    private @Nullable UndeferrableValue<String> preTokenGeneration;
-
+    @PolicyResourceProperty(name="preTokenGeneration", flag="unknown_preTokenGeneration")
+    private @Nullable String value_preTokenGeneration;
+    private boolean unknown_preTokenGeneration;
     public @Nullable String preTokenGeneration() {
-        if (preTokenGeneration == null) return null;
-        return preTokenGeneration.getValue("UserPoolLambdaConfig.preTokenGeneration");
+        if (!unknown_preTokenGeneration) return value_preTokenGeneration;
+        throw new UndeferrableValueException("Value 'UserPoolLambdaConfig.preTokenGeneration' is not present");
     }
 
     /**
      * Allow to customize access tokens. See pre_token_configuration_type
      * 
      */
-    private @Nullable UndeferrableValue<UserPoolLambdaConfigPreTokenGenerationConfig> preTokenGenerationConfig;
-
+    @PolicyResourceProperty(name="preTokenGenerationConfig", flag="unknown_preTokenGenerationConfig")
+    private @Nullable UserPoolLambdaConfigPreTokenGenerationConfig value_preTokenGenerationConfig;
+    private boolean unknown_preTokenGenerationConfig;
     public @Nullable UserPoolLambdaConfigPreTokenGenerationConfig preTokenGenerationConfig() {
-        if (preTokenGenerationConfig == null) return null;
-        return preTokenGenerationConfig.getValue("UserPoolLambdaConfig.preTokenGenerationConfig");
+        if (!unknown_preTokenGenerationConfig) return value_preTokenGenerationConfig;
+        throw new UndeferrableValueException("Value 'UserPoolLambdaConfig.preTokenGenerationConfig' is not present");
     }
 
     /**
      * User migration Lambda config type.
      * 
      */
-    private @Nullable UndeferrableValue<String> userMigration;
-
+    @PolicyResourceProperty(name="userMigration", flag="unknown_userMigration")
+    private @Nullable String value_userMigration;
+    private boolean unknown_userMigration;
     public @Nullable String userMigration() {
-        if (userMigration == null) return null;
-        return userMigration.getValue("UserPoolLambdaConfig.userMigration");
+        if (!unknown_userMigration) return value_userMigration;
+        throw new UndeferrableValueException("Value 'UserPoolLambdaConfig.userMigration' is not present");
     }
 
     /**
      * Verifies the authentication challenge response.
      * 
      */
-    private @Nullable UndeferrableValue<String> verifyAuthChallengeResponse;
-
+    @PolicyResourceProperty(name="verifyAuthChallengeResponse", flag="unknown_verifyAuthChallengeResponse")
+    private @Nullable String value_verifyAuthChallengeResponse;
+    private boolean unknown_verifyAuthChallengeResponse;
     public @Nullable String verifyAuthChallengeResponse() {
-        if (verifyAuthChallengeResponse == null) return null;
-        return verifyAuthChallengeResponse.getValue("UserPoolLambdaConfig.verifyAuthChallengeResponse");
+        if (!unknown_verifyAuthChallengeResponse) return value_verifyAuthChallengeResponse;
+        throw new UndeferrableValueException("Value 'UserPoolLambdaConfig.verifyAuthChallengeResponse' is not present");
     }
 
 }

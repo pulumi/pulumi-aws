@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.grafana;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,55 +17,60 @@ public final class LicenseAssociation extends com.pulumi.resources.PolicyResourc
      * If `license_type` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
      * 
      */
-    private UndeferrableValue<String> freeTrialExpiration;
-
+    @PolicyResourceProperty(name="freeTrialExpiration", flag="unknown_freeTrialExpiration")
+    private String value_freeTrialExpiration;
+    private boolean unknown_freeTrialExpiration;
     public String freeTrialExpiration() {
-        if (freeTrialExpiration == null) return null;
-        return freeTrialExpiration.getValue("LicenseAssociation.freeTrialExpiration");
+        if (!unknown_freeTrialExpiration) return value_freeTrialExpiration;
+        throw new UndeferrableValueException("Value 'LicenseAssociation.freeTrialExpiration' is not present");
     }
 
     /**
      * A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
      * 
      */
-    private @Nullable UndeferrableValue<String> grafanaToken;
-
+    @PolicyResourceProperty(name="grafanaToken", flag="unknown_grafanaToken")
+    private @Nullable String value_grafanaToken;
+    private boolean unknown_grafanaToken;
     public @Nullable String grafanaToken() {
-        if (grafanaToken == null) return null;
-        return grafanaToken.getValue("LicenseAssociation.grafanaToken");
+        if (!unknown_grafanaToken) return value_grafanaToken;
+        throw new UndeferrableValueException("Value 'LicenseAssociation.grafanaToken' is not present");
     }
 
     /**
      * If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
      * 
      */
-    private UndeferrableValue<String> licenseExpiration;
-
+    @PolicyResourceProperty(name="licenseExpiration", flag="unknown_licenseExpiration")
+    private String value_licenseExpiration;
+    private boolean unknown_licenseExpiration;
     public String licenseExpiration() {
-        if (licenseExpiration == null) return null;
-        return licenseExpiration.getValue("LicenseAssociation.licenseExpiration");
+        if (!unknown_licenseExpiration) return value_licenseExpiration;
+        throw new UndeferrableValueException("Value 'LicenseAssociation.licenseExpiration' is not present");
     }
 
     /**
      * The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
      * 
      */
-    private UndeferrableValue<String> licenseType;
-
+    @PolicyResourceProperty(name="licenseType", flag="unknown_licenseType")
+    private String value_licenseType;
+    private boolean unknown_licenseType;
     public String licenseType() {
-        if (licenseType == null) return null;
-        return licenseType.getValue("LicenseAssociation.licenseType");
+        if (!unknown_licenseType) return value_licenseType;
+        throw new UndeferrableValueException("Value 'LicenseAssociation.licenseType' is not present");
     }
 
     /**
      * The workspace id.
      * 
      */
-    private UndeferrableValue<String> workspaceId;
-
+    @PolicyResourceProperty(name="workspaceId", flag="unknown_workspaceId")
+    private String value_workspaceId;
+    private boolean unknown_workspaceId;
     public String workspaceId() {
-        if (workspaceId == null) return null;
-        return workspaceId.getValue("LicenseAssociation.workspaceId");
+        if (!unknown_workspaceId) return value_workspaceId;
+        throw new UndeferrableValueException("Value 'LicenseAssociation.workspaceId' is not present");
     }
 
 }

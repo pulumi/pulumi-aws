@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgs;
 import javax.annotation.Nullable;
@@ -11,18 +12,20 @@ import javax.annotation.Nullable;
 
 public final class AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs {
 
-    private UndeferrableValue<AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs> crawlerConfiguration;
-
+    @PolicyResourceProperty(name="crawlerConfiguration", flag="unknown_crawlerConfiguration")
+    private AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs value_crawlerConfiguration;
+    private boolean unknown_crawlerConfiguration;
     public AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs crawlerConfiguration() {
-        if (crawlerConfiguration == null) return null;
-        return crawlerConfiguration.getValue("AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs.crawlerConfiguration");
+        if (!unknown_crawlerConfiguration) return value_crawlerConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs.crawlerConfiguration' is not present");
     }
 
-    private UndeferrableValue<AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgs> sourceConfiguration;
-
+    @PolicyResourceProperty(name="sourceConfiguration", flag="unknown_sourceConfiguration")
+    private AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgs value_sourceConfiguration;
+    private boolean unknown_sourceConfiguration;
     public AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgs sourceConfiguration() {
-        if (sourceConfiguration == null) return null;
-        return sourceConfiguration.getValue("AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs.sourceConfiguration");
+        if (!unknown_sourceConfiguration) return value_sourceConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs.sourceConfiguration' is not present");
     }
 
 }

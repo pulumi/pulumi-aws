@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.inputs.DataSourceCredentialsCredentialPairArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class DataSourceCredentialsArgs {
      * When the value is not null, the `credential_pair` from the data source in the ARN is used.
      * 
      */
-    private UndeferrableValue<String> copySourceArn;
-
+    @PolicyResourceProperty(name="copySourceArn", flag="unknown_copySourceArn")
+    private String value_copySourceArn;
+    private boolean unknown_copySourceArn;
     public String copySourceArn() {
-        if (copySourceArn == null) return null;
-        return copySourceArn.getValue("DataSourceCredentialsArgs.copySourceArn");
+        if (!unknown_copySourceArn) return value_copySourceArn;
+        throw new UndeferrableValueException("Value 'DataSourceCredentialsArgs.copySourceArn' is not present");
     }
 
     /**
      * Credential pair. See Credential Pair below for more details.
      * 
      */
-    private UndeferrableValue<DataSourceCredentialsCredentialPairArgs> credentialPair;
-
+    @PolicyResourceProperty(name="credentialPair", flag="unknown_credentialPair")
+    private DataSourceCredentialsCredentialPairArgs value_credentialPair;
+    private boolean unknown_credentialPair;
     public DataSourceCredentialsCredentialPairArgs credentialPair() {
-        if (credentialPair == null) return null;
-        return credentialPair.getValue("DataSourceCredentialsArgs.credentialPair");
+        if (!unknown_credentialPair) return value_credentialPair;
+        throw new UndeferrableValueException("Value 'DataSourceCredentialsArgs.credentialPair' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
      * 
      */
-    private UndeferrableValue<String> secretArn;
-
+    @PolicyResourceProperty(name="secretArn", flag="unknown_secretArn")
+    private String value_secretArn;
+    private boolean unknown_secretArn;
     public String secretArn() {
-        if (secretArn == null) return null;
-        return secretArn.getValue("DataSourceCredentialsArgs.secretArn");
+        if (!unknown_secretArn) return value_secretArn;
+        throw new UndeferrableValueException("Value 'DataSourceCredentialsArgs.secretArn' is not present");
     }
 
 }

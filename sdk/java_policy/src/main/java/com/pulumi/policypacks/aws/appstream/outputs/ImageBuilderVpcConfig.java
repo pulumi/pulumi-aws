@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appstream.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ImageBuilderVpcConfig {
      * Identifiers of the security groups for the image builder or image builder.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private @Nullable List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public @Nullable List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("ImageBuilderVpcConfig.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'ImageBuilderVpcConfig.securityGroupIds' is not present");
     }
 
     /**
      * Identifier of the subnet to which a network interface is attached from the image builder instance.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private @Nullable List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public @Nullable List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("ImageBuilderVpcConfig.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'ImageBuilderVpcConfig.subnetIds' is not present");
     }
 
 }

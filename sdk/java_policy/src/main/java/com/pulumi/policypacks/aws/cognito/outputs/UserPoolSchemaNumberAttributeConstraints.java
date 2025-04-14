@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class UserPoolSchemaNumberAttributeConstraints {
      * Maximum value of an attribute that is of the number data type.
      * 
      */
-    private @Nullable UndeferrableValue<String> maxValue;
-
+    @PolicyResourceProperty(name="maxValue", flag="unknown_maxValue")
+    private @Nullable String value_maxValue;
+    private boolean unknown_maxValue;
     public @Nullable String maxValue() {
-        if (maxValue == null) return null;
-        return maxValue.getValue("UserPoolSchemaNumberAttributeConstraints.maxValue");
+        if (!unknown_maxValue) return value_maxValue;
+        throw new UndeferrableValueException("Value 'UserPoolSchemaNumberAttributeConstraints.maxValue' is not present");
     }
 
     /**
      * Minimum value of an attribute that is of the number data type.
      * 
      */
-    private @Nullable UndeferrableValue<String> minValue;
-
+    @PolicyResourceProperty(name="minValue", flag="unknown_minValue")
+    private @Nullable String value_minValue;
+    private boolean unknown_minValue;
     public @Nullable String minValue() {
-        if (minValue == null) return null;
-        return minValue.getValue("UserPoolSchemaNumberAttributeConstraints.minValue");
+        if (!unknown_minValue) return value_minValue;
+        throw new UndeferrableValueException("Value 'UserPoolSchemaNumberAttributeConstraints.minValue' is not present");
     }
 
 }

@@ -3,17 +3,19 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro {
 
-    private UndeferrableValue<String> apiSecretKey;
-
+    @PolicyResourceProperty(name="apiSecretKey", flag="unknown_apiSecretKey")
+    private String value_apiSecretKey;
+    private boolean unknown_apiSecretKey;
     public String apiSecretKey() {
-        if (apiSecretKey == null) return null;
-        return apiSecretKey.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro.apiSecretKey");
+        if (!unknown_apiSecretKey) return value_apiSecretKey;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro.apiSecretKey' is not present");
     }
 
 }

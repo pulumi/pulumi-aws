@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ObservabilityConfigurationTraceConfiguration {
      * Implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
      * 
      */
-    private @Nullable UndeferrableValue<String> vendor;
-
+    @PolicyResourceProperty(name="vendor", flag="unknown_vendor")
+    private @Nullable String value_vendor;
+    private boolean unknown_vendor;
     public @Nullable String vendor() {
-        if (vendor == null) return null;
-        return vendor.getValue("ObservabilityConfigurationTraceConfiguration.vendor");
+        if (!unknown_vendor) return value_vendor;
+        throw new UndeferrableValueException("Value 'ObservabilityConfigurationTraceConfiguration.vendor' is not present");
     }
 
 }

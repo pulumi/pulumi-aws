@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * A reference to the data element in the streaming input or the reference data source.
      * 
      */
-    private @Nullable UndeferrableValue<String> mapping;
-
+    @PolicyResourceProperty(name="mapping", flag="unknown_mapping")
+    private @Nullable String value_mapping;
+    private boolean unknown_mapping;
     public @Nullable String mapping() {
-        if (mapping == null) return null;
-        return mapping.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn.mapping");
+        if (!unknown_mapping) return value_mapping;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn.mapping' is not present");
     }
 
     /**
      * The name of the column that is created in the in-application input stream or reference table.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn.name' is not present");
     }
 
     /**
      * The type of column created in the in-application input stream or reference table.
      * 
      */
-    private UndeferrableValue<String> sqlType;
-
+    @PolicyResourceProperty(name="sqlType", flag="unknown_sqlType")
+    private String value_sqlType;
+    private boolean unknown_sqlType;
     public String sqlType() {
-        if (sqlType == null) return null;
-        return sqlType.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn.sqlType");
+        if (!unknown_sqlType) return value_sqlType;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn.sqlType' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class OptInResourceDataLfTagPolicy {
      * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    private @Nullable UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private @Nullable String value_catalogId;
+    private boolean unknown_catalogId;
     public @Nullable String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("OptInResourceDataLfTagPolicy.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'OptInResourceDataLfTagPolicy.catalogId' is not present");
     }
 
     /**
      * If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
      * 
      */
-    private @Nullable UndeferrableValue<String> expressionName;
-
+    @PolicyResourceProperty(name="expressionName", flag="unknown_expressionName")
+    private @Nullable String value_expressionName;
+    private boolean unknown_expressionName;
     public @Nullable String expressionName() {
-        if (expressionName == null) return null;
-        return expressionName.getValue("OptInResourceDataLfTagPolicy.expressionName");
+        if (!unknown_expressionName) return value_expressionName;
+        throw new UndeferrableValueException("Value 'OptInResourceDataLfTagPolicy.expressionName' is not present");
     }
 
     /**
      * List of LF-tag conditions or a saved expression that apply to the resource&#39;s LF-Tag policy.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> expressions;
-
+    @PolicyResourceProperty(name="expressions", flag="unknown_expressions")
+    private @Nullable List<String> value_expressions;
+    private boolean unknown_expressions;
     public @Nullable List<String> expressions() {
-        if (expressions == null) return null;
-        return expressions.getValue("OptInResourceDataLfTagPolicy.expressions");
+        if (!unknown_expressions) return value_expressions;
+        throw new UndeferrableValueException("Value 'OptInResourceDataLfTagPolicy.expressions' is not present");
     }
 
     /**
      * Resource type for which the LF-tag policy applies.
      * 
      */
-    private UndeferrableValue<String> resourceType;
-
+    @PolicyResourceProperty(name="resourceType", flag="unknown_resourceType")
+    private String value_resourceType;
+    private boolean unknown_resourceType;
     public String resourceType() {
-        if (resourceType == null) return null;
-        return resourceType.getValue("OptInResourceDataLfTagPolicy.resourceType");
+        if (!unknown_resourceType) return value_resourceType;
+        throw new UndeferrableValueException("Value 'OptInResourceDataLfTagPolicy.resourceType' is not present");
     }
 
 }

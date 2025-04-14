@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.macie2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.macie2.outputs.ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue;
 import java.lang.String;
 import java.util.List;
@@ -16,44 +17,48 @@ public final class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTer
      * The operator to use in the condition.
      * 
      */
-    private @Nullable UndeferrableValue<String> comparator;
-
+    @PolicyResourceProperty(name="comparator", flag="unknown_comparator")
+    private @Nullable String value_comparator;
+    private boolean unknown_comparator;
     public @Nullable String comparator() {
-        if (comparator == null) return null;
-        return comparator.getValue("ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm.comparator");
+        if (!unknown_comparator) return value_comparator;
+        throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm.comparator' is not present");
     }
 
     /**
      * The tag key to use in the condition. The only valid value is `TAG`.
      * 
      */
-    private @Nullable UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private @Nullable String value_key;
+    private boolean unknown_key;
     public @Nullable String key() {
-        if (key == null) return null;
-        return key.getValue("ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm.key' is not present");
     }
 
     /**
      * The tag keys or tag key and value pairs to use in the condition.
      * 
      */
-    private @Nullable UndeferrableValue<List<ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue>> tagValues;
-
+    @PolicyResourceProperty(name="tagValues", flag="unknown_tagValues")
+    private @Nullable List<ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue> value_tagValues;
+    private boolean unknown_tagValues;
     public @Nullable List<ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue> tagValues() {
-        if (tagValues == null) return null;
-        return tagValues.getValue("ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm.tagValues");
+        if (!unknown_tagValues) return value_tagValues;
+        throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm.tagValues' is not present");
     }
 
     /**
      * The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
      * 
      */
-    private @Nullable UndeferrableValue<String> target;
-
+    @PolicyResourceProperty(name="target", flag="unknown_target")
+    private @Nullable String value_target;
+    private boolean unknown_target;
     public @Nullable String target() {
-        if (target == null) return null;
-        return target.getValue("ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm.target");
+        if (!unknown_target) return value_target;
+        throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm.target' is not present");
     }
 
 }

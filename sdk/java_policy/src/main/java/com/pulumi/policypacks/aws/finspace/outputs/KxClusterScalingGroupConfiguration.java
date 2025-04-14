@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.finspace.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,55 +17,60 @@ public final class KxClusterScalingGroupConfiguration {
      * The number of vCPUs that you want to reserve for each node of this kdb cluster on the scaling group host.
      * 
      */
-    private @Nullable UndeferrableValue<Double> cpu;
-
+    @PolicyResourceProperty(name="cpu", flag="unknown_cpu")
+    private @Nullable Double value_cpu;
+    private boolean unknown_cpu;
     public @Nullable Double cpu() {
-        if (cpu == null) return null;
-        return cpu.getValue("KxClusterScalingGroupConfiguration.cpu");
+        if (!unknown_cpu) return value_cpu;
+        throw new UndeferrableValueException("Value 'KxClusterScalingGroupConfiguration.cpu' is not present");
     }
 
     /**
      * An optional hard limit on the amount of memory a kdb cluster can use.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> memoryLimit;
-
+    @PolicyResourceProperty(name="memoryLimit", flag="unknown_memoryLimit")
+    private @Nullable Integer value_memoryLimit;
+    private boolean unknown_memoryLimit;
     public @Nullable Integer memoryLimit() {
-        if (memoryLimit == null) return null;
-        return memoryLimit.getValue("KxClusterScalingGroupConfiguration.memoryLimit");
+        if (!unknown_memoryLimit) return value_memoryLimit;
+        throw new UndeferrableValueException("Value 'KxClusterScalingGroupConfiguration.memoryLimit' is not present");
     }
 
     /**
      * A reservation of the minimum amount of memory that should be available on the scaling group for a kdb cluster to be successfully placed in a scaling group.
      * 
      */
-    private UndeferrableValue<Integer> memoryReservation;
-
+    @PolicyResourceProperty(name="memoryReservation", flag="unknown_memoryReservation")
+    private Integer value_memoryReservation;
+    private boolean unknown_memoryReservation;
     public Integer memoryReservation() {
-        if (memoryReservation == null) return null;
-        return memoryReservation.getValue("KxClusterScalingGroupConfiguration.memoryReservation");
+        if (!unknown_memoryReservation) return value_memoryReservation;
+        throw new UndeferrableValueException("Value 'KxClusterScalingGroupConfiguration.memoryReservation' is not present");
     }
 
     /**
      * The number of kdb cluster nodes.
      * 
      */
-    private UndeferrableValue<Integer> nodeCount;
-
+    @PolicyResourceProperty(name="nodeCount", flag="unknown_nodeCount")
+    private Integer value_nodeCount;
+    private boolean unknown_nodeCount;
     public Integer nodeCount() {
-        if (nodeCount == null) return null;
-        return nodeCount.getValue("KxClusterScalingGroupConfiguration.nodeCount");
+        if (!unknown_nodeCount) return value_nodeCount;
+        throw new UndeferrableValueException("Value 'KxClusterScalingGroupConfiguration.nodeCount' is not present");
     }
 
     /**
      * A unique identifier for the kdb scaling group.
      * 
      */
-    private UndeferrableValue<String> scalingGroupName;
-
+    @PolicyResourceProperty(name="scalingGroupName", flag="unknown_scalingGroupName")
+    private String value_scalingGroupName;
+    private boolean unknown_scalingGroupName;
     public String scalingGroupName() {
-        if (scalingGroupName == null) return null;
-        return scalingGroupName.getValue("KxClusterScalingGroupConfiguration.scalingGroupName");
+        if (!unknown_scalingGroupName) return value_scalingGroupName;
+        throw new UndeferrableValueException("Value 'KxClusterScalingGroupConfiguration.scalingGroupName' is not present");
     }
 
 }

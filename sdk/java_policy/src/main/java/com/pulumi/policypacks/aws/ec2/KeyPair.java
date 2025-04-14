@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,88 +18,96 @@ public final class KeyPair extends com.pulumi.resources.PolicyResourceOutput {
      * The key pair ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("KeyPair.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'KeyPair.arn' is not present");
     }
 
     /**
      * The MD5 public key fingerprint as specified in section 4 of RFC 4716.
      * 
      */
-    private UndeferrableValue<String> fingerprint;
-
+    @PolicyResourceProperty(name="fingerprint", flag="unknown_fingerprint")
+    private String value_fingerprint;
+    private boolean unknown_fingerprint;
     public String fingerprint() {
-        if (fingerprint == null) return null;
-        return fingerprint.getValue("KeyPair.fingerprint");
+        if (!unknown_fingerprint) return value_fingerprint;
+        throw new UndeferrableValueException("Value 'KeyPair.fingerprint' is not present");
     }
 
     /**
      * The name for the key pair. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
      * 
      */
-    private UndeferrableValue<String> keyName;
-
+    @PolicyResourceProperty(name="keyName", flag="unknown_keyName")
+    private String value_keyName;
+    private boolean unknown_keyName;
     public String keyName() {
-        if (keyName == null) return null;
-        return keyName.getValue("KeyPair.keyName");
+        if (!unknown_keyName) return value_keyName;
+        throw new UndeferrableValueException("Value 'KeyPair.keyName' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `key_name`. If neither `key_name` nor `key_name_prefix` is provided, the provider will create a unique key name.
      * 
      */
-    private UndeferrableValue<String> keyNamePrefix;
-
+    @PolicyResourceProperty(name="keyNamePrefix", flag="unknown_keyNamePrefix")
+    private String value_keyNamePrefix;
+    private boolean unknown_keyNamePrefix;
     public String keyNamePrefix() {
-        if (keyNamePrefix == null) return null;
-        return keyNamePrefix.getValue("KeyPair.keyNamePrefix");
+        if (!unknown_keyNamePrefix) return value_keyNamePrefix;
+        throw new UndeferrableValueException("Value 'KeyPair.keyNamePrefix' is not present");
     }
 
     /**
      * The key pair ID.
      * 
      */
-    private UndeferrableValue<String> keyPairId;
-
+    @PolicyResourceProperty(name="keyPairId", flag="unknown_keyPairId")
+    private String value_keyPairId;
+    private boolean unknown_keyPairId;
     public String keyPairId() {
-        if (keyPairId == null) return null;
-        return keyPairId.getValue("KeyPair.keyPairId");
+        if (!unknown_keyPairId) return value_keyPairId;
+        throw new UndeferrableValueException("Value 'KeyPair.keyPairId' is not present");
     }
 
     /**
      * The type of key pair.
      * 
      */
-    private UndeferrableValue<String> keyType;
-
+    @PolicyResourceProperty(name="keyType", flag="unknown_keyType")
+    private String value_keyType;
+    private boolean unknown_keyType;
     public String keyType() {
-        if (keyType == null) return null;
-        return keyType.getValue("KeyPair.keyType");
+        if (!unknown_keyType) return value_keyType;
+        throw new UndeferrableValueException("Value 'KeyPair.keyType' is not present");
     }
 
     /**
      * The public key material.
      * 
      */
-    private UndeferrableValue<String> publicKey;
-
+    @PolicyResourceProperty(name="publicKey", flag="unknown_publicKey")
+    private String value_publicKey;
+    private boolean unknown_publicKey;
     public String publicKey() {
-        if (publicKey == null) return null;
-        return publicKey.getValue("KeyPair.publicKey");
+        if (!unknown_publicKey) return value_publicKey;
+        throw new UndeferrableValueException("Value 'KeyPair.publicKey' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("KeyPair.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'KeyPair.tags' is not present");
     }
 
     /**
@@ -109,11 +118,12 @@ public final class KeyPair extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("KeyPair.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'KeyPair.tagsAll' is not present");
     }
 
 }

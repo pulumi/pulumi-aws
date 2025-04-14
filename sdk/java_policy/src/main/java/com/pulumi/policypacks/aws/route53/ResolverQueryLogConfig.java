@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,11 +18,12 @@ public final class ResolverQueryLogConfig extends com.pulumi.resources.PolicyRes
      * The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ResolverQueryLogConfig.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ResolverQueryLogConfig.arn' is not present");
     }
 
     /**
@@ -29,33 +31,36 @@ public final class ResolverQueryLogConfig extends com.pulumi.resources.PolicyRes
      * You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
      * 
      */
-    private UndeferrableValue<String> destinationArn;
-
+    @PolicyResourceProperty(name="destinationArn", flag="unknown_destinationArn")
+    private String value_destinationArn;
+    private boolean unknown_destinationArn;
     public String destinationArn() {
-        if (destinationArn == null) return null;
-        return destinationArn.getValue("ResolverQueryLogConfig.destinationArn");
+        if (!unknown_destinationArn) return value_destinationArn;
+        throw new UndeferrableValueException("Value 'ResolverQueryLogConfig.destinationArn' is not present");
     }
 
     /**
      * The name of the Route 53 Resolver query logging configuration.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ResolverQueryLogConfig.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ResolverQueryLogConfig.name' is not present");
     }
 
     /**
      * The AWS account ID of the account that created the query logging configuration.
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("ResolverQueryLogConfig.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'ResolverQueryLogConfig.ownerId' is not present");
     }
 
     /**
@@ -64,22 +69,24 @@ public final class ResolverQueryLogConfig extends com.pulumi.resources.PolicyRes
      * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
      * 
      */
-    private UndeferrableValue<String> shareStatus;
-
+    @PolicyResourceProperty(name="shareStatus", flag="unknown_shareStatus")
+    private String value_shareStatus;
+    private boolean unknown_shareStatus;
     public String shareStatus() {
-        if (shareStatus == null) return null;
-        return shareStatus.getValue("ResolverQueryLogConfig.shareStatus");
+        if (!unknown_shareStatus) return value_shareStatus;
+        throw new UndeferrableValueException("Value 'ResolverQueryLogConfig.shareStatus' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ResolverQueryLogConfig.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ResolverQueryLogConfig.tags' is not present");
     }
 
     /**
@@ -90,11 +97,12 @@ public final class ResolverQueryLogConfig extends com.pulumi.resources.PolicyRes
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ResolverQueryLogConfig.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ResolverQueryLogConfig.tagsAll' is not present");
     }
 
 }

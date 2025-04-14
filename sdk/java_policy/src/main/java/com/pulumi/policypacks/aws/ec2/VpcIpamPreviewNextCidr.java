@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class VpcIpamPreviewNextCidr extends com.pulumi.resources.PolicyRes
      * The previewed CIDR from the pool.
      * 
      */
-    private UndeferrableValue<String> cidr;
-
+    @PolicyResourceProperty(name="cidr", flag="unknown_cidr")
+    private String value_cidr;
+    private boolean unknown_cidr;
     public String cidr() {
-        if (cidr == null) return null;
-        return cidr.getValue("VpcIpamPreviewNextCidr.cidr");
+        if (!unknown_cidr) return value_cidr;
+        throw new UndeferrableValueException("Value 'VpcIpamPreviewNextCidr.cidr' is not present");
     }
 
     /**
      * Exclude a particular CIDR range from being returned by the pool.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> disallowedCidrs;
-
+    @PolicyResourceProperty(name="disallowedCidrs", flag="unknown_disallowedCidrs")
+    private @Nullable List<String> value_disallowedCidrs;
+    private boolean unknown_disallowedCidrs;
     public @Nullable List<String> disallowedCidrs() {
-        if (disallowedCidrs == null) return null;
-        return disallowedCidrs.getValue("VpcIpamPreviewNextCidr.disallowedCidrs");
+        if (!unknown_disallowedCidrs) return value_disallowedCidrs;
+        throw new UndeferrableValueException("Value 'VpcIpamPreviewNextCidr.disallowedCidrs' is not present");
     }
 
     /**
      * The ID of the pool to which you want to assign a CIDR.
      * 
      */
-    private UndeferrableValue<String> ipamPoolId;
-
+    @PolicyResourceProperty(name="ipamPoolId", flag="unknown_ipamPoolId")
+    private String value_ipamPoolId;
+    private boolean unknown_ipamPoolId;
     public String ipamPoolId() {
-        if (ipamPoolId == null) return null;
-        return ipamPoolId.getValue("VpcIpamPreviewNextCidr.ipamPoolId");
+        if (!unknown_ipamPoolId) return value_ipamPoolId;
+        throw new UndeferrableValueException("Value 'VpcIpamPreviewNextCidr.ipamPoolId' is not present");
     }
 
     /**
      * The netmask length of the CIDR you would like to preview from the IPAM pool.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> netmaskLength;
-
+    @PolicyResourceProperty(name="netmaskLength", flag="unknown_netmaskLength")
+    private @Nullable Integer value_netmaskLength;
+    private boolean unknown_netmaskLength;
     public @Nullable Integer netmaskLength() {
-        if (netmaskLength == null) return null;
-        return netmaskLength.getValue("VpcIpamPreviewNextCidr.netmaskLength");
+        if (!unknown_netmaskLength) return value_netmaskLength;
+        throw new UndeferrableValueException("Value 'VpcIpamPreviewNextCidr.netmaskLength' is not present");
     }
 
 }

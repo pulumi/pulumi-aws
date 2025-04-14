@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dms.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,66 +15,72 @@ public final class EndpointMongodbSettings {
      * Authentication mechanism to access the MongoDB source endpoint. Default is `default`.
      * 
      */
-    private @Nullable UndeferrableValue<String> authMechanism;
-
+    @PolicyResourceProperty(name="authMechanism", flag="unknown_authMechanism")
+    private @Nullable String value_authMechanism;
+    private boolean unknown_authMechanism;
     public @Nullable String authMechanism() {
-        if (authMechanism == null) return null;
-        return authMechanism.getValue("EndpointMongodbSettings.authMechanism");
+        if (!unknown_authMechanism) return value_authMechanism;
+        throw new UndeferrableValueException("Value 'EndpointMongodbSettings.authMechanism' is not present");
     }
 
     /**
      * Authentication database name. Not used when `auth_type` is `no`. Default is `admin`.
      * 
      */
-    private @Nullable UndeferrableValue<String> authSource;
-
+    @PolicyResourceProperty(name="authSource", flag="unknown_authSource")
+    private @Nullable String value_authSource;
+    private boolean unknown_authSource;
     public @Nullable String authSource() {
-        if (authSource == null) return null;
-        return authSource.getValue("EndpointMongodbSettings.authSource");
+        if (!unknown_authSource) return value_authSource;
+        throw new UndeferrableValueException("Value 'EndpointMongodbSettings.authSource' is not present");
     }
 
     /**
      * Authentication type to access the MongoDB source endpoint. Default is `password`.
      * 
      */
-    private @Nullable UndeferrableValue<String> authType;
-
+    @PolicyResourceProperty(name="authType", flag="unknown_authType")
+    private @Nullable String value_authType;
+    private boolean unknown_authType;
     public @Nullable String authType() {
-        if (authType == null) return null;
-        return authType.getValue("EndpointMongodbSettings.authType");
+        if (!unknown_authType) return value_authType;
+        throw new UndeferrableValueException("Value 'EndpointMongodbSettings.authType' is not present");
     }
 
     /**
      * Number of documents to preview to determine the document organization. Use this setting when `nesting_level` is set to `one`. Default is `1000`.
      * 
      */
-    private @Nullable UndeferrableValue<String> docsToInvestigate;
-
+    @PolicyResourceProperty(name="docsToInvestigate", flag="unknown_docsToInvestigate")
+    private @Nullable String value_docsToInvestigate;
+    private boolean unknown_docsToInvestigate;
     public @Nullable String docsToInvestigate() {
-        if (docsToInvestigate == null) return null;
-        return docsToInvestigate.getValue("EndpointMongodbSettings.docsToInvestigate");
+        if (!unknown_docsToInvestigate) return value_docsToInvestigate;
+        throw new UndeferrableValueException("Value 'EndpointMongodbSettings.docsToInvestigate' is not present");
     }
 
     /**
      * Document ID. Use this setting when `nesting_level` is set to `none`. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<String> extractDocId;
-
+    @PolicyResourceProperty(name="extractDocId", flag="unknown_extractDocId")
+    private @Nullable String value_extractDocId;
+    private boolean unknown_extractDocId;
     public @Nullable String extractDocId() {
-        if (extractDocId == null) return null;
-        return extractDocId.getValue("EndpointMongodbSettings.extractDocId");
+        if (!unknown_extractDocId) return value_extractDocId;
+        throw new UndeferrableValueException("Value 'EndpointMongodbSettings.extractDocId' is not present");
     }
 
     /**
      * Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
      * 
      */
-    private @Nullable UndeferrableValue<String> nestingLevel;
-
+    @PolicyResourceProperty(name="nestingLevel", flag="unknown_nestingLevel")
+    private @Nullable String value_nestingLevel;
+    private boolean unknown_nestingLevel;
     public @Nullable String nestingLevel() {
-        if (nestingLevel == null) return null;
-        return nestingLevel.getValue("EndpointMongodbSettings.nestingLevel");
+        if (!unknown_nestingLevel) return value_nestingLevel;
+        throw new UndeferrableValueException("Value 'EndpointMongodbSettings.nestingLevel' is not present");
     }
 
 }

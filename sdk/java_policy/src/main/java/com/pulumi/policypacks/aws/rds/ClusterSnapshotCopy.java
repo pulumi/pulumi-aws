@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.rds.outputs.ClusterSnapshotCopyTimeouts;
 import java.lang.Boolean;
@@ -21,161 +22,176 @@ public final class ClusterSnapshotCopy extends com.pulumi.resources.PolicyResour
      * Specifies the allocated storage size in gigabytes (GB).
      * 
      */
-    private UndeferrableValue<Integer> allocatedStorage;
-
+    @PolicyResourceProperty(name="allocatedStorage", flag="unknown_allocatedStorage")
+    private Integer value_allocatedStorage;
+    private boolean unknown_allocatedStorage;
     public Integer allocatedStorage() {
-        if (allocatedStorage == null) return null;
-        return allocatedStorage.getValue("ClusterSnapshotCopy.allocatedStorage");
+        if (!unknown_allocatedStorage) return value_allocatedStorage;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopy.allocatedStorage' is not present");
     }
 
     /**
      * Whether to copy existing tags. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> copyTags;
-
+    @PolicyResourceProperty(name="copyTags", flag="unknown_copyTags")
+    private @Nullable Boolean value_copyTags;
+    private boolean unknown_copyTags;
     public @Nullable Boolean copyTags() {
-        if (copyTags == null) return null;
-        return copyTags.getValue("ClusterSnapshotCopy.copyTags");
+        if (!unknown_copyTags) return value_copyTags;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopy.copyTags' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) for the DB cluster snapshot.
      * 
      */
-    private UndeferrableValue<String> dbClusterSnapshotArn;
-
+    @PolicyResourceProperty(name="dbClusterSnapshotArn", flag="unknown_dbClusterSnapshotArn")
+    private String value_dbClusterSnapshotArn;
+    private boolean unknown_dbClusterSnapshotArn;
     public String dbClusterSnapshotArn() {
-        if (dbClusterSnapshotArn == null) return null;
-        return dbClusterSnapshotArn.getValue("ClusterSnapshotCopy.dbClusterSnapshotArn");
+        if (!unknown_dbClusterSnapshotArn) return value_dbClusterSnapshotArn;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopy.dbClusterSnapshotArn' is not present");
     }
 
     /**
      * The Destination region to place snapshot copy.
      * 
      */
-    private @Nullable UndeferrableValue<String> destinationRegion;
-
+    @PolicyResourceProperty(name="destinationRegion", flag="unknown_destinationRegion")
+    private @Nullable String value_destinationRegion;
+    private boolean unknown_destinationRegion;
     public @Nullable String destinationRegion() {
-        if (destinationRegion == null) return null;
-        return destinationRegion.getValue("ClusterSnapshotCopy.destinationRegion");
+        if (!unknown_destinationRegion) return value_destinationRegion;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopy.destinationRegion' is not present");
     }
 
     /**
      * Specifies the name of the database engine.
      * 
      */
-    private UndeferrableValue<String> engine;
-
+    @PolicyResourceProperty(name="engine", flag="unknown_engine")
+    private String value_engine;
+    private boolean unknown_engine;
     public String engine() {
-        if (engine == null) return null;
-        return engine.getValue("ClusterSnapshotCopy.engine");
+        if (!unknown_engine) return value_engine;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopy.engine' is not present");
     }
 
     /**
      * Specifies the version of the database engine.
      * 
      */
-    private UndeferrableValue<String> engineVersion;
-
+    @PolicyResourceProperty(name="engineVersion", flag="unknown_engineVersion")
+    private String value_engineVersion;
+    private boolean unknown_engineVersion;
     public String engineVersion() {
-        if (engineVersion == null) return null;
-        return engineVersion.getValue("ClusterSnapshotCopy.engineVersion");
+        if (!unknown_engineVersion) return value_engineVersion;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopy.engineVersion' is not present");
     }
 
     /**
      * KMS key ID.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("ClusterSnapshotCopy.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopy.kmsKeyId' is not present");
     }
 
     /**
      * License model information for the restored DB instance.
      * 
      */
-    private UndeferrableValue<String> licenseModel;
-
+    @PolicyResourceProperty(name="licenseModel", flag="unknown_licenseModel")
+    private String value_licenseModel;
+    private boolean unknown_licenseModel;
     public String licenseModel() {
-        if (licenseModel == null) return null;
-        return licenseModel.getValue("ClusterSnapshotCopy.licenseModel");
+        if (!unknown_licenseModel) return value_licenseModel;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopy.licenseModel' is not present");
     }
 
     /**
      * URL that contains a Signature Version 4 signed request.
      * 
      */
-    private @Nullable UndeferrableValue<String> presignedUrl;
-
+    @PolicyResourceProperty(name="presignedUrl", flag="unknown_presignedUrl")
+    private @Nullable String value_presignedUrl;
+    private boolean unknown_presignedUrl;
     public @Nullable String presignedUrl() {
-        if (presignedUrl == null) return null;
-        return presignedUrl.getValue("ClusterSnapshotCopy.presignedUrl");
+        if (!unknown_presignedUrl) return value_presignedUrl;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopy.presignedUrl' is not present");
     }
 
     /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> sharedAccounts;
-
+    @PolicyResourceProperty(name="sharedAccounts", flag="unknown_sharedAccounts")
+    private @Nullable List<String> value_sharedAccounts;
+    private boolean unknown_sharedAccounts;
     public @Nullable List<String> sharedAccounts() {
-        if (sharedAccounts == null) return null;
-        return sharedAccounts.getValue("ClusterSnapshotCopy.sharedAccounts");
+        if (!unknown_sharedAccounts) return value_sharedAccounts;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopy.sharedAccounts' is not present");
     }
 
-    private UndeferrableValue<String> snapshotType;
-
+    @PolicyResourceProperty(name="snapshotType", flag="unknown_snapshotType")
+    private String value_snapshotType;
+    private boolean unknown_snapshotType;
     public String snapshotType() {
-        if (snapshotType == null) return null;
-        return snapshotType.getValue("ClusterSnapshotCopy.snapshotType");
+        if (!unknown_snapshotType) return value_snapshotType;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopy.snapshotType' is not present");
     }
 
     /**
      * Identifier of the source snapshot.
      * 
      */
-    private UndeferrableValue<String> sourceDbClusterSnapshotIdentifier;
-
+    @PolicyResourceProperty(name="sourceDbClusterSnapshotIdentifier", flag="unknown_sourceDbClusterSnapshotIdentifier")
+    private String value_sourceDbClusterSnapshotIdentifier;
+    private boolean unknown_sourceDbClusterSnapshotIdentifier;
     public String sourceDbClusterSnapshotIdentifier() {
-        if (sourceDbClusterSnapshotIdentifier == null) return null;
-        return sourceDbClusterSnapshotIdentifier.getValue("ClusterSnapshotCopy.sourceDbClusterSnapshotIdentifier");
+        if (!unknown_sourceDbClusterSnapshotIdentifier) return value_sourceDbClusterSnapshotIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopy.sourceDbClusterSnapshotIdentifier' is not present");
     }
 
     /**
      * Specifies whether the DB cluster snapshot is encrypted.
      * 
      */
-    private UndeferrableValue<Boolean> storageEncrypted;
-
+    @PolicyResourceProperty(name="storageEncrypted", flag="unknown_storageEncrypted")
+    private Boolean value_storageEncrypted;
+    private boolean unknown_storageEncrypted;
     public Boolean storageEncrypted() {
-        if (storageEncrypted == null) return null;
-        return storageEncrypted.getValue("ClusterSnapshotCopy.storageEncrypted");
+        if (!unknown_storageEncrypted) return value_storageEncrypted;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopy.storageEncrypted' is not present");
     }
 
     /**
      * Specifies the storage type associated with DB cluster snapshot.
      * 
      */
-    private UndeferrableValue<String> storageType;
-
+    @PolicyResourceProperty(name="storageType", flag="unknown_storageType")
+    private String value_storageType;
+    private boolean unknown_storageType;
     public String storageType() {
-        if (storageType == null) return null;
-        return storageType.getValue("ClusterSnapshotCopy.storageType");
+        if (!unknown_storageType) return value_storageType;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopy.storageType' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ClusterSnapshotCopy.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopy.tags' is not present");
     }
 
     /**
@@ -186,11 +202,12 @@ public final class ClusterSnapshotCopy extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ClusterSnapshotCopy.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopy.tagsAll' is not present");
     }
 
     /**
@@ -199,29 +216,32 @@ public final class ClusterSnapshotCopy extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> targetDbClusterSnapshotIdentifier;
-
+    @PolicyResourceProperty(name="targetDbClusterSnapshotIdentifier", flag="unknown_targetDbClusterSnapshotIdentifier")
+    private String value_targetDbClusterSnapshotIdentifier;
+    private boolean unknown_targetDbClusterSnapshotIdentifier;
     public String targetDbClusterSnapshotIdentifier() {
-        if (targetDbClusterSnapshotIdentifier == null) return null;
-        return targetDbClusterSnapshotIdentifier.getValue("ClusterSnapshotCopy.targetDbClusterSnapshotIdentifier");
+        if (!unknown_targetDbClusterSnapshotIdentifier) return value_targetDbClusterSnapshotIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopy.targetDbClusterSnapshotIdentifier' is not present");
     }
 
-    private @Nullable UndeferrableValue<ClusterSnapshotCopyTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable ClusterSnapshotCopyTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable ClusterSnapshotCopyTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ClusterSnapshotCopy.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopy.timeouts' is not present");
     }
 
     /**
      * Provides the VPC ID associated with the DB cluster snapshot.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("ClusterSnapshotCopy.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopy.vpcId' is not present");
     }
 
 }

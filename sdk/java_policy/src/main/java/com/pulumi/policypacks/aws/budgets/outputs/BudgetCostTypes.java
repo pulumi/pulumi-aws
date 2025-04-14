@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.budgets.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,121 +15,132 @@ public final class BudgetCostTypes {
      * A boolean value whether to include credits in the cost budget. Defaults to `true`
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> includeCredit;
-
+    @PolicyResourceProperty(name="includeCredit", flag="unknown_includeCredit")
+    private @Nullable Boolean value_includeCredit;
+    private boolean unknown_includeCredit;
     public @Nullable Boolean includeCredit() {
-        if (includeCredit == null) return null;
-        return includeCredit.getValue("BudgetCostTypes.includeCredit");
+        if (!unknown_includeCredit) return value_includeCredit;
+        throw new UndeferrableValueException("Value 'BudgetCostTypes.includeCredit' is not present");
     }
 
     /**
      * Whether a budget includes discounts. Defaults to `true`
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> includeDiscount;
-
+    @PolicyResourceProperty(name="includeDiscount", flag="unknown_includeDiscount")
+    private @Nullable Boolean value_includeDiscount;
+    private boolean unknown_includeDiscount;
     public @Nullable Boolean includeDiscount() {
-        if (includeDiscount == null) return null;
-        return includeDiscount.getValue("BudgetCostTypes.includeDiscount");
+        if (!unknown_includeDiscount) return value_includeDiscount;
+        throw new UndeferrableValueException("Value 'BudgetCostTypes.includeDiscount' is not present");
     }
 
     /**
      * A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> includeOtherSubscription;
-
+    @PolicyResourceProperty(name="includeOtherSubscription", flag="unknown_includeOtherSubscription")
+    private @Nullable Boolean value_includeOtherSubscription;
+    private boolean unknown_includeOtherSubscription;
     public @Nullable Boolean includeOtherSubscription() {
-        if (includeOtherSubscription == null) return null;
-        return includeOtherSubscription.getValue("BudgetCostTypes.includeOtherSubscription");
+        if (!unknown_includeOtherSubscription) return value_includeOtherSubscription;
+        throw new UndeferrableValueException("Value 'BudgetCostTypes.includeOtherSubscription' is not present");
     }
 
     /**
      * A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> includeRecurring;
-
+    @PolicyResourceProperty(name="includeRecurring", flag="unknown_includeRecurring")
+    private @Nullable Boolean value_includeRecurring;
+    private boolean unknown_includeRecurring;
     public @Nullable Boolean includeRecurring() {
-        if (includeRecurring == null) return null;
-        return includeRecurring.getValue("BudgetCostTypes.includeRecurring");
+        if (!unknown_includeRecurring) return value_includeRecurring;
+        throw new UndeferrableValueException("Value 'BudgetCostTypes.includeRecurring' is not present");
     }
 
     /**
      * A boolean value whether to include refunds in the cost budget. Defaults to `true`
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> includeRefund;
-
+    @PolicyResourceProperty(name="includeRefund", flag="unknown_includeRefund")
+    private @Nullable Boolean value_includeRefund;
+    private boolean unknown_includeRefund;
     public @Nullable Boolean includeRefund() {
-        if (includeRefund == null) return null;
-        return includeRefund.getValue("BudgetCostTypes.includeRefund");
+        if (!unknown_includeRefund) return value_includeRefund;
+        throw new UndeferrableValueException("Value 'BudgetCostTypes.includeRefund' is not present");
     }
 
     /**
      * A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> includeSubscription;
-
+    @PolicyResourceProperty(name="includeSubscription", flag="unknown_includeSubscription")
+    private @Nullable Boolean value_includeSubscription;
+    private boolean unknown_includeSubscription;
     public @Nullable Boolean includeSubscription() {
-        if (includeSubscription == null) return null;
-        return includeSubscription.getValue("BudgetCostTypes.includeSubscription");
+        if (!unknown_includeSubscription) return value_includeSubscription;
+        throw new UndeferrableValueException("Value 'BudgetCostTypes.includeSubscription' is not present");
     }
 
     /**
      * A boolean value whether to include support costs in the cost budget. Defaults to `true`
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> includeSupport;
-
+    @PolicyResourceProperty(name="includeSupport", flag="unknown_includeSupport")
+    private @Nullable Boolean value_includeSupport;
+    private boolean unknown_includeSupport;
     public @Nullable Boolean includeSupport() {
-        if (includeSupport == null) return null;
-        return includeSupport.getValue("BudgetCostTypes.includeSupport");
+        if (!unknown_includeSupport) return value_includeSupport;
+        throw new UndeferrableValueException("Value 'BudgetCostTypes.includeSupport' is not present");
     }
 
     /**
      * A boolean value whether to include tax in the cost budget. Defaults to `true`
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> includeTax;
-
+    @PolicyResourceProperty(name="includeTax", flag="unknown_includeTax")
+    private @Nullable Boolean value_includeTax;
+    private boolean unknown_includeTax;
     public @Nullable Boolean includeTax() {
-        if (includeTax == null) return null;
-        return includeTax.getValue("BudgetCostTypes.includeTax");
+        if (!unknown_includeTax) return value_includeTax;
+        throw new UndeferrableValueException("Value 'BudgetCostTypes.includeTax' is not present");
     }
 
     /**
      * A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> includeUpfront;
-
+    @PolicyResourceProperty(name="includeUpfront", flag="unknown_includeUpfront")
+    private @Nullable Boolean value_includeUpfront;
+    private boolean unknown_includeUpfront;
     public @Nullable Boolean includeUpfront() {
-        if (includeUpfront == null) return null;
-        return includeUpfront.getValue("BudgetCostTypes.includeUpfront");
+        if (!unknown_includeUpfront) return value_includeUpfront;
+        throw new UndeferrableValueException("Value 'BudgetCostTypes.includeUpfront' is not present");
     }
 
     /**
      * Whether a budget uses the amortized rate. Defaults to `false`
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> useAmortized;
-
+    @PolicyResourceProperty(name="useAmortized", flag="unknown_useAmortized")
+    private @Nullable Boolean value_useAmortized;
+    private boolean unknown_useAmortized;
     public @Nullable Boolean useAmortized() {
-        if (useAmortized == null) return null;
-        return useAmortized.getValue("BudgetCostTypes.useAmortized");
+        if (!unknown_useAmortized) return value_useAmortized;
+        throw new UndeferrableValueException("Value 'BudgetCostTypes.useAmortized' is not present");
     }
 
     /**
      * A boolean value whether to use blended costs in the cost budget. Defaults to `false`
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> useBlended;
-
+    @PolicyResourceProperty(name="useBlended", flag="unknown_useBlended")
+    private @Nullable Boolean value_useBlended;
+    private boolean unknown_useBlended;
     public @Nullable Boolean useBlended() {
-        if (useBlended == null) return null;
-        return useBlended.getValue("BudgetCostTypes.useBlended");
+        if (!unknown_useBlended) return value_useBlended;
+        throw new UndeferrableValueException("Value 'BudgetCostTypes.useBlended' is not present");
     }
 
 }

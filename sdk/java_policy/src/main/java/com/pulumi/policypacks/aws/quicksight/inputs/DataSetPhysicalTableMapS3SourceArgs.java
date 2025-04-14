@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs;
 import com.pulumi.policypacks.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class DataSetPhysicalTableMapS3SourceArgs {
      * ARN of the data source.
      * 
      */
-    private UndeferrableValue<String> dataSourceArn;
-
+    @PolicyResourceProperty(name="dataSourceArn", flag="unknown_dataSourceArn")
+    private String value_dataSourceArn;
+    private boolean unknown_dataSourceArn;
     public String dataSourceArn() {
-        if (dataSourceArn == null) return null;
-        return dataSourceArn.getValue("DataSetPhysicalTableMapS3SourceArgs.dataSourceArn");
+        if (!unknown_dataSourceArn) return value_dataSourceArn;
+        throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapS3SourceArgs.dataSourceArn' is not present");
     }
 
     /**
      * Column schema of the table. See input_columns.
      * 
      */
-    private UndeferrableValue<List<DataSetPhysicalTableMapS3SourceInputColumnArgs>> inputColumns;
-
+    @PolicyResourceProperty(name="inputColumns", flag="unknown_inputColumns")
+    private List<DataSetPhysicalTableMapS3SourceInputColumnArgs> value_inputColumns;
+    private boolean unknown_inputColumns;
     public List<DataSetPhysicalTableMapS3SourceInputColumnArgs> inputColumns() {
-        if (inputColumns == null) return null;
-        return inputColumns.getValue("DataSetPhysicalTableMapS3SourceArgs.inputColumns");
+        if (!unknown_inputColumns) return value_inputColumns;
+        throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapS3SourceArgs.inputColumns' is not present");
     }
 
     /**
      * Information about the format for the S3 source file or files. See upload_settings.
      * 
      */
-    private UndeferrableValue<DataSetPhysicalTableMapS3SourceUploadSettingsArgs> uploadSettings;
-
+    @PolicyResourceProperty(name="uploadSettings", flag="unknown_uploadSettings")
+    private DataSetPhysicalTableMapS3SourceUploadSettingsArgs value_uploadSettings;
+    private boolean unknown_uploadSettings;
     public DataSetPhysicalTableMapS3SourceUploadSettingsArgs uploadSettings() {
-        if (uploadSettings == null) return null;
-        return uploadSettings.getValue("DataSetPhysicalTableMapS3SourceArgs.uploadSettings");
+        if (!unknown_uploadSettings) return value_uploadSettings;
+        throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapS3SourceArgs.uploadSettings' is not present");
     }
 
 }

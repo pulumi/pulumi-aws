@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,29 +15,32 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplate
      * ID of the launch template. Conflicts with `launch_template_name`.
      * 
      */
-    private @Nullable UndeferrableValue<String> launchTemplateId;
-
+    @PolicyResourceProperty(name="launchTemplateId", flag="unknown_launchTemplateId")
+    private @Nullable String value_launchTemplateId;
+    private boolean unknown_launchTemplateId;
     public @Nullable String launchTemplateId() {
-        if (launchTemplateId == null) return null;
-        return launchTemplateId.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification.launchTemplateId");
+        if (!unknown_launchTemplateId) return value_launchTemplateId;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification.launchTemplateId' is not present");
     }
 
     /**
      * Name of the launch template. Conflicts with `launch_template_id`.
      * 
      */
-    private @Nullable UndeferrableValue<String> launchTemplateName;
-
+    @PolicyResourceProperty(name="launchTemplateName", flag="unknown_launchTemplateName")
+    private @Nullable String value_launchTemplateName;
+    private boolean unknown_launchTemplateName;
     public @Nullable String launchTemplateName() {
-        if (launchTemplateName == null) return null;
-        return launchTemplateName.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification.launchTemplateName");
+        if (!unknown_launchTemplateName) return value_launchTemplateName;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification.launchTemplateName' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private @Nullable String value_version;
+    private boolean unknown_version;
     public @Nullable String version() {
-        if (version == null) return null;
-        return version.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification.version' is not present");
     }
 
 }

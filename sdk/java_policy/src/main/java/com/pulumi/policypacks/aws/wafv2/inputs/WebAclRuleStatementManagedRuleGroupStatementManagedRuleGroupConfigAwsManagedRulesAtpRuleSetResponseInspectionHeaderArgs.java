@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,33 +15,36 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      * Values in the response header with the specified name that indicate a failed login attempt.
      * 
      */
-    private UndeferrableValue<List<String>> failureValues;
-
+    @PolicyResourceProperty(name="failureValues", flag="unknown_failureValues")
+    private List<String> value_failureValues;
+    private boolean unknown_failureValues;
     public List<String> failureValues() {
-        if (failureValues == null) return null;
-        return failureValues.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeaderArgs.failureValues");
+        if (!unknown_failureValues) return value_failureValues;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeaderArgs.failureValues' is not present");
     }
 
     /**
      * The name of the header to use.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeaderArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeaderArgs.name' is not present");
     }
 
     /**
      * Values in the response header with the specified name that indicate a successful login attempt.
      * 
      */
-    private UndeferrableValue<List<String>> successValues;
-
+    @PolicyResourceProperty(name="successValues", flag="unknown_successValues")
+    private List<String> value_successValues;
+    private boolean unknown_successValues;
     public List<String> successValues() {
-        if (successValues == null) return null;
-        return successValues.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeaderArgs.successValues");
+        if (!unknown_successValues) return value_successValues;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeaderArgs.successValues' is not present");
     }
 
 }

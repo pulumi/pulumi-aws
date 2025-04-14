@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.comprehend.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -15,29 +16,32 @@ public final class EntityRecognizerInputDataConfigDocumentsArgs {
      * One of `ONE_DOC_PER_LINE` or `ONE_DOC_PER_FILE`.
      * 
      */
-    private UndeferrableValue<String> inputFormat;
-
+    @PolicyResourceProperty(name="inputFormat", flag="unknown_inputFormat")
+    private String value_inputFormat;
+    private boolean unknown_inputFormat;
     public String inputFormat() {
-        if (inputFormat == null) return null;
-        return inputFormat.getValue("EntityRecognizerInputDataConfigDocumentsArgs.inputFormat");
+        if (!unknown_inputFormat) return value_inputFormat;
+        throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfigDocumentsArgs.inputFormat' is not present");
     }
 
     /**
      * Location of training documents.
      * 
      */
-    private UndeferrableValue<String> s3Uri;
-
+    @PolicyResourceProperty(name="s3Uri", flag="unknown_s3Uri")
+    private String value_s3Uri;
+    private boolean unknown_s3Uri;
     public String s3Uri() {
-        if (s3Uri == null) return null;
-        return s3Uri.getValue("EntityRecognizerInputDataConfigDocumentsArgs.s3Uri");
+        if (!unknown_s3Uri) return value_s3Uri;
+        throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfigDocumentsArgs.s3Uri' is not present");
     }
 
-    private UndeferrableValue<String> testS3Uri;
-
+    @PolicyResourceProperty(name="testS3Uri", flag="unknown_testS3Uri")
+    private String value_testS3Uri;
+    private boolean unknown_testS3Uri;
     public String testS3Uri() {
-        if (testS3Uri == null) return null;
-        return testS3Uri.getValue("EntityRecognizerInputDataConfigDocumentsArgs.testS3Uri");
+        if (!unknown_testS3Uri) return value_testS3Uri;
+        throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfigDocumentsArgs.testS3Uri' is not present");
     }
 
 }

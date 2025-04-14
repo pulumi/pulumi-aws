@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -11,25 +12,28 @@ import javax.annotation.Nullable;
 
 public final class PipeTargetParametersHttpParametersArgs {
 
-    private UndeferrableValue<Map<String,String>> headerParameters;
-
+    @PolicyResourceProperty(name="headerParameters", flag="unknown_headerParameters")
+    private Map<String,String> value_headerParameters;
+    private boolean unknown_headerParameters;
     public Map<String,String> headerParameters() {
-        if (headerParameters == null) return null;
-        return headerParameters.getValue("PipeTargetParametersHttpParametersArgs.headerParameters");
+        if (!unknown_headerParameters) return value_headerParameters;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersHttpParametersArgs.headerParameters' is not present");
     }
 
-    private UndeferrableValue<String> pathParameterValues;
-
+    @PolicyResourceProperty(name="pathParameterValues", flag="unknown_pathParameterValues")
+    private String value_pathParameterValues;
+    private boolean unknown_pathParameterValues;
     public String pathParameterValues() {
-        if (pathParameterValues == null) return null;
-        return pathParameterValues.getValue("PipeTargetParametersHttpParametersArgs.pathParameterValues");
+        if (!unknown_pathParameterValues) return value_pathParameterValues;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersHttpParametersArgs.pathParameterValues' is not present");
     }
 
-    private UndeferrableValue<Map<String,String>> queryStringParameters;
-
+    @PolicyResourceProperty(name="queryStringParameters", flag="unknown_queryStringParameters")
+    private Map<String,String> value_queryStringParameters;
+    private boolean unknown_queryStringParameters;
     public Map<String,String> queryStringParameters() {
-        if (queryStringParameters == null) return null;
-        return queryStringParameters.getValue("PipeTargetParametersHttpParametersArgs.queryStringParameters");
+        if (!unknown_queryStringParameters) return value_queryStringParameters;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersHttpParametersArgs.queryStringParameters' is not present");
     }
 
 }

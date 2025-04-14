@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.macie.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,88 +16,96 @@ public final class FindingsFilterFindingCriteriaCriterionArgs {
      * The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
      * 
      */
-    private UndeferrableValue<List<String>> eqExactMatches;
-
+    @PolicyResourceProperty(name="eqExactMatches", flag="unknown_eqExactMatches")
+    private List<String> value_eqExactMatches;
+    private boolean unknown_eqExactMatches;
     public List<String> eqExactMatches() {
-        if (eqExactMatches == null) return null;
-        return eqExactMatches.getValue("FindingsFilterFindingCriteriaCriterionArgs.eqExactMatches");
+        if (!unknown_eqExactMatches) return value_eqExactMatches;
+        throw new UndeferrableValueException("Value 'FindingsFilterFindingCriteriaCriterionArgs.eqExactMatches' is not present");
     }
 
     /**
      * The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
      * 
      */
-    private UndeferrableValue<List<String>> eqs;
-
+    @PolicyResourceProperty(name="eqs", flag="unknown_eqs")
+    private List<String> value_eqs;
+    private boolean unknown_eqs;
     public List<String> eqs() {
-        if (eqs == null) return null;
-        return eqs.getValue("FindingsFilterFindingCriteriaCriterionArgs.eqs");
+        if (!unknown_eqs) return value_eqs;
+        throw new UndeferrableValueException("Value 'FindingsFilterFindingCriteriaCriterionArgs.eqs' is not present");
     }
 
     /**
      * The name of the field to be evaluated.
      * 
      */
-    private UndeferrableValue<String> field;
-
+    @PolicyResourceProperty(name="field", flag="unknown_field")
+    private String value_field;
+    private boolean unknown_field;
     public String field() {
-        if (field == null) return null;
-        return field.getValue("FindingsFilterFindingCriteriaCriterionArgs.field");
+        if (!unknown_field) return value_field;
+        throw new UndeferrableValueException("Value 'FindingsFilterFindingCriteriaCriterionArgs.field' is not present");
     }
 
     /**
      * The value for the property is greater than the specified value.
      * 
      */
-    private UndeferrableValue<String> gt;
-
+    @PolicyResourceProperty(name="gt", flag="unknown_gt")
+    private String value_gt;
+    private boolean unknown_gt;
     public String gt() {
-        if (gt == null) return null;
-        return gt.getValue("FindingsFilterFindingCriteriaCriterionArgs.gt");
+        if (!unknown_gt) return value_gt;
+        throw new UndeferrableValueException("Value 'FindingsFilterFindingCriteriaCriterionArgs.gt' is not present");
     }
 
     /**
      * The value for the property is greater than or equal to the specified value.
      * 
      */
-    private UndeferrableValue<String> gte;
-
+    @PolicyResourceProperty(name="gte", flag="unknown_gte")
+    private String value_gte;
+    private boolean unknown_gte;
     public String gte() {
-        if (gte == null) return null;
-        return gte.getValue("FindingsFilterFindingCriteriaCriterionArgs.gte");
+        if (!unknown_gte) return value_gte;
+        throw new UndeferrableValueException("Value 'FindingsFilterFindingCriteriaCriterionArgs.gte' is not present");
     }
 
     /**
      * The value for the property is less than the specified value.
      * 
      */
-    private UndeferrableValue<String> lt;
-
+    @PolicyResourceProperty(name="lt", flag="unknown_lt")
+    private String value_lt;
+    private boolean unknown_lt;
     public String lt() {
-        if (lt == null) return null;
-        return lt.getValue("FindingsFilterFindingCriteriaCriterionArgs.lt");
+        if (!unknown_lt) return value_lt;
+        throw new UndeferrableValueException("Value 'FindingsFilterFindingCriteriaCriterionArgs.lt' is not present");
     }
 
     /**
      * The value for the property is less than or equal to the specified value.
      * 
      */
-    private UndeferrableValue<String> lte;
-
+    @PolicyResourceProperty(name="lte", flag="unknown_lte")
+    private String value_lte;
+    private boolean unknown_lte;
     public String lte() {
-        if (lte == null) return null;
-        return lte.getValue("FindingsFilterFindingCriteriaCriterionArgs.lte");
+        if (!unknown_lte) return value_lte;
+        throw new UndeferrableValueException("Value 'FindingsFilterFindingCriteriaCriterionArgs.lte' is not present");
     }
 
     /**
      * The value for the property doesn&#39;t match (doesn&#39;t equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
      * 
      */
-    private UndeferrableValue<List<String>> neqs;
-
+    @PolicyResourceProperty(name="neqs", flag="unknown_neqs")
+    private List<String> value_neqs;
+    private boolean unknown_neqs;
     public List<String> neqs() {
-        if (neqs == null) return null;
-        return neqs.getValue("FindingsFilterFindingCriteriaCriterionArgs.neqs");
+        if (!unknown_neqs) return value_neqs;
+        throw new UndeferrableValueException("Value 'FindingsFilterFindingCriteriaCriterionArgs.neqs' is not present");
     }
 
 }

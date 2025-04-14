@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class IndexCapacityUnits {
      * The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
      * 
      */
-    private @Nullable UndeferrableValue<Integer> queryCapacityUnits;
-
+    @PolicyResourceProperty(name="queryCapacityUnits", flag="unknown_queryCapacityUnits")
+    private @Nullable Integer value_queryCapacityUnits;
+    private boolean unknown_queryCapacityUnits;
     public @Nullable Integer queryCapacityUnits() {
-        if (queryCapacityUnits == null) return null;
-        return queryCapacityUnits.getValue("IndexCapacityUnits.queryCapacityUnits");
+        if (!unknown_queryCapacityUnits) return value_queryCapacityUnits;
+        throw new UndeferrableValueException("Value 'IndexCapacityUnits.queryCapacityUnits' is not present");
     }
 
     /**
      * The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> storageCapacityUnits;
-
+    @PolicyResourceProperty(name="storageCapacityUnits", flag="unknown_storageCapacityUnits")
+    private @Nullable Integer value_storageCapacityUnits;
+    private boolean unknown_storageCapacityUnits;
     public @Nullable Integer storageCapacityUnits() {
-        if (storageCapacityUnits == null) return null;
-        return storageCapacityUnits.getValue("IndexCapacityUnits.storageCapacityUnits");
+        if (!unknown_storageCapacityUnits) return value_storageCapacityUnits;
+        throw new UndeferrableValueException("Value 'IndexCapacityUnits.storageCapacityUnits' is not present");
     }
 
 }

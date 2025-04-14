@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamquery.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMixed
      * Type of the attribute to be read from the source column. Valid values are `BIGINT`, `BOOLEAN`, `DOUBLE`, `VARCHAR`, `TIMESTAMP`.
      * 
      */
-    private UndeferrableValue<String> measureValueType;
-
+    @PolicyResourceProperty(name="measureValueType", flag="unknown_measureValueType")
+    private String value_measureValueType;
+    private boolean unknown_measureValueType;
     public String measureValueType() {
-        if (measureValueType == null) return null;
-        return measureValueType.getValue("ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgs.measureValueType");
+        if (!unknown_measureValueType) return value_measureValueType;
+        throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgs.measureValueType' is not present");
     }
 
     /**
      * Source column from where the attribute value is to be read.
      * 
      */
-    private UndeferrableValue<String> sourceColumn;
-
+    @PolicyResourceProperty(name="sourceColumn", flag="unknown_sourceColumn")
+    private String value_sourceColumn;
+    private boolean unknown_sourceColumn;
     public String sourceColumn() {
-        if (sourceColumn == null) return null;
-        return sourceColumn.getValue("ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgs.sourceColumn");
+        if (!unknown_sourceColumn) return value_sourceColumn;
+        throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgs.sourceColumn' is not present");
     }
 
     /**
      * Custom name to be used for attribute name in derived table. If not provided, `source_column` is used.
      * 
      */
-    private UndeferrableValue<String> targetMultiMeasureAttributeName;
-
+    @PolicyResourceProperty(name="targetMultiMeasureAttributeName", flag="unknown_targetMultiMeasureAttributeName")
+    private String value_targetMultiMeasureAttributeName;
+    private boolean unknown_targetMultiMeasureAttributeName;
     public String targetMultiMeasureAttributeName() {
-        if (targetMultiMeasureAttributeName == null) return null;
-        return targetMultiMeasureAttributeName.getValue("ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgs.targetMultiMeasureAttributeName");
+        if (!unknown_targetMultiMeasureAttributeName) return value_targetMultiMeasureAttributeName;
+        throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgs.targetMultiMeasureAttributeName' is not present");
     }
 
 }

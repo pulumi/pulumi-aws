@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,77 +16,84 @@ public final class CustomActionTypeConfigurationPropertyArgs {
      * The description of the action configuration property.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("CustomActionTypeConfigurationPropertyArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'CustomActionTypeConfigurationPropertyArgs.description' is not present");
     }
 
     /**
      * Whether the configuration property is a key.
      * 
      */
-    private UndeferrableValue<Boolean> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private Boolean value_key;
+    private boolean unknown_key;
     public Boolean key() {
-        if (key == null) return null;
-        return key.getValue("CustomActionTypeConfigurationPropertyArgs.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'CustomActionTypeConfigurationPropertyArgs.key' is not present");
     }
 
     /**
      * The name of the action configuration property.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("CustomActionTypeConfigurationPropertyArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'CustomActionTypeConfigurationPropertyArgs.name' is not present");
     }
 
     /**
      * Indicates that the property will be used in conjunction with PollForJobs.
      * 
      */
-    private UndeferrableValue<Boolean> queryable;
-
+    @PolicyResourceProperty(name="queryable", flag="unknown_queryable")
+    private Boolean value_queryable;
+    private boolean unknown_queryable;
     public Boolean queryable() {
-        if (queryable == null) return null;
-        return queryable.getValue("CustomActionTypeConfigurationPropertyArgs.queryable");
+        if (!unknown_queryable) return value_queryable;
+        throw new UndeferrableValueException("Value 'CustomActionTypeConfigurationPropertyArgs.queryable' is not present");
     }
 
     /**
      * Whether the configuration property is a required value.
      * 
      */
-    private UndeferrableValue<Boolean> required;
-
+    @PolicyResourceProperty(name="required", flag="unknown_required")
+    private Boolean value_required;
+    private boolean unknown_required;
     public Boolean required() {
-        if (required == null) return null;
-        return required.getValue("CustomActionTypeConfigurationPropertyArgs.required");
+        if (!unknown_required) return value_required;
+        throw new UndeferrableValueException("Value 'CustomActionTypeConfigurationPropertyArgs.required' is not present");
     }
 
     /**
      * Whether the configuration property is secret.
      * 
      */
-    private UndeferrableValue<Boolean> secret;
-
+    @PolicyResourceProperty(name="secret", flag="unknown_secret")
+    private Boolean value_secret;
+    private boolean unknown_secret;
     public Boolean secret() {
-        if (secret == null) return null;
-        return secret.getValue("CustomActionTypeConfigurationPropertyArgs.secret");
+        if (!unknown_secret) return value_secret;
+        throw new UndeferrableValueException("Value 'CustomActionTypeConfigurationPropertyArgs.secret' is not present");
     }
 
     /**
      * The type of the configuration property. Valid values: `String`, `Number`, `Boolean`
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("CustomActionTypeConfigurationPropertyArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'CustomActionTypeConfigurationPropertyArgs.type' is not present");
     }
 
 }

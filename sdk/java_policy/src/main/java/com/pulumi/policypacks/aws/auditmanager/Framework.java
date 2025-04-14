@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.auditmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.auditmanager.outputs.FrameworkControlSet;
 import java.lang.String;
@@ -20,22 +21,24 @@ public final class Framework extends com.pulumi.resources.PolicyResourceOutput {
      * * `control_sets[*].id` - Unique identifier for the framework control set.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Framework.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Framework.arn' is not present");
     }
 
     /**
      * Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
      * 
      */
-    private @Nullable UndeferrableValue<String> complianceType;
-
+    @PolicyResourceProperty(name="complianceType", flag="unknown_complianceType")
+    private @Nullable String value_complianceType;
+    private boolean unknown_complianceType;
     public @Nullable String complianceType() {
-        if (complianceType == null) return null;
-        return complianceType.getValue("Framework.complianceType");
+        if (!unknown_complianceType) return value_complianceType;
+        throw new UndeferrableValueException("Value 'Framework.complianceType' is not present");
     }
 
     /**
@@ -44,55 +47,60 @@ public final class Framework extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private @Nullable UndeferrableValue<List<FrameworkControlSet>> controlSets;
-
+    @PolicyResourceProperty(name="controlSets", flag="unknown_controlSets")
+    private @Nullable List<FrameworkControlSet> value_controlSets;
+    private boolean unknown_controlSets;
     public @Nullable List<FrameworkControlSet> controlSets() {
-        if (controlSets == null) return null;
-        return controlSets.getValue("Framework.controlSets");
+        if (!unknown_controlSets) return value_controlSets;
+        throw new UndeferrableValueException("Value 'Framework.controlSets' is not present");
     }
 
     /**
      * Description of the framework.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Framework.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Framework.description' is not present");
     }
 
     /**
      * Framework type, such as a custom framework or a standard framework.
      * 
      */
-    private UndeferrableValue<String> frameworkType;
-
+    @PolicyResourceProperty(name="frameworkType", flag="unknown_frameworkType")
+    private String value_frameworkType;
+    private boolean unknown_frameworkType;
     public String frameworkType() {
-        if (frameworkType == null) return null;
-        return frameworkType.getValue("Framework.frameworkType");
+        if (!unknown_frameworkType) return value_frameworkType;
+        throw new UndeferrableValueException("Value 'Framework.frameworkType' is not present");
     }
 
     /**
      * Name of the framework.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Framework.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Framework.name' is not present");
     }
 
     /**
      * A map of tags to assign to the framework. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Framework.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Framework.tags' is not present");
     }
 
     /**
@@ -101,11 +109,12 @@ public final class Framework extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Framework.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Framework.tagsAll' is not present");
     }
 
 }

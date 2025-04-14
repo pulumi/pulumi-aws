@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ssm.outputs.ContactsRotationRecurrenceMonthlySettingHandOffTime;
 import java.lang.Integer;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ContactsRotationRecurrenceMonthlySetting {
      * (Required) The day of the month when monthly recurring on-call rotations begin.
      * 
      */
-    private UndeferrableValue<Integer> dayOfMonth;
-
+    @PolicyResourceProperty(name="dayOfMonth", flag="unknown_dayOfMonth")
+    private Integer value_dayOfMonth;
+    private boolean unknown_dayOfMonth;
     public Integer dayOfMonth() {
-        if (dayOfMonth == null) return null;
-        return dayOfMonth.getValue("ContactsRotationRecurrenceMonthlySetting.dayOfMonth");
+        if (!unknown_dayOfMonth) return value_dayOfMonth;
+        throw new UndeferrableValueException("Value 'ContactsRotationRecurrenceMonthlySetting.dayOfMonth' is not present");
     }
 
     /**
      * (Required) The hand off time. See Hand Off Time for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ContactsRotationRecurrenceMonthlySettingHandOffTime> handOffTime;
-
+    @PolicyResourceProperty(name="handOffTime", flag="unknown_handOffTime")
+    private @Nullable ContactsRotationRecurrenceMonthlySettingHandOffTime value_handOffTime;
+    private boolean unknown_handOffTime;
     public @Nullable ContactsRotationRecurrenceMonthlySettingHandOffTime handOffTime() {
-        if (handOffTime == null) return null;
-        return handOffTime.getValue("ContactsRotationRecurrenceMonthlySetting.handOffTime");
+        if (!unknown_handOffTime) return value_handOffTime;
+        throw new UndeferrableValueException("Value 'ContactsRotationRecurrenceMonthlySetting.handOffTime' is not present");
     }
 
 }

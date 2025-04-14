@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.outputs.DataSourceParametersS3ManifestFileLocation;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DataSourceParametersS3 {
      * An object containing the S3 location of the S3 manifest file.
      * 
      */
-    private UndeferrableValue<DataSourceParametersS3ManifestFileLocation> manifestFileLocation;
-
+    @PolicyResourceProperty(name="manifestFileLocation", flag="unknown_manifestFileLocation")
+    private DataSourceParametersS3ManifestFileLocation value_manifestFileLocation;
+    private boolean unknown_manifestFileLocation;
     public DataSourceParametersS3ManifestFileLocation manifestFileLocation() {
-        if (manifestFileLocation == null) return null;
-        return manifestFileLocation.getValue("DataSourceParametersS3.manifestFileLocation");
+        if (!unknown_manifestFileLocation) return value_manifestFileLocation;
+        throw new UndeferrableValueException("Value 'DataSourceParametersS3.manifestFileLocation' is not present");
     }
 
     /**
      * Use the `role_arn` to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use `role_arn` to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.
      * 
      */
-    private @Nullable UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private @Nullable String value_roleArn;
+    private boolean unknown_roleArn;
     public @Nullable String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("DataSourceParametersS3.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'DataSourceParametersS3.roleArn' is not present");
     }
 
 }

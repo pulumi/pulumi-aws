@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class UserIdentityInfo {
      * The email address. If you are using SAML for identity management and include this parameter, an error is returned. Note that updates to the `email` is supported. From the [UpdateUserIdentityInfo API documentation](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserIdentityInfo.html) it is strongly recommended to limit who has the ability to invoke `UpdateUserIdentityInfo`. Someone with that ability can change the login credentials of other users by changing their email address. This poses a security risk to your organization. They can change the email address of a user to the attacker&#39;s email address, and then reset the password through email. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
      * 
      */
-    private @Nullable UndeferrableValue<String> email;
-
+    @PolicyResourceProperty(name="email", flag="unknown_email")
+    private @Nullable String value_email;
+    private boolean unknown_email;
     public @Nullable String email() {
-        if (email == null) return null;
-        return email.getValue("UserIdentityInfo.email");
+        if (!unknown_email) return value_email;
+        throw new UndeferrableValueException("Value 'UserIdentityInfo.email' is not present");
     }
 
     /**
      * The first name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
      * 
      */
-    private @Nullable UndeferrableValue<String> firstName;
-
+    @PolicyResourceProperty(name="firstName", flag="unknown_firstName")
+    private @Nullable String value_firstName;
+    private boolean unknown_firstName;
     public @Nullable String firstName() {
-        if (firstName == null) return null;
-        return firstName.getValue("UserIdentityInfo.firstName");
+        if (!unknown_firstName) return value_firstName;
+        throw new UndeferrableValueException("Value 'UserIdentityInfo.firstName' is not present");
     }
 
     /**
      * The last name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
      * 
      */
-    private @Nullable UndeferrableValue<String> lastName;
-
+    @PolicyResourceProperty(name="lastName", flag="unknown_lastName")
+    private @Nullable String value_lastName;
+    private boolean unknown_lastName;
     public @Nullable String lastName() {
-        if (lastName == null) return null;
-        return lastName.getValue("UserIdentityInfo.lastName");
+        if (!unknown_lastName) return value_lastName;
+        throw new UndeferrableValueException("Value 'UserIdentityInfo.lastName' is not present");
     }
 
     /**
      * The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
      * 
      */
-    private @Nullable UndeferrableValue<String> secondaryEmail;
-
+    @PolicyResourceProperty(name="secondaryEmail", flag="unknown_secondaryEmail")
+    private @Nullable String value_secondaryEmail;
+    private boolean unknown_secondaryEmail;
     public @Nullable String secondaryEmail() {
-        if (secondaryEmail == null) return null;
-        return secondaryEmail.getValue("UserIdentityInfo.secondaryEmail");
+        if (!unknown_secondaryEmail) return value_secondaryEmail;
+        throw new UndeferrableValueException("Value 'UserIdentityInfo.secondaryEmail' is not present");
     }
 
 }

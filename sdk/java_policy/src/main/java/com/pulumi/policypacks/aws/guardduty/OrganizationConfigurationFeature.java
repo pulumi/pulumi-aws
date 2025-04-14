@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.guardduty;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.guardduty.outputs.OrganizationConfigurationFeatureAdditionalConfiguration;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class OrganizationConfigurationFeature extends com.pulumi.resources
      * Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
      * 
      */
-    private @Nullable UndeferrableValue<List<OrganizationConfigurationFeatureAdditionalConfiguration>> additionalConfigurations;
-
+    @PolicyResourceProperty(name="additionalConfigurations", flag="unknown_additionalConfigurations")
+    private @Nullable List<OrganizationConfigurationFeatureAdditionalConfiguration> value_additionalConfigurations;
+    private boolean unknown_additionalConfigurations;
     public @Nullable List<OrganizationConfigurationFeatureAdditionalConfiguration> additionalConfigurations() {
-        if (additionalConfigurations == null) return null;
-        return additionalConfigurations.getValue("OrganizationConfigurationFeature.additionalConfigurations");
+        if (!unknown_additionalConfigurations) return value_additionalConfigurations;
+        throw new UndeferrableValueException("Value 'OrganizationConfigurationFeature.additionalConfigurations' is not present");
     }
 
     /**
      * The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
      * 
      */
-    private UndeferrableValue<String> autoEnable;
-
+    @PolicyResourceProperty(name="autoEnable", flag="unknown_autoEnable")
+    private String value_autoEnable;
+    private boolean unknown_autoEnable;
     public String autoEnable() {
-        if (autoEnable == null) return null;
-        return autoEnable.getValue("OrganizationConfigurationFeature.autoEnable");
+        if (!unknown_autoEnable) return value_autoEnable;
+        throw new UndeferrableValueException("Value 'OrganizationConfigurationFeature.autoEnable' is not present");
     }
 
     /**
      * The ID of the detector that configures the delegated administrator.
      * 
      */
-    private UndeferrableValue<String> detectorId;
-
+    @PolicyResourceProperty(name="detectorId", flag="unknown_detectorId")
+    private String value_detectorId;
+    private boolean unknown_detectorId;
     public String detectorId() {
-        if (detectorId == null) return null;
-        return detectorId.getValue("OrganizationConfigurationFeature.detectorId");
+        if (!unknown_detectorId) return value_detectorId;
+        throw new UndeferrableValueException("Value 'OrganizationConfigurationFeature.detectorId' is not present");
     }
 
     /**
      * The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("OrganizationConfigurationFeature.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'OrganizationConfigurationFeature.name' is not present");
     }
 
 }

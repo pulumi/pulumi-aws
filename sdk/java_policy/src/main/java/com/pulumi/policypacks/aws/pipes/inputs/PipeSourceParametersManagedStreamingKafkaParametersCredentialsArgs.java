@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class PipeSourceParametersManagedStreamingKafkaParametersCredential
      * The ARN of the Secrets Manager secret containing the credentials.
      * 
      */
-    private UndeferrableValue<String> clientCertificateTlsAuth;
-
+    @PolicyResourceProperty(name="clientCertificateTlsAuth", flag="unknown_clientCertificateTlsAuth")
+    private String value_clientCertificateTlsAuth;
+    private boolean unknown_clientCertificateTlsAuth;
     public String clientCertificateTlsAuth() {
-        if (clientCertificateTlsAuth == null) return null;
-        return clientCertificateTlsAuth.getValue("PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs.clientCertificateTlsAuth");
+        if (!unknown_clientCertificateTlsAuth) return value_clientCertificateTlsAuth;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs.clientCertificateTlsAuth' is not present");
     }
 
     /**
      * The ARN of the Secrets Manager secret containing the credentials.
      * 
      */
-    private UndeferrableValue<String> saslScram512Auth;
-
+    @PolicyResourceProperty(name="saslScram512Auth", flag="unknown_saslScram512Auth")
+    private String value_saslScram512Auth;
+    private boolean unknown_saslScram512Auth;
     public String saslScram512Auth() {
-        if (saslScram512Auth == null) return null;
-        return saslScram512Auth.getValue("PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs.saslScram512Auth");
+        if (!unknown_saslScram512Auth) return value_saslScram512Auth;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs.saslScram512Auth' is not present");
     }
 
 }

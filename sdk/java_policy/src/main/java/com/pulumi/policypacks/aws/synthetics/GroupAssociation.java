@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.synthetics;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,40 +16,44 @@ public final class GroupAssociation extends com.pulumi.resources.PolicyResourceO
      * ARN of the canary.
      * 
      */
-    private UndeferrableValue<String> canaryArn;
-
+    @PolicyResourceProperty(name="canaryArn", flag="unknown_canaryArn")
+    private String value_canaryArn;
+    private boolean unknown_canaryArn;
     public String canaryArn() {
-        if (canaryArn == null) return null;
-        return canaryArn.getValue("GroupAssociation.canaryArn");
+        if (!unknown_canaryArn) return value_canaryArn;
+        throw new UndeferrableValueException("Value 'GroupAssociation.canaryArn' is not present");
     }
 
-    private UndeferrableValue<String> groupArn;
-
+    @PolicyResourceProperty(name="groupArn", flag="unknown_groupArn")
+    private String value_groupArn;
+    private boolean unknown_groupArn;
     public String groupArn() {
-        if (groupArn == null) return null;
-        return groupArn.getValue("GroupAssociation.groupArn");
+        if (!unknown_groupArn) return value_groupArn;
+        throw new UndeferrableValueException("Value 'GroupAssociation.groupArn' is not present");
     }
 
     /**
      * ID of the Group.
      * 
      */
-    private UndeferrableValue<String> groupId;
-
+    @PolicyResourceProperty(name="groupId", flag="unknown_groupId")
+    private String value_groupId;
+    private boolean unknown_groupId;
     public String groupId() {
-        if (groupId == null) return null;
-        return groupId.getValue("GroupAssociation.groupId");
+        if (!unknown_groupId) return value_groupId;
+        throw new UndeferrableValueException("Value 'GroupAssociation.groupId' is not present");
     }
 
     /**
      * Name of the group that the canary will be associated with.
      * 
      */
-    private UndeferrableValue<String> groupName;
-
+    @PolicyResourceProperty(name="groupName", flag="unknown_groupName")
+    private String value_groupName;
+    private boolean unknown_groupName;
     public String groupName() {
-        if (groupName == null) return null;
-        return groupName.getValue("GroupAssociation.groupName");
+        if (!unknown_groupName) return value_groupName;
+        throw new UndeferrableValueException("Value 'GroupAssociation.groupName' is not present");
     }
 
 }

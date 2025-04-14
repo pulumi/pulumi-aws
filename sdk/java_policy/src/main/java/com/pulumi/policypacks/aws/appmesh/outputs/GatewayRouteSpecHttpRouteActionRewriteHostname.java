@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class GatewayRouteSpecHttpRouteActionRewriteHostname {
      * Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> defaultTargetHostname;
-
+    @PolicyResourceProperty(name="defaultTargetHostname", flag="unknown_defaultTargetHostname")
+    private String value_defaultTargetHostname;
+    private boolean unknown_defaultTargetHostname;
     public String defaultTargetHostname() {
-        if (defaultTargetHostname == null) return null;
-        return defaultTargetHostname.getValue("GatewayRouteSpecHttpRouteActionRewriteHostname.defaultTargetHostname");
+        if (!unknown_defaultTargetHostname) return value_defaultTargetHostname;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteActionRewriteHostname.defaultTargetHostname' is not present");
     }
 
 }

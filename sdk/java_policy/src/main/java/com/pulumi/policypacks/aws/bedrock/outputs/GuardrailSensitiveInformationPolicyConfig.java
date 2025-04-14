@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.outputs.GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig;
 import com.pulumi.policypacks.aws.bedrock.outputs.GuardrailSensitiveInformationPolicyConfigRegexesConfig;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class GuardrailSensitiveInformationPolicyConfig {
      * List of entities. See PII Entities Config for more information.
      * 
      */
-    private @Nullable UndeferrableValue<List<GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig>> piiEntitiesConfigs;
-
+    @PolicyResourceProperty(name="piiEntitiesConfigs", flag="unknown_piiEntitiesConfigs")
+    private @Nullable List<GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig> value_piiEntitiesConfigs;
+    private boolean unknown_piiEntitiesConfigs;
     public @Nullable List<GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfig> piiEntitiesConfigs() {
-        if (piiEntitiesConfigs == null) return null;
-        return piiEntitiesConfigs.getValue("GuardrailSensitiveInformationPolicyConfig.piiEntitiesConfigs");
+        if (!unknown_piiEntitiesConfigs) return value_piiEntitiesConfigs;
+        throw new UndeferrableValueException("Value 'GuardrailSensitiveInformationPolicyConfig.piiEntitiesConfigs' is not present");
     }
 
     /**
      * List of regex. See Regexes Config for more information.
      * 
      */
-    private @Nullable UndeferrableValue<List<GuardrailSensitiveInformationPolicyConfigRegexesConfig>> regexesConfigs;
-
+    @PolicyResourceProperty(name="regexesConfigs", flag="unknown_regexesConfigs")
+    private @Nullable List<GuardrailSensitiveInformationPolicyConfigRegexesConfig> value_regexesConfigs;
+    private boolean unknown_regexesConfigs;
     public @Nullable List<GuardrailSensitiveInformationPolicyConfigRegexesConfig> regexesConfigs() {
-        if (regexesConfigs == null) return null;
-        return regexesConfigs.getValue("GuardrailSensitiveInformationPolicyConfig.regexesConfigs");
+        if (!unknown_regexesConfigs) return value_regexesConfigs;
+        throw new UndeferrableValueException("Value 'GuardrailSensitiveInformationPolicyConfig.regexesConfigs' is not present");
     }
 
 }

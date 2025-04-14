@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -19,44 +20,48 @@ public final class AppregistryAttributeGroupArgs extends com.pulumi.resources.Po
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> attributes;
-
+    @PolicyResourceProperty(name="attributes", flag="unknown_attributes")
+    private String value_attributes;
+    private boolean unknown_attributes;
     public String attributes() {
-        if (attributes == null) return null;
-        return attributes.getValue("AppregistryAttributeGroupArgs.attributes");
+        if (!unknown_attributes) return value_attributes;
+        throw new UndeferrableValueException("Value 'AppregistryAttributeGroupArgs.attributes' is not present");
     }
 
     /**
      * Description of the Attribute Group.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("AppregistryAttributeGroupArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AppregistryAttributeGroupArgs.description' is not present");
     }
 
     /**
      * Name of the Attribute Group.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AppregistryAttributeGroupArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AppregistryAttributeGroupArgs.name' is not present");
     }
 
     /**
      * A map of tags assigned to the Attribute Group. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AppregistryAttributeGroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AppregistryAttributeGroupArgs.tags' is not present");
     }
 
 }

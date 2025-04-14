@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.inputs.VpcEndpointDnsOptionsArgs;
 import com.pulumi.policypacks.aws.ec2.inputs.VpcEndpointSubnetConfigurationArgs;
@@ -21,44 +22,48 @@ public final class VpcEndpointArgs extends com.pulumi.resources.PolicyResourceIn
      * Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
      * 
      */
-    private UndeferrableValue<Boolean> autoAccept;
-
+    @PolicyResourceProperty(name="autoAccept", flag="unknown_autoAccept")
+    private Boolean value_autoAccept;
+    private boolean unknown_autoAccept;
     public Boolean autoAccept() {
-        if (autoAccept == null) return null;
-        return autoAccept.getValue("VpcEndpointArgs.autoAccept");
+        if (!unknown_autoAccept) return value_autoAccept;
+        throw new UndeferrableValueException("Value 'VpcEndpointArgs.autoAccept' is not present");
     }
 
     /**
      * The DNS options for the endpoint. See dns_options below.
      * 
      */
-    private UndeferrableValue<VpcEndpointDnsOptionsArgs> dnsOptions;
-
+    @PolicyResourceProperty(name="dnsOptions", flag="unknown_dnsOptions")
+    private VpcEndpointDnsOptionsArgs value_dnsOptions;
+    private boolean unknown_dnsOptions;
     public VpcEndpointDnsOptionsArgs dnsOptions() {
-        if (dnsOptions == null) return null;
-        return dnsOptions.getValue("VpcEndpointArgs.dnsOptions");
+        if (!unknown_dnsOptions) return value_dnsOptions;
+        throw new UndeferrableValueException("Value 'VpcEndpointArgs.dnsOptions' is not present");
     }
 
     /**
      * The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
      * 
      */
-    private UndeferrableValue<String> ipAddressType;
-
+    @PolicyResourceProperty(name="ipAddressType", flag="unknown_ipAddressType")
+    private String value_ipAddressType;
+    private boolean unknown_ipAddressType;
     public String ipAddressType() {
-        if (ipAddressType == null) return null;
-        return ipAddressType.getValue("VpcEndpointArgs.ipAddressType");
+        if (!unknown_ipAddressType) return value_ipAddressType;
+        throw new UndeferrableValueException("Value 'VpcEndpointArgs.ipAddressType' is not present");
     }
 
     /**
      * A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("VpcEndpointArgs.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'VpcEndpointArgs.policy' is not present");
     }
 
     /**
@@ -66,33 +71,36 @@ public final class VpcEndpointArgs extends com.pulumi.resources.PolicyResourceIn
      * Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> privateDnsEnabled;
-
+    @PolicyResourceProperty(name="privateDnsEnabled", flag="unknown_privateDnsEnabled")
+    private Boolean value_privateDnsEnabled;
+    private boolean unknown_privateDnsEnabled;
     public Boolean privateDnsEnabled() {
-        if (privateDnsEnabled == null) return null;
-        return privateDnsEnabled.getValue("VpcEndpointArgs.privateDnsEnabled");
+        if (!unknown_privateDnsEnabled) return value_privateDnsEnabled;
+        throw new UndeferrableValueException("Value 'VpcEndpointArgs.privateDnsEnabled' is not present");
     }
 
     /**
      * The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
      * 
      */
-    private UndeferrableValue<String> resourceConfigurationArn;
-
+    @PolicyResourceProperty(name="resourceConfigurationArn", flag="unknown_resourceConfigurationArn")
+    private String value_resourceConfigurationArn;
+    private boolean unknown_resourceConfigurationArn;
     public String resourceConfigurationArn() {
-        if (resourceConfigurationArn == null) return null;
-        return resourceConfigurationArn.getValue("VpcEndpointArgs.resourceConfigurationArn");
+        if (!unknown_resourceConfigurationArn) return value_resourceConfigurationArn;
+        throw new UndeferrableValueException("Value 'VpcEndpointArgs.resourceConfigurationArn' is not present");
     }
 
     /**
      * One or more route table IDs. Applicable for endpoints of type `Gateway`.
      * 
      */
-    private UndeferrableValue<List<String>> routeTableIds;
-
+    @PolicyResourceProperty(name="routeTableIds", flag="unknown_routeTableIds")
+    private List<String> value_routeTableIds;
+    private boolean unknown_routeTableIds;
     public List<String> routeTableIds() {
-        if (routeTableIds == null) return null;
-        return routeTableIds.getValue("VpcEndpointArgs.routeTableIds");
+        if (!unknown_routeTableIds) return value_routeTableIds;
+        throw new UndeferrableValueException("Value 'VpcEndpointArgs.routeTableIds' is not present");
     }
 
     /**
@@ -100,99 +108,108 @@ public final class VpcEndpointArgs extends com.pulumi.resources.PolicyResourceIn
      * If no security groups are specified, the VPC&#39;s [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("VpcEndpointArgs.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'VpcEndpointArgs.securityGroupIds' is not present");
     }
 
     /**
      * The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
      * 
      */
-    private UndeferrableValue<String> serviceName;
-
+    @PolicyResourceProperty(name="serviceName", flag="unknown_serviceName")
+    private String value_serviceName;
+    private boolean unknown_serviceName;
     public String serviceName() {
-        if (serviceName == null) return null;
-        return serviceName.getValue("VpcEndpointArgs.serviceName");
+        if (!unknown_serviceName) return value_serviceName;
+        throw new UndeferrableValueException("Value 'VpcEndpointArgs.serviceName' is not present");
     }
 
     /**
      * The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
      * 
      */
-    private UndeferrableValue<String> serviceNetworkArn;
-
+    @PolicyResourceProperty(name="serviceNetworkArn", flag="unknown_serviceNetworkArn")
+    private String value_serviceNetworkArn;
+    private boolean unknown_serviceNetworkArn;
     public String serviceNetworkArn() {
-        if (serviceNetworkArn == null) return null;
-        return serviceNetworkArn.getValue("VpcEndpointArgs.serviceNetworkArn");
+        if (!unknown_serviceNetworkArn) return value_serviceNetworkArn;
+        throw new UndeferrableValueException("Value 'VpcEndpointArgs.serviceNetworkArn' is not present");
     }
 
     /**
      * The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
      * 
      */
-    private UndeferrableValue<String> serviceRegion;
-
+    @PolicyResourceProperty(name="serviceRegion", flag="unknown_serviceRegion")
+    private String value_serviceRegion;
+    private boolean unknown_serviceRegion;
     public String serviceRegion() {
-        if (serviceRegion == null) return null;
-        return serviceRegion.getValue("VpcEndpointArgs.serviceRegion");
+        if (!unknown_serviceRegion) return value_serviceRegion;
+        throw new UndeferrableValueException("Value 'VpcEndpointArgs.serviceRegion' is not present");
     }
 
     /**
      * Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
      * 
      */
-    private UndeferrableValue<List<VpcEndpointSubnetConfigurationArgs>> subnetConfigurations;
-
+    @PolicyResourceProperty(name="subnetConfigurations", flag="unknown_subnetConfigurations")
+    private List<VpcEndpointSubnetConfigurationArgs> value_subnetConfigurations;
+    private boolean unknown_subnetConfigurations;
     public List<VpcEndpointSubnetConfigurationArgs> subnetConfigurations() {
-        if (subnetConfigurations == null) return null;
-        return subnetConfigurations.getValue("VpcEndpointArgs.subnetConfigurations");
+        if (!unknown_subnetConfigurations) return value_subnetConfigurations;
+        throw new UndeferrableValueException("Value 'VpcEndpointArgs.subnetConfigurations' is not present");
     }
 
     /**
      * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("VpcEndpointArgs.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'VpcEndpointArgs.subnetIds' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VpcEndpointArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VpcEndpointArgs.tags' is not present");
     }
 
     /**
      * The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
      * 
      */
-    private UndeferrableValue<String> vpcEndpointType;
-
+    @PolicyResourceProperty(name="vpcEndpointType", flag="unknown_vpcEndpointType")
+    private String value_vpcEndpointType;
+    private boolean unknown_vpcEndpointType;
     public String vpcEndpointType() {
-        if (vpcEndpointType == null) return null;
-        return vpcEndpointType.getValue("VpcEndpointArgs.vpcEndpointType");
+        if (!unknown_vpcEndpointType) return value_vpcEndpointType;
+        throw new UndeferrableValueException("Value 'VpcEndpointArgs.vpcEndpointType' is not present");
     }
 
     /**
      * The ID of the VPC in which the endpoint will be used.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("VpcEndpointArgs.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'VpcEndpointArgs.vpcId' is not present");
     }
 
 }

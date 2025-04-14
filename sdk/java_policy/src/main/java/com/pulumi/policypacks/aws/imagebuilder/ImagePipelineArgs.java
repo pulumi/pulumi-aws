@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.imagebuilder.inputs.ImagePipelineImageScanningConfigurationArgs;
 import com.pulumi.policypacks.aws.imagebuilder.inputs.ImagePipelineImageTestsConfigurationArgs;
@@ -23,99 +24,108 @@ public final class ImagePipelineArgs extends com.pulumi.resources.PolicyResource
      * Amazon Resource Name (ARN) of the container recipe.
      * 
      */
-    private UndeferrableValue<String> containerRecipeArn;
-
+    @PolicyResourceProperty(name="containerRecipeArn", flag="unknown_containerRecipeArn")
+    private String value_containerRecipeArn;
+    private boolean unknown_containerRecipeArn;
     public String containerRecipeArn() {
-        if (containerRecipeArn == null) return null;
-        return containerRecipeArn.getValue("ImagePipelineArgs.containerRecipeArn");
+        if (!unknown_containerRecipeArn) return value_containerRecipeArn;
+        throw new UndeferrableValueException("Value 'ImagePipelineArgs.containerRecipeArn' is not present");
     }
 
     /**
      * Description of the image pipeline.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ImagePipelineArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ImagePipelineArgs.description' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
      * 
      */
-    private UndeferrableValue<String> distributionConfigurationArn;
-
+    @PolicyResourceProperty(name="distributionConfigurationArn", flag="unknown_distributionConfigurationArn")
+    private String value_distributionConfigurationArn;
+    private boolean unknown_distributionConfigurationArn;
     public String distributionConfigurationArn() {
-        if (distributionConfigurationArn == null) return null;
-        return distributionConfigurationArn.getValue("ImagePipelineArgs.distributionConfigurationArn");
+        if (!unknown_distributionConfigurationArn) return value_distributionConfigurationArn;
+        throw new UndeferrableValueException("Value 'ImagePipelineArgs.distributionConfigurationArn' is not present");
     }
 
     /**
      * Whether additional information about the image being created is collected. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> enhancedImageMetadataEnabled;
-
+    @PolicyResourceProperty(name="enhancedImageMetadataEnabled", flag="unknown_enhancedImageMetadataEnabled")
+    private Boolean value_enhancedImageMetadataEnabled;
+    private boolean unknown_enhancedImageMetadataEnabled;
     public Boolean enhancedImageMetadataEnabled() {
-        if (enhancedImageMetadataEnabled == null) return null;
-        return enhancedImageMetadataEnabled.getValue("ImagePipelineArgs.enhancedImageMetadataEnabled");
+        if (!unknown_enhancedImageMetadataEnabled) return value_enhancedImageMetadataEnabled;
+        throw new UndeferrableValueException("Value 'ImagePipelineArgs.enhancedImageMetadataEnabled' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
      * 
      */
-    private UndeferrableValue<String> executionRole;
-
+    @PolicyResourceProperty(name="executionRole", flag="unknown_executionRole")
+    private String value_executionRole;
+    private boolean unknown_executionRole;
     public String executionRole() {
-        if (executionRole == null) return null;
-        return executionRole.getValue("ImagePipelineArgs.executionRole");
+        if (!unknown_executionRole) return value_executionRole;
+        throw new UndeferrableValueException("Value 'ImagePipelineArgs.executionRole' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the image recipe.
      * 
      */
-    private UndeferrableValue<String> imageRecipeArn;
-
+    @PolicyResourceProperty(name="imageRecipeArn", flag="unknown_imageRecipeArn")
+    private String value_imageRecipeArn;
+    private boolean unknown_imageRecipeArn;
     public String imageRecipeArn() {
-        if (imageRecipeArn == null) return null;
-        return imageRecipeArn.getValue("ImagePipelineArgs.imageRecipeArn");
+        if (!unknown_imageRecipeArn) return value_imageRecipeArn;
+        throw new UndeferrableValueException("Value 'ImagePipelineArgs.imageRecipeArn' is not present");
     }
 
     /**
      * Configuration block with image scanning configuration. Detailed below.
      * 
      */
-    private UndeferrableValue<ImagePipelineImageScanningConfigurationArgs> imageScanningConfiguration;
-
+    @PolicyResourceProperty(name="imageScanningConfiguration", flag="unknown_imageScanningConfiguration")
+    private ImagePipelineImageScanningConfigurationArgs value_imageScanningConfiguration;
+    private boolean unknown_imageScanningConfiguration;
     public ImagePipelineImageScanningConfigurationArgs imageScanningConfiguration() {
-        if (imageScanningConfiguration == null) return null;
-        return imageScanningConfiguration.getValue("ImagePipelineArgs.imageScanningConfiguration");
+        if (!unknown_imageScanningConfiguration) return value_imageScanningConfiguration;
+        throw new UndeferrableValueException("Value 'ImagePipelineArgs.imageScanningConfiguration' is not present");
     }
 
     /**
      * Configuration block with image tests configuration. Detailed below.
      * 
      */
-    private UndeferrableValue<ImagePipelineImageTestsConfigurationArgs> imageTestsConfiguration;
-
+    @PolicyResourceProperty(name="imageTestsConfiguration", flag="unknown_imageTestsConfiguration")
+    private ImagePipelineImageTestsConfigurationArgs value_imageTestsConfiguration;
+    private boolean unknown_imageTestsConfiguration;
     public ImagePipelineImageTestsConfigurationArgs imageTestsConfiguration() {
-        if (imageTestsConfiguration == null) return null;
-        return imageTestsConfiguration.getValue("ImagePipelineArgs.imageTestsConfiguration");
+        if (!unknown_imageTestsConfiguration) return value_imageTestsConfiguration;
+        throw new UndeferrableValueException("Value 'ImagePipelineArgs.imageTestsConfiguration' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
      * 
      */
-    private UndeferrableValue<String> infrastructureConfigurationArn;
-
+    @PolicyResourceProperty(name="infrastructureConfigurationArn", flag="unknown_infrastructureConfigurationArn")
+    private String value_infrastructureConfigurationArn;
+    private boolean unknown_infrastructureConfigurationArn;
     public String infrastructureConfigurationArn() {
-        if (infrastructureConfigurationArn == null) return null;
-        return infrastructureConfigurationArn.getValue("ImagePipelineArgs.infrastructureConfigurationArn");
+        if (!unknown_infrastructureConfigurationArn) return value_infrastructureConfigurationArn;
+        throw new UndeferrableValueException("Value 'ImagePipelineArgs.infrastructureConfigurationArn' is not present");
     }
 
     /**
@@ -124,55 +134,60 @@ public final class ImagePipelineArgs extends com.pulumi.resources.PolicyResource
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ImagePipelineArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ImagePipelineArgs.name' is not present");
     }
 
     /**
      * Configuration block with schedule settings. Detailed below.
      * 
      */
-    private UndeferrableValue<ImagePipelineScheduleArgs> schedule;
-
+    @PolicyResourceProperty(name="schedule", flag="unknown_schedule")
+    private ImagePipelineScheduleArgs value_schedule;
+    private boolean unknown_schedule;
     public ImagePipelineScheduleArgs schedule() {
-        if (schedule == null) return null;
-        return schedule.getValue("ImagePipelineArgs.schedule");
+        if (!unknown_schedule) return value_schedule;
+        throw new UndeferrableValueException("Value 'ImagePipelineArgs.schedule' is not present");
     }
 
     /**
      * Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("ImagePipelineArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'ImagePipelineArgs.status' is not present");
     }
 
     /**
      * Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ImagePipelineArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ImagePipelineArgs.tags' is not present");
     }
 
     /**
      * Configuration block with the workflow configuration. Detailed below.
      * 
      */
-    private UndeferrableValue<List<ImagePipelineWorkflowArgs>> workflows;
-
+    @PolicyResourceProperty(name="workflows", flag="unknown_workflows")
+    private List<ImagePipelineWorkflowArgs> value_workflows;
+    private boolean unknown_workflows;
     public List<ImagePipelineWorkflowArgs> workflows() {
-        if (workflows == null) return null;
-        return workflows.getValue("ImagePipelineArgs.workflows");
+        if (!unknown_workflows) return value_workflows;
+        throw new UndeferrableValueException("Value 'ImagePipelineArgs.workflows' is not present");
     }
 
 }

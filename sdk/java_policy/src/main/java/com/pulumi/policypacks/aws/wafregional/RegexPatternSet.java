@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafregional;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,22 +18,24 @@ public final class RegexPatternSet extends com.pulumi.resources.PolicyResourceOu
      * The name or description of the Regex Pattern Set.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RegexPatternSet.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RegexPatternSet.name' is not present");
     }
 
     /**
      * A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> regexPatternStrings;
-
+    @PolicyResourceProperty(name="regexPatternStrings", flag="unknown_regexPatternStrings")
+    private @Nullable List<String> value_regexPatternStrings;
+    private boolean unknown_regexPatternStrings;
     public @Nullable List<String> regexPatternStrings() {
-        if (regexPatternStrings == null) return null;
-        return regexPatternStrings.getValue("RegexPatternSet.regexPatternStrings");
+        if (!unknown_regexPatternStrings) return value_regexPatternStrings;
+        throw new UndeferrableValueException("Value 'RegexPatternSet.regexPatternStrings' is not present");
     }
 
 }

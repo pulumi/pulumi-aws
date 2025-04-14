@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,22 +17,24 @@ public final class StreamConsumerArgs extends com.pulumi.resources.PolicyResourc
      * Name of the stream consumer.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("StreamConsumerArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'StreamConsumerArgs.name' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the data stream the consumer is registered with.
      * 
      */
-    private UndeferrableValue<String> streamArn;
-
+    @PolicyResourceProperty(name="streamArn", flag="unknown_streamArn")
+    private String value_streamArn;
+    private boolean unknown_streamArn;
     public String streamArn() {
-        if (streamArn == null) return null;
-        return streamArn.getValue("StreamConsumerArgs.streamArn");
+        if (!unknown_streamArn) return value_streamArn;
+        throw new UndeferrableValueException("Value 'StreamConsumerArgs.streamArn' is not present");
     }
 
 }

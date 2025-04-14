@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class LaunchTemplateBlockDeviceMappingEbs {
      * See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/preserving-volumes-on-termination.html) for more information.
      * 
      */
-    private @Nullable UndeferrableValue<String> deleteOnTermination;
-
+    @PolicyResourceProperty(name="deleteOnTermination", flag="unknown_deleteOnTermination")
+    private @Nullable String value_deleteOnTermination;
+    private boolean unknown_deleteOnTermination;
     public @Nullable String deleteOnTermination() {
-        if (deleteOnTermination == null) return null;
-        return deleteOnTermination.getValue("LaunchTemplateBlockDeviceMappingEbs.deleteOnTermination");
+        if (!unknown_deleteOnTermination) return value_deleteOnTermination;
+        throw new UndeferrableValueException("Value 'LaunchTemplateBlockDeviceMappingEbs.deleteOnTermination' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class LaunchTemplateBlockDeviceMappingEbs {
      * Cannot be used with `snapshot_id`.
      * 
      */
-    private @Nullable UndeferrableValue<String> encrypted;
-
+    @PolicyResourceProperty(name="encrypted", flag="unknown_encrypted")
+    private @Nullable String value_encrypted;
+    private boolean unknown_encrypted;
     public @Nullable String encrypted() {
-        if (encrypted == null) return null;
-        return encrypted.getValue("LaunchTemplateBlockDeviceMappingEbs.encrypted");
+        if (!unknown_encrypted) return value_encrypted;
+        throw new UndeferrableValueException("Value 'LaunchTemplateBlockDeviceMappingEbs.encrypted' is not present");
     }
 
     /**
@@ -40,11 +43,12 @@ public final class LaunchTemplateBlockDeviceMappingEbs {
      * This must be set with a `volume_type` of `&#34;io1/io2/gp3&#34;`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> iops;
-
+    @PolicyResourceProperty(name="iops", flag="unknown_iops")
+    private @Nullable Integer value_iops;
+    private boolean unknown_iops;
     public @Nullable Integer iops() {
-        if (iops == null) return null;
-        return iops.getValue("LaunchTemplateBlockDeviceMappingEbs.iops");
+        if (!unknown_iops) return value_iops;
+        throw new UndeferrableValueException("Value 'LaunchTemplateBlockDeviceMappingEbs.iops' is not present");
     }
 
     /**
@@ -52,44 +56,48 @@ public final class LaunchTemplateBlockDeviceMappingEbs {
      * `encrypted` must be set to `true` when this is set.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("LaunchTemplateBlockDeviceMappingEbs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'LaunchTemplateBlockDeviceMappingEbs.kmsKeyId' is not present");
     }
 
     /**
      * The Snapshot ID to mount.
      * 
      */
-    private @Nullable UndeferrableValue<String> snapshotId;
-
+    @PolicyResourceProperty(name="snapshotId", flag="unknown_snapshotId")
+    private @Nullable String value_snapshotId;
+    private boolean unknown_snapshotId;
     public @Nullable String snapshotId() {
-        if (snapshotId == null) return null;
-        return snapshotId.getValue("LaunchTemplateBlockDeviceMappingEbs.snapshotId");
+        if (!unknown_snapshotId) return value_snapshotId;
+        throw new UndeferrableValueException("Value 'LaunchTemplateBlockDeviceMappingEbs.snapshotId' is not present");
     }
 
     /**
      * The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> throughput;
-
+    @PolicyResourceProperty(name="throughput", flag="unknown_throughput")
+    private @Nullable Integer value_throughput;
+    private boolean unknown_throughput;
     public @Nullable Integer throughput() {
-        if (throughput == null) return null;
-        return throughput.getValue("LaunchTemplateBlockDeviceMappingEbs.throughput");
+        if (!unknown_throughput) return value_throughput;
+        throw new UndeferrableValueException("Value 'LaunchTemplateBlockDeviceMappingEbs.throughput' is not present");
     }
 
     /**
      * The size of the volume in gigabytes.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> volumeSize;
-
+    @PolicyResourceProperty(name="volumeSize", flag="unknown_volumeSize")
+    private @Nullable Integer value_volumeSize;
+    private boolean unknown_volumeSize;
     public @Nullable Integer volumeSize() {
-        if (volumeSize == null) return null;
-        return volumeSize.getValue("LaunchTemplateBlockDeviceMappingEbs.volumeSize");
+        if (!unknown_volumeSize) return value_volumeSize;
+        throw new UndeferrableValueException("Value 'LaunchTemplateBlockDeviceMappingEbs.volumeSize' is not present");
     }
 
     /**
@@ -97,11 +105,12 @@ public final class LaunchTemplateBlockDeviceMappingEbs {
      * Can be one of `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1`.
      * 
      */
-    private @Nullable UndeferrableValue<String> volumeType;
-
+    @PolicyResourceProperty(name="volumeType", flag="unknown_volumeType")
+    private @Nullable String value_volumeType;
+    private boolean unknown_volumeType;
     public @Nullable String volumeType() {
-        if (volumeType == null) return null;
-        return volumeType.getValue("LaunchTemplateBlockDeviceMappingEbs.volumeType");
+        if (!unknown_volumeType) return value_volumeType;
+        throw new UndeferrableValueException("Value 'LaunchTemplateBlockDeviceMappingEbs.volumeType' is not present");
     }
 
 }

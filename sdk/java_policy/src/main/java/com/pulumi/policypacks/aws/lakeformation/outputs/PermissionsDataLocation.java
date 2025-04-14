@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -16,22 +17,24 @@ public final class PermissionsDataLocation {
      * The following argument is optional:
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("PermissionsDataLocation.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'PermissionsDataLocation.arn' is not present");
     }
 
     /**
      * Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
      * 
      */
-    private @Nullable UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private @Nullable String value_catalogId;
+    private boolean unknown_catalogId;
     public @Nullable String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("PermissionsDataLocation.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'PermissionsDataLocation.catalogId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class InstanceLaunchTemplate {
      * ID of the launch template. Conflicts with `name`.
      * 
      */
-    private @Nullable UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private @Nullable String value_id;
+    private boolean unknown_id;
     public @Nullable String id() {
-        if (id == null) return null;
-        return id.getValue("InstanceLaunchTemplate.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'InstanceLaunchTemplate.id' is not present");
     }
 
     /**
      * Name of the launch template. Conflicts with `id`.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("InstanceLaunchTemplate.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'InstanceLaunchTemplate.name' is not present");
     }
 
     /**
      * Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
      * 
      */
-    private @Nullable UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private @Nullable String value_version;
+    private boolean unknown_version;
     public @Nullable String version() {
-        if (version == null) return null;
-        return version.getValue("InstanceLaunchTemplate.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'InstanceLaunchTemplate.version' is not present");
     }
 
 }

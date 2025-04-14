@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.waf;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.waf.inputs.GeoMatchSetGeoMatchConstraintArgs;
 import java.lang.String;
@@ -18,22 +19,24 @@ public final class GeoMatchSetArgs extends com.pulumi.resources.PolicyResourceIn
      * The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
      * 
      */
-    private UndeferrableValue<List<GeoMatchSetGeoMatchConstraintArgs>> geoMatchConstraints;
-
+    @PolicyResourceProperty(name="geoMatchConstraints", flag="unknown_geoMatchConstraints")
+    private List<GeoMatchSetGeoMatchConstraintArgs> value_geoMatchConstraints;
+    private boolean unknown_geoMatchConstraints;
     public List<GeoMatchSetGeoMatchConstraintArgs> geoMatchConstraints() {
-        if (geoMatchConstraints == null) return null;
-        return geoMatchConstraints.getValue("GeoMatchSetArgs.geoMatchConstraints");
+        if (!unknown_geoMatchConstraints) return value_geoMatchConstraints;
+        throw new UndeferrableValueException("Value 'GeoMatchSetArgs.geoMatchConstraints' is not present");
     }
 
     /**
      * The name or description of the GeoMatchSet.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("GeoMatchSetArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'GeoMatchSetArgs.name' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.outputs.NetworkInsightsAnalysisAlternatePathHint;
 import com.pulumi.policypacks.aws.ec2.outputs.NetworkInsightsAnalysisExplanation;
@@ -23,55 +24,60 @@ public final class NetworkInsightsAnalysis extends com.pulumi.resources.PolicyRe
      * Potential intermediate components of a feasible path. Described below.
      * 
      */
-    private UndeferrableValue<List<NetworkInsightsAnalysisAlternatePathHint>> alternatePathHints;
-
+    @PolicyResourceProperty(name="alternatePathHints", flag="unknown_alternatePathHints")
+    private List<NetworkInsightsAnalysisAlternatePathHint> value_alternatePathHints;
+    private boolean unknown_alternatePathHints;
     public List<NetworkInsightsAnalysisAlternatePathHint> alternatePathHints() {
-        if (alternatePathHints == null) return null;
-        return alternatePathHints.getValue("NetworkInsightsAnalysis.alternatePathHints");
+        if (!unknown_alternatePathHints) return value_alternatePathHints;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.alternatePathHints' is not present");
     }
 
     /**
      * ARN of the Network Insights Analysis.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("NetworkInsightsAnalysis.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.arn' is not present");
     }
 
     /**
      * Explanation codes for an unreachable path. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Explanation.html) for details.
      * 
      */
-    private UndeferrableValue<List<NetworkInsightsAnalysisExplanation>> explanations;
-
+    @PolicyResourceProperty(name="explanations", flag="unknown_explanations")
+    private List<NetworkInsightsAnalysisExplanation> value_explanations;
+    private boolean unknown_explanations;
     public List<NetworkInsightsAnalysisExplanation> explanations() {
-        if (explanations == null) return null;
-        return explanations.getValue("NetworkInsightsAnalysis.explanations");
+        if (!unknown_explanations) return value_explanations;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.explanations' is not present");
     }
 
     /**
      * A list of ARNs for resources the path must traverse.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> filterInArns;
-
+    @PolicyResourceProperty(name="filterInArns", flag="unknown_filterInArns")
+    private @Nullable List<String> value_filterInArns;
+    private boolean unknown_filterInArns;
     public @Nullable List<String> filterInArns() {
-        if (filterInArns == null) return null;
-        return filterInArns.getValue("NetworkInsightsAnalysis.filterInArns");
+        if (!unknown_filterInArns) return value_filterInArns;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.filterInArns' is not present");
     }
 
     /**
      * The components in the path from source to destination. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
      * 
      */
-    private UndeferrableValue<List<NetworkInsightsAnalysisForwardPathComponent>> forwardPathComponents;
-
+    @PolicyResourceProperty(name="forwardPathComponents", flag="unknown_forwardPathComponents")
+    private List<NetworkInsightsAnalysisForwardPathComponent> value_forwardPathComponents;
+    private boolean unknown_forwardPathComponents;
     public List<NetworkInsightsAnalysisForwardPathComponent> forwardPathComponents() {
-        if (forwardPathComponents == null) return null;
-        return forwardPathComponents.getValue("NetworkInsightsAnalysis.forwardPathComponents");
+        if (!unknown_forwardPathComponents) return value_forwardPathComponents;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.forwardPathComponents' is not present");
     }
 
     /**
@@ -80,77 +86,84 @@ public final class NetworkInsightsAnalysis extends com.pulumi.resources.PolicyRe
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> networkInsightsPathId;
-
+    @PolicyResourceProperty(name="networkInsightsPathId", flag="unknown_networkInsightsPathId")
+    private String value_networkInsightsPathId;
+    private boolean unknown_networkInsightsPathId;
     public String networkInsightsPathId() {
-        if (networkInsightsPathId == null) return null;
-        return networkInsightsPathId.getValue("NetworkInsightsAnalysis.networkInsightsPathId");
+        if (!unknown_networkInsightsPathId) return value_networkInsightsPathId;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.networkInsightsPathId' is not present");
     }
 
     /**
      * Set to `true` if the destination was reachable.
      * 
      */
-    private UndeferrableValue<Boolean> pathFound;
-
+    @PolicyResourceProperty(name="pathFound", flag="unknown_pathFound")
+    private Boolean value_pathFound;
+    private boolean unknown_pathFound;
     public Boolean pathFound() {
-        if (pathFound == null) return null;
-        return pathFound.getValue("NetworkInsightsAnalysis.pathFound");
+        if (!unknown_pathFound) return value_pathFound;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.pathFound' is not present");
     }
 
     /**
      * The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
      * 
      */
-    private UndeferrableValue<List<NetworkInsightsAnalysisReturnPathComponent>> returnPathComponents;
-
+    @PolicyResourceProperty(name="returnPathComponents", flag="unknown_returnPathComponents")
+    private List<NetworkInsightsAnalysisReturnPathComponent> value_returnPathComponents;
+    private boolean unknown_returnPathComponents;
     public List<NetworkInsightsAnalysisReturnPathComponent> returnPathComponents() {
-        if (returnPathComponents == null) return null;
-        return returnPathComponents.getValue("NetworkInsightsAnalysis.returnPathComponents");
+        if (!unknown_returnPathComponents) return value_returnPathComponents;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.returnPathComponents' is not present");
     }
 
     /**
      * The date/time the analysis was started.
      * 
      */
-    private UndeferrableValue<String> startDate;
-
+    @PolicyResourceProperty(name="startDate", flag="unknown_startDate")
+    private String value_startDate;
+    private boolean unknown_startDate;
     public String startDate() {
-        if (startDate == null) return null;
-        return startDate.getValue("NetworkInsightsAnalysis.startDate");
+        if (!unknown_startDate) return value_startDate;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.startDate' is not present");
     }
 
     /**
      * The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("NetworkInsightsAnalysis.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.status' is not present");
     }
 
     /**
      * A message to provide more context when the `status` is `failed`.
      * 
      */
-    private UndeferrableValue<String> statusMessage;
-
+    @PolicyResourceProperty(name="statusMessage", flag="unknown_statusMessage")
+    private String value_statusMessage;
+    private boolean unknown_statusMessage;
     public String statusMessage() {
-        if (statusMessage == null) return null;
-        return statusMessage.getValue("NetworkInsightsAnalysis.statusMessage");
+        if (!unknown_statusMessage) return value_statusMessage;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.statusMessage' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("NetworkInsightsAnalysis.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.tags' is not present");
     }
 
     /**
@@ -161,33 +174,36 @@ public final class NetworkInsightsAnalysis extends com.pulumi.resources.PolicyRe
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("NetworkInsightsAnalysis.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.tagsAll' is not present");
     }
 
     /**
      * If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> waitForCompletion;
-
+    @PolicyResourceProperty(name="waitForCompletion", flag="unknown_waitForCompletion")
+    private @Nullable Boolean value_waitForCompletion;
+    private boolean unknown_waitForCompletion;
     public @Nullable Boolean waitForCompletion() {
-        if (waitForCompletion == null) return null;
-        return waitForCompletion.getValue("NetworkInsightsAnalysis.waitForCompletion");
+        if (!unknown_waitForCompletion) return value_waitForCompletion;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.waitForCompletion' is not present");
     }
 
     /**
      * The warning message.
      * 
      */
-    private UndeferrableValue<String> warningMessage;
-
+    @PolicyResourceProperty(name="warningMessage", flag="unknown_warningMessage")
+    private String value_warningMessage;
+    private boolean unknown_warningMessage;
     public String warningMessage() {
-        if (warningMessage == null) return null;
-        return warningMessage.getValue("NetworkInsightsAnalysis.warningMessage");
+        if (!unknown_warningMessage) return value_warningMessage;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysis.warningMessage' is not present");
     }
 
 }

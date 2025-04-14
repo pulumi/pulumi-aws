@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,11 +14,12 @@ public final class FileCacheLustreConfigurationMetadataConfigurationArgs {
      * The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
      * 
      */
-    private UndeferrableValue<Integer> storageCapacity;
-
+    @PolicyResourceProperty(name="storageCapacity", flag="unknown_storageCapacity")
+    private Integer value_storageCapacity;
+    private boolean unknown_storageCapacity;
     public Integer storageCapacity() {
-        if (storageCapacity == null) return null;
-        return storageCapacity.getValue("FileCacheLustreConfigurationMetadataConfigurationArgs.storageCapacity");
+        if (!unknown_storageCapacity) return value_storageCapacity;
+        throw new UndeferrableValueException("Value 'FileCacheLustreConfigurationMetadataConfigurationArgs.storageCapacity' is not present");
     }
 
 }

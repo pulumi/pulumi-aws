@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      * The API tokens used by Dynatrace API to authenticate various API calls.
      * 
      */
-    private UndeferrableValue<String> apiToken;
-
+    @PolicyResourceProperty(name="apiToken", flag="unknown_apiToken")
+    private String value_apiToken;
+    private boolean unknown_apiToken;
     public String apiToken() {
-        if (apiToken == null) return null;
-        return apiToken.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace.apiToken");
+        if (!unknown_apiToken) return value_apiToken;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace.apiToken' is not present");
     }
 
 }

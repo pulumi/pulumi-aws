@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.organizations;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.organizations.outputs.OrganizationalUnitAccount;
 import java.lang.String;
@@ -19,55 +20,60 @@ public final class OrganizationalUnit extends com.pulumi.resources.PolicyResourc
      * List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
      * 
      */
-    private UndeferrableValue<List<OrganizationalUnitAccount>> accounts;
-
+    @PolicyResourceProperty(name="accounts", flag="unknown_accounts")
+    private List<OrganizationalUnitAccount> value_accounts;
+    private boolean unknown_accounts;
     public List<OrganizationalUnitAccount> accounts() {
-        if (accounts == null) return null;
-        return accounts.getValue("OrganizationalUnit.accounts");
+        if (!unknown_accounts) return value_accounts;
+        throw new UndeferrableValueException("Value 'OrganizationalUnit.accounts' is not present");
     }
 
     /**
      * ARN of the organizational unit
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("OrganizationalUnit.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'OrganizationalUnit.arn' is not present");
     }
 
     /**
      * The name for the organizational unit
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("OrganizationalUnit.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'OrganizationalUnit.name' is not present");
     }
 
     /**
      * ID of the parent organizational unit, which may be the root
      * 
      */
-    private UndeferrableValue<String> parentId;
-
+    @PolicyResourceProperty(name="parentId", flag="unknown_parentId")
+    private String value_parentId;
+    private boolean unknown_parentId;
     public String parentId() {
-        if (parentId == null) return null;
-        return parentId.getValue("OrganizationalUnit.parentId");
+        if (!unknown_parentId) return value_parentId;
+        throw new UndeferrableValueException("Value 'OrganizationalUnit.parentId' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("OrganizationalUnit.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'OrganizationalUnit.tags' is not present");
     }
 
     /**
@@ -78,11 +84,12 @@ public final class OrganizationalUnit extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("OrganizationalUnit.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'OrganizationalUnit.tagsAll' is not present");
     }
 
 }

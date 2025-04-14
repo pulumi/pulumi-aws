@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecr;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ecr.outputs.RepositoryCreationTemplateEncryptionConfiguration;
 import java.lang.String;
@@ -19,106 +20,116 @@ public final class RepositoryCreationTemplate extends com.pulumi.resources.Polic
      * Which features this template applies to. Must contain one or more of `PULL_THROUGH_CACHE` or `REPLICATION`.
      * 
      */
-    private UndeferrableValue<List<String>> appliedFors;
-
+    @PolicyResourceProperty(name="appliedFors", flag="unknown_appliedFors")
+    private List<String> value_appliedFors;
+    private boolean unknown_appliedFors;
     public List<String> appliedFors() {
-        if (appliedFors == null) return null;
-        return appliedFors.getValue("RepositoryCreationTemplate.appliedFors");
+        if (!unknown_appliedFors) return value_appliedFors;
+        throw new UndeferrableValueException("Value 'RepositoryCreationTemplate.appliedFors' is not present");
     }
 
     /**
      * A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
      * 
      */
-    private @Nullable UndeferrableValue<String> customRoleArn;
-
+    @PolicyResourceProperty(name="customRoleArn", flag="unknown_customRoleArn")
+    private @Nullable String value_customRoleArn;
+    private boolean unknown_customRoleArn;
     public @Nullable String customRoleArn() {
-        if (customRoleArn == null) return null;
-        return customRoleArn.getValue("RepositoryCreationTemplate.customRoleArn");
+        if (!unknown_customRoleArn) return value_customRoleArn;
+        throw new UndeferrableValueException("Value 'RepositoryCreationTemplate.customRoleArn' is not present");
     }
 
     /**
      * The description for this template.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("RepositoryCreationTemplate.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'RepositoryCreationTemplate.description' is not present");
     }
 
     /**
      * Encryption configuration for any created repositories. See below for schema.
      * 
      */
-    private @Nullable UndeferrableValue<List<RepositoryCreationTemplateEncryptionConfiguration>> encryptionConfigurations;
-
+    @PolicyResourceProperty(name="encryptionConfigurations", flag="unknown_encryptionConfigurations")
+    private @Nullable List<RepositoryCreationTemplateEncryptionConfiguration> value_encryptionConfigurations;
+    private boolean unknown_encryptionConfigurations;
     public @Nullable List<RepositoryCreationTemplateEncryptionConfiguration> encryptionConfigurations() {
-        if (encryptionConfigurations == null) return null;
-        return encryptionConfigurations.getValue("RepositoryCreationTemplate.encryptionConfigurations");
+        if (!unknown_encryptionConfigurations) return value_encryptionConfigurations;
+        throw new UndeferrableValueException("Value 'RepositoryCreationTemplate.encryptionConfigurations' is not present");
     }
 
     /**
      * The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> imageTagMutability;
-
+    @PolicyResourceProperty(name="imageTagMutability", flag="unknown_imageTagMutability")
+    private @Nullable String value_imageTagMutability;
+    private boolean unknown_imageTagMutability;
     public @Nullable String imageTagMutability() {
-        if (imageTagMutability == null) return null;
-        return imageTagMutability.getValue("RepositoryCreationTemplate.imageTagMutability");
+        if (!unknown_imageTagMutability) return value_imageTagMutability;
+        throw new UndeferrableValueException("Value 'RepositoryCreationTemplate.imageTagMutability' is not present");
     }
 
     /**
      * The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
      * 
      */
-    private @Nullable UndeferrableValue<String> lifecyclePolicy;
-
+    @PolicyResourceProperty(name="lifecyclePolicy", flag="unknown_lifecyclePolicy")
+    private @Nullable String value_lifecyclePolicy;
+    private boolean unknown_lifecyclePolicy;
     public @Nullable String lifecyclePolicy() {
-        if (lifecyclePolicy == null) return null;
-        return lifecyclePolicy.getValue("RepositoryCreationTemplate.lifecyclePolicy");
+        if (!unknown_lifecyclePolicy) return value_lifecyclePolicy;
+        throw new UndeferrableValueException("Value 'RepositoryCreationTemplate.lifecyclePolicy' is not present");
     }
 
     /**
      * The repository name prefix to match against. Use `ROOT` to match any prefix that doesn&#39;t explicitly match another template.
      * 
      */
-    private UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private String value_prefix;
+    private boolean unknown_prefix;
     public String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("RepositoryCreationTemplate.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'RepositoryCreationTemplate.prefix' is not present");
     }
 
     /**
      * The registry ID the repository creation template applies to.
      * 
      */
-    private UndeferrableValue<String> registryId;
-
+    @PolicyResourceProperty(name="registryId", flag="unknown_registryId")
+    private String value_registryId;
+    private boolean unknown_registryId;
     public String registryId() {
-        if (registryId == null) return null;
-        return registryId.getValue("RepositoryCreationTemplate.registryId");
+        if (!unknown_registryId) return value_registryId;
+        throw new UndeferrableValueException("Value 'RepositoryCreationTemplate.registryId' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> repositoryPolicy;
-
+    @PolicyResourceProperty(name="repositoryPolicy", flag="unknown_repositoryPolicy")
+    private @Nullable String value_repositoryPolicy;
+    private boolean unknown_repositoryPolicy;
     public @Nullable String repositoryPolicy() {
-        if (repositoryPolicy == null) return null;
-        return repositoryPolicy.getValue("RepositoryCreationTemplate.repositoryPolicy");
+        if (!unknown_repositoryPolicy) return value_repositoryPolicy;
+        throw new UndeferrableValueException("Value 'RepositoryCreationTemplate.repositoryPolicy' is not present");
     }
 
     /**
      * A map of tags to assign to any created repositories.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> resourceTags;
-
+    @PolicyResourceProperty(name="resourceTags", flag="unknown_resourceTags")
+    private @Nullable Map<String,String> value_resourceTags;
+    private boolean unknown_resourceTags;
     public @Nullable Map<String,String> resourceTags() {
-        if (resourceTags == null) return null;
-        return resourceTags.getValue("RepositoryCreationTemplate.resourceTags");
+        if (!unknown_resourceTags) return value_resourceTags;
+        throw new UndeferrableValueException("Value 'RepositoryCreationTemplate.resourceTags' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,66 +16,72 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
      * The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
      * 
      */
-    private UndeferrableValue<String> authType;
-
+    @PolicyResourceProperty(name="authType", flag="unknown_authType")
+    private String value_authType;
+    private boolean unknown_authType;
     public String authType() {
-        if (authType == null) return null;
-        return authType.getValue("AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs.authType");
+        if (!unknown_authType) return value_authType;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs.authType' is not present");
     }
 
     /**
      * The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.{@literal @}-]{1,512}$.
      * 
      */
-    private UndeferrableValue<String> credentialsSecretArn;
-
+    @PolicyResourceProperty(name="credentialsSecretArn", flag="unknown_credentialsSecretArn")
+    private String value_credentialsSecretArn;
+    private boolean unknown_credentialsSecretArn;
     public String credentialsSecretArn() {
-        if (credentialsSecretArn == null) return null;
-        return credentialsSecretArn.getValue("AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs.credentialsSecretArn");
+        if (!unknown_credentialsSecretArn) return value_credentialsSecretArn;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs.credentialsSecretArn' is not present");
     }
 
     /**
      * The domain of your SharePoint instance or site URL/URLs.
      * 
      */
-    private UndeferrableValue<String> domain;
-
+    @PolicyResourceProperty(name="domain", flag="unknown_domain")
+    private String value_domain;
+    private boolean unknown_domain;
     public String domain() {
-        if (domain == null) return null;
-        return domain.getValue("AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs.domain");
+        if (!unknown_domain) return value_domain;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs.domain' is not present");
     }
 
     /**
      * The supported host type, whether online/cloud or server/on-premises. Valid values: `ONLINE`.
      * 
      */
-    private UndeferrableValue<String> hostType;
-
+    @PolicyResourceProperty(name="hostType", flag="unknown_hostType")
+    private String value_hostType;
+    private boolean unknown_hostType;
     public String hostType() {
-        if (hostType == null) return null;
-        return hostType.getValue("AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs.hostType");
+        if (!unknown_hostType) return value_hostType;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs.hostType' is not present");
     }
 
     /**
      * A list of one or more SharePoint site URLs.
      * 
      */
-    private UndeferrableValue<List<String>> siteUrls;
-
+    @PolicyResourceProperty(name="siteUrls", flag="unknown_siteUrls")
+    private List<String> value_siteUrls;
+    private boolean unknown_siteUrls;
     public List<String> siteUrls() {
-        if (siteUrls == null) return null;
-        return siteUrls.getValue("AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs.siteUrls");
+        if (!unknown_siteUrls) return value_siteUrls;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs.siteUrls' is not present");
     }
 
     /**
      * The identifier of your Microsoft 365 tenant.
      * 
      */
-    private UndeferrableValue<String> tenantId;
-
+    @PolicyResourceProperty(name="tenantId", flag="unknown_tenantId")
+    private String value_tenantId;
+    private boolean unknown_tenantId;
     public String tenantId() {
-        if (tenantId == null) return null;
-        return tenantId.getValue("AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs.tenantId");
+        if (!unknown_tenantId) return value_tenantId;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs.tenantId' is not present");
     }
 
 }

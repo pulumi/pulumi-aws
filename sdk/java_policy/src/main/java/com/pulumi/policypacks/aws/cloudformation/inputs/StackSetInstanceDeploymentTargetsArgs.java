@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudformation.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class StackSetInstanceDeploymentTargetsArgs {
      * Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
      * 
      */
-    private UndeferrableValue<String> accountFilterType;
-
+    @PolicyResourceProperty(name="accountFilterType", flag="unknown_accountFilterType")
+    private String value_accountFilterType;
+    private boolean unknown_accountFilterType;
     public String accountFilterType() {
-        if (accountFilterType == null) return null;
-        return accountFilterType.getValue("StackSetInstanceDeploymentTargetsArgs.accountFilterType");
+        if (!unknown_accountFilterType) return value_accountFilterType;
+        throw new UndeferrableValueException("Value 'StackSetInstanceDeploymentTargetsArgs.accountFilterType' is not present");
     }
 
     /**
      * List of accounts to deploy stack set updates.
      * 
      */
-    private UndeferrableValue<List<String>> accounts;
-
+    @PolicyResourceProperty(name="accounts", flag="unknown_accounts")
+    private List<String> value_accounts;
+    private boolean unknown_accounts;
     public List<String> accounts() {
-        if (accounts == null) return null;
-        return accounts.getValue("StackSetInstanceDeploymentTargetsArgs.accounts");
+        if (!unknown_accounts) return value_accounts;
+        throw new UndeferrableValueException("Value 'StackSetInstanceDeploymentTargetsArgs.accounts' is not present");
     }
 
     /**
      * S3 URL of the file containing the list of accounts.
      * 
      */
-    private UndeferrableValue<String> accountsUrl;
-
+    @PolicyResourceProperty(name="accountsUrl", flag="unknown_accountsUrl")
+    private String value_accountsUrl;
+    private boolean unknown_accountsUrl;
     public String accountsUrl() {
-        if (accountsUrl == null) return null;
-        return accountsUrl.getValue("StackSetInstanceDeploymentTargetsArgs.accountsUrl");
+        if (!unknown_accountsUrl) return value_accountsUrl;
+        throw new UndeferrableValueException("Value 'StackSetInstanceDeploymentTargetsArgs.accountsUrl' is not present");
     }
 
     /**
      * Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
      * 
      */
-    private UndeferrableValue<List<String>> organizationalUnitIds;
-
+    @PolicyResourceProperty(name="organizationalUnitIds", flag="unknown_organizationalUnitIds")
+    private List<String> value_organizationalUnitIds;
+    private boolean unknown_organizationalUnitIds;
     public List<String> organizationalUnitIds() {
-        if (organizationalUnitIds == null) return null;
-        return organizationalUnitIds.getValue("StackSetInstanceDeploymentTargetsArgs.organizationalUnitIds");
+        if (!unknown_organizationalUnitIds) return value_organizationalUnitIds;
+        throw new UndeferrableValueException("Value 'StackSetInstanceDeploymentTargetsArgs.organizationalUnitIds' is not present");
     }
 
 }

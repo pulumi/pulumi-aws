@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ListenerDefaultActionForwardTargetGroup {
      * ID or Amazon Resource Name (ARN) of the target group.
      * 
      */
-    private @Nullable UndeferrableValue<String> targetGroupIdentifier;
-
+    @PolicyResourceProperty(name="targetGroupIdentifier", flag="unknown_targetGroupIdentifier")
+    private @Nullable String value_targetGroupIdentifier;
+    private boolean unknown_targetGroupIdentifier;
     public @Nullable String targetGroupIdentifier() {
-        if (targetGroupIdentifier == null) return null;
-        return targetGroupIdentifier.getValue("ListenerDefaultActionForwardTargetGroup.targetGroupIdentifier");
+        if (!unknown_targetGroupIdentifier) return value_targetGroupIdentifier;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionForwardTargetGroup.targetGroupIdentifier' is not present");
     }
 
     /**
@@ -27,11 +29,12 @@ public final class ListenerDefaultActionForwardTargetGroup {
      * weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> weight;
-
+    @PolicyResourceProperty(name="weight", flag="unknown_weight")
+    private @Nullable Integer value_weight;
+    private boolean unknown_weight;
     public @Nullable Integer weight() {
-        if (weight == null) return null;
-        return weight.getValue("ListenerDefaultActionForwardTargetGroup.weight");
+        if (!unknown_weight) return value_weight;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionForwardTargetGroup.weight' is not present");
     }
 
 }

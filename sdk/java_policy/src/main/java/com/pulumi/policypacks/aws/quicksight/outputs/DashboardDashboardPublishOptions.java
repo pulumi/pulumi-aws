@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.outputs.DashboardDashboardPublishOptionsAdHocFilteringOption;
 import com.pulumi.policypacks.aws.quicksight.outputs.DashboardDashboardPublishOptionsDataPointDrillUpDownOption;
 import com.pulumi.policypacks.aws.quicksight.outputs.DashboardDashboardPublishOptionsDataPointMenuLabelOption;
@@ -23,110 +24,120 @@ public final class DashboardDashboardPublishOptions {
      * Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
      * 
      */
-    private @Nullable UndeferrableValue<DashboardDashboardPublishOptionsAdHocFilteringOption> adHocFilteringOption;
-
+    @PolicyResourceProperty(name="adHocFilteringOption", flag="unknown_adHocFilteringOption")
+    private @Nullable DashboardDashboardPublishOptionsAdHocFilteringOption value_adHocFilteringOption;
+    private boolean unknown_adHocFilteringOption;
     public @Nullable DashboardDashboardPublishOptionsAdHocFilteringOption adHocFilteringOption() {
-        if (adHocFilteringOption == null) return null;
-        return adHocFilteringOption.getValue("DashboardDashboardPublishOptions.adHocFilteringOption");
+        if (!unknown_adHocFilteringOption) return value_adHocFilteringOption;
+        throw new UndeferrableValueException("Value 'DashboardDashboardPublishOptions.adHocFilteringOption' is not present");
     }
 
     /**
      * The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
      * 
      */
-    private @Nullable UndeferrableValue<DashboardDashboardPublishOptionsDataPointDrillUpDownOption> dataPointDrillUpDownOption;
-
+    @PolicyResourceProperty(name="dataPointDrillUpDownOption", flag="unknown_dataPointDrillUpDownOption")
+    private @Nullable DashboardDashboardPublishOptionsDataPointDrillUpDownOption value_dataPointDrillUpDownOption;
+    private boolean unknown_dataPointDrillUpDownOption;
     public @Nullable DashboardDashboardPublishOptionsDataPointDrillUpDownOption dataPointDrillUpDownOption() {
-        if (dataPointDrillUpDownOption == null) return null;
-        return dataPointDrillUpDownOption.getValue("DashboardDashboardPublishOptions.dataPointDrillUpDownOption");
+        if (!unknown_dataPointDrillUpDownOption) return value_dataPointDrillUpDownOption;
+        throw new UndeferrableValueException("Value 'DashboardDashboardPublishOptions.dataPointDrillUpDownOption' is not present");
     }
 
     /**
      * The data point menu label options of a dashboard. See data_point_menu_label_option.
      * 
      */
-    private @Nullable UndeferrableValue<DashboardDashboardPublishOptionsDataPointMenuLabelOption> dataPointMenuLabelOption;
-
+    @PolicyResourceProperty(name="dataPointMenuLabelOption", flag="unknown_dataPointMenuLabelOption")
+    private @Nullable DashboardDashboardPublishOptionsDataPointMenuLabelOption value_dataPointMenuLabelOption;
+    private boolean unknown_dataPointMenuLabelOption;
     public @Nullable DashboardDashboardPublishOptionsDataPointMenuLabelOption dataPointMenuLabelOption() {
-        if (dataPointMenuLabelOption == null) return null;
-        return dataPointMenuLabelOption.getValue("DashboardDashboardPublishOptions.dataPointMenuLabelOption");
+        if (!unknown_dataPointMenuLabelOption) return value_dataPointMenuLabelOption;
+        throw new UndeferrableValueException("Value 'DashboardDashboardPublishOptions.dataPointMenuLabelOption' is not present");
     }
 
     /**
      * The data point tool tip options of a dashboard. See data_point_tooltip_option.
      * 
      */
-    private @Nullable UndeferrableValue<DashboardDashboardPublishOptionsDataPointTooltipOption> dataPointTooltipOption;
-
+    @PolicyResourceProperty(name="dataPointTooltipOption", flag="unknown_dataPointTooltipOption")
+    private @Nullable DashboardDashboardPublishOptionsDataPointTooltipOption value_dataPointTooltipOption;
+    private boolean unknown_dataPointTooltipOption;
     public @Nullable DashboardDashboardPublishOptionsDataPointTooltipOption dataPointTooltipOption() {
-        if (dataPointTooltipOption == null) return null;
-        return dataPointTooltipOption.getValue("DashboardDashboardPublishOptions.dataPointTooltipOption");
+        if (!unknown_dataPointTooltipOption) return value_dataPointTooltipOption;
+        throw new UndeferrableValueException("Value 'DashboardDashboardPublishOptions.dataPointTooltipOption' is not present");
     }
 
     /**
      * Export to .csv option. See export_to_csv_option.
      * 
      */
-    private @Nullable UndeferrableValue<DashboardDashboardPublishOptionsExportToCsvOption> exportToCsvOption;
-
+    @PolicyResourceProperty(name="exportToCsvOption", flag="unknown_exportToCsvOption")
+    private @Nullable DashboardDashboardPublishOptionsExportToCsvOption value_exportToCsvOption;
+    private boolean unknown_exportToCsvOption;
     public @Nullable DashboardDashboardPublishOptionsExportToCsvOption exportToCsvOption() {
-        if (exportToCsvOption == null) return null;
-        return exportToCsvOption.getValue("DashboardDashboardPublishOptions.exportToCsvOption");
+        if (!unknown_exportToCsvOption) return value_exportToCsvOption;
+        throw new UndeferrableValueException("Value 'DashboardDashboardPublishOptions.exportToCsvOption' is not present");
     }
 
     /**
      * Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
      * 
      */
-    private @Nullable UndeferrableValue<DashboardDashboardPublishOptionsExportWithHiddenFieldsOption> exportWithHiddenFieldsOption;
-
+    @PolicyResourceProperty(name="exportWithHiddenFieldsOption", flag="unknown_exportWithHiddenFieldsOption")
+    private @Nullable DashboardDashboardPublishOptionsExportWithHiddenFieldsOption value_exportWithHiddenFieldsOption;
+    private boolean unknown_exportWithHiddenFieldsOption;
     public @Nullable DashboardDashboardPublishOptionsExportWithHiddenFieldsOption exportWithHiddenFieldsOption() {
-        if (exportWithHiddenFieldsOption == null) return null;
-        return exportWithHiddenFieldsOption.getValue("DashboardDashboardPublishOptions.exportWithHiddenFieldsOption");
+        if (!unknown_exportWithHiddenFieldsOption) return value_exportWithHiddenFieldsOption;
+        throw new UndeferrableValueException("Value 'DashboardDashboardPublishOptions.exportWithHiddenFieldsOption' is not present");
     }
 
     /**
      * Sheet controls option. See sheet_controls_option.
      * 
      */
-    private @Nullable UndeferrableValue<DashboardDashboardPublishOptionsSheetControlsOption> sheetControlsOption;
-
+    @PolicyResourceProperty(name="sheetControlsOption", flag="unknown_sheetControlsOption")
+    private @Nullable DashboardDashboardPublishOptionsSheetControlsOption value_sheetControlsOption;
+    private boolean unknown_sheetControlsOption;
     public @Nullable DashboardDashboardPublishOptionsSheetControlsOption sheetControlsOption() {
-        if (sheetControlsOption == null) return null;
-        return sheetControlsOption.getValue("DashboardDashboardPublishOptions.sheetControlsOption");
+        if (!unknown_sheetControlsOption) return value_sheetControlsOption;
+        throw new UndeferrableValueException("Value 'DashboardDashboardPublishOptions.sheetControlsOption' is not present");
     }
 
     /**
      * The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
      * 
      */
-    private @Nullable UndeferrableValue<DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption> sheetLayoutElementMaximizationOption;
-
+    @PolicyResourceProperty(name="sheetLayoutElementMaximizationOption", flag="unknown_sheetLayoutElementMaximizationOption")
+    private @Nullable DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption value_sheetLayoutElementMaximizationOption;
+    private boolean unknown_sheetLayoutElementMaximizationOption;
     public @Nullable DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption sheetLayoutElementMaximizationOption() {
-        if (sheetLayoutElementMaximizationOption == null) return null;
-        return sheetLayoutElementMaximizationOption.getValue("DashboardDashboardPublishOptions.sheetLayoutElementMaximizationOption");
+        if (!unknown_sheetLayoutElementMaximizationOption) return value_sheetLayoutElementMaximizationOption;
+        throw new UndeferrableValueException("Value 'DashboardDashboardPublishOptions.sheetLayoutElementMaximizationOption' is not present");
     }
 
     /**
      * The axis sort options of a dashboard. See visual_axis_sort_option.
      * 
      */
-    private @Nullable UndeferrableValue<DashboardDashboardPublishOptionsVisualAxisSortOption> visualAxisSortOption;
-
+    @PolicyResourceProperty(name="visualAxisSortOption", flag="unknown_visualAxisSortOption")
+    private @Nullable DashboardDashboardPublishOptionsVisualAxisSortOption value_visualAxisSortOption;
+    private boolean unknown_visualAxisSortOption;
     public @Nullable DashboardDashboardPublishOptionsVisualAxisSortOption visualAxisSortOption() {
-        if (visualAxisSortOption == null) return null;
-        return visualAxisSortOption.getValue("DashboardDashboardPublishOptions.visualAxisSortOption");
+        if (!unknown_visualAxisSortOption) return value_visualAxisSortOption;
+        throw new UndeferrableValueException("Value 'DashboardDashboardPublishOptions.visualAxisSortOption' is not present");
     }
 
     /**
      * The menu options of a visual in a dashboard. See visual_menu_option.
      * 
      */
-    private @Nullable UndeferrableValue<DashboardDashboardPublishOptionsVisualMenuOption> visualMenuOption;
-
+    @PolicyResourceProperty(name="visualMenuOption", flag="unknown_visualMenuOption")
+    private @Nullable DashboardDashboardPublishOptionsVisualMenuOption value_visualMenuOption;
+    private boolean unknown_visualMenuOption;
     public @Nullable DashboardDashboardPublishOptionsVisualMenuOption visualMenuOption() {
-        if (visualMenuOption == null) return null;
-        return visualMenuOption.getValue("DashboardDashboardPublishOptions.visualMenuOption");
+        if (!unknown_visualMenuOption) return value_visualMenuOption;
+        throw new UndeferrableValueException("Value 'DashboardDashboardPublishOptions.visualMenuOption' is not present");
     }
 
 }

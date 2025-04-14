@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sesv2.outputs.ConfigurationSetDeliveryOptions;
 import com.pulumi.policypacks.aws.sesv2.outputs.ConfigurationSetReputationOptions;
@@ -23,77 +24,84 @@ public final class ConfigurationSet extends com.pulumi.resources.PolicyResourceO
      * ARN of the Configuration Set.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ConfigurationSet.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ConfigurationSet.arn' is not present");
     }
 
     /**
      * The name of the configuration set.
      * 
      */
-    private UndeferrableValue<String> configurationSetName;
-
+    @PolicyResourceProperty(name="configurationSetName", flag="unknown_configurationSetName")
+    private String value_configurationSetName;
+    private boolean unknown_configurationSetName;
     public String configurationSetName() {
-        if (configurationSetName == null) return null;
-        return configurationSetName.getValue("ConfigurationSet.configurationSetName");
+        if (!unknown_configurationSetName) return value_configurationSetName;
+        throw new UndeferrableValueException("Value 'ConfigurationSet.configurationSetName' is not present");
     }
 
     /**
      * An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `delivery_options` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<ConfigurationSetDeliveryOptions> deliveryOptions;
-
+    @PolicyResourceProperty(name="deliveryOptions", flag="unknown_deliveryOptions")
+    private @Nullable ConfigurationSetDeliveryOptions value_deliveryOptions;
+    private boolean unknown_deliveryOptions;
     public @Nullable ConfigurationSetDeliveryOptions deliveryOptions() {
-        if (deliveryOptions == null) return null;
-        return deliveryOptions.getValue("ConfigurationSet.deliveryOptions");
+        if (!unknown_deliveryOptions) return value_deliveryOptions;
+        throw new UndeferrableValueException("Value 'ConfigurationSet.deliveryOptions' is not present");
     }
 
     /**
      * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputation_options` Block for details.
      * 
      */
-    private UndeferrableValue<ConfigurationSetReputationOptions> reputationOptions;
-
+    @PolicyResourceProperty(name="reputationOptions", flag="unknown_reputationOptions")
+    private ConfigurationSetReputationOptions value_reputationOptions;
+    private boolean unknown_reputationOptions;
     public ConfigurationSetReputationOptions reputationOptions() {
-        if (reputationOptions == null) return null;
-        return reputationOptions.getValue("ConfigurationSet.reputationOptions");
+        if (!unknown_reputationOptions) return value_reputationOptions;
+        throw new UndeferrableValueException("Value 'ConfigurationSet.reputationOptions' is not present");
     }
 
     /**
      * An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sending_options` Block for details.
      * 
      */
-    private UndeferrableValue<ConfigurationSetSendingOptions> sendingOptions;
-
+    @PolicyResourceProperty(name="sendingOptions", flag="unknown_sendingOptions")
+    private ConfigurationSetSendingOptions value_sendingOptions;
+    private boolean unknown_sendingOptions;
     public ConfigurationSetSendingOptions sendingOptions() {
-        if (sendingOptions == null) return null;
-        return sendingOptions.getValue("ConfigurationSet.sendingOptions");
+        if (!unknown_sendingOptions) return value_sendingOptions;
+        throw new UndeferrableValueException("Value 'ConfigurationSet.sendingOptions' is not present");
     }
 
     /**
      * An object that contains information about the suppression list preferences for your account. See `suppression_options` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<ConfigurationSetSuppressionOptions> suppressionOptions;
-
+    @PolicyResourceProperty(name="suppressionOptions", flag="unknown_suppressionOptions")
+    private @Nullable ConfigurationSetSuppressionOptions value_suppressionOptions;
+    private boolean unknown_suppressionOptions;
     public @Nullable ConfigurationSetSuppressionOptions suppressionOptions() {
-        if (suppressionOptions == null) return null;
-        return suppressionOptions.getValue("ConfigurationSet.suppressionOptions");
+        if (!unknown_suppressionOptions) return value_suppressionOptions;
+        throw new UndeferrableValueException("Value 'ConfigurationSet.suppressionOptions' is not present");
     }
 
     /**
      * A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ConfigurationSet.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ConfigurationSet.tags' is not present");
     }
 
     /**
@@ -102,33 +110,36 @@ public final class ConfigurationSet extends com.pulumi.resources.PolicyResourceO
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ConfigurationSet.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ConfigurationSet.tagsAll' is not present");
     }
 
     /**
      * An object that defines the open and click tracking options for emails that you send using the configuration set. See `tracking_options` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<ConfigurationSetTrackingOptions> trackingOptions;
-
+    @PolicyResourceProperty(name="trackingOptions", flag="unknown_trackingOptions")
+    private @Nullable ConfigurationSetTrackingOptions value_trackingOptions;
+    private boolean unknown_trackingOptions;
     public @Nullable ConfigurationSetTrackingOptions trackingOptions() {
-        if (trackingOptions == null) return null;
-        return trackingOptions.getValue("ConfigurationSet.trackingOptions");
+        if (!unknown_trackingOptions) return value_trackingOptions;
+        throw new UndeferrableValueException("Value 'ConfigurationSet.trackingOptions' is not present");
     }
 
     /**
      * An object that defines the VDM settings that apply to emails that you send using the configuration set. See `vdm_options` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<ConfigurationSetVdmOptions> vdmOptions;
-
+    @PolicyResourceProperty(name="vdmOptions", flag="unknown_vdmOptions")
+    private @Nullable ConfigurationSetVdmOptions value_vdmOptions;
+    private boolean unknown_vdmOptions;
     public @Nullable ConfigurationSetVdmOptions vdmOptions() {
-        if (vdmOptions == null) return null;
-        return vdmOptions.getValue("ConfigurationSet.vdmOptions");
+        if (!unknown_vdmOptions) return value_vdmOptions;
+        throw new UndeferrableValueException("Value 'ConfigurationSet.vdmOptions' is not present");
     }
 
 }

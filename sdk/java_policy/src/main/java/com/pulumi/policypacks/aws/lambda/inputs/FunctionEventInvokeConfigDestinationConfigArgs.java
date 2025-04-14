@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lambda.inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs;
 import com.pulumi.policypacks.aws.lambda.inputs.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class FunctionEventInvokeConfigDestinationConfigArgs {
      * Configuration block with destination configuration for failed asynchronous invocations. See below for details.
      * 
      */
-    private UndeferrableValue<FunctionEventInvokeConfigDestinationConfigOnFailureArgs> onFailure;
-
+    @PolicyResourceProperty(name="onFailure", flag="unknown_onFailure")
+    private FunctionEventInvokeConfigDestinationConfigOnFailureArgs value_onFailure;
+    private boolean unknown_onFailure;
     public FunctionEventInvokeConfigDestinationConfigOnFailureArgs onFailure() {
-        if (onFailure == null) return null;
-        return onFailure.getValue("FunctionEventInvokeConfigDestinationConfigArgs.onFailure");
+        if (!unknown_onFailure) return value_onFailure;
+        throw new UndeferrableValueException("Value 'FunctionEventInvokeConfigDestinationConfigArgs.onFailure' is not present");
     }
 
     /**
      * Configuration block with destination configuration for successful asynchronous invocations. See below for details.
      * 
      */
-    private UndeferrableValue<FunctionEventInvokeConfigDestinationConfigOnSuccessArgs> onSuccess;
-
+    @PolicyResourceProperty(name="onSuccess", flag="unknown_onSuccess")
+    private FunctionEventInvokeConfigDestinationConfigOnSuccessArgs value_onSuccess;
+    private boolean unknown_onSuccess;
     public FunctionEventInvokeConfigDestinationConfigOnSuccessArgs onSuccess() {
-        if (onSuccess == null) return null;
-        return onSuccess.getValue("FunctionEventInvokeConfigDestinationConfigArgs.onSuccess");
+        if (!unknown_onSuccess) return value_onSuccess;
+        throw new UndeferrableValueException("Value 'FunctionEventInvokeConfigDestinationConfigArgs.onSuccess' is not present");
     }
 
 }

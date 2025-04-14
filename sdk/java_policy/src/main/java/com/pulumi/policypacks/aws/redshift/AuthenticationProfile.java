@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class AuthenticationProfile extends com.pulumi.resources.PolicyReso
      * The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
      * 
      */
-    private UndeferrableValue<String> authenticationProfileContent;
-
+    @PolicyResourceProperty(name="authenticationProfileContent", flag="unknown_authenticationProfileContent")
+    private String value_authenticationProfileContent;
+    private boolean unknown_authenticationProfileContent;
     public String authenticationProfileContent() {
-        if (authenticationProfileContent == null) return null;
-        return authenticationProfileContent.getValue("AuthenticationProfile.authenticationProfileContent");
+        if (!unknown_authenticationProfileContent) return value_authenticationProfileContent;
+        throw new UndeferrableValueException("Value 'AuthenticationProfile.authenticationProfileContent' is not present");
     }
 
     /**
      * The name of the authentication profile.
      * 
      */
-    private UndeferrableValue<String> authenticationProfileName;
-
+    @PolicyResourceProperty(name="authenticationProfileName", flag="unknown_authenticationProfileName")
+    private String value_authenticationProfileName;
+    private boolean unknown_authenticationProfileName;
     public String authenticationProfileName() {
-        if (authenticationProfileName == null) return null;
-        return authenticationProfileName.getValue("AuthenticationProfile.authenticationProfileName");
+        if (!unknown_authenticationProfileName) return value_authenticationProfileName;
+        throw new UndeferrableValueException("Value 'AuthenticationProfile.authenticationProfileName' is not present");
     }
 
 }

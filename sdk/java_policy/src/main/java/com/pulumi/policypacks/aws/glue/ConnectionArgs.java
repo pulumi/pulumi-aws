@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.glue.inputs.ConnectionPhysicalConnectionRequirementsArgs;
 import java.lang.String;
@@ -19,11 +20,12 @@ public final class ConnectionArgs extends com.pulumi.resources.PolicyResourceInp
      * ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      * 
      */
-    private UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private String value_catalogId;
+    private boolean unknown_catalogId;
     public String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("ConnectionArgs.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'ConnectionArgs.catalogId' is not present");
     }
 
     /**
@@ -32,44 +34,48 @@ public final class ConnectionArgs extends com.pulumi.resources.PolicyResourceInp
      * **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
      * 
      */
-    private UndeferrableValue<Map<String,String>> connectionProperties;
-
+    @PolicyResourceProperty(name="connectionProperties", flag="unknown_connectionProperties")
+    private Map<String,String> value_connectionProperties;
+    private boolean unknown_connectionProperties;
     public Map<String,String> connectionProperties() {
-        if (connectionProperties == null) return null;
-        return connectionProperties.getValue("ConnectionArgs.connectionProperties");
+        if (!unknown_connectionProperties) return value_connectionProperties;
+        throw new UndeferrableValueException("Value 'ConnectionArgs.connectionProperties' is not present");
     }
 
     /**
      * Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
      * 
      */
-    private UndeferrableValue<String> connectionType;
-
+    @PolicyResourceProperty(name="connectionType", flag="unknown_connectionType")
+    private String value_connectionType;
+    private boolean unknown_connectionType;
     public String connectionType() {
-        if (connectionType == null) return null;
-        return connectionType.getValue("ConnectionArgs.connectionType");
+        if (!unknown_connectionType) return value_connectionType;
+        throw new UndeferrableValueException("Value 'ConnectionArgs.connectionType' is not present");
     }
 
     /**
      * Description of the connection.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ConnectionArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ConnectionArgs.description' is not present");
     }
 
     /**
      * List of criteria that can be used in selecting this connection.
      * 
      */
-    private UndeferrableValue<List<String>> matchCriterias;
-
+    @PolicyResourceProperty(name="matchCriterias", flag="unknown_matchCriterias")
+    private List<String> value_matchCriterias;
+    private boolean unknown_matchCriterias;
     public List<String> matchCriterias() {
-        if (matchCriterias == null) return null;
-        return matchCriterias.getValue("ConnectionArgs.matchCriterias");
+        if (!unknown_matchCriterias) return value_matchCriterias;
+        throw new UndeferrableValueException("Value 'ConnectionArgs.matchCriterias' is not present");
     }
 
     /**
@@ -78,33 +84,36 @@ public final class ConnectionArgs extends com.pulumi.resources.PolicyResourceInp
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ConnectionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ConnectionArgs.name' is not present");
     }
 
     /**
      * Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
      * 
      */
-    private UndeferrableValue<ConnectionPhysicalConnectionRequirementsArgs> physicalConnectionRequirements;
-
+    @PolicyResourceProperty(name="physicalConnectionRequirements", flag="unknown_physicalConnectionRequirements")
+    private ConnectionPhysicalConnectionRequirementsArgs value_physicalConnectionRequirements;
+    private boolean unknown_physicalConnectionRequirements;
     public ConnectionPhysicalConnectionRequirementsArgs physicalConnectionRequirements() {
-        if (physicalConnectionRequirements == null) return null;
-        return physicalConnectionRequirements.getValue("ConnectionArgs.physicalConnectionRequirements");
+        if (!unknown_physicalConnectionRequirements) return value_physicalConnectionRequirements;
+        throw new UndeferrableValueException("Value 'ConnectionArgs.physicalConnectionRequirements' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ConnectionArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ConnectionArgs.tags' is not present");
     }
 
 }

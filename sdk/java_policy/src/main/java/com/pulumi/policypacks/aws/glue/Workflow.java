@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,66 +19,72 @@ public final class Workflow extends com.pulumi.resources.PolicyResourceOutput {
      * Amazon Resource Name (ARN) of Glue Workflow
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Workflow.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Workflow.arn' is not present");
     }
 
     /**
      * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> defaultRunProperties;
-
+    @PolicyResourceProperty(name="defaultRunProperties", flag="unknown_defaultRunProperties")
+    private @Nullable Map<String,String> value_defaultRunProperties;
+    private boolean unknown_defaultRunProperties;
     public @Nullable Map<String,String> defaultRunProperties() {
-        if (defaultRunProperties == null) return null;
-        return defaultRunProperties.getValue("Workflow.defaultRunProperties");
+        if (!unknown_defaultRunProperties) return value_defaultRunProperties;
+        throw new UndeferrableValueException("Value 'Workflow.defaultRunProperties' is not present");
     }
 
     /**
      * Description of the workflow.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Workflow.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Workflow.description' is not present");
     }
 
     /**
      * Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxConcurrentRuns;
-
+    @PolicyResourceProperty(name="maxConcurrentRuns", flag="unknown_maxConcurrentRuns")
+    private @Nullable Integer value_maxConcurrentRuns;
+    private boolean unknown_maxConcurrentRuns;
     public @Nullable Integer maxConcurrentRuns() {
-        if (maxConcurrentRuns == null) return null;
-        return maxConcurrentRuns.getValue("Workflow.maxConcurrentRuns");
+        if (!unknown_maxConcurrentRuns) return value_maxConcurrentRuns;
+        throw new UndeferrableValueException("Value 'Workflow.maxConcurrentRuns' is not present");
     }
 
     /**
      * The name you assign to this workflow.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Workflow.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Workflow.name' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Workflow.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Workflow.tags' is not present");
     }
 
     /**
@@ -88,11 +95,12 @@ public final class Workflow extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Workflow.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Workflow.tagsAll' is not present");
     }
 
 }

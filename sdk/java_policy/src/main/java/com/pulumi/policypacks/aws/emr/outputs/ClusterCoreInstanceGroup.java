@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.emr.outputs.ClusterCoreInstanceGroupEbsConfig;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,77 +18,84 @@ public final class ClusterCoreInstanceGroup {
      * String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
      * 
      */
-    private @Nullable UndeferrableValue<String> autoscalingPolicy;
-
+    @PolicyResourceProperty(name="autoscalingPolicy", flag="unknown_autoscalingPolicy")
+    private @Nullable String value_autoscalingPolicy;
+    private boolean unknown_autoscalingPolicy;
     public @Nullable String autoscalingPolicy() {
-        if (autoscalingPolicy == null) return null;
-        return autoscalingPolicy.getValue("ClusterCoreInstanceGroup.autoscalingPolicy");
+        if (!unknown_autoscalingPolicy) return value_autoscalingPolicy;
+        throw new UndeferrableValueException("Value 'ClusterCoreInstanceGroup.autoscalingPolicy' is not present");
     }
 
     /**
      * Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
      * 
      */
-    private @Nullable UndeferrableValue<String> bidPrice;
-
+    @PolicyResourceProperty(name="bidPrice", flag="unknown_bidPrice")
+    private @Nullable String value_bidPrice;
+    private boolean unknown_bidPrice;
     public @Nullable String bidPrice() {
-        if (bidPrice == null) return null;
-        return bidPrice.getValue("ClusterCoreInstanceGroup.bidPrice");
+        if (!unknown_bidPrice) return value_bidPrice;
+        throw new UndeferrableValueException("Value 'ClusterCoreInstanceGroup.bidPrice' is not present");
     }
 
     /**
      * Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ClusterCoreInstanceGroupEbsConfig>> ebsConfigs;
-
+    @PolicyResourceProperty(name="ebsConfigs", flag="unknown_ebsConfigs")
+    private @Nullable List<ClusterCoreInstanceGroupEbsConfig> value_ebsConfigs;
+    private boolean unknown_ebsConfigs;
     public @Nullable List<ClusterCoreInstanceGroupEbsConfig> ebsConfigs() {
-        if (ebsConfigs == null) return null;
-        return ebsConfigs.getValue("ClusterCoreInstanceGroup.ebsConfigs");
+        if (!unknown_ebsConfigs) return value_ebsConfigs;
+        throw new UndeferrableValueException("Value 'ClusterCoreInstanceGroup.ebsConfigs' is not present");
     }
 
     /**
      * Core node type Instance Group ID, if using Instance Group for this node type.
      * 
      */
-    private @Nullable UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private @Nullable String value_id;
+    private boolean unknown_id;
     public @Nullable String id() {
-        if (id == null) return null;
-        return id.getValue("ClusterCoreInstanceGroup.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'ClusterCoreInstanceGroup.id' is not present");
     }
 
     /**
      * Target number of instances for the instance group. Must be at least 1. Defaults to 1.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> instanceCount;
-
+    @PolicyResourceProperty(name="instanceCount", flag="unknown_instanceCount")
+    private @Nullable Integer value_instanceCount;
+    private boolean unknown_instanceCount;
     public @Nullable Integer instanceCount() {
-        if (instanceCount == null) return null;
-        return instanceCount.getValue("ClusterCoreInstanceGroup.instanceCount");
+        if (!unknown_instanceCount) return value_instanceCount;
+        throw new UndeferrableValueException("Value 'ClusterCoreInstanceGroup.instanceCount' is not present");
     }
 
     /**
      * EC2 instance type for all instances in the instance group.
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("ClusterCoreInstanceGroup.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'ClusterCoreInstanceGroup.instanceType' is not present");
     }
 
     /**
      * Friendly name given to the instance group.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("ClusterCoreInstanceGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ClusterCoreInstanceGroup.name' is not present");
     }
 
 }

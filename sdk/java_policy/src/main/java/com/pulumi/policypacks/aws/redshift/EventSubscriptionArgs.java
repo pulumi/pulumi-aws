@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -19,88 +20,96 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.PolicyReso
      * A boolean flag to enable/disable the subscription. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("EventSubscriptionArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'EventSubscriptionArgs.enabled' is not present");
     }
 
     /**
      * A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
      * 
      */
-    private UndeferrableValue<List<String>> eventCategories;
-
+    @PolicyResourceProperty(name="eventCategories", flag="unknown_eventCategories")
+    private List<String> value_eventCategories;
+    private boolean unknown_eventCategories;
     public List<String> eventCategories() {
-        if (eventCategories == null) return null;
-        return eventCategories.getValue("EventSubscriptionArgs.eventCategories");
+        if (!unknown_eventCategories) return value_eventCategories;
+        throw new UndeferrableValueException("Value 'EventSubscriptionArgs.eventCategories' is not present");
     }
 
     /**
      * The name of the Redshift event subscription.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("EventSubscriptionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'EventSubscriptionArgs.name' is not present");
     }
 
     /**
      * The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
      * 
      */
-    private UndeferrableValue<String> severity;
-
+    @PolicyResourceProperty(name="severity", flag="unknown_severity")
+    private String value_severity;
+    private boolean unknown_severity;
     public String severity() {
-        if (severity == null) return null;
-        return severity.getValue("EventSubscriptionArgs.severity");
+        if (!unknown_severity) return value_severity;
+        throw new UndeferrableValueException("Value 'EventSubscriptionArgs.severity' is not present");
     }
 
     /**
      * The ARN of the SNS topic to send events to.
      * 
      */
-    private UndeferrableValue<String> snsTopicArn;
-
+    @PolicyResourceProperty(name="snsTopicArn", flag="unknown_snsTopicArn")
+    private String value_snsTopicArn;
+    private boolean unknown_snsTopicArn;
     public String snsTopicArn() {
-        if (snsTopicArn == null) return null;
-        return snsTopicArn.getValue("EventSubscriptionArgs.snsTopicArn");
+        if (!unknown_snsTopicArn) return value_snsTopicArn;
+        throw new UndeferrableValueException("Value 'EventSubscriptionArgs.snsTopicArn' is not present");
     }
 
     /**
      * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `source_type` must also be specified.
      * 
      */
-    private UndeferrableValue<List<String>> sourceIds;
-
+    @PolicyResourceProperty(name="sourceIds", flag="unknown_sourceIds")
+    private List<String> value_sourceIds;
+    private boolean unknown_sourceIds;
     public List<String> sourceIds() {
-        if (sourceIds == null) return null;
-        return sourceIds.getValue("EventSubscriptionArgs.sourceIds");
+        if (!unknown_sourceIds) return value_sourceIds;
+        throw new UndeferrableValueException("Value 'EventSubscriptionArgs.sourceIds' is not present");
     }
 
     /**
      * The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.
      * 
      */
-    private UndeferrableValue<String> sourceType;
-
+    @PolicyResourceProperty(name="sourceType", flag="unknown_sourceType")
+    private String value_sourceType;
+    private boolean unknown_sourceType;
     public String sourceType() {
-        if (sourceType == null) return null;
-        return sourceType.getValue("EventSubscriptionArgs.sourceType");
+        if (!unknown_sourceType) return value_sourceType;
+        throw new UndeferrableValueException("Value 'EventSubscriptionArgs.sourceType' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("EventSubscriptionArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'EventSubscriptionArgs.tags' is not present");
     }
 
 }

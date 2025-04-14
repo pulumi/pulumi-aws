@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mskconnect.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ConnectorCapacityProvisionedCapacity {
      * The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> mcuCount;
-
+    @PolicyResourceProperty(name="mcuCount", flag="unknown_mcuCount")
+    private @Nullable Integer value_mcuCount;
+    private boolean unknown_mcuCount;
     public @Nullable Integer mcuCount() {
-        if (mcuCount == null) return null;
-        return mcuCount.getValue("ConnectorCapacityProvisionedCapacity.mcuCount");
+        if (!unknown_mcuCount) return value_mcuCount;
+        throw new UndeferrableValueException("Value 'ConnectorCapacityProvisionedCapacity.mcuCount' is not present");
     }
 
     /**
      * The number of workers that are allocated to the connector.
      * 
      */
-    private UndeferrableValue<Integer> workerCount;
-
+    @PolicyResourceProperty(name="workerCount", flag="unknown_workerCount")
+    private Integer value_workerCount;
+    private boolean unknown_workerCount;
     public Integer workerCount() {
-        if (workerCount == null) return null;
-        return workerCount.getValue("ConnectorCapacityProvisionedCapacity.workerCount");
+        if (!unknown_workerCount) return value_workerCount;
+        throw new UndeferrableValueException("Value 'ConnectorCapacityProvisionedCapacity.workerCount' is not present");
     }
 
 }

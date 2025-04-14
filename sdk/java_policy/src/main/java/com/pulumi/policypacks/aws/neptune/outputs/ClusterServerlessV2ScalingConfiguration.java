@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.neptune.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ClusterServerlessV2ScalingConfiguration {
      * The maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
      * 
      */
-    private @Nullable UndeferrableValue<Double> maxCapacity;
-
+    @PolicyResourceProperty(name="maxCapacity", flag="unknown_maxCapacity")
+    private @Nullable Double value_maxCapacity;
+    private boolean unknown_maxCapacity;
     public @Nullable Double maxCapacity() {
-        if (maxCapacity == null) return null;
-        return maxCapacity.getValue("ClusterServerlessV2ScalingConfiguration.maxCapacity");
+        if (!unknown_maxCapacity) return value_maxCapacity;
+        throw new UndeferrableValueException("Value 'ClusterServerlessV2ScalingConfiguration.maxCapacity' is not present");
     }
 
     /**
      * The minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
      * 
      */
-    private @Nullable UndeferrableValue<Double> minCapacity;
-
+    @PolicyResourceProperty(name="minCapacity", flag="unknown_minCapacity")
+    private @Nullable Double value_minCapacity;
+    private boolean unknown_minCapacity;
     public @Nullable Double minCapacity() {
-        if (minCapacity == null) return null;
-        return minCapacity.getValue("ClusterServerlessV2ScalingConfiguration.minCapacity");
+        if (!unknown_minCapacity) return value_minCapacity;
+        throw new UndeferrableValueException("Value 'ClusterServerlessV2ScalingConfiguration.minCapacity' is not present");
     }
 
 }

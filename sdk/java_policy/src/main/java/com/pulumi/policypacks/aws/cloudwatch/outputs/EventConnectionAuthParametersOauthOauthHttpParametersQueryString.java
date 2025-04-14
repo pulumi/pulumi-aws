@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class EventConnectionAuthParametersOauthOauthHttpParametersQueryStr
      * Specified whether the value is secret.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> isValueSecret;
-
+    @PolicyResourceProperty(name="isValueSecret", flag="unknown_isValueSecret")
+    private @Nullable Boolean value_isValueSecret;
+    private boolean unknown_isValueSecret;
     public @Nullable Boolean isValueSecret() {
-        if (isValueSecret == null) return null;
-        return isValueSecret.getValue("EventConnectionAuthParametersOauthOauthHttpParametersQueryString.isValueSecret");
+        if (!unknown_isValueSecret) return value_isValueSecret;
+        throw new UndeferrableValueException("Value 'EventConnectionAuthParametersOauthOauthHttpParametersQueryString.isValueSecret' is not present");
     }
 
     /**
      * The key for the parameter.
      * 
      */
-    private @Nullable UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private @Nullable String value_key;
+    private boolean unknown_key;
     public @Nullable String key() {
-        if (key == null) return null;
-        return key.getValue("EventConnectionAuthParametersOauthOauthHttpParametersQueryString.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'EventConnectionAuthParametersOauthOauthHttpParametersQueryString.key' is not present");
     }
 
     /**
      * The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
      * 
      */
-    private @Nullable UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private @Nullable String value_value;
+    private boolean unknown_value;
     public @Nullable String value() {
-        if (value == null) return null;
-        return value.getValue("EventConnectionAuthParametersOauthOauthHttpParametersQueryString.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'EventConnectionAuthParametersOauthOauthHttpParametersQueryString.value' is not present");
     }
 
 }

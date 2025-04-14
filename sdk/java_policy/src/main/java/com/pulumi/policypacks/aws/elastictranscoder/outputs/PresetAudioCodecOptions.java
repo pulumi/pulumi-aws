@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elastictranscoder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class PresetAudioCodecOptions {
      * The bit depth of a sample is how many bits of information are included in the audio samples. Valid values are `16` and `24`. (FLAC/PCM Only)
      * 
      */
-    private @Nullable UndeferrableValue<String> bitDepth;
-
+    @PolicyResourceProperty(name="bitDepth", flag="unknown_bitDepth")
+    private @Nullable String value_bitDepth;
+    private boolean unknown_bitDepth;
     public @Nullable String bitDepth() {
-        if (bitDepth == null) return null;
-        return bitDepth.getValue("PresetAudioCodecOptions.bitDepth");
+        if (!unknown_bitDepth) return value_bitDepth;
+        throw new UndeferrableValueException("Value 'PresetAudioCodecOptions.bitDepth' is not present");
     }
 
     /**
      * The order the bits of a PCM sample are stored in. The supported value is LittleEndian. (PCM Only)
      * 
      */
-    private @Nullable UndeferrableValue<String> bitOrder;
-
+    @PolicyResourceProperty(name="bitOrder", flag="unknown_bitOrder")
+    private @Nullable String value_bitOrder;
+    private boolean unknown_bitOrder;
     public @Nullable String bitOrder() {
-        if (bitOrder == null) return null;
-        return bitOrder.getValue("PresetAudioCodecOptions.bitOrder");
+        if (!unknown_bitOrder) return value_bitOrder;
+        throw new UndeferrableValueException("Value 'PresetAudioCodecOptions.bitOrder' is not present");
     }
 
     /**
      * If you specified AAC for Audio:Codec, choose the AAC profile for the output file.
      * 
      */
-    private @Nullable UndeferrableValue<String> profile;
-
+    @PolicyResourceProperty(name="profile", flag="unknown_profile")
+    private @Nullable String value_profile;
+    private boolean unknown_profile;
     public @Nullable String profile() {
-        if (profile == null) return null;
-        return profile.getValue("PresetAudioCodecOptions.profile");
+        if (!unknown_profile) return value_profile;
+        throw new UndeferrableValueException("Value 'PresetAudioCodecOptions.profile' is not present");
     }
 
     /**
      * Whether audio samples are represented with negative and positive numbers (signed) or only positive numbers (unsigned). The supported value is Signed. (PCM Only)
      * 
      */
-    private @Nullable UndeferrableValue<String> signed;
-
+    @PolicyResourceProperty(name="signed", flag="unknown_signed")
+    private @Nullable String value_signed;
+    private boolean unknown_signed;
     public @Nullable String signed() {
-        if (signed == null) return null;
-        return signed.getValue("PresetAudioCodecOptions.signed");
+        if (!unknown_signed) return value_signed;
+        throw new UndeferrableValueException("Value 'PresetAudioCodecOptions.signed' is not present");
     }
 
 }

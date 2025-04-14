@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.efs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.efs.outputs.BackupPolicyBackupPolicy;
 import java.lang.String;
@@ -16,22 +17,24 @@ public final class BackupPolicy extends com.pulumi.resources.PolicyResourceOutpu
      * A backup_policy object (documented below).
      * 
      */
-    private UndeferrableValue<BackupPolicyBackupPolicy> backupPolicy;
-
+    @PolicyResourceProperty(name="backupPolicy", flag="unknown_backupPolicy")
+    private BackupPolicyBackupPolicy value_backupPolicy;
+    private boolean unknown_backupPolicy;
     public BackupPolicyBackupPolicy backupPolicy() {
-        if (backupPolicy == null) return null;
-        return backupPolicy.getValue("BackupPolicy.backupPolicy");
+        if (!unknown_backupPolicy) return value_backupPolicy;
+        throw new UndeferrableValueException("Value 'BackupPolicy.backupPolicy' is not present");
     }
 
     /**
      * The ID of the EFS file system.
      * 
      */
-    private UndeferrableValue<String> fileSystemId;
-
+    @PolicyResourceProperty(name="fileSystemId", flag="unknown_fileSystemId")
+    private String value_fileSystemId;
+    private boolean unknown_fileSystemId;
     public String fileSystemId() {
-        if (fileSystemId == null) return null;
-        return fileSystemId.getValue("BackupPolicy.fileSystemId");
+        if (!unknown_fileSystemId) return value_fileSystemId;
+        throw new UndeferrableValueException("Value 'BackupPolicy.fileSystemId' is not present");
     }
 
 }

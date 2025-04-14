@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudsearch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class DomainScalingParametersArgs {
      * The instance type that you want to preconfigure for your domain. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_ScalingParameters.html) for valid values.
      * 
      */
-    private UndeferrableValue<String> desiredInstanceType;
-
+    @PolicyResourceProperty(name="desiredInstanceType", flag="unknown_desiredInstanceType")
+    private String value_desiredInstanceType;
+    private boolean unknown_desiredInstanceType;
     public String desiredInstanceType() {
-        if (desiredInstanceType == null) return null;
-        return desiredInstanceType.getValue("DomainScalingParametersArgs.desiredInstanceType");
+        if (!unknown_desiredInstanceType) return value_desiredInstanceType;
+        throw new UndeferrableValueException("Value 'DomainScalingParametersArgs.desiredInstanceType' is not present");
     }
 
     /**
      * The number of partitions you want to preconfigure for your domain. Only valid when you select `search.2xlarge` as the instance type.
      * 
      */
-    private UndeferrableValue<Integer> desiredPartitionCount;
-
+    @PolicyResourceProperty(name="desiredPartitionCount", flag="unknown_desiredPartitionCount")
+    private Integer value_desiredPartitionCount;
+    private boolean unknown_desiredPartitionCount;
     public Integer desiredPartitionCount() {
-        if (desiredPartitionCount == null) return null;
-        return desiredPartitionCount.getValue("DomainScalingParametersArgs.desiredPartitionCount");
+        if (!unknown_desiredPartitionCount) return value_desiredPartitionCount;
+        throw new UndeferrableValueException("Value 'DomainScalingParametersArgs.desiredPartitionCount' is not present");
     }
 
     /**
      * The number of replicas you want to preconfigure for each index partition.
      * 
      */
-    private UndeferrableValue<Integer> desiredReplicationCount;
-
+    @PolicyResourceProperty(name="desiredReplicationCount", flag="unknown_desiredReplicationCount")
+    private Integer value_desiredReplicationCount;
+    private boolean unknown_desiredReplicationCount;
     public Integer desiredReplicationCount() {
-        if (desiredReplicationCount == null) return null;
-        return desiredReplicationCount.getValue("DomainScalingParametersArgs.desiredReplicationCount");
+        if (!unknown_desiredReplicationCount) return value_desiredReplicationCount;
+        throw new UndeferrableValueException("Value 'DomainScalingParametersArgs.desiredReplicationCount' is not present");
     }
 
 }

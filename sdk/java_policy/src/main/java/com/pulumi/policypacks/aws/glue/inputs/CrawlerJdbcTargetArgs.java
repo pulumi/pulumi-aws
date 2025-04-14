@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class CrawlerJdbcTargetArgs {
      * The name of the connection to use to connect to the JDBC target.
      * 
      */
-    private UndeferrableValue<String> connectionName;
-
+    @PolicyResourceProperty(name="connectionName", flag="unknown_connectionName")
+    private String value_connectionName;
+    private boolean unknown_connectionName;
     public String connectionName() {
-        if (connectionName == null) return null;
-        return connectionName.getValue("CrawlerJdbcTargetArgs.connectionName");
+        if (!unknown_connectionName) return value_connectionName;
+        throw new UndeferrableValueException("Value 'CrawlerJdbcTargetArgs.connectionName' is not present");
     }
 
     /**
      * Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
      * 
      */
-    private UndeferrableValue<List<String>> enableAdditionalMetadatas;
-
+    @PolicyResourceProperty(name="enableAdditionalMetadatas", flag="unknown_enableAdditionalMetadatas")
+    private List<String> value_enableAdditionalMetadatas;
+    private boolean unknown_enableAdditionalMetadatas;
     public List<String> enableAdditionalMetadatas() {
-        if (enableAdditionalMetadatas == null) return null;
-        return enableAdditionalMetadatas.getValue("CrawlerJdbcTargetArgs.enableAdditionalMetadatas");
+        if (!unknown_enableAdditionalMetadatas) return value_enableAdditionalMetadatas;
+        throw new UndeferrableValueException("Value 'CrawlerJdbcTargetArgs.enableAdditionalMetadatas' is not present");
     }
 
     /**
      * A list of glob patterns used to exclude from the crawl.
      * 
      */
-    private UndeferrableValue<List<String>> exclusions;
-
+    @PolicyResourceProperty(name="exclusions", flag="unknown_exclusions")
+    private List<String> value_exclusions;
+    private boolean unknown_exclusions;
     public List<String> exclusions() {
-        if (exclusions == null) return null;
-        return exclusions.getValue("CrawlerJdbcTargetArgs.exclusions");
+        if (!unknown_exclusions) return value_exclusions;
+        throw new UndeferrableValueException("Value 'CrawlerJdbcTargetArgs.exclusions' is not present");
     }
 
     /**
      * The path of the JDBC target.
      * 
      */
-    private UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private String value_path;
+    private boolean unknown_path;
     public String path() {
-        if (path == null) return null;
-        return path.getValue("CrawlerJdbcTargetArgs.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'CrawlerJdbcTargetArgs.path' is not present");
     }
 
 }

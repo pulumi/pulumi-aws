@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.outputs.DeviceDevice;
 import java.lang.String;
@@ -12,44 +13,48 @@ import java.lang.String;
 @PolicyResourceType(type="aws:sagemaker/device:Device")
 public final class Device extends com.pulumi.resources.PolicyResourceOutput {
 
-    private UndeferrableValue<String> agentVersion;
-
+    @PolicyResourceProperty(name="agentVersion", flag="unknown_agentVersion")
+    private String value_agentVersion;
+    private boolean unknown_agentVersion;
     public String agentVersion() {
-        if (agentVersion == null) return null;
-        return agentVersion.getValue("Device.agentVersion");
+        if (!unknown_agentVersion) return value_agentVersion;
+        throw new UndeferrableValueException("Value 'Device.agentVersion' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Device.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Device.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Device.arn' is not present");
     }
 
     /**
      * The device to register with SageMaker AI Edge Manager. See Device details below.
      * 
      */
-    private UndeferrableValue<DeviceDevice> device;
-
+    @PolicyResourceProperty(name="device", flag="unknown_device")
+    private DeviceDevice value_device;
+    private boolean unknown_device;
     public DeviceDevice device() {
-        if (device == null) return null;
-        return device.getValue("Device.device");
+        if (!unknown_device) return value_device;
+        throw new UndeferrableValueException("Value 'Device.device' is not present");
     }
 
     /**
      * The name of the Device Fleet.
      * 
      */
-    private UndeferrableValue<String> deviceFleetName;
-
+    @PolicyResourceProperty(name="deviceFleetName", flag="unknown_deviceFleetName")
+    private String value_deviceFleetName;
+    private boolean unknown_deviceFleetName;
     public String deviceFleetName() {
-        if (deviceFleetName == null) return null;
-        return deviceFleetName.getValue("Device.deviceFleetName");
+        if (!unknown_deviceFleetName) return value_deviceFleetName;
+        throw new UndeferrableValueException("Value 'Device.deviceFleetName' is not present");
     }
 
 }

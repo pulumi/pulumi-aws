@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class FirehoseDeliveryStreamKinesisSourceConfiguration {
      * The kinesis stream used as the source of the firehose delivery stream.
      * 
      */
-    private UndeferrableValue<String> kinesisStreamArn;
-
+    @PolicyResourceProperty(name="kinesisStreamArn", flag="unknown_kinesisStreamArn")
+    private String value_kinesisStreamArn;
+    private boolean unknown_kinesisStreamArn;
     public String kinesisStreamArn() {
-        if (kinesisStreamArn == null) return null;
-        return kinesisStreamArn.getValue("FirehoseDeliveryStreamKinesisSourceConfiguration.kinesisStreamArn");
+        if (!unknown_kinesisStreamArn) return value_kinesisStreamArn;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamKinesisSourceConfiguration.kinesisStreamArn' is not present");
     }
 
     /**
      * The ARN of the role that provides access to the source Kinesis stream.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("FirehoseDeliveryStreamKinesisSourceConfiguration.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamKinesisSourceConfiguration.roleArn' is not present");
     }
 
 }

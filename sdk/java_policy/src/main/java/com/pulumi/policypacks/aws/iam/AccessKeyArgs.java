@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class AccessKeyArgs extends com.pulumi.resources.PolicyResourceInpu
      * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the &#34;raw&#34; version and not the &#34;armored&#34; one (e.g. avoid passing the `-a` option to `gpg --export`).
      * 
      */
-    private UndeferrableValue<String> pgpKey;
-
+    @PolicyResourceProperty(name="pgpKey", flag="unknown_pgpKey")
+    private String value_pgpKey;
+    private boolean unknown_pgpKey;
     public String pgpKey() {
-        if (pgpKey == null) return null;
-        return pgpKey.getValue("AccessKeyArgs.pgpKey");
+        if (!unknown_pgpKey) return value_pgpKey;
+        throw new UndeferrableValueException("Value 'AccessKeyArgs.pgpKey' is not present");
     }
 
     /**
      * Access key status to apply. Defaults to `Active`. Valid values are `Active` and `Inactive`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("AccessKeyArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'AccessKeyArgs.status' is not present");
     }
 
     /**
      * IAM user to associate with this access key.
      * 
      */
-    private UndeferrableValue<String> user;
-
+    @PolicyResourceProperty(name="user", flag="unknown_user")
+    private String value_user;
+    private boolean unknown_user;
     public String user() {
-        if (user == null) return null;
-        return user.getValue("AccessKeyArgs.user");
+        if (!unknown_user) return value_user;
+        throw new UndeferrableValueException("Value 'AccessKeyArgs.user' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.xray;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class ResourcePolicy extends com.pulumi.resources.PolicyResourceOut
      * Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> bypassPolicyLockoutCheck;
-
+    @PolicyResourceProperty(name="bypassPolicyLockoutCheck", flag="unknown_bypassPolicyLockoutCheck")
+    private @Nullable Boolean value_bypassPolicyLockoutCheck;
+    private boolean unknown_bypassPolicyLockoutCheck;
     public @Nullable Boolean bypassPolicyLockoutCheck() {
-        if (bypassPolicyLockoutCheck == null) return null;
-        return bypassPolicyLockoutCheck.getValue("ResourcePolicy.bypassPolicyLockoutCheck");
+        if (!unknown_bypassPolicyLockoutCheck) return value_bypassPolicyLockoutCheck;
+        throw new UndeferrableValueException("Value 'ResourcePolicy.bypassPolicyLockoutCheck' is not present");
     }
 
     /**
      * When the policy was last updated, in Unix time seconds.
      * 
      */
-    private UndeferrableValue<String> lastUpdatedTime;
-
+    @PolicyResourceProperty(name="lastUpdatedTime", flag="unknown_lastUpdatedTime")
+    private String value_lastUpdatedTime;
+    private boolean unknown_lastUpdatedTime;
     public String lastUpdatedTime() {
-        if (lastUpdatedTime == null) return null;
-        return lastUpdatedTime.getValue("ResourcePolicy.lastUpdatedTime");
+        if (!unknown_lastUpdatedTime) return value_lastUpdatedTime;
+        throw new UndeferrableValueException("Value 'ResourcePolicy.lastUpdatedTime' is not present");
     }
 
     /**
@@ -41,33 +44,36 @@ public final class ResourcePolicy extends com.pulumi.resources.PolicyResourceOut
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> policyDocument;
-
+    @PolicyResourceProperty(name="policyDocument", flag="unknown_policyDocument")
+    private String value_policyDocument;
+    private boolean unknown_policyDocument;
     public String policyDocument() {
-        if (policyDocument == null) return null;
-        return policyDocument.getValue("ResourcePolicy.policyDocument");
+        if (!unknown_policyDocument) return value_policyDocument;
+        throw new UndeferrableValueException("Value 'ResourcePolicy.policyDocument' is not present");
     }
 
     /**
      * name of the resource policy. Must be unique within a specific Amazon Web Services account.
      * 
      */
-    private UndeferrableValue<String> policyName;
-
+    @PolicyResourceProperty(name="policyName", flag="unknown_policyName")
+    private String value_policyName;
+    private boolean unknown_policyName;
     public String policyName() {
-        if (policyName == null) return null;
-        return policyName.getValue("ResourcePolicy.policyName");
+        if (!unknown_policyName) return value_policyName;
+        throw new UndeferrableValueException("Value 'ResourcePolicy.policyName' is not present");
     }
 
     /**
      * Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
      * 
      */
-    private UndeferrableValue<String> policyRevisionId;
-
+    @PolicyResourceProperty(name="policyRevisionId", flag="unknown_policyRevisionId")
+    private String value_policyRevisionId;
+    private boolean unknown_policyRevisionId;
     public String policyRevisionId() {
-        if (policyRevisionId == null) return null;
-        return policyRevisionId.getValue("ResourcePolicy.policyRevisionId");
+        if (!unknown_policyRevisionId) return value_policyRevisionId;
+        throw new UndeferrableValueException("Value 'ResourcePolicy.policyRevisionId' is not present");
     }
 
 }

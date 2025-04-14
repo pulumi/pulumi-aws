@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -18,44 +19,48 @@ public final class UserLoginProfileArgs extends com.pulumi.resources.PolicyResou
      * The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
      * 
      */
-    private UndeferrableValue<Integer> passwordLength;
-
+    @PolicyResourceProperty(name="passwordLength", flag="unknown_passwordLength")
+    private Integer value_passwordLength;
+    private boolean unknown_passwordLength;
     public Integer passwordLength() {
-        if (passwordLength == null) return null;
-        return passwordLength.getValue("UserLoginProfileArgs.passwordLength");
+        if (!unknown_passwordLength) return value_passwordLength;
+        throw new UndeferrableValueException("Value 'UserLoginProfileArgs.passwordLength' is not present");
     }
 
     /**
      * Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
      * 
      */
-    private UndeferrableValue<Boolean> passwordResetRequired;
-
+    @PolicyResourceProperty(name="passwordResetRequired", flag="unknown_passwordResetRequired")
+    private Boolean value_passwordResetRequired;
+    private boolean unknown_passwordResetRequired;
     public Boolean passwordResetRequired() {
-        if (passwordResetRequired == null) return null;
-        return passwordResetRequired.getValue("UserLoginProfileArgs.passwordResetRequired");
+        if (!unknown_passwordResetRequired) return value_passwordResetRequired;
+        throw new UndeferrableValueException("Value 'UserLoginProfileArgs.passwordResetRequired' is not present");
     }
 
     /**
      * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
      * 
      */
-    private UndeferrableValue<String> pgpKey;
-
+    @PolicyResourceProperty(name="pgpKey", flag="unknown_pgpKey")
+    private String value_pgpKey;
+    private boolean unknown_pgpKey;
     public String pgpKey() {
-        if (pgpKey == null) return null;
-        return pgpKey.getValue("UserLoginProfileArgs.pgpKey");
+        if (!unknown_pgpKey) return value_pgpKey;
+        throw new UndeferrableValueException("Value 'UserLoginProfileArgs.pgpKey' is not present");
     }
 
     /**
      * The IAM user&#39;s name.
      * 
      */
-    private UndeferrableValue<String> user;
-
+    @PolicyResourceProperty(name="user", flag="unknown_user")
+    private String value_user;
+    private boolean unknown_user;
     public String user() {
-        if (user == null) return null;
-        return user.getValue("UserLoginProfileArgs.user");
+        if (!unknown_user) return value_user;
+        throw new UndeferrableValueException("Value 'UserLoginProfileArgs.user' is not present");
     }
 
 }

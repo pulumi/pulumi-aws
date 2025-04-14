@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssmincidents.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ssmincidents.outputs.ResponsePlanActionSsmAutomation;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ResponsePlanAction {
      * The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
      * 
      */
-    private @Nullable UndeferrableValue<List<ResponsePlanActionSsmAutomation>> ssmAutomations;
-
+    @PolicyResourceProperty(name="ssmAutomations", flag="unknown_ssmAutomations")
+    private @Nullable List<ResponsePlanActionSsmAutomation> value_ssmAutomations;
+    private boolean unknown_ssmAutomations;
     public @Nullable List<ResponsePlanActionSsmAutomation> ssmAutomations() {
-        if (ssmAutomations == null) return null;
-        return ssmAutomations.getValue("ResponsePlanAction.ssmAutomations");
+        if (!unknown_ssmAutomations) return value_ssmAutomations;
+        throw new UndeferrableValueException("Value 'ResponsePlanAction.ssmAutomations' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.efs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.efs.inputs.AccessPointRootDirectoryCreationInfoArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class AccessPointRootDirectoryArgs {
      * POSIX IDs and permissions to apply to the access point&#39;s Root Directory. See Creation Info below.
      * 
      */
-    private UndeferrableValue<AccessPointRootDirectoryCreationInfoArgs> creationInfo;
-
+    @PolicyResourceProperty(name="creationInfo", flag="unknown_creationInfo")
+    private AccessPointRootDirectoryCreationInfoArgs value_creationInfo;
+    private boolean unknown_creationInfo;
     public AccessPointRootDirectoryCreationInfoArgs creationInfo() {
-        if (creationInfo == null) return null;
-        return creationInfo.getValue("AccessPointRootDirectoryArgs.creationInfo");
+        if (!unknown_creationInfo) return value_creationInfo;
+        throw new UndeferrableValueException("Value 'AccessPointRootDirectoryArgs.creationInfo' is not present");
     }
 
     /**
      * Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.
      * 
      */
-    private UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private String value_path;
+    private boolean unknown_path;
     public String path() {
-        if (path == null) return null;
-        return path.getValue("AccessPointRootDirectoryArgs.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'AccessPointRootDirectoryArgs.path' is not present");
     }
 
 }

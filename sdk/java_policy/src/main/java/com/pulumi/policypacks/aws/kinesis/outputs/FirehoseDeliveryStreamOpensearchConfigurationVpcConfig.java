@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,40 +16,44 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationVpcConfig {
      * The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("FirehoseDeliveryStreamOpensearchConfigurationVpcConfig.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchConfigurationVpcConfig.roleArn' is not present");
     }
 
     /**
      * A list of security group IDs to associate with Kinesis Firehose.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("FirehoseDeliveryStreamOpensearchConfigurationVpcConfig.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchConfigurationVpcConfig.securityGroupIds' is not present");
     }
 
     /**
      * A list of subnet IDs to associate with Kinesis Firehose.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("FirehoseDeliveryStreamOpensearchConfigurationVpcConfig.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchConfigurationVpcConfig.subnetIds' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private @Nullable String value_vpcId;
+    private boolean unknown_vpcId;
     public @Nullable String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("FirehoseDeliveryStreamOpensearchConfigurationVpcConfig.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchConfigurationVpcConfig.vpcId' is not present");
     }
 
 }

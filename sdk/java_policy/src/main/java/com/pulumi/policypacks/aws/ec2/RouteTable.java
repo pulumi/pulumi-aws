@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.outputs.RouteTableRoute;
 import java.lang.String;
@@ -19,33 +20,36 @@ public final class RouteTable extends com.pulumi.resources.PolicyResourceOutput 
      * The ARN of the route table.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("RouteTable.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'RouteTable.arn' is not present");
     }
 
     /**
      * The ID of the AWS account that owns the route table.
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("RouteTable.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'RouteTable.ownerId' is not present");
     }
 
     /**
      * A list of virtual gateways for propagation.
      * 
      */
-    private UndeferrableValue<List<String>> propagatingVgws;
-
+    @PolicyResourceProperty(name="propagatingVgws", flag="unknown_propagatingVgws")
+    private List<String> value_propagatingVgws;
+    private boolean unknown_propagatingVgws;
     public List<String> propagatingVgws() {
-        if (propagatingVgws == null) return null;
-        return propagatingVgws.getValue("RouteTable.propagatingVgws");
+        if (!unknown_propagatingVgws) return value_propagatingVgws;
+        throw new UndeferrableValueException("Value 'RouteTable.propagatingVgws' is not present");
     }
 
     /**
@@ -53,22 +57,24 @@ public final class RouteTable extends com.pulumi.resources.PolicyResourceOutput 
      * This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
      * 
      */
-    private UndeferrableValue<List<RouteTableRoute>> routes;
-
+    @PolicyResourceProperty(name="routes", flag="unknown_routes")
+    private List<RouteTableRoute> value_routes;
+    private boolean unknown_routes;
     public List<RouteTableRoute> routes() {
-        if (routes == null) return null;
-        return routes.getValue("RouteTable.routes");
+        if (!unknown_routes) return value_routes;
+        throw new UndeferrableValueException("Value 'RouteTable.routes' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RouteTable.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RouteTable.tags' is not present");
     }
 
     /**
@@ -79,22 +85,24 @@ public final class RouteTable extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("RouteTable.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'RouteTable.tagsAll' is not present");
     }
 
     /**
      * The VPC ID.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("RouteTable.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'RouteTable.vpcId' is not present");
     }
 
 }

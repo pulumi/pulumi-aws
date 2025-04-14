@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dms;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.dms.outputs.ReplicationConfigComputeConfig;
 import java.lang.Boolean;
@@ -19,121 +20,132 @@ public final class ReplicationConfig extends com.pulumi.resources.PolicyResource
      * The Amazon Resource Name (ARN) for the serverless replication config.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ReplicationConfig.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ReplicationConfig.arn' is not present");
     }
 
     /**
      * Configuration block for provisioning an DMS Serverless replication.
      * 
      */
-    private UndeferrableValue<ReplicationConfigComputeConfig> computeConfig;
-
+    @PolicyResourceProperty(name="computeConfig", flag="unknown_computeConfig")
+    private ReplicationConfigComputeConfig value_computeConfig;
+    private boolean unknown_computeConfig;
     public ReplicationConfigComputeConfig computeConfig() {
-        if (computeConfig == null) return null;
-        return computeConfig.getValue("ReplicationConfig.computeConfig");
+        if (!unknown_computeConfig) return value_computeConfig;
+        throw new UndeferrableValueException("Value 'ReplicationConfig.computeConfig' is not present");
     }
 
     /**
      * Unique identifier that you want to use to create the config.
      * 
      */
-    private UndeferrableValue<String> replicationConfigIdentifier;
-
+    @PolicyResourceProperty(name="replicationConfigIdentifier", flag="unknown_replicationConfigIdentifier")
+    private String value_replicationConfigIdentifier;
+    private boolean unknown_replicationConfigIdentifier;
     public String replicationConfigIdentifier() {
-        if (replicationConfigIdentifier == null) return null;
-        return replicationConfigIdentifier.getValue("ReplicationConfig.replicationConfigIdentifier");
+        if (!unknown_replicationConfigIdentifier) return value_replicationConfigIdentifier;
+        throw new UndeferrableValueException("Value 'ReplicationConfig.replicationConfigIdentifier' is not present");
     }
 
     /**
      * An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
      * 
      */
-    private UndeferrableValue<String> replicationSettings;
-
+    @PolicyResourceProperty(name="replicationSettings", flag="unknown_replicationSettings")
+    private String value_replicationSettings;
+    private boolean unknown_replicationSettings;
     public String replicationSettings() {
-        if (replicationSettings == null) return null;
-        return replicationSettings.getValue("ReplicationConfig.replicationSettings");
+        if (!unknown_replicationSettings) return value_replicationSettings;
+        throw new UndeferrableValueException("Value 'ReplicationConfig.replicationSettings' is not present");
     }
 
     /**
      * The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
      * 
      */
-    private UndeferrableValue<String> replicationType;
-
+    @PolicyResourceProperty(name="replicationType", flag="unknown_replicationType")
+    private String value_replicationType;
+    private boolean unknown_replicationType;
     public String replicationType() {
-        if (replicationType == null) return null;
-        return replicationType.getValue("ReplicationConfig.replicationType");
+        if (!unknown_replicationType) return value_replicationType;
+        throw new UndeferrableValueException("Value 'ReplicationConfig.replicationType' is not present");
     }
 
     /**
      * Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
      * 
      */
-    private UndeferrableValue<String> resourceIdentifier;
-
+    @PolicyResourceProperty(name="resourceIdentifier", flag="unknown_resourceIdentifier")
+    private String value_resourceIdentifier;
+    private boolean unknown_resourceIdentifier;
     public String resourceIdentifier() {
-        if (resourceIdentifier == null) return null;
-        return resourceIdentifier.getValue("ReplicationConfig.resourceIdentifier");
+        if (!unknown_resourceIdentifier) return value_resourceIdentifier;
+        throw new UndeferrableValueException("Value 'ReplicationConfig.resourceIdentifier' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
      * 
      */
-    private UndeferrableValue<String> sourceEndpointArn;
-
+    @PolicyResourceProperty(name="sourceEndpointArn", flag="unknown_sourceEndpointArn")
+    private String value_sourceEndpointArn;
+    private boolean unknown_sourceEndpointArn;
     public String sourceEndpointArn() {
-        if (sourceEndpointArn == null) return null;
-        return sourceEndpointArn.getValue("ReplicationConfig.sourceEndpointArn");
+        if (!unknown_sourceEndpointArn) return value_sourceEndpointArn;
+        throw new UndeferrableValueException("Value 'ReplicationConfig.sourceEndpointArn' is not present");
     }
 
     /**
      * Whether to run or stop the serverless replication, default is false.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> startReplication;
-
+    @PolicyResourceProperty(name="startReplication", flag="unknown_startReplication")
+    private @Nullable Boolean value_startReplication;
+    private boolean unknown_startReplication;
     public @Nullable Boolean startReplication() {
-        if (startReplication == null) return null;
-        return startReplication.getValue("ReplicationConfig.startReplication");
+        if (!unknown_startReplication) return value_startReplication;
+        throw new UndeferrableValueException("Value 'ReplicationConfig.startReplication' is not present");
     }
 
     /**
      * JSON settings for specifying supplemental data. For more information see [Specifying supplemental data for task settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html)
      * 
      */
-    private @Nullable UndeferrableValue<String> supplementalSettings;
-
+    @PolicyResourceProperty(name="supplementalSettings", flag="unknown_supplementalSettings")
+    private @Nullable String value_supplementalSettings;
+    private boolean unknown_supplementalSettings;
     public @Nullable String supplementalSettings() {
-        if (supplementalSettings == null) return null;
-        return supplementalSettings.getValue("ReplicationConfig.supplementalSettings");
+        if (!unknown_supplementalSettings) return value_supplementalSettings;
+        throw new UndeferrableValueException("Value 'ReplicationConfig.supplementalSettings' is not present");
     }
 
     /**
      * An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
      * 
      */
-    private UndeferrableValue<String> tableMappings;
-
+    @PolicyResourceProperty(name="tableMappings", flag="unknown_tableMappings")
+    private String value_tableMappings;
+    private boolean unknown_tableMappings;
     public String tableMappings() {
-        if (tableMappings == null) return null;
-        return tableMappings.getValue("ReplicationConfig.tableMappings");
+        if (!unknown_tableMappings) return value_tableMappings;
+        throw new UndeferrableValueException("Value 'ReplicationConfig.tableMappings' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ReplicationConfig.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ReplicationConfig.tags' is not present");
     }
 
     /**
@@ -144,22 +156,24 @@ public final class ReplicationConfig extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ReplicationConfig.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ReplicationConfig.tagsAll' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
      * 
      */
-    private UndeferrableValue<String> targetEndpointArn;
-
+    @PolicyResourceProperty(name="targetEndpointArn", flag="unknown_targetEndpointArn")
+    private String value_targetEndpointArn;
+    private boolean unknown_targetEndpointArn;
     public String targetEndpointArn() {
-        if (targetEndpointArn == null) return null;
-        return targetEndpointArn.getValue("ReplicationConfig.targetEndpointArn");
+        if (!unknown_targetEndpointArn) return value_targetEndpointArn;
+        throw new UndeferrableValueException("Value 'ReplicationConfig.targetEndpointArn' is not present");
     }
 
 }

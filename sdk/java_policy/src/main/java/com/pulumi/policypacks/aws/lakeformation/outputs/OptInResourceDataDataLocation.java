@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class OptInResourceDataDataLocation {
      * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    private @Nullable UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private @Nullable String value_catalogId;
+    private boolean unknown_catalogId;
     public @Nullable String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("OptInResourceDataDataLocation.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'OptInResourceDataDataLocation.catalogId' is not present");
     }
 
     /**
      * ARN that uniquely identifies the data location resource.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("OptInResourceDataDataLocation.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'OptInResourceDataDataLocation.resourceArn' is not present");
     }
 
 }

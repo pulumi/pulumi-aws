@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,55 +17,60 @@ public final class PermissionArgs extends com.pulumi.resources.PolicyResourceInp
      * The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
      * 
      */
-    private UndeferrableValue<String> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private String value_action;
+    private boolean unknown_action;
     public String action() {
-        if (action == null) return null;
-        return action.getValue("PermissionArgs.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'PermissionArgs.action' is not present");
     }
 
     /**
      * The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
      * 
      */
-    private UndeferrableValue<String> eventSourceToken;
-
+    @PolicyResourceProperty(name="eventSourceToken", flag="unknown_eventSourceToken")
+    private String value_eventSourceToken;
+    private boolean unknown_eventSourceToken;
     public String eventSourceToken() {
-        if (eventSourceToken == null) return null;
-        return eventSourceToken.getValue("PermissionArgs.eventSourceToken");
+        if (!unknown_eventSourceToken) return value_eventSourceToken;
+        throw new UndeferrableValueException("Value 'PermissionArgs.eventSourceToken' is not present");
     }
 
     /**
      * Name of the Lambda function whose resource policy you are updating
      * 
      */
-    private UndeferrableValue<String> function;
-
+    @PolicyResourceProperty(name="function", flag="unknown_function")
+    private String value_function;
+    private boolean unknown_function;
     public String function() {
-        if (function == null) return null;
-        return function.getValue("PermissionArgs.function");
+        if (!unknown_function) return value_function;
+        throw new UndeferrableValueException("Value 'PermissionArgs.function' is not present");
     }
 
     /**
      * Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
      * 
      */
-    private UndeferrableValue<String> functionUrlAuthType;
-
+    @PolicyResourceProperty(name="functionUrlAuthType", flag="unknown_functionUrlAuthType")
+    private String value_functionUrlAuthType;
+    private boolean unknown_functionUrlAuthType;
     public String functionUrlAuthType() {
-        if (functionUrlAuthType == null) return null;
-        return functionUrlAuthType.getValue("PermissionArgs.functionUrlAuthType");
+        if (!unknown_functionUrlAuthType) return value_functionUrlAuthType;
+        throw new UndeferrableValueException("Value 'PermissionArgs.functionUrlAuthType' is not present");
     }
 
     /**
      * The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
      * 
      */
-    private UndeferrableValue<String> principal;
-
+    @PolicyResourceProperty(name="principal", flag="unknown_principal")
+    private String value_principal;
+    private boolean unknown_principal;
     public String principal() {
-        if (principal == null) return null;
-        return principal.getValue("PermissionArgs.principal");
+        if (!unknown_principal) return value_principal;
+        throw new UndeferrableValueException("Value 'PermissionArgs.principal' is not present");
     }
 
     /**
@@ -75,33 +81,36 @@ public final class PermissionArgs extends com.pulumi.resources.PolicyResourceInp
      * [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
      * 
      */
-    private UndeferrableValue<String> principalOrgId;
-
+    @PolicyResourceProperty(name="principalOrgId", flag="unknown_principalOrgId")
+    private String value_principalOrgId;
+    private boolean unknown_principalOrgId;
     public String principalOrgId() {
-        if (principalOrgId == null) return null;
-        return principalOrgId.getValue("PermissionArgs.principalOrgId");
+        if (!unknown_principalOrgId) return value_principalOrgId;
+        throw new UndeferrableValueException("Value 'PermissionArgs.principalOrgId' is not present");
     }
 
     /**
      * Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
      * 
      */
-    private UndeferrableValue<String> qualifier;
-
+    @PolicyResourceProperty(name="qualifier", flag="unknown_qualifier")
+    private String value_qualifier;
+    private boolean unknown_qualifier;
     public String qualifier() {
-        if (qualifier == null) return null;
-        return qualifier.getValue("PermissionArgs.qualifier");
+        if (!unknown_qualifier) return value_qualifier;
+        throw new UndeferrableValueException("Value 'PermissionArgs.qualifier' is not present");
     }
 
     /**
      * This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
      * 
      */
-    private UndeferrableValue<String> sourceAccount;
-
+    @PolicyResourceProperty(name="sourceAccount", flag="unknown_sourceAccount")
+    private String value_sourceAccount;
+    private boolean unknown_sourceAccount;
     public String sourceAccount() {
-        if (sourceAccount == null) return null;
-        return sourceAccount.getValue("PermissionArgs.sourceAccount");
+        if (!unknown_sourceAccount) return value_sourceAccount;
+        throw new UndeferrableValueException("Value 'PermissionArgs.sourceAccount' is not present");
     }
 
     /**
@@ -112,33 +121,36 @@ public final class PermissionArgs extends com.pulumi.resources.PolicyResourceInp
      * For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
      * 
      */
-    private UndeferrableValue<String> sourceArn;
-
+    @PolicyResourceProperty(name="sourceArn", flag="unknown_sourceArn")
+    private String value_sourceArn;
+    private boolean unknown_sourceArn;
     public String sourceArn() {
-        if (sourceArn == null) return null;
-        return sourceArn.getValue("PermissionArgs.sourceArn");
+        if (!unknown_sourceArn) return value_sourceArn;
+        throw new UndeferrableValueException("Value 'PermissionArgs.sourceArn' is not present");
     }
 
     /**
      * A unique statement identifier. By default generated by the provider.
      * 
      */
-    private UndeferrableValue<String> statementId;
-
+    @PolicyResourceProperty(name="statementId", flag="unknown_statementId")
+    private String value_statementId;
+    private boolean unknown_statementId;
     public String statementId() {
-        if (statementId == null) return null;
-        return statementId.getValue("PermissionArgs.statementId");
+        if (!unknown_statementId) return value_statementId;
+        throw new UndeferrableValueException("Value 'PermissionArgs.statementId' is not present");
     }
 
     /**
      * A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statement_id`.
      * 
      */
-    private UndeferrableValue<String> statementIdPrefix;
-
+    @PolicyResourceProperty(name="statementIdPrefix", flag="unknown_statementIdPrefix")
+    private String value_statementIdPrefix;
+    private boolean unknown_statementIdPrefix;
     public String statementIdPrefix() {
-        if (statementIdPrefix == null) return null;
-        return statementIdPrefix.getValue("PermissionArgs.statementIdPrefix");
+        if (!unknown_statementIdPrefix) return value_statementIdPrefix;
+        throw new UndeferrableValueException("Value 'PermissionArgs.statementIdPrefix' is not present");
     }
 
 }

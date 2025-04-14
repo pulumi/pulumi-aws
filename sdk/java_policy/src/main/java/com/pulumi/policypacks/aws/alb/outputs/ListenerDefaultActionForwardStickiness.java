@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.alb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import javax.annotation.Nullable;
@@ -17,22 +18,24 @@ public final class ListenerDefaultActionForwardStickiness {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<Integer> duration;
-
+    @PolicyResourceProperty(name="duration", flag="unknown_duration")
+    private Integer value_duration;
+    private boolean unknown_duration;
     public Integer duration() {
-        if (duration == null) return null;
-        return duration.getValue("ListenerDefaultActionForwardStickiness.duration");
+        if (!unknown_duration) return value_duration;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionForwardStickiness.duration' is not present");
     }
 
     /**
      * Whether target group stickiness is enabled. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("ListenerDefaultActionForwardStickiness.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionForwardStickiness.enabled' is not present");
     }
 
 }

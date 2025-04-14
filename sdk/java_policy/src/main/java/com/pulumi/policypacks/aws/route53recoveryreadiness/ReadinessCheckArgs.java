@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53recoveryreadiness;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,11 +18,12 @@ public final class ReadinessCheckArgs extends com.pulumi.resources.PolicyResourc
      * Unique name describing the readiness check.
      * 
      */
-    private UndeferrableValue<String> readinessCheckName;
-
+    @PolicyResourceProperty(name="readinessCheckName", flag="unknown_readinessCheckName")
+    private String value_readinessCheckName;
+    private boolean unknown_readinessCheckName;
     public String readinessCheckName() {
-        if (readinessCheckName == null) return null;
-        return readinessCheckName.getValue("ReadinessCheckArgs.readinessCheckName");
+        if (!unknown_readinessCheckName) return value_readinessCheckName;
+        throw new UndeferrableValueException("Value 'ReadinessCheckArgs.readinessCheckName' is not present");
     }
 
     /**
@@ -30,22 +32,24 @@ public final class ReadinessCheckArgs extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> resourceSetName;
-
+    @PolicyResourceProperty(name="resourceSetName", flag="unknown_resourceSetName")
+    private String value_resourceSetName;
+    private boolean unknown_resourceSetName;
     public String resourceSetName() {
-        if (resourceSetName == null) return null;
-        return resourceSetName.getValue("ReadinessCheckArgs.resourceSetName");
+        if (!unknown_resourceSetName) return value_resourceSetName;
+        throw new UndeferrableValueException("Value 'ReadinessCheckArgs.resourceSetName' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ReadinessCheckArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ReadinessCheckArgs.tags' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.auditmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.auditmanager.inputs.AssessmentAssessmentReportsDestinationArgs;
 import com.pulumi.policypacks.aws.auditmanager.inputs.AssessmentRoleArgs;
@@ -21,55 +22,60 @@ public final class AssessmentArgs extends com.pulumi.resources.PolicyResourceInp
      * Assessment report storage destination configuration. See `assessment_reports_destination` below.
      * 
      */
-    private UndeferrableValue<AssessmentAssessmentReportsDestinationArgs> assessmentReportsDestination;
-
+    @PolicyResourceProperty(name="assessmentReportsDestination", flag="unknown_assessmentReportsDestination")
+    private AssessmentAssessmentReportsDestinationArgs value_assessmentReportsDestination;
+    private boolean unknown_assessmentReportsDestination;
     public AssessmentAssessmentReportsDestinationArgs assessmentReportsDestination() {
-        if (assessmentReportsDestination == null) return null;
-        return assessmentReportsDestination.getValue("AssessmentArgs.assessmentReportsDestination");
+        if (!unknown_assessmentReportsDestination) return value_assessmentReportsDestination;
+        throw new UndeferrableValueException("Value 'AssessmentArgs.assessmentReportsDestination' is not present");
     }
 
     /**
      * Description of the assessment.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("AssessmentArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AssessmentArgs.description' is not present");
     }
 
     /**
      * Unique identifier of the framework the assessment will be created from.
      * 
      */
-    private UndeferrableValue<String> frameworkId;
-
+    @PolicyResourceProperty(name="frameworkId", flag="unknown_frameworkId")
+    private String value_frameworkId;
+    private boolean unknown_frameworkId;
     public String frameworkId() {
-        if (frameworkId == null) return null;
-        return frameworkId.getValue("AssessmentArgs.frameworkId");
+        if (!unknown_frameworkId) return value_frameworkId;
+        throw new UndeferrableValueException("Value 'AssessmentArgs.frameworkId' is not present");
     }
 
     /**
      * Name of the assessment.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AssessmentArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AssessmentArgs.name' is not present");
     }
 
     /**
      * List of roles for the assessment. See `roles` below.
      * 
      */
-    private UndeferrableValue<List<AssessmentRoleArgs>> roles;
-
+    @PolicyResourceProperty(name="roles", flag="unknown_roles")
+    private List<AssessmentRoleArgs> value_roles;
+    private boolean unknown_roles;
     public List<AssessmentRoleArgs> roles() {
-        if (roles == null) return null;
-        return roles.getValue("AssessmentArgs.roles");
+        if (!unknown_roles) return value_roles;
+        throw new UndeferrableValueException("Value 'AssessmentArgs.roles' is not present");
     }
 
     /**
@@ -78,22 +84,24 @@ public final class AssessmentArgs extends com.pulumi.resources.PolicyResourceInp
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<AssessmentScopeArgs> scope;
-
+    @PolicyResourceProperty(name="scope", flag="unknown_scope")
+    private AssessmentScopeArgs value_scope;
+    private boolean unknown_scope;
     public AssessmentScopeArgs scope() {
-        if (scope == null) return null;
-        return scope.getValue("AssessmentArgs.scope");
+        if (!unknown_scope) return value_scope;
+        throw new UndeferrableValueException("Value 'AssessmentArgs.scope' is not present");
     }
 
     /**
      * A map of tags to assign to the assessment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AssessmentArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AssessmentArgs.tags' is not present");
     }
 
 }

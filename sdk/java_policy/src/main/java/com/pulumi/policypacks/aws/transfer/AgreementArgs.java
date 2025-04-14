@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,77 +18,84 @@ public final class AgreementArgs extends com.pulumi.resources.PolicyResourceInpu
      * The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
      * 
      */
-    private UndeferrableValue<String> accessRole;
-
+    @PolicyResourceProperty(name="accessRole", flag="unknown_accessRole")
+    private String value_accessRole;
+    private boolean unknown_accessRole;
     public String accessRole() {
-        if (accessRole == null) return null;
-        return accessRole.getValue("AgreementArgs.accessRole");
+        if (!unknown_accessRole) return value_accessRole;
+        throw new UndeferrableValueException("Value 'AgreementArgs.accessRole' is not present");
     }
 
     /**
      * The landing directory for the files transferred by using the AS2 protocol.
      * 
      */
-    private UndeferrableValue<String> baseDirectory;
-
+    @PolicyResourceProperty(name="baseDirectory", flag="unknown_baseDirectory")
+    private String value_baseDirectory;
+    private boolean unknown_baseDirectory;
     public String baseDirectory() {
-        if (baseDirectory == null) return null;
-        return baseDirectory.getValue("AgreementArgs.baseDirectory");
+        if (!unknown_baseDirectory) return value_baseDirectory;
+        throw new UndeferrableValueException("Value 'AgreementArgs.baseDirectory' is not present");
     }
 
     /**
      * The Optional description of the transdfer.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("AgreementArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AgreementArgs.description' is not present");
     }
 
     /**
      * The unique identifier for the AS2 local profile.
      * 
      */
-    private UndeferrableValue<String> localProfileId;
-
+    @PolicyResourceProperty(name="localProfileId", flag="unknown_localProfileId")
+    private String value_localProfileId;
+    private boolean unknown_localProfileId;
     public String localProfileId() {
-        if (localProfileId == null) return null;
-        return localProfileId.getValue("AgreementArgs.localProfileId");
+        if (!unknown_localProfileId) return value_localProfileId;
+        throw new UndeferrableValueException("Value 'AgreementArgs.localProfileId' is not present");
     }
 
     /**
      * The unique identifier for the AS2 partner profile.
      * 
      */
-    private UndeferrableValue<String> partnerProfileId;
-
+    @PolicyResourceProperty(name="partnerProfileId", flag="unknown_partnerProfileId")
+    private String value_partnerProfileId;
+    private boolean unknown_partnerProfileId;
     public String partnerProfileId() {
-        if (partnerProfileId == null) return null;
-        return partnerProfileId.getValue("AgreementArgs.partnerProfileId");
+        if (!unknown_partnerProfileId) return value_partnerProfileId;
+        throw new UndeferrableValueException("Value 'AgreementArgs.partnerProfileId' is not present");
     }
 
     /**
      * The unique server identifier for the server instance. This is the specific server the agreement uses.
      * 
      */
-    private UndeferrableValue<String> serverId;
-
+    @PolicyResourceProperty(name="serverId", flag="unknown_serverId")
+    private String value_serverId;
+    private boolean unknown_serverId;
     public String serverId() {
-        if (serverId == null) return null;
-        return serverId.getValue("AgreementArgs.serverId");
+        if (!unknown_serverId) return value_serverId;
+        throw new UndeferrableValueException("Value 'AgreementArgs.serverId' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AgreementArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AgreementArgs.tags' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class ClassifierGrokClassifierArgs {
      * An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
      * 
      */
-    private UndeferrableValue<String> classification;
-
+    @PolicyResourceProperty(name="classification", flag="unknown_classification")
+    private String value_classification;
+    private boolean unknown_classification;
     public String classification() {
-        if (classification == null) return null;
-        return classification.getValue("ClassifierGrokClassifierArgs.classification");
+        if (!unknown_classification) return value_classification;
+        throw new UndeferrableValueException("Value 'ClassifierGrokClassifierArgs.classification' is not present");
     }
 
     /**
      * Custom grok patterns used by this classifier.
      * 
      */
-    private UndeferrableValue<String> customPatterns;
-
+    @PolicyResourceProperty(name="customPatterns", flag="unknown_customPatterns")
+    private String value_customPatterns;
+    private boolean unknown_customPatterns;
     public String customPatterns() {
-        if (customPatterns == null) return null;
-        return customPatterns.getValue("ClassifierGrokClassifierArgs.customPatterns");
+        if (!unknown_customPatterns) return value_customPatterns;
+        throw new UndeferrableValueException("Value 'ClassifierGrokClassifierArgs.customPatterns' is not present");
     }
 
     /**
      * The grok pattern used by this classifier.
      * 
      */
-    private UndeferrableValue<String> grokPattern;
-
+    @PolicyResourceProperty(name="grokPattern", flag="unknown_grokPattern")
+    private String value_grokPattern;
+    private boolean unknown_grokPattern;
     public String grokPattern() {
-        if (grokPattern == null) return null;
-        return grokPattern.getValue("ClassifierGrokClassifierArgs.grokPattern");
+        if (!unknown_grokPattern) return value_grokPattern;
+        throw new UndeferrableValueException("Value 'ClassifierGrokClassifierArgs.grokPattern' is not present");
     }
 
 }

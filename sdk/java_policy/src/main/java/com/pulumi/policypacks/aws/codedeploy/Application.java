@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codedeploy;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,77 +19,84 @@ public final class Application extends com.pulumi.resources.PolicyResourceOutput
      * The application ID.
      * 
      */
-    private UndeferrableValue<String> applicationId;
-
+    @PolicyResourceProperty(name="applicationId", flag="unknown_applicationId")
+    private String value_applicationId;
+    private boolean unknown_applicationId;
     public String applicationId() {
-        if (applicationId == null) return null;
-        return applicationId.getValue("Application.applicationId");
+        if (!unknown_applicationId) return value_applicationId;
+        throw new UndeferrableValueException("Value 'Application.applicationId' is not present");
     }
 
     /**
      * The ARN of the CodeDeploy application.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Application.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Application.arn' is not present");
     }
 
     /**
      * The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
      * 
      */
-    private @Nullable UndeferrableValue<String> computePlatform;
-
+    @PolicyResourceProperty(name="computePlatform", flag="unknown_computePlatform")
+    private @Nullable String value_computePlatform;
+    private boolean unknown_computePlatform;
     public @Nullable String computePlatform() {
-        if (computePlatform == null) return null;
-        return computePlatform.getValue("Application.computePlatform");
+        if (!unknown_computePlatform) return value_computePlatform;
+        throw new UndeferrableValueException("Value 'Application.computePlatform' is not present");
     }
 
     /**
      * The name for a connection to a GitHub account.
      * 
      */
-    private UndeferrableValue<String> githubAccountName;
-
+    @PolicyResourceProperty(name="githubAccountName", flag="unknown_githubAccountName")
+    private String value_githubAccountName;
+    private boolean unknown_githubAccountName;
     public String githubAccountName() {
-        if (githubAccountName == null) return null;
-        return githubAccountName.getValue("Application.githubAccountName");
+        if (!unknown_githubAccountName) return value_githubAccountName;
+        throw new UndeferrableValueException("Value 'Application.githubAccountName' is not present");
     }
 
     /**
      * Whether the user has authenticated with GitHub for the specified application.
      * 
      */
-    private UndeferrableValue<Boolean> linkedToGithub;
-
+    @PolicyResourceProperty(name="linkedToGithub", flag="unknown_linkedToGithub")
+    private Boolean value_linkedToGithub;
+    private boolean unknown_linkedToGithub;
     public Boolean linkedToGithub() {
-        if (linkedToGithub == null) return null;
-        return linkedToGithub.getValue("Application.linkedToGithub");
+        if (!unknown_linkedToGithub) return value_linkedToGithub;
+        throw new UndeferrableValueException("Value 'Application.linkedToGithub' is not present");
     }
 
     /**
      * The name of the application.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Application.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Application.name' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Application.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Application.tags' is not present");
     }
 
     /**
@@ -99,11 +107,12 @@ public final class Application extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Application.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Application.tagsAll' is not present");
     }
 
 }

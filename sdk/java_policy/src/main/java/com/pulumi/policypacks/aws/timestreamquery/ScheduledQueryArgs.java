@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamquery;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.timestreamquery.inputs.ScheduledQueryErrorReportConfigurationArgs;
 import com.pulumi.policypacks.aws.timestreamquery.inputs.ScheduledQueryLastRunSummaryArgs;
@@ -25,110 +26,120 @@ public final class ScheduledQueryArgs extends com.pulumi.resources.PolicyResourc
      * Configuration block for error reporting configuration. See below.
      * 
      */
-    private UndeferrableValue<ScheduledQueryErrorReportConfigurationArgs> errorReportConfiguration;
-
+    @PolicyResourceProperty(name="errorReportConfiguration", flag="unknown_errorReportConfiguration")
+    private ScheduledQueryErrorReportConfigurationArgs value_errorReportConfiguration;
+    private boolean unknown_errorReportConfiguration;
     public ScheduledQueryErrorReportConfigurationArgs errorReportConfiguration() {
-        if (errorReportConfiguration == null) return null;
-        return errorReportConfiguration.getValue("ScheduledQueryArgs.errorReportConfiguration");
+        if (!unknown_errorReportConfiguration) return value_errorReportConfiguration;
+        throw new UndeferrableValueException("Value 'ScheduledQueryArgs.errorReportConfiguration' is not present");
     }
 
     /**
      * ARN for the IAM role that Timestream will assume when running the scheduled query.
      * 
      */
-    private UndeferrableValue<String> executionRoleArn;
-
+    @PolicyResourceProperty(name="executionRoleArn", flag="unknown_executionRoleArn")
+    private String value_executionRoleArn;
+    private boolean unknown_executionRoleArn;
     public String executionRoleArn() {
-        if (executionRoleArn == null) return null;
-        return executionRoleArn.getValue("ScheduledQueryArgs.executionRoleArn");
+        if (!unknown_executionRoleArn) return value_executionRoleArn;
+        throw new UndeferrableValueException("Value 'ScheduledQueryArgs.executionRoleArn' is not present");
     }
 
     /**
      * Amazon KMS key used to encrypt the scheduled query resource, at-rest. If not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with &#34;alias/&#34;. If `error_report_configuration` uses `SSE_KMS` as the encryption type, the same `kms_key_id` is used to encrypt the error report at rest.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("ScheduledQueryArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'ScheduledQueryArgs.kmsKeyId' is not present");
     }
 
     /**
      * Runtime summary for the last scheduled query run.
      * 
      */
-    private UndeferrableValue<List<ScheduledQueryLastRunSummaryArgs>> lastRunSummaries;
-
+    @PolicyResourceProperty(name="lastRunSummaries", flag="unknown_lastRunSummaries")
+    private List<ScheduledQueryLastRunSummaryArgs> value_lastRunSummaries;
+    private boolean unknown_lastRunSummaries;
     public List<ScheduledQueryLastRunSummaryArgs> lastRunSummaries() {
-        if (lastRunSummaries == null) return null;
-        return lastRunSummaries.getValue("ScheduledQueryArgs.lastRunSummaries");
+        if (!unknown_lastRunSummaries) return value_lastRunSummaries;
+        throw new UndeferrableValueException("Value 'ScheduledQueryArgs.lastRunSummaries' is not present");
     }
 
     /**
      * Name of the scheduled query.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ScheduledQueryArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ScheduledQueryArgs.name' is not present");
     }
 
     /**
      * Configuration block for notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated, or when it is deleted. See below.
      * 
      */
-    private UndeferrableValue<ScheduledQueryNotificationConfigurationArgs> notificationConfiguration;
-
+    @PolicyResourceProperty(name="notificationConfiguration", flag="unknown_notificationConfiguration")
+    private ScheduledQueryNotificationConfigurationArgs value_notificationConfiguration;
+    private boolean unknown_notificationConfiguration;
     public ScheduledQueryNotificationConfigurationArgs notificationConfiguration() {
-        if (notificationConfiguration == null) return null;
-        return notificationConfiguration.getValue("ScheduledQueryArgs.notificationConfiguration");
+        if (!unknown_notificationConfiguration) return value_notificationConfiguration;
+        throw new UndeferrableValueException("Value 'ScheduledQueryArgs.notificationConfiguration' is not present");
     }
 
     /**
      * Query string to run. Parameter names can be specified in the query string using the `{@literal @}` character followed by an identifier. The named parameter `{@literal @}scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `schedule_configuration` parameter, will be the value of `{@literal @}scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `{@literal @}scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
      * 
      */
-    private UndeferrableValue<String> queryString;
-
+    @PolicyResourceProperty(name="queryString", flag="unknown_queryString")
+    private String value_queryString;
+    private boolean unknown_queryString;
     public String queryString() {
-        if (queryString == null) return null;
-        return queryString.getValue("ScheduledQueryArgs.queryString");
+        if (!unknown_queryString) return value_queryString;
+        throw new UndeferrableValueException("Value 'ScheduledQueryArgs.queryString' is not present");
     }
 
     /**
      * Runtime summary for the last five failed scheduled query runs.
      * 
      */
-    private UndeferrableValue<List<ScheduledQueryRecentlyFailedRunArgs>> recentlyFailedRuns;
-
+    @PolicyResourceProperty(name="recentlyFailedRuns", flag="unknown_recentlyFailedRuns")
+    private List<ScheduledQueryRecentlyFailedRunArgs> value_recentlyFailedRuns;
+    private boolean unknown_recentlyFailedRuns;
     public List<ScheduledQueryRecentlyFailedRunArgs> recentlyFailedRuns() {
-        if (recentlyFailedRuns == null) return null;
-        return recentlyFailedRuns.getValue("ScheduledQueryArgs.recentlyFailedRuns");
+        if (!unknown_recentlyFailedRuns) return value_recentlyFailedRuns;
+        throw new UndeferrableValueException("Value 'ScheduledQueryArgs.recentlyFailedRuns' is not present");
     }
 
     /**
      * Configuration block for schedule configuration for the query. See below.
      * 
      */
-    private UndeferrableValue<ScheduledQueryScheduleConfigurationArgs> scheduleConfiguration;
-
+    @PolicyResourceProperty(name="scheduleConfiguration", flag="unknown_scheduleConfiguration")
+    private ScheduledQueryScheduleConfigurationArgs value_scheduleConfiguration;
+    private boolean unknown_scheduleConfiguration;
     public ScheduledQueryScheduleConfigurationArgs scheduleConfiguration() {
-        if (scheduleConfiguration == null) return null;
-        return scheduleConfiguration.getValue("ScheduledQueryArgs.scheduleConfiguration");
+        if (!unknown_scheduleConfiguration) return value_scheduleConfiguration;
+        throw new UndeferrableValueException("Value 'ScheduledQueryArgs.scheduleConfiguration' is not present");
     }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ScheduledQueryArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ScheduledQueryArgs.tags' is not present");
     }
 
     /**
@@ -137,18 +148,20 @@ public final class ScheduledQueryArgs extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<ScheduledQueryTargetConfigurationArgs> targetConfiguration;
-
+    @PolicyResourceProperty(name="targetConfiguration", flag="unknown_targetConfiguration")
+    private ScheduledQueryTargetConfigurationArgs value_targetConfiguration;
+    private boolean unknown_targetConfiguration;
     public ScheduledQueryTargetConfigurationArgs targetConfiguration() {
-        if (targetConfiguration == null) return null;
-        return targetConfiguration.getValue("ScheduledQueryArgs.targetConfiguration");
+        if (!unknown_targetConfiguration) return value_targetConfiguration;
+        throw new UndeferrableValueException("Value 'ScheduledQueryArgs.targetConfiguration' is not present");
     }
 
-    private UndeferrableValue<ScheduledQueryTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private ScheduledQueryTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public ScheduledQueryTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ScheduledQueryArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ScheduledQueryArgs.timeouts' is not present");
     }
 
 }

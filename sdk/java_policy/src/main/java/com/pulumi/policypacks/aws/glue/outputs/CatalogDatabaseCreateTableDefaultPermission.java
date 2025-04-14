@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.glue.outputs.CatalogDatabaseCreateTableDefaultPermissionPrincipal;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class CatalogDatabaseCreateTableDefaultPermission {
      * The permissions that are granted to the principal.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> permissions;
-
+    @PolicyResourceProperty(name="permissions", flag="unknown_permissions")
+    private @Nullable List<String> value_permissions;
+    private boolean unknown_permissions;
     public @Nullable List<String> permissions() {
-        if (permissions == null) return null;
-        return permissions.getValue("CatalogDatabaseCreateTableDefaultPermission.permissions");
+        if (!unknown_permissions) return value_permissions;
+        throw new UndeferrableValueException("Value 'CatalogDatabaseCreateTableDefaultPermission.permissions' is not present");
     }
 
     /**
      * The principal who is granted permissions.. See `principal` below.
      * 
      */
-    private @Nullable UndeferrableValue<CatalogDatabaseCreateTableDefaultPermissionPrincipal> principal;
-
+    @PolicyResourceProperty(name="principal", flag="unknown_principal")
+    private @Nullable CatalogDatabaseCreateTableDefaultPermissionPrincipal value_principal;
+    private boolean unknown_principal;
     public @Nullable CatalogDatabaseCreateTableDefaultPermissionPrincipal principal() {
-        if (principal == null) return null;
-        return principal.getValue("CatalogDatabaseCreateTableDefaultPermission.principal");
+        if (!unknown_principal) return value_principal;
+        throw new UndeferrableValueException("Value 'CatalogDatabaseCreateTableDefaultPermission.principal' is not present");
     }
 
 }

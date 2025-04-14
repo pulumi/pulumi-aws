@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudwatch.outputs.EventEndpointRoutingConfigFailoverConfig;
 
 
@@ -13,11 +14,12 @@ public final class EventEndpointRoutingConfig {
      * Parameters used for failover. This includes what triggers failover and what happens when it&#39;s triggered. Documented below.
      * 
      */
-    private UndeferrableValue<EventEndpointRoutingConfigFailoverConfig> failoverConfig;
-
+    @PolicyResourceProperty(name="failoverConfig", flag="unknown_failoverConfig")
+    private EventEndpointRoutingConfigFailoverConfig value_failoverConfig;
+    private boolean unknown_failoverConfig;
     public EventEndpointRoutingConfigFailoverConfig failoverConfig() {
-        if (failoverConfig == null) return null;
-        return failoverConfig.getValue("EventEndpointRoutingConfig.failoverConfig");
+        if (!unknown_failoverConfig) return value_failoverConfig;
+        throw new UndeferrableValueException("Value 'EventEndpointRoutingConfig.failoverConfig' is not present");
     }
 
 }

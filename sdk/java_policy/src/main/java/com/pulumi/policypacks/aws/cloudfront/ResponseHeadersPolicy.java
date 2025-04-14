@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudfront.outputs.ResponseHeadersPolicyCorsConfig;
 import com.pulumi.policypacks.aws.cloudfront.outputs.ResponseHeadersPolicyCustomHeadersConfig;
@@ -21,99 +22,108 @@ public final class ResponseHeadersPolicy extends com.pulumi.resources.PolicyReso
      * The response headers policy ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ResponseHeadersPolicy.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicy.arn' is not present");
     }
 
     /**
      * A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
      * 
      */
-    private @Nullable UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private @Nullable String value_comment;
+    private boolean unknown_comment;
     public @Nullable String comment() {
-        if (comment == null) return null;
-        return comment.getValue("ResponseHeadersPolicy.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicy.comment' is not present");
     }
 
     /**
      * A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
      * 
      */
-    private @Nullable UndeferrableValue<ResponseHeadersPolicyCorsConfig> corsConfig;
-
+    @PolicyResourceProperty(name="corsConfig", flag="unknown_corsConfig")
+    private @Nullable ResponseHeadersPolicyCorsConfig value_corsConfig;
+    private boolean unknown_corsConfig;
     public @Nullable ResponseHeadersPolicyCorsConfig corsConfig() {
-        if (corsConfig == null) return null;
-        return corsConfig.getValue("ResponseHeadersPolicy.corsConfig");
+        if (!unknown_corsConfig) return value_corsConfig;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicy.corsConfig' is not present");
     }
 
     /**
      * Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
      * 
      */
-    private @Nullable UndeferrableValue<ResponseHeadersPolicyCustomHeadersConfig> customHeadersConfig;
-
+    @PolicyResourceProperty(name="customHeadersConfig", flag="unknown_customHeadersConfig")
+    private @Nullable ResponseHeadersPolicyCustomHeadersConfig value_customHeadersConfig;
+    private boolean unknown_customHeadersConfig;
     public @Nullable ResponseHeadersPolicyCustomHeadersConfig customHeadersConfig() {
-        if (customHeadersConfig == null) return null;
-        return customHeadersConfig.getValue("ResponseHeadersPolicy.customHeadersConfig");
+        if (!unknown_customHeadersConfig) return value_customHeadersConfig;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicy.customHeadersConfig' is not present");
     }
 
     /**
      * The current version of the response headers policy.
      * 
      */
-    private UndeferrableValue<String> etag;
-
+    @PolicyResourceProperty(name="etag", flag="unknown_etag")
+    private String value_etag;
+    private boolean unknown_etag;
     public String etag() {
-        if (etag == null) return null;
-        return etag.getValue("ResponseHeadersPolicy.etag");
+        if (!unknown_etag) return value_etag;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicy.etag' is not present");
     }
 
     /**
      * A unique name to identify the response headers policy.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ResponseHeadersPolicy.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicy.name' is not present");
     }
 
     /**
      * A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
      * 
      */
-    private @Nullable UndeferrableValue<ResponseHeadersPolicyRemoveHeadersConfig> removeHeadersConfig;
-
+    @PolicyResourceProperty(name="removeHeadersConfig", flag="unknown_removeHeadersConfig")
+    private @Nullable ResponseHeadersPolicyRemoveHeadersConfig value_removeHeadersConfig;
+    private boolean unknown_removeHeadersConfig;
     public @Nullable ResponseHeadersPolicyRemoveHeadersConfig removeHeadersConfig() {
-        if (removeHeadersConfig == null) return null;
-        return removeHeadersConfig.getValue("ResponseHeadersPolicy.removeHeadersConfig");
+        if (!unknown_removeHeadersConfig) return value_removeHeadersConfig;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicy.removeHeadersConfig' is not present");
     }
 
     /**
      * A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
      * 
      */
-    private @Nullable UndeferrableValue<ResponseHeadersPolicySecurityHeadersConfig> securityHeadersConfig;
-
+    @PolicyResourceProperty(name="securityHeadersConfig", flag="unknown_securityHeadersConfig")
+    private @Nullable ResponseHeadersPolicySecurityHeadersConfig value_securityHeadersConfig;
+    private boolean unknown_securityHeadersConfig;
     public @Nullable ResponseHeadersPolicySecurityHeadersConfig securityHeadersConfig() {
-        if (securityHeadersConfig == null) return null;
-        return securityHeadersConfig.getValue("ResponseHeadersPolicy.securityHeadersConfig");
+        if (!unknown_securityHeadersConfig) return value_securityHeadersConfig;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicy.securityHeadersConfig' is not present");
     }
 
     /**
      * A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
      * 
      */
-    private @Nullable UndeferrableValue<ResponseHeadersPolicyServerTimingHeadersConfig> serverTimingHeadersConfig;
-
+    @PolicyResourceProperty(name="serverTimingHeadersConfig", flag="unknown_serverTimingHeadersConfig")
+    private @Nullable ResponseHeadersPolicyServerTimingHeadersConfig value_serverTimingHeadersConfig;
+    private boolean unknown_serverTimingHeadersConfig;
     public @Nullable ResponseHeadersPolicyServerTimingHeadersConfig serverTimingHeadersConfig() {
-        if (serverTimingHeadersConfig == null) return null;
-        return serverTimingHeadersConfig.getValue("ResponseHeadersPolicy.serverTimingHeadersConfig");
+        if (!unknown_serverTimingHeadersConfig) return value_serverTimingHeadersConfig;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicy.serverTimingHeadersConfig' is not present");
     }
 
 }

@@ -3,18 +3,20 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
 
 public final class RouteSpecTcpRouteMatchArgs {
 
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("RouteSpecTcpRouteMatchArgs.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'RouteSpecTcpRouteMatchArgs.port' is not present");
     }
 
 }

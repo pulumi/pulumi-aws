@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssmincidents;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ssmincidents.inputs.ReplicationSetRegionArgs;
 import java.lang.String;
@@ -15,18 +16,20 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:ssmincidents/replicationSet:ReplicationSet")
 public final class ReplicationSetArgs extends com.pulumi.resources.PolicyResourceInput {
 
-    private UndeferrableValue<List<ReplicationSetRegionArgs>> regions;
-
+    @PolicyResourceProperty(name="regions", flag="unknown_regions")
+    private List<ReplicationSetRegionArgs> value_regions;
+    private boolean unknown_regions;
     public List<ReplicationSetRegionArgs> regions() {
-        if (regions == null) return null;
-        return regions.getValue("ReplicationSetArgs.regions");
+        if (!unknown_regions) return value_regions;
+        throw new UndeferrableValueException("Value 'ReplicationSetArgs.regions' is not present");
     }
 
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ReplicationSetArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ReplicationSetArgs.tags' is not present");
     }
 
 }

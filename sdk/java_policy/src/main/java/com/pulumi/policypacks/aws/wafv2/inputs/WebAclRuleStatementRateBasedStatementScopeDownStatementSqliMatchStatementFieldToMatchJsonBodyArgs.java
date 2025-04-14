@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMa
      * What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
      * 
      */
-    private UndeferrableValue<String> invalidFallbackBehavior;
-
+    @PolicyResourceProperty(name="invalidFallbackBehavior", flag="unknown_invalidFallbackBehavior")
+    private String value_invalidFallbackBehavior;
+    private boolean unknown_invalidFallbackBehavior;
     public String invalidFallbackBehavior() {
-        if (invalidFallbackBehavior == null) return null;
-        return invalidFallbackBehavior.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs.invalidFallbackBehavior");
+        if (!unknown_invalidFallbackBehavior) return value_invalidFallbackBehavior;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs.invalidFallbackBehavior' is not present");
     }
 
     /**
      * The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs> matchPattern;
-
+    @PolicyResourceProperty(name="matchPattern", flag="unknown_matchPattern")
+    private WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs value_matchPattern;
+    private boolean unknown_matchPattern;
     public WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs matchPattern() {
-        if (matchPattern == null) return null;
-        return matchPattern.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs.matchPattern");
+        if (!unknown_matchPattern) return value_matchPattern;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs.matchPattern' is not present");
     }
 
     /**
      * The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
      * 
      */
-    private UndeferrableValue<String> matchScope;
-
+    @PolicyResourceProperty(name="matchScope", flag="unknown_matchScope")
+    private String value_matchScope;
+    private boolean unknown_matchScope;
     public String matchScope() {
-        if (matchScope == null) return null;
-        return matchScope.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs.matchScope");
+        if (!unknown_matchScope) return value_matchScope;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs.matchScope' is not present");
     }
 
     /**
      * What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
      * 
      */
-    private UndeferrableValue<String> oversizeHandling;
-
+    @PolicyResourceProperty(name="oversizeHandling", flag="unknown_oversizeHandling")
+    private String value_oversizeHandling;
+    private boolean unknown_oversizeHandling;
     public String oversizeHandling() {
-        if (oversizeHandling == null) return null;
-        return oversizeHandling.getValue("WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs.oversizeHandling");
+        if (!unknown_oversizeHandling) return value_oversizeHandling;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs.oversizeHandling' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codegurureviewer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codegurureviewer.outputs.RepositoryAssociationRepositoryBitbucket;
 import com.pulumi.policypacks.aws.codegurureviewer.outputs.RepositoryAssociationRepositoryCodecommit;
 import com.pulumi.policypacks.aws.codegurureviewer.outputs.RepositoryAssociationRepositoryGithubEnterpriseServer;
@@ -13,32 +14,36 @@ import javax.annotation.Nullable;
 
 public final class RepositoryAssociationRepository {
 
-    private @Nullable UndeferrableValue<RepositoryAssociationRepositoryBitbucket> bitbucket;
-
+    @PolicyResourceProperty(name="bitbucket", flag="unknown_bitbucket")
+    private @Nullable RepositoryAssociationRepositoryBitbucket value_bitbucket;
+    private boolean unknown_bitbucket;
     public @Nullable RepositoryAssociationRepositoryBitbucket bitbucket() {
-        if (bitbucket == null) return null;
-        return bitbucket.getValue("RepositoryAssociationRepository.bitbucket");
+        if (!unknown_bitbucket) return value_bitbucket;
+        throw new UndeferrableValueException("Value 'RepositoryAssociationRepository.bitbucket' is not present");
     }
 
-    private @Nullable UndeferrableValue<RepositoryAssociationRepositoryCodecommit> codecommit;
-
+    @PolicyResourceProperty(name="codecommit", flag="unknown_codecommit")
+    private @Nullable RepositoryAssociationRepositoryCodecommit value_codecommit;
+    private boolean unknown_codecommit;
     public @Nullable RepositoryAssociationRepositoryCodecommit codecommit() {
-        if (codecommit == null) return null;
-        return codecommit.getValue("RepositoryAssociationRepository.codecommit");
+        if (!unknown_codecommit) return value_codecommit;
+        throw new UndeferrableValueException("Value 'RepositoryAssociationRepository.codecommit' is not present");
     }
 
-    private @Nullable UndeferrableValue<RepositoryAssociationRepositoryGithubEnterpriseServer> githubEnterpriseServer;
-
+    @PolicyResourceProperty(name="githubEnterpriseServer", flag="unknown_githubEnterpriseServer")
+    private @Nullable RepositoryAssociationRepositoryGithubEnterpriseServer value_githubEnterpriseServer;
+    private boolean unknown_githubEnterpriseServer;
     public @Nullable RepositoryAssociationRepositoryGithubEnterpriseServer githubEnterpriseServer() {
-        if (githubEnterpriseServer == null) return null;
-        return githubEnterpriseServer.getValue("RepositoryAssociationRepository.githubEnterpriseServer");
+        if (!unknown_githubEnterpriseServer) return value_githubEnterpriseServer;
+        throw new UndeferrableValueException("Value 'RepositoryAssociationRepository.githubEnterpriseServer' is not present");
     }
 
-    private @Nullable UndeferrableValue<RepositoryAssociationRepositoryS3Bucket> s3Bucket;
-
+    @PolicyResourceProperty(name="s3Bucket", flag="unknown_s3Bucket")
+    private @Nullable RepositoryAssociationRepositoryS3Bucket value_s3Bucket;
+    private boolean unknown_s3Bucket;
     public @Nullable RepositoryAssociationRepositoryS3Bucket s3Bucket() {
-        if (s3Bucket == null) return null;
-        return s3Bucket.getValue("RepositoryAssociationRepository.s3Bucket");
+        if (!unknown_s3Bucket) return value_s3Bucket;
+        throw new UndeferrableValueException("Value 'RepositoryAssociationRepository.s3Bucket' is not present");
     }
 
 }

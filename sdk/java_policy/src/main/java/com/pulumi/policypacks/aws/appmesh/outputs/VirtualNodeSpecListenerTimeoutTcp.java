@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualNodeSpecListenerTimeoutTcpIdle;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class VirtualNodeSpecListenerTimeoutTcp {
      * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualNodeSpecListenerTimeoutTcpIdle> idle;
-
+    @PolicyResourceProperty(name="idle", flag="unknown_idle")
+    private @Nullable VirtualNodeSpecListenerTimeoutTcpIdle value_idle;
+    private boolean unknown_idle;
     public @Nullable VirtualNodeSpecListenerTimeoutTcpIdle idle() {
-        if (idle == null) return null;
-        return idle.getValue("VirtualNodeSpecListenerTimeoutTcp.idle");
+        if (!unknown_idle) return value_idle;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerTimeoutTcp.idle' is not present");
     }
 
 }

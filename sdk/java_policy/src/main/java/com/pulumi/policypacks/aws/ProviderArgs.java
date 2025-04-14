@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.inputs.ProviderAssumeRoleArgs;
 import com.pulumi.policypacks.aws.inputs.ProviderAssumeRoleWithWebIdentityArgs;
@@ -24,32 +25,36 @@ public final class ProviderArgs extends com.pulumi.resources.PolicyResourceInput
      * The access key for API operations. You can retrieve this from the &#39;Security &amp; Credentials&#39; section of the AWS console.
      * 
      */
-    private UndeferrableValue<String> accessKey;
-
+    @PolicyResourceProperty(name="accessKey", flag="unknown_accessKey")
+    private String value_accessKey;
+    private boolean unknown_accessKey;
     public String accessKey() {
-        if (accessKey == null) return null;
-        return accessKey.getValue("ProviderArgs.accessKey");
+        if (!unknown_accessKey) return value_accessKey;
+        throw new UndeferrableValueException("Value 'ProviderArgs.accessKey' is not present");
     }
 
-    private UndeferrableValue<List<String>> allowedAccountIds;
-
+    @PolicyResourceProperty(name="allowedAccountIds", flag="unknown_allowedAccountIds")
+    private List<String> value_allowedAccountIds;
+    private boolean unknown_allowedAccountIds;
     public List<String> allowedAccountIds() {
-        if (allowedAccountIds == null) return null;
-        return allowedAccountIds.getValue("ProviderArgs.allowedAccountIds");
+        if (!unknown_allowedAccountIds) return value_allowedAccountIds;
+        throw new UndeferrableValueException("Value 'ProviderArgs.allowedAccountIds' is not present");
     }
 
-    private UndeferrableValue<ProviderAssumeRoleArgs> assumeRole;
-
+    @PolicyResourceProperty(name="assumeRole", flag="unknown_assumeRole")
+    private ProviderAssumeRoleArgs value_assumeRole;
+    private boolean unknown_assumeRole;
     public ProviderAssumeRoleArgs assumeRole() {
-        if (assumeRole == null) return null;
-        return assumeRole.getValue("ProviderArgs.assumeRole");
+        if (!unknown_assumeRole) return value_assumeRole;
+        throw new UndeferrableValueException("Value 'ProviderArgs.assumeRole' is not present");
     }
 
-    private UndeferrableValue<ProviderAssumeRoleWithWebIdentityArgs> assumeRoleWithWebIdentity;
-
+    @PolicyResourceProperty(name="assumeRoleWithWebIdentity", flag="unknown_assumeRoleWithWebIdentity")
+    private ProviderAssumeRoleWithWebIdentityArgs value_assumeRoleWithWebIdentity;
+    private boolean unknown_assumeRoleWithWebIdentity;
     public ProviderAssumeRoleWithWebIdentityArgs assumeRoleWithWebIdentity() {
-        if (assumeRoleWithWebIdentity == null) return null;
-        return assumeRoleWithWebIdentity.getValue("ProviderArgs.assumeRoleWithWebIdentity");
+        if (!unknown_assumeRoleWithWebIdentity) return value_assumeRoleWithWebIdentity;
+        throw new UndeferrableValueException("Value 'ProviderArgs.assumeRoleWithWebIdentity' is not present");
     }
 
     /**
@@ -57,22 +62,24 @@ public final class ProviderArgs extends com.pulumi.resources.PolicyResourceInput
      * variable. (Setting `ca_bundle` in the shared config file is not supported.)
      * 
      */
-    private UndeferrableValue<String> customCaBundle;
-
+    @PolicyResourceProperty(name="customCaBundle", flag="unknown_customCaBundle")
+    private String value_customCaBundle;
+    private boolean unknown_customCaBundle;
     public String customCaBundle() {
-        if (customCaBundle == null) return null;
-        return customCaBundle.getValue("ProviderArgs.customCaBundle");
+        if (!unknown_customCaBundle) return value_customCaBundle;
+        throw new UndeferrableValueException("Value 'ProviderArgs.customCaBundle' is not present");
     }
 
     /**
      * Configuration block with settings to default resource tags across all resources.
      * 
      */
-    private UndeferrableValue<ProviderDefaultTagsArgs> defaultTags;
-
+    @PolicyResourceProperty(name="defaultTags", flag="unknown_defaultTags")
+    private ProviderDefaultTagsArgs value_defaultTags;
+    private boolean unknown_defaultTags;
     public ProviderDefaultTagsArgs defaultTags() {
-        if (defaultTags == null) return null;
-        return defaultTags.getValue("ProviderArgs.defaultTags");
+        if (!unknown_defaultTags) return value_defaultTags;
+        throw new UndeferrableValueException("Value 'ProviderArgs.defaultTags' is not present");
     }
 
     /**
@@ -80,11 +87,12 @@ public final class ProviderArgs extends com.pulumi.resources.PolicyResourceInput
      * `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
      * 
      */
-    private UndeferrableValue<String> ec2MetadataServiceEndpoint;
-
+    @PolicyResourceProperty(name="ec2MetadataServiceEndpoint", flag="unknown_ec2MetadataServiceEndpoint")
+    private String value_ec2MetadataServiceEndpoint;
+    private boolean unknown_ec2MetadataServiceEndpoint;
     public String ec2MetadataServiceEndpoint() {
-        if (ec2MetadataServiceEndpoint == null) return null;
-        return ec2MetadataServiceEndpoint.getValue("ProviderArgs.ec2MetadataServiceEndpoint");
+        if (!unknown_ec2MetadataServiceEndpoint) return value_ec2MetadataServiceEndpoint;
+        throw new UndeferrableValueException("Value 'ProviderArgs.ec2MetadataServiceEndpoint' is not present");
     }
 
     /**
@@ -92,25 +100,28 @@ public final class ProviderArgs extends com.pulumi.resources.PolicyResourceInput
      * `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
      * 
      */
-    private UndeferrableValue<String> ec2MetadataServiceEndpointMode;
-
+    @PolicyResourceProperty(name="ec2MetadataServiceEndpointMode", flag="unknown_ec2MetadataServiceEndpointMode")
+    private String value_ec2MetadataServiceEndpointMode;
+    private boolean unknown_ec2MetadataServiceEndpointMode;
     public String ec2MetadataServiceEndpointMode() {
-        if (ec2MetadataServiceEndpointMode == null) return null;
-        return ec2MetadataServiceEndpointMode.getValue("ProviderArgs.ec2MetadataServiceEndpointMode");
+        if (!unknown_ec2MetadataServiceEndpointMode) return value_ec2MetadataServiceEndpointMode;
+        throw new UndeferrableValueException("Value 'ProviderArgs.ec2MetadataServiceEndpointMode' is not present");
     }
 
-    private UndeferrableValue<List<ProviderEndpointArgs>> endpoints;
-
+    @PolicyResourceProperty(name="endpoints", flag="unknown_endpoints")
+    private List<ProviderEndpointArgs> value_endpoints;
+    private boolean unknown_endpoints;
     public List<ProviderEndpointArgs> endpoints() {
-        if (endpoints == null) return null;
-        return endpoints.getValue("ProviderArgs.endpoints");
+        if (!unknown_endpoints) return value_endpoints;
+        throw new UndeferrableValueException("Value 'ProviderArgs.endpoints' is not present");
     }
 
-    private UndeferrableValue<List<String>> forbiddenAccountIds;
-
+    @PolicyResourceProperty(name="forbiddenAccountIds", flag="unknown_forbiddenAccountIds")
+    private List<String> value_forbiddenAccountIds;
+    private boolean unknown_forbiddenAccountIds;
     public List<String> forbiddenAccountIds() {
-        if (forbiddenAccountIds == null) return null;
-        return forbiddenAccountIds.getValue("ProviderArgs.forbiddenAccountIds");
+        if (!unknown_forbiddenAccountIds) return value_forbiddenAccountIds;
+        throw new UndeferrableValueException("Value 'ProviderArgs.forbiddenAccountIds' is not present");
     }
 
     /**
@@ -118,11 +129,12 @@ public final class ProviderArgs extends com.pulumi.resources.PolicyResourceInput
      * `http_proxy` environment variables.
      * 
      */
-    private UndeferrableValue<String> httpProxy;
-
+    @PolicyResourceProperty(name="httpProxy", flag="unknown_httpProxy")
+    private String value_httpProxy;
+    private boolean unknown_httpProxy;
     public String httpProxy() {
-        if (httpProxy == null) return null;
-        return httpProxy.getValue("ProviderArgs.httpProxy");
+        if (!unknown_httpProxy) return value_httpProxy;
+        throw new UndeferrableValueException("Value 'ProviderArgs.httpProxy' is not present");
     }
 
     /**
@@ -130,44 +142,48 @@ public final class ProviderArgs extends com.pulumi.resources.PolicyResourceInput
      * `https_proxy` environment variables.
      * 
      */
-    private UndeferrableValue<String> httpsProxy;
-
+    @PolicyResourceProperty(name="httpsProxy", flag="unknown_httpsProxy")
+    private String value_httpsProxy;
+    private boolean unknown_httpsProxy;
     public String httpsProxy() {
-        if (httpsProxy == null) return null;
-        return httpsProxy.getValue("ProviderArgs.httpsProxy");
+        if (!unknown_httpsProxy) return value_httpsProxy;
+        throw new UndeferrableValueException("Value 'ProviderArgs.httpsProxy' is not present");
     }
 
     /**
      * Configuration block with settings to ignore resource tags across all resources.
      * 
      */
-    private UndeferrableValue<ProviderIgnoreTagsArgs> ignoreTags;
-
+    @PolicyResourceProperty(name="ignoreTags", flag="unknown_ignoreTags")
+    private ProviderIgnoreTagsArgs value_ignoreTags;
+    private boolean unknown_ignoreTags;
     public ProviderIgnoreTagsArgs ignoreTags() {
-        if (ignoreTags == null) return null;
-        return ignoreTags.getValue("ProviderArgs.ignoreTags");
+        if (!unknown_ignoreTags) return value_ignoreTags;
+        throw new UndeferrableValueException("Value 'ProviderArgs.ignoreTags' is not present");
     }
 
     /**
      * Explicitly allow the provider to perform &#34;insecure&#34; SSL requests. If omitted, default value is `false`
      * 
      */
-    private UndeferrableValue<Boolean> insecure;
-
+    @PolicyResourceProperty(name="insecure", flag="unknown_insecure")
+    private Boolean value_insecure;
+    private boolean unknown_insecure;
     public Boolean insecure() {
-        if (insecure == null) return null;
-        return insecure.getValue("ProviderArgs.insecure");
+        if (!unknown_insecure) return value_insecure;
+        throw new UndeferrableValueException("Value 'ProviderArgs.insecure' is not present");
     }
 
     /**
      * The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
      * 
      */
-    private UndeferrableValue<Integer> maxRetries;
-
+    @PolicyResourceProperty(name="maxRetries", flag="unknown_maxRetries")
+    private Integer value_maxRetries;
+    private boolean unknown_maxRetries;
     public Integer maxRetries() {
-        if (maxRetries == null) return null;
-        return maxRetries.getValue("ProviderArgs.maxRetries");
+        if (!unknown_maxRetries) return value_maxRetries;
+        throw new UndeferrableValueException("Value 'ProviderArgs.maxRetries' is not present");
     }
 
     /**
@@ -175,33 +191,36 @@ public final class ProviderArgs extends com.pulumi.resources.PolicyResourceInput
      * `no_proxy` environment variables.
      * 
      */
-    private UndeferrableValue<String> noProxy;
-
+    @PolicyResourceProperty(name="noProxy", flag="unknown_noProxy")
+    private String value_noProxy;
+    private boolean unknown_noProxy;
     public String noProxy() {
-        if (noProxy == null) return null;
-        return noProxy.getValue("ProviderArgs.noProxy");
+        if (!unknown_noProxy) return value_noProxy;
+        throw new UndeferrableValueException("Value 'ProviderArgs.noProxy' is not present");
     }
 
     /**
      * The profile for API operations. If not set, the default profile created with `aws configure` will be used.
      * 
      */
-    private UndeferrableValue<String> profile;
-
+    @PolicyResourceProperty(name="profile", flag="unknown_profile")
+    private String value_profile;
+    private boolean unknown_profile;
     public String profile() {
-        if (profile == null) return null;
-        return profile.getValue("ProviderArgs.profile");
+        if (!unknown_profile) return value_profile;
+        throw new UndeferrableValueException("Value 'ProviderArgs.profile' is not present");
     }
 
     /**
      * The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
      * 
      */
-    private UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private String value_region;
+    private boolean unknown_region;
     public String region() {
-        if (region == null) return null;
-        return region.getValue("ProviderArgs.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'ProviderArgs.region' is not present");
     }
 
     /**
@@ -209,11 +228,12 @@ public final class ProviderArgs extends com.pulumi.resources.PolicyResourceInput
      * `AWS_RETRY_MODE` environment variable.
      * 
      */
-    private UndeferrableValue<String> retryMode;
-
+    @PolicyResourceProperty(name="retryMode", flag="unknown_retryMode")
+    private String value_retryMode;
+    private boolean unknown_retryMode;
     public String retryMode() {
-        if (retryMode == null) return null;
-        return retryMode.getValue("ProviderArgs.retryMode");
+        if (!unknown_retryMode) return value_retryMode;
+        throw new UndeferrableValueException("Value 'ProviderArgs.retryMode' is not present");
     }
 
     /**
@@ -222,11 +242,12 @@ public final class ProviderArgs extends com.pulumi.resources.PolicyResourceInput
      * variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
      * 
      */
-    private UndeferrableValue<String> s3UsEast1RegionalEndpoint;
-
+    @PolicyResourceProperty(name="s3UsEast1RegionalEndpoint", flag="unknown_s3UsEast1RegionalEndpoint")
+    private String value_s3UsEast1RegionalEndpoint;
+    private boolean unknown_s3UsEast1RegionalEndpoint;
     public String s3UsEast1RegionalEndpoint() {
-        if (s3UsEast1RegionalEndpoint == null) return null;
-        return s3UsEast1RegionalEndpoint.getValue("ProviderArgs.s3UsEast1RegionalEndpoint");
+        if (!unknown_s3UsEast1RegionalEndpoint) return value_s3UsEast1RegionalEndpoint;
+        throw new UndeferrableValueException("Value 'ProviderArgs.s3UsEast1RegionalEndpoint' is not present");
     }
 
     /**
@@ -235,44 +256,48 @@ public final class ProviderArgs extends com.pulumi.resources.PolicyResourceInput
      * Specific to the Amazon S3 service.
      * 
      */
-    private UndeferrableValue<Boolean> s3UsePathStyle;
-
+    @PolicyResourceProperty(name="s3UsePathStyle", flag="unknown_s3UsePathStyle")
+    private Boolean value_s3UsePathStyle;
+    private boolean unknown_s3UsePathStyle;
     public Boolean s3UsePathStyle() {
-        if (s3UsePathStyle == null) return null;
-        return s3UsePathStyle.getValue("ProviderArgs.s3UsePathStyle");
+        if (!unknown_s3UsePathStyle) return value_s3UsePathStyle;
+        throw new UndeferrableValueException("Value 'ProviderArgs.s3UsePathStyle' is not present");
     }
 
     /**
      * The secret key for API operations. You can retrieve this from the &#39;Security &amp; Credentials&#39; section of the AWS console.
      * 
      */
-    private UndeferrableValue<String> secretKey;
-
+    @PolicyResourceProperty(name="secretKey", flag="unknown_secretKey")
+    private String value_secretKey;
+    private boolean unknown_secretKey;
     public String secretKey() {
-        if (secretKey == null) return null;
-        return secretKey.getValue("ProviderArgs.secretKey");
+        if (!unknown_secretKey) return value_secretKey;
+        throw new UndeferrableValueException("Value 'ProviderArgs.secretKey' is not present");
     }
 
     /**
      * List of paths to shared config files. If not set, defaults to [~/.aws/config].
      * 
      */
-    private UndeferrableValue<List<String>> sharedConfigFiles;
-
+    @PolicyResourceProperty(name="sharedConfigFiles", flag="unknown_sharedConfigFiles")
+    private List<String> value_sharedConfigFiles;
+    private boolean unknown_sharedConfigFiles;
     public List<String> sharedConfigFiles() {
-        if (sharedConfigFiles == null) return null;
-        return sharedConfigFiles.getValue("ProviderArgs.sharedConfigFiles");
+        if (!unknown_sharedConfigFiles) return value_sharedConfigFiles;
+        throw new UndeferrableValueException("Value 'ProviderArgs.sharedConfigFiles' is not present");
     }
 
     /**
      * List of paths to shared credentials files. If not set, defaults to [~/.aws/credentials].
      * 
      */
-    private UndeferrableValue<List<String>> sharedCredentialsFiles;
-
+    @PolicyResourceProperty(name="sharedCredentialsFiles", flag="unknown_sharedCredentialsFiles")
+    private List<String> value_sharedCredentialsFiles;
+    private boolean unknown_sharedCredentialsFiles;
     public List<String> sharedCredentialsFiles() {
-        if (sharedCredentialsFiles == null) return null;
-        return sharedCredentialsFiles.getValue("ProviderArgs.sharedCredentialsFiles");
+        if (!unknown_sharedCredentialsFiles) return value_sharedCredentialsFiles;
+        throw new UndeferrableValueException("Value 'ProviderArgs.sharedCredentialsFiles' is not present");
     }
 
     /**
@@ -280,22 +305,24 @@ public final class ProviderArgs extends com.pulumi.resources.PolicyResourceInput
      * available/implemented.
      * 
      */
-    private UndeferrableValue<Boolean> skipCredentialsValidation;
-
+    @PolicyResourceProperty(name="skipCredentialsValidation", flag="unknown_skipCredentialsValidation")
+    private Boolean value_skipCredentialsValidation;
+    private boolean unknown_skipCredentialsValidation;
     public Boolean skipCredentialsValidation() {
-        if (skipCredentialsValidation == null) return null;
-        return skipCredentialsValidation.getValue("ProviderArgs.skipCredentialsValidation");
+        if (!unknown_skipCredentialsValidation) return value_skipCredentialsValidation;
+        throw new UndeferrableValueException("Value 'ProviderArgs.skipCredentialsValidation' is not present");
     }
 
     /**
      * Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
      * 
      */
-    private UndeferrableValue<Boolean> skipMetadataApiCheck;
-
+    @PolicyResourceProperty(name="skipMetadataApiCheck", flag="unknown_skipMetadataApiCheck")
+    private Boolean value_skipMetadataApiCheck;
+    private boolean unknown_skipMetadataApiCheck;
     public Boolean skipMetadataApiCheck() {
-        if (skipMetadataApiCheck == null) return null;
-        return skipMetadataApiCheck.getValue("ProviderArgs.skipMetadataApiCheck");
+        if (!unknown_skipMetadataApiCheck) return value_skipMetadataApiCheck;
+        throw new UndeferrableValueException("Value 'ProviderArgs.skipMetadataApiCheck' is not present");
     }
 
     /**
@@ -303,77 +330,84 @@ public final class ProviderArgs extends com.pulumi.resources.PolicyResourceInput
      * not public (yet).
      * 
      */
-    private UndeferrableValue<Boolean> skipRegionValidation;
-
+    @PolicyResourceProperty(name="skipRegionValidation", flag="unknown_skipRegionValidation")
+    private Boolean value_skipRegionValidation;
+    private boolean unknown_skipRegionValidation;
     public Boolean skipRegionValidation() {
-        if (skipRegionValidation == null) return null;
-        return skipRegionValidation.getValue("ProviderArgs.skipRegionValidation");
+        if (!unknown_skipRegionValidation) return value_skipRegionValidation;
+        throw new UndeferrableValueException("Value 'ProviderArgs.skipRegionValidation' is not present");
     }
 
     /**
      * Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
      * 
      */
-    private UndeferrableValue<Boolean> skipRequestingAccountId;
-
+    @PolicyResourceProperty(name="skipRequestingAccountId", flag="unknown_skipRequestingAccountId")
+    private Boolean value_skipRequestingAccountId;
+    private boolean unknown_skipRequestingAccountId;
     public Boolean skipRequestingAccountId() {
-        if (skipRequestingAccountId == null) return null;
-        return skipRequestingAccountId.getValue("ProviderArgs.skipRequestingAccountId");
+        if (!unknown_skipRequestingAccountId) return value_skipRequestingAccountId;
+        throw new UndeferrableValueException("Value 'ProviderArgs.skipRequestingAccountId' is not present");
     }
 
     /**
      * The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
      * 
      */
-    private UndeferrableValue<String> stsRegion;
-
+    @PolicyResourceProperty(name="stsRegion", flag="unknown_stsRegion")
+    private String value_stsRegion;
+    private boolean unknown_stsRegion;
     public String stsRegion() {
-        if (stsRegion == null) return null;
-        return stsRegion.getValue("ProviderArgs.stsRegion");
+        if (!unknown_stsRegion) return value_stsRegion;
+        throw new UndeferrableValueException("Value 'ProviderArgs.stsRegion' is not present");
     }
 
     /**
      * session token. A session token is only required if you are using temporary security credentials.
      * 
      */
-    private UndeferrableValue<String> token;
-
+    @PolicyResourceProperty(name="token", flag="unknown_token")
+    private String value_token;
+    private boolean unknown_token;
     public String token() {
-        if (token == null) return null;
-        return token.getValue("ProviderArgs.token");
+        if (!unknown_token) return value_token;
+        throw new UndeferrableValueException("Value 'ProviderArgs.token' is not present");
     }
 
     /**
      * The capacity of the AWS SDK&#39;s token bucket rate limiter.
      * 
      */
-    private UndeferrableValue<Integer> tokenBucketRateLimiterCapacity;
-
+    @PolicyResourceProperty(name="tokenBucketRateLimiterCapacity", flag="unknown_tokenBucketRateLimiterCapacity")
+    private Integer value_tokenBucketRateLimiterCapacity;
+    private boolean unknown_tokenBucketRateLimiterCapacity;
     public Integer tokenBucketRateLimiterCapacity() {
-        if (tokenBucketRateLimiterCapacity == null) return null;
-        return tokenBucketRateLimiterCapacity.getValue("ProviderArgs.tokenBucketRateLimiterCapacity");
+        if (!unknown_tokenBucketRateLimiterCapacity) return value_tokenBucketRateLimiterCapacity;
+        throw new UndeferrableValueException("Value 'ProviderArgs.tokenBucketRateLimiterCapacity' is not present");
     }
 
     /**
      * Resolve an endpoint with DualStack capability
      * 
      */
-    private UndeferrableValue<Boolean> useDualstackEndpoint;
-
+    @PolicyResourceProperty(name="useDualstackEndpoint", flag="unknown_useDualstackEndpoint")
+    private Boolean value_useDualstackEndpoint;
+    private boolean unknown_useDualstackEndpoint;
     public Boolean useDualstackEndpoint() {
-        if (useDualstackEndpoint == null) return null;
-        return useDualstackEndpoint.getValue("ProviderArgs.useDualstackEndpoint");
+        if (!unknown_useDualstackEndpoint) return value_useDualstackEndpoint;
+        throw new UndeferrableValueException("Value 'ProviderArgs.useDualstackEndpoint' is not present");
     }
 
     /**
      * Resolve an endpoint with FIPS capability
      * 
      */
-    private UndeferrableValue<Boolean> useFipsEndpoint;
-
+    @PolicyResourceProperty(name="useFipsEndpoint", flag="unknown_useFipsEndpoint")
+    private Boolean value_useFipsEndpoint;
+    private boolean unknown_useFipsEndpoint;
     public Boolean useFipsEndpoint() {
-        if (useFipsEndpoint == null) return null;
-        return useFipsEndpoint.getValue("ProviderArgs.useFipsEndpoint");
+        if (!unknown_useFipsEndpoint) return value_useFipsEndpoint;
+        throw new UndeferrableValueException("Value 'ProviderArgs.useFipsEndpoint' is not present");
     }
 
 }

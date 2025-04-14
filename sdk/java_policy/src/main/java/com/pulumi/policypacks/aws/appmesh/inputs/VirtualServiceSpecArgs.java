@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualServiceSpecProviderArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class VirtualServiceSpecArgs {
      * App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router.
      * 
      */
-    private UndeferrableValue<VirtualServiceSpecProviderArgs> provider;
-
+    @PolicyResourceProperty(name="provider", flag="unknown_provider")
+    private VirtualServiceSpecProviderArgs value_provider;
+    private boolean unknown_provider;
     public VirtualServiceSpecProviderArgs provider() {
-        if (provider == null) return null;
-        return provider.getValue("VirtualServiceSpecArgs.provider");
+        if (!unknown_provider) return value_provider;
+        throw new UndeferrableValueException("Value 'VirtualServiceSpecArgs.provider' is not present");
     }
 
 }

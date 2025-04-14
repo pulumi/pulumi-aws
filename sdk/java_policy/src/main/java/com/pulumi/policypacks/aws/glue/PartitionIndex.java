@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.glue.outputs.PartitionIndexPartitionIndex;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class PartitionIndex extends com.pulumi.resources.PolicyResourceOut
      * The catalog ID where the table resides.
      * 
      */
-    private UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private String value_catalogId;
+    private boolean unknown_catalogId;
     public String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("PartitionIndex.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'PartitionIndex.catalogId' is not present");
     }
 
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("PartitionIndex.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'PartitionIndex.databaseName' is not present");
     }
 
     /**
      * Configuration block for a partition index. See `partition_index` below.
      * 
      */
-    private UndeferrableValue<PartitionIndexPartitionIndex> partitionIndex;
-
+    @PolicyResourceProperty(name="partitionIndex", flag="unknown_partitionIndex")
+    private PartitionIndexPartitionIndex value_partitionIndex;
+    private boolean unknown_partitionIndex;
     public PartitionIndexPartitionIndex partitionIndex() {
-        if (partitionIndex == null) return null;
-        return partitionIndex.getValue("PartitionIndex.partitionIndex");
+        if (!unknown_partitionIndex) return value_partitionIndex;
+        throw new UndeferrableValueException("Value 'PartitionIndex.partitionIndex' is not present");
     }
 
     /**
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
      * 
      */
-    private UndeferrableValue<String> tableName;
-
+    @PolicyResourceProperty(name="tableName", flag="unknown_tableName")
+    private String value_tableName;
+    private boolean unknown_tableName;
     public String tableName() {
-        if (tableName == null) return null;
-        return tableName.getValue("PartitionIndex.tableName");
+        if (!unknown_tableName) return value_tableName;
+        throw new UndeferrableValueException("Value 'PartitionIndex.tableName' is not present");
     }
 
 }

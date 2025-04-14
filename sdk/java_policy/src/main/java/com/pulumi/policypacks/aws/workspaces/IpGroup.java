@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.workspaces;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.workspaces.outputs.IpGroupRule;
 import java.lang.String;
@@ -19,44 +20,48 @@ public final class IpGroup extends com.pulumi.resources.PolicyResourceOutput {
      * The description of the IP group.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("IpGroup.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'IpGroup.description' is not present");
     }
 
     /**
      * The name of the IP group.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("IpGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'IpGroup.name' is not present");
     }
 
     /**
      * One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
      * 
      */
-    private @Nullable UndeferrableValue<List<IpGroupRule>> rules;
-
+    @PolicyResourceProperty(name="rules", flag="unknown_rules")
+    private @Nullable List<IpGroupRule> value_rules;
+    private boolean unknown_rules;
     public @Nullable List<IpGroupRule> rules() {
-        if (rules == null) return null;
-        return rules.getValue("IpGroup.rules");
+        if (!unknown_rules) return value_rules;
+        throw new UndeferrableValueException("Value 'IpGroup.rules' is not present");
     }
 
     /**
      * A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("IpGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'IpGroup.tags' is not present");
     }
 
     /**
@@ -67,11 +72,12 @@ public final class IpGroup extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("IpGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'IpGroup.tagsAll' is not present");
     }
 
 }

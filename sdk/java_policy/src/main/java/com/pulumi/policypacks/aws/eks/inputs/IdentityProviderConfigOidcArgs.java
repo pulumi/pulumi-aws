@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -15,88 +16,96 @@ public final class IdentityProviderConfigOidcArgs {
      * Client ID for the OpenID Connect identity provider.
      * 
      */
-    private UndeferrableValue<String> clientId;
-
+    @PolicyResourceProperty(name="clientId", flag="unknown_clientId")
+    private String value_clientId;
+    private boolean unknown_clientId;
     public String clientId() {
-        if (clientId == null) return null;
-        return clientId.getValue("IdentityProviderConfigOidcArgs.clientId");
+        if (!unknown_clientId) return value_clientId;
+        throw new UndeferrableValueException("Value 'IdentityProviderConfigOidcArgs.clientId' is not present");
     }
 
     /**
      * The JWT claim that the provider will use to return groups.
      * 
      */
-    private UndeferrableValue<String> groupsClaim;
-
+    @PolicyResourceProperty(name="groupsClaim", flag="unknown_groupsClaim")
+    private String value_groupsClaim;
+    private boolean unknown_groupsClaim;
     public String groupsClaim() {
-        if (groupsClaim == null) return null;
-        return groupsClaim.getValue("IdentityProviderConfigOidcArgs.groupsClaim");
+        if (!unknown_groupsClaim) return value_groupsClaim;
+        throw new UndeferrableValueException("Value 'IdentityProviderConfigOidcArgs.groupsClaim' is not present");
     }
 
     /**
      * A prefix that is prepended to group claims e.g., `oidc:`.
      * 
      */
-    private UndeferrableValue<String> groupsPrefix;
-
+    @PolicyResourceProperty(name="groupsPrefix", flag="unknown_groupsPrefix")
+    private String value_groupsPrefix;
+    private boolean unknown_groupsPrefix;
     public String groupsPrefix() {
-        if (groupsPrefix == null) return null;
-        return groupsPrefix.getValue("IdentityProviderConfigOidcArgs.groupsPrefix");
+        if (!unknown_groupsPrefix) return value_groupsPrefix;
+        throw new UndeferrableValueException("Value 'IdentityProviderConfigOidcArgs.groupsPrefix' is not present");
     }
 
     /**
      * The name of the identity provider config.
      * 
      */
-    private UndeferrableValue<String> identityProviderConfigName;
-
+    @PolicyResourceProperty(name="identityProviderConfigName", flag="unknown_identityProviderConfigName")
+    private String value_identityProviderConfigName;
+    private boolean unknown_identityProviderConfigName;
     public String identityProviderConfigName() {
-        if (identityProviderConfigName == null) return null;
-        return identityProviderConfigName.getValue("IdentityProviderConfigOidcArgs.identityProviderConfigName");
+        if (!unknown_identityProviderConfigName) return value_identityProviderConfigName;
+        throw new UndeferrableValueException("Value 'IdentityProviderConfigOidcArgs.identityProviderConfigName' is not present");
     }
 
     /**
      * Issuer URL for the OpenID Connect identity provider.
      * 
      */
-    private UndeferrableValue<String> issuerUrl;
-
+    @PolicyResourceProperty(name="issuerUrl", flag="unknown_issuerUrl")
+    private String value_issuerUrl;
+    private boolean unknown_issuerUrl;
     public String issuerUrl() {
-        if (issuerUrl == null) return null;
-        return issuerUrl.getValue("IdentityProviderConfigOidcArgs.issuerUrl");
+        if (!unknown_issuerUrl) return value_issuerUrl;
+        throw new UndeferrableValueException("Value 'IdentityProviderConfigOidcArgs.issuerUrl' is not present");
     }
 
     /**
      * The key value pairs that describe required claims in the identity token.
      * 
      */
-    private UndeferrableValue<Map<String,String>> requiredClaims;
-
+    @PolicyResourceProperty(name="requiredClaims", flag="unknown_requiredClaims")
+    private Map<String,String> value_requiredClaims;
+    private boolean unknown_requiredClaims;
     public Map<String,String> requiredClaims() {
-        if (requiredClaims == null) return null;
-        return requiredClaims.getValue("IdentityProviderConfigOidcArgs.requiredClaims");
+        if (!unknown_requiredClaims) return value_requiredClaims;
+        throw new UndeferrableValueException("Value 'IdentityProviderConfigOidcArgs.requiredClaims' is not present");
     }
 
     /**
      * The JWT claim that the provider will use as the username.
      * 
      */
-    private UndeferrableValue<String> usernameClaim;
-
+    @PolicyResourceProperty(name="usernameClaim", flag="unknown_usernameClaim")
+    private String value_usernameClaim;
+    private boolean unknown_usernameClaim;
     public String usernameClaim() {
-        if (usernameClaim == null) return null;
-        return usernameClaim.getValue("IdentityProviderConfigOidcArgs.usernameClaim");
+        if (!unknown_usernameClaim) return value_usernameClaim;
+        throw new UndeferrableValueException("Value 'IdentityProviderConfigOidcArgs.usernameClaim' is not present");
     }
 
     /**
      * A prefix that is prepended to username claims.
      * 
      */
-    private UndeferrableValue<String> usernamePrefix;
-
+    @PolicyResourceProperty(name="usernamePrefix", flag="unknown_usernamePrefix")
+    private String value_usernamePrefix;
+    private boolean unknown_usernamePrefix;
     public String usernamePrefix() {
-        if (usernamePrefix == null) return null;
-        return usernamePrefix.getValue("IdentityProviderConfigOidcArgs.usernamePrefix");
+        if (!unknown_usernamePrefix) return value_usernamePrefix;
+        throw new UndeferrableValueException("Value 'IdentityProviderConfigOidcArgs.usernamePrefix' is not present");
     }
 
 }

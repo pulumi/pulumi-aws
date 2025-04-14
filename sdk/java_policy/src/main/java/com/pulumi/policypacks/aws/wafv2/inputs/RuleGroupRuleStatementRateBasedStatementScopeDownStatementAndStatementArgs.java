@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.RuleGroupRuleStatementArgs;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementAnd
      * The statements to combine.
      * 
      */
-    private UndeferrableValue<List<RuleGroupRuleStatementArgs>> statements;
-
+    @PolicyResourceProperty(name="statements", flag="unknown_statements")
+    private List<RuleGroupRuleStatementArgs> value_statements;
+    private boolean unknown_statements;
     public List<RuleGroupRuleStatementArgs> statements() {
-        if (statements == null) return null;
-        return statements.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs.statements");
+        if (!unknown_statements) return value_statements;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs.statements' is not present");
     }
 
 }

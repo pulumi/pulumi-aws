@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pinpoint.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.pinpoint.outputs.EmailTemplateEmailTemplateHeader;
 import java.lang.String;
 import java.util.List;
@@ -16,69 +17,76 @@ public final class EmailTemplateEmailTemplate {
      * JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that&#39;s based on the template, you can override these defaults with message-specific and address-specific variables and values.
      * 
      */
-    private @Nullable UndeferrableValue<String> defaultSubstitutions;
-
+    @PolicyResourceProperty(name="defaultSubstitutions", flag="unknown_defaultSubstitutions")
+    private @Nullable String value_defaultSubstitutions;
+    private boolean unknown_defaultSubstitutions;
     public @Nullable String defaultSubstitutions() {
-        if (defaultSubstitutions == null) return null;
-        return defaultSubstitutions.getValue("EmailTemplateEmailTemplate.defaultSubstitutions");
+        if (!unknown_defaultSubstitutions) return value_defaultSubstitutions;
+        throw new UndeferrableValueException("Value 'EmailTemplateEmailTemplate.defaultSubstitutions' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("EmailTemplateEmailTemplate.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'EmailTemplateEmailTemplate.description' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<EmailTemplateEmailTemplateHeader>> headers;
-
+    @PolicyResourceProperty(name="headers", flag="unknown_headers")
+    private @Nullable List<EmailTemplateEmailTemplateHeader> value_headers;
+    private boolean unknown_headers;
     public @Nullable List<EmailTemplateEmailTemplateHeader> headers() {
-        if (headers == null) return null;
-        return headers.getValue("EmailTemplateEmailTemplate.headers");
+        if (!unknown_headers) return value_headers;
+        throw new UndeferrableValueException("Value 'EmailTemplateEmailTemplate.headers' is not present");
     }
 
     /**
      * The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
      * 
      */
-    private @Nullable UndeferrableValue<String> htmlPart;
-
+    @PolicyResourceProperty(name="htmlPart", flag="unknown_htmlPart")
+    private @Nullable String value_htmlPart;
+    private boolean unknown_htmlPart;
     public @Nullable String htmlPart() {
-        if (htmlPart == null) return null;
-        return htmlPart.getValue("EmailTemplateEmailTemplate.htmlPart");
+        if (!unknown_htmlPart) return value_htmlPart;
+        throw new UndeferrableValueException("Value 'EmailTemplateEmailTemplate.htmlPart' is not present");
     }
 
     /**
      * The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
      * 
      */
-    private @Nullable UndeferrableValue<String> recommenderId;
-
+    @PolicyResourceProperty(name="recommenderId", flag="unknown_recommenderId")
+    private @Nullable String value_recommenderId;
+    private boolean unknown_recommenderId;
     public @Nullable String recommenderId() {
-        if (recommenderId == null) return null;
-        return recommenderId.getValue("EmailTemplateEmailTemplate.recommenderId");
+        if (!unknown_recommenderId) return value_recommenderId;
+        throw new UndeferrableValueException("Value 'EmailTemplateEmailTemplate.recommenderId' is not present");
     }
 
     /**
      * Subject line, or title, to use in email messages that are based on the message template.
      * 
      */
-    private @Nullable UndeferrableValue<String> subject;
-
+    @PolicyResourceProperty(name="subject", flag="unknown_subject")
+    private @Nullable String value_subject;
+    private boolean unknown_subject;
     public @Nullable String subject() {
-        if (subject == null) return null;
-        return subject.getValue("EmailTemplateEmailTemplate.subject");
+        if (!unknown_subject) return value_subject;
+        throw new UndeferrableValueException("Value 'EmailTemplateEmailTemplate.subject' is not present");
     }
 
     /**
      * Message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don&#39;t render HTML content and clients that are connected to high-latency networks, such as mobile devices.
      * 
      */
-    private @Nullable UndeferrableValue<String> textPart;
-
+    @PolicyResourceProperty(name="textPart", flag="unknown_textPart")
+    private @Nullable String value_textPart;
+    private boolean unknown_textPart;
     public @Nullable String textPart() {
-        if (textPart == null) return null;
-        return textPart.getValue("EmailTemplateEmailTemplate.textPart");
+        if (!unknown_textPart) return value_textPart;
+        throw new UndeferrableValueException("Value 'EmailTemplateEmailTemplate.textPart' is not present");
     }
 
 }

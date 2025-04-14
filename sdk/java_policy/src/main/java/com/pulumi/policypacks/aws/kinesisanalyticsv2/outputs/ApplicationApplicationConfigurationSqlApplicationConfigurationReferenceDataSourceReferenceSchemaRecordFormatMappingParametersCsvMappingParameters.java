@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
      * 
      */
-    private UndeferrableValue<String> recordColumnDelimiter;
-
+    @PolicyResourceProperty(name="recordColumnDelimiter", flag="unknown_recordColumnDelimiter")
+    private String value_recordColumnDelimiter;
+    private boolean unknown_recordColumnDelimiter;
     public String recordColumnDelimiter() {
-        if (recordColumnDelimiter == null) return null;
-        return recordColumnDelimiter.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters.recordColumnDelimiter");
+        if (!unknown_recordColumnDelimiter) return value_recordColumnDelimiter;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters.recordColumnDelimiter' is not present");
     }
 
     /**
      * The row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
      * 
      */
-    private UndeferrableValue<String> recordRowDelimiter;
-
+    @PolicyResourceProperty(name="recordRowDelimiter", flag="unknown_recordRowDelimiter")
+    private String value_recordRowDelimiter;
+    private boolean unknown_recordRowDelimiter;
     public String recordRowDelimiter() {
-        if (recordRowDelimiter == null) return null;
-        return recordRowDelimiter.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters.recordRowDelimiter");
+        if (!unknown_recordRowDelimiter) return value_recordRowDelimiter;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters.recordRowDelimiter' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class UserHierarchyStructureHierarchyStructureLevelThreeArgs {
      * The Amazon Resource Name (ARN) of the hierarchy level.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("UserHierarchyStructureHierarchyStructureLevelThreeArgs.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'UserHierarchyStructureHierarchyStructureLevelThreeArgs.arn' is not present");
     }
 
     /**
      * The identifier of the hierarchy level.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("UserHierarchyStructureHierarchyStructureLevelThreeArgs.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'UserHierarchyStructureHierarchyStructureLevelThreeArgs.id' is not present");
     }
 
     /**
      * The name of the user hierarchy level. Must not be more than 50 characters.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("UserHierarchyStructureHierarchyStructureLevelThreeArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'UserHierarchyStructureHierarchyStructureLevelThreeArgs.name' is not present");
     }
 
 }

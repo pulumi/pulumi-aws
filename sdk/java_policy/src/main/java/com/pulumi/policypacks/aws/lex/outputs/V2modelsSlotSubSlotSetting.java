@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotSubSlotSettingSlotSpecification;
 import java.lang.String;
 import java.util.List;
@@ -16,11 +17,12 @@ public final class V2modelsSlotSubSlotSetting {
      * Expression text for defining the constituent sub slots in the composite slot using logical `AND` and `OR` operators.
      * 
      */
-    private @Nullable UndeferrableValue<String> expression;
-
+    @PolicyResourceProperty(name="expression", flag="unknown_expression")
+    private @Nullable String value_expression;
+    private boolean unknown_expression;
     public @Nullable String expression() {
-        if (expression == null) return null;
-        return expression.getValue("V2modelsSlotSubSlotSetting.expression");
+        if (!unknown_expression) return value_expression;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSetting.expression' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class V2modelsSlotSubSlotSetting {
      * See the `slot_specification` argument reference below.
      * 
      */
-    private @Nullable UndeferrableValue<List<V2modelsSlotSubSlotSettingSlotSpecification>> slotSpecifications;
-
+    @PolicyResourceProperty(name="slotSpecifications", flag="unknown_slotSpecifications")
+    private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecification> value_slotSpecifications;
+    private boolean unknown_slotSpecifications;
     public @Nullable List<V2modelsSlotSubSlotSettingSlotSpecification> slotSpecifications() {
-        if (slotSpecifications == null) return null;
-        return slotSpecifications.getValue("V2modelsSlotSubSlotSetting.slotSpecifications");
+        if (!unknown_slotSpecifications) return value_slotSpecifications;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSetting.slotSpecifications' is not present");
     }
 
 }

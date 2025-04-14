@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mediapackagev2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,55 +18,60 @@ public final class ChannelGroup extends com.pulumi.resources.PolicyResourceOutpu
      * The ARN of the channel
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ChannelGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ChannelGroup.arn' is not present");
     }
 
     /**
      * A description of the channel group
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ChannelGroup.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ChannelGroup.description' is not present");
     }
 
     /**
      * The egress domain of the channel group
      * 
      */
-    private UndeferrableValue<String> egressDomain;
-
+    @PolicyResourceProperty(name="egressDomain", flag="unknown_egressDomain")
+    private String value_egressDomain;
+    private boolean unknown_egressDomain;
     public String egressDomain() {
-        if (egressDomain == null) return null;
-        return egressDomain.getValue("ChannelGroup.egressDomain");
+        if (!unknown_egressDomain) return value_egressDomain;
+        throw new UndeferrableValueException("Value 'ChannelGroup.egressDomain' is not present");
     }
 
     /**
      * A unique identifier naming the channel group
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ChannelGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ChannelGroup.name' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ChannelGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ChannelGroup.tags' is not present");
     }
 
     /**
@@ -76,11 +82,12 @@ public final class ChannelGroup extends com.pulumi.resources.PolicyResourceOutpu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ChannelGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ChannelGroup.tagsAll' is not present");
     }
 
 }

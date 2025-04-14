@@ -3,18 +3,20 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class RuleGroupRuleStatementXssMatchStatementFieldToMatchBodyArgs {
 
-    private UndeferrableValue<String> oversizeHandling;
-
+    @PolicyResourceProperty(name="oversizeHandling", flag="unknown_oversizeHandling")
+    private String value_oversizeHandling;
+    private boolean unknown_oversizeHandling;
     public String oversizeHandling() {
-        if (oversizeHandling == null) return null;
-        return oversizeHandling.getValue("RuleGroupRuleStatementXssMatchStatementFieldToMatchBodyArgs.oversizeHandling");
+        if (!unknown_oversizeHandling) return value_oversizeHandling;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementXssMatchStatementFieldToMatchBodyArgs.oversizeHandling' is not present");
     }
 
 }

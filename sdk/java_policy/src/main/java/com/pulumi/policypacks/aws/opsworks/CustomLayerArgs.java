@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.opsworks.inputs.CustomLayerCloudwatchConfigurationArgs;
 import com.pulumi.policypacks.aws.opsworks.inputs.CustomLayerEbsVolumeArgs;
@@ -23,222 +24,244 @@ public final class CustomLayerArgs extends com.pulumi.resources.PolicyResourceIn
      * Whether to automatically assign an elastic IP address to the layer&#39;s instances.
      * 
      */
-    private UndeferrableValue<Boolean> autoAssignElasticIps;
-
+    @PolicyResourceProperty(name="autoAssignElasticIps", flag="unknown_autoAssignElasticIps")
+    private Boolean value_autoAssignElasticIps;
+    private boolean unknown_autoAssignElasticIps;
     public Boolean autoAssignElasticIps() {
-        if (autoAssignElasticIps == null) return null;
-        return autoAssignElasticIps.getValue("CustomLayerArgs.autoAssignElasticIps");
+        if (!unknown_autoAssignElasticIps) return value_autoAssignElasticIps;
+        throw new UndeferrableValueException("Value 'CustomLayerArgs.autoAssignElasticIps' is not present");
     }
 
     /**
      * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer&#39;s instances.
      * 
      */
-    private UndeferrableValue<Boolean> autoAssignPublicIps;
-
+    @PolicyResourceProperty(name="autoAssignPublicIps", flag="unknown_autoAssignPublicIps")
+    private Boolean value_autoAssignPublicIps;
+    private boolean unknown_autoAssignPublicIps;
     public Boolean autoAssignPublicIps() {
-        if (autoAssignPublicIps == null) return null;
-        return autoAssignPublicIps.getValue("CustomLayerArgs.autoAssignPublicIps");
+        if (!unknown_autoAssignPublicIps) return value_autoAssignPublicIps;
+        throw new UndeferrableValueException("Value 'CustomLayerArgs.autoAssignPublicIps' is not present");
     }
 
     /**
      * Whether to enable auto-healing for the layer.
      * 
      */
-    private UndeferrableValue<Boolean> autoHealing;
-
+    @PolicyResourceProperty(name="autoHealing", flag="unknown_autoHealing")
+    private Boolean value_autoHealing;
+    private boolean unknown_autoHealing;
     public Boolean autoHealing() {
-        if (autoHealing == null) return null;
-        return autoHealing.getValue("CustomLayerArgs.autoHealing");
+        if (!unknown_autoHealing) return value_autoHealing;
+        throw new UndeferrableValueException("Value 'CustomLayerArgs.autoHealing' is not present");
     }
 
     /**
      * Will create an EBS volume and connect it to the layer&#39;s instances. See Cloudwatch Configuration.
      * 
      */
-    private UndeferrableValue<CustomLayerCloudwatchConfigurationArgs> cloudwatchConfiguration;
-
+    @PolicyResourceProperty(name="cloudwatchConfiguration", flag="unknown_cloudwatchConfiguration")
+    private CustomLayerCloudwatchConfigurationArgs value_cloudwatchConfiguration;
+    private boolean unknown_cloudwatchConfiguration;
     public CustomLayerCloudwatchConfigurationArgs cloudwatchConfiguration() {
-        if (cloudwatchConfiguration == null) return null;
-        return cloudwatchConfiguration.getValue("CustomLayerArgs.cloudwatchConfiguration");
+        if (!unknown_cloudwatchConfiguration) return value_cloudwatchConfiguration;
+        throw new UndeferrableValueException("Value 'CustomLayerArgs.cloudwatchConfiguration' is not present");
     }
 
-    private UndeferrableValue<List<String>> customConfigureRecipes;
-
+    @PolicyResourceProperty(name="customConfigureRecipes", flag="unknown_customConfigureRecipes")
+    private List<String> value_customConfigureRecipes;
+    private boolean unknown_customConfigureRecipes;
     public List<String> customConfigureRecipes() {
-        if (customConfigureRecipes == null) return null;
-        return customConfigureRecipes.getValue("CustomLayerArgs.customConfigureRecipes");
+        if (!unknown_customConfigureRecipes) return value_customConfigureRecipes;
+        throw new UndeferrableValueException("Value 'CustomLayerArgs.customConfigureRecipes' is not present");
     }
 
-    private UndeferrableValue<List<String>> customDeployRecipes;
-
+    @PolicyResourceProperty(name="customDeployRecipes", flag="unknown_customDeployRecipes")
+    private List<String> value_customDeployRecipes;
+    private boolean unknown_customDeployRecipes;
     public List<String> customDeployRecipes() {
-        if (customDeployRecipes == null) return null;
-        return customDeployRecipes.getValue("CustomLayerArgs.customDeployRecipes");
+        if (!unknown_customDeployRecipes) return value_customDeployRecipes;
+        throw new UndeferrableValueException("Value 'CustomLayerArgs.customDeployRecipes' is not present");
     }
 
     /**
      * The ARN of an IAM profile that will be used for the layer&#39;s instances.
      * 
      */
-    private UndeferrableValue<String> customInstanceProfileArn;
-
+    @PolicyResourceProperty(name="customInstanceProfileArn", flag="unknown_customInstanceProfileArn")
+    private String value_customInstanceProfileArn;
+    private boolean unknown_customInstanceProfileArn;
     public String customInstanceProfileArn() {
-        if (customInstanceProfileArn == null) return null;
-        return customInstanceProfileArn.getValue("CustomLayerArgs.customInstanceProfileArn");
+        if (!unknown_customInstanceProfileArn) return value_customInstanceProfileArn;
+        throw new UndeferrableValueException("Value 'CustomLayerArgs.customInstanceProfileArn' is not present");
     }
 
     /**
      * Custom JSON attributes to apply to the layer.
      * 
      */
-    private UndeferrableValue<String> customJson;
-
+    @PolicyResourceProperty(name="customJson", flag="unknown_customJson")
+    private String value_customJson;
+    private boolean unknown_customJson;
     public String customJson() {
-        if (customJson == null) return null;
-        return customJson.getValue("CustomLayerArgs.customJson");
+        if (!unknown_customJson) return value_customJson;
+        throw new UndeferrableValueException("Value 'CustomLayerArgs.customJson' is not present");
     }
 
     /**
      * Ids for a set of security groups to apply to the layer&#39;s instances.
      * 
      */
-    private UndeferrableValue<List<String>> customSecurityGroupIds;
-
+    @PolicyResourceProperty(name="customSecurityGroupIds", flag="unknown_customSecurityGroupIds")
+    private List<String> value_customSecurityGroupIds;
+    private boolean unknown_customSecurityGroupIds;
     public List<String> customSecurityGroupIds() {
-        if (customSecurityGroupIds == null) return null;
-        return customSecurityGroupIds.getValue("CustomLayerArgs.customSecurityGroupIds");
+        if (!unknown_customSecurityGroupIds) return value_customSecurityGroupIds;
+        throw new UndeferrableValueException("Value 'CustomLayerArgs.customSecurityGroupIds' is not present");
     }
 
-    private UndeferrableValue<List<String>> customSetupRecipes;
-
+    @PolicyResourceProperty(name="customSetupRecipes", flag="unknown_customSetupRecipes")
+    private List<String> value_customSetupRecipes;
+    private boolean unknown_customSetupRecipes;
     public List<String> customSetupRecipes() {
-        if (customSetupRecipes == null) return null;
-        return customSetupRecipes.getValue("CustomLayerArgs.customSetupRecipes");
+        if (!unknown_customSetupRecipes) return value_customSetupRecipes;
+        throw new UndeferrableValueException("Value 'CustomLayerArgs.customSetupRecipes' is not present");
     }
 
-    private UndeferrableValue<List<String>> customShutdownRecipes;
-
+    @PolicyResourceProperty(name="customShutdownRecipes", flag="unknown_customShutdownRecipes")
+    private List<String> value_customShutdownRecipes;
+    private boolean unknown_customShutdownRecipes;
     public List<String> customShutdownRecipes() {
-        if (customShutdownRecipes == null) return null;
-        return customShutdownRecipes.getValue("CustomLayerArgs.customShutdownRecipes");
+        if (!unknown_customShutdownRecipes) return value_customShutdownRecipes;
+        throw new UndeferrableValueException("Value 'CustomLayerArgs.customShutdownRecipes' is not present");
     }
 
-    private UndeferrableValue<List<String>> customUndeployRecipes;
-
+    @PolicyResourceProperty(name="customUndeployRecipes", flag="unknown_customUndeployRecipes")
+    private List<String> value_customUndeployRecipes;
+    private boolean unknown_customUndeployRecipes;
     public List<String> customUndeployRecipes() {
-        if (customUndeployRecipes == null) return null;
-        return customUndeployRecipes.getValue("CustomLayerArgs.customUndeployRecipes");
+        if (!unknown_customUndeployRecipes) return value_customUndeployRecipes;
+        throw new UndeferrableValueException("Value 'CustomLayerArgs.customUndeployRecipes' is not present");
     }
 
     /**
      * Whether to enable Elastic Load Balancing connection draining.
      * 
      */
-    private UndeferrableValue<Boolean> drainElbOnShutdown;
-
+    @PolicyResourceProperty(name="drainElbOnShutdown", flag="unknown_drainElbOnShutdown")
+    private Boolean value_drainElbOnShutdown;
+    private boolean unknown_drainElbOnShutdown;
     public Boolean drainElbOnShutdown() {
-        if (drainElbOnShutdown == null) return null;
-        return drainElbOnShutdown.getValue("CustomLayerArgs.drainElbOnShutdown");
+        if (!unknown_drainElbOnShutdown) return value_drainElbOnShutdown;
+        throw new UndeferrableValueException("Value 'CustomLayerArgs.drainElbOnShutdown' is not present");
     }
 
     /**
      * Will create an EBS volume and connect it to the layer&#39;s instances. See EBS Volume.
      * 
      */
-    private UndeferrableValue<List<CustomLayerEbsVolumeArgs>> ebsVolumes;
-
+    @PolicyResourceProperty(name="ebsVolumes", flag="unknown_ebsVolumes")
+    private List<CustomLayerEbsVolumeArgs> value_ebsVolumes;
+    private boolean unknown_ebsVolumes;
     public List<CustomLayerEbsVolumeArgs> ebsVolumes() {
-        if (ebsVolumes == null) return null;
-        return ebsVolumes.getValue("CustomLayerArgs.ebsVolumes");
+        if (!unknown_ebsVolumes) return value_ebsVolumes;
+        throw new UndeferrableValueException("Value 'CustomLayerArgs.ebsVolumes' is not present");
     }
 
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      * 
      */
-    private UndeferrableValue<String> elasticLoadBalancer;
-
+    @PolicyResourceProperty(name="elasticLoadBalancer", flag="unknown_elasticLoadBalancer")
+    private String value_elasticLoadBalancer;
+    private boolean unknown_elasticLoadBalancer;
     public String elasticLoadBalancer() {
-        if (elasticLoadBalancer == null) return null;
-        return elasticLoadBalancer.getValue("CustomLayerArgs.elasticLoadBalancer");
+        if (!unknown_elasticLoadBalancer) return value_elasticLoadBalancer;
+        throw new UndeferrableValueException("Value 'CustomLayerArgs.elasticLoadBalancer' is not present");
     }
 
     /**
      * Whether to install OS and package updates on each instance when it boots.
      * 
      */
-    private UndeferrableValue<Boolean> installUpdatesOnBoot;
-
+    @PolicyResourceProperty(name="installUpdatesOnBoot", flag="unknown_installUpdatesOnBoot")
+    private Boolean value_installUpdatesOnBoot;
+    private boolean unknown_installUpdatesOnBoot;
     public Boolean installUpdatesOnBoot() {
-        if (installUpdatesOnBoot == null) return null;
-        return installUpdatesOnBoot.getValue("CustomLayerArgs.installUpdatesOnBoot");
+        if (!unknown_installUpdatesOnBoot) return value_installUpdatesOnBoot;
+        throw new UndeferrableValueException("Value 'CustomLayerArgs.installUpdatesOnBoot' is not present");
     }
 
     /**
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      * 
      */
-    private UndeferrableValue<Integer> instanceShutdownTimeout;
-
+    @PolicyResourceProperty(name="instanceShutdownTimeout", flag="unknown_instanceShutdownTimeout")
+    private Integer value_instanceShutdownTimeout;
+    private boolean unknown_instanceShutdownTimeout;
     public Integer instanceShutdownTimeout() {
-        if (instanceShutdownTimeout == null) return null;
-        return instanceShutdownTimeout.getValue("CustomLayerArgs.instanceShutdownTimeout");
+        if (!unknown_instanceShutdownTimeout) return value_instanceShutdownTimeout;
+        throw new UndeferrableValueException("Value 'CustomLayerArgs.instanceShutdownTimeout' is not present");
     }
 
     /**
      * Load-based auto scaling configuration. See Load Based AutoScaling
      * 
      */
-    private UndeferrableValue<CustomLayerLoadBasedAutoScalingArgs> loadBasedAutoScaling;
-
+    @PolicyResourceProperty(name="loadBasedAutoScaling", flag="unknown_loadBasedAutoScaling")
+    private CustomLayerLoadBasedAutoScalingArgs value_loadBasedAutoScaling;
+    private boolean unknown_loadBasedAutoScaling;
     public CustomLayerLoadBasedAutoScalingArgs loadBasedAutoScaling() {
-        if (loadBasedAutoScaling == null) return null;
-        return loadBasedAutoScaling.getValue("CustomLayerArgs.loadBasedAutoScaling");
+        if (!unknown_loadBasedAutoScaling) return value_loadBasedAutoScaling;
+        throw new UndeferrableValueException("Value 'CustomLayerArgs.loadBasedAutoScaling' is not present");
     }
 
     /**
      * A human-readable name for the layer.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("CustomLayerArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'CustomLayerArgs.name' is not present");
     }
 
     /**
      * A short, machine-readable name for the layer, which will be used to identify it in the Chef node JSON.
      * 
      */
-    private UndeferrableValue<String> shortName;
-
+    @PolicyResourceProperty(name="shortName", flag="unknown_shortName")
+    private String value_shortName;
+    private boolean unknown_shortName;
     public String shortName() {
-        if (shortName == null) return null;
-        return shortName.getValue("CustomLayerArgs.shortName");
+        if (!unknown_shortName) return value_shortName;
+        throw new UndeferrableValueException("Value 'CustomLayerArgs.shortName' is not present");
     }
 
     /**
      * ID of the stack the layer will belong to.
      * 
      */
-    private UndeferrableValue<String> stackId;
-
+    @PolicyResourceProperty(name="stackId", flag="unknown_stackId")
+    private String value_stackId;
+    private boolean unknown_stackId;
     public String stackId() {
-        if (stackId == null) return null;
-        return stackId.getValue("CustomLayerArgs.stackId");
+        if (!unknown_stackId) return value_stackId;
+        throw new UndeferrableValueException("Value 'CustomLayerArgs.stackId' is not present");
     }
 
     /**
      * Names of a set of system packages to install on the layer&#39;s instances.
      * 
      */
-    private UndeferrableValue<List<String>> systemPackages;
-
+    @PolicyResourceProperty(name="systemPackages", flag="unknown_systemPackages")
+    private List<String> value_systemPackages;
+    private boolean unknown_systemPackages;
     public List<String> systemPackages() {
-        if (systemPackages == null) return null;
-        return systemPackages.getValue("CustomLayerArgs.systemPackages");
+        if (!unknown_systemPackages) return value_systemPackages;
+        throw new UndeferrableValueException("Value 'CustomLayerArgs.systemPackages' is not present");
     }
 
     /**
@@ -249,22 +272,24 @@ public final class CustomLayerArgs extends com.pulumi.resources.PolicyResourceIn
      * lifecycle events, if custom cookbooks are enabled on the layer&#39;s stack:
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CustomLayerArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CustomLayerArgs.tags' is not present");
     }
 
     /**
      * Whether to use EBS-optimized instances.
      * 
      */
-    private UndeferrableValue<Boolean> useEbsOptimizedInstances;
-
+    @PolicyResourceProperty(name="useEbsOptimizedInstances", flag="unknown_useEbsOptimizedInstances")
+    private Boolean value_useEbsOptimizedInstances;
+    private boolean unknown_useEbsOptimizedInstances;
     public Boolean useEbsOptimizedInstances() {
-        if (useEbsOptimizedInstances == null) return null;
-        return useEbsOptimizedInstances.getValue("CustomLayerArgs.useEbsOptimizedInstances");
+        if (!unknown_useEbsOptimizedInstances) return value_useEbsOptimizedInstances;
+        throw new UndeferrableValueException("Value 'CustomLayerArgs.useEbsOptimizedInstances' is not present");
     }
 
 }

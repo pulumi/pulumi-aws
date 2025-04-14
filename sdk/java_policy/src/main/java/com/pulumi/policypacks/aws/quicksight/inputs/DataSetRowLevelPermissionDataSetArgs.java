@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,55 +15,60 @@ public final class DataSetRowLevelPermissionDataSetArgs {
      * ARN of the dataset that contains permissions for RLS.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("DataSetRowLevelPermissionDataSetArgs.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'DataSetRowLevelPermissionDataSetArgs.arn' is not present");
     }
 
     /**
      * User or group rules associated with the dataset that contains permissions for RLS.
      * 
      */
-    private UndeferrableValue<String> formatVersion;
-
+    @PolicyResourceProperty(name="formatVersion", flag="unknown_formatVersion")
+    private String value_formatVersion;
+    private boolean unknown_formatVersion;
     public String formatVersion() {
-        if (formatVersion == null) return null;
-        return formatVersion.getValue("DataSetRowLevelPermissionDataSetArgs.formatVersion");
+        if (!unknown_formatVersion) return value_formatVersion;
+        throw new UndeferrableValueException("Value 'DataSetRowLevelPermissionDataSetArgs.formatVersion' is not present");
     }
 
     /**
      * Namespace associated with the dataset that contains permissions for RLS.
      * 
      */
-    private UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private String value_namespace;
+    private boolean unknown_namespace;
     public String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("DataSetRowLevelPermissionDataSetArgs.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'DataSetRowLevelPermissionDataSetArgs.namespace' is not present");
     }
 
     /**
      * Type of permissions to use when interpreting the permissions for RLS. Valid values are `GRANT_ACCESS` and `DENY_ACCESS`.
      * 
      */
-    private UndeferrableValue<String> permissionPolicy;
-
+    @PolicyResourceProperty(name="permissionPolicy", flag="unknown_permissionPolicy")
+    private String value_permissionPolicy;
+    private boolean unknown_permissionPolicy;
     public String permissionPolicy() {
-        if (permissionPolicy == null) return null;
-        return permissionPolicy.getValue("DataSetRowLevelPermissionDataSetArgs.permissionPolicy");
+        if (!unknown_permissionPolicy) return value_permissionPolicy;
+        throw new UndeferrableValueException("Value 'DataSetRowLevelPermissionDataSetArgs.permissionPolicy' is not present");
     }
 
     /**
      * Status of the row-level security permission dataset. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("DataSetRowLevelPermissionDataSetArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'DataSetRowLevelPermissionDataSetArgs.status' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.waf.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.waf.outputs.XssMatchSetXssMatchTupleFieldToMatch;
 import java.lang.String;
 
@@ -14,11 +15,12 @@ public final class XssMatchSetXssMatchTuple {
      * Specifies where in a web request to look for cross-site scripting attacks.
      * 
      */
-    private UndeferrableValue<XssMatchSetXssMatchTupleFieldToMatch> fieldToMatch;
-
+    @PolicyResourceProperty(name="fieldToMatch", flag="unknown_fieldToMatch")
+    private XssMatchSetXssMatchTupleFieldToMatch value_fieldToMatch;
+    private boolean unknown_fieldToMatch;
     public XssMatchSetXssMatchTupleFieldToMatch fieldToMatch() {
-        if (fieldToMatch == null) return null;
-        return fieldToMatch.getValue("XssMatchSetXssMatchTuple.fieldToMatch");
+        if (!unknown_fieldToMatch) return value_fieldToMatch;
+        throw new UndeferrableValueException("Value 'XssMatchSetXssMatchTuple.fieldToMatch' is not present");
     }
 
     /**
@@ -29,11 +31,12 @@ public final class XssMatchSetXssMatchTuple {
      * for all supported values.
      * 
      */
-    private UndeferrableValue<String> textTransformation;
-
+    @PolicyResourceProperty(name="textTransformation", flag="unknown_textTransformation")
+    private String value_textTransformation;
+    private boolean unknown_textTransformation;
     public String textTransformation() {
-        if (textTransformation == null) return null;
-        return textTransformation.getValue("XssMatchSetXssMatchTuple.textTransformation");
+        if (!unknown_textTransformation) return value_textTransformation;
+        throw new UndeferrableValueException("Value 'XssMatchSetXssMatchTuple.textTransformation' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.keyspaces.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class TableSchemaDefinitionColumnArgs {
      * The name of the column.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TableSchemaDefinitionColumnArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TableSchemaDefinitionColumnArgs.name' is not present");
     }
 
     /**
      * The data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("TableSchemaDefinitionColumnArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'TableSchemaDefinitionColumnArgs.type' is not present");
     }
 
 }

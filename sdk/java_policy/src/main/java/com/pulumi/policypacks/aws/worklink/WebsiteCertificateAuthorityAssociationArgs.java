@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.worklink;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class WebsiteCertificateAuthorityAssociationArgs extends com.pulumi
      * The root certificate of the Certificate Authority.
      * 
      */
-    private UndeferrableValue<String> certificate;
-
+    @PolicyResourceProperty(name="certificate", flag="unknown_certificate")
+    private String value_certificate;
+    private boolean unknown_certificate;
     public String certificate() {
-        if (certificate == null) return null;
-        return certificate.getValue("WebsiteCertificateAuthorityAssociationArgs.certificate");
+        if (!unknown_certificate) return value_certificate;
+        throw new UndeferrableValueException("Value 'WebsiteCertificateAuthorityAssociationArgs.certificate' is not present");
     }
 
     /**
      * The certificate name to display.
      * 
      */
-    private UndeferrableValue<String> displayName;
-
+    @PolicyResourceProperty(name="displayName", flag="unknown_displayName")
+    private String value_displayName;
+    private boolean unknown_displayName;
     public String displayName() {
-        if (displayName == null) return null;
-        return displayName.getValue("WebsiteCertificateAuthorityAssociationArgs.displayName");
+        if (!unknown_displayName) return value_displayName;
+        throw new UndeferrableValueException("Value 'WebsiteCertificateAuthorityAssociationArgs.displayName' is not present");
     }
 
     /**
      * The ARN of the fleet.
      * 
      */
-    private UndeferrableValue<String> fleetArn;
-
+    @PolicyResourceProperty(name="fleetArn", flag="unknown_fleetArn")
+    private String value_fleetArn;
+    private boolean unknown_fleetArn;
     public String fleetArn() {
-        if (fleetArn == null) return null;
-        return fleetArn.getValue("WebsiteCertificateAuthorityAssociationArgs.fleetArn");
+        if (!unknown_fleetArn) return value_fleetArn;
+        throw new UndeferrableValueException("Value 'WebsiteCertificateAuthorityAssociationArgs.fleetArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.imagebuilder.outputs.DistributionConfigurationDistribution;
 import java.lang.String;
@@ -19,44 +20,48 @@ public final class DistributionConfiguration extends com.pulumi.resources.Policy
      * (Required) Amazon Resource Name (ARN) of the distribution configuration.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("DistributionConfiguration.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'DistributionConfiguration.arn' is not present");
     }
 
     /**
      * Date the distribution configuration was created.
      * 
      */
-    private UndeferrableValue<String> dateCreated;
-
+    @PolicyResourceProperty(name="dateCreated", flag="unknown_dateCreated")
+    private String value_dateCreated;
+    private boolean unknown_dateCreated;
     public String dateCreated() {
-        if (dateCreated == null) return null;
-        return dateCreated.getValue("DistributionConfiguration.dateCreated");
+        if (!unknown_dateCreated) return value_dateCreated;
+        throw new UndeferrableValueException("Value 'DistributionConfiguration.dateCreated' is not present");
     }
 
     /**
      * Date the distribution configuration was updated.
      * 
      */
-    private UndeferrableValue<String> dateUpdated;
-
+    @PolicyResourceProperty(name="dateUpdated", flag="unknown_dateUpdated")
+    private String value_dateUpdated;
+    private boolean unknown_dateUpdated;
     public String dateUpdated() {
-        if (dateUpdated == null) return null;
-        return dateUpdated.getValue("DistributionConfiguration.dateUpdated");
+        if (!unknown_dateUpdated) return value_dateUpdated;
+        throw new UndeferrableValueException("Value 'DistributionConfiguration.dateUpdated' is not present");
     }
 
     /**
      * Description of the distribution configuration.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("DistributionConfiguration.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'DistributionConfiguration.description' is not present");
     }
 
     /**
@@ -65,33 +70,36 @@ public final class DistributionConfiguration extends com.pulumi.resources.Policy
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<List<DistributionConfigurationDistribution>> distributions;
-
+    @PolicyResourceProperty(name="distributions", flag="unknown_distributions")
+    private List<DistributionConfigurationDistribution> value_distributions;
+    private boolean unknown_distributions;
     public List<DistributionConfigurationDistribution> distributions() {
-        if (distributions == null) return null;
-        return distributions.getValue("DistributionConfiguration.distributions");
+        if (!unknown_distributions) return value_distributions;
+        throw new UndeferrableValueException("Value 'DistributionConfiguration.distributions' is not present");
     }
 
     /**
      * Name of the distribution configuration.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DistributionConfiguration.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DistributionConfiguration.name' is not present");
     }
 
     /**
      * Key-value map of resource tags for the distribution configuration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DistributionConfiguration.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DistributionConfiguration.tags' is not present");
     }
 
     /**
@@ -102,11 +110,12 @@ public final class DistributionConfiguration extends com.pulumi.resources.Policy
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("DistributionConfiguration.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'DistributionConfiguration.tagsAll' is not present");
     }
 
 }

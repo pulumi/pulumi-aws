@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * Provides additional mapping information when the record format uses delimiters (for example, CSV).
      * 
      */
-    private @Nullable UndeferrableValue<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters> csvMappingParameters;
-
+    @PolicyResourceProperty(name="csvMappingParameters", flag="unknown_csvMappingParameters")
+    private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters value_csvMappingParameters;
+    private boolean unknown_csvMappingParameters;
     public @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters csvMappingParameters() {
-        if (csvMappingParameters == null) return null;
-        return csvMappingParameters.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters.csvMappingParameters");
+        if (!unknown_csvMappingParameters) return value_csvMappingParameters;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters.csvMappingParameters' is not present");
     }
 
     /**
      * Provides additional mapping information when JSON is the record format on the streaming source.
      * 
      */
-    private @Nullable UndeferrableValue<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters> jsonMappingParameters;
-
+    @PolicyResourceProperty(name="jsonMappingParameters", flag="unknown_jsonMappingParameters")
+    private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters value_jsonMappingParameters;
+    private boolean unknown_jsonMappingParameters;
     public @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters jsonMappingParameters() {
-        if (jsonMappingParameters == null) return null;
-        return jsonMappingParameters.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters.jsonMappingParameters");
+        if (!unknown_jsonMappingParameters) return value_jsonMappingParameters;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters.jsonMappingParameters' is not present");
     }
 
 }

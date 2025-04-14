@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class FleetTargetCapacitySpecificationArgs {
      * Default target capacity type. Valid values: `on-demand`, `spot`.
      * 
      */
-    private UndeferrableValue<String> defaultTargetCapacityType;
-
+    @PolicyResourceProperty(name="defaultTargetCapacityType", flag="unknown_defaultTargetCapacityType")
+    private String value_defaultTargetCapacityType;
+    private boolean unknown_defaultTargetCapacityType;
     public String defaultTargetCapacityType() {
-        if (defaultTargetCapacityType == null) return null;
-        return defaultTargetCapacityType.getValue("FleetTargetCapacitySpecificationArgs.defaultTargetCapacityType");
+        if (!unknown_defaultTargetCapacityType) return value_defaultTargetCapacityType;
+        throw new UndeferrableValueException("Value 'FleetTargetCapacitySpecificationArgs.defaultTargetCapacityType' is not present");
     }
 
     /**
      * The number of On-Demand units to request.
      * 
      */
-    private UndeferrableValue<Integer> onDemandTargetCapacity;
-
+    @PolicyResourceProperty(name="onDemandTargetCapacity", flag="unknown_onDemandTargetCapacity")
+    private Integer value_onDemandTargetCapacity;
+    private boolean unknown_onDemandTargetCapacity;
     public Integer onDemandTargetCapacity() {
-        if (onDemandTargetCapacity == null) return null;
-        return onDemandTargetCapacity.getValue("FleetTargetCapacitySpecificationArgs.onDemandTargetCapacity");
+        if (!unknown_onDemandTargetCapacity) return value_onDemandTargetCapacity;
+        throw new UndeferrableValueException("Value 'FleetTargetCapacitySpecificationArgs.onDemandTargetCapacity' is not present");
     }
 
     /**
      * The number of Spot units to request.
      * 
      */
-    private UndeferrableValue<Integer> spotTargetCapacity;
-
+    @PolicyResourceProperty(name="spotTargetCapacity", flag="unknown_spotTargetCapacity")
+    private Integer value_spotTargetCapacity;
+    private boolean unknown_spotTargetCapacity;
     public Integer spotTargetCapacity() {
-        if (spotTargetCapacity == null) return null;
-        return spotTargetCapacity.getValue("FleetTargetCapacitySpecificationArgs.spotTargetCapacity");
+        if (!unknown_spotTargetCapacity) return value_spotTargetCapacity;
+        throw new UndeferrableValueException("Value 'FleetTargetCapacitySpecificationArgs.spotTargetCapacity' is not present");
     }
 
     /**
@@ -49,22 +53,24 @@ public final class FleetTargetCapacitySpecificationArgs {
      * If you specify `target_capacity_unit_type`, `instance_requirements` must be specified.
      * 
      */
-    private UndeferrableValue<String> targetCapacityUnitType;
-
+    @PolicyResourceProperty(name="targetCapacityUnitType", flag="unknown_targetCapacityUnitType")
+    private String value_targetCapacityUnitType;
+    private boolean unknown_targetCapacityUnitType;
     public String targetCapacityUnitType() {
-        if (targetCapacityUnitType == null) return null;
-        return targetCapacityUnitType.getValue("FleetTargetCapacitySpecificationArgs.targetCapacityUnitType");
+        if (!unknown_targetCapacityUnitType) return value_targetCapacityUnitType;
+        throw new UndeferrableValueException("Value 'FleetTargetCapacitySpecificationArgs.targetCapacityUnitType' is not present");
     }
 
     /**
      * The number of units to request, filled using `default_target_capacity_type`.
      * 
      */
-    private UndeferrableValue<Integer> totalTargetCapacity;
-
+    @PolicyResourceProperty(name="totalTargetCapacity", flag="unknown_totalTargetCapacity")
+    private Integer value_totalTargetCapacity;
+    private boolean unknown_totalTargetCapacity;
     public Integer totalTargetCapacity() {
-        if (totalTargetCapacity == null) return null;
-        return totalTargetCapacity.getValue("FleetTargetCapacitySpecificationArgs.totalTargetCapacity");
+        if (!unknown_totalTargetCapacity) return value_totalTargetCapacity;
+        throw new UndeferrableValueException("Value 'FleetTargetCapacitySpecificationArgs.totalTargetCapacity' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.macie2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,77 +19,84 @@ public final class MemberArgs extends com.pulumi.resources.PolicyResourceInput {
      * The AWS account ID for the account.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("MemberArgs.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'MemberArgs.accountId' is not present");
     }
 
     /**
      * The email address for the account.
      * 
      */
-    private UndeferrableValue<String> email;
-
+    @PolicyResourceProperty(name="email", flag="unknown_email")
+    private String value_email;
+    private boolean unknown_email;
     public String email() {
-        if (email == null) return null;
-        return email.getValue("MemberArgs.email");
+        if (!unknown_email) return value_email;
+        throw new UndeferrableValueException("Value 'MemberArgs.email' is not present");
     }
 
     /**
      * Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> invitationDisableEmailNotification;
-
+    @PolicyResourceProperty(name="invitationDisableEmailNotification", flag="unknown_invitationDisableEmailNotification")
+    private Boolean value_invitationDisableEmailNotification;
+    private boolean unknown_invitationDisableEmailNotification;
     public Boolean invitationDisableEmailNotification() {
-        if (invitationDisableEmailNotification == null) return null;
-        return invitationDisableEmailNotification.getValue("MemberArgs.invitationDisableEmailNotification");
+        if (!unknown_invitationDisableEmailNotification) return value_invitationDisableEmailNotification;
+        throw new UndeferrableValueException("Value 'MemberArgs.invitationDisableEmailNotification' is not present");
     }
 
     /**
      * A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
      * 
      */
-    private UndeferrableValue<String> invitationMessage;
-
+    @PolicyResourceProperty(name="invitationMessage", flag="unknown_invitationMessage")
+    private String value_invitationMessage;
+    private boolean unknown_invitationMessage;
     public String invitationMessage() {
-        if (invitationMessage == null) return null;
-        return invitationMessage.getValue("MemberArgs.invitationMessage");
+        if (!unknown_invitationMessage) return value_invitationMessage;
+        throw new UndeferrableValueException("Value 'MemberArgs.invitationMessage' is not present");
     }
 
     /**
      * Send an invitation to a member
      * 
      */
-    private UndeferrableValue<Boolean> invite;
-
+    @PolicyResourceProperty(name="invite", flag="unknown_invite")
+    private Boolean value_invite;
+    private boolean unknown_invite;
     public Boolean invite() {
-        if (invite == null) return null;
-        return invite.getValue("MemberArgs.invite");
+        if (!unknown_invite) return value_invite;
+        throw new UndeferrableValueException("Value 'MemberArgs.invite' is not present");
     }
 
     /**
      * Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("MemberArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'MemberArgs.status' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("MemberArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'MemberArgs.tags' is not present");
     }
 
 }

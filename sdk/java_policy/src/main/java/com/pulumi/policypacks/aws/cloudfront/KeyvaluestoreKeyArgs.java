@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class KeyvaluestoreKeyArgs extends com.pulumi.resources.PolicyResou
      * Key to put.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("KeyvaluestoreKeyArgs.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'KeyvaluestoreKeyArgs.key' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the Key Value Store.
      * 
      */
-    private UndeferrableValue<String> keyValueStoreArn;
-
+    @PolicyResourceProperty(name="keyValueStoreArn", flag="unknown_keyValueStoreArn")
+    private String value_keyValueStoreArn;
+    private boolean unknown_keyValueStoreArn;
     public String keyValueStoreArn() {
-        if (keyValueStoreArn == null) return null;
-        return keyValueStoreArn.getValue("KeyvaluestoreKeyArgs.keyValueStoreArn");
+        if (!unknown_keyValueStoreArn) return value_keyValueStoreArn;
+        throw new UndeferrableValueException("Value 'KeyvaluestoreKeyArgs.keyValueStoreArn' is not present");
     }
 
     /**
      * Value to put.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("KeyvaluestoreKeyArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'KeyvaluestoreKeyArgs.value' is not present");
     }
 
 }

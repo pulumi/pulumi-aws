@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.location;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,55 +18,60 @@ public final class Tracker extends com.pulumi.resources.PolicyResourceOutput {
      * The timestamp for when the tracker resource was created in ISO 8601 format.
      * 
      */
-    private UndeferrableValue<String> createTime;
-
+    @PolicyResourceProperty(name="createTime", flag="unknown_createTime")
+    private String value_createTime;
+    private boolean unknown_createTime;
     public String createTime() {
-        if (createTime == null) return null;
-        return createTime.getValue("Tracker.createTime");
+        if (!unknown_createTime) return value_createTime;
+        throw new UndeferrableValueException("Value 'Tracker.createTime' is not present");
     }
 
     /**
      * The optional description for the tracker resource.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Tracker.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Tracker.description' is not present");
     }
 
     /**
      * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("Tracker.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'Tracker.kmsKeyId' is not present");
     }
 
     /**
      * The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
      * 
      */
-    private @Nullable UndeferrableValue<String> positionFiltering;
-
+    @PolicyResourceProperty(name="positionFiltering", flag="unknown_positionFiltering")
+    private @Nullable String value_positionFiltering;
+    private boolean unknown_positionFiltering;
     public @Nullable String positionFiltering() {
-        if (positionFiltering == null) return null;
-        return positionFiltering.getValue("Tracker.positionFiltering");
+        if (!unknown_positionFiltering) return value_positionFiltering;
+        throw new UndeferrableValueException("Value 'Tracker.positionFiltering' is not present");
     }
 
     /**
      * Key-value tags for the tracker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Tracker.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Tracker.tags' is not present");
     }
 
     /**
@@ -76,22 +82,24 @@ public final class Tracker extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Tracker.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Tracker.tagsAll' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
      * 
      */
-    private UndeferrableValue<String> trackerArn;
-
+    @PolicyResourceProperty(name="trackerArn", flag="unknown_trackerArn")
+    private String value_trackerArn;
+    private boolean unknown_trackerArn;
     public String trackerArn() {
-        if (trackerArn == null) return null;
-        return trackerArn.getValue("Tracker.trackerArn");
+        if (!unknown_trackerArn) return value_trackerArn;
+        throw new UndeferrableValueException("Value 'Tracker.trackerArn' is not present");
     }
 
     /**
@@ -100,22 +108,24 @@ public final class Tracker extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> trackerName;
-
+    @PolicyResourceProperty(name="trackerName", flag="unknown_trackerName")
+    private String value_trackerName;
+    private boolean unknown_trackerName;
     public String trackerName() {
-        if (trackerName == null) return null;
-        return trackerName.getValue("Tracker.trackerName");
+        if (!unknown_trackerName) return value_trackerName;
+        throw new UndeferrableValueException("Value 'Tracker.trackerName' is not present");
     }
 
     /**
      * The timestamp for when the tracker resource was last updated in ISO 8601 format.
      * 
      */
-    private UndeferrableValue<String> updateTime;
-
+    @PolicyResourceProperty(name="updateTime", flag="unknown_updateTime")
+    private String value_updateTime;
+    private boolean unknown_updateTime;
     public String updateTime() {
-        if (updateTime == null) return null;
-        return updateTime.getValue("Tracker.updateTime");
+        if (!unknown_updateTime) return value_updateTime;
+        throw new UndeferrableValueException("Value 'Tracker.updateTime' is not present");
     }
 
 }

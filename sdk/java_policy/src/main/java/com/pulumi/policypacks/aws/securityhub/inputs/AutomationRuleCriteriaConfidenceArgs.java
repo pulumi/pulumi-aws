@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import javax.annotation.Nullable;
 
@@ -14,47 +15,52 @@ public final class AutomationRuleCriteriaConfidenceArgs {
      * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
      * 
      */
-    private UndeferrableValue<Double> eq;
-
+    @PolicyResourceProperty(name="eq", flag="unknown_eq")
+    private Double value_eq;
+    private boolean unknown_eq;
     public Double eq() {
-        if (eq == null) return null;
-        return eq.getValue("AutomationRuleCriteriaConfidenceArgs.eq");
+        if (!unknown_eq) return value_eq;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteriaConfidenceArgs.eq' is not present");
     }
 
-    private UndeferrableValue<Double> gt;
-
+    @PolicyResourceProperty(name="gt", flag="unknown_gt")
+    private Double value_gt;
+    private boolean unknown_gt;
     public Double gt() {
-        if (gt == null) return null;
-        return gt.getValue("AutomationRuleCriteriaConfidenceArgs.gt");
+        if (!unknown_gt) return value_gt;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteriaConfidenceArgs.gt' is not present");
     }
 
     /**
      * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
      * 
      */
-    private UndeferrableValue<Double> gte;
-
+    @PolicyResourceProperty(name="gte", flag="unknown_gte")
+    private Double value_gte;
+    private boolean unknown_gte;
     public Double gte() {
-        if (gte == null) return null;
-        return gte.getValue("AutomationRuleCriteriaConfidenceArgs.gte");
+        if (!unknown_gte) return value_gte;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteriaConfidenceArgs.gte' is not present");
     }
 
-    private UndeferrableValue<Double> lt;
-
+    @PolicyResourceProperty(name="lt", flag="unknown_lt")
+    private Double value_lt;
+    private boolean unknown_lt;
     public Double lt() {
-        if (lt == null) return null;
-        return lt.getValue("AutomationRuleCriteriaConfidenceArgs.lt");
+        if (!unknown_lt) return value_lt;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteriaConfidenceArgs.lt' is not present");
     }
 
     /**
      * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
      * 
      */
-    private UndeferrableValue<Double> lte;
-
+    @PolicyResourceProperty(name="lte", flag="unknown_lte")
+    private Double value_lte;
+    private boolean unknown_lte;
     public Double lte() {
-        if (lte == null) return null;
-        return lte.getValue("AutomationRuleCriteriaConfidenceArgs.lte");
+        if (!unknown_lte) return value_lte;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteriaConfidenceArgs.lte' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.xray;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.xray.outputs.GroupInsightsConfiguration;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class Group extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN of the Group.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Group.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Group.arn' is not present");
     }
 
     /**
      * The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
      * 
      */
-    private UndeferrableValue<String> filterExpression;
-
+    @PolicyResourceProperty(name="filterExpression", flag="unknown_filterExpression")
+    private String value_filterExpression;
+    private boolean unknown_filterExpression;
     public String filterExpression() {
-        if (filterExpression == null) return null;
-        return filterExpression.getValue("Group.filterExpression");
+        if (!unknown_filterExpression) return value_filterExpression;
+        throw new UndeferrableValueException("Value 'Group.filterExpression' is not present");
     }
 
     /**
      * The name of the group.
      * 
      */
-    private UndeferrableValue<String> groupName;
-
+    @PolicyResourceProperty(name="groupName", flag="unknown_groupName")
+    private String value_groupName;
+    private boolean unknown_groupName;
     public String groupName() {
-        if (groupName == null) return null;
-        return groupName.getValue("Group.groupName");
+        if (!unknown_groupName) return value_groupName;
+        throw new UndeferrableValueException("Value 'Group.groupName' is not present");
     }
 
     /**
      * Configuration options for enabling insights.
      * 
      */
-    private UndeferrableValue<GroupInsightsConfiguration> insightsConfiguration;
-
+    @PolicyResourceProperty(name="insightsConfiguration", flag="unknown_insightsConfiguration")
+    private GroupInsightsConfiguration value_insightsConfiguration;
+    private boolean unknown_insightsConfiguration;
     public GroupInsightsConfiguration insightsConfiguration() {
-        if (insightsConfiguration == null) return null;
-        return insightsConfiguration.getValue("Group.insightsConfiguration");
+        if (!unknown_insightsConfiguration) return value_insightsConfiguration;
+        throw new UndeferrableValueException("Value 'Group.insightsConfiguration' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Group.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Group.tags' is not present");
     }
 
     /**
@@ -77,11 +83,12 @@ public final class Group extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Group.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Group.tagsAll' is not present");
     }
 
 }

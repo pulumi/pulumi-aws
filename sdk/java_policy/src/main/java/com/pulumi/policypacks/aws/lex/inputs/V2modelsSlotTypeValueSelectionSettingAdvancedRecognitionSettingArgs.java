@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -15,11 +16,12 @@ public final class V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSetti
      * Valid value is `UseSlotValuesAsCustomVocabulary`.
      * 
      */
-    private UndeferrableValue<String> audioRecognitionStrategy;
-
+    @PolicyResourceProperty(name="audioRecognitionStrategy", flag="unknown_audioRecognitionStrategy")
+    private String value_audioRecognitionStrategy;
+    private boolean unknown_audioRecognitionStrategy;
     public String audioRecognitionStrategy() {
-        if (audioRecognitionStrategy == null) return null;
-        return audioRecognitionStrategy.getValue("V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs.audioRecognitionStrategy");
+        if (!unknown_audioRecognitionStrategy) return value_audioRecognitionStrategy;
+        throw new UndeferrableValueException("Value 'V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs.audioRecognitionStrategy' is not present");
     }
 
 }

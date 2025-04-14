@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.costexplorer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.costexplorer.outputs.CostCategoryRule;
 import com.pulumi.policypacks.aws.costexplorer.outputs.CostCategorySplitChargeRule;
@@ -20,33 +21,36 @@ public final class CostCategory extends com.pulumi.resources.PolicyResourceOutpu
      * ARN of the cost category.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("CostCategory.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'CostCategory.arn' is not present");
     }
 
     /**
      * Default value for the cost category.
      * 
      */
-    private @Nullable UndeferrableValue<String> defaultValue;
-
+    @PolicyResourceProperty(name="defaultValue", flag="unknown_defaultValue")
+    private @Nullable String value_defaultValue;
+    private boolean unknown_defaultValue;
     public @Nullable String defaultValue() {
-        if (defaultValue == null) return null;
-        return defaultValue.getValue("CostCategory.defaultValue");
+        if (!unknown_defaultValue) return value_defaultValue;
+        throw new UndeferrableValueException("Value 'CostCategory.defaultValue' is not present");
     }
 
     /**
      * Effective end data of your Cost Category.
      * 
      */
-    private UndeferrableValue<String> effectiveEnd;
-
+    @PolicyResourceProperty(name="effectiveEnd", flag="unknown_effectiveEnd")
+    private String value_effectiveEnd;
+    private boolean unknown_effectiveEnd;
     public String effectiveEnd() {
-        if (effectiveEnd == null) return null;
-        return effectiveEnd.getValue("CostCategory.effectiveEnd");
+        if (!unknown_effectiveEnd) return value_effectiveEnd;
+        throw new UndeferrableValueException("Value 'CostCategory.effectiveEnd' is not present");
     }
 
     /**
@@ -55,66 +59,72 @@ public final class CostCategory extends com.pulumi.resources.PolicyResourceOutpu
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> effectiveStart;
-
+    @PolicyResourceProperty(name="effectiveStart", flag="unknown_effectiveStart")
+    private String value_effectiveStart;
+    private boolean unknown_effectiveStart;
     public String effectiveStart() {
-        if (effectiveStart == null) return null;
-        return effectiveStart.getValue("CostCategory.effectiveStart");
+        if (!unknown_effectiveStart) return value_effectiveStart;
+        throw new UndeferrableValueException("Value 'CostCategory.effectiveStart' is not present");
     }
 
     /**
      * Unique name for the Cost Category.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("CostCategory.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'CostCategory.name' is not present");
     }
 
     /**
      * Rule schema version in this particular Cost Category.
      * 
      */
-    private UndeferrableValue<String> ruleVersion;
-
+    @PolicyResourceProperty(name="ruleVersion", flag="unknown_ruleVersion")
+    private String value_ruleVersion;
+    private boolean unknown_ruleVersion;
     public String ruleVersion() {
-        if (ruleVersion == null) return null;
-        return ruleVersion.getValue("CostCategory.ruleVersion");
+        if (!unknown_ruleVersion) return value_ruleVersion;
+        throw new UndeferrableValueException("Value 'CostCategory.ruleVersion' is not present");
     }
 
     /**
      * Configuration block for the Cost Category rules used to categorize costs. See below.
      * 
      */
-    private UndeferrableValue<List<CostCategoryRule>> rules;
-
+    @PolicyResourceProperty(name="rules", flag="unknown_rules")
+    private List<CostCategoryRule> value_rules;
+    private boolean unknown_rules;
     public List<CostCategoryRule> rules() {
-        if (rules == null) return null;
-        return rules.getValue("CostCategory.rules");
+        if (!unknown_rules) return value_rules;
+        throw new UndeferrableValueException("Value 'CostCategory.rules' is not present");
     }
 
     /**
      * Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
      * 
      */
-    private @Nullable UndeferrableValue<List<CostCategorySplitChargeRule>> splitChargeRules;
-
+    @PolicyResourceProperty(name="splitChargeRules", flag="unknown_splitChargeRules")
+    private @Nullable List<CostCategorySplitChargeRule> value_splitChargeRules;
+    private boolean unknown_splitChargeRules;
     public @Nullable List<CostCategorySplitChargeRule> splitChargeRules() {
-        if (splitChargeRules == null) return null;
-        return splitChargeRules.getValue("CostCategory.splitChargeRules");
+        if (!unknown_splitChargeRules) return value_splitChargeRules;
+        throw new UndeferrableValueException("Value 'CostCategory.splitChargeRules' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CostCategory.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CostCategory.tags' is not present");
     }
 
     /**
@@ -125,11 +135,12 @@ public final class CostCategory extends com.pulumi.resources.PolicyResourceOutpu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("CostCategory.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'CostCategory.tagsAll' is not present");
     }
 
 }

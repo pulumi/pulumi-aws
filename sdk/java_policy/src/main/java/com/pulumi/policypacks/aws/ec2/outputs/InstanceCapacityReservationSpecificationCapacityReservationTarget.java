@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class InstanceCapacityReservationSpecificationCapacityReservationTa
      * ID of the Capacity Reservation in which to run the instance.
      * 
      */
-    private @Nullable UndeferrableValue<String> capacityReservationId;
-
+    @PolicyResourceProperty(name="capacityReservationId", flag="unknown_capacityReservationId")
+    private @Nullable String value_capacityReservationId;
+    private boolean unknown_capacityReservationId;
     public @Nullable String capacityReservationId() {
-        if (capacityReservationId == null) return null;
-        return capacityReservationId.getValue("InstanceCapacityReservationSpecificationCapacityReservationTarget.capacityReservationId");
+        if (!unknown_capacityReservationId) return value_capacityReservationId;
+        throw new UndeferrableValueException("Value 'InstanceCapacityReservationSpecificationCapacityReservationTarget.capacityReservationId' is not present");
     }
 
     /**
      * ARN of the Capacity Reservation resource group in which to run the instance.
      * 
      */
-    private @Nullable UndeferrableValue<String> capacityReservationResourceGroupArn;
-
+    @PolicyResourceProperty(name="capacityReservationResourceGroupArn", flag="unknown_capacityReservationResourceGroupArn")
+    private @Nullable String value_capacityReservationResourceGroupArn;
+    private boolean unknown_capacityReservationResourceGroupArn;
     public @Nullable String capacityReservationResourceGroupArn() {
-        if (capacityReservationResourceGroupArn == null) return null;
-        return capacityReservationResourceGroupArn.getValue("InstanceCapacityReservationSpecificationCapacityReservationTarget.capacityReservationResourceGroupArn");
+        if (!unknown_capacityReservationResourceGroupArn) return value_capacityReservationResourceGroupArn;
+        throw new UndeferrableValueException("Value 'InstanceCapacityReservationSpecificationCapacityReservationTarget.capacityReservationResourceGroupArn' is not present");
     }
 
 }

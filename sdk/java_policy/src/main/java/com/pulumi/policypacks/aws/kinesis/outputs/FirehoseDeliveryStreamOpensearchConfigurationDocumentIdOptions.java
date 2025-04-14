@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOption
      * The method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
      * 
      */
-    private UndeferrableValue<String> defaultDocumentIdFormat;
-
+    @PolicyResourceProperty(name="defaultDocumentIdFormat", flag="unknown_defaultDocumentIdFormat")
+    private String value_defaultDocumentIdFormat;
+    private boolean unknown_defaultDocumentIdFormat;
     public String defaultDocumentIdFormat() {
-        if (defaultDocumentIdFormat == null) return null;
-        return defaultDocumentIdFormat.getValue("FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions.defaultDocumentIdFormat");
+        if (!unknown_defaultDocumentIdFormat) return value_defaultDocumentIdFormat;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions.defaultDocumentIdFormat' is not present");
     }
 
 }

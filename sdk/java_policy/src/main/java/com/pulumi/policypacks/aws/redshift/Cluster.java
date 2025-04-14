@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.redshift.outputs.ClusterClusterNode;
 import com.pulumi.policypacks.aws.redshift.outputs.ClusterLogging;
@@ -23,22 +24,24 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> allowVersionUpgrade;
-
+    @PolicyResourceProperty(name="allowVersionUpgrade", flag="unknown_allowVersionUpgrade")
+    private @Nullable Boolean value_allowVersionUpgrade;
+    private boolean unknown_allowVersionUpgrade;
     public @Nullable Boolean allowVersionUpgrade() {
-        if (allowVersionUpgrade == null) return null;
-        return allowVersionUpgrade.getValue("Cluster.allowVersionUpgrade");
+        if (!unknown_allowVersionUpgrade) return value_allowVersionUpgrade;
+        throw new UndeferrableValueException("Value 'Cluster.allowVersionUpgrade' is not present");
     }
 
     /**
      * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> applyImmediately;
-
+    @PolicyResourceProperty(name="applyImmediately", flag="unknown_applyImmediately")
+    private @Nullable Boolean value_applyImmediately;
+    private boolean unknown_applyImmediately;
     public @Nullable Boolean applyImmediately() {
-        if (applyImmediately == null) return null;
-        return applyImmediately.getValue("Cluster.applyImmediately");
+        if (!unknown_applyImmediately) return value_applyImmediately;
+        throw new UndeferrableValueException("Value 'Cluster.applyImmediately' is not present");
     }
 
     /**
@@ -51,143 +54,156 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider. */
-    private UndeferrableValue<String> aquaConfigurationStatus;
-
+    @PolicyResourceProperty(name="aquaConfigurationStatus", flag="unknown_aquaConfigurationStatus")
+    private String value_aquaConfigurationStatus;
+    private boolean unknown_aquaConfigurationStatus;
     public String aquaConfigurationStatus() {
-        if (aquaConfigurationStatus == null) return null;
-        return aquaConfigurationStatus.getValue("Cluster.aquaConfigurationStatus");
+        if (!unknown_aquaConfigurationStatus) return value_aquaConfigurationStatus;
+        throw new UndeferrableValueException("Value 'Cluster.aquaConfigurationStatus' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of cluster
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Cluster.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Cluster.arn' is not present");
     }
 
     /**
      * The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> automatedSnapshotRetentionPeriod;
-
+    @PolicyResourceProperty(name="automatedSnapshotRetentionPeriod", flag="unknown_automatedSnapshotRetentionPeriod")
+    private @Nullable Integer value_automatedSnapshotRetentionPeriod;
+    private boolean unknown_automatedSnapshotRetentionPeriod;
     public @Nullable Integer automatedSnapshotRetentionPeriod() {
-        if (automatedSnapshotRetentionPeriod == null) return null;
-        return automatedSnapshotRetentionPeriod.getValue("Cluster.automatedSnapshotRetentionPeriod");
+        if (!unknown_automatedSnapshotRetentionPeriod) return value_automatedSnapshotRetentionPeriod;
+        throw new UndeferrableValueException("Value 'Cluster.automatedSnapshotRetentionPeriod' is not present");
     }
 
     /**
      * The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("Cluster.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'Cluster.availabilityZone' is not present");
     }
 
     /**
      * If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> availabilityZoneRelocationEnabled;
-
+    @PolicyResourceProperty(name="availabilityZoneRelocationEnabled", flag="unknown_availabilityZoneRelocationEnabled")
+    private @Nullable Boolean value_availabilityZoneRelocationEnabled;
+    private boolean unknown_availabilityZoneRelocationEnabled;
     public @Nullable Boolean availabilityZoneRelocationEnabled() {
-        if (availabilityZoneRelocationEnabled == null) return null;
-        return availabilityZoneRelocationEnabled.getValue("Cluster.availabilityZoneRelocationEnabled");
+        if (!unknown_availabilityZoneRelocationEnabled) return value_availabilityZoneRelocationEnabled;
+        throw new UndeferrableValueException("Value 'Cluster.availabilityZoneRelocationEnabled' is not present");
     }
 
     /**
      * The Cluster Identifier. Must be a lower case string.
      * 
      */
-    private UndeferrableValue<String> clusterIdentifier;
-
+    @PolicyResourceProperty(name="clusterIdentifier", flag="unknown_clusterIdentifier")
+    private String value_clusterIdentifier;
+    private boolean unknown_clusterIdentifier;
     public String clusterIdentifier() {
-        if (clusterIdentifier == null) return null;
-        return clusterIdentifier.getValue("Cluster.clusterIdentifier");
+        if (!unknown_clusterIdentifier) return value_clusterIdentifier;
+        throw new UndeferrableValueException("Value 'Cluster.clusterIdentifier' is not present");
     }
 
     /**
      * The namespace Amazon Resource Name (ARN) of the cluster
      * 
      */
-    private UndeferrableValue<String> clusterNamespaceArn;
-
+    @PolicyResourceProperty(name="clusterNamespaceArn", flag="unknown_clusterNamespaceArn")
+    private String value_clusterNamespaceArn;
+    private boolean unknown_clusterNamespaceArn;
     public String clusterNamespaceArn() {
-        if (clusterNamespaceArn == null) return null;
-        return clusterNamespaceArn.getValue("Cluster.clusterNamespaceArn");
+        if (!unknown_clusterNamespaceArn) return value_clusterNamespaceArn;
+        throw new UndeferrableValueException("Value 'Cluster.clusterNamespaceArn' is not present");
     }
 
     /**
      * The nodes in the cluster. Cluster node blocks are documented below
      * 
      */
-    private UndeferrableValue<List<ClusterClusterNode>> clusterNodes;
-
+    @PolicyResourceProperty(name="clusterNodes", flag="unknown_clusterNodes")
+    private List<ClusterClusterNode> value_clusterNodes;
+    private boolean unknown_clusterNodes;
     public List<ClusterClusterNode> clusterNodes() {
-        if (clusterNodes == null) return null;
-        return clusterNodes.getValue("Cluster.clusterNodes");
+        if (!unknown_clusterNodes) return value_clusterNodes;
+        throw new UndeferrableValueException("Value 'Cluster.clusterNodes' is not present");
     }
 
     /**
      * The name of the parameter group to be associated with this cluster.
      * 
      */
-    private UndeferrableValue<String> clusterParameterGroupName;
-
+    @PolicyResourceProperty(name="clusterParameterGroupName", flag="unknown_clusterParameterGroupName")
+    private String value_clusterParameterGroupName;
+    private boolean unknown_clusterParameterGroupName;
     public String clusterParameterGroupName() {
-        if (clusterParameterGroupName == null) return null;
-        return clusterParameterGroupName.getValue("Cluster.clusterParameterGroupName");
+        if (!unknown_clusterParameterGroupName) return value_clusterParameterGroupName;
+        throw new UndeferrableValueException("Value 'Cluster.clusterParameterGroupName' is not present");
     }
 
     /**
      * The public key for the cluster
      * 
      */
-    private UndeferrableValue<String> clusterPublicKey;
-
+    @PolicyResourceProperty(name="clusterPublicKey", flag="unknown_clusterPublicKey")
+    private String value_clusterPublicKey;
+    private boolean unknown_clusterPublicKey;
     public String clusterPublicKey() {
-        if (clusterPublicKey == null) return null;
-        return clusterPublicKey.getValue("Cluster.clusterPublicKey");
+        if (!unknown_clusterPublicKey) return value_clusterPublicKey;
+        throw new UndeferrableValueException("Value 'Cluster.clusterPublicKey' is not present");
     }
 
     /**
      * The specific revision number of the database in the cluster
      * 
      */
-    private UndeferrableValue<String> clusterRevisionNumber;
-
+    @PolicyResourceProperty(name="clusterRevisionNumber", flag="unknown_clusterRevisionNumber")
+    private String value_clusterRevisionNumber;
+    private boolean unknown_clusterRevisionNumber;
     public String clusterRevisionNumber() {
-        if (clusterRevisionNumber == null) return null;
-        return clusterRevisionNumber.getValue("Cluster.clusterRevisionNumber");
+        if (!unknown_clusterRevisionNumber) return value_clusterRevisionNumber;
+        throw new UndeferrableValueException("Value 'Cluster.clusterRevisionNumber' is not present");
     }
 
     /**
      * The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
      * 
      */
-    private UndeferrableValue<String> clusterSubnetGroupName;
-
+    @PolicyResourceProperty(name="clusterSubnetGroupName", flag="unknown_clusterSubnetGroupName")
+    private String value_clusterSubnetGroupName;
+    private boolean unknown_clusterSubnetGroupName;
     public String clusterSubnetGroupName() {
-        if (clusterSubnetGroupName == null) return null;
-        return clusterSubnetGroupName.getValue("Cluster.clusterSubnetGroupName");
+        if (!unknown_clusterSubnetGroupName) return value_clusterSubnetGroupName;
+        throw new UndeferrableValueException("Value 'Cluster.clusterSubnetGroupName' is not present");
     }
 
     /**
      * The cluster type to use. Either `single-node` or `multi-node`.
      * 
      */
-    private UndeferrableValue<String> clusterType;
-
+    @PolicyResourceProperty(name="clusterType", flag="unknown_clusterType")
+    private String value_clusterType;
+    private boolean unknown_clusterType;
     public String clusterType() {
-        if (clusterType == null) return null;
-        return clusterType.getValue("Cluster.clusterType");
+        if (!unknown_clusterType) return value_clusterType;
+        throw new UndeferrableValueException("Value 'Cluster.clusterType' is not present");
     }
 
     /**
@@ -195,11 +211,12 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * The version selected runs on all the nodes in the cluster.
      * 
      */
-    private @Nullable UndeferrableValue<String> clusterVersion;
-
+    @PolicyResourceProperty(name="clusterVersion", flag="unknown_clusterVersion")
+    private @Nullable String value_clusterVersion;
+    private boolean unknown_clusterVersion;
     public @Nullable String clusterVersion() {
-        if (clusterVersion == null) return null;
-        return clusterVersion.getValue("Cluster.clusterVersion");
+        if (!unknown_clusterVersion) return value_clusterVersion;
+        throw new UndeferrableValueException("Value 'Cluster.clusterVersion' is not present");
     }
 
     /**
@@ -207,110 +224,120 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * If you do not provide a name, Amazon Redshift will create a default database called `dev`.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("Cluster.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'Cluster.databaseName' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
-    private UndeferrableValue<String> defaultIamRoleArn;
-
+    @PolicyResourceProperty(name="defaultIamRoleArn", flag="unknown_defaultIamRoleArn")
+    private String value_defaultIamRoleArn;
+    private boolean unknown_defaultIamRoleArn;
     public String defaultIamRoleArn() {
-        if (defaultIamRoleArn == null) return null;
-        return defaultIamRoleArn.getValue("Cluster.defaultIamRoleArn");
+        if (!unknown_defaultIamRoleArn) return value_defaultIamRoleArn;
+        throw new UndeferrableValueException("Value 'Cluster.defaultIamRoleArn' is not present");
     }
 
     /**
      * The DNS name of the cluster
      * 
      */
-    private UndeferrableValue<String> dnsName;
-
+    @PolicyResourceProperty(name="dnsName", flag="unknown_dnsName")
+    private String value_dnsName;
+    private boolean unknown_dnsName;
     public String dnsName() {
-        if (dnsName == null) return null;
-        return dnsName.getValue("Cluster.dnsName");
+        if (!unknown_dnsName) return value_dnsName;
+        throw new UndeferrableValueException("Value 'Cluster.dnsName' is not present");
     }
 
     /**
      * The Elastic IP (EIP) address for the cluster.
      * 
      */
-    private @Nullable UndeferrableValue<String> elasticIp;
-
+    @PolicyResourceProperty(name="elasticIp", flag="unknown_elasticIp")
+    private @Nullable String value_elasticIp;
+    private boolean unknown_elasticIp;
     public @Nullable String elasticIp() {
-        if (elasticIp == null) return null;
-        return elasticIp.getValue("Cluster.elasticIp");
+        if (!unknown_elasticIp) return value_elasticIp;
+        throw new UndeferrableValueException("Value 'Cluster.elasticIp' is not present");
     }
 
     /**
      * If true , the data in the cluster is encrypted at rest.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> encrypted;
-
+    @PolicyResourceProperty(name="encrypted", flag="unknown_encrypted")
+    private @Nullable Boolean value_encrypted;
+    private boolean unknown_encrypted;
     public @Nullable Boolean encrypted() {
-        if (encrypted == null) return null;
-        return encrypted.getValue("Cluster.encrypted");
+        if (!unknown_encrypted) return value_encrypted;
+        throw new UndeferrableValueException("Value 'Cluster.encrypted' is not present");
     }
 
     /**
      * The connection endpoint
      * 
      */
-    private UndeferrableValue<String> endpoint;
-
+    @PolicyResourceProperty(name="endpoint", flag="unknown_endpoint")
+    private String value_endpoint;
+    private boolean unknown_endpoint;
     public String endpoint() {
-        if (endpoint == null) return null;
-        return endpoint.getValue("Cluster.endpoint");
+        if (!unknown_endpoint) return value_endpoint;
+        throw new UndeferrableValueException("Value 'Cluster.endpoint' is not present");
     }
 
     /**
      * If true , enhanced VPC routing is enabled.
      * 
      */
-    private UndeferrableValue<Boolean> enhancedVpcRouting;
-
+    @PolicyResourceProperty(name="enhancedVpcRouting", flag="unknown_enhancedVpcRouting")
+    private Boolean value_enhancedVpcRouting;
+    private boolean unknown_enhancedVpcRouting;
     public Boolean enhancedVpcRouting() {
-        if (enhancedVpcRouting == null) return null;
-        return enhancedVpcRouting.getValue("Cluster.enhancedVpcRouting");
+        if (!unknown_enhancedVpcRouting) return value_enhancedVpcRouting;
+        throw new UndeferrableValueException("Value 'Cluster.enhancedVpcRouting' is not present");
     }
 
     /**
      * The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
      * 
      */
-    private @Nullable UndeferrableValue<String> finalSnapshotIdentifier;
-
+    @PolicyResourceProperty(name="finalSnapshotIdentifier", flag="unknown_finalSnapshotIdentifier")
+    private @Nullable String value_finalSnapshotIdentifier;
+    private boolean unknown_finalSnapshotIdentifier;
     public @Nullable String finalSnapshotIdentifier() {
-        if (finalSnapshotIdentifier == null) return null;
-        return finalSnapshotIdentifier.getValue("Cluster.finalSnapshotIdentifier");
+        if (!unknown_finalSnapshotIdentifier) return value_finalSnapshotIdentifier;
+        throw new UndeferrableValueException("Value 'Cluster.finalSnapshotIdentifier' is not present");
     }
 
     /**
      * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
      * 
      */
-    private UndeferrableValue<List<String>> iamRoles;
-
+    @PolicyResourceProperty(name="iamRoles", flag="unknown_iamRoles")
+    private List<String> value_iamRoles;
+    private boolean unknown_iamRoles;
     public List<String> iamRoles() {
-        if (iamRoles == null) return null;
-        return iamRoles.getValue("Cluster.iamRoles");
+        if (!unknown_iamRoles) return value_iamRoles;
+        throw new UndeferrableValueException("Value 'Cluster.iamRoles' is not present");
     }
 
     /**
      * The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("Cluster.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'Cluster.kmsKeyId' is not present");
     }
 
     /**
@@ -321,22 +348,24 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version. */
-    private UndeferrableValue<ClusterLogging> logging;
-
+    @PolicyResourceProperty(name="logging", flag="unknown_logging")
+    private ClusterLogging value_logging;
+    private boolean unknown_logging;
     public ClusterLogging logging() {
-        if (logging == null) return null;
-        return logging.getValue("Cluster.logging");
+        if (!unknown_logging) return value_logging;
+        throw new UndeferrableValueException("Value 'Cluster.logging' is not present");
     }
 
     /**
      * The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
      * 
      */
-    private @Nullable UndeferrableValue<String> maintenanceTrackName;
-
+    @PolicyResourceProperty(name="maintenanceTrackName", flag="unknown_maintenanceTrackName")
+    private @Nullable String value_maintenanceTrackName;
+    private boolean unknown_maintenanceTrackName;
     public @Nullable String maintenanceTrackName() {
-        if (maintenanceTrackName == null) return null;
-        return maintenanceTrackName.getValue("Cluster.maintenanceTrackName");
+        if (!unknown_maintenanceTrackName) return value_maintenanceTrackName;
+        throw new UndeferrableValueException("Value 'Cluster.maintenanceTrackName' is not present");
     }
 
     /**
@@ -345,22 +374,24 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> manageMasterPassword;
-
+    @PolicyResourceProperty(name="manageMasterPassword", flag="unknown_manageMasterPassword")
+    private @Nullable Boolean value_manageMasterPassword;
+    private boolean unknown_manageMasterPassword;
     public @Nullable Boolean manageMasterPassword() {
-        if (manageMasterPassword == null) return null;
-        return manageMasterPassword.getValue("Cluster.manageMasterPassword");
+        if (!unknown_manageMasterPassword) return value_manageMasterPassword;
+        throw new UndeferrableValueException("Value 'Cluster.manageMasterPassword' is not present");
     }
 
     /**
      * The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn&#39;t change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> manualSnapshotRetentionPeriod;
-
+    @PolicyResourceProperty(name="manualSnapshotRetentionPeriod", flag="unknown_manualSnapshotRetentionPeriod")
+    private @Nullable Integer value_manualSnapshotRetentionPeriod;
+    private boolean unknown_manualSnapshotRetentionPeriod;
     public @Nullable Integer manualSnapshotRetentionPeriod() {
-        if (manualSnapshotRetentionPeriod == null) return null;
-        return manualSnapshotRetentionPeriod.getValue("Cluster.manualSnapshotRetentionPeriod");
+        if (!unknown_manualSnapshotRetentionPeriod) return value_manualSnapshotRetentionPeriod;
+        throw new UndeferrableValueException("Value 'Cluster.manualSnapshotRetentionPeriod' is not present");
     }
 
     /**
@@ -371,88 +402,96 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      * 
      */
-    private @Nullable UndeferrableValue<String> masterPassword;
-
+    @PolicyResourceProperty(name="masterPassword", flag="unknown_masterPassword")
+    private @Nullable String value_masterPassword;
+    private boolean unknown_masterPassword;
     public @Nullable String masterPassword() {
-        if (masterPassword == null) return null;
-        return masterPassword.getValue("Cluster.masterPassword");
+        if (!unknown_masterPassword) return value_masterPassword;
+        throw new UndeferrableValueException("Value 'Cluster.masterPassword' is not present");
     }
 
     /**
      * ARN of the cluster admin credentials secret
      * 
      */
-    private UndeferrableValue<String> masterPasswordSecretArn;
-
+    @PolicyResourceProperty(name="masterPasswordSecretArn", flag="unknown_masterPasswordSecretArn")
+    private String value_masterPasswordSecretArn;
+    private boolean unknown_masterPasswordSecretArn;
     public String masterPasswordSecretArn() {
-        if (masterPasswordSecretArn == null) return null;
-        return masterPasswordSecretArn.getValue("Cluster.masterPasswordSecretArn");
+        if (!unknown_masterPasswordSecretArn) return value_masterPasswordSecretArn;
+        throw new UndeferrableValueException("Value 'Cluster.masterPasswordSecretArn' is not present");
     }
 
     /**
      * ID of the KMS key used to encrypt the cluster admin credentials secret.
      * 
      */
-    private UndeferrableValue<String> masterPasswordSecretKmsKeyId;
-
+    @PolicyResourceProperty(name="masterPasswordSecretKmsKeyId", flag="unknown_masterPasswordSecretKmsKeyId")
+    private String value_masterPasswordSecretKmsKeyId;
+    private boolean unknown_masterPasswordSecretKmsKeyId;
     public String masterPasswordSecretKmsKeyId() {
-        if (masterPasswordSecretKmsKeyId == null) return null;
-        return masterPasswordSecretKmsKeyId.getValue("Cluster.masterPasswordSecretKmsKeyId");
+        if (!unknown_masterPasswordSecretKmsKeyId) return value_masterPasswordSecretKmsKeyId;
+        throw new UndeferrableValueException("Value 'Cluster.masterPasswordSecretKmsKeyId' is not present");
     }
 
     /**
      * Username for the master DB user.
      * 
      */
-    private @Nullable UndeferrableValue<String> masterUsername;
-
+    @PolicyResourceProperty(name="masterUsername", flag="unknown_masterUsername")
+    private @Nullable String value_masterUsername;
+    private boolean unknown_masterUsername;
     public @Nullable String masterUsername() {
-        if (masterUsername == null) return null;
-        return masterUsername.getValue("Cluster.masterUsername");
+        if (!unknown_masterUsername) return value_masterUsername;
+        throw new UndeferrableValueException("Value 'Cluster.masterUsername' is not present");
     }
 
     /**
      * Specifies if the Redshift cluster is multi-AZ.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> multiAz;
-
+    @PolicyResourceProperty(name="multiAz", flag="unknown_multiAz")
+    private @Nullable Boolean value_multiAz;
+    private boolean unknown_multiAz;
     public @Nullable Boolean multiAz() {
-        if (multiAz == null) return null;
-        return multiAz.getValue("Cluster.multiAz");
+        if (!unknown_multiAz) return value_multiAz;
+        throw new UndeferrableValueException("Value 'Cluster.multiAz' is not present");
     }
 
     /**
      * The node type to be provisioned for the cluster.
      * 
      */
-    private UndeferrableValue<String> nodeType;
-
+    @PolicyResourceProperty(name="nodeType", flag="unknown_nodeType")
+    private String value_nodeType;
+    private boolean unknown_nodeType;
     public String nodeType() {
-        if (nodeType == null) return null;
-        return nodeType.getValue("Cluster.nodeType");
+        if (!unknown_nodeType) return value_nodeType;
+        throw new UndeferrableValueException("Value 'Cluster.nodeType' is not present");
     }
 
     /**
      * The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> numberOfNodes;
-
+    @PolicyResourceProperty(name="numberOfNodes", flag="unknown_numberOfNodes")
+    private @Nullable Integer value_numberOfNodes;
+    private boolean unknown_numberOfNodes;
     public @Nullable Integer numberOfNodes() {
-        if (numberOfNodes == null) return null;
-        return numberOfNodes.getValue("Cluster.numberOfNodes");
+        if (!unknown_numberOfNodes) return value_numberOfNodes;
+        throw new UndeferrableValueException("Value 'Cluster.numberOfNodes' is not present");
     }
 
     /**
      * The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
      * 
      */
-    private @Nullable UndeferrableValue<String> ownerAccount;
-
+    @PolicyResourceProperty(name="ownerAccount", flag="unknown_ownerAccount")
+    private @Nullable String value_ownerAccount;
+    private boolean unknown_ownerAccount;
     public @Nullable String ownerAccount() {
-        if (ownerAccount == null) return null;
-        return ownerAccount.getValue("Cluster.ownerAccount");
+        if (!unknown_ownerAccount) return value_ownerAccount;
+        throw new UndeferrableValueException("Value 'Cluster.ownerAccount' is not present");
     }
 
     /**
@@ -462,11 +501,12 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * Default port is `5439`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable Integer value_port;
+    private boolean unknown_port;
     public @Nullable Integer port() {
-        if (port == null) return null;
-        return port.getValue("Cluster.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'Cluster.port' is not present");
     }
 
     /**
@@ -474,55 +514,60 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * Format: ddd:hh24:mi-ddd:hh24:mi
      * 
      */
-    private UndeferrableValue<String> preferredMaintenanceWindow;
-
+    @PolicyResourceProperty(name="preferredMaintenanceWindow", flag="unknown_preferredMaintenanceWindow")
+    private String value_preferredMaintenanceWindow;
+    private boolean unknown_preferredMaintenanceWindow;
     public String preferredMaintenanceWindow() {
-        if (preferredMaintenanceWindow == null) return null;
-        return preferredMaintenanceWindow.getValue("Cluster.preferredMaintenanceWindow");
+        if (!unknown_preferredMaintenanceWindow) return value_preferredMaintenanceWindow;
+        throw new UndeferrableValueException("Value 'Cluster.preferredMaintenanceWindow' is not present");
     }
 
     /**
      * If true, the cluster can be accessed from a public network. Default is `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> publiclyAccessible;
-
+    @PolicyResourceProperty(name="publiclyAccessible", flag="unknown_publiclyAccessible")
+    private @Nullable Boolean value_publiclyAccessible;
+    private boolean unknown_publiclyAccessible;
     public @Nullable Boolean publiclyAccessible() {
-        if (publiclyAccessible == null) return null;
-        return publiclyAccessible.getValue("Cluster.publiclyAccessible");
+        if (!unknown_publiclyAccessible) return value_publiclyAccessible;
+        throw new UndeferrableValueException("Value 'Cluster.publiclyAccessible' is not present");
     }
 
     /**
      * Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> skipFinalSnapshot;
-
+    @PolicyResourceProperty(name="skipFinalSnapshot", flag="unknown_skipFinalSnapshot")
+    private @Nullable Boolean value_skipFinalSnapshot;
+    private boolean unknown_skipFinalSnapshot;
     public @Nullable Boolean skipFinalSnapshot() {
-        if (skipFinalSnapshot == null) return null;
-        return skipFinalSnapshot.getValue("Cluster.skipFinalSnapshot");
+        if (!unknown_skipFinalSnapshot) return value_skipFinalSnapshot;
+        throw new UndeferrableValueException("Value 'Cluster.skipFinalSnapshot' is not present");
     }
 
     /**
      * The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
      * 
      */
-    private @Nullable UndeferrableValue<String> snapshotArn;
-
+    @PolicyResourceProperty(name="snapshotArn", flag="unknown_snapshotArn")
+    private @Nullable String value_snapshotArn;
+    private boolean unknown_snapshotArn;
     public @Nullable String snapshotArn() {
-        if (snapshotArn == null) return null;
-        return snapshotArn.getValue("Cluster.snapshotArn");
+        if (!unknown_snapshotArn) return value_snapshotArn;
+        throw new UndeferrableValueException("Value 'Cluster.snapshotArn' is not present");
     }
 
     /**
      * The name of the cluster the source snapshot was created from.
      * 
      */
-    private @Nullable UndeferrableValue<String> snapshotClusterIdentifier;
-
+    @PolicyResourceProperty(name="snapshotClusterIdentifier", flag="unknown_snapshotClusterIdentifier")
+    private @Nullable String value_snapshotClusterIdentifier;
+    private boolean unknown_snapshotClusterIdentifier;
     public @Nullable String snapshotClusterIdentifier() {
-        if (snapshotClusterIdentifier == null) return null;
-        return snapshotClusterIdentifier.getValue("Cluster.snapshotClusterIdentifier");
+        if (!unknown_snapshotClusterIdentifier) return value_snapshotClusterIdentifier;
+        throw new UndeferrableValueException("Value 'Cluster.snapshotClusterIdentifier' is not present");
     }
 
     /**
@@ -533,33 +578,36 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version. */
-    private UndeferrableValue<ClusterSnapshotCopy> snapshotCopy;
-
+    @PolicyResourceProperty(name="snapshotCopy", flag="unknown_snapshotCopy")
+    private ClusterSnapshotCopy value_snapshotCopy;
+    private boolean unknown_snapshotCopy;
     public ClusterSnapshotCopy snapshotCopy() {
-        if (snapshotCopy == null) return null;
-        return snapshotCopy.getValue("Cluster.snapshotCopy");
+        if (!unknown_snapshotCopy) return value_snapshotCopy;
+        throw new UndeferrableValueException("Value 'Cluster.snapshotCopy' is not present");
     }
 
     /**
      * The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
      * 
      */
-    private @Nullable UndeferrableValue<String> snapshotIdentifier;
-
+    @PolicyResourceProperty(name="snapshotIdentifier", flag="unknown_snapshotIdentifier")
+    private @Nullable String value_snapshotIdentifier;
+    private boolean unknown_snapshotIdentifier;
     public @Nullable String snapshotIdentifier() {
-        if (snapshotIdentifier == null) return null;
-        return snapshotIdentifier.getValue("Cluster.snapshotIdentifier");
+        if (!unknown_snapshotIdentifier) return value_snapshotIdentifier;
+        throw new UndeferrableValueException("Value 'Cluster.snapshotIdentifier' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Cluster.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Cluster.tags' is not present");
     }
 
     /**
@@ -570,22 +618,24 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Cluster.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Cluster.tagsAll' is not present");
     }
 
     /**
      * A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
      * 
      */
-    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
-
+    @PolicyResourceProperty(name="vpcSecurityGroupIds", flag="unknown_vpcSecurityGroupIds")
+    private List<String> value_vpcSecurityGroupIds;
+    private boolean unknown_vpcSecurityGroupIds;
     public List<String> vpcSecurityGroupIds() {
-        if (vpcSecurityGroupIds == null) return null;
-        return vpcSecurityGroupIds.getValue("Cluster.vpcSecurityGroupIds");
+        if (!unknown_vpcSecurityGroupIds) return value_vpcSecurityGroupIds;
+        throw new UndeferrableValueException("Value 'Cluster.vpcSecurityGroupIds' is not present");
     }
 
 }

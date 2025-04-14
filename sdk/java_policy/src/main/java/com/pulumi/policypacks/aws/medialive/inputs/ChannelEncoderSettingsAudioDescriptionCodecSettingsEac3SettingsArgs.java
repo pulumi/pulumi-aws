@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,172 +17,192 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settin
      * Sets the attenuation control.
      * 
      */
-    private UndeferrableValue<String> attenuationControl;
-
+    @PolicyResourceProperty(name="attenuationControl", flag="unknown_attenuationControl")
+    private String value_attenuationControl;
+    private boolean unknown_attenuationControl;
     public String attenuationControl() {
-        if (attenuationControl == null) return null;
-        return attenuationControl.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.attenuationControl");
+        if (!unknown_attenuationControl) return value_attenuationControl;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.attenuationControl' is not present");
     }
 
     /**
      * Average bitrate in bits/second.
      * 
      */
-    private UndeferrableValue<Double> bitrate;
-
+    @PolicyResourceProperty(name="bitrate", flag="unknown_bitrate")
+    private Double value_bitrate;
+    private boolean unknown_bitrate;
     public Double bitrate() {
-        if (bitrate == null) return null;
-        return bitrate.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.bitrate");
+        if (!unknown_bitrate) return value_bitrate;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.bitrate' is not present");
     }
 
     /**
      * Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
      * 
      */
-    private UndeferrableValue<String> bitstreamMode;
-
+    @PolicyResourceProperty(name="bitstreamMode", flag="unknown_bitstreamMode")
+    private String value_bitstreamMode;
+    private boolean unknown_bitstreamMode;
     public String bitstreamMode() {
-        if (bitstreamMode == null) return null;
-        return bitstreamMode.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.bitstreamMode");
+        if (!unknown_bitstreamMode) return value_bitstreamMode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.bitstreamMode' is not present");
     }
 
     /**
      * Dolby Digital Plus coding mode.
      * 
      */
-    private UndeferrableValue<String> codingMode;
-
+    @PolicyResourceProperty(name="codingMode", flag="unknown_codingMode")
+    private String value_codingMode;
+    private boolean unknown_codingMode;
     public String codingMode() {
-        if (codingMode == null) return null;
-        return codingMode.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.codingMode");
+        if (!unknown_codingMode) return value_codingMode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.codingMode' is not present");
     }
 
-    private UndeferrableValue<String> dcFilter;
-
+    @PolicyResourceProperty(name="dcFilter", flag="unknown_dcFilter")
+    private String value_dcFilter;
+    private boolean unknown_dcFilter;
     public String dcFilter() {
-        if (dcFilter == null) return null;
-        return dcFilter.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.dcFilter");
+        if (!unknown_dcFilter) return value_dcFilter;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.dcFilter' is not present");
     }
 
-    private UndeferrableValue<Integer> dialnorm;
-
+    @PolicyResourceProperty(name="dialnorm", flag="unknown_dialnorm")
+    private Integer value_dialnorm;
+    private boolean unknown_dialnorm;
     public Integer dialnorm() {
-        if (dialnorm == null) return null;
-        return dialnorm.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.dialnorm");
+        if (!unknown_dialnorm) return value_dialnorm;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.dialnorm' is not present");
     }
 
     /**
      * Sets the Dolby dynamic range compression profile.
      * 
      */
-    private UndeferrableValue<String> drcLine;
-
+    @PolicyResourceProperty(name="drcLine", flag="unknown_drcLine")
+    private String value_drcLine;
+    private boolean unknown_drcLine;
     public String drcLine() {
-        if (drcLine == null) return null;
-        return drcLine.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.drcLine");
+        if (!unknown_drcLine) return value_drcLine;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.drcLine' is not present");
     }
 
     /**
      * Sets the profile for heavy Dolby dynamic range compression.
      * 
      */
-    private UndeferrableValue<String> drcRf;
-
+    @PolicyResourceProperty(name="drcRf", flag="unknown_drcRf")
+    private String value_drcRf;
+    private boolean unknown_drcRf;
     public String drcRf() {
-        if (drcRf == null) return null;
-        return drcRf.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.drcRf");
+        if (!unknown_drcRf) return value_drcRf;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.drcRf' is not present");
     }
 
-    private UndeferrableValue<String> lfeControl;
-
+    @PolicyResourceProperty(name="lfeControl", flag="unknown_lfeControl")
+    private String value_lfeControl;
+    private boolean unknown_lfeControl;
     public String lfeControl() {
-        if (lfeControl == null) return null;
-        return lfeControl.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.lfeControl");
+        if (!unknown_lfeControl) return value_lfeControl;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.lfeControl' is not present");
     }
 
     /**
      * When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
      * 
      */
-    private UndeferrableValue<String> lfeFilter;
-
+    @PolicyResourceProperty(name="lfeFilter", flag="unknown_lfeFilter")
+    private String value_lfeFilter;
+    private boolean unknown_lfeFilter;
     public String lfeFilter() {
-        if (lfeFilter == null) return null;
-        return lfeFilter.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.lfeFilter");
+        if (!unknown_lfeFilter) return value_lfeFilter;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.lfeFilter' is not present");
     }
 
-    private UndeferrableValue<Double> loRoCenterMixLevel;
-
+    @PolicyResourceProperty(name="loRoCenterMixLevel", flag="unknown_loRoCenterMixLevel")
+    private Double value_loRoCenterMixLevel;
+    private boolean unknown_loRoCenterMixLevel;
     public Double loRoCenterMixLevel() {
-        if (loRoCenterMixLevel == null) return null;
-        return loRoCenterMixLevel.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.loRoCenterMixLevel");
+        if (!unknown_loRoCenterMixLevel) return value_loRoCenterMixLevel;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.loRoCenterMixLevel' is not present");
     }
 
-    private UndeferrableValue<Double> loRoSurroundMixLevel;
-
+    @PolicyResourceProperty(name="loRoSurroundMixLevel", flag="unknown_loRoSurroundMixLevel")
+    private Double value_loRoSurroundMixLevel;
+    private boolean unknown_loRoSurroundMixLevel;
     public Double loRoSurroundMixLevel() {
-        if (loRoSurroundMixLevel == null) return null;
-        return loRoSurroundMixLevel.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.loRoSurroundMixLevel");
+        if (!unknown_loRoSurroundMixLevel) return value_loRoSurroundMixLevel;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.loRoSurroundMixLevel' is not present");
     }
 
-    private UndeferrableValue<Double> ltRtCenterMixLevel;
-
+    @PolicyResourceProperty(name="ltRtCenterMixLevel", flag="unknown_ltRtCenterMixLevel")
+    private Double value_ltRtCenterMixLevel;
+    private boolean unknown_ltRtCenterMixLevel;
     public Double ltRtCenterMixLevel() {
-        if (ltRtCenterMixLevel == null) return null;
-        return ltRtCenterMixLevel.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.ltRtCenterMixLevel");
+        if (!unknown_ltRtCenterMixLevel) return value_ltRtCenterMixLevel;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.ltRtCenterMixLevel' is not present");
     }
 
-    private UndeferrableValue<Double> ltRtSurroundMixLevel;
-
+    @PolicyResourceProperty(name="ltRtSurroundMixLevel", flag="unknown_ltRtSurroundMixLevel")
+    private Double value_ltRtSurroundMixLevel;
+    private boolean unknown_ltRtSurroundMixLevel;
     public Double ltRtSurroundMixLevel() {
-        if (ltRtSurroundMixLevel == null) return null;
-        return ltRtSurroundMixLevel.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.ltRtSurroundMixLevel");
+        if (!unknown_ltRtSurroundMixLevel) return value_ltRtSurroundMixLevel;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.ltRtSurroundMixLevel' is not present");
     }
 
     /**
      * Metadata control.
      * 
      */
-    private UndeferrableValue<String> metadataControl;
-
+    @PolicyResourceProperty(name="metadataControl", flag="unknown_metadataControl")
+    private String value_metadataControl;
+    private boolean unknown_metadataControl;
     public String metadataControl() {
-        if (metadataControl == null) return null;
-        return metadataControl.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.metadataControl");
+        if (!unknown_metadataControl) return value_metadataControl;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.metadataControl' is not present");
     }
 
-    private UndeferrableValue<String> passthroughControl;
-
+    @PolicyResourceProperty(name="passthroughControl", flag="unknown_passthroughControl")
+    private String value_passthroughControl;
+    private boolean unknown_passthroughControl;
     public String passthroughControl() {
-        if (passthroughControl == null) return null;
-        return passthroughControl.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.passthroughControl");
+        if (!unknown_passthroughControl) return value_passthroughControl;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.passthroughControl' is not present");
     }
 
-    private UndeferrableValue<String> phaseControl;
-
+    @PolicyResourceProperty(name="phaseControl", flag="unknown_phaseControl")
+    private String value_phaseControl;
+    private boolean unknown_phaseControl;
     public String phaseControl() {
-        if (phaseControl == null) return null;
-        return phaseControl.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.phaseControl");
+        if (!unknown_phaseControl) return value_phaseControl;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.phaseControl' is not present");
     }
 
-    private UndeferrableValue<String> stereoDownmix;
-
+    @PolicyResourceProperty(name="stereoDownmix", flag="unknown_stereoDownmix")
+    private String value_stereoDownmix;
+    private boolean unknown_stereoDownmix;
     public String stereoDownmix() {
-        if (stereoDownmix == null) return null;
-        return stereoDownmix.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.stereoDownmix");
+        if (!unknown_stereoDownmix) return value_stereoDownmix;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.stereoDownmix' is not present");
     }
 
-    private UndeferrableValue<String> surroundExMode;
-
+    @PolicyResourceProperty(name="surroundExMode", flag="unknown_surroundExMode")
+    private String value_surroundExMode;
+    private boolean unknown_surroundExMode;
     public String surroundExMode() {
-        if (surroundExMode == null) return null;
-        return surroundExMode.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.surroundExMode");
+        if (!unknown_surroundExMode) return value_surroundExMode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.surroundExMode' is not present");
     }
 
-    private UndeferrableValue<String> surroundMode;
-
+    @PolicyResourceProperty(name="surroundMode", flag="unknown_surroundMode")
+    private String value_surroundMode;
+    private boolean unknown_surroundMode;
     public String surroundMode() {
-        if (surroundMode == null) return null;
-        return surroundMode.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.surroundMode");
+        if (!unknown_surroundMode) return value_surroundMode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs.surroundMode' is not present");
     }
 
 }

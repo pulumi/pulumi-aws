@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,55 +15,60 @@ public final class UserPoolEmailConfigurationArgs {
      * Email configuration set name from SES.
      * 
      */
-    private UndeferrableValue<String> configurationSet;
-
+    @PolicyResourceProperty(name="configurationSet", flag="unknown_configurationSet")
+    private String value_configurationSet;
+    private boolean unknown_configurationSet;
     public String configurationSet() {
-        if (configurationSet == null) return null;
-        return configurationSet.getValue("UserPoolEmailConfigurationArgs.configurationSet");
+        if (!unknown_configurationSet) return value_configurationSet;
+        throw new UndeferrableValueException("Value 'UserPoolEmailConfigurationArgs.configurationSet' is not present");
     }
 
     /**
      * Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `from_email_address` is set.
      * 
      */
-    private UndeferrableValue<String> emailSendingAccount;
-
+    @PolicyResourceProperty(name="emailSendingAccount", flag="unknown_emailSendingAccount")
+    private String value_emailSendingAccount;
+    private boolean unknown_emailSendingAccount;
     public String emailSendingAccount() {
-        if (emailSendingAccount == null) return null;
-        return emailSendingAccount.getValue("UserPoolEmailConfigurationArgs.emailSendingAccount");
+        if (!unknown_emailSendingAccount) return value_emailSendingAccount;
+        throw new UndeferrableValueException("Value 'UserPoolEmailConfigurationArgs.emailSendingAccount' is not present");
     }
 
     /**
      * Sender’s email address or sender’s display name with their email address (e.g., `john{@literal @}example.com`, `John Smith &lt;john{@literal @}example.com&gt;` or `\&#34;John Smith Ph.D.\&#34; &lt;john{@literal @}example.com&gt;`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
      * 
      */
-    private UndeferrableValue<String> fromEmailAddress;
-
+    @PolicyResourceProperty(name="fromEmailAddress", flag="unknown_fromEmailAddress")
+    private String value_fromEmailAddress;
+    private boolean unknown_fromEmailAddress;
     public String fromEmailAddress() {
-        if (fromEmailAddress == null) return null;
-        return fromEmailAddress.getValue("UserPoolEmailConfigurationArgs.fromEmailAddress");
+        if (!unknown_fromEmailAddress) return value_fromEmailAddress;
+        throw new UndeferrableValueException("Value 'UserPoolEmailConfigurationArgs.fromEmailAddress' is not present");
     }
 
     /**
      * REPLY-TO email address.
      * 
      */
-    private UndeferrableValue<String> replyToEmailAddress;
-
+    @PolicyResourceProperty(name="replyToEmailAddress", flag="unknown_replyToEmailAddress")
+    private String value_replyToEmailAddress;
+    private boolean unknown_replyToEmailAddress;
     public String replyToEmailAddress() {
-        if (replyToEmailAddress == null) return null;
-        return replyToEmailAddress.getValue("UserPoolEmailConfigurationArgs.replyToEmailAddress");
+        if (!unknown_replyToEmailAddress) return value_replyToEmailAddress;
+        throw new UndeferrableValueException("Value 'UserPoolEmailConfigurationArgs.replyToEmailAddress' is not present");
     }
 
     /**
      * ARN of the SES verified email identity to use. Required if `email_sending_account` is set to `DEVELOPER`.
      * 
      */
-    private UndeferrableValue<String> sourceArn;
-
+    @PolicyResourceProperty(name="sourceArn", flag="unknown_sourceArn")
+    private String value_sourceArn;
+    private boolean unknown_sourceArn;
     public String sourceArn() {
-        if (sourceArn == null) return null;
-        return sourceArn.getValue("UserPoolEmailConfigurationArgs.sourceArn");
+        if (!unknown_sourceArn) return value_sourceArn;
+        throw new UndeferrableValueException("Value 'UserPoolEmailConfigurationArgs.sourceArn' is not present");
     }
 
 }

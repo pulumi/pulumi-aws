@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.customerprofiles.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,110 +15,120 @@ public final class ProfileShippingAddress {
      * The first line of a customer address.
      * 
      */
-    private @Nullable UndeferrableValue<String> address1;
-
+    @PolicyResourceProperty(name="address1", flag="unknown_address1")
+    private @Nullable String value_address1;
+    private boolean unknown_address1;
     public @Nullable String address1() {
-        if (address1 == null) return null;
-        return address1.getValue("ProfileShippingAddress.address1");
+        if (!unknown_address1) return value_address1;
+        throw new UndeferrableValueException("Value 'ProfileShippingAddress.address1' is not present");
     }
 
     /**
      * The second line of a customer address.
      * 
      */
-    private @Nullable UndeferrableValue<String> address2;
-
+    @PolicyResourceProperty(name="address2", flag="unknown_address2")
+    private @Nullable String value_address2;
+    private boolean unknown_address2;
     public @Nullable String address2() {
-        if (address2 == null) return null;
-        return address2.getValue("ProfileShippingAddress.address2");
+        if (!unknown_address2) return value_address2;
+        throw new UndeferrableValueException("Value 'ProfileShippingAddress.address2' is not present");
     }
 
     /**
      * The third line of a customer address.
      * 
      */
-    private @Nullable UndeferrableValue<String> address3;
-
+    @PolicyResourceProperty(name="address3", flag="unknown_address3")
+    private @Nullable String value_address3;
+    private boolean unknown_address3;
     public @Nullable String address3() {
-        if (address3 == null) return null;
-        return address3.getValue("ProfileShippingAddress.address3");
+        if (!unknown_address3) return value_address3;
+        throw new UndeferrableValueException("Value 'ProfileShippingAddress.address3' is not present");
     }
 
     /**
      * The fourth line of a customer address.
      * 
      */
-    private @Nullable UndeferrableValue<String> address4;
-
+    @PolicyResourceProperty(name="address4", flag="unknown_address4")
+    private @Nullable String value_address4;
+    private boolean unknown_address4;
     public @Nullable String address4() {
-        if (address4 == null) return null;
-        return address4.getValue("ProfileShippingAddress.address4");
+        if (!unknown_address4) return value_address4;
+        throw new UndeferrableValueException("Value 'ProfileShippingAddress.address4' is not present");
     }
 
     /**
      * The city in which a customer lives.
      * 
      */
-    private @Nullable UndeferrableValue<String> city;
-
+    @PolicyResourceProperty(name="city", flag="unknown_city")
+    private @Nullable String value_city;
+    private boolean unknown_city;
     public @Nullable String city() {
-        if (city == null) return null;
-        return city.getValue("ProfileShippingAddress.city");
+        if (!unknown_city) return value_city;
+        throw new UndeferrableValueException("Value 'ProfileShippingAddress.city' is not present");
     }
 
     /**
      * The country in which a customer lives.
      * 
      */
-    private @Nullable UndeferrableValue<String> country;
-
+    @PolicyResourceProperty(name="country", flag="unknown_country")
+    private @Nullable String value_country;
+    private boolean unknown_country;
     public @Nullable String country() {
-        if (country == null) return null;
-        return country.getValue("ProfileShippingAddress.country");
+        if (!unknown_country) return value_country;
+        throw new UndeferrableValueException("Value 'ProfileShippingAddress.country' is not present");
     }
 
     /**
      * The county in which a customer lives.
      * 
      */
-    private @Nullable UndeferrableValue<String> county;
-
+    @PolicyResourceProperty(name="county", flag="unknown_county")
+    private @Nullable String value_county;
+    private boolean unknown_county;
     public @Nullable String county() {
-        if (county == null) return null;
-        return county.getValue("ProfileShippingAddress.county");
+        if (!unknown_county) return value_county;
+        throw new UndeferrableValueException("Value 'ProfileShippingAddress.county' is not present");
     }
 
     /**
      * The postal code of a customer address.
      * 
      */
-    private @Nullable UndeferrableValue<String> postalCode;
-
+    @PolicyResourceProperty(name="postalCode", flag="unknown_postalCode")
+    private @Nullable String value_postalCode;
+    private boolean unknown_postalCode;
     public @Nullable String postalCode() {
-        if (postalCode == null) return null;
-        return postalCode.getValue("ProfileShippingAddress.postalCode");
+        if (!unknown_postalCode) return value_postalCode;
+        throw new UndeferrableValueException("Value 'ProfileShippingAddress.postalCode' is not present");
     }
 
     /**
      * The province in which a customer lives.
      * 
      */
-    private @Nullable UndeferrableValue<String> province;
-
+    @PolicyResourceProperty(name="province", flag="unknown_province")
+    private @Nullable String value_province;
+    private boolean unknown_province;
     public @Nullable String province() {
-        if (province == null) return null;
-        return province.getValue("ProfileShippingAddress.province");
+        if (!unknown_province) return value_province;
+        throw new UndeferrableValueException("Value 'ProfileShippingAddress.province' is not present");
     }
 
     /**
      * The state in which a customer lives.
      * 
      */
-    private @Nullable UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private @Nullable String value_state;
+    private boolean unknown_state;
     public @Nullable String state() {
-        if (state == null) return null;
-        return state.getValue("ProfileShippingAddress.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'ProfileShippingAddress.state' is not present");
     }
 
 }

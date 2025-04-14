@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.customerprofiles.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class DomainMatchingAutoMergingConflictResolutionArgs {
      * How the auto-merging process should resolve conflicts between different profiles. Valid values are `RECENCY` and `SOURCE`
      * 
      */
-    private UndeferrableValue<String> conflictResolvingModel;
-
+    @PolicyResourceProperty(name="conflictResolvingModel", flag="unknown_conflictResolvingModel")
+    private String value_conflictResolvingModel;
+    private boolean unknown_conflictResolvingModel;
     public String conflictResolvingModel() {
-        if (conflictResolvingModel == null) return null;
-        return conflictResolvingModel.getValue("DomainMatchingAutoMergingConflictResolutionArgs.conflictResolvingModel");
+        if (!unknown_conflictResolvingModel) return value_conflictResolvingModel;
+        throw new UndeferrableValueException("Value 'DomainMatchingAutoMergingConflictResolutionArgs.conflictResolvingModel' is not present");
     }
 
     /**
      * The `ObjectType` name that is used to resolve profile merging conflicts when choosing `SOURCE` as the `ConflictResolvingModel`.
      * 
      */
-    private UndeferrableValue<String> sourceName;
-
+    @PolicyResourceProperty(name="sourceName", flag="unknown_sourceName")
+    private String value_sourceName;
+    private boolean unknown_sourceName;
     public String sourceName() {
-        if (sourceName == null) return null;
-        return sourceName.getValue("DomainMatchingAutoMergingConflictResolutionArgs.sourceName");
+        if (!unknown_sourceName) return value_sourceName;
+        throw new UndeferrableValueException("Value 'DomainMatchingAutoMergingConflictResolutionArgs.sourceName' is not present");
     }
 
 }

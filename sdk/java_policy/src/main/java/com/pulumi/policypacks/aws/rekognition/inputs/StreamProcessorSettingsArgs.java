@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rekognition.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.rekognition.inputs.StreamProcessorSettingsConnectedHomeArgs;
 import com.pulumi.policypacks.aws.rekognition.inputs.StreamProcessorSettingsFaceSearchArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class StreamProcessorSettingsArgs {
      * Label detection settings to use on a streaming video. See `connected_home`.
      * 
      */
-    private UndeferrableValue<StreamProcessorSettingsConnectedHomeArgs> connectedHome;
-
+    @PolicyResourceProperty(name="connectedHome", flag="unknown_connectedHome")
+    private StreamProcessorSettingsConnectedHomeArgs value_connectedHome;
+    private boolean unknown_connectedHome;
     public StreamProcessorSettingsConnectedHomeArgs connectedHome() {
-        if (connectedHome == null) return null;
-        return connectedHome.getValue("StreamProcessorSettingsArgs.connectedHome");
+        if (!unknown_connectedHome) return value_connectedHome;
+        throw new UndeferrableValueException("Value 'StreamProcessorSettingsArgs.connectedHome' is not present");
     }
 
     /**
      * Input face recognition parameters for an Amazon Rekognition stream processor. See `face_search`.
      * 
      */
-    private UndeferrableValue<StreamProcessorSettingsFaceSearchArgs> faceSearch;
-
+    @PolicyResourceProperty(name="faceSearch", flag="unknown_faceSearch")
+    private StreamProcessorSettingsFaceSearchArgs value_faceSearch;
+    private boolean unknown_faceSearch;
     public StreamProcessorSettingsFaceSearchArgs faceSearch() {
-        if (faceSearch == null) return null;
-        return faceSearch.getValue("StreamProcessorSettingsArgs.faceSearch");
+        if (!unknown_faceSearch) return value_faceSearch;
+        throw new UndeferrableValueException("Value 'StreamProcessorSettingsArgs.faceSearch' is not present");
     }
 
 }

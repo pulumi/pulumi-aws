@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.athena;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.athena.inputs.WorkgroupConfigurationArgs;
 import java.lang.Boolean;
@@ -19,66 +20,72 @@ public final class WorkgroupArgs extends com.pulumi.resources.PolicyResourceInpu
      * Configuration block with various settings for the workgroup. Documented below.
      * 
      */
-    private UndeferrableValue<WorkgroupConfigurationArgs> configuration;
-
+    @PolicyResourceProperty(name="configuration", flag="unknown_configuration")
+    private WorkgroupConfigurationArgs value_configuration;
+    private boolean unknown_configuration;
     public WorkgroupConfigurationArgs configuration() {
-        if (configuration == null) return null;
-        return configuration.getValue("WorkgroupArgs.configuration");
+        if (!unknown_configuration) return value_configuration;
+        throw new UndeferrableValueException("Value 'WorkgroupArgs.configuration' is not present");
     }
 
     /**
      * Description of the workgroup.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("WorkgroupArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'WorkgroupArgs.description' is not present");
     }
 
     /**
      * Option to delete the workgroup and its contents even if the workgroup contains any named queries.
      * 
      */
-    private UndeferrableValue<Boolean> forceDestroy;
-
+    @PolicyResourceProperty(name="forceDestroy", flag="unknown_forceDestroy")
+    private Boolean value_forceDestroy;
+    private boolean unknown_forceDestroy;
     public Boolean forceDestroy() {
-        if (forceDestroy == null) return null;
-        return forceDestroy.getValue("WorkgroupArgs.forceDestroy");
+        if (!unknown_forceDestroy) return value_forceDestroy;
+        throw new UndeferrableValueException("Value 'WorkgroupArgs.forceDestroy' is not present");
     }
 
     /**
      * Name of the workgroup.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("WorkgroupArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'WorkgroupArgs.name' is not present");
     }
 
     /**
      * State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("WorkgroupArgs.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'WorkgroupArgs.state' is not present");
     }
 
     /**
      * Key-value map of resource tags for the workgroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("WorkgroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'WorkgroupArgs.tags' is not present");
     }
 
 }

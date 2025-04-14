@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.FirewallEncryptionConfiguration;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.FirewallFirewallStatus;
@@ -22,121 +23,132 @@ public final class Firewall extends com.pulumi.resources.PolicyResourceOutput {
      * The Amazon Resource Name (ARN) that identifies the firewall.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Firewall.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Firewall.arn' is not present");
     }
 
     /**
      * A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> deleteProtection;
-
+    @PolicyResourceProperty(name="deleteProtection", flag="unknown_deleteProtection")
+    private @Nullable Boolean value_deleteProtection;
+    private boolean unknown_deleteProtection;
     public @Nullable Boolean deleteProtection() {
-        if (deleteProtection == null) return null;
-        return deleteProtection.getValue("Firewall.deleteProtection");
+        if (!unknown_deleteProtection) return value_deleteProtection;
+        throw new UndeferrableValueException("Value 'Firewall.deleteProtection' is not present");
     }
 
     /**
      * A friendly description of the firewall.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Firewall.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Firewall.description' is not present");
     }
 
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      * 
      */
-    private @Nullable UndeferrableValue<FirewallEncryptionConfiguration> encryptionConfiguration;
-
+    @PolicyResourceProperty(name="encryptionConfiguration", flag="unknown_encryptionConfiguration")
+    private @Nullable FirewallEncryptionConfiguration value_encryptionConfiguration;
+    private boolean unknown_encryptionConfiguration;
     public @Nullable FirewallEncryptionConfiguration encryptionConfiguration() {
-        if (encryptionConfiguration == null) return null;
-        return encryptionConfiguration.getValue("Firewall.encryptionConfiguration");
+        if (!unknown_encryptionConfiguration) return value_encryptionConfiguration;
+        throw new UndeferrableValueException("Value 'Firewall.encryptionConfiguration' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the VPC Firewall policy.
      * 
      */
-    private UndeferrableValue<String> firewallPolicyArn;
-
+    @PolicyResourceProperty(name="firewallPolicyArn", flag="unknown_firewallPolicyArn")
+    private String value_firewallPolicyArn;
+    private boolean unknown_firewallPolicyArn;
     public String firewallPolicyArn() {
-        if (firewallPolicyArn == null) return null;
-        return firewallPolicyArn.getValue("Firewall.firewallPolicyArn");
+        if (!unknown_firewallPolicyArn) return value_firewallPolicyArn;
+        throw new UndeferrableValueException("Value 'Firewall.firewallPolicyArn' is not present");
     }
 
     /**
      * A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> firewallPolicyChangeProtection;
-
+    @PolicyResourceProperty(name="firewallPolicyChangeProtection", flag="unknown_firewallPolicyChangeProtection")
+    private @Nullable Boolean value_firewallPolicyChangeProtection;
+    private boolean unknown_firewallPolicyChangeProtection;
     public @Nullable Boolean firewallPolicyChangeProtection() {
-        if (firewallPolicyChangeProtection == null) return null;
-        return firewallPolicyChangeProtection.getValue("Firewall.firewallPolicyChangeProtection");
+        if (!unknown_firewallPolicyChangeProtection) return value_firewallPolicyChangeProtection;
+        throw new UndeferrableValueException("Value 'Firewall.firewallPolicyChangeProtection' is not present");
     }
 
     /**
      * Nested list of information about the current status of the firewall.
      * 
      */
-    private UndeferrableValue<List<FirewallFirewallStatus>> firewallStatuses;
-
+    @PolicyResourceProperty(name="firewallStatuses", flag="unknown_firewallStatuses")
+    private List<FirewallFirewallStatus> value_firewallStatuses;
+    private boolean unknown_firewallStatuses;
     public List<FirewallFirewallStatus> firewallStatuses() {
-        if (firewallStatuses == null) return null;
-        return firewallStatuses.getValue("Firewall.firewallStatuses");
+        if (!unknown_firewallStatuses) return value_firewallStatuses;
+        throw new UndeferrableValueException("Value 'Firewall.firewallStatuses' is not present");
     }
 
     /**
      * A friendly name of the firewall.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Firewall.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Firewall.name' is not present");
     }
 
     /**
      * A flag indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> subnetChangeProtection;
-
+    @PolicyResourceProperty(name="subnetChangeProtection", flag="unknown_subnetChangeProtection")
+    private @Nullable Boolean value_subnetChangeProtection;
+    private boolean unknown_subnetChangeProtection;
     public @Nullable Boolean subnetChangeProtection() {
-        if (subnetChangeProtection == null) return null;
-        return subnetChangeProtection.getValue("Firewall.subnetChangeProtection");
+        if (!unknown_subnetChangeProtection) return value_subnetChangeProtection;
+        throw new UndeferrableValueException("Value 'Firewall.subnetChangeProtection' is not present");
     }
 
     /**
      * Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
      * 
      */
-    private UndeferrableValue<List<FirewallSubnetMapping>> subnetMappings;
-
+    @PolicyResourceProperty(name="subnetMappings", flag="unknown_subnetMappings")
+    private List<FirewallSubnetMapping> value_subnetMappings;
+    private boolean unknown_subnetMappings;
     public List<FirewallSubnetMapping> subnetMappings() {
-        if (subnetMappings == null) return null;
-        return subnetMappings.getValue("Firewall.subnetMappings");
+        if (!unknown_subnetMappings) return value_subnetMappings;
+        throw new UndeferrableValueException("Value 'Firewall.subnetMappings' is not present");
     }
 
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Firewall.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Firewall.tags' is not present");
     }
 
     /**
@@ -147,33 +159,36 @@ public final class Firewall extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Firewall.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Firewall.tagsAll' is not present");
     }
 
     /**
      * A string token used when updating a firewall.
      * 
      */
-    private UndeferrableValue<String> updateToken;
-
+    @PolicyResourceProperty(name="updateToken", flag="unknown_updateToken")
+    private String value_updateToken;
+    private boolean unknown_updateToken;
     public String updateToken() {
-        if (updateToken == null) return null;
-        return updateToken.getValue("Firewall.updateToken");
+        if (!unknown_updateToken) return value_updateToken;
+        throw new UndeferrableValueException("Value 'Firewall.updateToken' is not present");
     }
 
     /**
      * The unique identifier of the VPC where AWS Network Firewall should create the firewall.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("Firewall.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'Firewall.vpcId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.detective;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -16,22 +17,24 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Po
      * When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s Detective delegated administrator and Detective is enabled in that AWS Region.
      * 
      */
-    private UndeferrableValue<Boolean> autoEnable;
-
+    @PolicyResourceProperty(name="autoEnable", flag="unknown_autoEnable")
+    private Boolean value_autoEnable;
+    private boolean unknown_autoEnable;
     public Boolean autoEnable() {
-        if (autoEnable == null) return null;
-        return autoEnable.getValue("OrganizationConfigurationArgs.autoEnable");
+        if (!unknown_autoEnable) return value_autoEnable;
+        throw new UndeferrableValueException("Value 'OrganizationConfigurationArgs.autoEnable' is not present");
     }
 
     /**
      * ARN of the behavior graph.
      * 
      */
-    private UndeferrableValue<String> graphArn;
-
+    @PolicyResourceProperty(name="graphArn", flag="unknown_graphArn")
+    private String value_graphArn;
+    private boolean unknown_graphArn;
     public String graphArn() {
-        if (graphArn == null) return null;
-        return graphArn.getValue("OrganizationConfigurationArgs.graphArn");
+        if (!unknown_graphArn) return value_graphArn;
+        throw new UndeferrableValueException("Value 'OrganizationConfigurationArgs.graphArn' is not present");
     }
 
 }

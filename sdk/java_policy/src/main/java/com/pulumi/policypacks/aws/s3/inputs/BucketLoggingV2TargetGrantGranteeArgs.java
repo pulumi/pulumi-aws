@@ -3,62 +3,68 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class BucketLoggingV2TargetGrantGranteeArgs {
 
-    private UndeferrableValue<String> displayName;
-
+    @PolicyResourceProperty(name="displayName", flag="unknown_displayName")
+    private String value_displayName;
+    private boolean unknown_displayName;
     public String displayName() {
-        if (displayName == null) return null;
-        return displayName.getValue("BucketLoggingV2TargetGrantGranteeArgs.displayName");
+        if (!unknown_displayName) return value_displayName;
+        throw new UndeferrableValueException("Value 'BucketLoggingV2TargetGrantGranteeArgs.displayName' is not present");
     }
 
     /**
      * Email address of the grantee. See [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for supported AWS regions where this argument can be specified.
      * 
      */
-    private UndeferrableValue<String> emailAddress;
-
+    @PolicyResourceProperty(name="emailAddress", flag="unknown_emailAddress")
+    private String value_emailAddress;
+    private boolean unknown_emailAddress;
     public String emailAddress() {
-        if (emailAddress == null) return null;
-        return emailAddress.getValue("BucketLoggingV2TargetGrantGranteeArgs.emailAddress");
+        if (!unknown_emailAddress) return value_emailAddress;
+        throw new UndeferrableValueException("Value 'BucketLoggingV2TargetGrantGranteeArgs.emailAddress' is not present");
     }
 
     /**
      * Canonical user ID of the grantee.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("BucketLoggingV2TargetGrantGranteeArgs.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'BucketLoggingV2TargetGrantGranteeArgs.id' is not present");
     }
 
     /**
      * Type of grantee. Valid values: `CanonicalUser`, `AmazonCustomerByEmail`, `Group`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("BucketLoggingV2TargetGrantGranteeArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'BucketLoggingV2TargetGrantGranteeArgs.type' is not present");
     }
 
     /**
      * URI of the grantee group.
      * 
      */
-    private UndeferrableValue<String> uri;
-
+    @PolicyResourceProperty(name="uri", flag="unknown_uri")
+    private String value_uri;
+    private boolean unknown_uri;
     public String uri() {
-        if (uri == null) return null;
-        return uri.getValue("BucketLoggingV2TargetGrantGranteeArgs.uri");
+        if (!unknown_uri) return value_uri;
+        throw new UndeferrableValueException("Value 'BucketLoggingV2TargetGrantGranteeArgs.uri' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -11,11 +12,12 @@ import java.lang.String;
 @PolicyResourceType(type="aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount")
 public final class VpcIpamOrganizationAdminAccountArgs extends com.pulumi.resources.PolicyResourceInput {
 
-    private UndeferrableValue<String> delegatedAdminAccountId;
-
+    @PolicyResourceProperty(name="delegatedAdminAccountId", flag="unknown_delegatedAdminAccountId")
+    private String value_delegatedAdminAccountId;
+    private boolean unknown_delegatedAdminAccountId;
     public String delegatedAdminAccountId() {
-        if (delegatedAdminAccountId == null) return null;
-        return delegatedAdminAccountId.getValue("VpcIpamOrganizationAdminAccountArgs.delegatedAdminAccountId");
+        if (!unknown_delegatedAdminAccountId) return value_delegatedAdminAccountId;
+        throw new UndeferrableValueException("Value 'VpcIpamOrganizationAdminAccountArgs.delegatedAdminAccountId' is not present");
     }
 
 }

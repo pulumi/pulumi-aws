@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,44 +14,48 @@ public final class TlsInspectionConfigurationCertificateAuthority {
      * ARN of the certificate.
      * 
      */
-    private UndeferrableValue<String> certificateArn;
-
+    @PolicyResourceProperty(name="certificateArn", flag="unknown_certificateArn")
+    private String value_certificateArn;
+    private boolean unknown_certificateArn;
     public String certificateArn() {
-        if (certificateArn == null) return null;
-        return certificateArn.getValue("TlsInspectionConfigurationCertificateAuthority.certificateArn");
+        if (!unknown_certificateArn) return value_certificateArn;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfigurationCertificateAuthority.certificateArn' is not present");
     }
 
     /**
      * Serial number of the certificate.
      * 
      */
-    private UndeferrableValue<String> certificateSerial;
-
+    @PolicyResourceProperty(name="certificateSerial", flag="unknown_certificateSerial")
+    private String value_certificateSerial;
+    private boolean unknown_certificateSerial;
     public String certificateSerial() {
-        if (certificateSerial == null) return null;
-        return certificateSerial.getValue("TlsInspectionConfigurationCertificateAuthority.certificateSerial");
+        if (!unknown_certificateSerial) return value_certificateSerial;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfigurationCertificateAuthority.certificateSerial' is not present");
     }
 
     /**
      * Status of the certificate.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("TlsInspectionConfigurationCertificateAuthority.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfigurationCertificateAuthority.status' is not present");
     }
 
     /**
      * Details about the certificate status, including information about certificate errors.
      * 
      */
-    private UndeferrableValue<String> statusMessage;
-
+    @PolicyResourceProperty(name="statusMessage", flag="unknown_statusMessage")
+    private String value_statusMessage;
+    private boolean unknown_statusMessage;
     public String statusMessage() {
-        if (statusMessage == null) return null;
-        return statusMessage.getValue("TlsInspectionConfigurationCertificateAuthority.statusMessage");
+        if (!unknown_statusMessage) return value_statusMessage;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfigurationCertificateAuthority.statusMessage' is not present");
     }
 
 }

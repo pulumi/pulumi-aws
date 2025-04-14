@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securitylake.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class SubscriberNotificationConfigurationHttpsNotificationConfigura
      * The API key name for the notification subscription.
      * 
      */
-    private @Nullable UndeferrableValue<String> authorizationApiKeyName;
-
+    @PolicyResourceProperty(name="authorizationApiKeyName", flag="unknown_authorizationApiKeyName")
+    private @Nullable String value_authorizationApiKeyName;
+    private boolean unknown_authorizationApiKeyName;
     public @Nullable String authorizationApiKeyName() {
-        if (authorizationApiKeyName == null) return null;
-        return authorizationApiKeyName.getValue("SubscriberNotificationConfigurationHttpsNotificationConfiguration.authorizationApiKeyName");
+        if (!unknown_authorizationApiKeyName) return value_authorizationApiKeyName;
+        throw new UndeferrableValueException("Value 'SubscriberNotificationConfigurationHttpsNotificationConfiguration.authorizationApiKeyName' is not present");
     }
 
     /**
      * The API key value for the notification subscription.
      * 
      */
-    private @Nullable UndeferrableValue<String> authorizationApiKeyValue;
-
+    @PolicyResourceProperty(name="authorizationApiKeyValue", flag="unknown_authorizationApiKeyValue")
+    private @Nullable String value_authorizationApiKeyValue;
+    private boolean unknown_authorizationApiKeyValue;
     public @Nullable String authorizationApiKeyValue() {
-        if (authorizationApiKeyValue == null) return null;
-        return authorizationApiKeyValue.getValue("SubscriberNotificationConfigurationHttpsNotificationConfiguration.authorizationApiKeyValue");
+        if (!unknown_authorizationApiKeyValue) return value_authorizationApiKeyValue;
+        throw new UndeferrableValueException("Value 'SubscriberNotificationConfigurationHttpsNotificationConfiguration.authorizationApiKeyValue' is not present");
     }
 
     /**
@@ -37,11 +40,12 @@ public final class SubscriberNotificationConfigurationHttpsNotificationConfigura
      * If you prefer notification with an HTTPS endpoint, populate this field.
      * 
      */
-    private UndeferrableValue<String> endpoint;
-
+    @PolicyResourceProperty(name="endpoint", flag="unknown_endpoint")
+    private String value_endpoint;
+    private boolean unknown_endpoint;
     public String endpoint() {
-        if (endpoint == null) return null;
-        return endpoint.getValue("SubscriberNotificationConfigurationHttpsNotificationConfiguration.endpoint");
+        if (!unknown_endpoint) return value_endpoint;
+        throw new UndeferrableValueException("Value 'SubscriberNotificationConfigurationHttpsNotificationConfiguration.endpoint' is not present");
     }
 
     /**
@@ -49,11 +53,12 @@ public final class SubscriberNotificationConfigurationHttpsNotificationConfigura
      * Valid values are `POST` and `PUT`.
      * 
      */
-    private @Nullable UndeferrableValue<String> httpMethod;
-
+    @PolicyResourceProperty(name="httpMethod", flag="unknown_httpMethod")
+    private @Nullable String value_httpMethod;
+    private boolean unknown_httpMethod;
     public @Nullable String httpMethod() {
-        if (httpMethod == null) return null;
-        return httpMethod.getValue("SubscriberNotificationConfigurationHttpsNotificationConfiguration.httpMethod");
+        if (!unknown_httpMethod) return value_httpMethod;
+        throw new UndeferrableValueException("Value 'SubscriberNotificationConfigurationHttpsNotificationConfiguration.httpMethod' is not present");
     }
 
     /**
@@ -61,11 +66,12 @@ public final class SubscriberNotificationConfigurationHttpsNotificationConfigura
      * For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
      * 
      */
-    private UndeferrableValue<String> targetRoleArn;
-
+    @PolicyResourceProperty(name="targetRoleArn", flag="unknown_targetRoleArn")
+    private String value_targetRoleArn;
+    private boolean unknown_targetRoleArn;
     public String targetRoleArn() {
-        if (targetRoleArn == null) return null;
-        return targetRoleArn.getValue("SubscriberNotificationConfigurationHttpsNotificationConfiguration.targetRoleArn");
+        if (!unknown_targetRoleArn) return value_targetRoleArn;
+        throw new UndeferrableValueException("Value 'SubscriberNotificationConfigurationHttpsNotificationConfiguration.targetRoleArn' is not present");
     }
 
 }

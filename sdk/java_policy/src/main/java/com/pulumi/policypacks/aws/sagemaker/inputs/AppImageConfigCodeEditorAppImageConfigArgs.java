@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.AppImageConfigCodeEditorAppImageConfigContainerConfigArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class AppImageConfigCodeEditorAppImageConfigArgs {
      * The configuration used to run the application image container. See Container Config details below.
      * 
      */
-    private UndeferrableValue<AppImageConfigCodeEditorAppImageConfigContainerConfigArgs> containerConfig;
-
+    @PolicyResourceProperty(name="containerConfig", flag="unknown_containerConfig")
+    private AppImageConfigCodeEditorAppImageConfigContainerConfigArgs value_containerConfig;
+    private boolean unknown_containerConfig;
     public AppImageConfigCodeEditorAppImageConfigContainerConfigArgs containerConfig() {
-        if (containerConfig == null) return null;
-        return containerConfig.getValue("AppImageConfigCodeEditorAppImageConfigArgs.containerConfig");
+        if (!unknown_containerConfig) return value_containerConfig;
+        throw new UndeferrableValueException("Value 'AppImageConfigCodeEditorAppImageConfigArgs.containerConfig' is not present");
     }
 
     /**
      * The URL where the Git repository is located. See File System Config details below.
      * 
      */
-    private UndeferrableValue<AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs> fileSystemConfig;
-
+    @PolicyResourceProperty(name="fileSystemConfig", flag="unknown_fileSystemConfig")
+    private AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs value_fileSystemConfig;
+    private boolean unknown_fileSystemConfig;
     public AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs fileSystemConfig() {
-        if (fileSystemConfig == null) return null;
-        return fileSystemConfig.getValue("AppImageConfigCodeEditorAppImageConfigArgs.fileSystemConfig");
+        if (!unknown_fileSystemConfig) return value_fileSystemConfig;
+        throw new UndeferrableValueException("Value 'AppImageConfigCodeEditorAppImageConfigArgs.fileSystemConfig' is not present");
     }
 
 }

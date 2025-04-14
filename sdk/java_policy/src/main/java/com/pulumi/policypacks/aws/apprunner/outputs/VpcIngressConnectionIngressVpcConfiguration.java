@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class VpcIngressConnectionIngressVpcConfiguration {
      * The ID of the VPC endpoint that your App Runner service connects to.
      * 
      */
-    private @Nullable UndeferrableValue<String> vpcEndpointId;
-
+    @PolicyResourceProperty(name="vpcEndpointId", flag="unknown_vpcEndpointId")
+    private @Nullable String value_vpcEndpointId;
+    private boolean unknown_vpcEndpointId;
     public @Nullable String vpcEndpointId() {
-        if (vpcEndpointId == null) return null;
-        return vpcEndpointId.getValue("VpcIngressConnectionIngressVpcConfiguration.vpcEndpointId");
+        if (!unknown_vpcEndpointId) return value_vpcEndpointId;
+        throw new UndeferrableValueException("Value 'VpcIngressConnectionIngressVpcConfiguration.vpcEndpointId' is not present");
     }
 
     /**
      * The ID of the VPC that is used for the VPC endpoint.
      * 
      */
-    private @Nullable UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private @Nullable String value_vpcId;
+    private boolean unknown_vpcId;
     public @Nullable String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("VpcIngressConnectionIngressVpcConfiguration.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'VpcIngressConnectionIngressVpcConfiguration.vpcId' is not present");
     }
 
 }

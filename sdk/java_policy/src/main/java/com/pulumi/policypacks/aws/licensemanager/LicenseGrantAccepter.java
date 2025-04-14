@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.licensemanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -16,99 +17,108 @@ public final class LicenseGrantAccepter extends com.pulumi.resources.PolicyResou
      * A list of the allowed operations for the grant.
      * 
      */
-    private UndeferrableValue<List<String>> allowedOperations;
-
+    @PolicyResourceProperty(name="allowedOperations", flag="unknown_allowedOperations")
+    private List<String> value_allowedOperations;
+    private boolean unknown_allowedOperations;
     public List<String> allowedOperations() {
-        if (allowedOperations == null) return null;
-        return allowedOperations.getValue("LicenseGrantAccepter.allowedOperations");
+        if (!unknown_allowedOperations) return value_allowedOperations;
+        throw new UndeferrableValueException("Value 'LicenseGrantAccepter.allowedOperations' is not present");
     }
 
     /**
      * The ARN of the grant to accept.
      * 
      */
-    private UndeferrableValue<String> grantArn;
-
+    @PolicyResourceProperty(name="grantArn", flag="unknown_grantArn")
+    private String value_grantArn;
+    private boolean unknown_grantArn;
     public String grantArn() {
-        if (grantArn == null) return null;
-        return grantArn.getValue("LicenseGrantAccepter.grantArn");
+        if (!unknown_grantArn) return value_grantArn;
+        throw new UndeferrableValueException("Value 'LicenseGrantAccepter.grantArn' is not present");
     }
 
     /**
      * The home region for the license.
      * 
      */
-    private UndeferrableValue<String> homeRegion;
-
+    @PolicyResourceProperty(name="homeRegion", flag="unknown_homeRegion")
+    private String value_homeRegion;
+    private boolean unknown_homeRegion;
     public String homeRegion() {
-        if (homeRegion == null) return null;
-        return homeRegion.getValue("LicenseGrantAccepter.homeRegion");
+        if (!unknown_homeRegion) return value_homeRegion;
+        throw new UndeferrableValueException("Value 'LicenseGrantAccepter.homeRegion' is not present");
     }
 
     /**
      * The ARN of the license for the grant.
      * 
      */
-    private UndeferrableValue<String> licenseArn;
-
+    @PolicyResourceProperty(name="licenseArn", flag="unknown_licenseArn")
+    private String value_licenseArn;
+    private boolean unknown_licenseArn;
     public String licenseArn() {
-        if (licenseArn == null) return null;
-        return licenseArn.getValue("LicenseGrantAccepter.licenseArn");
+        if (!unknown_licenseArn) return value_licenseArn;
+        throw new UndeferrableValueException("Value 'LicenseGrantAccepter.licenseArn' is not present");
     }
 
     /**
      * The Name of the grant.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LicenseGrantAccepter.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LicenseGrantAccepter.name' is not present");
     }
 
     /**
      * The parent ARN.
      * 
      */
-    private UndeferrableValue<String> parentArn;
-
+    @PolicyResourceProperty(name="parentArn", flag="unknown_parentArn")
+    private String value_parentArn;
+    private boolean unknown_parentArn;
     public String parentArn() {
-        if (parentArn == null) return null;
-        return parentArn.getValue("LicenseGrantAccepter.parentArn");
+        if (!unknown_parentArn) return value_parentArn;
+        throw new UndeferrableValueException("Value 'LicenseGrantAccepter.parentArn' is not present");
     }
 
     /**
      * The target account for the grant.
      * 
      */
-    private UndeferrableValue<String> principal;
-
+    @PolicyResourceProperty(name="principal", flag="unknown_principal")
+    private String value_principal;
+    private boolean unknown_principal;
     public String principal() {
-        if (principal == null) return null;
-        return principal.getValue("LicenseGrantAccepter.principal");
+        if (!unknown_principal) return value_principal;
+        throw new UndeferrableValueException("Value 'LicenseGrantAccepter.principal' is not present");
     }
 
     /**
      * The grant status.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("LicenseGrantAccepter.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'LicenseGrantAccepter.status' is not present");
     }
 
     /**
      * The grant version.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("LicenseGrantAccepter.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'LicenseGrantAccepter.version' is not present");
     }
 
 }

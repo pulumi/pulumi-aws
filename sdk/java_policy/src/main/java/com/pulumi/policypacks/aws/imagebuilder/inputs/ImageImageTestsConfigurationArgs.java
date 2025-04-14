@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ImageImageTestsConfigurationArgs {
      * Whether image tests are enabled. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> imageTestsEnabled;
-
+    @PolicyResourceProperty(name="imageTestsEnabled", flag="unknown_imageTestsEnabled")
+    private Boolean value_imageTestsEnabled;
+    private boolean unknown_imageTestsEnabled;
     public Boolean imageTestsEnabled() {
-        if (imageTestsEnabled == null) return null;
-        return imageTestsEnabled.getValue("ImageImageTestsConfigurationArgs.imageTestsEnabled");
+        if (!unknown_imageTestsEnabled) return value_imageTestsEnabled;
+        throw new UndeferrableValueException("Value 'ImageImageTestsConfigurationArgs.imageTestsEnabled' is not present");
     }
 
     /**
      * Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
      * 
      */
-    private UndeferrableValue<Integer> timeoutMinutes;
-
+    @PolicyResourceProperty(name="timeoutMinutes", flag="unknown_timeoutMinutes")
+    private Integer value_timeoutMinutes;
+    private boolean unknown_timeoutMinutes;
     public Integer timeoutMinutes() {
-        if (timeoutMinutes == null) return null;
-        return timeoutMinutes.getValue("ImageImageTestsConfigurationArgs.timeoutMinutes");
+        if (!unknown_timeoutMinutes) return value_timeoutMinutes;
+        throw new UndeferrableValueException("Value 'ImageImageTestsConfigurationArgs.timeoutMinutes' is not present");
     }
 
 }

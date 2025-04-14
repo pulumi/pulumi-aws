@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamquery.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.timestreamquery.inputs.ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArgs;
 import com.pulumi.policypacks.aws.timestreamquery.inputs.ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs;
 import java.lang.Integer;
@@ -17,55 +18,60 @@ public final class ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs {
      * Size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.
      * 
      */
-    private UndeferrableValue<Integer> outputBytes;
-
+    @PolicyResourceProperty(name="outputBytes", flag="unknown_outputBytes")
+    private Integer value_outputBytes;
+    private boolean unknown_outputBytes;
     public Integer outputBytes() {
-        if (outputBytes == null) return null;
-        return outputBytes.getValue("ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs.outputBytes");
+        if (!unknown_outputBytes) return value_outputBytes;
+        throw new UndeferrableValueException("Value 'ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs.outputBytes' is not present");
     }
 
     /**
      * Total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
      * 
      */
-    private UndeferrableValue<Integer> outputRows;
-
+    @PolicyResourceProperty(name="outputRows", flag="unknown_outputRows")
+    private Integer value_outputRows;
+    private boolean unknown_outputRows;
     public Integer outputRows() {
-        if (outputRows == null) return null;
-        return outputRows.getValue("ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs.outputRows");
+        if (!unknown_outputRows) return value_outputRows;
+        throw new UndeferrableValueException("Value 'ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs.outputRows' is not present");
     }
 
     /**
      * Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
      * 
      */
-    private UndeferrableValue<List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArgs>> querySpatialCoverages;
-
+    @PolicyResourceProperty(name="querySpatialCoverages", flag="unknown_querySpatialCoverages")
+    private List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArgs> value_querySpatialCoverages;
+    private boolean unknown_querySpatialCoverages;
     public List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArgs> querySpatialCoverages() {
-        if (querySpatialCoverages == null) return null;
-        return querySpatialCoverages.getValue("ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs.querySpatialCoverages");
+        if (!unknown_querySpatialCoverages) return value_querySpatialCoverages;
+        throw new UndeferrableValueException("Value 'ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs.querySpatialCoverages' is not present");
     }
 
     /**
      * Number of tables in the query.
      * 
      */
-    private UndeferrableValue<Integer> queryTableCount;
-
+    @PolicyResourceProperty(name="queryTableCount", flag="unknown_queryTableCount")
+    private Integer value_queryTableCount;
+    private boolean unknown_queryTableCount;
     public Integer queryTableCount() {
-        if (queryTableCount == null) return null;
-        return queryTableCount.getValue("ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs.queryTableCount");
+        if (!unknown_queryTableCount) return value_queryTableCount;
+        throw new UndeferrableValueException("Value 'ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs.queryTableCount' is not present");
     }
 
     /**
      * Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
      * 
      */
-    private UndeferrableValue<List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs>> queryTemporalRanges;
-
+    @PolicyResourceProperty(name="queryTemporalRanges", flag="unknown_queryTemporalRanges")
+    private List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs> value_queryTemporalRanges;
+    private boolean unknown_queryTemporalRanges;
     public List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs> queryTemporalRanges() {
-        if (queryTemporalRanges == null) return null;
-        return queryTemporalRanges.getValue("ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs.queryTemporalRanges");
+        if (!unknown_queryTemporalRanges) return value_queryTemporalRanges;
+        throw new UndeferrableValueException("Value 'ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs.queryTemporalRanges' is not present");
     }
 
 }

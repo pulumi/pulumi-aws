@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.FirewallFirewallStatusSyncState;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class FirewallFirewallStatus {
      * Set of subnets configured for use by the firewall.
      * 
      */
-    private @Nullable UndeferrableValue<List<FirewallFirewallStatusSyncState>> syncStates;
-
+    @PolicyResourceProperty(name="syncStates", flag="unknown_syncStates")
+    private @Nullable List<FirewallFirewallStatusSyncState> value_syncStates;
+    private boolean unknown_syncStates;
     public @Nullable List<FirewallFirewallStatusSyncState> syncStates() {
-        if (syncStates == null) return null;
-        return syncStates.getValue("FirewallFirewallStatus.syncStates");
+        if (!unknown_syncStates) return value_syncStates;
+        throw new UndeferrableValueException("Value 'FirewallFirewallStatus.syncStates' is not present");
     }
 
 }

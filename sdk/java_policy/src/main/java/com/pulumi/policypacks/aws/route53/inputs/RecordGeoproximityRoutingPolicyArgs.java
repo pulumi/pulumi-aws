@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.route53.inputs.RecordGeoproximityRoutingPolicyCoordinateArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class RecordGeoproximityRoutingPolicyArgs {
      * A AWS region where the resource is present.
      * 
      */
-    private UndeferrableValue<String> awsRegion;
-
+    @PolicyResourceProperty(name="awsRegion", flag="unknown_awsRegion")
+    private String value_awsRegion;
+    private boolean unknown_awsRegion;
     public String awsRegion() {
-        if (awsRegion == null) return null;
-        return awsRegion.getValue("RecordGeoproximityRoutingPolicyArgs.awsRegion");
+        if (!unknown_awsRegion) return value_awsRegion;
+        throw new UndeferrableValueException("Value 'RecordGeoproximityRoutingPolicyArgs.awsRegion' is not present");
     }
 
     /**
      * Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
      * 
      */
-    private UndeferrableValue<Integer> bias;
-
+    @PolicyResourceProperty(name="bias", flag="unknown_bias")
+    private Integer value_bias;
+    private boolean unknown_bias;
     public Integer bias() {
-        if (bias == null) return null;
-        return bias.getValue("RecordGeoproximityRoutingPolicyArgs.bias");
+        if (!unknown_bias) return value_bias;
+        throw new UndeferrableValueException("Value 'RecordGeoproximityRoutingPolicyArgs.bias' is not present");
     }
 
     /**
      * Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
      * 
      */
-    private UndeferrableValue<List<RecordGeoproximityRoutingPolicyCoordinateArgs>> coordinates;
-
+    @PolicyResourceProperty(name="coordinates", flag="unknown_coordinates")
+    private List<RecordGeoproximityRoutingPolicyCoordinateArgs> value_coordinates;
+    private boolean unknown_coordinates;
     public List<RecordGeoproximityRoutingPolicyCoordinateArgs> coordinates() {
-        if (coordinates == null) return null;
-        return coordinates.getValue("RecordGeoproximityRoutingPolicyArgs.coordinates");
+        if (!unknown_coordinates) return value_coordinates;
+        throw new UndeferrableValueException("Value 'RecordGeoproximityRoutingPolicyArgs.coordinates' is not present");
     }
 
     /**
      * A AWS local zone group where the resource is present. See https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html for local zone group list.
      * 
      */
-    private UndeferrableValue<String> localZoneGroup;
-
+    @PolicyResourceProperty(name="localZoneGroup", flag="unknown_localZoneGroup")
+    private String value_localZoneGroup;
+    private boolean unknown_localZoneGroup;
     public String localZoneGroup() {
-        if (localZoneGroup == null) return null;
-        return localZoneGroup.getValue("RecordGeoproximityRoutingPolicyArgs.localZoneGroup");
+        if (!unknown_localZoneGroup) return value_localZoneGroup;
+        throw new UndeferrableValueException("Value 'RecordGeoproximityRoutingPolicyArgs.localZoneGroup' is not present");
     }
 
 }

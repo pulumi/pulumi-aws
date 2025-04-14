@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,44 +17,48 @@ public final class SubnetCidrReservationArgs extends com.pulumi.resources.Policy
      * The CIDR block for the reservation.
      * 
      */
-    private UndeferrableValue<String> cidrBlock;
-
+    @PolicyResourceProperty(name="cidrBlock", flag="unknown_cidrBlock")
+    private String value_cidrBlock;
+    private boolean unknown_cidrBlock;
     public String cidrBlock() {
-        if (cidrBlock == null) return null;
-        return cidrBlock.getValue("SubnetCidrReservationArgs.cidrBlock");
+        if (!unknown_cidrBlock) return value_cidrBlock;
+        throw new UndeferrableValueException("Value 'SubnetCidrReservationArgs.cidrBlock' is not present");
     }
 
     /**
      * A brief description of the reservation.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("SubnetCidrReservationArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'SubnetCidrReservationArgs.description' is not present");
     }
 
     /**
      * The type of reservation to create. Valid values: `explicit`, `prefix`
      * 
      */
-    private UndeferrableValue<String> reservationType;
-
+    @PolicyResourceProperty(name="reservationType", flag="unknown_reservationType")
+    private String value_reservationType;
+    private boolean unknown_reservationType;
     public String reservationType() {
-        if (reservationType == null) return null;
-        return reservationType.getValue("SubnetCidrReservationArgs.reservationType");
+        if (!unknown_reservationType) return value_reservationType;
+        throw new UndeferrableValueException("Value 'SubnetCidrReservationArgs.reservationType' is not present");
     }
 
     /**
      * The ID of the subnet to create the reservation for.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("SubnetCidrReservationArgs.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'SubnetCidrReservationArgs.subnetId' is not present");
     }
 
 }

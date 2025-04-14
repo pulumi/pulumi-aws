@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,99 +20,108 @@ public final class Parameter extends com.pulumi.resources.PolicyResourceOutput {
      * Regular expression used to validate the parameter value.
      * 
      */
-    private @Nullable UndeferrableValue<String> allowedPattern;
-
+    @PolicyResourceProperty(name="allowedPattern", flag="unknown_allowedPattern")
+    private @Nullable String value_allowedPattern;
+    private boolean unknown_allowedPattern;
     public @Nullable String allowedPattern() {
-        if (allowedPattern == null) return null;
-        return allowedPattern.getValue("Parameter.allowedPattern");
+        if (!unknown_allowedPattern) return value_allowedPattern;
+        throw new UndeferrableValueException("Value 'Parameter.allowedPattern' is not present");
     }
 
     /**
      * ARN of the parameter.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Parameter.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Parameter.arn' is not present");
     }
 
     /**
      * Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
      * 
      */
-    private UndeferrableValue<String> dataType;
-
+    @PolicyResourceProperty(name="dataType", flag="unknown_dataType")
+    private String value_dataType;
+    private boolean unknown_dataType;
     public String dataType() {
-        if (dataType == null) return null;
-        return dataType.getValue("Parameter.dataType");
+        if (!unknown_dataType) return value_dataType;
+        throw new UndeferrableValueException("Value 'Parameter.dataType' is not present");
     }
 
     /**
      * Description of the parameter.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Parameter.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Parameter.description' is not present");
     }
 
     /**
      * Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
      * 
      */
-    private UndeferrableValue<String> insecureValue;
-
+    @PolicyResourceProperty(name="insecureValue", flag="unknown_insecureValue")
+    private String value_insecureValue;
+    private boolean unknown_insecureValue;
     public String insecureValue() {
-        if (insecureValue == null) return null;
-        return insecureValue.getValue("Parameter.insecureValue");
+        if (!unknown_insecureValue) return value_insecureValue;
+        throw new UndeferrableValueException("Value 'Parameter.insecureValue' is not present");
     }
 
     /**
      * KMS key ID or ARN for encrypting a SecureString.
      * 
      */
-    private UndeferrableValue<String> keyId;
-
+    @PolicyResourceProperty(name="keyId", flag="unknown_keyId")
+    private String value_keyId;
+    private boolean unknown_keyId;
     public String keyId() {
-        if (keyId == null) return null;
-        return keyId.getValue("Parameter.keyId");
+        if (!unknown_keyId) return value_keyId;
+        throw new UndeferrableValueException("Value 'Parameter.keyId' is not present");
     }
 
     /**
      * Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Parameter.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Parameter.name' is not present");
     }
 
     /**
      * Overwrite an existing parameter. If not specified, defaults to `false` during create operations to avoid overwriting existing resources and then `true` for all subsequent operations once the resource is managed by IAC. Lifecycle rules should be used to manage non-standard update behavior.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> overwrite;
-
+    @PolicyResourceProperty(name="overwrite", flag="unknown_overwrite")
+    private @Nullable Boolean value_overwrite;
+    private boolean unknown_overwrite;
     public @Nullable Boolean overwrite() {
-        if (overwrite == null) return null;
-        return overwrite.getValue("Parameter.overwrite");
+        if (!unknown_overwrite) return value_overwrite;
+        throw new UndeferrableValueException("Value 'Parameter.overwrite' is not present");
     }
 
     /**
      * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Parameter.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Parameter.tags' is not present");
     }
 
     /**
@@ -122,22 +132,24 @@ public final class Parameter extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Parameter.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Parameter.tagsAll' is not present");
     }
 
     /**
      * Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
      * 
      */
-    private @Nullable UndeferrableValue<String> tier;
-
+    @PolicyResourceProperty(name="tier", flag="unknown_tier")
+    private @Nullable String value_tier;
+    private boolean unknown_tier;
     public @Nullable String tier() {
-        if (tier == null) return null;
-        return tier.getValue("Parameter.tier");
+        if (!unknown_tier) return value_tier;
+        throw new UndeferrableValueException("Value 'Parameter.tier' is not present");
     }
 
     /**
@@ -146,33 +158,36 @@ public final class Parameter extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("Parameter.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'Parameter.type' is not present");
     }
 
     /**
      * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("Parameter.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'Parameter.value' is not present");
     }
 
     /**
      * Version of the parameter.
      * 
      */
-    private UndeferrableValue<Integer> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private Integer value_version;
+    private boolean unknown_version;
     public Integer version() {
-        if (version == null) return null;
-        return version.getValue("Parameter.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'Parameter.version' is not present");
     }
 
 }

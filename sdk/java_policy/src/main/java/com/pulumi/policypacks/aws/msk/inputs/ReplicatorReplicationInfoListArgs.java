@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.msk.inputs.ReplicatorReplicationInfoListConsumerGroupReplicationArgs;
 import com.pulumi.policypacks.aws.msk.inputs.ReplicatorReplicationInfoListTopicReplicationArgs;
 import java.lang.String;
@@ -17,69 +18,76 @@ public final class ReplicatorReplicationInfoListArgs {
      * Configuration relating to consumer group replication.
      * 
      */
-    private UndeferrableValue<List<ReplicatorReplicationInfoListConsumerGroupReplicationArgs>> consumerGroupReplications;
-
+    @PolicyResourceProperty(name="consumerGroupReplications", flag="unknown_consumerGroupReplications")
+    private List<ReplicatorReplicationInfoListConsumerGroupReplicationArgs> value_consumerGroupReplications;
+    private boolean unknown_consumerGroupReplications;
     public List<ReplicatorReplicationInfoListConsumerGroupReplicationArgs> consumerGroupReplications() {
-        if (consumerGroupReplications == null) return null;
-        return consumerGroupReplications.getValue("ReplicatorReplicationInfoListArgs.consumerGroupReplications");
+        if (!unknown_consumerGroupReplications) return value_consumerGroupReplications;
+        throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListArgs.consumerGroupReplications' is not present");
     }
 
-    private UndeferrableValue<String> sourceKafkaClusterAlias;
-
+    @PolicyResourceProperty(name="sourceKafkaClusterAlias", flag="unknown_sourceKafkaClusterAlias")
+    private String value_sourceKafkaClusterAlias;
+    private boolean unknown_sourceKafkaClusterAlias;
     public String sourceKafkaClusterAlias() {
-        if (sourceKafkaClusterAlias == null) return null;
-        return sourceKafkaClusterAlias.getValue("ReplicatorReplicationInfoListArgs.sourceKafkaClusterAlias");
+        if (!unknown_sourceKafkaClusterAlias) return value_sourceKafkaClusterAlias;
+        throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListArgs.sourceKafkaClusterAlias' is not present");
     }
 
     /**
      * The ARN of the source Kafka cluster.
      * 
      */
-    private UndeferrableValue<String> sourceKafkaClusterArn;
-
+    @PolicyResourceProperty(name="sourceKafkaClusterArn", flag="unknown_sourceKafkaClusterArn")
+    private String value_sourceKafkaClusterArn;
+    private boolean unknown_sourceKafkaClusterArn;
     public String sourceKafkaClusterArn() {
-        if (sourceKafkaClusterArn == null) return null;
-        return sourceKafkaClusterArn.getValue("ReplicatorReplicationInfoListArgs.sourceKafkaClusterArn");
+        if (!unknown_sourceKafkaClusterArn) return value_sourceKafkaClusterArn;
+        throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListArgs.sourceKafkaClusterArn' is not present");
     }
 
     /**
      * The type of compression to use writing records to target Kafka cluster.
      * 
      */
-    private UndeferrableValue<String> targetCompressionType;
-
+    @PolicyResourceProperty(name="targetCompressionType", flag="unknown_targetCompressionType")
+    private String value_targetCompressionType;
+    private boolean unknown_targetCompressionType;
     public String targetCompressionType() {
-        if (targetCompressionType == null) return null;
-        return targetCompressionType.getValue("ReplicatorReplicationInfoListArgs.targetCompressionType");
+        if (!unknown_targetCompressionType) return value_targetCompressionType;
+        throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListArgs.targetCompressionType' is not present");
     }
 
-    private UndeferrableValue<String> targetKafkaClusterAlias;
-
+    @PolicyResourceProperty(name="targetKafkaClusterAlias", flag="unknown_targetKafkaClusterAlias")
+    private String value_targetKafkaClusterAlias;
+    private boolean unknown_targetKafkaClusterAlias;
     public String targetKafkaClusterAlias() {
-        if (targetKafkaClusterAlias == null) return null;
-        return targetKafkaClusterAlias.getValue("ReplicatorReplicationInfoListArgs.targetKafkaClusterAlias");
+        if (!unknown_targetKafkaClusterAlias) return value_targetKafkaClusterAlias;
+        throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListArgs.targetKafkaClusterAlias' is not present");
     }
 
     /**
      * The ARN of the target Kafka cluster.
      * 
      */
-    private UndeferrableValue<String> targetKafkaClusterArn;
-
+    @PolicyResourceProperty(name="targetKafkaClusterArn", flag="unknown_targetKafkaClusterArn")
+    private String value_targetKafkaClusterArn;
+    private boolean unknown_targetKafkaClusterArn;
     public String targetKafkaClusterArn() {
-        if (targetKafkaClusterArn == null) return null;
-        return targetKafkaClusterArn.getValue("ReplicatorReplicationInfoListArgs.targetKafkaClusterArn");
+        if (!unknown_targetKafkaClusterArn) return value_targetKafkaClusterArn;
+        throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListArgs.targetKafkaClusterArn' is not present");
     }
 
     /**
      * Configuration relating to topic replication.
      * 
      */
-    private UndeferrableValue<List<ReplicatorReplicationInfoListTopicReplicationArgs>> topicReplications;
-
+    @PolicyResourceProperty(name="topicReplications", flag="unknown_topicReplications")
+    private List<ReplicatorReplicationInfoListTopicReplicationArgs> value_topicReplications;
+    private boolean unknown_topicReplications;
     public List<ReplicatorReplicationInfoListTopicReplicationArgs> topicReplications() {
-        if (topicReplications == null) return null;
-        return topicReplications.getValue("ReplicatorReplicationInfoListArgs.topicReplications");
+        if (!unknown_topicReplications) return value_topicReplications;
+        throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListArgs.topicReplications' is not present");
     }
 
 }

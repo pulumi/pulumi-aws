@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudwatch.inputs.EventConnectionInvocationConnectivityParametersResourceParametersArgs;
 
 
@@ -13,11 +14,12 @@ public final class EventConnectionInvocationConnectivityParametersArgs {
      * The parameters for EventBridge to use when invoking the resource endpoint. Documented below.
      * 
      */
-    private UndeferrableValue<EventConnectionInvocationConnectivityParametersResourceParametersArgs> resourceParameters;
-
+    @PolicyResourceProperty(name="resourceParameters", flag="unknown_resourceParameters")
+    private EventConnectionInvocationConnectivityParametersResourceParametersArgs value_resourceParameters;
+    private boolean unknown_resourceParameters;
     public EventConnectionInvocationConnectivityParametersResourceParametersArgs resourceParameters() {
-        if (resourceParameters == null) return null;
-        return resourceParameters.getValue("EventConnectionInvocationConnectivityParametersArgs.resourceParameters");
+        if (!unknown_resourceParameters) return value_resourceParameters;
+        throw new UndeferrableValueException("Value 'EventConnectionInvocationConnectivityParametersArgs.resourceParameters' is not present");
     }
 
 }

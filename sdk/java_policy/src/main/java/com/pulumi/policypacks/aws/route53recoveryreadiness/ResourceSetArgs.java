@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53recoveryreadiness;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.route53recoveryreadiness.inputs.ResourceSetResourceArgs;
 import java.lang.String;
@@ -19,22 +20,24 @@ public final class ResourceSetArgs extends com.pulumi.resources.PolicyResourceIn
      * Unique name describing the resource set.
      * 
      */
-    private UndeferrableValue<String> resourceSetName;
-
+    @PolicyResourceProperty(name="resourceSetName", flag="unknown_resourceSetName")
+    private String value_resourceSetName;
+    private boolean unknown_resourceSetName;
     public String resourceSetName() {
-        if (resourceSetName == null) return null;
-        return resourceSetName.getValue("ResourceSetArgs.resourceSetName");
+        if (!unknown_resourceSetName) return value_resourceSetName;
+        throw new UndeferrableValueException("Value 'ResourceSetArgs.resourceSetName' is not present");
     }
 
     /**
      * Type of the resources in the resource set.
      * 
      */
-    private UndeferrableValue<String> resourceSetType;
-
+    @PolicyResourceProperty(name="resourceSetType", flag="unknown_resourceSetType")
+    private String value_resourceSetType;
+    private boolean unknown_resourceSetType;
     public String resourceSetType() {
-        if (resourceSetType == null) return null;
-        return resourceSetType.getValue("ResourceSetArgs.resourceSetType");
+        if (!unknown_resourceSetType) return value_resourceSetType;
+        throw new UndeferrableValueException("Value 'ResourceSetArgs.resourceSetType' is not present");
     }
 
     /**
@@ -43,22 +46,24 @@ public final class ResourceSetArgs extends com.pulumi.resources.PolicyResourceIn
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<List<ResourceSetResourceArgs>> resources;
-
+    @PolicyResourceProperty(name="resources", flag="unknown_resources")
+    private List<ResourceSetResourceArgs> value_resources;
+    private boolean unknown_resources;
     public List<ResourceSetResourceArgs> resources() {
-        if (resources == null) return null;
-        return resources.getValue("ResourceSetArgs.resources");
+        if (!unknown_resources) return value_resources;
+        throw new UndeferrableValueException("Value 'ResourceSetArgs.resources' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ResourceSetArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ResourceSetArgs.tags' is not present");
     }
 
 }

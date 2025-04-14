@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,32 +15,36 @@ public final class CertificateDomainValidationOption {
      * A domain name for which the certificate should be issued.
      * 
      */
-    private @Nullable UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private @Nullable String value_domainName;
+    private boolean unknown_domainName;
     public @Nullable String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("CertificateDomainValidationOption.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'CertificateDomainValidationOption.domainName' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> resourceRecordName;
-
+    @PolicyResourceProperty(name="resourceRecordName", flag="unknown_resourceRecordName")
+    private @Nullable String value_resourceRecordName;
+    private boolean unknown_resourceRecordName;
     public @Nullable String resourceRecordName() {
-        if (resourceRecordName == null) return null;
-        return resourceRecordName.getValue("CertificateDomainValidationOption.resourceRecordName");
+        if (!unknown_resourceRecordName) return value_resourceRecordName;
+        throw new UndeferrableValueException("Value 'CertificateDomainValidationOption.resourceRecordName' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> resourceRecordType;
-
+    @PolicyResourceProperty(name="resourceRecordType", flag="unknown_resourceRecordType")
+    private @Nullable String value_resourceRecordType;
+    private boolean unknown_resourceRecordType;
     public @Nullable String resourceRecordType() {
-        if (resourceRecordType == null) return null;
-        return resourceRecordType.getValue("CertificateDomainValidationOption.resourceRecordType");
+        if (!unknown_resourceRecordType) return value_resourceRecordType;
+        throw new UndeferrableValueException("Value 'CertificateDomainValidationOption.resourceRecordType' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> resourceRecordValue;
-
+    @PolicyResourceProperty(name="resourceRecordValue", flag="unknown_resourceRecordValue")
+    private @Nullable String value_resourceRecordValue;
+    private boolean unknown_resourceRecordValue;
     public @Nullable String resourceRecordValue() {
-        if (resourceRecordValue == null) return null;
-        return resourceRecordValue.getValue("CertificateDomainValidationOption.resourceRecordValue");
+        if (!unknown_resourceRecordValue) return value_resourceRecordValue;
+        throw new UndeferrableValueException("Value 'CertificateDomainValidationOption.resourceRecordValue' is not present");
     }
 
 }

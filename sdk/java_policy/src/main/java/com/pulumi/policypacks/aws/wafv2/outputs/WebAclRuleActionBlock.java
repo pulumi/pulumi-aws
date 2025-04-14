@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleActionBlockCustomResponse;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class WebAclRuleActionBlock {
      * Defines a custom response for the web request. See `custom_response` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleActionBlockCustomResponse> customResponse;
-
+    @PolicyResourceProperty(name="customResponse", flag="unknown_customResponse")
+    private @Nullable WebAclRuleActionBlockCustomResponse value_customResponse;
+    private boolean unknown_customResponse;
     public @Nullable WebAclRuleActionBlockCustomResponse customResponse() {
-        if (customResponse == null) return null;
-        return customResponse.getValue("WebAclRuleActionBlock.customResponse");
+        if (!unknown_customResponse) return value_customResponse;
+        throw new UndeferrableValueException("Value 'WebAclRuleActionBlock.customResponse' is not present");
     }
 
 }

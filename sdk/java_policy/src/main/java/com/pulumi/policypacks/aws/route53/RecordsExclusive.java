@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.route53.outputs.RecordsExclusiveResourceRecordSet;
 import com.pulumi.policypacks.aws.route53.outputs.RecordsExclusiveTimeouts;
@@ -20,18 +21,20 @@ public final class RecordsExclusive extends com.pulumi.resources.PolicyResourceO
      * See `resource_record_set` below.
      * 
      */
-    private @Nullable UndeferrableValue<List<RecordsExclusiveResourceRecordSet>> resourceRecordSets;
-
+    @PolicyResourceProperty(name="resourceRecordSets", flag="unknown_resourceRecordSets")
+    private @Nullable List<RecordsExclusiveResourceRecordSet> value_resourceRecordSets;
+    private boolean unknown_resourceRecordSets;
     public @Nullable List<RecordsExclusiveResourceRecordSet> resourceRecordSets() {
-        if (resourceRecordSets == null) return null;
-        return resourceRecordSets.getValue("RecordsExclusive.resourceRecordSets");
+        if (!unknown_resourceRecordSets) return value_resourceRecordSets;
+        throw new UndeferrableValueException("Value 'RecordsExclusive.resourceRecordSets' is not present");
     }
 
-    private @Nullable UndeferrableValue<RecordsExclusiveTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable RecordsExclusiveTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable RecordsExclusiveTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("RecordsExclusive.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'RecordsExclusive.timeouts' is not present");
     }
 
     /**
@@ -40,11 +43,12 @@ public final class RecordsExclusive extends com.pulumi.resources.PolicyResourceO
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> zoneId;
-
+    @PolicyResourceProperty(name="zoneId", flag="unknown_zoneId")
+    private String value_zoneId;
+    private boolean unknown_zoneId;
     public String zoneId() {
-        if (zoneId == null) return null;
-        return zoneId.getValue("RecordsExclusive.zoneId");
+        if (!unknown_zoneId) return value_zoneId;
+        throw new UndeferrableValueException("Value 'RecordsExclusive.zoneId' is not present");
     }
 
 }

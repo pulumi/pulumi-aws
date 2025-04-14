@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssmcontacts.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class PlanStageTargetChannelTargetInfo {
      * The Amazon Resource Name (ARN) of the contact channel.
      * 
      */
-    private UndeferrableValue<String> contactChannelId;
-
+    @PolicyResourceProperty(name="contactChannelId", flag="unknown_contactChannelId")
+    private String value_contactChannelId;
+    private boolean unknown_contactChannelId;
     public String contactChannelId() {
-        if (contactChannelId == null) return null;
-        return contactChannelId.getValue("PlanStageTargetChannelTargetInfo.contactChannelId");
+        if (!unknown_contactChannelId) return value_contactChannelId;
+        throw new UndeferrableValueException("Value 'PlanStageTargetChannelTargetInfo.contactChannelId' is not present");
     }
 
     /**
      * The number of minutes to wait before retrying to send engagement if the engagement initially failed.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> retryIntervalInMinutes;
-
+    @PolicyResourceProperty(name="retryIntervalInMinutes", flag="unknown_retryIntervalInMinutes")
+    private @Nullable Integer value_retryIntervalInMinutes;
+    private boolean unknown_retryIntervalInMinutes;
     public @Nullable Integer retryIntervalInMinutes() {
-        if (retryIntervalInMinutes == null) return null;
-        return retryIntervalInMinutes.getValue("PlanStageTargetChannelTargetInfo.retryIntervalInMinutes");
+        if (!unknown_retryIntervalInMinutes) return value_retryIntervalInMinutes;
+        throw new UndeferrableValueException("Value 'PlanStageTargetChannelTargetInfo.retryIntervalInMinutes' is not present");
     }
 
 }

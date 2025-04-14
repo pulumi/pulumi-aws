@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class DataSourceLambdaConfig {
      * ARN for the Lambda function.
      * 
      */
-    private UndeferrableValue<String> functionArn;
-
+    @PolicyResourceProperty(name="functionArn", flag="unknown_functionArn")
+    private String value_functionArn;
+    private boolean unknown_functionArn;
     public String functionArn() {
-        if (functionArn == null) return null;
-        return functionArn.getValue("DataSourceLambdaConfig.functionArn");
+        if (!unknown_functionArn) return value_functionArn;
+        throw new UndeferrableValueException("Value 'DataSourceLambdaConfig.functionArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssmincidents.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ResponsePlanIntegrationPagerduty {
      * The name of the response plan.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ResponsePlanIntegrationPagerduty.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ResponsePlanIntegrationPagerduty.name' is not present");
     }
 
     /**
@@ -26,22 +28,24 @@ public final class ResponsePlanIntegrationPagerduty {
      * For more information about the constraints for each field, see [CreateResponsePlan](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateResponsePlan.html) in the *AWS Systems Manager Incident Manager API Reference*.
      * 
      */
-    private UndeferrableValue<String> secretId;
-
+    @PolicyResourceProperty(name="secretId", flag="unknown_secretId")
+    private String value_secretId;
+    private boolean unknown_secretId;
     public String secretId() {
-        if (secretId == null) return null;
-        return secretId.getValue("ResponsePlanIntegrationPagerduty.secretId");
+        if (!unknown_secretId) return value_secretId;
+        throw new UndeferrableValueException("Value 'ResponsePlanIntegrationPagerduty.secretId' is not present");
     }
 
     /**
      * The ID of the PagerDuty service that the response plan associated with the incident at launch.
      * 
      */
-    private UndeferrableValue<String> serviceId;
-
+    @PolicyResourceProperty(name="serviceId", flag="unknown_serviceId")
+    private String value_serviceId;
+    private boolean unknown_serviceId;
     public String serviceId() {
-        if (serviceId == null) return null;
-        return serviceId.getValue("ResponsePlanIntegrationPagerduty.serviceId");
+        if (!unknown_serviceId) return value_serviceId;
+        throw new UndeferrableValueException("Value 'ResponsePlanIntegrationPagerduty.serviceId' is not present");
     }
 
 }

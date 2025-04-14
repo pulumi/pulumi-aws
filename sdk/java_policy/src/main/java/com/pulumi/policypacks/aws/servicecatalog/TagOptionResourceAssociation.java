@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,66 +16,72 @@ public final class TagOptionResourceAssociation extends com.pulumi.resources.Pol
      * ARN of the resource.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("TagOptionResourceAssociation.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'TagOptionResourceAssociation.resourceArn' is not present");
     }
 
     /**
      * Creation time of the resource.
      * 
      */
-    private UndeferrableValue<String> resourceCreatedTime;
-
+    @PolicyResourceProperty(name="resourceCreatedTime", flag="unknown_resourceCreatedTime")
+    private String value_resourceCreatedTime;
+    private boolean unknown_resourceCreatedTime;
     public String resourceCreatedTime() {
-        if (resourceCreatedTime == null) return null;
-        return resourceCreatedTime.getValue("TagOptionResourceAssociation.resourceCreatedTime");
+        if (!unknown_resourceCreatedTime) return value_resourceCreatedTime;
+        throw new UndeferrableValueException("Value 'TagOptionResourceAssociation.resourceCreatedTime' is not present");
     }
 
     /**
      * Description of the resource.
      * 
      */
-    private UndeferrableValue<String> resourceDescription;
-
+    @PolicyResourceProperty(name="resourceDescription", flag="unknown_resourceDescription")
+    private String value_resourceDescription;
+    private boolean unknown_resourceDescription;
     public String resourceDescription() {
-        if (resourceDescription == null) return null;
-        return resourceDescription.getValue("TagOptionResourceAssociation.resourceDescription");
+        if (!unknown_resourceDescription) return value_resourceDescription;
+        throw new UndeferrableValueException("Value 'TagOptionResourceAssociation.resourceDescription' is not present");
     }
 
     /**
      * Resource identifier.
      * 
      */
-    private UndeferrableValue<String> resourceId;
-
+    @PolicyResourceProperty(name="resourceId", flag="unknown_resourceId")
+    private String value_resourceId;
+    private boolean unknown_resourceId;
     public String resourceId() {
-        if (resourceId == null) return null;
-        return resourceId.getValue("TagOptionResourceAssociation.resourceId");
+        if (!unknown_resourceId) return value_resourceId;
+        throw new UndeferrableValueException("Value 'TagOptionResourceAssociation.resourceId' is not present");
     }
 
     /**
      * Description of the resource.
      * 
      */
-    private UndeferrableValue<String> resourceName;
-
+    @PolicyResourceProperty(name="resourceName", flag="unknown_resourceName")
+    private String value_resourceName;
+    private boolean unknown_resourceName;
     public String resourceName() {
-        if (resourceName == null) return null;
-        return resourceName.getValue("TagOptionResourceAssociation.resourceName");
+        if (!unknown_resourceName) return value_resourceName;
+        throw new UndeferrableValueException("Value 'TagOptionResourceAssociation.resourceName' is not present");
     }
 
     /**
      * Tag Option identifier.
      * 
      */
-    private UndeferrableValue<String> tagOptionId;
-
+    @PolicyResourceProperty(name="tagOptionId", flag="unknown_tagOptionId")
+    private String value_tagOptionId;
+    private boolean unknown_tagOptionId;
     public String tagOptionId() {
-        if (tagOptionId == null) return null;
-        return tagOptionId.getValue("TagOptionResourceAssociation.tagOptionId");
+        if (!unknown_tagOptionId) return value_tagOptionId;
+        throw new UndeferrableValueException("Value 'TagOptionResourceAssociation.tagOptionId' is not present");
     }
 
 }

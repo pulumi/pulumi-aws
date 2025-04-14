@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.outputs.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig;
 import java.lang.String;
 import java.util.List;
@@ -13,39 +14,44 @@ import javax.annotation.Nullable;
 
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector {
 
-    private @Nullable UndeferrableValue<Map<String,String>> customProperties;
-
+    @PolicyResourceProperty(name="customProperties", flag="unknown_customProperties")
+    private @Nullable Map<String,String> value_customProperties;
+    private boolean unknown_customProperties;
     public @Nullable Map<String,String> customProperties() {
-        if (customProperties == null) return null;
-        return customProperties.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector.customProperties");
+        if (!unknown_customProperties) return value_customProperties;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector.customProperties' is not present");
     }
 
-    private UndeferrableValue<String> entityName;
-
+    @PolicyResourceProperty(name="entityName", flag="unknown_entityName")
+    private String value_entityName;
+    private boolean unknown_entityName;
     public String entityName() {
-        if (entityName == null) return null;
-        return entityName.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector.entityName");
+        if (!unknown_entityName) return value_entityName;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector.entityName' is not present");
     }
 
-    private @Nullable UndeferrableValue<FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig> errorHandlingConfig;
-
+    @PolicyResourceProperty(name="errorHandlingConfig", flag="unknown_errorHandlingConfig")
+    private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig value_errorHandlingConfig;
+    private boolean unknown_errorHandlingConfig;
     public @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig errorHandlingConfig() {
-        if (errorHandlingConfig == null) return null;
-        return errorHandlingConfig.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector.errorHandlingConfig");
+        if (!unknown_errorHandlingConfig) return value_errorHandlingConfig;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector.errorHandlingConfig' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<String>> idFieldNames;
-
+    @PolicyResourceProperty(name="idFieldNames", flag="unknown_idFieldNames")
+    private @Nullable List<String> value_idFieldNames;
+    private boolean unknown_idFieldNames;
     public @Nullable List<String> idFieldNames() {
-        if (idFieldNames == null) return null;
-        return idFieldNames.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector.idFieldNames");
+        if (!unknown_idFieldNames) return value_idFieldNames;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector.idFieldNames' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> writeOperationType;
-
+    @PolicyResourceProperty(name="writeOperationType", flag="unknown_writeOperationType")
+    private @Nullable String value_writeOperationType;
+    private boolean unknown_writeOperationType;
     public @Nullable String writeOperationType() {
-        if (writeOperationType == null) return null;
-        return writeOperationType.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector.writeOperationType");
+        if (!unknown_writeOperationType) return value_writeOperationType;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector.writeOperationType' is not present");
     }
 
 }

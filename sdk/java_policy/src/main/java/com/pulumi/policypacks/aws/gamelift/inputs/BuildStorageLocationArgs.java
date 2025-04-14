@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.gamelift.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class BuildStorageLocationArgs {
      * Name of your S3 bucket.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("BuildStorageLocationArgs.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'BuildStorageLocationArgs.bucket' is not present");
     }
 
     /**
      * Name of the zip file containing your build files.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("BuildStorageLocationArgs.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'BuildStorageLocationArgs.key' is not present");
     }
 
     /**
      * A specific version of the file. If not set, the latest version of the file is retrieved.
      * 
      */
-    private UndeferrableValue<String> objectVersion;
-
+    @PolicyResourceProperty(name="objectVersion", flag="unknown_objectVersion")
+    private String value_objectVersion;
+    private boolean unknown_objectVersion;
     public String objectVersion() {
-        if (objectVersion == null) return null;
-        return objectVersion.getValue("BuildStorageLocationArgs.objectVersion");
+        if (!unknown_objectVersion) return value_objectVersion;
+        throw new UndeferrableValueException("Value 'BuildStorageLocationArgs.objectVersion' is not present");
     }
 
     /**
      * ARN of the access role that allows Amazon GameLift to access your S3 bucket.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("BuildStorageLocationArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'BuildStorageLocationArgs.roleArn' is not present");
     }
 
 }

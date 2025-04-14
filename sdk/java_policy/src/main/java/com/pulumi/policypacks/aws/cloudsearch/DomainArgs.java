@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudsearch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudsearch.inputs.DomainEndpointOptionsArgs;
 import com.pulumi.policypacks.aws.cloudsearch.inputs.DomainIndexFieldArgs;
@@ -21,55 +22,60 @@ public final class DomainArgs extends com.pulumi.resources.PolicyResourceInput {
      * Domain endpoint options. Documented below.
      * 
      */
-    private UndeferrableValue<DomainEndpointOptionsArgs> endpointOptions;
-
+    @PolicyResourceProperty(name="endpointOptions", flag="unknown_endpointOptions")
+    private DomainEndpointOptionsArgs value_endpointOptions;
+    private boolean unknown_endpointOptions;
     public DomainEndpointOptionsArgs endpointOptions() {
-        if (endpointOptions == null) return null;
-        return endpointOptions.getValue("DomainArgs.endpointOptions");
+        if (!unknown_endpointOptions) return value_endpointOptions;
+        throw new UndeferrableValueException("Value 'DomainArgs.endpointOptions' is not present");
     }
 
     /**
      * The index fields for documents added to the domain. Documented below.
      * 
      */
-    private UndeferrableValue<List<DomainIndexFieldArgs>> indexFields;
-
+    @PolicyResourceProperty(name="indexFields", flag="unknown_indexFields")
+    private List<DomainIndexFieldArgs> value_indexFields;
+    private boolean unknown_indexFields;
     public List<DomainIndexFieldArgs> indexFields() {
-        if (indexFields == null) return null;
-        return indexFields.getValue("DomainArgs.indexFields");
+        if (!unknown_indexFields) return value_indexFields;
+        throw new UndeferrableValueException("Value 'DomainArgs.indexFields' is not present");
     }
 
     /**
      * Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
      * 
      */
-    private UndeferrableValue<Boolean> multiAz;
-
+    @PolicyResourceProperty(name="multiAz", flag="unknown_multiAz")
+    private Boolean value_multiAz;
+    private boolean unknown_multiAz;
     public Boolean multiAz() {
-        if (multiAz == null) return null;
-        return multiAz.getValue("DomainArgs.multiAz");
+        if (!unknown_multiAz) return value_multiAz;
+        throw new UndeferrableValueException("Value 'DomainArgs.multiAz' is not present");
     }
 
     /**
      * The name of the CloudSearch domain.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DomainArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DomainArgs.name' is not present");
     }
 
     /**
      * Domain scaling parameters. Documented below.
      * 
      */
-    private UndeferrableValue<DomainScalingParametersArgs> scalingParameters;
-
+    @PolicyResourceProperty(name="scalingParameters", flag="unknown_scalingParameters")
+    private DomainScalingParametersArgs value_scalingParameters;
+    private boolean unknown_scalingParameters;
     public DomainScalingParametersArgs scalingParameters() {
-        if (scalingParameters == null) return null;
-        return scalingParameters.getValue("DomainArgs.scalingParameters");
+        if (!unknown_scalingParameters) return value_scalingParameters;
+        throw new UndeferrableValueException("Value 'DomainArgs.scalingParameters' is not present");
     }
 
 }

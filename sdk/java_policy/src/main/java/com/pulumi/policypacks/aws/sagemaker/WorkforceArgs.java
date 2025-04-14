@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.inputs.WorkforceCognitoConfigArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.WorkforceOidcConfigArgs;
@@ -20,55 +21,60 @@ public final class WorkforceArgs extends com.pulumi.resources.PolicyResourceInpu
      * Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
      * 
      */
-    private UndeferrableValue<WorkforceCognitoConfigArgs> cognitoConfig;
-
+    @PolicyResourceProperty(name="cognitoConfig", flag="unknown_cognitoConfig")
+    private WorkforceCognitoConfigArgs value_cognitoConfig;
+    private boolean unknown_cognitoConfig;
     public WorkforceCognitoConfigArgs cognitoConfig() {
-        if (cognitoConfig == null) return null;
-        return cognitoConfig.getValue("WorkforceArgs.cognitoConfig");
+        if (!unknown_cognitoConfig) return value_cognitoConfig;
+        throw new UndeferrableValueException("Value 'WorkforceArgs.cognitoConfig' is not present");
     }
 
     /**
      * Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
      * 
      */
-    private UndeferrableValue<WorkforceOidcConfigArgs> oidcConfig;
-
+    @PolicyResourceProperty(name="oidcConfig", flag="unknown_oidcConfig")
+    private WorkforceOidcConfigArgs value_oidcConfig;
+    private boolean unknown_oidcConfig;
     public WorkforceOidcConfigArgs oidcConfig() {
-        if (oidcConfig == null) return null;
-        return oidcConfig.getValue("WorkforceArgs.oidcConfig");
+        if (!unknown_oidcConfig) return value_oidcConfig;
+        throw new UndeferrableValueException("Value 'WorkforceArgs.oidcConfig' is not present");
     }
 
     /**
      * A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn&#39;t restricted to specific IP addresses. see Source Ip Config details below.
      * 
      */
-    private UndeferrableValue<WorkforceSourceIpConfigArgs> sourceIpConfig;
-
+    @PolicyResourceProperty(name="sourceIpConfig", flag="unknown_sourceIpConfig")
+    private WorkforceSourceIpConfigArgs value_sourceIpConfig;
+    private boolean unknown_sourceIpConfig;
     public WorkforceSourceIpConfigArgs sourceIpConfig() {
-        if (sourceIpConfig == null) return null;
-        return sourceIpConfig.getValue("WorkforceArgs.sourceIpConfig");
+        if (!unknown_sourceIpConfig) return value_sourceIpConfig;
+        throw new UndeferrableValueException("Value 'WorkforceArgs.sourceIpConfig' is not present");
     }
 
     /**
      * The name of the Workforce (must be unique).
      * 
      */
-    private UndeferrableValue<String> workforceName;
-
+    @PolicyResourceProperty(name="workforceName", flag="unknown_workforceName")
+    private String value_workforceName;
+    private boolean unknown_workforceName;
     public String workforceName() {
-        if (workforceName == null) return null;
-        return workforceName.getValue("WorkforceArgs.workforceName");
+        if (!unknown_workforceName) return value_workforceName;
+        throw new UndeferrableValueException("Value 'WorkforceArgs.workforceName' is not present");
     }
 
     /**
      * configure a workforce using VPC. see Workforce VPC Config details below.
      * 
      */
-    private UndeferrableValue<WorkforceWorkforceVpcConfigArgs> workforceVpcConfig;
-
+    @PolicyResourceProperty(name="workforceVpcConfig", flag="unknown_workforceVpcConfig")
+    private WorkforceWorkforceVpcConfigArgs value_workforceVpcConfig;
+    private boolean unknown_workforceVpcConfig;
     public WorkforceWorkforceVpcConfigArgs workforceVpcConfig() {
-        if (workforceVpcConfig == null) return null;
-        return workforceVpcConfig.getValue("WorkforceArgs.workforceVpcConfig");
+        if (!unknown_workforceVpcConfig) return value_workforceVpcConfig;
+        throw new UndeferrableValueException("Value 'WorkforceArgs.workforceVpcConfig' is not present");
     }
 
 }

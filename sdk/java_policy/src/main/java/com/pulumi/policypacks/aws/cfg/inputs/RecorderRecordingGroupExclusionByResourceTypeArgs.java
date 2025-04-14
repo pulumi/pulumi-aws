@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class RecorderRecordingGroupExclusionByResourceTypeArgs {
      * A list that specifies the types of AWS resources for which AWS Config excludes records configuration changes. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
      * 
      */
-    private UndeferrableValue<List<String>> resourceTypes;
-
+    @PolicyResourceProperty(name="resourceTypes", flag="unknown_resourceTypes")
+    private List<String> value_resourceTypes;
+    private boolean unknown_resourceTypes;
     public List<String> resourceTypes() {
-        if (resourceTypes == null) return null;
-        return resourceTypes.getValue("RecorderRecordingGroupExclusionByResourceTypeArgs.resourceTypes");
+        if (!unknown_resourceTypes) return value_resourceTypes;
+        throw new UndeferrableValueException("Value 'RecorderRecordingGroupExclusionByResourceTypeArgs.resourceTypes' is not present");
     }
 
 }

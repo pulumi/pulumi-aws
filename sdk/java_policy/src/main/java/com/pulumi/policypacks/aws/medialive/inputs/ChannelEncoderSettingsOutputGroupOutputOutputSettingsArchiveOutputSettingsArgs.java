@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveO
      * Settings specific to the container type of the file. See Container Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs> containerSettings;
-
+    @PolicyResourceProperty(name="containerSettings", flag="unknown_containerSettings")
+    private ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs value_containerSettings;
+    private boolean unknown_containerSettings;
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs containerSettings() {
-        if (containerSettings == null) return null;
-        return containerSettings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs.containerSettings");
+        if (!unknown_containerSettings) return value_containerSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs.containerSettings' is not present");
     }
 
     /**
      * Output file extension.
      * 
      */
-    private UndeferrableValue<String> extension;
-
+    @PolicyResourceProperty(name="extension", flag="unknown_extension")
+    private String value_extension;
+    private boolean unknown_extension;
     public String extension() {
-        if (extension == null) return null;
-        return extension.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs.extension");
+        if (!unknown_extension) return value_extension;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs.extension' is not present");
     }
 
     /**
      * String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
      * 
      */
-    private UndeferrableValue<String> nameModifier;
-
+    @PolicyResourceProperty(name="nameModifier", flag="unknown_nameModifier")
+    private String value_nameModifier;
+    private boolean unknown_nameModifier;
     public String nameModifier() {
-        if (nameModifier == null) return null;
-        return nameModifier.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs.nameModifier");
+        if (!unknown_nameModifier) return value_nameModifier;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs.nameModifier' is not present");
     }
 
 }

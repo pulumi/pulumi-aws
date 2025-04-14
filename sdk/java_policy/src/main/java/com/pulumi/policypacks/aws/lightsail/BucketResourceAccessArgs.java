@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class BucketResourceAccessArgs extends com.pulumi.resources.PolicyR
      * The name of the bucket to grant access to.
      * 
      */
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("BucketResourceAccessArgs.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'BucketResourceAccessArgs.bucketName' is not present");
     }
 
     /**
      * The name of the resource to be granted bucket access.
      * 
      */
-    private UndeferrableValue<String> resourceName;
-
+    @PolicyResourceProperty(name="resourceName", flag="unknown_resourceName")
+    private String value_resourceName;
+    private boolean unknown_resourceName;
     public String resourceName() {
-        if (resourceName == null) return null;
-        return resourceName.getValue("BucketResourceAccessArgs.resourceName");
+        if (!unknown_resourceName) return value_resourceName;
+        throw new UndeferrableValueException("Value 'BucketResourceAccessArgs.resourceName' is not present");
     }
 
 }

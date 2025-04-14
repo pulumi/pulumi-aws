@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,18 +14,20 @@ public final class RecordsExclusiveResourceRecordSetGeoproximityLocationCoordina
      * A coordinate of the east–west position of a geographic point on the surface of the Earth (`-180` - `180`).
      * 
      */
-    private UndeferrableValue<String> latitude;
-
+    @PolicyResourceProperty(name="latitude", flag="unknown_latitude")
+    private String value_latitude;
+    private boolean unknown_latitude;
     public String latitude() {
-        if (latitude == null) return null;
-        return latitude.getValue("RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates.latitude");
+        if (!unknown_latitude) return value_latitude;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates.latitude' is not present");
     }
 
-    private UndeferrableValue<String> longitude;
-
+    @PolicyResourceProperty(name="longitude", flag="unknown_longitude")
+    private String value_longitude;
+    private boolean unknown_longitude;
     public String longitude() {
-        if (longitude == null) return null;
-        return longitude.getValue("RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates.longitude");
+        if (!unknown_longitude) return value_longitude;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinates.longitude' is not present");
     }
 
 }

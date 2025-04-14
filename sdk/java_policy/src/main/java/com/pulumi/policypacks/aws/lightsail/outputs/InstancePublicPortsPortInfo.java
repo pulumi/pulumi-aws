@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -16,51 +17,56 @@ public final class InstancePublicPortsPortInfo {
      * Set of CIDR aliases that define access for a preconfigured range of IP addresses.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> cidrListAliases;
-
+    @PolicyResourceProperty(name="cidrListAliases", flag="unknown_cidrListAliases")
+    private @Nullable List<String> value_cidrListAliases;
+    private boolean unknown_cidrListAliases;
     public @Nullable List<String> cidrListAliases() {
-        if (cidrListAliases == null) return null;
-        return cidrListAliases.getValue("InstancePublicPortsPortInfo.cidrListAliases");
+        if (!unknown_cidrListAliases) return value_cidrListAliases;
+        throw new UndeferrableValueException("Value 'InstancePublicPortsPortInfo.cidrListAliases' is not present");
     }
 
     /**
      * Set of CIDR blocks.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> cidrs;
-
+    @PolicyResourceProperty(name="cidrs", flag="unknown_cidrs")
+    private @Nullable List<String> value_cidrs;
+    private boolean unknown_cidrs;
     public @Nullable List<String> cidrs() {
-        if (cidrs == null) return null;
-        return cidrs.getValue("InstancePublicPortsPortInfo.cidrs");
+        if (!unknown_cidrs) return value_cidrs;
+        throw new UndeferrableValueException("Value 'InstancePublicPortsPortInfo.cidrs' is not present");
     }
 
     /**
      * First port in a range of open ports on an instance.
      * 
      */
-    private UndeferrableValue<Integer> fromPort;
-
+    @PolicyResourceProperty(name="fromPort", flag="unknown_fromPort")
+    private Integer value_fromPort;
+    private boolean unknown_fromPort;
     public Integer fromPort() {
-        if (fromPort == null) return null;
-        return fromPort.getValue("InstancePublicPortsPortInfo.fromPort");
+        if (!unknown_fromPort) return value_fromPort;
+        throw new UndeferrableValueException("Value 'InstancePublicPortsPortInfo.fromPort' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<String>> ipv6Cidrs;
-
+    @PolicyResourceProperty(name="ipv6Cidrs", flag="unknown_ipv6Cidrs")
+    private @Nullable List<String> value_ipv6Cidrs;
+    private boolean unknown_ipv6Cidrs;
     public @Nullable List<String> ipv6Cidrs() {
-        if (ipv6Cidrs == null) return null;
-        return ipv6Cidrs.getValue("InstancePublicPortsPortInfo.ipv6Cidrs");
+        if (!unknown_ipv6Cidrs) return value_ipv6Cidrs;
+        throw new UndeferrableValueException("Value 'InstancePublicPortsPortInfo.ipv6Cidrs' is not present");
     }
 
     /**
      * IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("InstancePublicPortsPortInfo.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'InstancePublicPortsPortInfo.protocol' is not present");
     }
 
     /**
@@ -69,11 +75,12 @@ public final class InstancePublicPortsPortInfo {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<Integer> toPort;
-
+    @PolicyResourceProperty(name="toPort", flag="unknown_toPort")
+    private Integer value_toPort;
+    private boolean unknown_toPort;
     public Integer toPort() {
-        if (toPort == null) return null;
-        return toPort.getValue("InstancePublicPortsPortInfo.toPort");
+        if (!unknown_toPort) return value_toPort;
+        throw new UndeferrableValueException("Value 'InstancePublicPortsPortInfo.toPort' is not present");
     }
 
 }

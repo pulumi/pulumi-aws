@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.opsworks.inputs.StackCustomCookbooksSourceArgs;
 import java.lang.Boolean;
@@ -20,77 +21,84 @@ public final class StackArgs extends com.pulumi.resources.PolicyResourceInput {
      * If set to `&#34;LATEST&#34;`, OpsWorks will automatically install the latest version.
      * 
      */
-    private UndeferrableValue<String> agentVersion;
-
+    @PolicyResourceProperty(name="agentVersion", flag="unknown_agentVersion")
+    private String value_agentVersion;
+    private boolean unknown_agentVersion;
     public String agentVersion() {
-        if (agentVersion == null) return null;
-        return agentVersion.getValue("StackArgs.agentVersion");
+        if (!unknown_agentVersion) return value_agentVersion;
+        throw new UndeferrableValueException("Value 'StackArgs.agentVersion' is not present");
     }
 
     /**
      * If `manage_berkshelf` is enabled, the version of Berkshelf to use.
      * 
      */
-    private UndeferrableValue<String> berkshelfVersion;
-
+    @PolicyResourceProperty(name="berkshelfVersion", flag="unknown_berkshelfVersion")
+    private String value_berkshelfVersion;
+    private boolean unknown_berkshelfVersion;
     public String berkshelfVersion() {
-        if (berkshelfVersion == null) return null;
-        return berkshelfVersion.getValue("StackArgs.berkshelfVersion");
+        if (!unknown_berkshelfVersion) return value_berkshelfVersion;
+        throw new UndeferrableValueException("Value 'StackArgs.berkshelfVersion' is not present");
     }
 
     /**
      * Color to paint next to the stack&#39;s resources in the OpsWorks console.
      * 
      */
-    private UndeferrableValue<String> color;
-
+    @PolicyResourceProperty(name="color", flag="unknown_color")
+    private String value_color;
+    private boolean unknown_color;
     public String color() {
-        if (color == null) return null;
-        return color.getValue("StackArgs.color");
+        if (!unknown_color) return value_color;
+        throw new UndeferrableValueException("Value 'StackArgs.color' is not present");
     }
 
     /**
      * Name of the configuration manager to use. Defaults to &#34;Chef&#34;.
      * 
      */
-    private UndeferrableValue<String> configurationManagerName;
-
+    @PolicyResourceProperty(name="configurationManagerName", flag="unknown_configurationManagerName")
+    private String value_configurationManagerName;
+    private boolean unknown_configurationManagerName;
     public String configurationManagerName() {
-        if (configurationManagerName == null) return null;
-        return configurationManagerName.getValue("StackArgs.configurationManagerName");
+        if (!unknown_configurationManagerName) return value_configurationManagerName;
+        throw new UndeferrableValueException("Value 'StackArgs.configurationManagerName' is not present");
     }
 
     /**
      * Version of the configuration manager to use. Defaults to &#34;11.4&#34;.
      * 
      */
-    private UndeferrableValue<String> configurationManagerVersion;
-
+    @PolicyResourceProperty(name="configurationManagerVersion", flag="unknown_configurationManagerVersion")
+    private String value_configurationManagerVersion;
+    private boolean unknown_configurationManagerVersion;
     public String configurationManagerVersion() {
-        if (configurationManagerVersion == null) return null;
-        return configurationManagerVersion.getValue("StackArgs.configurationManagerVersion");
+        if (!unknown_configurationManagerVersion) return value_configurationManagerVersion;
+        throw new UndeferrableValueException("Value 'StackArgs.configurationManagerVersion' is not present");
     }
 
     /**
      * When `use_custom_cookbooks` is set, provide this sub-object as described below.
      * 
      */
-    private UndeferrableValue<List<StackCustomCookbooksSourceArgs>> customCookbooksSources;
-
+    @PolicyResourceProperty(name="customCookbooksSources", flag="unknown_customCookbooksSources")
+    private List<StackCustomCookbooksSourceArgs> value_customCookbooksSources;
+    private boolean unknown_customCookbooksSources;
     public List<StackCustomCookbooksSourceArgs> customCookbooksSources() {
-        if (customCookbooksSources == null) return null;
-        return customCookbooksSources.getValue("StackArgs.customCookbooksSources");
+        if (!unknown_customCookbooksSources) return value_customCookbooksSources;
+        throw new UndeferrableValueException("Value 'StackArgs.customCookbooksSources' is not present");
     }
 
     /**
      * Custom JSON attributes to apply to the entire stack.
      * 
      */
-    private UndeferrableValue<String> customJson;
-
+    @PolicyResourceProperty(name="customJson", flag="unknown_customJson")
+    private String value_customJson;
+    private boolean unknown_customJson;
     public String customJson() {
-        if (customJson == null) return null;
-        return customJson.getValue("StackArgs.customJson");
+        if (!unknown_customJson) return value_customJson;
+        throw new UndeferrableValueException("Value 'StackArgs.customJson' is not present");
     }
 
     /**
@@ -98,55 +106,60 @@ public final class StackArgs extends com.pulumi.resources.PolicyResourceInput {
      * Cannot be set when `vpc_id` is set.
      * 
      */
-    private UndeferrableValue<String> defaultAvailabilityZone;
-
+    @PolicyResourceProperty(name="defaultAvailabilityZone", flag="unknown_defaultAvailabilityZone")
+    private String value_defaultAvailabilityZone;
+    private boolean unknown_defaultAvailabilityZone;
     public String defaultAvailabilityZone() {
-        if (defaultAvailabilityZone == null) return null;
-        return defaultAvailabilityZone.getValue("StackArgs.defaultAvailabilityZone");
+        if (!unknown_defaultAvailabilityZone) return value_defaultAvailabilityZone;
+        throw new UndeferrableValueException("Value 'StackArgs.defaultAvailabilityZone' is not present");
     }
 
     /**
      * The ARN of an IAM Instance Profile that created instances will have by default.
      * 
      */
-    private UndeferrableValue<String> defaultInstanceProfileArn;
-
+    @PolicyResourceProperty(name="defaultInstanceProfileArn", flag="unknown_defaultInstanceProfileArn")
+    private String value_defaultInstanceProfileArn;
+    private boolean unknown_defaultInstanceProfileArn;
     public String defaultInstanceProfileArn() {
-        if (defaultInstanceProfileArn == null) return null;
-        return defaultInstanceProfileArn.getValue("StackArgs.defaultInstanceProfileArn");
+        if (!unknown_defaultInstanceProfileArn) return value_defaultInstanceProfileArn;
+        throw new UndeferrableValueException("Value 'StackArgs.defaultInstanceProfileArn' is not present");
     }
 
     /**
      * Name of OS that will be installed on instances by default.
      * 
      */
-    private UndeferrableValue<String> defaultOs;
-
+    @PolicyResourceProperty(name="defaultOs", flag="unknown_defaultOs")
+    private String value_defaultOs;
+    private boolean unknown_defaultOs;
     public String defaultOs() {
-        if (defaultOs == null) return null;
-        return defaultOs.getValue("StackArgs.defaultOs");
+        if (!unknown_defaultOs) return value_defaultOs;
+        throw new UndeferrableValueException("Value 'StackArgs.defaultOs' is not present");
     }
 
     /**
      * Name of the type of root device instances will have by default.
      * 
      */
-    private UndeferrableValue<String> defaultRootDeviceType;
-
+    @PolicyResourceProperty(name="defaultRootDeviceType", flag="unknown_defaultRootDeviceType")
+    private String value_defaultRootDeviceType;
+    private boolean unknown_defaultRootDeviceType;
     public String defaultRootDeviceType() {
-        if (defaultRootDeviceType == null) return null;
-        return defaultRootDeviceType.getValue("StackArgs.defaultRootDeviceType");
+        if (!unknown_defaultRootDeviceType) return value_defaultRootDeviceType;
+        throw new UndeferrableValueException("Value 'StackArgs.defaultRootDeviceType' is not present");
     }
 
     /**
      * Name of the SSH keypair that instances will have by default.
      * 
      */
-    private UndeferrableValue<String> defaultSshKeyName;
-
+    @PolicyResourceProperty(name="defaultSshKeyName", flag="unknown_defaultSshKeyName")
+    private String value_defaultSshKeyName;
+    private boolean unknown_defaultSshKeyName;
     public String defaultSshKeyName() {
-        if (defaultSshKeyName == null) return null;
-        return defaultSshKeyName.getValue("StackArgs.defaultSshKeyName");
+        if (!unknown_defaultSshKeyName) return value_defaultSshKeyName;
+        throw new UndeferrableValueException("Value 'StackArgs.defaultSshKeyName' is not present");
     }
 
     /**
@@ -154,66 +167,72 @@ public final class StackArgs extends com.pulumi.resources.PolicyResourceInput {
      * Required if `vpc_id` is set to a VPC other than the default VPC, and forbidden if it isn&#39;t.
      * 
      */
-    private UndeferrableValue<String> defaultSubnetId;
-
+    @PolicyResourceProperty(name="defaultSubnetId", flag="unknown_defaultSubnetId")
+    private String value_defaultSubnetId;
+    private boolean unknown_defaultSubnetId;
     public String defaultSubnetId() {
-        if (defaultSubnetId == null) return null;
-        return defaultSubnetId.getValue("StackArgs.defaultSubnetId");
+        if (!unknown_defaultSubnetId) return value_defaultSubnetId;
+        throw new UndeferrableValueException("Value 'StackArgs.defaultSubnetId' is not present");
     }
 
     /**
      * Keyword representing the naming scheme that will be used for instance hostnames within this stack.
      * 
      */
-    private UndeferrableValue<String> hostnameTheme;
-
+    @PolicyResourceProperty(name="hostnameTheme", flag="unknown_hostnameTheme")
+    private String value_hostnameTheme;
+    private boolean unknown_hostnameTheme;
     public String hostnameTheme() {
-        if (hostnameTheme == null) return null;
-        return hostnameTheme.getValue("StackArgs.hostnameTheme");
+        if (!unknown_hostnameTheme) return value_hostnameTheme;
+        throw new UndeferrableValueException("Value 'StackArgs.hostnameTheme' is not present");
     }
 
     /**
      * Boolean value controlling whether Opsworks will run Berkshelf for this stack.
      * 
      */
-    private UndeferrableValue<Boolean> manageBerkshelf;
-
+    @PolicyResourceProperty(name="manageBerkshelf", flag="unknown_manageBerkshelf")
+    private Boolean value_manageBerkshelf;
+    private boolean unknown_manageBerkshelf;
     public Boolean manageBerkshelf() {
-        if (manageBerkshelf == null) return null;
-        return manageBerkshelf.getValue("StackArgs.manageBerkshelf");
+        if (!unknown_manageBerkshelf) return value_manageBerkshelf;
+        throw new UndeferrableValueException("Value 'StackArgs.manageBerkshelf' is not present");
     }
 
     /**
      * The name of the stack.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("StackArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'StackArgs.name' is not present");
     }
 
     /**
      * The name of the region where the stack will exist.
      * 
      */
-    private UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private String value_region;
+    private boolean unknown_region;
     public String region() {
-        if (region == null) return null;
-        return region.getValue("StackArgs.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'StackArgs.region' is not present");
     }
 
     /**
      * The ARN of an IAM role that the OpsWorks service will act as.
      * 
      */
-    private UndeferrableValue<String> serviceRoleArn;
-
+    @PolicyResourceProperty(name="serviceRoleArn", flag="unknown_serviceRoleArn")
+    private String value_serviceRoleArn;
+    private boolean unknown_serviceRoleArn;
     public String serviceRoleArn() {
-        if (serviceRoleArn == null) return null;
-        return serviceRoleArn.getValue("StackArgs.serviceRoleArn");
+        if (!unknown_serviceRoleArn) return value_serviceRoleArn;
+        throw new UndeferrableValueException("Value 'StackArgs.serviceRoleArn' is not present");
     }
 
     /**
@@ -221,33 +240,36 @@ public final class StackArgs extends com.pulumi.resources.PolicyResourceInput {
      * If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("StackArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'StackArgs.tags' is not present");
     }
 
     /**
      * Boolean value controlling whether the custom cookbook settings are enabled.
      * 
      */
-    private UndeferrableValue<Boolean> useCustomCookbooks;
-
+    @PolicyResourceProperty(name="useCustomCookbooks", flag="unknown_useCustomCookbooks")
+    private Boolean value_useCustomCookbooks;
+    private boolean unknown_useCustomCookbooks;
     public Boolean useCustomCookbooks() {
-        if (useCustomCookbooks == null) return null;
-        return useCustomCookbooks.getValue("StackArgs.useCustomCookbooks");
+        if (!unknown_useCustomCookbooks) return value_useCustomCookbooks;
+        throw new UndeferrableValueException("Value 'StackArgs.useCustomCookbooks' is not present");
     }
 
     /**
      * Boolean value controlling whether the standard OpsWorks security groups apply to created instances.
      * 
      */
-    private UndeferrableValue<Boolean> useOpsworksSecurityGroups;
-
+    @PolicyResourceProperty(name="useOpsworksSecurityGroups", flag="unknown_useOpsworksSecurityGroups")
+    private Boolean value_useOpsworksSecurityGroups;
+    private boolean unknown_useOpsworksSecurityGroups;
     public Boolean useOpsworksSecurityGroups() {
-        if (useOpsworksSecurityGroups == null) return null;
-        return useOpsworksSecurityGroups.getValue("StackArgs.useOpsworksSecurityGroups");
+        if (!unknown_useOpsworksSecurityGroups) return value_useOpsworksSecurityGroups;
+        throw new UndeferrableValueException("Value 'StackArgs.useOpsworksSecurityGroups' is not present");
     }
 
     /**
@@ -255,11 +277,12 @@ public final class StackArgs extends com.pulumi.resources.PolicyResourceInput {
      * Defaults to the region&#39;s default VPC.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("StackArgs.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'StackArgs.vpcId' is not present");
     }
 
 }

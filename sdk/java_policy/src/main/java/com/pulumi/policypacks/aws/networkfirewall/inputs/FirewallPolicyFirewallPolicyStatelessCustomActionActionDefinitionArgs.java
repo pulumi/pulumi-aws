@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs;
 
 
@@ -13,11 +14,12 @@ public final class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefini
      * A configuration block describing the stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. You can pair this custom action with any of the standard stateless rule actions. See Publish Metric Action below for details.
      * 
      */
-    private UndeferrableValue<FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs> publishMetricAction;
-
+    @PolicyResourceProperty(name="publishMetricAction", flag="unknown_publishMetricAction")
+    private FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs value_publishMetricAction;
+    private boolean unknown_publishMetricAction;
     public FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs publishMetricAction() {
-        if (publishMetricAction == null) return null;
-        return publishMetricAction.getValue("FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs.publishMetricAction");
+        if (!unknown_publishMetricAction) return value_publishMetricAction;
+        throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs.publishMetricAction' is not present");
     }
 
 }

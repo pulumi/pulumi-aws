@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glacier.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,22 +15,24 @@ public final class VaultNotification {
      * You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
      * 
      */
-    private UndeferrableValue<List<String>> events;
-
+    @PolicyResourceProperty(name="events", flag="unknown_events")
+    private List<String> value_events;
+    private boolean unknown_events;
     public List<String> events() {
-        if (events == null) return null;
-        return events.getValue("VaultNotification.events");
+        if (!unknown_events) return value_events;
+        throw new UndeferrableValueException("Value 'VaultNotification.events' is not present");
     }
 
     /**
      * The SNS Topic ARN.
      * 
      */
-    private UndeferrableValue<String> snsTopic;
-
+    @PolicyResourceProperty(name="snsTopic", flag="unknown_snsTopic")
+    private String value_snsTopic;
+    private boolean unknown_snsTopic;
     public String snsTopic() {
-        if (snsTopic == null) return null;
-        return snsTopic.getValue("VaultNotification.snsTopic");
+        if (!unknown_snsTopic) return value_snsTopic;
+        throw new UndeferrableValueException("Value 'VaultNotification.snsTopic' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsSlotTypeSlotTypeValuesSampleValueArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsSlotTypeSlotTypeValuesSynonymArgs;
 import java.util.List;
@@ -17,11 +18,12 @@ public final class V2modelsSlotTypeSlotTypeValuesArgs {
      * See `sample_value` argument reference below.
      * 
      */
-    private UndeferrableValue<List<V2modelsSlotTypeSlotTypeValuesSampleValueArgs>> sampleValues;
-
+    @PolicyResourceProperty(name="sampleValues", flag="unknown_sampleValues")
+    private List<V2modelsSlotTypeSlotTypeValuesSampleValueArgs> value_sampleValues;
+    private boolean unknown_sampleValues;
     public List<V2modelsSlotTypeSlotTypeValuesSampleValueArgs> sampleValues() {
-        if (sampleValues == null) return null;
-        return sampleValues.getValue("V2modelsSlotTypeSlotTypeValuesArgs.sampleValues");
+        if (!unknown_sampleValues) return value_sampleValues;
+        throw new UndeferrableValueException("Value 'V2modelsSlotTypeSlotTypeValuesArgs.sampleValues' is not present");
     }
 
     /**
@@ -29,11 +31,12 @@ public final class V2modelsSlotTypeSlotTypeValuesArgs {
      * See `synonyms` argument reference below.
      * 
      */
-    private UndeferrableValue<List<V2modelsSlotTypeSlotTypeValuesSynonymArgs>> synonyms;
-
+    @PolicyResourceProperty(name="synonyms", flag="unknown_synonyms")
+    private List<V2modelsSlotTypeSlotTypeValuesSynonymArgs> value_synonyms;
+    private boolean unknown_synonyms;
     public List<V2modelsSlotTypeSlotTypeValuesSynonymArgs> synonyms() {
-        if (synonyms == null) return null;
-        return synonyms.getValue("V2modelsSlotTypeSlotTypeValuesArgs.synonyms");
+        if (!unknown_synonyms) return value_synonyms;
+        throw new UndeferrableValueException("Value 'V2modelsSlotTypeSlotTypeValuesArgs.synonyms' is not present");
     }
 
 }

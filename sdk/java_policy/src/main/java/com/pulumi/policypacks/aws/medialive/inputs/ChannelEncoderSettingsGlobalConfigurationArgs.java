@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,66 +17,72 @@ public final class ChannelEncoderSettingsGlobalConfigurationArgs {
      * Value to set the initial audio gain for the Live Event.
      * 
      */
-    private UndeferrableValue<Integer> initialAudioGain;
-
+    @PolicyResourceProperty(name="initialAudioGain", flag="unknown_initialAudioGain")
+    private Integer value_initialAudioGain;
+    private boolean unknown_initialAudioGain;
     public Integer initialAudioGain() {
-        if (initialAudioGain == null) return null;
-        return initialAudioGain.getValue("ChannelEncoderSettingsGlobalConfigurationArgs.initialAudioGain");
+        if (!unknown_initialAudioGain) return value_initialAudioGain;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfigurationArgs.initialAudioGain' is not present");
     }
 
     /**
      * Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
      * 
      */
-    private UndeferrableValue<String> inputEndAction;
-
+    @PolicyResourceProperty(name="inputEndAction", flag="unknown_inputEndAction")
+    private String value_inputEndAction;
+    private boolean unknown_inputEndAction;
     public String inputEndAction() {
-        if (inputEndAction == null) return null;
-        return inputEndAction.getValue("ChannelEncoderSettingsGlobalConfigurationArgs.inputEndAction");
+        if (!unknown_inputEndAction) return value_inputEndAction;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfigurationArgs.inputEndAction' is not present");
     }
 
     /**
      * Settings for system actions when input is lost. See Input Loss Behavior for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs> inputLossBehavior;
-
+    @PolicyResourceProperty(name="inputLossBehavior", flag="unknown_inputLossBehavior")
+    private ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs value_inputLossBehavior;
+    private boolean unknown_inputLossBehavior;
     public ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs inputLossBehavior() {
-        if (inputLossBehavior == null) return null;
-        return inputLossBehavior.getValue("ChannelEncoderSettingsGlobalConfigurationArgs.inputLossBehavior");
+        if (!unknown_inputLossBehavior) return value_inputLossBehavior;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfigurationArgs.inputLossBehavior' is not present");
     }
 
     /**
      * Indicates how MediaLive pipelines are synchronized. PIPELINE\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
      * 
      */
-    private UndeferrableValue<String> outputLockingMode;
-
+    @PolicyResourceProperty(name="outputLockingMode", flag="unknown_outputLockingMode")
+    private String value_outputLockingMode;
+    private boolean unknown_outputLockingMode;
     public String outputLockingMode() {
-        if (outputLockingMode == null) return null;
-        return outputLockingMode.getValue("ChannelEncoderSettingsGlobalConfigurationArgs.outputLockingMode");
+        if (!unknown_outputLockingMode) return value_outputLockingMode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfigurationArgs.outputLockingMode' is not present");
     }
 
     /**
      * Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
      * 
      */
-    private UndeferrableValue<String> outputTimingSource;
-
+    @PolicyResourceProperty(name="outputTimingSource", flag="unknown_outputTimingSource")
+    private String value_outputTimingSource;
+    private boolean unknown_outputTimingSource;
     public String outputTimingSource() {
-        if (outputTimingSource == null) return null;
-        return outputTimingSource.getValue("ChannelEncoderSettingsGlobalConfigurationArgs.outputTimingSource");
+        if (!unknown_outputTimingSource) return value_outputTimingSource;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfigurationArgs.outputTimingSource' is not present");
     }
 
     /**
      * Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
      * 
      */
-    private UndeferrableValue<String> supportLowFramerateInputs;
-
+    @PolicyResourceProperty(name="supportLowFramerateInputs", flag="unknown_supportLowFramerateInputs")
+    private String value_supportLowFramerateInputs;
+    private boolean unknown_supportLowFramerateInputs;
     public String supportLowFramerateInputs() {
-        if (supportLowFramerateInputs == null) return null;
-        return supportLowFramerateInputs.getValue("ChannelEncoderSettingsGlobalConfigurationArgs.supportLowFramerateInputs");
+        if (!unknown_supportLowFramerateInputs) return value_supportLowFramerateInputs;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfigurationArgs.supportLowFramerateInputs' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ses;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class DomainIdentity extends com.pulumi.resources.PolicyResourceOut
      * The ARN of the domain identity.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("DomainIdentity.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'DomainIdentity.arn' is not present");
     }
 
     /**
      * The domain name to assign to SES
      * 
      */
-    private UndeferrableValue<String> domain;
-
+    @PolicyResourceProperty(name="domain", flag="unknown_domain")
+    private String value_domain;
+    private boolean unknown_domain;
     public String domain() {
-        if (domain == null) return null;
-        return domain.getValue("DomainIdentity.domain");
+        if (!unknown_domain) return value_domain;
+        throw new UndeferrableValueException("Value 'DomainIdentity.domain' is not present");
     }
 
     /**
      * A code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf. The domain identity will be in state &#34;verification pending&#34; until this is done. See the With Route53 Record example for how this might be achieved when the domain is hosted in Route 53 and managed by this provider.  Find out more about verifying domains in Amazon SES in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
      * 
      */
-    private UndeferrableValue<String> verificationToken;
-
+    @PolicyResourceProperty(name="verificationToken", flag="unknown_verificationToken")
+    private String value_verificationToken;
+    private boolean unknown_verificationToken;
     public String verificationToken() {
-        if (verificationToken == null) return null;
-        return verificationToken.getValue("DomainIdentity.verificationToken");
+        if (!unknown_verificationToken) return value_verificationToken;
+        throw new UndeferrableValueException("Value 'DomainIdentity.verificationToken' is not present");
     }
 
 }

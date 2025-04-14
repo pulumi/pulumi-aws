@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appsync.inputs.DataSourceDynamodbConfigArgs;
 import com.pulumi.policypacks.aws.appsync.inputs.DataSourceElasticsearchConfigArgs;
@@ -23,132 +24,144 @@ public final class DataSourceArgs extends com.pulumi.resources.PolicyResourceInp
      * API ID for the GraphQL API for the data source.
      * 
      */
-    private UndeferrableValue<String> apiId;
-
+    @PolicyResourceProperty(name="apiId", flag="unknown_apiId")
+    private String value_apiId;
+    private boolean unknown_apiId;
     public String apiId() {
-        if (apiId == null) return null;
-        return apiId.getValue("DataSourceArgs.apiId");
+        if (!unknown_apiId) return value_apiId;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.apiId' is not present");
     }
 
     /**
      * Description of the data source.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("DataSourceArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.description' is not present");
     }
 
     /**
      * DynamoDB settings. See `dynamodb_config` Block for details.
      * 
      */
-    private UndeferrableValue<DataSourceDynamodbConfigArgs> dynamodbConfig;
-
+    @PolicyResourceProperty(name="dynamodbConfig", flag="unknown_dynamodbConfig")
+    private DataSourceDynamodbConfigArgs value_dynamodbConfig;
+    private boolean unknown_dynamodbConfig;
     public DataSourceDynamodbConfigArgs dynamodbConfig() {
-        if (dynamodbConfig == null) return null;
-        return dynamodbConfig.getValue("DataSourceArgs.dynamodbConfig");
+        if (!unknown_dynamodbConfig) return value_dynamodbConfig;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.dynamodbConfig' is not present");
     }
 
     /**
      * Amazon Elasticsearch settings. See `elasticsearch_config` Block for details.
      * 
      */
-    private UndeferrableValue<DataSourceElasticsearchConfigArgs> elasticsearchConfig;
-
+    @PolicyResourceProperty(name="elasticsearchConfig", flag="unknown_elasticsearchConfig")
+    private DataSourceElasticsearchConfigArgs value_elasticsearchConfig;
+    private boolean unknown_elasticsearchConfig;
     public DataSourceElasticsearchConfigArgs elasticsearchConfig() {
-        if (elasticsearchConfig == null) return null;
-        return elasticsearchConfig.getValue("DataSourceArgs.elasticsearchConfig");
+        if (!unknown_elasticsearchConfig) return value_elasticsearchConfig;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.elasticsearchConfig' is not present");
     }
 
     /**
      * AWS EventBridge settings. See `event_bridge_config` Block for details.
      * 
      */
-    private UndeferrableValue<DataSourceEventBridgeConfigArgs> eventBridgeConfig;
-
+    @PolicyResourceProperty(name="eventBridgeConfig", flag="unknown_eventBridgeConfig")
+    private DataSourceEventBridgeConfigArgs value_eventBridgeConfig;
+    private boolean unknown_eventBridgeConfig;
     public DataSourceEventBridgeConfigArgs eventBridgeConfig() {
-        if (eventBridgeConfig == null) return null;
-        return eventBridgeConfig.getValue("DataSourceArgs.eventBridgeConfig");
+        if (!unknown_eventBridgeConfig) return value_eventBridgeConfig;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.eventBridgeConfig' is not present");
     }
 
     /**
      * HTTP settings. See `http_config` Block for details.
      * 
      */
-    private UndeferrableValue<DataSourceHttpConfigArgs> httpConfig;
-
+    @PolicyResourceProperty(name="httpConfig", flag="unknown_httpConfig")
+    private DataSourceHttpConfigArgs value_httpConfig;
+    private boolean unknown_httpConfig;
     public DataSourceHttpConfigArgs httpConfig() {
-        if (httpConfig == null) return null;
-        return httpConfig.getValue("DataSourceArgs.httpConfig");
+        if (!unknown_httpConfig) return value_httpConfig;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.httpConfig' is not present");
     }
 
     /**
      * AWS Lambda settings. See `lambda_config` Block for details.
      * 
      */
-    private UndeferrableValue<DataSourceLambdaConfigArgs> lambdaConfig;
-
+    @PolicyResourceProperty(name="lambdaConfig", flag="unknown_lambdaConfig")
+    private DataSourceLambdaConfigArgs value_lambdaConfig;
+    private boolean unknown_lambdaConfig;
     public DataSourceLambdaConfigArgs lambdaConfig() {
-        if (lambdaConfig == null) return null;
-        return lambdaConfig.getValue("DataSourceArgs.lambdaConfig");
+        if (!unknown_lambdaConfig) return value_lambdaConfig;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.lambdaConfig' is not present");
     }
 
     /**
      * User-supplied name for the data source.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DataSourceArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.name' is not present");
     }
 
     /**
      * Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
      * 
      */
-    private UndeferrableValue<DataSourceOpensearchserviceConfigArgs> opensearchserviceConfig;
-
+    @PolicyResourceProperty(name="opensearchserviceConfig", flag="unknown_opensearchserviceConfig")
+    private DataSourceOpensearchserviceConfigArgs value_opensearchserviceConfig;
+    private boolean unknown_opensearchserviceConfig;
     public DataSourceOpensearchserviceConfigArgs opensearchserviceConfig() {
-        if (opensearchserviceConfig == null) return null;
-        return opensearchserviceConfig.getValue("DataSourceArgs.opensearchserviceConfig");
+        if (!unknown_opensearchserviceConfig) return value_opensearchserviceConfig;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.opensearchserviceConfig' is not present");
     }
 
     /**
      * AWS RDS settings. See `relational_database_config` Block for details.
      * 
      */
-    private UndeferrableValue<DataSourceRelationalDatabaseConfigArgs> relationalDatabaseConfig;
-
+    @PolicyResourceProperty(name="relationalDatabaseConfig", flag="unknown_relationalDatabaseConfig")
+    private DataSourceRelationalDatabaseConfigArgs value_relationalDatabaseConfig;
+    private boolean unknown_relationalDatabaseConfig;
     public DataSourceRelationalDatabaseConfigArgs relationalDatabaseConfig() {
-        if (relationalDatabaseConfig == null) return null;
-        return relationalDatabaseConfig.getValue("DataSourceArgs.relationalDatabaseConfig");
+        if (!unknown_relationalDatabaseConfig) return value_relationalDatabaseConfig;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.relationalDatabaseConfig' is not present");
     }
 
     /**
      * IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
      * 
      */
-    private UndeferrableValue<String> serviceRoleArn;
-
+    @PolicyResourceProperty(name="serviceRoleArn", flag="unknown_serviceRoleArn")
+    private String value_serviceRoleArn;
+    private boolean unknown_serviceRoleArn;
     public String serviceRoleArn() {
-        if (serviceRoleArn == null) return null;
-        return serviceRoleArn.getValue("DataSourceArgs.serviceRoleArn");
+        if (!unknown_serviceRoleArn) return value_serviceRoleArn;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.serviceRoleArn' is not present");
     }
 
     /**
      * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("DataSourceArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.type' is not present");
     }
 
 }

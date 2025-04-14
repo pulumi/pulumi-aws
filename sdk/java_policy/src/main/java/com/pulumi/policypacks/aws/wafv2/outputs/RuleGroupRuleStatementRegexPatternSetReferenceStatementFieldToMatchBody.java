@@ -3,18 +3,20 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody {
 
-    private @Nullable UndeferrableValue<String> oversizeHandling;
-
+    @PolicyResourceProperty(name="oversizeHandling", flag="unknown_oversizeHandling")
+    private @Nullable String value_oversizeHandling;
+    private boolean unknown_oversizeHandling;
     public @Nullable String oversizeHandling() {
-        if (oversizeHandling == null) return null;
-        return oversizeHandling.getValue("RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody.oversizeHandling");
+        if (!unknown_oversizeHandling) return value_oversizeHandling;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody.oversizeHandling' is not present");
     }
 
 }

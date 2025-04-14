@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.pipes.outputs.PipeSourceParametersActivemqBrokerParameters;
 import com.pulumi.policypacks.aws.pipes.outputs.PipeSourceParametersDynamodbStreamParameters;
 import com.pulumi.policypacks.aws.pipes.outputs.PipeSourceParametersFilterCriteria;
@@ -21,88 +22,96 @@ public final class PipeSourceParameters {
      * The parameters for using an Active MQ broker as a source. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<PipeSourceParametersActivemqBrokerParameters> activemqBrokerParameters;
-
+    @PolicyResourceProperty(name="activemqBrokerParameters", flag="unknown_activemqBrokerParameters")
+    private @Nullable PipeSourceParametersActivemqBrokerParameters value_activemqBrokerParameters;
+    private boolean unknown_activemqBrokerParameters;
     public @Nullable PipeSourceParametersActivemqBrokerParameters activemqBrokerParameters() {
-        if (activemqBrokerParameters == null) return null;
-        return activemqBrokerParameters.getValue("PipeSourceParameters.activemqBrokerParameters");
+        if (!unknown_activemqBrokerParameters) return value_activemqBrokerParameters;
+        throw new UndeferrableValueException("Value 'PipeSourceParameters.activemqBrokerParameters' is not present");
     }
 
     /**
      * The parameters for using a DynamoDB stream as a source.  Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<PipeSourceParametersDynamodbStreamParameters> dynamodbStreamParameters;
-
+    @PolicyResourceProperty(name="dynamodbStreamParameters", flag="unknown_dynamodbStreamParameters")
+    private @Nullable PipeSourceParametersDynamodbStreamParameters value_dynamodbStreamParameters;
+    private boolean unknown_dynamodbStreamParameters;
     public @Nullable PipeSourceParametersDynamodbStreamParameters dynamodbStreamParameters() {
-        if (dynamodbStreamParameters == null) return null;
-        return dynamodbStreamParameters.getValue("PipeSourceParameters.dynamodbStreamParameters");
+        if (!unknown_dynamodbStreamParameters) return value_dynamodbStreamParameters;
+        throw new UndeferrableValueException("Value 'PipeSourceParameters.dynamodbStreamParameters' is not present");
     }
 
     /**
      * The collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<PipeSourceParametersFilterCriteria> filterCriteria;
-
+    @PolicyResourceProperty(name="filterCriteria", flag="unknown_filterCriteria")
+    private @Nullable PipeSourceParametersFilterCriteria value_filterCriteria;
+    private boolean unknown_filterCriteria;
     public @Nullable PipeSourceParametersFilterCriteria filterCriteria() {
-        if (filterCriteria == null) return null;
-        return filterCriteria.getValue("PipeSourceParameters.filterCriteria");
+        if (!unknown_filterCriteria) return value_filterCriteria;
+        throw new UndeferrableValueException("Value 'PipeSourceParameters.filterCriteria' is not present");
     }
 
     /**
      * The parameters for using a Kinesis stream as a source. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<PipeSourceParametersKinesisStreamParameters> kinesisStreamParameters;
-
+    @PolicyResourceProperty(name="kinesisStreamParameters", flag="unknown_kinesisStreamParameters")
+    private @Nullable PipeSourceParametersKinesisStreamParameters value_kinesisStreamParameters;
+    private boolean unknown_kinesisStreamParameters;
     public @Nullable PipeSourceParametersKinesisStreamParameters kinesisStreamParameters() {
-        if (kinesisStreamParameters == null) return null;
-        return kinesisStreamParameters.getValue("PipeSourceParameters.kinesisStreamParameters");
+        if (!unknown_kinesisStreamParameters) return value_kinesisStreamParameters;
+        throw new UndeferrableValueException("Value 'PipeSourceParameters.kinesisStreamParameters' is not present");
     }
 
     /**
      * The parameters for using an MSK stream as a source. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<PipeSourceParametersManagedStreamingKafkaParameters> managedStreamingKafkaParameters;
-
+    @PolicyResourceProperty(name="managedStreamingKafkaParameters", flag="unknown_managedStreamingKafkaParameters")
+    private @Nullable PipeSourceParametersManagedStreamingKafkaParameters value_managedStreamingKafkaParameters;
+    private boolean unknown_managedStreamingKafkaParameters;
     public @Nullable PipeSourceParametersManagedStreamingKafkaParameters managedStreamingKafkaParameters() {
-        if (managedStreamingKafkaParameters == null) return null;
-        return managedStreamingKafkaParameters.getValue("PipeSourceParameters.managedStreamingKafkaParameters");
+        if (!unknown_managedStreamingKafkaParameters) return value_managedStreamingKafkaParameters;
+        throw new UndeferrableValueException("Value 'PipeSourceParameters.managedStreamingKafkaParameters' is not present");
     }
 
     /**
      * The parameters for using a Rabbit MQ broker as a source. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<PipeSourceParametersRabbitmqBrokerParameters> rabbitmqBrokerParameters;
-
+    @PolicyResourceProperty(name="rabbitmqBrokerParameters", flag="unknown_rabbitmqBrokerParameters")
+    private @Nullable PipeSourceParametersRabbitmqBrokerParameters value_rabbitmqBrokerParameters;
+    private boolean unknown_rabbitmqBrokerParameters;
     public @Nullable PipeSourceParametersRabbitmqBrokerParameters rabbitmqBrokerParameters() {
-        if (rabbitmqBrokerParameters == null) return null;
-        return rabbitmqBrokerParameters.getValue("PipeSourceParameters.rabbitmqBrokerParameters");
+        if (!unknown_rabbitmqBrokerParameters) return value_rabbitmqBrokerParameters;
+        throw new UndeferrableValueException("Value 'PipeSourceParameters.rabbitmqBrokerParameters' is not present");
     }
 
     /**
      * The parameters for using a self-managed Apache Kafka stream as a source. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<PipeSourceParametersSelfManagedKafkaParameters> selfManagedKafkaParameters;
-
+    @PolicyResourceProperty(name="selfManagedKafkaParameters", flag="unknown_selfManagedKafkaParameters")
+    private @Nullable PipeSourceParametersSelfManagedKafkaParameters value_selfManagedKafkaParameters;
+    private boolean unknown_selfManagedKafkaParameters;
     public @Nullable PipeSourceParametersSelfManagedKafkaParameters selfManagedKafkaParameters() {
-        if (selfManagedKafkaParameters == null) return null;
-        return selfManagedKafkaParameters.getValue("PipeSourceParameters.selfManagedKafkaParameters");
+        if (!unknown_selfManagedKafkaParameters) return value_selfManagedKafkaParameters;
+        throw new UndeferrableValueException("Value 'PipeSourceParameters.selfManagedKafkaParameters' is not present");
     }
 
     /**
      * The parameters for using a Amazon SQS stream as a source. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<PipeSourceParametersSqsQueueParameters> sqsQueueParameters;
-
+    @PolicyResourceProperty(name="sqsQueueParameters", flag="unknown_sqsQueueParameters")
+    private @Nullable PipeSourceParametersSqsQueueParameters value_sqsQueueParameters;
+    private boolean unknown_sqsQueueParameters;
     public @Nullable PipeSourceParametersSqsQueueParameters sqsQueueParameters() {
-        if (sqsQueueParameters == null) return null;
-        return sqsQueueParameters.getValue("PipeSourceParameters.sqsQueueParameters");
+        if (!unknown_sqsQueueParameters) return value_sqsQueueParameters;
+        throw new UndeferrableValueException("Value 'PipeSourceParameters.sqsQueueParameters' is not present");
     }
 
 }

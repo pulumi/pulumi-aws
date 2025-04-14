@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class EventConnectionAuthParametersBasicArgs {
      * A password for the authorization. Created and stored in AWS Secrets Manager.
      * 
      */
-    private UndeferrableValue<String> password;
-
+    @PolicyResourceProperty(name="password", flag="unknown_password")
+    private String value_password;
+    private boolean unknown_password;
     public String password() {
-        if (password == null) return null;
-        return password.getValue("EventConnectionAuthParametersBasicArgs.password");
+        if (!unknown_password) return value_password;
+        throw new UndeferrableValueException("Value 'EventConnectionAuthParametersBasicArgs.password' is not present");
     }
 
     /**
      * A username for the authorization.
      * 
      */
-    private UndeferrableValue<String> username;
-
+    @PolicyResourceProperty(name="username", flag="unknown_username")
+    private String value_username;
+    private boolean unknown_username;
     public String username() {
-        if (username == null) return null;
-        return username.getValue("EventConnectionAuthParametersBasicArgs.username");
+        if (!unknown_username) return value_username;
+        throw new UndeferrableValueException("Value 'EventConnectionAuthParametersBasicArgs.username' is not present");
     }
 
 }

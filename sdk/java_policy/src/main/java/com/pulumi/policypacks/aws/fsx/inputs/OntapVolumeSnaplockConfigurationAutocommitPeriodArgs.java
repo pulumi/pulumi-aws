@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class OntapVolumeSnaplockConfigurationAutocommitPeriodArgs {
      * The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("OntapVolumeSnaplockConfigurationAutocommitPeriodArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfigurationAutocommitPeriodArgs.type' is not present");
     }
 
     /**
      * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
      * 
      */
-    private UndeferrableValue<Integer> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private Integer value_value;
+    private boolean unknown_value;
     public Integer value() {
-        if (value == null) return null;
-        return value.getValue("OntapVolumeSnaplockConfigurationAutocommitPeriodArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfigurationAutocommitPeriodArgs.value' is not present");
     }
 
 }

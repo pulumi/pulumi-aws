@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ComputeEnvironmentComputeResourcesEc2ConfigurationArgs {
      * The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resources` block.
      * 
      */
-    private UndeferrableValue<String> imageIdOverride;
-
+    @PolicyResourceProperty(name="imageIdOverride", flag="unknown_imageIdOverride")
+    private String value_imageIdOverride;
+    private boolean unknown_imageIdOverride;
     public String imageIdOverride() {
-        if (imageIdOverride == null) return null;
-        return imageIdOverride.getValue("ComputeEnvironmentComputeResourcesEc2ConfigurationArgs.imageIdOverride");
+        if (!unknown_imageIdOverride) return value_imageIdOverride;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResourcesEc2ConfigurationArgs.imageIdOverride' is not present");
     }
 
     /**
      * The image type to match with the instance type to select an AMI. If the `image_id_override` parameter isn&#39;t specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
      * 
      */
-    private UndeferrableValue<String> imageType;
-
+    @PolicyResourceProperty(name="imageType", flag="unknown_imageType")
+    private String value_imageType;
+    private boolean unknown_imageType;
     public String imageType() {
-        if (imageType == null) return null;
-        return imageType.getValue("ComputeEnvironmentComputeResourcesEc2ConfigurationArgs.imageType");
+        if (!unknown_imageType) return value_imageType;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResourcesEc2ConfigurationArgs.imageType' is not present");
     }
 
 }

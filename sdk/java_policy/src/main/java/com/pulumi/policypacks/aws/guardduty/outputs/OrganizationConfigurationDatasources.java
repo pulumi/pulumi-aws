@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.guardduty.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.guardduty.outputs.OrganizationConfigurationDatasourcesKubernetes;
 import com.pulumi.policypacks.aws.guardduty.outputs.OrganizationConfigurationDatasourcesMalwareProtection;
 import com.pulumi.policypacks.aws.guardduty.outputs.OrganizationConfigurationDatasourcesS3Logs;
@@ -16,33 +17,36 @@ public final class OrganizationConfigurationDatasources {
      * Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
      * 
      */
-    private @Nullable UndeferrableValue<OrganizationConfigurationDatasourcesKubernetes> kubernetes;
-
+    @PolicyResourceProperty(name="kubernetes", flag="unknown_kubernetes")
+    private @Nullable OrganizationConfigurationDatasourcesKubernetes value_kubernetes;
+    private boolean unknown_kubernetes;
     public @Nullable OrganizationConfigurationDatasourcesKubernetes kubernetes() {
-        if (kubernetes == null) return null;
-        return kubernetes.getValue("OrganizationConfigurationDatasources.kubernetes");
+        if (!unknown_kubernetes) return value_kubernetes;
+        throw new UndeferrableValueException("Value 'OrganizationConfigurationDatasources.kubernetes' is not present");
     }
 
     /**
      * Enable Malware Protection automatically for new member accounts.
      * 
      */
-    private @Nullable UndeferrableValue<OrganizationConfigurationDatasourcesMalwareProtection> malwareProtection;
-
+    @PolicyResourceProperty(name="malwareProtection", flag="unknown_malwareProtection")
+    private @Nullable OrganizationConfigurationDatasourcesMalwareProtection value_malwareProtection;
+    private boolean unknown_malwareProtection;
     public @Nullable OrganizationConfigurationDatasourcesMalwareProtection malwareProtection() {
-        if (malwareProtection == null) return null;
-        return malwareProtection.getValue("OrganizationConfigurationDatasources.malwareProtection");
+        if (!unknown_malwareProtection) return value_malwareProtection;
+        throw new UndeferrableValueException("Value 'OrganizationConfigurationDatasources.malwareProtection' is not present");
     }
 
     /**
      * Enable S3 Protection automatically for new member accounts.
      * 
      */
-    private @Nullable UndeferrableValue<OrganizationConfigurationDatasourcesS3Logs> s3Logs;
-
+    @PolicyResourceProperty(name="s3Logs", flag="unknown_s3Logs")
+    private @Nullable OrganizationConfigurationDatasourcesS3Logs value_s3Logs;
+    private boolean unknown_s3Logs;
     public @Nullable OrganizationConfigurationDatasourcesS3Logs s3Logs() {
-        if (s3Logs == null) return null;
-        return s3Logs.getValue("OrganizationConfigurationDatasources.s3Logs");
+        if (!unknown_s3Logs) return value_s3Logs;
+        throw new UndeferrableValueException("Value 'OrganizationConfigurationDatasources.s3Logs' is not present");
     }
 
 }

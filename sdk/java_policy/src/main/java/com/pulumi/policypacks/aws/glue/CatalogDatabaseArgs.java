@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.glue.inputs.CatalogDatabaseCreateTableDefaultPermissionArgs;
 import com.pulumi.policypacks.aws.glue.inputs.CatalogDatabaseFederatedDatabaseArgs;
@@ -21,99 +22,108 @@ public final class CatalogDatabaseArgs extends com.pulumi.resources.PolicyResour
      * ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
      * 
      */
-    private UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private String value_catalogId;
+    private boolean unknown_catalogId;
     public String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("CatalogDatabaseArgs.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'CatalogDatabaseArgs.catalogId' is not present");
     }
 
     /**
      * Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
      * 
      */
-    private UndeferrableValue<List<CatalogDatabaseCreateTableDefaultPermissionArgs>> createTableDefaultPermissions;
-
+    @PolicyResourceProperty(name="createTableDefaultPermissions", flag="unknown_createTableDefaultPermissions")
+    private List<CatalogDatabaseCreateTableDefaultPermissionArgs> value_createTableDefaultPermissions;
+    private boolean unknown_createTableDefaultPermissions;
     public List<CatalogDatabaseCreateTableDefaultPermissionArgs> createTableDefaultPermissions() {
-        if (createTableDefaultPermissions == null) return null;
-        return createTableDefaultPermissions.getValue("CatalogDatabaseArgs.createTableDefaultPermissions");
+        if (!unknown_createTableDefaultPermissions) return value_createTableDefaultPermissions;
+        throw new UndeferrableValueException("Value 'CatalogDatabaseArgs.createTableDefaultPermissions' is not present");
     }
 
     /**
      * Description of the database.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("CatalogDatabaseArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'CatalogDatabaseArgs.description' is not present");
     }
 
     /**
      * Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
      * 
      */
-    private UndeferrableValue<CatalogDatabaseFederatedDatabaseArgs> federatedDatabase;
-
+    @PolicyResourceProperty(name="federatedDatabase", flag="unknown_federatedDatabase")
+    private CatalogDatabaseFederatedDatabaseArgs value_federatedDatabase;
+    private boolean unknown_federatedDatabase;
     public CatalogDatabaseFederatedDatabaseArgs federatedDatabase() {
-        if (federatedDatabase == null) return null;
-        return federatedDatabase.getValue("CatalogDatabaseArgs.federatedDatabase");
+        if (!unknown_federatedDatabase) return value_federatedDatabase;
+        throw new UndeferrableValueException("Value 'CatalogDatabaseArgs.federatedDatabase' is not present");
     }
 
     /**
      * Location of the database (for example, an HDFS path).
      * 
      */
-    private UndeferrableValue<String> locationUri;
-
+    @PolicyResourceProperty(name="locationUri", flag="unknown_locationUri")
+    private String value_locationUri;
+    private boolean unknown_locationUri;
     public String locationUri() {
-        if (locationUri == null) return null;
-        return locationUri.getValue("CatalogDatabaseArgs.locationUri");
+        if (!unknown_locationUri) return value_locationUri;
+        throw new UndeferrableValueException("Value 'CatalogDatabaseArgs.locationUri' is not present");
     }
 
     /**
      * Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("CatalogDatabaseArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'CatalogDatabaseArgs.name' is not present");
     }
 
     /**
      * List of key-value pairs that define parameters and properties of the database.
      * 
      */
-    private UndeferrableValue<Map<String,String>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private Map<String,String> value_parameters;
+    private boolean unknown_parameters;
     public Map<String,String> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("CatalogDatabaseArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'CatalogDatabaseArgs.parameters' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CatalogDatabaseArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CatalogDatabaseArgs.tags' is not present");
     }
 
     /**
      * Configuration block for a target database for resource linking. See `target_database` below.
      * 
      */
-    private UndeferrableValue<CatalogDatabaseTargetDatabaseArgs> targetDatabase;
-
+    @PolicyResourceProperty(name="targetDatabase", flag="unknown_targetDatabase")
+    private CatalogDatabaseTargetDatabaseArgs value_targetDatabase;
+    private boolean unknown_targetDatabase;
     public CatalogDatabaseTargetDatabaseArgs targetDatabase() {
-        if (targetDatabase == null) return null;
-        return targetDatabase.getValue("CatalogDatabaseArgs.targetDatabase");
+        if (!unknown_targetDatabase) return value_targetDatabase;
+        throw new UndeferrableValueException("Value 'CatalogDatabaseArgs.targetDatabase' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.inputs.NotebookInstanceInstanceMetadataServiceConfigurationArgs;
 import java.lang.Integer;
@@ -24,11 +25,12 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* accelerator_types is deprecated. Use instance_type instead. */
-    private UndeferrableValue<List<String>> acceleratorTypes;
-
+    @PolicyResourceProperty(name="acceleratorTypes", flag="unknown_acceleratorTypes")
+    private List<String> value_acceleratorTypes;
+    private boolean unknown_acceleratorTypes;
     public List<String> acceleratorTypes() {
-        if (acceleratorTypes == null) return null;
-        return acceleratorTypes.getValue("NotebookInstanceArgs.acceleratorTypes");
+        if (!unknown_acceleratorTypes) return value_acceleratorTypes;
+        throw new UndeferrableValueException("Value 'NotebookInstanceArgs.acceleratorTypes' is not present");
     }
 
     /**
@@ -36,165 +38,180 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.PolicyResou
      * These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
      * 
      */
-    private UndeferrableValue<List<String>> additionalCodeRepositories;
-
+    @PolicyResourceProperty(name="additionalCodeRepositories", flag="unknown_additionalCodeRepositories")
+    private List<String> value_additionalCodeRepositories;
+    private boolean unknown_additionalCodeRepositories;
     public List<String> additionalCodeRepositories() {
-        if (additionalCodeRepositories == null) return null;
-        return additionalCodeRepositories.getValue("NotebookInstanceArgs.additionalCodeRepositories");
+        if (!unknown_additionalCodeRepositories) return value_additionalCodeRepositories;
+        throw new UndeferrableValueException("Value 'NotebookInstanceArgs.additionalCodeRepositories' is not present");
     }
 
     /**
      * The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
      * 
      */
-    private UndeferrableValue<String> defaultCodeRepository;
-
+    @PolicyResourceProperty(name="defaultCodeRepository", flag="unknown_defaultCodeRepository")
+    private String value_defaultCodeRepository;
+    private boolean unknown_defaultCodeRepository;
     public String defaultCodeRepository() {
-        if (defaultCodeRepository == null) return null;
-        return defaultCodeRepository.getValue("NotebookInstanceArgs.defaultCodeRepository");
+        if (!unknown_defaultCodeRepository) return value_defaultCodeRepository;
+        throw new UndeferrableValueException("Value 'NotebookInstanceArgs.defaultCodeRepository' is not present");
     }
 
     /**
      * Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker AI training and endpoint services unless your configure a NAT Gateway in your VPC.
      * 
      */
-    private UndeferrableValue<String> directInternetAccess;
-
+    @PolicyResourceProperty(name="directInternetAccess", flag="unknown_directInternetAccess")
+    private String value_directInternetAccess;
+    private boolean unknown_directInternetAccess;
     public String directInternetAccess() {
-        if (directInternetAccess == null) return null;
-        return directInternetAccess.getValue("NotebookInstanceArgs.directInternetAccess");
+        if (!unknown_directInternetAccess) return value_directInternetAccess;
+        throw new UndeferrableValueException("Value 'NotebookInstanceArgs.directInternetAccess' is not present");
     }
 
     /**
      * Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
      * 
      */
-    private UndeferrableValue<NotebookInstanceInstanceMetadataServiceConfigurationArgs> instanceMetadataServiceConfiguration;
-
+    @PolicyResourceProperty(name="instanceMetadataServiceConfiguration", flag="unknown_instanceMetadataServiceConfiguration")
+    private NotebookInstanceInstanceMetadataServiceConfigurationArgs value_instanceMetadataServiceConfiguration;
+    private boolean unknown_instanceMetadataServiceConfiguration;
     public NotebookInstanceInstanceMetadataServiceConfigurationArgs instanceMetadataServiceConfiguration() {
-        if (instanceMetadataServiceConfiguration == null) return null;
-        return instanceMetadataServiceConfiguration.getValue("NotebookInstanceArgs.instanceMetadataServiceConfiguration");
+        if (!unknown_instanceMetadataServiceConfiguration) return value_instanceMetadataServiceConfiguration;
+        throw new UndeferrableValueException("Value 'NotebookInstanceArgs.instanceMetadataServiceConfiguration' is not present");
     }
 
     /**
      * The name of ML compute instance type.
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("NotebookInstanceArgs.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'NotebookInstanceArgs.instanceType' is not present");
     }
 
     /**
      * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("NotebookInstanceArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'NotebookInstanceArgs.kmsKeyId' is not present");
     }
 
     /**
      * The name of a lifecycle configuration to associate with the notebook instance.
      * 
      */
-    private UndeferrableValue<String> lifecycleConfigName;
-
+    @PolicyResourceProperty(name="lifecycleConfigName", flag="unknown_lifecycleConfigName")
+    private String value_lifecycleConfigName;
+    private boolean unknown_lifecycleConfigName;
     public String lifecycleConfigName() {
-        if (lifecycleConfigName == null) return null;
-        return lifecycleConfigName.getValue("NotebookInstanceArgs.lifecycleConfigName");
+        if (!unknown_lifecycleConfigName) return value_lifecycleConfigName;
+        throw new UndeferrableValueException("Value 'NotebookInstanceArgs.lifecycleConfigName' is not present");
     }
 
     /**
      * The name of the notebook instance (must be unique).
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("NotebookInstanceArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'NotebookInstanceArgs.name' is not present");
     }
 
     /**
      * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
      * 
      */
-    private UndeferrableValue<String> platformIdentifier;
-
+    @PolicyResourceProperty(name="platformIdentifier", flag="unknown_platformIdentifier")
+    private String value_platformIdentifier;
+    private boolean unknown_platformIdentifier;
     public String platformIdentifier() {
-        if (platformIdentifier == null) return null;
-        return platformIdentifier.getValue("NotebookInstanceArgs.platformIdentifier");
+        if (!unknown_platformIdentifier) return value_platformIdentifier;
+        throw new UndeferrableValueException("Value 'NotebookInstanceArgs.platformIdentifier' is not present");
     }
 
     /**
      * The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("NotebookInstanceArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'NotebookInstanceArgs.roleArn' is not present");
     }
 
     /**
      * Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
      * 
      */
-    private UndeferrableValue<String> rootAccess;
-
+    @PolicyResourceProperty(name="rootAccess", flag="unknown_rootAccess")
+    private String value_rootAccess;
+    private boolean unknown_rootAccess;
     public String rootAccess() {
-        if (rootAccess == null) return null;
-        return rootAccess.getValue("NotebookInstanceArgs.rootAccess");
+        if (!unknown_rootAccess) return value_rootAccess;
+        throw new UndeferrableValueException("Value 'NotebookInstanceArgs.rootAccess' is not present");
     }
 
     /**
      * The associated security groups.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroups;
-
+    @PolicyResourceProperty(name="securityGroups", flag="unknown_securityGroups")
+    private List<String> value_securityGroups;
+    private boolean unknown_securityGroups;
     public List<String> securityGroups() {
-        if (securityGroups == null) return null;
-        return securityGroups.getValue("NotebookInstanceArgs.securityGroups");
+        if (!unknown_securityGroups) return value_securityGroups;
+        throw new UndeferrableValueException("Value 'NotebookInstanceArgs.securityGroups' is not present");
     }
 
     /**
      * The VPC subnet ID.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("NotebookInstanceArgs.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'NotebookInstanceArgs.subnetId' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("NotebookInstanceArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'NotebookInstanceArgs.tags' is not present");
     }
 
     /**
      * The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
      * 
      */
-    private UndeferrableValue<Integer> volumeSize;
-
+    @PolicyResourceProperty(name="volumeSize", flag="unknown_volumeSize")
+    private Integer value_volumeSize;
+    private boolean unknown_volumeSize;
     public Integer volumeSize() {
-        if (volumeSize == null) return null;
-        return volumeSize.getValue("NotebookInstanceArgs.volumeSize");
+        if (!unknown_volumeSize) return value_volumeSize;
+        throw new UndeferrableValueException("Value 'NotebookInstanceArgs.volumeSize' is not present");
     }
 
 }

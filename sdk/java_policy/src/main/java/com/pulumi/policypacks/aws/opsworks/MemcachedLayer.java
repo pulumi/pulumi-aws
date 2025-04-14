@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.opsworks.outputs.MemcachedLayerCloudwatchConfiguration;
 import com.pulumi.policypacks.aws.opsworks.outputs.MemcachedLayerEbsVolume;
@@ -23,225 +24,248 @@ public final class MemcachedLayer extends com.pulumi.resources.PolicyResourceOut
      * Amount of memory to allocate for the cache on each instance, in megabytes. Defaults to 512MB.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> allocatedMemory;
-
+    @PolicyResourceProperty(name="allocatedMemory", flag="unknown_allocatedMemory")
+    private @Nullable Integer value_allocatedMemory;
+    private boolean unknown_allocatedMemory;
     public @Nullable Integer allocatedMemory() {
-        if (allocatedMemory == null) return null;
-        return allocatedMemory.getValue("MemcachedLayer.allocatedMemory");
+        if (!unknown_allocatedMemory) return value_allocatedMemory;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.allocatedMemory' is not present");
     }
 
     /**
      * The Amazon Resource Name(ARN) of the layer.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("MemcachedLayer.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.arn' is not present");
     }
 
     /**
      * Whether to automatically assign an elastic IP address to the layer&#39;s instances.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> autoAssignElasticIps;
-
+    @PolicyResourceProperty(name="autoAssignElasticIps", flag="unknown_autoAssignElasticIps")
+    private @Nullable Boolean value_autoAssignElasticIps;
+    private boolean unknown_autoAssignElasticIps;
     public @Nullable Boolean autoAssignElasticIps() {
-        if (autoAssignElasticIps == null) return null;
-        return autoAssignElasticIps.getValue("MemcachedLayer.autoAssignElasticIps");
+        if (!unknown_autoAssignElasticIps) return value_autoAssignElasticIps;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.autoAssignElasticIps' is not present");
     }
 
     /**
      * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer&#39;s instances.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> autoAssignPublicIps;
-
+    @PolicyResourceProperty(name="autoAssignPublicIps", flag="unknown_autoAssignPublicIps")
+    private @Nullable Boolean value_autoAssignPublicIps;
+    private boolean unknown_autoAssignPublicIps;
     public @Nullable Boolean autoAssignPublicIps() {
-        if (autoAssignPublicIps == null) return null;
-        return autoAssignPublicIps.getValue("MemcachedLayer.autoAssignPublicIps");
+        if (!unknown_autoAssignPublicIps) return value_autoAssignPublicIps;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.autoAssignPublicIps' is not present");
     }
 
     /**
      * Whether to enable auto-healing for the layer.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> autoHealing;
-
+    @PolicyResourceProperty(name="autoHealing", flag="unknown_autoHealing")
+    private @Nullable Boolean value_autoHealing;
+    private boolean unknown_autoHealing;
     public @Nullable Boolean autoHealing() {
-        if (autoHealing == null) return null;
-        return autoHealing.getValue("MemcachedLayer.autoHealing");
+        if (!unknown_autoHealing) return value_autoHealing;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.autoHealing' is not present");
     }
 
-    private @Nullable UndeferrableValue<MemcachedLayerCloudwatchConfiguration> cloudwatchConfiguration;
-
+    @PolicyResourceProperty(name="cloudwatchConfiguration", flag="unknown_cloudwatchConfiguration")
+    private @Nullable MemcachedLayerCloudwatchConfiguration value_cloudwatchConfiguration;
+    private boolean unknown_cloudwatchConfiguration;
     public @Nullable MemcachedLayerCloudwatchConfiguration cloudwatchConfiguration() {
-        if (cloudwatchConfiguration == null) return null;
-        return cloudwatchConfiguration.getValue("MemcachedLayer.cloudwatchConfiguration");
+        if (!unknown_cloudwatchConfiguration) return value_cloudwatchConfiguration;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.cloudwatchConfiguration' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<String>> customConfigureRecipes;
-
+    @PolicyResourceProperty(name="customConfigureRecipes", flag="unknown_customConfigureRecipes")
+    private @Nullable List<String> value_customConfigureRecipes;
+    private boolean unknown_customConfigureRecipes;
     public @Nullable List<String> customConfigureRecipes() {
-        if (customConfigureRecipes == null) return null;
-        return customConfigureRecipes.getValue("MemcachedLayer.customConfigureRecipes");
+        if (!unknown_customConfigureRecipes) return value_customConfigureRecipes;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.customConfigureRecipes' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<String>> customDeployRecipes;
-
+    @PolicyResourceProperty(name="customDeployRecipes", flag="unknown_customDeployRecipes")
+    private @Nullable List<String> value_customDeployRecipes;
+    private boolean unknown_customDeployRecipes;
     public @Nullable List<String> customDeployRecipes() {
-        if (customDeployRecipes == null) return null;
-        return customDeployRecipes.getValue("MemcachedLayer.customDeployRecipes");
+        if (!unknown_customDeployRecipes) return value_customDeployRecipes;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.customDeployRecipes' is not present");
     }
 
     /**
      * The ARN of an IAM profile that will be used for the layer&#39;s instances.
      * 
      */
-    private @Nullable UndeferrableValue<String> customInstanceProfileArn;
-
+    @PolicyResourceProperty(name="customInstanceProfileArn", flag="unknown_customInstanceProfileArn")
+    private @Nullable String value_customInstanceProfileArn;
+    private boolean unknown_customInstanceProfileArn;
     public @Nullable String customInstanceProfileArn() {
-        if (customInstanceProfileArn == null) return null;
-        return customInstanceProfileArn.getValue("MemcachedLayer.customInstanceProfileArn");
+        if (!unknown_customInstanceProfileArn) return value_customInstanceProfileArn;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.customInstanceProfileArn' is not present");
     }
 
     /**
      * Custom JSON attributes to apply to the layer.
      * 
      */
-    private @Nullable UndeferrableValue<String> customJson;
-
+    @PolicyResourceProperty(name="customJson", flag="unknown_customJson")
+    private @Nullable String value_customJson;
+    private boolean unknown_customJson;
     public @Nullable String customJson() {
-        if (customJson == null) return null;
-        return customJson.getValue("MemcachedLayer.customJson");
+        if (!unknown_customJson) return value_customJson;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.customJson' is not present");
     }
 
     /**
      * Ids for a set of security groups to apply to the layer&#39;s instances.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> customSecurityGroupIds;
-
+    @PolicyResourceProperty(name="customSecurityGroupIds", flag="unknown_customSecurityGroupIds")
+    private @Nullable List<String> value_customSecurityGroupIds;
+    private boolean unknown_customSecurityGroupIds;
     public @Nullable List<String> customSecurityGroupIds() {
-        if (customSecurityGroupIds == null) return null;
-        return customSecurityGroupIds.getValue("MemcachedLayer.customSecurityGroupIds");
+        if (!unknown_customSecurityGroupIds) return value_customSecurityGroupIds;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.customSecurityGroupIds' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<String>> customSetupRecipes;
-
+    @PolicyResourceProperty(name="customSetupRecipes", flag="unknown_customSetupRecipes")
+    private @Nullable List<String> value_customSetupRecipes;
+    private boolean unknown_customSetupRecipes;
     public @Nullable List<String> customSetupRecipes() {
-        if (customSetupRecipes == null) return null;
-        return customSetupRecipes.getValue("MemcachedLayer.customSetupRecipes");
+        if (!unknown_customSetupRecipes) return value_customSetupRecipes;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.customSetupRecipes' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<String>> customShutdownRecipes;
-
+    @PolicyResourceProperty(name="customShutdownRecipes", flag="unknown_customShutdownRecipes")
+    private @Nullable List<String> value_customShutdownRecipes;
+    private boolean unknown_customShutdownRecipes;
     public @Nullable List<String> customShutdownRecipes() {
-        if (customShutdownRecipes == null) return null;
-        return customShutdownRecipes.getValue("MemcachedLayer.customShutdownRecipes");
+        if (!unknown_customShutdownRecipes) return value_customShutdownRecipes;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.customShutdownRecipes' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<String>> customUndeployRecipes;
-
+    @PolicyResourceProperty(name="customUndeployRecipes", flag="unknown_customUndeployRecipes")
+    private @Nullable List<String> value_customUndeployRecipes;
+    private boolean unknown_customUndeployRecipes;
     public @Nullable List<String> customUndeployRecipes() {
-        if (customUndeployRecipes == null) return null;
-        return customUndeployRecipes.getValue("MemcachedLayer.customUndeployRecipes");
+        if (!unknown_customUndeployRecipes) return value_customUndeployRecipes;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.customUndeployRecipes' is not present");
     }
 
     /**
      * Whether to enable Elastic Load Balancing connection draining.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> drainElbOnShutdown;
-
+    @PolicyResourceProperty(name="drainElbOnShutdown", flag="unknown_drainElbOnShutdown")
+    private @Nullable Boolean value_drainElbOnShutdown;
+    private boolean unknown_drainElbOnShutdown;
     public @Nullable Boolean drainElbOnShutdown() {
-        if (drainElbOnShutdown == null) return null;
-        return drainElbOnShutdown.getValue("MemcachedLayer.drainElbOnShutdown");
+        if (!unknown_drainElbOnShutdown) return value_drainElbOnShutdown;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.drainElbOnShutdown' is not present");
     }
 
     /**
      * `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
      * 
      */
-    private UndeferrableValue<List<MemcachedLayerEbsVolume>> ebsVolumes;
-
+    @PolicyResourceProperty(name="ebsVolumes", flag="unknown_ebsVolumes")
+    private List<MemcachedLayerEbsVolume> value_ebsVolumes;
+    private boolean unknown_ebsVolumes;
     public List<MemcachedLayerEbsVolume> ebsVolumes() {
-        if (ebsVolumes == null) return null;
-        return ebsVolumes.getValue("MemcachedLayer.ebsVolumes");
+        if (!unknown_ebsVolumes) return value_ebsVolumes;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.ebsVolumes' is not present");
     }
 
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      * 
      */
-    private @Nullable UndeferrableValue<String> elasticLoadBalancer;
-
+    @PolicyResourceProperty(name="elasticLoadBalancer", flag="unknown_elasticLoadBalancer")
+    private @Nullable String value_elasticLoadBalancer;
+    private boolean unknown_elasticLoadBalancer;
     public @Nullable String elasticLoadBalancer() {
-        if (elasticLoadBalancer == null) return null;
-        return elasticLoadBalancer.getValue("MemcachedLayer.elasticLoadBalancer");
+        if (!unknown_elasticLoadBalancer) return value_elasticLoadBalancer;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.elasticLoadBalancer' is not present");
     }
 
     /**
      * Whether to install OS and package updates on each instance when it boots.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> installUpdatesOnBoot;
-
+    @PolicyResourceProperty(name="installUpdatesOnBoot", flag="unknown_installUpdatesOnBoot")
+    private @Nullable Boolean value_installUpdatesOnBoot;
+    private boolean unknown_installUpdatesOnBoot;
     public @Nullable Boolean installUpdatesOnBoot() {
-        if (installUpdatesOnBoot == null) return null;
-        return installUpdatesOnBoot.getValue("MemcachedLayer.installUpdatesOnBoot");
+        if (!unknown_installUpdatesOnBoot) return value_installUpdatesOnBoot;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.installUpdatesOnBoot' is not present");
     }
 
     /**
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> instanceShutdownTimeout;
-
+    @PolicyResourceProperty(name="instanceShutdownTimeout", flag="unknown_instanceShutdownTimeout")
+    private @Nullable Integer value_instanceShutdownTimeout;
+    private boolean unknown_instanceShutdownTimeout;
     public @Nullable Integer instanceShutdownTimeout() {
-        if (instanceShutdownTimeout == null) return null;
-        return instanceShutdownTimeout.getValue("MemcachedLayer.instanceShutdownTimeout");
+        if (!unknown_instanceShutdownTimeout) return value_instanceShutdownTimeout;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.instanceShutdownTimeout' is not present");
     }
 
-    private UndeferrableValue<MemcachedLayerLoadBasedAutoScaling> loadBasedAutoScaling;
-
+    @PolicyResourceProperty(name="loadBasedAutoScaling", flag="unknown_loadBasedAutoScaling")
+    private MemcachedLayerLoadBasedAutoScaling value_loadBasedAutoScaling;
+    private boolean unknown_loadBasedAutoScaling;
     public MemcachedLayerLoadBasedAutoScaling loadBasedAutoScaling() {
-        if (loadBasedAutoScaling == null) return null;
-        return loadBasedAutoScaling.getValue("MemcachedLayer.loadBasedAutoScaling");
+        if (!unknown_loadBasedAutoScaling) return value_loadBasedAutoScaling;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.loadBasedAutoScaling' is not present");
     }
 
     /**
      * A human-readable name for the layer.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("MemcachedLayer.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.name' is not present");
     }
 
     /**
      * ID of the stack the layer will belong to.
      * 
      */
-    private UndeferrableValue<String> stackId;
-
+    @PolicyResourceProperty(name="stackId", flag="unknown_stackId")
+    private String value_stackId;
+    private boolean unknown_stackId;
     public String stackId() {
-        if (stackId == null) return null;
-        return stackId.getValue("MemcachedLayer.stackId");
+        if (!unknown_stackId) return value_stackId;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.stackId' is not present");
     }
 
     /**
      * Names of a set of system packages to install on the layer&#39;s instances.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> systemPackages;
-
+    @PolicyResourceProperty(name="systemPackages", flag="unknown_systemPackages")
+    private @Nullable List<String> value_systemPackages;
+    private boolean unknown_systemPackages;
     public @Nullable List<String> systemPackages() {
-        if (systemPackages == null) return null;
-        return systemPackages.getValue("MemcachedLayer.systemPackages");
+        if (!unknown_systemPackages) return value_systemPackages;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.systemPackages' is not present");
     }
 
     /**
@@ -252,11 +276,12 @@ public final class MemcachedLayer extends com.pulumi.resources.PolicyResourceOut
      * lifecycle events, if custom cookbooks are enabled on the layer&#39;s stack:
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("MemcachedLayer.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.tags' is not present");
     }
 
     /**
@@ -267,22 +292,24 @@ public final class MemcachedLayer extends com.pulumi.resources.PolicyResourceOut
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("MemcachedLayer.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.tagsAll' is not present");
     }
 
     /**
      * Whether to use EBS-optimized instances.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> useEbsOptimizedInstances;
-
+    @PolicyResourceProperty(name="useEbsOptimizedInstances", flag="unknown_useEbsOptimizedInstances")
+    private @Nullable Boolean value_useEbsOptimizedInstances;
+    private boolean unknown_useEbsOptimizedInstances;
     public @Nullable Boolean useEbsOptimizedInstances() {
-        if (useEbsOptimizedInstances == null) return null;
-        return useEbsOptimizedInstances.getValue("MemcachedLayer.useEbsOptimizedInstances");
+        if (!unknown_useEbsOptimizedInstances) return value_useEbsOptimizedInstances;
+        throw new UndeferrableValueException("Value 'MemcachedLayer.useEbsOptimizedInstances' is not present");
     }
 
 }

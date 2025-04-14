@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class RecordCidrRoutingPolicyArgs {
      * The CIDR collection ID. See the `aws.route53.CidrCollection` resource for more details.
      * 
      */
-    private UndeferrableValue<String> collectionId;
-
+    @PolicyResourceProperty(name="collectionId", flag="unknown_collectionId")
+    private String value_collectionId;
+    private boolean unknown_collectionId;
     public String collectionId() {
-        if (collectionId == null) return null;
-        return collectionId.getValue("RecordCidrRoutingPolicyArgs.collectionId");
+        if (!unknown_collectionId) return value_collectionId;
+        throw new UndeferrableValueException("Value 'RecordCidrRoutingPolicyArgs.collectionId' is not present");
     }
 
     /**
      * The CIDR collection location name. See the `aws.route53.CidrLocation` resource for more details. A `location_name` with an asterisk `&#34;*&#34;` can be used to create a default CIDR record. `collection_id` is still required for default record.
      * 
      */
-    private UndeferrableValue<String> locationName;
-
+    @PolicyResourceProperty(name="locationName", flag="unknown_locationName")
+    private String value_locationName;
+    private boolean unknown_locationName;
     public String locationName() {
-        if (locationName == null) return null;
-        return locationName.getValue("RecordCidrRoutingPolicyArgs.locationName");
+        if (!unknown_locationName) return value_locationName;
+        throw new UndeferrableValueException("Value 'RecordCidrRoutingPolicyArgs.locationName' is not present");
     }
 
 }

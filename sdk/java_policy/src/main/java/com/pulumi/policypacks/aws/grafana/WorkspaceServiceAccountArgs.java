@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.grafana;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class WorkspaceServiceAccountArgs extends com.pulumi.resources.Poli
      * The permission level to use for this service account. For more information about the roles and the permissions each has, see the [User roles](https://docs.aws.amazon.com/grafana/latest/userguide/Grafana-user-roles.html) documentation.
      * 
      */
-    private UndeferrableValue<String> grafanaRole;
-
+    @PolicyResourceProperty(name="grafanaRole", flag="unknown_grafanaRole")
+    private String value_grafanaRole;
+    private boolean unknown_grafanaRole;
     public String grafanaRole() {
-        if (grafanaRole == null) return null;
-        return grafanaRole.getValue("WorkspaceServiceAccountArgs.grafanaRole");
+        if (!unknown_grafanaRole) return value_grafanaRole;
+        throw new UndeferrableValueException("Value 'WorkspaceServiceAccountArgs.grafanaRole' is not present");
     }
 
     /**
      * A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("WorkspaceServiceAccountArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'WorkspaceServiceAccountArgs.name' is not present");
     }
 
     /**
      * The Grafana workspace with which the service account is associated.
      * 
      */
-    private UndeferrableValue<String> workspaceId;
-
+    @PolicyResourceProperty(name="workspaceId", flag="unknown_workspaceId")
+    private String value_workspaceId;
+    private boolean unknown_workspaceId;
     public String workspaceId() {
-        if (workspaceId == null) return null;
-        return workspaceId.getValue("WorkspaceServiceAccountArgs.workspaceId");
+        if (!unknown_workspaceId) return value_workspaceId;
+        throw new UndeferrableValueException("Value 'WorkspaceServiceAccountArgs.workspaceId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3.inputs.BucketMetricFilterArgs;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class BucketMetricArgs extends com.pulumi.resources.PolicyResourceI
      * Name of the bucket to put metric configuration.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("BucketMetricArgs.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'BucketMetricArgs.bucket' is not present");
     }
 
     /**
      * [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
      * 
      */
-    private UndeferrableValue<BucketMetricFilterArgs> filter;
-
+    @PolicyResourceProperty(name="filter", flag="unknown_filter")
+    private BucketMetricFilterArgs value_filter;
+    private boolean unknown_filter;
     public BucketMetricFilterArgs filter() {
-        if (filter == null) return null;
-        return filter.getValue("BucketMetricArgs.filter");
+        if (!unknown_filter) return value_filter;
+        throw new UndeferrableValueException("Value 'BucketMetricArgs.filter' is not present");
     }
 
     /**
      * Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("BucketMetricArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'BucketMetricArgs.name' is not present");
     }
 
 }

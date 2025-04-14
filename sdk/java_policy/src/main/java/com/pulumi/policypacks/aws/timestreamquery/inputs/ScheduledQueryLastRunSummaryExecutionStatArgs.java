@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamquery.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,66 +15,72 @@ public final class ScheduledQueryLastRunSummaryExecutionStatArgs {
      * Bytes metered for a single scheduled query run.
      * 
      */
-    private UndeferrableValue<Integer> bytesMetered;
-
+    @PolicyResourceProperty(name="bytesMetered", flag="unknown_bytesMetered")
+    private Integer value_bytesMetered;
+    private boolean unknown_bytesMetered;
     public Integer bytesMetered() {
-        if (bytesMetered == null) return null;
-        return bytesMetered.getValue("ScheduledQueryLastRunSummaryExecutionStatArgs.bytesMetered");
+        if (!unknown_bytesMetered) return value_bytesMetered;
+        throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryExecutionStatArgs.bytesMetered' is not present");
     }
 
     /**
      * Bytes scanned for a single scheduled query run.
      * 
      */
-    private UndeferrableValue<Integer> cumulativeBytesScanned;
-
+    @PolicyResourceProperty(name="cumulativeBytesScanned", flag="unknown_cumulativeBytesScanned")
+    private Integer value_cumulativeBytesScanned;
+    private boolean unknown_cumulativeBytesScanned;
     public Integer cumulativeBytesScanned() {
-        if (cumulativeBytesScanned == null) return null;
-        return cumulativeBytesScanned.getValue("ScheduledQueryLastRunSummaryExecutionStatArgs.cumulativeBytesScanned");
+        if (!unknown_cumulativeBytesScanned) return value_cumulativeBytesScanned;
+        throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryExecutionStatArgs.cumulativeBytesScanned' is not present");
     }
 
     /**
      * Data writes metered for records ingested in a single scheduled query run.
      * 
      */
-    private UndeferrableValue<Integer> dataWrites;
-
+    @PolicyResourceProperty(name="dataWrites", flag="unknown_dataWrites")
+    private Integer value_dataWrites;
+    private boolean unknown_dataWrites;
     public Integer dataWrites() {
-        if (dataWrites == null) return null;
-        return dataWrites.getValue("ScheduledQueryLastRunSummaryExecutionStatArgs.dataWrites");
+        if (!unknown_dataWrites) return value_dataWrites;
+        throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryExecutionStatArgs.dataWrites' is not present");
     }
 
     /**
      * Total time, measured in milliseconds, that was needed for the scheduled query run to complete.
      * 
      */
-    private UndeferrableValue<Integer> executionTimeInMillis;
-
+    @PolicyResourceProperty(name="executionTimeInMillis", flag="unknown_executionTimeInMillis")
+    private Integer value_executionTimeInMillis;
+    private boolean unknown_executionTimeInMillis;
     public Integer executionTimeInMillis() {
-        if (executionTimeInMillis == null) return null;
-        return executionTimeInMillis.getValue("ScheduledQueryLastRunSummaryExecutionStatArgs.executionTimeInMillis");
+        if (!unknown_executionTimeInMillis) return value_executionTimeInMillis;
+        throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryExecutionStatArgs.executionTimeInMillis' is not present");
     }
 
     /**
      * Number of rows present in the output from running a query before ingestion to destination data source.
      * 
      */
-    private UndeferrableValue<Integer> queryResultRows;
-
+    @PolicyResourceProperty(name="queryResultRows", flag="unknown_queryResultRows")
+    private Integer value_queryResultRows;
+    private boolean unknown_queryResultRows;
     public Integer queryResultRows() {
-        if (queryResultRows == null) return null;
-        return queryResultRows.getValue("ScheduledQueryLastRunSummaryExecutionStatArgs.queryResultRows");
+        if (!unknown_queryResultRows) return value_queryResultRows;
+        throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryExecutionStatArgs.queryResultRows' is not present");
     }
 
     /**
      * Number of records ingested for a single scheduled query run.
      * 
      */
-    private UndeferrableValue<Integer> recordsIngested;
-
+    @PolicyResourceProperty(name="recordsIngested", flag="unknown_recordsIngested")
+    private Integer value_recordsIngested;
+    private boolean unknown_recordsIngested;
     public Integer recordsIngested() {
-        if (recordsIngested == null) return null;
-        return recordsIngested.getValue("ScheduledQueryLastRunSummaryExecutionStatArgs.recordsIngested");
+        if (!unknown_recordsIngested) return value_recordsIngested;
+        throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryExecutionStatArgs.recordsIngested' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ssm.outputs.ContactsRotationRecurrenceDailySetting;
 import com.pulumi.policypacks.aws.ssm.outputs.ContactsRotationRecurrenceMonthlySetting;
 import com.pulumi.policypacks.aws.ssm.outputs.ContactsRotationRecurrenceShiftCoverage;
@@ -15,66 +16,72 @@ import javax.annotation.Nullable;
 
 public final class ContactsRotationRecurrence {
 
-    private @Nullable UndeferrableValue<List<ContactsRotationRecurrenceDailySetting>> dailySettings;
-
+    @PolicyResourceProperty(name="dailySettings", flag="unknown_dailySettings")
+    private @Nullable List<ContactsRotationRecurrenceDailySetting> value_dailySettings;
+    private boolean unknown_dailySettings;
     public @Nullable List<ContactsRotationRecurrenceDailySetting> dailySettings() {
-        if (dailySettings == null) return null;
-        return dailySettings.getValue("ContactsRotationRecurrence.dailySettings");
+        if (!unknown_dailySettings) return value_dailySettings;
+        throw new UndeferrableValueException("Value 'ContactsRotationRecurrence.dailySettings' is not present");
     }
 
     /**
      * (Optional) Information about on-call rotations that recur monthly. See Monthly Settings for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<ContactsRotationRecurrenceMonthlySetting>> monthlySettings;
-
+    @PolicyResourceProperty(name="monthlySettings", flag="unknown_monthlySettings")
+    private @Nullable List<ContactsRotationRecurrenceMonthlySetting> value_monthlySettings;
+    private boolean unknown_monthlySettings;
     public @Nullable List<ContactsRotationRecurrenceMonthlySetting> monthlySettings() {
-        if (monthlySettings == null) return null;
-        return monthlySettings.getValue("ContactsRotationRecurrence.monthlySettings");
+        if (!unknown_monthlySettings) return value_monthlySettings;
+        throw new UndeferrableValueException("Value 'ContactsRotationRecurrence.monthlySettings' is not present");
     }
 
     /**
      * (Required) The number of contacts, or shift team members designated to be on call concurrently during a shift.
      * 
      */
-    private UndeferrableValue<Integer> numberOfOnCalls;
-
+    @PolicyResourceProperty(name="numberOfOnCalls", flag="unknown_numberOfOnCalls")
+    private Integer value_numberOfOnCalls;
+    private boolean unknown_numberOfOnCalls;
     public Integer numberOfOnCalls() {
-        if (numberOfOnCalls == null) return null;
-        return numberOfOnCalls.getValue("ContactsRotationRecurrence.numberOfOnCalls");
+        if (!unknown_numberOfOnCalls) return value_numberOfOnCalls;
+        throw new UndeferrableValueException("Value 'ContactsRotationRecurrence.numberOfOnCalls' is not present");
     }
 
     /**
      * (Required) The number of days, weeks, or months a single rotation lasts.
      * 
      */
-    private UndeferrableValue<Integer> recurrenceMultiplier;
-
+    @PolicyResourceProperty(name="recurrenceMultiplier", flag="unknown_recurrenceMultiplier")
+    private Integer value_recurrenceMultiplier;
+    private boolean unknown_recurrenceMultiplier;
     public Integer recurrenceMultiplier() {
-        if (recurrenceMultiplier == null) return null;
-        return recurrenceMultiplier.getValue("ContactsRotationRecurrence.recurrenceMultiplier");
+        if (!unknown_recurrenceMultiplier) return value_recurrenceMultiplier;
+        throw new UndeferrableValueException("Value 'ContactsRotationRecurrence.recurrenceMultiplier' is not present");
     }
 
     /**
      * (Optional) Information about the days of the week that the on-call rotation coverage includes. See Shift Coverages for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<ContactsRotationRecurrenceShiftCoverage>> shiftCoverages;
-
+    @PolicyResourceProperty(name="shiftCoverages", flag="unknown_shiftCoverages")
+    private @Nullable List<ContactsRotationRecurrenceShiftCoverage> value_shiftCoverages;
+    private boolean unknown_shiftCoverages;
     public @Nullable List<ContactsRotationRecurrenceShiftCoverage> shiftCoverages() {
-        if (shiftCoverages == null) return null;
-        return shiftCoverages.getValue("ContactsRotationRecurrence.shiftCoverages");
+        if (!unknown_shiftCoverages) return value_shiftCoverages;
+        throw new UndeferrableValueException("Value 'ContactsRotationRecurrence.shiftCoverages' is not present");
     }
 
     /**
      * (Optional) Information about on-call rotations that recur weekly. See Weekly Settings for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<ContactsRotationRecurrenceWeeklySetting>> weeklySettings;
-
+    @PolicyResourceProperty(name="weeklySettings", flag="unknown_weeklySettings")
+    private @Nullable List<ContactsRotationRecurrenceWeeklySetting> value_weeklySettings;
+    private boolean unknown_weeklySettings;
     public @Nullable List<ContactsRotationRecurrenceWeeklySetting> weeklySettings() {
-        if (weeklySettings == null) return null;
-        return weeklySettings.getValue("ContactsRotationRecurrence.weeklySettings");
+        if (!unknown_weeklySettings) return value_weeklySettings;
+        throw new UndeferrableValueException("Value 'ContactsRotationRecurrence.weeklySettings' is not present");
     }
 
 }

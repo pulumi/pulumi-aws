@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class InstanceNetworkInterface {
      * Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> deleteOnTermination;
-
+    @PolicyResourceProperty(name="deleteOnTermination", flag="unknown_deleteOnTermination")
+    private @Nullable Boolean value_deleteOnTermination;
+    private boolean unknown_deleteOnTermination;
     public @Nullable Boolean deleteOnTermination() {
-        if (deleteOnTermination == null) return null;
-        return deleteOnTermination.getValue("InstanceNetworkInterface.deleteOnTermination");
+        if (!unknown_deleteOnTermination) return value_deleteOnTermination;
+        throw new UndeferrableValueException("Value 'InstanceNetworkInterface.deleteOnTermination' is not present");
     }
 
     /**
      * Integer index of the network interface attachment. Limited by instance type.
      * 
      */
-    private UndeferrableValue<Integer> deviceIndex;
-
+    @PolicyResourceProperty(name="deviceIndex", flag="unknown_deviceIndex")
+    private Integer value_deviceIndex;
+    private boolean unknown_deviceIndex;
     public Integer deviceIndex() {
-        if (deviceIndex == null) return null;
-        return deviceIndex.getValue("InstanceNetworkInterface.deviceIndex");
+        if (!unknown_deviceIndex) return value_deviceIndex;
+        throw new UndeferrableValueException("Value 'InstanceNetworkInterface.deviceIndex' is not present");
     }
 
     /**
      * Integer index of the network card. Limited by instance type. The default index is `0`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> networkCardIndex;
-
+    @PolicyResourceProperty(name="networkCardIndex", flag="unknown_networkCardIndex")
+    private @Nullable Integer value_networkCardIndex;
+    private boolean unknown_networkCardIndex;
     public @Nullable Integer networkCardIndex() {
-        if (networkCardIndex == null) return null;
-        return networkCardIndex.getValue("InstanceNetworkInterface.networkCardIndex");
+        if (!unknown_networkCardIndex) return value_networkCardIndex;
+        throw new UndeferrableValueException("Value 'InstanceNetworkInterface.networkCardIndex' is not present");
     }
 
     /**
      * ID of the network interface to attach.
      * 
      */
-    private UndeferrableValue<String> networkInterfaceId;
-
+    @PolicyResourceProperty(name="networkInterfaceId", flag="unknown_networkInterfaceId")
+    private String value_networkInterfaceId;
+    private boolean unknown_networkInterfaceId;
     public String networkInterfaceId() {
-        if (networkInterfaceId == null) return null;
-        return networkInterfaceId.getValue("InstanceNetworkInterface.networkInterfaceId");
+        if (!unknown_networkInterfaceId) return value_networkInterfaceId;
+        throw new UndeferrableValueException("Value 'InstanceNetworkInterface.networkInterfaceId' is not present");
     }
 
 }

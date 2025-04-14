@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicediscovery.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.servicediscovery.outputs.ServiceDnsConfigDnsRecord;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class ServiceDnsConfig {
      * An array that contains one DnsRecord object for each resource record set. See `dns_records` Block for details.
      * 
      */
-    private UndeferrableValue<List<ServiceDnsConfigDnsRecord>> dnsRecords;
-
+    @PolicyResourceProperty(name="dnsRecords", flag="unknown_dnsRecords")
+    private List<ServiceDnsConfigDnsRecord> value_dnsRecords;
+    private boolean unknown_dnsRecords;
     public List<ServiceDnsConfigDnsRecord> dnsRecords() {
-        if (dnsRecords == null) return null;
-        return dnsRecords.getValue("ServiceDnsConfig.dnsRecords");
+        if (!unknown_dnsRecords) return value_dnsRecords;
+        throw new UndeferrableValueException("Value 'ServiceDnsConfig.dnsRecords' is not present");
     }
 
     /**
      * The ID of the namespace to use for DNS configuration.
      * 
      */
-    private UndeferrableValue<String> namespaceId;
-
+    @PolicyResourceProperty(name="namespaceId", flag="unknown_namespaceId")
+    private String value_namespaceId;
+    private boolean unknown_namespaceId;
     public String namespaceId() {
-        if (namespaceId == null) return null;
-        return namespaceId.getValue("ServiceDnsConfig.namespaceId");
+        if (!unknown_namespaceId) return value_namespaceId;
+        throw new UndeferrableValueException("Value 'ServiceDnsConfig.namespaceId' is not present");
     }
 
     /**
      * The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
      * 
      */
-    private @Nullable UndeferrableValue<String> routingPolicy;
-
+    @PolicyResourceProperty(name="routingPolicy", flag="unknown_routingPolicy")
+    private @Nullable String value_routingPolicy;
+    private boolean unknown_routingPolicy;
     public @Nullable String routingPolicy() {
-        if (routingPolicy == null) return null;
-        return routingPolicy.getValue("ServiceDnsConfig.routingPolicy");
+        if (!unknown_routingPolicy) return value_routingPolicy;
+        throw new UndeferrableValueException("Value 'ServiceDnsConfig.routingPolicy' is not present");
     }
 
 }

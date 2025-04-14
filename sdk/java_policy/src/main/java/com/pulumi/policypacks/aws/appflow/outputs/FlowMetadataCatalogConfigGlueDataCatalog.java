@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,33 +14,36 @@ public final class FlowMetadataCatalogConfigGlueDataCatalog {
      * The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("FlowMetadataCatalogConfigGlueDataCatalog.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'FlowMetadataCatalogConfigGlueDataCatalog.databaseName' is not present");
     }
 
     /**
      * The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("FlowMetadataCatalogConfigGlueDataCatalog.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'FlowMetadataCatalogConfigGlueDataCatalog.roleArn' is not present");
     }
 
     /**
      * A naming prefix for each Data Catalog table that Amazon AppFlow creates
      * 
      */
-    private UndeferrableValue<String> tablePrefix;
-
+    @PolicyResourceProperty(name="tablePrefix", flag="unknown_tablePrefix")
+    private String value_tablePrefix;
+    private boolean unknown_tablePrefix;
     public String tablePrefix() {
-        if (tablePrefix == null) return null;
-        return tablePrefix.getValue("FlowMetadataCatalogConfigGlueDataCatalog.tablePrefix");
+        if (!unknown_tablePrefix) return value_tablePrefix;
+        throw new UndeferrableValueException("Value 'FlowMetadataCatalogConfigGlueDataCatalog.tablePrefix' is not present");
     }
 
 }

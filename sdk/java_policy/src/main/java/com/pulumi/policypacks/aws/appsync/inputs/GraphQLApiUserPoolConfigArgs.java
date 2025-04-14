@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class GraphQLApiUserPoolConfigArgs {
      * Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
      * 
      */
-    private UndeferrableValue<String> appIdClientRegex;
-
+    @PolicyResourceProperty(name="appIdClientRegex", flag="unknown_appIdClientRegex")
+    private String value_appIdClientRegex;
+    private boolean unknown_appIdClientRegex;
     public String appIdClientRegex() {
-        if (appIdClientRegex == null) return null;
-        return appIdClientRegex.getValue("GraphQLApiUserPoolConfigArgs.appIdClientRegex");
+        if (!unknown_appIdClientRegex) return value_appIdClientRegex;
+        throw new UndeferrableValueException("Value 'GraphQLApiUserPoolConfigArgs.appIdClientRegex' is not present");
     }
 
     /**
      * AWS region in which the user pool was created.
      * 
      */
-    private UndeferrableValue<String> awsRegion;
-
+    @PolicyResourceProperty(name="awsRegion", flag="unknown_awsRegion")
+    private String value_awsRegion;
+    private boolean unknown_awsRegion;
     public String awsRegion() {
-        if (awsRegion == null) return null;
-        return awsRegion.getValue("GraphQLApiUserPoolConfigArgs.awsRegion");
+        if (!unknown_awsRegion) return value_awsRegion;
+        throw new UndeferrableValueException("Value 'GraphQLApiUserPoolConfigArgs.awsRegion' is not present");
     }
 
     /**
      * Action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn&#39;t match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
      * 
      */
-    private UndeferrableValue<String> defaultAction;
-
+    @PolicyResourceProperty(name="defaultAction", flag="unknown_defaultAction")
+    private String value_defaultAction;
+    private boolean unknown_defaultAction;
     public String defaultAction() {
-        if (defaultAction == null) return null;
-        return defaultAction.getValue("GraphQLApiUserPoolConfigArgs.defaultAction");
+        if (!unknown_defaultAction) return value_defaultAction;
+        throw new UndeferrableValueException("Value 'GraphQLApiUserPoolConfigArgs.defaultAction' is not present");
     }
 
     /**
      * User pool ID.
      * 
      */
-    private UndeferrableValue<String> userPoolId;
-
+    @PolicyResourceProperty(name="userPoolId", flag="unknown_userPoolId")
+    private String value_userPoolId;
+    private boolean unknown_userPoolId;
     public String userPoolId() {
-        if (userPoolId == null) return null;
-        return userPoolId.getValue("GraphQLApiUserPoolConfigArgs.userPoolId");
+        if (!unknown_userPoolId) return value_userPoolId;
+        throw new UndeferrableValueException("Value 'GraphQLApiUserPoolConfigArgs.userPoolId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticache.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class GlobalReplicationGroupGlobalNodeGroup {
      * The ID of the global node group.
      * 
      */
-    private @Nullable UndeferrableValue<String> globalNodeGroupId;
-
+    @PolicyResourceProperty(name="globalNodeGroupId", flag="unknown_globalNodeGroupId")
+    private @Nullable String value_globalNodeGroupId;
+    private boolean unknown_globalNodeGroupId;
     public @Nullable String globalNodeGroupId() {
-        if (globalNodeGroupId == null) return null;
-        return globalNodeGroupId.getValue("GlobalReplicationGroupGlobalNodeGroup.globalNodeGroupId");
+        if (!unknown_globalNodeGroupId) return value_globalNodeGroupId;
+        throw new UndeferrableValueException("Value 'GlobalReplicationGroupGlobalNodeGroup.globalNodeGroupId' is not present");
     }
 
     /**
      * The keyspace for this node group.
      * 
      */
-    private @Nullable UndeferrableValue<String> slots;
-
+    @PolicyResourceProperty(name="slots", flag="unknown_slots")
+    private @Nullable String value_slots;
+    private boolean unknown_slots;
     public @Nullable String slots() {
-        if (slots == null) return null;
-        return slots.getValue("GlobalReplicationGroupGlobalNodeGroup.slots");
+        if (!unknown_slots) return value_slots;
+        throw new UndeferrableValueException("Value 'GlobalReplicationGroupGlobalNodeGroup.slots' is not present");
     }
 
 }

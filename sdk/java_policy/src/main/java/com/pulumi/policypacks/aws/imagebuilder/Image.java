@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.imagebuilder.outputs.ImageImageScanningConfiguration;
 import com.pulumi.policypacks.aws.imagebuilder.outputs.ImageImageTestsConfiguration;
@@ -23,99 +24,108 @@ public final class Image extends com.pulumi.resources.PolicyResourceOutput {
      * Amazon Resource Name (ARN) of the image.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Image.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Image.arn' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the container recipe.
      * 
      */
-    private @Nullable UndeferrableValue<String> containerRecipeArn;
-
+    @PolicyResourceProperty(name="containerRecipeArn", flag="unknown_containerRecipeArn")
+    private @Nullable String value_containerRecipeArn;
+    private boolean unknown_containerRecipeArn;
     public @Nullable String containerRecipeArn() {
-        if (containerRecipeArn == null) return null;
-        return containerRecipeArn.getValue("Image.containerRecipeArn");
+        if (!unknown_containerRecipeArn) return value_containerRecipeArn;
+        throw new UndeferrableValueException("Value 'Image.containerRecipeArn' is not present");
     }
 
     /**
      * Date the image was created.
      * 
      */
-    private UndeferrableValue<String> dateCreated;
-
+    @PolicyResourceProperty(name="dateCreated", flag="unknown_dateCreated")
+    private String value_dateCreated;
+    private boolean unknown_dateCreated;
     public String dateCreated() {
-        if (dateCreated == null) return null;
-        return dateCreated.getValue("Image.dateCreated");
+        if (!unknown_dateCreated) return value_dateCreated;
+        throw new UndeferrableValueException("Value 'Image.dateCreated' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
      * 
      */
-    private @Nullable UndeferrableValue<String> distributionConfigurationArn;
-
+    @PolicyResourceProperty(name="distributionConfigurationArn", flag="unknown_distributionConfigurationArn")
+    private @Nullable String value_distributionConfigurationArn;
+    private boolean unknown_distributionConfigurationArn;
     public @Nullable String distributionConfigurationArn() {
-        if (distributionConfigurationArn == null) return null;
-        return distributionConfigurationArn.getValue("Image.distributionConfigurationArn");
+        if (!unknown_distributionConfigurationArn) return value_distributionConfigurationArn;
+        throw new UndeferrableValueException("Value 'Image.distributionConfigurationArn' is not present");
     }
 
     /**
      * Whether additional information about the image being created is collected. Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enhancedImageMetadataEnabled;
-
+    @PolicyResourceProperty(name="enhancedImageMetadataEnabled", flag="unknown_enhancedImageMetadataEnabled")
+    private @Nullable Boolean value_enhancedImageMetadataEnabled;
+    private boolean unknown_enhancedImageMetadataEnabled;
     public @Nullable Boolean enhancedImageMetadataEnabled() {
-        if (enhancedImageMetadataEnabled == null) return null;
-        return enhancedImageMetadataEnabled.getValue("Image.enhancedImageMetadataEnabled");
+        if (!unknown_enhancedImageMetadataEnabled) return value_enhancedImageMetadataEnabled;
+        throw new UndeferrableValueException("Value 'Image.enhancedImageMetadataEnabled' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
      * 
      */
-    private UndeferrableValue<String> executionRole;
-
+    @PolicyResourceProperty(name="executionRole", flag="unknown_executionRole")
+    private String value_executionRole;
+    private boolean unknown_executionRole;
     public String executionRole() {
-        if (executionRole == null) return null;
-        return executionRole.getValue("Image.executionRole");
+        if (!unknown_executionRole) return value_executionRole;
+        throw new UndeferrableValueException("Value 'Image.executionRole' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the image recipe.
      * 
      */
-    private @Nullable UndeferrableValue<String> imageRecipeArn;
-
+    @PolicyResourceProperty(name="imageRecipeArn", flag="unknown_imageRecipeArn")
+    private @Nullable String value_imageRecipeArn;
+    private boolean unknown_imageRecipeArn;
     public @Nullable String imageRecipeArn() {
-        if (imageRecipeArn == null) return null;
-        return imageRecipeArn.getValue("Image.imageRecipeArn");
+        if (!unknown_imageRecipeArn) return value_imageRecipeArn;
+        throw new UndeferrableValueException("Value 'Image.imageRecipeArn' is not present");
     }
 
     /**
      * Configuration block with image scanning configuration. Detailed below.
      * 
      */
-    private UndeferrableValue<ImageImageScanningConfiguration> imageScanningConfiguration;
-
+    @PolicyResourceProperty(name="imageScanningConfiguration", flag="unknown_imageScanningConfiguration")
+    private ImageImageScanningConfiguration value_imageScanningConfiguration;
+    private boolean unknown_imageScanningConfiguration;
     public ImageImageScanningConfiguration imageScanningConfiguration() {
-        if (imageScanningConfiguration == null) return null;
-        return imageScanningConfiguration.getValue("Image.imageScanningConfiguration");
+        if (!unknown_imageScanningConfiguration) return value_imageScanningConfiguration;
+        throw new UndeferrableValueException("Value 'Image.imageScanningConfiguration' is not present");
     }
 
     /**
      * Configuration block with image tests configuration. Detailed below.
      * 
      */
-    private UndeferrableValue<ImageImageTestsConfiguration> imageTestsConfiguration;
-
+    @PolicyResourceProperty(name="imageTestsConfiguration", flag="unknown_imageTestsConfiguration")
+    private ImageImageTestsConfiguration value_imageTestsConfiguration;
+    private boolean unknown_imageTestsConfiguration;
     public ImageImageTestsConfiguration imageTestsConfiguration() {
-        if (imageTestsConfiguration == null) return null;
-        return imageTestsConfiguration.getValue("Image.imageTestsConfiguration");
+        if (!unknown_imageTestsConfiguration) return value_imageTestsConfiguration;
+        throw new UndeferrableValueException("Value 'Image.imageTestsConfiguration' is not present");
     }
 
     /**
@@ -124,66 +134,72 @@ public final class Image extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> infrastructureConfigurationArn;
-
+    @PolicyResourceProperty(name="infrastructureConfigurationArn", flag="unknown_infrastructureConfigurationArn")
+    private String value_infrastructureConfigurationArn;
+    private boolean unknown_infrastructureConfigurationArn;
     public String infrastructureConfigurationArn() {
-        if (infrastructureConfigurationArn == null) return null;
-        return infrastructureConfigurationArn.getValue("Image.infrastructureConfigurationArn");
+        if (!unknown_infrastructureConfigurationArn) return value_infrastructureConfigurationArn;
+        throw new UndeferrableValueException("Value 'Image.infrastructureConfigurationArn' is not present");
     }
 
     /**
      * Name of the AMI.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Image.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Image.name' is not present");
     }
 
     /**
      * Operating System version of the image.
      * 
      */
-    private UndeferrableValue<String> osVersion;
-
+    @PolicyResourceProperty(name="osVersion", flag="unknown_osVersion")
+    private String value_osVersion;
+    private boolean unknown_osVersion;
     public String osVersion() {
-        if (osVersion == null) return null;
-        return osVersion.getValue("Image.osVersion");
+        if (!unknown_osVersion) return value_osVersion;
+        throw new UndeferrableValueException("Value 'Image.osVersion' is not present");
     }
 
     /**
      * List of objects with resources created by the image.
      * 
      */
-    private UndeferrableValue<List<ImageOutputResource>> outputResources;
-
+    @PolicyResourceProperty(name="outputResources", flag="unknown_outputResources")
+    private List<ImageOutputResource> value_outputResources;
+    private boolean unknown_outputResources;
     public List<ImageOutputResource> outputResources() {
-        if (outputResources == null) return null;
-        return outputResources.getValue("Image.outputResources");
+        if (!unknown_outputResources) return value_outputResources;
+        throw new UndeferrableValueException("Value 'Image.outputResources' is not present");
     }
 
     /**
      * Platform of the image.
      * 
      */
-    private UndeferrableValue<String> platform;
-
+    @PolicyResourceProperty(name="platform", flag="unknown_platform")
+    private String value_platform;
+    private boolean unknown_platform;
     public String platform() {
-        if (platform == null) return null;
-        return platform.getValue("Image.platform");
+        if (!unknown_platform) return value_platform;
+        throw new UndeferrableValueException("Value 'Image.platform' is not present");
     }
 
     /**
      * Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Image.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Image.tags' is not present");
     }
 
     /**
@@ -194,33 +210,36 @@ public final class Image extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Image.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Image.tagsAll' is not present");
     }
 
     /**
      * Version of the image.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("Image.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'Image.version' is not present");
     }
 
     /**
      * Configuration block with the workflow configuration. Detailed below.
      * 
      */
-    private UndeferrableValue<List<ImageWorkflow>> workflows;
-
+    @PolicyResourceProperty(name="workflows", flag="unknown_workflows")
+    private List<ImageWorkflow> value_workflows;
+    private boolean unknown_workflows;
     public List<ImageWorkflow> workflows() {
-        if (workflows == null) return null;
-        return workflows.getValue("Image.workflows");
+        if (!unknown_workflows) return value_workflows;
+        throw new UndeferrableValueException("Value 'Image.workflows' is not present");
     }
 
 }

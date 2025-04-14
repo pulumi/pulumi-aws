@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,29 +15,32 @@ public final class PartitionStorageDescriptorColumn {
      * Free-form text comment.
      * 
      */
-    private @Nullable UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private @Nullable String value_comment;
+    private boolean unknown_comment;
     public @Nullable String comment() {
-        if (comment == null) return null;
-        return comment.getValue("PartitionStorageDescriptorColumn.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'PartitionStorageDescriptorColumn.comment' is not present");
     }
 
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PartitionStorageDescriptorColumn.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PartitionStorageDescriptorColumn.name' is not present");
     }
 
     /**
      * The datatype of data in the Column.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("PartitionStorageDescriptorColumn.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'PartitionStorageDescriptorColumn.type' is not present");
     }
 
 }

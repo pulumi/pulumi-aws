@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudformation.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class StackSetAutoDeployment {
      * Whether or not auto-deployment is enabled.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("StackSetAutoDeployment.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'StackSetAutoDeployment.enabled' is not present");
     }
 
     /**
      * Whether or not to retain stacks when the account is removed.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> retainStacksOnAccountRemoval;
-
+    @PolicyResourceProperty(name="retainStacksOnAccountRemoval", flag="unknown_retainStacksOnAccountRemoval")
+    private @Nullable Boolean value_retainStacksOnAccountRemoval;
+    private boolean unknown_retainStacksOnAccountRemoval;
     public @Nullable Boolean retainStacksOnAccountRemoval() {
-        if (retainStacksOnAccountRemoval == null) return null;
-        return retainStacksOnAccountRemoval.getValue("StackSetAutoDeployment.retainStacksOnAccountRemoval");
+        if (!unknown_retainStacksOnAccountRemoval) return value_retainStacksOnAccountRemoval;
+        throw new UndeferrableValueException("Value 'StackSetAutoDeployment.retainStacksOnAccountRemoval' is not present");
     }
 
 }

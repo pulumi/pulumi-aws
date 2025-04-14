@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsSlotSubSlotSettingSlotSpecificationArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,11 +17,12 @@ public final class V2modelsSlotSubSlotSettingArgs {
      * Expression text for defining the constituent sub slots in the composite slot using logical `AND` and `OR` operators.
      * 
      */
-    private UndeferrableValue<String> expression;
-
+    @PolicyResourceProperty(name="expression", flag="unknown_expression")
+    private String value_expression;
+    private boolean unknown_expression;
     public String expression() {
-        if (expression == null) return null;
-        return expression.getValue("V2modelsSlotSubSlotSettingArgs.expression");
+        if (!unknown_expression) return value_expression;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingArgs.expression' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class V2modelsSlotSubSlotSettingArgs {
      * See the `slot_specification` argument reference below.
      * 
      */
-    private UndeferrableValue<List<V2modelsSlotSubSlotSettingSlotSpecificationArgs>> slotSpecifications;
-
+    @PolicyResourceProperty(name="slotSpecifications", flag="unknown_slotSpecifications")
+    private List<V2modelsSlotSubSlotSettingSlotSpecificationArgs> value_slotSpecifications;
+    private boolean unknown_slotSpecifications;
     public List<V2modelsSlotSubSlotSettingSlotSpecificationArgs> slotSpecifications() {
-        if (slotSpecifications == null) return null;
-        return slotSpecifications.getValue("V2modelsSlotSubSlotSettingArgs.slotSpecifications");
+        if (!unknown_slotSpecifications) return value_slotSpecifications;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingArgs.slotSpecifications' is not present");
     }
 
 }

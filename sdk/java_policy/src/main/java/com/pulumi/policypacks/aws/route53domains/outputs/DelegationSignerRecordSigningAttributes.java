@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53domains.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,33 +15,36 @@ public final class DelegationSignerRecordSigningAttributes {
      * Algorithm which was used to generate the digest from the public key.
      * 
      */
-    private UndeferrableValue<Integer> algorithm;
-
+    @PolicyResourceProperty(name="algorithm", flag="unknown_algorithm")
+    private Integer value_algorithm;
+    private boolean unknown_algorithm;
     public Integer algorithm() {
-        if (algorithm == null) return null;
-        return algorithm.getValue("DelegationSignerRecordSigningAttributes.algorithm");
+        if (!unknown_algorithm) return value_algorithm;
+        throw new UndeferrableValueException("Value 'DelegationSignerRecordSigningAttributes.algorithm' is not present");
     }
 
     /**
      * Defines the type of key. It can be either a KSK (key-signing-key, value `257`) or ZSK (zone-signing-key, value `256`).
      * 
      */
-    private UndeferrableValue<Integer> flags;
-
+    @PolicyResourceProperty(name="flags", flag="unknown_flags")
+    private Integer value_flags;
+    private boolean unknown_flags;
     public Integer flags() {
-        if (flags == null) return null;
-        return flags.getValue("DelegationSignerRecordSigningAttributes.flags");
+        if (!unknown_flags) return value_flags;
+        throw new UndeferrableValueException("Value 'DelegationSignerRecordSigningAttributes.flags' is not present");
     }
 
     /**
      * The base64-encoded public key part of the key pair that is passed to the registry.
      * 
      */
-    private UndeferrableValue<String> publicKey;
-
+    @PolicyResourceProperty(name="publicKey", flag="unknown_publicKey")
+    private String value_publicKey;
+    private boolean unknown_publicKey;
     public String publicKey() {
-        if (publicKey == null) return null;
-        return publicKey.getValue("DelegationSignerRecordSigningAttributes.publicKey");
+        if (!unknown_publicKey) return value_publicKey;
+        throw new UndeferrableValueException("Value 'DelegationSignerRecordSigningAttributes.publicKey' is not present");
     }
 
 }

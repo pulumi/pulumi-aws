@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class PipelineStageBeforeEntryConditionRuleRuleTypeId {
      * A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is `Rule`.
      * 
      */
-    private UndeferrableValue<String> category;
-
+    @PolicyResourceProperty(name="category", flag="unknown_category")
+    private String value_category;
+    private boolean unknown_category;
     public String category() {
-        if (category == null) return null;
-        return category.getValue("PipelineStageBeforeEntryConditionRuleRuleTypeId.category");
+        if (!unknown_category) return value_category;
+        throw new UndeferrableValueException("Value 'PipelineStageBeforeEntryConditionRuleRuleTypeId.category' is not present");
     }
 
     /**
      * The creator of the rule being called. The valid value for the Owner field in the rule category is `AWS`.
      * 
      */
-    private @Nullable UndeferrableValue<String> owner;
-
+    @PolicyResourceProperty(name="owner", flag="unknown_owner")
+    private @Nullable String value_owner;
+    private boolean unknown_owner;
     public @Nullable String owner() {
-        if (owner == null) return null;
-        return owner.getValue("PipelineStageBeforeEntryConditionRuleRuleTypeId.owner");
+        if (!unknown_owner) return value_owner;
+        throw new UndeferrableValueException("Value 'PipelineStageBeforeEntryConditionRuleRuleTypeId.owner' is not present");
     }
 
     /**
      * The rule provider, such as the DeploymentWindow rule. For a list of rule provider names, see the rules listed in the [AWS CodePipeline rule reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html).
      * 
      */
-    private UndeferrableValue<String> provider;
-
+    @PolicyResourceProperty(name="provider", flag="unknown_provider")
+    private String value_provider;
+    private boolean unknown_provider;
     public String provider() {
-        if (provider == null) return null;
-        return provider.getValue("PipelineStageBeforeEntryConditionRuleRuleTypeId.provider");
+        if (!unknown_provider) return value_provider;
+        throw new UndeferrableValueException("Value 'PipelineStageBeforeEntryConditionRuleRuleTypeId.provider' is not present");
     }
 
     /**
      * A string that describes the rule version.
      * 
      */
-    private @Nullable UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private @Nullable String value_version;
+    private boolean unknown_version;
     public @Nullable String version() {
-        if (version == null) return null;
-        return version.getValue("PipelineStageBeforeEntryConditionRuleRuleTypeId.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'PipelineStageBeforeEntryConditionRuleRuleTypeId.version' is not present");
     }
 
 }

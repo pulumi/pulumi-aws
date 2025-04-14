@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
      * Sets the MaxCLL value for HDR10.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxCll;
-
+    @PolicyResourceProperty(name="maxCll", flag="unknown_maxCll")
+    private @Nullable Integer value_maxCll;
+    private boolean unknown_maxCll;
     public @Nullable Integer maxCll() {
-        if (maxCll == null) return null;
-        return maxCll.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings.maxCll");
+        if (!unknown_maxCll) return value_maxCll;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings.maxCll' is not present");
     }
 
     /**
      * Sets the MaxFALL value for HDR10.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxFall;
-
+    @PolicyResourceProperty(name="maxFall", flag="unknown_maxFall")
+    private @Nullable Integer value_maxFall;
+    private boolean unknown_maxFall;
     public @Nullable Integer maxFall() {
-        if (maxFall == null) return null;
-        return maxFall.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings.maxFall");
+        if (!unknown_maxFall) return value_maxFall;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings.maxFall' is not present");
     }
 
 }

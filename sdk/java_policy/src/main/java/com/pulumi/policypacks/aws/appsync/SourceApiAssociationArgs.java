@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appsync.inputs.SourceApiAssociationSourceApiAssociationConfigArgs;
 import com.pulumi.policypacks.aws.appsync.inputs.SourceApiAssociationTimeoutsArgs;
@@ -19,69 +20,76 @@ public final class SourceApiAssociationArgs extends com.pulumi.resources.PolicyR
      * Description of the source API being merged.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("SourceApiAssociationArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'SourceApiAssociationArgs.description' is not present");
     }
 
     /**
      * ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
      * 
      */
-    private UndeferrableValue<String> mergedApiArn;
-
+    @PolicyResourceProperty(name="mergedApiArn", flag="unknown_mergedApiArn")
+    private String value_mergedApiArn;
+    private boolean unknown_mergedApiArn;
     public String mergedApiArn() {
-        if (mergedApiArn == null) return null;
-        return mergedApiArn.getValue("SourceApiAssociationArgs.mergedApiArn");
+        if (!unknown_mergedApiArn) return value_mergedApiArn;
+        throw new UndeferrableValueException("Value 'SourceApiAssociationArgs.mergedApiArn' is not present");
     }
 
     /**
      * ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
      * 
      */
-    private UndeferrableValue<String> mergedApiId;
-
+    @PolicyResourceProperty(name="mergedApiId", flag="unknown_mergedApiId")
+    private String value_mergedApiId;
+    private boolean unknown_mergedApiId;
     public String mergedApiId() {
-        if (mergedApiId == null) return null;
-        return mergedApiId.getValue("SourceApiAssociationArgs.mergedApiId");
+        if (!unknown_mergedApiId) return value_mergedApiId;
+        throw new UndeferrableValueException("Value 'SourceApiAssociationArgs.mergedApiId' is not present");
     }
 
     /**
      * ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
      * 
      */
-    private UndeferrableValue<String> sourceApiArn;
-
+    @PolicyResourceProperty(name="sourceApiArn", flag="unknown_sourceApiArn")
+    private String value_sourceApiArn;
+    private boolean unknown_sourceApiArn;
     public String sourceApiArn() {
-        if (sourceApiArn == null) return null;
-        return sourceApiArn.getValue("SourceApiAssociationArgs.sourceApiArn");
+        if (!unknown_sourceApiArn) return value_sourceApiArn;
+        throw new UndeferrableValueException("Value 'SourceApiAssociationArgs.sourceApiArn' is not present");
     }
 
-    private UndeferrableValue<List<SourceApiAssociationSourceApiAssociationConfigArgs>> sourceApiAssociationConfigs;
-
+    @PolicyResourceProperty(name="sourceApiAssociationConfigs", flag="unknown_sourceApiAssociationConfigs")
+    private List<SourceApiAssociationSourceApiAssociationConfigArgs> value_sourceApiAssociationConfigs;
+    private boolean unknown_sourceApiAssociationConfigs;
     public List<SourceApiAssociationSourceApiAssociationConfigArgs> sourceApiAssociationConfigs() {
-        if (sourceApiAssociationConfigs == null) return null;
-        return sourceApiAssociationConfigs.getValue("SourceApiAssociationArgs.sourceApiAssociationConfigs");
+        if (!unknown_sourceApiAssociationConfigs) return value_sourceApiAssociationConfigs;
+        throw new UndeferrableValueException("Value 'SourceApiAssociationArgs.sourceApiAssociationConfigs' is not present");
     }
 
     /**
      * ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
      * 
      */
-    private UndeferrableValue<String> sourceApiId;
-
+    @PolicyResourceProperty(name="sourceApiId", flag="unknown_sourceApiId")
+    private String value_sourceApiId;
+    private boolean unknown_sourceApiId;
     public String sourceApiId() {
-        if (sourceApiId == null) return null;
-        return sourceApiId.getValue("SourceApiAssociationArgs.sourceApiId");
+        if (!unknown_sourceApiId) return value_sourceApiId;
+        throw new UndeferrableValueException("Value 'SourceApiAssociationArgs.sourceApiId' is not present");
     }
 
-    private UndeferrableValue<SourceApiAssociationTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private SourceApiAssociationTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public SourceApiAssociationTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("SourceApiAssociationArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'SourceApiAssociationArgs.timeouts' is not present");
     }
 
 }

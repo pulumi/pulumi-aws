@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -19,11 +20,12 @@ public final class BucketPublicAccessBlockArgs extends com.pulumi.resources.Poli
      * * PUT Object calls will fail if the request includes an object ACL.
      * 
      */
-    private UndeferrableValue<Boolean> blockPublicAcls;
-
+    @PolicyResourceProperty(name="blockPublicAcls", flag="unknown_blockPublicAcls")
+    private Boolean value_blockPublicAcls;
+    private boolean unknown_blockPublicAcls;
     public Boolean blockPublicAcls() {
-        if (blockPublicAcls == null) return null;
-        return blockPublicAcls.getValue("BucketPublicAccessBlockArgs.blockPublicAcls");
+        if (!unknown_blockPublicAcls) return value_blockPublicAcls;
+        throw new UndeferrableValueException("Value 'BucketPublicAccessBlockArgs.blockPublicAcls' is not present");
     }
 
     /**
@@ -31,22 +33,24 @@ public final class BucketPublicAccessBlockArgs extends com.pulumi.resources.Poli
      * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
      * 
      */
-    private UndeferrableValue<Boolean> blockPublicPolicy;
-
+    @PolicyResourceProperty(name="blockPublicPolicy", flag="unknown_blockPublicPolicy")
+    private Boolean value_blockPublicPolicy;
+    private boolean unknown_blockPublicPolicy;
     public Boolean blockPublicPolicy() {
-        if (blockPublicPolicy == null) return null;
-        return blockPublicPolicy.getValue("BucketPublicAccessBlockArgs.blockPublicPolicy");
+        if (!unknown_blockPublicPolicy) return value_blockPublicPolicy;
+        throw new UndeferrableValueException("Value 'BucketPublicAccessBlockArgs.blockPublicPolicy' is not present");
     }
 
     /**
      * S3 Bucket to which this Public Access Block configuration should be applied.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("BucketPublicAccessBlockArgs.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'BucketPublicAccessBlockArgs.bucket' is not present");
     }
 
     /**
@@ -54,11 +58,12 @@ public final class BucketPublicAccessBlockArgs extends com.pulumi.resources.Poli
      * * Ignore public ACLs on this bucket and any objects that it contains.
      * 
      */
-    private UndeferrableValue<Boolean> ignorePublicAcls;
-
+    @PolicyResourceProperty(name="ignorePublicAcls", flag="unknown_ignorePublicAcls")
+    private Boolean value_ignorePublicAcls;
+    private boolean unknown_ignorePublicAcls;
     public Boolean ignorePublicAcls() {
-        if (ignorePublicAcls == null) return null;
-        return ignorePublicAcls.getValue("BucketPublicAccessBlockArgs.ignorePublicAcls");
+        if (!unknown_ignorePublicAcls) return value_ignorePublicAcls;
+        throw new UndeferrableValueException("Value 'BucketPublicAccessBlockArgs.ignorePublicAcls' is not present");
     }
 
     /**
@@ -66,11 +71,12 @@ public final class BucketPublicAccessBlockArgs extends com.pulumi.resources.Poli
      * * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
      * 
      */
-    private UndeferrableValue<Boolean> restrictPublicBuckets;
-
+    @PolicyResourceProperty(name="restrictPublicBuckets", flag="unknown_restrictPublicBuckets")
+    private Boolean value_restrictPublicBuckets;
+    private boolean unknown_restrictPublicBuckets;
     public Boolean restrictPublicBuckets() {
-        if (restrictPublicBuckets == null) return null;
-        return restrictPublicBuckets.getValue("BucketPublicAccessBlockArgs.restrictPublicBuckets");
+        if (!unknown_restrictPublicBuckets) return value_restrictPublicBuckets;
+        throw new UndeferrableValueException("Value 'BucketPublicAccessBlockArgs.restrictPublicBuckets' is not present");
     }
 
 }

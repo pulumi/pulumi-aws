@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.backup.inputs.SelectionConditionStringEqualArgs;
 import com.pulumi.policypacks.aws.backup.inputs.SelectionConditionStringLikeArgs;
 import com.pulumi.policypacks.aws.backup.inputs.SelectionConditionStringNotEqualArgs;
@@ -18,44 +19,48 @@ public final class SelectionConditionArgs {
      * Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching&#34;. See below for details.
      * 
      */
-    private UndeferrableValue<List<SelectionConditionStringEqualArgs>> stringEquals;
-
+    @PolicyResourceProperty(name="stringEquals", flag="unknown_stringEquals")
+    private List<SelectionConditionStringEqualArgs> value_stringEquals;
+    private boolean unknown_stringEquals;
     public List<SelectionConditionStringEqualArgs> stringEquals() {
-        if (stringEquals == null) return null;
-        return stringEquals.getValue("SelectionConditionArgs.stringEquals");
+        if (!unknown_stringEquals) return value_stringEquals;
+        throw new UndeferrableValueException("Value 'SelectionConditionArgs.stringEquals' is not present");
     }
 
     /**
      * Filters the values of your tagged resources for matching tag values with the use of a wildcard character (`*`) anywhere in the string. For example, `prod*` or `*rod*` matches the tag value `production`. See below for details.
      * 
      */
-    private UndeferrableValue<List<SelectionConditionStringLikeArgs>> stringLikes;
-
+    @PolicyResourceProperty(name="stringLikes", flag="unknown_stringLikes")
+    private List<SelectionConditionStringLikeArgs> value_stringLikes;
+    private boolean unknown_stringLikes;
     public List<SelectionConditionStringLikeArgs> stringLikes() {
-        if (stringLikes == null) return null;
-        return stringLikes.getValue("SelectionConditionArgs.stringLikes");
+        if (!unknown_stringLikes) return value_stringLikes;
+        throw new UndeferrableValueException("Value 'SelectionConditionArgs.stringLikes' is not present");
     }
 
     /**
      * Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching&#34;. See below for details.
      * 
      */
-    private UndeferrableValue<List<SelectionConditionStringNotEqualArgs>> stringNotEquals;
-
+    @PolicyResourceProperty(name="stringNotEquals", flag="unknown_stringNotEquals")
+    private List<SelectionConditionStringNotEqualArgs> value_stringNotEquals;
+    private boolean unknown_stringNotEquals;
     public List<SelectionConditionStringNotEqualArgs> stringNotEquals() {
-        if (stringNotEquals == null) return null;
-        return stringNotEquals.getValue("SelectionConditionArgs.stringNotEquals");
+        if (!unknown_stringNotEquals) return value_stringNotEquals;
+        throw new UndeferrableValueException("Value 'SelectionConditionArgs.stringNotEquals' is not present");
     }
 
     /**
      * Filters the values of your tagged resources for non-matching tag values with the use of a wildcard character (`*`) anywhere in the string. See below for details.
      * 
      */
-    private UndeferrableValue<List<SelectionConditionStringNotLikeArgs>> stringNotLikes;
-
+    @PolicyResourceProperty(name="stringNotLikes", flag="unknown_stringNotLikes")
+    private List<SelectionConditionStringNotLikeArgs> value_stringNotLikes;
+    private boolean unknown_stringNotLikes;
     public List<SelectionConditionStringNotLikeArgs> stringNotLikes() {
-        if (stringNotLikes == null) return null;
-        return stringNotLikes.getValue("SelectionConditionArgs.stringNotLikes");
+        if (!unknown_stringNotLikes) return value_stringNotLikes;
+        throw new UndeferrableValueException("Value 'SelectionConditionArgs.stringNotLikes' is not present");
     }
 
 }

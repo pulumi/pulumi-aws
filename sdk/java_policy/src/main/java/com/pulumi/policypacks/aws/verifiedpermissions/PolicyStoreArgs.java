@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedpermissions;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.verifiedpermissions.inputs.PolicyStoreValidationSettingsArgs;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class PolicyStoreArgs extends com.pulumi.resources.PolicyResourceIn
      * A description of the Policy Store.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("PolicyStoreArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'PolicyStoreArgs.description' is not present");
     }
 
     /**
      * Validation settings for the policy store.
      * 
      */
-    private UndeferrableValue<PolicyStoreValidationSettingsArgs> validationSettings;
-
+    @PolicyResourceProperty(name="validationSettings", flag="unknown_validationSettings")
+    private PolicyStoreValidationSettingsArgs value_validationSettings;
+    private boolean unknown_validationSettings;
     public PolicyStoreValidationSettingsArgs validationSettings() {
-        if (validationSettings == null) return null;
-        return validationSettings.getValue("PolicyStoreArgs.validationSettings");
+        if (!unknown_validationSettings) return value_validationSettings;
+        throw new UndeferrableValueException("Value 'PolicyStoreArgs.validationSettings' is not present");
     }
 
 }

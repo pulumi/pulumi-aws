@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.fis.outputs.ExperimentTemplateTargetFilter;
 import com.pulumi.policypacks.aws.fis.outputs.ExperimentTemplateTargetResourceTag;
 import java.lang.String;
@@ -18,22 +19,24 @@ public final class ExperimentTemplateTarget {
      * Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ExperimentTemplateTargetFilter>> filters;
-
+    @PolicyResourceProperty(name="filters", flag="unknown_filters")
+    private @Nullable List<ExperimentTemplateTargetFilter> value_filters;
+    private boolean unknown_filters;
     public @Nullable List<ExperimentTemplateTargetFilter> filters() {
-        if (filters == null) return null;
-        return filters.getValue("ExperimentTemplateTarget.filters");
+        if (!unknown_filters) return value_filters;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateTarget.filters' is not present");
     }
 
     /**
      * Friendly name given to the target.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ExperimentTemplateTarget.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateTarget.name' is not present");
     }
 
     /**
@@ -42,55 +45,60 @@ public final class ExperimentTemplateTarget {
      * &gt; **NOTE:** The `target` configuration block requires either `resource_arns` or `resource_tag`.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private @Nullable Map<String,String> value_parameters;
+    private boolean unknown_parameters;
     public @Nullable Map<String,String> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("ExperimentTemplateTarget.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateTarget.parameters' is not present");
     }
 
     /**
      * Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> resourceArns;
-
+    @PolicyResourceProperty(name="resourceArns", flag="unknown_resourceArns")
+    private @Nullable List<String> value_resourceArns;
+    private boolean unknown_resourceArns;
     public @Nullable List<String> resourceArns() {
-        if (resourceArns == null) return null;
-        return resourceArns.getValue("ExperimentTemplateTarget.resourceArns");
+        if (!unknown_resourceArns) return value_resourceArns;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateTarget.resourceArns' is not present");
     }
 
     /**
      * Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ExperimentTemplateTargetResourceTag>> resourceTags;
-
+    @PolicyResourceProperty(name="resourceTags", flag="unknown_resourceTags")
+    private @Nullable List<ExperimentTemplateTargetResourceTag> value_resourceTags;
+    private boolean unknown_resourceTags;
     public @Nullable List<ExperimentTemplateTargetResourceTag> resourceTags() {
-        if (resourceTags == null) return null;
-        return resourceTags.getValue("ExperimentTemplateTarget.resourceTags");
+        if (!unknown_resourceTags) return value_resourceTags;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateTarget.resourceTags' is not present");
     }
 
     /**
      * AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
      * 
      */
-    private UndeferrableValue<String> resourceType;
-
+    @PolicyResourceProperty(name="resourceType", flag="unknown_resourceType")
+    private String value_resourceType;
+    private boolean unknown_resourceType;
     public String resourceType() {
-        if (resourceType == null) return null;
-        return resourceType.getValue("ExperimentTemplateTarget.resourceType");
+        if (!unknown_resourceType) return value_resourceType;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateTarget.resourceType' is not present");
     }
 
     /**
      * Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
      * 
      */
-    private UndeferrableValue<String> selectionMode;
-
+    @PolicyResourceProperty(name="selectionMode", flag="unknown_selectionMode")
+    private String value_selectionMode;
+    private boolean unknown_selectionMode;
     public String selectionMode() {
-        if (selectionMode == null) return null;
-        return selectionMode.getValue("ExperimentTemplateTarget.selectionMode");
+        if (!unknown_selectionMode) return value_selectionMode;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateTarget.selectionMode' is not present");
     }
 
 }

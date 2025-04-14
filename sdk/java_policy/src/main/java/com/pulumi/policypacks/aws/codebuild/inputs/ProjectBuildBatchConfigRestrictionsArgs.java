@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -19,22 +20,24 @@ public final class ProjectBuildBatchConfigRestrictionsArgs {
      * in the AWS CodeBuild User Guide for these values.
      * 
      */
-    private UndeferrableValue<List<String>> computeTypesAlloweds;
-
+    @PolicyResourceProperty(name="computeTypesAlloweds", flag="unknown_computeTypesAlloweds")
+    private List<String> value_computeTypesAlloweds;
+    private boolean unknown_computeTypesAlloweds;
     public List<String> computeTypesAlloweds() {
-        if (computeTypesAlloweds == null) return null;
-        return computeTypesAlloweds.getValue("ProjectBuildBatchConfigRestrictionsArgs.computeTypesAlloweds");
+        if (!unknown_computeTypesAlloweds) return value_computeTypesAlloweds;
+        throw new UndeferrableValueException("Value 'ProjectBuildBatchConfigRestrictionsArgs.computeTypesAlloweds' is not present");
     }
 
     /**
      * Specifies the maximum number of builds allowed.
      * 
      */
-    private UndeferrableValue<Integer> maximumBuildsAllowed;
-
+    @PolicyResourceProperty(name="maximumBuildsAllowed", flag="unknown_maximumBuildsAllowed")
+    private Integer value_maximumBuildsAllowed;
+    private boolean unknown_maximumBuildsAllowed;
     public Integer maximumBuildsAllowed() {
-        if (maximumBuildsAllowed == null) return null;
-        return maximumBuildsAllowed.getValue("ProjectBuildBatchConfigRestrictionsArgs.maximumBuildsAllowed");
+        if (!unknown_maximumBuildsAllowed) return value_maximumBuildsAllowed;
+        throw new UndeferrableValueException("Value 'ProjectBuildBatchConfigRestrictionsArgs.maximumBuildsAllowed' is not present");
     }
 
 }

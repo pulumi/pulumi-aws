@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class ServiceSourceConfigurationImageRepositoryImageConfigurationAr
      * Port that your application listens to in the container. Defaults to `&#34;8080&#34;`.
      * 
      */
-    private UndeferrableValue<String> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private String value_port;
+    private boolean unknown_port;
     public String port() {
-        if (port == null) return null;
-        return port.getValue("ServiceSourceConfigurationImageRepositoryImageConfigurationArgs.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationImageRepositoryImageConfigurationArgs.port' is not present");
     }
 
     /**
      * Secrets and parameters available to your service as environment variables. A map of key/value pairs, where the key is the desired name of the Secret in the environment (i.e. it does not have to match the name of the secret in Secrets Manager or SSM Parameter Store), and the value is the ARN of the secret from AWS Secrets Manager or the ARN of the parameter in AWS SSM Parameter Store.
      * 
      */
-    private UndeferrableValue<Map<String,String>> runtimeEnvironmentSecrets;
-
+    @PolicyResourceProperty(name="runtimeEnvironmentSecrets", flag="unknown_runtimeEnvironmentSecrets")
+    private Map<String,String> value_runtimeEnvironmentSecrets;
+    private boolean unknown_runtimeEnvironmentSecrets;
     public Map<String,String> runtimeEnvironmentSecrets() {
-        if (runtimeEnvironmentSecrets == null) return null;
-        return runtimeEnvironmentSecrets.getValue("ServiceSourceConfigurationImageRepositoryImageConfigurationArgs.runtimeEnvironmentSecrets");
+        if (!unknown_runtimeEnvironmentSecrets) return value_runtimeEnvironmentSecrets;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationImageRepositoryImageConfigurationArgs.runtimeEnvironmentSecrets' is not present");
     }
 
     /**
      * Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren&#39;t valid.
      * 
      */
-    private UndeferrableValue<Map<String,String>> runtimeEnvironmentVariables;
-
+    @PolicyResourceProperty(name="runtimeEnvironmentVariables", flag="unknown_runtimeEnvironmentVariables")
+    private Map<String,String> value_runtimeEnvironmentVariables;
+    private boolean unknown_runtimeEnvironmentVariables;
     public Map<String,String> runtimeEnvironmentVariables() {
-        if (runtimeEnvironmentVariables == null) return null;
-        return runtimeEnvironmentVariables.getValue("ServiceSourceConfigurationImageRepositoryImageConfigurationArgs.runtimeEnvironmentVariables");
+        if (!unknown_runtimeEnvironmentVariables) return value_runtimeEnvironmentVariables;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationImageRepositoryImageConfigurationArgs.runtimeEnvironmentVariables' is not present");
     }
 
     /**
      * Command App Runner runs to start the application in the source image. If specified, this command overrides the Docker image’s default start command.
      * 
      */
-    private UndeferrableValue<String> startCommand;
-
+    @PolicyResourceProperty(name="startCommand", flag="unknown_startCommand")
+    private String value_startCommand;
+    private boolean unknown_startCommand;
     public String startCommand() {
-        if (startCommand == null) return null;
-        return startCommand.getValue("ServiceSourceConfigurationImageRepositoryImageConfigurationArgs.startCommand");
+        if (!unknown_startCommand) return value_startCommand;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationImageRepositoryImageConfigurationArgs.startCommand' is not present");
     }
 
 }

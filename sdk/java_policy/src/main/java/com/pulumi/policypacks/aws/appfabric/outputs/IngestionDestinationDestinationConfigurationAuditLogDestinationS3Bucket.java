@@ -3,29 +3,32 @@
 
 package com.pulumi.policypacks.aws.appfabric.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket {
 
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket.bucketName' is not present");
     }
 
     /**
      * The object key to use.
      * 
      */
-    private @Nullable UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private @Nullable String value_prefix;
+    private boolean unknown_prefix;
     public @Nullable String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket.prefix' is not present");
     }
 
 }

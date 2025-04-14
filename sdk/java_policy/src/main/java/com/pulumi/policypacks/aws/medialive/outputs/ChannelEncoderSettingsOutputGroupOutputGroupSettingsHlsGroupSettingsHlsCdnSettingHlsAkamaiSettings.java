@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,61 +16,68 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
      * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> connectionRetryInterval;
-
+    @PolicyResourceProperty(name="connectionRetryInterval", flag="unknown_connectionRetryInterval")
+    private @Nullable Integer value_connectionRetryInterval;
+    private boolean unknown_connectionRetryInterval;
     public @Nullable Integer connectionRetryInterval() {
-        if (connectionRetryInterval == null) return null;
-        return connectionRetryInterval.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings.connectionRetryInterval");
+        if (!unknown_connectionRetryInterval) return value_connectionRetryInterval;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings.connectionRetryInterval' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> filecacheDuration;
-
+    @PolicyResourceProperty(name="filecacheDuration", flag="unknown_filecacheDuration")
+    private @Nullable Integer value_filecacheDuration;
+    private boolean unknown_filecacheDuration;
     public @Nullable Integer filecacheDuration() {
-        if (filecacheDuration == null) return null;
-        return filecacheDuration.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings.filecacheDuration");
+        if (!unknown_filecacheDuration) return value_filecacheDuration;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings.filecacheDuration' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> httpTransferMode;
-
+    @PolicyResourceProperty(name="httpTransferMode", flag="unknown_httpTransferMode")
+    private @Nullable String value_httpTransferMode;
+    private boolean unknown_httpTransferMode;
     public @Nullable String httpTransferMode() {
-        if (httpTransferMode == null) return null;
-        return httpTransferMode.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings.httpTransferMode");
+        if (!unknown_httpTransferMode) return value_httpTransferMode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings.httpTransferMode' is not present");
     }
 
     /**
      * Number of retry attempts.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> numRetries;
-
+    @PolicyResourceProperty(name="numRetries", flag="unknown_numRetries")
+    private @Nullable Integer value_numRetries;
+    private boolean unknown_numRetries;
     public @Nullable Integer numRetries() {
-        if (numRetries == null) return null;
-        return numRetries.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings.numRetries");
+        if (!unknown_numRetries) return value_numRetries;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings.numRetries' is not present");
     }
 
     /**
      * Number of seconds to wait until a restart is initiated.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> restartDelay;
-
+    @PolicyResourceProperty(name="restartDelay", flag="unknown_restartDelay")
+    private @Nullable Integer value_restartDelay;
+    private boolean unknown_restartDelay;
     public @Nullable Integer restartDelay() {
-        if (restartDelay == null) return null;
-        return restartDelay.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings.restartDelay");
+        if (!unknown_restartDelay) return value_restartDelay;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings.restartDelay' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> salt;
-
+    @PolicyResourceProperty(name="salt", flag="unknown_salt")
+    private @Nullable String value_salt;
+    private boolean unknown_salt;
     public @Nullable String salt() {
-        if (salt == null) return null;
-        return salt.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings.salt");
+        if (!unknown_salt) return value_salt;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings.salt' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> token;
-
+    @PolicyResourceProperty(name="token", flag="unknown_token")
+    private @Nullable String value_token;
+    private boolean unknown_token;
     public @Nullable String token() {
-        if (token == null) return null;
-        return token.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings.token");
+        if (!unknown_token) return value_token;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings.token' is not present");
     }
 
 }

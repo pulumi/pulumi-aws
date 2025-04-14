@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rekognition;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.rekognition.outputs.CollectionTimeouts;
 import java.lang.String;
@@ -18,11 +19,12 @@ public final class Collection extends com.pulumi.resources.PolicyResourceOutput 
      * ARN of the Collection.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Collection.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Collection.arn' is not present");
     }
 
     /**
@@ -31,33 +33,36 @@ public final class Collection extends com.pulumi.resources.PolicyResourceOutput 
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> collectionId;
-
+    @PolicyResourceProperty(name="collectionId", flag="unknown_collectionId")
+    private String value_collectionId;
+    private boolean unknown_collectionId;
     public String collectionId() {
-        if (collectionId == null) return null;
-        return collectionId.getValue("Collection.collectionId");
+        if (!unknown_collectionId) return value_collectionId;
+        throw new UndeferrableValueException("Value 'Collection.collectionId' is not present");
     }
 
     /**
      * The Face Model Version that the collection was initialized with
      * 
      */
-    private UndeferrableValue<String> faceModelVersion;
-
+    @PolicyResourceProperty(name="faceModelVersion", flag="unknown_faceModelVersion")
+    private String value_faceModelVersion;
+    private boolean unknown_faceModelVersion;
     public String faceModelVersion() {
-        if (faceModelVersion == null) return null;
-        return faceModelVersion.getValue("Collection.faceModelVersion");
+        if (!unknown_faceModelVersion) return value_faceModelVersion;
+        throw new UndeferrableValueException("Value 'Collection.faceModelVersion' is not present");
     }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Collection.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Collection.tags' is not present");
     }
 
     /**
@@ -68,18 +73,20 @@ public final class Collection extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Collection.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Collection.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<CollectionTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable CollectionTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable CollectionTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("Collection.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'Collection.timeouts' is not present");
     }
 
 }

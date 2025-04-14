@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class EventSourceMappingDestinationConfigOnFailureArgs {
      * The Amazon Resource Name (ARN) of the destination resource.
      * 
      */
-    private UndeferrableValue<String> destinationArn;
-
+    @PolicyResourceProperty(name="destinationArn", flag="unknown_destinationArn")
+    private String value_destinationArn;
+    private boolean unknown_destinationArn;
     public String destinationArn() {
-        if (destinationArn == null) return null;
-        return destinationArn.getValue("EventSourceMappingDestinationConfigOnFailureArgs.destinationArn");
+        if (!unknown_destinationArn) return value_destinationArn;
+        throw new UndeferrableValueException("Value 'EventSourceMappingDestinationConfigOnFailureArgs.destinationArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,11 +16,12 @@ public final class DefaultAutoScalingConfigurationVersion extends com.pulumi.res
      * The ARN of the App Runner auto scaling configuration that you want to set as the default.
      * 
      */
-    private UndeferrableValue<String> autoScalingConfigurationArn;
-
+    @PolicyResourceProperty(name="autoScalingConfigurationArn", flag="unknown_autoScalingConfigurationArn")
+    private String value_autoScalingConfigurationArn;
+    private boolean unknown_autoScalingConfigurationArn;
     public String autoScalingConfigurationArn() {
-        if (autoScalingConfigurationArn == null) return null;
-        return autoScalingConfigurationArn.getValue("DefaultAutoScalingConfigurationVersion.autoScalingConfigurationArn");
+        if (!unknown_autoScalingConfigurationArn) return value_autoScalingConfigurationArn;
+        throw new UndeferrableValueException("Value 'DefaultAutoScalingConfigurationVersion.autoScalingConfigurationArn' is not present");
     }
 
 }

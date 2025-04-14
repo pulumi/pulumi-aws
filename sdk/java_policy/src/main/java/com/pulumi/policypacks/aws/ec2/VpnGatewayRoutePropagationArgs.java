@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class VpnGatewayRoutePropagationArgs extends com.pulumi.resources.P
      * The id of the `aws.ec2.RouteTable` to propagate routes into.
      * 
      */
-    private UndeferrableValue<String> routeTableId;
-
+    @PolicyResourceProperty(name="routeTableId", flag="unknown_routeTableId")
+    private String value_routeTableId;
+    private boolean unknown_routeTableId;
     public String routeTableId() {
-        if (routeTableId == null) return null;
-        return routeTableId.getValue("VpnGatewayRoutePropagationArgs.routeTableId");
+        if (!unknown_routeTableId) return value_routeTableId;
+        throw new UndeferrableValueException("Value 'VpnGatewayRoutePropagationArgs.routeTableId' is not present");
     }
 
     /**
      * The id of the `aws.ec2.VpnGateway` to propagate routes from.
      * 
      */
-    private UndeferrableValue<String> vpnGatewayId;
-
+    @PolicyResourceProperty(name="vpnGatewayId", flag="unknown_vpnGatewayId")
+    private String value_vpnGatewayId;
+    private boolean unknown_vpnGatewayId;
     public String vpnGatewayId() {
-        if (vpnGatewayId == null) return null;
-        return vpnGatewayId.getValue("VpnGatewayRoutePropagationArgs.vpnGatewayId");
+        if (!unknown_vpnGatewayId) return value_vpnGatewayId;
+        throw new UndeferrableValueException("Value 'VpnGatewayRoutePropagationArgs.vpnGatewayId' is not present");
     }
 
 }

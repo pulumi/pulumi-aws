@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class CaCertificateRegistrationConfig {
      * The ARN of the role.
      * 
      */
-    private @Nullable UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private @Nullable String value_roleArn;
+    private boolean unknown_roleArn;
     public @Nullable String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("CaCertificateRegistrationConfig.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'CaCertificateRegistrationConfig.roleArn' is not present");
     }
 
     /**
      * The template body.
      * 
      */
-    private @Nullable UndeferrableValue<String> templateBody;
-
+    @PolicyResourceProperty(name="templateBody", flag="unknown_templateBody")
+    private @Nullable String value_templateBody;
+    private boolean unknown_templateBody;
     public @Nullable String templateBody() {
-        if (templateBody == null) return null;
-        return templateBody.getValue("CaCertificateRegistrationConfig.templateBody");
+        if (!unknown_templateBody) return value_templateBody;
+        throw new UndeferrableValueException("Value 'CaCertificateRegistrationConfig.templateBody' is not present");
     }
 
     /**
      * The name of the provisioning template.
      * 
      */
-    private @Nullable UndeferrableValue<String> templateName;
-
+    @PolicyResourceProperty(name="templateName", flag="unknown_templateName")
+    private @Nullable String value_templateName;
+    private boolean unknown_templateName;
     public @Nullable String templateName() {
-        if (templateName == null) return null;
-        return templateName.getValue("CaCertificateRegistrationConfig.templateName");
+        if (!unknown_templateName) return value_templateName;
+        throw new UndeferrableValueException("Value 'CaCertificateRegistrationConfig.templateName' is not present");
     }
 
 }

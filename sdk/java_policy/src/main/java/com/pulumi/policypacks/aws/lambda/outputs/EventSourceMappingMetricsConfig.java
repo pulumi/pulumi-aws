@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class EventSourceMappingMetricsConfig {
      * A list containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
      * 
      */
-    private UndeferrableValue<List<String>> metrics;
-
+    @PolicyResourceProperty(name="metrics", flag="unknown_metrics")
+    private List<String> value_metrics;
+    private boolean unknown_metrics;
     public List<String> metrics() {
-        if (metrics == null) return null;
-        return metrics.getValue("EventSourceMappingMetricsConfig.metrics");
+        if (!unknown_metrics) return value_metrics;
+        throw new UndeferrableValueException("Value 'EventSourceMappingMetricsConfig.metrics' is not present");
     }
 
 }

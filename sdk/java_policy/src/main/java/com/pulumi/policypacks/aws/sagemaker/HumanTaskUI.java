@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.outputs.HumanTaskUIUiTemplate;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class HumanTaskUI extends com.pulumi.resources.PolicyResourceOutput
      * The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("HumanTaskUI.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'HumanTaskUI.arn' is not present");
     }
 
     /**
      * The name of the Human Task UI.
      * 
      */
-    private UndeferrableValue<String> humanTaskUiName;
-
+    @PolicyResourceProperty(name="humanTaskUiName", flag="unknown_humanTaskUiName")
+    private String value_humanTaskUiName;
+    private boolean unknown_humanTaskUiName;
     public String humanTaskUiName() {
-        if (humanTaskUiName == null) return null;
-        return humanTaskUiName.getValue("HumanTaskUI.humanTaskUiName");
+        if (!unknown_humanTaskUiName) return value_humanTaskUiName;
+        throw new UndeferrableValueException("Value 'HumanTaskUI.humanTaskUiName' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("HumanTaskUI.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'HumanTaskUI.tags' is not present");
     }
 
     /**
@@ -55,22 +59,24 @@ public final class HumanTaskUI extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("HumanTaskUI.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'HumanTaskUI.tagsAll' is not present");
     }
 
     /**
      * The Liquid template for the worker user interface. See UI Template below.
      * 
      */
-    private UndeferrableValue<HumanTaskUIUiTemplate> uiTemplate;
-
+    @PolicyResourceProperty(name="uiTemplate", flag="unknown_uiTemplate")
+    private HumanTaskUIUiTemplate value_uiTemplate;
+    private boolean unknown_uiTemplate;
     public HumanTaskUIUiTemplate uiTemplate() {
-        if (uiTemplate == null) return null;
-        return uiTemplate.getValue("HumanTaskUI.uiTemplate");
+        if (!unknown_uiTemplate) return value_uiTemplate;
+        throw new UndeferrableValueException("Value 'HumanTaskUI.uiTemplate' is not present");
     }
 
 }

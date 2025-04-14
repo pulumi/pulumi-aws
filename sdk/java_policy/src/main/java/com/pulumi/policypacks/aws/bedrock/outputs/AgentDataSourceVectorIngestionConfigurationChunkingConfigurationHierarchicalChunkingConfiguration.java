@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration;
 import java.lang.Integer;
 import java.util.List;
@@ -15,22 +16,24 @@ public final class AgentDataSourceVectorIngestionConfigurationChunkingConfigurat
      * Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
      * 
      */
-    private UndeferrableValue<List<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration>> levelConfigurations;
-
+    @PolicyResourceProperty(name="levelConfigurations", flag="unknown_levelConfigurations")
+    private List<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration> value_levelConfigurations;
+    private boolean unknown_levelConfigurations;
     public List<AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfiguration> levelConfigurations() {
-        if (levelConfigurations == null) return null;
-        return levelConfigurations.getValue("AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration.levelConfigurations");
+        if (!unknown_levelConfigurations) return value_levelConfigurations;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration.levelConfigurations' is not present");
     }
 
     /**
      * The number of tokens to repeat across chunks in the same layer.
      * 
      */
-    private UndeferrableValue<Integer> overlapTokens;
-
+    @PolicyResourceProperty(name="overlapTokens", flag="unknown_overlapTokens")
+    private Integer value_overlapTokens;
+    private boolean unknown_overlapTokens;
     public Integer overlapTokens() {
-        if (overlapTokens == null) return null;
-        return overlapTokens.getValue("AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration.overlapTokens");
+        if (!unknown_overlapTokens) return value_overlapTokens;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfiguration.overlapTokens' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.fsx.inputs.FileCacheDataRepositoryAssociationArgs;
 import com.pulumi.policypacks.aws.fsx.inputs.FileCacheLustreConfigurationArgs;
@@ -22,11 +23,12 @@ public final class FileCacheArgs extends com.pulumi.resources.PolicyResourceInpu
      * A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
      * 
      */
-    private UndeferrableValue<Boolean> copyTagsToDataRepositoryAssociations;
-
+    @PolicyResourceProperty(name="copyTagsToDataRepositoryAssociations", flag="unknown_copyTagsToDataRepositoryAssociations")
+    private Boolean value_copyTagsToDataRepositoryAssociations;
+    private boolean unknown_copyTagsToDataRepositoryAssociations;
     public Boolean copyTagsToDataRepositoryAssociations() {
-        if (copyTagsToDataRepositoryAssociations == null) return null;
-        return copyTagsToDataRepositoryAssociations.getValue("FileCacheArgs.copyTagsToDataRepositoryAssociations");
+        if (!unknown_copyTagsToDataRepositoryAssociations) return value_copyTagsToDataRepositoryAssociations;
+        throw new UndeferrableValueException("Value 'FileCacheArgs.copyTagsToDataRepositoryAssociations' is not present");
     }
 
     /**
@@ -34,77 +36,84 @@ public final class FileCacheArgs extends com.pulumi.resources.PolicyResourceInpu
      * A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can&#39;t link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
      * 
      */
-    private UndeferrableValue<List<FileCacheDataRepositoryAssociationArgs>> dataRepositoryAssociations;
-
+    @PolicyResourceProperty(name="dataRepositoryAssociations", flag="unknown_dataRepositoryAssociations")
+    private List<FileCacheDataRepositoryAssociationArgs> value_dataRepositoryAssociations;
+    private boolean unknown_dataRepositoryAssociations;
     public List<FileCacheDataRepositoryAssociationArgs> dataRepositoryAssociations() {
-        if (dataRepositoryAssociations == null) return null;
-        return dataRepositoryAssociations.getValue("FileCacheArgs.dataRepositoryAssociations");
+        if (!unknown_dataRepositoryAssociations) return value_dataRepositoryAssociations;
+        throw new UndeferrableValueException("Value 'FileCacheArgs.dataRepositoryAssociations' is not present");
     }
 
     /**
      * The type of cache that you&#39;re creating. The only supported value is `LUSTRE`.
      * 
      */
-    private UndeferrableValue<String> fileCacheType;
-
+    @PolicyResourceProperty(name="fileCacheType", flag="unknown_fileCacheType")
+    private String value_fileCacheType;
+    private boolean unknown_fileCacheType;
     public String fileCacheType() {
-        if (fileCacheType == null) return null;
-        return fileCacheType.getValue("FileCacheArgs.fileCacheType");
+        if (!unknown_fileCacheType) return value_fileCacheType;
+        throw new UndeferrableValueException("Value 'FileCacheArgs.fileCacheType' is not present");
     }
 
     /**
      * The version for the type of cache that you&#39;re creating. The only supported value is `2.12`.
      * 
      */
-    private UndeferrableValue<String> fileCacheTypeVersion;
-
+    @PolicyResourceProperty(name="fileCacheTypeVersion", flag="unknown_fileCacheTypeVersion")
+    private String value_fileCacheTypeVersion;
+    private boolean unknown_fileCacheTypeVersion;
     public String fileCacheTypeVersion() {
-        if (fileCacheTypeVersion == null) return null;
-        return fileCacheTypeVersion.getValue("FileCacheArgs.fileCacheTypeVersion");
+        if (!unknown_fileCacheTypeVersion) return value_fileCacheTypeVersion;
+        throw new UndeferrableValueException("Value 'FileCacheArgs.fileCacheTypeVersion' is not present");
     }
 
     /**
      * Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn&#39;t specified, the Amazon FSx-managed AWS KMS key for your account is used.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("FileCacheArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'FileCacheArgs.kmsKeyId' is not present");
     }
 
     /**
      * See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
      * 
      */
-    private UndeferrableValue<List<FileCacheLustreConfigurationArgs>> lustreConfigurations;
-
+    @PolicyResourceProperty(name="lustreConfigurations", flag="unknown_lustreConfigurations")
+    private List<FileCacheLustreConfigurationArgs> value_lustreConfigurations;
+    private boolean unknown_lustreConfigurations;
     public List<FileCacheLustreConfigurationArgs> lustreConfigurations() {
-        if (lustreConfigurations == null) return null;
-        return lustreConfigurations.getValue("FileCacheArgs.lustreConfigurations");
+        if (!unknown_lustreConfigurations) return value_lustreConfigurations;
+        throw new UndeferrableValueException("Value 'FileCacheArgs.lustreConfigurations' is not present");
     }
 
     /**
      * A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("FileCacheArgs.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'FileCacheArgs.securityGroupIds' is not present");
     }
 
     /**
      * The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
      * 
      */
-    private UndeferrableValue<Integer> storageCapacity;
-
+    @PolicyResourceProperty(name="storageCapacity", flag="unknown_storageCapacity")
+    private Integer value_storageCapacity;
+    private boolean unknown_storageCapacity;
     public Integer storageCapacity() {
-        if (storageCapacity == null) return null;
-        return storageCapacity.getValue("FileCacheArgs.storageCapacity");
+        if (!unknown_storageCapacity) return value_storageCapacity;
+        throw new UndeferrableValueException("Value 'FileCacheArgs.storageCapacity' is not present");
     }
 
     /**
@@ -113,22 +122,24 @@ public final class FileCacheArgs extends com.pulumi.resources.PolicyResourceInpu
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("FileCacheArgs.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'FileCacheArgs.subnetIds' is not present");
     }
 
     /**
      * A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("FileCacheArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'FileCacheArgs.tags' is not present");
     }
 
 }

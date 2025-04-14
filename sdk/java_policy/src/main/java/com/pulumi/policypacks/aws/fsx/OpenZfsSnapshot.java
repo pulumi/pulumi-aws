@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,40 +18,44 @@ public final class OpenZfsSnapshot extends com.pulumi.resources.PolicyResourceOu
      * Amazon Resource Name of the snapshot.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("OpenZfsSnapshot.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'OpenZfsSnapshot.arn' is not present");
     }
 
-    private UndeferrableValue<String> creationTime;
-
+    @PolicyResourceProperty(name="creationTime", flag="unknown_creationTime")
+    private String value_creationTime;
+    private boolean unknown_creationTime;
     public String creationTime() {
-        if (creationTime == null) return null;
-        return creationTime.getValue("OpenZfsSnapshot.creationTime");
+        if (!unknown_creationTime) return value_creationTime;
+        throw new UndeferrableValueException("Value 'OpenZfsSnapshot.creationTime' is not present");
     }
 
     /**
      * The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("OpenZfsSnapshot.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'OpenZfsSnapshot.name' is not present");
     }
 
     /**
      * A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("OpenZfsSnapshot.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'OpenZfsSnapshot.tags' is not present");
     }
 
     /**
@@ -61,22 +66,24 @@ public final class OpenZfsSnapshot extends com.pulumi.resources.PolicyResourceOu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("OpenZfsSnapshot.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'OpenZfsSnapshot.tagsAll' is not present");
     }
 
     /**
      * The ID of the volume to snapshot. This can be the root volume or a child volume.
      * 
      */
-    private UndeferrableValue<String> volumeId;
-
+    @PolicyResourceProperty(name="volumeId", flag="unknown_volumeId")
+    private String value_volumeId;
+    private boolean unknown_volumeId;
     public String volumeId() {
-        if (volumeId == null) return null;
-        return volumeId.getValue("OpenZfsSnapshot.volumeId");
+        if (!unknown_volumeId) return value_volumeId;
+        throw new UndeferrableValueException("Value 'OpenZfsSnapshot.volumeId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,22 +15,24 @@ public final class MaintenanceWindowTaskTaskInvocationParametersAutomationParame
      * The parameter name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter.name' is not present");
     }
 
     /**
      * The array of strings.
      * 
      */
-    private UndeferrableValue<List<String>> values;
-
+    @PolicyResourceProperty(name="values", flag="unknown_values")
+    private List<String> value_values;
+    private boolean unknown_values;
     public List<String> values() {
-        if (values == null) return null;
-        return values.getValue("MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter.values");
+        if (!unknown_values) return value_values;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter.values' is not present");
     }
 
 }

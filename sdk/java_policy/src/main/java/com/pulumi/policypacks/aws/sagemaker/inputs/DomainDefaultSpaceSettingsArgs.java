@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.DomainDefaultSpaceSettingsCustomFileSystemConfigArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.DomainDefaultSpaceSettingsCustomPosixUserConfigArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs;
@@ -21,88 +22,96 @@ public final class DomainDefaultSpaceSettingsArgs {
      * The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `custom_file_system_config` Block below.
      * 
      */
-    private UndeferrableValue<List<DomainDefaultSpaceSettingsCustomFileSystemConfigArgs>> customFileSystemConfigs;
-
+    @PolicyResourceProperty(name="customFileSystemConfigs", flag="unknown_customFileSystemConfigs")
+    private List<DomainDefaultSpaceSettingsCustomFileSystemConfigArgs> value_customFileSystemConfigs;
+    private boolean unknown_customFileSystemConfigs;
     public List<DomainDefaultSpaceSettingsCustomFileSystemConfigArgs> customFileSystemConfigs() {
-        if (customFileSystemConfigs == null) return null;
-        return customFileSystemConfigs.getValue("DomainDefaultSpaceSettingsArgs.customFileSystemConfigs");
+        if (!unknown_customFileSystemConfigs) return value_customFileSystemConfigs;
+        throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsArgs.customFileSystemConfigs' is not present");
     }
 
     /**
      * Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
      * 
      */
-    private UndeferrableValue<DomainDefaultSpaceSettingsCustomPosixUserConfigArgs> customPosixUserConfig;
-
+    @PolicyResourceProperty(name="customPosixUserConfig", flag="unknown_customPosixUserConfig")
+    private DomainDefaultSpaceSettingsCustomPosixUserConfigArgs value_customPosixUserConfig;
+    private boolean unknown_customPosixUserConfig;
     public DomainDefaultSpaceSettingsCustomPosixUserConfigArgs customPosixUserConfig() {
-        if (customPosixUserConfig == null) return null;
-        return customPosixUserConfig.getValue("DomainDefaultSpaceSettingsArgs.customPosixUserConfig");
+        if (!unknown_customPosixUserConfig) return value_customPosixUserConfig;
+        throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsArgs.customPosixUserConfig' is not present");
     }
 
     /**
      * The execution role for the space.
      * 
      */
-    private UndeferrableValue<String> executionRole;
-
+    @PolicyResourceProperty(name="executionRole", flag="unknown_executionRole")
+    private String value_executionRole;
+    private boolean unknown_executionRole;
     public String executionRole() {
-        if (executionRole == null) return null;
-        return executionRole.getValue("DomainDefaultSpaceSettingsArgs.executionRole");
+        if (!unknown_executionRole) return value_executionRole;
+        throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsArgs.executionRole' is not present");
     }
 
     /**
      * The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
      * 
      */
-    private UndeferrableValue<DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs> jupyterLabAppSettings;
-
+    @PolicyResourceProperty(name="jupyterLabAppSettings", flag="unknown_jupyterLabAppSettings")
+    private DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs value_jupyterLabAppSettings;
+    private boolean unknown_jupyterLabAppSettings;
     public DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs jupyterLabAppSettings() {
-        if (jupyterLabAppSettings == null) return null;
-        return jupyterLabAppSettings.getValue("DomainDefaultSpaceSettingsArgs.jupyterLabAppSettings");
+        if (!unknown_jupyterLabAppSettings) return value_jupyterLabAppSettings;
+        throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsArgs.jupyterLabAppSettings' is not present");
     }
 
     /**
      * The Jupyter server&#39;s app settings. See `jupyter_server_app_settings` Block below.
      * 
      */
-    private UndeferrableValue<DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs> jupyterServerAppSettings;
-
+    @PolicyResourceProperty(name="jupyterServerAppSettings", flag="unknown_jupyterServerAppSettings")
+    private DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs value_jupyterServerAppSettings;
+    private boolean unknown_jupyterServerAppSettings;
     public DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs jupyterServerAppSettings() {
-        if (jupyterServerAppSettings == null) return null;
-        return jupyterServerAppSettings.getValue("DomainDefaultSpaceSettingsArgs.jupyterServerAppSettings");
+        if (!unknown_jupyterServerAppSettings) return value_jupyterServerAppSettings;
+        throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsArgs.jupyterServerAppSettings' is not present");
     }
 
     /**
      * The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
      * 
      */
-    private UndeferrableValue<DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs> kernelGatewayAppSettings;
-
+    @PolicyResourceProperty(name="kernelGatewayAppSettings", flag="unknown_kernelGatewayAppSettings")
+    private DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs value_kernelGatewayAppSettings;
+    private boolean unknown_kernelGatewayAppSettings;
     public DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs kernelGatewayAppSettings() {
-        if (kernelGatewayAppSettings == null) return null;
-        return kernelGatewayAppSettings.getValue("DomainDefaultSpaceSettingsArgs.kernelGatewayAppSettings");
+        if (!unknown_kernelGatewayAppSettings) return value_kernelGatewayAppSettings;
+        throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsArgs.kernelGatewayAppSettings' is not present");
     }
 
     /**
      * The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroups;
-
+    @PolicyResourceProperty(name="securityGroups", flag="unknown_securityGroups")
+    private List<String> value_securityGroups;
+    private boolean unknown_securityGroups;
     public List<String> securityGroups() {
-        if (securityGroups == null) return null;
-        return securityGroups.getValue("DomainDefaultSpaceSettingsArgs.securityGroups");
+        if (!unknown_securityGroups) return value_securityGroups;
+        throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsArgs.securityGroups' is not present");
     }
 
     /**
      * The storage settings for a private space. See `space_storage_settings` Block below.
      * 
      */
-    private UndeferrableValue<DomainDefaultSpaceSettingsSpaceStorageSettingsArgs> spaceStorageSettings;
-
+    @PolicyResourceProperty(name="spaceStorageSettings", flag="unknown_spaceStorageSettings")
+    private DomainDefaultSpaceSettingsSpaceStorageSettingsArgs value_spaceStorageSettings;
+    private boolean unknown_spaceStorageSettings;
     public DomainDefaultSpaceSettingsSpaceStorageSettingsArgs spaceStorageSettings() {
-        if (spaceStorageSettings == null) return null;
-        return spaceStorageSettings.getValue("DomainDefaultSpaceSettingsArgs.spaceStorageSettings");
+        if (!unknown_spaceStorageSettings) return value_spaceStorageSettings;
+        throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsArgs.spaceStorageSettings' is not present");
     }
 
 }

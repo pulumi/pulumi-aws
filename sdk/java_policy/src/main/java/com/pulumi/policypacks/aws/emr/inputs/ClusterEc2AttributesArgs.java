@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,88 +16,96 @@ public final class ClusterEc2AttributesArgs {
      * String containing a comma separated list of additional Amazon EC2 security group IDs for the master node.
      * 
      */
-    private UndeferrableValue<String> additionalMasterSecurityGroups;
-
+    @PolicyResourceProperty(name="additionalMasterSecurityGroups", flag="unknown_additionalMasterSecurityGroups")
+    private String value_additionalMasterSecurityGroups;
+    private boolean unknown_additionalMasterSecurityGroups;
     public String additionalMasterSecurityGroups() {
-        if (additionalMasterSecurityGroups == null) return null;
-        return additionalMasterSecurityGroups.getValue("ClusterEc2AttributesArgs.additionalMasterSecurityGroups");
+        if (!unknown_additionalMasterSecurityGroups) return value_additionalMasterSecurityGroups;
+        throw new UndeferrableValueException("Value 'ClusterEc2AttributesArgs.additionalMasterSecurityGroups' is not present");
     }
 
     /**
      * String containing a comma separated list of additional Amazon EC2 security group IDs for the slave nodes as a comma separated string.
      * 
      */
-    private UndeferrableValue<String> additionalSlaveSecurityGroups;
-
+    @PolicyResourceProperty(name="additionalSlaveSecurityGroups", flag="unknown_additionalSlaveSecurityGroups")
+    private String value_additionalSlaveSecurityGroups;
+    private boolean unknown_additionalSlaveSecurityGroups;
     public String additionalSlaveSecurityGroups() {
-        if (additionalSlaveSecurityGroups == null) return null;
-        return additionalSlaveSecurityGroups.getValue("ClusterEc2AttributesArgs.additionalSlaveSecurityGroups");
+        if (!unknown_additionalSlaveSecurityGroups) return value_additionalSlaveSecurityGroups;
+        throw new UndeferrableValueException("Value 'ClusterEc2AttributesArgs.additionalSlaveSecurityGroups' is not present");
     }
 
     /**
      * Identifier of the Amazon EC2 EMR-Managed security group for the master node.
      * 
      */
-    private UndeferrableValue<String> emrManagedMasterSecurityGroup;
-
+    @PolicyResourceProperty(name="emrManagedMasterSecurityGroup", flag="unknown_emrManagedMasterSecurityGroup")
+    private String value_emrManagedMasterSecurityGroup;
+    private boolean unknown_emrManagedMasterSecurityGroup;
     public String emrManagedMasterSecurityGroup() {
-        if (emrManagedMasterSecurityGroup == null) return null;
-        return emrManagedMasterSecurityGroup.getValue("ClusterEc2AttributesArgs.emrManagedMasterSecurityGroup");
+        if (!unknown_emrManagedMasterSecurityGroup) return value_emrManagedMasterSecurityGroup;
+        throw new UndeferrableValueException("Value 'ClusterEc2AttributesArgs.emrManagedMasterSecurityGroup' is not present");
     }
 
     /**
      * Identifier of the Amazon EC2 EMR-Managed security group for the slave nodes.
      * 
      */
-    private UndeferrableValue<String> emrManagedSlaveSecurityGroup;
-
+    @PolicyResourceProperty(name="emrManagedSlaveSecurityGroup", flag="unknown_emrManagedSlaveSecurityGroup")
+    private String value_emrManagedSlaveSecurityGroup;
+    private boolean unknown_emrManagedSlaveSecurityGroup;
     public String emrManagedSlaveSecurityGroup() {
-        if (emrManagedSlaveSecurityGroup == null) return null;
-        return emrManagedSlaveSecurityGroup.getValue("ClusterEc2AttributesArgs.emrManagedSlaveSecurityGroup");
+        if (!unknown_emrManagedSlaveSecurityGroup) return value_emrManagedSlaveSecurityGroup;
+        throw new UndeferrableValueException("Value 'ClusterEc2AttributesArgs.emrManagedSlaveSecurityGroup' is not present");
     }
 
     /**
      * Instance Profile for EC2 instances of the cluster assume this role.
      * 
      */
-    private UndeferrableValue<String> instanceProfile;
-
+    @PolicyResourceProperty(name="instanceProfile", flag="unknown_instanceProfile")
+    private String value_instanceProfile;
+    private boolean unknown_instanceProfile;
     public String instanceProfile() {
-        if (instanceProfile == null) return null;
-        return instanceProfile.getValue("ClusterEc2AttributesArgs.instanceProfile");
+        if (!unknown_instanceProfile) return value_instanceProfile;
+        throw new UndeferrableValueException("Value 'ClusterEc2AttributesArgs.instanceProfile' is not present");
     }
 
     /**
      * Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`.
      * 
      */
-    private UndeferrableValue<String> keyName;
-
+    @PolicyResourceProperty(name="keyName", flag="unknown_keyName")
+    private String value_keyName;
+    private boolean unknown_keyName;
     public String keyName() {
-        if (keyName == null) return null;
-        return keyName.getValue("ClusterEc2AttributesArgs.keyName");
+        if (!unknown_keyName) return value_keyName;
+        throw new UndeferrableValueException("Value 'ClusterEc2AttributesArgs.keyName' is not present");
     }
 
     /**
      * Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet.
      * 
      */
-    private UndeferrableValue<String> serviceAccessSecurityGroup;
-
+    @PolicyResourceProperty(name="serviceAccessSecurityGroup", flag="unknown_serviceAccessSecurityGroup")
+    private String value_serviceAccessSecurityGroup;
+    private boolean unknown_serviceAccessSecurityGroup;
     public String serviceAccessSecurityGroup() {
-        if (serviceAccessSecurityGroup == null) return null;
-        return serviceAccessSecurityGroup.getValue("ClusterEc2AttributesArgs.serviceAccessSecurityGroup");
+        if (!unknown_serviceAccessSecurityGroup) return value_serviceAccessSecurityGroup;
+        throw new UndeferrableValueException("Value 'ClusterEc2AttributesArgs.serviceAccessSecurityGroup' is not present");
     }
 
     /**
      * VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("ClusterEc2AttributesArgs.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'ClusterEc2AttributesArgs.subnetId' is not present");
     }
 
     /**
@@ -105,11 +114,12 @@ public final class ClusterEc2AttributesArgs {
      * &gt; **NOTE on EMR-Managed security groups:** These security groups will have any missing inbound or outbound access rules added and maintained by AWS, to ensure proper communication between instances in a cluster. The EMR service will maintain these rules for groups provided in `emr_managed_master_security_group` and `emr_managed_slave_security_group`; attempts to remove the required rules may succeed, only for the EMR service to re-add them in a matter of minutes. This may cause this provider to fail to destroy an environment that contains an EMR cluster, because the EMR service does not revoke rules added on deletion, leaving a cyclic dependency between the security groups that prevents their deletion. To avoid this, use the `revoke_rules_on_delete` optional attribute for any Security Group used in `emr_managed_master_security_group` and `emr_managed_slave_security_group`. See [Amazon EMR-Managed Security Groups](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-man-sec-groups.html) for more information about the EMR-managed security group rules.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("ClusterEc2AttributesArgs.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'ClusterEc2AttributesArgs.subnetIds' is not present");
     }
 
 }

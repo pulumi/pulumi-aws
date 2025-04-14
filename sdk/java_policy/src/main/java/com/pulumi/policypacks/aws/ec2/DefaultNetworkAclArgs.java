@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.inputs.DefaultNetworkAclEgressArgs;
 import com.pulumi.policypacks.aws.ec2.inputs.DefaultNetworkAclIngressArgs;
@@ -22,55 +23,60 @@ public final class DefaultNetworkAclArgs extends com.pulumi.resources.PolicyReso
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> defaultNetworkAclId;
-
+    @PolicyResourceProperty(name="defaultNetworkAclId", flag="unknown_defaultNetworkAclId")
+    private String value_defaultNetworkAclId;
+    private boolean unknown_defaultNetworkAclId;
     public String defaultNetworkAclId() {
-        if (defaultNetworkAclId == null) return null;
-        return defaultNetworkAclId.getValue("DefaultNetworkAclArgs.defaultNetworkAclId");
+        if (!unknown_defaultNetworkAclId) return value_defaultNetworkAclId;
+        throw new UndeferrableValueException("Value 'DefaultNetworkAclArgs.defaultNetworkAclId' is not present");
     }
 
     /**
      * Configuration block for an egress rule. Detailed below.
      * 
      */
-    private UndeferrableValue<List<DefaultNetworkAclEgressArgs>> egress;
-
+    @PolicyResourceProperty(name="egress", flag="unknown_egress")
+    private List<DefaultNetworkAclEgressArgs> value_egress;
+    private boolean unknown_egress;
     public List<DefaultNetworkAclEgressArgs> egress() {
-        if (egress == null) return null;
-        return egress.getValue("DefaultNetworkAclArgs.egress");
+        if (!unknown_egress) return value_egress;
+        throw new UndeferrableValueException("Value 'DefaultNetworkAclArgs.egress' is not present");
     }
 
     /**
      * Configuration block for an ingress rule. Detailed below.
      * 
      */
-    private UndeferrableValue<List<DefaultNetworkAclIngressArgs>> ingress;
-
+    @PolicyResourceProperty(name="ingress", flag="unknown_ingress")
+    private List<DefaultNetworkAclIngressArgs> value_ingress;
+    private boolean unknown_ingress;
     public List<DefaultNetworkAclIngressArgs> ingress() {
-        if (ingress == null) return null;
-        return ingress.getValue("DefaultNetworkAclArgs.ingress");
+        if (!unknown_ingress) return value_ingress;
+        throw new UndeferrableValueException("Value 'DefaultNetworkAclArgs.ingress' is not present");
     }
 
     /**
      * List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("DefaultNetworkAclArgs.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'DefaultNetworkAclArgs.subnetIds' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DefaultNetworkAclArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DefaultNetworkAclArgs.tags' is not present");
     }
 
 }

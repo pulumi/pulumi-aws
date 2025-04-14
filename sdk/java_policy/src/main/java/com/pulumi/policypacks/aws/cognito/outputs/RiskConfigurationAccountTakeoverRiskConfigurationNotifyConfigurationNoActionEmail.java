@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,33 +14,36 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
      * The email HTML body.
      * 
      */
-    private UndeferrableValue<String> htmlBody;
-
+    @PolicyResourceProperty(name="htmlBody", flag="unknown_htmlBody")
+    private String value_htmlBody;
+    private boolean unknown_htmlBody;
     public String htmlBody() {
-        if (htmlBody == null) return null;
-        return htmlBody.getValue("RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail.htmlBody");
+        if (!unknown_htmlBody) return value_htmlBody;
+        throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail.htmlBody' is not present");
     }
 
     /**
      * The email subject.
      * 
      */
-    private UndeferrableValue<String> subject;
-
+    @PolicyResourceProperty(name="subject", flag="unknown_subject")
+    private String value_subject;
+    private boolean unknown_subject;
     public String subject() {
-        if (subject == null) return null;
-        return subject.getValue("RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail.subject");
+        if (!unknown_subject) return value_subject;
+        throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail.subject' is not present");
     }
 
     /**
      * The email text body.
      * 
      */
-    private UndeferrableValue<String> textBody;
-
+    @PolicyResourceProperty(name="textBody", flag="unknown_textBody")
+    private String value_textBody;
+    private boolean unknown_textBody;
     public String textBody() {
-        if (textBody == null) return null;
-        return textBody.getValue("RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail.textBody");
+        if (!unknown_textBody) return value_textBody;
+        throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail.textBody' is not present");
     }
 
 }

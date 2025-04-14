@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,55 +17,60 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
      * Configuration of crawl limits for the web URLs. See `crawler_limits` block for details.
      * 
      */
-    private UndeferrableValue<AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs> crawlerLimits;
-
+    @PolicyResourceProperty(name="crawlerLimits", flag="unknown_crawlerLimits")
+    private AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs value_crawlerLimits;
+    private boolean unknown_crawlerLimits;
     public AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs crawlerLimits() {
-        if (crawlerLimits == null) return null;
-        return crawlerLimits.getValue("AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs.crawlerLimits");
+        if (!unknown_crawlerLimits) return value_crawlerLimits;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs.crawlerLimits' is not present");
     }
 
     /**
      * List of one or more exclusion regular expression patterns to exclude certain object types that adhere to the pattern.
      * 
      */
-    private UndeferrableValue<List<String>> exclusionFilters;
-
+    @PolicyResourceProperty(name="exclusionFilters", flag="unknown_exclusionFilters")
+    private List<String> value_exclusionFilters;
+    private boolean unknown_exclusionFilters;
     public List<String> exclusionFilters() {
-        if (exclusionFilters == null) return null;
-        return exclusionFilters.getValue("AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs.exclusionFilters");
+        if (!unknown_exclusionFilters) return value_exclusionFilters;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs.exclusionFilters' is not present");
     }
 
     /**
      * List of one or more inclusion regular expression patterns to include certain object types that adhere to the pattern.
      * 
      */
-    private UndeferrableValue<List<String>> inclusionFilters;
-
+    @PolicyResourceProperty(name="inclusionFilters", flag="unknown_inclusionFilters")
+    private List<String> value_inclusionFilters;
+    private boolean unknown_inclusionFilters;
     public List<String> inclusionFilters() {
-        if (inclusionFilters == null) return null;
-        return inclusionFilters.getValue("AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs.inclusionFilters");
+        if (!unknown_inclusionFilters) return value_inclusionFilters;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs.inclusionFilters' is not present");
     }
 
     /**
      * Scope of what is crawled for your URLs.
      * 
      */
-    private UndeferrableValue<String> scope;
-
+    @PolicyResourceProperty(name="scope", flag="unknown_scope")
+    private String value_scope;
+    private boolean unknown_scope;
     public String scope() {
-        if (scope == null) return null;
-        return scope.getValue("AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs.scope");
+        if (!unknown_scope) return value_scope;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs.scope' is not present");
     }
 
     /**
      * String used for identifying the crawler or a bot when it accesses a web server. Default value is `bedrockbot_UUID`.
      * 
      */
-    private UndeferrableValue<String> userAgent;
-
+    @PolicyResourceProperty(name="userAgent", flag="unknown_userAgent")
+    private String value_userAgent;
+    private boolean unknown_userAgent;
     public String userAgent() {
-        if (userAgent == null) return null;
-        return userAgent.getValue("AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs.userAgent");
+        if (!unknown_userAgent) return value_userAgent;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs.userAgent' is not present");
     }
 
 }

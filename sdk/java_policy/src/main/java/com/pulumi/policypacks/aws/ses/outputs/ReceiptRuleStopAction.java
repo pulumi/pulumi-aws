@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ses.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ReceiptRuleStopAction {
      * The position of the action in the receipt rule
      * 
      */
-    private UndeferrableValue<Integer> position;
-
+    @PolicyResourceProperty(name="position", flag="unknown_position")
+    private Integer value_position;
+    private boolean unknown_position;
     public Integer position() {
-        if (position == null) return null;
-        return position.getValue("ReceiptRuleStopAction.position");
+        if (!unknown_position) return value_position;
+        throw new UndeferrableValueException("Value 'ReceiptRuleStopAction.position' is not present");
     }
 
     /**
      * The scope to apply. The only acceptable value is `RuleSet`.
      * 
      */
-    private UndeferrableValue<String> scope;
-
+    @PolicyResourceProperty(name="scope", flag="unknown_scope")
+    private String value_scope;
+    private boolean unknown_scope;
     public String scope() {
-        if (scope == null) return null;
-        return scope.getValue("ReceiptRuleStopAction.scope");
+        if (!unknown_scope) return value_scope;
+        throw new UndeferrableValueException("Value 'ReceiptRuleStopAction.scope' is not present");
     }
 
     /**
      * The ARN of an SNS topic to notify
      * 
      */
-    private @Nullable UndeferrableValue<String> topicArn;
-
+    @PolicyResourceProperty(name="topicArn", flag="unknown_topicArn")
+    private @Nullable String value_topicArn;
+    private boolean unknown_topicArn;
     public @Nullable String topicArn() {
-        if (topicArn == null) return null;
-        return topicArn.getValue("ReceiptRuleStopAction.topicArn");
+        if (!unknown_topicArn) return value_topicArn;
+        throw new UndeferrableValueException("Value 'ReceiptRuleStopAction.topicArn' is not present");
     }
 
 }

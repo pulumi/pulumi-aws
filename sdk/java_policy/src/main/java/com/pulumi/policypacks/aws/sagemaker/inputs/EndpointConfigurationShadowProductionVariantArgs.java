@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.EndpointConfigurationShadowProductionVariantRoutingConfigArgs;
@@ -22,165 +23,180 @@ public final class EndpointConfigurationShadowProductionVariantArgs {
      * The size of the Elastic Inference (EI) instance to use for the production variant.
      * 
      */
-    private UndeferrableValue<String> acceleratorType;
-
+    @PolicyResourceProperty(name="acceleratorType", flag="unknown_acceleratorType")
+    private String value_acceleratorType;
+    private boolean unknown_acceleratorType;
     public String acceleratorType() {
-        if (acceleratorType == null) return null;
-        return acceleratorType.getValue("EndpointConfigurationShadowProductionVariantArgs.acceleratorType");
+        if (!unknown_acceleratorType) return value_acceleratorType;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariantArgs.acceleratorType' is not present");
     }
 
     /**
      * The timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
      * 
      */
-    private UndeferrableValue<Integer> containerStartupHealthCheckTimeoutInSeconds;
-
+    @PolicyResourceProperty(name="containerStartupHealthCheckTimeoutInSeconds", flag="unknown_containerStartupHealthCheckTimeoutInSeconds")
+    private Integer value_containerStartupHealthCheckTimeoutInSeconds;
+    private boolean unknown_containerStartupHealthCheckTimeoutInSeconds;
     public Integer containerStartupHealthCheckTimeoutInSeconds() {
-        if (containerStartupHealthCheckTimeoutInSeconds == null) return null;
-        return containerStartupHealthCheckTimeoutInSeconds.getValue("EndpointConfigurationShadowProductionVariantArgs.containerStartupHealthCheckTimeoutInSeconds");
+        if (!unknown_containerStartupHealthCheckTimeoutInSeconds) return value_containerStartupHealthCheckTimeoutInSeconds;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariantArgs.containerStartupHealthCheckTimeoutInSeconds' is not present");
     }
 
     /**
      * Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
      * 
      */
-    private UndeferrableValue<EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs> coreDumpConfig;
-
+    @PolicyResourceProperty(name="coreDumpConfig", flag="unknown_coreDumpConfig")
+    private EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs value_coreDumpConfig;
+    private boolean unknown_coreDumpConfig;
     public EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs coreDumpConfig() {
-        if (coreDumpConfig == null) return null;
-        return coreDumpConfig.getValue("EndpointConfigurationShadowProductionVariantArgs.coreDumpConfig");
+        if (!unknown_coreDumpConfig) return value_coreDumpConfig;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariantArgs.coreDumpConfig' is not present");
     }
 
     /**
      * You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
      * 
      */
-    private UndeferrableValue<Boolean> enableSsmAccess;
-
+    @PolicyResourceProperty(name="enableSsmAccess", flag="unknown_enableSsmAccess")
+    private Boolean value_enableSsmAccess;
+    private boolean unknown_enableSsmAccess;
     public Boolean enableSsmAccess() {
-        if (enableSsmAccess == null) return null;
-        return enableSsmAccess.getValue("EndpointConfigurationShadowProductionVariantArgs.enableSsmAccess");
+        if (!unknown_enableSsmAccess) return value_enableSsmAccess;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariantArgs.enableSsmAccess' is not present");
     }
 
     /**
      * Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
      * 
      */
-    private UndeferrableValue<String> inferenceAmiVersion;
-
+    @PolicyResourceProperty(name="inferenceAmiVersion", flag="unknown_inferenceAmiVersion")
+    private String value_inferenceAmiVersion;
+    private boolean unknown_inferenceAmiVersion;
     public String inferenceAmiVersion() {
-        if (inferenceAmiVersion == null) return null;
-        return inferenceAmiVersion.getValue("EndpointConfigurationShadowProductionVariantArgs.inferenceAmiVersion");
+        if (!unknown_inferenceAmiVersion) return value_inferenceAmiVersion;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariantArgs.inferenceAmiVersion' is not present");
     }
 
     /**
      * Initial number of instances used for auto-scaling.
      * 
      */
-    private UndeferrableValue<Integer> initialInstanceCount;
-
+    @PolicyResourceProperty(name="initialInstanceCount", flag="unknown_initialInstanceCount")
+    private Integer value_initialInstanceCount;
+    private boolean unknown_initialInstanceCount;
     public Integer initialInstanceCount() {
-        if (initialInstanceCount == null) return null;
-        return initialInstanceCount.getValue("EndpointConfigurationShadowProductionVariantArgs.initialInstanceCount");
+        if (!unknown_initialInstanceCount) return value_initialInstanceCount;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariantArgs.initialInstanceCount' is not present");
     }
 
     /**
      * Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
      * 
      */
-    private UndeferrableValue<Double> initialVariantWeight;
-
+    @PolicyResourceProperty(name="initialVariantWeight", flag="unknown_initialVariantWeight")
+    private Double value_initialVariantWeight;
+    private boolean unknown_initialVariantWeight;
     public Double initialVariantWeight() {
-        if (initialVariantWeight == null) return null;
-        return initialVariantWeight.getValue("EndpointConfigurationShadowProductionVariantArgs.initialVariantWeight");
+        if (!unknown_initialVariantWeight) return value_initialVariantWeight;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariantArgs.initialVariantWeight' is not present");
     }
 
     /**
      * The type of instance to start.
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("EndpointConfigurationShadowProductionVariantArgs.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariantArgs.instanceType' is not present");
     }
 
     /**
      * Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
      * 
      */
-    private UndeferrableValue<EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgs> managedInstanceScaling;
-
+    @PolicyResourceProperty(name="managedInstanceScaling", flag="unknown_managedInstanceScaling")
+    private EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgs value_managedInstanceScaling;
+    private boolean unknown_managedInstanceScaling;
     public EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgs managedInstanceScaling() {
-        if (managedInstanceScaling == null) return null;
-        return managedInstanceScaling.getValue("EndpointConfigurationShadowProductionVariantArgs.managedInstanceScaling");
+        if (!unknown_managedInstanceScaling) return value_managedInstanceScaling;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariantArgs.managedInstanceScaling' is not present");
     }
 
     /**
      * The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
      * 
      */
-    private UndeferrableValue<Integer> modelDataDownloadTimeoutInSeconds;
-
+    @PolicyResourceProperty(name="modelDataDownloadTimeoutInSeconds", flag="unknown_modelDataDownloadTimeoutInSeconds")
+    private Integer value_modelDataDownloadTimeoutInSeconds;
+    private boolean unknown_modelDataDownloadTimeoutInSeconds;
     public Integer modelDataDownloadTimeoutInSeconds() {
-        if (modelDataDownloadTimeoutInSeconds == null) return null;
-        return modelDataDownloadTimeoutInSeconds.getValue("EndpointConfigurationShadowProductionVariantArgs.modelDataDownloadTimeoutInSeconds");
+        if (!unknown_modelDataDownloadTimeoutInSeconds) return value_modelDataDownloadTimeoutInSeconds;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariantArgs.modelDataDownloadTimeoutInSeconds' is not present");
     }
 
     /**
      * The name of the model to use.
      * 
      */
-    private UndeferrableValue<String> modelName;
-
+    @PolicyResourceProperty(name="modelName", flag="unknown_modelName")
+    private String value_modelName;
+    private boolean unknown_modelName;
     public String modelName() {
-        if (modelName == null) return null;
-        return modelName.getValue("EndpointConfigurationShadowProductionVariantArgs.modelName");
+        if (!unknown_modelName) return value_modelName;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariantArgs.modelName' is not present");
     }
 
     /**
      * Sets how the endpoint routes incoming traffic. See routing_config below.
      * 
      */
-    private UndeferrableValue<List<EndpointConfigurationShadowProductionVariantRoutingConfigArgs>> routingConfigs;
-
+    @PolicyResourceProperty(name="routingConfigs", flag="unknown_routingConfigs")
+    private List<EndpointConfigurationShadowProductionVariantRoutingConfigArgs> value_routingConfigs;
+    private boolean unknown_routingConfigs;
     public List<EndpointConfigurationShadowProductionVariantRoutingConfigArgs> routingConfigs() {
-        if (routingConfigs == null) return null;
-        return routingConfigs.getValue("EndpointConfigurationShadowProductionVariantArgs.routingConfigs");
+        if (!unknown_routingConfigs) return value_routingConfigs;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariantArgs.routingConfigs' is not present");
     }
 
     /**
      * Specifies configuration for how an endpoint performs asynchronous inference.
      * 
      */
-    private UndeferrableValue<EndpointConfigurationShadowProductionVariantServerlessConfigArgs> serverlessConfig;
-
+    @PolicyResourceProperty(name="serverlessConfig", flag="unknown_serverlessConfig")
+    private EndpointConfigurationShadowProductionVariantServerlessConfigArgs value_serverlessConfig;
+    private boolean unknown_serverlessConfig;
     public EndpointConfigurationShadowProductionVariantServerlessConfigArgs serverlessConfig() {
-        if (serverlessConfig == null) return null;
-        return serverlessConfig.getValue("EndpointConfigurationShadowProductionVariantArgs.serverlessConfig");
+        if (!unknown_serverlessConfig) return value_serverlessConfig;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariantArgs.serverlessConfig' is not present");
     }
 
     /**
      * The name of the variant. If omitted, this provider will assign a random, unique name.
      * 
      */
-    private UndeferrableValue<String> variantName;
-
+    @PolicyResourceProperty(name="variantName", flag="unknown_variantName")
+    private String value_variantName;
+    private boolean unknown_variantName;
     public String variantName() {
-        if (variantName == null) return null;
-        return variantName.getValue("EndpointConfigurationShadowProductionVariantArgs.variantName");
+        if (!unknown_variantName) return value_variantName;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariantArgs.variantName' is not present");
     }
 
     /**
      * The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
      * 
      */
-    private UndeferrableValue<Integer> volumeSizeInGb;
-
+    @PolicyResourceProperty(name="volumeSizeInGb", flag="unknown_volumeSizeInGb")
+    private Integer value_volumeSizeInGb;
+    private boolean unknown_volumeSizeInGb;
     public Integer volumeSizeInGb() {
-        if (volumeSizeInGb == null) return null;
-        return volumeSizeInGb.getValue("EndpointConfigurationShadowProductionVariantArgs.volumeSizeInGb");
+        if (!unknown_volumeSizeInGb) return value_volumeSizeInGb;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationShadowProductionVariantArgs.volumeSizeInGb' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class DomainSamlOptionsSamlOptionsIdpArgs {
      * Unique Entity ID of the application in SAML Identity Provider.
      * 
      */
-    private UndeferrableValue<String> entityId;
-
+    @PolicyResourceProperty(name="entityId", flag="unknown_entityId")
+    private String value_entityId;
+    private boolean unknown_entityId;
     public String entityId() {
-        if (entityId == null) return null;
-        return entityId.getValue("DomainSamlOptionsSamlOptionsIdpArgs.entityId");
+        if (!unknown_entityId) return value_entityId;
+        throw new UndeferrableValueException("Value 'DomainSamlOptionsSamlOptionsIdpArgs.entityId' is not present");
     }
 
     /**
      * Metadata of the SAML application in xml format.
      * 
      */
-    private UndeferrableValue<String> metadataContent;
-
+    @PolicyResourceProperty(name="metadataContent", flag="unknown_metadataContent")
+    private String value_metadataContent;
+    private boolean unknown_metadataContent;
     public String metadataContent() {
-        if (metadataContent == null) return null;
-        return metadataContent.getValue("DomainSamlOptionsSamlOptionsIdpArgs.metadataContent");
+        if (!unknown_metadataContent) return value_metadataContent;
+        throw new UndeferrableValueException("Value 'DomainSamlOptionsSamlOptionsIdpArgs.metadataContent' is not present");
     }
 
 }

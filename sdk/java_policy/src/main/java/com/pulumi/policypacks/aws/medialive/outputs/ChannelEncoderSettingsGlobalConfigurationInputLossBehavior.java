@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate;
 import java.lang.Integer;
 import java.lang.String;
@@ -12,39 +13,44 @@ import javax.annotation.Nullable;
 
 public final class ChannelEncoderSettingsGlobalConfigurationInputLossBehavior {
 
-    private @Nullable UndeferrableValue<Integer> blackFrameMsec;
-
+    @PolicyResourceProperty(name="blackFrameMsec", flag="unknown_blackFrameMsec")
+    private @Nullable Integer value_blackFrameMsec;
+    private boolean unknown_blackFrameMsec;
     public @Nullable Integer blackFrameMsec() {
-        if (blackFrameMsec == null) return null;
-        return blackFrameMsec.getValue("ChannelEncoderSettingsGlobalConfigurationInputLossBehavior.blackFrameMsec");
+        if (!unknown_blackFrameMsec) return value_blackFrameMsec;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfigurationInputLossBehavior.blackFrameMsec' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> inputLossImageColor;
-
+    @PolicyResourceProperty(name="inputLossImageColor", flag="unknown_inputLossImageColor")
+    private @Nullable String value_inputLossImageColor;
+    private boolean unknown_inputLossImageColor;
     public @Nullable String inputLossImageColor() {
-        if (inputLossImageColor == null) return null;
-        return inputLossImageColor.getValue("ChannelEncoderSettingsGlobalConfigurationInputLossBehavior.inputLossImageColor");
+        if (!unknown_inputLossImageColor) return value_inputLossImageColor;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfigurationInputLossBehavior.inputLossImageColor' is not present");
     }
 
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate> inputLossImageSlate;
-
+    @PolicyResourceProperty(name="inputLossImageSlate", flag="unknown_inputLossImageSlate")
+    private @Nullable ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate value_inputLossImageSlate;
+    private boolean unknown_inputLossImageSlate;
     public @Nullable ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate inputLossImageSlate() {
-        if (inputLossImageSlate == null) return null;
-        return inputLossImageSlate.getValue("ChannelEncoderSettingsGlobalConfigurationInputLossBehavior.inputLossImageSlate");
+        if (!unknown_inputLossImageSlate) return value_inputLossImageSlate;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfigurationInputLossBehavior.inputLossImageSlate' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> inputLossImageType;
-
+    @PolicyResourceProperty(name="inputLossImageType", flag="unknown_inputLossImageType")
+    private @Nullable String value_inputLossImageType;
+    private boolean unknown_inputLossImageType;
     public @Nullable String inputLossImageType() {
-        if (inputLossImageType == null) return null;
-        return inputLossImageType.getValue("ChannelEncoderSettingsGlobalConfigurationInputLossBehavior.inputLossImageType");
+        if (!unknown_inputLossImageType) return value_inputLossImageType;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfigurationInputLossBehavior.inputLossImageType' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> repeatFrameMsec;
-
+    @PolicyResourceProperty(name="repeatFrameMsec", flag="unknown_repeatFrameMsec")
+    private @Nullable Integer value_repeatFrameMsec;
+    private boolean unknown_repeatFrameMsec;
     public @Nullable Integer repeatFrameMsec() {
-        if (repeatFrameMsec == null) return null;
-        return repeatFrameMsec.getValue("ChannelEncoderSettingsGlobalConfigurationInputLossBehavior.repeatFrameMsec");
+        if (!unknown_repeatFrameMsec) return value_repeatFrameMsec;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfigurationInputLossBehavior.repeatFrameMsec' is not present");
     }
 
 }

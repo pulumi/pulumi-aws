@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.scheduler.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ScheduleFlexibleTimeWindowArgs {
      * Maximum time window during which a schedule can be invoked. Ranges from `1` to `1440` minutes.
      * 
      */
-    private UndeferrableValue<Integer> maximumWindowInMinutes;
-
+    @PolicyResourceProperty(name="maximumWindowInMinutes", flag="unknown_maximumWindowInMinutes")
+    private Integer value_maximumWindowInMinutes;
+    private boolean unknown_maximumWindowInMinutes;
     public Integer maximumWindowInMinutes() {
-        if (maximumWindowInMinutes == null) return null;
-        return maximumWindowInMinutes.getValue("ScheduleFlexibleTimeWindowArgs.maximumWindowInMinutes");
+        if (!unknown_maximumWindowInMinutes) return value_maximumWindowInMinutes;
+        throw new UndeferrableValueException("Value 'ScheduleFlexibleTimeWindowArgs.maximumWindowInMinutes' is not present");
     }
 
     /**
      * Determines whether the schedule is invoked within a flexible time window. One of: `OFF`, `FLEXIBLE`.
      * 
      */
-    private UndeferrableValue<String> mode;
-
+    @PolicyResourceProperty(name="mode", flag="unknown_mode")
+    private String value_mode;
+    private boolean unknown_mode;
     public String mode() {
-        if (mode == null) return null;
-        return mode.getValue("ScheduleFlexibleTimeWindowArgs.mode");
+        if (!unknown_mode) return value_mode;
+        throw new UndeferrableValueException("Value 'ScheduleFlexibleTimeWindowArgs.mode' is not present");
     }
 
 }

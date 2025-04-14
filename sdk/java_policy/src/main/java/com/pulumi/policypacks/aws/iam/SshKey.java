@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,66 +16,72 @@ public final class SshKey extends com.pulumi.resources.PolicyResourceOutput {
      * Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
      * 
      */
-    private UndeferrableValue<String> encoding;
-
+    @PolicyResourceProperty(name="encoding", flag="unknown_encoding")
+    private String value_encoding;
+    private boolean unknown_encoding;
     public String encoding() {
-        if (encoding == null) return null;
-        return encoding.getValue("SshKey.encoding");
+        if (!unknown_encoding) return value_encoding;
+        throw new UndeferrableValueException("Value 'SshKey.encoding' is not present");
     }
 
     /**
      * The MD5 message digest of the SSH public key.
      * 
      */
-    private UndeferrableValue<String> fingerprint;
-
+    @PolicyResourceProperty(name="fingerprint", flag="unknown_fingerprint")
+    private String value_fingerprint;
+    private boolean unknown_fingerprint;
     public String fingerprint() {
-        if (fingerprint == null) return null;
-        return fingerprint.getValue("SshKey.fingerprint");
+        if (!unknown_fingerprint) return value_fingerprint;
+        throw new UndeferrableValueException("Value 'SshKey.fingerprint' is not present");
     }
 
     /**
      * The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
      * 
      */
-    private UndeferrableValue<String> publicKey;
-
+    @PolicyResourceProperty(name="publicKey", flag="unknown_publicKey")
+    private String value_publicKey;
+    private boolean unknown_publicKey;
     public String publicKey() {
-        if (publicKey == null) return null;
-        return publicKey.getValue("SshKey.publicKey");
+        if (!unknown_publicKey) return value_publicKey;
+        throw new UndeferrableValueException("Value 'SshKey.publicKey' is not present");
     }
 
     /**
      * The unique identifier for the SSH public key.
      * 
      */
-    private UndeferrableValue<String> sshPublicKeyId;
-
+    @PolicyResourceProperty(name="sshPublicKeyId", flag="unknown_sshPublicKeyId")
+    private String value_sshPublicKeyId;
+    private boolean unknown_sshPublicKeyId;
     public String sshPublicKeyId() {
-        if (sshPublicKeyId == null) return null;
-        return sshPublicKeyId.getValue("SshKey.sshPublicKeyId");
+        if (!unknown_sshPublicKeyId) return value_sshPublicKeyId;
+        throw new UndeferrableValueException("Value 'SshKey.sshPublicKeyId' is not present");
     }
 
     /**
      * The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("SshKey.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'SshKey.status' is not present");
     }
 
     /**
      * The name of the IAM user to associate the SSH public key with.
      * 
      */
-    private UndeferrableValue<String> username;
-
+    @PolicyResourceProperty(name="username", flag="unknown_username")
+    private String value_username;
+    private boolean unknown_username;
     public String username() {
-        if (username == null) return null;
-        return username.getValue("SshKey.username");
+        if (!unknown_username) return value_username;
+        throw new UndeferrableValueException("Value 'SshKey.username' is not present");
     }
 
 }

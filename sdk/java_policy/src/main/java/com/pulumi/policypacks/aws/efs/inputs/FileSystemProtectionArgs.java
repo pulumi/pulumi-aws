@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.efs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class FileSystemProtectionArgs {
      * Indicates whether replication overwrite protection is enabled. Valid values: `ENABLED` or `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> replicationOverwrite;
-
+    @PolicyResourceProperty(name="replicationOverwrite", flag="unknown_replicationOverwrite")
+    private String value_replicationOverwrite;
+    private boolean unknown_replicationOverwrite;
     public String replicationOverwrite() {
-        if (replicationOverwrite == null) return null;
-        return replicationOverwrite.getValue("FileSystemProtectionArgs.replicationOverwrite");
+        if (!unknown_replicationOverwrite) return value_replicationOverwrite;
+        throw new UndeferrableValueException("Value 'FileSystemProtectionArgs.replicationOverwrite' is not present");
     }
 
 }

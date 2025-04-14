@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicediscovery;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.servicediscovery.inputs.ServiceDnsConfigArgs;
 import com.pulumi.policypacks.aws.servicediscovery.inputs.ServiceHealthCheckConfigArgs;
@@ -21,99 +22,108 @@ public final class ServiceArgs extends com.pulumi.resources.PolicyResourceInput 
      * The description of the service.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ServiceArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ServiceArgs.description' is not present");
     }
 
     /**
      * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
      * 
      */
-    private UndeferrableValue<ServiceDnsConfigArgs> dnsConfig;
-
+    @PolicyResourceProperty(name="dnsConfig", flag="unknown_dnsConfig")
+    private ServiceDnsConfigArgs value_dnsConfig;
+    private boolean unknown_dnsConfig;
     public ServiceDnsConfigArgs dnsConfig() {
-        if (dnsConfig == null) return null;
-        return dnsConfig.getValue("ServiceArgs.dnsConfig");
+        if (!unknown_dnsConfig) return value_dnsConfig;
+        throw new UndeferrableValueException("Value 'ServiceArgs.dnsConfig' is not present");
     }
 
     /**
      * A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> forceDestroy;
-
+    @PolicyResourceProperty(name="forceDestroy", flag="unknown_forceDestroy")
+    private Boolean value_forceDestroy;
+    private boolean unknown_forceDestroy;
     public Boolean forceDestroy() {
-        if (forceDestroy == null) return null;
-        return forceDestroy.getValue("ServiceArgs.forceDestroy");
+        if (!unknown_forceDestroy) return value_forceDestroy;
+        throw new UndeferrableValueException("Value 'ServiceArgs.forceDestroy' is not present");
     }
 
     /**
      * A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
      * 
      */
-    private UndeferrableValue<ServiceHealthCheckConfigArgs> healthCheckConfig;
-
+    @PolicyResourceProperty(name="healthCheckConfig", flag="unknown_healthCheckConfig")
+    private ServiceHealthCheckConfigArgs value_healthCheckConfig;
+    private boolean unknown_healthCheckConfig;
     public ServiceHealthCheckConfigArgs healthCheckConfig() {
-        if (healthCheckConfig == null) return null;
-        return healthCheckConfig.getValue("ServiceArgs.healthCheckConfig");
+        if (!unknown_healthCheckConfig) return value_healthCheckConfig;
+        throw new UndeferrableValueException("Value 'ServiceArgs.healthCheckConfig' is not present");
     }
 
     /**
      * A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
      * 
      */
-    private UndeferrableValue<ServiceHealthCheckCustomConfigArgs> healthCheckCustomConfig;
-
+    @PolicyResourceProperty(name="healthCheckCustomConfig", flag="unknown_healthCheckCustomConfig")
+    private ServiceHealthCheckCustomConfigArgs value_healthCheckCustomConfig;
+    private boolean unknown_healthCheckCustomConfig;
     public ServiceHealthCheckCustomConfigArgs healthCheckCustomConfig() {
-        if (healthCheckCustomConfig == null) return null;
-        return healthCheckCustomConfig.getValue("ServiceArgs.healthCheckCustomConfig");
+        if (!unknown_healthCheckCustomConfig) return value_healthCheckCustomConfig;
+        throw new UndeferrableValueException("Value 'ServiceArgs.healthCheckCustomConfig' is not present");
     }
 
     /**
      * The name of the service.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ServiceArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ServiceArgs.name' is not present");
     }
 
     /**
      * The ID of the namespace that you want to use to create the service.
      * 
      */
-    private UndeferrableValue<String> namespaceId;
-
+    @PolicyResourceProperty(name="namespaceId", flag="unknown_namespaceId")
+    private String value_namespaceId;
+    private boolean unknown_namespaceId;
     public String namespaceId() {
-        if (namespaceId == null) return null;
-        return namespaceId.getValue("ServiceArgs.namespaceId");
+        if (!unknown_namespaceId) return value_namespaceId;
+        throw new UndeferrableValueException("Value 'ServiceArgs.namespaceId' is not present");
     }
 
     /**
      * A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ServiceArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ServiceArgs.tags' is not present");
     }
 
     /**
      * If present, specifies that the service instances are only discoverable using the `DiscoverInstances` API operation. No DNS records is registered for the service instances. The only valid value is `HTTP`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ServiceArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ServiceArgs.type' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class MeshSpecServiceDiscovery {
      * The IP version to use to control traffic within the mesh. Valid values are `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, and `IPv6_ONLY`.
      * 
      */
-    private @Nullable UndeferrableValue<String> ipPreference;
-
+    @PolicyResourceProperty(name="ipPreference", flag="unknown_ipPreference")
+    private @Nullable String value_ipPreference;
+    private boolean unknown_ipPreference;
     public @Nullable String ipPreference() {
-        if (ipPreference == null) return null;
-        return ipPreference.getValue("MeshSpecServiceDiscovery.ipPreference");
+        if (!unknown_ipPreference) return value_ipPreference;
+        throw new UndeferrableValueException("Value 'MeshSpecServiceDiscovery.ipPreference' is not present");
     }
 
 }

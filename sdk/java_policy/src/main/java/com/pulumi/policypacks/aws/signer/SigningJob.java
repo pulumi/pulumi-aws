@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.signer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.signer.outputs.SigningJobDestination;
 import com.pulumi.policypacks.aws.signer.outputs.SigningJobRevocationRecord;
@@ -22,198 +23,216 @@ public final class SigningJob extends com.pulumi.resources.PolicyResourceOutput 
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was completed.
      * 
      */
-    private UndeferrableValue<String> completedAt;
-
+    @PolicyResourceProperty(name="completedAt", flag="unknown_completedAt")
+    private String value_completedAt;
+    private boolean unknown_completedAt;
     public String completedAt() {
-        if (completedAt == null) return null;
-        return completedAt.getValue("SigningJob.completedAt");
+        if (!unknown_completedAt) return value_completedAt;
+        throw new UndeferrableValueException("Value 'SigningJob.completedAt' is not present");
     }
 
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the signing job was created.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("SigningJob.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'SigningJob.createdAt' is not present");
     }
 
     /**
      * The S3 bucket in which to save your signed object. See Destination below for details.
      * 
      */
-    private UndeferrableValue<SigningJobDestination> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private SigningJobDestination value_destination;
+    private boolean unknown_destination;
     public SigningJobDestination destination() {
-        if (destination == null) return null;
-        return destination.getValue("SigningJob.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'SigningJob.destination' is not present");
     }
 
     /**
      * Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> ignoreSigningJobFailure;
-
+    @PolicyResourceProperty(name="ignoreSigningJobFailure", flag="unknown_ignoreSigningJobFailure")
+    private @Nullable Boolean value_ignoreSigningJobFailure;
+    private boolean unknown_ignoreSigningJobFailure;
     public @Nullable Boolean ignoreSigningJobFailure() {
-        if (ignoreSigningJobFailure == null) return null;
-        return ignoreSigningJobFailure.getValue("SigningJob.ignoreSigningJobFailure");
+        if (!unknown_ignoreSigningJobFailure) return value_ignoreSigningJobFailure;
+        throw new UndeferrableValueException("Value 'SigningJob.ignoreSigningJobFailure' is not present");
     }
 
     /**
      * The ID of the signing job on output.
      * 
      */
-    private UndeferrableValue<String> jobId;
-
+    @PolicyResourceProperty(name="jobId", flag="unknown_jobId")
+    private String value_jobId;
+    private boolean unknown_jobId;
     public String jobId() {
-        if (jobId == null) return null;
-        return jobId.getValue("SigningJob.jobId");
+        if (!unknown_jobId) return value_jobId;
+        throw new UndeferrableValueException("Value 'SigningJob.jobId' is not present");
     }
 
     /**
      * The IAM entity that initiated the signing job.
      * 
      */
-    private UndeferrableValue<String> jobInvoker;
-
+    @PolicyResourceProperty(name="jobInvoker", flag="unknown_jobInvoker")
+    private String value_jobInvoker;
+    private boolean unknown_jobInvoker;
     public String jobInvoker() {
-        if (jobInvoker == null) return null;
-        return jobInvoker.getValue("SigningJob.jobInvoker");
+        if (!unknown_jobInvoker) return value_jobInvoker;
+        throw new UndeferrableValueException("Value 'SigningJob.jobInvoker' is not present");
     }
 
     /**
      * The AWS account ID of the job owner.
      * 
      */
-    private UndeferrableValue<String> jobOwner;
-
+    @PolicyResourceProperty(name="jobOwner", flag="unknown_jobOwner")
+    private String value_jobOwner;
+    private boolean unknown_jobOwner;
     public String jobOwner() {
-        if (jobOwner == null) return null;
-        return jobOwner.getValue("SigningJob.jobOwner");
+        if (!unknown_jobOwner) return value_jobOwner;
+        throw new UndeferrableValueException("Value 'SigningJob.jobOwner' is not present");
     }
 
     /**
      * A human-readable name for the signing platform associated with the signing job.
      * 
      */
-    private UndeferrableValue<String> platformDisplayName;
-
+    @PolicyResourceProperty(name="platformDisplayName", flag="unknown_platformDisplayName")
+    private String value_platformDisplayName;
+    private boolean unknown_platformDisplayName;
     public String platformDisplayName() {
-        if (platformDisplayName == null) return null;
-        return platformDisplayName.getValue("SigningJob.platformDisplayName");
+        if (!unknown_platformDisplayName) return value_platformDisplayName;
+        throw new UndeferrableValueException("Value 'SigningJob.platformDisplayName' is not present");
     }
 
     /**
      * The platform to which your signed code image will be distributed.
      * 
      */
-    private UndeferrableValue<String> platformId;
-
+    @PolicyResourceProperty(name="platformId", flag="unknown_platformId")
+    private String value_platformId;
+    private boolean unknown_platformId;
     public String platformId() {
-        if (platformId == null) return null;
-        return platformId.getValue("SigningJob.platformId");
+        if (!unknown_platformId) return value_platformId;
+        throw new UndeferrableValueException("Value 'SigningJob.platformId' is not present");
     }
 
     /**
      * The name of the profile to initiate the signing operation.
      * 
      */
-    private UndeferrableValue<String> profileName;
-
+    @PolicyResourceProperty(name="profileName", flag="unknown_profileName")
+    private String value_profileName;
+    private boolean unknown_profileName;
     public String profileName() {
-        if (profileName == null) return null;
-        return profileName.getValue("SigningJob.profileName");
+        if (!unknown_profileName) return value_profileName;
+        throw new UndeferrableValueException("Value 'SigningJob.profileName' is not present");
     }
 
     /**
      * The version of the signing profile used to initiate the signing job.
      * 
      */
-    private UndeferrableValue<String> profileVersion;
-
+    @PolicyResourceProperty(name="profileVersion", flag="unknown_profileVersion")
+    private String value_profileVersion;
+    private boolean unknown_profileVersion;
     public String profileVersion() {
-        if (profileVersion == null) return null;
-        return profileVersion.getValue("SigningJob.profileVersion");
+        if (!unknown_profileVersion) return value_profileVersion;
+        throw new UndeferrableValueException("Value 'SigningJob.profileVersion' is not present");
     }
 
     /**
      * The IAM principal that requested the signing job.
      * 
      */
-    private UndeferrableValue<String> requestedBy;
-
+    @PolicyResourceProperty(name="requestedBy", flag="unknown_requestedBy")
+    private String value_requestedBy;
+    private boolean unknown_requestedBy;
     public String requestedBy() {
-        if (requestedBy == null) return null;
-        return requestedBy.getValue("SigningJob.requestedBy");
+        if (!unknown_requestedBy) return value_requestedBy;
+        throw new UndeferrableValueException("Value 'SigningJob.requestedBy' is not present");
     }
 
     /**
      * A revocation record if the signature generated by the signing job has been revoked. Contains a timestamp and the ID of the IAM entity that revoked the signature.
      * 
      */
-    private UndeferrableValue<List<SigningJobRevocationRecord>> revocationRecords;
-
+    @PolicyResourceProperty(name="revocationRecords", flag="unknown_revocationRecords")
+    private List<SigningJobRevocationRecord> value_revocationRecords;
+    private boolean unknown_revocationRecords;
     public List<SigningJobRevocationRecord> revocationRecords() {
-        if (revocationRecords == null) return null;
-        return revocationRecords.getValue("SigningJob.revocationRecords");
+        if (!unknown_revocationRecords) return value_revocationRecords;
+        throw new UndeferrableValueException("Value 'SigningJob.revocationRecords' is not present");
     }
 
     /**
      * The time when the signature of a signing job expires.
      * 
      */
-    private UndeferrableValue<String> signatureExpiresAt;
-
+    @PolicyResourceProperty(name="signatureExpiresAt", flag="unknown_signatureExpiresAt")
+    private String value_signatureExpiresAt;
+    private boolean unknown_signatureExpiresAt;
     public String signatureExpiresAt() {
-        if (signatureExpiresAt == null) return null;
-        return signatureExpiresAt.getValue("SigningJob.signatureExpiresAt");
+        if (!unknown_signatureExpiresAt) return value_signatureExpiresAt;
+        throw new UndeferrableValueException("Value 'SigningJob.signatureExpiresAt' is not present");
     }
 
     /**
      * Name of the S3 bucket where the signed code image is saved by code signing.
      * 
      */
-    private UndeferrableValue<List<SigningJobSignedObject>> signedObjects;
-
+    @PolicyResourceProperty(name="signedObjects", flag="unknown_signedObjects")
+    private List<SigningJobSignedObject> value_signedObjects;
+    private boolean unknown_signedObjects;
     public List<SigningJobSignedObject> signedObjects() {
-        if (signedObjects == null) return null;
-        return signedObjects.getValue("SigningJob.signedObjects");
+        if (!unknown_signedObjects) return value_signedObjects;
+        throw new UndeferrableValueException("Value 'SigningJob.signedObjects' is not present");
     }
 
     /**
      * The S3 bucket that contains the object to sign. See Source below for details.
      * 
      */
-    private UndeferrableValue<SigningJobSource> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private SigningJobSource value_source;
+    private boolean unknown_source;
     public SigningJobSource source() {
-        if (source == null) return null;
-        return source.getValue("SigningJob.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'SigningJob.source' is not present");
     }
 
     /**
      * Status of the signing job.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("SigningJob.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'SigningJob.status' is not present");
     }
 
     /**
      * String value that contains the status reason.
      * 
      */
-    private UndeferrableValue<String> statusReason;
-
+    @PolicyResourceProperty(name="statusReason", flag="unknown_statusReason")
+    private String value_statusReason;
+    private boolean unknown_statusReason;
     public String statusReason() {
-        if (statusReason == null) return null;
-        return statusReason.getValue("SigningJob.statusReason");
+        if (!unknown_statusReason) return value_statusReason;
+        throw new UndeferrableValueException("Value 'SigningJob.statusReason' is not present");
     }
 
 }

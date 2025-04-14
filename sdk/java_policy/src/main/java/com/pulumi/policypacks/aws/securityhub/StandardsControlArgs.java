@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class StandardsControlArgs extends com.pulumi.resources.PolicyResou
      * The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
      * 
      */
-    private UndeferrableValue<String> controlStatus;
-
+    @PolicyResourceProperty(name="controlStatus", flag="unknown_controlStatus")
+    private String value_controlStatus;
+    private boolean unknown_controlStatus;
     public String controlStatus() {
-        if (controlStatus == null) return null;
-        return controlStatus.getValue("StandardsControlArgs.controlStatus");
+        if (!unknown_controlStatus) return value_controlStatus;
+        throw new UndeferrableValueException("Value 'StandardsControlArgs.controlStatus' is not present");
     }
 
     /**
      * A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
      * 
      */
-    private UndeferrableValue<String> disabledReason;
-
+    @PolicyResourceProperty(name="disabledReason", flag="unknown_disabledReason")
+    private String value_disabledReason;
+    private boolean unknown_disabledReason;
     public String disabledReason() {
-        if (disabledReason == null) return null;
-        return disabledReason.getValue("StandardsControlArgs.disabledReason");
+        if (!unknown_disabledReason) return value_disabledReason;
+        throw new UndeferrableValueException("Value 'StandardsControlArgs.disabledReason' is not present");
     }
 
     /**
      * The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
      * 
      */
-    private UndeferrableValue<String> standardsControlArn;
-
+    @PolicyResourceProperty(name="standardsControlArn", flag="unknown_standardsControlArn")
+    private String value_standardsControlArn;
+    private boolean unknown_standardsControlArn;
     public String standardsControlArn() {
-        if (standardsControlArn == null) return null;
-        return standardsControlArn.getValue("StandardsControlArgs.standardsControlArn");
+        if (!unknown_standardsControlArn) return value_standardsControlArn;
+        throw new UndeferrableValueException("Value 'StandardsControlArgs.standardsControlArn' is not present");
     }
 
 }

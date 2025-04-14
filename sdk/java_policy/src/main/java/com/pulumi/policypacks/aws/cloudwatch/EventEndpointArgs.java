@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudwatch.inputs.EventEndpointEventBusArgs;
 import com.pulumi.policypacks.aws.cloudwatch.inputs.EventEndpointReplicationConfigArgs;
@@ -20,66 +21,72 @@ public final class EventEndpointArgs extends com.pulumi.resources.PolicyResource
      * A description of the global endpoint.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("EventEndpointArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'EventEndpointArgs.description' is not present");
     }
 
     /**
      * The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
      * 
      */
-    private UndeferrableValue<List<EventEndpointEventBusArgs>> eventBuses;
-
+    @PolicyResourceProperty(name="eventBuses", flag="unknown_eventBuses")
+    private List<EventEndpointEventBusArgs> value_eventBuses;
+    private boolean unknown_eventBuses;
     public List<EventEndpointEventBusArgs> eventBuses() {
-        if (eventBuses == null) return null;
-        return eventBuses.getValue("EventEndpointArgs.eventBuses");
+        if (!unknown_eventBuses) return value_eventBuses;
+        throw new UndeferrableValueException("Value 'EventEndpointArgs.eventBuses' is not present");
     }
 
     /**
      * The name of the global endpoint.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("EventEndpointArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'EventEndpointArgs.name' is not present");
     }
 
     /**
      * Parameters used for replication. Documented below.
      * 
      */
-    private UndeferrableValue<EventEndpointReplicationConfigArgs> replicationConfig;
-
+    @PolicyResourceProperty(name="replicationConfig", flag="unknown_replicationConfig")
+    private EventEndpointReplicationConfigArgs value_replicationConfig;
+    private boolean unknown_replicationConfig;
     public EventEndpointReplicationConfigArgs replicationConfig() {
-        if (replicationConfig == null) return null;
-        return replicationConfig.getValue("EventEndpointArgs.replicationConfig");
+        if (!unknown_replicationConfig) return value_replicationConfig;
+        throw new UndeferrableValueException("Value 'EventEndpointArgs.replicationConfig' is not present");
     }
 
     /**
      * The ARN of the IAM role used for replication between event buses.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("EventEndpointArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'EventEndpointArgs.roleArn' is not present");
     }
 
     /**
      * Parameters used for routing, including the health check and secondary Region. Documented below.
      * 
      */
-    private UndeferrableValue<EventEndpointRoutingConfigArgs> routingConfig;
-
+    @PolicyResourceProperty(name="routingConfig", flag="unknown_routingConfig")
+    private EventEndpointRoutingConfigArgs value_routingConfig;
+    private boolean unknown_routingConfig;
     public EventEndpointRoutingConfigArgs routingConfig() {
-        if (routingConfig == null) return null;
-        return routingConfig.getValue("EventEndpointArgs.routingConfig");
+        if (!unknown_routingConfig) return value_routingConfig;
+        throw new UndeferrableValueException("Value 'EventEndpointArgs.routingConfig' is not present");
     }
 
 }

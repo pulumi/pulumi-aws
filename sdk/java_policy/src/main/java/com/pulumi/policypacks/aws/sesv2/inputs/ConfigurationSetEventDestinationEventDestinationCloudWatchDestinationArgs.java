@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sesv2.inputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
      * An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimension_configuration` Block for details.
      * 
      */
-    private UndeferrableValue<List<ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs>> dimensionConfigurations;
-
+    @PolicyResourceProperty(name="dimensionConfigurations", flag="unknown_dimensionConfigurations")
+    private List<ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs> value_dimensionConfigurations;
+    private boolean unknown_dimensionConfigurations;
     public List<ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs> dimensionConfigurations() {
-        if (dimensionConfigurations == null) return null;
-        return dimensionConfigurations.getValue("ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs.dimensionConfigurations");
+        if (!unknown_dimensionConfigurations) return value_dimensionConfigurations;
+        throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs.dimensionConfigurations' is not present");
     }
 
 }

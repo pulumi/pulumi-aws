@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.fsx.outputs.OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention;
 import com.pulumi.policypacks.aws.fsx.outputs.OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention;
 import com.pulumi.policypacks.aws.fsx.outputs.OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention;
@@ -16,33 +17,36 @@ public final class OntapVolumeSnaplockConfigurationRetentionPeriod {
      * The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `default_retention` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention> defaultRetention;
-
+    @PolicyResourceProperty(name="defaultRetention", flag="unknown_defaultRetention")
+    private @Nullable OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention value_defaultRetention;
+    private boolean unknown_defaultRetention;
     public @Nullable OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention defaultRetention() {
-        if (defaultRetention == null) return null;
-        return defaultRetention.getValue("OntapVolumeSnaplockConfigurationRetentionPeriod.defaultRetention");
+        if (!unknown_defaultRetention) return value_defaultRetention;
+        throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfigurationRetentionPeriod.defaultRetention' is not present");
     }
 
     /**
      * The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximum_retention` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention> maximumRetention;
-
+    @PolicyResourceProperty(name="maximumRetention", flag="unknown_maximumRetention")
+    private @Nullable OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention value_maximumRetention;
+    private boolean unknown_maximumRetention;
     public @Nullable OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention maximumRetention() {
-        if (maximumRetention == null) return null;
-        return maximumRetention.getValue("OntapVolumeSnaplockConfigurationRetentionPeriod.maximumRetention");
+        if (!unknown_maximumRetention) return value_maximumRetention;
+        throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfigurationRetentionPeriod.maximumRetention' is not present");
     }
 
     /**
      * The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimum_retention` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention> minimumRetention;
-
+    @PolicyResourceProperty(name="minimumRetention", flag="unknown_minimumRetention")
+    private @Nullable OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention value_minimumRetention;
+    private boolean unknown_minimumRetention;
     public @Nullable OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention minimumRetention() {
-        if (minimumRetention == null) return null;
-        return minimumRetention.getValue("OntapVolumeSnaplockConfigurationRetentionPeriod.minimumRetention");
+        if (!unknown_minimumRetention) return value_minimumRetention;
+        throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfigurationRetentionPeriod.minimumRetention' is not present");
     }
 
 }

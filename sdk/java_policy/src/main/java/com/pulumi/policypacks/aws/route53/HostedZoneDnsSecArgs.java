@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -18,22 +19,24 @@ public final class HostedZoneDnsSecArgs extends com.pulumi.resources.PolicyResou
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> hostedZoneId;
-
+    @PolicyResourceProperty(name="hostedZoneId", flag="unknown_hostedZoneId")
+    private String value_hostedZoneId;
+    private boolean unknown_hostedZoneId;
     public String hostedZoneId() {
-        if (hostedZoneId == null) return null;
-        return hostedZoneId.getValue("HostedZoneDnsSecArgs.hostedZoneId");
+        if (!unknown_hostedZoneId) return value_hostedZoneId;
+        throw new UndeferrableValueException("Value 'HostedZoneDnsSecArgs.hostedZoneId' is not present");
     }
 
     /**
      * Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
      * 
      */
-    private UndeferrableValue<String> signingStatus;
-
+    @PolicyResourceProperty(name="signingStatus", flag="unknown_signingStatus")
+    private String value_signingStatus;
+    private boolean unknown_signingStatus;
     public String signingStatus() {
-        if (signingStatus == null) return null;
-        return signingStatus.getValue("HostedZoneDnsSecArgs.signingStatus");
+        if (!unknown_signingStatus) return value_signingStatus;
+        throw new UndeferrableValueException("Value 'HostedZoneDnsSecArgs.signingStatus' is not present");
     }
 
 }

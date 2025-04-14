@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualGatewaySpecListenerTlsValidationTrust;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class VirtualGatewaySpecListenerTlsValidation {
      * SANs for a virtual gateway&#39;s listener&#39;s Transport Layer Security (TLS) validation context.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames> subjectAlternativeNames;
-
+    @PolicyResourceProperty(name="subjectAlternativeNames", flag="unknown_subjectAlternativeNames")
+    private @Nullable VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames value_subjectAlternativeNames;
+    private boolean unknown_subjectAlternativeNames;
     public @Nullable VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames subjectAlternativeNames() {
-        if (subjectAlternativeNames == null) return null;
-        return subjectAlternativeNames.getValue("VirtualGatewaySpecListenerTlsValidation.subjectAlternativeNames");
+        if (!unknown_subjectAlternativeNames) return value_subjectAlternativeNames;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerTlsValidation.subjectAlternativeNames' is not present");
     }
 
     /**
      * TLS validation context trust.
      * 
      */
-    private UndeferrableValue<VirtualGatewaySpecListenerTlsValidationTrust> trust;
-
+    @PolicyResourceProperty(name="trust", flag="unknown_trust")
+    private VirtualGatewaySpecListenerTlsValidationTrust value_trust;
+    private boolean unknown_trust;
     public VirtualGatewaySpecListenerTlsValidationTrust trust() {
-        if (trust == null) return null;
-        return trust.getValue("VirtualGatewaySpecListenerTlsValidation.trust");
+        if (!unknown_trust) return value_trust;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerTlsValidation.trust' is not present");
     }
 
 }

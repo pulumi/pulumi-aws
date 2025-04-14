@@ -3,46 +3,51 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 
 
 public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle {
 
-    private UndeferrableValue<Double> height;
-
+    @PolicyResourceProperty(name="height", flag="unknown_height")
+    private Double value_height;
+    private boolean unknown_height;
     public Double height() {
-        if (height == null) return null;
-        return height.getValue("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle.height");
+        if (!unknown_height) return value_height;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle.height' is not present");
     }
 
     /**
      * Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, &#34;10&#34; means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
      * 
      */
-    private UndeferrableValue<Double> leftOffset;
-
+    @PolicyResourceProperty(name="leftOffset", flag="unknown_leftOffset")
+    private Double value_leftOffset;
+    private boolean unknown_leftOffset;
     public Double leftOffset() {
-        if (leftOffset == null) return null;
-        return leftOffset.getValue("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle.leftOffset");
+        if (!unknown_leftOffset) return value_leftOffset;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle.leftOffset' is not present");
     }
 
     /**
      * See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, &#34;10&#34; means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
      * 
      */
-    private UndeferrableValue<Double> topOffset;
-
+    @PolicyResourceProperty(name="topOffset", flag="unknown_topOffset")
+    private Double value_topOffset;
+    private boolean unknown_topOffset;
     public Double topOffset() {
-        if (topOffset == null) return null;
-        return topOffset.getValue("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle.topOffset");
+        if (!unknown_topOffset) return value_topOffset;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle.topOffset' is not present");
     }
 
-    private UndeferrableValue<Double> width;
-
+    @PolicyResourceProperty(name="width", flag="unknown_width")
+    private Double value_width;
+    private boolean unknown_width;
     public Double width() {
-        if (width == null) return null;
-        return width.getValue("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle.width");
+        if (!unknown_width) return value_width;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle.width' is not present");
     }
 
 }

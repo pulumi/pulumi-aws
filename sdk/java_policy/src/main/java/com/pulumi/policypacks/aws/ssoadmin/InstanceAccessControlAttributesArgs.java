@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssoadmin;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ssoadmin.inputs.InstanceAccessControlAttributesAttributeArgs;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class InstanceAccessControlAttributesArgs extends com.pulumi.resour
      * See AccessControlAttribute for more details.
      * 
      */
-    private UndeferrableValue<List<InstanceAccessControlAttributesAttributeArgs>> attributes;
-
+    @PolicyResourceProperty(name="attributes", flag="unknown_attributes")
+    private List<InstanceAccessControlAttributesAttributeArgs> value_attributes;
+    private boolean unknown_attributes;
     public List<InstanceAccessControlAttributesAttributeArgs> attributes() {
-        if (attributes == null) return null;
-        return attributes.getValue("InstanceAccessControlAttributesArgs.attributes");
+        if (!unknown_attributes) return value_attributes;
+        throw new UndeferrableValueException("Value 'InstanceAccessControlAttributesArgs.attributes' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance.
      * 
      */
-    private UndeferrableValue<String> instanceArn;
-
+    @PolicyResourceProperty(name="instanceArn", flag="unknown_instanceArn")
+    private String value_instanceArn;
+    private boolean unknown_instanceArn;
     public String instanceArn() {
-        if (instanceArn == null) return null;
-        return instanceArn.getValue("InstanceAccessControlAttributesArgs.instanceArn");
+        if (!unknown_instanceArn) return value_instanceArn;
+        throw new UndeferrableValueException("Value 'InstanceAccessControlAttributesArgs.instanceArn' is not present");
     }
 
 }

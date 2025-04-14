@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentAgentCollaboratorAgentDescriptor;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentAgentCollaboratorTimeouts;
@@ -15,87 +16,96 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:bedrock/agentAgentCollaborator:AgentAgentCollaborator")
 public final class AgentAgentCollaborator extends com.pulumi.resources.PolicyResourceOutput {
 
-    private @Nullable UndeferrableValue<AgentAgentCollaboratorAgentDescriptor> agentDescriptor;
-
+    @PolicyResourceProperty(name="agentDescriptor", flag="unknown_agentDescriptor")
+    private @Nullable AgentAgentCollaboratorAgentDescriptor value_agentDescriptor;
+    private boolean unknown_agentDescriptor;
     public @Nullable AgentAgentCollaboratorAgentDescriptor agentDescriptor() {
-        if (agentDescriptor == null) return null;
-        return agentDescriptor.getValue("AgentAgentCollaborator.agentDescriptor");
+        if (!unknown_agentDescriptor) return value_agentDescriptor;
+        throw new UndeferrableValueException("Value 'AgentAgentCollaborator.agentDescriptor' is not present");
     }
 
     /**
      * ID if the agent to associate the collaborator.
      * 
      */
-    private UndeferrableValue<String> agentId;
-
+    @PolicyResourceProperty(name="agentId", flag="unknown_agentId")
+    private String value_agentId;
+    private boolean unknown_agentId;
     public String agentId() {
-        if (agentId == null) return null;
-        return agentId.getValue("AgentAgentCollaborator.agentId");
+        if (!unknown_agentId) return value_agentId;
+        throw new UndeferrableValueException("Value 'AgentAgentCollaborator.agentId' is not present");
     }
 
-    private UndeferrableValue<String> agentVersion;
-
+    @PolicyResourceProperty(name="agentVersion", flag="unknown_agentVersion")
+    private String value_agentVersion;
+    private boolean unknown_agentVersion;
     public String agentVersion() {
-        if (agentVersion == null) return null;
-        return agentVersion.getValue("AgentAgentCollaborator.agentVersion");
+        if (!unknown_agentVersion) return value_agentVersion;
+        throw new UndeferrableValueException("Value 'AgentAgentCollaborator.agentVersion' is not present");
     }
 
     /**
      * Instruction to give the collaborator.
      * 
      */
-    private UndeferrableValue<String> collaborationInstruction;
-
+    @PolicyResourceProperty(name="collaborationInstruction", flag="unknown_collaborationInstruction")
+    private String value_collaborationInstruction;
+    private boolean unknown_collaborationInstruction;
     public String collaborationInstruction() {
-        if (collaborationInstruction == null) return null;
-        return collaborationInstruction.getValue("AgentAgentCollaborator.collaborationInstruction");
+        if (!unknown_collaborationInstruction) return value_collaborationInstruction;
+        throw new UndeferrableValueException("Value 'AgentAgentCollaborator.collaborationInstruction' is not present");
     }
 
     /**
      * ID of the Agent Collaborator.
      * 
      */
-    private UndeferrableValue<String> collaboratorId;
-
+    @PolicyResourceProperty(name="collaboratorId", flag="unknown_collaboratorId")
+    private String value_collaboratorId;
+    private boolean unknown_collaboratorId;
     public String collaboratorId() {
-        if (collaboratorId == null) return null;
-        return collaboratorId.getValue("AgentAgentCollaborator.collaboratorId");
+        if (!unknown_collaboratorId) return value_collaboratorId;
+        throw new UndeferrableValueException("Value 'AgentAgentCollaborator.collaboratorId' is not present");
     }
 
-    private UndeferrableValue<String> collaboratorName;
-
+    @PolicyResourceProperty(name="collaboratorName", flag="unknown_collaboratorName")
+    private String value_collaboratorName;
+    private boolean unknown_collaboratorName;
     public String collaboratorName() {
-        if (collaboratorName == null) return null;
-        return collaboratorName.getValue("AgentAgentCollaborator.collaboratorName");
+        if (!unknown_collaboratorName) return value_collaboratorName;
+        throw new UndeferrableValueException("Value 'AgentAgentCollaborator.collaboratorName' is not present");
     }
 
     /**
      * Whether to prepare the agent after creation or modification. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> prepareAgent;
-
+    @PolicyResourceProperty(name="prepareAgent", flag="unknown_prepareAgent")
+    private Boolean value_prepareAgent;
+    private boolean unknown_prepareAgent;
     public Boolean prepareAgent() {
-        if (prepareAgent == null) return null;
-        return prepareAgent.getValue("AgentAgentCollaborator.prepareAgent");
+        if (!unknown_prepareAgent) return value_prepareAgent;
+        throw new UndeferrableValueException("Value 'AgentAgentCollaborator.prepareAgent' is not present");
     }
 
     /**
      * Configure relaying the history to the collaborator.
      * 
      */
-    private UndeferrableValue<String> relayConversationHistory;
-
+    @PolicyResourceProperty(name="relayConversationHistory", flag="unknown_relayConversationHistory")
+    private String value_relayConversationHistory;
+    private boolean unknown_relayConversationHistory;
     public String relayConversationHistory() {
-        if (relayConversationHistory == null) return null;
-        return relayConversationHistory.getValue("AgentAgentCollaborator.relayConversationHistory");
+        if (!unknown_relayConversationHistory) return value_relayConversationHistory;
+        throw new UndeferrableValueException("Value 'AgentAgentCollaborator.relayConversationHistory' is not present");
     }
 
-    private @Nullable UndeferrableValue<AgentAgentCollaboratorTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable AgentAgentCollaboratorTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable AgentAgentCollaboratorTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("AgentAgentCollaborator.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'AgentAgentCollaborator.timeouts' is not present");
     }
 
 }

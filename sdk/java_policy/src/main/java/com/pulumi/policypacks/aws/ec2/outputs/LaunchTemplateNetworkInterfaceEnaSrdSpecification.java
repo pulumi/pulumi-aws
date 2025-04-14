@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.outputs.LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class LaunchTemplateNetworkInterfaceEnaSrdSpecification {
      * Whether to enable ENA Express. ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to improve the performance of TCP traffic.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enaSrdEnabled;
-
+    @PolicyResourceProperty(name="enaSrdEnabled", flag="unknown_enaSrdEnabled")
+    private @Nullable Boolean value_enaSrdEnabled;
+    private boolean unknown_enaSrdEnabled;
     public @Nullable Boolean enaSrdEnabled() {
-        if (enaSrdEnabled == null) return null;
-        return enaSrdEnabled.getValue("LaunchTemplateNetworkInterfaceEnaSrdSpecification.enaSrdEnabled");
+        if (!unknown_enaSrdEnabled) return value_enaSrdEnabled;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceEnaSrdSpecification.enaSrdEnabled' is not present");
     }
 
     /**
      * Configuration for ENA Express UDP optimization. See details below.
      * 
      */
-    private @Nullable UndeferrableValue<LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification> enaSrdUdpSpecification;
-
+    @PolicyResourceProperty(name="enaSrdUdpSpecification", flag="unknown_enaSrdUdpSpecification")
+    private @Nullable LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification value_enaSrdUdpSpecification;
+    private boolean unknown_enaSrdUdpSpecification;
     public @Nullable LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification enaSrdUdpSpecification() {
-        if (enaSrdUdpSpecification == null) return null;
-        return enaSrdUdpSpecification.getValue("LaunchTemplateNetworkInterfaceEnaSrdSpecification.enaSrdUdpSpecification");
+        if (!unknown_enaSrdUdpSpecification) return value_enaSrdUdpSpecification;
+        throw new UndeferrableValueException("Value 'LaunchTemplateNetworkInterfaceEnaSrdSpecification.enaSrdUdpSpecification' is not present");
     }
 
 }

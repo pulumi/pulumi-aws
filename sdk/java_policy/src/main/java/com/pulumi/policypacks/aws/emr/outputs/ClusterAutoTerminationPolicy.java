@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ClusterAutoTerminationPolicy {
      * Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
      * 
      */
-    private @Nullable UndeferrableValue<Integer> idleTimeout;
-
+    @PolicyResourceProperty(name="idleTimeout", flag="unknown_idleTimeout")
+    private @Nullable Integer value_idleTimeout;
+    private boolean unknown_idleTimeout;
     public @Nullable Integer idleTimeout() {
-        if (idleTimeout == null) return null;
-        return idleTimeout.getValue("ClusterAutoTerminationPolicy.idleTimeout");
+        if (!unknown_idleTimeout) return value_idleTimeout;
+        throw new UndeferrableValueException("Value 'ClusterAutoTerminationPolicy.idleTimeout' is not present");
     }
 
 }

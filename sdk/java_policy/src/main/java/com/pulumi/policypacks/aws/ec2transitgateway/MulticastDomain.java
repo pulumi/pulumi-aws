@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,66 +18,72 @@ public final class MulticastDomain extends com.pulumi.resources.PolicyResourceOu
      * EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("MulticastDomain.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'MulticastDomain.arn' is not present");
     }
 
     /**
      * Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
      * 
      */
-    private @Nullable UndeferrableValue<String> autoAcceptSharedAssociations;
-
+    @PolicyResourceProperty(name="autoAcceptSharedAssociations", flag="unknown_autoAcceptSharedAssociations")
+    private @Nullable String value_autoAcceptSharedAssociations;
+    private boolean unknown_autoAcceptSharedAssociations;
     public @Nullable String autoAcceptSharedAssociations() {
-        if (autoAcceptSharedAssociations == null) return null;
-        return autoAcceptSharedAssociations.getValue("MulticastDomain.autoAcceptSharedAssociations");
+        if (!unknown_autoAcceptSharedAssociations) return value_autoAcceptSharedAssociations;
+        throw new UndeferrableValueException("Value 'MulticastDomain.autoAcceptSharedAssociations' is not present");
     }
 
     /**
      * Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
      * 
      */
-    private @Nullable UndeferrableValue<String> igmpv2Support;
-
+    @PolicyResourceProperty(name="igmpv2Support", flag="unknown_igmpv2Support")
+    private @Nullable String value_igmpv2Support;
+    private boolean unknown_igmpv2Support;
     public @Nullable String igmpv2Support() {
-        if (igmpv2Support == null) return null;
-        return igmpv2Support.getValue("MulticastDomain.igmpv2Support");
+        if (!unknown_igmpv2Support) return value_igmpv2Support;
+        throw new UndeferrableValueException("Value 'MulticastDomain.igmpv2Support' is not present");
     }
 
     /**
      * Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("MulticastDomain.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'MulticastDomain.ownerId' is not present");
     }
 
     /**
      * Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
      * 
      */
-    private @Nullable UndeferrableValue<String> staticSourcesSupport;
-
+    @PolicyResourceProperty(name="staticSourcesSupport", flag="unknown_staticSourcesSupport")
+    private @Nullable String value_staticSourcesSupport;
+    private boolean unknown_staticSourcesSupport;
     public @Nullable String staticSourcesSupport() {
-        if (staticSourcesSupport == null) return null;
-        return staticSourcesSupport.getValue("MulticastDomain.staticSourcesSupport");
+        if (!unknown_staticSourcesSupport) return value_staticSourcesSupport;
+        throw new UndeferrableValueException("Value 'MulticastDomain.staticSourcesSupport' is not present");
     }
 
     /**
      * Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("MulticastDomain.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'MulticastDomain.tags' is not present");
     }
 
     /**
@@ -87,22 +94,24 @@ public final class MulticastDomain extends com.pulumi.resources.PolicyResourceOu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("MulticastDomain.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'MulticastDomain.tagsAll' is not present");
     }
 
     /**
      * EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
      * 
      */
-    private UndeferrableValue<String> transitGatewayId;
-
+    @PolicyResourceProperty(name="transitGatewayId", flag="unknown_transitGatewayId")
+    private String value_transitGatewayId;
+    private boolean unknown_transitGatewayId;
     public String transitGatewayId() {
-        if (transitGatewayId == null) return null;
-        return transitGatewayId.getValue("MulticastDomain.transitGatewayId");
+        if (!unknown_transitGatewayId) return value_transitGatewayId;
+        throw new UndeferrableValueException("Value 'MulticastDomain.transitGatewayId' is not present");
     }
 
 }

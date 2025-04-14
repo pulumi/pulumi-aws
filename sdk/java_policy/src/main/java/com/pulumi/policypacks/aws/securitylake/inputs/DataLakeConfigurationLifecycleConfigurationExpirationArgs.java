@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securitylake.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DataLakeConfigurationLifecycleConfigurationExpirationArgs {
      * Number of days before data transition to a different S3 Storage Class in the Amazon Security Lake object.
      * 
      */
-    private UndeferrableValue<Integer> days;
-
+    @PolicyResourceProperty(name="days", flag="unknown_days")
+    private Integer value_days;
+    private boolean unknown_days;
     public Integer days() {
-        if (days == null) return null;
-        return days.getValue("DataLakeConfigurationLifecycleConfigurationExpirationArgs.days");
+        if (!unknown_days) return value_days;
+        throw new UndeferrableValueException("Value 'DataLakeConfigurationLifecycleConfigurationExpirationArgs.days' is not present");
     }
 
 }

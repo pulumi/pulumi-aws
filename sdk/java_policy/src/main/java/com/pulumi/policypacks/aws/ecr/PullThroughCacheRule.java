@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecr;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,66 +17,72 @@ public final class PullThroughCacheRule extends com.pulumi.resources.PolicyResou
      * ARN of the Secret which will be used to authenticate against the registry.
      * 
      */
-    private @Nullable UndeferrableValue<String> credentialArn;
-
+    @PolicyResourceProperty(name="credentialArn", flag="unknown_credentialArn")
+    private @Nullable String value_credentialArn;
+    private boolean unknown_credentialArn;
     public @Nullable String credentialArn() {
-        if (credentialArn == null) return null;
-        return credentialArn.getValue("PullThroughCacheRule.credentialArn");
+        if (!unknown_credentialArn) return value_credentialArn;
+        throw new UndeferrableValueException("Value 'PullThroughCacheRule.credentialArn' is not present");
     }
 
     /**
      * The ARN of the IAM role associated with the pull through cache rule. Must be specified if the upstream registry is a cross-account ECR private registry. See [AWS Document - Setting up permissions for cross-account ECR to ECR PTC](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private.html).
      * 
      */
-    private @Nullable UndeferrableValue<String> customRoleArn;
-
+    @PolicyResourceProperty(name="customRoleArn", flag="unknown_customRoleArn")
+    private @Nullable String value_customRoleArn;
+    private boolean unknown_customRoleArn;
     public @Nullable String customRoleArn() {
-        if (customRoleArn == null) return null;
-        return customRoleArn.getValue("PullThroughCacheRule.customRoleArn");
+        if (!unknown_customRoleArn) return value_customRoleArn;
+        throw new UndeferrableValueException("Value 'PullThroughCacheRule.customRoleArn' is not present");
     }
 
     /**
      * The repository name prefix to use when caching images from the source registry. Use `ROOT` as the prefix to apply a template to all repositories in your registry that don&#39;t have an associated pull through cache rule.
      * 
      */
-    private UndeferrableValue<String> ecrRepositoryPrefix;
-
+    @PolicyResourceProperty(name="ecrRepositoryPrefix", flag="unknown_ecrRepositoryPrefix")
+    private String value_ecrRepositoryPrefix;
+    private boolean unknown_ecrRepositoryPrefix;
     public String ecrRepositoryPrefix() {
-        if (ecrRepositoryPrefix == null) return null;
-        return ecrRepositoryPrefix.getValue("PullThroughCacheRule.ecrRepositoryPrefix");
+        if (!unknown_ecrRepositoryPrefix) return value_ecrRepositoryPrefix;
+        throw new UndeferrableValueException("Value 'PullThroughCacheRule.ecrRepositoryPrefix' is not present");
     }
 
     /**
      * The registry ID where the repository was created.
      * 
      */
-    private UndeferrableValue<String> registryId;
-
+    @PolicyResourceProperty(name="registryId", flag="unknown_registryId")
+    private String value_registryId;
+    private boolean unknown_registryId;
     public String registryId() {
-        if (registryId == null) return null;
-        return registryId.getValue("PullThroughCacheRule.registryId");
+        if (!unknown_registryId) return value_registryId;
+        throw new UndeferrableValueException("Value 'PullThroughCacheRule.registryId' is not present");
     }
 
     /**
      * The registry URL of the upstream registry to use as the source.
      * 
      */
-    private UndeferrableValue<String> upstreamRegistryUrl;
-
+    @PolicyResourceProperty(name="upstreamRegistryUrl", flag="unknown_upstreamRegistryUrl")
+    private String value_upstreamRegistryUrl;
+    private boolean unknown_upstreamRegistryUrl;
     public String upstreamRegistryUrl() {
-        if (upstreamRegistryUrl == null) return null;
-        return upstreamRegistryUrl.getValue("PullThroughCacheRule.upstreamRegistryUrl");
+        if (!unknown_upstreamRegistryUrl) return value_upstreamRegistryUrl;
+        throw new UndeferrableValueException("Value 'PullThroughCacheRule.upstreamRegistryUrl' is not present");
     }
 
     /**
      * The upstream repository prefix associated with the pull through cache rule. Used if the upstream registry is an ECR private registry. If not specified, it&#39;s set to `ROOT`, which allows matching with any upstream repository. See [AWS Document - Customizing repository prefixes for ECR to ECR pull through cache](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private-wildcards.html).
      * 
      */
-    private @Nullable UndeferrableValue<String> upstreamRepositoryPrefix;
-
+    @PolicyResourceProperty(name="upstreamRepositoryPrefix", flag="unknown_upstreamRepositoryPrefix")
+    private @Nullable String value_upstreamRepositoryPrefix;
+    private boolean unknown_upstreamRepositoryPrefix;
     public @Nullable String upstreamRepositoryPrefix() {
-        if (upstreamRepositoryPrefix == null) return null;
-        return upstreamRepositoryPrefix.getValue("PullThroughCacheRule.upstreamRepositoryPrefix");
+        if (!unknown_upstreamRepositoryPrefix) return value_upstreamRepositoryPrefix;
+        throw new UndeferrableValueException("Value 'PullThroughCacheRule.upstreamRepositoryPrefix' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -20,62 +21,68 @@ public final class LogAnomalyDetectorArgs extends com.pulumi.resources.PolicyRes
      * Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomaly_visibility_time`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
      * 
      */
-    private UndeferrableValue<Integer> anomalyVisibilityTime;
-
+    @PolicyResourceProperty(name="anomalyVisibilityTime", flag="unknown_anomalyVisibilityTime")
+    private Integer value_anomalyVisibilityTime;
+    private boolean unknown_anomalyVisibilityTime;
     public Integer anomalyVisibilityTime() {
-        if (anomalyVisibilityTime == null) return null;
-        return anomalyVisibilityTime.getValue("LogAnomalyDetectorArgs.anomalyVisibilityTime");
+        if (!unknown_anomalyVisibilityTime) return value_anomalyVisibilityTime;
+        throw new UndeferrableValueException("Value 'LogAnomalyDetectorArgs.anomalyVisibilityTime' is not present");
     }
 
     /**
      * Name for this anomaly detector.
      * 
      */
-    private UndeferrableValue<String> detectorName;
-
+    @PolicyResourceProperty(name="detectorName", flag="unknown_detectorName")
+    private String value_detectorName;
+    private boolean unknown_detectorName;
     public String detectorName() {
-        if (detectorName == null) return null;
-        return detectorName.getValue("LogAnomalyDetectorArgs.detectorName");
+        if (!unknown_detectorName) return value_detectorName;
+        throw new UndeferrableValueException("Value 'LogAnomalyDetectorArgs.detectorName' is not present");
     }
 
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("LogAnomalyDetectorArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'LogAnomalyDetectorArgs.enabled' is not present");
     }
 
     /**
      * Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluation_frequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
      * 
      */
-    private UndeferrableValue<String> evaluationFrequency;
-
+    @PolicyResourceProperty(name="evaluationFrequency", flag="unknown_evaluationFrequency")
+    private String value_evaluationFrequency;
+    private boolean unknown_evaluationFrequency;
     public String evaluationFrequency() {
-        if (evaluationFrequency == null) return null;
-        return evaluationFrequency.getValue("LogAnomalyDetectorArgs.evaluationFrequency");
+        if (!unknown_evaluationFrequency) return value_evaluationFrequency;
+        throw new UndeferrableValueException("Value 'LogAnomalyDetectorArgs.evaluationFrequency' is not present");
     }
 
     /**
      * You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
      * 
      */
-    private UndeferrableValue<String> filterPattern;
-
+    @PolicyResourceProperty(name="filterPattern", flag="unknown_filterPattern")
+    private String value_filterPattern;
+    private boolean unknown_filterPattern;
     public String filterPattern() {
-        if (filterPattern == null) return null;
-        return filterPattern.getValue("LogAnomalyDetectorArgs.filterPattern");
+        if (!unknown_filterPattern) return value_filterPattern;
+        throw new UndeferrableValueException("Value 'LogAnomalyDetectorArgs.filterPattern' is not present");
     }
 
     /**
      * Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("LogAnomalyDetectorArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'LogAnomalyDetectorArgs.kmsKeyId' is not present");
     }
 
     /**
@@ -84,18 +91,20 @@ public final class LogAnomalyDetectorArgs extends com.pulumi.resources.PolicyRes
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<List<String>> logGroupArnLists;
-
+    @PolicyResourceProperty(name="logGroupArnLists", flag="unknown_logGroupArnLists")
+    private List<String> value_logGroupArnLists;
+    private boolean unknown_logGroupArnLists;
     public List<String> logGroupArnLists() {
-        if (logGroupArnLists == null) return null;
-        return logGroupArnLists.getValue("LogAnomalyDetectorArgs.logGroupArnLists");
+        if (!unknown_logGroupArnLists) return value_logGroupArnLists;
+        throw new UndeferrableValueException("Value 'LogAnomalyDetectorArgs.logGroupArnLists' is not present");
     }
 
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LogAnomalyDetectorArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LogAnomalyDetectorArgs.tags' is not present");
     }
 
 }

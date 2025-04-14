@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.inputs.BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class BucketReplicationConfigRuleDestinationReplicationTimeArgs {
      * Status of the Replication Time Control. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("BucketReplicationConfigRuleDestinationReplicationTimeArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleDestinationReplicationTimeArgs.status' is not present");
     }
 
     /**
      * Configuration block specifying the time by which replication should be complete for all objects and operations on objects. See below.
      * 
      */
-    private UndeferrableValue<BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs> time;
-
+    @PolicyResourceProperty(name="time", flag="unknown_time")
+    private BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs value_time;
+    private boolean unknown_time;
     public BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs time() {
-        if (time == null) return null;
-        return time.getValue("BucketReplicationConfigRuleDestinationReplicationTimeArgs.time");
+        if (!unknown_time) return value_time;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleDestinationReplicationTimeArgs.time' is not present");
     }
 
 }

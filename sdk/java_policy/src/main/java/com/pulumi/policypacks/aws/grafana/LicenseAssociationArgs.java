@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.grafana;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class LicenseAssociationArgs extends com.pulumi.resources.PolicyRes
      * A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
      * 
      */
-    private UndeferrableValue<String> grafanaToken;
-
+    @PolicyResourceProperty(name="grafanaToken", flag="unknown_grafanaToken")
+    private String value_grafanaToken;
+    private boolean unknown_grafanaToken;
     public String grafanaToken() {
-        if (grafanaToken == null) return null;
-        return grafanaToken.getValue("LicenseAssociationArgs.grafanaToken");
+        if (!unknown_grafanaToken) return value_grafanaToken;
+        throw new UndeferrableValueException("Value 'LicenseAssociationArgs.grafanaToken' is not present");
     }
 
     /**
      * The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
      * 
      */
-    private UndeferrableValue<String> licenseType;
-
+    @PolicyResourceProperty(name="licenseType", flag="unknown_licenseType")
+    private String value_licenseType;
+    private boolean unknown_licenseType;
     public String licenseType() {
-        if (licenseType == null) return null;
-        return licenseType.getValue("LicenseAssociationArgs.licenseType");
+        if (!unknown_licenseType) return value_licenseType;
+        throw new UndeferrableValueException("Value 'LicenseAssociationArgs.licenseType' is not present");
     }
 
     /**
      * The workspace id.
      * 
      */
-    private UndeferrableValue<String> workspaceId;
-
+    @PolicyResourceProperty(name="workspaceId", flag="unknown_workspaceId")
+    private String value_workspaceId;
+    private boolean unknown_workspaceId;
     public String workspaceId() {
-        if (workspaceId == null) return null;
-        return workspaceId.getValue("LicenseAssociationArgs.workspaceId");
+        if (!unknown_workspaceId) return value_workspaceId;
+        throw new UndeferrableValueException("Value 'LicenseAssociationArgs.workspaceId' is not present");
     }
 
 }

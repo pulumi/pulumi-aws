@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesCustom
      * Unique name of the Amazon Connect Customer Profiles domain.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles.domainName' is not present");
     }
 
     /**
      * Object specified in the Amazon Connect Customer Profiles flow destination.
      * 
      */
-    private @Nullable UndeferrableValue<String> objectTypeName;
-
+    @PolicyResourceProperty(name="objectTypeName", flag="unknown_objectTypeName")
+    private @Nullable String value_objectTypeName;
+    private boolean unknown_objectTypeName;
     public @Nullable String objectTypeName() {
-        if (objectTypeName == null) return null;
-        return objectTypeName.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles.objectTypeName");
+        if (!unknown_objectTypeName) return value_objectTypeName;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles.objectTypeName' is not present");
     }
 
 }

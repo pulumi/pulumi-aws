@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ivs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,88 +19,96 @@ public final class Channel extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the Channel.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Channel.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Channel.arn' is not present");
     }
 
     /**
      * If `true`, channel is private (enabled for playback authorization).
      * 
      */
-    private UndeferrableValue<Boolean> authorized;
-
+    @PolicyResourceProperty(name="authorized", flag="unknown_authorized")
+    private Boolean value_authorized;
+    private boolean unknown_authorized;
     public Boolean authorized() {
-        if (authorized == null) return null;
-        return authorized.getValue("Channel.authorized");
+        if (!unknown_authorized) return value_authorized;
+        throw new UndeferrableValueException("Value 'Channel.authorized' is not present");
     }
 
     /**
      * Channel ingest endpoint, part of the definition of an ingest server, used when setting up streaming software.
      * 
      */
-    private UndeferrableValue<String> ingestEndpoint;
-
+    @PolicyResourceProperty(name="ingestEndpoint", flag="unknown_ingestEndpoint")
+    private String value_ingestEndpoint;
+    private boolean unknown_ingestEndpoint;
     public String ingestEndpoint() {
-        if (ingestEndpoint == null) return null;
-        return ingestEndpoint.getValue("Channel.ingestEndpoint");
+        if (!unknown_ingestEndpoint) return value_ingestEndpoint;
+        throw new UndeferrableValueException("Value 'Channel.ingestEndpoint' is not present");
     }
 
     /**
      * Channel latency mode. Valid values: `NORMAL`, `LOW`.
      * 
      */
-    private UndeferrableValue<String> latencyMode;
-
+    @PolicyResourceProperty(name="latencyMode", flag="unknown_latencyMode")
+    private String value_latencyMode;
+    private boolean unknown_latencyMode;
     public String latencyMode() {
-        if (latencyMode == null) return null;
-        return latencyMode.getValue("Channel.latencyMode");
+        if (!unknown_latencyMode) return value_latencyMode;
+        throw new UndeferrableValueException("Value 'Channel.latencyMode' is not present");
     }
 
     /**
      * Channel name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Channel.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Channel.name' is not present");
     }
 
     /**
      * Channel playback URL.
      * 
      */
-    private UndeferrableValue<String> playbackUrl;
-
+    @PolicyResourceProperty(name="playbackUrl", flag="unknown_playbackUrl")
+    private String value_playbackUrl;
+    private boolean unknown_playbackUrl;
     public String playbackUrl() {
-        if (playbackUrl == null) return null;
-        return playbackUrl.getValue("Channel.playbackUrl");
+        if (!unknown_playbackUrl) return value_playbackUrl;
+        throw new UndeferrableValueException("Value 'Channel.playbackUrl' is not present");
     }
 
     /**
      * Recording configuration ARN.
      * 
      */
-    private UndeferrableValue<String> recordingConfigurationArn;
-
+    @PolicyResourceProperty(name="recordingConfigurationArn", flag="unknown_recordingConfigurationArn")
+    private String value_recordingConfigurationArn;
+    private boolean unknown_recordingConfigurationArn;
     public String recordingConfigurationArn() {
-        if (recordingConfigurationArn == null) return null;
-        return recordingConfigurationArn.getValue("Channel.recordingConfigurationArn");
+        if (!unknown_recordingConfigurationArn) return value_recordingConfigurationArn;
+        throw new UndeferrableValueException("Value 'Channel.recordingConfigurationArn' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Channel.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Channel.tags' is not present");
     }
 
     /**
@@ -110,22 +119,24 @@ public final class Channel extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Channel.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Channel.tagsAll' is not present");
     }
 
     /**
      * Channel type, which determines the allowable resolution and bitrate. Valid values: `STANDARD`, `BASIC`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("Channel.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'Channel.type' is not present");
     }
 
 }

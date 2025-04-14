@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class NodeGroupUpdateConfigArgs {
      * Desired max number of unavailable worker nodes during node group update.
      * 
      */
-    private UndeferrableValue<Integer> maxUnavailable;
-
+    @PolicyResourceProperty(name="maxUnavailable", flag="unknown_maxUnavailable")
+    private Integer value_maxUnavailable;
+    private boolean unknown_maxUnavailable;
     public Integer maxUnavailable() {
-        if (maxUnavailable == null) return null;
-        return maxUnavailable.getValue("NodeGroupUpdateConfigArgs.maxUnavailable");
+        if (!unknown_maxUnavailable) return value_maxUnavailable;
+        throw new UndeferrableValueException("Value 'NodeGroupUpdateConfigArgs.maxUnavailable' is not present");
     }
 
     /**
      * Desired max percentage of unavailable worker nodes during node group update.
      * 
      */
-    private UndeferrableValue<Integer> maxUnavailablePercentage;
-
+    @PolicyResourceProperty(name="maxUnavailablePercentage", flag="unknown_maxUnavailablePercentage")
+    private Integer value_maxUnavailablePercentage;
+    private boolean unknown_maxUnavailablePercentage;
     public Integer maxUnavailablePercentage() {
-        if (maxUnavailablePercentage == null) return null;
-        return maxUnavailablePercentage.getValue("NodeGroupUpdateConfigArgs.maxUnavailablePercentage");
+        if (!unknown_maxUnavailablePercentage) return value_maxUnavailablePercentage;
+        throw new UndeferrableValueException("Value 'NodeGroupUpdateConfigArgs.maxUnavailablePercentage' is not present");
     }
 
 }

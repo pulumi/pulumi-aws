@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lambda.outputs.EventSourceMappingDestinationConfigOnFailure;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class EventSourceMappingDestinationConfig {
      * The destination configuration for failed invocations. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<EventSourceMappingDestinationConfigOnFailure> onFailure;
-
+    @PolicyResourceProperty(name="onFailure", flag="unknown_onFailure")
+    private @Nullable EventSourceMappingDestinationConfigOnFailure value_onFailure;
+    private boolean unknown_onFailure;
     public @Nullable EventSourceMappingDestinationConfigOnFailure onFailure() {
-        if (onFailure == null) return null;
-        return onFailure.getValue("EventSourceMappingDestinationConfig.onFailure");
+        if (!unknown_onFailure) return value_onFailure;
+        throw new UndeferrableValueException("Value 'EventSourceMappingDestinationConfig.onFailure' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datapipeline;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.datapipeline.outputs.PipelineDefinitionParameterObject;
 import com.pulumi.policypacks.aws.datapipeline.outputs.PipelineDefinitionParameterValue;
@@ -20,33 +21,36 @@ public final class PipelineDefinition extends com.pulumi.resources.PolicyResourc
      * Configuration block for the parameter objects used in the pipeline definition. See below
      * 
      */
-    private @Nullable UndeferrableValue<List<PipelineDefinitionParameterObject>> parameterObjects;
-
+    @PolicyResourceProperty(name="parameterObjects", flag="unknown_parameterObjects")
+    private @Nullable List<PipelineDefinitionParameterObject> value_parameterObjects;
+    private boolean unknown_parameterObjects;
     public @Nullable List<PipelineDefinitionParameterObject> parameterObjects() {
-        if (parameterObjects == null) return null;
-        return parameterObjects.getValue("PipelineDefinition.parameterObjects");
+        if (!unknown_parameterObjects) return value_parameterObjects;
+        throw new UndeferrableValueException("Value 'PipelineDefinition.parameterObjects' is not present");
     }
 
     /**
      * Configuration block for the parameter values used in the pipeline definition. See below
      * 
      */
-    private @Nullable UndeferrableValue<List<PipelineDefinitionParameterValue>> parameterValues;
-
+    @PolicyResourceProperty(name="parameterValues", flag="unknown_parameterValues")
+    private @Nullable List<PipelineDefinitionParameterValue> value_parameterValues;
+    private boolean unknown_parameterValues;
     public @Nullable List<PipelineDefinitionParameterValue> parameterValues() {
-        if (parameterValues == null) return null;
-        return parameterValues.getValue("PipelineDefinition.parameterValues");
+        if (!unknown_parameterValues) return value_parameterValues;
+        throw new UndeferrableValueException("Value 'PipelineDefinition.parameterValues' is not present");
     }
 
     /**
      * ID of the pipeline.
      * 
      */
-    private UndeferrableValue<String> pipelineId;
-
+    @PolicyResourceProperty(name="pipelineId", flag="unknown_pipelineId")
+    private String value_pipelineId;
+    private boolean unknown_pipelineId;
     public String pipelineId() {
-        if (pipelineId == null) return null;
-        return pipelineId.getValue("PipelineDefinition.pipelineId");
+        if (!unknown_pipelineId) return value_pipelineId;
+        throw new UndeferrableValueException("Value 'PipelineDefinition.pipelineId' is not present");
     }
 
     /**
@@ -55,11 +59,12 @@ public final class PipelineDefinition extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<List<PipelineDefinitionPipelineObject>> pipelineObjects;
-
+    @PolicyResourceProperty(name="pipelineObjects", flag="unknown_pipelineObjects")
+    private List<PipelineDefinitionPipelineObject> value_pipelineObjects;
+    private boolean unknown_pipelineObjects;
     public List<PipelineDefinitionPipelineObject> pipelineObjects() {
-        if (pipelineObjects == null) return null;
-        return pipelineObjects.getValue("PipelineDefinition.pipelineObjects");
+        if (!unknown_pipelineObjects) return value_pipelineObjects;
+        throw new UndeferrableValueException("Value 'PipelineDefinition.pipelineObjects' is not present");
     }
 
 }

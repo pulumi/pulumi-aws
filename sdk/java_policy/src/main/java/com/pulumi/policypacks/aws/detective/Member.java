@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.detective;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,117 +18,128 @@ public final class Member extends com.pulumi.resources.PolicyResourceOutput {
      * AWS account ID for the account.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("Member.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'Member.accountId' is not present");
     }
 
     /**
      * AWS account ID for the administrator account.
      * 
      */
-    private UndeferrableValue<String> administratorId;
-
+    @PolicyResourceProperty(name="administratorId", flag="unknown_administratorId")
+    private String value_administratorId;
+    private boolean unknown_administratorId;
     public String administratorId() {
-        if (administratorId == null) return null;
-        return administratorId.getValue("Member.administratorId");
+        if (!unknown_administratorId) return value_administratorId;
+        throw new UndeferrableValueException("Value 'Member.administratorId' is not present");
     }
 
     /**
      * If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> disableEmailNotification;
-
+    @PolicyResourceProperty(name="disableEmailNotification", flag="unknown_disableEmailNotification")
+    private @Nullable Boolean value_disableEmailNotification;
+    private boolean unknown_disableEmailNotification;
     public @Nullable Boolean disableEmailNotification() {
-        if (disableEmailNotification == null) return null;
-        return disableEmailNotification.getValue("Member.disableEmailNotification");
+        if (!unknown_disableEmailNotification) return value_disableEmailNotification;
+        throw new UndeferrableValueException("Value 'Member.disableEmailNotification' is not present");
     }
 
-    private UndeferrableValue<String> disabledReason;
-
+    @PolicyResourceProperty(name="disabledReason", flag="unknown_disabledReason")
+    private String value_disabledReason;
+    private boolean unknown_disabledReason;
     public String disabledReason() {
-        if (disabledReason == null) return null;
-        return disabledReason.getValue("Member.disabledReason");
+        if (!unknown_disabledReason) return value_disabledReason;
+        throw new UndeferrableValueException("Value 'Member.disabledReason' is not present");
     }
 
     /**
      * Email address for the account.
      * 
      */
-    private UndeferrableValue<String> emailAddress;
-
+    @PolicyResourceProperty(name="emailAddress", flag="unknown_emailAddress")
+    private String value_emailAddress;
+    private boolean unknown_emailAddress;
     public String emailAddress() {
-        if (emailAddress == null) return null;
-        return emailAddress.getValue("Member.emailAddress");
+        if (!unknown_emailAddress) return value_emailAddress;
+        throw new UndeferrableValueException("Value 'Member.emailAddress' is not present");
     }
 
     /**
      * ARN of the behavior graph to invite the member accounts to contribute their data to.
      * 
      */
-    private UndeferrableValue<String> graphArn;
-
+    @PolicyResourceProperty(name="graphArn", flag="unknown_graphArn")
+    private String value_graphArn;
+    private boolean unknown_graphArn;
     public String graphArn() {
-        if (graphArn == null) return null;
-        return graphArn.getValue("Member.graphArn");
+        if (!unknown_graphArn) return value_graphArn;
+        throw new UndeferrableValueException("Value 'Member.graphArn' is not present");
     }
 
     /**
      * Date and time, in UTC and extended RFC 3339 format, when an Amazon Detective membership invitation was last sent to the account.
      * 
      */
-    private UndeferrableValue<String> invitedTime;
-
+    @PolicyResourceProperty(name="invitedTime", flag="unknown_invitedTime")
+    private String value_invitedTime;
+    private boolean unknown_invitedTime;
     public String invitedTime() {
-        if (invitedTime == null) return null;
-        return invitedTime.getValue("Member.invitedTime");
+        if (!unknown_invitedTime) return value_invitedTime;
+        throw new UndeferrableValueException("Value 'Member.invitedTime' is not present");
     }
 
     /**
      * A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
      * 
      */
-    private @Nullable UndeferrableValue<String> message;
-
+    @PolicyResourceProperty(name="message", flag="unknown_message")
+    private @Nullable String value_message;
+    private boolean unknown_message;
     public @Nullable String message() {
-        if (message == null) return null;
-        return message.getValue("Member.message");
+        if (!unknown_message) return value_message;
+        throw new UndeferrableValueException("Value 'Member.message' is not present");
     }
 
     /**
      * Current membership status of the member account.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Member.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Member.status' is not present");
     }
 
     /**
      * Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account&#39;s status.
      * 
      */
-    private UndeferrableValue<String> updatedTime;
-
+    @PolicyResourceProperty(name="updatedTime", flag="unknown_updatedTime")
+    private String value_updatedTime;
+    private boolean unknown_updatedTime;
     public String updatedTime() {
-        if (updatedTime == null) return null;
-        return updatedTime.getValue("Member.updatedTime");
+        if (!unknown_updatedTime) return value_updatedTime;
+        throw new UndeferrableValueException("Value 'Member.updatedTime' is not present");
     }
 
     /**
      * Data volume in bytes per day for the member account.
      * 
      */
-    private UndeferrableValue<String> volumeUsageInBytes;
-
+    @PolicyResourceProperty(name="volumeUsageInBytes", flag="unknown_volumeUsageInBytes")
+    private String value_volumeUsageInBytes;
+    private boolean unknown_volumeUsageInBytes;
     public String volumeUsageInBytes() {
-        if (volumeUsageInBytes == null) return null;
-        return volumeUsageInBytes.getValue("Member.volumeUsageInBytes");
+        if (!unknown_volumeUsageInBytes) return value_volumeUsageInBytes;
+        throw new UndeferrableValueException("Value 'Member.volumeUsageInBytes' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssmincidents.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -15,11 +16,12 @@ public final class ResponsePlanIncidentTemplateNotificationTargetArgs {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> snsTopicArn;
-
+    @PolicyResourceProperty(name="snsTopicArn", flag="unknown_snsTopicArn")
+    private String value_snsTopicArn;
+    private boolean unknown_snsTopicArn;
     public String snsTopicArn() {
-        if (snsTopicArn == null) return null;
-        return snsTopicArn.getValue("ResponsePlanIncidentTemplateNotificationTargetArgs.snsTopicArn");
+        if (!unknown_snsTopicArn) return value_snsTopicArn;
+        throw new UndeferrableValueException("Value 'ResponsePlanIncidentTemplateNotificationTargetArgs.snsTopicArn' is not present");
     }
 
 }

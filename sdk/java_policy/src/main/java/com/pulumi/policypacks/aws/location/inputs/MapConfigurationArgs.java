@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.location.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class MapConfigurationArgs {
      * Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
      * 
      */
-    private UndeferrableValue<String> style;
-
+    @PolicyResourceProperty(name="style", flag="unknown_style")
+    private String value_style;
+    private boolean unknown_style;
     public String style() {
-        if (style == null) return null;
-        return style.getValue("MapConfigurationArgs.style");
+        if (!unknown_style) return value_style;
+        throw new UndeferrableValueException("Value 'MapConfigurationArgs.style' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class SpotInstanceRequestCreditSpecification {
      * Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
      * 
      */
-    private @Nullable UndeferrableValue<String> cpuCredits;
-
+    @PolicyResourceProperty(name="cpuCredits", flag="unknown_cpuCredits")
+    private @Nullable String value_cpuCredits;
+    private boolean unknown_cpuCredits;
     public @Nullable String cpuCredits() {
-        if (cpuCredits == null) return null;
-        return cpuCredits.getValue("SpotInstanceRequestCreditSpecification.cpuCredits");
+        if (!unknown_cpuCredits) return value_cpuCredits;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequestCreditSpecification.cpuCredits' is not present");
     }
 
 }

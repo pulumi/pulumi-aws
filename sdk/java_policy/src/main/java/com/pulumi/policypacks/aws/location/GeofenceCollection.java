@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.location;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,11 +18,12 @@ public final class GeofenceCollection extends com.pulumi.resources.PolicyResourc
      * The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
      * 
      */
-    private UndeferrableValue<String> collectionArn;
-
+    @PolicyResourceProperty(name="collectionArn", flag="unknown_collectionArn")
+    private String value_collectionArn;
+    private boolean unknown_collectionArn;
     public String collectionArn() {
-        if (collectionArn == null) return null;
-        return collectionArn.getValue("GeofenceCollection.collectionArn");
+        if (!unknown_collectionArn) return value_collectionArn;
+        throw new UndeferrableValueException("Value 'GeofenceCollection.collectionArn' is not present");
     }
 
     /**
@@ -30,55 +32,60 @@ public final class GeofenceCollection extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> collectionName;
-
+    @PolicyResourceProperty(name="collectionName", flag="unknown_collectionName")
+    private String value_collectionName;
+    private boolean unknown_collectionName;
     public String collectionName() {
-        if (collectionName == null) return null;
-        return collectionName.getValue("GeofenceCollection.collectionName");
+        if (!unknown_collectionName) return value_collectionName;
+        throw new UndeferrableValueException("Value 'GeofenceCollection.collectionName' is not present");
     }
 
     /**
      * The timestamp for when the geofence collection resource was created in ISO 8601 format.
      * 
      */
-    private UndeferrableValue<String> createTime;
-
+    @PolicyResourceProperty(name="createTime", flag="unknown_createTime")
+    private String value_createTime;
+    private boolean unknown_createTime;
     public String createTime() {
-        if (createTime == null) return null;
-        return createTime.getValue("GeofenceCollection.createTime");
+        if (!unknown_createTime) return value_createTime;
+        throw new UndeferrableValueException("Value 'GeofenceCollection.createTime' is not present");
     }
 
     /**
      * The optional description for the geofence collection.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("GeofenceCollection.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'GeofenceCollection.description' is not present");
     }
 
     /**
      * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("GeofenceCollection.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'GeofenceCollection.kmsKeyId' is not present");
     }
 
     /**
      * Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("GeofenceCollection.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'GeofenceCollection.tags' is not present");
     }
 
     /**
@@ -87,22 +94,24 @@ public final class GeofenceCollection extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("GeofenceCollection.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'GeofenceCollection.tagsAll' is not present");
     }
 
     /**
      * The timestamp for when the geofence collection resource was last updated in ISO 8601 format.
      * 
      */
-    private UndeferrableValue<String> updateTime;
-
+    @PolicyResourceProperty(name="updateTime", flag="unknown_updateTime")
+    private String value_updateTime;
+    private boolean unknown_updateTime;
     public String updateTime() {
-        if (updateTime == null) return null;
-        return updateTime.getValue("GeofenceCollection.updateTime");
+        if (!unknown_updateTime) return value_updateTime;
+        throw new UndeferrableValueException("Value 'GeofenceCollection.updateTime' is not present");
     }
 
 }

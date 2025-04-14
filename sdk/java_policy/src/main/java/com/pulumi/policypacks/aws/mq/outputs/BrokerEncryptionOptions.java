@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mq.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class BrokerEncryptionOptions {
      * Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("BrokerEncryptionOptions.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'BrokerEncryptionOptions.kmsKeyId' is not present");
     }
 
     /**
      * Whether to enable an AWS-owned KMS CMK that is not in your account. Defaults to `true`. Setting to `false` without configuring `kms_key_id` will create an AWS-managed CMK aliased to `aws/mq` in your account.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> useAwsOwnedKey;
-
+    @PolicyResourceProperty(name="useAwsOwnedKey", flag="unknown_useAwsOwnedKey")
+    private @Nullable Boolean value_useAwsOwnedKey;
+    private boolean unknown_useAwsOwnedKey;
     public @Nullable Boolean useAwsOwnedKey() {
-        if (useAwsOwnedKey == null) return null;
-        return useAwsOwnedKey.getValue("BrokerEncryptionOptions.useAwsOwnedKey");
+        if (!unknown_useAwsOwnedKey) return value_useAwsOwnedKey;
+        throw new UndeferrableValueException("Value 'BrokerEncryptionOptions.useAwsOwnedKey' is not present");
     }
 
 }

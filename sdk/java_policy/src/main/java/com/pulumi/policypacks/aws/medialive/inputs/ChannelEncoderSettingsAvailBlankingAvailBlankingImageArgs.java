@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs {
      * Key used to extract the password from EC2 Parameter store.
      * 
      */
-    private UndeferrableValue<String> passwordParam;
-
+    @PolicyResourceProperty(name="passwordParam", flag="unknown_passwordParam")
+    private String value_passwordParam;
+    private boolean unknown_passwordParam;
     public String passwordParam() {
-        if (passwordParam == null) return null;
-        return passwordParam.getValue("ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs.passwordParam");
+        if (!unknown_passwordParam) return value_passwordParam;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs.passwordParam' is not present");
     }
 
     /**
      * Path to a file accessible to the live stream.
      * 
      */
-    private UndeferrableValue<String> uri;
-
+    @PolicyResourceProperty(name="uri", flag="unknown_uri")
+    private String value_uri;
+    private boolean unknown_uri;
     public String uri() {
-        if (uri == null) return null;
-        return uri.getValue("ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs.uri");
+        if (!unknown_uri) return value_uri;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs.uri' is not present");
     }
 
     /**
      * . Username to be used.
      * 
      */
-    private UndeferrableValue<String> username;
-
+    @PolicyResourceProperty(name="username", flag="unknown_username")
+    private String value_username;
+    private boolean unknown_username;
     public String username() {
-        if (username == null) return null;
-        return username.getValue("ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs.username");
+        if (!unknown_username) return value_username;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs.username' is not present");
     }
 
 }

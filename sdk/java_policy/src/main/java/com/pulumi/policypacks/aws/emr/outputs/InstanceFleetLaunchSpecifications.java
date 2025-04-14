@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.emr.outputs.InstanceFleetLaunchSpecificationsOnDemandSpecification;
 import com.pulumi.policypacks.aws.emr.outputs.InstanceFleetLaunchSpecificationsSpotSpecification;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class InstanceFleetLaunchSpecifications {
      * Configuration block for on demand instances launch specifications
      * 
      */
-    private @Nullable UndeferrableValue<List<InstanceFleetLaunchSpecificationsOnDemandSpecification>> onDemandSpecifications;
-
+    @PolicyResourceProperty(name="onDemandSpecifications", flag="unknown_onDemandSpecifications")
+    private @Nullable List<InstanceFleetLaunchSpecificationsOnDemandSpecification> value_onDemandSpecifications;
+    private boolean unknown_onDemandSpecifications;
     public @Nullable List<InstanceFleetLaunchSpecificationsOnDemandSpecification> onDemandSpecifications() {
-        if (onDemandSpecifications == null) return null;
-        return onDemandSpecifications.getValue("InstanceFleetLaunchSpecifications.onDemandSpecifications");
+        if (!unknown_onDemandSpecifications) return value_onDemandSpecifications;
+        throw new UndeferrableValueException("Value 'InstanceFleetLaunchSpecifications.onDemandSpecifications' is not present");
     }
 
     /**
      * Configuration block for spot instances launch specifications
      * 
      */
-    private @Nullable UndeferrableValue<List<InstanceFleetLaunchSpecificationsSpotSpecification>> spotSpecifications;
-
+    @PolicyResourceProperty(name="spotSpecifications", flag="unknown_spotSpecifications")
+    private @Nullable List<InstanceFleetLaunchSpecificationsSpotSpecification> value_spotSpecifications;
+    private boolean unknown_spotSpecifications;
     public @Nullable List<InstanceFleetLaunchSpecificationsSpotSpecification> spotSpecifications() {
-        if (spotSpecifications == null) return null;
-        return spotSpecifications.getValue("InstanceFleetLaunchSpecifications.spotSpecifications");
+        if (!unknown_spotSpecifications) return value_spotSpecifications;
+        throw new UndeferrableValueException("Value 'InstanceFleetLaunchSpecifications.spotSpecifications' is not present");
     }
 
 }

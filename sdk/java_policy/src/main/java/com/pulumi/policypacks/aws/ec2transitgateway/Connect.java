@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,22 +19,24 @@ public final class Connect extends com.pulumi.resources.PolicyResourceOutput {
      * The tunnel protocol. Valid values: `gre`. Default is `gre`.
      * 
      */
-    private @Nullable UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private @Nullable String value_protocol;
+    private boolean unknown_protocol;
     public @Nullable String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("Connect.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'Connect.protocol' is not present");
     }
 
     /**
      * Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Connect.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Connect.tags' is not present");
     }
 
     /**
@@ -44,55 +47,60 @@ public final class Connect extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Connect.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Connect.tagsAll' is not present");
     }
 
     /**
      * Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> transitGatewayDefaultRouteTableAssociation;
-
+    @PolicyResourceProperty(name="transitGatewayDefaultRouteTableAssociation", flag="unknown_transitGatewayDefaultRouteTableAssociation")
+    private @Nullable Boolean value_transitGatewayDefaultRouteTableAssociation;
+    private boolean unknown_transitGatewayDefaultRouteTableAssociation;
     public @Nullable Boolean transitGatewayDefaultRouteTableAssociation() {
-        if (transitGatewayDefaultRouteTableAssociation == null) return null;
-        return transitGatewayDefaultRouteTableAssociation.getValue("Connect.transitGatewayDefaultRouteTableAssociation");
+        if (!unknown_transitGatewayDefaultRouteTableAssociation) return value_transitGatewayDefaultRouteTableAssociation;
+        throw new UndeferrableValueException("Value 'Connect.transitGatewayDefaultRouteTableAssociation' is not present");
     }
 
     /**
      * Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> transitGatewayDefaultRouteTablePropagation;
-
+    @PolicyResourceProperty(name="transitGatewayDefaultRouteTablePropagation", flag="unknown_transitGatewayDefaultRouteTablePropagation")
+    private @Nullable Boolean value_transitGatewayDefaultRouteTablePropagation;
+    private boolean unknown_transitGatewayDefaultRouteTablePropagation;
     public @Nullable Boolean transitGatewayDefaultRouteTablePropagation() {
-        if (transitGatewayDefaultRouteTablePropagation == null) return null;
-        return transitGatewayDefaultRouteTablePropagation.getValue("Connect.transitGatewayDefaultRouteTablePropagation");
+        if (!unknown_transitGatewayDefaultRouteTablePropagation) return value_transitGatewayDefaultRouteTablePropagation;
+        throw new UndeferrableValueException("Value 'Connect.transitGatewayDefaultRouteTablePropagation' is not present");
     }
 
     /**
      * Identifier of EC2 Transit Gateway.
      * 
      */
-    private UndeferrableValue<String> transitGatewayId;
-
+    @PolicyResourceProperty(name="transitGatewayId", flag="unknown_transitGatewayId")
+    private String value_transitGatewayId;
+    private boolean unknown_transitGatewayId;
     public String transitGatewayId() {
-        if (transitGatewayId == null) return null;
-        return transitGatewayId.getValue("Connect.transitGatewayId");
+        if (!unknown_transitGatewayId) return value_transitGatewayId;
+        throw new UndeferrableValueException("Value 'Connect.transitGatewayId' is not present");
     }
 
     /**
      * The underlaying VPC attachment
      * 
      */
-    private UndeferrableValue<String> transportAttachmentId;
-
+    @PolicyResourceProperty(name="transportAttachmentId", flag="unknown_transportAttachmentId")
+    private String value_transportAttachmentId;
+    private boolean unknown_transportAttachmentId;
     public String transportAttachmentId() {
-        if (transportAttachmentId == null) return null;
-        return transportAttachmentId.getValue("Connect.transportAttachmentId");
+        if (!unknown_transportAttachmentId) return value_transportAttachmentId;
+        throw new UndeferrableValueException("Value 'Connect.transportAttachmentId' is not present");
     }
 
 }

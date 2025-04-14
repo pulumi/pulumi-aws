@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ReplicatorKafkaClusterAmazonMskCluster {
      * The ARN of an Amazon MSK cluster.
      * 
      */
-    private UndeferrableValue<String> mskClusterArn;
-
+    @PolicyResourceProperty(name="mskClusterArn", flag="unknown_mskClusterArn")
+    private String value_mskClusterArn;
+    private boolean unknown_mskClusterArn;
     public String mskClusterArn() {
-        if (mskClusterArn == null) return null;
-        return mskClusterArn.getValue("ReplicatorKafkaClusterAmazonMskCluster.mskClusterArn");
+        if (!unknown_mskClusterArn) return value_mskClusterArn;
+        throw new UndeferrableValueException("Value 'ReplicatorKafkaClusterAmazonMskCluster.mskClusterArn' is not present");
     }
 
 }

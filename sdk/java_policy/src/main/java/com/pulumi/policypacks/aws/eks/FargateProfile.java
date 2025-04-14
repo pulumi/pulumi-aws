@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.eks.outputs.FargateProfileSelector;
 import java.lang.String;
@@ -19,66 +20,72 @@ public final class FargateProfile extends com.pulumi.resources.PolicyResourceOut
      * Amazon Resource Name (ARN) of the EKS Fargate Profile.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("FargateProfile.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'FargateProfile.arn' is not present");
     }
 
     /**
      * Name of the EKS Cluster.
      * 
      */
-    private UndeferrableValue<String> clusterName;
-
+    @PolicyResourceProperty(name="clusterName", flag="unknown_clusterName")
+    private String value_clusterName;
+    private boolean unknown_clusterName;
     public String clusterName() {
-        if (clusterName == null) return null;
-        return clusterName.getValue("FargateProfile.clusterName");
+        if (!unknown_clusterName) return value_clusterName;
+        throw new UndeferrableValueException("Value 'FargateProfile.clusterName' is not present");
     }
 
     /**
      * Name of the EKS Fargate Profile.
      * 
      */
-    private UndeferrableValue<String> fargateProfileName;
-
+    @PolicyResourceProperty(name="fargateProfileName", flag="unknown_fargateProfileName")
+    private String value_fargateProfileName;
+    private boolean unknown_fargateProfileName;
     public String fargateProfileName() {
-        if (fargateProfileName == null) return null;
-        return fargateProfileName.getValue("FargateProfile.fargateProfileName");
+        if (!unknown_fargateProfileName) return value_fargateProfileName;
+        throw new UndeferrableValueException("Value 'FargateProfile.fargateProfileName' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
      * 
      */
-    private UndeferrableValue<String> podExecutionRoleArn;
-
+    @PolicyResourceProperty(name="podExecutionRoleArn", flag="unknown_podExecutionRoleArn")
+    private String value_podExecutionRoleArn;
+    private boolean unknown_podExecutionRoleArn;
     public String podExecutionRoleArn() {
-        if (podExecutionRoleArn == null) return null;
-        return podExecutionRoleArn.getValue("FargateProfile.podExecutionRoleArn");
+        if (!unknown_podExecutionRoleArn) return value_podExecutionRoleArn;
+        throw new UndeferrableValueException("Value 'FargateProfile.podExecutionRoleArn' is not present");
     }
 
     /**
      * Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
      * 
      */
-    private UndeferrableValue<List<FargateProfileSelector>> selectors;
-
+    @PolicyResourceProperty(name="selectors", flag="unknown_selectors")
+    private List<FargateProfileSelector> value_selectors;
+    private boolean unknown_selectors;
     public List<FargateProfileSelector> selectors() {
-        if (selectors == null) return null;
-        return selectors.getValue("FargateProfile.selectors");
+        if (!unknown_selectors) return value_selectors;
+        throw new UndeferrableValueException("Value 'FargateProfile.selectors' is not present");
     }
 
     /**
      * Status of the EKS Fargate Profile.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("FargateProfile.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'FargateProfile.status' is not present");
     }
 
     /**
@@ -87,22 +94,24 @@ public final class FargateProfile extends com.pulumi.resources.PolicyResourceOut
      * The following arguments are optional:
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private @Nullable List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public @Nullable List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("FargateProfile.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'FargateProfile.subnetIds' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("FargateProfile.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'FargateProfile.tags' is not present");
     }
 
     /**
@@ -113,11 +122,12 @@ public final class FargateProfile extends com.pulumi.resources.PolicyResourceOut
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("FargateProfile.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'FargateProfile.tagsAll' is not present");
     }
 
 }

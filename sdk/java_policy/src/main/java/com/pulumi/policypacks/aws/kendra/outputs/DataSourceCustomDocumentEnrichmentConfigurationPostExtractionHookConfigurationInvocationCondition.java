@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kendra.outputs.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtraction
      * The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
      * 
      */
-    private UndeferrableValue<String> conditionDocumentAttributeKey;
-
+    @PolicyResourceProperty(name="conditionDocumentAttributeKey", flag="unknown_conditionDocumentAttributeKey")
+    private String value_conditionDocumentAttributeKey;
+    private boolean unknown_conditionDocumentAttributeKey;
     public String conditionDocumentAttributeKey() {
-        if (conditionDocumentAttributeKey == null) return null;
-        return conditionDocumentAttributeKey.getValue("DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition.conditionDocumentAttributeKey");
+        if (!unknown_conditionDocumentAttributeKey) return value_conditionDocumentAttributeKey;
+        throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition.conditionDocumentAttributeKey' is not present");
     }
 
     /**
      * The value used by the operator. For example, you can specify the value &#39;financial&#39; for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
      * 
      */
-    private @Nullable UndeferrableValue<DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue> conditionOnValue;
-
+    @PolicyResourceProperty(name="conditionOnValue", flag="unknown_conditionOnValue")
+    private @Nullable DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue value_conditionOnValue;
+    private boolean unknown_conditionOnValue;
     public @Nullable DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue conditionOnValue() {
-        if (conditionOnValue == null) return null;
-        return conditionOnValue.getValue("DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition.conditionOnValue");
+        if (!unknown_conditionOnValue) return value_conditionOnValue;
+        throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition.conditionOnValue' is not present");
     }
 
     /**
      * The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
      * 
      */
-    private UndeferrableValue<String> operator;
-
+    @PolicyResourceProperty(name="operator", flag="unknown_operator")
+    private String value_operator;
+    private boolean unknown_operator;
     public String operator() {
-        if (operator == null) return null;
-        return operator.getValue("DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition.operator");
+        if (!unknown_operator) return value_operator;
+        throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition.operator' is not present");
     }
 
 }

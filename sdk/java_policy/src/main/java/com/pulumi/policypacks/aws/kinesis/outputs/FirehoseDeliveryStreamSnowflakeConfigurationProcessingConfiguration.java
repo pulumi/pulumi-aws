@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor;
 import java.lang.Boolean;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigu
      * Enables or disables data processing.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration.enabled' is not present");
     }
 
     /**
      * Specifies the data processors as multiple blocks. See `processors` block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor>> processors;
-
+    @PolicyResourceProperty(name="processors", flag="unknown_processors")
+    private @Nullable List<FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor> value_processors;
+    private boolean unknown_processors;
     public @Nullable List<FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor> processors() {
-        if (processors == null) return null;
-        return processors.getValue("FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration.processors");
+        if (!unknown_processors) return value_processors;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration.processors' is not present");
     }
 
 }

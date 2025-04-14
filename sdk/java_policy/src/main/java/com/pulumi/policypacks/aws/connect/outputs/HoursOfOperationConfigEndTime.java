@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,22 +14,24 @@ public final class HoursOfOperationConfigEndTime {
      * Specifies the hour of closing.
      * 
      */
-    private UndeferrableValue<Integer> hours;
-
+    @PolicyResourceProperty(name="hours", flag="unknown_hours")
+    private Integer value_hours;
+    private boolean unknown_hours;
     public Integer hours() {
-        if (hours == null) return null;
-        return hours.getValue("HoursOfOperationConfigEndTime.hours");
+        if (!unknown_hours) return value_hours;
+        throw new UndeferrableValueException("Value 'HoursOfOperationConfigEndTime.hours' is not present");
     }
 
     /**
      * Specifies the minute of closing.
      * 
      */
-    private UndeferrableValue<Integer> minutes;
-
+    @PolicyResourceProperty(name="minutes", flag="unknown_minutes")
+    private Integer value_minutes;
+    private boolean unknown_minutes;
     public Integer minutes() {
-        if (minutes == null) return null;
-        return minutes.getValue("HoursOfOperationConfigEndTime.minutes");
+        if (!unknown_minutes) return value_minutes;
+        throw new UndeferrableValueException("Value 'HoursOfOperationConfigEndTime.minutes' is not present");
     }
 
 }

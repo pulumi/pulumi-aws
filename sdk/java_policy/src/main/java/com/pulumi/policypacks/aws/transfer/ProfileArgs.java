@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,44 +19,48 @@ public final class ProfileArgs extends com.pulumi.resources.PolicyResourceInput 
      * The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
      * 
      */
-    private UndeferrableValue<String> as2Id;
-
+    @PolicyResourceProperty(name="as2Id", flag="unknown_as2Id")
+    private String value_as2Id;
+    private boolean unknown_as2Id;
     public String as2Id() {
-        if (as2Id == null) return null;
-        return as2Id.getValue("ProfileArgs.as2Id");
+        if (!unknown_as2Id) return value_as2Id;
+        throw new UndeferrableValueException("Value 'ProfileArgs.as2Id' is not present");
     }
 
     /**
      * The list of certificate Ids from the imported certificate operation.
      * 
      */
-    private UndeferrableValue<List<String>> certificateIds;
-
+    @PolicyResourceProperty(name="certificateIds", flag="unknown_certificateIds")
+    private List<String> value_certificateIds;
+    private boolean unknown_certificateIds;
     public List<String> certificateIds() {
-        if (certificateIds == null) return null;
-        return certificateIds.getValue("ProfileArgs.certificateIds");
+        if (!unknown_certificateIds) return value_certificateIds;
+        throw new UndeferrableValueException("Value 'ProfileArgs.certificateIds' is not present");
     }
 
     /**
      * The profile type should be LOCAL or PARTNER.
      * 
      */
-    private UndeferrableValue<String> profileType;
-
+    @PolicyResourceProperty(name="profileType", flag="unknown_profileType")
+    private String value_profileType;
+    private boolean unknown_profileType;
     public String profileType() {
-        if (profileType == null) return null;
-        return profileType.getValue("ProfileArgs.profileType");
+        if (!unknown_profileType) return value_profileType;
+        throw new UndeferrableValueException("Value 'ProfileArgs.profileType' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ProfileArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ProfileArgs.tags' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class CrawlerLakeFormationConfiguration {
      * Required for cross account crawls. For same account crawls as the target data, this can omitted.
      * 
      */
-    private @Nullable UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private @Nullable String value_accountId;
+    private boolean unknown_accountId;
     public @Nullable String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("CrawlerLakeFormationConfiguration.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'CrawlerLakeFormationConfiguration.accountId' is not present");
     }
 
     /**
      * Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> useLakeFormationCredentials;
-
+    @PolicyResourceProperty(name="useLakeFormationCredentials", flag="unknown_useLakeFormationCredentials")
+    private @Nullable Boolean value_useLakeFormationCredentials;
+    private boolean unknown_useLakeFormationCredentials;
     public @Nullable Boolean useLakeFormationCredentials() {
-        if (useLakeFormationCredentials == null) return null;
-        return useLakeFormationCredentials.getValue("CrawlerLakeFormationConfiguration.useLakeFormationCredentials");
+        if (!unknown_useLakeFormationCredentials) return value_useLakeFormationCredentials;
+        throw new UndeferrableValueException("Value 'CrawlerLakeFormationConfiguration.useLakeFormationCredentials' is not present");
     }
 
 }

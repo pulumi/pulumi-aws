@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codepipeline.inputs.PipelineStageOnFailureConditionArgs;
 import com.pulumi.policypacks.aws.codepipeline.inputs.PipelineStageOnFailureRetryConfigurationArgs;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class PipelineStageOnFailureArgs {
      * The conditions that are failure conditions. Defined as a `condition` block below.
      * 
      */
-    private UndeferrableValue<PipelineStageOnFailureConditionArgs> condition;
-
+    @PolicyResourceProperty(name="condition", flag="unknown_condition")
+    private PipelineStageOnFailureConditionArgs value_condition;
+    private boolean unknown_condition;
     public PipelineStageOnFailureConditionArgs condition() {
-        if (condition == null) return null;
-        return condition.getValue("PipelineStageOnFailureArgs.condition");
+        if (!unknown_condition) return value_condition;
+        throw new UndeferrableValueException("Value 'PipelineStageOnFailureArgs.condition' is not present");
     }
 
     /**
      * The conditions that are configured as failure conditions. Possible values are `ROLLBACK`,  `FAIL`, `RETRY` and `SKIP`.
      * 
      */
-    private UndeferrableValue<String> result;
-
+    @PolicyResourceProperty(name="result", flag="unknown_result")
+    private String value_result;
+    private boolean unknown_result;
     public String result() {
-        if (result == null) return null;
-        return result.getValue("PipelineStageOnFailureArgs.result");
+        if (!unknown_result) return value_result;
+        throw new UndeferrableValueException("Value 'PipelineStageOnFailureArgs.result' is not present");
     }
 
     /**
      * The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retry_configuration` block below.
      * 
      */
-    private UndeferrableValue<PipelineStageOnFailureRetryConfigurationArgs> retryConfiguration;
-
+    @PolicyResourceProperty(name="retryConfiguration", flag="unknown_retryConfiguration")
+    private PipelineStageOnFailureRetryConfigurationArgs value_retryConfiguration;
+    private boolean unknown_retryConfiguration;
     public PipelineStageOnFailureRetryConfigurationArgs retryConfiguration() {
-        if (retryConfiguration == null) return null;
-        return retryConfiguration.getValue("PipelineStageOnFailureArgs.retryConfiguration");
+        if (!unknown_retryConfiguration) return value_retryConfiguration;
+        throw new UndeferrableValueException("Value 'PipelineStageOnFailureArgs.retryConfiguration' is not present");
     }
 
 }

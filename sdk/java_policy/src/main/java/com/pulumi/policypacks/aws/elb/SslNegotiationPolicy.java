@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.elb.outputs.SslNegotiationPolicyAttribute;
 import java.lang.Integer;
@@ -20,11 +21,12 @@ public final class SslNegotiationPolicy extends com.pulumi.resources.PolicyResou
      * An SSL Negotiation policy attribute. Each has two properties:
      * 
      */
-    private @Nullable UndeferrableValue<List<SslNegotiationPolicyAttribute>> attributes;
-
+    @PolicyResourceProperty(name="attributes", flag="unknown_attributes")
+    private @Nullable List<SslNegotiationPolicyAttribute> value_attributes;
+    private boolean unknown_attributes;
     public @Nullable List<SslNegotiationPolicyAttribute> attributes() {
-        if (attributes == null) return null;
-        return attributes.getValue("SslNegotiationPolicy.attributes");
+        if (!unknown_attributes) return value_attributes;
+        throw new UndeferrableValueException("Value 'SslNegotiationPolicy.attributes' is not present");
     }
 
     /**
@@ -33,11 +35,12 @@ public final class SslNegotiationPolicy extends com.pulumi.resources.PolicyResou
      * balancer.
      * 
      */
-    private UndeferrableValue<Integer> lbPort;
-
+    @PolicyResourceProperty(name="lbPort", flag="unknown_lbPort")
+    private Integer value_lbPort;
+    private boolean unknown_lbPort;
     public Integer lbPort() {
-        if (lbPort == null) return null;
-        return lbPort.getValue("SslNegotiationPolicy.lbPort");
+        if (!unknown_lbPort) return value_lbPort;
+        throw new UndeferrableValueException("Value 'SslNegotiationPolicy.lbPort' is not present");
     }
 
     /**
@@ -45,22 +48,24 @@ public final class SslNegotiationPolicy extends com.pulumi.resources.PolicyResou
      * should be attached.
      * 
      */
-    private UndeferrableValue<String> loadBalancer;
-
+    @PolicyResourceProperty(name="loadBalancer", flag="unknown_loadBalancer")
+    private String value_loadBalancer;
+    private boolean unknown_loadBalancer;
     public String loadBalancer() {
-        if (loadBalancer == null) return null;
-        return loadBalancer.getValue("SslNegotiationPolicy.loadBalancer");
+        if (!unknown_loadBalancer) return value_loadBalancer;
+        throw new UndeferrableValueException("Value 'SslNegotiationPolicy.loadBalancer' is not present");
     }
 
     /**
      * The name of the SSL negotiation policy.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("SslNegotiationPolicy.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'SslNegotiationPolicy.name' is not present");
     }
 
     /**
@@ -71,11 +76,12 @@ public final class SslNegotiationPolicy extends com.pulumi.resources.PolicyResou
      * &gt; **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> triggers;
-
+    @PolicyResourceProperty(name="triggers", flag="unknown_triggers")
+    private @Nullable Map<String,String> value_triggers;
+    private boolean unknown_triggers;
     public @Nullable Map<String,String> triggers() {
-        if (triggers == null) return null;
-        return triggers.getValue("SslNegotiationPolicy.triggers");
+        if (!unknown_triggers) return value_triggers;
+        throw new UndeferrableValueException("Value 'SslNegotiationPolicy.triggers' is not present");
     }
 
 }

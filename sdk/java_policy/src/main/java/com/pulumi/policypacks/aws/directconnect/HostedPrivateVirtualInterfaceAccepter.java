@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class HostedPrivateVirtualInterfaceAccepter extends com.pulumi.reso
      * The ARN of the virtual interface.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("HostedPrivateVirtualInterfaceAccepter.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'HostedPrivateVirtualInterfaceAccepter.arn' is not present");
     }
 
     /**
      * The ID of the Direct Connect gateway to which to connect the virtual interface.
      * 
      */
-    private @Nullable UndeferrableValue<String> dxGatewayId;
-
+    @PolicyResourceProperty(name="dxGatewayId", flag="unknown_dxGatewayId")
+    private @Nullable String value_dxGatewayId;
+    private boolean unknown_dxGatewayId;
     public @Nullable String dxGatewayId() {
-        if (dxGatewayId == null) return null;
-        return dxGatewayId.getValue("HostedPrivateVirtualInterfaceAccepter.dxGatewayId");
+        if (!unknown_dxGatewayId) return value_dxGatewayId;
+        throw new UndeferrableValueException("Value 'HostedPrivateVirtualInterfaceAccepter.dxGatewayId' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("HostedPrivateVirtualInterfaceAccepter.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'HostedPrivateVirtualInterfaceAccepter.tags' is not present");
     }
 
     /**
@@ -54,33 +58,36 @@ public final class HostedPrivateVirtualInterfaceAccepter extends com.pulumi.reso
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("HostedPrivateVirtualInterfaceAccepter.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'HostedPrivateVirtualInterfaceAccepter.tagsAll' is not present");
     }
 
     /**
      * The ID of the Direct Connect virtual interface to accept.
      * 
      */
-    private UndeferrableValue<String> virtualInterfaceId;
-
+    @PolicyResourceProperty(name="virtualInterfaceId", flag="unknown_virtualInterfaceId")
+    private String value_virtualInterfaceId;
+    private boolean unknown_virtualInterfaceId;
     public String virtualInterfaceId() {
-        if (virtualInterfaceId == null) return null;
-        return virtualInterfaceId.getValue("HostedPrivateVirtualInterfaceAccepter.virtualInterfaceId");
+        if (!unknown_virtualInterfaceId) return value_virtualInterfaceId;
+        throw new UndeferrableValueException("Value 'HostedPrivateVirtualInterfaceAccepter.virtualInterfaceId' is not present");
     }
 
     /**
      * The ID of the virtual private gateway to which to connect the virtual interface.
      * 
      */
-    private @Nullable UndeferrableValue<String> vpnGatewayId;
-
+    @PolicyResourceProperty(name="vpnGatewayId", flag="unknown_vpnGatewayId")
+    private @Nullable String value_vpnGatewayId;
+    private boolean unknown_vpnGatewayId;
     public @Nullable String vpnGatewayId() {
-        if (vpnGatewayId == null) return null;
-        return vpnGatewayId.getValue("HostedPrivateVirtualInterfaceAccepter.vpnGatewayId");
+        if (!unknown_vpnGatewayId) return value_vpnGatewayId;
+        throw new UndeferrableValueException("Value 'HostedPrivateVirtualInterfaceAccepter.vpnGatewayId' is not present");
     }
 
 }

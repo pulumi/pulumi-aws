@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.pipes.outputs.PipeLogConfigurationCloudwatchLogsLogDestination;
 import com.pulumi.policypacks.aws.pipes.outputs.PipeLogConfigurationFirehoseLogDestination;
 import com.pulumi.policypacks.aws.pipes.outputs.PipeLogConfigurationS3LogDestination;
@@ -18,55 +19,60 @@ public final class PipeLogConfiguration {
      * Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<PipeLogConfigurationCloudwatchLogsLogDestination> cloudwatchLogsLogDestination;
-
+    @PolicyResourceProperty(name="cloudwatchLogsLogDestination", flag="unknown_cloudwatchLogsLogDestination")
+    private @Nullable PipeLogConfigurationCloudwatchLogsLogDestination value_cloudwatchLogsLogDestination;
+    private boolean unknown_cloudwatchLogsLogDestination;
     public @Nullable PipeLogConfigurationCloudwatchLogsLogDestination cloudwatchLogsLogDestination() {
-        if (cloudwatchLogsLogDestination == null) return null;
-        return cloudwatchLogsLogDestination.getValue("PipeLogConfiguration.cloudwatchLogsLogDestination");
+        if (!unknown_cloudwatchLogsLogDestination) return value_cloudwatchLogsLogDestination;
+        throw new UndeferrableValueException("Value 'PipeLogConfiguration.cloudwatchLogsLogDestination' is not present");
     }
 
     /**
      * Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<PipeLogConfigurationFirehoseLogDestination> firehoseLogDestination;
-
+    @PolicyResourceProperty(name="firehoseLogDestination", flag="unknown_firehoseLogDestination")
+    private @Nullable PipeLogConfigurationFirehoseLogDestination value_firehoseLogDestination;
+    private boolean unknown_firehoseLogDestination;
     public @Nullable PipeLogConfigurationFirehoseLogDestination firehoseLogDestination() {
-        if (firehoseLogDestination == null) return null;
-        return firehoseLogDestination.getValue("PipeLogConfiguration.firehoseLogDestination");
+        if (!unknown_firehoseLogDestination) return value_firehoseLogDestination;
+        throw new UndeferrableValueException("Value 'PipeLogConfiguration.firehoseLogDestination' is not present");
     }
 
     /**
      * String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> includeExecutionDatas;
-
+    @PolicyResourceProperty(name="includeExecutionDatas", flag="unknown_includeExecutionDatas")
+    private @Nullable List<String> value_includeExecutionDatas;
+    private boolean unknown_includeExecutionDatas;
     public @Nullable List<String> includeExecutionDatas() {
-        if (includeExecutionDatas == null) return null;
-        return includeExecutionDatas.getValue("PipeLogConfiguration.includeExecutionDatas");
+        if (!unknown_includeExecutionDatas) return value_includeExecutionDatas;
+        throw new UndeferrableValueException("Value 'PipeLogConfiguration.includeExecutionDatas' is not present");
     }
 
     /**
      * The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
      * 
      */
-    private UndeferrableValue<String> level;
-
+    @PolicyResourceProperty(name="level", flag="unknown_level")
+    private String value_level;
+    private boolean unknown_level;
     public String level() {
-        if (level == null) return null;
-        return level.getValue("PipeLogConfiguration.level");
+        if (!unknown_level) return value_level;
+        throw new UndeferrableValueException("Value 'PipeLogConfiguration.level' is not present");
     }
 
     /**
      * Amazon S3 logging configuration settings for the pipe. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<PipeLogConfigurationS3LogDestination> s3LogDestination;
-
+    @PolicyResourceProperty(name="s3LogDestination", flag="unknown_s3LogDestination")
+    private @Nullable PipeLogConfigurationS3LogDestination value_s3LogDestination;
+    private boolean unknown_s3LogDestination;
     public @Nullable PipeLogConfigurationS3LogDestination s3LogDestination() {
-        if (s3LogDestination == null) return null;
-        return s3LogDestination.getValue("PipeLogConfiguration.s3LogDestination");
+        if (!unknown_s3LogDestination) return value_s3LogDestination;
+        throw new UndeferrableValueException("Value 'PipeLogConfiguration.s3LogDestination' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.grafana;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,143 +19,156 @@ public final class WorkspaceSamlConfiguration extends com.pulumi.resources.Polic
      * The admin role values.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> adminRoleValues;
-
+    @PolicyResourceProperty(name="adminRoleValues", flag="unknown_adminRoleValues")
+    private @Nullable List<String> value_adminRoleValues;
+    private boolean unknown_adminRoleValues;
     public @Nullable List<String> adminRoleValues() {
-        if (adminRoleValues == null) return null;
-        return adminRoleValues.getValue("WorkspaceSamlConfiguration.adminRoleValues");
+        if (!unknown_adminRoleValues) return value_adminRoleValues;
+        throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.adminRoleValues' is not present");
     }
 
     /**
      * The allowed organizations.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> allowedOrganizations;
-
+    @PolicyResourceProperty(name="allowedOrganizations", flag="unknown_allowedOrganizations")
+    private @Nullable List<String> value_allowedOrganizations;
+    private boolean unknown_allowedOrganizations;
     public @Nullable List<String> allowedOrganizations() {
-        if (allowedOrganizations == null) return null;
-        return allowedOrganizations.getValue("WorkspaceSamlConfiguration.allowedOrganizations");
+        if (!unknown_allowedOrganizations) return value_allowedOrganizations;
+        throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.allowedOrganizations' is not present");
     }
 
     /**
      * The editor role values.
      * 
      */
-    private UndeferrableValue<List<String>> editorRoleValues;
-
+    @PolicyResourceProperty(name="editorRoleValues", flag="unknown_editorRoleValues")
+    private List<String> value_editorRoleValues;
+    private boolean unknown_editorRoleValues;
     public List<String> editorRoleValues() {
-        if (editorRoleValues == null) return null;
-        return editorRoleValues.getValue("WorkspaceSamlConfiguration.editorRoleValues");
+        if (!unknown_editorRoleValues) return value_editorRoleValues;
+        throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.editorRoleValues' is not present");
     }
 
     /**
      * The email assertion.
      * 
      */
-    private UndeferrableValue<String> emailAssertion;
-
+    @PolicyResourceProperty(name="emailAssertion", flag="unknown_emailAssertion")
+    private String value_emailAssertion;
+    private boolean unknown_emailAssertion;
     public String emailAssertion() {
-        if (emailAssertion == null) return null;
-        return emailAssertion.getValue("WorkspaceSamlConfiguration.emailAssertion");
+        if (!unknown_emailAssertion) return value_emailAssertion;
+        throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.emailAssertion' is not present");
     }
 
     /**
      * The groups assertion.
      * 
      */
-    private @Nullable UndeferrableValue<String> groupsAssertion;
-
+    @PolicyResourceProperty(name="groupsAssertion", flag="unknown_groupsAssertion")
+    private @Nullable String value_groupsAssertion;
+    private boolean unknown_groupsAssertion;
     public @Nullable String groupsAssertion() {
-        if (groupsAssertion == null) return null;
-        return groupsAssertion.getValue("WorkspaceSamlConfiguration.groupsAssertion");
+        if (!unknown_groupsAssertion) return value_groupsAssertion;
+        throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.groupsAssertion' is not present");
     }
 
     /**
      * The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
      * 
      */
-    private @Nullable UndeferrableValue<String> idpMetadataUrl;
-
+    @PolicyResourceProperty(name="idpMetadataUrl", flag="unknown_idpMetadataUrl")
+    private @Nullable String value_idpMetadataUrl;
+    private boolean unknown_idpMetadataUrl;
     public @Nullable String idpMetadataUrl() {
-        if (idpMetadataUrl == null) return null;
-        return idpMetadataUrl.getValue("WorkspaceSamlConfiguration.idpMetadataUrl");
+        if (!unknown_idpMetadataUrl) return value_idpMetadataUrl;
+        throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.idpMetadataUrl' is not present");
     }
 
     /**
      * The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
      * 
      */
-    private @Nullable UndeferrableValue<String> idpMetadataXml;
-
+    @PolicyResourceProperty(name="idpMetadataXml", flag="unknown_idpMetadataXml")
+    private @Nullable String value_idpMetadataXml;
+    private boolean unknown_idpMetadataXml;
     public @Nullable String idpMetadataXml() {
-        if (idpMetadataXml == null) return null;
-        return idpMetadataXml.getValue("WorkspaceSamlConfiguration.idpMetadataXml");
+        if (!unknown_idpMetadataXml) return value_idpMetadataXml;
+        throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.idpMetadataXml' is not present");
     }
 
     /**
      * The login assertion.
      * 
      */
-    private UndeferrableValue<String> loginAssertion;
-
+    @PolicyResourceProperty(name="loginAssertion", flag="unknown_loginAssertion")
+    private String value_loginAssertion;
+    private boolean unknown_loginAssertion;
     public String loginAssertion() {
-        if (loginAssertion == null) return null;
-        return loginAssertion.getValue("WorkspaceSamlConfiguration.loginAssertion");
+        if (!unknown_loginAssertion) return value_loginAssertion;
+        throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.loginAssertion' is not present");
     }
 
     /**
      * The login validity duration.
      * 
      */
-    private UndeferrableValue<Integer> loginValidityDuration;
-
+    @PolicyResourceProperty(name="loginValidityDuration", flag="unknown_loginValidityDuration")
+    private Integer value_loginValidityDuration;
+    private boolean unknown_loginValidityDuration;
     public Integer loginValidityDuration() {
-        if (loginValidityDuration == null) return null;
-        return loginValidityDuration.getValue("WorkspaceSamlConfiguration.loginValidityDuration");
+        if (!unknown_loginValidityDuration) return value_loginValidityDuration;
+        throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.loginValidityDuration' is not present");
     }
 
     /**
      * The name assertion.
      * 
      */
-    private UndeferrableValue<String> nameAssertion;
-
+    @PolicyResourceProperty(name="nameAssertion", flag="unknown_nameAssertion")
+    private String value_nameAssertion;
+    private boolean unknown_nameAssertion;
     public String nameAssertion() {
-        if (nameAssertion == null) return null;
-        return nameAssertion.getValue("WorkspaceSamlConfiguration.nameAssertion");
+        if (!unknown_nameAssertion) return value_nameAssertion;
+        throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.nameAssertion' is not present");
     }
 
     /**
      * The org assertion.
      * 
      */
-    private @Nullable UndeferrableValue<String> orgAssertion;
-
+    @PolicyResourceProperty(name="orgAssertion", flag="unknown_orgAssertion")
+    private @Nullable String value_orgAssertion;
+    private boolean unknown_orgAssertion;
     public @Nullable String orgAssertion() {
-        if (orgAssertion == null) return null;
-        return orgAssertion.getValue("WorkspaceSamlConfiguration.orgAssertion");
+        if (!unknown_orgAssertion) return value_orgAssertion;
+        throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.orgAssertion' is not present");
     }
 
     /**
      * The role assertion.
      * 
      */
-    private @Nullable UndeferrableValue<String> roleAssertion;
-
+    @PolicyResourceProperty(name="roleAssertion", flag="unknown_roleAssertion")
+    private @Nullable String value_roleAssertion;
+    private boolean unknown_roleAssertion;
     public @Nullable String roleAssertion() {
-        if (roleAssertion == null) return null;
-        return roleAssertion.getValue("WorkspaceSamlConfiguration.roleAssertion");
+        if (!unknown_roleAssertion) return value_roleAssertion;
+        throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.roleAssertion' is not present");
     }
 
     /**
      * The status of the SAML configuration.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("WorkspaceSamlConfiguration.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.status' is not present");
     }
 
     /**
@@ -163,11 +177,12 @@ public final class WorkspaceSamlConfiguration extends com.pulumi.resources.Polic
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> workspaceId;
-
+    @PolicyResourceProperty(name="workspaceId", flag="unknown_workspaceId")
+    private String value_workspaceId;
+    private boolean unknown_workspaceId;
     public String workspaceId() {
-        if (workspaceId == null) return null;
-        return workspaceId.getValue("WorkspaceSamlConfiguration.workspaceId");
+        if (!unknown_workspaceId) return value_workspaceId;
+        throw new UndeferrableValueException("Value 'WorkspaceSamlConfiguration.workspaceId' is not present");
     }
 
 }

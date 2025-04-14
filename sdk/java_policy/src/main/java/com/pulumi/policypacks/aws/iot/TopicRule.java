@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.iot.outputs.TopicRuleCloudwatchAlarm;
 import com.pulumi.policypacks.aws.iot.outputs.TopicRuleCloudwatchLog;
@@ -39,214 +40,240 @@ public final class TopicRule extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN of the topic rule
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("TopicRule.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'TopicRule.arn' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<TopicRuleCloudwatchAlarm>> cloudwatchAlarms;
-
+    @PolicyResourceProperty(name="cloudwatchAlarms", flag="unknown_cloudwatchAlarms")
+    private @Nullable List<TopicRuleCloudwatchAlarm> value_cloudwatchAlarms;
+    private boolean unknown_cloudwatchAlarms;
     public @Nullable List<TopicRuleCloudwatchAlarm> cloudwatchAlarms() {
-        if (cloudwatchAlarms == null) return null;
-        return cloudwatchAlarms.getValue("TopicRule.cloudwatchAlarms");
+        if (!unknown_cloudwatchAlarms) return value_cloudwatchAlarms;
+        throw new UndeferrableValueException("Value 'TopicRule.cloudwatchAlarms' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<TopicRuleCloudwatchLog>> cloudwatchLogs;
-
+    @PolicyResourceProperty(name="cloudwatchLogs", flag="unknown_cloudwatchLogs")
+    private @Nullable List<TopicRuleCloudwatchLog> value_cloudwatchLogs;
+    private boolean unknown_cloudwatchLogs;
     public @Nullable List<TopicRuleCloudwatchLog> cloudwatchLogs() {
-        if (cloudwatchLogs == null) return null;
-        return cloudwatchLogs.getValue("TopicRule.cloudwatchLogs");
+        if (!unknown_cloudwatchLogs) return value_cloudwatchLogs;
+        throw new UndeferrableValueException("Value 'TopicRule.cloudwatchLogs' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<TopicRuleCloudwatchMetric>> cloudwatchMetrics;
-
+    @PolicyResourceProperty(name="cloudwatchMetrics", flag="unknown_cloudwatchMetrics")
+    private @Nullable List<TopicRuleCloudwatchMetric> value_cloudwatchMetrics;
+    private boolean unknown_cloudwatchMetrics;
     public @Nullable List<TopicRuleCloudwatchMetric> cloudwatchMetrics() {
-        if (cloudwatchMetrics == null) return null;
-        return cloudwatchMetrics.getValue("TopicRule.cloudwatchMetrics");
+        if (!unknown_cloudwatchMetrics) return value_cloudwatchMetrics;
+        throw new UndeferrableValueException("Value 'TopicRule.cloudwatchMetrics' is not present");
     }
 
     /**
      * The description of the rule.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("TopicRule.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'TopicRule.description' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<TopicRuleDynamodb>> dynamodbs;
-
+    @PolicyResourceProperty(name="dynamodbs", flag="unknown_dynamodbs")
+    private @Nullable List<TopicRuleDynamodb> value_dynamodbs;
+    private boolean unknown_dynamodbs;
     public @Nullable List<TopicRuleDynamodb> dynamodbs() {
-        if (dynamodbs == null) return null;
-        return dynamodbs.getValue("TopicRule.dynamodbs");
+        if (!unknown_dynamodbs) return value_dynamodbs;
+        throw new UndeferrableValueException("Value 'TopicRule.dynamodbs' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<TopicRuleDynamodbv2>> dynamodbv2s;
-
+    @PolicyResourceProperty(name="dynamodbv2s", flag="unknown_dynamodbv2s")
+    private @Nullable List<TopicRuleDynamodbv2> value_dynamodbv2s;
+    private boolean unknown_dynamodbv2s;
     public @Nullable List<TopicRuleDynamodbv2> dynamodbv2s() {
-        if (dynamodbv2s == null) return null;
-        return dynamodbv2s.getValue("TopicRule.dynamodbv2s");
+        if (!unknown_dynamodbv2s) return value_dynamodbv2s;
+        throw new UndeferrableValueException("Value 'TopicRule.dynamodbv2s' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<TopicRuleElasticsearch>> elasticsearch;
-
+    @PolicyResourceProperty(name="elasticsearch", flag="unknown_elasticsearch")
+    private @Nullable List<TopicRuleElasticsearch> value_elasticsearch;
+    private boolean unknown_elasticsearch;
     public @Nullable List<TopicRuleElasticsearch> elasticsearch() {
-        if (elasticsearch == null) return null;
-        return elasticsearch.getValue("TopicRule.elasticsearch");
+        if (!unknown_elasticsearch) return value_elasticsearch;
+        throw new UndeferrableValueException("Value 'TopicRule.elasticsearch' is not present");
     }
 
     /**
      * Specifies whether the rule is enabled.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("TopicRule.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'TopicRule.enabled' is not present");
     }
 
     /**
      * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iot_analytics`, `iot_events`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `step_functions`, `timestream` configuration blocks for further configuration details.
      * 
      */
-    private @Nullable UndeferrableValue<TopicRuleErrorAction> errorAction;
-
+    @PolicyResourceProperty(name="errorAction", flag="unknown_errorAction")
+    private @Nullable TopicRuleErrorAction value_errorAction;
+    private boolean unknown_errorAction;
     public @Nullable TopicRuleErrorAction errorAction() {
-        if (errorAction == null) return null;
-        return errorAction.getValue("TopicRule.errorAction");
+        if (!unknown_errorAction) return value_errorAction;
+        throw new UndeferrableValueException("Value 'TopicRule.errorAction' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<TopicRuleFirehose>> firehoses;
-
+    @PolicyResourceProperty(name="firehoses", flag="unknown_firehoses")
+    private @Nullable List<TopicRuleFirehose> value_firehoses;
+    private boolean unknown_firehoses;
     public @Nullable List<TopicRuleFirehose> firehoses() {
-        if (firehoses == null) return null;
-        return firehoses.getValue("TopicRule.firehoses");
+        if (!unknown_firehoses) return value_firehoses;
+        throw new UndeferrableValueException("Value 'TopicRule.firehoses' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<TopicRuleHttp>> https;
-
+    @PolicyResourceProperty(name="https", flag="unknown_https")
+    private @Nullable List<TopicRuleHttp> value_https;
+    private boolean unknown_https;
     public @Nullable List<TopicRuleHttp> https() {
-        if (https == null) return null;
-        return https.getValue("TopicRule.https");
+        if (!unknown_https) return value_https;
+        throw new UndeferrableValueException("Value 'TopicRule.https' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<TopicRuleIotAnalytic>> iotAnalytics;
-
+    @PolicyResourceProperty(name="iotAnalytics", flag="unknown_iotAnalytics")
+    private @Nullable List<TopicRuleIotAnalytic> value_iotAnalytics;
+    private boolean unknown_iotAnalytics;
     public @Nullable List<TopicRuleIotAnalytic> iotAnalytics() {
-        if (iotAnalytics == null) return null;
-        return iotAnalytics.getValue("TopicRule.iotAnalytics");
+        if (!unknown_iotAnalytics) return value_iotAnalytics;
+        throw new UndeferrableValueException("Value 'TopicRule.iotAnalytics' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<TopicRuleIotEvent>> iotEvents;
-
+    @PolicyResourceProperty(name="iotEvents", flag="unknown_iotEvents")
+    private @Nullable List<TopicRuleIotEvent> value_iotEvents;
+    private boolean unknown_iotEvents;
     public @Nullable List<TopicRuleIotEvent> iotEvents() {
-        if (iotEvents == null) return null;
-        return iotEvents.getValue("TopicRule.iotEvents");
+        if (!unknown_iotEvents) return value_iotEvents;
+        throw new UndeferrableValueException("Value 'TopicRule.iotEvents' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<TopicRuleKafka>> kafkas;
-
+    @PolicyResourceProperty(name="kafkas", flag="unknown_kafkas")
+    private @Nullable List<TopicRuleKafka> value_kafkas;
+    private boolean unknown_kafkas;
     public @Nullable List<TopicRuleKafka> kafkas() {
-        if (kafkas == null) return null;
-        return kafkas.getValue("TopicRule.kafkas");
+        if (!unknown_kafkas) return value_kafkas;
+        throw new UndeferrableValueException("Value 'TopicRule.kafkas' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<TopicRuleKinesis>> kineses;
-
+    @PolicyResourceProperty(name="kineses", flag="unknown_kineses")
+    private @Nullable List<TopicRuleKinesis> value_kineses;
+    private boolean unknown_kineses;
     public @Nullable List<TopicRuleKinesis> kineses() {
-        if (kineses == null) return null;
-        return kineses.getValue("TopicRule.kineses");
+        if (!unknown_kineses) return value_kineses;
+        throw new UndeferrableValueException("Value 'TopicRule.kineses' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<TopicRuleLambda>> lambdas;
-
+    @PolicyResourceProperty(name="lambdas", flag="unknown_lambdas")
+    private @Nullable List<TopicRuleLambda> value_lambdas;
+    private boolean unknown_lambdas;
     public @Nullable List<TopicRuleLambda> lambdas() {
-        if (lambdas == null) return null;
-        return lambdas.getValue("TopicRule.lambdas");
+        if (!unknown_lambdas) return value_lambdas;
+        throw new UndeferrableValueException("Value 'TopicRule.lambdas' is not present");
     }
 
     /**
      * The name of the rule.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TopicRule.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TopicRule.name' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<TopicRuleRepublish>> republishes;
-
+    @PolicyResourceProperty(name="republishes", flag="unknown_republishes")
+    private @Nullable List<TopicRuleRepublish> value_republishes;
+    private boolean unknown_republishes;
     public @Nullable List<TopicRuleRepublish> republishes() {
-        if (republishes == null) return null;
-        return republishes.getValue("TopicRule.republishes");
+        if (!unknown_republishes) return value_republishes;
+        throw new UndeferrableValueException("Value 'TopicRule.republishes' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<TopicRuleS3>> s3;
-
+    @PolicyResourceProperty(name="s3", flag="unknown_s3")
+    private @Nullable List<TopicRuleS3> value_s3;
+    private boolean unknown_s3;
     public @Nullable List<TopicRuleS3> s3() {
-        if (s3 == null) return null;
-        return s3.getValue("TopicRule.s3");
+        if (!unknown_s3) return value_s3;
+        throw new UndeferrableValueException("Value 'TopicRule.s3' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<TopicRuleSns>> sns;
-
+    @PolicyResourceProperty(name="sns", flag="unknown_sns")
+    private @Nullable List<TopicRuleSns> value_sns;
+    private boolean unknown_sns;
     public @Nullable List<TopicRuleSns> sns() {
-        if (sns == null) return null;
-        return sns.getValue("TopicRule.sns");
+        if (!unknown_sns) return value_sns;
+        throw new UndeferrableValueException("Value 'TopicRule.sns' is not present");
     }
 
     /**
      * The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
      * 
      */
-    private UndeferrableValue<String> sql;
-
+    @PolicyResourceProperty(name="sql", flag="unknown_sql")
+    private String value_sql;
+    private boolean unknown_sql;
     public String sql() {
-        if (sql == null) return null;
-        return sql.getValue("TopicRule.sql");
+        if (!unknown_sql) return value_sql;
+        throw new UndeferrableValueException("Value 'TopicRule.sql' is not present");
     }
 
     /**
      * The version of the SQL rules engine to use when evaluating the rule.
      * 
      */
-    private UndeferrableValue<String> sqlVersion;
-
+    @PolicyResourceProperty(name="sqlVersion", flag="unknown_sqlVersion")
+    private String value_sqlVersion;
+    private boolean unknown_sqlVersion;
     public String sqlVersion() {
-        if (sqlVersion == null) return null;
-        return sqlVersion.getValue("TopicRule.sqlVersion");
+        if (!unknown_sqlVersion) return value_sqlVersion;
+        throw new UndeferrableValueException("Value 'TopicRule.sqlVersion' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<TopicRuleSqs>> sqs;
-
+    @PolicyResourceProperty(name="sqs", flag="unknown_sqs")
+    private @Nullable List<TopicRuleSqs> value_sqs;
+    private boolean unknown_sqs;
     public @Nullable List<TopicRuleSqs> sqs() {
-        if (sqs == null) return null;
-        return sqs.getValue("TopicRule.sqs");
+        if (!unknown_sqs) return value_sqs;
+        throw new UndeferrableValueException("Value 'TopicRule.sqs' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<TopicRuleStepFunction>> stepFunctions;
-
+    @PolicyResourceProperty(name="stepFunctions", flag="unknown_stepFunctions")
+    private @Nullable List<TopicRuleStepFunction> value_stepFunctions;
+    private boolean unknown_stepFunctions;
     public @Nullable List<TopicRuleStepFunction> stepFunctions() {
-        if (stepFunctions == null) return null;
-        return stepFunctions.getValue("TopicRule.stepFunctions");
+        if (!unknown_stepFunctions) return value_stepFunctions;
+        throw new UndeferrableValueException("Value 'TopicRule.stepFunctions' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TopicRule.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TopicRule.tags' is not present");
     }
 
     /**
@@ -257,18 +284,20 @@ public final class TopicRule extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("TopicRule.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'TopicRule.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<TopicRuleTimestream>> timestreams;
-
+    @PolicyResourceProperty(name="timestreams", flag="unknown_timestreams")
+    private @Nullable List<TopicRuleTimestream> value_timestreams;
+    private boolean unknown_timestreams;
     public @Nullable List<TopicRuleTimestream> timestreams() {
-        if (timestreams == null) return null;
-        return timestreams.getValue("TopicRule.timestreams");
+        if (!unknown_timestreams) return value_timestreams;
+        throw new UndeferrableValueException("Value 'TopicRule.timestreams' is not present");
     }
 
 }

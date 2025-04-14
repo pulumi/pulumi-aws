@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ses;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class ActiveReceiptRuleSet extends com.pulumi.resources.PolicyResou
      * The SES receipt rule set ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ActiveReceiptRuleSet.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ActiveReceiptRuleSet.arn' is not present");
     }
 
     /**
      * The name of the rule set
      * 
      */
-    private UndeferrableValue<String> ruleSetName;
-
+    @PolicyResourceProperty(name="ruleSetName", flag="unknown_ruleSetName")
+    private String value_ruleSetName;
+    private boolean unknown_ruleSetName;
     public String ruleSetName() {
-        if (ruleSetName == null) return null;
-        return ruleSetName.getValue("ActiveReceiptRuleSet.ruleSetName");
+        if (!unknown_ruleSetName) return value_ruleSetName;
+        throw new UndeferrableValueException("Value 'ActiveReceiptRuleSet.ruleSetName' is not present");
     }
 
 }

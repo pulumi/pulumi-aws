@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.glue.inputs.MLTransformParametersFindMatchesParametersArgs;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class MLTransformParametersArgs {
      * The parameters for the find matches algorithm. see Find Matches Parameters.
      * 
      */
-    private UndeferrableValue<MLTransformParametersFindMatchesParametersArgs> findMatchesParameters;
-
+    @PolicyResourceProperty(name="findMatchesParameters", flag="unknown_findMatchesParameters")
+    private MLTransformParametersFindMatchesParametersArgs value_findMatchesParameters;
+    private boolean unknown_findMatchesParameters;
     public MLTransformParametersFindMatchesParametersArgs findMatchesParameters() {
-        if (findMatchesParameters == null) return null;
-        return findMatchesParameters.getValue("MLTransformParametersArgs.findMatchesParameters");
+        if (!unknown_findMatchesParameters) return value_findMatchesParameters;
+        throw new UndeferrableValueException("Value 'MLTransformParametersArgs.findMatchesParameters' is not present");
     }
 
     /**
      * The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
      * 
      */
-    private UndeferrableValue<String> transformType;
-
+    @PolicyResourceProperty(name="transformType", flag="unknown_transformType")
+    private String value_transformType;
+    private boolean unknown_transformType;
     public String transformType() {
-        if (transformType == null) return null;
-        return transformType.getValue("MLTransformParametersArgs.transformType");
+        if (!unknown_transformType) return value_transformType;
+        throw new UndeferrableValueException("Value 'MLTransformParametersArgs.transformType' is not present");
     }
 
 }

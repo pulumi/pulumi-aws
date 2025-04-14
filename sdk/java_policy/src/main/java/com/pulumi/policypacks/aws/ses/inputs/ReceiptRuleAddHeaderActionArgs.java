@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ses.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,33 +15,36 @@ public final class ReceiptRuleAddHeaderActionArgs {
      * The name of the header to add
      * 
      */
-    private UndeferrableValue<String> headerName;
-
+    @PolicyResourceProperty(name="headerName", flag="unknown_headerName")
+    private String value_headerName;
+    private boolean unknown_headerName;
     public String headerName() {
-        if (headerName == null) return null;
-        return headerName.getValue("ReceiptRuleAddHeaderActionArgs.headerName");
+        if (!unknown_headerName) return value_headerName;
+        throw new UndeferrableValueException("Value 'ReceiptRuleAddHeaderActionArgs.headerName' is not present");
     }
 
     /**
      * The value of the header to add
      * 
      */
-    private UndeferrableValue<String> headerValue;
-
+    @PolicyResourceProperty(name="headerValue", flag="unknown_headerValue")
+    private String value_headerValue;
+    private boolean unknown_headerValue;
     public String headerValue() {
-        if (headerValue == null) return null;
-        return headerValue.getValue("ReceiptRuleAddHeaderActionArgs.headerValue");
+        if (!unknown_headerValue) return value_headerValue;
+        throw new UndeferrableValueException("Value 'ReceiptRuleAddHeaderActionArgs.headerValue' is not present");
     }
 
     /**
      * The position of the action in the receipt rule
      * 
      */
-    private UndeferrableValue<Integer> position;
-
+    @PolicyResourceProperty(name="position", flag="unknown_position")
+    private Integer value_position;
+    private boolean unknown_position;
     public Integer position() {
-        if (position == null) return null;
-        return position.getValue("ReceiptRuleAddHeaderActionArgs.position");
+        if (!unknown_position) return value_position;
+        throw new UndeferrableValueException("Value 'ReceiptRuleAddHeaderActionArgs.position' is not present");
     }
 
 }

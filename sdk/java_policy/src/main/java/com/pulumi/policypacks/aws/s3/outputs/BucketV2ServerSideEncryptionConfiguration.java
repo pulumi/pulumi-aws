@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.outputs.BucketV2ServerSideEncryptionConfigurationRule;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class BucketV2ServerSideEncryptionConfiguration {
      * Single object for server-side encryption by default configuration. (documented below)
      * 
      */
-    private UndeferrableValue<List<BucketV2ServerSideEncryptionConfigurationRule>> rules;
-
+    @PolicyResourceProperty(name="rules", flag="unknown_rules")
+    private List<BucketV2ServerSideEncryptionConfigurationRule> value_rules;
+    private boolean unknown_rules;
     public List<BucketV2ServerSideEncryptionConfigurationRule> rules() {
-        if (rules == null) return null;
-        return rules.getValue("BucketV2ServerSideEncryptionConfiguration.rules");
+        if (!unknown_rules) return value_rules;
+        throw new UndeferrableValueException("Value 'BucketV2ServerSideEncryptionConfiguration.rules' is not present");
     }
 
 }

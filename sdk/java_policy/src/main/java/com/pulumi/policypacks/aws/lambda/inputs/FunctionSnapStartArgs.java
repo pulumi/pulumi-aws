@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class FunctionSnapStartArgs {
      * Conditions where snap start is enabled. Valid values are `PublishedVersions`.
      * 
      */
-    private UndeferrableValue<String> applyOn;
-
+    @PolicyResourceProperty(name="applyOn", flag="unknown_applyOn")
+    private String value_applyOn;
+    private boolean unknown_applyOn;
     public String applyOn() {
-        if (applyOn == null) return null;
-        return applyOn.getValue("FunctionSnapStartArgs.applyOn");
+        if (!unknown_applyOn) return value_applyOn;
+        throw new UndeferrableValueException("Value 'FunctionSnapStartArgs.applyOn' is not present");
     }
 
     /**
      * Optimization status of the snap start configuration. Valid values are `On` and `Off`.
      * 
      */
-    private UndeferrableValue<String> optimizationStatus;
-
+    @PolicyResourceProperty(name="optimizationStatus", flag="unknown_optimizationStatus")
+    private String value_optimizationStatus;
+    private boolean unknown_optimizationStatus;
     public String optimizationStatus() {
-        if (optimizationStatus == null) return null;
-        return optimizationStatus.getValue("FunctionSnapStartArgs.optimizationStatus");
+        if (!unknown_optimizationStatus) return value_optimizationStatus;
+        throw new UndeferrableValueException("Value 'FunctionSnapStartArgs.optimizationStatus' is not present");
     }
 
 }

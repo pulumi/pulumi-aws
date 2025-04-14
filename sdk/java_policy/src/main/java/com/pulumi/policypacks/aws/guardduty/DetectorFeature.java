@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.guardduty;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.guardduty.outputs.DetectorFeatureAdditionalConfiguration;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class DetectorFeature extends com.pulumi.resources.PolicyResourceOu
      * Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
      * 
      */
-    private @Nullable UndeferrableValue<List<DetectorFeatureAdditionalConfiguration>> additionalConfigurations;
-
+    @PolicyResourceProperty(name="additionalConfigurations", flag="unknown_additionalConfigurations")
+    private @Nullable List<DetectorFeatureAdditionalConfiguration> value_additionalConfigurations;
+    private boolean unknown_additionalConfigurations;
     public @Nullable List<DetectorFeatureAdditionalConfiguration> additionalConfigurations() {
-        if (additionalConfigurations == null) return null;
-        return additionalConfigurations.getValue("DetectorFeature.additionalConfigurations");
+        if (!unknown_additionalConfigurations) return value_additionalConfigurations;
+        throw new UndeferrableValueException("Value 'DetectorFeature.additionalConfigurations' is not present");
     }
 
     /**
      * Amazon GuardDuty detector ID.
      * 
      */
-    private UndeferrableValue<String> detectorId;
-
+    @PolicyResourceProperty(name="detectorId", flag="unknown_detectorId")
+    private String value_detectorId;
+    private boolean unknown_detectorId;
     public String detectorId() {
-        if (detectorId == null) return null;
-        return detectorId.getValue("DetectorFeature.detectorId");
+        if (!unknown_detectorId) return value_detectorId;
+        throw new UndeferrableValueException("Value 'DetectorFeature.detectorId' is not present");
     }
 
     /**
      * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DetectorFeature.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DetectorFeature.name' is not present");
     }
 
     /**
      * The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("DetectorFeature.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'DetectorFeature.status' is not present");
     }
 
 }

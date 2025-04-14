@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.auditmanager.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.auditmanager.outputs.FrameworkControlSetControl;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class FrameworkControlSet {
      * Configuration block(s) for the controls within the control set. See `controls` Block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<FrameworkControlSetControl>> controls;
-
+    @PolicyResourceProperty(name="controls", flag="unknown_controls")
+    private @Nullable List<FrameworkControlSetControl> value_controls;
+    private boolean unknown_controls;
     public @Nullable List<FrameworkControlSetControl> controls() {
-        if (controls == null) return null;
-        return controls.getValue("FrameworkControlSet.controls");
+        if (!unknown_controls) return value_controls;
+        throw new UndeferrableValueException("Value 'FrameworkControlSet.controls' is not present");
     }
 
     /**
      * Unique identifier for the framework.
      * 
      */
-    private @Nullable UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private @Nullable String value_id;
+    private boolean unknown_id;
     public @Nullable String id() {
-        if (id == null) return null;
-        return id.getValue("FrameworkControlSet.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'FrameworkControlSet.id' is not present");
     }
 
     /**
      * Name of the control set.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("FrameworkControlSet.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FrameworkControlSet.name' is not present");
     }
 
 }

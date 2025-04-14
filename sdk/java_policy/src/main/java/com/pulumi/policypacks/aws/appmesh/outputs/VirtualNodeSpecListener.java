@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualNodeSpecListenerConnectionPool;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualNodeSpecListenerHealthCheck;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualNodeSpecListenerOutlierDetection;
@@ -19,66 +20,72 @@ public final class VirtualNodeSpecListener {
      * Connection pool information for the listener.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualNodeSpecListenerConnectionPool> connectionPool;
-
+    @PolicyResourceProperty(name="connectionPool", flag="unknown_connectionPool")
+    private @Nullable VirtualNodeSpecListenerConnectionPool value_connectionPool;
+    private boolean unknown_connectionPool;
     public @Nullable VirtualNodeSpecListenerConnectionPool connectionPool() {
-        if (connectionPool == null) return null;
-        return connectionPool.getValue("VirtualNodeSpecListener.connectionPool");
+        if (!unknown_connectionPool) return value_connectionPool;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListener.connectionPool' is not present");
     }
 
     /**
      * Health check information for the listener.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualNodeSpecListenerHealthCheck> healthCheck;
-
+    @PolicyResourceProperty(name="healthCheck", flag="unknown_healthCheck")
+    private @Nullable VirtualNodeSpecListenerHealthCheck value_healthCheck;
+    private boolean unknown_healthCheck;
     public @Nullable VirtualNodeSpecListenerHealthCheck healthCheck() {
-        if (healthCheck == null) return null;
-        return healthCheck.getValue("VirtualNodeSpecListener.healthCheck");
+        if (!unknown_healthCheck) return value_healthCheck;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListener.healthCheck' is not present");
     }
 
     /**
      * Outlier detection information for the listener.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualNodeSpecListenerOutlierDetection> outlierDetection;
-
+    @PolicyResourceProperty(name="outlierDetection", flag="unknown_outlierDetection")
+    private @Nullable VirtualNodeSpecListenerOutlierDetection value_outlierDetection;
+    private boolean unknown_outlierDetection;
     public @Nullable VirtualNodeSpecListenerOutlierDetection outlierDetection() {
-        if (outlierDetection == null) return null;
-        return outlierDetection.getValue("VirtualNodeSpecListener.outlierDetection");
+        if (!unknown_outlierDetection) return value_outlierDetection;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListener.outlierDetection' is not present");
     }
 
     /**
      * Port mapping information for the listener.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecListenerPortMapping> portMapping;
-
+    @PolicyResourceProperty(name="portMapping", flag="unknown_portMapping")
+    private VirtualNodeSpecListenerPortMapping value_portMapping;
+    private boolean unknown_portMapping;
     public VirtualNodeSpecListenerPortMapping portMapping() {
-        if (portMapping == null) return null;
-        return portMapping.getValue("VirtualNodeSpecListener.portMapping");
+        if (!unknown_portMapping) return value_portMapping;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListener.portMapping' is not present");
     }
 
     /**
      * Timeouts for different protocols.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualNodeSpecListenerTimeout> timeout;
-
+    @PolicyResourceProperty(name="timeout", flag="unknown_timeout")
+    private @Nullable VirtualNodeSpecListenerTimeout value_timeout;
+    private boolean unknown_timeout;
     public @Nullable VirtualNodeSpecListenerTimeout timeout() {
-        if (timeout == null) return null;
-        return timeout.getValue("VirtualNodeSpecListener.timeout");
+        if (!unknown_timeout) return value_timeout;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListener.timeout' is not present");
     }
 
     /**
      * Transport Layer Security (TLS) properties for the listener
      * 
      */
-    private @Nullable UndeferrableValue<VirtualNodeSpecListenerTls> tls;
-
+    @PolicyResourceProperty(name="tls", flag="unknown_tls")
+    private @Nullable VirtualNodeSpecListenerTls value_tls;
+    private boolean unknown_tls;
     public @Nullable VirtualNodeSpecListenerTls tls() {
-        if (tls == null) return null;
-        return tls.getValue("VirtualNodeSpecListener.tls");
+        if (!unknown_tls) return value_tls;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListener.tls' is not present");
     }
 
 }

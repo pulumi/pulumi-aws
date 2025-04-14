@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.schemas;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,66 +18,72 @@ public final class SchemaArgs extends com.pulumi.resources.PolicyResourceInput {
      * The schema specification. Must be a valid Open API 3.0 spec.
      * 
      */
-    private UndeferrableValue<String> content;
-
+    @PolicyResourceProperty(name="content", flag="unknown_content")
+    private String value_content;
+    private boolean unknown_content;
     public String content() {
-        if (content == null) return null;
-        return content.getValue("SchemaArgs.content");
+        if (!unknown_content) return value_content;
+        throw new UndeferrableValueException("Value 'SchemaArgs.content' is not present");
     }
 
     /**
      * The description of the schema. Maximum of 256 characters.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("SchemaArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'SchemaArgs.description' is not present");
     }
 
     /**
      * The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, {@literal @}.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("SchemaArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'SchemaArgs.name' is not present");
     }
 
     /**
      * The name of the registry in which this schema belongs.
      * 
      */
-    private UndeferrableValue<String> registryName;
-
+    @PolicyResourceProperty(name="registryName", flag="unknown_registryName")
+    private String value_registryName;
+    private boolean unknown_registryName;
     public String registryName() {
-        if (registryName == null) return null;
-        return registryName.getValue("SchemaArgs.registryName");
+        if (!unknown_registryName) return value_registryName;
+        throw new UndeferrableValueException("Value 'SchemaArgs.registryName' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SchemaArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SchemaArgs.tags' is not present");
     }
 
     /**
      * The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("SchemaArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'SchemaArgs.type' is not present");
     }
 
 }

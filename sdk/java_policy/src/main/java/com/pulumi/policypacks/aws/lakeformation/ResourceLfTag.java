@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lakeformation.outputs.ResourceLfTagDatabase;
 import com.pulumi.policypacks.aws.lakeformation.outputs.ResourceLfTagLfTag;
@@ -21,22 +22,24 @@ public final class ResourceLfTag extends com.pulumi.resources.PolicyResourceOutp
      * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      * 
      */
-    private @Nullable UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private @Nullable String value_catalogId;
+    private boolean unknown_catalogId;
     public @Nullable String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("ResourceLfTag.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'ResourceLfTag.catalogId' is not present");
     }
 
     /**
      * Configuration block for a database resource. See Database for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ResourceLfTagDatabase> database;
-
+    @PolicyResourceProperty(name="database", flag="unknown_database")
+    private @Nullable ResourceLfTagDatabase value_database;
+    private boolean unknown_database;
     public @Nullable ResourceLfTagDatabase database() {
-        if (database == null) return null;
-        return database.getValue("ResourceLfTag.database");
+        if (!unknown_database) return value_database;
+        throw new UndeferrableValueException("Value 'ResourceLfTag.database' is not present");
     }
 
     /**
@@ -45,22 +48,24 @@ public final class ResourceLfTag extends com.pulumi.resources.PolicyResourceOutp
      * Exactly one of the following is required:
      * 
      */
-    private @Nullable UndeferrableValue<ResourceLfTagLfTag> lfTag;
-
+    @PolicyResourceProperty(name="lfTag", flag="unknown_lfTag")
+    private @Nullable ResourceLfTagLfTag value_lfTag;
+    private boolean unknown_lfTag;
     public @Nullable ResourceLfTagLfTag lfTag() {
-        if (lfTag == null) return null;
-        return lfTag.getValue("ResourceLfTag.lfTag");
+        if (!unknown_lfTag) return value_lfTag;
+        throw new UndeferrableValueException("Value 'ResourceLfTag.lfTag' is not present");
     }
 
     /**
      * Configuration block for a table resource. See Table for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ResourceLfTagTable> table;
-
+    @PolicyResourceProperty(name="table", flag="unknown_table")
+    private @Nullable ResourceLfTagTable value_table;
+    private boolean unknown_table;
     public @Nullable ResourceLfTagTable table() {
-        if (table == null) return null;
-        return table.getValue("ResourceLfTag.table");
+        if (!unknown_table) return value_table;
+        throw new UndeferrableValueException("Value 'ResourceLfTag.table' is not present");
     }
 
     /**
@@ -69,18 +74,20 @@ public final class ResourceLfTag extends com.pulumi.resources.PolicyResourceOutp
      * The following arguments are optional:
      * 
      */
-    private @Nullable UndeferrableValue<ResourceLfTagTableWithColumns> tableWithColumns;
-
+    @PolicyResourceProperty(name="tableWithColumns", flag="unknown_tableWithColumns")
+    private @Nullable ResourceLfTagTableWithColumns value_tableWithColumns;
+    private boolean unknown_tableWithColumns;
     public @Nullable ResourceLfTagTableWithColumns tableWithColumns() {
-        if (tableWithColumns == null) return null;
-        return tableWithColumns.getValue("ResourceLfTag.tableWithColumns");
+        if (!unknown_tableWithColumns) return value_tableWithColumns;
+        throw new UndeferrableValueException("Value 'ResourceLfTag.tableWithColumns' is not present");
     }
 
-    private @Nullable UndeferrableValue<ResourceLfTagTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable ResourceLfTagTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable ResourceLfTagTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ResourceLfTag.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ResourceLfTag.timeouts' is not present");
     }
 
 }

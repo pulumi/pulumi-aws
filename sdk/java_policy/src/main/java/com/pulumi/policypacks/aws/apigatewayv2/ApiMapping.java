@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,44 +17,48 @@ public final class ApiMapping extends com.pulumi.resources.PolicyResourceOutput 
      * API identifier.
      * 
      */
-    private UndeferrableValue<String> apiId;
-
+    @PolicyResourceProperty(name="apiId", flag="unknown_apiId")
+    private String value_apiId;
+    private boolean unknown_apiId;
     public String apiId() {
-        if (apiId == null) return null;
-        return apiId.getValue("ApiMapping.apiId");
+        if (!unknown_apiId) return value_apiId;
+        throw new UndeferrableValueException("Value 'ApiMapping.apiId' is not present");
     }
 
     /**
      * The API mapping key. Refer to [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mappings.html), [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mappings.html) or [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-mappings.html).
      * 
      */
-    private @Nullable UndeferrableValue<String> apiMappingKey;
-
+    @PolicyResourceProperty(name="apiMappingKey", flag="unknown_apiMappingKey")
+    private @Nullable String value_apiMappingKey;
+    private boolean unknown_apiMappingKey;
     public @Nullable String apiMappingKey() {
-        if (apiMappingKey == null) return null;
-        return apiMappingKey.getValue("ApiMapping.apiMappingKey");
+        if (!unknown_apiMappingKey) return value_apiMappingKey;
+        throw new UndeferrableValueException("Value 'ApiMapping.apiMappingKey' is not present");
     }
 
     /**
      * Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("ApiMapping.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'ApiMapping.domainName' is not present");
     }
 
     /**
      * API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
      * 
      */
-    private UndeferrableValue<String> stage;
-
+    @PolicyResourceProperty(name="stage", flag="unknown_stage")
+    private String value_stage;
+    private boolean unknown_stage;
     public String stage() {
-        if (stage == null) return null;
-        return stage.getValue("ApiMapping.stage");
+        if (!unknown_stage) return value_stage;
+        throw new UndeferrableValueException("Value 'ApiMapping.stage' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -15,110 +16,120 @@ public final class WorkforceOidcConfig {
      * A string to string map of identifiers specific to the custom identity provider (IdP) being used.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> authenticationRequestExtraParams;
-
+    @PolicyResourceProperty(name="authenticationRequestExtraParams", flag="unknown_authenticationRequestExtraParams")
+    private @Nullable Map<String,String> value_authenticationRequestExtraParams;
+    private boolean unknown_authenticationRequestExtraParams;
     public @Nullable Map<String,String> authenticationRequestExtraParams() {
-        if (authenticationRequestExtraParams == null) return null;
-        return authenticationRequestExtraParams.getValue("WorkforceOidcConfig.authenticationRequestExtraParams");
+        if (!unknown_authenticationRequestExtraParams) return value_authenticationRequestExtraParams;
+        throw new UndeferrableValueException("Value 'WorkforceOidcConfig.authenticationRequestExtraParams' is not present");
     }
 
     /**
      * The OIDC IdP authorization endpoint used to configure your private workforce.
      * 
      */
-    private UndeferrableValue<String> authorizationEndpoint;
-
+    @PolicyResourceProperty(name="authorizationEndpoint", flag="unknown_authorizationEndpoint")
+    private String value_authorizationEndpoint;
+    private boolean unknown_authorizationEndpoint;
     public String authorizationEndpoint() {
-        if (authorizationEndpoint == null) return null;
-        return authorizationEndpoint.getValue("WorkforceOidcConfig.authorizationEndpoint");
+        if (!unknown_authorizationEndpoint) return value_authorizationEndpoint;
+        throw new UndeferrableValueException("Value 'WorkforceOidcConfig.authorizationEndpoint' is not present");
     }
 
     /**
      * The OIDC IdP client ID used to configure your private workforce.
      * 
      */
-    private UndeferrableValue<String> clientId;
-
+    @PolicyResourceProperty(name="clientId", flag="unknown_clientId")
+    private String value_clientId;
+    private boolean unknown_clientId;
     public String clientId() {
-        if (clientId == null) return null;
-        return clientId.getValue("WorkforceOidcConfig.clientId");
+        if (!unknown_clientId) return value_clientId;
+        throw new UndeferrableValueException("Value 'WorkforceOidcConfig.clientId' is not present");
     }
 
     /**
      * The OIDC IdP client secret used to configure your private workforce.
      * 
      */
-    private UndeferrableValue<String> clientSecret;
-
+    @PolicyResourceProperty(name="clientSecret", flag="unknown_clientSecret")
+    private String value_clientSecret;
+    private boolean unknown_clientSecret;
     public String clientSecret() {
-        if (clientSecret == null) return null;
-        return clientSecret.getValue("WorkforceOidcConfig.clientSecret");
+        if (!unknown_clientSecret) return value_clientSecret;
+        throw new UndeferrableValueException("Value 'WorkforceOidcConfig.clientSecret' is not present");
     }
 
     /**
      * The OIDC IdP issuer used to configure your private workforce.
      * 
      */
-    private UndeferrableValue<String> issuer;
-
+    @PolicyResourceProperty(name="issuer", flag="unknown_issuer")
+    private String value_issuer;
+    private boolean unknown_issuer;
     public String issuer() {
-        if (issuer == null) return null;
-        return issuer.getValue("WorkforceOidcConfig.issuer");
+        if (!unknown_issuer) return value_issuer;
+        throw new UndeferrableValueException("Value 'WorkforceOidcConfig.issuer' is not present");
     }
 
     /**
      * The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
      * 
      */
-    private UndeferrableValue<String> jwksUri;
-
+    @PolicyResourceProperty(name="jwksUri", flag="unknown_jwksUri")
+    private String value_jwksUri;
+    private boolean unknown_jwksUri;
     public String jwksUri() {
-        if (jwksUri == null) return null;
-        return jwksUri.getValue("WorkforceOidcConfig.jwksUri");
+        if (!unknown_jwksUri) return value_jwksUri;
+        throw new UndeferrableValueException("Value 'WorkforceOidcConfig.jwksUri' is not present");
     }
 
     /**
      * The OIDC IdP logout endpoint used to configure your private workforce.
      * 
      */
-    private UndeferrableValue<String> logoutEndpoint;
-
+    @PolicyResourceProperty(name="logoutEndpoint", flag="unknown_logoutEndpoint")
+    private String value_logoutEndpoint;
+    private boolean unknown_logoutEndpoint;
     public String logoutEndpoint() {
-        if (logoutEndpoint == null) return null;
-        return logoutEndpoint.getValue("WorkforceOidcConfig.logoutEndpoint");
+        if (!unknown_logoutEndpoint) return value_logoutEndpoint;
+        throw new UndeferrableValueException("Value 'WorkforceOidcConfig.logoutEndpoint' is not present");
     }
 
     /**
      * An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.
      * 
      */
-    private @Nullable UndeferrableValue<String> scope;
-
+    @PolicyResourceProperty(name="scope", flag="unknown_scope")
+    private @Nullable String value_scope;
+    private boolean unknown_scope;
     public @Nullable String scope() {
-        if (scope == null) return null;
-        return scope.getValue("WorkforceOidcConfig.scope");
+        if (!unknown_scope) return value_scope;
+        throw new UndeferrableValueException("Value 'WorkforceOidcConfig.scope' is not present");
     }
 
     /**
      * The OIDC IdP token endpoint used to configure your private workforce.
      * 
      */
-    private UndeferrableValue<String> tokenEndpoint;
-
+    @PolicyResourceProperty(name="tokenEndpoint", flag="unknown_tokenEndpoint")
+    private String value_tokenEndpoint;
+    private boolean unknown_tokenEndpoint;
     public String tokenEndpoint() {
-        if (tokenEndpoint == null) return null;
-        return tokenEndpoint.getValue("WorkforceOidcConfig.tokenEndpoint");
+        if (!unknown_tokenEndpoint) return value_tokenEndpoint;
+        throw new UndeferrableValueException("Value 'WorkforceOidcConfig.tokenEndpoint' is not present");
     }
 
     /**
      * The OIDC IdP user information endpoint used to configure your private workforce.
      * 
      */
-    private UndeferrableValue<String> userInfoEndpoint;
-
+    @PolicyResourceProperty(name="userInfoEndpoint", flag="unknown_userInfoEndpoint")
+    private String value_userInfoEndpoint;
+    private boolean unknown_userInfoEndpoint;
     public String userInfoEndpoint() {
-        if (userInfoEndpoint == null) return null;
-        return userInfoEndpoint.getValue("WorkforceOidcConfig.userInfoEndpoint");
+        if (!unknown_userInfoEndpoint) return value_userInfoEndpoint;
+        throw new UndeferrableValueException("Value 'WorkforceOidcConfig.userInfoEndpoint' is not present");
     }
 
 }

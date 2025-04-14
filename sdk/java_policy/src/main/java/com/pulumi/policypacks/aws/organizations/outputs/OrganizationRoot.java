@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.organizations.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.organizations.outputs.OrganizationRootPolicyType;
 import java.lang.String;
 import java.util.List;
@@ -16,44 +17,48 @@ public final class OrganizationRoot {
      * ARN of the root
      * 
      */
-    private @Nullable UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private @Nullable String value_arn;
+    private boolean unknown_arn;
     public @Nullable String arn() {
-        if (arn == null) return null;
-        return arn.getValue("OrganizationRoot.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'OrganizationRoot.arn' is not present");
     }
 
     /**
      * Identifier of the root
      * 
      */
-    private @Nullable UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private @Nullable String value_id;
+    private boolean unknown_id;
     public @Nullable String id() {
-        if (id == null) return null;
-        return id.getValue("OrganizationRoot.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'OrganizationRoot.id' is not present");
     }
 
     /**
      * The name of the policy type
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("OrganizationRoot.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'OrganizationRoot.name' is not present");
     }
 
     /**
      * List of policy types enabled for this root. All elements have these attributes:
      * 
      */
-    private @Nullable UndeferrableValue<List<OrganizationRootPolicyType>> policyTypes;
-
+    @PolicyResourceProperty(name="policyTypes", flag="unknown_policyTypes")
+    private @Nullable List<OrganizationRootPolicyType> value_policyTypes;
+    private boolean unknown_policyTypes;
     public @Nullable List<OrganizationRootPolicyType> policyTypes() {
-        if (policyTypes == null) return null;
-        return policyTypes.getValue("OrganizationRoot.policyTypes");
+        if (!unknown_policyTypes) return value_policyTypes;
+        throw new UndeferrableValueException("Value 'OrganizationRoot.policyTypes' is not present");
     }
 
 }

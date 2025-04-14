@@ -3,25 +3,28 @@
 
 package com.pulumi.policypacks.aws.elb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class LoadBalancerPolicyPolicyAttribute {
 
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("LoadBalancerPolicyPolicyAttribute.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LoadBalancerPolicyPolicyAttribute.name' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private @Nullable String value_value;
+    private boolean unknown_value;
     public @Nullable String value() {
-        if (value == null) return null;
-        return value.getValue("LoadBalancerPolicyPolicyAttribute.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'LoadBalancerPolicyPolicyAttribute.value' is not present");
     }
 
 }

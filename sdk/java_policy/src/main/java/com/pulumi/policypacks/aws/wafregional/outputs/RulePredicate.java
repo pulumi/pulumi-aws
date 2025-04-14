@@ -3,32 +3,36 @@
 
 package com.pulumi.policypacks.aws.wafregional.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 
 
 public final class RulePredicate {
 
-    private UndeferrableValue<String> dataId;
-
+    @PolicyResourceProperty(name="dataId", flag="unknown_dataId")
+    private String value_dataId;
+    private boolean unknown_dataId;
     public String dataId() {
-        if (dataId == null) return null;
-        return dataId.getValue("RulePredicate.dataId");
+        if (!unknown_dataId) return value_dataId;
+        throw new UndeferrableValueException("Value 'RulePredicate.dataId' is not present");
     }
 
-    private UndeferrableValue<Boolean> negated;
-
+    @PolicyResourceProperty(name="negated", flag="unknown_negated")
+    private Boolean value_negated;
+    private boolean unknown_negated;
     public Boolean negated() {
-        if (negated == null) return null;
-        return negated.getValue("RulePredicate.negated");
+        if (!unknown_negated) return value_negated;
+        throw new UndeferrableValueException("Value 'RulePredicate.negated' is not present");
     }
 
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("RulePredicate.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'RulePredicate.type' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class VpcEndpointDnsEntry {
      * The DNS name.
      * 
      */
-    private @Nullable UndeferrableValue<String> dnsName;
-
+    @PolicyResourceProperty(name="dnsName", flag="unknown_dnsName")
+    private @Nullable String value_dnsName;
+    private boolean unknown_dnsName;
     public @Nullable String dnsName() {
-        if (dnsName == null) return null;
-        return dnsName.getValue("VpcEndpointDnsEntry.dnsName");
+        if (!unknown_dnsName) return value_dnsName;
+        throw new UndeferrableValueException("Value 'VpcEndpointDnsEntry.dnsName' is not present");
     }
 
     /**
      * The ID of the private hosted zone.
      * 
      */
-    private @Nullable UndeferrableValue<String> hostedZoneId;
-
+    @PolicyResourceProperty(name="hostedZoneId", flag="unknown_hostedZoneId")
+    private @Nullable String value_hostedZoneId;
+    private boolean unknown_hostedZoneId;
     public @Nullable String hostedZoneId() {
-        if (hostedZoneId == null) return null;
-        return hostedZoneId.getValue("VpcEndpointDnsEntry.hostedZoneId");
+        if (!unknown_hostedZoneId) return value_hostedZoneId;
+        throw new UndeferrableValueException("Value 'VpcEndpointDnsEntry.hostedZoneId' is not present");
     }
 
 }

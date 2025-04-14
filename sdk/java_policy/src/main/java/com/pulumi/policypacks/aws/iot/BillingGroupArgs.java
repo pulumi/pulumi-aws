@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.iot.inputs.BillingGroupPropertiesArgs;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class BillingGroupArgs extends com.pulumi.resources.PolicyResourceI
      * The name of the Billing Group.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("BillingGroupArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'BillingGroupArgs.name' is not present");
     }
 
     /**
      * The Billing Group properties. Defined below.
      * 
      */
-    private UndeferrableValue<BillingGroupPropertiesArgs> properties;
-
+    @PolicyResourceProperty(name="properties", flag="unknown_properties")
+    private BillingGroupPropertiesArgs value_properties;
+    private boolean unknown_properties;
     public BillingGroupPropertiesArgs properties() {
-        if (properties == null) return null;
-        return properties.getValue("BillingGroupArgs.properties");
+        if (!unknown_properties) return value_properties;
+        throw new UndeferrableValueException("Value 'BillingGroupArgs.properties' is not present");
     }
 
     /**
      * Key-value mapping of resource tags
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("BillingGroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'BillingGroupArgs.tags' is not present");
     }
 
 }

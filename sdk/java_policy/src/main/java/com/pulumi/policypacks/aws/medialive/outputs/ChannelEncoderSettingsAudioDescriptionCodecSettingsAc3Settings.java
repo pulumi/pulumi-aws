@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,77 +17,84 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Setting
      * Average bitrate in bits/second.
      * 
      */
-    private @Nullable UndeferrableValue<Double> bitrate;
-
+    @PolicyResourceProperty(name="bitrate", flag="unknown_bitrate")
+    private @Nullable Double value_bitrate;
+    private boolean unknown_bitrate;
     public @Nullable Double bitrate() {
-        if (bitrate == null) return null;
-        return bitrate.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings.bitrate");
+        if (!unknown_bitrate) return value_bitrate;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings.bitrate' is not present");
     }
 
     /**
      * Specifies the bitstream mode (bsmod) for the emitted AC-3 stream.
      * 
      */
-    private @Nullable UndeferrableValue<String> bitstreamMode;
-
+    @PolicyResourceProperty(name="bitstreamMode", flag="unknown_bitstreamMode")
+    private @Nullable String value_bitstreamMode;
+    private boolean unknown_bitstreamMode;
     public @Nullable String bitstreamMode() {
-        if (bitstreamMode == null) return null;
-        return bitstreamMode.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings.bitstreamMode");
+        if (!unknown_bitstreamMode) return value_bitstreamMode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings.bitstreamMode' is not present");
     }
 
     /**
      * Dolby Digital coding mode.
      * 
      */
-    private @Nullable UndeferrableValue<String> codingMode;
-
+    @PolicyResourceProperty(name="codingMode", flag="unknown_codingMode")
+    private @Nullable String value_codingMode;
+    private boolean unknown_codingMode;
     public @Nullable String codingMode() {
-        if (codingMode == null) return null;
-        return codingMode.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings.codingMode");
+        if (!unknown_codingMode) return value_codingMode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings.codingMode' is not present");
     }
 
     /**
      * Sets the dialnorm of the output.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> dialnorm;
-
+    @PolicyResourceProperty(name="dialnorm", flag="unknown_dialnorm")
+    private @Nullable Integer value_dialnorm;
+    private boolean unknown_dialnorm;
     public @Nullable Integer dialnorm() {
-        if (dialnorm == null) return null;
-        return dialnorm.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings.dialnorm");
+        if (!unknown_dialnorm) return value_dialnorm;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings.dialnorm' is not present");
     }
 
     /**
      * If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
      * 
      */
-    private @Nullable UndeferrableValue<String> drcProfile;
-
+    @PolicyResourceProperty(name="drcProfile", flag="unknown_drcProfile")
+    private @Nullable String value_drcProfile;
+    private boolean unknown_drcProfile;
     public @Nullable String drcProfile() {
-        if (drcProfile == null) return null;
-        return drcProfile.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings.drcProfile");
+        if (!unknown_drcProfile) return value_drcProfile;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings.drcProfile' is not present");
     }
 
     /**
      * When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding.
      * 
      */
-    private @Nullable UndeferrableValue<String> lfeFilter;
-
+    @PolicyResourceProperty(name="lfeFilter", flag="unknown_lfeFilter")
+    private @Nullable String value_lfeFilter;
+    private boolean unknown_lfeFilter;
     public @Nullable String lfeFilter() {
-        if (lfeFilter == null) return null;
-        return lfeFilter.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings.lfeFilter");
+        if (!unknown_lfeFilter) return value_lfeFilter;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings.lfeFilter' is not present");
     }
 
     /**
      * Metadata control.
      * 
      */
-    private @Nullable UndeferrableValue<String> metadataControl;
-
+    @PolicyResourceProperty(name="metadataControl", flag="unknown_metadataControl")
+    private @Nullable String value_metadataControl;
+    private boolean unknown_metadataControl;
     public @Nullable String metadataControl() {
-        if (metadataControl == null) return null;
-        return metadataControl.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings.metadataControl");
+        if (!unknown_metadataControl) return value_metadataControl;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings.metadataControl' is not present");
     }
 
 }

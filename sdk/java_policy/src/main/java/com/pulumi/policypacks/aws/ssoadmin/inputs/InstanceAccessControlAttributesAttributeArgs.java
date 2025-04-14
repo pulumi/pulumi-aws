@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssoadmin.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ssoadmin.inputs.InstanceAccessControlAttributesAttributeValueArgs;
 import java.lang.String;
 import java.util.List;
@@ -15,22 +16,24 @@ public final class InstanceAccessControlAttributesAttributeArgs {
      * The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("InstanceAccessControlAttributesAttributeArgs.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'InstanceAccessControlAttributesAttributeArgs.key' is not present");
     }
 
     /**
      * The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
      * 
      */
-    private UndeferrableValue<List<InstanceAccessControlAttributesAttributeValueArgs>> values;
-
+    @PolicyResourceProperty(name="values", flag="unknown_values")
+    private List<InstanceAccessControlAttributesAttributeValueArgs> value_values;
+    private boolean unknown_values;
     public List<InstanceAccessControlAttributesAttributeValueArgs> values() {
-        if (values == null) return null;
-        return values.getValue("InstanceAccessControlAttributesAttributeArgs.values");
+        if (!unknown_values) return value_values;
+        throw new UndeferrableValueException("Value 'InstanceAccessControlAttributesAttributeArgs.values' is not present");
     }
 
 }

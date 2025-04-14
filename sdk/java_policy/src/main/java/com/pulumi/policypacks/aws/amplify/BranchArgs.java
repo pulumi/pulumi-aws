@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.amplify;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,187 +19,204 @@ public final class BranchArgs extends com.pulumi.resources.PolicyResourceInput {
      * Unique ID for an Amplify app.
      * 
      */
-    private UndeferrableValue<String> appId;
-
+    @PolicyResourceProperty(name="appId", flag="unknown_appId")
+    private String value_appId;
+    private boolean unknown_appId;
     public String appId() {
-        if (appId == null) return null;
-        return appId.getValue("BranchArgs.appId");
+        if (!unknown_appId) return value_appId;
+        throw new UndeferrableValueException("Value 'BranchArgs.appId' is not present");
     }
 
     /**
      * ARN for a backend environment that is part of an Amplify app.
      * 
      */
-    private UndeferrableValue<String> backendEnvironmentArn;
-
+    @PolicyResourceProperty(name="backendEnvironmentArn", flag="unknown_backendEnvironmentArn")
+    private String value_backendEnvironmentArn;
+    private boolean unknown_backendEnvironmentArn;
     public String backendEnvironmentArn() {
-        if (backendEnvironmentArn == null) return null;
-        return backendEnvironmentArn.getValue("BranchArgs.backendEnvironmentArn");
+        if (!unknown_backendEnvironmentArn) return value_backendEnvironmentArn;
+        throw new UndeferrableValueException("Value 'BranchArgs.backendEnvironmentArn' is not present");
     }
 
     /**
      * Basic authorization credentials for the branch.
      * 
      */
-    private UndeferrableValue<String> basicAuthCredentials;
-
+    @PolicyResourceProperty(name="basicAuthCredentials", flag="unknown_basicAuthCredentials")
+    private String value_basicAuthCredentials;
+    private boolean unknown_basicAuthCredentials;
     public String basicAuthCredentials() {
-        if (basicAuthCredentials == null) return null;
-        return basicAuthCredentials.getValue("BranchArgs.basicAuthCredentials");
+        if (!unknown_basicAuthCredentials) return value_basicAuthCredentials;
+        throw new UndeferrableValueException("Value 'BranchArgs.basicAuthCredentials' is not present");
     }
 
     /**
      * Name for the branch.
      * 
      */
-    private UndeferrableValue<String> branchName;
-
+    @PolicyResourceProperty(name="branchName", flag="unknown_branchName")
+    private String value_branchName;
+    private boolean unknown_branchName;
     public String branchName() {
-        if (branchName == null) return null;
-        return branchName.getValue("BranchArgs.branchName");
+        if (!unknown_branchName) return value_branchName;
+        throw new UndeferrableValueException("Value 'BranchArgs.branchName' is not present");
     }
 
     /**
      * Description for the branch.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("BranchArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'BranchArgs.description' is not present");
     }
 
     /**
      * Display name for a branch. This is used as the default domain prefix.
      * 
      */
-    private UndeferrableValue<String> displayName;
-
+    @PolicyResourceProperty(name="displayName", flag="unknown_displayName")
+    private String value_displayName;
+    private boolean unknown_displayName;
     public String displayName() {
-        if (displayName == null) return null;
-        return displayName.getValue("BranchArgs.displayName");
+        if (!unknown_displayName) return value_displayName;
+        throw new UndeferrableValueException("Value 'BranchArgs.displayName' is not present");
     }
 
     /**
      * Enables auto building for the branch.
      * 
      */
-    private UndeferrableValue<Boolean> enableAutoBuild;
-
+    @PolicyResourceProperty(name="enableAutoBuild", flag="unknown_enableAutoBuild")
+    private Boolean value_enableAutoBuild;
+    private boolean unknown_enableAutoBuild;
     public Boolean enableAutoBuild() {
-        if (enableAutoBuild == null) return null;
-        return enableAutoBuild.getValue("BranchArgs.enableAutoBuild");
+        if (!unknown_enableAutoBuild) return value_enableAutoBuild;
+        throw new UndeferrableValueException("Value 'BranchArgs.enableAutoBuild' is not present");
     }
 
     /**
      * Enables basic authorization for the branch.
      * 
      */
-    private UndeferrableValue<Boolean> enableBasicAuth;
-
+    @PolicyResourceProperty(name="enableBasicAuth", flag="unknown_enableBasicAuth")
+    private Boolean value_enableBasicAuth;
+    private boolean unknown_enableBasicAuth;
     public Boolean enableBasicAuth() {
-        if (enableBasicAuth == null) return null;
-        return enableBasicAuth.getValue("BranchArgs.enableBasicAuth");
+        if (!unknown_enableBasicAuth) return value_enableBasicAuth;
+        throw new UndeferrableValueException("Value 'BranchArgs.enableBasicAuth' is not present");
     }
 
     /**
      * Enables notifications for the branch.
      * 
      */
-    private UndeferrableValue<Boolean> enableNotification;
-
+    @PolicyResourceProperty(name="enableNotification", flag="unknown_enableNotification")
+    private Boolean value_enableNotification;
+    private boolean unknown_enableNotification;
     public Boolean enableNotification() {
-        if (enableNotification == null) return null;
-        return enableNotification.getValue("BranchArgs.enableNotification");
+        if (!unknown_enableNotification) return value_enableNotification;
+        throw new UndeferrableValueException("Value 'BranchArgs.enableNotification' is not present");
     }
 
     /**
      * Enables performance mode for the branch.
      * 
      */
-    private UndeferrableValue<Boolean> enablePerformanceMode;
-
+    @PolicyResourceProperty(name="enablePerformanceMode", flag="unknown_enablePerformanceMode")
+    private Boolean value_enablePerformanceMode;
+    private boolean unknown_enablePerformanceMode;
     public Boolean enablePerformanceMode() {
-        if (enablePerformanceMode == null) return null;
-        return enablePerformanceMode.getValue("BranchArgs.enablePerformanceMode");
+        if (!unknown_enablePerformanceMode) return value_enablePerformanceMode;
+        throw new UndeferrableValueException("Value 'BranchArgs.enablePerformanceMode' is not present");
     }
 
     /**
      * Enables pull request previews for this branch.
      * 
      */
-    private UndeferrableValue<Boolean> enablePullRequestPreview;
-
+    @PolicyResourceProperty(name="enablePullRequestPreview", flag="unknown_enablePullRequestPreview")
+    private Boolean value_enablePullRequestPreview;
+    private boolean unknown_enablePullRequestPreview;
     public Boolean enablePullRequestPreview() {
-        if (enablePullRequestPreview == null) return null;
-        return enablePullRequestPreview.getValue("BranchArgs.enablePullRequestPreview");
+        if (!unknown_enablePullRequestPreview) return value_enablePullRequestPreview;
+        throw new UndeferrableValueException("Value 'BranchArgs.enablePullRequestPreview' is not present");
     }
 
     /**
      * Environment variables for the branch.
      * 
      */
-    private UndeferrableValue<Map<String,String>> environmentVariables;
-
+    @PolicyResourceProperty(name="environmentVariables", flag="unknown_environmentVariables")
+    private Map<String,String> value_environmentVariables;
+    private boolean unknown_environmentVariables;
     public Map<String,String> environmentVariables() {
-        if (environmentVariables == null) return null;
-        return environmentVariables.getValue("BranchArgs.environmentVariables");
+        if (!unknown_environmentVariables) return value_environmentVariables;
+        throw new UndeferrableValueException("Value 'BranchArgs.environmentVariables' is not present");
     }
 
     /**
      * Framework for the branch.
      * 
      */
-    private UndeferrableValue<String> framework;
-
+    @PolicyResourceProperty(name="framework", flag="unknown_framework")
+    private String value_framework;
+    private boolean unknown_framework;
     public String framework() {
-        if (framework == null) return null;
-        return framework.getValue("BranchArgs.framework");
+        if (!unknown_framework) return value_framework;
+        throw new UndeferrableValueException("Value 'BranchArgs.framework' is not present");
     }
 
     /**
      * Amplify environment name for the pull request.
      * 
      */
-    private UndeferrableValue<String> pullRequestEnvironmentName;
-
+    @PolicyResourceProperty(name="pullRequestEnvironmentName", flag="unknown_pullRequestEnvironmentName")
+    private String value_pullRequestEnvironmentName;
+    private boolean unknown_pullRequestEnvironmentName;
     public String pullRequestEnvironmentName() {
-        if (pullRequestEnvironmentName == null) return null;
-        return pullRequestEnvironmentName.getValue("BranchArgs.pullRequestEnvironmentName");
+        if (!unknown_pullRequestEnvironmentName) return value_pullRequestEnvironmentName;
+        throw new UndeferrableValueException("Value 'BranchArgs.pullRequestEnvironmentName' is not present");
     }
 
     /**
      * Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
      * 
      */
-    private UndeferrableValue<String> stage;
-
+    @PolicyResourceProperty(name="stage", flag="unknown_stage")
+    private String value_stage;
+    private boolean unknown_stage;
     public String stage() {
-        if (stage == null) return null;
-        return stage.getValue("BranchArgs.stage");
+        if (!unknown_stage) return value_stage;
+        throw new UndeferrableValueException("Value 'BranchArgs.stage' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("BranchArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'BranchArgs.tags' is not present");
     }
 
     /**
      * Content Time To Live (TTL) for the website in seconds.
      * 
      */
-    private UndeferrableValue<String> ttl;
-
+    @PolicyResourceProperty(name="ttl", flag="unknown_ttl")
+    private String value_ttl;
+    private boolean unknown_ttl;
     public String ttl() {
-        if (ttl == null) return null;
-        return ttl.getValue("BranchArgs.ttl");
+        if (!unknown_ttl) return value_ttl;
+        throw new UndeferrableValueException("Value 'BranchArgs.ttl' is not present");
     }
 
 }

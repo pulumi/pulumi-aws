@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ChannelCdiInputSpecification {
      * Maximum CDI input resolution.
      * 
      */
-    private UndeferrableValue<String> resolution;
-
+    @PolicyResourceProperty(name="resolution", flag="unknown_resolution")
+    private String value_resolution;
+    private boolean unknown_resolution;
     public String resolution() {
-        if (resolution == null) return null;
-        return resolution.getValue("ChannelCdiInputSpecification.resolution");
+        if (!unknown_resolution) return value_resolution;
+        throw new UndeferrableValueException("Value 'ChannelCdiInputSpecification.resolution' is not present");
     }
 
 }

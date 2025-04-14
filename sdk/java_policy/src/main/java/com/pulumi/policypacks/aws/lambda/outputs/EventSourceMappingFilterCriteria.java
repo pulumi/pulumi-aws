@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lambda.outputs.EventSourceMappingFilterCriteriaFilter;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class EventSourceMappingFilterCriteria {
      * A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<EventSourceMappingFilterCriteriaFilter>> filters;
-
+    @PolicyResourceProperty(name="filters", flag="unknown_filters")
+    private @Nullable List<EventSourceMappingFilterCriteriaFilter> value_filters;
+    private boolean unknown_filters;
     public @Nullable List<EventSourceMappingFilterCriteriaFilter> filters() {
-        if (filters == null) return null;
-        return filters.getValue("EventSourceMappingFilterCriteria.filters");
+        if (!unknown_filters) return value_filters;
+        throw new UndeferrableValueException("Value 'EventSourceMappingFilterCriteria.filters' is not present");
     }
 
 }

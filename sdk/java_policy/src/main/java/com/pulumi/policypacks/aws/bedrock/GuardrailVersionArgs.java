@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.bedrock.inputs.GuardrailVersionTimeoutsArgs;
 import java.lang.Boolean;
@@ -18,11 +19,12 @@ public final class GuardrailVersionArgs extends com.pulumi.resources.PolicyResou
      * Description of the Guardrail version.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("GuardrailVersionArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'GuardrailVersionArgs.description' is not present");
     }
 
     /**
@@ -31,29 +33,32 @@ public final class GuardrailVersionArgs extends com.pulumi.resources.PolicyResou
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> guardrailArn;
-
+    @PolicyResourceProperty(name="guardrailArn", flag="unknown_guardrailArn")
+    private String value_guardrailArn;
+    private boolean unknown_guardrailArn;
     public String guardrailArn() {
-        if (guardrailArn == null) return null;
-        return guardrailArn.getValue("GuardrailVersionArgs.guardrailArn");
+        if (!unknown_guardrailArn) return value_guardrailArn;
+        throw new UndeferrableValueException("Value 'GuardrailVersionArgs.guardrailArn' is not present");
     }
 
     /**
      * Whether to retain the old version of a previously deployed Guardrail. Default is `false`
      * 
      */
-    private UndeferrableValue<Boolean> skipDestroy;
-
+    @PolicyResourceProperty(name="skipDestroy", flag="unknown_skipDestroy")
+    private Boolean value_skipDestroy;
+    private boolean unknown_skipDestroy;
     public Boolean skipDestroy() {
-        if (skipDestroy == null) return null;
-        return skipDestroy.getValue("GuardrailVersionArgs.skipDestroy");
+        if (!unknown_skipDestroy) return value_skipDestroy;
+        throw new UndeferrableValueException("Value 'GuardrailVersionArgs.skipDestroy' is not present");
     }
 
-    private UndeferrableValue<GuardrailVersionTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private GuardrailVersionTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public GuardrailVersionTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("GuardrailVersionArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'GuardrailVersionArgs.timeouts' is not present");
     }
 
 }

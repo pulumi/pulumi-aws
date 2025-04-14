@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class FunctionImageConfig {
      * Parameters that you want to pass in with `entry_point`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> commands;
-
+    @PolicyResourceProperty(name="commands", flag="unknown_commands")
+    private @Nullable List<String> value_commands;
+    private boolean unknown_commands;
     public @Nullable List<String> commands() {
-        if (commands == null) return null;
-        return commands.getValue("FunctionImageConfig.commands");
+        if (!unknown_commands) return value_commands;
+        throw new UndeferrableValueException("Value 'FunctionImageConfig.commands' is not present");
     }
 
     /**
      * Entry point to your application, which is typically the location of the runtime executable.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> entryPoints;
-
+    @PolicyResourceProperty(name="entryPoints", flag="unknown_entryPoints")
+    private @Nullable List<String> value_entryPoints;
+    private boolean unknown_entryPoints;
     public @Nullable List<String> entryPoints() {
-        if (entryPoints == null) return null;
-        return entryPoints.getValue("FunctionImageConfig.entryPoints");
+        if (!unknown_entryPoints) return value_entryPoints;
+        throw new UndeferrableValueException("Value 'FunctionImageConfig.entryPoints' is not present");
     }
 
     /**
      * Working directory.
      * 
      */
-    private @Nullable UndeferrableValue<String> workingDirectory;
-
+    @PolicyResourceProperty(name="workingDirectory", flag="unknown_workingDirectory")
+    private @Nullable String value_workingDirectory;
+    private boolean unknown_workingDirectory;
     public @Nullable String workingDirectory() {
-        if (workingDirectory == null) return null;
-        return workingDirectory.getValue("FunctionImageConfig.workingDirectory");
+        if (!unknown_workingDirectory) return value_workingDirectory;
+        throw new UndeferrableValueException("Value 'FunctionImageConfig.workingDirectory' is not present");
     }
 
 }

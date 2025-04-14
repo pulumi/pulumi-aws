@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3control.inputs.MultiRegionAccessPointDetailsPublicAccessBlockArgs;
 import com.pulumi.policypacks.aws.s3control.inputs.MultiRegionAccessPointDetailsRegionArgs;
 import java.lang.String;
@@ -13,25 +14,28 @@ import javax.annotation.Nullable;
 
 public final class MultiRegionAccessPointDetailsArgs {
 
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("MultiRegionAccessPointDetailsArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'MultiRegionAccessPointDetailsArgs.name' is not present");
     }
 
-    private UndeferrableValue<MultiRegionAccessPointDetailsPublicAccessBlockArgs> publicAccessBlock;
-
+    @PolicyResourceProperty(name="publicAccessBlock", flag="unknown_publicAccessBlock")
+    private MultiRegionAccessPointDetailsPublicAccessBlockArgs value_publicAccessBlock;
+    private boolean unknown_publicAccessBlock;
     public MultiRegionAccessPointDetailsPublicAccessBlockArgs publicAccessBlock() {
-        if (publicAccessBlock == null) return null;
-        return publicAccessBlock.getValue("MultiRegionAccessPointDetailsArgs.publicAccessBlock");
+        if (!unknown_publicAccessBlock) return value_publicAccessBlock;
+        throw new UndeferrableValueException("Value 'MultiRegionAccessPointDetailsArgs.publicAccessBlock' is not present");
     }
 
-    private UndeferrableValue<List<MultiRegionAccessPointDetailsRegionArgs>> regions;
-
+    @PolicyResourceProperty(name="regions", flag="unknown_regions")
+    private List<MultiRegionAccessPointDetailsRegionArgs> value_regions;
+    private boolean unknown_regions;
     public List<MultiRegionAccessPointDetailsRegionArgs> regions() {
-        if (regions == null) return null;
-        return regions.getValue("MultiRegionAccessPointDetailsArgs.regions");
+        if (!unknown_regions) return value_regions;
+        throw new UndeferrableValueException("Value 'MultiRegionAccessPointDetailsArgs.regions' is not present");
     }
 
 }

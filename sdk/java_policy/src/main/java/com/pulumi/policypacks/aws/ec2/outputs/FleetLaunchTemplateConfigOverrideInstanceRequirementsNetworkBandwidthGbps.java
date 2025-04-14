@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkB
      * The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
      * 
      */
-    private @Nullable UndeferrableValue<Double> max;
-
+    @PolicyResourceProperty(name="max", flag="unknown_max")
+    private @Nullable Double value_max;
+    private boolean unknown_max;
     public @Nullable Double max() {
-        if (max == null) return null;
-        return max.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps.max");
+        if (!unknown_max) return value_max;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps.max' is not present");
     }
 
     /**
      * The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
      * 
      */
-    private @Nullable UndeferrableValue<Double> min;
-
+    @PolicyResourceProperty(name="min", flag="unknown_min")
+    private @Nullable Double value_min;
+    private boolean unknown_min;
     public @Nullable Double min() {
-        if (min == null) return null;
-        return min.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps.min");
+        if (!unknown_min) return value_min;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps.min' is not present");
     }
 
 }

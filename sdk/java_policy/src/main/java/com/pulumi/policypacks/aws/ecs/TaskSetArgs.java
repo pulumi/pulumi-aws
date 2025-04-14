@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ecs.inputs.TaskSetCapacityProviderStrategyArgs;
 import com.pulumi.policypacks.aws.ecs.inputs.TaskSetLoadBalancerArgs;
@@ -24,132 +25,144 @@ public final class TaskSetArgs extends com.pulumi.resources.PolicyResourceInput 
      * The capacity provider strategy to use for the service. Can be one or more.  Defined below.
      * 
      */
-    private UndeferrableValue<List<TaskSetCapacityProviderStrategyArgs>> capacityProviderStrategies;
-
+    @PolicyResourceProperty(name="capacityProviderStrategies", flag="unknown_capacityProviderStrategies")
+    private List<TaskSetCapacityProviderStrategyArgs> value_capacityProviderStrategies;
+    private boolean unknown_capacityProviderStrategies;
     public List<TaskSetCapacityProviderStrategyArgs> capacityProviderStrategies() {
-        if (capacityProviderStrategies == null) return null;
-        return capacityProviderStrategies.getValue("TaskSetArgs.capacityProviderStrategies");
+        if (!unknown_capacityProviderStrategies) return value_capacityProviderStrategies;
+        throw new UndeferrableValueException("Value 'TaskSetArgs.capacityProviderStrategies' is not present");
     }
 
     /**
      * The short name or ARN of the cluster that hosts the service to create the task set in.
      * 
      */
-    private UndeferrableValue<String> cluster;
-
+    @PolicyResourceProperty(name="cluster", flag="unknown_cluster")
+    private String value_cluster;
+    private boolean unknown_cluster;
     public String cluster() {
-        if (cluster == null) return null;
-        return cluster.getValue("TaskSetArgs.cluster");
+        if (!unknown_cluster) return value_cluster;
+        throw new UndeferrableValueException("Value 'TaskSetArgs.cluster' is not present");
     }
 
     /**
      * The external ID associated with the task set.
      * 
      */
-    private UndeferrableValue<String> externalId;
-
+    @PolicyResourceProperty(name="externalId", flag="unknown_externalId")
+    private String value_externalId;
+    private boolean unknown_externalId;
     public String externalId() {
-        if (externalId == null) return null;
-        return externalId.getValue("TaskSetArgs.externalId");
+        if (!unknown_externalId) return value_externalId;
+        throw new UndeferrableValueException("Value 'TaskSetArgs.externalId' is not present");
     }
 
     /**
      * Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it&#39;s in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
      * 
      */
-    private UndeferrableValue<Boolean> forceDelete;
-
+    @PolicyResourceProperty(name="forceDelete", flag="unknown_forceDelete")
+    private Boolean value_forceDelete;
+    private boolean unknown_forceDelete;
     public Boolean forceDelete() {
-        if (forceDelete == null) return null;
-        return forceDelete.getValue("TaskSetArgs.forceDelete");
+        if (!unknown_forceDelete) return value_forceDelete;
+        throw new UndeferrableValueException("Value 'TaskSetArgs.forceDelete' is not present");
     }
 
     /**
      * The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
      * 
      */
-    private UndeferrableValue<String> launchType;
-
+    @PolicyResourceProperty(name="launchType", flag="unknown_launchType")
+    private String value_launchType;
+    private boolean unknown_launchType;
     public String launchType() {
-        if (launchType == null) return null;
-        return launchType.getValue("TaskSetArgs.launchType");
+        if (!unknown_launchType) return value_launchType;
+        throw new UndeferrableValueException("Value 'TaskSetArgs.launchType' is not present");
     }
 
     /**
      * Details on load balancers that are used with a task set. Detailed below.
      * 
      */
-    private UndeferrableValue<List<TaskSetLoadBalancerArgs>> loadBalancers;
-
+    @PolicyResourceProperty(name="loadBalancers", flag="unknown_loadBalancers")
+    private List<TaskSetLoadBalancerArgs> value_loadBalancers;
+    private boolean unknown_loadBalancers;
     public List<TaskSetLoadBalancerArgs> loadBalancers() {
-        if (loadBalancers == null) return null;
-        return loadBalancers.getValue("TaskSetArgs.loadBalancers");
+        if (!unknown_loadBalancers) return value_loadBalancers;
+        throw new UndeferrableValueException("Value 'TaskSetArgs.loadBalancers' is not present");
     }
 
     /**
      * The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
      * 
      */
-    private UndeferrableValue<TaskSetNetworkConfigurationArgs> networkConfiguration;
-
+    @PolicyResourceProperty(name="networkConfiguration", flag="unknown_networkConfiguration")
+    private TaskSetNetworkConfigurationArgs value_networkConfiguration;
+    private boolean unknown_networkConfiguration;
     public TaskSetNetworkConfigurationArgs networkConfiguration() {
-        if (networkConfiguration == null) return null;
-        return networkConfiguration.getValue("TaskSetArgs.networkConfiguration");
+        if (!unknown_networkConfiguration) return value_networkConfiguration;
+        throw new UndeferrableValueException("Value 'TaskSetArgs.networkConfiguration' is not present");
     }
 
     /**
      * The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      * 
      */
-    private UndeferrableValue<String> platformVersion;
-
+    @PolicyResourceProperty(name="platformVersion", flag="unknown_platformVersion")
+    private String value_platformVersion;
+    private boolean unknown_platformVersion;
     public String platformVersion() {
-        if (platformVersion == null) return null;
-        return platformVersion.getValue("TaskSetArgs.platformVersion");
+        if (!unknown_platformVersion) return value_platformVersion;
+        throw new UndeferrableValueException("Value 'TaskSetArgs.platformVersion' is not present");
     }
 
     /**
      * A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
      * 
      */
-    private UndeferrableValue<TaskSetScaleArgs> scale;
-
+    @PolicyResourceProperty(name="scale", flag="unknown_scale")
+    private TaskSetScaleArgs value_scale;
+    private boolean unknown_scale;
     public TaskSetScaleArgs scale() {
-        if (scale == null) return null;
-        return scale.getValue("TaskSetArgs.scale");
+        if (!unknown_scale) return value_scale;
+        throw new UndeferrableValueException("Value 'TaskSetArgs.scale' is not present");
     }
 
     /**
      * The short name or ARN of the ECS service.
      * 
      */
-    private UndeferrableValue<String> service;
-
+    @PolicyResourceProperty(name="service", flag="unknown_service")
+    private String value_service;
+    private boolean unknown_service;
     public String service() {
-        if (service == null) return null;
-        return service.getValue("TaskSetArgs.service");
+        if (!unknown_service) return value_service;
+        throw new UndeferrableValueException("Value 'TaskSetArgs.service' is not present");
     }
 
     /**
      * The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
      * 
      */
-    private UndeferrableValue<TaskSetServiceRegistriesArgs> serviceRegistries;
-
+    @PolicyResourceProperty(name="serviceRegistries", flag="unknown_serviceRegistries")
+    private TaskSetServiceRegistriesArgs value_serviceRegistries;
+    private boolean unknown_serviceRegistries;
     public TaskSetServiceRegistriesArgs serviceRegistries() {
-        if (serviceRegistries == null) return null;
-        return serviceRegistries.getValue("TaskSetArgs.serviceRegistries");
+        if (!unknown_serviceRegistries) return value_serviceRegistries;
+        throw new UndeferrableValueException("Value 'TaskSetArgs.serviceRegistries' is not present");
     }
 
     /**
      * A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TaskSetArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TaskSetArgs.tags' is not present");
     }
 
     /**
@@ -158,33 +171,36 @@ public final class TaskSetArgs extends com.pulumi.resources.PolicyResourceInput 
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> taskDefinition;
-
+    @PolicyResourceProperty(name="taskDefinition", flag="unknown_taskDefinition")
+    private String value_taskDefinition;
+    private boolean unknown_taskDefinition;
     public String taskDefinition() {
-        if (taskDefinition == null) return null;
-        return taskDefinition.getValue("TaskSetArgs.taskDefinition");
+        if (!unknown_taskDefinition) return value_taskDefinition;
+        throw new UndeferrableValueException("Value 'TaskSetArgs.taskDefinition' is not present");
     }
 
     /**
      * Whether the provider should wait until the task set has reached `STEADY_STATE`.
      * 
      */
-    private UndeferrableValue<Boolean> waitUntilStable;
-
+    @PolicyResourceProperty(name="waitUntilStable", flag="unknown_waitUntilStable")
+    private Boolean value_waitUntilStable;
+    private boolean unknown_waitUntilStable;
     public Boolean waitUntilStable() {
-        if (waitUntilStable == null) return null;
-        return waitUntilStable.getValue("TaskSetArgs.waitUntilStable");
+        if (!unknown_waitUntilStable) return value_waitUntilStable;
+        throw new UndeferrableValueException("Value 'TaskSetArgs.waitUntilStable' is not present");
     }
 
     /**
      * Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
      * 
      */
-    private UndeferrableValue<String> waitUntilStableTimeout;
-
+    @PolicyResourceProperty(name="waitUntilStableTimeout", flag="unknown_waitUntilStableTimeout")
+    private String value_waitUntilStableTimeout;
+    private boolean unknown_waitUntilStableTimeout;
     public String waitUntilStableTimeout() {
-        if (waitUntilStableTimeout == null) return null;
-        return waitUntilStableTimeout.getValue("TaskSetArgs.waitUntilStableTimeout");
+        if (!unknown_waitUntilStableTimeout) return value_waitUntilStableTimeout;
+        throw new UndeferrableValueException("Value 'TaskSetArgs.waitUntilStableTimeout' is not present");
     }
 
 }

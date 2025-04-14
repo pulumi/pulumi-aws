@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualServiceSpecProviderVirtualNodeArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualServiceSpecProviderVirtualRouterArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class VirtualServiceSpecProviderArgs {
      * Virtual node associated with a virtual service.
      * 
      */
-    private UndeferrableValue<VirtualServiceSpecProviderVirtualNodeArgs> virtualNode;
-
+    @PolicyResourceProperty(name="virtualNode", flag="unknown_virtualNode")
+    private VirtualServiceSpecProviderVirtualNodeArgs value_virtualNode;
+    private boolean unknown_virtualNode;
     public VirtualServiceSpecProviderVirtualNodeArgs virtualNode() {
-        if (virtualNode == null) return null;
-        return virtualNode.getValue("VirtualServiceSpecProviderArgs.virtualNode");
+        if (!unknown_virtualNode) return value_virtualNode;
+        throw new UndeferrableValueException("Value 'VirtualServiceSpecProviderArgs.virtualNode' is not present");
     }
 
     /**
      * Virtual router associated with a virtual service.
      * 
      */
-    private UndeferrableValue<VirtualServiceSpecProviderVirtualRouterArgs> virtualRouter;
-
+    @PolicyResourceProperty(name="virtualRouter", flag="unknown_virtualRouter")
+    private VirtualServiceSpecProviderVirtualRouterArgs value_virtualRouter;
+    private boolean unknown_virtualRouter;
     public VirtualServiceSpecProviderVirtualRouterArgs virtualRouter() {
-        if (virtualRouter == null) return null;
-        return virtualRouter.getValue("VirtualServiceSpecProviderArgs.virtualRouter");
+        if (!unknown_virtualRouter) return value_virtualRouter;
+        throw new UndeferrableValueException("Value 'VirtualServiceSpecProviderArgs.virtualRouter' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class DistributionDefaultCacheBehavior {
      * The cache behavior of the distribution. Valid values: `cache` and `dont-cache`.
      * 
      */
-    private UndeferrableValue<String> behavior;
-
+    @PolicyResourceProperty(name="behavior", flag="unknown_behavior")
+    private String value_behavior;
+    private boolean unknown_behavior;
     public String behavior() {
-        if (behavior == null) return null;
-        return behavior.getValue("DistributionDefaultCacheBehavior.behavior");
+        if (!unknown_behavior) return value_behavior;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehavior.behavior' is not present");
     }
 
 }

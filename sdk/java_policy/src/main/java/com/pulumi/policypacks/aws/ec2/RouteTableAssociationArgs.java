@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class RouteTableAssociationArgs extends com.pulumi.resources.Policy
      * The gateway ID to create an association. Conflicts with `subnet_id`.
      * 
      */
-    private UndeferrableValue<String> gatewayId;
-
+    @PolicyResourceProperty(name="gatewayId", flag="unknown_gatewayId")
+    private String value_gatewayId;
+    private boolean unknown_gatewayId;
     public String gatewayId() {
-        if (gatewayId == null) return null;
-        return gatewayId.getValue("RouteTableAssociationArgs.gatewayId");
+        if (!unknown_gatewayId) return value_gatewayId;
+        throw new UndeferrableValueException("Value 'RouteTableAssociationArgs.gatewayId' is not present");
     }
 
     /**
      * The ID of the routing table to associate with.
      * 
      */
-    private UndeferrableValue<String> routeTableId;
-
+    @PolicyResourceProperty(name="routeTableId", flag="unknown_routeTableId")
+    private String value_routeTableId;
+    private boolean unknown_routeTableId;
     public String routeTableId() {
-        if (routeTableId == null) return null;
-        return routeTableId.getValue("RouteTableAssociationArgs.routeTableId");
+        if (!unknown_routeTableId) return value_routeTableId;
+        throw new UndeferrableValueException("Value 'RouteTableAssociationArgs.routeTableId' is not present");
     }
 
     /**
      * The subnet ID to create an association. Conflicts with `gateway_id`.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("RouteTableAssociationArgs.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'RouteTableAssociationArgs.subnetId' is not present");
     }
 
 }

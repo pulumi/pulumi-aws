@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.devopsguru;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.devopsguru.inputs.ResourceCollectionCloudformationArgs;
 import com.pulumi.policypacks.aws.devopsguru.inputs.ResourceCollectionTagsArgs;
@@ -18,22 +19,24 @@ public final class ResourceCollectionArgs extends com.pulumi.resources.PolicyRes
      * A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
      * 
      */
-    private UndeferrableValue<ResourceCollectionCloudformationArgs> cloudformation;
-
+    @PolicyResourceProperty(name="cloudformation", flag="unknown_cloudformation")
+    private ResourceCollectionCloudformationArgs value_cloudformation;
+    private boolean unknown_cloudformation;
     public ResourceCollectionCloudformationArgs cloudformation() {
-        if (cloudformation == null) return null;
-        return cloudformation.getValue("ResourceCollectionArgs.cloudformation");
+        if (!unknown_cloudformation) return value_cloudformation;
+        throw new UndeferrableValueException("Value 'ResourceCollectionArgs.cloudformation' is not present");
     }
 
     /**
      * AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
      * 
      */
-    private UndeferrableValue<ResourceCollectionTagsArgs> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private ResourceCollectionTagsArgs value_tags;
+    private boolean unknown_tags;
     public ResourceCollectionTagsArgs tags() {
-        if (tags == null) return null;
-        return tags.getValue("ResourceCollectionArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ResourceCollectionArgs.tags' is not present");
     }
 
     /**
@@ -42,11 +45,12 @@ public final class ResourceCollectionArgs extends com.pulumi.resources.PolicyRes
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ResourceCollectionArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ResourceCollectionArgs.type' is not present");
     }
 
 }

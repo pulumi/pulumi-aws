@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,22 +15,24 @@ public final class PermissionsLfTagPolicyExpressionArgs {
      * The key-name of an LF-Tag.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("PermissionsLfTagPolicyExpressionArgs.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'PermissionsLfTagPolicyExpressionArgs.key' is not present");
     }
 
     /**
      * A list of possible values of an LF-Tag.
      * 
      */
-    private UndeferrableValue<List<String>> values;
-
+    @PolicyResourceProperty(name="values", flag="unknown_values")
+    private List<String> value_values;
+    private boolean unknown_values;
     public List<String> values() {
-        if (values == null) return null;
-        return values.getValue("PermissionsLfTagPolicyExpressionArgs.values");
+        if (!unknown_values) return value_values;
+        throw new UndeferrableValueException("Value 'PermissionsLfTagPolicyExpressionArgs.values' is not present");
     }
 
 }

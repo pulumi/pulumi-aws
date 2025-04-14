@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -18,44 +19,48 @@ public final class ProxyTargetArgs extends com.pulumi.resources.PolicyResourceIn
      * **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
      * 
      */
-    private UndeferrableValue<String> dbClusterIdentifier;
-
+    @PolicyResourceProperty(name="dbClusterIdentifier", flag="unknown_dbClusterIdentifier")
+    private String value_dbClusterIdentifier;
+    private boolean unknown_dbClusterIdentifier;
     public String dbClusterIdentifier() {
-        if (dbClusterIdentifier == null) return null;
-        return dbClusterIdentifier.getValue("ProxyTargetArgs.dbClusterIdentifier");
+        if (!unknown_dbClusterIdentifier) return value_dbClusterIdentifier;
+        throw new UndeferrableValueException("Value 'ProxyTargetArgs.dbClusterIdentifier' is not present");
     }
 
     /**
      * DB instance identifier.
      * 
      */
-    private UndeferrableValue<String> dbInstanceIdentifier;
-
+    @PolicyResourceProperty(name="dbInstanceIdentifier", flag="unknown_dbInstanceIdentifier")
+    private String value_dbInstanceIdentifier;
+    private boolean unknown_dbInstanceIdentifier;
     public String dbInstanceIdentifier() {
-        if (dbInstanceIdentifier == null) return null;
-        return dbInstanceIdentifier.getValue("ProxyTargetArgs.dbInstanceIdentifier");
+        if (!unknown_dbInstanceIdentifier) return value_dbInstanceIdentifier;
+        throw new UndeferrableValueException("Value 'ProxyTargetArgs.dbInstanceIdentifier' is not present");
     }
 
     /**
      * The name of the DB proxy.
      * 
      */
-    private UndeferrableValue<String> dbProxyName;
-
+    @PolicyResourceProperty(name="dbProxyName", flag="unknown_dbProxyName")
+    private String value_dbProxyName;
+    private boolean unknown_dbProxyName;
     public String dbProxyName() {
-        if (dbProxyName == null) return null;
-        return dbProxyName.getValue("ProxyTargetArgs.dbProxyName");
+        if (!unknown_dbProxyName) return value_dbProxyName;
+        throw new UndeferrableValueException("Value 'ProxyTargetArgs.dbProxyName' is not present");
     }
 
     /**
      * The name of the target group.
      * 
      */
-    private UndeferrableValue<String> targetGroupName;
-
+    @PolicyResourceProperty(name="targetGroupName", flag="unknown_targetGroupName")
+    private String value_targetGroupName;
+    private boolean unknown_targetGroupName;
     public String targetGroupName() {
-        if (targetGroupName == null) return null;
-        return targetGroupName.getValue("ProxyTargetArgs.targetGroupName");
+        if (!unknown_targetGroupName) return value_targetGroupName;
+        throw new UndeferrableValueException("Value 'ProxyTargetArgs.targetGroupName' is not present");
     }
 
 }

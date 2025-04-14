@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,55 +15,60 @@ public final class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourc
      * The instance type that the image version runs on.. For valid values see [SageMaker AI Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
      * 
      */
-    private @Nullable UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private @Nullable String value_instanceType;
+    private boolean unknown_instanceType;
     public @Nullable String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec.instanceType' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
      * 
      */
-    private @Nullable UndeferrableValue<String> lifecycleConfigArn;
-
+    @PolicyResourceProperty(name="lifecycleConfigArn", flag="unknown_lifecycleConfigArn")
+    private @Nullable String value_lifecycleConfigArn;
+    private boolean unknown_lifecycleConfigArn;
     public @Nullable String lifecycleConfigArn() {
-        if (lifecycleConfigArn == null) return null;
-        return lifecycleConfigArn.getValue("DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec.lifecycleConfigArn");
+        if (!unknown_lifecycleConfigArn) return value_lifecycleConfigArn;
+        throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec.lifecycleConfigArn' is not present");
     }
 
     /**
      * The ARN of the SageMaker AI image that the image version belongs to.
      * 
      */
-    private @Nullable UndeferrableValue<String> sagemakerImageArn;
-
+    @PolicyResourceProperty(name="sagemakerImageArn", flag="unknown_sagemakerImageArn")
+    private @Nullable String value_sagemakerImageArn;
+    private boolean unknown_sagemakerImageArn;
     public @Nullable String sagemakerImageArn() {
-        if (sagemakerImageArn == null) return null;
-        return sagemakerImageArn.getValue("DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec.sagemakerImageArn");
+        if (!unknown_sagemakerImageArn) return value_sagemakerImageArn;
+        throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec.sagemakerImageArn' is not present");
     }
 
     /**
      * The SageMaker AI Image Version Alias.
      * 
      */
-    private @Nullable UndeferrableValue<String> sagemakerImageVersionAlias;
-
+    @PolicyResourceProperty(name="sagemakerImageVersionAlias", flag="unknown_sagemakerImageVersionAlias")
+    private @Nullable String value_sagemakerImageVersionAlias;
+    private boolean unknown_sagemakerImageVersionAlias;
     public @Nullable String sagemakerImageVersionAlias() {
-        if (sagemakerImageVersionAlias == null) return null;
-        return sagemakerImageVersionAlias.getValue("DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec.sagemakerImageVersionAlias");
+        if (!unknown_sagemakerImageVersionAlias) return value_sagemakerImageVersionAlias;
+        throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec.sagemakerImageVersionAlias' is not present");
     }
 
     /**
      * The ARN of the image version created on the instance.
      * 
      */
-    private @Nullable UndeferrableValue<String> sagemakerImageVersionArn;
-
+    @PolicyResourceProperty(name="sagemakerImageVersionArn", flag="unknown_sagemakerImageVersionArn")
+    private @Nullable String value_sagemakerImageVersionArn;
+    private boolean unknown_sagemakerImageVersionArn;
     public @Nullable String sagemakerImageVersionArn() {
-        if (sagemakerImageVersionArn == null) return null;
-        return sagemakerImageVersionArn.getValue("DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec.sagemakerImageVersionArn");
+        if (!unknown_sagemakerImageVersionArn) return value_sagemakerImageVersionArn;
+        throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec.sagemakerImageVersionArn' is not present");
     }
 
 }

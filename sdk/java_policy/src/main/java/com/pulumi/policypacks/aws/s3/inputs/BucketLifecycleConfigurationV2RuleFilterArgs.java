@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.inputs.BucketLifecycleConfigurationV2RuleFilterAndArgs;
 import com.pulumi.policypacks.aws.s3.inputs.BucketLifecycleConfigurationV2RuleFilterTagArgs;
 import java.lang.Integer;
@@ -17,55 +18,60 @@ public final class BucketLifecycleConfigurationV2RuleFilterArgs {
      * Configuration block used to apply a logical `AND` to two or more predicates. See below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
      * 
      */
-    private UndeferrableValue<BucketLifecycleConfigurationV2RuleFilterAndArgs> and;
-
+    @PolicyResourceProperty(name="and", flag="unknown_and")
+    private BucketLifecycleConfigurationV2RuleFilterAndArgs value_and;
+    private boolean unknown_and;
     public BucketLifecycleConfigurationV2RuleFilterAndArgs and() {
-        if (and == null) return null;
-        return and.getValue("BucketLifecycleConfigurationV2RuleFilterArgs.and");
+        if (!unknown_and) return value_and;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleFilterArgs.and' is not present");
     }
 
     /**
      * Minimum object size (in bytes) to which the rule applies.
      * 
      */
-    private UndeferrableValue<Integer> objectSizeGreaterThan;
-
+    @PolicyResourceProperty(name="objectSizeGreaterThan", flag="unknown_objectSizeGreaterThan")
+    private Integer value_objectSizeGreaterThan;
+    private boolean unknown_objectSizeGreaterThan;
     public Integer objectSizeGreaterThan() {
-        if (objectSizeGreaterThan == null) return null;
-        return objectSizeGreaterThan.getValue("BucketLifecycleConfigurationV2RuleFilterArgs.objectSizeGreaterThan");
+        if (!unknown_objectSizeGreaterThan) return value_objectSizeGreaterThan;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleFilterArgs.objectSizeGreaterThan' is not present");
     }
 
     /**
      * Maximum object size (in bytes) to which the rule applies.
      * 
      */
-    private UndeferrableValue<Integer> objectSizeLessThan;
-
+    @PolicyResourceProperty(name="objectSizeLessThan", flag="unknown_objectSizeLessThan")
+    private Integer value_objectSizeLessThan;
+    private boolean unknown_objectSizeLessThan;
     public Integer objectSizeLessThan() {
-        if (objectSizeLessThan == null) return null;
-        return objectSizeLessThan.getValue("BucketLifecycleConfigurationV2RuleFilterArgs.objectSizeLessThan");
+        if (!unknown_objectSizeLessThan) return value_objectSizeLessThan;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleFilterArgs.objectSizeLessThan' is not present");
     }
 
     /**
      * Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`&#34;&#34;`) if not specified.
      * 
      */
-    private UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private String value_prefix;
+    private boolean unknown_prefix;
     public String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("BucketLifecycleConfigurationV2RuleFilterArgs.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleFilterArgs.prefix' is not present");
     }
 
     /**
      * Configuration block for specifying a tag key and value. See below.
      * 
      */
-    private UndeferrableValue<BucketLifecycleConfigurationV2RuleFilterTagArgs> tag;
-
+    @PolicyResourceProperty(name="tag", flag="unknown_tag")
+    private BucketLifecycleConfigurationV2RuleFilterTagArgs value_tag;
+    private boolean unknown_tag;
     public BucketLifecycleConfigurationV2RuleFilterTagArgs tag() {
-        if (tag == null) return null;
-        return tag.getValue("BucketLifecycleConfigurationV2RuleFilterArgs.tag");
+        if (!unknown_tag) return value_tag;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleFilterArgs.tag' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dynamodb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,11 +19,12 @@ public final class TableReplicaArgs extends com.pulumi.resources.PolicyResourceI
      * Whether deletion protection is enabled (true) or disabled (false) on the table replica.
      * 
      */
-    private UndeferrableValue<Boolean> deletionProtectionEnabled;
-
+    @PolicyResourceProperty(name="deletionProtectionEnabled", flag="unknown_deletionProtectionEnabled")
+    private Boolean value_deletionProtectionEnabled;
+    private boolean unknown_deletionProtectionEnabled;
     public Boolean deletionProtectionEnabled() {
-        if (deletionProtectionEnabled == null) return null;
-        return deletionProtectionEnabled.getValue("TableReplicaArgs.deletionProtectionEnabled");
+        if (!unknown_deletionProtectionEnabled) return value_deletionProtectionEnabled;
+        throw new UndeferrableValueException("Value 'TableReplicaArgs.deletionProtectionEnabled' is not present");
     }
 
     /**
@@ -31,55 +33,60 @@ public final class TableReplicaArgs extends com.pulumi.resources.PolicyResourceI
      * Optional arguments:
      * 
      */
-    private UndeferrableValue<String> globalTableArn;
-
+    @PolicyResourceProperty(name="globalTableArn", flag="unknown_globalTableArn")
+    private String value_globalTableArn;
+    private boolean unknown_globalTableArn;
     public String globalTableArn() {
-        if (globalTableArn == null) return null;
-        return globalTableArn.getValue("TableReplicaArgs.globalTableArn");
+        if (!unknown_globalTableArn) return value_globalTableArn;
+        throw new UndeferrableValueException("Value 'TableReplicaArgs.globalTableArn' is not present");
     }
 
     /**
      * ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
      * 
      */
-    private UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("TableReplicaArgs.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'TableReplicaArgs.kmsKeyArn' is not present");
     }
 
     /**
      * Whether to enable Point In Time Recovery for the table replica. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> pointInTimeRecovery;
-
+    @PolicyResourceProperty(name="pointInTimeRecovery", flag="unknown_pointInTimeRecovery")
+    private Boolean value_pointInTimeRecovery;
+    private boolean unknown_pointInTimeRecovery;
     public Boolean pointInTimeRecovery() {
-        if (pointInTimeRecovery == null) return null;
-        return pointInTimeRecovery.getValue("TableReplicaArgs.pointInTimeRecovery");
+        if (!unknown_pointInTimeRecovery) return value_pointInTimeRecovery;
+        throw new UndeferrableValueException("Value 'TableReplicaArgs.pointInTimeRecovery' is not present");
     }
 
     /**
      * Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
      * 
      */
-    private UndeferrableValue<String> tableClassOverride;
-
+    @PolicyResourceProperty(name="tableClassOverride", flag="unknown_tableClassOverride")
+    private String value_tableClassOverride;
+    private boolean unknown_tableClassOverride;
     public String tableClassOverride() {
-        if (tableClassOverride == null) return null;
-        return tableClassOverride.getValue("TableReplicaArgs.tableClassOverride");
+        if (!unknown_tableClassOverride) return value_tableClassOverride;
+        throw new UndeferrableValueException("Value 'TableReplicaArgs.tableClassOverride' is not present");
     }
 
     /**
      * Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TableReplicaArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TableReplicaArgs.tags' is not present");
     }
 
 }

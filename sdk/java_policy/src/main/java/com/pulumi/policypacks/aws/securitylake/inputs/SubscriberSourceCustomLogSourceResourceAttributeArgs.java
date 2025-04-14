@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securitylake.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,33 +14,36 @@ public final class SubscriberSourceCustomLogSourceResourceAttributeArgs {
      * The ARN of the AWS Glue crawler.
      * 
      */
-    private UndeferrableValue<String> crawlerArn;
-
+    @PolicyResourceProperty(name="crawlerArn", flag="unknown_crawlerArn")
+    private String value_crawlerArn;
+    private boolean unknown_crawlerArn;
     public String crawlerArn() {
-        if (crawlerArn == null) return null;
-        return crawlerArn.getValue("SubscriberSourceCustomLogSourceResourceAttributeArgs.crawlerArn");
+        if (!unknown_crawlerArn) return value_crawlerArn;
+        throw new UndeferrableValueException("Value 'SubscriberSourceCustomLogSourceResourceAttributeArgs.crawlerArn' is not present");
     }
 
     /**
      * The ARN of the AWS Glue database where results are written.
      * 
      */
-    private UndeferrableValue<String> databaseArn;
-
+    @PolicyResourceProperty(name="databaseArn", flag="unknown_databaseArn")
+    private String value_databaseArn;
+    private boolean unknown_databaseArn;
     public String databaseArn() {
-        if (databaseArn == null) return null;
-        return databaseArn.getValue("SubscriberSourceCustomLogSourceResourceAttributeArgs.databaseArn");
+        if (!unknown_databaseArn) return value_databaseArn;
+        throw new UndeferrableValueException("Value 'SubscriberSourceCustomLogSourceResourceAttributeArgs.databaseArn' is not present");
     }
 
     /**
      * The ARN of the AWS Glue table.
      * 
      */
-    private UndeferrableValue<String> tableArn;
-
+    @PolicyResourceProperty(name="tableArn", flag="unknown_tableArn")
+    private String value_tableArn;
+    private boolean unknown_tableArn;
     public String tableArn() {
-        if (tableArn == null) return null;
-        return tableArn.getValue("SubscriberSourceCustomLogSourceResourceAttributeArgs.tableArn");
+        if (!unknown_tableArn) return value_tableArn;
+        throw new UndeferrableValueException("Value 'SubscriberSourceCustomLogSourceResourceAttributeArgs.tableArn' is not present");
     }
 
 }

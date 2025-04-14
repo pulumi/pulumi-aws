@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs {
      * Message template for email messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
      * 
      */
-    private UndeferrableValue<String> emailMessage;
-
+    @PolicyResourceProperty(name="emailMessage", flag="unknown_emailMessage")
+    private String value_emailMessage;
+    private boolean unknown_emailMessage;
     public String emailMessage() {
-        if (emailMessage == null) return null;
-        return emailMessage.getValue("UserPoolAdminCreateUserConfigInviteMessageTemplateArgs.emailMessage");
+        if (!unknown_emailMessage) return value_emailMessage;
+        throw new UndeferrableValueException("Value 'UserPoolAdminCreateUserConfigInviteMessageTemplateArgs.emailMessage' is not present");
     }
 
     /**
      * Subject line for email messages.
      * 
      */
-    private UndeferrableValue<String> emailSubject;
-
+    @PolicyResourceProperty(name="emailSubject", flag="unknown_emailSubject")
+    private String value_emailSubject;
+    private boolean unknown_emailSubject;
     public String emailSubject() {
-        if (emailSubject == null) return null;
-        return emailSubject.getValue("UserPoolAdminCreateUserConfigInviteMessageTemplateArgs.emailSubject");
+        if (!unknown_emailSubject) return value_emailSubject;
+        throw new UndeferrableValueException("Value 'UserPoolAdminCreateUserConfigInviteMessageTemplateArgs.emailSubject' is not present");
     }
 
     /**
      * Message template for SMS messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
      * 
      */
-    private UndeferrableValue<String> smsMessage;
-
+    @PolicyResourceProperty(name="smsMessage", flag="unknown_smsMessage")
+    private String value_smsMessage;
+    private boolean unknown_smsMessage;
     public String smsMessage() {
-        if (smsMessage == null) return null;
-        return smsMessage.getValue("UserPoolAdminCreateUserConfigInviteMessageTemplateArgs.smsMessage");
+        if (!unknown_smsMessage) return value_smsMessage;
+        throw new UndeferrableValueException("Value 'UserPoolAdminCreateUserConfigInviteMessageTemplateArgs.smsMessage' is not present");
     }
 
 }

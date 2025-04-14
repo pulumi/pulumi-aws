@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -16,55 +17,60 @@ public final class TaskDefinitionVolumeDockerVolumeConfiguration {
      * If this value is `true`, the Docker volume is created if it does not already exist. *Note*: This field is only used if the scope is `shared`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> autoprovision;
-
+    @PolicyResourceProperty(name="autoprovision", flag="unknown_autoprovision")
+    private @Nullable Boolean value_autoprovision;
+    private boolean unknown_autoprovision;
     public @Nullable Boolean autoprovision() {
-        if (autoprovision == null) return null;
-        return autoprovision.getValue("TaskDefinitionVolumeDockerVolumeConfiguration.autoprovision");
+        if (!unknown_autoprovision) return value_autoprovision;
+        throw new UndeferrableValueException("Value 'TaskDefinitionVolumeDockerVolumeConfiguration.autoprovision' is not present");
     }
 
     /**
      * Docker volume driver to use. The driver value must match the driver name provided by Docker because it is used for task placement.
      * 
      */
-    private @Nullable UndeferrableValue<String> driver;
-
+    @PolicyResourceProperty(name="driver", flag="unknown_driver")
+    private @Nullable String value_driver;
+    private boolean unknown_driver;
     public @Nullable String driver() {
-        if (driver == null) return null;
-        return driver.getValue("TaskDefinitionVolumeDockerVolumeConfiguration.driver");
+        if (!unknown_driver) return value_driver;
+        throw new UndeferrableValueException("Value 'TaskDefinitionVolumeDockerVolumeConfiguration.driver' is not present");
     }
 
     /**
      * Map of Docker driver specific options.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> driverOpts;
-
+    @PolicyResourceProperty(name="driverOpts", flag="unknown_driverOpts")
+    private @Nullable Map<String,String> value_driverOpts;
+    private boolean unknown_driverOpts;
     public @Nullable Map<String,String> driverOpts() {
-        if (driverOpts == null) return null;
-        return driverOpts.getValue("TaskDefinitionVolumeDockerVolumeConfiguration.driverOpts");
+        if (!unknown_driverOpts) return value_driverOpts;
+        throw new UndeferrableValueException("Value 'TaskDefinitionVolumeDockerVolumeConfiguration.driverOpts' is not present");
     }
 
     /**
      * Map of custom metadata to add to your Docker volume.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> labels;
-
+    @PolicyResourceProperty(name="labels", flag="unknown_labels")
+    private @Nullable Map<String,String> value_labels;
+    private boolean unknown_labels;
     public @Nullable Map<String,String> labels() {
-        if (labels == null) return null;
-        return labels.getValue("TaskDefinitionVolumeDockerVolumeConfiguration.labels");
+        if (!unknown_labels) return value_labels;
+        throw new UndeferrableValueException("Value 'TaskDefinitionVolumeDockerVolumeConfiguration.labels' is not present");
     }
 
     /**
      * Scope for the Docker volume, which determines its lifecycle, either `task` or `shared`.  Docker volumes that are scoped to a `task` are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as `shared` persist after the task stops.
      * 
      */
-    private @Nullable UndeferrableValue<String> scope;
-
+    @PolicyResourceProperty(name="scope", flag="unknown_scope")
+    private @Nullable String value_scope;
+    private boolean unknown_scope;
     public @Nullable String scope() {
-        if (scope == null) return null;
-        return scope.getValue("TaskDefinitionVolumeDockerVolumeConfiguration.scope");
+        if (!unknown_scope) return value_scope;
+        throw new UndeferrableValueException("Value 'TaskDefinitionVolumeDockerVolumeConfiguration.scope' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ses;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,11 +16,12 @@ public final class ActiveReceiptRuleSetArgs extends com.pulumi.resources.PolicyR
      * The name of the rule set
      * 
      */
-    private UndeferrableValue<String> ruleSetName;
-
+    @PolicyResourceProperty(name="ruleSetName", flag="unknown_ruleSetName")
+    private String value_ruleSetName;
+    private boolean unknown_ruleSetName;
     public String ruleSetName() {
-        if (ruleSetName == null) return null;
-        return ruleSetName.getValue("ActiveReceiptRuleSetArgs.ruleSetName");
+        if (!unknown_ruleSetName) return value_ruleSetName;
+        throw new UndeferrableValueException("Value 'ActiveReceiptRuleSetArgs.ruleSetName' is not present");
     }
 
 }

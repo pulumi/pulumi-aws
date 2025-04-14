@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      * The names of the address fields.
      * 
      */
-    private UndeferrableValue<List<String>> identifiers;
-
+    @PolicyResourceProperty(name="identifiers", flag="unknown_identifiers")
+    private List<String> value_identifiers;
+    private boolean unknown_identifiers;
     public List<String> identifiers() {
-        if (identifiers == null) return null;
-        return identifiers.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs.identifiers");
+        if (!unknown_identifiers) return value_identifiers;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFieldsArgs.identifiers' is not present");
     }
 
 }

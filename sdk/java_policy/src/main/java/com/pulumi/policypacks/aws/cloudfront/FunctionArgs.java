@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class FunctionArgs extends com.pulumi.resources.PolicyResourceInput
      * Source code of the function
      * 
      */
-    private UndeferrableValue<String> code;
-
+    @PolicyResourceProperty(name="code", flag="unknown_code")
+    private String value_code;
+    private boolean unknown_code;
     public String code() {
-        if (code == null) return null;
-        return code.getValue("FunctionArgs.code");
+        if (!unknown_code) return value_code;
+        throw new UndeferrableValueException("Value 'FunctionArgs.code' is not present");
     }
 
     /**
      * Comment.
      * 
      */
-    private UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private String value_comment;
+    private boolean unknown_comment;
     public String comment() {
-        if (comment == null) return null;
-        return comment.getValue("FunctionArgs.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'FunctionArgs.comment' is not present");
     }
 
     /**
      * List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
      * 
      */
-    private UndeferrableValue<List<String>> keyValueStoreAssociations;
-
+    @PolicyResourceProperty(name="keyValueStoreAssociations", flag="unknown_keyValueStoreAssociations")
+    private List<String> value_keyValueStoreAssociations;
+    private boolean unknown_keyValueStoreAssociations;
     public List<String> keyValueStoreAssociations() {
-        if (keyValueStoreAssociations == null) return null;
-        return keyValueStoreAssociations.getValue("FunctionArgs.keyValueStoreAssociations");
+        if (!unknown_keyValueStoreAssociations) return value_keyValueStoreAssociations;
+        throw new UndeferrableValueException("Value 'FunctionArgs.keyValueStoreAssociations' is not present");
     }
 
     /**
      * Unique name for your CloudFront Function.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("FunctionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FunctionArgs.name' is not present");
     }
 
     /**
      * Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> publish;
-
+    @PolicyResourceProperty(name="publish", flag="unknown_publish")
+    private Boolean value_publish;
+    private boolean unknown_publish;
     public Boolean publish() {
-        if (publish == null) return null;
-        return publish.getValue("FunctionArgs.publish");
+        if (!unknown_publish) return value_publish;
+        throw new UndeferrableValueException("Value 'FunctionArgs.publish' is not present");
     }
 
     /**
@@ -75,11 +81,12 @@ public final class FunctionArgs extends com.pulumi.resources.PolicyResourceInput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> runtime;
-
+    @PolicyResourceProperty(name="runtime", flag="unknown_runtime")
+    private String value_runtime;
+    private boolean unknown_runtime;
     public String runtime() {
-        if (runtime == null) return null;
-        return runtime.getValue("FunctionArgs.runtime");
+        if (!unknown_runtime) return value_runtime;
+        throw new UndeferrableValueException("Value 'FunctionArgs.runtime' is not present");
     }
 
 }

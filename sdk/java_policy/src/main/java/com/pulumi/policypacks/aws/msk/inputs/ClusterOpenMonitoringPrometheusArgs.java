@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.msk.inputs.ClusterOpenMonitoringPrometheusJmxExporterArgs;
 import com.pulumi.policypacks.aws.msk.inputs.ClusterOpenMonitoringPrometheusNodeExporterArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ClusterOpenMonitoringPrometheusArgs {
      * Configuration block for JMX Exporter. See below.
      * 
      */
-    private UndeferrableValue<ClusterOpenMonitoringPrometheusJmxExporterArgs> jmxExporter;
-
+    @PolicyResourceProperty(name="jmxExporter", flag="unknown_jmxExporter")
+    private ClusterOpenMonitoringPrometheusJmxExporterArgs value_jmxExporter;
+    private boolean unknown_jmxExporter;
     public ClusterOpenMonitoringPrometheusJmxExporterArgs jmxExporter() {
-        if (jmxExporter == null) return null;
-        return jmxExporter.getValue("ClusterOpenMonitoringPrometheusArgs.jmxExporter");
+        if (!unknown_jmxExporter) return value_jmxExporter;
+        throw new UndeferrableValueException("Value 'ClusterOpenMonitoringPrometheusArgs.jmxExporter' is not present");
     }
 
     /**
      * Configuration block for Node Exporter. See below.
      * 
      */
-    private UndeferrableValue<ClusterOpenMonitoringPrometheusNodeExporterArgs> nodeExporter;
-
+    @PolicyResourceProperty(name="nodeExporter", flag="unknown_nodeExporter")
+    private ClusterOpenMonitoringPrometheusNodeExporterArgs value_nodeExporter;
+    private boolean unknown_nodeExporter;
     public ClusterOpenMonitoringPrometheusNodeExporterArgs nodeExporter() {
-        if (nodeExporter == null) return null;
-        return nodeExporter.getValue("ClusterOpenMonitoringPrometheusArgs.nodeExporter");
+        if (!unknown_nodeExporter) return value_nodeExporter;
+        throw new UndeferrableValueException("Value 'ClusterOpenMonitoringPrometheusArgs.nodeExporter' is not present");
     }
 
 }

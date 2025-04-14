@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshiftserverless.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.redshiftserverless.outputs.WorkgroupEndpointVpcEndpoint;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class WorkgroupEndpoint {
      * The DNS address of the VPC endpoint.
      * 
      */
-    private @Nullable UndeferrableValue<String> address;
-
+    @PolicyResourceProperty(name="address", flag="unknown_address")
+    private @Nullable String value_address;
+    private boolean unknown_address;
     public @Nullable String address() {
-        if (address == null) return null;
-        return address.getValue("WorkgroupEndpoint.address");
+        if (!unknown_address) return value_address;
+        throw new UndeferrableValueException("Value 'WorkgroupEndpoint.address' is not present");
     }
 
     /**
      * The port number on which the cluster accepts incoming connections.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable Integer value_port;
+    private boolean unknown_port;
     public @Nullable Integer port() {
-        if (port == null) return null;
-        return port.getValue("WorkgroupEndpoint.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'WorkgroupEndpoint.port' is not present");
     }
 
     /**
      * The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
      * 
      */
-    private @Nullable UndeferrableValue<List<WorkgroupEndpointVpcEndpoint>> vpcEndpoints;
-
+    @PolicyResourceProperty(name="vpcEndpoints", flag="unknown_vpcEndpoints")
+    private @Nullable List<WorkgroupEndpointVpcEndpoint> value_vpcEndpoints;
+    private boolean unknown_vpcEndpoints;
     public @Nullable List<WorkgroupEndpointVpcEndpoint> vpcEndpoints() {
-        if (vpcEndpoints == null) return null;
-        return vpcEndpoints.getValue("WorkgroupEndpoint.vpcEndpoints");
+        if (!unknown_vpcEndpoints) return value_vpcEndpoints;
+        throw new UndeferrableValueException("Value 'WorkgroupEndpoint.vpcEndpoints' is not present");
     }
 
 }

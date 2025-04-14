@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appsync.outputs.SourceApiAssociationSourceApiAssociationConfig;
 import com.pulumi.policypacks.aws.appsync.outputs.SourceApiAssociationTimeouts;
@@ -19,91 +20,100 @@ public final class SourceApiAssociation extends com.pulumi.resources.PolicyResou
      * ARN of the Source Api Association.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("SourceApiAssociation.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'SourceApiAssociation.arn' is not present");
     }
 
     /**
      * ID of the Source Api Association.
      * 
      */
-    private UndeferrableValue<String> associationId;
-
+    @PolicyResourceProperty(name="associationId", flag="unknown_associationId")
+    private String value_associationId;
+    private boolean unknown_associationId;
     public String associationId() {
-        if (associationId == null) return null;
-        return associationId.getValue("SourceApiAssociation.associationId");
+        if (!unknown_associationId) return value_associationId;
+        throw new UndeferrableValueException("Value 'SourceApiAssociation.associationId' is not present");
     }
 
     /**
      * Description of the source API being merged.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("SourceApiAssociation.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'SourceApiAssociation.description' is not present");
     }
 
     /**
      * ARN of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
      * 
      */
-    private UndeferrableValue<String> mergedApiArn;
-
+    @PolicyResourceProperty(name="mergedApiArn", flag="unknown_mergedApiArn")
+    private String value_mergedApiArn;
+    private boolean unknown_mergedApiArn;
     public String mergedApiArn() {
-        if (mergedApiArn == null) return null;
-        return mergedApiArn.getValue("SourceApiAssociation.mergedApiArn");
+        if (!unknown_mergedApiArn) return value_mergedApiArn;
+        throw new UndeferrableValueException("Value 'SourceApiAssociation.mergedApiArn' is not present");
     }
 
     /**
      * ID of the merged API. One of `merged_api_arn` or `merged_api_id` must be specified.
      * 
      */
-    private UndeferrableValue<String> mergedApiId;
-
+    @PolicyResourceProperty(name="mergedApiId", flag="unknown_mergedApiId")
+    private String value_mergedApiId;
+    private boolean unknown_mergedApiId;
     public String mergedApiId() {
-        if (mergedApiId == null) return null;
-        return mergedApiId.getValue("SourceApiAssociation.mergedApiId");
+        if (!unknown_mergedApiId) return value_mergedApiId;
+        throw new UndeferrableValueException("Value 'SourceApiAssociation.mergedApiId' is not present");
     }
 
     /**
      * ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
      * 
      */
-    private UndeferrableValue<String> sourceApiArn;
-
+    @PolicyResourceProperty(name="sourceApiArn", flag="unknown_sourceApiArn")
+    private String value_sourceApiArn;
+    private boolean unknown_sourceApiArn;
     public String sourceApiArn() {
-        if (sourceApiArn == null) return null;
-        return sourceApiArn.getValue("SourceApiAssociation.sourceApiArn");
+        if (!unknown_sourceApiArn) return value_sourceApiArn;
+        throw new UndeferrableValueException("Value 'SourceApiAssociation.sourceApiArn' is not present");
     }
 
-    private UndeferrableValue<List<SourceApiAssociationSourceApiAssociationConfig>> sourceApiAssociationConfigs;
-
+    @PolicyResourceProperty(name="sourceApiAssociationConfigs", flag="unknown_sourceApiAssociationConfigs")
+    private List<SourceApiAssociationSourceApiAssociationConfig> value_sourceApiAssociationConfigs;
+    private boolean unknown_sourceApiAssociationConfigs;
     public List<SourceApiAssociationSourceApiAssociationConfig> sourceApiAssociationConfigs() {
-        if (sourceApiAssociationConfigs == null) return null;
-        return sourceApiAssociationConfigs.getValue("SourceApiAssociation.sourceApiAssociationConfigs");
+        if (!unknown_sourceApiAssociationConfigs) return value_sourceApiAssociationConfigs;
+        throw new UndeferrableValueException("Value 'SourceApiAssociation.sourceApiAssociationConfigs' is not present");
     }
 
     /**
      * ID of the source API. One of `source_api_arn` or `source_api_id` must be specified.
      * 
      */
-    private UndeferrableValue<String> sourceApiId;
-
+    @PolicyResourceProperty(name="sourceApiId", flag="unknown_sourceApiId")
+    private String value_sourceApiId;
+    private boolean unknown_sourceApiId;
     public String sourceApiId() {
-        if (sourceApiId == null) return null;
-        return sourceApiId.getValue("SourceApiAssociation.sourceApiId");
+        if (!unknown_sourceApiId) return value_sourceApiId;
+        throw new UndeferrableValueException("Value 'SourceApiAssociation.sourceApiId' is not present");
     }
 
-    private @Nullable UndeferrableValue<SourceApiAssociationTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable SourceApiAssociationTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable SourceApiAssociationTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("SourceApiAssociation.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'SourceApiAssociation.timeouts' is not present");
     }
 
 }

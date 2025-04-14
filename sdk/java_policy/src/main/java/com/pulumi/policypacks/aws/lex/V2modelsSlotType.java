@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotTypeCompositeSlotTypeSetting;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotTypeExternalSourceSetting;
@@ -21,22 +22,24 @@ public final class V2modelsSlotType extends com.pulumi.resources.PolicyResourceO
      * Identifier of the bot associated with this slot type.
      * 
      */
-    private UndeferrableValue<String> botId;
-
+    @PolicyResourceProperty(name="botId", flag="unknown_botId")
+    private String value_botId;
+    private boolean unknown_botId;
     public String botId() {
-        if (botId == null) return null;
-        return botId.getValue("V2modelsSlotType.botId");
+        if (!unknown_botId) return value_botId;
+        throw new UndeferrableValueException("Value 'V2modelsSlotType.botId' is not present");
     }
 
     /**
      * Version of the bot associated with this slot type.
      * 
      */
-    private UndeferrableValue<String> botVersion;
-
+    @PolicyResourceProperty(name="botVersion", flag="unknown_botVersion")
+    private String value_botVersion;
+    private boolean unknown_botVersion;
     public String botVersion() {
-        if (botVersion == null) return null;
-        return botVersion.getValue("V2modelsSlotType.botVersion");
+        if (!unknown_botVersion) return value_botVersion;
+        throw new UndeferrableValueException("Value 'V2modelsSlotType.botVersion' is not present");
     }
 
     /**
@@ -44,22 +47,24 @@ public final class V2modelsSlotType extends com.pulumi.resources.PolicyResourceO
      * See `composite_slot_type_setting` argument reference below.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsSlotTypeCompositeSlotTypeSetting> compositeSlotTypeSetting;
-
+    @PolicyResourceProperty(name="compositeSlotTypeSetting", flag="unknown_compositeSlotTypeSetting")
+    private @Nullable V2modelsSlotTypeCompositeSlotTypeSetting value_compositeSlotTypeSetting;
+    private boolean unknown_compositeSlotTypeSetting;
     public @Nullable V2modelsSlotTypeCompositeSlotTypeSetting compositeSlotTypeSetting() {
-        if (compositeSlotTypeSetting == null) return null;
-        return compositeSlotTypeSetting.getValue("V2modelsSlotType.compositeSlotTypeSetting");
+        if (!unknown_compositeSlotTypeSetting) return value_compositeSlotTypeSetting;
+        throw new UndeferrableValueException("Value 'V2modelsSlotType.compositeSlotTypeSetting' is not present");
     }
 
     /**
      * Description of the slot type.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("V2modelsSlotType.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'V2modelsSlotType.description' is not present");
     }
 
     /**
@@ -67,11 +72,12 @@ public final class V2modelsSlotType extends com.pulumi.resources.PolicyResourceO
      * See `external_source_setting` argument reference below.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsSlotTypeExternalSourceSetting> externalSourceSetting;
-
+    @PolicyResourceProperty(name="externalSourceSetting", flag="unknown_externalSourceSetting")
+    private @Nullable V2modelsSlotTypeExternalSourceSetting value_externalSourceSetting;
+    private boolean unknown_externalSourceSetting;
     public @Nullable V2modelsSlotTypeExternalSourceSetting externalSourceSetting() {
-        if (externalSourceSetting == null) return null;
-        return externalSourceSetting.getValue("V2modelsSlotType.externalSourceSetting");
+        if (!unknown_externalSourceSetting) return value_externalSourceSetting;
+        throw new UndeferrableValueException("Value 'V2modelsSlotType.externalSourceSetting' is not present");
     }
 
     /**
@@ -79,11 +85,12 @@ public final class V2modelsSlotType extends com.pulumi.resources.PolicyResourceO
      * All of the bots, slot types, and slots used by the intent must have the same locale.
      * 
      */
-    private UndeferrableValue<String> localeId;
-
+    @PolicyResourceProperty(name="localeId", flag="unknown_localeId")
+    private String value_localeId;
+    private boolean unknown_localeId;
     public String localeId() {
-        if (localeId == null) return null;
-        return localeId.getValue("V2modelsSlotType.localeId");
+        if (!unknown_localeId) return value_localeId;
+        throw new UndeferrableValueException("Value 'V2modelsSlotType.localeId' is not present");
     }
 
     /**
@@ -92,11 +99,12 @@ public final class V2modelsSlotType extends com.pulumi.resources.PolicyResourceO
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("V2modelsSlotType.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'V2modelsSlotType.name' is not present");
     }
 
     /**
@@ -105,22 +113,24 @@ public final class V2modelsSlotType extends com.pulumi.resources.PolicyResourceO
      * Only `AMAZON.AlphaNumeric` is supported.
      * 
      */
-    private @Nullable UndeferrableValue<String> parentSlotTypeSignature;
-
+    @PolicyResourceProperty(name="parentSlotTypeSignature", flag="unknown_parentSlotTypeSignature")
+    private @Nullable String value_parentSlotTypeSignature;
+    private boolean unknown_parentSlotTypeSignature;
     public @Nullable String parentSlotTypeSignature() {
-        if (parentSlotTypeSignature == null) return null;
-        return parentSlotTypeSignature.getValue("V2modelsSlotType.parentSlotTypeSignature");
+        if (!unknown_parentSlotTypeSignature) return value_parentSlotTypeSignature;
+        throw new UndeferrableValueException("Value 'V2modelsSlotType.parentSlotTypeSignature' is not present");
     }
 
     /**
      * Unique identifier for the slot type.
      * 
      */
-    private UndeferrableValue<String> slotTypeId;
-
+    @PolicyResourceProperty(name="slotTypeId", flag="unknown_slotTypeId")
+    private String value_slotTypeId;
+    private boolean unknown_slotTypeId;
     public String slotTypeId() {
-        if (slotTypeId == null) return null;
-        return slotTypeId.getValue("V2modelsSlotType.slotTypeId");
+        if (!unknown_slotTypeId) return value_slotTypeId;
+        throw new UndeferrableValueException("Value 'V2modelsSlotType.slotTypeId' is not present");
     }
 
     /**
@@ -129,18 +139,20 @@ public final class V2modelsSlotType extends com.pulumi.resources.PolicyResourceO
      * See `slot_type_values` argument reference below.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsSlotTypeSlotTypeValues> slotTypeValues;
-
+    @PolicyResourceProperty(name="slotTypeValues", flag="unknown_slotTypeValues")
+    private @Nullable V2modelsSlotTypeSlotTypeValues value_slotTypeValues;
+    private boolean unknown_slotTypeValues;
     public @Nullable V2modelsSlotTypeSlotTypeValues slotTypeValues() {
-        if (slotTypeValues == null) return null;
-        return slotTypeValues.getValue("V2modelsSlotType.slotTypeValues");
+        if (!unknown_slotTypeValues) return value_slotTypeValues;
+        throw new UndeferrableValueException("Value 'V2modelsSlotType.slotTypeValues' is not present");
     }
 
-    private @Nullable UndeferrableValue<V2modelsSlotTypeTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable V2modelsSlotTypeTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable V2modelsSlotTypeTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("V2modelsSlotType.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'V2modelsSlotType.timeouts' is not present");
     }
 
     /**
@@ -148,11 +160,12 @@ public final class V2modelsSlotType extends com.pulumi.resources.PolicyResourceO
      * See `value_selection_setting` argument reference below.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsSlotTypeValueSelectionSetting> valueSelectionSetting;
-
+    @PolicyResourceProperty(name="valueSelectionSetting", flag="unknown_valueSelectionSetting")
+    private @Nullable V2modelsSlotTypeValueSelectionSetting value_valueSelectionSetting;
+    private boolean unknown_valueSelectionSetting;
     public @Nullable V2modelsSlotTypeValueSelectionSetting valueSelectionSetting() {
-        if (valueSelectionSetting == null) return null;
-        return valueSelectionSetting.getValue("V2modelsSlotType.valueSelectionSetting");
+        if (!unknown_valueSelectionSetting) return value_valueSelectionSetting;
+        throw new UndeferrableValueException("Value 'V2modelsSlotType.valueSelectionSetting' is not present");
     }
 
 }

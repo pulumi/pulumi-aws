@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class LinkBandwidth {
      * Download speed in Mbps.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> downloadSpeed;
-
+    @PolicyResourceProperty(name="downloadSpeed", flag="unknown_downloadSpeed")
+    private @Nullable Integer value_downloadSpeed;
+    private boolean unknown_downloadSpeed;
     public @Nullable Integer downloadSpeed() {
-        if (downloadSpeed == null) return null;
-        return downloadSpeed.getValue("LinkBandwidth.downloadSpeed");
+        if (!unknown_downloadSpeed) return value_downloadSpeed;
+        throw new UndeferrableValueException("Value 'LinkBandwidth.downloadSpeed' is not present");
     }
 
     /**
      * Upload speed in Mbps.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> uploadSpeed;
-
+    @PolicyResourceProperty(name="uploadSpeed", flag="unknown_uploadSpeed")
+    private @Nullable Integer value_uploadSpeed;
+    private boolean unknown_uploadSpeed;
     public @Nullable Integer uploadSpeed() {
-        if (uploadSpeed == null) return null;
-        return uploadSpeed.getValue("LinkBandwidth.uploadSpeed");
+        if (!unknown_uploadSpeed) return value_uploadSpeed;
+        throw new UndeferrableValueException("Value 'LinkBandwidth.uploadSpeed' is not present");
     }
 
 }

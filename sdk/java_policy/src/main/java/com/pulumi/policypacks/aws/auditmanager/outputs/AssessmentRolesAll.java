@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.auditmanager.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class AssessmentRolesAll {
      * Amazon Resource Name (ARN) of the IAM role.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("AssessmentRolesAll.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'AssessmentRolesAll.roleArn' is not present");
     }
 
     /**
      * Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
      * 
      */
-    private UndeferrableValue<String> roleType;
-
+    @PolicyResourceProperty(name="roleType", flag="unknown_roleType")
+    private String value_roleType;
+    private boolean unknown_roleType;
     public String roleType() {
-        if (roleType == null) return null;
-        return roleType.getValue("AssessmentRolesAll.roleType");
+        if (!unknown_roleType) return value_roleType;
+        throw new UndeferrableValueException("Value 'AssessmentRolesAll.roleType' is not present");
     }
 
 }

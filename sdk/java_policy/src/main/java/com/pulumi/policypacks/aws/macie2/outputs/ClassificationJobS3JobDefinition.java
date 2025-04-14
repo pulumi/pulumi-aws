@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.macie2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.macie2.outputs.ClassificationJobS3JobDefinitionBucketCriteria;
 import com.pulumi.policypacks.aws.macie2.outputs.ClassificationJobS3JobDefinitionBucketDefinition;
 import com.pulumi.policypacks.aws.macie2.outputs.ClassificationJobS3JobDefinitionScoping;
@@ -17,33 +18,36 @@ public final class ClassificationJobS3JobDefinition {
      * The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `bucket_definitions`. (documented below)
      * 
      */
-    private @Nullable UndeferrableValue<ClassificationJobS3JobDefinitionBucketCriteria> bucketCriteria;
-
+    @PolicyResourceProperty(name="bucketCriteria", flag="unknown_bucketCriteria")
+    private @Nullable ClassificationJobS3JobDefinitionBucketCriteria value_bucketCriteria;
+    private boolean unknown_bucketCriteria;
     public @Nullable ClassificationJobS3JobDefinitionBucketCriteria bucketCriteria() {
-        if (bucketCriteria == null) return null;
-        return bucketCriteria.getValue("ClassificationJobS3JobDefinition.bucketCriteria");
+        if (!unknown_bucketCriteria) return value_bucketCriteria;
+        throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinition.bucketCriteria' is not present");
     }
 
     /**
      * An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. Conflicts with `bucket_criteria`. (documented below)
      * 
      */
-    private @Nullable UndeferrableValue<List<ClassificationJobS3JobDefinitionBucketDefinition>> bucketDefinitions;
-
+    @PolicyResourceProperty(name="bucketDefinitions", flag="unknown_bucketDefinitions")
+    private @Nullable List<ClassificationJobS3JobDefinitionBucketDefinition> value_bucketDefinitions;
+    private boolean unknown_bucketDefinitions;
     public @Nullable List<ClassificationJobS3JobDefinitionBucketDefinition> bucketDefinitions() {
-        if (bucketDefinitions == null) return null;
-        return bucketDefinitions.getValue("ClassificationJobS3JobDefinition.bucketDefinitions");
+        if (!unknown_bucketDefinitions) return value_bucketDefinitions;
+        throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinition.bucketDefinitions' is not present");
     }
 
     /**
      * The property- and tag-based conditions that determine which objects to include or exclude from the analysis. (documented below)
      * 
      */
-    private @Nullable UndeferrableValue<ClassificationJobS3JobDefinitionScoping> scoping;
-
+    @PolicyResourceProperty(name="scoping", flag="unknown_scoping")
+    private @Nullable ClassificationJobS3JobDefinitionScoping value_scoping;
+    private boolean unknown_scoping;
     public @Nullable ClassificationJobS3JobDefinitionScoping scoping() {
-        if (scoping == null) return null;
-        return scoping.getValue("ClassificationJobS3JobDefinition.scoping");
+        if (!unknown_scoping) return value_scoping;
+        throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinition.scoping' is not present");
     }
 
 }

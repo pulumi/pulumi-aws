@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.athena.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class WorkgroupConfigurationEngineVersionArgs {
      * The engine version on which the query runs. If `selected_engine_version` is set to `AUTO`, the effective engine version is chosen by Athena.
      * 
      */
-    private UndeferrableValue<String> effectiveEngineVersion;
-
+    @PolicyResourceProperty(name="effectiveEngineVersion", flag="unknown_effectiveEngineVersion")
+    private String value_effectiveEngineVersion;
+    private boolean unknown_effectiveEngineVersion;
     public String effectiveEngineVersion() {
-        if (effectiveEngineVersion == null) return null;
-        return effectiveEngineVersion.getValue("WorkgroupConfigurationEngineVersionArgs.effectiveEngineVersion");
+        if (!unknown_effectiveEngineVersion) return value_effectiveEngineVersion;
+        throw new UndeferrableValueException("Value 'WorkgroupConfigurationEngineVersionArgs.effectiveEngineVersion' is not present");
     }
 
     /**
      * Requested engine version. Defaults to `AUTO`.
      * 
      */
-    private UndeferrableValue<String> selectedEngineVersion;
-
+    @PolicyResourceProperty(name="selectedEngineVersion", flag="unknown_selectedEngineVersion")
+    private String value_selectedEngineVersion;
+    private boolean unknown_selectedEngineVersion;
     public String selectedEngineVersion() {
-        if (selectedEngineVersion == null) return null;
-        return selectedEngineVersion.getValue("WorkgroupConfigurationEngineVersionArgs.selectedEngineVersion");
+        if (!unknown_selectedEngineVersion) return value_selectedEngineVersion;
+        throw new UndeferrableValueException("Value 'WorkgroupConfigurationEngineVersionArgs.selectedEngineVersion' is not present");
     }
 
 }

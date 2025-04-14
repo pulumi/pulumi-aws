@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class DeploymentArgs extends com.pulumi.resources.PolicyResourceInp
      * API identifier.
      * 
      */
-    private UndeferrableValue<String> apiId;
-
+    @PolicyResourceProperty(name="apiId", flag="unknown_apiId")
+    private String value_apiId;
+    private boolean unknown_apiId;
     public String apiId() {
-        if (apiId == null) return null;
-        return apiId.getValue("DeploymentArgs.apiId");
+        if (!unknown_apiId) return value_apiId;
+        throw new UndeferrableValueException("Value 'DeploymentArgs.apiId' is not present");
     }
 
     /**
      * Description for the deployment resource. Must be less than or equal to 1024 characters in length.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("DeploymentArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'DeploymentArgs.description' is not present");
     }
 
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      * 
      */
-    private UndeferrableValue<Map<String,String>> triggers;
-
+    @PolicyResourceProperty(name="triggers", flag="unknown_triggers")
+    private Map<String,String> value_triggers;
+    private boolean unknown_triggers;
     public Map<String,String> triggers() {
-        if (triggers == null) return null;
-        return triggers.getValue("DeploymentArgs.triggers");
+        if (!unknown_triggers) return value_triggers;
+        throw new UndeferrableValueException("Value 'DeploymentArgs.triggers' is not present");
     }
 
 }

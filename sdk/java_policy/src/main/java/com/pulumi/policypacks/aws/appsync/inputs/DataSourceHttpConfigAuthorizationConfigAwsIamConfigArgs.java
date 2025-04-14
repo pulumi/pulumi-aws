@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs {
      * Signing Amazon Web Services Region for IAM authorization.
      * 
      */
-    private UndeferrableValue<String> signingRegion;
-
+    @PolicyResourceProperty(name="signingRegion", flag="unknown_signingRegion")
+    private String value_signingRegion;
+    private boolean unknown_signingRegion;
     public String signingRegion() {
-        if (signingRegion == null) return null;
-        return signingRegion.getValue("DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs.signingRegion");
+        if (!unknown_signingRegion) return value_signingRegion;
+        throw new UndeferrableValueException("Value 'DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs.signingRegion' is not present");
     }
 
     /**
      * Signing service name for IAM authorization.
      * 
      */
-    private UndeferrableValue<String> signingServiceName;
-
+    @PolicyResourceProperty(name="signingServiceName", flag="unknown_signingServiceName")
+    private String value_signingServiceName;
+    private boolean unknown_signingServiceName;
     public String signingServiceName() {
-        if (signingServiceName == null) return null;
-        return signingServiceName.getValue("DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs.signingServiceName");
+        if (!unknown_signingServiceName) return value_signingServiceName;
+        throw new UndeferrableValueException("Value 'DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs.signingServiceName' is not present");
     }
 
 }

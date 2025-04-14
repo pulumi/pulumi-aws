@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticache;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.elasticache.inputs.UserAuthenticationModeArgs;
 import java.lang.Boolean;
@@ -20,77 +21,84 @@ public final class UserArgs extends com.pulumi.resources.PolicyResourceInput {
      * Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
      * 
      */
-    private UndeferrableValue<String> accessString;
-
+    @PolicyResourceProperty(name="accessString", flag="unknown_accessString")
+    private String value_accessString;
+    private boolean unknown_accessString;
     public String accessString() {
-        if (accessString == null) return null;
-        return accessString.getValue("UserArgs.accessString");
+        if (!unknown_accessString) return value_accessString;
+        throw new UndeferrableValueException("Value 'UserArgs.accessString' is not present");
     }
 
     /**
      * Denotes the user&#39;s authentication properties. Detailed below.
      * 
      */
-    private UndeferrableValue<UserAuthenticationModeArgs> authenticationMode;
-
+    @PolicyResourceProperty(name="authenticationMode", flag="unknown_authenticationMode")
+    private UserAuthenticationModeArgs value_authenticationMode;
+    private boolean unknown_authenticationMode;
     public UserAuthenticationModeArgs authenticationMode() {
-        if (authenticationMode == null) return null;
-        return authenticationMode.getValue("UserArgs.authenticationMode");
+        if (!unknown_authenticationMode) return value_authenticationMode;
+        throw new UndeferrableValueException("Value 'UserArgs.authenticationMode' is not present");
     }
 
     /**
      * The current supported values are `redis`, `valkey` (case insensitive).
      * 
      */
-    private UndeferrableValue<String> engine;
-
+    @PolicyResourceProperty(name="engine", flag="unknown_engine")
+    private String value_engine;
+    private boolean unknown_engine;
     public String engine() {
-        if (engine == null) return null;
-        return engine.getValue("UserArgs.engine");
+        if (!unknown_engine) return value_engine;
+        throw new UndeferrableValueException("Value 'UserArgs.engine' is not present");
     }
 
     /**
      * Indicates a password is not required for this user.
      * 
      */
-    private UndeferrableValue<Boolean> noPasswordRequired;
-
+    @PolicyResourceProperty(name="noPasswordRequired", flag="unknown_noPasswordRequired")
+    private Boolean value_noPasswordRequired;
+    private boolean unknown_noPasswordRequired;
     public Boolean noPasswordRequired() {
-        if (noPasswordRequired == null) return null;
-        return noPasswordRequired.getValue("UserArgs.noPasswordRequired");
+        if (!unknown_noPasswordRequired) return value_noPasswordRequired;
+        throw new UndeferrableValueException("Value 'UserArgs.noPasswordRequired' is not present");
     }
 
     /**
      * Passwords used for this user. You can create up to two passwords for each user.
      * 
      */
-    private UndeferrableValue<List<String>> passwords;
-
+    @PolicyResourceProperty(name="passwords", flag="unknown_passwords")
+    private List<String> value_passwords;
+    private boolean unknown_passwords;
     public List<String> passwords() {
-        if (passwords == null) return null;
-        return passwords.getValue("UserArgs.passwords");
+        if (!unknown_passwords) return value_passwords;
+        throw new UndeferrableValueException("Value 'UserArgs.passwords' is not present");
     }
 
     /**
      * A list of tags to be added to this resource. A tag is a key-value pair.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("UserArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'UserArgs.tags' is not present");
     }
 
     /**
      * The ID of the user.
      * 
      */
-    private UndeferrableValue<String> userId;
-
+    @PolicyResourceProperty(name="userId", flag="unknown_userId")
+    private String value_userId;
+    private boolean unknown_userId;
     public String userId() {
-        if (userId == null) return null;
-        return userId.getValue("UserArgs.userId");
+        if (!unknown_userId) return value_userId;
+        throw new UndeferrableValueException("Value 'UserArgs.userId' is not present");
     }
 
     /**
@@ -99,11 +107,12 @@ public final class UserArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> userName;
-
+    @PolicyResourceProperty(name="userName", flag="unknown_userName")
+    private String value_userName;
+    private boolean unknown_userName;
     public String userName() {
-        if (userName == null) return null;
-        return userName.getValue("UserArgs.userName");
+        if (!unknown_userName) return value_userName;
+        throw new UndeferrableValueException("Value 'UserArgs.userName' is not present");
     }
 
 }

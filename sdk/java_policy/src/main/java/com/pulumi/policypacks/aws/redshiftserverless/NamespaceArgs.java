@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshiftserverless;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -19,11 +20,12 @@ public final class NamespaceArgs extends com.pulumi.resources.PolicyResourceInpu
      * ID of the KMS key used to encrypt the namespace&#39;s admin credentials secret.
      * 
      */
-    private UndeferrableValue<String> adminPasswordSecretKmsKeyId;
-
+    @PolicyResourceProperty(name="adminPasswordSecretKmsKeyId", flag="unknown_adminPasswordSecretKmsKeyId")
+    private String value_adminPasswordSecretKmsKeyId;
+    private boolean unknown_adminPasswordSecretKmsKeyId;
     public String adminPasswordSecretKmsKeyId() {
-        if (adminPasswordSecretKmsKeyId == null) return null;
-        return adminPasswordSecretKmsKeyId.getValue("NamespaceArgs.adminPasswordSecretKmsKeyId");
+        if (!unknown_adminPasswordSecretKmsKeyId) return value_adminPasswordSecretKmsKeyId;
+        throw new UndeferrableValueException("Value 'NamespaceArgs.adminPasswordSecretKmsKeyId' is not present");
     }
 
     /**
@@ -31,77 +33,84 @@ public final class NamespaceArgs extends com.pulumi.resources.PolicyResourceInpu
      * Conflicts with `manage_admin_password` and `admin_user_password_wo`.
      * 
      */
-    private UndeferrableValue<String> adminUserPassword;
-
+    @PolicyResourceProperty(name="adminUserPassword", flag="unknown_adminUserPassword")
+    private String value_adminUserPassword;
+    private boolean unknown_adminUserPassword;
     public String adminUserPassword() {
-        if (adminUserPassword == null) return null;
-        return adminUserPassword.getValue("NamespaceArgs.adminUserPassword");
+        if (!unknown_adminUserPassword) return value_adminUserPassword;
+        throw new UndeferrableValueException("Value 'NamespaceArgs.adminUserPassword' is not present");
     }
 
     /**
      * The username of the administrator for the first database created in the namespace.
      * 
      */
-    private UndeferrableValue<String> adminUsername;
-
+    @PolicyResourceProperty(name="adminUsername", flag="unknown_adminUsername")
+    private String value_adminUsername;
+    private boolean unknown_adminUsername;
     public String adminUsername() {
-        if (adminUsername == null) return null;
-        return adminUsername.getValue("NamespaceArgs.adminUsername");
+        if (!unknown_adminUsername) return value_adminUsername;
+        throw new UndeferrableValueException("Value 'NamespaceArgs.adminUsername' is not present");
     }
 
     /**
      * The name of the first database created in the namespace.
      * 
      */
-    private UndeferrableValue<String> dbName;
-
+    @PolicyResourceProperty(name="dbName", flag="unknown_dbName")
+    private String value_dbName;
+    private boolean unknown_dbName;
     public String dbName() {
-        if (dbName == null) return null;
-        return dbName.getValue("NamespaceArgs.dbName");
+        if (!unknown_dbName) return value_dbName;
+        throw new UndeferrableValueException("Value 'NamespaceArgs.dbName' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
      * 
      */
-    private UndeferrableValue<String> defaultIamRoleArn;
-
+    @PolicyResourceProperty(name="defaultIamRoleArn", flag="unknown_defaultIamRoleArn")
+    private String value_defaultIamRoleArn;
+    private boolean unknown_defaultIamRoleArn;
     public String defaultIamRoleArn() {
-        if (defaultIamRoleArn == null) return null;
-        return defaultIamRoleArn.getValue("NamespaceArgs.defaultIamRoleArn");
+        if (!unknown_defaultIamRoleArn) return value_defaultIamRoleArn;
+        throw new UndeferrableValueException("Value 'NamespaceArgs.defaultIamRoleArn' is not present");
     }
 
     /**
      * A list of IAM roles to associate with the namespace.
      * 
      */
-    private UndeferrableValue<List<String>> iamRoles;
-
+    @PolicyResourceProperty(name="iamRoles", flag="unknown_iamRoles")
+    private List<String> value_iamRoles;
+    private boolean unknown_iamRoles;
     public List<String> iamRoles() {
-        if (iamRoles == null) return null;
-        return iamRoles.getValue("NamespaceArgs.iamRoles");
+        if (!unknown_iamRoles) return value_iamRoles;
+        throw new UndeferrableValueException("Value 'NamespaceArgs.iamRoles' is not present");
     }
 
     /**
      * The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("NamespaceArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'NamespaceArgs.kmsKeyId' is not present");
     }
 
     /**
      * The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
      * 
      */
-    private UndeferrableValue<List<String>> logExports;
-
+    @PolicyResourceProperty(name="logExports", flag="unknown_logExports")
+    private List<String> value_logExports;
+    private boolean unknown_logExports;
     public List<String> logExports() {
-        if (logExports == null) return null;
-        return logExports.getValue("NamespaceArgs.logExports");
+        if (!unknown_logExports) return value_logExports;
+        throw new UndeferrableValueException("Value 'NamespaceArgs.logExports' is not present");
     }
 
     /**
@@ -109,33 +118,36 @@ public final class NamespaceArgs extends com.pulumi.resources.PolicyResourceInpu
      * Conflicts with `admin_user_password` and `admin_user_password_wo`.
      * 
      */
-    private UndeferrableValue<Boolean> manageAdminPassword;
-
+    @PolicyResourceProperty(name="manageAdminPassword", flag="unknown_manageAdminPassword")
+    private Boolean value_manageAdminPassword;
+    private boolean unknown_manageAdminPassword;
     public Boolean manageAdminPassword() {
-        if (manageAdminPassword == null) return null;
-        return manageAdminPassword.getValue("NamespaceArgs.manageAdminPassword");
+        if (!unknown_manageAdminPassword) return value_manageAdminPassword;
+        throw new UndeferrableValueException("Value 'NamespaceArgs.manageAdminPassword' is not present");
     }
 
     /**
      * The name of the namespace.
      * 
      */
-    private UndeferrableValue<String> namespaceName;
-
+    @PolicyResourceProperty(name="namespaceName", flag="unknown_namespaceName")
+    private String value_namespaceName;
+    private boolean unknown_namespaceName;
     public String namespaceName() {
-        if (namespaceName == null) return null;
-        return namespaceName.getValue("NamespaceArgs.namespaceName");
+        if (!unknown_namespaceName) return value_namespaceName;
+        throw new UndeferrableValueException("Value 'NamespaceArgs.namespaceName' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("NamespaceArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'NamespaceArgs.tags' is not present");
     }
 
 }

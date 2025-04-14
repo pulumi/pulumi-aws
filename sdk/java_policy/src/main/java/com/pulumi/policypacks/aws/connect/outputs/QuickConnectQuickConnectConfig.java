@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.connect.outputs.QuickConnectQuickConnectConfigPhoneConfig;
 import com.pulumi.policypacks.aws.connect.outputs.QuickConnectQuickConnectConfigQueueConfig;
 import com.pulumi.policypacks.aws.connect.outputs.QuickConnectQuickConnectConfigUserConfig;
@@ -18,44 +19,48 @@ public final class QuickConnectQuickConnectConfig {
      * Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<QuickConnectQuickConnectConfigPhoneConfig>> phoneConfigs;
-
+    @PolicyResourceProperty(name="phoneConfigs", flag="unknown_phoneConfigs")
+    private @Nullable List<QuickConnectQuickConnectConfigPhoneConfig> value_phoneConfigs;
+    private boolean unknown_phoneConfigs;
     public @Nullable List<QuickConnectQuickConnectConfigPhoneConfig> phoneConfigs() {
-        if (phoneConfigs == null) return null;
-        return phoneConfigs.getValue("QuickConnectQuickConnectConfig.phoneConfigs");
+        if (!unknown_phoneConfigs) return value_phoneConfigs;
+        throw new UndeferrableValueException("Value 'QuickConnectQuickConnectConfig.phoneConfigs' is not present");
     }
 
     /**
      * Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<QuickConnectQuickConnectConfigQueueConfig>> queueConfigs;
-
+    @PolicyResourceProperty(name="queueConfigs", flag="unknown_queueConfigs")
+    private @Nullable List<QuickConnectQuickConnectConfigQueueConfig> value_queueConfigs;
+    private boolean unknown_queueConfigs;
     public @Nullable List<QuickConnectQuickConnectConfigQueueConfig> queueConfigs() {
-        if (queueConfigs == null) return null;
-        return queueConfigs.getValue("QuickConnectQuickConnectConfig.queueConfigs");
+        if (!unknown_queueConfigs) return value_queueConfigs;
+        throw new UndeferrableValueException("Value 'QuickConnectQuickConnectConfig.queueConfigs' is not present");
     }
 
     /**
      * Specifies the configuration type of the quick connect. valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
      * 
      */
-    private UndeferrableValue<String> quickConnectType;
-
+    @PolicyResourceProperty(name="quickConnectType", flag="unknown_quickConnectType")
+    private String value_quickConnectType;
+    private boolean unknown_quickConnectType;
     public String quickConnectType() {
-        if (quickConnectType == null) return null;
-        return quickConnectType.getValue("QuickConnectQuickConnectConfig.quickConnectType");
+        if (!unknown_quickConnectType) return value_quickConnectType;
+        throw new UndeferrableValueException("Value 'QuickConnectQuickConnectConfig.quickConnectType' is not present");
     }
 
     /**
      * Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<QuickConnectQuickConnectConfigUserConfig>> userConfigs;
-
+    @PolicyResourceProperty(name="userConfigs", flag="unknown_userConfigs")
+    private @Nullable List<QuickConnectQuickConnectConfigUserConfig> value_userConfigs;
+    private boolean unknown_userConfigs;
     public @Nullable List<QuickConnectQuickConnectConfigUserConfig> userConfigs() {
-        if (userConfigs == null) return null;
-        return userConfigs.getValue("QuickConnectQuickConnectConfig.userConfigs");
+        if (!unknown_userConfigs) return value_userConfigs;
+        throw new UndeferrableValueException("Value 'QuickConnectQuickConnectConfig.userConfigs' is not present");
     }
 
 }

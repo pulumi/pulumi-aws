@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class ConnectionArgs extends com.pulumi.resources.PolicyResourceInp
      * The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps, 100Gbps, and 400Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Dedicated Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html) and [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
      * 
      */
-    private UndeferrableValue<String> bandwidth;
-
+    @PolicyResourceProperty(name="bandwidth", flag="unknown_bandwidth")
+    private String value_bandwidth;
+    private boolean unknown_bandwidth;
     public String bandwidth() {
-        if (bandwidth == null) return null;
-        return bandwidth.getValue("ConnectionArgs.bandwidth");
+        if (!unknown_bandwidth) return value_bandwidth;
+        throw new UndeferrableValueException("Value 'ConnectionArgs.bandwidth' is not present");
     }
 
     /**
      * The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
      * 
      */
-    private UndeferrableValue<String> encryptionMode;
-
+    @PolicyResourceProperty(name="encryptionMode", flag="unknown_encryptionMode")
+    private String value_encryptionMode;
+    private boolean unknown_encryptionMode;
     public String encryptionMode() {
-        if (encryptionMode == null) return null;
-        return encryptionMode.getValue("ConnectionArgs.encryptionMode");
+        if (!unknown_encryptionMode) return value_encryptionMode;
+        throw new UndeferrableValueException("Value 'ConnectionArgs.encryptionMode' is not present");
     }
 
     /**
      * The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
      * 
      */
-    private UndeferrableValue<String> location;
-
+    @PolicyResourceProperty(name="location", flag="unknown_location")
+    private String value_location;
+    private boolean unknown_location;
     public String location() {
-        if (location == null) return null;
-        return location.getValue("ConnectionArgs.location");
+        if (!unknown_location) return value_location;
+        throw new UndeferrableValueException("Value 'ConnectionArgs.location' is not present");
     }
 
     /**
      * The name of the connection.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ConnectionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ConnectionArgs.name' is not present");
     }
 
     /**
      * The name of the service provider associated with the connection.
      * 
      */
-    private UndeferrableValue<String> providerName;
-
+    @PolicyResourceProperty(name="providerName", flag="unknown_providerName")
+    private String value_providerName;
+    private boolean unknown_providerName;
     public String providerName() {
-        if (providerName == null) return null;
-        return providerName.getValue("ConnectionArgs.providerName");
+        if (!unknown_providerName) return value_providerName;
+        throw new UndeferrableValueException("Value 'ConnectionArgs.providerName' is not present");
     }
 
     /**
@@ -75,33 +81,36 @@ public final class ConnectionArgs extends com.pulumi.resources.PolicyResourceInp
      * &gt; **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
      * 
      */
-    private UndeferrableValue<Boolean> requestMacsec;
-
+    @PolicyResourceProperty(name="requestMacsec", flag="unknown_requestMacsec")
+    private Boolean value_requestMacsec;
+    private boolean unknown_requestMacsec;
     public Boolean requestMacsec() {
-        if (requestMacsec == null) return null;
-        return requestMacsec.getValue("ConnectionArgs.requestMacsec");
+        if (!unknown_requestMacsec) return value_requestMacsec;
+        throw new UndeferrableValueException("Value 'ConnectionArgs.requestMacsec' is not present");
     }
 
     /**
      * Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
      * 
      */
-    private UndeferrableValue<Boolean> skipDestroy;
-
+    @PolicyResourceProperty(name="skipDestroy", flag="unknown_skipDestroy")
+    private Boolean value_skipDestroy;
+    private boolean unknown_skipDestroy;
     public Boolean skipDestroy() {
-        if (skipDestroy == null) return null;
-        return skipDestroy.getValue("ConnectionArgs.skipDestroy");
+        if (!unknown_skipDestroy) return value_skipDestroy;
+        throw new UndeferrableValueException("Value 'ConnectionArgs.skipDestroy' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ConnectionArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ConnectionArgs.tags' is not present");
     }
 
 }

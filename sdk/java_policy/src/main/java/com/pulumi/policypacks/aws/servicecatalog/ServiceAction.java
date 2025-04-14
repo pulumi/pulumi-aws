@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.servicecatalog.outputs.ServiceActionDefinition;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class ServiceAction extends com.pulumi.resources.PolicyResourceOutp
      * Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
      * 
      */
-    private @Nullable UndeferrableValue<String> acceptLanguage;
-
+    @PolicyResourceProperty(name="acceptLanguage", flag="unknown_acceptLanguage")
+    private @Nullable String value_acceptLanguage;
+    private boolean unknown_acceptLanguage;
     public @Nullable String acceptLanguage() {
-        if (acceptLanguage == null) return null;
-        return acceptLanguage.getValue("ServiceAction.acceptLanguage");
+        if (!unknown_acceptLanguage) return value_acceptLanguage;
+        throw new UndeferrableValueException("Value 'ServiceAction.acceptLanguage' is not present");
     }
 
     /**
      * Self-service action definition configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<ServiceActionDefinition> definition;
-
+    @PolicyResourceProperty(name="definition", flag="unknown_definition")
+    private ServiceActionDefinition value_definition;
+    private boolean unknown_definition;
     public ServiceActionDefinition definition() {
-        if (definition == null) return null;
-        return definition.getValue("ServiceAction.definition");
+        if (!unknown_definition) return value_definition;
+        throw new UndeferrableValueException("Value 'ServiceAction.definition' is not present");
     }
 
     /**
      * Self-service action description.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ServiceAction.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ServiceAction.description' is not present");
     }
 
     /**
@@ -52,11 +56,12 @@ public final class ServiceAction extends com.pulumi.resources.PolicyResourceOutp
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ServiceAction.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ServiceAction.name' is not present");
     }
 
 }

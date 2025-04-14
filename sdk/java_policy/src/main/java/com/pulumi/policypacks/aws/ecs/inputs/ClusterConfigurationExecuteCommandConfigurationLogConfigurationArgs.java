@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,55 +16,60 @@ public final class ClusterConfigurationExecuteCommandConfigurationLogConfigurati
      * Whether to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
      * 
      */
-    private UndeferrableValue<Boolean> cloudWatchEncryptionEnabled;
-
+    @PolicyResourceProperty(name="cloudWatchEncryptionEnabled", flag="unknown_cloudWatchEncryptionEnabled")
+    private Boolean value_cloudWatchEncryptionEnabled;
+    private boolean unknown_cloudWatchEncryptionEnabled;
     public Boolean cloudWatchEncryptionEnabled() {
-        if (cloudWatchEncryptionEnabled == null) return null;
-        return cloudWatchEncryptionEnabled.getValue("ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs.cloudWatchEncryptionEnabled");
+        if (!unknown_cloudWatchEncryptionEnabled) return value_cloudWatchEncryptionEnabled;
+        throw new UndeferrableValueException("Value 'ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs.cloudWatchEncryptionEnabled' is not present");
     }
 
     /**
      * The name of the CloudWatch log group to send logs to.
      * 
      */
-    private UndeferrableValue<String> cloudWatchLogGroupName;
-
+    @PolicyResourceProperty(name="cloudWatchLogGroupName", flag="unknown_cloudWatchLogGroupName")
+    private String value_cloudWatchLogGroupName;
+    private boolean unknown_cloudWatchLogGroupName;
     public String cloudWatchLogGroupName() {
-        if (cloudWatchLogGroupName == null) return null;
-        return cloudWatchLogGroupName.getValue("ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs.cloudWatchLogGroupName");
+        if (!unknown_cloudWatchLogGroupName) return value_cloudWatchLogGroupName;
+        throw new UndeferrableValueException("Value 'ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs.cloudWatchLogGroupName' is not present");
     }
 
     /**
      * Whether to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
      * 
      */
-    private UndeferrableValue<Boolean> s3BucketEncryptionEnabled;
-
+    @PolicyResourceProperty(name="s3BucketEncryptionEnabled", flag="unknown_s3BucketEncryptionEnabled")
+    private Boolean value_s3BucketEncryptionEnabled;
+    private boolean unknown_s3BucketEncryptionEnabled;
     public Boolean s3BucketEncryptionEnabled() {
-        if (s3BucketEncryptionEnabled == null) return null;
-        return s3BucketEncryptionEnabled.getValue("ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs.s3BucketEncryptionEnabled");
+        if (!unknown_s3BucketEncryptionEnabled) return value_s3BucketEncryptionEnabled;
+        throw new UndeferrableValueException("Value 'ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs.s3BucketEncryptionEnabled' is not present");
     }
 
     /**
      * Name of the S3 bucket to send logs to.
      * 
      */
-    private UndeferrableValue<String> s3BucketName;
-
+    @PolicyResourceProperty(name="s3BucketName", flag="unknown_s3BucketName")
+    private String value_s3BucketName;
+    private boolean unknown_s3BucketName;
     public String s3BucketName() {
-        if (s3BucketName == null) return null;
-        return s3BucketName.getValue("ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs.s3BucketName");
+        if (!unknown_s3BucketName) return value_s3BucketName;
+        throw new UndeferrableValueException("Value 'ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs.s3BucketName' is not present");
     }
 
     /**
      * Optional folder in the S3 bucket to place logs in.
      * 
      */
-    private UndeferrableValue<String> s3KeyPrefix;
-
+    @PolicyResourceProperty(name="s3KeyPrefix", flag="unknown_s3KeyPrefix")
+    private String value_s3KeyPrefix;
+    private boolean unknown_s3KeyPrefix;
     public String s3KeyPrefix() {
-        if (s3KeyPrefix == null) return null;
-        return s3KeyPrefix.getValue("ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs.s3KeyPrefix");
+        if (!unknown_s3KeyPrefix) return value_s3KeyPrefix;
+        throw new UndeferrableValueException("Value 'ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs.s3KeyPrefix' is not present");
     }
 
 }

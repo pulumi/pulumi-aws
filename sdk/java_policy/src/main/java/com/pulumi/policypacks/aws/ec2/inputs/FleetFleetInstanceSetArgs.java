@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class FleetFleetInstanceSetArgs {
      * The IDs of the instances.
      * 
      */
-    private UndeferrableValue<List<String>> instanceIds;
-
+    @PolicyResourceProperty(name="instanceIds", flag="unknown_instanceIds")
+    private List<String> value_instanceIds;
+    private boolean unknown_instanceIds;
     public List<String> instanceIds() {
-        if (instanceIds == null) return null;
-        return instanceIds.getValue("FleetFleetInstanceSetArgs.instanceIds");
+        if (!unknown_instanceIds) return value_instanceIds;
+        throw new UndeferrableValueException("Value 'FleetFleetInstanceSetArgs.instanceIds' is not present");
     }
 
     /**
      * The instance type.
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("FleetFleetInstanceSetArgs.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'FleetFleetInstanceSetArgs.instanceType' is not present");
     }
 
     /**
      * Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
      * 
      */
-    private UndeferrableValue<String> lifecycle;
-
+    @PolicyResourceProperty(name="lifecycle", flag="unknown_lifecycle")
+    private String value_lifecycle;
+    private boolean unknown_lifecycle;
     public String lifecycle() {
-        if (lifecycle == null) return null;
-        return lifecycle.getValue("FleetFleetInstanceSetArgs.lifecycle");
+        if (!unknown_lifecycle) return value_lifecycle;
+        throw new UndeferrableValueException("Value 'FleetFleetInstanceSetArgs.lifecycle' is not present");
     }
 
     /**
      * The value is `Windows` for Windows instances. Otherwise, the value is blank.
      * 
      */
-    private UndeferrableValue<String> platform;
-
+    @PolicyResourceProperty(name="platform", flag="unknown_platform")
+    private String value_platform;
+    private boolean unknown_platform;
     public String platform() {
-        if (platform == null) return null;
-        return platform.getValue("FleetFleetInstanceSetArgs.platform");
+        if (!unknown_platform) return value_platform;
+        throw new UndeferrableValueException("Value 'FleetFleetInstanceSetArgs.platform' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class EndpointConfigurationProductionVariantServerlessConfigArgs {
      * The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
      * 
      */
-    private UndeferrableValue<Integer> maxConcurrency;
-
+    @PolicyResourceProperty(name="maxConcurrency", flag="unknown_maxConcurrency")
+    private Integer value_maxConcurrency;
+    private boolean unknown_maxConcurrency;
     public Integer maxConcurrency() {
-        if (maxConcurrency == null) return null;
-        return maxConcurrency.getValue("EndpointConfigurationProductionVariantServerlessConfigArgs.maxConcurrency");
+        if (!unknown_maxConcurrency) return value_maxConcurrency;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationProductionVariantServerlessConfigArgs.maxConcurrency' is not present");
     }
 
     /**
      * The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
      * 
      */
-    private UndeferrableValue<Integer> memorySizeInMb;
-
+    @PolicyResourceProperty(name="memorySizeInMb", flag="unknown_memorySizeInMb")
+    private Integer value_memorySizeInMb;
+    private boolean unknown_memorySizeInMb;
     public Integer memorySizeInMb() {
-        if (memorySizeInMb == null) return null;
-        return memorySizeInMb.getValue("EndpointConfigurationProductionVariantServerlessConfigArgs.memorySizeInMb");
+        if (!unknown_memorySizeInMb) return value_memorySizeInMb;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationProductionVariantServerlessConfigArgs.memorySizeInMb' is not present");
     }
 
     /**
      * The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to `max_concurrency`. Valid values are between `1` and `200`.
      * 
      */
-    private UndeferrableValue<Integer> provisionedConcurrency;
-
+    @PolicyResourceProperty(name="provisionedConcurrency", flag="unknown_provisionedConcurrency")
+    private Integer value_provisionedConcurrency;
+    private boolean unknown_provisionedConcurrency;
     public Integer provisionedConcurrency() {
-        if (provisionedConcurrency == null) return null;
-        return provisionedConcurrency.getValue("EndpointConfigurationProductionVariantServerlessConfigArgs.provisionedConcurrency");
+        if (!unknown_provisionedConcurrency) return value_provisionedConcurrency;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationProductionVariantServerlessConfigArgs.provisionedConcurrency' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class AgentAgentAliasRoutingConfiguration {
      * Version of the agent with which the alias is associated.
      * 
      */
-    private UndeferrableValue<String> agentVersion;
-
+    @PolicyResourceProperty(name="agentVersion", flag="unknown_agentVersion")
+    private String value_agentVersion;
+    private boolean unknown_agentVersion;
     public String agentVersion() {
-        if (agentVersion == null) return null;
-        return agentVersion.getValue("AgentAgentAliasRoutingConfiguration.agentVersion");
+        if (!unknown_agentVersion) return value_agentVersion;
+        throw new UndeferrableValueException("Value 'AgentAgentAliasRoutingConfiguration.agentVersion' is not present");
     }
 
     /**
      * ARN of the Provisioned Throughput assigned to the agent alias.
      * 
      */
-    private UndeferrableValue<String> provisionedThroughput;
-
+    @PolicyResourceProperty(name="provisionedThroughput", flag="unknown_provisionedThroughput")
+    private String value_provisionedThroughput;
+    private boolean unknown_provisionedThroughput;
     public String provisionedThroughput() {
-        if (provisionedThroughput == null) return null;
-        return provisionedThroughput.getValue("AgentAgentAliasRoutingConfiguration.provisionedThroughput");
+        if (!unknown_provisionedThroughput) return value_provisionedThroughput;
+        throw new UndeferrableValueException("Value 'AgentAgentAliasRoutingConfiguration.provisionedThroughput' is not present");
     }
 
 }

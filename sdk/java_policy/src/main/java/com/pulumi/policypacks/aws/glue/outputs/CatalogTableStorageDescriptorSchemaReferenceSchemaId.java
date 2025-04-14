@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class CatalogTableStorageDescriptorSchemaReferenceSchemaId {
      * Name of the schema registry that contains the schema. Must be provided when `schema_name` is specified and conflicts with `schema_arn`.
      * 
      */
-    private @Nullable UndeferrableValue<String> registryName;
-
+    @PolicyResourceProperty(name="registryName", flag="unknown_registryName")
+    private @Nullable String value_registryName;
+    private boolean unknown_registryName;
     public @Nullable String registryName() {
-        if (registryName == null) return null;
-        return registryName.getValue("CatalogTableStorageDescriptorSchemaReferenceSchemaId.registryName");
+        if (!unknown_registryName) return value_registryName;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptorSchemaReferenceSchemaId.registryName' is not present");
     }
 
     /**
      * ARN of the schema. One of `schema_arn` or `schema_name` has to be provided.
      * 
      */
-    private @Nullable UndeferrableValue<String> schemaArn;
-
+    @PolicyResourceProperty(name="schemaArn", flag="unknown_schemaArn")
+    private @Nullable String value_schemaArn;
+    private boolean unknown_schemaArn;
     public @Nullable String schemaArn() {
-        if (schemaArn == null) return null;
-        return schemaArn.getValue("CatalogTableStorageDescriptorSchemaReferenceSchemaId.schemaArn");
+        if (!unknown_schemaArn) return value_schemaArn;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptorSchemaReferenceSchemaId.schemaArn' is not present");
     }
 
     /**
      * Name of the schema. One of `schema_arn` or `schema_name` has to be provided.
      * 
      */
-    private @Nullable UndeferrableValue<String> schemaName;
-
+    @PolicyResourceProperty(name="schemaName", flag="unknown_schemaName")
+    private @Nullable String value_schemaName;
+    private boolean unknown_schemaName;
     public @Nullable String schemaName() {
-        if (schemaName == null) return null;
-        return schemaName.getValue("CatalogTableStorageDescriptorSchemaReferenceSchemaId.schemaName");
+        if (!unknown_schemaName) return value_schemaName;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptorSchemaReferenceSchemaId.schemaName' is not present");
     }
 
 }

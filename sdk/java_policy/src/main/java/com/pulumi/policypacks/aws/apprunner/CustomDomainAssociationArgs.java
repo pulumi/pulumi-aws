@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class CustomDomainAssociationArgs extends com.pulumi.resources.Poli
      * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("CustomDomainAssociationArgs.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'CustomDomainAssociationArgs.domainName' is not present");
     }
 
     /**
      * Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> enableWwwSubdomain;
-
+    @PolicyResourceProperty(name="enableWwwSubdomain", flag="unknown_enableWwwSubdomain")
+    private Boolean value_enableWwwSubdomain;
+    private boolean unknown_enableWwwSubdomain;
     public Boolean enableWwwSubdomain() {
-        if (enableWwwSubdomain == null) return null;
-        return enableWwwSubdomain.getValue("CustomDomainAssociationArgs.enableWwwSubdomain");
+        if (!unknown_enableWwwSubdomain) return value_enableWwwSubdomain;
+        throw new UndeferrableValueException("Value 'CustomDomainAssociationArgs.enableWwwSubdomain' is not present");
     }
 
     /**
      * ARN of the App Runner service.
      * 
      */
-    private UndeferrableValue<String> serviceArn;
-
+    @PolicyResourceProperty(name="serviceArn", flag="unknown_serviceArn")
+    private String value_serviceArn;
+    private boolean unknown_serviceArn;
     public String serviceArn() {
-        if (serviceArn == null) return null;
-        return serviceArn.getValue("CustomDomainAssociationArgs.serviceArn");
+        if (!unknown_serviceArn) return value_serviceArn;
+        throw new UndeferrableValueException("Value 'CustomDomainAssociationArgs.serviceArn' is not present");
     }
 
 }

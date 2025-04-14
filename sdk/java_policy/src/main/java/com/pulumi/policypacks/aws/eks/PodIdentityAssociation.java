@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,55 +18,60 @@ public final class PodIdentityAssociation extends com.pulumi.resources.PolicyRes
      * The Amazon Resource Name (ARN) of the association.
      * 
      */
-    private UndeferrableValue<String> associationArn;
-
+    @PolicyResourceProperty(name="associationArn", flag="unknown_associationArn")
+    private String value_associationArn;
+    private boolean unknown_associationArn;
     public String associationArn() {
-        if (associationArn == null) return null;
-        return associationArn.getValue("PodIdentityAssociation.associationArn");
+        if (!unknown_associationArn) return value_associationArn;
+        throw new UndeferrableValueException("Value 'PodIdentityAssociation.associationArn' is not present");
     }
 
     /**
      * The ID of the association.
      * 
      */
-    private UndeferrableValue<String> associationId;
-
+    @PolicyResourceProperty(name="associationId", flag="unknown_associationId")
+    private String value_associationId;
+    private boolean unknown_associationId;
     public String associationId() {
-        if (associationId == null) return null;
-        return associationId.getValue("PodIdentityAssociation.associationId");
+        if (!unknown_associationId) return value_associationId;
+        throw new UndeferrableValueException("Value 'PodIdentityAssociation.associationId' is not present");
     }
 
     /**
      * The name of the cluster to create the association in.
      * 
      */
-    private UndeferrableValue<String> clusterName;
-
+    @PolicyResourceProperty(name="clusterName", flag="unknown_clusterName")
+    private String value_clusterName;
+    private boolean unknown_clusterName;
     public String clusterName() {
-        if (clusterName == null) return null;
-        return clusterName.getValue("PodIdentityAssociation.clusterName");
+        if (!unknown_clusterName) return value_clusterName;
+        throw new UndeferrableValueException("Value 'PodIdentityAssociation.clusterName' is not present");
     }
 
     /**
      * The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
      * 
      */
-    private UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private String value_namespace;
+    private boolean unknown_namespace;
     public String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("PodIdentityAssociation.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'PodIdentityAssociation.namespace' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("PodIdentityAssociation.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'PodIdentityAssociation.roleArn' is not present");
     }
 
     /**
@@ -74,22 +80,24 @@ public final class PodIdentityAssociation extends com.pulumi.resources.PolicyRes
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> serviceAccount;
-
+    @PolicyResourceProperty(name="serviceAccount", flag="unknown_serviceAccount")
+    private String value_serviceAccount;
+    private boolean unknown_serviceAccount;
     public String serviceAccount() {
-        if (serviceAccount == null) return null;
-        return serviceAccount.getValue("PodIdentityAssociation.serviceAccount");
+        if (!unknown_serviceAccount) return value_serviceAccount;
+        throw new UndeferrableValueException("Value 'PodIdentityAssociation.serviceAccount' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("PodIdentityAssociation.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'PodIdentityAssociation.tags' is not present");
     }
 
     /**
@@ -100,11 +108,12 @@ public final class PodIdentityAssociation extends com.pulumi.resources.PolicyRes
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("PodIdentityAssociation.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'PodIdentityAssociation.tagsAll' is not present");
     }
 
 }

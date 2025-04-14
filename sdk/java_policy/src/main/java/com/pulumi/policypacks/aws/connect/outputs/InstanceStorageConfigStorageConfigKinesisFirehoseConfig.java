@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class InstanceStorageConfigStorageConfigKinesisFirehoseConfig {
      * The Amazon Resource Name (ARN) of the delivery stream.
      * 
      */
-    private UndeferrableValue<String> firehoseArn;
-
+    @PolicyResourceProperty(name="firehoseArn", flag="unknown_firehoseArn")
+    private String value_firehoseArn;
+    private boolean unknown_firehoseArn;
     public String firehoseArn() {
-        if (firehoseArn == null) return null;
-        return firehoseArn.getValue("InstanceStorageConfigStorageConfigKinesisFirehoseConfig.firehoseArn");
+        if (!unknown_firehoseArn) return value_firehoseArn;
+        throw new UndeferrableValueException("Value 'InstanceStorageConfigStorageConfigKinesisFirehoseConfig.firehoseArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -21,143 +22,156 @@ public final class TransitGateway extends com.pulumi.resources.PolicyResourceOut
      * &gt; **NOTE:** Modifying `amazon_side_asn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazon_side_asn`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> amazonSideAsn;
-
+    @PolicyResourceProperty(name="amazonSideAsn", flag="unknown_amazonSideAsn")
+    private @Nullable Integer value_amazonSideAsn;
+    private boolean unknown_amazonSideAsn;
     public @Nullable Integer amazonSideAsn() {
-        if (amazonSideAsn == null) return null;
-        return amazonSideAsn.getValue("TransitGateway.amazonSideAsn");
+        if (!unknown_amazonSideAsn) return value_amazonSideAsn;
+        throw new UndeferrableValueException("Value 'TransitGateway.amazonSideAsn' is not present");
     }
 
     /**
      * EC2 Transit Gateway Amazon Resource Name (ARN)
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("TransitGateway.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'TransitGateway.arn' is not present");
     }
 
     /**
      * Identifier of the default association route table
      * 
      */
-    private UndeferrableValue<String> associationDefaultRouteTableId;
-
+    @PolicyResourceProperty(name="associationDefaultRouteTableId", flag="unknown_associationDefaultRouteTableId")
+    private String value_associationDefaultRouteTableId;
+    private boolean unknown_associationDefaultRouteTableId;
     public String associationDefaultRouteTableId() {
-        if (associationDefaultRouteTableId == null) return null;
-        return associationDefaultRouteTableId.getValue("TransitGateway.associationDefaultRouteTableId");
+        if (!unknown_associationDefaultRouteTableId) return value_associationDefaultRouteTableId;
+        throw new UndeferrableValueException("Value 'TransitGateway.associationDefaultRouteTableId' is not present");
     }
 
     /**
      * Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
      * 
      */
-    private @Nullable UndeferrableValue<String> autoAcceptSharedAttachments;
-
+    @PolicyResourceProperty(name="autoAcceptSharedAttachments", flag="unknown_autoAcceptSharedAttachments")
+    private @Nullable String value_autoAcceptSharedAttachments;
+    private boolean unknown_autoAcceptSharedAttachments;
     public @Nullable String autoAcceptSharedAttachments() {
-        if (autoAcceptSharedAttachments == null) return null;
-        return autoAcceptSharedAttachments.getValue("TransitGateway.autoAcceptSharedAttachments");
+        if (!unknown_autoAcceptSharedAttachments) return value_autoAcceptSharedAttachments;
+        throw new UndeferrableValueException("Value 'TransitGateway.autoAcceptSharedAttachments' is not present");
     }
 
     /**
      * Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
      * 
      */
-    private @Nullable UndeferrableValue<String> defaultRouteTableAssociation;
-
+    @PolicyResourceProperty(name="defaultRouteTableAssociation", flag="unknown_defaultRouteTableAssociation")
+    private @Nullable String value_defaultRouteTableAssociation;
+    private boolean unknown_defaultRouteTableAssociation;
     public @Nullable String defaultRouteTableAssociation() {
-        if (defaultRouteTableAssociation == null) return null;
-        return defaultRouteTableAssociation.getValue("TransitGateway.defaultRouteTableAssociation");
+        if (!unknown_defaultRouteTableAssociation) return value_defaultRouteTableAssociation;
+        throw new UndeferrableValueException("Value 'TransitGateway.defaultRouteTableAssociation' is not present");
     }
 
     /**
      * Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
      * 
      */
-    private @Nullable UndeferrableValue<String> defaultRouteTablePropagation;
-
+    @PolicyResourceProperty(name="defaultRouteTablePropagation", flag="unknown_defaultRouteTablePropagation")
+    private @Nullable String value_defaultRouteTablePropagation;
+    private boolean unknown_defaultRouteTablePropagation;
     public @Nullable String defaultRouteTablePropagation() {
-        if (defaultRouteTablePropagation == null) return null;
-        return defaultRouteTablePropagation.getValue("TransitGateway.defaultRouteTablePropagation");
+        if (!unknown_defaultRouteTablePropagation) return value_defaultRouteTablePropagation;
+        throw new UndeferrableValueException("Value 'TransitGateway.defaultRouteTablePropagation' is not present");
     }
 
     /**
      * Description of the EC2 Transit Gateway.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("TransitGateway.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'TransitGateway.description' is not present");
     }
 
     /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      * 
      */
-    private @Nullable UndeferrableValue<String> dnsSupport;
-
+    @PolicyResourceProperty(name="dnsSupport", flag="unknown_dnsSupport")
+    private @Nullable String value_dnsSupport;
+    private boolean unknown_dnsSupport;
     public @Nullable String dnsSupport() {
-        if (dnsSupport == null) return null;
-        return dnsSupport.getValue("TransitGateway.dnsSupport");
+        if (!unknown_dnsSupport) return value_dnsSupport;
+        throw new UndeferrableValueException("Value 'TransitGateway.dnsSupport' is not present");
     }
 
     /**
      * Whether Multicast support is enabled. Required to use `ec2_transit_gateway_multicast_domain`. Valid values: `disable`, `enable`. Default value: `disable`.
      * 
      */
-    private @Nullable UndeferrableValue<String> multicastSupport;
-
+    @PolicyResourceProperty(name="multicastSupport", flag="unknown_multicastSupport")
+    private @Nullable String value_multicastSupport;
+    private boolean unknown_multicastSupport;
     public @Nullable String multicastSupport() {
-        if (multicastSupport == null) return null;
-        return multicastSupport.getValue("TransitGateway.multicastSupport");
+        if (!unknown_multicastSupport) return value_multicastSupport;
+        throw new UndeferrableValueException("Value 'TransitGateway.multicastSupport' is not present");
     }
 
     /**
      * Identifier of the AWS account that owns the EC2 Transit Gateway
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("TransitGateway.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'TransitGateway.ownerId' is not present");
     }
 
     /**
      * Identifier of the default propagation route table
      * 
      */
-    private UndeferrableValue<String> propagationDefaultRouteTableId;
-
+    @PolicyResourceProperty(name="propagationDefaultRouteTableId", flag="unknown_propagationDefaultRouteTableId")
+    private String value_propagationDefaultRouteTableId;
+    private boolean unknown_propagationDefaultRouteTableId;
     public String propagationDefaultRouteTableId() {
-        if (propagationDefaultRouteTableId == null) return null;
-        return propagationDefaultRouteTableId.getValue("TransitGateway.propagationDefaultRouteTableId");
+        if (!unknown_propagationDefaultRouteTableId) return value_propagationDefaultRouteTableId;
+        throw new UndeferrableValueException("Value 'TransitGateway.propagationDefaultRouteTableId' is not present");
     }
 
     /**
      * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
      * 
      */
-    private @Nullable UndeferrableValue<String> securityGroupReferencingSupport;
-
+    @PolicyResourceProperty(name="securityGroupReferencingSupport", flag="unknown_securityGroupReferencingSupport")
+    private @Nullable String value_securityGroupReferencingSupport;
+    private boolean unknown_securityGroupReferencingSupport;
     public @Nullable String securityGroupReferencingSupport() {
-        if (securityGroupReferencingSupport == null) return null;
-        return securityGroupReferencingSupport.getValue("TransitGateway.securityGroupReferencingSupport");
+        if (!unknown_securityGroupReferencingSupport) return value_securityGroupReferencingSupport;
+        throw new UndeferrableValueException("Value 'TransitGateway.securityGroupReferencingSupport' is not present");
     }
 
     /**
      * Key-value tags for the EC2 Transit Gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TransitGateway.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TransitGateway.tags' is not present");
     }
 
     /**
@@ -168,33 +182,36 @@ public final class TransitGateway extends com.pulumi.resources.PolicyResourceOut
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("TransitGateway.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'TransitGateway.tagsAll' is not present");
     }
 
     /**
      * One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> transitGatewayCidrBlocks;
-
+    @PolicyResourceProperty(name="transitGatewayCidrBlocks", flag="unknown_transitGatewayCidrBlocks")
+    private @Nullable List<String> value_transitGatewayCidrBlocks;
+    private boolean unknown_transitGatewayCidrBlocks;
     public @Nullable List<String> transitGatewayCidrBlocks() {
-        if (transitGatewayCidrBlocks == null) return null;
-        return transitGatewayCidrBlocks.getValue("TransitGateway.transitGatewayCidrBlocks");
+        if (!unknown_transitGatewayCidrBlocks) return value_transitGatewayCidrBlocks;
+        throw new UndeferrableValueException("Value 'TransitGateway.transitGatewayCidrBlocks' is not present");
     }
 
     /**
      * Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      * 
      */
-    private @Nullable UndeferrableValue<String> vpnEcmpSupport;
-
+    @PolicyResourceProperty(name="vpnEcmpSupport", flag="unknown_vpnEcmpSupport")
+    private @Nullable String value_vpnEcmpSupport;
+    private boolean unknown_vpnEcmpSupport;
     public @Nullable String vpnEcmpSupport() {
-        if (vpnEcmpSupport == null) return null;
-        return vpnEcmpSupport.getValue("TransitGateway.vpnEcmpSupport");
+        if (!unknown_vpnEcmpSupport) return value_vpnEcmpSupport;
+        throw new UndeferrableValueException("Value 'TransitGateway.vpnEcmpSupport' is not present");
     }
 
 }

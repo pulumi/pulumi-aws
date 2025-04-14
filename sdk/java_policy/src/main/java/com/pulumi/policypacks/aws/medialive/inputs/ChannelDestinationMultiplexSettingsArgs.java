@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class ChannelDestinationMultiplexSettingsArgs {
      * The ID of the Multiplex that the encoder is providing output to.
      * 
      */
-    private UndeferrableValue<String> multiplexId;
-
+    @PolicyResourceProperty(name="multiplexId", flag="unknown_multiplexId")
+    private String value_multiplexId;
+    private boolean unknown_multiplexId;
     public String multiplexId() {
-        if (multiplexId == null) return null;
-        return multiplexId.getValue("ChannelDestinationMultiplexSettingsArgs.multiplexId");
+        if (!unknown_multiplexId) return value_multiplexId;
+        throw new UndeferrableValueException("Value 'ChannelDestinationMultiplexSettingsArgs.multiplexId' is not present");
     }
 
     /**
      * The program name of the Multiplex program that the encoder is providing output to.
      * 
      */
-    private UndeferrableValue<String> programName;
-
+    @PolicyResourceProperty(name="programName", flag="unknown_programName")
+    private String value_programName;
+    private boolean unknown_programName;
     public String programName() {
-        if (programName == null) return null;
-        return programName.getValue("ChannelDestinationMultiplexSettingsArgs.programName");
+        if (!unknown_programName) return value_programName;
+        throw new UndeferrableValueException("Value 'ChannelDestinationMultiplexSettingsArgs.programName' is not present");
     }
 
 }

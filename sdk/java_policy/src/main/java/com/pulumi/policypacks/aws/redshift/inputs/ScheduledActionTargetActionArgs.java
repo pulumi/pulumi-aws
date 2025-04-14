@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.redshift.inputs.ScheduledActionTargetActionPauseClusterArgs;
 import com.pulumi.policypacks.aws.redshift.inputs.ScheduledActionTargetActionResizeClusterArgs;
 import com.pulumi.policypacks.aws.redshift.inputs.ScheduledActionTargetActionResumeClusterArgs;
@@ -16,33 +17,36 @@ public final class ScheduledActionTargetActionArgs {
      * An action that runs a `PauseCluster` API operation. Documented below.
      * 
      */
-    private UndeferrableValue<ScheduledActionTargetActionPauseClusterArgs> pauseCluster;
-
+    @PolicyResourceProperty(name="pauseCluster", flag="unknown_pauseCluster")
+    private ScheduledActionTargetActionPauseClusterArgs value_pauseCluster;
+    private boolean unknown_pauseCluster;
     public ScheduledActionTargetActionPauseClusterArgs pauseCluster() {
-        if (pauseCluster == null) return null;
-        return pauseCluster.getValue("ScheduledActionTargetActionArgs.pauseCluster");
+        if (!unknown_pauseCluster) return value_pauseCluster;
+        throw new UndeferrableValueException("Value 'ScheduledActionTargetActionArgs.pauseCluster' is not present");
     }
 
     /**
      * An action that runs a `ResizeCluster` API operation. Documented below.
      * 
      */
-    private UndeferrableValue<ScheduledActionTargetActionResizeClusterArgs> resizeCluster;
-
+    @PolicyResourceProperty(name="resizeCluster", flag="unknown_resizeCluster")
+    private ScheduledActionTargetActionResizeClusterArgs value_resizeCluster;
+    private boolean unknown_resizeCluster;
     public ScheduledActionTargetActionResizeClusterArgs resizeCluster() {
-        if (resizeCluster == null) return null;
-        return resizeCluster.getValue("ScheduledActionTargetActionArgs.resizeCluster");
+        if (!unknown_resizeCluster) return value_resizeCluster;
+        throw new UndeferrableValueException("Value 'ScheduledActionTargetActionArgs.resizeCluster' is not present");
     }
 
     /**
      * An action that runs a `ResumeCluster` API operation. Documented below.
      * 
      */
-    private UndeferrableValue<ScheduledActionTargetActionResumeClusterArgs> resumeCluster;
-
+    @PolicyResourceProperty(name="resumeCluster", flag="unknown_resumeCluster")
+    private ScheduledActionTargetActionResumeClusterArgs value_resumeCluster;
+    private boolean unknown_resumeCluster;
     public ScheduledActionTargetActionResumeClusterArgs resumeCluster() {
-        if (resumeCluster == null) return null;
-        return resumeCluster.getValue("ScheduledActionTargetActionArgs.resumeCluster");
+        if (!unknown_resumeCluster) return value_resumeCluster;
+        throw new UndeferrableValueException("Value 'ScheduledActionTargetActionArgs.resumeCluster' is not present");
     }
 
 }

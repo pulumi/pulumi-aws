@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponse;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
      * Defines a custom response for the web request. See `custom_response` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponse> customResponse;
-
+    @PolicyResourceProperty(name="customResponse", flag="unknown_customResponse")
+    private @Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponse value_customResponse;
+    private boolean unknown_customResponse;
     public @Nullable WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponse customResponse() {
-        if (customResponse == null) return null;
-        return customResponse.getValue("WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock.customResponse");
+        if (!unknown_customResponse) return value_customResponse;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock.customResponse' is not present");
     }
 
 }

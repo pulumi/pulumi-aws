@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.apprunner.inputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs
      * Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
      * 
      */
-    private UndeferrableValue<ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs> codeConfigurationValues;
-
+    @PolicyResourceProperty(name="codeConfigurationValues", flag="unknown_codeConfigurationValues")
+    private ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs value_codeConfigurationValues;
+    private boolean unknown_codeConfigurationValues;
     public ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs codeConfigurationValues() {
-        if (codeConfigurationValues == null) return null;
-        return codeConfigurationValues.getValue("ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs.codeConfigurationValues");
+        if (!unknown_codeConfigurationValues) return value_codeConfigurationValues;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs.codeConfigurationValues' is not present");
     }
 
     /**
@@ -30,11 +32,12 @@ public final class ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs
      *   parameter and ignores the apprunner.yaml file in the source code repository.
      * 
      */
-    private UndeferrableValue<String> configurationSource;
-
+    @PolicyResourceProperty(name="configurationSource", flag="unknown_configurationSource")
+    private String value_configurationSource;
+    private boolean unknown_configurationSource;
     public String configurationSource() {
-        if (configurationSource == null) return null;
-        return configurationSource.getValue("ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs.configurationSource");
+        if (!unknown_configurationSource) return value_configurationSource;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs.configurationSource' is not present");
     }
 
 }

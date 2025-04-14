@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lightsail.outputs.ContainerServicePrivateRegistryAccess;
 import com.pulumi.policypacks.aws.lightsail.outputs.ContainerServicePublicDomainNames;
@@ -21,40 +22,44 @@ public final class ContainerService extends com.pulumi.resources.PolicyResourceO
      * The Amazon Resource Name (ARN) of the container service.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ContainerService.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ContainerService.arn' is not present");
     }
 
     /**
      * The Availability Zone. Follows the format us-east-2a (case-sensitive).
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("ContainerService.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'ContainerService.availabilityZone' is not present");
     }
 
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("ContainerService.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'ContainerService.createdAt' is not present");
     }
 
     /**
      * A Boolean value indicating whether the container service is disabled. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> isDisabled;
-
+    @PolicyResourceProperty(name="isDisabled", flag="unknown_isDisabled")
+    private @Nullable Boolean value_isDisabled;
+    private boolean unknown_isDisabled;
     public @Nullable Boolean isDisabled() {
-        if (isDisabled == null) return null;
-        return isDisabled.getValue("ContainerService.isDisabled");
+        if (!unknown_isDisabled) return value_isDisabled;
+        throw new UndeferrableValueException("Value 'ContainerService.isDisabled' is not present");
     }
 
     /**
@@ -62,11 +67,12 @@ public final class ContainerService extends com.pulumi.resources.PolicyResourceO
      * unique within each AWS Region in your Lightsail account.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ContainerService.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ContainerService.name' is not present");
     }
 
     /**
@@ -75,22 +81,24 @@ public final class ContainerService extends com.pulumi.resources.PolicyResourceO
      * Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
      * 
      */
-    private UndeferrableValue<String> power;
-
+    @PolicyResourceProperty(name="power", flag="unknown_power")
+    private String value_power;
+    private boolean unknown_power;
     public String power() {
-        if (power == null) return null;
-        return power.getValue("ContainerService.power");
+        if (!unknown_power) return value_power;
+        throw new UndeferrableValueException("Value 'ContainerService.power' is not present");
     }
 
     /**
      * The ID of the power of the container service.
      * 
      */
-    private UndeferrableValue<String> powerId;
-
+    @PolicyResourceProperty(name="powerId", flag="unknown_powerId")
+    private String value_powerId;
+    private boolean unknown_powerId;
     public String powerId() {
-        if (powerId == null) return null;
-        return powerId.getValue("ContainerService.powerId");
+        if (!unknown_powerId) return value_powerId;
+        throw new UndeferrableValueException("Value 'ContainerService.powerId' is not present");
     }
 
     /**
@@ -99,11 +107,12 @@ public final class ContainerService extends com.pulumi.resources.PolicyResourceO
      * service permission to access resources in your standard AWS account.
      * 
      */
-    private UndeferrableValue<String> principalArn;
-
+    @PolicyResourceProperty(name="principalArn", flag="unknown_principalArn")
+    private String value_principalArn;
+    private boolean unknown_principalArn;
     public String principalArn() {
-        if (principalArn == null) return null;
-        return principalArn.getValue("ContainerService.principalArn");
+        if (!unknown_principalArn) return value_principalArn;
+        throw new UndeferrableValueException("Value 'ContainerService.principalArn' is not present");
     }
 
     /**
@@ -111,22 +120,24 @@ public final class ContainerService extends com.pulumi.resources.PolicyResourceO
      * by other resources within the default virtual private cloud (VPC) of your Lightsail account.
      * 
      */
-    private UndeferrableValue<String> privateDomainName;
-
+    @PolicyResourceProperty(name="privateDomainName", flag="unknown_privateDomainName")
+    private String value_privateDomainName;
+    private boolean unknown_privateDomainName;
     public String privateDomainName() {
-        if (privateDomainName == null) return null;
-        return privateDomainName.getValue("ContainerService.privateDomainName");
+        if (!unknown_privateDomainName) return value_privateDomainName;
+        throw new UndeferrableValueException("Value 'ContainerService.privateDomainName' is not present");
     }
 
     /**
      * An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
      * 
      */
-    private UndeferrableValue<ContainerServicePrivateRegistryAccess> privateRegistryAccess;
-
+    @PolicyResourceProperty(name="privateRegistryAccess", flag="unknown_privateRegistryAccess")
+    private ContainerServicePrivateRegistryAccess value_privateRegistryAccess;
+    private boolean unknown_privateRegistryAccess;
     public ContainerServicePrivateRegistryAccess privateRegistryAccess() {
-        if (privateRegistryAccess == null) return null;
-        return privateRegistryAccess.getValue("ContainerService.privateRegistryAccess");
+        if (!unknown_privateRegistryAccess) return value_privateRegistryAccess;
+        throw new UndeferrableValueException("Value 'ContainerService.privateRegistryAccess' is not present");
     }
 
     /**
@@ -137,22 +148,24 @@ public final class ContainerService extends com.pulumi.resources.PolicyResourceO
      * Defined below.
      * 
      */
-    private @Nullable UndeferrableValue<ContainerServicePublicDomainNames> publicDomainNames;
-
+    @PolicyResourceProperty(name="publicDomainNames", flag="unknown_publicDomainNames")
+    private @Nullable ContainerServicePublicDomainNames value_publicDomainNames;
+    private boolean unknown_publicDomainNames;
     public @Nullable ContainerServicePublicDomainNames publicDomainNames() {
-        if (publicDomainNames == null) return null;
-        return publicDomainNames.getValue("ContainerService.publicDomainNames");
+        if (!unknown_publicDomainNames) return value_publicDomainNames;
+        throw new UndeferrableValueException("Value 'ContainerService.publicDomainNames' is not present");
     }
 
     /**
      * The Lightsail resource type of the container service (i.e., ContainerService).
      * 
      */
-    private UndeferrableValue<String> resourceType;
-
+    @PolicyResourceProperty(name="resourceType", flag="unknown_resourceType")
+    private String value_resourceType;
+    private boolean unknown_resourceType;
     public String resourceType() {
-        if (resourceType == null) return null;
-        return resourceType.getValue("ContainerService.resourceType");
+        if (!unknown_resourceType) return value_resourceType;
+        throw new UndeferrableValueException("Value 'ContainerService.resourceType' is not present");
     }
 
     /**
@@ -160,22 +173,24 @@ public final class ContainerService extends com.pulumi.resources.PolicyResourceO
      * nodes of the container service.
      * 
      */
-    private UndeferrableValue<Integer> scale;
-
+    @PolicyResourceProperty(name="scale", flag="unknown_scale")
+    private Integer value_scale;
+    private boolean unknown_scale;
     public Integer scale() {
-        if (scale == null) return null;
-        return scale.getValue("ContainerService.scale");
+        if (!unknown_scale) return value_scale;
+        throw new UndeferrableValueException("Value 'ContainerService.scale' is not present");
     }
 
     /**
      * The current state of the container service.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("ContainerService.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'ContainerService.state' is not present");
     }
 
     /**
@@ -185,11 +200,12 @@ public final class ContainerService extends com.pulumi.resources.PolicyResourceO
      * present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ContainerService.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ContainerService.tags' is not present");
     }
 
     /**
@@ -201,11 +217,12 @@ public final class ContainerService extends com.pulumi.resources.PolicyResourceO
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ContainerService.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ContainerService.tagsAll' is not present");
     }
 
     /**
@@ -213,11 +230,12 @@ public final class ContainerService extends com.pulumi.resources.PolicyResourceO
      * currentDeployment, this URL returns a 404 response.
      * 
      */
-    private UndeferrableValue<String> url;
-
+    @PolicyResourceProperty(name="url", flag="unknown_url")
+    private String value_url;
+    private boolean unknown_url;
     public String url() {
-        if (url == null) return null;
-        return url.getValue("ContainerService.url");
+        if (!unknown_url) return value_url;
+        throw new UndeferrableValueException("Value 'ContainerService.url' is not present");
     }
 
 }

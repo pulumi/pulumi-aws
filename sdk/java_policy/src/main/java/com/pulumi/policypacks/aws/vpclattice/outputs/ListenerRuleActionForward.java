@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.vpclattice.outputs.ListenerRuleActionForwardTargetGroup;
 import java.util.List;
 
@@ -16,11 +17,12 @@ public final class ListenerRuleActionForward {
      * The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100% of traffic will go to that target group.
      * 
      */
-    private UndeferrableValue<List<ListenerRuleActionForwardTargetGroup>> targetGroups;
-
+    @PolicyResourceProperty(name="targetGroups", flag="unknown_targetGroups")
+    private List<ListenerRuleActionForwardTargetGroup> value_targetGroups;
+    private boolean unknown_targetGroups;
     public List<ListenerRuleActionForwardTargetGroup> targetGroups() {
-        if (targetGroups == null) return null;
-        return targetGroups.getValue("ListenerRuleActionForward.targetGroups");
+        if (!unknown_targetGroups) return value_targetGroups;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionForward.targetGroups' is not present");
     }
 
 }

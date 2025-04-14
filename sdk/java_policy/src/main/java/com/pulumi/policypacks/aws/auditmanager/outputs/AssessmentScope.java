@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.auditmanager.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.auditmanager.outputs.AssessmentScopeAwsAccount;
 import com.pulumi.policypacks.aws.auditmanager.outputs.AssessmentScopeAwsService;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class AssessmentScope {
      * Amazon Web Services accounts that are in scope for the assessment. See `aws_accounts` below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AssessmentScopeAwsAccount>> awsAccounts;
-
+    @PolicyResourceProperty(name="awsAccounts", flag="unknown_awsAccounts")
+    private @Nullable List<AssessmentScopeAwsAccount> value_awsAccounts;
+    private boolean unknown_awsAccounts;
     public @Nullable List<AssessmentScopeAwsAccount> awsAccounts() {
-        if (awsAccounts == null) return null;
-        return awsAccounts.getValue("AssessmentScope.awsAccounts");
+        if (!unknown_awsAccounts) return value_awsAccounts;
+        throw new UndeferrableValueException("Value 'AssessmentScope.awsAccounts' is not present");
     }
 
     /**
      * Amazon Web Services services that are included in the scope of the assessment. See `aws_services` below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AssessmentScopeAwsService>> awsServices;
-
+    @PolicyResourceProperty(name="awsServices", flag="unknown_awsServices")
+    private @Nullable List<AssessmentScopeAwsService> value_awsServices;
+    private boolean unknown_awsServices;
     public @Nullable List<AssessmentScopeAwsService> awsServices() {
-        if (awsServices == null) return null;
-        return awsServices.getValue("AssessmentScope.awsServices");
+        if (!unknown_awsServices) return value_awsServices;
+        throw new UndeferrableValueException("Value 'AssessmentScope.awsServices' is not present");
     }
 
 }

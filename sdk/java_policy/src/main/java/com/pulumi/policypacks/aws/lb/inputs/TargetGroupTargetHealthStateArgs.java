@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lb.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class TargetGroupTargetHealthStateArgs {
      * Indicates whether the load balancer terminates connections to unhealthy targets. Possible values are `true` or `false`. Default: `true`.
      * 
      */
-    private UndeferrableValue<Boolean> enableUnhealthyConnectionTermination;
-
+    @PolicyResourceProperty(name="enableUnhealthyConnectionTermination", flag="unknown_enableUnhealthyConnectionTermination")
+    private Boolean value_enableUnhealthyConnectionTermination;
+    private boolean unknown_enableUnhealthyConnectionTermination;
     public Boolean enableUnhealthyConnectionTermination() {
-        if (enableUnhealthyConnectionTermination == null) return null;
-        return enableUnhealthyConnectionTermination.getValue("TargetGroupTargetHealthStateArgs.enableUnhealthyConnectionTermination");
+        if (!unknown_enableUnhealthyConnectionTermination) return value_enableUnhealthyConnectionTermination;
+        throw new UndeferrableValueException("Value 'TargetGroupTargetHealthStateArgs.enableUnhealthyConnectionTermination' is not present");
     }
 
     /**
      * Indicates the time to wait for in-flight requests to complete when a target becomes unhealthy. The range is `0-360000`. This value has to be set only if `enable_unhealthy_connection_termination` is set to false. Default: `0`.
      * 
      */
-    private UndeferrableValue<Integer> unhealthyDrainingInterval;
-
+    @PolicyResourceProperty(name="unhealthyDrainingInterval", flag="unknown_unhealthyDrainingInterval")
+    private Integer value_unhealthyDrainingInterval;
+    private boolean unknown_unhealthyDrainingInterval;
     public Integer unhealthyDrainingInterval() {
-        if (unhealthyDrainingInterval == null) return null;
-        return unhealthyDrainingInterval.getValue("TargetGroupTargetHealthStateArgs.unhealthyDrainingInterval");
+        if (!unknown_unhealthyDrainingInterval) return value_unhealthyDrainingInterval;
+        throw new UndeferrableValueException("Value 'TargetGroupTargetHealthStateArgs.unhealthyDrainingInterval' is not present");
     }
 
 }

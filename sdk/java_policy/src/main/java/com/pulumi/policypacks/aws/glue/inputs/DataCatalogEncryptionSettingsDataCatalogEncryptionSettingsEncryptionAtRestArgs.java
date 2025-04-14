@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEnc
      * The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
      * 
      */
-    private UndeferrableValue<String> catalogEncryptionMode;
-
+    @PolicyResourceProperty(name="catalogEncryptionMode", flag="unknown_catalogEncryptionMode")
+    private String value_catalogEncryptionMode;
+    private boolean unknown_catalogEncryptionMode;
     public String catalogEncryptionMode() {
-        if (catalogEncryptionMode == null) return null;
-        return catalogEncryptionMode.getValue("DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs.catalogEncryptionMode");
+        if (!unknown_catalogEncryptionMode) return value_catalogEncryptionMode;
+        throw new UndeferrableValueException("Value 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs.catalogEncryptionMode' is not present");
     }
 
     /**
      * The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
      * 
      */
-    private UndeferrableValue<String> catalogEncryptionServiceRole;
-
+    @PolicyResourceProperty(name="catalogEncryptionServiceRole", flag="unknown_catalogEncryptionServiceRole")
+    private String value_catalogEncryptionServiceRole;
+    private boolean unknown_catalogEncryptionServiceRole;
     public String catalogEncryptionServiceRole() {
-        if (catalogEncryptionServiceRole == null) return null;
-        return catalogEncryptionServiceRole.getValue("DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs.catalogEncryptionServiceRole");
+        if (!unknown_catalogEncryptionServiceRole) return value_catalogEncryptionServiceRole;
+        throw new UndeferrableValueException("Value 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs.catalogEncryptionServiceRole' is not present");
     }
 
     /**
      * The ARN of the AWS KMS key to use for encryption at rest.
      * 
      */
-    private UndeferrableValue<String> sseAwsKmsKeyId;
-
+    @PolicyResourceProperty(name="sseAwsKmsKeyId", flag="unknown_sseAwsKmsKeyId")
+    private String value_sseAwsKmsKeyId;
+    private boolean unknown_sseAwsKmsKeyId;
     public String sseAwsKmsKeyId() {
-        if (sseAwsKmsKeyId == null) return null;
-        return sseAwsKmsKeyId.getValue("DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs.sseAwsKmsKeyId");
+        if (!unknown_sseAwsKmsKeyId) return value_sseAwsKmsKeyId;
+        throw new UndeferrableValueException("Value 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs.sseAwsKmsKeyId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.organizations;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,33 +18,36 @@ public final class OrganizationArgs extends com.pulumi.resources.PolicyResourceI
      * List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
      * 
      */
-    private UndeferrableValue<List<String>> awsServiceAccessPrincipals;
-
+    @PolicyResourceProperty(name="awsServiceAccessPrincipals", flag="unknown_awsServiceAccessPrincipals")
+    private List<String> value_awsServiceAccessPrincipals;
+    private boolean unknown_awsServiceAccessPrincipals;
     public List<String> awsServiceAccessPrincipals() {
-        if (awsServiceAccessPrincipals == null) return null;
-        return awsServiceAccessPrincipals.getValue("OrganizationArgs.awsServiceAccessPrincipals");
+        if (!unknown_awsServiceAccessPrincipals) return value_awsServiceAccessPrincipals;
+        throw new UndeferrableValueException("Value 'OrganizationArgs.awsServiceAccessPrincipals' is not present");
     }
 
     /**
      * List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `RESOURCE_CONTROL_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
      * 
      */
-    private UndeferrableValue<List<String>> enabledPolicyTypes;
-
+    @PolicyResourceProperty(name="enabledPolicyTypes", flag="unknown_enabledPolicyTypes")
+    private List<String> value_enabledPolicyTypes;
+    private boolean unknown_enabledPolicyTypes;
     public List<String> enabledPolicyTypes() {
-        if (enabledPolicyTypes == null) return null;
-        return enabledPolicyTypes.getValue("OrganizationArgs.enabledPolicyTypes");
+        if (!unknown_enabledPolicyTypes) return value_enabledPolicyTypes;
+        throw new UndeferrableValueException("Value 'OrganizationArgs.enabledPolicyTypes' is not present");
     }
 
     /**
      * Specify &#34;ALL&#34; (default) or &#34;CONSOLIDATED_BILLING&#34;.
      * 
      */
-    private UndeferrableValue<String> featureSet;
-
+    @PolicyResourceProperty(name="featureSet", flag="unknown_featureSet")
+    private String value_featureSet;
+    private boolean unknown_featureSet;
     public String featureSet() {
-        if (featureSet == null) return null;
-        return featureSet.getValue("OrganizationArgs.featureSet");
+        if (!unknown_featureSet) return value_featureSet;
+        throw new UndeferrableValueException("Value 'OrganizationArgs.featureSet' is not present");
     }
 
 }

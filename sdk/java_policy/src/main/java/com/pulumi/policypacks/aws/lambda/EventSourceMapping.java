@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lambda.outputs.EventSourceMappingAmazonManagedKafkaEventSourceConfig;
 import com.pulumi.policypacks.aws.lambda.outputs.EventSourceMappingDestinationConfig;
@@ -30,341 +31,372 @@ public final class EventSourceMapping extends com.pulumi.resources.PolicyResourc
      * Additional configuration block for Amazon Managed Kafka sources. Incompatible with &#34;self_managed_event_source&#34; and &#34;self_managed_kafka_event_source_config&#34;. Detailed below.
      * 
      */
-    private UndeferrableValue<EventSourceMappingAmazonManagedKafkaEventSourceConfig> amazonManagedKafkaEventSourceConfig;
-
+    @PolicyResourceProperty(name="amazonManagedKafkaEventSourceConfig", flag="unknown_amazonManagedKafkaEventSourceConfig")
+    private EventSourceMappingAmazonManagedKafkaEventSourceConfig value_amazonManagedKafkaEventSourceConfig;
+    private boolean unknown_amazonManagedKafkaEventSourceConfig;
     public EventSourceMappingAmazonManagedKafkaEventSourceConfig amazonManagedKafkaEventSourceConfig() {
-        if (amazonManagedKafkaEventSourceConfig == null) return null;
-        return amazonManagedKafkaEventSourceConfig.getValue("EventSourceMapping.amazonManagedKafkaEventSourceConfig");
+        if (!unknown_amazonManagedKafkaEventSourceConfig) return value_amazonManagedKafkaEventSourceConfig;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.amazonManagedKafkaEventSourceConfig' is not present");
     }
 
     /**
      * The event source mapping ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("EventSourceMapping.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.arn' is not present");
     }
 
     /**
      * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> batchSize;
-
+    @PolicyResourceProperty(name="batchSize", flag="unknown_batchSize")
+    private @Nullable Integer value_batchSize;
+    private boolean unknown_batchSize;
     public @Nullable Integer batchSize() {
-        if (batchSize == null) return null;
-        return batchSize.getValue("EventSourceMapping.batchSize");
+        if (!unknown_batchSize) return value_batchSize;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.batchSize' is not present");
     }
 
     /**
      * - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> bisectBatchOnFunctionError;
-
+    @PolicyResourceProperty(name="bisectBatchOnFunctionError", flag="unknown_bisectBatchOnFunctionError")
+    private @Nullable Boolean value_bisectBatchOnFunctionError;
+    private boolean unknown_bisectBatchOnFunctionError;
     public @Nullable Boolean bisectBatchOnFunctionError() {
-        if (bisectBatchOnFunctionError == null) return null;
-        return bisectBatchOnFunctionError.getValue("EventSourceMapping.bisectBatchOnFunctionError");
+        if (!unknown_bisectBatchOnFunctionError) return value_bisectBatchOnFunctionError;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.bisectBatchOnFunctionError' is not present");
     }
 
     /**
      * - (Optional) An Amazon SQS queue, Amazon SNS topic or Amazon S3 bucket (only available for Kafka sources) destination for failed records. Only available for stream sources (DynamoDB and Kinesis) and Kafka sources (Amazon MSK and Self-managed Apache Kafka). Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<EventSourceMappingDestinationConfig> destinationConfig;
-
+    @PolicyResourceProperty(name="destinationConfig", flag="unknown_destinationConfig")
+    private @Nullable EventSourceMappingDestinationConfig value_destinationConfig;
+    private boolean unknown_destinationConfig;
     public @Nullable EventSourceMappingDestinationConfig destinationConfig() {
-        if (destinationConfig == null) return null;
-        return destinationConfig.getValue("EventSourceMapping.destinationConfig");
+        if (!unknown_destinationConfig) return value_destinationConfig;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.destinationConfig' is not present");
     }
 
     /**
      * - (Optional) Configuration settings for a DocumentDB event source. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<EventSourceMappingDocumentDbEventSourceConfig> documentDbEventSourceConfig;
-
+    @PolicyResourceProperty(name="documentDbEventSourceConfig", flag="unknown_documentDbEventSourceConfig")
+    private @Nullable EventSourceMappingDocumentDbEventSourceConfig value_documentDbEventSourceConfig;
+    private boolean unknown_documentDbEventSourceConfig;
     public @Nullable EventSourceMappingDocumentDbEventSourceConfig documentDbEventSourceConfig() {
-        if (documentDbEventSourceConfig == null) return null;
-        return documentDbEventSourceConfig.getValue("EventSourceMapping.documentDbEventSourceConfig");
+        if (!unknown_documentDbEventSourceConfig) return value_documentDbEventSourceConfig;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.documentDbEventSourceConfig' is not present");
     }
 
     /**
      * Determines if the mapping is enabled. This parameter can be used to enable or disable the mapping, both during resource creation and for already created resources. Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("EventSourceMapping.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.enabled' is not present");
     }
 
     /**
      * The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream.  It is incompatible with a Self Managed Kafka source.
      * 
      */
-    private @Nullable UndeferrableValue<String> eventSourceArn;
-
+    @PolicyResourceProperty(name="eventSourceArn", flag="unknown_eventSourceArn")
+    private @Nullable String value_eventSourceArn;
+    private boolean unknown_eventSourceArn;
     public @Nullable String eventSourceArn() {
-        if (eventSourceArn == null) return null;
-        return eventSourceArn.getValue("EventSourceMapping.eventSourceArn");
+        if (!unknown_eventSourceArn) return value_eventSourceArn;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.eventSourceArn' is not present");
     }
 
     /**
      * The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<EventSourceMappingFilterCriteria> filterCriteria;
-
+    @PolicyResourceProperty(name="filterCriteria", flag="unknown_filterCriteria")
+    private @Nullable EventSourceMappingFilterCriteria value_filterCriteria;
+    private boolean unknown_filterCriteria;
     public @Nullable EventSourceMappingFilterCriteria filterCriteria() {
-        if (filterCriteria == null) return null;
-        return filterCriteria.getValue("EventSourceMapping.filterCriteria");
+        if (!unknown_filterCriteria) return value_filterCriteria;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.filterCriteria' is not present");
     }
 
     /**
      * The ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
      * 
      */
-    private UndeferrableValue<String> functionArn;
-
+    @PolicyResourceProperty(name="functionArn", flag="unknown_functionArn")
+    private String value_functionArn;
+    private boolean unknown_functionArn;
     public String functionArn() {
-        if (functionArn == null) return null;
-        return functionArn.getValue("EventSourceMapping.functionArn");
+        if (!unknown_functionArn) return value_functionArn;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.functionArn' is not present");
     }
 
     /**
      * The name or the ARN of the Lambda function that will be subscribing to events.
      * 
      */
-    private UndeferrableValue<String> functionName;
-
+    @PolicyResourceProperty(name="functionName", flag="unknown_functionName")
+    private String value_functionName;
+    private boolean unknown_functionName;
     public String functionName() {
-        if (functionName == null) return null;
-        return functionName.getValue("EventSourceMapping.functionName");
+        if (!unknown_functionName) return value_functionName;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.functionName' is not present");
     }
 
     /**
      * A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> functionResponseTypes;
-
+    @PolicyResourceProperty(name="functionResponseTypes", flag="unknown_functionResponseTypes")
+    private @Nullable List<String> value_functionResponseTypes;
+    private boolean unknown_functionResponseTypes;
     public @Nullable List<String> functionResponseTypes() {
-        if (functionResponseTypes == null) return null;
-        return functionResponseTypes.getValue("EventSourceMapping.functionResponseTypes");
+        if (!unknown_functionResponseTypes) return value_functionResponseTypes;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.functionResponseTypes' is not present");
     }
 
     /**
      * The ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function&#39;s filter criteria.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private @Nullable String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public @Nullable String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("EventSourceMapping.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.kmsKeyArn' is not present");
     }
 
     /**
      * The date this resource was last modified.
      * 
      */
-    private UndeferrableValue<String> lastModified;
-
+    @PolicyResourceProperty(name="lastModified", flag="unknown_lastModified")
+    private String value_lastModified;
+    private boolean unknown_lastModified;
     public String lastModified() {
-        if (lastModified == null) return null;
-        return lastModified.getValue("EventSourceMapping.lastModified");
+        if (!unknown_lastModified) return value_lastModified;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.lastModified' is not present");
     }
 
     /**
      * The result of the last AWS Lambda invocation of your Lambda function.
      * 
      */
-    private UndeferrableValue<String> lastProcessingResult;
-
+    @PolicyResourceProperty(name="lastProcessingResult", flag="unknown_lastProcessingResult")
+    private String value_lastProcessingResult;
+    private boolean unknown_lastProcessingResult;
     public String lastProcessingResult() {
-        if (lastProcessingResult == null) return null;
-        return lastProcessingResult.getValue("EventSourceMapping.lastProcessingResult");
+        if (!unknown_lastProcessingResult) return value_lastProcessingResult;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.lastProcessingResult' is not present");
     }
 
     /**
      * The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maximumBatchingWindowInSeconds;
-
+    @PolicyResourceProperty(name="maximumBatchingWindowInSeconds", flag="unknown_maximumBatchingWindowInSeconds")
+    private @Nullable Integer value_maximumBatchingWindowInSeconds;
+    private boolean unknown_maximumBatchingWindowInSeconds;
     public @Nullable Integer maximumBatchingWindowInSeconds() {
-        if (maximumBatchingWindowInSeconds == null) return null;
-        return maximumBatchingWindowInSeconds.getValue("EventSourceMapping.maximumBatchingWindowInSeconds");
+        if (!unknown_maximumBatchingWindowInSeconds) return value_maximumBatchingWindowInSeconds;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.maximumBatchingWindowInSeconds' is not present");
     }
 
     /**
      * - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
      * 
      */
-    private UndeferrableValue<Integer> maximumRecordAgeInSeconds;
-
+    @PolicyResourceProperty(name="maximumRecordAgeInSeconds", flag="unknown_maximumRecordAgeInSeconds")
+    private Integer value_maximumRecordAgeInSeconds;
+    private boolean unknown_maximumRecordAgeInSeconds;
     public Integer maximumRecordAgeInSeconds() {
-        if (maximumRecordAgeInSeconds == null) return null;
-        return maximumRecordAgeInSeconds.getValue("EventSourceMapping.maximumRecordAgeInSeconds");
+        if (!unknown_maximumRecordAgeInSeconds) return value_maximumRecordAgeInSeconds;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.maximumRecordAgeInSeconds' is not present");
     }
 
     /**
      * - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
      * 
      */
-    private UndeferrableValue<Integer> maximumRetryAttempts;
-
+    @PolicyResourceProperty(name="maximumRetryAttempts", flag="unknown_maximumRetryAttempts")
+    private Integer value_maximumRetryAttempts;
+    private boolean unknown_maximumRetryAttempts;
     public Integer maximumRetryAttempts() {
-        if (maximumRetryAttempts == null) return null;
-        return maximumRetryAttempts.getValue("EventSourceMapping.maximumRetryAttempts");
+        if (!unknown_maximumRetryAttempts) return value_maximumRetryAttempts;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.maximumRetryAttempts' is not present");
     }
 
     /**
      * - (Optional) CloudWatch metrics configuration of the event source. Only available for stream sources (DynamoDB and Kinesis) and SQS queues. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<EventSourceMappingMetricsConfig> metricsConfig;
-
+    @PolicyResourceProperty(name="metricsConfig", flag="unknown_metricsConfig")
+    private @Nullable EventSourceMappingMetricsConfig value_metricsConfig;
+    private boolean unknown_metricsConfig;
     public @Nullable EventSourceMappingMetricsConfig metricsConfig() {
-        if (metricsConfig == null) return null;
-        return metricsConfig.getValue("EventSourceMapping.metricsConfig");
+        if (!unknown_metricsConfig) return value_metricsConfig;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.metricsConfig' is not present");
     }
 
     /**
      * - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
      * 
      */
-    private UndeferrableValue<Integer> parallelizationFactor;
-
+    @PolicyResourceProperty(name="parallelizationFactor", flag="unknown_parallelizationFactor")
+    private Integer value_parallelizationFactor;
+    private boolean unknown_parallelizationFactor;
     public Integer parallelizationFactor() {
-        if (parallelizationFactor == null) return null;
-        return parallelizationFactor.getValue("EventSourceMapping.parallelizationFactor");
+        if (!unknown_parallelizationFactor) return value_parallelizationFactor;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.parallelizationFactor' is not present");
     }
 
     /**
      * - (Optional) Event poller configuration for the event source. Only valid for Amazon MSK or self-managed Apache Kafka sources. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<EventSourceMappingProvisionedPollerConfig> provisionedPollerConfig;
-
+    @PolicyResourceProperty(name="provisionedPollerConfig", flag="unknown_provisionedPollerConfig")
+    private @Nullable EventSourceMappingProvisionedPollerConfig value_provisionedPollerConfig;
+    private boolean unknown_provisionedPollerConfig;
     public @Nullable EventSourceMappingProvisionedPollerConfig provisionedPollerConfig() {
-        if (provisionedPollerConfig == null) return null;
-        return provisionedPollerConfig.getValue("EventSourceMapping.provisionedPollerConfig");
+        if (!unknown_provisionedPollerConfig) return value_provisionedPollerConfig;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.provisionedPollerConfig' is not present");
     }
 
     /**
      * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. The list must contain exactly one queue name.
      * 
      */
-    private @Nullable UndeferrableValue<String> queues;
-
+    @PolicyResourceProperty(name="queues", flag="unknown_queues")
+    private @Nullable String value_queues;
+    private boolean unknown_queues;
     public @Nullable String queues() {
-        if (queues == null) return null;
-        return queues.getValue("EventSourceMapping.queues");
+        if (!unknown_queues) return value_queues;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.queues' is not present");
     }
 
     /**
      * Scaling configuration of the event source. Only available for SQS queues. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<EventSourceMappingScalingConfig> scalingConfig;
-
+    @PolicyResourceProperty(name="scalingConfig", flag="unknown_scalingConfig")
+    private @Nullable EventSourceMappingScalingConfig value_scalingConfig;
+    private boolean unknown_scalingConfig;
     public @Nullable EventSourceMappingScalingConfig scalingConfig() {
-        if (scalingConfig == null) return null;
-        return scalingConfig.getValue("EventSourceMapping.scalingConfig");
+        if (!unknown_scalingConfig) return value_scalingConfig;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.scalingConfig' is not present");
     }
 
     /**
      * - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<EventSourceMappingSelfManagedEventSource> selfManagedEventSource;
-
+    @PolicyResourceProperty(name="selfManagedEventSource", flag="unknown_selfManagedEventSource")
+    private @Nullable EventSourceMappingSelfManagedEventSource value_selfManagedEventSource;
+    private boolean unknown_selfManagedEventSource;
     public @Nullable EventSourceMappingSelfManagedEventSource selfManagedEventSource() {
-        if (selfManagedEventSource == null) return null;
-        return selfManagedEventSource.getValue("EventSourceMapping.selfManagedEventSource");
+        if (!unknown_selfManagedEventSource) return value_selfManagedEventSource;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.selfManagedEventSource' is not present");
     }
 
     /**
      * Additional configuration block for Self Managed Kafka sources. Incompatible with &#34;event_source_arn&#34; and &#34;amazon_managed_kafka_event_source_config&#34;. Detailed below.
      * 
      */
-    private UndeferrableValue<EventSourceMappingSelfManagedKafkaEventSourceConfig> selfManagedKafkaEventSourceConfig;
-
+    @PolicyResourceProperty(name="selfManagedKafkaEventSourceConfig", flag="unknown_selfManagedKafkaEventSourceConfig")
+    private EventSourceMappingSelfManagedKafkaEventSourceConfig value_selfManagedKafkaEventSourceConfig;
+    private boolean unknown_selfManagedKafkaEventSourceConfig;
     public EventSourceMappingSelfManagedKafkaEventSourceConfig selfManagedKafkaEventSourceConfig() {
-        if (selfManagedKafkaEventSourceConfig == null) return null;
-        return selfManagedKafkaEventSourceConfig.getValue("EventSourceMapping.selfManagedKafkaEventSourceConfig");
+        if (!unknown_selfManagedKafkaEventSourceConfig) return value_selfManagedKafkaEventSourceConfig;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.selfManagedKafkaEventSourceConfig' is not present");
     }
 
     /**
      * For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<EventSourceMappingSourceAccessConfiguration>> sourceAccessConfigurations;
-
+    @PolicyResourceProperty(name="sourceAccessConfigurations", flag="unknown_sourceAccessConfigurations")
+    private @Nullable List<EventSourceMappingSourceAccessConfiguration> value_sourceAccessConfigurations;
+    private boolean unknown_sourceAccessConfigurations;
     public @Nullable List<EventSourceMappingSourceAccessConfiguration> sourceAccessConfigurations() {
-        if (sourceAccessConfigurations == null) return null;
-        return sourceAccessConfigurations.getValue("EventSourceMapping.sourceAccessConfigurations");
+        if (!unknown_sourceAccessConfigurations) return value_sourceAccessConfigurations;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.sourceAccessConfigurations' is not present");
     }
 
     /**
      * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB, MSK or Self Managed Apache Kafka. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
      * 
      */
-    private @Nullable UndeferrableValue<String> startingPosition;
-
+    @PolicyResourceProperty(name="startingPosition", flag="unknown_startingPosition")
+    private @Nullable String value_startingPosition;
+    private boolean unknown_startingPosition;
     public @Nullable String startingPosition() {
-        if (startingPosition == null) return null;
-        return startingPosition.getValue("EventSourceMapping.startingPosition");
+        if (!unknown_startingPosition) return value_startingPosition;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.startingPosition' is not present");
     }
 
     /**
      * A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
      * 
      */
-    private @Nullable UndeferrableValue<String> startingPositionTimestamp;
-
+    @PolicyResourceProperty(name="startingPositionTimestamp", flag="unknown_startingPositionTimestamp")
+    private @Nullable String value_startingPositionTimestamp;
+    private boolean unknown_startingPositionTimestamp;
     public @Nullable String startingPositionTimestamp() {
-        if (startingPositionTimestamp == null) return null;
-        return startingPositionTimestamp.getValue("EventSourceMapping.startingPositionTimestamp");
+        if (!unknown_startingPositionTimestamp) return value_startingPositionTimestamp;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.startingPositionTimestamp' is not present");
     }
 
     /**
      * The state of the event source mapping.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("EventSourceMapping.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.state' is not present");
     }
 
     /**
      * The reason the event source mapping is in its current state.
      * 
      */
-    private UndeferrableValue<String> stateTransitionReason;
-
+    @PolicyResourceProperty(name="stateTransitionReason", flag="unknown_stateTransitionReason")
+    private String value_stateTransitionReason;
+    private boolean unknown_stateTransitionReason;
     public String stateTransitionReason() {
-        if (stateTransitionReason == null) return null;
-        return stateTransitionReason.getValue("EventSourceMapping.stateTransitionReason");
+        if (!unknown_stateTransitionReason) return value_stateTransitionReason;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.stateTransitionReason' is not present");
     }
 
     /**
      * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("EventSourceMapping.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.tags' is not present");
     }
 
     /**
@@ -375,44 +407,48 @@ public final class EventSourceMapping extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("EventSourceMapping.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.tagsAll' is not present");
     }
 
     /**
      * The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> topics;
-
+    @PolicyResourceProperty(name="topics", flag="unknown_topics")
+    private @Nullable List<String> value_topics;
+    private boolean unknown_topics;
     public @Nullable List<String> topics() {
-        if (topics == null) return null;
-        return topics.getValue("EventSourceMapping.topics");
+        if (!unknown_topics) return value_topics;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.topics' is not present");
     }
 
     /**
      * The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
      * 
      */
-    private @Nullable UndeferrableValue<Integer> tumblingWindowInSeconds;
-
+    @PolicyResourceProperty(name="tumblingWindowInSeconds", flag="unknown_tumblingWindowInSeconds")
+    private @Nullable Integer value_tumblingWindowInSeconds;
+    private boolean unknown_tumblingWindowInSeconds;
     public @Nullable Integer tumblingWindowInSeconds() {
-        if (tumblingWindowInSeconds == null) return null;
-        return tumblingWindowInSeconds.getValue("EventSourceMapping.tumblingWindowInSeconds");
+        if (!unknown_tumblingWindowInSeconds) return value_tumblingWindowInSeconds;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.tumblingWindowInSeconds' is not present");
     }
 
     /**
      * The UUID of the created event source mapping.
      * 
      */
-    private UndeferrableValue<String> uuid;
-
+    @PolicyResourceProperty(name="uuid", flag="unknown_uuid")
+    private String value_uuid;
+    private boolean unknown_uuid;
     public String uuid() {
-        if (uuid == null) return null;
-        return uuid.getValue("EventSourceMapping.uuid");
+        if (!unknown_uuid) return value_uuid;
+        throw new UndeferrableValueException("Value 'EventSourceMapping.uuid' is not present");
     }
 
 }

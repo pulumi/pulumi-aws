@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lb.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,22 +15,24 @@ public final class ListenerRuleConditionHttpHeaderArgs {
      * Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
      * 
      */
-    private UndeferrableValue<String> httpHeaderName;
-
+    @PolicyResourceProperty(name="httpHeaderName", flag="unknown_httpHeaderName")
+    private String value_httpHeaderName;
+    private boolean unknown_httpHeaderName;
     public String httpHeaderName() {
-        if (httpHeaderName == null) return null;
-        return httpHeaderName.getValue("ListenerRuleConditionHttpHeaderArgs.httpHeaderName");
+        if (!unknown_httpHeaderName) return value_httpHeaderName;
+        throw new UndeferrableValueException("Value 'ListenerRuleConditionHttpHeaderArgs.httpHeaderName' is not present");
     }
 
     /**
      * List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
      * 
      */
-    private UndeferrableValue<List<String>> values;
-
+    @PolicyResourceProperty(name="values", flag="unknown_values")
+    private List<String> value_values;
+    private boolean unknown_values;
     public List<String> values() {
-        if (values == null) return null;
-        return values.getValue("ListenerRuleConditionHttpHeaderArgs.values");
+        if (!unknown_values) return value_values;
+        throw new UndeferrableValueException("Value 'ListenerRuleConditionHttpHeaderArgs.values' is not present");
     }
 
 }

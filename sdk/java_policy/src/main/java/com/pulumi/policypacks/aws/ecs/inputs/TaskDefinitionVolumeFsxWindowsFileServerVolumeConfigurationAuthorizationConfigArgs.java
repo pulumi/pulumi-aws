@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAu
      * The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
      * 
      */
-    private UndeferrableValue<String> credentialsParameter;
-
+    @PolicyResourceProperty(name="credentialsParameter", flag="unknown_credentialsParameter")
+    private String value_credentialsParameter;
+    private boolean unknown_credentialsParameter;
     public String credentialsParameter() {
-        if (credentialsParameter == null) return null;
-        return credentialsParameter.getValue("TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs.credentialsParameter");
+        if (!unknown_credentialsParameter) return value_credentialsParameter;
+        throw new UndeferrableValueException("Value 'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs.credentialsParameter' is not present");
     }
 
     /**
      * A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
      * 
      */
-    private UndeferrableValue<String> domain;
-
+    @PolicyResourceProperty(name="domain", flag="unknown_domain")
+    private String value_domain;
+    private boolean unknown_domain;
     public String domain() {
-        if (domain == null) return null;
-        return domain.getValue("TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs.domain");
+        if (!unknown_domain) return value_domain;
+        throw new UndeferrableValueException("Value 'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs.domain' is not present");
     }
 
 }

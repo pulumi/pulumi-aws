@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codeguruprofiler.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 
 
@@ -13,11 +14,12 @@ public final class ProfilingGroupAgentOrchestrationConfig {
      * (Required) Boolean that specifies whether the profiling agent collects profiling data or
      * 
      */
-    private UndeferrableValue<Boolean> profilingEnabled;
-
+    @PolicyResourceProperty(name="profilingEnabled", flag="unknown_profilingEnabled")
+    private Boolean value_profilingEnabled;
+    private boolean unknown_profilingEnabled;
     public Boolean profilingEnabled() {
-        if (profilingEnabled == null) return null;
-        return profilingEnabled.getValue("ProfilingGroupAgentOrchestrationConfig.profilingEnabled");
+        if (!unknown_profilingEnabled) return value_profilingEnabled;
+        throw new UndeferrableValueException("Value 'ProfilingGroupAgentOrchestrationConfig.profilingEnabled' is not present");
     }
 
 }

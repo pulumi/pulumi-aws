@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualGatewaySpecListenerTlsValidationTrustFileArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualGatewaySpecListenerTlsValidationTrustSdsArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class VirtualGatewaySpecListenerTlsValidationTrustArgs {
      * TLS validation context trust for a local file certificate.
      * 
      */
-    private UndeferrableValue<VirtualGatewaySpecListenerTlsValidationTrustFileArgs> file;
-
+    @PolicyResourceProperty(name="file", flag="unknown_file")
+    private VirtualGatewaySpecListenerTlsValidationTrustFileArgs value_file;
+    private boolean unknown_file;
     public VirtualGatewaySpecListenerTlsValidationTrustFileArgs file() {
-        if (file == null) return null;
-        return file.getValue("VirtualGatewaySpecListenerTlsValidationTrustArgs.file");
+        if (!unknown_file) return value_file;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerTlsValidationTrustArgs.file' is not present");
     }
 
     /**
      * TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
-    private UndeferrableValue<VirtualGatewaySpecListenerTlsValidationTrustSdsArgs> sds;
-
+    @PolicyResourceProperty(name="sds", flag="unknown_sds")
+    private VirtualGatewaySpecListenerTlsValidationTrustSdsArgs value_sds;
+    private boolean unknown_sds;
     public VirtualGatewaySpecListenerTlsValidationTrustSdsArgs sds() {
-        if (sds == null) return null;
-        return sds.getValue("VirtualGatewaySpecListenerTlsValidationTrustArgs.sds");
+        if (!unknown_sds) return value_sds;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerTlsValidationTrustArgs.sds' is not present");
     }
 
 }

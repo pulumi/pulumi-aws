@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshiftserverless;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.redshiftserverless.inputs.WorkgroupConfigParameterArgs;
 import java.lang.Boolean;
@@ -21,110 +22,120 @@ public final class WorkgroupArgs extends com.pulumi.resources.PolicyResourceInpu
      * The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
      * 
      */
-    private UndeferrableValue<Integer> baseCapacity;
-
+    @PolicyResourceProperty(name="baseCapacity", flag="unknown_baseCapacity")
+    private Integer value_baseCapacity;
+    private boolean unknown_baseCapacity;
     public Integer baseCapacity() {
-        if (baseCapacity == null) return null;
-        return baseCapacity.getValue("WorkgroupArgs.baseCapacity");
+        if (!unknown_baseCapacity) return value_baseCapacity;
+        throw new UndeferrableValueException("Value 'WorkgroupArgs.baseCapacity' is not present");
     }
 
     /**
      * An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
      * 
      */
-    private UndeferrableValue<List<WorkgroupConfigParameterArgs>> configParameters;
-
+    @PolicyResourceProperty(name="configParameters", flag="unknown_configParameters")
+    private List<WorkgroupConfigParameterArgs> value_configParameters;
+    private boolean unknown_configParameters;
     public List<WorkgroupConfigParameterArgs> configParameters() {
-        if (configParameters == null) return null;
-        return configParameters.getValue("WorkgroupArgs.configParameters");
+        if (!unknown_configParameters) return value_configParameters;
+        throw new UndeferrableValueException("Value 'WorkgroupArgs.configParameters' is not present");
     }
 
     /**
      * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      * 
      */
-    private UndeferrableValue<Boolean> enhancedVpcRouting;
-
+    @PolicyResourceProperty(name="enhancedVpcRouting", flag="unknown_enhancedVpcRouting")
+    private Boolean value_enhancedVpcRouting;
+    private boolean unknown_enhancedVpcRouting;
     public Boolean enhancedVpcRouting() {
-        if (enhancedVpcRouting == null) return null;
-        return enhancedVpcRouting.getValue("WorkgroupArgs.enhancedVpcRouting");
+        if (!unknown_enhancedVpcRouting) return value_enhancedVpcRouting;
+        throw new UndeferrableValueException("Value 'WorkgroupArgs.enhancedVpcRouting' is not present");
     }
 
     /**
      * The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
      * 
      */
-    private UndeferrableValue<Integer> maxCapacity;
-
+    @PolicyResourceProperty(name="maxCapacity", flag="unknown_maxCapacity")
+    private Integer value_maxCapacity;
+    private boolean unknown_maxCapacity;
     public Integer maxCapacity() {
-        if (maxCapacity == null) return null;
-        return maxCapacity.getValue("WorkgroupArgs.maxCapacity");
+        if (!unknown_maxCapacity) return value_maxCapacity;
+        throw new UndeferrableValueException("Value 'WorkgroupArgs.maxCapacity' is not present");
     }
 
     /**
      * The name of the namespace.
      * 
      */
-    private UndeferrableValue<String> namespaceName;
-
+    @PolicyResourceProperty(name="namespaceName", flag="unknown_namespaceName")
+    private String value_namespaceName;
+    private boolean unknown_namespaceName;
     public String namespaceName() {
-        if (namespaceName == null) return null;
-        return namespaceName.getValue("WorkgroupArgs.namespaceName");
+        if (!unknown_namespaceName) return value_namespaceName;
+        throw new UndeferrableValueException("Value 'WorkgroupArgs.namespaceName' is not present");
     }
 
     /**
      * The port number on which the cluster accepts incoming connections.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("WorkgroupArgs.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'WorkgroupArgs.port' is not present");
     }
 
     /**
      * A value that specifies whether the workgroup can be accessed from a public network.
      * 
      */
-    private UndeferrableValue<Boolean> publiclyAccessible;
-
+    @PolicyResourceProperty(name="publiclyAccessible", flag="unknown_publiclyAccessible")
+    private Boolean value_publiclyAccessible;
+    private boolean unknown_publiclyAccessible;
     public Boolean publiclyAccessible() {
-        if (publiclyAccessible == null) return null;
-        return publiclyAccessible.getValue("WorkgroupArgs.publiclyAccessible");
+        if (!unknown_publiclyAccessible) return value_publiclyAccessible;
+        throw new UndeferrableValueException("Value 'WorkgroupArgs.publiclyAccessible' is not present");
     }
 
     /**
      * An array of security group IDs to associate with the workgroup.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("WorkgroupArgs.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'WorkgroupArgs.securityGroupIds' is not present");
     }
 
     /**
      * An array of VPC subnet IDs to associate with the workgroup. When set, must contain at least three subnets spanning three Availability Zones. A minimum number of IP addresses is required and scales with the Base Capacity. For more information, see the following [AWS document](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-known-issues.html).
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("WorkgroupArgs.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'WorkgroupArgs.subnetIds' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("WorkgroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'WorkgroupArgs.tags' is not present");
     }
 
     /**
@@ -133,11 +144,12 @@ public final class WorkgroupArgs extends com.pulumi.resources.PolicyResourceInpu
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> workgroupName;
-
+    @PolicyResourceProperty(name="workgroupName", flag="unknown_workgroupName")
+    private String value_workgroupName;
+    private boolean unknown_workgroupName;
     public String workgroupName() {
-        if (workgroupName == null) return null;
-        return workgroupName.getValue("WorkgroupArgs.workgroupName");
+        if (!unknown_workgroupName) return value_workgroupName;
+        throw new UndeferrableValueException("Value 'WorkgroupArgs.workgroupName' is not present");
     }
 
 }

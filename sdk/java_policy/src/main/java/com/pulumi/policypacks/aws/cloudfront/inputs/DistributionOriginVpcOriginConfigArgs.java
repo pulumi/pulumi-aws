@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,29 +12,32 @@ import javax.annotation.Nullable;
 
 public final class DistributionOriginVpcOriginConfigArgs {
 
-    private UndeferrableValue<Integer> originKeepaliveTimeout;
-
+    @PolicyResourceProperty(name="originKeepaliveTimeout", flag="unknown_originKeepaliveTimeout")
+    private Integer value_originKeepaliveTimeout;
+    private boolean unknown_originKeepaliveTimeout;
     public Integer originKeepaliveTimeout() {
-        if (originKeepaliveTimeout == null) return null;
-        return originKeepaliveTimeout.getValue("DistributionOriginVpcOriginConfigArgs.originKeepaliveTimeout");
+        if (!unknown_originKeepaliveTimeout) return value_originKeepaliveTimeout;
+        throw new UndeferrableValueException("Value 'DistributionOriginVpcOriginConfigArgs.originKeepaliveTimeout' is not present");
     }
 
-    private UndeferrableValue<Integer> originReadTimeout;
-
+    @PolicyResourceProperty(name="originReadTimeout", flag="unknown_originReadTimeout")
+    private Integer value_originReadTimeout;
+    private boolean unknown_originReadTimeout;
     public Integer originReadTimeout() {
-        if (originReadTimeout == null) return null;
-        return originReadTimeout.getValue("DistributionOriginVpcOriginConfigArgs.originReadTimeout");
+        if (!unknown_originReadTimeout) return value_originReadTimeout;
+        throw new UndeferrableValueException("Value 'DistributionOriginVpcOriginConfigArgs.originReadTimeout' is not present");
     }
 
     /**
      * The VPC origin ID.
      * 
      */
-    private UndeferrableValue<String> vpcOriginId;
-
+    @PolicyResourceProperty(name="vpcOriginId", flag="unknown_vpcOriginId")
+    private String value_vpcOriginId;
+    private boolean unknown_vpcOriginId;
     public String vpcOriginId() {
-        if (vpcOriginId == null) return null;
-        return vpcOriginId.getValue("DistributionOriginVpcOriginConfigArgs.vpcOriginId");
+        if (!unknown_vpcOriginId) return value_vpcOriginId;
+        throw new UndeferrableValueException("Value 'DistributionOriginVpcOriginConfigArgs.vpcOriginId' is not present");
     }
 
 }

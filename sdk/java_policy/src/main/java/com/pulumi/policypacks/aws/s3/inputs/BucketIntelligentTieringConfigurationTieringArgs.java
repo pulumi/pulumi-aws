@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class BucketIntelligentTieringConfigurationTieringArgs {
      * S3 Intelligent-Tiering access tier. Valid values: `ARCHIVE_ACCESS`, `DEEP_ARCHIVE_ACCESS`.
      * 
      */
-    private UndeferrableValue<String> accessTier;
-
+    @PolicyResourceProperty(name="accessTier", flag="unknown_accessTier")
+    private String value_accessTier;
+    private boolean unknown_accessTier;
     public String accessTier() {
-        if (accessTier == null) return null;
-        return accessTier.getValue("BucketIntelligentTieringConfigurationTieringArgs.accessTier");
+        if (!unknown_accessTier) return value_accessTier;
+        throw new UndeferrableValueException("Value 'BucketIntelligentTieringConfigurationTieringArgs.accessTier' is not present");
     }
 
     /**
      * Number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
      * 
      */
-    private UndeferrableValue<Integer> days;
-
+    @PolicyResourceProperty(name="days", flag="unknown_days")
+    private Integer value_days;
+    private boolean unknown_days;
     public Integer days() {
-        if (days == null) return null;
-        return days.getValue("BucketIntelligentTieringConfigurationTieringArgs.days");
+        if (!unknown_days) return value_days;
+        throw new UndeferrableValueException("Value 'BucketIntelligentTieringConfigurationTieringArgs.days' is not present");
     }
 
 }

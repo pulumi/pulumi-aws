@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudwatch.outputs.EventTargetAppsyncTarget;
 import com.pulumi.policypacks.aws.cloudwatch.outputs.EventTargetBatchTarget;
@@ -30,55 +31,60 @@ public final class EventTarget extends com.pulumi.resources.PolicyResourceOutput
      * Parameters used when you are using the rule to invoke an AppSync GraphQL API mutation. Documented below. A maximum of 1 are allowed.
      * 
      */
-    private @Nullable UndeferrableValue<EventTargetAppsyncTarget> appsyncTarget;
-
+    @PolicyResourceProperty(name="appsyncTarget", flag="unknown_appsyncTarget")
+    private @Nullable EventTargetAppsyncTarget value_appsyncTarget;
+    private boolean unknown_appsyncTarget;
     public @Nullable EventTargetAppsyncTarget appsyncTarget() {
-        if (appsyncTarget == null) return null;
-        return appsyncTarget.getValue("EventTarget.appsyncTarget");
+        if (!unknown_appsyncTarget) return value_appsyncTarget;
+        throw new UndeferrableValueException("Value 'EventTarget.appsyncTarget' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the target.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("EventTarget.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'EventTarget.arn' is not present");
     }
 
     /**
      * Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
      * 
      */
-    private @Nullable UndeferrableValue<EventTargetBatchTarget> batchTarget;
-
+    @PolicyResourceProperty(name="batchTarget", flag="unknown_batchTarget")
+    private @Nullable EventTargetBatchTarget value_batchTarget;
+    private boolean unknown_batchTarget;
     public @Nullable EventTargetBatchTarget batchTarget() {
-        if (batchTarget == null) return null;
-        return batchTarget.getValue("EventTarget.batchTarget");
+        if (!unknown_batchTarget) return value_batchTarget;
+        throw new UndeferrableValueException("Value 'EventTarget.batchTarget' is not present");
     }
 
     /**
      * Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
      * 
      */
-    private @Nullable UndeferrableValue<EventTargetDeadLetterConfig> deadLetterConfig;
-
+    @PolicyResourceProperty(name="deadLetterConfig", flag="unknown_deadLetterConfig")
+    private @Nullable EventTargetDeadLetterConfig value_deadLetterConfig;
+    private boolean unknown_deadLetterConfig;
     public @Nullable EventTargetDeadLetterConfig deadLetterConfig() {
-        if (deadLetterConfig == null) return null;
-        return deadLetterConfig.getValue("EventTarget.deadLetterConfig");
+        if (!unknown_deadLetterConfig) return value_deadLetterConfig;
+        throw new UndeferrableValueException("Value 'EventTarget.deadLetterConfig' is not present");
     }
 
     /**
      * Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
      * 
      */
-    private @Nullable UndeferrableValue<EventTargetEcsTarget> ecsTarget;
-
+    @PolicyResourceProperty(name="ecsTarget", flag="unknown_ecsTarget")
+    private @Nullable EventTargetEcsTarget value_ecsTarget;
+    private boolean unknown_ecsTarget;
     public @Nullable EventTargetEcsTarget ecsTarget() {
-        if (ecsTarget == null) return null;
-        return ecsTarget.getValue("EventTarget.ecsTarget");
+        if (!unknown_ecsTarget) return value_ecsTarget;
+        throw new UndeferrableValueException("Value 'EventTarget.ecsTarget' is not present");
     }
 
     /**
@@ -86,110 +92,120 @@ public final class EventTarget extends com.pulumi.resources.PolicyResourceOutput
      * If you omit this, the `default` event bus is used.
      * 
      */
-    private @Nullable UndeferrableValue<String> eventBusName;
-
+    @PolicyResourceProperty(name="eventBusName", flag="unknown_eventBusName")
+    private @Nullable String value_eventBusName;
+    private boolean unknown_eventBusName;
     public @Nullable String eventBusName() {
-        if (eventBusName == null) return null;
-        return eventBusName.getValue("EventTarget.eventBusName");
+        if (!unknown_eventBusName) return value_eventBusName;
+        throw new UndeferrableValueException("Value 'EventTarget.eventBusName' is not present");
     }
 
     /**
      * Used to delete managed rules created by AWS. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> forceDestroy;
-
+    @PolicyResourceProperty(name="forceDestroy", flag="unknown_forceDestroy")
+    private @Nullable Boolean value_forceDestroy;
+    private boolean unknown_forceDestroy;
     public @Nullable Boolean forceDestroy() {
-        if (forceDestroy == null) return null;
-        return forceDestroy.getValue("EventTarget.forceDestroy");
+        if (!unknown_forceDestroy) return value_forceDestroy;
+        throw new UndeferrableValueException("Value 'EventTarget.forceDestroy' is not present");
     }
 
     /**
      * Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
      * 
      */
-    private @Nullable UndeferrableValue<EventTargetHttpTarget> httpTarget;
-
+    @PolicyResourceProperty(name="httpTarget", flag="unknown_httpTarget")
+    private @Nullable EventTargetHttpTarget value_httpTarget;
+    private boolean unknown_httpTarget;
     public @Nullable EventTargetHttpTarget httpTarget() {
-        if (httpTarget == null) return null;
-        return httpTarget.getValue("EventTarget.httpTarget");
+        if (!unknown_httpTarget) return value_httpTarget;
+        throw new UndeferrableValueException("Value 'EventTarget.httpTarget' is not present");
     }
 
     /**
      * Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
      * 
      */
-    private @Nullable UndeferrableValue<String> input;
-
+    @PolicyResourceProperty(name="input", flag="unknown_input")
+    private @Nullable String value_input;
+    private boolean unknown_input;
     public @Nullable String input() {
-        if (input == null) return null;
-        return input.getValue("EventTarget.input");
+        if (!unknown_input) return value_input;
+        throw new UndeferrableValueException("Value 'EventTarget.input' is not present");
     }
 
     /**
      * The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
      * 
      */
-    private @Nullable UndeferrableValue<String> inputPath;
-
+    @PolicyResourceProperty(name="inputPath", flag="unknown_inputPath")
+    private @Nullable String value_inputPath;
+    private boolean unknown_inputPath;
     public @Nullable String inputPath() {
-        if (inputPath == null) return null;
-        return inputPath.getValue("EventTarget.inputPath");
+        if (!unknown_inputPath) return value_inputPath;
+        throw new UndeferrableValueException("Value 'EventTarget.inputPath' is not present");
     }
 
     /**
      * Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
      * 
      */
-    private @Nullable UndeferrableValue<EventTargetInputTransformer> inputTransformer;
-
+    @PolicyResourceProperty(name="inputTransformer", flag="unknown_inputTransformer")
+    private @Nullable EventTargetInputTransformer value_inputTransformer;
+    private boolean unknown_inputTransformer;
     public @Nullable EventTargetInputTransformer inputTransformer() {
-        if (inputTransformer == null) return null;
-        return inputTransformer.getValue("EventTarget.inputTransformer");
+        if (!unknown_inputTransformer) return value_inputTransformer;
+        throw new UndeferrableValueException("Value 'EventTarget.inputTransformer' is not present");
     }
 
     /**
      * Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
      * 
      */
-    private @Nullable UndeferrableValue<EventTargetKinesisTarget> kinesisTarget;
-
+    @PolicyResourceProperty(name="kinesisTarget", flag="unknown_kinesisTarget")
+    private @Nullable EventTargetKinesisTarget value_kinesisTarget;
+    private boolean unknown_kinesisTarget;
     public @Nullable EventTargetKinesisTarget kinesisTarget() {
-        if (kinesisTarget == null) return null;
-        return kinesisTarget.getValue("EventTarget.kinesisTarget");
+        if (!unknown_kinesisTarget) return value_kinesisTarget;
+        throw new UndeferrableValueException("Value 'EventTarget.kinesisTarget' is not present");
     }
 
     /**
      * Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
      * 
      */
-    private @Nullable UndeferrableValue<EventTargetRedshiftTarget> redshiftTarget;
-
+    @PolicyResourceProperty(name="redshiftTarget", flag="unknown_redshiftTarget")
+    private @Nullable EventTargetRedshiftTarget value_redshiftTarget;
+    private boolean unknown_redshiftTarget;
     public @Nullable EventTargetRedshiftTarget redshiftTarget() {
-        if (redshiftTarget == null) return null;
-        return redshiftTarget.getValue("EventTarget.redshiftTarget");
+        if (!unknown_redshiftTarget) return value_redshiftTarget;
+        throw new UndeferrableValueException("Value 'EventTarget.redshiftTarget' is not present");
     }
 
     /**
      * Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
      * 
      */
-    private @Nullable UndeferrableValue<EventTargetRetryPolicy> retryPolicy;
-
+    @PolicyResourceProperty(name="retryPolicy", flag="unknown_retryPolicy")
+    private @Nullable EventTargetRetryPolicy value_retryPolicy;
+    private boolean unknown_retryPolicy;
     public @Nullable EventTargetRetryPolicy retryPolicy() {
-        if (retryPolicy == null) return null;
-        return retryPolicy.getValue("EventTarget.retryPolicy");
+        if (!unknown_retryPolicy) return value_retryPolicy;
+        throw new UndeferrableValueException("Value 'EventTarget.retryPolicy' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
      * 
      */
-    private @Nullable UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private @Nullable String value_roleArn;
+    private boolean unknown_roleArn;
     public @Nullable String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("EventTarget.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'EventTarget.roleArn' is not present");
     }
 
     /**
@@ -198,55 +214,60 @@ public final class EventTarget extends com.pulumi.resources.PolicyResourceOutput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> rule;
-
+    @PolicyResourceProperty(name="rule", flag="unknown_rule")
+    private String value_rule;
+    private boolean unknown_rule;
     public String rule() {
-        if (rule == null) return null;
-        return rule.getValue("EventTarget.rule");
+        if (!unknown_rule) return value_rule;
+        throw new UndeferrableValueException("Value 'EventTarget.rule' is not present");
     }
 
     /**
      * Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
      * 
      */
-    private @Nullable UndeferrableValue<List<EventTargetRunCommandTarget>> runCommandTargets;
-
+    @PolicyResourceProperty(name="runCommandTargets", flag="unknown_runCommandTargets")
+    private @Nullable List<EventTargetRunCommandTarget> value_runCommandTargets;
+    private boolean unknown_runCommandTargets;
     public @Nullable List<EventTargetRunCommandTarget> runCommandTargets() {
-        if (runCommandTargets == null) return null;
-        return runCommandTargets.getValue("EventTarget.runCommandTargets");
+        if (!unknown_runCommandTargets) return value_runCommandTargets;
+        throw new UndeferrableValueException("Value 'EventTarget.runCommandTargets' is not present");
     }
 
     /**
      * Parameters used when you are using the rule to invoke an Amazon SageMaker AI Pipeline. Documented below. A maximum of 1 are allowed.
      * 
      */
-    private @Nullable UndeferrableValue<EventTargetSagemakerPipelineTarget> sagemakerPipelineTarget;
-
+    @PolicyResourceProperty(name="sagemakerPipelineTarget", flag="unknown_sagemakerPipelineTarget")
+    private @Nullable EventTargetSagemakerPipelineTarget value_sagemakerPipelineTarget;
+    private boolean unknown_sagemakerPipelineTarget;
     public @Nullable EventTargetSagemakerPipelineTarget sagemakerPipelineTarget() {
-        if (sagemakerPipelineTarget == null) return null;
-        return sagemakerPipelineTarget.getValue("EventTarget.sagemakerPipelineTarget");
+        if (!unknown_sagemakerPipelineTarget) return value_sagemakerPipelineTarget;
+        throw new UndeferrableValueException("Value 'EventTarget.sagemakerPipelineTarget' is not present");
     }
 
     /**
      * Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
      * 
      */
-    private @Nullable UndeferrableValue<EventTargetSqsTarget> sqsTarget;
-
+    @PolicyResourceProperty(name="sqsTarget", flag="unknown_sqsTarget")
+    private @Nullable EventTargetSqsTarget value_sqsTarget;
+    private boolean unknown_sqsTarget;
     public @Nullable EventTargetSqsTarget sqsTarget() {
-        if (sqsTarget == null) return null;
-        return sqsTarget.getValue("EventTarget.sqsTarget");
+        if (!unknown_sqsTarget) return value_sqsTarget;
+        throw new UndeferrableValueException("Value 'EventTarget.sqsTarget' is not present");
     }
 
     /**
      * The unique target assignment ID. If missing, will generate a random, unique id.
      * 
      */
-    private UndeferrableValue<String> targetId;
-
+    @PolicyResourceProperty(name="targetId", flag="unknown_targetId")
+    private String value_targetId;
+    private boolean unknown_targetId;
     public String targetId() {
-        if (targetId == null) return null;
-        return targetId.getValue("EventTarget.targetId");
+        if (!unknown_targetId) return value_targetId;
+        throw new UndeferrableValueException("Value 'EventTarget.targetId' is not present");
     }
 
 }

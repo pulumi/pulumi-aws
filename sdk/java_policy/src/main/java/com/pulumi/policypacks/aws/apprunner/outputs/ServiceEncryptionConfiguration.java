@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ServiceEncryptionConfiguration {
      * ARN of the KMS key used for encryption.
      * 
      */
-    private UndeferrableValue<String> kmsKey;
-
+    @PolicyResourceProperty(name="kmsKey", flag="unknown_kmsKey")
+    private String value_kmsKey;
+    private boolean unknown_kmsKey;
     public String kmsKey() {
-        if (kmsKey == null) return null;
-        return kmsKey.getValue("ServiceEncryptionConfiguration.kmsKey");
+        if (!unknown_kmsKey) return value_kmsKey;
+        throw new UndeferrableValueException("Value 'ServiceEncryptionConfiguration.kmsKey' is not present");
     }
 
 }

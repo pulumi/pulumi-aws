@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class AccountVdmAttributesGuardianAttributes {
      * Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> optimizedSharedDelivery;
-
+    @PolicyResourceProperty(name="optimizedSharedDelivery", flag="unknown_optimizedSharedDelivery")
+    private @Nullable String value_optimizedSharedDelivery;
+    private boolean unknown_optimizedSharedDelivery;
     public @Nullable String optimizedSharedDelivery() {
-        if (optimizedSharedDelivery == null) return null;
-        return optimizedSharedDelivery.getValue("AccountVdmAttributesGuardianAttributes.optimizedSharedDelivery");
+        if (!unknown_optimizedSharedDelivery) return value_optimizedSharedDelivery;
+        throw new UndeferrableValueException("Value 'AccountVdmAttributesGuardianAttributes.optimizedSharedDelivery' is not present");
     }
 
 }

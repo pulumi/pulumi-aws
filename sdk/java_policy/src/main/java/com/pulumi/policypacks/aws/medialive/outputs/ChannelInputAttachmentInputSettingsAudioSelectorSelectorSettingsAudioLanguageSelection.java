@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
      * Selects a specific three-letter language code from within an audio source.
      * 
      */
-    private UndeferrableValue<String> languageCode;
-
+    @PolicyResourceProperty(name="languageCode", flag="unknown_languageCode")
+    private String value_languageCode;
+    private boolean unknown_languageCode;
     public String languageCode() {
-        if (languageCode == null) return null;
-        return languageCode.getValue("ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection.languageCode");
+        if (!unknown_languageCode) return value_languageCode;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection.languageCode' is not present");
     }
 
     /**
      * When set to “strict”, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If “loose”, then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can’t find one with the same language.
      * 
      */
-    private @Nullable UndeferrableValue<String> languageSelectionPolicy;
-
+    @PolicyResourceProperty(name="languageSelectionPolicy", flag="unknown_languageSelectionPolicy")
+    private @Nullable String value_languageSelectionPolicy;
+    private boolean unknown_languageSelectionPolicy;
     public @Nullable String languageSelectionPolicy() {
-        if (languageSelectionPolicy == null) return null;
-        return languageSelectionPolicy.getValue("ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection.languageSelectionPolicy");
+        if (!unknown_languageSelectionPolicy) return value_languageSelectionPolicy;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection.languageSelectionPolicy' is not present");
     }
 
 }

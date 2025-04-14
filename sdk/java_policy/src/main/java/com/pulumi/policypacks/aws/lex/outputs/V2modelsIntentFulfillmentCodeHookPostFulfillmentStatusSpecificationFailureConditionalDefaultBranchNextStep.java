@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepDialogAction;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntent;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
      * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepDialogAction> dialogAction;
-
+    @PolicyResourceProperty(name="dialogAction", flag="unknown_dialogAction")
+    private @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepDialogAction value_dialogAction;
+    private boolean unknown_dialogAction;
     public @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepDialogAction dialogAction() {
-        if (dialogAction == null) return null;
-        return dialogAction.getValue("V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStep.dialogAction");
+        if (!unknown_dialogAction) return value_dialogAction;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStep.dialogAction' is not present");
     }
 
     /**
      * Configuration block for override settings to configure the intent state. See `intent`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntent> intent;
-
+    @PolicyResourceProperty(name="intent", flag="unknown_intent")
+    private @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntent value_intent;
+    private boolean unknown_intent;
     public @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntent intent() {
-        if (intent == null) return null;
-        return intent.getValue("V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStep.intent");
+        if (!unknown_intent) return value_intent;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStep.intent' is not present");
     }
 
     /**
      * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> sessionAttributes;
-
+    @PolicyResourceProperty(name="sessionAttributes", flag="unknown_sessionAttributes")
+    private @Nullable Map<String,String> value_sessionAttributes;
+    private boolean unknown_sessionAttributes;
     public @Nullable Map<String,String> sessionAttributes() {
-        if (sessionAttributes == null) return null;
-        return sessionAttributes.getValue("V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStep.sessionAttributes");
+        if (!unknown_sessionAttributes) return value_sessionAttributes;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStep.sessionAttributes' is not present");
     }
 
 }

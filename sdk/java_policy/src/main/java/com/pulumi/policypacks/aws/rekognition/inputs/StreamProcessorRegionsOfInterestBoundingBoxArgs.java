@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rekognition.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class StreamProcessorRegionsOfInterestBoundingBoxArgs {
      * Height of the bounding box as a ratio of the overall image height.
      * 
      */
-    private UndeferrableValue<Double> height;
-
+    @PolicyResourceProperty(name="height", flag="unknown_height")
+    private Double value_height;
+    private boolean unknown_height;
     public Double height() {
-        if (height == null) return null;
-        return height.getValue("StreamProcessorRegionsOfInterestBoundingBoxArgs.height");
+        if (!unknown_height) return value_height;
+        throw new UndeferrableValueException("Value 'StreamProcessorRegionsOfInterestBoundingBoxArgs.height' is not present");
     }
 
     /**
      * Left coordinate of the bounding box as a ratio of overall image width.
      * 
      */
-    private UndeferrableValue<Double> left;
-
+    @PolicyResourceProperty(name="left", flag="unknown_left")
+    private Double value_left;
+    private boolean unknown_left;
     public Double left() {
-        if (left == null) return null;
-        return left.getValue("StreamProcessorRegionsOfInterestBoundingBoxArgs.left");
+        if (!unknown_left) return value_left;
+        throw new UndeferrableValueException("Value 'StreamProcessorRegionsOfInterestBoundingBoxArgs.left' is not present");
     }
 
     /**
      * Top coordinate of the bounding box as a ratio of overall image height.
      * 
      */
-    private UndeferrableValue<Double> top;
-
+    @PolicyResourceProperty(name="top", flag="unknown_top")
+    private Double value_top;
+    private boolean unknown_top;
     public Double top() {
-        if (top == null) return null;
-        return top.getValue("StreamProcessorRegionsOfInterestBoundingBoxArgs.top");
+        if (!unknown_top) return value_top;
+        throw new UndeferrableValueException("Value 'StreamProcessorRegionsOfInterestBoundingBoxArgs.top' is not present");
     }
 
     /**
      * Width of the bounding box as a ratio of the overall image width.
      * 
      */
-    private UndeferrableValue<Double> width;
-
+    @PolicyResourceProperty(name="width", flag="unknown_width")
+    private Double value_width;
+    private boolean unknown_width;
     public Double width() {
-        if (width == null) return null;
-        return width.getValue("StreamProcessorRegionsOfInterestBoundingBoxArgs.width");
+        if (!unknown_width) return value_width;
+        throw new UndeferrableValueException("Value 'StreamProcessorRegionsOfInterestBoundingBoxArgs.width' is not present");
     }
 
 }

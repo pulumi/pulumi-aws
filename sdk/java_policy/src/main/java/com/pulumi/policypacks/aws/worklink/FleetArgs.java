@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.worklink;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.worklink.inputs.FleetIdentityProviderArgs;
 import com.pulumi.policypacks.aws.worklink.inputs.FleetNetworkArgs;
@@ -19,66 +20,72 @@ public final class FleetArgs extends com.pulumi.resources.PolicyResourceInput {
      * The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `&#34;AmazonWorkLink-&#34;`.
      * 
      */
-    private UndeferrableValue<String> auditStreamArn;
-
+    @PolicyResourceProperty(name="auditStreamArn", flag="unknown_auditStreamArn")
+    private String value_auditStreamArn;
+    private boolean unknown_auditStreamArn;
     public String auditStreamArn() {
-        if (auditStreamArn == null) return null;
-        return auditStreamArn.getValue("FleetArgs.auditStreamArn");
+        if (!unknown_auditStreamArn) return value_auditStreamArn;
+        throw new UndeferrableValueException("Value 'FleetArgs.auditStreamArn' is not present");
     }
 
     /**
      * The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
      * 
      */
-    private UndeferrableValue<String> deviceCaCertificate;
-
+    @PolicyResourceProperty(name="deviceCaCertificate", flag="unknown_deviceCaCertificate")
+    private String value_deviceCaCertificate;
+    private boolean unknown_deviceCaCertificate;
     public String deviceCaCertificate() {
-        if (deviceCaCertificate == null) return null;
-        return deviceCaCertificate.getValue("FleetArgs.deviceCaCertificate");
+        if (!unknown_deviceCaCertificate) return value_deviceCaCertificate;
+        throw new UndeferrableValueException("Value 'FleetArgs.deviceCaCertificate' is not present");
     }
 
     /**
      * The name of the fleet.
      * 
      */
-    private UndeferrableValue<String> displayName;
-
+    @PolicyResourceProperty(name="displayName", flag="unknown_displayName")
+    private String value_displayName;
+    private boolean unknown_displayName;
     public String displayName() {
-        if (displayName == null) return null;
-        return displayName.getValue("FleetArgs.displayName");
+        if (!unknown_displayName) return value_displayName;
+        throw new UndeferrableValueException("Value 'FleetArgs.displayName' is not present");
     }
 
     /**
      * Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
      * 
      */
-    private UndeferrableValue<FleetIdentityProviderArgs> identityProvider;
-
+    @PolicyResourceProperty(name="identityProvider", flag="unknown_identityProvider")
+    private FleetIdentityProviderArgs value_identityProvider;
+    private boolean unknown_identityProvider;
     public FleetIdentityProviderArgs identityProvider() {
-        if (identityProvider == null) return null;
-        return identityProvider.getValue("FleetArgs.identityProvider");
+        if (!unknown_identityProvider) return value_identityProvider;
+        throw new UndeferrableValueException("Value 'FleetArgs.identityProvider' is not present");
     }
 
     /**
      * A region-unique name for the AMI.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("FleetArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FleetArgs.name' is not present");
     }
 
     /**
      * Provide this to allow manage the company network configuration for the fleet. Fields documented below.
      * 
      */
-    private UndeferrableValue<FleetNetworkArgs> network;
-
+    @PolicyResourceProperty(name="network", flag="unknown_network")
+    private FleetNetworkArgs value_network;
+    private boolean unknown_network;
     public FleetNetworkArgs network() {
-        if (network == null) return null;
-        return network.getValue("FleetArgs.network");
+        if (!unknown_network) return value_network;
+        throw new UndeferrableValueException("Value 'FleetArgs.network' is not present");
     }
 
     /**
@@ -89,11 +96,12 @@ public final class FleetArgs extends com.pulumi.resources.PolicyResourceInput {
      * &gt; **NOTE:** `network` is cannot removed without force recreating.
      * 
      */
-    private UndeferrableValue<Boolean> optimizeForEndUserLocation;
-
+    @PolicyResourceProperty(name="optimizeForEndUserLocation", flag="unknown_optimizeForEndUserLocation")
+    private Boolean value_optimizeForEndUserLocation;
+    private boolean unknown_optimizeForEndUserLocation;
     public Boolean optimizeForEndUserLocation() {
-        if (optimizeForEndUserLocation == null) return null;
-        return optimizeForEndUserLocation.getValue("FleetArgs.optimizeForEndUserLocation");
+        if (!unknown_optimizeForEndUserLocation) return value_optimizeForEndUserLocation;
+        throw new UndeferrableValueException("Value 'FleetArgs.optimizeForEndUserLocation' is not present");
     }
 
 }

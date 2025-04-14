@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettings;
@@ -13,32 +14,36 @@ import javax.annotation.Nullable;
 
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings {
 
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings> audioOnlyHlsSettings;
-
+    @PolicyResourceProperty(name="audioOnlyHlsSettings", flag="unknown_audioOnlyHlsSettings")
+    private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings value_audioOnlyHlsSettings;
+    private boolean unknown_audioOnlyHlsSettings;
     public @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings audioOnlyHlsSettings() {
-        if (audioOnlyHlsSettings == null) return null;
-        return audioOnlyHlsSettings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings.audioOnlyHlsSettings");
+        if (!unknown_audioOnlyHlsSettings) return value_audioOnlyHlsSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings.audioOnlyHlsSettings' is not present");
     }
 
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings> fmp4HlsSettings;
-
+    @PolicyResourceProperty(name="fmp4HlsSettings", flag="unknown_fmp4HlsSettings")
+    private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings value_fmp4HlsSettings;
+    private boolean unknown_fmp4HlsSettings;
     public @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings fmp4HlsSettings() {
-        if (fmp4HlsSettings == null) return null;
-        return fmp4HlsSettings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings.fmp4HlsSettings");
+        if (!unknown_fmp4HlsSettings) return value_fmp4HlsSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings.fmp4HlsSettings' is not present");
     }
 
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettings> frameCaptureHlsSettings;
-
+    @PolicyResourceProperty(name="frameCaptureHlsSettings", flag="unknown_frameCaptureHlsSettings")
+    private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettings value_frameCaptureHlsSettings;
+    private boolean unknown_frameCaptureHlsSettings;
     public @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettings frameCaptureHlsSettings() {
-        if (frameCaptureHlsSettings == null) return null;
-        return frameCaptureHlsSettings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings.frameCaptureHlsSettings");
+        if (!unknown_frameCaptureHlsSettings) return value_frameCaptureHlsSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings.frameCaptureHlsSettings' is not present");
     }
 
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings> standardHlsSettings;
-
+    @PolicyResourceProperty(name="standardHlsSettings", flag="unknown_standardHlsSettings")
+    private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings value_standardHlsSettings;
+    private boolean unknown_standardHlsSettings;
     public @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings standardHlsSettings() {
-        if (standardHlsSettings == null) return null;
-        return standardHlsSettings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings.standardHlsSettings");
+        if (!unknown_standardHlsSettings) return value_standardHlsSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings.standardHlsSettings' is not present");
     }
 
 }

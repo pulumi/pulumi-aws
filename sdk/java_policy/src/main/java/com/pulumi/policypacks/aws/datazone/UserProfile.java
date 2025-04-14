@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.datazone.outputs.UserProfileDetail;
 import com.pulumi.policypacks.aws.datazone.outputs.UserProfileTimeouts;
@@ -19,51 +20,56 @@ public final class UserProfile extends com.pulumi.resources.PolicyResourceOutput
      * Details about the user profile.
      * 
      */
-    private UndeferrableValue<List<UserProfileDetail>> details;
-
+    @PolicyResourceProperty(name="details", flag="unknown_details")
+    private List<UserProfileDetail> value_details;
+    private boolean unknown_details;
     public List<UserProfileDetail> details() {
-        if (details == null) return null;
-        return details.getValue("UserProfile.details");
+        if (!unknown_details) return value_details;
+        throw new UndeferrableValueException("Value 'UserProfile.details' is not present");
     }
 
     /**
      * The domain identifier.
      * 
      */
-    private UndeferrableValue<String> domainIdentifier;
-
+    @PolicyResourceProperty(name="domainIdentifier", flag="unknown_domainIdentifier")
+    private String value_domainIdentifier;
+    private boolean unknown_domainIdentifier;
     public String domainIdentifier() {
-        if (domainIdentifier == null) return null;
-        return domainIdentifier.getValue("UserProfile.domainIdentifier");
+        if (!unknown_domainIdentifier) return value_domainIdentifier;
+        throw new UndeferrableValueException("Value 'UserProfile.domainIdentifier' is not present");
     }
 
     /**
      * The user profile status.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("UserProfile.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'UserProfile.status' is not present");
     }
 
-    private @Nullable UndeferrableValue<UserProfileTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable UserProfileTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable UserProfileTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("UserProfile.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'UserProfile.timeouts' is not present");
     }
 
     /**
      * The user profile type.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("UserProfile.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'UserProfile.type' is not present");
     }
 
     /**
@@ -72,22 +78,24 @@ public final class UserProfile extends com.pulumi.resources.PolicyResourceOutput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> userIdentifier;
-
+    @PolicyResourceProperty(name="userIdentifier", flag="unknown_userIdentifier")
+    private String value_userIdentifier;
+    private boolean unknown_userIdentifier;
     public String userIdentifier() {
-        if (userIdentifier == null) return null;
-        return userIdentifier.getValue("UserProfile.userIdentifier");
+        if (!unknown_userIdentifier) return value_userIdentifier;
+        throw new UndeferrableValueException("Value 'UserProfile.userIdentifier' is not present");
     }
 
     /**
      * The user type.
      * 
      */
-    private UndeferrableValue<String> userType;
-
+    @PolicyResourceProperty(name="userType", flag="unknown_userType")
+    private String value_userType;
+    private boolean unknown_userType;
     public String userType() {
-        if (userType == null) return null;
-        return userType.getValue("UserProfile.userType");
+        if (!unknown_userType) return value_userType;
+        throw new UndeferrableValueException("Value 'UserProfile.userType' is not present");
     }
 
 }

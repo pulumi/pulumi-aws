@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lakeformation.inputs.OptInConditionArgs;
 import com.pulumi.policypacks.aws.lakeformation.inputs.OptInPrincipalArgs;
@@ -19,33 +20,36 @@ public final class OptInArgs extends com.pulumi.resources.PolicyResourceInput {
      * Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
      * 
      */
-    private UndeferrableValue<List<OptInConditionArgs>> conditions;
-
+    @PolicyResourceProperty(name="conditions", flag="unknown_conditions")
+    private List<OptInConditionArgs> value_conditions;
+    private boolean unknown_conditions;
     public List<OptInConditionArgs> conditions() {
-        if (conditions == null) return null;
-        return conditions.getValue("OptInArgs.conditions");
+        if (!unknown_conditions) return value_conditions;
+        throw new UndeferrableValueException("Value 'OptInArgs.conditions' is not present");
     }
 
     /**
      * Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
      * 
      */
-    private UndeferrableValue<List<OptInPrincipalArgs>> principals;
-
+    @PolicyResourceProperty(name="principals", flag="unknown_principals")
+    private List<OptInPrincipalArgs> value_principals;
+    private boolean unknown_principals;
     public List<OptInPrincipalArgs> principals() {
-        if (principals == null) return null;
-        return principals.getValue("OptInArgs.principals");
+        if (!unknown_principals) return value_principals;
+        throw new UndeferrableValueException("Value 'OptInArgs.principals' is not present");
     }
 
     /**
      * Structure for the resource. See Resource for more details.
      * 
      */
-    private UndeferrableValue<List<OptInResourceDataArgs>> resourceDatas;
-
+    @PolicyResourceProperty(name="resourceDatas", flag="unknown_resourceDatas")
+    private List<OptInResourceDataArgs> value_resourceDatas;
+    private boolean unknown_resourceDatas;
     public List<OptInResourceDataArgs> resourceDatas() {
-        if (resourceDatas == null) return null;
-        return resourceDatas.getValue("OptInArgs.resourceDatas");
+        if (!unknown_resourceDatas) return value_resourceDatas;
+        throw new UndeferrableValueException("Value 'OptInArgs.resourceDatas' is not present");
     }
 
 }

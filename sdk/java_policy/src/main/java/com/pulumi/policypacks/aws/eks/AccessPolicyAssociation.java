@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.eks.outputs.AccessPolicyAssociationAccessScope;
 import java.lang.String;
@@ -16,66 +17,72 @@ public final class AccessPolicyAssociation extends com.pulumi.resources.PolicyRe
      * The configuration block to determine the scope of the access. See `access_scope` Block below.
      * 
      */
-    private UndeferrableValue<AccessPolicyAssociationAccessScope> accessScope;
-
+    @PolicyResourceProperty(name="accessScope", flag="unknown_accessScope")
+    private AccessPolicyAssociationAccessScope value_accessScope;
+    private boolean unknown_accessScope;
     public AccessPolicyAssociationAccessScope accessScope() {
-        if (accessScope == null) return null;
-        return accessScope.getValue("AccessPolicyAssociation.accessScope");
+        if (!unknown_accessScope) return value_accessScope;
+        throw new UndeferrableValueException("Value 'AccessPolicyAssociation.accessScope' is not present");
     }
 
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
      * 
      */
-    private UndeferrableValue<String> associatedAt;
-
+    @PolicyResourceProperty(name="associatedAt", flag="unknown_associatedAt")
+    private String value_associatedAt;
+    private boolean unknown_associatedAt;
     public String associatedAt() {
-        if (associatedAt == null) return null;
-        return associatedAt.getValue("AccessPolicyAssociation.associatedAt");
+        if (!unknown_associatedAt) return value_associatedAt;
+        throw new UndeferrableValueException("Value 'AccessPolicyAssociation.associatedAt' is not present");
     }
 
     /**
      * Name of the EKS Cluster.
      * 
      */
-    private UndeferrableValue<String> clusterName;
-
+    @PolicyResourceProperty(name="clusterName", flag="unknown_clusterName")
+    private String value_clusterName;
+    private boolean unknown_clusterName;
     public String clusterName() {
-        if (clusterName == null) return null;
-        return clusterName.getValue("AccessPolicyAssociation.clusterName");
+        if (!unknown_clusterName) return value_clusterName;
+        throw new UndeferrableValueException("Value 'AccessPolicyAssociation.clusterName' is not present");
     }
 
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
      * 
      */
-    private UndeferrableValue<String> modifiedAt;
-
+    @PolicyResourceProperty(name="modifiedAt", flag="unknown_modifiedAt")
+    private String value_modifiedAt;
+    private boolean unknown_modifiedAt;
     public String modifiedAt() {
-        if (modifiedAt == null) return null;
-        return modifiedAt.getValue("AccessPolicyAssociation.modifiedAt");
+        if (!unknown_modifiedAt) return value_modifiedAt;
+        throw new UndeferrableValueException("Value 'AccessPolicyAssociation.modifiedAt' is not present");
     }
 
     /**
      * The ARN of the access policy that you&#39;re associating.
      * 
      */
-    private UndeferrableValue<String> policyArn;
-
+    @PolicyResourceProperty(name="policyArn", flag="unknown_policyArn")
+    private String value_policyArn;
+    private boolean unknown_policyArn;
     public String policyArn() {
-        if (policyArn == null) return null;
-        return policyArn.getValue("AccessPolicyAssociation.policyArn");
+        if (!unknown_policyArn) return value_policyArn;
+        throw new UndeferrableValueException("Value 'AccessPolicyAssociation.policyArn' is not present");
     }
 
     /**
      * The IAM Principal ARN which requires Authentication access to the EKS cluster.
      * 
      */
-    private UndeferrableValue<String> principalArn;
-
+    @PolicyResourceProperty(name="principalArn", flag="unknown_principalArn")
+    private String value_principalArn;
+    private boolean unknown_principalArn;
     public String principalArn() {
-        if (principalArn == null) return null;
-        return principalArn.getValue("AccessPolicyAssociation.principalArn");
+        if (!unknown_principalArn) return value_principalArn;
+        throw new UndeferrableValueException("Value 'AccessPolicyAssociation.principalArn' is not present");
     }
 
 }

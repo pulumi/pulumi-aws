@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,44 +17,48 @@ public final class TrustStoreRevocationArgs extends com.pulumi.resources.PolicyR
      * S3 Bucket name holding the client certificate CA bundle.
      * 
      */
-    private UndeferrableValue<String> revocationsS3Bucket;
-
+    @PolicyResourceProperty(name="revocationsS3Bucket", flag="unknown_revocationsS3Bucket")
+    private String value_revocationsS3Bucket;
+    private boolean unknown_revocationsS3Bucket;
     public String revocationsS3Bucket() {
-        if (revocationsS3Bucket == null) return null;
-        return revocationsS3Bucket.getValue("TrustStoreRevocationArgs.revocationsS3Bucket");
+        if (!unknown_revocationsS3Bucket) return value_revocationsS3Bucket;
+        throw new UndeferrableValueException("Value 'TrustStoreRevocationArgs.revocationsS3Bucket' is not present");
     }
 
     /**
      * S3 object key holding the client certificate CA bundle.
      * 
      */
-    private UndeferrableValue<String> revocationsS3Key;
-
+    @PolicyResourceProperty(name="revocationsS3Key", flag="unknown_revocationsS3Key")
+    private String value_revocationsS3Key;
+    private boolean unknown_revocationsS3Key;
     public String revocationsS3Key() {
-        if (revocationsS3Key == null) return null;
-        return revocationsS3Key.getValue("TrustStoreRevocationArgs.revocationsS3Key");
+        if (!unknown_revocationsS3Key) return value_revocationsS3Key;
+        throw new UndeferrableValueException("Value 'TrustStoreRevocationArgs.revocationsS3Key' is not present");
     }
 
     /**
      * Version Id of CA bundle S3 bucket object, if versioned, defaults to latest if omitted.
      * 
      */
-    private UndeferrableValue<String> revocationsS3ObjectVersion;
-
+    @PolicyResourceProperty(name="revocationsS3ObjectVersion", flag="unknown_revocationsS3ObjectVersion")
+    private String value_revocationsS3ObjectVersion;
+    private boolean unknown_revocationsS3ObjectVersion;
     public String revocationsS3ObjectVersion() {
-        if (revocationsS3ObjectVersion == null) return null;
-        return revocationsS3ObjectVersion.getValue("TrustStoreRevocationArgs.revocationsS3ObjectVersion");
+        if (!unknown_revocationsS3ObjectVersion) return value_revocationsS3ObjectVersion;
+        throw new UndeferrableValueException("Value 'TrustStoreRevocationArgs.revocationsS3ObjectVersion' is not present");
     }
 
     /**
      * Trust Store ARN.
      * 
      */
-    private UndeferrableValue<String> trustStoreArn;
-
+    @PolicyResourceProperty(name="trustStoreArn", flag="unknown_trustStoreArn")
+    private String value_trustStoreArn;
+    private boolean unknown_trustStoreArn;
     public String trustStoreArn() {
-        if (trustStoreArn == null) return null;
-        return trustStoreArn.getValue("TrustStoreRevocationArgs.trustStoreArn");
+        if (!unknown_trustStoreArn) return value_trustStoreArn;
+        throw new UndeferrableValueException("Value 'TrustStoreRevocationArgs.trustStoreArn' is not present");
     }
 
 }

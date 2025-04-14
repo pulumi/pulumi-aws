@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.acm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.acm.inputs.CertificateOptionsArgs;
 import com.pulumi.policypacks.aws.acm.inputs.CertificateValidationOptionArgs;
@@ -20,22 +21,24 @@ public final class CertificateArgs extends com.pulumi.resources.PolicyResourceIn
      * ARN of an ACM PCA
      * 
      */
-    private UndeferrableValue<String> certificateAuthorityArn;
-
+    @PolicyResourceProperty(name="certificateAuthorityArn", flag="unknown_certificateAuthorityArn")
+    private String value_certificateAuthorityArn;
+    private boolean unknown_certificateAuthorityArn;
     public String certificateAuthorityArn() {
-        if (certificateAuthorityArn == null) return null;
-        return certificateAuthorityArn.getValue("CertificateArgs.certificateAuthorityArn");
+        if (!unknown_certificateAuthorityArn) return value_certificateAuthorityArn;
+        throw new UndeferrableValueException("Value 'CertificateArgs.certificateAuthorityArn' is not present");
     }
 
     /**
      * Certificate&#39;s PEM-formatted public key
      * 
      */
-    private UndeferrableValue<String> certificateBody;
-
+    @PolicyResourceProperty(name="certificateBody", flag="unknown_certificateBody")
+    private String value_certificateBody;
+    private boolean unknown_certificateBody;
     public String certificateBody() {
-        if (certificateBody == null) return null;
-        return certificateBody.getValue("CertificateArgs.certificateBody");
+        if (!unknown_certificateBody) return value_certificateBody;
+        throw new UndeferrableValueException("Value 'CertificateArgs.certificateBody' is not present");
     }
 
     /**
@@ -43,22 +46,24 @@ public final class CertificateArgs extends com.pulumi.resources.PolicyResourceIn
      * * Creating a private CA issued certificate
      * 
      */
-    private UndeferrableValue<String> certificateChain;
-
+    @PolicyResourceProperty(name="certificateChain", flag="unknown_certificateChain")
+    private String value_certificateChain;
+    private boolean unknown_certificateChain;
     public String certificateChain() {
-        if (certificateChain == null) return null;
-        return certificateChain.getValue("CertificateArgs.certificateChain");
+        if (!unknown_certificateChain) return value_certificateChain;
+        throw new UndeferrableValueException("Value 'CertificateArgs.certificateChain' is not present");
     }
 
     /**
      * Fully qualified domain name (FQDN) in the certificate.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("CertificateArgs.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'CertificateArgs.domainName' is not present");
     }
 
     /**
@@ -69,44 +74,48 @@ public final class CertificateArgs extends com.pulumi.resources.PolicyResourceIn
      * or a string such as `2160h`.
      * 
      */
-    private UndeferrableValue<String> earlyRenewalDuration;
-
+    @PolicyResourceProperty(name="earlyRenewalDuration", flag="unknown_earlyRenewalDuration")
+    private String value_earlyRenewalDuration;
+    private boolean unknown_earlyRenewalDuration;
     public String earlyRenewalDuration() {
-        if (earlyRenewalDuration == null) return null;
-        return earlyRenewalDuration.getValue("CertificateArgs.earlyRenewalDuration");
+        if (!unknown_earlyRenewalDuration) return value_earlyRenewalDuration;
+        throw new UndeferrableValueException("Value 'CertificateArgs.earlyRenewalDuration' is not present");
     }
 
     /**
      * Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
      * 
      */
-    private UndeferrableValue<String> keyAlgorithm;
-
+    @PolicyResourceProperty(name="keyAlgorithm", flag="unknown_keyAlgorithm")
+    private String value_keyAlgorithm;
+    private boolean unknown_keyAlgorithm;
     public String keyAlgorithm() {
-        if (keyAlgorithm == null) return null;
-        return keyAlgorithm.getValue("CertificateArgs.keyAlgorithm");
+        if (!unknown_keyAlgorithm) return value_keyAlgorithm;
+        throw new UndeferrableValueException("Value 'CertificateArgs.keyAlgorithm' is not present");
     }
 
     /**
      * Configuration block used to set certificate options. Detailed below.
      * 
      */
-    private UndeferrableValue<CertificateOptionsArgs> options;
-
+    @PolicyResourceProperty(name="options", flag="unknown_options")
+    private CertificateOptionsArgs value_options;
+    private boolean unknown_options;
     public CertificateOptionsArgs options() {
-        if (options == null) return null;
-        return options.getValue("CertificateArgs.options");
+        if (!unknown_options) return value_options;
+        throw new UndeferrableValueException("Value 'CertificateArgs.options' is not present");
     }
 
     /**
      * Certificate&#39;s PEM-formatted private key
      * 
      */
-    private UndeferrableValue<String> privateKey;
-
+    @PolicyResourceProperty(name="privateKey", flag="unknown_privateKey")
+    private String value_privateKey;
+    private boolean unknown_privateKey;
     public String privateKey() {
-        if (privateKey == null) return null;
-        return privateKey.getValue("CertificateArgs.privateKey");
+        if (!unknown_privateKey) return value_privateKey;
+        throw new UndeferrableValueException("Value 'CertificateArgs.privateKey' is not present");
     }
 
     /**
@@ -114,33 +123,36 @@ public final class CertificateArgs extends com.pulumi.resources.PolicyResourceIn
      * To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
      * 
      */
-    private UndeferrableValue<List<String>> subjectAlternativeNames;
-
+    @PolicyResourceProperty(name="subjectAlternativeNames", flag="unknown_subjectAlternativeNames")
+    private List<String> value_subjectAlternativeNames;
+    private boolean unknown_subjectAlternativeNames;
     public List<String> subjectAlternativeNames() {
-        if (subjectAlternativeNames == null) return null;
-        return subjectAlternativeNames.getValue("CertificateArgs.subjectAlternativeNames");
+        if (!unknown_subjectAlternativeNames) return value_subjectAlternativeNames;
+        throw new UndeferrableValueException("Value 'CertificateArgs.subjectAlternativeNames' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CertificateArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CertificateArgs.tags' is not present");
     }
 
     /**
      * Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
      * 
      */
-    private UndeferrableValue<String> validationMethod;
-
+    @PolicyResourceProperty(name="validationMethod", flag="unknown_validationMethod")
+    private String value_validationMethod;
+    private boolean unknown_validationMethod;
     public String validationMethod() {
-        if (validationMethod == null) return null;
-        return validationMethod.getValue("CertificateArgs.validationMethod");
+        if (!unknown_validationMethod) return value_validationMethod;
+        throw new UndeferrableValueException("Value 'CertificateArgs.validationMethod' is not present");
     }
 
     /**
@@ -148,11 +160,12 @@ public final class CertificateArgs extends com.pulumi.resources.PolicyResourceIn
      * * Importing an existing certificate
      * 
      */
-    private UndeferrableValue<List<CertificateValidationOptionArgs>> validationOptions;
-
+    @PolicyResourceProperty(name="validationOptions", flag="unknown_validationOptions")
+    private List<CertificateValidationOptionArgs> value_validationOptions;
+    private boolean unknown_validationOptions;
     public List<CertificateValidationOptionArgs> validationOptions() {
-        if (validationOptions == null) return null;
-        return validationOptions.getValue("CertificateArgs.validationOptions");
+        if (!unknown_validationOptions) return value_validationOptions;
+        throw new UndeferrableValueException("Value 'CertificateArgs.validationOptions' is not present");
     }
 
 }

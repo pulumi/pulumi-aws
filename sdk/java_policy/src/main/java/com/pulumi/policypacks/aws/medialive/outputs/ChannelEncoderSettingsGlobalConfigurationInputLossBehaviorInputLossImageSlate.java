@@ -3,32 +3,36 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate {
 
-    private @Nullable UndeferrableValue<String> passwordParam;
-
+    @PolicyResourceProperty(name="passwordParam", flag="unknown_passwordParam")
+    private @Nullable String value_passwordParam;
+    private boolean unknown_passwordParam;
     public @Nullable String passwordParam() {
-        if (passwordParam == null) return null;
-        return passwordParam.getValue("ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate.passwordParam");
+        if (!unknown_passwordParam) return value_passwordParam;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate.passwordParam' is not present");
     }
 
-    private UndeferrableValue<String> uri;
-
+    @PolicyResourceProperty(name="uri", flag="unknown_uri")
+    private String value_uri;
+    private boolean unknown_uri;
     public String uri() {
-        if (uri == null) return null;
-        return uri.getValue("ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate.uri");
+        if (!unknown_uri) return value_uri;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate.uri' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> username;
-
+    @PolicyResourceProperty(name="username", flag="unknown_username")
+    private @Nullable String value_username;
+    private boolean unknown_username;
     public @Nullable String username() {
-        if (username == null) return null;
-        return username.getValue("ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate.username");
+        if (!unknown_username) return value_username;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate.username' is not present");
     }
 
 }

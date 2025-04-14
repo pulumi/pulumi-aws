@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.detective;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,11 +16,12 @@ public final class InvitationAccepterArgs extends com.pulumi.resources.PolicyRes
      * ARN of the behavior graph that the member account is accepting the invitation for.
      * 
      */
-    private UndeferrableValue<String> graphArn;
-
+    @PolicyResourceProperty(name="graphArn", flag="unknown_graphArn")
+    private String value_graphArn;
+    private boolean unknown_graphArn;
     public String graphArn() {
-        if (graphArn == null) return null;
-        return graphArn.getValue("InvitationAccepterArgs.graphArn");
+        if (!unknown_graphArn) return value_graphArn;
+        throw new UndeferrableValueException("Value 'InvitationAccepterArgs.graphArn' is not present");
     }
 
 }

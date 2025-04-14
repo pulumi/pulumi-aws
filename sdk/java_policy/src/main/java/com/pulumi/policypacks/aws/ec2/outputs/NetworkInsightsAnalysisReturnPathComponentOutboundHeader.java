@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.outputs.NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRange;
 import com.pulumi.policypacks.aws.ec2.outputs.NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRange;
 import java.lang.String;
@@ -13,39 +14,44 @@ import javax.annotation.Nullable;
 
 public final class NetworkInsightsAnalysisReturnPathComponentOutboundHeader {
 
-    private @Nullable UndeferrableValue<List<String>> destinationAddresses;
-
+    @PolicyResourceProperty(name="destinationAddresses", flag="unknown_destinationAddresses")
+    private @Nullable List<String> value_destinationAddresses;
+    private boolean unknown_destinationAddresses;
     public @Nullable List<String> destinationAddresses() {
-        if (destinationAddresses == null) return null;
-        return destinationAddresses.getValue("NetworkInsightsAnalysisReturnPathComponentOutboundHeader.destinationAddresses");
+        if (!unknown_destinationAddresses) return value_destinationAddresses;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentOutboundHeader.destinationAddresses' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRange>> destinationPortRanges;
-
+    @PolicyResourceProperty(name="destinationPortRanges", flag="unknown_destinationPortRanges")
+    private @Nullable List<NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRange> value_destinationPortRanges;
+    private boolean unknown_destinationPortRanges;
     public @Nullable List<NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRange> destinationPortRanges() {
-        if (destinationPortRanges == null) return null;
-        return destinationPortRanges.getValue("NetworkInsightsAnalysisReturnPathComponentOutboundHeader.destinationPortRanges");
+        if (!unknown_destinationPortRanges) return value_destinationPortRanges;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentOutboundHeader.destinationPortRanges' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private @Nullable String value_protocol;
+    private boolean unknown_protocol;
     public @Nullable String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("NetworkInsightsAnalysisReturnPathComponentOutboundHeader.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentOutboundHeader.protocol' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<String>> sourceAddresses;
-
+    @PolicyResourceProperty(name="sourceAddresses", flag="unknown_sourceAddresses")
+    private @Nullable List<String> value_sourceAddresses;
+    private boolean unknown_sourceAddresses;
     public @Nullable List<String> sourceAddresses() {
-        if (sourceAddresses == null) return null;
-        return sourceAddresses.getValue("NetworkInsightsAnalysisReturnPathComponentOutboundHeader.sourceAddresses");
+        if (!unknown_sourceAddresses) return value_sourceAddresses;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentOutboundHeader.sourceAddresses' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRange>> sourcePortRanges;
-
+    @PolicyResourceProperty(name="sourcePortRanges", flag="unknown_sourcePortRanges")
+    private @Nullable List<NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRange> value_sourcePortRanges;
+    private boolean unknown_sourcePortRanges;
     public @Nullable List<NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRange> sourcePortRanges() {
-        if (sourcePortRanges == null) return null;
-        return sourcePortRanges.getValue("NetworkInsightsAnalysisReturnPathComponentOutboundHeader.sourcePortRanges");
+        if (!unknown_sourcePortRanges) return value_sourcePortRanges;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentOutboundHeader.sourcePortRanges' is not present");
     }
 
 }

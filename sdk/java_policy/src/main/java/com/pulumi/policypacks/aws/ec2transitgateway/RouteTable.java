@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class RouteTable extends com.pulumi.resources.PolicyResourceOutput 
      * EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("RouteTable.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'RouteTable.arn' is not present");
     }
 
     /**
      * Boolean whether this is the default association route table for the EC2 Transit Gateway.
      * 
      */
-    private UndeferrableValue<Boolean> defaultAssociationRouteTable;
-
+    @PolicyResourceProperty(name="defaultAssociationRouteTable", flag="unknown_defaultAssociationRouteTable")
+    private Boolean value_defaultAssociationRouteTable;
+    private boolean unknown_defaultAssociationRouteTable;
     public Boolean defaultAssociationRouteTable() {
-        if (defaultAssociationRouteTable == null) return null;
-        return defaultAssociationRouteTable.getValue("RouteTable.defaultAssociationRouteTable");
+        if (!unknown_defaultAssociationRouteTable) return value_defaultAssociationRouteTable;
+        throw new UndeferrableValueException("Value 'RouteTable.defaultAssociationRouteTable' is not present");
     }
 
     /**
      * Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
      * 
      */
-    private UndeferrableValue<Boolean> defaultPropagationRouteTable;
-
+    @PolicyResourceProperty(name="defaultPropagationRouteTable", flag="unknown_defaultPropagationRouteTable")
+    private Boolean value_defaultPropagationRouteTable;
+    private boolean unknown_defaultPropagationRouteTable;
     public Boolean defaultPropagationRouteTable() {
-        if (defaultPropagationRouteTable == null) return null;
-        return defaultPropagationRouteTable.getValue("RouteTable.defaultPropagationRouteTable");
+        if (!unknown_defaultPropagationRouteTable) return value_defaultPropagationRouteTable;
+        throw new UndeferrableValueException("Value 'RouteTable.defaultPropagationRouteTable' is not present");
     }
 
     /**
      * Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RouteTable.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RouteTable.tags' is not present");
     }
 
     /**
@@ -66,22 +71,24 @@ public final class RouteTable extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("RouteTable.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'RouteTable.tagsAll' is not present");
     }
 
     /**
      * Identifier of EC2 Transit Gateway.
      * 
      */
-    private UndeferrableValue<String> transitGatewayId;
-
+    @PolicyResourceProperty(name="transitGatewayId", flag="unknown_transitGatewayId")
+    private String value_transitGatewayId;
+    private boolean unknown_transitGatewayId;
     public String transitGatewayId() {
-        if (transitGatewayId == null) return null;
-        return transitGatewayId.getValue("RouteTable.transitGatewayId");
+        if (!unknown_transitGatewayId) return value_transitGatewayId;
+        throw new UndeferrableValueException("Value 'RouteTable.transitGatewayId' is not present");
     }
 
 }

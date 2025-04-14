@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cognito.outputs.IdentityPoolRoleAttachmentRoleMappingMappingRule;
 import java.lang.String;
 import java.util.List;
@@ -16,44 +17,48 @@ public final class IdentityPoolRoleAttachmentRoleMapping {
      * Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
      * 
      */
-    private @Nullable UndeferrableValue<String> ambiguousRoleResolution;
-
+    @PolicyResourceProperty(name="ambiguousRoleResolution", flag="unknown_ambiguousRoleResolution")
+    private @Nullable String value_ambiguousRoleResolution;
+    private boolean unknown_ambiguousRoleResolution;
     public @Nullable String ambiguousRoleResolution() {
-        if (ambiguousRoleResolution == null) return null;
-        return ambiguousRoleResolution.getValue("IdentityPoolRoleAttachmentRoleMapping.ambiguousRoleResolution");
+        if (!unknown_ambiguousRoleResolution) return value_ambiguousRoleResolution;
+        throw new UndeferrableValueException("Value 'IdentityPoolRoleAttachmentRoleMapping.ambiguousRoleResolution' is not present");
     }
 
     /**
      * A string identifying the identity provider, for example, &#34;graph.facebook.com&#34; or &#34;cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id&#34;. Depends on `cognito_identity_providers` set on `aws.cognito.IdentityPool` resource or a `aws.cognito.IdentityProvider` resource.
      * 
      */
-    private UndeferrableValue<String> identityProvider;
-
+    @PolicyResourceProperty(name="identityProvider", flag="unknown_identityProvider")
+    private String value_identityProvider;
+    private boolean unknown_identityProvider;
     public String identityProvider() {
-        if (identityProvider == null) return null;
-        return identityProvider.getValue("IdentityPoolRoleAttachmentRoleMapping.identityProvider");
+        if (!unknown_identityProvider) return value_identityProvider;
+        throw new UndeferrableValueException("Value 'IdentityPoolRoleAttachmentRoleMapping.identityProvider' is not present");
     }
 
     /**
      * The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
      * 
      */
-    private @Nullable UndeferrableValue<List<IdentityPoolRoleAttachmentRoleMappingMappingRule>> mappingRules;
-
+    @PolicyResourceProperty(name="mappingRules", flag="unknown_mappingRules")
+    private @Nullable List<IdentityPoolRoleAttachmentRoleMappingMappingRule> value_mappingRules;
+    private boolean unknown_mappingRules;
     public @Nullable List<IdentityPoolRoleAttachmentRoleMappingMappingRule> mappingRules() {
-        if (mappingRules == null) return null;
-        return mappingRules.getValue("IdentityPoolRoleAttachmentRoleMapping.mappingRules");
+        if (!unknown_mappingRules) return value_mappingRules;
+        throw new UndeferrableValueException("Value 'IdentityPoolRoleAttachmentRoleMapping.mappingRules' is not present");
     }
 
     /**
      * The role mapping type.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("IdentityPoolRoleAttachmentRoleMapping.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'IdentityPoolRoleAttachmentRoleMapping.type' is not present");
     }
 
 }

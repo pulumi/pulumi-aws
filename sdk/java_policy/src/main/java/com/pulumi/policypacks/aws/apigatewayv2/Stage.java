@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.apigatewayv2.outputs.StageAccessLogSettings;
 import com.pulumi.policypacks.aws.apigatewayv2.outputs.StageDefaultRouteSettings;
@@ -23,44 +24,48 @@ public final class Stage extends com.pulumi.resources.PolicyResourceOutput {
      * Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
      * 
      */
-    private @Nullable UndeferrableValue<StageAccessLogSettings> accessLogSettings;
-
+    @PolicyResourceProperty(name="accessLogSettings", flag="unknown_accessLogSettings")
+    private @Nullable StageAccessLogSettings value_accessLogSettings;
+    private boolean unknown_accessLogSettings;
     public @Nullable StageAccessLogSettings accessLogSettings() {
-        if (accessLogSettings == null) return null;
-        return accessLogSettings.getValue("Stage.accessLogSettings");
+        if (!unknown_accessLogSettings) return value_accessLogSettings;
+        throw new UndeferrableValueException("Value 'Stage.accessLogSettings' is not present");
     }
 
     /**
      * API identifier.
      * 
      */
-    private UndeferrableValue<String> apiId;
-
+    @PolicyResourceProperty(name="apiId", flag="unknown_apiId")
+    private String value_apiId;
+    private boolean unknown_apiId;
     public String apiId() {
-        if (apiId == null) return null;
-        return apiId.getValue("Stage.apiId");
+        if (!unknown_apiId) return value_apiId;
+        throw new UndeferrableValueException("Value 'Stage.apiId' is not present");
     }
 
     /**
      * ARN of the stage.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Stage.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Stage.arn' is not present");
     }
 
     /**
      * Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> autoDeploy;
-
+    @PolicyResourceProperty(name="autoDeploy", flag="unknown_autoDeploy")
+    private @Nullable Boolean value_autoDeploy;
+    private boolean unknown_autoDeploy;
     public @Nullable Boolean autoDeploy() {
-        if (autoDeploy == null) return null;
-        return autoDeploy.getValue("Stage.autoDeploy");
+        if (!unknown_autoDeploy) return value_autoDeploy;
+        throw new UndeferrableValueException("Value 'Stage.autoDeploy' is not present");
     }
 
     /**
@@ -68,44 +73,48 @@ public final class Stage extends com.pulumi.resources.PolicyResourceOutput {
      * Supported only for WebSocket APIs.
      * 
      */
-    private @Nullable UndeferrableValue<String> clientCertificateId;
-
+    @PolicyResourceProperty(name="clientCertificateId", flag="unknown_clientCertificateId")
+    private @Nullable String value_clientCertificateId;
+    private boolean unknown_clientCertificateId;
     public @Nullable String clientCertificateId() {
-        if (clientCertificateId == null) return null;
-        return clientCertificateId.getValue("Stage.clientCertificateId");
+        if (!unknown_clientCertificateId) return value_clientCertificateId;
+        throw new UndeferrableValueException("Value 'Stage.clientCertificateId' is not present");
     }
 
     /**
      * Default route settings for the stage.
      * 
      */
-    private @Nullable UndeferrableValue<StageDefaultRouteSettings> defaultRouteSettings;
-
+    @PolicyResourceProperty(name="defaultRouteSettings", flag="unknown_defaultRouteSettings")
+    private @Nullable StageDefaultRouteSettings value_defaultRouteSettings;
+    private boolean unknown_defaultRouteSettings;
     public @Nullable StageDefaultRouteSettings defaultRouteSettings() {
-        if (defaultRouteSettings == null) return null;
-        return defaultRouteSettings.getValue("Stage.defaultRouteSettings");
+        if (!unknown_defaultRouteSettings) return value_defaultRouteSettings;
+        throw new UndeferrableValueException("Value 'Stage.defaultRouteSettings' is not present");
     }
 
     /**
      * Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
      * 
      */
-    private UndeferrableValue<String> deploymentId;
-
+    @PolicyResourceProperty(name="deploymentId", flag="unknown_deploymentId")
+    private String value_deploymentId;
+    private boolean unknown_deploymentId;
     public String deploymentId() {
-        if (deploymentId == null) return null;
-        return deploymentId.getValue("Stage.deploymentId");
+        if (!unknown_deploymentId) return value_deploymentId;
+        throw new UndeferrableValueException("Value 'Stage.deploymentId' is not present");
     }
 
     /**
      * Description for the stage. Must be less than or equal to 1024 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Stage.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Stage.description' is not present");
     }
 
     /**
@@ -114,11 +123,12 @@ public final class Stage extends com.pulumi.resources.PolicyResourceOutput {
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      * 
      */
-    private UndeferrableValue<String> executionArn;
-
+    @PolicyResourceProperty(name="executionArn", flag="unknown_executionArn")
+    private String value_executionArn;
+    private boolean unknown_executionArn;
     public String executionArn() {
-        if (executionArn == null) return null;
-        return executionArn.getValue("Stage.executionArn");
+        if (!unknown_executionArn) return value_executionArn;
+        throw new UndeferrableValueException("Value 'Stage.executionArn' is not present");
     }
 
     /**
@@ -126,11 +136,12 @@ public final class Stage extends com.pulumi.resources.PolicyResourceOutput {
      * e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
      * 
      */
-    private UndeferrableValue<String> invokeUrl;
-
+    @PolicyResourceProperty(name="invokeUrl", flag="unknown_invokeUrl")
+    private String value_invokeUrl;
+    private boolean unknown_invokeUrl;
     public String invokeUrl() {
-        if (invokeUrl == null) return null;
-        return invokeUrl.getValue("Stage.invokeUrl");
+        if (!unknown_invokeUrl) return value_invokeUrl;
+        throw new UndeferrableValueException("Value 'Stage.invokeUrl' is not present");
     }
 
     /**
@@ -139,44 +150,48 @@ public final class Stage extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Stage.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Stage.name' is not present");
     }
 
     /**
      * Route settings for the stage.
      * 
      */
-    private @Nullable UndeferrableValue<List<StageRouteSetting>> routeSettings;
-
+    @PolicyResourceProperty(name="routeSettings", flag="unknown_routeSettings")
+    private @Nullable List<StageRouteSetting> value_routeSettings;
+    private boolean unknown_routeSettings;
     public @Nullable List<StageRouteSetting> routeSettings() {
-        if (routeSettings == null) return null;
-        return routeSettings.getValue("Stage.routeSettings");
+        if (!unknown_routeSettings) return value_routeSettings;
+        throw new UndeferrableValueException("Value 'Stage.routeSettings' is not present");
     }
 
     /**
      * Map that defines the stage variables for the stage.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> stageVariables;
-
+    @PolicyResourceProperty(name="stageVariables", flag="unknown_stageVariables")
+    private @Nullable Map<String,String> value_stageVariables;
+    private boolean unknown_stageVariables;
     public @Nullable Map<String,String> stageVariables() {
-        if (stageVariables == null) return null;
-        return stageVariables.getValue("Stage.stageVariables");
+        if (!unknown_stageVariables) return value_stageVariables;
+        throw new UndeferrableValueException("Value 'Stage.stageVariables' is not present");
     }
 
     /**
      * Map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Stage.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Stage.tags' is not present");
     }
 
     /**
@@ -187,11 +202,12 @@ public final class Stage extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Stage.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Stage.tagsAll' is not present");
     }
 
 }

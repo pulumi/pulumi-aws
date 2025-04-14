@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearchingest.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class PipelineLogPublishingOptionsCloudwatchLogDestination {
      * The name of the CloudWatch Logs group to send pipeline logs to. You can specify an existing log group or create a new one. For example, /aws/OpenSearchService/IngestionService/my-pipeline.
      * 
      */
-    private UndeferrableValue<String> logGroup;
-
+    @PolicyResourceProperty(name="logGroup", flag="unknown_logGroup")
+    private String value_logGroup;
+    private boolean unknown_logGroup;
     public String logGroup() {
-        if (logGroup == null) return null;
-        return logGroup.getValue("PipelineLogPublishingOptionsCloudwatchLogDestination.logGroup");
+        if (!unknown_logGroup) return value_logGroup;
+        throw new UndeferrableValueException("Value 'PipelineLogPublishingOptionsCloudwatchLogDestination.logGroup' is not present");
     }
 
 }

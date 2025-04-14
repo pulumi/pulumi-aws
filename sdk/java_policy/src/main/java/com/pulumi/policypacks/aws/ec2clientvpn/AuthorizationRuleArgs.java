@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2clientvpn;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,55 +18,60 @@ public final class AuthorizationRuleArgs extends com.pulumi.resources.PolicyReso
      * The ID of the group to which the authorization rule grants access. One of `access_group_id` or `authorize_all_groups` must be set.
      * 
      */
-    private UndeferrableValue<String> accessGroupId;
-
+    @PolicyResourceProperty(name="accessGroupId", flag="unknown_accessGroupId")
+    private String value_accessGroupId;
+    private boolean unknown_accessGroupId;
     public String accessGroupId() {
-        if (accessGroupId == null) return null;
-        return accessGroupId.getValue("AuthorizationRuleArgs.accessGroupId");
+        if (!unknown_accessGroupId) return value_accessGroupId;
+        throw new UndeferrableValueException("Value 'AuthorizationRuleArgs.accessGroupId' is not present");
     }
 
     /**
      * Indicates whether the authorization rule grants access to all clients. One of `access_group_id` or `authorize_all_groups` must be set.
      * 
      */
-    private UndeferrableValue<Boolean> authorizeAllGroups;
-
+    @PolicyResourceProperty(name="authorizeAllGroups", flag="unknown_authorizeAllGroups")
+    private Boolean value_authorizeAllGroups;
+    private boolean unknown_authorizeAllGroups;
     public Boolean authorizeAllGroups() {
-        if (authorizeAllGroups == null) return null;
-        return authorizeAllGroups.getValue("AuthorizationRuleArgs.authorizeAllGroups");
+        if (!unknown_authorizeAllGroups) return value_authorizeAllGroups;
+        throw new UndeferrableValueException("Value 'AuthorizationRuleArgs.authorizeAllGroups' is not present");
     }
 
     /**
      * The ID of the Client VPN endpoint.
      * 
      */
-    private UndeferrableValue<String> clientVpnEndpointId;
-
+    @PolicyResourceProperty(name="clientVpnEndpointId", flag="unknown_clientVpnEndpointId")
+    private String value_clientVpnEndpointId;
+    private boolean unknown_clientVpnEndpointId;
     public String clientVpnEndpointId() {
-        if (clientVpnEndpointId == null) return null;
-        return clientVpnEndpointId.getValue("AuthorizationRuleArgs.clientVpnEndpointId");
+        if (!unknown_clientVpnEndpointId) return value_clientVpnEndpointId;
+        throw new UndeferrableValueException("Value 'AuthorizationRuleArgs.clientVpnEndpointId' is not present");
     }
 
     /**
      * A brief description of the authorization rule.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("AuthorizationRuleArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AuthorizationRuleArgs.description' is not present");
     }
 
     /**
      * The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
      * 
      */
-    private UndeferrableValue<String> targetNetworkCidr;
-
+    @PolicyResourceProperty(name="targetNetworkCidr", flag="unknown_targetNetworkCidr")
+    private String value_targetNetworkCidr;
+    private boolean unknown_targetNetworkCidr;
     public String targetNetworkCidr() {
-        if (targetNetworkCidr == null) return null;
-        return targetNetworkCidr.getValue("AuthorizationRuleArgs.targetNetworkCidr");
+        if (!unknown_targetNetworkCidr) return value_targetNetworkCidr;
+        throw new UndeferrableValueException("Value 'AuthorizationRuleArgs.targetNetworkCidr' is not present");
     }
 
 }

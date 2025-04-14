@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,187 +17,204 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBu
      * If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
      * 
      */
-    private @Nullable UndeferrableValue<String> alignment;
-
+    @PolicyResourceProperty(name="alignment", flag="unknown_alignment")
+    private @Nullable String value_alignment;
+    private boolean unknown_alignment;
     public @Nullable String alignment() {
-        if (alignment == null) return null;
-        return alignment.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.alignment");
+        if (!unknown_alignment) return value_alignment;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.alignment' is not present");
     }
 
     /**
      * Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
      * 
      */
-    private @Nullable UndeferrableValue<String> backgroundColor;
-
+    @PolicyResourceProperty(name="backgroundColor", flag="unknown_backgroundColor")
+    private @Nullable String value_backgroundColor;
+    private boolean unknown_backgroundColor;
     public @Nullable String backgroundColor() {
-        if (backgroundColor == null) return null;
-        return backgroundColor.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.backgroundColor");
+        if (!unknown_backgroundColor) return value_backgroundColor;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.backgroundColor' is not present");
     }
 
     /**
      * Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> backgroundOpacity;
-
+    @PolicyResourceProperty(name="backgroundOpacity", flag="unknown_backgroundOpacity")
+    private @Nullable Integer value_backgroundOpacity;
+    private boolean unknown_backgroundOpacity;
     public @Nullable Integer backgroundOpacity() {
-        if (backgroundOpacity == null) return null;
-        return backgroundOpacity.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.backgroundOpacity");
+        if (!unknown_backgroundOpacity) return value_backgroundOpacity;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.backgroundOpacity' is not present");
     }
 
     /**
      * External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont> font;
-
+    @PolicyResourceProperty(name="font", flag="unknown_font")
+    private @Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont value_font;
+    private boolean unknown_font;
     public @Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont font() {
-        if (font == null) return null;
-        return font.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.font");
+        if (!unknown_font) return value_font;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.font' is not present");
     }
 
     /**
      * Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
      * 
      */
-    private @Nullable UndeferrableValue<String> fontColor;
-
+    @PolicyResourceProperty(name="fontColor", flag="unknown_fontColor")
+    private @Nullable String value_fontColor;
+    private boolean unknown_fontColor;
     public @Nullable String fontColor() {
-        if (fontColor == null) return null;
-        return fontColor.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.fontColor");
+        if (!unknown_fontColor) return value_fontColor;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.fontColor' is not present");
     }
 
     /**
      * Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> fontOpacity;
-
+    @PolicyResourceProperty(name="fontOpacity", flag="unknown_fontOpacity")
+    private @Nullable Integer value_fontOpacity;
+    private boolean unknown_fontOpacity;
     public @Nullable Integer fontOpacity() {
-        if (fontOpacity == null) return null;
-        return fontOpacity.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.fontOpacity");
+        if (!unknown_fontOpacity) return value_fontOpacity;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.fontOpacity' is not present");
     }
 
     /**
      * Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> fontResolution;
-
+    @PolicyResourceProperty(name="fontResolution", flag="unknown_fontResolution")
+    private @Nullable Integer value_fontResolution;
+    private boolean unknown_fontResolution;
     public @Nullable Integer fontResolution() {
-        if (fontResolution == null) return null;
-        return fontResolution.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.fontResolution");
+        if (!unknown_fontResolution) return value_fontResolution;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.fontResolution' is not present");
     }
 
     /**
      * When set to ‘auto’ fontSize will scale depending on the size of the output. Giving a positive integer will specify the exact font size in points. All burn-in and DVB-Sub font settings must match.
      * 
      */
-    private @Nullable UndeferrableValue<String> fontSize;
-
+    @PolicyResourceProperty(name="fontSize", flag="unknown_fontSize")
+    private @Nullable String value_fontSize;
+    private boolean unknown_fontSize;
     public @Nullable String fontSize() {
-        if (fontSize == null) return null;
-        return fontSize.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.fontSize");
+        if (!unknown_fontSize) return value_fontSize;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.fontSize' is not present");
     }
 
     /**
      * Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
      * 
      */
-    private UndeferrableValue<String> outlineColor;
-
+    @PolicyResourceProperty(name="outlineColor", flag="unknown_outlineColor")
+    private String value_outlineColor;
+    private boolean unknown_outlineColor;
     public String outlineColor() {
-        if (outlineColor == null) return null;
-        return outlineColor.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.outlineColor");
+        if (!unknown_outlineColor) return value_outlineColor;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.outlineColor' is not present");
     }
 
     /**
      * Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> outlineSize;
-
+    @PolicyResourceProperty(name="outlineSize", flag="unknown_outlineSize")
+    private @Nullable Integer value_outlineSize;
+    private boolean unknown_outlineSize;
     public @Nullable Integer outlineSize() {
-        if (outlineSize == null) return null;
-        return outlineSize.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.outlineSize");
+        if (!unknown_outlineSize) return value_outlineSize;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.outlineSize' is not present");
     }
 
     /**
      * Specifies the color of the shadow cast by the captions. All burn-in and DVB-Sub font settings must match.
      * 
      */
-    private @Nullable UndeferrableValue<String> shadowColor;
-
+    @PolicyResourceProperty(name="shadowColor", flag="unknown_shadowColor")
+    private @Nullable String value_shadowColor;
+    private boolean unknown_shadowColor;
     public @Nullable String shadowColor() {
-        if (shadowColor == null) return null;
-        return shadowColor.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.shadowColor");
+        if (!unknown_shadowColor) return value_shadowColor;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.shadowColor' is not present");
     }
 
     /**
      * Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> shadowOpacity;
-
+    @PolicyResourceProperty(name="shadowOpacity", flag="unknown_shadowOpacity")
+    private @Nullable Integer value_shadowOpacity;
+    private boolean unknown_shadowOpacity;
     public @Nullable Integer shadowOpacity() {
-        if (shadowOpacity == null) return null;
-        return shadowOpacity.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.shadowOpacity");
+        if (!unknown_shadowOpacity) return value_shadowOpacity;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.shadowOpacity' is not present");
     }
 
     /**
      * Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> shadowXOffset;
-
+    @PolicyResourceProperty(name="shadowXOffset", flag="unknown_shadowXOffset")
+    private @Nullable Integer value_shadowXOffset;
+    private boolean unknown_shadowXOffset;
     public @Nullable Integer shadowXOffset() {
-        if (shadowXOffset == null) return null;
-        return shadowXOffset.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.shadowXOffset");
+        if (!unknown_shadowXOffset) return value_shadowXOffset;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.shadowXOffset' is not present");
     }
 
     /**
      * Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> shadowYOffset;
-
+    @PolicyResourceProperty(name="shadowYOffset", flag="unknown_shadowYOffset")
+    private @Nullable Integer value_shadowYOffset;
+    private boolean unknown_shadowYOffset;
     public @Nullable Integer shadowYOffset() {
-        if (shadowYOffset == null) return null;
-        return shadowYOffset.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.shadowYOffset");
+        if (!unknown_shadowYOffset) return value_shadowYOffset;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.shadowYOffset' is not present");
     }
 
     /**
      * Controls whether a fixed grid size will be used to generate the output subtitles bitmap. Only applicable for Teletext inputs and DVB-Sub/Burn-in outputs.
      * 
      */
-    private UndeferrableValue<String> teletextGridControl;
-
+    @PolicyResourceProperty(name="teletextGridControl", flag="unknown_teletextGridControl")
+    private String value_teletextGridControl;
+    private boolean unknown_teletextGridControl;
     public String teletextGridControl() {
-        if (teletextGridControl == null) return null;
-        return teletextGridControl.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.teletextGridControl");
+        if (!unknown_teletextGridControl) return value_teletextGridControl;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.teletextGridControl' is not present");
     }
 
     /**
      * Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit xPosition is provided, the horizontal caption position will be determined by the alignment parameter. All burn-in and DVB-Sub font settings must match.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> xPosition;
-
+    @PolicyResourceProperty(name="xPosition", flag="unknown_xPosition")
+    private @Nullable Integer value_xPosition;
+    private boolean unknown_xPosition;
     public @Nullable Integer xPosition() {
-        if (xPosition == null) return null;
-        return xPosition.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.xPosition");
+        if (!unknown_xPosition) return value_xPosition;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.xPosition' is not present");
     }
 
     /**
      * Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit yPosition is provided, the caption will be positioned towards the bottom of the output. All burn-in and DVB-Sub font settings must match.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> yPosition;
-
+    @PolicyResourceProperty(name="yPosition", flag="unknown_yPosition")
+    private @Nullable Integer value_yPosition;
+    private boolean unknown_yPosition;
     public @Nullable Integer yPosition() {
-        if (yPosition == null) return null;
-        return yPosition.getValue("ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.yPosition");
+        if (!unknown_yPosition) return value_yPosition;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings.yPosition' is not present");
     }
 
 }

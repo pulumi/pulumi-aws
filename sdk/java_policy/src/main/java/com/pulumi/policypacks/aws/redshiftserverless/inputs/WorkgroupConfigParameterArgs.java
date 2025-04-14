@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshiftserverless.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class WorkgroupConfigParameterArgs {
      * The key of the parameter. The options are `auto_mv`, `datestyle`, `enable_case_sensitive_identifier`, `enable_user_activity_logging`, `query_group`, `search_path`, `require_ssl`, `use_fips_ssl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `max_query_cpu_time`, `max_query_blocks_read`, `max_scan_row_count`, `max_query_execution_time`, `max_query_queue_time`, `max_query_cpu_usage_percent`, `max_query_temp_blocks_to_disk`, `max_join_row_count` and `max_nested_loop_join_row_count`.
      * 
      */
-    private UndeferrableValue<String> parameterKey;
-
+    @PolicyResourceProperty(name="parameterKey", flag="unknown_parameterKey")
+    private String value_parameterKey;
+    private boolean unknown_parameterKey;
     public String parameterKey() {
-        if (parameterKey == null) return null;
-        return parameterKey.getValue("WorkgroupConfigParameterArgs.parameterKey");
+        if (!unknown_parameterKey) return value_parameterKey;
+        throw new UndeferrableValueException("Value 'WorkgroupConfigParameterArgs.parameterKey' is not present");
     }
 
     /**
      * The value of the parameter to set.
      * 
      */
-    private UndeferrableValue<String> parameterValue;
-
+    @PolicyResourceProperty(name="parameterValue", flag="unknown_parameterValue")
+    private String value_parameterValue;
+    private boolean unknown_parameterValue;
     public String parameterValue() {
-        if (parameterValue == null) return null;
-        return parameterValue.getValue("WorkgroupConfigParameterArgs.parameterValue");
+        if (!unknown_parameterValue) return value_parameterValue;
+        throw new UndeferrableValueException("Value 'WorkgroupConfigParameterArgs.parameterValue' is not present");
     }
 
 }

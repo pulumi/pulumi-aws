@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings;
@@ -16,29 +17,32 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettings {
      * Frame capture settings. See Frame Capture Settings for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings> frameCaptureSettings;
-
+    @PolicyResourceProperty(name="frameCaptureSettings", flag="unknown_frameCaptureSettings")
+    private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings value_frameCaptureSettings;
+    private boolean unknown_frameCaptureSettings;
     public @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings frameCaptureSettings() {
-        if (frameCaptureSettings == null) return null;
-        return frameCaptureSettings.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettings.frameCaptureSettings");
+        if (!unknown_frameCaptureSettings) return value_frameCaptureSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettings.frameCaptureSettings' is not present");
     }
 
     /**
      * H264 settings. See H264 Settings for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings> h264Settings;
-
+    @PolicyResourceProperty(name="h264Settings", flag="unknown_h264Settings")
+    private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings value_h264Settings;
+    private boolean unknown_h264Settings;
     public @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings h264Settings() {
-        if (h264Settings == null) return null;
-        return h264Settings.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettings.h264Settings");
+        if (!unknown_h264Settings) return value_h264Settings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettings.h264Settings' is not present");
     }
 
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings> h265Settings;
-
+    @PolicyResourceProperty(name="h265Settings", flag="unknown_h265Settings")
+    private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings value_h265Settings;
+    private boolean unknown_h265Settings;
     public @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings h265Settings() {
-        if (h265Settings == null) return null;
-        return h265Settings.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettings.h265Settings");
+        if (!unknown_h265Settings) return value_h265Settings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettings.h265Settings' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,33 +15,36 @@ public final class DataSourceParametersDatabricksArgs {
      * The host name of the Databricks data source.
      * 
      */
-    private UndeferrableValue<String> host;
-
+    @PolicyResourceProperty(name="host", flag="unknown_host")
+    private String value_host;
+    private boolean unknown_host;
     public String host() {
-        if (host == null) return null;
-        return host.getValue("DataSourceParametersDatabricksArgs.host");
+        if (!unknown_host) return value_host;
+        throw new UndeferrableValueException("Value 'DataSourceParametersDatabricksArgs.host' is not present");
     }
 
     /**
      * The port for the Databricks data source.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("DataSourceParametersDatabricksArgs.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'DataSourceParametersDatabricksArgs.port' is not present");
     }
 
     /**
      * The HTTP path of the Databricks data source.
      * 
      */
-    private UndeferrableValue<String> sqlEndpointPath;
-
+    @PolicyResourceProperty(name="sqlEndpointPath", flag="unknown_sqlEndpointPath")
+    private String value_sqlEndpointPath;
+    private boolean unknown_sqlEndpointPath;
     public String sqlEndpointPath() {
-        if (sqlEndpointPath == null) return null;
-        return sqlEndpointPath.getValue("DataSourceParametersDatabricksArgs.sqlEndpointPath");
+        if (!unknown_sqlEndpointPath) return value_sqlEndpointPath;
+        throw new UndeferrableValueException("Value 'DataSourceParametersDatabricksArgs.sqlEndpointPath' is not present");
     }
 
 }

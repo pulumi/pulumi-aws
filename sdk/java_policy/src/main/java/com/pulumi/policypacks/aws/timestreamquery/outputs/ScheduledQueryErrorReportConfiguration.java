@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamquery.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.timestreamquery.outputs.ScheduledQueryErrorReportConfigurationS3Configuration;
 
 
@@ -13,11 +14,12 @@ public final class ScheduledQueryErrorReportConfiguration {
      * Configuration block for the S3 configuration for the error reports. See below.
      * 
      */
-    private UndeferrableValue<ScheduledQueryErrorReportConfigurationS3Configuration> s3Configuration;
-
+    @PolicyResourceProperty(name="s3Configuration", flag="unknown_s3Configuration")
+    private ScheduledQueryErrorReportConfigurationS3Configuration value_s3Configuration;
+    private boolean unknown_s3Configuration;
     public ScheduledQueryErrorReportConfigurationS3Configuration s3Configuration() {
-        if (s3Configuration == null) return null;
-        return s3Configuration.getValue("ScheduledQueryErrorReportConfiguration.s3Configuration");
+        if (!unknown_s3Configuration) return value_s3Configuration;
+        throw new UndeferrableValueException("Value 'ScheduledQueryErrorReportConfiguration.s3Configuration' is not present");
     }
 
 }

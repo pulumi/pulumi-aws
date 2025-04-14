@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicecatalog.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,55 +15,60 @@ public final class ServiceActionDefinition {
      * ARN of the role that performs the self-service actions on your behalf. For example, `arn:aws:iam::12345678910:role/ActionRole`. To reuse the provisioned product launch role, set to `LAUNCH_ROLE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> assumeRole;
-
+    @PolicyResourceProperty(name="assumeRole", flag="unknown_assumeRole")
+    private @Nullable String value_assumeRole;
+    private boolean unknown_assumeRole;
     public @Nullable String assumeRole() {
-        if (assumeRole == null) return null;
-        return assumeRole.getValue("ServiceActionDefinition.assumeRole");
+        if (!unknown_assumeRole) return value_assumeRole;
+        throw new UndeferrableValueException("Value 'ServiceActionDefinition.assumeRole' is not present");
     }
 
     /**
      * Name of the SSM document. For example, `AWS-RestartEC2Instance`. If you are using a shared SSM document, you must provide the ARN instead of the name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ServiceActionDefinition.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ServiceActionDefinition.name' is not present");
     }
 
     /**
      * List of parameters in JSON format. For example: `[{\&#34;Name\&#34;:\&#34;InstanceId\&#34;,\&#34;Type\&#34;:\&#34;TARGET\&#34;}]` or `[{\&#34;Name\&#34;:\&#34;InstanceId\&#34;,\&#34;Type\&#34;:\&#34;TEXT_VALUE\&#34;}]`.
      * 
      */
-    private @Nullable UndeferrableValue<String> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private @Nullable String value_parameters;
+    private boolean unknown_parameters;
     public @Nullable String parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("ServiceActionDefinition.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'ServiceActionDefinition.parameters' is not present");
     }
 
     /**
      * Service action definition type. Valid value is `SSM_AUTOMATION`. Default is `SSM_AUTOMATION`.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("ServiceActionDefinition.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ServiceActionDefinition.type' is not present");
     }
 
     /**
      * SSM document version. For example, `1`.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("ServiceActionDefinition.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'ServiceActionDefinition.version' is not present");
     }
 
 }

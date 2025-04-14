@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.inputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs;
 import com.pulumi.policypacks.aws.ec2.inputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs;
 import com.pulumi.policypacks.aws.ec2.inputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs;
@@ -26,55 +27,60 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs {
      * Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum limits.
      * 
      */
-    private UndeferrableValue<FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs> acceleratorCount;
-
+    @PolicyResourceProperty(name="acceleratorCount", flag="unknown_acceleratorCount")
+    private FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs value_acceleratorCount;
+    private boolean unknown_acceleratorCount;
     public FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs acceleratorCount() {
-        if (acceleratorCount == null) return null;
-        return acceleratorCount.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.acceleratorCount");
+        if (!unknown_acceleratorCount) return value_acceleratorCount;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.acceleratorCount' is not present");
     }
 
     /**
      * List of accelerator manufacturer names. Default is any manufacturer.
      * 
      */
-    private UndeferrableValue<List<String>> acceleratorManufacturers;
-
+    @PolicyResourceProperty(name="acceleratorManufacturers", flag="unknown_acceleratorManufacturers")
+    private List<String> value_acceleratorManufacturers;
+    private boolean unknown_acceleratorManufacturers;
     public List<String> acceleratorManufacturers() {
-        if (acceleratorManufacturers == null) return null;
-        return acceleratorManufacturers.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.acceleratorManufacturers");
+        if (!unknown_acceleratorManufacturers) return value_acceleratorManufacturers;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.acceleratorManufacturers' is not present");
     }
 
     /**
      * List of accelerator names. Default is any acclerator.
      * 
      */
-    private UndeferrableValue<List<String>> acceleratorNames;
-
+    @PolicyResourceProperty(name="acceleratorNames", flag="unknown_acceleratorNames")
+    private List<String> value_acceleratorNames;
+    private boolean unknown_acceleratorNames;
     public List<String> acceleratorNames() {
-        if (acceleratorNames == null) return null;
-        return acceleratorNames.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.acceleratorNames");
+        if (!unknown_acceleratorNames) return value_acceleratorNames;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.acceleratorNames' is not present");
     }
 
     /**
      * Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
      * 
      */
-    private UndeferrableValue<FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs> acceleratorTotalMemoryMib;
-
+    @PolicyResourceProperty(name="acceleratorTotalMemoryMib", flag="unknown_acceleratorTotalMemoryMib")
+    private FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs value_acceleratorTotalMemoryMib;
+    private boolean unknown_acceleratorTotalMemoryMib;
     public FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs acceleratorTotalMemoryMib() {
-        if (acceleratorTotalMemoryMib == null) return null;
-        return acceleratorTotalMemoryMib.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.acceleratorTotalMemoryMib");
+        if (!unknown_acceleratorTotalMemoryMib) return value_acceleratorTotalMemoryMib;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.acceleratorTotalMemoryMib' is not present");
     }
 
     /**
      * The accelerator types that must be on the instance type. Default is any accelerator type.
      * 
      */
-    private UndeferrableValue<List<String>> acceleratorTypes;
-
+    @PolicyResourceProperty(name="acceleratorTypes", flag="unknown_acceleratorTypes")
+    private List<String> value_acceleratorTypes;
+    private boolean unknown_acceleratorTypes;
     public List<String> acceleratorTypes() {
-        if (acceleratorTypes == null) return null;
-        return acceleratorTypes.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.acceleratorTypes");
+        if (!unknown_acceleratorTypes) return value_acceleratorTypes;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.acceleratorTypes' is not present");
     }
 
     /**
@@ -83,44 +89,48 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs {
      * If you specify `AllowedInstanceTypes`, you can&#39;t specify `ExcludedInstanceTypes`.
      * 
      */
-    private UndeferrableValue<List<String>> allowedInstanceTypes;
-
+    @PolicyResourceProperty(name="allowedInstanceTypes", flag="unknown_allowedInstanceTypes")
+    private List<String> value_allowedInstanceTypes;
+    private boolean unknown_allowedInstanceTypes;
     public List<String> allowedInstanceTypes() {
-        if (allowedInstanceTypes == null) return null;
-        return allowedInstanceTypes.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.allowedInstanceTypes");
+        if (!unknown_allowedInstanceTypes) return value_allowedInstanceTypes;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.allowedInstanceTypes' is not present");
     }
 
     /**
      * Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
      * 
      */
-    private UndeferrableValue<String> bareMetal;
-
+    @PolicyResourceProperty(name="bareMetal", flag="unknown_bareMetal")
+    private String value_bareMetal;
+    private boolean unknown_bareMetal;
     public String bareMetal() {
-        if (bareMetal == null) return null;
-        return bareMetal.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.bareMetal");
+        if (!unknown_bareMetal) return value_bareMetal;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.bareMetal' is not present");
     }
 
     /**
      * Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
      * 
      */
-    private UndeferrableValue<FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs> baselineEbsBandwidthMbps;
-
+    @PolicyResourceProperty(name="baselineEbsBandwidthMbps", flag="unknown_baselineEbsBandwidthMbps")
+    private FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs value_baselineEbsBandwidthMbps;
+    private boolean unknown_baselineEbsBandwidthMbps;
     public FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs baselineEbsBandwidthMbps() {
-        if (baselineEbsBandwidthMbps == null) return null;
-        return baselineEbsBandwidthMbps.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.baselineEbsBandwidthMbps");
+        if (!unknown_baselineEbsBandwidthMbps) return value_baselineEbsBandwidthMbps;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.baselineEbsBandwidthMbps' is not present");
     }
 
     /**
      * Indicates whether burstable performance T instance types are `included`, `excluded`, or `required`. Default is `excluded`.
      * 
      */
-    private UndeferrableValue<String> burstablePerformance;
-
+    @PolicyResourceProperty(name="burstablePerformance", flag="unknown_burstablePerformance")
+    private String value_burstablePerformance;
+    private boolean unknown_burstablePerformance;
     public String burstablePerformance() {
-        if (burstablePerformance == null) return null;
-        return burstablePerformance.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.burstablePerformance");
+        if (!unknown_burstablePerformance) return value_burstablePerformance;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.burstablePerformance' is not present");
     }
 
     /**
@@ -128,11 +138,12 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs {
      * &gt; **NOTE:** Don&#39;t confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
      * 
      */
-    private UndeferrableValue<List<String>> cpuManufacturers;
-
+    @PolicyResourceProperty(name="cpuManufacturers", flag="unknown_cpuManufacturers")
+    private List<String> value_cpuManufacturers;
+    private boolean unknown_cpuManufacturers;
     public List<String> cpuManufacturers() {
-        if (cpuManufacturers == null) return null;
-        return cpuManufacturers.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.cpuManufacturers");
+        if (!unknown_cpuManufacturers) return value_cpuManufacturers;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.cpuManufacturers' is not present");
     }
 
     /**
@@ -141,99 +152,108 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs {
      * If you specify `AllowedInstanceTypes`, you can&#39;t specify `ExcludedInstanceTypes`.
      * 
      */
-    private UndeferrableValue<List<String>> excludedInstanceTypes;
-
+    @PolicyResourceProperty(name="excludedInstanceTypes", flag="unknown_excludedInstanceTypes")
+    private List<String> value_excludedInstanceTypes;
+    private boolean unknown_excludedInstanceTypes;
     public List<String> excludedInstanceTypes() {
-        if (excludedInstanceTypes == null) return null;
-        return excludedInstanceTypes.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.excludedInstanceTypes");
+        if (!unknown_excludedInstanceTypes) return value_excludedInstanceTypes;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.excludedInstanceTypes' is not present");
     }
 
     /**
      * Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Valid values are `current` and `previous`. Default is `current` and `previous` generation instance types.
      * 
      */
-    private UndeferrableValue<List<String>> instanceGenerations;
-
+    @PolicyResourceProperty(name="instanceGenerations", flag="unknown_instanceGenerations")
+    private List<String> value_instanceGenerations;
+    private boolean unknown_instanceGenerations;
     public List<String> instanceGenerations() {
-        if (instanceGenerations == null) return null;
-        return instanceGenerations.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.instanceGenerations");
+        if (!unknown_instanceGenerations) return value_instanceGenerations;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.instanceGenerations' is not present");
     }
 
     /**
      * Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
      * 
      */
-    private UndeferrableValue<String> localStorage;
-
+    @PolicyResourceProperty(name="localStorage", flag="unknown_localStorage")
+    private String value_localStorage;
+    private boolean unknown_localStorage;
     public String localStorage() {
-        if (localStorage == null) return null;
-        return localStorage.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.localStorage");
+        if (!unknown_localStorage) return value_localStorage;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.localStorage' is not present");
     }
 
     /**
      * List of local storage type names. Valid values are `hdd` and `ssd`. Default any storage type.
      * 
      */
-    private UndeferrableValue<List<String>> localStorageTypes;
-
+    @PolicyResourceProperty(name="localStorageTypes", flag="unknown_localStorageTypes")
+    private List<String> value_localStorageTypes;
+    private boolean unknown_localStorageTypes;
     public List<String> localStorageTypes() {
-        if (localStorageTypes == null) return null;
-        return localStorageTypes.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.localStorageTypes");
+        if (!unknown_localStorageTypes) return value_localStorageTypes;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.localStorageTypes' is not present");
     }
 
     /**
      * The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spot_max_price_percentage_over_lowest_price`
      * 
      */
-    private UndeferrableValue<Integer> maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
-
+    @PolicyResourceProperty(name="maxSpotPriceAsPercentageOfOptimalOnDemandPrice", flag="unknown_maxSpotPriceAsPercentageOfOptimalOnDemandPrice")
+    private Integer value_maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
+    private boolean unknown_maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
     public Integer maxSpotPriceAsPercentageOfOptimalOnDemandPrice() {
-        if (maxSpotPriceAsPercentageOfOptimalOnDemandPrice == null) return null;
-        return maxSpotPriceAsPercentageOfOptimalOnDemandPrice.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.maxSpotPriceAsPercentageOfOptimalOnDemandPrice");
+        if (!unknown_maxSpotPriceAsPercentageOfOptimalOnDemandPrice) return value_maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.maxSpotPriceAsPercentageOfOptimalOnDemandPrice' is not present");
     }
 
     /**
      * Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
      * 
      */
-    private UndeferrableValue<FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs> memoryGibPerVcpu;
-
+    @PolicyResourceProperty(name="memoryGibPerVcpu", flag="unknown_memoryGibPerVcpu")
+    private FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs value_memoryGibPerVcpu;
+    private boolean unknown_memoryGibPerVcpu;
     public FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs memoryGibPerVcpu() {
-        if (memoryGibPerVcpu == null) return null;
-        return memoryGibPerVcpu.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.memoryGibPerVcpu");
+        if (!unknown_memoryGibPerVcpu) return value_memoryGibPerVcpu;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.memoryGibPerVcpu' is not present");
     }
 
     /**
      * The minimum and maximum amount of memory per vCPU, in GiB. Default is no minimum or maximum limits.
      * 
      */
-    private UndeferrableValue<FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs> memoryMib;
-
+    @PolicyResourceProperty(name="memoryMib", flag="unknown_memoryMib")
+    private FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs value_memoryMib;
+    private boolean unknown_memoryMib;
     public FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs memoryMib() {
-        if (memoryMib == null) return null;
-        return memoryMib.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.memoryMib");
+        if (!unknown_memoryMib) return value_memoryMib;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.memoryMib' is not present");
     }
 
     /**
      * The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is No minimum or maximum.
      * 
      */
-    private UndeferrableValue<FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs> networkBandwidthGbps;
-
+    @PolicyResourceProperty(name="networkBandwidthGbps", flag="unknown_networkBandwidthGbps")
+    private FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs value_networkBandwidthGbps;
+    private boolean unknown_networkBandwidthGbps;
     public FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs networkBandwidthGbps() {
-        if (networkBandwidthGbps == null) return null;
-        return networkBandwidthGbps.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.networkBandwidthGbps");
+        if (!unknown_networkBandwidthGbps) return value_networkBandwidthGbps;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.networkBandwidthGbps' is not present");
     }
 
     /**
      * Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
      * 
      */
-    private UndeferrableValue<FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs> networkInterfaceCount;
-
+    @PolicyResourceProperty(name="networkInterfaceCount", flag="unknown_networkInterfaceCount")
+    private FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs value_networkInterfaceCount;
+    private boolean unknown_networkInterfaceCount;
     public FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs networkInterfaceCount() {
-        if (networkInterfaceCount == null) return null;
-        return networkInterfaceCount.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.networkInterfaceCount");
+        if (!unknown_networkInterfaceCount) return value_networkInterfaceCount;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.networkInterfaceCount' is not present");
     }
 
     /**
@@ -242,22 +262,24 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs {
      * If you set `target_capacity_unit_type` to `vcpu` or `memory-mib`, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
      * 
      */
-    private UndeferrableValue<Integer> onDemandMaxPricePercentageOverLowestPrice;
-
+    @PolicyResourceProperty(name="onDemandMaxPricePercentageOverLowestPrice", flag="unknown_onDemandMaxPricePercentageOverLowestPrice")
+    private Integer value_onDemandMaxPricePercentageOverLowestPrice;
+    private boolean unknown_onDemandMaxPricePercentageOverLowestPrice;
     public Integer onDemandMaxPricePercentageOverLowestPrice() {
-        if (onDemandMaxPricePercentageOverLowestPrice == null) return null;
-        return onDemandMaxPricePercentageOverLowestPrice.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.onDemandMaxPricePercentageOverLowestPrice");
+        if (!unknown_onDemandMaxPricePercentageOverLowestPrice) return value_onDemandMaxPricePercentageOverLowestPrice;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.onDemandMaxPricePercentageOverLowestPrice' is not present");
     }
 
     /**
      * Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> requireHibernateSupport;
-
+    @PolicyResourceProperty(name="requireHibernateSupport", flag="unknown_requireHibernateSupport")
+    private Boolean value_requireHibernateSupport;
+    private boolean unknown_requireHibernateSupport;
     public Boolean requireHibernateSupport() {
-        if (requireHibernateSupport == null) return null;
-        return requireHibernateSupport.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.requireHibernateSupport");
+        if (!unknown_requireHibernateSupport) return value_requireHibernateSupport;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.requireHibernateSupport' is not present");
     }
 
     /**
@@ -266,33 +288,36 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs {
      * If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
      * 
      */
-    private UndeferrableValue<Integer> spotMaxPricePercentageOverLowestPrice;
-
+    @PolicyResourceProperty(name="spotMaxPricePercentageOverLowestPrice", flag="unknown_spotMaxPricePercentageOverLowestPrice")
+    private Integer value_spotMaxPricePercentageOverLowestPrice;
+    private boolean unknown_spotMaxPricePercentageOverLowestPrice;
     public Integer spotMaxPricePercentageOverLowestPrice() {
-        if (spotMaxPricePercentageOverLowestPrice == null) return null;
-        return spotMaxPricePercentageOverLowestPrice.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.spotMaxPricePercentageOverLowestPrice");
+        if (!unknown_spotMaxPricePercentageOverLowestPrice) return value_spotMaxPricePercentageOverLowestPrice;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.spotMaxPricePercentageOverLowestPrice' is not present");
     }
 
     /**
      * Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
      * 
      */
-    private UndeferrableValue<FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs> totalLocalStorageGb;
-
+    @PolicyResourceProperty(name="totalLocalStorageGb", flag="unknown_totalLocalStorageGb")
+    private FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs value_totalLocalStorageGb;
+    private boolean unknown_totalLocalStorageGb;
     public FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs totalLocalStorageGb() {
-        if (totalLocalStorageGb == null) return null;
-        return totalLocalStorageGb.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.totalLocalStorageGb");
+        if (!unknown_totalLocalStorageGb) return value_totalLocalStorageGb;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.totalLocalStorageGb' is not present");
     }
 
     /**
      * Block describing the minimum and maximum number of vCPUs. Default is no maximum.
      * 
      */
-    private UndeferrableValue<FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs> vcpuCount;
-
+    @PolicyResourceProperty(name="vcpuCount", flag="unknown_vcpuCount")
+    private FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs value_vcpuCount;
+    private boolean unknown_vcpuCount;
     public FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs vcpuCount() {
-        if (vcpuCount == null) return null;
-        return vcpuCount.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.vcpuCount");
+        if (!unknown_vcpuCount) return value_vcpuCount;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs.vcpuCount' is not present");
     }
 
 }

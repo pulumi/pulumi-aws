@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.waf.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.waf.inputs.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs;
 import java.lang.String;
 
@@ -14,11 +15,12 @@ public final class SqlInjectionMatchSetSqlInjectionMatchTupleArgs {
      * Specifies where in a web request to look for snippets of malicious SQL code.
      * 
      */
-    private UndeferrableValue<SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs> fieldToMatch;
-
+    @PolicyResourceProperty(name="fieldToMatch", flag="unknown_fieldToMatch")
+    private SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs value_fieldToMatch;
+    private boolean unknown_fieldToMatch;
     public SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs fieldToMatch() {
-        if (fieldToMatch == null) return null;
-        return fieldToMatch.getValue("SqlInjectionMatchSetSqlInjectionMatchTupleArgs.fieldToMatch");
+        if (!unknown_fieldToMatch) return value_fieldToMatch;
+        throw new UndeferrableValueException("Value 'SqlInjectionMatchSetSqlInjectionMatchTupleArgs.fieldToMatch' is not present");
     }
 
     /**
@@ -29,11 +31,12 @@ public final class SqlInjectionMatchSetSqlInjectionMatchTupleArgs {
      * for all supported values.
      * 
      */
-    private UndeferrableValue<String> textTransformation;
-
+    @PolicyResourceProperty(name="textTransformation", flag="unknown_textTransformation")
+    private String value_textTransformation;
+    private boolean unknown_textTransformation;
     public String textTransformation() {
-        if (textTransformation == null) return null;
-        return textTransformation.getValue("SqlInjectionMatchSetSqlInjectionMatchTupleArgs.textTransformation");
+        if (!unknown_textTransformation) return value_textTransformation;
+        throw new UndeferrableValueException("Value 'SqlInjectionMatchSetSqlInjectionMatchTupleArgs.textTransformation' is not present");
     }
 
 }

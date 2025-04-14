@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentConfirmationSettingCodeHookArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentConfirmationSettingConfirmationConditionalArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentConfirmationSettingConfirmationNextStepArgs;
@@ -26,143 +27,156 @@ public final class V2modelsIntentConfirmationSettingArgs {
      * Whether the intent&#39;s confirmation is sent to the user. When this field is false, confirmation and declination responses aren&#39;t sent. If the active field isn&#39;t specified, the default is true.
      * 
      */
-    private UndeferrableValue<Boolean> active;
-
+    @PolicyResourceProperty(name="active", flag="unknown_active")
+    private Boolean value_active;
+    private boolean unknown_active;
     public Boolean active() {
-        if (active == null) return null;
-        return active.getValue("V2modelsIntentConfirmationSettingArgs.active");
+        if (!unknown_active) return value_active;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.active' is not present");
     }
 
     /**
      * Configuration block for the intent&#39;s confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is `invoke_dialog_code_hook`.  See `code_hook`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingCodeHookArgs> codeHook;
-
+    @PolicyResourceProperty(name="codeHook", flag="unknown_codeHook")
+    private V2modelsIntentConfirmationSettingCodeHookArgs value_codeHook;
+    private boolean unknown_codeHook;
     public V2modelsIntentConfirmationSettingCodeHookArgs codeHook() {
-        if (codeHook == null) return null;
-        return codeHook.getValue("V2modelsIntentConfirmationSettingArgs.codeHook");
+        if (!unknown_codeHook) return value_codeHook;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.codeHook' is not present");
     }
 
     /**
      * Configuration block for conditional branches to evaluate after the intent is closed. See `confirmation_conditional`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingConfirmationConditionalArgs> confirmationConditional;
-
+    @PolicyResourceProperty(name="confirmationConditional", flag="unknown_confirmationConditional")
+    private V2modelsIntentConfirmationSettingConfirmationConditionalArgs value_confirmationConditional;
+    private boolean unknown_confirmationConditional;
     public V2modelsIntentConfirmationSettingConfirmationConditionalArgs confirmationConditional() {
-        if (confirmationConditional == null) return null;
-        return confirmationConditional.getValue("V2modelsIntentConfirmationSettingArgs.confirmationConditional");
+        if (!unknown_confirmationConditional) return value_confirmationConditional;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.confirmationConditional' is not present");
     }
 
     /**
      * Configuration block for the next step that the bot executes when the customer confirms the intent. See `confirmation_next_step`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingConfirmationNextStepArgs> confirmationNextStep;
-
+    @PolicyResourceProperty(name="confirmationNextStep", flag="unknown_confirmationNextStep")
+    private V2modelsIntentConfirmationSettingConfirmationNextStepArgs value_confirmationNextStep;
+    private boolean unknown_confirmationNextStep;
     public V2modelsIntentConfirmationSettingConfirmationNextStepArgs confirmationNextStep() {
-        if (confirmationNextStep == null) return null;
-        return confirmationNextStep.getValue("V2modelsIntentConfirmationSettingArgs.confirmationNextStep");
+        if (!unknown_confirmationNextStep) return value_confirmationNextStep;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.confirmationNextStep' is not present");
     }
 
     /**
      * Configuration block for message groups that Amazon Lex uses to respond the user input. See `confirmation_response`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingConfirmationResponseArgs> confirmationResponse;
-
+    @PolicyResourceProperty(name="confirmationResponse", flag="unknown_confirmationResponse")
+    private V2modelsIntentConfirmationSettingConfirmationResponseArgs value_confirmationResponse;
+    private boolean unknown_confirmationResponse;
     public V2modelsIntentConfirmationSettingConfirmationResponseArgs confirmationResponse() {
-        if (confirmationResponse == null) return null;
-        return confirmationResponse.getValue("V2modelsIntentConfirmationSettingArgs.confirmationResponse");
+        if (!unknown_confirmationResponse) return value_confirmationResponse;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.confirmationResponse' is not present");
     }
 
     /**
      * Configuration block for conditional branches to evaluate after the intent is declined. See `declination_conditional`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingDeclinationConditionalArgs> declinationConditional;
-
+    @PolicyResourceProperty(name="declinationConditional", flag="unknown_declinationConditional")
+    private V2modelsIntentConfirmationSettingDeclinationConditionalArgs value_declinationConditional;
+    private boolean unknown_declinationConditional;
     public V2modelsIntentConfirmationSettingDeclinationConditionalArgs declinationConditional() {
-        if (declinationConditional == null) return null;
-        return declinationConditional.getValue("V2modelsIntentConfirmationSettingArgs.declinationConditional");
+        if (!unknown_declinationConditional) return value_declinationConditional;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.declinationConditional' is not present");
     }
 
     /**
      * Configuration block for the next step that the bot executes when the customer declines the intent. See `declination_next_step`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingDeclinationNextStepArgs> declinationNextStep;
-
+    @PolicyResourceProperty(name="declinationNextStep", flag="unknown_declinationNextStep")
+    private V2modelsIntentConfirmationSettingDeclinationNextStepArgs value_declinationNextStep;
+    private boolean unknown_declinationNextStep;
     public V2modelsIntentConfirmationSettingDeclinationNextStepArgs declinationNextStep() {
-        if (declinationNextStep == null) return null;
-        return declinationNextStep.getValue("V2modelsIntentConfirmationSettingArgs.declinationNextStep");
+        if (!unknown_declinationNextStep) return value_declinationNextStep;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.declinationNextStep' is not present");
     }
 
     /**
      * Configuration block for when the user answers &#34;no&#34; to the question defined in `prompt_specification`, Amazon Lex responds with this response to acknowledge that the intent was canceled. See `declination_response`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingDeclinationResponseArgs> declinationResponse;
-
+    @PolicyResourceProperty(name="declinationResponse", flag="unknown_declinationResponse")
+    private V2modelsIntentConfirmationSettingDeclinationResponseArgs value_declinationResponse;
+    private boolean unknown_declinationResponse;
     public V2modelsIntentConfirmationSettingDeclinationResponseArgs declinationResponse() {
-        if (declinationResponse == null) return null;
-        return declinationResponse.getValue("V2modelsIntentConfirmationSettingArgs.declinationResponse");
+        if (!unknown_declinationResponse) return value_declinationResponse;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.declinationResponse' is not present");
     }
 
     /**
      * Configuration block for when the code hook is invoked during confirmation prompt retries. See `elicitation_code_hook`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingElicitationCodeHookArgs> elicitationCodeHook;
-
+    @PolicyResourceProperty(name="elicitationCodeHook", flag="unknown_elicitationCodeHook")
+    private V2modelsIntentConfirmationSettingElicitationCodeHookArgs value_elicitationCodeHook;
+    private boolean unknown_elicitationCodeHook;
     public V2modelsIntentConfirmationSettingElicitationCodeHookArgs elicitationCodeHook() {
-        if (elicitationCodeHook == null) return null;
-        return elicitationCodeHook.getValue("V2modelsIntentConfirmationSettingArgs.elicitationCodeHook");
+        if (!unknown_elicitationCodeHook) return value_elicitationCodeHook;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.elicitationCodeHook' is not present");
     }
 
     /**
      * Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `failure_conditional`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingFailureConditionalArgs> failureConditional;
-
+    @PolicyResourceProperty(name="failureConditional", flag="unknown_failureConditional")
+    private V2modelsIntentConfirmationSettingFailureConditionalArgs value_failureConditional;
+    private boolean unknown_failureConditional;
     public V2modelsIntentConfirmationSettingFailureConditionalArgs failureConditional() {
-        if (failureConditional == null) return null;
-        return failureConditional.getValue("V2modelsIntentConfirmationSettingArgs.failureConditional");
+        if (!unknown_failureConditional) return value_failureConditional;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.failureConditional' is not present");
     }
 
     /**
      * Configuration block for the next step to take in the conversation if the confirmation step fails. See `failure_next_step`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingFailureNextStepArgs> failureNextStep;
-
+    @PolicyResourceProperty(name="failureNextStep", flag="unknown_failureNextStep")
+    private V2modelsIntentConfirmationSettingFailureNextStepArgs value_failureNextStep;
+    private boolean unknown_failureNextStep;
     public V2modelsIntentConfirmationSettingFailureNextStepArgs failureNextStep() {
-        if (failureNextStep == null) return null;
-        return failureNextStep.getValue("V2modelsIntentConfirmationSettingArgs.failureNextStep");
+        if (!unknown_failureNextStep) return value_failureNextStep;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.failureNextStep' is not present");
     }
 
     /**
      * Configuration block for message groups that Amazon Lex uses to respond the user input. See `failure_response`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingFailureResponseArgs> failureResponse;
-
+    @PolicyResourceProperty(name="failureResponse", flag="unknown_failureResponse")
+    private V2modelsIntentConfirmationSettingFailureResponseArgs value_failureResponse;
+    private boolean unknown_failureResponse;
     public V2modelsIntentConfirmationSettingFailureResponseArgs failureResponse() {
-        if (failureResponse == null) return null;
-        return failureResponse.getValue("V2modelsIntentConfirmationSettingArgs.failureResponse");
+        if (!unknown_failureResponse) return value_failureResponse;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.failureResponse' is not present");
     }
 
     /**
      * Configuration block for prompting the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. See `prompt_specification`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingPromptSpecificationArgs> promptSpecification;
-
+    @PolicyResourceProperty(name="promptSpecification", flag="unknown_promptSpecification")
+    private V2modelsIntentConfirmationSettingPromptSpecificationArgs value_promptSpecification;
+    private boolean unknown_promptSpecification;
     public V2modelsIntentConfirmationSettingPromptSpecificationArgs promptSpecification() {
-        if (promptSpecification == null) return null;
-        return promptSpecification.getValue("V2modelsIntentConfirmationSettingArgs.promptSpecification");
+        if (!unknown_promptSpecification) return value_promptSpecification;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingArgs.promptSpecification' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.medialive.outputs.MultiplexMultiplexSettings;
 import java.lang.Boolean;
@@ -20,33 +21,36 @@ public final class Multiplex extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the Multiplex.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Multiplex.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Multiplex.arn' is not present");
     }
 
     /**
      * A list of availability zones. You must specify exactly two.
      * 
      */
-    private UndeferrableValue<List<String>> availabilityZones;
-
+    @PolicyResourceProperty(name="availabilityZones", flag="unknown_availabilityZones")
+    private List<String> value_availabilityZones;
+    private boolean unknown_availabilityZones;
     public List<String> availabilityZones() {
-        if (availabilityZones == null) return null;
-        return availabilityZones.getValue("Multiplex.availabilityZones");
+        if (!unknown_availabilityZones) return value_availabilityZones;
+        throw new UndeferrableValueException("Value 'Multiplex.availabilityZones' is not present");
     }
 
     /**
      * Multiplex settings. See Multiplex Settings for more details.
      * 
      */
-    private @Nullable UndeferrableValue<MultiplexMultiplexSettings> multiplexSettings;
-
+    @PolicyResourceProperty(name="multiplexSettings", flag="unknown_multiplexSettings")
+    private @Nullable MultiplexMultiplexSettings value_multiplexSettings;
+    private boolean unknown_multiplexSettings;
     public @Nullable MultiplexMultiplexSettings multiplexSettings() {
-        if (multiplexSettings == null) return null;
-        return multiplexSettings.getValue("Multiplex.multiplexSettings");
+        if (!unknown_multiplexSettings) return value_multiplexSettings;
+        throw new UndeferrableValueException("Value 'Multiplex.multiplexSettings' is not present");
     }
 
     /**
@@ -55,33 +59,36 @@ public final class Multiplex extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Multiplex.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Multiplex.name' is not present");
     }
 
     /**
      * Whether to start the Multiplex. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> startMultiplex;
-
+    @PolicyResourceProperty(name="startMultiplex", flag="unknown_startMultiplex")
+    private @Nullable Boolean value_startMultiplex;
+    private boolean unknown_startMultiplex;
     public @Nullable Boolean startMultiplex() {
-        if (startMultiplex == null) return null;
-        return startMultiplex.getValue("Multiplex.startMultiplex");
+        if (!unknown_startMultiplex) return value_startMultiplex;
+        throw new UndeferrableValueException("Value 'Multiplex.startMultiplex' is not present");
     }
 
     /**
      * A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Multiplex.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Multiplex.tags' is not present");
     }
 
     /**
@@ -90,11 +97,12 @@ public final class Multiplex extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Multiplex.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Multiplex.tagsAll' is not present");
     }
 
 }

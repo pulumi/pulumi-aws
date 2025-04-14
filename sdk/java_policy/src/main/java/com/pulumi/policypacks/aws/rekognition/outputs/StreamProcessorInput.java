@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rekognition.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.rekognition.outputs.StreamProcessorInputKinesisVideoStream;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class StreamProcessorInput {
      * Kinesis input stream. See `kinesis_video_stream`.
      * 
      */
-    private @Nullable UndeferrableValue<StreamProcessorInputKinesisVideoStream> kinesisVideoStream;
-
+    @PolicyResourceProperty(name="kinesisVideoStream", flag="unknown_kinesisVideoStream")
+    private @Nullable StreamProcessorInputKinesisVideoStream value_kinesisVideoStream;
+    private boolean unknown_kinesisVideoStream;
     public @Nullable StreamProcessorInputKinesisVideoStream kinesisVideoStream() {
-        if (kinesisVideoStream == null) return null;
-        return kinesisVideoStream.getValue("StreamProcessorInput.kinesisVideoStream");
+        if (!unknown_kinesisVideoStream) return value_kinesisVideoStream;
+        throw new UndeferrableValueException("Value 'StreamProcessorInput.kinesisVideoStream' is not present");
     }
 
 }

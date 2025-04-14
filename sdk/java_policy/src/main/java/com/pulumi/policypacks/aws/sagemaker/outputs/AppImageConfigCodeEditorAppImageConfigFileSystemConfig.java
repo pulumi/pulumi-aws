@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class AppImageConfigCodeEditorAppImageConfigFileSystemConfig {
      * The default POSIX group ID (GID). If not specified, defaults to `100`. Valid values are `0` and `100`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> defaultGid;
-
+    @PolicyResourceProperty(name="defaultGid", flag="unknown_defaultGid")
+    private @Nullable Integer value_defaultGid;
+    private boolean unknown_defaultGid;
     public @Nullable Integer defaultGid() {
-        if (defaultGid == null) return null;
-        return defaultGid.getValue("AppImageConfigCodeEditorAppImageConfigFileSystemConfig.defaultGid");
+        if (!unknown_defaultGid) return value_defaultGid;
+        throw new UndeferrableValueException("Value 'AppImageConfigCodeEditorAppImageConfigFileSystemConfig.defaultGid' is not present");
     }
 
     /**
      * The default POSIX user ID (UID). If not specified, defaults to `1000`. Valid values are `0` and `1000`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> defaultUid;
-
+    @PolicyResourceProperty(name="defaultUid", flag="unknown_defaultUid")
+    private @Nullable Integer value_defaultUid;
+    private boolean unknown_defaultUid;
     public @Nullable Integer defaultUid() {
-        if (defaultUid == null) return null;
-        return defaultUid.getValue("AppImageConfigCodeEditorAppImageConfigFileSystemConfig.defaultUid");
+        if (!unknown_defaultUid) return value_defaultUid;
+        throw new UndeferrableValueException("Value 'AppImageConfigCodeEditorAppImageConfigFileSystemConfig.defaultUid' is not present");
     }
 
     /**
@@ -39,11 +42,12 @@ public final class AppImageConfigCodeEditorAppImageConfigFileSystemConfig {
      * &gt; **Note:** When specifying `default_gid` and `default_uid`, Valid value pairs are [`0`, `0`] and [`100`, `1000`].
      * 
      */
-    private @Nullable UndeferrableValue<String> mountPath;
-
+    @PolicyResourceProperty(name="mountPath", flag="unknown_mountPath")
+    private @Nullable String value_mountPath;
+    private boolean unknown_mountPath;
     public @Nullable String mountPath() {
-        if (mountPath == null) return null;
-        return mountPath.getValue("AppImageConfigCodeEditorAppImageConfigFileSystemConfig.mountPath");
+        if (!unknown_mountPath) return value_mountPath;
+        throw new UndeferrableValueException("Value 'AppImageConfigCodeEditorAppImageConfigFileSystemConfig.mountPath' is not present");
     }
 
 }

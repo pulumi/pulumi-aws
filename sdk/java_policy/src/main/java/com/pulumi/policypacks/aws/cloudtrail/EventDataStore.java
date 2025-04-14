@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudtrail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudtrail.outputs.EventDataStoreAdvancedEventSelector;
 import java.lang.Boolean;
@@ -21,110 +22,120 @@ public final class EventDataStore extends com.pulumi.resources.PolicyResourceOut
      * The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
      * 
      */
-    private UndeferrableValue<List<EventDataStoreAdvancedEventSelector>> advancedEventSelectors;
-
+    @PolicyResourceProperty(name="advancedEventSelectors", flag="unknown_advancedEventSelectors")
+    private List<EventDataStoreAdvancedEventSelector> value_advancedEventSelectors;
+    private boolean unknown_advancedEventSelectors;
     public List<EventDataStoreAdvancedEventSelector> advancedEventSelectors() {
-        if (advancedEventSelectors == null) return null;
-        return advancedEventSelectors.getValue("EventDataStore.advancedEventSelectors");
+        if (!unknown_advancedEventSelectors) return value_advancedEventSelectors;
+        throw new UndeferrableValueException("Value 'EventDataStore.advancedEventSelectors' is not present");
     }
 
     /**
      * ARN of the event data store.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("EventDataStore.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'EventDataStore.arn' is not present");
     }
 
     /**
      * The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
      * 
      */
-    private @Nullable UndeferrableValue<String> billingMode;
-
+    @PolicyResourceProperty(name="billingMode", flag="unknown_billingMode")
+    private @Nullable String value_billingMode;
+    private boolean unknown_billingMode;
     public @Nullable String billingMode() {
-        if (billingMode == null) return null;
-        return billingMode.getValue("EventDataStore.billingMode");
+        if (!unknown_billingMode) return value_billingMode;
+        throw new UndeferrableValueException("Value 'EventDataStore.billingMode' is not present");
     }
 
     /**
      * Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("EventDataStore.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'EventDataStore.kmsKeyId' is not present");
     }
 
     /**
      * Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> multiRegionEnabled;
-
+    @PolicyResourceProperty(name="multiRegionEnabled", flag="unknown_multiRegionEnabled")
+    private @Nullable Boolean value_multiRegionEnabled;
+    private boolean unknown_multiRegionEnabled;
     public @Nullable Boolean multiRegionEnabled() {
-        if (multiRegionEnabled == null) return null;
-        return multiRegionEnabled.getValue("EventDataStore.multiRegionEnabled");
+        if (!unknown_multiRegionEnabled) return value_multiRegionEnabled;
+        throw new UndeferrableValueException("Value 'EventDataStore.multiRegionEnabled' is not present");
     }
 
     /**
      * The name of the event data store.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("EventDataStore.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'EventDataStore.name' is not present");
     }
 
     /**
      * Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> organizationEnabled;
-
+    @PolicyResourceProperty(name="organizationEnabled", flag="unknown_organizationEnabled")
+    private @Nullable Boolean value_organizationEnabled;
+    private boolean unknown_organizationEnabled;
     public @Nullable Boolean organizationEnabled() {
-        if (organizationEnabled == null) return null;
-        return organizationEnabled.getValue("EventDataStore.organizationEnabled");
+        if (!unknown_organizationEnabled) return value_organizationEnabled;
+        throw new UndeferrableValueException("Value 'EventDataStore.organizationEnabled' is not present");
     }
 
     /**
      * The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> retentionPeriod;
-
+    @PolicyResourceProperty(name="retentionPeriod", flag="unknown_retentionPeriod")
+    private @Nullable Integer value_retentionPeriod;
+    private boolean unknown_retentionPeriod;
     public @Nullable Integer retentionPeriod() {
-        if (retentionPeriod == null) return null;
-        return retentionPeriod.getValue("EventDataStore.retentionPeriod");
+        if (!unknown_retentionPeriod) return value_retentionPeriod;
+        throw new UndeferrableValueException("Value 'EventDataStore.retentionPeriod' is not present");
     }
 
     /**
      * Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
      * 
      */
-    private @Nullable UndeferrableValue<String> suspend;
-
+    @PolicyResourceProperty(name="suspend", flag="unknown_suspend")
+    private @Nullable String value_suspend;
+    private boolean unknown_suspend;
     public @Nullable String suspend() {
-        if (suspend == null) return null;
-        return suspend.getValue("EventDataStore.suspend");
+        if (!unknown_suspend) return value_suspend;
+        throw new UndeferrableValueException("Value 'EventDataStore.suspend' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("EventDataStore.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'EventDataStore.tags' is not present");
     }
 
     /**
@@ -135,22 +146,24 @@ public final class EventDataStore extends com.pulumi.resources.PolicyResourceOut
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("EventDataStore.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'EventDataStore.tagsAll' is not present");
     }
 
     /**
      * Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> terminationProtectionEnabled;
-
+    @PolicyResourceProperty(name="terminationProtectionEnabled", flag="unknown_terminationProtectionEnabled")
+    private @Nullable Boolean value_terminationProtectionEnabled;
+    private boolean unknown_terminationProtectionEnabled;
     public @Nullable Boolean terminationProtectionEnabled() {
-        if (terminationProtectionEnabled == null) return null;
-        return terminationProtectionEnabled.getValue("EventDataStore.terminationProtectionEnabled");
+        if (!unknown_terminationProtectionEnabled) return value_terminationProtectionEnabled;
+        throw new UndeferrableValueException("Value 'EventDataStore.terminationProtectionEnabled' is not present");
     }
 
 }

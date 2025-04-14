@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.signer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.signer.outputs.SigningProfileRevocationRecord;
 import com.pulumi.policypacks.aws.signer.outputs.SigningProfileSignatureValidityPeriod;
@@ -21,102 +22,112 @@ public final class SigningProfile extends com.pulumi.resources.PolicyResourceOut
      * The Amazon Resource Name (ARN) for the signing profile.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("SigningProfile.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'SigningProfile.arn' is not present");
     }
 
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("SigningProfile.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'SigningProfile.name' is not present");
     }
 
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("SigningProfile.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'SigningProfile.namePrefix' is not present");
     }
 
     /**
      * A human-readable name for the signing platform associated with the signing profile.
      * 
      */
-    private UndeferrableValue<String> platformDisplayName;
-
+    @PolicyResourceProperty(name="platformDisplayName", flag="unknown_platformDisplayName")
+    private String value_platformDisplayName;
+    private boolean unknown_platformDisplayName;
     public String platformDisplayName() {
-        if (platformDisplayName == null) return null;
-        return platformDisplayName.getValue("SigningProfile.platformDisplayName");
+        if (!unknown_platformDisplayName) return value_platformDisplayName;
+        throw new UndeferrableValueException("Value 'SigningProfile.platformDisplayName' is not present");
     }
 
     /**
      * The ID of the platform that is used by the target signing profile.
      * 
      */
-    private UndeferrableValue<String> platformId;
-
+    @PolicyResourceProperty(name="platformId", flag="unknown_platformId")
+    private String value_platformId;
+    private boolean unknown_platformId;
     public String platformId() {
-        if (platformId == null) return null;
-        return platformId.getValue("SigningProfile.platformId");
+        if (!unknown_platformId) return value_platformId;
+        throw new UndeferrableValueException("Value 'SigningProfile.platformId' is not present");
     }
 
     /**
      * Revocation information for a signing profile. See `revocation_record` Block below for details.
      * 
      */
-    private UndeferrableValue<List<SigningProfileRevocationRecord>> revocationRecords;
-
+    @PolicyResourceProperty(name="revocationRecords", flag="unknown_revocationRecords")
+    private List<SigningProfileRevocationRecord> value_revocationRecords;
+    private boolean unknown_revocationRecords;
     public List<SigningProfileRevocationRecord> revocationRecords() {
-        if (revocationRecords == null) return null;
-        return revocationRecords.getValue("SigningProfile.revocationRecords");
+        if (!unknown_revocationRecords) return value_revocationRecords;
+        throw new UndeferrableValueException("Value 'SigningProfile.revocationRecords' is not present");
     }
 
     /**
      * The validity period for a signing job. See `signature_validity_period` Block below for details.
      * 
      */
-    private UndeferrableValue<SigningProfileSignatureValidityPeriod> signatureValidityPeriod;
-
+    @PolicyResourceProperty(name="signatureValidityPeriod", flag="unknown_signatureValidityPeriod")
+    private SigningProfileSignatureValidityPeriod value_signatureValidityPeriod;
+    private boolean unknown_signatureValidityPeriod;
     public SigningProfileSignatureValidityPeriod signatureValidityPeriod() {
-        if (signatureValidityPeriod == null) return null;
-        return signatureValidityPeriod.getValue("SigningProfile.signatureValidityPeriod");
+        if (!unknown_signatureValidityPeriod) return value_signatureValidityPeriod;
+        throw new UndeferrableValueException("Value 'SigningProfile.signatureValidityPeriod' is not present");
     }
 
     /**
      * The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
      * 
      */
-    private UndeferrableValue<SigningProfileSigningMaterial> signingMaterial;
-
+    @PolicyResourceProperty(name="signingMaterial", flag="unknown_signingMaterial")
+    private SigningProfileSigningMaterial value_signingMaterial;
+    private boolean unknown_signingMaterial;
     public SigningProfileSigningMaterial signingMaterial() {
-        if (signingMaterial == null) return null;
-        return signingMaterial.getValue("SigningProfile.signingMaterial");
+        if (!unknown_signingMaterial) return value_signingMaterial;
+        throw new UndeferrableValueException("Value 'SigningProfile.signingMaterial' is not present");
     }
 
     /**
      * The status of the target signing profile.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("SigningProfile.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'SigningProfile.status' is not present");
     }
 
     /**
      * A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SigningProfile.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SigningProfile.tags' is not present");
     }
 
     /**
@@ -127,33 +138,36 @@ public final class SigningProfile extends com.pulumi.resources.PolicyResourceOut
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("SigningProfile.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'SigningProfile.tagsAll' is not present");
     }
 
     /**
      * The current version of the signing profile.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("SigningProfile.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'SigningProfile.version' is not present");
     }
 
     /**
      * The signing profile ARN, including the profile version.
      * 
      */
-    private UndeferrableValue<String> versionArn;
-
+    @PolicyResourceProperty(name="versionArn", flag="unknown_versionArn")
+    private String value_versionArn;
+    private boolean unknown_versionArn;
     public String versionArn() {
-        if (versionArn == null) return null;
-        return versionArn.getValue("SigningProfile.versionArn");
+        if (!unknown_versionArn) return value_versionArn;
+        throw new UndeferrableValueException("Value 'SigningProfile.versionArn' is not present");
     }
 
 }

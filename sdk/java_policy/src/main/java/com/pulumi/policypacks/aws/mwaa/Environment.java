@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mwaa;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.mwaa.outputs.EnvironmentLastUpdated;
 import com.pulumi.policypacks.aws.mwaa.outputs.EnvironmentLoggingConfiguration;
@@ -22,55 +23,60 @@ public final class Environment extends com.pulumi.resources.PolicyResourceOutput
      * The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> airflowConfigurationOptions;
-
+    @PolicyResourceProperty(name="airflowConfigurationOptions", flag="unknown_airflowConfigurationOptions")
+    private @Nullable Map<String,String> value_airflowConfigurationOptions;
+    private boolean unknown_airflowConfigurationOptions;
     public @Nullable Map<String,String> airflowConfigurationOptions() {
-        if (airflowConfigurationOptions == null) return null;
-        return airflowConfigurationOptions.getValue("Environment.airflowConfigurationOptions");
+        if (!unknown_airflowConfigurationOptions) return value_airflowConfigurationOptions;
+        throw new UndeferrableValueException("Value 'Environment.airflowConfigurationOptions' is not present");
     }
 
     /**
      * Airflow version of your environment, will be set by default to the latest version that MWAA supports.
      * 
      */
-    private UndeferrableValue<String> airflowVersion;
-
+    @PolicyResourceProperty(name="airflowVersion", flag="unknown_airflowVersion")
+    private String value_airflowVersion;
+    private boolean unknown_airflowVersion;
     public String airflowVersion() {
-        if (airflowVersion == null) return null;
-        return airflowVersion.getValue("Environment.airflowVersion");
+        if (!unknown_airflowVersion) return value_airflowVersion;
+        throw new UndeferrableValueException("Value 'Environment.airflowVersion' is not present");
     }
 
     /**
      * The ARN of the MWAA Environment
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Environment.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Environment.arn' is not present");
     }
 
     /**
      * The Created At date of the MWAA Environment
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("Environment.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'Environment.createdAt' is not present");
     }
 
     /**
      * The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      * 
      */
-    private UndeferrableValue<String> dagS3Path;
-
+    @PolicyResourceProperty(name="dagS3Path", flag="unknown_dagS3Path")
+    private String value_dagS3Path;
+    private boolean unknown_dagS3Path;
     public String dagS3Path() {
-        if (dagS3Path == null) return null;
-        return dagS3Path.getValue("Environment.dagS3Path");
+        if (!unknown_dagS3Path) return value_dagS3Path;
+        throw new UndeferrableValueException("Value 'Environment.dagS3Path' is not present");
     }
 
     /**
@@ -78,260 +84,284 @@ public final class Environment extends com.pulumi.resources.PolicyResourceOutput
      * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
      * 
      */
-    private UndeferrableValue<String> databaseVpcEndpointService;
-
+    @PolicyResourceProperty(name="databaseVpcEndpointService", flag="unknown_databaseVpcEndpointService")
+    private String value_databaseVpcEndpointService;
+    private boolean unknown_databaseVpcEndpointService;
     public String databaseVpcEndpointService() {
-        if (databaseVpcEndpointService == null) return null;
-        return databaseVpcEndpointService.getValue("Environment.databaseVpcEndpointService");
+        if (!unknown_databaseVpcEndpointService) return value_databaseVpcEndpointService;
+        throw new UndeferrableValueException("Value 'Environment.databaseVpcEndpointService' is not present");
     }
 
     /**
      * Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
      * 
      */
-    private UndeferrableValue<String> endpointManagement;
-
+    @PolicyResourceProperty(name="endpointManagement", flag="unknown_endpointManagement")
+    private String value_endpointManagement;
+    private boolean unknown_endpointManagement;
     public String endpointManagement() {
-        if (endpointManagement == null) return null;
-        return endpointManagement.getValue("Environment.endpointManagement");
+        if (!unknown_endpointManagement) return value_endpointManagement;
+        throw new UndeferrableValueException("Value 'Environment.endpointManagement' is not present");
     }
 
     /**
      * Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
      * 
      */
-    private UndeferrableValue<String> environmentClass;
-
+    @PolicyResourceProperty(name="environmentClass", flag="unknown_environmentClass")
+    private String value_environmentClass;
+    private boolean unknown_environmentClass;
     public String environmentClass() {
-        if (environmentClass == null) return null;
-        return environmentClass.getValue("Environment.environmentClass");
+        if (!unknown_environmentClass) return value_environmentClass;
+        throw new UndeferrableValueException("Value 'Environment.environmentClass' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
      * 
      */
-    private UndeferrableValue<String> executionRoleArn;
-
+    @PolicyResourceProperty(name="executionRoleArn", flag="unknown_executionRoleArn")
+    private String value_executionRoleArn;
+    private boolean unknown_executionRoleArn;
     public String executionRoleArn() {
-        if (executionRoleArn == null) return null;
-        return executionRoleArn.getValue("Environment.executionRoleArn");
+        if (!unknown_executionRoleArn) return value_executionRoleArn;
+        throw new UndeferrableValueException("Value 'Environment.executionRoleArn' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKey;
-
+    @PolicyResourceProperty(name="kmsKey", flag="unknown_kmsKey")
+    private @Nullable String value_kmsKey;
+    private boolean unknown_kmsKey;
     public @Nullable String kmsKey() {
-        if (kmsKey == null) return null;
-        return kmsKey.getValue("Environment.kmsKey");
+        if (!unknown_kmsKey) return value_kmsKey;
+        throw new UndeferrableValueException("Value 'Environment.kmsKey' is not present");
     }
 
-    private UndeferrableValue<List<EnvironmentLastUpdated>> lastUpdateds;
-
+    @PolicyResourceProperty(name="lastUpdateds", flag="unknown_lastUpdateds")
+    private List<EnvironmentLastUpdated> value_lastUpdateds;
+    private boolean unknown_lastUpdateds;
     public List<EnvironmentLastUpdated> lastUpdateds() {
-        if (lastUpdateds == null) return null;
-        return lastUpdateds.getValue("Environment.lastUpdateds");
+        if (!unknown_lastUpdateds) return value_lastUpdateds;
+        throw new UndeferrableValueException("Value 'Environment.lastUpdateds' is not present");
     }
 
     /**
      * The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
      * 
      */
-    private UndeferrableValue<EnvironmentLoggingConfiguration> loggingConfiguration;
-
+    @PolicyResourceProperty(name="loggingConfiguration", flag="unknown_loggingConfiguration")
+    private EnvironmentLoggingConfiguration value_loggingConfiguration;
+    private boolean unknown_loggingConfiguration;
     public EnvironmentLoggingConfiguration loggingConfiguration() {
-        if (loggingConfiguration == null) return null;
-        return loggingConfiguration.getValue("Environment.loggingConfiguration");
+        if (!unknown_loggingConfiguration) return value_loggingConfiguration;
+        throw new UndeferrableValueException("Value 'Environment.loggingConfiguration' is not present");
     }
 
     /**
      * The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
      * 
      */
-    private UndeferrableValue<Integer> maxWebservers;
-
+    @PolicyResourceProperty(name="maxWebservers", flag="unknown_maxWebservers")
+    private Integer value_maxWebservers;
+    private boolean unknown_maxWebservers;
     public Integer maxWebservers() {
-        if (maxWebservers == null) return null;
-        return maxWebservers.getValue("Environment.maxWebservers");
+        if (!unknown_maxWebservers) return value_maxWebservers;
+        throw new UndeferrableValueException("Value 'Environment.maxWebservers' is not present");
     }
 
     /**
      * The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
      * 
      */
-    private UndeferrableValue<Integer> maxWorkers;
-
+    @PolicyResourceProperty(name="maxWorkers", flag="unknown_maxWorkers")
+    private Integer value_maxWorkers;
+    private boolean unknown_maxWorkers;
     public Integer maxWorkers() {
-        if (maxWorkers == null) return null;
-        return maxWorkers.getValue("Environment.maxWorkers");
+        if (!unknown_maxWorkers) return value_maxWorkers;
+        throw new UndeferrableValueException("Value 'Environment.maxWorkers' is not present");
     }
 
     /**
      * The minimum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
      * 
      */
-    private UndeferrableValue<Integer> minWebservers;
-
+    @PolicyResourceProperty(name="minWebservers", flag="unknown_minWebservers")
+    private Integer value_minWebservers;
+    private boolean unknown_minWebservers;
     public Integer minWebservers() {
-        if (minWebservers == null) return null;
-        return minWebservers.getValue("Environment.minWebservers");
+        if (!unknown_minWebservers) return value_minWebservers;
+        throw new UndeferrableValueException("Value 'Environment.minWebservers' is not present");
     }
 
     /**
      * The minimum number of workers that you want to run in your environment. Will be `1` by default.
      * 
      */
-    private UndeferrableValue<Integer> minWorkers;
-
+    @PolicyResourceProperty(name="minWorkers", flag="unknown_minWorkers")
+    private Integer value_minWorkers;
+    private boolean unknown_minWorkers;
     public Integer minWorkers() {
-        if (minWorkers == null) return null;
-        return minWorkers.getValue("Environment.minWorkers");
+        if (!unknown_minWorkers) return value_minWorkers;
+        throw new UndeferrableValueException("Value 'Environment.minWorkers' is not present");
     }
 
     /**
      * The name of the Apache Airflow Environment
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Environment.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Environment.name' is not present");
     }
 
     /**
      * Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
      * 
      */
-    private UndeferrableValue<EnvironmentNetworkConfiguration> networkConfiguration;
-
+    @PolicyResourceProperty(name="networkConfiguration", flag="unknown_networkConfiguration")
+    private EnvironmentNetworkConfiguration value_networkConfiguration;
+    private boolean unknown_networkConfiguration;
     public EnvironmentNetworkConfiguration networkConfiguration() {
-        if (networkConfiguration == null) return null;
-        return networkConfiguration.getValue("Environment.networkConfiguration");
+        if (!unknown_networkConfiguration) return value_networkConfiguration;
+        throw new UndeferrableValueException("Value 'Environment.networkConfiguration' is not present");
     }
 
     /**
      * The plugins.zip file version you want to use.
      * 
      */
-    private UndeferrableValue<String> pluginsS3ObjectVersion;
-
+    @PolicyResourceProperty(name="pluginsS3ObjectVersion", flag="unknown_pluginsS3ObjectVersion")
+    private String value_pluginsS3ObjectVersion;
+    private boolean unknown_pluginsS3ObjectVersion;
     public String pluginsS3ObjectVersion() {
-        if (pluginsS3ObjectVersion == null) return null;
-        return pluginsS3ObjectVersion.getValue("Environment.pluginsS3ObjectVersion");
+        if (!unknown_pluginsS3ObjectVersion) return value_pluginsS3ObjectVersion;
+        throw new UndeferrableValueException("Value 'Environment.pluginsS3ObjectVersion' is not present");
     }
 
     /**
      * The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      * 
      */
-    private @Nullable UndeferrableValue<String> pluginsS3Path;
-
+    @PolicyResourceProperty(name="pluginsS3Path", flag="unknown_pluginsS3Path")
+    private @Nullable String value_pluginsS3Path;
+    private boolean unknown_pluginsS3Path;
     public @Nullable String pluginsS3Path() {
-        if (pluginsS3Path == null) return null;
-        return pluginsS3Path.getValue("Environment.pluginsS3Path");
+        if (!unknown_pluginsS3Path) return value_pluginsS3Path;
+        throw new UndeferrableValueException("Value 'Environment.pluginsS3Path' is not present");
     }
 
     /**
      * The requirements.txt file version you want to use.
      * 
      */
-    private UndeferrableValue<String> requirementsS3ObjectVersion;
-
+    @PolicyResourceProperty(name="requirementsS3ObjectVersion", flag="unknown_requirementsS3ObjectVersion")
+    private String value_requirementsS3ObjectVersion;
+    private boolean unknown_requirementsS3ObjectVersion;
     public String requirementsS3ObjectVersion() {
-        if (requirementsS3ObjectVersion == null) return null;
-        return requirementsS3ObjectVersion.getValue("Environment.requirementsS3ObjectVersion");
+        if (!unknown_requirementsS3ObjectVersion) return value_requirementsS3ObjectVersion;
+        throw new UndeferrableValueException("Value 'Environment.requirementsS3ObjectVersion' is not present");
     }
 
     /**
      * The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      * 
      */
-    private @Nullable UndeferrableValue<String> requirementsS3Path;
-
+    @PolicyResourceProperty(name="requirementsS3Path", flag="unknown_requirementsS3Path")
+    private @Nullable String value_requirementsS3Path;
+    private boolean unknown_requirementsS3Path;
     public @Nullable String requirementsS3Path() {
-        if (requirementsS3Path == null) return null;
-        return requirementsS3Path.getValue("Environment.requirementsS3Path");
+        if (!unknown_requirementsS3Path) return value_requirementsS3Path;
+        throw new UndeferrableValueException("Value 'Environment.requirementsS3Path' is not present");
     }
 
     /**
      * The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
      * 
      */
-    private UndeferrableValue<Integer> schedulers;
-
+    @PolicyResourceProperty(name="schedulers", flag="unknown_schedulers")
+    private Integer value_schedulers;
+    private boolean unknown_schedulers;
     public Integer schedulers() {
-        if (schedulers == null) return null;
-        return schedulers.getValue("Environment.schedulers");
+        if (!unknown_schedulers) return value_schedulers;
+        throw new UndeferrableValueException("Value 'Environment.schedulers' is not present");
     }
 
     /**
      * The Service Role ARN of the Amazon MWAA Environment
      * 
      */
-    private UndeferrableValue<String> serviceRoleArn;
-
+    @PolicyResourceProperty(name="serviceRoleArn", flag="unknown_serviceRoleArn")
+    private String value_serviceRoleArn;
+    private boolean unknown_serviceRoleArn;
     public String serviceRoleArn() {
-        if (serviceRoleArn == null) return null;
-        return serviceRoleArn.getValue("Environment.serviceRoleArn");
+        if (!unknown_serviceRoleArn) return value_serviceRoleArn;
+        throw new UndeferrableValueException("Value 'Environment.serviceRoleArn' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
      * 
      */
-    private UndeferrableValue<String> sourceBucketArn;
-
+    @PolicyResourceProperty(name="sourceBucketArn", flag="unknown_sourceBucketArn")
+    private String value_sourceBucketArn;
+    private boolean unknown_sourceBucketArn;
     public String sourceBucketArn() {
-        if (sourceBucketArn == null) return null;
-        return sourceBucketArn.getValue("Environment.sourceBucketArn");
+        if (!unknown_sourceBucketArn) return value_sourceBucketArn;
+        throw new UndeferrableValueException("Value 'Environment.sourceBucketArn' is not present");
     }
 
     /**
      * The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
      * 
      */
-    private UndeferrableValue<String> startupScriptS3ObjectVersion;
-
+    @PolicyResourceProperty(name="startupScriptS3ObjectVersion", flag="unknown_startupScriptS3ObjectVersion")
+    private String value_startupScriptS3ObjectVersion;
+    private boolean unknown_startupScriptS3ObjectVersion;
     public String startupScriptS3ObjectVersion() {
-        if (startupScriptS3ObjectVersion == null) return null;
-        return startupScriptS3ObjectVersion.getValue("Environment.startupScriptS3ObjectVersion");
+        if (!unknown_startupScriptS3ObjectVersion) return value_startupScriptS3ObjectVersion;
+        throw new UndeferrableValueException("Value 'Environment.startupScriptS3ObjectVersion' is not present");
     }
 
     /**
      * The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
      * 
      */
-    private @Nullable UndeferrableValue<String> startupScriptS3Path;
-
+    @PolicyResourceProperty(name="startupScriptS3Path", flag="unknown_startupScriptS3Path")
+    private @Nullable String value_startupScriptS3Path;
+    private boolean unknown_startupScriptS3Path;
     public @Nullable String startupScriptS3Path() {
-        if (startupScriptS3Path == null) return null;
-        return startupScriptS3Path.getValue("Environment.startupScriptS3Path");
+        if (!unknown_startupScriptS3Path) return value_startupScriptS3Path;
+        throw new UndeferrableValueException("Value 'Environment.startupScriptS3Path' is not present");
     }
 
     /**
      * The status of the Amazon MWAA Environment
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Environment.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Environment.status' is not present");
     }
 
     /**
      * A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Environment.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Environment.tags' is not present");
     }
 
     /**
@@ -342,55 +372,60 @@ public final class Environment extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Environment.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Environment.tagsAll' is not present");
     }
 
     /**
      * Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
      * 
      */
-    private UndeferrableValue<String> webserverAccessMode;
-
+    @PolicyResourceProperty(name="webserverAccessMode", flag="unknown_webserverAccessMode")
+    private String value_webserverAccessMode;
+    private boolean unknown_webserverAccessMode;
     public String webserverAccessMode() {
-        if (webserverAccessMode == null) return null;
-        return webserverAccessMode.getValue("Environment.webserverAccessMode");
+        if (!unknown_webserverAccessMode) return value_webserverAccessMode;
+        throw new UndeferrableValueException("Value 'Environment.webserverAccessMode' is not present");
     }
 
     /**
      * The webserver URL of the MWAA Environment
      * 
      */
-    private UndeferrableValue<String> webserverUrl;
-
+    @PolicyResourceProperty(name="webserverUrl", flag="unknown_webserverUrl")
+    private String value_webserverUrl;
+    private boolean unknown_webserverUrl;
     public String webserverUrl() {
-        if (webserverUrl == null) return null;
-        return webserverUrl.getValue("Environment.webserverUrl");
+        if (!unknown_webserverUrl) return value_webserverUrl;
+        throw new UndeferrableValueException("Value 'Environment.webserverUrl' is not present");
     }
 
     /**
      * The VPC endpoint for the environment&#39;s web server
      * 
      */
-    private UndeferrableValue<String> webserverVpcEndpointService;
-
+    @PolicyResourceProperty(name="webserverVpcEndpointService", flag="unknown_webserverVpcEndpointService")
+    private String value_webserverVpcEndpointService;
+    private boolean unknown_webserverVpcEndpointService;
     public String webserverVpcEndpointService() {
-        if (webserverVpcEndpointService == null) return null;
-        return webserverVpcEndpointService.getValue("Environment.webserverVpcEndpointService");
+        if (!unknown_webserverVpcEndpointService) return value_webserverVpcEndpointService;
+        throw new UndeferrableValueException("Value 'Environment.webserverVpcEndpointService' is not present");
     }
 
     /**
      * Specifies the start date for the weekly maintenance window.
      * 
      */
-    private UndeferrableValue<String> weeklyMaintenanceWindowStart;
-
+    @PolicyResourceProperty(name="weeklyMaintenanceWindowStart", flag="unknown_weeklyMaintenanceWindowStart")
+    private String value_weeklyMaintenanceWindowStart;
+    private boolean unknown_weeklyMaintenanceWindowStart;
     public String weeklyMaintenanceWindowStart() {
-        if (weeklyMaintenanceWindowStart == null) return null;
-        return weeklyMaintenanceWindowStart.getValue("Environment.weeklyMaintenanceWindowStart");
+        if (!unknown_weeklyMaintenanceWindowStart) return value_weeklyMaintenanceWindowStart;
+        throw new UndeferrableValueException("Value 'Environment.weeklyMaintenanceWindowStart' is not present");
     }
 
 }

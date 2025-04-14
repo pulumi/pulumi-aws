@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearchingest;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.opensearchingest.outputs.PipelineBufferOptions;
 import com.pulumi.policypacks.aws.opensearchingest.outputs.PipelineEncryptionAtRestOptions;
@@ -24,88 +25,96 @@ public final class Pipeline extends com.pulumi.resources.PolicyResourceOutput {
      * Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
      * 
      */
-    private @Nullable UndeferrableValue<PipelineBufferOptions> bufferOptions;
-
+    @PolicyResourceProperty(name="bufferOptions", flag="unknown_bufferOptions")
+    private @Nullable PipelineBufferOptions value_bufferOptions;
+    private boolean unknown_bufferOptions;
     public @Nullable PipelineBufferOptions bufferOptions() {
-        if (bufferOptions == null) return null;
-        return bufferOptions.getValue("Pipeline.bufferOptions");
+        if (!unknown_bufferOptions) return value_bufferOptions;
+        throw new UndeferrableValueException("Value 'Pipeline.bufferOptions' is not present");
     }
 
     /**
      * Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
      * 
      */
-    private @Nullable UndeferrableValue<PipelineEncryptionAtRestOptions> encryptionAtRestOptions;
-
+    @PolicyResourceProperty(name="encryptionAtRestOptions", flag="unknown_encryptionAtRestOptions")
+    private @Nullable PipelineEncryptionAtRestOptions value_encryptionAtRestOptions;
+    private boolean unknown_encryptionAtRestOptions;
     public @Nullable PipelineEncryptionAtRestOptions encryptionAtRestOptions() {
-        if (encryptionAtRestOptions == null) return null;
-        return encryptionAtRestOptions.getValue("Pipeline.encryptionAtRestOptions");
+        if (!unknown_encryptionAtRestOptions) return value_encryptionAtRestOptions;
+        throw new UndeferrableValueException("Value 'Pipeline.encryptionAtRestOptions' is not present");
     }
 
     /**
      * The list of ingestion endpoints for the pipeline, which you can send data to.
      * 
      */
-    private UndeferrableValue<List<String>> ingestEndpointUrls;
-
+    @PolicyResourceProperty(name="ingestEndpointUrls", flag="unknown_ingestEndpointUrls")
+    private List<String> value_ingestEndpointUrls;
+    private boolean unknown_ingestEndpointUrls;
     public List<String> ingestEndpointUrls() {
-        if (ingestEndpointUrls == null) return null;
-        return ingestEndpointUrls.getValue("Pipeline.ingestEndpointUrls");
+        if (!unknown_ingestEndpointUrls) return value_ingestEndpointUrls;
+        throw new UndeferrableValueException("Value 'Pipeline.ingestEndpointUrls' is not present");
     }
 
     /**
      * Key-value pairs to configure log publishing. See `log_publishing_options` below.
      * 
      */
-    private @Nullable UndeferrableValue<PipelineLogPublishingOptions> logPublishingOptions;
-
+    @PolicyResourceProperty(name="logPublishingOptions", flag="unknown_logPublishingOptions")
+    private @Nullable PipelineLogPublishingOptions value_logPublishingOptions;
+    private boolean unknown_logPublishingOptions;
     public @Nullable PipelineLogPublishingOptions logPublishingOptions() {
-        if (logPublishingOptions == null) return null;
-        return logPublishingOptions.getValue("Pipeline.logPublishingOptions");
+        if (!unknown_logPublishingOptions) return value_logPublishingOptions;
+        throw new UndeferrableValueException("Value 'Pipeline.logPublishingOptions' is not present");
     }
 
     /**
      * The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
      * 
      */
-    private UndeferrableValue<Integer> maxUnits;
-
+    @PolicyResourceProperty(name="maxUnits", flag="unknown_maxUnits")
+    private Integer value_maxUnits;
+    private boolean unknown_maxUnits;
     public Integer maxUnits() {
-        if (maxUnits == null) return null;
-        return maxUnits.getValue("Pipeline.maxUnits");
+        if (!unknown_maxUnits) return value_maxUnits;
+        throw new UndeferrableValueException("Value 'Pipeline.maxUnits' is not present");
     }
 
     /**
      * The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
      * 
      */
-    private UndeferrableValue<Integer> minUnits;
-
+    @PolicyResourceProperty(name="minUnits", flag="unknown_minUnits")
+    private Integer value_minUnits;
+    private boolean unknown_minUnits;
     public Integer minUnits() {
-        if (minUnits == null) return null;
-        return minUnits.getValue("Pipeline.minUnits");
+        if (!unknown_minUnits) return value_minUnits;
+        throw new UndeferrableValueException("Value 'Pipeline.minUnits' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the pipeline.
      * 
      */
-    private UndeferrableValue<String> pipelineArn;
-
+    @PolicyResourceProperty(name="pipelineArn", flag="unknown_pipelineArn")
+    private String value_pipelineArn;
+    private boolean unknown_pipelineArn;
     public String pipelineArn() {
-        if (pipelineArn == null) return null;
-        return pipelineArn.getValue("Pipeline.pipelineArn");
+        if (!unknown_pipelineArn) return value_pipelineArn;
+        throw new UndeferrableValueException("Value 'Pipeline.pipelineArn' is not present");
     }
 
     /**
      * The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
      * 
      */
-    private UndeferrableValue<String> pipelineConfigurationBody;
-
+    @PolicyResourceProperty(name="pipelineConfigurationBody", flag="unknown_pipelineConfigurationBody")
+    private String value_pipelineConfigurationBody;
+    private boolean unknown_pipelineConfigurationBody;
     public String pipelineConfigurationBody() {
-        if (pipelineConfigurationBody == null) return null;
-        return pipelineConfigurationBody.getValue("Pipeline.pipelineConfigurationBody");
+        if (!unknown_pipelineConfigurationBody) return value_pipelineConfigurationBody;
+        throw new UndeferrableValueException("Value 'Pipeline.pipelineConfigurationBody' is not present");
     }
 
     /**
@@ -114,22 +123,24 @@ public final class Pipeline extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> pipelineName;
-
+    @PolicyResourceProperty(name="pipelineName", flag="unknown_pipelineName")
+    private String value_pipelineName;
+    private boolean unknown_pipelineName;
     public String pipelineName() {
-        if (pipelineName == null) return null;
-        return pipelineName.getValue("Pipeline.pipelineName");
+        if (!unknown_pipelineName) return value_pipelineName;
+        throw new UndeferrableValueException("Value 'Pipeline.pipelineName' is not present");
     }
 
     /**
      * A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Pipeline.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Pipeline.tags' is not present");
     }
 
     /**
@@ -138,29 +149,32 @@ public final class Pipeline extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Pipeline.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Pipeline.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<PipelineTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable PipelineTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable PipelineTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("Pipeline.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'Pipeline.timeouts' is not present");
     }
 
     /**
      * Container for the values required to configure VPC access for the pipeline. If you don&#39;t specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
      * 
      */
-    private @Nullable UndeferrableValue<PipelineVpcOptions> vpcOptions;
-
+    @PolicyResourceProperty(name="vpcOptions", flag="unknown_vpcOptions")
+    private @Nullable PipelineVpcOptions value_vpcOptions;
+    private boolean unknown_vpcOptions;
     public @Nullable PipelineVpcOptions vpcOptions() {
-        if (vpcOptions == null) return null;
-        return vpcOptions.getValue("Pipeline.vpcOptions");
+        if (!unknown_vpcOptions) return value_vpcOptions;
+        throw new UndeferrableValueException("Value 'Pipeline.vpcOptions' is not present");
     }
 
 }

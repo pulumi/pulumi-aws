@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ExperienceEndpoint {
      * The endpoint of your Amazon Kendra experience.
      * 
      */
-    private @Nullable UndeferrableValue<String> endpoint;
-
+    @PolicyResourceProperty(name="endpoint", flag="unknown_endpoint")
+    private @Nullable String value_endpoint;
+    private boolean unknown_endpoint;
     public @Nullable String endpoint() {
-        if (endpoint == null) return null;
-        return endpoint.getValue("ExperienceEndpoint.endpoint");
+        if (!unknown_endpoint) return value_endpoint;
+        throw new UndeferrableValueException("Value 'ExperienceEndpoint.endpoint' is not present");
     }
 
     /**
      * The type of endpoint for your Amazon Kendra experience.
      * 
      */
-    private @Nullable UndeferrableValue<String> endpointType;
-
+    @PolicyResourceProperty(name="endpointType", flag="unknown_endpointType")
+    private @Nullable String value_endpointType;
+    private boolean unknown_endpointType;
     public @Nullable String endpointType() {
-        if (endpointType == null) return null;
-        return endpointType.getValue("ExperienceEndpoint.endpointType");
+        if (!unknown_endpointType) return value_endpointType;
+        throw new UndeferrableValueException("Value 'ExperienceEndpoint.endpointType' is not present");
     }
 
 }

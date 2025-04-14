@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ses.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ConfigurationSetDeliveryOptions {
      * Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can&#39;t be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
      * 
      */
-    private @Nullable UndeferrableValue<String> tlsPolicy;
-
+    @PolicyResourceProperty(name="tlsPolicy", flag="unknown_tlsPolicy")
+    private @Nullable String value_tlsPolicy;
+    private boolean unknown_tlsPolicy;
     public @Nullable String tlsPolicy() {
-        if (tlsPolicy == null) return null;
-        return tlsPolicy.getValue("ConfigurationSetDeliveryOptions.tlsPolicy");
+        if (!unknown_tlsPolicy) return value_tlsPolicy;
+        throw new UndeferrableValueException("Value 'ConfigurationSetDeliveryOptions.tlsPolicy' is not present");
     }
 
 }

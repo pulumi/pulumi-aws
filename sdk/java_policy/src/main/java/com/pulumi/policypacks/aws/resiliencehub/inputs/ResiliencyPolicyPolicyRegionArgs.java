@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.resiliencehub.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ResiliencyPolicyPolicyRegionArgs {
      * Recovery Point Objective (RPO) as a Go duration.
      * 
      */
-    private UndeferrableValue<String> rpo;
-
+    @PolicyResourceProperty(name="rpo", flag="unknown_rpo")
+    private String value_rpo;
+    private boolean unknown_rpo;
     public String rpo() {
-        if (rpo == null) return null;
-        return rpo.getValue("ResiliencyPolicyPolicyRegionArgs.rpo");
+        if (!unknown_rpo) return value_rpo;
+        throw new UndeferrableValueException("Value 'ResiliencyPolicyPolicyRegionArgs.rpo' is not present");
     }
 
     /**
      * Recovery Time Objective (RTO) as a Go duration.
      * 
      */
-    private UndeferrableValue<String> rto;
-
+    @PolicyResourceProperty(name="rto", flag="unknown_rto")
+    private String value_rto;
+    private boolean unknown_rto;
     public String rto() {
-        if (rto == null) return null;
-        return rto.getValue("ResiliencyPolicyPolicyRegionArgs.rto");
+        if (!unknown_rto) return value_rto;
+        throw new UndeferrableValueException("Value 'ResiliencyPolicyPolicyRegionArgs.rto' is not present");
     }
 
 }

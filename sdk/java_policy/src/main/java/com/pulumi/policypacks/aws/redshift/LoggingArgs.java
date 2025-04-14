@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,11 +18,12 @@ public final class LoggingArgs extends com.pulumi.resources.PolicyResourceInput 
      * Name of an existing S3 bucket where the log files are to be stored. Required when `log_destination_type` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
      * 
      */
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("LoggingArgs.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'LoggingArgs.bucketName' is not present");
     }
 
     /**
@@ -30,44 +32,48 @@ public final class LoggingArgs extends com.pulumi.resources.PolicyResourceInput 
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> clusterIdentifier;
-
+    @PolicyResourceProperty(name="clusterIdentifier", flag="unknown_clusterIdentifier")
+    private String value_clusterIdentifier;
+    private boolean unknown_clusterIdentifier;
     public String clusterIdentifier() {
-        if (clusterIdentifier == null) return null;
-        return clusterIdentifier.getValue("LoggingArgs.clusterIdentifier");
+        if (!unknown_clusterIdentifier) return value_clusterIdentifier;
+        throw new UndeferrableValueException("Value 'LoggingArgs.clusterIdentifier' is not present");
     }
 
     /**
      * Log destination type. Valid values are `s3` and `cloudwatch`.
      * 
      */
-    private UndeferrableValue<String> logDestinationType;
-
+    @PolicyResourceProperty(name="logDestinationType", flag="unknown_logDestinationType")
+    private String value_logDestinationType;
+    private boolean unknown_logDestinationType;
     public String logDestinationType() {
-        if (logDestinationType == null) return null;
-        return logDestinationType.getValue("LoggingArgs.logDestinationType");
+        if (!unknown_logDestinationType) return value_logDestinationType;
+        throw new UndeferrableValueException("Value 'LoggingArgs.logDestinationType' is not present");
     }
 
     /**
      * Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
      * 
      */
-    private UndeferrableValue<List<String>> logExports;
-
+    @PolicyResourceProperty(name="logExports", flag="unknown_logExports")
+    private List<String> value_logExports;
+    private boolean unknown_logExports;
     public List<String> logExports() {
-        if (logExports == null) return null;
-        return logExports.getValue("LoggingArgs.logExports");
+        if (!unknown_logExports) return value_logExports;
+        throw new UndeferrableValueException("Value 'LoggingArgs.logExports' is not present");
     }
 
     /**
      * Prefix applied to the log file names.
      * 
      */
-    private UndeferrableValue<String> s3KeyPrefix;
-
+    @PolicyResourceProperty(name="s3KeyPrefix", flag="unknown_s3KeyPrefix")
+    private String value_s3KeyPrefix;
+    private boolean unknown_s3KeyPrefix;
     public String s3KeyPrefix() {
-        if (s3KeyPrefix == null) return null;
-        return s3KeyPrefix.getValue("LoggingArgs.s3KeyPrefix");
+        if (!unknown_s3KeyPrefix) return value_s3KeyPrefix;
+        throw new UndeferrableValueException("Value 'LoggingArgs.s3KeyPrefix' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class ClusterClusterNode {
      * Whether the node is a leader node or a compute node
      * 
      */
-    private @Nullable UndeferrableValue<String> nodeRole;
-
+    @PolicyResourceProperty(name="nodeRole", flag="unknown_nodeRole")
+    private @Nullable String value_nodeRole;
+    private boolean unknown_nodeRole;
     public @Nullable String nodeRole() {
-        if (nodeRole == null) return null;
-        return nodeRole.getValue("ClusterClusterNode.nodeRole");
+        if (!unknown_nodeRole) return value_nodeRole;
+        throw new UndeferrableValueException("Value 'ClusterClusterNode.nodeRole' is not present");
     }
 
     /**
      * The private IP address of a node within a cluster
      * 
      */
-    private @Nullable UndeferrableValue<String> privateIpAddress;
-
+    @PolicyResourceProperty(name="privateIpAddress", flag="unknown_privateIpAddress")
+    private @Nullable String value_privateIpAddress;
+    private boolean unknown_privateIpAddress;
     public @Nullable String privateIpAddress() {
-        if (privateIpAddress == null) return null;
-        return privateIpAddress.getValue("ClusterClusterNode.privateIpAddress");
+        if (!unknown_privateIpAddress) return value_privateIpAddress;
+        throw new UndeferrableValueException("Value 'ClusterClusterNode.privateIpAddress' is not present");
     }
 
     /**
      * The public IP address of a node within a cluster
      * 
      */
-    private @Nullable UndeferrableValue<String> publicIpAddress;
-
+    @PolicyResourceProperty(name="publicIpAddress", flag="unknown_publicIpAddress")
+    private @Nullable String value_publicIpAddress;
+    private boolean unknown_publicIpAddress;
     public @Nullable String publicIpAddress() {
-        if (publicIpAddress == null) return null;
-        return publicIpAddress.getValue("ClusterClusterNode.publicIpAddress");
+        if (!unknown_publicIpAddress) return value_publicIpAddress;
+        throw new UndeferrableValueException("Value 'ClusterClusterNode.publicIpAddress' is not present");
     }
 
 }

@@ -3,29 +3,32 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.String;
 
 
 public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs {
 
-    private UndeferrableValue<String> checkDigitString;
-
+    @PolicyResourceProperty(name="checkDigitString", flag="unknown_checkDigitString")
+    private String value_checkDigitString;
+    private boolean unknown_checkDigitString;
     public String checkDigitString() {
-        if (checkDigitString == null) return null;
-        return checkDigitString.getValue("ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs.checkDigitString");
+        if (!unknown_checkDigitString) return value_checkDigitString;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs.checkDigitString' is not present");
     }
 
     /**
      * The Nielsen Source ID to include in the watermark.
      * 
      */
-    private UndeferrableValue<Double> sid;
-
+    @PolicyResourceProperty(name="sid", flag="unknown_sid")
+    private Double value_sid;
+    private boolean unknown_sid;
     public Double sid() {
-        if (sid == null) return null;
-        return sid.getValue("ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs.sid");
+        if (!unknown_sid) return value_sid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs.sid' is not present");
     }
 
 }

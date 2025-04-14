@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class RoleAlias extends com.pulumi.resources.PolicyResourceOutput {
      * The name of the role alias.
      * 
      */
-    private UndeferrableValue<String> alias;
-
+    @PolicyResourceProperty(name="alias", flag="unknown_alias")
+    private String value_alias;
+    private boolean unknown_alias;
     public String alias() {
-        if (alias == null) return null;
-        return alias.getValue("RoleAlias.alias");
+        if (!unknown_alias) return value_alias;
+        throw new UndeferrableValueException("Value 'RoleAlias.alias' is not present");
     }
 
     /**
      * The ARN assigned by AWS to this role alias.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("RoleAlias.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'RoleAlias.arn' is not present");
     }
 
     /**
      * The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
      * 
      */
-    private @Nullable UndeferrableValue<Integer> credentialDuration;
-
+    @PolicyResourceProperty(name="credentialDuration", flag="unknown_credentialDuration")
+    private @Nullable Integer value_credentialDuration;
+    private boolean unknown_credentialDuration;
     public @Nullable Integer credentialDuration() {
-        if (credentialDuration == null) return null;
-        return credentialDuration.getValue("RoleAlias.credentialDuration");
+        if (!unknown_credentialDuration) return value_credentialDuration;
+        throw new UndeferrableValueException("Value 'RoleAlias.credentialDuration' is not present");
     }
 
     /**
      * The identity of the role to which the alias refers.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("RoleAlias.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'RoleAlias.roleArn' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RoleAlias.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RoleAlias.tags' is not present");
     }
 
     /**
@@ -77,11 +83,12 @@ public final class RoleAlias extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("RoleAlias.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'RoleAlias.tagsAll' is not present");
     }
 
 }

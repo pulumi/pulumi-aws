@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticbeanstalk.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class ApplicationAppversionLifecycleArgs {
      * Set to `true` to delete a version&#39;s source bundle from S3 when the application version is deleted.
      * 
      */
-    private UndeferrableValue<Boolean> deleteSourceFromS3;
-
+    @PolicyResourceProperty(name="deleteSourceFromS3", flag="unknown_deleteSourceFromS3")
+    private Boolean value_deleteSourceFromS3;
+    private boolean unknown_deleteSourceFromS3;
     public Boolean deleteSourceFromS3() {
-        if (deleteSourceFromS3 == null) return null;
-        return deleteSourceFromS3.getValue("ApplicationAppversionLifecycleArgs.deleteSourceFromS3");
+        if (!unknown_deleteSourceFromS3) return value_deleteSourceFromS3;
+        throw new UndeferrableValueException("Value 'ApplicationAppversionLifecycleArgs.deleteSourceFromS3' is not present");
     }
 
     /**
      * The number of days to retain an application version (&#39;max_age_in_days&#39; and &#39;max_count&#39; cannot be enabled simultaneously.).
      * 
      */
-    private UndeferrableValue<Integer> maxAgeInDays;
-
+    @PolicyResourceProperty(name="maxAgeInDays", flag="unknown_maxAgeInDays")
+    private Integer value_maxAgeInDays;
+    private boolean unknown_maxAgeInDays;
     public Integer maxAgeInDays() {
-        if (maxAgeInDays == null) return null;
-        return maxAgeInDays.getValue("ApplicationAppversionLifecycleArgs.maxAgeInDays");
+        if (!unknown_maxAgeInDays) return value_maxAgeInDays;
+        throw new UndeferrableValueException("Value 'ApplicationAppversionLifecycleArgs.maxAgeInDays' is not present");
     }
 
     /**
      * The maximum number of application versions to retain (&#39;max_age_in_days&#39; and &#39;max_count&#39; cannot be enabled simultaneously.).
      * 
      */
-    private UndeferrableValue<Integer> maxCount;
-
+    @PolicyResourceProperty(name="maxCount", flag="unknown_maxCount")
+    private Integer value_maxCount;
+    private boolean unknown_maxCount;
     public Integer maxCount() {
-        if (maxCount == null) return null;
-        return maxCount.getValue("ApplicationAppversionLifecycleArgs.maxCount");
+        if (!unknown_maxCount) return value_maxCount;
+        throw new UndeferrableValueException("Value 'ApplicationAppversionLifecycleArgs.maxCount' is not present");
     }
 
     /**
      * The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
      * 
      */
-    private UndeferrableValue<String> serviceRole;
-
+    @PolicyResourceProperty(name="serviceRole", flag="unknown_serviceRole")
+    private String value_serviceRole;
+    private boolean unknown_serviceRole;
     public String serviceRole() {
-        if (serviceRole == null) return null;
-        return serviceRole.getValue("ApplicationAppversionLifecycleArgs.serviceRole");
+        if (!unknown_serviceRole) return value_serviceRole;
+        throw new UndeferrableValueException("Value 'ApplicationAppversionLifecycleArgs.serviceRole' is not present");
     }
 
 }

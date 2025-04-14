@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.transfer.inputs.ServerWorkflowDetailsOnPartialUploadArgs;
 import com.pulumi.policypacks.aws.transfer.inputs.ServerWorkflowDetailsOnUploadArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ServerWorkflowDetailsArgs {
      * A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` Block below for details.
      * 
      */
-    private UndeferrableValue<ServerWorkflowDetailsOnPartialUploadArgs> onPartialUpload;
-
+    @PolicyResourceProperty(name="onPartialUpload", flag="unknown_onPartialUpload")
+    private ServerWorkflowDetailsOnPartialUploadArgs value_onPartialUpload;
+    private boolean unknown_onPartialUpload;
     public ServerWorkflowDetailsOnPartialUploadArgs onPartialUpload() {
-        if (onPartialUpload == null) return null;
-        return onPartialUpload.getValue("ServerWorkflowDetailsArgs.onPartialUpload");
+        if (!unknown_onPartialUpload) return value_onPartialUpload;
+        throw new UndeferrableValueException("Value 'ServerWorkflowDetailsArgs.onPartialUpload' is not present");
     }
 
     /**
      * A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` Block below for details.
      * 
      */
-    private UndeferrableValue<ServerWorkflowDetailsOnUploadArgs> onUpload;
-
+    @PolicyResourceProperty(name="onUpload", flag="unknown_onUpload")
+    private ServerWorkflowDetailsOnUploadArgs value_onUpload;
+    private boolean unknown_onUpload;
     public ServerWorkflowDetailsOnUploadArgs onUpload() {
-        if (onUpload == null) return null;
-        return onUpload.getValue("ServerWorkflowDetailsArgs.onUpload");
+        if (!unknown_onUpload) return value_onUpload;
+        throw new UndeferrableValueException("Value 'ServerWorkflowDetailsArgs.onUpload' is not present");
     }
 
 }

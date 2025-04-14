@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials;
 import com.pulumi.policypacks.aws.appflow.outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      * The SAPOData basic authentication credentials.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials> basicAuthCredentials;
-
+    @PolicyResourceProperty(name="basicAuthCredentials", flag="unknown_basicAuthCredentials")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials value_basicAuthCredentials;
+    private boolean unknown_basicAuthCredentials;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials basicAuthCredentials() {
-        if (basicAuthCredentials == null) return null;
-        return basicAuthCredentials.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData.basicAuthCredentials");
+        if (!unknown_basicAuthCredentials) return value_basicAuthCredentials;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData.basicAuthCredentials' is not present");
     }
 
     /**
      * The SAPOData OAuth type authentication credentials.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials> oauthCredentials;
-
+    @PolicyResourceProperty(name="oauthCredentials", flag="unknown_oauthCredentials")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials value_oauthCredentials;
+    private boolean unknown_oauthCredentials;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials oauthCredentials() {
-        if (oauthCredentials == null) return null;
-        return oauthCredentials.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData.oauthCredentials");
+        if (!unknown_oauthCredentials) return value_oauthCredentials;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData.oauthCredentials' is not present");
     }
 
 }

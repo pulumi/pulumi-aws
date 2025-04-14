@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement;
@@ -25,132 +26,144 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatement {
      * A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement> andStatement;
-
+    @PolicyResourceProperty(name="andStatement", flag="unknown_andStatement")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement value_andStatement;
+    private boolean unknown_andStatement;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement andStatement() {
-        if (andStatement == null) return null;
-        return andStatement.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatement.andStatement");
+        if (!unknown_andStatement) return value_andStatement;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatement.andStatement' is not present");
     }
 
     /**
      * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement> byteMatchStatement;
-
+    @PolicyResourceProperty(name="byteMatchStatement", flag="unknown_byteMatchStatement")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement value_byteMatchStatement;
+    private boolean unknown_byteMatchStatement;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement byteMatchStatement() {
-        if (byteMatchStatement == null) return null;
-        return byteMatchStatement.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatement.byteMatchStatement");
+        if (!unknown_byteMatchStatement) return value_byteMatchStatement;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatement.byteMatchStatement' is not present");
     }
 
     /**
      * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement> geoMatchStatement;
-
+    @PolicyResourceProperty(name="geoMatchStatement", flag="unknown_geoMatchStatement")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement value_geoMatchStatement;
+    private boolean unknown_geoMatchStatement;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement geoMatchStatement() {
-        if (geoMatchStatement == null) return null;
-        return geoMatchStatement.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatement.geoMatchStatement");
+        if (!unknown_geoMatchStatement) return value_geoMatchStatement;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatement.geoMatchStatement' is not present");
     }
 
     /**
      * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement> ipSetReferenceStatement;
-
+    @PolicyResourceProperty(name="ipSetReferenceStatement", flag="unknown_ipSetReferenceStatement")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement value_ipSetReferenceStatement;
+    private boolean unknown_ipSetReferenceStatement;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement ipSetReferenceStatement() {
-        if (ipSetReferenceStatement == null) return null;
-        return ipSetReferenceStatement.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatement.ipSetReferenceStatement");
+        if (!unknown_ipSetReferenceStatement) return value_ipSetReferenceStatement;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatement.ipSetReferenceStatement' is not present");
     }
 
     /**
      * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement> labelMatchStatement;
-
+    @PolicyResourceProperty(name="labelMatchStatement", flag="unknown_labelMatchStatement")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement value_labelMatchStatement;
+    private boolean unknown_labelMatchStatement;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement labelMatchStatement() {
-        if (labelMatchStatement == null) return null;
-        return labelMatchStatement.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatement.labelMatchStatement");
+        if (!unknown_labelMatchStatement) return value_labelMatchStatement;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatement.labelMatchStatement' is not present");
     }
 
     /**
      * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement> notStatement;
-
+    @PolicyResourceProperty(name="notStatement", flag="unknown_notStatement")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement value_notStatement;
+    private boolean unknown_notStatement;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement notStatement() {
-        if (notStatement == null) return null;
-        return notStatement.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatement.notStatement");
+        if (!unknown_notStatement) return value_notStatement;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatement.notStatement' is not present");
     }
 
     /**
      * A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement> orStatement;
-
+    @PolicyResourceProperty(name="orStatement", flag="unknown_orStatement")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement value_orStatement;
+    private boolean unknown_orStatement;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement orStatement() {
-        if (orStatement == null) return null;
-        return orStatement.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatement.orStatement");
+        if (!unknown_orStatement) return value_orStatement;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatement.orStatement' is not present");
     }
 
     /**
      * A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement> regexMatchStatement;
-
+    @PolicyResourceProperty(name="regexMatchStatement", flag="unknown_regexMatchStatement")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement value_regexMatchStatement;
+    private boolean unknown_regexMatchStatement;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement regexMatchStatement() {
-        if (regexMatchStatement == null) return null;
-        return regexMatchStatement.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatement.regexMatchStatement");
+        if (!unknown_regexMatchStatement) return value_regexMatchStatement;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatement.regexMatchStatement' is not present");
     }
 
     /**
      * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement> regexPatternSetReferenceStatement;
-
+    @PolicyResourceProperty(name="regexPatternSetReferenceStatement", flag="unknown_regexPatternSetReferenceStatement")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement value_regexPatternSetReferenceStatement;
+    private boolean unknown_regexPatternSetReferenceStatement;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement regexPatternSetReferenceStatement() {
-        if (regexPatternSetReferenceStatement == null) return null;
-        return regexPatternSetReferenceStatement.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatement.regexPatternSetReferenceStatement");
+        if (!unknown_regexPatternSetReferenceStatement) return value_regexPatternSetReferenceStatement;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatement.regexPatternSetReferenceStatement' is not present");
     }
 
     /**
      * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (&gt;) or less than (&lt;). See Size Constraint Statement below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement> sizeConstraintStatement;
-
+    @PolicyResourceProperty(name="sizeConstraintStatement", flag="unknown_sizeConstraintStatement")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement value_sizeConstraintStatement;
+    private boolean unknown_sizeConstraintStatement;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement sizeConstraintStatement() {
-        if (sizeConstraintStatement == null) return null;
-        return sizeConstraintStatement.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatement.sizeConstraintStatement");
+        if (!unknown_sizeConstraintStatement) return value_sizeConstraintStatement;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatement.sizeConstraintStatement' is not present");
     }
 
     /**
      * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement> sqliMatchStatement;
-
+    @PolicyResourceProperty(name="sqliMatchStatement", flag="unknown_sqliMatchStatement")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement value_sqliMatchStatement;
+    private boolean unknown_sqliMatchStatement;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement sqliMatchStatement() {
-        if (sqliMatchStatement == null) return null;
-        return sqliMatchStatement.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatement.sqliMatchStatement");
+        if (!unknown_sqliMatchStatement) return value_sqliMatchStatement;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatement.sqliMatchStatement' is not present");
     }
 
     /**
      * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement> xssMatchStatement;
-
+    @PolicyResourceProperty(name="xssMatchStatement", flag="unknown_xssMatchStatement")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement value_xssMatchStatement;
+    private boolean unknown_xssMatchStatement;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement xssMatchStatement() {
-        if (xssMatchStatement == null) return null;
-        return xssMatchStatement.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatement.xssMatchStatement");
+        if (!unknown_xssMatchStatement) return value_xssMatchStatement;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatement.xssMatchStatement' is not present");
     }
 
 }

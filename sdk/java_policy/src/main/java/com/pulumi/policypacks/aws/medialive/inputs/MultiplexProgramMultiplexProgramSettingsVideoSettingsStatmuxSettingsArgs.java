@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxS
      * Maximum bitrate.
      * 
      */
-    private UndeferrableValue<Integer> maximumBitrate;
-
+    @PolicyResourceProperty(name="maximumBitrate", flag="unknown_maximumBitrate")
+    private Integer value_maximumBitrate;
+    private boolean unknown_maximumBitrate;
     public Integer maximumBitrate() {
-        if (maximumBitrate == null) return null;
-        return maximumBitrate.getValue("MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs.maximumBitrate");
+        if (!unknown_maximumBitrate) return value_maximumBitrate;
+        throw new UndeferrableValueException("Value 'MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs.maximumBitrate' is not present");
     }
 
     /**
      * Minimum bitrate.
      * 
      */
-    private UndeferrableValue<Integer> minimumBitrate;
-
+    @PolicyResourceProperty(name="minimumBitrate", flag="unknown_minimumBitrate")
+    private Integer value_minimumBitrate;
+    private boolean unknown_minimumBitrate;
     public Integer minimumBitrate() {
-        if (minimumBitrate == null) return null;
-        return minimumBitrate.getValue("MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs.minimumBitrate");
+        if (!unknown_minimumBitrate) return value_minimumBitrate;
+        throw new UndeferrableValueException("Value 'MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs.minimumBitrate' is not present");
     }
 
     /**
      * Priority value.
      * 
      */
-    private UndeferrableValue<Integer> priority;
-
+    @PolicyResourceProperty(name="priority", flag="unknown_priority")
+    private Integer value_priority;
+    private boolean unknown_priority;
     public Integer priority() {
-        if (priority == null) return null;
-        return priority.getValue("MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs.priority");
+        if (!unknown_priority) return value_priority;
+        throw new UndeferrableValueException("Value 'MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs.priority' is not present");
     }
 
 }

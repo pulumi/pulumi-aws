@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.Integer;
 
@@ -14,22 +15,24 @@ public final class AccountThrottleSetting {
      * Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
      * 
      */
-    private UndeferrableValue<Integer> burstLimit;
-
+    @PolicyResourceProperty(name="burstLimit", flag="unknown_burstLimit")
+    private Integer value_burstLimit;
+    private boolean unknown_burstLimit;
     public Integer burstLimit() {
-        if (burstLimit == null) return null;
-        return burstLimit.getValue("AccountThrottleSetting.burstLimit");
+        if (!unknown_burstLimit) return value_burstLimit;
+        throw new UndeferrableValueException("Value 'AccountThrottleSetting.burstLimit' is not present");
     }
 
     /**
      * Number of times API Gateway allows the API to be called per second on average (RPS).
      * 
      */
-    private UndeferrableValue<Double> rateLimit;
-
+    @PolicyResourceProperty(name="rateLimit", flag="unknown_rateLimit")
+    private Double value_rateLimit;
+    private boolean unknown_rateLimit;
     public Double rateLimit() {
-        if (rateLimit == null) return null;
-        return rateLimit.getValue("AccountThrottleSetting.rateLimit");
+        if (!unknown_rateLimit) return value_rateLimit;
+        throw new UndeferrableValueException("Value 'AccountThrottleSetting.rateLimit' is not present");
     }
 
 }

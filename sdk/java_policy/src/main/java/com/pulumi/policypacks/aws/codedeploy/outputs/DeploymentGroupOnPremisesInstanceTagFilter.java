@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codedeploy.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class DeploymentGroupOnPremisesInstanceTagFilter {
      * The key of the tag filter.
      * 
      */
-    private @Nullable UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private @Nullable String value_key;
+    private boolean unknown_key;
     public @Nullable String key() {
-        if (key == null) return null;
-        return key.getValue("DeploymentGroupOnPremisesInstanceTagFilter.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'DeploymentGroupOnPremisesInstanceTagFilter.key' is not present");
     }
 
     /**
      * The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("DeploymentGroupOnPremisesInstanceTagFilter.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'DeploymentGroupOnPremisesInstanceTagFilter.type' is not present");
     }
 
     /**
      * The value of the tag filter.
      * 
      */
-    private @Nullable UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private @Nullable String value_value;
+    private boolean unknown_value;
     public @Nullable String value() {
-        if (value == null) return null;
-        return value.getValue("DeploymentGroupOnPremisesInstanceTagFilter.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'DeploymentGroupOnPremisesInstanceTagFilter.value' is not present");
     }
 
 }

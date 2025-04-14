@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class ChannelMaintenance {
      * The day of the week to use for maintenance.
      * 
      */
-    private UndeferrableValue<String> maintenanceDay;
-
+    @PolicyResourceProperty(name="maintenanceDay", flag="unknown_maintenanceDay")
+    private String value_maintenanceDay;
+    private boolean unknown_maintenanceDay;
     public String maintenanceDay() {
-        if (maintenanceDay == null) return null;
-        return maintenanceDay.getValue("ChannelMaintenance.maintenanceDay");
+        if (!unknown_maintenanceDay) return value_maintenanceDay;
+        throw new UndeferrableValueException("Value 'ChannelMaintenance.maintenanceDay' is not present");
     }
 
     /**
      * The hour maintenance will start.
      * 
      */
-    private UndeferrableValue<String> maintenanceStartTime;
-
+    @PolicyResourceProperty(name="maintenanceStartTime", flag="unknown_maintenanceStartTime")
+    private String value_maintenanceStartTime;
+    private boolean unknown_maintenanceStartTime;
     public String maintenanceStartTime() {
-        if (maintenanceStartTime == null) return null;
-        return maintenanceStartTime.getValue("ChannelMaintenance.maintenanceStartTime");
+        if (!unknown_maintenanceStartTime) return value_maintenanceStartTime;
+        throw new UndeferrableValueException("Value 'ChannelMaintenance.maintenanceStartTime' is not present");
     }
 
 }

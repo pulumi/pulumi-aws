@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -19,55 +20,60 @@ public final class SnapshotSchedule extends com.pulumi.resources.PolicyResourceO
      * Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("SnapshotSchedule.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'SnapshotSchedule.arn' is not present");
     }
 
     /**
      * The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
      * 
      */
-    private UndeferrableValue<List<String>> definitions;
-
+    @PolicyResourceProperty(name="definitions", flag="unknown_definitions")
+    private List<String> value_definitions;
+    private boolean unknown_definitions;
     public List<String> definitions() {
-        if (definitions == null) return null;
-        return definitions.getValue("SnapshotSchedule.definitions");
+        if (!unknown_definitions) return value_definitions;
+        throw new UndeferrableValueException("Value 'SnapshotSchedule.definitions' is not present");
     }
 
     /**
      * The description of the snapshot schedule.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("SnapshotSchedule.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'SnapshotSchedule.description' is not present");
     }
 
     /**
      * Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> forceDestroy;
-
+    @PolicyResourceProperty(name="forceDestroy", flag="unknown_forceDestroy")
+    private @Nullable Boolean value_forceDestroy;
+    private boolean unknown_forceDestroy;
     public @Nullable Boolean forceDestroy() {
-        if (forceDestroy == null) return null;
-        return forceDestroy.getValue("SnapshotSchedule.forceDestroy");
+        if (!unknown_forceDestroy) return value_forceDestroy;
+        throw new UndeferrableValueException("Value 'SnapshotSchedule.forceDestroy' is not present");
     }
 
     /**
      * The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
      * 
      */
-    private UndeferrableValue<String> identifier;
-
+    @PolicyResourceProperty(name="identifier", flag="unknown_identifier")
+    private String value_identifier;
+    private boolean unknown_identifier;
     public String identifier() {
-        if (identifier == null) return null;
-        return identifier.getValue("SnapshotSchedule.identifier");
+        if (!unknown_identifier) return value_identifier;
+        throw new UndeferrableValueException("Value 'SnapshotSchedule.identifier' is not present");
     }
 
     /**
@@ -75,22 +81,24 @@ public final class SnapshotSchedule extends com.pulumi.resources.PolicyResourceO
      * identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
-    private UndeferrableValue<String> identifierPrefix;
-
+    @PolicyResourceProperty(name="identifierPrefix", flag="unknown_identifierPrefix")
+    private String value_identifierPrefix;
+    private boolean unknown_identifierPrefix;
     public String identifierPrefix() {
-        if (identifierPrefix == null) return null;
-        return identifierPrefix.getValue("SnapshotSchedule.identifierPrefix");
+        if (!unknown_identifierPrefix) return value_identifierPrefix;
+        throw new UndeferrableValueException("Value 'SnapshotSchedule.identifierPrefix' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SnapshotSchedule.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SnapshotSchedule.tags' is not present");
     }
 
     /**
@@ -101,11 +109,12 @@ public final class SnapshotSchedule extends com.pulumi.resources.PolicyResourceO
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("SnapshotSchedule.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'SnapshotSchedule.tagsAll' is not present");
     }
 
 }

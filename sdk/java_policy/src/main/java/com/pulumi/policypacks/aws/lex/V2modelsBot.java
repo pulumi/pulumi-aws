@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsBotDataPrivacy;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsBotMember;
@@ -18,66 +19,72 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:lex/v2modelsBot:V2modelsBot")
 public final class V2modelsBot extends com.pulumi.resources.PolicyResourceOutput {
 
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("V2modelsBot.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'V2modelsBot.arn' is not present");
     }
 
     /**
      * Provides information on additional privacy protections Amazon Lex should use with the bot&#39;s data. See `data_privacy`
      * 
      */
-    private @Nullable UndeferrableValue<List<V2modelsBotDataPrivacy>> dataPrivacies;
-
+    @PolicyResourceProperty(name="dataPrivacies", flag="unknown_dataPrivacies")
+    private @Nullable List<V2modelsBotDataPrivacy> value_dataPrivacies;
+    private boolean unknown_dataPrivacies;
     public @Nullable List<V2modelsBotDataPrivacy> dataPrivacies() {
-        if (dataPrivacies == null) return null;
-        return dataPrivacies.getValue("V2modelsBot.dataPrivacies");
+        if (!unknown_dataPrivacies) return value_dataPrivacies;
+        throw new UndeferrableValueException("Value 'V2modelsBot.dataPrivacies' is not present");
     }
 
     /**
      * Description of the bot. It appears in lists to help you identify a particular bot.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("V2modelsBot.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'V2modelsBot.description' is not present");
     }
 
     /**
      * Time, in seconds, that Amazon Lex should keep information about a user&#39;s conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
      * 
      */
-    private UndeferrableValue<Integer> idleSessionTtlInSeconds;
-
+    @PolicyResourceProperty(name="idleSessionTtlInSeconds", flag="unknown_idleSessionTtlInSeconds")
+    private Integer value_idleSessionTtlInSeconds;
+    private boolean unknown_idleSessionTtlInSeconds;
     public Integer idleSessionTtlInSeconds() {
-        if (idleSessionTtlInSeconds == null) return null;
-        return idleSessionTtlInSeconds.getValue("V2modelsBot.idleSessionTtlInSeconds");
+        if (!unknown_idleSessionTtlInSeconds) return value_idleSessionTtlInSeconds;
+        throw new UndeferrableValueException("Value 'V2modelsBot.idleSessionTtlInSeconds' is not present");
     }
 
     /**
      * List of bot members in a network to be created. See `bot_members`.
      * 
      */
-    private @Nullable UndeferrableValue<List<V2modelsBotMember>> members;
-
+    @PolicyResourceProperty(name="members", flag="unknown_members")
+    private @Nullable List<V2modelsBotMember> value_members;
+    private boolean unknown_members;
     public @Nullable List<V2modelsBotMember> members() {
-        if (members == null) return null;
-        return members.getValue("V2modelsBot.members");
+        if (!unknown_members) return value_members;
+        throw new UndeferrableValueException("Value 'V2modelsBot.members' is not present");
     }
 
     /**
      * Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("V2modelsBot.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'V2modelsBot.name' is not present");
     }
 
     /**
@@ -86,22 +93,24 @@ public final class V2modelsBot extends com.pulumi.resources.PolicyResourceOutput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("V2modelsBot.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'V2modelsBot.roleArn' is not present");
     }
 
     /**
      * List of tags to add to the bot. You can only add tags when you create a bot.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("V2modelsBot.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'V2modelsBot.tags' is not present");
     }
 
     /**
@@ -110,40 +119,44 @@ public final class V2modelsBot extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("V2modelsBot.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'V2modelsBot.tagsAll' is not present");
     }
 
     /**
      * List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> testBotAliasTags;
-
+    @PolicyResourceProperty(name="testBotAliasTags", flag="unknown_testBotAliasTags")
+    private @Nullable Map<String,String> value_testBotAliasTags;
+    private boolean unknown_testBotAliasTags;
     public @Nullable Map<String,String> testBotAliasTags() {
-        if (testBotAliasTags == null) return null;
-        return testBotAliasTags.getValue("V2modelsBot.testBotAliasTags");
+        if (!unknown_testBotAliasTags) return value_testBotAliasTags;
+        throw new UndeferrableValueException("Value 'V2modelsBot.testBotAliasTags' is not present");
     }
 
-    private @Nullable UndeferrableValue<V2modelsBotTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable V2modelsBotTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable V2modelsBotTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("V2modelsBot.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'V2modelsBot.timeouts' is not present");
     }
 
     /**
      * Type of a bot to create. Possible values are `&#34;Bot&#34;` and `&#34;BotNetwork&#34;`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("V2modelsBot.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'V2modelsBot.type' is not present");
     }
 
 }

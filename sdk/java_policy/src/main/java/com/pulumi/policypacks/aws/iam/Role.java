@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.iam.outputs.RoleInlinePolicy;
 import java.lang.Boolean;
@@ -21,11 +22,12 @@ public final class Role extends com.pulumi.resources.PolicyResourceOutput {
      * Amazon Resource Name (ARN) specifying the role.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Role.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Role.arn' is not present");
     }
 
     /**
@@ -36,132 +38,144 @@ public final class Role extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> assumeRolePolicy;
-
+    @PolicyResourceProperty(name="assumeRolePolicy", flag="unknown_assumeRolePolicy")
+    private String value_assumeRolePolicy;
+    private boolean unknown_assumeRolePolicy;
     public String assumeRolePolicy() {
-        if (assumeRolePolicy == null) return null;
-        return assumeRolePolicy.getValue("Role.assumeRolePolicy");
+        if (!unknown_assumeRolePolicy) return value_assumeRolePolicy;
+        throw new UndeferrableValueException("Value 'Role.assumeRolePolicy' is not present");
     }
 
     /**
      * Creation date of the IAM role.
      * 
      */
-    private UndeferrableValue<String> createDate;
-
+    @PolicyResourceProperty(name="createDate", flag="unknown_createDate")
+    private String value_createDate;
+    private boolean unknown_createDate;
     public String createDate() {
-        if (createDate == null) return null;
-        return createDate.getValue("Role.createDate");
+        if (!unknown_createDate) return value_createDate;
+        throw new UndeferrableValueException("Value 'Role.createDate' is not present");
     }
 
     /**
      * Description of the role.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Role.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Role.description' is not present");
     }
 
     /**
      * Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> forceDetachPolicies;
-
+    @PolicyResourceProperty(name="forceDetachPolicies", flag="unknown_forceDetachPolicies")
+    private @Nullable Boolean value_forceDetachPolicies;
+    private boolean unknown_forceDetachPolicies;
     public @Nullable Boolean forceDetachPolicies() {
-        if (forceDetachPolicies == null) return null;
-        return forceDetachPolicies.getValue("Role.forceDetachPolicies");
+        if (!unknown_forceDetachPolicies) return value_forceDetachPolicies;
+        throw new UndeferrableValueException("Value 'Role.forceDetachPolicies' is not present");
     }
 
     /**
      * Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, Pulumi will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause Pulumi to remove _all_ inline policies added out of band on `apply`.
      * 
      */
-    private UndeferrableValue<List<RoleInlinePolicy>> inlinePolicies;
-
+    @PolicyResourceProperty(name="inlinePolicies", flag="unknown_inlinePolicies")
+    private List<RoleInlinePolicy> value_inlinePolicies;
+    private boolean unknown_inlinePolicies;
     public List<RoleInlinePolicy> inlinePolicies() {
-        if (inlinePolicies == null) return null;
-        return inlinePolicies.getValue("Role.inlinePolicies");
+        if (!unknown_inlinePolicies) return value_inlinePolicies;
+        throw new UndeferrableValueException("Value 'Role.inlinePolicies' is not present");
     }
 
     /**
      * Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, Pulumi will ignore policy attachments to this resource. When configured, Pulumi will align the role&#39;s managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managed_policy_arns = []`) will cause Pulumi to remove _all_ managed policy attachments.
      * 
      */
-    private UndeferrableValue<List<String>> managedPolicyArns;
-
+    @PolicyResourceProperty(name="managedPolicyArns", flag="unknown_managedPolicyArns")
+    private List<String> value_managedPolicyArns;
+    private boolean unknown_managedPolicyArns;
     public List<String> managedPolicyArns() {
-        if (managedPolicyArns == null) return null;
-        return managedPolicyArns.getValue("Role.managedPolicyArns");
+        if (!unknown_managedPolicyArns) return value_managedPolicyArns;
+        throw new UndeferrableValueException("Value 'Role.managedPolicyArns' is not present");
     }
 
     /**
      * Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxSessionDuration;
-
+    @PolicyResourceProperty(name="maxSessionDuration", flag="unknown_maxSessionDuration")
+    private @Nullable Integer value_maxSessionDuration;
+    private boolean unknown_maxSessionDuration;
     public @Nullable Integer maxSessionDuration() {
-        if (maxSessionDuration == null) return null;
-        return maxSessionDuration.getValue("Role.maxSessionDuration");
+        if (!unknown_maxSessionDuration) return value_maxSessionDuration;
+        throw new UndeferrableValueException("Value 'Role.maxSessionDuration' is not present");
     }
 
     /**
      * Friendly name of the role. If omitted, the provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Role.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Role.name' is not present");
     }
 
     /**
      * Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("Role.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'Role.namePrefix' is not present");
     }
 
     /**
      * Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      * 
      */
-    private @Nullable UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private @Nullable String value_path;
+    private boolean unknown_path;
     public @Nullable String path() {
-        if (path == null) return null;
-        return path.getValue("Role.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'Role.path' is not present");
     }
 
     /**
      * ARN of the policy that is used to set the permissions boundary for the role.
      * 
      */
-    private @Nullable UndeferrableValue<String> permissionsBoundary;
-
+    @PolicyResourceProperty(name="permissionsBoundary", flag="unknown_permissionsBoundary")
+    private @Nullable String value_permissionsBoundary;
+    private boolean unknown_permissionsBoundary;
     public @Nullable String permissionsBoundary() {
-        if (permissionsBoundary == null) return null;
-        return permissionsBoundary.getValue("Role.permissionsBoundary");
+        if (!unknown_permissionsBoundary) return value_permissionsBoundary;
+        throw new UndeferrableValueException("Value 'Role.permissionsBoundary' is not present");
     }
 
     /**
      * Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Role.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Role.tags' is not present");
     }
 
     /**
@@ -172,22 +186,24 @@ public final class Role extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Role.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Role.tagsAll' is not present");
     }
 
     /**
      * Stable and unique string identifying the role.
      * 
      */
-    private UndeferrableValue<String> uniqueId;
-
+    @PolicyResourceProperty(name="uniqueId", flag="unknown_uniqueId")
+    private String value_uniqueId;
+    private boolean unknown_uniqueId;
     public String uniqueId() {
-        if (uniqueId == null) return null;
-        return uniqueId.getValue("Role.uniqueId");
+        if (!unknown_uniqueId) return value_uniqueId;
+        throw new UndeferrableValueException("Value 'Role.uniqueId' is not present");
     }
 
 }

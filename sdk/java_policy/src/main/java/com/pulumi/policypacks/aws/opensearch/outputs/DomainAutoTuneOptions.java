@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.opensearch.outputs.DomainAutoTuneOptionsMaintenanceSchedule;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,11 +18,12 @@ public final class DomainAutoTuneOptions {
      * Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> desiredState;
-
+    @PolicyResourceProperty(name="desiredState", flag="unknown_desiredState")
+    private String value_desiredState;
+    private boolean unknown_desiredState;
     public String desiredState() {
-        if (desiredState == null) return null;
-        return desiredState.getValue("DomainAutoTuneOptions.desiredState");
+        if (!unknown_desiredState) return value_desiredState;
+        throw new UndeferrableValueException("Value 'DomainAutoTuneOptions.desiredState' is not present");
     }
 
     /**
@@ -30,33 +32,36 @@ public final class DomainAutoTuneOptions {
      * **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenance_schedule` configuration blocks cannot be specified when `use_off_peak_window` is set to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<List<DomainAutoTuneOptionsMaintenanceSchedule>> maintenanceSchedules;
-
+    @PolicyResourceProperty(name="maintenanceSchedules", flag="unknown_maintenanceSchedules")
+    private @Nullable List<DomainAutoTuneOptionsMaintenanceSchedule> value_maintenanceSchedules;
+    private boolean unknown_maintenanceSchedules;
     public @Nullable List<DomainAutoTuneOptionsMaintenanceSchedule> maintenanceSchedules() {
-        if (maintenanceSchedules == null) return null;
-        return maintenanceSchedules.getValue("DomainAutoTuneOptions.maintenanceSchedules");
+        if (!unknown_maintenanceSchedules) return value_maintenanceSchedules;
+        throw new UndeferrableValueException("Value 'DomainAutoTuneOptions.maintenanceSchedules' is not present");
     }
 
     /**
      * Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
      * 
      */
-    private @Nullable UndeferrableValue<String> rollbackOnDisable;
-
+    @PolicyResourceProperty(name="rollbackOnDisable", flag="unknown_rollbackOnDisable")
+    private @Nullable String value_rollbackOnDisable;
+    private boolean unknown_rollbackOnDisable;
     public @Nullable String rollbackOnDisable() {
-        if (rollbackOnDisable == null) return null;
-        return rollbackOnDisable.getValue("DomainAutoTuneOptions.rollbackOnDisable");
+        if (!unknown_rollbackOnDisable) return value_rollbackOnDisable;
+        throw new UndeferrableValueException("Value 'DomainAutoTuneOptions.rollbackOnDisable' is not present");
     }
 
     /**
      * Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain&#39;s configured daily off-peak window. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> useOffPeakWindow;
-
+    @PolicyResourceProperty(name="useOffPeakWindow", flag="unknown_useOffPeakWindow")
+    private @Nullable Boolean value_useOffPeakWindow;
+    private boolean unknown_useOffPeakWindow;
     public @Nullable Boolean useOffPeakWindow() {
-        if (useOffPeakWindow == null) return null;
-        return useOffPeakWindow.getValue("DomainAutoTuneOptions.useOffPeakWindow");
+        if (!unknown_useOffPeakWindow) return value_useOffPeakWindow;
+        throw new UndeferrableValueException("Value 'DomainAutoTuneOptions.useOffPeakWindow' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class TagArgs extends com.pulumi.resources.PolicyResourceInput {
      * Tag name.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("TagArgs.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'TagArgs.key' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the ECS resource to tag.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("TagArgs.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'TagArgs.resourceArn' is not present");
     }
 
     /**
      * Tag value.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("TagArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'TagArgs.value' is not present");
     }
 
 }

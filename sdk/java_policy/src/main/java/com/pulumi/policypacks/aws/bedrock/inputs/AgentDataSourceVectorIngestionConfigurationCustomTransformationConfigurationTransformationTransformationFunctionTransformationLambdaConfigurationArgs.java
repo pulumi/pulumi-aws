@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
      * The ARN of the lambda to use for custom transformation.
      * 
      */
-    private UndeferrableValue<String> lambdaArn;
-
+    @PolicyResourceProperty(name="lambdaArn", flag="unknown_lambdaArn")
+    private String value_lambdaArn;
+    private boolean unknown_lambdaArn;
     public String lambdaArn() {
-        if (lambdaArn == null) return null;
-        return lambdaArn.getValue("AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs.lambdaArn");
+        if (!unknown_lambdaArn) return value_lambdaArn;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs.lambdaArn' is not present");
     }
 
 }

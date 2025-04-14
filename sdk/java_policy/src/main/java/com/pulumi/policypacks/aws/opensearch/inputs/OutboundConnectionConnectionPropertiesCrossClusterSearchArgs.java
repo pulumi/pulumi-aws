@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class OutboundConnectionConnectionPropertiesCrossClusterSearchArgs 
      * Skips unavailable clusters and can only be used for cross-cluster searches. Accepted values are `ENABLED` or `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> skipUnavailable;
-
+    @PolicyResourceProperty(name="skipUnavailable", flag="unknown_skipUnavailable")
+    private String value_skipUnavailable;
+    private boolean unknown_skipUnavailable;
     public String skipUnavailable() {
-        if (skipUnavailable == null) return null;
-        return skipUnavailable.getValue("OutboundConnectionConnectionPropertiesCrossClusterSearchArgs.skipUnavailable");
+        if (!unknown_skipUnavailable) return value_skipUnavailable;
+        throw new UndeferrableValueException("Value 'OutboundConnectionConnectionPropertiesCrossClusterSearchArgs.skipUnavailable' is not present");
     }
 
 }

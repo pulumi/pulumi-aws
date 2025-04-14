@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,44 +16,48 @@ public final class StreamConsumer extends com.pulumi.resources.PolicyResourceOut
      * Amazon Resource Name (ARN) of the stream consumer.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("StreamConsumer.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'StreamConsumer.arn' is not present");
     }
 
     /**
      * Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
      * 
      */
-    private UndeferrableValue<String> creationTimestamp;
-
+    @PolicyResourceProperty(name="creationTimestamp", flag="unknown_creationTimestamp")
+    private String value_creationTimestamp;
+    private boolean unknown_creationTimestamp;
     public String creationTimestamp() {
-        if (creationTimestamp == null) return null;
-        return creationTimestamp.getValue("StreamConsumer.creationTimestamp");
+        if (!unknown_creationTimestamp) return value_creationTimestamp;
+        throw new UndeferrableValueException("Value 'StreamConsumer.creationTimestamp' is not present");
     }
 
     /**
      * Name of the stream consumer.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("StreamConsumer.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'StreamConsumer.name' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the data stream the consumer is registered with.
      * 
      */
-    private UndeferrableValue<String> streamArn;
-
+    @PolicyResourceProperty(name="streamArn", flag="unknown_streamArn")
+    private String value_streamArn;
+    private boolean unknown_streamArn;
     public String streamArn() {
-        if (streamArn == null) return null;
-        return streamArn.getValue("StreamConsumer.streamArn");
+        if (!unknown_streamArn) return value_streamArn;
+        throw new UndeferrableValueException("Value 'StreamConsumer.streamArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.outputs.DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleMan
      * Settings related to idle shutdown of Studio applications. see `idle_settings` Block below.
      * 
      */
-    private @Nullable UndeferrableValue<DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings> idleSettings;
-
+    @PolicyResourceProperty(name="idleSettings", flag="unknown_idleSettings")
+    private @Nullable DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings value_idleSettings;
+    private boolean unknown_idleSettings;
     public @Nullable DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettings idleSettings() {
-        if (idleSettings == null) return null;
-        return idleSettings.getValue("DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement.idleSettings");
+        if (!unknown_idleSettings) return value_idleSettings;
+        throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagement.idleSettings' is not present");
     }
 
 }

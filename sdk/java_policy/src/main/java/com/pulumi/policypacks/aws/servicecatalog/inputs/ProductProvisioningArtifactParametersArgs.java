@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicecatalog.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,66 +16,72 @@ public final class ProductProvisioningArtifactParametersArgs {
      * Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ProductProvisioningArtifactParametersArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ProductProvisioningArtifactParametersArgs.description' is not present");
     }
 
     /**
      * Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
      * 
      */
-    private UndeferrableValue<Boolean> disableTemplateValidation;
-
+    @PolicyResourceProperty(name="disableTemplateValidation", flag="unknown_disableTemplateValidation")
+    private Boolean value_disableTemplateValidation;
+    private boolean unknown_disableTemplateValidation;
     public Boolean disableTemplateValidation() {
-        if (disableTemplateValidation == null) return null;
-        return disableTemplateValidation.getValue("ProductProvisioningArtifactParametersArgs.disableTemplateValidation");
+        if (!unknown_disableTemplateValidation) return value_disableTemplateValidation;
+        throw new UndeferrableValueException("Value 'ProductProvisioningArtifactParametersArgs.disableTemplateValidation' is not present");
     }
 
     /**
      * Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ProductProvisioningArtifactParametersArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ProductProvisioningArtifactParametersArgs.name' is not present");
     }
 
     /**
      * Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
      * 
      */
-    private UndeferrableValue<String> templatePhysicalId;
-
+    @PolicyResourceProperty(name="templatePhysicalId", flag="unknown_templatePhysicalId")
+    private String value_templatePhysicalId;
+    private boolean unknown_templatePhysicalId;
     public String templatePhysicalId() {
-        if (templatePhysicalId == null) return null;
-        return templatePhysicalId.getValue("ProductProvisioningArtifactParametersArgs.templatePhysicalId");
+        if (!unknown_templatePhysicalId) return value_templatePhysicalId;
+        throw new UndeferrableValueException("Value 'ProductProvisioningArtifactParametersArgs.templatePhysicalId' is not present");
     }
 
     /**
      * Template source as URL of the CloudFormation template in Amazon S3.
      * 
      */
-    private UndeferrableValue<String> templateUrl;
-
+    @PolicyResourceProperty(name="templateUrl", flag="unknown_templateUrl")
+    private String value_templateUrl;
+    private boolean unknown_templateUrl;
     public String templateUrl() {
-        if (templateUrl == null) return null;
-        return templateUrl.getValue("ProductProvisioningArtifactParametersArgs.templateUrl");
+        if (!unknown_templateUrl) return value_templateUrl;
+        throw new UndeferrableValueException("Value 'ProductProvisioningArtifactParametersArgs.templateUrl' is not present");
     }
 
     /**
      * Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ProductProvisioningArtifactParametersArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ProductProvisioningArtifactParametersArgs.type' is not present");
     }
 
 }

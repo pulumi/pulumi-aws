@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rekognition.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class StreamProcessorRegionsOfInterestPolygon {
      * The value of the X coordinate for a point on a Polygon.
      * 
      */
-    private @Nullable UndeferrableValue<Double> x;
-
+    @PolicyResourceProperty(name="x", flag="unknown_x")
+    private @Nullable Double value_x;
+    private boolean unknown_x;
     public @Nullable Double x() {
-        if (x == null) return null;
-        return x.getValue("StreamProcessorRegionsOfInterestPolygon.x");
+        if (!unknown_x) return value_x;
+        throw new UndeferrableValueException("Value 'StreamProcessorRegionsOfInterestPolygon.x' is not present");
     }
 
     /**
      * The value of the Y coordinate for a point on a Polygon.
      * 
      */
-    private @Nullable UndeferrableValue<Double> y;
-
+    @PolicyResourceProperty(name="y", flag="unknown_y")
+    private @Nullable Double value_y;
+    private boolean unknown_y;
     public @Nullable Double y() {
-        if (y == null) return null;
-        return y.getValue("StreamProcessorRegionsOfInterestPolygon.y");
+        if (!unknown_y) return value_y;
+        throw new UndeferrableValueException("Value 'StreamProcessorRegionsOfInterestPolygon.y' is not present");
     }
 
 }

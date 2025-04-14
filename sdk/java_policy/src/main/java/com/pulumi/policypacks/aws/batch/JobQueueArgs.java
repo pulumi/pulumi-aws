@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.batch.inputs.JobQueueComputeEnvironmentOrderArgs;
 import com.pulumi.policypacks.aws.batch.inputs.JobQueueJobStateTimeLimitActionArgs;
@@ -22,11 +23,12 @@ public final class JobQueueArgs extends com.pulumi.resources.PolicyResourceInput
      * The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
      * 
      */
-    private UndeferrableValue<List<JobQueueComputeEnvironmentOrderArgs>> computeEnvironmentOrders;
-
+    @PolicyResourceProperty(name="computeEnvironmentOrders", flag="unknown_computeEnvironmentOrders")
+    private List<JobQueueComputeEnvironmentOrderArgs> value_computeEnvironmentOrders;
+    private boolean unknown_computeEnvironmentOrders;
     public List<JobQueueComputeEnvironmentOrderArgs> computeEnvironmentOrders() {
-        if (computeEnvironmentOrders == null) return null;
-        return computeEnvironmentOrders.getValue("JobQueueArgs.computeEnvironmentOrders");
+        if (!unknown_computeEnvironmentOrders) return value_computeEnvironmentOrders;
+        throw new UndeferrableValueException("Value 'JobQueueArgs.computeEnvironmentOrders' is not present");
     }
 
     /**
@@ -37,33 +39,36 @@ public final class JobQueueArgs extends com.pulumi.resources.PolicyResourceInput
      * 
      */
     @Deprecated /* This parameter will be replaced by `compute_environment_order`. */
-    private UndeferrableValue<List<String>> computeEnvironments;
-
+    @PolicyResourceProperty(name="computeEnvironments", flag="unknown_computeEnvironments")
+    private List<String> value_computeEnvironments;
+    private boolean unknown_computeEnvironments;
     public List<String> computeEnvironments() {
-        if (computeEnvironments == null) return null;
-        return computeEnvironments.getValue("JobQueueArgs.computeEnvironments");
+        if (!unknown_computeEnvironments) return value_computeEnvironments;
+        throw new UndeferrableValueException("Value 'JobQueueArgs.computeEnvironments' is not present");
     }
 
     /**
      * The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
      * 
      */
-    private UndeferrableValue<List<JobQueueJobStateTimeLimitActionArgs>> jobStateTimeLimitActions;
-
+    @PolicyResourceProperty(name="jobStateTimeLimitActions", flag="unknown_jobStateTimeLimitActions")
+    private List<JobQueueJobStateTimeLimitActionArgs> value_jobStateTimeLimitActions;
+    private boolean unknown_jobStateTimeLimitActions;
     public List<JobQueueJobStateTimeLimitActionArgs> jobStateTimeLimitActions() {
-        if (jobStateTimeLimitActions == null) return null;
-        return jobStateTimeLimitActions.getValue("JobQueueArgs.jobStateTimeLimitActions");
+        if (!unknown_jobStateTimeLimitActions) return value_jobStateTimeLimitActions;
+        throw new UndeferrableValueException("Value 'JobQueueArgs.jobStateTimeLimitActions' is not present");
     }
 
     /**
      * Specifies the name of the job queue.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("JobQueueArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'JobQueueArgs.name' is not present");
     }
 
     /**
@@ -71,51 +76,56 @@ public final class JobQueueArgs extends com.pulumi.resources.PolicyResourceInput
      * are evaluated first when associated with the same compute environment.
      * 
      */
-    private UndeferrableValue<Integer> priority;
-
+    @PolicyResourceProperty(name="priority", flag="unknown_priority")
+    private Integer value_priority;
+    private boolean unknown_priority;
     public Integer priority() {
-        if (priority == null) return null;
-        return priority.getValue("JobQueueArgs.priority");
+        if (!unknown_priority) return value_priority;
+        throw new UndeferrableValueException("Value 'JobQueueArgs.priority' is not present");
     }
 
     /**
      * The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn&#39;t specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can&#39;t remove the fair share scheduling policy.
      * 
      */
-    private UndeferrableValue<String> schedulingPolicyArn;
-
+    @PolicyResourceProperty(name="schedulingPolicyArn", flag="unknown_schedulingPolicyArn")
+    private String value_schedulingPolicyArn;
+    private boolean unknown_schedulingPolicyArn;
     public String schedulingPolicyArn() {
-        if (schedulingPolicyArn == null) return null;
-        return schedulingPolicyArn.getValue("JobQueueArgs.schedulingPolicyArn");
+        if (!unknown_schedulingPolicyArn) return value_schedulingPolicyArn;
+        throw new UndeferrableValueException("Value 'JobQueueArgs.schedulingPolicyArn' is not present");
     }
 
     /**
      * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("JobQueueArgs.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'JobQueueArgs.state' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("JobQueueArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'JobQueueArgs.tags' is not present");
     }
 
-    private UndeferrableValue<JobQueueTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private JobQueueTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public JobQueueTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("JobQueueArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'JobQueueArgs.timeouts' is not present");
     }
 
 }

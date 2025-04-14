@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafregional;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class WebAclAssociationArgs extends com.pulumi.resources.PolicyReso
      * ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("WebAclAssociationArgs.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'WebAclAssociationArgs.resourceArn' is not present");
     }
 
     /**
      * The ID of the WAF Regional WebACL to create an association.
      * 
      */
-    private UndeferrableValue<String> webAclId;
-
+    @PolicyResourceProperty(name="webAclId", flag="unknown_webAclId")
+    private String value_webAclId;
+    private boolean unknown_webAclId;
     public String webAclId() {
-        if (webAclId == null) return null;
-        return webAclId.getValue("WebAclAssociationArgs.webAclId");
+        if (!unknown_webAclId) return value_webAclId;
+        throw new UndeferrableValueException("Value 'WebAclAssociationArgs.webAclId' is not present");
     }
 
 }

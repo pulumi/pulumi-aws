@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.gamelift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,40 +18,44 @@ public final class MatchmakingRuleSet extends com.pulumi.resources.PolicyResourc
      * Rule Set ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("MatchmakingRuleSet.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'MatchmakingRuleSet.arn' is not present");
     }
 
     /**
      * Name of the matchmaking rule set.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("MatchmakingRuleSet.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'MatchmakingRuleSet.name' is not present");
     }
 
     /**
      * JSON encoded string containing rule set data.
      * 
      */
-    private UndeferrableValue<String> ruleSetBody;
-
+    @PolicyResourceProperty(name="ruleSetBody", flag="unknown_ruleSetBody")
+    private String value_ruleSetBody;
+    private boolean unknown_ruleSetBody;
     public String ruleSetBody() {
-        if (ruleSetBody == null) return null;
-        return ruleSetBody.getValue("MatchmakingRuleSet.ruleSetBody");
+        if (!unknown_ruleSetBody) return value_ruleSetBody;
+        throw new UndeferrableValueException("Value 'MatchmakingRuleSet.ruleSetBody' is not present");
     }
 
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("MatchmakingRuleSet.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'MatchmakingRuleSet.tags' is not present");
     }
 
     /**
@@ -61,11 +66,12 @@ public final class MatchmakingRuleSet extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("MatchmakingRuleSet.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'MatchmakingRuleSet.tagsAll' is not present");
     }
 
 }

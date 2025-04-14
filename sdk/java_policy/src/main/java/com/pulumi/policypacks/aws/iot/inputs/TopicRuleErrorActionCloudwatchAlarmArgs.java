@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,44 +14,48 @@ public final class TopicRuleErrorActionCloudwatchAlarmArgs {
      * The CloudWatch alarm name.
      * 
      */
-    private UndeferrableValue<String> alarmName;
-
+    @PolicyResourceProperty(name="alarmName", flag="unknown_alarmName")
+    private String value_alarmName;
+    private boolean unknown_alarmName;
     public String alarmName() {
-        if (alarmName == null) return null;
-        return alarmName.getValue("TopicRuleErrorActionCloudwatchAlarmArgs.alarmName");
+        if (!unknown_alarmName) return value_alarmName;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionCloudwatchAlarmArgs.alarmName' is not present");
     }
 
     /**
      * The IAM role ARN that allows access to the CloudWatch alarm.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("TopicRuleErrorActionCloudwatchAlarmArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionCloudwatchAlarmArgs.roleArn' is not present");
     }
 
     /**
      * The reason for the alarm change.
      * 
      */
-    private UndeferrableValue<String> stateReason;
-
+    @PolicyResourceProperty(name="stateReason", flag="unknown_stateReason")
+    private String value_stateReason;
+    private boolean unknown_stateReason;
     public String stateReason() {
-        if (stateReason == null) return null;
-        return stateReason.getValue("TopicRuleErrorActionCloudwatchAlarmArgs.stateReason");
+        if (!unknown_stateReason) return value_stateReason;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionCloudwatchAlarmArgs.stateReason' is not present");
     }
 
     /**
      * The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
      * 
      */
-    private UndeferrableValue<String> stateValue;
-
+    @PolicyResourceProperty(name="stateValue", flag="unknown_stateValue")
+    private String value_stateValue;
+    private boolean unknown_stateValue;
     public String stateValue() {
-        if (stateValue == null) return null;
-        return stateValue.getValue("TopicRuleErrorActionCloudwatchAlarmArgs.stateValue");
+        if (!unknown_stateValue) return value_stateValue;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionCloudwatchAlarmArgs.stateValue' is not present");
     }
 
 }

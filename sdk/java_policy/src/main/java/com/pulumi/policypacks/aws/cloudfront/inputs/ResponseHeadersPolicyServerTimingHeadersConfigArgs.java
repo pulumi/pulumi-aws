@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Double;
 
@@ -14,22 +15,24 @@ public final class ResponseHeadersPolicyServerTimingHeadersConfigArgs {
      * A Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that&#39;s associated with this response headers policy.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("ResponseHeadersPolicyServerTimingHeadersConfigArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicyServerTimingHeadersConfigArgs.enabled' is not present");
     }
 
     /**
      * A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to. Valid range: Minimum value of 0.0. Maximum value of 100.0.
      * 
      */
-    private UndeferrableValue<Double> samplingRate;
-
+    @PolicyResourceProperty(name="samplingRate", flag="unknown_samplingRate")
+    private Double value_samplingRate;
+    private boolean unknown_samplingRate;
     public Double samplingRate() {
-        if (samplingRate == null) return null;
-        return samplingRate.getValue("ResponseHeadersPolicyServerTimingHeadersConfigArgs.samplingRate");
+        if (!unknown_samplingRate) return value_samplingRate;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicyServerTimingHeadersConfigArgs.samplingRate' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.opsworks.inputs.StaticWebLayerLoadBasedAutoScalingDownscalingArgs;
 import com.pulumi.policypacks.aws.opsworks.inputs.StaticWebLayerLoadBasedAutoScalingUpscalingArgs;
 import java.lang.Boolean;
@@ -12,25 +13,28 @@ import javax.annotation.Nullable;
 
 public final class StaticWebLayerLoadBasedAutoScalingArgs {
 
-    private UndeferrableValue<StaticWebLayerLoadBasedAutoScalingDownscalingArgs> downscaling;
-
+    @PolicyResourceProperty(name="downscaling", flag="unknown_downscaling")
+    private StaticWebLayerLoadBasedAutoScalingDownscalingArgs value_downscaling;
+    private boolean unknown_downscaling;
     public StaticWebLayerLoadBasedAutoScalingDownscalingArgs downscaling() {
-        if (downscaling == null) return null;
-        return downscaling.getValue("StaticWebLayerLoadBasedAutoScalingArgs.downscaling");
+        if (!unknown_downscaling) return value_downscaling;
+        throw new UndeferrableValueException("Value 'StaticWebLayerLoadBasedAutoScalingArgs.downscaling' is not present");
     }
 
-    private UndeferrableValue<Boolean> enable;
-
+    @PolicyResourceProperty(name="enable", flag="unknown_enable")
+    private Boolean value_enable;
+    private boolean unknown_enable;
     public Boolean enable() {
-        if (enable == null) return null;
-        return enable.getValue("StaticWebLayerLoadBasedAutoScalingArgs.enable");
+        if (!unknown_enable) return value_enable;
+        throw new UndeferrableValueException("Value 'StaticWebLayerLoadBasedAutoScalingArgs.enable' is not present");
     }
 
-    private UndeferrableValue<StaticWebLayerLoadBasedAutoScalingUpscalingArgs> upscaling;
-
+    @PolicyResourceProperty(name="upscaling", flag="unknown_upscaling")
+    private StaticWebLayerLoadBasedAutoScalingUpscalingArgs value_upscaling;
+    private boolean unknown_upscaling;
     public StaticWebLayerLoadBasedAutoScalingUpscalingArgs upscaling() {
-        if (upscaling == null) return null;
-        return upscaling.getValue("StaticWebLayerLoadBasedAutoScalingArgs.upscaling");
+        if (!unknown_upscaling) return value_upscaling;
+        throw new UndeferrableValueException("Value 'StaticWebLayerLoadBasedAutoScalingArgs.upscaling' is not present");
     }
 
 }

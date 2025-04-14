@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.grafana;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class WorkspaceApiKeyArgs extends com.pulumi.resources.PolicyResour
      * Specifies the name of the API key. Key names must be unique to the workspace.
      * 
      */
-    private UndeferrableValue<String> keyName;
-
+    @PolicyResourceProperty(name="keyName", flag="unknown_keyName")
+    private String value_keyName;
+    private boolean unknown_keyName;
     public String keyName() {
-        if (keyName == null) return null;
-        return keyName.getValue("WorkspaceApiKeyArgs.keyName");
+        if (!unknown_keyName) return value_keyName;
+        throw new UndeferrableValueException("Value 'WorkspaceApiKeyArgs.keyName' is not present");
     }
 
     /**
      * Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
      * 
      */
-    private UndeferrableValue<String> keyRole;
-
+    @PolicyResourceProperty(name="keyRole", flag="unknown_keyRole")
+    private String value_keyRole;
+    private boolean unknown_keyRole;
     public String keyRole() {
-        if (keyRole == null) return null;
-        return keyRole.getValue("WorkspaceApiKeyArgs.keyRole");
+        if (!unknown_keyRole) return value_keyRole;
+        throw new UndeferrableValueException("Value 'WorkspaceApiKeyArgs.keyRole' is not present");
     }
 
     /**
      * Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
      * 
      */
-    private UndeferrableValue<Integer> secondsToLive;
-
+    @PolicyResourceProperty(name="secondsToLive", flag="unknown_secondsToLive")
+    private Integer value_secondsToLive;
+    private boolean unknown_secondsToLive;
     public Integer secondsToLive() {
-        if (secondsToLive == null) return null;
-        return secondsToLive.getValue("WorkspaceApiKeyArgs.secondsToLive");
+        if (!unknown_secondsToLive) return value_secondsToLive;
+        throw new UndeferrableValueException("Value 'WorkspaceApiKeyArgs.secondsToLive' is not present");
     }
 
     /**
      * The ID of the workspace that the API key is valid for.
      * 
      */
-    private UndeferrableValue<String> workspaceId;
-
+    @PolicyResourceProperty(name="workspaceId", flag="unknown_workspaceId")
+    private String value_workspaceId;
+    private boolean unknown_workspaceId;
     public String workspaceId() {
-        if (workspaceId == null) return null;
-        return workspaceId.getValue("WorkspaceApiKeyArgs.workspaceId");
+        if (!unknown_workspaceId) return value_workspaceId;
+        throw new UndeferrableValueException("Value 'WorkspaceApiKeyArgs.workspaceId' is not present");
     }
 
 }

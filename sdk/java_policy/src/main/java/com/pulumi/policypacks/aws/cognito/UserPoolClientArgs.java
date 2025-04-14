@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cognito.inputs.UserPoolClientAnalyticsConfigurationArgs;
 import com.pulumi.policypacks.aws.cognito.inputs.UserPoolClientTokenValidityUnitsArgs;
@@ -21,220 +22,240 @@ public final class UserPoolClientArgs extends com.pulumi.resources.PolicyResourc
      * Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.access_token`.
      * 
      */
-    private UndeferrableValue<Integer> accessTokenValidity;
-
+    @PolicyResourceProperty(name="accessTokenValidity", flag="unknown_accessTokenValidity")
+    private Integer value_accessTokenValidity;
+    private boolean unknown_accessTokenValidity;
     public Integer accessTokenValidity() {
-        if (accessTokenValidity == null) return null;
-        return accessTokenValidity.getValue("UserPoolClientArgs.accessTokenValidity");
+        if (!unknown_accessTokenValidity) return value_accessTokenValidity;
+        throw new UndeferrableValueException("Value 'UserPoolClientArgs.accessTokenValidity' is not present");
     }
 
     /**
      * List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
      * 
      */
-    private UndeferrableValue<List<String>> allowedOauthFlows;
-
+    @PolicyResourceProperty(name="allowedOauthFlows", flag="unknown_allowedOauthFlows")
+    private List<String> value_allowedOauthFlows;
+    private boolean unknown_allowedOauthFlows;
     public List<String> allowedOauthFlows() {
-        if (allowedOauthFlows == null) return null;
-        return allowedOauthFlows.getValue("UserPoolClientArgs.allowedOauthFlows");
+        if (!unknown_allowedOauthFlows) return value_allowedOauthFlows;
+        throw new UndeferrableValueException("Value 'UserPoolClientArgs.allowedOauthFlows' is not present");
     }
 
     /**
      * Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
      * 
      */
-    private UndeferrableValue<Boolean> allowedOauthFlowsUserPoolClient;
-
+    @PolicyResourceProperty(name="allowedOauthFlowsUserPoolClient", flag="unknown_allowedOauthFlowsUserPoolClient")
+    private Boolean value_allowedOauthFlowsUserPoolClient;
+    private boolean unknown_allowedOauthFlowsUserPoolClient;
     public Boolean allowedOauthFlowsUserPoolClient() {
-        if (allowedOauthFlowsUserPoolClient == null) return null;
-        return allowedOauthFlowsUserPoolClient.getValue("UserPoolClientArgs.allowedOauthFlowsUserPoolClient");
+        if (!unknown_allowedOauthFlowsUserPoolClient) return value_allowedOauthFlowsUserPoolClient;
+        throw new UndeferrableValueException("Value 'UserPoolClientArgs.allowedOauthFlowsUserPoolClient' is not present");
     }
 
     /**
      * List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
      * 
      */
-    private UndeferrableValue<List<String>> allowedOauthScopes;
-
+    @PolicyResourceProperty(name="allowedOauthScopes", flag="unknown_allowedOauthScopes")
+    private List<String> value_allowedOauthScopes;
+    private boolean unknown_allowedOauthScopes;
     public List<String> allowedOauthScopes() {
-        if (allowedOauthScopes == null) return null;
-        return allowedOauthScopes.getValue("UserPoolClientArgs.allowedOauthScopes");
+        if (!unknown_allowedOauthScopes) return value_allowedOauthScopes;
+        throw new UndeferrableValueException("Value 'UserPoolClientArgs.allowedOauthScopes' is not present");
     }
 
     /**
      * Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
      * 
      */
-    private UndeferrableValue<UserPoolClientAnalyticsConfigurationArgs> analyticsConfiguration;
-
+    @PolicyResourceProperty(name="analyticsConfiguration", flag="unknown_analyticsConfiguration")
+    private UserPoolClientAnalyticsConfigurationArgs value_analyticsConfiguration;
+    private boolean unknown_analyticsConfiguration;
     public UserPoolClientAnalyticsConfigurationArgs analyticsConfiguration() {
-        if (analyticsConfiguration == null) return null;
-        return analyticsConfiguration.getValue("UserPoolClientArgs.analyticsConfiguration");
+        if (!unknown_analyticsConfiguration) return value_analyticsConfiguration;
+        throw new UndeferrableValueException("Value 'UserPoolClientArgs.analyticsConfiguration' is not present");
     }
 
     /**
      * Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
      * 
      */
-    private UndeferrableValue<Integer> authSessionValidity;
-
+    @PolicyResourceProperty(name="authSessionValidity", flag="unknown_authSessionValidity")
+    private Integer value_authSessionValidity;
+    private boolean unknown_authSessionValidity;
     public Integer authSessionValidity() {
-        if (authSessionValidity == null) return null;
-        return authSessionValidity.getValue("UserPoolClientArgs.authSessionValidity");
+        if (!unknown_authSessionValidity) return value_authSessionValidity;
+        throw new UndeferrableValueException("Value 'UserPoolClientArgs.authSessionValidity' is not present");
     }
 
     /**
      * List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
      * 
      */
-    private UndeferrableValue<List<String>> callbackUrls;
-
+    @PolicyResourceProperty(name="callbackUrls", flag="unknown_callbackUrls")
+    private List<String> value_callbackUrls;
+    private boolean unknown_callbackUrls;
     public List<String> callbackUrls() {
-        if (callbackUrls == null) return null;
-        return callbackUrls.getValue("UserPoolClientArgs.callbackUrls");
+        if (!unknown_callbackUrls) return value_callbackUrls;
+        throw new UndeferrableValueException("Value 'UserPoolClientArgs.callbackUrls' is not present");
     }
 
     /**
      * Default redirect URI and must be included in the list of callback URLs.
      * 
      */
-    private UndeferrableValue<String> defaultRedirectUri;
-
+    @PolicyResourceProperty(name="defaultRedirectUri", flag="unknown_defaultRedirectUri")
+    private String value_defaultRedirectUri;
+    private boolean unknown_defaultRedirectUri;
     public String defaultRedirectUri() {
-        if (defaultRedirectUri == null) return null;
-        return defaultRedirectUri.getValue("UserPoolClientArgs.defaultRedirectUri");
+        if (!unknown_defaultRedirectUri) return value_defaultRedirectUri;
+        throw new UndeferrableValueException("Value 'UserPoolClientArgs.defaultRedirectUri' is not present");
     }
 
     /**
      * Enables the propagation of additional user context data.
      * 
      */
-    private UndeferrableValue<Boolean> enablePropagateAdditionalUserContextData;
-
+    @PolicyResourceProperty(name="enablePropagateAdditionalUserContextData", flag="unknown_enablePropagateAdditionalUserContextData")
+    private Boolean value_enablePropagateAdditionalUserContextData;
+    private boolean unknown_enablePropagateAdditionalUserContextData;
     public Boolean enablePropagateAdditionalUserContextData() {
-        if (enablePropagateAdditionalUserContextData == null) return null;
-        return enablePropagateAdditionalUserContextData.getValue("UserPoolClientArgs.enablePropagateAdditionalUserContextData");
+        if (!unknown_enablePropagateAdditionalUserContextData) return value_enablePropagateAdditionalUserContextData;
+        throw new UndeferrableValueException("Value 'UserPoolClientArgs.enablePropagateAdditionalUserContextData' is not present");
     }
 
     /**
      * Enables or disables token revocation.
      * 
      */
-    private UndeferrableValue<Boolean> enableTokenRevocation;
-
+    @PolicyResourceProperty(name="enableTokenRevocation", flag="unknown_enableTokenRevocation")
+    private Boolean value_enableTokenRevocation;
+    private boolean unknown_enableTokenRevocation;
     public Boolean enableTokenRevocation() {
-        if (enableTokenRevocation == null) return null;
-        return enableTokenRevocation.getValue("UserPoolClientArgs.enableTokenRevocation");
+        if (!unknown_enableTokenRevocation) return value_enableTokenRevocation;
+        throw new UndeferrableValueException("Value 'UserPoolClientArgs.enableTokenRevocation' is not present");
     }
 
     /**
      * List of authentication flows. The available options include `ADMIN_NO_SRP_AUTH`, `CUSTOM_AUTH_FLOW_ONLY`, `USER_PASSWORD_AUTH`, `ALLOW_ADMIN_USER_PASSWORD_AUTH`, `ALLOW_CUSTOM_AUTH`, `ALLOW_USER_PASSWORD_AUTH`, `ALLOW_USER_SRP_AUTH`, `ALLOW_REFRESH_TOKEN_AUTH`, and `ALLOW_USER_AUTH`.
      * 
      */
-    private UndeferrableValue<List<String>> explicitAuthFlows;
-
+    @PolicyResourceProperty(name="explicitAuthFlows", flag="unknown_explicitAuthFlows")
+    private List<String> value_explicitAuthFlows;
+    private boolean unknown_explicitAuthFlows;
     public List<String> explicitAuthFlows() {
-        if (explicitAuthFlows == null) return null;
-        return explicitAuthFlows.getValue("UserPoolClientArgs.explicitAuthFlows");
+        if (!unknown_explicitAuthFlows) return value_explicitAuthFlows;
+        throw new UndeferrableValueException("Value 'UserPoolClientArgs.explicitAuthFlows' is not present");
     }
 
     /**
      * Boolean flag indicating whether an application secret should be generated.
      * 
      */
-    private UndeferrableValue<Boolean> generateSecret;
-
+    @PolicyResourceProperty(name="generateSecret", flag="unknown_generateSecret")
+    private Boolean value_generateSecret;
+    private boolean unknown_generateSecret;
     public Boolean generateSecret() {
-        if (generateSecret == null) return null;
-        return generateSecret.getValue("UserPoolClientArgs.generateSecret");
+        if (!unknown_generateSecret) return value_generateSecret;
+        throw new UndeferrableValueException("Value 'UserPoolClientArgs.generateSecret' is not present");
     }
 
     /**
      * Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. By default, the unit is hours. The unit can be overridden by a value in `token_validity_units.id_token`.
      * 
      */
-    private UndeferrableValue<Integer> idTokenValidity;
-
+    @PolicyResourceProperty(name="idTokenValidity", flag="unknown_idTokenValidity")
+    private Integer value_idTokenValidity;
+    private boolean unknown_idTokenValidity;
     public Integer idTokenValidity() {
-        if (idTokenValidity == null) return null;
-        return idTokenValidity.getValue("UserPoolClientArgs.idTokenValidity");
+        if (!unknown_idTokenValidity) return value_idTokenValidity;
+        throw new UndeferrableValueException("Value 'UserPoolClientArgs.idTokenValidity' is not present");
     }
 
     /**
      * List of allowed logout URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
      * 
      */
-    private UndeferrableValue<List<String>> logoutUrls;
-
+    @PolicyResourceProperty(name="logoutUrls", flag="unknown_logoutUrls")
+    private List<String> value_logoutUrls;
+    private boolean unknown_logoutUrls;
     public List<String> logoutUrls() {
-        if (logoutUrls == null) return null;
-        return logoutUrls.getValue("UserPoolClientArgs.logoutUrls");
+        if (!unknown_logoutUrls) return value_logoutUrls;
+        throw new UndeferrableValueException("Value 'UserPoolClientArgs.logoutUrls' is not present");
     }
 
     /**
      * Name of the application client.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("UserPoolClientArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'UserPoolClientArgs.name' is not present");
     }
 
     /**
      * Setting determines the errors and responses returned by Cognito APIs when a user does not exist in the user pool during authentication, account confirmation, and password recovery.
      * 
      */
-    private UndeferrableValue<String> preventUserExistenceErrors;
-
+    @PolicyResourceProperty(name="preventUserExistenceErrors", flag="unknown_preventUserExistenceErrors")
+    private String value_preventUserExistenceErrors;
+    private boolean unknown_preventUserExistenceErrors;
     public String preventUserExistenceErrors() {
-        if (preventUserExistenceErrors == null) return null;
-        return preventUserExistenceErrors.getValue("UserPoolClientArgs.preventUserExistenceErrors");
+        if (!unknown_preventUserExistenceErrors) return value_preventUserExistenceErrors;
+        throw new UndeferrableValueException("Value 'UserPoolClientArgs.preventUserExistenceErrors' is not present");
     }
 
     /**
      * List of user pool attributes that the application client can read from.
      * 
      */
-    private UndeferrableValue<List<String>> readAttributes;
-
+    @PolicyResourceProperty(name="readAttributes", flag="unknown_readAttributes")
+    private List<String> value_readAttributes;
+    private boolean unknown_readAttributes;
     public List<String> readAttributes() {
-        if (readAttributes == null) return null;
-        return readAttributes.getValue("UserPoolClientArgs.readAttributes");
+        if (!unknown_readAttributes) return value_readAttributes;
+        throw new UndeferrableValueException("Value 'UserPoolClientArgs.readAttributes' is not present");
     }
 
     /**
      * Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
      * 
      */
-    private UndeferrableValue<Integer> refreshTokenValidity;
-
+    @PolicyResourceProperty(name="refreshTokenValidity", flag="unknown_refreshTokenValidity")
+    private Integer value_refreshTokenValidity;
+    private boolean unknown_refreshTokenValidity;
     public Integer refreshTokenValidity() {
-        if (refreshTokenValidity == null) return null;
-        return refreshTokenValidity.getValue("UserPoolClientArgs.refreshTokenValidity");
+        if (!unknown_refreshTokenValidity) return value_refreshTokenValidity;
+        throw new UndeferrableValueException("Value 'UserPoolClientArgs.refreshTokenValidity' is not present");
     }
 
     /**
      * List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      * 
      */
-    private UndeferrableValue<List<String>> supportedIdentityProviders;
-
+    @PolicyResourceProperty(name="supportedIdentityProviders", flag="unknown_supportedIdentityProviders")
+    private List<String> value_supportedIdentityProviders;
+    private boolean unknown_supportedIdentityProviders;
     public List<String> supportedIdentityProviders() {
-        if (supportedIdentityProviders == null) return null;
-        return supportedIdentityProviders.getValue("UserPoolClientArgs.supportedIdentityProviders");
+        if (!unknown_supportedIdentityProviders) return value_supportedIdentityProviders;
+        throw new UndeferrableValueException("Value 'UserPoolClientArgs.supportedIdentityProviders' is not present");
     }
 
     /**
      * Configuration block for representing the validity times in units. See details below. Detailed below.
      * 
      */
-    private UndeferrableValue<UserPoolClientTokenValidityUnitsArgs> tokenValidityUnits;
-
+    @PolicyResourceProperty(name="tokenValidityUnits", flag="unknown_tokenValidityUnits")
+    private UserPoolClientTokenValidityUnitsArgs value_tokenValidityUnits;
+    private boolean unknown_tokenValidityUnits;
     public UserPoolClientTokenValidityUnitsArgs tokenValidityUnits() {
-        if (tokenValidityUnits == null) return null;
-        return tokenValidityUnits.getValue("UserPoolClientArgs.tokenValidityUnits");
+        if (!unknown_tokenValidityUnits) return value_tokenValidityUnits;
+        throw new UndeferrableValueException("Value 'UserPoolClientArgs.tokenValidityUnits' is not present");
     }
 
     /**
@@ -243,22 +264,24 @@ public final class UserPoolClientArgs extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> userPoolId;
-
+    @PolicyResourceProperty(name="userPoolId", flag="unknown_userPoolId")
+    private String value_userPoolId;
+    private boolean unknown_userPoolId;
     public String userPoolId() {
-        if (userPoolId == null) return null;
-        return userPoolId.getValue("UserPoolClientArgs.userPoolId");
+        if (!unknown_userPoolId) return value_userPoolId;
+        throw new UndeferrableValueException("Value 'UserPoolClientArgs.userPoolId' is not present");
     }
 
     /**
      * List of user pool attributes that the application client can write to.
      * 
      */
-    private UndeferrableValue<List<String>> writeAttributes;
-
+    @PolicyResourceProperty(name="writeAttributes", flag="unknown_writeAttributes")
+    private List<String> value_writeAttributes;
+    private boolean unknown_writeAttributes;
     public List<String> writeAttributes() {
-        if (writeAttributes == null) return null;
-        return writeAttributes.getValue("UserPoolClientArgs.writeAttributes");
+        if (!unknown_writeAttributes) return value_writeAttributes;
+        throw new UndeferrableValueException("Value 'UserPoolClientArgs.writeAttributes' is not present");
     }
 
 }

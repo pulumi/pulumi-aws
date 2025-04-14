@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCoun
      * The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
      * 
      */
-    private UndeferrableValue<Integer> max;
-
+    @PolicyResourceProperty(name="max", flag="unknown_max")
+    private Integer value_max;
+    private boolean unknown_max;
     public Integer max() {
-        if (max == null) return null;
-        return max.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs.max");
+        if (!unknown_max) return value_max;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs.max' is not present");
     }
 
     /**
      * The minimum number of vCPUs. To specify no minimum limit, specify `0`.
      * 
      */
-    private UndeferrableValue<Integer> min;
-
+    @PolicyResourceProperty(name="min", flag="unknown_min")
+    private Integer value_min;
+    private boolean unknown_min;
     public Integer min() {
-        if (min == null) return null;
-        return min.getValue("FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs.min");
+        if (!unknown_min) return value_min;
+        throw new UndeferrableValueException("Value 'FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs.min' is not present");
     }
 
 }

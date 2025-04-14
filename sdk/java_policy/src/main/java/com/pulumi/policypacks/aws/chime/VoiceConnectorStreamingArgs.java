@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chime;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.chime.inputs.VoiceConnectorStreamingMediaInsightsConfigurationArgs;
 import java.lang.Boolean;
@@ -20,55 +21,60 @@ public final class VoiceConnectorStreamingArgs extends com.pulumi.resources.Poli
      * The retention period, in hours, for the Amazon Kinesis data.
      * 
      */
-    private UndeferrableValue<Integer> dataRetention;
-
+    @PolicyResourceProperty(name="dataRetention", flag="unknown_dataRetention")
+    private Integer value_dataRetention;
+    private boolean unknown_dataRetention;
     public Integer dataRetention() {
-        if (dataRetention == null) return null;
-        return dataRetention.getValue("VoiceConnectorStreamingArgs.dataRetention");
+        if (!unknown_dataRetention) return value_dataRetention;
+        throw new UndeferrableValueException("Value 'VoiceConnectorStreamingArgs.dataRetention' is not present");
     }
 
     /**
      * When true, media streaming to Amazon Kinesis is turned off. Default: `false`
      * 
      */
-    private UndeferrableValue<Boolean> disabled;
-
+    @PolicyResourceProperty(name="disabled", flag="unknown_disabled")
+    private Boolean value_disabled;
+    private boolean unknown_disabled;
     public Boolean disabled() {
-        if (disabled == null) return null;
-        return disabled.getValue("VoiceConnectorStreamingArgs.disabled");
+        if (!unknown_disabled) return value_disabled;
+        throw new UndeferrableValueException("Value 'VoiceConnectorStreamingArgs.disabled' is not present");
     }
 
     /**
      * The media insights configuration. See `media_insights_configuration`.
      * 
      */
-    private UndeferrableValue<VoiceConnectorStreamingMediaInsightsConfigurationArgs> mediaInsightsConfiguration;
-
+    @PolicyResourceProperty(name="mediaInsightsConfiguration", flag="unknown_mediaInsightsConfiguration")
+    private VoiceConnectorStreamingMediaInsightsConfigurationArgs value_mediaInsightsConfiguration;
+    private boolean unknown_mediaInsightsConfiguration;
     public VoiceConnectorStreamingMediaInsightsConfigurationArgs mediaInsightsConfiguration() {
-        if (mediaInsightsConfiguration == null) return null;
-        return mediaInsightsConfiguration.getValue("VoiceConnectorStreamingArgs.mediaInsightsConfiguration");
+        if (!unknown_mediaInsightsConfiguration) return value_mediaInsightsConfiguration;
+        throw new UndeferrableValueException("Value 'VoiceConnectorStreamingArgs.mediaInsightsConfiguration' is not present");
     }
 
     /**
      * The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
      * 
      */
-    private UndeferrableValue<List<String>> streamingNotificationTargets;
-
+    @PolicyResourceProperty(name="streamingNotificationTargets", flag="unknown_streamingNotificationTargets")
+    private List<String> value_streamingNotificationTargets;
+    private boolean unknown_streamingNotificationTargets;
     public List<String> streamingNotificationTargets() {
-        if (streamingNotificationTargets == null) return null;
-        return streamingNotificationTargets.getValue("VoiceConnectorStreamingArgs.streamingNotificationTargets");
+        if (!unknown_streamingNotificationTargets) return value_streamingNotificationTargets;
+        throw new UndeferrableValueException("Value 'VoiceConnectorStreamingArgs.streamingNotificationTargets' is not present");
     }
 
     /**
      * The Amazon Chime Voice Connector ID.
      * 
      */
-    private UndeferrableValue<String> voiceConnectorId;
-
+    @PolicyResourceProperty(name="voiceConnectorId", flag="unknown_voiceConnectorId")
+    private String value_voiceConnectorId;
+    private boolean unknown_voiceConnectorId;
     public String voiceConnectorId() {
-        if (voiceConnectorId == null) return null;
-        return voiceConnectorId.getValue("VoiceConnectorStreamingArgs.voiceConnectorId");
+        if (!unknown_voiceConnectorId) return value_voiceConnectorId;
+        throw new UndeferrableValueException("Value 'VoiceConnectorStreamingArgs.voiceConnectorId' is not present");
     }
 
 }

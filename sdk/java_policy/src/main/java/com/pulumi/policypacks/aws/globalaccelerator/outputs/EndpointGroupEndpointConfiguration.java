@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.globalaccelerator.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,11 +17,12 @@ public final class EndpointGroupEndpointConfiguration {
      * An ARN of an exposed cross-account attachment. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html) for more details.
      * 
      */
-    private @Nullable UndeferrableValue<String> attachmentArn;
-
+    @PolicyResourceProperty(name="attachmentArn", flag="unknown_attachmentArn")
+    private @Nullable String value_attachmentArn;
+    private boolean unknown_attachmentArn;
     public @Nullable String attachmentArn() {
-        if (attachmentArn == null) return null;
-        return attachmentArn.getValue("EndpointGroupEndpointConfiguration.attachmentArn");
+        if (!unknown_attachmentArn) return value_attachmentArn;
+        throw new UndeferrableValueException("Value 'EndpointGroupEndpointConfiguration.attachmentArn' is not present");
     }
 
     /**
@@ -28,33 +30,36 @@ public final class EndpointGroupEndpointConfiguration {
      * **Note:** When client IP address preservation is enabled, the Global Accelerator service creates an EC2 Security Group in the VPC named `GlobalAccelerator` that must be deleted (potentially outside of the provider) before the VPC will successfully delete. If this EC2 Security Group is not deleted, the provider will retry the VPC deletion for a few minutes before reporting a `DependencyViolation` error. This cannot be resolved by re-running the provider.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> clientIpPreservationEnabled;
-
+    @PolicyResourceProperty(name="clientIpPreservationEnabled", flag="unknown_clientIpPreservationEnabled")
+    private @Nullable Boolean value_clientIpPreservationEnabled;
+    private boolean unknown_clientIpPreservationEnabled;
     public @Nullable Boolean clientIpPreservationEnabled() {
-        if (clientIpPreservationEnabled == null) return null;
-        return clientIpPreservationEnabled.getValue("EndpointGroupEndpointConfiguration.clientIpPreservationEnabled");
+        if (!unknown_clientIpPreservationEnabled) return value_clientIpPreservationEnabled;
+        throw new UndeferrableValueException("Value 'EndpointGroupEndpointConfiguration.clientIpPreservationEnabled' is not present");
     }
 
     /**
      * An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
      * 
      */
-    private @Nullable UndeferrableValue<String> endpointId;
-
+    @PolicyResourceProperty(name="endpointId", flag="unknown_endpointId")
+    private @Nullable String value_endpointId;
+    private boolean unknown_endpointId;
     public @Nullable String endpointId() {
-        if (endpointId == null) return null;
-        return endpointId.getValue("EndpointGroupEndpointConfiguration.endpointId");
+        if (!unknown_endpointId) return value_endpointId;
+        throw new UndeferrableValueException("Value 'EndpointGroupEndpointConfiguration.endpointId' is not present");
     }
 
     /**
      * The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> weight;
-
+    @PolicyResourceProperty(name="weight", flag="unknown_weight")
+    private @Nullable Integer value_weight;
+    private boolean unknown_weight;
     public @Nullable Integer weight() {
-        if (weight == null) return null;
-        return weight.getValue("EndpointGroupEndpointConfiguration.weight");
+        if (!unknown_weight) return value_weight;
+        throw new UndeferrableValueException("Value 'EndpointGroupEndpointConfiguration.weight' is not present");
     }
 
 }

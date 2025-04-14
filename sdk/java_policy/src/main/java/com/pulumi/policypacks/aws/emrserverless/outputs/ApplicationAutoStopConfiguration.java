@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emrserverless.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ApplicationAutoStopConfiguration {
      * Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("ApplicationAutoStopConfiguration.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'ApplicationAutoStopConfiguration.enabled' is not present");
     }
 
     /**
      * The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> idleTimeoutMinutes;
-
+    @PolicyResourceProperty(name="idleTimeoutMinutes", flag="unknown_idleTimeoutMinutes")
+    private @Nullable Integer value_idleTimeoutMinutes;
+    private boolean unknown_idleTimeoutMinutes;
     public @Nullable Integer idleTimeoutMinutes() {
-        if (idleTimeoutMinutes == null) return null;
-        return idleTimeoutMinutes.getValue("ApplicationAutoStopConfiguration.idleTimeoutMinutes");
+        if (!unknown_idleTimeoutMinutes) return value_idleTimeoutMinutes;
+        throw new UndeferrableValueException("Value 'ApplicationAutoStopConfiguration.idleTimeoutMinutes' is not present");
     }
 
 }

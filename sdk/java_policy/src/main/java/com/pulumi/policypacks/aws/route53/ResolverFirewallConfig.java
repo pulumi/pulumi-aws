@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class ResolverFirewallConfig extends com.pulumi.resources.PolicyRes
      * Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> firewallFailOpen;
-
+    @PolicyResourceProperty(name="firewallFailOpen", flag="unknown_firewallFailOpen")
+    private String value_firewallFailOpen;
+    private boolean unknown_firewallFailOpen;
     public String firewallFailOpen() {
-        if (firewallFailOpen == null) return null;
-        return firewallFailOpen.getValue("ResolverFirewallConfig.firewallFailOpen");
+        if (!unknown_firewallFailOpen) return value_firewallFailOpen;
+        throw new UndeferrableValueException("Value 'ResolverFirewallConfig.firewallFailOpen' is not present");
     }
 
     /**
      * The AWS account ID of the owner of the VPC that this firewall configuration applies to.
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("ResolverFirewallConfig.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'ResolverFirewallConfig.ownerId' is not present");
     }
 
     /**
      * The ID of the VPC that the configuration is for.
      * 
      */
-    private UndeferrableValue<String> resourceId;
-
+    @PolicyResourceProperty(name="resourceId", flag="unknown_resourceId")
+    private String value_resourceId;
+    private boolean unknown_resourceId;
     public String resourceId() {
-        if (resourceId == null) return null;
-        return resourceId.getValue("ResolverFirewallConfig.resourceId");
+        if (!unknown_resourceId) return value_resourceId;
+        throw new UndeferrableValueException("Value 'ResolverFirewallConfig.resourceId' is not present");
     }
 
 }

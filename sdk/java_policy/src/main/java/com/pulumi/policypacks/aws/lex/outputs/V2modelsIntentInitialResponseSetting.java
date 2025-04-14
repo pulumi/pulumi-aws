@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentInitialResponseSettingCodeHook;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentInitialResponseSettingConditional;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentInitialResponseSettingInitialResponse;
@@ -17,44 +18,48 @@ public final class V2modelsIntentInitialResponseSetting {
      * Configuration block for the dialog code hook that is called by Amazon Lex at a step of the conversation. See `code_hook`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentInitialResponseSettingCodeHook> codeHook;
-
+    @PolicyResourceProperty(name="codeHook", flag="unknown_codeHook")
+    private @Nullable V2modelsIntentInitialResponseSettingCodeHook value_codeHook;
+    private boolean unknown_codeHook;
     public @Nullable V2modelsIntentInitialResponseSettingCodeHook codeHook() {
-        if (codeHook == null) return null;
-        return codeHook.getValue("V2modelsIntentInitialResponseSetting.codeHook");
+        if (!unknown_codeHook) return value_codeHook;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSetting.codeHook' is not present");
     }
 
     /**
      * Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `conditional`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentInitialResponseSettingConditional> conditional;
-
+    @PolicyResourceProperty(name="conditional", flag="unknown_conditional")
+    private @Nullable V2modelsIntentInitialResponseSettingConditional value_conditional;
+    private boolean unknown_conditional;
     public @Nullable V2modelsIntentInitialResponseSettingConditional conditional() {
-        if (conditional == null) return null;
-        return conditional.getValue("V2modelsIntentInitialResponseSetting.conditional");
+        if (!unknown_conditional) return value_conditional;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSetting.conditional' is not present");
     }
 
     /**
      * Configuration block for message groups that Amazon Lex uses to respond the user input. See `initial_response`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentInitialResponseSettingInitialResponse> initialResponse;
-
+    @PolicyResourceProperty(name="initialResponse", flag="unknown_initialResponse")
+    private @Nullable V2modelsIntentInitialResponseSettingInitialResponse value_initialResponse;
+    private boolean unknown_initialResponse;
     public @Nullable V2modelsIntentInitialResponseSettingInitialResponse initialResponse() {
-        if (initialResponse == null) return null;
-        return initialResponse.getValue("V2modelsIntentInitialResponseSetting.initialResponse");
+        if (!unknown_initialResponse) return value_initialResponse;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSetting.initialResponse' is not present");
     }
 
     /**
      * Configuration block for the next step in the conversation. See `next_step`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentInitialResponseSettingNextStep> nextStep;
-
+    @PolicyResourceProperty(name="nextStep", flag="unknown_nextStep")
+    private @Nullable V2modelsIntentInitialResponseSettingNextStep value_nextStep;
+    private boolean unknown_nextStep;
     public @Nullable V2modelsIntentInitialResponseSettingNextStep nextStep() {
-        if (nextStep == null) return null;
-        return nextStep.getValue("V2modelsIntentInitialResponseSetting.nextStep");
+        if (!unknown_nextStep) return value_nextStep;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSetting.nextStep' is not present");
     }
 
 }

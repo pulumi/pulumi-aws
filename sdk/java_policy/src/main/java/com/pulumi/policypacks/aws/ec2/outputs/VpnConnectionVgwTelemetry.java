@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,66 +16,72 @@ public final class VpnConnectionVgwTelemetry {
      * The number of accepted routes.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> acceptedRouteCount;
-
+    @PolicyResourceProperty(name="acceptedRouteCount", flag="unknown_acceptedRouteCount")
+    private @Nullable Integer value_acceptedRouteCount;
+    private boolean unknown_acceptedRouteCount;
     public @Nullable Integer acceptedRouteCount() {
-        if (acceptedRouteCount == null) return null;
-        return acceptedRouteCount.getValue("VpnConnectionVgwTelemetry.acceptedRouteCount");
+        if (!unknown_acceptedRouteCount) return value_acceptedRouteCount;
+        throw new UndeferrableValueException("Value 'VpnConnectionVgwTelemetry.acceptedRouteCount' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
      * 
      */
-    private @Nullable UndeferrableValue<String> certificateArn;
-
+    @PolicyResourceProperty(name="certificateArn", flag="unknown_certificateArn")
+    private @Nullable String value_certificateArn;
+    private boolean unknown_certificateArn;
     public @Nullable String certificateArn() {
-        if (certificateArn == null) return null;
-        return certificateArn.getValue("VpnConnectionVgwTelemetry.certificateArn");
+        if (!unknown_certificateArn) return value_certificateArn;
+        throw new UndeferrableValueException("Value 'VpnConnectionVgwTelemetry.certificateArn' is not present");
     }
 
     /**
      * The date and time of the last change in status.
      * 
      */
-    private @Nullable UndeferrableValue<String> lastStatusChange;
-
+    @PolicyResourceProperty(name="lastStatusChange", flag="unknown_lastStatusChange")
+    private @Nullable String value_lastStatusChange;
+    private boolean unknown_lastStatusChange;
     public @Nullable String lastStatusChange() {
-        if (lastStatusChange == null) return null;
-        return lastStatusChange.getValue("VpnConnectionVgwTelemetry.lastStatusChange");
+        if (!unknown_lastStatusChange) return value_lastStatusChange;
+        throw new UndeferrableValueException("Value 'VpnConnectionVgwTelemetry.lastStatusChange' is not present");
     }
 
     /**
      * The Internet-routable IP address of the virtual private gateway&#39;s outside interface.
      * 
      */
-    private @Nullable UndeferrableValue<String> outsideIpAddress;
-
+    @PolicyResourceProperty(name="outsideIpAddress", flag="unknown_outsideIpAddress")
+    private @Nullable String value_outsideIpAddress;
+    private boolean unknown_outsideIpAddress;
     public @Nullable String outsideIpAddress() {
-        if (outsideIpAddress == null) return null;
-        return outsideIpAddress.getValue("VpnConnectionVgwTelemetry.outsideIpAddress");
+        if (!unknown_outsideIpAddress) return value_outsideIpAddress;
+        throw new UndeferrableValueException("Value 'VpnConnectionVgwTelemetry.outsideIpAddress' is not present");
     }
 
     /**
      * The status of the VPN tunnel.
      * 
      */
-    private @Nullable UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private @Nullable String value_status;
+    private boolean unknown_status;
     public @Nullable String status() {
-        if (status == null) return null;
-        return status.getValue("VpnConnectionVgwTelemetry.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'VpnConnectionVgwTelemetry.status' is not present");
     }
 
     /**
      * If an error occurs, a description of the error.
      * 
      */
-    private @Nullable UndeferrableValue<String> statusMessage;
-
+    @PolicyResourceProperty(name="statusMessage", flag="unknown_statusMessage")
+    private @Nullable String value_statusMessage;
+    private boolean unknown_statusMessage;
     public @Nullable String statusMessage() {
-        if (statusMessage == null) return null;
-        return statusMessage.getValue("VpnConnectionVgwTelemetry.statusMessage");
+        if (!unknown_statusMessage) return value_statusMessage;
+        throw new UndeferrableValueException("Value 'VpnConnectionVgwTelemetry.statusMessage' is not present");
     }
 
 }

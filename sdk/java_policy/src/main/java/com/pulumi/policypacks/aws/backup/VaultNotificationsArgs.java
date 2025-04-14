@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class VaultNotificationsArgs extends com.pulumi.resources.PolicyRes
      * An array of events that indicate the status of jobs to back up resources to the backup vault.
      * 
      */
-    private UndeferrableValue<List<String>> backupVaultEvents;
-
+    @PolicyResourceProperty(name="backupVaultEvents", flag="unknown_backupVaultEvents")
+    private List<String> value_backupVaultEvents;
+    private boolean unknown_backupVaultEvents;
     public List<String> backupVaultEvents() {
-        if (backupVaultEvents == null) return null;
-        return backupVaultEvents.getValue("VaultNotificationsArgs.backupVaultEvents");
+        if (!unknown_backupVaultEvents) return value_backupVaultEvents;
+        throw new UndeferrableValueException("Value 'VaultNotificationsArgs.backupVaultEvents' is not present");
     }
 
     /**
      * Name of the backup vault to add notifications for.
      * 
      */
-    private UndeferrableValue<String> backupVaultName;
-
+    @PolicyResourceProperty(name="backupVaultName", flag="unknown_backupVaultName")
+    private String value_backupVaultName;
+    private boolean unknown_backupVaultName;
     public String backupVaultName() {
-        if (backupVaultName == null) return null;
-        return backupVaultName.getValue("VaultNotificationsArgs.backupVaultName");
+        if (!unknown_backupVaultName) return value_backupVaultName;
+        throw new UndeferrableValueException("Value 'VaultNotificationsArgs.backupVaultName' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
      * 
      */
-    private UndeferrableValue<String> snsTopicArn;
-
+    @PolicyResourceProperty(name="snsTopicArn", flag="unknown_snsTopicArn")
+    private String value_snsTopicArn;
+    private boolean unknown_snsTopicArn;
     public String snsTopicArn() {
-        if (snsTopicArn == null) return null;
-        return snsTopicArn.getValue("VaultNotificationsArgs.snsTopicArn");
+        if (!unknown_snsTopicArn) return value_snsTopicArn;
+        throw new UndeferrableValueException("Value 'VaultNotificationsArgs.snsTopicArn' is not present");
     }
 
 }

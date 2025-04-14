@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.guardduty;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,77 +18,84 @@ public final class Member extends com.pulumi.resources.PolicyResourceOutput {
      * AWS account ID for member account.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("Member.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'Member.accountId' is not present");
     }
 
     /**
      * The detector ID of the GuardDuty account where you want to create member accounts.
      * 
      */
-    private UndeferrableValue<String> detectorId;
-
+    @PolicyResourceProperty(name="detectorId", flag="unknown_detectorId")
+    private String value_detectorId;
+    private boolean unknown_detectorId;
     public String detectorId() {
-        if (detectorId == null) return null;
-        return detectorId.getValue("Member.detectorId");
+        if (!unknown_detectorId) return value_detectorId;
+        throw new UndeferrableValueException("Value 'Member.detectorId' is not present");
     }
 
     /**
      * Boolean whether an email notification is sent to the accounts. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> disableEmailNotification;
-
+    @PolicyResourceProperty(name="disableEmailNotification", flag="unknown_disableEmailNotification")
+    private @Nullable Boolean value_disableEmailNotification;
+    private boolean unknown_disableEmailNotification;
     public @Nullable Boolean disableEmailNotification() {
-        if (disableEmailNotification == null) return null;
-        return disableEmailNotification.getValue("Member.disableEmailNotification");
+        if (!unknown_disableEmailNotification) return value_disableEmailNotification;
+        throw new UndeferrableValueException("Value 'Member.disableEmailNotification' is not present");
     }
 
     /**
      * Email address for member account.
      * 
      */
-    private UndeferrableValue<String> email;
-
+    @PolicyResourceProperty(name="email", flag="unknown_email")
+    private String value_email;
+    private boolean unknown_email;
     public String email() {
-        if (email == null) return null;
-        return email.getValue("Member.email");
+        if (!unknown_email) return value_email;
+        throw new UndeferrableValueException("Value 'Member.email' is not present");
     }
 
     /**
      * Message for invitation.
      * 
      */
-    private @Nullable UndeferrableValue<String> invitationMessage;
-
+    @PolicyResourceProperty(name="invitationMessage", flag="unknown_invitationMessage")
+    private @Nullable String value_invitationMessage;
+    private boolean unknown_invitationMessage;
     public @Nullable String invitationMessage() {
-        if (invitationMessage == null) return null;
-        return invitationMessage.getValue("Member.invitationMessage");
+        if (!unknown_invitationMessage) return value_invitationMessage;
+        throw new UndeferrableValueException("Value 'Member.invitationMessage' is not present");
     }
 
     /**
      * Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> invite;
-
+    @PolicyResourceProperty(name="invite", flag="unknown_invite")
+    private @Nullable Boolean value_invite;
+    private boolean unknown_invite;
     public @Nullable Boolean invite() {
-        if (invite == null) return null;
-        return invite.getValue("Member.invite");
+        if (!unknown_invite) return value_invite;
+        throw new UndeferrableValueException("Value 'Member.invite' is not present");
     }
 
     /**
      * The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
      * 
      */
-    private UndeferrableValue<String> relationshipStatus;
-
+    @PolicyResourceProperty(name="relationshipStatus", flag="unknown_relationshipStatus")
+    private String value_relationshipStatus;
+    private boolean unknown_relationshipStatus;
     public String relationshipStatus() {
-        if (relationshipStatus == null) return null;
-        return relationshipStatus.getValue("Member.relationshipStatus");
+        if (!unknown_relationshipStatus) return value_relationshipStatus;
+        throw new UndeferrableValueException("Value 'Member.relationshipStatus' is not present");
     }
 
 }

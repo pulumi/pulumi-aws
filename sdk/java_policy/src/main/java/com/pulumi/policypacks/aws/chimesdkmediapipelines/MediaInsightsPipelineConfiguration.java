@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chimesdkmediapipelines;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.chimesdkmediapipelines.outputs.MediaInsightsPipelineConfigurationElement;
 import com.pulumi.policypacks.aws.chimesdkmediapipelines.outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration;
@@ -20,66 +21,72 @@ public final class MediaInsightsPipelineConfiguration extends com.pulumi.resourc
      * ARN of the Media Insights Pipeline Configuration.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("MediaInsightsPipelineConfiguration.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfiguration.arn' is not present");
     }
 
     /**
      * Collection of processors and sinks to transform media and deliver data.
      * 
      */
-    private UndeferrableValue<List<MediaInsightsPipelineConfigurationElement>> elements;
-
+    @PolicyResourceProperty(name="elements", flag="unknown_elements")
+    private List<MediaInsightsPipelineConfigurationElement> value_elements;
+    private boolean unknown_elements;
     public List<MediaInsightsPipelineConfigurationElement> elements() {
-        if (elements == null) return null;
-        return elements.getValue("MediaInsightsPipelineConfiguration.elements");
+        if (!unknown_elements) return value_elements;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfiguration.elements' is not present");
     }
 
     /**
      * Configuration name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("MediaInsightsPipelineConfiguration.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfiguration.name' is not present");
     }
 
     /**
      * Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
      * 
      */
-    private @Nullable UndeferrableValue<MediaInsightsPipelineConfigurationRealTimeAlertConfiguration> realTimeAlertConfiguration;
-
+    @PolicyResourceProperty(name="realTimeAlertConfiguration", flag="unknown_realTimeAlertConfiguration")
+    private @Nullable MediaInsightsPipelineConfigurationRealTimeAlertConfiguration value_realTimeAlertConfiguration;
+    private boolean unknown_realTimeAlertConfiguration;
     public @Nullable MediaInsightsPipelineConfigurationRealTimeAlertConfiguration realTimeAlertConfiguration() {
-        if (realTimeAlertConfiguration == null) return null;
-        return realTimeAlertConfiguration.getValue("MediaInsightsPipelineConfiguration.realTimeAlertConfiguration");
+        if (!unknown_realTimeAlertConfiguration) return value_realTimeAlertConfiguration;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfiguration.realTimeAlertConfiguration' is not present");
     }
 
     /**
      * ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
      * 
      */
-    private UndeferrableValue<String> resourceAccessRoleArn;
-
+    @PolicyResourceProperty(name="resourceAccessRoleArn", flag="unknown_resourceAccessRoleArn")
+    private String value_resourceAccessRoleArn;
+    private boolean unknown_resourceAccessRoleArn;
     public String resourceAccessRoleArn() {
-        if (resourceAccessRoleArn == null) return null;
-        return resourceAccessRoleArn.getValue("MediaInsightsPipelineConfiguration.resourceAccessRoleArn");
+        if (!unknown_resourceAccessRoleArn) return value_resourceAccessRoleArn;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfiguration.resourceAccessRoleArn' is not present");
     }
 
     /**
      * Key-value map of tags for the resource.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("MediaInsightsPipelineConfiguration.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfiguration.tags' is not present");
     }
 
     /**
@@ -88,11 +95,12 @@ public final class MediaInsightsPipelineConfiguration extends com.pulumi.resourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("MediaInsightsPipelineConfiguration.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfiguration.tagsAll' is not present");
     }
 
 }

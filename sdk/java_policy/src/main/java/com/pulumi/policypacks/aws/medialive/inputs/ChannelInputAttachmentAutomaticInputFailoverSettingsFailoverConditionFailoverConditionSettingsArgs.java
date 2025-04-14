@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs;
@@ -16,33 +17,36 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
      * MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs> audioSilenceSettings;
-
+    @PolicyResourceProperty(name="audioSilenceSettings", flag="unknown_audioSilenceSettings")
+    private ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs value_audioSilenceSettings;
+    private boolean unknown_audioSilenceSettings;
     public ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs audioSilenceSettings() {
-        if (audioSilenceSettings == null) return null;
-        return audioSilenceSettings.getValue("ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs.audioSilenceSettings");
+        if (!unknown_audioSilenceSettings) return value_audioSilenceSettings;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs.audioSilenceSettings' is not present");
     }
 
     /**
      * MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs> inputLossSettings;
-
+    @PolicyResourceProperty(name="inputLossSettings", flag="unknown_inputLossSettings")
+    private ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs value_inputLossSettings;
+    private boolean unknown_inputLossSettings;
     public ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs inputLossSettings() {
-        if (inputLossSettings == null) return null;
-        return inputLossSettings.getValue("ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs.inputLossSettings");
+        if (!unknown_inputLossSettings) return value_inputLossSettings;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs.inputLossSettings' is not present");
     }
 
     /**
      * MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs> videoBlackSettings;
-
+    @PolicyResourceProperty(name="videoBlackSettings", flag="unknown_videoBlackSettings")
+    private ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs value_videoBlackSettings;
+    private boolean unknown_videoBlackSettings;
     public ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs videoBlackSettings() {
-        if (videoBlackSettings == null) return null;
-        return videoBlackSettings.getValue("ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs.videoBlackSettings");
+        if (!unknown_videoBlackSettings) return value_videoBlackSettings;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs.videoBlackSettings' is not present");
     }
 
 }

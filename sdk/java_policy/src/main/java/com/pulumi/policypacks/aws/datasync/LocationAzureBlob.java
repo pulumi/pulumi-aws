@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.datasync.outputs.LocationAzureBlobSasConfiguration;
 import java.lang.String;
@@ -19,99 +20,108 @@ public final class LocationAzureBlob extends com.pulumi.resources.PolicyResource
      * The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
      * 
      */
-    private @Nullable UndeferrableValue<String> accessTier;
-
+    @PolicyResourceProperty(name="accessTier", flag="unknown_accessTier")
+    private @Nullable String value_accessTier;
+    private boolean unknown_accessTier;
     public @Nullable String accessTier() {
-        if (accessTier == null) return null;
-        return accessTier.getValue("LocationAzureBlob.accessTier");
+        if (!unknown_accessTier) return value_accessTier;
+        throw new UndeferrableValueException("Value 'LocationAzureBlob.accessTier' is not present");
     }
 
     /**
      * A list of DataSync Agent ARNs with which this location will be associated.
      * 
      */
-    private UndeferrableValue<List<String>> agentArns;
-
+    @PolicyResourceProperty(name="agentArns", flag="unknown_agentArns")
+    private List<String> value_agentArns;
+    private boolean unknown_agentArns;
     public List<String> agentArns() {
-        if (agentArns == null) return null;
-        return agentArns.getValue("LocationAzureBlob.agentArns");
+        if (!unknown_agentArns) return value_agentArns;
+        throw new UndeferrableValueException("Value 'LocationAzureBlob.agentArns' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("LocationAzureBlob.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'LocationAzureBlob.arn' is not present");
     }
 
     /**
      * The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
      * 
      */
-    private UndeferrableValue<String> authenticationType;
-
+    @PolicyResourceProperty(name="authenticationType", flag="unknown_authenticationType")
+    private String value_authenticationType;
+    private boolean unknown_authenticationType;
     public String authenticationType() {
-        if (authenticationType == null) return null;
-        return authenticationType.getValue("LocationAzureBlob.authenticationType");
+        if (!unknown_authenticationType) return value_authenticationType;
+        throw new UndeferrableValueException("Value 'LocationAzureBlob.authenticationType' is not present");
     }
 
     /**
      * The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
      * 
      */
-    private @Nullable UndeferrableValue<String> blobType;
-
+    @PolicyResourceProperty(name="blobType", flag="unknown_blobType")
+    private @Nullable String value_blobType;
+    private boolean unknown_blobType;
     public @Nullable String blobType() {
-        if (blobType == null) return null;
-        return blobType.getValue("LocationAzureBlob.blobType");
+        if (!unknown_blobType) return value_blobType;
+        throw new UndeferrableValueException("Value 'LocationAzureBlob.blobType' is not present");
     }
 
     /**
      * The URL of the Azure Blob Storage container involved in your transfer.
      * 
      */
-    private UndeferrableValue<String> containerUrl;
-
+    @PolicyResourceProperty(name="containerUrl", flag="unknown_containerUrl")
+    private String value_containerUrl;
+    private boolean unknown_containerUrl;
     public String containerUrl() {
-        if (containerUrl == null) return null;
-        return containerUrl.getValue("LocationAzureBlob.containerUrl");
+        if (!unknown_containerUrl) return value_containerUrl;
+        throw new UndeferrableValueException("Value 'LocationAzureBlob.containerUrl' is not present");
     }
 
     /**
      * The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
      * 
      */
-    private @Nullable UndeferrableValue<LocationAzureBlobSasConfiguration> sasConfiguration;
-
+    @PolicyResourceProperty(name="sasConfiguration", flag="unknown_sasConfiguration")
+    private @Nullable LocationAzureBlobSasConfiguration value_sasConfiguration;
+    private boolean unknown_sasConfiguration;
     public @Nullable LocationAzureBlobSasConfiguration sasConfiguration() {
-        if (sasConfiguration == null) return null;
-        return sasConfiguration.getValue("LocationAzureBlob.sasConfiguration");
+        if (!unknown_sasConfiguration) return value_sasConfiguration;
+        throw new UndeferrableValueException("Value 'LocationAzureBlob.sasConfiguration' is not present");
     }
 
     /**
      * Path segments if you want to limit your transfer to a virtual directory in the container.
      * 
      */
-    private UndeferrableValue<String> subdirectory;
-
+    @PolicyResourceProperty(name="subdirectory", flag="unknown_subdirectory")
+    private String value_subdirectory;
+    private boolean unknown_subdirectory;
     public String subdirectory() {
-        if (subdirectory == null) return null;
-        return subdirectory.getValue("LocationAzureBlob.subdirectory");
+        if (!unknown_subdirectory) return value_subdirectory;
+        throw new UndeferrableValueException("Value 'LocationAzureBlob.subdirectory' is not present");
     }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LocationAzureBlob.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LocationAzureBlob.tags' is not present");
     }
 
     /**
@@ -122,18 +132,20 @@ public final class LocationAzureBlob extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("LocationAzureBlob.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'LocationAzureBlob.tagsAll' is not present");
     }
 
-    private UndeferrableValue<String> uri;
-
+    @PolicyResourceProperty(name="uri", flag="unknown_uri")
+    private String value_uri;
+    private boolean unknown_uri;
     public String uri() {
-        if (uri == null) return null;
-        return uri.getValue("LocationAzureBlob.uri");
+        if (!unknown_uri) return value_uri;
+        throw new UndeferrableValueException("Value 'LocationAzureBlob.uri' is not present");
     }
 
 }

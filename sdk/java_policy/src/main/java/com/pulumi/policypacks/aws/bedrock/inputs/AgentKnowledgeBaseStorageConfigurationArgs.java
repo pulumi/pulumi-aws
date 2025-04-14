@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs;
@@ -18,55 +19,60 @@ public final class AgentKnowledgeBaseStorageConfigurationArgs {
      * The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearch_serverless_configuration` block for details.
      * 
      */
-    private UndeferrableValue<AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs> opensearchServerlessConfiguration;
-
+    @PolicyResourceProperty(name="opensearchServerlessConfiguration", flag="unknown_opensearchServerlessConfiguration")
+    private AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs value_opensearchServerlessConfiguration;
+    private boolean unknown_opensearchServerlessConfiguration;
     public AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs opensearchServerlessConfiguration() {
-        if (opensearchServerlessConfiguration == null) return null;
-        return opensearchServerlessConfiguration.getValue("AgentKnowledgeBaseStorageConfigurationArgs.opensearchServerlessConfiguration");
+        if (!unknown_opensearchServerlessConfiguration) return value_opensearchServerlessConfiguration;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationArgs.opensearchServerlessConfiguration' is not present");
     }
 
     /**
      * The storage configuration of the knowledge base in Pinecone. See `pinecone_configuration` block for details.
      * 
      */
-    private UndeferrableValue<AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs> pineconeConfiguration;
-
+    @PolicyResourceProperty(name="pineconeConfiguration", flag="unknown_pineconeConfiguration")
+    private AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs value_pineconeConfiguration;
+    private boolean unknown_pineconeConfiguration;
     public AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs pineconeConfiguration() {
-        if (pineconeConfiguration == null) return null;
-        return pineconeConfiguration.getValue("AgentKnowledgeBaseStorageConfigurationArgs.pineconeConfiguration");
+        if (!unknown_pineconeConfiguration) return value_pineconeConfiguration;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationArgs.pineconeConfiguration' is not present");
     }
 
     /**
      * Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rds_configuration` block for details.
      * 
      */
-    private UndeferrableValue<AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs> rdsConfiguration;
-
+    @PolicyResourceProperty(name="rdsConfiguration", flag="unknown_rdsConfiguration")
+    private AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs value_rdsConfiguration;
+    private boolean unknown_rdsConfiguration;
     public AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs rdsConfiguration() {
-        if (rdsConfiguration == null) return null;
-        return rdsConfiguration.getValue("AgentKnowledgeBaseStorageConfigurationArgs.rdsConfiguration");
+        if (!unknown_rdsConfiguration) return value_rdsConfiguration;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationArgs.rdsConfiguration' is not present");
     }
 
     /**
      * The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redis_enterprise_cloud_configuration` block for details.
      * 
      */
-    private UndeferrableValue<AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs> redisEnterpriseCloudConfiguration;
-
+    @PolicyResourceProperty(name="redisEnterpriseCloudConfiguration", flag="unknown_redisEnterpriseCloudConfiguration")
+    private AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs value_redisEnterpriseCloudConfiguration;
+    private boolean unknown_redisEnterpriseCloudConfiguration;
     public AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs redisEnterpriseCloudConfiguration() {
-        if (redisEnterpriseCloudConfiguration == null) return null;
-        return redisEnterpriseCloudConfiguration.getValue("AgentKnowledgeBaseStorageConfigurationArgs.redisEnterpriseCloudConfiguration");
+        if (!unknown_redisEnterpriseCloudConfiguration) return value_redisEnterpriseCloudConfiguration;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationArgs.redisEnterpriseCloudConfiguration' is not present");
     }
 
     /**
      * Vector store service in which the knowledge base is stored. Valid Values: `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("AgentKnowledgeBaseStorageConfigurationArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationArgs.type' is not present");
     }
 
 }

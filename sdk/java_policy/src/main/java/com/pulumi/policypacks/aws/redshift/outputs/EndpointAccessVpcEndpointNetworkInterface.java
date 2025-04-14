@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class EndpointAccessVpcEndpointNetworkInterface {
      * The Availability Zone.
      * 
      */
-    private @Nullable UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private @Nullable String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public @Nullable String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("EndpointAccessVpcEndpointNetworkInterface.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'EndpointAccessVpcEndpointNetworkInterface.availabilityZone' is not present");
     }
 
     /**
      * The network interface identifier.
      * 
      */
-    private @Nullable UndeferrableValue<String> networkInterfaceId;
-
+    @PolicyResourceProperty(name="networkInterfaceId", flag="unknown_networkInterfaceId")
+    private @Nullable String value_networkInterfaceId;
+    private boolean unknown_networkInterfaceId;
     public @Nullable String networkInterfaceId() {
-        if (networkInterfaceId == null) return null;
-        return networkInterfaceId.getValue("EndpointAccessVpcEndpointNetworkInterface.networkInterfaceId");
+        if (!unknown_networkInterfaceId) return value_networkInterfaceId;
+        throw new UndeferrableValueException("Value 'EndpointAccessVpcEndpointNetworkInterface.networkInterfaceId' is not present");
     }
 
     /**
      * The IPv4 address of the network interface within the subnet.
      * 
      */
-    private @Nullable UndeferrableValue<String> privateIpAddress;
-
+    @PolicyResourceProperty(name="privateIpAddress", flag="unknown_privateIpAddress")
+    private @Nullable String value_privateIpAddress;
+    private boolean unknown_privateIpAddress;
     public @Nullable String privateIpAddress() {
-        if (privateIpAddress == null) return null;
-        return privateIpAddress.getValue("EndpointAccessVpcEndpointNetworkInterface.privateIpAddress");
+        if (!unknown_privateIpAddress) return value_privateIpAddress;
+        throw new UndeferrableValueException("Value 'EndpointAccessVpcEndpointNetworkInterface.privateIpAddress' is not present");
     }
 
     /**
      * The subnet identifier.
      * 
      */
-    private @Nullable UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private @Nullable String value_subnetId;
+    private boolean unknown_subnetId;
     public @Nullable String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("EndpointAccessVpcEndpointNetworkInterface.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'EndpointAccessVpcEndpointNetworkInterface.subnetId' is not present");
     }
 
 }

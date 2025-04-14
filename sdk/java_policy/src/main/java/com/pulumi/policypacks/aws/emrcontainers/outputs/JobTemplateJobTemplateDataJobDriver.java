@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emrcontainers.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.emrcontainers.outputs.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver;
 import com.pulumi.policypacks.aws.emrcontainers.outputs.JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class JobTemplateJobTemplateDataJobDriver {
      * The job driver for job type.
      * 
      */
-    private @Nullable UndeferrableValue<JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver> sparkSqlJobDriver;
-
+    @PolicyResourceProperty(name="sparkSqlJobDriver", flag="unknown_sparkSqlJobDriver")
+    private @Nullable JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver value_sparkSqlJobDriver;
+    private boolean unknown_sparkSqlJobDriver;
     public @Nullable JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver sparkSqlJobDriver() {
-        if (sparkSqlJobDriver == null) return null;
-        return sparkSqlJobDriver.getValue("JobTemplateJobTemplateDataJobDriver.sparkSqlJobDriver");
+        if (!unknown_sparkSqlJobDriver) return value_sparkSqlJobDriver;
+        throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataJobDriver.sparkSqlJobDriver' is not present");
     }
 
     /**
      * The job driver parameters specified for spark submit.
      * 
      */
-    private @Nullable UndeferrableValue<JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver> sparkSubmitJobDriver;
-
+    @PolicyResourceProperty(name="sparkSubmitJobDriver", flag="unknown_sparkSubmitJobDriver")
+    private @Nullable JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver value_sparkSubmitJobDriver;
+    private boolean unknown_sparkSubmitJobDriver;
     public @Nullable JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver sparkSubmitJobDriver() {
-        if (sparkSubmitJobDriver == null) return null;
-        return sparkSubmitJobDriver.getValue("JobTemplateJobTemplateDataJobDriver.sparkSubmitJobDriver");
+        if (!unknown_sparkSubmitJobDriver) return value_sparkSubmitJobDriver;
+        throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataJobDriver.sparkSubmitJobDriver' is not present");
     }
 
 }

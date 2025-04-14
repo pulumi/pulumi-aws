@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class DataSetLogicalTableMapDataTransformProjectOperationArgs {
      * Projected columns.
      * 
      */
-    private UndeferrableValue<List<String>> projectedColumns;
-
+    @PolicyResourceProperty(name="projectedColumns", flag="unknown_projectedColumns")
+    private List<String> value_projectedColumns;
+    private boolean unknown_projectedColumns;
     public List<String> projectedColumns() {
-        if (projectedColumns == null) return null;
-        return projectedColumns.getValue("DataSetLogicalTableMapDataTransformProjectOperationArgs.projectedColumns");
+        if (!unknown_projectedColumns) return value_projectedColumns;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformProjectOperationArgs.projectedColumns' is not present");
     }
 
 }

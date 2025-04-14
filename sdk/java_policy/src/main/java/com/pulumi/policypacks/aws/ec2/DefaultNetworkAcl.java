@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.outputs.DefaultNetworkAclEgress;
 import com.pulumi.policypacks.aws.ec2.outputs.DefaultNetworkAclIngress;
@@ -20,11 +21,12 @@ public final class DefaultNetworkAcl extends com.pulumi.resources.PolicyResource
      * ARN of the Default Network ACL
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("DefaultNetworkAcl.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'DefaultNetworkAcl.arn' is not present");
     }
 
     /**
@@ -33,66 +35,72 @@ public final class DefaultNetworkAcl extends com.pulumi.resources.PolicyResource
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> defaultNetworkAclId;
-
+    @PolicyResourceProperty(name="defaultNetworkAclId", flag="unknown_defaultNetworkAclId")
+    private String value_defaultNetworkAclId;
+    private boolean unknown_defaultNetworkAclId;
     public String defaultNetworkAclId() {
-        if (defaultNetworkAclId == null) return null;
-        return defaultNetworkAclId.getValue("DefaultNetworkAcl.defaultNetworkAclId");
+        if (!unknown_defaultNetworkAclId) return value_defaultNetworkAclId;
+        throw new UndeferrableValueException("Value 'DefaultNetworkAcl.defaultNetworkAclId' is not present");
     }
 
     /**
      * Configuration block for an egress rule. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<DefaultNetworkAclEgress>> egress;
-
+    @PolicyResourceProperty(name="egress", flag="unknown_egress")
+    private @Nullable List<DefaultNetworkAclEgress> value_egress;
+    private boolean unknown_egress;
     public @Nullable List<DefaultNetworkAclEgress> egress() {
-        if (egress == null) return null;
-        return egress.getValue("DefaultNetworkAcl.egress");
+        if (!unknown_egress) return value_egress;
+        throw new UndeferrableValueException("Value 'DefaultNetworkAcl.egress' is not present");
     }
 
     /**
      * Configuration block for an ingress rule. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<DefaultNetworkAclIngress>> ingress;
-
+    @PolicyResourceProperty(name="ingress", flag="unknown_ingress")
+    private @Nullable List<DefaultNetworkAclIngress> value_ingress;
+    private boolean unknown_ingress;
     public @Nullable List<DefaultNetworkAclIngress> ingress() {
-        if (ingress == null) return null;
-        return ingress.getValue("DefaultNetworkAcl.ingress");
+        if (!unknown_ingress) return value_ingress;
+        throw new UndeferrableValueException("Value 'DefaultNetworkAcl.ingress' is not present");
     }
 
     /**
      * ID of the AWS account that owns the Default Network ACL
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("DefaultNetworkAcl.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'DefaultNetworkAcl.ownerId' is not present");
     }
 
     /**
      * List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private @Nullable List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public @Nullable List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("DefaultNetworkAcl.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'DefaultNetworkAcl.subnetIds' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DefaultNetworkAcl.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DefaultNetworkAcl.tags' is not present");
     }
 
     /**
@@ -103,22 +111,24 @@ public final class DefaultNetworkAcl extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("DefaultNetworkAcl.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'DefaultNetworkAcl.tagsAll' is not present");
     }
 
     /**
      * ID of the associated VPC
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("DefaultNetworkAcl.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'DefaultNetworkAcl.vpcId' is not present");
     }
 
 }

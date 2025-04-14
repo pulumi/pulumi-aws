@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.organizations;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.organizations.outputs.OrganizationAccount;
 import com.pulumi.policypacks.aws.organizations.outputs.OrganizationNonMasterAccount;
@@ -20,121 +21,132 @@ public final class Organization extends com.pulumi.resources.PolicyResourceOutpu
      * List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
      * 
      */
-    private UndeferrableValue<List<OrganizationAccount>> accounts;
-
+    @PolicyResourceProperty(name="accounts", flag="unknown_accounts")
+    private List<OrganizationAccount> value_accounts;
+    private boolean unknown_accounts;
     public List<OrganizationAccount> accounts() {
-        if (accounts == null) return null;
-        return accounts.getValue("Organization.accounts");
+        if (!unknown_accounts) return value_accounts;
+        throw new UndeferrableValueException("Value 'Organization.accounts' is not present");
     }
 
     /**
      * ARN of the root
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Organization.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Organization.arn' is not present");
     }
 
     /**
      * List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> awsServiceAccessPrincipals;
-
+    @PolicyResourceProperty(name="awsServiceAccessPrincipals", flag="unknown_awsServiceAccessPrincipals")
+    private @Nullable List<String> value_awsServiceAccessPrincipals;
+    private boolean unknown_awsServiceAccessPrincipals;
     public @Nullable List<String> awsServiceAccessPrincipals() {
-        if (awsServiceAccessPrincipals == null) return null;
-        return awsServiceAccessPrincipals.getValue("Organization.awsServiceAccessPrincipals");
+        if (!unknown_awsServiceAccessPrincipals) return value_awsServiceAccessPrincipals;
+        throw new UndeferrableValueException("Value 'Organization.awsServiceAccessPrincipals' is not present");
     }
 
     /**
      * List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `RESOURCE_CONTROL_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> enabledPolicyTypes;
-
+    @PolicyResourceProperty(name="enabledPolicyTypes", flag="unknown_enabledPolicyTypes")
+    private @Nullable List<String> value_enabledPolicyTypes;
+    private boolean unknown_enabledPolicyTypes;
     public @Nullable List<String> enabledPolicyTypes() {
-        if (enabledPolicyTypes == null) return null;
-        return enabledPolicyTypes.getValue("Organization.enabledPolicyTypes");
+        if (!unknown_enabledPolicyTypes) return value_enabledPolicyTypes;
+        throw new UndeferrableValueException("Value 'Organization.enabledPolicyTypes' is not present");
     }
 
     /**
      * Specify &#34;ALL&#34; (default) or &#34;CONSOLIDATED_BILLING&#34;.
      * 
      */
-    private @Nullable UndeferrableValue<String> featureSet;
-
+    @PolicyResourceProperty(name="featureSet", flag="unknown_featureSet")
+    private @Nullable String value_featureSet;
+    private boolean unknown_featureSet;
     public @Nullable String featureSet() {
-        if (featureSet == null) return null;
-        return featureSet.getValue("Organization.featureSet");
+        if (!unknown_featureSet) return value_featureSet;
+        throw new UndeferrableValueException("Value 'Organization.featureSet' is not present");
     }
 
     /**
      * ARN of the master account
      * 
      */
-    private UndeferrableValue<String> masterAccountArn;
-
+    @PolicyResourceProperty(name="masterAccountArn", flag="unknown_masterAccountArn")
+    private String value_masterAccountArn;
+    private boolean unknown_masterAccountArn;
     public String masterAccountArn() {
-        if (masterAccountArn == null) return null;
-        return masterAccountArn.getValue("Organization.masterAccountArn");
+        if (!unknown_masterAccountArn) return value_masterAccountArn;
+        throw new UndeferrableValueException("Value 'Organization.masterAccountArn' is not present");
     }
 
     /**
      * Email address of the master account
      * 
      */
-    private UndeferrableValue<String> masterAccountEmail;
-
+    @PolicyResourceProperty(name="masterAccountEmail", flag="unknown_masterAccountEmail")
+    private String value_masterAccountEmail;
+    private boolean unknown_masterAccountEmail;
     public String masterAccountEmail() {
-        if (masterAccountEmail == null) return null;
-        return masterAccountEmail.getValue("Organization.masterAccountEmail");
+        if (!unknown_masterAccountEmail) return value_masterAccountEmail;
+        throw new UndeferrableValueException("Value 'Organization.masterAccountEmail' is not present");
     }
 
     /**
      * Identifier of the master account
      * 
      */
-    private UndeferrableValue<String> masterAccountId;
-
+    @PolicyResourceProperty(name="masterAccountId", flag="unknown_masterAccountId")
+    private String value_masterAccountId;
+    private boolean unknown_masterAccountId;
     public String masterAccountId() {
-        if (masterAccountId == null) return null;
-        return masterAccountId.getValue("Organization.masterAccountId");
+        if (!unknown_masterAccountId) return value_masterAccountId;
+        throw new UndeferrableValueException("Value 'Organization.masterAccountId' is not present");
     }
 
     /**
      * Name of the master account
      * 
      */
-    private UndeferrableValue<String> masterAccountName;
-
+    @PolicyResourceProperty(name="masterAccountName", flag="unknown_masterAccountName")
+    private String value_masterAccountName;
+    private boolean unknown_masterAccountName;
     public String masterAccountName() {
-        if (masterAccountName == null) return null;
-        return masterAccountName.getValue("Organization.masterAccountName");
+        if (!unknown_masterAccountName) return value_masterAccountName;
+        throw new UndeferrableValueException("Value 'Organization.masterAccountName' is not present");
     }
 
     /**
      * List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
      * 
      */
-    private UndeferrableValue<List<OrganizationNonMasterAccount>> nonMasterAccounts;
-
+    @PolicyResourceProperty(name="nonMasterAccounts", flag="unknown_nonMasterAccounts")
+    private List<OrganizationNonMasterAccount> value_nonMasterAccounts;
+    private boolean unknown_nonMasterAccounts;
     public List<OrganizationNonMasterAccount> nonMasterAccounts() {
-        if (nonMasterAccounts == null) return null;
-        return nonMasterAccounts.getValue("Organization.nonMasterAccounts");
+        if (!unknown_nonMasterAccounts) return value_nonMasterAccounts;
+        throw new UndeferrableValueException("Value 'Organization.nonMasterAccounts' is not present");
     }
 
     /**
      * List of organization roots. All elements have these attributes:
      * 
      */
-    private UndeferrableValue<List<OrganizationRoot>> roots;
-
+    @PolicyResourceProperty(name="roots", flag="unknown_roots")
+    private List<OrganizationRoot> value_roots;
+    private boolean unknown_roots;
     public List<OrganizationRoot> roots() {
-        if (roots == null) return null;
-        return roots.getValue("Organization.roots");
+        if (!unknown_roots) return value_roots;
+        throw new UndeferrableValueException("Value 'Organization.roots' is not present");
     }
 
 }

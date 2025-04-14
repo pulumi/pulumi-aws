@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dlm.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,18 +12,20 @@ import javax.annotation.Nullable;
 
 public final class LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration {
 
-    private @Nullable UndeferrableValue<String> cmkArn;
-
+    @PolicyResourceProperty(name="cmkArn", flag="unknown_cmkArn")
+    private @Nullable String value_cmkArn;
+    private boolean unknown_cmkArn;
     public @Nullable String cmkArn() {
-        if (cmkArn == null) return null;
-        return cmkArn.getValue("LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration.cmkArn");
+        if (!unknown_cmkArn) return value_cmkArn;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration.cmkArn' is not present");
     }
 
-    private @Nullable UndeferrableValue<Boolean> encrypted;
-
+    @PolicyResourceProperty(name="encrypted", flag="unknown_encrypted")
+    private @Nullable Boolean value_encrypted;
+    private boolean unknown_encrypted;
     public @Nullable Boolean encrypted() {
-        if (encrypted == null) return null;
-        return encrypted.getValue("LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration.encrypted");
+        if (!unknown_encrypted) return value_encrypted;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration.encrypted' is not present");
     }
 
 }

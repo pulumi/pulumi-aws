@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.devopsguru;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.devopsguru.outputs.NotificationChannelFilters;
 import com.pulumi.policypacks.aws.devopsguru.outputs.NotificationChannelSns;
@@ -17,11 +18,12 @@ public final class NotificationChannel extends com.pulumi.resources.PolicyResour
      * Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
      * 
      */
-    private @Nullable UndeferrableValue<NotificationChannelFilters> filters;
-
+    @PolicyResourceProperty(name="filters", flag="unknown_filters")
+    private @Nullable NotificationChannelFilters value_filters;
+    private boolean unknown_filters;
     public @Nullable NotificationChannelFilters filters() {
-        if (filters == null) return null;
-        return filters.getValue("NotificationChannel.filters");
+        if (!unknown_filters) return value_filters;
+        throw new UndeferrableValueException("Value 'NotificationChannel.filters' is not present");
     }
 
     /**
@@ -30,11 +32,12 @@ public final class NotificationChannel extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    private @Nullable UndeferrableValue<NotificationChannelSns> sns;
-
+    @PolicyResourceProperty(name="sns", flag="unknown_sns")
+    private @Nullable NotificationChannelSns value_sns;
+    private boolean unknown_sns;
     public @Nullable NotificationChannelSns sns() {
-        if (sns == null) return null;
-        return sns.getValue("NotificationChannel.sns");
+        if (!unknown_sns) return value_sns;
+        throw new UndeferrableValueException("Value 'NotificationChannel.sns' is not present");
     }
 
 }

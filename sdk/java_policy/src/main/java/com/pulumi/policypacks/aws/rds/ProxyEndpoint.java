@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -19,66 +20,72 @@ public final class ProxyEndpoint extends com.pulumi.resources.PolicyResourceOutp
      * The Amazon Resource Name (ARN) for the proxy endpoint.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ProxyEndpoint.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ProxyEndpoint.arn' is not present");
     }
 
     /**
      * The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
      * 
      */
-    private UndeferrableValue<String> dbProxyEndpointName;
-
+    @PolicyResourceProperty(name="dbProxyEndpointName", flag="unknown_dbProxyEndpointName")
+    private String value_dbProxyEndpointName;
+    private boolean unknown_dbProxyEndpointName;
     public String dbProxyEndpointName() {
-        if (dbProxyEndpointName == null) return null;
-        return dbProxyEndpointName.getValue("ProxyEndpoint.dbProxyEndpointName");
+        if (!unknown_dbProxyEndpointName) return value_dbProxyEndpointName;
+        throw new UndeferrableValueException("Value 'ProxyEndpoint.dbProxyEndpointName' is not present");
     }
 
     /**
      * The name of the DB proxy associated with the DB proxy endpoint that you create.
      * 
      */
-    private UndeferrableValue<String> dbProxyName;
-
+    @PolicyResourceProperty(name="dbProxyName", flag="unknown_dbProxyName")
+    private String value_dbProxyName;
+    private boolean unknown_dbProxyName;
     public String dbProxyName() {
-        if (dbProxyName == null) return null;
-        return dbProxyName.getValue("ProxyEndpoint.dbProxyName");
+        if (!unknown_dbProxyName) return value_dbProxyName;
+        throw new UndeferrableValueException("Value 'ProxyEndpoint.dbProxyName' is not present");
     }
 
     /**
      * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      * 
      */
-    private UndeferrableValue<String> endpoint;
-
+    @PolicyResourceProperty(name="endpoint", flag="unknown_endpoint")
+    private String value_endpoint;
+    private boolean unknown_endpoint;
     public String endpoint() {
-        if (endpoint == null) return null;
-        return endpoint.getValue("ProxyEndpoint.endpoint");
+        if (!unknown_endpoint) return value_endpoint;
+        throw new UndeferrableValueException("Value 'ProxyEndpoint.endpoint' is not present");
     }
 
     /**
      * Indicates whether this endpoint is the default endpoint for the associated DB proxy.
      * 
      */
-    private UndeferrableValue<Boolean> isDefault;
-
+    @PolicyResourceProperty(name="isDefault", flag="unknown_isDefault")
+    private Boolean value_isDefault;
+    private boolean unknown_isDefault;
     public Boolean isDefault() {
-        if (isDefault == null) return null;
-        return isDefault.getValue("ProxyEndpoint.isDefault");
+        if (!unknown_isDefault) return value_isDefault;
+        throw new UndeferrableValueException("Value 'ProxyEndpoint.isDefault' is not present");
     }
 
     /**
      * A mapping of tags to assign to the resource.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ProxyEndpoint.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ProxyEndpoint.tags' is not present");
     }
 
     /**
@@ -87,55 +94,60 @@ public final class ProxyEndpoint extends com.pulumi.resources.PolicyResourceOutp
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ProxyEndpoint.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ProxyEndpoint.tagsAll' is not present");
     }
 
     /**
      * Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
      * 
      */
-    private @Nullable UndeferrableValue<String> targetRole;
-
+    @PolicyResourceProperty(name="targetRole", flag="unknown_targetRole")
+    private @Nullable String value_targetRole;
+    private boolean unknown_targetRole;
     public @Nullable String targetRole() {
-        if (targetRole == null) return null;
-        return targetRole.getValue("ProxyEndpoint.targetRole");
+        if (!unknown_targetRole) return value_targetRole;
+        throw new UndeferrableValueException("Value 'ProxyEndpoint.targetRole' is not present");
     }
 
     /**
      * The VPC ID of the DB proxy endpoint.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("ProxyEndpoint.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'ProxyEndpoint.vpcId' is not present");
     }
 
     /**
      * One or more VPC security group IDs to associate with the new proxy.
      * 
      */
-    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
-
+    @PolicyResourceProperty(name="vpcSecurityGroupIds", flag="unknown_vpcSecurityGroupIds")
+    private List<String> value_vpcSecurityGroupIds;
+    private boolean unknown_vpcSecurityGroupIds;
     public List<String> vpcSecurityGroupIds() {
-        if (vpcSecurityGroupIds == null) return null;
-        return vpcSecurityGroupIds.getValue("ProxyEndpoint.vpcSecurityGroupIds");
+        if (!unknown_vpcSecurityGroupIds) return value_vpcSecurityGroupIds;
+        throw new UndeferrableValueException("Value 'ProxyEndpoint.vpcSecurityGroupIds' is not present");
     }
 
     /**
      * One or more VPC subnet IDs to associate with the new proxy.
      * 
      */
-    private UndeferrableValue<List<String>> vpcSubnetIds;
-
+    @PolicyResourceProperty(name="vpcSubnetIds", flag="unknown_vpcSubnetIds")
+    private List<String> value_vpcSubnetIds;
+    private boolean unknown_vpcSubnetIds;
     public List<String> vpcSubnetIds() {
-        if (vpcSubnetIds == null) return null;
-        return vpcSubnetIds.getValue("ProxyEndpoint.vpcSubnetIds");
+        if (!unknown_vpcSubnetIds) return value_vpcSubnetIds;
+        throw new UndeferrableValueException("Value 'ProxyEndpoint.vpcSubnetIds' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigu
      * Describes the metadata sent to the HTTP endpoint destination. See `common_attributes` block below for details.
      * 
      */
-    private UndeferrableValue<List<FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs>> commonAttributes;
-
+    @PolicyResourceProperty(name="commonAttributes", flag="unknown_commonAttributes")
+    private List<FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs> value_commonAttributes;
+    private boolean unknown_commonAttributes;
     public List<FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs> commonAttributes() {
-        if (commonAttributes == null) return null;
-        return commonAttributes.getValue("FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs.commonAttributes");
+        if (!unknown_commonAttributes) return value_commonAttributes;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs.commonAttributes' is not present");
     }
 
     /**
      * Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. Valid values are `NONE` and `GZIP`.  Default value is `NONE`.
      * 
      */
-    private UndeferrableValue<String> contentEncoding;
-
+    @PolicyResourceProperty(name="contentEncoding", flag="unknown_contentEncoding")
+    private String value_contentEncoding;
+    private boolean unknown_contentEncoding;
     public String contentEncoding() {
-        if (contentEncoding == null) return null;
-        return contentEncoding.getValue("FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs.contentEncoding");
+        if (!unknown_contentEncoding) return value_contentEncoding;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs.contentEncoding' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,77 +15,84 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs {
      * The regular expression that identifies the claim. Minimum length of 1. Maximum length of 100.
      * 
      */
-    private UndeferrableValue<String> claimRegex;
-
+    @PolicyResourceProperty(name="claimRegex", flag="unknown_claimRegex")
+    private String value_claimRegex;
+    private boolean unknown_claimRegex;
     public String claimRegex() {
-        if (claimRegex == null) return null;
-        return claimRegex.getValue("IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs.claimRegex");
+        if (!unknown_claimRegex) return value_claimRegex;
+        throw new UndeferrableValueException("Value 'IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs.claimRegex' is not present");
     }
 
     /**
      * The group attribute field. Minimum length of 1. Maximum length of 100.
      * 
      */
-    private UndeferrableValue<String> groupAttributeField;
-
+    @PolicyResourceProperty(name="groupAttributeField", flag="unknown_groupAttributeField")
+    private String value_groupAttributeField;
+    private boolean unknown_groupAttributeField;
     public String groupAttributeField() {
-        if (groupAttributeField == null) return null;
-        return groupAttributeField.getValue("IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs.groupAttributeField");
+        if (!unknown_groupAttributeField) return value_groupAttributeField;
+        throw new UndeferrableValueException("Value 'IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs.groupAttributeField' is not present");
     }
 
     /**
      * The issuer of the token. Minimum length of 1. Maximum length of 65.
      * 
      */
-    private UndeferrableValue<String> issuer;
-
+    @PolicyResourceProperty(name="issuer", flag="unknown_issuer")
+    private String value_issuer;
+    private boolean unknown_issuer;
     public String issuer() {
-        if (issuer == null) return null;
-        return issuer.getValue("IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs.issuer");
+        if (!unknown_issuer) return value_issuer;
+        throw new UndeferrableValueException("Value 'IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs.issuer' is not present");
     }
 
     /**
      * The location of the key. Valid values are `URL` or `SECRET_MANAGER`
      * 
      */
-    private UndeferrableValue<String> keyLocation;
-
+    @PolicyResourceProperty(name="keyLocation", flag="unknown_keyLocation")
+    private String value_keyLocation;
+    private boolean unknown_keyLocation;
     public String keyLocation() {
-        if (keyLocation == null) return null;
-        return keyLocation.getValue("IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs.keyLocation");
+        if (!unknown_keyLocation) return value_keyLocation;
+        throw new UndeferrableValueException("Value 'IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs.keyLocation' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the secret.
      * 
      */
-    private UndeferrableValue<String> secretsManagerArn;
-
+    @PolicyResourceProperty(name="secretsManagerArn", flag="unknown_secretsManagerArn")
+    private String value_secretsManagerArn;
+    private boolean unknown_secretsManagerArn;
     public String secretsManagerArn() {
-        if (secretsManagerArn == null) return null;
-        return secretsManagerArn.getValue("IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs.secretsManagerArn");
+        if (!unknown_secretsManagerArn) return value_secretsManagerArn;
+        throw new UndeferrableValueException("Value 'IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs.secretsManagerArn' is not present");
     }
 
     /**
      * The signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`
      * 
      */
-    private UndeferrableValue<String> url;
-
+    @PolicyResourceProperty(name="url", flag="unknown_url")
+    private String value_url;
+    private boolean unknown_url;
     public String url() {
-        if (url == null) return null;
-        return url.getValue("IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs.url");
+        if (!unknown_url) return value_url;
+        throw new UndeferrableValueException("Value 'IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs.url' is not present");
     }
 
     /**
      * The user name attribute field. Minimum length of 1. Maximum length of 100.
      * 
      */
-    private UndeferrableValue<String> userNameAttributeField;
-
+    @PolicyResourceProperty(name="userNameAttributeField", flag="unknown_userNameAttributeField")
+    private String value_userNameAttributeField;
+    private boolean unknown_userNameAttributeField;
     public String userNameAttributeField() {
-        if (userNameAttributeField == null) return null;
-        return userNameAttributeField.getValue("IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs.userNameAttributeField");
+        if (!unknown_userNameAttributeField) return value_userNameAttributeField;
+        throw new UndeferrableValueException("Value 'IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs.userNameAttributeField' is not present");
     }
 
 }

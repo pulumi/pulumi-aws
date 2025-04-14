@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mq;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,55 +18,60 @@ public final class ConfigurationArgs extends com.pulumi.resources.PolicyResource
      * Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
      * 
      */
-    private UndeferrableValue<String> authenticationStrategy;
-
+    @PolicyResourceProperty(name="authenticationStrategy", flag="unknown_authenticationStrategy")
+    private String value_authenticationStrategy;
+    private boolean unknown_authenticationStrategy;
     public String authenticationStrategy() {
-        if (authenticationStrategy == null) return null;
-        return authenticationStrategy.getValue("ConfigurationArgs.authenticationStrategy");
+        if (!unknown_authenticationStrategy) return value_authenticationStrategy;
+        throw new UndeferrableValueException("Value 'ConfigurationArgs.authenticationStrategy' is not present");
     }
 
     /**
      * Broker configuration in XML format for `ActiveMQ` or [Cuttlefish](https://github.com/Kyorai/cuttlefish) format for `RabbitMQ`. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
      * 
      */
-    private UndeferrableValue<String> data;
-
+    @PolicyResourceProperty(name="data", flag="unknown_data")
+    private String value_data;
+    private boolean unknown_data;
     public String data() {
-        if (data == null) return null;
-        return data.getValue("ConfigurationArgs.data");
+        if (!unknown_data) return value_data;
+        throw new UndeferrableValueException("Value 'ConfigurationArgs.data' is not present");
     }
 
     /**
      * Description of the configuration.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ConfigurationArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ConfigurationArgs.description' is not present");
     }
 
     /**
      * Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
      * 
      */
-    private UndeferrableValue<String> engineType;
-
+    @PolicyResourceProperty(name="engineType", flag="unknown_engineType")
+    private String value_engineType;
+    private boolean unknown_engineType;
     public String engineType() {
-        if (engineType == null) return null;
-        return engineType.getValue("ConfigurationArgs.engineType");
+        if (!unknown_engineType) return value_engineType;
+        throw new UndeferrableValueException("Value 'ConfigurationArgs.engineType' is not present");
     }
 
     /**
      * Version of the broker engine.
      * 
      */
-    private UndeferrableValue<String> engineVersion;
-
+    @PolicyResourceProperty(name="engineVersion", flag="unknown_engineVersion")
+    private String value_engineVersion;
+    private boolean unknown_engineVersion;
     public String engineVersion() {
-        if (engineVersion == null) return null;
-        return engineVersion.getValue("ConfigurationArgs.engineVersion");
+        if (!unknown_engineVersion) return value_engineVersion;
+        throw new UndeferrableValueException("Value 'ConfigurationArgs.engineVersion' is not present");
     }
 
     /**
@@ -74,22 +80,24 @@ public final class ConfigurationArgs extends com.pulumi.resources.PolicyResource
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ConfigurationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ConfigurationArgs.name' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ConfigurationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ConfigurationArgs.tags' is not present");
     }
 
 }

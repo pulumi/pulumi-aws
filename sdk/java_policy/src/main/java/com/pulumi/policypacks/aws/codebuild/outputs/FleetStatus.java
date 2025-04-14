@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class FleetStatus {
      * Additional information about a compute fleet.
      * 
      */
-    private @Nullable UndeferrableValue<String> context;
-
+    @PolicyResourceProperty(name="context", flag="unknown_context")
+    private @Nullable String value_context;
+    private boolean unknown_context;
     public @Nullable String context() {
-        if (context == null) return null;
-        return context.getValue("FleetStatus.context");
+        if (!unknown_context) return value_context;
+        throw new UndeferrableValueException("Value 'FleetStatus.context' is not present");
     }
 
     /**
      * Message associated with the status of a compute fleet.
      * 
      */
-    private @Nullable UndeferrableValue<String> message;
-
+    @PolicyResourceProperty(name="message", flag="unknown_message")
+    private @Nullable String value_message;
+    private boolean unknown_message;
     public @Nullable String message() {
-        if (message == null) return null;
-        return message.getValue("FleetStatus.message");
+        if (!unknown_message) return value_message;
+        throw new UndeferrableValueException("Value 'FleetStatus.message' is not present");
     }
 
     /**
      * Status code of the compute fleet.
      * 
      */
-    private @Nullable UndeferrableValue<String> statusCode;
-
+    @PolicyResourceProperty(name="statusCode", flag="unknown_statusCode")
+    private @Nullable String value_statusCode;
+    private boolean unknown_statusCode;
     public @Nullable String statusCode() {
-        if (statusCode == null) return null;
-        return statusCode.getValue("FleetStatus.statusCode");
+        if (!unknown_statusCode) return value_statusCode;
+        throw new UndeferrableValueException("Value 'FleetStatus.statusCode' is not present");
     }
 
 }

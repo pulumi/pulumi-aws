@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudwatch.inputs.InternetMonitorHealthEventsConfigArgs;
 import com.pulumi.policypacks.aws.cloudwatch.inputs.InternetMonitorInternetMeasurementsLogDeliveryArgs;
@@ -21,33 +22,36 @@ public final class InternetMonitorArgs extends com.pulumi.resources.PolicyResour
      * Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there&#39;s an internet issue that affects your application end users. See Health Events Config below.
      * 
      */
-    private UndeferrableValue<InternetMonitorHealthEventsConfigArgs> healthEventsConfig;
-
+    @PolicyResourceProperty(name="healthEventsConfig", flag="unknown_healthEventsConfig")
+    private InternetMonitorHealthEventsConfigArgs value_healthEventsConfig;
+    private boolean unknown_healthEventsConfig;
     public InternetMonitorHealthEventsConfigArgs healthEventsConfig() {
-        if (healthEventsConfig == null) return null;
-        return healthEventsConfig.getValue("InternetMonitorArgs.healthEventsConfig");
+        if (!unknown_healthEventsConfig) return value_healthEventsConfig;
+        throw new UndeferrableValueException("Value 'InternetMonitorArgs.healthEventsConfig' is not present");
     }
 
     /**
      * Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
      * 
      */
-    private UndeferrableValue<InternetMonitorInternetMeasurementsLogDeliveryArgs> internetMeasurementsLogDelivery;
-
+    @PolicyResourceProperty(name="internetMeasurementsLogDelivery", flag="unknown_internetMeasurementsLogDelivery")
+    private InternetMonitorInternetMeasurementsLogDeliveryArgs value_internetMeasurementsLogDelivery;
+    private boolean unknown_internetMeasurementsLogDelivery;
     public InternetMonitorInternetMeasurementsLogDeliveryArgs internetMeasurementsLogDelivery() {
-        if (internetMeasurementsLogDelivery == null) return null;
-        return internetMeasurementsLogDelivery.getValue("InternetMonitorArgs.internetMeasurementsLogDelivery");
+        if (!unknown_internetMeasurementsLogDelivery) return value_internetMeasurementsLogDelivery;
+        throw new UndeferrableValueException("Value 'InternetMonitorArgs.internetMeasurementsLogDelivery' is not present");
     }
 
     /**
      * The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
      * 
      */
-    private UndeferrableValue<Integer> maxCityNetworksToMonitor;
-
+    @PolicyResourceProperty(name="maxCityNetworksToMonitor", flag="unknown_maxCityNetworksToMonitor")
+    private Integer value_maxCityNetworksToMonitor;
+    private boolean unknown_maxCityNetworksToMonitor;
     public Integer maxCityNetworksToMonitor() {
-        if (maxCityNetworksToMonitor == null) return null;
-        return maxCityNetworksToMonitor.getValue("InternetMonitorArgs.maxCityNetworksToMonitor");
+        if (!unknown_maxCityNetworksToMonitor) return value_maxCityNetworksToMonitor;
+        throw new UndeferrableValueException("Value 'InternetMonitorArgs.maxCityNetworksToMonitor' is not present");
     }
 
     /**
@@ -56,55 +60,60 @@ public final class InternetMonitorArgs extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> monitorName;
-
+    @PolicyResourceProperty(name="monitorName", flag="unknown_monitorName")
+    private String value_monitorName;
+    private boolean unknown_monitorName;
     public String monitorName() {
-        if (monitorName == null) return null;
-        return monitorName.getValue("InternetMonitorArgs.monitorName");
+        if (!unknown_monitorName) return value_monitorName;
+        throw new UndeferrableValueException("Value 'InternetMonitorArgs.monitorName' is not present");
     }
 
     /**
      * The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
      * 
      */
-    private UndeferrableValue<List<String>> resources;
-
+    @PolicyResourceProperty(name="resources", flag="unknown_resources")
+    private List<String> value_resources;
+    private boolean unknown_resources;
     public List<String> resources() {
-        if (resources == null) return null;
-        return resources.getValue("InternetMonitorArgs.resources");
+        if (!unknown_resources) return value_resources;
+        throw new UndeferrableValueException("Value 'InternetMonitorArgs.resources' is not present");
     }
 
     /**
      * The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("InternetMonitorArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'InternetMonitorArgs.status' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("InternetMonitorArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'InternetMonitorArgs.tags' is not present");
     }
 
     /**
      * The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.
      * 
      */
-    private UndeferrableValue<Integer> trafficPercentageToMonitor;
-
+    @PolicyResourceProperty(name="trafficPercentageToMonitor", flag="unknown_trafficPercentageToMonitor")
+    private Integer value_trafficPercentageToMonitor;
+    private boolean unknown_trafficPercentageToMonitor;
     public Integer trafficPercentageToMonitor() {
-        if (trafficPercentageToMonitor == null) return null;
-        return trafficPercentageToMonitor.getValue("InternetMonitorArgs.trafficPercentageToMonitor");
+        if (!unknown_trafficPercentageToMonitor) return value_trafficPercentageToMonitor;
+        throw new UndeferrableValueException("Value 'InternetMonitorArgs.trafficPercentageToMonitor' is not present");
     }
 
 }

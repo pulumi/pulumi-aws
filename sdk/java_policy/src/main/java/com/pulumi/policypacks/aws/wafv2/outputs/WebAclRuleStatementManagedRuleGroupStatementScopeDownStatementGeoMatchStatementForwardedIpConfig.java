@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * Match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
      * 
      */
-    private UndeferrableValue<String> fallbackBehavior;
-
+    @PolicyResourceProperty(name="fallbackBehavior", flag="unknown_fallbackBehavior")
+    private String value_fallbackBehavior;
+    private boolean unknown_fallbackBehavior;
     public String fallbackBehavior() {
-        if (fallbackBehavior == null) return null;
-        return fallbackBehavior.getValue("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfig.fallbackBehavior");
+        if (!unknown_fallbackBehavior) return value_fallbackBehavior;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfig.fallbackBehavior' is not present");
     }
 
     /**
      * Name of the HTTP header to use for the IP address.
      * 
      */
-    private UndeferrableValue<String> headerName;
-
+    @PolicyResourceProperty(name="headerName", flag="unknown_headerName")
+    private String value_headerName;
+    private boolean unknown_headerName;
     public String headerName() {
-        if (headerName == null) return null;
-        return headerName.getValue("WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfig.headerName");
+        if (!unknown_headerName) return value_headerName;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfig.headerName' is not present");
     }
 
 }

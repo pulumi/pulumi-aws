@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kms;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,99 +20,108 @@ public final class ExternalKeyArgs extends com.pulumi.resources.PolicyResourceIn
      * Specifies whether to disable the policy lockout check performed when creating or updating the key&#39;s policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> bypassPolicyLockoutSafetyCheck;
-
+    @PolicyResourceProperty(name="bypassPolicyLockoutSafetyCheck", flag="unknown_bypassPolicyLockoutSafetyCheck")
+    private Boolean value_bypassPolicyLockoutSafetyCheck;
+    private boolean unknown_bypassPolicyLockoutSafetyCheck;
     public Boolean bypassPolicyLockoutSafetyCheck() {
-        if (bypassPolicyLockoutSafetyCheck == null) return null;
-        return bypassPolicyLockoutSafetyCheck.getValue("ExternalKeyArgs.bypassPolicyLockoutSafetyCheck");
+        if (!unknown_bypassPolicyLockoutSafetyCheck) return value_bypassPolicyLockoutSafetyCheck;
+        throw new UndeferrableValueException("Value 'ExternalKeyArgs.bypassPolicyLockoutSafetyCheck' is not present");
     }
 
     /**
      * Duration in days after which the key is deleted after destruction of the resource. Must be between `7` and `30` days. Defaults to `30`.
      * 
      */
-    private UndeferrableValue<Integer> deletionWindowInDays;
-
+    @PolicyResourceProperty(name="deletionWindowInDays", flag="unknown_deletionWindowInDays")
+    private Integer value_deletionWindowInDays;
+    private boolean unknown_deletionWindowInDays;
     public Integer deletionWindowInDays() {
-        if (deletionWindowInDays == null) return null;
-        return deletionWindowInDays.getValue("ExternalKeyArgs.deletionWindowInDays");
+        if (!unknown_deletionWindowInDays) return value_deletionWindowInDays;
+        throw new UndeferrableValueException("Value 'ExternalKeyArgs.deletionWindowInDays' is not present");
     }
 
     /**
      * Description of the key.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ExternalKeyArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ExternalKeyArgs.description' is not present");
     }
 
     /**
      * Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("ExternalKeyArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'ExternalKeyArgs.enabled' is not present");
     }
 
     /**
      * Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
      * 
      */
-    private UndeferrableValue<String> keyMaterialBase64;
-
+    @PolicyResourceProperty(name="keyMaterialBase64", flag="unknown_keyMaterialBase64")
+    private String value_keyMaterialBase64;
+    private boolean unknown_keyMaterialBase64;
     public String keyMaterialBase64() {
-        if (keyMaterialBase64 == null) return null;
-        return keyMaterialBase64.getValue("ExternalKeyArgs.keyMaterialBase64");
+        if (!unknown_keyMaterialBase64) return value_keyMaterialBase64;
+        throw new UndeferrableValueException("Value 'ExternalKeyArgs.keyMaterialBase64' is not present");
     }
 
     /**
      * Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> multiRegion;
-
+    @PolicyResourceProperty(name="multiRegion", flag="unknown_multiRegion")
+    private Boolean value_multiRegion;
+    private boolean unknown_multiRegion;
     public Boolean multiRegion() {
-        if (multiRegion == null) return null;
-        return multiRegion.getValue("ExternalKeyArgs.multiRegion");
+        if (!unknown_multiRegion) return value_multiRegion;
+        throw new UndeferrableValueException("Value 'ExternalKeyArgs.multiRegion' is not present");
     }
 
     /**
      * A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("ExternalKeyArgs.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'ExternalKeyArgs.policy' is not present");
     }
 
     /**
      * A key-value map of tags to assign to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ExternalKeyArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ExternalKeyArgs.tags' is not present");
     }
 
     /**
      * Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
-    private UndeferrableValue<String> validTo;
-
+    @PolicyResourceProperty(name="validTo", flag="unknown_validTo")
+    private String value_validTo;
+    private boolean unknown_validTo;
     public String validTo() {
-        if (validTo == null) return null;
-        return validTo.getValue("ExternalKeyArgs.validTo");
+        if (!unknown_validTo) return value_validTo;
+        throw new UndeferrableValueException("Value 'ExternalKeyArgs.validTo' is not present");
     }
 
 }

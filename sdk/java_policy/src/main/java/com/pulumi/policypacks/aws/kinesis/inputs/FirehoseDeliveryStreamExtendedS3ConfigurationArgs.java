@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs;
 import com.pulumi.policypacks.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs;
 import com.pulumi.policypacks.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs;
@@ -20,98 +21,108 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs {
      * The ARN of the S3 bucket
      * 
      */
-    private UndeferrableValue<String> bucketArn;
-
+    @PolicyResourceProperty(name="bucketArn", flag="unknown_bucketArn")
+    private String value_bucketArn;
+    private boolean unknown_bucketArn;
     public String bucketArn() {
-        if (bucketArn == null) return null;
-        return bucketArn.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationArgs.bucketArn");
+        if (!unknown_bucketArn) return value_bucketArn;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.bucketArn' is not present");
     }
 
-    private UndeferrableValue<Integer> bufferingInterval;
-
+    @PolicyResourceProperty(name="bufferingInterval", flag="unknown_bufferingInterval")
+    private Integer value_bufferingInterval;
+    private boolean unknown_bufferingInterval;
     public Integer bufferingInterval() {
-        if (bufferingInterval == null) return null;
-        return bufferingInterval.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationArgs.bufferingInterval");
+        if (!unknown_bufferingInterval) return value_bufferingInterval;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.bufferingInterval' is not present");
     }
 
-    private UndeferrableValue<Integer> bufferingSize;
-
+    @PolicyResourceProperty(name="bufferingSize", flag="unknown_bufferingSize")
+    private Integer value_bufferingSize;
+    private boolean unknown_bufferingSize;
     public Integer bufferingSize() {
-        if (bufferingSize == null) return null;
-        return bufferingSize.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationArgs.bufferingSize");
+        if (!unknown_bufferingSize) return value_bufferingSize;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.bufferingSize' is not present");
     }
 
-    private UndeferrableValue<FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
-
+    @PolicyResourceProperty(name="cloudwatchLoggingOptions", flag="unknown_cloudwatchLoggingOptions")
+    private FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs value_cloudwatchLoggingOptions;
+    private boolean unknown_cloudwatchLoggingOptions;
     public FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs cloudwatchLoggingOptions() {
-        if (cloudwatchLoggingOptions == null) return null;
-        return cloudwatchLoggingOptions.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationArgs.cloudwatchLoggingOptions");
+        if (!unknown_cloudwatchLoggingOptions) return value_cloudwatchLoggingOptions;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.cloudwatchLoggingOptions' is not present");
     }
 
     /**
      * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
      * 
      */
-    private UndeferrableValue<String> compressionFormat;
-
+    @PolicyResourceProperty(name="compressionFormat", flag="unknown_compressionFormat")
+    private String value_compressionFormat;
+    private boolean unknown_compressionFormat;
     public String compressionFormat() {
-        if (compressionFormat == null) return null;
-        return compressionFormat.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationArgs.compressionFormat");
+        if (!unknown_compressionFormat) return value_compressionFormat;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.compressionFormat' is not present");
     }
 
     /**
      * The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
      * 
      */
-    private UndeferrableValue<String> customTimeZone;
-
+    @PolicyResourceProperty(name="customTimeZone", flag="unknown_customTimeZone")
+    private String value_customTimeZone;
+    private boolean unknown_customTimeZone;
     public String customTimeZone() {
-        if (customTimeZone == null) return null;
-        return customTimeZone.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationArgs.customTimeZone");
+        if (!unknown_customTimeZone) return value_customTimeZone;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.customTimeZone' is not present");
     }
 
     /**
      * Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `data_format_conversion_configuration` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs> dataFormatConversionConfiguration;
-
+    @PolicyResourceProperty(name="dataFormatConversionConfiguration", flag="unknown_dataFormatConversionConfiguration")
+    private FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs value_dataFormatConversionConfiguration;
+    private boolean unknown_dataFormatConversionConfiguration;
     public FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs dataFormatConversionConfiguration() {
-        if (dataFormatConversionConfiguration == null) return null;
-        return dataFormatConversionConfiguration.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationArgs.dataFormatConversionConfiguration");
+        if (!unknown_dataFormatConversionConfiguration) return value_dataFormatConversionConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.dataFormatConversionConfiguration' is not present");
     }
 
     /**
      * The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamic_partitioning_configuration` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs> dynamicPartitioningConfiguration;
-
+    @PolicyResourceProperty(name="dynamicPartitioningConfiguration", flag="unknown_dynamicPartitioningConfiguration")
+    private FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs value_dynamicPartitioningConfiguration;
+    private boolean unknown_dynamicPartitioningConfiguration;
     public FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs dynamicPartitioningConfiguration() {
-        if (dynamicPartitioningConfiguration == null) return null;
-        return dynamicPartitioningConfiguration.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationArgs.dynamicPartitioningConfiguration");
+        if (!unknown_dynamicPartitioningConfiguration) return value_dynamicPartitioningConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.dynamicPartitioningConfiguration' is not present");
     }
 
     /**
      * Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
      * 
      */
-    private UndeferrableValue<String> errorOutputPrefix;
-
+    @PolicyResourceProperty(name="errorOutputPrefix", flag="unknown_errorOutputPrefix")
+    private String value_errorOutputPrefix;
+    private boolean unknown_errorOutputPrefix;
     public String errorOutputPrefix() {
-        if (errorOutputPrefix == null) return null;
-        return errorOutputPrefix.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationArgs.errorOutputPrefix");
+        if (!unknown_errorOutputPrefix) return value_errorOutputPrefix;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.errorOutputPrefix' is not present");
     }
 
     /**
      * The file extension to override the default file extension (for example, `.json`).
      * 
      */
-    private UndeferrableValue<String> fileExtension;
-
+    @PolicyResourceProperty(name="fileExtension", flag="unknown_fileExtension")
+    private String value_fileExtension;
+    private boolean unknown_fileExtension;
     public String fileExtension() {
-        if (fileExtension == null) return null;
-        return fileExtension.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationArgs.fileExtension");
+        if (!unknown_fileExtension) return value_fileExtension;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.fileExtension' is not present");
     }
 
     /**
@@ -119,62 +130,68 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs {
      * be used.
      * 
      */
-    private UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationArgs.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.kmsKeyArn' is not present");
     }
 
     /**
      * The &#34;YYYY/MM/DD/HH&#34; time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
      * 
      */
-    private UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private String value_prefix;
+    private boolean unknown_prefix;
     public String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationArgs.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.prefix' is not present");
     }
 
     /**
      * The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs> processingConfiguration;
-
+    @PolicyResourceProperty(name="processingConfiguration", flag="unknown_processingConfiguration")
+    private FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs value_processingConfiguration;
+    private boolean unknown_processingConfiguration;
     public FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs processingConfiguration() {
-        if (processingConfiguration == null) return null;
-        return processingConfiguration.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationArgs.processingConfiguration");
+        if (!unknown_processingConfiguration) return value_processingConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.processingConfiguration' is not present");
     }
 
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.roleArn' is not present");
     }
 
     /**
      * The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs> s3BackupConfiguration;
-
+    @PolicyResourceProperty(name="s3BackupConfiguration", flag="unknown_s3BackupConfiguration")
+    private FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs value_s3BackupConfiguration;
+    private boolean unknown_s3BackupConfiguration;
     public FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs s3BackupConfiguration() {
-        if (s3BackupConfiguration == null) return null;
-        return s3BackupConfiguration.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationArgs.s3BackupConfiguration");
+        if (!unknown_s3BackupConfiguration) return value_s3BackupConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.s3BackupConfiguration' is not present");
     }
 
     /**
      * The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
      * 
      */
-    private UndeferrableValue<String> s3BackupMode;
-
+    @PolicyResourceProperty(name="s3BackupMode", flag="unknown_s3BackupMode")
+    private String value_s3BackupMode;
+    private boolean unknown_s3BackupMode;
     public String s3BackupMode() {
-        if (s3BackupMode == null) return null;
-        return s3BackupMode.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationArgs.s3BackupMode");
+        if (!unknown_s3BackupMode) return value_s3BackupMode;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationArgs.s3BackupMode' is not present");
     }
 
 }

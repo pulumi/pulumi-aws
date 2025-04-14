@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.keyspaces.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class KeyspaceReplicationSpecificationArgs {
      * Replication regions. If `replication_strategy` is `MULTI_REGION`, `region_list` requires the current Region and at least one additional AWS Region where the keyspace is going to be replicated in.
      * 
      */
-    private UndeferrableValue<List<String>> regionLists;
-
+    @PolicyResourceProperty(name="regionLists", flag="unknown_regionLists")
+    private List<String> value_regionLists;
+    private boolean unknown_regionLists;
     public List<String> regionLists() {
-        if (regionLists == null) return null;
-        return regionLists.getValue("KeyspaceReplicationSpecificationArgs.regionLists");
+        if (!unknown_regionLists) return value_regionLists;
+        throw new UndeferrableValueException("Value 'KeyspaceReplicationSpecificationArgs.regionLists' is not present");
     }
 
     /**
      * Replication strategy. Valid values: `SINGLE_REGION` and `MULTI_REGION`.
      * 
      */
-    private UndeferrableValue<String> replicationStrategy;
-
+    @PolicyResourceProperty(name="replicationStrategy", flag="unknown_replicationStrategy")
+    private String value_replicationStrategy;
+    private boolean unknown_replicationStrategy;
     public String replicationStrategy() {
-        if (replicationStrategy == null) return null;
-        return replicationStrategy.getValue("KeyspaceReplicationSpecificationArgs.replicationStrategy");
+        if (!unknown_replicationStrategy) return value_replicationStrategy;
+        throw new UndeferrableValueException("Value 'KeyspaceReplicationSpecificationArgs.replicationStrategy' is not present");
     }
 
 }

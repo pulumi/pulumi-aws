@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class EventSourceMappingProvisionedPollerConfig {
      * The maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maximumPollers;
-
+    @PolicyResourceProperty(name="maximumPollers", flag="unknown_maximumPollers")
+    private @Nullable Integer value_maximumPollers;
+    private boolean unknown_maximumPollers;
     public @Nullable Integer maximumPollers() {
-        if (maximumPollers == null) return null;
-        return maximumPollers.getValue("EventSourceMappingProvisionedPollerConfig.maximumPollers");
+        if (!unknown_maximumPollers) return value_maximumPollers;
+        throw new UndeferrableValueException("Value 'EventSourceMappingProvisionedPollerConfig.maximumPollers' is not present");
     }
 
     /**
      * The minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> minimumPollers;
-
+    @PolicyResourceProperty(name="minimumPollers", flag="unknown_minimumPollers")
+    private @Nullable Integer value_minimumPollers;
+    private boolean unknown_minimumPollers;
     public @Nullable Integer minimumPollers() {
-        if (minimumPollers == null) return null;
-        return minimumPollers.getValue("EventSourceMappingProvisionedPollerConfig.minimumPollers");
+        if (!unknown_minimumPollers) return value_minimumPollers;
+        throw new UndeferrableValueException("Value 'EventSourceMappingProvisionedPollerConfig.minimumPollers' is not present");
     }
 
 }

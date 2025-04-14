@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions;
 import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration;
 import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration;
@@ -19,154 +20,168 @@ public final class FirehoseDeliveryStreamElasticsearchConfiguration {
      * Buffer incoming data for the specified period of time, in seconds between 0 to 900, before delivering it to the destination.  The default value is 300s.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> bufferingInterval;
-
+    @PolicyResourceProperty(name="bufferingInterval", flag="unknown_bufferingInterval")
+    private @Nullable Integer value_bufferingInterval;
+    private boolean unknown_bufferingInterval;
     public @Nullable Integer bufferingInterval() {
-        if (bufferingInterval == null) return null;
-        return bufferingInterval.getValue("FirehoseDeliveryStreamElasticsearchConfiguration.bufferingInterval");
+        if (!unknown_bufferingInterval) return value_bufferingInterval;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamElasticsearchConfiguration.bufferingInterval' is not present");
     }
 
     /**
      * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> bufferingSize;
-
+    @PolicyResourceProperty(name="bufferingSize", flag="unknown_bufferingSize")
+    private @Nullable Integer value_bufferingSize;
+    private boolean unknown_bufferingSize;
     public @Nullable Integer bufferingSize() {
-        if (bufferingSize == null) return null;
-        return bufferingSize.getValue("FirehoseDeliveryStreamElasticsearchConfiguration.bufferingSize");
+        if (!unknown_bufferingSize) return value_bufferingSize;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamElasticsearchConfiguration.bufferingSize' is not present");
     }
 
     /**
      * The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions;
-
+    @PolicyResourceProperty(name="cloudwatchLoggingOptions", flag="unknown_cloudwatchLoggingOptions")
+    private @Nullable FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions value_cloudwatchLoggingOptions;
+    private boolean unknown_cloudwatchLoggingOptions;
     public @Nullable FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions() {
-        if (cloudwatchLoggingOptions == null) return null;
-        return cloudwatchLoggingOptions.getValue("FirehoseDeliveryStreamElasticsearchConfiguration.cloudwatchLoggingOptions");
+        if (!unknown_cloudwatchLoggingOptions) return value_cloudwatchLoggingOptions;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamElasticsearchConfiguration.cloudwatchLoggingOptions' is not present");
     }
 
     /**
      * The endpoint to use when communicating with the cluster. Conflicts with `domain_arn`.
      * 
      */
-    private @Nullable UndeferrableValue<String> clusterEndpoint;
-
+    @PolicyResourceProperty(name="clusterEndpoint", flag="unknown_clusterEndpoint")
+    private @Nullable String value_clusterEndpoint;
+    private boolean unknown_clusterEndpoint;
     public @Nullable String clusterEndpoint() {
-        if (clusterEndpoint == null) return null;
-        return clusterEndpoint.getValue("FirehoseDeliveryStreamElasticsearchConfiguration.clusterEndpoint");
+        if (!unknown_clusterEndpoint) return value_clusterEndpoint;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamElasticsearchConfiguration.clusterEndpoint' is not present");
     }
 
     /**
      * The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `cluster_endpoint`.
      * 
      */
-    private @Nullable UndeferrableValue<String> domainArn;
-
+    @PolicyResourceProperty(name="domainArn", flag="unknown_domainArn")
+    private @Nullable String value_domainArn;
+    private boolean unknown_domainArn;
     public @Nullable String domainArn() {
-        if (domainArn == null) return null;
-        return domainArn.getValue("FirehoseDeliveryStreamElasticsearchConfiguration.domainArn");
+        if (!unknown_domainArn) return value_domainArn;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamElasticsearchConfiguration.domainArn' is not present");
     }
 
     /**
      * The Elasticsearch index name.
      * 
      */
-    private UndeferrableValue<String> indexName;
-
+    @PolicyResourceProperty(name="indexName", flag="unknown_indexName")
+    private String value_indexName;
+    private boolean unknown_indexName;
     public String indexName() {
-        if (indexName == null) return null;
-        return indexName.getValue("FirehoseDeliveryStreamElasticsearchConfiguration.indexName");
+        if (!unknown_indexName) return value_indexName;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamElasticsearchConfiguration.indexName' is not present");
     }
 
     /**
      * The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
      * 
      */
-    private @Nullable UndeferrableValue<String> indexRotationPeriod;
-
+    @PolicyResourceProperty(name="indexRotationPeriod", flag="unknown_indexRotationPeriod")
+    private @Nullable String value_indexRotationPeriod;
+    private boolean unknown_indexRotationPeriod;
     public @Nullable String indexRotationPeriod() {
-        if (indexRotationPeriod == null) return null;
-        return indexRotationPeriod.getValue("FirehoseDeliveryStreamElasticsearchConfiguration.indexRotationPeriod");
+        if (!unknown_indexRotationPeriod) return value_indexRotationPeriod;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamElasticsearchConfiguration.indexRotationPeriod' is not present");
     }
 
     /**
      * The data processing configuration.  See `processing_configuration` block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration> processingConfiguration;
-
+    @PolicyResourceProperty(name="processingConfiguration", flag="unknown_processingConfiguration")
+    private @Nullable FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration value_processingConfiguration;
+    private boolean unknown_processingConfiguration;
     public @Nullable FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration processingConfiguration() {
-        if (processingConfiguration == null) return null;
-        return processingConfiguration.getValue("FirehoseDeliveryStreamElasticsearchConfiguration.processingConfiguration");
+        if (!unknown_processingConfiguration) return value_processingConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamElasticsearchConfiguration.processingConfiguration' is not present");
     }
 
     /**
      * After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> retryDuration;
-
+    @PolicyResourceProperty(name="retryDuration", flag="unknown_retryDuration")
+    private @Nullable Integer value_retryDuration;
+    private boolean unknown_retryDuration;
     public @Nullable Integer retryDuration() {
-        if (retryDuration == null) return null;
-        return retryDuration.getValue("FirehoseDeliveryStreamElasticsearchConfiguration.retryDuration");
+        if (!unknown_retryDuration) return value_retryDuration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamElasticsearchConfiguration.retryDuration' is not present");
     }
 
     /**
      * The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("FirehoseDeliveryStreamElasticsearchConfiguration.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamElasticsearchConfiguration.roleArn' is not present");
     }
 
     /**
      * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
      * 
      */
-    private @Nullable UndeferrableValue<String> s3BackupMode;
-
+    @PolicyResourceProperty(name="s3BackupMode", flag="unknown_s3BackupMode")
+    private @Nullable String value_s3BackupMode;
+    private boolean unknown_s3BackupMode;
     public @Nullable String s3BackupMode() {
-        if (s3BackupMode == null) return null;
-        return s3BackupMode.getValue("FirehoseDeliveryStreamElasticsearchConfiguration.s3BackupMode");
+        if (!unknown_s3BackupMode) return value_s3BackupMode;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamElasticsearchConfiguration.s3BackupMode' is not present");
     }
 
     /**
      * The S3 Configuration. See `s3_configuration` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration> s3Configuration;
-
+    @PolicyResourceProperty(name="s3Configuration", flag="unknown_s3Configuration")
+    private FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration value_s3Configuration;
+    private boolean unknown_s3Configuration;
     public FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration s3Configuration() {
-        if (s3Configuration == null) return null;
-        return s3Configuration.getValue("FirehoseDeliveryStreamElasticsearchConfiguration.s3Configuration");
+        if (!unknown_s3Configuration) return value_s3Configuration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamElasticsearchConfiguration.s3Configuration' is not present");
     }
 
     /**
      * The Elasticsearch type name with maximum length of 100 characters.
      * 
      */
-    private @Nullable UndeferrableValue<String> typeName;
-
+    @PolicyResourceProperty(name="typeName", flag="unknown_typeName")
+    private @Nullable String value_typeName;
+    private boolean unknown_typeName;
     public @Nullable String typeName() {
-        if (typeName == null) return null;
-        return typeName.getValue("FirehoseDeliveryStreamElasticsearchConfiguration.typeName");
+        if (!unknown_typeName) return value_typeName;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamElasticsearchConfiguration.typeName' is not present");
     }
 
     /**
      * The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpc_config` block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig> vpcConfig;
-
+    @PolicyResourceProperty(name="vpcConfig", flag="unknown_vpcConfig")
+    private @Nullable FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig value_vpcConfig;
+    private boolean unknown_vpcConfig;
     public @Nullable FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig vpcConfig() {
-        if (vpcConfig == null) return null;
-        return vpcConfig.getValue("FirehoseDeliveryStreamElasticsearchConfiguration.vpcConfig");
+        if (!unknown_vpcConfig) return value_vpcConfig;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamElasticsearchConfiguration.vpcConfig' is not present");
     }
 
 }

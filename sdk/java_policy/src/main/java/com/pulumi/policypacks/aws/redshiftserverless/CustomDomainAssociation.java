@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshiftserverless;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,44 +16,48 @@ public final class CustomDomainAssociation extends com.pulumi.resources.PolicyRe
      * ARN of the certificate for the custom domain association.
      * 
      */
-    private UndeferrableValue<String> customDomainCertificateArn;
-
+    @PolicyResourceProperty(name="customDomainCertificateArn", flag="unknown_customDomainCertificateArn")
+    private String value_customDomainCertificateArn;
+    private boolean unknown_customDomainCertificateArn;
     public String customDomainCertificateArn() {
-        if (customDomainCertificateArn == null) return null;
-        return customDomainCertificateArn.getValue("CustomDomainAssociation.customDomainCertificateArn");
+        if (!unknown_customDomainCertificateArn) return value_customDomainCertificateArn;
+        throw new UndeferrableValueException("Value 'CustomDomainAssociation.customDomainCertificateArn' is not present");
     }
 
     /**
      * Expiration time for the certificate.
      * 
      */
-    private UndeferrableValue<String> customDomainCertificateExpiryTime;
-
+    @PolicyResourceProperty(name="customDomainCertificateExpiryTime", flag="unknown_customDomainCertificateExpiryTime")
+    private String value_customDomainCertificateExpiryTime;
+    private boolean unknown_customDomainCertificateExpiryTime;
     public String customDomainCertificateExpiryTime() {
-        if (customDomainCertificateExpiryTime == null) return null;
-        return customDomainCertificateExpiryTime.getValue("CustomDomainAssociation.customDomainCertificateExpiryTime");
+        if (!unknown_customDomainCertificateExpiryTime) return value_customDomainCertificateExpiryTime;
+        throw new UndeferrableValueException("Value 'CustomDomainAssociation.customDomainCertificateExpiryTime' is not present");
     }
 
     /**
      * Custom domain to associate with the workgroup.
      * 
      */
-    private UndeferrableValue<String> customDomainName;
-
+    @PolicyResourceProperty(name="customDomainName", flag="unknown_customDomainName")
+    private String value_customDomainName;
+    private boolean unknown_customDomainName;
     public String customDomainName() {
-        if (customDomainName == null) return null;
-        return customDomainName.getValue("CustomDomainAssociation.customDomainName");
+        if (!unknown_customDomainName) return value_customDomainName;
+        throw new UndeferrableValueException("Value 'CustomDomainAssociation.customDomainName' is not present");
     }
 
     /**
      * Name of the workgroup.
      * 
      */
-    private UndeferrableValue<String> workgroupName;
-
+    @PolicyResourceProperty(name="workgroupName", flag="unknown_workgroupName")
+    private String value_workgroupName;
+    private boolean unknown_workgroupName;
     public String workgroupName() {
-        if (workgroupName == null) return null;
-        return workgroupName.getValue("CustomDomainAssociation.workgroupName");
+        if (!unknown_workgroupName) return value_workgroupName;
+        throw new UndeferrableValueException("Value 'CustomDomainAssociation.workgroupName' is not present");
     }
 
 }

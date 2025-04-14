@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.efs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.efs.inputs.AccessPointPosixUserArgs;
 import com.pulumi.policypacks.aws.efs.inputs.AccessPointRootDirectoryArgs;
@@ -19,44 +20,48 @@ public final class AccessPointArgs extends com.pulumi.resources.PolicyResourceIn
      * ID of the file system for which the access point is intended.
      * 
      */
-    private UndeferrableValue<String> fileSystemId;
-
+    @PolicyResourceProperty(name="fileSystemId", flag="unknown_fileSystemId")
+    private String value_fileSystemId;
+    private boolean unknown_fileSystemId;
     public String fileSystemId() {
-        if (fileSystemId == null) return null;
-        return fileSystemId.getValue("AccessPointArgs.fileSystemId");
+        if (!unknown_fileSystemId) return value_fileSystemId;
+        throw new UndeferrableValueException("Value 'AccessPointArgs.fileSystemId' is not present");
     }
 
     /**
      * Operating system user and group applied to all file system requests made using the access point. Detailed below.
      * 
      */
-    private UndeferrableValue<AccessPointPosixUserArgs> posixUser;
-
+    @PolicyResourceProperty(name="posixUser", flag="unknown_posixUser")
+    private AccessPointPosixUserArgs value_posixUser;
+    private boolean unknown_posixUser;
     public AccessPointPosixUserArgs posixUser() {
-        if (posixUser == null) return null;
-        return posixUser.getValue("AccessPointArgs.posixUser");
+        if (!unknown_posixUser) return value_posixUser;
+        throw new UndeferrableValueException("Value 'AccessPointArgs.posixUser' is not present");
     }
 
     /**
      * Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
      * 
      */
-    private UndeferrableValue<AccessPointRootDirectoryArgs> rootDirectory;
-
+    @PolicyResourceProperty(name="rootDirectory", flag="unknown_rootDirectory")
+    private AccessPointRootDirectoryArgs value_rootDirectory;
+    private boolean unknown_rootDirectory;
     public AccessPointRootDirectoryArgs rootDirectory() {
-        if (rootDirectory == null) return null;
-        return rootDirectory.getValue("AccessPointArgs.rootDirectory");
+        if (!unknown_rootDirectory) return value_rootDirectory;
+        throw new UndeferrableValueException("Value 'AccessPointArgs.rootDirectory' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AccessPointArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AccessPointArgs.tags' is not present");
     }
 
 }

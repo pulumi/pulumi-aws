@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ses.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,33 +14,36 @@ public final class EventDestinationCloudwatchDestination {
      * The default value for the event
      * 
      */
-    private UndeferrableValue<String> defaultValue;
-
+    @PolicyResourceProperty(name="defaultValue", flag="unknown_defaultValue")
+    private String value_defaultValue;
+    private boolean unknown_defaultValue;
     public String defaultValue() {
-        if (defaultValue == null) return null;
-        return defaultValue.getValue("EventDestinationCloudwatchDestination.defaultValue");
+        if (!unknown_defaultValue) return value_defaultValue;
+        throw new UndeferrableValueException("Value 'EventDestinationCloudwatchDestination.defaultValue' is not present");
     }
 
     /**
      * The name for the dimension
      * 
      */
-    private UndeferrableValue<String> dimensionName;
-
+    @PolicyResourceProperty(name="dimensionName", flag="unknown_dimensionName")
+    private String value_dimensionName;
+    private boolean unknown_dimensionName;
     public String dimensionName() {
-        if (dimensionName == null) return null;
-        return dimensionName.getValue("EventDestinationCloudwatchDestination.dimensionName");
+        if (!unknown_dimensionName) return value_dimensionName;
+        throw new UndeferrableValueException("Value 'EventDestinationCloudwatchDestination.dimensionName' is not present");
     }
 
     /**
      * The source for the value. May be any of `&#34;messageTag&#34;`, `&#34;emailHeader&#34;` or `&#34;linkTag&#34;`.
      * 
      */
-    private UndeferrableValue<String> valueSource;
-
+    @PolicyResourceProperty(name="valueSource", flag="unknown_valueSource")
+    private String value_valueSource;
+    private boolean unknown_valueSource;
     public String valueSource() {
-        if (valueSource == null) return null;
-        return valueSource.getValue("EventDestinationCloudwatchDestination.valueSource");
+        if (!unknown_valueSource) return value_valueSource;
+        throw new UndeferrableValueException("Value 'EventDestinationCloudwatchDestination.valueSource' is not present");
     }
 
 }

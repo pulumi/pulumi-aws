@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,77 +18,84 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.PolicyRe
      * How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
      * 
      */
-    private UndeferrableValue<String> contentHandling;
-
+    @PolicyResourceProperty(name="contentHandling", flag="unknown_contentHandling")
+    private String value_contentHandling;
+    private boolean unknown_contentHandling;
     public String contentHandling() {
-        if (contentHandling == null) return null;
-        return contentHandling.getValue("IntegrationResponseArgs.contentHandling");
+        if (!unknown_contentHandling) return value_contentHandling;
+        throw new UndeferrableValueException("Value 'IntegrationResponseArgs.contentHandling' is not present");
     }
 
     /**
      * HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
      * 
      */
-    private UndeferrableValue<String> httpMethod;
-
+    @PolicyResourceProperty(name="httpMethod", flag="unknown_httpMethod")
+    private String value_httpMethod;
+    private boolean unknown_httpMethod;
     public String httpMethod() {
-        if (httpMethod == null) return null;
-        return httpMethod.getValue("IntegrationResponseArgs.httpMethod");
+        if (!unknown_httpMethod) return value_httpMethod;
+        throw new UndeferrableValueException("Value 'IntegrationResponseArgs.httpMethod' is not present");
     }
 
     /**
      * API resource ID.
      * 
      */
-    private UndeferrableValue<String> resourceId;
-
+    @PolicyResourceProperty(name="resourceId", flag="unknown_resourceId")
+    private String value_resourceId;
+    private boolean unknown_resourceId;
     public String resourceId() {
-        if (resourceId == null) return null;
-        return resourceId.getValue("IntegrationResponseArgs.resourceId");
+        if (!unknown_resourceId) return value_resourceId;
+        throw new UndeferrableValueException("Value 'IntegrationResponseArgs.resourceId' is not present");
     }
 
     /**
      * Map of response parameters that can be read from the backend response. For example: `response_parameters = { &#34;method.response.header.X-Some-Header&#34; = &#34;integration.response.header.X-Some-Other-Header&#34; }`.
      * 
      */
-    private UndeferrableValue<Map<String,String>> responseParameters;
-
+    @PolicyResourceProperty(name="responseParameters", flag="unknown_responseParameters")
+    private Map<String,String> value_responseParameters;
+    private boolean unknown_responseParameters;
     public Map<String,String> responseParameters() {
-        if (responseParameters == null) return null;
-        return responseParameters.getValue("IntegrationResponseArgs.responseParameters");
+        if (!unknown_responseParameters) return value_responseParameters;
+        throw new UndeferrableValueException("Value 'IntegrationResponseArgs.responseParameters' is not present");
     }
 
     /**
      * Map of templates used to transform the integration response body.
      * 
      */
-    private UndeferrableValue<Map<String,String>> responseTemplates;
-
+    @PolicyResourceProperty(name="responseTemplates", flag="unknown_responseTemplates")
+    private Map<String,String> value_responseTemplates;
+    private boolean unknown_responseTemplates;
     public Map<String,String> responseTemplates() {
-        if (responseTemplates == null) return null;
-        return responseTemplates.getValue("IntegrationResponseArgs.responseTemplates");
+        if (!unknown_responseTemplates) return value_responseTemplates;
+        throw new UndeferrableValueException("Value 'IntegrationResponseArgs.responseTemplates' is not present");
     }
 
     /**
      * ID of the associated REST API.
      * 
      */
-    private UndeferrableValue<String> restApi;
-
+    @PolicyResourceProperty(name="restApi", flag="unknown_restApi")
+    private String value_restApi;
+    private boolean unknown_restApi;
     public String restApi() {
-        if (restApi == null) return null;
-        return restApi.getValue("IntegrationResponseArgs.restApi");
+        if (!unknown_restApi) return value_restApi;
+        throw new UndeferrableValueException("Value 'IntegrationResponseArgs.restApi' is not present");
     }
 
     /**
      * Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
      * 
      */
-    private UndeferrableValue<String> selectionPattern;
-
+    @PolicyResourceProperty(name="selectionPattern", flag="unknown_selectionPattern")
+    private String value_selectionPattern;
+    private boolean unknown_selectionPattern;
     public String selectionPattern() {
-        if (selectionPattern == null) return null;
-        return selectionPattern.getValue("IntegrationResponseArgs.selectionPattern");
+        if (!unknown_selectionPattern) return value_selectionPattern;
+        throw new UndeferrableValueException("Value 'IntegrationResponseArgs.selectionPattern' is not present");
     }
 
     /**
@@ -96,11 +104,12 @@ public final class IntegrationResponseArgs extends com.pulumi.resources.PolicyRe
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> statusCode;
-
+    @PolicyResourceProperty(name="statusCode", flag="unknown_statusCode")
+    private String value_statusCode;
+    private boolean unknown_statusCode;
     public String statusCode() {
-        if (statusCode == null) return null;
-        return statusCode.getValue("IntegrationResponseArgs.statusCode");
+        if (!unknown_statusCode) return value_statusCode;
+        throw new UndeferrableValueException("Value 'IntegrationResponseArgs.statusCode' is not present");
     }
 
 }

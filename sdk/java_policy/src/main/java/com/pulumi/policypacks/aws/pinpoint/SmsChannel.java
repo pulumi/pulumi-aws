@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pinpoint;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -18,66 +19,72 @@ public final class SmsChannel extends com.pulumi.resources.PolicyResourceOutput 
      * ID of the application.
      * 
      */
-    private UndeferrableValue<String> applicationId;
-
+    @PolicyResourceProperty(name="applicationId", flag="unknown_applicationId")
+    private String value_applicationId;
+    private boolean unknown_applicationId;
     public String applicationId() {
-        if (applicationId == null) return null;
-        return applicationId.getValue("SmsChannel.applicationId");
+        if (!unknown_applicationId) return value_applicationId;
+        throw new UndeferrableValueException("Value 'SmsChannel.applicationId' is not present");
     }
 
     /**
      * Whether the channel is enabled or disabled. By default, it is set to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("SmsChannel.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'SmsChannel.enabled' is not present");
     }
 
     /**
      * Maximum number of promotional messages that can be sent per second.
      * 
      */
-    private UndeferrableValue<Integer> promotionalMessagesPerSecond;
-
+    @PolicyResourceProperty(name="promotionalMessagesPerSecond", flag="unknown_promotionalMessagesPerSecond")
+    private Integer value_promotionalMessagesPerSecond;
+    private boolean unknown_promotionalMessagesPerSecond;
     public Integer promotionalMessagesPerSecond() {
-        if (promotionalMessagesPerSecond == null) return null;
-        return promotionalMessagesPerSecond.getValue("SmsChannel.promotionalMessagesPerSecond");
+        if (!unknown_promotionalMessagesPerSecond) return value_promotionalMessagesPerSecond;
+        throw new UndeferrableValueException("Value 'SmsChannel.promotionalMessagesPerSecond' is not present");
     }
 
     /**
      * Identifier of the sender for your messages.
      * 
      */
-    private @Nullable UndeferrableValue<String> senderId;
-
+    @PolicyResourceProperty(name="senderId", flag="unknown_senderId")
+    private @Nullable String value_senderId;
+    private boolean unknown_senderId;
     public @Nullable String senderId() {
-        if (senderId == null) return null;
-        return senderId.getValue("SmsChannel.senderId");
+        if (!unknown_senderId) return value_senderId;
+        throw new UndeferrableValueException("Value 'SmsChannel.senderId' is not present");
     }
 
     /**
      * Short Code registered with the phone provider.
      * 
      */
-    private @Nullable UndeferrableValue<String> shortCode;
-
+    @PolicyResourceProperty(name="shortCode", flag="unknown_shortCode")
+    private @Nullable String value_shortCode;
+    private boolean unknown_shortCode;
     public @Nullable String shortCode() {
-        if (shortCode == null) return null;
-        return shortCode.getValue("SmsChannel.shortCode");
+        if (!unknown_shortCode) return value_shortCode;
+        throw new UndeferrableValueException("Value 'SmsChannel.shortCode' is not present");
     }
 
     /**
      * Maximum number of transactional messages per second that can be sent.
      * 
      */
-    private UndeferrableValue<Integer> transactionalMessagesPerSecond;
-
+    @PolicyResourceProperty(name="transactionalMessagesPerSecond", flag="unknown_transactionalMessagesPerSecond")
+    private Integer value_transactionalMessagesPerSecond;
+    private boolean unknown_transactionalMessagesPerSecond;
     public Integer transactionalMessagesPerSecond() {
-        if (transactionalMessagesPerSecond == null) return null;
-        return transactionalMessagesPerSecond.getValue("SmsChannel.transactionalMessagesPerSecond");
+        if (!unknown_transactionalMessagesPerSecond) return value_transactionalMessagesPerSecond;
+        throw new UndeferrableValueException("Value 'SmsChannel.transactionalMessagesPerSecond' is not present");
     }
 
 }

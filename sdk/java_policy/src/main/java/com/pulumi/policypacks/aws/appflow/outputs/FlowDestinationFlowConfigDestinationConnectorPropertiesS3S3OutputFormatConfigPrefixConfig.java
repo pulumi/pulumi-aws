@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
      * Determines the level of granularity that&#39;s included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> prefixFormat;
-
+    @PolicyResourceProperty(name="prefixFormat", flag="unknown_prefixFormat")
+    private @Nullable String value_prefixFormat;
+    private boolean unknown_prefixFormat;
     public @Nullable String prefixFormat() {
-        if (prefixFormat == null) return null;
-        return prefixFormat.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig.prefixFormat");
+        if (!unknown_prefixFormat) return value_prefixFormat;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig.prefixFormat' is not present");
     }
 
     /**
      * Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> prefixHierarchies;
-
+    @PolicyResourceProperty(name="prefixHierarchies", flag="unknown_prefixHierarchies")
+    private @Nullable List<String> value_prefixHierarchies;
+    private boolean unknown_prefixHierarchies;
     public @Nullable List<String> prefixHierarchies() {
-        if (prefixHierarchies == null) return null;
-        return prefixHierarchies.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig.prefixHierarchies");
+        if (!unknown_prefixHierarchies) return value_prefixHierarchies;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig.prefixHierarchies' is not present");
     }
 
     /**
      * Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
      * 
      */
-    private @Nullable UndeferrableValue<String> prefixType;
-
+    @PolicyResourceProperty(name="prefixType", flag="unknown_prefixType")
+    private @Nullable String value_prefixType;
+    private boolean unknown_prefixType;
     public @Nullable String prefixType() {
-        if (prefixType == null) return null;
-        return prefixType.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig.prefixType");
+        if (!unknown_prefixType) return value_prefixType;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig.prefixType' is not present");
     }
 
 }

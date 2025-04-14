@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ExperimentTemplateExperimentOptions {
      * Specifies the account targeting setting for experiment options. Supports `single-account` and `multi-account`.
      * 
      */
-    private @Nullable UndeferrableValue<String> accountTargeting;
-
+    @PolicyResourceProperty(name="accountTargeting", flag="unknown_accountTargeting")
+    private @Nullable String value_accountTargeting;
+    private boolean unknown_accountTargeting;
     public @Nullable String accountTargeting() {
-        if (accountTargeting == null) return null;
-        return accountTargeting.getValue("ExperimentTemplateExperimentOptions.accountTargeting");
+        if (!unknown_accountTargeting) return value_accountTargeting;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateExperimentOptions.accountTargeting' is not present");
     }
 
     /**
      * Specifies the empty target resolution mode for experiment options. Supports `fail` and `skip`.
      * 
      */
-    private @Nullable UndeferrableValue<String> emptyTargetResolutionMode;
-
+    @PolicyResourceProperty(name="emptyTargetResolutionMode", flag="unknown_emptyTargetResolutionMode")
+    private @Nullable String value_emptyTargetResolutionMode;
+    private boolean unknown_emptyTargetResolutionMode;
     public @Nullable String emptyTargetResolutionMode() {
-        if (emptyTargetResolutionMode == null) return null;
-        return emptyTargetResolutionMode.getValue("ExperimentTemplateExperimentOptions.emptyTargetResolutionMode");
+        if (!unknown_emptyTargetResolutionMode) return value_emptyTargetResolutionMode;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateExperimentOptions.emptyTargetResolutionMode' is not present");
     }
 
 }

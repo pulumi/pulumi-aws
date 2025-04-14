@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssmcontacts;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ssmcontacts.inputs.ContactChannelDeliveryAddressArgs;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class ContactChannelArgs extends com.pulumi.resources.PolicyResourc
      * Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
      * 
      */
-    private UndeferrableValue<String> contactId;
-
+    @PolicyResourceProperty(name="contactId", flag="unknown_contactId")
+    private String value_contactId;
+    private boolean unknown_contactId;
     public String contactId() {
-        if (contactId == null) return null;
-        return contactId.getValue("ContactChannelArgs.contactId");
+        if (!unknown_contactId) return value_contactId;
+        throw new UndeferrableValueException("Value 'ContactChannelArgs.contactId' is not present");
     }
 
     /**
      * Block that contains contact engagement details. See details below.
      * 
      */
-    private UndeferrableValue<ContactChannelDeliveryAddressArgs> deliveryAddress;
-
+    @PolicyResourceProperty(name="deliveryAddress", flag="unknown_deliveryAddress")
+    private ContactChannelDeliveryAddressArgs value_deliveryAddress;
+    private boolean unknown_deliveryAddress;
     public ContactChannelDeliveryAddressArgs deliveryAddress() {
-        if (deliveryAddress == null) return null;
-        return deliveryAddress.getValue("ContactChannelArgs.deliveryAddress");
+        if (!unknown_deliveryAddress) return value_deliveryAddress;
+        throw new UndeferrableValueException("Value 'ContactChannelArgs.deliveryAddress' is not present");
     }
 
     /**
      * Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ContactChannelArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ContactChannelArgs.name' is not present");
     }
 
     /**
      * Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ContactChannelArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ContactChannelArgs.type' is not present");
     }
 
 }

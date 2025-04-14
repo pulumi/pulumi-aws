@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.efs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,33 +15,36 @@ public final class AccessPointRootDirectoryCreationInfoArgs {
      * POSIX group ID to apply to the `root_directory`.
      * 
      */
-    private UndeferrableValue<Integer> ownerGid;
-
+    @PolicyResourceProperty(name="ownerGid", flag="unknown_ownerGid")
+    private Integer value_ownerGid;
+    private boolean unknown_ownerGid;
     public Integer ownerGid() {
-        if (ownerGid == null) return null;
-        return ownerGid.getValue("AccessPointRootDirectoryCreationInfoArgs.ownerGid");
+        if (!unknown_ownerGid) return value_ownerGid;
+        throw new UndeferrableValueException("Value 'AccessPointRootDirectoryCreationInfoArgs.ownerGid' is not present");
     }
 
     /**
      * POSIX user ID to apply to the `root_directory`.
      * 
      */
-    private UndeferrableValue<Integer> ownerUid;
-
+    @PolicyResourceProperty(name="ownerUid", flag="unknown_ownerUid")
+    private Integer value_ownerUid;
+    private boolean unknown_ownerUid;
     public Integer ownerUid() {
-        if (ownerUid == null) return null;
-        return ownerUid.getValue("AccessPointRootDirectoryCreationInfoArgs.ownerUid");
+        if (!unknown_ownerUid) return value_ownerUid;
+        throw new UndeferrableValueException("Value 'AccessPointRootDirectoryCreationInfoArgs.ownerUid' is not present");
     }
 
     /**
      * POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file&#39;s mode bits.
      * 
      */
-    private UndeferrableValue<String> permissions;
-
+    @PolicyResourceProperty(name="permissions", flag="unknown_permissions")
+    private String value_permissions;
+    private boolean unknown_permissions;
     public String permissions() {
-        if (permissions == null) return null;
-        return permissions.getValue("AccessPointRootDirectoryCreationInfoArgs.permissions");
+        if (!unknown_permissions) return value_permissions;
+        throw new UndeferrableValueException("Value 'AccessPointRootDirectoryCreationInfoArgs.permissions' is not present");
     }
 
 }

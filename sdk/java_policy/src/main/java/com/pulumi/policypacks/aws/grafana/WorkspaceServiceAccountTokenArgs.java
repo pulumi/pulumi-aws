@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.grafana;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class WorkspaceServiceAccountTokenArgs extends com.pulumi.resources
      * A name for the token to create. The name must be unique within the workspace.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("WorkspaceServiceAccountTokenArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'WorkspaceServiceAccountTokenArgs.name' is not present");
     }
 
     /**
      * Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
      * 
      */
-    private UndeferrableValue<Integer> secondsToLive;
-
+    @PolicyResourceProperty(name="secondsToLive", flag="unknown_secondsToLive")
+    private Integer value_secondsToLive;
+    private boolean unknown_secondsToLive;
     public Integer secondsToLive() {
-        if (secondsToLive == null) return null;
-        return secondsToLive.getValue("WorkspaceServiceAccountTokenArgs.secondsToLive");
+        if (!unknown_secondsToLive) return value_secondsToLive;
+        throw new UndeferrableValueException("Value 'WorkspaceServiceAccountTokenArgs.secondsToLive' is not present");
     }
 
     /**
      * The ID of the service account for which to create a token.
      * 
      */
-    private UndeferrableValue<String> serviceAccountId;
-
+    @PolicyResourceProperty(name="serviceAccountId", flag="unknown_serviceAccountId")
+    private String value_serviceAccountId;
+    private boolean unknown_serviceAccountId;
     public String serviceAccountId() {
-        if (serviceAccountId == null) return null;
-        return serviceAccountId.getValue("WorkspaceServiceAccountTokenArgs.serviceAccountId");
+        if (!unknown_serviceAccountId) return value_serviceAccountId;
+        throw new UndeferrableValueException("Value 'WorkspaceServiceAccountTokenArgs.serviceAccountId' is not present");
     }
 
     /**
      * The Grafana workspace with which the service account token is associated.
      * 
      */
-    private UndeferrableValue<String> workspaceId;
-
+    @PolicyResourceProperty(name="workspaceId", flag="unknown_workspaceId")
+    private String value_workspaceId;
+    private boolean unknown_workspaceId;
     public String workspaceId() {
-        if (workspaceId == null) return null;
-        return workspaceId.getValue("WorkspaceServiceAccountTokenArgs.workspaceId");
+        if (!unknown_workspaceId) return value_workspaceId;
+        throw new UndeferrableValueException("Value 'WorkspaceServiceAccountTokenArgs.workspaceId' is not present");
     }
 
 }

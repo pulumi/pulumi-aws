@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,44 +14,48 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      * The Access Key portion of the credentials.
      * 
      */
-    private UndeferrableValue<String> accessKeyId;
-
+    @PolicyResourceProperty(name="accessKeyId", flag="unknown_accessKeyId")
+    private String value_accessKeyId;
+    private boolean unknown_accessKeyId;
     public String accessKeyId() {
-        if (accessKeyId == null) return null;
-        return accessKeyId.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs.accessKeyId");
+        if (!unknown_accessKeyId) return value_accessKeyId;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs.accessKeyId' is not present");
     }
 
     /**
      * Encryption keys used to encrypt data.
      * 
      */
-    private UndeferrableValue<String> datakey;
-
+    @PolicyResourceProperty(name="datakey", flag="unknown_datakey")
+    private String value_datakey;
+    private boolean unknown_datakey;
     public String datakey() {
-        if (datakey == null) return null;
-        return datakey.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs.datakey");
+        if (!unknown_datakey) return value_datakey;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs.datakey' is not present");
     }
 
     /**
      * The secret key used to sign requests.
      * 
      */
-    private UndeferrableValue<String> secretAccessKey;
-
+    @PolicyResourceProperty(name="secretAccessKey", flag="unknown_secretAccessKey")
+    private String value_secretAccessKey;
+    private boolean unknown_secretAccessKey;
     public String secretAccessKey() {
-        if (secretAccessKey == null) return null;
-        return secretAccessKey.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs.secretAccessKey");
+        if (!unknown_secretAccessKey) return value_secretAccessKey;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs.secretAccessKey' is not present");
     }
 
     /**
      * Identifier for the user.
      * 
      */
-    private UndeferrableValue<String> userId;
-
+    @PolicyResourceProperty(name="userId", flag="unknown_userId")
+    private String value_userId;
+    private boolean unknown_userId;
     public String userId() {
-        if (userId == null) return null;
-        return userId.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs.userId");
+        if (!unknown_userId) return value_userId;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs.userId' is not present");
     }
 
 }

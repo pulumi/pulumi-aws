@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentClosingSettingConditionalDefaultBranchNextStepDialogActionArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentArgs;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class V2modelsIntentClosingSettingConditionalDefaultBranchNextStepA
      * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentClosingSettingConditionalDefaultBranchNextStepDialogActionArgs> dialogAction;
-
+    @PolicyResourceProperty(name="dialogAction", flag="unknown_dialogAction")
+    private V2modelsIntentClosingSettingConditionalDefaultBranchNextStepDialogActionArgs value_dialogAction;
+    private boolean unknown_dialogAction;
     public V2modelsIntentClosingSettingConditionalDefaultBranchNextStepDialogActionArgs dialogAction() {
-        if (dialogAction == null) return null;
-        return dialogAction.getValue("V2modelsIntentClosingSettingConditionalDefaultBranchNextStepArgs.dialogAction");
+        if (!unknown_dialogAction) return value_dialogAction;
+        throw new UndeferrableValueException("Value 'V2modelsIntentClosingSettingConditionalDefaultBranchNextStepArgs.dialogAction' is not present");
     }
 
     /**
      * Configuration block for override settings to configure the intent state. See `intent`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentArgs> intent;
-
+    @PolicyResourceProperty(name="intent", flag="unknown_intent")
+    private V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentArgs value_intent;
+    private boolean unknown_intent;
     public V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentArgs intent() {
-        if (intent == null) return null;
-        return intent.getValue("V2modelsIntentClosingSettingConditionalDefaultBranchNextStepArgs.intent");
+        if (!unknown_intent) return value_intent;
+        throw new UndeferrableValueException("Value 'V2modelsIntentClosingSettingConditionalDefaultBranchNextStepArgs.intent' is not present");
     }
 
     /**
      * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
      * 
      */
-    private UndeferrableValue<Map<String,String>> sessionAttributes;
-
+    @PolicyResourceProperty(name="sessionAttributes", flag="unknown_sessionAttributes")
+    private Map<String,String> value_sessionAttributes;
+    private boolean unknown_sessionAttributes;
     public Map<String,String> sessionAttributes() {
-        if (sessionAttributes == null) return null;
-        return sessionAttributes.getValue("V2modelsIntentClosingSettingConditionalDefaultBranchNextStepArgs.sessionAttributes");
+        if (!unknown_sessionAttributes) return value_sessionAttributes;
+        throw new UndeferrableValueException("Value 'V2modelsIntentClosingSettingConditionalDefaultBranchNextStepArgs.sessionAttributes' is not present");
     }
 
 }

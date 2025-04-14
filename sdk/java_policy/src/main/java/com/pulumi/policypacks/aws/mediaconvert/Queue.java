@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mediaconvert;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.mediaconvert.outputs.QueueReservationPlanSettings;
 import java.lang.Integer;
@@ -19,88 +20,96 @@ public final class Queue extends com.pulumi.resources.PolicyResourceOutput {
      * The Arn of the queue
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Queue.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Queue.arn' is not present");
     }
 
     /**
      * The maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
      * 
      */
-    private UndeferrableValue<Integer> concurrentJobs;
-
+    @PolicyResourceProperty(name="concurrentJobs", flag="unknown_concurrentJobs")
+    private Integer value_concurrentJobs;
+    private boolean unknown_concurrentJobs;
     public Integer concurrentJobs() {
-        if (concurrentJobs == null) return null;
-        return concurrentJobs.getValue("Queue.concurrentJobs");
+        if (!unknown_concurrentJobs) return value_concurrentJobs;
+        throw new UndeferrableValueException("Value 'Queue.concurrentJobs' is not present");
     }
 
     /**
      * A description of the queue
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Queue.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Queue.description' is not present");
     }
 
     /**
      * A unique identifier describing the queue
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Queue.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Queue.name' is not present");
     }
 
     /**
      * Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
      * 
      */
-    private @Nullable UndeferrableValue<String> pricingPlan;
-
+    @PolicyResourceProperty(name="pricingPlan", flag="unknown_pricingPlan")
+    private @Nullable String value_pricingPlan;
+    private boolean unknown_pricingPlan;
     public @Nullable String pricingPlan() {
-        if (pricingPlan == null) return null;
-        return pricingPlan.getValue("Queue.pricingPlan");
+        if (!unknown_pricingPlan) return value_pricingPlan;
+        throw new UndeferrableValueException("Value 'Queue.pricingPlan' is not present");
     }
 
     /**
      * A detail pricing plan of the  reserved queue. See below.
      * 
      */
-    private UndeferrableValue<QueueReservationPlanSettings> reservationPlanSettings;
-
+    @PolicyResourceProperty(name="reservationPlanSettings", flag="unknown_reservationPlanSettings")
+    private QueueReservationPlanSettings value_reservationPlanSettings;
+    private boolean unknown_reservationPlanSettings;
     public QueueReservationPlanSettings reservationPlanSettings() {
-        if (reservationPlanSettings == null) return null;
-        return reservationPlanSettings.getValue("Queue.reservationPlanSettings");
+        if (!unknown_reservationPlanSettings) return value_reservationPlanSettings;
+        throw new UndeferrableValueException("Value 'Queue.reservationPlanSettings' is not present");
     }
 
     /**
      * A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private @Nullable String value_status;
+    private boolean unknown_status;
     public @Nullable String status() {
-        if (status == null) return null;
-        return status.getValue("Queue.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Queue.status' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Queue.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Queue.tags' is not present");
     }
 
     /**
@@ -111,11 +120,12 @@ public final class Queue extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Queue.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Queue.tagsAll' is not present");
     }
 
 }

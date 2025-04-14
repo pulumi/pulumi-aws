@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.devicefarm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,99 +19,108 @@ public final class NetworkProfile extends com.pulumi.resources.PolicyResourceOut
      * The Amazon Resource Name of this network profile.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("NetworkProfile.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'NetworkProfile.arn' is not present");
     }
 
     /**
      * The description of the network profile.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("NetworkProfile.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'NetworkProfile.description' is not present");
     }
 
     /**
      * The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> downlinkBandwidthBits;
-
+    @PolicyResourceProperty(name="downlinkBandwidthBits", flag="unknown_downlinkBandwidthBits")
+    private @Nullable Integer value_downlinkBandwidthBits;
+    private boolean unknown_downlinkBandwidthBits;
     public @Nullable Integer downlinkBandwidthBits() {
-        if (downlinkBandwidthBits == null) return null;
-        return downlinkBandwidthBits.getValue("NetworkProfile.downlinkBandwidthBits");
+        if (!unknown_downlinkBandwidthBits) return value_downlinkBandwidthBits;
+        throw new UndeferrableValueException("Value 'NetworkProfile.downlinkBandwidthBits' is not present");
     }
 
     /**
      * Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> downlinkDelayMs;
-
+    @PolicyResourceProperty(name="downlinkDelayMs", flag="unknown_downlinkDelayMs")
+    private @Nullable Integer value_downlinkDelayMs;
+    private boolean unknown_downlinkDelayMs;
     public @Nullable Integer downlinkDelayMs() {
-        if (downlinkDelayMs == null) return null;
-        return downlinkDelayMs.getValue("NetworkProfile.downlinkDelayMs");
+        if (!unknown_downlinkDelayMs) return value_downlinkDelayMs;
+        throw new UndeferrableValueException("Value 'NetworkProfile.downlinkDelayMs' is not present");
     }
 
     /**
      * Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> downlinkJitterMs;
-
+    @PolicyResourceProperty(name="downlinkJitterMs", flag="unknown_downlinkJitterMs")
+    private @Nullable Integer value_downlinkJitterMs;
+    private boolean unknown_downlinkJitterMs;
     public @Nullable Integer downlinkJitterMs() {
-        if (downlinkJitterMs == null) return null;
-        return downlinkJitterMs.getValue("NetworkProfile.downlinkJitterMs");
+        if (!unknown_downlinkJitterMs) return value_downlinkJitterMs;
+        throw new UndeferrableValueException("Value 'NetworkProfile.downlinkJitterMs' is not present");
     }
 
     /**
      * Proportion of received packets that fail to arrive from `0` to `100` percent.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> downlinkLossPercent;
-
+    @PolicyResourceProperty(name="downlinkLossPercent", flag="unknown_downlinkLossPercent")
+    private @Nullable Integer value_downlinkLossPercent;
+    private boolean unknown_downlinkLossPercent;
     public @Nullable Integer downlinkLossPercent() {
-        if (downlinkLossPercent == null) return null;
-        return downlinkLossPercent.getValue("NetworkProfile.downlinkLossPercent");
+        if (!unknown_downlinkLossPercent) return value_downlinkLossPercent;
+        throw new UndeferrableValueException("Value 'NetworkProfile.downlinkLossPercent' is not present");
     }
 
     /**
      * The name for the network profile.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("NetworkProfile.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'NetworkProfile.name' is not present");
     }
 
     /**
      * The ARN of the project for the network profile.
      * 
      */
-    private UndeferrableValue<String> projectArn;
-
+    @PolicyResourceProperty(name="projectArn", flag="unknown_projectArn")
+    private String value_projectArn;
+    private boolean unknown_projectArn;
     public String projectArn() {
-        if (projectArn == null) return null;
-        return projectArn.getValue("NetworkProfile.projectArn");
+        if (!unknown_projectArn) return value_projectArn;
+        throw new UndeferrableValueException("Value 'NetworkProfile.projectArn' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("NetworkProfile.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'NetworkProfile.tags' is not present");
     }
 
     /**
@@ -121,66 +131,72 @@ public final class NetworkProfile extends com.pulumi.resources.PolicyResourceOut
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("NetworkProfile.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'NetworkProfile.tagsAll' is not present");
     }
 
     /**
      * The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("NetworkProfile.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'NetworkProfile.type' is not present");
     }
 
     /**
      * The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> uplinkBandwidthBits;
-
+    @PolicyResourceProperty(name="uplinkBandwidthBits", flag="unknown_uplinkBandwidthBits")
+    private @Nullable Integer value_uplinkBandwidthBits;
+    private boolean unknown_uplinkBandwidthBits;
     public @Nullable Integer uplinkBandwidthBits() {
-        if (uplinkBandwidthBits == null) return null;
-        return uplinkBandwidthBits.getValue("NetworkProfile.uplinkBandwidthBits");
+        if (!unknown_uplinkBandwidthBits) return value_uplinkBandwidthBits;
+        throw new UndeferrableValueException("Value 'NetworkProfile.uplinkBandwidthBits' is not present");
     }
 
     /**
      * Delay time for all packets to destination in milliseconds as an integer from `0` to `2000`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> uplinkDelayMs;
-
+    @PolicyResourceProperty(name="uplinkDelayMs", flag="unknown_uplinkDelayMs")
+    private @Nullable Integer value_uplinkDelayMs;
+    private boolean unknown_uplinkDelayMs;
     public @Nullable Integer uplinkDelayMs() {
-        if (uplinkDelayMs == null) return null;
-        return uplinkDelayMs.getValue("NetworkProfile.uplinkDelayMs");
+        if (!unknown_uplinkDelayMs) return value_uplinkDelayMs;
+        throw new UndeferrableValueException("Value 'NetworkProfile.uplinkDelayMs' is not present");
     }
 
     /**
      * Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> uplinkJitterMs;
-
+    @PolicyResourceProperty(name="uplinkJitterMs", flag="unknown_uplinkJitterMs")
+    private @Nullable Integer value_uplinkJitterMs;
+    private boolean unknown_uplinkJitterMs;
     public @Nullable Integer uplinkJitterMs() {
-        if (uplinkJitterMs == null) return null;
-        return uplinkJitterMs.getValue("NetworkProfile.uplinkJitterMs");
+        if (!unknown_uplinkJitterMs) return value_uplinkJitterMs;
+        throw new UndeferrableValueException("Value 'NetworkProfile.uplinkJitterMs' is not present");
     }
 
     /**
      * Proportion of received packets that fail to arrive from `0` to `100` percent.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> uplinkLossPercent;
-
+    @PolicyResourceProperty(name="uplinkLossPercent", flag="unknown_uplinkLossPercent")
+    private @Nullable Integer value_uplinkLossPercent;
+    private boolean unknown_uplinkLossPercent;
     public @Nullable Integer uplinkLossPercent() {
-        if (uplinkLossPercent == null) return null;
-        return uplinkLossPercent.getValue("NetworkProfile.uplinkLossPercent");
+        if (!unknown_uplinkLossPercent) return value_uplinkLossPercent;
+        throw new UndeferrableValueException("Value 'NetworkProfile.uplinkLossPercent' is not present");
     }
 
 }

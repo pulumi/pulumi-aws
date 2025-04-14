@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.resourceexplorer.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ViewIncludedPropertyArgs {
      * The name of the property that is included in this view. Valid values: `tags`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ViewIncludedPropertyArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ViewIncludedPropertyArgs.name' is not present");
     }
 
 }

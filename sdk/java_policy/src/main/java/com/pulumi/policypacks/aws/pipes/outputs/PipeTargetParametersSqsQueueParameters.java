@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class PipeTargetParametersSqsQueueParameters {
      * This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of sent messages.
      * 
      */
-    private @Nullable UndeferrableValue<String> messageDeduplicationId;
-
+    @PolicyResourceProperty(name="messageDeduplicationId", flag="unknown_messageDeduplicationId")
+    private @Nullable String value_messageDeduplicationId;
+    private boolean unknown_messageDeduplicationId;
     public @Nullable String messageDeduplicationId() {
-        if (messageDeduplicationId == null) return null;
-        return messageDeduplicationId.getValue("PipeTargetParametersSqsQueueParameters.messageDeduplicationId");
+        if (!unknown_messageDeduplicationId) return value_messageDeduplicationId;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersSqsQueueParameters.messageDeduplicationId' is not present");
     }
 
     /**
      * The FIFO message group ID to use as the target.
      * 
      */
-    private @Nullable UndeferrableValue<String> messageGroupId;
-
+    @PolicyResourceProperty(name="messageGroupId", flag="unknown_messageGroupId")
+    private @Nullable String value_messageGroupId;
+    private boolean unknown_messageGroupId;
     public @Nullable String messageGroupId() {
-        if (messageGroupId == null) return null;
-        return messageGroupId.getValue("PipeTargetParametersSqsQueueParameters.messageGroupId");
+        if (!unknown_messageGroupId) return value_messageGroupId;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersSqsQueueParameters.messageGroupId' is not present");
     }
 
 }

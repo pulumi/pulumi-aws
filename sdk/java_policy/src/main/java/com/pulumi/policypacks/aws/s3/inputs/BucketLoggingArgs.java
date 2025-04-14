@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class BucketLoggingArgs {
      * The name of the bucket that will receive the log objects.
      * 
      */
-    private UndeferrableValue<String> targetBucket;
-
+    @PolicyResourceProperty(name="targetBucket", flag="unknown_targetBucket")
+    private String value_targetBucket;
+    private boolean unknown_targetBucket;
     public String targetBucket() {
-        if (targetBucket == null) return null;
-        return targetBucket.getValue("BucketLoggingArgs.targetBucket");
+        if (!unknown_targetBucket) return value_targetBucket;
+        throw new UndeferrableValueException("Value 'BucketLoggingArgs.targetBucket' is not present");
     }
 
     /**
      * To specify a key prefix for log objects.
      * 
      */
-    private UndeferrableValue<String> targetPrefix;
-
+    @PolicyResourceProperty(name="targetPrefix", flag="unknown_targetPrefix")
+    private String value_targetPrefix;
+    private boolean unknown_targetPrefix;
     public String targetPrefix() {
-        if (targetPrefix == null) return null;
-        return targetPrefix.getValue("BucketLoggingArgs.targetPrefix");
+        if (!unknown_targetPrefix) return value_targetPrefix;
+        throw new UndeferrableValueException("Value 'BucketLoggingArgs.targetPrefix' is not present");
     }
 
 }

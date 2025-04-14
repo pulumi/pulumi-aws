@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ObjectCopyGrant {
      * Email address of the grantee. Used only when `type` is `AmazonCustomerByEmail`.
      * 
      */
-    private @Nullable UndeferrableValue<String> email;
-
+    @PolicyResourceProperty(name="email", flag="unknown_email")
+    private @Nullable String value_email;
+    private boolean unknown_email;
     public @Nullable String email() {
-        if (email == null) return null;
-        return email.getValue("ObjectCopyGrant.email");
+        if (!unknown_email) return value_email;
+        throw new UndeferrableValueException("Value 'ObjectCopyGrant.email' is not present");
     }
 
     /**
      * Canonical user ID of the grantee. Used only when `type` is `CanonicalUser`.
      * 
      */
-    private @Nullable UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private @Nullable String value_id;
+    private boolean unknown_id;
     public @Nullable String id() {
-        if (id == null) return null;
-        return id.getValue("ObjectCopyGrant.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'ObjectCopyGrant.id' is not present");
     }
 
     /**
      * List of permissions to grant to grantee. Valid values are `READ`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
      * 
      */
-    private UndeferrableValue<List<String>> permissions;
-
+    @PolicyResourceProperty(name="permissions", flag="unknown_permissions")
+    private List<String> value_permissions;
+    private boolean unknown_permissions;
     public List<String> permissions() {
-        if (permissions == null) return null;
-        return permissions.getValue("ObjectCopyGrant.permissions");
+        if (!unknown_permissions) return value_permissions;
+        throw new UndeferrableValueException("Value 'ObjectCopyGrant.permissions' is not present");
     }
 
     /**
@@ -50,22 +54,24 @@ public final class ObjectCopyGrant {
      * This configuration block has the following optional arguments (one of the three is required):
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ObjectCopyGrant.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ObjectCopyGrant.type' is not present");
     }
 
     /**
      * URI of the grantee group. Used only when `type` is `Group`.
      * 
      */
-    private @Nullable UndeferrableValue<String> uri;
-
+    @PolicyResourceProperty(name="uri", flag="unknown_uri")
+    private @Nullable String value_uri;
+    private boolean unknown_uri;
     public @Nullable String uri() {
-        if (uri == null) return null;
-        return uri.getValue("ObjectCopyGrant.uri");
+        if (!unknown_uri) return value_uri;
+        throw new UndeferrableValueException("Value 'ObjectCopyGrant.uri' is not present");
     }
 
 }

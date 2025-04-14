@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.inputs.WorkteamMemberDefinitionArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.WorkteamNotificationConfigurationArgs;
@@ -21,77 +22,84 @@ public final class WorkteamArgs extends com.pulumi.resources.PolicyResourceInput
      * A description of the work team.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("WorkteamArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'WorkteamArgs.description' is not present");
     }
 
     /**
      * A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
      * 
      */
-    private UndeferrableValue<List<WorkteamMemberDefinitionArgs>> memberDefinitions;
-
+    @PolicyResourceProperty(name="memberDefinitions", flag="unknown_memberDefinitions")
+    private List<WorkteamMemberDefinitionArgs> value_memberDefinitions;
+    private boolean unknown_memberDefinitions;
     public List<WorkteamMemberDefinitionArgs> memberDefinitions() {
-        if (memberDefinitions == null) return null;
-        return memberDefinitions.getValue("WorkteamArgs.memberDefinitions");
+        if (!unknown_memberDefinitions) return value_memberDefinitions;
+        throw new UndeferrableValueException("Value 'WorkteamArgs.memberDefinitions' is not present");
     }
 
     /**
      * Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
      * 
      */
-    private UndeferrableValue<WorkteamNotificationConfigurationArgs> notificationConfiguration;
-
+    @PolicyResourceProperty(name="notificationConfiguration", flag="unknown_notificationConfiguration")
+    private WorkteamNotificationConfigurationArgs value_notificationConfiguration;
+    private boolean unknown_notificationConfiguration;
     public WorkteamNotificationConfigurationArgs notificationConfiguration() {
-        if (notificationConfiguration == null) return null;
-        return notificationConfiguration.getValue("WorkteamArgs.notificationConfiguration");
+        if (!unknown_notificationConfiguration) return value_notificationConfiguration;
+        throw new UndeferrableValueException("Value 'WorkteamArgs.notificationConfiguration' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("WorkteamArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'WorkteamArgs.tags' is not present");
     }
 
     /**
      * Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
      * 
      */
-    private UndeferrableValue<WorkteamWorkerAccessConfigurationArgs> workerAccessConfiguration;
-
+    @PolicyResourceProperty(name="workerAccessConfiguration", flag="unknown_workerAccessConfiguration")
+    private WorkteamWorkerAccessConfigurationArgs value_workerAccessConfiguration;
+    private boolean unknown_workerAccessConfiguration;
     public WorkteamWorkerAccessConfigurationArgs workerAccessConfiguration() {
-        if (workerAccessConfiguration == null) return null;
-        return workerAccessConfiguration.getValue("WorkteamArgs.workerAccessConfiguration");
+        if (!unknown_workerAccessConfiguration) return value_workerAccessConfiguration;
+        throw new UndeferrableValueException("Value 'WorkteamArgs.workerAccessConfiguration' is not present");
     }
 
     /**
      * The name of the workforce.
      * 
      */
-    private UndeferrableValue<String> workforceName;
-
+    @PolicyResourceProperty(name="workforceName", flag="unknown_workforceName")
+    private String value_workforceName;
+    private boolean unknown_workforceName;
     public String workforceName() {
-        if (workforceName == null) return null;
-        return workforceName.getValue("WorkteamArgs.workforceName");
+        if (!unknown_workforceName) return value_workforceName;
+        throw new UndeferrableValueException("Value 'WorkteamArgs.workforceName' is not present");
     }
 
     /**
      * The name of the Workteam (must be unique).
      * 
      */
-    private UndeferrableValue<String> workteamName;
-
+    @PolicyResourceProperty(name="workteamName", flag="unknown_workteamName")
+    private String value_workteamName;
+    private boolean unknown_workteamName;
     public String workteamName() {
-        if (workteamName == null) return null;
-        return workteamName.getValue("WorkteamArgs.workteamName");
+        if (!unknown_workteamName) return value_workteamName;
+        throw new UndeferrableValueException("Value 'WorkteamArgs.workteamName' is not present");
     }
 
 }

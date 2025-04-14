@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.inputs.SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class SpotFleetRequestSpotMaintenanceStrategiesArgs {
      * Nested argument containing the capacity rebalance for your fleet request. Defined below.
      * 
      */
-    private UndeferrableValue<SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs> capacityRebalance;
-
+    @PolicyResourceProperty(name="capacityRebalance", flag="unknown_capacityRebalance")
+    private SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs value_capacityRebalance;
+    private boolean unknown_capacityRebalance;
     public SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs capacityRebalance() {
-        if (capacityRebalance == null) return null;
-        return capacityRebalance.getValue("SpotFleetRequestSpotMaintenanceStrategiesArgs.capacityRebalance");
+        if (!unknown_capacityRebalance) return value_capacityRebalance;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestSpotMaintenanceStrategiesArgs.capacityRebalance' is not present");
     }
 
 }

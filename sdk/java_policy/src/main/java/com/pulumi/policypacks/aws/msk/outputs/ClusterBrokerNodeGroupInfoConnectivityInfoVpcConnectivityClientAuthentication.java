@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.msk.outputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClie
      * Configuration block for specifying SASL client authentication. See below.
      * 
      */
-    private @Nullable UndeferrableValue<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl> sasl;
-
+    @PolicyResourceProperty(name="sasl", flag="unknown_sasl")
+    private @Nullable ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl value_sasl;
+    private boolean unknown_sasl;
     public @Nullable ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl sasl() {
-        if (sasl == null) return null;
-        return sasl.getValue("ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication.sasl");
+        if (!unknown_sasl) return value_sasl;
+        throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication.sasl' is not present");
     }
 
     /**
      * Configuration block for specifying TLS client authentication. See below.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> tls;
-
+    @PolicyResourceProperty(name="tls", flag="unknown_tls")
+    private @Nullable Boolean value_tls;
+    private boolean unknown_tls;
     public @Nullable Boolean tls() {
-        if (tls == null) return null;
-        return tls.getValue("ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication.tls");
+        if (!unknown_tls) return value_tls;
+        throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication.tls' is not present");
     }
 
 }

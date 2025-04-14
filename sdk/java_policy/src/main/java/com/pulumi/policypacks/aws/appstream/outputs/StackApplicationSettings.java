@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appstream.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class StackApplicationSettings {
      * Whether application settings should be persisted.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("StackApplicationSettings.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'StackApplicationSettings.enabled' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class StackApplicationSettings {
      * Can be up to 100 characters.
      * 
      */
-    private @Nullable UndeferrableValue<String> settingsGroup;
-
+    @PolicyResourceProperty(name="settingsGroup", flag="unknown_settingsGroup")
+    private @Nullable String value_settingsGroup;
+    private boolean unknown_settingsGroup;
     public @Nullable String settingsGroup() {
-        if (settingsGroup == null) return null;
-        return settingsGroup.getValue("StackApplicationSettings.settingsGroup");
+        if (!unknown_settingsGroup) return value_settingsGroup;
+        throw new UndeferrableValueException("Value 'StackApplicationSettings.settingsGroup' is not present");
     }
 
 }

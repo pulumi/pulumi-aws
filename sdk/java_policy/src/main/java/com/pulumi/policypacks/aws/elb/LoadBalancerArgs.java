@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.elb.inputs.LoadBalancerAccessLogsArgs;
 import com.pulumi.policypacks.aws.elb.inputs.LoadBalancerHealthCheckArgs;
@@ -23,132 +24,144 @@ public final class LoadBalancerArgs extends com.pulumi.resources.PolicyResourceI
      * An Access Logs block. Access Logs documented below.
      * 
      */
-    private UndeferrableValue<LoadBalancerAccessLogsArgs> accessLogs;
-
+    @PolicyResourceProperty(name="accessLogs", flag="unknown_accessLogs")
+    private LoadBalancerAccessLogsArgs value_accessLogs;
+    private boolean unknown_accessLogs;
     public LoadBalancerAccessLogsArgs accessLogs() {
-        if (accessLogs == null) return null;
-        return accessLogs.getValue("LoadBalancerArgs.accessLogs");
+        if (!unknown_accessLogs) return value_accessLogs;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.accessLogs' is not present");
     }
 
     /**
      * The AZ&#39;s to serve traffic in.
      * 
      */
-    private UndeferrableValue<List<String>> availabilityZones;
-
+    @PolicyResourceProperty(name="availabilityZones", flag="unknown_availabilityZones")
+    private List<String> value_availabilityZones;
+    private boolean unknown_availabilityZones;
     public List<String> availabilityZones() {
-        if (availabilityZones == null) return null;
-        return availabilityZones.getValue("LoadBalancerArgs.availabilityZones");
+        if (!unknown_availabilityZones) return value_availabilityZones;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.availabilityZones' is not present");
     }
 
     /**
      * Boolean to enable connection draining. Default: `false`
      * 
      */
-    private UndeferrableValue<Boolean> connectionDraining;
-
+    @PolicyResourceProperty(name="connectionDraining", flag="unknown_connectionDraining")
+    private Boolean value_connectionDraining;
+    private boolean unknown_connectionDraining;
     public Boolean connectionDraining() {
-        if (connectionDraining == null) return null;
-        return connectionDraining.getValue("LoadBalancerArgs.connectionDraining");
+        if (!unknown_connectionDraining) return value_connectionDraining;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.connectionDraining' is not present");
     }
 
     /**
      * The time in seconds to allow for connections to drain. Default: `300`
      * 
      */
-    private UndeferrableValue<Integer> connectionDrainingTimeout;
-
+    @PolicyResourceProperty(name="connectionDrainingTimeout", flag="unknown_connectionDrainingTimeout")
+    private Integer value_connectionDrainingTimeout;
+    private boolean unknown_connectionDrainingTimeout;
     public Integer connectionDrainingTimeout() {
-        if (connectionDrainingTimeout == null) return null;
-        return connectionDrainingTimeout.getValue("LoadBalancerArgs.connectionDrainingTimeout");
+        if (!unknown_connectionDrainingTimeout) return value_connectionDrainingTimeout;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.connectionDrainingTimeout' is not present");
     }
 
     /**
      * Enable cross-zone load balancing. Default: `true`
      * 
      */
-    private UndeferrableValue<Boolean> crossZoneLoadBalancing;
-
+    @PolicyResourceProperty(name="crossZoneLoadBalancing", flag="unknown_crossZoneLoadBalancing")
+    private Boolean value_crossZoneLoadBalancing;
+    private boolean unknown_crossZoneLoadBalancing;
     public Boolean crossZoneLoadBalancing() {
-        if (crossZoneLoadBalancing == null) return null;
-        return crossZoneLoadBalancing.getValue("LoadBalancerArgs.crossZoneLoadBalancing");
+        if (!unknown_crossZoneLoadBalancing) return value_crossZoneLoadBalancing;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.crossZoneLoadBalancing' is not present");
     }
 
     /**
      * Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
      * 
      */
-    private UndeferrableValue<String> desyncMitigationMode;
-
+    @PolicyResourceProperty(name="desyncMitigationMode", flag="unknown_desyncMitigationMode")
+    private String value_desyncMitigationMode;
+    private boolean unknown_desyncMitigationMode;
     public String desyncMitigationMode() {
-        if (desyncMitigationMode == null) return null;
-        return desyncMitigationMode.getValue("LoadBalancerArgs.desyncMitigationMode");
+        if (!unknown_desyncMitigationMode) return value_desyncMitigationMode;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.desyncMitigationMode' is not present");
     }
 
     /**
      * A health_check block. Health Check documented below.
      * 
      */
-    private UndeferrableValue<LoadBalancerHealthCheckArgs> healthCheck;
-
+    @PolicyResourceProperty(name="healthCheck", flag="unknown_healthCheck")
+    private LoadBalancerHealthCheckArgs value_healthCheck;
+    private boolean unknown_healthCheck;
     public LoadBalancerHealthCheckArgs healthCheck() {
-        if (healthCheck == null) return null;
-        return healthCheck.getValue("LoadBalancerArgs.healthCheck");
+        if (!unknown_healthCheck) return value_healthCheck;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.healthCheck' is not present");
     }
 
     /**
      * The time in seconds that the connection is allowed to be idle. Default: `60`
      * 
      */
-    private UndeferrableValue<Integer> idleTimeout;
-
+    @PolicyResourceProperty(name="idleTimeout", flag="unknown_idleTimeout")
+    private Integer value_idleTimeout;
+    private boolean unknown_idleTimeout;
     public Integer idleTimeout() {
-        if (idleTimeout == null) return null;
-        return idleTimeout.getValue("LoadBalancerArgs.idleTimeout");
+        if (!unknown_idleTimeout) return value_idleTimeout;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.idleTimeout' is not present");
     }
 
     /**
      * A list of instance ids to place in the ELB pool.
      * 
      */
-    private UndeferrableValue<List<String>> instances;
-
+    @PolicyResourceProperty(name="instances", flag="unknown_instances")
+    private List<String> value_instances;
+    private boolean unknown_instances;
     public List<String> instances() {
-        if (instances == null) return null;
-        return instances.getValue("LoadBalancerArgs.instances");
+        if (!unknown_instances) return value_instances;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.instances' is not present");
     }
 
     /**
      * If true, ELB will be an internal ELB.
      * 
      */
-    private UndeferrableValue<Boolean> internal;
-
+    @PolicyResourceProperty(name="internal", flag="unknown_internal")
+    private Boolean value_internal;
+    private boolean unknown_internal;
     public Boolean internal() {
-        if (internal == null) return null;
-        return internal.getValue("LoadBalancerArgs.internal");
+        if (!unknown_internal) return value_internal;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.internal' is not present");
     }
 
     /**
      * A list of listener blocks. Listeners documented below.
      * 
      */
-    private UndeferrableValue<List<LoadBalancerListenerArgs>> listeners;
-
+    @PolicyResourceProperty(name="listeners", flag="unknown_listeners")
+    private List<LoadBalancerListenerArgs> value_listeners;
+    private boolean unknown_listeners;
     public List<LoadBalancerListenerArgs> listeners() {
-        if (listeners == null) return null;
-        return listeners.getValue("LoadBalancerArgs.listeners");
+        if (!unknown_listeners) return value_listeners;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.listeners' is not present");
     }
 
     /**
      * The name of the ELB. By default generated by this provider.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LoadBalancerArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.name' is not present");
     }
 
     /**
@@ -156,11 +169,12 @@ public final class LoadBalancerArgs extends com.pulumi.resources.PolicyResourceI
      * prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("LoadBalancerArgs.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.namePrefix' is not present");
     }
 
     /**
@@ -168,11 +182,12 @@ public final class LoadBalancerArgs extends com.pulumi.resources.PolicyResourceI
      * Only valid if creating an ELB within a VPC
      * 
      */
-    private UndeferrableValue<List<String>> securityGroups;
-
+    @PolicyResourceProperty(name="securityGroups", flag="unknown_securityGroups")
+    private List<String> value_securityGroups;
+    private boolean unknown_securityGroups;
     public List<String> securityGroups() {
-        if (securityGroups == null) return null;
-        return securityGroups.getValue("LoadBalancerArgs.securityGroups");
+        if (!unknown_securityGroups) return value_securityGroups;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.securityGroups' is not present");
     }
 
     /**
@@ -181,22 +196,24 @@ public final class LoadBalancerArgs extends com.pulumi.resources.PolicyResourceI
      * instances. Use this for Classic or Default VPC only.
      * 
      */
-    private UndeferrableValue<String> sourceSecurityGroup;
-
+    @PolicyResourceProperty(name="sourceSecurityGroup", flag="unknown_sourceSecurityGroup")
+    private String value_sourceSecurityGroup;
+    private boolean unknown_sourceSecurityGroup;
     public String sourceSecurityGroup() {
-        if (sourceSecurityGroup == null) return null;
-        return sourceSecurityGroup.getValue("LoadBalancerArgs.sourceSecurityGroup");
+        if (!unknown_sourceSecurityGroup) return value_sourceSecurityGroup;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.sourceSecurityGroup' is not present");
     }
 
     /**
      * A list of subnet IDs to attach to the ELB. When an update to subnets will remove all current subnets, this will force a new resource.
      * 
      */
-    private UndeferrableValue<List<String>> subnets;
-
+    @PolicyResourceProperty(name="subnets", flag="unknown_subnets")
+    private List<String> value_subnets;
+    private boolean unknown_subnets;
     public List<String> subnets() {
-        if (subnets == null) return null;
-        return subnets.getValue("LoadBalancerArgs.subnets");
+        if (!unknown_subnets) return value_subnets;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.subnets' is not present");
     }
 
     /**
@@ -206,11 +223,12 @@ public final class LoadBalancerArgs extends com.pulumi.resources.PolicyResourceI
      * determines if the ELB exists in a VPC or in EC2-classic.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LoadBalancerArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.tags' is not present");
     }
 
 }

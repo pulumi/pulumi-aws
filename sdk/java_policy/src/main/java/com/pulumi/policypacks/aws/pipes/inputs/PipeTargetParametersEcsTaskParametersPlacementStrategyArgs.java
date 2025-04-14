@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class PipeTargetParametersEcsTaskParametersPlacementStrategyArgs {
      * The field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used. Maximum length of 255.
      * 
      */
-    private UndeferrableValue<String> field;
-
+    @PolicyResourceProperty(name="field", flag="unknown_field")
+    private String value_field;
+    private boolean unknown_field;
     public String field() {
-        if (field == null) return null;
-        return field.getValue("PipeTargetParametersEcsTaskParametersPlacementStrategyArgs.field");
+        if (!unknown_field) return value_field;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersPlacementStrategyArgs.field' is not present");
     }
 
     /**
      * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("PipeTargetParametersEcsTaskParametersPlacementStrategyArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersPlacementStrategyArgs.type' is not present");
     }
 
 }

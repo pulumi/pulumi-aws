@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,55 +16,60 @@ public final class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs {
      * ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
      * 
      */
-    private UndeferrableValue<String> credentialsSecretArn;
-
+    @PolicyResourceProperty(name="credentialsSecretArn", flag="unknown_credentialsSecretArn")
+    private String value_credentialsSecretArn;
+    private boolean unknown_credentialsSecretArn;
     public String credentialsSecretArn() {
-        if (credentialsSecretArn == null) return null;
-        return credentialsSecretArn.getValue("AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs.credentialsSecretArn");
+        if (!unknown_credentialsSecretArn) return value_credentialsSecretArn;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs.credentialsSecretArn' is not present");
     }
 
     /**
      * Name of your Amazon RDS database.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs.databaseName' is not present");
     }
 
     /**
      * Names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    private UndeferrableValue<AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs> fieldMapping;
-
+    @PolicyResourceProperty(name="fieldMapping", flag="unknown_fieldMapping")
+    private AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs value_fieldMapping;
+    private boolean unknown_fieldMapping;
     public AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs fieldMapping() {
-        if (fieldMapping == null) return null;
-        return fieldMapping.getValue("AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs.fieldMapping");
+        if (!unknown_fieldMapping) return value_fieldMapping;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs.fieldMapping' is not present");
     }
 
     /**
      * ARN of the vector store.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs.resourceArn' is not present");
     }
 
     /**
      * Name of the table in the database.
      * 
      */
-    private UndeferrableValue<String> tableName;
-
+    @PolicyResourceProperty(name="tableName", flag="unknown_tableName")
+    private String value_tableName;
+    private boolean unknown_tableName;
     public String tableName() {
-        if (tableName == null) return null;
-        return tableName.getValue("AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs.tableName");
+        if (!unknown_tableName) return value_tableName;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs.tableName' is not present");
     }
 
 }

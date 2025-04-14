@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.backup.outputs.FrameworkControlInputParameter;
 import com.pulumi.policypacks.aws.backup.outputs.FrameworkControlScope;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class FrameworkControl {
      * One or more input parameter blocks. An example of a control with two parameters is: &#34;backup plan frequency is at least daily and the retention period is at least 1 year&#34;. The first parameter is daily. The second parameter is 1 year. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<FrameworkControlInputParameter>> inputParameters;
-
+    @PolicyResourceProperty(name="inputParameters", flag="unknown_inputParameters")
+    private @Nullable List<FrameworkControlInputParameter> value_inputParameters;
+    private boolean unknown_inputParameters;
     public @Nullable List<FrameworkControlInputParameter> inputParameters() {
-        if (inputParameters == null) return null;
-        return inputParameters.getValue("FrameworkControl.inputParameters");
+        if (!unknown_inputParameters) return value_inputParameters;
+        throw new UndeferrableValueException("Value 'FrameworkControl.inputParameters' is not present");
     }
 
     /**
      * The name of a control. This name is between 1 and 256 characters.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("FrameworkControl.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FrameworkControl.name' is not present");
     }
 
     /**
      * The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<FrameworkControlScope> scope;
-
+    @PolicyResourceProperty(name="scope", flag="unknown_scope")
+    private @Nullable FrameworkControlScope value_scope;
+    private boolean unknown_scope;
     public @Nullable FrameworkControlScope scope() {
-        if (scope == null) return null;
-        return scope.getValue("FrameworkControl.scope");
+        if (!unknown_scope) return value_scope;
+        throw new UndeferrableValueException("Value 'FrameworkControl.scope' is not present");
     }
 
 }

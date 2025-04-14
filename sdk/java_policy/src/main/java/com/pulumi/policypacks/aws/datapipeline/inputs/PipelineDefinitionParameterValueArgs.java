@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datapipeline.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class PipelineDefinitionParameterValueArgs {
      * ID of the parameter value.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("PipelineDefinitionParameterValueArgs.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'PipelineDefinitionParameterValueArgs.id' is not present");
     }
 
     /**
      * Field value, expressed as a String.
      * 
      */
-    private UndeferrableValue<String> stringValue;
-
+    @PolicyResourceProperty(name="stringValue", flag="unknown_stringValue")
+    private String value_stringValue;
+    private boolean unknown_stringValue;
     public String stringValue() {
-        if (stringValue == null) return null;
-        return stringValue.getValue("PipelineDefinitionParameterValueArgs.stringValue");
+        if (!unknown_stringValue) return value_stringValue;
+        throw new UndeferrableValueException("Value 'PipelineDefinitionParameterValueArgs.stringValue' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,55 +18,60 @@ public final class RouteResponseArgs extends com.pulumi.resources.PolicyResource
      * API identifier.
      * 
      */
-    private UndeferrableValue<String> apiId;
-
+    @PolicyResourceProperty(name="apiId", flag="unknown_apiId")
+    private String value_apiId;
+    private boolean unknown_apiId;
     public String apiId() {
-        if (apiId == null) return null;
-        return apiId.getValue("RouteResponseArgs.apiId");
+        if (!unknown_apiId) return value_apiId;
+        throw new UndeferrableValueException("Value 'RouteResponseArgs.apiId' is not present");
     }
 
     /**
      * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
      * 
      */
-    private UndeferrableValue<String> modelSelectionExpression;
-
+    @PolicyResourceProperty(name="modelSelectionExpression", flag="unknown_modelSelectionExpression")
+    private String value_modelSelectionExpression;
+    private boolean unknown_modelSelectionExpression;
     public String modelSelectionExpression() {
-        if (modelSelectionExpression == null) return null;
-        return modelSelectionExpression.getValue("RouteResponseArgs.modelSelectionExpression");
+        if (!unknown_modelSelectionExpression) return value_modelSelectionExpression;
+        throw new UndeferrableValueException("Value 'RouteResponseArgs.modelSelectionExpression' is not present");
     }
 
     /**
      * Response models for the route response.
      * 
      */
-    private UndeferrableValue<Map<String,String>> responseModels;
-
+    @PolicyResourceProperty(name="responseModels", flag="unknown_responseModels")
+    private Map<String,String> value_responseModels;
+    private boolean unknown_responseModels;
     public Map<String,String> responseModels() {
-        if (responseModels == null) return null;
-        return responseModels.getValue("RouteResponseArgs.responseModels");
+        if (!unknown_responseModels) return value_responseModels;
+        throw new UndeferrableValueException("Value 'RouteResponseArgs.responseModels' is not present");
     }
 
     /**
      * Identifier of the `aws.apigatewayv2.Route`.
      * 
      */
-    private UndeferrableValue<String> routeId;
-
+    @PolicyResourceProperty(name="routeId", flag="unknown_routeId")
+    private String value_routeId;
+    private boolean unknown_routeId;
     public String routeId() {
-        if (routeId == null) return null;
-        return routeId.getValue("RouteResponseArgs.routeId");
+        if (!unknown_routeId) return value_routeId;
+        throw new UndeferrableValueException("Value 'RouteResponseArgs.routeId' is not present");
     }
 
     /**
      * Route response key.
      * 
      */
-    private UndeferrableValue<String> routeResponseKey;
-
+    @PolicyResourceProperty(name="routeResponseKey", flag="unknown_routeResponseKey")
+    private String value_routeResponseKey;
+    private boolean unknown_routeResponseKey;
     public String routeResponseKey() {
-        if (routeResponseKey == null) return null;
-        return routeResponseKey.getValue("RouteResponseArgs.routeResponseKey");
+        if (!unknown_routeResponseKey) return value_routeResponseKey;
+        throw new UndeferrableValueException("Value 'RouteResponseArgs.routeResponseKey' is not present");
     }
 
 }

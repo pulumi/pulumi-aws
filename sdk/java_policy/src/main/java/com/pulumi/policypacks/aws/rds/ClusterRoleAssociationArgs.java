@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class ClusterRoleAssociationArgs extends com.pulumi.resources.Polic
      * DB Cluster Identifier to associate with the IAM Role.
      * 
      */
-    private UndeferrableValue<String> dbClusterIdentifier;
-
+    @PolicyResourceProperty(name="dbClusterIdentifier", flag="unknown_dbClusterIdentifier")
+    private String value_dbClusterIdentifier;
+    private boolean unknown_dbClusterIdentifier;
     public String dbClusterIdentifier() {
-        if (dbClusterIdentifier == null) return null;
-        return dbClusterIdentifier.getValue("ClusterRoleAssociationArgs.dbClusterIdentifier");
+        if (!unknown_dbClusterIdentifier) return value_dbClusterIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterRoleAssociationArgs.dbClusterIdentifier' is not present");
     }
 
     /**
      * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
      * 
      */
-    private UndeferrableValue<String> featureName;
-
+    @PolicyResourceProperty(name="featureName", flag="unknown_featureName")
+    private String value_featureName;
+    private boolean unknown_featureName;
     public String featureName() {
-        if (featureName == null) return null;
-        return featureName.getValue("ClusterRoleAssociationArgs.featureName");
+        if (!unknown_featureName) return value_featureName;
+        throw new UndeferrableValueException("Value 'ClusterRoleAssociationArgs.featureName' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("ClusterRoleAssociationArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'ClusterRoleAssociationArgs.roleArn' is not present");
     }
 
 }

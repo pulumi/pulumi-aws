@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class ModelContainerModelDataSourceS3DataSourceArgs {
      * How the model data is prepared. Allowed values are: `None` and `Gzip`.
      * 
      */
-    private UndeferrableValue<String> compressionType;
-
+    @PolicyResourceProperty(name="compressionType", flag="unknown_compressionType")
+    private String value_compressionType;
+    private boolean unknown_compressionType;
     public String compressionType() {
-        if (compressionType == null) return null;
-        return compressionType.getValue("ModelContainerModelDataSourceS3DataSourceArgs.compressionType");
+        if (!unknown_compressionType) return value_compressionType;
+        throw new UndeferrableValueException("Value 'ModelContainerModelDataSourceS3DataSourceArgs.compressionType' is not present");
     }
 
     /**
      * Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. see Model Access Config.
      * 
      */
-    private UndeferrableValue<ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs> modelAccessConfig;
-
+    @PolicyResourceProperty(name="modelAccessConfig", flag="unknown_modelAccessConfig")
+    private ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs value_modelAccessConfig;
+    private boolean unknown_modelAccessConfig;
     public ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs modelAccessConfig() {
-        if (modelAccessConfig == null) return null;
-        return modelAccessConfig.getValue("ModelContainerModelDataSourceS3DataSourceArgs.modelAccessConfig");
+        if (!unknown_modelAccessConfig) return value_modelAccessConfig;
+        throw new UndeferrableValueException("Value 'ModelContainerModelDataSourceS3DataSourceArgs.modelAccessConfig' is not present");
     }
 
     /**
      * The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
      * 
      */
-    private UndeferrableValue<String> s3DataType;
-
+    @PolicyResourceProperty(name="s3DataType", flag="unknown_s3DataType")
+    private String value_s3DataType;
+    private boolean unknown_s3DataType;
     public String s3DataType() {
-        if (s3DataType == null) return null;
-        return s3DataType.getValue("ModelContainerModelDataSourceS3DataSourceArgs.s3DataType");
+        if (!unknown_s3DataType) return value_s3DataType;
+        throw new UndeferrableValueException("Value 'ModelContainerModelDataSourceS3DataSourceArgs.s3DataType' is not present");
     }
 
     /**
      * The S3 path of model data to deploy.
      * 
      */
-    private UndeferrableValue<String> s3Uri;
-
+    @PolicyResourceProperty(name="s3Uri", flag="unknown_s3Uri")
+    private String value_s3Uri;
+    private boolean unknown_s3Uri;
     public String s3Uri() {
-        if (s3Uri == null) return null;
-        return s3Uri.getValue("ModelContainerModelDataSourceS3DataSourceArgs.s3Uri");
+        if (!unknown_s3Uri) return value_s3Uri;
+        throw new UndeferrableValueException("Value 'ModelContainerModelDataSourceS3DataSourceArgs.s3Uri' is not present");
     }
 
 }

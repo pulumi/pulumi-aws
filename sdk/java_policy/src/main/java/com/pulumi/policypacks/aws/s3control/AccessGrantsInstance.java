@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,62 +18,68 @@ public final class AccessGrantsInstance extends com.pulumi.resources.PolicyResou
      * Amazon Resource Name (ARN) of the S3 Access Grants instance.
      * 
      */
-    private UndeferrableValue<String> accessGrantsInstanceArn;
-
+    @PolicyResourceProperty(name="accessGrantsInstanceArn", flag="unknown_accessGrantsInstanceArn")
+    private String value_accessGrantsInstanceArn;
+    private boolean unknown_accessGrantsInstanceArn;
     public String accessGrantsInstanceArn() {
-        if (accessGrantsInstanceArn == null) return null;
-        return accessGrantsInstanceArn.getValue("AccessGrantsInstance.accessGrantsInstanceArn");
+        if (!unknown_accessGrantsInstanceArn) return value_accessGrantsInstanceArn;
+        throw new UndeferrableValueException("Value 'AccessGrantsInstance.accessGrantsInstanceArn' is not present");
     }
 
     /**
      * Unique ID of the S3 Access Grants instance.
      * 
      */
-    private UndeferrableValue<String> accessGrantsInstanceId;
-
+    @PolicyResourceProperty(name="accessGrantsInstanceId", flag="unknown_accessGrantsInstanceId")
+    private String value_accessGrantsInstanceId;
+    private boolean unknown_accessGrantsInstanceId;
     public String accessGrantsInstanceId() {
-        if (accessGrantsInstanceId == null) return null;
-        return accessGrantsInstanceId.getValue("AccessGrantsInstance.accessGrantsInstanceId");
+        if (!unknown_accessGrantsInstanceId) return value_accessGrantsInstanceId;
+        throw new UndeferrableValueException("Value 'AccessGrantsInstance.accessGrantsInstanceId' is not present");
     }
 
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("AccessGrantsInstance.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'AccessGrantsInstance.accountId' is not present");
     }
 
     /**
      * The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
      * 
      */
-    private UndeferrableValue<String> identityCenterApplicationArn;
-
+    @PolicyResourceProperty(name="identityCenterApplicationArn", flag="unknown_identityCenterApplicationArn")
+    private String value_identityCenterApplicationArn;
+    private boolean unknown_identityCenterApplicationArn;
     public String identityCenterApplicationArn() {
-        if (identityCenterApplicationArn == null) return null;
-        return identityCenterApplicationArn.getValue("AccessGrantsInstance.identityCenterApplicationArn");
+        if (!unknown_identityCenterApplicationArn) return value_identityCenterApplicationArn;
+        throw new UndeferrableValueException("Value 'AccessGrantsInstance.identityCenterApplicationArn' is not present");
     }
 
     /**
      * The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
      * 
      */
-    private @Nullable UndeferrableValue<String> identityCenterArn;
-
+    @PolicyResourceProperty(name="identityCenterArn", flag="unknown_identityCenterArn")
+    private @Nullable String value_identityCenterArn;
+    private boolean unknown_identityCenterArn;
     public @Nullable String identityCenterArn() {
-        if (identityCenterArn == null) return null;
-        return identityCenterArn.getValue("AccessGrantsInstance.identityCenterArn");
+        if (!unknown_identityCenterArn) return value_identityCenterArn;
+        throw new UndeferrableValueException("Value 'AccessGrantsInstance.identityCenterArn' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AccessGrantsInstance.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AccessGrantsInstance.tags' is not present");
     }
 
     /**
@@ -83,11 +90,12 @@ public final class AccessGrantsInstance extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("AccessGrantsInstance.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'AccessGrantsInstance.tagsAll' is not present");
     }
 
 }

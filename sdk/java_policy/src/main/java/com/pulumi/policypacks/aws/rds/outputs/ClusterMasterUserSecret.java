@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class ClusterMasterUserSecret {
      * ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("ClusterMasterUserSecret.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'ClusterMasterUserSecret.kmsKeyId' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the secret.
      * 
      */
-    private @Nullable UndeferrableValue<String> secretArn;
-
+    @PolicyResourceProperty(name="secretArn", flag="unknown_secretArn")
+    private @Nullable String value_secretArn;
+    private boolean unknown_secretArn;
     public @Nullable String secretArn() {
-        if (secretArn == null) return null;
-        return secretArn.getValue("ClusterMasterUserSecret.secretArn");
+        if (!unknown_secretArn) return value_secretArn;
+        throw new UndeferrableValueException("Value 'ClusterMasterUserSecret.secretArn' is not present");
     }
 
     /**
      * Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
      * 
      */
-    private @Nullable UndeferrableValue<String> secretStatus;
-
+    @PolicyResourceProperty(name="secretStatus", flag="unknown_secretStatus")
+    private @Nullable String value_secretStatus;
+    private boolean unknown_secretStatus;
     public @Nullable String secretStatus() {
-        if (secretStatus == null) return null;
-        return secretStatus.getValue("ClusterMasterUserSecret.secretStatus");
+        if (!unknown_secretStatus) return value_secretStatus;
+        throw new UndeferrableValueException("Value 'ClusterMasterUserSecret.secretStatus' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DataQualityJobDefinitionDataQualityBaselineConfigArgs {
      * The constraints resource for a monitoring job. Fields are documented below.
      * 
      */
-    private UndeferrableValue<DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArgs> constraintsResource;
-
+    @PolicyResourceProperty(name="constraintsResource", flag="unknown_constraintsResource")
+    private DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArgs value_constraintsResource;
+    private boolean unknown_constraintsResource;
     public DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArgs constraintsResource() {
-        if (constraintsResource == null) return null;
-        return constraintsResource.getValue("DataQualityJobDefinitionDataQualityBaselineConfigArgs.constraintsResource");
+        if (!unknown_constraintsResource) return value_constraintsResource;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityBaselineConfigArgs.constraintsResource' is not present");
     }
 
     /**
      * The statistics resource for a monitoring job. Fields are documented below.
      * 
      */
-    private UndeferrableValue<DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceArgs> statisticsResource;
-
+    @PolicyResourceProperty(name="statisticsResource", flag="unknown_statisticsResource")
+    private DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceArgs value_statisticsResource;
+    private boolean unknown_statisticsResource;
     public DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceArgs statisticsResource() {
-        if (statisticsResource == null) return null;
-        return statisticsResource.getValue("DataQualityJobDefinitionDataQualityBaselineConfigArgs.statisticsResource");
+        if (!unknown_statisticsResource) return value_statisticsResource;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityBaselineConfigArgs.statisticsResource' is not present");
     }
 
 }

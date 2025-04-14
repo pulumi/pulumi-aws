@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.inputs.ManagedPrefixListEntryArgs;
 import java.lang.Integer;
@@ -20,55 +21,60 @@ public final class ManagedPrefixListArgs extends com.pulumi.resources.PolicyReso
      * Address family (`IPv4` or `IPv6`) of this prefix list.
      * 
      */
-    private UndeferrableValue<String> addressFamily;
-
+    @PolicyResourceProperty(name="addressFamily", flag="unknown_addressFamily")
+    private String value_addressFamily;
+    private boolean unknown_addressFamily;
     public String addressFamily() {
-        if (addressFamily == null) return null;
-        return addressFamily.getValue("ManagedPrefixListArgs.addressFamily");
+        if (!unknown_addressFamily) return value_addressFamily;
+        throw new UndeferrableValueException("Value 'ManagedPrefixListArgs.addressFamily' is not present");
     }
 
     /**
      * Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
      * 
      */
-    private UndeferrableValue<List<ManagedPrefixListEntryArgs>> entries;
-
+    @PolicyResourceProperty(name="entries", flag="unknown_entries")
+    private List<ManagedPrefixListEntryArgs> value_entries;
+    private boolean unknown_entries;
     public List<ManagedPrefixListEntryArgs> entries() {
-        if (entries == null) return null;
-        return entries.getValue("ManagedPrefixListArgs.entries");
+        if (!unknown_entries) return value_entries;
+        throw new UndeferrableValueException("Value 'ManagedPrefixListArgs.entries' is not present");
     }
 
     /**
      * Maximum number of entries that this prefix list can contain.
      * 
      */
-    private UndeferrableValue<Integer> maxEntries;
-
+    @PolicyResourceProperty(name="maxEntries", flag="unknown_maxEntries")
+    private Integer value_maxEntries;
+    private boolean unknown_maxEntries;
     public Integer maxEntries() {
-        if (maxEntries == null) return null;
-        return maxEntries.getValue("ManagedPrefixListArgs.maxEntries");
+        if (!unknown_maxEntries) return value_maxEntries;
+        throw new UndeferrableValueException("Value 'ManagedPrefixListArgs.maxEntries' is not present");
     }
 
     /**
      * Name of this resource. The name must not start with `com.amazonaws`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ManagedPrefixListArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ManagedPrefixListArgs.name' is not present");
     }
 
     /**
      * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ManagedPrefixListArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ManagedPrefixListArgs.tags' is not present");
     }
 
 }

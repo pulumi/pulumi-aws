@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.inputs.BucketWebsiteConfigurationV2RoutingRuleConditionArgs;
 import com.pulumi.policypacks.aws.s3.inputs.BucketWebsiteConfigurationV2RoutingRuleRedirectArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class BucketWebsiteConfigurationV2RoutingRuleArgs {
      * Configuration block for describing a condition that must be met for the specified redirect to apply. See below.
      * 
      */
-    private UndeferrableValue<BucketWebsiteConfigurationV2RoutingRuleConditionArgs> condition;
-
+    @PolicyResourceProperty(name="condition", flag="unknown_condition")
+    private BucketWebsiteConfigurationV2RoutingRuleConditionArgs value_condition;
+    private boolean unknown_condition;
     public BucketWebsiteConfigurationV2RoutingRuleConditionArgs condition() {
-        if (condition == null) return null;
-        return condition.getValue("BucketWebsiteConfigurationV2RoutingRuleArgs.condition");
+        if (!unknown_condition) return value_condition;
+        throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2RoutingRuleArgs.condition' is not present");
     }
 
     /**
      * Configuration block for redirect information. See below.
      * 
      */
-    private UndeferrableValue<BucketWebsiteConfigurationV2RoutingRuleRedirectArgs> redirect;
-
+    @PolicyResourceProperty(name="redirect", flag="unknown_redirect")
+    private BucketWebsiteConfigurationV2RoutingRuleRedirectArgs value_redirect;
+    private boolean unknown_redirect;
     public BucketWebsiteConfigurationV2RoutingRuleRedirectArgs redirect() {
-        if (redirect == null) return null;
-        return redirect.getValue("BucketWebsiteConfigurationV2RoutingRuleArgs.redirect");
+        if (!unknown_redirect) return value_redirect;
+        throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2RoutingRuleArgs.redirect' is not present");
     }
 
 }

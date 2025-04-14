@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.alb.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.alb.inputs.ListenerRuleActionAuthenticateCognitoArgs;
 import com.pulumi.policypacks.aws.alb.inputs.ListenerRuleActionAuthenticateOidcArgs;
 import com.pulumi.policypacks.aws.alb.inputs.ListenerRuleActionFixedResponseArgs;
@@ -20,33 +21,36 @@ public final class ListenerRuleActionArgs {
      * Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
      * 
      */
-    private UndeferrableValue<ListenerRuleActionAuthenticateCognitoArgs> authenticateCognito;
-
+    @PolicyResourceProperty(name="authenticateCognito", flag="unknown_authenticateCognito")
+    private ListenerRuleActionAuthenticateCognitoArgs value_authenticateCognito;
+    private boolean unknown_authenticateCognito;
     public ListenerRuleActionAuthenticateCognitoArgs authenticateCognito() {
-        if (authenticateCognito == null) return null;
-        return authenticateCognito.getValue("ListenerRuleActionArgs.authenticateCognito");
+        if (!unknown_authenticateCognito) return value_authenticateCognito;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionArgs.authenticateCognito' is not present");
     }
 
     /**
      * Information for creating an authenticate action using OIDC. Required if `type` is `authenticate-oidc`.
      * 
      */
-    private UndeferrableValue<ListenerRuleActionAuthenticateOidcArgs> authenticateOidc;
-
+    @PolicyResourceProperty(name="authenticateOidc", flag="unknown_authenticateOidc")
+    private ListenerRuleActionAuthenticateOidcArgs value_authenticateOidc;
+    private boolean unknown_authenticateOidc;
     public ListenerRuleActionAuthenticateOidcArgs authenticateOidc() {
-        if (authenticateOidc == null) return null;
-        return authenticateOidc.getValue("ListenerRuleActionArgs.authenticateOidc");
+        if (!unknown_authenticateOidc) return value_authenticateOidc;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionArgs.authenticateOidc' is not present");
     }
 
     /**
      * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
      * 
      */
-    private UndeferrableValue<ListenerRuleActionFixedResponseArgs> fixedResponse;
-
+    @PolicyResourceProperty(name="fixedResponse", flag="unknown_fixedResponse")
+    private ListenerRuleActionFixedResponseArgs value_fixedResponse;
+    private boolean unknown_fixedResponse;
     public ListenerRuleActionFixedResponseArgs fixedResponse() {
-        if (fixedResponse == null) return null;
-        return fixedResponse.getValue("ListenerRuleActionArgs.fixedResponse");
+        if (!unknown_fixedResponse) return value_fixedResponse;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionArgs.fixedResponse' is not present");
     }
 
     /**
@@ -55,11 +59,12 @@ public final class ListenerRuleActionArgs {
      * Cannot be specified with `target_group_arn`.
      * 
      */
-    private UndeferrableValue<ListenerRuleActionForwardArgs> forward;
-
+    @PolicyResourceProperty(name="forward", flag="unknown_forward")
+    private ListenerRuleActionForwardArgs value_forward;
+    private boolean unknown_forward;
     public ListenerRuleActionForwardArgs forward() {
-        if (forward == null) return null;
-        return forward.getValue("ListenerRuleActionArgs.forward");
+        if (!unknown_forward) return value_forward;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionArgs.forward' is not present");
     }
 
     /**
@@ -69,22 +74,24 @@ public final class ListenerRuleActionArgs {
      * Defaults to the position in the list of actions.
      * 
      */
-    private UndeferrableValue<Integer> order;
-
+    @PolicyResourceProperty(name="order", flag="unknown_order")
+    private Integer value_order;
+    private boolean unknown_order;
     public Integer order() {
-        if (order == null) return null;
-        return order.getValue("ListenerRuleActionArgs.order");
+        if (!unknown_order) return value_order;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionArgs.order' is not present");
     }
 
     /**
      * Information for creating a redirect action. Required if `type` is `redirect`.
      * 
      */
-    private UndeferrableValue<ListenerRuleActionRedirectArgs> redirect;
-
+    @PolicyResourceProperty(name="redirect", flag="unknown_redirect")
+    private ListenerRuleActionRedirectArgs value_redirect;
+    private boolean unknown_redirect;
     public ListenerRuleActionRedirectArgs redirect() {
-        if (redirect == null) return null;
-        return redirect.getValue("ListenerRuleActionArgs.redirect");
+        if (!unknown_redirect) return value_redirect;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionArgs.redirect' is not present");
     }
 
     /**
@@ -94,22 +101,24 @@ public final class ListenerRuleActionArgs {
      * Cannot be specified with `forward`.
      * 
      */
-    private UndeferrableValue<String> targetGroupArn;
-
+    @PolicyResourceProperty(name="targetGroupArn", flag="unknown_targetGroupArn")
+    private String value_targetGroupArn;
+    private boolean unknown_targetGroupArn;
     public String targetGroupArn() {
-        if (targetGroupArn == null) return null;
-        return targetGroupArn.getValue("ListenerRuleActionArgs.targetGroupArn");
+        if (!unknown_targetGroupArn) return value_targetGroupArn;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionArgs.targetGroupArn' is not present");
     }
 
     /**
      * The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ListenerRuleActionArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionArgs.type' is not present");
     }
 
 }

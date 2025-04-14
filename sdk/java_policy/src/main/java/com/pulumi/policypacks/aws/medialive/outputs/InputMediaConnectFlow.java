@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class InputMediaConnectFlow {
      * The ARN of the MediaConnect Flow
      * 
      */
-    private UndeferrableValue<String> flowArn;
-
+    @PolicyResourceProperty(name="flowArn", flag="unknown_flowArn")
+    private String value_flowArn;
+    private boolean unknown_flowArn;
     public String flowArn() {
-        if (flowArn == null) return null;
-        return flowArn.getValue("InputMediaConnectFlow.flowArn");
+        if (!unknown_flowArn) return value_flowArn;
+        throw new UndeferrableValueException("Value 'InputMediaConnectFlow.flowArn' is not present");
     }
 
 }

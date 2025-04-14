@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,121 +16,132 @@ public final class CustomLayerCloudwatchConfigurationLogStreamArgs {
      * Specifies the max number of log events in a batch, up to `10000`. The default value is `1000`.
      * 
      */
-    private UndeferrableValue<Integer> batchCount;
-
+    @PolicyResourceProperty(name="batchCount", flag="unknown_batchCount")
+    private Integer value_batchCount;
+    private boolean unknown_batchCount;
     public Integer batchCount() {
-        if (batchCount == null) return null;
-        return batchCount.getValue("CustomLayerCloudwatchConfigurationLogStreamArgs.batchCount");
+        if (!unknown_batchCount) return value_batchCount;
+        throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationLogStreamArgs.batchCount' is not present");
     }
 
     /**
      * Specifies the maximum size of log events in a batch, in bytes, up to `1048576` bytes. The default value is `32768` bytes.
      * 
      */
-    private UndeferrableValue<Integer> batchSize;
-
+    @PolicyResourceProperty(name="batchSize", flag="unknown_batchSize")
+    private Integer value_batchSize;
+    private boolean unknown_batchSize;
     public Integer batchSize() {
-        if (batchSize == null) return null;
-        return batchSize.getValue("CustomLayerCloudwatchConfigurationLogStreamArgs.batchSize");
+        if (!unknown_batchSize) return value_batchSize;
+        throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationLogStreamArgs.batchSize' is not present");
     }
 
     /**
      * Specifies the time duration for the batching of log events. The minimum value is `5000` and default value is `5000`.
      * 
      */
-    private UndeferrableValue<Integer> bufferDuration;
-
+    @PolicyResourceProperty(name="bufferDuration", flag="unknown_bufferDuration")
+    private Integer value_bufferDuration;
+    private boolean unknown_bufferDuration;
     public Integer bufferDuration() {
-        if (bufferDuration == null) return null;
-        return bufferDuration.getValue("CustomLayerCloudwatchConfigurationLogStreamArgs.bufferDuration");
+        if (!unknown_bufferDuration) return value_bufferDuration;
+        throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationLogStreamArgs.bufferDuration' is not present");
     }
 
     /**
      * Specifies how the timestamp is extracted from logs. For more information, see the CloudWatch Logs Agent Reference (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html).
      * 
      */
-    private UndeferrableValue<String> datetimeFormat;
-
+    @PolicyResourceProperty(name="datetimeFormat", flag="unknown_datetimeFormat")
+    private String value_datetimeFormat;
+    private boolean unknown_datetimeFormat;
     public String datetimeFormat() {
-        if (datetimeFormat == null) return null;
-        return datetimeFormat.getValue("CustomLayerCloudwatchConfigurationLogStreamArgs.datetimeFormat");
+        if (!unknown_datetimeFormat) return value_datetimeFormat;
+        throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationLogStreamArgs.datetimeFormat' is not present");
     }
 
     /**
      * Specifies the encoding of the log file so that the file can be read correctly. The default is `utf_8`.
      * 
      */
-    private UndeferrableValue<String> encoding;
-
+    @PolicyResourceProperty(name="encoding", flag="unknown_encoding")
+    private String value_encoding;
+    private boolean unknown_encoding;
     public String encoding() {
-        if (encoding == null) return null;
-        return encoding.getValue("CustomLayerCloudwatchConfigurationLogStreamArgs.encoding");
+        if (!unknown_encoding) return value_encoding;
+        throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationLogStreamArgs.encoding' is not present");
     }
 
     /**
      * Specifies log files that you want to push to CloudWatch Logs. File can point to a specific file or multiple files (by using wild card characters such as /var/log/system.log*).
      * 
      */
-    private UndeferrableValue<String> file;
-
+    @PolicyResourceProperty(name="file", flag="unknown_file")
+    private String value_file;
+    private boolean unknown_file;
     public String file() {
-        if (file == null) return null;
-        return file.getValue("CustomLayerCloudwatchConfigurationLogStreamArgs.file");
+        if (!unknown_file) return value_file;
+        throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationLogStreamArgs.file' is not present");
     }
 
     /**
      * Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as `1`, `2-5`. The default value is `1`.
      * 
      */
-    private UndeferrableValue<String> fileFingerprintLines;
-
+    @PolicyResourceProperty(name="fileFingerprintLines", flag="unknown_fileFingerprintLines")
+    private String value_fileFingerprintLines;
+    private boolean unknown_fileFingerprintLines;
     public String fileFingerprintLines() {
-        if (fileFingerprintLines == null) return null;
-        return fileFingerprintLines.getValue("CustomLayerCloudwatchConfigurationLogStreamArgs.fileFingerprintLines");
+        if (!unknown_fileFingerprintLines) return value_fileFingerprintLines;
+        throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationLogStreamArgs.fileFingerprintLines' is not present");
     }
 
     /**
      * Specifies where to start to read data (`start_of_file` or `end_of_file`). The default is `start_of_file`.
      * 
      */
-    private UndeferrableValue<String> initialPosition;
-
+    @PolicyResourceProperty(name="initialPosition", flag="unknown_initialPosition")
+    private String value_initialPosition;
+    private boolean unknown_initialPosition;
     public String initialPosition() {
-        if (initialPosition == null) return null;
-        return initialPosition.getValue("CustomLayerCloudwatchConfigurationLogStreamArgs.initialPosition");
+        if (!unknown_initialPosition) return value_initialPosition;
+        throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationLogStreamArgs.initialPosition' is not present");
     }
 
     /**
      * Specifies the destination log group. A log group is created automatically if it doesn&#39;t already exist.
      * 
      */
-    private UndeferrableValue<String> logGroupName;
-
+    @PolicyResourceProperty(name="logGroupName", flag="unknown_logGroupName")
+    private String value_logGroupName;
+    private boolean unknown_logGroupName;
     public String logGroupName() {
-        if (logGroupName == null) return null;
-        return logGroupName.getValue("CustomLayerCloudwatchConfigurationLogStreamArgs.logGroupName");
+        if (!unknown_logGroupName) return value_logGroupName;
+        throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationLogStreamArgs.logGroupName' is not present");
     }
 
     /**
      * Specifies the pattern for identifying the start of a log message.
      * 
      */
-    private UndeferrableValue<String> multilineStartPattern;
-
+    @PolicyResourceProperty(name="multilineStartPattern", flag="unknown_multilineStartPattern")
+    private String value_multilineStartPattern;
+    private boolean unknown_multilineStartPattern;
     public String multilineStartPattern() {
-        if (multilineStartPattern == null) return null;
-        return multilineStartPattern.getValue("CustomLayerCloudwatchConfigurationLogStreamArgs.multilineStartPattern");
+        if (!unknown_multilineStartPattern) return value_multilineStartPattern;
+        throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationLogStreamArgs.multilineStartPattern' is not present");
     }
 
     /**
      * Specifies the time zone of log event time stamps.
      * 
      */
-    private UndeferrableValue<String> timeZone;
-
+    @PolicyResourceProperty(name="timeZone", flag="unknown_timeZone")
+    private String value_timeZone;
+    private boolean unknown_timeZone;
     public String timeZone() {
-        if (timeZone == null) return null;
-        return timeZone.getValue("CustomLayerCloudwatchConfigurationLogStreamArgs.timeZone");
+        if (!unknown_timeZone) return value_timeZone;
+        throw new UndeferrableValueException("Value 'CustomLayerCloudwatchConfigurationLogStreamArgs.timeZone' is not present");
     }
 
 }

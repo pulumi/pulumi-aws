@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class DistributionDefaultCacheBehaviorLambdaFunctionAssociation {
      * Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
      * 
      */
-    private UndeferrableValue<String> eventType;
-
+    @PolicyResourceProperty(name="eventType", flag="unknown_eventType")
+    private String value_eventType;
+    private boolean unknown_eventType;
     public String eventType() {
-        if (eventType == null) return null;
-        return eventType.getValue("DistributionDefaultCacheBehaviorLambdaFunctionAssociation.eventType");
+        if (!unknown_eventType) return value_eventType;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorLambdaFunctionAssociation.eventType' is not present");
     }
 
     /**
      * When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> includeBody;
-
+    @PolicyResourceProperty(name="includeBody", flag="unknown_includeBody")
+    private @Nullable Boolean value_includeBody;
+    private boolean unknown_includeBody;
     public @Nullable Boolean includeBody() {
-        if (includeBody == null) return null;
-        return includeBody.getValue("DistributionDefaultCacheBehaviorLambdaFunctionAssociation.includeBody");
+        if (!unknown_includeBody) return value_includeBody;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorLambdaFunctionAssociation.includeBody' is not present");
     }
 
     /**
      * ARN of the Lambda function.
      * 
      */
-    private UndeferrableValue<String> lambdaArn;
-
+    @PolicyResourceProperty(name="lambdaArn", flag="unknown_lambdaArn")
+    private String value_lambdaArn;
+    private boolean unknown_lambdaArn;
     public String lambdaArn() {
-        if (lambdaArn == null) return null;
-        return lambdaArn.getValue("DistributionDefaultCacheBehaviorLambdaFunctionAssociation.lambdaArn");
+        if (!unknown_lambdaArn) return value_lambdaArn;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorLambdaFunctionAssociation.lambdaArn' is not present");
     }
 
 }

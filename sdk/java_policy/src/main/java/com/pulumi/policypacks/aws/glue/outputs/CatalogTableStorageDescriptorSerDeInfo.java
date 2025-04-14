@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class CatalogTableStorageDescriptorSerDeInfo {
      * Name of the SerDe.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("CatalogTableStorageDescriptorSerDeInfo.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptorSerDeInfo.name' is not present");
     }
 
     /**
      * Map of initialization parameters for the SerDe, in key-value form.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private @Nullable Map<String,String> value_parameters;
+    private boolean unknown_parameters;
     public @Nullable Map<String,String> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("CatalogTableStorageDescriptorSerDeInfo.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptorSerDeInfo.parameters' is not present");
     }
 
     /**
      * Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
      * 
      */
-    private @Nullable UndeferrableValue<String> serializationLibrary;
-
+    @PolicyResourceProperty(name="serializationLibrary", flag="unknown_serializationLibrary")
+    private @Nullable String value_serializationLibrary;
+    private boolean unknown_serializationLibrary;
     public @Nullable String serializationLibrary() {
-        if (serializationLibrary == null) return null;
-        return serializationLibrary.getValue("CatalogTableStorageDescriptorSerDeInfo.serializationLibrary");
+        if (!unknown_serializationLibrary) return value_serializationLibrary;
+        throw new UndeferrableValueException("Value 'CatalogTableStorageDescriptorSerDeInfo.serializationLibrary' is not present");
     }
 
 }

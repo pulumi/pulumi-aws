@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lakeformation.outputs.DataCellsFilterTableData;
 import com.pulumi.policypacks.aws.lakeformation.outputs.DataCellsFilterTimeouts;
@@ -17,18 +18,20 @@ public final class DataCellsFilter extends com.pulumi.resources.PolicyResourceOu
      * Information about the data cells filter. See Table Data below for details.
      * 
      */
-    private @Nullable UndeferrableValue<DataCellsFilterTableData> tableData;
-
+    @PolicyResourceProperty(name="tableData", flag="unknown_tableData")
+    private @Nullable DataCellsFilterTableData value_tableData;
+    private boolean unknown_tableData;
     public @Nullable DataCellsFilterTableData tableData() {
-        if (tableData == null) return null;
-        return tableData.getValue("DataCellsFilter.tableData");
+        if (!unknown_tableData) return value_tableData;
+        throw new UndeferrableValueException("Value 'DataCellsFilter.tableData' is not present");
     }
 
-    private @Nullable UndeferrableValue<DataCellsFilterTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable DataCellsFilterTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable DataCellsFilterTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("DataCellsFilter.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'DataCellsFilter.timeouts' is not present");
     }
 
 }

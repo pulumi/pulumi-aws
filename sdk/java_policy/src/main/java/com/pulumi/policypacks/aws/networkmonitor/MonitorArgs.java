@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmonitor;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,11 +19,12 @@ public final class MonitorArgs extends com.pulumi.resources.PolicyResourceInput 
      * The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid values are either 30 or 60.
      * 
      */
-    private UndeferrableValue<Integer> aggregationPeriod;
-
+    @PolicyResourceProperty(name="aggregationPeriod", flag="unknown_aggregationPeriod")
+    private Integer value_aggregationPeriod;
+    private boolean unknown_aggregationPeriod;
     public Integer aggregationPeriod() {
-        if (aggregationPeriod == null) return null;
-        return aggregationPeriod.getValue("MonitorArgs.aggregationPeriod");
+        if (!unknown_aggregationPeriod) return value_aggregationPeriod;
+        throw new UndeferrableValueException("Value 'MonitorArgs.aggregationPeriod' is not present");
     }
 
     /**
@@ -31,22 +33,24 @@ public final class MonitorArgs extends com.pulumi.resources.PolicyResourceInput 
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> monitorName;
-
+    @PolicyResourceProperty(name="monitorName", flag="unknown_monitorName")
+    private String value_monitorName;
+    private boolean unknown_monitorName;
     public String monitorName() {
-        if (monitorName == null) return null;
-        return monitorName.getValue("MonitorArgs.monitorName");
+        if (!unknown_monitorName) return value_monitorName;
+        throw new UndeferrableValueException("Value 'MonitorArgs.monitorName' is not present");
     }
 
     /**
      * Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("MonitorArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'MonitorArgs.tags' is not present");
     }
 
 }

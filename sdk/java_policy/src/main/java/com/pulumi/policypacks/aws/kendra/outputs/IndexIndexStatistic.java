@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kendra.outputs.IndexIndexStatisticFaqStatistic;
 import com.pulumi.policypacks.aws.kendra.outputs.IndexIndexStatisticTextDocumentStatistic;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class IndexIndexStatistic {
      * A block that specifies the number of question and answer topics in the index. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<IndexIndexStatisticFaqStatistic>> faqStatistics;
-
+    @PolicyResourceProperty(name="faqStatistics", flag="unknown_faqStatistics")
+    private @Nullable List<IndexIndexStatisticFaqStatistic> value_faqStatistics;
+    private boolean unknown_faqStatistics;
     public @Nullable List<IndexIndexStatisticFaqStatistic> faqStatistics() {
-        if (faqStatistics == null) return null;
-        return faqStatistics.getValue("IndexIndexStatistic.faqStatistics");
+        if (!unknown_faqStatistics) return value_faqStatistics;
+        throw new UndeferrableValueException("Value 'IndexIndexStatistic.faqStatistics' is not present");
     }
 
     /**
      * A block that specifies the number of text documents indexed. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<IndexIndexStatisticTextDocumentStatistic>> textDocumentStatistics;
-
+    @PolicyResourceProperty(name="textDocumentStatistics", flag="unknown_textDocumentStatistics")
+    private @Nullable List<IndexIndexStatisticTextDocumentStatistic> value_textDocumentStatistics;
+    private boolean unknown_textDocumentStatistics;
     public @Nullable List<IndexIndexStatisticTextDocumentStatistic> textDocumentStatistics() {
-        if (textDocumentStatistics == null) return null;
-        return textDocumentStatistics.getValue("IndexIndexStatistic.textDocumentStatistics");
+        if (!unknown_textDocumentStatistics) return value_textDocumentStatistics;
+        throw new UndeferrableValueException("Value 'IndexIndexStatistic.textDocumentStatistics' is not present");
     }
 
 }

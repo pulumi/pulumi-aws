@@ -3,32 +3,36 @@
 
 package com.pulumi.policypacks.aws.dynamodb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class TableExportIncrementalExportSpecification {
 
-    private @Nullable UndeferrableValue<String> exportFromTime;
-
+    @PolicyResourceProperty(name="exportFromTime", flag="unknown_exportFromTime")
+    private @Nullable String value_exportFromTime;
+    private boolean unknown_exportFromTime;
     public @Nullable String exportFromTime() {
-        if (exportFromTime == null) return null;
-        return exportFromTime.getValue("TableExportIncrementalExportSpecification.exportFromTime");
+        if (!unknown_exportFromTime) return value_exportFromTime;
+        throw new UndeferrableValueException("Value 'TableExportIncrementalExportSpecification.exportFromTime' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> exportToTime;
-
+    @PolicyResourceProperty(name="exportToTime", flag="unknown_exportToTime")
+    private @Nullable String value_exportToTime;
+    private boolean unknown_exportToTime;
     public @Nullable String exportToTime() {
-        if (exportToTime == null) return null;
-        return exportToTime.getValue("TableExportIncrementalExportSpecification.exportToTime");
+        if (!unknown_exportToTime) return value_exportToTime;
+        throw new UndeferrableValueException("Value 'TableExportIncrementalExportSpecification.exportToTime' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> exportViewType;
-
+    @PolicyResourceProperty(name="exportViewType", flag="unknown_exportViewType")
+    private @Nullable String value_exportViewType;
+    private boolean unknown_exportViewType;
     public @Nullable String exportViewType() {
-        if (exportViewType == null) return null;
-        return exportViewType.getValue("TableExportIncrementalExportSpecification.exportViewType");
+        if (!unknown_exportViewType) return value_exportViewType;
+        throw new UndeferrableValueException("Value 'TableExportIncrementalExportSpecification.exportViewType' is not present");
     }
 
 }

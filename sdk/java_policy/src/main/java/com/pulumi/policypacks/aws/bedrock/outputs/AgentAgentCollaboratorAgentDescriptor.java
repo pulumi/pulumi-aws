@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class AgentAgentCollaboratorAgentDescriptor {
      * ARN of the Alias of an Agent to use as the collaborator.
      * 
      */
-    private UndeferrableValue<String> aliasArn;
-
+    @PolicyResourceProperty(name="aliasArn", flag="unknown_aliasArn")
+    private String value_aliasArn;
+    private boolean unknown_aliasArn;
     public String aliasArn() {
-        if (aliasArn == null) return null;
-        return aliasArn.getValue("AgentAgentCollaboratorAgentDescriptor.aliasArn");
+        if (!unknown_aliasArn) return value_aliasArn;
+        throw new UndeferrableValueException("Value 'AgentAgentCollaboratorAgentDescriptor.aliasArn' is not present");
     }
 
 }

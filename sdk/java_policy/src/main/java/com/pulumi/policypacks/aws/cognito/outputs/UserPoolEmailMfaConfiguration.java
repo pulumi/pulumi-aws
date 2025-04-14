@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class UserPoolEmailMfaConfiguration {
      * The template for the email messages that your user pool sends to users with codes for MFA and sign-in with email OTPs. The message must contain the {####} placeholder. In the message, Amazon Cognito replaces this placeholder with the code. If you don&#39;t provide this parameter, Amazon Cognito sends messages in the default format.
      * 
      */
-    private @Nullable UndeferrableValue<String> message;
-
+    @PolicyResourceProperty(name="message", flag="unknown_message")
+    private @Nullable String value_message;
+    private boolean unknown_message;
     public @Nullable String message() {
-        if (message == null) return null;
-        return message.getValue("UserPoolEmailMfaConfiguration.message");
+        if (!unknown_message) return value_message;
+        throw new UndeferrableValueException("Value 'UserPoolEmailMfaConfiguration.message' is not present");
     }
 
     /**
      * The subject of the email messages that your user pool sends to users with codes for MFA and email OTP sign-in.
      * 
      */
-    private @Nullable UndeferrableValue<String> subject;
-
+    @PolicyResourceProperty(name="subject", flag="unknown_subject")
+    private @Nullable String value_subject;
+    private boolean unknown_subject;
     public @Nullable String subject() {
-        if (subject == null) return null;
-        return subject.getValue("UserPoolEmailMfaConfiguration.subject");
+        if (!unknown_subject) return value_subject;
+        throw new UndeferrableValueException("Value 'UserPoolEmailMfaConfiguration.subject' is not present");
     }
 
 }

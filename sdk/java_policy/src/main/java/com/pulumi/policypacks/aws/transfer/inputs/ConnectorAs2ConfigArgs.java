@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,88 +15,96 @@ public final class ConnectorAs2ConfigArgs {
      * Specifies weather AS2 file is compressed. The valud values are ZLIB and  DISABLED.
      * 
      */
-    private UndeferrableValue<String> compression;
-
+    @PolicyResourceProperty(name="compression", flag="unknown_compression")
+    private String value_compression;
+    private boolean unknown_compression;
     public String compression() {
-        if (compression == null) return null;
-        return compression.getValue("ConnectorAs2ConfigArgs.compression");
+        if (!unknown_compression) return value_compression;
+        throw new UndeferrableValueException("Value 'ConnectorAs2ConfigArgs.compression' is not present");
     }
 
     /**
      * The algorithm that is used to encrypt the file. The valid values are AES128_CBC | AES192_CBC | AES256_CBC | NONE.
      * 
      */
-    private UndeferrableValue<String> encryptionAlgorithm;
-
+    @PolicyResourceProperty(name="encryptionAlgorithm", flag="unknown_encryptionAlgorithm")
+    private String value_encryptionAlgorithm;
+    private boolean unknown_encryptionAlgorithm;
     public String encryptionAlgorithm() {
-        if (encryptionAlgorithm == null) return null;
-        return encryptionAlgorithm.getValue("ConnectorAs2ConfigArgs.encryptionAlgorithm");
+        if (!unknown_encryptionAlgorithm) return value_encryptionAlgorithm;
+        throw new UndeferrableValueException("Value 'ConnectorAs2ConfigArgs.encryptionAlgorithm' is not present");
     }
 
     /**
      * The unique identifier for the AS2 local profile.
      * 
      */
-    private UndeferrableValue<String> localProfileId;
-
+    @PolicyResourceProperty(name="localProfileId", flag="unknown_localProfileId")
+    private String value_localProfileId;
+    private boolean unknown_localProfileId;
     public String localProfileId() {
-        if (localProfileId == null) return null;
-        return localProfileId.getValue("ConnectorAs2ConfigArgs.localProfileId");
+        if (!unknown_localProfileId) return value_localProfileId;
+        throw new UndeferrableValueException("Value 'ConnectorAs2ConfigArgs.localProfileId' is not present");
     }
 
     /**
      * Used for outbound requests to determine if a partner response for transfers is synchronous or asynchronous. The valid values are SYNC and NONE.
      * 
      */
-    private UndeferrableValue<String> mdnResponse;
-
+    @PolicyResourceProperty(name="mdnResponse", flag="unknown_mdnResponse")
+    private String value_mdnResponse;
+    private boolean unknown_mdnResponse;
     public String mdnResponse() {
-        if (mdnResponse == null) return null;
-        return mdnResponse.getValue("ConnectorAs2ConfigArgs.mdnResponse");
+        if (!unknown_mdnResponse) return value_mdnResponse;
+        throw new UndeferrableValueException("Value 'ConnectorAs2ConfigArgs.mdnResponse' is not present");
     }
 
     /**
      * The signing algorithm for the Mdn response. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE | DEFAULT.
      * 
      */
-    private UndeferrableValue<String> mdnSigningAlgorithm;
-
+    @PolicyResourceProperty(name="mdnSigningAlgorithm", flag="unknown_mdnSigningAlgorithm")
+    private String value_mdnSigningAlgorithm;
+    private boolean unknown_mdnSigningAlgorithm;
     public String mdnSigningAlgorithm() {
-        if (mdnSigningAlgorithm == null) return null;
-        return mdnSigningAlgorithm.getValue("ConnectorAs2ConfigArgs.mdnSigningAlgorithm");
+        if (!unknown_mdnSigningAlgorithm) return value_mdnSigningAlgorithm;
+        throw new UndeferrableValueException("Value 'ConnectorAs2ConfigArgs.mdnSigningAlgorithm' is not present");
     }
 
     /**
      * Used as the subject HTTP header attribute in AS2 messages that are being sent with the connector.
      * 
      */
-    private UndeferrableValue<String> messageSubject;
-
+    @PolicyResourceProperty(name="messageSubject", flag="unknown_messageSubject")
+    private String value_messageSubject;
+    private boolean unknown_messageSubject;
     public String messageSubject() {
-        if (messageSubject == null) return null;
-        return messageSubject.getValue("ConnectorAs2ConfigArgs.messageSubject");
+        if (!unknown_messageSubject) return value_messageSubject;
+        throw new UndeferrableValueException("Value 'ConnectorAs2ConfigArgs.messageSubject' is not present");
     }
 
     /**
      * The unique identifier for the AS2 partner profile.
      * 
      */
-    private UndeferrableValue<String> partnerProfileId;
-
+    @PolicyResourceProperty(name="partnerProfileId", flag="unknown_partnerProfileId")
+    private String value_partnerProfileId;
+    private boolean unknown_partnerProfileId;
     public String partnerProfileId() {
-        if (partnerProfileId == null) return null;
-        return partnerProfileId.getValue("ConnectorAs2ConfigArgs.partnerProfileId");
+        if (!unknown_partnerProfileId) return value_partnerProfileId;
+        throw new UndeferrableValueException("Value 'ConnectorAs2ConfigArgs.partnerProfileId' is not present");
     }
 
     /**
      * The algorithm that is used to sign AS2 messages sent with the connector. The valid values are SHA256 | SHA384 | SHA512 | SHA1 | NONE .
      * 
      */
-    private UndeferrableValue<String> signingAlgorithm;
-
+    @PolicyResourceProperty(name="signingAlgorithm", flag="unknown_signingAlgorithm")
+    private String value_signingAlgorithm;
+    private boolean unknown_signingAlgorithm;
     public String signingAlgorithm() {
-        if (signingAlgorithm == null) return null;
-        return signingAlgorithm.getValue("ConnectorAs2ConfigArgs.signingAlgorithm");
+        if (!unknown_signingAlgorithm) return value_signingAlgorithm;
+        throw new UndeferrableValueException("Value 'ConnectorAs2ConfigArgs.signingAlgorithm' is not present");
     }
 
 }

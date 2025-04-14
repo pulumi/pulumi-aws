@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudformation.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -16,77 +17,84 @@ public final class StackInstancesOperationPreferencesArgs {
      * How the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
      * 
      */
-    private UndeferrableValue<String> concurrencyMode;
-
+    @PolicyResourceProperty(name="concurrencyMode", flag="unknown_concurrencyMode")
+    private String value_concurrencyMode;
+    private boolean unknown_concurrencyMode;
     public String concurrencyMode() {
-        if (concurrencyMode == null) return null;
-        return concurrencyMode.getValue("StackInstancesOperationPreferencesArgs.concurrencyMode");
+        if (!unknown_concurrencyMode) return value_concurrencyMode;
+        throw new UndeferrableValueException("Value 'StackInstancesOperationPreferencesArgs.concurrencyMode' is not present");
     }
 
     /**
      * Number of accounts, per region, for which this operation can fail before CloudFormation stops the operation in that region.
      * 
      */
-    private UndeferrableValue<Integer> failureToleranceCount;
-
+    @PolicyResourceProperty(name="failureToleranceCount", flag="unknown_failureToleranceCount")
+    private Integer value_failureToleranceCount;
+    private boolean unknown_failureToleranceCount;
     public Integer failureToleranceCount() {
-        if (failureToleranceCount == null) return null;
-        return failureToleranceCount.getValue("StackInstancesOperationPreferencesArgs.failureToleranceCount");
+        if (!unknown_failureToleranceCount) return value_failureToleranceCount;
+        throw new UndeferrableValueException("Value 'StackInstancesOperationPreferencesArgs.failureToleranceCount' is not present");
     }
 
     /**
      * Percentage of accounts, per region, for which this stack operation can fail before CloudFormation stops the operation in that region.
      * 
      */
-    private UndeferrableValue<Integer> failureTolerancePercentage;
-
+    @PolicyResourceProperty(name="failureTolerancePercentage", flag="unknown_failureTolerancePercentage")
+    private Integer value_failureTolerancePercentage;
+    private boolean unknown_failureTolerancePercentage;
     public Integer failureTolerancePercentage() {
-        if (failureTolerancePercentage == null) return null;
-        return failureTolerancePercentage.getValue("StackInstancesOperationPreferencesArgs.failureTolerancePercentage");
+        if (!unknown_failureTolerancePercentage) return value_failureTolerancePercentage;
+        throw new UndeferrableValueException("Value 'StackInstancesOperationPreferencesArgs.failureTolerancePercentage' is not present");
     }
 
     /**
      * Maximum number of accounts in which to perform this operation at one time.
      * 
      */
-    private UndeferrableValue<Integer> maxConcurrentCount;
-
+    @PolicyResourceProperty(name="maxConcurrentCount", flag="unknown_maxConcurrentCount")
+    private Integer value_maxConcurrentCount;
+    private boolean unknown_maxConcurrentCount;
     public Integer maxConcurrentCount() {
-        if (maxConcurrentCount == null) return null;
-        return maxConcurrentCount.getValue("StackInstancesOperationPreferencesArgs.maxConcurrentCount");
+        if (!unknown_maxConcurrentCount) return value_maxConcurrentCount;
+        throw new UndeferrableValueException("Value 'StackInstancesOperationPreferencesArgs.maxConcurrentCount' is not present");
     }
 
     /**
      * Maximum percentage of accounts in which to perform this operation at one time.
      * 
      */
-    private UndeferrableValue<Integer> maxConcurrentPercentage;
-
+    @PolicyResourceProperty(name="maxConcurrentPercentage", flag="unknown_maxConcurrentPercentage")
+    private Integer value_maxConcurrentPercentage;
+    private boolean unknown_maxConcurrentPercentage;
     public Integer maxConcurrentPercentage() {
-        if (maxConcurrentPercentage == null) return null;
-        return maxConcurrentPercentage.getValue("StackInstancesOperationPreferencesArgs.maxConcurrentPercentage");
+        if (!unknown_maxConcurrentPercentage) return value_maxConcurrentPercentage;
+        throw new UndeferrableValueException("Value 'StackInstancesOperationPreferencesArgs.maxConcurrentPercentage' is not present");
     }
 
     /**
      * Concurrency type of deploying stack sets operations in regions, could be in parallel or one region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
      * 
      */
-    private UndeferrableValue<String> regionConcurrencyType;
-
+    @PolicyResourceProperty(name="regionConcurrencyType", flag="unknown_regionConcurrencyType")
+    private String value_regionConcurrencyType;
+    private boolean unknown_regionConcurrencyType;
     public String regionConcurrencyType() {
-        if (regionConcurrencyType == null) return null;
-        return regionConcurrencyType.getValue("StackInstancesOperationPreferencesArgs.regionConcurrencyType");
+        if (!unknown_regionConcurrencyType) return value_regionConcurrencyType;
+        throw new UndeferrableValueException("Value 'StackInstancesOperationPreferencesArgs.regionConcurrencyType' is not present");
     }
 
     /**
      * Order of the regions where you want to perform the stack operation.
      * 
      */
-    private UndeferrableValue<List<String>> regionOrders;
-
+    @PolicyResourceProperty(name="regionOrders", flag="unknown_regionOrders")
+    private List<String> value_regionOrders;
+    private boolean unknown_regionOrders;
     public List<String> regionOrders() {
-        if (regionOrders == null) return null;
-        return regionOrders.getValue("StackInstancesOperationPreferencesArgs.regionOrders");
+        if (!unknown_regionOrders) return value_regionOrders;
+        throw new UndeferrableValueException("Value 'StackInstancesOperationPreferencesArgs.regionOrders' is not present");
     }
 
 }

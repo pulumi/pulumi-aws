@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManag
      * Settings related to idle shutdown of Studio applications. see `idle_settings` Block below.
      * 
      */
-    private UndeferrableValue<UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs> idleSettings;
-
+    @PolicyResourceProperty(name="idleSettings", flag="unknown_idleSettings")
+    private UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs value_idleSettings;
+    private boolean unknown_idleSettings;
     public UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs idleSettings() {
-        if (idleSettings == null) return null;
-        return idleSettings.getValue("UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs.idleSettings");
+        if (!unknown_idleSettings) return value_idleSettings;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs.idleSettings' is not present");
     }
 
 }

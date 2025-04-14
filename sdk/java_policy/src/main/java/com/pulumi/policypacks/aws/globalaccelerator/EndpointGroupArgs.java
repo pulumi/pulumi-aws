@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.globalaccelerator;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.globalaccelerator.inputs.EndpointGroupEndpointConfigurationArgs;
 import com.pulumi.policypacks.aws.globalaccelerator.inputs.EndpointGroupPortOverrideArgs;
@@ -21,44 +22,48 @@ public final class EndpointGroupArgs extends com.pulumi.resources.PolicyResource
      * The list of endpoint objects. Fields documented below.
      * 
      */
-    private UndeferrableValue<List<EndpointGroupEndpointConfigurationArgs>> endpointConfigurations;
-
+    @PolicyResourceProperty(name="endpointConfigurations", flag="unknown_endpointConfigurations")
+    private List<EndpointGroupEndpointConfigurationArgs> value_endpointConfigurations;
+    private boolean unknown_endpointConfigurations;
     public List<EndpointGroupEndpointConfigurationArgs> endpointConfigurations() {
-        if (endpointConfigurations == null) return null;
-        return endpointConfigurations.getValue("EndpointGroupArgs.endpointConfigurations");
+        if (!unknown_endpointConfigurations) return value_endpointConfigurations;
+        throw new UndeferrableValueException("Value 'EndpointGroupArgs.endpointConfigurations' is not present");
     }
 
     /**
      * The name of the AWS Region where the endpoint group is located.
      * 
      */
-    private UndeferrableValue<String> endpointGroupRegion;
-
+    @PolicyResourceProperty(name="endpointGroupRegion", flag="unknown_endpointGroupRegion")
+    private String value_endpointGroupRegion;
+    private boolean unknown_endpointGroupRegion;
     public String endpointGroupRegion() {
-        if (endpointGroupRegion == null) return null;
-        return endpointGroupRegion.getValue("EndpointGroupArgs.endpointGroupRegion");
+        if (!unknown_endpointGroupRegion) return value_endpointGroupRegion;
+        throw new UndeferrableValueException("Value 'EndpointGroupArgs.endpointGroupRegion' is not present");
     }
 
     /**
      * The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
      * 
      */
-    private UndeferrableValue<Integer> healthCheckIntervalSeconds;
-
+    @PolicyResourceProperty(name="healthCheckIntervalSeconds", flag="unknown_healthCheckIntervalSeconds")
+    private Integer value_healthCheckIntervalSeconds;
+    private boolean unknown_healthCheckIntervalSeconds;
     public Integer healthCheckIntervalSeconds() {
-        if (healthCheckIntervalSeconds == null) return null;
-        return healthCheckIntervalSeconds.getValue("EndpointGroupArgs.healthCheckIntervalSeconds");
+        if (!unknown_healthCheckIntervalSeconds) return value_healthCheckIntervalSeconds;
+        throw new UndeferrableValueException("Value 'EndpointGroupArgs.healthCheckIntervalSeconds' is not present");
     }
 
     /**
      * If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (`/`). the provider will only perform drift detection of its value when present in a configuration.
      * 
      */
-    private UndeferrableValue<String> healthCheckPath;
-
+    @PolicyResourceProperty(name="healthCheckPath", flag="unknown_healthCheckPath")
+    private String value_healthCheckPath;
+    private boolean unknown_healthCheckPath;
     public String healthCheckPath() {
-        if (healthCheckPath == null) return null;
-        return healthCheckPath.getValue("EndpointGroupArgs.healthCheckPath");
+        if (!unknown_healthCheckPath) return value_healthCheckPath;
+        throw new UndeferrableValueException("Value 'EndpointGroupArgs.healthCheckPath' is not present");
     }
 
     /**
@@ -66,66 +71,72 @@ public final class EndpointGroupArgs extends com.pulumi.resources.PolicyResource
      * the provider will only perform drift detection of its value when present in a configuration.
      * 
      */
-    private UndeferrableValue<Integer> healthCheckPort;
-
+    @PolicyResourceProperty(name="healthCheckPort", flag="unknown_healthCheckPort")
+    private Integer value_healthCheckPort;
+    private boolean unknown_healthCheckPort;
     public Integer healthCheckPort() {
-        if (healthCheckPort == null) return null;
-        return healthCheckPort.getValue("EndpointGroupArgs.healthCheckPort");
+        if (!unknown_healthCheckPort) return value_healthCheckPort;
+        throw new UndeferrableValueException("Value 'EndpointGroupArgs.healthCheckPort' is not present");
     }
 
     /**
      * The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
      * 
      */
-    private UndeferrableValue<String> healthCheckProtocol;
-
+    @PolicyResourceProperty(name="healthCheckProtocol", flag="unknown_healthCheckProtocol")
+    private String value_healthCheckProtocol;
+    private boolean unknown_healthCheckProtocol;
     public String healthCheckProtocol() {
-        if (healthCheckProtocol == null) return null;
-        return healthCheckProtocol.getValue("EndpointGroupArgs.healthCheckProtocol");
+        if (!unknown_healthCheckProtocol) return value_healthCheckProtocol;
+        throw new UndeferrableValueException("Value 'EndpointGroupArgs.healthCheckProtocol' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the listener.
      * 
      */
-    private UndeferrableValue<String> listenerArn;
-
+    @PolicyResourceProperty(name="listenerArn", flag="unknown_listenerArn")
+    private String value_listenerArn;
+    private boolean unknown_listenerArn;
     public String listenerArn() {
-        if (listenerArn == null) return null;
-        return listenerArn.getValue("EndpointGroupArgs.listenerArn");
+        if (!unknown_listenerArn) return value_listenerArn;
+        throw new UndeferrableValueException("Value 'EndpointGroupArgs.listenerArn' is not present");
     }
 
     /**
      * Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
      * 
      */
-    private UndeferrableValue<List<EndpointGroupPortOverrideArgs>> portOverrides;
-
+    @PolicyResourceProperty(name="portOverrides", flag="unknown_portOverrides")
+    private List<EndpointGroupPortOverrideArgs> value_portOverrides;
+    private boolean unknown_portOverrides;
     public List<EndpointGroupPortOverrideArgs> portOverrides() {
-        if (portOverrides == null) return null;
-        return portOverrides.getValue("EndpointGroupArgs.portOverrides");
+        if (!unknown_portOverrides) return value_portOverrides;
+        throw new UndeferrableValueException("Value 'EndpointGroupArgs.portOverrides' is not present");
     }
 
     /**
      * The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
      * 
      */
-    private UndeferrableValue<Integer> thresholdCount;
-
+    @PolicyResourceProperty(name="thresholdCount", flag="unknown_thresholdCount")
+    private Integer value_thresholdCount;
+    private boolean unknown_thresholdCount;
     public Integer thresholdCount() {
-        if (thresholdCount == null) return null;
-        return thresholdCount.getValue("EndpointGroupArgs.thresholdCount");
+        if (!unknown_thresholdCount) return value_thresholdCount;
+        throw new UndeferrableValueException("Value 'EndpointGroupArgs.thresholdCount' is not present");
     }
 
     /**
      * The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
      * 
      */
-    private UndeferrableValue<Double> trafficDialPercentage;
-
+    @PolicyResourceProperty(name="trafficDialPercentage", flag="unknown_trafficDialPercentage")
+    private Double value_trafficDialPercentage;
+    private boolean unknown_trafficDialPercentage;
     public Double trafficDialPercentage() {
-        if (trafficDialPercentage == null) return null;
-        return trafficDialPercentage.getValue("EndpointGroupArgs.trafficDialPercentage");
+        if (!unknown_trafficDialPercentage) return value_trafficDialPercentage;
+        throw new UndeferrableValueException("Value 'EndpointGroupArgs.trafficDialPercentage' is not present");
     }
 
 }

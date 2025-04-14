@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class MacsecKeyAssociation extends com.pulumi.resources.PolicyResou
      * The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
      * 
      */
-    private @Nullable UndeferrableValue<String> cak;
-
+    @PolicyResourceProperty(name="cak", flag="unknown_cak")
+    private @Nullable String value_cak;
+    private boolean unknown_cak;
     public @Nullable String cak() {
-        if (cak == null) return null;
-        return cak.getValue("MacsecKeyAssociation.cak");
+        if (!unknown_cak) return value_cak;
+        throw new UndeferrableValueException("Value 'MacsecKeyAssociation.cak' is not present");
     }
 
     /**
      * The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
      * 
      */
-    private UndeferrableValue<String> ckn;
-
+    @PolicyResourceProperty(name="ckn", flag="unknown_ckn")
+    private String value_ckn;
+    private boolean unknown_ckn;
     public String ckn() {
-        if (ckn == null) return null;
-        return ckn.getValue("MacsecKeyAssociation.ckn");
+        if (!unknown_ckn) return value_ckn;
+        throw new UndeferrableValueException("Value 'MacsecKeyAssociation.ckn' is not present");
     }
 
     /**
      * The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
      * 
      */
-    private UndeferrableValue<String> connectionId;
-
+    @PolicyResourceProperty(name="connectionId", flag="unknown_connectionId")
+    private String value_connectionId;
+    private boolean unknown_connectionId;
     public String connectionId() {
-        if (connectionId == null) return null;
-        return connectionId.getValue("MacsecKeyAssociation.connectionId");
+        if (!unknown_connectionId) return value_connectionId;
+        throw new UndeferrableValueException("Value 'MacsecKeyAssociation.connectionId' is not present");
     }
 
     /**
@@ -51,33 +55,36 @@ public final class MacsecKeyAssociation extends com.pulumi.resources.PolicyResou
      * &gt; **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
      * 
      */
-    private UndeferrableValue<String> secretArn;
-
+    @PolicyResourceProperty(name="secretArn", flag="unknown_secretArn")
+    private String value_secretArn;
+    private boolean unknown_secretArn;
     public String secretArn() {
-        if (secretArn == null) return null;
-        return secretArn.getValue("MacsecKeyAssociation.secretArn");
+        if (!unknown_secretArn) return value_secretArn;
+        throw new UndeferrableValueException("Value 'MacsecKeyAssociation.secretArn' is not present");
     }
 
     /**
      * The date in UTC format that the MAC Security (MACsec) secret key takes effect.
      * 
      */
-    private UndeferrableValue<String> startOn;
-
+    @PolicyResourceProperty(name="startOn", flag="unknown_startOn")
+    private String value_startOn;
+    private boolean unknown_startOn;
     public String startOn() {
-        if (startOn == null) return null;
-        return startOn.getValue("MacsecKeyAssociation.startOn");
+        if (!unknown_startOn) return value_startOn;
+        throw new UndeferrableValueException("Value 'MacsecKeyAssociation.startOn' is not present");
     }
 
     /**
      * The state of the MAC Security (MACsec) secret key. The possible values are: associating, associated, disassociating, disassociated. See [MacSecKey](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_MacSecKey.html#DX-Type-MacSecKey-state) for descriptions of each state.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("MacsecKeyAssociation.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'MacsecKeyAssociation.state' is not present");
     }
 
 }

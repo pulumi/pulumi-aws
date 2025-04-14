@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.guardduty;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,66 +18,72 @@ public final class MemberArgs extends com.pulumi.resources.PolicyResourceInput {
      * AWS account ID for member account.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("MemberArgs.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'MemberArgs.accountId' is not present");
     }
 
     /**
      * The detector ID of the GuardDuty account where you want to create member accounts.
      * 
      */
-    private UndeferrableValue<String> detectorId;
-
+    @PolicyResourceProperty(name="detectorId", flag="unknown_detectorId")
+    private String value_detectorId;
+    private boolean unknown_detectorId;
     public String detectorId() {
-        if (detectorId == null) return null;
-        return detectorId.getValue("MemberArgs.detectorId");
+        if (!unknown_detectorId) return value_detectorId;
+        throw new UndeferrableValueException("Value 'MemberArgs.detectorId' is not present");
     }
 
     /**
      * Boolean whether an email notification is sent to the accounts. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> disableEmailNotification;
-
+    @PolicyResourceProperty(name="disableEmailNotification", flag="unknown_disableEmailNotification")
+    private Boolean value_disableEmailNotification;
+    private boolean unknown_disableEmailNotification;
     public Boolean disableEmailNotification() {
-        if (disableEmailNotification == null) return null;
-        return disableEmailNotification.getValue("MemberArgs.disableEmailNotification");
+        if (!unknown_disableEmailNotification) return value_disableEmailNotification;
+        throw new UndeferrableValueException("Value 'MemberArgs.disableEmailNotification' is not present");
     }
 
     /**
      * Email address for member account.
      * 
      */
-    private UndeferrableValue<String> email;
-
+    @PolicyResourceProperty(name="email", flag="unknown_email")
+    private String value_email;
+    private boolean unknown_email;
     public String email() {
-        if (email == null) return null;
-        return email.getValue("MemberArgs.email");
+        if (!unknown_email) return value_email;
+        throw new UndeferrableValueException("Value 'MemberArgs.email' is not present");
     }
 
     /**
      * Message for invitation.
      * 
      */
-    private UndeferrableValue<String> invitationMessage;
-
+    @PolicyResourceProperty(name="invitationMessage", flag="unknown_invitationMessage")
+    private String value_invitationMessage;
+    private boolean unknown_invitationMessage;
     public String invitationMessage() {
-        if (invitationMessage == null) return null;
-        return invitationMessage.getValue("MemberArgs.invitationMessage");
+        if (!unknown_invitationMessage) return value_invitationMessage;
+        throw new UndeferrableValueException("Value 'MemberArgs.invitationMessage' is not present");
     }
 
     /**
      * Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
      * 
      */
-    private UndeferrableValue<Boolean> invite;
-
+    @PolicyResourceProperty(name="invite", flag="unknown_invite")
+    private Boolean value_invite;
+    private boolean unknown_invite;
     public Boolean invite() {
-        if (invite == null) return null;
-        return invite.getValue("MemberArgs.invite");
+        if (!unknown_invite) return value_invite;
+        throw new UndeferrableValueException("Value 'MemberArgs.invite' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -17,11 +18,12 @@ public final class RiskConfigurationRiskExceptionConfigurationArgs {
      * Can contain a maximum of 200 items.
      * 
      */
-    private UndeferrableValue<List<String>> blockedIpRangeLists;
-
+    @PolicyResourceProperty(name="blockedIpRangeLists", flag="unknown_blockedIpRangeLists")
+    private List<String> value_blockedIpRangeLists;
+    private boolean unknown_blockedIpRangeLists;
     public List<String> blockedIpRangeLists() {
-        if (blockedIpRangeLists == null) return null;
-        return blockedIpRangeLists.getValue("RiskConfigurationRiskExceptionConfigurationArgs.blockedIpRangeLists");
+        if (!unknown_blockedIpRangeLists) return value_blockedIpRangeLists;
+        throw new UndeferrableValueException("Value 'RiskConfigurationRiskExceptionConfigurationArgs.blockedIpRangeLists' is not present");
     }
 
     /**
@@ -30,11 +32,12 @@ public final class RiskConfigurationRiskExceptionConfigurationArgs {
      * Can contain a maximum of 200 items.
      * 
      */
-    private UndeferrableValue<List<String>> skippedIpRangeLists;
-
+    @PolicyResourceProperty(name="skippedIpRangeLists", flag="unknown_skippedIpRangeLists")
+    private List<String> value_skippedIpRangeLists;
+    private boolean unknown_skippedIpRangeLists;
     public List<String> skippedIpRangeLists() {
-        if (skippedIpRangeLists == null) return null;
-        return skippedIpRangeLists.getValue("RiskConfigurationRiskExceptionConfigurationArgs.skippedIpRangeLists");
+        if (!unknown_skippedIpRangeLists) return value_skippedIpRangeLists;
+        throw new UndeferrableValueException("Value 'RiskConfigurationRiskExceptionConfigurationArgs.skippedIpRangeLists' is not present");
     }
 
 }

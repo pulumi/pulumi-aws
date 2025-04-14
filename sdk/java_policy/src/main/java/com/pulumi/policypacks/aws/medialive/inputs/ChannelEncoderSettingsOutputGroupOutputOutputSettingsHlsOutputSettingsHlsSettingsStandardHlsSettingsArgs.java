@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,18 +12,20 @@ import javax.annotation.Nullable;
 
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgs {
 
-    private UndeferrableValue<String> audioRenditionSets;
-
+    @PolicyResourceProperty(name="audioRenditionSets", flag="unknown_audioRenditionSets")
+    private String value_audioRenditionSets;
+    private boolean unknown_audioRenditionSets;
     public String audioRenditionSets() {
-        if (audioRenditionSets == null) return null;
-        return audioRenditionSets.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgs.audioRenditionSets");
+        if (!unknown_audioRenditionSets) return value_audioRenditionSets;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgs.audioRenditionSets' is not present");
     }
 
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs> m3u8Settings;
-
+    @PolicyResourceProperty(name="m3u8Settings", flag="unknown_m3u8Settings")
+    private ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs value_m3u8Settings;
+    private boolean unknown_m3u8Settings;
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs m3u8Settings() {
-        if (m3u8Settings == null) return null;
-        return m3u8Settings.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgs.m3u8Settings");
+        if (!unknown_m3u8Settings) return value_m3u8Settings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgs.m3u8Settings' is not present");
     }
 
 }

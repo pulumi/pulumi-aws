@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,81 +12,92 @@ import javax.annotation.Nullable;
 
 public final class HaproxyLayerCloudwatchConfigurationLogStreamArgs {
 
-    private UndeferrableValue<Integer> batchCount;
-
+    @PolicyResourceProperty(name="batchCount", flag="unknown_batchCount")
+    private Integer value_batchCount;
+    private boolean unknown_batchCount;
     public Integer batchCount() {
-        if (batchCount == null) return null;
-        return batchCount.getValue("HaproxyLayerCloudwatchConfigurationLogStreamArgs.batchCount");
+        if (!unknown_batchCount) return value_batchCount;
+        throw new UndeferrableValueException("Value 'HaproxyLayerCloudwatchConfigurationLogStreamArgs.batchCount' is not present");
     }
 
-    private UndeferrableValue<Integer> batchSize;
-
+    @PolicyResourceProperty(name="batchSize", flag="unknown_batchSize")
+    private Integer value_batchSize;
+    private boolean unknown_batchSize;
     public Integer batchSize() {
-        if (batchSize == null) return null;
-        return batchSize.getValue("HaproxyLayerCloudwatchConfigurationLogStreamArgs.batchSize");
+        if (!unknown_batchSize) return value_batchSize;
+        throw new UndeferrableValueException("Value 'HaproxyLayerCloudwatchConfigurationLogStreamArgs.batchSize' is not present");
     }
 
-    private UndeferrableValue<Integer> bufferDuration;
-
+    @PolicyResourceProperty(name="bufferDuration", flag="unknown_bufferDuration")
+    private Integer value_bufferDuration;
+    private boolean unknown_bufferDuration;
     public Integer bufferDuration() {
-        if (bufferDuration == null) return null;
-        return bufferDuration.getValue("HaproxyLayerCloudwatchConfigurationLogStreamArgs.bufferDuration");
+        if (!unknown_bufferDuration) return value_bufferDuration;
+        throw new UndeferrableValueException("Value 'HaproxyLayerCloudwatchConfigurationLogStreamArgs.bufferDuration' is not present");
     }
 
-    private UndeferrableValue<String> datetimeFormat;
-
+    @PolicyResourceProperty(name="datetimeFormat", flag="unknown_datetimeFormat")
+    private String value_datetimeFormat;
+    private boolean unknown_datetimeFormat;
     public String datetimeFormat() {
-        if (datetimeFormat == null) return null;
-        return datetimeFormat.getValue("HaproxyLayerCloudwatchConfigurationLogStreamArgs.datetimeFormat");
+        if (!unknown_datetimeFormat) return value_datetimeFormat;
+        throw new UndeferrableValueException("Value 'HaproxyLayerCloudwatchConfigurationLogStreamArgs.datetimeFormat' is not present");
     }
 
-    private UndeferrableValue<String> encoding;
-
+    @PolicyResourceProperty(name="encoding", flag="unknown_encoding")
+    private String value_encoding;
+    private boolean unknown_encoding;
     public String encoding() {
-        if (encoding == null) return null;
-        return encoding.getValue("HaproxyLayerCloudwatchConfigurationLogStreamArgs.encoding");
+        if (!unknown_encoding) return value_encoding;
+        throw new UndeferrableValueException("Value 'HaproxyLayerCloudwatchConfigurationLogStreamArgs.encoding' is not present");
     }
 
-    private UndeferrableValue<String> file;
-
+    @PolicyResourceProperty(name="file", flag="unknown_file")
+    private String value_file;
+    private boolean unknown_file;
     public String file() {
-        if (file == null) return null;
-        return file.getValue("HaproxyLayerCloudwatchConfigurationLogStreamArgs.file");
+        if (!unknown_file) return value_file;
+        throw new UndeferrableValueException("Value 'HaproxyLayerCloudwatchConfigurationLogStreamArgs.file' is not present");
     }
 
-    private UndeferrableValue<String> fileFingerprintLines;
-
+    @PolicyResourceProperty(name="fileFingerprintLines", flag="unknown_fileFingerprintLines")
+    private String value_fileFingerprintLines;
+    private boolean unknown_fileFingerprintLines;
     public String fileFingerprintLines() {
-        if (fileFingerprintLines == null) return null;
-        return fileFingerprintLines.getValue("HaproxyLayerCloudwatchConfigurationLogStreamArgs.fileFingerprintLines");
+        if (!unknown_fileFingerprintLines) return value_fileFingerprintLines;
+        throw new UndeferrableValueException("Value 'HaproxyLayerCloudwatchConfigurationLogStreamArgs.fileFingerprintLines' is not present");
     }
 
-    private UndeferrableValue<String> initialPosition;
-
+    @PolicyResourceProperty(name="initialPosition", flag="unknown_initialPosition")
+    private String value_initialPosition;
+    private boolean unknown_initialPosition;
     public String initialPosition() {
-        if (initialPosition == null) return null;
-        return initialPosition.getValue("HaproxyLayerCloudwatchConfigurationLogStreamArgs.initialPosition");
+        if (!unknown_initialPosition) return value_initialPosition;
+        throw new UndeferrableValueException("Value 'HaproxyLayerCloudwatchConfigurationLogStreamArgs.initialPosition' is not present");
     }
 
-    private UndeferrableValue<String> logGroupName;
-
+    @PolicyResourceProperty(name="logGroupName", flag="unknown_logGroupName")
+    private String value_logGroupName;
+    private boolean unknown_logGroupName;
     public String logGroupName() {
-        if (logGroupName == null) return null;
-        return logGroupName.getValue("HaproxyLayerCloudwatchConfigurationLogStreamArgs.logGroupName");
+        if (!unknown_logGroupName) return value_logGroupName;
+        throw new UndeferrableValueException("Value 'HaproxyLayerCloudwatchConfigurationLogStreamArgs.logGroupName' is not present");
     }
 
-    private UndeferrableValue<String> multilineStartPattern;
-
+    @PolicyResourceProperty(name="multilineStartPattern", flag="unknown_multilineStartPattern")
+    private String value_multilineStartPattern;
+    private boolean unknown_multilineStartPattern;
     public String multilineStartPattern() {
-        if (multilineStartPattern == null) return null;
-        return multilineStartPattern.getValue("HaproxyLayerCloudwatchConfigurationLogStreamArgs.multilineStartPattern");
+        if (!unknown_multilineStartPattern) return value_multilineStartPattern;
+        throw new UndeferrableValueException("Value 'HaproxyLayerCloudwatchConfigurationLogStreamArgs.multilineStartPattern' is not present");
     }
 
-    private UndeferrableValue<String> timeZone;
-
+    @PolicyResourceProperty(name="timeZone", flag="unknown_timeZone")
+    private String value_timeZone;
+    private boolean unknown_timeZone;
     public String timeZone() {
-        if (timeZone == null) return null;
-        return timeZone.getValue("HaproxyLayerCloudwatchConfigurationLogStreamArgs.timeZone");
+        if (!unknown_timeZone) return value_timeZone;
+        throw new UndeferrableValueException("Value 'HaproxyLayerCloudwatchConfigurationLogStreamArgs.timeZone' is not present");
     }
 
 }

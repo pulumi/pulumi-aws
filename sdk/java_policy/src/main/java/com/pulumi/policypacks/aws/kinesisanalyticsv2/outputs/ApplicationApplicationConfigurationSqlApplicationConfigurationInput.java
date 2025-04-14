@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema;
@@ -17,29 +18,32 @@ import javax.annotation.Nullable;
 
 public final class ApplicationApplicationConfigurationSqlApplicationConfigurationInput {
 
-    private @Nullable UndeferrableValue<List<String>> inAppStreamNames;
-
+    @PolicyResourceProperty(name="inAppStreamNames", flag="unknown_inAppStreamNames")
+    private @Nullable List<String> value_inAppStreamNames;
+    private boolean unknown_inAppStreamNames;
     public @Nullable List<String> inAppStreamNames() {
-        if (inAppStreamNames == null) return null;
-        return inAppStreamNames.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationInput.inAppStreamNames");
+        if (!unknown_inAppStreamNames) return value_inAppStreamNames;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInput.inAppStreamNames' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> inputId;
-
+    @PolicyResourceProperty(name="inputId", flag="unknown_inputId")
+    private @Nullable String value_inputId;
+    private boolean unknown_inputId;
     public @Nullable String inputId() {
-        if (inputId == null) return null;
-        return inputId.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationInput.inputId");
+        if (!unknown_inputId) return value_inputId;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInput.inputId' is not present");
     }
 
     /**
      * Describes the number of in-application streams to create.
      * 
      */
-    private @Nullable UndeferrableValue<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism> inputParallelism;
-
+    @PolicyResourceProperty(name="inputParallelism", flag="unknown_inputParallelism")
+    private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism value_inputParallelism;
+    private boolean unknown_inputParallelism;
     public @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism inputParallelism() {
-        if (inputParallelism == null) return null;
-        return inputParallelism.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationInput.inputParallelism");
+        if (!unknown_inputParallelism) return value_inputParallelism;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInput.inputParallelism' is not present");
     }
 
     /**
@@ -47,66 +51,72 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * An input processor transforms records as they are received from the stream, before the application&#39;s SQL code executes.
      * 
      */
-    private @Nullable UndeferrableValue<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration> inputProcessingConfiguration;
-
+    @PolicyResourceProperty(name="inputProcessingConfiguration", flag="unknown_inputProcessingConfiguration")
+    private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration value_inputProcessingConfiguration;
+    private boolean unknown_inputProcessingConfiguration;
     public @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration inputProcessingConfiguration() {
-        if (inputProcessingConfiguration == null) return null;
-        return inputProcessingConfiguration.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationInput.inputProcessingConfiguration");
+        if (!unknown_inputProcessingConfiguration) return value_inputProcessingConfiguration;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInput.inputProcessingConfiguration' is not present");
     }
 
     /**
      * Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
      * 
      */
-    private UndeferrableValue<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema> inputSchema;
-
+    @PolicyResourceProperty(name="inputSchema", flag="unknown_inputSchema")
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema value_inputSchema;
+    private boolean unknown_inputSchema;
     public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema inputSchema() {
-        if (inputSchema == null) return null;
-        return inputSchema.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationInput.inputSchema");
+        if (!unknown_inputSchema) return value_inputSchema;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInput.inputSchema' is not present");
     }
 
     /**
      * The point at which the application starts processing records from the streaming source.
      * 
      */
-    private @Nullable UndeferrableValue<List<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration>> inputStartingPositionConfigurations;
-
+    @PolicyResourceProperty(name="inputStartingPositionConfigurations", flag="unknown_inputStartingPositionConfigurations")
+    private @Nullable List<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration> value_inputStartingPositionConfigurations;
+    private boolean unknown_inputStartingPositionConfigurations;
     public @Nullable List<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration> inputStartingPositionConfigurations() {
-        if (inputStartingPositionConfigurations == null) return null;
-        return inputStartingPositionConfigurations.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationInput.inputStartingPositionConfigurations");
+        if (!unknown_inputStartingPositionConfigurations) return value_inputStartingPositionConfigurations;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInput.inputStartingPositionConfigurations' is not present");
     }
 
     /**
      * If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream&#39;s ARN.
      * 
      */
-    private @Nullable UndeferrableValue<ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput> kinesisFirehoseInput;
-
+    @PolicyResourceProperty(name="kinesisFirehoseInput", flag="unknown_kinesisFirehoseInput")
+    private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput value_kinesisFirehoseInput;
+    private boolean unknown_kinesisFirehoseInput;
     public @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput kinesisFirehoseInput() {
-        if (kinesisFirehoseInput == null) return null;
-        return kinesisFirehoseInput.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationInput.kinesisFirehoseInput");
+        if (!unknown_kinesisFirehoseInput) return value_kinesisFirehoseInput;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInput.kinesisFirehoseInput' is not present");
     }
 
     /**
      * If the streaming source is a Kinesis data stream, identifies the stream&#39;s Amazon Resource Name (ARN).
      * 
      */
-    private @Nullable UndeferrableValue<ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput> kinesisStreamsInput;
-
+    @PolicyResourceProperty(name="kinesisStreamsInput", flag="unknown_kinesisStreamsInput")
+    private @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput value_kinesisStreamsInput;
+    private boolean unknown_kinesisStreamsInput;
     public @Nullable ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput kinesisStreamsInput() {
-        if (kinesisStreamsInput == null) return null;
-        return kinesisStreamsInput.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationInput.kinesisStreamsInput");
+        if (!unknown_kinesisStreamsInput) return value_kinesisStreamsInput;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInput.kinesisStreamsInput' is not present");
     }
 
     /**
      * The name prefix to use when creating an in-application stream.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationInput.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInput.namePrefix' is not present");
     }
 
 }

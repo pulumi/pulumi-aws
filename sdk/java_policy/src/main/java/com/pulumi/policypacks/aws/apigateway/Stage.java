@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.apigateway.outputs.StageAccessLogSettings;
 import com.pulumi.policypacks.aws.apigateway.outputs.StageCanarySettings;
@@ -20,99 +21,108 @@ public final class Stage extends com.pulumi.resources.PolicyResourceOutput {
      * Enables access logs for the API stage. See Access Log Settings below.
      * 
      */
-    private @Nullable UndeferrableValue<StageAccessLogSettings> accessLogSettings;
-
+    @PolicyResourceProperty(name="accessLogSettings", flag="unknown_accessLogSettings")
+    private @Nullable StageAccessLogSettings value_accessLogSettings;
+    private boolean unknown_accessLogSettings;
     public @Nullable StageAccessLogSettings accessLogSettings() {
-        if (accessLogSettings == null) return null;
-        return accessLogSettings.getValue("Stage.accessLogSettings");
+        if (!unknown_accessLogSettings) return value_accessLogSettings;
+        throw new UndeferrableValueException("Value 'Stage.accessLogSettings' is not present");
     }
 
     /**
      * ARN
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Stage.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Stage.arn' is not present");
     }
 
     /**
      * Whether a cache cluster is enabled for the stage
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> cacheClusterEnabled;
-
+    @PolicyResourceProperty(name="cacheClusterEnabled", flag="unknown_cacheClusterEnabled")
+    private @Nullable Boolean value_cacheClusterEnabled;
+    private boolean unknown_cacheClusterEnabled;
     public @Nullable Boolean cacheClusterEnabled() {
-        if (cacheClusterEnabled == null) return null;
-        return cacheClusterEnabled.getValue("Stage.cacheClusterEnabled");
+        if (!unknown_cacheClusterEnabled) return value_cacheClusterEnabled;
+        throw new UndeferrableValueException("Value 'Stage.cacheClusterEnabled' is not present");
     }
 
     /**
      * Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
      * 
      */
-    private @Nullable UndeferrableValue<String> cacheClusterSize;
-
+    @PolicyResourceProperty(name="cacheClusterSize", flag="unknown_cacheClusterSize")
+    private @Nullable String value_cacheClusterSize;
+    private boolean unknown_cacheClusterSize;
     public @Nullable String cacheClusterSize() {
-        if (cacheClusterSize == null) return null;
-        return cacheClusterSize.getValue("Stage.cacheClusterSize");
+        if (!unknown_cacheClusterSize) return value_cacheClusterSize;
+        throw new UndeferrableValueException("Value 'Stage.cacheClusterSize' is not present");
     }
 
     /**
      * Configuration settings of a canary deployment. See Canary Settings below.
      * 
      */
-    private @Nullable UndeferrableValue<StageCanarySettings> canarySettings;
-
+    @PolicyResourceProperty(name="canarySettings", flag="unknown_canarySettings")
+    private @Nullable StageCanarySettings value_canarySettings;
+    private boolean unknown_canarySettings;
     public @Nullable StageCanarySettings canarySettings() {
-        if (canarySettings == null) return null;
-        return canarySettings.getValue("Stage.canarySettings");
+        if (!unknown_canarySettings) return value_canarySettings;
+        throw new UndeferrableValueException("Value 'Stage.canarySettings' is not present");
     }
 
     /**
      * Identifier of a client certificate for the stage.
      * 
      */
-    private @Nullable UndeferrableValue<String> clientCertificateId;
-
+    @PolicyResourceProperty(name="clientCertificateId", flag="unknown_clientCertificateId")
+    private @Nullable String value_clientCertificateId;
+    private boolean unknown_clientCertificateId;
     public @Nullable String clientCertificateId() {
-        if (clientCertificateId == null) return null;
-        return clientCertificateId.getValue("Stage.clientCertificateId");
+        if (!unknown_clientCertificateId) return value_clientCertificateId;
+        throw new UndeferrableValueException("Value 'Stage.clientCertificateId' is not present");
     }
 
     /**
      * ID of the deployment that the stage points to
      * 
      */
-    private UndeferrableValue<String> deployment;
-
+    @PolicyResourceProperty(name="deployment", flag="unknown_deployment")
+    private String value_deployment;
+    private boolean unknown_deployment;
     public String deployment() {
-        if (deployment == null) return null;
-        return deployment.getValue("Stage.deployment");
+        if (!unknown_deployment) return value_deployment;
+        throw new UndeferrableValueException("Value 'Stage.deployment' is not present");
     }
 
     /**
      * Description of the stage.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Stage.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Stage.description' is not present");
     }
 
     /**
      * Version of the associated API documentation
      * 
      */
-    private @Nullable UndeferrableValue<String> documentationVersion;
-
+    @PolicyResourceProperty(name="documentationVersion", flag="unknown_documentationVersion")
+    private @Nullable String value_documentationVersion;
+    private boolean unknown_documentationVersion;
     public @Nullable String documentationVersion() {
-        if (documentationVersion == null) return null;
-        return documentationVersion.getValue("Stage.documentationVersion");
+        if (!unknown_documentationVersion) return value_documentationVersion;
+        throw new UndeferrableValueException("Value 'Stage.documentationVersion' is not present");
     }
 
     /**
@@ -121,11 +131,12 @@ public final class Stage extends com.pulumi.resources.PolicyResourceOutput {
      * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      * 
      */
-    private UndeferrableValue<String> executionArn;
-
+    @PolicyResourceProperty(name="executionArn", flag="unknown_executionArn")
+    private String value_executionArn;
+    private boolean unknown_executionArn;
     public String executionArn() {
-        if (executionArn == null) return null;
-        return executionArn.getValue("Stage.executionArn");
+        if (!unknown_executionArn) return value_executionArn;
+        throw new UndeferrableValueException("Value 'Stage.executionArn' is not present");
     }
 
     /**
@@ -133,44 +144,48 @@ public final class Stage extends com.pulumi.resources.PolicyResourceOutput {
      * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      * 
      */
-    private UndeferrableValue<String> invokeUrl;
-
+    @PolicyResourceProperty(name="invokeUrl", flag="unknown_invokeUrl")
+    private String value_invokeUrl;
+    private boolean unknown_invokeUrl;
     public String invokeUrl() {
-        if (invokeUrl == null) return null;
-        return invokeUrl.getValue("Stage.invokeUrl");
+        if (!unknown_invokeUrl) return value_invokeUrl;
+        throw new UndeferrableValueException("Value 'Stage.invokeUrl' is not present");
     }
 
     /**
      * ID of the associated REST API
      * 
      */
-    private UndeferrableValue<String> restApi;
-
+    @PolicyResourceProperty(name="restApi", flag="unknown_restApi")
+    private String value_restApi;
+    private boolean unknown_restApi;
     public String restApi() {
-        if (restApi == null) return null;
-        return restApi.getValue("Stage.restApi");
+        if (!unknown_restApi) return value_restApi;
+        throw new UndeferrableValueException("Value 'Stage.restApi' is not present");
     }
 
     /**
      * Name of the stage
      * 
      */
-    private UndeferrableValue<String> stageName;
-
+    @PolicyResourceProperty(name="stageName", flag="unknown_stageName")
+    private String value_stageName;
+    private boolean unknown_stageName;
     public String stageName() {
-        if (stageName == null) return null;
-        return stageName.getValue("Stage.stageName");
+        if (!unknown_stageName) return value_stageName;
+        throw new UndeferrableValueException("Value 'Stage.stageName' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Stage.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Stage.tags' is not present");
     }
 
     /**
@@ -181,44 +196,48 @@ public final class Stage extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Stage.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Stage.tagsAll' is not present");
     }
 
     /**
      * Map that defines the stage variables
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> variables;
-
+    @PolicyResourceProperty(name="variables", flag="unknown_variables")
+    private @Nullable Map<String,String> value_variables;
+    private boolean unknown_variables;
     public @Nullable Map<String,String> variables() {
-        if (variables == null) return null;
-        return variables.getValue("Stage.variables");
+        if (!unknown_variables) return value_variables;
+        throw new UndeferrableValueException("Value 'Stage.variables' is not present");
     }
 
     /**
      * ARN of the WebAcl associated with the Stage.
      * 
      */
-    private UndeferrableValue<String> webAclArn;
-
+    @PolicyResourceProperty(name="webAclArn", flag="unknown_webAclArn")
+    private String value_webAclArn;
+    private boolean unknown_webAclArn;
     public String webAclArn() {
-        if (webAclArn == null) return null;
-        return webAclArn.getValue("Stage.webAclArn");
+        if (!unknown_webAclArn) return value_webAclArn;
+        throw new UndeferrableValueException("Value 'Stage.webAclArn' is not present");
     }
 
     /**
      * Whether active tracing with X-ray is enabled. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> xrayTracingEnabled;
-
+    @PolicyResourceProperty(name="xrayTracingEnabled", flag="unknown_xrayTracingEnabled")
+    private @Nullable Boolean value_xrayTracingEnabled;
+    private boolean unknown_xrayTracingEnabled;
     public @Nullable Boolean xrayTracingEnabled() {
-        if (xrayTracingEnabled == null) return null;
-        return xrayTracingEnabled.getValue("Stage.xrayTracingEnabled");
+        if (!unknown_xrayTracingEnabled) return value_xrayTracingEnabled;
+        throw new UndeferrableValueException("Value 'Stage.xrayTracingEnabled' is not present");
     }
 
 }

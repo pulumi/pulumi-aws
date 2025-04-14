@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringO
      * The local path to the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job. LocalPath is an absolute path for the output data. Defaults to `/opt/ml/processing/output`.
      * 
      */
-    private UndeferrableValue<String> localPath;
-
+    @PolicyResourceProperty(name="localPath", flag="unknown_localPath")
+    private String value_localPath;
+    private boolean unknown_localPath;
     public String localPath() {
-        if (localPath == null) return null;
-        return localPath.getValue("DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs.localPath");
+        if (!unknown_localPath) return value_localPath;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs.localPath' is not present");
     }
 
     /**
      * Whether to upload the results of the monitoring job continuously or after the job completes. Valid values are `Continuous` or `EndOfJob`
      * 
      */
-    private UndeferrableValue<String> s3UploadMode;
-
+    @PolicyResourceProperty(name="s3UploadMode", flag="unknown_s3UploadMode")
+    private String value_s3UploadMode;
+    private boolean unknown_s3UploadMode;
     public String s3UploadMode() {
-        if (s3UploadMode == null) return null;
-        return s3UploadMode.getValue("DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs.s3UploadMode");
+        if (!unknown_s3UploadMode) return value_s3UploadMode;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs.s3UploadMode' is not present");
     }
 
     /**
      * A URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
      * 
      */
-    private UndeferrableValue<String> s3Uri;
-
+    @PolicyResourceProperty(name="s3Uri", flag="unknown_s3Uri")
+    private String value_s3Uri;
+    private boolean unknown_s3Uri;
     public String s3Uri() {
-        if (s3Uri == null) return null;
-        return s3Uri.getValue("DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs.s3Uri");
+        if (!unknown_s3Uri) return value_s3Uri;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs.s3Uri' is not present");
     }
 
 }

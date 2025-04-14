@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyArgs {
      * Transport Layer Security (TLS) client policy.
      * 
      */
-    private UndeferrableValue<VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs> tls;
-
+    @PolicyResourceProperty(name="tls", flag="unknown_tls")
+    private VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs value_tls;
+    private boolean unknown_tls;
     public VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs tls() {
-        if (tls == null) return null;
-        return tls.getValue("VirtualGatewaySpecBackendDefaultsClientPolicyArgs.tls");
+        if (!unknown_tls) return value_tls;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecBackendDefaultsClientPolicyArgs.tls' is not present");
     }
 
 }

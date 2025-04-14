@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelDestinationMediaPackageSetting;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelDestinationMultiplexSettings;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelDestinationSetting;
@@ -18,44 +19,48 @@ public final class ChannelDestination {
      * User-specified id. Ths is used in an output group or an output.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("ChannelDestination.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'ChannelDestination.id' is not present");
     }
 
     /**
      * Destination settings for a MediaPackage output; one destination for both encoders. See Media Package Settings for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<ChannelDestinationMediaPackageSetting>> mediaPackageSettings;
-
+    @PolicyResourceProperty(name="mediaPackageSettings", flag="unknown_mediaPackageSettings")
+    private @Nullable List<ChannelDestinationMediaPackageSetting> value_mediaPackageSettings;
+    private boolean unknown_mediaPackageSettings;
     public @Nullable List<ChannelDestinationMediaPackageSetting> mediaPackageSettings() {
-        if (mediaPackageSettings == null) return null;
-        return mediaPackageSettings.getValue("ChannelDestination.mediaPackageSettings");
+        if (!unknown_mediaPackageSettings) return value_mediaPackageSettings;
+        throw new UndeferrableValueException("Value 'ChannelDestination.mediaPackageSettings' is not present");
     }
 
     /**
      * Destination settings for a Multiplex output; one destination for both encoders. See Multiplex Settings for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ChannelDestinationMultiplexSettings> multiplexSettings;
-
+    @PolicyResourceProperty(name="multiplexSettings", flag="unknown_multiplexSettings")
+    private @Nullable ChannelDestinationMultiplexSettings value_multiplexSettings;
+    private boolean unknown_multiplexSettings;
     public @Nullable ChannelDestinationMultiplexSettings multiplexSettings() {
-        if (multiplexSettings == null) return null;
-        return multiplexSettings.getValue("ChannelDestination.multiplexSettings");
+        if (!unknown_multiplexSettings) return value_multiplexSettings;
+        throw new UndeferrableValueException("Value 'ChannelDestination.multiplexSettings' is not present");
     }
 
     /**
      * Destination settings for a standard output; one destination for each redundant encoder. See Settings for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<ChannelDestinationSetting>> settings;
-
+    @PolicyResourceProperty(name="settings", flag="unknown_settings")
+    private @Nullable List<ChannelDestinationSetting> value_settings;
+    private boolean unknown_settings;
     public @Nullable List<ChannelDestinationSetting> settings() {
-        if (settings == null) return null;
-        return settings.getValue("ChannelDestination.settings");
+        if (!unknown_settings) return value_settings;
+        throw new UndeferrableValueException("Value 'ChannelDestination.settings' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.verifiedaccess.outputs.EndpointNetworkInterfaceOptionsPortRange;
 import java.lang.Integer;
 import java.lang.String;
@@ -13,32 +14,36 @@ import javax.annotation.Nullable;
 
 public final class EndpointNetworkInterfaceOptions {
 
-    private @Nullable UndeferrableValue<String> networkInterfaceId;
-
+    @PolicyResourceProperty(name="networkInterfaceId", flag="unknown_networkInterfaceId")
+    private @Nullable String value_networkInterfaceId;
+    private boolean unknown_networkInterfaceId;
     public @Nullable String networkInterfaceId() {
-        if (networkInterfaceId == null) return null;
-        return networkInterfaceId.getValue("EndpointNetworkInterfaceOptions.networkInterfaceId");
+        if (!unknown_networkInterfaceId) return value_networkInterfaceId;
+        throw new UndeferrableValueException("Value 'EndpointNetworkInterfaceOptions.networkInterfaceId' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable Integer value_port;
+    private boolean unknown_port;
     public @Nullable Integer port() {
-        if (port == null) return null;
-        return port.getValue("EndpointNetworkInterfaceOptions.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'EndpointNetworkInterfaceOptions.port' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<EndpointNetworkInterfaceOptionsPortRange>> portRanges;
-
+    @PolicyResourceProperty(name="portRanges", flag="unknown_portRanges")
+    private @Nullable List<EndpointNetworkInterfaceOptionsPortRange> value_portRanges;
+    private boolean unknown_portRanges;
     public @Nullable List<EndpointNetworkInterfaceOptionsPortRange> portRanges() {
-        if (portRanges == null) return null;
-        return portRanges.getValue("EndpointNetworkInterfaceOptions.portRanges");
+        if (!unknown_portRanges) return value_portRanges;
+        throw new UndeferrableValueException("Value 'EndpointNetworkInterfaceOptions.portRanges' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private @Nullable String value_protocol;
+    private boolean unknown_protocol;
     public @Nullable String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("EndpointNetworkInterfaceOptions.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'EndpointNetworkInterfaceOptions.protocol' is not present");
     }
 
 }

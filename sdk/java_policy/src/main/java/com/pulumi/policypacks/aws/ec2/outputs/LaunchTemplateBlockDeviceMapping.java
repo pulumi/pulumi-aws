@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.outputs.LaunchTemplateBlockDeviceMappingEbs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class LaunchTemplateBlockDeviceMapping {
      * The name of the device to mount.
      * 
      */
-    private @Nullable UndeferrableValue<String> deviceName;
-
+    @PolicyResourceProperty(name="deviceName", flag="unknown_deviceName")
+    private @Nullable String value_deviceName;
+    private boolean unknown_deviceName;
     public @Nullable String deviceName() {
-        if (deviceName == null) return null;
-        return deviceName.getValue("LaunchTemplateBlockDeviceMapping.deviceName");
+        if (!unknown_deviceName) return value_deviceName;
+        throw new UndeferrableValueException("Value 'LaunchTemplateBlockDeviceMapping.deviceName' is not present");
     }
 
     /**
      * Configure EBS volume properties.
      * 
      */
-    private @Nullable UndeferrableValue<LaunchTemplateBlockDeviceMappingEbs> ebs;
-
+    @PolicyResourceProperty(name="ebs", flag="unknown_ebs")
+    private @Nullable LaunchTemplateBlockDeviceMappingEbs value_ebs;
+    private boolean unknown_ebs;
     public @Nullable LaunchTemplateBlockDeviceMappingEbs ebs() {
-        if (ebs == null) return null;
-        return ebs.getValue("LaunchTemplateBlockDeviceMapping.ebs");
+        if (!unknown_ebs) return value_ebs;
+        throw new UndeferrableValueException("Value 'LaunchTemplateBlockDeviceMapping.ebs' is not present");
     }
 
     /**
      * Suppresses the specified device included in the AMI&#39;s block device mapping.
      * 
      */
-    private @Nullable UndeferrableValue<String> noDevice;
-
+    @PolicyResourceProperty(name="noDevice", flag="unknown_noDevice")
+    private @Nullable String value_noDevice;
+    private boolean unknown_noDevice;
     public @Nullable String noDevice() {
-        if (noDevice == null) return null;
-        return noDevice.getValue("LaunchTemplateBlockDeviceMapping.noDevice");
+        if (!unknown_noDevice) return value_noDevice;
+        throw new UndeferrableValueException("Value 'LaunchTemplateBlockDeviceMapping.noDevice' is not present");
     }
 
     /**
@@ -50,11 +54,12 @@ public final class LaunchTemplateBlockDeviceMapping {
      * (e.g., `&#34;ephemeral0&#34;`).
      * 
      */
-    private @Nullable UndeferrableValue<String> virtualName;
-
+    @PolicyResourceProperty(name="virtualName", flag="unknown_virtualName")
+    private @Nullable String value_virtualName;
+    private boolean unknown_virtualName;
     public @Nullable String virtualName() {
-        if (virtualName == null) return null;
-        return virtualName.getValue("LaunchTemplateBlockDeviceMapping.virtualName");
+        if (!unknown_virtualName) return value_virtualName;
+        throw new UndeferrableValueException("Value 'LaunchTemplateBlockDeviceMapping.virtualName' is not present");
     }
 
 }

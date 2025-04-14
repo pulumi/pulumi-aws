@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.emr.inputs.ClusterMasterInstanceFleetInstanceTypeConfigArgs;
 import com.pulumi.policypacks.aws.emr.inputs.ClusterMasterInstanceFleetLaunchSpecificationsArgs;
 import java.lang.Integer;
@@ -18,80 +19,88 @@ public final class ClusterMasterInstanceFleetArgs {
      * ID of the cluster.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("ClusterMasterInstanceFleetArgs.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'ClusterMasterInstanceFleetArgs.id' is not present");
     }
 
     /**
      * Configuration block for instance fleet.
      * 
      */
-    private UndeferrableValue<List<ClusterMasterInstanceFleetInstanceTypeConfigArgs>> instanceTypeConfigs;
-
+    @PolicyResourceProperty(name="instanceTypeConfigs", flag="unknown_instanceTypeConfigs")
+    private List<ClusterMasterInstanceFleetInstanceTypeConfigArgs> value_instanceTypeConfigs;
+    private boolean unknown_instanceTypeConfigs;
     public List<ClusterMasterInstanceFleetInstanceTypeConfigArgs> instanceTypeConfigs() {
-        if (instanceTypeConfigs == null) return null;
-        return instanceTypeConfigs.getValue("ClusterMasterInstanceFleetArgs.instanceTypeConfigs");
+        if (!unknown_instanceTypeConfigs) return value_instanceTypeConfigs;
+        throw new UndeferrableValueException("Value 'ClusterMasterInstanceFleetArgs.instanceTypeConfigs' is not present");
     }
 
     /**
      * Configuration block for launch specification.
      * 
      */
-    private UndeferrableValue<ClusterMasterInstanceFleetLaunchSpecificationsArgs> launchSpecifications;
-
+    @PolicyResourceProperty(name="launchSpecifications", flag="unknown_launchSpecifications")
+    private ClusterMasterInstanceFleetLaunchSpecificationsArgs value_launchSpecifications;
+    private boolean unknown_launchSpecifications;
     public ClusterMasterInstanceFleetLaunchSpecificationsArgs launchSpecifications() {
-        if (launchSpecifications == null) return null;
-        return launchSpecifications.getValue("ClusterMasterInstanceFleetArgs.launchSpecifications");
+        if (!unknown_launchSpecifications) return value_launchSpecifications;
+        throw new UndeferrableValueException("Value 'ClusterMasterInstanceFleetArgs.launchSpecifications' is not present");
     }
 
     /**
      * Friendly name given to the instance fleet.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ClusterMasterInstanceFleetArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ClusterMasterInstanceFleetArgs.name' is not present");
     }
 
-    private UndeferrableValue<Integer> provisionedOnDemandCapacity;
-
+    @PolicyResourceProperty(name="provisionedOnDemandCapacity", flag="unknown_provisionedOnDemandCapacity")
+    private Integer value_provisionedOnDemandCapacity;
+    private boolean unknown_provisionedOnDemandCapacity;
     public Integer provisionedOnDemandCapacity() {
-        if (provisionedOnDemandCapacity == null) return null;
-        return provisionedOnDemandCapacity.getValue("ClusterMasterInstanceFleetArgs.provisionedOnDemandCapacity");
+        if (!unknown_provisionedOnDemandCapacity) return value_provisionedOnDemandCapacity;
+        throw new UndeferrableValueException("Value 'ClusterMasterInstanceFleetArgs.provisionedOnDemandCapacity' is not present");
     }
 
-    private UndeferrableValue<Integer> provisionedSpotCapacity;
-
+    @PolicyResourceProperty(name="provisionedSpotCapacity", flag="unknown_provisionedSpotCapacity")
+    private Integer value_provisionedSpotCapacity;
+    private boolean unknown_provisionedSpotCapacity;
     public Integer provisionedSpotCapacity() {
-        if (provisionedSpotCapacity == null) return null;
-        return provisionedSpotCapacity.getValue("ClusterMasterInstanceFleetArgs.provisionedSpotCapacity");
+        if (!unknown_provisionedSpotCapacity) return value_provisionedSpotCapacity;
+        throw new UndeferrableValueException("Value 'ClusterMasterInstanceFleetArgs.provisionedSpotCapacity' is not present");
     }
 
     /**
      * Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
      * 
      */
-    private UndeferrableValue<Integer> targetOnDemandCapacity;
-
+    @PolicyResourceProperty(name="targetOnDemandCapacity", flag="unknown_targetOnDemandCapacity")
+    private Integer value_targetOnDemandCapacity;
+    private boolean unknown_targetOnDemandCapacity;
     public Integer targetOnDemandCapacity() {
-        if (targetOnDemandCapacity == null) return null;
-        return targetOnDemandCapacity.getValue("ClusterMasterInstanceFleetArgs.targetOnDemandCapacity");
+        if (!unknown_targetOnDemandCapacity) return value_targetOnDemandCapacity;
+        throw new UndeferrableValueException("Value 'ClusterMasterInstanceFleetArgs.targetOnDemandCapacity' is not present");
     }
 
     /**
      * Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
      * 
      */
-    private UndeferrableValue<Integer> targetSpotCapacity;
-
+    @PolicyResourceProperty(name="targetSpotCapacity", flag="unknown_targetSpotCapacity")
+    private Integer value_targetSpotCapacity;
+    private boolean unknown_targetSpotCapacity;
     public Integer targetSpotCapacity() {
-        if (targetSpotCapacity == null) return null;
-        return targetSpotCapacity.getValue("ClusterMasterInstanceFleetArgs.targetSpotCapacity");
+        if (!unknown_targetSpotCapacity) return value_targetSpotCapacity;
+        throw new UndeferrableValueException("Value 'ClusterMasterInstanceFleetArgs.targetSpotCapacity' is not present");
     }
 
 }

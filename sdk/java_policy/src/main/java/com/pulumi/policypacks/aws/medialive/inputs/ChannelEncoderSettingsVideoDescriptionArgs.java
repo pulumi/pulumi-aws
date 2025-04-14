@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,77 +17,84 @@ public final class ChannelEncoderSettingsVideoDescriptionArgs {
      * The video codec settings. See Video Codec Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs> codecSettings;
-
+    @PolicyResourceProperty(name="codecSettings", flag="unknown_codecSettings")
+    private ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs value_codecSettings;
+    private boolean unknown_codecSettings;
     public ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs codecSettings() {
-        if (codecSettings == null) return null;
-        return codecSettings.getValue("ChannelEncoderSettingsVideoDescriptionArgs.codecSettings");
+        if (!unknown_codecSettings) return value_codecSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionArgs.codecSettings' is not present");
     }
 
     /**
      * Output video height in pixels.
      * 
      */
-    private UndeferrableValue<Integer> height;
-
+    @PolicyResourceProperty(name="height", flag="unknown_height")
+    private Integer value_height;
+    private boolean unknown_height;
     public Integer height() {
-        if (height == null) return null;
-        return height.getValue("ChannelEncoderSettingsVideoDescriptionArgs.height");
+        if (!unknown_height) return value_height;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionArgs.height' is not present");
     }
 
     /**
      * The name of the video description.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ChannelEncoderSettingsVideoDescriptionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionArgs.name' is not present");
     }
 
     /**
      * Indicate how to respond to the AFD values that might be in the input video.
      * 
      */
-    private UndeferrableValue<String> respondToAfd;
-
+    @PolicyResourceProperty(name="respondToAfd", flag="unknown_respondToAfd")
+    private String value_respondToAfd;
+    private boolean unknown_respondToAfd;
     public String respondToAfd() {
-        if (respondToAfd == null) return null;
-        return respondToAfd.getValue("ChannelEncoderSettingsVideoDescriptionArgs.respondToAfd");
+        if (!unknown_respondToAfd) return value_respondToAfd;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionArgs.respondToAfd' is not present");
     }
 
     /**
      * Behavior on how to scale.
      * 
      */
-    private UndeferrableValue<String> scalingBehavior;
-
+    @PolicyResourceProperty(name="scalingBehavior", flag="unknown_scalingBehavior")
+    private String value_scalingBehavior;
+    private boolean unknown_scalingBehavior;
     public String scalingBehavior() {
-        if (scalingBehavior == null) return null;
-        return scalingBehavior.getValue("ChannelEncoderSettingsVideoDescriptionArgs.scalingBehavior");
+        if (!unknown_scalingBehavior) return value_scalingBehavior;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionArgs.scalingBehavior' is not present");
     }
 
     /**
      * Changes the strength of the anti-alias filter used for scaling.
      * 
      */
-    private UndeferrableValue<Integer> sharpness;
-
+    @PolicyResourceProperty(name="sharpness", flag="unknown_sharpness")
+    private Integer value_sharpness;
+    private boolean unknown_sharpness;
     public Integer sharpness() {
-        if (sharpness == null) return null;
-        return sharpness.getValue("ChannelEncoderSettingsVideoDescriptionArgs.sharpness");
+        if (!unknown_sharpness) return value_sharpness;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionArgs.sharpness' is not present");
     }
 
     /**
      * Output video width in pixels.
      * 
      */
-    private UndeferrableValue<Integer> width;
-
+    @PolicyResourceProperty(name="width", flag="unknown_width")
+    private Integer value_width;
+    private boolean unknown_width;
     public Integer width() {
-        if (width == null) return null;
-        return width.getValue("ChannelEncoderSettingsVideoDescriptionArgs.width");
+        if (!unknown_width) return value_width;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionArgs.width' is not present");
     }
 
 }

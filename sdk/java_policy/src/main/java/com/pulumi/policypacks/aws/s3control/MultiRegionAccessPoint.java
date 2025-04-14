@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3control.outputs.MultiRegionAccessPointDetails;
 import java.lang.String;
@@ -16,66 +17,72 @@ public final class MultiRegionAccessPoint extends com.pulumi.resources.PolicyRes
      * The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("MultiRegionAccessPoint.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'MultiRegionAccessPoint.accountId' is not present");
     }
 
     /**
      * The alias for the Multi-Region Access Point.
      * 
      */
-    private UndeferrableValue<String> alias;
-
+    @PolicyResourceProperty(name="alias", flag="unknown_alias")
+    private String value_alias;
+    private boolean unknown_alias;
     public String alias() {
-        if (alias == null) return null;
-        return alias.getValue("MultiRegionAccessPoint.alias");
+        if (!unknown_alias) return value_alias;
+        throw new UndeferrableValueException("Value 'MultiRegionAccessPoint.alias' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the Multi-Region Access Point.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("MultiRegionAccessPoint.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'MultiRegionAccessPoint.arn' is not present");
     }
 
     /**
      * A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
      * 
      */
-    private UndeferrableValue<MultiRegionAccessPointDetails> details;
-
+    @PolicyResourceProperty(name="details", flag="unknown_details")
+    private MultiRegionAccessPointDetails value_details;
+    private boolean unknown_details;
     public MultiRegionAccessPointDetails details() {
-        if (details == null) return null;
-        return details.getValue("MultiRegionAccessPoint.details");
+        if (!unknown_details) return value_details;
+        throw new UndeferrableValueException("Value 'MultiRegionAccessPoint.details' is not present");
     }
 
     /**
      * The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("MultiRegionAccessPoint.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'MultiRegionAccessPoint.domainName' is not present");
     }
 
     /**
      * The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("MultiRegionAccessPoint.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'MultiRegionAccessPoint.status' is not present");
     }
 
 }

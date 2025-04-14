@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3tables;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class Namespace extends com.pulumi.resources.PolicyResourceOutput {
      * Date and time when the namespace was created.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("Namespace.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'Namespace.createdAt' is not present");
     }
 
     /**
      * Account ID of the account that created the namespace.
      * 
      */
-    private UndeferrableValue<String> createdBy;
-
+    @PolicyResourceProperty(name="createdBy", flag="unknown_createdBy")
+    private String value_createdBy;
+    private boolean unknown_createdBy;
     public String createdBy() {
-        if (createdBy == null) return null;
-        return createdBy.getValue("Namespace.createdBy");
+        if (!unknown_createdBy) return value_createdBy;
+        throw new UndeferrableValueException("Value 'Namespace.createdBy' is not present");
     }
 
     /**
@@ -39,33 +42,36 @@ public final class Namespace extends com.pulumi.resources.PolicyResourceOutput {
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      * 
      */
-    private UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private String value_namespace;
+    private boolean unknown_namespace;
     public String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("Namespace.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'Namespace.namespace' is not present");
     }
 
     /**
      * Account ID of the account that owns the namespace.
      * 
      */
-    private UndeferrableValue<String> ownerAccountId;
-
+    @PolicyResourceProperty(name="ownerAccountId", flag="unknown_ownerAccountId")
+    private String value_ownerAccountId;
+    private boolean unknown_ownerAccountId;
     public String ownerAccountId() {
-        if (ownerAccountId == null) return null;
-        return ownerAccountId.getValue("Namespace.ownerAccountId");
+        if (!unknown_ownerAccountId) return value_ownerAccountId;
+        throw new UndeferrableValueException("Value 'Namespace.ownerAccountId' is not present");
     }
 
     /**
      * ARN referencing the Table Bucket that contains this Namespace.
      * 
      */
-    private UndeferrableValue<String> tableBucketArn;
-
+    @PolicyResourceProperty(name="tableBucketArn", flag="unknown_tableBucketArn")
+    private String value_tableBucketArn;
+    private boolean unknown_tableBucketArn;
     public String tableBucketArn() {
-        if (tableBucketArn == null) return null;
-        return tableBucketArn.getValue("Namespace.tableBucketArn");
+        if (!unknown_tableBucketArn) return value_tableBucketArn;
+        throw new UndeferrableValueException("Value 'Namespace.tableBucketArn' is not present");
     }
 
 }

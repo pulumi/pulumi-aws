@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cognito.outputs.IdentityPoolCognitoIdentityProvider;
 import java.lang.Boolean;
@@ -20,44 +21,48 @@ public final class IdentityPool extends com.pulumi.resources.PolicyResourceOutpu
      * Enables or disables the classic / basic authentication flow. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> allowClassicFlow;
-
+    @PolicyResourceProperty(name="allowClassicFlow", flag="unknown_allowClassicFlow")
+    private @Nullable Boolean value_allowClassicFlow;
+    private boolean unknown_allowClassicFlow;
     public @Nullable Boolean allowClassicFlow() {
-        if (allowClassicFlow == null) return null;
-        return allowClassicFlow.getValue("IdentityPool.allowClassicFlow");
+        if (!unknown_allowClassicFlow) return value_allowClassicFlow;
+        throw new UndeferrableValueException("Value 'IdentityPool.allowClassicFlow' is not present");
     }
 
     /**
      * Whether the identity pool supports unauthenticated logins or not.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> allowUnauthenticatedIdentities;
-
+    @PolicyResourceProperty(name="allowUnauthenticatedIdentities", flag="unknown_allowUnauthenticatedIdentities")
+    private @Nullable Boolean value_allowUnauthenticatedIdentities;
+    private boolean unknown_allowUnauthenticatedIdentities;
     public @Nullable Boolean allowUnauthenticatedIdentities() {
-        if (allowUnauthenticatedIdentities == null) return null;
-        return allowUnauthenticatedIdentities.getValue("IdentityPool.allowUnauthenticatedIdentities");
+        if (!unknown_allowUnauthenticatedIdentities) return value_allowUnauthenticatedIdentities;
+        throw new UndeferrableValueException("Value 'IdentityPool.allowUnauthenticatedIdentities' is not present");
     }
 
     /**
      * The ARN of the identity pool.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("IdentityPool.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'IdentityPool.arn' is not present");
     }
 
     /**
      * An array of Amazon Cognito Identity user pools and their client IDs.
      * 
      */
-    private @Nullable UndeferrableValue<List<IdentityPoolCognitoIdentityProvider>> cognitoIdentityProviders;
-
+    @PolicyResourceProperty(name="cognitoIdentityProviders", flag="unknown_cognitoIdentityProviders")
+    private @Nullable List<IdentityPoolCognitoIdentityProvider> value_cognitoIdentityProviders;
+    private boolean unknown_cognitoIdentityProviders;
     public @Nullable List<IdentityPoolCognitoIdentityProvider> cognitoIdentityProviders() {
-        if (cognitoIdentityProviders == null) return null;
-        return cognitoIdentityProviders.getValue("IdentityPool.cognitoIdentityProviders");
+        if (!unknown_cognitoIdentityProviders) return value_cognitoIdentityProviders;
+        throw new UndeferrableValueException("Value 'IdentityPool.cognitoIdentityProviders' is not present");
     }
 
     /**
@@ -65,66 +70,72 @@ public final class IdentityPool extends com.pulumi.resources.PolicyResourceOutpu
      * backend and the Cognito service to communicate about the developer provider.
      * 
      */
-    private @Nullable UndeferrableValue<String> developerProviderName;
-
+    @PolicyResourceProperty(name="developerProviderName", flag="unknown_developerProviderName")
+    private @Nullable String value_developerProviderName;
+    private boolean unknown_developerProviderName;
     public @Nullable String developerProviderName() {
-        if (developerProviderName == null) return null;
-        return developerProviderName.getValue("IdentityPool.developerProviderName");
+        if (!unknown_developerProviderName) return value_developerProviderName;
+        throw new UndeferrableValueException("Value 'IdentityPool.developerProviderName' is not present");
     }
 
     /**
      * The Cognito Identity Pool name.
      * 
      */
-    private UndeferrableValue<String> identityPoolName;
-
+    @PolicyResourceProperty(name="identityPoolName", flag="unknown_identityPoolName")
+    private String value_identityPoolName;
+    private boolean unknown_identityPoolName;
     public String identityPoolName() {
-        if (identityPoolName == null) return null;
-        return identityPoolName.getValue("IdentityPool.identityPoolName");
+        if (!unknown_identityPoolName) return value_identityPoolName;
+        throw new UndeferrableValueException("Value 'IdentityPool.identityPoolName' is not present");
     }
 
     /**
      * Set of OpendID Connect provider ARNs.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> openidConnectProviderArns;
-
+    @PolicyResourceProperty(name="openidConnectProviderArns", flag="unknown_openidConnectProviderArns")
+    private @Nullable List<String> value_openidConnectProviderArns;
+    private boolean unknown_openidConnectProviderArns;
     public @Nullable List<String> openidConnectProviderArns() {
-        if (openidConnectProviderArns == null) return null;
-        return openidConnectProviderArns.getValue("IdentityPool.openidConnectProviderArns");
+        if (!unknown_openidConnectProviderArns) return value_openidConnectProviderArns;
+        throw new UndeferrableValueException("Value 'IdentityPool.openidConnectProviderArns' is not present");
     }
 
     /**
      * An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> samlProviderArns;
-
+    @PolicyResourceProperty(name="samlProviderArns", flag="unknown_samlProviderArns")
+    private @Nullable List<String> value_samlProviderArns;
+    private boolean unknown_samlProviderArns;
     public @Nullable List<String> samlProviderArns() {
-        if (samlProviderArns == null) return null;
-        return samlProviderArns.getValue("IdentityPool.samlProviderArns");
+        if (!unknown_samlProviderArns) return value_samlProviderArns;
+        throw new UndeferrableValueException("Value 'IdentityPool.samlProviderArns' is not present");
     }
 
     /**
      * Key-Value pairs mapping provider names to provider app IDs.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> supportedLoginProviders;
-
+    @PolicyResourceProperty(name="supportedLoginProviders", flag="unknown_supportedLoginProviders")
+    private @Nullable Map<String,String> value_supportedLoginProviders;
+    private boolean unknown_supportedLoginProviders;
     public @Nullable Map<String,String> supportedLoginProviders() {
-        if (supportedLoginProviders == null) return null;
-        return supportedLoginProviders.getValue("IdentityPool.supportedLoginProviders");
+        if (!unknown_supportedLoginProviders) return value_supportedLoginProviders;
+        throw new UndeferrableValueException("Value 'IdentityPool.supportedLoginProviders' is not present");
     }
 
     /**
      * A map of tags to assign to the Identity Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("IdentityPool.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'IdentityPool.tags' is not present");
     }
 
     /**
@@ -135,11 +146,12 @@ public final class IdentityPool extends com.pulumi.resources.PolicyResourceOutpu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("IdentityPool.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'IdentityPool.tagsAll' is not present");
     }
 
 }

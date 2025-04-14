@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.gamelift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.gamelift.outputs.MatchmakingConfigurationGameProperty;
 import java.lang.Boolean;
@@ -21,194 +22,212 @@ public final class MatchmakingConfiguration extends com.pulumi.resources.PolicyR
      * Specifies if the match that was created with this configuration must be accepted by matched players.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> acceptanceRequired;
-
+    @PolicyResourceProperty(name="acceptanceRequired", flag="unknown_acceptanceRequired")
+    private @Nullable Boolean value_acceptanceRequired;
+    private boolean unknown_acceptanceRequired;
     public @Nullable Boolean acceptanceRequired() {
-        if (acceptanceRequired == null) return null;
-        return acceptanceRequired.getValue("MatchmakingConfiguration.acceptanceRequired");
+        if (!unknown_acceptanceRequired) return value_acceptanceRequired;
+        throw new UndeferrableValueException("Value 'MatchmakingConfiguration.acceptanceRequired' is not present");
     }
 
     /**
      * The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> acceptanceTimeoutSeconds;
-
+    @PolicyResourceProperty(name="acceptanceTimeoutSeconds", flag="unknown_acceptanceTimeoutSeconds")
+    private @Nullable Integer value_acceptanceTimeoutSeconds;
+    private boolean unknown_acceptanceTimeoutSeconds;
     public @Nullable Integer acceptanceTimeoutSeconds() {
-        if (acceptanceTimeoutSeconds == null) return null;
-        return acceptanceTimeoutSeconds.getValue("MatchmakingConfiguration.acceptanceTimeoutSeconds");
+        if (!unknown_acceptanceTimeoutSeconds) return value_acceptanceTimeoutSeconds;
+        throw new UndeferrableValueException("Value 'MatchmakingConfiguration.acceptanceTimeoutSeconds' is not present");
     }
 
     /**
      * The number of player slots in a match to keep open for future players.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> additionalPlayerCount;
-
+    @PolicyResourceProperty(name="additionalPlayerCount", flag="unknown_additionalPlayerCount")
+    private @Nullable Integer value_additionalPlayerCount;
+    private boolean unknown_additionalPlayerCount;
     public @Nullable Integer additionalPlayerCount() {
-        if (additionalPlayerCount == null) return null;
-        return additionalPlayerCount.getValue("MatchmakingConfiguration.additionalPlayerCount");
+        if (!unknown_additionalPlayerCount) return value_additionalPlayerCount;
+        throw new UndeferrableValueException("Value 'MatchmakingConfiguration.additionalPlayerCount' is not present");
     }
 
     /**
      * Matchmaking Configuration ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("MatchmakingConfiguration.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'MatchmakingConfiguration.arn' is not present");
     }
 
     /**
      * The method used to backfill game sessions that are created with this matchmaking configuration.
      * 
      */
-    private @Nullable UndeferrableValue<String> backfillMode;
-
+    @PolicyResourceProperty(name="backfillMode", flag="unknown_backfillMode")
+    private @Nullable String value_backfillMode;
+    private boolean unknown_backfillMode;
     public @Nullable String backfillMode() {
-        if (backfillMode == null) return null;
-        return backfillMode.getValue("MatchmakingConfiguration.backfillMode");
+        if (!unknown_backfillMode) return value_backfillMode;
+        throw new UndeferrableValueException("Value 'MatchmakingConfiguration.backfillMode' is not present");
     }
 
     /**
      * The time when the Matchmaking Configuration was created.
      * 
      */
-    private UndeferrableValue<String> creationTime;
-
+    @PolicyResourceProperty(name="creationTime", flag="unknown_creationTime")
+    private String value_creationTime;
+    private boolean unknown_creationTime;
     public String creationTime() {
-        if (creationTime == null) return null;
-        return creationTime.getValue("MatchmakingConfiguration.creationTime");
+        if (!unknown_creationTime) return value_creationTime;
+        throw new UndeferrableValueException("Value 'MatchmakingConfiguration.creationTime' is not present");
     }
 
     /**
      * Information to be added to all events related to this matchmaking configuration.
      * 
      */
-    private @Nullable UndeferrableValue<String> customEventData;
-
+    @PolicyResourceProperty(name="customEventData", flag="unknown_customEventData")
+    private @Nullable String value_customEventData;
+    private boolean unknown_customEventData;
     public @Nullable String customEventData() {
-        if (customEventData == null) return null;
-        return customEventData.getValue("MatchmakingConfiguration.customEventData");
+        if (!unknown_customEventData) return value_customEventData;
+        throw new UndeferrableValueException("Value 'MatchmakingConfiguration.customEventData' is not present");
     }
 
     /**
      * A human-readable description of the matchmaking configuration.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("MatchmakingConfiguration.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'MatchmakingConfiguration.description' is not present");
     }
 
     /**
      * Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
      * 
      */
-    private UndeferrableValue<String> flexMatchMode;
-
+    @PolicyResourceProperty(name="flexMatchMode", flag="unknown_flexMatchMode")
+    private String value_flexMatchMode;
+    private boolean unknown_flexMatchMode;
     public String flexMatchMode() {
-        if (flexMatchMode == null) return null;
-        return flexMatchMode.getValue("MatchmakingConfiguration.flexMatchMode");
+        if (!unknown_flexMatchMode) return value_flexMatchMode;
+        throw new UndeferrableValueException("Value 'MatchmakingConfiguration.flexMatchMode' is not present");
     }
 
     /**
      * One or more custom game properties. See below.
      * 
      */
-    private @Nullable UndeferrableValue<List<MatchmakingConfigurationGameProperty>> gameProperties;
-
+    @PolicyResourceProperty(name="gameProperties", flag="unknown_gameProperties")
+    private @Nullable List<MatchmakingConfigurationGameProperty> value_gameProperties;
+    private boolean unknown_gameProperties;
     public @Nullable List<MatchmakingConfigurationGameProperty> gameProperties() {
-        if (gameProperties == null) return null;
-        return gameProperties.getValue("MatchmakingConfiguration.gameProperties");
+        if (!unknown_gameProperties) return value_gameProperties;
+        throw new UndeferrableValueException("Value 'MatchmakingConfiguration.gameProperties' is not present");
     }
 
     /**
      * A set of custom game session properties.
      * 
      */
-    private @Nullable UndeferrableValue<String> gameSessionData;
-
+    @PolicyResourceProperty(name="gameSessionData", flag="unknown_gameSessionData")
+    private @Nullable String value_gameSessionData;
+    private boolean unknown_gameSessionData;
     public @Nullable String gameSessionData() {
-        if (gameSessionData == null) return null;
-        return gameSessionData.getValue("MatchmakingConfiguration.gameSessionData");
+        if (!unknown_gameSessionData) return value_gameSessionData;
+        throw new UndeferrableValueException("Value 'MatchmakingConfiguration.gameSessionData' is not present");
     }
 
     /**
      * The ARNs of the GameLift game session queue resources.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> gameSessionQueueArns;
-
+    @PolicyResourceProperty(name="gameSessionQueueArns", flag="unknown_gameSessionQueueArns")
+    private @Nullable List<String> value_gameSessionQueueArns;
+    private boolean unknown_gameSessionQueueArns;
     public @Nullable List<String> gameSessionQueueArns() {
-        if (gameSessionQueueArns == null) return null;
-        return gameSessionQueueArns.getValue("MatchmakingConfiguration.gameSessionQueueArns");
+        if (!unknown_gameSessionQueueArns) return value_gameSessionQueueArns;
+        throw new UndeferrableValueException("Value 'MatchmakingConfiguration.gameSessionQueueArns' is not present");
     }
 
     /**
      * Name of the matchmaking configuration
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("MatchmakingConfiguration.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'MatchmakingConfiguration.name' is not present");
     }
 
     /**
      * An SNS topic ARN that is set up to receive matchmaking notifications.
      * 
      */
-    private @Nullable UndeferrableValue<String> notificationTarget;
-
+    @PolicyResourceProperty(name="notificationTarget", flag="unknown_notificationTarget")
+    private @Nullable String value_notificationTarget;
+    private boolean unknown_notificationTarget;
     public @Nullable String notificationTarget() {
-        if (notificationTarget == null) return null;
-        return notificationTarget.getValue("MatchmakingConfiguration.notificationTarget");
+        if (!unknown_notificationTarget) return value_notificationTarget;
+        throw new UndeferrableValueException("Value 'MatchmakingConfiguration.notificationTarget' is not present");
     }
 
     /**
      * The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
      * 
      */
-    private UndeferrableValue<Integer> requestTimeoutSeconds;
-
+    @PolicyResourceProperty(name="requestTimeoutSeconds", flag="unknown_requestTimeoutSeconds")
+    private Integer value_requestTimeoutSeconds;
+    private boolean unknown_requestTimeoutSeconds;
     public Integer requestTimeoutSeconds() {
-        if (requestTimeoutSeconds == null) return null;
-        return requestTimeoutSeconds.getValue("MatchmakingConfiguration.requestTimeoutSeconds");
+        if (!unknown_requestTimeoutSeconds) return value_requestTimeoutSeconds;
+        throw new UndeferrableValueException("Value 'MatchmakingConfiguration.requestTimeoutSeconds' is not present");
     }
 
-    private UndeferrableValue<String> ruleSetArn;
-
+    @PolicyResourceProperty(name="ruleSetArn", flag="unknown_ruleSetArn")
+    private String value_ruleSetArn;
+    private boolean unknown_ruleSetArn;
     public String ruleSetArn() {
-        if (ruleSetArn == null) return null;
-        return ruleSetArn.getValue("MatchmakingConfiguration.ruleSetArn");
+        if (!unknown_ruleSetArn) return value_ruleSetArn;
+        throw new UndeferrableValueException("Value 'MatchmakingConfiguration.ruleSetArn' is not present");
     }
 
     /**
      * A rule set names for the matchmaking rule set to use with this configuration.
      * 
      */
-    private UndeferrableValue<String> ruleSetName;
-
+    @PolicyResourceProperty(name="ruleSetName", flag="unknown_ruleSetName")
+    private String value_ruleSetName;
+    private boolean unknown_ruleSetName;
     public String ruleSetName() {
-        if (ruleSetName == null) return null;
-        return ruleSetName.getValue("MatchmakingConfiguration.ruleSetName");
+        if (!unknown_ruleSetName) return value_ruleSetName;
+        throw new UndeferrableValueException("Value 'MatchmakingConfiguration.ruleSetName' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("MatchmakingConfiguration.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'MatchmakingConfiguration.tags' is not present");
     }
 
     /**
@@ -219,11 +238,12 @@ public final class MatchmakingConfiguration extends com.pulumi.resources.PolicyR
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("MatchmakingConfiguration.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'MatchmakingConfiguration.tagsAll' is not present");
     }
 
 }

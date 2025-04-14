@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class TopicRuleIotEventArgs {
      * The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
      * 
      */
-    private UndeferrableValue<Boolean> batchMode;
-
+    @PolicyResourceProperty(name="batchMode", flag="unknown_batchMode")
+    private Boolean value_batchMode;
+    private boolean unknown_batchMode;
     public Boolean batchMode() {
-        if (batchMode == null) return null;
-        return batchMode.getValue("TopicRuleIotEventArgs.batchMode");
+        if (!unknown_batchMode) return value_batchMode;
+        throw new UndeferrableValueException("Value 'TopicRuleIotEventArgs.batchMode' is not present");
     }
 
     /**
      * The name of the AWS IoT Events input.
      * 
      */
-    private UndeferrableValue<String> inputName;
-
+    @PolicyResourceProperty(name="inputName", flag="unknown_inputName")
+    private String value_inputName;
+    private boolean unknown_inputName;
     public String inputName() {
-        if (inputName == null) return null;
-        return inputName.getValue("TopicRuleIotEventArgs.inputName");
+        if (!unknown_inputName) return value_inputName;
+        throw new UndeferrableValueException("Value 'TopicRuleIotEventArgs.inputName' is not present");
     }
 
     /**
      * Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
      * 
      */
-    private UndeferrableValue<String> messageId;
-
+    @PolicyResourceProperty(name="messageId", flag="unknown_messageId")
+    private String value_messageId;
+    private boolean unknown_messageId;
     public String messageId() {
-        if (messageId == null) return null;
-        return messageId.getValue("TopicRuleIotEventArgs.messageId");
+        if (!unknown_messageId) return value_messageId;
+        throw new UndeferrableValueException("Value 'TopicRuleIotEventArgs.messageId' is not present");
     }
 
     /**
      * The ARN of the IAM role that grants access.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("TopicRuleIotEventArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'TopicRuleIotEventArgs.roleArn' is not present");
     }
 
 }

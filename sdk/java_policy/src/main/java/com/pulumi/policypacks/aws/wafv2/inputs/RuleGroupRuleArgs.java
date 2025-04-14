@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.RuleGroupRuleActionArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.RuleGroupRuleCaptchaConfigArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.RuleGroupRuleRuleLabelArgs;
@@ -21,77 +22,84 @@ public final class RuleGroupRuleArgs {
      * The action that AWS WAF should take on a web request when it matches the rule&#39;s statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleActionArgs> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private RuleGroupRuleActionArgs value_action;
+    private boolean unknown_action;
     public RuleGroupRuleActionArgs action() {
-        if (action == null) return null;
-        return action.getValue("RuleGroupRuleArgs.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleArgs.action' is not present");
     }
 
     /**
      * Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleCaptchaConfigArgs> captchaConfig;
-
+    @PolicyResourceProperty(name="captchaConfig", flag="unknown_captchaConfig")
+    private RuleGroupRuleCaptchaConfigArgs value_captchaConfig;
+    private boolean unknown_captchaConfig;
     public RuleGroupRuleCaptchaConfigArgs captchaConfig() {
-        if (captchaConfig == null) return null;
-        return captchaConfig.getValue("RuleGroupRuleArgs.captchaConfig");
+        if (!unknown_captchaConfig) return value_captchaConfig;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleArgs.captchaConfig' is not present");
     }
 
     /**
      * A friendly name of the rule.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RuleGroupRuleArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleArgs.name' is not present");
     }
 
     /**
      * If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
      * 
      */
-    private UndeferrableValue<Integer> priority;
-
+    @PolicyResourceProperty(name="priority", flag="unknown_priority")
+    private Integer value_priority;
+    private boolean unknown_priority;
     public Integer priority() {
-        if (priority == null) return null;
-        return priority.getValue("RuleGroupRuleArgs.priority");
+        if (!unknown_priority) return value_priority;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleArgs.priority' is not present");
     }
 
     /**
      * Labels to apply to web requests that match the rule match statement. See Rule Label below for details.
      * 
      */
-    private UndeferrableValue<List<RuleGroupRuleRuleLabelArgs>> ruleLabels;
-
+    @PolicyResourceProperty(name="ruleLabels", flag="unknown_ruleLabels")
+    private List<RuleGroupRuleRuleLabelArgs> value_ruleLabels;
+    private boolean unknown_ruleLabels;
     public List<RuleGroupRuleRuleLabelArgs> ruleLabels() {
-        if (ruleLabels == null) return null;
-        return ruleLabels.getValue("RuleGroupRuleArgs.ruleLabels");
+        if (!unknown_ruleLabels) return value_ruleLabels;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleArgs.ruleLabels' is not present");
     }
 
     /**
      * The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See Statement below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementArgs> statement;
-
+    @PolicyResourceProperty(name="statement", flag="unknown_statement")
+    private RuleGroupRuleStatementArgs value_statement;
+    private boolean unknown_statement;
     public RuleGroupRuleStatementArgs statement() {
-        if (statement == null) return null;
-        return statement.getValue("RuleGroupRuleArgs.statement");
+        if (!unknown_statement) return value_statement;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleArgs.statement' is not present");
     }
 
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleVisibilityConfigArgs> visibilityConfig;
-
+    @PolicyResourceProperty(name="visibilityConfig", flag="unknown_visibilityConfig")
+    private RuleGroupRuleVisibilityConfigArgs value_visibilityConfig;
+    private boolean unknown_visibilityConfig;
     public RuleGroupRuleVisibilityConfigArgs visibilityConfig() {
-        if (visibilityConfig == null) return null;
-        return visibilityConfig.getValue("RuleGroupRuleArgs.visibilityConfig");
+        if (!unknown_visibilityConfig) return value_visibilityConfig;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleArgs.visibilityConfig' is not present");
     }
 
 }

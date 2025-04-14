@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sfn;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sfn.inputs.StateMachineEncryptionConfigurationArgs;
 import com.pulumi.policypacks.aws.sfn.inputs.StateMachineLoggingConfigurationArgs;
@@ -21,110 +22,120 @@ public final class StateMachineArgs extends com.pulumi.resources.PolicyResourceI
      * The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
      * 
      */
-    private UndeferrableValue<String> definition;
-
+    @PolicyResourceProperty(name="definition", flag="unknown_definition")
+    private String value_definition;
+    private boolean unknown_definition;
     public String definition() {
-        if (definition == null) return null;
-        return definition.getValue("StateMachineArgs.definition");
+        if (!unknown_definition) return value_definition;
+        throw new UndeferrableValueException("Value 'StateMachineArgs.definition' is not present");
     }
 
     /**
      * Defines what encryption configuration is used to encrypt data in the State Machine. For more information see [TBD] in the AWS Step Functions User Guide.
      * 
      */
-    private UndeferrableValue<StateMachineEncryptionConfigurationArgs> encryptionConfiguration;
-
+    @PolicyResourceProperty(name="encryptionConfiguration", flag="unknown_encryptionConfiguration")
+    private StateMachineEncryptionConfigurationArgs value_encryptionConfiguration;
+    private boolean unknown_encryptionConfiguration;
     public StateMachineEncryptionConfigurationArgs encryptionConfiguration() {
-        if (encryptionConfiguration == null) return null;
-        return encryptionConfiguration.getValue("StateMachineArgs.encryptionConfiguration");
+        if (!unknown_encryptionConfiguration) return value_encryptionConfiguration;
+        throw new UndeferrableValueException("Value 'StateMachineArgs.encryptionConfiguration' is not present");
     }
 
     /**
      * Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is valid when `type` is set to `STANDARD` or `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html), [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) and [Logging Configuration](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateStateMachine.html) in the AWS Step Functions User Guide.
      * 
      */
-    private UndeferrableValue<StateMachineLoggingConfigurationArgs> loggingConfiguration;
-
+    @PolicyResourceProperty(name="loggingConfiguration", flag="unknown_loggingConfiguration")
+    private StateMachineLoggingConfigurationArgs value_loggingConfiguration;
+    private boolean unknown_loggingConfiguration;
     public StateMachineLoggingConfigurationArgs loggingConfiguration() {
-        if (loggingConfiguration == null) return null;
-        return loggingConfiguration.getValue("StateMachineArgs.loggingConfiguration");
+        if (!unknown_loggingConfiguration) return value_loggingConfiguration;
+        throw new UndeferrableValueException("Value 'StateMachineArgs.loggingConfiguration' is not present");
     }
 
     /**
      * The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("StateMachineArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'StateMachineArgs.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("StateMachineArgs.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'StateMachineArgs.namePrefix' is not present");
     }
 
     /**
      * Set to true to publish a version of the state machine during creation. Default: false.
      * 
      */
-    private UndeferrableValue<Boolean> publish;
-
+    @PolicyResourceProperty(name="publish", flag="unknown_publish")
+    private Boolean value_publish;
+    private boolean unknown_publish;
     public Boolean publish() {
-        if (publish == null) return null;
-        return publish.getValue("StateMachineArgs.publish");
+        if (!unknown_publish) return value_publish;
+        throw new UndeferrableValueException("Value 'StateMachineArgs.publish' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("StateMachineArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'StateMachineArgs.roleArn' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("StateMachineArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'StateMachineArgs.tags' is not present");
     }
 
     /**
      * Selects whether AWS X-Ray tracing is enabled.
      * 
      */
-    private UndeferrableValue<StateMachineTracingConfigurationArgs> tracingConfiguration;
-
+    @PolicyResourceProperty(name="tracingConfiguration", flag="unknown_tracingConfiguration")
+    private StateMachineTracingConfigurationArgs value_tracingConfiguration;
+    private boolean unknown_tracingConfiguration;
     public StateMachineTracingConfigurationArgs tracingConfiguration() {
-        if (tracingConfiguration == null) return null;
-        return tracingConfiguration.getValue("StateMachineArgs.tracingConfiguration");
+        if (!unknown_tracingConfiguration) return value_tracingConfiguration;
+        throw new UndeferrableValueException("Value 'StateMachineArgs.tracingConfiguration' is not present");
     }
 
     /**
      * Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("StateMachineArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'StateMachineArgs.type' is not present");
     }
 
 }

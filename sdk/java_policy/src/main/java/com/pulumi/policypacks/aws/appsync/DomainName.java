@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,55 +17,60 @@ public final class DomainName extends com.pulumi.resources.PolicyResourceOutput 
      * Domain name that AppSync provides.
      * 
      */
-    private UndeferrableValue<String> appsyncDomainName;
-
+    @PolicyResourceProperty(name="appsyncDomainName", flag="unknown_appsyncDomainName")
+    private String value_appsyncDomainName;
+    private boolean unknown_appsyncDomainName;
     public String appsyncDomainName() {
-        if (appsyncDomainName == null) return null;
-        return appsyncDomainName.getValue("DomainName.appsyncDomainName");
+        if (!unknown_appsyncDomainName) return value_appsyncDomainName;
+        throw new UndeferrableValueException("Value 'DomainName.appsyncDomainName' is not present");
     }
 
     /**
      * ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
      * 
      */
-    private UndeferrableValue<String> certificateArn;
-
+    @PolicyResourceProperty(name="certificateArn", flag="unknown_certificateArn")
+    private String value_certificateArn;
+    private boolean unknown_certificateArn;
     public String certificateArn() {
-        if (certificateArn == null) return null;
-        return certificateArn.getValue("DomainName.certificateArn");
+        if (!unknown_certificateArn) return value_certificateArn;
+        throw new UndeferrableValueException("Value 'DomainName.certificateArn' is not present");
     }
 
     /**
      * A description of the Domain Name.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("DomainName.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'DomainName.description' is not present");
     }
 
     /**
      * Domain name.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("DomainName.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'DomainName.domainName' is not present");
     }
 
     /**
      * ID of your Amazon Route 53 hosted zone.
      * 
      */
-    private UndeferrableValue<String> hostedZoneId;
-
+    @PolicyResourceProperty(name="hostedZoneId", flag="unknown_hostedZoneId")
+    private String value_hostedZoneId;
+    private boolean unknown_hostedZoneId;
     public String hostedZoneId() {
-        if (hostedZoneId == null) return null;
-        return hostedZoneId.getValue("DomainName.hostedZoneId");
+        if (!unknown_hostedZoneId) return value_hostedZoneId;
+        throw new UndeferrableValueException("Value 'DomainName.hostedZoneId' is not present");
     }
 
 }

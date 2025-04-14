@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class VirtualNodeSpecServiceDiscoveryDnsArgs {
      * DNS host name for your virtual node.
      * 
      */
-    private UndeferrableValue<String> hostname;
-
+    @PolicyResourceProperty(name="hostname", flag="unknown_hostname")
+    private String value_hostname;
+    private boolean unknown_hostname;
     public String hostname() {
-        if (hostname == null) return null;
-        return hostname.getValue("VirtualNodeSpecServiceDiscoveryDnsArgs.hostname");
+        if (!unknown_hostname) return value_hostname;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecServiceDiscoveryDnsArgs.hostname' is not present");
     }
 
     /**
      * The preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
      * 
      */
-    private UndeferrableValue<String> ipPreference;
-
+    @PolicyResourceProperty(name="ipPreference", flag="unknown_ipPreference")
+    private String value_ipPreference;
+    private boolean unknown_ipPreference;
     public String ipPreference() {
-        if (ipPreference == null) return null;
-        return ipPreference.getValue("VirtualNodeSpecServiceDiscoveryDnsArgs.ipPreference");
+        if (!unknown_ipPreference) return value_ipPreference;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecServiceDiscoveryDnsArgs.ipPreference' is not present");
     }
 
     /**
      * The DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
      * 
      */
-    private UndeferrableValue<String> responseType;
-
+    @PolicyResourceProperty(name="responseType", flag="unknown_responseType")
+    private String value_responseType;
+    private boolean unknown_responseType;
     public String responseType() {
-        if (responseType == null) return null;
-        return responseType.getValue("VirtualNodeSpecServiceDiscoveryDnsArgs.responseType");
+        if (!unknown_responseType) return value_responseType;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecServiceDiscoveryDnsArgs.responseType' is not present");
     }
 
 }

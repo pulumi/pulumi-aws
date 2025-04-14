@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class PipeSourceParametersManagedStreamingKafkaParametersCredential
      * The ARN of the Secrets Manager secret containing the credentials.
      * 
      */
-    private @Nullable UndeferrableValue<String> clientCertificateTlsAuth;
-
+    @PolicyResourceProperty(name="clientCertificateTlsAuth", flag="unknown_clientCertificateTlsAuth")
+    private @Nullable String value_clientCertificateTlsAuth;
+    private boolean unknown_clientCertificateTlsAuth;
     public @Nullable String clientCertificateTlsAuth() {
-        if (clientCertificateTlsAuth == null) return null;
-        return clientCertificateTlsAuth.getValue("PipeSourceParametersManagedStreamingKafkaParametersCredentials.clientCertificateTlsAuth");
+        if (!unknown_clientCertificateTlsAuth) return value_clientCertificateTlsAuth;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersManagedStreamingKafkaParametersCredentials.clientCertificateTlsAuth' is not present");
     }
 
     /**
      * The ARN of the Secrets Manager secret containing the credentials.
      * 
      */
-    private @Nullable UndeferrableValue<String> saslScram512Auth;
-
+    @PolicyResourceProperty(name="saslScram512Auth", flag="unknown_saslScram512Auth")
+    private @Nullable String value_saslScram512Auth;
+    private boolean unknown_saslScram512Auth;
     public @Nullable String saslScram512Auth() {
-        if (saslScram512Auth == null) return null;
-        return saslScram512Auth.getValue("PipeSourceParametersManagedStreamingKafkaParametersCredentials.saslScram512Auth");
+        if (!unknown_saslScram512Auth) return value_saslScram512Auth;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersManagedStreamingKafkaParametersCredentials.saslScram512Auth' is not present");
     }
 
 }

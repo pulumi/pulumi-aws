@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,18 +12,20 @@ import javax.annotation.Nullable;
 
 public final class ListenerRuleActionForwardTargetGroup {
 
-    private UndeferrableValue<String> targetGroupIdentifier;
-
+    @PolicyResourceProperty(name="targetGroupIdentifier", flag="unknown_targetGroupIdentifier")
+    private String value_targetGroupIdentifier;
+    private boolean unknown_targetGroupIdentifier;
     public String targetGroupIdentifier() {
-        if (targetGroupIdentifier == null) return null;
-        return targetGroupIdentifier.getValue("ListenerRuleActionForwardTargetGroup.targetGroupIdentifier");
+        if (!unknown_targetGroupIdentifier) return value_targetGroupIdentifier;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionForwardTargetGroup.targetGroupIdentifier' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> weight;
-
+    @PolicyResourceProperty(name="weight", flag="unknown_weight")
+    private @Nullable Integer value_weight;
+    private boolean unknown_weight;
     public @Nullable Integer weight() {
-        if (weight == null) return null;
-        return weight.getValue("ListenerRuleActionForwardTargetGroup.weight");
+        if (!unknown_weight) return value_weight;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionForwardTargetGroup.weight' is not present");
     }
 
 }

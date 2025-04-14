@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codepipeline.inputs.PipelineStageActionArgs;
 import com.pulumi.policypacks.aws.codepipeline.inputs.PipelineStageBeforeEntryArgs;
 import com.pulumi.policypacks.aws.codepipeline.inputs.PipelineStageOnFailureArgs;
@@ -19,55 +20,60 @@ public final class PipelineStageArgs {
      * The action(s) to include in the stage. Defined as an `action` block below
      * 
      */
-    private UndeferrableValue<List<PipelineStageActionArgs>> actions;
-
+    @PolicyResourceProperty(name="actions", flag="unknown_actions")
+    private List<PipelineStageActionArgs> value_actions;
+    private boolean unknown_actions;
     public List<PipelineStageActionArgs> actions() {
-        if (actions == null) return null;
-        return actions.getValue("PipelineStageArgs.actions");
+        if (!unknown_actions) return value_actions;
+        throw new UndeferrableValueException("Value 'PipelineStageArgs.actions' is not present");
     }
 
     /**
      * The method to use when a stage allows entry. For example, configuring this field for conditions will allow entry to the stage when the conditions are met.
      * 
      */
-    private UndeferrableValue<PipelineStageBeforeEntryArgs> beforeEntry;
-
+    @PolicyResourceProperty(name="beforeEntry", flag="unknown_beforeEntry")
+    private PipelineStageBeforeEntryArgs value_beforeEntry;
+    private boolean unknown_beforeEntry;
     public PipelineStageBeforeEntryArgs beforeEntry() {
-        if (beforeEntry == null) return null;
-        return beforeEntry.getValue("PipelineStageArgs.beforeEntry");
+        if (!unknown_beforeEntry) return value_beforeEntry;
+        throw new UndeferrableValueException("Value 'PipelineStageArgs.beforeEntry' is not present");
     }
 
     /**
      * The name of the stage.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PipelineStageArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PipelineStageArgs.name' is not present");
     }
 
     /**
      * The method to use when a stage has not completed successfully. For example, configuring this field for rollback will roll back a failed stage automatically to the last successful pipeline execution in the stage.
      * 
      */
-    private UndeferrableValue<PipelineStageOnFailureArgs> onFailure;
-
+    @PolicyResourceProperty(name="onFailure", flag="unknown_onFailure")
+    private PipelineStageOnFailureArgs value_onFailure;
+    private boolean unknown_onFailure;
     public PipelineStageOnFailureArgs onFailure() {
-        if (onFailure == null) return null;
-        return onFailure.getValue("PipelineStageArgs.onFailure");
+        if (!unknown_onFailure) return value_onFailure;
+        throw new UndeferrableValueException("Value 'PipelineStageArgs.onFailure' is not present");
     }
 
     /**
      * The method to use when a stage has succeeded. For example, configuring this field for conditions will allow the stage to succeed when the conditions are met.
      * 
      */
-    private UndeferrableValue<PipelineStageOnSuccessArgs> onSuccess;
-
+    @PolicyResourceProperty(name="onSuccess", flag="unknown_onSuccess")
+    private PipelineStageOnSuccessArgs value_onSuccess;
+    private boolean unknown_onSuccess;
     public PipelineStageOnSuccessArgs onSuccess() {
-        if (onSuccess == null) return null;
-        return onSuccess.getValue("PipelineStageArgs.onSuccess");
+        if (!unknown_onSuccess) return value_onSuccess;
+        throw new UndeferrableValueException("Value 'PipelineStageArgs.onSuccess' is not present");
     }
 
 }

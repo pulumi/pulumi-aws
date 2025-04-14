@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dynamodb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class TableTtl {
      * Required if `enabled` is `true`, must not be set otherwise.
      * 
      */
-    private @Nullable UndeferrableValue<String> attributeName;
-
+    @PolicyResourceProperty(name="attributeName", flag="unknown_attributeName")
+    private @Nullable String value_attributeName;
+    private boolean unknown_attributeName;
     public @Nullable String attributeName() {
-        if (attributeName == null) return null;
-        return attributeName.getValue("TableTtl.attributeName");
+        if (!unknown_attributeName) return value_attributeName;
+        throw new UndeferrableValueException("Value 'TableTtl.attributeName' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class TableTtl {
      * Default value is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("TableTtl.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'TableTtl.enabled' is not present");
     }
 
 }

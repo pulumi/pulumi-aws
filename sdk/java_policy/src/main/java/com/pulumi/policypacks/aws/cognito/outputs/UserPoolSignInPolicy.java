@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class UserPoolSignInPolicy {
      * The sign in methods your user pool supports as the first factor. This is a list of strings, allowed values are `PASSWORD`, `EMAIL_OTP`, `SMS_OTP`, and `WEB_AUTHN`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> allowedFirstAuthFactors;
-
+    @PolicyResourceProperty(name="allowedFirstAuthFactors", flag="unknown_allowedFirstAuthFactors")
+    private @Nullable List<String> value_allowedFirstAuthFactors;
+    private boolean unknown_allowedFirstAuthFactors;
     public @Nullable List<String> allowedFirstAuthFactors() {
-        if (allowedFirstAuthFactors == null) return null;
-        return allowedFirstAuthFactors.getValue("UserPoolSignInPolicy.allowedFirstAuthFactors");
+        if (!unknown_allowedFirstAuthFactors) return value_allowedFirstAuthFactors;
+        throw new UndeferrableValueException("Value 'UserPoolSignInPolicy.allowedFirstAuthFactors' is not present");
     }
 
 }

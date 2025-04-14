@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ebs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ebs.inputs.SnapshotImportClientDataArgs;
 import com.pulumi.policypacks.aws.ebs.inputs.SnapshotImportDiskContainerArgs;
@@ -21,110 +22,120 @@ public final class SnapshotImportArgs extends com.pulumi.resources.PolicyResourc
      * The client-specific data. Detailed below.
      * 
      */
-    private UndeferrableValue<SnapshotImportClientDataArgs> clientData;
-
+    @PolicyResourceProperty(name="clientData", flag="unknown_clientData")
+    private SnapshotImportClientDataArgs value_clientData;
+    private boolean unknown_clientData;
     public SnapshotImportClientDataArgs clientData() {
-        if (clientData == null) return null;
-        return clientData.getValue("SnapshotImportArgs.clientData");
+        if (!unknown_clientData) return value_clientData;
+        throw new UndeferrableValueException("Value 'SnapshotImportArgs.clientData' is not present");
     }
 
     /**
      * The description string for the import snapshot task.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("SnapshotImportArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'SnapshotImportArgs.description' is not present");
     }
 
     /**
      * Information about the disk container. Detailed below.
      * 
      */
-    private UndeferrableValue<SnapshotImportDiskContainerArgs> diskContainer;
-
+    @PolicyResourceProperty(name="diskContainer", flag="unknown_diskContainer")
+    private SnapshotImportDiskContainerArgs value_diskContainer;
+    private boolean unknown_diskContainer;
     public SnapshotImportDiskContainerArgs diskContainer() {
-        if (diskContainer == null) return null;
-        return diskContainer.getValue("SnapshotImportArgs.diskContainer");
+        if (!unknown_diskContainer) return value_diskContainer;
+        throw new UndeferrableValueException("Value 'SnapshotImportArgs.diskContainer' is not present");
     }
 
     /**
      * Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
      * 
      */
-    private UndeferrableValue<Boolean> encrypted;
-
+    @PolicyResourceProperty(name="encrypted", flag="unknown_encrypted")
+    private Boolean value_encrypted;
+    private boolean unknown_encrypted;
     public Boolean encrypted() {
-        if (encrypted == null) return null;
-        return encrypted.getValue("SnapshotImportArgs.encrypted");
+        if (!unknown_encrypted) return value_encrypted;
+        throw new UndeferrableValueException("Value 'SnapshotImportArgs.encrypted' is not present");
     }
 
     /**
      * An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("SnapshotImportArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'SnapshotImportArgs.kmsKeyId' is not present");
     }
 
     /**
      * Indicates whether to permanently restore an archived snapshot.
      * 
      */
-    private UndeferrableValue<Boolean> permanentRestore;
-
+    @PolicyResourceProperty(name="permanentRestore", flag="unknown_permanentRestore")
+    private Boolean value_permanentRestore;
+    private boolean unknown_permanentRestore;
     public Boolean permanentRestore() {
-        if (permanentRestore == null) return null;
-        return permanentRestore.getValue("SnapshotImportArgs.permanentRestore");
+        if (!unknown_permanentRestore) return value_permanentRestore;
+        throw new UndeferrableValueException("Value 'SnapshotImportArgs.permanentRestore' is not present");
     }
 
     /**
      * The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
      * 
      */
-    private UndeferrableValue<String> roleName;
-
+    @PolicyResourceProperty(name="roleName", flag="unknown_roleName")
+    private String value_roleName;
+    private boolean unknown_roleName;
     public String roleName() {
-        if (roleName == null) return null;
-        return roleName.getValue("SnapshotImportArgs.roleName");
+        if (!unknown_roleName) return value_roleName;
+        throw new UndeferrableValueException("Value 'SnapshotImportArgs.roleName' is not present");
     }
 
     /**
      * The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
      * 
      */
-    private UndeferrableValue<String> storageTier;
-
+    @PolicyResourceProperty(name="storageTier", flag="unknown_storageTier")
+    private String value_storageTier;
+    private boolean unknown_storageTier;
     public String storageTier() {
-        if (storageTier == null) return null;
-        return storageTier.getValue("SnapshotImportArgs.storageTier");
+        if (!unknown_storageTier) return value_storageTier;
+        throw new UndeferrableValueException("Value 'SnapshotImportArgs.storageTier' is not present");
     }
 
     /**
      * A map of tags to assign to the snapshot.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SnapshotImportArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SnapshotImportArgs.tags' is not present");
     }
 
     /**
      * Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
      * 
      */
-    private UndeferrableValue<Integer> temporaryRestoreDays;
-
+    @PolicyResourceProperty(name="temporaryRestoreDays", flag="unknown_temporaryRestoreDays")
+    private Integer value_temporaryRestoreDays;
+    private boolean unknown_temporaryRestoreDays;
     public Integer temporaryRestoreDays() {
-        if (temporaryRestoreDays == null) return null;
-        return temporaryRestoreDays.getValue("SnapshotImportArgs.temporaryRestoreDays");
+        if (!unknown_temporaryRestoreDays) return value_temporaryRestoreDays;
+        throw new UndeferrableValueException("Value 'SnapshotImportArgs.temporaryRestoreDays' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshiftserverless;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,55 +18,60 @@ public final class EndpointAccessArgs extends com.pulumi.resources.PolicyResourc
      * The name of the endpoint.
      * 
      */
-    private UndeferrableValue<String> endpointName;
-
+    @PolicyResourceProperty(name="endpointName", flag="unknown_endpointName")
+    private String value_endpointName;
+    private boolean unknown_endpointName;
     public String endpointName() {
-        if (endpointName == null) return null;
-        return endpointName.getValue("EndpointAccessArgs.endpointName");
+        if (!unknown_endpointName) return value_endpointName;
+        throw new UndeferrableValueException("Value 'EndpointAccessArgs.endpointName' is not present");
     }
 
     /**
      * The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
      * 
      */
-    private UndeferrableValue<String> ownerAccount;
-
+    @PolicyResourceProperty(name="ownerAccount", flag="unknown_ownerAccount")
+    private String value_ownerAccount;
+    private boolean unknown_ownerAccount;
     public String ownerAccount() {
-        if (ownerAccount == null) return null;
-        return ownerAccount.getValue("EndpointAccessArgs.ownerAccount");
+        if (!unknown_ownerAccount) return value_ownerAccount;
+        throw new UndeferrableValueException("Value 'EndpointAccessArgs.ownerAccount' is not present");
     }
 
     /**
      * An array of VPC subnet IDs to associate with the endpoint.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("EndpointAccessArgs.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'EndpointAccessArgs.subnetIds' is not present");
     }
 
     /**
      * An array of security group IDs to associate with the workgroup.
      * 
      */
-    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
-
+    @PolicyResourceProperty(name="vpcSecurityGroupIds", flag="unknown_vpcSecurityGroupIds")
+    private List<String> value_vpcSecurityGroupIds;
+    private boolean unknown_vpcSecurityGroupIds;
     public List<String> vpcSecurityGroupIds() {
-        if (vpcSecurityGroupIds == null) return null;
-        return vpcSecurityGroupIds.getValue("EndpointAccessArgs.vpcSecurityGroupIds");
+        if (!unknown_vpcSecurityGroupIds) return value_vpcSecurityGroupIds;
+        throw new UndeferrableValueException("Value 'EndpointAccessArgs.vpcSecurityGroupIds' is not present");
     }
 
     /**
      * The name of the workgroup.
      * 
      */
-    private UndeferrableValue<String> workgroupName;
-
+    @PolicyResourceProperty(name="workgroupName", flag="unknown_workgroupName")
+    private String value_workgroupName;
+    private boolean unknown_workgroupName;
     public String workgroupName() {
-        if (workgroupName == null) return null;
-        return workgroupName.getValue("EndpointAccessArgs.workgroupName");
+        if (!unknown_workgroupName) return value_workgroupName;
+        throw new UndeferrableValueException("Value 'EndpointAccessArgs.workgroupName' is not present");
     }
 
 }

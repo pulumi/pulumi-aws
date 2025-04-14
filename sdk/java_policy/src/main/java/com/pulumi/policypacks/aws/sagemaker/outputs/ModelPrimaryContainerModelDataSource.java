@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.outputs.ModelPrimaryContainerModelDataSourceS3DataSource;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class ModelPrimaryContainerModelDataSource {
      * The S3 location of model data to deploy.
      * 
      */
-    private UndeferrableValue<List<ModelPrimaryContainerModelDataSourceS3DataSource>> s3DataSources;
-
+    @PolicyResourceProperty(name="s3DataSources", flag="unknown_s3DataSources")
+    private List<ModelPrimaryContainerModelDataSourceS3DataSource> value_s3DataSources;
+    private boolean unknown_s3DataSources;
     public List<ModelPrimaryContainerModelDataSourceS3DataSource> s3DataSources() {
-        if (s3DataSources == null) return null;
-        return s3DataSources.getValue("ModelPrimaryContainerModelDataSource.s3DataSources");
+        if (!unknown_s3DataSources) return value_s3DataSources;
+        throw new UndeferrableValueException("Value 'ModelPrimaryContainerModelDataSource.s3DataSources' is not present");
     }
 
 }

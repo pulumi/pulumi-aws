@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class IamPolicyAssignmentIdentitiesArgs {
      * Array of Quicksight group names to assign the policy to.
      * 
      */
-    private UndeferrableValue<List<String>> groups;
-
+    @PolicyResourceProperty(name="groups", flag="unknown_groups")
+    private List<String> value_groups;
+    private boolean unknown_groups;
     public List<String> groups() {
-        if (groups == null) return null;
-        return groups.getValue("IamPolicyAssignmentIdentitiesArgs.groups");
+        if (!unknown_groups) return value_groups;
+        throw new UndeferrableValueException("Value 'IamPolicyAssignmentIdentitiesArgs.groups' is not present");
     }
 
     /**
      * Array of Quicksight user names to assign the policy to.
      * 
      */
-    private UndeferrableValue<List<String>> users;
-
+    @PolicyResourceProperty(name="users", flag="unknown_users")
+    private List<String> value_users;
+    private boolean unknown_users;
     public List<String> users() {
-        if (users == null) return null;
-        return users.getValue("IamPolicyAssignmentIdentitiesArgs.users");
+        if (!unknown_users) return value_users;
+        throw new UndeferrableValueException("Value 'IamPolicyAssignmentIdentitiesArgs.users' is not present");
     }
 
 }

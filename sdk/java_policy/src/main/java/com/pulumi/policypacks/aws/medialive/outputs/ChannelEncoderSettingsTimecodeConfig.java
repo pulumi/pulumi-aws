@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ChannelEncoderSettingsTimecodeConfig {
      * The source for the timecode that will be associated with the events outputs.
      * 
      */
-    private UndeferrableValue<String> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private String value_source;
+    private boolean unknown_source;
     public String source() {
-        if (source == null) return null;
-        return source.getValue("ChannelEncoderSettingsTimecodeConfig.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsTimecodeConfig.source' is not present");
     }
 
     /**
      * Threshold in frames beyond which output timecode is resynchronized to the input timecode.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> syncThreshold;
-
+    @PolicyResourceProperty(name="syncThreshold", flag="unknown_syncThreshold")
+    private @Nullable Integer value_syncThreshold;
+    private boolean unknown_syncThreshold;
     public @Nullable Integer syncThreshold() {
-        if (syncThreshold == null) return null;
-        return syncThreshold.getValue("ChannelEncoderSettingsTimecodeConfig.syncThreshold");
+        if (!unknown_syncThreshold) return value_syncThreshold;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsTimecodeConfig.syncThreshold' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.autoscaling.inputs.TagTagArgs;
 import java.lang.String;
@@ -16,22 +17,24 @@ public final class TagArgs extends com.pulumi.resources.PolicyResourceInput {
      * Name of the Autoscaling Group to apply the tag to.
      * 
      */
-    private UndeferrableValue<String> autoscalingGroupName;
-
+    @PolicyResourceProperty(name="autoscalingGroupName", flag="unknown_autoscalingGroupName")
+    private String value_autoscalingGroupName;
+    private boolean unknown_autoscalingGroupName;
     public String autoscalingGroupName() {
-        if (autoscalingGroupName == null) return null;
-        return autoscalingGroupName.getValue("TagArgs.autoscalingGroupName");
+        if (!unknown_autoscalingGroupName) return value_autoscalingGroupName;
+        throw new UndeferrableValueException("Value 'TagArgs.autoscalingGroupName' is not present");
     }
 
     /**
      * Tag to create. The `tag` block is documented below.
      * 
      */
-    private UndeferrableValue<TagTagArgs> tag;
-
+    @PolicyResourceProperty(name="tag", flag="unknown_tag")
+    private TagTagArgs value_tag;
+    private boolean unknown_tag;
     public TagTagArgs tag() {
-        if (tag == null) return null;
-        return tag.getValue("TagArgs.tag");
+        if (!unknown_tag) return value_tag;
+        throw new UndeferrableValueException("Value 'TagArgs.tag' is not present");
     }
 
 }

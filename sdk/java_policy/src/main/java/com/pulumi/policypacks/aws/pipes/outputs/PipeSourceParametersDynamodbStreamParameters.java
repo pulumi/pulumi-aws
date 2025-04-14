@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.pipes.outputs.PipeSourceParametersDynamodbStreamParametersDeadLetterConfig;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,88 +17,96 @@ public final class PipeSourceParametersDynamodbStreamParameters {
      * The maximum number of records to include in each batch. Maximum value of 10000.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> batchSize;
-
+    @PolicyResourceProperty(name="batchSize", flag="unknown_batchSize")
+    private @Nullable Integer value_batchSize;
+    private boolean unknown_batchSize;
     public @Nullable Integer batchSize() {
-        if (batchSize == null) return null;
-        return batchSize.getValue("PipeSourceParametersDynamodbStreamParameters.batchSize");
+        if (!unknown_batchSize) return value_batchSize;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersDynamodbStreamParameters.batchSize' is not present");
     }
 
     /**
      * Define the target queue to send dead-letter queue events to. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<PipeSourceParametersDynamodbStreamParametersDeadLetterConfig> deadLetterConfig;
-
+    @PolicyResourceProperty(name="deadLetterConfig", flag="unknown_deadLetterConfig")
+    private @Nullable PipeSourceParametersDynamodbStreamParametersDeadLetterConfig value_deadLetterConfig;
+    private boolean unknown_deadLetterConfig;
     public @Nullable PipeSourceParametersDynamodbStreamParametersDeadLetterConfig deadLetterConfig() {
-        if (deadLetterConfig == null) return null;
-        return deadLetterConfig.getValue("PipeSourceParametersDynamodbStreamParameters.deadLetterConfig");
+        if (!unknown_deadLetterConfig) return value_deadLetterConfig;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersDynamodbStreamParameters.deadLetterConfig' is not present");
     }
 
     /**
      * The maximum length of a time to wait for events. Maximum value of 300.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maximumBatchingWindowInSeconds;
-
+    @PolicyResourceProperty(name="maximumBatchingWindowInSeconds", flag="unknown_maximumBatchingWindowInSeconds")
+    private @Nullable Integer value_maximumBatchingWindowInSeconds;
+    private boolean unknown_maximumBatchingWindowInSeconds;
     public @Nullable Integer maximumBatchingWindowInSeconds() {
-        if (maximumBatchingWindowInSeconds == null) return null;
-        return maximumBatchingWindowInSeconds.getValue("PipeSourceParametersDynamodbStreamParameters.maximumBatchingWindowInSeconds");
+        if (!unknown_maximumBatchingWindowInSeconds) return value_maximumBatchingWindowInSeconds;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersDynamodbStreamParameters.maximumBatchingWindowInSeconds' is not present");
     }
 
     /**
      * Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maximumRecordAgeInSeconds;
-
+    @PolicyResourceProperty(name="maximumRecordAgeInSeconds", flag="unknown_maximumRecordAgeInSeconds")
+    private @Nullable Integer value_maximumRecordAgeInSeconds;
+    private boolean unknown_maximumRecordAgeInSeconds;
     public @Nullable Integer maximumRecordAgeInSeconds() {
-        if (maximumRecordAgeInSeconds == null) return null;
-        return maximumRecordAgeInSeconds.getValue("PipeSourceParametersDynamodbStreamParameters.maximumRecordAgeInSeconds");
+        if (!unknown_maximumRecordAgeInSeconds) return value_maximumRecordAgeInSeconds;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersDynamodbStreamParameters.maximumRecordAgeInSeconds' is not present");
     }
 
     /**
      * Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maximumRetryAttempts;
-
+    @PolicyResourceProperty(name="maximumRetryAttempts", flag="unknown_maximumRetryAttempts")
+    private @Nullable Integer value_maximumRetryAttempts;
+    private boolean unknown_maximumRetryAttempts;
     public @Nullable Integer maximumRetryAttempts() {
-        if (maximumRetryAttempts == null) return null;
-        return maximumRetryAttempts.getValue("PipeSourceParametersDynamodbStreamParameters.maximumRetryAttempts");
+        if (!unknown_maximumRetryAttempts) return value_maximumRetryAttempts;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersDynamodbStreamParameters.maximumRetryAttempts' is not present");
     }
 
     /**
      * Define how to handle item process failures. AUTOMATIC_BISECT halves each batch and retry each half until all the records are processed or there is one failed message left in the batch. Valid values: AUTOMATIC_BISECT.
      * 
      */
-    private @Nullable UndeferrableValue<String> onPartialBatchItemFailure;
-
+    @PolicyResourceProperty(name="onPartialBatchItemFailure", flag="unknown_onPartialBatchItemFailure")
+    private @Nullable String value_onPartialBatchItemFailure;
+    private boolean unknown_onPartialBatchItemFailure;
     public @Nullable String onPartialBatchItemFailure() {
-        if (onPartialBatchItemFailure == null) return null;
-        return onPartialBatchItemFailure.getValue("PipeSourceParametersDynamodbStreamParameters.onPartialBatchItemFailure");
+        if (!unknown_onPartialBatchItemFailure) return value_onPartialBatchItemFailure;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersDynamodbStreamParameters.onPartialBatchItemFailure' is not present");
     }
 
     /**
      * The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> parallelizationFactor;
-
+    @PolicyResourceProperty(name="parallelizationFactor", flag="unknown_parallelizationFactor")
+    private @Nullable Integer value_parallelizationFactor;
+    private boolean unknown_parallelizationFactor;
     public @Nullable Integer parallelizationFactor() {
-        if (parallelizationFactor == null) return null;
-        return parallelizationFactor.getValue("PipeSourceParametersDynamodbStreamParameters.parallelizationFactor");
+        if (!unknown_parallelizationFactor) return value_parallelizationFactor;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersDynamodbStreamParameters.parallelizationFactor' is not present");
     }
 
     /**
      * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
      * 
      */
-    private UndeferrableValue<String> startingPosition;
-
+    @PolicyResourceProperty(name="startingPosition", flag="unknown_startingPosition")
+    private String value_startingPosition;
+    private boolean unknown_startingPosition;
     public String startingPosition() {
-        if (startingPosition == null) return null;
-        return startingPosition.getValue("PipeSourceParametersDynamodbStreamParameters.startingPosition");
+        if (!unknown_startingPosition) return value_startingPosition;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersDynamodbStreamParameters.startingPosition' is not present");
     }
 
 }

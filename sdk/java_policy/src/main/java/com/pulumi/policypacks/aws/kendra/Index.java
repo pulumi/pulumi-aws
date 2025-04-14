@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.kendra.outputs.IndexCapacityUnits;
 import com.pulumi.policypacks.aws.kendra.outputs.IndexDocumentMetadataConfigurationUpdate;
@@ -24,132 +25,144 @@ public final class Index extends com.pulumi.resources.PolicyResourceOutput {
      * The Amazon Resource Name (ARN) of the Index.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Index.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Index.arn' is not present");
     }
 
     /**
      * A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
      * 
      */
-    private UndeferrableValue<IndexCapacityUnits> capacityUnits;
-
+    @PolicyResourceProperty(name="capacityUnits", flag="unknown_capacityUnits")
+    private IndexCapacityUnits value_capacityUnits;
+    private boolean unknown_capacityUnits;
     public IndexCapacityUnits capacityUnits() {
-        if (capacityUnits == null) return null;
-        return capacityUnits.getValue("Index.capacityUnits");
+        if (!unknown_capacityUnits) return value_capacityUnits;
+        throw new UndeferrableValueException("Value 'Index.capacityUnits' is not present");
     }
 
     /**
      * The Unix datetime that the index was created.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("Index.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'Index.createdAt' is not present");
     }
 
     /**
      * The description of the Index.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Index.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Index.description' is not present");
     }
 
     /**
      * One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
      * 
      */
-    private UndeferrableValue<List<IndexDocumentMetadataConfigurationUpdate>> documentMetadataConfigurationUpdates;
-
+    @PolicyResourceProperty(name="documentMetadataConfigurationUpdates", flag="unknown_documentMetadataConfigurationUpdates")
+    private List<IndexDocumentMetadataConfigurationUpdate> value_documentMetadataConfigurationUpdates;
+    private boolean unknown_documentMetadataConfigurationUpdates;
     public List<IndexDocumentMetadataConfigurationUpdate> documentMetadataConfigurationUpdates() {
-        if (documentMetadataConfigurationUpdates == null) return null;
-        return documentMetadataConfigurationUpdates.getValue("Index.documentMetadataConfigurationUpdates");
+        if (!unknown_documentMetadataConfigurationUpdates) return value_documentMetadataConfigurationUpdates;
+        throw new UndeferrableValueException("Value 'Index.documentMetadataConfigurationUpdates' is not present");
     }
 
     /**
      * The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can&#39;t be changed. Defaults to `ENTERPRISE_EDITION`.
      * 
      */
-    private @Nullable UndeferrableValue<String> edition;
-
+    @PolicyResourceProperty(name="edition", flag="unknown_edition")
+    private @Nullable String value_edition;
+    private boolean unknown_edition;
     public @Nullable String edition() {
-        if (edition == null) return null;
-        return edition.getValue("Index.edition");
+        if (!unknown_edition) return value_edition;
+        throw new UndeferrableValueException("Value 'Index.edition' is not present");
     }
 
     /**
      * When the Status field value is `FAILED`, this contains a message that explains why.
      * 
      */
-    private UndeferrableValue<String> errorMessage;
-
+    @PolicyResourceProperty(name="errorMessage", flag="unknown_errorMessage")
+    private String value_errorMessage;
+    private boolean unknown_errorMessage;
     public String errorMessage() {
-        if (errorMessage == null) return null;
-        return errorMessage.getValue("Index.errorMessage");
+        if (!unknown_errorMessage) return value_errorMessage;
+        throw new UndeferrableValueException("Value 'Index.errorMessage' is not present");
     }
 
     /**
      * A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
      * 
      */
-    private UndeferrableValue<List<IndexIndexStatistic>> indexStatistics;
-
+    @PolicyResourceProperty(name="indexStatistics", flag="unknown_indexStatistics")
+    private List<IndexIndexStatistic> value_indexStatistics;
+    private boolean unknown_indexStatistics;
     public List<IndexIndexStatistic> indexStatistics() {
-        if (indexStatistics == null) return null;
-        return indexStatistics.getValue("Index.indexStatistics");
+        if (!unknown_indexStatistics) return value_indexStatistics;
+        throw new UndeferrableValueException("Value 'Index.indexStatistics' is not present");
     }
 
     /**
      * Specifies the name of the Index.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Index.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Index.name' is not present");
     }
 
     /**
      * An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("Index.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'Index.roleArn' is not present");
     }
 
     /**
      * A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<IndexServerSideEncryptionConfiguration> serverSideEncryptionConfiguration;
-
+    @PolicyResourceProperty(name="serverSideEncryptionConfiguration", flag="unknown_serverSideEncryptionConfiguration")
+    private @Nullable IndexServerSideEncryptionConfiguration value_serverSideEncryptionConfiguration;
+    private boolean unknown_serverSideEncryptionConfiguration;
     public @Nullable IndexServerSideEncryptionConfiguration serverSideEncryptionConfiguration() {
-        if (serverSideEncryptionConfiguration == null) return null;
-        return serverSideEncryptionConfiguration.getValue("Index.serverSideEncryptionConfiguration");
+        if (!unknown_serverSideEncryptionConfiguration) return value_serverSideEncryptionConfiguration;
+        throw new UndeferrableValueException("Value 'Index.serverSideEncryptionConfiguration' is not present");
     }
 
     /**
      * The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Index.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Index.status' is not present");
     }
 
     /**
@@ -157,11 +170,12 @@ public final class Index extends com.pulumi.resources.PolicyResourceOutput {
      * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Index.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Index.tags' is not present");
     }
 
     /**
@@ -172,55 +186,60 @@ public final class Index extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Index.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Index.tagsAll' is not present");
     }
 
     /**
      * The Unix datetime that the index was last updated.
      * 
      */
-    private UndeferrableValue<String> updatedAt;
-
+    @PolicyResourceProperty(name="updatedAt", flag="unknown_updatedAt")
+    private String value_updatedAt;
+    private boolean unknown_updatedAt;
     public String updatedAt() {
-        if (updatedAt == null) return null;
-        return updatedAt.getValue("Index.updatedAt");
+        if (!unknown_updatedAt) return value_updatedAt;
+        throw new UndeferrableValueException("Value 'Index.updatedAt' is not present");
     }
 
     /**
      * The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
      * 
      */
-    private @Nullable UndeferrableValue<String> userContextPolicy;
-
+    @PolicyResourceProperty(name="userContextPolicy", flag="unknown_userContextPolicy")
+    private @Nullable String value_userContextPolicy;
+    private boolean unknown_userContextPolicy;
     public @Nullable String userContextPolicy() {
-        if (userContextPolicy == null) return null;
-        return userContextPolicy.getValue("Index.userContextPolicy");
+        if (!unknown_userContextPolicy) return value_userContextPolicy;
+        throw new UndeferrableValueException("Value 'Index.userContextPolicy' is not present");
     }
 
     /**
      * A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<IndexUserGroupResolutionConfiguration> userGroupResolutionConfiguration;
-
+    @PolicyResourceProperty(name="userGroupResolutionConfiguration", flag="unknown_userGroupResolutionConfiguration")
+    private @Nullable IndexUserGroupResolutionConfiguration value_userGroupResolutionConfiguration;
+    private boolean unknown_userGroupResolutionConfiguration;
     public @Nullable IndexUserGroupResolutionConfiguration userGroupResolutionConfiguration() {
-        if (userGroupResolutionConfiguration == null) return null;
-        return userGroupResolutionConfiguration.getValue("Index.userGroupResolutionConfiguration");
+        if (!unknown_userGroupResolutionConfiguration) return value_userGroupResolutionConfiguration;
+        throw new UndeferrableValueException("Value 'Index.userGroupResolutionConfiguration' is not present");
     }
 
     /**
      * A block that specifies the user token configuration. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<IndexUserTokenConfigurations> userTokenConfigurations;
-
+    @PolicyResourceProperty(name="userTokenConfigurations", flag="unknown_userTokenConfigurations")
+    private @Nullable IndexUserTokenConfigurations value_userTokenConfigurations;
+    private boolean unknown_userTokenConfigurations;
     public @Nullable IndexUserTokenConfigurations userTokenConfigurations() {
-        if (userTokenConfigurations == null) return null;
-        return userTokenConfigurations.getValue("Index.userTokenConfigurations");
+        if (!unknown_userTokenConfigurations) return value_userTokenConfigurations;
+        throw new UndeferrableValueException("Value 'Index.userTokenConfigurations' is not present");
     }
 
 }

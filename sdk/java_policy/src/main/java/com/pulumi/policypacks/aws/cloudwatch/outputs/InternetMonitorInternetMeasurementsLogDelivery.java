@@ -3,18 +3,20 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudwatch.outputs.InternetMonitorInternetMeasurementsLogDeliveryS3Config;
 import javax.annotation.Nullable;
 
 
 public final class InternetMonitorInternetMeasurementsLogDelivery {
 
-    private @Nullable UndeferrableValue<InternetMonitorInternetMeasurementsLogDeliveryS3Config> s3Config;
-
+    @PolicyResourceProperty(name="s3Config", flag="unknown_s3Config")
+    private @Nullable InternetMonitorInternetMeasurementsLogDeliveryS3Config value_s3Config;
+    private boolean unknown_s3Config;
     public @Nullable InternetMonitorInternetMeasurementsLogDeliveryS3Config s3Config() {
-        if (s3Config == null) return null;
-        return s3Config.getValue("InternetMonitorInternetMeasurementsLogDelivery.s3Config");
+        if (!unknown_s3Config) return value_s3Config;
+        throw new UndeferrableValueException("Value 'InternetMonitorInternetMeasurementsLogDelivery.s3Config' is not present");
     }
 
 }

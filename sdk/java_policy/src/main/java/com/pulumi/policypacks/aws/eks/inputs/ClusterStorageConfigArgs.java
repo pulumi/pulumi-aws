@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.eks.inputs.ClusterStorageConfigBlockStorageArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ClusterStorageConfigArgs {
      * Configuration block with block storage configuration for the cluster. Detailed below.
      * 
      */
-    private UndeferrableValue<ClusterStorageConfigBlockStorageArgs> blockStorage;
-
+    @PolicyResourceProperty(name="blockStorage", flag="unknown_blockStorage")
+    private ClusterStorageConfigBlockStorageArgs value_blockStorage;
+    private boolean unknown_blockStorage;
     public ClusterStorageConfigBlockStorageArgs blockStorage() {
-        if (blockStorage == null) return null;
-        return blockStorage.getValue("ClusterStorageConfigArgs.blockStorage");
+        if (!unknown_blockStorage) return value_blockStorage;
+        throw new UndeferrableValueException("Value 'ClusterStorageConfigArgs.blockStorage' is not present");
     }
 
 }

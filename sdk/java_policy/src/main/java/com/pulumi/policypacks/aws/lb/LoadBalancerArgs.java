@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lb.inputs.LoadBalancerAccessLogsArgs;
 import com.pulumi.policypacks.aws.lb.inputs.LoadBalancerConnectionLogsArgs;
@@ -24,308 +25,336 @@ public final class LoadBalancerArgs extends com.pulumi.resources.PolicyResourceI
      * Access Logs block. See below.
      * 
      */
-    private UndeferrableValue<LoadBalancerAccessLogsArgs> accessLogs;
-
+    @PolicyResourceProperty(name="accessLogs", flag="unknown_accessLogs")
+    private LoadBalancerAccessLogsArgs value_accessLogs;
+    private boolean unknown_accessLogs;
     public LoadBalancerAccessLogsArgs accessLogs() {
-        if (accessLogs == null) return null;
-        return accessLogs.getValue("LoadBalancerArgs.accessLogs");
+        if (!unknown_accessLogs) return value_accessLogs;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.accessLogs' is not present");
     }
 
     /**
      * Client keep alive value in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
      * 
      */
-    private UndeferrableValue<Integer> clientKeepAlive;
-
+    @PolicyResourceProperty(name="clientKeepAlive", flag="unknown_clientKeepAlive")
+    private Integer value_clientKeepAlive;
+    private boolean unknown_clientKeepAlive;
     public Integer clientKeepAlive() {
-        if (clientKeepAlive == null) return null;
-        return clientKeepAlive.getValue("LoadBalancerArgs.clientKeepAlive");
+        if (!unknown_clientKeepAlive) return value_clientKeepAlive;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.clientKeepAlive' is not present");
     }
 
     /**
      * Connection Logs block. See below. Only valid for Load Balancers of type `application`.
      * 
      */
-    private UndeferrableValue<LoadBalancerConnectionLogsArgs> connectionLogs;
-
+    @PolicyResourceProperty(name="connectionLogs", flag="unknown_connectionLogs")
+    private LoadBalancerConnectionLogsArgs value_connectionLogs;
+    private boolean unknown_connectionLogs;
     public LoadBalancerConnectionLogsArgs connectionLogs() {
-        if (connectionLogs == null) return null;
-        return connectionLogs.getValue("LoadBalancerArgs.connectionLogs");
+        if (!unknown_connectionLogs) return value_connectionLogs;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.connectionLogs' is not present");
     }
 
     /**
      * ID of the customer owned ipv4 pool to use for this load balancer.
      * 
      */
-    private UndeferrableValue<String> customerOwnedIpv4Pool;
-
+    @PolicyResourceProperty(name="customerOwnedIpv4Pool", flag="unknown_customerOwnedIpv4Pool")
+    private String value_customerOwnedIpv4Pool;
+    private boolean unknown_customerOwnedIpv4Pool;
     public String customerOwnedIpv4Pool() {
-        if (customerOwnedIpv4Pool == null) return null;
-        return customerOwnedIpv4Pool.getValue("LoadBalancerArgs.customerOwnedIpv4Pool");
+        if (!unknown_customerOwnedIpv4Pool) return value_customerOwnedIpv4Pool;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.customerOwnedIpv4Pool' is not present");
     }
 
     /**
      * How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
      * 
      */
-    private UndeferrableValue<String> desyncMitigationMode;
-
+    @PolicyResourceProperty(name="desyncMitigationMode", flag="unknown_desyncMitigationMode")
+    private String value_desyncMitigationMode;
+    private boolean unknown_desyncMitigationMode;
     public String desyncMitigationMode() {
-        if (desyncMitigationMode == null) return null;
-        return desyncMitigationMode.getValue("LoadBalancerArgs.desyncMitigationMode");
+        if (!unknown_desyncMitigationMode) return value_desyncMitigationMode;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.desyncMitigationMode' is not present");
     }
 
     /**
      * How traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
      * 
      */
-    private UndeferrableValue<String> dnsRecordClientRoutingPolicy;
-
+    @PolicyResourceProperty(name="dnsRecordClientRoutingPolicy", flag="unknown_dnsRecordClientRoutingPolicy")
+    private String value_dnsRecordClientRoutingPolicy;
+    private boolean unknown_dnsRecordClientRoutingPolicy;
     public String dnsRecordClientRoutingPolicy() {
-        if (dnsRecordClientRoutingPolicy == null) return null;
-        return dnsRecordClientRoutingPolicy.getValue("LoadBalancerArgs.dnsRecordClientRoutingPolicy");
+        if (!unknown_dnsRecordClientRoutingPolicy) return value_dnsRecordClientRoutingPolicy;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.dnsRecordClientRoutingPolicy' is not present");
     }
 
     /**
      * Whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
      * 
      */
-    private UndeferrableValue<Boolean> dropInvalidHeaderFields;
-
+    @PolicyResourceProperty(name="dropInvalidHeaderFields", flag="unknown_dropInvalidHeaderFields")
+    private Boolean value_dropInvalidHeaderFields;
+    private boolean unknown_dropInvalidHeaderFields;
     public Boolean dropInvalidHeaderFields() {
-        if (dropInvalidHeaderFields == null) return null;
-        return dropInvalidHeaderFields.getValue("LoadBalancerArgs.dropInvalidHeaderFields");
+        if (!unknown_dropInvalidHeaderFields) return value_dropInvalidHeaderFields;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.dropInvalidHeaderFields' is not present");
     }
 
     /**
      * If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> enableCrossZoneLoadBalancing;
-
+    @PolicyResourceProperty(name="enableCrossZoneLoadBalancing", flag="unknown_enableCrossZoneLoadBalancing")
+    private Boolean value_enableCrossZoneLoadBalancing;
+    private boolean unknown_enableCrossZoneLoadBalancing;
     public Boolean enableCrossZoneLoadBalancing() {
-        if (enableCrossZoneLoadBalancing == null) return null;
-        return enableCrossZoneLoadBalancing.getValue("LoadBalancerArgs.enableCrossZoneLoadBalancing");
+        if (!unknown_enableCrossZoneLoadBalancing) return value_enableCrossZoneLoadBalancing;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.enableCrossZoneLoadBalancing' is not present");
     }
 
     /**
      * If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> enableDeletionProtection;
-
+    @PolicyResourceProperty(name="enableDeletionProtection", flag="unknown_enableDeletionProtection")
+    private Boolean value_enableDeletionProtection;
+    private boolean unknown_enableDeletionProtection;
     public Boolean enableDeletionProtection() {
-        if (enableDeletionProtection == null) return null;
-        return enableDeletionProtection.getValue("LoadBalancerArgs.enableDeletionProtection");
+        if (!unknown_enableDeletionProtection) return value_enableDeletionProtection;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.enableDeletionProtection' is not present");
     }
 
     /**
      * Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> enableHttp2;
-
+    @PolicyResourceProperty(name="enableHttp2", flag="unknown_enableHttp2")
+    private Boolean value_enableHttp2;
+    private boolean unknown_enableHttp2;
     public Boolean enableHttp2() {
-        if (enableHttp2 == null) return null;
-        return enableHttp2.getValue("LoadBalancerArgs.enableHttp2");
+        if (!unknown_enableHttp2) return value_enableHttp2;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.enableHttp2' is not present");
     }
 
     /**
      * Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
      * 
      */
-    private UndeferrableValue<Boolean> enableTlsVersionAndCipherSuiteHeaders;
-
+    @PolicyResourceProperty(name="enableTlsVersionAndCipherSuiteHeaders", flag="unknown_enableTlsVersionAndCipherSuiteHeaders")
+    private Boolean value_enableTlsVersionAndCipherSuiteHeaders;
+    private boolean unknown_enableTlsVersionAndCipherSuiteHeaders;
     public Boolean enableTlsVersionAndCipherSuiteHeaders() {
-        if (enableTlsVersionAndCipherSuiteHeaders == null) return null;
-        return enableTlsVersionAndCipherSuiteHeaders.getValue("LoadBalancerArgs.enableTlsVersionAndCipherSuiteHeaders");
+        if (!unknown_enableTlsVersionAndCipherSuiteHeaders) return value_enableTlsVersionAndCipherSuiteHeaders;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.enableTlsVersionAndCipherSuiteHeaders' is not present");
     }
 
     /**
      * Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> enableWafFailOpen;
-
+    @PolicyResourceProperty(name="enableWafFailOpen", flag="unknown_enableWafFailOpen")
+    private Boolean value_enableWafFailOpen;
+    private boolean unknown_enableWafFailOpen;
     public Boolean enableWafFailOpen() {
-        if (enableWafFailOpen == null) return null;
-        return enableWafFailOpen.getValue("LoadBalancerArgs.enableWafFailOpen");
+        if (!unknown_enableWafFailOpen) return value_enableWafFailOpen;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.enableWafFailOpen' is not present");
     }
 
     /**
      * Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> enableXffClientPort;
-
+    @PolicyResourceProperty(name="enableXffClientPort", flag="unknown_enableXffClientPort")
+    private Boolean value_enableXffClientPort;
+    private boolean unknown_enableXffClientPort;
     public Boolean enableXffClientPort() {
-        if (enableXffClientPort == null) return null;
-        return enableXffClientPort.getValue("LoadBalancerArgs.enableXffClientPort");
+        if (!unknown_enableXffClientPort) return value_enableXffClientPort;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.enableXffClientPort' is not present");
     }
 
     /**
      * Whether zonal shift is enabled. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> enableZonalShift;
-
+    @PolicyResourceProperty(name="enableZonalShift", flag="unknown_enableZonalShift")
+    private Boolean value_enableZonalShift;
+    private boolean unknown_enableZonalShift;
     public Boolean enableZonalShift() {
-        if (enableZonalShift == null) return null;
-        return enableZonalShift.getValue("LoadBalancerArgs.enableZonalShift");
+        if (!unknown_enableZonalShift) return value_enableZonalShift;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.enableZonalShift' is not present");
     }
 
     /**
      * Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
      * 
      */
-    private UndeferrableValue<String> enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
-
+    @PolicyResourceProperty(name="enforceSecurityGroupInboundRulesOnPrivateLinkTraffic", flag="unknown_enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")
+    private String value_enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+    private boolean unknown_enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
     public String enforceSecurityGroupInboundRulesOnPrivateLinkTraffic() {
-        if (enforceSecurityGroupInboundRulesOnPrivateLinkTraffic == null) return null;
-        return enforceSecurityGroupInboundRulesOnPrivateLinkTraffic.getValue("LoadBalancerArgs.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic");
+        if (!unknown_enforceSecurityGroupInboundRulesOnPrivateLinkTraffic) return value_enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic' is not present");
     }
 
     /**
      * Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      * 
      */
-    private UndeferrableValue<Integer> idleTimeout;
-
+    @PolicyResourceProperty(name="idleTimeout", flag="unknown_idleTimeout")
+    private Integer value_idleTimeout;
+    private boolean unknown_idleTimeout;
     public Integer idleTimeout() {
-        if (idleTimeout == null) return null;
-        return idleTimeout.getValue("LoadBalancerArgs.idleTimeout");
+        if (!unknown_idleTimeout) return value_idleTimeout;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.idleTimeout' is not present");
     }
 
     /**
      * If true, the LB will be internal. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> internal;
-
+    @PolicyResourceProperty(name="internal", flag="unknown_internal")
+    private Boolean value_internal;
+    private boolean unknown_internal;
     public Boolean internal() {
-        if (internal == null) return null;
-        return internal.getValue("LoadBalancerArgs.internal");
+        if (!unknown_internal) return value_internal;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.internal' is not present");
     }
 
     /**
      * Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      * 
      */
-    private UndeferrableValue<String> ipAddressType;
-
+    @PolicyResourceProperty(name="ipAddressType", flag="unknown_ipAddressType")
+    private String value_ipAddressType;
+    private boolean unknown_ipAddressType;
     public String ipAddressType() {
-        if (ipAddressType == null) return null;
-        return ipAddressType.getValue("LoadBalancerArgs.ipAddressType");
+        if (!unknown_ipAddressType) return value_ipAddressType;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.ipAddressType' is not present");
     }
 
     /**
      * . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
      * 
      */
-    private UndeferrableValue<LoadBalancerIpamPoolsArgs> ipamPools;
-
+    @PolicyResourceProperty(name="ipamPools", flag="unknown_ipamPools")
+    private LoadBalancerIpamPoolsArgs value_ipamPools;
+    private boolean unknown_ipamPools;
     public LoadBalancerIpamPoolsArgs ipamPools() {
-        if (ipamPools == null) return null;
-        return ipamPools.getValue("LoadBalancerArgs.ipamPools");
+        if (!unknown_ipamPools) return value_ipamPools;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.ipamPools' is not present");
     }
 
     /**
      * Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      * 
      */
-    private UndeferrableValue<String> loadBalancerType;
-
+    @PolicyResourceProperty(name="loadBalancerType", flag="unknown_loadBalancerType")
+    private String value_loadBalancerType;
+    private boolean unknown_loadBalancerType;
     public String loadBalancerType() {
-        if (loadBalancerType == null) return null;
-        return loadBalancerType.getValue("LoadBalancerArgs.loadBalancerType");
+        if (!unknown_loadBalancerType) return value_loadBalancerType;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.loadBalancerType' is not present");
     }
 
     /**
      * Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LoadBalancerArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("LoadBalancerArgs.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.namePrefix' is not present");
     }
 
     /**
      * Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> preserveHostHeader;
-
+    @PolicyResourceProperty(name="preserveHostHeader", flag="unknown_preserveHostHeader")
+    private Boolean value_preserveHostHeader;
+    private boolean unknown_preserveHostHeader;
     public Boolean preserveHostHeader() {
-        if (preserveHostHeader == null) return null;
-        return preserveHostHeader.getValue("LoadBalancerArgs.preserveHostHeader");
+        if (!unknown_preserveHostHeader) return value_preserveHostHeader;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.preserveHostHeader' is not present");
     }
 
     /**
      * List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroups;
-
+    @PolicyResourceProperty(name="securityGroups", flag="unknown_securityGroups")
+    private List<String> value_securityGroups;
+    private boolean unknown_securityGroups;
     public List<String> securityGroups() {
-        if (securityGroups == null) return null;
-        return securityGroups.getValue("LoadBalancerArgs.securityGroups");
+        if (!unknown_securityGroups) return value_securityGroups;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.securityGroups' is not present");
     }
 
     /**
      * Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
      * 
      */
-    private UndeferrableValue<List<LoadBalancerSubnetMappingArgs>> subnetMappings;
-
+    @PolicyResourceProperty(name="subnetMappings", flag="unknown_subnetMappings")
+    private List<LoadBalancerSubnetMappingArgs> value_subnetMappings;
+    private boolean unknown_subnetMappings;
     public List<LoadBalancerSubnetMappingArgs> subnetMappings() {
-        if (subnetMappings == null) return null;
-        return subnetMappings.getValue("LoadBalancerArgs.subnetMappings");
+        if (!unknown_subnetMappings) return value_subnetMappings;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.subnetMappings' is not present");
     }
 
     /**
      * List of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
      * 
      */
-    private UndeferrableValue<List<String>> subnets;
-
+    @PolicyResourceProperty(name="subnets", flag="unknown_subnets")
+    private List<String> value_subnets;
+    private boolean unknown_subnets;
     public List<String> subnets() {
-        if (subnets == null) return null;
-        return subnets.getValue("LoadBalancerArgs.subnets");
+        if (!unknown_subnets) return value_subnets;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.subnets' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LoadBalancerArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.tags' is not present");
     }
 
     /**
      * Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
      * 
      */
-    private UndeferrableValue<String> xffHeaderProcessingMode;
-
+    @PolicyResourceProperty(name="xffHeaderProcessingMode", flag="unknown_xffHeaderProcessingMode")
+    private String value_xffHeaderProcessingMode;
+    private boolean unknown_xffHeaderProcessingMode;
     public String xffHeaderProcessingMode() {
-        if (xffHeaderProcessingMode == null) return null;
-        return xffHeaderProcessingMode.getValue("LoadBalancerArgs.xffHeaderProcessingMode");
+        if (!unknown_xffHeaderProcessingMode) return value_xffHeaderProcessingMode;
+        throw new UndeferrableValueException("Value 'LoadBalancerArgs.xffHeaderProcessingMode' is not present");
     }
 
 }

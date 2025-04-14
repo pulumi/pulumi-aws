@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.outputs.DistributionDefaultCacheBehaviorForwardedValues;
 import com.pulumi.policypacks.aws.cloudfront.outputs.DistributionDefaultCacheBehaviorFunctionAssociation;
 import com.pulumi.policypacks.aws.cloudfront.outputs.DistributionDefaultCacheBehaviorGrpcConfig;
@@ -21,220 +22,240 @@ public final class DistributionDefaultCacheBehavior {
      * Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
      * 
      */
-    private UndeferrableValue<List<String>> allowedMethods;
-
+    @PolicyResourceProperty(name="allowedMethods", flag="unknown_allowedMethods")
+    private List<String> value_allowedMethods;
+    private boolean unknown_allowedMethods;
     public List<String> allowedMethods() {
-        if (allowedMethods == null) return null;
-        return allowedMethods.getValue("DistributionDefaultCacheBehavior.allowedMethods");
+        if (!unknown_allowedMethods) return value_allowedMethods;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehavior.allowedMethods' is not present");
     }
 
     /**
      * Unique identifier of the cache policy that is attached to the cache behavior. If configuring the `default_cache_behavior` either `cache_policy_id` or `forwarded_values` must be set.
      * 
      */
-    private @Nullable UndeferrableValue<String> cachePolicyId;
-
+    @PolicyResourceProperty(name="cachePolicyId", flag="unknown_cachePolicyId")
+    private @Nullable String value_cachePolicyId;
+    private boolean unknown_cachePolicyId;
     public @Nullable String cachePolicyId() {
-        if (cachePolicyId == null) return null;
-        return cachePolicyId.getValue("DistributionDefaultCacheBehavior.cachePolicyId");
+        if (!unknown_cachePolicyId) return value_cachePolicyId;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehavior.cachePolicyId' is not present");
     }
 
     /**
      * Controls whether CloudFront caches the response to requests using the specified HTTP methods.
      * 
      */
-    private UndeferrableValue<List<String>> cachedMethods;
-
+    @PolicyResourceProperty(name="cachedMethods", flag="unknown_cachedMethods")
+    private List<String> value_cachedMethods;
+    private boolean unknown_cachedMethods;
     public List<String> cachedMethods() {
-        if (cachedMethods == null) return null;
-        return cachedMethods.getValue("DistributionDefaultCacheBehavior.cachedMethods");
+        if (!unknown_cachedMethods) return value_cachedMethods;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehavior.cachedMethods' is not present");
     }
 
     /**
      * Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> compress;
-
+    @PolicyResourceProperty(name="compress", flag="unknown_compress")
+    private @Nullable Boolean value_compress;
+    private boolean unknown_compress;
     public @Nullable Boolean compress() {
-        if (compress == null) return null;
-        return compress.getValue("DistributionDefaultCacheBehavior.compress");
+        if (!unknown_compress) return value_compress;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehavior.compress' is not present");
     }
 
     /**
      * Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header. The TTL defined in Cache Policy overrides this configuration.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> defaultTtl;
-
+    @PolicyResourceProperty(name="defaultTtl", flag="unknown_defaultTtl")
+    private @Nullable Integer value_defaultTtl;
+    private boolean unknown_defaultTtl;
     public @Nullable Integer defaultTtl() {
-        if (defaultTtl == null) return null;
-        return defaultTtl.getValue("DistributionDefaultCacheBehavior.defaultTtl");
+        if (!unknown_defaultTtl) return value_defaultTtl;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehavior.defaultTtl' is not present");
     }
 
     /**
      * Field level encryption configuration ID.
      * 
      */
-    private @Nullable UndeferrableValue<String> fieldLevelEncryptionId;
-
+    @PolicyResourceProperty(name="fieldLevelEncryptionId", flag="unknown_fieldLevelEncryptionId")
+    private @Nullable String value_fieldLevelEncryptionId;
+    private boolean unknown_fieldLevelEncryptionId;
     public @Nullable String fieldLevelEncryptionId() {
-        if (fieldLevelEncryptionId == null) return null;
-        return fieldLevelEncryptionId.getValue("DistributionDefaultCacheBehavior.fieldLevelEncryptionId");
+        if (!unknown_fieldLevelEncryptionId) return value_fieldLevelEncryptionId;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehavior.fieldLevelEncryptionId' is not present");
     }
 
     /**
      * The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
      * 
      */
-    private @Nullable UndeferrableValue<DistributionDefaultCacheBehaviorForwardedValues> forwardedValues;
-
+    @PolicyResourceProperty(name="forwardedValues", flag="unknown_forwardedValues")
+    private @Nullable DistributionDefaultCacheBehaviorForwardedValues value_forwardedValues;
+    private boolean unknown_forwardedValues;
     public @Nullable DistributionDefaultCacheBehaviorForwardedValues forwardedValues() {
-        if (forwardedValues == null) return null;
-        return forwardedValues.getValue("DistributionDefaultCacheBehavior.forwardedValues");
+        if (!unknown_forwardedValues) return value_forwardedValues;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehavior.forwardedValues' is not present");
     }
 
     /**
      * A config block that triggers a cloudfront function with specific actions (maximum 2).
      * 
      */
-    private @Nullable UndeferrableValue<List<DistributionDefaultCacheBehaviorFunctionAssociation>> functionAssociations;
-
+    @PolicyResourceProperty(name="functionAssociations", flag="unknown_functionAssociations")
+    private @Nullable List<DistributionDefaultCacheBehaviorFunctionAssociation> value_functionAssociations;
+    private boolean unknown_functionAssociations;
     public @Nullable List<DistributionDefaultCacheBehaviorFunctionAssociation> functionAssociations() {
-        if (functionAssociations == null) return null;
-        return functionAssociations.getValue("DistributionDefaultCacheBehavior.functionAssociations");
+        if (!unknown_functionAssociations) return value_functionAssociations;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehavior.functionAssociations' is not present");
     }
 
     /**
      * A config block that sets the grpc config.
      * 
      */
-    private @Nullable UndeferrableValue<DistributionDefaultCacheBehaviorGrpcConfig> grpcConfig;
-
+    @PolicyResourceProperty(name="grpcConfig", flag="unknown_grpcConfig")
+    private @Nullable DistributionDefaultCacheBehaviorGrpcConfig value_grpcConfig;
+    private boolean unknown_grpcConfig;
     public @Nullable DistributionDefaultCacheBehaviorGrpcConfig grpcConfig() {
-        if (grpcConfig == null) return null;
-        return grpcConfig.getValue("DistributionDefaultCacheBehavior.grpcConfig");
+        if (!unknown_grpcConfig) return value_grpcConfig;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehavior.grpcConfig' is not present");
     }
 
     /**
      * A config block that triggers a lambda function with specific actions (maximum 4).
      * 
      */
-    private @Nullable UndeferrableValue<List<DistributionDefaultCacheBehaviorLambdaFunctionAssociation>> lambdaFunctionAssociations;
-
+    @PolicyResourceProperty(name="lambdaFunctionAssociations", flag="unknown_lambdaFunctionAssociations")
+    private @Nullable List<DistributionDefaultCacheBehaviorLambdaFunctionAssociation> value_lambdaFunctionAssociations;
+    private boolean unknown_lambdaFunctionAssociations;
     public @Nullable List<DistributionDefaultCacheBehaviorLambdaFunctionAssociation> lambdaFunctionAssociations() {
-        if (lambdaFunctionAssociations == null) return null;
-        return lambdaFunctionAssociations.getValue("DistributionDefaultCacheBehavior.lambdaFunctionAssociations");
+        if (!unknown_lambdaFunctionAssociations) return value_lambdaFunctionAssociations;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehavior.lambdaFunctionAssociations' is not present");
     }
 
     /**
      * Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers. The TTL defined in Cache Policy overrides this configuration.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxTtl;
-
+    @PolicyResourceProperty(name="maxTtl", flag="unknown_maxTtl")
+    private @Nullable Integer value_maxTtl;
+    private boolean unknown_maxTtl;
     public @Nullable Integer maxTtl() {
-        if (maxTtl == null) return null;
-        return maxTtl.getValue("DistributionDefaultCacheBehavior.maxTtl");
+        if (!unknown_maxTtl) return value_maxTtl;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehavior.maxTtl' is not present");
     }
 
     /**
      * Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds. The TTL defined in Cache Policy overrides this configuration.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> minTtl;
-
+    @PolicyResourceProperty(name="minTtl", flag="unknown_minTtl")
+    private @Nullable Integer value_minTtl;
+    private boolean unknown_minTtl;
     public @Nullable Integer minTtl() {
-        if (minTtl == null) return null;
-        return minTtl.getValue("DistributionDefaultCacheBehavior.minTtl");
+        if (!unknown_minTtl) return value_minTtl;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehavior.minTtl' is not present");
     }
 
     /**
      * Unique identifier of the origin request policy that is attached to the behavior.
      * 
      */
-    private @Nullable UndeferrableValue<String> originRequestPolicyId;
-
+    @PolicyResourceProperty(name="originRequestPolicyId", flag="unknown_originRequestPolicyId")
+    private @Nullable String value_originRequestPolicyId;
+    private boolean unknown_originRequestPolicyId;
     public @Nullable String originRequestPolicyId() {
-        if (originRequestPolicyId == null) return null;
-        return originRequestPolicyId.getValue("DistributionDefaultCacheBehavior.originRequestPolicyId");
+        if (!unknown_originRequestPolicyId) return value_originRequestPolicyId;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehavior.originRequestPolicyId' is not present");
     }
 
     /**
      * ARN of the real-time log configuration that is attached to this cache behavior.
      * 
      */
-    private @Nullable UndeferrableValue<String> realtimeLogConfigArn;
-
+    @PolicyResourceProperty(name="realtimeLogConfigArn", flag="unknown_realtimeLogConfigArn")
+    private @Nullable String value_realtimeLogConfigArn;
+    private boolean unknown_realtimeLogConfigArn;
     public @Nullable String realtimeLogConfigArn() {
-        if (realtimeLogConfigArn == null) return null;
-        return realtimeLogConfigArn.getValue("DistributionDefaultCacheBehavior.realtimeLogConfigArn");
+        if (!unknown_realtimeLogConfigArn) return value_realtimeLogConfigArn;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehavior.realtimeLogConfigArn' is not present");
     }
 
     /**
      * Identifier for a response headers policy.
      * 
      */
-    private @Nullable UndeferrableValue<String> responseHeadersPolicyId;
-
+    @PolicyResourceProperty(name="responseHeadersPolicyId", flag="unknown_responseHeadersPolicyId")
+    private @Nullable String value_responseHeadersPolicyId;
+    private boolean unknown_responseHeadersPolicyId;
     public @Nullable String responseHeadersPolicyId() {
-        if (responseHeadersPolicyId == null) return null;
-        return responseHeadersPolicyId.getValue("DistributionDefaultCacheBehavior.responseHeadersPolicyId");
+        if (!unknown_responseHeadersPolicyId) return value_responseHeadersPolicyId;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehavior.responseHeadersPolicyId' is not present");
     }
 
     /**
      * Indicates whether you want to distribute media files in Microsoft Smooth Streaming format using the origin that is associated with this cache behavior.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> smoothStreaming;
-
+    @PolicyResourceProperty(name="smoothStreaming", flag="unknown_smoothStreaming")
+    private @Nullable Boolean value_smoothStreaming;
+    private boolean unknown_smoothStreaming;
     public @Nullable Boolean smoothStreaming() {
-        if (smoothStreaming == null) return null;
-        return smoothStreaming.getValue("DistributionDefaultCacheBehavior.smoothStreaming");
+        if (!unknown_smoothStreaming) return value_smoothStreaming;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehavior.smoothStreaming' is not present");
     }
 
     /**
      * Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
      * 
      */
-    private UndeferrableValue<String> targetOriginId;
-
+    @PolicyResourceProperty(name="targetOriginId", flag="unknown_targetOriginId")
+    private String value_targetOriginId;
+    private boolean unknown_targetOriginId;
     public String targetOriginId() {
-        if (targetOriginId == null) return null;
-        return targetOriginId.getValue("DistributionDefaultCacheBehavior.targetOriginId");
+        if (!unknown_targetOriginId) return value_targetOriginId;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehavior.targetOriginId' is not present");
     }
 
     /**
      * List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> trustedKeyGroups;
-
+    @PolicyResourceProperty(name="trustedKeyGroups", flag="unknown_trustedKeyGroups")
+    private @Nullable List<String> value_trustedKeyGroups;
+    private boolean unknown_trustedKeyGroups;
     public @Nullable List<String> trustedKeyGroups() {
-        if (trustedKeyGroups == null) return null;
-        return trustedKeyGroups.getValue("DistributionDefaultCacheBehavior.trustedKeyGroups");
+        if (!unknown_trustedKeyGroups) return value_trustedKeyGroups;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehavior.trustedKeyGroups' is not present");
     }
 
     /**
      * List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> trustedSigners;
-
+    @PolicyResourceProperty(name="trustedSigners", flag="unknown_trustedSigners")
+    private @Nullable List<String> value_trustedSigners;
+    private boolean unknown_trustedSigners;
     public @Nullable List<String> trustedSigners() {
-        if (trustedSigners == null) return null;
-        return trustedSigners.getValue("DistributionDefaultCacheBehavior.trustedSigners");
+        if (!unknown_trustedSigners) return value_trustedSigners;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehavior.trustedSigners' is not present");
     }
 
     /**
      * Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
      * 
      */
-    private UndeferrableValue<String> viewerProtocolPolicy;
-
+    @PolicyResourceProperty(name="viewerProtocolPolicy", flag="unknown_viewerProtocolPolicy")
+    private String value_viewerProtocolPolicy;
+    private boolean unknown_viewerProtocolPolicy;
     public String viewerProtocolPolicy() {
-        if (viewerProtocolPolicy == null) return null;
-        return viewerProtocolPolicy.getValue("DistributionDefaultCacheBehavior.viewerProtocolPolicy");
+        if (!unknown_viewerProtocolPolicy) return value_viewerProtocolPolicy;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehavior.viewerProtocolPolicy' is not present");
     }
 
 }

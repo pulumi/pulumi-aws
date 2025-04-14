@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class TransitGatewayRouteTableAttachmentArgs extends com.pulumi.res
      * The ID of the peer for the attachment.
      * 
      */
-    private UndeferrableValue<String> peeringId;
-
+    @PolicyResourceProperty(name="peeringId", flag="unknown_peeringId")
+    private String value_peeringId;
+    private boolean unknown_peeringId;
     public String peeringId() {
-        if (peeringId == null) return null;
-        return peeringId.getValue("TransitGatewayRouteTableAttachmentArgs.peeringId");
+        if (!unknown_peeringId) return value_peeringId;
+        throw new UndeferrableValueException("Value 'TransitGatewayRouteTableAttachmentArgs.peeringId' is not present");
     }
 
     /**
      * Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TransitGatewayRouteTableAttachmentArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TransitGatewayRouteTableAttachmentArgs.tags' is not present");
     }
 
     /**
      * The ARN of the transit gateway route table for the attachment.
      * 
      */
-    private UndeferrableValue<String> transitGatewayRouteTableArn;
-
+    @PolicyResourceProperty(name="transitGatewayRouteTableArn", flag="unknown_transitGatewayRouteTableArn")
+    private String value_transitGatewayRouteTableArn;
+    private boolean unknown_transitGatewayRouteTableArn;
     public String transitGatewayRouteTableArn() {
-        if (transitGatewayRouteTableArn == null) return null;
-        return transitGatewayRouteTableArn.getValue("TransitGatewayRouteTableAttachmentArgs.transitGatewayRouteTableArn");
+        if (!unknown_transitGatewayRouteTableArn) return value_transitGatewayRouteTableArn;
+        throw new UndeferrableValueException("Value 'TransitGatewayRouteTableAttachmentArgs.transitGatewayRouteTableArn' is not present");
     }
 
 }

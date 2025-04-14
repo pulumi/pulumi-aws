@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation;
 import java.lang.Integer;
@@ -18,33 +19,36 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSiz
      * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
      * 
      */
-    private UndeferrableValue<String> comparisonOperator;
-
+    @PolicyResourceProperty(name="comparisonOperator", flag="unknown_comparisonOperator")
+    private String value_comparisonOperator;
+    private boolean unknown_comparisonOperator;
     public String comparisonOperator() {
-        if (comparisonOperator == null) return null;
-        return comparisonOperator.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement.comparisonOperator");
+        if (!unknown_comparisonOperator) return value_comparisonOperator;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement.comparisonOperator' is not present");
     }
 
     /**
      * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch> fieldToMatch;
-
+    @PolicyResourceProperty(name="fieldToMatch", flag="unknown_fieldToMatch")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch value_fieldToMatch;
+    private boolean unknown_fieldToMatch;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch fieldToMatch() {
-        if (fieldToMatch == null) return null;
-        return fieldToMatch.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement.fieldToMatch");
+        if (!unknown_fieldToMatch) return value_fieldToMatch;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement.fieldToMatch' is not present");
     }
 
     /**
      * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
      * 
      */
-    private UndeferrableValue<Integer> size;
-
+    @PolicyResourceProperty(name="size", flag="unknown_size")
+    private Integer value_size;
+    private boolean unknown_size;
     public Integer size() {
-        if (size == null) return null;
-        return size.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement.size");
+        if (!unknown_size) return value_size;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement.size' is not present");
     }
 
     /**
@@ -53,11 +57,12 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSiz
      * See Text Transformation below for details.
      * 
      */
-    private UndeferrableValue<List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation>> textTransformations;
-
+    @PolicyResourceProperty(name="textTransformations", flag="unknown_textTransformations")
+    private List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation> value_textTransformations;
+    private boolean unknown_textTransformations;
     public List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation> textTransformations() {
-        if (textTransformations == null) return null;
-        return textTransformations.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement.textTransformations");
+        if (!unknown_textTransformations) return value_textTransformations;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement.textTransformations' is not present");
     }
 
 }

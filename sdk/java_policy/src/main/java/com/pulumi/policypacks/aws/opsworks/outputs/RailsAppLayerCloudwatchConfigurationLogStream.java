@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,81 +12,92 @@ import javax.annotation.Nullable;
 
 public final class RailsAppLayerCloudwatchConfigurationLogStream {
 
-    private @Nullable UndeferrableValue<Integer> batchCount;
-
+    @PolicyResourceProperty(name="batchCount", flag="unknown_batchCount")
+    private @Nullable Integer value_batchCount;
+    private boolean unknown_batchCount;
     public @Nullable Integer batchCount() {
-        if (batchCount == null) return null;
-        return batchCount.getValue("RailsAppLayerCloudwatchConfigurationLogStream.batchCount");
+        if (!unknown_batchCount) return value_batchCount;
+        throw new UndeferrableValueException("Value 'RailsAppLayerCloudwatchConfigurationLogStream.batchCount' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> batchSize;
-
+    @PolicyResourceProperty(name="batchSize", flag="unknown_batchSize")
+    private @Nullable Integer value_batchSize;
+    private boolean unknown_batchSize;
     public @Nullable Integer batchSize() {
-        if (batchSize == null) return null;
-        return batchSize.getValue("RailsAppLayerCloudwatchConfigurationLogStream.batchSize");
+        if (!unknown_batchSize) return value_batchSize;
+        throw new UndeferrableValueException("Value 'RailsAppLayerCloudwatchConfigurationLogStream.batchSize' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> bufferDuration;
-
+    @PolicyResourceProperty(name="bufferDuration", flag="unknown_bufferDuration")
+    private @Nullable Integer value_bufferDuration;
+    private boolean unknown_bufferDuration;
     public @Nullable Integer bufferDuration() {
-        if (bufferDuration == null) return null;
-        return bufferDuration.getValue("RailsAppLayerCloudwatchConfigurationLogStream.bufferDuration");
+        if (!unknown_bufferDuration) return value_bufferDuration;
+        throw new UndeferrableValueException("Value 'RailsAppLayerCloudwatchConfigurationLogStream.bufferDuration' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> datetimeFormat;
-
+    @PolicyResourceProperty(name="datetimeFormat", flag="unknown_datetimeFormat")
+    private @Nullable String value_datetimeFormat;
+    private boolean unknown_datetimeFormat;
     public @Nullable String datetimeFormat() {
-        if (datetimeFormat == null) return null;
-        return datetimeFormat.getValue("RailsAppLayerCloudwatchConfigurationLogStream.datetimeFormat");
+        if (!unknown_datetimeFormat) return value_datetimeFormat;
+        throw new UndeferrableValueException("Value 'RailsAppLayerCloudwatchConfigurationLogStream.datetimeFormat' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> encoding;
-
+    @PolicyResourceProperty(name="encoding", flag="unknown_encoding")
+    private @Nullable String value_encoding;
+    private boolean unknown_encoding;
     public @Nullable String encoding() {
-        if (encoding == null) return null;
-        return encoding.getValue("RailsAppLayerCloudwatchConfigurationLogStream.encoding");
+        if (!unknown_encoding) return value_encoding;
+        throw new UndeferrableValueException("Value 'RailsAppLayerCloudwatchConfigurationLogStream.encoding' is not present");
     }
 
-    private UndeferrableValue<String> file;
-
+    @PolicyResourceProperty(name="file", flag="unknown_file")
+    private String value_file;
+    private boolean unknown_file;
     public String file() {
-        if (file == null) return null;
-        return file.getValue("RailsAppLayerCloudwatchConfigurationLogStream.file");
+        if (!unknown_file) return value_file;
+        throw new UndeferrableValueException("Value 'RailsAppLayerCloudwatchConfigurationLogStream.file' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> fileFingerprintLines;
-
+    @PolicyResourceProperty(name="fileFingerprintLines", flag="unknown_fileFingerprintLines")
+    private @Nullable String value_fileFingerprintLines;
+    private boolean unknown_fileFingerprintLines;
     public @Nullable String fileFingerprintLines() {
-        if (fileFingerprintLines == null) return null;
-        return fileFingerprintLines.getValue("RailsAppLayerCloudwatchConfigurationLogStream.fileFingerprintLines");
+        if (!unknown_fileFingerprintLines) return value_fileFingerprintLines;
+        throw new UndeferrableValueException("Value 'RailsAppLayerCloudwatchConfigurationLogStream.fileFingerprintLines' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> initialPosition;
-
+    @PolicyResourceProperty(name="initialPosition", flag="unknown_initialPosition")
+    private @Nullable String value_initialPosition;
+    private boolean unknown_initialPosition;
     public @Nullable String initialPosition() {
-        if (initialPosition == null) return null;
-        return initialPosition.getValue("RailsAppLayerCloudwatchConfigurationLogStream.initialPosition");
+        if (!unknown_initialPosition) return value_initialPosition;
+        throw new UndeferrableValueException("Value 'RailsAppLayerCloudwatchConfigurationLogStream.initialPosition' is not present");
     }
 
-    private UndeferrableValue<String> logGroupName;
-
+    @PolicyResourceProperty(name="logGroupName", flag="unknown_logGroupName")
+    private String value_logGroupName;
+    private boolean unknown_logGroupName;
     public String logGroupName() {
-        if (logGroupName == null) return null;
-        return logGroupName.getValue("RailsAppLayerCloudwatchConfigurationLogStream.logGroupName");
+        if (!unknown_logGroupName) return value_logGroupName;
+        throw new UndeferrableValueException("Value 'RailsAppLayerCloudwatchConfigurationLogStream.logGroupName' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> multilineStartPattern;
-
+    @PolicyResourceProperty(name="multilineStartPattern", flag="unknown_multilineStartPattern")
+    private @Nullable String value_multilineStartPattern;
+    private boolean unknown_multilineStartPattern;
     public @Nullable String multilineStartPattern() {
-        if (multilineStartPattern == null) return null;
-        return multilineStartPattern.getValue("RailsAppLayerCloudwatchConfigurationLogStream.multilineStartPattern");
+        if (!unknown_multilineStartPattern) return value_multilineStartPattern;
+        throw new UndeferrableValueException("Value 'RailsAppLayerCloudwatchConfigurationLogStream.multilineStartPattern' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> timeZone;
-
+    @PolicyResourceProperty(name="timeZone", flag="unknown_timeZone")
+    private @Nullable String value_timeZone;
+    private boolean unknown_timeZone;
     public @Nullable String timeZone() {
-        if (timeZone == null) return null;
-        return timeZone.getValue("RailsAppLayerCloudwatchConfigurationLogStream.timeZone");
+        if (!unknown_timeZone) return value_timeZone;
+        throw new UndeferrableValueException("Value 'RailsAppLayerCloudwatchConfigurationLogStream.timeZone' is not present");
     }
 
 }

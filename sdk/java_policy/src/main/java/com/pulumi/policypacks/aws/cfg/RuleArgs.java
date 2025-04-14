@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cfg.inputs.RuleEvaluationModeArgs;
 import com.pulumi.policypacks.aws.cfg.inputs.RuleScopeArgs;
@@ -21,88 +22,96 @@ public final class RuleArgs extends com.pulumi.resources.PolicyResourceInput {
      * Description of the rule
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("RuleArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'RuleArgs.description' is not present");
     }
 
     /**
      * The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
      * 
      */
-    private UndeferrableValue<List<RuleEvaluationModeArgs>> evaluationModes;
-
+    @PolicyResourceProperty(name="evaluationModes", flag="unknown_evaluationModes")
+    private List<RuleEvaluationModeArgs> value_evaluationModes;
+    private boolean unknown_evaluationModes;
     public List<RuleEvaluationModeArgs> evaluationModes() {
-        if (evaluationModes == null) return null;
-        return evaluationModes.getValue("RuleArgs.evaluationModes");
+        if (!unknown_evaluationModes) return value_evaluationModes;
+        throw new UndeferrableValueException("Value 'RuleArgs.evaluationModes' is not present");
     }
 
     /**
      * A string in JSON format that is passed to the AWS Config rule Lambda function.
      * 
      */
-    private UndeferrableValue<String> inputParameters;
-
+    @PolicyResourceProperty(name="inputParameters", flag="unknown_inputParameters")
+    private String value_inputParameters;
+    private boolean unknown_inputParameters;
     public String inputParameters() {
-        if (inputParameters == null) return null;
-        return inputParameters.getValue("RuleArgs.inputParameters");
+        if (!unknown_inputParameters) return value_inputParameters;
+        throw new UndeferrableValueException("Value 'RuleArgs.inputParameters' is not present");
     }
 
     /**
      * The maximum frequency with which AWS Config runs evaluations for a rule.
      * 
      */
-    private UndeferrableValue<String> maximumExecutionFrequency;
-
+    @PolicyResourceProperty(name="maximumExecutionFrequency", flag="unknown_maximumExecutionFrequency")
+    private String value_maximumExecutionFrequency;
+    private boolean unknown_maximumExecutionFrequency;
     public String maximumExecutionFrequency() {
-        if (maximumExecutionFrequency == null) return null;
-        return maximumExecutionFrequency.getValue("RuleArgs.maximumExecutionFrequency");
+        if (!unknown_maximumExecutionFrequency) return value_maximumExecutionFrequency;
+        throw new UndeferrableValueException("Value 'RuleArgs.maximumExecutionFrequency' is not present");
     }
 
     /**
      * The name of the rule
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RuleArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RuleArgs.name' is not present");
     }
 
     /**
      * Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
      * 
      */
-    private UndeferrableValue<RuleScopeArgs> scope;
-
+    @PolicyResourceProperty(name="scope", flag="unknown_scope")
+    private RuleScopeArgs value_scope;
+    private boolean unknown_scope;
     public RuleScopeArgs scope() {
-        if (scope == null) return null;
-        return scope.getValue("RuleArgs.scope");
+        if (!unknown_scope) return value_scope;
+        throw new UndeferrableValueException("Value 'RuleArgs.scope' is not present");
     }
 
     /**
      * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
      * 
      */
-    private UndeferrableValue<RuleSourceArgs> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private RuleSourceArgs value_source;
+    private boolean unknown_source;
     public RuleSourceArgs source() {
-        if (source == null) return null;
-        return source.getValue("RuleArgs.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'RuleArgs.source' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RuleArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RuleArgs.tags' is not present");
     }
 
 }

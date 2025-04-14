@@ -4,7 +4,8 @@
 package com.pulumi.policypacks.aws.lambda;
 
 import com.pulumi.asset.Archive;
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -20,88 +21,96 @@ public final class LayerVersion extends com.pulumi.resources.PolicyResourceOutpu
      * ARN of the Lambda Layer with version.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("LayerVersion.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'LayerVersion.arn' is not present");
     }
 
     /**
      * Path to the function&#39;s deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
      * 
      */
-    private @Nullable UndeferrableValue<Archive> code;
-
+    @PolicyResourceProperty(name="code", flag="unknown_code")
+    private @Nullable Archive value_code;
+    private boolean unknown_code;
     public @Nullable Archive code() {
-        if (code == null) return null;
-        return code.getValue("LayerVersion.code");
+        if (!unknown_code) return value_code;
+        throw new UndeferrableValueException("Value 'LayerVersion.code' is not present");
     }
 
     /**
      * Base64-encoded representation of raw SHA-256 sum of the zip file.
      * 
      */
-    private UndeferrableValue<String> codeSha256;
-
+    @PolicyResourceProperty(name="codeSha256", flag="unknown_codeSha256")
+    private String value_codeSha256;
+    private boolean unknown_codeSha256;
     public String codeSha256() {
-        if (codeSha256 == null) return null;
-        return codeSha256.getValue("LayerVersion.codeSha256");
+        if (!unknown_codeSha256) return value_codeSha256;
+        throw new UndeferrableValueException("Value 'LayerVersion.codeSha256' is not present");
     }
 
     /**
      * List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> compatibleArchitectures;
-
+    @PolicyResourceProperty(name="compatibleArchitectures", flag="unknown_compatibleArchitectures")
+    private @Nullable List<String> value_compatibleArchitectures;
+    private boolean unknown_compatibleArchitectures;
     public @Nullable List<String> compatibleArchitectures() {
-        if (compatibleArchitectures == null) return null;
-        return compatibleArchitectures.getValue("LayerVersion.compatibleArchitectures");
+        if (!unknown_compatibleArchitectures) return value_compatibleArchitectures;
+        throw new UndeferrableValueException("Value 'LayerVersion.compatibleArchitectures' is not present");
     }
 
     /**
      * List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> compatibleRuntimes;
-
+    @PolicyResourceProperty(name="compatibleRuntimes", flag="unknown_compatibleRuntimes")
+    private @Nullable List<String> value_compatibleRuntimes;
+    private boolean unknown_compatibleRuntimes;
     public @Nullable List<String> compatibleRuntimes() {
-        if (compatibleRuntimes == null) return null;
-        return compatibleRuntimes.getValue("LayerVersion.compatibleRuntimes");
+        if (!unknown_compatibleRuntimes) return value_compatibleRuntimes;
+        throw new UndeferrableValueException("Value 'LayerVersion.compatibleRuntimes' is not present");
     }
 
     /**
      * Date this resource was created.
      * 
      */
-    private UndeferrableValue<String> createdDate;
-
+    @PolicyResourceProperty(name="createdDate", flag="unknown_createdDate")
+    private String value_createdDate;
+    private boolean unknown_createdDate;
     public String createdDate() {
-        if (createdDate == null) return null;
-        return createdDate.getValue("LayerVersion.createdDate");
+        if (!unknown_createdDate) return value_createdDate;
+        throw new UndeferrableValueException("Value 'LayerVersion.createdDate' is not present");
     }
 
     /**
      * Description of what your Lambda Layer does.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("LayerVersion.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'LayerVersion.description' is not present");
     }
 
     /**
      * ARN of the Lambda Layer without version.
      * 
      */
-    private UndeferrableValue<String> layerArn;
-
+    @PolicyResourceProperty(name="layerArn", flag="unknown_layerArn")
+    private String value_layerArn;
+    private boolean unknown_layerArn;
     public String layerArn() {
-        if (layerArn == null) return null;
-        return layerArn.getValue("LayerVersion.layerArn");
+        if (!unknown_layerArn) return value_layerArn;
+        throw new UndeferrableValueException("Value 'LayerVersion.layerArn' is not present");
     }
 
     /**
@@ -110,121 +119,132 @@ public final class LayerVersion extends com.pulumi.resources.PolicyResourceOutpu
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> layerName;
-
+    @PolicyResourceProperty(name="layerName", flag="unknown_layerName")
+    private String value_layerName;
+    private boolean unknown_layerName;
     public String layerName() {
-        if (layerName == null) return null;
-        return layerName.getValue("LayerVersion.layerName");
+        if (!unknown_layerName) return value_layerName;
+        throw new UndeferrableValueException("Value 'LayerVersion.layerName' is not present");
     }
 
     /**
      * License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
      * 
      */
-    private @Nullable UndeferrableValue<String> licenseInfo;
-
+    @PolicyResourceProperty(name="licenseInfo", flag="unknown_licenseInfo")
+    private @Nullable String value_licenseInfo;
+    private boolean unknown_licenseInfo;
     public @Nullable String licenseInfo() {
-        if (licenseInfo == null) return null;
-        return licenseInfo.getValue("LayerVersion.licenseInfo");
+        if (!unknown_licenseInfo) return value_licenseInfo;
+        throw new UndeferrableValueException("Value 'LayerVersion.licenseInfo' is not present");
     }
 
     /**
      * S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
      * 
      */
-    private @Nullable UndeferrableValue<String> s3Bucket;
-
+    @PolicyResourceProperty(name="s3Bucket", flag="unknown_s3Bucket")
+    private @Nullable String value_s3Bucket;
+    private boolean unknown_s3Bucket;
     public @Nullable String s3Bucket() {
-        if (s3Bucket == null) return null;
-        return s3Bucket.getValue("LayerVersion.s3Bucket");
+        if (!unknown_s3Bucket) return value_s3Bucket;
+        throw new UndeferrableValueException("Value 'LayerVersion.s3Bucket' is not present");
     }
 
     /**
      * S3 key of an object containing the function&#39;s deployment package. Conflicts with `filename`.
      * 
      */
-    private @Nullable UndeferrableValue<String> s3Key;
-
+    @PolicyResourceProperty(name="s3Key", flag="unknown_s3Key")
+    private @Nullable String value_s3Key;
+    private boolean unknown_s3Key;
     public @Nullable String s3Key() {
-        if (s3Key == null) return null;
-        return s3Key.getValue("LayerVersion.s3Key");
+        if (!unknown_s3Key) return value_s3Key;
+        throw new UndeferrableValueException("Value 'LayerVersion.s3Key' is not present");
     }
 
     /**
      * Object version containing the function&#39;s deployment package. Conflicts with `filename`.
      * 
      */
-    private @Nullable UndeferrableValue<String> s3ObjectVersion;
-
+    @PolicyResourceProperty(name="s3ObjectVersion", flag="unknown_s3ObjectVersion")
+    private @Nullable String value_s3ObjectVersion;
+    private boolean unknown_s3ObjectVersion;
     public @Nullable String s3ObjectVersion() {
-        if (s3ObjectVersion == null) return null;
-        return s3ObjectVersion.getValue("LayerVersion.s3ObjectVersion");
+        if (!unknown_s3ObjectVersion) return value_s3ObjectVersion;
+        throw new UndeferrableValueException("Value 'LayerVersion.s3ObjectVersion' is not present");
     }
 
     /**
      * ARN of a signing job.
      * 
      */
-    private UndeferrableValue<String> signingJobArn;
-
+    @PolicyResourceProperty(name="signingJobArn", flag="unknown_signingJobArn")
+    private String value_signingJobArn;
+    private boolean unknown_signingJobArn;
     public String signingJobArn() {
-        if (signingJobArn == null) return null;
-        return signingJobArn.getValue("LayerVersion.signingJobArn");
+        if (!unknown_signingJobArn) return value_signingJobArn;
+        throw new UndeferrableValueException("Value 'LayerVersion.signingJobArn' is not present");
     }
 
     /**
      * ARN for a signing profile version.
      * 
      */
-    private UndeferrableValue<String> signingProfileVersionArn;
-
+    @PolicyResourceProperty(name="signingProfileVersionArn", flag="unknown_signingProfileVersionArn")
+    private String value_signingProfileVersionArn;
+    private boolean unknown_signingProfileVersionArn;
     public String signingProfileVersionArn() {
-        if (signingProfileVersionArn == null) return null;
-        return signingProfileVersionArn.getValue("LayerVersion.signingProfileVersionArn");
+        if (!unknown_signingProfileVersionArn) return value_signingProfileVersionArn;
+        throw new UndeferrableValueException("Value 'LayerVersion.signingProfileVersionArn' is not present");
     }
 
     /**
      * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`. When this is not set to `true`, changing any of `compatible_architectures`, `compatible_runtimes`, `description`, `filename`, `layer_name`, `license_info`, `s3_bucket`, `s3_key`, `s3_object_version`, or `source_code_hash` forces deletion of the existing layer version and creation of a new layer version.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> skipDestroy;
-
+    @PolicyResourceProperty(name="skipDestroy", flag="unknown_skipDestroy")
+    private @Nullable Boolean value_skipDestroy;
+    private boolean unknown_skipDestroy;
     public @Nullable Boolean skipDestroy() {
-        if (skipDestroy == null) return null;
-        return skipDestroy.getValue("LayerVersion.skipDestroy");
+        if (!unknown_skipDestroy) return value_skipDestroy;
+        throw new UndeferrableValueException("Value 'LayerVersion.skipDestroy' is not present");
     }
 
     /**
      * Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
      * 
      */
-    private UndeferrableValue<String> sourceCodeHash;
-
+    @PolicyResourceProperty(name="sourceCodeHash", flag="unknown_sourceCodeHash")
+    private String value_sourceCodeHash;
+    private boolean unknown_sourceCodeHash;
     public String sourceCodeHash() {
-        if (sourceCodeHash == null) return null;
-        return sourceCodeHash.getValue("LayerVersion.sourceCodeHash");
+        if (!unknown_sourceCodeHash) return value_sourceCodeHash;
+        throw new UndeferrableValueException("Value 'LayerVersion.sourceCodeHash' is not present");
     }
 
     /**
      * Size in bytes of the function .zip file.
      * 
      */
-    private UndeferrableValue<Integer> sourceCodeSize;
-
+    @PolicyResourceProperty(name="sourceCodeSize", flag="unknown_sourceCodeSize")
+    private Integer value_sourceCodeSize;
+    private boolean unknown_sourceCodeSize;
     public Integer sourceCodeSize() {
-        if (sourceCodeSize == null) return null;
-        return sourceCodeSize.getValue("LayerVersion.sourceCodeSize");
+        if (!unknown_sourceCodeSize) return value_sourceCodeSize;
+        throw new UndeferrableValueException("Value 'LayerVersion.sourceCodeSize' is not present");
     }
 
     /**
      * Lambda Layer version.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("LayerVersion.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'LayerVersion.version' is not present");
     }
 
 }

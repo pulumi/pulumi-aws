@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.memorydb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.memorydb.outputs.SnapshotClusterConfiguration;
 import java.lang.String;
@@ -19,88 +20,96 @@ public final class Snapshot extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN of the snapshot.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Snapshot.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Snapshot.arn' is not present");
     }
 
     /**
      * The configuration of the cluster from which the snapshot was taken.
      * 
      */
-    private UndeferrableValue<List<SnapshotClusterConfiguration>> clusterConfigurations;
-
+    @PolicyResourceProperty(name="clusterConfigurations", flag="unknown_clusterConfigurations")
+    private List<SnapshotClusterConfiguration> value_clusterConfigurations;
+    private boolean unknown_clusterConfigurations;
     public List<SnapshotClusterConfiguration> clusterConfigurations() {
-        if (clusterConfigurations == null) return null;
-        return clusterConfigurations.getValue("Snapshot.clusterConfigurations");
+        if (!unknown_clusterConfigurations) return value_clusterConfigurations;
+        throw new UndeferrableValueException("Value 'Snapshot.clusterConfigurations' is not present");
     }
 
     /**
      * Name of the MemoryDB cluster to take a snapshot of.
      * 
      */
-    private UndeferrableValue<String> clusterName;
-
+    @PolicyResourceProperty(name="clusterName", flag="unknown_clusterName")
+    private String value_clusterName;
+    private boolean unknown_clusterName;
     public String clusterName() {
-        if (clusterName == null) return null;
-        return clusterName.getValue("Snapshot.clusterName");
+        if (!unknown_clusterName) return value_clusterName;
+        throw new UndeferrableValueException("Value 'Snapshot.clusterName' is not present");
     }
 
     /**
      * ARN of the KMS key used to encrypt the snapshot at rest.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private @Nullable String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public @Nullable String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("Snapshot.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'Snapshot.kmsKeyArn' is not present");
     }
 
     /**
      * Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Snapshot.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Snapshot.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("Snapshot.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'Snapshot.namePrefix' is not present");
     }
 
     /**
      * Indicates whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
      * 
      */
-    private UndeferrableValue<String> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private String value_source;
+    private boolean unknown_source;
     public String source() {
-        if (source == null) return null;
-        return source.getValue("Snapshot.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'Snapshot.source' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Snapshot.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Snapshot.tags' is not present");
     }
 
     /**
@@ -111,11 +120,12 @@ public final class Snapshot extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Snapshot.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Snapshot.tagsAll' is not present");
     }
 
 }

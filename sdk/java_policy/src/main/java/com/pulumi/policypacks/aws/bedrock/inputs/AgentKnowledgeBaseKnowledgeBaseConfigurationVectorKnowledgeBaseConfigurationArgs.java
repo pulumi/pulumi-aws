@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
      * ARN of the model used to create vector embeddings for the knowledge base.
      * 
      */
-    private UndeferrableValue<String> embeddingModelArn;
-
+    @PolicyResourceProperty(name="embeddingModelArn", flag="unknown_embeddingModelArn")
+    private String value_embeddingModelArn;
+    private boolean unknown_embeddingModelArn;
     public String embeddingModelArn() {
-        if (embeddingModelArn == null) return null;
-        return embeddingModelArn.getValue("AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs.embeddingModelArn");
+        if (!unknown_embeddingModelArn) return value_embeddingModelArn;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs.embeddingModelArn' is not present");
     }
 
     /**
      * The embeddings model configuration details for the vector model used in Knowledge Base.  See `embedding_model_configuration` block for details.
      * 
      */
-    private UndeferrableValue<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs> embeddingModelConfiguration;
-
+    @PolicyResourceProperty(name="embeddingModelConfiguration", flag="unknown_embeddingModelConfiguration")
+    private AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs value_embeddingModelConfiguration;
+    private boolean unknown_embeddingModelConfiguration;
     public AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs embeddingModelConfiguration() {
-        if (embeddingModelConfiguration == null) return null;
-        return embeddingModelConfiguration.getValue("AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs.embeddingModelConfiguration");
+        if (!unknown_embeddingModelConfiguration) return value_embeddingModelConfiguration;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs.embeddingModelConfiguration' is not present");
     }
 
     /**
      * supplemental_data_storage_configuration.  See `supplemental_data_storage_configuration` block for details.
      * 
      */
-    private UndeferrableValue<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs> supplementalDataStorageConfiguration;
-
+    @PolicyResourceProperty(name="supplementalDataStorageConfiguration", flag="unknown_supplementalDataStorageConfiguration")
+    private AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs value_supplementalDataStorageConfiguration;
+    private boolean unknown_supplementalDataStorageConfiguration;
     public AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs supplementalDataStorageConfiguration() {
-        if (supplementalDataStorageConfiguration == null) return null;
-        return supplementalDataStorageConfiguration.getValue("AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs.supplementalDataStorageConfiguration");
+        if (!unknown_supplementalDataStorageConfiguration) return value_supplementalDataStorageConfiguration;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs.supplementalDataStorageConfiguration' is not present");
     }
 
 }

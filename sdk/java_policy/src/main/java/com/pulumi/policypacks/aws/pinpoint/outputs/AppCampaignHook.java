@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pinpoint.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class AppCampaignHook {
      * Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
      * 
      */
-    private @Nullable UndeferrableValue<String> lambdaFunctionName;
-
+    @PolicyResourceProperty(name="lambdaFunctionName", flag="unknown_lambdaFunctionName")
+    private @Nullable String value_lambdaFunctionName;
+    private boolean unknown_lambdaFunctionName;
     public @Nullable String lambdaFunctionName() {
-        if (lambdaFunctionName == null) return null;
-        return lambdaFunctionName.getValue("AppCampaignHook.lambdaFunctionName");
+        if (!unknown_lambdaFunctionName) return value_lambdaFunctionName;
+        throw new UndeferrableValueException("Value 'AppCampaignHook.lambdaFunctionName' is not present");
     }
 
     /**
      * What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
      * 
      */
-    private @Nullable UndeferrableValue<String> mode;
-
+    @PolicyResourceProperty(name="mode", flag="unknown_mode")
+    private @Nullable String value_mode;
+    private boolean unknown_mode;
     public @Nullable String mode() {
-        if (mode == null) return null;
-        return mode.getValue("AppCampaignHook.mode");
+        if (!unknown_mode) return value_mode;
+        throw new UndeferrableValueException("Value 'AppCampaignHook.mode' is not present");
     }
 
     /**
      * Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
      * 
      */
-    private @Nullable UndeferrableValue<String> webUrl;
-
+    @PolicyResourceProperty(name="webUrl", flag="unknown_webUrl")
+    private @Nullable String value_webUrl;
+    private boolean unknown_webUrl;
     public @Nullable String webUrl() {
-        if (webUrl == null) return null;
-        return webUrl.getValue("AppCampaignHook.webUrl");
+        if (!unknown_webUrl) return value_webUrl;
+        throw new UndeferrableValueException("Value 'AppCampaignHook.webUrl' is not present");
     }
 
 }

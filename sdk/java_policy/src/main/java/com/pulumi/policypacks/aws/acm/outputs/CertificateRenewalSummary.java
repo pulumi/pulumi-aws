@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.acm.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,29 +15,32 @@ public final class CertificateRenewalSummary {
      * The status of ACM&#39;s managed renewal of the certificate
      * 
      */
-    private @Nullable UndeferrableValue<String> renewalStatus;
-
+    @PolicyResourceProperty(name="renewalStatus", flag="unknown_renewalStatus")
+    private @Nullable String value_renewalStatus;
+    private boolean unknown_renewalStatus;
     public @Nullable String renewalStatus() {
-        if (renewalStatus == null) return null;
-        return renewalStatus.getValue("CertificateRenewalSummary.renewalStatus");
+        if (!unknown_renewalStatus) return value_renewalStatus;
+        throw new UndeferrableValueException("Value 'CertificateRenewalSummary.renewalStatus' is not present");
     }
 
     /**
      * The reason that a renewal request was unsuccessful or is pending
      * 
      */
-    private @Nullable UndeferrableValue<String> renewalStatusReason;
-
+    @PolicyResourceProperty(name="renewalStatusReason", flag="unknown_renewalStatusReason")
+    private @Nullable String value_renewalStatusReason;
+    private boolean unknown_renewalStatusReason;
     public @Nullable String renewalStatusReason() {
-        if (renewalStatusReason == null) return null;
-        return renewalStatusReason.getValue("CertificateRenewalSummary.renewalStatusReason");
+        if (!unknown_renewalStatusReason) return value_renewalStatusReason;
+        throw new UndeferrableValueException("Value 'CertificateRenewalSummary.renewalStatusReason' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> updatedAt;
-
+    @PolicyResourceProperty(name="updatedAt", flag="unknown_updatedAt")
+    private @Nullable String value_updatedAt;
+    private boolean unknown_updatedAt;
     public @Nullable String updatedAt() {
-        if (updatedAt == null) return null;
-        return updatedAt.getValue("CertificateRenewalSummary.updatedAt");
+        if (!unknown_updatedAt) return value_updatedAt;
+        throw new UndeferrableValueException("Value 'CertificateRenewalSummary.updatedAt' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.identitystore;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class GroupMembershipArgs extends com.pulumi.resources.PolicyResour
      * The identifier for a group in the Identity Store.
      * 
      */
-    private UndeferrableValue<String> groupId;
-
+    @PolicyResourceProperty(name="groupId", flag="unknown_groupId")
+    private String value_groupId;
+    private boolean unknown_groupId;
     public String groupId() {
-        if (groupId == null) return null;
-        return groupId.getValue("GroupMembershipArgs.groupId");
+        if (!unknown_groupId) return value_groupId;
+        throw new UndeferrableValueException("Value 'GroupMembershipArgs.groupId' is not present");
     }
 
     /**
      * Identity Store ID associated with the Single Sign-On Instance.
      * 
      */
-    private UndeferrableValue<String> identityStoreId;
-
+    @PolicyResourceProperty(name="identityStoreId", flag="unknown_identityStoreId")
+    private String value_identityStoreId;
+    private boolean unknown_identityStoreId;
     public String identityStoreId() {
-        if (identityStoreId == null) return null;
-        return identityStoreId.getValue("GroupMembershipArgs.identityStoreId");
+        if (!unknown_identityStoreId) return value_identityStoreId;
+        throw new UndeferrableValueException("Value 'GroupMembershipArgs.identityStoreId' is not present");
     }
 
     /**
      * The identifier for a user in the Identity Store.
      * 
      */
-    private UndeferrableValue<String> memberId;
-
+    @PolicyResourceProperty(name="memberId", flag="unknown_memberId")
+    private String value_memberId;
+    private boolean unknown_memberId;
     public String memberId() {
-        if (memberId == null) return null;
-        return memberId.getValue("GroupMembershipArgs.memberId");
+        if (!unknown_memberId) return value_memberId;
+        throw new UndeferrableValueException("Value 'GroupMembershipArgs.memberId' is not present");
     }
 
 }

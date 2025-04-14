@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.amp.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.amp.inputs.ScraperSourceEksArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ScraperSourceArgs {
      * Configuration block for an EKS cluster source. See `eks`.
      * 
      */
-    private UndeferrableValue<ScraperSourceEksArgs> eks;
-
+    @PolicyResourceProperty(name="eks", flag="unknown_eks")
+    private ScraperSourceEksArgs value_eks;
+    private boolean unknown_eks;
     public ScraperSourceEksArgs eks() {
-        if (eks == null) return null;
-        return eks.getValue("ScraperSourceArgs.eks");
+        if (!unknown_eks) return value_eks;
+        throw new UndeferrableValueException("Value 'ScraperSourceArgs.eks' is not present");
     }
 
 }

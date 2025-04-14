@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.apigatewayv2.inputs.RouteRequestParameterArgs;
 import java.lang.Boolean;
@@ -20,33 +21,36 @@ public final class RouteArgs extends com.pulumi.resources.PolicyResourceInput {
      * API identifier.
      * 
      */
-    private UndeferrableValue<String> apiId;
-
+    @PolicyResourceProperty(name="apiId", flag="unknown_apiId")
+    private String value_apiId;
+    private boolean unknown_apiId;
     public String apiId() {
-        if (apiId == null) return null;
-        return apiId.getValue("RouteArgs.apiId");
+        if (!unknown_apiId) return value_apiId;
+        throw new UndeferrableValueException("Value 'RouteArgs.apiId' is not present");
     }
 
     /**
      * Boolean whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
      * 
      */
-    private UndeferrableValue<Boolean> apiKeyRequired;
-
+    @PolicyResourceProperty(name="apiKeyRequired", flag="unknown_apiKeyRequired")
+    private Boolean value_apiKeyRequired;
+    private boolean unknown_apiKeyRequired;
     public Boolean apiKeyRequired() {
-        if (apiKeyRequired == null) return null;
-        return apiKeyRequired.getValue("RouteArgs.apiKeyRequired");
+        if (!unknown_apiKeyRequired) return value_apiKeyRequired;
+        throw new UndeferrableValueException("Value 'RouteArgs.apiKeyRequired' is not present");
     }
 
     /**
      * Authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
      * 
      */
-    private UndeferrableValue<List<String>> authorizationScopes;
-
+    @PolicyResourceProperty(name="authorizationScopes", flag="unknown_authorizationScopes")
+    private List<String> value_authorizationScopes;
+    private boolean unknown_authorizationScopes;
     public List<String> authorizationScopes() {
-        if (authorizationScopes == null) return null;
-        return authorizationScopes.getValue("RouteArgs.authorizationScopes");
+        if (!unknown_authorizationScopes) return value_authorizationScopes;
+        throw new UndeferrableValueException("Value 'RouteArgs.authorizationScopes' is not present");
     }
 
     /**
@@ -56,99 +60,108 @@ public final class RouteArgs extends com.pulumi.resources.PolicyResourceInput {
      * Defaults to `NONE`.
      * 
      */
-    private UndeferrableValue<String> authorizationType;
-
+    @PolicyResourceProperty(name="authorizationType", flag="unknown_authorizationType")
+    private String value_authorizationType;
+    private boolean unknown_authorizationType;
     public String authorizationType() {
-        if (authorizationType == null) return null;
-        return authorizationType.getValue("RouteArgs.authorizationType");
+        if (!unknown_authorizationType) return value_authorizationType;
+        throw new UndeferrableValueException("Value 'RouteArgs.authorizationType' is not present");
     }
 
     /**
      * Identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route.
      * 
      */
-    private UndeferrableValue<String> authorizerId;
-
+    @PolicyResourceProperty(name="authorizerId", flag="unknown_authorizerId")
+    private String value_authorizerId;
+    private boolean unknown_authorizerId;
     public String authorizerId() {
-        if (authorizerId == null) return null;
-        return authorizerId.getValue("RouteArgs.authorizerId");
+        if (!unknown_authorizerId) return value_authorizerId;
+        throw new UndeferrableValueException("Value 'RouteArgs.authorizerId' is not present");
     }
 
     /**
      * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
      * 
      */
-    private UndeferrableValue<String> modelSelectionExpression;
-
+    @PolicyResourceProperty(name="modelSelectionExpression", flag="unknown_modelSelectionExpression")
+    private String value_modelSelectionExpression;
+    private boolean unknown_modelSelectionExpression;
     public String modelSelectionExpression() {
-        if (modelSelectionExpression == null) return null;
-        return modelSelectionExpression.getValue("RouteArgs.modelSelectionExpression");
+        if (!unknown_modelSelectionExpression) return value_modelSelectionExpression;
+        throw new UndeferrableValueException("Value 'RouteArgs.modelSelectionExpression' is not present");
     }
 
     /**
      * Operation name for the route. Must be between 1 and 64 characters in length.
      * 
      */
-    private UndeferrableValue<String> operationName;
-
+    @PolicyResourceProperty(name="operationName", flag="unknown_operationName")
+    private String value_operationName;
+    private boolean unknown_operationName;
     public String operationName() {
-        if (operationName == null) return null;
-        return operationName.getValue("RouteArgs.operationName");
+        if (!unknown_operationName) return value_operationName;
+        throw new UndeferrableValueException("Value 'RouteArgs.operationName' is not present");
     }
 
     /**
      * Request models for the route. Supported only for WebSocket APIs.
      * 
      */
-    private UndeferrableValue<Map<String,String>> requestModels;
-
+    @PolicyResourceProperty(name="requestModels", flag="unknown_requestModels")
+    private Map<String,String> value_requestModels;
+    private boolean unknown_requestModels;
     public Map<String,String> requestModels() {
-        if (requestModels == null) return null;
-        return requestModels.getValue("RouteArgs.requestModels");
+        if (!unknown_requestModels) return value_requestModels;
+        throw new UndeferrableValueException("Value 'RouteArgs.requestModels' is not present");
     }
 
     /**
      * Request parameters for the route. Supported only for WebSocket APIs.
      * 
      */
-    private UndeferrableValue<List<RouteRequestParameterArgs>> requestParameters;
-
+    @PolicyResourceProperty(name="requestParameters", flag="unknown_requestParameters")
+    private List<RouteRequestParameterArgs> value_requestParameters;
+    private boolean unknown_requestParameters;
     public List<RouteRequestParameterArgs> requestParameters() {
-        if (requestParameters == null) return null;
-        return requestParameters.getValue("RouteArgs.requestParameters");
+        if (!unknown_requestParameters) return value_requestParameters;
+        throw new UndeferrableValueException("Value 'RouteArgs.requestParameters' is not present");
     }
 
     /**
      * Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
      * 
      */
-    private UndeferrableValue<String> routeKey;
-
+    @PolicyResourceProperty(name="routeKey", flag="unknown_routeKey")
+    private String value_routeKey;
+    private boolean unknown_routeKey;
     public String routeKey() {
-        if (routeKey == null) return null;
-        return routeKey.getValue("RouteArgs.routeKey");
+        if (!unknown_routeKey) return value_routeKey;
+        throw new UndeferrableValueException("Value 'RouteArgs.routeKey' is not present");
     }
 
     /**
      * The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
      * 
      */
-    private UndeferrableValue<String> routeResponseSelectionExpression;
-
+    @PolicyResourceProperty(name="routeResponseSelectionExpression", flag="unknown_routeResponseSelectionExpression")
+    private String value_routeResponseSelectionExpression;
+    private boolean unknown_routeResponseSelectionExpression;
     public String routeResponseSelectionExpression() {
-        if (routeResponseSelectionExpression == null) return null;
-        return routeResponseSelectionExpression.getValue("RouteArgs.routeResponseSelectionExpression");
+        if (!unknown_routeResponseSelectionExpression) return value_routeResponseSelectionExpression;
+        throw new UndeferrableValueException("Value 'RouteArgs.routeResponseSelectionExpression' is not present");
     }
 
     /**
      * Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `aws.apigatewayv2.Integration` resource.
      * 
      */
-    private UndeferrableValue<String> target;
-
+    @PolicyResourceProperty(name="target", flag="unknown_target")
+    private String value_target;
+    private boolean unknown_target;
     public String target() {
-        if (target == null) return null;
-        return target.getValue("RouteArgs.target");
+        if (!unknown_target) return value_target;
+        throw new UndeferrableValueException("Value 'RouteArgs.target' is not present");
     }
 
 }

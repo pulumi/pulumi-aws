@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.waf;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.waf.outputs.XssMatchSetXssMatchTuple;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class XssMatchSet extends com.pulumi.resources.PolicyResourceOutput
      * Amazon Resource Name (ARN)
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("XssMatchSet.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'XssMatchSet.arn' is not present");
     }
 
     /**
      * The name or description of the SizeConstraintSet.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("XssMatchSet.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'XssMatchSet.name' is not present");
     }
 
     /**
      * The parts of web requests that you want to inspect for cross-site scripting attacks.
      * 
      */
-    private @Nullable UndeferrableValue<List<XssMatchSetXssMatchTuple>> xssMatchTuples;
-
+    @PolicyResourceProperty(name="xssMatchTuples", flag="unknown_xssMatchTuples")
+    private @Nullable List<XssMatchSetXssMatchTuple> value_xssMatchTuples;
+    private boolean unknown_xssMatchTuples;
     public @Nullable List<XssMatchSetXssMatchTuple> xssMatchTuples() {
-        if (xssMatchTuples == null) return null;
-        return xssMatchTuples.getValue("XssMatchSet.xssMatchTuples");
+        if (!unknown_xssMatchTuples) return value_xssMatchTuples;
+        throw new UndeferrableValueException("Value 'XssMatchSet.xssMatchTuples' is not present");
     }
 
 }

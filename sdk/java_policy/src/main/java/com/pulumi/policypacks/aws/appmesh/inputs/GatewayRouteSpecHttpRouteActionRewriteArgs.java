@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.GatewayRouteSpecHttpRouteActionRewriteHostnameArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.GatewayRouteSpecHttpRouteActionRewritePathArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.GatewayRouteSpecHttpRouteActionRewritePrefixArgs;
@@ -16,33 +17,36 @@ public final class GatewayRouteSpecHttpRouteActionRewriteArgs {
      * Host name to rewrite.
      * 
      */
-    private UndeferrableValue<GatewayRouteSpecHttpRouteActionRewriteHostnameArgs> hostname;
-
+    @PolicyResourceProperty(name="hostname", flag="unknown_hostname")
+    private GatewayRouteSpecHttpRouteActionRewriteHostnameArgs value_hostname;
+    private boolean unknown_hostname;
     public GatewayRouteSpecHttpRouteActionRewriteHostnameArgs hostname() {
-        if (hostname == null) return null;
-        return hostname.getValue("GatewayRouteSpecHttpRouteActionRewriteArgs.hostname");
+        if (!unknown_hostname) return value_hostname;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteActionRewriteArgs.hostname' is not present");
     }
 
     /**
      * Exact path to rewrite.
      * 
      */
-    private UndeferrableValue<GatewayRouteSpecHttpRouteActionRewritePathArgs> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private GatewayRouteSpecHttpRouteActionRewritePathArgs value_path;
+    private boolean unknown_path;
     public GatewayRouteSpecHttpRouteActionRewritePathArgs path() {
-        if (path == null) return null;
-        return path.getValue("GatewayRouteSpecHttpRouteActionRewriteArgs.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteActionRewriteArgs.path' is not present");
     }
 
     /**
      * Specified beginning characters to rewrite.
      * 
      */
-    private UndeferrableValue<GatewayRouteSpecHttpRouteActionRewritePrefixArgs> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private GatewayRouteSpecHttpRouteActionRewritePrefixArgs value_prefix;
+    private boolean unknown_prefix;
     public GatewayRouteSpecHttpRouteActionRewritePrefixArgs prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("GatewayRouteSpecHttpRouteActionRewriteArgs.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteActionRewriteArgs.prefix' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class QuickConnectQuickConnectConfigQueueConfig {
      * Specifies the identifier of the contact flow.
      * 
      */
-    private UndeferrableValue<String> contactFlowId;
-
+    @PolicyResourceProperty(name="contactFlowId", flag="unknown_contactFlowId")
+    private String value_contactFlowId;
+    private boolean unknown_contactFlowId;
     public String contactFlowId() {
-        if (contactFlowId == null) return null;
-        return contactFlowId.getValue("QuickConnectQuickConnectConfigQueueConfig.contactFlowId");
+        if (!unknown_contactFlowId) return value_contactFlowId;
+        throw new UndeferrableValueException("Value 'QuickConnectQuickConnectConfigQueueConfig.contactFlowId' is not present");
     }
 
     /**
      * Specifies the identifier for the queue.
      * 
      */
-    private UndeferrableValue<String> queueId;
-
+    @PolicyResourceProperty(name="queueId", flag="unknown_queueId")
+    private String value_queueId;
+    private boolean unknown_queueId;
     public String queueId() {
-        if (queueId == null) return null;
-        return queueId.getValue("QuickConnectQuickConnectConfigQueueConfig.queueId");
+        if (!unknown_queueId) return value_queueId;
+        throw new UndeferrableValueException("Value 'QuickConnectQuickConnectConfigQueueConfig.queueId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class RecordGeolocationRoutingPolicy {
      * A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
      * 
      */
-    private @Nullable UndeferrableValue<String> continent;
-
+    @PolicyResourceProperty(name="continent", flag="unknown_continent")
+    private @Nullable String value_continent;
+    private boolean unknown_continent;
     public @Nullable String continent() {
-        if (continent == null) return null;
-        return continent.getValue("RecordGeolocationRoutingPolicy.continent");
+        if (!unknown_continent) return value_continent;
+        throw new UndeferrableValueException("Value 'RecordGeolocationRoutingPolicy.continent' is not present");
     }
 
     /**
      * A two-character country code or `*` to indicate a default resource record set.
      * 
      */
-    private @Nullable UndeferrableValue<String> country;
-
+    @PolicyResourceProperty(name="country", flag="unknown_country")
+    private @Nullable String value_country;
+    private boolean unknown_country;
     public @Nullable String country() {
-        if (country == null) return null;
-        return country.getValue("RecordGeolocationRoutingPolicy.country");
+        if (!unknown_country) return value_country;
+        throw new UndeferrableValueException("Value 'RecordGeolocationRoutingPolicy.country' is not present");
     }
 
     /**
      * A subdivision code for a country.
      * 
      */
-    private @Nullable UndeferrableValue<String> subdivision;
-
+    @PolicyResourceProperty(name="subdivision", flag="unknown_subdivision")
+    private @Nullable String value_subdivision;
+    private boolean unknown_subdivision;
     public @Nullable String subdivision() {
-        if (subdivision == null) return null;
-        return subdivision.getValue("RecordGeolocationRoutingPolicy.subdivision");
+        if (!unknown_subdivision) return value_subdivision;
+        throw new UndeferrableValueException("Value 'RecordGeolocationRoutingPolicy.subdivision' is not present");
     }
 
 }

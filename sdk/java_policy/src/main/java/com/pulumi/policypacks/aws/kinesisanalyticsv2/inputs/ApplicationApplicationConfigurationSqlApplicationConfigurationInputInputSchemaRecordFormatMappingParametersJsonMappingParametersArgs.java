@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * The path to the top-level parent that contains the records.
      * 
      */
-    private UndeferrableValue<String> recordRowPath;
-
+    @PolicyResourceProperty(name="recordRowPath", flag="unknown_recordRowPath")
+    private String value_recordRowPath;
+    private boolean unknown_recordRowPath;
     public String recordRowPath() {
-        if (recordRowPath == null) return null;
-        return recordRowPath.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs.recordRowPath");
+        if (!unknown_recordRowPath) return value_recordRowPath;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs.recordRowPath' is not present");
     }
 
 }

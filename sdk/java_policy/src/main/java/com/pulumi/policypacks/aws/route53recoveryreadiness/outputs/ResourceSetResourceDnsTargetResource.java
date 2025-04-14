@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53recoveryreadiness.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.route53recoveryreadiness.outputs.ResourceSetResourceDnsTargetResourceTargetResource;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,55 +16,60 @@ public final class ResourceSetResourceDnsTargetResource {
      * DNS Name that acts as the ingress point to a portion of application.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("ResourceSetResourceDnsTargetResource.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'ResourceSetResourceDnsTargetResource.domainName' is not present");
     }
 
     /**
      * Hosted Zone ARN that contains the DNS record with the provided name of target resource.
      * 
      */
-    private @Nullable UndeferrableValue<String> hostedZoneArn;
-
+    @PolicyResourceProperty(name="hostedZoneArn", flag="unknown_hostedZoneArn")
+    private @Nullable String value_hostedZoneArn;
+    private boolean unknown_hostedZoneArn;
     public @Nullable String hostedZoneArn() {
-        if (hostedZoneArn == null) return null;
-        return hostedZoneArn.getValue("ResourceSetResourceDnsTargetResource.hostedZoneArn");
+        if (!unknown_hostedZoneArn) return value_hostedZoneArn;
+        throw new UndeferrableValueException("Value 'ResourceSetResourceDnsTargetResource.hostedZoneArn' is not present");
     }
 
     /**
      * Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
      * 
      */
-    private @Nullable UndeferrableValue<String> recordSetId;
-
+    @PolicyResourceProperty(name="recordSetId", flag="unknown_recordSetId")
+    private @Nullable String value_recordSetId;
+    private boolean unknown_recordSetId;
     public @Nullable String recordSetId() {
-        if (recordSetId == null) return null;
-        return recordSetId.getValue("ResourceSetResourceDnsTargetResource.recordSetId");
+        if (!unknown_recordSetId) return value_recordSetId;
+        throw new UndeferrableValueException("Value 'ResourceSetResourceDnsTargetResource.recordSetId' is not present");
     }
 
     /**
      * Type of DNS Record of target resource.
      * 
      */
-    private @Nullable UndeferrableValue<String> recordType;
-
+    @PolicyResourceProperty(name="recordType", flag="unknown_recordType")
+    private @Nullable String value_recordType;
+    private boolean unknown_recordType;
     public @Nullable String recordType() {
-        if (recordType == null) return null;
-        return recordType.getValue("ResourceSetResourceDnsTargetResource.recordType");
+        if (!unknown_recordType) return value_recordType;
+        throw new UndeferrableValueException("Value 'ResourceSetResourceDnsTargetResource.recordType' is not present");
     }
 
     /**
      * Target resource the R53 record specified with the above params points to.
      * 
      */
-    private @Nullable UndeferrableValue<ResourceSetResourceDnsTargetResourceTargetResource> targetResource;
-
+    @PolicyResourceProperty(name="targetResource", flag="unknown_targetResource")
+    private @Nullable ResourceSetResourceDnsTargetResourceTargetResource value_targetResource;
+    private boolean unknown_targetResource;
     public @Nullable ResourceSetResourceDnsTargetResourceTargetResource targetResource() {
-        if (targetResource == null) return null;
-        return targetResource.getValue("ResourceSetResourceDnsTargetResource.targetResource");
+        if (!unknown_targetResource) return value_targetResource;
+        throw new UndeferrableValueException("Value 'ResourceSetResourceDnsTargetResource.targetResource' is not present");
     }
 
 }

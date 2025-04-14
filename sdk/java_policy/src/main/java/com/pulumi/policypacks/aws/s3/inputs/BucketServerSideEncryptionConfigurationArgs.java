@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.inputs.BucketServerSideEncryptionConfigurationRuleArgs;
 
 
@@ -13,11 +14,12 @@ public final class BucketServerSideEncryptionConfigurationArgs {
      * A single object for server-side encryption by default configuration. (documented below)
      * 
      */
-    private UndeferrableValue<BucketServerSideEncryptionConfigurationRuleArgs> rule;
-
+    @PolicyResourceProperty(name="rule", flag="unknown_rule")
+    private BucketServerSideEncryptionConfigurationRuleArgs value_rule;
+    private boolean unknown_rule;
     public BucketServerSideEncryptionConfigurationRuleArgs rule() {
-        if (rule == null) return null;
-        return rule.getValue("BucketServerSideEncryptionConfigurationArgs.rule");
+        if (!unknown_rule) return value_rule;
+        throw new UndeferrableValueException("Value 'BucketServerSideEncryptionConfigurationArgs.rule' is not present");
     }
 
 }

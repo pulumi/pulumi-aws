@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -19,55 +20,60 @@ public final class VpcConnector extends com.pulumi.resources.PolicyResourceOutpu
      * ARN of VPC connector.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("VpcConnector.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'VpcConnector.arn' is not present");
     }
 
     /**
      * List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroups;
-
+    @PolicyResourceProperty(name="securityGroups", flag="unknown_securityGroups")
+    private List<String> value_securityGroups;
+    private boolean unknown_securityGroups;
     public List<String> securityGroups() {
-        if (securityGroups == null) return null;
-        return securityGroups.getValue("VpcConnector.securityGroups");
+        if (!unknown_securityGroups) return value_securityGroups;
+        throw new UndeferrableValueException("Value 'VpcConnector.securityGroups' is not present");
     }
 
     /**
      * Current state of the VPC connector. If the status of a connector revision is INACTIVE, it was deleted and can&#39;t be used. Inactive connector revisions are permanently removed some time after they are deleted.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("VpcConnector.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'VpcConnector.status' is not present");
     }
 
     /**
      * List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
      * 
      */
-    private UndeferrableValue<List<String>> subnets;
-
+    @PolicyResourceProperty(name="subnets", flag="unknown_subnets")
+    private List<String> value_subnets;
+    private boolean unknown_subnets;
     public List<String> subnets() {
-        if (subnets == null) return null;
-        return subnets.getValue("VpcConnector.subnets");
+        if (!unknown_subnets) return value_subnets;
+        throw new UndeferrableValueException("Value 'VpcConnector.subnets' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VpcConnector.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VpcConnector.tags' is not present");
     }
 
     /**
@@ -78,33 +84,36 @@ public final class VpcConnector extends com.pulumi.resources.PolicyResourceOutpu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("VpcConnector.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'VpcConnector.tagsAll' is not present");
     }
 
     /**
      * Name for the VPC connector.
      * 
      */
-    private UndeferrableValue<String> vpcConnectorName;
-
+    @PolicyResourceProperty(name="vpcConnectorName", flag="unknown_vpcConnectorName")
+    private String value_vpcConnectorName;
+    private boolean unknown_vpcConnectorName;
     public String vpcConnectorName() {
-        if (vpcConnectorName == null) return null;
-        return vpcConnectorName.getValue("VpcConnector.vpcConnectorName");
+        if (!unknown_vpcConnectorName) return value_vpcConnectorName;
+        throw new UndeferrableValueException("Value 'VpcConnector.vpcConnectorName' is not present");
     }
 
     /**
      * The revision of VPC connector. It&#39;s unique among all the active connectors (&#34;Status&#34;: &#34;ACTIVE&#34;) that share the same Name.
      * 
      */
-    private UndeferrableValue<Integer> vpcConnectorRevision;
-
+    @PolicyResourceProperty(name="vpcConnectorRevision", flag="unknown_vpcConnectorRevision")
+    private Integer value_vpcConnectorRevision;
+    private boolean unknown_vpcConnectorRevision;
     public Integer vpcConnectorRevision() {
-        if (vpcConnectorRevision == null) return null;
-        return vpcConnectorRevision.getValue("VpcConnector.vpcConnectorRevision");
+        if (!unknown_vpcConnectorRevision) return value_vpcConnectorRevision;
+        throw new UndeferrableValueException("Value 'VpcConnector.vpcConnectorRevision' is not present");
     }
 
 }

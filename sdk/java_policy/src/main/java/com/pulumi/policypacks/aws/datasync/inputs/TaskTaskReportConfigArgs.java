@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.datasync.inputs.TaskTaskReportConfigReportOverridesArgs;
 import com.pulumi.policypacks.aws.datasync.inputs.TaskTaskReportConfigS3DestinationArgs;
 import java.lang.String;
@@ -16,55 +17,60 @@ public final class TaskTaskReportConfigArgs {
      * Specifies the type of task report you&#39;d like. Valid values: `SUMMARY_ONLY` and `STANDARD`.
      * 
      */
-    private UndeferrableValue<String> outputType;
-
+    @PolicyResourceProperty(name="outputType", flag="unknown_outputType")
+    private String value_outputType;
+    private boolean unknown_outputType;
     public String outputType() {
-        if (outputType == null) return null;
-        return outputType.getValue("TaskTaskReportConfigArgs.outputType");
+        if (!unknown_outputType) return value_outputType;
+        throw new UndeferrableValueException("Value 'TaskTaskReportConfigArgs.outputType' is not present");
     }
 
     /**
      * Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn&#39;t. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
      * 
      */
-    private UndeferrableValue<String> reportLevel;
-
+    @PolicyResourceProperty(name="reportLevel", flag="unknown_reportLevel")
+    private String value_reportLevel;
+    private boolean unknown_reportLevel;
     public String reportLevel() {
-        if (reportLevel == null) return null;
-        return reportLevel.getValue("TaskTaskReportConfigArgs.reportLevel");
+        if (!unknown_reportLevel) return value_reportLevel;
+        throw new UndeferrableValueException("Value 'TaskTaskReportConfigArgs.reportLevel' is not present");
     }
 
     /**
      * Configuration block containing the configuration of the reporting level for aspects of your task report. See `report_overrides` below.
      * 
      */
-    private UndeferrableValue<TaskTaskReportConfigReportOverridesArgs> reportOverrides;
-
+    @PolicyResourceProperty(name="reportOverrides", flag="unknown_reportOverrides")
+    private TaskTaskReportConfigReportOverridesArgs value_reportOverrides;
+    private boolean unknown_reportOverrides;
     public TaskTaskReportConfigReportOverridesArgs reportOverrides() {
-        if (reportOverrides == null) return null;
-        return reportOverrides.getValue("TaskTaskReportConfigArgs.reportOverrides");
+        if (!unknown_reportOverrides) return value_reportOverrides;
+        throw new UndeferrableValueException("Value 'TaskTaskReportConfigArgs.reportOverrides' is not present");
     }
 
     /**
      * Configuration block containing the configuration for the Amazon S3 bucket where DataSync uploads your task report. See `s3_destination` below.
      * 
      */
-    private UndeferrableValue<TaskTaskReportConfigS3DestinationArgs> s3Destination;
-
+    @PolicyResourceProperty(name="s3Destination", flag="unknown_s3Destination")
+    private TaskTaskReportConfigS3DestinationArgs value_s3Destination;
+    private boolean unknown_s3Destination;
     public TaskTaskReportConfigS3DestinationArgs s3Destination() {
-        if (s3Destination == null) return null;
-        return s3Destination.getValue("TaskTaskReportConfigArgs.s3Destination");
+        if (!unknown_s3Destination) return value_s3Destination;
+        throw new UndeferrableValueException("Value 'TaskTaskReportConfigArgs.s3Destination' is not present");
     }
 
     /**
      * Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you enable versioning on your bucket. Keep in mind that setting this to INCLUDE can increase the duration of your task execution. Valid values: `INCLUDE` and `NONE`.
      * 
      */
-    private UndeferrableValue<String> s3ObjectVersioning;
-
+    @PolicyResourceProperty(name="s3ObjectVersioning", flag="unknown_s3ObjectVersioning")
+    private String value_s3ObjectVersioning;
+    private boolean unknown_s3ObjectVersioning;
     public String s3ObjectVersioning() {
-        if (s3ObjectVersioning == null) return null;
-        return s3ObjectVersioning.getValue("TaskTaskReportConfigArgs.s3ObjectVersioning");
+        if (!unknown_s3ObjectVersioning) return value_s3ObjectVersioning;
+        throw new UndeferrableValueException("Value 'TaskTaskReportConfigArgs.s3ObjectVersioning' is not present");
     }
 
 }

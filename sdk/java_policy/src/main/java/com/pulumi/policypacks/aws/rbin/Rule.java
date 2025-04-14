@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rbin;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.rbin.outputs.RuleLockConfiguration;
 import com.pulumi.policypacks.aws.rbin.outputs.RuleResourceTag;
@@ -17,77 +18,84 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:rbin/rule:Rule")
 public final class Rule extends com.pulumi.resources.PolicyResourceOutput {
 
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Rule.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Rule.arn' is not present");
     }
 
     /**
      * The retention rule description.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("Rule.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Rule.description' is not present");
     }
 
     /**
      * Information about the retention rule lock configuration. See `lock_configuration` below.
      * 
      */
-    private @Nullable UndeferrableValue<RuleLockConfiguration> lockConfiguration;
-
+    @PolicyResourceProperty(name="lockConfiguration", flag="unknown_lockConfiguration")
+    private @Nullable RuleLockConfiguration value_lockConfiguration;
+    private boolean unknown_lockConfiguration;
     public @Nullable RuleLockConfiguration lockConfiguration() {
-        if (lockConfiguration == null) return null;
-        return lockConfiguration.getValue("Rule.lockConfiguration");
+        if (!unknown_lockConfiguration) return value_lockConfiguration;
+        throw new UndeferrableValueException("Value 'Rule.lockConfiguration' is not present");
     }
 
     /**
      * (Timestamp) The date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
      * 
      */
-    private UndeferrableValue<String> lockEndTime;
-
+    @PolicyResourceProperty(name="lockEndTime", flag="unknown_lockEndTime")
+    private String value_lockEndTime;
+    private boolean unknown_lockEndTime;
     public String lockEndTime() {
-        if (lockEndTime == null) return null;
-        return lockEndTime.getValue("Rule.lockEndTime");
+        if (!unknown_lockEndTime) return value_lockEndTime;
+        throw new UndeferrableValueException("Value 'Rule.lockEndTime' is not present");
     }
 
     /**
      * (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
      * 
      */
-    private UndeferrableValue<String> lockState;
-
+    @PolicyResourceProperty(name="lockState", flag="unknown_lockState")
+    private String value_lockState;
+    private boolean unknown_lockState;
     public String lockState() {
-        if (lockState == null) return null;
-        return lockState.getValue("Rule.lockState");
+        if (!unknown_lockState) return value_lockState;
+        throw new UndeferrableValueException("Value 'Rule.lockState' is not present");
     }
 
     /**
      * Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
      * 
      */
-    private UndeferrableValue<List<RuleResourceTag>> resourceTags;
-
+    @PolicyResourceProperty(name="resourceTags", flag="unknown_resourceTags")
+    private List<RuleResourceTag> value_resourceTags;
+    private boolean unknown_resourceTags;
     public List<RuleResourceTag> resourceTags() {
-        if (resourceTags == null) return null;
-        return resourceTags.getValue("Rule.resourceTags");
+        if (!unknown_resourceTags) return value_resourceTags;
+        throw new UndeferrableValueException("Value 'Rule.resourceTags' is not present");
     }
 
     /**
      * The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
      * 
      */
-    private UndeferrableValue<String> resourceType;
-
+    @PolicyResourceProperty(name="resourceType", flag="unknown_resourceType")
+    private String value_resourceType;
+    private boolean unknown_resourceType;
     public String resourceType() {
-        if (resourceType == null) return null;
-        return resourceType.getValue("Rule.resourceType");
+        if (!unknown_resourceType) return value_resourceType;
+        throw new UndeferrableValueException("Value 'Rule.resourceType' is not present");
     }
 
     /**
@@ -96,29 +104,32 @@ public final class Rule extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<RuleRetentionPeriod> retentionPeriod;
-
+    @PolicyResourceProperty(name="retentionPeriod", flag="unknown_retentionPeriod")
+    private RuleRetentionPeriod value_retentionPeriod;
+    private boolean unknown_retentionPeriod;
     public RuleRetentionPeriod retentionPeriod() {
-        if (retentionPeriod == null) return null;
-        return retentionPeriod.getValue("Rule.retentionPeriod");
+        if (!unknown_retentionPeriod) return value_retentionPeriod;
+        throw new UndeferrableValueException("Value 'Rule.retentionPeriod' is not present");
     }
 
     /**
      * (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Rule.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Rule.status' is not present");
     }
 
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Rule.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Rule.tags' is not present");
     }
 
     /**
@@ -127,11 +138,12 @@ public final class Rule extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Rule.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Rule.tagsAll' is not present");
     }
 
 }

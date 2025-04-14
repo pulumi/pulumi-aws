@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.secretsmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.secretsmanager.outputs.SecretReplica;
 import java.lang.Boolean;
@@ -21,110 +22,120 @@ public final class Secret extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the secret.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Secret.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Secret.arn' is not present");
     }
 
     /**
      * Description of the secret.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Secret.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Secret.description' is not present");
     }
 
     /**
      * Accepts boolean value to specify whether to overwrite a secret with the same name in the destination Region.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> forceOverwriteReplicaSecret;
-
+    @PolicyResourceProperty(name="forceOverwriteReplicaSecret", flag="unknown_forceOverwriteReplicaSecret")
+    private @Nullable Boolean value_forceOverwriteReplicaSecret;
+    private boolean unknown_forceOverwriteReplicaSecret;
     public @Nullable Boolean forceOverwriteReplicaSecret() {
-        if (forceOverwriteReplicaSecret == null) return null;
-        return forceOverwriteReplicaSecret.getValue("Secret.forceOverwriteReplicaSecret");
+        if (!unknown_forceOverwriteReplicaSecret) return value_forceOverwriteReplicaSecret;
+        throw new UndeferrableValueException("Value 'Secret.forceOverwriteReplicaSecret' is not present");
     }
 
     /**
      * ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. If you need to reference a CMK in a different account, you can use only the key ARN. If you don&#39;t specify this value, then Secrets Manager defaults to using the AWS account&#39;s default KMS key (the one named `aws/secretsmanager`). If the default KMS key with that name doesn&#39;t yet exist, then AWS Secrets Manager creates it for you automatically the first time.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("Secret.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'Secret.kmsKeyId' is not present");
     }
 
     /**
      * Friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.{@literal @}-` Conflicts with `name_prefix`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Secret.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Secret.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("Secret.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'Secret.namePrefix' is not present");
     }
 
     /**
      * Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = &#34;&#34;`) _will not_ delete the policy since it could have been set by `aws.secretsmanager.SecretPolicy`. To delete the `policy`, set it to `&#34;{}&#34;` (an empty JSON document).
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("Secret.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'Secret.policy' is not present");
     }
 
     /**
      * Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> recoveryWindowInDays;
-
+    @PolicyResourceProperty(name="recoveryWindowInDays", flag="unknown_recoveryWindowInDays")
+    private @Nullable Integer value_recoveryWindowInDays;
+    private boolean unknown_recoveryWindowInDays;
     public @Nullable Integer recoveryWindowInDays() {
-        if (recoveryWindowInDays == null) return null;
-        return recoveryWindowInDays.getValue("Secret.recoveryWindowInDays");
+        if (!unknown_recoveryWindowInDays) return value_recoveryWindowInDays;
+        throw new UndeferrableValueException("Value 'Secret.recoveryWindowInDays' is not present");
     }
 
     /**
      * Configuration block to support secret replication. See details below.
      * 
      */
-    private UndeferrableValue<List<SecretReplica>> replicas;
-
+    @PolicyResourceProperty(name="replicas", flag="unknown_replicas")
+    private List<SecretReplica> value_replicas;
+    private boolean unknown_replicas;
     public List<SecretReplica> replicas() {
-        if (replicas == null) return null;
-        return replicas.getValue("Secret.replicas");
+        if (!unknown_replicas) return value_replicas;
+        throw new UndeferrableValueException("Value 'Secret.replicas' is not present");
     }
 
     /**
      * Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Secret.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Secret.tags' is not present");
     }
 
     /**
@@ -135,11 +146,12 @@ public final class Secret extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Secret.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Secret.tagsAll' is not present");
     }
 
 }

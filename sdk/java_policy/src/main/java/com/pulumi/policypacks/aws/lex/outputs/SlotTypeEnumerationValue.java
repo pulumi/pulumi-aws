@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class SlotTypeEnumerationValue {
      * Additional values related to the slot type value. Each item must be less than or equal to 140 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> synonyms;
-
+    @PolicyResourceProperty(name="synonyms", flag="unknown_synonyms")
+    private @Nullable List<String> value_synonyms;
+    private boolean unknown_synonyms;
     public @Nullable List<String> synonyms() {
-        if (synonyms == null) return null;
-        return synonyms.getValue("SlotTypeEnumerationValue.synonyms");
+        if (!unknown_synonyms) return value_synonyms;
+        throw new UndeferrableValueException("Value 'SlotTypeEnumerationValue.synonyms' is not present");
     }
 
     /**
      * The value of the slot type. Must be less than or equal to 140 characters in length.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("SlotTypeEnumerationValue.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'SlotTypeEnumerationValue.value' is not present");
     }
 
 }

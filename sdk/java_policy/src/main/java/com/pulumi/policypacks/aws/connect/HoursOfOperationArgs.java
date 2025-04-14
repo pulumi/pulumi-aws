@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.connect.inputs.HoursOfOperationConfigArgs;
 import java.lang.String;
@@ -19,66 +20,72 @@ public final class HoursOfOperationArgs extends com.pulumi.resources.PolicyResou
      * One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
      * 
      */
-    private UndeferrableValue<List<HoursOfOperationConfigArgs>> configs;
-
+    @PolicyResourceProperty(name="configs", flag="unknown_configs")
+    private List<HoursOfOperationConfigArgs> value_configs;
+    private boolean unknown_configs;
     public List<HoursOfOperationConfigArgs> configs() {
-        if (configs == null) return null;
-        return configs.getValue("HoursOfOperationArgs.configs");
+        if (!unknown_configs) return value_configs;
+        throw new UndeferrableValueException("Value 'HoursOfOperationArgs.configs' is not present");
     }
 
     /**
      * Specifies the description of the Hours of Operation.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("HoursOfOperationArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'HoursOfOperationArgs.description' is not present");
     }
 
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    private UndeferrableValue<String> instanceId;
-
+    @PolicyResourceProperty(name="instanceId", flag="unknown_instanceId")
+    private String value_instanceId;
+    private boolean unknown_instanceId;
     public String instanceId() {
-        if (instanceId == null) return null;
-        return instanceId.getValue("HoursOfOperationArgs.instanceId");
+        if (!unknown_instanceId) return value_instanceId;
+        throw new UndeferrableValueException("Value 'HoursOfOperationArgs.instanceId' is not present");
     }
 
     /**
      * Specifies the name of the Hours of Operation.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("HoursOfOperationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'HoursOfOperationArgs.name' is not present");
     }
 
     /**
      * Tags to apply to the Hours of Operation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("HoursOfOperationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'HoursOfOperationArgs.tags' is not present");
     }
 
     /**
      * Specifies the time zone of the Hours of Operation.
      * 
      */
-    private UndeferrableValue<String> timeZone;
-
+    @PolicyResourceProperty(name="timeZone", flag="unknown_timeZone")
+    private String value_timeZone;
+    private boolean unknown_timeZone;
     public String timeZone() {
-        if (timeZone == null) return null;
-        return timeZone.getValue("HoursOfOperationArgs.timeZone");
+        if (!unknown_timeZone) return value_timeZone;
+        throw new UndeferrableValueException("Value 'HoursOfOperationArgs.timeZone' is not present");
     }
 
 }

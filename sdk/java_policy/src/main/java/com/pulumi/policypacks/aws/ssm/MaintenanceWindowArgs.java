@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,132 +20,144 @@ public final class MaintenanceWindowArgs extends com.pulumi.resources.PolicyReso
      * Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
      * 
      */
-    private UndeferrableValue<Boolean> allowUnassociatedTargets;
-
+    @PolicyResourceProperty(name="allowUnassociatedTargets", flag="unknown_allowUnassociatedTargets")
+    private Boolean value_allowUnassociatedTargets;
+    private boolean unknown_allowUnassociatedTargets;
     public Boolean allowUnassociatedTargets() {
-        if (allowUnassociatedTargets == null) return null;
-        return allowUnassociatedTargets.getValue("MaintenanceWindowArgs.allowUnassociatedTargets");
+        if (!unknown_allowUnassociatedTargets) return value_allowUnassociatedTargets;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowArgs.allowUnassociatedTargets' is not present");
     }
 
     /**
      * The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
      * 
      */
-    private UndeferrableValue<Integer> cutoff;
-
+    @PolicyResourceProperty(name="cutoff", flag="unknown_cutoff")
+    private Integer value_cutoff;
+    private boolean unknown_cutoff;
     public Integer cutoff() {
-        if (cutoff == null) return null;
-        return cutoff.getValue("MaintenanceWindowArgs.cutoff");
+        if (!unknown_cutoff) return value_cutoff;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowArgs.cutoff' is not present");
     }
 
     /**
      * A description for the maintenance window.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("MaintenanceWindowArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowArgs.description' is not present");
     }
 
     /**
      * The duration of the Maintenance Window in hours.
      * 
      */
-    private UndeferrableValue<Integer> duration;
-
+    @PolicyResourceProperty(name="duration", flag="unknown_duration")
+    private Integer value_duration;
+    private boolean unknown_duration;
     public Integer duration() {
-        if (duration == null) return null;
-        return duration.getValue("MaintenanceWindowArgs.duration");
+        if (!unknown_duration) return value_duration;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowArgs.duration' is not present");
     }
 
     /**
      * Whether the maintenance window is enabled. Default: `true`.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("MaintenanceWindowArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowArgs.enabled' is not present");
     }
 
     /**
      * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
      * 
      */
-    private UndeferrableValue<String> endDate;
-
+    @PolicyResourceProperty(name="endDate", flag="unknown_endDate")
+    private String value_endDate;
+    private boolean unknown_endDate;
     public String endDate() {
-        if (endDate == null) return null;
-        return endDate.getValue("MaintenanceWindowArgs.endDate");
+        if (!unknown_endDate) return value_endDate;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowArgs.endDate' is not present");
     }
 
     /**
      * The name of the maintenance window.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("MaintenanceWindowArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowArgs.name' is not present");
     }
 
     /**
      * The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
      * 
      */
-    private UndeferrableValue<String> schedule;
-
+    @PolicyResourceProperty(name="schedule", flag="unknown_schedule")
+    private String value_schedule;
+    private boolean unknown_schedule;
     public String schedule() {
-        if (schedule == null) return null;
-        return schedule.getValue("MaintenanceWindowArgs.schedule");
+        if (!unknown_schedule) return value_schedule;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowArgs.schedule' is not present");
     }
 
     /**
      * The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
      * 
      */
-    private UndeferrableValue<Integer> scheduleOffset;
-
+    @PolicyResourceProperty(name="scheduleOffset", flag="unknown_scheduleOffset")
+    private Integer value_scheduleOffset;
+    private boolean unknown_scheduleOffset;
     public Integer scheduleOffset() {
-        if (scheduleOffset == null) return null;
-        return scheduleOffset.getValue("MaintenanceWindowArgs.scheduleOffset");
+        if (!unknown_scheduleOffset) return value_scheduleOffset;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowArgs.scheduleOffset' is not present");
     }
 
     /**
      * Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
      * 
      */
-    private UndeferrableValue<String> scheduleTimezone;
-
+    @PolicyResourceProperty(name="scheduleTimezone", flag="unknown_scheduleTimezone")
+    private String value_scheduleTimezone;
+    private boolean unknown_scheduleTimezone;
     public String scheduleTimezone() {
-        if (scheduleTimezone == null) return null;
-        return scheduleTimezone.getValue("MaintenanceWindowArgs.scheduleTimezone");
+        if (!unknown_scheduleTimezone) return value_scheduleTimezone;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowArgs.scheduleTimezone' is not present");
     }
 
     /**
      * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
      * 
      */
-    private UndeferrableValue<String> startDate;
-
+    @PolicyResourceProperty(name="startDate", flag="unknown_startDate")
+    private String value_startDate;
+    private boolean unknown_startDate;
     public String startDate() {
-        if (startDate == null) return null;
-        return startDate.getValue("MaintenanceWindowArgs.startDate");
+        if (!unknown_startDate) return value_startDate;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowArgs.startDate' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("MaintenanceWindowArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowArgs.tags' is not present");
     }
 
 }

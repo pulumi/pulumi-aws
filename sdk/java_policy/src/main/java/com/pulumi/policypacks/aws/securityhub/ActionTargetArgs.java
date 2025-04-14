@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class ActionTargetArgs extends com.pulumi.resources.PolicyResourceI
      * The name of the custom action target.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ActionTargetArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ActionTargetArgs.description' is not present");
     }
 
     /**
      * The ID for the custom action target.
      * 
      */
-    private UndeferrableValue<String> identifier;
-
+    @PolicyResourceProperty(name="identifier", flag="unknown_identifier")
+    private String value_identifier;
+    private boolean unknown_identifier;
     public String identifier() {
-        if (identifier == null) return null;
-        return identifier.getValue("ActionTargetArgs.identifier");
+        if (!unknown_identifier) return value_identifier;
+        throw new UndeferrableValueException("Value 'ActionTargetArgs.identifier' is not present");
     }
 
     /**
      * The description for the custom action target.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ActionTargetArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ActionTargetArgs.name' is not present");
     }
 
 }

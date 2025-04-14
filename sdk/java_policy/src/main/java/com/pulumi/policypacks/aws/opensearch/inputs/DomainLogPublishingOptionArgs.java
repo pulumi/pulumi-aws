@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class DomainLogPublishingOptionArgs {
      * ARN of the Cloudwatch log group to which log needs to be published.
      * 
      */
-    private UndeferrableValue<String> cloudwatchLogGroupArn;
-
+    @PolicyResourceProperty(name="cloudwatchLogGroupArn", flag="unknown_cloudwatchLogGroupArn")
+    private String value_cloudwatchLogGroupArn;
+    private boolean unknown_cloudwatchLogGroupArn;
     public String cloudwatchLogGroupArn() {
-        if (cloudwatchLogGroupArn == null) return null;
-        return cloudwatchLogGroupArn.getValue("DomainLogPublishingOptionArgs.cloudwatchLogGroupArn");
+        if (!unknown_cloudwatchLogGroupArn) return value_cloudwatchLogGroupArn;
+        throw new UndeferrableValueException("Value 'DomainLogPublishingOptionArgs.cloudwatchLogGroupArn' is not present");
     }
 
     /**
      * Whether given log publishing option is enabled or not.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("DomainLogPublishingOptionArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'DomainLogPublishingOptionArgs.enabled' is not present");
     }
 
     /**
      * Type of OpenSearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
      * 
      */
-    private UndeferrableValue<String> logType;
-
+    @PolicyResourceProperty(name="logType", flag="unknown_logType")
+    private String value_logType;
+    private boolean unknown_logType;
     public String logType() {
-        if (logType == null) return null;
-        return logType.getValue("DomainLogPublishingOptionArgs.logType");
+        if (!unknown_logType) return value_logType;
+        throw new UndeferrableValueException("Value 'DomainLogPublishingOptionArgs.logType' is not present");
     }
 
 }

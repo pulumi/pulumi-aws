@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.workspaces.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class IpGroupRuleArgs {
      * The description of the IP group.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("IpGroupRuleArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'IpGroupRuleArgs.description' is not present");
     }
 
     /**
      * The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
      * 
      */
-    private UndeferrableValue<String> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private String value_source;
+    private boolean unknown_source;
     public String source() {
-        if (source == null) return null;
-        return source.getValue("IpGroupRuleArgs.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'IpGroupRuleArgs.source' is not present");
     }
 
 }

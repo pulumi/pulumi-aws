@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.iot.inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs;
 import com.pulumi.policypacks.aws.iot.inputs.IndexingConfigurationThingIndexingConfigurationFilterArgs;
 import com.pulumi.policypacks.aws.iot.inputs.IndexingConfigurationThingIndexingConfigurationManagedFieldArgs;
@@ -18,77 +19,84 @@ public final class IndexingConfigurationThingIndexingConfigurationArgs {
      * Contains custom field names and their data type. See below.
      * 
      */
-    private UndeferrableValue<List<IndexingConfigurationThingIndexingConfigurationCustomFieldArgs>> customFields;
-
+    @PolicyResourceProperty(name="customFields", flag="unknown_customFields")
+    private List<IndexingConfigurationThingIndexingConfigurationCustomFieldArgs> value_customFields;
+    private boolean unknown_customFields;
     public List<IndexingConfigurationThingIndexingConfigurationCustomFieldArgs> customFields() {
-        if (customFields == null) return null;
-        return customFields.getValue("IndexingConfigurationThingIndexingConfigurationArgs.customFields");
+        if (!unknown_customFields) return value_customFields;
+        throw new UndeferrableValueException("Value 'IndexingConfigurationThingIndexingConfigurationArgs.customFields' is not present");
     }
 
     /**
      * Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
      * 
      */
-    private UndeferrableValue<String> deviceDefenderIndexingMode;
-
+    @PolicyResourceProperty(name="deviceDefenderIndexingMode", flag="unknown_deviceDefenderIndexingMode")
+    private String value_deviceDefenderIndexingMode;
+    private boolean unknown_deviceDefenderIndexingMode;
     public String deviceDefenderIndexingMode() {
-        if (deviceDefenderIndexingMode == null) return null;
-        return deviceDefenderIndexingMode.getValue("IndexingConfigurationThingIndexingConfigurationArgs.deviceDefenderIndexingMode");
+        if (!unknown_deviceDefenderIndexingMode) return value_deviceDefenderIndexingMode;
+        throw new UndeferrableValueException("Value 'IndexingConfigurationThingIndexingConfigurationArgs.deviceDefenderIndexingMode' is not present");
     }
 
     /**
      * Required if `named_shadow_indexing_mode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
      * 
      */
-    private UndeferrableValue<IndexingConfigurationThingIndexingConfigurationFilterArgs> filter;
-
+    @PolicyResourceProperty(name="filter", flag="unknown_filter")
+    private IndexingConfigurationThingIndexingConfigurationFilterArgs value_filter;
+    private boolean unknown_filter;
     public IndexingConfigurationThingIndexingConfigurationFilterArgs filter() {
-        if (filter == null) return null;
-        return filter.getValue("IndexingConfigurationThingIndexingConfigurationArgs.filter");
+        if (!unknown_filter) return value_filter;
+        throw new UndeferrableValueException("Value 'IndexingConfigurationThingIndexingConfigurationArgs.filter' is not present");
     }
 
     /**
      * Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
      * 
      */
-    private UndeferrableValue<List<IndexingConfigurationThingIndexingConfigurationManagedFieldArgs>> managedFields;
-
+    @PolicyResourceProperty(name="managedFields", flag="unknown_managedFields")
+    private List<IndexingConfigurationThingIndexingConfigurationManagedFieldArgs> value_managedFields;
+    private boolean unknown_managedFields;
     public List<IndexingConfigurationThingIndexingConfigurationManagedFieldArgs> managedFields() {
-        if (managedFields == null) return null;
-        return managedFields.getValue("IndexingConfigurationThingIndexingConfigurationArgs.managedFields");
+        if (!unknown_managedFields) return value_managedFields;
+        throw new UndeferrableValueException("Value 'IndexingConfigurationThingIndexingConfigurationArgs.managedFields' is not present");
     }
 
     /**
      * [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
      * 
      */
-    private UndeferrableValue<String> namedShadowIndexingMode;
-
+    @PolicyResourceProperty(name="namedShadowIndexingMode", flag="unknown_namedShadowIndexingMode")
+    private String value_namedShadowIndexingMode;
+    private boolean unknown_namedShadowIndexingMode;
     public String namedShadowIndexingMode() {
-        if (namedShadowIndexingMode == null) return null;
-        return namedShadowIndexingMode.getValue("IndexingConfigurationThingIndexingConfigurationArgs.namedShadowIndexingMode");
+        if (!unknown_namedShadowIndexingMode) return value_namedShadowIndexingMode;
+        throw new UndeferrableValueException("Value 'IndexingConfigurationThingIndexingConfigurationArgs.namedShadowIndexingMode' is not present");
     }
 
     /**
      * Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
      * 
      */
-    private UndeferrableValue<String> thingConnectivityIndexingMode;
-
+    @PolicyResourceProperty(name="thingConnectivityIndexingMode", flag="unknown_thingConnectivityIndexingMode")
+    private String value_thingConnectivityIndexingMode;
+    private boolean unknown_thingConnectivityIndexingMode;
     public String thingConnectivityIndexingMode() {
-        if (thingConnectivityIndexingMode == null) return null;
-        return thingConnectivityIndexingMode.getValue("IndexingConfigurationThingIndexingConfigurationArgs.thingConnectivityIndexingMode");
+        if (!unknown_thingConnectivityIndexingMode) return value_thingConnectivityIndexingMode;
+        throw new UndeferrableValueException("Value 'IndexingConfigurationThingIndexingConfigurationArgs.thingConnectivityIndexingMode' is not present");
     }
 
     /**
      * Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
      * 
      */
-    private UndeferrableValue<String> thingIndexingMode;
-
+    @PolicyResourceProperty(name="thingIndexingMode", flag="unknown_thingIndexingMode")
+    private String value_thingIndexingMode;
+    private boolean unknown_thingIndexingMode;
     public String thingIndexingMode() {
-        if (thingIndexingMode == null) return null;
-        return thingIndexingMode.getValue("IndexingConfigurationThingIndexingConfigurationArgs.thingIndexingMode");
+        if (!unknown_thingIndexingMode) return value_thingIndexingMode;
+        throw new UndeferrableValueException("Value 'IndexingConfigurationThingIndexingConfigurationArgs.thingIndexingMode' is not present");
     }
 
 }

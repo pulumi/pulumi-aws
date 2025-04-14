@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class EventTargetRetryPolicy {
      * The age in seconds to continue to make retry attempts.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maximumEventAgeInSeconds;
-
+    @PolicyResourceProperty(name="maximumEventAgeInSeconds", flag="unknown_maximumEventAgeInSeconds")
+    private @Nullable Integer value_maximumEventAgeInSeconds;
+    private boolean unknown_maximumEventAgeInSeconds;
     public @Nullable Integer maximumEventAgeInSeconds() {
-        if (maximumEventAgeInSeconds == null) return null;
-        return maximumEventAgeInSeconds.getValue("EventTargetRetryPolicy.maximumEventAgeInSeconds");
+        if (!unknown_maximumEventAgeInSeconds) return value_maximumEventAgeInSeconds;
+        throw new UndeferrableValueException("Value 'EventTargetRetryPolicy.maximumEventAgeInSeconds' is not present");
     }
 
     /**
      * maximum number of retry attempts to make before the request fails
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maximumRetryAttempts;
-
+    @PolicyResourceProperty(name="maximumRetryAttempts", flag="unknown_maximumRetryAttempts")
+    private @Nullable Integer value_maximumRetryAttempts;
+    private boolean unknown_maximumRetryAttempts;
     public @Nullable Integer maximumRetryAttempts() {
-        if (maximumRetryAttempts == null) return null;
-        return maximumRetryAttempts.getValue("EventTargetRetryPolicy.maximumRetryAttempts");
+        if (!unknown_maximumRetryAttempts) return value_maximumRetryAttempts;
+        throw new UndeferrableValueException("Value 'EventTargetRetryPolicy.maximumRetryAttempts' is not present");
     }
 
 }

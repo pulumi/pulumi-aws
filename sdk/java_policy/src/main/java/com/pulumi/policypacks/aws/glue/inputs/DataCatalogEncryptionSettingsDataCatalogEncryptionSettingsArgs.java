@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.glue.inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs;
 import com.pulumi.policypacks.aws.glue.inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs;
 
@@ -14,22 +15,24 @@ public final class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArg
      * When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
      * 
      */
-    private UndeferrableValue<DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs> connectionPasswordEncryption;
-
+    @PolicyResourceProperty(name="connectionPasswordEncryption", flag="unknown_connectionPasswordEncryption")
+    private DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs value_connectionPasswordEncryption;
+    private boolean unknown_connectionPasswordEncryption;
     public DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs connectionPasswordEncryption() {
-        if (connectionPasswordEncryption == null) return null;
-        return connectionPasswordEncryption.getValue("DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs.connectionPasswordEncryption");
+        if (!unknown_connectionPasswordEncryption) return value_connectionPasswordEncryption;
+        throw new UndeferrableValueException("Value 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs.connectionPasswordEncryption' is not present");
     }
 
     /**
      * Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
      * 
      */
-    private UndeferrableValue<DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs> encryptionAtRest;
-
+    @PolicyResourceProperty(name="encryptionAtRest", flag="unknown_encryptionAtRest")
+    private DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs value_encryptionAtRest;
+    private boolean unknown_encryptionAtRest;
     public DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs encryptionAtRest() {
-        if (encryptionAtRest == null) return null;
-        return encryptionAtRest.getValue("DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs.encryptionAtRest");
+        if (!unknown_encryptionAtRest) return value_encryptionAtRest;
+        throw new UndeferrableValueException("Value 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs.encryptionAtRest' is not present");
     }
 
 }

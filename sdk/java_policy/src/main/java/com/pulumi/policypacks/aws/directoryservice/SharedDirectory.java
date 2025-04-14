@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directoryservice;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.directoryservice.outputs.SharedDirectoryTarget;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class SharedDirectory extends com.pulumi.resources.PolicyResourceOu
      * Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
      * 
      */
-    private UndeferrableValue<String> directoryId;
-
+    @PolicyResourceProperty(name="directoryId", flag="unknown_directoryId")
+    private String value_directoryId;
+    private boolean unknown_directoryId;
     public String directoryId() {
-        if (directoryId == null) return null;
-        return directoryId.getValue("SharedDirectory.directoryId");
+        if (!unknown_directoryId) return value_directoryId;
+        throw new UndeferrableValueException("Value 'SharedDirectory.directoryId' is not present");
     }
 
     /**
      * Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> method;
-
+    @PolicyResourceProperty(name="method", flag="unknown_method")
+    private @Nullable String value_method;
+    private boolean unknown_method;
     public @Nullable String method() {
-        if (method == null) return null;
-        return method.getValue("SharedDirectory.method");
+        if (!unknown_method) return value_method;
+        throw new UndeferrableValueException("Value 'SharedDirectory.method' is not present");
     }
 
     /**
      * Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
      * 
      */
-    private @Nullable UndeferrableValue<String> notes;
-
+    @PolicyResourceProperty(name="notes", flag="unknown_notes")
+    private @Nullable String value_notes;
+    private boolean unknown_notes;
     public @Nullable String notes() {
-        if (notes == null) return null;
-        return notes.getValue("SharedDirectory.notes");
+        if (!unknown_notes) return value_notes;
+        throw new UndeferrableValueException("Value 'SharedDirectory.notes' is not present");
     }
 
     /**
      * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
      * 
      */
-    private UndeferrableValue<String> sharedDirectoryId;
-
+    @PolicyResourceProperty(name="sharedDirectoryId", flag="unknown_sharedDirectoryId")
+    private String value_sharedDirectoryId;
+    private boolean unknown_sharedDirectoryId;
     public String sharedDirectoryId() {
-        if (sharedDirectoryId == null) return null;
-        return sharedDirectoryId.getValue("SharedDirectory.sharedDirectoryId");
+        if (!unknown_sharedDirectoryId) return value_sharedDirectoryId;
+        throw new UndeferrableValueException("Value 'SharedDirectory.sharedDirectoryId' is not present");
     }
 
     /**
@@ -63,11 +68,12 @@ public final class SharedDirectory extends com.pulumi.resources.PolicyResourceOu
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<SharedDirectoryTarget> target;
-
+    @PolicyResourceProperty(name="target", flag="unknown_target")
+    private SharedDirectoryTarget value_target;
+    private boolean unknown_target;
     public SharedDirectoryTarget target() {
-        if (target == null) return null;
-        return target.getValue("SharedDirectory.target");
+        if (!unknown_target) return value_target;
+        throw new UndeferrableValueException("Value 'SharedDirectory.target' is not present");
     }
 
 }

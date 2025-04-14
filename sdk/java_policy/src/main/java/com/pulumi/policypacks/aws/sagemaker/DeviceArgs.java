@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.inputs.DeviceDeviceArgs;
 import java.lang.String;
@@ -16,22 +17,24 @@ public final class DeviceArgs extends com.pulumi.resources.PolicyResourceInput {
      * The device to register with SageMaker AI Edge Manager. See Device details below.
      * 
      */
-    private UndeferrableValue<DeviceDeviceArgs> device;
-
+    @PolicyResourceProperty(name="device", flag="unknown_device")
+    private DeviceDeviceArgs value_device;
+    private boolean unknown_device;
     public DeviceDeviceArgs device() {
-        if (device == null) return null;
-        return device.getValue("DeviceArgs.device");
+        if (!unknown_device) return value_device;
+        throw new UndeferrableValueException("Value 'DeviceArgs.device' is not present");
     }
 
     /**
      * The name of the Device Fleet.
      * 
      */
-    private UndeferrableValue<String> deviceFleetName;
-
+    @PolicyResourceProperty(name="deviceFleetName", flag="unknown_deviceFleetName")
+    private String value_deviceFleetName;
+    private boolean unknown_deviceFleetName;
     public String deviceFleetName() {
-        if (deviceFleetName == null) return null;
-        return deviceFleetName.getValue("DeviceArgs.deviceFleetName");
+        if (!unknown_deviceFleetName) return value_deviceFleetName;
+        throw new UndeferrableValueException("Value 'DeviceArgs.deviceFleetName' is not present");
     }
 
 }

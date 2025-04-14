@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class RouteArgs extends com.pulumi.resources.PolicyResourceInput {
      * Indicates whether to drop traffic that matches this route (default to `false`).
      * 
      */
-    private UndeferrableValue<Boolean> blackhole;
-
+    @PolicyResourceProperty(name="blackhole", flag="unknown_blackhole")
+    private Boolean value_blackhole;
+    private boolean unknown_blackhole;
     public Boolean blackhole() {
-        if (blackhole == null) return null;
-        return blackhole.getValue("RouteArgs.blackhole");
+        if (!unknown_blackhole) return value_blackhole;
+        throw new UndeferrableValueException("Value 'RouteArgs.blackhole' is not present");
     }
 
     /**
      * IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
      * 
      */
-    private UndeferrableValue<String> destinationCidrBlock;
-
+    @PolicyResourceProperty(name="destinationCidrBlock", flag="unknown_destinationCidrBlock")
+    private String value_destinationCidrBlock;
+    private boolean unknown_destinationCidrBlock;
     public String destinationCidrBlock() {
-        if (destinationCidrBlock == null) return null;
-        return destinationCidrBlock.getValue("RouteArgs.destinationCidrBlock");
+        if (!unknown_destinationCidrBlock) return value_destinationCidrBlock;
+        throw new UndeferrableValueException("Value 'RouteArgs.destinationCidrBlock' is not present");
     }
 
     /**
      * Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
      * 
      */
-    private UndeferrableValue<String> transitGatewayAttachmentId;
-
+    @PolicyResourceProperty(name="transitGatewayAttachmentId", flag="unknown_transitGatewayAttachmentId")
+    private String value_transitGatewayAttachmentId;
+    private boolean unknown_transitGatewayAttachmentId;
     public String transitGatewayAttachmentId() {
-        if (transitGatewayAttachmentId == null) return null;
-        return transitGatewayAttachmentId.getValue("RouteArgs.transitGatewayAttachmentId");
+        if (!unknown_transitGatewayAttachmentId) return value_transitGatewayAttachmentId;
+        throw new UndeferrableValueException("Value 'RouteArgs.transitGatewayAttachmentId' is not present");
     }
 
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      * 
      */
-    private UndeferrableValue<String> transitGatewayRouteTableId;
-
+    @PolicyResourceProperty(name="transitGatewayRouteTableId", flag="unknown_transitGatewayRouteTableId")
+    private String value_transitGatewayRouteTableId;
+    private boolean unknown_transitGatewayRouteTableId;
     public String transitGatewayRouteTableId() {
-        if (transitGatewayRouteTableId == null) return null;
-        return transitGatewayRouteTableId.getValue("RouteArgs.transitGatewayRouteTableId");
+        if (!unknown_transitGatewayRouteTableId) return value_transitGatewayRouteTableId;
+        throw new UndeferrableValueException("Value 'RouteArgs.transitGatewayRouteTableId' is not present");
     }
 
 }

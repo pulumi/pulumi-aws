@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs;
 import java.lang.String;
@@ -12,44 +13,48 @@ import javax.annotation.Nullable;
 
 public final class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs {
 
-    private UndeferrableValue<String> referenceId;
-
+    @PolicyResourceProperty(name="referenceId", flag="unknown_referenceId")
+    private String value_referenceId;
+    private boolean unknown_referenceId;
     public String referenceId() {
-        if (referenceId == null) return null;
-        return referenceId.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs.referenceId");
+        if (!unknown_referenceId) return value_referenceId;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs.referenceId' is not present");
     }
 
     /**
      * Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
      * 
      */
-    private UndeferrableValue<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs> referenceSchema;
-
+    @PolicyResourceProperty(name="referenceSchema", flag="unknown_referenceSchema")
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs value_referenceSchema;
+    private boolean unknown_referenceSchema;
     public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs referenceSchema() {
-        if (referenceSchema == null) return null;
-        return referenceSchema.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs.referenceSchema");
+        if (!unknown_referenceSchema) return value_referenceSchema;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs.referenceSchema' is not present");
     }
 
     /**
      * Identifies the S3 bucket and object that contains the reference data.
      * 
      */
-    private UndeferrableValue<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs> s3ReferenceDataSource;
-
+    @PolicyResourceProperty(name="s3ReferenceDataSource", flag="unknown_s3ReferenceDataSource")
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs value_s3ReferenceDataSource;
+    private boolean unknown_s3ReferenceDataSource;
     public ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs s3ReferenceDataSource() {
-        if (s3ReferenceDataSource == null) return null;
-        return s3ReferenceDataSource.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs.s3ReferenceDataSource");
+        if (!unknown_s3ReferenceDataSource) return value_s3ReferenceDataSource;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs.s3ReferenceDataSource' is not present");
     }
 
     /**
      * The name of the in-application table to create.
      * 
      */
-    private UndeferrableValue<String> tableName;
-
+    @PolicyResourceProperty(name="tableName", flag="unknown_tableName")
+    private String value_tableName;
+    private boolean unknown_tableName;
     public String tableName() {
-        if (tableName == null) return null;
-        return tableName.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs.tableName");
+        if (!unknown_tableName) return value_tableName;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs.tableName' is not present");
     }
 
 }

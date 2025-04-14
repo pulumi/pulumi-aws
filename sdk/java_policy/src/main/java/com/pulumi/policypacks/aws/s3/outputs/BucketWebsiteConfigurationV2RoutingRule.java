@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.outputs.BucketWebsiteConfigurationV2RoutingRuleCondition;
 import com.pulumi.policypacks.aws.s3.outputs.BucketWebsiteConfigurationV2RoutingRuleRedirect;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class BucketWebsiteConfigurationV2RoutingRule {
      * Configuration block for describing a condition that must be met for the specified redirect to apply. See below.
      * 
      */
-    private @Nullable UndeferrableValue<BucketWebsiteConfigurationV2RoutingRuleCondition> condition;
-
+    @PolicyResourceProperty(name="condition", flag="unknown_condition")
+    private @Nullable BucketWebsiteConfigurationV2RoutingRuleCondition value_condition;
+    private boolean unknown_condition;
     public @Nullable BucketWebsiteConfigurationV2RoutingRuleCondition condition() {
-        if (condition == null) return null;
-        return condition.getValue("BucketWebsiteConfigurationV2RoutingRule.condition");
+        if (!unknown_condition) return value_condition;
+        throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2RoutingRule.condition' is not present");
     }
 
     /**
      * Configuration block for redirect information. See below.
      * 
      */
-    private UndeferrableValue<BucketWebsiteConfigurationV2RoutingRuleRedirect> redirect;
-
+    @PolicyResourceProperty(name="redirect", flag="unknown_redirect")
+    private BucketWebsiteConfigurationV2RoutingRuleRedirect value_redirect;
+    private boolean unknown_redirect;
     public BucketWebsiteConfigurationV2RoutingRuleRedirect redirect() {
-        if (redirect == null) return null;
-        return redirect.getValue("BucketWebsiteConfigurationV2RoutingRule.redirect");
+        if (!unknown_redirect) return value_redirect;
+        throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2RoutingRule.redirect' is not present");
     }
 
 }

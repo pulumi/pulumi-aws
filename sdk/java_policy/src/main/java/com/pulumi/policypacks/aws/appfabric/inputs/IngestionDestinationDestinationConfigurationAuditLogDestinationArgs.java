@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appfabric.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appfabric.inputs.IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs;
 import com.pulumi.policypacks.aws.appfabric.inputs.IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class IngestionDestinationDestinationConfigurationAuditLogDestinati
      * Contains information about an Amazon Data Firehose delivery stream.
      * 
      */
-    private UndeferrableValue<IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs> firehoseStream;
-
+    @PolicyResourceProperty(name="firehoseStream", flag="unknown_firehoseStream")
+    private IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs value_firehoseStream;
+    private boolean unknown_firehoseStream;
     public IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs firehoseStream() {
-        if (firehoseStream == null) return null;
-        return firehoseStream.getValue("IngestionDestinationDestinationConfigurationAuditLogDestinationArgs.firehoseStream");
+        if (!unknown_firehoseStream) return value_firehoseStream;
+        throw new UndeferrableValueException("Value 'IngestionDestinationDestinationConfigurationAuditLogDestinationArgs.firehoseStream' is not present");
     }
 
     /**
      * Contains information about an Amazon S3 bucket.
      * 
      */
-    private UndeferrableValue<IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs> s3Bucket;
-
+    @PolicyResourceProperty(name="s3Bucket", flag="unknown_s3Bucket")
+    private IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs value_s3Bucket;
+    private boolean unknown_s3Bucket;
     public IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs s3Bucket() {
-        if (s3Bucket == null) return null;
-        return s3Bucket.getValue("IngestionDestinationDestinationConfigurationAuditLogDestinationArgs.s3Bucket");
+        if (!unknown_s3Bucket) return value_s3Bucket;
+        throw new UndeferrableValueException("Value 'IngestionDestinationDestinationConfigurationAuditLogDestinationArgs.s3Bucket' is not present");
     }
 
 }

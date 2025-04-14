@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,25 +16,28 @@ public final class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsV
      * Specifies whether the task&#39;s elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
      * 
      */
-    private UndeferrableValue<String> assignPublicIp;
-
+    @PolicyResourceProperty(name="assignPublicIp", flag="unknown_assignPublicIp")
+    private String value_assignPublicIp;
+    private boolean unknown_assignPublicIp;
     public String assignPublicIp() {
-        if (assignPublicIp == null) return null;
-        return assignPublicIp.getValue("PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs.assignPublicIp");
+        if (!unknown_assignPublicIp) return value_assignPublicIp;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs.assignPublicIp' is not present");
     }
 
-    private UndeferrableValue<List<String>> securityGroups;
-
+    @PolicyResourceProperty(name="securityGroups", flag="unknown_securityGroups")
+    private List<String> value_securityGroups;
+    private boolean unknown_securityGroups;
     public List<String> securityGroups() {
-        if (securityGroups == null) return null;
-        return securityGroups.getValue("PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs.securityGroups");
+        if (!unknown_securityGroups) return value_securityGroups;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs.securityGroups' is not present");
     }
 
-    private UndeferrableValue<List<String>> subnets;
-
+    @PolicyResourceProperty(name="subnets", flag="unknown_subnets")
+    private List<String> value_subnets;
+    private boolean unknown_subnets;
     public List<String> subnets() {
-        if (subnets == null) return null;
-        return subnets.getValue("PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs.subnets");
+        if (!unknown_subnets) return value_subnets;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs.subnets' is not present");
     }
 
 }

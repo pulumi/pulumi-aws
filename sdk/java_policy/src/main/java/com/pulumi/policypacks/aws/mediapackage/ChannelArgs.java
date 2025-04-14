@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mediapackage;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class ChannelArgs extends com.pulumi.resources.PolicyResourceInput 
      * A unique identifier describing the channel
      * 
      */
-    private UndeferrableValue<String> channelId;
-
+    @PolicyResourceProperty(name="channelId", flag="unknown_channelId")
+    private String value_channelId;
+    private boolean unknown_channelId;
     public String channelId() {
-        if (channelId == null) return null;
-        return channelId.getValue("ChannelArgs.channelId");
+        if (!unknown_channelId) return value_channelId;
+        throw new UndeferrableValueException("Value 'ChannelArgs.channelId' is not present");
     }
 
     /**
      * A description of the channel
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ChannelArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ChannelArgs.description' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ChannelArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ChannelArgs.tags' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codedeploy.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codedeploy.inputs.DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs;
 import java.lang.Integer;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class DeploymentConfigZonalConfigArgs {
      * The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the first Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. If you don&#39;t specify a value for `first_zone_monitor_duration_in_seconds`, then CodeDeploy uses the `monitor_duration_in_seconds` value for the first Availability Zone.
      * 
      */
-    private UndeferrableValue<Integer> firstZoneMonitorDurationInSeconds;
-
+    @PolicyResourceProperty(name="firstZoneMonitorDurationInSeconds", flag="unknown_firstZoneMonitorDurationInSeconds")
+    private Integer value_firstZoneMonitorDurationInSeconds;
+    private boolean unknown_firstZoneMonitorDurationInSeconds;
     public Integer firstZoneMonitorDurationInSeconds() {
-        if (firstZoneMonitorDurationInSeconds == null) return null;
-        return firstZoneMonitorDurationInSeconds.getValue("DeploymentConfigZonalConfigArgs.firstZoneMonitorDurationInSeconds");
+        if (!unknown_firstZoneMonitorDurationInSeconds) return value_firstZoneMonitorDurationInSeconds;
+        throw new UndeferrableValueException("Value 'DeploymentConfigZonalConfigArgs.firstZoneMonitorDurationInSeconds' is not present");
     }
 
     /**
      * The number or percentage of instances that must remain available per Availability Zone during a deployment. If you don&#39;t specify a value under `minimum_healthy_hosts_per_zone`, then CodeDeploy uses a default value of 0 percent. This block is more documented below.
      * 
      */
-    private UndeferrableValue<DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs> minimumHealthyHostsPerZone;
-
+    @PolicyResourceProperty(name="minimumHealthyHostsPerZone", flag="unknown_minimumHealthyHostsPerZone")
+    private DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs value_minimumHealthyHostsPerZone;
+    private boolean unknown_minimumHealthyHostsPerZone;
     public DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs minimumHealthyHostsPerZone() {
-        if (minimumHealthyHostsPerZone == null) return null;
-        return minimumHealthyHostsPerZone.getValue("DeploymentConfigZonalConfigArgs.minimumHealthyHostsPerZone");
+        if (!unknown_minimumHealthyHostsPerZone) return value_minimumHealthyHostsPerZone;
+        throw new UndeferrableValueException("Value 'DeploymentConfigZonalConfigArgs.minimumHealthyHostsPerZone' is not present");
     }
 
     /**
      * The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. If you don&#39;t specify a `monitor_duration_in_seconds`, CodeDeploy starts deploying to the next Availability Zone immediately.
      * 
      */
-    private UndeferrableValue<Integer> monitorDurationInSeconds;
-
+    @PolicyResourceProperty(name="monitorDurationInSeconds", flag="unknown_monitorDurationInSeconds")
+    private Integer value_monitorDurationInSeconds;
+    private boolean unknown_monitorDurationInSeconds;
     public Integer monitorDurationInSeconds() {
-        if (monitorDurationInSeconds == null) return null;
-        return monitorDurationInSeconds.getValue("DeploymentConfigZonalConfigArgs.monitorDurationInSeconds");
+        if (!unknown_monitorDurationInSeconds) return value_monitorDurationInSeconds;
+        throw new UndeferrableValueException("Value 'DeploymentConfigZonalConfigArgs.monitorDurationInSeconds' is not present");
     }
 
 }

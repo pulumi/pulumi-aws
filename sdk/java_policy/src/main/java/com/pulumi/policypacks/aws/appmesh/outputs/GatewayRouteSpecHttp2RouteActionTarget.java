@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.GatewayRouteSpecHttp2RouteActionTargetVirtualService;
 import java.lang.Integer;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class GatewayRouteSpecHttp2RouteActionTarget {
      * The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable Integer value_port;
+    private boolean unknown_port;
     public @Nullable Integer port() {
-        if (port == null) return null;
-        return port.getValue("GatewayRouteSpecHttp2RouteActionTarget.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttp2RouteActionTarget.port' is not present");
     }
 
     /**
      * Virtual service gateway route target.
      * 
      */
-    private UndeferrableValue<GatewayRouteSpecHttp2RouteActionTargetVirtualService> virtualService;
-
+    @PolicyResourceProperty(name="virtualService", flag="unknown_virtualService")
+    private GatewayRouteSpecHttp2RouteActionTargetVirtualService value_virtualService;
+    private boolean unknown_virtualService;
     public GatewayRouteSpecHttp2RouteActionTargetVirtualService virtualService() {
-        if (virtualService == null) return null;
-        return virtualService.getValue("GatewayRouteSpecHttp2RouteActionTarget.virtualService");
+        if (!unknown_virtualService) return value_virtualService;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttp2RouteActionTarget.virtualService' is not present");
     }
 
 }

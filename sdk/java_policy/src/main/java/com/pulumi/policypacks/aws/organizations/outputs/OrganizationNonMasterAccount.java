@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.organizations.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,55 +15,60 @@ public final class OrganizationNonMasterAccount {
      * ARN of the root
      * 
      */
-    private @Nullable UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private @Nullable String value_arn;
+    private boolean unknown_arn;
     public @Nullable String arn() {
-        if (arn == null) return null;
-        return arn.getValue("OrganizationNonMasterAccount.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'OrganizationNonMasterAccount.arn' is not present");
     }
 
     /**
      * Email of the account
      * 
      */
-    private @Nullable UndeferrableValue<String> email;
-
+    @PolicyResourceProperty(name="email", flag="unknown_email")
+    private @Nullable String value_email;
+    private boolean unknown_email;
     public @Nullable String email() {
-        if (email == null) return null;
-        return email.getValue("OrganizationNonMasterAccount.email");
+        if (!unknown_email) return value_email;
+        throw new UndeferrableValueException("Value 'OrganizationNonMasterAccount.email' is not present");
     }
 
     /**
      * Identifier of the root
      * 
      */
-    private @Nullable UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private @Nullable String value_id;
+    private boolean unknown_id;
     public @Nullable String id() {
-        if (id == null) return null;
-        return id.getValue("OrganizationNonMasterAccount.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'OrganizationNonMasterAccount.id' is not present");
     }
 
     /**
      * The name of the policy type
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("OrganizationNonMasterAccount.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'OrganizationNonMasterAccount.name' is not present");
     }
 
     /**
      * The status of the policy type as it relates to the associated root
      * 
      */
-    private @Nullable UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private @Nullable String value_status;
+    private boolean unknown_status;
     public @Nullable String status() {
-        if (status == null) return null;
-        return status.getValue("OrganizationNonMasterAccount.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'OrganizationNonMasterAccount.status' is not present");
     }
 
 }

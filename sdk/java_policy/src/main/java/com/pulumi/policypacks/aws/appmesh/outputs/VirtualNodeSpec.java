@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualNodeSpecBackend;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualNodeSpecBackendDefaults;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualNodeSpecListener;
@@ -19,55 +20,60 @@ public final class VirtualNodeSpec {
      * Defaults for backends.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualNodeSpecBackendDefaults> backendDefaults;
-
+    @PolicyResourceProperty(name="backendDefaults", flag="unknown_backendDefaults")
+    private @Nullable VirtualNodeSpecBackendDefaults value_backendDefaults;
+    private boolean unknown_backendDefaults;
     public @Nullable VirtualNodeSpecBackendDefaults backendDefaults() {
-        if (backendDefaults == null) return null;
-        return backendDefaults.getValue("VirtualNodeSpec.backendDefaults");
+        if (!unknown_backendDefaults) return value_backendDefaults;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpec.backendDefaults' is not present");
     }
 
     /**
      * Backends to which the virtual node is expected to send outbound traffic.
      * 
      */
-    private @Nullable UndeferrableValue<List<VirtualNodeSpecBackend>> backends;
-
+    @PolicyResourceProperty(name="backends", flag="unknown_backends")
+    private @Nullable List<VirtualNodeSpecBackend> value_backends;
+    private boolean unknown_backends;
     public @Nullable List<VirtualNodeSpecBackend> backends() {
-        if (backends == null) return null;
-        return backends.getValue("VirtualNodeSpec.backends");
+        if (!unknown_backends) return value_backends;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpec.backends' is not present");
     }
 
     /**
      * Listeners from which the virtual node is expected to receive inbound traffic.
      * 
      */
-    private @Nullable UndeferrableValue<List<VirtualNodeSpecListener>> listeners;
-
+    @PolicyResourceProperty(name="listeners", flag="unknown_listeners")
+    private @Nullable List<VirtualNodeSpecListener> value_listeners;
+    private boolean unknown_listeners;
     public @Nullable List<VirtualNodeSpecListener> listeners() {
-        if (listeners == null) return null;
-        return listeners.getValue("VirtualNodeSpec.listeners");
+        if (!unknown_listeners) return value_listeners;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpec.listeners' is not present");
     }
 
     /**
      * Inbound and outbound access logging information for the virtual node.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualNodeSpecLogging> logging;
-
+    @PolicyResourceProperty(name="logging", flag="unknown_logging")
+    private @Nullable VirtualNodeSpecLogging value_logging;
+    private boolean unknown_logging;
     public @Nullable VirtualNodeSpecLogging logging() {
-        if (logging == null) return null;
-        return logging.getValue("VirtualNodeSpec.logging");
+        if (!unknown_logging) return value_logging;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpec.logging' is not present");
     }
 
     /**
      * Service discovery information for the virtual node.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualNodeSpecServiceDiscovery> serviceDiscovery;
-
+    @PolicyResourceProperty(name="serviceDiscovery", flag="unknown_serviceDiscovery")
+    private @Nullable VirtualNodeSpecServiceDiscovery value_serviceDiscovery;
+    private boolean unknown_serviceDiscovery;
     public @Nullable VirtualNodeSpecServiceDiscovery serviceDiscovery() {
-        if (serviceDiscovery == null) return null;
-        return serviceDiscovery.getValue("VirtualNodeSpec.serviceDiscovery");
+        if (!unknown_serviceDiscovery) return value_serviceDiscovery;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpec.serviceDiscovery' is not present");
     }
 
 }

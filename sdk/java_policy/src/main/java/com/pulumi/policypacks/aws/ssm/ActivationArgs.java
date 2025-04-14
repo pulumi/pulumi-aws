@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,66 +19,72 @@ public final class ActivationArgs extends com.pulumi.resources.PolicyResourceInp
      * The description of the resource that you want to register.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ActivationArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ActivationArgs.description' is not present");
     }
 
     /**
      * UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
      * 
      */
-    private UndeferrableValue<String> expirationDate;
-
+    @PolicyResourceProperty(name="expirationDate", flag="unknown_expirationDate")
+    private String value_expirationDate;
+    private boolean unknown_expirationDate;
     public String expirationDate() {
-        if (expirationDate == null) return null;
-        return expirationDate.getValue("ActivationArgs.expirationDate");
+        if (!unknown_expirationDate) return value_expirationDate;
+        throw new UndeferrableValueException("Value 'ActivationArgs.expirationDate' is not present");
     }
 
     /**
      * The IAM Role to attach to the managed instance.
      * 
      */
-    private UndeferrableValue<String> iamRole;
-
+    @PolicyResourceProperty(name="iamRole", flag="unknown_iamRole")
+    private String value_iamRole;
+    private boolean unknown_iamRole;
     public String iamRole() {
-        if (iamRole == null) return null;
-        return iamRole.getValue("ActivationArgs.iamRole");
+        if (!unknown_iamRole) return value_iamRole;
+        throw new UndeferrableValueException("Value 'ActivationArgs.iamRole' is not present");
     }
 
     /**
      * The default name of the registered managed instance.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ActivationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ActivationArgs.name' is not present");
     }
 
     /**
      * The maximum number of managed instances you want to register. The default value is 1 instance.
      * 
      */
-    private UndeferrableValue<Integer> registrationLimit;
-
+    @PolicyResourceProperty(name="registrationLimit", flag="unknown_registrationLimit")
+    private Integer value_registrationLimit;
+    private boolean unknown_registrationLimit;
     public Integer registrationLimit() {
-        if (registrationLimit == null) return null;
-        return registrationLimit.getValue("ActivationArgs.registrationLimit");
+        if (!unknown_registrationLimit) return value_registrationLimit;
+        throw new UndeferrableValueException("Value 'ActivationArgs.registrationLimit' is not present");
     }
 
     /**
      * A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ActivationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ActivationArgs.tags' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class TopicRuleStepFunctionArgs {
      * The prefix used to generate, along with a UUID, the unique state machine execution name.
      * 
      */
-    private UndeferrableValue<String> executionNamePrefix;
-
+    @PolicyResourceProperty(name="executionNamePrefix", flag="unknown_executionNamePrefix")
+    private String value_executionNamePrefix;
+    private boolean unknown_executionNamePrefix;
     public String executionNamePrefix() {
-        if (executionNamePrefix == null) return null;
-        return executionNamePrefix.getValue("TopicRuleStepFunctionArgs.executionNamePrefix");
+        if (!unknown_executionNamePrefix) return value_executionNamePrefix;
+        throw new UndeferrableValueException("Value 'TopicRuleStepFunctionArgs.executionNamePrefix' is not present");
     }
 
     /**
      * The ARN of the IAM role that grants access to start execution of the state machine.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("TopicRuleStepFunctionArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'TopicRuleStepFunctionArgs.roleArn' is not present");
     }
 
     /**
      * The name of the Step Functions state machine whose execution will be started.
      * 
      */
-    private UndeferrableValue<String> stateMachineName;
-
+    @PolicyResourceProperty(name="stateMachineName", flag="unknown_stateMachineName")
+    private String value_stateMachineName;
+    private boolean unknown_stateMachineName;
     public String stateMachineName() {
-        if (stateMachineName == null) return null;
-        return stateMachineName.getValue("TopicRuleStepFunctionArgs.stateMachineName");
+        if (!unknown_stateMachineName) return value_stateMachineName;
+        throw new UndeferrableValueException("Value 'TopicRuleStepFunctionArgs.stateMachineName' is not present");
     }
 
 }

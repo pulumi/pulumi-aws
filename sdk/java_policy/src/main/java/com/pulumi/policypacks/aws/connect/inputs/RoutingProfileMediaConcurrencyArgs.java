@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class RoutingProfileMediaConcurrencyArgs {
      * Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
      * 
      */
-    private UndeferrableValue<String> channel;
-
+    @PolicyResourceProperty(name="channel", flag="unknown_channel")
+    private String value_channel;
+    private boolean unknown_channel;
     public String channel() {
-        if (channel == null) return null;
-        return channel.getValue("RoutingProfileMediaConcurrencyArgs.channel");
+        if (!unknown_channel) return value_channel;
+        throw new UndeferrableValueException("Value 'RoutingProfileMediaConcurrencyArgs.channel' is not present");
     }
 
     /**
      * Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
      * 
      */
-    private UndeferrableValue<Integer> concurrency;
-
+    @PolicyResourceProperty(name="concurrency", flag="unknown_concurrency")
+    private Integer value_concurrency;
+    private boolean unknown_concurrency;
     public Integer concurrency() {
-        if (concurrency == null) return null;
-        return concurrency.getValue("RoutingProfileMediaConcurrencyArgs.concurrency");
+        if (!unknown_concurrency) return value_concurrency;
+        throw new UndeferrableValueException("Value 'RoutingProfileMediaConcurrencyArgs.concurrency' is not present");
     }
 
 }

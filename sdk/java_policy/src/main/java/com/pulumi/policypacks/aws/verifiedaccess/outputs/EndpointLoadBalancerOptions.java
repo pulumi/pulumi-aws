@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.verifiedaccess.outputs.EndpointLoadBalancerOptionsPortRange;
 import java.lang.Integer;
 import java.lang.String;
@@ -13,39 +14,44 @@ import javax.annotation.Nullable;
 
 public final class EndpointLoadBalancerOptions {
 
-    private @Nullable UndeferrableValue<String> loadBalancerArn;
-
+    @PolicyResourceProperty(name="loadBalancerArn", flag="unknown_loadBalancerArn")
+    private @Nullable String value_loadBalancerArn;
+    private boolean unknown_loadBalancerArn;
     public @Nullable String loadBalancerArn() {
-        if (loadBalancerArn == null) return null;
-        return loadBalancerArn.getValue("EndpointLoadBalancerOptions.loadBalancerArn");
+        if (!unknown_loadBalancerArn) return value_loadBalancerArn;
+        throw new UndeferrableValueException("Value 'EndpointLoadBalancerOptions.loadBalancerArn' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable Integer value_port;
+    private boolean unknown_port;
     public @Nullable Integer port() {
-        if (port == null) return null;
-        return port.getValue("EndpointLoadBalancerOptions.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'EndpointLoadBalancerOptions.port' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<EndpointLoadBalancerOptionsPortRange>> portRanges;
-
+    @PolicyResourceProperty(name="portRanges", flag="unknown_portRanges")
+    private @Nullable List<EndpointLoadBalancerOptionsPortRange> value_portRanges;
+    private boolean unknown_portRanges;
     public @Nullable List<EndpointLoadBalancerOptionsPortRange> portRanges() {
-        if (portRanges == null) return null;
-        return portRanges.getValue("EndpointLoadBalancerOptions.portRanges");
+        if (!unknown_portRanges) return value_portRanges;
+        throw new UndeferrableValueException("Value 'EndpointLoadBalancerOptions.portRanges' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private @Nullable String value_protocol;
+    private boolean unknown_protocol;
     public @Nullable String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("EndpointLoadBalancerOptions.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'EndpointLoadBalancerOptions.protocol' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private @Nullable List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public @Nullable List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("EndpointLoadBalancerOptions.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'EndpointLoadBalancerOptions.subnetIds' is not present");
     }
 
 }

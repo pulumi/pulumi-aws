@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.opsworks.inputs.HaproxyLayerLoadBasedAutoScalingDownscalingArgs;
 import com.pulumi.policypacks.aws.opsworks.inputs.HaproxyLayerLoadBasedAutoScalingUpscalingArgs;
 import java.lang.Boolean;
@@ -12,25 +13,28 @@ import javax.annotation.Nullable;
 
 public final class HaproxyLayerLoadBasedAutoScalingArgs {
 
-    private UndeferrableValue<HaproxyLayerLoadBasedAutoScalingDownscalingArgs> downscaling;
-
+    @PolicyResourceProperty(name="downscaling", flag="unknown_downscaling")
+    private HaproxyLayerLoadBasedAutoScalingDownscalingArgs value_downscaling;
+    private boolean unknown_downscaling;
     public HaproxyLayerLoadBasedAutoScalingDownscalingArgs downscaling() {
-        if (downscaling == null) return null;
-        return downscaling.getValue("HaproxyLayerLoadBasedAutoScalingArgs.downscaling");
+        if (!unknown_downscaling) return value_downscaling;
+        throw new UndeferrableValueException("Value 'HaproxyLayerLoadBasedAutoScalingArgs.downscaling' is not present");
     }
 
-    private UndeferrableValue<Boolean> enable;
-
+    @PolicyResourceProperty(name="enable", flag="unknown_enable")
+    private Boolean value_enable;
+    private boolean unknown_enable;
     public Boolean enable() {
-        if (enable == null) return null;
-        return enable.getValue("HaproxyLayerLoadBasedAutoScalingArgs.enable");
+        if (!unknown_enable) return value_enable;
+        throw new UndeferrableValueException("Value 'HaproxyLayerLoadBasedAutoScalingArgs.enable' is not present");
     }
 
-    private UndeferrableValue<HaproxyLayerLoadBasedAutoScalingUpscalingArgs> upscaling;
-
+    @PolicyResourceProperty(name="upscaling", flag="unknown_upscaling")
+    private HaproxyLayerLoadBasedAutoScalingUpscalingArgs value_upscaling;
+    private boolean unknown_upscaling;
     public HaproxyLayerLoadBasedAutoScalingUpscalingArgs upscaling() {
-        if (upscaling == null) return null;
-        return upscaling.getValue("HaproxyLayerLoadBasedAutoScalingArgs.upscaling");
+        if (!unknown_upscaling) return value_upscaling;
+        throw new UndeferrableValueException("Value 'HaproxyLayerLoadBasedAutoScalingArgs.upscaling' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.opensearch.outputs.DomainClusterConfigNodeOptionNodeConfig;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DomainClusterConfigNodeOption {
      * Container to specify sizing of a node type.
      * 
      */
-    private @Nullable UndeferrableValue<DomainClusterConfigNodeOptionNodeConfig> nodeConfig;
-
+    @PolicyResourceProperty(name="nodeConfig", flag="unknown_nodeConfig")
+    private @Nullable DomainClusterConfigNodeOptionNodeConfig value_nodeConfig;
+    private boolean unknown_nodeConfig;
     public @Nullable DomainClusterConfigNodeOptionNodeConfig nodeConfig() {
-        if (nodeConfig == null) return null;
-        return nodeConfig.getValue("DomainClusterConfigNodeOption.nodeConfig");
+        if (!unknown_nodeConfig) return value_nodeConfig;
+        throw new UndeferrableValueException("Value 'DomainClusterConfigNodeOption.nodeConfig' is not present");
     }
 
     /**
      * Type of node this configuration describes. Valid values: `coordinator`.
      * 
      */
-    private @Nullable UndeferrableValue<String> nodeType;
-
+    @PolicyResourceProperty(name="nodeType", flag="unknown_nodeType")
+    private @Nullable String value_nodeType;
+    private boolean unknown_nodeType;
     public @Nullable String nodeType() {
-        if (nodeType == null) return null;
-        return nodeType.getValue("DomainClusterConfigNodeOption.nodeType");
+        if (!unknown_nodeType) return value_nodeType;
+        throw new UndeferrableValueException("Value 'DomainClusterConfigNodeOption.nodeType' is not present");
     }
 
 }

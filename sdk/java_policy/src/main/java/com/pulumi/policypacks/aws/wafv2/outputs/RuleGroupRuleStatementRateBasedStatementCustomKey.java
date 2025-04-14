@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyCookie;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHeader;
@@ -24,121 +25,132 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKey {
      * (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementCustomKeyCookie> cookie;
-
+    @PolicyResourceProperty(name="cookie", flag="unknown_cookie")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyCookie value_cookie;
+    private boolean unknown_cookie;
     public @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyCookie cookie() {
-        if (cookie == null) return null;
-        return cookie.getValue("RuleGroupRuleStatementRateBasedStatementCustomKey.cookie");
+        if (!unknown_cookie) return value_cookie;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementCustomKey.cookie' is not present");
     }
 
     /**
      * (Optional) Use the first IP address in an HTTP header as an aggregate key. See `forwarded_ip` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp> forwardedIp;
-
+    @PolicyResourceProperty(name="forwardedIp", flag="unknown_forwardedIp")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp value_forwardedIp;
+    private boolean unknown_forwardedIp;
     public @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp forwardedIp() {
-        if (forwardedIp == null) return null;
-        return forwardedIp.getValue("RuleGroupRuleStatementRateBasedStatementCustomKey.forwardedIp");
+        if (!unknown_forwardedIp) return value_forwardedIp;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementCustomKey.forwardedIp' is not present");
     }
 
     /**
      * (Optional) Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementCustomKeyHeader> header;
-
+    @PolicyResourceProperty(name="header", flag="unknown_header")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyHeader value_header;
+    private boolean unknown_header;
     public @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyHeader header() {
-        if (header == null) return null;
-        return header.getValue("RuleGroupRuleStatementRateBasedStatementCustomKey.header");
+        if (!unknown_header) return value_header;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementCustomKey.header' is not present");
     }
 
     /**
      * (Optional) Use the request&#39;s HTTP method as an aggregate key. See RateLimit `http_method` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod> httpMethod;
-
+    @PolicyResourceProperty(name="httpMethod", flag="unknown_httpMethod")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod value_httpMethod;
+    private boolean unknown_httpMethod;
     public @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod httpMethod() {
-        if (httpMethod == null) return null;
-        return httpMethod.getValue("RuleGroupRuleStatementRateBasedStatementCustomKey.httpMethod");
+        if (!unknown_httpMethod) return value_httpMethod;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementCustomKey.httpMethod' is not present");
     }
 
     /**
      * (Optional) Use the request&#39;s originating IP address as an aggregate key. See `RateLimit ip` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementCustomKeyIp> ip;
-
+    @PolicyResourceProperty(name="ip", flag="unknown_ip")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyIp value_ip;
+    private boolean unknown_ip;
     public @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyIp ip() {
-        if (ip == null) return null;
-        return ip.getValue("RuleGroupRuleStatementRateBasedStatementCustomKey.ip");
+        if (!unknown_ip) return value_ip;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementCustomKey.ip' is not present");
     }
 
     /**
      * (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint> ja3Fingerprint;
-
+    @PolicyResourceProperty(name="ja3Fingerprint", flag="unknown_ja3Fingerprint")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint value_ja3Fingerprint;
+    private boolean unknown_ja3Fingerprint;
     public @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint ja3Fingerprint() {
-        if (ja3Fingerprint == null) return null;
-        return ja3Fingerprint.getValue("RuleGroupRuleStatementRateBasedStatementCustomKey.ja3Fingerprint");
+        if (!unknown_ja3Fingerprint) return value_ja3Fingerprint;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementCustomKey.ja3Fingerprint' is not present");
     }
 
     /**
      * (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint> ja4Fingerprint;
-
+    @PolicyResourceProperty(name="ja4Fingerprint", flag="unknown_ja4Fingerprint")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint value_ja4Fingerprint;
+    private boolean unknown_ja4Fingerprint;
     public @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint ja4Fingerprint() {
-        if (ja4Fingerprint == null) return null;
-        return ja4Fingerprint.getValue("RuleGroupRuleStatementRateBasedStatementCustomKey.ja4Fingerprint");
+        if (!unknown_ja4Fingerprint) return value_ja4Fingerprint;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementCustomKey.ja4Fingerprint' is not present");
     }
 
     /**
      * (Optional) Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace> labelNamespace;
-
+    @PolicyResourceProperty(name="labelNamespace", flag="unknown_labelNamespace")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace value_labelNamespace;
+    private boolean unknown_labelNamespace;
     public @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace labelNamespace() {
-        if (labelNamespace == null) return null;
-        return labelNamespace.getValue("RuleGroupRuleStatementRateBasedStatementCustomKey.labelNamespace");
+        if (!unknown_labelNamespace) return value_labelNamespace;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementCustomKey.labelNamespace' is not present");
     }
 
     /**
      * (Optional) Use the specified query argument as an aggregate key. See RateLimit `query_argument` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument> queryArgument;
-
+    @PolicyResourceProperty(name="queryArgument", flag="unknown_queryArgument")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument value_queryArgument;
+    private boolean unknown_queryArgument;
     public @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument queryArgument() {
-        if (queryArgument == null) return null;
-        return queryArgument.getValue("RuleGroupRuleStatementRateBasedStatementCustomKey.queryArgument");
+        if (!unknown_queryArgument) return value_queryArgument;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementCustomKey.queryArgument' is not present");
     }
 
     /**
      * (Optional) Use the request&#39;s query string as an aggregate key. See RateLimit `query_string` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString> queryString;
-
+    @PolicyResourceProperty(name="queryString", flag="unknown_queryString")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString value_queryString;
+    private boolean unknown_queryString;
     public @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString queryString() {
-        if (queryString == null) return null;
-        return queryString.getValue("RuleGroupRuleStatementRateBasedStatementCustomKey.queryString");
+        if (!unknown_queryString) return value_queryString;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementCustomKey.queryString' is not present");
     }
 
     /**
      * (Optional) Use the request&#39;s URI path as an aggregate key. See RateLimit `uri_path` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath> uriPath;
-
+    @PolicyResourceProperty(name="uriPath", flag="unknown_uriPath")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath value_uriPath;
+    private boolean unknown_uriPath;
     public @Nullable RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath uriPath() {
-        if (uriPath == null) return null;
-        return uriPath.getValue("RuleGroupRuleStatementRateBasedStatementCustomKey.uriPath");
+        if (!unknown_uriPath) return value_uriPath;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementCustomKey.uriPath' is not present");
     }
 
 }

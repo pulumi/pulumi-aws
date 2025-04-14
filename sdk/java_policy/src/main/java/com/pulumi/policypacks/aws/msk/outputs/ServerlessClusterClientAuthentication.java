@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.msk.outputs.ServerlessClusterClientAuthenticationSasl;
 
 
@@ -13,11 +14,12 @@ public final class ServerlessClusterClientAuthentication {
      * Details for client authentication using SASL. See below.
      * 
      */
-    private UndeferrableValue<ServerlessClusterClientAuthenticationSasl> sasl;
-
+    @PolicyResourceProperty(name="sasl", flag="unknown_sasl")
+    private ServerlessClusterClientAuthenticationSasl value_sasl;
+    private boolean unknown_sasl;
     public ServerlessClusterClientAuthenticationSasl sasl() {
-        if (sasl == null) return null;
-        return sasl.getValue("ServerlessClusterClientAuthentication.sasl");
+        if (!unknown_sasl) return value_sasl;
+        throw new UndeferrableValueException("Value 'ServerlessClusterClientAuthentication.sasl' is not present");
     }
 
 }

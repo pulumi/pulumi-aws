@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.macie.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.macie.outputs.FindingsFilterFindingCriteriaCriterion;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class FindingsFilterFindingCriteria {
      * A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
      * 
      */
-    private @Nullable UndeferrableValue<List<FindingsFilterFindingCriteriaCriterion>> criterions;
-
+    @PolicyResourceProperty(name="criterions", flag="unknown_criterions")
+    private @Nullable List<FindingsFilterFindingCriteriaCriterion> value_criterions;
+    private boolean unknown_criterions;
     public @Nullable List<FindingsFilterFindingCriteriaCriterion> criterions() {
-        if (criterions == null) return null;
-        return criterions.getValue("FindingsFilterFindingCriteria.criterions");
+        if (!unknown_criterions) return value_criterions;
+        throw new UndeferrableValueException("Value 'FindingsFilterFindingCriteria.criterions' is not present");
     }
 
 }

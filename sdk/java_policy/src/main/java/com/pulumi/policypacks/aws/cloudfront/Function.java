@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,88 +19,96 @@ public final class Function extends com.pulumi.resources.PolicyResourceOutput {
      * Amazon Resource Name (ARN) identifying your CloudFront Function.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Function.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Function.arn' is not present");
     }
 
     /**
      * Source code of the function
      * 
      */
-    private UndeferrableValue<String> code;
-
+    @PolicyResourceProperty(name="code", flag="unknown_code")
+    private String value_code;
+    private boolean unknown_code;
     public String code() {
-        if (code == null) return null;
-        return code.getValue("Function.code");
+        if (!unknown_code) return value_code;
+        throw new UndeferrableValueException("Value 'Function.code' is not present");
     }
 
     /**
      * Comment.
      * 
      */
-    private @Nullable UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private @Nullable String value_comment;
+    private boolean unknown_comment;
     public @Nullable String comment() {
-        if (comment == null) return null;
-        return comment.getValue("Function.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'Function.comment' is not present");
     }
 
     /**
      * ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
      * 
      */
-    private UndeferrableValue<String> etag;
-
+    @PolicyResourceProperty(name="etag", flag="unknown_etag")
+    private String value_etag;
+    private boolean unknown_etag;
     public String etag() {
-        if (etag == null) return null;
-        return etag.getValue("Function.etag");
+        if (!unknown_etag) return value_etag;
+        throw new UndeferrableValueException("Value 'Function.etag' is not present");
     }
 
     /**
      * List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> keyValueStoreAssociations;
-
+    @PolicyResourceProperty(name="keyValueStoreAssociations", flag="unknown_keyValueStoreAssociations")
+    private @Nullable List<String> value_keyValueStoreAssociations;
+    private boolean unknown_keyValueStoreAssociations;
     public @Nullable List<String> keyValueStoreAssociations() {
-        if (keyValueStoreAssociations == null) return null;
-        return keyValueStoreAssociations.getValue("Function.keyValueStoreAssociations");
+        if (!unknown_keyValueStoreAssociations) return value_keyValueStoreAssociations;
+        throw new UndeferrableValueException("Value 'Function.keyValueStoreAssociations' is not present");
     }
 
     /**
      * ETag hash of any `LIVE` stage of the function.
      * 
      */
-    private UndeferrableValue<String> liveStageEtag;
-
+    @PolicyResourceProperty(name="liveStageEtag", flag="unknown_liveStageEtag")
+    private String value_liveStageEtag;
+    private boolean unknown_liveStageEtag;
     public String liveStageEtag() {
-        if (liveStageEtag == null) return null;
-        return liveStageEtag.getValue("Function.liveStageEtag");
+        if (!unknown_liveStageEtag) return value_liveStageEtag;
+        throw new UndeferrableValueException("Value 'Function.liveStageEtag' is not present");
     }
 
     /**
      * Unique name for your CloudFront Function.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Function.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Function.name' is not present");
     }
 
     /**
      * Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> publish;
-
+    @PolicyResourceProperty(name="publish", flag="unknown_publish")
+    private @Nullable Boolean value_publish;
+    private boolean unknown_publish;
     public @Nullable Boolean publish() {
-        if (publish == null) return null;
-        return publish.getValue("Function.publish");
+        if (!unknown_publish) return value_publish;
+        throw new UndeferrableValueException("Value 'Function.publish' is not present");
     }
 
     /**
@@ -108,22 +117,24 @@ public final class Function extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> runtime;
-
+    @PolicyResourceProperty(name="runtime", flag="unknown_runtime")
+    private String value_runtime;
+    private boolean unknown_runtime;
     public String runtime() {
-        if (runtime == null) return null;
-        return runtime.getValue("Function.runtime");
+        if (!unknown_runtime) return value_runtime;
+        throw new UndeferrableValueException("Value 'Function.runtime' is not present");
     }
 
     /**
      * Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Function.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Function.status' is not present");
     }
 
 }

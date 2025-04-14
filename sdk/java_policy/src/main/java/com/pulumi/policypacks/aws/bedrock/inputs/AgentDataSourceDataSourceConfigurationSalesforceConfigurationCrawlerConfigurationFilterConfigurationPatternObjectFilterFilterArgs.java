@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -11,29 +12,32 @@ import javax.annotation.Nullable;
 
 public final class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs {
 
-    private UndeferrableValue<List<String>> exclusionFilters;
-
+    @PolicyResourceProperty(name="exclusionFilters", flag="unknown_exclusionFilters")
+    private List<String> value_exclusionFilters;
+    private boolean unknown_exclusionFilters;
     public List<String> exclusionFilters() {
-        if (exclusionFilters == null) return null;
-        return exclusionFilters.getValue("AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs.exclusionFilters");
+        if (!unknown_exclusionFilters) return value_exclusionFilters;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs.exclusionFilters' is not present");
     }
 
-    private UndeferrableValue<List<String>> inclusionFilters;
-
+    @PolicyResourceProperty(name="inclusionFilters", flag="unknown_inclusionFilters")
+    private List<String> value_inclusionFilters;
+    private boolean unknown_inclusionFilters;
     public List<String> inclusionFilters() {
-        if (inclusionFilters == null) return null;
-        return inclusionFilters.getValue("AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs.inclusionFilters");
+        if (!unknown_inclusionFilters) return value_inclusionFilters;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs.inclusionFilters' is not present");
     }
 
     /**
      * The supported object type or content type of the data source.
      * 
      */
-    private UndeferrableValue<String> objectType;
-
+    @PolicyResourceProperty(name="objectType", flag="unknown_objectType")
+    private String value_objectType;
+    private boolean unknown_objectType;
     public String objectType() {
-        if (objectType == null) return null;
-        return objectType.getValue("AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs.objectType");
+        if (!unknown_objectType) return value_objectType;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs.objectType' is not present");
     }
 
 }

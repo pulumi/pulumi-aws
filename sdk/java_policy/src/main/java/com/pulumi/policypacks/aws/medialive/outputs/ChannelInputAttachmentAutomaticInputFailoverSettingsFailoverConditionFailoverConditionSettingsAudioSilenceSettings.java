@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,22 +12,24 @@ import javax.annotation.Nullable;
 
 public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings {
 
-    private UndeferrableValue<String> audioSelectorName;
-
+    @PolicyResourceProperty(name="audioSelectorName", flag="unknown_audioSelectorName")
+    private String value_audioSelectorName;
+    private boolean unknown_audioSelectorName;
     public String audioSelectorName() {
-        if (audioSelectorName == null) return null;
-        return audioSelectorName.getValue("ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings.audioSelectorName");
+        if (!unknown_audioSelectorName) return value_audioSelectorName;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings.audioSelectorName' is not present");
     }
 
     /**
      * The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> audioSilenceThresholdMsec;
-
+    @PolicyResourceProperty(name="audioSilenceThresholdMsec", flag="unknown_audioSilenceThresholdMsec")
+    private @Nullable Integer value_audioSilenceThresholdMsec;
+    private boolean unknown_audioSilenceThresholdMsec;
     public @Nullable Integer audioSilenceThresholdMsec() {
-        if (audioSilenceThresholdMsec == null) return null;
-        return audioSilenceThresholdMsec.getValue("ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings.audioSilenceThresholdMsec");
+        if (!unknown_audioSilenceThresholdMsec) return value_audioSilenceThresholdMsec;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings.audioSilenceThresholdMsec' is not present");
     }
 
 }

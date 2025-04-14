@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emrcontainers.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesMonitoringCon
      * The name of the log group for log publishing.
      * 
      */
-    private UndeferrableValue<String> logGroupName;
-
+    @PolicyResourceProperty(name="logGroupName", flag="unknown_logGroupName")
+    private String value_logGroupName;
+    private boolean unknown_logGroupName;
     public String logGroupName() {
-        if (logGroupName == null) return null;
-        return logGroupName.getValue("JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration.logGroupName");
+        if (!unknown_logGroupName) return value_logGroupName;
+        throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration.logGroupName' is not present");
     }
 
     /**
      * The specified name prefix for log streams.
      * 
      */
-    private @Nullable UndeferrableValue<String> logStreamNamePrefix;
-
+    @PolicyResourceProperty(name="logStreamNamePrefix", flag="unknown_logStreamNamePrefix")
+    private @Nullable String value_logStreamNamePrefix;
+    private boolean unknown_logStreamNamePrefix;
     public @Nullable String logStreamNamePrefix() {
-        if (logStreamNamePrefix == null) return null;
-        return logStreamNamePrefix.getValue("JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration.logStreamNamePrefix");
+        if (!unknown_logStreamNamePrefix) return value_logStreamNamePrefix;
+        throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration.logStreamNamePrefix' is not present");
     }
 
 }

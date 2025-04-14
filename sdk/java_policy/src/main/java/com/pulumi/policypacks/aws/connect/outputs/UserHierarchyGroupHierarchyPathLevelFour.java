@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class UserHierarchyGroupHierarchyPathLevelFour {
      * The Amazon Resource Name (ARN) of the hierarchy group.
      * 
      */
-    private @Nullable UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private @Nullable String value_arn;
+    private boolean unknown_arn;
     public @Nullable String arn() {
-        if (arn == null) return null;
-        return arn.getValue("UserHierarchyGroupHierarchyPathLevelFour.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'UserHierarchyGroupHierarchyPathLevelFour.arn' is not present");
     }
 
     /**
      * The identifier of the hierarchy group.
      * 
      */
-    private @Nullable UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private @Nullable String value_id;
+    private boolean unknown_id;
     public @Nullable String id() {
-        if (id == null) return null;
-        return id.getValue("UserHierarchyGroupHierarchyPathLevelFour.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'UserHierarchyGroupHierarchyPathLevelFour.id' is not present");
     }
 
     /**
      * The name of the user hierarchy group. Must not be more than 100 characters.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("UserHierarchyGroupHierarchyPathLevelFour.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'UserHierarchyGroupHierarchyPathLevelFour.name' is not present");
     }
 
 }

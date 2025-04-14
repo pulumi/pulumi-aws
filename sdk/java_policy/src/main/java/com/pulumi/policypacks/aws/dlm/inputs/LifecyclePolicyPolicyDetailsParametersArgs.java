@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dlm.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class LifecyclePolicyPolicyDetailsParametersArgs {
      * Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> excludeBootVolume;
-
+    @PolicyResourceProperty(name="excludeBootVolume", flag="unknown_excludeBootVolume")
+    private Boolean value_excludeBootVolume;
+    private boolean unknown_excludeBootVolume;
     public Boolean excludeBootVolume() {
-        if (excludeBootVolume == null) return null;
-        return excludeBootVolume.getValue("LifecyclePolicyPolicyDetailsParametersArgs.excludeBootVolume");
+        if (!unknown_excludeBootVolume) return value_excludeBootVolume;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsParametersArgs.excludeBootVolume' is not present");
     }
 
     /**
      * Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
      * 
      */
-    private UndeferrableValue<Boolean> noReboot;
-
+    @PolicyResourceProperty(name="noReboot", flag="unknown_noReboot")
+    private Boolean value_noReboot;
+    private boolean unknown_noReboot;
     public Boolean noReboot() {
-        if (noReboot == null) return null;
-        return noReboot.getValue("LifecyclePolicyPolicyDetailsParametersArgs.noReboot");
+        if (!unknown_noReboot) return value_noReboot;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsParametersArgs.noReboot' is not present");
     }
 
 }

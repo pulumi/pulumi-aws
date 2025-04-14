@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,22 +15,24 @@ public final class AnalysisPermissionArgs {
      * List of IAM actions to grant or revoke permissions on.
      * 
      */
-    private UndeferrableValue<List<String>> actions;
-
+    @PolicyResourceProperty(name="actions", flag="unknown_actions")
+    private List<String> value_actions;
+    private boolean unknown_actions;
     public List<String> actions() {
-        if (actions == null) return null;
-        return actions.getValue("AnalysisPermissionArgs.actions");
+        if (!unknown_actions) return value_actions;
+        throw new UndeferrableValueException("Value 'AnalysisPermissionArgs.actions' is not present");
     }
 
     /**
      * ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
      * 
      */
-    private UndeferrableValue<String> principal;
-
+    @PolicyResourceProperty(name="principal", flag="unknown_principal")
+    private String value_principal;
+    private boolean unknown_principal;
     public String principal() {
-        if (principal == null) return null;
-        return principal.getValue("AnalysisPermissionArgs.principal");
+        if (!unknown_principal) return value_principal;
+        throw new UndeferrableValueException("Value 'AnalysisPermissionArgs.principal' is not present");
     }
 
 }

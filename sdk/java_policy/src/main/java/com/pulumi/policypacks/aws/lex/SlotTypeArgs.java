@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lex.inputs.SlotTypeEnumerationValueArgs;
 import java.lang.Boolean;
@@ -20,22 +21,24 @@ public final class SlotTypeArgs extends com.pulumi.resources.PolicyResourceInput
      * update. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> createVersion;
-
+    @PolicyResourceProperty(name="createVersion", flag="unknown_createVersion")
+    private Boolean value_createVersion;
+    private boolean unknown_createVersion;
     public Boolean createVersion() {
-        if (createVersion == null) return null;
-        return createVersion.getValue("SlotTypeArgs.createVersion");
+        if (!unknown_createVersion) return value_createVersion;
+        throw new UndeferrableValueException("Value 'SlotTypeArgs.createVersion' is not present");
     }
 
     /**
      * A description of the slot type. Must be less than or equal to 200 characters in length.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("SlotTypeArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'SlotTypeArgs.description' is not present");
     }
 
     /**
@@ -45,22 +48,24 @@ public final class SlotTypeArgs extends com.pulumi.resources.PolicyResourceInput
      * documented under enumeration_value.
      * 
      */
-    private UndeferrableValue<List<SlotTypeEnumerationValueArgs>> enumerationValues;
-
+    @PolicyResourceProperty(name="enumerationValues", flag="unknown_enumerationValues")
+    private List<SlotTypeEnumerationValueArgs> value_enumerationValues;
+    private boolean unknown_enumerationValues;
     public List<SlotTypeEnumerationValueArgs> enumerationValues() {
-        if (enumerationValues == null) return null;
-        return enumerationValues.getValue("SlotTypeArgs.enumerationValues");
+        if (!unknown_enumerationValues) return value_enumerationValues;
+        throw new UndeferrableValueException("Value 'SlotTypeArgs.enumerationValues' is not present");
     }
 
     /**
      * The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("SlotTypeArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'SlotTypeArgs.name' is not present");
     }
 
     /**
@@ -70,11 +75,12 @@ public final class SlotTypeArgs extends com.pulumi.resources.PolicyResourceInput
      * if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
      * 
      */
-    private UndeferrableValue<String> valueSelectionStrategy;
-
+    @PolicyResourceProperty(name="valueSelectionStrategy", flag="unknown_valueSelectionStrategy")
+    private String value_valueSelectionStrategy;
+    private boolean unknown_valueSelectionStrategy;
     public String valueSelectionStrategy() {
-        if (valueSelectionStrategy == null) return null;
-        return valueSelectionStrategy.getValue("SlotTypeArgs.valueSelectionStrategy");
+        if (!unknown_valueSelectionStrategy) return value_valueSelectionStrategy;
+        throw new UndeferrableValueException("Value 'SlotTypeArgs.valueSelectionStrategy' is not present");
     }
 
 }

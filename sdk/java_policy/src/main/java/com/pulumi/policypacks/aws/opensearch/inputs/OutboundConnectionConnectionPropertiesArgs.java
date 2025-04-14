@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.opensearch.inputs.OutboundConnectionConnectionPropertiesCrossClusterSearchArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class OutboundConnectionConnectionPropertiesArgs {
      * Configuration block for cross cluster search.
      * 
      */
-    private UndeferrableValue<OutboundConnectionConnectionPropertiesCrossClusterSearchArgs> crossClusterSearch;
-
+    @PolicyResourceProperty(name="crossClusterSearch", flag="unknown_crossClusterSearch")
+    private OutboundConnectionConnectionPropertiesCrossClusterSearchArgs value_crossClusterSearch;
+    private boolean unknown_crossClusterSearch;
     public OutboundConnectionConnectionPropertiesCrossClusterSearchArgs crossClusterSearch() {
-        if (crossClusterSearch == null) return null;
-        return crossClusterSearch.getValue("OutboundConnectionConnectionPropertiesArgs.crossClusterSearch");
+        if (!unknown_crossClusterSearch) return value_crossClusterSearch;
+        throw new UndeferrableValueException("Value 'OutboundConnectionConnectionPropertiesArgs.crossClusterSearch' is not present");
     }
 
     /**
      * The endpoint of the remote domain, is only set when `connection_mode` is `VPC_ENDPOINT` and `accept_connection` is `TRUE`.
      * 
      */
-    private UndeferrableValue<String> endpoint;
-
+    @PolicyResourceProperty(name="endpoint", flag="unknown_endpoint")
+    private String value_endpoint;
+    private boolean unknown_endpoint;
     public String endpoint() {
-        if (endpoint == null) return null;
-        return endpoint.getValue("OutboundConnectionConnectionPropertiesArgs.endpoint");
+        if (!unknown_endpoint) return value_endpoint;
+        throw new UndeferrableValueException("Value 'OutboundConnectionConnectionPropertiesArgs.endpoint' is not present");
     }
 
 }

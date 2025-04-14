@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualRouterSpecListenerPortMappingArgs;
 
 
@@ -13,11 +14,12 @@ public final class VirtualRouterSpecListenerArgs {
      * Port mapping information for the listener.
      * 
      */
-    private UndeferrableValue<VirtualRouterSpecListenerPortMappingArgs> portMapping;
-
+    @PolicyResourceProperty(name="portMapping", flag="unknown_portMapping")
+    private VirtualRouterSpecListenerPortMappingArgs value_portMapping;
+    private boolean unknown_portMapping;
     public VirtualRouterSpecListenerPortMappingArgs portMapping() {
-        if (portMapping == null) return null;
-        return portMapping.getValue("VirtualRouterSpecListenerArgs.portMapping");
+        if (!unknown_portMapping) return value_portMapping;
+        throw new UndeferrableValueException("Value 'VirtualRouterSpecListenerArgs.portMapping' is not present");
     }
 
 }

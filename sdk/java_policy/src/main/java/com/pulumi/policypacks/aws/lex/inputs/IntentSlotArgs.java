@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.IntentSlotValueElicitationPromptArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class IntentSlotArgs {
      * A description of the bot. Must be less than or equal to 200 characters in length.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("IntentSlotArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'IntentSlotArgs.description' is not present");
     }
 
     /**
      * The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("IntentSlotArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'IntentSlotArgs.name' is not present");
     }
 
     /**
@@ -42,11 +45,12 @@ public final class IntentSlotArgs {
      * values is arbitrary. Must be between 1 and 100.
      * 
      */
-    private UndeferrableValue<Integer> priority;
-
+    @PolicyResourceProperty(name="priority", flag="unknown_priority")
+    private Integer value_priority;
+    private boolean unknown_priority;
     public Integer priority() {
-        if (priority == null) return null;
-        return priority.getValue("IntentSlotArgs.priority");
+        if (!unknown_priority) return value_priority;
+        throw new UndeferrableValueException("Value 'IntentSlotArgs.priority' is not present");
     }
 
     /**
@@ -55,11 +59,12 @@ public final class IntentSlotArgs {
      * [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html). Must be less than or equal to 50000 characters in length.
      * 
      */
-    private UndeferrableValue<String> responseCard;
-
+    @PolicyResourceProperty(name="responseCard", flag="unknown_responseCard")
+    private String value_responseCard;
+    private boolean unknown_responseCard;
     public String responseCard() {
-        if (responseCard == null) return null;
-        return responseCard.getValue("IntentSlotArgs.responseCard");
+        if (!unknown_responseCard) return value_responseCard;
+        throw new UndeferrableValueException("Value 'IntentSlotArgs.responseCard' is not present");
     }
 
     /**
@@ -68,22 +73,24 @@ public final class IntentSlotArgs {
      * is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
      * 
      */
-    private UndeferrableValue<List<String>> sampleUtterances;
-
+    @PolicyResourceProperty(name="sampleUtterances", flag="unknown_sampleUtterances")
+    private List<String> value_sampleUtterances;
+    private boolean unknown_sampleUtterances;
     public List<String> sampleUtterances() {
-        if (sampleUtterances == null) return null;
-        return sampleUtterances.getValue("IntentSlotArgs.sampleUtterances");
+        if (!unknown_sampleUtterances) return value_sampleUtterances;
+        throw new UndeferrableValueException("Value 'IntentSlotArgs.sampleUtterances' is not present");
     }
 
     /**
      * Specifies whether the slot is required or optional.
      * 
      */
-    private UndeferrableValue<String> slotConstraint;
-
+    @PolicyResourceProperty(name="slotConstraint", flag="unknown_slotConstraint")
+    private String value_slotConstraint;
+    private boolean unknown_slotConstraint;
     public String slotConstraint() {
-        if (slotConstraint == null) return null;
-        return slotConstraint.getValue("IntentSlotArgs.slotConstraint");
+        if (!unknown_slotConstraint) return value_slotConstraint;
+        throw new UndeferrableValueException("Value 'IntentSlotArgs.slotConstraint' is not present");
     }
 
     /**
@@ -91,22 +98,24 @@ public final class IntentSlotArgs {
      * the built-in slot types. Must be less than or equal to 100 characters in length.
      * 
      */
-    private UndeferrableValue<String> slotType;
-
+    @PolicyResourceProperty(name="slotType", flag="unknown_slotType")
+    private String value_slotType;
+    private boolean unknown_slotType;
     public String slotType() {
-        if (slotType == null) return null;
-        return slotType.getValue("IntentSlotArgs.slotType");
+        if (!unknown_slotType) return value_slotType;
+        throw new UndeferrableValueException("Value 'IntentSlotArgs.slotType' is not present");
     }
 
     /**
      * The version of the slot type. Must be less than or equal to 64 characters in length.
      * 
      */
-    private UndeferrableValue<String> slotTypeVersion;
-
+    @PolicyResourceProperty(name="slotTypeVersion", flag="unknown_slotTypeVersion")
+    private String value_slotTypeVersion;
+    private boolean unknown_slotTypeVersion;
     public String slotTypeVersion() {
-        if (slotTypeVersion == null) return null;
-        return slotTypeVersion.getValue("IntentSlotArgs.slotTypeVersion");
+        if (!unknown_slotTypeVersion) return value_slotTypeVersion;
+        throw new UndeferrableValueException("Value 'IntentSlotArgs.slotTypeVersion' is not present");
     }
 
     /**
@@ -114,11 +123,12 @@ public final class IntentSlotArgs {
      * from the user. Attributes are documented under prompt.
      * 
      */
-    private UndeferrableValue<IntentSlotValueElicitationPromptArgs> valueElicitationPrompt;
-
+    @PolicyResourceProperty(name="valueElicitationPrompt", flag="unknown_valueElicitationPrompt")
+    private IntentSlotValueElicitationPromptArgs value_valueElicitationPrompt;
+    private boolean unknown_valueElicitationPrompt;
     public IntentSlotValueElicitationPromptArgs valueElicitationPrompt() {
-        if (valueElicitationPrompt == null) return null;
-        return valueElicitationPrompt.getValue("IntentSlotArgs.valueElicitationPrompt");
+        if (!unknown_valueElicitationPrompt) return value_valueElicitationPrompt;
+        throw new UndeferrableValueException("Value 'IntentSlotArgs.valueElicitationPrompt' is not present");
     }
 
 }

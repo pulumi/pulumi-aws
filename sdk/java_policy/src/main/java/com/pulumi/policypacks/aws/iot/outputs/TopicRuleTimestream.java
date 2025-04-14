@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.iot.outputs.TopicRuleTimestreamDimension;
 import com.pulumi.policypacks.aws.iot.outputs.TopicRuleTimestreamTimestamp;
 import java.lang.String;
@@ -17,55 +18,60 @@ public final class TopicRuleTimestream {
      * The name of an Amazon Timestream database.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("TopicRuleTimestream.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'TopicRuleTimestream.databaseName' is not present");
     }
 
     /**
      * Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
      * 
      */
-    private UndeferrableValue<List<TopicRuleTimestreamDimension>> dimensions;
-
+    @PolicyResourceProperty(name="dimensions", flag="unknown_dimensions")
+    private List<TopicRuleTimestreamDimension> value_dimensions;
+    private boolean unknown_dimensions;
     public List<TopicRuleTimestreamDimension> dimensions() {
-        if (dimensions == null) return null;
-        return dimensions.getValue("TopicRuleTimestream.dimensions");
+        if (!unknown_dimensions) return value_dimensions;
+        throw new UndeferrableValueException("Value 'TopicRuleTimestream.dimensions' is not present");
     }
 
     /**
      * The ARN of the role that grants permission to write to the Amazon Timestream database table.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("TopicRuleTimestream.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'TopicRuleTimestream.roleArn' is not present");
     }
 
     /**
      * The name of the database table into which to write the measure records.
      * 
      */
-    private UndeferrableValue<String> tableName;
-
+    @PolicyResourceProperty(name="tableName", flag="unknown_tableName")
+    private String value_tableName;
+    private boolean unknown_tableName;
     public String tableName() {
-        if (tableName == null) return null;
-        return tableName.getValue("TopicRuleTimestream.tableName");
+        if (!unknown_tableName) return value_tableName;
+        throw new UndeferrableValueException("Value 'TopicRuleTimestream.tableName' is not present");
     }
 
     /**
      * Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record&#39;s timestamp in the time column. Nested arguments below.
      * 
      */
-    private @Nullable UndeferrableValue<TopicRuleTimestreamTimestamp> timestamp;
-
+    @PolicyResourceProperty(name="timestamp", flag="unknown_timestamp")
+    private @Nullable TopicRuleTimestreamTimestamp value_timestamp;
+    private boolean unknown_timestamp;
     public @Nullable TopicRuleTimestreamTimestamp timestamp() {
-        if (timestamp == null) return null;
-        return timestamp.getValue("TopicRuleTimestream.timestamp");
+        if (!unknown_timestamp) return value_timestamp;
+        throw new UndeferrableValueException("Value 'TopicRuleTimestream.timestamp' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.outputs.AnalyticsApplicationInputsSchemaRecordFormatMappingParameters;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,22 +17,24 @@ public final class AnalyticsApplicationInputsSchemaRecordFormat {
      * See Mapping Parameters below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<AnalyticsApplicationInputsSchemaRecordFormatMappingParameters> mappingParameters;
-
+    @PolicyResourceProperty(name="mappingParameters", flag="unknown_mappingParameters")
+    private @Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParameters value_mappingParameters;
+    private boolean unknown_mappingParameters;
     public @Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParameters mappingParameters() {
-        if (mappingParameters == null) return null;
-        return mappingParameters.getValue("AnalyticsApplicationInputsSchemaRecordFormat.mappingParameters");
+        if (!unknown_mappingParameters) return value_mappingParameters;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsSchemaRecordFormat.mappingParameters' is not present");
     }
 
     /**
      * The type of Record Format. Can be `CSV` or `JSON`.
      * 
      */
-    private @Nullable UndeferrableValue<String> recordFormatType;
-
+    @PolicyResourceProperty(name="recordFormatType", flag="unknown_recordFormatType")
+    private @Nullable String value_recordFormatType;
+    private boolean unknown_recordFormatType;
     public @Nullable String recordFormatType() {
-        if (recordFormatType == null) return null;
-        return recordFormatType.getValue("AnalyticsApplicationInputsSchemaRecordFormat.recordFormatType");
+        if (!unknown_recordFormatType) return value_recordFormatType;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsSchemaRecordFormat.recordFormatType' is not present");
     }
 
 }

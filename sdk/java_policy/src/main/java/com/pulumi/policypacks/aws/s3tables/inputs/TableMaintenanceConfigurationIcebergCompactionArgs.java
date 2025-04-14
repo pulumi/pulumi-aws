@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3tables.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3tables.inputs.TableMaintenanceConfigurationIcebergCompactionSettingsArgs;
 import java.lang.String;
 
@@ -15,11 +16,12 @@ public final class TableMaintenanceConfigurationIcebergCompactionArgs {
      * See `iceberg_compaction.settings` below.
      * 
      */
-    private UndeferrableValue<TableMaintenanceConfigurationIcebergCompactionSettingsArgs> settings;
-
+    @PolicyResourceProperty(name="settings", flag="unknown_settings")
+    private TableMaintenanceConfigurationIcebergCompactionSettingsArgs value_settings;
+    private boolean unknown_settings;
     public TableMaintenanceConfigurationIcebergCompactionSettingsArgs settings() {
-        if (settings == null) return null;
-        return settings.getValue("TableMaintenanceConfigurationIcebergCompactionArgs.settings");
+        if (!unknown_settings) return value_settings;
+        throw new UndeferrableValueException("Value 'TableMaintenanceConfigurationIcebergCompactionArgs.settings' is not present");
     }
 
     /**
@@ -27,11 +29,12 @@ public final class TableMaintenanceConfigurationIcebergCompactionArgs {
      * Valid values are `enabled` and `disabled`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("TableMaintenanceConfigurationIcebergCompactionArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'TableMaintenanceConfigurationIcebergCompactionArgs.status' is not present");
     }
 
 }

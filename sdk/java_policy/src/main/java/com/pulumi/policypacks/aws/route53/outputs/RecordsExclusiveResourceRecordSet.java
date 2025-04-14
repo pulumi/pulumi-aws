@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.route53.outputs.RecordsExclusiveResourceRecordSetAliasTarget;
 import com.pulumi.policypacks.aws.route53.outputs.RecordsExclusiveResourceRecordSetCidrRoutingConfig;
 import com.pulumi.policypacks.aws.route53.outputs.RecordsExclusiveResourceRecordSetGeolocation;
@@ -23,18 +24,20 @@ public final class RecordsExclusiveResourceRecordSet {
      * See `alias_target` below.
      * 
      */
-    private @Nullable UndeferrableValue<RecordsExclusiveResourceRecordSetAliasTarget> aliasTarget;
-
+    @PolicyResourceProperty(name="aliasTarget", flag="unknown_aliasTarget")
+    private @Nullable RecordsExclusiveResourceRecordSetAliasTarget value_aliasTarget;
+    private boolean unknown_aliasTarget;
     public @Nullable RecordsExclusiveResourceRecordSetAliasTarget aliasTarget() {
-        if (aliasTarget == null) return null;
-        return aliasTarget.getValue("RecordsExclusiveResourceRecordSet.aliasTarget");
+        if (!unknown_aliasTarget) return value_aliasTarget;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSet.aliasTarget' is not present");
     }
 
-    private @Nullable UndeferrableValue<RecordsExclusiveResourceRecordSetCidrRoutingConfig> cidrRoutingConfig;
-
+    @PolicyResourceProperty(name="cidrRoutingConfig", flag="unknown_cidrRoutingConfig")
+    private @Nullable RecordsExclusiveResourceRecordSetCidrRoutingConfig value_cidrRoutingConfig;
+    private boolean unknown_cidrRoutingConfig;
     public @Nullable RecordsExclusiveResourceRecordSetCidrRoutingConfig cidrRoutingConfig() {
-        if (cidrRoutingConfig == null) return null;
-        return cidrRoutingConfig.getValue("RecordsExclusiveResourceRecordSet.cidrRoutingConfig");
+        if (!unknown_cidrRoutingConfig) return value_cidrRoutingConfig;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSet.cidrRoutingConfig' is not present");
     }
 
     /**
@@ -43,11 +46,12 @@ public final class RecordsExclusiveResourceRecordSet {
      * See the [AWS documentation on DNS failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html) for additional details.
      * 
      */
-    private @Nullable UndeferrableValue<String> failover;
-
+    @PolicyResourceProperty(name="failover", flag="unknown_failover")
+    private @Nullable String value_failover;
+    private boolean unknown_failover;
     public @Nullable String failover() {
-        if (failover == null) return null;
-        return failover.getValue("RecordsExclusiveResourceRecordSet.failover");
+        if (!unknown_failover) return value_failover;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSet.failover' is not present");
     }
 
     /**
@@ -55,11 +59,12 @@ public final class RecordsExclusiveResourceRecordSet {
      * See `geolocation` below.
      * 
      */
-    private @Nullable UndeferrableValue<RecordsExclusiveResourceRecordSetGeolocation> geolocation;
-
+    @PolicyResourceProperty(name="geolocation", flag="unknown_geolocation")
+    private @Nullable RecordsExclusiveResourceRecordSetGeolocation value_geolocation;
+    private boolean unknown_geolocation;
     public @Nullable RecordsExclusiveResourceRecordSetGeolocation geolocation() {
-        if (geolocation == null) return null;
-        return geolocation.getValue("RecordsExclusiveResourceRecordSet.geolocation");
+        if (!unknown_geolocation) return value_geolocation;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSet.geolocation' is not present");
     }
 
     /**
@@ -67,40 +72,44 @@ public final class RecordsExclusiveResourceRecordSet {
      * See `geoproximity_location` below.
      * 
      */
-    private @Nullable UndeferrableValue<RecordsExclusiveResourceRecordSetGeoproximityLocation> geoproximityLocation;
-
+    @PolicyResourceProperty(name="geoproximityLocation", flag="unknown_geoproximityLocation")
+    private @Nullable RecordsExclusiveResourceRecordSetGeoproximityLocation value_geoproximityLocation;
+    private boolean unknown_geoproximityLocation;
     public @Nullable RecordsExclusiveResourceRecordSetGeoproximityLocation geoproximityLocation() {
-        if (geoproximityLocation == null) return null;
-        return geoproximityLocation.getValue("RecordsExclusiveResourceRecordSet.geoproximityLocation");
+        if (!unknown_geoproximityLocation) return value_geoproximityLocation;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSet.geoproximityLocation' is not present");
     }
 
     /**
      * Health check the record should be associated with.
      * 
      */
-    private @Nullable UndeferrableValue<String> healthCheckId;
-
+    @PolicyResourceProperty(name="healthCheckId", flag="unknown_healthCheckId")
+    private @Nullable String value_healthCheckId;
+    private boolean unknown_healthCheckId;
     public @Nullable String healthCheckId() {
-        if (healthCheckId == null) return null;
-        return healthCheckId.getValue("RecordsExclusiveResourceRecordSet.healthCheckId");
+        if (!unknown_healthCheckId) return value_healthCheckId;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSet.healthCheckId' is not present");
     }
 
-    private @Nullable UndeferrableValue<Boolean> multiValueAnswer;
-
+    @PolicyResourceProperty(name="multiValueAnswer", flag="unknown_multiValueAnswer")
+    private @Nullable Boolean value_multiValueAnswer;
+    private boolean unknown_multiValueAnswer;
     public @Nullable Boolean multiValueAnswer() {
-        if (multiValueAnswer == null) return null;
-        return multiValueAnswer.getValue("RecordsExclusiveResourceRecordSet.multiValueAnswer");
+        if (!unknown_multiValueAnswer) return value_multiValueAnswer;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSet.multiValueAnswer' is not present");
     }
 
     /**
      * Name of the record.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RecordsExclusiveResourceRecordSet.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSet.name' is not present");
     }
 
     /**
@@ -109,11 +118,12 @@ public final class RecordsExclusiveResourceRecordSet {
      * See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency) on latency based routing for additional details.
      * 
      */
-    private @Nullable UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private @Nullable String value_region;
+    private boolean unknown_region;
     public @Nullable String region() {
-        if (region == null) return null;
-        return region.getValue("RecordsExclusiveResourceRecordSet.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSet.region' is not present");
     }
 
     /**
@@ -121,11 +131,12 @@ public final class RecordsExclusiveResourceRecordSet {
      * See `resource_records` below.
      * 
      */
-    private @Nullable UndeferrableValue<List<RecordsExclusiveResourceRecordSetResourceRecord>> resourceRecords;
-
+    @PolicyResourceProperty(name="resourceRecords", flag="unknown_resourceRecords")
+    private @Nullable List<RecordsExclusiveResourceRecordSetResourceRecord> value_resourceRecords;
+    private boolean unknown_resourceRecords;
     public @Nullable List<RecordsExclusiveResourceRecordSetResourceRecord> resourceRecords() {
-        if (resourceRecords == null) return null;
-        return resourceRecords.getValue("RecordsExclusiveResourceRecordSet.resourceRecords");
+        if (!unknown_resourceRecords) return value_resourceRecords;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSet.resourceRecords' is not present");
     }
 
     /**
@@ -133,29 +144,32 @@ public final class RecordsExclusiveResourceRecordSet {
      * Required if using `cidr_routing_config`, `failover`, `geolocation`,`geoproximity_location`, `multivalue_answer`, `region`, or `weight`.
      * 
      */
-    private @Nullable UndeferrableValue<String> setIdentifier;
-
+    @PolicyResourceProperty(name="setIdentifier", flag="unknown_setIdentifier")
+    private @Nullable String value_setIdentifier;
+    private boolean unknown_setIdentifier;
     public @Nullable String setIdentifier() {
-        if (setIdentifier == null) return null;
-        return setIdentifier.getValue("RecordsExclusiveResourceRecordSet.setIdentifier");
+        if (!unknown_setIdentifier) return value_setIdentifier;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSet.setIdentifier' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> trafficPolicyInstanceId;
-
+    @PolicyResourceProperty(name="trafficPolicyInstanceId", flag="unknown_trafficPolicyInstanceId")
+    private @Nullable String value_trafficPolicyInstanceId;
+    private boolean unknown_trafficPolicyInstanceId;
     public @Nullable String trafficPolicyInstanceId() {
-        if (trafficPolicyInstanceId == null) return null;
-        return trafficPolicyInstanceId.getValue("RecordsExclusiveResourceRecordSet.trafficPolicyInstanceId");
+        if (!unknown_trafficPolicyInstanceId) return value_trafficPolicyInstanceId;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSet.trafficPolicyInstanceId' is not present");
     }
 
     /**
      * Resource record cache time to live (TTL), in seconds.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> ttl;
-
+    @PolicyResourceProperty(name="ttl", flag="unknown_ttl")
+    private @Nullable Integer value_ttl;
+    private boolean unknown_ttl;
     public @Nullable Integer ttl() {
-        if (ttl == null) return null;
-        return ttl.getValue("RecordsExclusiveResourceRecordSet.ttl");
+        if (!unknown_ttl) return value_ttl;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSet.ttl' is not present");
     }
 
     /**
@@ -167,22 +181,24 @@ public final class RecordsExclusiveResourceRecordSet {
      * &gt; Exactly one of `resource_records` or `alias_target` must be specified.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("RecordsExclusiveResourceRecordSet.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSet.type' is not present");
     }
 
     /**
      * Among resource record sets that have the same combination of DNS name and type, a value that determines the proportion of DNS queries that Amazon Route 53 responds to using the current resource record set.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> weight;
-
+    @PolicyResourceProperty(name="weight", flag="unknown_weight")
+    private @Nullable Integer value_weight;
+    private boolean unknown_weight;
     public @Nullable Integer weight() {
-        if (weight == null) return null;
-        return weight.getValue("RecordsExclusiveResourceRecordSet.weight");
+        if (!unknown_weight) return value_weight;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSet.weight' is not present");
     }
 
 }

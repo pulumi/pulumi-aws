@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshiftdata;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.redshiftdata.inputs.StatementParameterArgs;
 import java.lang.Boolean;
@@ -19,51 +20,56 @@ public final class StatementArgs extends com.pulumi.resources.PolicyResourceInpu
      * The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
      * 
      */
-    private UndeferrableValue<String> clusterIdentifier;
-
+    @PolicyResourceProperty(name="clusterIdentifier", flag="unknown_clusterIdentifier")
+    private String value_clusterIdentifier;
+    private boolean unknown_clusterIdentifier;
     public String clusterIdentifier() {
-        if (clusterIdentifier == null) return null;
-        return clusterIdentifier.getValue("StatementArgs.clusterIdentifier");
+        if (!unknown_clusterIdentifier) return value_clusterIdentifier;
+        throw new UndeferrableValueException("Value 'StatementArgs.clusterIdentifier' is not present");
     }
 
     /**
      * The name of the database.
      * 
      */
-    private UndeferrableValue<String> database;
-
+    @PolicyResourceProperty(name="database", flag="unknown_database")
+    private String value_database;
+    private boolean unknown_database;
     public String database() {
-        if (database == null) return null;
-        return database.getValue("StatementArgs.database");
+        if (!unknown_database) return value_database;
+        throw new UndeferrableValueException("Value 'StatementArgs.database' is not present");
     }
 
     /**
      * The database user name.
      * 
      */
-    private UndeferrableValue<String> dbUser;
-
+    @PolicyResourceProperty(name="dbUser", flag="unknown_dbUser")
+    private String value_dbUser;
+    private boolean unknown_dbUser;
     public String dbUser() {
-        if (dbUser == null) return null;
-        return dbUser.getValue("StatementArgs.dbUser");
+        if (!unknown_dbUser) return value_dbUser;
+        throw new UndeferrableValueException("Value 'StatementArgs.dbUser' is not present");
     }
 
-    private UndeferrableValue<List<StatementParameterArgs>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private List<StatementParameterArgs> value_parameters;
+    private boolean unknown_parameters;
     public List<StatementParameterArgs> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("StatementArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'StatementArgs.parameters' is not present");
     }
 
     /**
      * The name or ARN of the secret that enables access to the database.
      * 
      */
-    private UndeferrableValue<String> secretArn;
-
+    @PolicyResourceProperty(name="secretArn", flag="unknown_secretArn")
+    private String value_secretArn;
+    private boolean unknown_secretArn;
     public String secretArn() {
-        if (secretArn == null) return null;
-        return secretArn.getValue("StatementArgs.secretArn");
+        if (!unknown_secretArn) return value_secretArn;
+        throw new UndeferrableValueException("Value 'StatementArgs.secretArn' is not present");
     }
 
     /**
@@ -72,44 +78,48 @@ public final class StatementArgs extends com.pulumi.resources.PolicyResourceInpu
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> sql;
-
+    @PolicyResourceProperty(name="sql", flag="unknown_sql")
+    private String value_sql;
+    private boolean unknown_sql;
     public String sql() {
-        if (sql == null) return null;
-        return sql.getValue("StatementArgs.sql");
+        if (!unknown_sql) return value_sql;
+        throw new UndeferrableValueException("Value 'StatementArgs.sql' is not present");
     }
 
     /**
      * The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
      * 
      */
-    private UndeferrableValue<String> statementName;
-
+    @PolicyResourceProperty(name="statementName", flag="unknown_statementName")
+    private String value_statementName;
+    private boolean unknown_statementName;
     public String statementName() {
-        if (statementName == null) return null;
-        return statementName.getValue("StatementArgs.statementName");
+        if (!unknown_statementName) return value_statementName;
+        throw new UndeferrableValueException("Value 'StatementArgs.statementName' is not present");
     }
 
     /**
      * A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
      * 
      */
-    private UndeferrableValue<Boolean> withEvent;
-
+    @PolicyResourceProperty(name="withEvent", flag="unknown_withEvent")
+    private Boolean value_withEvent;
+    private boolean unknown_withEvent;
     public Boolean withEvent() {
-        if (withEvent == null) return null;
-        return withEvent.getValue("StatementArgs.withEvent");
+        if (!unknown_withEvent) return value_withEvent;
+        throw new UndeferrableValueException("Value 'StatementArgs.withEvent' is not present");
     }
 
     /**
      * The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
      * 
      */
-    private UndeferrableValue<String> workgroupName;
-
+    @PolicyResourceProperty(name="workgroupName", flag="unknown_workgroupName")
+    private String value_workgroupName;
+    private boolean unknown_workgroupName;
     public String workgroupName() {
-        if (workgroupName == null) return null;
-        return workgroupName.getValue("StatementArgs.workgroupName");
+        if (!unknown_workgroupName) return value_workgroupName;
+        throw new UndeferrableValueException("Value 'StatementArgs.workgroupName' is not present");
     }
 
 }

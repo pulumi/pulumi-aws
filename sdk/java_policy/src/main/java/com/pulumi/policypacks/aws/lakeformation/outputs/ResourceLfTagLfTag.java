@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ResourceLfTagLfTag {
      * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    private @Nullable UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private @Nullable String value_catalogId;
+    private boolean unknown_catalogId;
     public @Nullable String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("ResourceLfTagLfTag.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'ResourceLfTagLfTag.catalogId' is not present");
     }
 
     /**
      * Key name for an existing LF-tag.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("ResourceLfTagLfTag.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'ResourceLfTagLfTag.key' is not present");
     }
 
     /**
@@ -38,11 +41,12 @@ public final class ResourceLfTagLfTag {
      * The following argument is optional:
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("ResourceLfTagLfTag.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'ResourceLfTagLfTag.value' is not present");
     }
 
 }

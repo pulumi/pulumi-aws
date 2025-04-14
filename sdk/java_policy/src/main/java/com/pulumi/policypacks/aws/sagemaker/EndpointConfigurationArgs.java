@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.inputs.EndpointConfigurationAsyncInferenceConfigArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.EndpointConfigurationDataCaptureConfigArgs;
@@ -22,88 +23,96 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Policy
      * Specifies configuration for how an endpoint performs asynchronous inference.
      * 
      */
-    private UndeferrableValue<EndpointConfigurationAsyncInferenceConfigArgs> asyncInferenceConfig;
-
+    @PolicyResourceProperty(name="asyncInferenceConfig", flag="unknown_asyncInferenceConfig")
+    private EndpointConfigurationAsyncInferenceConfigArgs value_asyncInferenceConfig;
+    private boolean unknown_asyncInferenceConfig;
     public EndpointConfigurationAsyncInferenceConfigArgs asyncInferenceConfig() {
-        if (asyncInferenceConfig == null) return null;
-        return asyncInferenceConfig.getValue("EndpointConfigurationArgs.asyncInferenceConfig");
+        if (!unknown_asyncInferenceConfig) return value_asyncInferenceConfig;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationArgs.asyncInferenceConfig' is not present");
     }
 
     /**
      * Specifies the parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
      * 
      */
-    private UndeferrableValue<EndpointConfigurationDataCaptureConfigArgs> dataCaptureConfig;
-
+    @PolicyResourceProperty(name="dataCaptureConfig", flag="unknown_dataCaptureConfig")
+    private EndpointConfigurationDataCaptureConfigArgs value_dataCaptureConfig;
+    private boolean unknown_dataCaptureConfig;
     public EndpointConfigurationDataCaptureConfigArgs dataCaptureConfig() {
-        if (dataCaptureConfig == null) return null;
-        return dataCaptureConfig.getValue("EndpointConfigurationArgs.dataCaptureConfig");
+        if (!unknown_dataCaptureConfig) return value_dataCaptureConfig;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationArgs.dataCaptureConfig' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      * 
      */
-    private UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("EndpointConfigurationArgs.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationArgs.kmsKeyArn' is not present");
     }
 
     /**
      * The name of the endpoint configuration. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("EndpointConfigurationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationArgs.name' is not present");
     }
 
     /**
      * Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("EndpointConfigurationArgs.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationArgs.namePrefix' is not present");
     }
 
     /**
      * An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
      * 
      */
-    private UndeferrableValue<List<EndpointConfigurationProductionVariantArgs>> productionVariants;
-
+    @PolicyResourceProperty(name="productionVariants", flag="unknown_productionVariants")
+    private List<EndpointConfigurationProductionVariantArgs> value_productionVariants;
+    private boolean unknown_productionVariants;
     public List<EndpointConfigurationProductionVariantArgs> productionVariants() {
-        if (productionVariants == null) return null;
-        return productionVariants.getValue("EndpointConfigurationArgs.productionVariants");
+        if (!unknown_productionVariants) return value_productionVariants;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationArgs.productionVariants' is not present");
     }
 
     /**
      * Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
      * 
      */
-    private UndeferrableValue<List<EndpointConfigurationShadowProductionVariantArgs>> shadowProductionVariants;
-
+    @PolicyResourceProperty(name="shadowProductionVariants", flag="unknown_shadowProductionVariants")
+    private List<EndpointConfigurationShadowProductionVariantArgs> value_shadowProductionVariants;
+    private boolean unknown_shadowProductionVariants;
     public List<EndpointConfigurationShadowProductionVariantArgs> shadowProductionVariants() {
-        if (shadowProductionVariants == null) return null;
-        return shadowProductionVariants.getValue("EndpointConfigurationArgs.shadowProductionVariants");
+        if (!unknown_shadowProductionVariants) return value_shadowProductionVariants;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationArgs.shadowProductionVariants' is not present");
     }
 
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("EndpointConfigurationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationArgs.tags' is not present");
     }
 
 }

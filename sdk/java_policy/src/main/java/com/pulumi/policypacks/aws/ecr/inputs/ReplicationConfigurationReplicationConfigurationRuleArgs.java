@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecr.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ecr.inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs;
 import com.pulumi.policypacks.aws.ecr.inputs.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class ReplicationConfigurationReplicationConfigurationRuleArgs {
      * the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
      * 
      */
-    private UndeferrableValue<List<ReplicationConfigurationReplicationConfigurationRuleDestinationArgs>> destinations;
-
+    @PolicyResourceProperty(name="destinations", flag="unknown_destinations")
+    private List<ReplicationConfigurationReplicationConfigurationRuleDestinationArgs> value_destinations;
+    private boolean unknown_destinations;
     public List<ReplicationConfigurationReplicationConfigurationRuleDestinationArgs> destinations() {
-        if (destinations == null) return null;
-        return destinations.getValue("ReplicationConfigurationReplicationConfigurationRuleArgs.destinations");
+        if (!unknown_destinations) return value_destinations;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationReplicationConfigurationRuleArgs.destinations' is not present");
     }
 
     /**
      * filters for a replication rule. See Repository Filter.
      * 
      */
-    private UndeferrableValue<List<ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs>> repositoryFilters;
-
+    @PolicyResourceProperty(name="repositoryFilters", flag="unknown_repositoryFilters")
+    private List<ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs> value_repositoryFilters;
+    private boolean unknown_repositoryFilters;
     public List<ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs> repositoryFilters() {
-        if (repositoryFilters == null) return null;
-        return repositoryFilters.getValue("ReplicationConfigurationReplicationConfigurationRuleArgs.repositoryFilters");
+        if (!unknown_repositoryFilters) return value_repositoryFilters;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationReplicationConfigurationRuleArgs.repositoryFilters' is not present");
     }
 
 }

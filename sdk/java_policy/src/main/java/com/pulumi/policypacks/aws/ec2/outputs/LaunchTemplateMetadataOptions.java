@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class LaunchTemplateMetadataOptions {
      * Whether the metadata service is available. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`. (Default: `&#34;enabled&#34;`).
      * 
      */
-    private @Nullable UndeferrableValue<String> httpEndpoint;
-
+    @PolicyResourceProperty(name="httpEndpoint", flag="unknown_httpEndpoint")
+    private @Nullable String value_httpEndpoint;
+    private boolean unknown_httpEndpoint;
     public @Nullable String httpEndpoint() {
-        if (httpEndpoint == null) return null;
-        return httpEndpoint.getValue("LaunchTemplateMetadataOptions.httpEndpoint");
+        if (!unknown_httpEndpoint) return value_httpEndpoint;
+        throw new UndeferrableValueException("Value 'LaunchTemplateMetadataOptions.httpEndpoint' is not present");
     }
 
     /**
      * Enables or disables the IPv6 endpoint for the instance metadata service. Can be `&#34;enabled&#34;` or `&#34;disabled&#34;`.
      * 
      */
-    private @Nullable UndeferrableValue<String> httpProtocolIpv6;
-
+    @PolicyResourceProperty(name="httpProtocolIpv6", flag="unknown_httpProtocolIpv6")
+    private @Nullable String value_httpProtocolIpv6;
+    private boolean unknown_httpProtocolIpv6;
     public @Nullable String httpProtocolIpv6() {
-        if (httpProtocolIpv6 == null) return null;
-        return httpProtocolIpv6.getValue("LaunchTemplateMetadataOptions.httpProtocolIpv6");
+        if (!unknown_httpProtocolIpv6) return value_httpProtocolIpv6;
+        throw new UndeferrableValueException("Value 'LaunchTemplateMetadataOptions.httpProtocolIpv6' is not present");
     }
 
     /**
      * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
      * 
      */
-    private @Nullable UndeferrableValue<Integer> httpPutResponseHopLimit;
-
+    @PolicyResourceProperty(name="httpPutResponseHopLimit", flag="unknown_httpPutResponseHopLimit")
+    private @Nullable Integer value_httpPutResponseHopLimit;
+    private boolean unknown_httpPutResponseHopLimit;
     public @Nullable Integer httpPutResponseHopLimit() {
-        if (httpPutResponseHopLimit == null) return null;
-        return httpPutResponseHopLimit.getValue("LaunchTemplateMetadataOptions.httpPutResponseHopLimit");
+        if (!unknown_httpPutResponseHopLimit) return value_httpPutResponseHopLimit;
+        throw new UndeferrableValueException("Value 'LaunchTemplateMetadataOptions.httpPutResponseHopLimit' is not present");
     }
 
     /**
      * Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `&#34;optional&#34;` or `&#34;required&#34;`. (Default: `&#34;optional&#34;`).
      * 
      */
-    private @Nullable UndeferrableValue<String> httpTokens;
-
+    @PolicyResourceProperty(name="httpTokens", flag="unknown_httpTokens")
+    private @Nullable String value_httpTokens;
+    private boolean unknown_httpTokens;
     public @Nullable String httpTokens() {
-        if (httpTokens == null) return null;
-        return httpTokens.getValue("LaunchTemplateMetadataOptions.httpTokens");
+        if (!unknown_httpTokens) return value_httpTokens;
+        throw new UndeferrableValueException("Value 'LaunchTemplateMetadataOptions.httpTokens' is not present");
     }
 
     /**
@@ -61,11 +66,12 @@ public final class LaunchTemplateMetadataOptions {
      * For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
      * 
      */
-    private @Nullable UndeferrableValue<String> instanceMetadataTags;
-
+    @PolicyResourceProperty(name="instanceMetadataTags", flag="unknown_instanceMetadataTags")
+    private @Nullable String value_instanceMetadataTags;
+    private boolean unknown_instanceMetadataTags;
     public @Nullable String instanceMetadataTags() {
-        if (instanceMetadataTags == null) return null;
-        return instanceMetadataTags.getValue("LaunchTemplateMetadataOptions.instanceMetadataTags");
+        if (!unknown_instanceMetadataTags) return value_instanceMetadataTags;
+        throw new UndeferrableValueException("Value 'LaunchTemplateMetadataOptions.instanceMetadataTags' is not present");
     }
 
 }

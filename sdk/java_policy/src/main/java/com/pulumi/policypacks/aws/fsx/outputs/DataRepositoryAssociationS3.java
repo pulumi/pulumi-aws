@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.fsx.outputs.DataRepositoryAssociationS3AutoExportPolicy;
 import com.pulumi.policypacks.aws.fsx.outputs.DataRepositoryAssociationS3AutoImportPolicy;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DataRepositoryAssociationS3 {
      * Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
      * 
      */
-    private @Nullable UndeferrableValue<DataRepositoryAssociationS3AutoExportPolicy> autoExportPolicy;
-
+    @PolicyResourceProperty(name="autoExportPolicy", flag="unknown_autoExportPolicy")
+    private @Nullable DataRepositoryAssociationS3AutoExportPolicy value_autoExportPolicy;
+    private boolean unknown_autoExportPolicy;
     public @Nullable DataRepositoryAssociationS3AutoExportPolicy autoExportPolicy() {
-        if (autoExportPolicy == null) return null;
-        return autoExportPolicy.getValue("DataRepositoryAssociationS3.autoExportPolicy");
+        if (!unknown_autoExportPolicy) return value_autoExportPolicy;
+        throw new UndeferrableValueException("Value 'DataRepositoryAssociationS3.autoExportPolicy' is not present");
     }
 
     /**
      * Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
      * 
      */
-    private @Nullable UndeferrableValue<DataRepositoryAssociationS3AutoImportPolicy> autoImportPolicy;
-
+    @PolicyResourceProperty(name="autoImportPolicy", flag="unknown_autoImportPolicy")
+    private @Nullable DataRepositoryAssociationS3AutoImportPolicy value_autoImportPolicy;
+    private boolean unknown_autoImportPolicy;
     public @Nullable DataRepositoryAssociationS3AutoImportPolicy autoImportPolicy() {
-        if (autoImportPolicy == null) return null;
-        return autoImportPolicy.getValue("DataRepositoryAssociationS3.autoImportPolicy");
+        if (!unknown_autoImportPolicy) return value_autoImportPolicy;
+        throw new UndeferrableValueException("Value 'DataRepositoryAssociationS3.autoImportPolicy' is not present");
     }
 
 }

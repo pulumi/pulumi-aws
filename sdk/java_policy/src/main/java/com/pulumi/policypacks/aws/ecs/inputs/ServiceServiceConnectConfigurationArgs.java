@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ecs.inputs.ServiceServiceConnectConfigurationLogConfigurationArgs;
 import com.pulumi.policypacks.aws.ecs.inputs.ServiceServiceConnectConfigurationServiceArgs;
 import java.lang.Boolean;
@@ -18,44 +19,48 @@ public final class ServiceServiceConnectConfigurationArgs {
      * Whether to use Service Connect with this service.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("ServiceServiceConnectConfigurationArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationArgs.enabled' is not present");
     }
 
     /**
      * Log configuration for the container. See below.
      * 
      */
-    private UndeferrableValue<ServiceServiceConnectConfigurationLogConfigurationArgs> logConfiguration;
-
+    @PolicyResourceProperty(name="logConfiguration", flag="unknown_logConfiguration")
+    private ServiceServiceConnectConfigurationLogConfigurationArgs value_logConfiguration;
+    private boolean unknown_logConfiguration;
     public ServiceServiceConnectConfigurationLogConfigurationArgs logConfiguration() {
-        if (logConfiguration == null) return null;
-        return logConfiguration.getValue("ServiceServiceConnectConfigurationArgs.logConfiguration");
+        if (!unknown_logConfiguration) return value_logConfiguration;
+        throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationArgs.logConfiguration' is not present");
     }
 
     /**
      * Namespace name or ARN of the `aws.servicediscovery.HttpNamespace` for use with Service Connect.
      * 
      */
-    private UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private String value_namespace;
+    private boolean unknown_namespace;
     public String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("ServiceServiceConnectConfigurationArgs.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationArgs.namespace' is not present");
     }
 
     /**
      * List of Service Connect service objects. See below.
      * 
      */
-    private UndeferrableValue<List<ServiceServiceConnectConfigurationServiceArgs>> services;
-
+    @PolicyResourceProperty(name="services", flag="unknown_services")
+    private List<ServiceServiceConnectConfigurationServiceArgs> value_services;
+    private boolean unknown_services;
     public List<ServiceServiceConnectConfigurationServiceArgs> services() {
-        if (services == null) return null;
-        return services.getValue("ServiceServiceConnectConfigurationArgs.services");
+        if (!unknown_services) return value_services;
+        throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationArgs.services' is not present");
     }
 
 }

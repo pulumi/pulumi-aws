@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesCon
      * Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `cookie_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
      * 
      */
-    private UndeferrableValue<String> cookieBehavior;
-
+    @PolicyResourceProperty(name="cookieBehavior", flag="unknown_cookieBehavior")
+    private String value_cookieBehavior;
+    private boolean unknown_cookieBehavior;
     public String cookieBehavior() {
-        if (cookieBehavior == null) return null;
-        return cookieBehavior.getValue("CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig.cookieBehavior");
+        if (!unknown_cookieBehavior) return value_cookieBehavior;
+        throw new UndeferrableValueException("Value 'CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig.cookieBehavior' is not present");
     }
 
     /**
      * Object that contains a list of cookie names. See Items for more information.
      * 
      */
-    private @Nullable UndeferrableValue<CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies> cookies;
-
+    @PolicyResourceProperty(name="cookies", flag="unknown_cookies")
+    private @Nullable CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies value_cookies;
+    private boolean unknown_cookies;
     public @Nullable CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies cookies() {
-        if (cookies == null) return null;
-        return cookies.getValue("CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig.cookies");
+        if (!unknown_cookies) return value_cookies;
+        throw new UndeferrableValueException("Value 'CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig.cookies' is not present");
     }
 
 }

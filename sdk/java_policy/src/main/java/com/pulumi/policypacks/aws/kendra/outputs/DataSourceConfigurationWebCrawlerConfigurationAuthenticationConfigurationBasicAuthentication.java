@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,33 +15,36 @@ public final class DataSourceConfigurationWebCrawlerConfigurationAuthenticationC
      * Your secret ARN, which you can create in AWS Secrets Manager. You use a secret if basic authentication credentials are required to connect to a website. The secret stores your credentials of user name and password.
      * 
      */
-    private UndeferrableValue<String> credentials;
-
+    @PolicyResourceProperty(name="credentials", flag="unknown_credentials")
+    private String value_credentials;
+    private boolean unknown_credentials;
     public String credentials() {
-        if (credentials == null) return null;
-        return credentials.getValue("DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication.credentials");
+        if (!unknown_credentials) return value_credentials;
+        throw new UndeferrableValueException("Value 'DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication.credentials' is not present");
     }
 
     /**
      * The name of the website host you want to connect to using authentication credentials. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;`.
      * 
      */
-    private UndeferrableValue<String> host;
-
+    @PolicyResourceProperty(name="host", flag="unknown_host")
+    private String value_host;
+    private boolean unknown_host;
     public String host() {
-        if (host == null) return null;
-        return host.getValue("DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication.host");
+        if (!unknown_host) return value_host;
+        throw new UndeferrableValueException("Value 'DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication.host' is not present");
     }
 
     /**
      * The port number of the website host you want to connect to using authentication credentials. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication.port' is not present");
     }
 
 }

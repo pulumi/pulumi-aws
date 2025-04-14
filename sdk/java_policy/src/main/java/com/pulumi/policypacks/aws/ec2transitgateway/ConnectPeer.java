@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,77 +19,84 @@ public final class ConnectPeer extends com.pulumi.resources.PolicyResourceOutput
      * EC2 Transit Gateway Connect Peer ARN
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ConnectPeer.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ConnectPeer.arn' is not present");
     }
 
     /**
      * The BGP ASN number assigned customer device. If not provided, it will use the same BGP ASN as is associated with Transit Gateway.
      * 
      */
-    private UndeferrableValue<String> bgpAsn;
-
+    @PolicyResourceProperty(name="bgpAsn", flag="unknown_bgpAsn")
+    private String value_bgpAsn;
+    private boolean unknown_bgpAsn;
     public String bgpAsn() {
-        if (bgpAsn == null) return null;
-        return bgpAsn.getValue("ConnectPeer.bgpAsn");
+        if (!unknown_bgpAsn) return value_bgpAsn;
+        throw new UndeferrableValueException("Value 'ConnectPeer.bgpAsn' is not present");
     }
 
     /**
      * The IP address assigned to customer device, which is used as BGP IP address.
      * 
      */
-    private UndeferrableValue<String> bgpPeerAddress;
-
+    @PolicyResourceProperty(name="bgpPeerAddress", flag="unknown_bgpPeerAddress")
+    private String value_bgpPeerAddress;
+    private boolean unknown_bgpPeerAddress;
     public String bgpPeerAddress() {
-        if (bgpPeerAddress == null) return null;
-        return bgpPeerAddress.getValue("ConnectPeer.bgpPeerAddress");
+        if (!unknown_bgpPeerAddress) return value_bgpPeerAddress;
+        throw new UndeferrableValueException("Value 'ConnectPeer.bgpPeerAddress' is not present");
     }
 
     /**
      * The IP addresses assigned to Transit Gateway, which are used as BGP IP addresses.
      * 
      */
-    private UndeferrableValue<List<String>> bgpTransitGatewayAddresses;
-
+    @PolicyResourceProperty(name="bgpTransitGatewayAddresses", flag="unknown_bgpTransitGatewayAddresses")
+    private List<String> value_bgpTransitGatewayAddresses;
+    private boolean unknown_bgpTransitGatewayAddresses;
     public List<String> bgpTransitGatewayAddresses() {
-        if (bgpTransitGatewayAddresses == null) return null;
-        return bgpTransitGatewayAddresses.getValue("ConnectPeer.bgpTransitGatewayAddresses");
+        if (!unknown_bgpTransitGatewayAddresses) return value_bgpTransitGatewayAddresses;
+        throw new UndeferrableValueException("Value 'ConnectPeer.bgpTransitGatewayAddresses' is not present");
     }
 
     /**
      * The CIDR block that will be used for addressing within the tunnel. It must contain exactly one IPv4 CIDR block and up to one IPv6 CIDR block. The IPv4 CIDR block must be /29 size and must be within 169.254.0.0/16 range, with exception of: 169.254.0.0/29, 169.254.1.0/29, 169.254.2.0/29, 169.254.3.0/29, 169.254.4.0/29, 169.254.5.0/29, 169.254.169.248/29. The IPv6 CIDR block must be /125 size and must be within fd00::/8. The first IP from each CIDR block is assigned for customer gateway, the second and third is for Transit Gateway (An example: from range 169.254.100.0/29, .1 is assigned to customer gateway and .2 and .3 are assigned to Transit Gateway)
      * 
      */
-    private UndeferrableValue<List<String>> insideCidrBlocks;
-
+    @PolicyResourceProperty(name="insideCidrBlocks", flag="unknown_insideCidrBlocks")
+    private List<String> value_insideCidrBlocks;
+    private boolean unknown_insideCidrBlocks;
     public List<String> insideCidrBlocks() {
-        if (insideCidrBlocks == null) return null;
-        return insideCidrBlocks.getValue("ConnectPeer.insideCidrBlocks");
+        if (!unknown_insideCidrBlocks) return value_insideCidrBlocks;
+        throw new UndeferrableValueException("Value 'ConnectPeer.insideCidrBlocks' is not present");
     }
 
     /**
      * The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transit_gateway_address`
      * 
      */
-    private UndeferrableValue<String> peerAddress;
-
+    @PolicyResourceProperty(name="peerAddress", flag="unknown_peerAddress")
+    private String value_peerAddress;
+    private boolean unknown_peerAddress;
     public String peerAddress() {
-        if (peerAddress == null) return null;
-        return peerAddress.getValue("ConnectPeer.peerAddress");
+        if (!unknown_peerAddress) return value_peerAddress;
+        throw new UndeferrableValueException("Value 'ConnectPeer.peerAddress' is not present");
     }
 
     /**
      * Key-value tags for the EC2 Transit Gateway Connect Peer. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ConnectPeer.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ConnectPeer.tags' is not present");
     }
 
     /**
@@ -99,33 +107,36 @@ public final class ConnectPeer extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ConnectPeer.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ConnectPeer.tagsAll' is not present");
     }
 
     /**
      * The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peer_address`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
      * 
      */
-    private UndeferrableValue<String> transitGatewayAddress;
-
+    @PolicyResourceProperty(name="transitGatewayAddress", flag="unknown_transitGatewayAddress")
+    private String value_transitGatewayAddress;
+    private boolean unknown_transitGatewayAddress;
     public String transitGatewayAddress() {
-        if (transitGatewayAddress == null) return null;
-        return transitGatewayAddress.getValue("ConnectPeer.transitGatewayAddress");
+        if (!unknown_transitGatewayAddress) return value_transitGatewayAddress;
+        throw new UndeferrableValueException("Value 'ConnectPeer.transitGatewayAddress' is not present");
     }
 
     /**
      * The Transit Gateway Connect
      * 
      */
-    private UndeferrableValue<String> transitGatewayAttachmentId;
-
+    @PolicyResourceProperty(name="transitGatewayAttachmentId", flag="unknown_transitGatewayAttachmentId")
+    private String value_transitGatewayAttachmentId;
+    private boolean unknown_transitGatewayAttachmentId;
     public String transitGatewayAttachmentId() {
-        if (transitGatewayAttachmentId == null) return null;
-        return transitGatewayAttachmentId.getValue("ConnectPeer.transitGatewayAttachmentId");
+        if (!unknown_transitGatewayAttachmentId) return value_transitGatewayAttachmentId;
+        throw new UndeferrableValueException("Value 'ConnectPeer.transitGatewayAttachmentId' is not present");
     }
 
 }

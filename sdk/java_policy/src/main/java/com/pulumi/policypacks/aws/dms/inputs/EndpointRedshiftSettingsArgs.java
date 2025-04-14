@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dms.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,55 +15,60 @@ public final class EndpointRedshiftSettingsArgs {
      * Custom S3 Bucket Object prefix for intermediate storage.
      * 
      */
-    private UndeferrableValue<String> bucketFolder;
-
+    @PolicyResourceProperty(name="bucketFolder", flag="unknown_bucketFolder")
+    private String value_bucketFolder;
+    private boolean unknown_bucketFolder;
     public String bucketFolder() {
-        if (bucketFolder == null) return null;
-        return bucketFolder.getValue("EndpointRedshiftSettingsArgs.bucketFolder");
+        if (!unknown_bucketFolder) return value_bucketFolder;
+        throw new UndeferrableValueException("Value 'EndpointRedshiftSettingsArgs.bucketFolder' is not present");
     }
 
     /**
      * Custom S3 Bucket name for intermediate storage.
      * 
      */
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("EndpointRedshiftSettingsArgs.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'EndpointRedshiftSettingsArgs.bucketName' is not present");
     }
 
     /**
      * The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
      * 
      */
-    private UndeferrableValue<String> encryptionMode;
-
+    @PolicyResourceProperty(name="encryptionMode", flag="unknown_encryptionMode")
+    private String value_encryptionMode;
+    private boolean unknown_encryptionMode;
     public String encryptionMode() {
-        if (encryptionMode == null) return null;
-        return encryptionMode.getValue("EndpointRedshiftSettingsArgs.encryptionMode");
+        if (!unknown_encryptionMode) return value_encryptionMode;
+        throw new UndeferrableValueException("Value 'EndpointRedshiftSettingsArgs.encryptionMode' is not present");
     }
 
     /**
      * ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
      * 
      */
-    private UndeferrableValue<String> serverSideEncryptionKmsKeyId;
-
+    @PolicyResourceProperty(name="serverSideEncryptionKmsKeyId", flag="unknown_serverSideEncryptionKmsKeyId")
+    private String value_serverSideEncryptionKmsKeyId;
+    private boolean unknown_serverSideEncryptionKmsKeyId;
     public String serverSideEncryptionKmsKeyId() {
-        if (serverSideEncryptionKmsKeyId == null) return null;
-        return serverSideEncryptionKmsKeyId.getValue("EndpointRedshiftSettingsArgs.serverSideEncryptionKmsKeyId");
+        if (!unknown_serverSideEncryptionKmsKeyId) return value_serverSideEncryptionKmsKeyId;
+        throw new UndeferrableValueException("Value 'EndpointRedshiftSettingsArgs.serverSideEncryptionKmsKeyId' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
      * 
      */
-    private UndeferrableValue<String> serviceAccessRoleArn;
-
+    @PolicyResourceProperty(name="serviceAccessRoleArn", flag="unknown_serviceAccessRoleArn")
+    private String value_serviceAccessRoleArn;
+    private boolean unknown_serviceAccessRoleArn;
     public String serviceAccessRoleArn() {
-        if (serviceAccessRoleArn == null) return null;
-        return serviceAccessRoleArn.getValue("EndpointRedshiftSettingsArgs.serviceAccessRoleArn");
+        if (!unknown_serviceAccessRoleArn) return value_serviceAccessRoleArn;
+        throw new UndeferrableValueException("Value 'EndpointRedshiftSettingsArgs.serviceAccessRoleArn' is not present");
     }
 
 }

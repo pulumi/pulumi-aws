@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.outputs.BucketReplicationConfigRuleFilterAnd;
 import com.pulumi.policypacks.aws.s3.outputs.BucketReplicationConfigRuleFilterTag;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class BucketReplicationConfigRuleFilter {
      * Configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<BucketReplicationConfigRuleFilterAnd> and;
-
+    @PolicyResourceProperty(name="and", flag="unknown_and")
+    private @Nullable BucketReplicationConfigRuleFilterAnd value_and;
+    private boolean unknown_and;
     public @Nullable BucketReplicationConfigRuleFilterAnd and() {
-        if (and == null) return null;
-        return and.getValue("BucketReplicationConfigRuleFilter.and");
+        if (!unknown_and) return value_and;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleFilter.and' is not present");
     }
 
     /**
      * Object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private @Nullable String value_prefix;
+    private boolean unknown_prefix;
     public @Nullable String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("BucketReplicationConfigRuleFilter.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleFilter.prefix' is not present");
     }
 
     /**
      * Configuration block for specifying a tag key and value. See below.
      * 
      */
-    private @Nullable UndeferrableValue<BucketReplicationConfigRuleFilterTag> tag;
-
+    @PolicyResourceProperty(name="tag", flag="unknown_tag")
+    private @Nullable BucketReplicationConfigRuleFilterTag value_tag;
+    private boolean unknown_tag;
     public @Nullable BucketReplicationConfigRuleFilterTag tag() {
-        if (tag == null) return null;
-        return tag.getValue("BucketReplicationConfigRuleFilter.tag");
+        if (!unknown_tag) return value_tag;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleFilter.tag' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -16,22 +17,24 @@ public final class InfrastructureConfigurationLoggingS3Logs {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> s3BucketName;
-
+    @PolicyResourceProperty(name="s3BucketName", flag="unknown_s3BucketName")
+    private String value_s3BucketName;
+    private boolean unknown_s3BucketName;
     public String s3BucketName() {
-        if (s3BucketName == null) return null;
-        return s3BucketName.getValue("InfrastructureConfigurationLoggingS3Logs.s3BucketName");
+        if (!unknown_s3BucketName) return value_s3BucketName;
+        throw new UndeferrableValueException("Value 'InfrastructureConfigurationLoggingS3Logs.s3BucketName' is not present");
     }
 
     /**
      * Prefix to use for S3 logs. Defaults to `/`.
      * 
      */
-    private @Nullable UndeferrableValue<String> s3KeyPrefix;
-
+    @PolicyResourceProperty(name="s3KeyPrefix", flag="unknown_s3KeyPrefix")
+    private @Nullable String value_s3KeyPrefix;
+    private boolean unknown_s3KeyPrefix;
     public @Nullable String s3KeyPrefix() {
-        if (s3KeyPrefix == null) return null;
-        return s3KeyPrefix.getValue("InfrastructureConfigurationLoggingS3Logs.s3KeyPrefix");
+        if (!unknown_s3KeyPrefix) return value_s3KeyPrefix;
+        throw new UndeferrableValueException("Value 'InfrastructureConfigurationLoggingS3Logs.s3KeyPrefix' is not present");
     }
 
 }

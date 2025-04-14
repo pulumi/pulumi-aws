@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,88 +15,96 @@ public final class JobSourceControlDetails {
      * The type of authentication, which can be an authentication token stored in Amazon Web Services Secrets Manager, or a personal access token. Valid values are: `PERSONAL_ACCESS_TOKEN` and `AWS_SECRETS_MANAGER`.
      * 
      */
-    private @Nullable UndeferrableValue<String> authStrategy;
-
+    @PolicyResourceProperty(name="authStrategy", flag="unknown_authStrategy")
+    private @Nullable String value_authStrategy;
+    private boolean unknown_authStrategy;
     public @Nullable String authStrategy() {
-        if (authStrategy == null) return null;
-        return authStrategy.getValue("JobSourceControlDetails.authStrategy");
+        if (!unknown_authStrategy) return value_authStrategy;
+        throw new UndeferrableValueException("Value 'JobSourceControlDetails.authStrategy' is not present");
     }
 
     /**
      * The value of an authorization token.
      * 
      */
-    private @Nullable UndeferrableValue<String> authToken;
-
+    @PolicyResourceProperty(name="authToken", flag="unknown_authToken")
+    private @Nullable String value_authToken;
+    private boolean unknown_authToken;
     public @Nullable String authToken() {
-        if (authToken == null) return null;
-        return authToken.getValue("JobSourceControlDetails.authToken");
+        if (!unknown_authToken) return value_authToken;
+        throw new UndeferrableValueException("Value 'JobSourceControlDetails.authToken' is not present");
     }
 
     /**
      * A branch in the remote repository.
      * 
      */
-    private @Nullable UndeferrableValue<String> branch;
-
+    @PolicyResourceProperty(name="branch", flag="unknown_branch")
+    private @Nullable String value_branch;
+    private boolean unknown_branch;
     public @Nullable String branch() {
-        if (branch == null) return null;
-        return branch.getValue("JobSourceControlDetails.branch");
+        if (!unknown_branch) return value_branch;
+        throw new UndeferrableValueException("Value 'JobSourceControlDetails.branch' is not present");
     }
 
     /**
      * A folder in the remote repository.
      * 
      */
-    private @Nullable UndeferrableValue<String> folder;
-
+    @PolicyResourceProperty(name="folder", flag="unknown_folder")
+    private @Nullable String value_folder;
+    private boolean unknown_folder;
     public @Nullable String folder() {
-        if (folder == null) return null;
-        return folder.getValue("JobSourceControlDetails.folder");
+        if (!unknown_folder) return value_folder;
+        throw new UndeferrableValueException("Value 'JobSourceControlDetails.folder' is not present");
     }
 
     /**
      * The last commit ID for a commit in the remote repository.
      * 
      */
-    private @Nullable UndeferrableValue<String> lastCommitId;
-
+    @PolicyResourceProperty(name="lastCommitId", flag="unknown_lastCommitId")
+    private @Nullable String value_lastCommitId;
+    private boolean unknown_lastCommitId;
     public @Nullable String lastCommitId() {
-        if (lastCommitId == null) return null;
-        return lastCommitId.getValue("JobSourceControlDetails.lastCommitId");
+        if (!unknown_lastCommitId) return value_lastCommitId;
+        throw new UndeferrableValueException("Value 'JobSourceControlDetails.lastCommitId' is not present");
     }
 
     /**
      * The owner of the remote repository that contains the job artifacts.
      * 
      */
-    private @Nullable UndeferrableValue<String> owner;
-
+    @PolicyResourceProperty(name="owner", flag="unknown_owner")
+    private @Nullable String value_owner;
+    private boolean unknown_owner;
     public @Nullable String owner() {
-        if (owner == null) return null;
-        return owner.getValue("JobSourceControlDetails.owner");
+        if (!unknown_owner) return value_owner;
+        throw new UndeferrableValueException("Value 'JobSourceControlDetails.owner' is not present");
     }
 
     /**
      * The provider for the remote repository. Valid values are: `GITHUB`, `GITLAB`, `BITBUCKET`, and `AWS_CODE_COMMIT`.
      * 
      */
-    private @Nullable UndeferrableValue<String> provider;
-
+    @PolicyResourceProperty(name="provider", flag="unknown_provider")
+    private @Nullable String value_provider;
+    private boolean unknown_provider;
     public @Nullable String provider() {
-        if (provider == null) return null;
-        return provider.getValue("JobSourceControlDetails.provider");
+        if (!unknown_provider) return value_provider;
+        throw new UndeferrableValueException("Value 'JobSourceControlDetails.provider' is not present");
     }
 
     /**
      * The name of the remote repository that contains the job artifacts.
      * 
      */
-    private @Nullable UndeferrableValue<String> repository;
-
+    @PolicyResourceProperty(name="repository", flag="unknown_repository")
+    private @Nullable String value_repository;
+    private boolean unknown_repository;
     public @Nullable String repository() {
-        if (repository == null) return null;
-        return repository.getValue("JobSourceControlDetails.repository");
+        if (!unknown_repository) return value_repository;
+        throw new UndeferrableValueException("Value 'JobSourceControlDetails.repository' is not present");
     }
 
 }

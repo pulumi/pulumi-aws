@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ConnectionPhysicalConnectionRequirements {
      * The availability zone of the connection. This field is redundant and implied by `subnet_id`, but is currently an api requirement.
      * 
      */
-    private @Nullable UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private @Nullable String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public @Nullable String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("ConnectionPhysicalConnectionRequirements.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'ConnectionPhysicalConnectionRequirements.availabilityZone' is not present");
     }
 
     /**
      * The security group ID list used by the connection.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> securityGroupIdLists;
-
+    @PolicyResourceProperty(name="securityGroupIdLists", flag="unknown_securityGroupIdLists")
+    private @Nullable List<String> value_securityGroupIdLists;
+    private boolean unknown_securityGroupIdLists;
     public @Nullable List<String> securityGroupIdLists() {
-        if (securityGroupIdLists == null) return null;
-        return securityGroupIdLists.getValue("ConnectionPhysicalConnectionRequirements.securityGroupIdLists");
+        if (!unknown_securityGroupIdLists) return value_securityGroupIdLists;
+        throw new UndeferrableValueException("Value 'ConnectionPhysicalConnectionRequirements.securityGroupIdLists' is not present");
     }
 
     /**
      * The subnet ID used by the connection.
      * 
      */
-    private @Nullable UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private @Nullable String value_subnetId;
+    private boolean unknown_subnetId;
     public @Nullable String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("ConnectionPhysicalConnectionRequirements.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'ConnectionPhysicalConnectionRequirements.subnetId' is not present");
     }
 
 }

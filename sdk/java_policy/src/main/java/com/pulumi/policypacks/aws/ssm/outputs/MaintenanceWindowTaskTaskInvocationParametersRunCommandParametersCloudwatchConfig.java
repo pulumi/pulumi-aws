@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
      * The name of the CloudWatch log group where you want to send command output. If you don&#39;t specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm/SystemsManagerDocumentName.
      * 
      */
-    private @Nullable UndeferrableValue<String> cloudwatchLogGroupName;
-
+    @PolicyResourceProperty(name="cloudwatchLogGroupName", flag="unknown_cloudwatchLogGroupName")
+    private @Nullable String value_cloudwatchLogGroupName;
+    private boolean unknown_cloudwatchLogGroupName;
     public @Nullable String cloudwatchLogGroupName() {
-        if (cloudwatchLogGroupName == null) return null;
-        return cloudwatchLogGroupName.getValue("MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig.cloudwatchLogGroupName");
+        if (!unknown_cloudwatchLogGroupName) return value_cloudwatchLogGroupName;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig.cloudwatchLogGroupName' is not present");
     }
 
     /**
      * Enables Systems Manager to send command output to CloudWatch Logs.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> cloudwatchOutputEnabled;
-
+    @PolicyResourceProperty(name="cloudwatchOutputEnabled", flag="unknown_cloudwatchOutputEnabled")
+    private @Nullable Boolean value_cloudwatchOutputEnabled;
+    private boolean unknown_cloudwatchOutputEnabled;
     public @Nullable Boolean cloudwatchOutputEnabled() {
-        if (cloudwatchOutputEnabled == null) return null;
-        return cloudwatchOutputEnabled.getValue("MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig.cloudwatchOutputEnabled");
+        if (!unknown_cloudwatchOutputEnabled) return value_cloudwatchOutputEnabled;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig.cloudwatchOutputEnabled' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53recoveryreadiness.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.route53recoveryreadiness.inputs.ResourceSetResourceDnsTargetResourceTargetResourceArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,55 +16,60 @@ public final class ResourceSetResourceDnsTargetResourceArgs {
      * DNS Name that acts as the ingress point to a portion of application.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("ResourceSetResourceDnsTargetResourceArgs.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'ResourceSetResourceDnsTargetResourceArgs.domainName' is not present");
     }
 
     /**
      * Hosted Zone ARN that contains the DNS record with the provided name of target resource.
      * 
      */
-    private UndeferrableValue<String> hostedZoneArn;
-
+    @PolicyResourceProperty(name="hostedZoneArn", flag="unknown_hostedZoneArn")
+    private String value_hostedZoneArn;
+    private boolean unknown_hostedZoneArn;
     public String hostedZoneArn() {
-        if (hostedZoneArn == null) return null;
-        return hostedZoneArn.getValue("ResourceSetResourceDnsTargetResourceArgs.hostedZoneArn");
+        if (!unknown_hostedZoneArn) return value_hostedZoneArn;
+        throw new UndeferrableValueException("Value 'ResourceSetResourceDnsTargetResourceArgs.hostedZoneArn' is not present");
     }
 
     /**
      * Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
      * 
      */
-    private UndeferrableValue<String> recordSetId;
-
+    @PolicyResourceProperty(name="recordSetId", flag="unknown_recordSetId")
+    private String value_recordSetId;
+    private boolean unknown_recordSetId;
     public String recordSetId() {
-        if (recordSetId == null) return null;
-        return recordSetId.getValue("ResourceSetResourceDnsTargetResourceArgs.recordSetId");
+        if (!unknown_recordSetId) return value_recordSetId;
+        throw new UndeferrableValueException("Value 'ResourceSetResourceDnsTargetResourceArgs.recordSetId' is not present");
     }
 
     /**
      * Type of DNS Record of target resource.
      * 
      */
-    private UndeferrableValue<String> recordType;
-
+    @PolicyResourceProperty(name="recordType", flag="unknown_recordType")
+    private String value_recordType;
+    private boolean unknown_recordType;
     public String recordType() {
-        if (recordType == null) return null;
-        return recordType.getValue("ResourceSetResourceDnsTargetResourceArgs.recordType");
+        if (!unknown_recordType) return value_recordType;
+        throw new UndeferrableValueException("Value 'ResourceSetResourceDnsTargetResourceArgs.recordType' is not present");
     }
 
     /**
      * Target resource the R53 record specified with the above params points to.
      * 
      */
-    private UndeferrableValue<ResourceSetResourceDnsTargetResourceTargetResourceArgs> targetResource;
-
+    @PolicyResourceProperty(name="targetResource", flag="unknown_targetResource")
+    private ResourceSetResourceDnsTargetResourceTargetResourceArgs value_targetResource;
+    private boolean unknown_targetResource;
     public ResourceSetResourceDnsTargetResourceTargetResourceArgs targetResource() {
-        if (targetResource == null) return null;
-        return targetResource.getValue("ResourceSetResourceDnsTargetResourceArgs.targetResource");
+        if (!unknown_targetResource) return value_targetResource;
+        throw new UndeferrableValueException("Value 'ResourceSetResourceDnsTargetResourceArgs.targetResource' is not present");
     }
 
 }

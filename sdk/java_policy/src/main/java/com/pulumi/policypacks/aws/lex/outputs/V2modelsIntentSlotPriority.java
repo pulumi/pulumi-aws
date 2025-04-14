@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class V2modelsIntentSlotPriority {
      * Priority that Amazon Lex should apply to the slot.
      * 
      */
-    private UndeferrableValue<Integer> priority;
-
+    @PolicyResourceProperty(name="priority", flag="unknown_priority")
+    private Integer value_priority;
+    private boolean unknown_priority;
     public Integer priority() {
-        if (priority == null) return null;
-        return priority.getValue("V2modelsIntentSlotPriority.priority");
+        if (!unknown_priority) return value_priority;
+        throw new UndeferrableValueException("Value 'V2modelsIntentSlotPriority.priority' is not present");
     }
 
     /**
      * Unique identifier of the slot.
      * 
      */
-    private UndeferrableValue<String> slotId;
-
+    @PolicyResourceProperty(name="slotId", flag="unknown_slotId")
+    private String value_slotId;
+    private boolean unknown_slotId;
     public String slotId() {
-        if (slotId == null) return null;
-        return slotId.getValue("V2modelsIntentSlotPriority.slotId");
+        if (!unknown_slotId) return value_slotId;
+        throw new UndeferrableValueException("Value 'V2modelsIntentSlotPriority.slotId' is not present");
     }
 
 }

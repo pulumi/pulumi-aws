@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class DefaultRouteTableRouteArgs {
      * The CIDR block of the route.
      * 
      */
-    private UndeferrableValue<String> cidrBlock;
-
+    @PolicyResourceProperty(name="cidrBlock", flag="unknown_cidrBlock")
+    private String value_cidrBlock;
+    private boolean unknown_cidrBlock;
     public String cidrBlock() {
-        if (cidrBlock == null) return null;
-        return cidrBlock.getValue("DefaultRouteTableRouteArgs.cidrBlock");
+        if (!unknown_cidrBlock) return value_cidrBlock;
+        throw new UndeferrableValueException("Value 'DefaultRouteTableRouteArgs.cidrBlock' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of a core network.
      * 
      */
-    private UndeferrableValue<String> coreNetworkArn;
-
+    @PolicyResourceProperty(name="coreNetworkArn", flag="unknown_coreNetworkArn")
+    private String value_coreNetworkArn;
+    private boolean unknown_coreNetworkArn;
     public String coreNetworkArn() {
-        if (coreNetworkArn == null) return null;
-        return coreNetworkArn.getValue("DefaultRouteTableRouteArgs.coreNetworkArn");
+        if (!unknown_coreNetworkArn) return value_coreNetworkArn;
+        throw new UndeferrableValueException("Value 'DefaultRouteTableRouteArgs.coreNetworkArn' is not present");
     }
 
     /**
@@ -38,99 +41,108 @@ public final class DefaultRouteTableRouteArgs {
      * One of the following target arguments must be supplied:
      * 
      */
-    private UndeferrableValue<String> destinationPrefixListId;
-
+    @PolicyResourceProperty(name="destinationPrefixListId", flag="unknown_destinationPrefixListId")
+    private String value_destinationPrefixListId;
+    private boolean unknown_destinationPrefixListId;
     public String destinationPrefixListId() {
-        if (destinationPrefixListId == null) return null;
-        return destinationPrefixListId.getValue("DefaultRouteTableRouteArgs.destinationPrefixListId");
+        if (!unknown_destinationPrefixListId) return value_destinationPrefixListId;
+        throw new UndeferrableValueException("Value 'DefaultRouteTableRouteArgs.destinationPrefixListId' is not present");
     }
 
     /**
      * Identifier of a VPC Egress Only Internet Gateway.
      * 
      */
-    private UndeferrableValue<String> egressOnlyGatewayId;
-
+    @PolicyResourceProperty(name="egressOnlyGatewayId", flag="unknown_egressOnlyGatewayId")
+    private String value_egressOnlyGatewayId;
+    private boolean unknown_egressOnlyGatewayId;
     public String egressOnlyGatewayId() {
-        if (egressOnlyGatewayId == null) return null;
-        return egressOnlyGatewayId.getValue("DefaultRouteTableRouteArgs.egressOnlyGatewayId");
+        if (!unknown_egressOnlyGatewayId) return value_egressOnlyGatewayId;
+        throw new UndeferrableValueException("Value 'DefaultRouteTableRouteArgs.egressOnlyGatewayId' is not present");
     }
 
     /**
      * Identifier of a VPC internet gateway or a virtual private gateway.
      * 
      */
-    private UndeferrableValue<String> gatewayId;
-
+    @PolicyResourceProperty(name="gatewayId", flag="unknown_gatewayId")
+    private String value_gatewayId;
+    private boolean unknown_gatewayId;
     public String gatewayId() {
-        if (gatewayId == null) return null;
-        return gatewayId.getValue("DefaultRouteTableRouteArgs.gatewayId");
+        if (!unknown_gatewayId) return value_gatewayId;
+        throw new UndeferrableValueException("Value 'DefaultRouteTableRouteArgs.gatewayId' is not present");
     }
 
     /**
      * Identifier of an EC2 instance.
      * 
      */
-    private UndeferrableValue<String> instanceId;
-
+    @PolicyResourceProperty(name="instanceId", flag="unknown_instanceId")
+    private String value_instanceId;
+    private boolean unknown_instanceId;
     public String instanceId() {
-        if (instanceId == null) return null;
-        return instanceId.getValue("DefaultRouteTableRouteArgs.instanceId");
+        if (!unknown_instanceId) return value_instanceId;
+        throw new UndeferrableValueException("Value 'DefaultRouteTableRouteArgs.instanceId' is not present");
     }
 
     /**
      * The Ipv6 CIDR block of the route
      * 
      */
-    private UndeferrableValue<String> ipv6CidrBlock;
-
+    @PolicyResourceProperty(name="ipv6CidrBlock", flag="unknown_ipv6CidrBlock")
+    private String value_ipv6CidrBlock;
+    private boolean unknown_ipv6CidrBlock;
     public String ipv6CidrBlock() {
-        if (ipv6CidrBlock == null) return null;
-        return ipv6CidrBlock.getValue("DefaultRouteTableRouteArgs.ipv6CidrBlock");
+        if (!unknown_ipv6CidrBlock) return value_ipv6CidrBlock;
+        throw new UndeferrableValueException("Value 'DefaultRouteTableRouteArgs.ipv6CidrBlock' is not present");
     }
 
     /**
      * Identifier of a VPC NAT gateway.
      * 
      */
-    private UndeferrableValue<String> natGatewayId;
-
+    @PolicyResourceProperty(name="natGatewayId", flag="unknown_natGatewayId")
+    private String value_natGatewayId;
+    private boolean unknown_natGatewayId;
     public String natGatewayId() {
-        if (natGatewayId == null) return null;
-        return natGatewayId.getValue("DefaultRouteTableRouteArgs.natGatewayId");
+        if (!unknown_natGatewayId) return value_natGatewayId;
+        throw new UndeferrableValueException("Value 'DefaultRouteTableRouteArgs.natGatewayId' is not present");
     }
 
     /**
      * Identifier of an EC2 network interface.
      * 
      */
-    private UndeferrableValue<String> networkInterfaceId;
-
+    @PolicyResourceProperty(name="networkInterfaceId", flag="unknown_networkInterfaceId")
+    private String value_networkInterfaceId;
+    private boolean unknown_networkInterfaceId;
     public String networkInterfaceId() {
-        if (networkInterfaceId == null) return null;
-        return networkInterfaceId.getValue("DefaultRouteTableRouteArgs.networkInterfaceId");
+        if (!unknown_networkInterfaceId) return value_networkInterfaceId;
+        throw new UndeferrableValueException("Value 'DefaultRouteTableRouteArgs.networkInterfaceId' is not present");
     }
 
     /**
      * Identifier of an EC2 Transit Gateway.
      * 
      */
-    private UndeferrableValue<String> transitGatewayId;
-
+    @PolicyResourceProperty(name="transitGatewayId", flag="unknown_transitGatewayId")
+    private String value_transitGatewayId;
+    private boolean unknown_transitGatewayId;
     public String transitGatewayId() {
-        if (transitGatewayId == null) return null;
-        return transitGatewayId.getValue("DefaultRouteTableRouteArgs.transitGatewayId");
+        if (!unknown_transitGatewayId) return value_transitGatewayId;
+        throw new UndeferrableValueException("Value 'DefaultRouteTableRouteArgs.transitGatewayId' is not present");
     }
 
     /**
      * Identifier of a VPC Endpoint. This route must be removed prior to VPC Endpoint deletion.
      * 
      */
-    private UndeferrableValue<String> vpcEndpointId;
-
+    @PolicyResourceProperty(name="vpcEndpointId", flag="unknown_vpcEndpointId")
+    private String value_vpcEndpointId;
+    private boolean unknown_vpcEndpointId;
     public String vpcEndpointId() {
-        if (vpcEndpointId == null) return null;
-        return vpcEndpointId.getValue("DefaultRouteTableRouteArgs.vpcEndpointId");
+        if (!unknown_vpcEndpointId) return value_vpcEndpointId;
+        throw new UndeferrableValueException("Value 'DefaultRouteTableRouteArgs.vpcEndpointId' is not present");
     }
 
     /**
@@ -139,11 +151,12 @@ public final class DefaultRouteTableRouteArgs {
      * Note that the default route, mapping the VPC&#39;s CIDR block to &#34;local&#34;, is created implicitly and cannot be specified.
      * 
      */
-    private UndeferrableValue<String> vpcPeeringConnectionId;
-
+    @PolicyResourceProperty(name="vpcPeeringConnectionId", flag="unknown_vpcPeeringConnectionId")
+    private String value_vpcPeeringConnectionId;
+    private boolean unknown_vpcPeeringConnectionId;
     public String vpcPeeringConnectionId() {
-        if (vpcPeeringConnectionId == null) return null;
-        return vpcPeeringConnectionId.getValue("DefaultRouteTableRouteArgs.vpcPeeringConnectionId");
+        if (!unknown_vpcPeeringConnectionId) return value_vpcPeeringConnectionId;
+        throw new UndeferrableValueException("Value 'DefaultRouteTableRouteArgs.vpcPeeringConnectionId' is not present");
     }
 
 }

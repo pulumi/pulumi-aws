@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sfn;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sfn.outputs.AliasRoutingConfiguration;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class Alias extends com.pulumi.resources.PolicyResourceOutput {
      * The Amazon Resource Name (ARN) identifying your state machine alias.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Alias.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Alias.arn' is not present");
     }
 
     /**
      * The date the state machine alias was created.
      * 
      */
-    private UndeferrableValue<String> creationDate;
-
+    @PolicyResourceProperty(name="creationDate", flag="unknown_creationDate")
+    private String value_creationDate;
+    private boolean unknown_creationDate;
     public String creationDate() {
-        if (creationDate == null) return null;
-        return creationDate.getValue("Alias.creationDate");
+        if (!unknown_creationDate) return value_creationDate;
+        throw new UndeferrableValueException("Value 'Alias.creationDate' is not present");
     }
 
     /**
      * Description of the alias.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Alias.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Alias.description' is not present");
     }
 
     /**
      * Name for the alias you are creating.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Alias.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Alias.name' is not present");
     }
 
     /**
      * The StateMachine alias&#39; route configuration settings. Fields documented below
      * 
      */
-    private UndeferrableValue<List<AliasRoutingConfiguration>> routingConfigurations;
-
+    @PolicyResourceProperty(name="routingConfigurations", flag="unknown_routingConfigurations")
+    private List<AliasRoutingConfiguration> value_routingConfigurations;
+    private boolean unknown_routingConfigurations;
     public List<AliasRoutingConfiguration> routingConfigurations() {
-        if (routingConfigurations == null) return null;
-        return routingConfigurations.getValue("Alias.routingConfigurations");
+        if (!unknown_routingConfigurations) return value_routingConfigurations;
+        throw new UndeferrableValueException("Value 'Alias.routingConfigurations' is not present");
     }
 
 }

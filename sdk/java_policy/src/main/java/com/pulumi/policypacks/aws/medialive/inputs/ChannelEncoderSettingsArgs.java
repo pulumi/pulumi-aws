@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsAudioDescriptionArgs;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsAvailBlankingArgs;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsCaptionDescriptionArgs;
@@ -23,99 +24,108 @@ public final class ChannelEncoderSettingsArgs {
      * Audio descriptions for the channel. See Audio Descriptions for more details.
      * 
      */
-    private UndeferrableValue<List<ChannelEncoderSettingsAudioDescriptionArgs>> audioDescriptions;
-
+    @PolicyResourceProperty(name="audioDescriptions", flag="unknown_audioDescriptions")
+    private List<ChannelEncoderSettingsAudioDescriptionArgs> value_audioDescriptions;
+    private boolean unknown_audioDescriptions;
     public List<ChannelEncoderSettingsAudioDescriptionArgs> audioDescriptions() {
-        if (audioDescriptions == null) return null;
-        return audioDescriptions.getValue("ChannelEncoderSettingsArgs.audioDescriptions");
+        if (!unknown_audioDescriptions) return value_audioDescriptions;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsArgs.audioDescriptions' is not present");
     }
 
     /**
      * Settings for ad avail blanking. See Avail Blanking for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsAvailBlankingArgs> availBlanking;
-
+    @PolicyResourceProperty(name="availBlanking", flag="unknown_availBlanking")
+    private ChannelEncoderSettingsAvailBlankingArgs value_availBlanking;
+    private boolean unknown_availBlanking;
     public ChannelEncoderSettingsAvailBlankingArgs availBlanking() {
-        if (availBlanking == null) return null;
-        return availBlanking.getValue("ChannelEncoderSettingsArgs.availBlanking");
+        if (!unknown_availBlanking) return value_availBlanking;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsArgs.availBlanking' is not present");
     }
 
     /**
      * Caption Descriptions. See Caption Descriptions for more details.
      * 
      */
-    private UndeferrableValue<List<ChannelEncoderSettingsCaptionDescriptionArgs>> captionDescriptions;
-
+    @PolicyResourceProperty(name="captionDescriptions", flag="unknown_captionDescriptions")
+    private List<ChannelEncoderSettingsCaptionDescriptionArgs> value_captionDescriptions;
+    private boolean unknown_captionDescriptions;
     public List<ChannelEncoderSettingsCaptionDescriptionArgs> captionDescriptions() {
-        if (captionDescriptions == null) return null;
-        return captionDescriptions.getValue("ChannelEncoderSettingsArgs.captionDescriptions");
+        if (!unknown_captionDescriptions) return value_captionDescriptions;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsArgs.captionDescriptions' is not present");
     }
 
     /**
      * Configuration settings that apply to the event as a whole. See Global Configuration for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsGlobalConfigurationArgs> globalConfiguration;
-
+    @PolicyResourceProperty(name="globalConfiguration", flag="unknown_globalConfiguration")
+    private ChannelEncoderSettingsGlobalConfigurationArgs value_globalConfiguration;
+    private boolean unknown_globalConfiguration;
     public ChannelEncoderSettingsGlobalConfigurationArgs globalConfiguration() {
-        if (globalConfiguration == null) return null;
-        return globalConfiguration.getValue("ChannelEncoderSettingsArgs.globalConfiguration");
+        if (!unknown_globalConfiguration) return value_globalConfiguration;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsArgs.globalConfiguration' is not present");
     }
 
     /**
      * Settings for motion graphics. See Motion Graphics Configuration for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsMotionGraphicsConfigurationArgs> motionGraphicsConfiguration;
-
+    @PolicyResourceProperty(name="motionGraphicsConfiguration", flag="unknown_motionGraphicsConfiguration")
+    private ChannelEncoderSettingsMotionGraphicsConfigurationArgs value_motionGraphicsConfiguration;
+    private boolean unknown_motionGraphicsConfiguration;
     public ChannelEncoderSettingsMotionGraphicsConfigurationArgs motionGraphicsConfiguration() {
-        if (motionGraphicsConfiguration == null) return null;
-        return motionGraphicsConfiguration.getValue("ChannelEncoderSettingsArgs.motionGraphicsConfiguration");
+        if (!unknown_motionGraphicsConfiguration) return value_motionGraphicsConfiguration;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsArgs.motionGraphicsConfiguration' is not present");
     }
 
     /**
      * Nielsen configuration settings. See Nielsen Configuration for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsNielsenConfigurationArgs> nielsenConfiguration;
-
+    @PolicyResourceProperty(name="nielsenConfiguration", flag="unknown_nielsenConfiguration")
+    private ChannelEncoderSettingsNielsenConfigurationArgs value_nielsenConfiguration;
+    private boolean unknown_nielsenConfiguration;
     public ChannelEncoderSettingsNielsenConfigurationArgs nielsenConfiguration() {
-        if (nielsenConfiguration == null) return null;
-        return nielsenConfiguration.getValue("ChannelEncoderSettingsArgs.nielsenConfiguration");
+        if (!unknown_nielsenConfiguration) return value_nielsenConfiguration;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsArgs.nielsenConfiguration' is not present");
     }
 
     /**
      * Output groups for the channel. See Output Groups for more details.
      * 
      */
-    private UndeferrableValue<List<ChannelEncoderSettingsOutputGroupArgs>> outputGroups;
-
+    @PolicyResourceProperty(name="outputGroups", flag="unknown_outputGroups")
+    private List<ChannelEncoderSettingsOutputGroupArgs> value_outputGroups;
+    private boolean unknown_outputGroups;
     public List<ChannelEncoderSettingsOutputGroupArgs> outputGroups() {
-        if (outputGroups == null) return null;
-        return outputGroups.getValue("ChannelEncoderSettingsArgs.outputGroups");
+        if (!unknown_outputGroups) return value_outputGroups;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsArgs.outputGroups' is not present");
     }
 
     /**
      * Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsTimecodeConfigArgs> timecodeConfig;
-
+    @PolicyResourceProperty(name="timecodeConfig", flag="unknown_timecodeConfig")
+    private ChannelEncoderSettingsTimecodeConfigArgs value_timecodeConfig;
+    private boolean unknown_timecodeConfig;
     public ChannelEncoderSettingsTimecodeConfigArgs timecodeConfig() {
-        if (timecodeConfig == null) return null;
-        return timecodeConfig.getValue("ChannelEncoderSettingsArgs.timecodeConfig");
+        if (!unknown_timecodeConfig) return value_timecodeConfig;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsArgs.timecodeConfig' is not present");
     }
 
     /**
      * Video Descriptions. See Video Descriptions for more details.
      * 
      */
-    private UndeferrableValue<List<ChannelEncoderSettingsVideoDescriptionArgs>> videoDescriptions;
-
+    @PolicyResourceProperty(name="videoDescriptions", flag="unknown_videoDescriptions")
+    private List<ChannelEncoderSettingsVideoDescriptionArgs> value_videoDescriptions;
+    private boolean unknown_videoDescriptions;
     public List<ChannelEncoderSettingsVideoDescriptionArgs> videoDescriptions() {
-        if (videoDescriptions == null) return null;
-        return videoDescriptions.getValue("ChannelEncoderSettingsArgs.videoDescriptions");
+        if (!unknown_videoDescriptions) return value_videoDescriptions;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsArgs.videoDescriptions' is not present");
     }
 
 }

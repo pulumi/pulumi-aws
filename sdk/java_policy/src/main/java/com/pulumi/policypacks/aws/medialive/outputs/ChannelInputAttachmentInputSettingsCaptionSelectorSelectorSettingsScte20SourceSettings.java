@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,18 +12,20 @@ import javax.annotation.Nullable;
 
 public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings {
 
-    private @Nullable UndeferrableValue<String> convert608To708;
-
+    @PolicyResourceProperty(name="convert608To708", flag="unknown_convert608To708")
+    private @Nullable String value_convert608To708;
+    private boolean unknown_convert608To708;
     public @Nullable String convert608To708() {
-        if (convert608To708 == null) return null;
-        return convert608To708.getValue("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings.convert608To708");
+        if (!unknown_convert608To708) return value_convert608To708;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings.convert608To708' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> source608ChannelNumber;
-
+    @PolicyResourceProperty(name="source608ChannelNumber", flag="unknown_source608ChannelNumber")
+    private @Nullable Integer value_source608ChannelNumber;
+    private boolean unknown_source608ChannelNumber;
     public @Nullable Integer source608ChannelNumber() {
-        if (source608ChannelNumber == null) return null;
-        return source608ChannelNumber.getValue("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings.source608ChannelNumber");
+        if (!unknown_source608ChannelNumber) return value_source608ChannelNumber;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings.source608ChannelNumber' is not present");
     }
 
 }

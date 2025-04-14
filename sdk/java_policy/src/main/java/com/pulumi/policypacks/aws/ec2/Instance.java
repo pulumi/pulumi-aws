@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.outputs.InstanceCapacityReservationSpecification;
 import com.pulumi.policypacks.aws.ec2.outputs.InstanceCpuOptions;
@@ -33,44 +34,48 @@ public final class Instance extends com.pulumi.resources.PolicyResourceOutput {
      * AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
      * 
      */
-    private UndeferrableValue<String> ami;
-
+    @PolicyResourceProperty(name="ami", flag="unknown_ami")
+    private String value_ami;
+    private boolean unknown_ami;
     public String ami() {
-        if (ami == null) return null;
-        return ami.getValue("Instance.ami");
+        if (!unknown_ami) return value_ami;
+        throw new UndeferrableValueException("Value 'Instance.ami' is not present");
     }
 
     /**
      * ARN of the instance.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Instance.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Instance.arn' is not present");
     }
 
     /**
      * Whether to associate a public IP address with an instance in a VPC.
      * 
      */
-    private UndeferrableValue<Boolean> associatePublicIpAddress;
-
+    @PolicyResourceProperty(name="associatePublicIpAddress", flag="unknown_associatePublicIpAddress")
+    private Boolean value_associatePublicIpAddress;
+    private boolean unknown_associatePublicIpAddress;
     public Boolean associatePublicIpAddress() {
-        if (associatePublicIpAddress == null) return null;
-        return associatePublicIpAddress.getValue("Instance.associatePublicIpAddress");
+        if (!unknown_associatePublicIpAddress) return value_associatePublicIpAddress;
+        throw new UndeferrableValueException("Value 'Instance.associatePublicIpAddress' is not present");
     }
 
     /**
      * AZ to start the instance in.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("Instance.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'Instance.availabilityZone' is not present");
     }
 
     /**
@@ -79,11 +84,12 @@ public final class Instance extends com.pulumi.resources.PolicyResourceOutput {
      * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
      * 
      */
-    private UndeferrableValue<InstanceCapacityReservationSpecification> capacityReservationSpecification;
-
+    @PolicyResourceProperty(name="capacityReservationSpecification", flag="unknown_capacityReservationSpecification")
+    private InstanceCapacityReservationSpecification value_capacityReservationSpecification;
+    private boolean unknown_capacityReservationSpecification;
     public InstanceCapacityReservationSpecification capacityReservationSpecification() {
-        if (capacityReservationSpecification == null) return null;
-        return capacityReservationSpecification.getValue("Instance.capacityReservationSpecification");
+        if (!unknown_capacityReservationSpecification) return value_capacityReservationSpecification;
+        throw new UndeferrableValueException("Value 'Instance.capacityReservationSpecification' is not present");
     }
 
     /**
@@ -94,22 +100,24 @@ public final class Instance extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* cpu_core_count is deprecated. Use cpu_options instead. */
-    private UndeferrableValue<Integer> cpuCoreCount;
-
+    @PolicyResourceProperty(name="cpuCoreCount", flag="unknown_cpuCoreCount")
+    private Integer value_cpuCoreCount;
+    private boolean unknown_cpuCoreCount;
     public Integer cpuCoreCount() {
-        if (cpuCoreCount == null) return null;
-        return cpuCoreCount.getValue("Instance.cpuCoreCount");
+        if (!unknown_cpuCoreCount) return value_cpuCoreCount;
+        throw new UndeferrableValueException("Value 'Instance.cpuCoreCount' is not present");
     }
 
     /**
      * The CPU options for the instance. See CPU Options below for more details.
      * 
      */
-    private UndeferrableValue<InstanceCpuOptions> cpuOptions;
-
+    @PolicyResourceProperty(name="cpuOptions", flag="unknown_cpuOptions")
+    private InstanceCpuOptions value_cpuOptions;
+    private boolean unknown_cpuOptions;
     public InstanceCpuOptions cpuOptions() {
-        if (cpuOptions == null) return null;
-        return cpuOptions.getValue("Instance.cpuOptions");
+        if (!unknown_cpuOptions) return value_cpuOptions;
+        throw new UndeferrableValueException("Value 'Instance.cpuOptions' is not present");
     }
 
     /**
@@ -120,429 +128,468 @@ public final class Instance extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* cpu_threads_per_core is deprecated. Use cpu_options instead. */
-    private UndeferrableValue<Integer> cpuThreadsPerCore;
-
+    @PolicyResourceProperty(name="cpuThreadsPerCore", flag="unknown_cpuThreadsPerCore")
+    private Integer value_cpuThreadsPerCore;
+    private boolean unknown_cpuThreadsPerCore;
     public Integer cpuThreadsPerCore() {
-        if (cpuThreadsPerCore == null) return null;
-        return cpuThreadsPerCore.getValue("Instance.cpuThreadsPerCore");
+        if (!unknown_cpuThreadsPerCore) return value_cpuThreadsPerCore;
+        throw new UndeferrableValueException("Value 'Instance.cpuThreadsPerCore' is not present");
     }
 
     /**
      * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
      * 
      */
-    private @Nullable UndeferrableValue<InstanceCreditSpecification> creditSpecification;
-
+    @PolicyResourceProperty(name="creditSpecification", flag="unknown_creditSpecification")
+    private @Nullable InstanceCreditSpecification value_creditSpecification;
+    private boolean unknown_creditSpecification;
     public @Nullable InstanceCreditSpecification creditSpecification() {
-        if (creditSpecification == null) return null;
-        return creditSpecification.getValue("Instance.creditSpecification");
+        if (!unknown_creditSpecification) return value_creditSpecification;
+        throw new UndeferrableValueException("Value 'Instance.creditSpecification' is not present");
     }
 
     /**
      * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
      * 
      */
-    private UndeferrableValue<Boolean> disableApiStop;
-
+    @PolicyResourceProperty(name="disableApiStop", flag="unknown_disableApiStop")
+    private Boolean value_disableApiStop;
+    private boolean unknown_disableApiStop;
     public Boolean disableApiStop() {
-        if (disableApiStop == null) return null;
-        return disableApiStop.getValue("Instance.disableApiStop");
+        if (!unknown_disableApiStop) return value_disableApiStop;
+        throw new UndeferrableValueException("Value 'Instance.disableApiStop' is not present");
     }
 
     /**
      * If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
      * 
      */
-    private UndeferrableValue<Boolean> disableApiTermination;
-
+    @PolicyResourceProperty(name="disableApiTermination", flag="unknown_disableApiTermination")
+    private Boolean value_disableApiTermination;
+    private boolean unknown_disableApiTermination;
     public Boolean disableApiTermination() {
-        if (disableApiTermination == null) return null;
-        return disableApiTermination.getValue("Instance.disableApiTermination");
+        if (!unknown_disableApiTermination) return value_disableApiTermination;
+        throw new UndeferrableValueException("Value 'Instance.disableApiTermination' is not present");
     }
 
     /**
      * One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
      * 
      */
-    private UndeferrableValue<List<InstanceEbsBlockDevice>> ebsBlockDevices;
-
+    @PolicyResourceProperty(name="ebsBlockDevices", flag="unknown_ebsBlockDevices")
+    private List<InstanceEbsBlockDevice> value_ebsBlockDevices;
+    private boolean unknown_ebsBlockDevices;
     public List<InstanceEbsBlockDevice> ebsBlockDevices() {
-        if (ebsBlockDevices == null) return null;
-        return ebsBlockDevices.getValue("Instance.ebsBlockDevices");
+        if (!unknown_ebsBlockDevices) return value_ebsBlockDevices;
+        throw new UndeferrableValueException("Value 'Instance.ebsBlockDevices' is not present");
     }
 
     /**
      * If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
      * 
      */
-    private UndeferrableValue<Boolean> ebsOptimized;
-
+    @PolicyResourceProperty(name="ebsOptimized", flag="unknown_ebsOptimized")
+    private Boolean value_ebsOptimized;
+    private boolean unknown_ebsOptimized;
     public Boolean ebsOptimized() {
-        if (ebsOptimized == null) return null;
-        return ebsOptimized.getValue("Instance.ebsOptimized");
+        if (!unknown_ebsOptimized) return value_ebsOptimized;
+        throw new UndeferrableValueException("Value 'Instance.ebsOptimized' is not present");
     }
 
     /**
      * Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
      * 
      */
-    private UndeferrableValue<Boolean> enablePrimaryIpv6;
-
+    @PolicyResourceProperty(name="enablePrimaryIpv6", flag="unknown_enablePrimaryIpv6")
+    private Boolean value_enablePrimaryIpv6;
+    private boolean unknown_enablePrimaryIpv6;
     public Boolean enablePrimaryIpv6() {
-        if (enablePrimaryIpv6 == null) return null;
-        return enablePrimaryIpv6.getValue("Instance.enablePrimaryIpv6");
+        if (!unknown_enablePrimaryIpv6) return value_enablePrimaryIpv6;
+        throw new UndeferrableValueException("Value 'Instance.enablePrimaryIpv6' is not present");
     }
 
     /**
      * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
      * 
      */
-    private UndeferrableValue<InstanceEnclaveOptions> enclaveOptions;
-
+    @PolicyResourceProperty(name="enclaveOptions", flag="unknown_enclaveOptions")
+    private InstanceEnclaveOptions value_enclaveOptions;
+    private boolean unknown_enclaveOptions;
     public InstanceEnclaveOptions enclaveOptions() {
-        if (enclaveOptions == null) return null;
-        return enclaveOptions.getValue("Instance.enclaveOptions");
+        if (!unknown_enclaveOptions) return value_enclaveOptions;
+        throw new UndeferrableValueException("Value 'Instance.enclaveOptions' is not present");
     }
 
     /**
      * One or more configuration blocks to customize Ephemeral (also known as &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
      * 
      */
-    private UndeferrableValue<List<InstanceEphemeralBlockDevice>> ephemeralBlockDevices;
-
+    @PolicyResourceProperty(name="ephemeralBlockDevices", flag="unknown_ephemeralBlockDevices")
+    private List<InstanceEphemeralBlockDevice> value_ephemeralBlockDevices;
+    private boolean unknown_ephemeralBlockDevices;
     public List<InstanceEphemeralBlockDevice> ephemeralBlockDevices() {
-        if (ephemeralBlockDevices == null) return null;
-        return ephemeralBlockDevices.getValue("Instance.ephemeralBlockDevices");
+        if (!unknown_ephemeralBlockDevices) return value_ephemeralBlockDevices;
+        throw new UndeferrableValueException("Value 'Instance.ephemeralBlockDevices' is not present");
     }
 
     /**
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> getPasswordData;
-
+    @PolicyResourceProperty(name="getPasswordData", flag="unknown_getPasswordData")
+    private @Nullable Boolean value_getPasswordData;
+    private boolean unknown_getPasswordData;
     public @Nullable Boolean getPasswordData() {
-        if (getPasswordData == null) return null;
-        return getPasswordData.getValue("Instance.getPasswordData");
+        if (!unknown_getPasswordData) return value_getPasswordData;
+        throw new UndeferrableValueException("Value 'Instance.getPasswordData' is not present");
     }
 
     /**
      * If true, the launched EC2 instance will support hibernation.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> hibernation;
-
+    @PolicyResourceProperty(name="hibernation", flag="unknown_hibernation")
+    private @Nullable Boolean value_hibernation;
+    private boolean unknown_hibernation;
     public @Nullable Boolean hibernation() {
-        if (hibernation == null) return null;
-        return hibernation.getValue("Instance.hibernation");
+        if (!unknown_hibernation) return value_hibernation;
+        throw new UndeferrableValueException("Value 'Instance.hibernation' is not present");
     }
 
     /**
      * ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
      * 
      */
-    private UndeferrableValue<String> hostId;
-
+    @PolicyResourceProperty(name="hostId", flag="unknown_hostId")
+    private String value_hostId;
+    private boolean unknown_hostId;
     public String hostId() {
-        if (hostId == null) return null;
-        return hostId.getValue("Instance.hostId");
+        if (!unknown_hostId) return value_hostId;
+        throw new UndeferrableValueException("Value 'Instance.hostId' is not present");
     }
 
     /**
      * ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
      * 
      */
-    private UndeferrableValue<String> hostResourceGroupArn;
-
+    @PolicyResourceProperty(name="hostResourceGroupArn", flag="unknown_hostResourceGroupArn")
+    private String value_hostResourceGroupArn;
+    private boolean unknown_hostResourceGroupArn;
     public String hostResourceGroupArn() {
-        if (hostResourceGroupArn == null) return null;
-        return hostResourceGroupArn.getValue("Instance.hostResourceGroupArn");
+        if (!unknown_hostResourceGroupArn) return value_hostResourceGroupArn;
+        throw new UndeferrableValueException("Value 'Instance.hostResourceGroupArn' is not present");
     }
 
     /**
      * IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
      * 
      */
-    private UndeferrableValue<String> iamInstanceProfile;
-
+    @PolicyResourceProperty(name="iamInstanceProfile", flag="unknown_iamInstanceProfile")
+    private String value_iamInstanceProfile;
+    private boolean unknown_iamInstanceProfile;
     public String iamInstanceProfile() {
-        if (iamInstanceProfile == null) return null;
-        return iamInstanceProfile.getValue("Instance.iamInstanceProfile");
+        if (!unknown_iamInstanceProfile) return value_iamInstanceProfile;
+        throw new UndeferrableValueException("Value 'Instance.iamInstanceProfile' is not present");
     }
 
     /**
      * Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
      * 
      */
-    private UndeferrableValue<String> instanceInitiatedShutdownBehavior;
-
+    @PolicyResourceProperty(name="instanceInitiatedShutdownBehavior", flag="unknown_instanceInitiatedShutdownBehavior")
+    private String value_instanceInitiatedShutdownBehavior;
+    private boolean unknown_instanceInitiatedShutdownBehavior;
     public String instanceInitiatedShutdownBehavior() {
-        if (instanceInitiatedShutdownBehavior == null) return null;
-        return instanceInitiatedShutdownBehavior.getValue("Instance.instanceInitiatedShutdownBehavior");
+        if (!unknown_instanceInitiatedShutdownBehavior) return value_instanceInitiatedShutdownBehavior;
+        throw new UndeferrableValueException("Value 'Instance.instanceInitiatedShutdownBehavior' is not present");
     }
 
     /**
      * Indicates whether this is a Spot Instance or a Scheduled Instance.
      * 
      */
-    private UndeferrableValue<String> instanceLifecycle;
-
+    @PolicyResourceProperty(name="instanceLifecycle", flag="unknown_instanceLifecycle")
+    private String value_instanceLifecycle;
+    private boolean unknown_instanceLifecycle;
     public String instanceLifecycle() {
-        if (instanceLifecycle == null) return null;
-        return instanceLifecycle.getValue("Instance.instanceLifecycle");
+        if (!unknown_instanceLifecycle) return value_instanceLifecycle;
+        throw new UndeferrableValueException("Value 'Instance.instanceLifecycle' is not present");
     }
 
     /**
      * Describes the market (purchasing) option for the instances. See Market Options below for details on attributes.
      * 
      */
-    private UndeferrableValue<InstanceInstanceMarketOptions> instanceMarketOptions;
-
+    @PolicyResourceProperty(name="instanceMarketOptions", flag="unknown_instanceMarketOptions")
+    private InstanceInstanceMarketOptions value_instanceMarketOptions;
+    private boolean unknown_instanceMarketOptions;
     public InstanceInstanceMarketOptions instanceMarketOptions() {
-        if (instanceMarketOptions == null) return null;
-        return instanceMarketOptions.getValue("Instance.instanceMarketOptions");
+        if (!unknown_instanceMarketOptions) return value_instanceMarketOptions;
+        throw new UndeferrableValueException("Value 'Instance.instanceMarketOptions' is not present");
     }
 
     /**
      * State of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
      * 
      */
-    private UndeferrableValue<String> instanceState;
-
+    @PolicyResourceProperty(name="instanceState", flag="unknown_instanceState")
+    private String value_instanceState;
+    private boolean unknown_instanceState;
     public String instanceState() {
-        if (instanceState == null) return null;
-        return instanceState.getValue("Instance.instanceState");
+        if (!unknown_instanceState) return value_instanceState;
+        throw new UndeferrableValueException("Value 'Instance.instanceState' is not present");
     }
 
     /**
      * Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("Instance.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'Instance.instanceType' is not present");
     }
 
     /**
      * Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      * 
      */
-    private UndeferrableValue<Integer> ipv6AddressCount;
-
+    @PolicyResourceProperty(name="ipv6AddressCount", flag="unknown_ipv6AddressCount")
+    private Integer value_ipv6AddressCount;
+    private boolean unknown_ipv6AddressCount;
     public Integer ipv6AddressCount() {
-        if (ipv6AddressCount == null) return null;
-        return ipv6AddressCount.getValue("Instance.ipv6AddressCount");
+        if (!unknown_ipv6AddressCount) return value_ipv6AddressCount;
+        throw new UndeferrableValueException("Value 'Instance.ipv6AddressCount' is not present");
     }
 
     /**
      * Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
      * 
      */
-    private UndeferrableValue<List<String>> ipv6Addresses;
-
+    @PolicyResourceProperty(name="ipv6Addresses", flag="unknown_ipv6Addresses")
+    private List<String> value_ipv6Addresses;
+    private boolean unknown_ipv6Addresses;
     public List<String> ipv6Addresses() {
-        if (ipv6Addresses == null) return null;
-        return ipv6Addresses.getValue("Instance.ipv6Addresses");
+        if (!unknown_ipv6Addresses) return value_ipv6Addresses;
+        throw new UndeferrableValueException("Value 'Instance.ipv6Addresses' is not present");
     }
 
     /**
      * Key name of the Key Pair to use for the instance; which can be managed using the `aws.ec2.KeyPair` resource.
      * 
      */
-    private UndeferrableValue<String> keyName;
-
+    @PolicyResourceProperty(name="keyName", flag="unknown_keyName")
+    private String value_keyName;
+    private boolean unknown_keyName;
     public String keyName() {
-        if (keyName == null) return null;
-        return keyName.getValue("Instance.keyName");
+        if (!unknown_keyName) return value_keyName;
+        throw new UndeferrableValueException("Value 'Instance.keyName' is not present");
     }
 
     /**
      * Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<InstanceLaunchTemplate> launchTemplate;
-
+    @PolicyResourceProperty(name="launchTemplate", flag="unknown_launchTemplate")
+    private @Nullable InstanceLaunchTemplate value_launchTemplate;
+    private boolean unknown_launchTemplate;
     public @Nullable InstanceLaunchTemplate launchTemplate() {
-        if (launchTemplate == null) return null;
-        return launchTemplate.getValue("Instance.launchTemplate");
+        if (!unknown_launchTemplate) return value_launchTemplate;
+        throw new UndeferrableValueException("Value 'Instance.launchTemplate' is not present");
     }
 
     /**
      * Maintenance and recovery options for the instance. See Maintenance Options below for more details.
      * 
      */
-    private UndeferrableValue<InstanceMaintenanceOptions> maintenanceOptions;
-
+    @PolicyResourceProperty(name="maintenanceOptions", flag="unknown_maintenanceOptions")
+    private InstanceMaintenanceOptions value_maintenanceOptions;
+    private boolean unknown_maintenanceOptions;
     public InstanceMaintenanceOptions maintenanceOptions() {
-        if (maintenanceOptions == null) return null;
-        return maintenanceOptions.getValue("Instance.maintenanceOptions");
+        if (!unknown_maintenanceOptions) return value_maintenanceOptions;
+        throw new UndeferrableValueException("Value 'Instance.maintenanceOptions' is not present");
     }
 
     /**
      * Customize the metadata options of the instance. See Metadata Options below for more details.
      * 
      */
-    private UndeferrableValue<InstanceMetadataOptions> metadataOptions;
-
+    @PolicyResourceProperty(name="metadataOptions", flag="unknown_metadataOptions")
+    private InstanceMetadataOptions value_metadataOptions;
+    private boolean unknown_metadataOptions;
     public InstanceMetadataOptions metadataOptions() {
-        if (metadataOptions == null) return null;
-        return metadataOptions.getValue("Instance.metadataOptions");
+        if (!unknown_metadataOptions) return value_metadataOptions;
+        throw new UndeferrableValueException("Value 'Instance.metadataOptions' is not present");
     }
 
     /**
      * If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
      * 
      */
-    private UndeferrableValue<Boolean> monitoring;
-
+    @PolicyResourceProperty(name="monitoring", flag="unknown_monitoring")
+    private Boolean value_monitoring;
+    private boolean unknown_monitoring;
     public Boolean monitoring() {
-        if (monitoring == null) return null;
-        return monitoring.getValue("Instance.monitoring");
+        if (!unknown_monitoring) return value_monitoring;
+        throw new UndeferrableValueException("Value 'Instance.monitoring' is not present");
     }
 
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      * 
      */
-    private UndeferrableValue<List<InstanceNetworkInterface>> networkInterfaces;
-
+    @PolicyResourceProperty(name="networkInterfaces", flag="unknown_networkInterfaces")
+    private List<InstanceNetworkInterface> value_networkInterfaces;
+    private boolean unknown_networkInterfaces;
     public List<InstanceNetworkInterface> networkInterfaces() {
-        if (networkInterfaces == null) return null;
-        return networkInterfaces.getValue("Instance.networkInterfaces");
+        if (!unknown_networkInterfaces) return value_networkInterfaces;
+        throw new UndeferrableValueException("Value 'Instance.networkInterfaces' is not present");
     }
 
     /**
      * ARN of the Outpost the instance is assigned to.
      * 
      */
-    private UndeferrableValue<String> outpostArn;
-
+    @PolicyResourceProperty(name="outpostArn", flag="unknown_outpostArn")
+    private String value_outpostArn;
+    private boolean unknown_outpostArn;
     public String outpostArn() {
-        if (outpostArn == null) return null;
-        return outpostArn.getValue("Instance.outpostArn");
+        if (!unknown_outpostArn) return value_outpostArn;
+        throw new UndeferrableValueException("Value 'Instance.outpostArn' is not present");
     }
 
     /**
      * Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `get_password_data` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      * 
      */
-    private UndeferrableValue<String> passwordData;
-
+    @PolicyResourceProperty(name="passwordData", flag="unknown_passwordData")
+    private String value_passwordData;
+    private boolean unknown_passwordData;
     public String passwordData() {
-        if (passwordData == null) return null;
-        return passwordData.getValue("Instance.passwordData");
+        if (!unknown_passwordData) return value_passwordData;
+        throw new UndeferrableValueException("Value 'Instance.passwordData' is not present");
     }
 
     /**
      * Placement Group to start the instance in.
      * 
      */
-    private UndeferrableValue<String> placementGroup;
-
+    @PolicyResourceProperty(name="placementGroup", flag="unknown_placementGroup")
+    private String value_placementGroup;
+    private boolean unknown_placementGroup;
     public String placementGroup() {
-        if (placementGroup == null) return null;
-        return placementGroup.getValue("Instance.placementGroup");
+        if (!unknown_placementGroup) return value_placementGroup;
+        throw new UndeferrableValueException("Value 'Instance.placementGroup' is not present");
     }
 
     /**
      * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
      * 
      */
-    private UndeferrableValue<Integer> placementPartitionNumber;
-
+    @PolicyResourceProperty(name="placementPartitionNumber", flag="unknown_placementPartitionNumber")
+    private Integer value_placementPartitionNumber;
+    private boolean unknown_placementPartitionNumber;
     public Integer placementPartitionNumber() {
-        if (placementPartitionNumber == null) return null;
-        return placementPartitionNumber.getValue("Instance.placementPartitionNumber");
+        if (!unknown_placementPartitionNumber) return value_placementPartitionNumber;
+        throw new UndeferrableValueException("Value 'Instance.placementPartitionNumber' is not present");
     }
 
     /**
      * ID of the instance&#39;s primary network interface.
      * 
      */
-    private UndeferrableValue<String> primaryNetworkInterfaceId;
-
+    @PolicyResourceProperty(name="primaryNetworkInterfaceId", flag="unknown_primaryNetworkInterfaceId")
+    private String value_primaryNetworkInterfaceId;
+    private boolean unknown_primaryNetworkInterfaceId;
     public String primaryNetworkInterfaceId() {
-        if (primaryNetworkInterfaceId == null) return null;
-        return primaryNetworkInterfaceId.getValue("Instance.primaryNetworkInterfaceId");
+        if (!unknown_primaryNetworkInterfaceId) return value_primaryNetworkInterfaceId;
+        throw new UndeferrableValueException("Value 'Instance.primaryNetworkInterfaceId' is not present");
     }
 
     /**
      * Private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
-    private UndeferrableValue<String> privateDns;
-
+    @PolicyResourceProperty(name="privateDns", flag="unknown_privateDns")
+    private String value_privateDns;
+    private boolean unknown_privateDns;
     public String privateDns() {
-        if (privateDns == null) return null;
-        return privateDns.getValue("Instance.privateDns");
+        if (!unknown_privateDns) return value_privateDns;
+        throw new UndeferrableValueException("Value 'Instance.privateDns' is not present");
     }
 
     /**
      * Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      * 
      */
-    private UndeferrableValue<InstancePrivateDnsNameOptions> privateDnsNameOptions;
-
+    @PolicyResourceProperty(name="privateDnsNameOptions", flag="unknown_privateDnsNameOptions")
+    private InstancePrivateDnsNameOptions value_privateDnsNameOptions;
+    private boolean unknown_privateDnsNameOptions;
     public InstancePrivateDnsNameOptions privateDnsNameOptions() {
-        if (privateDnsNameOptions == null) return null;
-        return privateDnsNameOptions.getValue("Instance.privateDnsNameOptions");
+        if (!unknown_privateDnsNameOptions) return value_privateDnsNameOptions;
+        throw new UndeferrableValueException("Value 'Instance.privateDnsNameOptions' is not present");
     }
 
     /**
      * Private IP address to associate with the instance in a VPC.
      * 
      */
-    private UndeferrableValue<String> privateIp;
-
+    @PolicyResourceProperty(name="privateIp", flag="unknown_privateIp")
+    private String value_privateIp;
+    private boolean unknown_privateIp;
     public String privateIp() {
-        if (privateIp == null) return null;
-        return privateIp.getValue("Instance.privateIp");
+        if (!unknown_privateIp) return value_privateIp;
+        throw new UndeferrableValueException("Value 'Instance.privateIp' is not present");
     }
 
     /**
      * Public DNS name assigned to the instance. For EC2-VPC, this is only available if you&#39;ve enabled DNS hostnames for your VPC.
      * 
      */
-    private UndeferrableValue<String> publicDns;
-
+    @PolicyResourceProperty(name="publicDns", flag="unknown_publicDns")
+    private String value_publicDns;
+    private boolean unknown_publicDns;
     public String publicDns() {
-        if (publicDns == null) return null;
-        return publicDns.getValue("Instance.publicDns");
+        if (!unknown_publicDns) return value_publicDns;
+        throw new UndeferrableValueException("Value 'Instance.publicDns' is not present");
     }
 
     /**
      * Public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP&#39;s address directly and not use `public_ip` as this field will change after the EIP is attached.
      * 
      */
-    private UndeferrableValue<String> publicIp;
-
+    @PolicyResourceProperty(name="publicIp", flag="unknown_publicIp")
+    private String value_publicIp;
+    private boolean unknown_publicIp;
     public String publicIp() {
-        if (publicIp == null) return null;
-        return publicIp.getValue("Instance.publicIp");
+        if (!unknown_publicIp) return value_publicIp;
+        throw new UndeferrableValueException("Value 'Instance.publicIp' is not present");
     }
 
     /**
      * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      * 
      */
-    private UndeferrableValue<InstanceRootBlockDevice> rootBlockDevice;
-
+    @PolicyResourceProperty(name="rootBlockDevice", flag="unknown_rootBlockDevice")
+    private InstanceRootBlockDevice value_rootBlockDevice;
+    private boolean unknown_rootBlockDevice;
     public InstanceRootBlockDevice rootBlockDevice() {
-        if (rootBlockDevice == null) return null;
-        return rootBlockDevice.getValue("Instance.rootBlockDevice");
+        if (!unknown_rootBlockDevice) return value_rootBlockDevice;
+        throw new UndeferrableValueException("Value 'Instance.rootBlockDevice' is not present");
     }
 
     /**
      * List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      * 
      */
-    private UndeferrableValue<List<String>> secondaryPrivateIps;
-
+    @PolicyResourceProperty(name="secondaryPrivateIps", flag="unknown_secondaryPrivateIps")
+    private List<String> value_secondaryPrivateIps;
+    private boolean unknown_secondaryPrivateIps;
     public List<String> secondaryPrivateIps() {
-        if (secondaryPrivateIps == null) return null;
-        return secondaryPrivateIps.getValue("Instance.secondaryPrivateIps");
+        if (!unknown_secondaryPrivateIps) return value_secondaryPrivateIps;
+        throw new UndeferrableValueException("Value 'Instance.secondaryPrivateIps' is not present");
     }
 
     /**
@@ -555,55 +602,60 @@ public final class Instance extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates. */
-    private UndeferrableValue<List<String>> securityGroups;
-
+    @PolicyResourceProperty(name="securityGroups", flag="unknown_securityGroups")
+    private List<String> value_securityGroups;
+    private boolean unknown_securityGroups;
     public List<String> securityGroups() {
-        if (securityGroups == null) return null;
-        return securityGroups.getValue("Instance.securityGroups");
+        if (!unknown_securityGroups) return value_securityGroups;
+        throw new UndeferrableValueException("Value 'Instance.securityGroups' is not present");
     }
 
     /**
      * Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> sourceDestCheck;
-
+    @PolicyResourceProperty(name="sourceDestCheck", flag="unknown_sourceDestCheck")
+    private @Nullable Boolean value_sourceDestCheck;
+    private boolean unknown_sourceDestCheck;
     public @Nullable Boolean sourceDestCheck() {
-        if (sourceDestCheck == null) return null;
-        return sourceDestCheck.getValue("Instance.sourceDestCheck");
+        if (!unknown_sourceDestCheck) return value_sourceDestCheck;
+        throw new UndeferrableValueException("Value 'Instance.sourceDestCheck' is not present");
     }
 
     /**
      * If the request is a Spot Instance request, the ID of the request.
      * 
      */
-    private UndeferrableValue<String> spotInstanceRequestId;
-
+    @PolicyResourceProperty(name="spotInstanceRequestId", flag="unknown_spotInstanceRequestId")
+    private String value_spotInstanceRequestId;
+    private boolean unknown_spotInstanceRequestId;
     public String spotInstanceRequestId() {
-        if (spotInstanceRequestId == null) return null;
-        return spotInstanceRequestId.getValue("Instance.spotInstanceRequestId");
+        if (!unknown_spotInstanceRequestId) return value_spotInstanceRequestId;
+        throw new UndeferrableValueException("Value 'Instance.spotInstanceRequestId' is not present");
     }
 
     /**
      * VPC Subnet ID to launch in.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("Instance.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'Instance.subnetId' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Instance.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Instance.tags' is not present");
     }
 
     /**
@@ -614,55 +666,60 @@ public final class Instance extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Instance.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Instance.tagsAll' is not present");
     }
 
     /**
      * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
      * 
      */
-    private UndeferrableValue<String> tenancy;
-
+    @PolicyResourceProperty(name="tenancy", flag="unknown_tenancy")
+    private String value_tenancy;
+    private boolean unknown_tenancy;
     public String tenancy() {
-        if (tenancy == null) return null;
-        return tenancy.getValue("Instance.tenancy");
+        if (!unknown_tenancy) return value_tenancy;
+        throw new UndeferrableValueException("Value 'Instance.tenancy' is not present");
     }
 
     /**
      * User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
      * 
      */
-    private UndeferrableValue<String> userData;
-
+    @PolicyResourceProperty(name="userData", flag="unknown_userData")
+    private String value_userData;
+    private boolean unknown_userData;
     public String userData() {
-        if (userData == null) return null;
-        return userData.getValue("Instance.userData");
+        if (!unknown_userData) return value_userData;
+        throw new UndeferrableValueException("Value 'Instance.userData' is not present");
     }
 
     /**
      * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
      * 
      */
-    private UndeferrableValue<String> userDataBase64;
-
+    @PolicyResourceProperty(name="userDataBase64", flag="unknown_userDataBase64")
+    private String value_userDataBase64;
+    private boolean unknown_userDataBase64;
     public String userDataBase64() {
-        if (userDataBase64 == null) return null;
-        return userDataBase64.getValue("Instance.userDataBase64");
+        if (!unknown_userDataBase64) return value_userDataBase64;
+        throw new UndeferrableValueException("Value 'Instance.userDataBase64' is not present");
     }
 
     /**
      * When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> userDataReplaceOnChange;
-
+    @PolicyResourceProperty(name="userDataReplaceOnChange", flag="unknown_userDataReplaceOnChange")
+    private @Nullable Boolean value_userDataReplaceOnChange;
+    private boolean unknown_userDataReplaceOnChange;
     public @Nullable Boolean userDataReplaceOnChange() {
-        if (userDataReplaceOnChange == null) return null;
-        return userDataReplaceOnChange.getValue("Instance.userDataReplaceOnChange");
+        if (!unknown_userDataReplaceOnChange) return value_userDataReplaceOnChange;
+        throw new UndeferrableValueException("Value 'Instance.userDataReplaceOnChange' is not present");
     }
 
     /**
@@ -671,22 +728,24 @@ public final class Instance extends com.pulumi.resources.PolicyResourceOutput {
      * &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> volumeTags;
-
+    @PolicyResourceProperty(name="volumeTags", flag="unknown_volumeTags")
+    private @Nullable Map<String,String> value_volumeTags;
+    private boolean unknown_volumeTags;
     public @Nullable Map<String,String> volumeTags() {
-        if (volumeTags == null) return null;
-        return volumeTags.getValue("Instance.volumeTags");
+        if (!unknown_volumeTags) return value_volumeTags;
+        throw new UndeferrableValueException("Value 'Instance.volumeTags' is not present");
     }
 
     /**
      * List of security group IDs to associate with.
      * 
      */
-    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
-
+    @PolicyResourceProperty(name="vpcSecurityGroupIds", flag="unknown_vpcSecurityGroupIds")
+    private List<String> value_vpcSecurityGroupIds;
+    private boolean unknown_vpcSecurityGroupIds;
     public List<String> vpcSecurityGroupIds() {
-        if (vpcSecurityGroupIds == null) return null;
-        return vpcSecurityGroupIds.getValue("Instance.vpcSecurityGroupIds");
+        if (!unknown_vpcSecurityGroupIds) return value_vpcSecurityGroupIds;
+        throw new UndeferrableValueException("Value 'Instance.vpcSecurityGroupIds' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class DataSourceEventBridgeConfig {
      * ARN for the EventBridge bus.
      * 
      */
-    private UndeferrableValue<String> eventBusArn;
-
+    @PolicyResourceProperty(name="eventBusArn", flag="unknown_eventBusArn")
+    private String value_eventBusArn;
+    private boolean unknown_eventBusArn;
     public String eventBusArn() {
-        if (eventBusArn == null) return null;
-        return eventBusArn.getValue("DataSourceEventBridgeConfig.eventBusArn");
+        if (!unknown_eventBusArn) return value_eventBusArn;
+        throw new UndeferrableValueException("Value 'DataSourceEventBridgeConfig.eventBusArn' is not present");
     }
 
 }

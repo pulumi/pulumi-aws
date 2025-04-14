@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -11,11 +12,12 @@ import javax.annotation.Nullable;
 
 public final class ResourceLfTagTableWithColumnsColumnWildcard {
 
-    private @Nullable UndeferrableValue<List<String>> excludedColumnNames;
-
+    @PolicyResourceProperty(name="excludedColumnNames", flag="unknown_excludedColumnNames")
+    private @Nullable List<String> value_excludedColumnNames;
+    private boolean unknown_excludedColumnNames;
     public @Nullable List<String> excludedColumnNames() {
-        if (excludedColumnNames == null) return null;
-        return excludedColumnNames.getValue("ResourceLfTagTableWithColumnsColumnWildcard.excludedColumnNames");
+        if (!unknown_excludedColumnNames) return value_excludedColumnNames;
+        throw new UndeferrableValueException("Value 'ResourceLfTagTableWithColumnsColumnWildcard.excludedColumnNames' is not present");
     }
 
 }

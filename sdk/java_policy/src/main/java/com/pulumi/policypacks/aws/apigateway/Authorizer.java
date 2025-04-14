@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class Authorizer extends com.pulumi.resources.PolicyResourceOutput 
      * ARN of the API Gateway Authorizer
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Authorizer.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Authorizer.arn' is not present");
     }
 
     /**
      * Credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
      * 
      */
-    private @Nullable UndeferrableValue<String> authorizerCredentials;
-
+    @PolicyResourceProperty(name="authorizerCredentials", flag="unknown_authorizerCredentials")
+    private @Nullable String value_authorizerCredentials;
+    private boolean unknown_authorizerCredentials;
     public @Nullable String authorizerCredentials() {
-        if (authorizerCredentials == null) return null;
-        return authorizerCredentials.getValue("Authorizer.authorizerCredentials");
+        if (!unknown_authorizerCredentials) return value_authorizerCredentials;
+        throw new UndeferrableValueException("Value 'Authorizer.authorizerCredentials' is not present");
     }
 
     /**
      * TTL of cached authorizer results in seconds. Defaults to `300`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> authorizerResultTtlInSeconds;
-
+    @PolicyResourceProperty(name="authorizerResultTtlInSeconds", flag="unknown_authorizerResultTtlInSeconds")
+    private @Nullable Integer value_authorizerResultTtlInSeconds;
+    private boolean unknown_authorizerResultTtlInSeconds;
     public @Nullable Integer authorizerResultTtlInSeconds() {
-        if (authorizerResultTtlInSeconds == null) return null;
-        return authorizerResultTtlInSeconds.getValue("Authorizer.authorizerResultTtlInSeconds");
+        if (!unknown_authorizerResultTtlInSeconds) return value_authorizerResultTtlInSeconds;
+        throw new UndeferrableValueException("Value 'Authorizer.authorizerResultTtlInSeconds' is not present");
     }
 
     /**
@@ -52,77 +56,84 @@ public final class Authorizer extends com.pulumi.resources.PolicyResourceOutput 
      * e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
      * 
      */
-    private @Nullable UndeferrableValue<String> authorizerUri;
-
+    @PolicyResourceProperty(name="authorizerUri", flag="unknown_authorizerUri")
+    private @Nullable String value_authorizerUri;
+    private boolean unknown_authorizerUri;
     public @Nullable String authorizerUri() {
-        if (authorizerUri == null) return null;
-        return authorizerUri.getValue("Authorizer.authorizerUri");
+        if (!unknown_authorizerUri) return value_authorizerUri;
+        throw new UndeferrableValueException("Value 'Authorizer.authorizerUri' is not present");
     }
 
     /**
      * Source of the identity in an incoming request. Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g., `&#34;method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName&#34;`
      * 
      */
-    private @Nullable UndeferrableValue<String> identitySource;
-
+    @PolicyResourceProperty(name="identitySource", flag="unknown_identitySource")
+    private @Nullable String value_identitySource;
+    private boolean unknown_identitySource;
     public @Nullable String identitySource() {
-        if (identitySource == null) return null;
-        return identitySource.getValue("Authorizer.identitySource");
+        if (!unknown_identitySource) return value_identitySource;
+        throw new UndeferrableValueException("Value 'Authorizer.identitySource' is not present");
     }
 
     /**
      * Validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn&#39;t match, the client receives a 401 Unauthorized response.
      * 
      */
-    private @Nullable UndeferrableValue<String> identityValidationExpression;
-
+    @PolicyResourceProperty(name="identityValidationExpression", flag="unknown_identityValidationExpression")
+    private @Nullable String value_identityValidationExpression;
+    private boolean unknown_identityValidationExpression;
     public @Nullable String identityValidationExpression() {
-        if (identityValidationExpression == null) return null;
-        return identityValidationExpression.getValue("Authorizer.identityValidationExpression");
+        if (!unknown_identityValidationExpression) return value_identityValidationExpression;
+        throw new UndeferrableValueException("Value 'Authorizer.identityValidationExpression' is not present");
     }
 
     /**
      * Name of the authorizer
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Authorizer.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Authorizer.name' is not present");
     }
 
     /**
      * List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> providerArns;
-
+    @PolicyResourceProperty(name="providerArns", flag="unknown_providerArns")
+    private @Nullable List<String> value_providerArns;
+    private boolean unknown_providerArns;
     public @Nullable List<String> providerArns() {
-        if (providerArns == null) return null;
-        return providerArns.getValue("Authorizer.providerArns");
+        if (!unknown_providerArns) return value_providerArns;
+        throw new UndeferrableValueException("Value 'Authorizer.providerArns' is not present");
     }
 
     /**
      * ID of the associated REST API
      * 
      */
-    private UndeferrableValue<String> restApi;
-
+    @PolicyResourceProperty(name="restApi", flag="unknown_restApi")
+    private String value_restApi;
+    private boolean unknown_restApi;
     public String restApi() {
-        if (restApi == null) return null;
-        return restApi.getValue("Authorizer.restApi");
+        if (!unknown_restApi) return value_restApi;
+        throw new UndeferrableValueException("Value 'Authorizer.restApi' is not present");
     }
 
     /**
      * Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("Authorizer.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'Authorizer.type' is not present");
     }
 
 }

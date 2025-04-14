@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3.inputs.AccessPointPublicAccessBlockConfigurationArgs;
 import com.pulumi.policypacks.aws.s3.inputs.AccessPointVpcConfigurationArgs;
@@ -18,33 +19,36 @@ public final class AccessPointArgs extends com.pulumi.resources.PolicyResourceIn
      * AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("AccessPointArgs.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'AccessPointArgs.accountId' is not present");
     }
 
     /**
      * Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("AccessPointArgs.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'AccessPointArgs.bucket' is not present");
     }
 
     /**
      * AWS account ID associated with the S3 bucket associated with this access point.
      * 
      */
-    private UndeferrableValue<String> bucketAccountId;
-
+    @PolicyResourceProperty(name="bucketAccountId", flag="unknown_bucketAccountId")
+    private String value_bucketAccountId;
+    private boolean unknown_bucketAccountId;
     public String bucketAccountId() {
-        if (bucketAccountId == null) return null;
-        return bucketAccountId.getValue("AccessPointArgs.bucketAccountId");
+        if (!unknown_bucketAccountId) return value_bucketAccountId;
+        throw new UndeferrableValueException("Value 'AccessPointArgs.bucketAccountId' is not present");
     }
 
     /**
@@ -53,44 +57,48 @@ public final class AccessPointArgs extends com.pulumi.resources.PolicyResourceIn
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AccessPointArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AccessPointArgs.name' is not present");
     }
 
     /**
      * Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = &#34;&#34;`) _will not_ delete the policy since it could have been set by `aws.s3control.AccessPointPolicy`. To remove the `policy`, set it to `&#34;{}&#34;` (an empty JSON document).
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("AccessPointArgs.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'AccessPointArgs.policy' is not present");
     }
 
     /**
      * Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.
      * 
      */
-    private UndeferrableValue<AccessPointPublicAccessBlockConfigurationArgs> publicAccessBlockConfiguration;
-
+    @PolicyResourceProperty(name="publicAccessBlockConfiguration", flag="unknown_publicAccessBlockConfiguration")
+    private AccessPointPublicAccessBlockConfigurationArgs value_publicAccessBlockConfiguration;
+    private boolean unknown_publicAccessBlockConfiguration;
     public AccessPointPublicAccessBlockConfigurationArgs publicAccessBlockConfiguration() {
-        if (publicAccessBlockConfiguration == null) return null;
-        return publicAccessBlockConfiguration.getValue("AccessPointArgs.publicAccessBlockConfiguration");
+        if (!unknown_publicAccessBlockConfiguration) return value_publicAccessBlockConfiguration;
+        throw new UndeferrableValueException("Value 'AccessPointArgs.publicAccessBlockConfiguration' is not present");
     }
 
     /**
      * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
      * 
      */
-    private UndeferrableValue<AccessPointVpcConfigurationArgs> vpcConfiguration;
-
+    @PolicyResourceProperty(name="vpcConfiguration", flag="unknown_vpcConfiguration")
+    private AccessPointVpcConfigurationArgs value_vpcConfiguration;
+    private boolean unknown_vpcConfiguration;
     public AccessPointVpcConfigurationArgs vpcConfiguration() {
-        if (vpcConfiguration == null) return null;
-        return vpcConfiguration.getValue("AccessPointArgs.vpcConfiguration");
+        if (!unknown_vpcConfiguration) return value_vpcConfiguration;
+        throw new UndeferrableValueException("Value 'AccessPointArgs.vpcConfiguration' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudformation.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class CloudFormationTypeLoggingConfig {
      * Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type&#39;s handlers.
      * 
      */
-    private UndeferrableValue<String> logGroupName;
-
+    @PolicyResourceProperty(name="logGroupName", flag="unknown_logGroupName")
+    private String value_logGroupName;
+    private boolean unknown_logGroupName;
     public String logGroupName() {
-        if (logGroupName == null) return null;
-        return logGroupName.getValue("CloudFormationTypeLoggingConfig.logGroupName");
+        if (!unknown_logGroupName) return value_logGroupName;
+        throw new UndeferrableValueException("Value 'CloudFormationTypeLoggingConfig.logGroupName' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
      * 
      */
-    private UndeferrableValue<String> logRoleArn;
-
+    @PolicyResourceProperty(name="logRoleArn", flag="unknown_logRoleArn")
+    private String value_logRoleArn;
+    private boolean unknown_logRoleArn;
     public String logRoleArn() {
-        if (logRoleArn == null) return null;
-        return logRoleArn.getValue("CloudFormationTypeLoggingConfig.logRoleArn");
+        if (!unknown_logRoleArn) return value_logRoleArn;
+        throw new UndeferrableValueException("Value 'CloudFormationTypeLoggingConfig.logRoleArn' is not present");
     }
 
 }

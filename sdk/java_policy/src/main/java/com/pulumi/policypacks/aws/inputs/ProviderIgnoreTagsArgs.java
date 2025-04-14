@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ProviderIgnoreTagsArgs {
      * Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
      * 
      */
-    private UndeferrableValue<List<String>> keyPrefixes;
-
+    @PolicyResourceProperty(name="keyPrefixes", flag="unknown_keyPrefixes")
+    private List<String> value_keyPrefixes;
+    private boolean unknown_keyPrefixes;
     public List<String> keyPrefixes() {
-        if (keyPrefixes == null) return null;
-        return keyPrefixes.getValue("ProviderIgnoreTagsArgs.keyPrefixes");
+        if (!unknown_keyPrefixes) return value_keyPrefixes;
+        throw new UndeferrableValueException("Value 'ProviderIgnoreTagsArgs.keyPrefixes' is not present");
     }
 
     /**
      * Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
      * 
      */
-    private UndeferrableValue<List<String>> keys;
-
+    @PolicyResourceProperty(name="keys", flag="unknown_keys")
+    private List<String> value_keys;
+    private boolean unknown_keys;
     public List<String> keys() {
-        if (keys == null) return null;
-        return keys.getValue("ProviderIgnoreTagsArgs.keys");
+        if (!unknown_keys) return value_keys;
+        throw new UndeferrableValueException("Value 'ProviderIgnoreTagsArgs.keys' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn {
      * The Mapping reference to the data element.
      * 
      */
-    private @Nullable UndeferrableValue<String> mapping;
-
+    @PolicyResourceProperty(name="mapping", flag="unknown_mapping")
+    private @Nullable String value_mapping;
+    private boolean unknown_mapping;
     public @Nullable String mapping() {
-        if (mapping == null) return null;
-        return mapping.getValue("AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn.mapping");
+        if (!unknown_mapping) return value_mapping;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn.mapping' is not present");
     }
 
     /**
      * Name of the column.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn.name' is not present");
     }
 
     /**
      * The SQL Type of the column.
      * 
      */
-    private UndeferrableValue<String> sqlType;
-
+    @PolicyResourceProperty(name="sqlType", flag="unknown_sqlType")
+    private String value_sqlType;
+    private boolean unknown_sqlType;
     public String sqlType() {
-        if (sqlType == null) return null;
-        return sqlType.getValue("AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn.sqlType");
+        if (!unknown_sqlType) return value_sqlType;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn.sqlType' is not present");
     }
 
 }

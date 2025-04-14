@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.m2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,11 +14,12 @@ public final class EnvironmentHighAvailabilityConfig {
      * Desired number of instances for the Environment.
      * 
      */
-    private UndeferrableValue<Integer> desiredCapacity;
-
+    @PolicyResourceProperty(name="desiredCapacity", flag="unknown_desiredCapacity")
+    private Integer value_desiredCapacity;
+    private boolean unknown_desiredCapacity;
     public Integer desiredCapacity() {
-        if (desiredCapacity == null) return null;
-        return desiredCapacity.getValue("EnvironmentHighAvailabilityConfig.desiredCapacity");
+        if (!unknown_desiredCapacity) return value_desiredCapacity;
+        throw new UndeferrableValueException("Value 'EnvironmentHighAvailabilityConfig.desiredCapacity' is not present");
     }
 
 }

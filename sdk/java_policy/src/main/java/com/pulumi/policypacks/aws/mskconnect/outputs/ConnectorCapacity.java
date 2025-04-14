@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mskconnect.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.mskconnect.outputs.ConnectorCapacityAutoscaling;
 import com.pulumi.policypacks.aws.mskconnect.outputs.ConnectorCapacityProvisionedCapacity;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ConnectorCapacity {
      * Information about the auto scaling parameters for the connector. See `autoscaling` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorCapacityAutoscaling> autoscaling;
-
+    @PolicyResourceProperty(name="autoscaling", flag="unknown_autoscaling")
+    private @Nullable ConnectorCapacityAutoscaling value_autoscaling;
+    private boolean unknown_autoscaling;
     public @Nullable ConnectorCapacityAutoscaling autoscaling() {
-        if (autoscaling == null) return null;
-        return autoscaling.getValue("ConnectorCapacity.autoscaling");
+        if (!unknown_autoscaling) return value_autoscaling;
+        throw new UndeferrableValueException("Value 'ConnectorCapacity.autoscaling' is not present");
     }
 
     /**
      * Details about a fixed capacity allocated to a connector. See `provisioned_capacity` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorCapacityProvisionedCapacity> provisionedCapacity;
-
+    @PolicyResourceProperty(name="provisionedCapacity", flag="unknown_provisionedCapacity")
+    private @Nullable ConnectorCapacityProvisionedCapacity value_provisionedCapacity;
+    private boolean unknown_provisionedCapacity;
     public @Nullable ConnectorCapacityProvisionedCapacity provisionedCapacity() {
-        if (provisionedCapacity == null) return null;
-        return provisionedCapacity.getValue("ConnectorCapacity.provisionedCapacity");
+        if (!unknown_provisionedCapacity) return value_provisionedCapacity;
+        throw new UndeferrableValueException("Value 'ConnectorCapacity.provisionedCapacity' is not present");
     }
 
 }

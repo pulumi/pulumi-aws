@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedpermissions.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.verifiedpermissions.outputs.IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration;
 import com.pulumi.policypacks.aws.verifiedpermissions.outputs.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class IdentitySourceConfigurationOpenIdConnectConfiguration {
      * A descriptive string that you want to prefix to user entities from your OIDC identity provider.
      * 
      */
-    private @Nullable UndeferrableValue<String> entityIdPrefix;
-
+    @PolicyResourceProperty(name="entityIdPrefix", flag="unknown_entityIdPrefix")
+    private @Nullable String value_entityIdPrefix;
+    private boolean unknown_entityIdPrefix;
     public @Nullable String entityIdPrefix() {
-        if (entityIdPrefix == null) return null;
-        return entityIdPrefix.getValue("IdentitySourceConfigurationOpenIdConnectConfiguration.entityIdPrefix");
+        if (!unknown_entityIdPrefix) return value_entityIdPrefix;
+        throw new UndeferrableValueException("Value 'IdentitySourceConfigurationOpenIdConnectConfiguration.entityIdPrefix' is not present");
     }
 
     /**
      * The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
      * 
      */
-    private @Nullable UndeferrableValue<IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration> groupConfiguration;
-
+    @PolicyResourceProperty(name="groupConfiguration", flag="unknown_groupConfiguration")
+    private @Nullable IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration value_groupConfiguration;
+    private boolean unknown_groupConfiguration;
     public @Nullable IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration groupConfiguration() {
-        if (groupConfiguration == null) return null;
-        return groupConfiguration.getValue("IdentitySourceConfigurationOpenIdConnectConfiguration.groupConfiguration");
+        if (!unknown_groupConfiguration) return value_groupConfiguration;
+        throw new UndeferrableValueException("Value 'IdentitySourceConfigurationOpenIdConnectConfiguration.groupConfiguration' is not present");
     }
 
     /**
      * The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
      * 
      */
-    private UndeferrableValue<String> issuer;
-
+    @PolicyResourceProperty(name="issuer", flag="unknown_issuer")
+    private String value_issuer;
+    private boolean unknown_issuer;
     public String issuer() {
-        if (issuer == null) return null;
-        return issuer.getValue("IdentitySourceConfigurationOpenIdConnectConfiguration.issuer");
+        if (!unknown_issuer) return value_issuer;
+        throw new UndeferrableValueException("Value 'IdentitySourceConfigurationOpenIdConnectConfiguration.issuer' is not present");
     }
 
     /**
      * The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
      * 
      */
-    private @Nullable UndeferrableValue<IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection> tokenSelection;
-
+    @PolicyResourceProperty(name="tokenSelection", flag="unknown_tokenSelection")
+    private @Nullable IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection value_tokenSelection;
+    private boolean unknown_tokenSelection;
     public @Nullable IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection tokenSelection() {
-        if (tokenSelection == null) return null;
-        return tokenSelection.getValue("IdentitySourceConfigurationOpenIdConnectConfiguration.tokenSelection");
+        if (!unknown_tokenSelection) return value_tokenSelection;
+        throw new UndeferrableValueException("Value 'IdentitySourceConfigurationOpenIdConnectConfiguration.tokenSelection' is not present");
     }
 
 }

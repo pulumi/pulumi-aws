@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -14,11 +15,12 @@ public final class RecordsExclusiveResourceRecordSetCidrRoutingConfig {
      * See the `aws.route53.CidrCollection` resource for more details.
      * 
      */
-    private UndeferrableValue<String> collectionId;
-
+    @PolicyResourceProperty(name="collectionId", flag="unknown_collectionId")
+    private String value_collectionId;
+    private boolean unknown_collectionId;
     public String collectionId() {
-        if (collectionId == null) return null;
-        return collectionId.getValue("RecordsExclusiveResourceRecordSetCidrRoutingConfig.collectionId");
+        if (!unknown_collectionId) return value_collectionId;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSetCidrRoutingConfig.collectionId' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class RecordsExclusiveResourceRecordSetCidrRoutingConfig {
      * `collection_id` is still required for a default record.
      * 
      */
-    private UndeferrableValue<String> locationName;
-
+    @PolicyResourceProperty(name="locationName", flag="unknown_locationName")
+    private String value_locationName;
+    private boolean unknown_locationName;
     public String locationName() {
-        if (locationName == null) return null;
-        return locationName.getValue("RecordsExclusiveResourceRecordSetCidrRoutingConfig.locationName");
+        if (!unknown_locationName) return value_locationName;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSetCidrRoutingConfig.locationName' is not present");
     }
 
 }

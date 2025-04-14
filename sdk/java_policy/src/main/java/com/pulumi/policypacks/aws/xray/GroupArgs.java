@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.xray;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.xray.inputs.GroupInsightsConfigurationArgs;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class GroupArgs extends com.pulumi.resources.PolicyResourceInput {
      * The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
      * 
      */
-    private UndeferrableValue<String> filterExpression;
-
+    @PolicyResourceProperty(name="filterExpression", flag="unknown_filterExpression")
+    private String value_filterExpression;
+    private boolean unknown_filterExpression;
     public String filterExpression() {
-        if (filterExpression == null) return null;
-        return filterExpression.getValue("GroupArgs.filterExpression");
+        if (!unknown_filterExpression) return value_filterExpression;
+        throw new UndeferrableValueException("Value 'GroupArgs.filterExpression' is not present");
     }
 
     /**
      * The name of the group.
      * 
      */
-    private UndeferrableValue<String> groupName;
-
+    @PolicyResourceProperty(name="groupName", flag="unknown_groupName")
+    private String value_groupName;
+    private boolean unknown_groupName;
     public String groupName() {
-        if (groupName == null) return null;
-        return groupName.getValue("GroupArgs.groupName");
+        if (!unknown_groupName) return value_groupName;
+        throw new UndeferrableValueException("Value 'GroupArgs.groupName' is not present");
     }
 
     /**
      * Configuration options for enabling insights.
      * 
      */
-    private UndeferrableValue<GroupInsightsConfigurationArgs> insightsConfiguration;
-
+    @PolicyResourceProperty(name="insightsConfiguration", flag="unknown_insightsConfiguration")
+    private GroupInsightsConfigurationArgs value_insightsConfiguration;
+    private boolean unknown_insightsConfiguration;
     public GroupInsightsConfigurationArgs insightsConfiguration() {
-        if (insightsConfiguration == null) return null;
-        return insightsConfiguration.getValue("GroupArgs.insightsConfiguration");
+        if (!unknown_insightsConfiguration) return value_insightsConfiguration;
+        throw new UndeferrableValueException("Value 'GroupArgs.insightsConfiguration' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("GroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'GroupArgs.tags' is not present");
     }
 
 }

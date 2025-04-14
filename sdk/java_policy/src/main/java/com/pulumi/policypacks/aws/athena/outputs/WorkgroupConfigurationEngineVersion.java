@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.athena.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class WorkgroupConfigurationEngineVersion {
      * The engine version on which the query runs. If `selected_engine_version` is set to `AUTO`, the effective engine version is chosen by Athena.
      * 
      */
-    private @Nullable UndeferrableValue<String> effectiveEngineVersion;
-
+    @PolicyResourceProperty(name="effectiveEngineVersion", flag="unknown_effectiveEngineVersion")
+    private @Nullable String value_effectiveEngineVersion;
+    private boolean unknown_effectiveEngineVersion;
     public @Nullable String effectiveEngineVersion() {
-        if (effectiveEngineVersion == null) return null;
-        return effectiveEngineVersion.getValue("WorkgroupConfigurationEngineVersion.effectiveEngineVersion");
+        if (!unknown_effectiveEngineVersion) return value_effectiveEngineVersion;
+        throw new UndeferrableValueException("Value 'WorkgroupConfigurationEngineVersion.effectiveEngineVersion' is not present");
     }
 
     /**
      * Requested engine version. Defaults to `AUTO`.
      * 
      */
-    private @Nullable UndeferrableValue<String> selectedEngineVersion;
-
+    @PolicyResourceProperty(name="selectedEngineVersion", flag="unknown_selectedEngineVersion")
+    private @Nullable String value_selectedEngineVersion;
+    private boolean unknown_selectedEngineVersion;
     public @Nullable String selectedEngineVersion() {
-        if (selectedEngineVersion == null) return null;
-        return selectedEngineVersion.getValue("WorkgroupConfigurationEngineVersion.selectedEngineVersion");
+        if (!unknown_selectedEngineVersion) return value_selectedEngineVersion;
+        throw new UndeferrableValueException("Value 'WorkgroupConfigurationEngineVersion.selectedEngineVersion' is not present");
     }
 
 }

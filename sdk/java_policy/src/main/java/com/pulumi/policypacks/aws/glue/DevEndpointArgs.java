@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -19,165 +20,180 @@ public final class DevEndpointArgs extends com.pulumi.resources.PolicyResourceIn
      * A map of arguments used to configure the endpoint.
      * 
      */
-    private UndeferrableValue<Map<String,String>> arguments;
-
+    @PolicyResourceProperty(name="arguments", flag="unknown_arguments")
+    private Map<String,String> value_arguments;
+    private boolean unknown_arguments;
     public Map<String,String> arguments() {
-        if (arguments == null) return null;
-        return arguments.getValue("DevEndpointArgs.arguments");
+        if (!unknown_arguments) return value_arguments;
+        throw new UndeferrableValueException("Value 'DevEndpointArgs.arguments' is not present");
     }
 
     /**
      * Path to one or more Java Jars in an S3 bucket that should be loaded in this endpoint.
      * 
      */
-    private UndeferrableValue<String> extraJarsS3Path;
-
+    @PolicyResourceProperty(name="extraJarsS3Path", flag="unknown_extraJarsS3Path")
+    private String value_extraJarsS3Path;
+    private boolean unknown_extraJarsS3Path;
     public String extraJarsS3Path() {
-        if (extraJarsS3Path == null) return null;
-        return extraJarsS3Path.getValue("DevEndpointArgs.extraJarsS3Path");
+        if (!unknown_extraJarsS3Path) return value_extraJarsS3Path;
+        throw new UndeferrableValueException("Value 'DevEndpointArgs.extraJarsS3Path' is not present");
     }
 
     /**
      * Path(s) to one or more Python libraries in an S3 bucket that should be loaded in this endpoint. Multiple values must be complete paths separated by a comma.
      * 
      */
-    private UndeferrableValue<String> extraPythonLibsS3Path;
-
+    @PolicyResourceProperty(name="extraPythonLibsS3Path", flag="unknown_extraPythonLibsS3Path")
+    private String value_extraPythonLibsS3Path;
+    private boolean unknown_extraPythonLibsS3Path;
     public String extraPythonLibsS3Path() {
-        if (extraPythonLibsS3Path == null) return null;
-        return extraPythonLibsS3Path.getValue("DevEndpointArgs.extraPythonLibsS3Path");
+        if (!unknown_extraPythonLibsS3Path) return value_extraPythonLibsS3Path;
+        throw new UndeferrableValueException("Value 'DevEndpointArgs.extraPythonLibsS3Path' is not present");
     }
 
     /**
      * Specifies the versions of Python and Apache Spark to use. Defaults to AWS Glue version 0.9.
      * 
      */
-    private UndeferrableValue<String> glueVersion;
-
+    @PolicyResourceProperty(name="glueVersion", flag="unknown_glueVersion")
+    private String value_glueVersion;
+    private boolean unknown_glueVersion;
     public String glueVersion() {
-        if (glueVersion == null) return null;
-        return glueVersion.getValue("DevEndpointArgs.glueVersion");
+        if (!unknown_glueVersion) return value_glueVersion;
+        throw new UndeferrableValueException("Value 'DevEndpointArgs.glueVersion' is not present");
     }
 
     /**
      * The name of this endpoint. It must be unique in your account.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DevEndpointArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DevEndpointArgs.name' is not present");
     }
 
     /**
      * The number of AWS Glue Data Processing Units (DPUs) to allocate to this endpoint. Conflicts with `worker_type`.
      * 
      */
-    private UndeferrableValue<Integer> numberOfNodes;
-
+    @PolicyResourceProperty(name="numberOfNodes", flag="unknown_numberOfNodes")
+    private Integer value_numberOfNodes;
+    private boolean unknown_numberOfNodes;
     public Integer numberOfNodes() {
-        if (numberOfNodes == null) return null;
-        return numberOfNodes.getValue("DevEndpointArgs.numberOfNodes");
+        if (!unknown_numberOfNodes) return value_numberOfNodes;
+        throw new UndeferrableValueException("Value 'DevEndpointArgs.numberOfNodes' is not present");
     }
 
     /**
      * The number of workers of a defined worker type that are allocated to this endpoint. This field is available only when you choose worker type G.1X or G.2X.
      * 
      */
-    private UndeferrableValue<Integer> numberOfWorkers;
-
+    @PolicyResourceProperty(name="numberOfWorkers", flag="unknown_numberOfWorkers")
+    private Integer value_numberOfWorkers;
+    private boolean unknown_numberOfWorkers;
     public Integer numberOfWorkers() {
-        if (numberOfWorkers == null) return null;
-        return numberOfWorkers.getValue("DevEndpointArgs.numberOfWorkers");
+        if (!unknown_numberOfWorkers) return value_numberOfWorkers;
+        throw new UndeferrableValueException("Value 'DevEndpointArgs.numberOfWorkers' is not present");
     }
 
     /**
      * The public key to be used by this endpoint for authentication.
      * 
      */
-    private UndeferrableValue<String> publicKey;
-
+    @PolicyResourceProperty(name="publicKey", flag="unknown_publicKey")
+    private String value_publicKey;
+    private boolean unknown_publicKey;
     public String publicKey() {
-        if (publicKey == null) return null;
-        return publicKey.getValue("DevEndpointArgs.publicKey");
+        if (!unknown_publicKey) return value_publicKey;
+        throw new UndeferrableValueException("Value 'DevEndpointArgs.publicKey' is not present");
     }
 
     /**
      * A list of public keys to be used by this endpoint for authentication.
      * 
      */
-    private UndeferrableValue<List<String>> publicKeys;
-
+    @PolicyResourceProperty(name="publicKeys", flag="unknown_publicKeys")
+    private List<String> value_publicKeys;
+    private boolean unknown_publicKeys;
     public List<String> publicKeys() {
-        if (publicKeys == null) return null;
-        return publicKeys.getValue("DevEndpointArgs.publicKeys");
+        if (!unknown_publicKeys) return value_publicKeys;
+        throw new UndeferrableValueException("Value 'DevEndpointArgs.publicKeys' is not present");
     }
 
     /**
      * The IAM role for this endpoint.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("DevEndpointArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'DevEndpointArgs.roleArn' is not present");
     }
 
     /**
      * The name of the Security Configuration structure to be used with this endpoint.
      * 
      */
-    private UndeferrableValue<String> securityConfiguration;
-
+    @PolicyResourceProperty(name="securityConfiguration", flag="unknown_securityConfiguration")
+    private String value_securityConfiguration;
+    private boolean unknown_securityConfiguration;
     public String securityConfiguration() {
-        if (securityConfiguration == null) return null;
-        return securityConfiguration.getValue("DevEndpointArgs.securityConfiguration");
+        if (!unknown_securityConfiguration) return value_securityConfiguration;
+        throw new UndeferrableValueException("Value 'DevEndpointArgs.securityConfiguration' is not present");
     }
 
     /**
      * Security group IDs for the security groups to be used by this endpoint.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("DevEndpointArgs.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'DevEndpointArgs.securityGroupIds' is not present");
     }
 
     /**
      * The subnet ID for the new endpoint to use.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("DevEndpointArgs.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'DevEndpointArgs.subnetId' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DevEndpointArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DevEndpointArgs.tags' is not present");
     }
 
     /**
      * The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
      * 
      */
-    private UndeferrableValue<String> workerType;
-
+    @PolicyResourceProperty(name="workerType", flag="unknown_workerType")
+    private String value_workerType;
+    private boolean unknown_workerType;
     public String workerType() {
-        if (workerType == null) return null;
-        return workerType.getValue("DevEndpointArgs.workerType");
+        if (!unknown_workerType) return value_workerType;
+        throw new UndeferrableValueException("Value 'DevEndpointArgs.workerType' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.outputs.AnalyticsApplicationInputsProcessingConfigurationLambda;
 
 
@@ -13,11 +14,12 @@ public final class AnalyticsApplicationInputsProcessingConfiguration {
      * The Lambda function configuration. See Lambda below for more details.
      * 
      */
-    private UndeferrableValue<AnalyticsApplicationInputsProcessingConfigurationLambda> lambda;
-
+    @PolicyResourceProperty(name="lambda", flag="unknown_lambda")
+    private AnalyticsApplicationInputsProcessingConfigurationLambda value_lambda;
+    private boolean unknown_lambda;
     public AnalyticsApplicationInputsProcessingConfigurationLambda lambda() {
-        if (lambda == null) return null;
-        return lambda.getValue("AnalyticsApplicationInputsProcessingConfiguration.lambda");
+        if (!unknown_lambda) return value_lambda;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsProcessingConfiguration.lambda' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appconfig;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,132 +19,144 @@ public final class Deployment extends com.pulumi.resources.PolicyResourceOutput 
      * Application ID. Must be between 4 and 7 characters in length.
      * 
      */
-    private UndeferrableValue<String> applicationId;
-
+    @PolicyResourceProperty(name="applicationId", flag="unknown_applicationId")
+    private String value_applicationId;
+    private boolean unknown_applicationId;
     public String applicationId() {
-        if (applicationId == null) return null;
-        return applicationId.getValue("Deployment.applicationId");
+        if (!unknown_applicationId) return value_applicationId;
+        throw new UndeferrableValueException("Value 'Deployment.applicationId' is not present");
     }
 
     /**
      * ARN of the AppConfig Deployment.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Deployment.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Deployment.arn' is not present");
     }
 
     /**
      * Configuration profile ID. Must be between 4 and 7 characters in length.
      * 
      */
-    private UndeferrableValue<String> configurationProfileId;
-
+    @PolicyResourceProperty(name="configurationProfileId", flag="unknown_configurationProfileId")
+    private String value_configurationProfileId;
+    private boolean unknown_configurationProfileId;
     public String configurationProfileId() {
-        if (configurationProfileId == null) return null;
-        return configurationProfileId.getValue("Deployment.configurationProfileId");
+        if (!unknown_configurationProfileId) return value_configurationProfileId;
+        throw new UndeferrableValueException("Value 'Deployment.configurationProfileId' is not present");
     }
 
     /**
      * Configuration version to deploy. Can be at most 1024 characters.
      * 
      */
-    private UndeferrableValue<String> configurationVersion;
-
+    @PolicyResourceProperty(name="configurationVersion", flag="unknown_configurationVersion")
+    private String value_configurationVersion;
+    private boolean unknown_configurationVersion;
     public String configurationVersion() {
-        if (configurationVersion == null) return null;
-        return configurationVersion.getValue("Deployment.configurationVersion");
+        if (!unknown_configurationVersion) return value_configurationVersion;
+        throw new UndeferrableValueException("Value 'Deployment.configurationVersion' is not present");
     }
 
     /**
      * Deployment number.
      * 
      */
-    private UndeferrableValue<Integer> deploymentNumber;
-
+    @PolicyResourceProperty(name="deploymentNumber", flag="unknown_deploymentNumber")
+    private Integer value_deploymentNumber;
+    private boolean unknown_deploymentNumber;
     public Integer deploymentNumber() {
-        if (deploymentNumber == null) return null;
-        return deploymentNumber.getValue("Deployment.deploymentNumber");
+        if (!unknown_deploymentNumber) return value_deploymentNumber;
+        throw new UndeferrableValueException("Value 'Deployment.deploymentNumber' is not present");
     }
 
     /**
      * Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
      * 
      */
-    private UndeferrableValue<String> deploymentStrategyId;
-
+    @PolicyResourceProperty(name="deploymentStrategyId", flag="unknown_deploymentStrategyId")
+    private String value_deploymentStrategyId;
+    private boolean unknown_deploymentStrategyId;
     public String deploymentStrategyId() {
-        if (deploymentStrategyId == null) return null;
-        return deploymentStrategyId.getValue("Deployment.deploymentStrategyId");
+        if (!unknown_deploymentStrategyId) return value_deploymentStrategyId;
+        throw new UndeferrableValueException("Value 'Deployment.deploymentStrategyId' is not present");
     }
 
     /**
      * Description of the deployment. Can be at most 1024 characters.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Deployment.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Deployment.description' is not present");
     }
 
     /**
      * Environment ID. Must be between 4 and 7 characters in length.
      * 
      */
-    private UndeferrableValue<String> environmentId;
-
+    @PolicyResourceProperty(name="environmentId", flag="unknown_environmentId")
+    private String value_environmentId;
+    private boolean unknown_environmentId;
     public String environmentId() {
-        if (environmentId == null) return null;
-        return environmentId.getValue("Deployment.environmentId");
+        if (!unknown_environmentId) return value_environmentId;
+        throw new UndeferrableValueException("Value 'Deployment.environmentId' is not present");
     }
 
     /**
      * ARN of the KMS key used to encrypt configuration data.
      * 
      */
-    private UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("Deployment.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'Deployment.kmsKeyArn' is not present");
     }
 
     /**
      * The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyIdentifier;
-
+    @PolicyResourceProperty(name="kmsKeyIdentifier", flag="unknown_kmsKeyIdentifier")
+    private @Nullable String value_kmsKeyIdentifier;
+    private boolean unknown_kmsKeyIdentifier;
     public @Nullable String kmsKeyIdentifier() {
-        if (kmsKeyIdentifier == null) return null;
-        return kmsKeyIdentifier.getValue("Deployment.kmsKeyIdentifier");
+        if (!unknown_kmsKeyIdentifier) return value_kmsKeyIdentifier;
+        throw new UndeferrableValueException("Value 'Deployment.kmsKeyIdentifier' is not present");
     }
 
     /**
      * State of the deployment.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("Deployment.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'Deployment.state' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Deployment.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Deployment.tags' is not present");
     }
 
     /**
@@ -154,11 +167,12 @@ public final class Deployment extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Deployment.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Deployment.tagsAll' is not present");
     }
 
 }

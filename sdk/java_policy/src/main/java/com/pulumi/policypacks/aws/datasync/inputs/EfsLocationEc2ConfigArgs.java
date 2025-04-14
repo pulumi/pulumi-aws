@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,22 +15,24 @@ public final class EfsLocationEc2ConfigArgs {
      * List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupArns;
-
+    @PolicyResourceProperty(name="securityGroupArns", flag="unknown_securityGroupArns")
+    private List<String> value_securityGroupArns;
+    private boolean unknown_securityGroupArns;
     public List<String> securityGroupArns() {
-        if (securityGroupArns == null) return null;
-        return securityGroupArns.getValue("EfsLocationEc2ConfigArgs.securityGroupArns");
+        if (!unknown_securityGroupArns) return value_securityGroupArns;
+        throw new UndeferrableValueException("Value 'EfsLocationEc2ConfigArgs.securityGroupArns' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
      * 
      */
-    private UndeferrableValue<String> subnetArn;
-
+    @PolicyResourceProperty(name="subnetArn", flag="unknown_subnetArn")
+    private String value_subnetArn;
+    private boolean unknown_subnetArn;
     public String subnetArn() {
-        if (subnetArn == null) return null;
-        return subnetArn.getValue("EfsLocationEc2ConfigArgs.subnetArn");
+        if (!unknown_subnetArn) return value_subnetArn;
+        throw new UndeferrableValueException("Value 'EfsLocationEc2ConfigArgs.subnetArn' is not present");
     }
 
 }

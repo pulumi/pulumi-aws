@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lightsail.inputs.DistributionCacheBehaviorArgs;
 import com.pulumi.policypacks.aws.lightsail.inputs.DistributionCacheBehaviorSettingsArgs;
@@ -23,11 +24,12 @@ public final class DistributionArgs extends com.pulumi.resources.PolicyResourceI
      * Bundle ID to use for the distribution.
      * 
      */
-    private UndeferrableValue<String> bundleId;
-
+    @PolicyResourceProperty(name="bundleId", flag="unknown_bundleId")
+    private String value_bundleId;
+    private boolean unknown_bundleId;
     public String bundleId() {
-        if (bundleId == null) return null;
-        return bundleId.getValue("DistributionArgs.bundleId");
+        if (!unknown_bundleId) return value_bundleId;
+        throw new UndeferrableValueException("Value 'DistributionArgs.bundleId' is not present");
     }
 
     /**
@@ -36,99 +38,108 @@ public final class DistributionArgs extends com.pulumi.resources.PolicyResourceI
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<DistributionCacheBehaviorSettingsArgs> cacheBehaviorSettings;
-
+    @PolicyResourceProperty(name="cacheBehaviorSettings", flag="unknown_cacheBehaviorSettings")
+    private DistributionCacheBehaviorSettingsArgs value_cacheBehaviorSettings;
+    private boolean unknown_cacheBehaviorSettings;
     public DistributionCacheBehaviorSettingsArgs cacheBehaviorSettings() {
-        if (cacheBehaviorSettings == null) return null;
-        return cacheBehaviorSettings.getValue("DistributionArgs.cacheBehaviorSettings");
+        if (!unknown_cacheBehaviorSettings) return value_cacheBehaviorSettings;
+        throw new UndeferrableValueException("Value 'DistributionArgs.cacheBehaviorSettings' is not present");
     }
 
     /**
      * A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
      * 
      */
-    private UndeferrableValue<List<DistributionCacheBehaviorArgs>> cacheBehaviors;
-
+    @PolicyResourceProperty(name="cacheBehaviors", flag="unknown_cacheBehaviors")
+    private List<DistributionCacheBehaviorArgs> value_cacheBehaviors;
+    private boolean unknown_cacheBehaviors;
     public List<DistributionCacheBehaviorArgs> cacheBehaviors() {
-        if (cacheBehaviors == null) return null;
-        return cacheBehaviors.getValue("DistributionArgs.cacheBehaviors");
+        if (!unknown_cacheBehaviors) return value_cacheBehaviors;
+        throw new UndeferrableValueException("Value 'DistributionArgs.cacheBehaviors' is not present");
     }
 
     /**
      * The name of the SSL/TLS certificate attached to the distribution, if any.
      * 
      */
-    private UndeferrableValue<String> certificateName;
-
+    @PolicyResourceProperty(name="certificateName", flag="unknown_certificateName")
+    private String value_certificateName;
+    private boolean unknown_certificateName;
     public String certificateName() {
-        if (certificateName == null) return null;
-        return certificateName.getValue("DistributionArgs.certificateName");
+        if (!unknown_certificateName) return value_certificateName;
+        throw new UndeferrableValueException("Value 'DistributionArgs.certificateName' is not present");
     }
 
     /**
      * Object that describes the default cache behavior of the distribution. Detailed below
      * 
      */
-    private UndeferrableValue<DistributionDefaultCacheBehaviorArgs> defaultCacheBehavior;
-
+    @PolicyResourceProperty(name="defaultCacheBehavior", flag="unknown_defaultCacheBehavior")
+    private DistributionDefaultCacheBehaviorArgs value_defaultCacheBehavior;
+    private boolean unknown_defaultCacheBehavior;
     public DistributionDefaultCacheBehaviorArgs defaultCacheBehavior() {
-        if (defaultCacheBehavior == null) return null;
-        return defaultCacheBehavior.getValue("DistributionArgs.defaultCacheBehavior");
+        if (!unknown_defaultCacheBehavior) return value_defaultCacheBehavior;
+        throw new UndeferrableValueException("Value 'DistributionArgs.defaultCacheBehavior' is not present");
     }
 
     /**
      * The IP address type of the distribution. Default: `dualstack`.
      * 
      */
-    private UndeferrableValue<String> ipAddressType;
-
+    @PolicyResourceProperty(name="ipAddressType", flag="unknown_ipAddressType")
+    private String value_ipAddressType;
+    private boolean unknown_ipAddressType;
     public String ipAddressType() {
-        if (ipAddressType == null) return null;
-        return ipAddressType.getValue("DistributionArgs.ipAddressType");
+        if (!unknown_ipAddressType) return value_ipAddressType;
+        throw new UndeferrableValueException("Value 'DistributionArgs.ipAddressType' is not present");
     }
 
     /**
      * Indicates whether the distribution is enabled. Default: `true`.
      * 
      */
-    private UndeferrableValue<Boolean> isEnabled;
-
+    @PolicyResourceProperty(name="isEnabled", flag="unknown_isEnabled")
+    private Boolean value_isEnabled;
+    private boolean unknown_isEnabled;
     public Boolean isEnabled() {
-        if (isEnabled == null) return null;
-        return isEnabled.getValue("DistributionArgs.isEnabled");
+        if (!unknown_isEnabled) return value_isEnabled;
+        throw new UndeferrableValueException("Value 'DistributionArgs.isEnabled' is not present");
     }
 
     /**
      * Name of the distribution.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DistributionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DistributionArgs.name' is not present");
     }
 
     /**
      * Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
      * 
      */
-    private UndeferrableValue<DistributionOriginArgs> origin;
-
+    @PolicyResourceProperty(name="origin", flag="unknown_origin")
+    private DistributionOriginArgs value_origin;
+    private boolean unknown_origin;
     public DistributionOriginArgs origin() {
-        if (origin == null) return null;
-        return origin.getValue("DistributionArgs.origin");
+        if (!unknown_origin) return value_origin;
+        throw new UndeferrableValueException("Value 'DistributionArgs.origin' is not present");
     }
 
     /**
      * Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DistributionArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DistributionArgs.tags' is not present");
     }
 
 }

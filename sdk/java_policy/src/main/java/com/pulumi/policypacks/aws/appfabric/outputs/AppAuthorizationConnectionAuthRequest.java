@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appfabric.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class AppAuthorizationConnectionAuthRequest {
      * The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
      * 
      */
-    private UndeferrableValue<String> code;
-
+    @PolicyResourceProperty(name="code", flag="unknown_code")
+    private String value_code;
+    private boolean unknown_code;
     public String code() {
-        if (code == null) return null;
-        return code.getValue("AppAuthorizationConnectionAuthRequest.code");
+        if (!unknown_code) return value_code;
+        throw new UndeferrableValueException("Value 'AppAuthorizationConnectionAuthRequest.code' is not present");
     }
 
     /**
      * The redirect URL that is specified in the AuthURL and the application client.
      * 
      */
-    private UndeferrableValue<String> redirectUri;
-
+    @PolicyResourceProperty(name="redirectUri", flag="unknown_redirectUri")
+    private String value_redirectUri;
+    private boolean unknown_redirectUri;
     public String redirectUri() {
-        if (redirectUri == null) return null;
-        return redirectUri.getValue("AppAuthorizationConnectionAuthRequest.redirectUri");
+        if (!unknown_redirectUri) return value_redirectUri;
+        throw new UndeferrableValueException("Value 'AppAuthorizationConnectionAuthRequest.redirectUri' is not present");
     }
 
 }

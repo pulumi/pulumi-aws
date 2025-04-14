@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.msk.outputs.ClusterOpenMonitoringPrometheus;
 
 
@@ -13,11 +14,12 @@ public final class ClusterOpenMonitoring {
      * Configuration block for Prometheus settings for open monitoring. See below.
      * 
      */
-    private UndeferrableValue<ClusterOpenMonitoringPrometheus> prometheus;
-
+    @PolicyResourceProperty(name="prometheus", flag="unknown_prometheus")
+    private ClusterOpenMonitoringPrometheus value_prometheus;
+    private boolean unknown_prometheus;
     public ClusterOpenMonitoringPrometheus prometheus() {
-        if (prometheus == null) return null;
-        return prometheus.getValue("ClusterOpenMonitoring.prometheus");
+        if (!unknown_prometheus) return value_prometheus;
+        throw new UndeferrableValueException("Value 'ClusterOpenMonitoring.prometheus' is not present");
     }
 
 }

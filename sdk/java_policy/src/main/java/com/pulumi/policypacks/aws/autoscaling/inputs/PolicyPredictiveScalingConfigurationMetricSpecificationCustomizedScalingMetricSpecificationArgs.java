@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
      * List of up to 10 structures that defines custom scaling metric in predictive scaling policy
      * 
      */
-    private UndeferrableValue<List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs>> metricDataQueries;
-
+    @PolicyResourceProperty(name="metricDataQueries", flag="unknown_metricDataQueries")
+    private List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs> value_metricDataQueries;
+    private boolean unknown_metricDataQueries;
     public List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs> metricDataQueries() {
-        if (metricDataQueries == null) return null;
-        return metricDataQueries.getValue("PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs.metricDataQueries");
+        if (!unknown_metricDataQueries) return value_metricDataQueries;
+        throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs.metricDataQueries' is not present");
     }
 
 }

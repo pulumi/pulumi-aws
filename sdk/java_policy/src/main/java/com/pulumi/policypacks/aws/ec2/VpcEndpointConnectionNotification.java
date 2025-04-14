@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -19,66 +20,72 @@ public final class VpcEndpointConnectionNotification extends com.pulumi.resource
      * &gt; **NOTE:** One of `vpc_endpoint_service_id` or `vpc_endpoint_id` must be specified.
      * 
      */
-    private UndeferrableValue<List<String>> connectionEvents;
-
+    @PolicyResourceProperty(name="connectionEvents", flag="unknown_connectionEvents")
+    private List<String> value_connectionEvents;
+    private boolean unknown_connectionEvents;
     public List<String> connectionEvents() {
-        if (connectionEvents == null) return null;
-        return connectionEvents.getValue("VpcEndpointConnectionNotification.connectionEvents");
+        if (!unknown_connectionEvents) return value_connectionEvents;
+        throw new UndeferrableValueException("Value 'VpcEndpointConnectionNotification.connectionEvents' is not present");
     }
 
     /**
      * The ARN of the SNS topic for the notifications.
      * 
      */
-    private UndeferrableValue<String> connectionNotificationArn;
-
+    @PolicyResourceProperty(name="connectionNotificationArn", flag="unknown_connectionNotificationArn")
+    private String value_connectionNotificationArn;
+    private boolean unknown_connectionNotificationArn;
     public String connectionNotificationArn() {
-        if (connectionNotificationArn == null) return null;
-        return connectionNotificationArn.getValue("VpcEndpointConnectionNotification.connectionNotificationArn");
+        if (!unknown_connectionNotificationArn) return value_connectionNotificationArn;
+        throw new UndeferrableValueException("Value 'VpcEndpointConnectionNotification.connectionNotificationArn' is not present");
     }
 
     /**
      * The type of notification.
      * 
      */
-    private UndeferrableValue<String> notificationType;
-
+    @PolicyResourceProperty(name="notificationType", flag="unknown_notificationType")
+    private String value_notificationType;
+    private boolean unknown_notificationType;
     public String notificationType() {
-        if (notificationType == null) return null;
-        return notificationType.getValue("VpcEndpointConnectionNotification.notificationType");
+        if (!unknown_notificationType) return value_notificationType;
+        throw new UndeferrableValueException("Value 'VpcEndpointConnectionNotification.notificationType' is not present");
     }
 
     /**
      * The state of the notification.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("VpcEndpointConnectionNotification.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'VpcEndpointConnectionNotification.state' is not present");
     }
 
     /**
      * The ID of the VPC Endpoint to receive notifications for.
      * 
      */
-    private @Nullable UndeferrableValue<String> vpcEndpointId;
-
+    @PolicyResourceProperty(name="vpcEndpointId", flag="unknown_vpcEndpointId")
+    private @Nullable String value_vpcEndpointId;
+    private boolean unknown_vpcEndpointId;
     public @Nullable String vpcEndpointId() {
-        if (vpcEndpointId == null) return null;
-        return vpcEndpointId.getValue("VpcEndpointConnectionNotification.vpcEndpointId");
+        if (!unknown_vpcEndpointId) return value_vpcEndpointId;
+        throw new UndeferrableValueException("Value 'VpcEndpointConnectionNotification.vpcEndpointId' is not present");
     }
 
     /**
      * The ID of the VPC Endpoint Service to receive notifications for.
      * 
      */
-    private @Nullable UndeferrableValue<String> vpcEndpointServiceId;
-
+    @PolicyResourceProperty(name="vpcEndpointServiceId", flag="unknown_vpcEndpointServiceId")
+    private @Nullable String value_vpcEndpointServiceId;
+    private boolean unknown_vpcEndpointServiceId;
     public @Nullable String vpcEndpointServiceId() {
-        if (vpcEndpointServiceId == null) return null;
-        return vpcEndpointServiceId.getValue("VpcEndpointConnectionNotification.vpcEndpointServiceId");
+        if (!unknown_vpcEndpointServiceId) return value_vpcEndpointServiceId;
+        throw new UndeferrableValueException("Value 'VpcEndpointConnectionNotification.vpcEndpointServiceId' is not present");
     }
 
 }

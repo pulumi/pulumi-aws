@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class VpcIpamPoolCidrCidrAuthorizationContext {
      * The plain-text authorization message for the prefix and account.
      * 
      */
-    private @Nullable UndeferrableValue<String> message;
-
+    @PolicyResourceProperty(name="message", flag="unknown_message")
+    private @Nullable String value_message;
+    private boolean unknown_message;
     public @Nullable String message() {
-        if (message == null) return null;
-        return message.getValue("VpcIpamPoolCidrCidrAuthorizationContext.message");
+        if (!unknown_message) return value_message;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolCidrCidrAuthorizationContext.message' is not present");
     }
 
     /**
      * The signed authorization message for the prefix and account.
      * 
      */
-    private @Nullable UndeferrableValue<String> signature;
-
+    @PolicyResourceProperty(name="signature", flag="unknown_signature")
+    private @Nullable String value_signature;
+    private boolean unknown_signature;
     public @Nullable String signature() {
-        if (signature == null) return null;
-        return signature.getValue("VpcIpamPoolCidrCidrAuthorizationContext.signature");
+        if (!unknown_signature) return value_signature;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolCidrCidrAuthorizationContext.signature' is not present");
     }
 
 }

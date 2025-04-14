@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentClosingSettingClosingResponseMessageGroupArgs;
 import java.lang.Boolean;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class V2modelsIntentClosingSettingClosingResponseArgs {
      * Whether the user can interrupt a speech response from Amazon Lex.
      * 
      */
-    private UndeferrableValue<Boolean> allowInterrupt;
-
+    @PolicyResourceProperty(name="allowInterrupt", flag="unknown_allowInterrupt")
+    private Boolean value_allowInterrupt;
+    private boolean unknown_allowInterrupt;
     public Boolean allowInterrupt() {
-        if (allowInterrupt == null) return null;
-        return allowInterrupt.getValue("V2modelsIntentClosingSettingClosingResponseArgs.allowInterrupt");
+        if (!unknown_allowInterrupt) return value_allowInterrupt;
+        throw new UndeferrableValueException("Value 'V2modelsIntentClosingSettingClosingResponseArgs.allowInterrupt' is not present");
     }
 
     /**
      * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
      * 
      */
-    private UndeferrableValue<List<V2modelsIntentClosingSettingClosingResponseMessageGroupArgs>> messageGroups;
-
+    @PolicyResourceProperty(name="messageGroups", flag="unknown_messageGroups")
+    private List<V2modelsIntentClosingSettingClosingResponseMessageGroupArgs> value_messageGroups;
+    private boolean unknown_messageGroups;
     public List<V2modelsIntentClosingSettingClosingResponseMessageGroupArgs> messageGroups() {
-        if (messageGroups == null) return null;
-        return messageGroups.getValue("V2modelsIntentClosingSettingClosingResponseArgs.messageGroups");
+        if (!unknown_messageGroups) return value_messageGroups;
+        throw new UndeferrableValueException("Value 'V2modelsIntentClosingSettingClosingResponseArgs.messageGroups' is not present");
     }
 
 }

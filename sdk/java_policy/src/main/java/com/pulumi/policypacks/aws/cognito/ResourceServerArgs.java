@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cognito.inputs.ResourceServerScopeArgs;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class ResourceServerArgs extends com.pulumi.resources.PolicyResourc
      * An identifier for the resource server.
      * 
      */
-    private UndeferrableValue<String> identifier;
-
+    @PolicyResourceProperty(name="identifier", flag="unknown_identifier")
+    private String value_identifier;
+    private boolean unknown_identifier;
     public String identifier() {
-        if (identifier == null) return null;
-        return identifier.getValue("ResourceServerArgs.identifier");
+        if (!unknown_identifier) return value_identifier;
+        throw new UndeferrableValueException("Value 'ResourceServerArgs.identifier' is not present");
     }
 
     /**
      * A name for the resource server.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ResourceServerArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ResourceServerArgs.name' is not present");
     }
 
     /**
      * A list of Authorization Scope.
      * 
      */
-    private UndeferrableValue<List<ResourceServerScopeArgs>> scopes;
-
+    @PolicyResourceProperty(name="scopes", flag="unknown_scopes")
+    private List<ResourceServerScopeArgs> value_scopes;
+    private boolean unknown_scopes;
     public List<ResourceServerScopeArgs> scopes() {
-        if (scopes == null) return null;
-        return scopes.getValue("ResourceServerArgs.scopes");
+        if (!unknown_scopes) return value_scopes;
+        throw new UndeferrableValueException("Value 'ResourceServerArgs.scopes' is not present");
     }
 
     /**
      * User pool the client belongs to.
      * 
      */
-    private UndeferrableValue<String> userPoolId;
-
+    @PolicyResourceProperty(name="userPoolId", flag="unknown_userPoolId")
+    private String value_userPoolId;
+    private boolean unknown_userPoolId;
     public String userPoolId() {
-        if (userPoolId == null) return null;
-        return userPoolId.getValue("ResourceServerArgs.userPoolId");
+        if (!unknown_userPoolId) return value_userPoolId;
+        throw new UndeferrableValueException("Value 'ResourceServerArgs.userPoolId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration;
 import javax.annotation.Nullable;
@@ -11,18 +12,20 @@ import javax.annotation.Nullable;
 
 public final class AgentDataSourceDataSourceConfigurationConfluenceConfiguration {
 
-    private @Nullable UndeferrableValue<AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration> crawlerConfiguration;
-
+    @PolicyResourceProperty(name="crawlerConfiguration", flag="unknown_crawlerConfiguration")
+    private @Nullable AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration value_crawlerConfiguration;
+    private boolean unknown_crawlerConfiguration;
     public @Nullable AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfiguration crawlerConfiguration() {
-        if (crawlerConfiguration == null) return null;
-        return crawlerConfiguration.getValue("AgentDataSourceDataSourceConfigurationConfluenceConfiguration.crawlerConfiguration");
+        if (!unknown_crawlerConfiguration) return value_crawlerConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationConfluenceConfiguration.crawlerConfiguration' is not present");
     }
 
-    private @Nullable UndeferrableValue<AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration> sourceConfiguration;
-
+    @PolicyResourceProperty(name="sourceConfiguration", flag="unknown_sourceConfiguration")
+    private @Nullable AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration value_sourceConfiguration;
+    private boolean unknown_sourceConfiguration;
     public @Nullable AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfiguration sourceConfiguration() {
-        if (sourceConfiguration == null) return null;
-        return sourceConfiguration.getValue("AgentDataSourceDataSourceConfigurationConfluenceConfiguration.sourceConfiguration");
+        if (!unknown_sourceConfiguration) return value_sourceConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationConfluenceConfiguration.sourceConfiguration' is not present");
     }
 
 }

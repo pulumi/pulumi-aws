@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codecommit;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.codecommit.inputs.TriggerTriggerArgs;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class TriggerArgs extends com.pulumi.resources.PolicyResourceInput 
      * The name for the repository. This needs to be less than 100 characters.
      * 
      */
-    private UndeferrableValue<String> repositoryName;
-
+    @PolicyResourceProperty(name="repositoryName", flag="unknown_repositoryName")
+    private String value_repositoryName;
+    private boolean unknown_repositoryName;
     public String repositoryName() {
-        if (repositoryName == null) return null;
-        return repositoryName.getValue("TriggerArgs.repositoryName");
+        if (!unknown_repositoryName) return value_repositoryName;
+        throw new UndeferrableValueException("Value 'TriggerArgs.repositoryName' is not present");
     }
 
     /**
      * The name of the trigger.
      * 
      */
-    private UndeferrableValue<List<TriggerTriggerArgs>> triggers;
-
+    @PolicyResourceProperty(name="triggers", flag="unknown_triggers")
+    private List<TriggerTriggerArgs> value_triggers;
+    private boolean unknown_triggers;
     public List<TriggerTriggerArgs> triggers() {
-        if (triggers == null) return null;
-        return triggers.getValue("TriggerArgs.triggers");
+        if (!unknown_triggers) return value_triggers;
+        throw new UndeferrableValueException("Value 'TriggerArgs.triggers' is not present");
     }
 
 }

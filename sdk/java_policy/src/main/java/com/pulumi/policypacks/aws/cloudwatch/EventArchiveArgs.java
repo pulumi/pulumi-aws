@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,55 +18,60 @@ public final class EventArchiveArgs extends com.pulumi.resources.PolicyResourceI
      * The description of the new event archive.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("EventArchiveArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'EventArchiveArgs.description' is not present");
     }
 
     /**
      * Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
      * 
      */
-    private UndeferrableValue<String> eventPattern;
-
+    @PolicyResourceProperty(name="eventPattern", flag="unknown_eventPattern")
+    private String value_eventPattern;
+    private boolean unknown_eventPattern;
     public String eventPattern() {
-        if (eventPattern == null) return null;
-        return eventPattern.getValue("EventArchiveArgs.eventPattern");
+        if (!unknown_eventPattern) return value_eventPattern;
+        throw new UndeferrableValueException("Value 'EventArchiveArgs.eventPattern' is not present");
     }
 
     /**
      * Event bus source ARN from where these events should be archived.
      * 
      */
-    private UndeferrableValue<String> eventSourceArn;
-
+    @PolicyResourceProperty(name="eventSourceArn", flag="unknown_eventSourceArn")
+    private String value_eventSourceArn;
+    private boolean unknown_eventSourceArn;
     public String eventSourceArn() {
-        if (eventSourceArn == null) return null;
-        return eventSourceArn.getValue("EventArchiveArgs.eventSourceArn");
+        if (!unknown_eventSourceArn) return value_eventSourceArn;
+        throw new UndeferrableValueException("Value 'EventArchiveArgs.eventSourceArn' is not present");
     }
 
     /**
      * The name of the new event archive. The archive name cannot exceed 48 characters.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("EventArchiveArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'EventArchiveArgs.name' is not present");
     }
 
     /**
      * The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
      * 
      */
-    private UndeferrableValue<Integer> retentionDays;
-
+    @PolicyResourceProperty(name="retentionDays", flag="unknown_retentionDays")
+    private Integer value_retentionDays;
+    private boolean unknown_retentionDays;
     public Integer retentionDays() {
-        if (retentionDays == null) return null;
-        return retentionDays.getValue("EventArchiveArgs.retentionDays");
+        if (!unknown_retentionDays) return value_retentionDays;
+        throw new UndeferrableValueException("Value 'EventArchiveArgs.retentionDays' is not present");
     }
 
 }

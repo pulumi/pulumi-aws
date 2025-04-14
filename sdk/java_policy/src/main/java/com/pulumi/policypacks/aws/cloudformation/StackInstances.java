@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudformation;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudformation.outputs.StackInstancesDeploymentTargets;
 import com.pulumi.policypacks.aws.cloudformation.outputs.StackInstancesOperationPreferences;
@@ -22,99 +23,108 @@ public final class StackInstances extends com.pulumi.resources.PolicyResourceOut
      * Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deployment_targets`, but not both.
      * 
      */
-    private UndeferrableValue<List<String>> accounts;
-
+    @PolicyResourceProperty(name="accounts", flag="unknown_accounts")
+    private List<String> value_accounts;
+    private boolean unknown_accounts;
     public List<String> accounts() {
-        if (accounts == null) return null;
-        return accounts.getValue("StackInstances.accounts");
+        if (!unknown_accounts) return value_accounts;
+        throw new UndeferrableValueException("Value 'StackInstances.accounts' is not present");
     }
 
     /**
      * Whether you are acting as an account administrator in the organization&#39;s management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
      * 
      */
-    private @Nullable UndeferrableValue<String> callAs;
-
+    @PolicyResourceProperty(name="callAs", flag="unknown_callAs")
+    private @Nullable String value_callAs;
+    private boolean unknown_callAs;
     public @Nullable String callAs() {
-        if (callAs == null) return null;
-        return callAs.getValue("StackInstances.callAs");
+        if (!unknown_callAs) return value_callAs;
+        throw new UndeferrableValueException("Value 'StackInstances.callAs' is not present");
     }
 
     /**
      * AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deployment_targets below.
      * 
      */
-    private @Nullable UndeferrableValue<StackInstancesDeploymentTargets> deploymentTargets;
-
+    @PolicyResourceProperty(name="deploymentTargets", flag="unknown_deploymentTargets")
+    private @Nullable StackInstancesDeploymentTargets value_deploymentTargets;
+    private boolean unknown_deploymentTargets;
     public @Nullable StackInstancesDeploymentTargets deploymentTargets() {
-        if (deploymentTargets == null) return null;
-        return deploymentTargets.getValue("StackInstances.deploymentTargets");
+        if (!unknown_deploymentTargets) return value_deploymentTargets;
+        throw new UndeferrableValueException("Value 'StackInstances.deploymentTargets' is not present");
     }
 
     /**
      * Preferences for how AWS CloudFormation performs a stack set operation. See operation_preferences below.
      * 
      */
-    private @Nullable UndeferrableValue<StackInstancesOperationPreferences> operationPreferences;
-
+    @PolicyResourceProperty(name="operationPreferences", flag="unknown_operationPreferences")
+    private @Nullable StackInstancesOperationPreferences value_operationPreferences;
+    private boolean unknown_operationPreferences;
     public @Nullable StackInstancesOperationPreferences operationPreferences() {
-        if (operationPreferences == null) return null;
-        return operationPreferences.getValue("StackInstances.operationPreferences");
+        if (!unknown_operationPreferences) return value_operationPreferences;
+        throw new UndeferrableValueException("Value 'StackInstances.operationPreferences' is not present");
     }
 
     /**
      * Key-value map of input parameters to override from the stack set for these instances. This argument&#39;s drift detection is limited to the first account and region since each instance can have unique parameters.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> parameterOverrides;
-
+    @PolicyResourceProperty(name="parameterOverrides", flag="unknown_parameterOverrides")
+    private @Nullable Map<String,String> value_parameterOverrides;
+    private boolean unknown_parameterOverrides;
     public @Nullable Map<String,String> parameterOverrides() {
-        if (parameterOverrides == null) return null;
-        return parameterOverrides.getValue("StackInstances.parameterOverrides");
+        if (!unknown_parameterOverrides) return value_parameterOverrides;
+        throw new UndeferrableValueException("Value 'StackInstances.parameterOverrides' is not present");
     }
 
     /**
      * Regions where you want to create stack instances in the specified `accounts`.
      * 
      */
-    private UndeferrableValue<List<String>> regions;
-
+    @PolicyResourceProperty(name="regions", flag="unknown_regions")
+    private List<String> value_regions;
+    private boolean unknown_regions;
     public List<String> regions() {
-        if (regions == null) return null;
-        return regions.getValue("StackInstances.regions");
+        if (!unknown_regions) return value_regions;
+        throw new UndeferrableValueException("Value 'StackInstances.regions' is not present");
     }
 
     /**
      * Whether to remove the stack instances from the stack set, but not delete the stacks. You can&#39;t reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retain_stacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> retainStacks;
-
+    @PolicyResourceProperty(name="retainStacks", flag="unknown_retainStacks")
+    private @Nullable Boolean value_retainStacks;
+    private boolean unknown_retainStacks;
     public @Nullable Boolean retainStacks() {
-        if (retainStacks == null) return null;
-        return retainStacks.getValue("StackInstances.retainStacks");
+        if (!unknown_retainStacks) return value_retainStacks;
+        throw new UndeferrableValueException("Value 'StackInstances.retainStacks' is not present");
     }
 
     /**
      * List of stack instances created from an organizational unit deployment target. This may not always be set depending on whether CloudFormation returns summaries for your configuration. See `stack_instance_summaries`.
      * 
      */
-    private UndeferrableValue<List<StackInstancesStackInstanceSummary>> stackInstanceSummaries;
-
+    @PolicyResourceProperty(name="stackInstanceSummaries", flag="unknown_stackInstanceSummaries")
+    private List<StackInstancesStackInstanceSummary> value_stackInstanceSummaries;
+    private boolean unknown_stackInstanceSummaries;
     public List<StackInstancesStackInstanceSummary> stackInstanceSummaries() {
-        if (stackInstanceSummaries == null) return null;
-        return stackInstanceSummaries.getValue("StackInstances.stackInstanceSummaries");
+        if (!unknown_stackInstanceSummaries) return value_stackInstanceSummaries;
+        throw new UndeferrableValueException("Value 'StackInstances.stackInstanceSummaries' is not present");
     }
 
     /**
      * Name or unique ID of the stack set that the stack instance is associated with.
      * 
      */
-    private UndeferrableValue<String> stackSetId;
-
+    @PolicyResourceProperty(name="stackSetId", flag="unknown_stackSetId")
+    private String value_stackSetId;
+    private boolean unknown_stackSetId;
     public String stackSetId() {
-        if (stackSetId == null) return null;
-        return stackSetId.getValue("StackInstances.stackSetId");
+        if (!unknown_stackSetId) return value_stackSetId;
+        throw new UndeferrableValueException("Value 'StackInstances.stackSetId' is not present");
     }
 
     /**
@@ -123,11 +133,12 @@ public final class StackInstances extends com.pulumi.resources.PolicyResourceOut
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> stackSetName;
-
+    @PolicyResourceProperty(name="stackSetName", flag="unknown_stackSetName")
+    private String value_stackSetName;
+    private boolean unknown_stackSetName;
     public String stackSetName() {
-        if (stackSetName == null) return null;
-        return stackSetName.getValue("StackInstances.stackSetName");
+        if (!unknown_stackSetName) return value_stackSetName;
+        throw new UndeferrableValueException("Value 'StackInstances.stackSetName' is not present");
     }
 
 }

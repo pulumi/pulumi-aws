@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamquery.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.timestreamquery.outputs.ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocation;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ScheduledQueryLastRunSummaryErrorReportLocation {
      * S3 location where error reports are written.
      * 
      */
-    private @Nullable UndeferrableValue<List<ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocation>> s3ReportLocations;
-
+    @PolicyResourceProperty(name="s3ReportLocations", flag="unknown_s3ReportLocations")
+    private @Nullable List<ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocation> value_s3ReportLocations;
+    private boolean unknown_s3ReportLocations;
     public @Nullable List<ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocation> s3ReportLocations() {
-        if (s3ReportLocations == null) return null;
-        return s3ReportLocations.getValue("ScheduledQueryLastRunSummaryErrorReportLocation.s3ReportLocations");
+        if (!unknown_s3ReportLocations) return value_s3ReportLocations;
+        throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryErrorReportLocation.s3ReportLocations' is not present");
     }
 
 }

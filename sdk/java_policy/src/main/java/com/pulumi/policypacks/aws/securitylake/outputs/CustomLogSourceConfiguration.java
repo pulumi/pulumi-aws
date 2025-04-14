@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securitylake.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.securitylake.outputs.CustomLogSourceConfigurationCrawlerConfiguration;
 import com.pulumi.policypacks.aws.securitylake.outputs.CustomLogSourceConfigurationProviderIdentity;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class CustomLogSourceConfiguration {
      * The configuration for the Glue Crawler for the third-party custom source.
      * 
      */
-    private @Nullable UndeferrableValue<CustomLogSourceConfigurationCrawlerConfiguration> crawlerConfiguration;
-
+    @PolicyResourceProperty(name="crawlerConfiguration", flag="unknown_crawlerConfiguration")
+    private @Nullable CustomLogSourceConfigurationCrawlerConfiguration value_crawlerConfiguration;
+    private boolean unknown_crawlerConfiguration;
     public @Nullable CustomLogSourceConfigurationCrawlerConfiguration crawlerConfiguration() {
-        if (crawlerConfiguration == null) return null;
-        return crawlerConfiguration.getValue("CustomLogSourceConfiguration.crawlerConfiguration");
+        if (!unknown_crawlerConfiguration) return value_crawlerConfiguration;
+        throw new UndeferrableValueException("Value 'CustomLogSourceConfiguration.crawlerConfiguration' is not present");
     }
 
     /**
      * The identity of the log provider for the third-party custom source.
      * 
      */
-    private @Nullable UndeferrableValue<CustomLogSourceConfigurationProviderIdentity> providerIdentity;
-
+    @PolicyResourceProperty(name="providerIdentity", flag="unknown_providerIdentity")
+    private @Nullable CustomLogSourceConfigurationProviderIdentity value_providerIdentity;
+    private boolean unknown_providerIdentity;
     public @Nullable CustomLogSourceConfigurationProviderIdentity providerIdentity() {
-        if (providerIdentity == null) return null;
-        return providerIdentity.getValue("CustomLogSourceConfiguration.providerIdentity");
+        if (!unknown_providerIdentity) return value_providerIdentity;
+        throw new UndeferrableValueException("Value 'CustomLogSourceConfiguration.providerIdentity' is not present");
     }
 
 }

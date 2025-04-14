@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class V2modelsSlotObfuscationSetting {
      * Whether Amazon Lex obscures slot values in conversation logs. Valid values are `DefaultObfuscation` and `None`.
      * 
      */
-    private UndeferrableValue<String> obfuscationSettingType;
-
+    @PolicyResourceProperty(name="obfuscationSettingType", flag="unknown_obfuscationSettingType")
+    private String value_obfuscationSettingType;
+    private boolean unknown_obfuscationSettingType;
     public String obfuscationSettingType() {
-        if (obfuscationSettingType == null) return null;
-        return obfuscationSettingType.getValue("V2modelsSlotObfuscationSetting.obfuscationSettingType");
+        if (!unknown_obfuscationSettingType) return value_obfuscationSettingType;
+        throw new UndeferrableValueException("Value 'V2modelsSlotObfuscationSetting.obfuscationSettingType' is not present");
     }
 
 }

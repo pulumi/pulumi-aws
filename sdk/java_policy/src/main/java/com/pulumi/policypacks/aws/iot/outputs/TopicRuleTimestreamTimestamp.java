@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class TopicRuleTimestreamTimestamp {
      * The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
      * 
      */
-    private UndeferrableValue<String> unit;
-
+    @PolicyResourceProperty(name="unit", flag="unknown_unit")
+    private String value_unit;
+    private boolean unknown_unit;
     public String unit() {
-        if (unit == null) return null;
-        return unit.getValue("TopicRuleTimestreamTimestamp.unit");
+        if (!unknown_unit) return value_unit;
+        throw new UndeferrableValueException("Value 'TopicRuleTimestreamTimestamp.unit' is not present");
     }
 
     /**
      * An expression that returns a long epoch time value.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("TopicRuleTimestreamTimestamp.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'TopicRuleTimestreamTimestamp.value' is not present");
     }
 
 }

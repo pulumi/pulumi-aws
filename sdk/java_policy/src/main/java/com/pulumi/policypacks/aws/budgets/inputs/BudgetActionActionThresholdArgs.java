@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.budgets.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class BudgetActionActionThresholdArgs {
      * The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
      * 
      */
-    private UndeferrableValue<String> actionThresholdType;
-
+    @PolicyResourceProperty(name="actionThresholdType", flag="unknown_actionThresholdType")
+    private String value_actionThresholdType;
+    private boolean unknown_actionThresholdType;
     public String actionThresholdType() {
-        if (actionThresholdType == null) return null;
-        return actionThresholdType.getValue("BudgetActionActionThresholdArgs.actionThresholdType");
+        if (!unknown_actionThresholdType) return value_actionThresholdType;
+        throw new UndeferrableValueException("Value 'BudgetActionActionThresholdArgs.actionThresholdType' is not present");
     }
 
     /**
      * The threshold of a notification.
      * 
      */
-    private UndeferrableValue<Double> actionThresholdValue;
-
+    @PolicyResourceProperty(name="actionThresholdValue", flag="unknown_actionThresholdValue")
+    private Double value_actionThresholdValue;
+    private boolean unknown_actionThresholdValue;
     public Double actionThresholdValue() {
-        if (actionThresholdValue == null) return null;
-        return actionThresholdValue.getValue("BudgetActionActionThresholdArgs.actionThresholdValue");
+        if (!unknown_actionThresholdValue) return value_actionThresholdValue;
+        throw new UndeferrableValueException("Value 'BudgetActionActionThresholdArgs.actionThresholdValue' is not present");
     }
 
 }

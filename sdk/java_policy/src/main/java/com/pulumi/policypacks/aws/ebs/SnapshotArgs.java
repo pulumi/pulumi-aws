@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ebs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,77 +20,84 @@ public final class SnapshotArgs extends com.pulumi.resources.PolicyResourceInput
      * A description of what the snapshot is.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("SnapshotArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'SnapshotArgs.description' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
      * 
      */
-    private UndeferrableValue<String> outpostArn;
-
+    @PolicyResourceProperty(name="outpostArn", flag="unknown_outpostArn")
+    private String value_outpostArn;
+    private boolean unknown_outpostArn;
     public String outpostArn() {
-        if (outpostArn == null) return null;
-        return outpostArn.getValue("SnapshotArgs.outpostArn");
+        if (!unknown_outpostArn) return value_outpostArn;
+        throw new UndeferrableValueException("Value 'SnapshotArgs.outpostArn' is not present");
     }
 
     /**
      * Indicates whether to permanently restore an archived snapshot.
      * 
      */
-    private UndeferrableValue<Boolean> permanentRestore;
-
+    @PolicyResourceProperty(name="permanentRestore", flag="unknown_permanentRestore")
+    private Boolean value_permanentRestore;
+    private boolean unknown_permanentRestore;
     public Boolean permanentRestore() {
-        if (permanentRestore == null) return null;
-        return permanentRestore.getValue("SnapshotArgs.permanentRestore");
+        if (!unknown_permanentRestore) return value_permanentRestore;
+        throw new UndeferrableValueException("Value 'SnapshotArgs.permanentRestore' is not present");
     }
 
     /**
      * The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
      * 
      */
-    private UndeferrableValue<String> storageTier;
-
+    @PolicyResourceProperty(name="storageTier", flag="unknown_storageTier")
+    private String value_storageTier;
+    private boolean unknown_storageTier;
     public String storageTier() {
-        if (storageTier == null) return null;
-        return storageTier.getValue("SnapshotArgs.storageTier");
+        if (!unknown_storageTier) return value_storageTier;
+        throw new UndeferrableValueException("Value 'SnapshotArgs.storageTier' is not present");
     }
 
     /**
      * A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SnapshotArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SnapshotArgs.tags' is not present");
     }
 
     /**
      * Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
      * 
      */
-    private UndeferrableValue<Integer> temporaryRestoreDays;
-
+    @PolicyResourceProperty(name="temporaryRestoreDays", flag="unknown_temporaryRestoreDays")
+    private Integer value_temporaryRestoreDays;
+    private boolean unknown_temporaryRestoreDays;
     public Integer temporaryRestoreDays() {
-        if (temporaryRestoreDays == null) return null;
-        return temporaryRestoreDays.getValue("SnapshotArgs.temporaryRestoreDays");
+        if (!unknown_temporaryRestoreDays) return value_temporaryRestoreDays;
+        throw new UndeferrableValueException("Value 'SnapshotArgs.temporaryRestoreDays' is not present");
     }
 
     /**
      * The Volume ID of which to make a snapshot.
      * 
      */
-    private UndeferrableValue<String> volumeId;
-
+    @PolicyResourceProperty(name="volumeId", flag="unknown_volumeId")
+    private String value_volumeId;
+    private boolean unknown_volumeId;
     public String volumeId() {
-        if (volumeId == null) return null;
-        return volumeId.getValue("SnapshotArgs.volumeId");
+        if (!unknown_volumeId) return value_volumeId;
+        throw new UndeferrableValueException("Value 'SnapshotArgs.volumeId' is not present");
     }
 
 }

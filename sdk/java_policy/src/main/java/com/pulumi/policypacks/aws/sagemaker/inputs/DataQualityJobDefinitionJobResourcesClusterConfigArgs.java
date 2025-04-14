@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class DataQualityJobDefinitionJobResourcesClusterConfigArgs {
      * The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1.
      * 
      */
-    private UndeferrableValue<Integer> instanceCount;
-
+    @PolicyResourceProperty(name="instanceCount", flag="unknown_instanceCount")
+    private Integer value_instanceCount;
+    private boolean unknown_instanceCount;
     public Integer instanceCount() {
-        if (instanceCount == null) return null;
-        return instanceCount.getValue("DataQualityJobDefinitionJobResourcesClusterConfigArgs.instanceCount");
+        if (!unknown_instanceCount) return value_instanceCount;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionJobResourcesClusterConfigArgs.instanceCount' is not present");
     }
 
     /**
      * The ML compute instance type for the processing job.
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("DataQualityJobDefinitionJobResourcesClusterConfigArgs.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionJobResourcesClusterConfigArgs.instanceType' is not present");
     }
 
     /**
      * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
      * 
      */
-    private UndeferrableValue<String> volumeKmsKeyId;
-
+    @PolicyResourceProperty(name="volumeKmsKeyId", flag="unknown_volumeKmsKeyId")
+    private String value_volumeKmsKeyId;
+    private boolean unknown_volumeKmsKeyId;
     public String volumeKmsKeyId() {
-        if (volumeKmsKeyId == null) return null;
-        return volumeKmsKeyId.getValue("DataQualityJobDefinitionJobResourcesClusterConfigArgs.volumeKmsKeyId");
+        if (!unknown_volumeKmsKeyId) return value_volumeKmsKeyId;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionJobResourcesClusterConfigArgs.volumeKmsKeyId' is not present");
     }
 
     /**
      * The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
      * 
      */
-    private UndeferrableValue<Integer> volumeSizeInGb;
-
+    @PolicyResourceProperty(name="volumeSizeInGb", flag="unknown_volumeSizeInGb")
+    private Integer value_volumeSizeInGb;
+    private boolean unknown_volumeSizeInGb;
     public Integer volumeSizeInGb() {
-        if (volumeSizeInGb == null) return null;
-        return volumeSizeInGb.getValue("DataQualityJobDefinitionJobResourcesClusterConfigArgs.volumeSizeInGb");
+        if (!unknown_volumeSizeInGb) return value_volumeSizeInGb;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionJobResourcesClusterConfigArgs.volumeSizeInGb' is not present");
     }
 
 }

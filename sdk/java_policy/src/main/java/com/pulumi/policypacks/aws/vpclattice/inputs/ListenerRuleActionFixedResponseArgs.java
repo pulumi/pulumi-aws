@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,11 +14,12 @@ public final class ListenerRuleActionFixedResponseArgs {
      * The HTTP response code.
      * 
      */
-    private UndeferrableValue<Integer> statusCode;
-
+    @PolicyResourceProperty(name="statusCode", flag="unknown_statusCode")
+    private Integer value_statusCode;
+    private boolean unknown_statusCode;
     public Integer statusCode() {
-        if (statusCode == null) return null;
-        return statusCode.getValue("ListenerRuleActionFixedResponseArgs.statusCode");
+        if (!unknown_statusCode) return value_statusCode;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionFixedResponseArgs.statusCode' is not present");
     }
 
 }

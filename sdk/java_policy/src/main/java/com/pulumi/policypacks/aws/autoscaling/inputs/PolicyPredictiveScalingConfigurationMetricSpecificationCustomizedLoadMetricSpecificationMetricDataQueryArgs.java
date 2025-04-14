@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -16,55 +17,60 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustom
      * Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
      * 
      */
-    private UndeferrableValue<String> expression;
-
+    @PolicyResourceProperty(name="expression", flag="unknown_expression")
+    private String value_expression;
+    private boolean unknown_expression;
     public String expression() {
-        if (expression == null) return null;
-        return expression.getValue("PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs.expression");
+        if (!unknown_expression) return value_expression;
+        throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs.expression' is not present");
     }
 
     /**
      * Short name for the metric used in predictive scaling policy.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs.id' is not present");
     }
 
     /**
      * Human-readable label for this metric or expression.
      * 
      */
-    private UndeferrableValue<String> label;
-
+    @PolicyResourceProperty(name="label", flag="unknown_label")
+    private String value_label;
+    private boolean unknown_label;
     public String label() {
-        if (label == null) return null;
-        return label.getValue("PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs.label");
+        if (!unknown_label) return value_label;
+        throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs.label' is not present");
     }
 
     /**
      * Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
      * 
      */
-    private UndeferrableValue<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs> metricStat;
-
+    @PolicyResourceProperty(name="metricStat", flag="unknown_metricStat")
+    private PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs value_metricStat;
+    private boolean unknown_metricStat;
     public PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs metricStat() {
-        if (metricStat == null) return null;
-        return metricStat.getValue("PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs.metricStat");
+        if (!unknown_metricStat) return value_metricStat;
+        throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs.metricStat' is not present");
     }
 
     /**
      * Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
      * 
      */
-    private UndeferrableValue<Boolean> returnData;
-
+    @PolicyResourceProperty(name="returnData", flag="unknown_returnData")
+    private Boolean value_returnData;
+    private boolean unknown_returnData;
     public Boolean returnData() {
-        if (returnData == null) return null;
-        return returnData.getValue("PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs.returnData");
+        if (!unknown_returnData) return value_returnData;
+        throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs.returnData' is not present");
     }
 
 }

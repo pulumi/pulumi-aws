@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,66 +18,72 @@ public final class LogDeliverySource extends com.pulumi.resources.PolicyResource
      * The Amazon Resource Name (ARN) of the delivery source.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("LogDeliverySource.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'LogDeliverySource.arn' is not present");
     }
 
     /**
      * The type of log that the source is sending. For Amazon Bedrock, the valid value is `APPLICATION_LOGS`. For Amazon CodeWhisperer, the valid value is `EVENT_LOGS`. For IAM Identity Center, the valid value is `ERROR_LOGS`. For Amazon WorkMail, the valid values are `ACCESS_CONTROL_LOGS`, `AUTHENTICATION_LOGS`, `WORKMAIL_AVAILABILITY_PROVIDER_LOGS`, and `WORKMAIL_MAILBOX_ACCESS_LOGS`.
      * 
      */
-    private UndeferrableValue<String> logType;
-
+    @PolicyResourceProperty(name="logType", flag="unknown_logType")
+    private String value_logType;
+    private boolean unknown_logType;
     public String logType() {
-        if (logType == null) return null;
-        return logType.getValue("LogDeliverySource.logType");
+        if (!unknown_logType) return value_logType;
+        throw new UndeferrableValueException("Value 'LogDeliverySource.logType' is not present");
     }
 
     /**
      * The name for this delivery source.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LogDeliverySource.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LogDeliverySource.name' is not present");
     }
 
     /**
      * The ARN of the AWS resource that is generating and sending logs.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("LogDeliverySource.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'LogDeliverySource.resourceArn' is not present");
     }
 
     /**
      * The AWS service that is sending logs.
      * 
      */
-    private UndeferrableValue<String> service;
-
+    @PolicyResourceProperty(name="service", flag="unknown_service")
+    private String value_service;
+    private boolean unknown_service;
     public String service() {
-        if (service == null) return null;
-        return service.getValue("LogDeliverySource.service");
+        if (!unknown_service) return value_service;
+        throw new UndeferrableValueException("Value 'LogDeliverySource.service' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LogDeliverySource.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LogDeliverySource.tags' is not present");
     }
 
     /**
@@ -87,11 +94,12 @@ public final class LogDeliverySource extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("LogDeliverySource.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'LogDeliverySource.tagsAll' is not present");
     }
 
 }

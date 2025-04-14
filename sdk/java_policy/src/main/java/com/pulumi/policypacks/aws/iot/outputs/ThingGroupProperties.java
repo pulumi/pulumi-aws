@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.iot.outputs.ThingGroupPropertiesAttributePayload;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ThingGroupProperties {
      * The Thing Group attributes. Defined below.
      * 
      */
-    private @Nullable UndeferrableValue<ThingGroupPropertiesAttributePayload> attributePayload;
-
+    @PolicyResourceProperty(name="attributePayload", flag="unknown_attributePayload")
+    private @Nullable ThingGroupPropertiesAttributePayload value_attributePayload;
+    private boolean unknown_attributePayload;
     public @Nullable ThingGroupPropertiesAttributePayload attributePayload() {
-        if (attributePayload == null) return null;
-        return attributePayload.getValue("ThingGroupProperties.attributePayload");
+        if (!unknown_attributePayload) return value_attributePayload;
+        throw new UndeferrableValueException("Value 'ThingGroupProperties.attributePayload' is not present");
     }
 
     /**
      * A description of the Thing Group.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ThingGroupProperties.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ThingGroupProperties.description' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53domains.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class RegisteredDomainNameServerArgs {
      * Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
      * 
      */
-    private UndeferrableValue<List<String>> glueIps;
-
+    @PolicyResourceProperty(name="glueIps", flag="unknown_glueIps")
+    private List<String> value_glueIps;
+    private boolean unknown_glueIps;
     public List<String> glueIps() {
-        if (glueIps == null) return null;
-        return glueIps.getValue("RegisteredDomainNameServerArgs.glueIps");
+        if (!unknown_glueIps) return value_glueIps;
+        throw new UndeferrableValueException("Value 'RegisteredDomainNameServerArgs.glueIps' is not present");
     }
 
     /**
      * The fully qualified host name of the name server.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RegisteredDomainNameServerArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RegisteredDomainNameServerArgs.name' is not present");
     }
 
 }

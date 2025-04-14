@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.networkmanager.inputs.DxGatewayAttachmentTimeoutsArgs;
 import java.lang.String;
@@ -19,22 +20,24 @@ public final class DxGatewayAttachmentArgs extends com.pulumi.resources.PolicyRe
      * ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
      * 
      */
-    private UndeferrableValue<String> coreNetworkId;
-
+    @PolicyResourceProperty(name="coreNetworkId", flag="unknown_coreNetworkId")
+    private String value_coreNetworkId;
+    private boolean unknown_coreNetworkId;
     public String coreNetworkId() {
-        if (coreNetworkId == null) return null;
-        return coreNetworkId.getValue("DxGatewayAttachmentArgs.coreNetworkId");
+        if (!unknown_coreNetworkId) return value_coreNetworkId;
+        throw new UndeferrableValueException("Value 'DxGatewayAttachmentArgs.coreNetworkId' is not present");
     }
 
     /**
      * ARN of the Direct Connect gateway attachment.
      * 
      */
-    private UndeferrableValue<String> directConnectGatewayArn;
-
+    @PolicyResourceProperty(name="directConnectGatewayArn", flag="unknown_directConnectGatewayArn")
+    private String value_directConnectGatewayArn;
+    private boolean unknown_directConnectGatewayArn;
     public String directConnectGatewayArn() {
-        if (directConnectGatewayArn == null) return null;
-        return directConnectGatewayArn.getValue("DxGatewayAttachmentArgs.directConnectGatewayArn");
+        if (!unknown_directConnectGatewayArn) return value_directConnectGatewayArn;
+        throw new UndeferrableValueException("Value 'DxGatewayAttachmentArgs.directConnectGatewayArn' is not present");
     }
 
     /**
@@ -43,29 +46,32 @@ public final class DxGatewayAttachmentArgs extends com.pulumi.resources.PolicyRe
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<List<String>> edgeLocations;
-
+    @PolicyResourceProperty(name="edgeLocations", flag="unknown_edgeLocations")
+    private List<String> value_edgeLocations;
+    private boolean unknown_edgeLocations;
     public List<String> edgeLocations() {
-        if (edgeLocations == null) return null;
-        return edgeLocations.getValue("DxGatewayAttachmentArgs.edgeLocations");
+        if (!unknown_edgeLocations) return value_edgeLocations;
+        throw new UndeferrableValueException("Value 'DxGatewayAttachmentArgs.edgeLocations' is not present");
     }
 
     /**
      * Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DxGatewayAttachmentArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DxGatewayAttachmentArgs.tags' is not present");
     }
 
-    private UndeferrableValue<DxGatewayAttachmentTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private DxGatewayAttachmentTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public DxGatewayAttachmentTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("DxGatewayAttachmentArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'DxGatewayAttachmentArgs.timeouts' is not present");
     }
 
 }

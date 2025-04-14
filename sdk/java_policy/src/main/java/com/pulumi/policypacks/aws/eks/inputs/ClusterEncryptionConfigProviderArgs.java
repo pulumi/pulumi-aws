@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ClusterEncryptionConfigProviderArgs {
      * ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
      * 
      */
-    private UndeferrableValue<String> keyArn;
-
+    @PolicyResourceProperty(name="keyArn", flag="unknown_keyArn")
+    private String value_keyArn;
+    private boolean unknown_keyArn;
     public String keyArn() {
-        if (keyArn == null) return null;
-        return keyArn.getValue("ClusterEncryptionConfigProviderArgs.keyArn");
+        if (!unknown_keyArn) return value_keyArn;
+        throw new UndeferrableValueException("Value 'ClusterEncryptionConfigProviderArgs.keyArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.imagebuilder.inputs.ImageRecipeBlockDeviceMappingEbsArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class ImageRecipeBlockDeviceMappingArgs {
      * Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
      * 
      */
-    private UndeferrableValue<String> deviceName;
-
+    @PolicyResourceProperty(name="deviceName", flag="unknown_deviceName")
+    private String value_deviceName;
+    private boolean unknown_deviceName;
     public String deviceName() {
-        if (deviceName == null) return null;
-        return deviceName.getValue("ImageRecipeBlockDeviceMappingArgs.deviceName");
+        if (!unknown_deviceName) return value_deviceName;
+        throw new UndeferrableValueException("Value 'ImageRecipeBlockDeviceMappingArgs.deviceName' is not present");
     }
 
     /**
      * Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
      * 
      */
-    private UndeferrableValue<ImageRecipeBlockDeviceMappingEbsArgs> ebs;
-
+    @PolicyResourceProperty(name="ebs", flag="unknown_ebs")
+    private ImageRecipeBlockDeviceMappingEbsArgs value_ebs;
+    private boolean unknown_ebs;
     public ImageRecipeBlockDeviceMappingEbsArgs ebs() {
-        if (ebs == null) return null;
-        return ebs.getValue("ImageRecipeBlockDeviceMappingArgs.ebs");
+        if (!unknown_ebs) return value_ebs;
+        throw new UndeferrableValueException("Value 'ImageRecipeBlockDeviceMappingArgs.ebs' is not present");
     }
 
     /**
      * Set to `true` to remove a mapping from the parent image.
      * 
      */
-    private UndeferrableValue<Boolean> noDevice;
-
+    @PolicyResourceProperty(name="noDevice", flag="unknown_noDevice")
+    private Boolean value_noDevice;
+    private boolean unknown_noDevice;
     public Boolean noDevice() {
-        if (noDevice == null) return null;
-        return noDevice.getValue("ImageRecipeBlockDeviceMappingArgs.noDevice");
+        if (!unknown_noDevice) return value_noDevice;
+        throw new UndeferrableValueException("Value 'ImageRecipeBlockDeviceMappingArgs.noDevice' is not present");
     }
 
     /**
      * Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
      * 
      */
-    private UndeferrableValue<String> virtualName;
-
+    @PolicyResourceProperty(name="virtualName", flag="unknown_virtualName")
+    private String value_virtualName;
+    private boolean unknown_virtualName;
     public String virtualName() {
-        if (virtualName == null) return null;
-        return virtualName.getValue("ImageRecipeBlockDeviceMappingArgs.virtualName");
+        if (!unknown_virtualName) return value_virtualName;
+        throw new UndeferrableValueException("Value 'ImageRecipeBlockDeviceMappingArgs.virtualName' is not present");
     }
 
 }

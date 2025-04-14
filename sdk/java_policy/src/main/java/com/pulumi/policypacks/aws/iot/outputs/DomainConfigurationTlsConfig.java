@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DomainConfigurationTlsConfig {
      * The security policy for a domain configuration.
      * 
      */
-    private @Nullable UndeferrableValue<String> securityPolicy;
-
+    @PolicyResourceProperty(name="securityPolicy", flag="unknown_securityPolicy")
+    private @Nullable String value_securityPolicy;
+    private boolean unknown_securityPolicy;
     public @Nullable String securityPolicy() {
-        if (securityPolicy == null) return null;
-        return securityPolicy.getValue("DomainConfigurationTlsConfig.securityPolicy");
+        if (!unknown_securityPolicy) return value_securityPolicy;
+        throw new UndeferrableValueException("Value 'DomainConfigurationTlsConfig.securityPolicy' is not present");
     }
 
 }

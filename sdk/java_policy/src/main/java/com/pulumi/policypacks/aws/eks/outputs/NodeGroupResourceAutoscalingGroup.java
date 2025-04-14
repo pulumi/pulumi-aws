@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class NodeGroupResourceAutoscalingGroup {
      * Name of the AutoScaling Group.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("NodeGroupResourceAutoscalingGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'NodeGroupResourceAutoscalingGroup.name' is not present");
     }
 
 }

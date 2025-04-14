@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticsearch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.elasticsearch.inputs.DomainAdvancedSecurityOptionsArgs;
 import com.pulumi.policypacks.aws.elasticsearch.inputs.DomainAutoTuneOptionsArgs;
@@ -29,77 +30,84 @@ public final class DomainArgs extends com.pulumi.resources.PolicyResourceInput {
      * IAM policy document specifying the access policies for the domain.
      * 
      */
-    private UndeferrableValue<String> accessPolicies;
-
+    @PolicyResourceProperty(name="accessPolicies", flag="unknown_accessPolicies")
+    private String value_accessPolicies;
+    private boolean unknown_accessPolicies;
     public String accessPolicies() {
-        if (accessPolicies == null) return null;
-        return accessPolicies.getValue("DomainArgs.accessPolicies");
+        if (!unknown_accessPolicies) return value_accessPolicies;
+        throw new UndeferrableValueException("Value 'DomainArgs.accessPolicies' is not present");
     }
 
     /**
      * Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
      * 
      */
-    private UndeferrableValue<Map<String,String>> advancedOptions;
-
+    @PolicyResourceProperty(name="advancedOptions", flag="unknown_advancedOptions")
+    private Map<String,String> value_advancedOptions;
+    private boolean unknown_advancedOptions;
     public Map<String,String> advancedOptions() {
-        if (advancedOptions == null) return null;
-        return advancedOptions.getValue("DomainArgs.advancedOptions");
+        if (!unknown_advancedOptions) return value_advancedOptions;
+        throw new UndeferrableValueException("Value 'DomainArgs.advancedOptions' is not present");
     }
 
     /**
      * Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
      * 
      */
-    private UndeferrableValue<DomainAdvancedSecurityOptionsArgs> advancedSecurityOptions;
-
+    @PolicyResourceProperty(name="advancedSecurityOptions", flag="unknown_advancedSecurityOptions")
+    private DomainAdvancedSecurityOptionsArgs value_advancedSecurityOptions;
+    private boolean unknown_advancedSecurityOptions;
     public DomainAdvancedSecurityOptionsArgs advancedSecurityOptions() {
-        if (advancedSecurityOptions == null) return null;
-        return advancedSecurityOptions.getValue("DomainArgs.advancedSecurityOptions");
+        if (!unknown_advancedSecurityOptions) return value_advancedSecurityOptions;
+        throw new UndeferrableValueException("Value 'DomainArgs.advancedSecurityOptions' is not present");
     }
 
     /**
      * Configuration block for the Auto-Tune options of the domain. Detailed below.
      * 
      */
-    private UndeferrableValue<DomainAutoTuneOptionsArgs> autoTuneOptions;
-
+    @PolicyResourceProperty(name="autoTuneOptions", flag="unknown_autoTuneOptions")
+    private DomainAutoTuneOptionsArgs value_autoTuneOptions;
+    private boolean unknown_autoTuneOptions;
     public DomainAutoTuneOptionsArgs autoTuneOptions() {
-        if (autoTuneOptions == null) return null;
-        return autoTuneOptions.getValue("DomainArgs.autoTuneOptions");
+        if (!unknown_autoTuneOptions) return value_autoTuneOptions;
+        throw new UndeferrableValueException("Value 'DomainArgs.autoTuneOptions' is not present");
     }
 
     /**
      * Configuration block for the cluster of the domain. Detailed below.
      * 
      */
-    private UndeferrableValue<DomainClusterConfigArgs> clusterConfig;
-
+    @PolicyResourceProperty(name="clusterConfig", flag="unknown_clusterConfig")
+    private DomainClusterConfigArgs value_clusterConfig;
+    private boolean unknown_clusterConfig;
     public DomainClusterConfigArgs clusterConfig() {
-        if (clusterConfig == null) return null;
-        return clusterConfig.getValue("DomainArgs.clusterConfig");
+        if (!unknown_clusterConfig) return value_clusterConfig;
+        throw new UndeferrableValueException("Value 'DomainArgs.clusterConfig' is not present");
     }
 
     /**
      * Configuration block for authenticating Kibana with Cognito. Detailed below.
      * 
      */
-    private UndeferrableValue<DomainCognitoOptionsArgs> cognitoOptions;
-
+    @PolicyResourceProperty(name="cognitoOptions", flag="unknown_cognitoOptions")
+    private DomainCognitoOptionsArgs value_cognitoOptions;
+    private boolean unknown_cognitoOptions;
     public DomainCognitoOptionsArgs cognitoOptions() {
-        if (cognitoOptions == null) return null;
-        return cognitoOptions.getValue("DomainArgs.cognitoOptions");
+        if (!unknown_cognitoOptions) return value_cognitoOptions;
+        throw new UndeferrableValueException("Value 'DomainArgs.cognitoOptions' is not present");
     }
 
     /**
      * Configuration block for domain endpoint HTTP(S) related options. Detailed below.
      * 
      */
-    private UndeferrableValue<DomainDomainEndpointOptionsArgs> domainEndpointOptions;
-
+    @PolicyResourceProperty(name="domainEndpointOptions", flag="unknown_domainEndpointOptions")
+    private DomainDomainEndpointOptionsArgs value_domainEndpointOptions;
+    private boolean unknown_domainEndpointOptions;
     public DomainDomainEndpointOptionsArgs domainEndpointOptions() {
-        if (domainEndpointOptions == null) return null;
-        return domainEndpointOptions.getValue("DomainArgs.domainEndpointOptions");
+        if (!unknown_domainEndpointOptions) return value_domainEndpointOptions;
+        throw new UndeferrableValueException("Value 'DomainArgs.domainEndpointOptions' is not present");
     }
 
     /**
@@ -108,99 +116,108 @@ public final class DomainArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("DomainArgs.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'DomainArgs.domainName' is not present");
     }
 
     /**
      * Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
      * 
      */
-    private UndeferrableValue<DomainEbsOptionsArgs> ebsOptions;
-
+    @PolicyResourceProperty(name="ebsOptions", flag="unknown_ebsOptions")
+    private DomainEbsOptionsArgs value_ebsOptions;
+    private boolean unknown_ebsOptions;
     public DomainEbsOptionsArgs ebsOptions() {
-        if (ebsOptions == null) return null;
-        return ebsOptions.getValue("DomainArgs.ebsOptions");
+        if (!unknown_ebsOptions) return value_ebsOptions;
+        throw new UndeferrableValueException("Value 'DomainArgs.ebsOptions' is not present");
     }
 
     /**
      * Version of Elasticsearch to deploy. Defaults to `1.5`.
      * 
      */
-    private UndeferrableValue<String> elasticsearchVersion;
-
+    @PolicyResourceProperty(name="elasticsearchVersion", flag="unknown_elasticsearchVersion")
+    private String value_elasticsearchVersion;
+    private boolean unknown_elasticsearchVersion;
     public String elasticsearchVersion() {
-        if (elasticsearchVersion == null) return null;
-        return elasticsearchVersion.getValue("DomainArgs.elasticsearchVersion");
+        if (!unknown_elasticsearchVersion) return value_elasticsearchVersion;
+        throw new UndeferrableValueException("Value 'DomainArgs.elasticsearchVersion' is not present");
     }
 
     /**
      * Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
      * 
      */
-    private UndeferrableValue<DomainEncryptAtRestArgs> encryptAtRest;
-
+    @PolicyResourceProperty(name="encryptAtRest", flag="unknown_encryptAtRest")
+    private DomainEncryptAtRestArgs value_encryptAtRest;
+    private boolean unknown_encryptAtRest;
     public DomainEncryptAtRestArgs encryptAtRest() {
-        if (encryptAtRest == null) return null;
-        return encryptAtRest.getValue("DomainArgs.encryptAtRest");
+        if (!unknown_encryptAtRest) return value_encryptAtRest;
+        throw new UndeferrableValueException("Value 'DomainArgs.encryptAtRest' is not present");
     }
 
     /**
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
      * 
      */
-    private UndeferrableValue<List<DomainLogPublishingOptionArgs>> logPublishingOptions;
-
+    @PolicyResourceProperty(name="logPublishingOptions", flag="unknown_logPublishingOptions")
+    private List<DomainLogPublishingOptionArgs> value_logPublishingOptions;
+    private boolean unknown_logPublishingOptions;
     public List<DomainLogPublishingOptionArgs> logPublishingOptions() {
-        if (logPublishingOptions == null) return null;
-        return logPublishingOptions.getValue("DomainArgs.logPublishingOptions");
+        if (!unknown_logPublishingOptions) return value_logPublishingOptions;
+        throw new UndeferrableValueException("Value 'DomainArgs.logPublishingOptions' is not present");
     }
 
     /**
      * Configuration block for node-to-node encryption options. Detailed below.
      * 
      */
-    private UndeferrableValue<DomainNodeToNodeEncryptionArgs> nodeToNodeEncryption;
-
+    @PolicyResourceProperty(name="nodeToNodeEncryption", flag="unknown_nodeToNodeEncryption")
+    private DomainNodeToNodeEncryptionArgs value_nodeToNodeEncryption;
+    private boolean unknown_nodeToNodeEncryption;
     public DomainNodeToNodeEncryptionArgs nodeToNodeEncryption() {
-        if (nodeToNodeEncryption == null) return null;
-        return nodeToNodeEncryption.getValue("DomainArgs.nodeToNodeEncryption");
+        if (!unknown_nodeToNodeEncryption) return value_nodeToNodeEncryption;
+        throw new UndeferrableValueException("Value 'DomainArgs.nodeToNodeEncryption' is not present");
     }
 
     /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
      * 
      */
-    private UndeferrableValue<DomainSnapshotOptionsArgs> snapshotOptions;
-
+    @PolicyResourceProperty(name="snapshotOptions", flag="unknown_snapshotOptions")
+    private DomainSnapshotOptionsArgs value_snapshotOptions;
+    private boolean unknown_snapshotOptions;
     public DomainSnapshotOptionsArgs snapshotOptions() {
-        if (snapshotOptions == null) return null;
-        return snapshotOptions.getValue("DomainArgs.snapshotOptions");
+        if (!unknown_snapshotOptions) return value_snapshotOptions;
+        throw new UndeferrableValueException("Value 'DomainArgs.snapshotOptions' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DomainArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DomainArgs.tags' is not present");
     }
 
     /**
      * Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
      * 
      */
-    private UndeferrableValue<DomainVpcOptionsArgs> vpcOptions;
-
+    @PolicyResourceProperty(name="vpcOptions", flag="unknown_vpcOptions")
+    private DomainVpcOptionsArgs value_vpcOptions;
+    private boolean unknown_vpcOptions;
     public DomainVpcOptionsArgs vpcOptions() {
-        if (vpcOptions == null) return null;
-        return vpcOptions.getValue("DomainArgs.vpcOptions");
+        if (!unknown_vpcOptions) return value_vpcOptions;
+        throw new UndeferrableValueException("Value 'DomainArgs.vpcOptions' is not present");
     }
 
 }

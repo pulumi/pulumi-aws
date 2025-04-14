@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class RouteTablePropagationArgs extends com.pulumi.resources.Policy
      * Identifier of EC2 Transit Gateway Attachment.
      * 
      */
-    private UndeferrableValue<String> transitGatewayAttachmentId;
-
+    @PolicyResourceProperty(name="transitGatewayAttachmentId", flag="unknown_transitGatewayAttachmentId")
+    private String value_transitGatewayAttachmentId;
+    private boolean unknown_transitGatewayAttachmentId;
     public String transitGatewayAttachmentId() {
-        if (transitGatewayAttachmentId == null) return null;
-        return transitGatewayAttachmentId.getValue("RouteTablePropagationArgs.transitGatewayAttachmentId");
+        if (!unknown_transitGatewayAttachmentId) return value_transitGatewayAttachmentId;
+        throw new UndeferrableValueException("Value 'RouteTablePropagationArgs.transitGatewayAttachmentId' is not present");
     }
 
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      * 
      */
-    private UndeferrableValue<String> transitGatewayRouteTableId;
-
+    @PolicyResourceProperty(name="transitGatewayRouteTableId", flag="unknown_transitGatewayRouteTableId")
+    private String value_transitGatewayRouteTableId;
+    private boolean unknown_transitGatewayRouteTableId;
     public String transitGatewayRouteTableId() {
-        if (transitGatewayRouteTableId == null) return null;
-        return transitGatewayRouteTableId.getValue("RouteTablePropagationArgs.transitGatewayRouteTableId");
+        if (!unknown_transitGatewayRouteTableId) return value_transitGatewayRouteTableId;
+        throw new UndeferrableValueException("Value 'RouteTablePropagationArgs.transitGatewayRouteTableId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.outputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class FieldLevelEncryptionConfigQueryArgProfileConfig {
      * Flag to set if you want a request to be forwarded to the origin even if the profile specified by the field-level encryption query argument, fle-profile, is unknown.
      * 
      */
-    private UndeferrableValue<Boolean> forwardWhenQueryArgProfileIsUnknown;
-
+    @PolicyResourceProperty(name="forwardWhenQueryArgProfileIsUnknown", flag="unknown_forwardWhenQueryArgProfileIsUnknown")
+    private Boolean value_forwardWhenQueryArgProfileIsUnknown;
+    private boolean unknown_forwardWhenQueryArgProfileIsUnknown;
     public Boolean forwardWhenQueryArgProfileIsUnknown() {
-        if (forwardWhenQueryArgProfileIsUnknown == null) return null;
-        return forwardWhenQueryArgProfileIsUnknown.getValue("FieldLevelEncryptionConfigQueryArgProfileConfig.forwardWhenQueryArgProfileIsUnknown");
+        if (!unknown_forwardWhenQueryArgProfileIsUnknown) return value_forwardWhenQueryArgProfileIsUnknown;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfigQueryArgProfileConfig.forwardWhenQueryArgProfileIsUnknown' is not present");
     }
 
     /**
      * Object that contains an attribute `items` that contains the list ofrofiles specified for query argument-profile mapping for field-level encryption. see Query Arg Profile.
      * 
      */
-    private @Nullable UndeferrableValue<FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles> queryArgProfiles;
-
+    @PolicyResourceProperty(name="queryArgProfiles", flag="unknown_queryArgProfiles")
+    private @Nullable FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles value_queryArgProfiles;
+    private boolean unknown_queryArgProfiles;
     public @Nullable FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles queryArgProfiles() {
-        if (queryArgProfiles == null) return null;
-        return queryArgProfiles.getValue("FieldLevelEncryptionConfigQueryArgProfileConfig.queryArgProfiles");
+        if (!unknown_queryArgProfiles) return value_queryArgProfiles;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfigQueryArgProfileConfig.queryArgProfiles' is not present");
     }
 
 }

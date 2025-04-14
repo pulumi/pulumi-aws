@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class ServiceServiceRegistries {
      * Container name value, already specified in the task definition, to be used for your service discovery service.
      * 
      */
-    private @Nullable UndeferrableValue<String> containerName;
-
+    @PolicyResourceProperty(name="containerName", flag="unknown_containerName")
+    private @Nullable String value_containerName;
+    private boolean unknown_containerName;
     public @Nullable String containerName() {
-        if (containerName == null) return null;
-        return containerName.getValue("ServiceServiceRegistries.containerName");
+        if (!unknown_containerName) return value_containerName;
+        throw new UndeferrableValueException("Value 'ServiceServiceRegistries.containerName' is not present");
     }
 
     /**
      * Port value, already specified in the task definition, to be used for your service discovery service.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> containerPort;
-
+    @PolicyResourceProperty(name="containerPort", flag="unknown_containerPort")
+    private @Nullable Integer value_containerPort;
+    private boolean unknown_containerPort;
     public @Nullable Integer containerPort() {
-        if (containerPort == null) return null;
-        return containerPort.getValue("ServiceServiceRegistries.containerPort");
+        if (!unknown_containerPort) return value_containerPort;
+        throw new UndeferrableValueException("Value 'ServiceServiceRegistries.containerPort' is not present");
     }
 
     /**
      * Port value used if your Service Discovery service specified an SRV record.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable Integer value_port;
+    private boolean unknown_port;
     public @Nullable Integer port() {
-        if (port == null) return null;
-        return port.getValue("ServiceServiceRegistries.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'ServiceServiceRegistries.port' is not present");
     }
 
     /**
      * ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws.servicediscovery.Service`). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html)
      * 
      */
-    private UndeferrableValue<String> registryArn;
-
+    @PolicyResourceProperty(name="registryArn", flag="unknown_registryArn")
+    private String value_registryArn;
+    private boolean unknown_registryArn;
     public String registryArn() {
-        if (registryArn == null) return null;
-        return registryArn.getValue("ServiceServiceRegistries.registryArn");
+        if (!unknown_registryArn) return value_registryArn;
+        throw new UndeferrableValueException("Value 'ServiceServiceRegistries.registryArn' is not present");
     }
 
 }

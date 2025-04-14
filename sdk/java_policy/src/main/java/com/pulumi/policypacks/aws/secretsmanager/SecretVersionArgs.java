@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.secretsmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,33 +18,36 @@ public final class SecretVersionArgs extends com.pulumi.resources.PolicyResource
      * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` or `secret_string_wo` is not set. Needs to be encoded to base64.
      * 
      */
-    private UndeferrableValue<String> secretBinary;
-
+    @PolicyResourceProperty(name="secretBinary", flag="unknown_secretBinary")
+    private String value_secretBinary;
+    private boolean unknown_secretBinary;
     public String secretBinary() {
-        if (secretBinary == null) return null;
-        return secretBinary.getValue("SecretVersionArgs.secretBinary");
+        if (!unknown_secretBinary) return value_secretBinary;
+        throw new UndeferrableValueException("Value 'SecretVersionArgs.secretBinary' is not present");
     }
 
     /**
      * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
      * 
      */
-    private UndeferrableValue<String> secretId;
-
+    @PolicyResourceProperty(name="secretId", flag="unknown_secretId")
+    private String value_secretId;
+    private boolean unknown_secretId;
     public String secretId() {
-        if (secretId == null) return null;
-        return secretId.getValue("SecretVersionArgs.secretId");
+        if (!unknown_secretId) return value_secretId;
+        throw new UndeferrableValueException("Value 'SecretVersionArgs.secretId' is not present");
     }
 
     /**
      * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string_wo` is not set.
      * 
      */
-    private UndeferrableValue<String> secretString;
-
+    @PolicyResourceProperty(name="secretString", flag="unknown_secretString")
+    private String value_secretString;
+    private boolean unknown_secretString;
     public String secretString() {
-        if (secretString == null) return null;
-        return secretString.getValue("SecretVersionArgs.secretString");
+        if (!unknown_secretString) return value_secretString;
+        throw new UndeferrableValueException("Value 'SecretVersionArgs.secretString' is not present");
     }
 
     /**
@@ -52,11 +56,12 @@ public final class SecretVersionArgs extends com.pulumi.resources.PolicyResource
      * &gt; **NOTE:** If `version_stages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
      * 
      */
-    private UndeferrableValue<List<String>> versionStages;
-
+    @PolicyResourceProperty(name="versionStages", flag="unknown_versionStages")
+    private List<String> value_versionStages;
+    private boolean unknown_versionStages;
     public List<String> versionStages() {
-        if (versionStages == null) return null;
-        return versionStages.getValue("SecretVersionArgs.versionStages");
+        if (!unknown_versionStages) return value_versionStages;
+        throw new UndeferrableValueException("Value 'SecretVersionArgs.versionStages' is not present");
     }
 
 }

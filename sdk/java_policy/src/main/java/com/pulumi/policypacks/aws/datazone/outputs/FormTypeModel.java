@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datazone.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -15,11 +16,12 @@ public final class FormTypeModel {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> smithy;
-
+    @PolicyResourceProperty(name="smithy", flag="unknown_smithy")
+    private String value_smithy;
+    private boolean unknown_smithy;
     public String smithy() {
-        if (smithy == null) return null;
-        return smithy.getValue("FormTypeModel.smithy");
+        if (!unknown_smithy) return value_smithy;
+        throw new UndeferrableValueException("Value 'FormTypeModel.smithy' is not present");
     }
 
 }

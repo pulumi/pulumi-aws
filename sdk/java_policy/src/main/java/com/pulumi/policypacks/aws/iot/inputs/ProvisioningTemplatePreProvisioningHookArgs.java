@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ProvisioningTemplatePreProvisioningHookArgs {
      * The version of the payload that was sent to the target function. The only valid (and the default) payload version is `&#34;2020-04-01&#34;`.
      * 
      */
-    private UndeferrableValue<String> payloadVersion;
-
+    @PolicyResourceProperty(name="payloadVersion", flag="unknown_payloadVersion")
+    private String value_payloadVersion;
+    private boolean unknown_payloadVersion;
     public String payloadVersion() {
-        if (payloadVersion == null) return null;
-        return payloadVersion.getValue("ProvisioningTemplatePreProvisioningHookArgs.payloadVersion");
+        if (!unknown_payloadVersion) return value_payloadVersion;
+        throw new UndeferrableValueException("Value 'ProvisioningTemplatePreProvisioningHookArgs.payloadVersion' is not present");
     }
 
     /**
      * The ARN of the target function.
      * 
      */
-    private UndeferrableValue<String> targetArn;
-
+    @PolicyResourceProperty(name="targetArn", flag="unknown_targetArn")
+    private String value_targetArn;
+    private boolean unknown_targetArn;
     public String targetArn() {
-        if (targetArn == null) return null;
-        return targetArn.getValue("ProvisioningTemplatePreProvisioningHookArgs.targetArn");
+        if (!unknown_targetArn) return value_targetArn;
+        throw new UndeferrableValueException("Value 'ProvisioningTemplatePreProvisioningHookArgs.targetArn' is not present");
     }
 
 }

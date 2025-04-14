@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,62 +17,68 @@ public final class ImageVersion extends com.pulumi.resources.PolicyResourceOutpu
      * The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ImageVersion.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ImageVersion.arn' is not present");
     }
 
     /**
      * The registry path of the container image on which this image version is based.
      * 
      */
-    private UndeferrableValue<String> baseImage;
-
+    @PolicyResourceProperty(name="baseImage", flag="unknown_baseImage")
+    private String value_baseImage;
+    private boolean unknown_baseImage;
     public String baseImage() {
-        if (baseImage == null) return null;
-        return baseImage.getValue("ImageVersion.baseImage");
+        if (!unknown_baseImage) return value_baseImage;
+        throw new UndeferrableValueException("Value 'ImageVersion.baseImage' is not present");
     }
 
     /**
      * The registry path of the container image that contains this image version.
      * 
      */
-    private UndeferrableValue<String> containerImage;
-
+    @PolicyResourceProperty(name="containerImage", flag="unknown_containerImage")
+    private String value_containerImage;
+    private boolean unknown_containerImage;
     public String containerImage() {
-        if (containerImage == null) return null;
-        return containerImage.getValue("ImageVersion.containerImage");
+        if (!unknown_containerImage) return value_containerImage;
+        throw new UndeferrableValueException("Value 'ImageVersion.containerImage' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the image the version is based on.
      * 
      */
-    private UndeferrableValue<String> imageArn;
-
+    @PolicyResourceProperty(name="imageArn", flag="unknown_imageArn")
+    private String value_imageArn;
+    private boolean unknown_imageArn;
     public String imageArn() {
-        if (imageArn == null) return null;
-        return imageArn.getValue("ImageVersion.imageArn");
+        if (!unknown_imageArn) return value_imageArn;
+        throw new UndeferrableValueException("Value 'ImageVersion.imageArn' is not present");
     }
 
     /**
      * The name of the image. Must be unique to your account.
      * 
      */
-    private UndeferrableValue<String> imageName;
-
+    @PolicyResourceProperty(name="imageName", flag="unknown_imageName")
+    private String value_imageName;
+    private boolean unknown_imageName;
     public String imageName() {
-        if (imageName == null) return null;
-        return imageName.getValue("ImageVersion.imageName");
+        if (!unknown_imageName) return value_imageName;
+        throw new UndeferrableValueException("Value 'ImageVersion.imageName' is not present");
     }
 
-    private UndeferrableValue<Integer> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private Integer value_version;
+    private boolean unknown_version;
     public Integer version() {
-        if (version == null) return null;
-        return version.getValue("ImageVersion.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'ImageVersion.version' is not present");
     }
 
 }

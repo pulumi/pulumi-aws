@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.WorkteamMemberDefinitionCognitoMemberDefinitionArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.WorkteamMemberDefinitionOidcMemberDefinitionArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class WorkteamMemberDefinitionArgs {
      * The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
      * 
      */
-    private UndeferrableValue<WorkteamMemberDefinitionCognitoMemberDefinitionArgs> cognitoMemberDefinition;
-
+    @PolicyResourceProperty(name="cognitoMemberDefinition", flag="unknown_cognitoMemberDefinition")
+    private WorkteamMemberDefinitionCognitoMemberDefinitionArgs value_cognitoMemberDefinition;
+    private boolean unknown_cognitoMemberDefinition;
     public WorkteamMemberDefinitionCognitoMemberDefinitionArgs cognitoMemberDefinition() {
-        if (cognitoMemberDefinition == null) return null;
-        return cognitoMemberDefinition.getValue("WorkteamMemberDefinitionArgs.cognitoMemberDefinition");
+        if (!unknown_cognitoMemberDefinition) return value_cognitoMemberDefinition;
+        throw new UndeferrableValueException("Value 'WorkteamMemberDefinitionArgs.cognitoMemberDefinition' is not present");
     }
 
     /**
      * A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
      * 
      */
-    private UndeferrableValue<WorkteamMemberDefinitionOidcMemberDefinitionArgs> oidcMemberDefinition;
-
+    @PolicyResourceProperty(name="oidcMemberDefinition", flag="unknown_oidcMemberDefinition")
+    private WorkteamMemberDefinitionOidcMemberDefinitionArgs value_oidcMemberDefinition;
+    private boolean unknown_oidcMemberDefinition;
     public WorkteamMemberDefinitionOidcMemberDefinitionArgs oidcMemberDefinition() {
-        if (oidcMemberDefinition == null) return null;
-        return oidcMemberDefinition.getValue("WorkteamMemberDefinitionArgs.oidcMemberDefinition");
+        if (!unknown_oidcMemberDefinition) return value_oidcMemberDefinition;
+        throw new UndeferrableValueException("Value 'WorkteamMemberDefinitionArgs.oidcMemberDefinition' is not present");
     }
 
 }

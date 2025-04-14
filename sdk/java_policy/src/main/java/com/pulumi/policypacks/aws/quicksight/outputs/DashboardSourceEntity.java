@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.outputs.DashboardSourceEntitySourceTemplate;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DashboardSourceEntity {
      * The source template. See source_template.
      * 
      */
-    private @Nullable UndeferrableValue<DashboardSourceEntitySourceTemplate> sourceTemplate;
-
+    @PolicyResourceProperty(name="sourceTemplate", flag="unknown_sourceTemplate")
+    private @Nullable DashboardSourceEntitySourceTemplate value_sourceTemplate;
+    private boolean unknown_sourceTemplate;
     public @Nullable DashboardSourceEntitySourceTemplate sourceTemplate() {
-        if (sourceTemplate == null) return null;
-        return sourceTemplate.getValue("DashboardSourceEntity.sourceTemplate");
+        if (!unknown_sourceTemplate) return value_sourceTemplate;
+        throw new UndeferrableValueException("Value 'DashboardSourceEntity.sourceTemplate' is not present");
     }
 
 }

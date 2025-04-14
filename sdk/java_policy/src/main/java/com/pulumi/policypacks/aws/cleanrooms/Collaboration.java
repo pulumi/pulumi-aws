@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cleanrooms;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cleanrooms.outputs.CollaborationDataEncryptionMetadata;
 import com.pulumi.policypacks.aws.cleanrooms.outputs.CollaborationMember;
@@ -20,11 +21,12 @@ public final class Collaboration extends com.pulumi.resources.PolicyResourceOutp
      * The arn of the collaboration.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Collaboration.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Collaboration.arn' is not present");
     }
 
     /**
@@ -32,33 +34,36 @@ public final class Collaboration extends com.pulumi.resources.PolicyResourceOutp
      * * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
      * 
      */
-    private UndeferrableValue<String> createTime;
-
+    @PolicyResourceProperty(name="createTime", flag="unknown_createTime")
+    private String value_createTime;
+    private boolean unknown_createTime;
     public String createTime() {
-        if (createTime == null) return null;
-        return createTime.getValue("Collaboration.createTime");
+        if (!unknown_createTime) return value_createTime;
+        throw new UndeferrableValueException("Value 'Collaboration.createTime' is not present");
     }
 
     /**
      * The name for the member record for the collaboration creator.
      * 
      */
-    private UndeferrableValue<String> creatorDisplayName;
-
+    @PolicyResourceProperty(name="creatorDisplayName", flag="unknown_creatorDisplayName")
+    private String value_creatorDisplayName;
+    private boolean unknown_creatorDisplayName;
     public String creatorDisplayName() {
-        if (creatorDisplayName == null) return null;
-        return creatorDisplayName.getValue("Collaboration.creatorDisplayName");
+        if (!unknown_creatorDisplayName) return value_creatorDisplayName;
+        throw new UndeferrableValueException("Value 'Collaboration.creatorDisplayName' is not present");
     }
 
     /**
      * The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
      * 
      */
-    private UndeferrableValue<List<String>> creatorMemberAbilities;
-
+    @PolicyResourceProperty(name="creatorMemberAbilities", flag="unknown_creatorMemberAbilities")
+    private List<String> value_creatorMemberAbilities;
+    private boolean unknown_creatorMemberAbilities;
     public List<String> creatorMemberAbilities() {
-        if (creatorMemberAbilities == null) return null;
-        return creatorMemberAbilities.getValue("Collaboration.creatorMemberAbilities");
+        if (!unknown_creatorMemberAbilities) return value_creatorMemberAbilities;
+        throw new UndeferrableValueException("Value 'Collaboration.creatorMemberAbilities' is not present");
     }
 
     /**
@@ -73,22 +78,24 @@ public final class Collaboration extends com.pulumi.resources.PolicyResourceOutp
      *   or cryptographically processed (false).
      * 
      */
-    private @Nullable UndeferrableValue<CollaborationDataEncryptionMetadata> dataEncryptionMetadata;
-
+    @PolicyResourceProperty(name="dataEncryptionMetadata", flag="unknown_dataEncryptionMetadata")
+    private @Nullable CollaborationDataEncryptionMetadata value_dataEncryptionMetadata;
+    private boolean unknown_dataEncryptionMetadata;
     public @Nullable CollaborationDataEncryptionMetadata dataEncryptionMetadata() {
-        if (dataEncryptionMetadata == null) return null;
-        return dataEncryptionMetadata.getValue("Collaboration.dataEncryptionMetadata");
+        if (!unknown_dataEncryptionMetadata) return value_dataEncryptionMetadata;
+        throw new UndeferrableValueException("Value 'Collaboration.dataEncryptionMetadata' is not present");
     }
 
     /**
      * A description for a collaboration.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("Collaboration.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Collaboration.description' is not present");
     }
 
     /**
@@ -98,22 +105,24 @@ public final class Collaboration extends com.pulumi.resources.PolicyResourceOutp
      * * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
      * 
      */
-    private @Nullable UndeferrableValue<List<CollaborationMember>> members;
-
+    @PolicyResourceProperty(name="members", flag="unknown_members")
+    private @Nullable List<CollaborationMember> value_members;
+    private boolean unknown_members;
     public @Nullable List<CollaborationMember> members() {
-        if (members == null) return null;
-        return members.getValue("Collaboration.members");
+        if (!unknown_members) return value_members;
+        throw new UndeferrableValueException("Value 'Collaboration.members' is not present");
     }
 
     /**
      * The name of the collaboration.  Collaboration names do not need to be unique.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Collaboration.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Collaboration.name' is not present");
     }
 
     /**
@@ -121,22 +130,24 @@ public final class Collaboration extends com.pulumi.resources.PolicyResourceOutp
      * emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
      * 
      */
-    private UndeferrableValue<String> queryLogStatus;
-
+    @PolicyResourceProperty(name="queryLogStatus", flag="unknown_queryLogStatus")
+    private String value_queryLogStatus;
+    private boolean unknown_queryLogStatus;
     public String queryLogStatus() {
-        if (queryLogStatus == null) return null;
-        return queryLogStatus.getValue("Collaboration.queryLogStatus");
+        if (!unknown_queryLogStatus) return value_queryLogStatus;
+        throw new UndeferrableValueException("Value 'Collaboration.queryLogStatus' is not present");
     }
 
     /**
      * Key value pairs which tag the collaboration.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Collaboration.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Collaboration.tags' is not present");
     }
 
     /**
@@ -145,18 +156,20 @@ public final class Collaboration extends com.pulumi.resources.PolicyResourceOutp
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Collaboration.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Collaboration.tagsAll' is not present");
     }
 
-    private UndeferrableValue<String> updateTime;
-
+    @PolicyResourceProperty(name="updateTime", flag="unknown_updateTime")
+    private String value_updateTime;
+    private boolean unknown_updateTime;
     public String updateTime() {
-        if (updateTime == null) return null;
-        return updateTime.getValue("Collaboration.updateTime");
+        if (!unknown_updateTime) return value_updateTime;
+        throw new UndeferrableValueException("Value 'Collaboration.updateTime' is not present");
     }
 
 }

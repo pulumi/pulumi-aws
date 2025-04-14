@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bcmdata;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.bcmdata.outputs.ExportExport;
 import com.pulumi.policypacks.aws.bcmdata.outputs.ExportTimeouts;
@@ -19,18 +20,20 @@ public final class Export extends com.pulumi.resources.PolicyResourceOutput {
      * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
      * 
      */
-    private @Nullable UndeferrableValue<ExportExport> export;
-
+    @PolicyResourceProperty(name="export", flag="unknown_export")
+    private @Nullable ExportExport value_export;
+    private boolean unknown_export;
     public @Nullable ExportExport export() {
-        if (export == null) return null;
-        return export.getValue("Export.export");
+        if (!unknown_export) return value_export;
+        throw new UndeferrableValueException("Value 'Export.export' is not present");
     }
 
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Export.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Export.tags' is not present");
     }
 
     /**
@@ -39,18 +42,20 @@ public final class Export extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Export.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Export.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<ExportTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable ExportTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable ExportTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("Export.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'Export.timeouts' is not present");
     }
 
 }

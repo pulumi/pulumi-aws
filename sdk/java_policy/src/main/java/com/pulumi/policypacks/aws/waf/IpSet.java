@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.waf;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.waf.outputs.IpSetIpSetDescriptor;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class IpSet extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN of the WAF IPSet.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("IpSet.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'IpSet.arn' is not present");
     }
 
     /**
      * One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
      * 
      */
-    private @Nullable UndeferrableValue<List<IpSetIpSetDescriptor>> ipSetDescriptors;
-
+    @PolicyResourceProperty(name="ipSetDescriptors", flag="unknown_ipSetDescriptors")
+    private @Nullable List<IpSetIpSetDescriptor> value_ipSetDescriptors;
+    private boolean unknown_ipSetDescriptors;
     public @Nullable List<IpSetIpSetDescriptor> ipSetDescriptors() {
-        if (ipSetDescriptors == null) return null;
-        return ipSetDescriptors.getValue("IpSet.ipSetDescriptors");
+        if (!unknown_ipSetDescriptors) return value_ipSetDescriptors;
+        throw new UndeferrableValueException("Value 'IpSet.ipSetDescriptors' is not present");
     }
 
     /**
      * The name or description of the IPSet.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("IpSet.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'IpSet.name' is not present");
     }
 
 }

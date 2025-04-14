@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -12,46 +13,52 @@ import javax.annotation.Nullable;
 
 public final class LaunchConfigurationRootBlockDeviceArgs {
 
-    private UndeferrableValue<Boolean> deleteOnTermination;
-
+    @PolicyResourceProperty(name="deleteOnTermination", flag="unknown_deleteOnTermination")
+    private Boolean value_deleteOnTermination;
+    private boolean unknown_deleteOnTermination;
     public Boolean deleteOnTermination() {
-        if (deleteOnTermination == null) return null;
-        return deleteOnTermination.getValue("LaunchConfigurationRootBlockDeviceArgs.deleteOnTermination");
+        if (!unknown_deleteOnTermination) return value_deleteOnTermination;
+        throw new UndeferrableValueException("Value 'LaunchConfigurationRootBlockDeviceArgs.deleteOnTermination' is not present");
     }
 
-    private UndeferrableValue<Boolean> encrypted;
-
+    @PolicyResourceProperty(name="encrypted", flag="unknown_encrypted")
+    private Boolean value_encrypted;
+    private boolean unknown_encrypted;
     public Boolean encrypted() {
-        if (encrypted == null) return null;
-        return encrypted.getValue("LaunchConfigurationRootBlockDeviceArgs.encrypted");
+        if (!unknown_encrypted) return value_encrypted;
+        throw new UndeferrableValueException("Value 'LaunchConfigurationRootBlockDeviceArgs.encrypted' is not present");
     }
 
-    private UndeferrableValue<Integer> iops;
-
+    @PolicyResourceProperty(name="iops", flag="unknown_iops")
+    private Integer value_iops;
+    private boolean unknown_iops;
     public Integer iops() {
-        if (iops == null) return null;
-        return iops.getValue("LaunchConfigurationRootBlockDeviceArgs.iops");
+        if (!unknown_iops) return value_iops;
+        throw new UndeferrableValueException("Value 'LaunchConfigurationRootBlockDeviceArgs.iops' is not present");
     }
 
-    private UndeferrableValue<Integer> throughput;
-
+    @PolicyResourceProperty(name="throughput", flag="unknown_throughput")
+    private Integer value_throughput;
+    private boolean unknown_throughput;
     public Integer throughput() {
-        if (throughput == null) return null;
-        return throughput.getValue("LaunchConfigurationRootBlockDeviceArgs.throughput");
+        if (!unknown_throughput) return value_throughput;
+        throw new UndeferrableValueException("Value 'LaunchConfigurationRootBlockDeviceArgs.throughput' is not present");
     }
 
-    private UndeferrableValue<Integer> volumeSize;
-
+    @PolicyResourceProperty(name="volumeSize", flag="unknown_volumeSize")
+    private Integer value_volumeSize;
+    private boolean unknown_volumeSize;
     public Integer volumeSize() {
-        if (volumeSize == null) return null;
-        return volumeSize.getValue("LaunchConfigurationRootBlockDeviceArgs.volumeSize");
+        if (!unknown_volumeSize) return value_volumeSize;
+        throw new UndeferrableValueException("Value 'LaunchConfigurationRootBlockDeviceArgs.volumeSize' is not present");
     }
 
-    private UndeferrableValue<String> volumeType;
-
+    @PolicyResourceProperty(name="volumeType", flag="unknown_volumeType")
+    private String value_volumeType;
+    private boolean unknown_volumeType;
     public String volumeType() {
-        if (volumeType == null) return null;
-        return volumeType.getValue("LaunchConfigurationRootBlockDeviceArgs.volumeType");
+        if (!unknown_volumeType) return value_volumeType;
+        throw new UndeferrableValueException("Value 'LaunchConfigurationRootBlockDeviceArgs.volumeType' is not present");
     }
 
 }

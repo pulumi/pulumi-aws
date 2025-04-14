@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codecatalyst;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,22 +17,24 @@ public final class SourceRepository extends com.pulumi.resources.PolicyResourceO
      * The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("SourceRepository.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'SourceRepository.description' is not present");
     }
 
     /**
      * The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("SourceRepository.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'SourceRepository.name' is not present");
     }
 
     /**
@@ -40,22 +43,24 @@ public final class SourceRepository extends com.pulumi.resources.PolicyResourceO
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> projectName;
-
+    @PolicyResourceProperty(name="projectName", flag="unknown_projectName")
+    private String value_projectName;
+    private boolean unknown_projectName;
     public String projectName() {
-        if (projectName == null) return null;
-        return projectName.getValue("SourceRepository.projectName");
+        if (!unknown_projectName) return value_projectName;
+        throw new UndeferrableValueException("Value 'SourceRepository.projectName' is not present");
     }
 
     /**
      * The name of the CodeCatalyst space.
      * 
      */
-    private UndeferrableValue<String> spaceName;
-
+    @PolicyResourceProperty(name="spaceName", flag="unknown_spaceName")
+    private String value_spaceName;
+    private boolean unknown_spaceName;
     public String spaceName() {
-        if (spaceName == null) return null;
-        return spaceName.getValue("SourceRepository.spaceName");
+        if (!unknown_spaceName) return value_spaceName;
+        throw new UndeferrableValueException("Value 'SourceRepository.spaceName' is not present");
     }
 
 }

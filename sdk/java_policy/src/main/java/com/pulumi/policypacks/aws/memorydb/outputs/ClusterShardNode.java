@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.memorydb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.memorydb.outputs.ClusterShardNodeEndpoint;
 import java.lang.String;
 import java.util.List;
@@ -16,40 +17,44 @@ public final class ClusterShardNode {
      * The Availability Zone in which the node resides.
      * 
      */
-    private @Nullable UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private @Nullable String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public @Nullable String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("ClusterShardNode.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'ClusterShardNode.availabilityZone' is not present");
     }
 
     /**
      * The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
      * 
      */
-    private @Nullable UndeferrableValue<String> createTime;
-
+    @PolicyResourceProperty(name="createTime", flag="unknown_createTime")
+    private @Nullable String value_createTime;
+    private boolean unknown_createTime;
     public @Nullable String createTime() {
-        if (createTime == null) return null;
-        return createTime.getValue("ClusterShardNode.createTime");
+        if (!unknown_createTime) return value_createTime;
+        throw new UndeferrableValueException("Value 'ClusterShardNode.createTime' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<ClusterShardNodeEndpoint>> endpoints;
-
+    @PolicyResourceProperty(name="endpoints", flag="unknown_endpoints")
+    private @Nullable List<ClusterShardNodeEndpoint> value_endpoints;
+    private boolean unknown_endpoints;
     public @Nullable List<ClusterShardNodeEndpoint> endpoints() {
-        if (endpoints == null) return null;
-        return endpoints.getValue("ClusterShardNode.endpoints");
+        if (!unknown_endpoints) return value_endpoints;
+        throw new UndeferrableValueException("Value 'ClusterShardNode.endpoints' is not present");
     }
 
     /**
      * Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("ClusterShardNode.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ClusterShardNode.name' is not present");
     }
 
 }

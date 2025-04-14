@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsSlotValueElicitationSettingDefaultValueSpecificationArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsSlotValueElicitationSettingPromptSpecificationArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsSlotValueElicitationSettingSampleUtteranceArgs;
@@ -21,11 +22,12 @@ public final class V2modelsSlotValueElicitationSettingArgs {
      * See the `default_value_specification` argument reference below.
      * 
      */
-    private UndeferrableValue<List<V2modelsSlotValueElicitationSettingDefaultValueSpecificationArgs>> defaultValueSpecifications;
-
+    @PolicyResourceProperty(name="defaultValueSpecifications", flag="unknown_defaultValueSpecifications")
+    private List<V2modelsSlotValueElicitationSettingDefaultValueSpecificationArgs> value_defaultValueSpecifications;
+    private boolean unknown_defaultValueSpecifications;
     public List<V2modelsSlotValueElicitationSettingDefaultValueSpecificationArgs> defaultValueSpecifications() {
-        if (defaultValueSpecifications == null) return null;
-        return defaultValueSpecifications.getValue("V2modelsSlotValueElicitationSettingArgs.defaultValueSpecifications");
+        if (!unknown_defaultValueSpecifications) return value_defaultValueSpecifications;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingArgs.defaultValueSpecifications' is not present");
     }
 
     /**
@@ -33,29 +35,32 @@ public final class V2modelsSlotValueElicitationSettingArgs {
      * See the `aws.lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
      * 
      */
-    private UndeferrableValue<V2modelsSlotValueElicitationSettingPromptSpecificationArgs> promptSpecification;
-
+    @PolicyResourceProperty(name="promptSpecification", flag="unknown_promptSpecification")
+    private V2modelsSlotValueElicitationSettingPromptSpecificationArgs value_promptSpecification;
+    private boolean unknown_promptSpecification;
     public V2modelsSlotValueElicitationSettingPromptSpecificationArgs promptSpecification() {
-        if (promptSpecification == null) return null;
-        return promptSpecification.getValue("V2modelsSlotValueElicitationSettingArgs.promptSpecification");
+        if (!unknown_promptSpecification) return value_promptSpecification;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingArgs.promptSpecification' is not present");
     }
 
-    private UndeferrableValue<List<V2modelsSlotValueElicitationSettingSampleUtteranceArgs>> sampleUtterances;
-
+    @PolicyResourceProperty(name="sampleUtterances", flag="unknown_sampleUtterances")
+    private List<V2modelsSlotValueElicitationSettingSampleUtteranceArgs> value_sampleUtterances;
+    private boolean unknown_sampleUtterances;
     public List<V2modelsSlotValueElicitationSettingSampleUtteranceArgs> sampleUtterances() {
-        if (sampleUtterances == null) return null;
-        return sampleUtterances.getValue("V2modelsSlotValueElicitationSettingArgs.sampleUtterances");
+        if (!unknown_sampleUtterances) return value_sampleUtterances;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingArgs.sampleUtterances' is not present");
     }
 
     /**
      * Whether the slot is required or optional. Valid values are `Required` or `Optional`.
      * 
      */
-    private UndeferrableValue<String> slotConstraint;
-
+    @PolicyResourceProperty(name="slotConstraint", flag="unknown_slotConstraint")
+    private String value_slotConstraint;
+    private boolean unknown_slotConstraint;
     public String slotConstraint() {
-        if (slotConstraint == null) return null;
-        return slotConstraint.getValue("V2modelsSlotValueElicitationSettingArgs.slotConstraint");
+        if (!unknown_slotConstraint) return value_slotConstraint;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingArgs.slotConstraint' is not present");
     }
 
     /**
@@ -63,11 +68,12 @@ public final class V2modelsSlotValueElicitationSettingArgs {
      * See the `slot_resolution_setting` argument reference below.
      * 
      */
-    private UndeferrableValue<List<V2modelsSlotValueElicitationSettingSlotResolutionSettingArgs>> slotResolutionSettings;
-
+    @PolicyResourceProperty(name="slotResolutionSettings", flag="unknown_slotResolutionSettings")
+    private List<V2modelsSlotValueElicitationSettingSlotResolutionSettingArgs> value_slotResolutionSettings;
+    private boolean unknown_slotResolutionSettings;
     public List<V2modelsSlotValueElicitationSettingSlotResolutionSettingArgs> slotResolutionSettings() {
-        if (slotResolutionSettings == null) return null;
-        return slotResolutionSettings.getValue("V2modelsSlotValueElicitationSettingArgs.slotResolutionSettings");
+        if (!unknown_slotResolutionSettings) return value_slotResolutionSettings;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingArgs.slotResolutionSettings' is not present");
     }
 
     /**
@@ -75,11 +81,12 @@ public final class V2modelsSlotValueElicitationSettingArgs {
      * See the `wait_and_continue_specification` argument reference below.
      * 
      */
-    private UndeferrableValue<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs>> waitAndContinueSpecifications;
-
+    @PolicyResourceProperty(name="waitAndContinueSpecifications", flag="unknown_waitAndContinueSpecifications")
+    private List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs> value_waitAndContinueSpecifications;
+    private boolean unknown_waitAndContinueSpecifications;
     public List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs> waitAndContinueSpecifications() {
-        if (waitAndContinueSpecifications == null) return null;
-        return waitAndContinueSpecifications.getValue("V2modelsSlotValueElicitationSettingArgs.waitAndContinueSpecifications");
+        if (!unknown_waitAndContinueSpecifications) return value_waitAndContinueSpecifications;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingArgs.waitAndContinueSpecifications' is not present");
     }
 
 }

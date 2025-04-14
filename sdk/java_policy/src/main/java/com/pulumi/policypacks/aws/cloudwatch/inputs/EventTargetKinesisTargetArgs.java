@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class EventTargetKinesisTargetArgs {
      * The JSON path to be extracted from the event and used as the partition key.
      * 
      */
-    private UndeferrableValue<String> partitionKeyPath;
-
+    @PolicyResourceProperty(name="partitionKeyPath", flag="unknown_partitionKeyPath")
+    private String value_partitionKeyPath;
+    private boolean unknown_partitionKeyPath;
     public String partitionKeyPath() {
-        if (partitionKeyPath == null) return null;
-        return partitionKeyPath.getValue("EventTargetKinesisTargetArgs.partitionKeyPath");
+        if (!unknown_partitionKeyPath) return value_partitionKeyPath;
+        throw new UndeferrableValueException("Value 'EventTargetKinesisTargetArgs.partitionKeyPath' is not present");
     }
 
 }

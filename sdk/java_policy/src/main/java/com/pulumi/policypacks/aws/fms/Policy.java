@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fms;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.fms.outputs.PolicyExcludeMap;
 import com.pulumi.policypacks.aws.fms.outputs.PolicyIncludeMap;
@@ -18,172 +19,188 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:fms/policy:Policy")
 public final class Policy extends com.pulumi.resources.PolicyResourceOutput {
 
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Policy.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Policy.arn' is not present");
     }
 
     /**
      * If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> deleteAllPolicyResources;
-
+    @PolicyResourceProperty(name="deleteAllPolicyResources", flag="unknown_deleteAllPolicyResources")
+    private @Nullable Boolean value_deleteAllPolicyResources;
+    private boolean unknown_deleteAllPolicyResources;
     public @Nullable Boolean deleteAllPolicyResources() {
-        if (deleteAllPolicyResources == null) return null;
-        return deleteAllPolicyResources.getValue("Policy.deleteAllPolicyResources");
+        if (!unknown_deleteAllPolicyResources) return value_deleteAllPolicyResources;
+        throw new UndeferrableValueException("Value 'Policy.deleteAllPolicyResources' is not present");
     }
 
     /**
      * If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> deleteUnusedFmManagedResources;
-
+    @PolicyResourceProperty(name="deleteUnusedFmManagedResources", flag="unknown_deleteUnusedFmManagedResources")
+    private @Nullable Boolean value_deleteUnusedFmManagedResources;
+    private boolean unknown_deleteUnusedFmManagedResources;
     public @Nullable Boolean deleteUnusedFmManagedResources() {
-        if (deleteUnusedFmManagedResources == null) return null;
-        return deleteUnusedFmManagedResources.getValue("Policy.deleteUnusedFmManagedResources");
+        if (!unknown_deleteUnusedFmManagedResources) return value_deleteUnusedFmManagedResources;
+        throw new UndeferrableValueException("Value 'Policy.deleteUnusedFmManagedResources' is not present");
     }
 
     /**
      * The description of the AWS Network Firewall firewall policy.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Policy.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Policy.description' is not present");
     }
 
     /**
      * A map of lists of accounts and OU&#39;s to exclude from the policy. See the `exclude_map` block.
      * 
      */
-    private @Nullable UndeferrableValue<PolicyExcludeMap> excludeMap;
-
+    @PolicyResourceProperty(name="excludeMap", flag="unknown_excludeMap")
+    private @Nullable PolicyExcludeMap value_excludeMap;
+    private boolean unknown_excludeMap;
     public @Nullable PolicyExcludeMap excludeMap() {
-        if (excludeMap == null) return null;
-        return excludeMap.getValue("Policy.excludeMap");
+        if (!unknown_excludeMap) return value_excludeMap;
+        throw new UndeferrableValueException("Value 'Policy.excludeMap' is not present");
     }
 
     /**
      * A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
      * 
      */
-    private UndeferrableValue<Boolean> excludeResourceTags;
-
+    @PolicyResourceProperty(name="excludeResourceTags", flag="unknown_excludeResourceTags")
+    private Boolean value_excludeResourceTags;
+    private boolean unknown_excludeResourceTags;
     public Boolean excludeResourceTags() {
-        if (excludeResourceTags == null) return null;
-        return excludeResourceTags.getValue("Policy.excludeResourceTags");
+        if (!unknown_excludeResourceTags) return value_excludeResourceTags;
+        throw new UndeferrableValueException("Value 'Policy.excludeResourceTags' is not present");
     }
 
     /**
      * A map of lists of accounts and OU&#39;s to include in the policy. See the `include_map` block.
      * 
      */
-    private @Nullable UndeferrableValue<PolicyIncludeMap> includeMap;
-
+    @PolicyResourceProperty(name="includeMap", flag="unknown_includeMap")
+    private @Nullable PolicyIncludeMap value_includeMap;
+    private boolean unknown_includeMap;
     public @Nullable PolicyIncludeMap includeMap() {
-        if (includeMap == null) return null;
-        return includeMap.getValue("Policy.includeMap");
+        if (!unknown_includeMap) return value_includeMap;
+        throw new UndeferrableValueException("Value 'Policy.includeMap' is not present");
     }
 
     /**
      * The friendly name of the AWS Firewall Manager Policy.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Policy.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Policy.name' is not present");
     }
 
     /**
      * A unique identifier for each update to the policy.
      * 
      */
-    private UndeferrableValue<String> policyUpdateToken;
-
+    @PolicyResourceProperty(name="policyUpdateToken", flag="unknown_policyUpdateToken")
+    private String value_policyUpdateToken;
+    private boolean unknown_policyUpdateToken;
     public String policyUpdateToken() {
-        if (policyUpdateToken == null) return null;
-        return policyUpdateToken.getValue("Policy.policyUpdateToken");
+        if (!unknown_policyUpdateToken) return value_policyUpdateToken;
+        throw new UndeferrableValueException("Value 'Policy.policyUpdateToken' is not present");
     }
 
     /**
      * A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> remediationEnabled;
-
+    @PolicyResourceProperty(name="remediationEnabled", flag="unknown_remediationEnabled")
+    private @Nullable Boolean value_remediationEnabled;
+    private boolean unknown_remediationEnabled;
     public @Nullable Boolean remediationEnabled() {
-        if (remediationEnabled == null) return null;
-        return remediationEnabled.getValue("Policy.remediationEnabled");
+        if (!unknown_remediationEnabled) return value_remediationEnabled;
+        throw new UndeferrableValueException("Value 'Policy.remediationEnabled' is not present");
     }
 
-    private UndeferrableValue<List<String>> resourceSetIds;
-
+    @PolicyResourceProperty(name="resourceSetIds", flag="unknown_resourceSetIds")
+    private List<String> value_resourceSetIds;
+    private boolean unknown_resourceSetIds;
     public List<String> resourceSetIds() {
-        if (resourceSetIds == null) return null;
-        return resourceSetIds.getValue("Policy.resourceSetIds");
+        if (!unknown_resourceSetIds) return value_resourceSetIds;
+        throw new UndeferrableValueException("Value 'Policy.resourceSetIds' is not present");
     }
 
     /**
      * A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> resourceTags;
-
+    @PolicyResourceProperty(name="resourceTags", flag="unknown_resourceTags")
+    private @Nullable Map<String,String> value_resourceTags;
+    private boolean unknown_resourceTags;
     public @Nullable Map<String,String> resourceTags() {
-        if (resourceTags == null) return null;
-        return resourceTags.getValue("Policy.resourceTags");
+        if (!unknown_resourceTags) return value_resourceTags;
+        throw new UndeferrableValueException("Value 'Policy.resourceTags' is not present");
     }
 
     /**
      * A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
      * 
      */
-    private UndeferrableValue<String> resourceType;
-
+    @PolicyResourceProperty(name="resourceType", flag="unknown_resourceType")
+    private String value_resourceType;
+    private boolean unknown_resourceType;
     public String resourceType() {
-        if (resourceType == null) return null;
-        return resourceType.getValue("Policy.resourceType");
+        if (!unknown_resourceType) return value_resourceType;
+        throw new UndeferrableValueException("Value 'Policy.resourceType' is not present");
     }
 
     /**
      * A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
      * 
      */
-    private UndeferrableValue<List<String>> resourceTypeLists;
-
+    @PolicyResourceProperty(name="resourceTypeLists", flag="unknown_resourceTypeLists")
+    private List<String> value_resourceTypeLists;
+    private boolean unknown_resourceTypeLists;
     public List<String> resourceTypeLists() {
-        if (resourceTypeLists == null) return null;
-        return resourceTypeLists.getValue("Policy.resourceTypeLists");
+        if (!unknown_resourceTypeLists) return value_resourceTypeLists;
+        throw new UndeferrableValueException("Value 'Policy.resourceTypeLists' is not present");
     }
 
     /**
      * The objects to include in Security Service Policy Data. See the `security_service_policy_data` block.
      * 
      */
-    private UndeferrableValue<PolicySecurityServicePolicyData> securityServicePolicyData;
-
+    @PolicyResourceProperty(name="securityServicePolicyData", flag="unknown_securityServicePolicyData")
+    private PolicySecurityServicePolicyData value_securityServicePolicyData;
+    private boolean unknown_securityServicePolicyData;
     public PolicySecurityServicePolicyData securityServicePolicyData() {
-        if (securityServicePolicyData == null) return null;
-        return securityServicePolicyData.getValue("Policy.securityServicePolicyData");
+        if (!unknown_securityServicePolicyData) return value_securityServicePolicyData;
+        throw new UndeferrableValueException("Value 'Policy.securityServicePolicyData' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Policy.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Policy.tags' is not present");
     }
 
     /**
@@ -194,11 +211,12 @@ public final class Policy extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Policy.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Policy.tagsAll' is not present");
     }
 
 }

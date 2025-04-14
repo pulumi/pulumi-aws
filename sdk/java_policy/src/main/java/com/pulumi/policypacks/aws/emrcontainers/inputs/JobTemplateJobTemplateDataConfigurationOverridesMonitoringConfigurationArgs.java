@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emrcontainers.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.emrcontainers.inputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs;
 import com.pulumi.policypacks.aws.emrcontainers.inputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesMonitoringCon
      * Monitoring configurations for CloudWatch.
      * 
      */
-    private UndeferrableValue<JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs> cloudWatchMonitoringConfiguration;
-
+    @PolicyResourceProperty(name="cloudWatchMonitoringConfiguration", flag="unknown_cloudWatchMonitoringConfiguration")
+    private JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs value_cloudWatchMonitoringConfiguration;
+    private boolean unknown_cloudWatchMonitoringConfiguration;
     public JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs cloudWatchMonitoringConfiguration() {
-        if (cloudWatchMonitoringConfiguration == null) return null;
-        return cloudWatchMonitoringConfiguration.getValue("JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs.cloudWatchMonitoringConfiguration");
+        if (!unknown_cloudWatchMonitoringConfiguration) return value_cloudWatchMonitoringConfiguration;
+        throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs.cloudWatchMonitoringConfiguration' is not present");
     }
 
     /**
      * Monitoring configurations for the persistent application UI.
      * 
      */
-    private UndeferrableValue<String> persistentAppUi;
-
+    @PolicyResourceProperty(name="persistentAppUi", flag="unknown_persistentAppUi")
+    private String value_persistentAppUi;
+    private boolean unknown_persistentAppUi;
     public String persistentAppUi() {
-        if (persistentAppUi == null) return null;
-        return persistentAppUi.getValue("JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs.persistentAppUi");
+        if (!unknown_persistentAppUi) return value_persistentAppUi;
+        throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs.persistentAppUi' is not present");
     }
 
     /**
      * Amazon S3 configuration for monitoring log publishing.
      * 
      */
-    private UndeferrableValue<JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs> s3MonitoringConfiguration;
-
+    @PolicyResourceProperty(name="s3MonitoringConfiguration", flag="unknown_s3MonitoringConfiguration")
+    private JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs value_s3MonitoringConfiguration;
+    private boolean unknown_s3MonitoringConfiguration;
     public JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs s3MonitoringConfiguration() {
-        if (s3MonitoringConfiguration == null) return null;
-        return s3MonitoringConfiguration.getValue("JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs.s3MonitoringConfiguration");
+        if (!unknown_s3MonitoringConfiguration) return value_s3MonitoringConfiguration;
+        throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs.s3MonitoringConfiguration' is not present");
     }
 
 }

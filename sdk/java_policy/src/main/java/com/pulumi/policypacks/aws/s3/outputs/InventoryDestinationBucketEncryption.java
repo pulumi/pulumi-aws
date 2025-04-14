@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.outputs.InventoryDestinationBucketEncryptionSseKms;
 import com.pulumi.policypacks.aws.s3.outputs.InventoryDestinationBucketEncryptionSseS3;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class InventoryDestinationBucketEncryption {
      * Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
      * 
      */
-    private @Nullable UndeferrableValue<InventoryDestinationBucketEncryptionSseKms> sseKms;
-
+    @PolicyResourceProperty(name="sseKms", flag="unknown_sseKms")
+    private @Nullable InventoryDestinationBucketEncryptionSseKms value_sseKms;
+    private boolean unknown_sseKms;
     public @Nullable InventoryDestinationBucketEncryptionSseKms sseKms() {
-        if (sseKms == null) return null;
-        return sseKms.getValue("InventoryDestinationBucketEncryption.sseKms");
+        if (!unknown_sseKms) return value_sseKms;
+        throw new UndeferrableValueException("Value 'InventoryDestinationBucketEncryption.sseKms' is not present");
     }
 
     /**
      * Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
      * 
      */
-    private @Nullable UndeferrableValue<InventoryDestinationBucketEncryptionSseS3> sseS3;
-
+    @PolicyResourceProperty(name="sseS3", flag="unknown_sseS3")
+    private @Nullable InventoryDestinationBucketEncryptionSseS3 value_sseS3;
+    private boolean unknown_sseS3;
     public @Nullable InventoryDestinationBucketEncryptionSseS3 sseS3() {
-        if (sseS3 == null) return null;
-        return sseS3.getValue("InventoryDestinationBucketEncryption.sseS3");
+        if (!unknown_sseS3) return value_sseS3;
+        throw new UndeferrableValueException("Value 'InventoryDestinationBucketEncryption.sseS3' is not present");
     }
 
 }

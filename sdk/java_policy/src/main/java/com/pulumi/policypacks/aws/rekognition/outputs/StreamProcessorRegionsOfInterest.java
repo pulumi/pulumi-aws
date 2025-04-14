@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rekognition.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.rekognition.outputs.StreamProcessorRegionsOfInterestBoundingBox;
 import com.pulumi.policypacks.aws.rekognition.outputs.StreamProcessorRegionsOfInterestPolygon;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class StreamProcessorRegionsOfInterest {
      * Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
      * 
      */
-    private @Nullable UndeferrableValue<StreamProcessorRegionsOfInterestBoundingBox> boundingBox;
-
+    @PolicyResourceProperty(name="boundingBox", flag="unknown_boundingBox")
+    private @Nullable StreamProcessorRegionsOfInterestBoundingBox value_boundingBox;
+    private boolean unknown_boundingBox;
     public @Nullable StreamProcessorRegionsOfInterestBoundingBox boundingBox() {
-        if (boundingBox == null) return null;
-        return boundingBox.getValue("StreamProcessorRegionsOfInterest.boundingBox");
+        if (!unknown_boundingBox) return value_boundingBox;
+        throw new UndeferrableValueException("Value 'StreamProcessorRegionsOfInterest.boundingBox' is not present");
     }
 
     /**
      * Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
      * 
      */
-    private UndeferrableValue<List<StreamProcessorRegionsOfInterestPolygon>> polygons;
-
+    @PolicyResourceProperty(name="polygons", flag="unknown_polygons")
+    private List<StreamProcessorRegionsOfInterestPolygon> value_polygons;
+    private boolean unknown_polygons;
     public List<StreamProcessorRegionsOfInterestPolygon> polygons() {
-        if (polygons == null) return null;
-        return polygons.getValue("StreamProcessorRegionsOfInterest.polygons");
+        if (!unknown_polygons) return value_polygons;
+        throw new UndeferrableValueException("Value 'StreamProcessorRegionsOfInterest.polygons' is not present");
     }
 
 }

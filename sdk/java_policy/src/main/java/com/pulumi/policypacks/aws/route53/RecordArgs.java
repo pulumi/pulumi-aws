@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.route53.enums.RecordType;
 import com.pulumi.policypacks.aws.route53.inputs.RecordAliasArgs;
@@ -28,11 +29,12 @@ public final class RecordArgs extends com.pulumi.resources.PolicyResourceInput {
      * Documented below.
      * 
      */
-    private UndeferrableValue<List<RecordAliasArgs>> aliases;
-
+    @PolicyResourceProperty(name="aliases", flag="unknown_aliases")
+    private List<RecordAliasArgs> value_aliases;
+    private boolean unknown_aliases;
     public List<RecordAliasArgs> aliases() {
-        if (aliases == null) return null;
-        return aliases.getValue("RecordArgs.aliases");
+        if (!unknown_aliases) return value_aliases;
+        throw new UndeferrableValueException("Value 'RecordArgs.aliases' is not present");
     }
 
     /**
@@ -41,165 +43,180 @@ public final class RecordArgs extends com.pulumi.resources.PolicyResourceInput {
      * Exactly one of `records` or `alias` must be specified: this determines whether it&#39;s an alias record.
      * 
      */
-    private UndeferrableValue<Boolean> allowOverwrite;
-
+    @PolicyResourceProperty(name="allowOverwrite", flag="unknown_allowOverwrite")
+    private Boolean value_allowOverwrite;
+    private boolean unknown_allowOverwrite;
     public Boolean allowOverwrite() {
-        if (allowOverwrite == null) return null;
-        return allowOverwrite.getValue("RecordArgs.allowOverwrite");
+        if (!unknown_allowOverwrite) return value_allowOverwrite;
+        throw new UndeferrableValueException("Value 'RecordArgs.allowOverwrite' is not present");
     }
 
     /**
      * A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
      * 
      */
-    private UndeferrableValue<RecordCidrRoutingPolicyArgs> cidrRoutingPolicy;
-
+    @PolicyResourceProperty(name="cidrRoutingPolicy", flag="unknown_cidrRoutingPolicy")
+    private RecordCidrRoutingPolicyArgs value_cidrRoutingPolicy;
+    private boolean unknown_cidrRoutingPolicy;
     public RecordCidrRoutingPolicyArgs cidrRoutingPolicy() {
-        if (cidrRoutingPolicy == null) return null;
-        return cidrRoutingPolicy.getValue("RecordArgs.cidrRoutingPolicy");
+        if (!unknown_cidrRoutingPolicy) return value_cidrRoutingPolicy;
+        throw new UndeferrableValueException("Value 'RecordArgs.cidrRoutingPolicy' is not present");
     }
 
     /**
      * A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
      * 
      */
-    private UndeferrableValue<List<RecordFailoverRoutingPolicyArgs>> failoverRoutingPolicies;
-
+    @PolicyResourceProperty(name="failoverRoutingPolicies", flag="unknown_failoverRoutingPolicies")
+    private List<RecordFailoverRoutingPolicyArgs> value_failoverRoutingPolicies;
+    private boolean unknown_failoverRoutingPolicies;
     public List<RecordFailoverRoutingPolicyArgs> failoverRoutingPolicies() {
-        if (failoverRoutingPolicies == null) return null;
-        return failoverRoutingPolicies.getValue("RecordArgs.failoverRoutingPolicies");
+        if (!unknown_failoverRoutingPolicies) return value_failoverRoutingPolicies;
+        throw new UndeferrableValueException("Value 'RecordArgs.failoverRoutingPolicies' is not present");
     }
 
     /**
      * A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
      * 
      */
-    private UndeferrableValue<List<RecordGeolocationRoutingPolicyArgs>> geolocationRoutingPolicies;
-
+    @PolicyResourceProperty(name="geolocationRoutingPolicies", flag="unknown_geolocationRoutingPolicies")
+    private List<RecordGeolocationRoutingPolicyArgs> value_geolocationRoutingPolicies;
+    private boolean unknown_geolocationRoutingPolicies;
     public List<RecordGeolocationRoutingPolicyArgs> geolocationRoutingPolicies() {
-        if (geolocationRoutingPolicies == null) return null;
-        return geolocationRoutingPolicies.getValue("RecordArgs.geolocationRoutingPolicies");
+        if (!unknown_geolocationRoutingPolicies) return value_geolocationRoutingPolicies;
+        throw new UndeferrableValueException("Value 'RecordArgs.geolocationRoutingPolicies' is not present");
     }
 
     /**
      * A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
      * 
      */
-    private UndeferrableValue<RecordGeoproximityRoutingPolicyArgs> geoproximityRoutingPolicy;
-
+    @PolicyResourceProperty(name="geoproximityRoutingPolicy", flag="unknown_geoproximityRoutingPolicy")
+    private RecordGeoproximityRoutingPolicyArgs value_geoproximityRoutingPolicy;
+    private boolean unknown_geoproximityRoutingPolicy;
     public RecordGeoproximityRoutingPolicyArgs geoproximityRoutingPolicy() {
-        if (geoproximityRoutingPolicy == null) return null;
-        return geoproximityRoutingPolicy.getValue("RecordArgs.geoproximityRoutingPolicy");
+        if (!unknown_geoproximityRoutingPolicy) return value_geoproximityRoutingPolicy;
+        throw new UndeferrableValueException("Value 'RecordArgs.geoproximityRoutingPolicy' is not present");
     }
 
     /**
      * The health check the record should be associated with.
      * 
      */
-    private UndeferrableValue<String> healthCheckId;
-
+    @PolicyResourceProperty(name="healthCheckId", flag="unknown_healthCheckId")
+    private String value_healthCheckId;
+    private boolean unknown_healthCheckId;
     public String healthCheckId() {
-        if (healthCheckId == null) return null;
-        return healthCheckId.getValue("RecordArgs.healthCheckId");
+        if (!unknown_healthCheckId) return value_healthCheckId;
+        throw new UndeferrableValueException("Value 'RecordArgs.healthCheckId' is not present");
     }
 
     /**
      * A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
      * 
      */
-    private UndeferrableValue<List<RecordLatencyRoutingPolicyArgs>> latencyRoutingPolicies;
-
+    @PolicyResourceProperty(name="latencyRoutingPolicies", flag="unknown_latencyRoutingPolicies")
+    private List<RecordLatencyRoutingPolicyArgs> value_latencyRoutingPolicies;
+    private boolean unknown_latencyRoutingPolicies;
     public List<RecordLatencyRoutingPolicyArgs> latencyRoutingPolicies() {
-        if (latencyRoutingPolicies == null) return null;
-        return latencyRoutingPolicies.getValue("RecordArgs.latencyRoutingPolicies");
+        if (!unknown_latencyRoutingPolicies) return value_latencyRoutingPolicies;
+        throw new UndeferrableValueException("Value 'RecordArgs.latencyRoutingPolicies' is not present");
     }
 
     /**
      * Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
      * 
      */
-    private UndeferrableValue<Boolean> multivalueAnswerRoutingPolicy;
-
+    @PolicyResourceProperty(name="multivalueAnswerRoutingPolicy", flag="unknown_multivalueAnswerRoutingPolicy")
+    private Boolean value_multivalueAnswerRoutingPolicy;
+    private boolean unknown_multivalueAnswerRoutingPolicy;
     public Boolean multivalueAnswerRoutingPolicy() {
-        if (multivalueAnswerRoutingPolicy == null) return null;
-        return multivalueAnswerRoutingPolicy.getValue("RecordArgs.multivalueAnswerRoutingPolicy");
+        if (!unknown_multivalueAnswerRoutingPolicy) return value_multivalueAnswerRoutingPolicy;
+        throw new UndeferrableValueException("Value 'RecordArgs.multivalueAnswerRoutingPolicy' is not present");
     }
 
     /**
      * The name of the record.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RecordArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RecordArgs.name' is not present");
     }
 
     /**
      * A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\&#34;\&#34;` inside the provider configuration string (e.g., `&#34;first255characters\&#34;\&#34;morecharacters&#34;`).
      * 
      */
-    private UndeferrableValue<List<String>> records;
-
+    @PolicyResourceProperty(name="records", flag="unknown_records")
+    private List<String> value_records;
+    private boolean unknown_records;
     public List<String> records() {
-        if (records == null) return null;
-        return records.getValue("RecordArgs.records");
+        if (!unknown_records) return value_records;
+        throw new UndeferrableValueException("Value 'RecordArgs.records' is not present");
     }
 
     /**
      * Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
      * 
      */
-    private UndeferrableValue<String> setIdentifier;
-
+    @PolicyResourceProperty(name="setIdentifier", flag="unknown_setIdentifier")
+    private String value_setIdentifier;
+    private boolean unknown_setIdentifier;
     public String setIdentifier() {
-        if (setIdentifier == null) return null;
-        return setIdentifier.getValue("RecordArgs.setIdentifier");
+        if (!unknown_setIdentifier) return value_setIdentifier;
+        throw new UndeferrableValueException("Value 'RecordArgs.setIdentifier' is not present");
     }
 
     /**
      * The TTL of the record.
      * 
      */
-    private UndeferrableValue<Integer> ttl;
-
+    @PolicyResourceProperty(name="ttl", flag="unknown_ttl")
+    private Integer value_ttl;
+    private boolean unknown_ttl;
     public Integer ttl() {
-        if (ttl == null) return null;
-        return ttl.getValue("RecordArgs.ttl");
+        if (!unknown_ttl) return value_ttl;
+        throw new UndeferrableValueException("Value 'RecordArgs.ttl' is not present");
     }
 
     /**
      * The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("RecordArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'RecordArgs.type' is not present");
     }
 
     /**
      * A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
      * 
      */
-    private UndeferrableValue<List<RecordWeightedRoutingPolicyArgs>> weightedRoutingPolicies;
-
+    @PolicyResourceProperty(name="weightedRoutingPolicies", flag="unknown_weightedRoutingPolicies")
+    private List<RecordWeightedRoutingPolicyArgs> value_weightedRoutingPolicies;
+    private boolean unknown_weightedRoutingPolicies;
     public List<RecordWeightedRoutingPolicyArgs> weightedRoutingPolicies() {
-        if (weightedRoutingPolicies == null) return null;
-        return weightedRoutingPolicies.getValue("RecordArgs.weightedRoutingPolicies");
+        if (!unknown_weightedRoutingPolicies) return value_weightedRoutingPolicies;
+        throw new UndeferrableValueException("Value 'RecordArgs.weightedRoutingPolicies' is not present");
     }
 
     /**
      * The ID of the hosted zone to contain this record.
      * 
      */
-    private UndeferrableValue<String> zoneId;
-
+    @PolicyResourceProperty(name="zoneId", flag="unknown_zoneId")
+    private String value_zoneId;
+    private boolean unknown_zoneId;
     public String zoneId() {
-        if (zoneId == null) return null;
-        return zoneId.getValue("RecordArgs.zoneId");
+        if (!unknown_zoneId) return value_zoneId;
+        throw new UndeferrableValueException("Value 'RecordArgs.zoneId' is not present");
     }
 
 }

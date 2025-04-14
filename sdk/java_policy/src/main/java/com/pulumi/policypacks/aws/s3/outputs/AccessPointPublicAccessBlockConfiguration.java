@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -17,11 +18,12 @@ public final class AccessPointPublicAccessBlockConfiguration {
      * * PUT Bucket calls fail if the request includes a public ACL.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> blockPublicAcls;
-
+    @PolicyResourceProperty(name="blockPublicAcls", flag="unknown_blockPublicAcls")
+    private @Nullable Boolean value_blockPublicAcls;
+    private boolean unknown_blockPublicAcls;
     public @Nullable Boolean blockPublicAcls() {
-        if (blockPublicAcls == null) return null;
-        return blockPublicAcls.getValue("AccessPointPublicAccessBlockConfiguration.blockPublicAcls");
+        if (!unknown_blockPublicAcls) return value_blockPublicAcls;
+        throw new UndeferrableValueException("Value 'AccessPointPublicAccessBlockConfiguration.blockPublicAcls' is not present");
     }
 
     /**
@@ -29,11 +31,12 @@ public final class AccessPointPublicAccessBlockConfiguration {
      * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> blockPublicPolicy;
-
+    @PolicyResourceProperty(name="blockPublicPolicy", flag="unknown_blockPublicPolicy")
+    private @Nullable Boolean value_blockPublicPolicy;
+    private boolean unknown_blockPublicPolicy;
     public @Nullable Boolean blockPublicPolicy() {
-        if (blockPublicPolicy == null) return null;
-        return blockPublicPolicy.getValue("AccessPointPublicAccessBlockConfiguration.blockPublicPolicy");
+        if (!unknown_blockPublicPolicy) return value_blockPublicPolicy;
+        throw new UndeferrableValueException("Value 'AccessPointPublicAccessBlockConfiguration.blockPublicPolicy' is not present");
     }
 
     /**
@@ -41,11 +44,12 @@ public final class AccessPointPublicAccessBlockConfiguration {
      * * Ignore all public ACLs on buckets in this account and any objects that they contain.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> ignorePublicAcls;
-
+    @PolicyResourceProperty(name="ignorePublicAcls", flag="unknown_ignorePublicAcls")
+    private @Nullable Boolean value_ignorePublicAcls;
+    private boolean unknown_ignorePublicAcls;
     public @Nullable Boolean ignorePublicAcls() {
-        if (ignorePublicAcls == null) return null;
-        return ignorePublicAcls.getValue("AccessPointPublicAccessBlockConfiguration.ignorePublicAcls");
+        if (!unknown_ignorePublicAcls) return value_ignorePublicAcls;
+        throw new UndeferrableValueException("Value 'AccessPointPublicAccessBlockConfiguration.ignorePublicAcls' is not present");
     }
 
     /**
@@ -53,11 +57,12 @@ public final class AccessPointPublicAccessBlockConfiguration {
      * * Only the bucket owner and AWS Services can access buckets with public policies.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> restrictPublicBuckets;
-
+    @PolicyResourceProperty(name="restrictPublicBuckets", flag="unknown_restrictPublicBuckets")
+    private @Nullable Boolean value_restrictPublicBuckets;
+    private boolean unknown_restrictPublicBuckets;
     public @Nullable Boolean restrictPublicBuckets() {
-        if (restrictPublicBuckets == null) return null;
-        return restrictPublicBuckets.getValue("AccessPointPublicAccessBlockConfiguration.restrictPublicBuckets");
+        if (!unknown_restrictPublicBuckets) return value_restrictPublicBuckets;
+        throw new UndeferrableValueException("Value 'AccessPointPublicAccessBlockConfiguration.restrictPublicBuckets' is not present");
     }
 
 }

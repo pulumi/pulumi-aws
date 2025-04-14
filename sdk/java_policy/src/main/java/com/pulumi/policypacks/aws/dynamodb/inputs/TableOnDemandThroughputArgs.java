@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dynamodb.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class TableOnDemandThroughputArgs {
      * Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
      * 
      */
-    private UndeferrableValue<Integer> maxReadRequestUnits;
-
+    @PolicyResourceProperty(name="maxReadRequestUnits", flag="unknown_maxReadRequestUnits")
+    private Integer value_maxReadRequestUnits;
+    private boolean unknown_maxReadRequestUnits;
     public Integer maxReadRequestUnits() {
-        if (maxReadRequestUnits == null) return null;
-        return maxReadRequestUnits.getValue("TableOnDemandThroughputArgs.maxReadRequestUnits");
+        if (!unknown_maxReadRequestUnits) return value_maxReadRequestUnits;
+        throw new UndeferrableValueException("Value 'TableOnDemandThroughputArgs.maxReadRequestUnits' is not present");
     }
 
     /**
      * Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
      * 
      */
-    private UndeferrableValue<Integer> maxWriteRequestUnits;
-
+    @PolicyResourceProperty(name="maxWriteRequestUnits", flag="unknown_maxWriteRequestUnits")
+    private Integer value_maxWriteRequestUnits;
+    private boolean unknown_maxWriteRequestUnits;
     public Integer maxWriteRequestUnits() {
-        if (maxWriteRequestUnits == null) return null;
-        return maxWriteRequestUnits.getValue("TableOnDemandThroughputArgs.maxWriteRequestUnits");
+        if (!unknown_maxWriteRequestUnits) return value_maxWriteRequestUnits;
+        throw new UndeferrableValueException("Value 'TableOnDemandThroughputArgs.maxWriteRequestUnits' is not present");
     }
 
 }

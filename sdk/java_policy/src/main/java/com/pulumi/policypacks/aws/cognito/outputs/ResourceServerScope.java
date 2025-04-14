@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class ResourceServerScope {
      * The scope description.
      * 
      */
-    private UndeferrableValue<String> scopeDescription;
-
+    @PolicyResourceProperty(name="scopeDescription", flag="unknown_scopeDescription")
+    private String value_scopeDescription;
+    private boolean unknown_scopeDescription;
     public String scopeDescription() {
-        if (scopeDescription == null) return null;
-        return scopeDescription.getValue("ResourceServerScope.scopeDescription");
+        if (!unknown_scopeDescription) return value_scopeDescription;
+        throw new UndeferrableValueException("Value 'ResourceServerScope.scopeDescription' is not present");
     }
 
     /**
      * The scope name.
      * 
      */
-    private UndeferrableValue<String> scopeName;
-
+    @PolicyResourceProperty(name="scopeName", flag="unknown_scopeName")
+    private String value_scopeName;
+    private boolean unknown_scopeName;
     public String scopeName() {
-        if (scopeName == null) return null;
-        return scopeName.getValue("ResourceServerScope.scopeName");
+        if (!unknown_scopeName) return value_scopeName;
+        throw new UndeferrableValueException("Value 'ResourceServerScope.scopeName' is not present");
     }
 
 }

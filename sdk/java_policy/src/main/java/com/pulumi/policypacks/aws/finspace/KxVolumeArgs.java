@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.finspace;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.finspace.inputs.KxVolumeNas1ConfigurationArgs;
 import java.lang.String;
@@ -21,11 +22,12 @@ public final class KxVolumeArgs extends com.pulumi.resources.PolicyResourceInput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<List<String>> availabilityZones;
-
+    @PolicyResourceProperty(name="availabilityZones", flag="unknown_availabilityZones")
+    private List<String> value_availabilityZones;
+    private boolean unknown_availabilityZones;
     public List<String> availabilityZones() {
-        if (availabilityZones == null) return null;
-        return availabilityZones.getValue("KxVolumeArgs.availabilityZones");
+        if (!unknown_availabilityZones) return value_availabilityZones;
+        throw new UndeferrableValueException("Value 'KxVolumeArgs.availabilityZones' is not present");
     }
 
     /**
@@ -33,77 +35,84 @@ public final class KxVolumeArgs extends com.pulumi.resources.PolicyResourceInput
      * * `SINGLE` - Assigns one availability zone per volume.
      * 
      */
-    private UndeferrableValue<String> azMode;
-
+    @PolicyResourceProperty(name="azMode", flag="unknown_azMode")
+    private String value_azMode;
+    private boolean unknown_azMode;
     public String azMode() {
-        if (azMode == null) return null;
-        return azMode.getValue("KxVolumeArgs.azMode");
+        if (!unknown_azMode) return value_azMode;
+        throw new UndeferrableValueException("Value 'KxVolumeArgs.azMode' is not present");
     }
 
     /**
      * Description of the volume.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("KxVolumeArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'KxVolumeArgs.description' is not present");
     }
 
     /**
      * A unique identifier for the kdb environment, whose clusters can attach to the volume.
      * 
      */
-    private UndeferrableValue<String> environmentId;
-
+    @PolicyResourceProperty(name="environmentId", flag="unknown_environmentId")
+    private String value_environmentId;
+    private boolean unknown_environmentId;
     public String environmentId() {
-        if (environmentId == null) return null;
-        return environmentId.getValue("KxVolumeArgs.environmentId");
+        if (!unknown_environmentId) return value_environmentId;
+        throw new UndeferrableValueException("Value 'KxVolumeArgs.environmentId' is not present");
     }
 
     /**
      * Unique name for the volumr that you want to create.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("KxVolumeArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'KxVolumeArgs.name' is not present");
     }
 
     /**
      * Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
      * 
      */
-    private UndeferrableValue<List<KxVolumeNas1ConfigurationArgs>> nas1Configurations;
-
+    @PolicyResourceProperty(name="nas1Configurations", flag="unknown_nas1Configurations")
+    private List<KxVolumeNas1ConfigurationArgs> value_nas1Configurations;
+    private boolean unknown_nas1Configurations;
     public List<KxVolumeNas1ConfigurationArgs> nas1Configurations() {
-        if (nas1Configurations == null) return null;
-        return nas1Configurations.getValue("KxVolumeArgs.nas1Configurations");
+        if (!unknown_nas1Configurations) return value_nas1Configurations;
+        throw new UndeferrableValueException("Value 'KxVolumeArgs.nas1Configurations' is not present");
     }
 
     /**
      * A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("KxVolumeArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'KxVolumeArgs.tags' is not present");
     }
 
     /**
      * The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("KxVolumeArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'KxVolumeArgs.type' is not present");
     }
 
 }

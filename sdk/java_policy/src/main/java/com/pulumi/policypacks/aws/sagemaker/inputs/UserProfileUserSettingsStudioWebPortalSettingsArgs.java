@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class UserProfileUserSettingsStudioWebPortalSettingsArgs {
      * The Applications supported in Studio that are hidden from the Studio left navigation pane.
      * 
      */
-    private UndeferrableValue<List<String>> hiddenAppTypes;
-
+    @PolicyResourceProperty(name="hiddenAppTypes", flag="unknown_hiddenAppTypes")
+    private List<String> value_hiddenAppTypes;
+    private boolean unknown_hiddenAppTypes;
     public List<String> hiddenAppTypes() {
-        if (hiddenAppTypes == null) return null;
-        return hiddenAppTypes.getValue("UserProfileUserSettingsStudioWebPortalSettingsArgs.hiddenAppTypes");
+        if (!unknown_hiddenAppTypes) return value_hiddenAppTypes;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsStudioWebPortalSettingsArgs.hiddenAppTypes' is not present");
     }
 
     /**
      * The instance types you are hiding from the Studio user interface.
      * 
      */
-    private UndeferrableValue<List<String>> hiddenInstanceTypes;
-
+    @PolicyResourceProperty(name="hiddenInstanceTypes", flag="unknown_hiddenInstanceTypes")
+    private List<String> value_hiddenInstanceTypes;
+    private boolean unknown_hiddenInstanceTypes;
     public List<String> hiddenInstanceTypes() {
-        if (hiddenInstanceTypes == null) return null;
-        return hiddenInstanceTypes.getValue("UserProfileUserSettingsStudioWebPortalSettingsArgs.hiddenInstanceTypes");
+        if (!unknown_hiddenInstanceTypes) return value_hiddenInstanceTypes;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsStudioWebPortalSettingsArgs.hiddenInstanceTypes' is not present");
     }
 
     /**
      * The machine learning tools that are hidden from the Studio left navigation pane.
      * 
      */
-    private UndeferrableValue<List<String>> hiddenMlTools;
-
+    @PolicyResourceProperty(name="hiddenMlTools", flag="unknown_hiddenMlTools")
+    private List<String> value_hiddenMlTools;
+    private boolean unknown_hiddenMlTools;
     public List<String> hiddenMlTools() {
-        if (hiddenMlTools == null) return null;
-        return hiddenMlTools.getValue("UserProfileUserSettingsStudioWebPortalSettingsArgs.hiddenMlTools");
+        if (!unknown_hiddenMlTools) return value_hiddenMlTools;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsStudioWebPortalSettingsArgs.hiddenMlTools' is not present");
     }
 
 }

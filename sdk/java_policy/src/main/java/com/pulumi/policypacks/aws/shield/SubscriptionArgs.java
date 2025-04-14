@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.shield;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class SubscriptionArgs extends com.pulumi.resources.PolicyResourceI
      * Toggle for automated renewal of the subscription. Valid values are `ENABLED` or `DISABLED`. Default is `ENABLED`.
      * 
      */
-    private UndeferrableValue<String> autoRenew;
-
+    @PolicyResourceProperty(name="autoRenew", flag="unknown_autoRenew")
+    private String value_autoRenew;
+    private boolean unknown_autoRenew;
     public String autoRenew() {
-        if (autoRenew == null) return null;
-        return autoRenew.getValue("SubscriptionArgs.autoRenew");
+        if (!unknown_autoRenew) return value_autoRenew;
+        throw new UndeferrableValueException("Value 'SubscriptionArgs.autoRenew' is not present");
     }
 
     /**
      * Skip attempting to disable automated renewal upon destruction. If set to `true`, the `auto_renew` value will be left as-is and the resource will simply be removed from state.
      * 
      */
-    private UndeferrableValue<Boolean> skipDestroy;
-
+    @PolicyResourceProperty(name="skipDestroy", flag="unknown_skipDestroy")
+    private Boolean value_skipDestroy;
+    private boolean unknown_skipDestroy;
     public Boolean skipDestroy() {
-        if (skipDestroy == null) return null;
-        return skipDestroy.getValue("SubscriptionArgs.skipDestroy");
+        if (!unknown_skipDestroy) return value_skipDestroy;
+        throw new UndeferrableValueException("Value 'SubscriptionArgs.skipDestroy' is not present");
     }
 
 }

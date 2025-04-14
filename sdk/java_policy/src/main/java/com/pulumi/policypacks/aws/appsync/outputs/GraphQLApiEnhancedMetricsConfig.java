@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,33 +14,36 @@ public final class GraphQLApiEnhancedMetricsConfig {
      * How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
      * 
      */
-    private UndeferrableValue<String> dataSourceLevelMetricsBehavior;
-
+    @PolicyResourceProperty(name="dataSourceLevelMetricsBehavior", flag="unknown_dataSourceLevelMetricsBehavior")
+    private String value_dataSourceLevelMetricsBehavior;
+    private boolean unknown_dataSourceLevelMetricsBehavior;
     public String dataSourceLevelMetricsBehavior() {
-        if (dataSourceLevelMetricsBehavior == null) return null;
-        return dataSourceLevelMetricsBehavior.getValue("GraphQLApiEnhancedMetricsConfig.dataSourceLevelMetricsBehavior");
+        if (!unknown_dataSourceLevelMetricsBehavior) return value_dataSourceLevelMetricsBehavior;
+        throw new UndeferrableValueException("Value 'GraphQLApiEnhancedMetricsConfig.dataSourceLevelMetricsBehavior' is not present");
     }
 
     /**
      * How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
      * 
      */
-    private UndeferrableValue<String> operationLevelMetricsConfig;
-
+    @PolicyResourceProperty(name="operationLevelMetricsConfig", flag="unknown_operationLevelMetricsConfig")
+    private String value_operationLevelMetricsConfig;
+    private boolean unknown_operationLevelMetricsConfig;
     public String operationLevelMetricsConfig() {
-        if (operationLevelMetricsConfig == null) return null;
-        return operationLevelMetricsConfig.getValue("GraphQLApiEnhancedMetricsConfig.operationLevelMetricsConfig");
+        if (!unknown_operationLevelMetricsConfig) return value_operationLevelMetricsConfig;
+        throw new UndeferrableValueException("Value 'GraphQLApiEnhancedMetricsConfig.operationLevelMetricsConfig' is not present");
     }
 
     /**
      * How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
      * 
      */
-    private UndeferrableValue<String> resolverLevelMetricsBehavior;
-
+    @PolicyResourceProperty(name="resolverLevelMetricsBehavior", flag="unknown_resolverLevelMetricsBehavior")
+    private String value_resolverLevelMetricsBehavior;
+    private boolean unknown_resolverLevelMetricsBehavior;
     public String resolverLevelMetricsBehavior() {
-        if (resolverLevelMetricsBehavior == null) return null;
-        return resolverLevelMetricsBehavior.getValue("GraphQLApiEnhancedMetricsConfig.resolverLevelMetricsBehavior");
+        if (!unknown_resolverLevelMetricsBehavior) return value_resolverLevelMetricsBehavior;
+        throw new UndeferrableValueException("Value 'GraphQLApiEnhancedMetricsConfig.resolverLevelMetricsBehavior' is not present");
     }
 
 }

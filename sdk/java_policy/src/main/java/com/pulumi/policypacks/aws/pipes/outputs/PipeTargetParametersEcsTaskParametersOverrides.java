@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.pipes.outputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverride;
 import com.pulumi.policypacks.aws.pipes.outputs.PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage;
 import com.pulumi.policypacks.aws.pipes.outputs.PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride;
@@ -18,77 +19,84 @@ public final class PipeTargetParametersEcsTaskParametersOverrides {
      * One or more container overrides that are sent to a task. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<PipeTargetParametersEcsTaskParametersOverridesContainerOverride>> containerOverrides;
-
+    @PolicyResourceProperty(name="containerOverrides", flag="unknown_containerOverrides")
+    private @Nullable List<PipeTargetParametersEcsTaskParametersOverridesContainerOverride> value_containerOverrides;
+    private boolean unknown_containerOverrides;
     public @Nullable List<PipeTargetParametersEcsTaskParametersOverridesContainerOverride> containerOverrides() {
-        if (containerOverrides == null) return null;
-        return containerOverrides.getValue("PipeTargetParametersEcsTaskParametersOverrides.containerOverrides");
+        if (!unknown_containerOverrides) return value_containerOverrides;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverrides.containerOverrides' is not present");
     }
 
     /**
      * The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
      * 
      */
-    private @Nullable UndeferrableValue<String> cpu;
-
+    @PolicyResourceProperty(name="cpu", flag="unknown_cpu")
+    private @Nullable String value_cpu;
+    private boolean unknown_cpu;
     public @Nullable String cpu() {
-        if (cpu == null) return null;
-        return cpu.getValue("PipeTargetParametersEcsTaskParametersOverrides.cpu");
+        if (!unknown_cpu) return value_cpu;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverrides.cpu' is not present");
     }
 
     /**
      * The ephemeral storage setting override for the task.  Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage> ephemeralStorage;
-
+    @PolicyResourceProperty(name="ephemeralStorage", flag="unknown_ephemeralStorage")
+    private @Nullable PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage value_ephemeralStorage;
+    private boolean unknown_ephemeralStorage;
     public @Nullable PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage ephemeralStorage() {
-        if (ephemeralStorage == null) return null;
-        return ephemeralStorage.getValue("PipeTargetParametersEcsTaskParametersOverrides.ephemeralStorage");
+        if (!unknown_ephemeralStorage) return value_ephemeralStorage;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverrides.ephemeralStorage' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
      * 
      */
-    private @Nullable UndeferrableValue<String> executionRoleArn;
-
+    @PolicyResourceProperty(name="executionRoleArn", flag="unknown_executionRoleArn")
+    private @Nullable String value_executionRoleArn;
+    private boolean unknown_executionRoleArn;
     public @Nullable String executionRoleArn() {
-        if (executionRoleArn == null) return null;
-        return executionRoleArn.getValue("PipeTargetParametersEcsTaskParametersOverrides.executionRoleArn");
+        if (!unknown_executionRoleArn) return value_executionRoleArn;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverrides.executionRoleArn' is not present");
     }
 
     /**
      * List of Elastic Inference accelerator overrides for the task. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride>> inferenceAcceleratorOverrides;
-
+    @PolicyResourceProperty(name="inferenceAcceleratorOverrides", flag="unknown_inferenceAcceleratorOverrides")
+    private @Nullable List<PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride> value_inferenceAcceleratorOverrides;
+    private boolean unknown_inferenceAcceleratorOverrides;
     public @Nullable List<PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride> inferenceAcceleratorOverrides() {
-        if (inferenceAcceleratorOverrides == null) return null;
-        return inferenceAcceleratorOverrides.getValue("PipeTargetParametersEcsTaskParametersOverrides.inferenceAcceleratorOverrides");
+        if (!unknown_inferenceAcceleratorOverrides) return value_inferenceAcceleratorOverrides;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverrides.inferenceAcceleratorOverrides' is not present");
     }
 
     /**
      * The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
      * 
      */
-    private @Nullable UndeferrableValue<String> memory;
-
+    @PolicyResourceProperty(name="memory", flag="unknown_memory")
+    private @Nullable String value_memory;
+    private boolean unknown_memory;
     public @Nullable String memory() {
-        if (memory == null) return null;
-        return memory.getValue("PipeTargetParametersEcsTaskParametersOverrides.memory");
+        if (!unknown_memory) return value_memory;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverrides.memory' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
      * 
      */
-    private @Nullable UndeferrableValue<String> taskRoleArn;
-
+    @PolicyResourceProperty(name="taskRoleArn", flag="unknown_taskRoleArn")
+    private @Nullable String value_taskRoleArn;
+    private boolean unknown_taskRoleArn;
     public @Nullable String taskRoleArn() {
-        if (taskRoleArn == null) return null;
-        return taskRoleArn.getValue("PipeTargetParametersEcsTaskParametersOverrides.taskRoleArn");
+        if (!unknown_taskRoleArn) return value_taskRoleArn;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverrides.taskRoleArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationArgs;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class V2modelsIntentClosingSettingConditionalConditionalBranchRespo
      * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageArgs> message;
-
+    @PolicyResourceProperty(name="message", flag="unknown_message")
+    private V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageArgs value_message;
+    private boolean unknown_message;
     public V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageArgs message() {
-        if (message == null) return null;
-        return message.getValue("V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupArgs.message");
+        if (!unknown_message) return value_message;
+        throw new UndeferrableValueException("Value 'V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupArgs.message' is not present");
     }
 
     /**
      * Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
      * 
      */
-    private UndeferrableValue<List<V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationArgs>> variations;
-
+    @PolicyResourceProperty(name="variations", flag="unknown_variations")
+    private List<V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationArgs> value_variations;
+    private boolean unknown_variations;
     public List<V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationArgs> variations() {
-        if (variations == null) return null;
-        return variations.getValue("V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupArgs.variations");
+        if (!unknown_variations) return value_variations;
+        throw new UndeferrableValueException("Value 'V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupArgs.variations' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class FeatureGroupOfflineStoreConfigDataCatalogConfigArgs {
      * The name of the Glue table catalog.
      * 
      */
-    private UndeferrableValue<String> catalog;
-
+    @PolicyResourceProperty(name="catalog", flag="unknown_catalog")
+    private String value_catalog;
+    private boolean unknown_catalog;
     public String catalog() {
-        if (catalog == null) return null;
-        return catalog.getValue("FeatureGroupOfflineStoreConfigDataCatalogConfigArgs.catalog");
+        if (!unknown_catalog) return value_catalog;
+        throw new UndeferrableValueException("Value 'FeatureGroupOfflineStoreConfigDataCatalogConfigArgs.catalog' is not present");
     }
 
     /**
      * The name of the Glue table database.
      * 
      */
-    private UndeferrableValue<String> database;
-
+    @PolicyResourceProperty(name="database", flag="unknown_database")
+    private String value_database;
+    private boolean unknown_database;
     public String database() {
-        if (database == null) return null;
-        return database.getValue("FeatureGroupOfflineStoreConfigDataCatalogConfigArgs.database");
+        if (!unknown_database) return value_database;
+        throw new UndeferrableValueException("Value 'FeatureGroupOfflineStoreConfigDataCatalogConfigArgs.database' is not present");
     }
 
     /**
      * The name of the Glue table.
      * 
      */
-    private UndeferrableValue<String> tableName;
-
+    @PolicyResourceProperty(name="tableName", flag="unknown_tableName")
+    private String value_tableName;
+    private boolean unknown_tableName;
     public String tableName() {
-        if (tableName == null) return null;
-        return tableName.getValue("FeatureGroupOfflineStoreConfigDataCatalogConfigArgs.tableName");
+        if (!unknown_tableName) return value_tableName;
+        throw new UndeferrableValueException("Value 'FeatureGroupOfflineStoreConfigDataCatalogConfigArgs.tableName' is not present");
     }
 
 }

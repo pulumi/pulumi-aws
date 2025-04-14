@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class GatewayRouteSpecGrpcRouteActionTargetVirtualService {
      * Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
      * 
      */
-    private UndeferrableValue<String> virtualServiceName;
-
+    @PolicyResourceProperty(name="virtualServiceName", flag="unknown_virtualServiceName")
+    private String value_virtualServiceName;
+    private boolean unknown_virtualServiceName;
     public String virtualServiceName() {
-        if (virtualServiceName == null) return null;
-        return virtualServiceName.getValue("GatewayRouteSpecGrpcRouteActionTargetVirtualService.virtualServiceName");
+        if (!unknown_virtualServiceName) return value_virtualServiceName;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecGrpcRouteActionTargetVirtualService.virtualServiceName' is not present");
     }
 
 }

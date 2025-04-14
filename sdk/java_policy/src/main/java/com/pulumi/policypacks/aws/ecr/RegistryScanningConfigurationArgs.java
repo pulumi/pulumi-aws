@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecr;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ecr.inputs.RegistryScanningConfigurationRuleArgs;
 import java.lang.String;
@@ -18,22 +19,24 @@ public final class RegistryScanningConfigurationArgs extends com.pulumi.resource
      * One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
      * 
      */
-    private UndeferrableValue<List<RegistryScanningConfigurationRuleArgs>> rules;
-
+    @PolicyResourceProperty(name="rules", flag="unknown_rules")
+    private List<RegistryScanningConfigurationRuleArgs> value_rules;
+    private boolean unknown_rules;
     public List<RegistryScanningConfigurationRuleArgs> rules() {
-        if (rules == null) return null;
-        return rules.getValue("RegistryScanningConfigurationArgs.rules");
+        if (!unknown_rules) return value_rules;
+        throw new UndeferrableValueException("Value 'RegistryScanningConfigurationArgs.rules' is not present");
     }
 
     /**
      * the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
      * 
      */
-    private UndeferrableValue<String> scanType;
-
+    @PolicyResourceProperty(name="scanType", flag="unknown_scanType")
+    private String value_scanType;
+    private boolean unknown_scanType;
     public String scanType() {
-        if (scanType == null) return null;
-        return scanType.getValue("RegistryScanningConfigurationArgs.scanType");
+        if (!unknown_scanType) return value_scanType;
+        throw new UndeferrableValueException("Value 'RegistryScanningConfigurationArgs.scanType' is not present");
     }
 
 }

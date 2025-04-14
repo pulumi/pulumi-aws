@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.serverlessrepository;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,66 +19,72 @@ public final class CloudFormationStackArgs extends com.pulumi.resources.PolicyRe
      * The ARN of the application from the Serverless Application Repository.
      * 
      */
-    private UndeferrableValue<String> applicationId;
-
+    @PolicyResourceProperty(name="applicationId", flag="unknown_applicationId")
+    private String value_applicationId;
+    private boolean unknown_applicationId;
     public String applicationId() {
-        if (applicationId == null) return null;
-        return applicationId.getValue("CloudFormationStackArgs.applicationId");
+        if (!unknown_applicationId) return value_applicationId;
+        throw new UndeferrableValueException("Value 'CloudFormationStackArgs.applicationId' is not present");
     }
 
     /**
      * A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
      * 
      */
-    private UndeferrableValue<List<String>> capabilities;
-
+    @PolicyResourceProperty(name="capabilities", flag="unknown_capabilities")
+    private List<String> value_capabilities;
+    private boolean unknown_capabilities;
     public List<String> capabilities() {
-        if (capabilities == null) return null;
-        return capabilities.getValue("CloudFormationStackArgs.capabilities");
+        if (!unknown_capabilities) return value_capabilities;
+        throw new UndeferrableValueException("Value 'CloudFormationStackArgs.capabilities' is not present");
     }
 
     /**
      * The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("CloudFormationStackArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'CloudFormationStackArgs.name' is not present");
     }
 
     /**
      * A map of Parameter structures that specify input parameters for the stack.
      * 
      */
-    private UndeferrableValue<Map<String,String>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private Map<String,String> value_parameters;
+    private boolean unknown_parameters;
     public Map<String,String> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("CloudFormationStackArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'CloudFormationStackArgs.parameters' is not present");
     }
 
     /**
      * The version of the application to deploy. If not supplied, deploys the latest version.
      * 
      */
-    private UndeferrableValue<String> semanticVersion;
-
+    @PolicyResourceProperty(name="semanticVersion", flag="unknown_semanticVersion")
+    private String value_semanticVersion;
+    private boolean unknown_semanticVersion;
     public String semanticVersion() {
-        if (semanticVersion == null) return null;
-        return semanticVersion.getValue("CloudFormationStackArgs.semanticVersion");
+        if (!unknown_semanticVersion) return value_semanticVersion;
+        throw new UndeferrableValueException("Value 'CloudFormationStackArgs.semanticVersion' is not present");
     }
 
     /**
      * A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CloudFormationStackArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CloudFormationStackArgs.tags' is not present");
     }
 
 }

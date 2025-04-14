@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DataSetColumnLevelPermissionRuleArgs {
      * An array of column names.
      * 
      */
-    private UndeferrableValue<List<String>> columnNames;
-
+    @PolicyResourceProperty(name="columnNames", flag="unknown_columnNames")
+    private List<String> value_columnNames;
+    private boolean unknown_columnNames;
     public List<String> columnNames() {
-        if (columnNames == null) return null;
-        return columnNames.getValue("DataSetColumnLevelPermissionRuleArgs.columnNames");
+        if (!unknown_columnNames) return value_columnNames;
+        throw new UndeferrableValueException("Value 'DataSetColumnLevelPermissionRuleArgs.columnNames' is not present");
     }
 
     /**
      * An array of ARNs for Amazon QuickSight users or groups.
      * 
      */
-    private UndeferrableValue<List<String>> principals;
-
+    @PolicyResourceProperty(name="principals", flag="unknown_principals")
+    private List<String> value_principals;
+    private boolean unknown_principals;
     public List<String> principals() {
-        if (principals == null) return null;
-        return principals.getValue("DataSetColumnLevelPermissionRuleArgs.principals");
+        if (!unknown_principals) return value_principals;
+        throw new UndeferrableValueException("Value 'DataSetColumnLevelPermissionRuleArgs.principals' is not present");
     }
 
 }

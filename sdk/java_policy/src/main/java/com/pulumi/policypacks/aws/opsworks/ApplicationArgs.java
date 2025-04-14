@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.opsworks.inputs.ApplicationAppSourceArgs;
 import com.pulumi.policypacks.aws.opsworks.inputs.ApplicationEnvironmentArgs;
@@ -21,187 +22,204 @@ public final class ApplicationArgs extends com.pulumi.resources.PolicyResourceIn
      * SCM configuration of the app as described below.
      * 
      */
-    private UndeferrableValue<List<ApplicationAppSourceArgs>> appSources;
-
+    @PolicyResourceProperty(name="appSources", flag="unknown_appSources")
+    private List<ApplicationAppSourceArgs> value_appSources;
+    private boolean unknown_appSources;
     public List<ApplicationAppSourceArgs> appSources() {
-        if (appSources == null) return null;
-        return appSources.getValue("ApplicationArgs.appSources");
+        if (!unknown_appSources) return value_appSources;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.appSources' is not present");
     }
 
     /**
      * Run bundle install when deploying for application of type `rails`.
      * 
      */
-    private UndeferrableValue<String> autoBundleOnDeploy;
-
+    @PolicyResourceProperty(name="autoBundleOnDeploy", flag="unknown_autoBundleOnDeploy")
+    private String value_autoBundleOnDeploy;
+    private boolean unknown_autoBundleOnDeploy;
     public String autoBundleOnDeploy() {
-        if (autoBundleOnDeploy == null) return null;
-        return autoBundleOnDeploy.getValue("ApplicationArgs.autoBundleOnDeploy");
+        if (!unknown_autoBundleOnDeploy) return value_autoBundleOnDeploy;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.autoBundleOnDeploy' is not present");
     }
 
     /**
      * Specify activity and workflow workers for your app using the aws-flow gem.
      * 
      */
-    private UndeferrableValue<String> awsFlowRubySettings;
-
+    @PolicyResourceProperty(name="awsFlowRubySettings", flag="unknown_awsFlowRubySettings")
+    private String value_awsFlowRubySettings;
+    private boolean unknown_awsFlowRubySettings;
     public String awsFlowRubySettings() {
-        if (awsFlowRubySettings == null) return null;
-        return awsFlowRubySettings.getValue("ApplicationArgs.awsFlowRubySettings");
+        if (!unknown_awsFlowRubySettings) return value_awsFlowRubySettings;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.awsFlowRubySettings' is not present");
     }
 
     /**
      * The data source&#39;s ARN.
      * 
      */
-    private UndeferrableValue<String> dataSourceArn;
-
+    @PolicyResourceProperty(name="dataSourceArn", flag="unknown_dataSourceArn")
+    private String value_dataSourceArn;
+    private boolean unknown_dataSourceArn;
     public String dataSourceArn() {
-        if (dataSourceArn == null) return null;
-        return dataSourceArn.getValue("ApplicationArgs.dataSourceArn");
+        if (!unknown_dataSourceArn) return value_dataSourceArn;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.dataSourceArn' is not present");
     }
 
     /**
      * The database name.
      * 
      */
-    private UndeferrableValue<String> dataSourceDatabaseName;
-
+    @PolicyResourceProperty(name="dataSourceDatabaseName", flag="unknown_dataSourceDatabaseName")
+    private String value_dataSourceDatabaseName;
+    private boolean unknown_dataSourceDatabaseName;
     public String dataSourceDatabaseName() {
-        if (dataSourceDatabaseName == null) return null;
-        return dataSourceDatabaseName.getValue("ApplicationArgs.dataSourceDatabaseName");
+        if (!unknown_dataSourceDatabaseName) return value_dataSourceDatabaseName;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.dataSourceDatabaseName' is not present");
     }
 
     /**
      * The data source&#39;s type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
      * 
      */
-    private UndeferrableValue<String> dataSourceType;
-
+    @PolicyResourceProperty(name="dataSourceType", flag="unknown_dataSourceType")
+    private String value_dataSourceType;
+    private boolean unknown_dataSourceType;
     public String dataSourceType() {
-        if (dataSourceType == null) return null;
-        return dataSourceType.getValue("ApplicationArgs.dataSourceType");
+        if (!unknown_dataSourceType) return value_dataSourceType;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.dataSourceType' is not present");
     }
 
     /**
      * A description of the app.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ApplicationArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.description' is not present");
     }
 
     /**
      * Subfolder for the document root for application of type `rails`.
      * 
      */
-    private UndeferrableValue<String> documentRoot;
-
+    @PolicyResourceProperty(name="documentRoot", flag="unknown_documentRoot")
+    private String value_documentRoot;
+    private boolean unknown_documentRoot;
     public String documentRoot() {
-        if (documentRoot == null) return null;
-        return documentRoot.getValue("ApplicationArgs.documentRoot");
+        if (!unknown_documentRoot) return value_documentRoot;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.documentRoot' is not present");
     }
 
     /**
      * A list of virtual host alias.
      * 
      */
-    private UndeferrableValue<List<String>> domains;
-
+    @PolicyResourceProperty(name="domains", flag="unknown_domains")
+    private List<String> value_domains;
+    private boolean unknown_domains;
     public List<String> domains() {
-        if (domains == null) return null;
-        return domains.getValue("ApplicationArgs.domains");
+        if (!unknown_domains) return value_domains;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.domains' is not present");
     }
 
     /**
      * Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
      * 
      */
-    private UndeferrableValue<Boolean> enableSsl;
-
+    @PolicyResourceProperty(name="enableSsl", flag="unknown_enableSsl")
+    private Boolean value_enableSsl;
+    private boolean unknown_enableSsl;
     public Boolean enableSsl() {
-        if (enableSsl == null) return null;
-        return enableSsl.getValue("ApplicationArgs.enableSsl");
+        if (!unknown_enableSsl) return value_enableSsl;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.enableSsl' is not present");
     }
 
     /**
      * Object to define environment variables.  Object is described below.
      * 
      */
-    private UndeferrableValue<List<ApplicationEnvironmentArgs>> environments;
-
+    @PolicyResourceProperty(name="environments", flag="unknown_environments")
+    private List<ApplicationEnvironmentArgs> value_environments;
+    private boolean unknown_environments;
     public List<ApplicationEnvironmentArgs> environments() {
-        if (environments == null) return null;
-        return environments.getValue("ApplicationArgs.environments");
+        if (!unknown_environments) return value_environments;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.environments' is not present");
     }
 
     /**
      * A human-readable name for the application.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ApplicationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.name' is not present");
     }
 
     /**
      * The name of the Rails environment for application of type `rails`.
      * 
      */
-    private UndeferrableValue<String> railsEnv;
-
+    @PolicyResourceProperty(name="railsEnv", flag="unknown_railsEnv")
+    private String value_railsEnv;
+    private boolean unknown_railsEnv;
     public String railsEnv() {
-        if (railsEnv == null) return null;
-        return railsEnv.getValue("ApplicationArgs.railsEnv");
+        if (!unknown_railsEnv) return value_railsEnv;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.railsEnv' is not present");
     }
 
     /**
      * A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
      * 
      */
-    private UndeferrableValue<String> shortName;
-
+    @PolicyResourceProperty(name="shortName", flag="unknown_shortName")
+    private String value_shortName;
+    private boolean unknown_shortName;
     public String shortName() {
-        if (shortName == null) return null;
-        return shortName.getValue("ApplicationArgs.shortName");
+        if (!unknown_shortName) return value_shortName;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.shortName' is not present");
     }
 
     /**
      * The SSL configuration of the app. Object is described below.
      * 
      */
-    private UndeferrableValue<List<ApplicationSslConfigurationArgs>> sslConfigurations;
-
+    @PolicyResourceProperty(name="sslConfigurations", flag="unknown_sslConfigurations")
+    private List<ApplicationSslConfigurationArgs> value_sslConfigurations;
+    private boolean unknown_sslConfigurations;
     public List<ApplicationSslConfigurationArgs> sslConfigurations() {
-        if (sslConfigurations == null) return null;
-        return sslConfigurations.getValue("ApplicationArgs.sslConfigurations");
+        if (!unknown_sslConfigurations) return value_sslConfigurations;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.sslConfigurations' is not present");
     }
 
     /**
      * ID of the stack the application will belong to.
      * 
      */
-    private UndeferrableValue<String> stackId;
-
+    @PolicyResourceProperty(name="stackId", flag="unknown_stackId")
+    private String value_stackId;
+    private boolean unknown_stackId;
     public String stackId() {
-        if (stackId == null) return null;
-        return stackId.getValue("ApplicationArgs.stackId");
+        if (!unknown_stackId) return value_stackId;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.stackId' is not present");
     }
 
     /**
      * Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ApplicationArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.type' is not present");
     }
 
 }

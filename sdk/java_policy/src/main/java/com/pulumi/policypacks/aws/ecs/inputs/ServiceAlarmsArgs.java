@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -15,33 +16,36 @@ public final class ServiceAlarmsArgs {
      * One or more CloudWatch alarm names.
      * 
      */
-    private UndeferrableValue<List<String>> alarmNames;
-
+    @PolicyResourceProperty(name="alarmNames", flag="unknown_alarmNames")
+    private List<String> value_alarmNames;
+    private boolean unknown_alarmNames;
     public List<String> alarmNames() {
-        if (alarmNames == null) return null;
-        return alarmNames.getValue("ServiceAlarmsArgs.alarmNames");
+        if (!unknown_alarmNames) return value_alarmNames;
+        throw new UndeferrableValueException("Value 'ServiceAlarmsArgs.alarmNames' is not present");
     }
 
     /**
      * Whether to use the CloudWatch alarm option in the service deployment process.
      * 
      */
-    private UndeferrableValue<Boolean> enable;
-
+    @PolicyResourceProperty(name="enable", flag="unknown_enable")
+    private Boolean value_enable;
+    private boolean unknown_enable;
     public Boolean enable() {
-        if (enable == null) return null;
-        return enable.getValue("ServiceAlarmsArgs.enable");
+        if (!unknown_enable) return value_enable;
+        throw new UndeferrableValueException("Value 'ServiceAlarmsArgs.enable' is not present");
     }
 
     /**
      * Whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
      * 
      */
-    private UndeferrableValue<Boolean> rollback;
-
+    @PolicyResourceProperty(name="rollback", flag="unknown_rollback")
+    private Boolean value_rollback;
+    private boolean unknown_rollback;
     public Boolean rollback() {
-        if (rollback == null) return null;
-        return rollback.getValue("ServiceAlarmsArgs.rollback");
+        if (!unknown_rollback) return value_rollback;
+        throw new UndeferrableValueException("Value 'ServiceAlarmsArgs.rollback' is not present");
     }
 
 }

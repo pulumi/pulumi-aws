@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2clientvpn;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class NetworkAssociationArgs extends com.pulumi.resources.PolicyRes
      * The ID of the Client VPN endpoint.
      * 
      */
-    private UndeferrableValue<String> clientVpnEndpointId;
-
+    @PolicyResourceProperty(name="clientVpnEndpointId", flag="unknown_clientVpnEndpointId")
+    private String value_clientVpnEndpointId;
+    private boolean unknown_clientVpnEndpointId;
     public String clientVpnEndpointId() {
-        if (clientVpnEndpointId == null) return null;
-        return clientVpnEndpointId.getValue("NetworkAssociationArgs.clientVpnEndpointId");
+        if (!unknown_clientVpnEndpointId) return value_clientVpnEndpointId;
+        throw new UndeferrableValueException("Value 'NetworkAssociationArgs.clientVpnEndpointId' is not present");
     }
 
     /**
      * The ID of the subnet to associate with the Client VPN endpoint.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("NetworkAssociationArgs.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'NetworkAssociationArgs.subnetId' is not present");
     }
 
 }

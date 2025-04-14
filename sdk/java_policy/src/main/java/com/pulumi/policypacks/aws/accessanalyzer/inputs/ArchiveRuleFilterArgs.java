@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.accessanalyzer.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,55 +16,60 @@ public final class ArchiveRuleFilterArgs {
      * Contains comparator.
      * 
      */
-    private UndeferrableValue<List<String>> contains;
-
+    @PolicyResourceProperty(name="contains", flag="unknown_contains")
+    private List<String> value_contains;
+    private boolean unknown_contains;
     public List<String> contains() {
-        if (contains == null) return null;
-        return contains.getValue("ArchiveRuleFilterArgs.contains");
+        if (!unknown_contains) return value_contains;
+        throw new UndeferrableValueException("Value 'ArchiveRuleFilterArgs.contains' is not present");
     }
 
     /**
      * Filter criteria.
      * 
      */
-    private UndeferrableValue<String> criteria;
-
+    @PolicyResourceProperty(name="criteria", flag="unknown_criteria")
+    private String value_criteria;
+    private boolean unknown_criteria;
     public String criteria() {
-        if (criteria == null) return null;
-        return criteria.getValue("ArchiveRuleFilterArgs.criteria");
+        if (!unknown_criteria) return value_criteria;
+        throw new UndeferrableValueException("Value 'ArchiveRuleFilterArgs.criteria' is not present");
     }
 
     /**
      * Equals comparator.
      * 
      */
-    private UndeferrableValue<List<String>> eqs;
-
+    @PolicyResourceProperty(name="eqs", flag="unknown_eqs")
+    private List<String> value_eqs;
+    private boolean unknown_eqs;
     public List<String> eqs() {
-        if (eqs == null) return null;
-        return eqs.getValue("ArchiveRuleFilterArgs.eqs");
+        if (!unknown_eqs) return value_eqs;
+        throw new UndeferrableValueException("Value 'ArchiveRuleFilterArgs.eqs' is not present");
     }
 
     /**
      * Boolean comparator.
      * 
      */
-    private UndeferrableValue<String> exists;
-
+    @PolicyResourceProperty(name="exists", flag="unknown_exists")
+    private String value_exists;
+    private boolean unknown_exists;
     public String exists() {
-        if (exists == null) return null;
-        return exists.getValue("ArchiveRuleFilterArgs.exists");
+        if (!unknown_exists) return value_exists;
+        throw new UndeferrableValueException("Value 'ArchiveRuleFilterArgs.exists' is not present");
     }
 
     /**
      * Not Equals comparator.
      * 
      */
-    private UndeferrableValue<List<String>> neqs;
-
+    @PolicyResourceProperty(name="neqs", flag="unknown_neqs")
+    private List<String> value_neqs;
+    private boolean unknown_neqs;
     public List<String> neqs() {
-        if (neqs == null) return null;
-        return neqs.getValue("ArchiveRuleFilterArgs.neqs");
+        if (!unknown_neqs) return value_neqs;
+        throw new UndeferrableValueException("Value 'ArchiveRuleFilterArgs.neqs' is not present");
     }
 
 }

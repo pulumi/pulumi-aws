@@ -3,31 +3,35 @@
 
 package com.pulumi.policypacks.aws.datazone.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class UserProfileDetailSso {
 
-    private UndeferrableValue<String> firstName;
-
+    @PolicyResourceProperty(name="firstName", flag="unknown_firstName")
+    private String value_firstName;
+    private boolean unknown_firstName;
     public String firstName() {
-        if (firstName == null) return null;
-        return firstName.getValue("UserProfileDetailSso.firstName");
+        if (!unknown_firstName) return value_firstName;
+        throw new UndeferrableValueException("Value 'UserProfileDetailSso.firstName' is not present");
     }
 
-    private UndeferrableValue<String> lastName;
-
+    @PolicyResourceProperty(name="lastName", flag="unknown_lastName")
+    private String value_lastName;
+    private boolean unknown_lastName;
     public String lastName() {
-        if (lastName == null) return null;
-        return lastName.getValue("UserProfileDetailSso.lastName");
+        if (!unknown_lastName) return value_lastName;
+        throw new UndeferrableValueException("Value 'UserProfileDetailSso.lastName' is not present");
     }
 
-    private UndeferrableValue<String> userName;
-
+    @PolicyResourceProperty(name="userName", flag="unknown_userName")
+    private String value_userName;
+    private boolean unknown_userName;
     public String userName() {
-        if (userName == null) return null;
-        return userName.getValue("UserProfileDetailSso.userName");
+        if (!unknown_userName) return value_userName;
+        throw new UndeferrableValueException("Value 'UserProfileDetailSso.userName' is not present");
     }
 
 }

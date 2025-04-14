@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.inputs.VpcBlockPublicAccessExclusionTimeoutsArgs;
 import java.lang.String;
@@ -20,51 +21,56 @@ public final class VpcBlockPublicAccessExclusionArgs extends com.pulumi.resource
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> internetGatewayExclusionMode;
-
+    @PolicyResourceProperty(name="internetGatewayExclusionMode", flag="unknown_internetGatewayExclusionMode")
+    private String value_internetGatewayExclusionMode;
+    private boolean unknown_internetGatewayExclusionMode;
     public String internetGatewayExclusionMode() {
-        if (internetGatewayExclusionMode == null) return null;
-        return internetGatewayExclusionMode.getValue("VpcBlockPublicAccessExclusionArgs.internetGatewayExclusionMode");
+        if (!unknown_internetGatewayExclusionMode) return value_internetGatewayExclusionMode;
+        throw new UndeferrableValueException("Value 'VpcBlockPublicAccessExclusionArgs.internetGatewayExclusionMode' is not present");
     }
 
     /**
      * Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("VpcBlockPublicAccessExclusionArgs.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'VpcBlockPublicAccessExclusionArgs.subnetId' is not present");
     }
 
     /**
      * A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VpcBlockPublicAccessExclusionArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VpcBlockPublicAccessExclusionArgs.tags' is not present");
     }
 
-    private UndeferrableValue<VpcBlockPublicAccessExclusionTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private VpcBlockPublicAccessExclusionTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public VpcBlockPublicAccessExclusionTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("VpcBlockPublicAccessExclusionArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'VpcBlockPublicAccessExclusionArgs.timeouts' is not present");
     }
 
     /**
      * Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("VpcBlockPublicAccessExclusionArgs.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'VpcBlockPublicAccessExclusionArgs.vpcId' is not present");
     }
 
 }

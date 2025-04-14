@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appstream;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,55 +18,60 @@ public final class UserArgs extends com.pulumi.resources.PolicyResourceInput {
      * Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
      * 
      */
-    private UndeferrableValue<String> authenticationType;
-
+    @PolicyResourceProperty(name="authenticationType", flag="unknown_authenticationType")
+    private String value_authenticationType;
+    private boolean unknown_authenticationType;
     public String authenticationType() {
-        if (authenticationType == null) return null;
-        return authenticationType.getValue("UserArgs.authenticationType");
+        if (!unknown_authenticationType) return value_authenticationType;
+        throw new UndeferrableValueException("Value 'UserArgs.authenticationType' is not present");
     }
 
     /**
      * Whether the user in the user pool is enabled.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("UserArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'UserArgs.enabled' is not present");
     }
 
     /**
      * First name, or given name, of the user.
      * 
      */
-    private UndeferrableValue<String> firstName;
-
+    @PolicyResourceProperty(name="firstName", flag="unknown_firstName")
+    private String value_firstName;
+    private boolean unknown_firstName;
     public String firstName() {
-        if (firstName == null) return null;
-        return firstName.getValue("UserArgs.firstName");
+        if (!unknown_firstName) return value_firstName;
+        throw new UndeferrableValueException("Value 'UserArgs.firstName' is not present");
     }
 
     /**
      * Last name, or surname, of the user.
      * 
      */
-    private UndeferrableValue<String> lastName;
-
+    @PolicyResourceProperty(name="lastName", flag="unknown_lastName")
+    private String value_lastName;
+    private boolean unknown_lastName;
     public String lastName() {
-        if (lastName == null) return null;
-        return lastName.getValue("UserArgs.lastName");
+        if (!unknown_lastName) return value_lastName;
+        throw new UndeferrableValueException("Value 'UserArgs.lastName' is not present");
     }
 
     /**
      * Send an email notification.
      * 
      */
-    private UndeferrableValue<Boolean> sendEmailNotification;
-
+    @PolicyResourceProperty(name="sendEmailNotification", flag="unknown_sendEmailNotification")
+    private Boolean value_sendEmailNotification;
+    private boolean unknown_sendEmailNotification;
     public Boolean sendEmailNotification() {
-        if (sendEmailNotification == null) return null;
-        return sendEmailNotification.getValue("UserArgs.sendEmailNotification");
+        if (!unknown_sendEmailNotification) return value_sendEmailNotification;
+        throw new UndeferrableValueException("Value 'UserArgs.sendEmailNotification' is not present");
     }
 
     /**
@@ -74,11 +80,12 @@ public final class UserArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> userName;
-
+    @PolicyResourceProperty(name="userName", flag="unknown_userName")
+    private String value_userName;
+    private boolean unknown_userName;
     public String userName() {
-        if (userName == null) return null;
-        return userName.getValue("UserArgs.userName");
+        if (!unknown_userName) return value_userName;
+        throw new UndeferrableValueException("Value 'UserArgs.userName' is not present");
     }
 
 }

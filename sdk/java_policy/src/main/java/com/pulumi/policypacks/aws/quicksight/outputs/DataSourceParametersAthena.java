@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DataSourceParametersAthena {
      * The work-group to which to connect.
      * 
      */
-    private @Nullable UndeferrableValue<String> workGroup;
-
+    @PolicyResourceProperty(name="workGroup", flag="unknown_workGroup")
+    private @Nullable String value_workGroup;
+    private boolean unknown_workGroup;
     public @Nullable String workGroup() {
-        if (workGroup == null) return null;
-        return workGroup.getValue("DataSourceParametersAthena.workGroup");
+        if (!unknown_workGroup) return value_workGroup;
+        throw new UndeferrableValueException("Value 'DataSourceParametersAthena.workGroup' is not present");
     }
 
 }

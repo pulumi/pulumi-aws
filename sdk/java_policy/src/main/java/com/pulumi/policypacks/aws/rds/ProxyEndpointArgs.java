@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,66 +19,72 @@ public final class ProxyEndpointArgs extends com.pulumi.resources.PolicyResource
      * The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
      * 
      */
-    private UndeferrableValue<String> dbProxyEndpointName;
-
+    @PolicyResourceProperty(name="dbProxyEndpointName", flag="unknown_dbProxyEndpointName")
+    private String value_dbProxyEndpointName;
+    private boolean unknown_dbProxyEndpointName;
     public String dbProxyEndpointName() {
-        if (dbProxyEndpointName == null) return null;
-        return dbProxyEndpointName.getValue("ProxyEndpointArgs.dbProxyEndpointName");
+        if (!unknown_dbProxyEndpointName) return value_dbProxyEndpointName;
+        throw new UndeferrableValueException("Value 'ProxyEndpointArgs.dbProxyEndpointName' is not present");
     }
 
     /**
      * The name of the DB proxy associated with the DB proxy endpoint that you create.
      * 
      */
-    private UndeferrableValue<String> dbProxyName;
-
+    @PolicyResourceProperty(name="dbProxyName", flag="unknown_dbProxyName")
+    private String value_dbProxyName;
+    private boolean unknown_dbProxyName;
     public String dbProxyName() {
-        if (dbProxyName == null) return null;
-        return dbProxyName.getValue("ProxyEndpointArgs.dbProxyName");
+        if (!unknown_dbProxyName) return value_dbProxyName;
+        throw new UndeferrableValueException("Value 'ProxyEndpointArgs.dbProxyName' is not present");
     }
 
     /**
      * A mapping of tags to assign to the resource.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ProxyEndpointArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ProxyEndpointArgs.tags' is not present");
     }
 
     /**
      * Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
      * 
      */
-    private UndeferrableValue<String> targetRole;
-
+    @PolicyResourceProperty(name="targetRole", flag="unknown_targetRole")
+    private String value_targetRole;
+    private boolean unknown_targetRole;
     public String targetRole() {
-        if (targetRole == null) return null;
-        return targetRole.getValue("ProxyEndpointArgs.targetRole");
+        if (!unknown_targetRole) return value_targetRole;
+        throw new UndeferrableValueException("Value 'ProxyEndpointArgs.targetRole' is not present");
     }
 
     /**
      * One or more VPC security group IDs to associate with the new proxy.
      * 
      */
-    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
-
+    @PolicyResourceProperty(name="vpcSecurityGroupIds", flag="unknown_vpcSecurityGroupIds")
+    private List<String> value_vpcSecurityGroupIds;
+    private boolean unknown_vpcSecurityGroupIds;
     public List<String> vpcSecurityGroupIds() {
-        if (vpcSecurityGroupIds == null) return null;
-        return vpcSecurityGroupIds.getValue("ProxyEndpointArgs.vpcSecurityGroupIds");
+        if (!unknown_vpcSecurityGroupIds) return value_vpcSecurityGroupIds;
+        throw new UndeferrableValueException("Value 'ProxyEndpointArgs.vpcSecurityGroupIds' is not present");
     }
 
     /**
      * One or more VPC subnet IDs to associate with the new proxy.
      * 
      */
-    private UndeferrableValue<List<String>> vpcSubnetIds;
-
+    @PolicyResourceProperty(name="vpcSubnetIds", flag="unknown_vpcSubnetIds")
+    private List<String> value_vpcSubnetIds;
+    private boolean unknown_vpcSubnetIds;
     public List<String> vpcSubnetIds() {
-        if (vpcSubnetIds == null) return null;
-        return vpcSubnetIds.getValue("ProxyEndpointArgs.vpcSubnetIds");
+        if (!unknown_vpcSubnetIds) return value_vpcSubnetIds;
+        throw new UndeferrableValueException("Value 'ProxyEndpointArgs.vpcSubnetIds' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class PipeSourceParametersSqsQueueParametersArgs {
      * The maximum number of records to include in each batch. Maximum value of 10000.
      * 
      */
-    private UndeferrableValue<Integer> batchSize;
-
+    @PolicyResourceProperty(name="batchSize", flag="unknown_batchSize")
+    private Integer value_batchSize;
+    private boolean unknown_batchSize;
     public Integer batchSize() {
-        if (batchSize == null) return null;
-        return batchSize.getValue("PipeSourceParametersSqsQueueParametersArgs.batchSize");
+        if (!unknown_batchSize) return value_batchSize;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersSqsQueueParametersArgs.batchSize' is not present");
     }
 
     /**
      * The maximum length of a time to wait for events. Maximum value of 300.
      * 
      */
-    private UndeferrableValue<Integer> maximumBatchingWindowInSeconds;
-
+    @PolicyResourceProperty(name="maximumBatchingWindowInSeconds", flag="unknown_maximumBatchingWindowInSeconds")
+    private Integer value_maximumBatchingWindowInSeconds;
+    private boolean unknown_maximumBatchingWindowInSeconds;
     public Integer maximumBatchingWindowInSeconds() {
-        if (maximumBatchingWindowInSeconds == null) return null;
-        return maximumBatchingWindowInSeconds.getValue("PipeSourceParametersSqsQueueParametersArgs.maximumBatchingWindowInSeconds");
+        if (!unknown_maximumBatchingWindowInSeconds) return value_maximumBatchingWindowInSeconds;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersSqsQueueParametersArgs.maximumBatchingWindowInSeconds' is not present");
     }
 
 }

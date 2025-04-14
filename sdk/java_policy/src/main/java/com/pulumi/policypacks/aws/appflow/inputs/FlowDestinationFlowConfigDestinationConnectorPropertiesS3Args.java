@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,25 +12,28 @@ import javax.annotation.Nullable;
 
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args {
 
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args.bucketName' is not present");
     }
 
-    private UndeferrableValue<String> bucketPrefix;
-
+    @PolicyResourceProperty(name="bucketPrefix", flag="unknown_bucketPrefix")
+    private String value_bucketPrefix;
+    private boolean unknown_bucketPrefix;
     public String bucketPrefix() {
-        if (bucketPrefix == null) return null;
-        return bucketPrefix.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args.bucketPrefix");
+        if (!unknown_bucketPrefix) return value_bucketPrefix;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args.bucketPrefix' is not present");
     }
 
-    private UndeferrableValue<FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs> s3OutputFormatConfig;
-
+    @PolicyResourceProperty(name="s3OutputFormatConfig", flag="unknown_s3OutputFormatConfig")
+    private FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs value_s3OutputFormatConfig;
+    private boolean unknown_s3OutputFormatConfig;
     public FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs s3OutputFormatConfig() {
-        if (s3OutputFormatConfig == null) return null;
-        return s3OutputFormatConfig.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args.s3OutputFormatConfig");
+        if (!unknown_s3OutputFormatConfig) return value_s3OutputFormatConfig;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args.s3OutputFormatConfig' is not present");
     }
 
 }

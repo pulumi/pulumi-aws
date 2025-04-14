@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class SecurityConfigurationEncryptionConfigurationJobBookmarksEncry
      * Encryption mode to use for job bookmarks data. Valid values: `CSE-KMS`, `DISABLED`. Default value: `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> jobBookmarksEncryptionMode;
-
+    @PolicyResourceProperty(name="jobBookmarksEncryptionMode", flag="unknown_jobBookmarksEncryptionMode")
+    private String value_jobBookmarksEncryptionMode;
+    private boolean unknown_jobBookmarksEncryptionMode;
     public String jobBookmarksEncryptionMode() {
-        if (jobBookmarksEncryptionMode == null) return null;
-        return jobBookmarksEncryptionMode.getValue("SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs.jobBookmarksEncryptionMode");
+        if (!unknown_jobBookmarksEncryptionMode) return value_jobBookmarksEncryptionMode;
+        throw new UndeferrableValueException("Value 'SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs.jobBookmarksEncryptionMode' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
      * 
      */
-    private UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs.kmsKeyArn' is not present");
     }
 
 }

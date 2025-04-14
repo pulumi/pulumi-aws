@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualNodeSpecListenerTimeoutHttp2Idle;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualNodeSpecListenerTimeoutHttp2PerRequest;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class VirtualNodeSpecListenerTimeoutHttp2 {
      * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualNodeSpecListenerTimeoutHttp2Idle> idle;
-
+    @PolicyResourceProperty(name="idle", flag="unknown_idle")
+    private @Nullable VirtualNodeSpecListenerTimeoutHttp2Idle value_idle;
+    private boolean unknown_idle;
     public @Nullable VirtualNodeSpecListenerTimeoutHttp2Idle idle() {
-        if (idle == null) return null;
-        return idle.getValue("VirtualNodeSpecListenerTimeoutHttp2.idle");
+        if (!unknown_idle) return value_idle;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerTimeoutHttp2.idle' is not present");
     }
 
     /**
      * Per request timeout.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualNodeSpecListenerTimeoutHttp2PerRequest> perRequest;
-
+    @PolicyResourceProperty(name="perRequest", flag="unknown_perRequest")
+    private @Nullable VirtualNodeSpecListenerTimeoutHttp2PerRequest value_perRequest;
+    private boolean unknown_perRequest;
     public @Nullable VirtualNodeSpecListenerTimeoutHttp2PerRequest perRequest() {
-        if (perRequest == null) return null;
-        return perRequest.getValue("VirtualNodeSpecListenerTimeoutHttp2.perRequest");
+        if (!unknown_perRequest) return value_perRequest;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerTimeoutHttp2.perRequest' is not present");
     }
 
 }

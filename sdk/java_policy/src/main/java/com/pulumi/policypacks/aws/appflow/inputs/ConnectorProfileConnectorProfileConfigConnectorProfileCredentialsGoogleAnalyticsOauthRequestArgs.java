@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      * The code provided by the connector when it has been authenticated via the connected app.
      * 
      */
-    private UndeferrableValue<String> authCode;
-
+    @PolicyResourceProperty(name="authCode", flag="unknown_authCode")
+    private String value_authCode;
+    private boolean unknown_authCode;
     public String authCode() {
-        if (authCode == null) return null;
-        return authCode.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgs.authCode");
+        if (!unknown_authCode) return value_authCode;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgs.authCode' is not present");
     }
 
     /**
      * The URL to which the authentication server redirects the browser after authorization has been granted.
      * 
      */
-    private UndeferrableValue<String> redirectUri;
-
+    @PolicyResourceProperty(name="redirectUri", flag="unknown_redirectUri")
+    private String value_redirectUri;
+    private boolean unknown_redirectUri;
     public String redirectUri() {
-        if (redirectUri == null) return null;
-        return redirectUri.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgs.redirectUri");
+        if (!unknown_redirectUri) return value_redirectUri;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgs.redirectUri' is not present");
     }
 
 }

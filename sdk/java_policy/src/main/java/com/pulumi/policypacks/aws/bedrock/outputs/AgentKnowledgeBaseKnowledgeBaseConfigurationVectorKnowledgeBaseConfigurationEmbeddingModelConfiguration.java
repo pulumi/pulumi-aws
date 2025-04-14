@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
      * The vector configuration details on the Bedrock embeddings model.  See `bedrock_embedding_model_configuration` block for details.
      * 
      */
-    private @Nullable UndeferrableValue<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration> bedrockEmbeddingModelConfiguration;
-
+    @PolicyResourceProperty(name="bedrockEmbeddingModelConfiguration", flag="unknown_bedrockEmbeddingModelConfiguration")
+    private @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration value_bedrockEmbeddingModelConfiguration;
+    private boolean unknown_bedrockEmbeddingModelConfiguration;
     public @Nullable AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfiguration bedrockEmbeddingModelConfiguration() {
-        if (bedrockEmbeddingModelConfiguration == null) return null;
-        return bedrockEmbeddingModelConfiguration.getValue("AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration.bedrockEmbeddingModelConfiguration");
+        if (!unknown_bedrockEmbeddingModelConfiguration) return value_bedrockEmbeddingModelConfiguration;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfiguration.bedrockEmbeddingModelConfiguration' is not present");
     }
 
 }

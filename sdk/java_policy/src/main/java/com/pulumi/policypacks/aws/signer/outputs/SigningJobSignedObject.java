@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.signer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.signer.outputs.SigningJobSignedObjectS3;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -11,11 +12,12 @@ import javax.annotation.Nullable;
 
 public final class SigningJobSignedObject {
 
-    private @Nullable UndeferrableValue<List<SigningJobSignedObjectS3>> s3s;
-
+    @PolicyResourceProperty(name="s3s", flag="unknown_s3s")
+    private @Nullable List<SigningJobSignedObjectS3> value_s3s;
+    private boolean unknown_s3s;
     public @Nullable List<SigningJobSignedObjectS3> s3s() {
-        if (s3s == null) return null;
-        return s3s.getValue("SigningJobSignedObject.s3s");
+        if (!unknown_s3s) return value_s3s;
+        throw new UndeferrableValueException("Value 'SigningJobSignedObject.s3s' is not present");
     }
 
 }

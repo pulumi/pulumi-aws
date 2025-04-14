@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.evidently.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.evidently.outputs.ProjectDataDeliveryCloudwatchLogs;
 import com.pulumi.policypacks.aws.evidently.outputs.ProjectDataDeliveryS3Destination;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ProjectDataDelivery {
      * A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
      * 
      */
-    private @Nullable UndeferrableValue<ProjectDataDeliveryCloudwatchLogs> cloudwatchLogs;
-
+    @PolicyResourceProperty(name="cloudwatchLogs", flag="unknown_cloudwatchLogs")
+    private @Nullable ProjectDataDeliveryCloudwatchLogs value_cloudwatchLogs;
+    private boolean unknown_cloudwatchLogs;
     public @Nullable ProjectDataDeliveryCloudwatchLogs cloudwatchLogs() {
-        if (cloudwatchLogs == null) return null;
-        return cloudwatchLogs.getValue("ProjectDataDelivery.cloudwatchLogs");
+        if (!unknown_cloudwatchLogs) return value_cloudwatchLogs;
+        throw new UndeferrableValueException("Value 'ProjectDataDelivery.cloudwatchLogs' is not present");
     }
 
     /**
      * A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
      * 
      */
-    private @Nullable UndeferrableValue<ProjectDataDeliveryS3Destination> s3Destination;
-
+    @PolicyResourceProperty(name="s3Destination", flag="unknown_s3Destination")
+    private @Nullable ProjectDataDeliveryS3Destination value_s3Destination;
+    private boolean unknown_s3Destination;
     public @Nullable ProjectDataDeliveryS3Destination s3Destination() {
-        if (s3Destination == null) return null;
-        return s3Destination.getValue("ProjectDataDelivery.s3Destination");
+        if (!unknown_s3Destination) return value_s3Destination;
+        throw new UndeferrableValueException("Value 'ProjectDataDelivery.s3Destination' is not present");
     }
 
 }

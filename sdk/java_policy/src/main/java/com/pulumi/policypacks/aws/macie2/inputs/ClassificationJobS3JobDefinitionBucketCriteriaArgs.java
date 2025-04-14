@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.macie2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.macie2.inputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgs;
 import com.pulumi.policypacks.aws.macie2.inputs.ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaArgs {
      * The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
      * 
      */
-    private UndeferrableValue<ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgs> excludes;
-
+    @PolicyResourceProperty(name="excludes", flag="unknown_excludes")
+    private ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgs value_excludes;
+    private boolean unknown_excludes;
     public ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgs excludes() {
-        if (excludes == null) return null;
-        return excludes.getValue("ClassificationJobS3JobDefinitionBucketCriteriaArgs.excludes");
+        if (!unknown_excludes) return value_excludes;
+        throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionBucketCriteriaArgs.excludes' is not present");
     }
 
     /**
      * The property- or tag-based conditions that determine which S3 buckets to include in the analysis. (documented below)
      * 
      */
-    private UndeferrableValue<ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs> includes;
-
+    @PolicyResourceProperty(name="includes", flag="unknown_includes")
+    private ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs value_includes;
+    private boolean unknown_includes;
     public ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs includes() {
-        if (includes == null) return null;
-        return includes.getValue("ClassificationJobS3JobDefinitionBucketCriteriaArgs.includes");
+        if (!unknown_includes) return value_includes;
+        throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionBucketCriteriaArgs.includes' is not present");
     }
 
 }

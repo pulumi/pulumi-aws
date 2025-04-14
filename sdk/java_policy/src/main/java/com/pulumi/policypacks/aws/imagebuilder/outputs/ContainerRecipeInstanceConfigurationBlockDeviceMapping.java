@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.imagebuilder.outputs.ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class ContainerRecipeInstanceConfigurationBlockDeviceMapping {
      * Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
      * 
      */
-    private @Nullable UndeferrableValue<String> deviceName;
-
+    @PolicyResourceProperty(name="deviceName", flag="unknown_deviceName")
+    private @Nullable String value_deviceName;
+    private boolean unknown_deviceName;
     public @Nullable String deviceName() {
-        if (deviceName == null) return null;
-        return deviceName.getValue("ContainerRecipeInstanceConfigurationBlockDeviceMapping.deviceName");
+        if (!unknown_deviceName) return value_deviceName;
+        throw new UndeferrableValueException("Value 'ContainerRecipeInstanceConfigurationBlockDeviceMapping.deviceName' is not present");
     }
 
     /**
      * Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs> ebs;
-
+    @PolicyResourceProperty(name="ebs", flag="unknown_ebs")
+    private @Nullable ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs value_ebs;
+    private boolean unknown_ebs;
     public @Nullable ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs ebs() {
-        if (ebs == null) return null;
-        return ebs.getValue("ContainerRecipeInstanceConfigurationBlockDeviceMapping.ebs");
+        if (!unknown_ebs) return value_ebs;
+        throw new UndeferrableValueException("Value 'ContainerRecipeInstanceConfigurationBlockDeviceMapping.ebs' is not present");
     }
 
     /**
      * Set to `true` to remove a mapping from the parent image.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> noDevice;
-
+    @PolicyResourceProperty(name="noDevice", flag="unknown_noDevice")
+    private @Nullable Boolean value_noDevice;
+    private boolean unknown_noDevice;
     public @Nullable Boolean noDevice() {
-        if (noDevice == null) return null;
-        return noDevice.getValue("ContainerRecipeInstanceConfigurationBlockDeviceMapping.noDevice");
+        if (!unknown_noDevice) return value_noDevice;
+        throw new UndeferrableValueException("Value 'ContainerRecipeInstanceConfigurationBlockDeviceMapping.noDevice' is not present");
     }
 
     /**
      * Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
      * 
      */
-    private @Nullable UndeferrableValue<String> virtualName;
-
+    @PolicyResourceProperty(name="virtualName", flag="unknown_virtualName")
+    private @Nullable String value_virtualName;
+    private boolean unknown_virtualName;
     public @Nullable String virtualName() {
-        if (virtualName == null) return null;
-        return virtualName.getValue("ContainerRecipeInstanceConfigurationBlockDeviceMapping.virtualName");
+        if (!unknown_virtualName) return value_virtualName;
+        throw new UndeferrableValueException("Value 'ContainerRecipeInstanceConfigurationBlockDeviceMapping.virtualName' is not present");
     }
 
 }

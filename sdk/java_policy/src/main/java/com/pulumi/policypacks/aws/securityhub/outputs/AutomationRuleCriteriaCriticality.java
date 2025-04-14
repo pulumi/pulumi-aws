@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import javax.annotation.Nullable;
 
@@ -14,47 +15,52 @@ public final class AutomationRuleCriteriaCriticality {
      * The equal-to condition to be applied to a single field when querying for findings, provided as a String.
      * 
      */
-    private @Nullable UndeferrableValue<Double> eq;
-
+    @PolicyResourceProperty(name="eq", flag="unknown_eq")
+    private @Nullable Double value_eq;
+    private boolean unknown_eq;
     public @Nullable Double eq() {
-        if (eq == null) return null;
-        return eq.getValue("AutomationRuleCriteriaCriticality.eq");
+        if (!unknown_eq) return value_eq;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteriaCriticality.eq' is not present");
     }
 
-    private @Nullable UndeferrableValue<Double> gt;
-
+    @PolicyResourceProperty(name="gt", flag="unknown_gt")
+    private @Nullable Double value_gt;
+    private boolean unknown_gt;
     public @Nullable Double gt() {
-        if (gt == null) return null;
-        return gt.getValue("AutomationRuleCriteriaCriticality.gt");
+        if (!unknown_gt) return value_gt;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteriaCriticality.gt' is not present");
     }
 
     /**
      * The greater-than-equal condition to be applied to a single field when querying for findings, provided as a String.
      * 
      */
-    private @Nullable UndeferrableValue<Double> gte;
-
+    @PolicyResourceProperty(name="gte", flag="unknown_gte")
+    private @Nullable Double value_gte;
+    private boolean unknown_gte;
     public @Nullable Double gte() {
-        if (gte == null) return null;
-        return gte.getValue("AutomationRuleCriteriaCriticality.gte");
+        if (!unknown_gte) return value_gte;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteriaCriticality.gte' is not present");
     }
 
-    private @Nullable UndeferrableValue<Double> lt;
-
+    @PolicyResourceProperty(name="lt", flag="unknown_lt")
+    private @Nullable Double value_lt;
+    private boolean unknown_lt;
     public @Nullable Double lt() {
-        if (lt == null) return null;
-        return lt.getValue("AutomationRuleCriteriaCriticality.lt");
+        if (!unknown_lt) return value_lt;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteriaCriticality.lt' is not present");
     }
 
     /**
      * The less-than-equal condition to be applied to a single field when querying for findings, provided as a String.
      * 
      */
-    private @Nullable UndeferrableValue<Double> lte;
-
+    @PolicyResourceProperty(name="lte", flag="unknown_lte")
+    private @Nullable Double value_lte;
+    private boolean unknown_lte;
     public @Nullable Double lte() {
-        if (lte == null) return null;
-        return lte.getValue("AutomationRuleCriteriaCriticality.lte");
+        if (!unknown_lte) return value_lte;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteriaCriticality.lte' is not present");
     }
 
 }

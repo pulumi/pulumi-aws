@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.storagegateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class UploadBuffer extends com.pulumi.resources.PolicyResourceOutpu
      * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
      * 
      */
-    private UndeferrableValue<String> diskId;
-
+    @PolicyResourceProperty(name="diskId", flag="unknown_diskId")
+    private String value_diskId;
+    private boolean unknown_diskId;
     public String diskId() {
-        if (diskId == null) return null;
-        return diskId.getValue("UploadBuffer.diskId");
+        if (!unknown_diskId) return value_diskId;
+        throw new UndeferrableValueException("Value 'UploadBuffer.diskId' is not present");
     }
 
     /**
      * Local disk path. For example, `/dev/nvme1n1`.
      * 
      */
-    private UndeferrableValue<String> diskPath;
-
+    @PolicyResourceProperty(name="diskPath", flag="unknown_diskPath")
+    private String value_diskPath;
+    private boolean unknown_diskPath;
     public String diskPath() {
-        if (diskPath == null) return null;
-        return diskPath.getValue("UploadBuffer.diskPath");
+        if (!unknown_diskPath) return value_diskPath;
+        throw new UndeferrableValueException("Value 'UploadBuffer.diskPath' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      * 
      */
-    private UndeferrableValue<String> gatewayArn;
-
+    @PolicyResourceProperty(name="gatewayArn", flag="unknown_gatewayArn")
+    private String value_gatewayArn;
+    private boolean unknown_gatewayArn;
     public String gatewayArn() {
-        if (gatewayArn == null) return null;
-        return gatewayArn.getValue("UploadBuffer.gatewayArn");
+        if (!unknown_gatewayArn) return value_gatewayArn;
+        throw new UndeferrableValueException("Value 'UploadBuffer.gatewayArn' is not present");
     }
 
 }

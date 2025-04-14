@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class VpnConnectionTunnel2LogOptionsCloudwatchLogOptions {
      * Enable or disable VPN tunnel logging feature. The default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> logEnabled;
-
+    @PolicyResourceProperty(name="logEnabled", flag="unknown_logEnabled")
+    private @Nullable Boolean value_logEnabled;
+    private boolean unknown_logEnabled;
     public @Nullable Boolean logEnabled() {
-        if (logEnabled == null) return null;
-        return logEnabled.getValue("VpnConnectionTunnel2LogOptionsCloudwatchLogOptions.logEnabled");
+        if (!unknown_logEnabled) return value_logEnabled;
+        throw new UndeferrableValueException("Value 'VpnConnectionTunnel2LogOptionsCloudwatchLogOptions.logEnabled' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
      * 
      */
-    private @Nullable UndeferrableValue<String> logGroupArn;
-
+    @PolicyResourceProperty(name="logGroupArn", flag="unknown_logGroupArn")
+    private @Nullable String value_logGroupArn;
+    private boolean unknown_logGroupArn;
     public @Nullable String logGroupArn() {
-        if (logGroupArn == null) return null;
-        return logGroupArn.getValue("VpnConnectionTunnel2LogOptionsCloudwatchLogOptions.logGroupArn");
+        if (!unknown_logGroupArn) return value_logGroupArn;
+        throw new UndeferrableValueException("Value 'VpnConnectionTunnel2LogOptionsCloudwatchLogOptions.logGroupArn' is not present");
     }
 
     /**
      * Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
      * 
      */
-    private @Nullable UndeferrableValue<String> logOutputFormat;
-
+    @PolicyResourceProperty(name="logOutputFormat", flag="unknown_logOutputFormat")
+    private @Nullable String value_logOutputFormat;
+    private boolean unknown_logOutputFormat;
     public @Nullable String logOutputFormat() {
-        if (logOutputFormat == null) return null;
-        return logOutputFormat.getValue("VpnConnectionTunnel2LogOptionsCloudwatchLogOptions.logOutputFormat");
+        if (!unknown_logOutputFormat) return value_logOutputFormat;
+        throw new UndeferrableValueException("Value 'VpnConnectionTunnel2LogOptionsCloudwatchLogOptions.logOutputFormat' is not present");
     }
 
 }

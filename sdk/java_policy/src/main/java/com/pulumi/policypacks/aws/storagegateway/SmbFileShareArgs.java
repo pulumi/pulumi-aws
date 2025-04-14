@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.storagegateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.storagegateway.inputs.SmbFileShareCacheAttributesArgs;
 import java.lang.Boolean;
@@ -20,55 +21,60 @@ public final class SmbFileShareArgs extends com.pulumi.resources.PolicyResourceI
      * The files and folders on this share will only be visible to users with read access. Default value is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> accessBasedEnumeration;
-
+    @PolicyResourceProperty(name="accessBasedEnumeration", flag="unknown_accessBasedEnumeration")
+    private Boolean value_accessBasedEnumeration;
+    private boolean unknown_accessBasedEnumeration;
     public Boolean accessBasedEnumeration() {
-        if (accessBasedEnumeration == null) return null;
-        return accessBasedEnumeration.getValue("SmbFileShareArgs.accessBasedEnumeration");
+        if (!unknown_accessBasedEnumeration) return value_accessBasedEnumeration;
+        throw new UndeferrableValueException("Value 'SmbFileShareArgs.accessBasedEnumeration' is not present");
     }
 
     /**
      * A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
      * 
      */
-    private UndeferrableValue<List<String>> adminUserLists;
-
+    @PolicyResourceProperty(name="adminUserLists", flag="unknown_adminUserLists")
+    private List<String> value_adminUserLists;
+    private boolean unknown_adminUserLists;
     public List<String> adminUserLists() {
-        if (adminUserLists == null) return null;
-        return adminUserLists.getValue("SmbFileShareArgs.adminUserLists");
+        if (!unknown_adminUserLists) return value_adminUserLists;
+        throw new UndeferrableValueException("Value 'SmbFileShareArgs.adminUserLists' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
      * 
      */
-    private UndeferrableValue<String> auditDestinationArn;
-
+    @PolicyResourceProperty(name="auditDestinationArn", flag="unknown_auditDestinationArn")
+    private String value_auditDestinationArn;
+    private boolean unknown_auditDestinationArn;
     public String auditDestinationArn() {
-        if (auditDestinationArn == null) return null;
-        return auditDestinationArn.getValue("SmbFileShareArgs.auditDestinationArn");
+        if (!unknown_auditDestinationArn) return value_auditDestinationArn;
+        throw new UndeferrableValueException("Value 'SmbFileShareArgs.auditDestinationArn' is not present");
     }
 
     /**
      * The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
      * 
      */
-    private UndeferrableValue<String> authentication;
-
+    @PolicyResourceProperty(name="authentication", flag="unknown_authentication")
+    private String value_authentication;
+    private boolean unknown_authentication;
     public String authentication() {
-        if (authentication == null) return null;
-        return authentication.getValue("SmbFileShareArgs.authentication");
+        if (!unknown_authentication) return value_authentication;
+        throw new UndeferrableValueException("Value 'SmbFileShareArgs.authentication' is not present");
     }
 
     /**
      * The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
      * 
      */
-    private UndeferrableValue<String> bucketRegion;
-
+    @PolicyResourceProperty(name="bucketRegion", flag="unknown_bucketRegion")
+    private String value_bucketRegion;
+    private boolean unknown_bucketRegion;
     public String bucketRegion() {
-        if (bucketRegion == null) return null;
-        return bucketRegion.getValue("SmbFileShareArgs.bucketRegion");
+        if (!unknown_bucketRegion) return value_bucketRegion;
+        throw new UndeferrableValueException("Value 'SmbFileShareArgs.bucketRegion' is not present");
     }
 
     /**
@@ -77,220 +83,240 @@ public final class SmbFileShareArgs extends com.pulumi.resources.PolicyResourceI
      * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      * 
      */
-    private UndeferrableValue<SmbFileShareCacheAttributesArgs> cacheAttributes;
-
+    @PolicyResourceProperty(name="cacheAttributes", flag="unknown_cacheAttributes")
+    private SmbFileShareCacheAttributesArgs value_cacheAttributes;
+    private boolean unknown_cacheAttributes;
     public SmbFileShareCacheAttributesArgs cacheAttributes() {
-        if (cacheAttributes == null) return null;
-        return cacheAttributes.getValue("SmbFileShareArgs.cacheAttributes");
+        if (!unknown_cacheAttributes) return value_cacheAttributes;
+        throw new UndeferrableValueException("Value 'SmbFileShareArgs.cacheAttributes' is not present");
     }
 
     /**
      * The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
      * 
      */
-    private UndeferrableValue<String> caseSensitivity;
-
+    @PolicyResourceProperty(name="caseSensitivity", flag="unknown_caseSensitivity")
+    private String value_caseSensitivity;
+    private boolean unknown_caseSensitivity;
     public String caseSensitivity() {
-        if (caseSensitivity == null) return null;
-        return caseSensitivity.getValue("SmbFileShareArgs.caseSensitivity");
+        if (!unknown_caseSensitivity) return value_caseSensitivity;
+        throw new UndeferrableValueException("Value 'SmbFileShareArgs.caseSensitivity' is not present");
     }
 
     /**
      * The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
      * 
      */
-    private UndeferrableValue<String> defaultStorageClass;
-
+    @PolicyResourceProperty(name="defaultStorageClass", flag="unknown_defaultStorageClass")
+    private String value_defaultStorageClass;
+    private boolean unknown_defaultStorageClass;
     public String defaultStorageClass() {
-        if (defaultStorageClass == null) return null;
-        return defaultStorageClass.getValue("SmbFileShareArgs.defaultStorageClass");
+        if (!unknown_defaultStorageClass) return value_defaultStorageClass;
+        throw new UndeferrableValueException("Value 'SmbFileShareArgs.defaultStorageClass' is not present");
     }
 
     /**
      * The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
      * 
      */
-    private UndeferrableValue<String> fileShareName;
-
+    @PolicyResourceProperty(name="fileShareName", flag="unknown_fileShareName")
+    private String value_fileShareName;
+    private boolean unknown_fileShareName;
     public String fileShareName() {
-        if (fileShareName == null) return null;
-        return fileShareName.getValue("SmbFileShareArgs.fileShareName");
+        if (!unknown_fileShareName) return value_fileShareName;
+        throw new UndeferrableValueException("Value 'SmbFileShareArgs.fileShareName' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the file gateway.
      * 
      */
-    private UndeferrableValue<String> gatewayArn;
-
+    @PolicyResourceProperty(name="gatewayArn", flag="unknown_gatewayArn")
+    private String value_gatewayArn;
+    private boolean unknown_gatewayArn;
     public String gatewayArn() {
-        if (gatewayArn == null) return null;
-        return gatewayArn.getValue("SmbFileShareArgs.gatewayArn");
+        if (!unknown_gatewayArn) return value_gatewayArn;
+        throw new UndeferrableValueException("Value 'SmbFileShareArgs.gatewayArn' is not present");
     }
 
     /**
      * Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> guessMimeTypeEnabled;
-
+    @PolicyResourceProperty(name="guessMimeTypeEnabled", flag="unknown_guessMimeTypeEnabled")
+    private Boolean value_guessMimeTypeEnabled;
+    private boolean unknown_guessMimeTypeEnabled;
     public Boolean guessMimeTypeEnabled() {
-        if (guessMimeTypeEnabled == null) return null;
-        return guessMimeTypeEnabled.getValue("SmbFileShareArgs.guessMimeTypeEnabled");
+        if (!unknown_guessMimeTypeEnabled) return value_guessMimeTypeEnabled;
+        throw new UndeferrableValueException("Value 'SmbFileShareArgs.guessMimeTypeEnabled' is not present");
     }
 
     /**
      * A list of users in the Active Directory that are not allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
      * 
      */
-    private UndeferrableValue<List<String>> invalidUserLists;
-
+    @PolicyResourceProperty(name="invalidUserLists", flag="unknown_invalidUserLists")
+    private List<String> value_invalidUserLists;
+    private boolean unknown_invalidUserLists;
     public List<String> invalidUserLists() {
-        if (invalidUserLists == null) return null;
-        return invalidUserLists.getValue("SmbFileShareArgs.invalidUserLists");
+        if (!unknown_invalidUserLists) return value_invalidUserLists;
+        throw new UndeferrableValueException("Value 'SmbFileShareArgs.invalidUserLists' is not present");
     }
 
     /**
      * Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> kmsEncrypted;
-
+    @PolicyResourceProperty(name="kmsEncrypted", flag="unknown_kmsEncrypted")
+    private Boolean value_kmsEncrypted;
+    private boolean unknown_kmsEncrypted;
     public Boolean kmsEncrypted() {
-        if (kmsEncrypted == null) return null;
-        return kmsEncrypted.getValue("SmbFileShareArgs.kmsEncrypted");
+        if (!unknown_kmsEncrypted) return value_kmsEncrypted;
+        throw new UndeferrableValueException("Value 'SmbFileShareArgs.kmsEncrypted' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
      * 
      */
-    private UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("SmbFileShareArgs.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'SmbFileShareArgs.kmsKeyArn' is not present");
     }
 
     /**
      * The ARN of the backed storage used for storing file data.
      * 
      */
-    private UndeferrableValue<String> locationArn;
-
+    @PolicyResourceProperty(name="locationArn", flag="unknown_locationArn")
+    private String value_locationArn;
+    private boolean unknown_locationArn;
     public String locationArn() {
-        if (locationArn == null) return null;
-        return locationArn.getValue("SmbFileShareArgs.locationArn");
+        if (!unknown_locationArn) return value_locationArn;
+        throw new UndeferrableValueException("Value 'SmbFileShareArgs.locationArn' is not present");
     }
 
     /**
      * The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
      * 
      */
-    private UndeferrableValue<String> notificationPolicy;
-
+    @PolicyResourceProperty(name="notificationPolicy", flag="unknown_notificationPolicy")
+    private String value_notificationPolicy;
+    private boolean unknown_notificationPolicy;
     public String notificationPolicy() {
-        if (notificationPolicy == null) return null;
-        return notificationPolicy.getValue("SmbFileShareArgs.notificationPolicy");
+        if (!unknown_notificationPolicy) return value_notificationPolicy;
+        throw new UndeferrableValueException("Value 'SmbFileShareArgs.notificationPolicy' is not present");
     }
 
     /**
      * Access Control List permission for S3 objects. Defaults to `private`.
      * 
      */
-    private UndeferrableValue<String> objectAcl;
-
+    @PolicyResourceProperty(name="objectAcl", flag="unknown_objectAcl")
+    private String value_objectAcl;
+    private boolean unknown_objectAcl;
     public String objectAcl() {
-        if (objectAcl == null) return null;
-        return objectAcl.getValue("SmbFileShareArgs.objectAcl");
+        if (!unknown_objectAcl) return value_objectAcl;
+        throw new UndeferrableValueException("Value 'SmbFileShareArgs.objectAcl' is not present");
     }
 
     /**
      * Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> oplocksEnabled;
-
+    @PolicyResourceProperty(name="oplocksEnabled", flag="unknown_oplocksEnabled")
+    private Boolean value_oplocksEnabled;
+    private boolean unknown_oplocksEnabled;
     public Boolean oplocksEnabled() {
-        if (oplocksEnabled == null) return null;
-        return oplocksEnabled.getValue("SmbFileShareArgs.oplocksEnabled");
+        if (!unknown_oplocksEnabled) return value_oplocksEnabled;
+        throw new UndeferrableValueException("Value 'SmbFileShareArgs.oplocksEnabled' is not present");
     }
 
     /**
      * Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> readOnly;
-
+    @PolicyResourceProperty(name="readOnly", flag="unknown_readOnly")
+    private Boolean value_readOnly;
+    private boolean unknown_readOnly;
     public Boolean readOnly() {
-        if (readOnly == null) return null;
-        return readOnly.getValue("SmbFileShareArgs.readOnly");
+        if (!unknown_readOnly) return value_readOnly;
+        throw new UndeferrableValueException("Value 'SmbFileShareArgs.readOnly' is not present");
     }
 
     /**
      * Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> requesterPays;
-
+    @PolicyResourceProperty(name="requesterPays", flag="unknown_requesterPays")
+    private Boolean value_requesterPays;
+    private boolean unknown_requesterPays;
     public Boolean requesterPays() {
-        if (requesterPays == null) return null;
-        return requesterPays.getValue("SmbFileShareArgs.requesterPays");
+        if (!unknown_requesterPays) return value_requesterPays;
+        throw new UndeferrableValueException("Value 'SmbFileShareArgs.requesterPays' is not present");
     }
 
     /**
      * The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("SmbFileShareArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'SmbFileShareArgs.roleArn' is not present");
     }
 
     /**
      * Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
      * 
      */
-    private UndeferrableValue<Boolean> smbAclEnabled;
-
+    @PolicyResourceProperty(name="smbAclEnabled", flag="unknown_smbAclEnabled")
+    private Boolean value_smbAclEnabled;
+    private boolean unknown_smbAclEnabled;
     public Boolean smbAclEnabled() {
-        if (smbAclEnabled == null) return null;
-        return smbAclEnabled.getValue("SmbFileShareArgs.smbAclEnabled");
+        if (!unknown_smbAclEnabled) return value_smbAclEnabled;
+        throw new UndeferrableValueException("Value 'SmbFileShareArgs.smbAclEnabled' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SmbFileShareArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SmbFileShareArgs.tags' is not present");
     }
 
     /**
      * A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add &#39;{@literal @}&#39; before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
      * 
      */
-    private UndeferrableValue<List<String>> validUserLists;
-
+    @PolicyResourceProperty(name="validUserLists", flag="unknown_validUserLists")
+    private List<String> value_validUserLists;
+    private boolean unknown_validUserLists;
     public List<String> validUserLists() {
-        if (validUserLists == null) return null;
-        return validUserLists.getValue("SmbFileShareArgs.validUserLists");
+        if (!unknown_validUserLists) return value_validUserLists;
+        throw new UndeferrableValueException("Value 'SmbFileShareArgs.validUserLists' is not present");
     }
 
     /**
      * The DNS name of the VPC endpoint for S3 private link.
      * 
      */
-    private UndeferrableValue<String> vpcEndpointDnsName;
-
+    @PolicyResourceProperty(name="vpcEndpointDnsName", flag="unknown_vpcEndpointDnsName")
+    private String value_vpcEndpointDnsName;
+    private boolean unknown_vpcEndpointDnsName;
     public String vpcEndpointDnsName() {
-        if (vpcEndpointDnsName == null) return null;
-        return vpcEndpointDnsName.getValue("SmbFileShareArgs.vpcEndpointDnsName");
+        if (!unknown_vpcEndpointDnsName) return value_vpcEndpointDnsName;
+        throw new UndeferrableValueException("Value 'SmbFileShareArgs.vpcEndpointDnsName' is not present");
     }
 
 }

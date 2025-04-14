@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.vpclattice.inputs.ListenerDefaultActionFixedResponseArgs;
 import com.pulumi.policypacks.aws.vpclattice.inputs.ListenerDefaultActionForwardArgs;
 import java.util.List;
@@ -12,11 +13,12 @@ import javax.annotation.Nullable;
 
 public final class ListenerDefaultActionArgs {
 
-    private UndeferrableValue<ListenerDefaultActionFixedResponseArgs> fixedResponse;
-
+    @PolicyResourceProperty(name="fixedResponse", flag="unknown_fixedResponse")
+    private ListenerDefaultActionFixedResponseArgs value_fixedResponse;
+    private boolean unknown_fixedResponse;
     public ListenerDefaultActionFixedResponseArgs fixedResponse() {
-        if (fixedResponse == null) return null;
-        return fixedResponse.getValue("ListenerDefaultActionArgs.fixedResponse");
+        if (!unknown_fixedResponse) return value_fixedResponse;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionArgs.fixedResponse' is not present");
     }
 
     /**
@@ -25,11 +27,12 @@ public final class ListenerDefaultActionArgs {
      * &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixed_response` or `forward`.
      * 
      */
-    private UndeferrableValue<List<ListenerDefaultActionForwardArgs>> forwards;
-
+    @PolicyResourceProperty(name="forwards", flag="unknown_forwards")
+    private List<ListenerDefaultActionForwardArgs> value_forwards;
+    private boolean unknown_forwards;
     public List<ListenerDefaultActionForwardArgs> forwards() {
-        if (forwards == null) return null;
-        return forwards.getValue("ListenerDefaultActionArgs.forwards");
+        if (!unknown_forwards) return value_forwards;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionArgs.forwards' is not present");
     }
 
 }

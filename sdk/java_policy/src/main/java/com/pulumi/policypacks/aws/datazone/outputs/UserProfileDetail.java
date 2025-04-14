@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datazone.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.datazone.outputs.UserProfileDetailIam;
 import com.pulumi.policypacks.aws.datazone.outputs.UserProfileDetailSso;
 import java.util.List;
@@ -11,18 +12,20 @@ import java.util.List;
 
 public final class UserProfileDetail {
 
-    private UndeferrableValue<List<UserProfileDetailIam>> iams;
-
+    @PolicyResourceProperty(name="iams", flag="unknown_iams")
+    private List<UserProfileDetailIam> value_iams;
+    private boolean unknown_iams;
     public List<UserProfileDetailIam> iams() {
-        if (iams == null) return null;
-        return iams.getValue("UserProfileDetail.iams");
+        if (!unknown_iams) return value_iams;
+        throw new UndeferrableValueException("Value 'UserProfileDetail.iams' is not present");
     }
 
-    private UndeferrableValue<List<UserProfileDetailSso>> ssos;
-
+    @PolicyResourceProperty(name="ssos", flag="unknown_ssos")
+    private List<UserProfileDetailSso> value_ssos;
+    private boolean unknown_ssos;
     public List<UserProfileDetailSso> ssos() {
-        if (ssos == null) return null;
-        return ssos.getValue("UserProfileDetail.ssos");
+        if (!unknown_ssos) return value_ssos;
+        throw new UndeferrableValueException("Value 'UserProfileDetail.ssos' is not present");
     }
 
 }

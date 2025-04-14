@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lb.outputs.ListenerRuleAction;
 import com.pulumi.policypacks.aws.lb.outputs.ListenerRuleCondition;
@@ -21,66 +22,72 @@ public final class ListenerRule extends com.pulumi.resources.PolicyResourceOutpu
      * An Action block. Action blocks are documented below.
      * 
      */
-    private UndeferrableValue<List<ListenerRuleAction>> actions;
-
+    @PolicyResourceProperty(name="actions", flag="unknown_actions")
+    private List<ListenerRuleAction> value_actions;
+    private boolean unknown_actions;
     public List<ListenerRuleAction> actions() {
-        if (actions == null) return null;
-        return actions.getValue("ListenerRule.actions");
+        if (!unknown_actions) return value_actions;
+        throw new UndeferrableValueException("Value 'ListenerRule.actions' is not present");
     }
 
     /**
      * The ARN of the rule (matches `id`)
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ListenerRule.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ListenerRule.arn' is not present");
     }
 
     /**
      * A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
      * 
      */
-    private UndeferrableValue<List<ListenerRuleCondition>> conditions;
-
+    @PolicyResourceProperty(name="conditions", flag="unknown_conditions")
+    private List<ListenerRuleCondition> value_conditions;
+    private boolean unknown_conditions;
     public List<ListenerRuleCondition> conditions() {
-        if (conditions == null) return null;
-        return conditions.getValue("ListenerRule.conditions");
+        if (!unknown_conditions) return value_conditions;
+        throw new UndeferrableValueException("Value 'ListenerRule.conditions' is not present");
     }
 
     /**
      * The ARN of the listener to which to attach the rule.
      * 
      */
-    private UndeferrableValue<String> listenerArn;
-
+    @PolicyResourceProperty(name="listenerArn", flag="unknown_listenerArn")
+    private String value_listenerArn;
+    private boolean unknown_listenerArn;
     public String listenerArn() {
-        if (listenerArn == null) return null;
-        return listenerArn.getValue("ListenerRule.listenerArn");
+        if (!unknown_listenerArn) return value_listenerArn;
+        throw new UndeferrableValueException("Value 'ListenerRule.listenerArn' is not present");
     }
 
     /**
      * The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can&#39;t have multiple rules with the same priority.
      * 
      */
-    private UndeferrableValue<Integer> priority;
-
+    @PolicyResourceProperty(name="priority", flag="unknown_priority")
+    private Integer value_priority;
+    private boolean unknown_priority;
     public Integer priority() {
-        if (priority == null) return null;
-        return priority.getValue("ListenerRule.priority");
+        if (!unknown_priority) return value_priority;
+        throw new UndeferrableValueException("Value 'ListenerRule.priority' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ListenerRule.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ListenerRule.tags' is not present");
     }
 
     /**
@@ -91,11 +98,12 @@ public final class ListenerRule extends com.pulumi.resources.PolicyResourceOutpu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ListenerRule.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ListenerRule.tagsAll' is not present");
     }
 
 }

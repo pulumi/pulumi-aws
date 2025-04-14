@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,44 +18,48 @@ public final class LbCertificateArgs extends com.pulumi.resources.PolicyResource
      * The domain name (e.g., example.com) for your SSL/TLS certificate.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("LbCertificateArgs.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'LbCertificateArgs.domainName' is not present");
     }
 
     /**
      * The load balancer name where you want to create the SSL/TLS certificate.
      * 
      */
-    private UndeferrableValue<String> lbName;
-
+    @PolicyResourceProperty(name="lbName", flag="unknown_lbName")
+    private String value_lbName;
+    private boolean unknown_lbName;
     public String lbName() {
-        if (lbName == null) return null;
-        return lbName.getValue("LbCertificateArgs.lbName");
+        if (!unknown_lbName) return value_lbName;
+        throw new UndeferrableValueException("Value 'LbCertificateArgs.lbName' is not present");
     }
 
     /**
      * The SSL/TLS certificate name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LbCertificateArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LbCertificateArgs.name' is not present");
     }
 
     /**
      * Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
      * 
      */
-    private UndeferrableValue<List<String>> subjectAlternativeNames;
-
+    @PolicyResourceProperty(name="subjectAlternativeNames", flag="unknown_subjectAlternativeNames")
+    private List<String> value_subjectAlternativeNames;
+    private boolean unknown_subjectAlternativeNames;
     public List<String> subjectAlternativeNames() {
-        if (subjectAlternativeNames == null) return null;
-        return subjectAlternativeNames.getValue("LbCertificateArgs.subjectAlternativeNames");
+        if (!unknown_subjectAlternativeNames) return value_subjectAlternativeNames;
+        throw new UndeferrableValueException("Value 'LbCertificateArgs.subjectAlternativeNames' is not present");
     }
 
 }

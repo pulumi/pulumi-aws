@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ebs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,132 +20,144 @@ public final class Volume extends com.pulumi.resources.PolicyResourceOutput {
      * Volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Volume.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Volume.arn' is not present");
     }
 
     /**
      * Availability zone where the EBS volume will exist.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("Volume.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'Volume.availabilityZone' is not present");
     }
 
     /**
      * Timestamp when volume creation was initiated.
      * 
      */
-    private UndeferrableValue<String> createTime;
-
+    @PolicyResourceProperty(name="createTime", flag="unknown_createTime")
+    private String value_createTime;
+    private boolean unknown_createTime;
     public String createTime() {
-        if (createTime == null) return null;
-        return createTime.getValue("Volume.createTime");
+        if (!unknown_createTime) return value_createTime;
+        throw new UndeferrableValueException("Value 'Volume.createTime' is not present");
     }
 
     /**
      * If true, the disk will be encrypted.
      * 
      */
-    private UndeferrableValue<Boolean> encrypted;
-
+    @PolicyResourceProperty(name="encrypted", flag="unknown_encrypted")
+    private Boolean value_encrypted;
+    private boolean unknown_encrypted;
     public Boolean encrypted() {
-        if (encrypted == null) return null;
-        return encrypted.getValue("Volume.encrypted");
+        if (!unknown_encrypted) return value_encrypted;
+        throw new UndeferrableValueException("Value 'Volume.encrypted' is not present");
     }
 
     /**
      * If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> finalSnapshot;
-
+    @PolicyResourceProperty(name="finalSnapshot", flag="unknown_finalSnapshot")
+    private @Nullable Boolean value_finalSnapshot;
+    private boolean unknown_finalSnapshot;
     public @Nullable Boolean finalSnapshot() {
-        if (finalSnapshot == null) return null;
-        return finalSnapshot.getValue("Volume.finalSnapshot");
+        if (!unknown_finalSnapshot) return value_finalSnapshot;
+        throw new UndeferrableValueException("Value 'Volume.finalSnapshot' is not present");
     }
 
     /**
      * Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
      * 
      */
-    private UndeferrableValue<Integer> iops;
-
+    @PolicyResourceProperty(name="iops", flag="unknown_iops")
+    private Integer value_iops;
+    private boolean unknown_iops;
     public Integer iops() {
-        if (iops == null) return null;
-        return iops.getValue("Volume.iops");
+        if (!unknown_iops) return value_iops;
+        throw new UndeferrableValueException("Value 'Volume.iops' is not present");
     }
 
     /**
      * ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("Volume.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'Volume.kmsKeyId' is not present");
     }
 
     /**
      * Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> multiAttachEnabled;
-
+    @PolicyResourceProperty(name="multiAttachEnabled", flag="unknown_multiAttachEnabled")
+    private @Nullable Boolean value_multiAttachEnabled;
+    private boolean unknown_multiAttachEnabled;
     public @Nullable Boolean multiAttachEnabled() {
-        if (multiAttachEnabled == null) return null;
-        return multiAttachEnabled.getValue("Volume.multiAttachEnabled");
+        if (!unknown_multiAttachEnabled) return value_multiAttachEnabled;
+        throw new UndeferrableValueException("Value 'Volume.multiAttachEnabled' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the Outpost.
      * 
      */
-    private @Nullable UndeferrableValue<String> outpostArn;
-
+    @PolicyResourceProperty(name="outpostArn", flag="unknown_outpostArn")
+    private @Nullable String value_outpostArn;
+    private boolean unknown_outpostArn;
     public @Nullable String outpostArn() {
-        if (outpostArn == null) return null;
-        return outpostArn.getValue("Volume.outpostArn");
+        if (!unknown_outpostArn) return value_outpostArn;
+        throw new UndeferrableValueException("Value 'Volume.outpostArn' is not present");
     }
 
     /**
      * Size of the drive in GiBs.
      * 
      */
-    private UndeferrableValue<Integer> size;
-
+    @PolicyResourceProperty(name="size", flag="unknown_size")
+    private Integer value_size;
+    private boolean unknown_size;
     public Integer size() {
-        if (size == null) return null;
-        return size.getValue("Volume.size");
+        if (!unknown_size) return value_size;
+        throw new UndeferrableValueException("Value 'Volume.size' is not present");
     }
 
     /**
      * A snapshot to base the EBS volume off of.
      * 
      */
-    private UndeferrableValue<String> snapshotId;
-
+    @PolicyResourceProperty(name="snapshotId", flag="unknown_snapshotId")
+    private String value_snapshotId;
+    private boolean unknown_snapshotId;
     public String snapshotId() {
-        if (snapshotId == null) return null;
-        return snapshotId.getValue("Volume.snapshotId");
+        if (!unknown_snapshotId) return value_snapshotId;
+        throw new UndeferrableValueException("Value 'Volume.snapshotId' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Volume.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Volume.tags' is not present");
     }
 
     /**
@@ -155,22 +168,24 @@ public final class Volume extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Volume.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Volume.tagsAll' is not present");
     }
 
     /**
      * Throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
      * 
      */
-    private UndeferrableValue<Integer> throughput;
-
+    @PolicyResourceProperty(name="throughput", flag="unknown_throughput")
+    private Integer value_throughput;
+    private boolean unknown_throughput;
     public Integer throughput() {
-        if (throughput == null) return null;
-        return throughput.getValue("Volume.throughput");
+        if (!unknown_throughput) return value_throughput;
+        throw new UndeferrableValueException("Value 'Volume.throughput' is not present");
     }
 
     /**
@@ -179,11 +194,12 @@ public final class Volume extends com.pulumi.resources.PolicyResourceOutput {
      * &gt; **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("Volume.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'Volume.type' is not present");
     }
 
 }

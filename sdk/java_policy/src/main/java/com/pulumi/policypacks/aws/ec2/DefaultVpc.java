@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -15,163 +16,184 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:ec2/defaultVpc:DefaultVpc")
 public final class DefaultVpc extends com.pulumi.resources.PolicyResourceOutput {
 
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("DefaultVpc.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'DefaultVpc.arn' is not present");
     }
 
-    private @Nullable UndeferrableValue<Boolean> assignGeneratedIpv6CidrBlock;
-
+    @PolicyResourceProperty(name="assignGeneratedIpv6CidrBlock", flag="unknown_assignGeneratedIpv6CidrBlock")
+    private @Nullable Boolean value_assignGeneratedIpv6CidrBlock;
+    private boolean unknown_assignGeneratedIpv6CidrBlock;
     public @Nullable Boolean assignGeneratedIpv6CidrBlock() {
-        if (assignGeneratedIpv6CidrBlock == null) return null;
-        return assignGeneratedIpv6CidrBlock.getValue("DefaultVpc.assignGeneratedIpv6CidrBlock");
+        if (!unknown_assignGeneratedIpv6CidrBlock) return value_assignGeneratedIpv6CidrBlock;
+        throw new UndeferrableValueException("Value 'DefaultVpc.assignGeneratedIpv6CidrBlock' is not present");
     }
 
     /**
      * The primary IPv4 CIDR block for the VPC
      * 
      */
-    private UndeferrableValue<String> cidrBlock;
-
+    @PolicyResourceProperty(name="cidrBlock", flag="unknown_cidrBlock")
+    private String value_cidrBlock;
+    private boolean unknown_cidrBlock;
     public String cidrBlock() {
-        if (cidrBlock == null) return null;
-        return cidrBlock.getValue("DefaultVpc.cidrBlock");
+        if (!unknown_cidrBlock) return value_cidrBlock;
+        throw new UndeferrableValueException("Value 'DefaultVpc.cidrBlock' is not present");
     }
 
-    private UndeferrableValue<String> defaultNetworkAclId;
-
+    @PolicyResourceProperty(name="defaultNetworkAclId", flag="unknown_defaultNetworkAclId")
+    private String value_defaultNetworkAclId;
+    private boolean unknown_defaultNetworkAclId;
     public String defaultNetworkAclId() {
-        if (defaultNetworkAclId == null) return null;
-        return defaultNetworkAclId.getValue("DefaultVpc.defaultNetworkAclId");
+        if (!unknown_defaultNetworkAclId) return value_defaultNetworkAclId;
+        throw new UndeferrableValueException("Value 'DefaultVpc.defaultNetworkAclId' is not present");
     }
 
-    private UndeferrableValue<String> defaultRouteTableId;
-
+    @PolicyResourceProperty(name="defaultRouteTableId", flag="unknown_defaultRouteTableId")
+    private String value_defaultRouteTableId;
+    private boolean unknown_defaultRouteTableId;
     public String defaultRouteTableId() {
-        if (defaultRouteTableId == null) return null;
-        return defaultRouteTableId.getValue("DefaultVpc.defaultRouteTableId");
+        if (!unknown_defaultRouteTableId) return value_defaultRouteTableId;
+        throw new UndeferrableValueException("Value 'DefaultVpc.defaultRouteTableId' is not present");
     }
 
-    private UndeferrableValue<String> defaultSecurityGroupId;
-
+    @PolicyResourceProperty(name="defaultSecurityGroupId", flag="unknown_defaultSecurityGroupId")
+    private String value_defaultSecurityGroupId;
+    private boolean unknown_defaultSecurityGroupId;
     public String defaultSecurityGroupId() {
-        if (defaultSecurityGroupId == null) return null;
-        return defaultSecurityGroupId.getValue("DefaultVpc.defaultSecurityGroupId");
+        if (!unknown_defaultSecurityGroupId) return value_defaultSecurityGroupId;
+        throw new UndeferrableValueException("Value 'DefaultVpc.defaultSecurityGroupId' is not present");
     }
 
-    private UndeferrableValue<String> dhcpOptionsId;
-
+    @PolicyResourceProperty(name="dhcpOptionsId", flag="unknown_dhcpOptionsId")
+    private String value_dhcpOptionsId;
+    private boolean unknown_dhcpOptionsId;
     public String dhcpOptionsId() {
-        if (dhcpOptionsId == null) return null;
-        return dhcpOptionsId.getValue("DefaultVpc.dhcpOptionsId");
+        if (!unknown_dhcpOptionsId) return value_dhcpOptionsId;
+        throw new UndeferrableValueException("Value 'DefaultVpc.dhcpOptionsId' is not present");
     }
 
-    private @Nullable UndeferrableValue<Boolean> enableDnsHostnames;
-
+    @PolicyResourceProperty(name="enableDnsHostnames", flag="unknown_enableDnsHostnames")
+    private @Nullable Boolean value_enableDnsHostnames;
+    private boolean unknown_enableDnsHostnames;
     public @Nullable Boolean enableDnsHostnames() {
-        if (enableDnsHostnames == null) return null;
-        return enableDnsHostnames.getValue("DefaultVpc.enableDnsHostnames");
+        if (!unknown_enableDnsHostnames) return value_enableDnsHostnames;
+        throw new UndeferrableValueException("Value 'DefaultVpc.enableDnsHostnames' is not present");
     }
 
-    private @Nullable UndeferrableValue<Boolean> enableDnsSupport;
-
+    @PolicyResourceProperty(name="enableDnsSupport", flag="unknown_enableDnsSupport")
+    private @Nullable Boolean value_enableDnsSupport;
+    private boolean unknown_enableDnsSupport;
     public @Nullable Boolean enableDnsSupport() {
-        if (enableDnsSupport == null) return null;
-        return enableDnsSupport.getValue("DefaultVpc.enableDnsSupport");
+        if (!unknown_enableDnsSupport) return value_enableDnsSupport;
+        throw new UndeferrableValueException("Value 'DefaultVpc.enableDnsSupport' is not present");
     }
 
-    private UndeferrableValue<Boolean> enableNetworkAddressUsageMetrics;
-
+    @PolicyResourceProperty(name="enableNetworkAddressUsageMetrics", flag="unknown_enableNetworkAddressUsageMetrics")
+    private Boolean value_enableNetworkAddressUsageMetrics;
+    private boolean unknown_enableNetworkAddressUsageMetrics;
     public Boolean enableNetworkAddressUsageMetrics() {
-        if (enableNetworkAddressUsageMetrics == null) return null;
-        return enableNetworkAddressUsageMetrics.getValue("DefaultVpc.enableNetworkAddressUsageMetrics");
+        if (!unknown_enableNetworkAddressUsageMetrics) return value_enableNetworkAddressUsageMetrics;
+        throw new UndeferrableValueException("Value 'DefaultVpc.enableNetworkAddressUsageMetrics' is not present");
     }
 
-    private UndeferrableValue<Boolean> existingDefaultVpc;
-
+    @PolicyResourceProperty(name="existingDefaultVpc", flag="unknown_existingDefaultVpc")
+    private Boolean value_existingDefaultVpc;
+    private boolean unknown_existingDefaultVpc;
     public Boolean existingDefaultVpc() {
-        if (existingDefaultVpc == null) return null;
-        return existingDefaultVpc.getValue("DefaultVpc.existingDefaultVpc");
+        if (!unknown_existingDefaultVpc) return value_existingDefaultVpc;
+        throw new UndeferrableValueException("Value 'DefaultVpc.existingDefaultVpc' is not present");
     }
 
     /**
      * Whether destroying the resource deletes the default VPC. Default: `false`
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> forceDestroy;
-
+    @PolicyResourceProperty(name="forceDestroy", flag="unknown_forceDestroy")
+    private @Nullable Boolean value_forceDestroy;
+    private boolean unknown_forceDestroy;
     public @Nullable Boolean forceDestroy() {
-        if (forceDestroy == null) return null;
-        return forceDestroy.getValue("DefaultVpc.forceDestroy");
+        if (!unknown_forceDestroy) return value_forceDestroy;
+        throw new UndeferrableValueException("Value 'DefaultVpc.forceDestroy' is not present");
     }
 
     /**
      * The allowed tenancy of instances launched into the VPC
      * 
      */
-    private UndeferrableValue<String> instanceTenancy;
-
+    @PolicyResourceProperty(name="instanceTenancy", flag="unknown_instanceTenancy")
+    private String value_instanceTenancy;
+    private boolean unknown_instanceTenancy;
     public String instanceTenancy() {
-        if (instanceTenancy == null) return null;
-        return instanceTenancy.getValue("DefaultVpc.instanceTenancy");
+        if (!unknown_instanceTenancy) return value_instanceTenancy;
+        throw new UndeferrableValueException("Value 'DefaultVpc.instanceTenancy' is not present");
     }
 
-    private UndeferrableValue<String> ipv6AssociationId;
-
+    @PolicyResourceProperty(name="ipv6AssociationId", flag="unknown_ipv6AssociationId")
+    private String value_ipv6AssociationId;
+    private boolean unknown_ipv6AssociationId;
     public String ipv6AssociationId() {
-        if (ipv6AssociationId == null) return null;
-        return ipv6AssociationId.getValue("DefaultVpc.ipv6AssociationId");
+        if (!unknown_ipv6AssociationId) return value_ipv6AssociationId;
+        throw new UndeferrableValueException("Value 'DefaultVpc.ipv6AssociationId' is not present");
     }
 
-    private UndeferrableValue<String> ipv6CidrBlock;
-
+    @PolicyResourceProperty(name="ipv6CidrBlock", flag="unknown_ipv6CidrBlock")
+    private String value_ipv6CidrBlock;
+    private boolean unknown_ipv6CidrBlock;
     public String ipv6CidrBlock() {
-        if (ipv6CidrBlock == null) return null;
-        return ipv6CidrBlock.getValue("DefaultVpc.ipv6CidrBlock");
+        if (!unknown_ipv6CidrBlock) return value_ipv6CidrBlock;
+        throw new UndeferrableValueException("Value 'DefaultVpc.ipv6CidrBlock' is not present");
     }
 
-    private UndeferrableValue<String> ipv6CidrBlockNetworkBorderGroup;
-
+    @PolicyResourceProperty(name="ipv6CidrBlockNetworkBorderGroup", flag="unknown_ipv6CidrBlockNetworkBorderGroup")
+    private String value_ipv6CidrBlockNetworkBorderGroup;
+    private boolean unknown_ipv6CidrBlockNetworkBorderGroup;
     public String ipv6CidrBlockNetworkBorderGroup() {
-        if (ipv6CidrBlockNetworkBorderGroup == null) return null;
-        return ipv6CidrBlockNetworkBorderGroup.getValue("DefaultVpc.ipv6CidrBlockNetworkBorderGroup");
+        if (!unknown_ipv6CidrBlockNetworkBorderGroup) return value_ipv6CidrBlockNetworkBorderGroup;
+        throw new UndeferrableValueException("Value 'DefaultVpc.ipv6CidrBlockNetworkBorderGroup' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> ipv6IpamPoolId;
-
+    @PolicyResourceProperty(name="ipv6IpamPoolId", flag="unknown_ipv6IpamPoolId")
+    private @Nullable String value_ipv6IpamPoolId;
+    private boolean unknown_ipv6IpamPoolId;
     public @Nullable String ipv6IpamPoolId() {
-        if (ipv6IpamPoolId == null) return null;
-        return ipv6IpamPoolId.getValue("DefaultVpc.ipv6IpamPoolId");
+        if (!unknown_ipv6IpamPoolId) return value_ipv6IpamPoolId;
+        throw new UndeferrableValueException("Value 'DefaultVpc.ipv6IpamPoolId' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> ipv6NetmaskLength;
-
+    @PolicyResourceProperty(name="ipv6NetmaskLength", flag="unknown_ipv6NetmaskLength")
+    private @Nullable Integer value_ipv6NetmaskLength;
+    private boolean unknown_ipv6NetmaskLength;
     public @Nullable Integer ipv6NetmaskLength() {
-        if (ipv6NetmaskLength == null) return null;
-        return ipv6NetmaskLength.getValue("DefaultVpc.ipv6NetmaskLength");
+        if (!unknown_ipv6NetmaskLength) return value_ipv6NetmaskLength;
+        throw new UndeferrableValueException("Value 'DefaultVpc.ipv6NetmaskLength' is not present");
     }
 
-    private UndeferrableValue<String> mainRouteTableId;
-
+    @PolicyResourceProperty(name="mainRouteTableId", flag="unknown_mainRouteTableId")
+    private String value_mainRouteTableId;
+    private boolean unknown_mainRouteTableId;
     public String mainRouteTableId() {
-        if (mainRouteTableId == null) return null;
-        return mainRouteTableId.getValue("DefaultVpc.mainRouteTableId");
+        if (!unknown_mainRouteTableId) return value_mainRouteTableId;
+        throw new UndeferrableValueException("Value 'DefaultVpc.mainRouteTableId' is not present");
     }
 
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("DefaultVpc.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'DefaultVpc.ownerId' is not present");
     }
 
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DefaultVpc.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DefaultVpc.tags' is not present");
     }
 
     /**
@@ -180,11 +202,12 @@ public final class DefaultVpc extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("DefaultVpc.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'DefaultVpc.tagsAll' is not present");
     }
 
 }

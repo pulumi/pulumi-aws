@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs;
 import com.pulumi.policypacks.aws.appflow.inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs;
 import java.lang.Boolean;
@@ -17,44 +18,48 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
      * Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
      * 
      */
-    private UndeferrableValue<FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs> aggregationConfig;
-
+    @PolicyResourceProperty(name="aggregationConfig", flag="unknown_aggregationConfig")
+    private FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs value_aggregationConfig;
+    private boolean unknown_aggregationConfig;
     public FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs aggregationConfig() {
-        if (aggregationConfig == null) return null;
-        return aggregationConfig.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs.aggregationConfig");
+        if (!unknown_aggregationConfig) return value_aggregationConfig;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs.aggregationConfig' is not present");
     }
 
     /**
      * File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
      * 
      */
-    private UndeferrableValue<String> fileType;
-
+    @PolicyResourceProperty(name="fileType", flag="unknown_fileType")
+    private String value_fileType;
+    private boolean unknown_fileType;
     public String fileType() {
-        if (fileType == null) return null;
-        return fileType.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs.fileType");
+        if (!unknown_fileType) return value_fileType;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs.fileType' is not present");
     }
 
     /**
      * Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
      * 
      */
-    private UndeferrableValue<FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs> prefixConfig;
-
+    @PolicyResourceProperty(name="prefixConfig", flag="unknown_prefixConfig")
+    private FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs value_prefixConfig;
+    private boolean unknown_prefixConfig;
     public FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs prefixConfig() {
-        if (prefixConfig == null) return null;
-        return prefixConfig.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs.prefixConfig");
+        if (!unknown_prefixConfig) return value_prefixConfig;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs.prefixConfig' is not present");
     }
 
     /**
      * Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
      * 
      */
-    private UndeferrableValue<Boolean> preserveSourceDataTyping;
-
+    @PolicyResourceProperty(name="preserveSourceDataTyping", flag="unknown_preserveSourceDataTyping")
+    private Boolean value_preserveSourceDataTyping;
+    private boolean unknown_preserveSourceDataTyping;
     public Boolean preserveSourceDataTyping() {
-        if (preserveSourceDataTyping == null) return null;
-        return preserveSourceDataTyping.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs.preserveSourceDataTyping");
+        if (!unknown_preserveSourceDataTyping) return value_preserveSourceDataTyping;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs.preserveSourceDataTyping' is not present");
     }
 
 }

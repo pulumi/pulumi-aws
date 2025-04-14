@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dynamodb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.dynamodb.outputs.TableImportTableInputFormatOptionsCsv;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class TableImportTableInputFormatOptions {
      * This block contains the processing options for the CSV file being imported:
      * 
      */
-    private @Nullable UndeferrableValue<TableImportTableInputFormatOptionsCsv> csv;
-
+    @PolicyResourceProperty(name="csv", flag="unknown_csv")
+    private @Nullable TableImportTableInputFormatOptionsCsv value_csv;
+    private boolean unknown_csv;
     public @Nullable TableImportTableInputFormatOptionsCsv csv() {
-        if (csv == null) return null;
-        return csv.getValue("TableImportTableInputFormatOptions.csv");
+        if (!unknown_csv) return value_csv;
+        throw new UndeferrableValueException("Value 'TableImportTableInputFormatOptions.csv' is not present");
     }
 
 }

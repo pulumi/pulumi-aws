@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,66 +19,72 @@ public final class Thing extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN of the thing.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Thing.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Thing.arn' is not present");
     }
 
     /**
      * Map of attributes of the thing.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> attributes;
-
+    @PolicyResourceProperty(name="attributes", flag="unknown_attributes")
+    private @Nullable Map<String,String> value_attributes;
+    private boolean unknown_attributes;
     public @Nullable Map<String,String> attributes() {
-        if (attributes == null) return null;
-        return attributes.getValue("Thing.attributes");
+        if (!unknown_attributes) return value_attributes;
+        throw new UndeferrableValueException("Value 'Thing.attributes' is not present");
     }
 
     /**
      * The default client ID.
      * 
      */
-    private UndeferrableValue<String> defaultClientId;
-
+    @PolicyResourceProperty(name="defaultClientId", flag="unknown_defaultClientId")
+    private String value_defaultClientId;
+    private boolean unknown_defaultClientId;
     public String defaultClientId() {
-        if (defaultClientId == null) return null;
-        return defaultClientId.getValue("Thing.defaultClientId");
+        if (!unknown_defaultClientId) return value_defaultClientId;
+        throw new UndeferrableValueException("Value 'Thing.defaultClientId' is not present");
     }
 
     /**
      * The name of the thing.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Thing.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Thing.name' is not present");
     }
 
     /**
      * The thing type name.
      * 
      */
-    private @Nullable UndeferrableValue<String> thingTypeName;
-
+    @PolicyResourceProperty(name="thingTypeName", flag="unknown_thingTypeName")
+    private @Nullable String value_thingTypeName;
+    private boolean unknown_thingTypeName;
     public @Nullable String thingTypeName() {
-        if (thingTypeName == null) return null;
-        return thingTypeName.getValue("Thing.thingTypeName");
+        if (!unknown_thingTypeName) return value_thingTypeName;
+        throw new UndeferrableValueException("Value 'Thing.thingTypeName' is not present");
     }
 
     /**
      * The current version of the thing record in the registry.
      * 
      */
-    private UndeferrableValue<Integer> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private Integer value_version;
+    private boolean unknown_version;
     public Integer version() {
-        if (version == null) return null;
-        return version.getValue("Thing.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'Thing.version' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.inputs.ResponseHeadersPolicyRemoveHeadersConfigItemArgs;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -11,11 +12,12 @@ import javax.annotation.Nullable;
 
 public final class ResponseHeadersPolicyRemoveHeadersConfigArgs {
 
-    private UndeferrableValue<List<ResponseHeadersPolicyRemoveHeadersConfigItemArgs>> items;
-
+    @PolicyResourceProperty(name="items", flag="unknown_items")
+    private List<ResponseHeadersPolicyRemoveHeadersConfigItemArgs> value_items;
+    private boolean unknown_items;
     public List<ResponseHeadersPolicyRemoveHeadersConfigItemArgs> items() {
-        if (items == null) return null;
-        return items.getValue("ResponseHeadersPolicyRemoveHeadersConfigArgs.items");
+        if (!unknown_items) return value_items;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicyRemoveHeadersConfigArgs.items' is not present");
     }
 
 }

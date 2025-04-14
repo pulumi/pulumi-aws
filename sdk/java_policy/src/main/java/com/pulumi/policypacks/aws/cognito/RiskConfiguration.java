@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cognito.outputs.RiskConfigurationAccountTakeoverRiskConfiguration;
 import com.pulumi.policypacks.aws.cognito.outputs.RiskConfigurationCompromisedCredentialsRiskConfiguration;
@@ -19,55 +20,60 @@ public final class RiskConfiguration extends com.pulumi.resources.PolicyResource
      * The account takeover risk configuration. See details below.
      * 
      */
-    private @Nullable UndeferrableValue<RiskConfigurationAccountTakeoverRiskConfiguration> accountTakeoverRiskConfiguration;
-
+    @PolicyResourceProperty(name="accountTakeoverRiskConfiguration", flag="unknown_accountTakeoverRiskConfiguration")
+    private @Nullable RiskConfigurationAccountTakeoverRiskConfiguration value_accountTakeoverRiskConfiguration;
+    private boolean unknown_accountTakeoverRiskConfiguration;
     public @Nullable RiskConfigurationAccountTakeoverRiskConfiguration accountTakeoverRiskConfiguration() {
-        if (accountTakeoverRiskConfiguration == null) return null;
-        return accountTakeoverRiskConfiguration.getValue("RiskConfiguration.accountTakeoverRiskConfiguration");
+        if (!unknown_accountTakeoverRiskConfiguration) return value_accountTakeoverRiskConfiguration;
+        throw new UndeferrableValueException("Value 'RiskConfiguration.accountTakeoverRiskConfiguration' is not present");
     }
 
     /**
      * The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
      * 
      */
-    private @Nullable UndeferrableValue<String> clientId;
-
+    @PolicyResourceProperty(name="clientId", flag="unknown_clientId")
+    private @Nullable String value_clientId;
+    private boolean unknown_clientId;
     public @Nullable String clientId() {
-        if (clientId == null) return null;
-        return clientId.getValue("RiskConfiguration.clientId");
+        if (!unknown_clientId) return value_clientId;
+        throw new UndeferrableValueException("Value 'RiskConfiguration.clientId' is not present");
     }
 
     /**
      * The compromised credentials risk configuration. See details below.
      * 
      */
-    private @Nullable UndeferrableValue<RiskConfigurationCompromisedCredentialsRiskConfiguration> compromisedCredentialsRiskConfiguration;
-
+    @PolicyResourceProperty(name="compromisedCredentialsRiskConfiguration", flag="unknown_compromisedCredentialsRiskConfiguration")
+    private @Nullable RiskConfigurationCompromisedCredentialsRiskConfiguration value_compromisedCredentialsRiskConfiguration;
+    private boolean unknown_compromisedCredentialsRiskConfiguration;
     public @Nullable RiskConfigurationCompromisedCredentialsRiskConfiguration compromisedCredentialsRiskConfiguration() {
-        if (compromisedCredentialsRiskConfiguration == null) return null;
-        return compromisedCredentialsRiskConfiguration.getValue("RiskConfiguration.compromisedCredentialsRiskConfiguration");
+        if (!unknown_compromisedCredentialsRiskConfiguration) return value_compromisedCredentialsRiskConfiguration;
+        throw new UndeferrableValueException("Value 'RiskConfiguration.compromisedCredentialsRiskConfiguration' is not present");
     }
 
     /**
      * The configuration to override the risk decision. See details below.
      * 
      */
-    private @Nullable UndeferrableValue<RiskConfigurationRiskExceptionConfiguration> riskExceptionConfiguration;
-
+    @PolicyResourceProperty(name="riskExceptionConfiguration", flag="unknown_riskExceptionConfiguration")
+    private @Nullable RiskConfigurationRiskExceptionConfiguration value_riskExceptionConfiguration;
+    private boolean unknown_riskExceptionConfiguration;
     public @Nullable RiskConfigurationRiskExceptionConfiguration riskExceptionConfiguration() {
-        if (riskExceptionConfiguration == null) return null;
-        return riskExceptionConfiguration.getValue("RiskConfiguration.riskExceptionConfiguration");
+        if (!unknown_riskExceptionConfiguration) return value_riskExceptionConfiguration;
+        throw new UndeferrableValueException("Value 'RiskConfiguration.riskExceptionConfiguration' is not present");
     }
 
     /**
      * The user pool ID.
      * 
      */
-    private UndeferrableValue<String> userPoolId;
-
+    @PolicyResourceProperty(name="userPoolId", flag="unknown_userPoolId")
+    private String value_userPoolId;
+    private boolean unknown_userPoolId;
     public String userPoolId() {
-        if (userPoolId == null) return null;
-        return userPoolId.getValue("RiskConfiguration.userPoolId");
+        if (!unknown_userPoolId) return value_userPoolId;
+        throw new UndeferrableValueException("Value 'RiskConfiguration.userPoolId' is not present");
     }
 
 }

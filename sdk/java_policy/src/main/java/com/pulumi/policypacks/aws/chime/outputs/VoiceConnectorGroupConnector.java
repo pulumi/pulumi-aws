@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chime.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class VoiceConnectorGroupConnector {
      * The priority associated with the Amazon Chime Voice Connector, with 1 being the highest priority. Higher priority Amazon Chime Voice Connectors are attempted first.
      * 
      */
-    private UndeferrableValue<Integer> priority;
-
+    @PolicyResourceProperty(name="priority", flag="unknown_priority")
+    private Integer value_priority;
+    private boolean unknown_priority;
     public Integer priority() {
-        if (priority == null) return null;
-        return priority.getValue("VoiceConnectorGroupConnector.priority");
+        if (!unknown_priority) return value_priority;
+        throw new UndeferrableValueException("Value 'VoiceConnectorGroupConnector.priority' is not present");
     }
 
     /**
      * The Amazon Chime Voice Connector ID.
      * 
      */
-    private UndeferrableValue<String> voiceConnectorId;
-
+    @PolicyResourceProperty(name="voiceConnectorId", flag="unknown_voiceConnectorId")
+    private String value_voiceConnectorId;
+    private boolean unknown_voiceConnectorId;
     public String voiceConnectorId() {
-        if (voiceConnectorId == null) return null;
-        return voiceConnectorId.getValue("VoiceConnectorGroupConnector.voiceConnectorId");
+        if (!unknown_voiceConnectorId) return value_voiceConnectorId;
+        throw new UndeferrableValueException("Value 'VoiceConnectorGroupConnector.voiceConnectorId' is not present");
     }
 
 }

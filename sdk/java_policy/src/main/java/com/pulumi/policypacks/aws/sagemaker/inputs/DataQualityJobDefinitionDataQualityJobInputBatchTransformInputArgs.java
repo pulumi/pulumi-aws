@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,55 +16,60 @@ public final class DataQualityJobDefinitionDataQualityJobInputBatchTransformInpu
      * The Amazon S3 location being used to capture the data.
      * 
      */
-    private UndeferrableValue<String> dataCapturedDestinationS3Uri;
-
+    @PolicyResourceProperty(name="dataCapturedDestinationS3Uri", flag="unknown_dataCapturedDestinationS3Uri")
+    private String value_dataCapturedDestinationS3Uri;
+    private boolean unknown_dataCapturedDestinationS3Uri;
     public String dataCapturedDestinationS3Uri() {
-        if (dataCapturedDestinationS3Uri == null) return null;
-        return dataCapturedDestinationS3Uri.getValue("DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs.dataCapturedDestinationS3Uri");
+        if (!unknown_dataCapturedDestinationS3Uri) return value_dataCapturedDestinationS3Uri;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs.dataCapturedDestinationS3Uri' is not present");
     }
 
     /**
      * The dataset format for your batch transform job. Fields are documented below.
      * 
      */
-    private UndeferrableValue<DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs> datasetFormat;
-
+    @PolicyResourceProperty(name="datasetFormat", flag="unknown_datasetFormat")
+    private DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs value_datasetFormat;
+    private boolean unknown_datasetFormat;
     public DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs datasetFormat() {
-        if (datasetFormat == null) return null;
-        return datasetFormat.getValue("DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs.datasetFormat");
+        if (!unknown_datasetFormat) return value_datasetFormat;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs.datasetFormat' is not present");
     }
 
     /**
      * Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
      * 
      */
-    private UndeferrableValue<String> localPath;
-
+    @PolicyResourceProperty(name="localPath", flag="unknown_localPath")
+    private String value_localPath;
+    private boolean unknown_localPath;
     public String localPath() {
-        if (localPath == null) return null;
-        return localPath.getValue("DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs.localPath");
+        if (!unknown_localPath) return value_localPath;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs.localPath' is not present");
     }
 
     /**
      * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
      * 
      */
-    private UndeferrableValue<String> s3DataDistributionType;
-
+    @PolicyResourceProperty(name="s3DataDistributionType", flag="unknown_s3DataDistributionType")
+    private String value_s3DataDistributionType;
+    private boolean unknown_s3DataDistributionType;
     public String s3DataDistributionType() {
-        if (s3DataDistributionType == null) return null;
-        return s3DataDistributionType.getValue("DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs.s3DataDistributionType");
+        if (!unknown_s3DataDistributionType) return value_s3DataDistributionType;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs.s3DataDistributionType' is not present");
     }
 
     /**
      * Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
      * 
      */
-    private UndeferrableValue<String> s3InputMode;
-
+    @PolicyResourceProperty(name="s3InputMode", flag="unknown_s3InputMode")
+    private String value_s3InputMode;
+    private boolean unknown_s3InputMode;
     public String s3InputMode() {
-        if (s3InputMode == null) return null;
-        return s3InputMode.getValue("DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs.s3InputMode");
+        if (!unknown_s3InputMode) return value_s3InputMode;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs.s3InputMode' is not present");
     }
 
 }

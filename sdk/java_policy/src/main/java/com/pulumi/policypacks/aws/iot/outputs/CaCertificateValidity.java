@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class CaCertificateValidity {
      * The certificate is not valid after this date.
      * 
      */
-    private @Nullable UndeferrableValue<String> notAfter;
-
+    @PolicyResourceProperty(name="notAfter", flag="unknown_notAfter")
+    private @Nullable String value_notAfter;
+    private boolean unknown_notAfter;
     public @Nullable String notAfter() {
-        if (notAfter == null) return null;
-        return notAfter.getValue("CaCertificateValidity.notAfter");
+        if (!unknown_notAfter) return value_notAfter;
+        throw new UndeferrableValueException("Value 'CaCertificateValidity.notAfter' is not present");
     }
 
     /**
      * The certificate is not valid before this date.
      * 
      */
-    private @Nullable UndeferrableValue<String> notBefore;
-
+    @PolicyResourceProperty(name="notBefore", flag="unknown_notBefore")
+    private @Nullable String value_notBefore;
+    private boolean unknown_notBefore;
     public @Nullable String notBefore() {
-        if (notBefore == null) return null;
-        return notBefore.getValue("CaCertificateValidity.notBefore");
+        if (!unknown_notBefore) return value_notBefore;
+        throw new UndeferrableValueException("Value 'CaCertificateValidity.notBefore' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.opsworks.inputs.HaproxyLayerCloudwatchConfigurationLogStreamArgs;
 import java.lang.Boolean;
 import java.util.List;
@@ -12,18 +13,20 @@ import javax.annotation.Nullable;
 
 public final class HaproxyLayerCloudwatchConfigurationArgs {
 
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("HaproxyLayerCloudwatchConfigurationArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'HaproxyLayerCloudwatchConfigurationArgs.enabled' is not present");
     }
 
-    private UndeferrableValue<List<HaproxyLayerCloudwatchConfigurationLogStreamArgs>> logStreams;
-
+    @PolicyResourceProperty(name="logStreams", flag="unknown_logStreams")
+    private List<HaproxyLayerCloudwatchConfigurationLogStreamArgs> value_logStreams;
+    private boolean unknown_logStreams;
     public List<HaproxyLayerCloudwatchConfigurationLogStreamArgs> logStreams() {
-        if (logStreams == null) return null;
-        return logStreams.getValue("HaproxyLayerCloudwatchConfigurationArgs.logStreams");
+        if (!unknown_logStreams) return value_logStreams;
+        throw new UndeferrableValueException("Value 'HaproxyLayerCloudwatchConfigurationArgs.logStreams' is not present");
     }
 
 }

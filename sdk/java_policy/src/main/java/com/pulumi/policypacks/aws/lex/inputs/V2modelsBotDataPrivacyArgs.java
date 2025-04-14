@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 
 
@@ -13,11 +14,12 @@ public final class V2modelsBotDataPrivacyArgs {
      * (Required) -  For each Amazon Lex bot created with the Amazon Lex Model Building Service, you must specify whether your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children&#39;s Online Privacy Protection Act (COPPA) by specifying true or false in the childDirected field.
      * 
      */
-    private UndeferrableValue<Boolean> childDirected;
-
+    @PolicyResourceProperty(name="childDirected", flag="unknown_childDirected")
+    private Boolean value_childDirected;
+    private boolean unknown_childDirected;
     public Boolean childDirected() {
-        if (childDirected == null) return null;
-        return childDirected.getValue("V2modelsBotDataPrivacyArgs.childDirected");
+        if (!unknown_childDirected) return value_childDirected;
+        throw new UndeferrableValueException("Value 'V2modelsBotDataPrivacyArgs.childDirected' is not present");
     }
 
 }

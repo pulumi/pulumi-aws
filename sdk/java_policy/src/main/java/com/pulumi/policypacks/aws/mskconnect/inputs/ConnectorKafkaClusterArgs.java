@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mskconnect.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.mskconnect.inputs.ConnectorKafkaClusterApacheKafkaClusterArgs;
 
 
@@ -13,11 +14,12 @@ public final class ConnectorKafkaClusterArgs {
      * The Apache Kafka cluster to which the connector is connected. See `apache_kafka_cluster` Block for details.
      * 
      */
-    private UndeferrableValue<ConnectorKafkaClusterApacheKafkaClusterArgs> apacheKafkaCluster;
-
+    @PolicyResourceProperty(name="apacheKafkaCluster", flag="unknown_apacheKafkaCluster")
+    private ConnectorKafkaClusterApacheKafkaClusterArgs value_apacheKafkaCluster;
+    private boolean unknown_apacheKafkaCluster;
     public ConnectorKafkaClusterApacheKafkaClusterArgs apacheKafkaCluster() {
-        if (apacheKafkaCluster == null) return null;
-        return apacheKafkaCluster.getValue("ConnectorKafkaClusterArgs.apacheKafkaCluster");
+        if (!unknown_apacheKafkaCluster) return value_apacheKafkaCluster;
+        throw new UndeferrableValueException("Value 'ConnectorKafkaClusterArgs.apacheKafkaCluster' is not present");
     }
 
 }

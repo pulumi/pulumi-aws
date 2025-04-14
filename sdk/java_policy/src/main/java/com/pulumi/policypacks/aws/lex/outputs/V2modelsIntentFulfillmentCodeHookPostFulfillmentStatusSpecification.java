@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditional;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStep;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponse;
@@ -22,99 +23,108 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
      * Configuration block for conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `failure_conditional`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditional> failureConditional;
-
+    @PolicyResourceProperty(name="failureConditional", flag="unknown_failureConditional")
+    private @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditional value_failureConditional;
+    private boolean unknown_failureConditional;
     public @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditional failureConditional() {
-        if (failureConditional == null) return null;
-        return failureConditional.getValue("V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification.failureConditional");
+        if (!unknown_failureConditional) return value_failureConditional;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification.failureConditional' is not present");
     }
 
     /**
      * Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `failure_next_step`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStep> failureNextStep;
-
+    @PolicyResourceProperty(name="failureNextStep", flag="unknown_failureNextStep")
+    private @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStep value_failureNextStep;
+    private boolean unknown_failureNextStep;
     public @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStep failureNextStep() {
-        if (failureNextStep == null) return null;
-        return failureNextStep.getValue("V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification.failureNextStep");
+        if (!unknown_failureNextStep) return value_failureNextStep;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification.failureNextStep' is not present");
     }
 
     /**
      * Configuration block for message groups that Amazon Lex uses to respond the user input. See `failure_response`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponse> failureResponse;
-
+    @PolicyResourceProperty(name="failureResponse", flag="unknown_failureResponse")
+    private @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponse value_failureResponse;
+    private boolean unknown_failureResponse;
     public @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponse failureResponse() {
-        if (failureResponse == null) return null;
-        return failureResponse.getValue("V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification.failureResponse");
+        if (!unknown_failureResponse) return value_failureResponse;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification.failureResponse' is not present");
     }
 
     /**
      * Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `success_conditional`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditional> successConditional;
-
+    @PolicyResourceProperty(name="successConditional", flag="unknown_successConditional")
+    private @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditional value_successConditional;
+    private boolean unknown_successConditional;
     public @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditional successConditional() {
-        if (successConditional == null) return null;
-        return successConditional.getValue("V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification.successConditional");
+        if (!unknown_successConditional) return value_successConditional;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification.successConditional' is not present");
     }
 
     /**
      * Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `success_next_step`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStep> successNextStep;
-
+    @PolicyResourceProperty(name="successNextStep", flag="unknown_successNextStep")
+    private @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStep value_successNextStep;
+    private boolean unknown_successNextStep;
     public @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStep successNextStep() {
-        if (successNextStep == null) return null;
-        return successNextStep.getValue("V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification.successNextStep");
+        if (!unknown_successNextStep) return value_successNextStep;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification.successNextStep' is not present");
     }
 
     /**
      * Configuration block for message groups that Amazon Lex uses to respond the user input. See `success_response`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponse> successResponse;
-
+    @PolicyResourceProperty(name="successResponse", flag="unknown_successResponse")
+    private @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponse value_successResponse;
+    private boolean unknown_successResponse;
     public @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponse successResponse() {
-        if (successResponse == null) return null;
-        return successResponse.getValue("V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification.successResponse");
+        if (!unknown_successResponse) return value_successResponse;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification.successResponse' is not present");
     }
 
     /**
      * Configuration block for conditional branches to evaluate if the code hook times out. See `timeout_conditional`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditional> timeoutConditional;
-
+    @PolicyResourceProperty(name="timeoutConditional", flag="unknown_timeoutConditional")
+    private @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditional value_timeoutConditional;
+    private boolean unknown_timeoutConditional;
     public @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditional timeoutConditional() {
-        if (timeoutConditional == null) return null;
-        return timeoutConditional.getValue("V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification.timeoutConditional");
+        if (!unknown_timeoutConditional) return value_timeoutConditional;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification.timeoutConditional' is not present");
     }
 
     /**
      * Configuration block for the next step that the bot runs when the code hook times out. See `timeout_next_step`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStep> timeoutNextStep;
-
+    @PolicyResourceProperty(name="timeoutNextStep", flag="unknown_timeoutNextStep")
+    private @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStep value_timeoutNextStep;
+    private boolean unknown_timeoutNextStep;
     public @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStep timeoutNextStep() {
-        if (timeoutNextStep == null) return null;
-        return timeoutNextStep.getValue("V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification.timeoutNextStep");
+        if (!unknown_timeoutNextStep) return value_timeoutNextStep;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification.timeoutNextStep' is not present");
     }
 
     /**
      * Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `timeout_response`.
      * 
      */
-    private @Nullable UndeferrableValue<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponse> timeoutResponse;
-
+    @PolicyResourceProperty(name="timeoutResponse", flag="unknown_timeoutResponse")
+    private @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponse value_timeoutResponse;
+    private boolean unknown_timeoutResponse;
     public @Nullable V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponse timeoutResponse() {
-        if (timeoutResponse == null) return null;
-        return timeoutResponse.getValue("V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification.timeoutResponse");
+        if (!unknown_timeoutResponse) return value_timeoutResponse;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecification.timeoutResponse' is not present");
     }
 
 }

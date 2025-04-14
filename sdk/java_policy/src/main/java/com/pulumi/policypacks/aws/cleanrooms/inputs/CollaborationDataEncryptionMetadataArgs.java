@@ -3,38 +3,43 @@
 
 package com.pulumi.policypacks.aws.cleanrooms.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 
 
 public final class CollaborationDataEncryptionMetadataArgs {
 
-    private UndeferrableValue<Boolean> allowClearText;
-
+    @PolicyResourceProperty(name="allowClearText", flag="unknown_allowClearText")
+    private Boolean value_allowClearText;
+    private boolean unknown_allowClearText;
     public Boolean allowClearText() {
-        if (allowClearText == null) return null;
-        return allowClearText.getValue("CollaborationDataEncryptionMetadataArgs.allowClearText");
+        if (!unknown_allowClearText) return value_allowClearText;
+        throw new UndeferrableValueException("Value 'CollaborationDataEncryptionMetadataArgs.allowClearText' is not present");
     }
 
-    private UndeferrableValue<Boolean> allowDuplicates;
-
+    @PolicyResourceProperty(name="allowDuplicates", flag="unknown_allowDuplicates")
+    private Boolean value_allowDuplicates;
+    private boolean unknown_allowDuplicates;
     public Boolean allowDuplicates() {
-        if (allowDuplicates == null) return null;
-        return allowDuplicates.getValue("CollaborationDataEncryptionMetadataArgs.allowDuplicates");
+        if (!unknown_allowDuplicates) return value_allowDuplicates;
+        throw new UndeferrableValueException("Value 'CollaborationDataEncryptionMetadataArgs.allowDuplicates' is not present");
     }
 
-    private UndeferrableValue<Boolean> allowJoinsOnColumnsWithDifferentNames;
-
+    @PolicyResourceProperty(name="allowJoinsOnColumnsWithDifferentNames", flag="unknown_allowJoinsOnColumnsWithDifferentNames")
+    private Boolean value_allowJoinsOnColumnsWithDifferentNames;
+    private boolean unknown_allowJoinsOnColumnsWithDifferentNames;
     public Boolean allowJoinsOnColumnsWithDifferentNames() {
-        if (allowJoinsOnColumnsWithDifferentNames == null) return null;
-        return allowJoinsOnColumnsWithDifferentNames.getValue("CollaborationDataEncryptionMetadataArgs.allowJoinsOnColumnsWithDifferentNames");
+        if (!unknown_allowJoinsOnColumnsWithDifferentNames) return value_allowJoinsOnColumnsWithDifferentNames;
+        throw new UndeferrableValueException("Value 'CollaborationDataEncryptionMetadataArgs.allowJoinsOnColumnsWithDifferentNames' is not present");
     }
 
-    private UndeferrableValue<Boolean> preserveNulls;
-
+    @PolicyResourceProperty(name="preserveNulls", flag="unknown_preserveNulls")
+    private Boolean value_preserveNulls;
+    private boolean unknown_preserveNulls;
     public Boolean preserveNulls() {
-        if (preserveNulls == null) return null;
-        return preserveNulls.getValue("CollaborationDataEncryptionMetadataArgs.preserveNulls");
+        if (!unknown_preserveNulls) return value_preserveNulls;
+        throw new UndeferrableValueException("Value 'CollaborationDataEncryptionMetadataArgs.preserveNulls' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate;
@@ -18,44 +19,48 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
      * ARN of the imported certificate authority (CA) certificate within Certificate Manager (ACM) to use for outbound SSL/TLS inspection. See [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) for limitations on CA certificates.
      * 
      */
-    private @Nullable UndeferrableValue<String> certificateAuthorityArn;
-
+    @PolicyResourceProperty(name="certificateAuthorityArn", flag="unknown_certificateAuthorityArn")
+    private @Nullable String value_certificateAuthorityArn;
+    private boolean unknown_certificateAuthorityArn;
     public @Nullable String certificateAuthorityArn() {
-        if (certificateAuthorityArn == null) return null;
-        return certificateAuthorityArn.getValue("TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration.certificateAuthorityArn");
+        if (!unknown_certificateAuthorityArn) return value_certificateAuthorityArn;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration.certificateAuthorityArn' is not present");
     }
 
     /**
      * Check Certificate Revocation Status block. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus> checkCertificateRevocationStatus;
-
+    @PolicyResourceProperty(name="checkCertificateRevocationStatus", flag="unknown_checkCertificateRevocationStatus")
+    private @Nullable TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus value_checkCertificateRevocationStatus;
+    private boolean unknown_checkCertificateRevocationStatus;
     public @Nullable TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus checkCertificateRevocationStatus() {
-        if (checkCertificateRevocationStatus == null) return null;
-        return checkCertificateRevocationStatus.getValue("TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration.checkCertificateRevocationStatus");
+        if (!unknown_checkCertificateRevocationStatus) return value_checkCertificateRevocationStatus;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration.checkCertificateRevocationStatus' is not present");
     }
 
     /**
      * Scope block. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope>> scopes;
-
+    @PolicyResourceProperty(name="scopes", flag="unknown_scopes")
+    private @Nullable List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope> value_scopes;
+    private boolean unknown_scopes;
     public @Nullable List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope> scopes() {
-        if (scopes == null) return null;
-        return scopes.getValue("TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration.scopes");
+        if (!unknown_scopes) return value_scopes;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration.scopes' is not present");
     }
 
     /**
      * Server certificates to use for inbound SSL/TLS inspection. See [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html).
      * 
      */
-    private @Nullable UndeferrableValue<List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate>> serverCertificates;
-
+    @PolicyResourceProperty(name="serverCertificates", flag="unknown_serverCertificates")
+    private @Nullable List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate> value_serverCertificates;
+    private boolean unknown_serverCertificates;
     public @Nullable List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate> serverCertificates() {
-        if (serverCertificates == null) return null;
-        return serverCertificates.getValue("TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration.serverCertificates");
+        if (!unknown_serverCertificates) return value_serverCertificates;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration.serverCertificates' is not present");
     }
 
 }

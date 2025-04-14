@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.acmpca.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.acmpca.outputs.CertificateAuthorityCertificateAuthorityConfigurationSubject;
 import java.lang.String;
 
@@ -14,33 +15,36 @@ public final class CertificateAuthorityCertificateAuthorityConfiguration {
      * Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
      * 
      */
-    private UndeferrableValue<String> keyAlgorithm;
-
+    @PolicyResourceProperty(name="keyAlgorithm", flag="unknown_keyAlgorithm")
+    private String value_keyAlgorithm;
+    private boolean unknown_keyAlgorithm;
     public String keyAlgorithm() {
-        if (keyAlgorithm == null) return null;
-        return keyAlgorithm.getValue("CertificateAuthorityCertificateAuthorityConfiguration.keyAlgorithm");
+        if (!unknown_keyAlgorithm) return value_keyAlgorithm;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfiguration.keyAlgorithm' is not present");
     }
 
     /**
      * Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
      * 
      */
-    private UndeferrableValue<String> signingAlgorithm;
-
+    @PolicyResourceProperty(name="signingAlgorithm", flag="unknown_signingAlgorithm")
+    private String value_signingAlgorithm;
+    private boolean unknown_signingAlgorithm;
     public String signingAlgorithm() {
-        if (signingAlgorithm == null) return null;
-        return signingAlgorithm.getValue("CertificateAuthorityCertificateAuthorityConfiguration.signingAlgorithm");
+        if (!unknown_signingAlgorithm) return value_signingAlgorithm;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfiguration.signingAlgorithm' is not present");
     }
 
     /**
      * Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
      * 
      */
-    private UndeferrableValue<CertificateAuthorityCertificateAuthorityConfigurationSubject> subject;
-
+    @PolicyResourceProperty(name="subject", flag="unknown_subject")
+    private CertificateAuthorityCertificateAuthorityConfigurationSubject value_subject;
+    private boolean unknown_subject;
     public CertificateAuthorityCertificateAuthorityConfigurationSubject subject() {
-        if (subject == null) return null;
-        return subject.getValue("CertificateAuthorityCertificateAuthorityConfiguration.subject");
+        if (!unknown_subject) return value_subject;
+        throw new UndeferrableValueException("Value 'CertificateAuthorityCertificateAuthorityConfiguration.subject' is not present");
     }
 
 }

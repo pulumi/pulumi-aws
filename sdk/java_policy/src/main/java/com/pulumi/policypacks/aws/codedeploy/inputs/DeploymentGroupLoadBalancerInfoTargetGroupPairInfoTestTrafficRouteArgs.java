@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codedeploy.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTraffic
      * List of Amazon Resource Names (ARNs) of the load balancer listeners.
      * 
      */
-    private UndeferrableValue<List<String>> listenerArns;
-
+    @PolicyResourceProperty(name="listenerArns", flag="unknown_listenerArns")
+    private List<String> value_listenerArns;
+    private boolean unknown_listenerArns;
     public List<String> listenerArns() {
-        if (listenerArns == null) return null;
-        return listenerArns.getValue("DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs.listenerArns");
+        if (!unknown_listenerArns) return value_listenerArns;
+        throw new UndeferrableValueException("Value 'DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs.listenerArns' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.storagegateway.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class GatewayMaintenanceStartTimeArgs {
      * The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
      * 
      */
-    private UndeferrableValue<String> dayOfMonth;
-
+    @PolicyResourceProperty(name="dayOfMonth", flag="unknown_dayOfMonth")
+    private String value_dayOfMonth;
+    private boolean unknown_dayOfMonth;
     public String dayOfMonth() {
-        if (dayOfMonth == null) return null;
-        return dayOfMonth.getValue("GatewayMaintenanceStartTimeArgs.dayOfMonth");
+        if (!unknown_dayOfMonth) return value_dayOfMonth;
+        throw new UndeferrableValueException("Value 'GatewayMaintenanceStartTimeArgs.dayOfMonth' is not present");
     }
 
     /**
      * The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
      * 
      */
-    private UndeferrableValue<String> dayOfWeek;
-
+    @PolicyResourceProperty(name="dayOfWeek", flag="unknown_dayOfWeek")
+    private String value_dayOfWeek;
+    private boolean unknown_dayOfWeek;
     public String dayOfWeek() {
-        if (dayOfWeek == null) return null;
-        return dayOfWeek.getValue("GatewayMaintenanceStartTimeArgs.dayOfWeek");
+        if (!unknown_dayOfWeek) return value_dayOfWeek;
+        throw new UndeferrableValueException("Value 'GatewayMaintenanceStartTimeArgs.dayOfWeek' is not present");
     }
 
     /**
      * The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
      * 
      */
-    private UndeferrableValue<Integer> hourOfDay;
-
+    @PolicyResourceProperty(name="hourOfDay", flag="unknown_hourOfDay")
+    private Integer value_hourOfDay;
+    private boolean unknown_hourOfDay;
     public Integer hourOfDay() {
-        if (hourOfDay == null) return null;
-        return hourOfDay.getValue("GatewayMaintenanceStartTimeArgs.hourOfDay");
+        if (!unknown_hourOfDay) return value_hourOfDay;
+        throw new UndeferrableValueException("Value 'GatewayMaintenanceStartTimeArgs.hourOfDay' is not present");
     }
 
     /**
      * The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
      * 
      */
-    private UndeferrableValue<Integer> minuteOfHour;
-
+    @PolicyResourceProperty(name="minuteOfHour", flag="unknown_minuteOfHour")
+    private Integer value_minuteOfHour;
+    private boolean unknown_minuteOfHour;
     public Integer minuteOfHour() {
-        if (minuteOfHour == null) return null;
-        return minuteOfHour.getValue("GatewayMaintenanceStartTimeArgs.minuteOfHour");
+        if (!unknown_minuteOfHour) return value_minuteOfHour;
+        throw new UndeferrableValueException("Value 'GatewayMaintenanceStartTimeArgs.minuteOfHour' is not present");
     }
 
 }

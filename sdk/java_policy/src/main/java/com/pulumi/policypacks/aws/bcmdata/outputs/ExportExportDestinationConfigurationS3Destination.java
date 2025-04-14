@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bcmdata.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bcmdata.outputs.ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration;
 import java.lang.String;
 import java.util.List;
@@ -16,44 +17,48 @@ public final class ExportExportDestinationConfigurationS3Destination {
      * Name of the Amazon S3 bucket used as the destination of a data export file.
      * 
      */
-    private UndeferrableValue<String> s3Bucket;
-
+    @PolicyResourceProperty(name="s3Bucket", flag="unknown_s3Bucket")
+    private String value_s3Bucket;
+    private boolean unknown_s3Bucket;
     public String s3Bucket() {
-        if (s3Bucket == null) return null;
-        return s3Bucket.getValue("ExportExportDestinationConfigurationS3Destination.s3Bucket");
+        if (!unknown_s3Bucket) return value_s3Bucket;
+        throw new UndeferrableValueException("Value 'ExportExportDestinationConfigurationS3Destination.s3Bucket' is not present");
     }
 
     /**
      * Output configuration for the data export. See the `s3_output_configurations` argument reference below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration>> s3OutputConfigurations;
-
+    @PolicyResourceProperty(name="s3OutputConfigurations", flag="unknown_s3OutputConfigurations")
+    private @Nullable List<ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration> value_s3OutputConfigurations;
+    private boolean unknown_s3OutputConfigurations;
     public @Nullable List<ExportExportDestinationConfigurationS3DestinationS3OutputConfiguration> s3OutputConfigurations() {
-        if (s3OutputConfigurations == null) return null;
-        return s3OutputConfigurations.getValue("ExportExportDestinationConfigurationS3Destination.s3OutputConfigurations");
+        if (!unknown_s3OutputConfigurations) return value_s3OutputConfigurations;
+        throw new UndeferrableValueException("Value 'ExportExportDestinationConfigurationS3Destination.s3OutputConfigurations' is not present");
     }
 
     /**
      * S3 path prefix you want prepended to the name of your data export.
      * 
      */
-    private UndeferrableValue<String> s3Prefix;
-
+    @PolicyResourceProperty(name="s3Prefix", flag="unknown_s3Prefix")
+    private String value_s3Prefix;
+    private boolean unknown_s3Prefix;
     public String s3Prefix() {
-        if (s3Prefix == null) return null;
-        return s3Prefix.getValue("ExportExportDestinationConfigurationS3Destination.s3Prefix");
+        if (!unknown_s3Prefix) return value_s3Prefix;
+        throw new UndeferrableValueException("Value 'ExportExportDestinationConfigurationS3Destination.s3Prefix' is not present");
     }
 
     /**
      * S3 bucket region.
      * 
      */
-    private UndeferrableValue<String> s3Region;
-
+    @PolicyResourceProperty(name="s3Region", flag="unknown_s3Region")
+    private String value_s3Region;
+    private boolean unknown_s3Region;
     public String s3Region() {
-        if (s3Region == null) return null;
-        return s3Region.getValue("ExportExportDestinationConfigurationS3Destination.s3Region");
+        if (!unknown_s3Region) return value_s3Region;
+        throw new UndeferrableValueException("Value 'ExportExportDestinationConfigurationS3Destination.s3Region' is not present");
     }
 
 }

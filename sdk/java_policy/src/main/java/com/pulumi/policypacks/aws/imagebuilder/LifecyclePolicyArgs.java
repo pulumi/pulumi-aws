@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.imagebuilder.inputs.LifecyclePolicyPolicyDetailArgs;
 import com.pulumi.policypacks.aws.imagebuilder.inputs.LifecyclePolicyResourceSelectionArgs;
@@ -20,44 +21,48 @@ public final class LifecyclePolicyArgs extends com.pulumi.resources.PolicyResour
      * description for the lifecycle policy.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("LifecyclePolicyArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyArgs.description' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
      * 
      */
-    private UndeferrableValue<String> executionRole;
-
+    @PolicyResourceProperty(name="executionRole", flag="unknown_executionRole")
+    private String value_executionRole;
+    private boolean unknown_executionRole;
     public String executionRole() {
-        if (executionRole == null) return null;
-        return executionRole.getValue("LifecyclePolicyArgs.executionRole");
+        if (!unknown_executionRole) return value_executionRole;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyArgs.executionRole' is not present");
     }
 
     /**
      * The name of the lifecycle policy to create.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LifecyclePolicyArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyArgs.name' is not present");
     }
 
     /**
      * Configuration block with policy details. Detailed below.
      * 
      */
-    private UndeferrableValue<List<LifecyclePolicyPolicyDetailArgs>> policyDetails;
-
+    @PolicyResourceProperty(name="policyDetails", flag="unknown_policyDetails")
+    private List<LifecyclePolicyPolicyDetailArgs> value_policyDetails;
+    private boolean unknown_policyDetails;
     public List<LifecyclePolicyPolicyDetailArgs> policyDetails() {
-        if (policyDetails == null) return null;
-        return policyDetails.getValue("LifecyclePolicyArgs.policyDetails");
+        if (!unknown_policyDetails) return value_policyDetails;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyArgs.policyDetails' is not present");
     }
 
     /**
@@ -66,44 +71,48 @@ public final class LifecyclePolicyArgs extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<LifecyclePolicyResourceSelectionArgs> resourceSelection;
-
+    @PolicyResourceProperty(name="resourceSelection", flag="unknown_resourceSelection")
+    private LifecyclePolicyResourceSelectionArgs value_resourceSelection;
+    private boolean unknown_resourceSelection;
     public LifecyclePolicyResourceSelectionArgs resourceSelection() {
-        if (resourceSelection == null) return null;
-        return resourceSelection.getValue("LifecyclePolicyArgs.resourceSelection");
+        if (!unknown_resourceSelection) return value_resourceSelection;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyArgs.resourceSelection' is not present");
     }
 
     /**
      * The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
      * 
      */
-    private UndeferrableValue<String> resourceType;
-
+    @PolicyResourceProperty(name="resourceType", flag="unknown_resourceType")
+    private String value_resourceType;
+    private boolean unknown_resourceType;
     public String resourceType() {
-        if (resourceType == null) return null;
-        return resourceType.getValue("LifecyclePolicyArgs.resourceType");
+        if (!unknown_resourceType) return value_resourceType;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyArgs.resourceType' is not present");
     }
 
     /**
      * The status of the lifecycle policy.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("LifecyclePolicyArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyArgs.status' is not present");
     }
 
     /**
      * Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LifecyclePolicyArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyArgs.tags' is not present");
     }
 
 }

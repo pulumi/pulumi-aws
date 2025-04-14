@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class OptInConditionArgs {
      * List of LF-tag conditions or a saved expression that apply to the resource&#39;s LF-Tag policy.
      * 
      */
-    private UndeferrableValue<String> expression;
-
+    @PolicyResourceProperty(name="expression", flag="unknown_expression")
+    private String value_expression;
+    private boolean unknown_expression;
     public String expression() {
-        if (expression == null) return null;
-        return expression.getValue("OptInConditionArgs.expression");
+        if (!unknown_expression) return value_expression;
+        throw new UndeferrableValueException("Value 'OptInConditionArgs.expression' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class CatalogDatabaseFederatedDatabaseArgs {
      * Name of the connection to the external metastore.
      * 
      */
-    private UndeferrableValue<String> connectionName;
-
+    @PolicyResourceProperty(name="connectionName", flag="unknown_connectionName")
+    private String value_connectionName;
+    private boolean unknown_connectionName;
     public String connectionName() {
-        if (connectionName == null) return null;
-        return connectionName.getValue("CatalogDatabaseFederatedDatabaseArgs.connectionName");
+        if (!unknown_connectionName) return value_connectionName;
+        throw new UndeferrableValueException("Value 'CatalogDatabaseFederatedDatabaseArgs.connectionName' is not present");
     }
 
     /**
      * Unique identifier for the federated database.
      * 
      */
-    private UndeferrableValue<String> identifier;
-
+    @PolicyResourceProperty(name="identifier", flag="unknown_identifier")
+    private String value_identifier;
+    private boolean unknown_identifier;
     public String identifier() {
-        if (identifier == null) return null;
-        return identifier.getValue("CatalogDatabaseFederatedDatabaseArgs.identifier");
+        if (!unknown_identifier) return value_identifier;
+        throw new UndeferrableValueException("Value 'CatalogDatabaseFederatedDatabaseArgs.identifier' is not present");
     }
 
 }

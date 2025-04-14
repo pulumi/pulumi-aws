@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.apigateway.inputs.RestApiPutTimeoutsArgs;
 import java.lang.Boolean;
@@ -19,33 +20,36 @@ public final class RestApiPutArgs extends com.pulumi.resources.PolicyResourceInp
      * PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
      * 
      */
-    private UndeferrableValue<String> body;
-
+    @PolicyResourceProperty(name="body", flag="unknown_body")
+    private String value_body;
+    private boolean unknown_body;
     public String body() {
-        if (body == null) return null;
-        return body.getValue("RestApiPutArgs.body");
+        if (!unknown_body) return value_body;
+        throw new UndeferrableValueException("Value 'RestApiPutArgs.body' is not present");
     }
 
     /**
      * Whether to rollback the API update when a warning is encountered. The default value is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> failOnWarnings;
-
+    @PolicyResourceProperty(name="failOnWarnings", flag="unknown_failOnWarnings")
+    private Boolean value_failOnWarnings;
+    private boolean unknown_failOnWarnings;
     public Boolean failOnWarnings() {
-        if (failOnWarnings == null) return null;
-        return failOnWarnings.getValue("RestApiPutArgs.failOnWarnings");
+        if (!unknown_failOnWarnings) return value_failOnWarnings;
+        throw new UndeferrableValueException("Value 'RestApiPutArgs.failOnWarnings' is not present");
     }
 
     /**
      * Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = &#34;documentation&#34;`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
      * 
      */
-    private UndeferrableValue<Map<String,String>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private Map<String,String> value_parameters;
+    private boolean unknown_parameters;
     public Map<String,String> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("RestApiPutArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'RestApiPutArgs.parameters' is not present");
     }
 
     /**
@@ -54,29 +58,32 @@ public final class RestApiPutArgs extends com.pulumi.resources.PolicyResourceInp
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> restApiId;
-
+    @PolicyResourceProperty(name="restApiId", flag="unknown_restApiId")
+    private String value_restApiId;
+    private boolean unknown_restApiId;
     public String restApiId() {
-        if (restApiId == null) return null;
-        return restApiId.getValue("RestApiPutArgs.restApiId");
+        if (!unknown_restApiId) return value_restApiId;
+        throw new UndeferrableValueException("Value 'RestApiPutArgs.restApiId' is not present");
     }
 
-    private UndeferrableValue<RestApiPutTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private RestApiPutTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public RestApiPutTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("RestApiPutArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'RestApiPutArgs.timeouts' is not present");
     }
 
     /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
      * 
      */
-    private UndeferrableValue<Map<String,String>> triggers;
-
+    @PolicyResourceProperty(name="triggers", flag="unknown_triggers")
+    private Map<String,String> value_triggers;
+    private boolean unknown_triggers;
     public Map<String,String> triggers() {
-        if (triggers == null) return null;
-        return triggers.getValue("RestApiPutArgs.triggers");
+        if (!unknown_triggers) return value_triggers;
+        throw new UndeferrableValueException("Value 'RestApiPutArgs.triggers' is not present");
     }
 
 }

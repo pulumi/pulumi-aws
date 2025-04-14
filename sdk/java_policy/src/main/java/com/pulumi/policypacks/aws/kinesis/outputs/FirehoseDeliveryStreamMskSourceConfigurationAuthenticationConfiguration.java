@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationAuthenticationCon
      * The type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
      * 
      */
-    private UndeferrableValue<String> connectivity;
-
+    @PolicyResourceProperty(name="connectivity", flag="unknown_connectivity")
+    private String value_connectivity;
+    private boolean unknown_connectivity;
     public String connectivity() {
-        if (connectivity == null) return null;
-        return connectivity.getValue("FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration.connectivity");
+        if (!unknown_connectivity) return value_connectivity;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration.connectivity' is not present");
     }
 
     /**
      * The ARN of the role used to access the Amazon MSK cluster.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration.roleArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class VaultLockConfigurationArgs extends com.pulumi.resources.Polic
      * Name of the backup vault to add a lock configuration for.
      * 
      */
-    private UndeferrableValue<String> backupVaultName;
-
+    @PolicyResourceProperty(name="backupVaultName", flag="unknown_backupVaultName")
+    private String value_backupVaultName;
+    private boolean unknown_backupVaultName;
     public String backupVaultName() {
-        if (backupVaultName == null) return null;
-        return backupVaultName.getValue("VaultLockConfigurationArgs.backupVaultName");
+        if (!unknown_backupVaultName) return value_backupVaultName;
+        throw new UndeferrableValueException("Value 'VaultLockConfigurationArgs.backupVaultName' is not present");
     }
 
     /**
      * The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
      * 
      */
-    private UndeferrableValue<Integer> changeableForDays;
-
+    @PolicyResourceProperty(name="changeableForDays", flag="unknown_changeableForDays")
+    private Integer value_changeableForDays;
+    private boolean unknown_changeableForDays;
     public Integer changeableForDays() {
-        if (changeableForDays == null) return null;
-        return changeableForDays.getValue("VaultLockConfigurationArgs.changeableForDays");
+        if (!unknown_changeableForDays) return value_changeableForDays;
+        throw new UndeferrableValueException("Value 'VaultLockConfigurationArgs.changeableForDays' is not present");
     }
 
     /**
      * The maximum retention period that the vault retains its recovery points.
      * 
      */
-    private UndeferrableValue<Integer> maxRetentionDays;
-
+    @PolicyResourceProperty(name="maxRetentionDays", flag="unknown_maxRetentionDays")
+    private Integer value_maxRetentionDays;
+    private boolean unknown_maxRetentionDays;
     public Integer maxRetentionDays() {
-        if (maxRetentionDays == null) return null;
-        return maxRetentionDays.getValue("VaultLockConfigurationArgs.maxRetentionDays");
+        if (!unknown_maxRetentionDays) return value_maxRetentionDays;
+        throw new UndeferrableValueException("Value 'VaultLockConfigurationArgs.maxRetentionDays' is not present");
     }
 
     /**
      * The minimum retention period that the vault retains its recovery points.
      * 
      */
-    private UndeferrableValue<Integer> minRetentionDays;
-
+    @PolicyResourceProperty(name="minRetentionDays", flag="unknown_minRetentionDays")
+    private Integer value_minRetentionDays;
+    private boolean unknown_minRetentionDays;
     public Integer minRetentionDays() {
-        if (minRetentionDays == null) return null;
-        return minRetentionDays.getValue("VaultLockConfigurationArgs.minRetentionDays");
+        if (!unknown_minRetentionDays) return value_minRetentionDays;
+        throw new UndeferrableValueException("Value 'VaultLockConfigurationArgs.minRetentionDays' is not present");
     }
 
 }

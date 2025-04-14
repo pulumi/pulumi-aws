@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.computeoptimizer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.computeoptimizer.inputs.EnrollmentStatusTimeoutsArgs;
 import java.lang.Boolean;
@@ -18,29 +19,32 @@ public final class EnrollmentStatusArgs extends com.pulumi.resources.PolicyResou
      * Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> includeMemberAccounts;
-
+    @PolicyResourceProperty(name="includeMemberAccounts", flag="unknown_includeMemberAccounts")
+    private Boolean value_includeMemberAccounts;
+    private boolean unknown_includeMemberAccounts;
     public Boolean includeMemberAccounts() {
-        if (includeMemberAccounts == null) return null;
-        return includeMemberAccounts.getValue("EnrollmentStatusArgs.includeMemberAccounts");
+        if (!unknown_includeMemberAccounts) return value_includeMemberAccounts;
+        throw new UndeferrableValueException("Value 'EnrollmentStatusArgs.includeMemberAccounts' is not present");
     }
 
     /**
      * The enrollment status of the account. Valid values: `Active`, `Inactive`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("EnrollmentStatusArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'EnrollmentStatusArgs.status' is not present");
     }
 
-    private UndeferrableValue<EnrollmentStatusTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private EnrollmentStatusTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public EnrollmentStatusTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("EnrollmentStatusArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'EnrollmentStatusArgs.timeouts' is not present");
     }
 
 }

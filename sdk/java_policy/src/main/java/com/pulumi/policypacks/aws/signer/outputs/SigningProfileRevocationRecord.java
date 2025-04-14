@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.signer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class SigningProfileRevocationRecord {
      * The time when revocation becomes effective.
      * 
      */
-    private @Nullable UndeferrableValue<String> revocationEffectiveFrom;
-
+    @PolicyResourceProperty(name="revocationEffectiveFrom", flag="unknown_revocationEffectiveFrom")
+    private @Nullable String value_revocationEffectiveFrom;
+    private boolean unknown_revocationEffectiveFrom;
     public @Nullable String revocationEffectiveFrom() {
-        if (revocationEffectiveFrom == null) return null;
-        return revocationEffectiveFrom.getValue("SigningProfileRevocationRecord.revocationEffectiveFrom");
+        if (!unknown_revocationEffectiveFrom) return value_revocationEffectiveFrom;
+        throw new UndeferrableValueException("Value 'SigningProfileRevocationRecord.revocationEffectiveFrom' is not present");
     }
 
     /**
      * The time when the signing profile was revoked.
      * 
      */
-    private @Nullable UndeferrableValue<String> revokedAt;
-
+    @PolicyResourceProperty(name="revokedAt", flag="unknown_revokedAt")
+    private @Nullable String value_revokedAt;
+    private boolean unknown_revokedAt;
     public @Nullable String revokedAt() {
-        if (revokedAt == null) return null;
-        return revokedAt.getValue("SigningProfileRevocationRecord.revokedAt");
+        if (!unknown_revokedAt) return value_revokedAt;
+        throw new UndeferrableValueException("Value 'SigningProfileRevocationRecord.revokedAt' is not present");
     }
 
     /**
      * The identity of the revoker.
      * 
      */
-    private @Nullable UndeferrableValue<String> revokedBy;
-
+    @PolicyResourceProperty(name="revokedBy", flag="unknown_revokedBy")
+    private @Nullable String value_revokedBy;
+    private boolean unknown_revokedBy;
     public @Nullable String revokedBy() {
-        if (revokedBy == null) return null;
-        return revokedBy.getValue("SigningProfileRevocationRecord.revokedBy");
+        if (!unknown_revokedBy) return value_revokedBy;
+        throw new UndeferrableValueException("Value 'SigningProfileRevocationRecord.revokedBy' is not present");
     }
 
 }

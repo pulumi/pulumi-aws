@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.synthetics.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.synthetics.outputs.CanaryArtifactConfigS3Encryption;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class CanaryArtifactConfig {
      * Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
      * 
      */
-    private @Nullable UndeferrableValue<CanaryArtifactConfigS3Encryption> s3Encryption;
-
+    @PolicyResourceProperty(name="s3Encryption", flag="unknown_s3Encryption")
+    private @Nullable CanaryArtifactConfigS3Encryption value_s3Encryption;
+    private boolean unknown_s3Encryption;
     public @Nullable CanaryArtifactConfigS3Encryption s3Encryption() {
-        if (s3Encryption == null) return null;
-        return s3Encryption.getValue("CanaryArtifactConfig.s3Encryption");
+        if (!unknown_s3Encryption) return value_s3Encryption;
+        throw new UndeferrableValueException("Value 'CanaryArtifactConfig.s3Encryption' is not present");
     }
 
 }

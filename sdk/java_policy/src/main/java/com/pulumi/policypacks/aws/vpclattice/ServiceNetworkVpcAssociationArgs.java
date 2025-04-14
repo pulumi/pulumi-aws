@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,11 +19,12 @@ public final class ServiceNetworkVpcAssociationArgs extends com.pulumi.resources
      * The IDs of the security groups.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("ServiceNetworkVpcAssociationArgs.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'ServiceNetworkVpcAssociationArgs.securityGroupIds' is not present");
     }
 
     /**
@@ -30,33 +32,36 @@ public final class ServiceNetworkVpcAssociationArgs extends com.pulumi.resources
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> serviceNetworkIdentifier;
-
+    @PolicyResourceProperty(name="serviceNetworkIdentifier", flag="unknown_serviceNetworkIdentifier")
+    private String value_serviceNetworkIdentifier;
+    private boolean unknown_serviceNetworkIdentifier;
     public String serviceNetworkIdentifier() {
-        if (serviceNetworkIdentifier == null) return null;
-        return serviceNetworkIdentifier.getValue("ServiceNetworkVpcAssociationArgs.serviceNetworkIdentifier");
+        if (!unknown_serviceNetworkIdentifier) return value_serviceNetworkIdentifier;
+        throw new UndeferrableValueException("Value 'ServiceNetworkVpcAssociationArgs.serviceNetworkIdentifier' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ServiceNetworkVpcAssociationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ServiceNetworkVpcAssociationArgs.tags' is not present");
     }
 
     /**
      * The ID of the VPC.
      * 
      */
-    private UndeferrableValue<String> vpcIdentifier;
-
+    @PolicyResourceProperty(name="vpcIdentifier", flag="unknown_vpcIdentifier")
+    private String value_vpcIdentifier;
+    private boolean unknown_vpcIdentifier;
     public String vpcIdentifier() {
-        if (vpcIdentifier == null) return null;
-        return vpcIdentifier.getValue("ServiceNetworkVpcAssociationArgs.vpcIdentifier");
+        if (!unknown_vpcIdentifier) return value_vpcIdentifier;
+        throw new UndeferrableValueException("Value 'ServiceNetworkVpcAssociationArgs.vpcIdentifier' is not present");
     }
 
 }

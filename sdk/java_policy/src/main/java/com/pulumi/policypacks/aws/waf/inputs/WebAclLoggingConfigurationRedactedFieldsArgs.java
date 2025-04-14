@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.waf.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.waf.inputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class WebAclLoggingConfigurationRedactedFieldsArgs {
      * Set of configuration blocks for fields to redact. Detailed below.
      * 
      */
-    private UndeferrableValue<List<WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs>> fieldToMatches;
-
+    @PolicyResourceProperty(name="fieldToMatches", flag="unknown_fieldToMatches")
+    private List<WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs> value_fieldToMatches;
+    private boolean unknown_fieldToMatches;
     public List<WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs> fieldToMatches() {
-        if (fieldToMatches == null) return null;
-        return fieldToMatches.getValue("WebAclLoggingConfigurationRedactedFieldsArgs.fieldToMatches");
+        if (!unknown_fieldToMatches) return value_fieldToMatches;
+        throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationRedactedFieldsArgs.fieldToMatches' is not present");
     }
 
 }

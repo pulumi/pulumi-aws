@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.gamelift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.gamelift.inputs.AliasRoutingStrategyArgs;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class AliasArgs extends com.pulumi.resources.PolicyResourceInput {
      * Description of the alias.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("AliasArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AliasArgs.description' is not present");
     }
 
     /**
      * Name of the alias.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AliasArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AliasArgs.name' is not present");
     }
 
     /**
      * Specifies the fleet and/or routing type to use for the alias.
      * 
      */
-    private UndeferrableValue<AliasRoutingStrategyArgs> routingStrategy;
-
+    @PolicyResourceProperty(name="routingStrategy", flag="unknown_routingStrategy")
+    private AliasRoutingStrategyArgs value_routingStrategy;
+    private boolean unknown_routingStrategy;
     public AliasRoutingStrategyArgs routingStrategy() {
-        if (routingStrategy == null) return null;
-        return routingStrategy.getValue("AliasArgs.routingStrategy");
+        if (!unknown_routingStrategy) return value_routingStrategy;
+        throw new UndeferrableValueException("Value 'AliasArgs.routingStrategy' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AliasArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AliasArgs.tags' is not present");
     }
 
 }

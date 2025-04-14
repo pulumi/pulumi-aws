@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamquery.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLoc
      * S3 bucket name.
      * 
      */
-    private @Nullable UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private @Nullable String value_bucketName;
+    private boolean unknown_bucketName;
     public @Nullable String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocation.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocation.bucketName' is not present");
     }
 
     /**
      * S3 key.
      * 
      */
-    private @Nullable UndeferrableValue<String> objectKey;
-
+    @PolicyResourceProperty(name="objectKey", flag="unknown_objectKey")
+    private @Nullable String value_objectKey;
+    private boolean unknown_objectKey;
     public @Nullable String objectKey() {
-        if (objectKey == null) return null;
-        return objectKey.getValue("ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocation.objectKey");
+        if (!unknown_objectKey) return value_objectKey;
+        throw new UndeferrableValueException("Value 'ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocation.objectKey' is not present");
     }
 
 }

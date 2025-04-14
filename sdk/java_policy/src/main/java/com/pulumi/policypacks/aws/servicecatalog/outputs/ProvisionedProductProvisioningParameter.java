@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicecatalog.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ProvisionedProductProvisioningParameter {
      * Parameter key.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("ProvisionedProductProvisioningParameter.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'ProvisionedProductProvisioningParameter.key' is not present");
     }
 
     /**
      * Whether to ignore `value` and keep the previous parameter value. Ignored when initially provisioning a product.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> usePreviousValue;
-
+    @PolicyResourceProperty(name="usePreviousValue", flag="unknown_usePreviousValue")
+    private @Nullable Boolean value_usePreviousValue;
+    private boolean unknown_usePreviousValue;
     public @Nullable Boolean usePreviousValue() {
-        if (usePreviousValue == null) return null;
-        return usePreviousValue.getValue("ProvisionedProductProvisioningParameter.usePreviousValue");
+        if (!unknown_usePreviousValue) return value_usePreviousValue;
+        throw new UndeferrableValueException("Value 'ProvisionedProductProvisioningParameter.usePreviousValue' is not present");
     }
 
     /**
      * Parameter value.
      * 
      */
-    private @Nullable UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private @Nullable String value_value;
+    private boolean unknown_value;
     public @Nullable String value() {
-        if (value == null) return null;
-        return value.getValue("ProvisionedProductProvisioningParameter.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'ProvisionedProductProvisioningParameter.value' is not present");
     }
 
 }

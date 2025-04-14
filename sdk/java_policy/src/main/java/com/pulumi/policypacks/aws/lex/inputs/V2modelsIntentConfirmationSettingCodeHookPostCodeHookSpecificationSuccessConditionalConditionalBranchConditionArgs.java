@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
      * Expression string that is evaluated.
      * 
      */
-    private UndeferrableValue<String> expressionString;
-
+    @PolicyResourceProperty(name="expressionString", flag="unknown_expressionString")
+    private String value_expressionString;
+    private boolean unknown_expressionString;
     public String expressionString() {
-        if (expressionString == null) return null;
-        return expressionString.getValue("V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchConditionArgs.expressionString");
+        if (!unknown_expressionString) return value_expressionString;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchConditionArgs.expressionString' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudwatch.outputs.EventPermissionCondition;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class EventPermission extends com.pulumi.resources.PolicyResourceOu
      * The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
      * 
      */
-    private @Nullable UndeferrableValue<String> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private @Nullable String value_action;
+    private boolean unknown_action;
     public @Nullable String action() {
-        if (action == null) return null;
-        return action.getValue("EventPermission.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'EventPermission.action' is not present");
     }
 
     /**
      * Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
      * 
      */
-    private @Nullable UndeferrableValue<EventPermissionCondition> condition;
-
+    @PolicyResourceProperty(name="condition", flag="unknown_condition")
+    private @Nullable EventPermissionCondition value_condition;
+    private boolean unknown_condition;
     public @Nullable EventPermissionCondition condition() {
-        if (condition == null) return null;
-        return condition.getValue("EventPermission.condition");
+        if (!unknown_condition) return value_condition;
+        throw new UndeferrableValueException("Value 'EventPermission.condition' is not present");
     }
 
     /**
@@ -40,33 +43,36 @@ public final class EventPermission extends com.pulumi.resources.PolicyResourceOu
      * If you omit this, the permissions are set on the `default` event bus.
      * 
      */
-    private @Nullable UndeferrableValue<String> eventBusName;
-
+    @PolicyResourceProperty(name="eventBusName", flag="unknown_eventBusName")
+    private @Nullable String value_eventBusName;
+    private boolean unknown_eventBusName;
     public @Nullable String eventBusName() {
-        if (eventBusName == null) return null;
-        return eventBusName.getValue("EventPermission.eventBusName");
+        if (!unknown_eventBusName) return value_eventBusName;
+        throw new UndeferrableValueException("Value 'EventPermission.eventBusName' is not present");
     }
 
     /**
      * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
      * 
      */
-    private UndeferrableValue<String> principal;
-
+    @PolicyResourceProperty(name="principal", flag="unknown_principal")
+    private String value_principal;
+    private boolean unknown_principal;
     public String principal() {
-        if (principal == null) return null;
-        return principal.getValue("EventPermission.principal");
+        if (!unknown_principal) return value_principal;
+        throw new UndeferrableValueException("Value 'EventPermission.principal' is not present");
     }
 
     /**
      * An identifier string for the external account that you are granting permissions to.
      * 
      */
-    private UndeferrableValue<String> statementId;
-
+    @PolicyResourceProperty(name="statementId", flag="unknown_statementId")
+    private String value_statementId;
+    private boolean unknown_statementId;
     public String statementId() {
-        if (statementId == null) return null;
-        return statementId.getValue("EventPermission.statementId");
+        if (!unknown_statementId) return value_statementId;
+        throw new UndeferrableValueException("Value 'EventPermission.statementId' is not present");
     }
 
 }

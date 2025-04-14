@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.globalaccelerator.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class CrossAccountAttachmentResource {
      * IP address range, in CIDR format, that is specified as resource.
      * 
      */
-    private @Nullable UndeferrableValue<String> cidrBlock;
-
+    @PolicyResourceProperty(name="cidrBlock", flag="unknown_cidrBlock")
+    private @Nullable String value_cidrBlock;
+    private boolean unknown_cidrBlock;
     public @Nullable String cidrBlock() {
-        if (cidrBlock == null) return null;
-        return cidrBlock.getValue("CrossAccountAttachmentResource.cidrBlock");
+        if (!unknown_cidrBlock) return value_cidrBlock;
+        throw new UndeferrableValueException("Value 'CrossAccountAttachmentResource.cidrBlock' is not present");
     }
 
     /**
      * The endpoint ID for the endpoint that is specified as a AWS resource.
      * 
      */
-    private @Nullable UndeferrableValue<String> endpointId;
-
+    @PolicyResourceProperty(name="endpointId", flag="unknown_endpointId")
+    private @Nullable String value_endpointId;
+    private boolean unknown_endpointId;
     public @Nullable String endpointId() {
-        if (endpointId == null) return null;
-        return endpointId.getValue("CrossAccountAttachmentResource.endpointId");
+        if (!unknown_endpointId) return value_endpointId;
+        throw new UndeferrableValueException("Value 'CrossAccountAttachmentResource.endpointId' is not present");
     }
 
     /**
      * The AWS Region where a shared endpoint resource is located.
      * 
      */
-    private @Nullable UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private @Nullable String value_region;
+    private boolean unknown_region;
     public @Nullable String region() {
-        if (region == null) return null;
-        return region.getValue("CrossAccountAttachmentResource.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'CrossAccountAttachmentResource.region' is not present");
     }
 
 }

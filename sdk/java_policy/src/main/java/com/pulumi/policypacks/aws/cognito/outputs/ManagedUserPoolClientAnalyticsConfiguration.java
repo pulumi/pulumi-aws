@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,55 +16,60 @@ public final class ManagedUserPoolClientAnalyticsConfiguration {
      * Application ARN for an Amazon Pinpoint application. It conflicts with `external_id` and `role_arn`.
      * 
      */
-    private @Nullable UndeferrableValue<String> applicationArn;
-
+    @PolicyResourceProperty(name="applicationArn", flag="unknown_applicationArn")
+    private @Nullable String value_applicationArn;
+    private boolean unknown_applicationArn;
     public @Nullable String applicationArn() {
-        if (applicationArn == null) return null;
-        return applicationArn.getValue("ManagedUserPoolClientAnalyticsConfiguration.applicationArn");
+        if (!unknown_applicationArn) return value_applicationArn;
+        throw new UndeferrableValueException("Value 'ManagedUserPoolClientAnalyticsConfiguration.applicationArn' is not present");
     }
 
     /**
      * Unique identifier for an Amazon Pinpoint application.
      * 
      */
-    private @Nullable UndeferrableValue<String> applicationId;
-
+    @PolicyResourceProperty(name="applicationId", flag="unknown_applicationId")
+    private @Nullable String value_applicationId;
+    private boolean unknown_applicationId;
     public @Nullable String applicationId() {
-        if (applicationId == null) return null;
-        return applicationId.getValue("ManagedUserPoolClientAnalyticsConfiguration.applicationId");
+        if (!unknown_applicationId) return value_applicationId;
+        throw new UndeferrableValueException("Value 'ManagedUserPoolClientAnalyticsConfiguration.applicationId' is not present");
     }
 
     /**
      * ID for the Analytics Configuration and conflicts with `application_arn`.
      * 
      */
-    private @Nullable UndeferrableValue<String> externalId;
-
+    @PolicyResourceProperty(name="externalId", flag="unknown_externalId")
+    private @Nullable String value_externalId;
+    private boolean unknown_externalId;
     public @Nullable String externalId() {
-        if (externalId == null) return null;
-        return externalId.getValue("ManagedUserPoolClientAnalyticsConfiguration.externalId");
+        if (!unknown_externalId) return value_externalId;
+        throw new UndeferrableValueException("Value 'ManagedUserPoolClientAnalyticsConfiguration.externalId' is not present");
     }
 
     /**
      * ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `application_arn`.
      * 
      */
-    private @Nullable UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private @Nullable String value_roleArn;
+    private boolean unknown_roleArn;
     public @Nullable String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("ManagedUserPoolClientAnalyticsConfiguration.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'ManagedUserPoolClientAnalyticsConfiguration.roleArn' is not present");
     }
 
     /**
      * If `user_data_shared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> userDataShared;
-
+    @PolicyResourceProperty(name="userDataShared", flag="unknown_userDataShared")
+    private @Nullable Boolean value_userDataShared;
+    private boolean unknown_userDataShared;
     public @Nullable Boolean userDataShared() {
-        if (userDataShared == null) return null;
-        return userDataShared.getValue("ManagedUserPoolClientAnalyticsConfiguration.userDataShared");
+        if (!unknown_userDataShared) return value_userDataShared;
+        throw new UndeferrableValueException("Value 'ManagedUserPoolClientAnalyticsConfiguration.userDataShared' is not present");
     }
 
 }

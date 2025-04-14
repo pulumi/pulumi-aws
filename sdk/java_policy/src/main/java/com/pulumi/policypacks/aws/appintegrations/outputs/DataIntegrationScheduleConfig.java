@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appintegrations.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,33 +14,36 @@ public final class DataIntegrationScheduleConfig {
      * The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
      * 
      */
-    private UndeferrableValue<String> firstExecutionFrom;
-
+    @PolicyResourceProperty(name="firstExecutionFrom", flag="unknown_firstExecutionFrom")
+    private String value_firstExecutionFrom;
+    private boolean unknown_firstExecutionFrom;
     public String firstExecutionFrom() {
-        if (firstExecutionFrom == null) return null;
-        return firstExecutionFrom.getValue("DataIntegrationScheduleConfig.firstExecutionFrom");
+        if (!unknown_firstExecutionFrom) return value_firstExecutionFrom;
+        throw new UndeferrableValueException("Value 'DataIntegrationScheduleConfig.firstExecutionFrom' is not present");
     }
 
     /**
      * The name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
      * 
      */
-    private UndeferrableValue<String> object;
-
+    @PolicyResourceProperty(name="object", flag="unknown_object")
+    private String value_object;
+    private boolean unknown_object;
     public String object() {
-        if (object == null) return null;
-        return object.getValue("DataIntegrationScheduleConfig.object");
+        if (!unknown_object) return value_object;
+        throw new UndeferrableValueException("Value 'DataIntegrationScheduleConfig.object' is not present");
     }
 
     /**
      * How often the data should be pulled from data source. Examples include `rate(1 hour)`, `rate(3 hours)`, `rate(1 day)`.
      * 
      */
-    private UndeferrableValue<String> scheduleExpression;
-
+    @PolicyResourceProperty(name="scheduleExpression", flag="unknown_scheduleExpression")
+    private String value_scheduleExpression;
+    private boolean unknown_scheduleExpression;
     public String scheduleExpression() {
-        if (scheduleExpression == null) return null;
-        return scheduleExpression.getValue("DataIntegrationScheduleConfig.scheduleExpression");
+        if (!unknown_scheduleExpression) return value_scheduleExpression;
+        throw new UndeferrableValueException("Value 'DataIntegrationScheduleConfig.scheduleExpression' is not present");
     }
 
 }

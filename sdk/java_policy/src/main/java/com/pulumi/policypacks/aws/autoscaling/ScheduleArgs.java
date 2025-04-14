@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,66 +18,72 @@ public final class ScheduleArgs extends com.pulumi.resources.PolicyResourceInput
      * The name of the Auto Scaling group.
      * 
      */
-    private UndeferrableValue<String> autoscalingGroupName;
-
+    @PolicyResourceProperty(name="autoscalingGroupName", flag="unknown_autoscalingGroupName")
+    private String value_autoscalingGroupName;
+    private boolean unknown_autoscalingGroupName;
     public String autoscalingGroupName() {
-        if (autoscalingGroupName == null) return null;
-        return autoscalingGroupName.getValue("ScheduleArgs.autoscalingGroupName");
+        if (!unknown_autoscalingGroupName) return value_autoscalingGroupName;
+        throw new UndeferrableValueException("Value 'ScheduleArgs.autoscalingGroupName' is not present");
     }
 
     /**
      * The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don&#39;t want to change the desired capacity at the scheduled time. Defaults to `0`.
      * 
      */
-    private UndeferrableValue<Integer> desiredCapacity;
-
+    @PolicyResourceProperty(name="desiredCapacity", flag="unknown_desiredCapacity")
+    private Integer value_desiredCapacity;
+    private boolean unknown_desiredCapacity;
     public Integer desiredCapacity() {
-        if (desiredCapacity == null) return null;
-        return desiredCapacity.getValue("ScheduleArgs.desiredCapacity");
+        if (!unknown_desiredCapacity) return value_desiredCapacity;
+        throw new UndeferrableValueException("Value 'ScheduleArgs.desiredCapacity' is not present");
     }
 
     /**
      * The date and time for the recurring schedule to end, in UTC with the format `&#34;YYYY-MM-DDThh:mm:ssZ&#34;` (e.g. `&#34;2021-06-01T00:00:00Z&#34;`).
      * 
      */
-    private UndeferrableValue<String> endTime;
-
+    @PolicyResourceProperty(name="endTime", flag="unknown_endTime")
+    private String value_endTime;
+    private boolean unknown_endTime;
     public String endTime() {
-        if (endTime == null) return null;
-        return endTime.getValue("ScheduleArgs.endTime");
+        if (!unknown_endTime) return value_endTime;
+        throw new UndeferrableValueException("Value 'ScheduleArgs.endTime' is not present");
     }
 
     /**
      * The maximum size of the Auto Scaling group. Set to `-1` if you don&#39;t want to change the maximum size at the scheduled time. Defaults to `0`.
      * 
      */
-    private UndeferrableValue<Integer> maxSize;
-
+    @PolicyResourceProperty(name="maxSize", flag="unknown_maxSize")
+    private Integer value_maxSize;
+    private boolean unknown_maxSize;
     public Integer maxSize() {
-        if (maxSize == null) return null;
-        return maxSize.getValue("ScheduleArgs.maxSize");
+        if (!unknown_maxSize) return value_maxSize;
+        throw new UndeferrableValueException("Value 'ScheduleArgs.maxSize' is not present");
     }
 
     /**
      * The minimum size of the Auto Scaling group. Set to `-1` if you don&#39;t want to change the minimum size at the scheduled time. Defaults to `0`.
      * 
      */
-    private UndeferrableValue<Integer> minSize;
-
+    @PolicyResourceProperty(name="minSize", flag="unknown_minSize")
+    private Integer value_minSize;
+    private boolean unknown_minSize;
     public Integer minSize() {
-        if (minSize == null) return null;
-        return minSize.getValue("ScheduleArgs.minSize");
+        if (!unknown_minSize) return value_minSize;
+        throw new UndeferrableValueException("Value 'ScheduleArgs.minSize' is not present");
     }
 
     /**
      * The recurring schedule for this action specified using the Unix cron syntax format.
      * 
      */
-    private UndeferrableValue<String> recurrence;
-
+    @PolicyResourceProperty(name="recurrence", flag="unknown_recurrence")
+    private String value_recurrence;
+    private boolean unknown_recurrence;
     public String recurrence() {
-        if (recurrence == null) return null;
-        return recurrence.getValue("ScheduleArgs.recurrence");
+        if (!unknown_recurrence) return value_recurrence;
+        throw new UndeferrableValueException("Value 'ScheduleArgs.recurrence' is not present");
     }
 
     /**
@@ -85,22 +92,24 @@ public final class ScheduleArgs extends com.pulumi.resources.PolicyResourceInput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> scheduledActionName;
-
+    @PolicyResourceProperty(name="scheduledActionName", flag="unknown_scheduledActionName")
+    private String value_scheduledActionName;
+    private boolean unknown_scheduledActionName;
     public String scheduledActionName() {
-        if (scheduledActionName == null) return null;
-        return scheduledActionName.getValue("ScheduleArgs.scheduledActionName");
+        if (!unknown_scheduledActionName) return value_scheduledActionName;
+        throw new UndeferrableValueException("Value 'ScheduleArgs.scheduledActionName' is not present");
     }
 
     /**
      * The date and time for the recurring schedule to start, in UTC with the format `&#34;YYYY-MM-DDThh:mm:ssZ&#34;` (e.g. `&#34;2021-06-01T00:00:00Z&#34;`).
      * 
      */
-    private UndeferrableValue<String> startTime;
-
+    @PolicyResourceProperty(name="startTime", flag="unknown_startTime")
+    private String value_startTime;
+    private boolean unknown_startTime;
     public String startTime() {
-        if (startTime == null) return null;
-        return startTime.getValue("ScheduleArgs.startTime");
+        if (!unknown_startTime) return value_startTime;
+        throw new UndeferrableValueException("Value 'ScheduleArgs.startTime' is not present");
     }
 
     /**
@@ -109,11 +118,12 @@ public final class ScheduleArgs extends com.pulumi.resources.PolicyResourceInput
      * &gt; **NOTE:** When `start_time` and `end_time` are specified with `recurrence` , they form the boundaries of when the recurring action will start and stop.
      * 
      */
-    private UndeferrableValue<String> timeZone;
-
+    @PolicyResourceProperty(name="timeZone", flag="unknown_timeZone")
+    private String value_timeZone;
+    private boolean unknown_timeZone;
     public String timeZone() {
-        if (timeZone == null) return null;
-        return timeZone.getValue("ScheduleArgs.timeZone");
+        if (!unknown_timeZone) return value_timeZone;
+        throw new UndeferrableValueException("Value 'ScheduleArgs.timeZone' is not present");
     }
 
 }

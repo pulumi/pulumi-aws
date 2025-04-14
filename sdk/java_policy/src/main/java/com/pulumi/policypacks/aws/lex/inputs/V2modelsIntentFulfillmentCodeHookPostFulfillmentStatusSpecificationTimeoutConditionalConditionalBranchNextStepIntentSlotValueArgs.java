@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
      * Value that Amazon Lex determines for the slot. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex choose the first value in the resolvedValues list.
      * 
      */
-    private UndeferrableValue<String> interpretedValue;
-
+    @PolicyResourceProperty(name="interpretedValue", flag="unknown_interpretedValue")
+    private String value_interpretedValue;
+    private boolean unknown_interpretedValue;
     public String interpretedValue() {
-        if (interpretedValue == null) return null;
-        return interpretedValue.getValue("V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgs.interpretedValue");
+        if (!unknown_interpretedValue) return value_interpretedValue;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgs.interpretedValue' is not present");
     }
 
 }

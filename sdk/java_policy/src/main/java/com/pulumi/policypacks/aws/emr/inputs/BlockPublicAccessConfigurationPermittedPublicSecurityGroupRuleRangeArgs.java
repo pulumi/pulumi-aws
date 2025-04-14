@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,22 +14,24 @@ public final class BlockPublicAccessConfigurationPermittedPublicSecurityGroupRul
      * The final port in the range of TCP ports.
      * 
      */
-    private UndeferrableValue<Integer> maxRange;
-
+    @PolicyResourceProperty(name="maxRange", flag="unknown_maxRange")
+    private Integer value_maxRange;
+    private boolean unknown_maxRange;
     public Integer maxRange() {
-        if (maxRange == null) return null;
-        return maxRange.getValue("BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs.maxRange");
+        if (!unknown_maxRange) return value_maxRange;
+        throw new UndeferrableValueException("Value 'BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs.maxRange' is not present");
     }
 
     /**
      * The first port in the range of TCP ports.
      * 
      */
-    private UndeferrableValue<Integer> minRange;
-
+    @PolicyResourceProperty(name="minRange", flag="unknown_minRange")
+    private Integer value_minRange;
+    private boolean unknown_minRange;
     public Integer minRange() {
-        if (minRange == null) return null;
-        return minRange.getValue("BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs.minRange");
+        if (!unknown_minRange) return value_minRange;
+        throw new UndeferrableValueException("Value 'BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs.minRange' is not present");
     }
 
 }

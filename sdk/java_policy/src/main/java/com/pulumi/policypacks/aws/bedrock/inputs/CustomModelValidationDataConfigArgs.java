@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.inputs.CustomModelValidationDataConfigValidatorArgs;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class CustomModelValidationDataConfigArgs {
      * Information about the validators.
      * 
      */
-    private UndeferrableValue<List<CustomModelValidationDataConfigValidatorArgs>> validators;
-
+    @PolicyResourceProperty(name="validators", flag="unknown_validators")
+    private List<CustomModelValidationDataConfigValidatorArgs> value_validators;
+    private boolean unknown_validators;
     public List<CustomModelValidationDataConfigValidatorArgs> validators() {
-        if (validators == null) return null;
-        return validators.getValue("CustomModelValidationDataConfigArgs.validators");
+        if (!unknown_validators) return value_validators;
+        throw new UndeferrableValueException("Value 'CustomModelValidationDataConfigArgs.validators' is not present");
     }
 
 }

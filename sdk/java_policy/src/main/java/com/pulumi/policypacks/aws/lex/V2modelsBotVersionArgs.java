@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsBotVersionLocaleSpecificationArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsBotVersionTimeoutsArgs;
@@ -19,33 +20,36 @@ public final class V2modelsBotVersionArgs extends com.pulumi.resources.PolicyRes
      * Idientifier of the bot to create the version for.
      * 
      */
-    private UndeferrableValue<String> botId;
-
+    @PolicyResourceProperty(name="botId", flag="unknown_botId")
+    private String value_botId;
+    private boolean unknown_botId;
     public String botId() {
-        if (botId == null) return null;
-        return botId.getValue("V2modelsBotVersionArgs.botId");
+        if (!unknown_botId) return value_botId;
+        throw new UndeferrableValueException("Value 'V2modelsBotVersionArgs.botId' is not present");
     }
 
     /**
      * Version number assigned to the version.
      * 
      */
-    private UndeferrableValue<String> botVersion;
-
+    @PolicyResourceProperty(name="botVersion", flag="unknown_botVersion")
+    private String value_botVersion;
+    private boolean unknown_botVersion;
     public String botVersion() {
-        if (botVersion == null) return null;
-        return botVersion.getValue("V2modelsBotVersionArgs.botVersion");
+        if (!unknown_botVersion) return value_botVersion;
+        throw new UndeferrableValueException("Value 'V2modelsBotVersionArgs.botVersion' is not present");
     }
 
     /**
      * A description of the version. Use the description to help identify the version in lists.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("V2modelsBotVersionArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'V2modelsBotVersionArgs.description' is not present");
     }
 
     /**
@@ -55,18 +59,20 @@ public final class V2modelsBotVersionArgs extends com.pulumi.resources.PolicyRes
      * * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
      * 
      */
-    private UndeferrableValue<Map<String,V2modelsBotVersionLocaleSpecificationArgs>> localeSpecification;
-
+    @PolicyResourceProperty(name="localeSpecification", flag="unknown_localeSpecification")
+    private Map<String,V2modelsBotVersionLocaleSpecificationArgs> value_localeSpecification;
+    private boolean unknown_localeSpecification;
     public Map<String,V2modelsBotVersionLocaleSpecificationArgs> localeSpecification() {
-        if (localeSpecification == null) return null;
-        return localeSpecification.getValue("V2modelsBotVersionArgs.localeSpecification");
+        if (!unknown_localeSpecification) return value_localeSpecification;
+        throw new UndeferrableValueException("Value 'V2modelsBotVersionArgs.localeSpecification' is not present");
     }
 
-    private UndeferrableValue<V2modelsBotVersionTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private V2modelsBotVersionTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public V2modelsBotVersionTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("V2modelsBotVersionArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'V2modelsBotVersionArgs.timeouts' is not present");
     }
 
 }

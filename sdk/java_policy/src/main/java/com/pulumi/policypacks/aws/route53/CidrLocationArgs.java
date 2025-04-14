@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,33 +18,36 @@ public final class CidrLocationArgs extends com.pulumi.resources.PolicyResourceI
      * CIDR blocks for the location.
      * 
      */
-    private UndeferrableValue<List<String>> cidrBlocks;
-
+    @PolicyResourceProperty(name="cidrBlocks", flag="unknown_cidrBlocks")
+    private List<String> value_cidrBlocks;
+    private boolean unknown_cidrBlocks;
     public List<String> cidrBlocks() {
-        if (cidrBlocks == null) return null;
-        return cidrBlocks.getValue("CidrLocationArgs.cidrBlocks");
+        if (!unknown_cidrBlocks) return value_cidrBlocks;
+        throw new UndeferrableValueException("Value 'CidrLocationArgs.cidrBlocks' is not present");
     }
 
     /**
      * The ID of the CIDR collection to update.
      * 
      */
-    private UndeferrableValue<String> cidrCollectionId;
-
+    @PolicyResourceProperty(name="cidrCollectionId", flag="unknown_cidrCollectionId")
+    private String value_cidrCollectionId;
+    private boolean unknown_cidrCollectionId;
     public String cidrCollectionId() {
-        if (cidrCollectionId == null) return null;
-        return cidrCollectionId.getValue("CidrLocationArgs.cidrCollectionId");
+        if (!unknown_cidrCollectionId) return value_cidrCollectionId;
+        throw new UndeferrableValueException("Value 'CidrLocationArgs.cidrCollectionId' is not present");
     }
 
     /**
      * Name for the CIDR location.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("CidrLocationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'CidrLocationArgs.name' is not present");
     }
 
 }

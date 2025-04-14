@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,18 +12,20 @@ import javax.annotation.Nullable;
 
 public final class ReservedInstanceRecurringCharge {
 
-    private @Nullable UndeferrableValue<Integer> recurringChargeAmount;
-
+    @PolicyResourceProperty(name="recurringChargeAmount", flag="unknown_recurringChargeAmount")
+    private @Nullable Integer value_recurringChargeAmount;
+    private boolean unknown_recurringChargeAmount;
     public @Nullable Integer recurringChargeAmount() {
-        if (recurringChargeAmount == null) return null;
-        return recurringChargeAmount.getValue("ReservedInstanceRecurringCharge.recurringChargeAmount");
+        if (!unknown_recurringChargeAmount) return value_recurringChargeAmount;
+        throw new UndeferrableValueException("Value 'ReservedInstanceRecurringCharge.recurringChargeAmount' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> recurringChargeFrequency;
-
+    @PolicyResourceProperty(name="recurringChargeFrequency", flag="unknown_recurringChargeFrequency")
+    private @Nullable String value_recurringChargeFrequency;
+    private boolean unknown_recurringChargeFrequency;
     public @Nullable String recurringChargeFrequency() {
-        if (recurringChargeFrequency == null) return null;
-        return recurringChargeFrequency.getValue("ReservedInstanceRecurringCharge.recurringChargeFrequency");
+        if (!unknown_recurringChargeFrequency) return value_recurringChargeFrequency;
+        throw new UndeferrableValueException("Value 'ReservedInstanceRecurringCharge.recurringChargeFrequency' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class AuthorizerJwtConfigurationArgs {
      * List of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
      * 
      */
-    private UndeferrableValue<List<String>> audiences;
-
+    @PolicyResourceProperty(name="audiences", flag="unknown_audiences")
+    private List<String> value_audiences;
+    private boolean unknown_audiences;
     public List<String> audiences() {
-        if (audiences == null) return null;
-        return audiences.getValue("AuthorizerJwtConfigurationArgs.audiences");
+        if (!unknown_audiences) return value_audiences;
+        throw new UndeferrableValueException("Value 'AuthorizerJwtConfigurationArgs.audiences' is not present");
     }
 
     /**
      * Base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `aws.cognito.UserPool` resource.
      * 
      */
-    private UndeferrableValue<String> issuer;
-
+    @PolicyResourceProperty(name="issuer", flag="unknown_issuer")
+    private String value_issuer;
+    private boolean unknown_issuer;
     public String issuer() {
-        if (issuer == null) return null;
-        return issuer.getValue("AuthorizerJwtConfigurationArgs.issuer");
+        if (!unknown_issuer) return value_issuer;
+        throw new UndeferrableValueException("Value 'AuthorizerJwtConfigurationArgs.issuer' is not present");
     }
 
 }

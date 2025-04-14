@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.securityhub.inputs.AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class AutomationRuleCriteriaNoteUpdatedAtArgs {
      * A configuration block of the date range for the date filter. See date_range below for more details.
      * 
      */
-    private UndeferrableValue<AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs> dateRange;
-
+    @PolicyResourceProperty(name="dateRange", flag="unknown_dateRange")
+    private AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs value_dateRange;
+    private boolean unknown_dateRange;
     public AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs dateRange() {
-        if (dateRange == null) return null;
-        return dateRange.getValue("AutomationRuleCriteriaNoteUpdatedAtArgs.dateRange");
+        if (!unknown_dateRange) return value_dateRange;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteriaNoteUpdatedAtArgs.dateRange' is not present");
     }
 
     /**
      * An end date for the date filter. Required with `start` if `date_range` is not specified.
      * 
      */
-    private UndeferrableValue<String> end;
-
+    @PolicyResourceProperty(name="end", flag="unknown_end")
+    private String value_end;
+    private boolean unknown_end;
     public String end() {
-        if (end == null) return null;
-        return end.getValue("AutomationRuleCriteriaNoteUpdatedAtArgs.end");
+        if (!unknown_end) return value_end;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteriaNoteUpdatedAtArgs.end' is not present");
     }
 
     /**
      * A start date for the date filter. Required with `end` if `date_range` is not specified.
      * 
      */
-    private UndeferrableValue<String> start;
-
+    @PolicyResourceProperty(name="start", flag="unknown_start")
+    private String value_start;
+    private boolean unknown_start;
     public String start() {
-        if (start == null) return null;
-        return start.getValue("AutomationRuleCriteriaNoteUpdatedAtArgs.start");
+        if (!unknown_start) return value_start;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteriaNoteUpdatedAtArgs.start' is not present");
     }
 
 }

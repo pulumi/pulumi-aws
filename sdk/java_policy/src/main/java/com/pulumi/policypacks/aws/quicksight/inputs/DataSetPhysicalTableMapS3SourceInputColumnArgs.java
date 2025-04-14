@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class DataSetPhysicalTableMapS3SourceInputColumnArgs {
      * Name of this column in the underlying data source.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DataSetPhysicalTableMapS3SourceInputColumnArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapS3SourceInputColumnArgs.name' is not present");
     }
 
     /**
      * Data type of the column.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("DataSetPhysicalTableMapS3SourceInputColumnArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapS3SourceInputColumnArgs.type' is not present");
     }
 
 }

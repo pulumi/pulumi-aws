@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,33 +15,36 @@ public final class PatchBaselineSource {
      * Value of the yum repo configuration. For information about other options available for your yum repository configuration, see the [`dnf.conf` documentation](https://man7.org/linux/man-pages/man5/dnf.conf.5.html)
      * 
      */
-    private UndeferrableValue<String> configuration;
-
+    @PolicyResourceProperty(name="configuration", flag="unknown_configuration")
+    private String value_configuration;
+    private boolean unknown_configuration;
     public String configuration() {
-        if (configuration == null) return null;
-        return configuration.getValue("PatchBaselineSource.configuration");
+        if (!unknown_configuration) return value_configuration;
+        throw new UndeferrableValueException("Value 'PatchBaselineSource.configuration' is not present");
     }
 
     /**
      * Name specified to identify the patch source.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PatchBaselineSource.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PatchBaselineSource.name' is not present");
     }
 
     /**
      * Specific operating system versions a patch repository applies to, such as `&#34;Ubuntu16.04&#34;`, `&#34;AmazonLinux2016.09&#34;`, `&#34;RedhatEnterpriseLinux7.2&#34;` or `&#34;Suse12.7&#34;`. For lists of supported product values, see [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html).
      * 
      */
-    private UndeferrableValue<List<String>> products;
-
+    @PolicyResourceProperty(name="products", flag="unknown_products")
+    private List<String> value_products;
+    private boolean unknown_products;
     public List<String> products() {
-        if (products == null) return null;
-        return products.getValue("PatchBaselineSource.products");
+        if (!unknown_products) return value_products;
+        throw new UndeferrableValueException("Value 'PatchBaselineSource.products' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudfront.inputs.MonitoringSubscriptionMonitoringSubscriptionArgs;
 import java.lang.String;
@@ -16,22 +17,24 @@ public final class MonitoringSubscriptionArgs extends com.pulumi.resources.Polic
      * The ID of the distribution that you are enabling metrics for.
      * 
      */
-    private UndeferrableValue<String> distributionId;
-
+    @PolicyResourceProperty(name="distributionId", flag="unknown_distributionId")
+    private String value_distributionId;
+    private boolean unknown_distributionId;
     public String distributionId() {
-        if (distributionId == null) return null;
-        return distributionId.getValue("MonitoringSubscriptionArgs.distributionId");
+        if (!unknown_distributionId) return value_distributionId;
+        throw new UndeferrableValueException("Value 'MonitoringSubscriptionArgs.distributionId' is not present");
     }
 
     /**
      * A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
      * 
      */
-    private UndeferrableValue<MonitoringSubscriptionMonitoringSubscriptionArgs> monitoringSubscription;
-
+    @PolicyResourceProperty(name="monitoringSubscription", flag="unknown_monitoringSubscription")
+    private MonitoringSubscriptionMonitoringSubscriptionArgs value_monitoringSubscription;
+    private boolean unknown_monitoringSubscription;
     public MonitoringSubscriptionMonitoringSubscriptionArgs monitoringSubscription() {
-        if (monitoringSubscription == null) return null;
-        return monitoringSubscription.getValue("MonitoringSubscriptionArgs.monitoringSubscription");
+        if (!unknown_monitoringSubscription) return value_monitoringSubscription;
+        throw new UndeferrableValueException("Value 'MonitoringSubscriptionArgs.monitoringSubscription' is not present");
     }
 
 }

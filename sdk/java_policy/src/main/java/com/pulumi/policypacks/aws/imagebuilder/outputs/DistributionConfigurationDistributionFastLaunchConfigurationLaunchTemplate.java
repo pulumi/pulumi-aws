@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class DistributionConfigurationDistributionFastLaunchConfigurationL
      * The ID of the launch template to use for faster launching for a Windows AMI.
      * 
      */
-    private @Nullable UndeferrableValue<String> launchTemplateId;
-
+    @PolicyResourceProperty(name="launchTemplateId", flag="unknown_launchTemplateId")
+    private @Nullable String value_launchTemplateId;
+    private boolean unknown_launchTemplateId;
     public @Nullable String launchTemplateId() {
-        if (launchTemplateId == null) return null;
-        return launchTemplateId.getValue("DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate.launchTemplateId");
+        if (!unknown_launchTemplateId) return value_launchTemplateId;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate.launchTemplateId' is not present");
     }
 
     /**
      * The name of the launch template to use for faster launching for a Windows AMI.
      * 
      */
-    private @Nullable UndeferrableValue<String> launchTemplateName;
-
+    @PolicyResourceProperty(name="launchTemplateName", flag="unknown_launchTemplateName")
+    private @Nullable String value_launchTemplateName;
+    private boolean unknown_launchTemplateName;
     public @Nullable String launchTemplateName() {
-        if (launchTemplateName == null) return null;
-        return launchTemplateName.getValue("DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate.launchTemplateName");
+        if (!unknown_launchTemplateName) return value_launchTemplateName;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate.launchTemplateName' is not present");
     }
 
     /**
      * The version of the launch template to use for faster launching for a Windows AMI.
      * 
      */
-    private @Nullable UndeferrableValue<String> launchTemplateVersion;
-
+    @PolicyResourceProperty(name="launchTemplateVersion", flag="unknown_launchTemplateVersion")
+    private @Nullable String value_launchTemplateVersion;
+    private boolean unknown_launchTemplateVersion;
     public @Nullable String launchTemplateVersion() {
-        if (launchTemplateVersion == null) return null;
-        return launchTemplateVersion.getValue("DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate.launchTemplateVersion");
+        if (!unknown_launchTemplateVersion) return value_launchTemplateVersion;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate.launchTemplateVersion' is not present");
     }
 
 }

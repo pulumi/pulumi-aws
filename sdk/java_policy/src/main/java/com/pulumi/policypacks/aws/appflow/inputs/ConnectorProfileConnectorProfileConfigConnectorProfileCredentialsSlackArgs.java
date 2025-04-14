@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,32 +12,36 @@ import javax.annotation.Nullable;
 
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs {
 
-    private UndeferrableValue<String> accessToken;
-
+    @PolicyResourceProperty(name="accessToken", flag="unknown_accessToken")
+    private String value_accessToken;
+    private boolean unknown_accessToken;
     public String accessToken() {
-        if (accessToken == null) return null;
-        return accessToken.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs.accessToken");
+        if (!unknown_accessToken) return value_accessToken;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs.accessToken' is not present");
     }
 
-    private UndeferrableValue<String> clientId;
-
+    @PolicyResourceProperty(name="clientId", flag="unknown_clientId")
+    private String value_clientId;
+    private boolean unknown_clientId;
     public String clientId() {
-        if (clientId == null) return null;
-        return clientId.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs.clientId");
+        if (!unknown_clientId) return value_clientId;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs.clientId' is not present");
     }
 
-    private UndeferrableValue<String> clientSecret;
-
+    @PolicyResourceProperty(name="clientSecret", flag="unknown_clientSecret")
+    private String value_clientSecret;
+    private boolean unknown_clientSecret;
     public String clientSecret() {
-        if (clientSecret == null) return null;
-        return clientSecret.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs.clientSecret");
+        if (!unknown_clientSecret) return value_clientSecret;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs.clientSecret' is not present");
     }
 
-    private UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs> oauthRequest;
-
+    @PolicyResourceProperty(name="oauthRequest", flag="unknown_oauthRequest")
+    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs value_oauthRequest;
+    private boolean unknown_oauthRequest;
     public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs oauthRequest() {
-        if (oauthRequest == null) return null;
-        return oauthRequest.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs.oauthRequest");
+        if (!unknown_oauthRequest) return value_oauthRequest;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs.oauthRequest' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.glue.inputs.JobCommandArgs;
 import com.pulumi.policypacks.aws.glue.inputs.JobExecutionPropertyArgs;
@@ -25,220 +26,240 @@ public final class JobArgs extends com.pulumi.resources.PolicyResourceInput {
      * The command of the job. Defined below.
      * 
      */
-    private UndeferrableValue<JobCommandArgs> command;
-
+    @PolicyResourceProperty(name="command", flag="unknown_command")
+    private JobCommandArgs value_command;
+    private boolean unknown_command;
     public JobCommandArgs command() {
-        if (command == null) return null;
-        return command.getValue("JobArgs.command");
+        if (!unknown_command) return value_command;
+        throw new UndeferrableValueException("Value 'JobArgs.command' is not present");
     }
 
     /**
      * The list of connections used for this job.
      * 
      */
-    private UndeferrableValue<List<String>> connections;
-
+    @PolicyResourceProperty(name="connections", flag="unknown_connections")
+    private List<String> value_connections;
+    private boolean unknown_connections;
     public List<String> connections() {
-        if (connections == null) return null;
-        return connections.getValue("JobArgs.connections");
+        if (!unknown_connections) return value_connections;
+        throw new UndeferrableValueException("Value 'JobArgs.connections' is not present");
     }
 
     /**
      * The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
      * 
      */
-    private UndeferrableValue<Map<String,String>> defaultArguments;
-
+    @PolicyResourceProperty(name="defaultArguments", flag="unknown_defaultArguments")
+    private Map<String,String> value_defaultArguments;
+    private boolean unknown_defaultArguments;
     public Map<String,String> defaultArguments() {
-        if (defaultArguments == null) return null;
-        return defaultArguments.getValue("JobArgs.defaultArguments");
+        if (!unknown_defaultArguments) return value_defaultArguments;
+        throw new UndeferrableValueException("Value 'JobArgs.defaultArguments' is not present");
     }
 
     /**
      * Description of the job.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("JobArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'JobArgs.description' is not present");
     }
 
     /**
      * Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
      * 
      */
-    private UndeferrableValue<String> executionClass;
-
+    @PolicyResourceProperty(name="executionClass", flag="unknown_executionClass")
+    private String value_executionClass;
+    private boolean unknown_executionClass;
     public String executionClass() {
-        if (executionClass == null) return null;
-        return executionClass.getValue("JobArgs.executionClass");
+        if (!unknown_executionClass) return value_executionClass;
+        throw new UndeferrableValueException("Value 'JobArgs.executionClass' is not present");
     }
 
     /**
      * Execution property of the job. Defined below.
      * 
      */
-    private UndeferrableValue<JobExecutionPropertyArgs> executionProperty;
-
+    @PolicyResourceProperty(name="executionProperty", flag="unknown_executionProperty")
+    private JobExecutionPropertyArgs value_executionProperty;
+    private boolean unknown_executionProperty;
     public JobExecutionPropertyArgs executionProperty() {
-        if (executionProperty == null) return null;
-        return executionProperty.getValue("JobArgs.executionProperty");
+        if (!unknown_executionProperty) return value_executionProperty;
+        throw new UndeferrableValueException("Value 'JobArgs.executionProperty' is not present");
     }
 
     /**
      * The version of glue to use, for example &#34;1.0&#34;. Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      * 
      */
-    private UndeferrableValue<String> glueVersion;
-
+    @PolicyResourceProperty(name="glueVersion", flag="unknown_glueVersion")
+    private String value_glueVersion;
+    private boolean unknown_glueVersion;
     public String glueVersion() {
-        if (glueVersion == null) return null;
-        return glueVersion.getValue("JobArgs.glueVersion");
+        if (!unknown_glueVersion) return value_glueVersion;
+        throw new UndeferrableValueException("Value 'JobArgs.glueVersion' is not present");
     }
 
     /**
      * Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
      * 
      */
-    private UndeferrableValue<Boolean> jobRunQueuingEnabled;
-
+    @PolicyResourceProperty(name="jobRunQueuingEnabled", flag="unknown_jobRunQueuingEnabled")
+    private Boolean value_jobRunQueuingEnabled;
+    private boolean unknown_jobRunQueuingEnabled;
     public Boolean jobRunQueuingEnabled() {
-        if (jobRunQueuingEnabled == null) return null;
-        return jobRunQueuingEnabled.getValue("JobArgs.jobRunQueuingEnabled");
+        if (!unknown_jobRunQueuingEnabled) return value_jobRunQueuingEnabled;
+        throw new UndeferrableValueException("Value 'JobArgs.jobRunQueuingEnabled' is not present");
     }
 
     /**
      * Specifies the day of the week and hour for the maintenance window for streaming jobs.
      * 
      */
-    private UndeferrableValue<String> maintenanceWindow;
-
+    @PolicyResourceProperty(name="maintenanceWindow", flag="unknown_maintenanceWindow")
+    private String value_maintenanceWindow;
+    private boolean unknown_maintenanceWindow;
     public String maintenanceWindow() {
-        if (maintenanceWindow == null) return null;
-        return maintenanceWindow.getValue("JobArgs.maintenanceWindow");
+        if (!unknown_maintenanceWindow) return value_maintenanceWindow;
+        throw new UndeferrableValueException("Value 'JobArgs.maintenanceWindow' is not present");
     }
 
     /**
      * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
      * 
      */
-    private UndeferrableValue<Double> maxCapacity;
-
+    @PolicyResourceProperty(name="maxCapacity", flag="unknown_maxCapacity")
+    private Double value_maxCapacity;
+    private boolean unknown_maxCapacity;
     public Double maxCapacity() {
-        if (maxCapacity == null) return null;
-        return maxCapacity.getValue("JobArgs.maxCapacity");
+        if (!unknown_maxCapacity) return value_maxCapacity;
+        throw new UndeferrableValueException("Value 'JobArgs.maxCapacity' is not present");
     }
 
     /**
      * The maximum number of times to retry this job if it fails.
      * 
      */
-    private UndeferrableValue<Integer> maxRetries;
-
+    @PolicyResourceProperty(name="maxRetries", flag="unknown_maxRetries")
+    private Integer value_maxRetries;
+    private boolean unknown_maxRetries;
     public Integer maxRetries() {
-        if (maxRetries == null) return null;
-        return maxRetries.getValue("JobArgs.maxRetries");
+        if (!unknown_maxRetries) return value_maxRetries;
+        throw new UndeferrableValueException("Value 'JobArgs.maxRetries' is not present");
     }
 
     /**
      * The name you assign to this job. It must be unique in your account.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("JobArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'JobArgs.name' is not present");
     }
 
     /**
      * Non-overridable arguments for this job, specified as name-value pairs.
      * 
      */
-    private UndeferrableValue<Map<String,String>> nonOverridableArguments;
-
+    @PolicyResourceProperty(name="nonOverridableArguments", flag="unknown_nonOverridableArguments")
+    private Map<String,String> value_nonOverridableArguments;
+    private boolean unknown_nonOverridableArguments;
     public Map<String,String> nonOverridableArguments() {
-        if (nonOverridableArguments == null) return null;
-        return nonOverridableArguments.getValue("JobArgs.nonOverridableArguments");
+        if (!unknown_nonOverridableArguments) return value_nonOverridableArguments;
+        throw new UndeferrableValueException("Value 'JobArgs.nonOverridableArguments' is not present");
     }
 
     /**
      * Notification property of the job. Defined below.
      * 
      */
-    private UndeferrableValue<JobNotificationPropertyArgs> notificationProperty;
-
+    @PolicyResourceProperty(name="notificationProperty", flag="unknown_notificationProperty")
+    private JobNotificationPropertyArgs value_notificationProperty;
+    private boolean unknown_notificationProperty;
     public JobNotificationPropertyArgs notificationProperty() {
-        if (notificationProperty == null) return null;
-        return notificationProperty.getValue("JobArgs.notificationProperty");
+        if (!unknown_notificationProperty) return value_notificationProperty;
+        throw new UndeferrableValueException("Value 'JobArgs.notificationProperty' is not present");
     }
 
     /**
      * The number of workers of a defined workerType that are allocated when a job runs.
      * 
      */
-    private UndeferrableValue<Integer> numberOfWorkers;
-
+    @PolicyResourceProperty(name="numberOfWorkers", flag="unknown_numberOfWorkers")
+    private Integer value_numberOfWorkers;
+    private boolean unknown_numberOfWorkers;
     public Integer numberOfWorkers() {
-        if (numberOfWorkers == null) return null;
-        return numberOfWorkers.getValue("JobArgs.numberOfWorkers");
+        if (!unknown_numberOfWorkers) return value_numberOfWorkers;
+        throw new UndeferrableValueException("Value 'JobArgs.numberOfWorkers' is not present");
     }
 
     /**
      * The ARN of the IAM role associated with this job.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("JobArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'JobArgs.roleArn' is not present");
     }
 
     /**
      * The name of the Security Configuration to be associated with the job.
      * 
      */
-    private UndeferrableValue<String> securityConfiguration;
-
+    @PolicyResourceProperty(name="securityConfiguration", flag="unknown_securityConfiguration")
+    private String value_securityConfiguration;
+    private boolean unknown_securityConfiguration;
     public String securityConfiguration() {
-        if (securityConfiguration == null) return null;
-        return securityConfiguration.getValue("JobArgs.securityConfiguration");
+        if (!unknown_securityConfiguration) return value_securityConfiguration;
+        throw new UndeferrableValueException("Value 'JobArgs.securityConfiguration' is not present");
     }
 
     /**
      * The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
      * 
      */
-    private UndeferrableValue<JobSourceControlDetailsArgs> sourceControlDetails;
-
+    @PolicyResourceProperty(name="sourceControlDetails", flag="unknown_sourceControlDetails")
+    private JobSourceControlDetailsArgs value_sourceControlDetails;
+    private boolean unknown_sourceControlDetails;
     public JobSourceControlDetailsArgs sourceControlDetails() {
-        if (sourceControlDetails == null) return null;
-        return sourceControlDetails.getValue("JobArgs.sourceControlDetails");
+        if (!unknown_sourceControlDetails) return value_sourceControlDetails;
+        throw new UndeferrableValueException("Value 'JobArgs.sourceControlDetails' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("JobArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'JobArgs.tags' is not present");
     }
 
     /**
      * The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
      * 
      */
-    private UndeferrableValue<Integer> timeout;
-
+    @PolicyResourceProperty(name="timeout", flag="unknown_timeout")
+    private Integer value_timeout;
+    private boolean unknown_timeout;
     public Integer timeout() {
-        if (timeout == null) return null;
-        return timeout.getValue("JobArgs.timeout");
+        if (!unknown_timeout) return value_timeout;
+        throw new UndeferrableValueException("Value 'JobArgs.timeout' is not present");
     }
 
     /**
@@ -252,11 +273,12 @@ public final class JobArgs extends com.pulumi.resources.PolicyResourceInput {
      * * For the Z.2X worker type, each worker maps to 2 M-DPU (8vCPU, 64 GB of m emory, 128 GB disk), and provides up to 8 Ray workers based on the autoscaler.
      * 
      */
-    private UndeferrableValue<String> workerType;
-
+    @PolicyResourceProperty(name="workerType", flag="unknown_workerType")
+    private String value_workerType;
+    private boolean unknown_workerType;
     public String workerType() {
-        if (workerType == null) return null;
-        return workerType.getValue("JobArgs.workerType");
+        if (!unknown_workerType) return value_workerType;
+        throw new UndeferrableValueException("Value 'JobArgs.workerType' is not present");
     }
 
 }

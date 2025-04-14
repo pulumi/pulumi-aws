@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.storagegateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.storagegateway.outputs.GatewayGatewayNetworkInterface;
 import com.pulumi.policypacks.aws.storagegateway.outputs.GatewayMaintenanceStartTime;
@@ -23,242 +24,264 @@ public final class Gateway extends com.pulumi.resources.PolicyResourceOutput {
      * Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
      * 
      */
-    private UndeferrableValue<String> activationKey;
-
+    @PolicyResourceProperty(name="activationKey", flag="unknown_activationKey")
+    private String value_activationKey;
+    private boolean unknown_activationKey;
     public String activationKey() {
-        if (activationKey == null) return null;
-        return activationKey.getValue("Gateway.activationKey");
+        if (!unknown_activationKey) return value_activationKey;
+        throw new UndeferrableValueException("Value 'Gateway.activationKey' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the gateway.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Gateway.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Gateway.arn' is not present");
     }
 
     /**
      * The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> averageDownloadRateLimitInBitsPerSec;
-
+    @PolicyResourceProperty(name="averageDownloadRateLimitInBitsPerSec", flag="unknown_averageDownloadRateLimitInBitsPerSec")
+    private @Nullable Integer value_averageDownloadRateLimitInBitsPerSec;
+    private boolean unknown_averageDownloadRateLimitInBitsPerSec;
     public @Nullable Integer averageDownloadRateLimitInBitsPerSec() {
-        if (averageDownloadRateLimitInBitsPerSec == null) return null;
-        return averageDownloadRateLimitInBitsPerSec.getValue("Gateway.averageDownloadRateLimitInBitsPerSec");
+        if (!unknown_averageDownloadRateLimitInBitsPerSec) return value_averageDownloadRateLimitInBitsPerSec;
+        throw new UndeferrableValueException("Value 'Gateway.averageDownloadRateLimitInBitsPerSec' is not present");
     }
 
     /**
      * The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> averageUploadRateLimitInBitsPerSec;
-
+    @PolicyResourceProperty(name="averageUploadRateLimitInBitsPerSec", flag="unknown_averageUploadRateLimitInBitsPerSec")
+    private @Nullable Integer value_averageUploadRateLimitInBitsPerSec;
+    private boolean unknown_averageUploadRateLimitInBitsPerSec;
     public @Nullable Integer averageUploadRateLimitInBitsPerSec() {
-        if (averageUploadRateLimitInBitsPerSec == null) return null;
-        return averageUploadRateLimitInBitsPerSec.getValue("Gateway.averageUploadRateLimitInBitsPerSec");
+        if (!unknown_averageUploadRateLimitInBitsPerSec) return value_averageUploadRateLimitInBitsPerSec;
+        throw new UndeferrableValueException("Value 'Gateway.averageUploadRateLimitInBitsPerSec' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
      * 
      */
-    private @Nullable UndeferrableValue<String> cloudwatchLogGroupArn;
-
+    @PolicyResourceProperty(name="cloudwatchLogGroupArn", flag="unknown_cloudwatchLogGroupArn")
+    private @Nullable String value_cloudwatchLogGroupArn;
+    private boolean unknown_cloudwatchLogGroupArn;
     public @Nullable String cloudwatchLogGroupArn() {
-        if (cloudwatchLogGroupArn == null) return null;
-        return cloudwatchLogGroupArn.getValue("Gateway.cloudwatchLogGroupArn");
+        if (!unknown_cloudwatchLogGroupArn) return value_cloudwatchLogGroupArn;
+        throw new UndeferrableValueException("Value 'Gateway.cloudwatchLogGroupArn' is not present");
     }
 
     /**
      * The ID of the Amazon EC2 instance that was used to launch the gateway.
      * 
      */
-    private UndeferrableValue<String> ec2InstanceId;
-
+    @PolicyResourceProperty(name="ec2InstanceId", flag="unknown_ec2InstanceId")
+    private String value_ec2InstanceId;
+    private boolean unknown_ec2InstanceId;
     public String ec2InstanceId() {
-        if (ec2InstanceId == null) return null;
-        return ec2InstanceId.getValue("Gateway.ec2InstanceId");
+        if (!unknown_ec2InstanceId) return value_ec2InstanceId;
+        throw new UndeferrableValueException("Value 'Gateway.ec2InstanceId' is not present");
     }
 
     /**
      * The type of endpoint for your gateway.
      * 
      */
-    private UndeferrableValue<String> endpointType;
-
+    @PolicyResourceProperty(name="endpointType", flag="unknown_endpointType")
+    private String value_endpointType;
+    private boolean unknown_endpointType;
     public String endpointType() {
-        if (endpointType == null) return null;
-        return endpointType.getValue("Gateway.endpointType");
+        if (!unknown_endpointType) return value_endpointType;
+        throw new UndeferrableValueException("Value 'Gateway.endpointType' is not present");
     }
 
     /**
      * Identifier of the gateway.
      * 
      */
-    private UndeferrableValue<String> gatewayId;
-
+    @PolicyResourceProperty(name="gatewayId", flag="unknown_gatewayId")
+    private String value_gatewayId;
+    private boolean unknown_gatewayId;
     public String gatewayId() {
-        if (gatewayId == null) return null;
-        return gatewayId.getValue("Gateway.gatewayId");
+        if (!unknown_gatewayId) return value_gatewayId;
+        throw new UndeferrableValueException("Value 'Gateway.gatewayId' is not present");
     }
 
     /**
      * Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
      * 
      */
-    private UndeferrableValue<String> gatewayIpAddress;
-
+    @PolicyResourceProperty(name="gatewayIpAddress", flag="unknown_gatewayIpAddress")
+    private String value_gatewayIpAddress;
+    private boolean unknown_gatewayIpAddress;
     public String gatewayIpAddress() {
-        if (gatewayIpAddress == null) return null;
-        return gatewayIpAddress.getValue("Gateway.gatewayIpAddress");
+        if (!unknown_gatewayIpAddress) return value_gatewayIpAddress;
+        throw new UndeferrableValueException("Value 'Gateway.gatewayIpAddress' is not present");
     }
 
     /**
      * Name of the gateway.
      * 
      */
-    private UndeferrableValue<String> gatewayName;
-
+    @PolicyResourceProperty(name="gatewayName", flag="unknown_gatewayName")
+    private String value_gatewayName;
+    private boolean unknown_gatewayName;
     public String gatewayName() {
-        if (gatewayName == null) return null;
-        return gatewayName.getValue("Gateway.gatewayName");
+        if (!unknown_gatewayName) return value_gatewayName;
+        throw new UndeferrableValueException("Value 'Gateway.gatewayName' is not present");
     }
 
     /**
      * An array that contains descriptions of the gateway network interfaces. See Gateway Network Interface.
      * 
      */
-    private UndeferrableValue<List<GatewayGatewayNetworkInterface>> gatewayNetworkInterfaces;
-
+    @PolicyResourceProperty(name="gatewayNetworkInterfaces", flag="unknown_gatewayNetworkInterfaces")
+    private List<GatewayGatewayNetworkInterface> value_gatewayNetworkInterfaces;
+    private boolean unknown_gatewayNetworkInterfaces;
     public List<GatewayGatewayNetworkInterface> gatewayNetworkInterfaces() {
-        if (gatewayNetworkInterfaces == null) return null;
-        return gatewayNetworkInterfaces.getValue("Gateway.gatewayNetworkInterfaces");
+        if (!unknown_gatewayNetworkInterfaces) return value_gatewayNetworkInterfaces;
+        throw new UndeferrableValueException("Value 'Gateway.gatewayNetworkInterfaces' is not present");
     }
 
     /**
      * Time zone for the gateway. The time zone is of the format &#34;GMT&#34;, &#34;GMT-hr:mm&#34;, or &#34;GMT+hr:mm&#34;. For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway&#39;s maintenance schedule.
      * 
      */
-    private UndeferrableValue<String> gatewayTimezone;
-
+    @PolicyResourceProperty(name="gatewayTimezone", flag="unknown_gatewayTimezone")
+    private String value_gatewayTimezone;
+    private boolean unknown_gatewayTimezone;
     public String gatewayTimezone() {
-        if (gatewayTimezone == null) return null;
-        return gatewayTimezone.getValue("Gateway.gatewayTimezone");
+        if (!unknown_gatewayTimezone) return value_gatewayTimezone;
+        throw new UndeferrableValueException("Value 'Gateway.gatewayTimezone' is not present");
     }
 
     /**
      * Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
      * 
      */
-    private @Nullable UndeferrableValue<String> gatewayType;
-
+    @PolicyResourceProperty(name="gatewayType", flag="unknown_gatewayType")
+    private @Nullable String value_gatewayType;
+    private boolean unknown_gatewayType;
     public @Nullable String gatewayType() {
-        if (gatewayType == null) return null;
-        return gatewayType.getValue("Gateway.gatewayType");
+        if (!unknown_gatewayType) return value_gatewayType;
+        throw new UndeferrableValueException("Value 'Gateway.gatewayType' is not present");
     }
 
     /**
      * VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
      * 
      */
-    private @Nullable UndeferrableValue<String> gatewayVpcEndpoint;
-
+    @PolicyResourceProperty(name="gatewayVpcEndpoint", flag="unknown_gatewayVpcEndpoint")
+    private @Nullable String value_gatewayVpcEndpoint;
+    private boolean unknown_gatewayVpcEndpoint;
     public @Nullable String gatewayVpcEndpoint() {
-        if (gatewayVpcEndpoint == null) return null;
-        return gatewayVpcEndpoint.getValue("Gateway.gatewayVpcEndpoint");
+        if (!unknown_gatewayVpcEndpoint) return value_gatewayVpcEndpoint;
+        throw new UndeferrableValueException("Value 'Gateway.gatewayVpcEndpoint' is not present");
     }
 
     /**
      * The type of hypervisor environment used by the host.
      * 
      */
-    private UndeferrableValue<String> hostEnvironment;
-
+    @PolicyResourceProperty(name="hostEnvironment", flag="unknown_hostEnvironment")
+    private String value_hostEnvironment;
+    private boolean unknown_hostEnvironment;
     public String hostEnvironment() {
-        if (hostEnvironment == null) return null;
-        return hostEnvironment.getValue("Gateway.hostEnvironment");
+        if (!unknown_hostEnvironment) return value_hostEnvironment;
+        throw new UndeferrableValueException("Value 'Gateway.hostEnvironment' is not present");
     }
 
     /**
      * The gateway&#39;s weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway&#39;s time zone. More details below.
      * 
      */
-    private UndeferrableValue<GatewayMaintenanceStartTime> maintenanceStartTime;
-
+    @PolicyResourceProperty(name="maintenanceStartTime", flag="unknown_maintenanceStartTime")
+    private GatewayMaintenanceStartTime value_maintenanceStartTime;
+    private boolean unknown_maintenanceStartTime;
     public GatewayMaintenanceStartTime maintenanceStartTime() {
-        if (maintenanceStartTime == null) return null;
-        return maintenanceStartTime.getValue("Gateway.maintenanceStartTime");
+        if (!unknown_maintenanceStartTime) return value_maintenanceStartTime;
+        throw new UndeferrableValueException("Value 'Gateway.maintenanceStartTime' is not present");
     }
 
     /**
      * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
      * 
      */
-    private @Nullable UndeferrableValue<String> mediumChangerType;
-
+    @PolicyResourceProperty(name="mediumChangerType", flag="unknown_mediumChangerType")
+    private @Nullable String value_mediumChangerType;
+    private boolean unknown_mediumChangerType;
     public @Nullable String mediumChangerType() {
-        if (mediumChangerType == null) return null;
-        return mediumChangerType.getValue("Gateway.mediumChangerType");
+        if (!unknown_mediumChangerType) return value_mediumChangerType;
+        throw new UndeferrableValueException("Value 'Gateway.mediumChangerType' is not present");
     }
 
     /**
      * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
      * 
      */
-    private @Nullable UndeferrableValue<GatewaySmbActiveDirectorySettings> smbActiveDirectorySettings;
-
+    @PolicyResourceProperty(name="smbActiveDirectorySettings", flag="unknown_smbActiveDirectorySettings")
+    private @Nullable GatewaySmbActiveDirectorySettings value_smbActiveDirectorySettings;
+    private boolean unknown_smbActiveDirectorySettings;
     public @Nullable GatewaySmbActiveDirectorySettings smbActiveDirectorySettings() {
-        if (smbActiveDirectorySettings == null) return null;
-        return smbActiveDirectorySettings.getValue("Gateway.smbActiveDirectorySettings");
+        if (!unknown_smbActiveDirectorySettings) return value_smbActiveDirectorySettings;
+        throw new UndeferrableValueException("Value 'Gateway.smbActiveDirectorySettings' is not present");
     }
 
     /**
      * Specifies whether the shares on this gateway appear when listing shares.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> smbFileShareVisibility;
-
+    @PolicyResourceProperty(name="smbFileShareVisibility", flag="unknown_smbFileShareVisibility")
+    private @Nullable Boolean value_smbFileShareVisibility;
+    private boolean unknown_smbFileShareVisibility;
     public @Nullable Boolean smbFileShareVisibility() {
-        if (smbFileShareVisibility == null) return null;
-        return smbFileShareVisibility.getValue("Gateway.smbFileShareVisibility");
+        if (!unknown_smbFileShareVisibility) return value_smbFileShareVisibility;
+        throw new UndeferrableValueException("Value 'Gateway.smbFileShareVisibility' is not present");
     }
 
     /**
      * Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
      * 
      */
-    private @Nullable UndeferrableValue<String> smbGuestPassword;
-
+    @PolicyResourceProperty(name="smbGuestPassword", flag="unknown_smbGuestPassword")
+    private @Nullable String value_smbGuestPassword;
+    private boolean unknown_smbGuestPassword;
     public @Nullable String smbGuestPassword() {
-        if (smbGuestPassword == null) return null;
-        return smbGuestPassword.getValue("Gateway.smbGuestPassword");
+        if (!unknown_smbGuestPassword) return value_smbGuestPassword;
+        throw new UndeferrableValueException("Value 'Gateway.smbGuestPassword' is not present");
     }
 
     /**
      * Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
      * 
      */
-    private UndeferrableValue<String> smbSecurityStrategy;
-
+    @PolicyResourceProperty(name="smbSecurityStrategy", flag="unknown_smbSecurityStrategy")
+    private String value_smbSecurityStrategy;
+    private boolean unknown_smbSecurityStrategy;
     public String smbSecurityStrategy() {
-        if (smbSecurityStrategy == null) return null;
-        return smbSecurityStrategy.getValue("Gateway.smbSecurityStrategy");
+        if (!unknown_smbSecurityStrategy) return value_smbSecurityStrategy;
+        throw new UndeferrableValueException("Value 'Gateway.smbSecurityStrategy' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Gateway.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Gateway.tags' is not present");
     }
 
     /**
@@ -269,22 +292,24 @@ public final class Gateway extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Gateway.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Gateway.tagsAll' is not present");
     }
 
     /**
      * Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
      * 
      */
-    private @Nullable UndeferrableValue<String> tapeDriveType;
-
+    @PolicyResourceProperty(name="tapeDriveType", flag="unknown_tapeDriveType")
+    private @Nullable String value_tapeDriveType;
+    private boolean unknown_tapeDriveType;
     public @Nullable String tapeDriveType() {
-        if (tapeDriveType == null) return null;
-        return tapeDriveType.getValue("Gateway.tapeDriveType");
+        if (!unknown_tapeDriveType) return value_tapeDriveType;
+        throw new UndeferrableValueException("Value 'Gateway.tapeDriveType' is not present");
     }
 
 }

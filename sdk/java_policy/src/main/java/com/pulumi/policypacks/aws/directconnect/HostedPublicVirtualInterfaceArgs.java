@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,110 +19,120 @@ public final class HostedPublicVirtualInterfaceArgs extends com.pulumi.resources
      * The address family for the BGP peer. ` ipv4  ` or `ipv6`.
      * 
      */
-    private UndeferrableValue<String> addressFamily;
-
+    @PolicyResourceProperty(name="addressFamily", flag="unknown_addressFamily")
+    private String value_addressFamily;
+    private boolean unknown_addressFamily;
     public String addressFamily() {
-        if (addressFamily == null) return null;
-        return addressFamily.getValue("HostedPublicVirtualInterfaceArgs.addressFamily");
+        if (!unknown_addressFamily) return value_addressFamily;
+        throw new UndeferrableValueException("Value 'HostedPublicVirtualInterfaceArgs.addressFamily' is not present");
     }
 
     /**
      * The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
      * 
      */
-    private UndeferrableValue<String> amazonAddress;
-
+    @PolicyResourceProperty(name="amazonAddress", flag="unknown_amazonAddress")
+    private String value_amazonAddress;
+    private boolean unknown_amazonAddress;
     public String amazonAddress() {
-        if (amazonAddress == null) return null;
-        return amazonAddress.getValue("HostedPublicVirtualInterfaceArgs.amazonAddress");
+        if (!unknown_amazonAddress) return value_amazonAddress;
+        throw new UndeferrableValueException("Value 'HostedPublicVirtualInterfaceArgs.amazonAddress' is not present");
     }
 
     /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      * 
      */
-    private UndeferrableValue<Integer> bgpAsn;
-
+    @PolicyResourceProperty(name="bgpAsn", flag="unknown_bgpAsn")
+    private Integer value_bgpAsn;
+    private boolean unknown_bgpAsn;
     public Integer bgpAsn() {
-        if (bgpAsn == null) return null;
-        return bgpAsn.getValue("HostedPublicVirtualInterfaceArgs.bgpAsn");
+        if (!unknown_bgpAsn) return value_bgpAsn;
+        throw new UndeferrableValueException("Value 'HostedPublicVirtualInterfaceArgs.bgpAsn' is not present");
     }
 
     /**
      * The authentication key for BGP configuration.
      * 
      */
-    private UndeferrableValue<String> bgpAuthKey;
-
+    @PolicyResourceProperty(name="bgpAuthKey", flag="unknown_bgpAuthKey")
+    private String value_bgpAuthKey;
+    private boolean unknown_bgpAuthKey;
     public String bgpAuthKey() {
-        if (bgpAuthKey == null) return null;
-        return bgpAuthKey.getValue("HostedPublicVirtualInterfaceArgs.bgpAuthKey");
+        if (!unknown_bgpAuthKey) return value_bgpAuthKey;
+        throw new UndeferrableValueException("Value 'HostedPublicVirtualInterfaceArgs.bgpAuthKey' is not present");
     }
 
     /**
      * The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
      * 
      */
-    private UndeferrableValue<String> connectionId;
-
+    @PolicyResourceProperty(name="connectionId", flag="unknown_connectionId")
+    private String value_connectionId;
+    private boolean unknown_connectionId;
     public String connectionId() {
-        if (connectionId == null) return null;
-        return connectionId.getValue("HostedPublicVirtualInterfaceArgs.connectionId");
+        if (!unknown_connectionId) return value_connectionId;
+        throw new UndeferrableValueException("Value 'HostedPublicVirtualInterfaceArgs.connectionId' is not present");
     }
 
     /**
      * The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
      * 
      */
-    private UndeferrableValue<String> customerAddress;
-
+    @PolicyResourceProperty(name="customerAddress", flag="unknown_customerAddress")
+    private String value_customerAddress;
+    private boolean unknown_customerAddress;
     public String customerAddress() {
-        if (customerAddress == null) return null;
-        return customerAddress.getValue("HostedPublicVirtualInterfaceArgs.customerAddress");
+        if (!unknown_customerAddress) return value_customerAddress;
+        throw new UndeferrableValueException("Value 'HostedPublicVirtualInterfaceArgs.customerAddress' is not present");
     }
 
     /**
      * The name for the virtual interface.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("HostedPublicVirtualInterfaceArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'HostedPublicVirtualInterfaceArgs.name' is not present");
     }
 
     /**
      * The AWS account that will own the new virtual interface.
      * 
      */
-    private UndeferrableValue<String> ownerAccountId;
-
+    @PolicyResourceProperty(name="ownerAccountId", flag="unknown_ownerAccountId")
+    private String value_ownerAccountId;
+    private boolean unknown_ownerAccountId;
     public String ownerAccountId() {
-        if (ownerAccountId == null) return null;
-        return ownerAccountId.getValue("HostedPublicVirtualInterfaceArgs.ownerAccountId");
+        if (!unknown_ownerAccountId) return value_ownerAccountId;
+        throw new UndeferrableValueException("Value 'HostedPublicVirtualInterfaceArgs.ownerAccountId' is not present");
     }
 
     /**
      * A list of routes to be advertised to the AWS network in this region.
      * 
      */
-    private UndeferrableValue<List<String>> routeFilterPrefixes;
-
+    @PolicyResourceProperty(name="routeFilterPrefixes", flag="unknown_routeFilterPrefixes")
+    private List<String> value_routeFilterPrefixes;
+    private boolean unknown_routeFilterPrefixes;
     public List<String> routeFilterPrefixes() {
-        if (routeFilterPrefixes == null) return null;
-        return routeFilterPrefixes.getValue("HostedPublicVirtualInterfaceArgs.routeFilterPrefixes");
+        if (!unknown_routeFilterPrefixes) return value_routeFilterPrefixes;
+        throw new UndeferrableValueException("Value 'HostedPublicVirtualInterfaceArgs.routeFilterPrefixes' is not present");
     }
 
     /**
      * The VLAN ID.
      * 
      */
-    private UndeferrableValue<Integer> vlan;
-
+    @PolicyResourceProperty(name="vlan", flag="unknown_vlan")
+    private Integer value_vlan;
+    private boolean unknown_vlan;
     public Integer vlan() {
-        if (vlan == null) return null;
-        return vlan.getValue("HostedPublicVirtualInterfaceArgs.vlan");
+        if (!unknown_vlan) return value_vlan;
+        throw new UndeferrableValueException("Value 'HostedPublicVirtualInterfaceArgs.vlan' is not present");
     }
 
 }

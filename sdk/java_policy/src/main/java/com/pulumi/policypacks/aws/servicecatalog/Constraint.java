@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,73 +17,80 @@ public final class Constraint extends com.pulumi.resources.PolicyResourceOutput 
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      * 
      */
-    private @Nullable UndeferrableValue<String> acceptLanguage;
-
+    @PolicyResourceProperty(name="acceptLanguage", flag="unknown_acceptLanguage")
+    private @Nullable String value_acceptLanguage;
+    private boolean unknown_acceptLanguage;
     public @Nullable String acceptLanguage() {
-        if (acceptLanguage == null) return null;
-        return acceptLanguage.getValue("Constraint.acceptLanguage");
+        if (!unknown_acceptLanguage) return value_acceptLanguage;
+        throw new UndeferrableValueException("Value 'Constraint.acceptLanguage' is not present");
     }
 
     /**
      * Description of the constraint.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("Constraint.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Constraint.description' is not present");
     }
 
     /**
      * Owner of the constraint.
      * 
      */
-    private UndeferrableValue<String> owner;
-
+    @PolicyResourceProperty(name="owner", flag="unknown_owner")
+    private String value_owner;
+    private boolean unknown_owner;
     public String owner() {
-        if (owner == null) return null;
-        return owner.getValue("Constraint.owner");
+        if (!unknown_owner) return value_owner;
+        throw new UndeferrableValueException("Value 'Constraint.owner' is not present");
     }
 
     /**
      * Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
      * 
      */
-    private UndeferrableValue<String> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private String value_parameters;
+    private boolean unknown_parameters;
     public String parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("Constraint.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'Constraint.parameters' is not present");
     }
 
     /**
      * Portfolio identifier.
      * 
      */
-    private UndeferrableValue<String> portfolioId;
-
+    @PolicyResourceProperty(name="portfolioId", flag="unknown_portfolioId")
+    private String value_portfolioId;
+    private boolean unknown_portfolioId;
     public String portfolioId() {
-        if (portfolioId == null) return null;
-        return portfolioId.getValue("Constraint.portfolioId");
+        if (!unknown_portfolioId) return value_portfolioId;
+        throw new UndeferrableValueException("Value 'Constraint.portfolioId' is not present");
     }
 
     /**
      * Product identifier.
      * 
      */
-    private UndeferrableValue<String> productId;
-
+    @PolicyResourceProperty(name="productId", flag="unknown_productId")
+    private String value_productId;
+    private boolean unknown_productId;
     public String productId() {
-        if (productId == null) return null;
-        return productId.getValue("Constraint.productId");
+        if (!unknown_productId) return value_productId;
+        throw new UndeferrableValueException("Value 'Constraint.productId' is not present");
     }
 
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Constraint.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Constraint.status' is not present");
     }
 
     /**
@@ -91,11 +99,12 @@ public final class Constraint extends com.pulumi.resources.PolicyResourceOutput 
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("Constraint.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'Constraint.type' is not present");
     }
 
 }

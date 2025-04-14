@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,11 +14,12 @@ public final class VirtualGatewaySpecListenerConnectionPoolHttp2Args {
      * Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
      * 
      */
-    private UndeferrableValue<Integer> maxRequests;
-
+    @PolicyResourceProperty(name="maxRequests", flag="unknown_maxRequests")
+    private Integer value_maxRequests;
+    private boolean unknown_maxRequests;
     public Integer maxRequests() {
-        if (maxRequests == null) return null;
-        return maxRequests.getValue("VirtualGatewaySpecListenerConnectionPoolHttp2Args.maxRequests");
+        if (!unknown_maxRequests) return value_maxRequests;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerConnectionPoolHttp2Args.maxRequests' is not present");
     }
 
 }

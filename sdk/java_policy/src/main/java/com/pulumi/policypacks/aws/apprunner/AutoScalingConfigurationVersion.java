@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,113 +20,124 @@ public final class AutoScalingConfigurationVersion extends com.pulumi.resources.
      * ARN of this auto scaling configuration version.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("AutoScalingConfigurationVersion.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersion.arn' is not present");
     }
 
     /**
      * Name of the auto scaling configuration.
      * 
      */
-    private UndeferrableValue<String> autoScalingConfigurationName;
-
+    @PolicyResourceProperty(name="autoScalingConfigurationName", flag="unknown_autoScalingConfigurationName")
+    private String value_autoScalingConfigurationName;
+    private boolean unknown_autoScalingConfigurationName;
     public String autoScalingConfigurationName() {
-        if (autoScalingConfigurationName == null) return null;
-        return autoScalingConfigurationName.getValue("AutoScalingConfigurationVersion.autoScalingConfigurationName");
+        if (!unknown_autoScalingConfigurationName) return value_autoScalingConfigurationName;
+        throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersion.autoScalingConfigurationName' is not present");
     }
 
     /**
      * The revision of this auto scaling configuration.
      * 
      */
-    private UndeferrableValue<Integer> autoScalingConfigurationRevision;
-
+    @PolicyResourceProperty(name="autoScalingConfigurationRevision", flag="unknown_autoScalingConfigurationRevision")
+    private Integer value_autoScalingConfigurationRevision;
+    private boolean unknown_autoScalingConfigurationRevision;
     public Integer autoScalingConfigurationRevision() {
-        if (autoScalingConfigurationRevision == null) return null;
-        return autoScalingConfigurationRevision.getValue("AutoScalingConfigurationVersion.autoScalingConfigurationRevision");
+        if (!unknown_autoScalingConfigurationRevision) return value_autoScalingConfigurationRevision;
+        throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersion.autoScalingConfigurationRevision' is not present");
     }
 
-    private UndeferrableValue<Boolean> hasAssociatedService;
-
+    @PolicyResourceProperty(name="hasAssociatedService", flag="unknown_hasAssociatedService")
+    private Boolean value_hasAssociatedService;
+    private boolean unknown_hasAssociatedService;
     public Boolean hasAssociatedService() {
-        if (hasAssociatedService == null) return null;
-        return hasAssociatedService.getValue("AutoScalingConfigurationVersion.hasAssociatedService");
+        if (!unknown_hasAssociatedService) return value_hasAssociatedService;
+        throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersion.hasAssociatedService' is not present");
     }
 
-    private UndeferrableValue<Boolean> isDefault;
-
+    @PolicyResourceProperty(name="isDefault", flag="unknown_isDefault")
+    private Boolean value_isDefault;
+    private boolean unknown_isDefault;
     public Boolean isDefault() {
-        if (isDefault == null) return null;
-        return isDefault.getValue("AutoScalingConfigurationVersion.isDefault");
+        if (!unknown_isDefault) return value_isDefault;
+        throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersion.isDefault' is not present");
     }
 
     /**
      * Whether the auto scaling configuration has the highest `auto_scaling_configuration_revision` among all configurations that share the same `auto_scaling_configuration_name`.
      * 
      */
-    private UndeferrableValue<Boolean> latest;
-
+    @PolicyResourceProperty(name="latest", flag="unknown_latest")
+    private Boolean value_latest;
+    private boolean unknown_latest;
     public Boolean latest() {
-        if (latest == null) return null;
-        return latest.getValue("AutoScalingConfigurationVersion.latest");
+        if (!unknown_latest) return value_latest;
+        throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersion.latest' is not present");
     }
 
     /**
      * Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxConcurrency;
-
+    @PolicyResourceProperty(name="maxConcurrency", flag="unknown_maxConcurrency")
+    private @Nullable Integer value_maxConcurrency;
+    private boolean unknown_maxConcurrency;
     public @Nullable Integer maxConcurrency() {
-        if (maxConcurrency == null) return null;
-        return maxConcurrency.getValue("AutoScalingConfigurationVersion.maxConcurrency");
+        if (!unknown_maxConcurrency) return value_maxConcurrency;
+        throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersion.maxConcurrency' is not present");
     }
 
     /**
      * Maximal number of instances that App Runner provisions for your service.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxSize;
-
+    @PolicyResourceProperty(name="maxSize", flag="unknown_maxSize")
+    private @Nullable Integer value_maxSize;
+    private boolean unknown_maxSize;
     public @Nullable Integer maxSize() {
-        if (maxSize == null) return null;
-        return maxSize.getValue("AutoScalingConfigurationVersion.maxSize");
+        if (!unknown_maxSize) return value_maxSize;
+        throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersion.maxSize' is not present");
     }
 
     /**
      * Minimal number of instances that App Runner provisions for your service.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> minSize;
-
+    @PolicyResourceProperty(name="minSize", flag="unknown_minSize")
+    private @Nullable Integer value_minSize;
+    private boolean unknown_minSize;
     public @Nullable Integer minSize() {
-        if (minSize == null) return null;
-        return minSize.getValue("AutoScalingConfigurationVersion.minSize");
+        if (!unknown_minSize) return value_minSize;
+        throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersion.minSize' is not present");
     }
 
     /**
      * Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("AutoScalingConfigurationVersion.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersion.status' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AutoScalingConfigurationVersion.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersion.tags' is not present");
     }
 
     /**
@@ -136,11 +148,12 @@ public final class AutoScalingConfigurationVersion extends com.pulumi.resources.
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("AutoScalingConfigurationVersion.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersion.tagsAll' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ListenerDefaultActionForwardTargetGroupArgs {
      * ID or Amazon Resource Name (ARN) of the target group.
      * 
      */
-    private UndeferrableValue<String> targetGroupIdentifier;
-
+    @PolicyResourceProperty(name="targetGroupIdentifier", flag="unknown_targetGroupIdentifier")
+    private String value_targetGroupIdentifier;
+    private boolean unknown_targetGroupIdentifier;
     public String targetGroupIdentifier() {
-        if (targetGroupIdentifier == null) return null;
-        return targetGroupIdentifier.getValue("ListenerDefaultActionForwardTargetGroupArgs.targetGroupIdentifier");
+        if (!unknown_targetGroupIdentifier) return value_targetGroupIdentifier;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionForwardTargetGroupArgs.targetGroupIdentifier' is not present");
     }
 
     /**
@@ -27,11 +29,12 @@ public final class ListenerDefaultActionForwardTargetGroupArgs {
      * weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
      * 
      */
-    private UndeferrableValue<Integer> weight;
-
+    @PolicyResourceProperty(name="weight", flag="unknown_weight")
+    private Integer value_weight;
+    private boolean unknown_weight;
     public Integer weight() {
-        if (weight == null) return null;
-        return weight.getValue("ListenerDefaultActionForwardTargetGroupArgs.weight");
+        if (!unknown_weight) return value_weight;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionForwardTargetGroupArgs.weight' is not present");
     }
 
 }

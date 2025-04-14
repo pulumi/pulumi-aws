@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ZoneVpcArgs {
      * ID of the VPC to associate.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("ZoneVpcArgs.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'ZoneVpcArgs.vpcId' is not present");
     }
 
     /**
      * Region of the VPC to associate. Defaults to AWS provider region.
      * 
      */
-    private UndeferrableValue<String> vpcRegion;
-
+    @PolicyResourceProperty(name="vpcRegion", flag="unknown_vpcRegion")
+    private String value_vpcRegion;
+    private boolean unknown_vpcRegion;
     public String vpcRegion() {
-        if (vpcRegion == null) return null;
-        return vpcRegion.getValue("ZoneVpcArgs.vpcRegion");
+        if (!unknown_vpcRegion) return value_vpcRegion;
+        throw new UndeferrableValueException("Value 'ZoneVpcArgs.vpcRegion' is not present");
     }
 
 }

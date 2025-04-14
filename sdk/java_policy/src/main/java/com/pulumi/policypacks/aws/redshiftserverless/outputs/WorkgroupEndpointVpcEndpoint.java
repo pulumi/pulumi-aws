@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshiftserverless.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.redshiftserverless.outputs.WorkgroupEndpointVpcEndpointNetworkInterface;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class WorkgroupEndpointVpcEndpoint {
      * The network interfaces of the endpoint.. See `Network Interface` below.
      * 
      */
-    private @Nullable UndeferrableValue<List<WorkgroupEndpointVpcEndpointNetworkInterface>> networkInterfaces;
-
+    @PolicyResourceProperty(name="networkInterfaces", flag="unknown_networkInterfaces")
+    private @Nullable List<WorkgroupEndpointVpcEndpointNetworkInterface> value_networkInterfaces;
+    private boolean unknown_networkInterfaces;
     public @Nullable List<WorkgroupEndpointVpcEndpointNetworkInterface> networkInterfaces() {
-        if (networkInterfaces == null) return null;
-        return networkInterfaces.getValue("WorkgroupEndpointVpcEndpoint.networkInterfaces");
+        if (!unknown_networkInterfaces) return value_networkInterfaces;
+        throw new UndeferrableValueException("Value 'WorkgroupEndpointVpcEndpoint.networkInterfaces' is not present");
     }
 
     /**
      * The DNS address of the VPC endpoint.
      * 
      */
-    private @Nullable UndeferrableValue<String> vpcEndpointId;
-
+    @PolicyResourceProperty(name="vpcEndpointId", flag="unknown_vpcEndpointId")
+    private @Nullable String value_vpcEndpointId;
+    private boolean unknown_vpcEndpointId;
     public @Nullable String vpcEndpointId() {
-        if (vpcEndpointId == null) return null;
-        return vpcEndpointId.getValue("WorkgroupEndpointVpcEndpoint.vpcEndpointId");
+        if (!unknown_vpcEndpointId) return value_vpcEndpointId;
+        throw new UndeferrableValueException("Value 'WorkgroupEndpointVpcEndpoint.vpcEndpointId' is not present");
     }
 
     /**
      * The port that Amazon Redshift Serverless listens on.
      * 
      */
-    private @Nullable UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private @Nullable String value_vpcId;
+    private boolean unknown_vpcId;
     public @Nullable String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("WorkgroupEndpointVpcEndpoint.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'WorkgroupEndpointVpcEndpoint.vpcId' is not present");
     }
 
 }

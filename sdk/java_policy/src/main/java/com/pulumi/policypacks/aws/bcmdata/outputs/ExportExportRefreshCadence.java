@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bcmdata.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ExportExportRefreshCadence {
      * Frequency that data exports are updated. The export refreshes each time the source data updates, up to three times daily. Valid values `SYNCHRONOUS`.
      * 
      */
-    private UndeferrableValue<String> frequency;
-
+    @PolicyResourceProperty(name="frequency", flag="unknown_frequency")
+    private String value_frequency;
+    private boolean unknown_frequency;
     public String frequency() {
-        if (frequency == null) return null;
-        return frequency.getValue("ExportExportRefreshCadence.frequency");
+        if (!unknown_frequency) return value_frequency;
+        throw new UndeferrableValueException("Value 'ExportExportRefreshCadence.frequency' is not present");
     }
 
 }

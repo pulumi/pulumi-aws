@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class ComputeEnvironmentEksConfiguration {
      * The Amazon Resource Name (ARN) of the Amazon EKS cluster.
      * 
      */
-    private UndeferrableValue<String> eksClusterArn;
-
+    @PolicyResourceProperty(name="eksClusterArn", flag="unknown_eksClusterArn")
+    private String value_eksClusterArn;
+    private boolean unknown_eksClusterArn;
     public String eksClusterArn() {
-        if (eksClusterArn == null) return null;
-        return eksClusterArn.getValue("ComputeEnvironmentEksConfiguration.eksClusterArn");
+        if (!unknown_eksClusterArn) return value_eksClusterArn;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentEksConfiguration.eksClusterArn' is not present");
     }
 
     /**
      * The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
      * 
      */
-    private UndeferrableValue<String> kubernetesNamespace;
-
+    @PolicyResourceProperty(name="kubernetesNamespace", flag="unknown_kubernetesNamespace")
+    private String value_kubernetesNamespace;
+    private boolean unknown_kubernetesNamespace;
     public String kubernetesNamespace() {
-        if (kubernetesNamespace == null) return null;
-        return kubernetesNamespace.getValue("ComputeEnvironmentEksConfiguration.kubernetesNamespace");
+        if (!unknown_kubernetesNamespace) return value_kubernetesNamespace;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentEksConfiguration.kubernetesNamespace' is not present");
     }
 
 }

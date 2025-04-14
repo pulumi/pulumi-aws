@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,11 +19,12 @@ public final class ReservedInstanceArgs extends com.pulumi.resources.PolicyResou
      * Number of instances to reserve. Default value is `1`.
      * 
      */
-    private UndeferrableValue<Integer> instanceCount;
-
+    @PolicyResourceProperty(name="instanceCount", flag="unknown_instanceCount")
+    private Integer value_instanceCount;
+    private boolean unknown_instanceCount;
     public Integer instanceCount() {
-        if (instanceCount == null) return null;
-        return instanceCount.getValue("ReservedInstanceArgs.instanceCount");
+        if (!unknown_instanceCount) return value_instanceCount;
+        throw new UndeferrableValueException("Value 'ReservedInstanceArgs.instanceCount' is not present");
     }
 
     /**
@@ -31,33 +33,36 @@ public final class ReservedInstanceArgs extends com.pulumi.resources.PolicyResou
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> offeringId;
-
+    @PolicyResourceProperty(name="offeringId", flag="unknown_offeringId")
+    private String value_offeringId;
+    private boolean unknown_offeringId;
     public String offeringId() {
-        if (offeringId == null) return null;
-        return offeringId.getValue("ReservedInstanceArgs.offeringId");
+        if (!unknown_offeringId) return value_offeringId;
+        throw new UndeferrableValueException("Value 'ReservedInstanceArgs.offeringId' is not present");
     }
 
     /**
      * Customer-specified identifier to track this reservation.
      * 
      */
-    private UndeferrableValue<String> reservationId;
-
+    @PolicyResourceProperty(name="reservationId", flag="unknown_reservationId")
+    private String value_reservationId;
+    private boolean unknown_reservationId;
     public String reservationId() {
-        if (reservationId == null) return null;
-        return reservationId.getValue("ReservedInstanceArgs.reservationId");
+        if (!unknown_reservationId) return value_reservationId;
+        throw new UndeferrableValueException("Value 'ReservedInstanceArgs.reservationId' is not present");
     }
 
     /**
      * Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ReservedInstanceArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ReservedInstanceArgs.tags' is not present");
     }
 
 }

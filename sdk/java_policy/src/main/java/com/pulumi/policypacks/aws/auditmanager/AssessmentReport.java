@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.auditmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -18,55 +19,60 @@ public final class AssessmentReport extends com.pulumi.resources.PolicyResourceO
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> assessmentId;
-
+    @PolicyResourceProperty(name="assessmentId", flag="unknown_assessmentId")
+    private String value_assessmentId;
+    private boolean unknown_assessmentId;
     public String assessmentId() {
-        if (assessmentId == null) return null;
-        return assessmentId.getValue("AssessmentReport.assessmentId");
+        if (!unknown_assessmentId) return value_assessmentId;
+        throw new UndeferrableValueException("Value 'AssessmentReport.assessmentId' is not present");
     }
 
     /**
      * Name of the user who created the assessment report.
      * 
      */
-    private UndeferrableValue<String> author;
-
+    @PolicyResourceProperty(name="author", flag="unknown_author")
+    private String value_author;
+    private boolean unknown_author;
     public String author() {
-        if (author == null) return null;
-        return author.getValue("AssessmentReport.author");
+        if (!unknown_author) return value_author;
+        throw new UndeferrableValueException("Value 'AssessmentReport.author' is not present");
     }
 
     /**
      * Description of the assessment report.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("AssessmentReport.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AssessmentReport.description' is not present");
     }
 
     /**
      * Name of the assessment report.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AssessmentReport.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AssessmentReport.name' is not present");
     }
 
     /**
      * Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("AssessmentReport.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'AssessmentReport.status' is not present");
     }
 
 }

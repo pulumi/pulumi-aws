@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafregional.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ByteMatchSetByteMatchTupleFieldToMatch {
      * When the value of Type is HEADER, enter the name of the header that you want AWS WAF to search, for example, User-Agent or Referer. If the value of Type is any other value, omit Data.
      * 
      */
-    private @Nullable UndeferrableValue<String> data;
-
+    @PolicyResourceProperty(name="data", flag="unknown_data")
+    private @Nullable String value_data;
+    private boolean unknown_data;
     public @Nullable String data() {
-        if (data == null) return null;
-        return data.getValue("ByteMatchSetByteMatchTupleFieldToMatch.data");
+        if (!unknown_data) return value_data;
+        throw new UndeferrableValueException("Value 'ByteMatchSetByteMatchTupleFieldToMatch.data' is not present");
     }
 
     /**
      * The part of the web request that you want AWS WAF to search for a specified string.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ByteMatchSetByteMatchTupleFieldToMatch.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ByteMatchSetByteMatchTupleFieldToMatch.type' is not present");
     }
 
 }

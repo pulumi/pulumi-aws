@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chime;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class VoiceConnectorLoggingArgs extends com.pulumi.resources.Policy
      * When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
      * 
      */
-    private UndeferrableValue<Boolean> enableMediaMetricLogs;
-
+    @PolicyResourceProperty(name="enableMediaMetricLogs", flag="unknown_enableMediaMetricLogs")
+    private Boolean value_enableMediaMetricLogs;
+    private boolean unknown_enableMediaMetricLogs;
     public Boolean enableMediaMetricLogs() {
-        if (enableMediaMetricLogs == null) return null;
-        return enableMediaMetricLogs.getValue("VoiceConnectorLoggingArgs.enableMediaMetricLogs");
+        if (!unknown_enableMediaMetricLogs) return value_enableMediaMetricLogs;
+        throw new UndeferrableValueException("Value 'VoiceConnectorLoggingArgs.enableMediaMetricLogs' is not present");
     }
 
     /**
      * When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
      * 
      */
-    private UndeferrableValue<Boolean> enableSipLogs;
-
+    @PolicyResourceProperty(name="enableSipLogs", flag="unknown_enableSipLogs")
+    private Boolean value_enableSipLogs;
+    private boolean unknown_enableSipLogs;
     public Boolean enableSipLogs() {
-        if (enableSipLogs == null) return null;
-        return enableSipLogs.getValue("VoiceConnectorLoggingArgs.enableSipLogs");
+        if (!unknown_enableSipLogs) return value_enableSipLogs;
+        throw new UndeferrableValueException("Value 'VoiceConnectorLoggingArgs.enableSipLogs' is not present");
     }
 
     /**
      * The Amazon Chime Voice Connector ID.
      * 
      */
-    private UndeferrableValue<String> voiceConnectorId;
-
+    @PolicyResourceProperty(name="voiceConnectorId", flag="unknown_voiceConnectorId")
+    private String value_voiceConnectorId;
+    private boolean unknown_voiceConnectorId;
     public String voiceConnectorId() {
-        if (voiceConnectorId == null) return null;
-        return voiceConnectorId.getValue("VoiceConnectorLoggingArgs.voiceConnectorId");
+        if (!unknown_voiceConnectorId) return value_voiceConnectorId;
+        throw new UndeferrableValueException("Value 'VoiceConnectorLoggingArgs.voiceConnectorId' is not present");
     }
 
 }

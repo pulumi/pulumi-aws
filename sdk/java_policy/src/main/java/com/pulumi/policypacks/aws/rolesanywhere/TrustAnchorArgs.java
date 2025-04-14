@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rolesanywhere;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.rolesanywhere.inputs.TrustAnchorNotificationSettingArgs;
 import com.pulumi.policypacks.aws.rolesanywhere.inputs.TrustAnchorSourceArgs;
@@ -21,51 +22,56 @@ public final class TrustAnchorArgs extends com.pulumi.resources.PolicyResourceIn
      * Whether or not the Trust Anchor should be enabled.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("TrustAnchorArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'TrustAnchorArgs.enabled' is not present");
     }
 
     /**
      * The name of the Trust Anchor.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TrustAnchorArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TrustAnchorArgs.name' is not present");
     }
 
-    private UndeferrableValue<List<TrustAnchorNotificationSettingArgs>> notificationSettings;
-
+    @PolicyResourceProperty(name="notificationSettings", flag="unknown_notificationSettings")
+    private List<TrustAnchorNotificationSettingArgs> value_notificationSettings;
+    private boolean unknown_notificationSettings;
     public List<TrustAnchorNotificationSettingArgs> notificationSettings() {
-        if (notificationSettings == null) return null;
-        return notificationSettings.getValue("TrustAnchorArgs.notificationSettings");
+        if (!unknown_notificationSettings) return value_notificationSettings;
+        throw new UndeferrableValueException("Value 'TrustAnchorArgs.notificationSettings' is not present");
     }
 
     /**
      * The source of trust, documented below
      * 
      */
-    private UndeferrableValue<TrustAnchorSourceArgs> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private TrustAnchorSourceArgs value_source;
+    private boolean unknown_source;
     public TrustAnchorSourceArgs source() {
-        if (source == null) return null;
-        return source.getValue("TrustAnchorArgs.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'TrustAnchorArgs.source' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TrustAnchorArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TrustAnchorArgs.tags' is not present");
     }
 
 }

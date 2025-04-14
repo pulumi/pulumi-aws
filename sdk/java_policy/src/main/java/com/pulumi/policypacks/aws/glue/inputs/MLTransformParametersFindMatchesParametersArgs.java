@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class MLTransformParametersFindMatchesParametersArgs {
      * The value that is selected when tuning your transform for a balance between accuracy and cost.
      * 
      */
-    private UndeferrableValue<Double> accuracyCostTradeOff;
-
+    @PolicyResourceProperty(name="accuracyCostTradeOff", flag="unknown_accuracyCostTradeOff")
+    private Double value_accuracyCostTradeOff;
+    private boolean unknown_accuracyCostTradeOff;
     public Double accuracyCostTradeOff() {
-        if (accuracyCostTradeOff == null) return null;
-        return accuracyCostTradeOff.getValue("MLTransformParametersFindMatchesParametersArgs.accuracyCostTradeOff");
+        if (!unknown_accuracyCostTradeOff) return value_accuracyCostTradeOff;
+        throw new UndeferrableValueException("Value 'MLTransformParametersFindMatchesParametersArgs.accuracyCostTradeOff' is not present");
     }
 
     /**
      * The value to switch on or off to force the output to match the provided labels from users.
      * 
      */
-    private UndeferrableValue<Boolean> enforceProvidedLabels;
-
+    @PolicyResourceProperty(name="enforceProvidedLabels", flag="unknown_enforceProvidedLabels")
+    private Boolean value_enforceProvidedLabels;
+    private boolean unknown_enforceProvidedLabels;
     public Boolean enforceProvidedLabels() {
-        if (enforceProvidedLabels == null) return null;
-        return enforceProvidedLabels.getValue("MLTransformParametersFindMatchesParametersArgs.enforceProvidedLabels");
+        if (!unknown_enforceProvidedLabels) return value_enforceProvidedLabels;
+        throw new UndeferrableValueException("Value 'MLTransformParametersFindMatchesParametersArgs.enforceProvidedLabels' is not present");
     }
 
     /**
      * The value selected when tuning your transform for a balance between precision and recall.
      * 
      */
-    private UndeferrableValue<Double> precisionRecallTradeOff;
-
+    @PolicyResourceProperty(name="precisionRecallTradeOff", flag="unknown_precisionRecallTradeOff")
+    private Double value_precisionRecallTradeOff;
+    private boolean unknown_precisionRecallTradeOff;
     public Double precisionRecallTradeOff() {
-        if (precisionRecallTradeOff == null) return null;
-        return precisionRecallTradeOff.getValue("MLTransformParametersFindMatchesParametersArgs.precisionRecallTradeOff");
+        if (!unknown_precisionRecallTradeOff) return value_precisionRecallTradeOff;
+        throw new UndeferrableValueException("Value 'MLTransformParametersFindMatchesParametersArgs.precisionRecallTradeOff' is not present");
     }
 
     /**
      * The name of a column that uniquely identifies rows in the source table.
      * 
      */
-    private UndeferrableValue<String> primaryKeyColumnName;
-
+    @PolicyResourceProperty(name="primaryKeyColumnName", flag="unknown_primaryKeyColumnName")
+    private String value_primaryKeyColumnName;
+    private boolean unknown_primaryKeyColumnName;
     public String primaryKeyColumnName() {
-        if (primaryKeyColumnName == null) return null;
-        return primaryKeyColumnName.getValue("MLTransformParametersFindMatchesParametersArgs.primaryKeyColumnName");
+        if (!unknown_primaryKeyColumnName) return value_primaryKeyColumnName;
+        throw new UndeferrableValueException("Value 'MLTransformParametersFindMatchesParametersArgs.primaryKeyColumnName' is not present");
     }
 
 }

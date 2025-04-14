@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ConfigurationSetEventDestinationEventDestinationEventBridgeDe
      * The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
      * 
      */
-    private UndeferrableValue<String> eventBusArn;
-
+    @PolicyResourceProperty(name="eventBusArn", flag="unknown_eventBusArn")
+    private String value_eventBusArn;
+    private boolean unknown_eventBusArn;
     public String eventBusArn() {
-        if (eventBusArn == null) return null;
-        return eventBusArn.getValue("ConfigurationSetEventDestinationEventDestinationEventBridgeDestination.eventBusArn");
+        if (!unknown_eventBusArn) return value_eventBusArn;
+        throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestinationEventBridgeDestination.eventBusArn' is not present");
     }
 
 }

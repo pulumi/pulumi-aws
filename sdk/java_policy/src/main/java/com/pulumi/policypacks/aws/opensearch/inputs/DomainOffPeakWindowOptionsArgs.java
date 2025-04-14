@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.opensearch.inputs.DomainOffPeakWindowOptionsOffPeakWindowArgs;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
@@ -15,18 +16,20 @@ public final class DomainOffPeakWindowOptionsArgs {
      * Enabled disabled toggle for off-peak update window.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("DomainOffPeakWindowOptionsArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'DomainOffPeakWindowOptionsArgs.enabled' is not present");
     }
 
-    private UndeferrableValue<DomainOffPeakWindowOptionsOffPeakWindowArgs> offPeakWindow;
-
+    @PolicyResourceProperty(name="offPeakWindow", flag="unknown_offPeakWindow")
+    private DomainOffPeakWindowOptionsOffPeakWindowArgs value_offPeakWindow;
+    private boolean unknown_offPeakWindow;
     public DomainOffPeakWindowOptionsOffPeakWindowArgs offPeakWindow() {
-        if (offPeakWindow == null) return null;
-        return offPeakWindow.getValue("DomainOffPeakWindowOptionsArgs.offPeakWindow");
+        if (!unknown_offPeakWindow) return value_offPeakWindow;
+        throw new UndeferrableValueException("Value 'DomainOffPeakWindowOptionsArgs.offPeakWindow' is not present");
     }
 
 }

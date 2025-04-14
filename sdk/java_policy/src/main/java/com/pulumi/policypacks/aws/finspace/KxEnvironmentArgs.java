@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.finspace;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.finspace.inputs.KxEnvironmentCustomDnsConfigurationArgs;
 import com.pulumi.policypacks.aws.finspace.inputs.KxEnvironmentTransitGatewayConfigurationArgs;
@@ -20,22 +21,24 @@ public final class KxEnvironmentArgs extends com.pulumi.resources.PolicyResource
      * List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
      * 
      */
-    private UndeferrableValue<List<KxEnvironmentCustomDnsConfigurationArgs>> customDnsConfigurations;
-
+    @PolicyResourceProperty(name="customDnsConfigurations", flag="unknown_customDnsConfigurations")
+    private List<KxEnvironmentCustomDnsConfigurationArgs> value_customDnsConfigurations;
+    private boolean unknown_customDnsConfigurations;
     public List<KxEnvironmentCustomDnsConfigurationArgs> customDnsConfigurations() {
-        if (customDnsConfigurations == null) return null;
-        return customDnsConfigurations.getValue("KxEnvironmentArgs.customDnsConfigurations");
+        if (!unknown_customDnsConfigurations) return value_customDnsConfigurations;
+        throw new UndeferrableValueException("Value 'KxEnvironmentArgs.customDnsConfigurations' is not present");
     }
 
     /**
      * Description for the KX environment.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("KxEnvironmentArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'KxEnvironmentArgs.description' is not present");
     }
 
     /**
@@ -44,44 +47,48 @@ public final class KxEnvironmentArgs extends com.pulumi.resources.PolicyResource
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("KxEnvironmentArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'KxEnvironmentArgs.kmsKeyId' is not present");
     }
 
     /**
      * Name of the KX environment that you want to create.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("KxEnvironmentArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'KxEnvironmentArgs.name' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("KxEnvironmentArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'KxEnvironmentArgs.tags' is not present");
     }
 
     /**
      * Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
      * 
      */
-    private UndeferrableValue<KxEnvironmentTransitGatewayConfigurationArgs> transitGatewayConfiguration;
-
+    @PolicyResourceProperty(name="transitGatewayConfiguration", flag="unknown_transitGatewayConfiguration")
+    private KxEnvironmentTransitGatewayConfigurationArgs value_transitGatewayConfiguration;
+    private boolean unknown_transitGatewayConfiguration;
     public KxEnvironmentTransitGatewayConfigurationArgs transitGatewayConfiguration() {
-        if (transitGatewayConfiguration == null) return null;
-        return transitGatewayConfiguration.getValue("KxEnvironmentArgs.transitGatewayConfiguration");
+        if (!unknown_transitGatewayConfiguration) return value_transitGatewayConfiguration;
+        throw new UndeferrableValueException("Value 'KxEnvironmentArgs.transitGatewayConfiguration' is not present");
     }
 
 }

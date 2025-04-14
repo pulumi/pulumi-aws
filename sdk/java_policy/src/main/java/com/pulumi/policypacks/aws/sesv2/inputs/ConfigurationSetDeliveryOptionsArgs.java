@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ConfigurationSetDeliveryOptionsArgs {
      * The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
      * 
      */
-    private UndeferrableValue<Integer> maxDeliverySeconds;
-
+    @PolicyResourceProperty(name="maxDeliverySeconds", flag="unknown_maxDeliverySeconds")
+    private Integer value_maxDeliverySeconds;
+    private boolean unknown_maxDeliverySeconds;
     public Integer maxDeliverySeconds() {
-        if (maxDeliverySeconds == null) return null;
-        return maxDeliverySeconds.getValue("ConfigurationSetDeliveryOptionsArgs.maxDeliverySeconds");
+        if (!unknown_maxDeliverySeconds) return value_maxDeliverySeconds;
+        throw new UndeferrableValueException("Value 'ConfigurationSetDeliveryOptionsArgs.maxDeliverySeconds' is not present");
     }
 
     /**
      * The name of the dedicated IP pool to associate with the configuration set.
      * 
      */
-    private UndeferrableValue<String> sendingPoolName;
-
+    @PolicyResourceProperty(name="sendingPoolName", flag="unknown_sendingPoolName")
+    private String value_sendingPoolName;
+    private boolean unknown_sendingPoolName;
     public String sendingPoolName() {
-        if (sendingPoolName == null) return null;
-        return sendingPoolName.getValue("ConfigurationSetDeliveryOptionsArgs.sendingPoolName");
+        if (!unknown_sendingPoolName) return value_sendingPoolName;
+        throw new UndeferrableValueException("Value 'ConfigurationSetDeliveryOptionsArgs.sendingPoolName' is not present");
     }
 
     /**
      * Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
      * 
      */
-    private UndeferrableValue<String> tlsPolicy;
-
+    @PolicyResourceProperty(name="tlsPolicy", flag="unknown_tlsPolicy")
+    private String value_tlsPolicy;
+    private boolean unknown_tlsPolicy;
     public String tlsPolicy() {
-        if (tlsPolicy == null) return null;
-        return tlsPolicy.getValue("ConfigurationSetDeliveryOptionsArgs.tlsPolicy");
+        if (!unknown_tlsPolicy) return value_tlsPolicy;
+        throw new UndeferrableValueException("Value 'ConfigurationSetDeliveryOptionsArgs.tlsPolicy' is not present");
     }
 
 }

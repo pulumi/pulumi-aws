@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class AgentDataSourceDataSourceConfigurationS3ConfigurationArgs {
      * ARN of the bucket that contains the data source.
      * 
      */
-    private UndeferrableValue<String> bucketArn;
-
+    @PolicyResourceProperty(name="bucketArn", flag="unknown_bucketArn")
+    private String value_bucketArn;
+    private boolean unknown_bucketArn;
     public String bucketArn() {
-        if (bucketArn == null) return null;
-        return bucketArn.getValue("AgentDataSourceDataSourceConfigurationS3ConfigurationArgs.bucketArn");
+        if (!unknown_bucketArn) return value_bucketArn;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationS3ConfigurationArgs.bucketArn' is not present");
     }
 
     /**
      * Bucket account owner ID for the S3 bucket.
      * 
      */
-    private UndeferrableValue<String> bucketOwnerAccountId;
-
+    @PolicyResourceProperty(name="bucketOwnerAccountId", flag="unknown_bucketOwnerAccountId")
+    private String value_bucketOwnerAccountId;
+    private boolean unknown_bucketOwnerAccountId;
     public String bucketOwnerAccountId() {
-        if (bucketOwnerAccountId == null) return null;
-        return bucketOwnerAccountId.getValue("AgentDataSourceDataSourceConfigurationS3ConfigurationArgs.bucketOwnerAccountId");
+        if (!unknown_bucketOwnerAccountId) return value_bucketOwnerAccountId;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationS3ConfigurationArgs.bucketOwnerAccountId' is not present");
     }
 
     /**
      * List of S3 prefixes that define the object containing the data sources. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
      * 
      */
-    private UndeferrableValue<List<String>> inclusionPrefixes;
-
+    @PolicyResourceProperty(name="inclusionPrefixes", flag="unknown_inclusionPrefixes")
+    private List<String> value_inclusionPrefixes;
+    private boolean unknown_inclusionPrefixes;
     public List<String> inclusionPrefixes() {
-        if (inclusionPrefixes == null) return null;
-        return inclusionPrefixes.getValue("AgentDataSourceDataSourceConfigurationS3ConfigurationArgs.inclusionPrefixes");
+        if (!unknown_inclusionPrefixes) return value_inclusionPrefixes;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationS3ConfigurationArgs.inclusionPrefixes' is not present");
     }
 
 }

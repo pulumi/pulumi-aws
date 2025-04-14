@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.outputs.FlowDefinitionHumanLoopActivationConfig;
 import com.pulumi.policypacks.aws.sagemaker.outputs.FlowDefinitionHumanLoopConfig;
@@ -21,88 +22,96 @@ public final class FlowDefinition extends com.pulumi.resources.PolicyResourceOut
      * The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("FlowDefinition.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'FlowDefinition.arn' is not present");
     }
 
     /**
      * The name of your flow definition.
      * 
      */
-    private UndeferrableValue<String> flowDefinitionName;
-
+    @PolicyResourceProperty(name="flowDefinitionName", flag="unknown_flowDefinitionName")
+    private String value_flowDefinitionName;
+    private boolean unknown_flowDefinitionName;
     public String flowDefinitionName() {
-        if (flowDefinitionName == null) return null;
-        return flowDefinitionName.getValue("FlowDefinition.flowDefinitionName");
+        if (!unknown_flowDefinitionName) return value_flowDefinitionName;
+        throw new UndeferrableValueException("Value 'FlowDefinition.flowDefinitionName' is not present");
     }
 
     /**
      * An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
      * 
      */
-    private @Nullable UndeferrableValue<FlowDefinitionHumanLoopActivationConfig> humanLoopActivationConfig;
-
+    @PolicyResourceProperty(name="humanLoopActivationConfig", flag="unknown_humanLoopActivationConfig")
+    private @Nullable FlowDefinitionHumanLoopActivationConfig value_humanLoopActivationConfig;
+    private boolean unknown_humanLoopActivationConfig;
     public @Nullable FlowDefinitionHumanLoopActivationConfig humanLoopActivationConfig() {
-        if (humanLoopActivationConfig == null) return null;
-        return humanLoopActivationConfig.getValue("FlowDefinition.humanLoopActivationConfig");
+        if (!unknown_humanLoopActivationConfig) return value_humanLoopActivationConfig;
+        throw new UndeferrableValueException("Value 'FlowDefinition.humanLoopActivationConfig' is not present");
     }
 
     /**
      * An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
      * 
      */
-    private UndeferrableValue<FlowDefinitionHumanLoopConfig> humanLoopConfig;
-
+    @PolicyResourceProperty(name="humanLoopConfig", flag="unknown_humanLoopConfig")
+    private FlowDefinitionHumanLoopConfig value_humanLoopConfig;
+    private boolean unknown_humanLoopConfig;
     public FlowDefinitionHumanLoopConfig humanLoopConfig() {
-        if (humanLoopConfig == null) return null;
-        return humanLoopConfig.getValue("FlowDefinition.humanLoopConfig");
+        if (!unknown_humanLoopConfig) return value_humanLoopConfig;
+        throw new UndeferrableValueException("Value 'FlowDefinition.humanLoopConfig' is not present");
     }
 
     /**
      * Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
      * 
      */
-    private @Nullable UndeferrableValue<FlowDefinitionHumanLoopRequestSource> humanLoopRequestSource;
-
+    @PolicyResourceProperty(name="humanLoopRequestSource", flag="unknown_humanLoopRequestSource")
+    private @Nullable FlowDefinitionHumanLoopRequestSource value_humanLoopRequestSource;
+    private boolean unknown_humanLoopRequestSource;
     public @Nullable FlowDefinitionHumanLoopRequestSource humanLoopRequestSource() {
-        if (humanLoopRequestSource == null) return null;
-        return humanLoopRequestSource.getValue("FlowDefinition.humanLoopRequestSource");
+        if (!unknown_humanLoopRequestSource) return value_humanLoopRequestSource;
+        throw new UndeferrableValueException("Value 'FlowDefinition.humanLoopRequestSource' is not present");
     }
 
     /**
      * An object containing information about where the human review results will be uploaded. See Output Config details below.
      * 
      */
-    private UndeferrableValue<FlowDefinitionOutputConfig> outputConfig;
-
+    @PolicyResourceProperty(name="outputConfig", flag="unknown_outputConfig")
+    private FlowDefinitionOutputConfig value_outputConfig;
+    private boolean unknown_outputConfig;
     public FlowDefinitionOutputConfig outputConfig() {
-        if (outputConfig == null) return null;
-        return outputConfig.getValue("FlowDefinition.outputConfig");
+        if (!unknown_outputConfig) return value_outputConfig;
+        throw new UndeferrableValueException("Value 'FlowDefinition.outputConfig' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("FlowDefinition.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'FlowDefinition.roleArn' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("FlowDefinition.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'FlowDefinition.tags' is not present");
     }
 
     /**
@@ -113,11 +122,12 @@ public final class FlowDefinition extends com.pulumi.resources.PolicyResourceOut
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("FlowDefinition.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'FlowDefinition.tagsAll' is not present");
     }
 
 }

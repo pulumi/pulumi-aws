@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -16,33 +17,36 @@ public final class ParameterGroupParameterArgs {
      * specify &#34;pending-reboot&#34; here.
      * 
      */
-    private UndeferrableValue<String> applyMethod;
-
+    @PolicyResourceProperty(name="applyMethod", flag="unknown_applyMethod")
+    private String value_applyMethod;
+    private boolean unknown_applyMethod;
     public String applyMethod() {
-        if (applyMethod == null) return null;
-        return applyMethod.getValue("ParameterGroupParameterArgs.applyMethod");
+        if (!unknown_applyMethod) return value_applyMethod;
+        throw new UndeferrableValueException("Value 'ParameterGroupParameterArgs.applyMethod' is not present");
     }
 
     /**
      * The name of the DB parameter.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ParameterGroupParameterArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ParameterGroupParameterArgs.name' is not present");
     }
 
     /**
      * The value of the DB parameter.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("ParameterGroupParameterArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'ParameterGroupParameterArgs.value' is not present");
     }
 
 }

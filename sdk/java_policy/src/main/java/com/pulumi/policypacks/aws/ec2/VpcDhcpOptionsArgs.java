@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,77 +19,84 @@ public final class VpcDhcpOptionsArgs extends com.pulumi.resources.PolicyResourc
      * the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("VpcDhcpOptionsArgs.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'VpcDhcpOptionsArgs.domainName' is not present");
     }
 
     /**
      * List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
      * 
      */
-    private UndeferrableValue<List<String>> domainNameServers;
-
+    @PolicyResourceProperty(name="domainNameServers", flag="unknown_domainNameServers")
+    private List<String> value_domainNameServers;
+    private boolean unknown_domainNameServers;
     public List<String> domainNameServers() {
-        if (domainNameServers == null) return null;
-        return domainNameServers.getValue("VpcDhcpOptionsArgs.domainNameServers");
+        if (!unknown_domainNameServers) return value_domainNameServers;
+        throw new UndeferrableValueException("Value 'VpcDhcpOptionsArgs.domainNameServers' is not present");
     }
 
     /**
      * How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
      * 
      */
-    private UndeferrableValue<String> ipv6AddressPreferredLeaseTime;
-
+    @PolicyResourceProperty(name="ipv6AddressPreferredLeaseTime", flag="unknown_ipv6AddressPreferredLeaseTime")
+    private String value_ipv6AddressPreferredLeaseTime;
+    private boolean unknown_ipv6AddressPreferredLeaseTime;
     public String ipv6AddressPreferredLeaseTime() {
-        if (ipv6AddressPreferredLeaseTime == null) return null;
-        return ipv6AddressPreferredLeaseTime.getValue("VpcDhcpOptionsArgs.ipv6AddressPreferredLeaseTime");
+        if (!unknown_ipv6AddressPreferredLeaseTime) return value_ipv6AddressPreferredLeaseTime;
+        throw new UndeferrableValueException("Value 'VpcDhcpOptionsArgs.ipv6AddressPreferredLeaseTime' is not present");
     }
 
     /**
      * List of NETBIOS name servers.
      * 
      */
-    private UndeferrableValue<List<String>> netbiosNameServers;
-
+    @PolicyResourceProperty(name="netbiosNameServers", flag="unknown_netbiosNameServers")
+    private List<String> value_netbiosNameServers;
+    private boolean unknown_netbiosNameServers;
     public List<String> netbiosNameServers() {
-        if (netbiosNameServers == null) return null;
-        return netbiosNameServers.getValue("VpcDhcpOptionsArgs.netbiosNameServers");
+        if (!unknown_netbiosNameServers) return value_netbiosNameServers;
+        throw new UndeferrableValueException("Value 'VpcDhcpOptionsArgs.netbiosNameServers' is not present");
     }
 
     /**
      * The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      * 
      */
-    private UndeferrableValue<String> netbiosNodeType;
-
+    @PolicyResourceProperty(name="netbiosNodeType", flag="unknown_netbiosNodeType")
+    private String value_netbiosNodeType;
+    private boolean unknown_netbiosNodeType;
     public String netbiosNodeType() {
-        if (netbiosNodeType == null) return null;
-        return netbiosNodeType.getValue("VpcDhcpOptionsArgs.netbiosNodeType");
+        if (!unknown_netbiosNodeType) return value_netbiosNodeType;
+        throw new UndeferrableValueException("Value 'VpcDhcpOptionsArgs.netbiosNodeType' is not present");
     }
 
     /**
      * List of NTP servers to configure.
      * 
      */
-    private UndeferrableValue<List<String>> ntpServers;
-
+    @PolicyResourceProperty(name="ntpServers", flag="unknown_ntpServers")
+    private List<String> value_ntpServers;
+    private boolean unknown_ntpServers;
     public List<String> ntpServers() {
-        if (ntpServers == null) return null;
-        return ntpServers.getValue("VpcDhcpOptionsArgs.ntpServers");
+        if (!unknown_ntpServers) return value_ntpServers;
+        throw new UndeferrableValueException("Value 'VpcDhcpOptionsArgs.ntpServers' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VpcDhcpOptionsArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VpcDhcpOptionsArgs.tags' is not present");
     }
 
 }

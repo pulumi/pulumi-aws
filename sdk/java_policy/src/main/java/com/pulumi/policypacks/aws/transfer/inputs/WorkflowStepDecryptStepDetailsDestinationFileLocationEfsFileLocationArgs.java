@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileL
      * The ID of the file system, assigned by Amazon EFS.
      * 
      */
-    private UndeferrableValue<String> fileSystemId;
-
+    @PolicyResourceProperty(name="fileSystemId", flag="unknown_fileSystemId")
+    private String value_fileSystemId;
+    private boolean unknown_fileSystemId;
     public String fileSystemId() {
-        if (fileSystemId == null) return null;
-        return fileSystemId.getValue("WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs.fileSystemId");
+        if (!unknown_fileSystemId) return value_fileSystemId;
+        throw new UndeferrableValueException("Value 'WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs.fileSystemId' is not present");
     }
 
     /**
      * The pathname for the folder being used by a workflow.
      * 
      */
-    private UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private String value_path;
+    private boolean unknown_path;
     public String path() {
-        if (path == null) return null;
-        return path.getValue("WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs.path' is not present");
     }
 
 }

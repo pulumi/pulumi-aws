@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ConnectorSftpConfigArgs {
      * A list of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
      * 
      */
-    private UndeferrableValue<List<String>> trustedHostKeys;
-
+    @PolicyResourceProperty(name="trustedHostKeys", flag="unknown_trustedHostKeys")
+    private List<String> value_trustedHostKeys;
+    private boolean unknown_trustedHostKeys;
     public List<String> trustedHostKeys() {
-        if (trustedHostKeys == null) return null;
-        return trustedHostKeys.getValue("ConnectorSftpConfigArgs.trustedHostKeys");
+        if (!unknown_trustedHostKeys) return value_trustedHostKeys;
+        throw new UndeferrableValueException("Value 'ConnectorSftpConfigArgs.trustedHostKeys' is not present");
     }
 
     /**
      * The identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
      * 
      */
-    private UndeferrableValue<String> userSecretId;
-
+    @PolicyResourceProperty(name="userSecretId", flag="unknown_userSecretId")
+    private String value_userSecretId;
+    private boolean unknown_userSecretId;
     public String userSecretId() {
-        if (userSecretId == null) return null;
-        return userSecretId.getValue("ConnectorSftpConfigArgs.userSecretId");
+        if (!unknown_userSecretId) return value_userSecretId;
+        throw new UndeferrableValueException("Value 'ConnectorSftpConfigArgs.userSecretId' is not present");
     }
 
 }

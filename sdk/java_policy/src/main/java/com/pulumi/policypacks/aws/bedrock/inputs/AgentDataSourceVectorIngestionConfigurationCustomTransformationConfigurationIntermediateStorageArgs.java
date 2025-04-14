@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
      * Configuration block for intermedia S3 storage.
      * 
      */
-    private UndeferrableValue<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs> s3Location;
-
+    @PolicyResourceProperty(name="s3Location", flag="unknown_s3Location")
+    private AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs value_s3Location;
+    private boolean unknown_s3Location;
     public AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs s3Location() {
-        if (s3Location == null) return null;
-        return s3Location.getValue("AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs.s3Location");
+        if (!unknown_s3Location) return value_s3Location;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs.s3Location' is not present");
     }
 
 }

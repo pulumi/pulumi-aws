@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,11 +18,12 @@ public final class AccountPublicAccessBlock extends com.pulumi.resources.PolicyR
      * AWS account ID to configure. Defaults to automatically determined account ID of the this provider AWS provider.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("AccountPublicAccessBlock.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'AccountPublicAccessBlock.accountId' is not present");
     }
 
     /**
@@ -30,11 +32,12 @@ public final class AccountPublicAccessBlock extends com.pulumi.resources.PolicyR
      * * PUT Object calls fail if the request includes a public ACL.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> blockPublicAcls;
-
+    @PolicyResourceProperty(name="blockPublicAcls", flag="unknown_blockPublicAcls")
+    private @Nullable Boolean value_blockPublicAcls;
+    private boolean unknown_blockPublicAcls;
     public @Nullable Boolean blockPublicAcls() {
-        if (blockPublicAcls == null) return null;
-        return blockPublicAcls.getValue("AccountPublicAccessBlock.blockPublicAcls");
+        if (!unknown_blockPublicAcls) return value_blockPublicAcls;
+        throw new UndeferrableValueException("Value 'AccountPublicAccessBlock.blockPublicAcls' is not present");
     }
 
     /**
@@ -42,11 +45,12 @@ public final class AccountPublicAccessBlock extends com.pulumi.resources.PolicyR
      * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> blockPublicPolicy;
-
+    @PolicyResourceProperty(name="blockPublicPolicy", flag="unknown_blockPublicPolicy")
+    private @Nullable Boolean value_blockPublicPolicy;
+    private boolean unknown_blockPublicPolicy;
     public @Nullable Boolean blockPublicPolicy() {
-        if (blockPublicPolicy == null) return null;
-        return blockPublicPolicy.getValue("AccountPublicAccessBlock.blockPublicPolicy");
+        if (!unknown_blockPublicPolicy) return value_blockPublicPolicy;
+        throw new UndeferrableValueException("Value 'AccountPublicAccessBlock.blockPublicPolicy' is not present");
     }
 
     /**
@@ -54,11 +58,12 @@ public final class AccountPublicAccessBlock extends com.pulumi.resources.PolicyR
      * * Ignore all public ACLs on buckets in this account and any objects that they contain.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> ignorePublicAcls;
-
+    @PolicyResourceProperty(name="ignorePublicAcls", flag="unknown_ignorePublicAcls")
+    private @Nullable Boolean value_ignorePublicAcls;
+    private boolean unknown_ignorePublicAcls;
     public @Nullable Boolean ignorePublicAcls() {
-        if (ignorePublicAcls == null) return null;
-        return ignorePublicAcls.getValue("AccountPublicAccessBlock.ignorePublicAcls");
+        if (!unknown_ignorePublicAcls) return value_ignorePublicAcls;
+        throw new UndeferrableValueException("Value 'AccountPublicAccessBlock.ignorePublicAcls' is not present");
     }
 
     /**
@@ -66,11 +71,12 @@ public final class AccountPublicAccessBlock extends com.pulumi.resources.PolicyR
      * * Only the bucket owner and AWS Services can access buckets with public policies.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> restrictPublicBuckets;
-
+    @PolicyResourceProperty(name="restrictPublicBuckets", flag="unknown_restrictPublicBuckets")
+    private @Nullable Boolean value_restrictPublicBuckets;
+    private boolean unknown_restrictPublicBuckets;
     public @Nullable Boolean restrictPublicBuckets() {
-        if (restrictPublicBuckets == null) return null;
-        return restrictPublicBuckets.getValue("AccountPublicAccessBlock.restrictPublicBuckets");
+        if (!unknown_restrictPublicBuckets) return value_restrictPublicBuckets;
+        throw new UndeferrableValueException("Value 'AccountPublicAccessBlock.restrictPublicBuckets' is not present");
     }
 
 }

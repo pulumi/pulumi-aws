@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.FirewallPolicyEncryptionConfiguration;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicy;
@@ -19,66 +20,72 @@ public final class FirewallPolicy extends com.pulumi.resources.PolicyResourceOut
      * The Amazon Resource Name (ARN) that identifies the firewall policy.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("FirewallPolicy.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'FirewallPolicy.arn' is not present");
     }
 
     /**
      * A friendly description of the firewall policy.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("FirewallPolicy.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'FirewallPolicy.description' is not present");
     }
 
     /**
      * KMS encryption configuration settings. See Encryption Configuration below for details.
      * 
      */
-    private @Nullable UndeferrableValue<FirewallPolicyEncryptionConfiguration> encryptionConfiguration;
-
+    @PolicyResourceProperty(name="encryptionConfiguration", flag="unknown_encryptionConfiguration")
+    private @Nullable FirewallPolicyEncryptionConfiguration value_encryptionConfiguration;
+    private boolean unknown_encryptionConfiguration;
     public @Nullable FirewallPolicyEncryptionConfiguration encryptionConfiguration() {
-        if (encryptionConfiguration == null) return null;
-        return encryptionConfiguration.getValue("FirewallPolicy.encryptionConfiguration");
+        if (!unknown_encryptionConfiguration) return value_encryptionConfiguration;
+        throw new UndeferrableValueException("Value 'FirewallPolicy.encryptionConfiguration' is not present");
     }
 
     /**
      * A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
      * 
      */
-    private UndeferrableValue<FirewallPolicyFirewallPolicy> firewallPolicy;
-
+    @PolicyResourceProperty(name="firewallPolicy", flag="unknown_firewallPolicy")
+    private FirewallPolicyFirewallPolicy value_firewallPolicy;
+    private boolean unknown_firewallPolicy;
     public FirewallPolicyFirewallPolicy firewallPolicy() {
-        if (firewallPolicy == null) return null;
-        return firewallPolicy.getValue("FirewallPolicy.firewallPolicy");
+        if (!unknown_firewallPolicy) return value_firewallPolicy;
+        throw new UndeferrableValueException("Value 'FirewallPolicy.firewallPolicy' is not present");
     }
 
     /**
      * A friendly name of the firewall policy.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("FirewallPolicy.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FirewallPolicy.name' is not present");
     }
 
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("FirewallPolicy.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'FirewallPolicy.tags' is not present");
     }
 
     /**
@@ -89,22 +96,24 @@ public final class FirewallPolicy extends com.pulumi.resources.PolicyResourceOut
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("FirewallPolicy.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'FirewallPolicy.tagsAll' is not present");
     }
 
     /**
      * A string token used when updating a firewall policy.
      * 
      */
-    private UndeferrableValue<String> updateToken;
-
+    @PolicyResourceProperty(name="updateToken", flag="unknown_updateToken")
+    private String value_updateToken;
+    private boolean unknown_updateToken;
     public String updateToken() {
-        if (updateToken == null) return null;
-        return updateToken.getValue("FirewallPolicy.updateToken");
+        if (!unknown_updateToken) return value_updateToken;
+        throw new UndeferrableValueException("Value 'FirewallPolicy.updateToken' is not present");
     }
 
 }

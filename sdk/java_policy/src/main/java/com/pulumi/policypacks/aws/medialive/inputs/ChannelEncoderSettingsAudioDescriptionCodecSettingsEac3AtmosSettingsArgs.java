@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,77 +16,84 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosS
      * Average bitrate in bits/second.
      * 
      */
-    private UndeferrableValue<Double> bitrate;
-
+    @PolicyResourceProperty(name="bitrate", flag="unknown_bitrate")
+    private Double value_bitrate;
+    private boolean unknown_bitrate;
     public Double bitrate() {
-        if (bitrate == null) return null;
-        return bitrate.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs.bitrate");
+        if (!unknown_bitrate) return value_bitrate;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs.bitrate' is not present");
     }
 
     /**
      * Dolby Digital Plus with Dolby Atmos coding mode.
      * 
      */
-    private UndeferrableValue<String> codingMode;
-
+    @PolicyResourceProperty(name="codingMode", flag="unknown_codingMode")
+    private String value_codingMode;
+    private boolean unknown_codingMode;
     public String codingMode() {
-        if (codingMode == null) return null;
-        return codingMode.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs.codingMode");
+        if (!unknown_codingMode) return value_codingMode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs.codingMode' is not present");
     }
 
     /**
      * Sets the dialnorm for the output.
      * 
      */
-    private UndeferrableValue<Double> dialnorm;
-
+    @PolicyResourceProperty(name="dialnorm", flag="unknown_dialnorm")
+    private Double value_dialnorm;
+    private boolean unknown_dialnorm;
     public Double dialnorm() {
-        if (dialnorm == null) return null;
-        return dialnorm.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs.dialnorm");
+        if (!unknown_dialnorm) return value_dialnorm;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs.dialnorm' is not present");
     }
 
     /**
      * Sets the Dolby dynamic range compression profile.
      * 
      */
-    private UndeferrableValue<String> drcLine;
-
+    @PolicyResourceProperty(name="drcLine", flag="unknown_drcLine")
+    private String value_drcLine;
+    private boolean unknown_drcLine;
     public String drcLine() {
-        if (drcLine == null) return null;
-        return drcLine.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs.drcLine");
+        if (!unknown_drcLine) return value_drcLine;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs.drcLine' is not present");
     }
 
     /**
      * Sets the profile for heavy Dolby dynamic range compression.
      * 
      */
-    private UndeferrableValue<String> drcRf;
-
+    @PolicyResourceProperty(name="drcRf", flag="unknown_drcRf")
+    private String value_drcRf;
+    private boolean unknown_drcRf;
     public String drcRf() {
-        if (drcRf == null) return null;
-        return drcRf.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs.drcRf");
+        if (!unknown_drcRf) return value_drcRf;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs.drcRf' is not present");
     }
 
     /**
      * Height dimensional trim.
      * 
      */
-    private UndeferrableValue<Double> heightTrim;
-
+    @PolicyResourceProperty(name="heightTrim", flag="unknown_heightTrim")
+    private Double value_heightTrim;
+    private boolean unknown_heightTrim;
     public Double heightTrim() {
-        if (heightTrim == null) return null;
-        return heightTrim.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs.heightTrim");
+        if (!unknown_heightTrim) return value_heightTrim;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs.heightTrim' is not present");
     }
 
     /**
      * Surround dimensional trim.
      * 
      */
-    private UndeferrableValue<Double> surroundTrim;
-
+    @PolicyResourceProperty(name="surroundTrim", flag="unknown_surroundTrim")
+    private Double value_surroundTrim;
+    private boolean unknown_surroundTrim;
     public Double surroundTrim() {
-        if (surroundTrim == null) return null;
-        return surroundTrim.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs.surroundTrim");
+        if (!unknown_surroundTrim) return value_surroundTrim;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs.surroundTrim' is not present");
     }
 
 }

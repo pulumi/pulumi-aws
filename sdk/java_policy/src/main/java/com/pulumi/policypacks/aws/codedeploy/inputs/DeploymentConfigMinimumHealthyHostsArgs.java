@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codedeploy.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class DeploymentConfigMinimumHealthyHostsArgs {
      * The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("DeploymentConfigMinimumHealthyHostsArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'DeploymentConfigMinimumHealthyHostsArgs.type' is not present");
     }
 
     /**
@@ -29,11 +31,12 @@ public final class DeploymentConfigMinimumHealthyHostsArgs {
      * When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances as an absolute value.
      * 
      */
-    private UndeferrableValue<Integer> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private Integer value_value;
+    private boolean unknown_value;
     public Integer value() {
-        if (value == null) return null;
-        return value.getValue("DeploymentConfigMinimumHealthyHostsArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'DeploymentConfigMinimumHealthyHostsArgs.value' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.outputs.VpcBlockPublicAccessOptionsTimeouts;
 import java.lang.String;
@@ -17,40 +18,44 @@ public final class VpcBlockPublicAccessOptions extends com.pulumi.resources.Poli
      * The AWS account id to which these options apply.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("VpcBlockPublicAccessOptions.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'VpcBlockPublicAccessOptions.awsAccountId' is not present");
     }
 
     /**
      * The AWS region to which these options apply.
      * 
      */
-    private UndeferrableValue<String> awsRegion;
-
+    @PolicyResourceProperty(name="awsRegion", flag="unknown_awsRegion")
+    private String value_awsRegion;
+    private boolean unknown_awsRegion;
     public String awsRegion() {
-        if (awsRegion == null) return null;
-        return awsRegion.getValue("VpcBlockPublicAccessOptions.awsRegion");
+        if (!unknown_awsRegion) return value_awsRegion;
+        throw new UndeferrableValueException("Value 'VpcBlockPublicAccessOptions.awsRegion' is not present");
     }
 
     /**
      * Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
      * 
      */
-    private UndeferrableValue<String> internetGatewayBlockMode;
-
+    @PolicyResourceProperty(name="internetGatewayBlockMode", flag="unknown_internetGatewayBlockMode")
+    private String value_internetGatewayBlockMode;
+    private boolean unknown_internetGatewayBlockMode;
     public String internetGatewayBlockMode() {
-        if (internetGatewayBlockMode == null) return null;
-        return internetGatewayBlockMode.getValue("VpcBlockPublicAccessOptions.internetGatewayBlockMode");
+        if (!unknown_internetGatewayBlockMode) return value_internetGatewayBlockMode;
+        throw new UndeferrableValueException("Value 'VpcBlockPublicAccessOptions.internetGatewayBlockMode' is not present");
     }
 
-    private @Nullable UndeferrableValue<VpcBlockPublicAccessOptionsTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable VpcBlockPublicAccessOptionsTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable VpcBlockPublicAccessOptionsTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("VpcBlockPublicAccessOptions.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'VpcBlockPublicAccessOptions.timeouts' is not present");
     }
 
 }

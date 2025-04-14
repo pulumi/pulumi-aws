@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.outputs.AppResourceSpec;
 import java.lang.String;
@@ -18,77 +19,84 @@ public final class App extends com.pulumi.resources.PolicyResourceOutput {
      * The name of the app.
      * 
      */
-    private UndeferrableValue<String> appName;
-
+    @PolicyResourceProperty(name="appName", flag="unknown_appName")
+    private String value_appName;
+    private boolean unknown_appName;
     public String appName() {
-        if (appName == null) return null;
-        return appName.getValue("App.appName");
+        if (!unknown_appName) return value_appName;
+        throw new UndeferrableValueException("Value 'App.appName' is not present");
     }
 
     /**
      * The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
      * 
      */
-    private UndeferrableValue<String> appType;
-
+    @PolicyResourceProperty(name="appType", flag="unknown_appType")
+    private String value_appType;
+    private boolean unknown_appType;
     public String appType() {
-        if (appType == null) return null;
-        return appType.getValue("App.appType");
+        if (!unknown_appType) return value_appType;
+        throw new UndeferrableValueException("Value 'App.appType' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the app.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("App.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'App.arn' is not present");
     }
 
     /**
      * The domain ID.
      * 
      */
-    private UndeferrableValue<String> domainId;
-
+    @PolicyResourceProperty(name="domainId", flag="unknown_domainId")
+    private String value_domainId;
+    private boolean unknown_domainId;
     public String domainId() {
-        if (domainId == null) return null;
-        return domainId.getValue("App.domainId");
+        if (!unknown_domainId) return value_domainId;
+        throw new UndeferrableValueException("Value 'App.domainId' is not present");
     }
 
     /**
      * The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
      * 
      */
-    private UndeferrableValue<AppResourceSpec> resourceSpec;
-
+    @PolicyResourceProperty(name="resourceSpec", flag="unknown_resourceSpec")
+    private AppResourceSpec value_resourceSpec;
+    private boolean unknown_resourceSpec;
     public AppResourceSpec resourceSpec() {
-        if (resourceSpec == null) return null;
-        return resourceSpec.getValue("App.resourceSpec");
+        if (!unknown_resourceSpec) return value_resourceSpec;
+        throw new UndeferrableValueException("Value 'App.resourceSpec' is not present");
     }
 
     /**
      * The name of the space. At least one of `user_profile_name` or `space_name` required.
      * 
      */
-    private @Nullable UndeferrableValue<String> spaceName;
-
+    @PolicyResourceProperty(name="spaceName", flag="unknown_spaceName")
+    private @Nullable String value_spaceName;
+    private boolean unknown_spaceName;
     public @Nullable String spaceName() {
-        if (spaceName == null) return null;
-        return spaceName.getValue("App.spaceName");
+        if (!unknown_spaceName) return value_spaceName;
+        throw new UndeferrableValueException("Value 'App.spaceName' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("App.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'App.tags' is not present");
     }
 
     /**
@@ -99,22 +107,24 @@ public final class App extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("App.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'App.tagsAll' is not present");
     }
 
     /**
      * The user profile name. At least one of `user_profile_name` or `space_name` required.
      * 
      */
-    private @Nullable UndeferrableValue<String> userProfileName;
-
+    @PolicyResourceProperty(name="userProfileName", flag="unknown_userProfileName")
+    private @Nullable String value_userProfileName;
+    private boolean unknown_userProfileName;
     public @Nullable String userProfileName() {
-        if (userProfileName == null) return null;
-        return userProfileName.getValue("App.userProfileName");
+        if (!unknown_userProfileName) return value_userProfileName;
+        throw new UndeferrableValueException("Value 'App.userProfileName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.opsworks.inputs.HaproxyLayerCloudwatchConfigurationArgs;
 import com.pulumi.policypacks.aws.opsworks.inputs.HaproxyLayerEbsVolumeArgs;
@@ -23,269 +24,296 @@ public final class HaproxyLayerArgs extends com.pulumi.resources.PolicyResourceI
      * Whether to automatically assign an elastic IP address to the layer&#39;s instances.
      * 
      */
-    private UndeferrableValue<Boolean> autoAssignElasticIps;
-
+    @PolicyResourceProperty(name="autoAssignElasticIps", flag="unknown_autoAssignElasticIps")
+    private Boolean value_autoAssignElasticIps;
+    private boolean unknown_autoAssignElasticIps;
     public Boolean autoAssignElasticIps() {
-        if (autoAssignElasticIps == null) return null;
-        return autoAssignElasticIps.getValue("HaproxyLayerArgs.autoAssignElasticIps");
+        if (!unknown_autoAssignElasticIps) return value_autoAssignElasticIps;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.autoAssignElasticIps' is not present");
     }
 
     /**
      * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer&#39;s instances.
      * 
      */
-    private UndeferrableValue<Boolean> autoAssignPublicIps;
-
+    @PolicyResourceProperty(name="autoAssignPublicIps", flag="unknown_autoAssignPublicIps")
+    private Boolean value_autoAssignPublicIps;
+    private boolean unknown_autoAssignPublicIps;
     public Boolean autoAssignPublicIps() {
-        if (autoAssignPublicIps == null) return null;
-        return autoAssignPublicIps.getValue("HaproxyLayerArgs.autoAssignPublicIps");
+        if (!unknown_autoAssignPublicIps) return value_autoAssignPublicIps;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.autoAssignPublicIps' is not present");
     }
 
     /**
      * Whether to enable auto-healing for the layer.
      * 
      */
-    private UndeferrableValue<Boolean> autoHealing;
-
+    @PolicyResourceProperty(name="autoHealing", flag="unknown_autoHealing")
+    private Boolean value_autoHealing;
+    private boolean unknown_autoHealing;
     public Boolean autoHealing() {
-        if (autoHealing == null) return null;
-        return autoHealing.getValue("HaproxyLayerArgs.autoHealing");
+        if (!unknown_autoHealing) return value_autoHealing;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.autoHealing' is not present");
     }
 
-    private UndeferrableValue<HaproxyLayerCloudwatchConfigurationArgs> cloudwatchConfiguration;
-
+    @PolicyResourceProperty(name="cloudwatchConfiguration", flag="unknown_cloudwatchConfiguration")
+    private HaproxyLayerCloudwatchConfigurationArgs value_cloudwatchConfiguration;
+    private boolean unknown_cloudwatchConfiguration;
     public HaproxyLayerCloudwatchConfigurationArgs cloudwatchConfiguration() {
-        if (cloudwatchConfiguration == null) return null;
-        return cloudwatchConfiguration.getValue("HaproxyLayerArgs.cloudwatchConfiguration");
+        if (!unknown_cloudwatchConfiguration) return value_cloudwatchConfiguration;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.cloudwatchConfiguration' is not present");
     }
 
-    private UndeferrableValue<List<String>> customConfigureRecipes;
-
+    @PolicyResourceProperty(name="customConfigureRecipes", flag="unknown_customConfigureRecipes")
+    private List<String> value_customConfigureRecipes;
+    private boolean unknown_customConfigureRecipes;
     public List<String> customConfigureRecipes() {
-        if (customConfigureRecipes == null) return null;
-        return customConfigureRecipes.getValue("HaproxyLayerArgs.customConfigureRecipes");
+        if (!unknown_customConfigureRecipes) return value_customConfigureRecipes;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.customConfigureRecipes' is not present");
     }
 
-    private UndeferrableValue<List<String>> customDeployRecipes;
-
+    @PolicyResourceProperty(name="customDeployRecipes", flag="unknown_customDeployRecipes")
+    private List<String> value_customDeployRecipes;
+    private boolean unknown_customDeployRecipes;
     public List<String> customDeployRecipes() {
-        if (customDeployRecipes == null) return null;
-        return customDeployRecipes.getValue("HaproxyLayerArgs.customDeployRecipes");
+        if (!unknown_customDeployRecipes) return value_customDeployRecipes;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.customDeployRecipes' is not present");
     }
 
     /**
      * The ARN of an IAM profile that will be used for the layer&#39;s instances.
      * 
      */
-    private UndeferrableValue<String> customInstanceProfileArn;
-
+    @PolicyResourceProperty(name="customInstanceProfileArn", flag="unknown_customInstanceProfileArn")
+    private String value_customInstanceProfileArn;
+    private boolean unknown_customInstanceProfileArn;
     public String customInstanceProfileArn() {
-        if (customInstanceProfileArn == null) return null;
-        return customInstanceProfileArn.getValue("HaproxyLayerArgs.customInstanceProfileArn");
+        if (!unknown_customInstanceProfileArn) return value_customInstanceProfileArn;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.customInstanceProfileArn' is not present");
     }
 
     /**
      * Custom JSON attributes to apply to the layer.
      * 
      */
-    private UndeferrableValue<String> customJson;
-
+    @PolicyResourceProperty(name="customJson", flag="unknown_customJson")
+    private String value_customJson;
+    private boolean unknown_customJson;
     public String customJson() {
-        if (customJson == null) return null;
-        return customJson.getValue("HaproxyLayerArgs.customJson");
+        if (!unknown_customJson) return value_customJson;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.customJson' is not present");
     }
 
     /**
      * Ids for a set of security groups to apply to the layer&#39;s instances.
      * 
      */
-    private UndeferrableValue<List<String>> customSecurityGroupIds;
-
+    @PolicyResourceProperty(name="customSecurityGroupIds", flag="unknown_customSecurityGroupIds")
+    private List<String> value_customSecurityGroupIds;
+    private boolean unknown_customSecurityGroupIds;
     public List<String> customSecurityGroupIds() {
-        if (customSecurityGroupIds == null) return null;
-        return customSecurityGroupIds.getValue("HaproxyLayerArgs.customSecurityGroupIds");
+        if (!unknown_customSecurityGroupIds) return value_customSecurityGroupIds;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.customSecurityGroupIds' is not present");
     }
 
-    private UndeferrableValue<List<String>> customSetupRecipes;
-
+    @PolicyResourceProperty(name="customSetupRecipes", flag="unknown_customSetupRecipes")
+    private List<String> value_customSetupRecipes;
+    private boolean unknown_customSetupRecipes;
     public List<String> customSetupRecipes() {
-        if (customSetupRecipes == null) return null;
-        return customSetupRecipes.getValue("HaproxyLayerArgs.customSetupRecipes");
+        if (!unknown_customSetupRecipes) return value_customSetupRecipes;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.customSetupRecipes' is not present");
     }
 
-    private UndeferrableValue<List<String>> customShutdownRecipes;
-
+    @PolicyResourceProperty(name="customShutdownRecipes", flag="unknown_customShutdownRecipes")
+    private List<String> value_customShutdownRecipes;
+    private boolean unknown_customShutdownRecipes;
     public List<String> customShutdownRecipes() {
-        if (customShutdownRecipes == null) return null;
-        return customShutdownRecipes.getValue("HaproxyLayerArgs.customShutdownRecipes");
+        if (!unknown_customShutdownRecipes) return value_customShutdownRecipes;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.customShutdownRecipes' is not present");
     }
 
-    private UndeferrableValue<List<String>> customUndeployRecipes;
-
+    @PolicyResourceProperty(name="customUndeployRecipes", flag="unknown_customUndeployRecipes")
+    private List<String> value_customUndeployRecipes;
+    private boolean unknown_customUndeployRecipes;
     public List<String> customUndeployRecipes() {
-        if (customUndeployRecipes == null) return null;
-        return customUndeployRecipes.getValue("HaproxyLayerArgs.customUndeployRecipes");
+        if (!unknown_customUndeployRecipes) return value_customUndeployRecipes;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.customUndeployRecipes' is not present");
     }
 
     /**
      * Whether to enable Elastic Load Balancing connection draining.
      * 
      */
-    private UndeferrableValue<Boolean> drainElbOnShutdown;
-
+    @PolicyResourceProperty(name="drainElbOnShutdown", flag="unknown_drainElbOnShutdown")
+    private Boolean value_drainElbOnShutdown;
+    private boolean unknown_drainElbOnShutdown;
     public Boolean drainElbOnShutdown() {
-        if (drainElbOnShutdown == null) return null;
-        return drainElbOnShutdown.getValue("HaproxyLayerArgs.drainElbOnShutdown");
+        if (!unknown_drainElbOnShutdown) return value_drainElbOnShutdown;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.drainElbOnShutdown' is not present");
     }
 
     /**
      * `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer&#39;s instances.
      * 
      */
-    private UndeferrableValue<List<HaproxyLayerEbsVolumeArgs>> ebsVolumes;
-
+    @PolicyResourceProperty(name="ebsVolumes", flag="unknown_ebsVolumes")
+    private List<HaproxyLayerEbsVolumeArgs> value_ebsVolumes;
+    private boolean unknown_ebsVolumes;
     public List<HaproxyLayerEbsVolumeArgs> ebsVolumes() {
-        if (ebsVolumes == null) return null;
-        return ebsVolumes.getValue("HaproxyLayerArgs.ebsVolumes");
+        if (!unknown_ebsVolumes) return value_ebsVolumes;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.ebsVolumes' is not present");
     }
 
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      * 
      */
-    private UndeferrableValue<String> elasticLoadBalancer;
-
+    @PolicyResourceProperty(name="elasticLoadBalancer", flag="unknown_elasticLoadBalancer")
+    private String value_elasticLoadBalancer;
+    private boolean unknown_elasticLoadBalancer;
     public String elasticLoadBalancer() {
-        if (elasticLoadBalancer == null) return null;
-        return elasticLoadBalancer.getValue("HaproxyLayerArgs.elasticLoadBalancer");
+        if (!unknown_elasticLoadBalancer) return value_elasticLoadBalancer;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.elasticLoadBalancer' is not present");
     }
 
     /**
      * HTTP method to use for instance healthchecks. Defaults to &#34;OPTIONS&#34;.
      * 
      */
-    private UndeferrableValue<String> healthcheckMethod;
-
+    @PolicyResourceProperty(name="healthcheckMethod", flag="unknown_healthcheckMethod")
+    private String value_healthcheckMethod;
+    private boolean unknown_healthcheckMethod;
     public String healthcheckMethod() {
-        if (healthcheckMethod == null) return null;
-        return healthcheckMethod.getValue("HaproxyLayerArgs.healthcheckMethod");
+        if (!unknown_healthcheckMethod) return value_healthcheckMethod;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.healthcheckMethod' is not present");
     }
 
     /**
      * URL path to use for instance healthchecks. Defaults to &#34;/&#34;.
      * 
      */
-    private UndeferrableValue<String> healthcheckUrl;
-
+    @PolicyResourceProperty(name="healthcheckUrl", flag="unknown_healthcheckUrl")
+    private String value_healthcheckUrl;
+    private boolean unknown_healthcheckUrl;
     public String healthcheckUrl() {
-        if (healthcheckUrl == null) return null;
-        return healthcheckUrl.getValue("HaproxyLayerArgs.healthcheckUrl");
+        if (!unknown_healthcheckUrl) return value_healthcheckUrl;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.healthcheckUrl' is not present");
     }
 
     /**
      * Whether to install OS and package updates on each instance when it boots.
      * 
      */
-    private UndeferrableValue<Boolean> installUpdatesOnBoot;
-
+    @PolicyResourceProperty(name="installUpdatesOnBoot", flag="unknown_installUpdatesOnBoot")
+    private Boolean value_installUpdatesOnBoot;
+    private boolean unknown_installUpdatesOnBoot;
     public Boolean installUpdatesOnBoot() {
-        if (installUpdatesOnBoot == null) return null;
-        return installUpdatesOnBoot.getValue("HaproxyLayerArgs.installUpdatesOnBoot");
+        if (!unknown_installUpdatesOnBoot) return value_installUpdatesOnBoot;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.installUpdatesOnBoot' is not present");
     }
 
     /**
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      * 
      */
-    private UndeferrableValue<Integer> instanceShutdownTimeout;
-
+    @PolicyResourceProperty(name="instanceShutdownTimeout", flag="unknown_instanceShutdownTimeout")
+    private Integer value_instanceShutdownTimeout;
+    private boolean unknown_instanceShutdownTimeout;
     public Integer instanceShutdownTimeout() {
-        if (instanceShutdownTimeout == null) return null;
-        return instanceShutdownTimeout.getValue("HaproxyLayerArgs.instanceShutdownTimeout");
+        if (!unknown_instanceShutdownTimeout) return value_instanceShutdownTimeout;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.instanceShutdownTimeout' is not present");
     }
 
-    private UndeferrableValue<HaproxyLayerLoadBasedAutoScalingArgs> loadBasedAutoScaling;
-
+    @PolicyResourceProperty(name="loadBasedAutoScaling", flag="unknown_loadBasedAutoScaling")
+    private HaproxyLayerLoadBasedAutoScalingArgs value_loadBasedAutoScaling;
+    private boolean unknown_loadBasedAutoScaling;
     public HaproxyLayerLoadBasedAutoScalingArgs loadBasedAutoScaling() {
-        if (loadBasedAutoScaling == null) return null;
-        return loadBasedAutoScaling.getValue("HaproxyLayerArgs.loadBasedAutoScaling");
+        if (!unknown_loadBasedAutoScaling) return value_loadBasedAutoScaling;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.loadBasedAutoScaling' is not present");
     }
 
     /**
      * A human-readable name for the layer.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("HaproxyLayerArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.name' is not present");
     }
 
     /**
      * ID of the stack the layer will belong to.
      * 
      */
-    private UndeferrableValue<String> stackId;
-
+    @PolicyResourceProperty(name="stackId", flag="unknown_stackId")
+    private String value_stackId;
+    private boolean unknown_stackId;
     public String stackId() {
-        if (stackId == null) return null;
-        return stackId.getValue("HaproxyLayerArgs.stackId");
+        if (!unknown_stackId) return value_stackId;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.stackId' is not present");
     }
 
     /**
      * Whether to enable HAProxy stats.
      * 
      */
-    private UndeferrableValue<Boolean> statsEnabled;
-
+    @PolicyResourceProperty(name="statsEnabled", flag="unknown_statsEnabled")
+    private Boolean value_statsEnabled;
+    private boolean unknown_statsEnabled;
     public Boolean statsEnabled() {
-        if (statsEnabled == null) return null;
-        return statsEnabled.getValue("HaproxyLayerArgs.statsEnabled");
+        if (!unknown_statsEnabled) return value_statsEnabled;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.statsEnabled' is not present");
     }
 
     /**
      * The password to use for HAProxy stats.
      * 
      */
-    private UndeferrableValue<String> statsPassword;
-
+    @PolicyResourceProperty(name="statsPassword", flag="unknown_statsPassword")
+    private String value_statsPassword;
+    private boolean unknown_statsPassword;
     public String statsPassword() {
-        if (statsPassword == null) return null;
-        return statsPassword.getValue("HaproxyLayerArgs.statsPassword");
+        if (!unknown_statsPassword) return value_statsPassword;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.statsPassword' is not present");
     }
 
     /**
      * The HAProxy stats URL. Defaults to &#34;/haproxy?stats&#34;.
      * 
      */
-    private UndeferrableValue<String> statsUrl;
-
+    @PolicyResourceProperty(name="statsUrl", flag="unknown_statsUrl")
+    private String value_statsUrl;
+    private boolean unknown_statsUrl;
     public String statsUrl() {
-        if (statsUrl == null) return null;
-        return statsUrl.getValue("HaproxyLayerArgs.statsUrl");
+        if (!unknown_statsUrl) return value_statsUrl;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.statsUrl' is not present");
     }
 
     /**
      * The username for HAProxy stats. Defaults to &#34;opsworks&#34;.
      * 
      */
-    private UndeferrableValue<String> statsUser;
-
+    @PolicyResourceProperty(name="statsUser", flag="unknown_statsUser")
+    private String value_statsUser;
+    private boolean unknown_statsUser;
     public String statsUser() {
-        if (statsUser == null) return null;
-        return statsUser.getValue("HaproxyLayerArgs.statsUser");
+        if (!unknown_statsUser) return value_statsUser;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.statsUser' is not present");
     }
 
     /**
      * Names of a set of system packages to install on the layer&#39;s instances.
      * 
      */
-    private UndeferrableValue<List<String>> systemPackages;
-
+    @PolicyResourceProperty(name="systemPackages", flag="unknown_systemPackages")
+    private List<String> value_systemPackages;
+    private boolean unknown_systemPackages;
     public List<String> systemPackages() {
-        if (systemPackages == null) return null;
-        return systemPackages.getValue("HaproxyLayerArgs.systemPackages");
+        if (!unknown_systemPackages) return value_systemPackages;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.systemPackages' is not present");
     }
 
     /**
@@ -296,22 +324,24 @@ public final class HaproxyLayerArgs extends com.pulumi.resources.PolicyResourceI
      * lifecycle events, if custom cookbooks are enabled on the layer&#39;s stack:
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("HaproxyLayerArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.tags' is not present");
     }
 
     /**
      * Whether to use EBS-optimized instances.
      * 
      */
-    private UndeferrableValue<Boolean> useEbsOptimizedInstances;
-
+    @PolicyResourceProperty(name="useEbsOptimizedInstances", flag="unknown_useEbsOptimizedInstances")
+    private Boolean value_useEbsOptimizedInstances;
+    private boolean unknown_useEbsOptimizedInstances;
     public Boolean useEbsOptimizedInstances() {
-        if (useEbsOptimizedInstances == null) return null;
-        return useEbsOptimizedInstances.getValue("HaproxyLayerArgs.useEbsOptimizedInstances");
+        if (!unknown_useEbsOptimizedInstances) return value_useEbsOptimizedInstances;
+        throw new UndeferrableValueException("Value 'HaproxyLayerArgs.useEbsOptimizedInstances' is not present");
     }
 
 }

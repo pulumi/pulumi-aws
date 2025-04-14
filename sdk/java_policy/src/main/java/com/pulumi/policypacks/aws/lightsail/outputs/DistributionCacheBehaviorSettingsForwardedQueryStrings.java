@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class DistributionCacheBehaviorSettingsForwardedQueryStrings {
      * Indicates whether the distribution forwards and caches based on query strings.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> option;
-
+    @PolicyResourceProperty(name="option", flag="unknown_option")
+    private @Nullable Boolean value_option;
+    private boolean unknown_option;
     public @Nullable Boolean option() {
-        if (option == null) return null;
-        return option.getValue("DistributionCacheBehaviorSettingsForwardedQueryStrings.option");
+        if (!unknown_option) return value_option;
+        throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsForwardedQueryStrings.option' is not present");
     }
 
     /**
      * The specific query strings that the distribution forwards to the origin.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> queryStringsAllowedLists;
-
+    @PolicyResourceProperty(name="queryStringsAllowedLists", flag="unknown_queryStringsAllowedLists")
+    private @Nullable List<String> value_queryStringsAllowedLists;
+    private boolean unknown_queryStringsAllowedLists;
     public @Nullable List<String> queryStringsAllowedLists() {
-        if (queryStringsAllowedLists == null) return null;
-        return queryStringsAllowedLists.getValue("DistributionCacheBehaviorSettingsForwardedQueryStrings.queryStringsAllowedLists");
+        if (!unknown_queryStringsAllowedLists) return value_queryStringsAllowedLists;
+        throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsForwardedQueryStrings.queryStringsAllowedLists' is not present");
     }
 
 }

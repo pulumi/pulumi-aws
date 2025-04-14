@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.outputs.VpcBlockPublicAccessExclusionTimeouts;
 import java.lang.String;
@@ -20,44 +21,48 @@ public final class VpcBlockPublicAccessExclusion extends com.pulumi.resources.Po
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> internetGatewayExclusionMode;
-
+    @PolicyResourceProperty(name="internetGatewayExclusionMode", flag="unknown_internetGatewayExclusionMode")
+    private String value_internetGatewayExclusionMode;
+    private boolean unknown_internetGatewayExclusionMode;
     public String internetGatewayExclusionMode() {
-        if (internetGatewayExclusionMode == null) return null;
-        return internetGatewayExclusionMode.getValue("VpcBlockPublicAccessExclusion.internetGatewayExclusionMode");
+        if (!unknown_internetGatewayExclusionMode) return value_internetGatewayExclusionMode;
+        throw new UndeferrableValueException("Value 'VpcBlockPublicAccessExclusion.internetGatewayExclusionMode' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) the excluded resource.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("VpcBlockPublicAccessExclusion.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'VpcBlockPublicAccessExclusion.resourceArn' is not present");
     }
 
     /**
      * Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
      * 
      */
-    private @Nullable UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private @Nullable String value_subnetId;
+    private boolean unknown_subnetId;
     public @Nullable String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("VpcBlockPublicAccessExclusion.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'VpcBlockPublicAccessExclusion.subnetId' is not present");
     }
 
     /**
      * A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VpcBlockPublicAccessExclusion.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VpcBlockPublicAccessExclusion.tags' is not present");
     }
 
     /**
@@ -68,29 +73,32 @@ public final class VpcBlockPublicAccessExclusion extends com.pulumi.resources.Po
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("VpcBlockPublicAccessExclusion.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'VpcBlockPublicAccessExclusion.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<VpcBlockPublicAccessExclusionTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable VpcBlockPublicAccessExclusionTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable VpcBlockPublicAccessExclusionTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("VpcBlockPublicAccessExclusion.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'VpcBlockPublicAccessExclusion.timeouts' is not present");
     }
 
     /**
      * Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
      * 
      */
-    private @Nullable UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private @Nullable String value_vpcId;
+    private boolean unknown_vpcId;
     public @Nullable String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("VpcBlockPublicAccessExclusion.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'VpcBlockPublicAccessExclusion.vpcId' is not present");
     }
 
 }

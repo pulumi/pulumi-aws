@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class FlowSourceFlowConfigIncrementalPullConfig {
      * Field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
      * 
      */
-    private @Nullable UndeferrableValue<String> datetimeTypeFieldName;
-
+    @PolicyResourceProperty(name="datetimeTypeFieldName", flag="unknown_datetimeTypeFieldName")
+    private @Nullable String value_datetimeTypeFieldName;
+    private boolean unknown_datetimeTypeFieldName;
     public @Nullable String datetimeTypeFieldName() {
-        if (datetimeTypeFieldName == null) return null;
-        return datetimeTypeFieldName.getValue("FlowSourceFlowConfigIncrementalPullConfig.datetimeTypeFieldName");
+        if (!unknown_datetimeTypeFieldName) return value_datetimeTypeFieldName;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigIncrementalPullConfig.datetimeTypeFieldName' is not present");
     }
 
 }

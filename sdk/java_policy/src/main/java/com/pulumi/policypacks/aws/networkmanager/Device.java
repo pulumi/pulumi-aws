@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.networkmanager.outputs.DeviceAwsLocation;
 import com.pulumi.policypacks.aws.networkmanager.outputs.DeviceLocation;
@@ -19,99 +20,108 @@ public final class Device extends com.pulumi.resources.PolicyResourceOutput {
      * The Amazon Resource Name (ARN) of the device.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Device.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Device.arn' is not present");
     }
 
     /**
      * The AWS location of the device. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<DeviceAwsLocation> awsLocation;
-
+    @PolicyResourceProperty(name="awsLocation", flag="unknown_awsLocation")
+    private @Nullable DeviceAwsLocation value_awsLocation;
+    private boolean unknown_awsLocation;
     public @Nullable DeviceAwsLocation awsLocation() {
-        if (awsLocation == null) return null;
-        return awsLocation.getValue("Device.awsLocation");
+        if (!unknown_awsLocation) return value_awsLocation;
+        throw new UndeferrableValueException("Value 'Device.awsLocation' is not present");
     }
 
     /**
      * A description of the device.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Device.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Device.description' is not present");
     }
 
     /**
      * The ID of the global network.
      * 
      */
-    private UndeferrableValue<String> globalNetworkId;
-
+    @PolicyResourceProperty(name="globalNetworkId", flag="unknown_globalNetworkId")
+    private String value_globalNetworkId;
+    private boolean unknown_globalNetworkId;
     public String globalNetworkId() {
-        if (globalNetworkId == null) return null;
-        return globalNetworkId.getValue("Device.globalNetworkId");
+        if (!unknown_globalNetworkId) return value_globalNetworkId;
+        throw new UndeferrableValueException("Value 'Device.globalNetworkId' is not present");
     }
 
     /**
      * The location of the device. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<DeviceLocation> location;
-
+    @PolicyResourceProperty(name="location", flag="unknown_location")
+    private @Nullable DeviceLocation value_location;
+    private boolean unknown_location;
     public @Nullable DeviceLocation location() {
-        if (location == null) return null;
-        return location.getValue("Device.location");
+        if (!unknown_location) return value_location;
+        throw new UndeferrableValueException("Value 'Device.location' is not present");
     }
 
     /**
      * The model of device.
      * 
      */
-    private @Nullable UndeferrableValue<String> model;
-
+    @PolicyResourceProperty(name="model", flag="unknown_model")
+    private @Nullable String value_model;
+    private boolean unknown_model;
     public @Nullable String model() {
-        if (model == null) return null;
-        return model.getValue("Device.model");
+        if (!unknown_model) return value_model;
+        throw new UndeferrableValueException("Value 'Device.model' is not present");
     }
 
     /**
      * The serial number of the device.
      * 
      */
-    private @Nullable UndeferrableValue<String> serialNumber;
-
+    @PolicyResourceProperty(name="serialNumber", flag="unknown_serialNumber")
+    private @Nullable String value_serialNumber;
+    private boolean unknown_serialNumber;
     public @Nullable String serialNumber() {
-        if (serialNumber == null) return null;
-        return serialNumber.getValue("Device.serialNumber");
+        if (!unknown_serialNumber) return value_serialNumber;
+        throw new UndeferrableValueException("Value 'Device.serialNumber' is not present");
     }
 
     /**
      * The ID of the site.
      * 
      */
-    private @Nullable UndeferrableValue<String> siteId;
-
+    @PolicyResourceProperty(name="siteId", flag="unknown_siteId")
+    private @Nullable String value_siteId;
+    private boolean unknown_siteId;
     public @Nullable String siteId() {
-        if (siteId == null) return null;
-        return siteId.getValue("Device.siteId");
+        if (!unknown_siteId) return value_siteId;
+        throw new UndeferrableValueException("Value 'Device.siteId' is not present");
     }
 
     /**
      * Key-value tags for the device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Device.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Device.tags' is not present");
     }
 
     /**
@@ -122,33 +132,36 @@ public final class Device extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Device.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Device.tagsAll' is not present");
     }
 
     /**
      * The type of device.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("Device.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'Device.type' is not present");
     }
 
     /**
      * The vendor of the device.
      * 
      */
-    private @Nullable UndeferrableValue<String> vendor;
-
+    @PolicyResourceProperty(name="vendor", flag="unknown_vendor")
+    private @Nullable String value_vendor;
+    private boolean unknown_vendor;
     public @Nullable String vendor() {
-        if (vendor == null) return null;
-        return vendor.getValue("Device.vendor");
+        if (!unknown_vendor) return value_vendor;
+        throw new UndeferrableValueException("Value 'Device.vendor' is not present");
     }
 
 }

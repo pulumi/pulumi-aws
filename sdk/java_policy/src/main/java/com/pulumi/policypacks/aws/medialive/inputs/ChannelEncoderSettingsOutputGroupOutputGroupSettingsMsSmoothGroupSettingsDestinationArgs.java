@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
      * Reference ID for the destination.
      * 
      */
-    private UndeferrableValue<String> destinationRefId;
-
+    @PolicyResourceProperty(name="destinationRefId", flag="unknown_destinationRefId")
+    private String value_destinationRefId;
+    private boolean unknown_destinationRefId;
     public String destinationRefId() {
-        if (destinationRefId == null) return null;
-        return destinationRefId.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs.destinationRefId");
+        if (!unknown_destinationRefId) return value_destinationRefId;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs.destinationRefId' is not present");
     }
 
 }

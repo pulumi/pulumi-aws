@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudwatch.outputs.MetricStreamExcludeFilter;
 import com.pulumi.policypacks.aws.cloudwatch.outputs.MetricStreamIncludeFilter;
@@ -22,99 +23,108 @@ public final class MetricStream extends com.pulumi.resources.PolicyResourceOutpu
      * ARN of the metric stream.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("MetricStream.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'MetricStream.arn' is not present");
     }
 
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was created.
      * 
      */
-    private UndeferrableValue<String> creationDate;
-
+    @PolicyResourceProperty(name="creationDate", flag="unknown_creationDate")
+    private String value_creationDate;
+    private boolean unknown_creationDate;
     public String creationDate() {
-        if (creationDate == null) return null;
-        return creationDate.getValue("MetricStream.creationDate");
+        if (!unknown_creationDate) return value_creationDate;
+        throw new UndeferrableValueException("Value 'MetricStream.creationDate' is not present");
     }
 
     /**
      * List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces and the conditional metric names that you specify here. If you don&#39;t specify metric names or provide empty metric names whole metric namespace is excluded. Conflicts with `include_filter`.
      * 
      */
-    private @Nullable UndeferrableValue<List<MetricStreamExcludeFilter>> excludeFilters;
-
+    @PolicyResourceProperty(name="excludeFilters", flag="unknown_excludeFilters")
+    private @Nullable List<MetricStreamExcludeFilter> value_excludeFilters;
+    private boolean unknown_excludeFilters;
     public @Nullable List<MetricStreamExcludeFilter> excludeFilters() {
-        if (excludeFilters == null) return null;
-        return excludeFilters.getValue("MetricStream.excludeFilters");
+        if (!unknown_excludeFilters) return value_excludeFilters;
+        throw new UndeferrableValueException("Value 'MetricStream.excludeFilters' is not present");
     }
 
     /**
      * ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
      * 
      */
-    private UndeferrableValue<String> firehoseArn;
-
+    @PolicyResourceProperty(name="firehoseArn", flag="unknown_firehoseArn")
+    private String value_firehoseArn;
+    private boolean unknown_firehoseArn;
     public String firehoseArn() {
-        if (firehoseArn == null) return null;
-        return firehoseArn.getValue("MetricStream.firehoseArn");
+        if (!unknown_firehoseArn) return value_firehoseArn;
+        throw new UndeferrableValueException("Value 'MetricStream.firehoseArn' is not present");
     }
 
     /**
      * List of inclusive metric filters. If you specify this parameter, the stream sends only the conditional metric names from the metric namespaces that you specify here. If you don&#39;t specify metric names or provide empty metric names whole metric namespace is included. Conflicts with `exclude_filter`.
      * 
      */
-    private @Nullable UndeferrableValue<List<MetricStreamIncludeFilter>> includeFilters;
-
+    @PolicyResourceProperty(name="includeFilters", flag="unknown_includeFilters")
+    private @Nullable List<MetricStreamIncludeFilter> value_includeFilters;
+    private boolean unknown_includeFilters;
     public @Nullable List<MetricStreamIncludeFilter> includeFilters() {
-        if (includeFilters == null) return null;
-        return includeFilters.getValue("MetricStream.includeFilters");
+        if (!unknown_includeFilters) return value_includeFilters;
+        throw new UndeferrableValueException("Value 'MetricStream.includeFilters' is not present");
     }
 
     /**
      * If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false. For more information about linking accounts, see [CloudWatch cross-account observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html).
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> includeLinkedAccountsMetrics;
-
+    @PolicyResourceProperty(name="includeLinkedAccountsMetrics", flag="unknown_includeLinkedAccountsMetrics")
+    private @Nullable Boolean value_includeLinkedAccountsMetrics;
+    private boolean unknown_includeLinkedAccountsMetrics;
     public @Nullable Boolean includeLinkedAccountsMetrics() {
-        if (includeLinkedAccountsMetrics == null) return null;
-        return includeLinkedAccountsMetrics.getValue("MetricStream.includeLinkedAccountsMetrics");
+        if (!unknown_includeLinkedAccountsMetrics) return value_includeLinkedAccountsMetrics;
+        throw new UndeferrableValueException("Value 'MetricStream.includeLinkedAccountsMetrics' is not present");
     }
 
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
      * 
      */
-    private UndeferrableValue<String> lastUpdateDate;
-
+    @PolicyResourceProperty(name="lastUpdateDate", flag="unknown_lastUpdateDate")
+    private String value_lastUpdateDate;
+    private boolean unknown_lastUpdateDate;
     public String lastUpdateDate() {
-        if (lastUpdateDate == null) return null;
-        return lastUpdateDate.getValue("MetricStream.lastUpdateDate");
+        if (!unknown_lastUpdateDate) return value_lastUpdateDate;
+        throw new UndeferrableValueException("Value 'MetricStream.lastUpdateDate' is not present");
     }
 
     /**
      * Friendly name of the metric stream. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("MetricStream.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'MetricStream.name' is not present");
     }
 
     /**
      * Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("MetricStream.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'MetricStream.namePrefix' is not present");
     }
 
     /**
@@ -123,55 +133,60 @@ public final class MetricStream extends com.pulumi.resources.PolicyResourceOutpu
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> outputFormat;
-
+    @PolicyResourceProperty(name="outputFormat", flag="unknown_outputFormat")
+    private String value_outputFormat;
+    private boolean unknown_outputFormat;
     public String outputFormat() {
-        if (outputFormat == null) return null;
-        return outputFormat.getValue("MetricStream.outputFormat");
+        if (!unknown_outputFormat) return value_outputFormat;
+        throw new UndeferrableValueException("Value 'MetricStream.outputFormat' is not present");
     }
 
     /**
      * ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("MetricStream.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'MetricStream.roleArn' is not present");
     }
 
     /**
      * State of the metric stream. Possible values are `running` and `stopped`.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("MetricStream.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'MetricStream.state' is not present");
     }
 
     /**
      * For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream&#39;s `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7` or `opentelemetry1.0`, you can stream percentile statistics (p99 etc.). See details below.
      * 
      */
-    private @Nullable UndeferrableValue<List<MetricStreamStatisticsConfiguration>> statisticsConfigurations;
-
+    @PolicyResourceProperty(name="statisticsConfigurations", flag="unknown_statisticsConfigurations")
+    private @Nullable List<MetricStreamStatisticsConfiguration> value_statisticsConfigurations;
+    private boolean unknown_statisticsConfigurations;
     public @Nullable List<MetricStreamStatisticsConfiguration> statisticsConfigurations() {
-        if (statisticsConfigurations == null) return null;
-        return statisticsConfigurations.getValue("MetricStream.statisticsConfigurations");
+        if (!unknown_statisticsConfigurations) return value_statisticsConfigurations;
+        throw new UndeferrableValueException("Value 'MetricStream.statisticsConfigurations' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("MetricStream.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'MetricStream.tags' is not present");
     }
 
     /**
@@ -182,11 +197,12 @@ public final class MetricStream extends com.pulumi.resources.PolicyResourceOutpu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("MetricStream.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'MetricStream.tagsAll' is not present");
     }
 
 }

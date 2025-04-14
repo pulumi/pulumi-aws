@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3.outputs.ObjectCopyGrant;
 import com.pulumi.policypacks.aws.s3.outputs.ObjectCopyOverrideProvider;
@@ -21,454 +22,496 @@ public final class ObjectCopy extends com.pulumi.resources.PolicyResourceOutput 
      * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
      * 
      */
-    private UndeferrableValue<String> acl;
-
+    @PolicyResourceProperty(name="acl", flag="unknown_acl")
+    private String value_acl;
+    private boolean unknown_acl;
     public String acl() {
-        if (acl == null) return null;
-        return acl.getValue("ObjectCopy.acl");
+        if (!unknown_acl) return value_acl;
+        throw new UndeferrableValueException("Value 'ObjectCopy.acl' is not present");
     }
 
     /**
      * ARN of the object.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ObjectCopy.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ObjectCopy.arn' is not present");
     }
 
     /**
      * Name of the bucket to put the file in.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("ObjectCopy.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'ObjectCopy.bucket' is not present");
     }
 
-    private UndeferrableValue<Boolean> bucketKeyEnabled;
-
+    @PolicyResourceProperty(name="bucketKeyEnabled", flag="unknown_bucketKeyEnabled")
+    private Boolean value_bucketKeyEnabled;
+    private boolean unknown_bucketKeyEnabled;
     public Boolean bucketKeyEnabled() {
-        if (bucketKeyEnabled == null) return null;
-        return bucketKeyEnabled.getValue("ObjectCopy.bucketKeyEnabled");
+        if (!unknown_bucketKeyEnabled) return value_bucketKeyEnabled;
+        throw new UndeferrableValueException("Value 'ObjectCopy.bucketKeyEnabled' is not present");
     }
 
     /**
      * Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      * 
      */
-    private UndeferrableValue<String> cacheControl;
-
+    @PolicyResourceProperty(name="cacheControl", flag="unknown_cacheControl")
+    private String value_cacheControl;
+    private boolean unknown_cacheControl;
     public String cacheControl() {
-        if (cacheControl == null) return null;
-        return cacheControl.getValue("ObjectCopy.cacheControl");
+        if (!unknown_cacheControl) return value_cacheControl;
+        throw new UndeferrableValueException("Value 'ObjectCopy.cacheControl' is not present");
     }
 
     /**
      * Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `CRC64NVME` `SHA1`, `SHA256`.
      * 
      */
-    private @Nullable UndeferrableValue<String> checksumAlgorithm;
-
+    @PolicyResourceProperty(name="checksumAlgorithm", flag="unknown_checksumAlgorithm")
+    private @Nullable String value_checksumAlgorithm;
+    private boolean unknown_checksumAlgorithm;
     public @Nullable String checksumAlgorithm() {
-        if (checksumAlgorithm == null) return null;
-        return checksumAlgorithm.getValue("ObjectCopy.checksumAlgorithm");
+        if (!unknown_checksumAlgorithm) return value_checksumAlgorithm;
+        throw new UndeferrableValueException("Value 'ObjectCopy.checksumAlgorithm' is not present");
     }
 
     /**
      * The base64-encoded, 32-bit CRC32 checksum of the object.
      * 
      */
-    private UndeferrableValue<String> checksumCrc32;
-
+    @PolicyResourceProperty(name="checksumCrc32", flag="unknown_checksumCrc32")
+    private String value_checksumCrc32;
+    private boolean unknown_checksumCrc32;
     public String checksumCrc32() {
-        if (checksumCrc32 == null) return null;
-        return checksumCrc32.getValue("ObjectCopy.checksumCrc32");
+        if (!unknown_checksumCrc32) return value_checksumCrc32;
+        throw new UndeferrableValueException("Value 'ObjectCopy.checksumCrc32' is not present");
     }
 
     /**
      * The base64-encoded, 32-bit CRC32C checksum of the object.
      * 
      */
-    private UndeferrableValue<String> checksumCrc32c;
-
+    @PolicyResourceProperty(name="checksumCrc32c", flag="unknown_checksumCrc32c")
+    private String value_checksumCrc32c;
+    private boolean unknown_checksumCrc32c;
     public String checksumCrc32c() {
-        if (checksumCrc32c == null) return null;
-        return checksumCrc32c.getValue("ObjectCopy.checksumCrc32c");
+        if (!unknown_checksumCrc32c) return value_checksumCrc32c;
+        throw new UndeferrableValueException("Value 'ObjectCopy.checksumCrc32c' is not present");
     }
 
     /**
      * The base64-encoded, 64-bit CRC64NVME checksum of the object.
      * 
      */
-    private UndeferrableValue<String> checksumCrc64nvme;
-
+    @PolicyResourceProperty(name="checksumCrc64nvme", flag="unknown_checksumCrc64nvme")
+    private String value_checksumCrc64nvme;
+    private boolean unknown_checksumCrc64nvme;
     public String checksumCrc64nvme() {
-        if (checksumCrc64nvme == null) return null;
-        return checksumCrc64nvme.getValue("ObjectCopy.checksumCrc64nvme");
+        if (!unknown_checksumCrc64nvme) return value_checksumCrc64nvme;
+        throw new UndeferrableValueException("Value 'ObjectCopy.checksumCrc64nvme' is not present");
     }
 
     /**
      * The base64-encoded, 160-bit SHA-1 digest of the object.
      * 
      */
-    private UndeferrableValue<String> checksumSha1;
-
+    @PolicyResourceProperty(name="checksumSha1", flag="unknown_checksumSha1")
+    private String value_checksumSha1;
+    private boolean unknown_checksumSha1;
     public String checksumSha1() {
-        if (checksumSha1 == null) return null;
-        return checksumSha1.getValue("ObjectCopy.checksumSha1");
+        if (!unknown_checksumSha1) return value_checksumSha1;
+        throw new UndeferrableValueException("Value 'ObjectCopy.checksumSha1' is not present");
     }
 
     /**
      * The base64-encoded, 256-bit SHA-256 digest of the object.
      * 
      */
-    private UndeferrableValue<String> checksumSha256;
-
+    @PolicyResourceProperty(name="checksumSha256", flag="unknown_checksumSha256")
+    private String value_checksumSha256;
+    private boolean unknown_checksumSha256;
     public String checksumSha256() {
-        if (checksumSha256 == null) return null;
-        return checksumSha256.getValue("ObjectCopy.checksumSha256");
+        if (!unknown_checksumSha256) return value_checksumSha256;
+        throw new UndeferrableValueException("Value 'ObjectCopy.checksumSha256' is not present");
     }
 
     /**
      * Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      * 
      */
-    private UndeferrableValue<String> contentDisposition;
-
+    @PolicyResourceProperty(name="contentDisposition", flag="unknown_contentDisposition")
+    private String value_contentDisposition;
+    private boolean unknown_contentDisposition;
     public String contentDisposition() {
-        if (contentDisposition == null) return null;
-        return contentDisposition.getValue("ObjectCopy.contentDisposition");
+        if (!unknown_contentDisposition) return value_contentDisposition;
+        throw new UndeferrableValueException("Value 'ObjectCopy.contentDisposition' is not present");
     }
 
     /**
      * Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
      * 
      */
-    private UndeferrableValue<String> contentEncoding;
-
+    @PolicyResourceProperty(name="contentEncoding", flag="unknown_contentEncoding")
+    private String value_contentEncoding;
+    private boolean unknown_contentEncoding;
     public String contentEncoding() {
-        if (contentEncoding == null) return null;
-        return contentEncoding.getValue("ObjectCopy.contentEncoding");
+        if (!unknown_contentEncoding) return value_contentEncoding;
+        throw new UndeferrableValueException("Value 'ObjectCopy.contentEncoding' is not present");
     }
 
     /**
      * Language the content is in e.g., en-US or en-GB.
      * 
      */
-    private UndeferrableValue<String> contentLanguage;
-
+    @PolicyResourceProperty(name="contentLanguage", flag="unknown_contentLanguage")
+    private String value_contentLanguage;
+    private boolean unknown_contentLanguage;
     public String contentLanguage() {
-        if (contentLanguage == null) return null;
-        return contentLanguage.getValue("ObjectCopy.contentLanguage");
+        if (!unknown_contentLanguage) return value_contentLanguage;
+        throw new UndeferrableValueException("Value 'ObjectCopy.contentLanguage' is not present");
     }
 
     /**
      * Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
      * 
      */
-    private UndeferrableValue<String> contentType;
-
+    @PolicyResourceProperty(name="contentType", flag="unknown_contentType")
+    private String value_contentType;
+    private boolean unknown_contentType;
     public String contentType() {
-        if (contentType == null) return null;
-        return contentType.getValue("ObjectCopy.contentType");
+        if (!unknown_contentType) return value_contentType;
+        throw new UndeferrableValueException("Value 'ObjectCopy.contentType' is not present");
     }
 
     /**
      * Copies the object if its entity tag (ETag) matches the specified tag.
      * 
      */
-    private @Nullable UndeferrableValue<String> copyIfMatch;
-
+    @PolicyResourceProperty(name="copyIfMatch", flag="unknown_copyIfMatch")
+    private @Nullable String value_copyIfMatch;
+    private boolean unknown_copyIfMatch;
     public @Nullable String copyIfMatch() {
-        if (copyIfMatch == null) return null;
-        return copyIfMatch.getValue("ObjectCopy.copyIfMatch");
+        if (!unknown_copyIfMatch) return value_copyIfMatch;
+        throw new UndeferrableValueException("Value 'ObjectCopy.copyIfMatch' is not present");
     }
 
     /**
      * Copies the object if it has been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private @Nullable UndeferrableValue<String> copyIfModifiedSince;
-
+    @PolicyResourceProperty(name="copyIfModifiedSince", flag="unknown_copyIfModifiedSince")
+    private @Nullable String value_copyIfModifiedSince;
+    private boolean unknown_copyIfModifiedSince;
     public @Nullable String copyIfModifiedSince() {
-        if (copyIfModifiedSince == null) return null;
-        return copyIfModifiedSince.getValue("ObjectCopy.copyIfModifiedSince");
+        if (!unknown_copyIfModifiedSince) return value_copyIfModifiedSince;
+        throw new UndeferrableValueException("Value 'ObjectCopy.copyIfModifiedSince' is not present");
     }
 
     /**
      * Copies the object if its entity tag (ETag) is different than the specified ETag.
      * 
      */
-    private @Nullable UndeferrableValue<String> copyIfNoneMatch;
-
+    @PolicyResourceProperty(name="copyIfNoneMatch", flag="unknown_copyIfNoneMatch")
+    private @Nullable String value_copyIfNoneMatch;
+    private boolean unknown_copyIfNoneMatch;
     public @Nullable String copyIfNoneMatch() {
-        if (copyIfNoneMatch == null) return null;
-        return copyIfNoneMatch.getValue("ObjectCopy.copyIfNoneMatch");
+        if (!unknown_copyIfNoneMatch) return value_copyIfNoneMatch;
+        throw new UndeferrableValueException("Value 'ObjectCopy.copyIfNoneMatch' is not present");
     }
 
     /**
      * Copies the object if it hasn&#39;t been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private @Nullable UndeferrableValue<String> copyIfUnmodifiedSince;
-
+    @PolicyResourceProperty(name="copyIfUnmodifiedSince", flag="unknown_copyIfUnmodifiedSince")
+    private @Nullable String value_copyIfUnmodifiedSince;
+    private boolean unknown_copyIfUnmodifiedSince;
     public @Nullable String copyIfUnmodifiedSince() {
-        if (copyIfUnmodifiedSince == null) return null;
-        return copyIfUnmodifiedSince.getValue("ObjectCopy.copyIfUnmodifiedSince");
+        if (!unknown_copyIfUnmodifiedSince) return value_copyIfUnmodifiedSince;
+        throw new UndeferrableValueException("Value 'ObjectCopy.copyIfUnmodifiedSince' is not present");
     }
 
     /**
      * Specifies the algorithm to use to when encrypting the object (for example, AES256).
      * 
      */
-    private UndeferrableValue<String> customerAlgorithm;
-
+    @PolicyResourceProperty(name="customerAlgorithm", flag="unknown_customerAlgorithm")
+    private String value_customerAlgorithm;
+    private boolean unknown_customerAlgorithm;
     public String customerAlgorithm() {
-        if (customerAlgorithm == null) return null;
-        return customerAlgorithm.getValue("ObjectCopy.customerAlgorithm");
+        if (!unknown_customerAlgorithm) return value_customerAlgorithm;
+        throw new UndeferrableValueException("Value 'ObjectCopy.customerAlgorithm' is not present");
     }
 
     /**
      * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
      * 
      */
-    private @Nullable UndeferrableValue<String> customerKey;
-
+    @PolicyResourceProperty(name="customerKey", flag="unknown_customerKey")
+    private @Nullable String value_customerKey;
+    private boolean unknown_customerKey;
     public @Nullable String customerKey() {
-        if (customerKey == null) return null;
-        return customerKey.getValue("ObjectCopy.customerKey");
+        if (!unknown_customerKey) return value_customerKey;
+        throw new UndeferrableValueException("Value 'ObjectCopy.customerKey' is not present");
     }
 
     /**
      * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
      * 
      */
-    private UndeferrableValue<String> customerKeyMd5;
-
+    @PolicyResourceProperty(name="customerKeyMd5", flag="unknown_customerKeyMd5")
+    private String value_customerKeyMd5;
+    private boolean unknown_customerKeyMd5;
     public String customerKeyMd5() {
-        if (customerKeyMd5 == null) return null;
-        return customerKeyMd5.getValue("ObjectCopy.customerKeyMd5");
+        if (!unknown_customerKeyMd5) return value_customerKeyMd5;
+        throw new UndeferrableValueException("Value 'ObjectCopy.customerKeyMd5' is not present");
     }
 
     /**
      * ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
      * 
      */
-    private UndeferrableValue<String> etag;
-
+    @PolicyResourceProperty(name="etag", flag="unknown_etag")
+    private String value_etag;
+    private boolean unknown_etag;
     public String etag() {
-        if (etag == null) return null;
-        return etag.getValue("ObjectCopy.etag");
+        if (!unknown_etag) return value_etag;
+        throw new UndeferrableValueException("Value 'ObjectCopy.etag' is not present");
     }
 
     /**
      * Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      * 
      */
-    private @Nullable UndeferrableValue<String> expectedBucketOwner;
-
+    @PolicyResourceProperty(name="expectedBucketOwner", flag="unknown_expectedBucketOwner")
+    private @Nullable String value_expectedBucketOwner;
+    private boolean unknown_expectedBucketOwner;
     public @Nullable String expectedBucketOwner() {
-        if (expectedBucketOwner == null) return null;
-        return expectedBucketOwner.getValue("ObjectCopy.expectedBucketOwner");
+        if (!unknown_expectedBucketOwner) return value_expectedBucketOwner;
+        throw new UndeferrableValueException("Value 'ObjectCopy.expectedBucketOwner' is not present");
     }
 
     /**
      * Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      * 
      */
-    private @Nullable UndeferrableValue<String> expectedSourceBucketOwner;
-
+    @PolicyResourceProperty(name="expectedSourceBucketOwner", flag="unknown_expectedSourceBucketOwner")
+    private @Nullable String value_expectedSourceBucketOwner;
+    private boolean unknown_expectedSourceBucketOwner;
     public @Nullable String expectedSourceBucketOwner() {
-        if (expectedSourceBucketOwner == null) return null;
-        return expectedSourceBucketOwner.getValue("ObjectCopy.expectedSourceBucketOwner");
+        if (!unknown_expectedSourceBucketOwner) return value_expectedSourceBucketOwner;
+        throw new UndeferrableValueException("Value 'ObjectCopy.expectedSourceBucketOwner' is not present");
     }
 
     /**
      * If the object expiration is configured, this attribute will be set.
      * 
      */
-    private UndeferrableValue<String> expiration;
-
+    @PolicyResourceProperty(name="expiration", flag="unknown_expiration")
+    private String value_expiration;
+    private boolean unknown_expiration;
     public String expiration() {
-        if (expiration == null) return null;
-        return expiration.getValue("ObjectCopy.expiration");
+        if (!unknown_expiration) return value_expiration;
+        throw new UndeferrableValueException("Value 'ObjectCopy.expiration' is not present");
     }
 
     /**
      * Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private @Nullable UndeferrableValue<String> expires;
-
+    @PolicyResourceProperty(name="expires", flag="unknown_expires")
+    private @Nullable String value_expires;
+    private boolean unknown_expires;
     public @Nullable String expires() {
-        if (expires == null) return null;
-        return expires.getValue("ObjectCopy.expires");
+        if (!unknown_expires) return value_expires;
+        throw new UndeferrableValueException("Value 'ObjectCopy.expires' is not present");
     }
 
     /**
      * Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> forceDestroy;
-
+    @PolicyResourceProperty(name="forceDestroy", flag="unknown_forceDestroy")
+    private @Nullable Boolean value_forceDestroy;
+    private boolean unknown_forceDestroy;
     public @Nullable Boolean forceDestroy() {
-        if (forceDestroy == null) return null;
-        return forceDestroy.getValue("ObjectCopy.forceDestroy");
+        if (!unknown_forceDestroy) return value_forceDestroy;
+        throw new UndeferrableValueException("Value 'ObjectCopy.forceDestroy' is not present");
     }
 
     /**
      * Configuration block for header grants. Documented below. Conflicts with `acl`.
      * 
      */
-    private @Nullable UndeferrableValue<List<ObjectCopyGrant>> grants;
-
+    @PolicyResourceProperty(name="grants", flag="unknown_grants")
+    private @Nullable List<ObjectCopyGrant> value_grants;
+    private boolean unknown_grants;
     public @Nullable List<ObjectCopyGrant> grants() {
-        if (grants == null) return null;
-        return grants.getValue("ObjectCopy.grants");
+        if (!unknown_grants) return value_grants;
+        throw new UndeferrableValueException("Value 'ObjectCopy.grants' is not present");
     }
 
     /**
      * Name of the object once it is in the bucket.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("ObjectCopy.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'ObjectCopy.key' is not present");
     }
 
     /**
      * Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
      * 
      */
-    private UndeferrableValue<String> kmsEncryptionContext;
-
+    @PolicyResourceProperty(name="kmsEncryptionContext", flag="unknown_kmsEncryptionContext")
+    private String value_kmsEncryptionContext;
+    private boolean unknown_kmsEncryptionContext;
     public String kmsEncryptionContext() {
-        if (kmsEncryptionContext == null) return null;
-        return kmsEncryptionContext.getValue("ObjectCopy.kmsEncryptionContext");
+        if (!unknown_kmsEncryptionContext) return value_kmsEncryptionContext;
+        throw new UndeferrableValueException("Value 'ObjectCopy.kmsEncryptionContext' is not present");
     }
 
     /**
      * Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kms_key_id = aws_kms_key.foo.arn`
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("ObjectCopy.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'ObjectCopy.kmsKeyId' is not present");
     }
 
     /**
      * Returns the date that the object was last modified, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private UndeferrableValue<String> lastModified;
-
+    @PolicyResourceProperty(name="lastModified", flag="unknown_lastModified")
+    private String value_lastModified;
+    private boolean unknown_lastModified;
     public String lastModified() {
-        if (lastModified == null) return null;
-        return lastModified.getValue("ObjectCopy.lastModified");
+        if (!unknown_lastModified) return value_lastModified;
+        throw new UndeferrableValueException("Value 'ObjectCopy.lastModified' is not present");
     }
 
     /**
      * Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
      * 
      */
-    private UndeferrableValue<Map<String,String>> metadata;
-
+    @PolicyResourceProperty(name="metadata", flag="unknown_metadata")
+    private Map<String,String> value_metadata;
+    private boolean unknown_metadata;
     public Map<String,String> metadata() {
-        if (metadata == null) return null;
-        return metadata.getValue("ObjectCopy.metadata");
+        if (!unknown_metadata) return value_metadata;
+        throw new UndeferrableValueException("Value 'ObjectCopy.metadata' is not present");
     }
 
     /**
      * Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> metadataDirective;
-
+    @PolicyResourceProperty(name="metadataDirective", flag="unknown_metadataDirective")
+    private @Nullable String value_metadataDirective;
+    private boolean unknown_metadataDirective;
     public @Nullable String metadataDirective() {
-        if (metadataDirective == null) return null;
-        return metadataDirective.getValue("ObjectCopy.metadataDirective");
+        if (!unknown_metadataDirective) return value_metadataDirective;
+        throw new UndeferrableValueException("Value 'ObjectCopy.metadataDirective' is not present");
     }
 
     /**
      * The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
      * 
      */
-    private UndeferrableValue<String> objectLockLegalHoldStatus;
-
+    @PolicyResourceProperty(name="objectLockLegalHoldStatus", flag="unknown_objectLockLegalHoldStatus")
+    private String value_objectLockLegalHoldStatus;
+    private boolean unknown_objectLockLegalHoldStatus;
     public String objectLockLegalHoldStatus() {
-        if (objectLockLegalHoldStatus == null) return null;
-        return objectLockLegalHoldStatus.getValue("ObjectCopy.objectLockLegalHoldStatus");
+        if (!unknown_objectLockLegalHoldStatus) return value_objectLockLegalHoldStatus;
+        throw new UndeferrableValueException("Value 'ObjectCopy.objectLockLegalHoldStatus' is not present");
     }
 
     /**
      * Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
      * 
      */
-    private UndeferrableValue<String> objectLockMode;
-
+    @PolicyResourceProperty(name="objectLockMode", flag="unknown_objectLockMode")
+    private String value_objectLockMode;
+    private boolean unknown_objectLockMode;
     public String objectLockMode() {
-        if (objectLockMode == null) return null;
-        return objectLockMode.getValue("ObjectCopy.objectLockMode");
+        if (!unknown_objectLockMode) return value_objectLockMode;
+        throw new UndeferrableValueException("Value 'ObjectCopy.objectLockMode' is not present");
     }
 
     /**
      * Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object&#39;s object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
      * 
      */
-    private UndeferrableValue<String> objectLockRetainUntilDate;
-
+    @PolicyResourceProperty(name="objectLockRetainUntilDate", flag="unknown_objectLockRetainUntilDate")
+    private String value_objectLockRetainUntilDate;
+    private boolean unknown_objectLockRetainUntilDate;
     public String objectLockRetainUntilDate() {
-        if (objectLockRetainUntilDate == null) return null;
-        return objectLockRetainUntilDate.getValue("ObjectCopy.objectLockRetainUntilDate");
+        if (!unknown_objectLockRetainUntilDate) return value_objectLockRetainUntilDate;
+        throw new UndeferrableValueException("Value 'ObjectCopy.objectLockRetainUntilDate' is not present");
     }
 
-    private @Nullable UndeferrableValue<ObjectCopyOverrideProvider> overrideProvider;
-
+    @PolicyResourceProperty(name="overrideProvider", flag="unknown_overrideProvider")
+    private @Nullable ObjectCopyOverrideProvider value_overrideProvider;
+    private boolean unknown_overrideProvider;
     public @Nullable ObjectCopyOverrideProvider overrideProvider() {
-        if (overrideProvider == null) return null;
-        return overrideProvider.getValue("ObjectCopy.overrideProvider");
+        if (!unknown_overrideProvider) return value_overrideProvider;
+        throw new UndeferrableValueException("Value 'ObjectCopy.overrideProvider' is not present");
     }
 
     /**
      * If present, indicates that the requester was successfully charged for the request.
      * 
      */
-    private UndeferrableValue<Boolean> requestCharged;
-
+    @PolicyResourceProperty(name="requestCharged", flag="unknown_requestCharged")
+    private Boolean value_requestCharged;
+    private boolean unknown_requestCharged;
     public Boolean requestCharged() {
-        if (requestCharged == null) return null;
-        return requestCharged.getValue("ObjectCopy.requestCharged");
+        if (!unknown_requestCharged) return value_requestCharged;
+        throw new UndeferrableValueException("Value 'ObjectCopy.requestCharged' is not present");
     }
 
     /**
      * Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
      * 
      */
-    private @Nullable UndeferrableValue<String> requestPayer;
-
+    @PolicyResourceProperty(name="requestPayer", flag="unknown_requestPayer")
+    private @Nullable String value_requestPayer;
+    private boolean unknown_requestPayer;
     public @Nullable String requestPayer() {
-        if (requestPayer == null) return null;
-        return requestPayer.getValue("ObjectCopy.requestPayer");
+        if (!unknown_requestPayer) return value_requestPayer;
+        throw new UndeferrableValueException("Value 'ObjectCopy.requestPayer' is not present");
     }
 
     /**
      * Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
      * 
      */
-    private UndeferrableValue<String> serverSideEncryption;
-
+    @PolicyResourceProperty(name="serverSideEncryption", flag="unknown_serverSideEncryption")
+    private String value_serverSideEncryption;
+    private boolean unknown_serverSideEncryption;
     public String serverSideEncryption() {
-        if (serverSideEncryption == null) return null;
-        return serverSideEncryption.getValue("ObjectCopy.serverSideEncryption");
+        if (!unknown_serverSideEncryption) return value_serverSideEncryption;
+        throw new UndeferrableValueException("Value 'ObjectCopy.serverSideEncryption' is not present");
     }
 
     /**
@@ -477,88 +520,96 @@ public final class ObjectCopy extends com.pulumi.resources.PolicyResourceOutput 
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private String value_source;
+    private boolean unknown_source;
     public String source() {
-        if (source == null) return null;
-        return source.getValue("ObjectCopy.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'ObjectCopy.source' is not present");
     }
 
     /**
      * Specifies the algorithm to use when decrypting the source object (for example, AES256).
      * 
      */
-    private @Nullable UndeferrableValue<String> sourceCustomerAlgorithm;
-
+    @PolicyResourceProperty(name="sourceCustomerAlgorithm", flag="unknown_sourceCustomerAlgorithm")
+    private @Nullable String value_sourceCustomerAlgorithm;
+    private boolean unknown_sourceCustomerAlgorithm;
     public @Nullable String sourceCustomerAlgorithm() {
-        if (sourceCustomerAlgorithm == null) return null;
-        return sourceCustomerAlgorithm.getValue("ObjectCopy.sourceCustomerAlgorithm");
+        if (!unknown_sourceCustomerAlgorithm) return value_sourceCustomerAlgorithm;
+        throw new UndeferrableValueException("Value 'ObjectCopy.sourceCustomerAlgorithm' is not present");
     }
 
     /**
      * Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
      * 
      */
-    private @Nullable UndeferrableValue<String> sourceCustomerKey;
-
+    @PolicyResourceProperty(name="sourceCustomerKey", flag="unknown_sourceCustomerKey")
+    private @Nullable String value_sourceCustomerKey;
+    private boolean unknown_sourceCustomerKey;
     public @Nullable String sourceCustomerKey() {
-        if (sourceCustomerKey == null) return null;
-        return sourceCustomerKey.getValue("ObjectCopy.sourceCustomerKey");
+        if (!unknown_sourceCustomerKey) return value_sourceCustomerKey;
+        throw new UndeferrableValueException("Value 'ObjectCopy.sourceCustomerKey' is not present");
     }
 
     /**
      * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
      * 
      */
-    private @Nullable UndeferrableValue<String> sourceCustomerKeyMd5;
-
+    @PolicyResourceProperty(name="sourceCustomerKeyMd5", flag="unknown_sourceCustomerKeyMd5")
+    private @Nullable String value_sourceCustomerKeyMd5;
+    private boolean unknown_sourceCustomerKeyMd5;
     public @Nullable String sourceCustomerKeyMd5() {
-        if (sourceCustomerKeyMd5 == null) return null;
-        return sourceCustomerKeyMd5.getValue("ObjectCopy.sourceCustomerKeyMd5");
+        if (!unknown_sourceCustomerKeyMd5) return value_sourceCustomerKeyMd5;
+        throw new UndeferrableValueException("Value 'ObjectCopy.sourceCustomerKeyMd5' is not present");
     }
 
     /**
      * Version of the copied object in the source bucket.
      * 
      */
-    private UndeferrableValue<String> sourceVersionId;
-
+    @PolicyResourceProperty(name="sourceVersionId", flag="unknown_sourceVersionId")
+    private String value_sourceVersionId;
+    private boolean unknown_sourceVersionId;
     public String sourceVersionId() {
-        if (sourceVersionId == null) return null;
-        return sourceVersionId.getValue("ObjectCopy.sourceVersionId");
+        if (!unknown_sourceVersionId) return value_sourceVersionId;
+        throw new UndeferrableValueException("Value 'ObjectCopy.sourceVersionId' is not present");
     }
 
     /**
      * Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
      * 
      */
-    private UndeferrableValue<String> storageClass;
-
+    @PolicyResourceProperty(name="storageClass", flag="unknown_storageClass")
+    private String value_storageClass;
+    private boolean unknown_storageClass;
     public String storageClass() {
-        if (storageClass == null) return null;
-        return storageClass.getValue("ObjectCopy.storageClass");
+        if (!unknown_storageClass) return value_storageClass;
+        throw new UndeferrableValueException("Value 'ObjectCopy.storageClass' is not present");
     }
 
     /**
      * Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> taggingDirective;
-
+    @PolicyResourceProperty(name="taggingDirective", flag="unknown_taggingDirective")
+    private @Nullable String value_taggingDirective;
+    private boolean unknown_taggingDirective;
     public @Nullable String taggingDirective() {
-        if (taggingDirective == null) return null;
-        return taggingDirective.getValue("ObjectCopy.taggingDirective");
+        if (!unknown_taggingDirective) return value_taggingDirective;
+        throw new UndeferrableValueException("Value 'ObjectCopy.taggingDirective' is not present");
     }
 
     /**
      * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ObjectCopy.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ObjectCopy.tags' is not present");
     }
 
     /**
@@ -569,33 +620,36 @@ public final class ObjectCopy extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ObjectCopy.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ObjectCopy.tagsAll' is not present");
     }
 
     /**
      * Version ID of the newly created copy.
      * 
      */
-    private UndeferrableValue<String> versionId;
-
+    @PolicyResourceProperty(name="versionId", flag="unknown_versionId")
+    private String value_versionId;
+    private boolean unknown_versionId;
     public String versionId() {
-        if (versionId == null) return null;
-        return versionId.getValue("ObjectCopy.versionId");
+        if (!unknown_versionId) return value_versionId;
+        throw new UndeferrableValueException("Value 'ObjectCopy.versionId' is not present");
     }
 
     /**
      * Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      * 
      */
-    private UndeferrableValue<String> websiteRedirect;
-
+    @PolicyResourceProperty(name="websiteRedirect", flag="unknown_websiteRedirect")
+    private String value_websiteRedirect;
+    private boolean unknown_websiteRedirect;
     public String websiteRedirect() {
-        if (websiteRedirect == null) return null;
-        return websiteRedirect.getValue("ObjectCopy.websiteRedirect");
+        if (!unknown_websiteRedirect) return value_websiteRedirect;
+        throw new UndeferrableValueException("Value 'ObjectCopy.websiteRedirect' is not present");
     }
 
 }

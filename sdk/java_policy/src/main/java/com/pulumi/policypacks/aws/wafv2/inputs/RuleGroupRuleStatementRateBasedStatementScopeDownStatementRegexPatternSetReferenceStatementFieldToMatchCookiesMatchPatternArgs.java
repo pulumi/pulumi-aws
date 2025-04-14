@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,25 +17,28 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
      * An empty configuration block that is used for inspecting all headers.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs> all;
-
+    @PolicyResourceProperty(name="all", flag="unknown_all")
+    private RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs value_all;
+    private boolean unknown_all;
     public RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs all() {
-        if (all == null) return null;
-        return all.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs.all");
+        if (!unknown_all) return value_all;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs.all' is not present");
     }
 
-    private UndeferrableValue<List<String>> excludedCookies;
-
+    @PolicyResourceProperty(name="excludedCookies", flag="unknown_excludedCookies")
+    private List<String> value_excludedCookies;
+    private boolean unknown_excludedCookies;
     public List<String> excludedCookies() {
-        if (excludedCookies == null) return null;
-        return excludedCookies.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs.excludedCookies");
+        if (!unknown_excludedCookies) return value_excludedCookies;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs.excludedCookies' is not present");
     }
 
-    private UndeferrableValue<List<String>> includedCookies;
-
+    @PolicyResourceProperty(name="includedCookies", flag="unknown_includedCookies")
+    private List<String> value_includedCookies;
+    private boolean unknown_includedCookies;
     public List<String> includedCookies() {
-        if (includedCookies == null) return null;
-        return includedCookies.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs.includedCookies");
+        if (!unknown_includedCookies) return value_includedCookies;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs.includedCookies' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,77 +18,84 @@ public final class SchemaArgs extends com.pulumi.resources.PolicyResourceInput {
      * The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
      * 
      */
-    private UndeferrableValue<String> compatibility;
-
+    @PolicyResourceProperty(name="compatibility", flag="unknown_compatibility")
+    private String value_compatibility;
+    private boolean unknown_compatibility;
     public String compatibility() {
-        if (compatibility == null) return null;
-        return compatibility.getValue("SchemaArgs.compatibility");
+        if (!unknown_compatibility) return value_compatibility;
+        throw new UndeferrableValueException("Value 'SchemaArgs.compatibility' is not present");
     }
 
     /**
      * The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
      * 
      */
-    private UndeferrableValue<String> dataFormat;
-
+    @PolicyResourceProperty(name="dataFormat", flag="unknown_dataFormat")
+    private String value_dataFormat;
+    private boolean unknown_dataFormat;
     public String dataFormat() {
-        if (dataFormat == null) return null;
-        return dataFormat.getValue("SchemaArgs.dataFormat");
+        if (!unknown_dataFormat) return value_dataFormat;
+        throw new UndeferrableValueException("Value 'SchemaArgs.dataFormat' is not present");
     }
 
     /**
      * A description of the schema.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("SchemaArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'SchemaArgs.description' is not present");
     }
 
     /**
      * The ARN of the Glue Registry to create the schema in.
      * 
      */
-    private UndeferrableValue<String> registryArn;
-
+    @PolicyResourceProperty(name="registryArn", flag="unknown_registryArn")
+    private String value_registryArn;
+    private boolean unknown_registryArn;
     public String registryArn() {
-        if (registryArn == null) return null;
-        return registryArn.getValue("SchemaArgs.registryArn");
+        if (!unknown_registryArn) return value_registryArn;
+        throw new UndeferrableValueException("Value 'SchemaArgs.registryArn' is not present");
     }
 
     /**
      * The schema definition using the `data_format` setting for `schema_name`.
      * 
      */
-    private UndeferrableValue<String> schemaDefinition;
-
+    @PolicyResourceProperty(name="schemaDefinition", flag="unknown_schemaDefinition")
+    private String value_schemaDefinition;
+    private boolean unknown_schemaDefinition;
     public String schemaDefinition() {
-        if (schemaDefinition == null) return null;
-        return schemaDefinition.getValue("SchemaArgs.schemaDefinition");
+        if (!unknown_schemaDefinition) return value_schemaDefinition;
+        throw new UndeferrableValueException("Value 'SchemaArgs.schemaDefinition' is not present");
     }
 
     /**
      * The Name of the schema.
      * 
      */
-    private UndeferrableValue<String> schemaName;
-
+    @PolicyResourceProperty(name="schemaName", flag="unknown_schemaName")
+    private String value_schemaName;
+    private boolean unknown_schemaName;
     public String schemaName() {
-        if (schemaName == null) return null;
-        return schemaName.getValue("SchemaArgs.schemaName");
+        if (!unknown_schemaName) return value_schemaName;
+        throw new UndeferrableValueException("Value 'SchemaArgs.schemaName' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SchemaArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SchemaArgs.tags' is not present");
     }
 
 }

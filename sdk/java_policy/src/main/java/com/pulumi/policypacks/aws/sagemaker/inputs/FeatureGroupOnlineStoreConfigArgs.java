@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.FeatureGroupOnlineStoreConfigSecurityConfigArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.FeatureGroupOnlineStoreConfigTtlDurationArgs;
 import java.lang.Boolean;
@@ -17,44 +18,48 @@ public final class FeatureGroupOnlineStoreConfigArgs {
      * Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
      * 
      */
-    private UndeferrableValue<Boolean> enableOnlineStore;
-
+    @PolicyResourceProperty(name="enableOnlineStore", flag="unknown_enableOnlineStore")
+    private Boolean value_enableOnlineStore;
+    private boolean unknown_enableOnlineStore;
     public Boolean enableOnlineStore() {
-        if (enableOnlineStore == null) return null;
-        return enableOnlineStore.getValue("FeatureGroupOnlineStoreConfigArgs.enableOnlineStore");
+        if (!unknown_enableOnlineStore) return value_enableOnlineStore;
+        throw new UndeferrableValueException("Value 'FeatureGroupOnlineStoreConfigArgs.enableOnlineStore' is not present");
     }
 
     /**
      * Security config for at-rest encryption of your OnlineStore. See Security Config Below.
      * 
      */
-    private UndeferrableValue<FeatureGroupOnlineStoreConfigSecurityConfigArgs> securityConfig;
-
+    @PolicyResourceProperty(name="securityConfig", flag="unknown_securityConfig")
+    private FeatureGroupOnlineStoreConfigSecurityConfigArgs value_securityConfig;
+    private boolean unknown_securityConfig;
     public FeatureGroupOnlineStoreConfigSecurityConfigArgs securityConfig() {
-        if (securityConfig == null) return null;
-        return securityConfig.getValue("FeatureGroupOnlineStoreConfigArgs.securityConfig");
+        if (!unknown_securityConfig) return value_securityConfig;
+        throw new UndeferrableValueException("Value 'FeatureGroupOnlineStoreConfigArgs.securityConfig' is not present");
     }
 
     /**
      * Option for different tiers of low latency storage for real-time data retrieval. Valid values are `Standard`, or `InMemory`.
      * 
      */
-    private UndeferrableValue<String> storageType;
-
+    @PolicyResourceProperty(name="storageType", flag="unknown_storageType")
+    private String value_storageType;
+    private boolean unknown_storageType;
     public String storageType() {
-        if (storageType == null) return null;
-        return storageType.getValue("FeatureGroupOnlineStoreConfigArgs.storageType");
+        if (!unknown_storageType) return value_storageType;
+        throw new UndeferrableValueException("Value 'FeatureGroupOnlineStoreConfigArgs.storageType' is not present");
     }
 
     /**
      * Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
      * 
      */
-    private UndeferrableValue<FeatureGroupOnlineStoreConfigTtlDurationArgs> ttlDuration;
-
+    @PolicyResourceProperty(name="ttlDuration", flag="unknown_ttlDuration")
+    private FeatureGroupOnlineStoreConfigTtlDurationArgs value_ttlDuration;
+    private boolean unknown_ttlDuration;
     public FeatureGroupOnlineStoreConfigTtlDurationArgs ttlDuration() {
-        if (ttlDuration == null) return null;
-        return ttlDuration.getValue("FeatureGroupOnlineStoreConfigArgs.ttlDuration");
+        if (!unknown_ttlDuration) return value_ttlDuration;
+        throw new UndeferrableValueException("Value 'FeatureGroupOnlineStoreConfigArgs.ttlDuration' is not present");
     }
 
 }

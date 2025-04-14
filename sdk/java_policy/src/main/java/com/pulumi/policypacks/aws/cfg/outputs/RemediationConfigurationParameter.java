@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class RemediationConfigurationParameter {
      * Name of the attribute.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RemediationConfigurationParameter.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RemediationConfigurationParameter.name' is not present");
     }
 
     /**
      * Value is dynamic and changes at run-time.
      * 
      */
-    private @Nullable UndeferrableValue<String> resourceValue;
-
+    @PolicyResourceProperty(name="resourceValue", flag="unknown_resourceValue")
+    private @Nullable String value_resourceValue;
+    private boolean unknown_resourceValue;
     public @Nullable String resourceValue() {
-        if (resourceValue == null) return null;
-        return resourceValue.getValue("RemediationConfigurationParameter.resourceValue");
+        if (!unknown_resourceValue) return value_resourceValue;
+        throw new UndeferrableValueException("Value 'RemediationConfigurationParameter.resourceValue' is not present");
     }
 
     /**
      * Value is static and does not change at run-time.
      * 
      */
-    private @Nullable UndeferrableValue<String> staticValue;
-
+    @PolicyResourceProperty(name="staticValue", flag="unknown_staticValue")
+    private @Nullable String value_staticValue;
+    private boolean unknown_staticValue;
     public @Nullable String staticValue() {
-        if (staticValue == null) return null;
-        return staticValue.getValue("RemediationConfigurationParameter.staticValue");
+        if (!unknown_staticValue) return value_staticValue;
+        throw new UndeferrableValueException("Value 'RemediationConfigurationParameter.staticValue' is not present");
     }
 
     /**
      * List of static values.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> staticValues;
-
+    @PolicyResourceProperty(name="staticValues", flag="unknown_staticValues")
+    private @Nullable List<String> value_staticValues;
+    private boolean unknown_staticValues;
     public @Nullable List<String> staticValues() {
-        if (staticValues == null) return null;
-        return staticValues.getValue("RemediationConfigurationParameter.staticValues");
+        if (!unknown_staticValues) return value_staticValues;
+        throw new UndeferrableValueException("Value 'RemediationConfigurationParameter.staticValues' is not present");
     }
 
 }

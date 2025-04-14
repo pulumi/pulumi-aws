@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class PermissionsLfTagArgs {
      * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    private UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private String value_catalogId;
+    private boolean unknown_catalogId;
     public String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("PermissionsLfTagArgs.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'PermissionsLfTagArgs.catalogId' is not present");
     }
 
     /**
      * The key-name for the tag.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("PermissionsLfTagArgs.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'PermissionsLfTagArgs.key' is not present");
     }
 
     /**
@@ -39,11 +42,12 @@ public final class PermissionsLfTagArgs {
      * The following argument is optional:
      * 
      */
-    private UndeferrableValue<List<String>> values;
-
+    @PolicyResourceProperty(name="values", flag="unknown_values")
+    private List<String> value_values;
+    private boolean unknown_values;
     public List<String> values() {
-        if (values == null) return null;
-        return values.getValue("PermissionsLfTagArgs.values");
+        if (!unknown_values) return value_values;
+        throw new UndeferrableValueException("Value 'PermissionsLfTagArgs.values' is not present");
     }
 
 }

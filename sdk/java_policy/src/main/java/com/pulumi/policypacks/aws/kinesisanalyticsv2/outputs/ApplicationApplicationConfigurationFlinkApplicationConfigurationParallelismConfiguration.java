@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
      * Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> autoScalingEnabled;
-
+    @PolicyResourceProperty(name="autoScalingEnabled", flag="unknown_autoScalingEnabled")
+    private @Nullable Boolean value_autoScalingEnabled;
+    private boolean unknown_autoScalingEnabled;
     public @Nullable Boolean autoScalingEnabled() {
-        if (autoScalingEnabled == null) return null;
-        return autoScalingEnabled.getValue("ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration.autoScalingEnabled");
+        if (!unknown_autoScalingEnabled) return value_autoScalingEnabled;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration.autoScalingEnabled' is not present");
     }
 
     /**
      * Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `auto_scaling_enabled`, `parallelism`, or `parallelism_per_kpu` attribute values to be effective.
      * 
      */
-    private UndeferrableValue<String> configurationType;
-
+    @PolicyResourceProperty(name="configurationType", flag="unknown_configurationType")
+    private String value_configurationType;
+    private boolean unknown_configurationType;
     public String configurationType() {
-        if (configurationType == null) return null;
-        return configurationType.getValue("ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration.configurationType");
+        if (!unknown_configurationType) return value_configurationType;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration.configurationType' is not present");
     }
 
     /**
      * Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> parallelism;
-
+    @PolicyResourceProperty(name="parallelism", flag="unknown_parallelism")
+    private @Nullable Integer value_parallelism;
+    private boolean unknown_parallelism;
     public @Nullable Integer parallelism() {
-        if (parallelism == null) return null;
-        return parallelism.getValue("ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration.parallelism");
+        if (!unknown_parallelism) return value_parallelism;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration.parallelism' is not present");
     }
 
     /**
      * Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> parallelismPerKpu;
-
+    @PolicyResourceProperty(name="parallelismPerKpu", flag="unknown_parallelismPerKpu")
+    private @Nullable Integer value_parallelismPerKpu;
+    private boolean unknown_parallelismPerKpu;
     public @Nullable Integer parallelismPerKpu() {
-        if (parallelismPerKpu == null) return null;
-        return parallelismPerKpu.getValue("ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration.parallelismPerKpu");
+        if (!unknown_parallelismPerKpu) return value_parallelismPerKpu;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration.parallelismPerKpu' is not present");
     }
 
 }

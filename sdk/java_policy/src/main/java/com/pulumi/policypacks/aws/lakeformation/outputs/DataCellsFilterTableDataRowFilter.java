@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lakeformation.outputs.DataCellsFilterTableDataRowFilterAllRowsWildcard;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DataCellsFilterTableDataRowFilter {
      * (Optional) A wildcard that matches all rows.
      * 
      */
-    private @Nullable UndeferrableValue<DataCellsFilterTableDataRowFilterAllRowsWildcard> allRowsWildcard;
-
+    @PolicyResourceProperty(name="allRowsWildcard", flag="unknown_allRowsWildcard")
+    private @Nullable DataCellsFilterTableDataRowFilterAllRowsWildcard value_allRowsWildcard;
+    private boolean unknown_allRowsWildcard;
     public @Nullable DataCellsFilterTableDataRowFilterAllRowsWildcard allRowsWildcard() {
-        if (allRowsWildcard == null) return null;
-        return allRowsWildcard.getValue("DataCellsFilterTableDataRowFilter.allRowsWildcard");
+        if (!unknown_allRowsWildcard) return value_allRowsWildcard;
+        throw new UndeferrableValueException("Value 'DataCellsFilterTableDataRowFilter.allRowsWildcard' is not present");
     }
 
     /**
      * (Optional) A filter expression.
      * 
      */
-    private @Nullable UndeferrableValue<String> filterExpression;
-
+    @PolicyResourceProperty(name="filterExpression", flag="unknown_filterExpression")
+    private @Nullable String value_filterExpression;
+    private boolean unknown_filterExpression;
     public @Nullable String filterExpression() {
-        if (filterExpression == null) return null;
-        return filterExpression.getValue("DataCellsFilterTableDataRowFilter.filterExpression");
+        if (!unknown_filterExpression) return value_filterExpression;
+        throw new UndeferrableValueException("Value 'DataCellsFilterTableDataRowFilter.filterExpression' is not present");
     }
 
 }

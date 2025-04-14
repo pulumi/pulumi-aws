@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class RouteTableAssociationArgs extends com.pulumi.resources.Policy
      * Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
      * 
      */
-    private UndeferrableValue<Boolean> replaceExistingAssociation;
-
+    @PolicyResourceProperty(name="replaceExistingAssociation", flag="unknown_replaceExistingAssociation")
+    private Boolean value_replaceExistingAssociation;
+    private boolean unknown_replaceExistingAssociation;
     public Boolean replaceExistingAssociation() {
-        if (replaceExistingAssociation == null) return null;
-        return replaceExistingAssociation.getValue("RouteTableAssociationArgs.replaceExistingAssociation");
+        if (!unknown_replaceExistingAssociation) return value_replaceExistingAssociation;
+        throw new UndeferrableValueException("Value 'RouteTableAssociationArgs.replaceExistingAssociation' is not present");
     }
 
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      * 
      */
-    private UndeferrableValue<String> transitGatewayAttachmentId;
-
+    @PolicyResourceProperty(name="transitGatewayAttachmentId", flag="unknown_transitGatewayAttachmentId")
+    private String value_transitGatewayAttachmentId;
+    private boolean unknown_transitGatewayAttachmentId;
     public String transitGatewayAttachmentId() {
-        if (transitGatewayAttachmentId == null) return null;
-        return transitGatewayAttachmentId.getValue("RouteTableAssociationArgs.transitGatewayAttachmentId");
+        if (!unknown_transitGatewayAttachmentId) return value_transitGatewayAttachmentId;
+        throw new UndeferrableValueException("Value 'RouteTableAssociationArgs.transitGatewayAttachmentId' is not present");
     }
 
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      * 
      */
-    private UndeferrableValue<String> transitGatewayRouteTableId;
-
+    @PolicyResourceProperty(name="transitGatewayRouteTableId", flag="unknown_transitGatewayRouteTableId")
+    private String value_transitGatewayRouteTableId;
+    private boolean unknown_transitGatewayRouteTableId;
     public String transitGatewayRouteTableId() {
-        if (transitGatewayRouteTableId == null) return null;
-        return transitGatewayRouteTableId.getValue("RouteTableAssociationArgs.transitGatewayRouteTableId");
+        if (!unknown_transitGatewayRouteTableId) return value_transitGatewayRouteTableId;
+        throw new UndeferrableValueException("Value 'RouteTableAssociationArgs.transitGatewayRouteTableId' is not present");
     }
 
 }

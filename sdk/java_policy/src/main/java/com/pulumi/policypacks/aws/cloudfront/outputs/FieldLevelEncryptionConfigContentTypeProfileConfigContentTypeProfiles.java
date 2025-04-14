@@ -3,18 +3,20 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.outputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem;
 import java.util.List;
 
 
 public final class FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles {
 
-    private UndeferrableValue<List<FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem>> items;
-
+    @PolicyResourceProperty(name="items", flag="unknown_items")
+    private List<FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem> value_items;
+    private boolean unknown_items;
     public List<FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem> items() {
-        if (items == null) return null;
-        return items.getValue("FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles.items");
+        if (!unknown_items) return value_items;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles.items' is not present");
     }
 
 }

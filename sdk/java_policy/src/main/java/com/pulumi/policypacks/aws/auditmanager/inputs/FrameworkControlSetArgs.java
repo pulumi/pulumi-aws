@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.auditmanager.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.auditmanager.inputs.FrameworkControlSetControlArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class FrameworkControlSetArgs {
      * Configuration block(s) for the controls within the control set. See `controls` Block below for details.
      * 
      */
-    private UndeferrableValue<List<FrameworkControlSetControlArgs>> controls;
-
+    @PolicyResourceProperty(name="controls", flag="unknown_controls")
+    private List<FrameworkControlSetControlArgs> value_controls;
+    private boolean unknown_controls;
     public List<FrameworkControlSetControlArgs> controls() {
-        if (controls == null) return null;
-        return controls.getValue("FrameworkControlSetArgs.controls");
+        if (!unknown_controls) return value_controls;
+        throw new UndeferrableValueException("Value 'FrameworkControlSetArgs.controls' is not present");
     }
 
     /**
      * Unique identifier for the framework.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("FrameworkControlSetArgs.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'FrameworkControlSetArgs.id' is not present");
     }
 
     /**
      * Name of the control set.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("FrameworkControlSetArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FrameworkControlSetArgs.name' is not present");
     }
 
 }

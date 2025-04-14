@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class VpcEndpointServiceAllowedPrincipleArgs extends com.pulumi.res
      * The ARN of the principal to allow permissions.
      * 
      */
-    private UndeferrableValue<String> principalArn;
-
+    @PolicyResourceProperty(name="principalArn", flag="unknown_principalArn")
+    private String value_principalArn;
+    private boolean unknown_principalArn;
     public String principalArn() {
-        if (principalArn == null) return null;
-        return principalArn.getValue("VpcEndpointServiceAllowedPrincipleArgs.principalArn");
+        if (!unknown_principalArn) return value_principalArn;
+        throw new UndeferrableValueException("Value 'VpcEndpointServiceAllowedPrincipleArgs.principalArn' is not present");
     }
 
     /**
      * The ID of the VPC endpoint service to allow permission.
      * 
      */
-    private UndeferrableValue<String> vpcEndpointServiceId;
-
+    @PolicyResourceProperty(name="vpcEndpointServiceId", flag="unknown_vpcEndpointServiceId")
+    private String value_vpcEndpointServiceId;
+    private boolean unknown_vpcEndpointServiceId;
     public String vpcEndpointServiceId() {
-        if (vpcEndpointServiceId == null) return null;
-        return vpcEndpointServiceId.getValue("VpcEndpointServiceAllowedPrincipleArgs.vpcEndpointServiceId");
+        if (!unknown_vpcEndpointServiceId) return value_vpcEndpointServiceId;
+        throw new UndeferrableValueException("Value 'VpcEndpointServiceAllowedPrincipleArgs.vpcEndpointServiceId' is not present");
     }
 
 }

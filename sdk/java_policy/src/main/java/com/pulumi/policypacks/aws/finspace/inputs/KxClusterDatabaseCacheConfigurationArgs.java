@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.finspace.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class KxClusterDatabaseCacheConfigurationArgs {
      * Type of disk cache.
      * 
      */
-    private UndeferrableValue<String> cacheType;
-
+    @PolicyResourceProperty(name="cacheType", flag="unknown_cacheType")
+    private String value_cacheType;
+    private boolean unknown_cacheType;
     public String cacheType() {
-        if (cacheType == null) return null;
-        return cacheType.getValue("KxClusterDatabaseCacheConfigurationArgs.cacheType");
+        if (!unknown_cacheType) return value_cacheType;
+        throw new UndeferrableValueException("Value 'KxClusterDatabaseCacheConfigurationArgs.cacheType' is not present");
     }
 
     /**
      * Paths within the database to cache.
      * 
      */
-    private UndeferrableValue<List<String>> dbPaths;
-
+    @PolicyResourceProperty(name="dbPaths", flag="unknown_dbPaths")
+    private List<String> value_dbPaths;
+    private boolean unknown_dbPaths;
     public List<String> dbPaths() {
-        if (dbPaths == null) return null;
-        return dbPaths.getValue("KxClusterDatabaseCacheConfigurationArgs.dbPaths");
+        if (!unknown_dbPaths) return value_dbPaths;
+        throw new UndeferrableValueException("Value 'KxClusterDatabaseCacheConfigurationArgs.dbPaths' is not present");
     }
 
 }

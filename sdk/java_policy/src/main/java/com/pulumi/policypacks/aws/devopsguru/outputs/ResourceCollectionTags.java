@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.devopsguru.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,22 +15,24 @@ public final class ResourceCollectionTags {
      * An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes. All AWS resources in your account and Region tagged with this key make up your DevOps Guru application and analysis boundary. The key must begin with the prefix `DevOps-Guru-`. Any casing can be used for the prefix, but the associated tags __must use the same casing__ in their tag key.
      * 
      */
-    private UndeferrableValue<String> appBoundaryKey;
-
+    @PolicyResourceProperty(name="appBoundaryKey", flag="unknown_appBoundaryKey")
+    private String value_appBoundaryKey;
+    private boolean unknown_appBoundaryKey;
     public String appBoundaryKey() {
-        if (appBoundaryKey == null) return null;
-        return appBoundaryKey.getValue("ResourceCollectionTags.appBoundaryKey");
+        if (!unknown_appBoundaryKey) return value_appBoundaryKey;
+        throw new UndeferrableValueException("Value 'ResourceCollectionTags.appBoundaryKey' is not present");
     }
 
     /**
      * Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `app_boundary_key` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`&#34;*&#34;`).
      * 
      */
-    private UndeferrableValue<List<String>> tagValues;
-
+    @PolicyResourceProperty(name="tagValues", flag="unknown_tagValues")
+    private List<String> value_tagValues;
+    private boolean unknown_tagValues;
     public List<String> tagValues() {
-        if (tagValues == null) return null;
-        return tagValues.getValue("ResourceCollectionTags.tagValues");
+        if (!unknown_tagValues) return value_tagValues;
+        throw new UndeferrableValueException("Value 'ResourceCollectionTags.tagValues' is not present");
     }
 
 }

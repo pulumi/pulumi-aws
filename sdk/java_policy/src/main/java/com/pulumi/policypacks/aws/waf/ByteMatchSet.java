@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.waf;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.waf.outputs.ByteMatchSetByteMatchTuple;
 import java.lang.String;
@@ -18,11 +19,12 @@ public final class ByteMatchSet extends com.pulumi.resources.PolicyResourceOutpu
      * Amazon Resource Name (ARN) of the byte match set.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ByteMatchSet.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ByteMatchSet.arn' is not present");
     }
 
     /**
@@ -31,22 +33,24 @@ public final class ByteMatchSet extends com.pulumi.resources.PolicyResourceOutpu
      * the location in requests that you want to search, and other settings.
      * 
      */
-    private @Nullable UndeferrableValue<List<ByteMatchSetByteMatchTuple>> byteMatchTuples;
-
+    @PolicyResourceProperty(name="byteMatchTuples", flag="unknown_byteMatchTuples")
+    private @Nullable List<ByteMatchSetByteMatchTuple> value_byteMatchTuples;
+    private boolean unknown_byteMatchTuples;
     public @Nullable List<ByteMatchSetByteMatchTuple> byteMatchTuples() {
-        if (byteMatchTuples == null) return null;
-        return byteMatchTuples.getValue("ByteMatchSet.byteMatchTuples");
+        if (!unknown_byteMatchTuples) return value_byteMatchTuples;
+        throw new UndeferrableValueException("Value 'ByteMatchSet.byteMatchTuples' is not present");
     }
 
     /**
      * The name or description of the Byte Match Set.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ByteMatchSet.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ByteMatchSet.name' is not present");
     }
 
 }

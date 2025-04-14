@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.location;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,44 +18,48 @@ public final class TrackerArgs extends com.pulumi.resources.PolicyResourceInput 
      * The optional description for the tracker resource.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("TrackerArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'TrackerArgs.description' is not present");
     }
 
     /**
      * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("TrackerArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'TrackerArgs.kmsKeyId' is not present");
     }
 
     /**
      * The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
      * 
      */
-    private UndeferrableValue<String> positionFiltering;
-
+    @PolicyResourceProperty(name="positionFiltering", flag="unknown_positionFiltering")
+    private String value_positionFiltering;
+    private boolean unknown_positionFiltering;
     public String positionFiltering() {
-        if (positionFiltering == null) return null;
-        return positionFiltering.getValue("TrackerArgs.positionFiltering");
+        if (!unknown_positionFiltering) return value_positionFiltering;
+        throw new UndeferrableValueException("Value 'TrackerArgs.positionFiltering' is not present");
     }
 
     /**
      * Key-value tags for the tracker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TrackerArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TrackerArgs.tags' is not present");
     }
 
     /**
@@ -63,11 +68,12 @@ public final class TrackerArgs extends com.pulumi.resources.PolicyResourceInput 
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> trackerName;
-
+    @PolicyResourceProperty(name="trackerName", flag="unknown_trackerName")
+    private String value_trackerName;
+    private boolean unknown_trackerName;
     public String trackerName() {
-        if (trackerName == null) return null;
-        return trackerName.getValue("TrackerArgs.trackerName");
+        if (!unknown_trackerName) return value_trackerName;
+        throw new UndeferrableValueException("Value 'TrackerArgs.trackerName' is not present");
     }
 
 }

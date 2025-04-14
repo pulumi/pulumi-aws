@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement
      * The time that SageMaker AI waits after the application becomes idle before shutting it down. Valid values are between `60` and `525600`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> idleTimeoutInMinutes;
-
+    @PolicyResourceProperty(name="idleTimeoutInMinutes", flag="unknown_idleTimeoutInMinutes")
+    private @Nullable Integer value_idleTimeoutInMinutes;
+    private boolean unknown_idleTimeoutInMinutes;
     public @Nullable Integer idleTimeoutInMinutes() {
-        if (idleTimeoutInMinutes == null) return null;
-        return idleTimeoutInMinutes.getValue("SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings.idleTimeoutInMinutes");
+        if (!unknown_idleTimeoutInMinutes) return value_idleTimeoutInMinutes;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettings.idleTimeoutInMinutes' is not present");
     }
 
 }

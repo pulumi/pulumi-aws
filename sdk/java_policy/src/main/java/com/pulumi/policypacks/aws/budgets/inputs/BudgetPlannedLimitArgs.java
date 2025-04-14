@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.budgets.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,33 +14,36 @@ public final class BudgetPlannedLimitArgs {
      * (Required) The amount of cost or usage being measured for a budget.
      * 
      */
-    private UndeferrableValue<String> amount;
-
+    @PolicyResourceProperty(name="amount", flag="unknown_amount")
+    private String value_amount;
+    private boolean unknown_amount;
     public String amount() {
-        if (amount == null) return null;
-        return amount.getValue("BudgetPlannedLimitArgs.amount");
+        if (!unknown_amount) return value_amount;
+        throw new UndeferrableValueException("Value 'BudgetPlannedLimitArgs.amount' is not present");
     }
 
     /**
      * (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
      * 
      */
-    private UndeferrableValue<String> startTime;
-
+    @PolicyResourceProperty(name="startTime", flag="unknown_startTime")
+    private String value_startTime;
+    private boolean unknown_startTime;
     public String startTime() {
-        if (startTime == null) return null;
-        return startTime.getValue("BudgetPlannedLimitArgs.startTime");
+        if (!unknown_startTime) return value_startTime;
+        throw new UndeferrableValueException("Value 'BudgetPlannedLimitArgs.startTime' is not present");
     }
 
     /**
      * (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      * 
      */
-    private UndeferrableValue<String> unit;
-
+    @PolicyResourceProperty(name="unit", flag="unknown_unit")
+    private String value_unit;
+    private boolean unknown_unit;
     public String unit() {
-        if (unit == null) return null;
-        return unit.getValue("BudgetPlannedLimitArgs.unit");
+        if (!unknown_unit) return value_unit;
+        throw new UndeferrableValueException("Value 'BudgetPlannedLimitArgs.unit' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.inputs.FeatureGroupFeatureDefinitionArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.FeatureGroupOfflineStoreConfigArgs;
@@ -22,106 +23,116 @@ public final class FeatureGroupArgs extends com.pulumi.resources.PolicyResourceI
      * A free-form description of a Feature Group.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("FeatureGroupArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'FeatureGroupArgs.description' is not present");
     }
 
     /**
      * The name of the feature that stores the EventTime of a Record in a Feature Group.
      * 
      */
-    private UndeferrableValue<String> eventTimeFeatureName;
-
+    @PolicyResourceProperty(name="eventTimeFeatureName", flag="unknown_eventTimeFeatureName")
+    private String value_eventTimeFeatureName;
+    private boolean unknown_eventTimeFeatureName;
     public String eventTimeFeatureName() {
-        if (eventTimeFeatureName == null) return null;
-        return eventTimeFeatureName.getValue("FeatureGroupArgs.eventTimeFeatureName");
+        if (!unknown_eventTimeFeatureName) return value_eventTimeFeatureName;
+        throw new UndeferrableValueException("Value 'FeatureGroupArgs.eventTimeFeatureName' is not present");
     }
 
     /**
      * A list of Feature names and types. See Feature Definition Below.
      * 
      */
-    private UndeferrableValue<List<FeatureGroupFeatureDefinitionArgs>> featureDefinitions;
-
+    @PolicyResourceProperty(name="featureDefinitions", flag="unknown_featureDefinitions")
+    private List<FeatureGroupFeatureDefinitionArgs> value_featureDefinitions;
+    private boolean unknown_featureDefinitions;
     public List<FeatureGroupFeatureDefinitionArgs> featureDefinitions() {
-        if (featureDefinitions == null) return null;
-        return featureDefinitions.getValue("FeatureGroupArgs.featureDefinitions");
+        if (!unknown_featureDefinitions) return value_featureDefinitions;
+        throw new UndeferrableValueException("Value 'FeatureGroupArgs.featureDefinitions' is not present");
     }
 
     /**
      * The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
      * 
      */
-    private UndeferrableValue<String> featureGroupName;
-
+    @PolicyResourceProperty(name="featureGroupName", flag="unknown_featureGroupName")
+    private String value_featureGroupName;
+    private boolean unknown_featureGroupName;
     public String featureGroupName() {
-        if (featureGroupName == null) return null;
-        return featureGroupName.getValue("FeatureGroupArgs.featureGroupName");
+        if (!unknown_featureGroupName) return value_featureGroupName;
+        throw new UndeferrableValueException("Value 'FeatureGroupArgs.featureGroupName' is not present");
     }
 
     /**
      * The Offline Feature Store Configuration. See Offline Store Config Below.
      * 
      */
-    private UndeferrableValue<FeatureGroupOfflineStoreConfigArgs> offlineStoreConfig;
-
+    @PolicyResourceProperty(name="offlineStoreConfig", flag="unknown_offlineStoreConfig")
+    private FeatureGroupOfflineStoreConfigArgs value_offlineStoreConfig;
+    private boolean unknown_offlineStoreConfig;
     public FeatureGroupOfflineStoreConfigArgs offlineStoreConfig() {
-        if (offlineStoreConfig == null) return null;
-        return offlineStoreConfig.getValue("FeatureGroupArgs.offlineStoreConfig");
+        if (!unknown_offlineStoreConfig) return value_offlineStoreConfig;
+        throw new UndeferrableValueException("Value 'FeatureGroupArgs.offlineStoreConfig' is not present");
     }
 
     /**
      * The Online Feature Store Configuration. See Online Store Config Below.
      * 
      */
-    private UndeferrableValue<FeatureGroupOnlineStoreConfigArgs> onlineStoreConfig;
-
+    @PolicyResourceProperty(name="onlineStoreConfig", flag="unknown_onlineStoreConfig")
+    private FeatureGroupOnlineStoreConfigArgs value_onlineStoreConfig;
+    private boolean unknown_onlineStoreConfig;
     public FeatureGroupOnlineStoreConfigArgs onlineStoreConfig() {
-        if (onlineStoreConfig == null) return null;
-        return onlineStoreConfig.getValue("FeatureGroupArgs.onlineStoreConfig");
+        if (!unknown_onlineStoreConfig) return value_onlineStoreConfig;
+        throw new UndeferrableValueException("Value 'FeatureGroupArgs.onlineStoreConfig' is not present");
     }
 
     /**
      * The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
      * 
      */
-    private UndeferrableValue<String> recordIdentifierFeatureName;
-
+    @PolicyResourceProperty(name="recordIdentifierFeatureName", flag="unknown_recordIdentifierFeatureName")
+    private String value_recordIdentifierFeatureName;
+    private boolean unknown_recordIdentifierFeatureName;
     public String recordIdentifierFeatureName() {
-        if (recordIdentifierFeatureName == null) return null;
-        return recordIdentifierFeatureName.getValue("FeatureGroupArgs.recordIdentifierFeatureName");
+        if (!unknown_recordIdentifierFeatureName) return value_recordIdentifierFeatureName;
+        throw new UndeferrableValueException("Value 'FeatureGroupArgs.recordIdentifierFeatureName' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("FeatureGroupArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'FeatureGroupArgs.roleArn' is not present");
     }
 
     /**
      * Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("FeatureGroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'FeatureGroupArgs.tags' is not present");
     }
 
-    private UndeferrableValue<FeatureGroupThroughputConfigArgs> throughputConfig;
-
+    @PolicyResourceProperty(name="throughputConfig", flag="unknown_throughputConfig")
+    private FeatureGroupThroughputConfigArgs value_throughputConfig;
+    private boolean unknown_throughputConfig;
     public FeatureGroupThroughputConfigArgs throughputConfig() {
-        if (throughputConfig == null) return null;
-        return throughputConfig.getValue("FeatureGroupArgs.throughputConfig");
+        if (!unknown_throughputConfig) return value_throughputConfig;
+        throw new UndeferrableValueException("Value 'FeatureGroupArgs.throughputConfig' is not present");
     }
 
 }

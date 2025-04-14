@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.outputs.ProjectServiceCatalogProvisioningDetails;
 import java.lang.String;
@@ -18,66 +19,72 @@ public final class Project extends com.pulumi.resources.PolicyResourceOutput {
      * The Amazon Resource Name (ARN) assigned by AWS to this Project.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Project.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Project.arn' is not present");
     }
 
     /**
      * A description for the project.
      * 
      */
-    private @Nullable UndeferrableValue<String> projectDescription;
-
+    @PolicyResourceProperty(name="projectDescription", flag="unknown_projectDescription")
+    private @Nullable String value_projectDescription;
+    private boolean unknown_projectDescription;
     public @Nullable String projectDescription() {
-        if (projectDescription == null) return null;
-        return projectDescription.getValue("Project.projectDescription");
+        if (!unknown_projectDescription) return value_projectDescription;
+        throw new UndeferrableValueException("Value 'Project.projectDescription' is not present");
     }
 
     /**
      * The ID of the project.
      * 
      */
-    private UndeferrableValue<String> projectId;
-
+    @PolicyResourceProperty(name="projectId", flag="unknown_projectId")
+    private String value_projectId;
+    private boolean unknown_projectId;
     public String projectId() {
-        if (projectId == null) return null;
-        return projectId.getValue("Project.projectId");
+        if (!unknown_projectId) return value_projectId;
+        throw new UndeferrableValueException("Value 'Project.projectId' is not present");
     }
 
     /**
      * The name of the Project.
      * 
      */
-    private UndeferrableValue<String> projectName;
-
+    @PolicyResourceProperty(name="projectName", flag="unknown_projectName")
+    private String value_projectName;
+    private boolean unknown_projectName;
     public String projectName() {
-        if (projectName == null) return null;
-        return projectName.getValue("Project.projectName");
+        if (!unknown_projectName) return value_projectName;
+        throw new UndeferrableValueException("Value 'Project.projectName' is not present");
     }
 
     /**
      * The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
      * 
      */
-    private UndeferrableValue<ProjectServiceCatalogProvisioningDetails> serviceCatalogProvisioningDetails;
-
+    @PolicyResourceProperty(name="serviceCatalogProvisioningDetails", flag="unknown_serviceCatalogProvisioningDetails")
+    private ProjectServiceCatalogProvisioningDetails value_serviceCatalogProvisioningDetails;
+    private boolean unknown_serviceCatalogProvisioningDetails;
     public ProjectServiceCatalogProvisioningDetails serviceCatalogProvisioningDetails() {
-        if (serviceCatalogProvisioningDetails == null) return null;
-        return serviceCatalogProvisioningDetails.getValue("Project.serviceCatalogProvisioningDetails");
+        if (!unknown_serviceCatalogProvisioningDetails) return value_serviceCatalogProvisioningDetails;
+        throw new UndeferrableValueException("Value 'Project.serviceCatalogProvisioningDetails' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Project.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Project.tags' is not present");
     }
 
     /**
@@ -88,11 +95,12 @@ public final class Project extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Project.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Project.tagsAll' is not present");
     }
 
 }

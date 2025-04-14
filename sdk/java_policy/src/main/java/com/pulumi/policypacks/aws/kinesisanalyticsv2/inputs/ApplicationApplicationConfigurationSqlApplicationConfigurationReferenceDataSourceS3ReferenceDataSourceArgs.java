@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * The ARN of the S3 bucket.
      * 
      */
-    private UndeferrableValue<String> bucketArn;
-
+    @PolicyResourceProperty(name="bucketArn", flag="unknown_bucketArn")
+    private String value_bucketArn;
+    private boolean unknown_bucketArn;
     public String bucketArn() {
-        if (bucketArn == null) return null;
-        return bucketArn.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs.bucketArn");
+        if (!unknown_bucketArn) return value_bucketArn;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs.bucketArn' is not present");
     }
 
     /**
      * The object key name containing the reference data.
      * 
      */
-    private UndeferrableValue<String> fileKey;
-
+    @PolicyResourceProperty(name="fileKey", flag="unknown_fileKey")
+    private String value_fileKey;
+    private boolean unknown_fileKey;
     public String fileKey() {
-        if (fileKey == null) return null;
-        return fileKey.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs.fileKey");
+        if (!unknown_fileKey) return value_fileKey;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs.fileKey' is not present");
     }
 
 }

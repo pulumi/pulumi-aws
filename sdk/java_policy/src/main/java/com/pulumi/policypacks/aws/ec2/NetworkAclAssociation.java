@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class NetworkAclAssociation extends com.pulumi.resources.PolicyReso
      * The ID of the network ACL.
      * 
      */
-    private UndeferrableValue<String> networkAclId;
-
+    @PolicyResourceProperty(name="networkAclId", flag="unknown_networkAclId")
+    private String value_networkAclId;
+    private boolean unknown_networkAclId;
     public String networkAclId() {
-        if (networkAclId == null) return null;
-        return networkAclId.getValue("NetworkAclAssociation.networkAclId");
+        if (!unknown_networkAclId) return value_networkAclId;
+        throw new UndeferrableValueException("Value 'NetworkAclAssociation.networkAclId' is not present");
     }
 
     /**
      * The ID of the associated Subnet.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("NetworkAclAssociation.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'NetworkAclAssociation.subnetId' is not present");
     }
 
 }

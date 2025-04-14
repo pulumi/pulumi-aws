@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class DataSourceParametersServiceNowArgs {
      * The base URL of the Jira instance&#39;s site to which to connect.
      * 
      */
-    private UndeferrableValue<String> siteBaseUrl;
-
+    @PolicyResourceProperty(name="siteBaseUrl", flag="unknown_siteBaseUrl")
+    private String value_siteBaseUrl;
+    private boolean unknown_siteBaseUrl;
     public String siteBaseUrl() {
-        if (siteBaseUrl == null) return null;
-        return siteBaseUrl.getValue("DataSourceParametersServiceNowArgs.siteBaseUrl");
+        if (!unknown_siteBaseUrl) return value_siteBaseUrl;
+        throw new UndeferrableValueException("Value 'DataSourceParametersServiceNowArgs.siteBaseUrl' is not present");
     }
 
 }

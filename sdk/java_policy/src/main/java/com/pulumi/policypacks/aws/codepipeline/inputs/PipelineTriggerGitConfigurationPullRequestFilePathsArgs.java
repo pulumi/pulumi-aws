@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class PipelineTriggerGitConfigurationPullRequestFilePathsArgs {
      * A list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.
      * 
      */
-    private UndeferrableValue<List<String>> excludes;
-
+    @PolicyResourceProperty(name="excludes", flag="unknown_excludes")
+    private List<String> value_excludes;
+    private boolean unknown_excludes;
     public List<String> excludes() {
-        if (excludes == null) return null;
-        return excludes.getValue("PipelineTriggerGitConfigurationPullRequestFilePathsArgs.excludes");
+        if (!unknown_excludes) return value_excludes;
+        throw new UndeferrableValueException("Value 'PipelineTriggerGitConfigurationPullRequestFilePathsArgs.excludes' is not present");
     }
 
     /**
      * A list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.
      * 
      */
-    private UndeferrableValue<List<String>> includes;
-
+    @PolicyResourceProperty(name="includes", flag="unknown_includes")
+    private List<String> value_includes;
+    private boolean unknown_includes;
     public List<String> includes() {
-        if (includes == null) return null;
-        return includes.getValue("PipelineTriggerGitConfigurationPullRequestFilePathsArgs.includes");
+        if (!unknown_includes) return value_includes;
+        throw new UndeferrableValueException("Value 'PipelineTriggerGitConfigurationPullRequestFilePathsArgs.includes' is not present");
     }
 
 }

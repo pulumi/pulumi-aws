@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emrserverless;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.emrserverless.outputs.ApplicationAutoStartConfiguration;
 import com.pulumi.policypacks.aws.emrserverless.outputs.ApplicationAutoStopConfiguration;
@@ -25,132 +26,144 @@ public final class Application extends com.pulumi.resources.PolicyResourceOutput
      * The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
      * 
      */
-    private @Nullable UndeferrableValue<String> architecture;
-
+    @PolicyResourceProperty(name="architecture", flag="unknown_architecture")
+    private @Nullable String value_architecture;
+    private boolean unknown_architecture;
     public @Nullable String architecture() {
-        if (architecture == null) return null;
-        return architecture.getValue("Application.architecture");
+        if (!unknown_architecture) return value_architecture;
+        throw new UndeferrableValueException("Value 'Application.architecture' is not present");
     }
 
     /**
      * ARN of the cluster.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Application.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Application.arn' is not present");
     }
 
     /**
      * The configuration for an application to automatically start on job submission.
      * 
      */
-    private UndeferrableValue<ApplicationAutoStartConfiguration> autoStartConfiguration;
-
+    @PolicyResourceProperty(name="autoStartConfiguration", flag="unknown_autoStartConfiguration")
+    private ApplicationAutoStartConfiguration value_autoStartConfiguration;
+    private boolean unknown_autoStartConfiguration;
     public ApplicationAutoStartConfiguration autoStartConfiguration() {
-        if (autoStartConfiguration == null) return null;
-        return autoStartConfiguration.getValue("Application.autoStartConfiguration");
+        if (!unknown_autoStartConfiguration) return value_autoStartConfiguration;
+        throw new UndeferrableValueException("Value 'Application.autoStartConfiguration' is not present");
     }
 
     /**
      * The configuration for an application to automatically stop after a certain amount of time being idle.
      * 
      */
-    private UndeferrableValue<ApplicationAutoStopConfiguration> autoStopConfiguration;
-
+    @PolicyResourceProperty(name="autoStopConfiguration", flag="unknown_autoStopConfiguration")
+    private ApplicationAutoStopConfiguration value_autoStopConfiguration;
+    private boolean unknown_autoStopConfiguration;
     public ApplicationAutoStopConfiguration autoStopConfiguration() {
-        if (autoStopConfiguration == null) return null;
-        return autoStopConfiguration.getValue("Application.autoStopConfiguration");
+        if (!unknown_autoStopConfiguration) return value_autoStopConfiguration;
+        throw new UndeferrableValueException("Value 'Application.autoStopConfiguration' is not present");
     }
 
     /**
      * The image configuration applied to all worker types.
      * 
      */
-    private UndeferrableValue<ApplicationImageConfiguration> imageConfiguration;
-
+    @PolicyResourceProperty(name="imageConfiguration", flag="unknown_imageConfiguration")
+    private ApplicationImageConfiguration value_imageConfiguration;
+    private boolean unknown_imageConfiguration;
     public ApplicationImageConfiguration imageConfiguration() {
-        if (imageConfiguration == null) return null;
-        return imageConfiguration.getValue("Application.imageConfiguration");
+        if (!unknown_imageConfiguration) return value_imageConfiguration;
+        throw new UndeferrableValueException("Value 'Application.imageConfiguration' is not present");
     }
 
     /**
      * The capacity to initialize when the application is created.
      * 
      */
-    private @Nullable UndeferrableValue<List<ApplicationInitialCapacity>> initialCapacities;
-
+    @PolicyResourceProperty(name="initialCapacities", flag="unknown_initialCapacities")
+    private @Nullable List<ApplicationInitialCapacity> value_initialCapacities;
+    private boolean unknown_initialCapacities;
     public @Nullable List<ApplicationInitialCapacity> initialCapacities() {
-        if (initialCapacities == null) return null;
-        return initialCapacities.getValue("Application.initialCapacities");
+        if (!unknown_initialCapacities) return value_initialCapacities;
+        throw new UndeferrableValueException("Value 'Application.initialCapacities' is not present");
     }
 
     /**
      * Enables the interactive use cases to use when running an application.
      * 
      */
-    private UndeferrableValue<ApplicationInteractiveConfiguration> interactiveConfiguration;
-
+    @PolicyResourceProperty(name="interactiveConfiguration", flag="unknown_interactiveConfiguration")
+    private ApplicationInteractiveConfiguration value_interactiveConfiguration;
+    private boolean unknown_interactiveConfiguration;
     public ApplicationInteractiveConfiguration interactiveConfiguration() {
-        if (interactiveConfiguration == null) return null;
-        return interactiveConfiguration.getValue("Application.interactiveConfiguration");
+        if (!unknown_interactiveConfiguration) return value_interactiveConfiguration;
+        throw new UndeferrableValueException("Value 'Application.interactiveConfiguration' is not present");
     }
 
     /**
      * The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
      * 
      */
-    private UndeferrableValue<ApplicationMaximumCapacity> maximumCapacity;
-
+    @PolicyResourceProperty(name="maximumCapacity", flag="unknown_maximumCapacity")
+    private ApplicationMaximumCapacity value_maximumCapacity;
+    private boolean unknown_maximumCapacity;
     public ApplicationMaximumCapacity maximumCapacity() {
-        if (maximumCapacity == null) return null;
-        return maximumCapacity.getValue("Application.maximumCapacity");
+        if (!unknown_maximumCapacity) return value_maximumCapacity;
+        throw new UndeferrableValueException("Value 'Application.maximumCapacity' is not present");
     }
 
     /**
      * The name of the application.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Application.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Application.name' is not present");
     }
 
     /**
      * The network configuration for customer VPC connectivity.
      * 
      */
-    private @Nullable UndeferrableValue<ApplicationNetworkConfiguration> networkConfiguration;
-
+    @PolicyResourceProperty(name="networkConfiguration", flag="unknown_networkConfiguration")
+    private @Nullable ApplicationNetworkConfiguration value_networkConfiguration;
+    private boolean unknown_networkConfiguration;
     public @Nullable ApplicationNetworkConfiguration networkConfiguration() {
-        if (networkConfiguration == null) return null;
-        return networkConfiguration.getValue("Application.networkConfiguration");
+        if (!unknown_networkConfiguration) return value_networkConfiguration;
+        throw new UndeferrableValueException("Value 'Application.networkConfiguration' is not present");
     }
 
     /**
      * The EMR release version associated with the application.
      * 
      */
-    private UndeferrableValue<String> releaseLabel;
-
+    @PolicyResourceProperty(name="releaseLabel", flag="unknown_releaseLabel")
+    private String value_releaseLabel;
+    private boolean unknown_releaseLabel;
     public String releaseLabel() {
-        if (releaseLabel == null) return null;
-        return releaseLabel.getValue("Application.releaseLabel");
+        if (!unknown_releaseLabel) return value_releaseLabel;
+        throw new UndeferrableValueException("Value 'Application.releaseLabel' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Application.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Application.tags' is not present");
     }
 
     /**
@@ -161,22 +174,24 @@ public final class Application extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Application.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Application.tagsAll' is not present");
     }
 
     /**
      * The type of application you want to start, such as `spark` or `hive`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("Application.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'Application.type' is not present");
     }
 
 }

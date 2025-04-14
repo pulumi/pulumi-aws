@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
      * A list of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime&#39;s DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don&#39;t specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> timestampFormats;
-
+    @PolicyResourceProperty(name="timestampFormats", flag="unknown_timestampFormats")
+    private @Nullable List<String> value_timestampFormats;
+    private boolean unknown_timestampFormats;
     public @Nullable List<String> timestampFormats() {
-        if (timestampFormats == null) return null;
-        return timestampFormats.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe.timestampFormats");
+        if (!unknown_timestampFormats) return value_timestampFormats;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe.timestampFormats' is not present");
     }
 
 }

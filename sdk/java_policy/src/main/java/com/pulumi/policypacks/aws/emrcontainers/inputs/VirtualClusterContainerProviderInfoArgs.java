@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emrcontainers.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.emrcontainers.inputs.VirtualClusterContainerProviderInfoEksInfoArgs;
 
 
@@ -13,11 +14,12 @@ public final class VirtualClusterContainerProviderInfoArgs {
      * Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
      * 
      */
-    private UndeferrableValue<VirtualClusterContainerProviderInfoEksInfoArgs> eksInfo;
-
+    @PolicyResourceProperty(name="eksInfo", flag="unknown_eksInfo")
+    private VirtualClusterContainerProviderInfoEksInfoArgs value_eksInfo;
+    private boolean unknown_eksInfo;
     public VirtualClusterContainerProviderInfoEksInfoArgs eksInfo() {
-        if (eksInfo == null) return null;
-        return eksInfo.getValue("VirtualClusterContainerProviderInfoArgs.eksInfo");
+        if (!unknown_eksInfo) return value_eksInfo;
+        throw new UndeferrableValueException("Value 'VirtualClusterContainerProviderInfoArgs.eksInfo' is not present");
     }
 
 }

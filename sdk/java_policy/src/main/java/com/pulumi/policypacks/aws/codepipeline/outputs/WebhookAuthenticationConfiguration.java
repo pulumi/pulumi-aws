@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class WebhookAuthenticationConfiguration {
      * A valid CIDR block for `IP` filtering. Required for `IP`.
      * 
      */
-    private @Nullable UndeferrableValue<String> allowedIpRange;
-
+    @PolicyResourceProperty(name="allowedIpRange", flag="unknown_allowedIpRange")
+    private @Nullable String value_allowedIpRange;
+    private boolean unknown_allowedIpRange;
     public @Nullable String allowedIpRange() {
-        if (allowedIpRange == null) return null;
-        return allowedIpRange.getValue("WebhookAuthenticationConfiguration.allowedIpRange");
+        if (!unknown_allowedIpRange) return value_allowedIpRange;
+        throw new UndeferrableValueException("Value 'WebhookAuthenticationConfiguration.allowedIpRange' is not present");
     }
 
     /**
      * The shared secret for the GitHub repository webhook. Set this as `secret` in your `github_repository_webhook`&#39;s `configuration` block. Required for `GITHUB_HMAC`.
      * 
      */
-    private @Nullable UndeferrableValue<String> secretToken;
-
+    @PolicyResourceProperty(name="secretToken", flag="unknown_secretToken")
+    private @Nullable String value_secretToken;
+    private boolean unknown_secretToken;
     public @Nullable String secretToken() {
-        if (secretToken == null) return null;
-        return secretToken.getValue("WebhookAuthenticationConfiguration.secretToken");
+        if (!unknown_secretToken) return value_secretToken;
+        throw new UndeferrableValueException("Value 'WebhookAuthenticationConfiguration.secretToken' is not present");
     }
 
 }

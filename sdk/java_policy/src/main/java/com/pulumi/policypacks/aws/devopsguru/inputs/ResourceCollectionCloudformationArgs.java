@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.devopsguru.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class ResourceCollectionCloudformationArgs {
      * Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`&#34;*&#34;`).
      * 
      */
-    private UndeferrableValue<List<String>> stackNames;
-
+    @PolicyResourceProperty(name="stackNames", flag="unknown_stackNames")
+    private List<String> value_stackNames;
+    private boolean unknown_stackNames;
     public List<String> stackNames() {
-        if (stackNames == null) return null;
-        return stackNames.getValue("ResourceCollectionCloudformationArgs.stackNames");
+        if (!unknown_stackNames) return value_stackNames;
+        throw new UndeferrableValueException("Value 'ResourceCollectionCloudformationArgs.stackNames' is not present");
     }
 
 }

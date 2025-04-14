@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs;
@@ -16,33 +17,36 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustA
      * TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs> acm;
-
+    @PolicyResourceProperty(name="acm", flag="unknown_acm")
+    private VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs value_acm;
+    private boolean unknown_acm;
     public VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs acm() {
-        if (acm == null) return null;
-        return acm.getValue("VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs.acm");
+        if (!unknown_acm) return value_acm;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs.acm' is not present");
     }
 
     /**
      * TLS validation context trust for a local file certificate.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs> file;
-
+    @PolicyResourceProperty(name="file", flag="unknown_file")
+    private VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs value_file;
+    private boolean unknown_file;
     public VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs file() {
-        if (file == null) return null;
-        return file.getValue("VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs.file");
+        if (!unknown_file) return value_file;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs.file' is not present");
     }
 
     /**
      * TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs> sds;
-
+    @PolicyResourceProperty(name="sds", flag="unknown_sds")
+    private VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs value_sds;
+    private boolean unknown_sds;
     public VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs sds() {
-        if (sds == null) return null;
-        return sds.getValue("VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs.sds");
+        if (!unknown_sds) return value_sds;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs.sds' is not present");
     }
 
 }

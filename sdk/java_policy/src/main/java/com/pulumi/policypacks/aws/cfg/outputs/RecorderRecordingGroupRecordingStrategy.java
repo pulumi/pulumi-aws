@@ -3,18 +3,20 @@
 
 package com.pulumi.policypacks.aws.cfg.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class RecorderRecordingGroupRecordingStrategy {
 
-    private @Nullable UndeferrableValue<String> useOnly;
-
+    @PolicyResourceProperty(name="useOnly", flag="unknown_useOnly")
+    private @Nullable String value_useOnly;
+    private boolean unknown_useOnly;
     public @Nullable String useOnly() {
-        if (useOnly == null) return null;
-        return useOnly.getValue("RecorderRecordingGroupRecordingStrategy.useOnly");
+        if (!unknown_useOnly) return value_useOnly;
+        throw new UndeferrableValueException("Value 'RecorderRecordingGroupRecordingStrategy.useOnly' is not present");
     }
 
 }

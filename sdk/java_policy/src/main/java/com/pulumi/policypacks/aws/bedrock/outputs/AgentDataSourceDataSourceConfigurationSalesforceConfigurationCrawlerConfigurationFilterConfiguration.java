@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class AgentDataSourceDataSourceConfigurationSalesforceConfiguration
      * The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter>> patternObjectFilters;
-
+    @PolicyResourceProperty(name="patternObjectFilters", flag="unknown_patternObjectFilters")
+    private @Nullable List<AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter> value_patternObjectFilters;
+    private boolean unknown_patternObjectFilters;
     public @Nullable List<AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilter> patternObjectFilters() {
-        if (patternObjectFilters == null) return null;
-        return patternObjectFilters.getValue("AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration.patternObjectFilters");
+        if (!unknown_patternObjectFilters) return value_patternObjectFilters;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration.patternObjectFilters' is not present");
     }
 
     /**
      * The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfiguration.type' is not present");
     }
 
 }

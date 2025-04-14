@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs;
 import java.lang.Boolean;
@@ -19,55 +20,60 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationArgs {
      * Whether the user can interrupt a speech prompt from the bot.
      * 
      */
-    private UndeferrableValue<Boolean> allowInterrupt;
-
+    @PolicyResourceProperty(name="allowInterrupt", flag="unknown_allowInterrupt")
+    private Boolean value_allowInterrupt;
+    private boolean unknown_allowInterrupt;
     public Boolean allowInterrupt() {
-        if (allowInterrupt == null) return null;
-        return allowInterrupt.getValue("V2modelsIntentConfirmationSettingPromptSpecificationArgs.allowInterrupt");
+        if (!unknown_allowInterrupt) return value_allowInterrupt;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationArgs.allowInterrupt' is not present");
     }
 
     /**
      * Maximum number of times the bot tries to elicit a response from the user using this prompt.
      * 
      */
-    private UndeferrableValue<Integer> maxRetries;
-
+    @PolicyResourceProperty(name="maxRetries", flag="unknown_maxRetries")
+    private Integer value_maxRetries;
+    private boolean unknown_maxRetries;
     public Integer maxRetries() {
-        if (maxRetries == null) return null;
-        return maxRetries.getValue("V2modelsIntentConfirmationSettingPromptSpecificationArgs.maxRetries");
+        if (!unknown_maxRetries) return value_maxRetries;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationArgs.maxRetries' is not present");
     }
 
     /**
      * Configuration block for messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime. See `message_group`.
      * 
      */
-    private UndeferrableValue<List<V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupArgs>> messageGroups;
-
+    @PolicyResourceProperty(name="messageGroups", flag="unknown_messageGroups")
+    private List<V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupArgs> value_messageGroups;
+    private boolean unknown_messageGroups;
     public List<V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupArgs> messageGroups() {
-        if (messageGroups == null) return null;
-        return messageGroups.getValue("V2modelsIntentConfirmationSettingPromptSpecificationArgs.messageGroups");
+        if (!unknown_messageGroups) return value_messageGroups;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationArgs.messageGroups' is not present");
     }
 
     /**
      * How a message is selected from a message group among retries. Valid values are `Random` and `Ordered`.
      * 
      */
-    private UndeferrableValue<String> messageSelectionStrategy;
-
+    @PolicyResourceProperty(name="messageSelectionStrategy", flag="unknown_messageSelectionStrategy")
+    private String value_messageSelectionStrategy;
+    private boolean unknown_messageSelectionStrategy;
     public String messageSelectionStrategy() {
-        if (messageSelectionStrategy == null) return null;
-        return messageSelectionStrategy.getValue("V2modelsIntentConfirmationSettingPromptSpecificationArgs.messageSelectionStrategy");
+        if (!unknown_messageSelectionStrategy) return value_messageSelectionStrategy;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationArgs.messageSelectionStrategy' is not present");
     }
 
     /**
      * Configuration block for advanced settings on each attempt of the prompt. See `prompt_attempts_specification`.
      * 
      */
-    private UndeferrableValue<List<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs>> promptAttemptsSpecifications;
-
+    @PolicyResourceProperty(name="promptAttemptsSpecifications", flag="unknown_promptAttemptsSpecifications")
+    private List<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs> value_promptAttemptsSpecifications;
+    private boolean unknown_promptAttemptsSpecifications;
     public List<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs> promptAttemptsSpecifications() {
-        if (promptAttemptsSpecifications == null) return null;
-        return promptAttemptsSpecifications.getValue("V2modelsIntentConfirmationSettingPromptSpecificationArgs.promptAttemptsSpecifications");
+        if (!unknown_promptAttemptsSpecifications) return value_promptAttemptsSpecifications;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingPromptSpecificationArgs.promptAttemptsSpecifications' is not present");
     }
 
 }

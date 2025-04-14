@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -16,11 +17,12 @@ public final class GlobalSettings extends com.pulumi.resources.PolicyResourceOut
      * A list of resources along with the opt-in preferences for the account.
      * 
      */
-    private UndeferrableValue<Map<String,String>> globalSettings;
-
+    @PolicyResourceProperty(name="globalSettings", flag="unknown_globalSettings")
+    private Map<String,String> value_globalSettings;
+    private boolean unknown_globalSettings;
     public Map<String,String> globalSettings() {
-        if (globalSettings == null) return null;
-        return globalSettings.getValue("GlobalSettings.globalSettings");
+        if (!unknown_globalSettings) return value_globalSettings;
+        throw new UndeferrableValueException("Value 'GlobalSettings.globalSettings' is not present");
     }
 
 }

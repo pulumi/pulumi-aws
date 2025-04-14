@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.msk.inputs.ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs;
 import com.pulumi.policypacks.aws.msk.inputs.ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs;
 import java.lang.Boolean;
@@ -18,77 +19,84 @@ public final class ReplicatorReplicationInfoListTopicReplicationArgs {
      * Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
      * 
      */
-    private UndeferrableValue<Boolean> copyAccessControlListsForTopics;
-
+    @PolicyResourceProperty(name="copyAccessControlListsForTopics", flag="unknown_copyAccessControlListsForTopics")
+    private Boolean value_copyAccessControlListsForTopics;
+    private boolean unknown_copyAccessControlListsForTopics;
     public Boolean copyAccessControlListsForTopics() {
-        if (copyAccessControlListsForTopics == null) return null;
-        return copyAccessControlListsForTopics.getValue("ReplicatorReplicationInfoListTopicReplicationArgs.copyAccessControlListsForTopics");
+        if (!unknown_copyAccessControlListsForTopics) return value_copyAccessControlListsForTopics;
+        throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListTopicReplicationArgs.copyAccessControlListsForTopics' is not present");
     }
 
     /**
      * Whether to periodically configure remote topics to match their corresponding upstream topics.
      * 
      */
-    private UndeferrableValue<Boolean> copyTopicConfigurations;
-
+    @PolicyResourceProperty(name="copyTopicConfigurations", flag="unknown_copyTopicConfigurations")
+    private Boolean value_copyTopicConfigurations;
+    private boolean unknown_copyTopicConfigurations;
     public Boolean copyTopicConfigurations() {
-        if (copyTopicConfigurations == null) return null;
-        return copyTopicConfigurations.getValue("ReplicatorReplicationInfoListTopicReplicationArgs.copyTopicConfigurations");
+        if (!unknown_copyTopicConfigurations) return value_copyTopicConfigurations;
+        throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListTopicReplicationArgs.copyTopicConfigurations' is not present");
     }
 
     /**
      * Whether to periodically check for new topics and partitions.
      * 
      */
-    private UndeferrableValue<Boolean> detectAndCopyNewTopics;
-
+    @PolicyResourceProperty(name="detectAndCopyNewTopics", flag="unknown_detectAndCopyNewTopics")
+    private Boolean value_detectAndCopyNewTopics;
+    private boolean unknown_detectAndCopyNewTopics;
     public Boolean detectAndCopyNewTopics() {
-        if (detectAndCopyNewTopics == null) return null;
-        return detectAndCopyNewTopics.getValue("ReplicatorReplicationInfoListTopicReplicationArgs.detectAndCopyNewTopics");
+        if (!unknown_detectAndCopyNewTopics) return value_detectAndCopyNewTopics;
+        throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListTopicReplicationArgs.detectAndCopyNewTopics' is not present");
     }
 
     /**
      * Configuration for specifying the position in the topics to start replicating from.
      * 
      */
-    private UndeferrableValue<ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs> startingPosition;
-
+    @PolicyResourceProperty(name="startingPosition", flag="unknown_startingPosition")
+    private ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs value_startingPosition;
+    private boolean unknown_startingPosition;
     public ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs startingPosition() {
-        if (startingPosition == null) return null;
-        return startingPosition.getValue("ReplicatorReplicationInfoListTopicReplicationArgs.startingPosition");
+        if (!unknown_startingPosition) return value_startingPosition;
+        throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListTopicReplicationArgs.startingPosition' is not present");
     }
 
     /**
      * Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
      * 
      */
-    private UndeferrableValue<ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs> topicNameConfiguration;
-
+    @PolicyResourceProperty(name="topicNameConfiguration", flag="unknown_topicNameConfiguration")
+    private ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs value_topicNameConfiguration;
+    private boolean unknown_topicNameConfiguration;
     public ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs topicNameConfiguration() {
-        if (topicNameConfiguration == null) return null;
-        return topicNameConfiguration.getValue("ReplicatorReplicationInfoListTopicReplicationArgs.topicNameConfiguration");
+        if (!unknown_topicNameConfiguration) return value_topicNameConfiguration;
+        throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListTopicReplicationArgs.topicNameConfiguration' is not present");
     }
 
     /**
      * List of regular expression patterns indicating the topics that should not be replica.
      * 
      */
-    private UndeferrableValue<List<String>> topicsToExcludes;
-
+    @PolicyResourceProperty(name="topicsToExcludes", flag="unknown_topicsToExcludes")
+    private List<String> value_topicsToExcludes;
+    private boolean unknown_topicsToExcludes;
     public List<String> topicsToExcludes() {
-        if (topicsToExcludes == null) return null;
-        return topicsToExcludes.getValue("ReplicatorReplicationInfoListTopicReplicationArgs.topicsToExcludes");
+        if (!unknown_topicsToExcludes) return value_topicsToExcludes;
+        throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListTopicReplicationArgs.topicsToExcludes' is not present");
     }
 
     /**
      * List of regular expression patterns indicating the topics to copy.
      * 
      */
-    private UndeferrableValue<List<String>> topicsToReplicates;
-
+    @PolicyResourceProperty(name="topicsToReplicates", flag="unknown_topicsToReplicates")
+    private List<String> value_topicsToReplicates;
+    private boolean unknown_topicsToReplicates;
     public List<String> topicsToReplicates() {
-        if (topicsToReplicates == null) return null;
-        return topicsToReplicates.getValue("ReplicatorReplicationInfoListTopicReplicationArgs.topicsToReplicates");
+        if (!unknown_topicsToReplicates) return value_topicsToReplicates;
+        throw new UndeferrableValueException("Value 'ReplicatorReplicationInfoListTopicReplicationArgs.topicsToReplicates' is not present");
     }
 
 }

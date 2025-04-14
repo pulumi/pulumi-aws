@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.verifiedaccess.inputs.GroupSseConfigurationArgs;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class GroupArgs extends com.pulumi.resources.PolicyResourceInput {
      * Description of the verified access group.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("GroupArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'GroupArgs.description' is not present");
     }
 
     /**
      * The policy document that is associated with this resource.
      * 
      */
-    private UndeferrableValue<String> policyDocument;
-
+    @PolicyResourceProperty(name="policyDocument", flag="unknown_policyDocument")
+    private String value_policyDocument;
+    private boolean unknown_policyDocument;
     public String policyDocument() {
-        if (policyDocument == null) return null;
-        return policyDocument.getValue("GroupArgs.policyDocument");
+        if (!unknown_policyDocument) return value_policyDocument;
+        throw new UndeferrableValueException("Value 'GroupArgs.policyDocument' is not present");
     }
 
     /**
      * Configuration block to use KMS keys for server-side encryption.
      * 
      */
-    private UndeferrableValue<GroupSseConfigurationArgs> sseConfiguration;
-
+    @PolicyResourceProperty(name="sseConfiguration", flag="unknown_sseConfiguration")
+    private GroupSseConfigurationArgs value_sseConfiguration;
+    private boolean unknown_sseConfiguration;
     public GroupSseConfigurationArgs sseConfiguration() {
-        if (sseConfiguration == null) return null;
-        return sseConfiguration.getValue("GroupArgs.sseConfiguration");
+        if (!unknown_sseConfiguration) return value_sseConfiguration;
+        throw new UndeferrableValueException("Value 'GroupArgs.sseConfiguration' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("GroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'GroupArgs.tags' is not present");
     }
 
     /**
@@ -64,11 +69,12 @@ public final class GroupArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> verifiedaccessInstanceId;
-
+    @PolicyResourceProperty(name="verifiedaccessInstanceId", flag="unknown_verifiedaccessInstanceId")
+    private String value_verifiedaccessInstanceId;
+    private boolean unknown_verifiedaccessInstanceId;
     public String verifiedaccessInstanceId() {
-        if (verifiedaccessInstanceId == null) return null;
-        return verifiedaccessInstanceId.getValue("GroupArgs.verifiedaccessInstanceId");
+        if (!unknown_verifiedaccessInstanceId) return value_verifiedaccessInstanceId;
+        throw new UndeferrableValueException("Value 'GroupArgs.verifiedaccessInstanceId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class LaunchTemplateTagSpecification {
      * The type of resource to tag.
      * 
      */
-    private @Nullable UndeferrableValue<String> resourceType;
-
+    @PolicyResourceProperty(name="resourceType", flag="unknown_resourceType")
+    private @Nullable String value_resourceType;
+    private boolean unknown_resourceType;
     public @Nullable String resourceType() {
-        if (resourceType == null) return null;
-        return resourceType.getValue("LaunchTemplateTagSpecification.resourceType");
+        if (!unknown_resourceType) return value_resourceType;
+        throw new UndeferrableValueException("Value 'LaunchTemplateTagSpecification.resourceType' is not present");
     }
 
     /**
      * A map of tags to assign to the resource.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LaunchTemplateTagSpecification.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LaunchTemplateTagSpecification.tags' is not present");
     }
 
 }

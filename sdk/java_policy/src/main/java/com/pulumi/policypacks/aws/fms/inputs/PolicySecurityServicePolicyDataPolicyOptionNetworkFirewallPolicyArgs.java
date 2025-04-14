@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fms.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPol
      * Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
      * 
      */
-    private UndeferrableValue<String> firewallDeploymentModel;
-
+    @PolicyResourceProperty(name="firewallDeploymentModel", flag="unknown_firewallDeploymentModel")
+    private String value_firewallDeploymentModel;
+    private boolean unknown_firewallDeploymentModel;
     public String firewallDeploymentModel() {
-        if (firewallDeploymentModel == null) return null;
-        return firewallDeploymentModel.getValue("PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs.firewallDeploymentModel");
+        if (!unknown_firewallDeploymentModel) return value_firewallDeploymentModel;
+        throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs.firewallDeploymentModel' is not present");
     }
 
 }

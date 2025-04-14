@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ProjectEnvironmentRegistryCredentialArgs {
      * ARN or name of credentials created using AWS Secrets Manager.
      * 
      */
-    private UndeferrableValue<String> credential;
-
+    @PolicyResourceProperty(name="credential", flag="unknown_credential")
+    private String value_credential;
+    private boolean unknown_credential;
     public String credential() {
-        if (credential == null) return null;
-        return credential.getValue("ProjectEnvironmentRegistryCredentialArgs.credential");
+        if (!unknown_credential) return value_credential;
+        throw new UndeferrableValueException("Value 'ProjectEnvironmentRegistryCredentialArgs.credential' is not present");
     }
 
     /**
@@ -25,11 +27,12 @@ public final class ProjectEnvironmentRegistryCredentialArgs {
      * value: `SECRETS_MANAGER` (AWS Secrets Manager).
      * 
      */
-    private UndeferrableValue<String> credentialProvider;
-
+    @PolicyResourceProperty(name="credentialProvider", flag="unknown_credentialProvider")
+    private String value_credentialProvider;
+    private boolean unknown_credentialProvider;
     public String credentialProvider() {
-        if (credentialProvider == null) return null;
-        return credentialProvider.getValue("ProjectEnvironmentRegistryCredentialArgs.credentialProvider");
+        if (!unknown_credentialProvider) return value_credentialProvider;
+        throw new UndeferrableValueException("Value 'ProjectEnvironmentRegistryCredentialArgs.credentialProvider' is not present");
     }
 
 }

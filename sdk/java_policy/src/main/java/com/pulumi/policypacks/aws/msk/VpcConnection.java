@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,55 +19,60 @@ public final class VpcConnection extends com.pulumi.resources.PolicyResourceOutp
      * Amazon Resource Name (ARN) of the VPC connection.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("VpcConnection.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'VpcConnection.arn' is not present");
     }
 
     /**
      * The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
      * 
      */
-    private UndeferrableValue<String> authentication;
-
+    @PolicyResourceProperty(name="authentication", flag="unknown_authentication")
+    private String value_authentication;
+    private boolean unknown_authentication;
     public String authentication() {
-        if (authentication == null) return null;
-        return authentication.getValue("VpcConnection.authentication");
+        if (!unknown_authentication) return value_authentication;
+        throw new UndeferrableValueException("Value 'VpcConnection.authentication' is not present");
     }
 
     /**
      * The list of subnets in the client VPC to connect to.
      * 
      */
-    private UndeferrableValue<List<String>> clientSubnets;
-
+    @PolicyResourceProperty(name="clientSubnets", flag="unknown_clientSubnets")
+    private List<String> value_clientSubnets;
+    private boolean unknown_clientSubnets;
     public List<String> clientSubnets() {
-        if (clientSubnets == null) return null;
-        return clientSubnets.getValue("VpcConnection.clientSubnets");
+        if (!unknown_clientSubnets) return value_clientSubnets;
+        throw new UndeferrableValueException("Value 'VpcConnection.clientSubnets' is not present");
     }
 
     /**
      * The security groups to attach to the ENIs for the broker nodes.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroups;
-
+    @PolicyResourceProperty(name="securityGroups", flag="unknown_securityGroups")
+    private List<String> value_securityGroups;
+    private boolean unknown_securityGroups;
     public List<String> securityGroups() {
-        if (securityGroups == null) return null;
-        return securityGroups.getValue("VpcConnection.securityGroups");
+        if (!unknown_securityGroups) return value_securityGroups;
+        throw new UndeferrableValueException("Value 'VpcConnection.securityGroups' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VpcConnection.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VpcConnection.tags' is not present");
     }
 
     /**
@@ -77,33 +83,36 @@ public final class VpcConnection extends com.pulumi.resources.PolicyResourceOutp
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("VpcConnection.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'VpcConnection.tagsAll' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the cluster.
      * 
      */
-    private UndeferrableValue<String> targetClusterArn;
-
+    @PolicyResourceProperty(name="targetClusterArn", flag="unknown_targetClusterArn")
+    private String value_targetClusterArn;
+    private boolean unknown_targetClusterArn;
     public String targetClusterArn() {
-        if (targetClusterArn == null) return null;
-        return targetClusterArn.getValue("VpcConnection.targetClusterArn");
+        if (!unknown_targetClusterArn) return value_targetClusterArn;
+        throw new UndeferrableValueException("Value 'VpcConnection.targetClusterArn' is not present");
     }
 
     /**
      * The VPC ID of the remote client.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("VpcConnection.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'VpcConnection.vpcId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class EventSourceMappingFilterCriteriaFilter {
      * A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
      * 
      */
-    private @Nullable UndeferrableValue<String> pattern;
-
+    @PolicyResourceProperty(name="pattern", flag="unknown_pattern")
+    private @Nullable String value_pattern;
+    private boolean unknown_pattern;
     public @Nullable String pattern() {
-        if (pattern == null) return null;
-        return pattern.getValue("EventSourceMappingFilterCriteriaFilter.pattern");
+        if (!unknown_pattern) return value_pattern;
+        throw new UndeferrableValueException("Value 'EventSourceMappingFilterCriteriaFilter.pattern' is not present");
     }
 
 }

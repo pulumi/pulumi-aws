@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3Ou
      * Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
      * 
      */
-    private UndeferrableValue<String> aggregationType;
-
+    @PolicyResourceProperty(name="aggregationType", flag="unknown_aggregationType")
+    private String value_aggregationType;
+    private boolean unknown_aggregationType;
     public String aggregationType() {
-        if (aggregationType == null) return null;
-        return aggregationType.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs.aggregationType");
+        if (!unknown_aggregationType) return value_aggregationType;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs.aggregationType' is not present");
     }
 
     /**
      * The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
      * 
      */
-    private UndeferrableValue<Integer> targetFileSize;
-
+    @PolicyResourceProperty(name="targetFileSize", flag="unknown_targetFileSize")
+    private Integer value_targetFileSize;
+    private boolean unknown_targetFileSize;
     public Integer targetFileSize() {
-        if (targetFileSize == null) return null;
-        return targetFileSize.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs.targetFileSize");
+        if (!unknown_targetFileSize) return value_targetFileSize;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs.targetFileSize' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,22 +18,24 @@ public final class FindingAggregator extends com.pulumi.resources.PolicyResource
      * Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
      * 
      */
-    private UndeferrableValue<String> linkingMode;
-
+    @PolicyResourceProperty(name="linkingMode", flag="unknown_linkingMode")
+    private String value_linkingMode;
+    private boolean unknown_linkingMode;
     public String linkingMode() {
-        if (linkingMode == null) return null;
-        return linkingMode.getValue("FindingAggregator.linkingMode");
+        if (!unknown_linkingMode) return value_linkingMode;
+        throw new UndeferrableValueException("Value 'FindingAggregator.linkingMode' is not present");
     }
 
     /**
      * List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> specifiedRegions;
-
+    @PolicyResourceProperty(name="specifiedRegions", flag="unknown_specifiedRegions")
+    private @Nullable List<String> value_specifiedRegions;
+    private boolean unknown_specifiedRegions;
     public @Nullable List<String> specifiedRegions() {
-        if (specifiedRegions == null) return null;
-        return specifiedRegions.getValue("FindingAggregator.specifiedRegions");
+        if (!unknown_specifiedRegions) return value_specifiedRegions;
+        throw new UndeferrableValueException("Value 'FindingAggregator.specifiedRegions' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ssm.outputs.AssociationOutputLocation;
 import com.pulumi.policypacks.aws.ssm.outputs.AssociationTarget;
@@ -22,77 +23,84 @@ public final class Association extends com.pulumi.resources.PolicyResourceOutput
      * By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> applyOnlyAtCronInterval;
-
+    @PolicyResourceProperty(name="applyOnlyAtCronInterval", flag="unknown_applyOnlyAtCronInterval")
+    private @Nullable Boolean value_applyOnlyAtCronInterval;
+    private boolean unknown_applyOnlyAtCronInterval;
     public @Nullable Boolean applyOnlyAtCronInterval() {
-        if (applyOnlyAtCronInterval == null) return null;
-        return applyOnlyAtCronInterval.getValue("Association.applyOnlyAtCronInterval");
+        if (!unknown_applyOnlyAtCronInterval) return value_applyOnlyAtCronInterval;
+        throw new UndeferrableValueException("Value 'Association.applyOnlyAtCronInterval' is not present");
     }
 
     /**
      * The ARN of the SSM association
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Association.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Association.arn' is not present");
     }
 
     /**
      * The ID of the SSM association.
      * 
      */
-    private UndeferrableValue<String> associationId;
-
+    @PolicyResourceProperty(name="associationId", flag="unknown_associationId")
+    private String value_associationId;
+    private boolean unknown_associationId;
     public String associationId() {
-        if (associationId == null) return null;
-        return associationId.getValue("Association.associationId");
+        if (!unknown_associationId) return value_associationId;
+        throw new UndeferrableValueException("Value 'Association.associationId' is not present");
     }
 
     /**
      * The descriptive name for the association.
      * 
      */
-    private @Nullable UndeferrableValue<String> associationName;
-
+    @PolicyResourceProperty(name="associationName", flag="unknown_associationName")
+    private @Nullable String value_associationName;
+    private boolean unknown_associationName;
     public @Nullable String associationName() {
-        if (associationName == null) return null;
-        return associationName.getValue("Association.associationName");
+        if (!unknown_associationName) return value_associationName;
+        throw new UndeferrableValueException("Value 'Association.associationName' is not present");
     }
 
     /**
      * Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
      * 
      */
-    private @Nullable UndeferrableValue<String> automationTargetParameterName;
-
+    @PolicyResourceProperty(name="automationTargetParameterName", flag="unknown_automationTargetParameterName")
+    private @Nullable String value_automationTargetParameterName;
+    private boolean unknown_automationTargetParameterName;
     public @Nullable String automationTargetParameterName() {
-        if (automationTargetParameterName == null) return null;
-        return automationTargetParameterName.getValue("Association.automationTargetParameterName");
+        if (!unknown_automationTargetParameterName) return value_automationTargetParameterName;
+        throw new UndeferrableValueException("Value 'Association.automationTargetParameterName' is not present");
     }
 
     /**
      * The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
      * 
      */
-    private @Nullable UndeferrableValue<String> complianceSeverity;
-
+    @PolicyResourceProperty(name="complianceSeverity", flag="unknown_complianceSeverity")
+    private @Nullable String value_complianceSeverity;
+    private boolean unknown_complianceSeverity;
     public @Nullable String complianceSeverity() {
-        if (complianceSeverity == null) return null;
-        return complianceSeverity.getValue("Association.complianceSeverity");
+        if (!unknown_complianceSeverity) return value_complianceSeverity;
+        throw new UndeferrableValueException("Value 'Association.complianceSeverity' is not present");
     }
 
     /**
      * The document version you want to associate with the target(s). Can be a specific version or the default version.
      * 
      */
-    private UndeferrableValue<String> documentVersion;
-
+    @PolicyResourceProperty(name="documentVersion", flag="unknown_documentVersion")
+    private String value_documentVersion;
+    private boolean unknown_documentVersion;
     public String documentVersion() {
-        if (documentVersion == null) return null;
-        return documentVersion.getValue("Association.documentVersion");
+        if (!unknown_documentVersion) return value_documentVersion;
+        throw new UndeferrableValueException("Value 'Association.documentVersion' is not present");
     }
 
     /**
@@ -103,99 +111,108 @@ public final class Association extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* instance_id is deprecated. Use targets instead. */
-    private @Nullable UndeferrableValue<String> instanceId;
-
+    @PolicyResourceProperty(name="instanceId", flag="unknown_instanceId")
+    private @Nullable String value_instanceId;
+    private boolean unknown_instanceId;
     public @Nullable String instanceId() {
-        if (instanceId == null) return null;
-        return instanceId.getValue("Association.instanceId");
+        if (!unknown_instanceId) return value_instanceId;
+        throw new UndeferrableValueException("Value 'Association.instanceId' is not present");
     }
 
     /**
      * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
      * 
      */
-    private @Nullable UndeferrableValue<String> maxConcurrency;
-
+    @PolicyResourceProperty(name="maxConcurrency", flag="unknown_maxConcurrency")
+    private @Nullable String value_maxConcurrency;
+    private boolean unknown_maxConcurrency;
     public @Nullable String maxConcurrency() {
-        if (maxConcurrency == null) return null;
-        return maxConcurrency.getValue("Association.maxConcurrency");
+        if (!unknown_maxConcurrency) return value_maxConcurrency;
+        throw new UndeferrableValueException("Value 'Association.maxConcurrency' is not present");
     }
 
     /**
      * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
      * 
      */
-    private @Nullable UndeferrableValue<String> maxErrors;
-
+    @PolicyResourceProperty(name="maxErrors", flag="unknown_maxErrors")
+    private @Nullable String value_maxErrors;
+    private boolean unknown_maxErrors;
     public @Nullable String maxErrors() {
-        if (maxErrors == null) return null;
-        return maxErrors.getValue("Association.maxErrors");
+        if (!unknown_maxErrors) return value_maxErrors;
+        throw new UndeferrableValueException("Value 'Association.maxErrors' is not present");
     }
 
     /**
      * The name of the SSM document to apply.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Association.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Association.name' is not present");
     }
 
     /**
      * An output location block. Output Location is documented below.
      * 
      */
-    private @Nullable UndeferrableValue<AssociationOutputLocation> outputLocation;
-
+    @PolicyResourceProperty(name="outputLocation", flag="unknown_outputLocation")
+    private @Nullable AssociationOutputLocation value_outputLocation;
+    private boolean unknown_outputLocation;
     public @Nullable AssociationOutputLocation outputLocation() {
-        if (outputLocation == null) return null;
-        return outputLocation.getValue("Association.outputLocation");
+        if (!unknown_outputLocation) return value_outputLocation;
+        throw new UndeferrableValueException("Value 'Association.outputLocation' is not present");
     }
 
     /**
      * A block of arbitrary string parameters to pass to the SSM document.
      * 
      */
-    private UndeferrableValue<Map<String,String>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private Map<String,String> value_parameters;
+    private boolean unknown_parameters;
     public Map<String,String> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("Association.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'Association.parameters' is not present");
     }
 
     /**
      * A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
      * 
      */
-    private @Nullable UndeferrableValue<String> scheduleExpression;
-
+    @PolicyResourceProperty(name="scheduleExpression", flag="unknown_scheduleExpression")
+    private @Nullable String value_scheduleExpression;
+    private boolean unknown_scheduleExpression;
     public @Nullable String scheduleExpression() {
-        if (scheduleExpression == null) return null;
-        return scheduleExpression.getValue("Association.scheduleExpression");
+        if (!unknown_scheduleExpression) return value_scheduleExpression;
+        throw new UndeferrableValueException("Value 'Association.scheduleExpression' is not present");
     }
 
     /**
      * The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
      * 
      */
-    private @Nullable UndeferrableValue<String> syncCompliance;
-
+    @PolicyResourceProperty(name="syncCompliance", flag="unknown_syncCompliance")
+    private @Nullable String value_syncCompliance;
+    private boolean unknown_syncCompliance;
     public @Nullable String syncCompliance() {
-        if (syncCompliance == null) return null;
-        return syncCompliance.getValue("Association.syncCompliance");
+        if (!unknown_syncCompliance) return value_syncCompliance;
+        throw new UndeferrableValueException("Value 'Association.syncCompliance' is not present");
     }
 
     /**
      * A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Association.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Association.tags' is not present");
     }
 
     /**
@@ -206,22 +223,24 @@ public final class Association extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Association.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Association.tagsAll' is not present");
     }
 
     /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      * 
      */
-    private UndeferrableValue<List<AssociationTarget>> targets;
-
+    @PolicyResourceProperty(name="targets", flag="unknown_targets")
+    private List<AssociationTarget> value_targets;
+    private boolean unknown_targets;
     public List<AssociationTarget> targets() {
-        if (targets == null) return null;
-        return targets.getValue("Association.targets");
+        if (!unknown_targets) return value_targets;
+        throw new UndeferrableValueException("Value 'Association.targets' is not present");
     }
 
     /**
@@ -230,11 +249,12 @@ public final class Association extends com.pulumi.resources.PolicyResourceOutput
      * Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
      * 
      */
-    private @Nullable UndeferrableValue<Integer> waitForSuccessTimeoutSeconds;
-
+    @PolicyResourceProperty(name="waitForSuccessTimeoutSeconds", flag="unknown_waitForSuccessTimeoutSeconds")
+    private @Nullable Integer value_waitForSuccessTimeoutSeconds;
+    private boolean unknown_waitForSuccessTimeoutSeconds;
     public @Nullable Integer waitForSuccessTimeoutSeconds() {
-        if (waitForSuccessTimeoutSeconds == null) return null;
-        return waitForSuccessTimeoutSeconds.getValue("Association.waitForSuccessTimeoutSeconds");
+        if (!unknown_waitForSuccessTimeoutSeconds) return value_waitForSuccessTimeoutSeconds;
+        throw new UndeferrableValueException("Value 'Association.waitForSuccessTimeoutSeconds' is not present");
     }
 
 }

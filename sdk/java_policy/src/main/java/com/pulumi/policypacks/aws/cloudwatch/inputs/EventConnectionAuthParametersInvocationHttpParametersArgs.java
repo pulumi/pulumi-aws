@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudwatch.inputs.EventConnectionAuthParametersInvocationHttpParametersBodyArgs;
 import com.pulumi.policypacks.aws.cloudwatch.inputs.EventConnectionAuthParametersInvocationHttpParametersHeaderArgs;
 import com.pulumi.policypacks.aws.cloudwatch.inputs.EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs;
@@ -17,33 +18,36 @@ public final class EventConnectionAuthParametersInvocationHttpParametersArgs {
      * Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
      * 
      */
-    private UndeferrableValue<List<EventConnectionAuthParametersInvocationHttpParametersBodyArgs>> bodies;
-
+    @PolicyResourceProperty(name="bodies", flag="unknown_bodies")
+    private List<EventConnectionAuthParametersInvocationHttpParametersBodyArgs> value_bodies;
+    private boolean unknown_bodies;
     public List<EventConnectionAuthParametersInvocationHttpParametersBodyArgs> bodies() {
-        if (bodies == null) return null;
-        return bodies.getValue("EventConnectionAuthParametersInvocationHttpParametersArgs.bodies");
+        if (!unknown_bodies) return value_bodies;
+        throw new UndeferrableValueException("Value 'EventConnectionAuthParametersInvocationHttpParametersArgs.bodies' is not present");
     }
 
     /**
      * Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
      * 
      */
-    private UndeferrableValue<List<EventConnectionAuthParametersInvocationHttpParametersHeaderArgs>> headers;
-
+    @PolicyResourceProperty(name="headers", flag="unknown_headers")
+    private List<EventConnectionAuthParametersInvocationHttpParametersHeaderArgs> value_headers;
+    private boolean unknown_headers;
     public List<EventConnectionAuthParametersInvocationHttpParametersHeaderArgs> headers() {
-        if (headers == null) return null;
-        return headers.getValue("EventConnectionAuthParametersInvocationHttpParametersArgs.headers");
+        if (!unknown_headers) return value_headers;
+        throw new UndeferrableValueException("Value 'EventConnectionAuthParametersInvocationHttpParametersArgs.headers' is not present");
     }
 
     /**
      * Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
      * 
      */
-    private UndeferrableValue<List<EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs>> queryStrings;
-
+    @PolicyResourceProperty(name="queryStrings", flag="unknown_queryStrings")
+    private List<EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs> value_queryStrings;
+    private boolean unknown_queryStrings;
     public List<EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs> queryStrings() {
-        if (queryStrings == null) return null;
-        return queryStrings.getValue("EventConnectionAuthParametersInvocationHttpParametersArgs.queryStrings");
+        if (!unknown_queryStrings) return value_queryStrings;
+        throw new UndeferrableValueException("Value 'EventConnectionAuthParametersInvocationHttpParametersArgs.queryStrings' is not present");
     }
 
 }

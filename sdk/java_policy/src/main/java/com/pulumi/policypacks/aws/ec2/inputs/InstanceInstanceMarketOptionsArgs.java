@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.inputs.InstanceInstanceMarketOptionsSpotOptionsArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class InstanceInstanceMarketOptionsArgs {
      * Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spot_options` is specified.
      * 
      */
-    private UndeferrableValue<String> marketType;
-
+    @PolicyResourceProperty(name="marketType", flag="unknown_marketType")
+    private String value_marketType;
+    private boolean unknown_marketType;
     public String marketType() {
-        if (marketType == null) return null;
-        return marketType.getValue("InstanceInstanceMarketOptionsArgs.marketType");
+        if (!unknown_marketType) return value_marketType;
+        throw new UndeferrableValueException("Value 'InstanceInstanceMarketOptionsArgs.marketType' is not present");
     }
 
     /**
      * Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
      * 
      */
-    private UndeferrableValue<InstanceInstanceMarketOptionsSpotOptionsArgs> spotOptions;
-
+    @PolicyResourceProperty(name="spotOptions", flag="unknown_spotOptions")
+    private InstanceInstanceMarketOptionsSpotOptionsArgs value_spotOptions;
+    private boolean unknown_spotOptions;
     public InstanceInstanceMarketOptionsSpotOptionsArgs spotOptions() {
-        if (spotOptions == null) return null;
-        return spotOptions.getValue("InstanceInstanceMarketOptionsArgs.spotOptions");
+        if (!unknown_spotOptions) return value_spotOptions;
+        throw new UndeferrableValueException("Value 'InstanceInstanceMarketOptionsArgs.spotOptions' is not present");
     }
 
 }

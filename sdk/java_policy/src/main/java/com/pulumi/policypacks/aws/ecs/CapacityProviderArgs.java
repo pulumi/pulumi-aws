@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ecs.inputs.CapacityProviderAutoScalingGroupProviderArgs;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class CapacityProviderArgs extends com.pulumi.resources.PolicyResou
      * Configuration block for the provider for the ECS auto scaling group. Detailed below.
      * 
      */
-    private UndeferrableValue<CapacityProviderAutoScalingGroupProviderArgs> autoScalingGroupProvider;
-
+    @PolicyResourceProperty(name="autoScalingGroupProvider", flag="unknown_autoScalingGroupProvider")
+    private CapacityProviderAutoScalingGroupProviderArgs value_autoScalingGroupProvider;
+    private boolean unknown_autoScalingGroupProvider;
     public CapacityProviderAutoScalingGroupProviderArgs autoScalingGroupProvider() {
-        if (autoScalingGroupProvider == null) return null;
-        return autoScalingGroupProvider.getValue("CapacityProviderArgs.autoScalingGroupProvider");
+        if (!unknown_autoScalingGroupProvider) return value_autoScalingGroupProvider;
+        throw new UndeferrableValueException("Value 'CapacityProviderArgs.autoScalingGroupProvider' is not present");
     }
 
     /**
      * Name of the capacity provider.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("CapacityProviderArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'CapacityProviderArgs.name' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CapacityProviderArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CapacityProviderArgs.tags' is not present");
     }
 
 }

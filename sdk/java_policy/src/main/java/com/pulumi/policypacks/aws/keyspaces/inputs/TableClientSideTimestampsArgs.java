@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.keyspaces.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class TableClientSideTimestampsArgs {
      * Shows how to enable client-side timestamps settings for the specified table. Valid values: `ENABLED`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("TableClientSideTimestampsArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'TableClientSideTimestampsArgs.status' is not present");
     }
 
 }

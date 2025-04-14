@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,11 +18,12 @@ public final class EventConfigurations extends com.pulumi.resources.PolicyResour
      * Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
      * 
      */
-    private UndeferrableValue<Map<String,Boolean>> eventConfigurations;
-
+    @PolicyResourceProperty(name="eventConfigurations", flag="unknown_eventConfigurations")
+    private Map<String,Boolean> value_eventConfigurations;
+    private boolean unknown_eventConfigurations;
     public Map<String,Boolean> eventConfigurations() {
-        if (eventConfigurations == null) return null;
-        return eventConfigurations.getValue("EventConfigurations.eventConfigurations");
+        if (!unknown_eventConfigurations) return value_eventConfigurations;
+        throw new UndeferrableValueException("Value 'EventConfigurations.eventConfigurations' is not present");
     }
 
 }

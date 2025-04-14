@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ivschat.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class LoggingConfigurationDestinationConfigurationCloudwatchLogs {
      * Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
      * 
      */
-    private UndeferrableValue<String> logGroupName;
-
+    @PolicyResourceProperty(name="logGroupName", flag="unknown_logGroupName")
+    private String value_logGroupName;
+    private boolean unknown_logGroupName;
     public String logGroupName() {
-        if (logGroupName == null) return null;
-        return logGroupName.getValue("LoggingConfigurationDestinationConfigurationCloudwatchLogs.logGroupName");
+        if (!unknown_logGroupName) return value_logGroupName;
+        throw new UndeferrableValueException("Value 'LoggingConfigurationDestinationConfigurationCloudwatchLogs.logGroupName' is not present");
     }
 
 }

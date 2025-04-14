@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.athena;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,44 +17,48 @@ public final class PreparedStatement extends com.pulumi.resources.PolicyResource
      * Brief explanation of prepared statement. Maximum length of 1024.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("PreparedStatement.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'PreparedStatement.description' is not present");
     }
 
     /**
      * The name of the prepared statement. Maximum length of 256.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PreparedStatement.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PreparedStatement.name' is not present");
     }
 
     /**
      * The query string for the prepared statement.
      * 
      */
-    private UndeferrableValue<String> queryStatement;
-
+    @PolicyResourceProperty(name="queryStatement", flag="unknown_queryStatement")
+    private String value_queryStatement;
+    private boolean unknown_queryStatement;
     public String queryStatement() {
-        if (queryStatement == null) return null;
-        return queryStatement.getValue("PreparedStatement.queryStatement");
+        if (!unknown_queryStatement) return value_queryStatement;
+        throw new UndeferrableValueException("Value 'PreparedStatement.queryStatement' is not present");
     }
 
     /**
      * The name of the workgroup to which the prepared statement belongs.
      * 
      */
-    private UndeferrableValue<String> workgroup;
-
+    @PolicyResourceProperty(name="workgroup", flag="unknown_workgroup")
+    private String value_workgroup;
+    private boolean unknown_workgroup;
     public String workgroup() {
-        if (workgroup == null) return null;
-        return workgroup.getValue("PreparedStatement.workgroup");
+        if (!unknown_workgroup) return value_workgroup;
+        throw new UndeferrableValueException("Value 'PreparedStatement.workgroup' is not present");
     }
 
 }

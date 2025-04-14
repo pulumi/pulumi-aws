@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudfront.outputs.VpcOriginTimeouts;
 import com.pulumi.policypacks.aws.cloudfront.outputs.VpcOriginVpcOriginEndpointConfig;
@@ -19,29 +20,32 @@ public final class VpcOrigin extends com.pulumi.resources.PolicyResourceOutput {
      * The VPC origin ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("VpcOrigin.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'VpcOrigin.arn' is not present");
     }
 
     /**
      * The current version of the origin.
      * 
      */
-    private UndeferrableValue<String> etag;
-
+    @PolicyResourceProperty(name="etag", flag="unknown_etag")
+    private String value_etag;
+    private boolean unknown_etag;
     public String etag() {
-        if (etag == null) return null;
-        return etag.getValue("VpcOrigin.etag");
+        if (!unknown_etag) return value_etag;
+        throw new UndeferrableValueException("Value 'VpcOrigin.etag' is not present");
     }
 
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VpcOrigin.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VpcOrigin.tags' is not present");
     }
 
     /**
@@ -52,25 +56,28 @@ public final class VpcOrigin extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("VpcOrigin.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'VpcOrigin.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<VpcOriginTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable VpcOriginTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable VpcOriginTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("VpcOrigin.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'VpcOrigin.timeouts' is not present");
     }
 
-    private @Nullable UndeferrableValue<VpcOriginVpcOriginEndpointConfig> vpcOriginEndpointConfig;
-
+    @PolicyResourceProperty(name="vpcOriginEndpointConfig", flag="unknown_vpcOriginEndpointConfig")
+    private @Nullable VpcOriginVpcOriginEndpointConfig value_vpcOriginEndpointConfig;
+    private boolean unknown_vpcOriginEndpointConfig;
     public @Nullable VpcOriginVpcOriginEndpointConfig vpcOriginEndpointConfig() {
-        if (vpcOriginEndpointConfig == null) return null;
-        return vpcOriginEndpointConfig.getValue("VpcOrigin.vpcOriginEndpointConfig");
+        if (!unknown_vpcOriginEndpointConfig) return value_vpcOriginEndpointConfig;
+        throw new UndeferrableValueException("Value 'VpcOrigin.vpcOriginEndpointConfig' is not present");
     }
 
 }

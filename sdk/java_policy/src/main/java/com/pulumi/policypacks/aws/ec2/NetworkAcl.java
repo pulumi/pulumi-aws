@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.outputs.NetworkAclEgress;
 import com.pulumi.policypacks.aws.ec2.outputs.NetworkAclIngress;
@@ -20,66 +21,72 @@ public final class NetworkAcl extends com.pulumi.resources.PolicyResourceOutput 
      * The ARN of the network ACL
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("NetworkAcl.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'NetworkAcl.arn' is not present");
     }
 
     /**
      * Specifies an egress rule. Parameters defined below.
      * 
      */
-    private UndeferrableValue<List<NetworkAclEgress>> egress;
-
+    @PolicyResourceProperty(name="egress", flag="unknown_egress")
+    private List<NetworkAclEgress> value_egress;
+    private boolean unknown_egress;
     public List<NetworkAclEgress> egress() {
-        if (egress == null) return null;
-        return egress.getValue("NetworkAcl.egress");
+        if (!unknown_egress) return value_egress;
+        throw new UndeferrableValueException("Value 'NetworkAcl.egress' is not present");
     }
 
     /**
      * Specifies an ingress rule. Parameters defined below.
      * 
      */
-    private UndeferrableValue<List<NetworkAclIngress>> ingress;
-
+    @PolicyResourceProperty(name="ingress", flag="unknown_ingress")
+    private List<NetworkAclIngress> value_ingress;
+    private boolean unknown_ingress;
     public List<NetworkAclIngress> ingress() {
-        if (ingress == null) return null;
-        return ingress.getValue("NetworkAcl.ingress");
+        if (!unknown_ingress) return value_ingress;
+        throw new UndeferrableValueException("Value 'NetworkAcl.ingress' is not present");
     }
 
     /**
      * The ID of the AWS account that owns the network ACL.
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("NetworkAcl.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'NetworkAcl.ownerId' is not present");
     }
 
     /**
      * A list of Subnet IDs to apply the ACL to
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("NetworkAcl.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'NetworkAcl.subnetIds' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("NetworkAcl.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'NetworkAcl.tags' is not present");
     }
 
     /**
@@ -90,22 +97,24 @@ public final class NetworkAcl extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("NetworkAcl.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'NetworkAcl.tagsAll' is not present");
     }
 
     /**
      * The ID of the associated VPC.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("NetworkAcl.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'NetworkAcl.vpcId' is not present");
     }
 
 }

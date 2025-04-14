@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs;
@@ -20,65 +21,72 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs {
      * Aac Settings. See AAC Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs> aacSettings;
-
+    @PolicyResourceProperty(name="aacSettings", flag="unknown_aacSettings")
+    private ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs value_aacSettings;
+    private boolean unknown_aacSettings;
     public ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs aacSettings() {
-        if (aacSettings == null) return null;
-        return aacSettings.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs.aacSettings");
+        if (!unknown_aacSettings) return value_aacSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs.aacSettings' is not present");
     }
 
     /**
      * Ac3 Settings. See AC3 Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs> ac3Settings;
-
+    @PolicyResourceProperty(name="ac3Settings", flag="unknown_ac3Settings")
+    private ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs value_ac3Settings;
+    private boolean unknown_ac3Settings;
     public ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs ac3Settings() {
-        if (ac3Settings == null) return null;
-        return ac3Settings.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs.ac3Settings");
+        if (!unknown_ac3Settings) return value_ac3Settings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs.ac3Settings' is not present");
     }
 
     /**
      * Eac3 Atmos Settings. See EAC3 Atmos Settings
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs> eac3AtmosSettings;
-
+    @PolicyResourceProperty(name="eac3AtmosSettings", flag="unknown_eac3AtmosSettings")
+    private ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs value_eac3AtmosSettings;
+    private boolean unknown_eac3AtmosSettings;
     public ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs eac3AtmosSettings() {
-        if (eac3AtmosSettings == null) return null;
-        return eac3AtmosSettings.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs.eac3AtmosSettings");
+        if (!unknown_eac3AtmosSettings) return value_eac3AtmosSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs.eac3AtmosSettings' is not present");
     }
 
     /**
      * Eac3 Settings. See EAC3 Settings
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs> eac3Settings;
-
+    @PolicyResourceProperty(name="eac3Settings", flag="unknown_eac3Settings")
+    private ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs value_eac3Settings;
+    private boolean unknown_eac3Settings;
     public ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs eac3Settings() {
-        if (eac3Settings == null) return null;
-        return eac3Settings.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs.eac3Settings");
+        if (!unknown_eac3Settings) return value_eac3Settings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs.eac3Settings' is not present");
     }
 
-    private UndeferrableValue<ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs> mp2Settings;
-
+    @PolicyResourceProperty(name="mp2Settings", flag="unknown_mp2Settings")
+    private ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs value_mp2Settings;
+    private boolean unknown_mp2Settings;
     public ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs mp2Settings() {
-        if (mp2Settings == null) return null;
-        return mp2Settings.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs.mp2Settings");
+        if (!unknown_mp2Settings) return value_mp2Settings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs.mp2Settings' is not present");
     }
 
-    private UndeferrableValue<ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs> passThroughSettings;
-
+    @PolicyResourceProperty(name="passThroughSettings", flag="unknown_passThroughSettings")
+    private ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs value_passThroughSettings;
+    private boolean unknown_passThroughSettings;
     public ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs passThroughSettings() {
-        if (passThroughSettings == null) return null;
-        return passThroughSettings.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs.passThroughSettings");
+        if (!unknown_passThroughSettings) return value_passThroughSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs.passThroughSettings' is not present");
     }
 
-    private UndeferrableValue<ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs> wavSettings;
-
+    @PolicyResourceProperty(name="wavSettings", flag="unknown_wavSettings")
+    private ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs value_wavSettings;
+    private boolean unknown_wavSettings;
     public ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs wavSettings() {
-        if (wavSettings == null) return null;
-        return wavSettings.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs.wavSettings");
+        if (!unknown_wavSettings) return value_wavSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs.wavSettings' is not present");
     }
 
 }

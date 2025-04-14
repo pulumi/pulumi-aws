@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,44 +19,48 @@ public final class ResolverFirewallDomainList extends com.pulumi.resources.Polic
      * The ARN (Amazon Resource Name) of the domain list.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ResolverFirewallDomainList.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ResolverFirewallDomainList.arn' is not present");
     }
 
     /**
      * A array of domains for the firewall domain list.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> domains;
-
+    @PolicyResourceProperty(name="domains", flag="unknown_domains")
+    private @Nullable List<String> value_domains;
+    private boolean unknown_domains;
     public @Nullable List<String> domains() {
-        if (domains == null) return null;
-        return domains.getValue("ResolverFirewallDomainList.domains");
+        if (!unknown_domains) return value_domains;
+        throw new UndeferrableValueException("Value 'ResolverFirewallDomainList.domains' is not present");
     }
 
     /**
      * A name that lets you identify the domain list, to manage and use it.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ResolverFirewallDomainList.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ResolverFirewallDomainList.name' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. f configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ResolverFirewallDomainList.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ResolverFirewallDomainList.tags' is not present");
     }
 
     /**
@@ -66,11 +71,12 @@ public final class ResolverFirewallDomainList extends com.pulumi.resources.Polic
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ResolverFirewallDomainList.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ResolverFirewallDomainList.tagsAll' is not present");
     }
 
 }

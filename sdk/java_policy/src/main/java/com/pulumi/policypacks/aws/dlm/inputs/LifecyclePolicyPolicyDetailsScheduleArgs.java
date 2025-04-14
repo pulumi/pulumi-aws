@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dlm.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.dlm.inputs.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs;
 import com.pulumi.policypacks.aws.dlm.inputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs;
 import com.pulumi.policypacks.aws.dlm.inputs.LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs;
@@ -19,98 +20,108 @@ import javax.annotation.Nullable;
 
 public final class LifecyclePolicyPolicyDetailsScheduleArgs {
 
-    private UndeferrableValue<Boolean> copyTags;
-
+    @PolicyResourceProperty(name="copyTags", flag="unknown_copyTags")
+    private Boolean value_copyTags;
+    private boolean unknown_copyTags;
     public Boolean copyTags() {
-        if (copyTags == null) return null;
-        return copyTags.getValue("LifecyclePolicyPolicyDetailsScheduleArgs.copyTags");
+        if (!unknown_copyTags) return value_copyTags;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleArgs.copyTags' is not present");
     }
 
     /**
      * See the `create_rule` block. Max of 1 per schedule.
      * 
      */
-    private UndeferrableValue<LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs> createRule;
-
+    @PolicyResourceProperty(name="createRule", flag="unknown_createRule")
+    private LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs value_createRule;
+    private boolean unknown_createRule;
     public LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs createRule() {
-        if (createRule == null) return null;
-        return createRule.getValue("LifecyclePolicyPolicyDetailsScheduleArgs.createRule");
+        if (!unknown_createRule) return value_createRule;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleArgs.createRule' is not present");
     }
 
     /**
      * See the `cross_region_copy_rule` block. Max of 3 per schedule.
      * 
      */
-    private UndeferrableValue<List<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs>> crossRegionCopyRules;
-
+    @PolicyResourceProperty(name="crossRegionCopyRules", flag="unknown_crossRegionCopyRules")
+    private List<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs> value_crossRegionCopyRules;
+    private boolean unknown_crossRegionCopyRules;
     public List<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs> crossRegionCopyRules() {
-        if (crossRegionCopyRules == null) return null;
-        return crossRegionCopyRules.getValue("LifecyclePolicyPolicyDetailsScheduleArgs.crossRegionCopyRules");
+        if (!unknown_crossRegionCopyRules) return value_crossRegionCopyRules;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleArgs.crossRegionCopyRules' is not present");
     }
 
-    private UndeferrableValue<LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs> deprecateRule;
-
+    @PolicyResourceProperty(name="deprecateRule", flag="unknown_deprecateRule")
+    private LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs value_deprecateRule;
+    private boolean unknown_deprecateRule;
     public LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs deprecateRule() {
-        if (deprecateRule == null) return null;
-        return deprecateRule.getValue("LifecyclePolicyPolicyDetailsScheduleArgs.deprecateRule");
+        if (!unknown_deprecateRule) return value_deprecateRule;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleArgs.deprecateRule' is not present");
     }
 
     /**
      * See the `fast_restore_rule` block. Max of 1 per schedule.
      * 
      */
-    private UndeferrableValue<LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs> fastRestoreRule;
-
+    @PolicyResourceProperty(name="fastRestoreRule", flag="unknown_fastRestoreRule")
+    private LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs value_fastRestoreRule;
+    private boolean unknown_fastRestoreRule;
     public LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs fastRestoreRule() {
-        if (fastRestoreRule == null) return null;
-        return fastRestoreRule.getValue("LifecyclePolicyPolicyDetailsScheduleArgs.fastRestoreRule");
+        if (!unknown_fastRestoreRule) return value_fastRestoreRule;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleArgs.fastRestoreRule' is not present");
     }
 
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LifecyclePolicyPolicyDetailsScheduleArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleArgs.name' is not present");
     }
 
-    private UndeferrableValue<LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs> retainRule;
-
+    @PolicyResourceProperty(name="retainRule", flag="unknown_retainRule")
+    private LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs value_retainRule;
+    private boolean unknown_retainRule;
     public LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs retainRule() {
-        if (retainRule == null) return null;
-        return retainRule.getValue("LifecyclePolicyPolicyDetailsScheduleArgs.retainRule");
+        if (!unknown_retainRule) return value_retainRule;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleArgs.retainRule' is not present");
     }
 
     /**
      * See the `share_rule` block. Max of 1 per schedule.
      * 
      */
-    private UndeferrableValue<LifecyclePolicyPolicyDetailsScheduleShareRuleArgs> shareRule;
-
+    @PolicyResourceProperty(name="shareRule", flag="unknown_shareRule")
+    private LifecyclePolicyPolicyDetailsScheduleShareRuleArgs value_shareRule;
+    private boolean unknown_shareRule;
     public LifecyclePolicyPolicyDetailsScheduleShareRuleArgs shareRule() {
-        if (shareRule == null) return null;
-        return shareRule.getValue("LifecyclePolicyPolicyDetailsScheduleArgs.shareRule");
+        if (!unknown_shareRule) return value_shareRule;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleArgs.shareRule' is not present");
     }
 
     /**
      * A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tagsToAdd;
-
+    @PolicyResourceProperty(name="tagsToAdd", flag="unknown_tagsToAdd")
+    private Map<String,String> value_tagsToAdd;
+    private boolean unknown_tagsToAdd;
     public Map<String,String> tagsToAdd() {
-        if (tagsToAdd == null) return null;
-        return tagsToAdd.getValue("LifecyclePolicyPolicyDetailsScheduleArgs.tagsToAdd");
+        if (!unknown_tagsToAdd) return value_tagsToAdd;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleArgs.tagsToAdd' is not present");
     }
 
     /**
      * A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.
      * 
      */
-    private UndeferrableValue<Map<String,String>> variableTags;
-
+    @PolicyResourceProperty(name="variableTags", flag="unknown_variableTags")
+    private Map<String,String> value_variableTags;
+    private boolean unknown_variableTags;
     public Map<String,String> variableTags() {
-        if (variableTags == null) return null;
-        return variableTags.getValue("LifecyclePolicyPolicyDetailsScheduleArgs.variableTags");
+        if (!unknown_variableTags) return value_variableTags;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleArgs.variableTags' is not present");
     }
 
 }

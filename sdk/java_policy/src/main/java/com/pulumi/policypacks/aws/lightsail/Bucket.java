@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,99 +19,108 @@ public final class Bucket extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN of the lightsail bucket.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Bucket.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Bucket.arn' is not present");
     }
 
     /**
      * The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("Bucket.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'Bucket.availabilityZone' is not present");
     }
 
     /**
      * The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
      * 
      */
-    private UndeferrableValue<String> bundleId;
-
+    @PolicyResourceProperty(name="bundleId", flag="unknown_bundleId")
+    private String value_bundleId;
+    private boolean unknown_bundleId;
     public String bundleId() {
-        if (bundleId == null) return null;
-        return bundleId.getValue("Bucket.bundleId");
+        if (!unknown_bundleId) return value_bundleId;
+        throw new UndeferrableValueException("Value 'Bucket.bundleId' is not present");
     }
 
     /**
      * The timestamp when the bucket was created.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("Bucket.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'Bucket.createdAt' is not present");
     }
 
     /**
      * Force Delete non-empty buckets using `pulumi destroy`. AWS by default will not delete an s3 bucket which is not empty, to prevent losing bucket data and affecting other resources in lightsail. If `force_delete` is set to `true` the bucket will be deleted even when not empty.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> forceDelete;
-
+    @PolicyResourceProperty(name="forceDelete", flag="unknown_forceDelete")
+    private @Nullable Boolean value_forceDelete;
+    private boolean unknown_forceDelete;
     public @Nullable Boolean forceDelete() {
-        if (forceDelete == null) return null;
-        return forceDelete.getValue("Bucket.forceDelete");
+        if (!unknown_forceDelete) return value_forceDelete;
+        throw new UndeferrableValueException("Value 'Bucket.forceDelete' is not present");
     }
 
     /**
      * The name for the bucket.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Bucket.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Bucket.name' is not present");
     }
 
     /**
      * The Amazon Web Services Region name.
      * 
      */
-    private UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private String value_region;
+    private boolean unknown_region;
     public String region() {
-        if (region == null) return null;
-        return region.getValue("Bucket.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'Bucket.region' is not present");
     }
 
     /**
      * The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
      * 
      */
-    private UndeferrableValue<String> supportCode;
-
+    @PolicyResourceProperty(name="supportCode", flag="unknown_supportCode")
+    private String value_supportCode;
+    private boolean unknown_supportCode;
     public String supportCode() {
-        if (supportCode == null) return null;
-        return supportCode.getValue("Bucket.supportCode");
+        if (!unknown_supportCode) return value_supportCode;
+        throw new UndeferrableValueException("Value 'Bucket.supportCode' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Bucket.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Bucket.tags' is not present");
     }
 
     /**
@@ -121,18 +131,20 @@ public final class Bucket extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Bucket.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Bucket.tagsAll' is not present");
     }
 
-    private UndeferrableValue<String> url;
-
+    @PolicyResourceProperty(name="url", flag="unknown_url")
+    private String value_url;
+    private boolean unknown_url;
     public String url() {
-        if (url == null) return null;
-        return url.getValue("Bucket.url");
+        if (!unknown_url) return value_url;
+        throw new UndeferrableValueException("Value 'Bucket.url' is not present");
     }
 
 }

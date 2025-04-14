@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class StorageLensConfigurationStorageLensConfigurationAwsOrg {
      * The Amazon Resource Name (ARN) of the Amazon Web Services organization.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("StorageLensConfigurationStorageLensConfigurationAwsOrg.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationAwsOrg.arn' is not present");
     }
 
 }

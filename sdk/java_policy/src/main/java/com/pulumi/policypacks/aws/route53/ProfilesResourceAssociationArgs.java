@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.route53.inputs.ProfilesResourceAssociationTimeoutsArgs;
 import java.lang.String;
@@ -17,51 +18,56 @@ public final class ProfilesResourceAssociationArgs extends com.pulumi.resources.
      * Name of the Profile Resource Association.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ProfilesResourceAssociationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ProfilesResourceAssociationArgs.name' is not present");
     }
 
     /**
      * ID of the profile associated with the VPC.
      * 
      */
-    private UndeferrableValue<String> profileId;
-
+    @PolicyResourceProperty(name="profileId", flag="unknown_profileId")
+    private String value_profileId;
+    private boolean unknown_profileId;
     public String profileId() {
-        if (profileId == null) return null;
-        return profileId.getValue("ProfilesResourceAssociationArgs.profileId");
+        if (!unknown_profileId) return value_profileId;
+        throw new UndeferrableValueException("Value 'ProfilesResourceAssociationArgs.profileId' is not present");
     }
 
     /**
      * Resource ID of the resource to be associated with the profile.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("ProfilesResourceAssociationArgs.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'ProfilesResourceAssociationArgs.resourceArn' is not present");
     }
 
     /**
      * Resource properties for the resource to be associated with the profile.
      * 
      */
-    private UndeferrableValue<String> resourceProperties;
-
+    @PolicyResourceProperty(name="resourceProperties", flag="unknown_resourceProperties")
+    private String value_resourceProperties;
+    private boolean unknown_resourceProperties;
     public String resourceProperties() {
-        if (resourceProperties == null) return null;
-        return resourceProperties.getValue("ProfilesResourceAssociationArgs.resourceProperties");
+        if (!unknown_resourceProperties) return value_resourceProperties;
+        throw new UndeferrableValueException("Value 'ProfilesResourceAssociationArgs.resourceProperties' is not present");
     }
 
-    private UndeferrableValue<ProfilesResourceAssociationTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private ProfilesResourceAssociationTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public ProfilesResourceAssociationTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ProfilesResourceAssociationArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ProfilesResourceAssociationArgs.timeouts' is not present");
     }
 
 }

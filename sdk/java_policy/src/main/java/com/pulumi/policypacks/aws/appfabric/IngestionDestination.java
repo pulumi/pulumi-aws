@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appfabric;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appfabric.outputs.IngestionDestinationDestinationConfiguration;
 import com.pulumi.policypacks.aws.appfabric.outputs.IngestionDestinationProcessingConfiguration;
@@ -20,66 +21,72 @@ public final class IngestionDestination extends com.pulumi.resources.PolicyResou
      * The Amazon Resource Name (ARN) of the app bundle to use for the request.
      * 
      */
-    private UndeferrableValue<String> appBundleArn;
-
+    @PolicyResourceProperty(name="appBundleArn", flag="unknown_appBundleArn")
+    private String value_appBundleArn;
+    private boolean unknown_appBundleArn;
     public String appBundleArn() {
-        if (appBundleArn == null) return null;
-        return appBundleArn.getValue("IngestionDestination.appBundleArn");
+        if (!unknown_appBundleArn) return value_appBundleArn;
+        throw new UndeferrableValueException("Value 'IngestionDestination.appBundleArn' is not present");
     }
 
     /**
      * ARN of the Ingestion Destination.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("IngestionDestination.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'IngestionDestination.arn' is not present");
     }
 
     /**
      * Contains information about the destination of ingested data.
      * 
      */
-    private @Nullable UndeferrableValue<IngestionDestinationDestinationConfiguration> destinationConfiguration;
-
+    @PolicyResourceProperty(name="destinationConfiguration", flag="unknown_destinationConfiguration")
+    private @Nullable IngestionDestinationDestinationConfiguration value_destinationConfiguration;
+    private boolean unknown_destinationConfiguration;
     public @Nullable IngestionDestinationDestinationConfiguration destinationConfiguration() {
-        if (destinationConfiguration == null) return null;
-        return destinationConfiguration.getValue("IngestionDestination.destinationConfiguration");
+        if (!unknown_destinationConfiguration) return value_destinationConfiguration;
+        throw new UndeferrableValueException("Value 'IngestionDestination.destinationConfiguration' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the ingestion to use for the request.
      * 
      */
-    private UndeferrableValue<String> ingestionArn;
-
+    @PolicyResourceProperty(name="ingestionArn", flag="unknown_ingestionArn")
+    private String value_ingestionArn;
+    private boolean unknown_ingestionArn;
     public String ingestionArn() {
-        if (ingestionArn == null) return null;
-        return ingestionArn.getValue("IngestionDestination.ingestionArn");
+        if (!unknown_ingestionArn) return value_ingestionArn;
+        throw new UndeferrableValueException("Value 'IngestionDestination.ingestionArn' is not present");
     }
 
     /**
      * Contains information about how ingested data is processed.
      * 
      */
-    private @Nullable UndeferrableValue<IngestionDestinationProcessingConfiguration> processingConfiguration;
-
+    @PolicyResourceProperty(name="processingConfiguration", flag="unknown_processingConfiguration")
+    private @Nullable IngestionDestinationProcessingConfiguration value_processingConfiguration;
+    private boolean unknown_processingConfiguration;
     public @Nullable IngestionDestinationProcessingConfiguration processingConfiguration() {
-        if (processingConfiguration == null) return null;
-        return processingConfiguration.getValue("IngestionDestination.processingConfiguration");
+        if (!unknown_processingConfiguration) return value_processingConfiguration;
+        throw new UndeferrableValueException("Value 'IngestionDestination.processingConfiguration' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("IngestionDestination.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'IngestionDestination.tags' is not present");
     }
 
     /**
@@ -90,18 +97,20 @@ public final class IngestionDestination extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("IngestionDestination.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'IngestionDestination.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<IngestionDestinationTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable IngestionDestinationTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable IngestionDestinationTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("IngestionDestination.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'IngestionDestination.timeouts' is not present");
     }
 
 }

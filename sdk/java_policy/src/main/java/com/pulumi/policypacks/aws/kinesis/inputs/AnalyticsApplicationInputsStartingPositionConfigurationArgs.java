@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class AnalyticsApplicationInputsStartingPositionConfigurationArgs {
      * The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
      * 
      */
-    private UndeferrableValue<String> startingPosition;
-
+    @PolicyResourceProperty(name="startingPosition", flag="unknown_startingPosition")
+    private String value_startingPosition;
+    private boolean unknown_startingPosition;
     public String startingPosition() {
-        if (startingPosition == null) return null;
-        return startingPosition.getValue("AnalyticsApplicationInputsStartingPositionConfigurationArgs.startingPosition");
+        if (!unknown_startingPosition) return value_startingPosition;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsStartingPositionConfigurationArgs.startingPosition' is not present");
     }
 
 }

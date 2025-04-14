@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class RoleAssociation extends com.pulumi.resources.PolicyResourceOu
      * DB Instance Identifier to associate with the IAM Role.
      * 
      */
-    private UndeferrableValue<String> dbInstanceIdentifier;
-
+    @PolicyResourceProperty(name="dbInstanceIdentifier", flag="unknown_dbInstanceIdentifier")
+    private String value_dbInstanceIdentifier;
+    private boolean unknown_dbInstanceIdentifier;
     public String dbInstanceIdentifier() {
-        if (dbInstanceIdentifier == null) return null;
-        return dbInstanceIdentifier.getValue("RoleAssociation.dbInstanceIdentifier");
+        if (!unknown_dbInstanceIdentifier) return value_dbInstanceIdentifier;
+        throw new UndeferrableValueException("Value 'RoleAssociation.dbInstanceIdentifier' is not present");
     }
 
     /**
      * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
      * 
      */
-    private UndeferrableValue<String> featureName;
-
+    @PolicyResourceProperty(name="featureName", flag="unknown_featureName")
+    private String value_featureName;
+    private boolean unknown_featureName;
     public String featureName() {
-        if (featureName == null) return null;
-        return featureName.getValue("RoleAssociation.featureName");
+        if (!unknown_featureName) return value_featureName;
+        throw new UndeferrableValueException("Value 'RoleAssociation.featureName' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("RoleAssociation.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'RoleAssociation.roleArn' is not present");
     }
 
 }

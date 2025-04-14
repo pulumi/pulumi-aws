@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,11 +14,12 @@ public final class ListenerDefaultActionFixedResponse {
      * Custom HTTP status code to return, e.g. a 404 response code. See [Listeners](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html) in the AWS documentation for a list of supported codes.
      * 
      */
-    private UndeferrableValue<Integer> statusCode;
-
+    @PolicyResourceProperty(name="statusCode", flag="unknown_statusCode")
+    private Integer value_statusCode;
+    private boolean unknown_statusCode;
     public Integer statusCode() {
-        if (statusCode == null) return null;
-        return statusCode.getValue("ListenerDefaultActionFixedResponse.statusCode");
+        if (!unknown_statusCode) return value_statusCode;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionFixedResponse.statusCode' is not present");
     }
 
 }

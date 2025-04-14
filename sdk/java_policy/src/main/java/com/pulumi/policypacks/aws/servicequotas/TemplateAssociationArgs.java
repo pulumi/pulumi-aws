@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicequotas;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
@@ -12,11 +13,12 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:servicequotas/templateAssociation:TemplateAssociation")
 public final class TemplateAssociationArgs extends com.pulumi.resources.PolicyResourceInput {
 
-    private UndeferrableValue<Boolean> skipDestroy;
-
+    @PolicyResourceProperty(name="skipDestroy", flag="unknown_skipDestroy")
+    private Boolean value_skipDestroy;
+    private boolean unknown_skipDestroy;
     public Boolean skipDestroy() {
-        if (skipDestroy == null) return null;
-        return skipDestroy.getValue("TemplateAssociationArgs.skipDestroy");
+        if (!unknown_skipDestroy) return value_skipDestroy;
+        throw new UndeferrableValueException("Value 'TemplateAssociationArgs.skipDestroy' is not present");
     }
 
 }

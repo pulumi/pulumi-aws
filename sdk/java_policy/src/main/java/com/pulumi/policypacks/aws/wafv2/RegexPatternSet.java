@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.wafv2.outputs.RegexPatternSetRegularExpression;
 import java.lang.String;
@@ -19,84 +20,92 @@ public final class RegexPatternSet extends com.pulumi.resources.PolicyResourceOu
      * The Amazon Resource Name (ARN) that identifies the cluster.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("RegexPatternSet.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'RegexPatternSet.arn' is not present");
     }
 
     /**
      * A friendly description of the regular expression pattern set.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("RegexPatternSet.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'RegexPatternSet.description' is not present");
     }
 
-    private UndeferrableValue<String> lockToken;
-
+    @PolicyResourceProperty(name="lockToken", flag="unknown_lockToken")
+    private String value_lockToken;
+    private boolean unknown_lockToken;
     public String lockToken() {
-        if (lockToken == null) return null;
-        return lockToken.getValue("RegexPatternSet.lockToken");
+        if (!unknown_lockToken) return value_lockToken;
+        throw new UndeferrableValueException("Value 'RegexPatternSet.lockToken' is not present");
     }
 
     /**
      * A friendly name of the regular expression pattern set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RegexPatternSet.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RegexPatternSet.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("RegexPatternSet.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'RegexPatternSet.namePrefix' is not present");
     }
 
     /**
      * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
      * 
      */
-    private @Nullable UndeferrableValue<List<RegexPatternSetRegularExpression>> regularExpressions;
-
+    @PolicyResourceProperty(name="regularExpressions", flag="unknown_regularExpressions")
+    private @Nullable List<RegexPatternSetRegularExpression> value_regularExpressions;
+    private boolean unknown_regularExpressions;
     public @Nullable List<RegexPatternSetRegularExpression> regularExpressions() {
-        if (regularExpressions == null) return null;
-        return regularExpressions.getValue("RegexPatternSet.regularExpressions");
+        if (!unknown_regularExpressions) return value_regularExpressions;
+        throw new UndeferrableValueException("Value 'RegexPatternSet.regularExpressions' is not present");
     }
 
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      * 
      */
-    private UndeferrableValue<String> scope;
-
+    @PolicyResourceProperty(name="scope", flag="unknown_scope")
+    private String value_scope;
+    private boolean unknown_scope;
     public String scope() {
-        if (scope == null) return null;
-        return scope.getValue("RegexPatternSet.scope");
+        if (!unknown_scope) return value_scope;
+        throw new UndeferrableValueException("Value 'RegexPatternSet.scope' is not present");
     }
 
     /**
      * An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RegexPatternSet.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RegexPatternSet.tags' is not present");
     }
 
     /**
@@ -107,11 +116,12 @@ public final class RegexPatternSet extends com.pulumi.resources.PolicyResourceOu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("RegexPatternSet.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'RegexPatternSet.tagsAll' is not present");
     }
 
 }

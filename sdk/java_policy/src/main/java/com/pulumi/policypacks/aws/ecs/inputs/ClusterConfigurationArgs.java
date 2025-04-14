@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ecs.inputs.ClusterConfigurationExecuteCommandConfigurationArgs;
 import com.pulumi.policypacks.aws.ecs.inputs.ClusterConfigurationManagedStorageConfigurationArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ClusterConfigurationArgs {
      * Details of the execute command configuration. See `execute_command_configuration` Block for details.
      * 
      */
-    private UndeferrableValue<ClusterConfigurationExecuteCommandConfigurationArgs> executeCommandConfiguration;
-
+    @PolicyResourceProperty(name="executeCommandConfiguration", flag="unknown_executeCommandConfiguration")
+    private ClusterConfigurationExecuteCommandConfigurationArgs value_executeCommandConfiguration;
+    private boolean unknown_executeCommandConfiguration;
     public ClusterConfigurationExecuteCommandConfigurationArgs executeCommandConfiguration() {
-        if (executeCommandConfiguration == null) return null;
-        return executeCommandConfiguration.getValue("ClusterConfigurationArgs.executeCommandConfiguration");
+        if (!unknown_executeCommandConfiguration) return value_executeCommandConfiguration;
+        throw new UndeferrableValueException("Value 'ClusterConfigurationArgs.executeCommandConfiguration' is not present");
     }
 
     /**
      * Details of the managed storage configuration. See `managed_storage_configuration` Block for details.
      * 
      */
-    private UndeferrableValue<ClusterConfigurationManagedStorageConfigurationArgs> managedStorageConfiguration;
-
+    @PolicyResourceProperty(name="managedStorageConfiguration", flag="unknown_managedStorageConfiguration")
+    private ClusterConfigurationManagedStorageConfigurationArgs value_managedStorageConfiguration;
+    private boolean unknown_managedStorageConfiguration;
     public ClusterConfigurationManagedStorageConfigurationArgs managedStorageConfiguration() {
-        if (managedStorageConfiguration == null) return null;
-        return managedStorageConfiguration.getValue("ClusterConfigurationArgs.managedStorageConfiguration");
+        if (!unknown_managedStorageConfiguration) return value_managedStorageConfiguration;
+        throw new UndeferrableValueException("Value 'ClusterConfigurationArgs.managedStorageConfiguration' is not present");
     }
 
 }

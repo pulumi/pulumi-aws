@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ecs.outputs.CapacityProviderAutoScalingGroupProviderManagedScaling;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class CapacityProviderAutoScalingGroupProvider {
      * ARN of the associated auto scaling group.
      * 
      */
-    private UndeferrableValue<String> autoScalingGroupArn;
-
+    @PolicyResourceProperty(name="autoScalingGroupArn", flag="unknown_autoScalingGroupArn")
+    private String value_autoScalingGroupArn;
+    private boolean unknown_autoScalingGroupArn;
     public String autoScalingGroupArn() {
-        if (autoScalingGroupArn == null) return null;
-        return autoScalingGroupArn.getValue("CapacityProviderAutoScalingGroupProvider.autoScalingGroupArn");
+        if (!unknown_autoScalingGroupArn) return value_autoScalingGroupArn;
+        throw new UndeferrableValueException("Value 'CapacityProviderAutoScalingGroupProvider.autoScalingGroupArn' is not present");
     }
 
     /**
      * Enables or disables a graceful shutdown of instances without disturbing workloads. Valid values are `ENABLED` and `DISABLED`. The default value is `ENABLED` when a capacity provider is created.
      * 
      */
-    private @Nullable UndeferrableValue<String> managedDraining;
-
+    @PolicyResourceProperty(name="managedDraining", flag="unknown_managedDraining")
+    private @Nullable String value_managedDraining;
+    private boolean unknown_managedDraining;
     public @Nullable String managedDraining() {
-        if (managedDraining == null) return null;
-        return managedDraining.getValue("CapacityProviderAutoScalingGroupProvider.managedDraining");
+        if (!unknown_managedDraining) return value_managedDraining;
+        throw new UndeferrableValueException("Value 'CapacityProviderAutoScalingGroupProvider.managedDraining' is not present");
     }
 
     /**
      * Configuration block defining the parameters of the auto scaling. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<CapacityProviderAutoScalingGroupProviderManagedScaling> managedScaling;
-
+    @PolicyResourceProperty(name="managedScaling", flag="unknown_managedScaling")
+    private @Nullable CapacityProviderAutoScalingGroupProviderManagedScaling value_managedScaling;
+    private boolean unknown_managedScaling;
     public @Nullable CapacityProviderAutoScalingGroupProviderManagedScaling managedScaling() {
-        if (managedScaling == null) return null;
-        return managedScaling.getValue("CapacityProviderAutoScalingGroupProvider.managedScaling");
+        if (!unknown_managedScaling) return value_managedScaling;
+        throw new UndeferrableValueException("Value 'CapacityProviderAutoScalingGroupProvider.managedScaling' is not present");
     }
 
     /**
      * Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> managedTerminationProtection;
-
+    @PolicyResourceProperty(name="managedTerminationProtection", flag="unknown_managedTerminationProtection")
+    private @Nullable String value_managedTerminationProtection;
+    private boolean unknown_managedTerminationProtection;
     public @Nullable String managedTerminationProtection() {
-        if (managedTerminationProtection == null) return null;
-        return managedTerminationProtection.getValue("CapacityProviderAutoScalingGroupProvider.managedTerminationProtection");
+        if (!unknown_managedTerminationProtection) return value_managedTerminationProtection;
+        throw new UndeferrableValueException("Value 'CapacityProviderAutoScalingGroupProvider.managedTerminationProtection' is not present");
     }
 
 }

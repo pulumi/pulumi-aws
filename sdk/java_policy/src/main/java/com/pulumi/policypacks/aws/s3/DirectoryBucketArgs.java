@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3.inputs.DirectoryBucketLocationArgs;
 import java.lang.Boolean;
@@ -18,55 +19,60 @@ public final class DirectoryBucketArgs extends com.pulumi.resources.PolicyResour
      * Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.BucketV2` resource to manage general purpose buckets.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("DirectoryBucketArgs.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'DirectoryBucketArgs.bucket' is not present");
     }
 
     /**
      * Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
      * 
      */
-    private UndeferrableValue<String> dataRedundancy;
-
+    @PolicyResourceProperty(name="dataRedundancy", flag="unknown_dataRedundancy")
+    private String value_dataRedundancy;
+    private boolean unknown_dataRedundancy;
     public String dataRedundancy() {
-        if (dataRedundancy == null) return null;
-        return dataRedundancy.getValue("DirectoryBucketArgs.dataRedundancy");
+        if (!unknown_dataRedundancy) return value_dataRedundancy;
+        throw new UndeferrableValueException("Value 'DirectoryBucketArgs.dataRedundancy' is not present");
     }
 
     /**
      * Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
      * 
      */
-    private UndeferrableValue<Boolean> forceDestroy;
-
+    @PolicyResourceProperty(name="forceDestroy", flag="unknown_forceDestroy")
+    private Boolean value_forceDestroy;
+    private boolean unknown_forceDestroy;
     public Boolean forceDestroy() {
-        if (forceDestroy == null) return null;
-        return forceDestroy.getValue("DirectoryBucketArgs.forceDestroy");
+        if (!unknown_forceDestroy) return value_forceDestroy;
+        throw new UndeferrableValueException("Value 'DirectoryBucketArgs.forceDestroy' is not present");
     }
 
     /**
      * Bucket location. See Location below for more details.
      * 
      */
-    private UndeferrableValue<DirectoryBucketLocationArgs> location;
-
+    @PolicyResourceProperty(name="location", flag="unknown_location")
+    private DirectoryBucketLocationArgs value_location;
+    private boolean unknown_location;
     public DirectoryBucketLocationArgs location() {
-        if (location == null) return null;
-        return location.getValue("DirectoryBucketArgs.location");
+        if (!unknown_location) return value_location;
+        throw new UndeferrableValueException("Value 'DirectoryBucketArgs.location' is not present");
     }
 
     /**
      * Bucket type. Valid values: `Directory`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("DirectoryBucketArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'DirectoryBucketArgs.type' is not present");
     }
 
 }

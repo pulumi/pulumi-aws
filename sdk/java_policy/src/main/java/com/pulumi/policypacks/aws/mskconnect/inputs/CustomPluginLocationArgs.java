@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mskconnect.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.mskconnect.inputs.CustomPluginLocationS3Args;
 
 
@@ -13,11 +14,12 @@ public final class CustomPluginLocationArgs {
      * Information of the plugin file stored in Amazon S3. See `s3` Block for details..
      * 
      */
-    private UndeferrableValue<CustomPluginLocationS3Args> s3;
-
+    @PolicyResourceProperty(name="s3", flag="unknown_s3")
+    private CustomPluginLocationS3Args value_s3;
+    private boolean unknown_s3;
     public CustomPluginLocationS3Args s3() {
-        if (s3 == null) return null;
-        return s3.getValue("CustomPluginLocationArgs.s3");
+        if (!unknown_s3) return value_s3;
+        throw new UndeferrableValueException("Value 'CustomPluginLocationArgs.s3' is not present");
     }
 
 }

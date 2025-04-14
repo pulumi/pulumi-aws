@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.emr.inputs.InstanceGroupEbsConfigArgs;
 import java.lang.Boolean;
@@ -20,33 +21,36 @@ public final class InstanceGroupArgs extends com.pulumi.resources.PolicyResource
      * The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
      * 
      */
-    private UndeferrableValue<String> autoscalingPolicy;
-
+    @PolicyResourceProperty(name="autoscalingPolicy", flag="unknown_autoscalingPolicy")
+    private String value_autoscalingPolicy;
+    private boolean unknown_autoscalingPolicy;
     public String autoscalingPolicy() {
-        if (autoscalingPolicy == null) return null;
-        return autoscalingPolicy.getValue("InstanceGroupArgs.autoscalingPolicy");
+        if (!unknown_autoscalingPolicy) return value_autoscalingPolicy;
+        throw new UndeferrableValueException("Value 'InstanceGroupArgs.autoscalingPolicy' is not present");
     }
 
     /**
      * If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
      * 
      */
-    private UndeferrableValue<String> bidPrice;
-
+    @PolicyResourceProperty(name="bidPrice", flag="unknown_bidPrice")
+    private String value_bidPrice;
+    private boolean unknown_bidPrice;
     public String bidPrice() {
-        if (bidPrice == null) return null;
-        return bidPrice.getValue("InstanceGroupArgs.bidPrice");
+        if (!unknown_bidPrice) return value_bidPrice;
+        throw new UndeferrableValueException("Value 'InstanceGroupArgs.bidPrice' is not present");
     }
 
     /**
      * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
      * 
      */
-    private UndeferrableValue<String> clusterId;
-
+    @PolicyResourceProperty(name="clusterId", flag="unknown_clusterId")
+    private String value_clusterId;
+    private boolean unknown_clusterId;
     public String clusterId() {
-        if (clusterId == null) return null;
-        return clusterId.getValue("InstanceGroupArgs.clusterId");
+        if (!unknown_clusterId) return value_clusterId;
+        throw new UndeferrableValueException("Value 'InstanceGroupArgs.clusterId' is not present");
     }
 
     /**
@@ -101,66 +105,72 @@ public final class InstanceGroupArgs extends com.pulumi.resources.PolicyResource
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    private UndeferrableValue<String> configurationsJson;
-
+    @PolicyResourceProperty(name="configurationsJson", flag="unknown_configurationsJson")
+    private String value_configurationsJson;
+    private boolean unknown_configurationsJson;
     public String configurationsJson() {
-        if (configurationsJson == null) return null;
-        return configurationsJson.getValue("InstanceGroupArgs.configurationsJson");
+        if (!unknown_configurationsJson) return value_configurationsJson;
+        throw new UndeferrableValueException("Value 'InstanceGroupArgs.configurationsJson' is not present");
     }
 
     /**
      * One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
-    private UndeferrableValue<List<InstanceGroupEbsConfigArgs>> ebsConfigs;
-
+    @PolicyResourceProperty(name="ebsConfigs", flag="unknown_ebsConfigs")
+    private List<InstanceGroupEbsConfigArgs> value_ebsConfigs;
+    private boolean unknown_ebsConfigs;
     public List<InstanceGroupEbsConfigArgs> ebsConfigs() {
-        if (ebsConfigs == null) return null;
-        return ebsConfigs.getValue("InstanceGroupArgs.ebsConfigs");
+        if (!unknown_ebsConfigs) return value_ebsConfigs;
+        throw new UndeferrableValueException("Value 'InstanceGroupArgs.ebsConfigs' is not present");
     }
 
     /**
      * Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
      * 
      */
-    private UndeferrableValue<Boolean> ebsOptimized;
-
+    @PolicyResourceProperty(name="ebsOptimized", flag="unknown_ebsOptimized")
+    private Boolean value_ebsOptimized;
+    private boolean unknown_ebsOptimized;
     public Boolean ebsOptimized() {
-        if (ebsOptimized == null) return null;
-        return ebsOptimized.getValue("InstanceGroupArgs.ebsOptimized");
+        if (!unknown_ebsOptimized) return value_ebsOptimized;
+        throw new UndeferrableValueException("Value 'InstanceGroupArgs.ebsOptimized' is not present");
     }
 
     /**
      * target number of instances for the instance group. defaults to 0.
      * 
      */
-    private UndeferrableValue<Integer> instanceCount;
-
+    @PolicyResourceProperty(name="instanceCount", flag="unknown_instanceCount")
+    private Integer value_instanceCount;
+    private boolean unknown_instanceCount;
     public Integer instanceCount() {
-        if (instanceCount == null) return null;
-        return instanceCount.getValue("InstanceGroupArgs.instanceCount");
+        if (!unknown_instanceCount) return value_instanceCount;
+        throw new UndeferrableValueException("Value 'InstanceGroupArgs.instanceCount' is not present");
     }
 
     /**
      * The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("InstanceGroupArgs.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'InstanceGroupArgs.instanceType' is not present");
     }
 
     /**
      * Human friendly name given to the instance group. Changing this forces a new resource to be created.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("InstanceGroupArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'InstanceGroupArgs.name' is not present");
     }
 
 }

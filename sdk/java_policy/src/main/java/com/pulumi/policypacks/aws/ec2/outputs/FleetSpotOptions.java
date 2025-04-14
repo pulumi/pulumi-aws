@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.outputs.FleetSpotOptionsMaintenanceStrategies;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -17,88 +18,96 @@ public final class FleetSpotOptions {
      * How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
      * 
      */
-    private @Nullable UndeferrableValue<String> allocationStrategy;
-
+    @PolicyResourceProperty(name="allocationStrategy", flag="unknown_allocationStrategy")
+    private @Nullable String value_allocationStrategy;
+    private boolean unknown_allocationStrategy;
     public @Nullable String allocationStrategy() {
-        if (allocationStrategy == null) return null;
-        return allocationStrategy.getValue("FleetSpotOptions.allocationStrategy");
+        if (!unknown_allocationStrategy) return value_allocationStrategy;
+        throw new UndeferrableValueException("Value 'FleetSpotOptions.allocationStrategy' is not present");
     }
 
     /**
      * Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
      * 
      */
-    private @Nullable UndeferrableValue<String> instanceInterruptionBehavior;
-
+    @PolicyResourceProperty(name="instanceInterruptionBehavior", flag="unknown_instanceInterruptionBehavior")
+    private @Nullable String value_instanceInterruptionBehavior;
+    private boolean unknown_instanceInterruptionBehavior;
     public @Nullable String instanceInterruptionBehavior() {
-        if (instanceInterruptionBehavior == null) return null;
-        return instanceInterruptionBehavior.getValue("FleetSpotOptions.instanceInterruptionBehavior");
+        if (!unknown_instanceInterruptionBehavior) return value_instanceInterruptionBehavior;
+        throw new UndeferrableValueException("Value 'FleetSpotOptions.instanceInterruptionBehavior' is not present");
     }
 
     /**
      * Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> instancePoolsToUseCount;
-
+    @PolicyResourceProperty(name="instancePoolsToUseCount", flag="unknown_instancePoolsToUseCount")
+    private @Nullable Integer value_instancePoolsToUseCount;
+    private boolean unknown_instancePoolsToUseCount;
     public @Nullable Integer instancePoolsToUseCount() {
-        if (instancePoolsToUseCount == null) return null;
-        return instancePoolsToUseCount.getValue("FleetSpotOptions.instancePoolsToUseCount");
+        if (!unknown_instancePoolsToUseCount) return value_instancePoolsToUseCount;
+        throw new UndeferrableValueException("Value 'FleetSpotOptions.instancePoolsToUseCount' is not present");
     }
 
     /**
      * Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
      * 
      */
-    private @Nullable UndeferrableValue<FleetSpotOptionsMaintenanceStrategies> maintenanceStrategies;
-
+    @PolicyResourceProperty(name="maintenanceStrategies", flag="unknown_maintenanceStrategies")
+    private @Nullable FleetSpotOptionsMaintenanceStrategies value_maintenanceStrategies;
+    private boolean unknown_maintenanceStrategies;
     public @Nullable FleetSpotOptionsMaintenanceStrategies maintenanceStrategies() {
-        if (maintenanceStrategies == null) return null;
-        return maintenanceStrategies.getValue("FleetSpotOptions.maintenanceStrategies");
+        if (!unknown_maintenanceStrategies) return value_maintenanceStrategies;
+        throw new UndeferrableValueException("Value 'FleetSpotOptions.maintenanceStrategies' is not present");
     }
 
     /**
      * The maximum amount per hour for Spot Instances that you&#39;re willing to pay.
      * 
      */
-    private @Nullable UndeferrableValue<String> maxTotalPrice;
-
+    @PolicyResourceProperty(name="maxTotalPrice", flag="unknown_maxTotalPrice")
+    private @Nullable String value_maxTotalPrice;
+    private boolean unknown_maxTotalPrice;
     public @Nullable String maxTotalPrice() {
-        if (maxTotalPrice == null) return null;
-        return maxTotalPrice.getValue("FleetSpotOptions.maxTotalPrice");
+        if (!unknown_maxTotalPrice) return value_maxTotalPrice;
+        throw new UndeferrableValueException("Value 'FleetSpotOptions.maxTotalPrice' is not present");
     }
 
     /**
      * The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> minTargetCapacity;
-
+    @PolicyResourceProperty(name="minTargetCapacity", flag="unknown_minTargetCapacity")
+    private @Nullable Integer value_minTargetCapacity;
+    private boolean unknown_minTargetCapacity;
     public @Nullable Integer minTargetCapacity() {
-        if (minTargetCapacity == null) return null;
-        return minTargetCapacity.getValue("FleetSpotOptions.minTargetCapacity");
+        if (!unknown_minTargetCapacity) return value_minTargetCapacity;
+        throw new UndeferrableValueException("Value 'FleetSpotOptions.minTargetCapacity' is not present");
     }
 
     /**
      * Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported only for fleets of type `instant`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> singleAvailabilityZone;
-
+    @PolicyResourceProperty(name="singleAvailabilityZone", flag="unknown_singleAvailabilityZone")
+    private @Nullable Boolean value_singleAvailabilityZone;
+    private boolean unknown_singleAvailabilityZone;
     public @Nullable Boolean singleAvailabilityZone() {
-        if (singleAvailabilityZone == null) return null;
-        return singleAvailabilityZone.getValue("FleetSpotOptions.singleAvailabilityZone");
+        if (!unknown_singleAvailabilityZone) return value_singleAvailabilityZone;
+        throw new UndeferrableValueException("Value 'FleetSpotOptions.singleAvailabilityZone' is not present");
     }
 
     /**
      * Indicates that the fleet uses a single instance type to launch all Spot Instances in the fleet. Supported only for fleets of type `instant`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> singleInstanceType;
-
+    @PolicyResourceProperty(name="singleInstanceType", flag="unknown_singleInstanceType")
+    private @Nullable Boolean value_singleInstanceType;
+    private boolean unknown_singleInstanceType;
     public @Nullable Boolean singleInstanceType() {
-        if (singleInstanceType == null) return null;
-        return singleInstanceType.getValue("FleetSpotOptions.singleInstanceType");
+        if (!unknown_singleInstanceType) return value_singleInstanceType;
+        throw new UndeferrableValueException("Value 'FleetSpotOptions.singleInstanceType' is not present");
     }
 
 }

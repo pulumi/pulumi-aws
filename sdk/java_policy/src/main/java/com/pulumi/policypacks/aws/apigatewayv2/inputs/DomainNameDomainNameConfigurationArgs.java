@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,66 +15,72 @@ public final class DomainNameDomainNameConfigurationArgs {
      * ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `aws.acm.Certificate` resource to configure an ACM certificate.
      * 
      */
-    private UndeferrableValue<String> certificateArn;
-
+    @PolicyResourceProperty(name="certificateArn", flag="unknown_certificateArn")
+    private String value_certificateArn;
+    private boolean unknown_certificateArn;
     public String certificateArn() {
-        if (certificateArn == null) return null;
-        return certificateArn.getValue("DomainNameDomainNameConfigurationArgs.certificateArn");
+        if (!unknown_certificateArn) return value_certificateArn;
+        throw new UndeferrableValueException("Value 'DomainNameDomainNameConfigurationArgs.certificateArn' is not present");
     }
 
     /**
      * Endpoint type. Valid values: `REGIONAL`.
      * 
      */
-    private UndeferrableValue<String> endpointType;
-
+    @PolicyResourceProperty(name="endpointType", flag="unknown_endpointType")
+    private String value_endpointType;
+    private boolean unknown_endpointType;
     public String endpointType() {
-        if (endpointType == null) return null;
-        return endpointType.getValue("DomainNameDomainNameConfigurationArgs.endpointType");
+        if (!unknown_endpointType) return value_endpointType;
+        throw new UndeferrableValueException("Value 'DomainNameDomainNameConfigurationArgs.endpointType' is not present");
     }
 
     /**
      * Amazon Route 53 Hosted Zone ID of the endpoint.
      * 
      */
-    private UndeferrableValue<String> hostedZoneId;
-
+    @PolicyResourceProperty(name="hostedZoneId", flag="unknown_hostedZoneId")
+    private String value_hostedZoneId;
+    private boolean unknown_hostedZoneId;
     public String hostedZoneId() {
-        if (hostedZoneId == null) return null;
-        return hostedZoneId.getValue("DomainNameDomainNameConfigurationArgs.hostedZoneId");
+        if (!unknown_hostedZoneId) return value_hostedZoneId;
+        throw new UndeferrableValueException("Value 'DomainNameDomainNameConfigurationArgs.hostedZoneId' is not present");
     }
 
     /**
      * ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
      * 
      */
-    private UndeferrableValue<String> ownershipVerificationCertificateArn;
-
+    @PolicyResourceProperty(name="ownershipVerificationCertificateArn", flag="unknown_ownershipVerificationCertificateArn")
+    private String value_ownershipVerificationCertificateArn;
+    private boolean unknown_ownershipVerificationCertificateArn;
     public String ownershipVerificationCertificateArn() {
-        if (ownershipVerificationCertificateArn == null) return null;
-        return ownershipVerificationCertificateArn.getValue("DomainNameDomainNameConfigurationArgs.ownershipVerificationCertificateArn");
+        if (!unknown_ownershipVerificationCertificateArn) return value_ownershipVerificationCertificateArn;
+        throw new UndeferrableValueException("Value 'DomainNameDomainNameConfigurationArgs.ownershipVerificationCertificateArn' is not present");
     }
 
     /**
      * Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
      * 
      */
-    private UndeferrableValue<String> securityPolicy;
-
+    @PolicyResourceProperty(name="securityPolicy", flag="unknown_securityPolicy")
+    private String value_securityPolicy;
+    private boolean unknown_securityPolicy;
     public String securityPolicy() {
-        if (securityPolicy == null) return null;
-        return securityPolicy.getValue("DomainNameDomainNameConfigurationArgs.securityPolicy");
+        if (!unknown_securityPolicy) return value_securityPolicy;
+        throw new UndeferrableValueException("Value 'DomainNameDomainNameConfigurationArgs.securityPolicy' is not present");
     }
 
     /**
      * Target domain name.
      * 
      */
-    private UndeferrableValue<String> targetDomainName;
-
+    @PolicyResourceProperty(name="targetDomainName", flag="unknown_targetDomainName")
+    private String value_targetDomainName;
+    private boolean unknown_targetDomainName;
     public String targetDomainName() {
-        if (targetDomainName == null) return null;
-        return targetDomainName.getValue("DomainNameDomainNameConfigurationArgs.targetDomainName");
+        if (!unknown_targetDomainName) return value_targetDomainName;
+        throw new UndeferrableValueException("Value 'DomainNameDomainNameConfigurationArgs.targetDomainName' is not present");
     }
 
 }

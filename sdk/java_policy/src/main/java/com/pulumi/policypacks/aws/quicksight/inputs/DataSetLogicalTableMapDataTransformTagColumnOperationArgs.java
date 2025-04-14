@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.inputs.DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs;
 import java.lang.String;
 import java.util.List;
@@ -15,22 +16,24 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperationArgs {
      * Column name.
      * 
      */
-    private UndeferrableValue<String> columnName;
-
+    @PolicyResourceProperty(name="columnName", flag="unknown_columnName")
+    private String value_columnName;
+    private boolean unknown_columnName;
     public String columnName() {
-        if (columnName == null) return null;
-        return columnName.getValue("DataSetLogicalTableMapDataTransformTagColumnOperationArgs.columnName");
+        if (!unknown_columnName) return value_columnName;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformTagColumnOperationArgs.columnName' is not present");
     }
 
     /**
      * The dataset column tag, currently only used for geospatial type tagging. See tags.
      * 
      */
-    private UndeferrableValue<List<DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private List<DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs> value_tags;
+    private boolean unknown_tags;
     public List<DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DataSetLogicalTableMapDataTransformTagColumnOperationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformTagColumnOperationArgs.tags' is not present");
     }
 
 }

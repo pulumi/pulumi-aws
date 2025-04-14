@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.verifiedaccess.inputs.EndpointCidrOptionsArgs;
 import com.pulumi.policypacks.aws.verifiedaccess.inputs.EndpointLoadBalancerOptionsArgs;
@@ -23,150 +24,164 @@ public final class EndpointArgs extends com.pulumi.resources.PolicyResourceInput
      * The DNS name for users to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      * 
      */
-    private UndeferrableValue<String> applicationDomain;
-
+    @PolicyResourceProperty(name="applicationDomain", flag="unknown_applicationDomain")
+    private String value_applicationDomain;
+    private boolean unknown_applicationDomain;
     public String applicationDomain() {
-        if (applicationDomain == null) return null;
-        return applicationDomain.getValue("EndpointArgs.applicationDomain");
+        if (!unknown_applicationDomain) return value_applicationDomain;
+        throw new UndeferrableValueException("Value 'EndpointArgs.applicationDomain' is not present");
     }
 
     /**
      * The type of attachment. Currently, only `vpc` is supported.
      * 
      */
-    private UndeferrableValue<String> attachmentType;
-
+    @PolicyResourceProperty(name="attachmentType", flag="unknown_attachmentType")
+    private String value_attachmentType;
+    private boolean unknown_attachmentType;
     public String attachmentType() {
-        if (attachmentType == null) return null;
-        return attachmentType.getValue("EndpointArgs.attachmentType");
+        if (!unknown_attachmentType) return value_attachmentType;
+        throw new UndeferrableValueException("Value 'EndpointArgs.attachmentType' is not present");
     }
 
     /**
      * The CIDR block details. This parameter is required if the endpoint type is `cidr`.
      * 
      */
-    private UndeferrableValue<EndpointCidrOptionsArgs> cidrOptions;
-
+    @PolicyResourceProperty(name="cidrOptions", flag="unknown_cidrOptions")
+    private EndpointCidrOptionsArgs value_cidrOptions;
+    private boolean unknown_cidrOptions;
     public EndpointCidrOptionsArgs cidrOptions() {
-        if (cidrOptions == null) return null;
-        return cidrOptions.getValue("EndpointArgs.cidrOptions");
+        if (!unknown_cidrOptions) return value_cidrOptions;
+        throw new UndeferrableValueException("Value 'EndpointArgs.cidrOptions' is not present");
     }
 
     /**
      * A description for the Verified Access endpoint.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("EndpointArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'EndpointArgs.description' is not present");
     }
 
     /**
      * The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application. This parameter is required if the endpoint type is `load-balancer` or `network-interface`.
      * 
      */
-    private UndeferrableValue<String> domainCertificateArn;
-
+    @PolicyResourceProperty(name="domainCertificateArn", flag="unknown_domainCertificateArn")
+    private String value_domainCertificateArn;
+    private boolean unknown_domainCertificateArn;
     public String domainCertificateArn() {
-        if (domainCertificateArn == null) return null;
-        return domainCertificateArn.getValue("EndpointArgs.domainCertificateArn");
+        if (!unknown_domainCertificateArn) return value_domainCertificateArn;
+        throw new UndeferrableValueException("Value 'EndpointArgs.domainCertificateArn' is not present");
     }
 
     /**
      * A custom identifier that is prepended to the DNS name that is generated for the endpoint.
      * 
      */
-    private UndeferrableValue<String> endpointDomainPrefix;
-
+    @PolicyResourceProperty(name="endpointDomainPrefix", flag="unknown_endpointDomainPrefix")
+    private String value_endpointDomainPrefix;
+    private boolean unknown_endpointDomainPrefix;
     public String endpointDomainPrefix() {
-        if (endpointDomainPrefix == null) return null;
-        return endpointDomainPrefix.getValue("EndpointArgs.endpointDomainPrefix");
+        if (!unknown_endpointDomainPrefix) return value_endpointDomainPrefix;
+        throw new UndeferrableValueException("Value 'EndpointArgs.endpointDomainPrefix' is not present");
     }
 
     /**
      * The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
      * 
      */
-    private UndeferrableValue<String> endpointType;
-
+    @PolicyResourceProperty(name="endpointType", flag="unknown_endpointType")
+    private String value_endpointType;
+    private boolean unknown_endpointType;
     public String endpointType() {
-        if (endpointType == null) return null;
-        return endpointType.getValue("EndpointArgs.endpointType");
+        if (!unknown_endpointType) return value_endpointType;
+        throw new UndeferrableValueException("Value 'EndpointArgs.endpointType' is not present");
     }
 
     /**
      * The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
      * 
      */
-    private UndeferrableValue<EndpointLoadBalancerOptionsArgs> loadBalancerOptions;
-
+    @PolicyResourceProperty(name="loadBalancerOptions", flag="unknown_loadBalancerOptions")
+    private EndpointLoadBalancerOptionsArgs value_loadBalancerOptions;
+    private boolean unknown_loadBalancerOptions;
     public EndpointLoadBalancerOptionsArgs loadBalancerOptions() {
-        if (loadBalancerOptions == null) return null;
-        return loadBalancerOptions.getValue("EndpointArgs.loadBalancerOptions");
+        if (!unknown_loadBalancerOptions) return value_loadBalancerOptions;
+        throw new UndeferrableValueException("Value 'EndpointArgs.loadBalancerOptions' is not present");
     }
 
     /**
      * The network interface details. This parameter is required if the endpoint type is `network-interface`.
      * 
      */
-    private UndeferrableValue<EndpointNetworkInterfaceOptionsArgs> networkInterfaceOptions;
-
+    @PolicyResourceProperty(name="networkInterfaceOptions", flag="unknown_networkInterfaceOptions")
+    private EndpointNetworkInterfaceOptionsArgs value_networkInterfaceOptions;
+    private boolean unknown_networkInterfaceOptions;
     public EndpointNetworkInterfaceOptionsArgs networkInterfaceOptions() {
-        if (networkInterfaceOptions == null) return null;
-        return networkInterfaceOptions.getValue("EndpointArgs.networkInterfaceOptions");
+        if (!unknown_networkInterfaceOptions) return value_networkInterfaceOptions;
+        throw new UndeferrableValueException("Value 'EndpointArgs.networkInterfaceOptions' is not present");
     }
 
     /**
      * The policy document that is associated with this resource.
      * 
      */
-    private UndeferrableValue<String> policyDocument;
-
+    @PolicyResourceProperty(name="policyDocument", flag="unknown_policyDocument")
+    private String value_policyDocument;
+    private boolean unknown_policyDocument;
     public String policyDocument() {
-        if (policyDocument == null) return null;
-        return policyDocument.getValue("EndpointArgs.policyDocument");
+        if (!unknown_policyDocument) return value_policyDocument;
+        throw new UndeferrableValueException("Value 'EndpointArgs.policyDocument' is not present");
     }
 
-    private UndeferrableValue<EndpointRdsOptionsArgs> rdsOptions;
-
+    @PolicyResourceProperty(name="rdsOptions", flag="unknown_rdsOptions")
+    private EndpointRdsOptionsArgs value_rdsOptions;
+    private boolean unknown_rdsOptions;
     public EndpointRdsOptionsArgs rdsOptions() {
-        if (rdsOptions == null) return null;
-        return rdsOptions.getValue("EndpointArgs.rdsOptions");
+        if (!unknown_rdsOptions) return value_rdsOptions;
+        throw new UndeferrableValueException("Value 'EndpointArgs.rdsOptions' is not present");
     }
 
     /**
      * List of the the security groups IDs to associate with the Verified Access endpoint.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("EndpointArgs.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'EndpointArgs.securityGroupIds' is not present");
     }
 
     /**
      * The options in use for server side encryption.
      * 
      */
-    private UndeferrableValue<EndpointSseSpecificationArgs> sseSpecification;
-
+    @PolicyResourceProperty(name="sseSpecification", flag="unknown_sseSpecification")
+    private EndpointSseSpecificationArgs value_sseSpecification;
+    private boolean unknown_sseSpecification;
     public EndpointSseSpecificationArgs sseSpecification() {
-        if (sseSpecification == null) return null;
-        return sseSpecification.getValue("EndpointArgs.sseSpecification");
+        if (!unknown_sseSpecification) return value_sseSpecification;
+        throw new UndeferrableValueException("Value 'EndpointArgs.sseSpecification' is not present");
     }
 
     /**
      * Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("EndpointArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'EndpointArgs.tags' is not present");
     }
 
     /**
@@ -175,11 +190,12 @@ public final class EndpointArgs extends com.pulumi.resources.PolicyResourceInput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> verifiedAccessGroupId;
-
+    @PolicyResourceProperty(name="verifiedAccessGroupId", flag="unknown_verifiedAccessGroupId")
+    private String value_verifiedAccessGroupId;
+    private boolean unknown_verifiedAccessGroupId;
     public String verifiedAccessGroupId() {
-        if (verifiedAccessGroupId == null) return null;
-        return verifiedAccessGroupId.getValue("EndpointArgs.verifiedAccessGroupId");
+        if (!unknown_verifiedAccessGroupId) return value_verifiedAccessGroupId;
+        throw new UndeferrableValueException("Value 'EndpointArgs.verifiedAccessGroupId' is not present");
     }
 
 }

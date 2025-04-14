@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2clientvpn;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,44 +17,48 @@ public final class RouteArgs extends com.pulumi.resources.PolicyResourceInput {
      * The ID of the Client VPN endpoint.
      * 
      */
-    private UndeferrableValue<String> clientVpnEndpointId;
-
+    @PolicyResourceProperty(name="clientVpnEndpointId", flag="unknown_clientVpnEndpointId")
+    private String value_clientVpnEndpointId;
+    private boolean unknown_clientVpnEndpointId;
     public String clientVpnEndpointId() {
-        if (clientVpnEndpointId == null) return null;
-        return clientVpnEndpointId.getValue("RouteArgs.clientVpnEndpointId");
+        if (!unknown_clientVpnEndpointId) return value_clientVpnEndpointId;
+        throw new UndeferrableValueException("Value 'RouteArgs.clientVpnEndpointId' is not present");
     }
 
     /**
      * A brief description of the route.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("RouteArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'RouteArgs.description' is not present");
     }
 
     /**
      * The IPv4 address range, in CIDR notation, of the route destination.
      * 
      */
-    private UndeferrableValue<String> destinationCidrBlock;
-
+    @PolicyResourceProperty(name="destinationCidrBlock", flag="unknown_destinationCidrBlock")
+    private String value_destinationCidrBlock;
+    private boolean unknown_destinationCidrBlock;
     public String destinationCidrBlock() {
-        if (destinationCidrBlock == null) return null;
-        return destinationCidrBlock.getValue("RouteArgs.destinationCidrBlock");
+        if (!unknown_destinationCidrBlock) return value_destinationCidrBlock;
+        throw new UndeferrableValueException("Value 'RouteArgs.destinationCidrBlock' is not present");
     }
 
     /**
      * The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
      * 
      */
-    private UndeferrableValue<String> targetVpcSubnetId;
-
+    @PolicyResourceProperty(name="targetVpcSubnetId", flag="unknown_targetVpcSubnetId")
+    private String value_targetVpcSubnetId;
+    private boolean unknown_targetVpcSubnetId;
     public String targetVpcSubnetId() {
-        if (targetVpcSubnetId == null) return null;
-        return targetVpcSubnetId.getValue("RouteArgs.targetVpcSubnetId");
+        if (!unknown_targetVpcSubnetId) return value_targetVpcSubnetId;
+        throw new UndeferrableValueException("Value 'RouteArgs.targetVpcSubnetId' is not present");
     }
 
 }

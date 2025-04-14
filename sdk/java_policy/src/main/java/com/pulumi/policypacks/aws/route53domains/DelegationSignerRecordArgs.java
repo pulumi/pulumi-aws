@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53domains;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.route53domains.inputs.DelegationSignerRecordSigningAttributesArgs;
 import com.pulumi.policypacks.aws.route53domains.inputs.DelegationSignerRecordTimeoutsArgs;
@@ -18,29 +19,32 @@ public final class DelegationSignerRecordArgs extends com.pulumi.resources.Polic
      * The name of the domain that will have its parent DNS zone updated with the Delegation Signer record.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("DelegationSignerRecordArgs.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'DelegationSignerRecordArgs.domainName' is not present");
     }
 
     /**
      * The information about a key, including the algorithm, public key-value, and flags.
      * 
      */
-    private UndeferrableValue<DelegationSignerRecordSigningAttributesArgs> signingAttributes;
-
+    @PolicyResourceProperty(name="signingAttributes", flag="unknown_signingAttributes")
+    private DelegationSignerRecordSigningAttributesArgs value_signingAttributes;
+    private boolean unknown_signingAttributes;
     public DelegationSignerRecordSigningAttributesArgs signingAttributes() {
-        if (signingAttributes == null) return null;
-        return signingAttributes.getValue("DelegationSignerRecordArgs.signingAttributes");
+        if (!unknown_signingAttributes) return value_signingAttributes;
+        throw new UndeferrableValueException("Value 'DelegationSignerRecordArgs.signingAttributes' is not present");
     }
 
-    private UndeferrableValue<DelegationSignerRecordTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private DelegationSignerRecordTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public DelegationSignerRecordTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("DelegationSignerRecordArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'DelegationSignerRecordArgs.timeouts' is not present");
     }
 
 }

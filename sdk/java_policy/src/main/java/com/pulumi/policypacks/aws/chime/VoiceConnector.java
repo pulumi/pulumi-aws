@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chime;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class VoiceConnector extends com.pulumi.resources.PolicyResourceOut
      * ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("VoiceConnector.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'VoiceConnector.arn' is not present");
     }
 
     /**
      * The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
      * 
      */
-    private UndeferrableValue<String> awsRegion;
-
+    @PolicyResourceProperty(name="awsRegion", flag="unknown_awsRegion")
+    private String value_awsRegion;
+    private boolean unknown_awsRegion;
     public String awsRegion() {
-        if (awsRegion == null) return null;
-        return awsRegion.getValue("VoiceConnector.awsRegion");
+        if (!unknown_awsRegion) return value_awsRegion;
+        throw new UndeferrableValueException("Value 'VoiceConnector.awsRegion' is not present");
     }
 
     /**
      * The name of the Amazon Chime Voice Connector.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("VoiceConnector.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'VoiceConnector.name' is not present");
     }
 
     /**
      * The outbound host name for the Amazon Chime Voice Connector.
      * 
      */
-    private UndeferrableValue<String> outboundHostName;
-
+    @PolicyResourceProperty(name="outboundHostName", flag="unknown_outboundHostName")
+    private String value_outboundHostName;
+    private boolean unknown_outboundHostName;
     public String outboundHostName() {
-        if (outboundHostName == null) return null;
-        return outboundHostName.getValue("VoiceConnector.outboundHostName");
+        if (!unknown_outboundHostName) return value_outboundHostName;
+        throw new UndeferrableValueException("Value 'VoiceConnector.outboundHostName' is not present");
     }
 
     /**
@@ -64,22 +69,24 @@ public final class VoiceConnector extends com.pulumi.resources.PolicyResourceOut
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<Boolean> requireEncryption;
-
+    @PolicyResourceProperty(name="requireEncryption", flag="unknown_requireEncryption")
+    private Boolean value_requireEncryption;
+    private boolean unknown_requireEncryption;
     public Boolean requireEncryption() {
-        if (requireEncryption == null) return null;
-        return requireEncryption.getValue("VoiceConnector.requireEncryption");
+        if (!unknown_requireEncryption) return value_requireEncryption;
+        throw new UndeferrableValueException("Value 'VoiceConnector.requireEncryption' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VoiceConnector.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VoiceConnector.tags' is not present");
     }
 
     /**
@@ -90,11 +97,12 @@ public final class VoiceConnector extends com.pulumi.resources.PolicyResourceOut
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("VoiceConnector.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'VoiceConnector.tagsAll' is not present");
     }
 
 }

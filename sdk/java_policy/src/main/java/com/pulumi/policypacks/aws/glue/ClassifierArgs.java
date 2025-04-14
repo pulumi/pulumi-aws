@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.glue.inputs.ClassifierCsvClassifierArgs;
 import com.pulumi.policypacks.aws.glue.inputs.ClassifierGrokClassifierArgs;
@@ -20,55 +21,60 @@ public final class ClassifierArgs extends com.pulumi.resources.PolicyResourceInp
      * A classifier for CSV content. Defined below.
      * 
      */
-    private UndeferrableValue<ClassifierCsvClassifierArgs> csvClassifier;
-
+    @PolicyResourceProperty(name="csvClassifier", flag="unknown_csvClassifier")
+    private ClassifierCsvClassifierArgs value_csvClassifier;
+    private boolean unknown_csvClassifier;
     public ClassifierCsvClassifierArgs csvClassifier() {
-        if (csvClassifier == null) return null;
-        return csvClassifier.getValue("ClassifierArgs.csvClassifier");
+        if (!unknown_csvClassifier) return value_csvClassifier;
+        throw new UndeferrableValueException("Value 'ClassifierArgs.csvClassifier' is not present");
     }
 
     /**
      * A classifier that uses grok patterns. Defined below.
      * 
      */
-    private UndeferrableValue<ClassifierGrokClassifierArgs> grokClassifier;
-
+    @PolicyResourceProperty(name="grokClassifier", flag="unknown_grokClassifier")
+    private ClassifierGrokClassifierArgs value_grokClassifier;
+    private boolean unknown_grokClassifier;
     public ClassifierGrokClassifierArgs grokClassifier() {
-        if (grokClassifier == null) return null;
-        return grokClassifier.getValue("ClassifierArgs.grokClassifier");
+        if (!unknown_grokClassifier) return value_grokClassifier;
+        throw new UndeferrableValueException("Value 'ClassifierArgs.grokClassifier' is not present");
     }
 
     /**
      * A classifier for JSON content. Defined below.
      * 
      */
-    private UndeferrableValue<ClassifierJsonClassifierArgs> jsonClassifier;
-
+    @PolicyResourceProperty(name="jsonClassifier", flag="unknown_jsonClassifier")
+    private ClassifierJsonClassifierArgs value_jsonClassifier;
+    private boolean unknown_jsonClassifier;
     public ClassifierJsonClassifierArgs jsonClassifier() {
-        if (jsonClassifier == null) return null;
-        return jsonClassifier.getValue("ClassifierArgs.jsonClassifier");
+        if (!unknown_jsonClassifier) return value_jsonClassifier;
+        throw new UndeferrableValueException("Value 'ClassifierArgs.jsonClassifier' is not present");
     }
 
     /**
      * The name of the classifier.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ClassifierArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ClassifierArgs.name' is not present");
     }
 
     /**
      * A classifier for XML content. Defined below.
      * 
      */
-    private UndeferrableValue<ClassifierXmlClassifierArgs> xmlClassifier;
-
+    @PolicyResourceProperty(name="xmlClassifier", flag="unknown_xmlClassifier")
+    private ClassifierXmlClassifierArgs value_xmlClassifier;
+    private boolean unknown_xmlClassifier;
     public ClassifierXmlClassifierArgs xmlClassifier() {
-        if (xmlClassifier == null) return null;
-        return xmlClassifier.getValue("ClassifierArgs.xmlClassifier");
+        if (!unknown_xmlClassifier) return value_xmlClassifier;
+        throw new UndeferrableValueException("Value 'ClassifierArgs.xmlClassifier' is not present");
     }
 
 }

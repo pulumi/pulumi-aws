@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lakeformation.inputs.DataCellsFilterTableDataColumnWildcardArgs;
 import com.pulumi.policypacks.aws.lakeformation.inputs.DataCellsFilterTableDataRowFilterArgs;
 import java.lang.String;
@@ -17,88 +18,96 @@ public final class DataCellsFilterTableDataArgs {
      * A list of column names and/or nested column attributes.
      * 
      */
-    private UndeferrableValue<List<String>> columnNames;
-
+    @PolicyResourceProperty(name="columnNames", flag="unknown_columnNames")
+    private List<String> value_columnNames;
+    private boolean unknown_columnNames;
     public List<String> columnNames() {
-        if (columnNames == null) return null;
-        return columnNames.getValue("DataCellsFilterTableDataArgs.columnNames");
+        if (!unknown_columnNames) return value_columnNames;
+        throw new UndeferrableValueException("Value 'DataCellsFilterTableDataArgs.columnNames' is not present");
     }
 
     /**
      * A wildcard with exclusions. See Column Wildcard below for details.
      * 
      */
-    private UndeferrableValue<DataCellsFilterTableDataColumnWildcardArgs> columnWildcard;
-
+    @PolicyResourceProperty(name="columnWildcard", flag="unknown_columnWildcard")
+    private DataCellsFilterTableDataColumnWildcardArgs value_columnWildcard;
+    private boolean unknown_columnWildcard;
     public DataCellsFilterTableDataColumnWildcardArgs columnWildcard() {
-        if (columnWildcard == null) return null;
-        return columnWildcard.getValue("DataCellsFilterTableDataArgs.columnWildcard");
+        if (!unknown_columnWildcard) return value_columnWildcard;
+        throw new UndeferrableValueException("Value 'DataCellsFilterTableDataArgs.columnWildcard' is not present");
     }
 
     /**
      * The name of the database.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("DataCellsFilterTableDataArgs.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'DataCellsFilterTableDataArgs.databaseName' is not present");
     }
 
     /**
      * The name of the data cells filter.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DataCellsFilterTableDataArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DataCellsFilterTableDataArgs.name' is not present");
     }
 
     /**
      * A PartiQL predicate. See Row Filter below for details.
      * 
      */
-    private UndeferrableValue<DataCellsFilterTableDataRowFilterArgs> rowFilter;
-
+    @PolicyResourceProperty(name="rowFilter", flag="unknown_rowFilter")
+    private DataCellsFilterTableDataRowFilterArgs value_rowFilter;
+    private boolean unknown_rowFilter;
     public DataCellsFilterTableDataRowFilterArgs rowFilter() {
-        if (rowFilter == null) return null;
-        return rowFilter.getValue("DataCellsFilterTableDataArgs.rowFilter");
+        if (!unknown_rowFilter) return value_rowFilter;
+        throw new UndeferrableValueException("Value 'DataCellsFilterTableDataArgs.rowFilter' is not present");
     }
 
     /**
      * The ID of the Data Catalog.
      * 
      */
-    private UndeferrableValue<String> tableCatalogId;
-
+    @PolicyResourceProperty(name="tableCatalogId", flag="unknown_tableCatalogId")
+    private String value_tableCatalogId;
+    private boolean unknown_tableCatalogId;
     public String tableCatalogId() {
-        if (tableCatalogId == null) return null;
-        return tableCatalogId.getValue("DataCellsFilterTableDataArgs.tableCatalogId");
+        if (!unknown_tableCatalogId) return value_tableCatalogId;
+        throw new UndeferrableValueException("Value 'DataCellsFilterTableDataArgs.tableCatalogId' is not present");
     }
 
     /**
      * The name of the table.
      * 
      */
-    private UndeferrableValue<String> tableName;
-
+    @PolicyResourceProperty(name="tableName", flag="unknown_tableName")
+    private String value_tableName;
+    private boolean unknown_tableName;
     public String tableName() {
-        if (tableName == null) return null;
-        return tableName.getValue("DataCellsFilterTableDataArgs.tableName");
+        if (!unknown_tableName) return value_tableName;
+        throw new UndeferrableValueException("Value 'DataCellsFilterTableDataArgs.tableName' is not present");
     }
 
     /**
      * ID of the data cells filter version.
      * 
      */
-    private UndeferrableValue<String> versionId;
-
+    @PolicyResourceProperty(name="versionId", flag="unknown_versionId")
+    private String value_versionId;
+    private boolean unknown_versionId;
     public String versionId() {
-        if (versionId == null) return null;
-        return versionId.getValue("DataCellsFilterTableDataArgs.versionId");
+        if (!unknown_versionId) return value_versionId;
+        throw new UndeferrableValueException("Value 'DataCellsFilterTableDataArgs.versionId' is not present");
     }
 
 }

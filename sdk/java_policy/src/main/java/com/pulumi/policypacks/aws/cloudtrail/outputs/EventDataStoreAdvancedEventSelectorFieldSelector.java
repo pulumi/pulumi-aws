@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudtrail.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,77 +16,84 @@ public final class EventDataStoreAdvancedEventSelectorFieldSelector {
      * A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> endsWiths;
-
+    @PolicyResourceProperty(name="endsWiths", flag="unknown_endsWiths")
+    private @Nullable List<String> value_endsWiths;
+    private boolean unknown_endsWiths;
     public @Nullable List<String> endsWiths() {
-        if (endsWiths == null) return null;
-        return endsWiths.getValue("EventDataStoreAdvancedEventSelectorFieldSelector.endsWiths");
+        if (!unknown_endsWiths) return value_endsWiths;
+        throw new UndeferrableValueException("Value 'EventDataStoreAdvancedEventSelectorFieldSelector.endsWiths' is not present");
     }
 
     /**
      * A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> equals_;
-
+    @PolicyResourceProperty(name="equals", flag="unknown_equals_")
+    private @Nullable List<String> value_equals_;
+    private boolean unknown_equals_;
     public @Nullable List<String> equals_() {
-        if (equals_ == null) return null;
-        return equals_.getValue("EventDataStoreAdvancedEventSelectorFieldSelector.equals_");
+        if (!unknown_equals_) return value_equals_;
+        throw new UndeferrableValueException("Value 'EventDataStoreAdvancedEventSelectorFieldSelector.equals_' is not present");
     }
 
     /**
      * Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
      * 
      */
-    private @Nullable UndeferrableValue<String> field;
-
+    @PolicyResourceProperty(name="field", flag="unknown_field")
+    private @Nullable String value_field;
+    private boolean unknown_field;
     public @Nullable String field() {
-        if (field == null) return null;
-        return field.getValue("EventDataStoreAdvancedEventSelectorFieldSelector.field");
+        if (!unknown_field) return value_field;
+        throw new UndeferrableValueException("Value 'EventDataStoreAdvancedEventSelectorFieldSelector.field' is not present");
     }
 
     /**
      * A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> notEndsWiths;
-
+    @PolicyResourceProperty(name="notEndsWiths", flag="unknown_notEndsWiths")
+    private @Nullable List<String> value_notEndsWiths;
+    private boolean unknown_notEndsWiths;
     public @Nullable List<String> notEndsWiths() {
-        if (notEndsWiths == null) return null;
-        return notEndsWiths.getValue("EventDataStoreAdvancedEventSelectorFieldSelector.notEndsWiths");
+        if (!unknown_notEndsWiths) return value_notEndsWiths;
+        throw new UndeferrableValueException("Value 'EventDataStoreAdvancedEventSelectorFieldSelector.notEndsWiths' is not present");
     }
 
     /**
      * A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> notEquals;
-
+    @PolicyResourceProperty(name="notEquals", flag="unknown_notEquals")
+    private @Nullable List<String> value_notEquals;
+    private boolean unknown_notEquals;
     public @Nullable List<String> notEquals() {
-        if (notEquals == null) return null;
-        return notEquals.getValue("EventDataStoreAdvancedEventSelectorFieldSelector.notEquals");
+        if (!unknown_notEquals) return value_notEquals;
+        throw new UndeferrableValueException("Value 'EventDataStoreAdvancedEventSelectorFieldSelector.notEquals' is not present");
     }
 
     /**
      * A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> notStartsWiths;
-
+    @PolicyResourceProperty(name="notStartsWiths", flag="unknown_notStartsWiths")
+    private @Nullable List<String> value_notStartsWiths;
+    private boolean unknown_notStartsWiths;
     public @Nullable List<String> notStartsWiths() {
-        if (notStartsWiths == null) return null;
-        return notStartsWiths.getValue("EventDataStoreAdvancedEventSelectorFieldSelector.notStartsWiths");
+        if (!unknown_notStartsWiths) return value_notStartsWiths;
+        throw new UndeferrableValueException("Value 'EventDataStoreAdvancedEventSelectorFieldSelector.notStartsWiths' is not present");
     }
 
     /**
      * A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> startsWiths;
-
+    @PolicyResourceProperty(name="startsWiths", flag="unknown_startsWiths")
+    private @Nullable List<String> value_startsWiths;
+    private boolean unknown_startsWiths;
     public @Nullable List<String> startsWiths() {
-        if (startsWiths == null) return null;
-        return startsWiths.getValue("EventDataStoreAdvancedEventSelectorFieldSelector.startsWiths");
+        if (!unknown_startsWiths) return value_startsWiths;
+        throw new UndeferrableValueException("Value 'EventDataStoreAdvancedEventSelectorFieldSelector.startsWiths' is not present");
     }
 
 }

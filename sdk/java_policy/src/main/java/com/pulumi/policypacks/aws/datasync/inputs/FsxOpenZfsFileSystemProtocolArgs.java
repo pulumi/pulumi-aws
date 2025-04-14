@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.datasync.inputs.FsxOpenZfsFileSystemProtocolNfsArgs;
 
 
@@ -13,11 +14,12 @@ public final class FsxOpenZfsFileSystemProtocolArgs {
      * Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
      * 
      */
-    private UndeferrableValue<FsxOpenZfsFileSystemProtocolNfsArgs> nfs;
-
+    @PolicyResourceProperty(name="nfs", flag="unknown_nfs")
+    private FsxOpenZfsFileSystemProtocolNfsArgs value_nfs;
+    private boolean unknown_nfs;
     public FsxOpenZfsFileSystemProtocolNfsArgs nfs() {
-        if (nfs == null) return null;
-        return nfs.getValue("FsxOpenZfsFileSystemProtocolArgs.nfs");
+        if (!unknown_nfs) return value_nfs;
+        throw new UndeferrableValueException("Value 'FsxOpenZfsFileSystemProtocolArgs.nfs' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.eks.outputs.NodeGroupResourceAutoscalingGroup;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class NodeGroupResource {
      * List of objects containing information about AutoScaling Groups.
      * 
      */
-    private @Nullable UndeferrableValue<List<NodeGroupResourceAutoscalingGroup>> autoscalingGroups;
-
+    @PolicyResourceProperty(name="autoscalingGroups", flag="unknown_autoscalingGroups")
+    private @Nullable List<NodeGroupResourceAutoscalingGroup> value_autoscalingGroups;
+    private boolean unknown_autoscalingGroups;
     public @Nullable List<NodeGroupResourceAutoscalingGroup> autoscalingGroups() {
-        if (autoscalingGroups == null) return null;
-        return autoscalingGroups.getValue("NodeGroupResource.autoscalingGroups");
+        if (!unknown_autoscalingGroups) return value_autoscalingGroups;
+        throw new UndeferrableValueException("Value 'NodeGroupResource.autoscalingGroups' is not present");
     }
 
     /**
      * Identifier of the remote access EC2 Security Group.
      * 
      */
-    private @Nullable UndeferrableValue<String> remoteAccessSecurityGroupId;
-
+    @PolicyResourceProperty(name="remoteAccessSecurityGroupId", flag="unknown_remoteAccessSecurityGroupId")
+    private @Nullable String value_remoteAccessSecurityGroupId;
+    private boolean unknown_remoteAccessSecurityGroupId;
     public @Nullable String remoteAccessSecurityGroupId() {
-        if (remoteAccessSecurityGroupId == null) return null;
-        return remoteAccessSecurityGroupId.getValue("NodeGroupResource.remoteAccessSecurityGroupId");
+        if (!unknown_remoteAccessSecurityGroupId) return value_remoteAccessSecurityGroupId;
+        throw new UndeferrableValueException("Value 'NodeGroupResource.remoteAccessSecurityGroupId' is not present");
     }
 
 }

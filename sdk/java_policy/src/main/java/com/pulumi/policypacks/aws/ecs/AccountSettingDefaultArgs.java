@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,22 +17,24 @@ public final class AccountSettingDefaultArgs extends com.pulumi.resources.Policy
      * Name of the account setting to set.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AccountSettingDefaultArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AccountSettingDefaultArgs.name' is not present");
     }
 
     /**
      * State of the setting.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("AccountSettingDefaultArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'AccountSettingDefaultArgs.value' is not present");
     }
 
 }

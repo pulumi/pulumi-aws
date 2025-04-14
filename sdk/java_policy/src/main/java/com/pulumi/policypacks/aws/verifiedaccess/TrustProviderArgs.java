@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.verifiedaccess.inputs.TrustProviderDeviceOptionsArgs;
 import com.pulumi.policypacks.aws.verifiedaccess.inputs.TrustProviderNativeApplicationOidcOptionsArgs;
@@ -21,84 +22,92 @@ public final class TrustProviderArgs extends com.pulumi.resources.PolicyResource
      * A description for the AWS Verified Access trust provider.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("TrustProviderArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'TrustProviderArgs.description' is not present");
     }
 
     /**
      * A block of options for device identity based trust providers.
      * 
      */
-    private UndeferrableValue<TrustProviderDeviceOptionsArgs> deviceOptions;
-
+    @PolicyResourceProperty(name="deviceOptions", flag="unknown_deviceOptions")
+    private TrustProviderDeviceOptionsArgs value_deviceOptions;
+    private boolean unknown_deviceOptions;
     public TrustProviderDeviceOptionsArgs deviceOptions() {
-        if (deviceOptions == null) return null;
-        return deviceOptions.getValue("TrustProviderArgs.deviceOptions");
+        if (!unknown_deviceOptions) return value_deviceOptions;
+        throw new UndeferrableValueException("Value 'TrustProviderArgs.deviceOptions' is not present");
     }
 
     /**
      * The type of device-based trust provider.
      * 
      */
-    private UndeferrableValue<String> deviceTrustProviderType;
-
+    @PolicyResourceProperty(name="deviceTrustProviderType", flag="unknown_deviceTrustProviderType")
+    private String value_deviceTrustProviderType;
+    private boolean unknown_deviceTrustProviderType;
     public String deviceTrustProviderType() {
-        if (deviceTrustProviderType == null) return null;
-        return deviceTrustProviderType.getValue("TrustProviderArgs.deviceTrustProviderType");
+        if (!unknown_deviceTrustProviderType) return value_deviceTrustProviderType;
+        throw new UndeferrableValueException("Value 'TrustProviderArgs.deviceTrustProviderType' is not present");
     }
 
     /**
      * The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
      * 
      */
-    private UndeferrableValue<TrustProviderNativeApplicationOidcOptionsArgs> nativeApplicationOidcOptions;
-
+    @PolicyResourceProperty(name="nativeApplicationOidcOptions", flag="unknown_nativeApplicationOidcOptions")
+    private TrustProviderNativeApplicationOidcOptionsArgs value_nativeApplicationOidcOptions;
+    private boolean unknown_nativeApplicationOidcOptions;
     public TrustProviderNativeApplicationOidcOptionsArgs nativeApplicationOidcOptions() {
-        if (nativeApplicationOidcOptions == null) return null;
-        return nativeApplicationOidcOptions.getValue("TrustProviderArgs.nativeApplicationOidcOptions");
+        if (!unknown_nativeApplicationOidcOptions) return value_nativeApplicationOidcOptions;
+        throw new UndeferrableValueException("Value 'TrustProviderArgs.nativeApplicationOidcOptions' is not present");
     }
 
     /**
      * The OpenID Connect details for an oidc-type, user-identity based trust provider.
      * 
      */
-    private UndeferrableValue<TrustProviderOidcOptionsArgs> oidcOptions;
-
+    @PolicyResourceProperty(name="oidcOptions", flag="unknown_oidcOptions")
+    private TrustProviderOidcOptionsArgs value_oidcOptions;
+    private boolean unknown_oidcOptions;
     public TrustProviderOidcOptionsArgs oidcOptions() {
-        if (oidcOptions == null) return null;
-        return oidcOptions.getValue("TrustProviderArgs.oidcOptions");
+        if (!unknown_oidcOptions) return value_oidcOptions;
+        throw new UndeferrableValueException("Value 'TrustProviderArgs.oidcOptions' is not present");
     }
 
     /**
      * The identifier to be used when working with policy rules.
      * 
      */
-    private UndeferrableValue<String> policyReferenceName;
-
+    @PolicyResourceProperty(name="policyReferenceName", flag="unknown_policyReferenceName")
+    private String value_policyReferenceName;
+    private boolean unknown_policyReferenceName;
     public String policyReferenceName() {
-        if (policyReferenceName == null) return null;
-        return policyReferenceName.getValue("TrustProviderArgs.policyReferenceName");
+        if (!unknown_policyReferenceName) return value_policyReferenceName;
+        throw new UndeferrableValueException("Value 'TrustProviderArgs.policyReferenceName' is not present");
     }
 
-    private UndeferrableValue<TrustProviderSseSpecificationArgs> sseSpecification;
-
+    @PolicyResourceProperty(name="sseSpecification", flag="unknown_sseSpecification")
+    private TrustProviderSseSpecificationArgs value_sseSpecification;
+    private boolean unknown_sseSpecification;
     public TrustProviderSseSpecificationArgs sseSpecification() {
-        if (sseSpecification == null) return null;
-        return sseSpecification.getValue("TrustProviderArgs.sseSpecification");
+        if (!unknown_sseSpecification) return value_sseSpecification;
+        throw new UndeferrableValueException("Value 'TrustProviderArgs.sseSpecification' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TrustProviderArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TrustProviderArgs.tags' is not present");
     }
 
     /**
@@ -107,22 +116,24 @@ public final class TrustProviderArgs extends com.pulumi.resources.PolicyResource
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> trustProviderType;
-
+    @PolicyResourceProperty(name="trustProviderType", flag="unknown_trustProviderType")
+    private String value_trustProviderType;
+    private boolean unknown_trustProviderType;
     public String trustProviderType() {
-        if (trustProviderType == null) return null;
-        return trustProviderType.getValue("TrustProviderArgs.trustProviderType");
+        if (!unknown_trustProviderType) return value_trustProviderType;
+        throw new UndeferrableValueException("Value 'TrustProviderArgs.trustProviderType' is not present");
     }
 
     /**
      * The type of user-based trust provider.
      * 
      */
-    private UndeferrableValue<String> userTrustProviderType;
-
+    @PolicyResourceProperty(name="userTrustProviderType", flag="unknown_userTrustProviderType")
+    private String value_userTrustProviderType;
+    private boolean unknown_userTrustProviderType;
     public String userTrustProviderType() {
-        if (userTrustProviderType == null) return null;
-        return userTrustProviderType.getValue("TrustProviderArgs.userTrustProviderType");
+        if (!unknown_userTrustProviderType) return value_userTrustProviderType;
+        throw new UndeferrableValueException("Value 'TrustProviderArgs.userTrustProviderType' is not present");
     }
 
 }

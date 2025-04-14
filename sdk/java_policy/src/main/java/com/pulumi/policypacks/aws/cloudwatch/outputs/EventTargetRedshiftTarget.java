@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,66 +16,72 @@ public final class EventTargetRedshiftTarget {
      * The name of the database.
      * 
      */
-    private UndeferrableValue<String> database;
-
+    @PolicyResourceProperty(name="database", flag="unknown_database")
+    private String value_database;
+    private boolean unknown_database;
     public String database() {
-        if (database == null) return null;
-        return database.getValue("EventTargetRedshiftTarget.database");
+        if (!unknown_database) return value_database;
+        throw new UndeferrableValueException("Value 'EventTargetRedshiftTarget.database' is not present");
     }
 
     /**
      * The database user name.
      * 
      */
-    private @Nullable UndeferrableValue<String> dbUser;
-
+    @PolicyResourceProperty(name="dbUser", flag="unknown_dbUser")
+    private @Nullable String value_dbUser;
+    private boolean unknown_dbUser;
     public @Nullable String dbUser() {
-        if (dbUser == null) return null;
-        return dbUser.getValue("EventTargetRedshiftTarget.dbUser");
+        if (!unknown_dbUser) return value_dbUser;
+        throw new UndeferrableValueException("Value 'EventTargetRedshiftTarget.dbUser' is not present");
     }
 
     /**
      * The name or ARN of the secret that enables access to the database.
      * 
      */
-    private @Nullable UndeferrableValue<String> secretsManagerArn;
-
+    @PolicyResourceProperty(name="secretsManagerArn", flag="unknown_secretsManagerArn")
+    private @Nullable String value_secretsManagerArn;
+    private boolean unknown_secretsManagerArn;
     public @Nullable String secretsManagerArn() {
-        if (secretsManagerArn == null) return null;
-        return secretsManagerArn.getValue("EventTargetRedshiftTarget.secretsManagerArn");
+        if (!unknown_secretsManagerArn) return value_secretsManagerArn;
+        throw new UndeferrableValueException("Value 'EventTargetRedshiftTarget.secretsManagerArn' is not present");
     }
 
     /**
      * The SQL statement text to run.
      * 
      */
-    private @Nullable UndeferrableValue<String> sql;
-
+    @PolicyResourceProperty(name="sql", flag="unknown_sql")
+    private @Nullable String value_sql;
+    private boolean unknown_sql;
     public @Nullable String sql() {
-        if (sql == null) return null;
-        return sql.getValue("EventTargetRedshiftTarget.sql");
+        if (!unknown_sql) return value_sql;
+        throw new UndeferrableValueException("Value 'EventTargetRedshiftTarget.sql' is not present");
     }
 
     /**
      * The name of the SQL statement.
      * 
      */
-    private @Nullable UndeferrableValue<String> statementName;
-
+    @PolicyResourceProperty(name="statementName", flag="unknown_statementName")
+    private @Nullable String value_statementName;
+    private boolean unknown_statementName;
     public @Nullable String statementName() {
-        if (statementName == null) return null;
-        return statementName.getValue("EventTargetRedshiftTarget.statementName");
+        if (!unknown_statementName) return value_statementName;
+        throw new UndeferrableValueException("Value 'EventTargetRedshiftTarget.statementName' is not present");
     }
 
     /**
      * Indicates whether to send an event back to EventBridge after the SQL statement runs.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> withEvent;
-
+    @PolicyResourceProperty(name="withEvent", flag="unknown_withEvent")
+    private @Nullable Boolean value_withEvent;
+    private boolean unknown_withEvent;
     public @Nullable Boolean withEvent() {
-        if (withEvent == null) return null;
-        return withEvent.getValue("EventTargetRedshiftTarget.withEvent");
+        if (!unknown_withEvent) return value_withEvent;
+        throw new UndeferrableValueException("Value 'EventTargetRedshiftTarget.withEvent' is not present");
     }
 
 }

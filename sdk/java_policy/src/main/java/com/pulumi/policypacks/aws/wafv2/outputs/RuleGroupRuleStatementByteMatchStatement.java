@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatch;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRuleStatementByteMatchStatementTextTransformation;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class RuleGroupRuleStatementByteMatchStatement {
      * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementByteMatchStatementFieldToMatch> fieldToMatch;
-
+    @PolicyResourceProperty(name="fieldToMatch", flag="unknown_fieldToMatch")
+    private @Nullable RuleGroupRuleStatementByteMatchStatementFieldToMatch value_fieldToMatch;
+    private boolean unknown_fieldToMatch;
     public @Nullable RuleGroupRuleStatementByteMatchStatementFieldToMatch fieldToMatch() {
-        if (fieldToMatch == null) return null;
-        return fieldToMatch.getValue("RuleGroupRuleStatementByteMatchStatement.fieldToMatch");
+        if (!unknown_fieldToMatch) return value_fieldToMatch;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementByteMatchStatement.fieldToMatch' is not present");
     }
 
     /**
      * The area within the portion of a web request that you want AWS WAF to search for `search_string`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
      * 
      */
-    private UndeferrableValue<String> positionalConstraint;
-
+    @PolicyResourceProperty(name="positionalConstraint", flag="unknown_positionalConstraint")
+    private String value_positionalConstraint;
+    private boolean unknown_positionalConstraint;
     public String positionalConstraint() {
-        if (positionalConstraint == null) return null;
-        return positionalConstraint.getValue("RuleGroupRuleStatementByteMatchStatement.positionalConstraint");
+        if (!unknown_positionalConstraint) return value_positionalConstraint;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementByteMatchStatement.positionalConstraint' is not present");
     }
 
     /**
      * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `field_to_match`. The maximum length of the value is 50 bytes.
      * 
      */
-    private UndeferrableValue<String> searchString;
-
+    @PolicyResourceProperty(name="searchString", flag="unknown_searchString")
+    private String value_searchString;
+    private boolean unknown_searchString;
     public String searchString() {
-        if (searchString == null) return null;
-        return searchString.getValue("RuleGroupRuleStatementByteMatchStatement.searchString");
+        if (!unknown_searchString) return value_searchString;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementByteMatchStatement.searchString' is not present");
     }
 
     /**
@@ -52,11 +56,12 @@ public final class RuleGroupRuleStatementByteMatchStatement {
      * See Text Transformation below for details.
      * 
      */
-    private UndeferrableValue<List<RuleGroupRuleStatementByteMatchStatementTextTransformation>> textTransformations;
-
+    @PolicyResourceProperty(name="textTransformations", flag="unknown_textTransformations")
+    private List<RuleGroupRuleStatementByteMatchStatementTextTransformation> value_textTransformations;
+    private boolean unknown_textTransformations;
     public List<RuleGroupRuleStatementByteMatchStatementTextTransformation> textTransformations() {
-        if (textTransformations == null) return null;
-        return textTransformations.getValue("RuleGroupRuleStatementByteMatchStatement.textTransformations");
+        if (!unknown_textTransformations) return value_textTransformations;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementByteMatchStatement.textTransformations' is not present");
     }
 
 }

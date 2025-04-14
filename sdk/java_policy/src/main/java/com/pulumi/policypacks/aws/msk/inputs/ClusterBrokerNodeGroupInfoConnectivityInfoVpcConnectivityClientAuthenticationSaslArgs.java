@@ -3,25 +3,28 @@
 
 package com.pulumi.policypacks.aws.msk.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
 
 public final class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs {
 
-    private UndeferrableValue<Boolean> iam;
-
+    @PolicyResourceProperty(name="iam", flag="unknown_iam")
+    private Boolean value_iam;
+    private boolean unknown_iam;
     public Boolean iam() {
-        if (iam == null) return null;
-        return iam.getValue("ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs.iam");
+        if (!unknown_iam) return value_iam;
+        throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs.iam' is not present");
     }
 
-    private UndeferrableValue<Boolean> scram;
-
+    @PolicyResourceProperty(name="scram", flag="unknown_scram")
+    private Boolean value_scram;
+    private boolean unknown_scram;
     public Boolean scram() {
-        if (scram == null) return null;
-        return scram.getValue("ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs.scram");
+        if (!unknown_scram) return value_scram;
+        throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs.scram' is not present");
     }
 
 }

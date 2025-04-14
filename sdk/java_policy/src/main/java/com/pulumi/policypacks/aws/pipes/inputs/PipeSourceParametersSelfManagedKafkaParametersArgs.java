@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.pipes.inputs.PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs;
 import com.pulumi.policypacks.aws.pipes.inputs.PipeSourceParametersSelfManagedKafkaParametersVpcArgs;
 import java.lang.Integer;
@@ -18,99 +19,108 @@ public final class PipeSourceParametersSelfManagedKafkaParametersArgs {
      * An array of server URLs. Maximum number of 2 items, each of maximum length 300.
      * 
      */
-    private UndeferrableValue<List<String>> additionalBootstrapServers;
-
+    @PolicyResourceProperty(name="additionalBootstrapServers", flag="unknown_additionalBootstrapServers")
+    private List<String> value_additionalBootstrapServers;
+    private boolean unknown_additionalBootstrapServers;
     public List<String> additionalBootstrapServers() {
-        if (additionalBootstrapServers == null) return null;
-        return additionalBootstrapServers.getValue("PipeSourceParametersSelfManagedKafkaParametersArgs.additionalBootstrapServers");
+        if (!unknown_additionalBootstrapServers) return value_additionalBootstrapServers;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersArgs.additionalBootstrapServers' is not present");
     }
 
     /**
      * The maximum number of records to include in each batch. Maximum value of 10000.
      * 
      */
-    private UndeferrableValue<Integer> batchSize;
-
+    @PolicyResourceProperty(name="batchSize", flag="unknown_batchSize")
+    private Integer value_batchSize;
+    private boolean unknown_batchSize;
     public Integer batchSize() {
-        if (batchSize == null) return null;
-        return batchSize.getValue("PipeSourceParametersSelfManagedKafkaParametersArgs.batchSize");
+        if (!unknown_batchSize) return value_batchSize;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersArgs.batchSize' is not present");
     }
 
     /**
      * The name of the destination queue to consume. Maximum value of 200.
      * 
      */
-    private UndeferrableValue<String> consumerGroupId;
-
+    @PolicyResourceProperty(name="consumerGroupId", flag="unknown_consumerGroupId")
+    private String value_consumerGroupId;
+    private boolean unknown_consumerGroupId;
     public String consumerGroupId() {
-        if (consumerGroupId == null) return null;
-        return consumerGroupId.getValue("PipeSourceParametersSelfManagedKafkaParametersArgs.consumerGroupId");
+        if (!unknown_consumerGroupId) return value_consumerGroupId;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersArgs.consumerGroupId' is not present");
     }
 
     /**
      * The credentials needed to access the resource. Detailed below.
      * 
      */
-    private UndeferrableValue<PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs> credentials;
-
+    @PolicyResourceProperty(name="credentials", flag="unknown_credentials")
+    private PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs value_credentials;
+    private boolean unknown_credentials;
     public PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs credentials() {
-        if (credentials == null) return null;
-        return credentials.getValue("PipeSourceParametersSelfManagedKafkaParametersArgs.credentials");
+        if (!unknown_credentials) return value_credentials;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersArgs.credentials' is not present");
     }
 
     /**
      * The maximum length of a time to wait for events. Maximum value of 300.
      * 
      */
-    private UndeferrableValue<Integer> maximumBatchingWindowInSeconds;
-
+    @PolicyResourceProperty(name="maximumBatchingWindowInSeconds", flag="unknown_maximumBatchingWindowInSeconds")
+    private Integer value_maximumBatchingWindowInSeconds;
+    private boolean unknown_maximumBatchingWindowInSeconds;
     public Integer maximumBatchingWindowInSeconds() {
-        if (maximumBatchingWindowInSeconds == null) return null;
-        return maximumBatchingWindowInSeconds.getValue("PipeSourceParametersSelfManagedKafkaParametersArgs.maximumBatchingWindowInSeconds");
+        if (!unknown_maximumBatchingWindowInSeconds) return value_maximumBatchingWindowInSeconds;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersArgs.maximumBatchingWindowInSeconds' is not present");
     }
 
     /**
      * The ARN of the Secrets Manager secret used for certification.
      * 
      */
-    private UndeferrableValue<String> serverRootCaCertificate;
-
+    @PolicyResourceProperty(name="serverRootCaCertificate", flag="unknown_serverRootCaCertificate")
+    private String value_serverRootCaCertificate;
+    private boolean unknown_serverRootCaCertificate;
     public String serverRootCaCertificate() {
-        if (serverRootCaCertificate == null) return null;
-        return serverRootCaCertificate.getValue("PipeSourceParametersSelfManagedKafkaParametersArgs.serverRootCaCertificate");
+        if (!unknown_serverRootCaCertificate) return value_serverRootCaCertificate;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersArgs.serverRootCaCertificate' is not present");
     }
 
     /**
      * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
      * 
      */
-    private UndeferrableValue<String> startingPosition;
-
+    @PolicyResourceProperty(name="startingPosition", flag="unknown_startingPosition")
+    private String value_startingPosition;
+    private boolean unknown_startingPosition;
     public String startingPosition() {
-        if (startingPosition == null) return null;
-        return startingPosition.getValue("PipeSourceParametersSelfManagedKafkaParametersArgs.startingPosition");
+        if (!unknown_startingPosition) return value_startingPosition;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersArgs.startingPosition' is not present");
     }
 
     /**
      * The name of the topic that the pipe will read from. Maximum length of 249.
      * 
      */
-    private UndeferrableValue<String> topicName;
-
+    @PolicyResourceProperty(name="topicName", flag="unknown_topicName")
+    private String value_topicName;
+    private boolean unknown_topicName;
     public String topicName() {
-        if (topicName == null) return null;
-        return topicName.getValue("PipeSourceParametersSelfManagedKafkaParametersArgs.topicName");
+        if (!unknown_topicName) return value_topicName;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersArgs.topicName' is not present");
     }
 
     /**
      * This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
      * 
      */
-    private UndeferrableValue<PipeSourceParametersSelfManagedKafkaParametersVpcArgs> vpc;
-
+    @PolicyResourceProperty(name="vpc", flag="unknown_vpc")
+    private PipeSourceParametersSelfManagedKafkaParametersVpcArgs value_vpc;
+    private boolean unknown_vpc;
     public PipeSourceParametersSelfManagedKafkaParametersVpcArgs vpc() {
-        if (vpc == null) return null;
-        return vpc.getValue("PipeSourceParametersSelfManagedKafkaParametersArgs.vpc");
+        if (!unknown_vpc) return value_vpc;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersArgs.vpc' is not present");
     }
 
 }

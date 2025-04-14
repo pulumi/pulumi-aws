@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class EventEndpointRoutingConfigFailoverConfigSecondaryArgs {
      * The name of the secondary Region.
      * 
      */
-    private UndeferrableValue<String> route;
-
+    @PolicyResourceProperty(name="route", flag="unknown_route")
+    private String value_route;
+    private boolean unknown_route;
     public String route() {
-        if (route == null) return null;
-        return route.getValue("EventEndpointRoutingConfigFailoverConfigSecondaryArgs.route");
+        if (!unknown_route) return value_route;
+        throw new UndeferrableValueException("Value 'EventEndpointRoutingConfigFailoverConfigSecondaryArgs.route' is not present");
     }
 
 }

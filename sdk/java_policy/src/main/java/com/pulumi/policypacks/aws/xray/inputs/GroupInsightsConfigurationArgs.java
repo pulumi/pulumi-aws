@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.xray.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class GroupInsightsConfigurationArgs {
      * Specifies whether insights are enabled.
      * 
      */
-    private UndeferrableValue<Boolean> insightsEnabled;
-
+    @PolicyResourceProperty(name="insightsEnabled", flag="unknown_insightsEnabled")
+    private Boolean value_insightsEnabled;
+    private boolean unknown_insightsEnabled;
     public Boolean insightsEnabled() {
-        if (insightsEnabled == null) return null;
-        return insightsEnabled.getValue("GroupInsightsConfigurationArgs.insightsEnabled");
+        if (!unknown_insightsEnabled) return value_insightsEnabled;
+        throw new UndeferrableValueException("Value 'GroupInsightsConfigurationArgs.insightsEnabled' is not present");
     }
 
     /**
      * Specifies whether insight notifications are enabled.
      * 
      */
-    private UndeferrableValue<Boolean> notificationsEnabled;
-
+    @PolicyResourceProperty(name="notificationsEnabled", flag="unknown_notificationsEnabled")
+    private Boolean value_notificationsEnabled;
+    private boolean unknown_notificationsEnabled;
     public Boolean notificationsEnabled() {
-        if (notificationsEnabled == null) return null;
-        return notificationsEnabled.getValue("GroupInsightsConfigurationArgs.notificationsEnabled");
+        if (!unknown_notificationsEnabled) return value_notificationsEnabled;
+        throw new UndeferrableValueException("Value 'GroupInsightsConfigurationArgs.notificationsEnabled' is not present");
     }
 
 }

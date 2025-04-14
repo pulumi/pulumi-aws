@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class SshKeyArgs extends com.pulumi.resources.PolicyResourceInput {
      * The public key portion of an SSH key pair.
      * 
      */
-    private UndeferrableValue<String> body;
-
+    @PolicyResourceProperty(name="body", flag="unknown_body")
+    private String value_body;
+    private boolean unknown_body;
     public String body() {
-        if (body == null) return null;
-        return body.getValue("SshKeyArgs.body");
+        if (!unknown_body) return value_body;
+        throw new UndeferrableValueException("Value 'SshKeyArgs.body' is not present");
     }
 
     /**
      * The Server ID of the Transfer Server (e.g., `s-12345678`)
      * 
      */
-    private UndeferrableValue<String> serverId;
-
+    @PolicyResourceProperty(name="serverId", flag="unknown_serverId")
+    private String value_serverId;
+    private boolean unknown_serverId;
     public String serverId() {
-        if (serverId == null) return null;
-        return serverId.getValue("SshKeyArgs.serverId");
+        if (!unknown_serverId) return value_serverId;
+        throw new UndeferrableValueException("Value 'SshKeyArgs.serverId' is not present");
     }
 
     /**
      * The name of the user account that is assigned to one or more servers.
      * 
      */
-    private UndeferrableValue<String> userName;
-
+    @PolicyResourceProperty(name="userName", flag="unknown_userName")
+    private String value_userName;
+    private boolean unknown_userName;
     public String userName() {
-        if (userName == null) return null;
-        return userName.getValue("SshKeyArgs.userName");
+        if (!unknown_userName) return value_userName;
+        throw new UndeferrableValueException("Value 'SshKeyArgs.userName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class CrawlerMongodbTargetArgs {
      * The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
      * 
      */
-    private UndeferrableValue<String> connectionName;
-
+    @PolicyResourceProperty(name="connectionName", flag="unknown_connectionName")
+    private String value_connectionName;
+    private boolean unknown_connectionName;
     public String connectionName() {
-        if (connectionName == null) return null;
-        return connectionName.getValue("CrawlerMongodbTargetArgs.connectionName");
+        if (!unknown_connectionName) return value_connectionName;
+        throw new UndeferrableValueException("Value 'CrawlerMongodbTargetArgs.connectionName' is not present");
     }
 
     /**
      * The path of the Amazon DocumentDB or MongoDB target (database/collection).
      * 
      */
-    private UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private String value_path;
+    private boolean unknown_path;
     public String path() {
-        if (path == null) return null;
-        return path.getValue("CrawlerMongodbTargetArgs.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'CrawlerMongodbTargetArgs.path' is not present");
     }
 
     /**
      * Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
      * 
      */
-    private UndeferrableValue<Boolean> scanAll;
-
+    @PolicyResourceProperty(name="scanAll", flag="unknown_scanAll")
+    private Boolean value_scanAll;
+    private boolean unknown_scanAll;
     public Boolean scanAll() {
-        if (scanAll == null) return null;
-        return scanAll.getValue("CrawlerMongodbTargetArgs.scanAll");
+        if (!unknown_scanAll) return value_scanAll;
+        throw new UndeferrableValueException("Value 'CrawlerMongodbTargetArgs.scanAll' is not present");
     }
 
 }

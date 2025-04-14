@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53domains.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -15,154 +16,168 @@ public final class RegisteredDomainBillingContact {
      * First line of the contact&#39;s address.
      * 
      */
-    private @Nullable UndeferrableValue<String> addressLine1;
-
+    @PolicyResourceProperty(name="addressLine1", flag="unknown_addressLine1")
+    private @Nullable String value_addressLine1;
+    private boolean unknown_addressLine1;
     public @Nullable String addressLine1() {
-        if (addressLine1 == null) return null;
-        return addressLine1.getValue("RegisteredDomainBillingContact.addressLine1");
+        if (!unknown_addressLine1) return value_addressLine1;
+        throw new UndeferrableValueException("Value 'RegisteredDomainBillingContact.addressLine1' is not present");
     }
 
     /**
      * Second line of contact&#39;s address, if any.
      * 
      */
-    private @Nullable UndeferrableValue<String> addressLine2;
-
+    @PolicyResourceProperty(name="addressLine2", flag="unknown_addressLine2")
+    private @Nullable String value_addressLine2;
+    private boolean unknown_addressLine2;
     public @Nullable String addressLine2() {
-        if (addressLine2 == null) return null;
-        return addressLine2.getValue("RegisteredDomainBillingContact.addressLine2");
+        if (!unknown_addressLine2) return value_addressLine2;
+        throw new UndeferrableValueException("Value 'RegisteredDomainBillingContact.addressLine2' is not present");
     }
 
     /**
      * The city of the contact&#39;s address.
      * 
      */
-    private @Nullable UndeferrableValue<String> city;
-
+    @PolicyResourceProperty(name="city", flag="unknown_city")
+    private @Nullable String value_city;
+    private boolean unknown_city;
     public @Nullable String city() {
-        if (city == null) return null;
-        return city.getValue("RegisteredDomainBillingContact.city");
+        if (!unknown_city) return value_city;
+        throw new UndeferrableValueException("Value 'RegisteredDomainBillingContact.city' is not present");
     }
 
     /**
      * Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
      * 
      */
-    private @Nullable UndeferrableValue<String> contactType;
-
+    @PolicyResourceProperty(name="contactType", flag="unknown_contactType")
+    private @Nullable String value_contactType;
+    private boolean unknown_contactType;
     public @Nullable String contactType() {
-        if (contactType == null) return null;
-        return contactType.getValue("RegisteredDomainBillingContact.contactType");
+        if (!unknown_contactType) return value_contactType;
+        throw new UndeferrableValueException("Value 'RegisteredDomainBillingContact.contactType' is not present");
     }
 
     /**
      * Code for the country of the contact&#39;s address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
      * 
      */
-    private @Nullable UndeferrableValue<String> countryCode;
-
+    @PolicyResourceProperty(name="countryCode", flag="unknown_countryCode")
+    private @Nullable String value_countryCode;
+    private boolean unknown_countryCode;
     public @Nullable String countryCode() {
-        if (countryCode == null) return null;
-        return countryCode.getValue("RegisteredDomainBillingContact.countryCode");
+        if (!unknown_countryCode) return value_countryCode;
+        throw new UndeferrableValueException("Value 'RegisteredDomainBillingContact.countryCode' is not present");
     }
 
     /**
      * Email address of the contact.
      * 
      */
-    private @Nullable UndeferrableValue<String> email;
-
+    @PolicyResourceProperty(name="email", flag="unknown_email")
+    private @Nullable String value_email;
+    private boolean unknown_email;
     public @Nullable String email() {
-        if (email == null) return null;
-        return email.getValue("RegisteredDomainBillingContact.email");
+        if (!unknown_email) return value_email;
+        throw new UndeferrableValueException("Value 'RegisteredDomainBillingContact.email' is not present");
     }
 
     /**
      * A key-value map of parameters required by certain top-level domains.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> extraParams;
-
+    @PolicyResourceProperty(name="extraParams", flag="unknown_extraParams")
+    private @Nullable Map<String,String> value_extraParams;
+    private boolean unknown_extraParams;
     public @Nullable Map<String,String> extraParams() {
-        if (extraParams == null) return null;
-        return extraParams.getValue("RegisteredDomainBillingContact.extraParams");
+        if (!unknown_extraParams) return value_extraParams;
+        throw new UndeferrableValueException("Value 'RegisteredDomainBillingContact.extraParams' is not present");
     }
 
     /**
      * Fax number of the contact. Phone number must be specified in the format &#34;+[country dialing code].[number including any area code]&#34;.
      * 
      */
-    private @Nullable UndeferrableValue<String> fax;
-
+    @PolicyResourceProperty(name="fax", flag="unknown_fax")
+    private @Nullable String value_fax;
+    private boolean unknown_fax;
     public @Nullable String fax() {
-        if (fax == null) return null;
-        return fax.getValue("RegisteredDomainBillingContact.fax");
+        if (!unknown_fax) return value_fax;
+        throw new UndeferrableValueException("Value 'RegisteredDomainBillingContact.fax' is not present");
     }
 
     /**
      * First name of contact.
      * 
      */
-    private @Nullable UndeferrableValue<String> firstName;
-
+    @PolicyResourceProperty(name="firstName", flag="unknown_firstName")
+    private @Nullable String value_firstName;
+    private boolean unknown_firstName;
     public @Nullable String firstName() {
-        if (firstName == null) return null;
-        return firstName.getValue("RegisteredDomainBillingContact.firstName");
+        if (!unknown_firstName) return value_firstName;
+        throw new UndeferrableValueException("Value 'RegisteredDomainBillingContact.firstName' is not present");
     }
 
     /**
      * Last name of contact.
      * 
      */
-    private @Nullable UndeferrableValue<String> lastName;
-
+    @PolicyResourceProperty(name="lastName", flag="unknown_lastName")
+    private @Nullable String value_lastName;
+    private boolean unknown_lastName;
     public @Nullable String lastName() {
-        if (lastName == null) return null;
-        return lastName.getValue("RegisteredDomainBillingContact.lastName");
+        if (!unknown_lastName) return value_lastName;
+        throw new UndeferrableValueException("Value 'RegisteredDomainBillingContact.lastName' is not present");
     }
 
     /**
      * Name of the organization for contact types other than `PERSON`.
      * 
      */
-    private @Nullable UndeferrableValue<String> organizationName;
-
+    @PolicyResourceProperty(name="organizationName", flag="unknown_organizationName")
+    private @Nullable String value_organizationName;
+    private boolean unknown_organizationName;
     public @Nullable String organizationName() {
-        if (organizationName == null) return null;
-        return organizationName.getValue("RegisteredDomainBillingContact.organizationName");
+        if (!unknown_organizationName) return value_organizationName;
+        throw new UndeferrableValueException("Value 'RegisteredDomainBillingContact.organizationName' is not present");
     }
 
     /**
      * The phone number of the contact. Phone number must be specified in the format &#34;+[country dialing code].[number including any area code]&#34;.
      * 
      */
-    private @Nullable UndeferrableValue<String> phoneNumber;
-
+    @PolicyResourceProperty(name="phoneNumber", flag="unknown_phoneNumber")
+    private @Nullable String value_phoneNumber;
+    private boolean unknown_phoneNumber;
     public @Nullable String phoneNumber() {
-        if (phoneNumber == null) return null;
-        return phoneNumber.getValue("RegisteredDomainBillingContact.phoneNumber");
+        if (!unknown_phoneNumber) return value_phoneNumber;
+        throw new UndeferrableValueException("Value 'RegisteredDomainBillingContact.phoneNumber' is not present");
     }
 
     /**
      * The state or province of the contact&#39;s city.
      * 
      */
-    private @Nullable UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private @Nullable String value_state;
+    private boolean unknown_state;
     public @Nullable String state() {
-        if (state == null) return null;
-        return state.getValue("RegisteredDomainBillingContact.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'RegisteredDomainBillingContact.state' is not present");
     }
 
     /**
      * The zip or postal code of the contact&#39;s address.
      * 
      */
-    private @Nullable UndeferrableValue<String> zipCode;
-
+    @PolicyResourceProperty(name="zipCode", flag="unknown_zipCode")
+    private @Nullable String value_zipCode;
+    private boolean unknown_zipCode;
     public @Nullable String zipCode() {
-        if (zipCode == null) return null;
-        return zipCode.getValue("RegisteredDomainBillingContact.zipCode");
+        if (!unknown_zipCode) return value_zipCode;
+        throw new UndeferrableValueException("Value 'RegisteredDomainBillingContact.zipCode' is not present");
     }
 
 }

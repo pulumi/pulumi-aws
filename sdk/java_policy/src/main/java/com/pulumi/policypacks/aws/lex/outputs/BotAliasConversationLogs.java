@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.BotAliasConversationLogsLogSetting;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class BotAliasConversationLogs {
      * The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
      * 
      */
-    private UndeferrableValue<String> iamRoleArn;
-
+    @PolicyResourceProperty(name="iamRoleArn", flag="unknown_iamRoleArn")
+    private String value_iamRoleArn;
+    private boolean unknown_iamRoleArn;
     public String iamRoleArn() {
-        if (iamRoleArn == null) return null;
-        return iamRoleArn.getValue("BotAliasConversationLogs.iamRoleArn");
+        if (!unknown_iamRoleArn) return value_iamRoleArn;
+        throw new UndeferrableValueException("Value 'BotAliasConversationLogs.iamRoleArn' is not present");
     }
 
     /**
      * The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
      * 
      */
-    private @Nullable UndeferrableValue<List<BotAliasConversationLogsLogSetting>> logSettings;
-
+    @PolicyResourceProperty(name="logSettings", flag="unknown_logSettings")
+    private @Nullable List<BotAliasConversationLogsLogSetting> value_logSettings;
+    private boolean unknown_logSettings;
     public @Nullable List<BotAliasConversationLogsLogSetting> logSettings() {
-        if (logSettings == null) return null;
-        return logSettings.getValue("BotAliasConversationLogs.logSettings");
+        if (!unknown_logSettings) return value_logSettings;
+        throw new UndeferrableValueException("Value 'BotAliasConversationLogs.logSettings' is not present");
     }
 
 }

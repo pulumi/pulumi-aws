@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ExperimentTemplateStopCondition {
      * Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
      * 
      */
-    private UndeferrableValue<String> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private String value_source;
+    private boolean unknown_source;
     public String source() {
-        if (source == null) return null;
-        return source.getValue("ExperimentTemplateStopCondition.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateStopCondition.source' is not present");
     }
 
     /**
      * ARN of the CloudWatch alarm. Required if the source is a CloudWatch alarm.
      * 
      */
-    private @Nullable UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private @Nullable String value_value;
+    private boolean unknown_value;
     public @Nullable String value() {
-        if (value == null) return null;
-        return value.getValue("ExperimentTemplateStopCondition.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateStopCondition.value' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,55 +17,60 @@ public final class NetworkInterfaceAttachment extends com.pulumi.resources.Polic
      * The ENI Attachment ID.
      * 
      */
-    private UndeferrableValue<String> attachmentId;
-
+    @PolicyResourceProperty(name="attachmentId", flag="unknown_attachmentId")
+    private String value_attachmentId;
+    private boolean unknown_attachmentId;
     public String attachmentId() {
-        if (attachmentId == null) return null;
-        return attachmentId.getValue("NetworkInterfaceAttachment.attachmentId");
+        if (!unknown_attachmentId) return value_attachmentId;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceAttachment.attachmentId' is not present");
     }
 
     /**
      * Network interface index (int).
      * 
      */
-    private UndeferrableValue<Integer> deviceIndex;
-
+    @PolicyResourceProperty(name="deviceIndex", flag="unknown_deviceIndex")
+    private Integer value_deviceIndex;
+    private boolean unknown_deviceIndex;
     public Integer deviceIndex() {
-        if (deviceIndex == null) return null;
-        return deviceIndex.getValue("NetworkInterfaceAttachment.deviceIndex");
+        if (!unknown_deviceIndex) return value_deviceIndex;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceAttachment.deviceIndex' is not present");
     }
 
     /**
      * Instance ID to attach.
      * 
      */
-    private UndeferrableValue<String> instanceId;
-
+    @PolicyResourceProperty(name="instanceId", flag="unknown_instanceId")
+    private String value_instanceId;
+    private boolean unknown_instanceId;
     public String instanceId() {
-        if (instanceId == null) return null;
-        return instanceId.getValue("NetworkInterfaceAttachment.instanceId");
+        if (!unknown_instanceId) return value_instanceId;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceAttachment.instanceId' is not present");
     }
 
     /**
      * ENI ID to attach.
      * 
      */
-    private UndeferrableValue<String> networkInterfaceId;
-
+    @PolicyResourceProperty(name="networkInterfaceId", flag="unknown_networkInterfaceId")
+    private String value_networkInterfaceId;
+    private boolean unknown_networkInterfaceId;
     public String networkInterfaceId() {
-        if (networkInterfaceId == null) return null;
-        return networkInterfaceId.getValue("NetworkInterfaceAttachment.networkInterfaceId");
+        if (!unknown_networkInterfaceId) return value_networkInterfaceId;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceAttachment.networkInterfaceId' is not present");
     }
 
     /**
      * The status of the Network Interface Attachment.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("NetworkInterfaceAttachment.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceAttachment.status' is not present");
     }
 
 }

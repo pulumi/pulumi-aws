@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -13,53 +14,60 @@ import javax.annotation.Nullable;
 
 public final class MemcachedLayerLoadBasedAutoScalingUpscalingArgs {
 
-    private UndeferrableValue<List<String>> alarms;
-
+    @PolicyResourceProperty(name="alarms", flag="unknown_alarms")
+    private List<String> value_alarms;
+    private boolean unknown_alarms;
     public List<String> alarms() {
-        if (alarms == null) return null;
-        return alarms.getValue("MemcachedLayerLoadBasedAutoScalingUpscalingArgs.alarms");
+        if (!unknown_alarms) return value_alarms;
+        throw new UndeferrableValueException("Value 'MemcachedLayerLoadBasedAutoScalingUpscalingArgs.alarms' is not present");
     }
 
-    private UndeferrableValue<Double> cpuThreshold;
-
+    @PolicyResourceProperty(name="cpuThreshold", flag="unknown_cpuThreshold")
+    private Double value_cpuThreshold;
+    private boolean unknown_cpuThreshold;
     public Double cpuThreshold() {
-        if (cpuThreshold == null) return null;
-        return cpuThreshold.getValue("MemcachedLayerLoadBasedAutoScalingUpscalingArgs.cpuThreshold");
+        if (!unknown_cpuThreshold) return value_cpuThreshold;
+        throw new UndeferrableValueException("Value 'MemcachedLayerLoadBasedAutoScalingUpscalingArgs.cpuThreshold' is not present");
     }
 
-    private UndeferrableValue<Integer> ignoreMetricsTime;
-
+    @PolicyResourceProperty(name="ignoreMetricsTime", flag="unknown_ignoreMetricsTime")
+    private Integer value_ignoreMetricsTime;
+    private boolean unknown_ignoreMetricsTime;
     public Integer ignoreMetricsTime() {
-        if (ignoreMetricsTime == null) return null;
-        return ignoreMetricsTime.getValue("MemcachedLayerLoadBasedAutoScalingUpscalingArgs.ignoreMetricsTime");
+        if (!unknown_ignoreMetricsTime) return value_ignoreMetricsTime;
+        throw new UndeferrableValueException("Value 'MemcachedLayerLoadBasedAutoScalingUpscalingArgs.ignoreMetricsTime' is not present");
     }
 
-    private UndeferrableValue<Integer> instanceCount;
-
+    @PolicyResourceProperty(name="instanceCount", flag="unknown_instanceCount")
+    private Integer value_instanceCount;
+    private boolean unknown_instanceCount;
     public Integer instanceCount() {
-        if (instanceCount == null) return null;
-        return instanceCount.getValue("MemcachedLayerLoadBasedAutoScalingUpscalingArgs.instanceCount");
+        if (!unknown_instanceCount) return value_instanceCount;
+        throw new UndeferrableValueException("Value 'MemcachedLayerLoadBasedAutoScalingUpscalingArgs.instanceCount' is not present");
     }
 
-    private UndeferrableValue<Double> loadThreshold;
-
+    @PolicyResourceProperty(name="loadThreshold", flag="unknown_loadThreshold")
+    private Double value_loadThreshold;
+    private boolean unknown_loadThreshold;
     public Double loadThreshold() {
-        if (loadThreshold == null) return null;
-        return loadThreshold.getValue("MemcachedLayerLoadBasedAutoScalingUpscalingArgs.loadThreshold");
+        if (!unknown_loadThreshold) return value_loadThreshold;
+        throw new UndeferrableValueException("Value 'MemcachedLayerLoadBasedAutoScalingUpscalingArgs.loadThreshold' is not present");
     }
 
-    private UndeferrableValue<Double> memoryThreshold;
-
+    @PolicyResourceProperty(name="memoryThreshold", flag="unknown_memoryThreshold")
+    private Double value_memoryThreshold;
+    private boolean unknown_memoryThreshold;
     public Double memoryThreshold() {
-        if (memoryThreshold == null) return null;
-        return memoryThreshold.getValue("MemcachedLayerLoadBasedAutoScalingUpscalingArgs.memoryThreshold");
+        if (!unknown_memoryThreshold) return value_memoryThreshold;
+        throw new UndeferrableValueException("Value 'MemcachedLayerLoadBasedAutoScalingUpscalingArgs.memoryThreshold' is not present");
     }
 
-    private UndeferrableValue<Integer> thresholdsWaitTime;
-
+    @PolicyResourceProperty(name="thresholdsWaitTime", flag="unknown_thresholdsWaitTime")
+    private Integer value_thresholdsWaitTime;
+    private boolean unknown_thresholdsWaitTime;
     public Integer thresholdsWaitTime() {
-        if (thresholdsWaitTime == null) return null;
-        return thresholdsWaitTime.getValue("MemcachedLayerLoadBasedAutoScalingUpscalingArgs.thresholdsWaitTime");
+        if (!unknown_thresholdsWaitTime) return value_thresholdsWaitTime;
+        throw new UndeferrableValueException("Value 'MemcachedLayerLoadBasedAutoScalingUpscalingArgs.thresholdsWaitTime' is not present");
     }
 
 }

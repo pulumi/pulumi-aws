@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.inputs.AnalyticsApplicationOutputKinesisFirehoseArgs;
 import com.pulumi.policypacks.aws.kinesis.inputs.AnalyticsApplicationOutputKinesisStreamArgs;
 import com.pulumi.policypacks.aws.kinesis.inputs.AnalyticsApplicationOutputLambdaArgs;
@@ -18,11 +19,12 @@ public final class AnalyticsApplicationOutputArgs {
      * The ARN of the Kinesis Analytics Application.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("AnalyticsApplicationOutputArgs.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationOutputArgs.id' is not present");
     }
 
     /**
@@ -30,11 +32,12 @@ public final class AnalyticsApplicationOutputArgs {
      * See Kinesis Firehose below for more details.
      * 
      */
-    private UndeferrableValue<AnalyticsApplicationOutputKinesisFirehoseArgs> kinesisFirehose;
-
+    @PolicyResourceProperty(name="kinesisFirehose", flag="unknown_kinesisFirehose")
+    private AnalyticsApplicationOutputKinesisFirehoseArgs value_kinesisFirehose;
+    private boolean unknown_kinesisFirehose;
     public AnalyticsApplicationOutputKinesisFirehoseArgs kinesisFirehose() {
-        if (kinesisFirehose == null) return null;
-        return kinesisFirehose.getValue("AnalyticsApplicationOutputArgs.kinesisFirehose");
+        if (!unknown_kinesisFirehose) return value_kinesisFirehose;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationOutputArgs.kinesisFirehose' is not present");
     }
 
     /**
@@ -42,44 +45,48 @@ public final class AnalyticsApplicationOutputArgs {
      * See Kinesis Stream below for more details.
      * 
      */
-    private UndeferrableValue<AnalyticsApplicationOutputKinesisStreamArgs> kinesisStream;
-
+    @PolicyResourceProperty(name="kinesisStream", flag="unknown_kinesisStream")
+    private AnalyticsApplicationOutputKinesisStreamArgs value_kinesisStream;
+    private boolean unknown_kinesisStream;
     public AnalyticsApplicationOutputKinesisStreamArgs kinesisStream() {
-        if (kinesisStream == null) return null;
-        return kinesisStream.getValue("AnalyticsApplicationOutputArgs.kinesisStream");
+        if (!unknown_kinesisStream) return value_kinesisStream;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationOutputArgs.kinesisStream' is not present");
     }
 
     /**
      * The Lambda function destination. See Lambda below for more details.
      * 
      */
-    private UndeferrableValue<AnalyticsApplicationOutputLambdaArgs> lambda;
-
+    @PolicyResourceProperty(name="lambda", flag="unknown_lambda")
+    private AnalyticsApplicationOutputLambdaArgs value_lambda;
+    private boolean unknown_lambda;
     public AnalyticsApplicationOutputLambdaArgs lambda() {
-        if (lambda == null) return null;
-        return lambda.getValue("AnalyticsApplicationOutputArgs.lambda");
+        if (!unknown_lambda) return value_lambda;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationOutputArgs.lambda' is not present");
     }
 
     /**
      * The Name of the in-application stream.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AnalyticsApplicationOutputArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationOutputArgs.name' is not present");
     }
 
     /**
      * The Schema format of the data written to the destination. See Destination Schema below for more details.
      * 
      */
-    private UndeferrableValue<AnalyticsApplicationOutputSchemaArgs> schema;
-
+    @PolicyResourceProperty(name="schema", flag="unknown_schema")
+    private AnalyticsApplicationOutputSchemaArgs value_schema;
+    private boolean unknown_schema;
     public AnalyticsApplicationOutputSchemaArgs schema() {
-        if (schema == null) return null;
-        return schema.getValue("AnalyticsApplicationOutputArgs.schema");
+        if (!unknown_schema) return value_schema;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationOutputArgs.schema' is not present");
     }
 
 }

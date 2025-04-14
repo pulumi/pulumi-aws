@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appsync.inputs.DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DataSourceHttpConfigAuthorizationConfigArgs {
      * Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
      * 
      */
-    private UndeferrableValue<String> authorizationType;
-
+    @PolicyResourceProperty(name="authorizationType", flag="unknown_authorizationType")
+    private String value_authorizationType;
+    private boolean unknown_authorizationType;
     public String authorizationType() {
-        if (authorizationType == null) return null;
-        return authorizationType.getValue("DataSourceHttpConfigAuthorizationConfigArgs.authorizationType");
+        if (!unknown_authorizationType) return value_authorizationType;
+        throw new UndeferrableValueException("Value 'DataSourceHttpConfigAuthorizationConfigArgs.authorizationType' is not present");
     }
 
     /**
      * Identity and Access Management (IAM) settings. See `aws_iam_config` Block for details.
      * 
      */
-    private UndeferrableValue<DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs> awsIamConfig;
-
+    @PolicyResourceProperty(name="awsIamConfig", flag="unknown_awsIamConfig")
+    private DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs value_awsIamConfig;
+    private boolean unknown_awsIamConfig;
     public DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs awsIamConfig() {
-        if (awsIamConfig == null) return null;
-        return awsIamConfig.getValue("DataSourceHttpConfigAuthorizationConfigArgs.awsIamConfig");
+        if (!unknown_awsIamConfig) return value_awsIamConfig;
+        throw new UndeferrableValueException("Value 'DataSourceHttpConfigAuthorizationConfigArgs.awsIamConfig' is not present");
     }
 
 }

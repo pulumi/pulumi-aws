@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,55 +15,60 @@ public final class TriggerPredicateConditionArgs {
      * The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawler_name` must also be specified. Conflicts with `state`.
      * 
      */
-    private UndeferrableValue<String> crawlState;
-
+    @PolicyResourceProperty(name="crawlState", flag="unknown_crawlState")
+    private String value_crawlState;
+    private boolean unknown_crawlState;
     public String crawlState() {
-        if (crawlState == null) return null;
-        return crawlState.getValue("TriggerPredicateConditionArgs.crawlState");
+        if (!unknown_crawlState) return value_crawlState;
+        throw new UndeferrableValueException("Value 'TriggerPredicateConditionArgs.crawlState' is not present");
     }
 
     /**
      * The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
      * 
      */
-    private UndeferrableValue<String> crawlerName;
-
+    @PolicyResourceProperty(name="crawlerName", flag="unknown_crawlerName")
+    private String value_crawlerName;
+    private boolean unknown_crawlerName;
     public String crawlerName() {
-        if (crawlerName == null) return null;
-        return crawlerName.getValue("TriggerPredicateConditionArgs.crawlerName");
+        if (!unknown_crawlerName) return value_crawlerName;
+        throw new UndeferrableValueException("Value 'TriggerPredicateConditionArgs.crawlerName' is not present");
     }
 
     /**
      * The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
      * 
      */
-    private UndeferrableValue<String> jobName;
-
+    @PolicyResourceProperty(name="jobName", flag="unknown_jobName")
+    private String value_jobName;
+    private boolean unknown_jobName;
     public String jobName() {
-        if (jobName == null) return null;
-        return jobName.getValue("TriggerPredicateConditionArgs.jobName");
+        if (!unknown_jobName) return value_jobName;
+        throw new UndeferrableValueException("Value 'TriggerPredicateConditionArgs.jobName' is not present");
     }
 
     /**
      * A logical operator. Defaults to `EQUALS`.
      * 
      */
-    private UndeferrableValue<String> logicalOperator;
-
+    @PolicyResourceProperty(name="logicalOperator", flag="unknown_logicalOperator")
+    private String value_logicalOperator;
+    private boolean unknown_logicalOperator;
     public String logicalOperator() {
-        if (logicalOperator == null) return null;
-        return logicalOperator.getValue("TriggerPredicateConditionArgs.logicalOperator");
+        if (!unknown_logicalOperator) return value_logicalOperator;
+        throw new UndeferrableValueException("Value 'TriggerPredicateConditionArgs.logicalOperator' is not present");
     }
 
     /**
      * The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("TriggerPredicateConditionArgs.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'TriggerPredicateConditionArgs.state' is not present");
     }
 
 }

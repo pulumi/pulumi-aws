@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.inputs.ModelContainerArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.ModelInferenceExecutionConfigArgs;
@@ -23,88 +24,96 @@ public final class ModelArgs extends com.pulumi.resources.PolicyResourceInput {
      * Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
      * 
      */
-    private UndeferrableValue<List<ModelContainerArgs>> containers;
-
+    @PolicyResourceProperty(name="containers", flag="unknown_containers")
+    private List<ModelContainerArgs> value_containers;
+    private boolean unknown_containers;
     public List<ModelContainerArgs> containers() {
-        if (containers == null) return null;
-        return containers.getValue("ModelArgs.containers");
+        if (!unknown_containers) return value_containers;
+        throw new UndeferrableValueException("Value 'ModelArgs.containers' is not present");
     }
 
     /**
      * Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
      * 
      */
-    private UndeferrableValue<Boolean> enableNetworkIsolation;
-
+    @PolicyResourceProperty(name="enableNetworkIsolation", flag="unknown_enableNetworkIsolation")
+    private Boolean value_enableNetworkIsolation;
+    private boolean unknown_enableNetworkIsolation;
     public Boolean enableNetworkIsolation() {
-        if (enableNetworkIsolation == null) return null;
-        return enableNetworkIsolation.getValue("ModelArgs.enableNetworkIsolation");
+        if (!unknown_enableNetworkIsolation) return value_enableNetworkIsolation;
+        throw new UndeferrableValueException("Value 'ModelArgs.enableNetworkIsolation' is not present");
     }
 
     /**
      * A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
      * 
      */
-    private UndeferrableValue<String> executionRoleArn;
-
+    @PolicyResourceProperty(name="executionRoleArn", flag="unknown_executionRoleArn")
+    private String value_executionRoleArn;
+    private boolean unknown_executionRoleArn;
     public String executionRoleArn() {
-        if (executionRoleArn == null) return null;
-        return executionRoleArn.getValue("ModelArgs.executionRoleArn");
+        if (!unknown_executionRoleArn) return value_executionRoleArn;
+        throw new UndeferrableValueException("Value 'ModelArgs.executionRoleArn' is not present");
     }
 
     /**
      * Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
      * 
      */
-    private UndeferrableValue<ModelInferenceExecutionConfigArgs> inferenceExecutionConfig;
-
+    @PolicyResourceProperty(name="inferenceExecutionConfig", flag="unknown_inferenceExecutionConfig")
+    private ModelInferenceExecutionConfigArgs value_inferenceExecutionConfig;
+    private boolean unknown_inferenceExecutionConfig;
     public ModelInferenceExecutionConfigArgs inferenceExecutionConfig() {
-        if (inferenceExecutionConfig == null) return null;
-        return inferenceExecutionConfig.getValue("ModelArgs.inferenceExecutionConfig");
+        if (!unknown_inferenceExecutionConfig) return value_inferenceExecutionConfig;
+        throw new UndeferrableValueException("Value 'ModelArgs.inferenceExecutionConfig' is not present");
     }
 
     /**
      * The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ModelArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ModelArgs.name' is not present");
     }
 
     /**
      * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
      * 
      */
-    private UndeferrableValue<ModelPrimaryContainerArgs> primaryContainer;
-
+    @PolicyResourceProperty(name="primaryContainer", flag="unknown_primaryContainer")
+    private ModelPrimaryContainerArgs value_primaryContainer;
+    private boolean unknown_primaryContainer;
     public ModelPrimaryContainerArgs primaryContainer() {
-        if (primaryContainer == null) return null;
-        return primaryContainer.getValue("ModelArgs.primaryContainer");
+        if (!unknown_primaryContainer) return value_primaryContainer;
+        throw new UndeferrableValueException("Value 'ModelArgs.primaryContainer' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ModelArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ModelArgs.tags' is not present");
     }
 
     /**
      * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
      * 
      */
-    private UndeferrableValue<ModelVpcConfigArgs> vpcConfig;
-
+    @PolicyResourceProperty(name="vpcConfig", flag="unknown_vpcConfig")
+    private ModelVpcConfigArgs value_vpcConfig;
+    private boolean unknown_vpcConfig;
     public ModelVpcConfigArgs vpcConfig() {
-        if (vpcConfig == null) return null;
-        return vpcConfig.getValue("ModelArgs.vpcConfig");
+        if (!unknown_vpcConfig) return value_vpcConfig;
+        throw new UndeferrableValueException("Value 'ModelArgs.vpcConfig' is not present");
     }
 
 }

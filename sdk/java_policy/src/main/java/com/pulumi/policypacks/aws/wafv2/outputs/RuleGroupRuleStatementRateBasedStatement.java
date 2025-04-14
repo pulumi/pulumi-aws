@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementCustomKey;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementForwardedIpConfig;
 import com.pulumi.policypacks.aws.wafv2.outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatement;
@@ -19,22 +20,24 @@ public final class RuleGroupRuleStatementRateBasedStatement {
      * Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP` or `IP`. Default: `IP`.
      * 
      */
-    private @Nullable UndeferrableValue<String> aggregateKeyType;
-
+    @PolicyResourceProperty(name="aggregateKeyType", flag="unknown_aggregateKeyType")
+    private @Nullable String value_aggregateKeyType;
+    private boolean unknown_aggregateKeyType;
     public @Nullable String aggregateKeyType() {
-        if (aggregateKeyType == null) return null;
-        return aggregateKeyType.getValue("RuleGroupRuleStatementRateBasedStatement.aggregateKeyType");
+        if (!unknown_aggregateKeyType) return value_aggregateKeyType;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatement.aggregateKeyType' is not present");
     }
 
     /**
      * Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<RuleGroupRuleStatementRateBasedStatementCustomKey>> customKeys;
-
+    @PolicyResourceProperty(name="customKeys", flag="unknown_customKeys")
+    private @Nullable List<RuleGroupRuleStatementRateBasedStatementCustomKey> value_customKeys;
+    private boolean unknown_customKeys;
     public @Nullable List<RuleGroupRuleStatementRateBasedStatementCustomKey> customKeys() {
-        if (customKeys == null) return null;
-        return customKeys.getValue("RuleGroupRuleStatementRateBasedStatement.customKeys");
+        if (!unknown_customKeys) return value_customKeys;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatement.customKeys' is not present");
     }
 
     /**
@@ -43,44 +46,48 @@ public final class RuleGroupRuleStatementRateBasedStatement {
      * **NOTE:** This setting doesn&#39;t determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> evaluationWindowSec;
-
+    @PolicyResourceProperty(name="evaluationWindowSec", flag="unknown_evaluationWindowSec")
+    private @Nullable Integer value_evaluationWindowSec;
+    private boolean unknown_evaluationWindowSec;
     public @Nullable Integer evaluationWindowSec() {
-        if (evaluationWindowSec == null) return null;
-        return evaluationWindowSec.getValue("RuleGroupRuleStatementRateBasedStatement.evaluationWindowSec");
+        if (!unknown_evaluationWindowSec) return value_evaluationWindowSec;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatement.evaluationWindowSec' is not present");
     }
 
     /**
      * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementForwardedIpConfig> forwardedIpConfig;
-
+    @PolicyResourceProperty(name="forwardedIpConfig", flag="unknown_forwardedIpConfig")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementForwardedIpConfig value_forwardedIpConfig;
+    private boolean unknown_forwardedIpConfig;
     public @Nullable RuleGroupRuleStatementRateBasedStatementForwardedIpConfig forwardedIpConfig() {
-        if (forwardedIpConfig == null) return null;
-        return forwardedIpConfig.getValue("RuleGroupRuleStatementRateBasedStatement.forwardedIpConfig");
+        if (!unknown_forwardedIpConfig) return value_forwardedIpConfig;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatement.forwardedIpConfig' is not present");
     }
 
     /**
      * The limit on requests per 5-minute period for a single originating IP address.
      * 
      */
-    private UndeferrableValue<Integer> limit;
-
+    @PolicyResourceProperty(name="limit", flag="unknown_limit")
+    private Integer value_limit;
+    private boolean unknown_limit;
     public Integer limit() {
-        if (limit == null) return null;
-        return limit.getValue("RuleGroupRuleStatementRateBasedStatement.limit");
+        if (!unknown_limit) return value_limit;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatement.limit' is not present");
     }
 
     /**
      * An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatement> scopeDownStatement;
-
+    @PolicyResourceProperty(name="scopeDownStatement", flag="unknown_scopeDownStatement")
+    private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatement value_scopeDownStatement;
+    private boolean unknown_scopeDownStatement;
     public @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatement scopeDownStatement() {
-        if (scopeDownStatement == null) return null;
-        return scopeDownStatement.getValue("RuleGroupRuleStatementRateBasedStatement.scopeDownStatement");
+        if (!unknown_scopeDownStatement) return value_scopeDownStatement;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatement.scopeDownStatement' is not present");
     }
 
 }

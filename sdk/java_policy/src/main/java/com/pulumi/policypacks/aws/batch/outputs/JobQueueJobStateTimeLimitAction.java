@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,44 +15,48 @@ public final class JobQueueJobStateTimeLimitAction {
      * The action to take when a job is at the head of the job queue in the specified state for the specified period of time. Valid values include `&#34;CANCEL&#34;`
      * 
      */
-    private UndeferrableValue<String> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private String value_action;
+    private boolean unknown_action;
     public String action() {
-        if (action == null) return null;
-        return action.getValue("JobQueueJobStateTimeLimitAction.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'JobQueueJobStateTimeLimitAction.action' is not present");
     }
 
     /**
      * The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. Valid values include integers between `600` &amp; `86400`
      * 
      */
-    private UndeferrableValue<Integer> maxTimeSeconds;
-
+    @PolicyResourceProperty(name="maxTimeSeconds", flag="unknown_maxTimeSeconds")
+    private Integer value_maxTimeSeconds;
+    private boolean unknown_maxTimeSeconds;
     public Integer maxTimeSeconds() {
-        if (maxTimeSeconds == null) return null;
-        return maxTimeSeconds.getValue("JobQueueJobStateTimeLimitAction.maxTimeSeconds");
+        if (!unknown_maxTimeSeconds) return value_maxTimeSeconds;
+        throw new UndeferrableValueException("Value 'JobQueueJobStateTimeLimitAction.maxTimeSeconds' is not present");
     }
 
     /**
      * The reason to log for the action being taken.
      * 
      */
-    private UndeferrableValue<String> reason;
-
+    @PolicyResourceProperty(name="reason", flag="unknown_reason")
+    private String value_reason;
+    private boolean unknown_reason;
     public String reason() {
-        if (reason == null) return null;
-        return reason.getValue("JobQueueJobStateTimeLimitAction.reason");
+        if (!unknown_reason) return value_reason;
+        throw new UndeferrableValueException("Value 'JobQueueJobStateTimeLimitAction.reason' is not present");
     }
 
     /**
      * The state of the job needed to trigger the action. Valid values include `&#34;RUNNABLE&#34;`.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("JobQueueJobStateTimeLimitAction.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'JobQueueJobStateTimeLimitAction.state' is not present");
     }
 
 }

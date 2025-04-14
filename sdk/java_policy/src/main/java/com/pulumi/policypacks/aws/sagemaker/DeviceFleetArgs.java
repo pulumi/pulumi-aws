@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.inputs.DeviceFleetOutputConfigArgs;
 import java.lang.Boolean;
@@ -19,66 +20,72 @@ public final class DeviceFleetArgs extends com.pulumi.resources.PolicyResourceIn
      * A description of the fleet.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("DeviceFleetArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'DeviceFleetArgs.description' is not present");
     }
 
     /**
      * The name of the Device Fleet (must be unique).
      * 
      */
-    private UndeferrableValue<String> deviceFleetName;
-
+    @PolicyResourceProperty(name="deviceFleetName", flag="unknown_deviceFleetName")
+    private String value_deviceFleetName;
+    private boolean unknown_deviceFleetName;
     public String deviceFleetName() {
-        if (deviceFleetName == null) return null;
-        return deviceFleetName.getValue("DeviceFleetArgs.deviceFleetName");
+        if (!unknown_deviceFleetName) return value_deviceFleetName;
+        throw new UndeferrableValueException("Value 'DeviceFleetArgs.deviceFleetName' is not present");
     }
 
     /**
      * Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: &#34;SageMakerEdge-{DeviceFleetName}&#34;.
      * 
      */
-    private UndeferrableValue<Boolean> enableIotRoleAlias;
-
+    @PolicyResourceProperty(name="enableIotRoleAlias", flag="unknown_enableIotRoleAlias")
+    private Boolean value_enableIotRoleAlias;
+    private boolean unknown_enableIotRoleAlias;
     public Boolean enableIotRoleAlias() {
-        if (enableIotRoleAlias == null) return null;
-        return enableIotRoleAlias.getValue("DeviceFleetArgs.enableIotRoleAlias");
+        if (!unknown_enableIotRoleAlias) return value_enableIotRoleAlias;
+        throw new UndeferrableValueException("Value 'DeviceFleetArgs.enableIotRoleAlias' is not present");
     }
 
     /**
      * Specifies details about the repository. see Output Config details below.
      * 
      */
-    private UndeferrableValue<DeviceFleetOutputConfigArgs> outputConfig;
-
+    @PolicyResourceProperty(name="outputConfig", flag="unknown_outputConfig")
+    private DeviceFleetOutputConfigArgs value_outputConfig;
+    private boolean unknown_outputConfig;
     public DeviceFleetOutputConfigArgs outputConfig() {
-        if (outputConfig == null) return null;
-        return outputConfig.getValue("DeviceFleetArgs.outputConfig");
+        if (!unknown_outputConfig) return value_outputConfig;
+        throw new UndeferrableValueException("Value 'DeviceFleetArgs.outputConfig' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("DeviceFleetArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'DeviceFleetArgs.roleArn' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DeviceFleetArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DeviceFleetArgs.tags' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.eks.outputs.ClusterOutpostConfigControlPlanePlacement;
 import java.lang.String;
 import java.util.List;
@@ -24,11 +25,12 @@ public final class ClusterOutpostConfig {
      * For a list of the available Amazon EC2 instance types, see Compute and storage in AWS Outposts rack features  The control plane is not automatically scaled by Amazon EKS.
      * 
      */
-    private UndeferrableValue<String> controlPlaneInstanceType;
-
+    @PolicyResourceProperty(name="controlPlaneInstanceType", flag="unknown_controlPlaneInstanceType")
+    private String value_controlPlaneInstanceType;
+    private boolean unknown_controlPlaneInstanceType;
     public String controlPlaneInstanceType() {
-        if (controlPlaneInstanceType == null) return null;
-        return controlPlaneInstanceType.getValue("ClusterOutpostConfig.controlPlaneInstanceType");
+        if (!unknown_controlPlaneInstanceType) return value_controlPlaneInstanceType;
+        throw new UndeferrableValueException("Value 'ClusterOutpostConfig.controlPlaneInstanceType' is not present");
     }
 
     /**
@@ -36,22 +38,24 @@ public final class ClusterOutpostConfig {
      * The `control_plane_placement` configuration block supports the following arguments:
      * 
      */
-    private @Nullable UndeferrableValue<ClusterOutpostConfigControlPlanePlacement> controlPlanePlacement;
-
+    @PolicyResourceProperty(name="controlPlanePlacement", flag="unknown_controlPlanePlacement")
+    private @Nullable ClusterOutpostConfigControlPlanePlacement value_controlPlanePlacement;
+    private boolean unknown_controlPlanePlacement;
     public @Nullable ClusterOutpostConfigControlPlanePlacement controlPlanePlacement() {
-        if (controlPlanePlacement == null) return null;
-        return controlPlanePlacement.getValue("ClusterOutpostConfig.controlPlanePlacement");
+        if (!unknown_controlPlanePlacement) return value_controlPlanePlacement;
+        throw new UndeferrableValueException("Value 'ClusterOutpostConfig.controlPlanePlacement' is not present");
     }
 
     /**
      * The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
      * 
      */
-    private UndeferrableValue<List<String>> outpostArns;
-
+    @PolicyResourceProperty(name="outpostArns", flag="unknown_outpostArns")
+    private List<String> value_outpostArns;
+    private boolean unknown_outpostArns;
     public List<String> outpostArns() {
-        if (outpostArns == null) return null;
-        return outpostArns.getValue("ClusterOutpostConfig.outpostArns");
+        if (!unknown_outpostArns) return value_outpostArns;
+        throw new UndeferrableValueException("Value 'ClusterOutpostConfig.outpostArns' is not present");
     }
 
 }

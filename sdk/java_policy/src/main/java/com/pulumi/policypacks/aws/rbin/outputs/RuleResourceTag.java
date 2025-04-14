@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rbin.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -16,22 +17,24 @@ public final class RuleResourceTag {
      * The following argument is optional:
      * 
      */
-    private UndeferrableValue<String> resourceTagKey;
-
+    @PolicyResourceProperty(name="resourceTagKey", flag="unknown_resourceTagKey")
+    private String value_resourceTagKey;
+    private boolean unknown_resourceTagKey;
     public String resourceTagKey() {
-        if (resourceTagKey == null) return null;
-        return resourceTagKey.getValue("RuleResourceTag.resourceTagKey");
+        if (!unknown_resourceTagKey) return value_resourceTagKey;
+        throw new UndeferrableValueException("Value 'RuleResourceTag.resourceTagKey' is not present");
     }
 
     /**
      * The tag value.
      * 
      */
-    private @Nullable UndeferrableValue<String> resourceTagValue;
-
+    @PolicyResourceProperty(name="resourceTagValue", flag="unknown_resourceTagValue")
+    private @Nullable String value_resourceTagValue;
+    private boolean unknown_resourceTagValue;
     public @Nullable String resourceTagValue() {
-        if (resourceTagValue == null) return null;
-        return resourceTagValue.getValue("RuleResourceTag.resourceTagValue");
+        if (!unknown_resourceTagValue) return value_resourceTagValue;
+        throw new UndeferrableValueException("Value 'RuleResourceTag.resourceTagValue' is not present");
     }
 
 }

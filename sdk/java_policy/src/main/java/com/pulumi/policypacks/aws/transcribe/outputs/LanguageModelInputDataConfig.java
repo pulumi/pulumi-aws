@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transcribe.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class LanguageModelInputDataConfig {
      * IAM role with access to S3 bucket.
      * 
      */
-    private UndeferrableValue<String> dataAccessRoleArn;
-
+    @PolicyResourceProperty(name="dataAccessRoleArn", flag="unknown_dataAccessRoleArn")
+    private String value_dataAccessRoleArn;
+    private boolean unknown_dataAccessRoleArn;
     public String dataAccessRoleArn() {
-        if (dataAccessRoleArn == null) return null;
-        return dataAccessRoleArn.getValue("LanguageModelInputDataConfig.dataAccessRoleArn");
+        if (!unknown_dataAccessRoleArn) return value_dataAccessRoleArn;
+        throw new UndeferrableValueException("Value 'LanguageModelInputDataConfig.dataAccessRoleArn' is not present");
     }
 
     /**
      * S3 URI where training data is located.
      * 
      */
-    private UndeferrableValue<String> s3Uri;
-
+    @PolicyResourceProperty(name="s3Uri", flag="unknown_s3Uri")
+    private String value_s3Uri;
+    private boolean unknown_s3Uri;
     public String s3Uri() {
-        if (s3Uri == null) return null;
-        return s3Uri.getValue("LanguageModelInputDataConfig.s3Uri");
+        if (!unknown_s3Uri) return value_s3Uri;
+        throw new UndeferrableValueException("Value 'LanguageModelInputDataConfig.s3Uri' is not present");
     }
 
     /**
@@ -38,11 +41,12 @@ public final class LanguageModelInputDataConfig {
      * The following arguments are optional:
      * 
      */
-    private @Nullable UndeferrableValue<String> tuningDataS3Uri;
-
+    @PolicyResourceProperty(name="tuningDataS3Uri", flag="unknown_tuningDataS3Uri")
+    private @Nullable String value_tuningDataS3Uri;
+    private boolean unknown_tuningDataS3Uri;
     public @Nullable String tuningDataS3Uri() {
-        if (tuningDataS3Uri == null) return null;
-        return tuningDataS3Uri.getValue("LanguageModelInputDataConfig.tuningDataS3Uri");
+        if (!unknown_tuningDataS3Uri) return value_tuningDataS3Uri;
+        throw new UndeferrableValueException("Value 'LanguageModelInputDataConfig.tuningDataS3Uri' is not present");
     }
 
 }

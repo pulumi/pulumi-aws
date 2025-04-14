@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.waf.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.waf.inputs.ByteMatchSetByteMatchTupleFieldToMatchArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ByteMatchSetByteMatchTupleArgs {
      * The part of a web request that you want to search, such as a specified header or a query string.
      * 
      */
-    private UndeferrableValue<ByteMatchSetByteMatchTupleFieldToMatchArgs> fieldToMatch;
-
+    @PolicyResourceProperty(name="fieldToMatch", flag="unknown_fieldToMatch")
+    private ByteMatchSetByteMatchTupleFieldToMatchArgs value_fieldToMatch;
+    private boolean unknown_fieldToMatch;
     public ByteMatchSetByteMatchTupleFieldToMatchArgs fieldToMatch() {
-        if (fieldToMatch == null) return null;
-        return fieldToMatch.getValue("ByteMatchSetByteMatchTupleArgs.fieldToMatch");
+        if (!unknown_fieldToMatch) return value_fieldToMatch;
+        throw new UndeferrableValueException("Value 'ByteMatchSetByteMatchTupleArgs.fieldToMatch' is not present");
     }
 
     /**
@@ -30,11 +32,12 @@ public final class ByteMatchSetByteMatchTupleArgs {
      * for all supported values.
      * 
      */
-    private UndeferrableValue<String> positionalConstraint;
-
+    @PolicyResourceProperty(name="positionalConstraint", flag="unknown_positionalConstraint")
+    private String value_positionalConstraint;
+    private boolean unknown_positionalConstraint;
     public String positionalConstraint() {
-        if (positionalConstraint == null) return null;
-        return positionalConstraint.getValue("ByteMatchSetByteMatchTupleArgs.positionalConstraint");
+        if (!unknown_positionalConstraint) return value_positionalConstraint;
+        throw new UndeferrableValueException("Value 'ByteMatchSetByteMatchTupleArgs.positionalConstraint' is not present");
     }
 
     /**
@@ -43,11 +46,12 @@ public final class ByteMatchSetByteMatchTupleArgs {
      * for all supported values.
      * 
      */
-    private UndeferrableValue<String> targetString;
-
+    @PolicyResourceProperty(name="targetString", flag="unknown_targetString")
+    private String value_targetString;
+    private boolean unknown_targetString;
     public String targetString() {
-        if (targetString == null) return null;
-        return targetString.getValue("ByteMatchSetByteMatchTupleArgs.targetString");
+        if (!unknown_targetString) return value_targetString;
+        throw new UndeferrableValueException("Value 'ByteMatchSetByteMatchTupleArgs.targetString' is not present");
     }
 
     /**
@@ -58,11 +62,12 @@ public final class ByteMatchSetByteMatchTupleArgs {
      * for all supported values.
      * 
      */
-    private UndeferrableValue<String> textTransformation;
-
+    @PolicyResourceProperty(name="textTransformation", flag="unknown_textTransformation")
+    private String value_textTransformation;
+    private boolean unknown_textTransformation;
     public String textTransformation() {
-        if (textTransformation == null) return null;
-        return textTransformation.getValue("ByteMatchSetByteMatchTupleArgs.textTransformation");
+        if (!unknown_textTransformation) return value_textTransformation;
+        throw new UndeferrableValueException("Value 'ByteMatchSetByteMatchTupleArgs.textTransformation' is not present");
     }
 
 }

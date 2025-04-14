@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fms.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPo
      * The beginning port number of the range.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> from;
-
+    @PolicyResourceProperty(name="from", flag="unknown_from")
+    private @Nullable Integer value_from;
+    private boolean unknown_from;
     public @Nullable Integer from() {
-        if (from == null) return null;
-        return from.getValue("PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange.from");
+        if (!unknown_from) return value_from;
+        throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange.from' is not present");
     }
 
     /**
      * The ending port number of the range.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> to;
-
+    @PolicyResourceProperty(name="to", flag="unknown_to")
+    private @Nullable Integer value_to;
+    private boolean unknown_to;
     public @Nullable Integer to() {
-        if (to == null) return null;
-        return to.getValue("PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange.to");
+        if (!unknown_to) return value_to;
+        throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRange.to' is not present");
     }
 
 }

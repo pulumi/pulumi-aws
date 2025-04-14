@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class Certificate extends com.pulumi.resources.PolicyResourceOutput
      * Boolean flag to indicate if the certificate should be active
      * 
      */
-    private UndeferrableValue<Boolean> active;
-
+    @PolicyResourceProperty(name="active", flag="unknown_active")
+    private Boolean value_active;
+    private boolean unknown_active;
     public Boolean active() {
-        if (active == null) return null;
-        return active.getValue("Certificate.active");
+        if (!unknown_active) return value_active;
+        throw new UndeferrableValueException("Value 'Certificate.active' is not present");
     }
 
     /**
      * The ARN of the created certificate.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Certificate.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Certificate.arn' is not present");
     }
 
     /**
      * The certificate ID of the CA certificate used to sign the certificate.
      * 
      */
-    private UndeferrableValue<String> caCertificateId;
-
+    @PolicyResourceProperty(name="caCertificateId", flag="unknown_caCertificateId")
+    private String value_caCertificateId;
+    private boolean unknown_caCertificateId;
     public String caCertificateId() {
-        if (caCertificateId == null) return null;
-        return caCertificateId.getValue("Certificate.caCertificateId");
+        if (!unknown_caCertificateId) return value_caCertificateId;
+        throw new UndeferrableValueException("Value 'Certificate.caCertificateId' is not present");
     }
 
     /**
      * The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
      * 
      */
-    private @Nullable UndeferrableValue<String> caPem;
-
+    @PolicyResourceProperty(name="caPem", flag="unknown_caPem")
+    private @Nullable String value_caPem;
+    private boolean unknown_caPem;
     public @Nullable String caPem() {
-        if (caPem == null) return null;
-        return caPem.getValue("Certificate.caPem");
+        if (!unknown_caPem) return value_caPem;
+        throw new UndeferrableValueException("Value 'Certificate.caPem' is not present");
     }
 
     /**
@@ -65,11 +70,12 @@ public final class Certificate extends com.pulumi.resources.PolicyResourceOutput
      * for more information on registering a certificate.
      * 
      */
-    private UndeferrableValue<String> certificatePem;
-
+    @PolicyResourceProperty(name="certificatePem", flag="unknown_certificatePem")
+    private String value_certificatePem;
+    private boolean unknown_certificatePem;
     public String certificatePem() {
-        if (certificatePem == null) return null;
-        return certificatePem.getValue("Certificate.certificatePem");
+        if (!unknown_certificatePem) return value_certificatePem;
+        throw new UndeferrableValueException("Value 'Certificate.certificatePem' is not present");
     }
 
     /**
@@ -80,33 +86,36 @@ public final class Certificate extends com.pulumi.resources.PolicyResourceOutput
      * for more information on generating keys and a certificate.
      * 
      */
-    private @Nullable UndeferrableValue<String> csr;
-
+    @PolicyResourceProperty(name="csr", flag="unknown_csr")
+    private @Nullable String value_csr;
+    private boolean unknown_csr;
     public @Nullable String csr() {
-        if (csr == null) return null;
-        return csr.getValue("Certificate.csr");
+        if (!unknown_csr) return value_csr;
+        throw new UndeferrableValueException("Value 'Certificate.csr' is not present");
     }
 
     /**
      * When neither CSR nor certificate is provided, the private key.
      * 
      */
-    private UndeferrableValue<String> privateKey;
-
+    @PolicyResourceProperty(name="privateKey", flag="unknown_privateKey")
+    private String value_privateKey;
+    private boolean unknown_privateKey;
     public String privateKey() {
-        if (privateKey == null) return null;
-        return privateKey.getValue("Certificate.privateKey");
+        if (!unknown_privateKey) return value_privateKey;
+        throw new UndeferrableValueException("Value 'Certificate.privateKey' is not present");
     }
 
     /**
      * When neither CSR nor certificate is provided, the public key.
      * 
      */
-    private UndeferrableValue<String> publicKey;
-
+    @PolicyResourceProperty(name="publicKey", flag="unknown_publicKey")
+    private String value_publicKey;
+    private boolean unknown_publicKey;
     public String publicKey() {
-        if (publicKey == null) return null;
-        return publicKey.getValue("Certificate.publicKey");
+        if (!unknown_publicKey) return value_publicKey;
+        throw new UndeferrableValueException("Value 'Certificate.publicKey' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,66 +20,72 @@ public final class Vault extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN of the vault.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Vault.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Vault.arn' is not present");
     }
 
     /**
      * A boolean that indicates that all recovery points stored in the vault are deleted so that the vault can be destroyed without error.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> forceDestroy;
-
+    @PolicyResourceProperty(name="forceDestroy", flag="unknown_forceDestroy")
+    private @Nullable Boolean value_forceDestroy;
+    private boolean unknown_forceDestroy;
     public @Nullable Boolean forceDestroy() {
-        if (forceDestroy == null) return null;
-        return forceDestroy.getValue("Vault.forceDestroy");
+        if (!unknown_forceDestroy) return value_forceDestroy;
+        throw new UndeferrableValueException("Value 'Vault.forceDestroy' is not present");
     }
 
     /**
      * The server-side encryption key that is used to protect your backups.
      * 
      */
-    private UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("Vault.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'Vault.kmsKeyArn' is not present");
     }
 
     /**
      * Name of the backup vault to create.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Vault.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Vault.name' is not present");
     }
 
     /**
      * The number of recovery points that are stored in a backup vault.
      * 
      */
-    private UndeferrableValue<Integer> recoveryPoints;
-
+    @PolicyResourceProperty(name="recoveryPoints", flag="unknown_recoveryPoints")
+    private Integer value_recoveryPoints;
+    private boolean unknown_recoveryPoints;
     public Integer recoveryPoints() {
-        if (recoveryPoints == null) return null;
-        return recoveryPoints.getValue("Vault.recoveryPoints");
+        if (!unknown_recoveryPoints) return value_recoveryPoints;
+        throw new UndeferrableValueException("Value 'Vault.recoveryPoints' is not present");
     }
 
     /**
      * Metadata that you can assign to help organize the resources that you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Vault.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Vault.tags' is not present");
     }
 
     /**
@@ -89,11 +96,12 @@ public final class Vault extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Vault.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Vault.tagsAll' is not present");
     }
 
 }

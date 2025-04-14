@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageImageResponseCardButtonArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,44 +17,48 @@ public final class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecifi
      * Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
      * 
      */
-    private UndeferrableValue<List<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageImageResponseCardButtonArgs>> buttons;
-
+    @PolicyResourceProperty(name="buttons", flag="unknown_buttons")
+    private List<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageImageResponseCardButtonArgs> value_buttons;
+    private boolean unknown_buttons;
     public List<V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageImageResponseCardButtonArgs> buttons() {
-        if (buttons == null) return null;
-        return buttons.getValue("V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageImageResponseCardArgs.buttons");
+        if (!unknown_buttons) return value_buttons;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageImageResponseCardArgs.buttons' is not present");
     }
 
     /**
      * URL of an image to display on the response card. The image URL must be publicly available so that the platform displaying the response card has access to the image.
      * 
      */
-    private UndeferrableValue<String> imageUrl;
-
+    @PolicyResourceProperty(name="imageUrl", flag="unknown_imageUrl")
+    private String value_imageUrl;
+    private boolean unknown_imageUrl;
     public String imageUrl() {
-        if (imageUrl == null) return null;
-        return imageUrl.getValue("V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageImageResponseCardArgs.imageUrl");
+        if (!unknown_imageUrl) return value_imageUrl;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageImageResponseCardArgs.imageUrl' is not present");
     }
 
     /**
      * Subtitle to display on the response card. The format of the subtitle is determined by the platform displaying the response card.
      * 
      */
-    private UndeferrableValue<String> subtitle;
-
+    @PolicyResourceProperty(name="subtitle", flag="unknown_subtitle")
+    private String value_subtitle;
+    private boolean unknown_subtitle;
     public String subtitle() {
-        if (subtitle == null) return null;
-        return subtitle.getValue("V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageImageResponseCardArgs.subtitle");
+        if (!unknown_subtitle) return value_subtitle;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageImageResponseCardArgs.subtitle' is not present");
     }
 
     /**
      * Title to display on the response card. The format of the title is determined by the platform displaying the response card.
      * 
      */
-    private UndeferrableValue<String> title;
-
+    @PolicyResourceProperty(name="title", flag="unknown_title")
+    private String value_title;
+    private boolean unknown_title;
     public String title() {
-        if (title == null) return null;
-        return title.getValue("V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageImageResponseCardArgs.title");
+        if (!unknown_title) return value_title;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageImageResponseCardArgs.title' is not present");
     }
 
 }

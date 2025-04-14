@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleActionCaptchaCustomRequestHandlingArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class WebAclRuleActionCaptchaArgs {
      * Defines custom handling for the web request. See `custom_request_handling` below for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleActionCaptchaCustomRequestHandlingArgs> customRequestHandling;
-
+    @PolicyResourceProperty(name="customRequestHandling", flag="unknown_customRequestHandling")
+    private WebAclRuleActionCaptchaCustomRequestHandlingArgs value_customRequestHandling;
+    private boolean unknown_customRequestHandling;
     public WebAclRuleActionCaptchaCustomRequestHandlingArgs customRequestHandling() {
-        if (customRequestHandling == null) return null;
-        return customRequestHandling.getValue("WebAclRuleActionCaptchaArgs.customRequestHandling");
+        if (!unknown_customRequestHandling) return value_customRequestHandling;
+        throw new UndeferrableValueException("Value 'WebAclRuleActionCaptchaArgs.customRequestHandling' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.macie;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.macie.inputs.FindingsFilterFindingCriteriaArgs;
 import java.lang.Integer;
@@ -19,77 +20,84 @@ public final class FindingsFilterArgs extends com.pulumi.resources.PolicyResourc
      * The action to perform on findings that meet the filter criteria (`finding_criteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don&#39;t perform any action on the findings.
      * 
      */
-    private UndeferrableValue<String> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private String value_action;
+    private boolean unknown_action;
     public String action() {
-        if (action == null) return null;
-        return action.getValue("FindingsFilterArgs.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'FindingsFilterArgs.action' is not present");
     }
 
     /**
      * A custom description of the filter. The description can contain as many as 512 characters.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("FindingsFilterArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'FindingsFilterArgs.description' is not present");
     }
 
     /**
      * The criteria to use to filter findings.
      * 
      */
-    private UndeferrableValue<FindingsFilterFindingCriteriaArgs> findingCriteria;
-
+    @PolicyResourceProperty(name="findingCriteria", flag="unknown_findingCriteria")
+    private FindingsFilterFindingCriteriaArgs value_findingCriteria;
+    private boolean unknown_findingCriteria;
     public FindingsFilterFindingCriteriaArgs findingCriteria() {
-        if (findingCriteria == null) return null;
-        return findingCriteria.getValue("FindingsFilterArgs.findingCriteria");
+        if (!unknown_findingCriteria) return value_findingCriteria;
+        throw new UndeferrableValueException("Value 'FindingsFilterArgs.findingCriteria' is not present");
     }
 
     /**
      * A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("FindingsFilterArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FindingsFilterArgs.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("FindingsFilterArgs.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'FindingsFilterArgs.namePrefix' is not present");
     }
 
     /**
      * The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
      * 
      */
-    private UndeferrableValue<Integer> position;
-
+    @PolicyResourceProperty(name="position", flag="unknown_position")
+    private Integer value_position;
+    private boolean unknown_position;
     public Integer position() {
-        if (position == null) return null;
-        return position.getValue("FindingsFilterArgs.position");
+        if (!unknown_position) return value_position;
+        throw new UndeferrableValueException("Value 'FindingsFilterArgs.position' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("FindingsFilterArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'FindingsFilterArgs.tags' is not present");
     }
 
 }

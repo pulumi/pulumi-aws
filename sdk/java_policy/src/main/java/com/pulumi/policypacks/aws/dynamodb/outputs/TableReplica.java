@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dynamodb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class TableReplica {
      * ARN of the table
      * 
      */
-    private @Nullable UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private @Nullable String value_arn;
+    private boolean unknown_arn;
     public @Nullable String arn() {
-        if (arn == null) return null;
-        return arn.getValue("TableReplica.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'TableReplica.arn' is not present");
     }
 
     /**
@@ -29,22 +31,24 @@ public final class TableReplica {
      * **Note:** Changing this value will recreate the replica.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private @Nullable String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public @Nullable String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("TableReplica.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'TableReplica.kmsKeyArn' is not present");
     }
 
     /**
      * Whether to enable Point In Time Recovery for the replica. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> pointInTimeRecovery;
-
+    @PolicyResourceProperty(name="pointInTimeRecovery", flag="unknown_pointInTimeRecovery")
+    private @Nullable Boolean value_pointInTimeRecovery;
+    private boolean unknown_pointInTimeRecovery;
     public @Nullable Boolean pointInTimeRecovery() {
-        if (pointInTimeRecovery == null) return null;
-        return pointInTimeRecovery.getValue("TableReplica.pointInTimeRecovery");
+        if (!unknown_pointInTimeRecovery) return value_pointInTimeRecovery;
+        throw new UndeferrableValueException("Value 'TableReplica.pointInTimeRecovery' is not present");
     }
 
     /**
@@ -56,44 +60,48 @@ public final class TableReplica {
      * Changing from `true` to `false` on a subsequent `apply` leaves replica tags as-is and no longer manages them.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> propagateTags;
-
+    @PolicyResourceProperty(name="propagateTags", flag="unknown_propagateTags")
+    private @Nullable Boolean value_propagateTags;
+    private boolean unknown_propagateTags;
     public @Nullable Boolean propagateTags() {
-        if (propagateTags == null) return null;
-        return propagateTags.getValue("TableReplica.propagateTags");
+        if (!unknown_propagateTags) return value_propagateTags;
+        throw new UndeferrableValueException("Value 'TableReplica.propagateTags' is not present");
     }
 
     /**
      * Region name of the replica.
      * 
      */
-    private UndeferrableValue<String> regionName;
-
+    @PolicyResourceProperty(name="regionName", flag="unknown_regionName")
+    private String value_regionName;
+    private boolean unknown_regionName;
     public String regionName() {
-        if (regionName == null) return null;
-        return regionName.getValue("TableReplica.regionName");
+        if (!unknown_regionName) return value_regionName;
+        throw new UndeferrableValueException("Value 'TableReplica.regionName' is not present");
     }
 
     /**
      * ARN of the Table Stream. Only available when `stream_enabled = true`
      * 
      */
-    private @Nullable UndeferrableValue<String> streamArn;
-
+    @PolicyResourceProperty(name="streamArn", flag="unknown_streamArn")
+    private @Nullable String value_streamArn;
+    private boolean unknown_streamArn;
     public @Nullable String streamArn() {
-        if (streamArn == null) return null;
-        return streamArn.getValue("TableReplica.streamArn");
+        if (!unknown_streamArn) return value_streamArn;
+        throw new UndeferrableValueException("Value 'TableReplica.streamArn' is not present");
     }
 
     /**
      * Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
      * 
      */
-    private @Nullable UndeferrableValue<String> streamLabel;
-
+    @PolicyResourceProperty(name="streamLabel", flag="unknown_streamLabel")
+    private @Nullable String value_streamLabel;
+    private boolean unknown_streamLabel;
     public @Nullable String streamLabel() {
-        if (streamLabel == null) return null;
-        return streamLabel.getValue("TableReplica.streamLabel");
+        if (!unknown_streamLabel) return value_streamLabel;
+        throw new UndeferrableValueException("Value 'TableReplica.streamLabel' is not present");
     }
 
 }

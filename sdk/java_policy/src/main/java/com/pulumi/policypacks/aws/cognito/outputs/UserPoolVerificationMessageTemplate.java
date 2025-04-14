@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,66 +15,72 @@ public final class UserPoolVerificationMessageTemplate {
      * Default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> defaultEmailOption;
-
+    @PolicyResourceProperty(name="defaultEmailOption", flag="unknown_defaultEmailOption")
+    private @Nullable String value_defaultEmailOption;
+    private boolean unknown_defaultEmailOption;
     public @Nullable String defaultEmailOption() {
-        if (defaultEmailOption == null) return null;
-        return defaultEmailOption.getValue("UserPoolVerificationMessageTemplate.defaultEmailOption");
+        if (!unknown_defaultEmailOption) return value_defaultEmailOption;
+        throw new UndeferrableValueException("Value 'UserPoolVerificationMessageTemplate.defaultEmailOption' is not present");
     }
 
     /**
      * Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
      * 
      */
-    private @Nullable UndeferrableValue<String> emailMessage;
-
+    @PolicyResourceProperty(name="emailMessage", flag="unknown_emailMessage")
+    private @Nullable String value_emailMessage;
+    private boolean unknown_emailMessage;
     public @Nullable String emailMessage() {
-        if (emailMessage == null) return null;
-        return emailMessage.getValue("UserPoolVerificationMessageTemplate.emailMessage");
+        if (!unknown_emailMessage) return value_emailMessage;
+        throw new UndeferrableValueException("Value 'UserPoolVerificationMessageTemplate.emailMessage' is not present");
     }
 
     /**
      * Email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
      * 
      */
-    private @Nullable UndeferrableValue<String> emailMessageByLink;
-
+    @PolicyResourceProperty(name="emailMessageByLink", flag="unknown_emailMessageByLink")
+    private @Nullable String value_emailMessageByLink;
+    private boolean unknown_emailMessageByLink;
     public @Nullable String emailMessageByLink() {
-        if (emailMessageByLink == null) return null;
-        return emailMessageByLink.getValue("UserPoolVerificationMessageTemplate.emailMessageByLink");
+        if (!unknown_emailMessageByLink) return value_emailMessageByLink;
+        throw new UndeferrableValueException("Value 'UserPoolVerificationMessageTemplate.emailMessageByLink' is not present");
     }
 
     /**
      * Subject line for the email message template. Conflicts with `email_verification_subject` argument.
      * 
      */
-    private @Nullable UndeferrableValue<String> emailSubject;
-
+    @PolicyResourceProperty(name="emailSubject", flag="unknown_emailSubject")
+    private @Nullable String value_emailSubject;
+    private boolean unknown_emailSubject;
     public @Nullable String emailSubject() {
-        if (emailSubject == null) return null;
-        return emailSubject.getValue("UserPoolVerificationMessageTemplate.emailSubject");
+        if (!unknown_emailSubject) return value_emailSubject;
+        throw new UndeferrableValueException("Value 'UserPoolVerificationMessageTemplate.emailSubject' is not present");
     }
 
     /**
      * Subject line for the email message template for sending a confirmation link to the user.
      * 
      */
-    private @Nullable UndeferrableValue<String> emailSubjectByLink;
-
+    @PolicyResourceProperty(name="emailSubjectByLink", flag="unknown_emailSubjectByLink")
+    private @Nullable String value_emailSubjectByLink;
+    private boolean unknown_emailSubjectByLink;
     public @Nullable String emailSubjectByLink() {
-        if (emailSubjectByLink == null) return null;
-        return emailSubjectByLink.getValue("UserPoolVerificationMessageTemplate.emailSubjectByLink");
+        if (!unknown_emailSubjectByLink) return value_emailSubjectByLink;
+        throw new UndeferrableValueException("Value 'UserPoolVerificationMessageTemplate.emailSubjectByLink' is not present");
     }
 
     /**
      * SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
      * 
      */
-    private @Nullable UndeferrableValue<String> smsMessage;
-
+    @PolicyResourceProperty(name="smsMessage", flag="unknown_smsMessage")
+    private @Nullable String value_smsMessage;
+    private boolean unknown_smsMessage;
     public @Nullable String smsMessage() {
-        if (smsMessage == null) return null;
-        return smsMessage.getValue("UserPoolVerificationMessageTemplate.smsMessage");
+        if (!unknown_smsMessage) return value_smsMessage;
+        throw new UndeferrableValueException("Value 'UserPoolVerificationMessageTemplate.smsMessage' is not present");
     }
 
 }

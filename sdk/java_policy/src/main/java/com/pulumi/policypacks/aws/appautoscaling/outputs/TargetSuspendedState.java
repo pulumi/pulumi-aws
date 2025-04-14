@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appautoscaling.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class TargetSuspendedState {
      * Whether scale in by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> dynamicScalingInSuspended;
-
+    @PolicyResourceProperty(name="dynamicScalingInSuspended", flag="unknown_dynamicScalingInSuspended")
+    private @Nullable Boolean value_dynamicScalingInSuspended;
+    private boolean unknown_dynamicScalingInSuspended;
     public @Nullable Boolean dynamicScalingInSuspended() {
-        if (dynamicScalingInSuspended == null) return null;
-        return dynamicScalingInSuspended.getValue("TargetSuspendedState.dynamicScalingInSuspended");
+        if (!unknown_dynamicScalingInSuspended) return value_dynamicScalingInSuspended;
+        throw new UndeferrableValueException("Value 'TargetSuspendedState.dynamicScalingInSuspended' is not present");
     }
 
     /**
      * Whether scale out by a target tracking scaling policy or a step scaling policy is suspended. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> dynamicScalingOutSuspended;
-
+    @PolicyResourceProperty(name="dynamicScalingOutSuspended", flag="unknown_dynamicScalingOutSuspended")
+    private @Nullable Boolean value_dynamicScalingOutSuspended;
+    private boolean unknown_dynamicScalingOutSuspended;
     public @Nullable Boolean dynamicScalingOutSuspended() {
-        if (dynamicScalingOutSuspended == null) return null;
-        return dynamicScalingOutSuspended.getValue("TargetSuspendedState.dynamicScalingOutSuspended");
+        if (!unknown_dynamicScalingOutSuspended) return value_dynamicScalingOutSuspended;
+        throw new UndeferrableValueException("Value 'TargetSuspendedState.dynamicScalingOutSuspended' is not present");
     }
 
     /**
      * Whether scheduled scaling is suspended. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> scheduledScalingSuspended;
-
+    @PolicyResourceProperty(name="scheduledScalingSuspended", flag="unknown_scheduledScalingSuspended")
+    private @Nullable Boolean value_scheduledScalingSuspended;
+    private boolean unknown_scheduledScalingSuspended;
     public @Nullable Boolean scheduledScalingSuspended() {
-        if (scheduledScalingSuspended == null) return null;
-        return scheduledScalingSuspended.getValue("TargetSuspendedState.scheduledScalingSuspended");
+        if (!unknown_scheduledScalingSuspended) return value_scheduledScalingSuspended;
+        throw new UndeferrableValueException("Value 'TargetSuspendedState.scheduledScalingSuspended' is not present");
     }
 
 }

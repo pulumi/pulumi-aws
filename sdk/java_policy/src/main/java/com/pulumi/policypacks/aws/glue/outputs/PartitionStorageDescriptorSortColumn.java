@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class PartitionStorageDescriptorSortColumn {
      * The name of the column.
      * 
      */
-    private UndeferrableValue<String> column;
-
+    @PolicyResourceProperty(name="column", flag="unknown_column")
+    private String value_column;
+    private boolean unknown_column;
     public String column() {
-        if (column == null) return null;
-        return column.getValue("PartitionStorageDescriptorSortColumn.column");
+        if (!unknown_column) return value_column;
+        throw new UndeferrableValueException("Value 'PartitionStorageDescriptorSortColumn.column' is not present");
     }
 
     /**
      * Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
      * 
      */
-    private UndeferrableValue<Integer> sortOrder;
-
+    @PolicyResourceProperty(name="sortOrder", flag="unknown_sortOrder")
+    private Integer value_sortOrder;
+    private boolean unknown_sortOrder;
     public Integer sortOrder() {
-        if (sortOrder == null) return null;
-        return sortOrder.getValue("PartitionStorageDescriptorSortColumn.sortOrder");
+        if (!unknown_sortOrder) return value_sortOrder;
+        throw new UndeferrableValueException("Value 'PartitionStorageDescriptorSortColumn.sortOrder' is not present");
     }
 
 }

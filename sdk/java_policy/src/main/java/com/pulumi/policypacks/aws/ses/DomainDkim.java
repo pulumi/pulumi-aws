@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ses;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -21,22 +22,24 @@ public final class DomainDkim extends com.pulumi.resources.PolicyResourceOutput 
      * in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html).
      * 
      */
-    private UndeferrableValue<List<String>> dkimTokens;
-
+    @PolicyResourceProperty(name="dkimTokens", flag="unknown_dkimTokens")
+    private List<String> value_dkimTokens;
+    private boolean unknown_dkimTokens;
     public List<String> dkimTokens() {
-        if (dkimTokens == null) return null;
-        return dkimTokens.getValue("DomainDkim.dkimTokens");
+        if (!unknown_dkimTokens) return value_dkimTokens;
+        throw new UndeferrableValueException("Value 'DomainDkim.dkimTokens' is not present");
     }
 
     /**
      * Verified domain name to generate DKIM tokens for.
      * 
      */
-    private UndeferrableValue<String> domain;
-
+    @PolicyResourceProperty(name="domain", flag="unknown_domain")
+    private String value_domain;
+    private boolean unknown_domain;
     public String domain() {
-        if (domain == null) return null;
-        return domain.getValue("DomainDkim.domain");
+        if (!unknown_domain) return value_domain;
+        throw new UndeferrableValueException("Value 'DomainDkim.domain' is not present");
     }
 
 }

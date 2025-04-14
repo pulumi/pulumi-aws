@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualNodeSpecListenerTlsValidationTrust;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class VirtualNodeSpecListenerTlsValidation {
      * SANs for a TLS validation context.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames> subjectAlternativeNames;
-
+    @PolicyResourceProperty(name="subjectAlternativeNames", flag="unknown_subjectAlternativeNames")
+    private @Nullable VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames value_subjectAlternativeNames;
+    private boolean unknown_subjectAlternativeNames;
     public @Nullable VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames subjectAlternativeNames() {
-        if (subjectAlternativeNames == null) return null;
-        return subjectAlternativeNames.getValue("VirtualNodeSpecListenerTlsValidation.subjectAlternativeNames");
+        if (!unknown_subjectAlternativeNames) return value_subjectAlternativeNames;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerTlsValidation.subjectAlternativeNames' is not present");
     }
 
     /**
      * TLS validation context trust.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecListenerTlsValidationTrust> trust;
-
+    @PolicyResourceProperty(name="trust", flag="unknown_trust")
+    private VirtualNodeSpecListenerTlsValidationTrust value_trust;
+    private boolean unknown_trust;
     public VirtualNodeSpecListenerTlsValidationTrust trust() {
-        if (trust == null) return null;
-        return trust.getValue("VirtualNodeSpecListenerTlsValidation.trust");
+        if (!unknown_trust) return value_trust;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerTlsValidation.trust' is not present");
     }
 
 }

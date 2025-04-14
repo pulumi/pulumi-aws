@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssoadmin.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ssoadmin.outputs.ApplicationPortalOptionsSignInOptions;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ApplicationPortalOptions {
      * Sign-in options for the access portal. See `sign_in_options` below.
      * 
      */
-    private @Nullable UndeferrableValue<ApplicationPortalOptionsSignInOptions> signInOptions;
-
+    @PolicyResourceProperty(name="signInOptions", flag="unknown_signInOptions")
+    private @Nullable ApplicationPortalOptionsSignInOptions value_signInOptions;
+    private boolean unknown_signInOptions;
     public @Nullable ApplicationPortalOptionsSignInOptions signInOptions() {
-        if (signInOptions == null) return null;
-        return signInOptions.getValue("ApplicationPortalOptions.signInOptions");
+        if (!unknown_signInOptions) return value_signInOptions;
+        throw new UndeferrableValueException("Value 'ApplicationPortalOptions.signInOptions' is not present");
     }
 
     /**
      * Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> visibility;
-
+    @PolicyResourceProperty(name="visibility", flag="unknown_visibility")
+    private @Nullable String value_visibility;
+    private boolean unknown_visibility;
     public @Nullable String visibility() {
-        if (visibility == null) return null;
-        return visibility.getValue("ApplicationPortalOptions.visibility");
+        if (!unknown_visibility) return value_visibility;
+        throw new UndeferrableValueException("Value 'ApplicationPortalOptions.visibility' is not present");
     }
 
 }

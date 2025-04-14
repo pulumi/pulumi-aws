@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.oam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.oam.outputs.LinkLinkConfiguration;
 import java.lang.String;
@@ -19,77 +20,84 @@ public final class Link extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the link.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Link.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Link.arn' is not present");
     }
 
     /**
      * Label that is assigned to this link.
      * 
      */
-    private UndeferrableValue<String> label;
-
+    @PolicyResourceProperty(name="label", flag="unknown_label")
+    private String value_label;
+    private boolean unknown_label;
     public String label() {
-        if (label == null) return null;
-        return label.getValue("Link.label");
+        if (!unknown_label) return value_label;
+        throw new UndeferrableValueException("Value 'Link.label' is not present");
     }
 
     /**
      * Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
      * 
      */
-    private UndeferrableValue<String> labelTemplate;
-
+    @PolicyResourceProperty(name="labelTemplate", flag="unknown_labelTemplate")
+    private String value_labelTemplate;
+    private boolean unknown_labelTemplate;
     public String labelTemplate() {
-        if (labelTemplate == null) return null;
-        return labelTemplate.getValue("Link.labelTemplate");
+        if (!unknown_labelTemplate) return value_labelTemplate;
+        throw new UndeferrableValueException("Value 'Link.labelTemplate' is not present");
     }
 
     /**
      * Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<LinkLinkConfiguration> linkConfiguration;
-
+    @PolicyResourceProperty(name="linkConfiguration", flag="unknown_linkConfiguration")
+    private @Nullable LinkLinkConfiguration value_linkConfiguration;
+    private boolean unknown_linkConfiguration;
     public @Nullable LinkLinkConfiguration linkConfiguration() {
-        if (linkConfiguration == null) return null;
-        return linkConfiguration.getValue("Link.linkConfiguration");
+        if (!unknown_linkConfiguration) return value_linkConfiguration;
+        throw new UndeferrableValueException("Value 'Link.linkConfiguration' is not present");
     }
 
     /**
      * ID string that AWS generated as part of the link ARN.
      * 
      */
-    private UndeferrableValue<String> linkId;
-
+    @PolicyResourceProperty(name="linkId", flag="unknown_linkId")
+    private String value_linkId;
+    private boolean unknown_linkId;
     public String linkId() {
-        if (linkId == null) return null;
-        return linkId.getValue("Link.linkId");
+        if (!unknown_linkId) return value_linkId;
+        throw new UndeferrableValueException("Value 'Link.linkId' is not present");
     }
 
     /**
      * Types of data that the source account shares with the monitoring account.
      * 
      */
-    private UndeferrableValue<List<String>> resourceTypes;
-
+    @PolicyResourceProperty(name="resourceTypes", flag="unknown_resourceTypes")
+    private List<String> value_resourceTypes;
+    private boolean unknown_resourceTypes;
     public List<String> resourceTypes() {
-        if (resourceTypes == null) return null;
-        return resourceTypes.getValue("Link.resourceTypes");
+        if (!unknown_resourceTypes) return value_resourceTypes;
+        throw new UndeferrableValueException("Value 'Link.resourceTypes' is not present");
     }
 
     /**
      * ARN of the sink that is used for this link.
      * 
      */
-    private UndeferrableValue<String> sinkArn;
-
+    @PolicyResourceProperty(name="sinkArn", flag="unknown_sinkArn")
+    private String value_sinkArn;
+    private boolean unknown_sinkArn;
     public String sinkArn() {
-        if (sinkArn == null) return null;
-        return sinkArn.getValue("Link.sinkArn");
+        if (!unknown_sinkArn) return value_sinkArn;
+        throw new UndeferrableValueException("Value 'Link.sinkArn' is not present");
     }
 
     /**
@@ -98,22 +106,24 @@ public final class Link extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> sinkIdentifier;
-
+    @PolicyResourceProperty(name="sinkIdentifier", flag="unknown_sinkIdentifier")
+    private String value_sinkIdentifier;
+    private boolean unknown_sinkIdentifier;
     public String sinkIdentifier() {
-        if (sinkIdentifier == null) return null;
-        return sinkIdentifier.getValue("Link.sinkIdentifier");
+        if (!unknown_sinkIdentifier) return value_sinkIdentifier;
+        throw new UndeferrableValueException("Value 'Link.sinkIdentifier' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Link.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Link.tags' is not present");
     }
 
     /**
@@ -122,11 +132,12 @@ public final class Link extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Link.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Link.tagsAll' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
      * ARN of the Certificate Manager SSL/TLS server certificate that&#39;s used for inbound SSL/TLS inspection.
      * 
      */
-    private @Nullable UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private @Nullable String value_resourceArn;
+    private boolean unknown_resourceArn;
     public @Nullable String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate.resourceArn' is not present");
     }
 
 }

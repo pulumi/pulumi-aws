@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transcribe;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,33 +19,36 @@ public final class VocabularyFilterArgs extends com.pulumi.resources.PolicyResou
      * The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      * 
      */
-    private UndeferrableValue<String> languageCode;
-
+    @PolicyResourceProperty(name="languageCode", flag="unknown_languageCode")
+    private String value_languageCode;
+    private boolean unknown_languageCode;
     public String languageCode() {
-        if (languageCode == null) return null;
-        return languageCode.getValue("VocabularyFilterArgs.languageCode");
+        if (!unknown_languageCode) return value_languageCode;
+        throw new UndeferrableValueException("Value 'VocabularyFilterArgs.languageCode' is not present");
     }
 
     /**
      * A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VocabularyFilterArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VocabularyFilterArgs.tags' is not present");
     }
 
     /**
      * The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
      * 
      */
-    private UndeferrableValue<String> vocabularyFilterFileUri;
-
+    @PolicyResourceProperty(name="vocabularyFilterFileUri", flag="unknown_vocabularyFilterFileUri")
+    private String value_vocabularyFilterFileUri;
+    private boolean unknown_vocabularyFilterFileUri;
     public String vocabularyFilterFileUri() {
-        if (vocabularyFilterFileUri == null) return null;
-        return vocabularyFilterFileUri.getValue("VocabularyFilterArgs.vocabularyFilterFileUri");
+        if (!unknown_vocabularyFilterFileUri) return value_vocabularyFilterFileUri;
+        throw new UndeferrableValueException("Value 'VocabularyFilterArgs.vocabularyFilterFileUri' is not present");
     }
 
     /**
@@ -53,22 +57,24 @@ public final class VocabularyFilterArgs extends com.pulumi.resources.PolicyResou
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> vocabularyFilterName;
-
+    @PolicyResourceProperty(name="vocabularyFilterName", flag="unknown_vocabularyFilterName")
+    private String value_vocabularyFilterName;
+    private boolean unknown_vocabularyFilterName;
     public String vocabularyFilterName() {
-        if (vocabularyFilterName == null) return null;
-        return vocabularyFilterName.getValue("VocabularyFilterArgs.vocabularyFilterName");
+        if (!unknown_vocabularyFilterName) return value_vocabularyFilterName;
+        throw new UndeferrableValueException("Value 'VocabularyFilterArgs.vocabularyFilterName' is not present");
     }
 
     /**
      * A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
      * 
      */
-    private UndeferrableValue<List<String>> words;
-
+    @PolicyResourceProperty(name="words", flag="unknown_words")
+    private List<String> value_words;
+    private boolean unknown_words;
     public List<String> words() {
-        if (words == null) return null;
-        return words.getValue("VocabularyFilterArgs.words");
+        if (!unknown_words) return value_words;
+        throw new UndeferrableValueException("Value 'VocabularyFilterArgs.words' is not present");
     }
 
 }

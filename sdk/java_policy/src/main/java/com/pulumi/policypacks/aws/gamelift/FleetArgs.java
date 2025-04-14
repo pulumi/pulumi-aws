@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.gamelift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.gamelift.inputs.FleetCertificateConfigurationArgs;
 import com.pulumi.policypacks.aws.gamelift.inputs.FleetEc2InboundPermissionArgs;
@@ -22,154 +23,168 @@ public final class FleetArgs extends com.pulumi.resources.PolicyResourceInput {
      * ID of the GameLift Build to be deployed on the fleet.
      * 
      */
-    private UndeferrableValue<String> buildId;
-
+    @PolicyResourceProperty(name="buildId", flag="unknown_buildId")
+    private String value_buildId;
+    private boolean unknown_buildId;
     public String buildId() {
-        if (buildId == null) return null;
-        return buildId.getValue("FleetArgs.buildId");
+        if (!unknown_buildId) return value_buildId;
+        throw new UndeferrableValueException("Value 'FleetArgs.buildId' is not present");
     }
 
     /**
      * Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
      * 
      */
-    private UndeferrableValue<FleetCertificateConfigurationArgs> certificateConfiguration;
-
+    @PolicyResourceProperty(name="certificateConfiguration", flag="unknown_certificateConfiguration")
+    private FleetCertificateConfigurationArgs value_certificateConfiguration;
+    private boolean unknown_certificateConfiguration;
     public FleetCertificateConfigurationArgs certificateConfiguration() {
-        if (certificateConfiguration == null) return null;
-        return certificateConfiguration.getValue("FleetArgs.certificateConfiguration");
+        if (!unknown_certificateConfiguration) return value_certificateConfiguration;
+        throw new UndeferrableValueException("Value 'FleetArgs.certificateConfiguration' is not present");
     }
 
     /**
      * Human-readable description of the fleet.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("FleetArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'FleetArgs.description' is not present");
     }
 
     /**
      * Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
      * 
      */
-    private UndeferrableValue<List<FleetEc2InboundPermissionArgs>> ec2InboundPermissions;
-
+    @PolicyResourceProperty(name="ec2InboundPermissions", flag="unknown_ec2InboundPermissions")
+    private List<FleetEc2InboundPermissionArgs> value_ec2InboundPermissions;
+    private boolean unknown_ec2InboundPermissions;
     public List<FleetEc2InboundPermissionArgs> ec2InboundPermissions() {
-        if (ec2InboundPermissions == null) return null;
-        return ec2InboundPermissions.getValue("FleetArgs.ec2InboundPermissions");
+        if (!unknown_ec2InboundPermissions) return value_ec2InboundPermissions;
+        throw new UndeferrableValueException("Value 'FleetArgs.ec2InboundPermissions' is not present");
     }
 
     /**
      * Name of an EC2 instance typeE.g., `t2.micro`
      * 
      */
-    private UndeferrableValue<String> ec2InstanceType;
-
+    @PolicyResourceProperty(name="ec2InstanceType", flag="unknown_ec2InstanceType")
+    private String value_ec2InstanceType;
+    private boolean unknown_ec2InstanceType;
     public String ec2InstanceType() {
-        if (ec2InstanceType == null) return null;
-        return ec2InstanceType.getValue("FleetArgs.ec2InstanceType");
+        if (!unknown_ec2InstanceType) return value_ec2InstanceType;
+        throw new UndeferrableValueException("Value 'FleetArgs.ec2InstanceType' is not present");
     }
 
     /**
      * Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
      * 
      */
-    private UndeferrableValue<String> fleetType;
-
+    @PolicyResourceProperty(name="fleetType", flag="unknown_fleetType")
+    private String value_fleetType;
+    private boolean unknown_fleetType;
     public String fleetType() {
-        if (fleetType == null) return null;
-        return fleetType.getValue("FleetArgs.fleetType");
+        if (!unknown_fleetType) return value_fleetType;
+        throw new UndeferrableValueException("Value 'FleetArgs.fleetType' is not present");
     }
 
     /**
      * ARN of an IAM role that instances in the fleet can assume.
      * 
      */
-    private UndeferrableValue<String> instanceRoleArn;
-
+    @PolicyResourceProperty(name="instanceRoleArn", flag="unknown_instanceRoleArn")
+    private String value_instanceRoleArn;
+    private boolean unknown_instanceRoleArn;
     public String instanceRoleArn() {
-        if (instanceRoleArn == null) return null;
-        return instanceRoleArn.getValue("FleetArgs.instanceRoleArn");
+        if (!unknown_instanceRoleArn) return value_instanceRoleArn;
+        throw new UndeferrableValueException("Value 'FleetArgs.instanceRoleArn' is not present");
     }
 
     /**
      * List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
      * 
      */
-    private UndeferrableValue<List<String>> metricGroups;
-
+    @PolicyResourceProperty(name="metricGroups", flag="unknown_metricGroups")
+    private List<String> value_metricGroups;
+    private boolean unknown_metricGroups;
     public List<String> metricGroups() {
-        if (metricGroups == null) return null;
-        return metricGroups.getValue("FleetArgs.metricGroups");
+        if (!unknown_metricGroups) return value_metricGroups;
+        throw new UndeferrableValueException("Value 'FleetArgs.metricGroups' is not present");
     }
 
     /**
      * The name of the fleet.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("FleetArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FleetArgs.name' is not present");
     }
 
     /**
      * Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
      * 
      */
-    private UndeferrableValue<String> newGameSessionProtectionPolicy;
-
+    @PolicyResourceProperty(name="newGameSessionProtectionPolicy", flag="unknown_newGameSessionProtectionPolicy")
+    private String value_newGameSessionProtectionPolicy;
+    private boolean unknown_newGameSessionProtectionPolicy;
     public String newGameSessionProtectionPolicy() {
-        if (newGameSessionProtectionPolicy == null) return null;
-        return newGameSessionProtectionPolicy.getValue("FleetArgs.newGameSessionProtectionPolicy");
+        if (!unknown_newGameSessionProtectionPolicy) return value_newGameSessionProtectionPolicy;
+        throw new UndeferrableValueException("Value 'FleetArgs.newGameSessionProtectionPolicy' is not present");
     }
 
     /**
      * Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
      * 
      */
-    private UndeferrableValue<FleetResourceCreationLimitPolicyArgs> resourceCreationLimitPolicy;
-
+    @PolicyResourceProperty(name="resourceCreationLimitPolicy", flag="unknown_resourceCreationLimitPolicy")
+    private FleetResourceCreationLimitPolicyArgs value_resourceCreationLimitPolicy;
+    private boolean unknown_resourceCreationLimitPolicy;
     public FleetResourceCreationLimitPolicyArgs resourceCreationLimitPolicy() {
-        if (resourceCreationLimitPolicy == null) return null;
-        return resourceCreationLimitPolicy.getValue("FleetArgs.resourceCreationLimitPolicy");
+        if (!unknown_resourceCreationLimitPolicy) return value_resourceCreationLimitPolicy;
+        throw new UndeferrableValueException("Value 'FleetArgs.resourceCreationLimitPolicy' is not present");
     }
 
     /**
      * Instructions for launching server processes on each instance in the fleet. See below.
      * 
      */
-    private UndeferrableValue<FleetRuntimeConfigurationArgs> runtimeConfiguration;
-
+    @PolicyResourceProperty(name="runtimeConfiguration", flag="unknown_runtimeConfiguration")
+    private FleetRuntimeConfigurationArgs value_runtimeConfiguration;
+    private boolean unknown_runtimeConfiguration;
     public FleetRuntimeConfigurationArgs runtimeConfiguration() {
-        if (runtimeConfiguration == null) return null;
-        return runtimeConfiguration.getValue("FleetArgs.runtimeConfiguration");
+        if (!unknown_runtimeConfiguration) return value_runtimeConfiguration;
+        throw new UndeferrableValueException("Value 'FleetArgs.runtimeConfiguration' is not present");
     }
 
     /**
      * ID of the GameLift Script to be deployed on the fleet.
      * 
      */
-    private UndeferrableValue<String> scriptId;
-
+    @PolicyResourceProperty(name="scriptId", flag="unknown_scriptId")
+    private String value_scriptId;
+    private boolean unknown_scriptId;
     public String scriptId() {
-        if (scriptId == null) return null;
-        return scriptId.getValue("FleetArgs.scriptId");
+        if (!unknown_scriptId) return value_scriptId;
+        throw new UndeferrableValueException("Value 'FleetArgs.scriptId' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("FleetArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'FleetArgs.tags' is not present");
     }
 
 }

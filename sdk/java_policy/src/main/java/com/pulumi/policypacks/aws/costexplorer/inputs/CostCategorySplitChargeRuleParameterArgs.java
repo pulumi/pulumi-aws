@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.costexplorer.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class CostCategorySplitChargeRuleParameterArgs {
      * Parameter type.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("CostCategorySplitChargeRuleParameterArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'CostCategorySplitChargeRuleParameterArgs.type' is not present");
     }
 
     /**
      * Parameter values.
      * 
      */
-    private UndeferrableValue<List<String>> values;
-
+    @PolicyResourceProperty(name="values", flag="unknown_values")
+    private List<String> value_values;
+    private boolean unknown_values;
     public List<String> values() {
-        if (values == null) return null;
-        return values.getValue("CostCategorySplitChargeRuleParameterArgs.values");
+        if (!unknown_values) return value_values;
+        throw new UndeferrableValueException("Value 'CostCategorySplitChargeRuleParameterArgs.values' is not present");
     }
 
 }

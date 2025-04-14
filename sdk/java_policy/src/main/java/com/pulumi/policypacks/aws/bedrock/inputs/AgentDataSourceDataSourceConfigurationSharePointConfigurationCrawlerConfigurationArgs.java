@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration
      * The Salesforce standard object configuration. See `filter_configuration` block for details.
      * 
      */
-    private UndeferrableValue<AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs> filterConfiguration;
-
+    @PolicyResourceProperty(name="filterConfiguration", flag="unknown_filterConfiguration")
+    private AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs value_filterConfiguration;
+    private boolean unknown_filterConfiguration;
     public AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs filterConfiguration() {
-        if (filterConfiguration == null) return null;
-        return filterConfiguration.getValue("AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationArgs.filterConfiguration");
+        if (!unknown_filterConfiguration) return value_filterConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationArgs.filterConfiguration' is not present");
     }
 
 }

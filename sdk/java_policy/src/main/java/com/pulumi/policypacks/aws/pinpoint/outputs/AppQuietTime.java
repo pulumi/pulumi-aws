@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pinpoint.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class AppQuietTime {
      * The default end time for quiet time in ISO 8601 format. Required if `start` is set
      * 
      */
-    private @Nullable UndeferrableValue<String> end;
-
+    @PolicyResourceProperty(name="end", flag="unknown_end")
+    private @Nullable String value_end;
+    private boolean unknown_end;
     public @Nullable String end() {
-        if (end == null) return null;
-        return end.getValue("AppQuietTime.end");
+        if (!unknown_end) return value_end;
+        throw new UndeferrableValueException("Value 'AppQuietTime.end' is not present");
     }
 
     /**
      * The default start time for quiet time in ISO 8601 format. Required if `end` is set
      * 
      */
-    private @Nullable UndeferrableValue<String> start;
-
+    @PolicyResourceProperty(name="start", flag="unknown_start")
+    private @Nullable String value_start;
+    private boolean unknown_start;
     public @Nullable String start() {
-        if (start == null) return null;
-        return start.getValue("AppQuietTime.start");
+        if (!unknown_start) return value_start;
+        throw new UndeferrableValueException("Value 'AppQuietTime.start' is not present");
     }
 
 }

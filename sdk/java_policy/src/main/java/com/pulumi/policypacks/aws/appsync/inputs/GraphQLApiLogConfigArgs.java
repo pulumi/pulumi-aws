@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class GraphQLApiLogConfigArgs {
      * Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
      * 
      */
-    private UndeferrableValue<String> cloudwatchLogsRoleArn;
-
+    @PolicyResourceProperty(name="cloudwatchLogsRoleArn", flag="unknown_cloudwatchLogsRoleArn")
+    private String value_cloudwatchLogsRoleArn;
+    private boolean unknown_cloudwatchLogsRoleArn;
     public String cloudwatchLogsRoleArn() {
-        if (cloudwatchLogsRoleArn == null) return null;
-        return cloudwatchLogsRoleArn.getValue("GraphQLApiLogConfigArgs.cloudwatchLogsRoleArn");
+        if (!unknown_cloudwatchLogsRoleArn) return value_cloudwatchLogsRoleArn;
+        throw new UndeferrableValueException("Value 'GraphQLApiLogConfigArgs.cloudwatchLogsRoleArn' is not present");
     }
 
     /**
      * Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging  level. Valid values: `true`, `false`. Default value: `false`
      * 
      */
-    private UndeferrableValue<Boolean> excludeVerboseContent;
-
+    @PolicyResourceProperty(name="excludeVerboseContent", flag="unknown_excludeVerboseContent")
+    private Boolean value_excludeVerboseContent;
+    private boolean unknown_excludeVerboseContent;
     public Boolean excludeVerboseContent() {
-        if (excludeVerboseContent == null) return null;
-        return excludeVerboseContent.getValue("GraphQLApiLogConfigArgs.excludeVerboseContent");
+        if (!unknown_excludeVerboseContent) return value_excludeVerboseContent;
+        throw new UndeferrableValueException("Value 'GraphQLApiLogConfigArgs.excludeVerboseContent' is not present");
     }
 
     /**
      * Field logging level. Valid values: `ALL`, `ERROR`, `NONE`.
      * 
      */
-    private UndeferrableValue<String> fieldLogLevel;
-
+    @PolicyResourceProperty(name="fieldLogLevel", flag="unknown_fieldLogLevel")
+    private String value_fieldLogLevel;
+    private boolean unknown_fieldLogLevel;
     public String fieldLogLevel() {
-        if (fieldLogLevel == null) return null;
-        return fieldLogLevel.getValue("GraphQLApiLogConfigArgs.fieldLogLevel");
+        if (!unknown_fieldLogLevel) return value_fieldLogLevel;
+        throw new UndeferrableValueException("Value 'GraphQLApiLogConfigArgs.fieldLogLevel' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class FunctionLoggingConfigArgs {
      * for JSON structured logs, choose the detail level of the logs your application sends to CloudWatch when using supported logging libraries.
      * 
      */
-    private UndeferrableValue<String> applicationLogLevel;
-
+    @PolicyResourceProperty(name="applicationLogLevel", flag="unknown_applicationLogLevel")
+    private String value_applicationLogLevel;
+    private boolean unknown_applicationLogLevel;
     public String applicationLogLevel() {
-        if (applicationLogLevel == null) return null;
-        return applicationLogLevel.getValue("FunctionLoggingConfigArgs.applicationLogLevel");
+        if (!unknown_applicationLogLevel) return value_applicationLogLevel;
+        throw new UndeferrableValueException("Value 'FunctionLoggingConfigArgs.applicationLogLevel' is not present");
     }
 
     /**
      * select between `Text` and structured `JSON` format for your function&#39;s logs.
      * 
      */
-    private UndeferrableValue<String> logFormat;
-
+    @PolicyResourceProperty(name="logFormat", flag="unknown_logFormat")
+    private String value_logFormat;
+    private boolean unknown_logFormat;
     public String logFormat() {
-        if (logFormat == null) return null;
-        return logFormat.getValue("FunctionLoggingConfigArgs.logFormat");
+        if (!unknown_logFormat) return value_logFormat;
+        throw new UndeferrableValueException("Value 'FunctionLoggingConfigArgs.logFormat' is not present");
     }
 
     /**
      * the CloudWatch log group your function sends logs to.
      * 
      */
-    private UndeferrableValue<String> logGroup;
-
+    @PolicyResourceProperty(name="logGroup", flag="unknown_logGroup")
+    private String value_logGroup;
+    private boolean unknown_logGroup;
     public String logGroup() {
-        if (logGroup == null) return null;
-        return logGroup.getValue("FunctionLoggingConfigArgs.logGroup");
+        if (!unknown_logGroup) return value_logGroup;
+        throw new UndeferrableValueException("Value 'FunctionLoggingConfigArgs.logGroup' is not present");
     }
 
     /**
      * for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `ERROR`, `DEBUG`, or `INFO`.
      * 
      */
-    private UndeferrableValue<String> systemLogLevel;
-
+    @PolicyResourceProperty(name="systemLogLevel", flag="unknown_systemLogLevel")
+    private String value_systemLogLevel;
+    private boolean unknown_systemLogLevel;
     public String systemLogLevel() {
-        if (systemLogLevel == null) return null;
-        return systemLogLevel.getValue("FunctionLoggingConfigArgs.systemLogLevel");
+        if (!unknown_systemLogLevel) return value_systemLogLevel;
+        throw new UndeferrableValueException("Value 'FunctionLoggingConfigArgs.systemLogLevel' is not present");
     }
 
 }

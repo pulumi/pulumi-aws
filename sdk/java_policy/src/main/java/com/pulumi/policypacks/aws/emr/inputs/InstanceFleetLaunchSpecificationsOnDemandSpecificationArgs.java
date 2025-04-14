@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs {
      * Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
      * 
      */
-    private UndeferrableValue<String> allocationStrategy;
-
+    @PolicyResourceProperty(name="allocationStrategy", flag="unknown_allocationStrategy")
+    private String value_allocationStrategy;
+    private boolean unknown_allocationStrategy;
     public String allocationStrategy() {
-        if (allocationStrategy == null) return null;
-        return allocationStrategy.getValue("InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs.allocationStrategy");
+        if (!unknown_allocationStrategy) return value_allocationStrategy;
+        throw new UndeferrableValueException("Value 'InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs.allocationStrategy' is not present");
     }
 
 }

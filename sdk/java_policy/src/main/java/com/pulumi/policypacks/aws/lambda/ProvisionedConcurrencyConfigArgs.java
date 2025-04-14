@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -18,22 +19,24 @@ public final class ProvisionedConcurrencyConfigArgs extends com.pulumi.resources
      * Name or Amazon Resource Name (ARN) of the Lambda Function.
      * 
      */
-    private UndeferrableValue<String> functionName;
-
+    @PolicyResourceProperty(name="functionName", flag="unknown_functionName")
+    private String value_functionName;
+    private boolean unknown_functionName;
     public String functionName() {
-        if (functionName == null) return null;
-        return functionName.getValue("ProvisionedConcurrencyConfigArgs.functionName");
+        if (!unknown_functionName) return value_functionName;
+        throw new UndeferrableValueException("Value 'ProvisionedConcurrencyConfigArgs.functionName' is not present");
     }
 
     /**
      * Amount of capacity to allocate. Must be greater than or equal to `1`.
      * 
      */
-    private UndeferrableValue<Integer> provisionedConcurrentExecutions;
-
+    @PolicyResourceProperty(name="provisionedConcurrentExecutions", flag="unknown_provisionedConcurrentExecutions")
+    private Integer value_provisionedConcurrentExecutions;
+    private boolean unknown_provisionedConcurrentExecutions;
     public Integer provisionedConcurrentExecutions() {
-        if (provisionedConcurrentExecutions == null) return null;
-        return provisionedConcurrentExecutions.getValue("ProvisionedConcurrencyConfigArgs.provisionedConcurrentExecutions");
+        if (!unknown_provisionedConcurrentExecutions) return value_provisionedConcurrentExecutions;
+        throw new UndeferrableValueException("Value 'ProvisionedConcurrencyConfigArgs.provisionedConcurrentExecutions' is not present");
     }
 
     /**
@@ -42,22 +45,24 @@ public final class ProvisionedConcurrencyConfigArgs extends com.pulumi.resources
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> qualifier;
-
+    @PolicyResourceProperty(name="qualifier", flag="unknown_qualifier")
+    private String value_qualifier;
+    private boolean unknown_qualifier;
     public String qualifier() {
-        if (qualifier == null) return null;
-        return qualifier.getValue("ProvisionedConcurrencyConfigArgs.qualifier");
+        if (!unknown_qualifier) return value_qualifier;
+        throw new UndeferrableValueException("Value 'ProvisionedConcurrencyConfigArgs.qualifier' is not present");
     }
 
     /**
      * Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
      * 
      */
-    private UndeferrableValue<Boolean> skipDestroy;
-
+    @PolicyResourceProperty(name="skipDestroy", flag="unknown_skipDestroy")
+    private Boolean value_skipDestroy;
+    private boolean unknown_skipDestroy;
     public Boolean skipDestroy() {
-        if (skipDestroy == null) return null;
-        return skipDestroy.getValue("ProvisionedConcurrencyConfigArgs.skipDestroy");
+        if (!unknown_skipDestroy) return value_skipDestroy;
+        throw new UndeferrableValueException("Value 'ProvisionedConcurrencyConfigArgs.skipDestroy' is not present");
     }
 
 }

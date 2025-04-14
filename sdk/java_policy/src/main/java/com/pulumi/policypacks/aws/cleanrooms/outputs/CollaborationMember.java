@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cleanrooms.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -11,32 +12,36 @@ import javax.annotation.Nullable;
 
 public final class CollaborationMember {
 
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("CollaborationMember.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'CollaborationMember.accountId' is not present");
     }
 
-    private UndeferrableValue<String> displayName;
-
+    @PolicyResourceProperty(name="displayName", flag="unknown_displayName")
+    private String value_displayName;
+    private boolean unknown_displayName;
     public String displayName() {
-        if (displayName == null) return null;
-        return displayName.getValue("CollaborationMember.displayName");
+        if (!unknown_displayName) return value_displayName;
+        throw new UndeferrableValueException("Value 'CollaborationMember.displayName' is not present");
     }
 
-    private UndeferrableValue<List<String>> memberAbilities;
-
+    @PolicyResourceProperty(name="memberAbilities", flag="unknown_memberAbilities")
+    private List<String> value_memberAbilities;
+    private boolean unknown_memberAbilities;
     public List<String> memberAbilities() {
-        if (memberAbilities == null) return null;
-        return memberAbilities.getValue("CollaborationMember.memberAbilities");
+        if (!unknown_memberAbilities) return value_memberAbilities;
+        throw new UndeferrableValueException("Value 'CollaborationMember.memberAbilities' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private @Nullable String value_status;
+    private boolean unknown_status;
     public @Nullable String status() {
-        if (status == null) return null;
-        return status.getValue("CollaborationMember.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'CollaborationMember.status' is not present");
     }
 
 }

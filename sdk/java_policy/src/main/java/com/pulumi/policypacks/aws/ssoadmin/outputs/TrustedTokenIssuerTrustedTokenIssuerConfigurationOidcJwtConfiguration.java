@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssoadmin.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,44 +14,48 @@ public final class TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfi
      * Specifies the path of the source attribute in the JWT from the trusted token issuer.
      * 
      */
-    private UndeferrableValue<String> claimAttributePath;
-
+    @PolicyResourceProperty(name="claimAttributePath", flag="unknown_claimAttributePath")
+    private String value_claimAttributePath;
+    private boolean unknown_claimAttributePath;
     public String claimAttributePath() {
-        if (claimAttributePath == null) return null;
-        return claimAttributePath.getValue("TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration.claimAttributePath");
+        if (!unknown_claimAttributePath) return value_claimAttributePath;
+        throw new UndeferrableValueException("Value 'TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration.claimAttributePath' is not present");
     }
 
     /**
      * Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claim_attribute_path` when a trusted token issuer token is exchanged for an IAM Identity Center token.
      * 
      */
-    private UndeferrableValue<String> identityStoreAttributePath;
-
+    @PolicyResourceProperty(name="identityStoreAttributePath", flag="unknown_identityStoreAttributePath")
+    private String value_identityStoreAttributePath;
+    private boolean unknown_identityStoreAttributePath;
     public String identityStoreAttributePath() {
-        if (identityStoreAttributePath == null) return null;
-        return identityStoreAttributePath.getValue("TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration.identityStoreAttributePath");
+        if (!unknown_identityStoreAttributePath) return value_identityStoreAttributePath;
+        throw new UndeferrableValueException("Value 'TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration.identityStoreAttributePath' is not present");
     }
 
     /**
      * Specifies the URL that IAM Identity Center uses for OpenID Discovery. OpenID Discovery is used to obtain the information required to verify the tokens that the trusted token issuer generates.
      * 
      */
-    private UndeferrableValue<String> issuerUrl;
-
+    @PolicyResourceProperty(name="issuerUrl", flag="unknown_issuerUrl")
+    private String value_issuerUrl;
+    private boolean unknown_issuerUrl;
     public String issuerUrl() {
-        if (issuerUrl == null) return null;
-        return issuerUrl.getValue("TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration.issuerUrl");
+        if (!unknown_issuerUrl) return value_issuerUrl;
+        throw new UndeferrableValueException("Value 'TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration.issuerUrl' is not present");
     }
 
     /**
      * The method that the trusted token issuer can use to retrieve the JSON Web Key Set used to verify a JWT. Valid values are `OPEN_ID_DISCOVERY`
      * 
      */
-    private UndeferrableValue<String> jwksRetrievalOption;
-
+    @PolicyResourceProperty(name="jwksRetrievalOption", flag="unknown_jwksRetrievalOption")
+    private String value_jwksRetrievalOption;
+    private boolean unknown_jwksRetrievalOption;
     public String jwksRetrievalOption() {
-        if (jwksRetrievalOption == null) return null;
-        return jwksRetrievalOption.getValue("TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration.jwksRetrievalOption");
+        if (!unknown_jwksRetrievalOption) return value_jwksRetrievalOption;
+        throw new UndeferrableValueException("Value 'TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration.jwksRetrievalOption' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -16,33 +17,36 @@ public final class EventTargetHttpTargetArgs {
      * Enables you to specify HTTP headers to add to the request.
      * 
      */
-    private UndeferrableValue<Map<String,String>> headerParameters;
-
+    @PolicyResourceProperty(name="headerParameters", flag="unknown_headerParameters")
+    private Map<String,String> value_headerParameters;
+    private boolean unknown_headerParameters;
     public Map<String,String> headerParameters() {
-        if (headerParameters == null) return null;
-        return headerParameters.getValue("EventTargetHttpTargetArgs.headerParameters");
+        if (!unknown_headerParameters) return value_headerParameters;
+        throw new UndeferrableValueException("Value 'EventTargetHttpTargetArgs.headerParameters' is not present");
     }
 
     /**
      * The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*&#47;POST/pets/*`).
      * 
      */
-    private UndeferrableValue<List<String>> pathParameterValues;
-
+    @PolicyResourceProperty(name="pathParameterValues", flag="unknown_pathParameterValues")
+    private List<String> value_pathParameterValues;
+    private boolean unknown_pathParameterValues;
     public List<String> pathParameterValues() {
-        if (pathParameterValues == null) return null;
-        return pathParameterValues.getValue("EventTargetHttpTargetArgs.pathParameterValues");
+        if (!unknown_pathParameterValues) return value_pathParameterValues;
+        throw new UndeferrableValueException("Value 'EventTargetHttpTargetArgs.pathParameterValues' is not present");
     }
 
     /**
      * Represents keys/values of query string parameters that are appended to the invoked endpoint.
      * 
      */
-    private UndeferrableValue<Map<String,String>> queryStringParameters;
-
+    @PolicyResourceProperty(name="queryStringParameters", flag="unknown_queryStringParameters")
+    private Map<String,String> value_queryStringParameters;
+    private boolean unknown_queryStringParameters;
     public Map<String,String> queryStringParameters() {
-        if (queryStringParameters == null) return null;
-        return queryStringParameters.getValue("EventTargetHttpTargetArgs.queryStringParameters");
+        if (!unknown_queryStringParameters) return value_queryStringParameters;
+        throw new UndeferrableValueException("Value 'EventTargetHttpTargetArgs.queryStringParameters' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecr.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class RepositoryEncryptionConfiguration {
      * The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
      * 
      */
-    private @Nullable UndeferrableValue<String> encryptionType;
-
+    @PolicyResourceProperty(name="encryptionType", flag="unknown_encryptionType")
+    private @Nullable String value_encryptionType;
+    private boolean unknown_encryptionType;
     public @Nullable String encryptionType() {
-        if (encryptionType == null) return null;
-        return encryptionType.getValue("RepositoryEncryptionConfiguration.encryptionType");
+        if (!unknown_encryptionType) return value_encryptionType;
+        throw new UndeferrableValueException("Value 'RepositoryEncryptionConfiguration.encryptionType' is not present");
     }
 
     /**
      * The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKey;
-
+    @PolicyResourceProperty(name="kmsKey", flag="unknown_kmsKey")
+    private @Nullable String value_kmsKey;
+    private boolean unknown_kmsKey;
     public @Nullable String kmsKey() {
-        if (kmsKey == null) return null;
-        return kmsKey.getValue("RepositoryEncryptionConfiguration.kmsKey");
+        if (!unknown_kmsKey) return value_kmsKey;
+        throw new UndeferrableValueException("Value 'RepositoryEncryptionConfiguration.kmsKey' is not present");
     }
 
 }

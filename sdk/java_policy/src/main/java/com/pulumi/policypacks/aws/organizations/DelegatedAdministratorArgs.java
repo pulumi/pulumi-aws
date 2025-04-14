@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.organizations;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class DelegatedAdministratorArgs extends com.pulumi.resources.Polic
      * The account ID number of the member account in the organization to register as a delegated administrator.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("DelegatedAdministratorArgs.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'DelegatedAdministratorArgs.accountId' is not present");
     }
 
     /**
      * The service principal of the AWS service for which you want to make the member account a delegated administrator.
      * 
      */
-    private UndeferrableValue<String> servicePrincipal;
-
+    @PolicyResourceProperty(name="servicePrincipal", flag="unknown_servicePrincipal")
+    private String value_servicePrincipal;
+    private boolean unknown_servicePrincipal;
     public String servicePrincipal() {
-        if (servicePrincipal == null) return null;
-        return servicePrincipal.getValue("DelegatedAdministratorArgs.servicePrincipal");
+        if (!unknown_servicePrincipal) return value_servicePrincipal;
+        throw new UndeferrableValueException("Value 'DelegatedAdministratorArgs.servicePrincipal' is not present");
     }
 
 }

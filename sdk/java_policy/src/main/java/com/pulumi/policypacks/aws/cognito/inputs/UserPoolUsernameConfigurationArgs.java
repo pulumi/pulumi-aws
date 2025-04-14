@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class UserPoolUsernameConfigurationArgs {
      * Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
      * 
      */
-    private UndeferrableValue<Boolean> caseSensitive;
-
+    @PolicyResourceProperty(name="caseSensitive", flag="unknown_caseSensitive")
+    private Boolean value_caseSensitive;
+    private boolean unknown_caseSensitive;
     public Boolean caseSensitive() {
-        if (caseSensitive == null) return null;
-        return caseSensitive.getValue("UserPoolUsernameConfigurationArgs.caseSensitive");
+        if (!unknown_caseSensitive) return value_caseSensitive;
+        throw new UndeferrableValueException("Value 'UserPoolUsernameConfigurationArgs.caseSensitive' is not present");
     }
 
 }

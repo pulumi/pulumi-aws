@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.fsx.outputs.OpenZfsFileSystemDiskIopsConfiguration;
 import com.pulumi.policypacks.aws.fsx.outputs.OpenZfsFileSystemRootVolumeConfiguration;
@@ -22,286 +23,312 @@ public final class OpenZfsFileSystem extends com.pulumi.resources.PolicyResource
      * Amazon Resource Name of the file system.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("OpenZfsFileSystem.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.arn' is not present");
     }
 
     /**
      * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> automaticBackupRetentionDays;
-
+    @PolicyResourceProperty(name="automaticBackupRetentionDays", flag="unknown_automaticBackupRetentionDays")
+    private @Nullable Integer value_automaticBackupRetentionDays;
+    private boolean unknown_automaticBackupRetentionDays;
     public @Nullable Integer automaticBackupRetentionDays() {
-        if (automaticBackupRetentionDays == null) return null;
-        return automaticBackupRetentionDays.getValue("OpenZfsFileSystem.automaticBackupRetentionDays");
+        if (!unknown_automaticBackupRetentionDays) return value_automaticBackupRetentionDays;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.automaticBackupRetentionDays' is not present");
     }
 
     /**
      * The ID of the source backup to create the filesystem from.
      * 
      */
-    private @Nullable UndeferrableValue<String> backupId;
-
+    @PolicyResourceProperty(name="backupId", flag="unknown_backupId")
+    private @Nullable String value_backupId;
+    private boolean unknown_backupId;
     public @Nullable String backupId() {
-        if (backupId == null) return null;
-        return backupId.getValue("OpenZfsFileSystem.backupId");
+        if (!unknown_backupId) return value_backupId;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.backupId' is not present");
     }
 
     /**
      * A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> copyTagsToBackups;
-
+    @PolicyResourceProperty(name="copyTagsToBackups", flag="unknown_copyTagsToBackups")
+    private @Nullable Boolean value_copyTagsToBackups;
+    private boolean unknown_copyTagsToBackups;
     public @Nullable Boolean copyTagsToBackups() {
-        if (copyTagsToBackups == null) return null;
-        return copyTagsToBackups.getValue("OpenZfsFileSystem.copyTagsToBackups");
+        if (!unknown_copyTagsToBackups) return value_copyTagsToBackups;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.copyTagsToBackups' is not present");
     }
 
     /**
      * A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> copyTagsToVolumes;
-
+    @PolicyResourceProperty(name="copyTagsToVolumes", flag="unknown_copyTagsToVolumes")
+    private @Nullable Boolean value_copyTagsToVolumes;
+    private boolean unknown_copyTagsToVolumes;
     public @Nullable Boolean copyTagsToVolumes() {
-        if (copyTagsToVolumes == null) return null;
-        return copyTagsToVolumes.getValue("OpenZfsFileSystem.copyTagsToVolumes");
+        if (!unknown_copyTagsToVolumes) return value_copyTagsToVolumes;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.copyTagsToVolumes' is not present");
     }
 
     /**
      * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
      * 
      */
-    private UndeferrableValue<String> dailyAutomaticBackupStartTime;
-
+    @PolicyResourceProperty(name="dailyAutomaticBackupStartTime", flag="unknown_dailyAutomaticBackupStartTime")
+    private String value_dailyAutomaticBackupStartTime;
+    private boolean unknown_dailyAutomaticBackupStartTime;
     public String dailyAutomaticBackupStartTime() {
-        if (dailyAutomaticBackupStartTime == null) return null;
-        return dailyAutomaticBackupStartTime.getValue("OpenZfsFileSystem.dailyAutomaticBackupStartTime");
+        if (!unknown_dailyAutomaticBackupStartTime) return value_dailyAutomaticBackupStartTime;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.dailyAutomaticBackupStartTime' is not present");
     }
 
     /**
      * List of delete options, which at present supports only one value that specifies whether to delete all child volumes and snapshots when the file system is deleted. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> deleteOptions;
-
+    @PolicyResourceProperty(name="deleteOptions", flag="unknown_deleteOptions")
+    private @Nullable List<String> value_deleteOptions;
+    private boolean unknown_deleteOptions;
     public @Nullable List<String> deleteOptions() {
-        if (deleteOptions == null) return null;
-        return deleteOptions.getValue("OpenZfsFileSystem.deleteOptions");
+        if (!unknown_deleteOptions) return value_deleteOptions;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.deleteOptions' is not present");
     }
 
     /**
      * Filesystem deployment type. See the [AWS API documentation](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemOpenZFSConfiguration.html#FSx-Type-CreateFileSystemOpenZFSConfiguration-DeploymentType) for a list of valid values.
      * 
      */
-    private UndeferrableValue<String> deploymentType;
-
+    @PolicyResourceProperty(name="deploymentType", flag="unknown_deploymentType")
+    private String value_deploymentType;
+    private boolean unknown_deploymentType;
     public String deploymentType() {
-        if (deploymentType == null) return null;
-        return deploymentType.getValue("OpenZfsFileSystem.deploymentType");
+        if (!unknown_deploymentType) return value_deploymentType;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.deploymentType' is not present");
     }
 
     /**
      * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See `disk_iops_configuration` Block for details.
      * 
      */
-    private UndeferrableValue<OpenZfsFileSystemDiskIopsConfiguration> diskIopsConfiguration;
-
+    @PolicyResourceProperty(name="diskIopsConfiguration", flag="unknown_diskIopsConfiguration")
+    private OpenZfsFileSystemDiskIopsConfiguration value_diskIopsConfiguration;
+    private boolean unknown_diskIopsConfiguration;
     public OpenZfsFileSystemDiskIopsConfiguration diskIopsConfiguration() {
-        if (diskIopsConfiguration == null) return null;
-        return diskIopsConfiguration.getValue("OpenZfsFileSystem.diskIopsConfiguration");
+        if (!unknown_diskIopsConfiguration) return value_diskIopsConfiguration;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.diskIopsConfiguration' is not present");
     }
 
     /**
      * DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
      * 
      */
-    private UndeferrableValue<String> dnsName;
-
+    @PolicyResourceProperty(name="dnsName", flag="unknown_dnsName")
+    private String value_dnsName;
+    private boolean unknown_dnsName;
     public String dnsName() {
-        if (dnsName == null) return null;
-        return dnsName.getValue("OpenZfsFileSystem.dnsName");
+        if (!unknown_dnsName) return value_dnsName;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.dnsName' is not present");
     }
 
     /**
      * IP address of the endpoint that is used to access data or to manage the file system.
      * 
      */
-    private UndeferrableValue<String> endpointIpAddress;
-
+    @PolicyResourceProperty(name="endpointIpAddress", flag="unknown_endpointIpAddress")
+    private String value_endpointIpAddress;
+    private boolean unknown_endpointIpAddress;
     public String endpointIpAddress() {
-        if (endpointIpAddress == null) return null;
-        return endpointIpAddress.getValue("OpenZfsFileSystem.endpointIpAddress");
+        if (!unknown_endpointIpAddress) return value_endpointIpAddress;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.endpointIpAddress' is not present");
     }
 
     /**
      * (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
      * 
      */
-    private UndeferrableValue<String> endpointIpAddressRange;
-
+    @PolicyResourceProperty(name="endpointIpAddressRange", flag="unknown_endpointIpAddressRange")
+    private String value_endpointIpAddressRange;
+    private boolean unknown_endpointIpAddressRange;
     public String endpointIpAddressRange() {
-        if (endpointIpAddressRange == null) return null;
-        return endpointIpAddressRange.getValue("OpenZfsFileSystem.endpointIpAddressRange");
+        if (!unknown_endpointIpAddressRange) return value_endpointIpAddressRange;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.endpointIpAddressRange' is not present");
     }
 
     /**
      * A map of tags to apply to the file system&#39;s final backup.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> finalBackupTags;
-
+    @PolicyResourceProperty(name="finalBackupTags", flag="unknown_finalBackupTags")
+    private @Nullable Map<String,String> value_finalBackupTags;
+    private boolean unknown_finalBackupTags;
     public @Nullable Map<String,String> finalBackupTags() {
-        if (finalBackupTags == null) return null;
-        return finalBackupTags.getValue("OpenZfsFileSystem.finalBackupTags");
+        if (!unknown_finalBackupTags) return value_finalBackupTags;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.finalBackupTags' is not present");
     }
 
     /**
      * ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("OpenZfsFileSystem.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.kmsKeyId' is not present");
     }
 
     /**
      * Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
      * 
      */
-    private UndeferrableValue<List<String>> networkInterfaceIds;
-
+    @PolicyResourceProperty(name="networkInterfaceIds", flag="unknown_networkInterfaceIds")
+    private List<String> value_networkInterfaceIds;
+    private boolean unknown_networkInterfaceIds;
     public List<String> networkInterfaceIds() {
-        if (networkInterfaceIds == null) return null;
-        return networkInterfaceIds.getValue("OpenZfsFileSystem.networkInterfaceIds");
+        if (!unknown_networkInterfaceIds) return value_networkInterfaceIds;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.networkInterfaceIds' is not present");
     }
 
     /**
      * AWS account identifier that created the file system.
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("OpenZfsFileSystem.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.ownerId' is not present");
     }
 
     /**
      * (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
      * 
      */
-    private @Nullable UndeferrableValue<String> preferredSubnetId;
-
+    @PolicyResourceProperty(name="preferredSubnetId", flag="unknown_preferredSubnetId")
+    private @Nullable String value_preferredSubnetId;
+    private boolean unknown_preferredSubnetId;
     public @Nullable String preferredSubnetId() {
-        if (preferredSubnetId == null) return null;
-        return preferredSubnetId.getValue("OpenZfsFileSystem.preferredSubnetId");
+        if (!unknown_preferredSubnetId) return value_preferredSubnetId;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.preferredSubnetId' is not present");
     }
 
     /**
      * The configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
      * 
      */
-    private UndeferrableValue<OpenZfsFileSystemRootVolumeConfiguration> rootVolumeConfiguration;
-
+    @PolicyResourceProperty(name="rootVolumeConfiguration", flag="unknown_rootVolumeConfiguration")
+    private OpenZfsFileSystemRootVolumeConfiguration value_rootVolumeConfiguration;
+    private boolean unknown_rootVolumeConfiguration;
     public OpenZfsFileSystemRootVolumeConfiguration rootVolumeConfiguration() {
-        if (rootVolumeConfiguration == null) return null;
-        return rootVolumeConfiguration.getValue("OpenZfsFileSystem.rootVolumeConfiguration");
+        if (!unknown_rootVolumeConfiguration) return value_rootVolumeConfiguration;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.rootVolumeConfiguration' is not present");
     }
 
     /**
      * Identifier of the root volume, e.g., `fsvol-12345678`
      * 
      */
-    private UndeferrableValue<String> rootVolumeId;
-
+    @PolicyResourceProperty(name="rootVolumeId", flag="unknown_rootVolumeId")
+    private String value_rootVolumeId;
+    private boolean unknown_rootVolumeId;
     public String rootVolumeId() {
-        if (rootVolumeId == null) return null;
-        return rootVolumeId.getValue("OpenZfsFileSystem.rootVolumeId");
+        if (!unknown_rootVolumeId) return value_rootVolumeId;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.rootVolumeId' is not present");
     }
 
     /**
      * (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
      * 
      */
-    private UndeferrableValue<List<String>> routeTableIds;
-
+    @PolicyResourceProperty(name="routeTableIds", flag="unknown_routeTableIds")
+    private List<String> value_routeTableIds;
+    private boolean unknown_routeTableIds;
     public List<String> routeTableIds() {
-        if (routeTableIds == null) return null;
-        return routeTableIds.getValue("OpenZfsFileSystem.routeTableIds");
+        if (!unknown_routeTableIds) return value_routeTableIds;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.routeTableIds' is not present");
     }
 
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private @Nullable List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public @Nullable List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("OpenZfsFileSystem.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.securityGroupIds' is not present");
     }
 
     /**
      * When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> skipFinalBackup;
-
+    @PolicyResourceProperty(name="skipFinalBackup", flag="unknown_skipFinalBackup")
+    private @Nullable Boolean value_skipFinalBackup;
+    private boolean unknown_skipFinalBackup;
     public @Nullable Boolean skipFinalBackup() {
-        if (skipFinalBackup == null) return null;
-        return skipFinalBackup.getValue("OpenZfsFileSystem.skipFinalBackup");
+        if (!unknown_skipFinalBackup) return value_skipFinalBackup;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.skipFinalBackup' is not present");
     }
 
     /**
      * The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> storageCapacity;
-
+    @PolicyResourceProperty(name="storageCapacity", flag="unknown_storageCapacity")
+    private @Nullable Integer value_storageCapacity;
+    private boolean unknown_storageCapacity;
     public @Nullable Integer storageCapacity() {
-        if (storageCapacity == null) return null;
-        return storageCapacity.getValue("OpenZfsFileSystem.storageCapacity");
+        if (!unknown_storageCapacity) return value_storageCapacity;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.storageCapacity' is not present");
     }
 
     /**
      * The filesystem storage type. Only `SSD` is supported.
      * 
      */
-    private @Nullable UndeferrableValue<String> storageType;
-
+    @PolicyResourceProperty(name="storageType", flag="unknown_storageType")
+    private @Nullable String value_storageType;
+    private boolean unknown_storageType;
     public @Nullable String storageType() {
-        if (storageType == null) return null;
-        return storageType.getValue("OpenZfsFileSystem.storageType");
+        if (!unknown_storageType) return value_storageType;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.storageType' is not present");
     }
 
     /**
      * A list of IDs for the subnets that the file system will be accessible from.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("OpenZfsFileSystem.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.subnetIds' is not present");
     }
 
     /**
      * A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("OpenZfsFileSystem.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.tags' is not present");
     }
 
     /**
@@ -312,11 +339,12 @@ public final class OpenZfsFileSystem extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("OpenZfsFileSystem.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.tagsAll' is not present");
     }
 
     /**
@@ -325,33 +353,36 @@ public final class OpenZfsFileSystem extends com.pulumi.resources.PolicyResource
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<Integer> throughputCapacity;
-
+    @PolicyResourceProperty(name="throughputCapacity", flag="unknown_throughputCapacity")
+    private Integer value_throughputCapacity;
+    private boolean unknown_throughputCapacity;
     public Integer throughputCapacity() {
-        if (throughputCapacity == null) return null;
-        return throughputCapacity.getValue("OpenZfsFileSystem.throughputCapacity");
+        if (!unknown_throughputCapacity) return value_throughputCapacity;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.throughputCapacity' is not present");
     }
 
     /**
      * Identifier of the Virtual Private Cloud for the file system.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("OpenZfsFileSystem.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.vpcId' is not present");
     }
 
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      * 
      */
-    private UndeferrableValue<String> weeklyMaintenanceStartTime;
-
+    @PolicyResourceProperty(name="weeklyMaintenanceStartTime", flag="unknown_weeklyMaintenanceStartTime")
+    private String value_weeklyMaintenanceStartTime;
+    private boolean unknown_weeklyMaintenanceStartTime;
     public String weeklyMaintenanceStartTime() {
-        if (weeklyMaintenanceStartTime == null) return null;
-        return weeklyMaintenanceStartTime.getValue("OpenZfsFileSystem.weeklyMaintenanceStartTime");
+        if (!unknown_weeklyMaintenanceStartTime) return value_weeklyMaintenanceStartTime;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystem.weeklyMaintenanceStartTime' is not present");
     }
 
 }

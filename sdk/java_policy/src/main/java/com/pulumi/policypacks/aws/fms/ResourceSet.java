@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fms;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.fms.outputs.ResourceSetResourceSet;
 import com.pulumi.policypacks.aws.fms.outputs.ResourceSetTimeouts;
@@ -20,29 +21,32 @@ public final class ResourceSet extends com.pulumi.resources.PolicyResourceOutput
      * ARN of the Resource Set.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ResourceSet.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ResourceSet.arn' is not present");
     }
 
     /**
      * Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ResourceSetResourceSet>> resourceSets;
-
+    @PolicyResourceProperty(name="resourceSets", flag="unknown_resourceSets")
+    private @Nullable List<ResourceSetResourceSet> value_resourceSets;
+    private boolean unknown_resourceSets;
     public @Nullable List<ResourceSetResourceSet> resourceSets() {
-        if (resourceSets == null) return null;
-        return resourceSets.getValue("ResourceSet.resourceSets");
+        if (!unknown_resourceSets) return value_resourceSets;
+        throw new UndeferrableValueException("Value 'ResourceSet.resourceSets' is not present");
     }
 
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ResourceSet.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ResourceSet.tags' is not present");
     }
 
     /**
@@ -51,18 +55,20 @@ public final class ResourceSet extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ResourceSet.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ResourceSet.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<ResourceSetTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable ResourceSetTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable ResourceSetTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ResourceSet.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ResourceSet.timeouts' is not present");
     }
 
 }

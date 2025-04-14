@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,29 +15,32 @@ public final class FieldLevelEncryptionConfigContentTypeProfileConfigContentType
      * he content type for a field-level encryption content type-profile mapping. Valid value is `application/x-www-form-urlencoded`.
      * 
      */
-    private UndeferrableValue<String> contentType;
-
+    @PolicyResourceProperty(name="contentType", flag="unknown_contentType")
+    private String value_contentType;
+    private boolean unknown_contentType;
     public String contentType() {
-        if (contentType == null) return null;
-        return contentType.getValue("FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs.contentType");
+        if (!unknown_contentType) return value_contentType;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs.contentType' is not present");
     }
 
     /**
      * The format for a field-level encryption content type-profile mapping. Valid value is `URLEncoded`.
      * 
      */
-    private UndeferrableValue<String> format;
-
+    @PolicyResourceProperty(name="format", flag="unknown_format")
+    private String value_format;
+    private boolean unknown_format;
     public String format() {
-        if (format == null) return null;
-        return format.getValue("FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs.format");
+        if (!unknown_format) return value_format;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs.format' is not present");
     }
 
-    private UndeferrableValue<String> profileId;
-
+    @PolicyResourceProperty(name="profileId", flag="unknown_profileId")
+    private String value_profileId;
+    private boolean unknown_profileId;
     public String profileId() {
-        if (profileId == null) return null;
-        return profileId.getValue("FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs.profileId");
+        if (!unknown_profileId) return value_profileId;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs.profileId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class ObjectLambdaAccessPointPolicy extends com.pulumi.resources.Po
      * The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("ObjectLambdaAccessPointPolicy.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointPolicy.accountId' is not present");
     }
 
     /**
      * Indicates whether this access point currently has a policy that allows public access.
      * 
      */
-    private UndeferrableValue<Boolean> hasPublicAccessPolicy;
-
+    @PolicyResourceProperty(name="hasPublicAccessPolicy", flag="unknown_hasPublicAccessPolicy")
+    private Boolean value_hasPublicAccessPolicy;
+    private boolean unknown_hasPublicAccessPolicy;
     public Boolean hasPublicAccessPolicy() {
-        if (hasPublicAccessPolicy == null) return null;
-        return hasPublicAccessPolicy.getValue("ObjectLambdaAccessPointPolicy.hasPublicAccessPolicy");
+        if (!unknown_hasPublicAccessPolicy) return value_hasPublicAccessPolicy;
+        throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointPolicy.hasPublicAccessPolicy' is not present");
     }
 
     /**
      * The name of the Object Lambda Access Point.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ObjectLambdaAccessPointPolicy.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointPolicy.name' is not present");
     }
 
     /**
      * The Object Lambda Access Point resource policy document.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("ObjectLambdaAccessPointPolicy.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointPolicy.policy' is not present");
     }
 
 }

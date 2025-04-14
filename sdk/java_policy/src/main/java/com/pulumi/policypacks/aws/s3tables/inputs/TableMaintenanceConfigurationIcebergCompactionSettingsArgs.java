@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3tables.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -14,11 +15,12 @@ public final class TableMaintenanceConfigurationIcebergCompactionSettingsArgs {
      * Must be between `64` and `512`.
      * 
      */
-    private UndeferrableValue<Integer> targetFileSizeMb;
-
+    @PolicyResourceProperty(name="targetFileSizeMb", flag="unknown_targetFileSizeMb")
+    private Integer value_targetFileSizeMb;
+    private boolean unknown_targetFileSizeMb;
     public Integer targetFileSizeMb() {
-        if (targetFileSizeMb == null) return null;
-        return targetFileSizeMb.getValue("TableMaintenanceConfigurationIcebergCompactionSettingsArgs.targetFileSizeMb");
+        if (!unknown_targetFileSizeMb) return value_targetFileSizeMb;
+        throw new UndeferrableValueException("Value 'TableMaintenanceConfigurationIcebergCompactionSettingsArgs.targetFileSizeMb' is not present");
     }
 
 }

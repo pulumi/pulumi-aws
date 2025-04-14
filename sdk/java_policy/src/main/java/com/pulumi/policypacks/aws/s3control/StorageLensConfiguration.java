@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3control.outputs.StorageLensConfigurationStorageLensConfiguration;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class StorageLensConfiguration extends com.pulumi.resources.PolicyR
      * The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("StorageLensConfiguration.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'StorageLensConfiguration.accountId' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("StorageLensConfiguration.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'StorageLensConfiguration.arn' is not present");
     }
 
     /**
      * The ID of the S3 Storage Lens configuration.
      * 
      */
-    private UndeferrableValue<String> configId;
-
+    @PolicyResourceProperty(name="configId", flag="unknown_configId")
+    private String value_configId;
+    private boolean unknown_configId;
     public String configId() {
-        if (configId == null) return null;
-        return configId.getValue("StorageLensConfiguration.configId");
+        if (!unknown_configId) return value_configId;
+        throw new UndeferrableValueException("Value 'StorageLensConfiguration.configId' is not present");
     }
 
     /**
      * The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
      * 
      */
-    private UndeferrableValue<StorageLensConfigurationStorageLensConfiguration> storageLensConfiguration;
-
+    @PolicyResourceProperty(name="storageLensConfiguration", flag="unknown_storageLensConfiguration")
+    private StorageLensConfigurationStorageLensConfiguration value_storageLensConfiguration;
+    private boolean unknown_storageLensConfiguration;
     public StorageLensConfigurationStorageLensConfiguration storageLensConfiguration() {
-        if (storageLensConfiguration == null) return null;
-        return storageLensConfiguration.getValue("StorageLensConfiguration.storageLensConfiguration");
+        if (!unknown_storageLensConfiguration) return value_storageLensConfiguration;
+        throw new UndeferrableValueException("Value 'StorageLensConfiguration.storageLensConfiguration' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("StorageLensConfiguration.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'StorageLensConfiguration.tags' is not present");
     }
 
     /**
@@ -77,11 +83,12 @@ public final class StorageLensConfiguration extends com.pulumi.resources.PolicyR
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("StorageLensConfiguration.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'StorageLensConfiguration.tagsAll' is not present");
     }
 
 }

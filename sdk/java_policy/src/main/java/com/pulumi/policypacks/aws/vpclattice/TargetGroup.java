@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.vpclattice.outputs.TargetGroupConfig;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class TargetGroup extends com.pulumi.resources.PolicyResourceOutput
      * ARN of the target group.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("TargetGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'TargetGroup.arn' is not present");
     }
 
     /**
      * The target group configuration.
      * 
      */
-    private @Nullable UndeferrableValue<TargetGroupConfig> config;
-
+    @PolicyResourceProperty(name="config", flag="unknown_config")
+    private @Nullable TargetGroupConfig value_config;
+    private boolean unknown_config;
     public @Nullable TargetGroupConfig config() {
-        if (config == null) return null;
-        return config.getValue("TargetGroup.config");
+        if (!unknown_config) return value_config;
+        throw new UndeferrableValueException("Value 'TargetGroup.config' is not present");
     }
 
     /**
      * The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TargetGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TargetGroup.name' is not present");
     }
 
     /**
      * Status of the target group.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("TargetGroup.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'TargetGroup.status' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TargetGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TargetGroup.tags' is not present");
     }
 
     /**
@@ -77,11 +83,12 @@ public final class TargetGroup extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("TargetGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'TargetGroup.tagsAll' is not present");
     }
 
     /**
@@ -90,11 +97,12 @@ public final class TargetGroup extends com.pulumi.resources.PolicyResourceOutput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("TargetGroup.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'TargetGroup.type' is not present");
     }
 
 }

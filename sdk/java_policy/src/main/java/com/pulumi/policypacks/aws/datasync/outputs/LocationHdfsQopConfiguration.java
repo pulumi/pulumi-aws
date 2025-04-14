@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class LocationHdfsQopConfiguration {
      * The data transfer protection setting configured on the HDFS cluster. This setting corresponds to your dfs.data.transfer.protection setting in the hdfs-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
      * 
      */
-    private @Nullable UndeferrableValue<String> dataTransferProtection;
-
+    @PolicyResourceProperty(name="dataTransferProtection", flag="unknown_dataTransferProtection")
+    private @Nullable String value_dataTransferProtection;
+    private boolean unknown_dataTransferProtection;
     public @Nullable String dataTransferProtection() {
-        if (dataTransferProtection == null) return null;
-        return dataTransferProtection.getValue("LocationHdfsQopConfiguration.dataTransferProtection");
+        if (!unknown_dataTransferProtection) return value_dataTransferProtection;
+        throw new UndeferrableValueException("Value 'LocationHdfsQopConfiguration.dataTransferProtection' is not present");
     }
 
     /**
      * The RPC protection setting configured on the HDFS cluster. This setting corresponds to your hadoop.rpc.protection setting in your core-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
      * 
      */
-    private @Nullable UndeferrableValue<String> rpcProtection;
-
+    @PolicyResourceProperty(name="rpcProtection", flag="unknown_rpcProtection")
+    private @Nullable String value_rpcProtection;
+    private boolean unknown_rpcProtection;
     public @Nullable String rpcProtection() {
-        if (rpcProtection == null) return null;
-        return rpcProtection.getValue("LocationHdfsQopConfiguration.rpcProtection");
+        if (!unknown_rpcProtection) return value_rpcProtection;
+        throw new UndeferrableValueException("Value 'LocationHdfsQopConfiguration.rpcProtection' is not present");
     }
 
 }

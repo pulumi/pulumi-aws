@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.quicksight.inputs.NamespaceTimeoutsArgs;
 import java.lang.String;
@@ -18,22 +19,24 @@ public final class NamespaceArgs extends com.pulumi.resources.PolicyResourceInpu
      * AWS account ID.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("NamespaceArgs.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'NamespaceArgs.awsAccountId' is not present");
     }
 
     /**
      * User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
      * 
      */
-    private UndeferrableValue<String> identityStore;
-
+    @PolicyResourceProperty(name="identityStore", flag="unknown_identityStore")
+    private String value_identityStore;
+    private boolean unknown_identityStore;
     public String identityStore() {
-        if (identityStore == null) return null;
-        return identityStore.getValue("NamespaceArgs.identityStore");
+        if (!unknown_identityStore) return value_identityStore;
+        throw new UndeferrableValueException("Value 'NamespaceArgs.identityStore' is not present");
     }
 
     /**
@@ -42,29 +45,32 @@ public final class NamespaceArgs extends com.pulumi.resources.PolicyResourceInpu
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private String value_namespace;
+    private boolean unknown_namespace;
     public String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("NamespaceArgs.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'NamespaceArgs.namespace' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("NamespaceArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'NamespaceArgs.tags' is not present");
     }
 
-    private UndeferrableValue<NamespaceTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private NamespaceTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public NamespaceTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("NamespaceArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'NamespaceArgs.timeouts' is not present");
     }
 
 }

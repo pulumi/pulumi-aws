@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rbin.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class RuleLockConfigurationUnlockDelayArgs {
      * The unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
      * 
      */
-    private UndeferrableValue<String> unlockDelayUnit;
-
+    @PolicyResourceProperty(name="unlockDelayUnit", flag="unknown_unlockDelayUnit")
+    private String value_unlockDelayUnit;
+    private boolean unknown_unlockDelayUnit;
     public String unlockDelayUnit() {
-        if (unlockDelayUnit == null) return null;
-        return unlockDelayUnit.getValue("RuleLockConfigurationUnlockDelayArgs.unlockDelayUnit");
+        if (!unknown_unlockDelayUnit) return value_unlockDelayUnit;
+        throw new UndeferrableValueException("Value 'RuleLockConfigurationUnlockDelayArgs.unlockDelayUnit' is not present");
     }
 
     /**
      * The unlock delay period, measured in the unit specified for UnlockDelayUnit.
      * 
      */
-    private UndeferrableValue<Integer> unlockDelayValue;
-
+    @PolicyResourceProperty(name="unlockDelayValue", flag="unknown_unlockDelayValue")
+    private Integer value_unlockDelayValue;
+    private boolean unknown_unlockDelayValue;
     public Integer unlockDelayValue() {
-        if (unlockDelayValue == null) return null;
-        return unlockDelayValue.getValue("RuleLockConfigurationUnlockDelayArgs.unlockDelayValue");
+        if (!unknown_unlockDelayValue) return value_unlockDelayValue;
+        throw new UndeferrableValueException("Value 'RuleLockConfigurationUnlockDelayArgs.unlockDelayValue' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,55 +15,60 @@ public final class DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs {
      * AWS secret store ARN for database credentials.
      * 
      */
-    private UndeferrableValue<String> awsSecretStoreArn;
-
+    @PolicyResourceProperty(name="awsSecretStoreArn", flag="unknown_awsSecretStoreArn")
+    private String value_awsSecretStoreArn;
+    private boolean unknown_awsSecretStoreArn;
     public String awsSecretStoreArn() {
-        if (awsSecretStoreArn == null) return null;
-        return awsSecretStoreArn.getValue("DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs.awsSecretStoreArn");
+        if (!unknown_awsSecretStoreArn) return value_awsSecretStoreArn;
+        throw new UndeferrableValueException("Value 'DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs.awsSecretStoreArn' is not present");
     }
 
     /**
      * Logical database name.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs.databaseName' is not present");
     }
 
     /**
      * Amazon RDS cluster identifier.
      * 
      */
-    private UndeferrableValue<String> dbClusterIdentifier;
-
+    @PolicyResourceProperty(name="dbClusterIdentifier", flag="unknown_dbClusterIdentifier")
+    private String value_dbClusterIdentifier;
+    private boolean unknown_dbClusterIdentifier;
     public String dbClusterIdentifier() {
-        if (dbClusterIdentifier == null) return null;
-        return dbClusterIdentifier.getValue("DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs.dbClusterIdentifier");
+        if (!unknown_dbClusterIdentifier) return value_dbClusterIdentifier;
+        throw new UndeferrableValueException("Value 'DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs.dbClusterIdentifier' is not present");
     }
 
     /**
      * AWS Region for RDS HTTP endpoint. Defaults to current region.
      * 
      */
-    private UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private String value_region;
+    private boolean unknown_region;
     public String region() {
-        if (region == null) return null;
-        return region.getValue("DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs.region' is not present");
     }
 
     /**
      * Logical schema name.
      * 
      */
-    private UndeferrableValue<String> schema;
-
+    @PolicyResourceProperty(name="schema", flag="unknown_schema")
+    private String value_schema;
+    private boolean unknown_schema;
     public String schema() {
-        if (schema == null) return null;
-        return schema.getValue("DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs.schema");
+        if (!unknown_schema) return value_schema;
+        throw new UndeferrableValueException("Value 'DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs.schema' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class BucketReplicationConfigurationRuleDestinationMetricsArgs {
      * Threshold within which objects are to be replicated. The only valid value is `15`.
      * 
      */
-    private UndeferrableValue<Integer> minutes;
-
+    @PolicyResourceProperty(name="minutes", flag="unknown_minutes")
+    private Integer value_minutes;
+    private boolean unknown_minutes;
     public Integer minutes() {
-        if (minutes == null) return null;
-        return minutes.getValue("BucketReplicationConfigurationRuleDestinationMetricsArgs.minutes");
+        if (!unknown_minutes) return value_minutes;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigurationRuleDestinationMetricsArgs.minutes' is not present");
     }
 
     /**
      * The status of replication metrics. Either `Enabled` or `Disabled`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("BucketReplicationConfigurationRuleDestinationMetricsArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigurationRuleDestinationMetricsArgs.status' is not present");
     }
 
 }

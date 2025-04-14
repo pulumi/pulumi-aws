@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appsync.inputs.DataSourceDynamodbConfigDeltaSyncConfigArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -16,55 +17,60 @@ public final class DataSourceDynamodbConfigArgs {
      * The DeltaSyncConfig for a versioned data source. See `delta_sync_config` Block for details.
      * 
      */
-    private UndeferrableValue<DataSourceDynamodbConfigDeltaSyncConfigArgs> deltaSyncConfig;
-
+    @PolicyResourceProperty(name="deltaSyncConfig", flag="unknown_deltaSyncConfig")
+    private DataSourceDynamodbConfigDeltaSyncConfigArgs value_deltaSyncConfig;
+    private boolean unknown_deltaSyncConfig;
     public DataSourceDynamodbConfigDeltaSyncConfigArgs deltaSyncConfig() {
-        if (deltaSyncConfig == null) return null;
-        return deltaSyncConfig.getValue("DataSourceDynamodbConfigArgs.deltaSyncConfig");
+        if (!unknown_deltaSyncConfig) return value_deltaSyncConfig;
+        throw new UndeferrableValueException("Value 'DataSourceDynamodbConfigArgs.deltaSyncConfig' is not present");
     }
 
     /**
      * AWS region of the DynamoDB table. Defaults to current region.
      * 
      */
-    private UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private String value_region;
+    private boolean unknown_region;
     public String region() {
-        if (region == null) return null;
-        return region.getValue("DataSourceDynamodbConfigArgs.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'DataSourceDynamodbConfigArgs.region' is not present");
     }
 
     /**
      * Name of the DynamoDB table.
      * 
      */
-    private UndeferrableValue<String> tableName;
-
+    @PolicyResourceProperty(name="tableName", flag="unknown_tableName")
+    private String value_tableName;
+    private boolean unknown_tableName;
     public String tableName() {
-        if (tableName == null) return null;
-        return tableName.getValue("DataSourceDynamodbConfigArgs.tableName");
+        if (!unknown_tableName) return value_tableName;
+        throw new UndeferrableValueException("Value 'DataSourceDynamodbConfigArgs.tableName' is not present");
     }
 
     /**
      * Set to `true` to use Amazon Cognito credentials with this data source.
      * 
      */
-    private UndeferrableValue<Boolean> useCallerCredentials;
-
+    @PolicyResourceProperty(name="useCallerCredentials", flag="unknown_useCallerCredentials")
+    private Boolean value_useCallerCredentials;
+    private boolean unknown_useCallerCredentials;
     public Boolean useCallerCredentials() {
-        if (useCallerCredentials == null) return null;
-        return useCallerCredentials.getValue("DataSourceDynamodbConfigArgs.useCallerCredentials");
+        if (!unknown_useCallerCredentials) return value_useCallerCredentials;
+        throw new UndeferrableValueException("Value 'DataSourceDynamodbConfigArgs.useCallerCredentials' is not present");
     }
 
     /**
      * Detects Conflict Detection and Resolution with this data source.
      * 
      */
-    private UndeferrableValue<Boolean> versioned;
-
+    @PolicyResourceProperty(name="versioned", flag="unknown_versioned")
+    private Boolean value_versioned;
+    private boolean unknown_versioned;
     public Boolean versioned() {
-        if (versioned == null) return null;
-        return versioned.getValue("DataSourceDynamodbConfigArgs.versioned");
+        if (!unknown_versioned) return value_versioned;
+        throw new UndeferrableValueException("Value 'DataSourceDynamodbConfigArgs.versioned' is not present");
     }
 
 }

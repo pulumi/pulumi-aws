@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudfront.inputs.ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs;
 import com.pulumi.policypacks.aws.cloudfront.inputs.ContinuousDeploymentPolicyTrafficConfigArgs;
@@ -18,33 +19,36 @@ public final class ContinuousDeploymentPolicyArgs extends com.pulumi.resources.P
      * Whether this continuous deployment policy is enabled.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("ContinuousDeploymentPolicyArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyArgs.enabled' is not present");
     }
 
     /**
      * CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
      * 
      */
-    private UndeferrableValue<ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs> stagingDistributionDnsNames;
-
+    @PolicyResourceProperty(name="stagingDistributionDnsNames", flag="unknown_stagingDistributionDnsNames")
+    private ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs value_stagingDistributionDnsNames;
+    private boolean unknown_stagingDistributionDnsNames;
     public ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs stagingDistributionDnsNames() {
-        if (stagingDistributionDnsNames == null) return null;
-        return stagingDistributionDnsNames.getValue("ContinuousDeploymentPolicyArgs.stagingDistributionDnsNames");
+        if (!unknown_stagingDistributionDnsNames) return value_stagingDistributionDnsNames;
+        throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyArgs.stagingDistributionDnsNames' is not present");
     }
 
     /**
      * Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
      * 
      */
-    private UndeferrableValue<ContinuousDeploymentPolicyTrafficConfigArgs> trafficConfig;
-
+    @PolicyResourceProperty(name="trafficConfig", flag="unknown_trafficConfig")
+    private ContinuousDeploymentPolicyTrafficConfigArgs value_trafficConfig;
+    private boolean unknown_trafficConfig;
     public ContinuousDeploymentPolicyTrafficConfigArgs trafficConfig() {
-        if (trafficConfig == null) return null;
-        return trafficConfig.getValue("ContinuousDeploymentPolicyArgs.trafficConfig");
+        if (!unknown_trafficConfig) return value_trafficConfig;
+        throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyArgs.trafficConfig' is not present");
     }
 
 }

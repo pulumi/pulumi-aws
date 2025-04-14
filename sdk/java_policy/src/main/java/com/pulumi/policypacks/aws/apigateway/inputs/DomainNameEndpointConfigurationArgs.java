@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class DomainNameEndpointConfigurationArgs {
      * A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
      * 
      */
-    private UndeferrableValue<String> types;
-
+    @PolicyResourceProperty(name="types", flag="unknown_types")
+    private String value_types;
+    private boolean unknown_types;
     public String types() {
-        if (types == null) return null;
-        return types.getValue("DomainNameEndpointConfigurationArgs.types");
+        if (!unknown_types) return value_types;
+        throw new UndeferrableValueException("Value 'DomainNameEndpointConfigurationArgs.types' is not present");
     }
 
 }

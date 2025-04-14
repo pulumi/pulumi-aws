@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptu
      * The frequency at which to capture frames for inclusion in the output.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> captureInterval;
-
+    @PolicyResourceProperty(name="captureInterval", flag="unknown_captureInterval")
+    private @Nullable Integer value_captureInterval;
+    private boolean unknown_captureInterval;
     public @Nullable Integer captureInterval() {
-        if (captureInterval == null) return null;
-        return captureInterval.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings.captureInterval");
+        if (!unknown_captureInterval) return value_captureInterval;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings.captureInterval' is not present");
     }
 
     /**
      * Unit for the frame capture interval.
      * 
      */
-    private @Nullable UndeferrableValue<String> captureIntervalUnits;
-
+    @PolicyResourceProperty(name="captureIntervalUnits", flag="unknown_captureIntervalUnits")
+    private @Nullable String value_captureIntervalUnits;
+    private boolean unknown_captureIntervalUnits;
     public @Nullable String captureIntervalUnits() {
-        if (captureIntervalUnits == null) return null;
-        return captureIntervalUnits.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings.captureIntervalUnits");
+        if (!unknown_captureIntervalUnits) return value_captureIntervalUnits;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings.captureIntervalUnits' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.apprunner.outputs.ObservabilityConfigurationTraceConfiguration;
 import java.lang.Boolean;
@@ -20,66 +21,72 @@ public final class ObservabilityConfiguration extends com.pulumi.resources.Polic
      * ARN of this observability configuration.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ObservabilityConfiguration.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ObservabilityConfiguration.arn' is not present");
     }
 
     /**
      * Whether the observability configuration has the highest `observability_configuration_revision` among all configurations that share the same `observability_configuration_name`.
      * 
      */
-    private UndeferrableValue<Boolean> latest;
-
+    @PolicyResourceProperty(name="latest", flag="unknown_latest")
+    private Boolean value_latest;
+    private boolean unknown_latest;
     public Boolean latest() {
-        if (latest == null) return null;
-        return latest.getValue("ObservabilityConfiguration.latest");
+        if (!unknown_latest) return value_latest;
+        throw new UndeferrableValueException("Value 'ObservabilityConfiguration.latest' is not present");
     }
 
     /**
      * Name of the observability configuration.
      * 
      */
-    private UndeferrableValue<String> observabilityConfigurationName;
-
+    @PolicyResourceProperty(name="observabilityConfigurationName", flag="unknown_observabilityConfigurationName")
+    private String value_observabilityConfigurationName;
+    private boolean unknown_observabilityConfigurationName;
     public String observabilityConfigurationName() {
-        if (observabilityConfigurationName == null) return null;
-        return observabilityConfigurationName.getValue("ObservabilityConfiguration.observabilityConfigurationName");
+        if (!unknown_observabilityConfigurationName) return value_observabilityConfigurationName;
+        throw new UndeferrableValueException("Value 'ObservabilityConfiguration.observabilityConfigurationName' is not present");
     }
 
     /**
      * The revision of this observability configuration.
      * 
      */
-    private UndeferrableValue<Integer> observabilityConfigurationRevision;
-
+    @PolicyResourceProperty(name="observabilityConfigurationRevision", flag="unknown_observabilityConfigurationRevision")
+    private Integer value_observabilityConfigurationRevision;
+    private boolean unknown_observabilityConfigurationRevision;
     public Integer observabilityConfigurationRevision() {
-        if (observabilityConfigurationRevision == null) return null;
-        return observabilityConfigurationRevision.getValue("ObservabilityConfiguration.observabilityConfigurationRevision");
+        if (!unknown_observabilityConfigurationRevision) return value_observabilityConfigurationRevision;
+        throw new UndeferrableValueException("Value 'ObservabilityConfiguration.observabilityConfigurationRevision' is not present");
     }
 
     /**
      * Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("ObservabilityConfiguration.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'ObservabilityConfiguration.status' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ObservabilityConfiguration.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ObservabilityConfiguration.tags' is not present");
     }
 
     /**
@@ -90,22 +97,24 @@ public final class ObservabilityConfiguration extends com.pulumi.resources.Polic
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ObservabilityConfiguration.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ObservabilityConfiguration.tagsAll' is not present");
     }
 
     /**
      * Configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ObservabilityConfigurationTraceConfiguration> traceConfiguration;
-
+    @PolicyResourceProperty(name="traceConfiguration", flag="unknown_traceConfiguration")
+    private @Nullable ObservabilityConfigurationTraceConfiguration value_traceConfiguration;
+    private boolean unknown_traceConfiguration;
     public @Nullable ObservabilityConfigurationTraceConfiguration traceConfiguration() {
-        if (traceConfiguration == null) return null;
-        return traceConfiguration.getValue("ObservabilityConfiguration.traceConfiguration");
+        if (!unknown_traceConfiguration) return value_traceConfiguration;
+        throw new UndeferrableValueException("Value 'ObservabilityConfiguration.traceConfiguration' is not present");
     }
 
 }

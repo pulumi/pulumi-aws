@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.RuleGroupRuleGroupRulesSourceRulesSourceList;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.RuleGroupRuleGroupRulesSourceStatefulRule;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions;
@@ -18,44 +19,48 @@ public final class RuleGroupRuleGroupRulesSource {
      * A configuration block containing **stateful** inspection criteria for a domain list rule group. See Rules Source List below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleGroupRulesSourceRulesSourceList> rulesSourceList;
-
+    @PolicyResourceProperty(name="rulesSourceList", flag="unknown_rulesSourceList")
+    private @Nullable RuleGroupRuleGroupRulesSourceRulesSourceList value_rulesSourceList;
+    private boolean unknown_rulesSourceList;
     public @Nullable RuleGroupRuleGroupRulesSourceRulesSourceList rulesSourceList() {
-        if (rulesSourceList == null) return null;
-        return rulesSourceList.getValue("RuleGroupRuleGroupRulesSource.rulesSourceList");
+        if (!unknown_rulesSourceList) return value_rulesSourceList;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSource.rulesSourceList' is not present");
     }
 
     /**
      * The fully qualified name of a file in an S3 bucket that contains Suricata compatible intrusion preventions system (IPS) rules or the Suricata rules as a string. These rules contain **stateful** inspection criteria and the action to take for traffic that matches the criteria.
      * 
      */
-    private @Nullable UndeferrableValue<String> rulesString;
-
+    @PolicyResourceProperty(name="rulesString", flag="unknown_rulesString")
+    private @Nullable String value_rulesString;
+    private boolean unknown_rulesString;
     public @Nullable String rulesString() {
-        if (rulesString == null) return null;
-        return rulesString.getValue("RuleGroupRuleGroupRulesSource.rulesString");
+        if (!unknown_rulesString) return value_rulesString;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSource.rulesString' is not present");
     }
 
     /**
      * Set of configuration blocks containing **stateful** inspection criteria for 5-tuple rules to be used together in a rule group. See Stateful Rule below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<RuleGroupRuleGroupRulesSourceStatefulRule>> statefulRules;
-
+    @PolicyResourceProperty(name="statefulRules", flag="unknown_statefulRules")
+    private @Nullable List<RuleGroupRuleGroupRulesSourceStatefulRule> value_statefulRules;
+    private boolean unknown_statefulRules;
     public @Nullable List<RuleGroupRuleGroupRulesSourceStatefulRule> statefulRules() {
-        if (statefulRules == null) return null;
-        return statefulRules.getValue("RuleGroupRuleGroupRulesSource.statefulRules");
+        if (!unknown_statefulRules) return value_statefulRules;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSource.statefulRules' is not present");
     }
 
     /**
      * A configuration block containing **stateless** inspection criteria for a stateless rule group. See Stateless Rules and Custom Actions below for details.
      * 
      */
-    private @Nullable UndeferrableValue<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions> statelessRulesAndCustomActions;
-
+    @PolicyResourceProperty(name="statelessRulesAndCustomActions", flag="unknown_statelessRulesAndCustomActions")
+    private @Nullable RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions value_statelessRulesAndCustomActions;
+    private boolean unknown_statelessRulesAndCustomActions;
     public @Nullable RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions statelessRulesAndCustomActions() {
-        if (statelessRulesAndCustomActions == null) return null;
-        return statelessRulesAndCustomActions.getValue("RuleGroupRuleGroupRulesSource.statelessRulesAndCustomActions");
+        if (!unknown_statelessRulesAndCustomActions) return value_statelessRulesAndCustomActions;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSource.statelessRulesAndCustomActions' is not present");
     }
 
 }

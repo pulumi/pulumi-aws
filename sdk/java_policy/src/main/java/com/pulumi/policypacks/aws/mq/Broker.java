@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mq;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.mq.outputs.BrokerConfiguration;
 import com.pulumi.policypacks.aws.mq.outputs.BrokerEncryptionOptions;
@@ -26,253 +27,276 @@ public final class Broker extends com.pulumi.resources.PolicyResourceOutput {
      * Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> applyImmediately;
-
+    @PolicyResourceProperty(name="applyImmediately", flag="unknown_applyImmediately")
+    private @Nullable Boolean value_applyImmediately;
+    private boolean unknown_applyImmediately;
     public @Nullable Boolean applyImmediately() {
-        if (applyImmediately == null) return null;
-        return applyImmediately.getValue("Broker.applyImmediately");
+        if (!unknown_applyImmediately) return value_applyImmediately;
+        throw new UndeferrableValueException("Value 'Broker.applyImmediately' is not present");
     }
 
     /**
      * ARN of the broker.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Broker.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Broker.arn' is not present");
     }
 
     /**
      * Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
      * 
      */
-    private UndeferrableValue<String> authenticationStrategy;
-
+    @PolicyResourceProperty(name="authenticationStrategy", flag="unknown_authenticationStrategy")
+    private String value_authenticationStrategy;
+    private boolean unknown_authenticationStrategy;
     public String authenticationStrategy() {
-        if (authenticationStrategy == null) return null;
-        return authenticationStrategy.getValue("Broker.authenticationStrategy");
+        if (!unknown_authenticationStrategy) return value_authenticationStrategy;
+        throw new UndeferrableValueException("Value 'Broker.authenticationStrategy' is not present");
     }
 
     /**
      * Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> autoMinorVersionUpgrade;
-
+    @PolicyResourceProperty(name="autoMinorVersionUpgrade", flag="unknown_autoMinorVersionUpgrade")
+    private @Nullable Boolean value_autoMinorVersionUpgrade;
+    private boolean unknown_autoMinorVersionUpgrade;
     public @Nullable Boolean autoMinorVersionUpgrade() {
-        if (autoMinorVersionUpgrade == null) return null;
-        return autoMinorVersionUpgrade.getValue("Broker.autoMinorVersionUpgrade");
+        if (!unknown_autoMinorVersionUpgrade) return value_autoMinorVersionUpgrade;
+        throw new UndeferrableValueException("Value 'Broker.autoMinorVersionUpgrade' is not present");
     }
 
     /**
      * Name of the broker.
      * 
      */
-    private UndeferrableValue<String> brokerName;
-
+    @PolicyResourceProperty(name="brokerName", flag="unknown_brokerName")
+    private String value_brokerName;
+    private boolean unknown_brokerName;
     public String brokerName() {
-        if (brokerName == null) return null;
-        return brokerName.getValue("Broker.brokerName");
+        if (!unknown_brokerName) return value_brokerName;
+        throw new UndeferrableValueException("Value 'Broker.brokerName' is not present");
     }
 
     /**
      * Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
      * 
      */
-    private UndeferrableValue<BrokerConfiguration> configuration;
-
+    @PolicyResourceProperty(name="configuration", flag="unknown_configuration")
+    private BrokerConfiguration value_configuration;
+    private boolean unknown_configuration;
     public BrokerConfiguration configuration() {
-        if (configuration == null) return null;
-        return configuration.getValue("Broker.configuration");
+        if (!unknown_configuration) return value_configuration;
+        throw new UndeferrableValueException("Value 'Broker.configuration' is not present");
     }
 
     /**
      * Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
      * 
      */
-    private UndeferrableValue<String> dataReplicationMode;
-
+    @PolicyResourceProperty(name="dataReplicationMode", flag="unknown_dataReplicationMode")
+    private String value_dataReplicationMode;
+    private boolean unknown_dataReplicationMode;
     public String dataReplicationMode() {
-        if (dataReplicationMode == null) return null;
-        return dataReplicationMode.getValue("Broker.dataReplicationMode");
+        if (!unknown_dataReplicationMode) return value_dataReplicationMode;
+        throw new UndeferrableValueException("Value 'Broker.dataReplicationMode' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `data_replication_mode` is `CRDR`.
      * 
      */
-    private @Nullable UndeferrableValue<String> dataReplicationPrimaryBrokerArn;
-
+    @PolicyResourceProperty(name="dataReplicationPrimaryBrokerArn", flag="unknown_dataReplicationPrimaryBrokerArn")
+    private @Nullable String value_dataReplicationPrimaryBrokerArn;
+    private boolean unknown_dataReplicationPrimaryBrokerArn;
     public @Nullable String dataReplicationPrimaryBrokerArn() {
-        if (dataReplicationPrimaryBrokerArn == null) return null;
-        return dataReplicationPrimaryBrokerArn.getValue("Broker.dataReplicationPrimaryBrokerArn");
+        if (!unknown_dataReplicationPrimaryBrokerArn) return value_dataReplicationPrimaryBrokerArn;
+        throw new UndeferrableValueException("Value 'Broker.dataReplicationPrimaryBrokerArn' is not present");
     }
 
     /**
      * Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> deploymentMode;
-
+    @PolicyResourceProperty(name="deploymentMode", flag="unknown_deploymentMode")
+    private @Nullable String value_deploymentMode;
+    private boolean unknown_deploymentMode;
     public @Nullable String deploymentMode() {
-        if (deploymentMode == null) return null;
-        return deploymentMode.getValue("Broker.deploymentMode");
+        if (!unknown_deploymentMode) return value_deploymentMode;
+        throw new UndeferrableValueException("Value 'Broker.deploymentMode' is not present");
     }
 
     /**
      * Configuration block containing encryption options. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<BrokerEncryptionOptions> encryptionOptions;
-
+    @PolicyResourceProperty(name="encryptionOptions", flag="unknown_encryptionOptions")
+    private @Nullable BrokerEncryptionOptions value_encryptionOptions;
+    private boolean unknown_encryptionOptions;
     public @Nullable BrokerEncryptionOptions encryptionOptions() {
-        if (encryptionOptions == null) return null;
-        return encryptionOptions.getValue("Broker.encryptionOptions");
+        if (!unknown_encryptionOptions) return value_encryptionOptions;
+        throw new UndeferrableValueException("Value 'Broker.encryptionOptions' is not present");
     }
 
     /**
      * Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
      * 
      */
-    private UndeferrableValue<String> engineType;
-
+    @PolicyResourceProperty(name="engineType", flag="unknown_engineType")
+    private String value_engineType;
+    private boolean unknown_engineType;
     public String engineType() {
-        if (engineType == null) return null;
-        return engineType.getValue("Broker.engineType");
+        if (!unknown_engineType) return value_engineType;
+        throw new UndeferrableValueException("Value 'Broker.engineType' is not present");
     }
 
     /**
      * Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
      * 
      */
-    private UndeferrableValue<String> engineVersion;
-
+    @PolicyResourceProperty(name="engineVersion", flag="unknown_engineVersion")
+    private String value_engineVersion;
+    private boolean unknown_engineVersion;
     public String engineVersion() {
-        if (engineVersion == null) return null;
-        return engineVersion.getValue("Broker.engineVersion");
+        if (!unknown_engineVersion) return value_engineVersion;
+        throw new UndeferrableValueException("Value 'Broker.engineVersion' is not present");
     }
 
     /**
      * Broker&#39;s instance type. For example, `mq.t3.micro`, `mq.m5.large`.
      * 
      */
-    private UndeferrableValue<String> hostInstanceType;
-
+    @PolicyResourceProperty(name="hostInstanceType", flag="unknown_hostInstanceType")
+    private String value_hostInstanceType;
+    private boolean unknown_hostInstanceType;
     public String hostInstanceType() {
-        if (hostInstanceType == null) return null;
-        return hostInstanceType.getValue("Broker.hostInstanceType");
+        if (!unknown_hostInstanceType) return value_hostInstanceType;
+        throw new UndeferrableValueException("Value 'Broker.hostInstanceType' is not present");
     }
 
     /**
      * List of information about allocated brokers (both active &amp; standby).
      * 
      */
-    private UndeferrableValue<List<BrokerInstance>> instances;
-
+    @PolicyResourceProperty(name="instances", flag="unknown_instances")
+    private List<BrokerInstance> value_instances;
+    private boolean unknown_instances;
     public List<BrokerInstance> instances() {
-        if (instances == null) return null;
-        return instances.getValue("Broker.instances");
+        if (!unknown_instances) return value_instances;
+        throw new UndeferrableValueException("Value 'Broker.instances' is not present");
     }
 
     /**
      * Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engine_type` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
      * 
      */
-    private @Nullable UndeferrableValue<BrokerLdapServerMetadata> ldapServerMetadata;
-
+    @PolicyResourceProperty(name="ldapServerMetadata", flag="unknown_ldapServerMetadata")
+    private @Nullable BrokerLdapServerMetadata value_ldapServerMetadata;
+    private boolean unknown_ldapServerMetadata;
     public @Nullable BrokerLdapServerMetadata ldapServerMetadata() {
-        if (ldapServerMetadata == null) return null;
-        return ldapServerMetadata.getValue("Broker.ldapServerMetadata");
+        if (!unknown_ldapServerMetadata) return value_ldapServerMetadata;
+        throw new UndeferrableValueException("Value 'Broker.ldapServerMetadata' is not present");
     }
 
     /**
      * Configuration block for the logging configuration of the broker. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<BrokerLogs> logs;
-
+    @PolicyResourceProperty(name="logs", flag="unknown_logs")
+    private @Nullable BrokerLogs value_logs;
+    private boolean unknown_logs;
     public @Nullable BrokerLogs logs() {
-        if (logs == null) return null;
-        return logs.getValue("Broker.logs");
+        if (!unknown_logs) return value_logs;
+        throw new UndeferrableValueException("Value 'Broker.logs' is not present");
     }
 
     /**
      * Configuration block for the maintenance window start time. Detailed below.
      * 
      */
-    private UndeferrableValue<BrokerMaintenanceWindowStartTime> maintenanceWindowStartTime;
-
+    @PolicyResourceProperty(name="maintenanceWindowStartTime", flag="unknown_maintenanceWindowStartTime")
+    private BrokerMaintenanceWindowStartTime value_maintenanceWindowStartTime;
+    private boolean unknown_maintenanceWindowStartTime;
     public BrokerMaintenanceWindowStartTime maintenanceWindowStartTime() {
-        if (maintenanceWindowStartTime == null) return null;
-        return maintenanceWindowStartTime.getValue("Broker.maintenanceWindowStartTime");
+        if (!unknown_maintenanceWindowStartTime) return value_maintenanceWindowStartTime;
+        throw new UndeferrableValueException("Value 'Broker.maintenanceWindowStartTime' is not present");
     }
 
     /**
      * (Optional) The data replication mode that will be applied after reboot.
      * 
      */
-    private UndeferrableValue<String> pendingDataReplicationMode;
-
+    @PolicyResourceProperty(name="pendingDataReplicationMode", flag="unknown_pendingDataReplicationMode")
+    private String value_pendingDataReplicationMode;
+    private boolean unknown_pendingDataReplicationMode;
     public String pendingDataReplicationMode() {
-        if (pendingDataReplicationMode == null) return null;
-        return pendingDataReplicationMode.getValue("Broker.pendingDataReplicationMode");
+        if (!unknown_pendingDataReplicationMode) return value_pendingDataReplicationMode;
+        throw new UndeferrableValueException("Value 'Broker.pendingDataReplicationMode' is not present");
     }
 
     /**
      * Whether to enable connections from applications outside of the VPC that hosts the broker&#39;s subnets.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> publiclyAccessible;
-
+    @PolicyResourceProperty(name="publiclyAccessible", flag="unknown_publiclyAccessible")
+    private @Nullable Boolean value_publiclyAccessible;
+    private boolean unknown_publiclyAccessible;
     public @Nullable Boolean publiclyAccessible() {
-        if (publiclyAccessible == null) return null;
-        return publiclyAccessible.getValue("Broker.publiclyAccessible");
+        if (!unknown_publiclyAccessible) return value_publiclyAccessible;
+        throw new UndeferrableValueException("Value 'Broker.publiclyAccessible' is not present");
     }
 
     /**
      * List of security group IDs assigned to the broker.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> securityGroups;
-
+    @PolicyResourceProperty(name="securityGroups", flag="unknown_securityGroups")
+    private @Nullable List<String> value_securityGroups;
+    private boolean unknown_securityGroups;
     public @Nullable List<String> securityGroups() {
-        if (securityGroups == null) return null;
-        return securityGroups.getValue("Broker.securityGroups");
+        if (!unknown_securityGroups) return value_securityGroups;
+        throw new UndeferrableValueException("Value 'Broker.securityGroups' is not present");
     }
 
     /**
      * Storage type of the broker. For `engine_type` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
      * 
      */
-    private UndeferrableValue<String> storageType;
-
+    @PolicyResourceProperty(name="storageType", flag="unknown_storageType")
+    private String value_storageType;
+    private boolean unknown_storageType;
     public String storageType() {
-        if (storageType == null) return null;
-        return storageType.getValue("Broker.storageType");
+        if (!unknown_storageType) return value_storageType;
+        throw new UndeferrableValueException("Value 'Broker.storageType' is not present");
     }
 
     /**
      * List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("Broker.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'Broker.subnetIds' is not present");
     }
 
     /**
      * Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Broker.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Broker.tags' is not present");
     }
 
     /**
@@ -283,11 +307,12 @@ public final class Broker extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Broker.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Broker.tagsAll' is not present");
     }
 
     /**
@@ -296,11 +321,12 @@ public final class Broker extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<List<BrokerUser>> users;
-
+    @PolicyResourceProperty(name="users", flag="unknown_users")
+    private List<BrokerUser> value_users;
+    private boolean unknown_users;
     public List<BrokerUser> users() {
-        if (users == null) return null;
-        return users.getValue("Broker.users");
+        if (!unknown_users) return value_users;
+        throw new UndeferrableValueException("Value 'Broker.users' is not present");
     }
 
 }

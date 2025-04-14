@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class OntapStorageVirtualMachineEndpointNf {
      * The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
      * 
      */
-    private @Nullable UndeferrableValue<String> dnsName;
-
+    @PolicyResourceProperty(name="dnsName", flag="unknown_dnsName")
+    private @Nullable String value_dnsName;
+    private boolean unknown_dnsName;
     public @Nullable String dnsName() {
-        if (dnsName == null) return null;
-        return dnsName.getValue("OntapStorageVirtualMachineEndpointNf.dnsName");
+        if (!unknown_dnsName) return value_dnsName;
+        throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineEndpointNf.dnsName' is not present");
     }
 
     /**
      * IP addresses of the storage virtual machine endpoint.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> ipAddresses;
-
+    @PolicyResourceProperty(name="ipAddresses", flag="unknown_ipAddresses")
+    private @Nullable List<String> value_ipAddresses;
+    private boolean unknown_ipAddresses;
     public @Nullable List<String> ipAddresses() {
-        if (ipAddresses == null) return null;
-        return ipAddresses.getValue("OntapStorageVirtualMachineEndpointNf.ipAddresses");
+        if (!unknown_ipAddresses) return value_ipAddresses;
+        throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineEndpointNf.ipAddresses' is not present");
     }
 
 }

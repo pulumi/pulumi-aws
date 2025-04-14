@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class BucketRequestPaymentConfigurationV2 extends com.pulumi.resour
      * Name of the bucket.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("BucketRequestPaymentConfigurationV2.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'BucketRequestPaymentConfigurationV2.bucket' is not present");
     }
 
     /**
      * Account ID of the expected bucket owner.
      * 
      */
-    private @Nullable UndeferrableValue<String> expectedBucketOwner;
-
+    @PolicyResourceProperty(name="expectedBucketOwner", flag="unknown_expectedBucketOwner")
+    private @Nullable String value_expectedBucketOwner;
+    private boolean unknown_expectedBucketOwner;
     public @Nullable String expectedBucketOwner() {
-        if (expectedBucketOwner == null) return null;
-        return expectedBucketOwner.getValue("BucketRequestPaymentConfigurationV2.expectedBucketOwner");
+        if (!unknown_expectedBucketOwner) return value_expectedBucketOwner;
+        throw new UndeferrableValueException("Value 'BucketRequestPaymentConfigurationV2.expectedBucketOwner' is not present");
     }
 
     /**
      * Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
      * 
      */
-    private UndeferrableValue<String> payer;
-
+    @PolicyResourceProperty(name="payer", flag="unknown_payer")
+    private String value_payer;
+    private boolean unknown_payer;
     public String payer() {
-        if (payer == null) return null;
-        return payer.getValue("BucketRequestPaymentConfigurationV2.payer");
+        if (!unknown_payer) return value_payer;
+        throw new UndeferrableValueException("Value 'BucketRequestPaymentConfigurationV2.payer' is not present");
     }
 
 }

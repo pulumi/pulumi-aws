@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.scheduler.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ScheduleTargetDeadLetterConfig {
      * ARN of the SQS queue specified as the destination for the dead-letter queue.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ScheduleTargetDeadLetterConfig.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ScheduleTargetDeadLetterConfig.arn' is not present");
     }
 
 }

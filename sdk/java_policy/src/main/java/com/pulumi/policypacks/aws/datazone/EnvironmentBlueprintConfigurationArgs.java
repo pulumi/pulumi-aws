@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,11 +19,12 @@ public final class EnvironmentBlueprintConfigurationArgs extends com.pulumi.reso
      * ID of the Domain.
      * 
      */
-    private UndeferrableValue<String> domainId;
-
+    @PolicyResourceProperty(name="domainId", flag="unknown_domainId")
+    private String value_domainId;
+    private boolean unknown_domainId;
     public String domainId() {
-        if (domainId == null) return null;
-        return domainId.getValue("EnvironmentBlueprintConfigurationArgs.domainId");
+        if (!unknown_domainId) return value_domainId;
+        throw new UndeferrableValueException("Value 'EnvironmentBlueprintConfigurationArgs.domainId' is not present");
     }
 
     /**
@@ -31,55 +33,60 @@ public final class EnvironmentBlueprintConfigurationArgs extends com.pulumi.reso
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<List<String>> enabledRegions;
-
+    @PolicyResourceProperty(name="enabledRegions", flag="unknown_enabledRegions")
+    private List<String> value_enabledRegions;
+    private boolean unknown_enabledRegions;
     public List<String> enabledRegions() {
-        if (enabledRegions == null) return null;
-        return enabledRegions.getValue("EnvironmentBlueprintConfigurationArgs.enabledRegions");
+        if (!unknown_enabledRegions) return value_enabledRegions;
+        throw new UndeferrableValueException("Value 'EnvironmentBlueprintConfigurationArgs.enabledRegions' is not present");
     }
 
     /**
      * ID of the Environment Blueprint
      * 
      */
-    private UndeferrableValue<String> environmentBlueprintId;
-
+    @PolicyResourceProperty(name="environmentBlueprintId", flag="unknown_environmentBlueprintId")
+    private String value_environmentBlueprintId;
+    private boolean unknown_environmentBlueprintId;
     public String environmentBlueprintId() {
-        if (environmentBlueprintId == null) return null;
-        return environmentBlueprintId.getValue("EnvironmentBlueprintConfigurationArgs.environmentBlueprintId");
+        if (!unknown_environmentBlueprintId) return value_environmentBlueprintId;
+        throw new UndeferrableValueException("Value 'EnvironmentBlueprintConfigurationArgs.environmentBlueprintId' is not present");
     }
 
     /**
      * ARN of the manage access role with which this blueprint is created.
      * 
      */
-    private UndeferrableValue<String> manageAccessRoleArn;
-
+    @PolicyResourceProperty(name="manageAccessRoleArn", flag="unknown_manageAccessRoleArn")
+    private String value_manageAccessRoleArn;
+    private boolean unknown_manageAccessRoleArn;
     public String manageAccessRoleArn() {
-        if (manageAccessRoleArn == null) return null;
-        return manageAccessRoleArn.getValue("EnvironmentBlueprintConfigurationArgs.manageAccessRoleArn");
+        if (!unknown_manageAccessRoleArn) return value_manageAccessRoleArn;
+        throw new UndeferrableValueException("Value 'EnvironmentBlueprintConfigurationArgs.manageAccessRoleArn' is not present");
     }
 
     /**
      * ARN of the provisioning role with which this blueprint is created.
      * 
      */
-    private UndeferrableValue<String> provisioningRoleArn;
-
+    @PolicyResourceProperty(name="provisioningRoleArn", flag="unknown_provisioningRoleArn")
+    private String value_provisioningRoleArn;
+    private boolean unknown_provisioningRoleArn;
     public String provisioningRoleArn() {
-        if (provisioningRoleArn == null) return null;
-        return provisioningRoleArn.getValue("EnvironmentBlueprintConfigurationArgs.provisioningRoleArn");
+        if (!unknown_provisioningRoleArn) return value_provisioningRoleArn;
+        throw new UndeferrableValueException("Value 'EnvironmentBlueprintConfigurationArgs.provisioningRoleArn' is not present");
     }
 
     /**
      * Parameters for each region in which the blueprint is enabled
      * 
      */
-    private UndeferrableValue<Map<String,Map<String,String>>> regionalParameters;
-
+    @PolicyResourceProperty(name="regionalParameters", flag="unknown_regionalParameters")
+    private Map<String,Map<String,String>> value_regionalParameters;
+    private boolean unknown_regionalParameters;
     public Map<String,Map<String,String>> regionalParameters() {
-        if (regionalParameters == null) return null;
-        return regionalParameters.getValue("EnvironmentBlueprintConfigurationArgs.regionalParameters");
+        if (!unknown_regionalParameters) return value_regionalParameters;
+        throw new UndeferrableValueException("Value 'EnvironmentBlueprintConfigurationArgs.regionalParameters' is not present");
     }
 
 }

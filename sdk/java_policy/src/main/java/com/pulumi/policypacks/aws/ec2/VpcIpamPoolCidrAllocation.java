@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,95 +19,104 @@ public final class VpcIpamPoolCidrAllocation extends com.pulumi.resources.Policy
      * The CIDR you want to assign to the pool.
      * 
      */
-    private UndeferrableValue<String> cidr;
-
+    @PolicyResourceProperty(name="cidr", flag="unknown_cidr")
+    private String value_cidr;
+    private boolean unknown_cidr;
     public String cidr() {
-        if (cidr == null) return null;
-        return cidr.getValue("VpcIpamPoolCidrAllocation.cidr");
+        if (!unknown_cidr) return value_cidr;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolCidrAllocation.cidr' is not present");
     }
 
     /**
      * The description for the allocation.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("VpcIpamPoolCidrAllocation.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolCidrAllocation.description' is not present");
     }
 
     /**
      * Exclude a particular CIDR range from being returned by the pool.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> disallowedCidrs;
-
+    @PolicyResourceProperty(name="disallowedCidrs", flag="unknown_disallowedCidrs")
+    private @Nullable List<String> value_disallowedCidrs;
+    private boolean unknown_disallowedCidrs;
     public @Nullable List<String> disallowedCidrs() {
-        if (disallowedCidrs == null) return null;
-        return disallowedCidrs.getValue("VpcIpamPoolCidrAllocation.disallowedCidrs");
+        if (!unknown_disallowedCidrs) return value_disallowedCidrs;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolCidrAllocation.disallowedCidrs' is not present");
     }
 
-    private UndeferrableValue<String> ipamPoolAllocationId;
-
+    @PolicyResourceProperty(name="ipamPoolAllocationId", flag="unknown_ipamPoolAllocationId")
+    private String value_ipamPoolAllocationId;
+    private boolean unknown_ipamPoolAllocationId;
     public String ipamPoolAllocationId() {
-        if (ipamPoolAllocationId == null) return null;
-        return ipamPoolAllocationId.getValue("VpcIpamPoolCidrAllocation.ipamPoolAllocationId");
+        if (!unknown_ipamPoolAllocationId) return value_ipamPoolAllocationId;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolCidrAllocation.ipamPoolAllocationId' is not present");
     }
 
     /**
      * The ID of the pool to which you want to assign a CIDR.
      * 
      */
-    private UndeferrableValue<String> ipamPoolId;
-
+    @PolicyResourceProperty(name="ipamPoolId", flag="unknown_ipamPoolId")
+    private String value_ipamPoolId;
+    private boolean unknown_ipamPoolId;
     public String ipamPoolId() {
-        if (ipamPoolId == null) return null;
-        return ipamPoolId.getValue("VpcIpamPoolCidrAllocation.ipamPoolId");
+        if (!unknown_ipamPoolId) return value_ipamPoolId;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolCidrAllocation.ipamPoolId' is not present");
     }
 
     /**
      * The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
      * 
      */
-    private UndeferrableValue<Integer> netmaskLength;
-
+    @PolicyResourceProperty(name="netmaskLength", flag="unknown_netmaskLength")
+    private Integer value_netmaskLength;
+    private boolean unknown_netmaskLength;
     public Integer netmaskLength() {
-        if (netmaskLength == null) return null;
-        return netmaskLength.getValue("VpcIpamPoolCidrAllocation.netmaskLength");
+        if (!unknown_netmaskLength) return value_netmaskLength;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolCidrAllocation.netmaskLength' is not present");
     }
 
     /**
      * The ID of the resource.
      * 
      */
-    private UndeferrableValue<String> resourceId;
-
+    @PolicyResourceProperty(name="resourceId", flag="unknown_resourceId")
+    private String value_resourceId;
+    private boolean unknown_resourceId;
     public String resourceId() {
-        if (resourceId == null) return null;
-        return resourceId.getValue("VpcIpamPoolCidrAllocation.resourceId");
+        if (!unknown_resourceId) return value_resourceId;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolCidrAllocation.resourceId' is not present");
     }
 
     /**
      * The owner of the resource.
      * 
      */
-    private UndeferrableValue<String> resourceOwner;
-
+    @PolicyResourceProperty(name="resourceOwner", flag="unknown_resourceOwner")
+    private String value_resourceOwner;
+    private boolean unknown_resourceOwner;
     public String resourceOwner() {
-        if (resourceOwner == null) return null;
-        return resourceOwner.getValue("VpcIpamPoolCidrAllocation.resourceOwner");
+        if (!unknown_resourceOwner) return value_resourceOwner;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolCidrAllocation.resourceOwner' is not present");
     }
 
     /**
      * The type of the resource.
      * 
      */
-    private UndeferrableValue<String> resourceType;
-
+    @PolicyResourceProperty(name="resourceType", flag="unknown_resourceType")
+    private String value_resourceType;
+    private boolean unknown_resourceType;
     public String resourceType() {
-        if (resourceType == null) return null;
-        return resourceType.getValue("VpcIpamPoolCidrAllocation.resourceType");
+        if (!unknown_resourceType) return value_resourceType;
+        throw new UndeferrableValueException("Value 'VpcIpamPoolCidrAllocation.resourceType' is not present");
     }
 
 }

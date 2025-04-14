@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,22 +17,24 @@ public final class PrincipalPortfolioAssociationArgs extends com.pulumi.resource
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      * 
      */
-    private UndeferrableValue<String> acceptLanguage;
-
+    @PolicyResourceProperty(name="acceptLanguage", flag="unknown_acceptLanguage")
+    private String value_acceptLanguage;
+    private boolean unknown_acceptLanguage;
     public String acceptLanguage() {
-        if (acceptLanguage == null) return null;
-        return acceptLanguage.getValue("PrincipalPortfolioAssociationArgs.acceptLanguage");
+        if (!unknown_acceptLanguage) return value_acceptLanguage;
+        throw new UndeferrableValueException("Value 'PrincipalPortfolioAssociationArgs.acceptLanguage' is not present");
     }
 
     /**
      * Portfolio identifier.
      * 
      */
-    private UndeferrableValue<String> portfolioId;
-
+    @PolicyResourceProperty(name="portfolioId", flag="unknown_portfolioId")
+    private String value_portfolioId;
+    private boolean unknown_portfolioId;
     public String portfolioId() {
-        if (portfolioId == null) return null;
-        return portfolioId.getValue("PrincipalPortfolioAssociationArgs.portfolioId");
+        if (!unknown_portfolioId) return value_portfolioId;
+        throw new UndeferrableValueException("Value 'PrincipalPortfolioAssociationArgs.portfolioId' is not present");
     }
 
     /**
@@ -40,22 +43,24 @@ public final class PrincipalPortfolioAssociationArgs extends com.pulumi.resource
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> principalArn;
-
+    @PolicyResourceProperty(name="principalArn", flag="unknown_principalArn")
+    private String value_principalArn;
+    private boolean unknown_principalArn;
     public String principalArn() {
-        if (principalArn == null) return null;
-        return principalArn.getValue("PrincipalPortfolioAssociationArgs.principalArn");
+        if (!unknown_principalArn) return value_principalArn;
+        throw new UndeferrableValueException("Value 'PrincipalPortfolioAssociationArgs.principalArn' is not present");
     }
 
     /**
      * Principal type. Setting this argument empty (e.g., `principal_type = &#34;&#34;`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
      * 
      */
-    private UndeferrableValue<String> principalType;
-
+    @PolicyResourceProperty(name="principalType", flag="unknown_principalType")
+    private String value_principalType;
+    private boolean unknown_principalType;
     public String principalType() {
-        if (principalType == null) return null;
-        return principalType.getValue("PrincipalPortfolioAssociationArgs.principalType");
+        if (!unknown_principalType) return value_principalType;
+        throw new UndeferrableValueException("Value 'PrincipalPortfolioAssociationArgs.principalType' is not present");
     }
 
 }

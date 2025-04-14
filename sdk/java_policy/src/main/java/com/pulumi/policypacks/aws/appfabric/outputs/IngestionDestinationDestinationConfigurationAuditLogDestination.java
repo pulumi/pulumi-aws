@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appfabric.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appfabric.outputs.IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream;
 import com.pulumi.policypacks.aws.appfabric.outputs.IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class IngestionDestinationDestinationConfigurationAuditLogDestinati
      * Contains information about an Amazon Data Firehose delivery stream.
      * 
      */
-    private @Nullable UndeferrableValue<IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream> firehoseStream;
-
+    @PolicyResourceProperty(name="firehoseStream", flag="unknown_firehoseStream")
+    private @Nullable IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream value_firehoseStream;
+    private boolean unknown_firehoseStream;
     public @Nullable IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream firehoseStream() {
-        if (firehoseStream == null) return null;
-        return firehoseStream.getValue("IngestionDestinationDestinationConfigurationAuditLogDestination.firehoseStream");
+        if (!unknown_firehoseStream) return value_firehoseStream;
+        throw new UndeferrableValueException("Value 'IngestionDestinationDestinationConfigurationAuditLogDestination.firehoseStream' is not present");
     }
 
     /**
      * Contains information about an Amazon S3 bucket.
      * 
      */
-    private @Nullable UndeferrableValue<IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket> s3Bucket;
-
+    @PolicyResourceProperty(name="s3Bucket", flag="unknown_s3Bucket")
+    private @Nullable IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket value_s3Bucket;
+    private boolean unknown_s3Bucket;
     public @Nullable IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket s3Bucket() {
-        if (s3Bucket == null) return null;
-        return s3Bucket.getValue("IngestionDestinationDestinationConfigurationAuditLogDestination.s3Bucket");
+        if (!unknown_s3Bucket) return value_s3Bucket;
+        throw new UndeferrableValueException("Value 'IngestionDestinationDestinationConfigurationAuditLogDestination.s3Bucket' is not present");
     }
 
 }

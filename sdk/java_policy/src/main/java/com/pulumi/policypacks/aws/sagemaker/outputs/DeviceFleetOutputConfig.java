@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class DeviceFleetOutputConfig {
      * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume after compilation job. If you don&#39;t provide a KMS key ID, Amazon SageMaker AI uses the default KMS key for Amazon S3 for your role&#39;s account.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("DeviceFleetOutputConfig.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'DeviceFleetOutputConfig.kmsKeyId' is not present");
     }
 
     /**
      * The Amazon Simple Storage (S3) bucker URI.
      * 
      */
-    private UndeferrableValue<String> s3OutputLocation;
-
+    @PolicyResourceProperty(name="s3OutputLocation", flag="unknown_s3OutputLocation")
+    private String value_s3OutputLocation;
+    private boolean unknown_s3OutputLocation;
     public String s3OutputLocation() {
-        if (s3OutputLocation == null) return null;
-        return s3OutputLocation.getValue("DeviceFleetOutputConfig.s3OutputLocation");
+        if (!unknown_s3OutputLocation) return value_s3OutputLocation;
+        throw new UndeferrableValueException("Value 'DeviceFleetOutputConfig.s3OutputLocation' is not present");
     }
 
 }

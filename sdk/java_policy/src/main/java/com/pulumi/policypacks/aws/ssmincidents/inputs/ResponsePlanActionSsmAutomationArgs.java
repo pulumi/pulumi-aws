@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssmincidents.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ssmincidents.inputs.ResponsePlanActionSsmAutomationParameterArgs;
 import java.lang.String;
 import java.util.List;
@@ -17,66 +18,72 @@ public final class ResponsePlanActionSsmAutomationArgs {
      * The automation document&#39;s name.
      * 
      */
-    private UndeferrableValue<String> documentName;
-
+    @PolicyResourceProperty(name="documentName", flag="unknown_documentName")
+    private String value_documentName;
+    private boolean unknown_documentName;
     public String documentName() {
-        if (documentName == null) return null;
-        return documentName.getValue("ResponsePlanActionSsmAutomationArgs.documentName");
+        if (!unknown_documentName) return value_documentName;
+        throw new UndeferrableValueException("Value 'ResponsePlanActionSsmAutomationArgs.documentName' is not present");
     }
 
     /**
      * The version of the automation document to use at runtime.
      * 
      */
-    private UndeferrableValue<String> documentVersion;
-
+    @PolicyResourceProperty(name="documentVersion", flag="unknown_documentVersion")
+    private String value_documentVersion;
+    private boolean unknown_documentVersion;
     public String documentVersion() {
-        if (documentVersion == null) return null;
-        return documentVersion.getValue("ResponsePlanActionSsmAutomationArgs.documentVersion");
+        if (!unknown_documentVersion) return value_documentVersion;
+        throw new UndeferrableValueException("Value 'ResponsePlanActionSsmAutomationArgs.documentVersion' is not present");
     }
 
     /**
      * The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
      * 
      */
-    private UndeferrableValue<Map<String,String>> dynamicParameters;
-
+    @PolicyResourceProperty(name="dynamicParameters", flag="unknown_dynamicParameters")
+    private Map<String,String> value_dynamicParameters;
+    private boolean unknown_dynamicParameters;
     public Map<String,String> dynamicParameters() {
-        if (dynamicParameters == null) return null;
-        return dynamicParameters.getValue("ResponsePlanActionSsmAutomationArgs.dynamicParameters");
+        if (!unknown_dynamicParameters) return value_dynamicParameters;
+        throw new UndeferrableValueException("Value 'ResponsePlanActionSsmAutomationArgs.dynamicParameters' is not present");
     }
 
     /**
      * The key-value pair parameters to use when the automation document runs. The following values are supported:
      * 
      */
-    private UndeferrableValue<List<ResponsePlanActionSsmAutomationParameterArgs>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private List<ResponsePlanActionSsmAutomationParameterArgs> value_parameters;
+    private boolean unknown_parameters;
     public List<ResponsePlanActionSsmAutomationParameterArgs> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("ResponsePlanActionSsmAutomationArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'ResponsePlanActionSsmAutomationArgs.parameters' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("ResponsePlanActionSsmAutomationArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'ResponsePlanActionSsmAutomationArgs.roleArn' is not present");
     }
 
     /**
      * The account that the automation document runs in. This can be in either the management account or an application account.
      * 
      */
-    private UndeferrableValue<String> targetAccount;
-
+    @PolicyResourceProperty(name="targetAccount", flag="unknown_targetAccount")
+    private String value_targetAccount;
+    private boolean unknown_targetAccount;
     public String targetAccount() {
-        if (targetAccount == null) return null;
-        return targetAccount.getValue("ResponsePlanActionSsmAutomationArgs.targetAccount");
+        if (!unknown_targetAccount) return value_targetAccount;
+        throw new UndeferrableValueException("Value 'ResponsePlanActionSsmAutomationArgs.targetAccount' is not present");
     }
 
 }

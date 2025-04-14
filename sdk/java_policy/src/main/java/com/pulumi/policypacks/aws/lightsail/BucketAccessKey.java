@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,55 +16,60 @@ public final class BucketAccessKey extends com.pulumi.resources.PolicyResourceOu
      * The ID of the access key.
      * 
      */
-    private UndeferrableValue<String> accessKeyId;
-
+    @PolicyResourceProperty(name="accessKeyId", flag="unknown_accessKeyId")
+    private String value_accessKeyId;
+    private boolean unknown_accessKeyId;
     public String accessKeyId() {
-        if (accessKeyId == null) return null;
-        return accessKeyId.getValue("BucketAccessKey.accessKeyId");
+        if (!unknown_accessKeyId) return value_accessKeyId;
+        throw new UndeferrableValueException("Value 'BucketAccessKey.accessKeyId' is not present");
     }
 
     /**
      * The name of the bucket that the new access key will belong to, and grant access to.
      * 
      */
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("BucketAccessKey.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'BucketAccessKey.bucketName' is not present");
     }
 
     /**
      * The timestamp when the access key was created.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("BucketAccessKey.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'BucketAccessKey.createdAt' is not present");
     }
 
     /**
      * The secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
      * 
      */
-    private UndeferrableValue<String> secretAccessKey;
-
+    @PolicyResourceProperty(name="secretAccessKey", flag="unknown_secretAccessKey")
+    private String value_secretAccessKey;
+    private boolean unknown_secretAccessKey;
     public String secretAccessKey() {
-        if (secretAccessKey == null) return null;
-        return secretAccessKey.getValue("BucketAccessKey.secretAccessKey");
+        if (!unknown_secretAccessKey) return value_secretAccessKey;
+        throw new UndeferrableValueException("Value 'BucketAccessKey.secretAccessKey' is not present");
     }
 
     /**
      * The status of the access key.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("BucketAccessKey.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'BucketAccessKey.status' is not present");
     }
 
 }

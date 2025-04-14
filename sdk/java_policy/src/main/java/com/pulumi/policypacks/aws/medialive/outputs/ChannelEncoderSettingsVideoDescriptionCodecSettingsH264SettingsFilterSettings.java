@@ -3,18 +3,20 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings;
 import javax.annotation.Nullable;
 
 
 public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings {
 
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings> temporalFilterSettings;
-
+    @PolicyResourceProperty(name="temporalFilterSettings", flag="unknown_temporalFilterSettings")
+    private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings value_temporalFilterSettings;
+    private boolean unknown_temporalFilterSettings;
     public @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings temporalFilterSettings() {
-        if (temporalFilterSettings == null) return null;
-        return temporalFilterSettings.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings.temporalFilterSettings");
+        if (!unknown_temporalFilterSettings) return value_temporalFilterSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings.temporalFilterSettings' is not present");
     }
 
 }

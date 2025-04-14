@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.opsworks.outputs.MysqlLayerCloudwatchConfigurationLogStream;
 import java.lang.Boolean;
 import java.util.List;
@@ -12,18 +13,20 @@ import javax.annotation.Nullable;
 
 public final class MysqlLayerCloudwatchConfiguration {
 
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("MysqlLayerCloudwatchConfiguration.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'MysqlLayerCloudwatchConfiguration.enabled' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<MysqlLayerCloudwatchConfigurationLogStream>> logStreams;
-
+    @PolicyResourceProperty(name="logStreams", flag="unknown_logStreams")
+    private @Nullable List<MysqlLayerCloudwatchConfigurationLogStream> value_logStreams;
+    private boolean unknown_logStreams;
     public @Nullable List<MysqlLayerCloudwatchConfigurationLogStream> logStreams() {
-        if (logStreams == null) return null;
-        return logStreams.getValue("MysqlLayerCloudwatchConfiguration.logStreams");
+        if (!unknown_logStreams) return value_logStreams;
+        throw new UndeferrableValueException("Value 'MysqlLayerCloudwatchConfiguration.logStreams' is not present");
     }
 
 }

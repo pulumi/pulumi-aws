@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class LifecyclePolicyPolicyDetailActionIncludeResources {
      * Specifies whether the lifecycle action should apply to distributed AMIs.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> amis;
-
+    @PolicyResourceProperty(name="amis", flag="unknown_amis")
+    private @Nullable Boolean value_amis;
+    private boolean unknown_amis;
     public @Nullable Boolean amis() {
-        if (amis == null) return null;
-        return amis.getValue("LifecyclePolicyPolicyDetailActionIncludeResources.amis");
+        if (!unknown_amis) return value_amis;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailActionIncludeResources.amis' is not present");
     }
 
     /**
      * Specifies whether the lifecycle action should apply to distributed containers.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> containers;
-
+    @PolicyResourceProperty(name="containers", flag="unknown_containers")
+    private @Nullable Boolean value_containers;
+    private boolean unknown_containers;
     public @Nullable Boolean containers() {
-        if (containers == null) return null;
-        return containers.getValue("LifecyclePolicyPolicyDetailActionIncludeResources.containers");
+        if (!unknown_containers) return value_containers;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailActionIncludeResources.containers' is not present");
     }
 
     /**
      * Specifies whether the lifecycle action should apply to snapshots associated with distributed AMIs.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> snapshots;
-
+    @PolicyResourceProperty(name="snapshots", flag="unknown_snapshots")
+    private @Nullable Boolean value_snapshots;
+    private boolean unknown_snapshots;
     public @Nullable Boolean snapshots() {
-        if (snapshots == null) return null;
-        return snapshots.getValue("LifecyclePolicyPolicyDetailActionIncludeResources.snapshots");
+        if (!unknown_snapshots) return value_snapshots;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailActionIncludeResources.snapshots' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,77 +17,84 @@ public final class CustomLayerEbsVolumeArgs {
      * Encrypt the volume.
      * 
      */
-    private UndeferrableValue<Boolean> encrypted;
-
+    @PolicyResourceProperty(name="encrypted", flag="unknown_encrypted")
+    private Boolean value_encrypted;
+    private boolean unknown_encrypted;
     public Boolean encrypted() {
-        if (encrypted == null) return null;
-        return encrypted.getValue("CustomLayerEbsVolumeArgs.encrypted");
+        if (!unknown_encrypted) return value_encrypted;
+        throw new UndeferrableValueException("Value 'CustomLayerEbsVolumeArgs.encrypted' is not present");
     }
 
     /**
      * For PIOPS volumes, the IOPS per disk.
      * 
      */
-    private UndeferrableValue<Integer> iops;
-
+    @PolicyResourceProperty(name="iops", flag="unknown_iops")
+    private Integer value_iops;
+    private boolean unknown_iops;
     public Integer iops() {
-        if (iops == null) return null;
-        return iops.getValue("CustomLayerEbsVolumeArgs.iops");
+        if (!unknown_iops) return value_iops;
+        throw new UndeferrableValueException("Value 'CustomLayerEbsVolumeArgs.iops' is not present");
     }
 
     /**
      * The path to mount the EBS volume on the layer&#39;s instances.
      * 
      */
-    private UndeferrableValue<String> mountPoint;
-
+    @PolicyResourceProperty(name="mountPoint", flag="unknown_mountPoint")
+    private String value_mountPoint;
+    private boolean unknown_mountPoint;
     public String mountPoint() {
-        if (mountPoint == null) return null;
-        return mountPoint.getValue("CustomLayerEbsVolumeArgs.mountPoint");
+        if (!unknown_mountPoint) return value_mountPoint;
+        throw new UndeferrableValueException("Value 'CustomLayerEbsVolumeArgs.mountPoint' is not present");
     }
 
     /**
      * The number of disks to use for the EBS volume.
      * 
      */
-    private UndeferrableValue<Integer> numberOfDisks;
-
+    @PolicyResourceProperty(name="numberOfDisks", flag="unknown_numberOfDisks")
+    private Integer value_numberOfDisks;
+    private boolean unknown_numberOfDisks;
     public Integer numberOfDisks() {
-        if (numberOfDisks == null) return null;
-        return numberOfDisks.getValue("CustomLayerEbsVolumeArgs.numberOfDisks");
+        if (!unknown_numberOfDisks) return value_numberOfDisks;
+        throw new UndeferrableValueException("Value 'CustomLayerEbsVolumeArgs.numberOfDisks' is not present");
     }
 
     /**
      * The RAID level to use for the volume.
      * 
      */
-    private UndeferrableValue<String> raidLevel;
-
+    @PolicyResourceProperty(name="raidLevel", flag="unknown_raidLevel")
+    private String value_raidLevel;
+    private boolean unknown_raidLevel;
     public String raidLevel() {
-        if (raidLevel == null) return null;
-        return raidLevel.getValue("CustomLayerEbsVolumeArgs.raidLevel");
+        if (!unknown_raidLevel) return value_raidLevel;
+        throw new UndeferrableValueException("Value 'CustomLayerEbsVolumeArgs.raidLevel' is not present");
     }
 
     /**
      * The size of the volume in gigabytes.
      * 
      */
-    private UndeferrableValue<Integer> size;
-
+    @PolicyResourceProperty(name="size", flag="unknown_size")
+    private Integer value_size;
+    private boolean unknown_size;
     public Integer size() {
-        if (size == null) return null;
-        return size.getValue("CustomLayerEbsVolumeArgs.size");
+        if (!unknown_size) return value_size;
+        throw new UndeferrableValueException("Value 'CustomLayerEbsVolumeArgs.size' is not present");
     }
 
     /**
      * The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("CustomLayerEbsVolumeArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'CustomLayerEbsVolumeArgs.type' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mwaa.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.mwaa.outputs.EnvironmentLastUpdatedError;
 import java.lang.String;
 import java.util.List;
@@ -16,29 +17,32 @@ public final class EnvironmentLastUpdated {
      * The Created At date of the MWAA Environment
      * 
      */
-    private @Nullable UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private @Nullable String value_createdAt;
+    private boolean unknown_createdAt;
     public @Nullable String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("EnvironmentLastUpdated.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'EnvironmentLastUpdated.createdAt' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<EnvironmentLastUpdatedError>> errors;
-
+    @PolicyResourceProperty(name="errors", flag="unknown_errors")
+    private @Nullable List<EnvironmentLastUpdatedError> value_errors;
+    private boolean unknown_errors;
     public @Nullable List<EnvironmentLastUpdatedError> errors() {
-        if (errors == null) return null;
-        return errors.getValue("EnvironmentLastUpdated.errors");
+        if (!unknown_errors) return value_errors;
+        throw new UndeferrableValueException("Value 'EnvironmentLastUpdated.errors' is not present");
     }
 
     /**
      * The status of the Amazon MWAA Environment
      * 
      */
-    private @Nullable UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private @Nullable String value_status;
+    private boolean unknown_status;
     public @Nullable String status() {
-        if (status == null) return null;
-        return status.getValue("EnvironmentLastUpdated.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'EnvironmentLastUpdated.status' is not present");
     }
 
 }

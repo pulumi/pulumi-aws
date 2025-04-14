@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.accessanalyzer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.accessanalyzer.outputs.AnalyzerConfiguration;
 import java.lang.String;
@@ -20,44 +21,48 @@ public final class Analyzer extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> analyzerName;
-
+    @PolicyResourceProperty(name="analyzerName", flag="unknown_analyzerName")
+    private String value_analyzerName;
+    private boolean unknown_analyzerName;
     public String analyzerName() {
-        if (analyzerName == null) return null;
-        return analyzerName.getValue("Analyzer.analyzerName");
+        if (!unknown_analyzerName) return value_analyzerName;
+        throw new UndeferrableValueException("Value 'Analyzer.analyzerName' is not present");
     }
 
     /**
      * ARN of the Analyzer.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Analyzer.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Analyzer.arn' is not present");
     }
 
     /**
      * A block that specifies the configuration of the analyzer. Documented below
      * 
      */
-    private @Nullable UndeferrableValue<AnalyzerConfiguration> configuration;
-
+    @PolicyResourceProperty(name="configuration", flag="unknown_configuration")
+    private @Nullable AnalyzerConfiguration value_configuration;
+    private boolean unknown_configuration;
     public @Nullable AnalyzerConfiguration configuration() {
-        if (configuration == null) return null;
-        return configuration.getValue("Analyzer.configuration");
+        if (!unknown_configuration) return value_configuration;
+        throw new UndeferrableValueException("Value 'Analyzer.configuration' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Analyzer.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Analyzer.tags' is not present");
     }
 
     /**
@@ -68,22 +73,24 @@ public final class Analyzer extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Analyzer.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Analyzer.tagsAll' is not present");
     }
 
     /**
      * Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, ` ACCOUNT_UNUSED_ACCESS  `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("Analyzer.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'Analyzer.type' is not present");
     }
 
 }

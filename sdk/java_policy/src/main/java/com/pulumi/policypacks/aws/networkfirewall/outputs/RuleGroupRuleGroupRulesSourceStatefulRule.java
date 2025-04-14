@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.RuleGroupRuleGroupRulesSourceStatefulRuleHeader;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class RuleGroupRuleGroupRulesSourceStatefulRule {
      * Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP`, `PASS`, or `REJECT`.
      * 
      */
-    private UndeferrableValue<String> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private String value_action;
+    private boolean unknown_action;
     public String action() {
-        if (action == null) return null;
-        return action.getValue("RuleGroupRuleGroupRulesSourceStatefulRule.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatefulRule.action' is not present");
     }
 
     /**
      * A configuration block containing the stateful 5-tuple inspection criteria for the rule, used to inspect traffic flows. See Header below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleGroupRulesSourceStatefulRuleHeader> header;
-
+    @PolicyResourceProperty(name="header", flag="unknown_header")
+    private RuleGroupRuleGroupRulesSourceStatefulRuleHeader value_header;
+    private boolean unknown_header;
     public RuleGroupRuleGroupRulesSourceStatefulRuleHeader header() {
-        if (header == null) return null;
-        return header.getValue("RuleGroupRuleGroupRulesSourceStatefulRule.header");
+        if (!unknown_header) return value_header;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatefulRule.header' is not present");
     }
 
     /**
      * Set of configuration blocks containing additional settings for a stateful rule. See Rule Option below for details.
      * 
      */
-    private UndeferrableValue<List<RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption>> ruleOptions;
-
+    @PolicyResourceProperty(name="ruleOptions", flag="unknown_ruleOptions")
+    private List<RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption> value_ruleOptions;
+    private boolean unknown_ruleOptions;
     public List<RuleGroupRuleGroupRulesSourceStatefulRuleRuleOption> ruleOptions() {
-        if (ruleOptions == null) return null;
-        return ruleOptions.getValue("RuleGroupRuleGroupRulesSourceStatefulRule.ruleOptions");
+        if (!unknown_ruleOptions) return value_ruleOptions;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatefulRule.ruleOptions' is not present");
     }
 
 }

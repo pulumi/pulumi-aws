@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53recoveryreadiness.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.route53recoveryreadiness.outputs.ResourceSetResourceDnsTargetResourceTargetResourceNlbResource;
 import com.pulumi.policypacks.aws.route53recoveryreadiness.outputs.ResourceSetResourceDnsTargetResourceTargetResourceR53Resource;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ResourceSetResourceDnsTargetResourceTargetResource {
      * NLB resource a DNS Target Resource points to. Required if `r53_resource` is not set.
      * 
      */
-    private @Nullable UndeferrableValue<ResourceSetResourceDnsTargetResourceTargetResourceNlbResource> nlbResource;
-
+    @PolicyResourceProperty(name="nlbResource", flag="unknown_nlbResource")
+    private @Nullable ResourceSetResourceDnsTargetResourceTargetResourceNlbResource value_nlbResource;
+    private boolean unknown_nlbResource;
     public @Nullable ResourceSetResourceDnsTargetResourceTargetResourceNlbResource nlbResource() {
-        if (nlbResource == null) return null;
-        return nlbResource.getValue("ResourceSetResourceDnsTargetResourceTargetResource.nlbResource");
+        if (!unknown_nlbResource) return value_nlbResource;
+        throw new UndeferrableValueException("Value 'ResourceSetResourceDnsTargetResourceTargetResource.nlbResource' is not present");
     }
 
     /**
      * Route53 resource a DNS Target Resource record points to.
      * 
      */
-    private @Nullable UndeferrableValue<ResourceSetResourceDnsTargetResourceTargetResourceR53Resource> r53Resource;
-
+    @PolicyResourceProperty(name="r53Resource", flag="unknown_r53Resource")
+    private @Nullable ResourceSetResourceDnsTargetResourceTargetResourceR53Resource value_r53Resource;
+    private boolean unknown_r53Resource;
     public @Nullable ResourceSetResourceDnsTargetResourceTargetResourceR53Resource r53Resource() {
-        if (r53Resource == null) return null;
-        return r53Resource.getValue("ResourceSetResourceDnsTargetResourceTargetResource.r53Resource");
+        if (!unknown_r53Resource) return value_r53Resource;
+        throw new UndeferrableValueException("Value 'ResourceSetResourceDnsTargetResourceTargetResource.r53Resource' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.evidently.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.evidently.inputs.LaunchScheduledSplitsConfigStepSegmentOverrideArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class LaunchScheduledSplitsConfigStepArgs {
      * The traffic allocation percentages among the feature variations during one step of a launch. This is a set of key-value pairs. The keys are variation names. The values represent the percentage of traffic to allocate to that variation during this step. For more information, refer to the [AWS documentation for ScheduledSplitConfig groupWeights](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ScheduledSplitConfig.html).
      * 
      */
-    private UndeferrableValue<Map<String,Integer>> groupWeights;
-
+    @PolicyResourceProperty(name="groupWeights", flag="unknown_groupWeights")
+    private Map<String,Integer> value_groupWeights;
+    private boolean unknown_groupWeights;
     public Map<String,Integer> groupWeights() {
-        if (groupWeights == null) return null;
-        return groupWeights.getValue("LaunchScheduledSplitsConfigStepArgs.groupWeights");
+        if (!unknown_groupWeights) return value_groupWeights;
+        throw new UndeferrableValueException("Value 'LaunchScheduledSplitsConfigStepArgs.groupWeights' is not present");
     }
 
     /**
      * One or up to six blocks that specify different traffic splits for one or more audience segments. A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age. Detailed below.
      * 
      */
-    private UndeferrableValue<List<LaunchScheduledSplitsConfigStepSegmentOverrideArgs>> segmentOverrides;
-
+    @PolicyResourceProperty(name="segmentOverrides", flag="unknown_segmentOverrides")
+    private List<LaunchScheduledSplitsConfigStepSegmentOverrideArgs> value_segmentOverrides;
+    private boolean unknown_segmentOverrides;
     public List<LaunchScheduledSplitsConfigStepSegmentOverrideArgs> segmentOverrides() {
-        if (segmentOverrides == null) return null;
-        return segmentOverrides.getValue("LaunchScheduledSplitsConfigStepArgs.segmentOverrides");
+        if (!unknown_segmentOverrides) return value_segmentOverrides;
+        throw new UndeferrableValueException("Value 'LaunchScheduledSplitsConfigStepArgs.segmentOverrides' is not present");
     }
 
     /**
      * Specifies the date and time that this step of the launch starts.
      * 
      */
-    private UndeferrableValue<String> startTime;
-
+    @PolicyResourceProperty(name="startTime", flag="unknown_startTime")
+    private String value_startTime;
+    private boolean unknown_startTime;
     public String startTime() {
-        if (startTime == null) return null;
-        return startTime.getValue("LaunchScheduledSplitsConfigStepArgs.startTime");
+        if (!unknown_startTime) return value_startTime;
+        throw new UndeferrableValueException("Value 'LaunchScheduledSplitsConfigStepArgs.startTime' is not present");
     }
 
 }

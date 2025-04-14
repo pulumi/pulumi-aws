@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class AppregistryAttributeGroupAssociationArgs extends com.pulumi.r
      * ID of the application.
      * 
      */
-    private UndeferrableValue<String> applicationId;
-
+    @PolicyResourceProperty(name="applicationId", flag="unknown_applicationId")
+    private String value_applicationId;
+    private boolean unknown_applicationId;
     public String applicationId() {
-        if (applicationId == null) return null;
-        return applicationId.getValue("AppregistryAttributeGroupAssociationArgs.applicationId");
+        if (!unknown_applicationId) return value_applicationId;
+        throw new UndeferrableValueException("Value 'AppregistryAttributeGroupAssociationArgs.applicationId' is not present");
     }
 
     /**
      * ID of the attribute group to associate with the application.
      * 
      */
-    private UndeferrableValue<String> attributeGroupId;
-
+    @PolicyResourceProperty(name="attributeGroupId", flag="unknown_attributeGroupId")
+    private String value_attributeGroupId;
+    private boolean unknown_attributeGroupId;
     public String attributeGroupId() {
-        if (attributeGroupId == null) return null;
-        return attributeGroupId.getValue("AppregistryAttributeGroupAssociationArgs.attributeGroupId");
+        if (!unknown_attributeGroupId) return value_attributeGroupId;
+        throw new UndeferrableValueException("Value 'AppregistryAttributeGroupAssociationArgs.attributeGroupId' is not present");
     }
 
 }

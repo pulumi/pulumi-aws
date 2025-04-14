@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.iot.outputs.ThingGroupMetadata;
 import com.pulumi.policypacks.aws.iot.outputs.ThingGroupProperties;
@@ -21,62 +22,68 @@ public final class ThingGroup extends com.pulumi.resources.PolicyResourceOutput 
      * The ARN of the Thing Group.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ThingGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ThingGroup.arn' is not present");
     }
 
-    private UndeferrableValue<List<ThingGroupMetadata>> metadatas;
-
+    @PolicyResourceProperty(name="metadatas", flag="unknown_metadatas")
+    private List<ThingGroupMetadata> value_metadatas;
+    private boolean unknown_metadatas;
     public List<ThingGroupMetadata> metadatas() {
-        if (metadatas == null) return null;
-        return metadatas.getValue("ThingGroup.metadatas");
+        if (!unknown_metadatas) return value_metadatas;
+        throw new UndeferrableValueException("Value 'ThingGroup.metadatas' is not present");
     }
 
     /**
      * The name of the Thing Group.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ThingGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ThingGroup.name' is not present");
     }
 
     /**
      * The name of the parent Thing Group.
      * 
      */
-    private @Nullable UndeferrableValue<String> parentGroupName;
-
+    @PolicyResourceProperty(name="parentGroupName", flag="unknown_parentGroupName")
+    private @Nullable String value_parentGroupName;
+    private boolean unknown_parentGroupName;
     public @Nullable String parentGroupName() {
-        if (parentGroupName == null) return null;
-        return parentGroupName.getValue("ThingGroup.parentGroupName");
+        if (!unknown_parentGroupName) return value_parentGroupName;
+        throw new UndeferrableValueException("Value 'ThingGroup.parentGroupName' is not present");
     }
 
     /**
      * The Thing Group properties. Defined below.
      * 
      */
-    private @Nullable UndeferrableValue<ThingGroupProperties> properties;
-
+    @PolicyResourceProperty(name="properties", flag="unknown_properties")
+    private @Nullable ThingGroupProperties value_properties;
+    private boolean unknown_properties;
     public @Nullable ThingGroupProperties properties() {
-        if (properties == null) return null;
-        return properties.getValue("ThingGroup.properties");
+        if (!unknown_properties) return value_properties;
+        throw new UndeferrableValueException("Value 'ThingGroup.properties' is not present");
     }
 
     /**
      * Key-value mapping of resource tags
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ThingGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ThingGroup.tags' is not present");
     }
 
     /**
@@ -85,22 +92,24 @@ public final class ThingGroup extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ThingGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ThingGroup.tagsAll' is not present");
     }
 
     /**
      * The current version of the Thing Group record in the registry.
      * 
      */
-    private UndeferrableValue<Integer> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private Integer value_version;
+    private boolean unknown_version;
     public Integer version() {
-        if (version == null) return null;
-        return version.getValue("ThingGroup.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'ThingGroup.version' is not present");
     }
 
 }

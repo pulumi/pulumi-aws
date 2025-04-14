@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class InstanceMetadataDefaultsArgs extends com.pulumi.resources.Pol
      * Whether the metadata service is available. Can be `&#34;enabled&#34;`, `&#34;disabled&#34;`, or `&#34;no-preference&#34;`. Default: `&#34;no-preference&#34;`.
      * 
      */
-    private UndeferrableValue<String> httpEndpoint;
-
+    @PolicyResourceProperty(name="httpEndpoint", flag="unknown_httpEndpoint")
+    private String value_httpEndpoint;
+    private boolean unknown_httpEndpoint;
     public String httpEndpoint() {
-        if (httpEndpoint == null) return null;
-        return httpEndpoint.getValue("InstanceMetadataDefaultsArgs.httpEndpoint");
+        if (!unknown_httpEndpoint) return value_httpEndpoint;
+        throw new UndeferrableValueException("Value 'InstanceMetadataDefaultsArgs.httpEndpoint' is not present");
     }
 
     /**
      * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`, or `-1` to indicate no preference. Default: `-1`.
      * 
      */
-    private UndeferrableValue<Integer> httpPutResponseHopLimit;
-
+    @PolicyResourceProperty(name="httpPutResponseHopLimit", flag="unknown_httpPutResponseHopLimit")
+    private Integer value_httpPutResponseHopLimit;
+    private boolean unknown_httpPutResponseHopLimit;
     public Integer httpPutResponseHopLimit() {
-        if (httpPutResponseHopLimit == null) return null;
-        return httpPutResponseHopLimit.getValue("InstanceMetadataDefaultsArgs.httpPutResponseHopLimit");
+        if (!unknown_httpPutResponseHopLimit) return value_httpPutResponseHopLimit;
+        throw new UndeferrableValueException("Value 'InstanceMetadataDefaultsArgs.httpPutResponseHopLimit' is not present");
     }
 
     /**
      * Whether the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `&#34;optional&#34;`, `&#34;required&#34;`, or `&#34;no-preference&#34;`. Default: `&#34;no-preference&#34;`.
      * 
      */
-    private UndeferrableValue<String> httpTokens;
-
+    @PolicyResourceProperty(name="httpTokens", flag="unknown_httpTokens")
+    private String value_httpTokens;
+    private boolean unknown_httpTokens;
     public String httpTokens() {
-        if (httpTokens == null) return null;
-        return httpTokens.getValue("InstanceMetadataDefaultsArgs.httpTokens");
+        if (!unknown_httpTokens) return value_httpTokens;
+        throw new UndeferrableValueException("Value 'InstanceMetadataDefaultsArgs.httpTokens' is not present");
     }
 
     /**
      * Enables or disables access to instance tags from the instance metadata service. Can be `&#34;enabled&#34;`, `&#34;disabled&#34;`, or `&#34;no-preference&#34;`. Default: `&#34;no-preference&#34;`.
      * 
      */
-    private UndeferrableValue<String> instanceMetadataTags;
-
+    @PolicyResourceProperty(name="instanceMetadataTags", flag="unknown_instanceMetadataTags")
+    private String value_instanceMetadataTags;
+    private boolean unknown_instanceMetadataTags;
     public String instanceMetadataTags() {
-        if (instanceMetadataTags == null) return null;
-        return instanceMetadataTags.getValue("InstanceMetadataDefaultsArgs.instanceMetadataTags");
+        if (!unknown_instanceMetadataTags) return value_instanceMetadataTags;
+        throw new UndeferrableValueException("Value 'InstanceMetadataDefaultsArgs.instanceMetadataTags' is not present");
     }
 
 }

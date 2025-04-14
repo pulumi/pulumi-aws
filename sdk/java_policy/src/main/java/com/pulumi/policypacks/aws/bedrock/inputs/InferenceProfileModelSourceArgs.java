@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class InferenceProfileModelSourceArgs {
      * The Amazon Resource Name (ARN) of the model.
      * 
      */
-    private UndeferrableValue<String> copyFrom;
-
+    @PolicyResourceProperty(name="copyFrom", flag="unknown_copyFrom")
+    private String value_copyFrom;
+    private boolean unknown_copyFrom;
     public String copyFrom() {
-        if (copyFrom == null) return null;
-        return copyFrom.getValue("InferenceProfileModelSourceArgs.copyFrom");
+        if (!unknown_copyFrom) return value_copyFrom;
+        throw new UndeferrableValueException("Value 'InferenceProfileModelSourceArgs.copyFrom' is not present");
     }
 
 }

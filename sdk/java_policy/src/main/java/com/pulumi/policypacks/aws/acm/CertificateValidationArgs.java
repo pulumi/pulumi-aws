@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.acm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,22 +18,24 @@ public final class CertificateValidationArgs extends com.pulumi.resources.Policy
      * ARN of the certificate that is being validated.
      * 
      */
-    private UndeferrableValue<String> certificateArn;
-
+    @PolicyResourceProperty(name="certificateArn", flag="unknown_certificateArn")
+    private String value_certificateArn;
+    private boolean unknown_certificateArn;
     public String certificateArn() {
-        if (certificateArn == null) return null;
-        return certificateArn.getValue("CertificateValidationArgs.certificateArn");
+        if (!unknown_certificateArn) return value_certificateArn;
+        throw new UndeferrableValueException("Value 'CertificateValidationArgs.certificateArn' is not present");
     }
 
     /**
      * List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
      * 
      */
-    private UndeferrableValue<List<String>> validationRecordFqdns;
-
+    @PolicyResourceProperty(name="validationRecordFqdns", flag="unknown_validationRecordFqdns")
+    private List<String> value_validationRecordFqdns;
+    private boolean unknown_validationRecordFqdns;
     public List<String> validationRecordFqdns() {
-        if (validationRecordFqdns == null) return null;
-        return validationRecordFqdns.getValue("CertificateValidationArgs.validationRecordFqdns");
+        if (!unknown_validationRecordFqdns) return value_validationRecordFqdns;
+        throw new UndeferrableValueException("Value 'CertificateValidationArgs.validationRecordFqdns' is not present");
     }
 
 }

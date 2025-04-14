@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,66 +17,72 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
      * The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> blockSizeBytes;
-
+    @PolicyResourceProperty(name="blockSizeBytes", flag="unknown_blockSizeBytes")
+    private @Nullable Integer value_blockSizeBytes;
+    private boolean unknown_blockSizeBytes;
     public @Nullable Integer blockSizeBytes() {
-        if (blockSizeBytes == null) return null;
-        return blockSizeBytes.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe.blockSizeBytes");
+        if (!unknown_blockSizeBytes) return value_blockSizeBytes;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe.blockSizeBytes' is not present");
     }
 
     /**
      * The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
      * 
      */
-    private @Nullable UndeferrableValue<String> compression;
-
+    @PolicyResourceProperty(name="compression", flag="unknown_compression")
+    private @Nullable String value_compression;
+    private boolean unknown_compression;
     public @Nullable String compression() {
-        if (compression == null) return null;
-        return compression.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe.compression");
+        if (!unknown_compression) return value_compression;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe.compression' is not present");
     }
 
     /**
      * Indicates whether to enable dictionary compression.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enableDictionaryCompression;
-
+    @PolicyResourceProperty(name="enableDictionaryCompression", flag="unknown_enableDictionaryCompression")
+    private @Nullable Boolean value_enableDictionaryCompression;
+    private boolean unknown_enableDictionaryCompression;
     public @Nullable Boolean enableDictionaryCompression() {
-        if (enableDictionaryCompression == null) return null;
-        return enableDictionaryCompression.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe.enableDictionaryCompression");
+        if (!unknown_enableDictionaryCompression) return value_enableDictionaryCompression;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe.enableDictionaryCompression' is not present");
     }
 
     /**
      * The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `0`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxPaddingBytes;
-
+    @PolicyResourceProperty(name="maxPaddingBytes", flag="unknown_maxPaddingBytes")
+    private @Nullable Integer value_maxPaddingBytes;
+    private boolean unknown_maxPaddingBytes;
     public @Nullable Integer maxPaddingBytes() {
-        if (maxPaddingBytes == null) return null;
-        return maxPaddingBytes.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe.maxPaddingBytes");
+        if (!unknown_maxPaddingBytes) return value_maxPaddingBytes;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe.maxPaddingBytes' is not present");
     }
 
     /**
      * The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> pageSizeBytes;
-
+    @PolicyResourceProperty(name="pageSizeBytes", flag="unknown_pageSizeBytes")
+    private @Nullable Integer value_pageSizeBytes;
+    private boolean unknown_pageSizeBytes;
     public @Nullable Integer pageSizeBytes() {
-        if (pageSizeBytes == null) return null;
-        return pageSizeBytes.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe.pageSizeBytes");
+        if (!unknown_pageSizeBytes) return value_pageSizeBytes;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe.pageSizeBytes' is not present");
     }
 
     /**
      * Indicates the version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.
      * 
      */
-    private @Nullable UndeferrableValue<String> writerVersion;
-
+    @PolicyResourceProperty(name="writerVersion", flag="unknown_writerVersion")
+    private @Nullable String value_writerVersion;
+    private boolean unknown_writerVersion;
     public @Nullable String writerVersion() {
-        if (writerVersion == null) return null;
-        return writerVersion.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe.writerVersion");
+        if (!unknown_writerVersion) return value_writerVersion;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe.writerVersion' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.devicefarm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -19,77 +20,84 @@ public final class InstanceProfile extends com.pulumi.resources.PolicyResourceOu
      * The Amazon Resource Name of this instance profile.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("InstanceProfile.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'InstanceProfile.arn' is not present");
     }
 
     /**
      * The description of the instance profile.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("InstanceProfile.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'InstanceProfile.description' is not present");
     }
 
     /**
      * An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> excludeAppPackagesFromCleanups;
-
+    @PolicyResourceProperty(name="excludeAppPackagesFromCleanups", flag="unknown_excludeAppPackagesFromCleanups")
+    private @Nullable List<String> value_excludeAppPackagesFromCleanups;
+    private boolean unknown_excludeAppPackagesFromCleanups;
     public @Nullable List<String> excludeAppPackagesFromCleanups() {
-        if (excludeAppPackagesFromCleanups == null) return null;
-        return excludeAppPackagesFromCleanups.getValue("InstanceProfile.excludeAppPackagesFromCleanups");
+        if (!unknown_excludeAppPackagesFromCleanups) return value_excludeAppPackagesFromCleanups;
+        throw new UndeferrableValueException("Value 'InstanceProfile.excludeAppPackagesFromCleanups' is not present");
     }
 
     /**
      * The name for the instance profile.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("InstanceProfile.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'InstanceProfile.name' is not present");
     }
 
     /**
      * When set to `true`, Device Farm removes app packages after a test run. The default value is `false` for private devices.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> packageCleanup;
-
+    @PolicyResourceProperty(name="packageCleanup", flag="unknown_packageCleanup")
+    private @Nullable Boolean value_packageCleanup;
+    private boolean unknown_packageCleanup;
     public @Nullable Boolean packageCleanup() {
-        if (packageCleanup == null) return null;
-        return packageCleanup.getValue("InstanceProfile.packageCleanup");
+        if (!unknown_packageCleanup) return value_packageCleanup;
+        throw new UndeferrableValueException("Value 'InstanceProfile.packageCleanup' is not present");
     }
 
     /**
      * When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> rebootAfterUse;
-
+    @PolicyResourceProperty(name="rebootAfterUse", flag="unknown_rebootAfterUse")
+    private @Nullable Boolean value_rebootAfterUse;
+    private boolean unknown_rebootAfterUse;
     public @Nullable Boolean rebootAfterUse() {
-        if (rebootAfterUse == null) return null;
-        return rebootAfterUse.getValue("InstanceProfile.rebootAfterUse");
+        if (!unknown_rebootAfterUse) return value_rebootAfterUse;
+        throw new UndeferrableValueException("Value 'InstanceProfile.rebootAfterUse' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("InstanceProfile.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'InstanceProfile.tags' is not present");
     }
 
     /**
@@ -100,11 +108,12 @@ public final class InstanceProfile extends com.pulumi.resources.PolicyResourceOu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("InstanceProfile.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'InstanceProfile.tagsAll' is not present");
     }
 
 }

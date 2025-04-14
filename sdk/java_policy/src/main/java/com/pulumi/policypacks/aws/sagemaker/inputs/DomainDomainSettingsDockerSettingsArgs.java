@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DomainDomainSettingsDockerSettingsArgs {
      * Indicates whether the domain can access Docker. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> enableDockerAccess;
-
+    @PolicyResourceProperty(name="enableDockerAccess", flag="unknown_enableDockerAccess")
+    private String value_enableDockerAccess;
+    private boolean unknown_enableDockerAccess;
     public String enableDockerAccess() {
-        if (enableDockerAccess == null) return null;
-        return enableDockerAccess.getValue("DomainDomainSettingsDockerSettingsArgs.enableDockerAccess");
+        if (!unknown_enableDockerAccess) return value_enableDockerAccess;
+        throw new UndeferrableValueException("Value 'DomainDomainSettingsDockerSettingsArgs.enableDockerAccess' is not present");
     }
 
     /**
      * The list of Amazon Web Services accounts that are trusted when the domain is created in VPC-only mode.
      * 
      */
-    private UndeferrableValue<List<String>> vpcOnlyTrustedAccounts;
-
+    @PolicyResourceProperty(name="vpcOnlyTrustedAccounts", flag="unknown_vpcOnlyTrustedAccounts")
+    private List<String> value_vpcOnlyTrustedAccounts;
+    private boolean unknown_vpcOnlyTrustedAccounts;
     public List<String> vpcOnlyTrustedAccounts() {
-        if (vpcOnlyTrustedAccounts == null) return null;
-        return vpcOnlyTrustedAccounts.getValue("DomainDomainSettingsDockerSettingsArgs.vpcOnlyTrustedAccounts");
+        if (!unknown_vpcOnlyTrustedAccounts) return value_vpcOnlyTrustedAccounts;
+        throw new UndeferrableValueException("Value 'DomainDomainSettingsDockerSettingsArgs.vpcOnlyTrustedAccounts' is not present");
     }
 
 }

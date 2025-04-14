@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class BucketServerSideEncryptionConfigurationRuleApplyServerSideEnc
      * The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
      * 
      */
-    private UndeferrableValue<String> kmsMasterKeyId;
-
+    @PolicyResourceProperty(name="kmsMasterKeyId", flag="unknown_kmsMasterKeyId")
+    private String value_kmsMasterKeyId;
+    private boolean unknown_kmsMasterKeyId;
     public String kmsMasterKeyId() {
-        if (kmsMasterKeyId == null) return null;
-        return kmsMasterKeyId.getValue("BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs.kmsMasterKeyId");
+        if (!unknown_kmsMasterKeyId) return value_kmsMasterKeyId;
+        throw new UndeferrableValueException("Value 'BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs.kmsMasterKeyId' is not present");
     }
 
     /**
      * The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
      * 
      */
-    private UndeferrableValue<String> sseAlgorithm;
-
+    @PolicyResourceProperty(name="sseAlgorithm", flag="unknown_sseAlgorithm")
+    private String value_sseAlgorithm;
+    private boolean unknown_sseAlgorithm;
     public String sseAlgorithm() {
-        if (sseAlgorithm == null) return null;
-        return sseAlgorithm.getValue("BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs.sseAlgorithm");
+        if (!unknown_sseAlgorithm) return value_sseAlgorithm;
+        throw new UndeferrableValueException("Value 'BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs.sseAlgorithm' is not present");
     }
 
 }

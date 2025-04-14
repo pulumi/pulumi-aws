@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class CatalogTableOpenTableFormatInputIcebergInputArgs {
      * A required metadata operation. Can only be set to CREATE.
      * 
      */
-    private UndeferrableValue<String> metadataOperation;
-
+    @PolicyResourceProperty(name="metadataOperation", flag="unknown_metadataOperation")
+    private String value_metadataOperation;
+    private boolean unknown_metadataOperation;
     public String metadataOperation() {
-        if (metadataOperation == null) return null;
-        return metadataOperation.getValue("CatalogTableOpenTableFormatInputIcebergInputArgs.metadataOperation");
+        if (!unknown_metadataOperation) return value_metadataOperation;
+        throw new UndeferrableValueException("Value 'CatalogTableOpenTableFormatInputIcebergInputArgs.metadataOperation' is not present");
     }
 
     /**
      * The table version for the Iceberg table. Defaults to 2.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("CatalogTableOpenTableFormatInputIcebergInputArgs.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'CatalogTableOpenTableFormatInputIcebergInputArgs.version' is not present");
     }
 
 }

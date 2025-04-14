@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DomainDefaultSpaceSettingsSpaceStorageSettingsArgs {
      * The default EBS storage settings for a private space. See `default_ebs_storage_settings` Block below.
      * 
      */
-    private UndeferrableValue<DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs> defaultEbsStorageSettings;
-
+    @PolicyResourceProperty(name="defaultEbsStorageSettings", flag="unknown_defaultEbsStorageSettings")
+    private DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs value_defaultEbsStorageSettings;
+    private boolean unknown_defaultEbsStorageSettings;
     public DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs defaultEbsStorageSettings() {
-        if (defaultEbsStorageSettings == null) return null;
-        return defaultEbsStorageSettings.getValue("DomainDefaultSpaceSettingsSpaceStorageSettingsArgs.defaultEbsStorageSettings");
+        if (!unknown_defaultEbsStorageSettings) return value_defaultEbsStorageSettings;
+        throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsSpaceStorageSettingsArgs.defaultEbsStorageSettings' is not present");
     }
 
 }

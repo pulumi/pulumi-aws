@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,29 +12,32 @@ import javax.annotation.Nullable;
 
 public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs {
 
-    private UndeferrableValue<Double> bitrate;
-
+    @PolicyResourceProperty(name="bitrate", flag="unknown_bitrate")
+    private Double value_bitrate;
+    private boolean unknown_bitrate;
     public Double bitrate() {
-        if (bitrate == null) return null;
-        return bitrate.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs.bitrate");
+        if (!unknown_bitrate) return value_bitrate;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs.bitrate' is not present");
     }
 
-    private UndeferrableValue<String> codingMode;
-
+    @PolicyResourceProperty(name="codingMode", flag="unknown_codingMode")
+    private String value_codingMode;
+    private boolean unknown_codingMode;
     public String codingMode() {
-        if (codingMode == null) return null;
-        return codingMode.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs.codingMode");
+        if (!unknown_codingMode) return value_codingMode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs.codingMode' is not present");
     }
 
     /**
      * Sample rate in Hz.
      * 
      */
-    private UndeferrableValue<Double> sampleRate;
-
+    @PolicyResourceProperty(name="sampleRate", flag="unknown_sampleRate")
+    private Double value_sampleRate;
+    private boolean unknown_sampleRate;
     public Double sampleRate() {
-        if (sampleRate == null) return null;
-        return sampleRate.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs.sampleRate");
+        if (!unknown_sampleRate) return value_sampleRate;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs.sampleRate' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class AttachmentAccepterArgs extends com.pulumi.resources.PolicyRes
      * The ID of the attachment.
      * 
      */
-    private UndeferrableValue<String> attachmentId;
-
+    @PolicyResourceProperty(name="attachmentId", flag="unknown_attachmentId")
+    private String value_attachmentId;
+    private boolean unknown_attachmentId;
     public String attachmentId() {
-        if (attachmentId == null) return null;
-        return attachmentId.getValue("AttachmentAccepterArgs.attachmentId");
+        if (!unknown_attachmentId) return value_attachmentId;
+        throw new UndeferrableValueException("Value 'AttachmentAccepterArgs.attachmentId' is not present");
     }
 
     /**
      * The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
      * 
      */
-    private UndeferrableValue<String> attachmentType;
-
+    @PolicyResourceProperty(name="attachmentType", flag="unknown_attachmentType")
+    private String value_attachmentType;
+    private boolean unknown_attachmentType;
     public String attachmentType() {
-        if (attachmentType == null) return null;
-        return attachmentType.getValue("AttachmentAccepterArgs.attachmentType");
+        if (!unknown_attachmentType) return value_attachmentType;
+        throw new UndeferrableValueException("Value 'AttachmentAccepterArgs.attachmentType' is not present");
     }
 
 }

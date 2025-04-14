@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -18,33 +19,36 @@ public final class EventTargetEcsTargetNetworkConfiguration {
      * For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> assignPublicIp;
-
+    @PolicyResourceProperty(name="assignPublicIp", flag="unknown_assignPublicIp")
+    private @Nullable Boolean value_assignPublicIp;
+    private boolean unknown_assignPublicIp;
     public @Nullable Boolean assignPublicIp() {
-        if (assignPublicIp == null) return null;
-        return assignPublicIp.getValue("EventTargetEcsTargetNetworkConfiguration.assignPublicIp");
+        if (!unknown_assignPublicIp) return value_assignPublicIp;
+        throw new UndeferrableValueException("Value 'EventTargetEcsTargetNetworkConfiguration.assignPublicIp' is not present");
     }
 
     /**
      * The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> securityGroups;
-
+    @PolicyResourceProperty(name="securityGroups", flag="unknown_securityGroups")
+    private @Nullable List<String> value_securityGroups;
+    private boolean unknown_securityGroups;
     public @Nullable List<String> securityGroups() {
-        if (securityGroups == null) return null;
-        return securityGroups.getValue("EventTargetEcsTargetNetworkConfiguration.securityGroups");
+        if (!unknown_securityGroups) return value_securityGroups;
+        throw new UndeferrableValueException("Value 'EventTargetEcsTargetNetworkConfiguration.securityGroups' is not present");
     }
 
     /**
      * The subnets associated with the task or service.
      * 
      */
-    private UndeferrableValue<List<String>> subnets;
-
+    @PolicyResourceProperty(name="subnets", flag="unknown_subnets")
+    private List<String> value_subnets;
+    private boolean unknown_subnets;
     public List<String> subnets() {
-        if (subnets == null) return null;
-        return subnets.getValue("EventTargetEcsTargetNetworkConfiguration.subnets");
+        if (!unknown_subnets) return value_subnets;
+        throw new UndeferrableValueException("Value 'EventTargetEcsTargetNetworkConfiguration.subnets' is not present");
     }
 
 }

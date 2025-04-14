@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.rds.inputs.IntegrationTimeoutsArgs;
 import java.lang.String;
@@ -20,11 +21,12 @@ public final class IntegrationArgs extends com.pulumi.resources.PolicyResourceIn
      * You can only include this parameter if you specify the `kms_key_id` parameter.
      * 
      */
-    private UndeferrableValue<Map<String,String>> additionalEncryptionContext;
-
+    @PolicyResourceProperty(name="additionalEncryptionContext", flag="unknown_additionalEncryptionContext")
+    private Map<String,String> value_additionalEncryptionContext;
+    private boolean unknown_additionalEncryptionContext;
     public Map<String,String> additionalEncryptionContext() {
-        if (additionalEncryptionContext == null) return null;
-        return additionalEncryptionContext.getValue("IntegrationArgs.additionalEncryptionContext");
+        if (!unknown_additionalEncryptionContext) return value_additionalEncryptionContext;
+        throw new UndeferrableValueException("Value 'IntegrationArgs.additionalEncryptionContext' is not present");
     }
 
     /**
@@ -35,22 +37,24 @@ public final class IntegrationArgs extends com.pulumi.resources.PolicyResourceIn
      * See the [Amazon RDS data filtering guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html) for additional details.
      * 
      */
-    private UndeferrableValue<String> dataFilter;
-
+    @PolicyResourceProperty(name="dataFilter", flag="unknown_dataFilter")
+    private String value_dataFilter;
+    private boolean unknown_dataFilter;
     public String dataFilter() {
-        if (dataFilter == null) return null;
-        return dataFilter.getValue("IntegrationArgs.dataFilter");
+        if (!unknown_dataFilter) return value_dataFilter;
+        throw new UndeferrableValueException("Value 'IntegrationArgs.dataFilter' is not present");
     }
 
     /**
      * Name of the integration.
      * 
      */
-    private UndeferrableValue<String> integrationName;
-
+    @PolicyResourceProperty(name="integrationName", flag="unknown_integrationName")
+    private String value_integrationName;
+    private boolean unknown_integrationName;
     public String integrationName() {
-        if (integrationName == null) return null;
-        return integrationName.getValue("IntegrationArgs.integrationName");
+        if (!unknown_integrationName) return value_integrationName;
+        throw new UndeferrableValueException("Value 'IntegrationArgs.integrationName' is not present");
     }
 
     /**
@@ -59,33 +63,36 @@ public final class IntegrationArgs extends com.pulumi.resources.PolicyResourceIn
      * If you use the default AWS owned key, you should ignore `kms_key_id` parameter by using `lifecycle` parameter to avoid unintended change after the first creation.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("IntegrationArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'IntegrationArgs.kmsKeyId' is not present");
     }
 
     /**
      * ARN of the database to use as the source for replication.
      * 
      */
-    private UndeferrableValue<String> sourceArn;
-
+    @PolicyResourceProperty(name="sourceArn", flag="unknown_sourceArn")
+    private String value_sourceArn;
+    private boolean unknown_sourceArn;
     public String sourceArn() {
-        if (sourceArn == null) return null;
-        return sourceArn.getValue("IntegrationArgs.sourceArn");
+        if (!unknown_sourceArn) return value_sourceArn;
+        throw new UndeferrableValueException("Value 'IntegrationArgs.sourceArn' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("IntegrationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'IntegrationArgs.tags' is not present");
     }
 
     /**
@@ -94,18 +101,20 @@ public final class IntegrationArgs extends com.pulumi.resources.PolicyResourceIn
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> targetArn;
-
+    @PolicyResourceProperty(name="targetArn", flag="unknown_targetArn")
+    private String value_targetArn;
+    private boolean unknown_targetArn;
     public String targetArn() {
-        if (targetArn == null) return null;
-        return targetArn.getValue("IntegrationArgs.targetArn");
+        if (!unknown_targetArn) return value_targetArn;
+        throw new UndeferrableValueException("Value 'IntegrationArgs.targetArn' is not present");
     }
 
-    private UndeferrableValue<IntegrationTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private IntegrationTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public IntegrationTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("IntegrationArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'IntegrationArgs.timeouts' is not present");
     }
 
 }

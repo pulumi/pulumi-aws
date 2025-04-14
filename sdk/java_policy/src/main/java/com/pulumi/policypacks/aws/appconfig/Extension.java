@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appconfig;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appconfig.outputs.ExtensionActionPoint;
 import com.pulumi.policypacks.aws.appconfig.outputs.ExtensionParameter;
@@ -21,66 +22,72 @@ public final class Extension extends com.pulumi.resources.PolicyResourceOutput {
      * The action points defined in the extension. Detailed below.
      * 
      */
-    private UndeferrableValue<List<ExtensionActionPoint>> actionPoints;
-
+    @PolicyResourceProperty(name="actionPoints", flag="unknown_actionPoints")
+    private List<ExtensionActionPoint> value_actionPoints;
+    private boolean unknown_actionPoints;
     public List<ExtensionActionPoint> actionPoints() {
-        if (actionPoints == null) return null;
-        return actionPoints.getValue("Extension.actionPoints");
+        if (!unknown_actionPoints) return value_actionPoints;
+        throw new UndeferrableValueException("Value 'Extension.actionPoints' is not present");
     }
 
     /**
      * ARN of the AppConfig Extension.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Extension.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Extension.arn' is not present");
     }
 
     /**
      * Information about the extension.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("Extension.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Extension.description' is not present");
     }
 
     /**
      * A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Extension.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Extension.name' is not present");
     }
 
     /**
      * The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
      * 
      */
-    private UndeferrableValue<List<ExtensionParameter>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private List<ExtensionParameter> value_parameters;
+    private boolean unknown_parameters;
     public List<ExtensionParameter> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("Extension.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'Extension.parameters' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Extension.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Extension.tags' is not present");
     }
 
     /**
@@ -89,22 +96,24 @@ public final class Extension extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Extension.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Extension.tagsAll' is not present");
     }
 
     /**
      * The version number for the extension.
      * 
      */
-    private UndeferrableValue<Integer> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private Integer value_version;
+    private boolean unknown_version;
     public Integer version() {
-        if (version == null) return null;
-        return version.getValue("Extension.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'Extension.version' is not present");
     }
 
 }

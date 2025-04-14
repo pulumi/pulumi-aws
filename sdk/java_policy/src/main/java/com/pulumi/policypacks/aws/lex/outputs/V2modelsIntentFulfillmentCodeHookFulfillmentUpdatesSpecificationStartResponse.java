@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroup;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -17,33 +18,36 @@ public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificat
      * Whether the user can interrupt the start message while it is playing.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> allowInterrupt;
-
+    @PolicyResourceProperty(name="allowInterrupt", flag="unknown_allowInterrupt")
+    private @Nullable Boolean value_allowInterrupt;
+    private boolean unknown_allowInterrupt;
     public @Nullable Boolean allowInterrupt() {
-        if (allowInterrupt == null) return null;
-        return allowInterrupt.getValue("V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponse.allowInterrupt");
+        if (!unknown_allowInterrupt) return value_allowInterrupt;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponse.allowInterrupt' is not present");
     }
 
     /**
      * Delay between when the Lambda fulfillment function starts running and the start message is played. If the Lambda function returns before the delay is over, the start message isn&#39;t played.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> delayInSeconds;
-
+    @PolicyResourceProperty(name="delayInSeconds", flag="unknown_delayInSeconds")
+    private @Nullable Integer value_delayInSeconds;
+    private boolean unknown_delayInSeconds;
     public @Nullable Integer delayInSeconds() {
-        if (delayInSeconds == null) return null;
-        return delayInSeconds.getValue("V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponse.delayInSeconds");
+        if (!unknown_delayInSeconds) return value_delayInSeconds;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponse.delayInSeconds' is not present");
     }
 
     /**
      * Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `message_group`.
      * 
      */
-    private @Nullable UndeferrableValue<List<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroup>> messageGroups;
-
+    @PolicyResourceProperty(name="messageGroups", flag="unknown_messageGroups")
+    private @Nullable List<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroup> value_messageGroups;
+    private boolean unknown_messageGroups;
     public @Nullable List<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroup> messageGroups() {
-        if (messageGroups == null) return null;
-        return messageGroups.getValue("V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponse.messageGroups");
+        if (!unknown_messageGroups) return value_messageGroups;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponse.messageGroups' is not present");
     }
 
 }

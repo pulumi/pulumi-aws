@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.datazone.inputs.ProjectTimeoutsArgs;
 import java.lang.Boolean;
@@ -19,33 +20,36 @@ public final class ProjectArgs extends com.pulumi.resources.PolicyResourceInput 
      * Description of project.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ProjectArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ProjectArgs.description' is not present");
     }
 
     /**
      * Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
      * 
      */
-    private UndeferrableValue<String> domainIdentifier;
-
+    @PolicyResourceProperty(name="domainIdentifier", flag="unknown_domainIdentifier")
+    private String value_domainIdentifier;
+    private boolean unknown_domainIdentifier;
     public String domainIdentifier() {
-        if (domainIdentifier == null) return null;
-        return domainIdentifier.getValue("ProjectArgs.domainIdentifier");
+        if (!unknown_domainIdentifier) return value_domainIdentifier;
+        throw new UndeferrableValueException("Value 'ProjectArgs.domainIdentifier' is not present");
     }
 
     /**
      * List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
      * 
      */
-    private UndeferrableValue<List<String>> glossaryTerms;
-
+    @PolicyResourceProperty(name="glossaryTerms", flag="unknown_glossaryTerms")
+    private List<String> value_glossaryTerms;
+    private boolean unknown_glossaryTerms;
     public List<String> glossaryTerms() {
-        if (glossaryTerms == null) return null;
-        return glossaryTerms.getValue("ProjectArgs.glossaryTerms");
+        if (!unknown_glossaryTerms) return value_glossaryTerms;
+        throw new UndeferrableValueException("Value 'ProjectArgs.glossaryTerms' is not present");
     }
 
     /**
@@ -54,29 +58,32 @@ public final class ProjectArgs extends com.pulumi.resources.PolicyResourceInput 
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ProjectArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ProjectArgs.name' is not present");
     }
 
     /**
      * Optional flag to delete all child entities within the project.
      * 
      */
-    private UndeferrableValue<Boolean> skipDeletionCheck;
-
+    @PolicyResourceProperty(name="skipDeletionCheck", flag="unknown_skipDeletionCheck")
+    private Boolean value_skipDeletionCheck;
+    private boolean unknown_skipDeletionCheck;
     public Boolean skipDeletionCheck() {
-        if (skipDeletionCheck == null) return null;
-        return skipDeletionCheck.getValue("ProjectArgs.skipDeletionCheck");
+        if (!unknown_skipDeletionCheck) return value_skipDeletionCheck;
+        throw new UndeferrableValueException("Value 'ProjectArgs.skipDeletionCheck' is not present");
     }
 
-    private UndeferrableValue<ProjectTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private ProjectTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public ProjectTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ProjectArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ProjectArgs.timeouts' is not present");
     }
 
 }

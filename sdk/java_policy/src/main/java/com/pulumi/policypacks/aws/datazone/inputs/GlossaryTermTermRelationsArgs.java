@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datazone.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,18 +16,20 @@ public final class GlossaryTermTermRelationsArgs {
      * String array that calssifies the term relations.
      * 
      */
-    private UndeferrableValue<List<String>> classifies;
-
+    @PolicyResourceProperty(name="classifies", flag="unknown_classifies")
+    private List<String> value_classifies;
+    private boolean unknown_classifies;
     public List<String> classifies() {
-        if (classifies == null) return null;
-        return classifies.getValue("GlossaryTermTermRelationsArgs.classifies");
+        if (!unknown_classifies) return value_classifies;
+        throw new UndeferrableValueException("Value 'GlossaryTermTermRelationsArgs.classifies' is not present");
     }
 
-    private UndeferrableValue<List<String>> isAs;
-
+    @PolicyResourceProperty(name="isAs", flag="unknown_isAs")
+    private List<String> value_isAs;
+    private boolean unknown_isAs;
     public List<String> isAs() {
-        if (isAs == null) return null;
-        return isAs.getValue("GlossaryTermTermRelationsArgs.isAs");
+        if (!unknown_isAs) return value_isAs;
+        throw new UndeferrableValueException("Value 'GlossaryTermTermRelationsArgs.isAs' is not present");
     }
 
 }

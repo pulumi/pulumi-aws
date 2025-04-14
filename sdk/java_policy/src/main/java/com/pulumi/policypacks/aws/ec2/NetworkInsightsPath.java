@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class NetworkInsightsPath extends com.pulumi.resources.PolicyResour
      * ARN of the Network Insights Path.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("NetworkInsightsPath.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'NetworkInsightsPath.arn' is not present");
     }
 
     /**
      * ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      * 
      */
-    private @Nullable UndeferrableValue<String> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private @Nullable String value_destination;
+    private boolean unknown_destination;
     public @Nullable String destination() {
-        if (destination == null) return null;
-        return destination.getValue("NetworkInsightsPath.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'NetworkInsightsPath.destination' is not present");
     }
 
     /**
      * ARN of the destination.
      * 
      */
-    private UndeferrableValue<String> destinationArn;
-
+    @PolicyResourceProperty(name="destinationArn", flag="unknown_destinationArn")
+    private String value_destinationArn;
+    private boolean unknown_destinationArn;
     public String destinationArn() {
-        if (destinationArn == null) return null;
-        return destinationArn.getValue("NetworkInsightsPath.destinationArn");
+        if (!unknown_destinationArn) return value_destinationArn;
+        throw new UndeferrableValueException("Value 'NetworkInsightsPath.destinationArn' is not present");
     }
 
     /**
      * IP address of the destination resource.
      * 
      */
-    private @Nullable UndeferrableValue<String> destinationIp;
-
+    @PolicyResourceProperty(name="destinationIp", flag="unknown_destinationIp")
+    private @Nullable String value_destinationIp;
+    private boolean unknown_destinationIp;
     public @Nullable String destinationIp() {
-        if (destinationIp == null) return null;
-        return destinationIp.getValue("NetworkInsightsPath.destinationIp");
+        if (!unknown_destinationIp) return value_destinationIp;
+        throw new UndeferrableValueException("Value 'NetworkInsightsPath.destinationIp' is not present");
     }
 
     /**
      * Destination port to analyze access to.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> destinationPort;
-
+    @PolicyResourceProperty(name="destinationPort", flag="unknown_destinationPort")
+    private @Nullable Integer value_destinationPort;
+    private boolean unknown_destinationPort;
     public @Nullable Integer destinationPort() {
-        if (destinationPort == null) return null;
-        return destinationPort.getValue("NetworkInsightsPath.destinationPort");
+        if (!unknown_destinationPort) return value_destinationPort;
+        throw new UndeferrableValueException("Value 'NetworkInsightsPath.destinationPort' is not present");
     }
 
     /**
@@ -75,55 +81,60 @@ public final class NetworkInsightsPath extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("NetworkInsightsPath.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'NetworkInsightsPath.protocol' is not present");
     }
 
     /**
      * ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      * 
      */
-    private UndeferrableValue<String> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private String value_source;
+    private boolean unknown_source;
     public String source() {
-        if (source == null) return null;
-        return source.getValue("NetworkInsightsPath.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'NetworkInsightsPath.source' is not present");
     }
 
     /**
      * ARN of the source.
      * 
      */
-    private UndeferrableValue<String> sourceArn;
-
+    @PolicyResourceProperty(name="sourceArn", flag="unknown_sourceArn")
+    private String value_sourceArn;
+    private boolean unknown_sourceArn;
     public String sourceArn() {
-        if (sourceArn == null) return null;
-        return sourceArn.getValue("NetworkInsightsPath.sourceArn");
+        if (!unknown_sourceArn) return value_sourceArn;
+        throw new UndeferrableValueException("Value 'NetworkInsightsPath.sourceArn' is not present");
     }
 
     /**
      * IP address of the source resource.
      * 
      */
-    private @Nullable UndeferrableValue<String> sourceIp;
-
+    @PolicyResourceProperty(name="sourceIp", flag="unknown_sourceIp")
+    private @Nullable String value_sourceIp;
+    private boolean unknown_sourceIp;
     public @Nullable String sourceIp() {
-        if (sourceIp == null) return null;
-        return sourceIp.getValue("NetworkInsightsPath.sourceIp");
+        if (!unknown_sourceIp) return value_sourceIp;
+        throw new UndeferrableValueException("Value 'NetworkInsightsPath.sourceIp' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("NetworkInsightsPath.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'NetworkInsightsPath.tags' is not present");
     }
 
     /**
@@ -134,11 +145,12 @@ public final class NetworkInsightsPath extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("NetworkInsightsPath.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'NetworkInsightsPath.tagsAll' is not present");
     }
 
 }

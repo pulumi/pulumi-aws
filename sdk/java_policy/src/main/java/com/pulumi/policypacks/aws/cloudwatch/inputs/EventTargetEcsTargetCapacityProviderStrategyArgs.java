@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class EventTargetEcsTargetCapacityProviderStrategyArgs {
      * The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
      * 
      */
-    private UndeferrableValue<Integer> base;
-
+    @PolicyResourceProperty(name="base", flag="unknown_base")
+    private Integer value_base;
+    private boolean unknown_base;
     public Integer base() {
-        if (base == null) return null;
-        return base.getValue("EventTargetEcsTargetCapacityProviderStrategyArgs.base");
+        if (!unknown_base) return value_base;
+        throw new UndeferrableValueException("Value 'EventTargetEcsTargetCapacityProviderStrategyArgs.base' is not present");
     }
 
     /**
      * Short name of the capacity provider.
      * 
      */
-    private UndeferrableValue<String> capacityProvider;
-
+    @PolicyResourceProperty(name="capacityProvider", flag="unknown_capacityProvider")
+    private String value_capacityProvider;
+    private boolean unknown_capacityProvider;
     public String capacityProvider() {
-        if (capacityProvider == null) return null;
-        return capacityProvider.getValue("EventTargetEcsTargetCapacityProviderStrategyArgs.capacityProvider");
+        if (!unknown_capacityProvider) return value_capacityProvider;
+        throw new UndeferrableValueException("Value 'EventTargetEcsTargetCapacityProviderStrategyArgs.capacityProvider' is not present");
     }
 
     /**
      * The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
      * 
      */
-    private UndeferrableValue<Integer> weight;
-
+    @PolicyResourceProperty(name="weight", flag="unknown_weight")
+    private Integer value_weight;
+    private boolean unknown_weight;
     public Integer weight() {
-        if (weight == null) return null;
-        return weight.getValue("EventTargetEcsTargetCapacityProviderStrategyArgs.weight");
+        if (!unknown_weight) return value_weight;
+        throw new UndeferrableValueException("Value 'EventTargetEcsTargetCapacityProviderStrategyArgs.weight' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.synthetics;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class GroupAssociationArgs extends com.pulumi.resources.PolicyResou
      * ARN of the canary.
      * 
      */
-    private UndeferrableValue<String> canaryArn;
-
+    @PolicyResourceProperty(name="canaryArn", flag="unknown_canaryArn")
+    private String value_canaryArn;
+    private boolean unknown_canaryArn;
     public String canaryArn() {
-        if (canaryArn == null) return null;
-        return canaryArn.getValue("GroupAssociationArgs.canaryArn");
+        if (!unknown_canaryArn) return value_canaryArn;
+        throw new UndeferrableValueException("Value 'GroupAssociationArgs.canaryArn' is not present");
     }
 
     /**
      * Name of the group that the canary will be associated with.
      * 
      */
-    private UndeferrableValue<String> groupName;
-
+    @PolicyResourceProperty(name="groupName", flag="unknown_groupName")
+    private String value_groupName;
+    private boolean unknown_groupName;
     public String groupName() {
-        if (groupName == null) return null;
-        return groupName.getValue("GroupAssociationArgs.groupName");
+        if (!unknown_groupName) return value_groupName;
+        throw new UndeferrableValueException("Value 'GroupAssociationArgs.groupName' is not present");
     }
 
 }

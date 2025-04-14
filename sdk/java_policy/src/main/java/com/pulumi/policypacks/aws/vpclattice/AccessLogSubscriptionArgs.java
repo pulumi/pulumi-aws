@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,11 +18,12 @@ public final class AccessLogSubscriptionArgs extends com.pulumi.resources.Policy
      * Amazon Resource Name (ARN) of the log destination.
      * 
      */
-    private UndeferrableValue<String> destinationArn;
-
+    @PolicyResourceProperty(name="destinationArn", flag="unknown_destinationArn")
+    private String value_destinationArn;
+    private boolean unknown_destinationArn;
     public String destinationArn() {
-        if (destinationArn == null) return null;
-        return destinationArn.getValue("AccessLogSubscriptionArgs.destinationArn");
+        if (!unknown_destinationArn) return value_destinationArn;
+        throw new UndeferrableValueException("Value 'AccessLogSubscriptionArgs.destinationArn' is not present");
     }
 
     /**
@@ -30,29 +32,32 @@ public final class AccessLogSubscriptionArgs extends com.pulumi.resources.Policy
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> resourceIdentifier;
-
+    @PolicyResourceProperty(name="resourceIdentifier", flag="unknown_resourceIdentifier")
+    private String value_resourceIdentifier;
+    private boolean unknown_resourceIdentifier;
     public String resourceIdentifier() {
-        if (resourceIdentifier == null) return null;
-        return resourceIdentifier.getValue("AccessLogSubscriptionArgs.resourceIdentifier");
+        if (!unknown_resourceIdentifier) return value_resourceIdentifier;
+        throw new UndeferrableValueException("Value 'AccessLogSubscriptionArgs.resourceIdentifier' is not present");
     }
 
     /**
      * Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
      * 
      */
-    private UndeferrableValue<String> serviceNetworkLogType;
-
+    @PolicyResourceProperty(name="serviceNetworkLogType", flag="unknown_serviceNetworkLogType")
+    private String value_serviceNetworkLogType;
+    private boolean unknown_serviceNetworkLogType;
     public String serviceNetworkLogType() {
-        if (serviceNetworkLogType == null) return null;
-        return serviceNetworkLogType.getValue("AccessLogSubscriptionArgs.serviceNetworkLogType");
+        if (!unknown_serviceNetworkLogType) return value_serviceNetworkLogType;
+        throw new UndeferrableValueException("Value 'AccessLogSubscriptionArgs.serviceNetworkLogType' is not present");
     }
 
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AccessLogSubscriptionArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AccessLogSubscriptionArgs.tags' is not present");
     }
 
 }

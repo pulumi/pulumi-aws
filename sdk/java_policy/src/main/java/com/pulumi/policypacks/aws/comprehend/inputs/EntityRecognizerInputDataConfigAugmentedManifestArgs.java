@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.comprehend.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class EntityRecognizerInputDataConfigAugmentedManifestArgs {
      * Location of annotation files.
      * 
      */
-    private UndeferrableValue<String> annotationDataS3Uri;
-
+    @PolicyResourceProperty(name="annotationDataS3Uri", flag="unknown_annotationDataS3Uri")
+    private String value_annotationDataS3Uri;
+    private boolean unknown_annotationDataS3Uri;
     public String annotationDataS3Uri() {
-        if (annotationDataS3Uri == null) return null;
-        return annotationDataS3Uri.getValue("EntityRecognizerInputDataConfigAugmentedManifestArgs.annotationDataS3Uri");
+        if (!unknown_annotationDataS3Uri) return value_annotationDataS3Uri;
+        throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfigAugmentedManifestArgs.annotationDataS3Uri' is not present");
     }
 
     /**
      * The JSON attribute that contains the annotations for the training documents.
      * 
      */
-    private UndeferrableValue<List<String>> attributeNames;
-
+    @PolicyResourceProperty(name="attributeNames", flag="unknown_attributeNames")
+    private List<String> value_attributeNames;
+    private boolean unknown_attributeNames;
     public List<String> attributeNames() {
-        if (attributeNames == null) return null;
-        return attributeNames.getValue("EntityRecognizerInputDataConfigAugmentedManifestArgs.attributeNames");
+        if (!unknown_attributeNames) return value_attributeNames;
+        throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfigAugmentedManifestArgs.attributeNames' is not present");
     }
 
     /**
@@ -38,33 +41,36 @@ public final class EntityRecognizerInputDataConfigAugmentedManifestArgs {
      * One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
      * 
      */
-    private UndeferrableValue<String> documentType;
-
+    @PolicyResourceProperty(name="documentType", flag="unknown_documentType")
+    private String value_documentType;
+    private boolean unknown_documentType;
     public String documentType() {
-        if (documentType == null) return null;
-        return documentType.getValue("EntityRecognizerInputDataConfigAugmentedManifestArgs.documentType");
+        if (!unknown_documentType) return value_documentType;
+        throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfigAugmentedManifestArgs.documentType' is not present");
     }
 
     /**
      * Location of augmented manifest file.
      * 
      */
-    private UndeferrableValue<String> s3Uri;
-
+    @PolicyResourceProperty(name="s3Uri", flag="unknown_s3Uri")
+    private String value_s3Uri;
+    private boolean unknown_s3Uri;
     public String s3Uri() {
-        if (s3Uri == null) return null;
-        return s3Uri.getValue("EntityRecognizerInputDataConfigAugmentedManifestArgs.s3Uri");
+        if (!unknown_s3Uri) return value_s3Uri;
+        throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfigAugmentedManifestArgs.s3Uri' is not present");
     }
 
     /**
      * Location of source PDF files.
      * 
      */
-    private UndeferrableValue<String> sourceDocumentsS3Uri;
-
+    @PolicyResourceProperty(name="sourceDocumentsS3Uri", flag="unknown_sourceDocumentsS3Uri")
+    private String value_sourceDocumentsS3Uri;
+    private boolean unknown_sourceDocumentsS3Uri;
     public String sourceDocumentsS3Uri() {
-        if (sourceDocumentsS3Uri == null) return null;
-        return sourceDocumentsS3Uri.getValue("EntityRecognizerInputDataConfigAugmentedManifestArgs.sourceDocumentsS3Uri");
+        if (!unknown_sourceDocumentsS3Uri) return value_sourceDocumentsS3Uri;
+        throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfigAugmentedManifestArgs.sourceDocumentsS3Uri' is not present");
     }
 
     /**
@@ -72,11 +78,12 @@ public final class EntityRecognizerInputDataConfigAugmentedManifestArgs {
      * One of `TRAIN` or `TEST`.
      * 
      */
-    private UndeferrableValue<String> split;
-
+    @PolicyResourceProperty(name="split", flag="unknown_split")
+    private String value_split;
+    private boolean unknown_split;
     public String split() {
-        if (split == null) return null;
-        return split.getValue("EntityRecognizerInputDataConfigAugmentedManifestArgs.split");
+        if (!unknown_split) return value_split;
+        throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfigAugmentedManifestArgs.split' is not present");
     }
 
 }

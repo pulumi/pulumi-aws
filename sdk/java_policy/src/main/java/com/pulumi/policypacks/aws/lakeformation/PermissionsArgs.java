@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lakeformation.inputs.PermissionsDataCellsFilterArgs;
 import com.pulumi.policypacks.aws.lakeformation.inputs.PermissionsDataLocationArgs;
@@ -25,99 +26,108 @@ public final class PermissionsArgs extends com.pulumi.resources.PolicyResourceIn
      * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      * 
      */
-    private UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private String value_catalogId;
+    private boolean unknown_catalogId;
     public String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("PermissionsArgs.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'PermissionsArgs.catalogId' is not present");
     }
 
     /**
      * Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> catalogResource;
-
+    @PolicyResourceProperty(name="catalogResource", flag="unknown_catalogResource")
+    private Boolean value_catalogResource;
+    private boolean unknown_catalogResource;
     public Boolean catalogResource() {
-        if (catalogResource == null) return null;
-        return catalogResource.getValue("PermissionsArgs.catalogResource");
+        if (!unknown_catalogResource) return value_catalogResource;
+        throw new UndeferrableValueException("Value 'PermissionsArgs.catalogResource' is not present");
     }
 
     /**
      * Configuration block for a data cells filter resource. Detailed below.
      * 
      */
-    private UndeferrableValue<PermissionsDataCellsFilterArgs> dataCellsFilter;
-
+    @PolicyResourceProperty(name="dataCellsFilter", flag="unknown_dataCellsFilter")
+    private PermissionsDataCellsFilterArgs value_dataCellsFilter;
+    private boolean unknown_dataCellsFilter;
     public PermissionsDataCellsFilterArgs dataCellsFilter() {
-        if (dataCellsFilter == null) return null;
-        return dataCellsFilter.getValue("PermissionsArgs.dataCellsFilter");
+        if (!unknown_dataCellsFilter) return value_dataCellsFilter;
+        throw new UndeferrableValueException("Value 'PermissionsArgs.dataCellsFilter' is not present");
     }
 
     /**
      * Configuration block for a data location resource. Detailed below.
      * 
      */
-    private UndeferrableValue<PermissionsDataLocationArgs> dataLocation;
-
+    @PolicyResourceProperty(name="dataLocation", flag="unknown_dataLocation")
+    private PermissionsDataLocationArgs value_dataLocation;
+    private boolean unknown_dataLocation;
     public PermissionsDataLocationArgs dataLocation() {
-        if (dataLocation == null) return null;
-        return dataLocation.getValue("PermissionsArgs.dataLocation");
+        if (!unknown_dataLocation) return value_dataLocation;
+        throw new UndeferrableValueException("Value 'PermissionsArgs.dataLocation' is not present");
     }
 
     /**
      * Configuration block for a database resource. Detailed below.
      * 
      */
-    private UndeferrableValue<PermissionsDatabaseArgs> database;
-
+    @PolicyResourceProperty(name="database", flag="unknown_database")
+    private PermissionsDatabaseArgs value_database;
+    private boolean unknown_database;
     public PermissionsDatabaseArgs database() {
-        if (database == null) return null;
-        return database.getValue("PermissionsArgs.database");
+        if (!unknown_database) return value_database;
+        throw new UndeferrableValueException("Value 'PermissionsArgs.database' is not present");
     }
 
     /**
      * Configuration block for an LF-tag resource. Detailed below.
      * 
      */
-    private UndeferrableValue<PermissionsLfTagArgs> lfTag;
-
+    @PolicyResourceProperty(name="lfTag", flag="unknown_lfTag")
+    private PermissionsLfTagArgs value_lfTag;
+    private boolean unknown_lfTag;
     public PermissionsLfTagArgs lfTag() {
-        if (lfTag == null) return null;
-        return lfTag.getValue("PermissionsArgs.lfTag");
+        if (!unknown_lfTag) return value_lfTag;
+        throw new UndeferrableValueException("Value 'PermissionsArgs.lfTag' is not present");
     }
 
     /**
      * Configuration block for an LF-tag policy resource. Detailed below.
      * 
      */
-    private UndeferrableValue<PermissionsLfTagPolicyArgs> lfTagPolicy;
-
+    @PolicyResourceProperty(name="lfTagPolicy", flag="unknown_lfTagPolicy")
+    private PermissionsLfTagPolicyArgs value_lfTagPolicy;
+    private boolean unknown_lfTagPolicy;
     public PermissionsLfTagPolicyArgs lfTagPolicy() {
-        if (lfTagPolicy == null) return null;
-        return lfTagPolicy.getValue("PermissionsArgs.lfTagPolicy");
+        if (!unknown_lfTagPolicy) return value_lfTagPolicy;
+        throw new UndeferrableValueException("Value 'PermissionsArgs.lfTagPolicy' is not present");
     }
 
     /**
      * List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      * 
      */
-    private UndeferrableValue<List<String>> permissions;
-
+    @PolicyResourceProperty(name="permissions", flag="unknown_permissions")
+    private List<String> value_permissions;
+    private boolean unknown_permissions;
     public List<String> permissions() {
-        if (permissions == null) return null;
-        return permissions.getValue("PermissionsArgs.permissions");
+        if (!unknown_permissions) return value_permissions;
+        throw new UndeferrableValueException("Value 'PermissionsArgs.permissions' is not present");
     }
 
     /**
      * Subset of `permissions` which the principal can pass.
      * 
      */
-    private UndeferrableValue<List<String>> permissionsWithGrantOptions;
-
+    @PolicyResourceProperty(name="permissionsWithGrantOptions", flag="unknown_permissionsWithGrantOptions")
+    private List<String> value_permissionsWithGrantOptions;
+    private boolean unknown_permissionsWithGrantOptions;
     public List<String> permissionsWithGrantOptions() {
-        if (permissionsWithGrantOptions == null) return null;
-        return permissionsWithGrantOptions.getValue("PermissionsArgs.permissionsWithGrantOptions");
+        if (!unknown_permissionsWithGrantOptions) return value_permissionsWithGrantOptions;
+        throw new UndeferrableValueException("Value 'PermissionsArgs.permissionsWithGrantOptions' is not present");
     }
 
     /**
@@ -128,22 +138,24 @@ public final class PermissionsArgs extends com.pulumi.resources.PolicyResourceIn
      * One of the following is required:
      * 
      */
-    private UndeferrableValue<String> principal;
-
+    @PolicyResourceProperty(name="principal", flag="unknown_principal")
+    private String value_principal;
+    private boolean unknown_principal;
     public String principal() {
-        if (principal == null) return null;
-        return principal.getValue("PermissionsArgs.principal");
+        if (!unknown_principal) return value_principal;
+        throw new UndeferrableValueException("Value 'PermissionsArgs.principal' is not present");
     }
 
     /**
      * Configuration block for a table resource. Detailed below.
      * 
      */
-    private UndeferrableValue<PermissionsTableArgs> table;
-
+    @PolicyResourceProperty(name="table", flag="unknown_table")
+    private PermissionsTableArgs value_table;
+    private boolean unknown_table;
     public PermissionsTableArgs table() {
-        if (table == null) return null;
-        return table.getValue("PermissionsArgs.table");
+        if (!unknown_table) return value_table;
+        throw new UndeferrableValueException("Value 'PermissionsArgs.table' is not present");
     }
 
     /**
@@ -152,11 +164,12 @@ public final class PermissionsArgs extends com.pulumi.resources.PolicyResourceIn
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<PermissionsTableWithColumnsArgs> tableWithColumns;
-
+    @PolicyResourceProperty(name="tableWithColumns", flag="unknown_tableWithColumns")
+    private PermissionsTableWithColumnsArgs value_tableWithColumns;
+    private boolean unknown_tableWithColumns;
     public PermissionsTableWithColumnsArgs tableWithColumns() {
-        if (tableWithColumns == null) return null;
-        return tableWithColumns.getValue("PermissionsArgs.tableWithColumns");
+        if (!unknown_tableWithColumns) return value_tableWithColumns;
+        throw new UndeferrableValueException("Value 'PermissionsArgs.tableWithColumns' is not present");
     }
 
 }

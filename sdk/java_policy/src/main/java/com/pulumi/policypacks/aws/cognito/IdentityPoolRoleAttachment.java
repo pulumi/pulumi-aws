@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cognito.outputs.IdentityPoolRoleAttachmentRoleMapping;
 import java.lang.String;
@@ -19,33 +20,36 @@ public final class IdentityPoolRoleAttachment extends com.pulumi.resources.Polic
      * An identity pool ID in the format `REGION_GUID`.
      * 
      */
-    private UndeferrableValue<String> identityPoolId;
-
+    @PolicyResourceProperty(name="identityPoolId", flag="unknown_identityPoolId")
+    private String value_identityPoolId;
+    private boolean unknown_identityPoolId;
     public String identityPoolId() {
-        if (identityPoolId == null) return null;
-        return identityPoolId.getValue("IdentityPoolRoleAttachment.identityPoolId");
+        if (!unknown_identityPoolId) return value_identityPoolId;
+        throw new UndeferrableValueException("Value 'IdentityPoolRoleAttachment.identityPoolId' is not present");
     }
 
     /**
      * A List of Role Mapping.
      * 
      */
-    private @Nullable UndeferrableValue<List<IdentityPoolRoleAttachmentRoleMapping>> roleMappings;
-
+    @PolicyResourceProperty(name="roleMappings", flag="unknown_roleMappings")
+    private @Nullable List<IdentityPoolRoleAttachmentRoleMapping> value_roleMappings;
+    private boolean unknown_roleMappings;
     public @Nullable List<IdentityPoolRoleAttachmentRoleMapping> roleMappings() {
-        if (roleMappings == null) return null;
-        return roleMappings.getValue("IdentityPoolRoleAttachment.roleMappings");
+        if (!unknown_roleMappings) return value_roleMappings;
+        throw new UndeferrableValueException("Value 'IdentityPoolRoleAttachment.roleMappings' is not present");
     }
 
     /**
      * The map of roles associated with this pool. For a given role, the key will be either &#34;authenticated&#34; or &#34;unauthenticated&#34; and the value will be the Role ARN.
      * 
      */
-    private UndeferrableValue<Map<String,String>> roles;
-
+    @PolicyResourceProperty(name="roles", flag="unknown_roles")
+    private Map<String,String> value_roles;
+    private boolean unknown_roles;
     public Map<String,String> roles() {
-        if (roles == null) return null;
-        return roles.getValue("IdentityPoolRoleAttachment.roles");
+        if (!unknown_roles) return value_roles;
+        throw new UndeferrableValueException("Value 'IdentityPoolRoleAttachment.roles' is not present");
     }
 
 }

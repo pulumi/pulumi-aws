@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DomainDomainSettingsDockerSettings {
      * Indicates whether the domain can access Docker. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> enableDockerAccess;
-
+    @PolicyResourceProperty(name="enableDockerAccess", flag="unknown_enableDockerAccess")
+    private @Nullable String value_enableDockerAccess;
+    private boolean unknown_enableDockerAccess;
     public @Nullable String enableDockerAccess() {
-        if (enableDockerAccess == null) return null;
-        return enableDockerAccess.getValue("DomainDomainSettingsDockerSettings.enableDockerAccess");
+        if (!unknown_enableDockerAccess) return value_enableDockerAccess;
+        throw new UndeferrableValueException("Value 'DomainDomainSettingsDockerSettings.enableDockerAccess' is not present");
     }
 
     /**
      * The list of Amazon Web Services accounts that are trusted when the domain is created in VPC-only mode.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> vpcOnlyTrustedAccounts;
-
+    @PolicyResourceProperty(name="vpcOnlyTrustedAccounts", flag="unknown_vpcOnlyTrustedAccounts")
+    private @Nullable List<String> value_vpcOnlyTrustedAccounts;
+    private boolean unknown_vpcOnlyTrustedAccounts;
     public @Nullable List<String> vpcOnlyTrustedAccounts() {
-        if (vpcOnlyTrustedAccounts == null) return null;
-        return vpcOnlyTrustedAccounts.getValue("DomainDomainSettingsDockerSettings.vpcOnlyTrustedAccounts");
+        if (!unknown_vpcOnlyTrustedAccounts) return value_vpcOnlyTrustedAccounts;
+        throw new UndeferrableValueException("Value 'DomainDomainSettingsDockerSettings.vpcOnlyTrustedAccounts' is not present");
     }
 
 }

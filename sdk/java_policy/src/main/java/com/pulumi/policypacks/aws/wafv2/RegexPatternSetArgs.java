@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.wafv2.inputs.RegexPatternSetRegularExpressionArgs;
 import java.lang.String;
@@ -19,66 +20,72 @@ public final class RegexPatternSetArgs extends com.pulumi.resources.PolicyResour
      * A friendly description of the regular expression pattern set.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("RegexPatternSetArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'RegexPatternSetArgs.description' is not present");
     }
 
     /**
      * A friendly name of the regular expression pattern set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RegexPatternSetArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RegexPatternSetArgs.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("RegexPatternSetArgs.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'RegexPatternSetArgs.namePrefix' is not present");
     }
 
     /**
      * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a{@literal @}]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
      * 
      */
-    private UndeferrableValue<List<RegexPatternSetRegularExpressionArgs>> regularExpressions;
-
+    @PolicyResourceProperty(name="regularExpressions", flag="unknown_regularExpressions")
+    private List<RegexPatternSetRegularExpressionArgs> value_regularExpressions;
+    private boolean unknown_regularExpressions;
     public List<RegexPatternSetRegularExpressionArgs> regularExpressions() {
-        if (regularExpressions == null) return null;
-        return regularExpressions.getValue("RegexPatternSetArgs.regularExpressions");
+        if (!unknown_regularExpressions) return value_regularExpressions;
+        throw new UndeferrableValueException("Value 'RegexPatternSetArgs.regularExpressions' is not present");
     }
 
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      * 
      */
-    private UndeferrableValue<String> scope;
-
+    @PolicyResourceProperty(name="scope", flag="unknown_scope")
+    private String value_scope;
+    private boolean unknown_scope;
     public String scope() {
-        if (scope == null) return null;
-        return scope.getValue("RegexPatternSetArgs.scope");
+        if (!unknown_scope) return value_scope;
+        throw new UndeferrableValueException("Value 'RegexPatternSetArgs.scope' is not present");
     }
 
     /**
      * An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RegexPatternSetArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RegexPatternSetArgs.tags' is not present");
     }
 
 }

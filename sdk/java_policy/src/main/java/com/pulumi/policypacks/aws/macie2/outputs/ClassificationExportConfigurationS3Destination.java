@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.macie2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ClassificationExportConfigurationS3Destination {
      * The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
      * 
      */
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("ClassificationExportConfigurationS3Destination.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'ClassificationExportConfigurationS3Destination.bucketName' is not present");
     }
 
     /**
      * The object key for the bucket in which Amazon Macie exports the data classification results.
      * 
      */
-    private @Nullable UndeferrableValue<String> keyPrefix;
-
+    @PolicyResourceProperty(name="keyPrefix", flag="unknown_keyPrefix")
+    private @Nullable String value_keyPrefix;
+    private boolean unknown_keyPrefix;
     public @Nullable String keyPrefix() {
-        if (keyPrefix == null) return null;
-        return keyPrefix.getValue("ClassificationExportConfigurationS3Destination.keyPrefix");
+        if (!unknown_keyPrefix) return value_keyPrefix;
+        throw new UndeferrableValueException("Value 'ClassificationExportConfigurationS3Destination.keyPrefix' is not present");
     }
 
     /**
@@ -38,11 +41,12 @@ public final class ClassificationExportConfigurationS3Destination {
      * Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
      * 
      */
-    private UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("ClassificationExportConfigurationS3Destination.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'ClassificationExportConfigurationS3Destination.kmsKeyArn' is not present");
     }
 
 }

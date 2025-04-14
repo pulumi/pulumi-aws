@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.fsx.outputs.OntapVolumeSnaplockConfigurationAutocommitPeriod;
 import com.pulumi.policypacks.aws.fsx.outputs.OntapVolumeSnaplockConfigurationRetentionPeriod;
 import java.lang.Boolean;
@@ -17,66 +18,72 @@ public final class OntapVolumeSnaplockConfiguration {
      * Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> auditLogVolume;
-
+    @PolicyResourceProperty(name="auditLogVolume", flag="unknown_auditLogVolume")
+    private @Nullable Boolean value_auditLogVolume;
+    private boolean unknown_auditLogVolume;
     public @Nullable Boolean auditLogVolume() {
-        if (auditLogVolume == null) return null;
-        return auditLogVolume.getValue("OntapVolumeSnaplockConfiguration.auditLogVolume");
+        if (!unknown_auditLogVolume) return value_auditLogVolume;
+        throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfiguration.auditLogVolume' is not present");
     }
 
     /**
      * The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommit_period` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<OntapVolumeSnaplockConfigurationAutocommitPeriod> autocommitPeriod;
-
+    @PolicyResourceProperty(name="autocommitPeriod", flag="unknown_autocommitPeriod")
+    private @Nullable OntapVolumeSnaplockConfigurationAutocommitPeriod value_autocommitPeriod;
+    private boolean unknown_autocommitPeriod;
     public @Nullable OntapVolumeSnaplockConfigurationAutocommitPeriod autocommitPeriod() {
-        if (autocommitPeriod == null) return null;
-        return autocommitPeriod.getValue("OntapVolumeSnaplockConfiguration.autocommitPeriod");
+        if (!unknown_autocommitPeriod) return value_autocommitPeriod;
+        throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfiguration.autocommitPeriod' is not present");
     }
 
     /**
      * Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> privilegedDelete;
-
+    @PolicyResourceProperty(name="privilegedDelete", flag="unknown_privilegedDelete")
+    private @Nullable String value_privilegedDelete;
+    private boolean unknown_privilegedDelete;
     public @Nullable String privilegedDelete() {
-        if (privilegedDelete == null) return null;
-        return privilegedDelete.getValue("OntapVolumeSnaplockConfiguration.privilegedDelete");
+        if (!unknown_privilegedDelete) return value_privilegedDelete;
+        throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfiguration.privilegedDelete' is not present");
     }
 
     /**
      * The retention period of an FSx for ONTAP SnapLock volume. See `retention_period` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<OntapVolumeSnaplockConfigurationRetentionPeriod> retentionPeriod;
-
+    @PolicyResourceProperty(name="retentionPeriod", flag="unknown_retentionPeriod")
+    private @Nullable OntapVolumeSnaplockConfigurationRetentionPeriod value_retentionPeriod;
+    private boolean unknown_retentionPeriod;
     public @Nullable OntapVolumeSnaplockConfigurationRetentionPeriod retentionPeriod() {
-        if (retentionPeriod == null) return null;
-        return retentionPeriod.getValue("OntapVolumeSnaplockConfiguration.retentionPeriod");
+        if (!unknown_retentionPeriod) return value_retentionPeriod;
+        throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfiguration.retentionPeriod' is not present");
     }
 
     /**
      * Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can&#39;t be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
      * 
      */
-    private UndeferrableValue<String> snaplockType;
-
+    @PolicyResourceProperty(name="snaplockType", flag="unknown_snaplockType")
+    private String value_snaplockType;
+    private boolean unknown_snaplockType;
     public String snaplockType() {
-        if (snaplockType == null) return null;
-        return snaplockType.getValue("OntapVolumeSnaplockConfiguration.snaplockType");
+        if (!unknown_snaplockType) return value_snaplockType;
+        throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfiguration.snaplockType' is not present");
     }
 
     /**
      * Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> volumeAppendModeEnabled;
-
+    @PolicyResourceProperty(name="volumeAppendModeEnabled", flag="unknown_volumeAppendModeEnabled")
+    private @Nullable Boolean value_volumeAppendModeEnabled;
+    private boolean unknown_volumeAppendModeEnabled;
     public @Nullable Boolean volumeAppendModeEnabled() {
-        if (volumeAppendModeEnabled == null) return null;
-        return volumeAppendModeEnabled.getValue("OntapVolumeSnaplockConfiguration.volumeAppendModeEnabled");
+        if (!unknown_volumeAppendModeEnabled) return value_volumeAppendModeEnabled;
+        throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfiguration.volumeAppendModeEnabled' is not present");
     }
 
 }

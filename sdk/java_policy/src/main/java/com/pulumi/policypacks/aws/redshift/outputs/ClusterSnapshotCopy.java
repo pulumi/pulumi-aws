@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ClusterSnapshotCopy {
      * The destination region that you want to copy snapshots to.
      * 
      */
-    private UndeferrableValue<String> destinationRegion;
-
+    @PolicyResourceProperty(name="destinationRegion", flag="unknown_destinationRegion")
+    private String value_destinationRegion;
+    private boolean unknown_destinationRegion;
     public String destinationRegion() {
-        if (destinationRegion == null) return null;
-        return destinationRegion.getValue("ClusterSnapshotCopy.destinationRegion");
+        if (!unknown_destinationRegion) return value_destinationRegion;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopy.destinationRegion' is not present");
     }
 
     /**
      * The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
      * 
      */
-    private @Nullable UndeferrableValue<String> grantName;
-
+    @PolicyResourceProperty(name="grantName", flag="unknown_grantName")
+    private @Nullable String value_grantName;
+    private boolean unknown_grantName;
     public @Nullable String grantName() {
-        if (grantName == null) return null;
-        return grantName.getValue("ClusterSnapshotCopy.grantName");
+        if (!unknown_grantName) return value_grantName;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopy.grantName' is not present");
     }
 
     /**
      * The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> retentionPeriod;
-
+    @PolicyResourceProperty(name="retentionPeriod", flag="unknown_retentionPeriod")
+    private @Nullable Integer value_retentionPeriod;
+    private boolean unknown_retentionPeriod;
     public @Nullable Integer retentionPeriod() {
-        if (retentionPeriod == null) return null;
-        return retentionPeriod.getValue("ClusterSnapshotCopy.retentionPeriod");
+        if (!unknown_retentionPeriod) return value_retentionPeriod;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotCopy.retentionPeriod' is not present");
     }
 
 }

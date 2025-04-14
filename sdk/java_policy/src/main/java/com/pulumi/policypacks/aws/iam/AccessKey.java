@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,99 +17,108 @@ public final class AccessKey extends com.pulumi.resources.PolicyResourceOutput {
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
      * 
      */
-    private UndeferrableValue<String> createDate;
-
+    @PolicyResourceProperty(name="createDate", flag="unknown_createDate")
+    private String value_createDate;
+    private boolean unknown_createDate;
     public String createDate() {
-        if (createDate == null) return null;
-        return createDate.getValue("AccessKey.createDate");
+        if (!unknown_createDate) return value_createDate;
+        throw new UndeferrableValueException("Value 'AccessKey.createDate' is not present");
     }
 
     /**
      * Encrypted secret, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted secret may be decrypted using the command line.
      * 
      */
-    private UndeferrableValue<String> encryptedSecret;
-
+    @PolicyResourceProperty(name="encryptedSecret", flag="unknown_encryptedSecret")
+    private String value_encryptedSecret;
+    private boolean unknown_encryptedSecret;
     public String encryptedSecret() {
-        if (encryptedSecret == null) return null;
-        return encryptedSecret.getValue("AccessKey.encryptedSecret");
+        if (!unknown_encryptedSecret) return value_encryptedSecret;
+        throw new UndeferrableValueException("Value 'AccessKey.encryptedSecret' is not present");
     }
 
     /**
      * Encrypted SES SMTP password, base64 encoded, if `pgp_key` was specified. This attribute is not available for imported resources. The encrypted password may be decrypted using the command line.
      * 
      */
-    private UndeferrableValue<String> encryptedSesSmtpPasswordV4;
-
+    @PolicyResourceProperty(name="encryptedSesSmtpPasswordV4", flag="unknown_encryptedSesSmtpPasswordV4")
+    private String value_encryptedSesSmtpPasswordV4;
+    private boolean unknown_encryptedSesSmtpPasswordV4;
     public String encryptedSesSmtpPasswordV4() {
-        if (encryptedSesSmtpPasswordV4 == null) return null;
-        return encryptedSesSmtpPasswordV4.getValue("AccessKey.encryptedSesSmtpPasswordV4");
+        if (!unknown_encryptedSesSmtpPasswordV4) return value_encryptedSesSmtpPasswordV4;
+        throw new UndeferrableValueException("Value 'AccessKey.encryptedSesSmtpPasswordV4' is not present");
     }
 
     /**
      * Fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
      * 
      */
-    private UndeferrableValue<String> keyFingerprint;
-
+    @PolicyResourceProperty(name="keyFingerprint", flag="unknown_keyFingerprint")
+    private String value_keyFingerprint;
+    private boolean unknown_keyFingerprint;
     public String keyFingerprint() {
-        if (keyFingerprint == null) return null;
-        return keyFingerprint.getValue("AccessKey.keyFingerprint");
+        if (!unknown_keyFingerprint) return value_keyFingerprint;
+        throw new UndeferrableValueException("Value 'AccessKey.keyFingerprint' is not present");
     }
 
     /**
      * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the &#34;raw&#34; version and not the &#34;armored&#34; one (e.g. avoid passing the `-a` option to `gpg --export`).
      * 
      */
-    private @Nullable UndeferrableValue<String> pgpKey;
-
+    @PolicyResourceProperty(name="pgpKey", flag="unknown_pgpKey")
+    private @Nullable String value_pgpKey;
+    private boolean unknown_pgpKey;
     public @Nullable String pgpKey() {
-        if (pgpKey == null) return null;
-        return pgpKey.getValue("AccessKey.pgpKey");
+        if (!unknown_pgpKey) return value_pgpKey;
+        throw new UndeferrableValueException("Value 'AccessKey.pgpKey' is not present");
     }
 
     /**
      * Secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgp_key` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
      * 
      */
-    private UndeferrableValue<String> secret;
-
+    @PolicyResourceProperty(name="secret", flag="unknown_secret")
+    private String value_secret;
+    private boolean unknown_secret;
     public String secret() {
-        if (secret == null) return null;
-        return secret.getValue("AccessKey.secret");
+        if (!unknown_secret) return value_secret;
+        throw new UndeferrableValueException("Value 'AccessKey.secret' is not present");
     }
 
     /**
      * Secret access key converted into an SES SMTP password by applying [AWS&#39;s documented Sigv4 conversion algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert). This attribute is not available for imported resources. As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region).
      * 
      */
-    private UndeferrableValue<String> sesSmtpPasswordV4;
-
+    @PolicyResourceProperty(name="sesSmtpPasswordV4", flag="unknown_sesSmtpPasswordV4")
+    private String value_sesSmtpPasswordV4;
+    private boolean unknown_sesSmtpPasswordV4;
     public String sesSmtpPasswordV4() {
-        if (sesSmtpPasswordV4 == null) return null;
-        return sesSmtpPasswordV4.getValue("AccessKey.sesSmtpPasswordV4");
+        if (!unknown_sesSmtpPasswordV4) return value_sesSmtpPasswordV4;
+        throw new UndeferrableValueException("Value 'AccessKey.sesSmtpPasswordV4' is not present");
     }
 
     /**
      * Access key status to apply. Defaults to `Active`. Valid values are `Active` and `Inactive`.
      * 
      */
-    private @Nullable UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private @Nullable String value_status;
+    private boolean unknown_status;
     public @Nullable String status() {
-        if (status == null) return null;
-        return status.getValue("AccessKey.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'AccessKey.status' is not present");
     }
 
     /**
      * IAM user to associate with this access key.
      * 
      */
-    private UndeferrableValue<String> user;
-
+    @PolicyResourceProperty(name="user", flag="unknown_user")
+    private String value_user;
+    private boolean unknown_user;
     public String user() {
-        if (user == null) return null;
-        return user.getValue("AccessKey.user");
+        if (!unknown_user) return value_user;
+        throw new UndeferrableValueException("Value 'AccessKey.user' is not present");
     }
 
 }

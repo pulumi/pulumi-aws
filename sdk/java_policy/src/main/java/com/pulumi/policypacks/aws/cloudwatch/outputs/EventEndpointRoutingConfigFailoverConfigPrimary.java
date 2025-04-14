@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class EventEndpointRoutingConfigFailoverConfigPrimary {
      * The ARN of the health check used by the endpoint to determine whether failover is triggered.
      * 
      */
-    private @Nullable UndeferrableValue<String> healthCheck;
-
+    @PolicyResourceProperty(name="healthCheck", flag="unknown_healthCheck")
+    private @Nullable String value_healthCheck;
+    private boolean unknown_healthCheck;
     public @Nullable String healthCheck() {
-        if (healthCheck == null) return null;
-        return healthCheck.getValue("EventEndpointRoutingConfigFailoverConfigPrimary.healthCheck");
+        if (!unknown_healthCheck) return value_healthCheck;
+        throw new UndeferrableValueException("Value 'EventEndpointRoutingConfigFailoverConfigPrimary.healthCheck' is not present");
     }
 
 }

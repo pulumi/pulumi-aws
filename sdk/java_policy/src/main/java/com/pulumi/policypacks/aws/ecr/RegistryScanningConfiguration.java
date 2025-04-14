@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecr;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ecr.outputs.RegistryScanningConfigurationRule;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class RegistryScanningConfiguration extends com.pulumi.resources.Po
      * The registry ID the scanning configuration applies to.
      * 
      */
-    private UndeferrableValue<String> registryId;
-
+    @PolicyResourceProperty(name="registryId", flag="unknown_registryId")
+    private String value_registryId;
+    private boolean unknown_registryId;
     public String registryId() {
-        if (registryId == null) return null;
-        return registryId.getValue("RegistryScanningConfiguration.registryId");
+        if (!unknown_registryId) return value_registryId;
+        throw new UndeferrableValueException("Value 'RegistryScanningConfiguration.registryId' is not present");
     }
 
     /**
      * One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
      * 
      */
-    private @Nullable UndeferrableValue<List<RegistryScanningConfigurationRule>> rules;
-
+    @PolicyResourceProperty(name="rules", flag="unknown_rules")
+    private @Nullable List<RegistryScanningConfigurationRule> value_rules;
+    private boolean unknown_rules;
     public @Nullable List<RegistryScanningConfigurationRule> rules() {
-        if (rules == null) return null;
-        return rules.getValue("RegistryScanningConfiguration.rules");
+        if (!unknown_rules) return value_rules;
+        throw new UndeferrableValueException("Value 'RegistryScanningConfiguration.rules' is not present");
     }
 
     /**
      * the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
      * 
      */
-    private UndeferrableValue<String> scanType;
-
+    @PolicyResourceProperty(name="scanType", flag="unknown_scanType")
+    private String value_scanType;
+    private boolean unknown_scanType;
     public String scanType() {
-        if (scanType == null) return null;
-        return scanType.getValue("RegistryScanningConfiguration.scanType");
+        if (!unknown_scanType) return value_scanType;
+        throw new UndeferrableValueException("Value 'RegistryScanningConfiguration.scanType' is not present");
     }
 
 }

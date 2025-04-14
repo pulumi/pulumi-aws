@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamwrite.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class TableSchemaCompositePartitionKey {
      * The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
      * 
      */
-    private @Nullable UndeferrableValue<String> enforcementInRecord;
-
+    @PolicyResourceProperty(name="enforcementInRecord", flag="unknown_enforcementInRecord")
+    private @Nullable String value_enforcementInRecord;
+    private boolean unknown_enforcementInRecord;
     public @Nullable String enforcementInRecord() {
-        if (enforcementInRecord == null) return null;
-        return enforcementInRecord.getValue("TableSchemaCompositePartitionKey.enforcementInRecord");
+        if (!unknown_enforcementInRecord) return value_enforcementInRecord;
+        throw new UndeferrableValueException("Value 'TableSchemaCompositePartitionKey.enforcementInRecord' is not present");
     }
 
     /**
      * The name of the attribute used for a dimension key.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("TableSchemaCompositePartitionKey.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TableSchemaCompositePartitionKey.name' is not present");
     }
 
     /**
      * The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("TableSchemaCompositePartitionKey.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'TableSchemaCompositePartitionKey.type' is not present");
     }
 
 }

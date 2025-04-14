@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.m2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.m2.outputs.ApplicationDefinition;
 import com.pulumi.policypacks.aws.m2.outputs.ApplicationTimeouts;
@@ -20,77 +21,84 @@ public final class Application extends com.pulumi.resources.PolicyResourceOutput
      * Id of the Application.
      * 
      */
-    private UndeferrableValue<String> applicationId;
-
+    @PolicyResourceProperty(name="applicationId", flag="unknown_applicationId")
+    private String value_applicationId;
+    private boolean unknown_applicationId;
     public String applicationId() {
-        if (applicationId == null) return null;
-        return applicationId.getValue("Application.applicationId");
+        if (!unknown_applicationId) return value_applicationId;
+        throw new UndeferrableValueException("Value 'Application.applicationId' is not present");
     }
 
     /**
      * ARN of the Application.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Application.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Application.arn' is not present");
     }
 
     /**
      * Current version of the application deployed.
      * 
      */
-    private UndeferrableValue<Integer> currentVersion;
-
+    @PolicyResourceProperty(name="currentVersion", flag="unknown_currentVersion")
+    private Integer value_currentVersion;
+    private boolean unknown_currentVersion;
     public Integer currentVersion() {
-        if (currentVersion == null) return null;
-        return currentVersion.getValue("Application.currentVersion");
+        if (!unknown_currentVersion) return value_currentVersion;
+        throw new UndeferrableValueException("Value 'Application.currentVersion' is not present");
     }
 
     /**
      * The application definition for this application. You can specify either inline JSON or an S3 bucket location.
      * 
      */
-    private @Nullable UndeferrableValue<ApplicationDefinition> definition;
-
+    @PolicyResourceProperty(name="definition", flag="unknown_definition")
+    private @Nullable ApplicationDefinition value_definition;
+    private boolean unknown_definition;
     public @Nullable ApplicationDefinition definition() {
-        if (definition == null) return null;
-        return definition.getValue("Application.definition");
+        if (!unknown_definition) return value_definition;
+        throw new UndeferrableValueException("Value 'Application.definition' is not present");
     }
 
     /**
      * Description of the application.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Application.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Application.description' is not present");
     }
 
     /**
      * Engine type must be `microfocus | bluage`.
      * 
      */
-    private UndeferrableValue<String> engineType;
-
+    @PolicyResourceProperty(name="engineType", flag="unknown_engineType")
+    private String value_engineType;
+    private boolean unknown_engineType;
     public String engineType() {
-        if (engineType == null) return null;
-        return engineType.getValue("Application.engineType");
+        if (!unknown_engineType) return value_engineType;
+        throw new UndeferrableValueException("Value 'Application.engineType' is not present");
     }
 
     /**
      * KMS Key to use for the Application.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("Application.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'Application.kmsKeyId' is not present");
     }
 
     /**
@@ -99,33 +107,36 @@ public final class Application extends com.pulumi.resources.PolicyResourceOutput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Application.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Application.name' is not present");
     }
 
     /**
      * ARN of role for application to use to access AWS resources.
      * 
      */
-    private @Nullable UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private @Nullable String value_roleArn;
+    private boolean unknown_roleArn;
     public @Nullable String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("Application.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'Application.roleArn' is not present");
     }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Application.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Application.tags' is not present");
     }
 
     /**
@@ -136,18 +147,20 @@ public final class Application extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Application.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Application.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<ApplicationTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable ApplicationTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable ApplicationTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("Application.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'Application.timeouts' is not present");
     }
 
 }

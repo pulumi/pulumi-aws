@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.route53.outputs.ResolverEndpointIpAddress;
 import java.lang.String;
@@ -19,11 +20,12 @@ public final class ResolverEndpoint extends com.pulumi.resources.PolicyResourceO
      * ARN of the Route 53 Resolver endpoint.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ResolverEndpoint.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ResolverEndpoint.arn' is not present");
     }
 
     /**
@@ -32,22 +34,24 @@ public final class ResolverEndpoint extends com.pulumi.resources.PolicyResourceO
      * or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
      * 
      */
-    private UndeferrableValue<String> direction;
-
+    @PolicyResourceProperty(name="direction", flag="unknown_direction")
+    private String value_direction;
+    private boolean unknown_direction;
     public String direction() {
-        if (direction == null) return null;
-        return direction.getValue("ResolverEndpoint.direction");
+        if (!unknown_direction) return value_direction;
+        throw new UndeferrableValueException("Value 'ResolverEndpoint.direction' is not present");
     }
 
     /**
      * ID of the VPC that you want to create the resolver endpoint in.
      * 
      */
-    private UndeferrableValue<String> hostVpcId;
-
+    @PolicyResourceProperty(name="hostVpcId", flag="unknown_hostVpcId")
+    private String value_hostVpcId;
+    private boolean unknown_hostVpcId;
     public String hostVpcId() {
-        if (hostVpcId == null) return null;
-        return hostVpcId.getValue("ResolverEndpoint.hostVpcId");
+        if (!unknown_hostVpcId) return value_hostVpcId;
+        throw new UndeferrableValueException("Value 'ResolverEndpoint.hostVpcId' is not present");
     }
 
     /**
@@ -55,22 +59,24 @@ public final class ResolverEndpoint extends com.pulumi.resources.PolicyResourceO
      * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
      * 
      */
-    private UndeferrableValue<List<ResolverEndpointIpAddress>> ipAddresses;
-
+    @PolicyResourceProperty(name="ipAddresses", flag="unknown_ipAddresses")
+    private List<ResolverEndpointIpAddress> value_ipAddresses;
+    private boolean unknown_ipAddresses;
     public List<ResolverEndpointIpAddress> ipAddresses() {
-        if (ipAddresses == null) return null;
-        return ipAddresses.getValue("ResolverEndpoint.ipAddresses");
+        if (!unknown_ipAddresses) return value_ipAddresses;
+        throw new UndeferrableValueException("Value 'ResolverEndpoint.ipAddresses' is not present");
     }
 
     /**
      * Friendly name of the Route 53 Resolver endpoint.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ResolverEndpoint.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ResolverEndpoint.name' is not present");
     }
 
     /**
@@ -78,11 +84,12 @@ public final class ResolverEndpoint extends com.pulumi.resources.PolicyResourceO
      * Valid values are `DoH`, `Do53`, or `DoH-FIPS`.
      * 
      */
-    private UndeferrableValue<List<String>> protocols;
-
+    @PolicyResourceProperty(name="protocols", flag="unknown_protocols")
+    private List<String> value_protocols;
+    private boolean unknown_protocols;
     public List<String> protocols() {
-        if (protocols == null) return null;
-        return protocols.getValue("ResolverEndpoint.protocols");
+        if (!unknown_protocols) return value_protocols;
+        throw new UndeferrableValueException("Value 'ResolverEndpoint.protocols' is not present");
     }
 
     /**
@@ -90,33 +97,36 @@ public final class ResolverEndpoint extends com.pulumi.resources.PolicyResourceO
      * Valid values are `IPV6`,`IPV4` or `DUALSTACK` (both IPv4 and IPv6).
      * 
      */
-    private UndeferrableValue<String> resolverEndpointType;
-
+    @PolicyResourceProperty(name="resolverEndpointType", flag="unknown_resolverEndpointType")
+    private String value_resolverEndpointType;
+    private boolean unknown_resolverEndpointType;
     public String resolverEndpointType() {
-        if (resolverEndpointType == null) return null;
-        return resolverEndpointType.getValue("ResolverEndpoint.resolverEndpointType");
+        if (!unknown_resolverEndpointType) return value_resolverEndpointType;
+        throw new UndeferrableValueException("Value 'ResolverEndpoint.resolverEndpointType' is not present");
     }
 
     /**
      * ID of one or more security groups that you want to use to control access to this VPC.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("ResolverEndpoint.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'ResolverEndpoint.securityGroupIds' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ResolverEndpoint.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ResolverEndpoint.tags' is not present");
     }
 
     /**
@@ -127,11 +137,12 @@ public final class ResolverEndpoint extends com.pulumi.resources.PolicyResourceO
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ResolverEndpoint.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ResolverEndpoint.tagsAll' is not present");
     }
 
 }

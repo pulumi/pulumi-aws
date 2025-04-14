@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -19,22 +20,24 @@ public final class ProjectLogsConfigS3LogsArgs {
      * allows CodeBuild to modify the access control list for the bucket.
      * 
      */
-    private UndeferrableValue<String> bucketOwnerAccess;
-
+    @PolicyResourceProperty(name="bucketOwnerAccess", flag="unknown_bucketOwnerAccess")
+    private String value_bucketOwnerAccess;
+    private boolean unknown_bucketOwnerAccess;
     public String bucketOwnerAccess() {
-        if (bucketOwnerAccess == null) return null;
-        return bucketOwnerAccess.getValue("ProjectLogsConfigS3LogsArgs.bucketOwnerAccess");
+        if (!unknown_bucketOwnerAccess) return value_bucketOwnerAccess;
+        throw new UndeferrableValueException("Value 'ProjectLogsConfigS3LogsArgs.bucketOwnerAccess' is not present");
     }
 
     /**
      * Whether to disable encrypting S3 logs. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> encryptionDisabled;
-
+    @PolicyResourceProperty(name="encryptionDisabled", flag="unknown_encryptionDisabled")
+    private Boolean value_encryptionDisabled;
+    private boolean unknown_encryptionDisabled;
     public Boolean encryptionDisabled() {
-        if (encryptionDisabled == null) return null;
-        return encryptionDisabled.getValue("ProjectLogsConfigS3LogsArgs.encryptionDisabled");
+        if (!unknown_encryptionDisabled) return value_encryptionDisabled;
+        throw new UndeferrableValueException("Value 'ProjectLogsConfigS3LogsArgs.encryptionDisabled' is not present");
     }
 
     /**
@@ -42,11 +45,12 @@ public final class ProjectLogsConfigS3LogsArgs {
      * otherwise it must be empty.
      * 
      */
-    private UndeferrableValue<String> location;
-
+    @PolicyResourceProperty(name="location", flag="unknown_location")
+    private String value_location;
+    private boolean unknown_location;
     public String location() {
-        if (location == null) return null;
-        return location.getValue("ProjectLogsConfigS3LogsArgs.location");
+        if (!unknown_location) return value_location;
+        throw new UndeferrableValueException("Value 'ProjectLogsConfigS3LogsArgs.location' is not present");
     }
 
     /**
@@ -54,11 +58,12 @@ public final class ProjectLogsConfigS3LogsArgs {
      * to `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("ProjectLogsConfigS3LogsArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'ProjectLogsConfigS3LogsArgs.status' is not present");
     }
 
 }

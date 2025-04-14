@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sfn.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class StateMachineEncryptionConfigurationArgs {
      * Maximum duration for which Step Functions will reuse data keys. When the period expires, Step Functions will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply when `type` is `AWS_OWNED_KEY`.
      * 
      */
-    private UndeferrableValue<Integer> kmsDataKeyReusePeriodSeconds;
-
+    @PolicyResourceProperty(name="kmsDataKeyReusePeriodSeconds", flag="unknown_kmsDataKeyReusePeriodSeconds")
+    private Integer value_kmsDataKeyReusePeriodSeconds;
+    private boolean unknown_kmsDataKeyReusePeriodSeconds;
     public Integer kmsDataKeyReusePeriodSeconds() {
-        if (kmsDataKeyReusePeriodSeconds == null) return null;
-        return kmsDataKeyReusePeriodSeconds.getValue("StateMachineEncryptionConfigurationArgs.kmsDataKeyReusePeriodSeconds");
+        if (!unknown_kmsDataKeyReusePeriodSeconds) return value_kmsDataKeyReusePeriodSeconds;
+        throw new UndeferrableValueException("Value 'StateMachineEncryptionConfigurationArgs.kmsDataKeyReusePeriodSeconds' is not present");
     }
 
     /**
      * The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("StateMachineEncryptionConfigurationArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'StateMachineEncryptionConfigurationArgs.kmsKeyId' is not present");
     }
 
     /**
      * The encryption option specified for the state machine. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("StateMachineEncryptionConfigurationArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'StateMachineEncryptionConfigurationArgs.type' is not present");
     }
 
 }

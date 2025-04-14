@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,29 +16,32 @@ public final class PartitionIndexPartitionIndexArgs {
      * Name of the partition index.
      * 
      */
-    private UndeferrableValue<String> indexName;
-
+    @PolicyResourceProperty(name="indexName", flag="unknown_indexName")
+    private String value_indexName;
+    private boolean unknown_indexName;
     public String indexName() {
-        if (indexName == null) return null;
-        return indexName.getValue("PartitionIndexPartitionIndexArgs.indexName");
+        if (!unknown_indexName) return value_indexName;
+        throw new UndeferrableValueException("Value 'PartitionIndexPartitionIndexArgs.indexName' is not present");
     }
 
-    private UndeferrableValue<String> indexStatus;
-
+    @PolicyResourceProperty(name="indexStatus", flag="unknown_indexStatus")
+    private String value_indexStatus;
+    private boolean unknown_indexStatus;
     public String indexStatus() {
-        if (indexStatus == null) return null;
-        return indexStatus.getValue("PartitionIndexPartitionIndexArgs.indexStatus");
+        if (!unknown_indexStatus) return value_indexStatus;
+        throw new UndeferrableValueException("Value 'PartitionIndexPartitionIndexArgs.indexStatus' is not present");
     }
 
     /**
      * Keys for the partition index.
      * 
      */
-    private UndeferrableValue<List<String>> keys;
-
+    @PolicyResourceProperty(name="keys", flag="unknown_keys")
+    private List<String> value_keys;
+    private boolean unknown_keys;
     public List<String> keys() {
-        if (keys == null) return null;
-        return keys.getValue("PartitionIndexPartitionIndexArgs.keys");
+        if (!unknown_keys) return value_keys;
+        throw new UndeferrableValueException("Value 'PartitionIndexPartitionIndexArgs.keys' is not present");
     }
 
 }

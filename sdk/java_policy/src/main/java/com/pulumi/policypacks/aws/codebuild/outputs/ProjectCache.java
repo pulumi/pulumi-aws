@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class ProjectCache {
      * type `S3`, the value must be a valid S3 bucket name/prefix.
      * 
      */
-    private @Nullable UndeferrableValue<String> location;
-
+    @PolicyResourceProperty(name="location", flag="unknown_location")
+    private @Nullable String value_location;
+    private boolean unknown_location;
     public @Nullable String location() {
-        if (location == null) return null;
-        return location.getValue("ProjectCache.location");
+        if (!unknown_location) return value_location;
+        throw new UndeferrableValueException("Value 'ProjectCache.location' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class ProjectCache {
      * dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> modes;
-
+    @PolicyResourceProperty(name="modes", flag="unknown_modes")
+    private @Nullable List<String> value_modes;
+    private boolean unknown_modes;
     public @Nullable List<String> modes() {
-        if (modes == null) return null;
-        return modes.getValue("ProjectCache.modes");
+        if (!unknown_modes) return value_modes;
+        throw new UndeferrableValueException("Value 'ProjectCache.modes' is not present");
     }
 
     /**
@@ -40,11 +43,12 @@ public final class ProjectCache {
      * `LOCAL`, `S3`. Defaults to `NO_CACHE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("ProjectCache.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ProjectCache.type' is not present");
     }
 
 }

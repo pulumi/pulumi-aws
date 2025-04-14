@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class BucketReplicationConfigurationRuleDestinationAccessControlTra
      * The override value for the owner on replicated objects. Currently only `Destination` is supported.
      * 
      */
-    private UndeferrableValue<String> owner;
-
+    @PolicyResourceProperty(name="owner", flag="unknown_owner")
+    private String value_owner;
+    private boolean unknown_owner;
     public String owner() {
-        if (owner == null) return null;
-        return owner.getValue("BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs.owner");
+        if (!unknown_owner) return value_owner;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs.owner' is not present");
     }
 
 }

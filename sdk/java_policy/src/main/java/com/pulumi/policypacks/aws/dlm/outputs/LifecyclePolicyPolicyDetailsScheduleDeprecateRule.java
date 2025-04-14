@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dlm.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,25 +12,28 @@ import javax.annotation.Nullable;
 
 public final class LifecyclePolicyPolicyDetailsScheduleDeprecateRule {
 
-    private @Nullable UndeferrableValue<Integer> count;
-
+    @PolicyResourceProperty(name="count", flag="unknown_count")
+    private @Nullable Integer value_count;
+    private boolean unknown_count;
     public @Nullable Integer count() {
-        if (count == null) return null;
-        return count.getValue("LifecyclePolicyPolicyDetailsScheduleDeprecateRule.count");
+        if (!unknown_count) return value_count;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleDeprecateRule.count' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> interval;
-
+    @PolicyResourceProperty(name="interval", flag="unknown_interval")
+    private @Nullable Integer value_interval;
+    private boolean unknown_interval;
     public @Nullable Integer interval() {
-        if (interval == null) return null;
-        return interval.getValue("LifecyclePolicyPolicyDetailsScheduleDeprecateRule.interval");
+        if (!unknown_interval) return value_interval;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleDeprecateRule.interval' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> intervalUnit;
-
+    @PolicyResourceProperty(name="intervalUnit", flag="unknown_intervalUnit")
+    private @Nullable String value_intervalUnit;
+    private boolean unknown_intervalUnit;
     public @Nullable String intervalUnit() {
-        if (intervalUnit == null) return null;
-        return intervalUnit.getValue("LifecyclePolicyPolicyDetailsScheduleDeprecateRule.intervalUnit");
+        if (!unknown_intervalUnit) return value_intervalUnit;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleDeprecateRule.intervalUnit' is not present");
     }
 
 }

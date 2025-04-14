@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.finspace;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,55 +19,60 @@ public final class KxScalingGroup extends com.pulumi.resources.PolicyResourceOut
      * Amazon Resource Name (ARN) identifier of the KX Scaling Group.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("KxScalingGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'KxScalingGroup.arn' is not present");
     }
 
     /**
      * The availability zone identifiers for the requested regions.
      * 
      */
-    private UndeferrableValue<String> availabilityZoneId;
-
+    @PolicyResourceProperty(name="availabilityZoneId", flag="unknown_availabilityZoneId")
+    private String value_availabilityZoneId;
+    private boolean unknown_availabilityZoneId;
     public String availabilityZoneId() {
-        if (availabilityZoneId == null) return null;
-        return availabilityZoneId.getValue("KxScalingGroup.availabilityZoneId");
+        if (!unknown_availabilityZoneId) return value_availabilityZoneId;
+        throw new UndeferrableValueException("Value 'KxScalingGroup.availabilityZoneId' is not present");
     }
 
     /**
      * The list of Managed kdb clusters that are currently active in the given scaling group.
      * 
      */
-    private UndeferrableValue<List<String>> clusters;
-
+    @PolicyResourceProperty(name="clusters", flag="unknown_clusters")
+    private List<String> value_clusters;
+    private boolean unknown_clusters;
     public List<String> clusters() {
-        if (clusters == null) return null;
-        return clusters.getValue("KxScalingGroup.clusters");
+        if (!unknown_clusters) return value_clusters;
+        throw new UndeferrableValueException("Value 'KxScalingGroup.clusters' is not present");
     }
 
     /**
      * The timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
      * 
      */
-    private UndeferrableValue<String> createdTimestamp;
-
+    @PolicyResourceProperty(name="createdTimestamp", flag="unknown_createdTimestamp")
+    private String value_createdTimestamp;
+    private boolean unknown_createdTimestamp;
     public String createdTimestamp() {
-        if (createdTimestamp == null) return null;
-        return createdTimestamp.getValue("KxScalingGroup.createdTimestamp");
+        if (!unknown_createdTimestamp) return value_createdTimestamp;
+        throw new UndeferrableValueException("Value 'KxScalingGroup.createdTimestamp' is not present");
     }
 
     /**
      * A unique identifier for the kdb environment, where you want to create the scaling group.
      * 
      */
-    private UndeferrableValue<String> environmentId;
-
+    @PolicyResourceProperty(name="environmentId", flag="unknown_environmentId")
+    private String value_environmentId;
+    private boolean unknown_environmentId;
     public String environmentId() {
-        if (environmentId == null) return null;
-        return environmentId.getValue("KxScalingGroup.environmentId");
+        if (!unknown_environmentId) return value_environmentId;
+        throw new UndeferrableValueException("Value 'KxScalingGroup.environmentId' is not present");
     }
 
     /**
@@ -75,33 +81,36 @@ public final class KxScalingGroup extends com.pulumi.resources.PolicyResourceOut
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> hostType;
-
+    @PolicyResourceProperty(name="hostType", flag="unknown_hostType")
+    private String value_hostType;
+    private boolean unknown_hostType;
     public String hostType() {
-        if (hostType == null) return null;
-        return hostType.getValue("KxScalingGroup.hostType");
+        if (!unknown_hostType) return value_hostType;
+        throw new UndeferrableValueException("Value 'KxScalingGroup.hostType' is not present");
     }
 
     /**
      * Last timestamp at which the scaling group was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      * 
      */
-    private UndeferrableValue<String> lastModifiedTimestamp;
-
+    @PolicyResourceProperty(name="lastModifiedTimestamp", flag="unknown_lastModifiedTimestamp")
+    private String value_lastModifiedTimestamp;
+    private boolean unknown_lastModifiedTimestamp;
     public String lastModifiedTimestamp() {
-        if (lastModifiedTimestamp == null) return null;
-        return lastModifiedTimestamp.getValue("KxScalingGroup.lastModifiedTimestamp");
+        if (!unknown_lastModifiedTimestamp) return value_lastModifiedTimestamp;
+        throw new UndeferrableValueException("Value 'KxScalingGroup.lastModifiedTimestamp' is not present");
     }
 
     /**
      * Unique name for the scaling group that you want to create.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("KxScalingGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'KxScalingGroup.name' is not present");
     }
 
     /**
@@ -116,33 +125,36 @@ public final class KxScalingGroup extends com.pulumi.resources.PolicyResourceOut
      * * `DELETED` – The scaling group is successfully deleted.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("KxScalingGroup.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'KxScalingGroup.status' is not present");
     }
 
     /**
      * The error message when a failed state occurs.
      * 
      */
-    private UndeferrableValue<String> statusReason;
-
+    @PolicyResourceProperty(name="statusReason", flag="unknown_statusReason")
+    private String value_statusReason;
+    private boolean unknown_statusReason;
     public String statusReason() {
-        if (statusReason == null) return null;
-        return statusReason.getValue("KxScalingGroup.statusReason");
+        if (!unknown_statusReason) return value_statusReason;
+        throw new UndeferrableValueException("Value 'KxScalingGroup.statusReason' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("KxScalingGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'KxScalingGroup.tags' is not present");
     }
 
     /**
@@ -153,11 +165,12 @@ public final class KxScalingGroup extends com.pulumi.resources.PolicyResourceOut
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("KxScalingGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'KxScalingGroup.tagsAll' is not present");
     }
 
 }

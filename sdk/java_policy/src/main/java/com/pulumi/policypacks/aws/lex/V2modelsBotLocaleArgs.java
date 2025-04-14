@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsBotLocaleTimeoutsArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsBotLocaleVoiceSettingsArgs;
@@ -19,44 +20,48 @@ public final class V2modelsBotLocaleArgs extends com.pulumi.resources.PolicyReso
      * Identifier of the bot to create the locale for.
      * 
      */
-    private UndeferrableValue<String> botId;
-
+    @PolicyResourceProperty(name="botId", flag="unknown_botId")
+    private String value_botId;
+    private boolean unknown_botId;
     public String botId() {
-        if (botId == null) return null;
-        return botId.getValue("V2modelsBotLocaleArgs.botId");
+        if (!unknown_botId) return value_botId;
+        throw new UndeferrableValueException("Value 'V2modelsBotLocaleArgs.botId' is not present");
     }
 
     /**
      * Version of the bot to create the locale for. This can only be the draft version of the bot.
      * 
      */
-    private UndeferrableValue<String> botVersion;
-
+    @PolicyResourceProperty(name="botVersion", flag="unknown_botVersion")
+    private String value_botVersion;
+    private boolean unknown_botVersion;
     public String botVersion() {
-        if (botVersion == null) return null;
-        return botVersion.getValue("V2modelsBotLocaleArgs.botVersion");
+        if (!unknown_botVersion) return value_botVersion;
+        throw new UndeferrableValueException("Value 'V2modelsBotLocaleArgs.botVersion' is not present");
     }
 
     /**
      * Description of the bot locale. Use this to help identify the bot locale in lists.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("V2modelsBotLocaleArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'V2modelsBotLocaleArgs.description' is not present");
     }
 
     /**
      * Identifier of the language and locale that the bot will be used in. The string must match one of the supported locales. All of the intents, slot types, and slots used in the bot must have the same locale. For more information, see Supported languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html)
      * 
      */
-    private UndeferrableValue<String> localeId;
-
+    @PolicyResourceProperty(name="localeId", flag="unknown_localeId")
+    private String value_localeId;
+    private boolean unknown_localeId;
     public String localeId() {
-        if (localeId == null) return null;
-        return localeId.getValue("V2modelsBotLocaleArgs.localeId");
+        if (!unknown_localeId) return value_localeId;
+        throw new UndeferrableValueException("Value 'V2modelsBotLocaleArgs.localeId' is not present");
     }
 
     /**
@@ -65,40 +70,44 @@ public final class V2modelsBotLocaleArgs extends com.pulumi.resources.PolicyReso
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<Double> nLuIntentConfidenceThreshold;
-
+    @PolicyResourceProperty(name="nLuIntentConfidenceThreshold", flag="unknown_nLuIntentConfidenceThreshold")
+    private Double value_nLuIntentConfidenceThreshold;
+    private boolean unknown_nLuIntentConfidenceThreshold;
     public Double nLuIntentConfidenceThreshold() {
-        if (nLuIntentConfidenceThreshold == null) return null;
-        return nLuIntentConfidenceThreshold.getValue("V2modelsBotLocaleArgs.nLuIntentConfidenceThreshold");
+        if (!unknown_nLuIntentConfidenceThreshold) return value_nLuIntentConfidenceThreshold;
+        throw new UndeferrableValueException("Value 'V2modelsBotLocaleArgs.nLuIntentConfidenceThreshold' is not present");
     }
 
     /**
      * Specified locale name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("V2modelsBotLocaleArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'V2modelsBotLocaleArgs.name' is not present");
     }
 
-    private UndeferrableValue<V2modelsBotLocaleTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private V2modelsBotLocaleTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public V2modelsBotLocaleTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("V2modelsBotLocaleArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'V2modelsBotLocaleArgs.timeouts' is not present");
     }
 
     /**
      * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
      * 
      */
-    private UndeferrableValue<V2modelsBotLocaleVoiceSettingsArgs> voiceSettings;
-
+    @PolicyResourceProperty(name="voiceSettings", flag="unknown_voiceSettings")
+    private V2modelsBotLocaleVoiceSettingsArgs value_voiceSettings;
+    private boolean unknown_voiceSettings;
     public V2modelsBotLocaleVoiceSettingsArgs voiceSettings() {
-        if (voiceSettings == null) return null;
-        return voiceSettings.getValue("V2modelsBotLocaleArgs.voiceSettings");
+        if (!unknown_voiceSettings) return value_voiceSettings;
+        throw new UndeferrableValueException("Value 'V2modelsBotLocaleArgs.voiceSettings' is not present");
     }
 
 }

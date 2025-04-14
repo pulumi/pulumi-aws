@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ApplicationApplicationConfigurationRunConfiguration {
      * The restore behavior of a restarting application.
      * 
      */
-    private @Nullable UndeferrableValue<ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration> applicationRestoreConfiguration;
-
+    @PolicyResourceProperty(name="applicationRestoreConfiguration", flag="unknown_applicationRestoreConfiguration")
+    private @Nullable ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration value_applicationRestoreConfiguration;
+    private boolean unknown_applicationRestoreConfiguration;
     public @Nullable ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration applicationRestoreConfiguration() {
-        if (applicationRestoreConfiguration == null) return null;
-        return applicationRestoreConfiguration.getValue("ApplicationApplicationConfigurationRunConfiguration.applicationRestoreConfiguration");
+        if (!unknown_applicationRestoreConfiguration) return value_applicationRestoreConfiguration;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationRunConfiguration.applicationRestoreConfiguration' is not present");
     }
 
     /**
      * The starting parameters for a Flink-based Kinesis Data Analytics application.
      * 
      */
-    private @Nullable UndeferrableValue<ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration> flinkRunConfiguration;
-
+    @PolicyResourceProperty(name="flinkRunConfiguration", flag="unknown_flinkRunConfiguration")
+    private @Nullable ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration value_flinkRunConfiguration;
+    private boolean unknown_flinkRunConfiguration;
     public @Nullable ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration flinkRunConfiguration() {
-        if (flinkRunConfiguration == null) return null;
-        return flinkRunConfiguration.getValue("ApplicationApplicationConfigurationRunConfiguration.flinkRunConfiguration");
+        if (!unknown_flinkRunConfiguration) return value_flinkRunConfiguration;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationRunConfiguration.flinkRunConfiguration' is not present");
     }
 
 }

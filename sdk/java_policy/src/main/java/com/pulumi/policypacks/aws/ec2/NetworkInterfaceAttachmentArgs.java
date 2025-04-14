@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class NetworkInterfaceAttachmentArgs extends com.pulumi.resources.P
      * Network interface index (int).
      * 
      */
-    private UndeferrableValue<Integer> deviceIndex;
-
+    @PolicyResourceProperty(name="deviceIndex", flag="unknown_deviceIndex")
+    private Integer value_deviceIndex;
+    private boolean unknown_deviceIndex;
     public Integer deviceIndex() {
-        if (deviceIndex == null) return null;
-        return deviceIndex.getValue("NetworkInterfaceAttachmentArgs.deviceIndex");
+        if (!unknown_deviceIndex) return value_deviceIndex;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceAttachmentArgs.deviceIndex' is not present");
     }
 
     /**
      * Instance ID to attach.
      * 
      */
-    private UndeferrableValue<String> instanceId;
-
+    @PolicyResourceProperty(name="instanceId", flag="unknown_instanceId")
+    private String value_instanceId;
+    private boolean unknown_instanceId;
     public String instanceId() {
-        if (instanceId == null) return null;
-        return instanceId.getValue("NetworkInterfaceAttachmentArgs.instanceId");
+        if (!unknown_instanceId) return value_instanceId;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceAttachmentArgs.instanceId' is not present");
     }
 
     /**
      * ENI ID to attach.
      * 
      */
-    private UndeferrableValue<String> networkInterfaceId;
-
+    @PolicyResourceProperty(name="networkInterfaceId", flag="unknown_networkInterfaceId")
+    private String value_networkInterfaceId;
+    private boolean unknown_networkInterfaceId;
     public String networkInterfaceId() {
-        if (networkInterfaceId == null) return null;
-        return networkInterfaceId.getValue("NetworkInterfaceAttachmentArgs.networkInterfaceId");
+        if (!unknown_networkInterfaceId) return value_networkInterfaceId;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceAttachmentArgs.networkInterfaceId' is not present");
     }
 
 }

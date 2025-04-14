@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration;
 import javax.annotation.Nullable;
@@ -11,18 +12,20 @@ import javax.annotation.Nullable;
 
 public final class AgentDataSourceDataSourceConfigurationSharePointConfiguration {
 
-    private @Nullable UndeferrableValue<AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration> crawlerConfiguration;
-
+    @PolicyResourceProperty(name="crawlerConfiguration", flag="unknown_crawlerConfiguration")
+    private @Nullable AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration value_crawlerConfiguration;
+    private boolean unknown_crawlerConfiguration;
     public @Nullable AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfiguration crawlerConfiguration() {
-        if (crawlerConfiguration == null) return null;
-        return crawlerConfiguration.getValue("AgentDataSourceDataSourceConfigurationSharePointConfiguration.crawlerConfiguration");
+        if (!unknown_crawlerConfiguration) return value_crawlerConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSharePointConfiguration.crawlerConfiguration' is not present");
     }
 
-    private @Nullable UndeferrableValue<AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration> sourceConfiguration;
-
+    @PolicyResourceProperty(name="sourceConfiguration", flag="unknown_sourceConfiguration")
+    private @Nullable AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration value_sourceConfiguration;
+    private boolean unknown_sourceConfiguration;
     public @Nullable AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfiguration sourceConfiguration() {
-        if (sourceConfiguration == null) return null;
-        return sourceConfiguration.getValue("AgentDataSourceDataSourceConfigurationSharePointConfiguration.sourceConfiguration");
+        if (!unknown_sourceConfiguration) return value_sourceConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSharePointConfiguration.sourceConfiguration' is not present");
     }
 
 }

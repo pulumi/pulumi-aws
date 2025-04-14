@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cognito.inputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs;
 import com.pulumi.policypacks.aws.cognito.inputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs;
 import com.pulumi.policypacks.aws.cognito.inputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs;
@@ -17,66 +18,72 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfig
      * Email template used when a detected risk event is blocked. See notify email type below.
      * 
      */
-    private UndeferrableValue<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs> blockEmail;
-
+    @PolicyResourceProperty(name="blockEmail", flag="unknown_blockEmail")
+    private RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs value_blockEmail;
+    private boolean unknown_blockEmail;
     public RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs blockEmail() {
-        if (blockEmail == null) return null;
-        return blockEmail.getValue("RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs.blockEmail");
+        if (!unknown_blockEmail) return value_blockEmail;
+        throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs.blockEmail' is not present");
     }
 
     /**
      * The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
      * 
      */
-    private UndeferrableValue<String> from;
-
+    @PolicyResourceProperty(name="from", flag="unknown_from")
+    private String value_from;
+    private boolean unknown_from;
     public String from() {
-        if (from == null) return null;
-        return from.getValue("RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs.from");
+        if (!unknown_from) return value_from;
+        throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs.from' is not present");
     }
 
     /**
      * The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
      * 
      */
-    private UndeferrableValue<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs> mfaEmail;
-
+    @PolicyResourceProperty(name="mfaEmail", flag="unknown_mfaEmail")
+    private RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs value_mfaEmail;
+    private boolean unknown_mfaEmail;
     public RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs mfaEmail() {
-        if (mfaEmail == null) return null;
-        return mfaEmail.getValue("RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs.mfaEmail");
+        if (!unknown_mfaEmail) return value_mfaEmail;
+        throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs.mfaEmail' is not present");
     }
 
     /**
      * The email template used when a detected risk event is allowed. See notify email type below.
      * 
      */
-    private UndeferrableValue<RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs> noActionEmail;
-
+    @PolicyResourceProperty(name="noActionEmail", flag="unknown_noActionEmail")
+    private RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs value_noActionEmail;
+    private boolean unknown_noActionEmail;
     public RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs noActionEmail() {
-        if (noActionEmail == null) return null;
-        return noActionEmail.getValue("RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs.noActionEmail");
+        if (!unknown_noActionEmail) return value_noActionEmail;
+        throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs.noActionEmail' is not present");
     }
 
     /**
      * The destination to which the receiver of an email should reply to.
      * 
      */
-    private UndeferrableValue<String> replyTo;
-
+    @PolicyResourceProperty(name="replyTo", flag="unknown_replyTo")
+    private String value_replyTo;
+    private boolean unknown_replyTo;
     public String replyTo() {
-        if (replyTo == null) return null;
-        return replyTo.getValue("RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs.replyTo");
+        if (!unknown_replyTo) return value_replyTo;
+        throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs.replyTo' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
      * 
      */
-    private UndeferrableValue<String> sourceArn;
-
+    @PolicyResourceProperty(name="sourceArn", flag="unknown_sourceArn")
+    private String value_sourceArn;
+    private boolean unknown_sourceArn;
     public String sourceArn() {
-        if (sourceArn == null) return null;
-        return sourceArn.getValue("RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs.sourceArn");
+        if (!unknown_sourceArn) return value_sourceArn;
+        throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs.sourceArn' is not present");
     }
 
 }

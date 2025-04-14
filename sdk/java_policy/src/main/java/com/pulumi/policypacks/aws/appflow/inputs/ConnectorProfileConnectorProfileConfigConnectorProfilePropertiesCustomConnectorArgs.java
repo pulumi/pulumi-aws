@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.inputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs;
 import java.lang.String;
 import java.util.Map;
@@ -16,22 +17,24 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      * The OAuth 2.0 properties required for OAuth 2.0 authentication.
      * 
      */
-    private UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs> oauth2Properties;
-
+    @PolicyResourceProperty(name="oauth2Properties", flag="unknown_oauth2Properties")
+    private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs value_oauth2Properties;
+    private boolean unknown_oauth2Properties;
     public ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs oauth2Properties() {
-        if (oauth2Properties == null) return null;
-        return oauth2Properties.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs.oauth2Properties");
+        if (!unknown_oauth2Properties) return value_oauth2Properties;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs.oauth2Properties' is not present");
     }
 
     /**
      * A map of properties that are required to create a profile for the custom connector.
      * 
      */
-    private UndeferrableValue<Map<String,String>> profileProperties;
-
+    @PolicyResourceProperty(name="profileProperties", flag="unknown_profileProperties")
+    private Map<String,String> value_profileProperties;
+    private boolean unknown_profileProperties;
     public Map<String,String> profileProperties() {
-        if (profileProperties == null) return null;
-        return profileProperties.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs.profileProperties");
+        if (!unknown_profileProperties) return value_profileProperties;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs.profileProperties' is not present");
     }
 
 }

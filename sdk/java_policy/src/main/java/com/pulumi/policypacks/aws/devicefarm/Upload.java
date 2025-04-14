@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.devicefarm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,88 +17,96 @@ public final class Upload extends com.pulumi.resources.PolicyResourceOutput {
      * The Amazon Resource Name of this upload.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Upload.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Upload.arn' is not present");
     }
 
     /**
      * The upload&#39;s category.
      * 
      */
-    private UndeferrableValue<String> category;
-
+    @PolicyResourceProperty(name="category", flag="unknown_category")
+    private String value_category;
+    private boolean unknown_category;
     public String category() {
-        if (category == null) return null;
-        return category.getValue("Upload.category");
+        if (!unknown_category) return value_category;
+        throw new UndeferrableValueException("Value 'Upload.category' is not present");
     }
 
     /**
      * The upload&#39;s content type (for example, application/octet-stream).
      * 
      */
-    private @Nullable UndeferrableValue<String> contentType;
-
+    @PolicyResourceProperty(name="contentType", flag="unknown_contentType")
+    private @Nullable String value_contentType;
+    private boolean unknown_contentType;
     public @Nullable String contentType() {
-        if (contentType == null) return null;
-        return contentType.getValue("Upload.contentType");
+        if (!unknown_contentType) return value_contentType;
+        throw new UndeferrableValueException("Value 'Upload.contentType' is not present");
     }
 
     /**
      * The upload&#39;s metadata. For example, for Android, this contains information that is parsed from the manifest and is displayed in the AWS Device Farm console after the associated app is uploaded.
      * 
      */
-    private UndeferrableValue<String> metadata;
-
+    @PolicyResourceProperty(name="metadata", flag="unknown_metadata")
+    private String value_metadata;
+    private boolean unknown_metadata;
     public String metadata() {
-        if (metadata == null) return null;
-        return metadata.getValue("Upload.metadata");
+        if (!unknown_metadata) return value_metadata;
+        throw new UndeferrableValueException("Value 'Upload.metadata' is not present");
     }
 
     /**
      * The upload&#39;s file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Upload.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Upload.name' is not present");
     }
 
     /**
      * The ARN of the project for the upload.
      * 
      */
-    private UndeferrableValue<String> projectArn;
-
+    @PolicyResourceProperty(name="projectArn", flag="unknown_projectArn")
+    private String value_projectArn;
+    private boolean unknown_projectArn;
     public String projectArn() {
-        if (projectArn == null) return null;
-        return projectArn.getValue("Upload.projectArn");
+        if (!unknown_projectArn) return value_projectArn;
+        throw new UndeferrableValueException("Value 'Upload.projectArn' is not present");
     }
 
     /**
      * The upload&#39;s upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("Upload.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'Upload.type' is not present");
     }
 
     /**
      * The presigned Amazon S3 URL that was used to store a file using a PUT request.
      * 
      */
-    private UndeferrableValue<String> url;
-
+    @PolicyResourceProperty(name="url", flag="unknown_url")
+    private String value_url;
+    private boolean unknown_url;
     public String url() {
-        if (url == null) return null;
-        return url.getValue("Upload.url");
+        if (!unknown_url) return value_url;
+        throw new UndeferrableValueException("Value 'Upload.url' is not present");
     }
 
 }

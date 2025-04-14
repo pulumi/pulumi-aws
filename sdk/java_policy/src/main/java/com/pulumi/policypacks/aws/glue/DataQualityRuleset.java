@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.glue.outputs.DataQualityRulesetTargetTable;
 import java.lang.String;
@@ -18,88 +19,96 @@ public final class DataQualityRuleset extends com.pulumi.resources.PolicyResourc
      * ARN of the Glue Data Quality Ruleset.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("DataQualityRuleset.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'DataQualityRuleset.arn' is not present");
     }
 
     /**
      * The time and date that this data quality ruleset was created.
      * 
      */
-    private UndeferrableValue<String> createdOn;
-
+    @PolicyResourceProperty(name="createdOn", flag="unknown_createdOn")
+    private String value_createdOn;
+    private boolean unknown_createdOn;
     public String createdOn() {
-        if (createdOn == null) return null;
-        return createdOn.getValue("DataQualityRuleset.createdOn");
+        if (!unknown_createdOn) return value_createdOn;
+        throw new UndeferrableValueException("Value 'DataQualityRuleset.createdOn' is not present");
     }
 
     /**
      * Description of the data quality ruleset.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("DataQualityRuleset.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'DataQualityRuleset.description' is not present");
     }
 
     /**
      * The time and date that this data quality ruleset was created.
      * 
      */
-    private UndeferrableValue<String> lastModifiedOn;
-
+    @PolicyResourceProperty(name="lastModifiedOn", flag="unknown_lastModifiedOn")
+    private String value_lastModifiedOn;
+    private boolean unknown_lastModifiedOn;
     public String lastModifiedOn() {
-        if (lastModifiedOn == null) return null;
-        return lastModifiedOn.getValue("DataQualityRuleset.lastModifiedOn");
+        if (!unknown_lastModifiedOn) return value_lastModifiedOn;
+        throw new UndeferrableValueException("Value 'DataQualityRuleset.lastModifiedOn' is not present");
     }
 
     /**
      * Name of the data quality ruleset.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DataQualityRuleset.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DataQualityRuleset.name' is not present");
     }
 
     /**
      * When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
      * 
      */
-    private UndeferrableValue<String> recommendationRunId;
-
+    @PolicyResourceProperty(name="recommendationRunId", flag="unknown_recommendationRunId")
+    private String value_recommendationRunId;
+    private boolean unknown_recommendationRunId;
     public String recommendationRunId() {
-        if (recommendationRunId == null) return null;
-        return recommendationRunId.getValue("DataQualityRuleset.recommendationRunId");
+        if (!unknown_recommendationRunId) return value_recommendationRunId;
+        throw new UndeferrableValueException("Value 'DataQualityRuleset.recommendationRunId' is not present");
     }
 
     /**
      * A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
      * 
      */
-    private UndeferrableValue<String> ruleset;
-
+    @PolicyResourceProperty(name="ruleset", flag="unknown_ruleset")
+    private String value_ruleset;
+    private boolean unknown_ruleset;
     public String ruleset() {
-        if (ruleset == null) return null;
-        return ruleset.getValue("DataQualityRuleset.ruleset");
+        if (!unknown_ruleset) return value_ruleset;
+        throw new UndeferrableValueException("Value 'DataQualityRuleset.ruleset' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DataQualityRuleset.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DataQualityRuleset.tags' is not present");
     }
 
     /**
@@ -110,22 +119,24 @@ public final class DataQualityRuleset extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("DataQualityRuleset.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'DataQualityRuleset.tagsAll' is not present");
     }
 
     /**
      * A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
      * 
      */
-    private @Nullable UndeferrableValue<DataQualityRulesetTargetTable> targetTable;
-
+    @PolicyResourceProperty(name="targetTable", flag="unknown_targetTable")
+    private @Nullable DataQualityRulesetTargetTable value_targetTable;
+    private boolean unknown_targetTable;
     public @Nullable DataQualityRulesetTargetTable targetTable() {
-        if (targetTable == null) return null;
-        return targetTable.getValue("DataQualityRuleset.targetTable");
+        if (!unknown_targetTable) return value_targetTable;
+        throw new UndeferrableValueException("Value 'DataQualityRuleset.targetTable' is not present");
     }
 
 }

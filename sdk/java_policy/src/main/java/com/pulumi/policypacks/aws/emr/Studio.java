@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,132 +19,144 @@ public final class Studio extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the studio.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Studio.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Studio.arn' is not present");
     }
 
     /**
      * Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
      * 
      */
-    private UndeferrableValue<String> authMode;
-
+    @PolicyResourceProperty(name="authMode", flag="unknown_authMode")
+    private String value_authMode;
+    private boolean unknown_authMode;
     public String authMode() {
-        if (authMode == null) return null;
-        return authMode.getValue("Studio.authMode");
+        if (!unknown_authMode) return value_authMode;
+        throw new UndeferrableValueException("Value 'Studio.authMode' is not present");
     }
 
     /**
      * The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.
      * 
      */
-    private UndeferrableValue<String> defaultS3Location;
-
+    @PolicyResourceProperty(name="defaultS3Location", flag="unknown_defaultS3Location")
+    private String value_defaultS3Location;
+    private boolean unknown_defaultS3Location;
     public String defaultS3Location() {
-        if (defaultS3Location == null) return null;
-        return defaultS3Location.getValue("Studio.defaultS3Location");
+        if (!unknown_defaultS3Location) return value_defaultS3Location;
+        throw new UndeferrableValueException("Value 'Studio.defaultS3Location' is not present");
     }
 
     /**
      * A detailed description of the Amazon EMR Studio.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Studio.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Studio.description' is not present");
     }
 
     /**
      * The AWS KMS key identifier (ARN) used to encrypt Amazon EMR Studio workspace and notebook files when backed up to Amazon S3.
      * 
      */
-    private @Nullable UndeferrableValue<String> encryptionKeyArn;
-
+    @PolicyResourceProperty(name="encryptionKeyArn", flag="unknown_encryptionKeyArn")
+    private @Nullable String value_encryptionKeyArn;
+    private boolean unknown_encryptionKeyArn;
     public @Nullable String encryptionKeyArn() {
-        if (encryptionKeyArn == null) return null;
-        return encryptionKeyArn.getValue("Studio.encryptionKeyArn");
+        if (!unknown_encryptionKeyArn) return value_encryptionKeyArn;
+        throw new UndeferrableValueException("Value 'Studio.encryptionKeyArn' is not present");
     }
 
     /**
      * The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
      * 
      */
-    private UndeferrableValue<String> engineSecurityGroupId;
-
+    @PolicyResourceProperty(name="engineSecurityGroupId", flag="unknown_engineSecurityGroupId")
+    private String value_engineSecurityGroupId;
+    private boolean unknown_engineSecurityGroupId;
     public String engineSecurityGroupId() {
-        if (engineSecurityGroupId == null) return null;
-        return engineSecurityGroupId.getValue("Studio.engineSecurityGroupId");
+        if (!unknown_engineSecurityGroupId) return value_engineSecurityGroupId;
+        throw new UndeferrableValueException("Value 'Studio.engineSecurityGroupId' is not present");
     }
 
     /**
      * The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.
      * 
      */
-    private @Nullable UndeferrableValue<String> idpAuthUrl;
-
+    @PolicyResourceProperty(name="idpAuthUrl", flag="unknown_idpAuthUrl")
+    private @Nullable String value_idpAuthUrl;
+    private boolean unknown_idpAuthUrl;
     public @Nullable String idpAuthUrl() {
-        if (idpAuthUrl == null) return null;
-        return idpAuthUrl.getValue("Studio.idpAuthUrl");
+        if (!unknown_idpAuthUrl) return value_idpAuthUrl;
+        throw new UndeferrableValueException("Value 'Studio.idpAuthUrl' is not present");
     }
 
     /**
      * The name that your identity provider (IdP) uses for its RelayState parameter. For example, RelayState or TargetSource. Specify this value when you use IAM authentication and want to let federated users log in to a Studio using the Studio URL. The RelayState parameter differs by IdP.
      * 
      */
-    private @Nullable UndeferrableValue<String> idpRelayStateParameterName;
-
+    @PolicyResourceProperty(name="idpRelayStateParameterName", flag="unknown_idpRelayStateParameterName")
+    private @Nullable String value_idpRelayStateParameterName;
+    private boolean unknown_idpRelayStateParameterName;
     public @Nullable String idpRelayStateParameterName() {
-        if (idpRelayStateParameterName == null) return null;
-        return idpRelayStateParameterName.getValue("Studio.idpRelayStateParameterName");
+        if (!unknown_idpRelayStateParameterName) return value_idpRelayStateParameterName;
+        throw new UndeferrableValueException("Value 'Studio.idpRelayStateParameterName' is not present");
     }
 
     /**
      * A descriptive name for the Amazon EMR Studio.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Studio.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Studio.name' is not present");
     }
 
     /**
      * The IAM role that the Amazon EMR Studio assumes. The service role provides a way for Amazon EMR Studio to interoperate with other Amazon Web Services services.
      * 
      */
-    private UndeferrableValue<String> serviceRole;
-
+    @PolicyResourceProperty(name="serviceRole", flag="unknown_serviceRole")
+    private String value_serviceRole;
+    private boolean unknown_serviceRole;
     public String serviceRole() {
-        if (serviceRole == null) return null;
-        return serviceRole.getValue("Studio.serviceRole");
+        if (!unknown_serviceRole) return value_serviceRole;
+        throw new UndeferrableValueException("Value 'Studio.serviceRole' is not present");
     }
 
     /**
      * A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("Studio.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'Studio.subnetIds' is not present");
     }
 
     /**
      * list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Studio.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Studio.tags' is not present");
     }
 
     /**
@@ -152,44 +165,48 @@ public final class Studio extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Studio.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Studio.tagsAll' is not present");
     }
 
     /**
      * The unique access URL of the Amazon EMR Studio.
      * 
      */
-    private UndeferrableValue<String> url;
-
+    @PolicyResourceProperty(name="url", flag="unknown_url")
+    private String value_url;
+    private boolean unknown_url;
     public String url() {
-        if (url == null) return null;
-        return url.getValue("Studio.url");
+        if (!unknown_url) return value_url;
+        throw new UndeferrableValueException("Value 'Studio.url' is not present");
     }
 
     /**
      * The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
      * 
      */
-    private @Nullable UndeferrableValue<String> userRole;
-
+    @PolicyResourceProperty(name="userRole", flag="unknown_userRole")
+    private @Nullable String value_userRole;
+    private boolean unknown_userRole;
     public @Nullable String userRole() {
-        if (userRole == null) return null;
-        return userRole.getValue("Studio.userRole");
+        if (!unknown_userRole) return value_userRole;
+        throw new UndeferrableValueException("Value 'Studio.userRole' is not present");
     }
 
     /**
      * The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("Studio.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'Studio.vpcId' is not present");
     }
 
     /**
@@ -198,11 +215,12 @@ public final class Studio extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> workspaceSecurityGroupId;
-
+    @PolicyResourceProperty(name="workspaceSecurityGroupId", flag="unknown_workspaceSecurityGroupId")
+    private String value_workspaceSecurityGroupId;
+    private boolean unknown_workspaceSecurityGroupId;
     public String workspaceSecurityGroupId() {
-        if (workspaceSecurityGroupId == null) return null;
-        return workspaceSecurityGroupId.getValue("Studio.workspaceSecurityGroupId");
+        if (!unknown_workspaceSecurityGroupId) return value_workspaceSecurityGroupId;
+        throw new UndeferrableValueException("Value 'Studio.workspaceSecurityGroupId' is not present");
     }
 
 }

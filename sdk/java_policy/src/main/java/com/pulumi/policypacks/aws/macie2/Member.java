@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.macie2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,128 +19,140 @@ public final class Member extends com.pulumi.resources.PolicyResourceOutput {
      * The AWS account ID for the account.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("Member.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'Member.accountId' is not present");
     }
 
     /**
      * The AWS account ID for the administrator account.
      * 
      */
-    private UndeferrableValue<String> administratorAccountId;
-
+    @PolicyResourceProperty(name="administratorAccountId", flag="unknown_administratorAccountId")
+    private String value_administratorAccountId;
+    private boolean unknown_administratorAccountId;
     public String administratorAccountId() {
-        if (administratorAccountId == null) return null;
-        return administratorAccountId.getValue("Member.administratorAccountId");
+        if (!unknown_administratorAccountId) return value_administratorAccountId;
+        throw new UndeferrableValueException("Value 'Member.administratorAccountId' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the account.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Member.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Member.arn' is not present");
     }
 
     /**
      * The email address for the account.
      * 
      */
-    private UndeferrableValue<String> email;
-
+    @PolicyResourceProperty(name="email", flag="unknown_email")
+    private String value_email;
+    private boolean unknown_email;
     public String email() {
-        if (email == null) return null;
-        return email.getValue("Member.email");
+        if (!unknown_email) return value_email;
+        throw new UndeferrableValueException("Value 'Member.email' is not present");
     }
 
     /**
      * Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> invitationDisableEmailNotification;
-
+    @PolicyResourceProperty(name="invitationDisableEmailNotification", flag="unknown_invitationDisableEmailNotification")
+    private @Nullable Boolean value_invitationDisableEmailNotification;
+    private boolean unknown_invitationDisableEmailNotification;
     public @Nullable Boolean invitationDisableEmailNotification() {
-        if (invitationDisableEmailNotification == null) return null;
-        return invitationDisableEmailNotification.getValue("Member.invitationDisableEmailNotification");
+        if (!unknown_invitationDisableEmailNotification) return value_invitationDisableEmailNotification;
+        throw new UndeferrableValueException("Value 'Member.invitationDisableEmailNotification' is not present");
     }
 
     /**
      * A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
      * 
      */
-    private @Nullable UndeferrableValue<String> invitationMessage;
-
+    @PolicyResourceProperty(name="invitationMessage", flag="unknown_invitationMessage")
+    private @Nullable String value_invitationMessage;
+    private boolean unknown_invitationMessage;
     public @Nullable String invitationMessage() {
-        if (invitationMessage == null) return null;
-        return invitationMessage.getValue("Member.invitationMessage");
+        if (!unknown_invitationMessage) return value_invitationMessage;
+        throw new UndeferrableValueException("Value 'Member.invitationMessage' is not present");
     }
 
     /**
      * Send an invitation to a member
      * 
      */
-    private UndeferrableValue<Boolean> invite;
-
+    @PolicyResourceProperty(name="invite", flag="unknown_invite")
+    private Boolean value_invite;
+    private boolean unknown_invite;
     public Boolean invite() {
-        if (invite == null) return null;
-        return invite.getValue("Member.invite");
+        if (!unknown_invite) return value_invite;
+        throw new UndeferrableValueException("Value 'Member.invite' is not present");
     }
 
     /**
      * The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn&#39;t been sent to the account.
      * 
      */
-    private UndeferrableValue<String> invitedAt;
-
+    @PolicyResourceProperty(name="invitedAt", flag="unknown_invitedAt")
+    private String value_invitedAt;
+    private boolean unknown_invitedAt;
     public String invitedAt() {
-        if (invitedAt == null) return null;
-        return invitedAt.getValue("Member.invitedAt");
+        if (!unknown_invitedAt) return value_invitedAt;
+        throw new UndeferrableValueException("Value 'Member.invitedAt' is not present");
     }
 
-    private UndeferrableValue<String> masterAccountId;
-
+    @PolicyResourceProperty(name="masterAccountId", flag="unknown_masterAccountId")
+    private String value_masterAccountId;
+    private boolean unknown_masterAccountId;
     public String masterAccountId() {
-        if (masterAccountId == null) return null;
-        return masterAccountId.getValue("Member.masterAccountId");
+        if (!unknown_masterAccountId) return value_masterAccountId;
+        throw new UndeferrableValueException("Value 'Member.masterAccountId' is not present");
     }
 
     /**
      * The current status of the relationship between the account and the administrator account.
      * 
      */
-    private UndeferrableValue<String> relationshipStatus;
-
+    @PolicyResourceProperty(name="relationshipStatus", flag="unknown_relationshipStatus")
+    private String value_relationshipStatus;
+    private boolean unknown_relationshipStatus;
     public String relationshipStatus() {
-        if (relationshipStatus == null) return null;
-        return relationshipStatus.getValue("Member.relationshipStatus");
+        if (!unknown_relationshipStatus) return value_relationshipStatus;
+        throw new UndeferrableValueException("Value 'Member.relationshipStatus' is not present");
     }
 
     /**
      * Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Member.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Member.status' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Member.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Member.tags' is not present");
     }
 
     /**
@@ -150,22 +163,24 @@ public final class Member extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Member.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Member.tagsAll' is not present");
     }
 
     /**
      * The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
      * 
      */
-    private UndeferrableValue<String> updatedAt;
-
+    @PolicyResourceProperty(name="updatedAt", flag="unknown_updatedAt")
+    private String value_updatedAt;
+    private boolean unknown_updatedAt;
     public String updatedAt() {
-        if (updatedAt == null) return null;
-        return updatedAt.getValue("Member.updatedAt");
+        if (!unknown_updatedAt) return value_updatedAt;
+        throw new UndeferrableValueException("Value 'Member.updatedAt' is not present");
     }
 
 }

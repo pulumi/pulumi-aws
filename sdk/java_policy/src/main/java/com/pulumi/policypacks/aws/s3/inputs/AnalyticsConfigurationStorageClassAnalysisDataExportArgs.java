@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.inputs.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportArgs {
      * Specifies the destination for the exported analytics data (documented below).
      * 
      */
-    private UndeferrableValue<AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs value_destination;
+    private boolean unknown_destination;
     public AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs destination() {
-        if (destination == null) return null;
-        return destination.getValue("AnalyticsConfigurationStorageClassAnalysisDataExportArgs.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'AnalyticsConfigurationStorageClassAnalysisDataExportArgs.destination' is not present");
     }
 
     /**
      * Schema version of exported analytics data. Allowed values: `V_1`. Default value: `V_1`.
      * 
      */
-    private UndeferrableValue<String> outputSchemaVersion;
-
+    @PolicyResourceProperty(name="outputSchemaVersion", flag="unknown_outputSchemaVersion")
+    private String value_outputSchemaVersion;
+    private boolean unknown_outputSchemaVersion;
     public String outputSchemaVersion() {
-        if (outputSchemaVersion == null) return null;
-        return outputSchemaVersion.getValue("AnalyticsConfigurationStorageClassAnalysisDataExportArgs.outputSchemaVersion");
+        if (!unknown_outputSchemaVersion) return value_outputSchemaVersion;
+        throw new UndeferrableValueException("Value 'AnalyticsConfigurationStorageClassAnalysisDataExportArgs.outputSchemaVersion' is not present");
     }
 
 }

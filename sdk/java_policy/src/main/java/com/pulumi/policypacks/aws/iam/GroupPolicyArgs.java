@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class GroupPolicyArgs extends com.pulumi.resources.PolicyResourceIn
      * The IAM group to attach to the policy.
      * 
      */
-    private UndeferrableValue<String> group;
-
+    @PolicyResourceProperty(name="group", flag="unknown_group")
+    private String value_group;
+    private boolean unknown_group;
     public String group() {
-        if (group == null) return null;
-        return group.getValue("GroupPolicyArgs.group");
+        if (!unknown_group) return value_group;
+        throw new UndeferrableValueException("Value 'GroupPolicyArgs.group' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class GroupPolicyArgs extends com.pulumi.resources.PolicyResourceIn
      * assign a random, unique name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("GroupPolicyArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'GroupPolicyArgs.name' is not present");
     }
 
     /**
@@ -40,22 +43,24 @@ public final class GroupPolicyArgs extends com.pulumi.resources.PolicyResourceIn
      * prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("GroupPolicyArgs.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'GroupPolicyArgs.namePrefix' is not present");
     }
 
     /**
      * The policy document. This is a JSON formatted string.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("GroupPolicyArgs.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'GroupPolicyArgs.policy' is not present");
     }
 
 }

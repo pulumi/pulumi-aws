@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appconfig.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ExtensionParameter {
      * Information about the parameter.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ExtensionParameter.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ExtensionParameter.description' is not present");
     }
 
     /**
      * The parameter name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ExtensionParameter.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ExtensionParameter.name' is not present");
     }
 
     /**
      * Determines if a parameter value must be specified in the extension association.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> required;
-
+    @PolicyResourceProperty(name="required", flag="unknown_required")
+    private @Nullable Boolean value_required;
+    private boolean unknown_required;
     public @Nullable Boolean required() {
-        if (required == null) return null;
-        return required.getValue("ExtensionParameter.required");
+        if (!unknown_required) return value_required;
+        throw new UndeferrableValueException("Value 'ExtensionParameter.required' is not present");
     }
 
 }

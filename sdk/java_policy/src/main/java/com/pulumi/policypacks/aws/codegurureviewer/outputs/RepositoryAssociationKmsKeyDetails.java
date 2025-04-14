@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codegurureviewer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class RepositoryAssociationKmsKeyDetails {
      * The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
      * 
      */
-    private @Nullable UndeferrableValue<String> encryptionOption;
-
+    @PolicyResourceProperty(name="encryptionOption", flag="unknown_encryptionOption")
+    private @Nullable String value_encryptionOption;
+    private boolean unknown_encryptionOption;
     public @Nullable String encryptionOption() {
-        if (encryptionOption == null) return null;
-        return encryptionOption.getValue("RepositoryAssociationKmsKeyDetails.encryptionOption");
+        if (!unknown_encryptionOption) return value_encryptionOption;
+        throw new UndeferrableValueException("Value 'RepositoryAssociationKmsKeyDetails.encryptionOption' is not present");
     }
 
     /**
      * The ID of the AWS KMS key that is associated with a repository association.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("RepositoryAssociationKmsKeyDetails.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'RepositoryAssociationKmsKeyDetails.kmsKeyId' is not present");
     }
 
 }

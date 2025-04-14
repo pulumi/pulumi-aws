@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs;
 import java.lang.Boolean;
@@ -17,44 +18,48 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      * Whether or not to allow the use of regular expressions in the login page path.
      * 
      */
-    private UndeferrableValue<Boolean> enableRegexInPath;
-
+    @PolicyResourceProperty(name="enableRegexInPath", flag="unknown_enableRegexInPath")
+    private Boolean value_enableRegexInPath;
+    private boolean unknown_enableRegexInPath;
     public Boolean enableRegexInPath() {
-        if (enableRegexInPath == null) return null;
-        return enableRegexInPath.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs.enableRegexInPath");
+        if (!unknown_enableRegexInPath) return value_enableRegexInPath;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs.enableRegexInPath' is not present");
     }
 
     /**
      * The path of the login endpoint for your application.
      * 
      */
-    private UndeferrableValue<String> loginPath;
-
+    @PolicyResourceProperty(name="loginPath", flag="unknown_loginPath")
+    private String value_loginPath;
+    private boolean unknown_loginPath;
     public String loginPath() {
-        if (loginPath == null) return null;
-        return loginPath.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs.loginPath");
+        if (!unknown_loginPath) return value_loginPath;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs.loginPath' is not present");
     }
 
     /**
      * The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. See `request_inspection` for more details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs> requestInspection;
-
+    @PolicyResourceProperty(name="requestInspection", flag="unknown_requestInspection")
+    private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs value_requestInspection;
+    private boolean unknown_requestInspection;
     public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs requestInspection() {
-        if (requestInspection == null) return null;
-        return requestInspection.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs.requestInspection");
+        if (!unknown_requestInspection) return value_requestInspection;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs.requestInspection' is not present");
     }
 
     /**
      * The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. Note that Response Inspection is available only on web ACLs that protect CloudFront distributions. See `response_inspection` for more details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs> responseInspection;
-
+    @PolicyResourceProperty(name="responseInspection", flag="unknown_responseInspection")
+    private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs value_responseInspection;
+    private boolean unknown_responseInspection;
     public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs responseInspection() {
-        if (responseInspection == null) return null;
-        return responseInspection.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs.responseInspection");
+        if (!unknown_responseInspection) return value_responseInspection;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs.responseInspection' is not present");
     }
 
 }

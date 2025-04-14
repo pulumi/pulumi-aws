@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.quicksight.inputs.FolderPermissionArgs;
 import java.lang.String;
@@ -19,33 +20,36 @@ public final class FolderArgs extends com.pulumi.resources.PolicyResourceInput {
      * AWS account ID.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("FolderArgs.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'FolderArgs.awsAccountId' is not present");
     }
 
     /**
      * Identifier for the folder.
      * 
      */
-    private UndeferrableValue<String> folderId;
-
+    @PolicyResourceProperty(name="folderId", flag="unknown_folderId")
+    private String value_folderId;
+    private boolean unknown_folderId;
     public String folderId() {
-        if (folderId == null) return null;
-        return folderId.getValue("FolderArgs.folderId");
+        if (!unknown_folderId) return value_folderId;
+        throw new UndeferrableValueException("Value 'FolderArgs.folderId' is not present");
     }
 
     /**
      * The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
      * 
      */
-    private UndeferrableValue<String> folderType;
-
+    @PolicyResourceProperty(name="folderType", flag="unknown_folderType")
+    private String value_folderType;
+    private boolean unknown_folderType;
     public String folderType() {
-        if (folderType == null) return null;
-        return folderType.getValue("FolderArgs.folderType");
+        if (!unknown_folderType) return value_folderType;
+        throw new UndeferrableValueException("Value 'FolderArgs.folderType' is not present");
     }
 
     /**
@@ -54,44 +58,48 @@ public final class FolderArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("FolderArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FolderArgs.name' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
      * 
      */
-    private UndeferrableValue<String> parentFolderArn;
-
+    @PolicyResourceProperty(name="parentFolderArn", flag="unknown_parentFolderArn")
+    private String value_parentFolderArn;
+    private boolean unknown_parentFolderArn;
     public String parentFolderArn() {
-        if (parentFolderArn == null) return null;
-        return parentFolderArn.getValue("FolderArgs.parentFolderArn");
+        if (!unknown_parentFolderArn) return value_parentFolderArn;
+        throw new UndeferrableValueException("Value 'FolderArgs.parentFolderArn' is not present");
     }
 
     /**
      * A set of resource permissions on the folder. Maximum of 64 items. See permissions.
      * 
      */
-    private UndeferrableValue<List<FolderPermissionArgs>> permissions;
-
+    @PolicyResourceProperty(name="permissions", flag="unknown_permissions")
+    private List<FolderPermissionArgs> value_permissions;
+    private boolean unknown_permissions;
     public List<FolderPermissionArgs> permissions() {
-        if (permissions == null) return null;
-        return permissions.getValue("FolderArgs.permissions");
+        if (!unknown_permissions) return value_permissions;
+        throw new UndeferrableValueException("Value 'FolderArgs.permissions' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("FolderArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'FolderArgs.tags' is not present");
     }
 
 }

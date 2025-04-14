@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sfn;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sfn.inputs.AliasRoutingConfigurationArgs;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class AliasArgs extends com.pulumi.resources.PolicyResourceInput {
      * Description of the alias.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("AliasArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AliasArgs.description' is not present");
     }
 
     /**
      * Name for the alias you are creating.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AliasArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AliasArgs.name' is not present");
     }
 
     /**
      * The StateMachine alias&#39; route configuration settings. Fields documented below
      * 
      */
-    private UndeferrableValue<List<AliasRoutingConfigurationArgs>> routingConfigurations;
-
+    @PolicyResourceProperty(name="routingConfigurations", flag="unknown_routingConfigurations")
+    private List<AliasRoutingConfigurationArgs> value_routingConfigurations;
+    private boolean unknown_routingConfigurations;
     public List<AliasRoutingConfigurationArgs> routingConfigurations() {
-        if (routingConfigurations == null) return null;
-        return routingConfigurations.getValue("AliasArgs.routingConfigurations");
+        if (!unknown_routingConfigurations) return value_routingConfigurations;
+        throw new UndeferrableValueException("Value 'AliasArgs.routingConfigurations' is not present");
     }
 
 }

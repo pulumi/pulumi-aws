@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.controltower;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.controltower.outputs.LandingZoneDriftStatus;
 import java.lang.String;
@@ -19,55 +20,60 @@ public final class LandingZone extends com.pulumi.resources.PolicyResourceOutput
      * The ARN of the landing zone.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("LandingZone.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'LandingZone.arn' is not present");
     }
 
     /**
      * The drift status summary of the landing zone.
      * 
      */
-    private UndeferrableValue<List<LandingZoneDriftStatus>> driftStatuses;
-
+    @PolicyResourceProperty(name="driftStatuses", flag="unknown_driftStatuses")
+    private List<LandingZoneDriftStatus> value_driftStatuses;
+    private boolean unknown_driftStatuses;
     public List<LandingZoneDriftStatus> driftStatuses() {
-        if (driftStatuses == null) return null;
-        return driftStatuses.getValue("LandingZone.driftStatuses");
+        if (!unknown_driftStatuses) return value_driftStatuses;
+        throw new UndeferrableValueException("Value 'LandingZone.driftStatuses' is not present");
     }
 
     /**
      * The latest available version of the landing zone.
      * 
      */
-    private UndeferrableValue<String> latestAvailableVersion;
-
+    @PolicyResourceProperty(name="latestAvailableVersion", flag="unknown_latestAvailableVersion")
+    private String value_latestAvailableVersion;
+    private boolean unknown_latestAvailableVersion;
     public String latestAvailableVersion() {
-        if (latestAvailableVersion == null) return null;
-        return latestAvailableVersion.getValue("LandingZone.latestAvailableVersion");
+        if (!unknown_latestAvailableVersion) return value_latestAvailableVersion;
+        throw new UndeferrableValueException("Value 'LandingZone.latestAvailableVersion' is not present");
     }
 
     /**
      * The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
      * 
      */
-    private UndeferrableValue<String> manifestJson;
-
+    @PolicyResourceProperty(name="manifestJson", flag="unknown_manifestJson")
+    private String value_manifestJson;
+    private boolean unknown_manifestJson;
     public String manifestJson() {
-        if (manifestJson == null) return null;
-        return manifestJson.getValue("LandingZone.manifestJson");
+        if (!unknown_manifestJson) return value_manifestJson;
+        throw new UndeferrableValueException("Value 'LandingZone.manifestJson' is not present");
     }
 
     /**
      * Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LandingZone.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LandingZone.tags' is not present");
     }
 
     /**
@@ -78,22 +84,24 @@ public final class LandingZone extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("LandingZone.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'LandingZone.tagsAll' is not present");
     }
 
     /**
      * The landing zone version.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("LandingZone.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'LandingZone.version' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs 
      * Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
      * 
      */
-    private UndeferrableValue<String> appIdClientRegex;
-
+    @PolicyResourceProperty(name="appIdClientRegex", flag="unknown_appIdClientRegex")
+    private String value_appIdClientRegex;
+    private boolean unknown_appIdClientRegex;
     public String appIdClientRegex() {
-        if (appIdClientRegex == null) return null;
-        return appIdClientRegex.getValue("GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs.appIdClientRegex");
+        if (!unknown_appIdClientRegex) return value_appIdClientRegex;
+        throw new UndeferrableValueException("Value 'GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs.appIdClientRegex' is not present");
     }
 
     /**
      * AWS region in which the user pool was created.
      * 
      */
-    private UndeferrableValue<String> awsRegion;
-
+    @PolicyResourceProperty(name="awsRegion", flag="unknown_awsRegion")
+    private String value_awsRegion;
+    private boolean unknown_awsRegion;
     public String awsRegion() {
-        if (awsRegion == null) return null;
-        return awsRegion.getValue("GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs.awsRegion");
+        if (!unknown_awsRegion) return value_awsRegion;
+        throw new UndeferrableValueException("Value 'GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs.awsRegion' is not present");
     }
 
     /**
      * User pool ID.
      * 
      */
-    private UndeferrableValue<String> userPoolId;
-
+    @PolicyResourceProperty(name="userPoolId", flag="unknown_userPoolId")
+    private String value_userPoolId;
+    private boolean unknown_userPoolId;
     public String userPoolId() {
-        if (userPoolId == null) return null;
-        return userPoolId.getValue("GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs.userPoolId");
+        if (!unknown_userPoolId) return value_userPoolId;
+        throw new UndeferrableValueException("Value 'GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs.userPoolId' is not present");
     }
 
 }

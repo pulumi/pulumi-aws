@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.m2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.m2.outputs.EnvironmentStorageConfigurationEfs;
 import com.pulumi.policypacks.aws.m2.outputs.EnvironmentStorageConfigurationFsx;
 import javax.annotation.Nullable;
@@ -11,18 +12,20 @@ import javax.annotation.Nullable;
 
 public final class EnvironmentStorageConfiguration {
 
-    private @Nullable UndeferrableValue<EnvironmentStorageConfigurationEfs> efs;
-
+    @PolicyResourceProperty(name="efs", flag="unknown_efs")
+    private @Nullable EnvironmentStorageConfigurationEfs value_efs;
+    private boolean unknown_efs;
     public @Nullable EnvironmentStorageConfigurationEfs efs() {
-        if (efs == null) return null;
-        return efs.getValue("EnvironmentStorageConfiguration.efs");
+        if (!unknown_efs) return value_efs;
+        throw new UndeferrableValueException("Value 'EnvironmentStorageConfiguration.efs' is not present");
     }
 
-    private @Nullable UndeferrableValue<EnvironmentStorageConfigurationFsx> fsx;
-
+    @PolicyResourceProperty(name="fsx", flag="unknown_fsx")
+    private @Nullable EnvironmentStorageConfigurationFsx value_fsx;
+    private boolean unknown_fsx;
     public @Nullable EnvironmentStorageConfigurationFsx fsx() {
-        if (fsx == null) return null;
-        return fsx.getValue("EnvironmentStorageConfiguration.fsx");
+        if (!unknown_fsx) return value_fsx;
+        throw new UndeferrableValueException("Value 'EnvironmentStorageConfiguration.fsx' is not present");
     }
 
 }

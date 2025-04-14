@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.networkmanager.inputs.ConnectPeerBgpOptionsArgs;
 import java.lang.String;
@@ -19,44 +20,48 @@ public final class ConnectPeerArgs extends com.pulumi.resources.PolicyResourceIn
      * The Connect peer BGP options.
      * 
      */
-    private UndeferrableValue<ConnectPeerBgpOptionsArgs> bgpOptions;
-
+    @PolicyResourceProperty(name="bgpOptions", flag="unknown_bgpOptions")
+    private ConnectPeerBgpOptionsArgs value_bgpOptions;
+    private boolean unknown_bgpOptions;
     public ConnectPeerBgpOptionsArgs bgpOptions() {
-        if (bgpOptions == null) return null;
-        return bgpOptions.getValue("ConnectPeerArgs.bgpOptions");
+        if (!unknown_bgpOptions) return value_bgpOptions;
+        throw new UndeferrableValueException("Value 'ConnectPeerArgs.bgpOptions' is not present");
     }
 
     /**
      * The ID of the connection attachment.
      * 
      */
-    private UndeferrableValue<String> connectAttachmentId;
-
+    @PolicyResourceProperty(name="connectAttachmentId", flag="unknown_connectAttachmentId")
+    private String value_connectAttachmentId;
+    private boolean unknown_connectAttachmentId;
     public String connectAttachmentId() {
-        if (connectAttachmentId == null) return null;
-        return connectAttachmentId.getValue("ConnectPeerArgs.connectAttachmentId");
+        if (!unknown_connectAttachmentId) return value_connectAttachmentId;
+        throw new UndeferrableValueException("Value 'ConnectPeerArgs.connectAttachmentId' is not present");
     }
 
     /**
      * A Connect peer core network address.
      * 
      */
-    private UndeferrableValue<String> coreNetworkAddress;
-
+    @PolicyResourceProperty(name="coreNetworkAddress", flag="unknown_coreNetworkAddress")
+    private String value_coreNetworkAddress;
+    private boolean unknown_coreNetworkAddress;
     public String coreNetworkAddress() {
-        if (coreNetworkAddress == null) return null;
-        return coreNetworkAddress.getValue("ConnectPeerArgs.coreNetworkAddress");
+        if (!unknown_coreNetworkAddress) return value_coreNetworkAddress;
+        throw new UndeferrableValueException("Value 'ConnectPeerArgs.coreNetworkAddress' is not present");
     }
 
     /**
      * The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
-    private UndeferrableValue<List<String>> insideCidrBlocks;
-
+    @PolicyResourceProperty(name="insideCidrBlocks", flag="unknown_insideCidrBlocks")
+    private List<String> value_insideCidrBlocks;
+    private boolean unknown_insideCidrBlocks;
     public List<String> insideCidrBlocks() {
-        if (insideCidrBlocks == null) return null;
-        return insideCidrBlocks.getValue("ConnectPeerArgs.insideCidrBlocks");
+        if (!unknown_insideCidrBlocks) return value_insideCidrBlocks;
+        throw new UndeferrableValueException("Value 'ConnectPeerArgs.insideCidrBlocks' is not present");
     }
 
     /**
@@ -65,33 +70,36 @@ public final class ConnectPeerArgs extends com.pulumi.resources.PolicyResourceIn
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> peerAddress;
-
+    @PolicyResourceProperty(name="peerAddress", flag="unknown_peerAddress")
+    private String value_peerAddress;
+    private boolean unknown_peerAddress;
     public String peerAddress() {
-        if (peerAddress == null) return null;
-        return peerAddress.getValue("ConnectPeerArgs.peerAddress");
+        if (!unknown_peerAddress) return value_peerAddress;
+        throw new UndeferrableValueException("Value 'ConnectPeerArgs.peerAddress' is not present");
     }
 
     /**
      * The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
-    private UndeferrableValue<String> subnetArn;
-
+    @PolicyResourceProperty(name="subnetArn", flag="unknown_subnetArn")
+    private String value_subnetArn;
+    private boolean unknown_subnetArn;
     public String subnetArn() {
-        if (subnetArn == null) return null;
-        return subnetArn.getValue("ConnectPeerArgs.subnetArn");
+        if (!unknown_subnetArn) return value_subnetArn;
+        throw new UndeferrableValueException("Value 'ConnectPeerArgs.subnetArn' is not present");
     }
 
     /**
      * Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ConnectPeerArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ConnectPeerArgs.tags' is not present");
     }
 
 }

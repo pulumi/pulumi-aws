@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.gamelift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.gamelift.outputs.ScriptStorageLocation;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class Script extends com.pulumi.resources.PolicyResourceOutput {
      * GameLift Script ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Script.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Script.arn' is not present");
     }
 
     /**
      * Name of the script
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Script.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Script.name' is not present");
     }
 
     /**
      * Information indicating where your game script files are stored. See below.
      * 
      */
-    private UndeferrableValue<ScriptStorageLocation> storageLocation;
-
+    @PolicyResourceProperty(name="storageLocation", flag="unknown_storageLocation")
+    private ScriptStorageLocation value_storageLocation;
+    private boolean unknown_storageLocation;
     public ScriptStorageLocation storageLocation() {
-        if (storageLocation == null) return null;
-        return storageLocation.getValue("Script.storageLocation");
+        if (!unknown_storageLocation) return value_storageLocation;
+        throw new UndeferrableValueException("Value 'Script.storageLocation' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Script.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Script.tags' is not present");
     }
 
     /**
@@ -66,33 +71,36 @@ public final class Script extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Script.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Script.tagsAll' is not present");
     }
 
     /**
      * Version that is associated with this script.
      * 
      */
-    private @Nullable UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private @Nullable String value_version;
+    private boolean unknown_version;
     public @Nullable String version() {
-        if (version == null) return null;
-        return version.getValue("Script.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'Script.version' is not present");
     }
 
     /**
      * A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
      * 
      */
-    private @Nullable UndeferrableValue<String> zipFile;
-
+    @PolicyResourceProperty(name="zipFile", flag="unknown_zipFile")
+    private @Nullable String value_zipFile;
+    private boolean unknown_zipFile;
     public @Nullable String zipFile() {
-        if (zipFile == null) return null;
-        return zipFile.getValue("Script.zipFile");
+        if (!unknown_zipFile) return value_zipFile;
+        throw new UndeferrableValueException("Value 'Script.zipFile' is not present");
     }
 
 }

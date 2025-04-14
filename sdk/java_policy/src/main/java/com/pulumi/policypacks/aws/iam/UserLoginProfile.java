@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -18,77 +19,84 @@ public final class UserLoginProfile extends com.pulumi.resources.PolicyResourceO
      * The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
      * 
      */
-    private UndeferrableValue<String> encryptedPassword;
-
+    @PolicyResourceProperty(name="encryptedPassword", flag="unknown_encryptedPassword")
+    private String value_encryptedPassword;
+    private boolean unknown_encryptedPassword;
     public String encryptedPassword() {
-        if (encryptedPassword == null) return null;
-        return encryptedPassword.getValue("UserLoginProfile.encryptedPassword");
+        if (!unknown_encryptedPassword) return value_encryptedPassword;
+        throw new UndeferrableValueException("Value 'UserLoginProfile.encryptedPassword' is not present");
     }
 
     /**
      * The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
      * 
      */
-    private UndeferrableValue<String> keyFingerprint;
-
+    @PolicyResourceProperty(name="keyFingerprint", flag="unknown_keyFingerprint")
+    private String value_keyFingerprint;
+    private boolean unknown_keyFingerprint;
     public String keyFingerprint() {
-        if (keyFingerprint == null) return null;
-        return keyFingerprint.getValue("UserLoginProfile.keyFingerprint");
+        if (!unknown_keyFingerprint) return value_keyFingerprint;
+        throw new UndeferrableValueException("Value 'UserLoginProfile.keyFingerprint' is not present");
     }
 
     /**
      * The plain text password, only available when `pgp_key` is not provided.
      * 
      */
-    private UndeferrableValue<String> password;
-
+    @PolicyResourceProperty(name="password", flag="unknown_password")
+    private String value_password;
+    private boolean unknown_password;
     public String password() {
-        if (password == null) return null;
-        return password.getValue("UserLoginProfile.password");
+        if (!unknown_password) return value_password;
+        throw new UndeferrableValueException("Value 'UserLoginProfile.password' is not present");
     }
 
     /**
      * The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> passwordLength;
-
+    @PolicyResourceProperty(name="passwordLength", flag="unknown_passwordLength")
+    private @Nullable Integer value_passwordLength;
+    private boolean unknown_passwordLength;
     public @Nullable Integer passwordLength() {
-        if (passwordLength == null) return null;
-        return passwordLength.getValue("UserLoginProfile.passwordLength");
+        if (!unknown_passwordLength) return value_passwordLength;
+        throw new UndeferrableValueException("Value 'UserLoginProfile.passwordLength' is not present");
     }
 
     /**
      * Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
      * 
      */
-    private UndeferrableValue<Boolean> passwordResetRequired;
-
+    @PolicyResourceProperty(name="passwordResetRequired", flag="unknown_passwordResetRequired")
+    private Boolean value_passwordResetRequired;
+    private boolean unknown_passwordResetRequired;
     public Boolean passwordResetRequired() {
-        if (passwordResetRequired == null) return null;
-        return passwordResetRequired.getValue("UserLoginProfile.passwordResetRequired");
+        if (!unknown_passwordResetRequired) return value_passwordResetRequired;
+        throw new UndeferrableValueException("Value 'UserLoginProfile.passwordResetRequired' is not present");
     }
 
     /**
      * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
      * 
      */
-    private @Nullable UndeferrableValue<String> pgpKey;
-
+    @PolicyResourceProperty(name="pgpKey", flag="unknown_pgpKey")
+    private @Nullable String value_pgpKey;
+    private boolean unknown_pgpKey;
     public @Nullable String pgpKey() {
-        if (pgpKey == null) return null;
-        return pgpKey.getValue("UserLoginProfile.pgpKey");
+        if (!unknown_pgpKey) return value_pgpKey;
+        throw new UndeferrableValueException("Value 'UserLoginProfile.pgpKey' is not present");
     }
 
     /**
      * The IAM user&#39;s name.
      * 
      */
-    private UndeferrableValue<String> user;
-
+    @PolicyResourceProperty(name="user", flag="unknown_user")
+    private String value_user;
+    private boolean unknown_user;
     public String user() {
-        if (user == null) return null;
-        return user.getValue("UserLoginProfile.user");
+        if (!unknown_user) return value_user;
+        throw new UndeferrableValueException("Value 'UserLoginProfile.user' is not present");
     }
 
 }

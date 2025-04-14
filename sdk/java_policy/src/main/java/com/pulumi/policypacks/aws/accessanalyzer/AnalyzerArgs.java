@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.accessanalyzer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.accessanalyzer.inputs.AnalyzerConfigurationArgs;
 import java.lang.String;
@@ -20,44 +21,48 @@ public final class AnalyzerArgs extends com.pulumi.resources.PolicyResourceInput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> analyzerName;
-
+    @PolicyResourceProperty(name="analyzerName", flag="unknown_analyzerName")
+    private String value_analyzerName;
+    private boolean unknown_analyzerName;
     public String analyzerName() {
-        if (analyzerName == null) return null;
-        return analyzerName.getValue("AnalyzerArgs.analyzerName");
+        if (!unknown_analyzerName) return value_analyzerName;
+        throw new UndeferrableValueException("Value 'AnalyzerArgs.analyzerName' is not present");
     }
 
     /**
      * A block that specifies the configuration of the analyzer. Documented below
      * 
      */
-    private UndeferrableValue<AnalyzerConfigurationArgs> configuration;
-
+    @PolicyResourceProperty(name="configuration", flag="unknown_configuration")
+    private AnalyzerConfigurationArgs value_configuration;
+    private boolean unknown_configuration;
     public AnalyzerConfigurationArgs configuration() {
-        if (configuration == null) return null;
-        return configuration.getValue("AnalyzerArgs.configuration");
+        if (!unknown_configuration) return value_configuration;
+        throw new UndeferrableValueException("Value 'AnalyzerArgs.configuration' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AnalyzerArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AnalyzerArgs.tags' is not present");
     }
 
     /**
      * Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, ` ACCOUNT_UNUSED_ACCESS  `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("AnalyzerArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'AnalyzerArgs.type' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class FolderMembershipArgs extends com.pulumi.resources.PolicyResou
      * AWS account ID.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("FolderMembershipArgs.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'FolderMembershipArgs.awsAccountId' is not present");
     }
 
     /**
      * Identifier for the folder.
      * 
      */
-    private UndeferrableValue<String> folderId;
-
+    @PolicyResourceProperty(name="folderId", flag="unknown_folderId")
+    private String value_folderId;
+    private boolean unknown_folderId;
     public String folderId() {
-        if (folderId == null) return null;
-        return folderId.getValue("FolderMembershipArgs.folderId");
+        if (!unknown_folderId) return value_folderId;
+        throw new UndeferrableValueException("Value 'FolderMembershipArgs.folderId' is not present");
     }
 
     /**
      * ID of the asset (the dashboard, analysis, or dataset).
      * 
      */
-    private UndeferrableValue<String> memberId;
-
+    @PolicyResourceProperty(name="memberId", flag="unknown_memberId")
+    private String value_memberId;
+    private boolean unknown_memberId;
     public String memberId() {
-        if (memberId == null) return null;
-        return memberId.getValue("FolderMembershipArgs.memberId");
+        if (!unknown_memberId) return value_memberId;
+        throw new UndeferrableValueException("Value 'FolderMembershipArgs.memberId' is not present");
     }
 
     /**
@@ -51,11 +55,12 @@ public final class FolderMembershipArgs extends com.pulumi.resources.PolicyResou
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> memberType;
-
+    @PolicyResourceProperty(name="memberType", flag="unknown_memberType")
+    private String value_memberType;
+    private boolean unknown_memberType;
     public String memberType() {
-        if (memberType == null) return null;
-        return memberType.getValue("FolderMembershipArgs.memberType");
+        if (!unknown_memberType) return value_memberType;
+        throw new UndeferrableValueException("Value 'FolderMembershipArgs.memberType' is not present");
     }
 
 }

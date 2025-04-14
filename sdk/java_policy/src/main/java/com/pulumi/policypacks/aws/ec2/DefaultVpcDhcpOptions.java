@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,83 +18,92 @@ public final class DefaultVpcDhcpOptions extends com.pulumi.resources.PolicyReso
      * The ARN of the DHCP Options Set.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("DefaultVpcDhcpOptions.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'DefaultVpcDhcpOptions.arn' is not present");
     }
 
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("DefaultVpcDhcpOptions.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'DefaultVpcDhcpOptions.domainName' is not present");
     }
 
-    private UndeferrableValue<String> domainNameServers;
-
+    @PolicyResourceProperty(name="domainNameServers", flag="unknown_domainNameServers")
+    private String value_domainNameServers;
+    private boolean unknown_domainNameServers;
     public String domainNameServers() {
-        if (domainNameServers == null) return null;
-        return domainNameServers.getValue("DefaultVpcDhcpOptions.domainNameServers");
+        if (!unknown_domainNameServers) return value_domainNameServers;
+        throw new UndeferrableValueException("Value 'DefaultVpcDhcpOptions.domainNameServers' is not present");
     }
 
-    private UndeferrableValue<String> ipv6AddressPreferredLeaseTime;
-
+    @PolicyResourceProperty(name="ipv6AddressPreferredLeaseTime", flag="unknown_ipv6AddressPreferredLeaseTime")
+    private String value_ipv6AddressPreferredLeaseTime;
+    private boolean unknown_ipv6AddressPreferredLeaseTime;
     public String ipv6AddressPreferredLeaseTime() {
-        if (ipv6AddressPreferredLeaseTime == null) return null;
-        return ipv6AddressPreferredLeaseTime.getValue("DefaultVpcDhcpOptions.ipv6AddressPreferredLeaseTime");
+        if (!unknown_ipv6AddressPreferredLeaseTime) return value_ipv6AddressPreferredLeaseTime;
+        throw new UndeferrableValueException("Value 'DefaultVpcDhcpOptions.ipv6AddressPreferredLeaseTime' is not present");
     }
 
     /**
      * List of NETBIOS name servers.
      * 
      */
-    private UndeferrableValue<String> netbiosNameServers;
-
+    @PolicyResourceProperty(name="netbiosNameServers", flag="unknown_netbiosNameServers")
+    private String value_netbiosNameServers;
+    private boolean unknown_netbiosNameServers;
     public String netbiosNameServers() {
-        if (netbiosNameServers == null) return null;
-        return netbiosNameServers.getValue("DefaultVpcDhcpOptions.netbiosNameServers");
+        if (!unknown_netbiosNameServers) return value_netbiosNameServers;
+        throw new UndeferrableValueException("Value 'DefaultVpcDhcpOptions.netbiosNameServers' is not present");
     }
 
     /**
      * The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      * 
      */
-    private UndeferrableValue<String> netbiosNodeType;
-
+    @PolicyResourceProperty(name="netbiosNodeType", flag="unknown_netbiosNodeType")
+    private String value_netbiosNodeType;
+    private boolean unknown_netbiosNodeType;
     public String netbiosNodeType() {
-        if (netbiosNodeType == null) return null;
-        return netbiosNodeType.getValue("DefaultVpcDhcpOptions.netbiosNodeType");
+        if (!unknown_netbiosNodeType) return value_netbiosNodeType;
+        throw new UndeferrableValueException("Value 'DefaultVpcDhcpOptions.netbiosNodeType' is not present");
     }
 
-    private UndeferrableValue<String> ntpServers;
-
+    @PolicyResourceProperty(name="ntpServers", flag="unknown_ntpServers")
+    private String value_ntpServers;
+    private boolean unknown_ntpServers;
     public String ntpServers() {
-        if (ntpServers == null) return null;
-        return ntpServers.getValue("DefaultVpcDhcpOptions.ntpServers");
+        if (!unknown_ntpServers) return value_ntpServers;
+        throw new UndeferrableValueException("Value 'DefaultVpcDhcpOptions.ntpServers' is not present");
     }
 
     /**
      * The ID of the AWS account that owns the DHCP options set.
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("DefaultVpcDhcpOptions.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'DefaultVpcDhcpOptions.ownerId' is not present");
     }
 
     /**
      * A map of tags to assign to the resource.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DefaultVpcDhcpOptions.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DefaultVpcDhcpOptions.tags' is not present");
     }
 
     /**
@@ -102,11 +112,12 @@ public final class DefaultVpcDhcpOptions extends com.pulumi.resources.PolicyReso
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("DefaultVpcDhcpOptions.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'DefaultVpcDhcpOptions.tagsAll' is not present");
     }
 
 }

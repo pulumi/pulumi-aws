@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emrserverless.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.emrserverless.inputs.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs;
 import java.lang.Integer;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ApplicationInitialCapacityInitialCapacityConfigArgs {
      * The resource configuration of the initial capacity configuration.
      * 
      */
-    private UndeferrableValue<ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs> workerConfiguration;
-
+    @PolicyResourceProperty(name="workerConfiguration", flag="unknown_workerConfiguration")
+    private ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs value_workerConfiguration;
+    private boolean unknown_workerConfiguration;
     public ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs workerConfiguration() {
-        if (workerConfiguration == null) return null;
-        return workerConfiguration.getValue("ApplicationInitialCapacityInitialCapacityConfigArgs.workerConfiguration");
+        if (!unknown_workerConfiguration) return value_workerConfiguration;
+        throw new UndeferrableValueException("Value 'ApplicationInitialCapacityInitialCapacityConfigArgs.workerConfiguration' is not present");
     }
 
     /**
      * The number of workers in the initial capacity configuration.
      * 
      */
-    private UndeferrableValue<Integer> workerCount;
-
+    @PolicyResourceProperty(name="workerCount", flag="unknown_workerCount")
+    private Integer value_workerCount;
+    private boolean unknown_workerCount;
     public Integer workerCount() {
-        if (workerCount == null) return null;
-        return workerCount.getValue("ApplicationInitialCapacityInitialCapacityConfigArgs.workerCount");
+        if (!unknown_workerCount) return value_workerCount;
+        throw new UndeferrableValueException("Value 'ApplicationInitialCapacityInitialCapacityConfigArgs.workerCount' is not present");
     }
 
 }

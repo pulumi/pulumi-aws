@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class VirtualMfaDeviceArgs extends com.pulumi.resources.PolicyResou
      * The path for the virtual MFA device.
      * 
      */
-    private UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private String value_path;
+    private boolean unknown_path;
     public String path() {
-        if (path == null) return null;
-        return path.getValue("VirtualMfaDeviceArgs.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'VirtualMfaDeviceArgs.path' is not present");
     }
 
     /**
      * Map of resource tags for the virtual mfa device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VirtualMfaDeviceArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VirtualMfaDeviceArgs.tags' is not present");
     }
 
     /**
      * The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA device.
      * 
      */
-    private UndeferrableValue<String> virtualMfaDeviceName;
-
+    @PolicyResourceProperty(name="virtualMfaDeviceName", flag="unknown_virtualMfaDeviceName")
+    private String value_virtualMfaDeviceName;
+    private boolean unknown_virtualMfaDeviceName;
     public String virtualMfaDeviceName() {
-        if (virtualMfaDeviceName == null) return null;
-        return virtualMfaDeviceName.getValue("VirtualMfaDeviceArgs.virtualMfaDeviceName");
+        if (!unknown_virtualMfaDeviceName) return value_virtualMfaDeviceName;
+        throw new UndeferrableValueException("Value 'VirtualMfaDeviceArgs.virtualMfaDeviceName' is not present");
     }
 
 }

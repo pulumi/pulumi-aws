@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class AnalyticsApplicationInputsParallelism {
      * The Count of streams.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> count;
-
+    @PolicyResourceProperty(name="count", flag="unknown_count")
+    private @Nullable Integer value_count;
+    private boolean unknown_count;
     public @Nullable Integer count() {
-        if (count == null) return null;
-        return count.getValue("AnalyticsApplicationInputsParallelism.count");
+        if (!unknown_count) return value_count;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsParallelism.count' is not present");
     }
 
 }

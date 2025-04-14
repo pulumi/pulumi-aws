@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class LifecyclePolicyResourceSelectionRecipe {
      * The name of an Image Builder recipe that the lifecycle policy uses for resource selection.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LifecyclePolicyResourceSelectionRecipe.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyResourceSelectionRecipe.name' is not present");
     }
 
     /**
      * The version of the Image Builder recipe specified by the name field.
      * 
      */
-    private UndeferrableValue<String> semanticVersion;
-
+    @PolicyResourceProperty(name="semanticVersion", flag="unknown_semanticVersion")
+    private String value_semanticVersion;
+    private boolean unknown_semanticVersion;
     public String semanticVersion() {
-        if (semanticVersion == null) return null;
-        return semanticVersion.getValue("LifecyclePolicyResourceSelectionRecipe.semanticVersion");
+        if (!unknown_semanticVersion) return value_semanticVersion;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyResourceSelectionRecipe.semanticVersion' is not present");
     }
 
 }

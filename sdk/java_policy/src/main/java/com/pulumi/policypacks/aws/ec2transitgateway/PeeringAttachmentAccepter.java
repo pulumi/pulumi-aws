@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,40 +18,44 @@ public final class PeeringAttachmentAccepter extends com.pulumi.resources.Policy
      * Identifier of the AWS account that owns the EC2 TGW peering.
      * 
      */
-    private UndeferrableValue<String> peerAccountId;
-
+    @PolicyResourceProperty(name="peerAccountId", flag="unknown_peerAccountId")
+    private String value_peerAccountId;
+    private boolean unknown_peerAccountId;
     public String peerAccountId() {
-        if (peerAccountId == null) return null;
-        return peerAccountId.getValue("PeeringAttachmentAccepter.peerAccountId");
+        if (!unknown_peerAccountId) return value_peerAccountId;
+        throw new UndeferrableValueException("Value 'PeeringAttachmentAccepter.peerAccountId' is not present");
     }
 
-    private UndeferrableValue<String> peerRegion;
-
+    @PolicyResourceProperty(name="peerRegion", flag="unknown_peerRegion")
+    private String value_peerRegion;
+    private boolean unknown_peerRegion;
     public String peerRegion() {
-        if (peerRegion == null) return null;
-        return peerRegion.getValue("PeeringAttachmentAccepter.peerRegion");
+        if (!unknown_peerRegion) return value_peerRegion;
+        throw new UndeferrableValueException("Value 'PeeringAttachmentAccepter.peerRegion' is not present");
     }
 
     /**
      * Identifier of EC2 Transit Gateway to peer with.
      * 
      */
-    private UndeferrableValue<String> peerTransitGatewayId;
-
+    @PolicyResourceProperty(name="peerTransitGatewayId", flag="unknown_peerTransitGatewayId")
+    private String value_peerTransitGatewayId;
+    private boolean unknown_peerTransitGatewayId;
     public String peerTransitGatewayId() {
-        if (peerTransitGatewayId == null) return null;
-        return peerTransitGatewayId.getValue("PeeringAttachmentAccepter.peerTransitGatewayId");
+        if (!unknown_peerTransitGatewayId) return value_peerTransitGatewayId;
+        throw new UndeferrableValueException("Value 'PeeringAttachmentAccepter.peerTransitGatewayId' is not present");
     }
 
     /**
      * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("PeeringAttachmentAccepter.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'PeeringAttachmentAccepter.tags' is not present");
     }
 
     /**
@@ -61,33 +66,36 @@ public final class PeeringAttachmentAccepter extends com.pulumi.resources.Policy
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("PeeringAttachmentAccepter.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'PeeringAttachmentAccepter.tagsAll' is not present");
     }
 
     /**
      * The ID of the EC2 Transit Gateway Peering Attachment to manage.
      * 
      */
-    private UndeferrableValue<String> transitGatewayAttachmentId;
-
+    @PolicyResourceProperty(name="transitGatewayAttachmentId", flag="unknown_transitGatewayAttachmentId")
+    private String value_transitGatewayAttachmentId;
+    private boolean unknown_transitGatewayAttachmentId;
     public String transitGatewayAttachmentId() {
-        if (transitGatewayAttachmentId == null) return null;
-        return transitGatewayAttachmentId.getValue("PeeringAttachmentAccepter.transitGatewayAttachmentId");
+        if (!unknown_transitGatewayAttachmentId) return value_transitGatewayAttachmentId;
+        throw new UndeferrableValueException("Value 'PeeringAttachmentAccepter.transitGatewayAttachmentId' is not present");
     }
 
     /**
      * Identifier of EC2 Transit Gateway.
      * 
      */
-    private UndeferrableValue<String> transitGatewayId;
-
+    @PolicyResourceProperty(name="transitGatewayId", flag="unknown_transitGatewayId")
+    private String value_transitGatewayId;
+    private boolean unknown_transitGatewayId;
     public String transitGatewayId() {
-        if (transitGatewayId == null) return null;
-        return transitGatewayId.getValue("PeeringAttachmentAccepter.transitGatewayId");
+        if (!unknown_transitGatewayId) return value_transitGatewayId;
+        throw new UndeferrableValueException("Value 'PeeringAttachmentAccepter.transitGatewayId' is not present");
     }
 
 }

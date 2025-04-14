@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfig
      * Enables or disables the Secrets Manager configuration.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration.enabled' is not present");
     }
 
     /**
      * The ARN of the role the stream assumes.
      * 
      */
-    private @Nullable UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private @Nullable String value_roleArn;
+    private boolean unknown_roleArn;
     public @Nullable String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration.roleArn' is not present");
     }
 
     /**
      * The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
      * 
      */
-    private @Nullable UndeferrableValue<String> secretArn;
-
+    @PolicyResourceProperty(name="secretArn", flag="unknown_secretArn")
+    private @Nullable String value_secretArn;
+    private boolean unknown_secretArn;
     public @Nullable String secretArn() {
-        if (secretArn == null) return null;
-        return secretArn.getValue("FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration.secretArn");
+        if (!unknown_secretArn) return value_secretArn;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration.secretArn' is not present");
     }
 
 }

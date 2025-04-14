@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedpermissions.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
      * The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> clientIds;
-
+    @PolicyResourceProperty(name="clientIds", flag="unknown_clientIds")
+    private @Nullable List<String> value_clientIds;
+    private boolean unknown_clientIds;
     public @Nullable List<String> clientIds() {
-        if (clientIds == null) return null;
-        return clientIds.getValue("IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly.clientIds");
+        if (!unknown_clientIds) return value_clientIds;
+        throw new UndeferrableValueException("Value 'IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly.clientIds' is not present");
     }
 
     /**
      * The claim that determines the principal in OIDC access tokens.
      * 
      */
-    private @Nullable UndeferrableValue<String> principalIdClaim;
-
+    @PolicyResourceProperty(name="principalIdClaim", flag="unknown_principalIdClaim")
+    private @Nullable String value_principalIdClaim;
+    private boolean unknown_principalIdClaim;
     public @Nullable String principalIdClaim() {
-        if (principalIdClaim == null) return null;
-        return principalIdClaim.getValue("IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly.principalIdClaim");
+        if (!unknown_principalIdClaim) return value_principalIdClaim;
+        throw new UndeferrableValueException("Value 'IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly.principalIdClaim' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssmcontacts.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class PlanStageTargetContactTargetInfo {
      * The Amazon Resource Name (ARN) of the contact.
      * 
      */
-    private @Nullable UndeferrableValue<String> contactId;
-
+    @PolicyResourceProperty(name="contactId", flag="unknown_contactId")
+    private @Nullable String value_contactId;
+    private boolean unknown_contactId;
     public @Nullable String contactId() {
-        if (contactId == null) return null;
-        return contactId.getValue("PlanStageTargetContactTargetInfo.contactId");
+        if (!unknown_contactId) return value_contactId;
+        throw new UndeferrableValueException("Value 'PlanStageTargetContactTargetInfo.contactId' is not present");
     }
 
     /**
      * A Boolean value determining if the contact&#39;s acknowledgement stops the progress of stages in the plan.
      * 
      */
-    private UndeferrableValue<Boolean> isEssential;
-
+    @PolicyResourceProperty(name="isEssential", flag="unknown_isEssential")
+    private Boolean value_isEssential;
+    private boolean unknown_isEssential;
     public Boolean isEssential() {
-        if (isEssential == null) return null;
-        return isEssential.getValue("PlanStageTargetContactTargetInfo.isEssential");
+        if (!unknown_isEssential) return value_isEssential;
+        throw new UndeferrableValueException("Value 'PlanStageTargetContactTargetInfo.isEssential' is not present");
     }
 
 }

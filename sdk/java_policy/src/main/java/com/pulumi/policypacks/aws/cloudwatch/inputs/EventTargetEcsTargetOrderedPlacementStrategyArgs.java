@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class EventTargetEcsTargetOrderedPlacementStrategyArgs {
      * The field to apply the placement strategy against. For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as `attribute:ecs.availability-zone`. For the `binpack` placement strategy, valid values are `cpu` and `memory`. For the `random` placement strategy, this field is not used. For more information, see [Amazon ECS task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
      * 
      */
-    private UndeferrableValue<String> field;
-
+    @PolicyResourceProperty(name="field", flag="unknown_field")
+    private String value_field;
+    private boolean unknown_field;
     public String field() {
-        if (field == null) return null;
-        return field.getValue("EventTargetEcsTargetOrderedPlacementStrategyArgs.field");
+        if (!unknown_field) return value_field;
+        throw new UndeferrableValueException("Value 'EventTargetEcsTargetOrderedPlacementStrategyArgs.field' is not present");
     }
 
     /**
      * Type of placement strategy. The only valid values at this time are `binpack`, `random` and `spread`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("EventTargetEcsTargetOrderedPlacementStrategyArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'EventTargetEcsTargetOrderedPlacementStrategyArgs.type' is not present");
     }
 
 }

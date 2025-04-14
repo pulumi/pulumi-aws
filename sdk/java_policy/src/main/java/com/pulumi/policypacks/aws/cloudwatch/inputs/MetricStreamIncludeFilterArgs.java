@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class MetricStreamIncludeFilterArgs {
      * An array that defines the metrics you want to include for this metric namespace
      * 
      */
-    private UndeferrableValue<List<String>> metricNames;
-
+    @PolicyResourceProperty(name="metricNames", flag="unknown_metricNames")
+    private List<String> value_metricNames;
+    private boolean unknown_metricNames;
     public List<String> metricNames() {
-        if (metricNames == null) return null;
-        return metricNames.getValue("MetricStreamIncludeFilterArgs.metricNames");
+        if (!unknown_metricNames) return value_metricNames;
+        throw new UndeferrableValueException("Value 'MetricStreamIncludeFilterArgs.metricNames' is not present");
     }
 
     /**
      * Name of the metric namespace in the filter.
      * 
      */
-    private UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private String value_namespace;
+    private boolean unknown_namespace;
     public String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("MetricStreamIncludeFilterArgs.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'MetricStreamIncludeFilterArgs.namespace' is not present");
     }
 
 }

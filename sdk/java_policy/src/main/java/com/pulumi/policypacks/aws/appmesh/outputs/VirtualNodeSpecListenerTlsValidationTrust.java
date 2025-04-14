@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualNodeSpecListenerTlsValidationTrustFile;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualNodeSpecListenerTlsValidationTrustSds;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class VirtualNodeSpecListenerTlsValidationTrust {
      * TLS validation context trust for a local file certificate.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualNodeSpecListenerTlsValidationTrustFile> file;
-
+    @PolicyResourceProperty(name="file", flag="unknown_file")
+    private @Nullable VirtualNodeSpecListenerTlsValidationTrustFile value_file;
+    private boolean unknown_file;
     public @Nullable VirtualNodeSpecListenerTlsValidationTrustFile file() {
-        if (file == null) return null;
-        return file.getValue("VirtualNodeSpecListenerTlsValidationTrust.file");
+        if (!unknown_file) return value_file;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerTlsValidationTrust.file' is not present");
     }
 
     /**
      * TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualNodeSpecListenerTlsValidationTrustSds> sds;
-
+    @PolicyResourceProperty(name="sds", flag="unknown_sds")
+    private @Nullable VirtualNodeSpecListenerTlsValidationTrustSds value_sds;
+    private boolean unknown_sds;
     public @Nullable VirtualNodeSpecListenerTlsValidationTrustSds sds() {
-        if (sds == null) return null;
-        return sds.getValue("VirtualNodeSpecListenerTlsValidationTrust.sds");
+        if (!unknown_sds) return value_sds;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerTlsValidationTrust.sds' is not present");
     }
 
 }

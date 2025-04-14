@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,44 +14,48 @@ public final class IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs {
      * The claim name that must be present in the token, for example, &#34;isAdmin&#34; or &#34;paid&#34;.
      * 
      */
-    private UndeferrableValue<String> claim;
-
+    @PolicyResourceProperty(name="claim", flag="unknown_claim")
+    private String value_claim;
+    private boolean unknown_claim;
     public String claim() {
-        if (claim == null) return null;
-        return claim.getValue("IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs.claim");
+        if (!unknown_claim) return value_claim;
+        throw new UndeferrableValueException("Value 'IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs.claim' is not present");
     }
 
     /**
      * The match condition that specifies how closely the claim value in the IdP token must match Value.
      * 
      */
-    private UndeferrableValue<String> matchType;
-
+    @PolicyResourceProperty(name="matchType", flag="unknown_matchType")
+    private String value_matchType;
+    private boolean unknown_matchType;
     public String matchType() {
-        if (matchType == null) return null;
-        return matchType.getValue("IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs.matchType");
+        if (!unknown_matchType) return value_matchType;
+        throw new UndeferrableValueException("Value 'IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs.matchType' is not present");
     }
 
     /**
      * The role ARN.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs.roleArn' is not present");
     }
 
     /**
      * A brief string that the claim must match, for example, &#34;paid&#34; or &#34;yes&#34;.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs.value' is not present");
     }
 
 }

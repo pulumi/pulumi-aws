@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.inputs.PipelineParallelismConfigurationArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.PipelinePipelineDefinitionS3LocationArgs;
@@ -19,88 +20,96 @@ public final class PipelineArgs extends com.pulumi.resources.PolicyResourceInput
      * This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
      * 
      */
-    private UndeferrableValue<PipelineParallelismConfigurationArgs> parallelismConfiguration;
-
+    @PolicyResourceProperty(name="parallelismConfiguration", flag="unknown_parallelismConfiguration")
+    private PipelineParallelismConfigurationArgs value_parallelismConfiguration;
+    private boolean unknown_parallelismConfiguration;
     public PipelineParallelismConfigurationArgs parallelismConfiguration() {
-        if (parallelismConfiguration == null) return null;
-        return parallelismConfiguration.getValue("PipelineArgs.parallelismConfiguration");
+        if (!unknown_parallelismConfiguration) return value_parallelismConfiguration;
+        throw new UndeferrableValueException("Value 'PipelineArgs.parallelismConfiguration' is not present");
     }
 
     /**
      * The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
      * 
      */
-    private UndeferrableValue<String> pipelineDefinition;
-
+    @PolicyResourceProperty(name="pipelineDefinition", flag="unknown_pipelineDefinition")
+    private String value_pipelineDefinition;
+    private boolean unknown_pipelineDefinition;
     public String pipelineDefinition() {
-        if (pipelineDefinition == null) return null;
-        return pipelineDefinition.getValue("PipelineArgs.pipelineDefinition");
+        if (!unknown_pipelineDefinition) return value_pipelineDefinition;
+        throw new UndeferrableValueException("Value 'PipelineArgs.pipelineDefinition' is not present");
     }
 
     /**
      * The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
      * 
      */
-    private UndeferrableValue<PipelinePipelineDefinitionS3LocationArgs> pipelineDefinitionS3Location;
-
+    @PolicyResourceProperty(name="pipelineDefinitionS3Location", flag="unknown_pipelineDefinitionS3Location")
+    private PipelinePipelineDefinitionS3LocationArgs value_pipelineDefinitionS3Location;
+    private boolean unknown_pipelineDefinitionS3Location;
     public PipelinePipelineDefinitionS3LocationArgs pipelineDefinitionS3Location() {
-        if (pipelineDefinitionS3Location == null) return null;
-        return pipelineDefinitionS3Location.getValue("PipelineArgs.pipelineDefinitionS3Location");
+        if (!unknown_pipelineDefinitionS3Location) return value_pipelineDefinitionS3Location;
+        throw new UndeferrableValueException("Value 'PipelineArgs.pipelineDefinitionS3Location' is not present");
     }
 
     /**
      * A description of the pipeline.
      * 
      */
-    private UndeferrableValue<String> pipelineDescription;
-
+    @PolicyResourceProperty(name="pipelineDescription", flag="unknown_pipelineDescription")
+    private String value_pipelineDescription;
+    private boolean unknown_pipelineDescription;
     public String pipelineDescription() {
-        if (pipelineDescription == null) return null;
-        return pipelineDescription.getValue("PipelineArgs.pipelineDescription");
+        if (!unknown_pipelineDescription) return value_pipelineDescription;
+        throw new UndeferrableValueException("Value 'PipelineArgs.pipelineDescription' is not present");
     }
 
     /**
      * The display name of the pipeline.
      * 
      */
-    private UndeferrableValue<String> pipelineDisplayName;
-
+    @PolicyResourceProperty(name="pipelineDisplayName", flag="unknown_pipelineDisplayName")
+    private String value_pipelineDisplayName;
+    private boolean unknown_pipelineDisplayName;
     public String pipelineDisplayName() {
-        if (pipelineDisplayName == null) return null;
-        return pipelineDisplayName.getValue("PipelineArgs.pipelineDisplayName");
+        if (!unknown_pipelineDisplayName) return value_pipelineDisplayName;
+        throw new UndeferrableValueException("Value 'PipelineArgs.pipelineDisplayName' is not present");
     }
 
     /**
      * The name of the pipeline.
      * 
      */
-    private UndeferrableValue<String> pipelineName;
-
+    @PolicyResourceProperty(name="pipelineName", flag="unknown_pipelineName")
+    private String value_pipelineName;
+    private boolean unknown_pipelineName;
     public String pipelineName() {
-        if (pipelineName == null) return null;
-        return pipelineName.getValue("PipelineArgs.pipelineName");
+        if (!unknown_pipelineName) return value_pipelineName;
+        throw new UndeferrableValueException("Value 'PipelineArgs.pipelineName' is not present");
     }
 
     /**
      * The ARN of the IAM role the pipeline will execute as.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("PipelineArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'PipelineArgs.roleArn' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("PipelineArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'PipelineArgs.tags' is not present");
     }
 
 }

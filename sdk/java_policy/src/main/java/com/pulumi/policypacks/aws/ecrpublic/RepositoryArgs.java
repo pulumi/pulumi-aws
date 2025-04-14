@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecrpublic;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ecrpublic.inputs.RepositoryCatalogDataArgs;
 import java.lang.Boolean;
@@ -19,40 +20,44 @@ public final class RepositoryArgs extends com.pulumi.resources.PolicyResourceInp
      * Catalog data configuration for the repository. See below for schema.
      * 
      */
-    private UndeferrableValue<RepositoryCatalogDataArgs> catalogData;
-
+    @PolicyResourceProperty(name="catalogData", flag="unknown_catalogData")
+    private RepositoryCatalogDataArgs value_catalogData;
+    private boolean unknown_catalogData;
     public RepositoryCatalogDataArgs catalogData() {
-        if (catalogData == null) return null;
-        return catalogData.getValue("RepositoryArgs.catalogData");
+        if (!unknown_catalogData) return value_catalogData;
+        throw new UndeferrableValueException("Value 'RepositoryArgs.catalogData' is not present");
     }
 
-    private UndeferrableValue<Boolean> forceDestroy;
-
+    @PolicyResourceProperty(name="forceDestroy", flag="unknown_forceDestroy")
+    private Boolean value_forceDestroy;
+    private boolean unknown_forceDestroy;
     public Boolean forceDestroy() {
-        if (forceDestroy == null) return null;
-        return forceDestroy.getValue("RepositoryArgs.forceDestroy");
+        if (!unknown_forceDestroy) return value_forceDestroy;
+        throw new UndeferrableValueException("Value 'RepositoryArgs.forceDestroy' is not present");
     }
 
     /**
      * Name of the repository.
      * 
      */
-    private UndeferrableValue<String> repositoryName;
-
+    @PolicyResourceProperty(name="repositoryName", flag="unknown_repositoryName")
+    private String value_repositoryName;
+    private boolean unknown_repositoryName;
     public String repositoryName() {
-        if (repositoryName == null) return null;
-        return repositoryName.getValue("RepositoryArgs.repositoryName");
+        if (!unknown_repositoryName) return value_repositoryName;
+        throw new UndeferrableValueException("Value 'RepositoryArgs.repositoryName' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RepositoryArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RepositoryArgs.tags' is not present");
     }
 
 }

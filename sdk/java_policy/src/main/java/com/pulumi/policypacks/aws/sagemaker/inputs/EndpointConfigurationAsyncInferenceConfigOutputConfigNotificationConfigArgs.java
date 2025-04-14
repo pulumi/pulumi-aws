@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class EndpointConfigurationAsyncInferenceConfigOutputConfigNotifica
      * Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
      * 
      */
-    private UndeferrableValue<String> errorTopic;
-
+    @PolicyResourceProperty(name="errorTopic", flag="unknown_errorTopic")
+    private String value_errorTopic;
+    private boolean unknown_errorTopic;
     public String errorTopic() {
-        if (errorTopic == null) return null;
-        return errorTopic.getValue("EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs.errorTopic");
+        if (!unknown_errorTopic) return value_errorTopic;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs.errorTopic' is not present");
     }
 
     /**
      * The Amazon SNS topics where you want the inference response to be included. Valid values are `SUCCESS_NOTIFICATION_TOPIC` and `ERROR_NOTIFICATION_TOPIC`.
      * 
      */
-    private UndeferrableValue<List<String>> includeInferenceResponseIns;
-
+    @PolicyResourceProperty(name="includeInferenceResponseIns", flag="unknown_includeInferenceResponseIns")
+    private List<String> value_includeInferenceResponseIns;
+    private boolean unknown_includeInferenceResponseIns;
     public List<String> includeInferenceResponseIns() {
-        if (includeInferenceResponseIns == null) return null;
-        return includeInferenceResponseIns.getValue("EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs.includeInferenceResponseIns");
+        if (!unknown_includeInferenceResponseIns) return value_includeInferenceResponseIns;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs.includeInferenceResponseIns' is not present");
     }
 
     /**
      * Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
      * 
      */
-    private UndeferrableValue<String> successTopic;
-
+    @PolicyResourceProperty(name="successTopic", flag="unknown_successTopic")
+    private String value_successTopic;
+    private boolean unknown_successTopic;
     public String successTopic() {
-        if (successTopic == null) return null;
-        return successTopic.getValue("EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs.successTopic");
+        if (!unknown_successTopic) return value_successTopic;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs.successTopic' is not present");
     }
 
 }

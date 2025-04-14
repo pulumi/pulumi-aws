@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.globalaccelerator.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -15,33 +16,36 @@ public final class CustomRoutingEndpointGroupDestinationConfigurationArgs {
      * The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
      * 
      */
-    private UndeferrableValue<Integer> fromPort;
-
+    @PolicyResourceProperty(name="fromPort", flag="unknown_fromPort")
+    private Integer value_fromPort;
+    private boolean unknown_fromPort;
     public Integer fromPort() {
-        if (fromPort == null) return null;
-        return fromPort.getValue("CustomRoutingEndpointGroupDestinationConfigurationArgs.fromPort");
+        if (!unknown_fromPort) return value_fromPort;
+        throw new UndeferrableValueException("Value 'CustomRoutingEndpointGroupDestinationConfigurationArgs.fromPort' is not present");
     }
 
     /**
      * The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `&#34;TCP&#34;` or `&#34;UDP&#34;`.
      * 
      */
-    private UndeferrableValue<List<String>> protocols;
-
+    @PolicyResourceProperty(name="protocols", flag="unknown_protocols")
+    private List<String> value_protocols;
+    private boolean unknown_protocols;
     public List<String> protocols() {
-        if (protocols == null) return null;
-        return protocols.getValue("CustomRoutingEndpointGroupDestinationConfigurationArgs.protocols");
+        if (!unknown_protocols) return value_protocols;
+        throw new UndeferrableValueException("Value 'CustomRoutingEndpointGroupDestinationConfigurationArgs.protocols' is not present");
     }
 
     /**
      * The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
      * 
      */
-    private UndeferrableValue<Integer> toPort;
-
+    @PolicyResourceProperty(name="toPort", flag="unknown_toPort")
+    private Integer value_toPort;
+    private boolean unknown_toPort;
     public Integer toPort() {
-        if (toPort == null) return null;
-        return toPort.getValue("CustomRoutingEndpointGroupDestinationConfigurationArgs.toPort");
+        if (!unknown_toPort) return value_toPort;
+        throw new UndeferrableValueException("Value 'CustomRoutingEndpointGroupDestinationConfigurationArgs.toPort' is not present");
     }
 
 }

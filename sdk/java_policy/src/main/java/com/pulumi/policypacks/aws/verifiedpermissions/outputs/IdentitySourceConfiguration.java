@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedpermissions.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.verifiedpermissions.outputs.IdentitySourceConfigurationCognitoUserPoolConfiguration;
 import com.pulumi.policypacks.aws.verifiedpermissions.outputs.IdentitySourceConfigurationOpenIdConnectConfiguration;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class IdentitySourceConfiguration {
      * Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
      * 
      */
-    private @Nullable UndeferrableValue<IdentitySourceConfigurationCognitoUserPoolConfiguration> cognitoUserPoolConfiguration;
-
+    @PolicyResourceProperty(name="cognitoUserPoolConfiguration", flag="unknown_cognitoUserPoolConfiguration")
+    private @Nullable IdentitySourceConfigurationCognitoUserPoolConfiguration value_cognitoUserPoolConfiguration;
+    private boolean unknown_cognitoUserPoolConfiguration;
     public @Nullable IdentitySourceConfigurationCognitoUserPoolConfiguration cognitoUserPoolConfiguration() {
-        if (cognitoUserPoolConfiguration == null) return null;
-        return cognitoUserPoolConfiguration.getValue("IdentitySourceConfiguration.cognitoUserPoolConfiguration");
+        if (!unknown_cognitoUserPoolConfiguration) return value_cognitoUserPoolConfiguration;
+        throw new UndeferrableValueException("Value 'IdentitySourceConfiguration.cognitoUserPoolConfiguration' is not present");
     }
 
     /**
      * Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
      * 
      */
-    private @Nullable UndeferrableValue<IdentitySourceConfigurationOpenIdConnectConfiguration> openIdConnectConfiguration;
-
+    @PolicyResourceProperty(name="openIdConnectConfiguration", flag="unknown_openIdConnectConfiguration")
+    private @Nullable IdentitySourceConfigurationOpenIdConnectConfiguration value_openIdConnectConfiguration;
+    private boolean unknown_openIdConnectConfiguration;
     public @Nullable IdentitySourceConfigurationOpenIdConnectConfiguration openIdConnectConfiguration() {
-        if (openIdConnectConfiguration == null) return null;
-        return openIdConnectConfiguration.getValue("IdentitySourceConfiguration.openIdConnectConfiguration");
+        if (!unknown_openIdConnectConfiguration) return value_openIdConnectConfiguration;
+        throw new UndeferrableValueException("Value 'IdentitySourceConfiguration.openIdConnectConfiguration' is not present");
     }
 
 }

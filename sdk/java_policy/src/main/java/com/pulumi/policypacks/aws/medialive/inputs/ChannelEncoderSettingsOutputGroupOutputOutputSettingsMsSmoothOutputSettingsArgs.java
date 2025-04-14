@@ -3,29 +3,32 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs {
 
-    private UndeferrableValue<String> h265PackagingType;
-
+    @PolicyResourceProperty(name="h265PackagingType", flag="unknown_h265PackagingType")
+    private String value_h265PackagingType;
+    private boolean unknown_h265PackagingType;
     public String h265PackagingType() {
-        if (h265PackagingType == null) return null;
-        return h265PackagingType.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs.h265PackagingType");
+        if (!unknown_h265PackagingType) return value_h265PackagingType;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs.h265PackagingType' is not present");
     }
 
     /**
      * String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
      * 
      */
-    private UndeferrableValue<String> nameModifier;
-
+    @PolicyResourceProperty(name="nameModifier", flag="unknown_nameModifier")
+    private String value_nameModifier;
+    private boolean unknown_nameModifier;
     public String nameModifier() {
-        if (nameModifier == null) return null;
-        return nameModifier.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs.nameModifier");
+        if (!unknown_nameModifier) return value_nameModifier;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs.nameModifier' is not present");
     }
 
 }

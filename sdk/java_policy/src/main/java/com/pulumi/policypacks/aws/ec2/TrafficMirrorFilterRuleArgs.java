@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.inputs.TrafficMirrorFilterRuleDestinationPortRangeArgs;
 import com.pulumi.policypacks.aws.ec2.inputs.TrafficMirrorFilterRuleSourcePortRangeArgs;
@@ -19,88 +20,96 @@ public final class TrafficMirrorFilterRuleArgs extends com.pulumi.resources.Poli
      * Description of the traffic mirror filter rule.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("TrafficMirrorFilterRuleArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'TrafficMirrorFilterRuleArgs.description' is not present");
     }
 
     /**
      * Destination CIDR block to assign to the Traffic Mirror rule.
      * 
      */
-    private UndeferrableValue<String> destinationCidrBlock;
-
+    @PolicyResourceProperty(name="destinationCidrBlock", flag="unknown_destinationCidrBlock")
+    private String value_destinationCidrBlock;
+    private boolean unknown_destinationCidrBlock;
     public String destinationCidrBlock() {
-        if (destinationCidrBlock == null) return null;
-        return destinationCidrBlock.getValue("TrafficMirrorFilterRuleArgs.destinationCidrBlock");
+        if (!unknown_destinationCidrBlock) return value_destinationCidrBlock;
+        throw new UndeferrableValueException("Value 'TrafficMirrorFilterRuleArgs.destinationCidrBlock' is not present");
     }
 
     /**
      * Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
      * 
      */
-    private UndeferrableValue<TrafficMirrorFilterRuleDestinationPortRangeArgs> destinationPortRange;
-
+    @PolicyResourceProperty(name="destinationPortRange", flag="unknown_destinationPortRange")
+    private TrafficMirrorFilterRuleDestinationPortRangeArgs value_destinationPortRange;
+    private boolean unknown_destinationPortRange;
     public TrafficMirrorFilterRuleDestinationPortRangeArgs destinationPortRange() {
-        if (destinationPortRange == null) return null;
-        return destinationPortRange.getValue("TrafficMirrorFilterRuleArgs.destinationPortRange");
+        if (!unknown_destinationPortRange) return value_destinationPortRange;
+        throw new UndeferrableValueException("Value 'TrafficMirrorFilterRuleArgs.destinationPortRange' is not present");
     }
 
     /**
      * Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
      * 
      */
-    private UndeferrableValue<Integer> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private Integer value_protocol;
+    private boolean unknown_protocol;
     public Integer protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("TrafficMirrorFilterRuleArgs.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'TrafficMirrorFilterRuleArgs.protocol' is not present");
     }
 
     /**
      * Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
      * 
      */
-    private UndeferrableValue<String> ruleAction;
-
+    @PolicyResourceProperty(name="ruleAction", flag="unknown_ruleAction")
+    private String value_ruleAction;
+    private boolean unknown_ruleAction;
     public String ruleAction() {
-        if (ruleAction == null) return null;
-        return ruleAction.getValue("TrafficMirrorFilterRuleArgs.ruleAction");
+        if (!unknown_ruleAction) return value_ruleAction;
+        throw new UndeferrableValueException("Value 'TrafficMirrorFilterRuleArgs.ruleAction' is not present");
     }
 
     /**
      * Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
      * 
      */
-    private UndeferrableValue<Integer> ruleNumber;
-
+    @PolicyResourceProperty(name="ruleNumber", flag="unknown_ruleNumber")
+    private Integer value_ruleNumber;
+    private boolean unknown_ruleNumber;
     public Integer ruleNumber() {
-        if (ruleNumber == null) return null;
-        return ruleNumber.getValue("TrafficMirrorFilterRuleArgs.ruleNumber");
+        if (!unknown_ruleNumber) return value_ruleNumber;
+        throw new UndeferrableValueException("Value 'TrafficMirrorFilterRuleArgs.ruleNumber' is not present");
     }
 
     /**
      * Source CIDR block to assign to the Traffic Mirror rule.
      * 
      */
-    private UndeferrableValue<String> sourceCidrBlock;
-
+    @PolicyResourceProperty(name="sourceCidrBlock", flag="unknown_sourceCidrBlock")
+    private String value_sourceCidrBlock;
+    private boolean unknown_sourceCidrBlock;
     public String sourceCidrBlock() {
-        if (sourceCidrBlock == null) return null;
-        return sourceCidrBlock.getValue("TrafficMirrorFilterRuleArgs.sourceCidrBlock");
+        if (!unknown_sourceCidrBlock) return value_sourceCidrBlock;
+        throw new UndeferrableValueException("Value 'TrafficMirrorFilterRuleArgs.sourceCidrBlock' is not present");
     }
 
     /**
      * Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
      * 
      */
-    private UndeferrableValue<TrafficMirrorFilterRuleSourcePortRangeArgs> sourcePortRange;
-
+    @PolicyResourceProperty(name="sourcePortRange", flag="unknown_sourcePortRange")
+    private TrafficMirrorFilterRuleSourcePortRangeArgs value_sourcePortRange;
+    private boolean unknown_sourcePortRange;
     public TrafficMirrorFilterRuleSourcePortRangeArgs sourcePortRange() {
-        if (sourcePortRange == null) return null;
-        return sourcePortRange.getValue("TrafficMirrorFilterRuleArgs.sourcePortRange");
+        if (!unknown_sourcePortRange) return value_sourcePortRange;
+        throw new UndeferrableValueException("Value 'TrafficMirrorFilterRuleArgs.sourcePortRange' is not present");
     }
 
     /**
@@ -109,22 +118,24 @@ public final class TrafficMirrorFilterRuleArgs extends com.pulumi.resources.Poli
      * Traffic mirror port range support following attributes:
      * 
      */
-    private UndeferrableValue<String> trafficDirection;
-
+    @PolicyResourceProperty(name="trafficDirection", flag="unknown_trafficDirection")
+    private String value_trafficDirection;
+    private boolean unknown_trafficDirection;
     public String trafficDirection() {
-        if (trafficDirection == null) return null;
-        return trafficDirection.getValue("TrafficMirrorFilterRuleArgs.trafficDirection");
+        if (!unknown_trafficDirection) return value_trafficDirection;
+        throw new UndeferrableValueException("Value 'TrafficMirrorFilterRuleArgs.trafficDirection' is not present");
     }
 
     /**
      * ID of the traffic mirror filter to which this rule should be added
      * 
      */
-    private UndeferrableValue<String> trafficMirrorFilterId;
-
+    @PolicyResourceProperty(name="trafficMirrorFilterId", flag="unknown_trafficMirrorFilterId")
+    private String value_trafficMirrorFilterId;
+    private boolean unknown_trafficMirrorFilterId;
     public String trafficMirrorFilterId() {
-        if (trafficMirrorFilterId == null) return null;
-        return trafficMirrorFilterId.getValue("TrafficMirrorFilterRuleArgs.trafficMirrorFilterId");
+        if (!unknown_trafficMirrorFilterId) return value_trafficMirrorFilterId;
+        throw new UndeferrableValueException("Value 'TrafficMirrorFilterRuleArgs.trafficMirrorFilterId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.guardduty;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.guardduty.outputs.MemberDetectorFeatureAdditionalConfiguration;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class MemberDetectorFeature extends com.pulumi.resources.PolicyReso
      * Member account ID to be updated.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("MemberDetectorFeature.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'MemberDetectorFeature.accountId' is not present");
     }
 
     /**
      * Additional feature configuration block. See below.
      * 
      */
-    private @Nullable UndeferrableValue<List<MemberDetectorFeatureAdditionalConfiguration>> additionalConfigurations;
-
+    @PolicyResourceProperty(name="additionalConfigurations", flag="unknown_additionalConfigurations")
+    private @Nullable List<MemberDetectorFeatureAdditionalConfiguration> value_additionalConfigurations;
+    private boolean unknown_additionalConfigurations;
     public @Nullable List<MemberDetectorFeatureAdditionalConfiguration> additionalConfigurations() {
-        if (additionalConfigurations == null) return null;
-        return additionalConfigurations.getValue("MemberDetectorFeature.additionalConfigurations");
+        if (!unknown_additionalConfigurations) return value_additionalConfigurations;
+        throw new UndeferrableValueException("Value 'MemberDetectorFeature.additionalConfigurations' is not present");
     }
 
     /**
      * Amazon GuardDuty detector ID.
      * 
      */
-    private UndeferrableValue<String> detectorId;
-
+    @PolicyResourceProperty(name="detectorId", flag="unknown_detectorId")
+    private String value_detectorId;
+    private boolean unknown_detectorId;
     public String detectorId() {
-        if (detectorId == null) return null;
-        return detectorId.getValue("MemberDetectorFeature.detectorId");
+        if (!unknown_detectorId) return value_detectorId;
+        throw new UndeferrableValueException("Value 'MemberDetectorFeature.detectorId' is not present");
     }
 
     /**
      * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("MemberDetectorFeature.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'MemberDetectorFeature.name' is not present");
     }
 
     /**
      * The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("MemberDetectorFeature.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'MemberDetectorFeature.status' is not present");
     }
 
 }

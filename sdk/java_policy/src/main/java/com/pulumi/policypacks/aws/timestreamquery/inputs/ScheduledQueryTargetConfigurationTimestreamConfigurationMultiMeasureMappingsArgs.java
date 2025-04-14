@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamquery.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.timestreamquery.inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMulti
      * Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes. See above.
      * 
      */
-    private UndeferrableValue<List<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs>> multiMeasureAttributeMappings;
-
+    @PolicyResourceProperty(name="multiMeasureAttributeMappings", flag="unknown_multiMeasureAttributeMappings")
+    private List<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs> value_multiMeasureAttributeMappings;
+    private boolean unknown_multiMeasureAttributeMappings;
     public List<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs> multiMeasureAttributeMappings() {
-        if (multiMeasureAttributeMappings == null) return null;
-        return multiMeasureAttributeMappings.getValue("ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs.multiMeasureAttributeMappings");
+        if (!unknown_multiMeasureAttributeMappings) return value_multiMeasureAttributeMappings;
+        throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs.multiMeasureAttributeMappings' is not present");
     }
 
     /**
      * Name of the target multi-measure name in the derived table. This input is required when `measure_name_column` is not provided. If `measure_name_column` is provided, then the value from that column will be used as the multi-measure name.
      * 
      */
-    private UndeferrableValue<String> targetMultiMeasureName;
-
+    @PolicyResourceProperty(name="targetMultiMeasureName", flag="unknown_targetMultiMeasureName")
+    private String value_targetMultiMeasureName;
+    private boolean unknown_targetMultiMeasureName;
     public String targetMultiMeasureName() {
-        if (targetMultiMeasureName == null) return null;
-        return targetMultiMeasureName.getValue("ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs.targetMultiMeasureName");
+        if (!unknown_targetMultiMeasureName) return value_targetMultiMeasureName;
+        throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs.targetMultiMeasureName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codedeploy.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codedeploy.inputs.DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs;
 import com.pulumi.policypacks.aws.codedeploy.inputs.DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class DeploymentConfigTrafficRoutingConfigArgs {
      * The time based canary configuration information. If `type` is `TimeBasedLinear`, use `time_based_linear` instead.
      * 
      */
-    private UndeferrableValue<DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs> timeBasedCanary;
-
+    @PolicyResourceProperty(name="timeBasedCanary", flag="unknown_timeBasedCanary")
+    private DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs value_timeBasedCanary;
+    private boolean unknown_timeBasedCanary;
     public DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs timeBasedCanary() {
-        if (timeBasedCanary == null) return null;
-        return timeBasedCanary.getValue("DeploymentConfigTrafficRoutingConfigArgs.timeBasedCanary");
+        if (!unknown_timeBasedCanary) return value_timeBasedCanary;
+        throw new UndeferrableValueException("Value 'DeploymentConfigTrafficRoutingConfigArgs.timeBasedCanary' is not present");
     }
 
     /**
      * The time based linear configuration information. If `type` is `TimeBasedCanary`, use `time_based_canary` instead.
      * 
      */
-    private UndeferrableValue<DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs> timeBasedLinear;
-
+    @PolicyResourceProperty(name="timeBasedLinear", flag="unknown_timeBasedLinear")
+    private DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs value_timeBasedLinear;
+    private boolean unknown_timeBasedLinear;
     public DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs timeBasedLinear() {
-        if (timeBasedLinear == null) return null;
-        return timeBasedLinear.getValue("DeploymentConfigTrafficRoutingConfigArgs.timeBasedLinear");
+        if (!unknown_timeBasedLinear) return value_timeBasedLinear;
+        throw new UndeferrableValueException("Value 'DeploymentConfigTrafficRoutingConfigArgs.timeBasedLinear' is not present");
     }
 
     /**
      * Type of traffic routing config. One of `TimeBasedCanary`, `TimeBasedLinear`, `AllAtOnce`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("DeploymentConfigTrafficRoutingConfigArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'DeploymentConfigTrafficRoutingConfigArgs.type' is not present");
     }
 
 }

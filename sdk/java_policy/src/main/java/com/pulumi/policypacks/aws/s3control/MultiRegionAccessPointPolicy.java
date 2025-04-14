@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3control.outputs.MultiRegionAccessPointPolicyDetails;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class MultiRegionAccessPointPolicy extends com.pulumi.resources.Pol
      * The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("MultiRegionAccessPointPolicy.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'MultiRegionAccessPointPolicy.accountId' is not present");
     }
 
     /**
      * A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
      * 
      */
-    private UndeferrableValue<MultiRegionAccessPointPolicyDetails> details;
-
+    @PolicyResourceProperty(name="details", flag="unknown_details")
+    private MultiRegionAccessPointPolicyDetails value_details;
+    private boolean unknown_details;
     public MultiRegionAccessPointPolicyDetails details() {
-        if (details == null) return null;
-        return details.getValue("MultiRegionAccessPointPolicy.details");
+        if (!unknown_details) return value_details;
+        throw new UndeferrableValueException("Value 'MultiRegionAccessPointPolicy.details' is not present");
     }
 
     /**
      * The last established policy for the Multi-Region Access Point.
      * 
      */
-    private UndeferrableValue<String> established;
-
+    @PolicyResourceProperty(name="established", flag="unknown_established")
+    private String value_established;
+    private boolean unknown_established;
     public String established() {
-        if (established == null) return null;
-        return established.getValue("MultiRegionAccessPointPolicy.established");
+        if (!unknown_established) return value_established;
+        throw new UndeferrableValueException("Value 'MultiRegionAccessPointPolicy.established' is not present");
     }
 
     /**
      * The proposed policy for the Multi-Region Access Point.
      * 
      */
-    private UndeferrableValue<String> proposed;
-
+    @PolicyResourceProperty(name="proposed", flag="unknown_proposed")
+    private String value_proposed;
+    private boolean unknown_proposed;
     public String proposed() {
-        if (proposed == null) return null;
-        return proposed.getValue("MultiRegionAccessPointPolicy.proposed");
+        if (!unknown_proposed) return value_proposed;
+        throw new UndeferrableValueException("Value 'MultiRegionAccessPointPolicy.proposed' is not present");
     }
 
 }

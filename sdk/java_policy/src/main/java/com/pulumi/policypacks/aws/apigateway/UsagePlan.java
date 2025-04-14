@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.apigateway.outputs.UsagePlanApiStage;
 import com.pulumi.policypacks.aws.apigateway.outputs.UsagePlanQuotaSettings;
@@ -21,73 +22,80 @@ public final class UsagePlan extends com.pulumi.resources.PolicyResourceOutput {
      * Associated API stages of the usage plan.
      * 
      */
-    private @Nullable UndeferrableValue<List<UsagePlanApiStage>> apiStages;
-
+    @PolicyResourceProperty(name="apiStages", flag="unknown_apiStages")
+    private @Nullable List<UsagePlanApiStage> value_apiStages;
+    private boolean unknown_apiStages;
     public @Nullable List<UsagePlanApiStage> apiStages() {
-        if (apiStages == null) return null;
-        return apiStages.getValue("UsagePlan.apiStages");
+        if (!unknown_apiStages) return value_apiStages;
+        throw new UndeferrableValueException("Value 'UsagePlan.apiStages' is not present");
     }
 
     /**
      * ARN
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("UsagePlan.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'UsagePlan.arn' is not present");
     }
 
     /**
      * Description of a usage plan.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("UsagePlan.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'UsagePlan.description' is not present");
     }
 
     /**
      * Name of the usage plan.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("UsagePlan.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'UsagePlan.name' is not present");
     }
 
     /**
      * AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
      * 
      */
-    private @Nullable UndeferrableValue<String> productCode;
-
+    @PolicyResourceProperty(name="productCode", flag="unknown_productCode")
+    private @Nullable String value_productCode;
+    private boolean unknown_productCode;
     public @Nullable String productCode() {
-        if (productCode == null) return null;
-        return productCode.getValue("UsagePlan.productCode");
+        if (!unknown_productCode) return value_productCode;
+        throw new UndeferrableValueException("Value 'UsagePlan.productCode' is not present");
     }
 
     /**
      * Quota of the usage plan.
      * 
      */
-    private @Nullable UndeferrableValue<UsagePlanQuotaSettings> quotaSettings;
-
+    @PolicyResourceProperty(name="quotaSettings", flag="unknown_quotaSettings")
+    private @Nullable UsagePlanQuotaSettings value_quotaSettings;
+    private boolean unknown_quotaSettings;
     public @Nullable UsagePlanQuotaSettings quotaSettings() {
-        if (quotaSettings == null) return null;
-        return quotaSettings.getValue("UsagePlan.quotaSettings");
+        if (!unknown_quotaSettings) return value_quotaSettings;
+        throw new UndeferrableValueException("Value 'UsagePlan.quotaSettings' is not present");
     }
 
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("UsagePlan.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'UsagePlan.tags' is not present");
     }
 
     /**
@@ -98,22 +106,24 @@ public final class UsagePlan extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("UsagePlan.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'UsagePlan.tagsAll' is not present");
     }
 
     /**
      * Throttling limits of the usage plan.
      * 
      */
-    private @Nullable UndeferrableValue<UsagePlanThrottleSettings> throttleSettings;
-
+    @PolicyResourceProperty(name="throttleSettings", flag="unknown_throttleSettings")
+    private @Nullable UsagePlanThrottleSettings value_throttleSettings;
+    private boolean unknown_throttleSettings;
     public @Nullable UsagePlanThrottleSettings throttleSettings() {
-        if (throttleSettings == null) return null;
-        return throttleSettings.getValue("UsagePlan.throttleSettings");
+        if (!unknown_throttleSettings) return value_throttleSettings;
+        throw new UndeferrableValueException("Value 'UsagePlan.throttleSettings' is not present");
     }
 
 }

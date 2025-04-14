@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.finspace.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class KxVolumeNas1ConfigurationArgs {
      * The size of the network attached storage.
      * 
      */
-    private UndeferrableValue<Integer> size;
-
+    @PolicyResourceProperty(name="size", flag="unknown_size")
+    private Integer value_size;
+    private boolean unknown_size;
     public Integer size() {
-        if (size == null) return null;
-        return size.getValue("KxVolumeNas1ConfigurationArgs.size");
+        if (!unknown_size) return value_size;
+        throw new UndeferrableValueException("Value 'KxVolumeNas1ConfigurationArgs.size' is not present");
     }
 
     /**
      * The type of the network attached storage.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("KxVolumeNas1ConfigurationArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'KxVolumeNas1ConfigurationArgs.type' is not present");
     }
 
 }

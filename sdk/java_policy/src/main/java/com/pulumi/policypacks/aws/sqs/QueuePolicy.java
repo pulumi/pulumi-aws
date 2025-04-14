@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sqs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -11,22 +12,24 @@ import java.lang.String;
 @PolicyResourceType(type="aws:sqs/queuePolicy:QueuePolicy")
 public final class QueuePolicy extends com.pulumi.resources.PolicyResourceOutput {
 
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("QueuePolicy.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'QueuePolicy.policy' is not present");
     }
 
     /**
      * URL of the SQS Queue to which to attach the policy.
      * 
      */
-    private UndeferrableValue<String> queueUrl;
-
+    @PolicyResourceProperty(name="queueUrl", flag="unknown_queueUrl")
+    private String value_queueUrl;
+    private boolean unknown_queueUrl;
     public String queueUrl() {
-        if (queueUrl == null) return null;
-        return queueUrl.getValue("QueuePolicy.queueUrl");
+        if (!unknown_queueUrl) return value_queueUrl;
+        throw new UndeferrableValueException("Value 'QueuePolicy.queueUrl' is not present");
     }
 
 }

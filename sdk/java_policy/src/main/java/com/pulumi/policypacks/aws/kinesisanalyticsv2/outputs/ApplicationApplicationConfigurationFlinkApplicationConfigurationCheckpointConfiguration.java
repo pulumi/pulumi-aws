@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,22 +17,24 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
      * Describes the interval in milliseconds between checkpoint operations.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> checkpointInterval;
-
+    @PolicyResourceProperty(name="checkpointInterval", flag="unknown_checkpointInterval")
+    private @Nullable Integer value_checkpointInterval;
+    private boolean unknown_checkpointInterval;
     public @Nullable Integer checkpointInterval() {
-        if (checkpointInterval == null) return null;
-        return checkpointInterval.getValue("ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration.checkpointInterval");
+        if (!unknown_checkpointInterval) return value_checkpointInterval;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration.checkpointInterval' is not present");
     }
 
     /**
      * Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> checkpointingEnabled;
-
+    @PolicyResourceProperty(name="checkpointingEnabled", flag="unknown_checkpointingEnabled")
+    private @Nullable Boolean value_checkpointingEnabled;
+    private boolean unknown_checkpointingEnabled;
     public @Nullable Boolean checkpointingEnabled() {
-        if (checkpointingEnabled == null) return null;
-        return checkpointingEnabled.getValue("ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration.checkpointingEnabled");
+        if (!unknown_checkpointingEnabled) return value_checkpointingEnabled;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration.checkpointingEnabled' is not present");
     }
 
     /**
@@ -41,22 +44,24 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
      * * `min_pause_between_checkpoints = 5000`
      * 
      */
-    private UndeferrableValue<String> configurationType;
-
+    @PolicyResourceProperty(name="configurationType", flag="unknown_configurationType")
+    private String value_configurationType;
+    private boolean unknown_configurationType;
     public String configurationType() {
-        if (configurationType == null) return null;
-        return configurationType.getValue("ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration.configurationType");
+        if (!unknown_configurationType) return value_configurationType;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration.configurationType' is not present");
     }
 
     /**
      * Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> minPauseBetweenCheckpoints;
-
+    @PolicyResourceProperty(name="minPauseBetweenCheckpoints", flag="unknown_minPauseBetweenCheckpoints")
+    private @Nullable Integer value_minPauseBetweenCheckpoints;
+    private boolean unknown_minPauseBetweenCheckpoints;
     public @Nullable Integer minPauseBetweenCheckpoints() {
-        if (minPauseBetweenCheckpoints == null) return null;
-        return minPauseBetweenCheckpoints.getValue("ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration.minPauseBetweenCheckpoints");
+        if (!unknown_minPauseBetweenCheckpoints) return value_minPauseBetweenCheckpoints;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration.minPauseBetweenCheckpoints' is not present");
     }
 
 }

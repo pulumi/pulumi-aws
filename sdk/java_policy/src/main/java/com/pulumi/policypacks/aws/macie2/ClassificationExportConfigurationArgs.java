@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.macie2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.macie2.inputs.ClassificationExportConfigurationS3DestinationArgs;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class ClassificationExportConfigurationArgs extends com.pulumi.reso
      * Configuration block for a S3 Destination. Defined below
      * 
      */
-    private UndeferrableValue<ClassificationExportConfigurationS3DestinationArgs> s3Destination;
-
+    @PolicyResourceProperty(name="s3Destination", flag="unknown_s3Destination")
+    private ClassificationExportConfigurationS3DestinationArgs value_s3Destination;
+    private boolean unknown_s3Destination;
     public ClassificationExportConfigurationS3DestinationArgs s3Destination() {
-        if (s3Destination == null) return null;
-        return s3Destination.getValue("ClassificationExportConfigurationArgs.s3Destination");
+        if (!unknown_s3Destination) return value_s3Destination;
+        throw new UndeferrableValueException("Value 'ClassificationExportConfigurationArgs.s3Destination' is not present");
     }
 
 }

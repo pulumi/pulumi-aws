@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.gamelift.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 
 
@@ -13,11 +14,12 @@ public final class GameServerGroupAutoScalingPolicyTargetTrackingConfiguration {
      * Desired value to use with a game server group target-based scaling policy.
      * 
      */
-    private UndeferrableValue<Double> targetValue;
-
+    @PolicyResourceProperty(name="targetValue", flag="unknown_targetValue")
+    private Double value_targetValue;
+    private boolean unknown_targetValue;
     public Double targetValue() {
-        if (targetValue == null) return null;
-        return targetValue.getValue("GameServerGroupAutoScalingPolicyTargetTrackingConfiguration.targetValue");
+        if (!unknown_targetValue) return value_targetValue;
+        throw new UndeferrableValueException("Value 'GameServerGroupAutoScalingPolicyTargetTrackingConfiguration.targetValue' is not present");
     }
 
 }

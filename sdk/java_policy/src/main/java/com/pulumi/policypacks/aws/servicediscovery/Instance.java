@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicediscovery;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -16,33 +17,36 @@ public final class Instance extends com.pulumi.resources.PolicyResourceOutput {
      * A map contains the attributes of the instance. Check the [doc](https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#API_RegisterInstance_RequestSyntax) for the supported attributes and syntax.
      * 
      */
-    private UndeferrableValue<Map<String,String>> attributes;
-
+    @PolicyResourceProperty(name="attributes", flag="unknown_attributes")
+    private Map<String,String> value_attributes;
+    private boolean unknown_attributes;
     public Map<String,String> attributes() {
-        if (attributes == null) return null;
-        return attributes.getValue("Instance.attributes");
+        if (!unknown_attributes) return value_attributes;
+        throw new UndeferrableValueException("Value 'Instance.attributes' is not present");
     }
 
     /**
      * The ID of the service instance.
      * 
      */
-    private UndeferrableValue<String> instanceId;
-
+    @PolicyResourceProperty(name="instanceId", flag="unknown_instanceId")
+    private String value_instanceId;
+    private boolean unknown_instanceId;
     public String instanceId() {
-        if (instanceId == null) return null;
-        return instanceId.getValue("Instance.instanceId");
+        if (!unknown_instanceId) return value_instanceId;
+        throw new UndeferrableValueException("Value 'Instance.instanceId' is not present");
     }
 
     /**
      * The ID of the service that you want to use to create the instance.
      * 
      */
-    private UndeferrableValue<String> serviceId;
-
+    @PolicyResourceProperty(name="serviceId", flag="unknown_serviceId")
+    private String value_serviceId;
+    private boolean unknown_serviceId;
     public String serviceId() {
-        if (serviceId == null) return null;
-        return serviceId.getValue("Instance.serviceId");
+        if (!unknown_serviceId) return value_serviceId;
+        throw new UndeferrableValueException("Value 'Instance.serviceId' is not present");
     }
 
 }

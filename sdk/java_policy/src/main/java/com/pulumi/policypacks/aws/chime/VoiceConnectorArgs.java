@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chime;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,22 +19,24 @@ public final class VoiceConnectorArgs extends com.pulumi.resources.PolicyResourc
      * The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
      * 
      */
-    private UndeferrableValue<String> awsRegion;
-
+    @PolicyResourceProperty(name="awsRegion", flag="unknown_awsRegion")
+    private String value_awsRegion;
+    private boolean unknown_awsRegion;
     public String awsRegion() {
-        if (awsRegion == null) return null;
-        return awsRegion.getValue("VoiceConnectorArgs.awsRegion");
+        if (!unknown_awsRegion) return value_awsRegion;
+        throw new UndeferrableValueException("Value 'VoiceConnectorArgs.awsRegion' is not present");
     }
 
     /**
      * The name of the Amazon Chime Voice Connector.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("VoiceConnectorArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'VoiceConnectorArgs.name' is not present");
     }
 
     /**
@@ -42,22 +45,24 @@ public final class VoiceConnectorArgs extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<Boolean> requireEncryption;
-
+    @PolicyResourceProperty(name="requireEncryption", flag="unknown_requireEncryption")
+    private Boolean value_requireEncryption;
+    private boolean unknown_requireEncryption;
     public Boolean requireEncryption() {
-        if (requireEncryption == null) return null;
-        return requireEncryption.getValue("VoiceConnectorArgs.requireEncryption");
+        if (!unknown_requireEncryption) return value_requireEncryption;
+        throw new UndeferrableValueException("Value 'VoiceConnectorArgs.requireEncryption' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VoiceConnectorArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VoiceConnectorArgs.tags' is not present");
     }
 
 }

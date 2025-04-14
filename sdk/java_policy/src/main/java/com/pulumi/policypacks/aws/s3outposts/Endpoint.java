@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3outposts;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3outposts.outputs.EndpointNetworkInterface;
 import java.lang.String;
@@ -18,99 +19,108 @@ public final class Endpoint extends com.pulumi.resources.PolicyResourceOutput {
      * Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
      * 
      */
-    private UndeferrableValue<String> accessType;
-
+    @PolicyResourceProperty(name="accessType", flag="unknown_accessType")
+    private String value_accessType;
+    private boolean unknown_accessType;
     public String accessType() {
-        if (accessType == null) return null;
-        return accessType.getValue("Endpoint.accessType");
+        if (!unknown_accessType) return value_accessType;
+        throw new UndeferrableValueException("Value 'Endpoint.accessType' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the endpoint.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Endpoint.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Endpoint.arn' is not present");
     }
 
     /**
      * VPC CIDR block of the endpoint.
      * 
      */
-    private UndeferrableValue<String> cidrBlock;
-
+    @PolicyResourceProperty(name="cidrBlock", flag="unknown_cidrBlock")
+    private String value_cidrBlock;
+    private boolean unknown_cidrBlock;
     public String cidrBlock() {
-        if (cidrBlock == null) return null;
-        return cidrBlock.getValue("Endpoint.cidrBlock");
+        if (!unknown_cidrBlock) return value_cidrBlock;
+        throw new UndeferrableValueException("Value 'Endpoint.cidrBlock' is not present");
     }
 
     /**
      * UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private UndeferrableValue<String> creationTime;
-
+    @PolicyResourceProperty(name="creationTime", flag="unknown_creationTime")
+    private String value_creationTime;
+    private boolean unknown_creationTime;
     public String creationTime() {
-        if (creationTime == null) return null;
-        return creationTime.getValue("Endpoint.creationTime");
+        if (!unknown_creationTime) return value_creationTime;
+        throw new UndeferrableValueException("Value 'Endpoint.creationTime' is not present");
     }
 
     /**
      * The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
      * 
      */
-    private @Nullable UndeferrableValue<String> customerOwnedIpv4Pool;
-
+    @PolicyResourceProperty(name="customerOwnedIpv4Pool", flag="unknown_customerOwnedIpv4Pool")
+    private @Nullable String value_customerOwnedIpv4Pool;
+    private boolean unknown_customerOwnedIpv4Pool;
     public @Nullable String customerOwnedIpv4Pool() {
-        if (customerOwnedIpv4Pool == null) return null;
-        return customerOwnedIpv4Pool.getValue("Endpoint.customerOwnedIpv4Pool");
+        if (!unknown_customerOwnedIpv4Pool) return value_customerOwnedIpv4Pool;
+        throw new UndeferrableValueException("Value 'Endpoint.customerOwnedIpv4Pool' is not present");
     }
 
     /**
      * Set of nested attributes for associated Elastic Network Interfaces (ENIs).
      * 
      */
-    private UndeferrableValue<List<EndpointNetworkInterface>> networkInterfaces;
-
+    @PolicyResourceProperty(name="networkInterfaces", flag="unknown_networkInterfaces")
+    private List<EndpointNetworkInterface> value_networkInterfaces;
+    private boolean unknown_networkInterfaces;
     public List<EndpointNetworkInterface> networkInterfaces() {
-        if (networkInterfaces == null) return null;
-        return networkInterfaces.getValue("Endpoint.networkInterfaces");
+        if (!unknown_networkInterfaces) return value_networkInterfaces;
+        throw new UndeferrableValueException("Value 'Endpoint.networkInterfaces' is not present");
     }
 
     /**
      * Identifier of the Outpost to contain this endpoint.
      * 
      */
-    private UndeferrableValue<String> outpostId;
-
+    @PolicyResourceProperty(name="outpostId", flag="unknown_outpostId")
+    private String value_outpostId;
+    private boolean unknown_outpostId;
     public String outpostId() {
-        if (outpostId == null) return null;
-        return outpostId.getValue("Endpoint.outpostId");
+        if (!unknown_outpostId) return value_outpostId;
+        throw new UndeferrableValueException("Value 'Endpoint.outpostId' is not present");
     }
 
     /**
      * Identifier of the EC2 Security Group.
      * 
      */
-    private UndeferrableValue<String> securityGroupId;
-
+    @PolicyResourceProperty(name="securityGroupId", flag="unknown_securityGroupId")
+    private String value_securityGroupId;
+    private boolean unknown_securityGroupId;
     public String securityGroupId() {
-        if (securityGroupId == null) return null;
-        return securityGroupId.getValue("Endpoint.securityGroupId");
+        if (!unknown_securityGroupId) return value_securityGroupId;
+        throw new UndeferrableValueException("Value 'Endpoint.securityGroupId' is not present");
     }
 
     /**
      * Identifier of the EC2 Subnet.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("Endpoint.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'Endpoint.subnetId' is not present");
     }
 
 }

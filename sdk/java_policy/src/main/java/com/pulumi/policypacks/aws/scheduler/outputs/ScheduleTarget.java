@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.scheduler.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.scheduler.outputs.ScheduleTargetDeadLetterConfig;
 import com.pulumi.policypacks.aws.scheduler.outputs.ScheduleTargetEcsParameters;
 import com.pulumi.policypacks.aws.scheduler.outputs.ScheduleTargetEventbridgeParameters;
@@ -21,77 +22,84 @@ public final class ScheduleTarget {
      * ARN of the target of this schedule, such as a SQS queue or ECS cluster. For universal targets, this is a [Service ARN specific to the target service](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html#supported-universal-targets).
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ScheduleTarget.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ScheduleTarget.arn' is not present");
     }
 
     /**
      * Information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule. If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<ScheduleTargetDeadLetterConfig> deadLetterConfig;
-
+    @PolicyResourceProperty(name="deadLetterConfig", flag="unknown_deadLetterConfig")
+    private @Nullable ScheduleTargetDeadLetterConfig value_deadLetterConfig;
+    private boolean unknown_deadLetterConfig;
     public @Nullable ScheduleTargetDeadLetterConfig deadLetterConfig() {
-        if (deadLetterConfig == null) return null;
-        return deadLetterConfig.getValue("ScheduleTarget.deadLetterConfig");
+        if (!unknown_deadLetterConfig) return value_deadLetterConfig;
+        throw new UndeferrableValueException("Value 'ScheduleTarget.deadLetterConfig' is not present");
     }
 
     /**
      * Templated target type for the Amazon ECS [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API operation. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<ScheduleTargetEcsParameters> ecsParameters;
-
+    @PolicyResourceProperty(name="ecsParameters", flag="unknown_ecsParameters")
+    private @Nullable ScheduleTargetEcsParameters value_ecsParameters;
+    private boolean unknown_ecsParameters;
     public @Nullable ScheduleTargetEcsParameters ecsParameters() {
-        if (ecsParameters == null) return null;
-        return ecsParameters.getValue("ScheduleTarget.ecsParameters");
+        if (!unknown_ecsParameters) return value_ecsParameters;
+        throw new UndeferrableValueException("Value 'ScheduleTarget.ecsParameters' is not present");
     }
 
     /**
      * Templated target type for the EventBridge [`PutEvents`](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) API operation. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<ScheduleTargetEventbridgeParameters> eventbridgeParameters;
-
+    @PolicyResourceProperty(name="eventbridgeParameters", flag="unknown_eventbridgeParameters")
+    private @Nullable ScheduleTargetEventbridgeParameters value_eventbridgeParameters;
+    private boolean unknown_eventbridgeParameters;
     public @Nullable ScheduleTargetEventbridgeParameters eventbridgeParameters() {
-        if (eventbridgeParameters == null) return null;
-        return eventbridgeParameters.getValue("ScheduleTarget.eventbridgeParameters");
+        if (!unknown_eventbridgeParameters) return value_eventbridgeParameters;
+        throw new UndeferrableValueException("Value 'ScheduleTarget.eventbridgeParameters' is not present");
     }
 
     /**
      * Text, or well-formed JSON, passed to the target. Read more in [Universal target](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html).
      * 
      */
-    private @Nullable UndeferrableValue<String> input;
-
+    @PolicyResourceProperty(name="input", flag="unknown_input")
+    private @Nullable String value_input;
+    private boolean unknown_input;
     public @Nullable String input() {
-        if (input == null) return null;
-        return input.getValue("ScheduleTarget.input");
+        if (!unknown_input) return value_input;
+        throw new UndeferrableValueException("Value 'ScheduleTarget.input' is not present");
     }
 
     /**
      * Templated target type for the Amazon Kinesis [`PutRecord`](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html) API operation. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<ScheduleTargetKinesisParameters> kinesisParameters;
-
+    @PolicyResourceProperty(name="kinesisParameters", flag="unknown_kinesisParameters")
+    private @Nullable ScheduleTargetKinesisParameters value_kinesisParameters;
+    private boolean unknown_kinesisParameters;
     public @Nullable ScheduleTargetKinesisParameters kinesisParameters() {
-        if (kinesisParameters == null) return null;
-        return kinesisParameters.getValue("ScheduleTarget.kinesisParameters");
+        if (!unknown_kinesisParameters) return value_kinesisParameters;
+        throw new UndeferrableValueException("Value 'ScheduleTarget.kinesisParameters' is not present");
     }
 
     /**
      * Information about the retry policy settings. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<ScheduleTargetRetryPolicy> retryPolicy;
-
+    @PolicyResourceProperty(name="retryPolicy", flag="unknown_retryPolicy")
+    private @Nullable ScheduleTargetRetryPolicy value_retryPolicy;
+    private boolean unknown_retryPolicy;
     public @Nullable ScheduleTargetRetryPolicy retryPolicy() {
-        if (retryPolicy == null) return null;
-        return retryPolicy.getValue("ScheduleTarget.retryPolicy");
+        if (!unknown_retryPolicy) return value_retryPolicy;
+        throw new UndeferrableValueException("Value 'ScheduleTarget.retryPolicy' is not present");
     }
 
     /**
@@ -100,33 +108,36 @@ public final class ScheduleTarget {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("ScheduleTarget.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'ScheduleTarget.roleArn' is not present");
     }
 
     /**
      * Templated target type for the Amazon SageMaker AI [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<ScheduleTargetSagemakerPipelineParameters> sagemakerPipelineParameters;
-
+    @PolicyResourceProperty(name="sagemakerPipelineParameters", flag="unknown_sagemakerPipelineParameters")
+    private @Nullable ScheduleTargetSagemakerPipelineParameters value_sagemakerPipelineParameters;
+    private boolean unknown_sagemakerPipelineParameters;
     public @Nullable ScheduleTargetSagemakerPipelineParameters sagemakerPipelineParameters() {
-        if (sagemakerPipelineParameters == null) return null;
-        return sagemakerPipelineParameters.getValue("ScheduleTarget.sagemakerPipelineParameters");
+        if (!unknown_sagemakerPipelineParameters) return value_sagemakerPipelineParameters;
+        throw new UndeferrableValueException("Value 'ScheduleTarget.sagemakerPipelineParameters' is not present");
     }
 
     /**
      * The templated target type for the Amazon SQS [`SendMessage`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html) API operation. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<ScheduleTargetSqsParameters> sqsParameters;
-
+    @PolicyResourceProperty(name="sqsParameters", flag="unknown_sqsParameters")
+    private @Nullable ScheduleTargetSqsParameters value_sqsParameters;
+    private boolean unknown_sqsParameters;
     public @Nullable ScheduleTargetSqsParameters sqsParameters() {
-        if (sqsParameters == null) return null;
-        return sqsParameters.getValue("ScheduleTarget.sqsParameters");
+        if (!unknown_sqsParameters) return value_sqsParameters;
+        throw new UndeferrableValueException("Value 'ScheduleTarget.sqsParameters' is not present");
     }
 
 }

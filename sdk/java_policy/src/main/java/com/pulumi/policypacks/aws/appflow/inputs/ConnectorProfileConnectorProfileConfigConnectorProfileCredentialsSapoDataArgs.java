@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs;
 import com.pulumi.policypacks.aws.appflow.inputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
      * The SAPOData basic authentication credentials.
      * 
      */
-    private UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs> basicAuthCredentials;
-
+    @PolicyResourceProperty(name="basicAuthCredentials", flag="unknown_basicAuthCredentials")
+    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs value_basicAuthCredentials;
+    private boolean unknown_basicAuthCredentials;
     public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs basicAuthCredentials() {
-        if (basicAuthCredentials == null) return null;
-        return basicAuthCredentials.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs.basicAuthCredentials");
+        if (!unknown_basicAuthCredentials) return value_basicAuthCredentials;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs.basicAuthCredentials' is not present");
     }
 
     /**
      * The SAPOData OAuth type authentication credentials.
      * 
      */
-    private UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs> oauthCredentials;
-
+    @PolicyResourceProperty(name="oauthCredentials", flag="unknown_oauthCredentials")
+    private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs value_oauthCredentials;
+    private boolean unknown_oauthCredentials;
     public ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs oauthCredentials() {
-        if (oauthCredentials == null) return null;
-        return oauthCredentials.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs.oauthCredentials");
+        if (!unknown_oauthCredentials) return value_oauthCredentials;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs.oauthCredentials' is not present");
     }
 
 }

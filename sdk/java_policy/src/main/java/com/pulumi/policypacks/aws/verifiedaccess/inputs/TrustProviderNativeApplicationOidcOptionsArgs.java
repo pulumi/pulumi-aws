@@ -3,67 +3,76 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class TrustProviderNativeApplicationOidcOptionsArgs {
 
-    private UndeferrableValue<String> authorizationEndpoint;
-
+    @PolicyResourceProperty(name="authorizationEndpoint", flag="unknown_authorizationEndpoint")
+    private String value_authorizationEndpoint;
+    private boolean unknown_authorizationEndpoint;
     public String authorizationEndpoint() {
-        if (authorizationEndpoint == null) return null;
-        return authorizationEndpoint.getValue("TrustProviderNativeApplicationOidcOptionsArgs.authorizationEndpoint");
+        if (!unknown_authorizationEndpoint) return value_authorizationEndpoint;
+        throw new UndeferrableValueException("Value 'TrustProviderNativeApplicationOidcOptionsArgs.authorizationEndpoint' is not present");
     }
 
-    private UndeferrableValue<String> clientId;
-
+    @PolicyResourceProperty(name="clientId", flag="unknown_clientId")
+    private String value_clientId;
+    private boolean unknown_clientId;
     public String clientId() {
-        if (clientId == null) return null;
-        return clientId.getValue("TrustProviderNativeApplicationOidcOptionsArgs.clientId");
+        if (!unknown_clientId) return value_clientId;
+        throw new UndeferrableValueException("Value 'TrustProviderNativeApplicationOidcOptionsArgs.clientId' is not present");
     }
 
-    private UndeferrableValue<String> clientSecret;
-
+    @PolicyResourceProperty(name="clientSecret", flag="unknown_clientSecret")
+    private String value_clientSecret;
+    private boolean unknown_clientSecret;
     public String clientSecret() {
-        if (clientSecret == null) return null;
-        return clientSecret.getValue("TrustProviderNativeApplicationOidcOptionsArgs.clientSecret");
+        if (!unknown_clientSecret) return value_clientSecret;
+        throw new UndeferrableValueException("Value 'TrustProviderNativeApplicationOidcOptionsArgs.clientSecret' is not present");
     }
 
-    private UndeferrableValue<String> issuer;
-
+    @PolicyResourceProperty(name="issuer", flag="unknown_issuer")
+    private String value_issuer;
+    private boolean unknown_issuer;
     public String issuer() {
-        if (issuer == null) return null;
-        return issuer.getValue("TrustProviderNativeApplicationOidcOptionsArgs.issuer");
+        if (!unknown_issuer) return value_issuer;
+        throw new UndeferrableValueException("Value 'TrustProviderNativeApplicationOidcOptionsArgs.issuer' is not present");
     }
 
-    private UndeferrableValue<String> publicSigningKeyEndpoint;
-
+    @PolicyResourceProperty(name="publicSigningKeyEndpoint", flag="unknown_publicSigningKeyEndpoint")
+    private String value_publicSigningKeyEndpoint;
+    private boolean unknown_publicSigningKeyEndpoint;
     public String publicSigningKeyEndpoint() {
-        if (publicSigningKeyEndpoint == null) return null;
-        return publicSigningKeyEndpoint.getValue("TrustProviderNativeApplicationOidcOptionsArgs.publicSigningKeyEndpoint");
+        if (!unknown_publicSigningKeyEndpoint) return value_publicSigningKeyEndpoint;
+        throw new UndeferrableValueException("Value 'TrustProviderNativeApplicationOidcOptionsArgs.publicSigningKeyEndpoint' is not present");
     }
 
-    private UndeferrableValue<String> scope;
-
+    @PolicyResourceProperty(name="scope", flag="unknown_scope")
+    private String value_scope;
+    private boolean unknown_scope;
     public String scope() {
-        if (scope == null) return null;
-        return scope.getValue("TrustProviderNativeApplicationOidcOptionsArgs.scope");
+        if (!unknown_scope) return value_scope;
+        throw new UndeferrableValueException("Value 'TrustProviderNativeApplicationOidcOptionsArgs.scope' is not present");
     }
 
-    private UndeferrableValue<String> tokenEndpoint;
-
+    @PolicyResourceProperty(name="tokenEndpoint", flag="unknown_tokenEndpoint")
+    private String value_tokenEndpoint;
+    private boolean unknown_tokenEndpoint;
     public String tokenEndpoint() {
-        if (tokenEndpoint == null) return null;
-        return tokenEndpoint.getValue("TrustProviderNativeApplicationOidcOptionsArgs.tokenEndpoint");
+        if (!unknown_tokenEndpoint) return value_tokenEndpoint;
+        throw new UndeferrableValueException("Value 'TrustProviderNativeApplicationOidcOptionsArgs.tokenEndpoint' is not present");
     }
 
-    private UndeferrableValue<String> userInfoEndpoint;
-
+    @PolicyResourceProperty(name="userInfoEndpoint", flag="unknown_userInfoEndpoint")
+    private String value_userInfoEndpoint;
+    private boolean unknown_userInfoEndpoint;
     public String userInfoEndpoint() {
-        if (userInfoEndpoint == null) return null;
-        return userInfoEndpoint.getValue("TrustProviderNativeApplicationOidcOptionsArgs.userInfoEndpoint");
+        if (!unknown_userInfoEndpoint) return value_userInfoEndpoint;
+        throw new UndeferrableValueException("Value 'TrustProviderNativeApplicationOidcOptionsArgs.userInfoEndpoint' is not present");
     }
 
 }

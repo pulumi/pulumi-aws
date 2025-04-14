@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate {
      * Local file certificate.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile> file;
-
+    @PolicyResourceProperty(name="file", flag="unknown_file")
+    private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile value_file;
+    private boolean unknown_file;
     public @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile file() {
-        if (file == null) return null;
-        return file.getValue("VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate.file");
+        if (!unknown_file) return value_file;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate.file' is not present");
     }
 
     /**
      * A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds> sds;
-
+    @PolicyResourceProperty(name="sds", flag="unknown_sds")
+    private @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds value_sds;
+    private boolean unknown_sds;
     public @Nullable VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds sds() {
-        if (sds == null) return null;
-        return sds.getValue("VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate.sds");
+        if (!unknown_sds) return value_sds;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate.sds' is not present");
     }
 
 }

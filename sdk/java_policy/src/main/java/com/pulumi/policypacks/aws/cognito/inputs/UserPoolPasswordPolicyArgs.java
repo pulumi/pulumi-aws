@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class UserPoolPasswordPolicyArgs {
      * Minimum length of the password policy that you have set.
      * 
      */
-    private UndeferrableValue<Integer> minimumLength;
-
+    @PolicyResourceProperty(name="minimumLength", flag="unknown_minimumLength")
+    private Integer value_minimumLength;
+    private boolean unknown_minimumLength;
     public Integer minimumLength() {
-        if (minimumLength == null) return null;
-        return minimumLength.getValue("UserPoolPasswordPolicyArgs.minimumLength");
+        if (!unknown_minimumLength) return value_minimumLength;
+        throw new UndeferrableValueException("Value 'UserPoolPasswordPolicyArgs.minimumLength' is not present");
     }
 
     /**
@@ -28,66 +30,72 @@ public final class UserPoolPasswordPolicyArgs {
      * **Note:** This argument requires advanced security features to be active in the user pool.
      * 
      */
-    private UndeferrableValue<Integer> passwordHistorySize;
-
+    @PolicyResourceProperty(name="passwordHistorySize", flag="unknown_passwordHistorySize")
+    private Integer value_passwordHistorySize;
+    private boolean unknown_passwordHistorySize;
     public Integer passwordHistorySize() {
-        if (passwordHistorySize == null) return null;
-        return passwordHistorySize.getValue("UserPoolPasswordPolicyArgs.passwordHistorySize");
+        if (!unknown_passwordHistorySize) return value_passwordHistorySize;
+        throw new UndeferrableValueException("Value 'UserPoolPasswordPolicyArgs.passwordHistorySize' is not present");
     }
 
     /**
      * Whether you have required users to use at least one lowercase letter in their password.
      * 
      */
-    private UndeferrableValue<Boolean> requireLowercase;
-
+    @PolicyResourceProperty(name="requireLowercase", flag="unknown_requireLowercase")
+    private Boolean value_requireLowercase;
+    private boolean unknown_requireLowercase;
     public Boolean requireLowercase() {
-        if (requireLowercase == null) return null;
-        return requireLowercase.getValue("UserPoolPasswordPolicyArgs.requireLowercase");
+        if (!unknown_requireLowercase) return value_requireLowercase;
+        throw new UndeferrableValueException("Value 'UserPoolPasswordPolicyArgs.requireLowercase' is not present");
     }
 
     /**
      * Whether you have required users to use at least one number in their password.
      * 
      */
-    private UndeferrableValue<Boolean> requireNumbers;
-
+    @PolicyResourceProperty(name="requireNumbers", flag="unknown_requireNumbers")
+    private Boolean value_requireNumbers;
+    private boolean unknown_requireNumbers;
     public Boolean requireNumbers() {
-        if (requireNumbers == null) return null;
-        return requireNumbers.getValue("UserPoolPasswordPolicyArgs.requireNumbers");
+        if (!unknown_requireNumbers) return value_requireNumbers;
+        throw new UndeferrableValueException("Value 'UserPoolPasswordPolicyArgs.requireNumbers' is not present");
     }
 
     /**
      * Whether you have required users to use at least one symbol in their password.
      * 
      */
-    private UndeferrableValue<Boolean> requireSymbols;
-
+    @PolicyResourceProperty(name="requireSymbols", flag="unknown_requireSymbols")
+    private Boolean value_requireSymbols;
+    private boolean unknown_requireSymbols;
     public Boolean requireSymbols() {
-        if (requireSymbols == null) return null;
-        return requireSymbols.getValue("UserPoolPasswordPolicyArgs.requireSymbols");
+        if (!unknown_requireSymbols) return value_requireSymbols;
+        throw new UndeferrableValueException("Value 'UserPoolPasswordPolicyArgs.requireSymbols' is not present");
     }
 
     /**
      * Whether you have required users to use at least one uppercase letter in their password.
      * 
      */
-    private UndeferrableValue<Boolean> requireUppercase;
-
+    @PolicyResourceProperty(name="requireUppercase", flag="unknown_requireUppercase")
+    private Boolean value_requireUppercase;
+    private boolean unknown_requireUppercase;
     public Boolean requireUppercase() {
-        if (requireUppercase == null) return null;
-        return requireUppercase.getValue("UserPoolPasswordPolicyArgs.requireUppercase");
+        if (!unknown_requireUppercase) return value_requireUppercase;
+        throw new UndeferrableValueException("Value 'UserPoolPasswordPolicyArgs.requireUppercase' is not present");
     }
 
     /**
      * In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
      * 
      */
-    private UndeferrableValue<Integer> temporaryPasswordValidityDays;
-
+    @PolicyResourceProperty(name="temporaryPasswordValidityDays", flag="unknown_temporaryPasswordValidityDays")
+    private Integer value_temporaryPasswordValidityDays;
+    private boolean unknown_temporaryPasswordValidityDays;
     public Integer temporaryPasswordValidityDays() {
-        if (temporaryPasswordValidityDays == null) return null;
-        return temporaryPasswordValidityDays.getValue("UserPoolPasswordPolicyArgs.temporaryPasswordValidityDays");
+        if (!unknown_temporaryPasswordValidityDays) return value_temporaryPasswordValidityDays;
+        throw new UndeferrableValueException("Value 'UserPoolPasswordPolicyArgs.temporaryPasswordValidityDays' is not present");
     }
 
 }

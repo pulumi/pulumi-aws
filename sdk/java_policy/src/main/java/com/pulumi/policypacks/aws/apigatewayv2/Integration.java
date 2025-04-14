@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.apigatewayv2.outputs.IntegrationResponseParameter;
 import com.pulumi.policypacks.aws.apigatewayv2.outputs.IntegrationTlsConfig;
@@ -21,99 +22,108 @@ public final class Integration extends com.pulumi.resources.PolicyResourceOutput
      * API identifier.
      * 
      */
-    private UndeferrableValue<String> apiId;
-
+    @PolicyResourceProperty(name="apiId", flag="unknown_apiId")
+    private String value_apiId;
+    private boolean unknown_apiId;
     public String apiId() {
-        if (apiId == null) return null;
-        return apiId.getValue("Integration.apiId");
+        if (!unknown_apiId) return value_apiId;
+        throw new UndeferrableValueException("Value 'Integration.apiId' is not present");
     }
 
     /**
      * ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> connectionId;
-
+    @PolicyResourceProperty(name="connectionId", flag="unknown_connectionId")
+    private @Nullable String value_connectionId;
+    private boolean unknown_connectionId;
     public @Nullable String connectionId() {
-        if (connectionId == null) return null;
-        return connectionId.getValue("Integration.connectionId");
+        if (!unknown_connectionId) return value_connectionId;
+        throw new UndeferrableValueException("Value 'Integration.connectionId' is not present");
     }
 
     /**
      * Type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
      * 
      */
-    private @Nullable UndeferrableValue<String> connectionType;
-
+    @PolicyResourceProperty(name="connectionType", flag="unknown_connectionType")
+    private @Nullable String value_connectionType;
+    private boolean unknown_connectionType;
     public @Nullable String connectionType() {
-        if (connectionType == null) return null;
-        return connectionType.getValue("Integration.connectionType");
+        if (!unknown_connectionType) return value_connectionType;
+        throw new UndeferrableValueException("Value 'Integration.connectionType' is not present");
     }
 
     /**
      * How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`. Supported only for WebSocket APIs.
      * 
      */
-    private @Nullable UndeferrableValue<String> contentHandlingStrategy;
-
+    @PolicyResourceProperty(name="contentHandlingStrategy", flag="unknown_contentHandlingStrategy")
+    private @Nullable String value_contentHandlingStrategy;
+    private boolean unknown_contentHandlingStrategy;
     public @Nullable String contentHandlingStrategy() {
-        if (contentHandlingStrategy == null) return null;
-        return contentHandlingStrategy.getValue("Integration.contentHandlingStrategy");
+        if (!unknown_contentHandlingStrategy) return value_contentHandlingStrategy;
+        throw new UndeferrableValueException("Value 'Integration.contentHandlingStrategy' is not present");
     }
 
     /**
      * Credentials required for the integration, if any.
      * 
      */
-    private @Nullable UndeferrableValue<String> credentialsArn;
-
+    @PolicyResourceProperty(name="credentialsArn", flag="unknown_credentialsArn")
+    private @Nullable String value_credentialsArn;
+    private boolean unknown_credentialsArn;
     public @Nullable String credentialsArn() {
-        if (credentialsArn == null) return null;
-        return credentialsArn.getValue("Integration.credentialsArn");
+        if (!unknown_credentialsArn) return value_credentialsArn;
+        throw new UndeferrableValueException("Value 'Integration.credentialsArn' is not present");
     }
 
     /**
      * Description of the integration.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Integration.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Integration.description' is not present");
     }
 
     /**
      * Integration&#39;s HTTP method. Must be specified if `integration_type` is not `MOCK`.
      * 
      */
-    private @Nullable UndeferrableValue<String> integrationMethod;
-
+    @PolicyResourceProperty(name="integrationMethod", flag="unknown_integrationMethod")
+    private @Nullable String value_integrationMethod;
+    private boolean unknown_integrationMethod;
     public @Nullable String integrationMethod() {
-        if (integrationMethod == null) return null;
-        return integrationMethod.getValue("Integration.integrationMethod");
+        if (!unknown_integrationMethod) return value_integrationMethod;
+        throw new UndeferrableValueException("Value 'Integration.integrationMethod' is not present");
     }
 
     /**
      * The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
      * 
      */
-    private UndeferrableValue<String> integrationResponseSelectionExpression;
-
+    @PolicyResourceProperty(name="integrationResponseSelectionExpression", flag="unknown_integrationResponseSelectionExpression")
+    private String value_integrationResponseSelectionExpression;
+    private boolean unknown_integrationResponseSelectionExpression;
     public String integrationResponseSelectionExpression() {
-        if (integrationResponseSelectionExpression == null) return null;
-        return integrationResponseSelectionExpression.getValue("Integration.integrationResponseSelectionExpression");
+        if (!unknown_integrationResponseSelectionExpression) return value_integrationResponseSelectionExpression;
+        throw new UndeferrableValueException("Value 'Integration.integrationResponseSelectionExpression' is not present");
     }
 
     /**
      * AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> integrationSubtype;
-
+    @PolicyResourceProperty(name="integrationSubtype", flag="unknown_integrationSubtype")
+    private @Nullable String value_integrationSubtype;
+    private boolean unknown_integrationSubtype;
     public @Nullable String integrationSubtype() {
-        if (integrationSubtype == null) return null;
-        return integrationSubtype.getValue("Integration.integrationSubtype");
+        if (!unknown_integrationSubtype) return value_integrationSubtype;
+        throw new UndeferrableValueException("Value 'Integration.integrationSubtype' is not present");
     }
 
     /**
@@ -121,11 +131,12 @@ public final class Integration extends com.pulumi.resources.PolicyResourceOutput
      * Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
      * 
      */
-    private UndeferrableValue<String> integrationType;
-
+    @PolicyResourceProperty(name="integrationType", flag="unknown_integrationType")
+    private String value_integrationType;
+    private boolean unknown_integrationType;
     public String integrationType() {
-        if (integrationType == null) return null;
-        return integrationType.getValue("Integration.integrationType");
+        if (!unknown_integrationType) return value_integrationType;
+        throw new UndeferrableValueException("Value 'Integration.integrationType' is not present");
     }
 
     /**
@@ -133,11 +144,12 @@ public final class Integration extends com.pulumi.resources.PolicyResourceOutput
      * For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
      * 
      */
-    private @Nullable UndeferrableValue<String> integrationUri;
-
+    @PolicyResourceProperty(name="integrationUri", flag="unknown_integrationUri")
+    private @Nullable String value_integrationUri;
+    private boolean unknown_integrationUri;
     public @Nullable String integrationUri() {
-        if (integrationUri == null) return null;
-        return integrationUri.getValue("Integration.integrationUri");
+        if (!unknown_integrationUri) return value_integrationUri;
+        throw new UndeferrableValueException("Value 'Integration.integrationUri' is not present");
     }
 
     /**
@@ -145,22 +157,24 @@ public final class Integration extends com.pulumi.resources.PolicyResourceOutput
      * Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
      * 
      */
-    private @Nullable UndeferrableValue<String> passthroughBehavior;
-
+    @PolicyResourceProperty(name="passthroughBehavior", flag="unknown_passthroughBehavior")
+    private @Nullable String value_passthroughBehavior;
+    private boolean unknown_passthroughBehavior;
     public @Nullable String passthroughBehavior() {
-        if (passthroughBehavior == null) return null;
-        return passthroughBehavior.getValue("Integration.passthroughBehavior");
+        if (!unknown_passthroughBehavior) return value_passthroughBehavior;
+        throw new UndeferrableValueException("Value 'Integration.passthroughBehavior' is not present");
     }
 
     /**
      * The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
      * 
      */
-    private @Nullable UndeferrableValue<String> payloadFormatVersion;
-
+    @PolicyResourceProperty(name="payloadFormatVersion", flag="unknown_payloadFormatVersion")
+    private @Nullable String value_payloadFormatVersion;
+    private boolean unknown_payloadFormatVersion;
     public @Nullable String payloadFormatVersion() {
-        if (payloadFormatVersion == null) return null;
-        return payloadFormatVersion.getValue("Integration.payloadFormatVersion");
+        if (!unknown_payloadFormatVersion) return value_payloadFormatVersion;
+        throw new UndeferrableValueException("Value 'Integration.payloadFormatVersion' is not present");
     }
 
     /**
@@ -170,44 +184,48 @@ public final class Integration extends com.pulumi.resources.PolicyResourceOutput
      * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> requestParameters;
-
+    @PolicyResourceProperty(name="requestParameters", flag="unknown_requestParameters")
+    private @Nullable Map<String,String> value_requestParameters;
+    private boolean unknown_requestParameters;
     public @Nullable Map<String,String> requestParameters() {
-        if (requestParameters == null) return null;
-        return requestParameters.getValue("Integration.requestParameters");
+        if (!unknown_requestParameters) return value_requestParameters;
+        throw new UndeferrableValueException("Value 'Integration.requestParameters' is not present");
     }
 
     /**
      * Map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> requestTemplates;
-
+    @PolicyResourceProperty(name="requestTemplates", flag="unknown_requestTemplates")
+    private @Nullable Map<String,String> value_requestTemplates;
+    private boolean unknown_requestTemplates;
     public @Nullable Map<String,String> requestTemplates() {
-        if (requestTemplates == null) return null;
-        return requestTemplates.getValue("Integration.requestTemplates");
+        if (!unknown_requestTemplates) return value_requestTemplates;
+        throw new UndeferrableValueException("Value 'Integration.requestTemplates' is not present");
     }
 
     /**
      * Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
      * 
      */
-    private @Nullable UndeferrableValue<List<IntegrationResponseParameter>> responseParameters;
-
+    @PolicyResourceProperty(name="responseParameters", flag="unknown_responseParameters")
+    private @Nullable List<IntegrationResponseParameter> value_responseParameters;
+    private boolean unknown_responseParameters;
     public @Nullable List<IntegrationResponseParameter> responseParameters() {
-        if (responseParameters == null) return null;
-        return responseParameters.getValue("Integration.responseParameters");
+        if (!unknown_responseParameters) return value_responseParameters;
+        throw new UndeferrableValueException("Value 'Integration.responseParameters' is not present");
     }
 
     /**
      * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
      * 
      */
-    private @Nullable UndeferrableValue<String> templateSelectionExpression;
-
+    @PolicyResourceProperty(name="templateSelectionExpression", flag="unknown_templateSelectionExpression")
+    private @Nullable String value_templateSelectionExpression;
+    private boolean unknown_templateSelectionExpression;
     public @Nullable String templateSelectionExpression() {
-        if (templateSelectionExpression == null) return null;
-        return templateSelectionExpression.getValue("Integration.templateSelectionExpression");
+        if (!unknown_templateSelectionExpression) return value_templateSelectionExpression;
+        throw new UndeferrableValueException("Value 'Integration.templateSelectionExpression' is not present");
     }
 
     /**
@@ -216,22 +234,24 @@ public final class Integration extends com.pulumi.resources.PolicyResourceOutput
      * this provider will only perform drift detection of its value when present in a configuration.
      * 
      */
-    private UndeferrableValue<Integer> timeoutMilliseconds;
-
+    @PolicyResourceProperty(name="timeoutMilliseconds", flag="unknown_timeoutMilliseconds")
+    private Integer value_timeoutMilliseconds;
+    private boolean unknown_timeoutMilliseconds;
     public Integer timeoutMilliseconds() {
-        if (timeoutMilliseconds == null) return null;
-        return timeoutMilliseconds.getValue("Integration.timeoutMilliseconds");
+        if (!unknown_timeoutMilliseconds) return value_timeoutMilliseconds;
+        throw new UndeferrableValueException("Value 'Integration.timeoutMilliseconds' is not present");
     }
 
     /**
      * TLS configuration for a private integration. Supported only for HTTP APIs.
      * 
      */
-    private @Nullable UndeferrableValue<IntegrationTlsConfig> tlsConfig;
-
+    @PolicyResourceProperty(name="tlsConfig", flag="unknown_tlsConfig")
+    private @Nullable IntegrationTlsConfig value_tlsConfig;
+    private boolean unknown_tlsConfig;
     public @Nullable IntegrationTlsConfig tlsConfig() {
-        if (tlsConfig == null) return null;
-        return tlsConfig.getValue("Integration.tlsConfig");
+        if (!unknown_tlsConfig) return value_tlsConfig;
+        throw new UndeferrableValueException("Value 'Integration.tlsConfig' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class ApplicationSnapshotArgs extends com.pulumi.resources.PolicyRe
      * The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
      * 
      */
-    private UndeferrableValue<String> applicationName;
-
+    @PolicyResourceProperty(name="applicationName", flag="unknown_applicationName")
+    private String value_applicationName;
+    private boolean unknown_applicationName;
     public String applicationName() {
-        if (applicationName == null) return null;
-        return applicationName.getValue("ApplicationSnapshotArgs.applicationName");
+        if (!unknown_applicationName) return value_applicationName;
+        throw new UndeferrableValueException("Value 'ApplicationSnapshotArgs.applicationName' is not present");
     }
 
     /**
      * The name of the application snapshot.
      * 
      */
-    private UndeferrableValue<String> snapshotName;
-
+    @PolicyResourceProperty(name="snapshotName", flag="unknown_snapshotName")
+    private String value_snapshotName;
+    private boolean unknown_snapshotName;
     public String snapshotName() {
-        if (snapshotName == null) return null;
-        return snapshotName.getValue("ApplicationSnapshotArgs.snapshotName");
+        if (!unknown_snapshotName) return value_snapshotName;
+        throw new UndeferrableValueException("Value 'ApplicationSnapshotArgs.snapshotName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCu
      * A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs> actionDefinition;
-
+    @PolicyResourceProperty(name="actionDefinition", flag="unknown_actionDefinition")
+    private RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs value_actionDefinition;
+    private boolean unknown_actionDefinition;
     public RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs actionDefinition() {
-        if (actionDefinition == null) return null;
-        return actionDefinition.getValue("RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs.actionDefinition");
+        if (!unknown_actionDefinition) return value_actionDefinition;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs.actionDefinition' is not present");
     }
 
     /**
      * A friendly name of the custom action.
      * 
      */
-    private UndeferrableValue<String> actionName;
-
+    @PolicyResourceProperty(name="actionName", flag="unknown_actionName")
+    private String value_actionName;
+    private boolean unknown_actionName;
     public String actionName() {
-        if (actionName == null) return null;
-        return actionName.getValue("RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs.actionName");
+        if (!unknown_actionName) return value_actionName;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs.actionName' is not present");
     }
 
 }

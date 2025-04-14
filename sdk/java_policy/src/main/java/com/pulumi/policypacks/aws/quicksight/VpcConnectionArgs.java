@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.quicksight.inputs.VpcConnectionTimeoutsArgs;
 import java.lang.String;
@@ -19,55 +20,60 @@ public final class VpcConnectionArgs extends com.pulumi.resources.PolicyResource
      * AWS account ID.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("VpcConnectionArgs.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'VpcConnectionArgs.awsAccountId' is not present");
     }
 
     /**
      * A list of IP addresses of DNS resolver endpoints for the VPC connection.
      * 
      */
-    private UndeferrableValue<List<String>> dnsResolvers;
-
+    @PolicyResourceProperty(name="dnsResolvers", flag="unknown_dnsResolvers")
+    private List<String> value_dnsResolvers;
+    private boolean unknown_dnsResolvers;
     public List<String> dnsResolvers() {
-        if (dnsResolvers == null) return null;
-        return dnsResolvers.getValue("VpcConnectionArgs.dnsResolvers");
+        if (!unknown_dnsResolvers) return value_dnsResolvers;
+        throw new UndeferrableValueException("Value 'VpcConnectionArgs.dnsResolvers' is not present");
     }
 
     /**
      * The display name for the VPC connection.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("VpcConnectionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'VpcConnectionArgs.name' is not present");
     }
 
     /**
      * The IAM role to associate with the VPC connection.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("VpcConnectionArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'VpcConnectionArgs.roleArn' is not present");
     }
 
     /**
      * A list of security group IDs for the VPC connection.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("VpcConnectionArgs.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'VpcConnectionArgs.securityGroupIds' is not present");
     }
 
     /**
@@ -76,40 +82,44 @@ public final class VpcConnectionArgs extends com.pulumi.resources.PolicyResource
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("VpcConnectionArgs.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'VpcConnectionArgs.subnetIds' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VpcConnectionArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VpcConnectionArgs.tags' is not present");
     }
 
-    private UndeferrableValue<VpcConnectionTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private VpcConnectionTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public VpcConnectionTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("VpcConnectionArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'VpcConnectionArgs.timeouts' is not present");
     }
 
     /**
      * The ID of the VPC connection.
      * 
      */
-    private UndeferrableValue<String> vpcConnectionId;
-
+    @PolicyResourceProperty(name="vpcConnectionId", flag="unknown_vpcConnectionId")
+    private String value_vpcConnectionId;
+    private boolean unknown_vpcConnectionId;
     public String vpcConnectionId() {
-        if (vpcConnectionId == null) return null;
-        return vpcConnectionId.getValue("VpcConnectionArgs.vpcConnectionId");
+        if (!unknown_vpcConnectionId) return value_vpcConnectionId;
+        throw new UndeferrableValueException("Value 'VpcConnectionArgs.vpcConnectionId' is not present");
     }
 
 }

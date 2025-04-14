@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dlm.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class LifecyclePolicyPolicyDetailsScheduleShareRuleArgs {
      * The IDs of the AWS accounts with which to share the snapshots.
      * 
      */
-    private UndeferrableValue<List<String>> targetAccounts;
-
+    @PolicyResourceProperty(name="targetAccounts", flag="unknown_targetAccounts")
+    private List<String> value_targetAccounts;
+    private boolean unknown_targetAccounts;
     public List<String> targetAccounts() {
-        if (targetAccounts == null) return null;
-        return targetAccounts.getValue("LifecyclePolicyPolicyDetailsScheduleShareRuleArgs.targetAccounts");
+        if (!unknown_targetAccounts) return value_targetAccounts;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleShareRuleArgs.targetAccounts' is not present");
     }
 
     /**
      * The period after which snapshots that are shared with other AWS accounts are automatically unshared.
      * 
      */
-    private UndeferrableValue<Integer> unshareInterval;
-
+    @PolicyResourceProperty(name="unshareInterval", flag="unknown_unshareInterval")
+    private Integer value_unshareInterval;
+    private boolean unknown_unshareInterval;
     public Integer unshareInterval() {
-        if (unshareInterval == null) return null;
-        return unshareInterval.getValue("LifecyclePolicyPolicyDetailsScheduleShareRuleArgs.unshareInterval");
+        if (!unknown_unshareInterval) return value_unshareInterval;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleShareRuleArgs.unshareInterval' is not present");
     }
 
     /**
      * The unit of time for the automatic unsharing interval. Valid values are `DAYS`, `WEEKS`, `MONTHS`, `YEARS`.
      * 
      */
-    private UndeferrableValue<String> unshareIntervalUnit;
-
+    @PolicyResourceProperty(name="unshareIntervalUnit", flag="unknown_unshareIntervalUnit")
+    private String value_unshareIntervalUnit;
+    private boolean unknown_unshareIntervalUnit;
     public String unshareIntervalUnit() {
-        if (unshareIntervalUnit == null) return null;
-        return unshareIntervalUnit.getValue("LifecyclePolicyPolicyDetailsScheduleShareRuleArgs.unshareIntervalUnit");
+        if (!unknown_unshareIntervalUnit) return value_unshareIntervalUnit;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleShareRuleArgs.unshareIntervalUnit' is not present");
     }
 
 }

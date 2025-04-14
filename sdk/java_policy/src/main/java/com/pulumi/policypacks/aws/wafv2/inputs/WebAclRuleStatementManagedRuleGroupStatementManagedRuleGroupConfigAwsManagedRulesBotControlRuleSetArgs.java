@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      * Applies only to the targeted inspection level. Determines whether to use machine learning (ML) to analyze your web traffic for bot-related activity. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> enableMachineLearning;
-
+    @PolicyResourceProperty(name="enableMachineLearning", flag="unknown_enableMachineLearning")
+    private Boolean value_enableMachineLearning;
+    private boolean unknown_enableMachineLearning;
     public Boolean enableMachineLearning() {
-        if (enableMachineLearning == null) return null;
-        return enableMachineLearning.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs.enableMachineLearning");
+        if (!unknown_enableMachineLearning) return value_enableMachineLearning;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs.enableMachineLearning' is not present");
     }
 
     /**
      * The inspection level to use for the Bot Control rule group.
      * 
      */
-    private UndeferrableValue<String> inspectionLevel;
-
+    @PolicyResourceProperty(name="inspectionLevel", flag="unknown_inspectionLevel")
+    private String value_inspectionLevel;
+    private boolean unknown_inspectionLevel;
     public String inspectionLevel() {
-        if (inspectionLevel == null) return null;
-        return inspectionLevel.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs.inspectionLevel");
+        if (!unknown_inspectionLevel) return value_inspectionLevel;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs.inspectionLevel' is not present");
     }
 
 }

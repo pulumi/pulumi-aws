@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioNormalizationSetti
      * Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 to the EBU R-128 specification.
      * 
      */
-    private @Nullable UndeferrableValue<String> algorithm;
-
+    @PolicyResourceProperty(name="algorithm", flag="unknown_algorithm")
+    private @Nullable String value_algorithm;
+    private boolean unknown_algorithm;
     public @Nullable String algorithm() {
-        if (algorithm == null) return null;
-        return algorithm.getValue("ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings.algorithm");
+        if (!unknown_algorithm) return value_algorithm;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings.algorithm' is not present");
     }
 
     /**
      * Algorithm control for the audio description.
      * 
      */
-    private @Nullable UndeferrableValue<String> algorithmControl;
-
+    @PolicyResourceProperty(name="algorithmControl", flag="unknown_algorithmControl")
+    private @Nullable String value_algorithmControl;
+    private boolean unknown_algorithmControl;
     public @Nullable String algorithmControl() {
-        if (algorithmControl == null) return null;
-        return algorithmControl.getValue("ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings.algorithmControl");
+        if (!unknown_algorithmControl) return value_algorithmControl;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings.algorithmControl' is not present");
     }
 
     /**
      * Target LKFS (loudness) to adjust volume to.
      * 
      */
-    private @Nullable UndeferrableValue<Double> targetLkfs;
-
+    @PolicyResourceProperty(name="targetLkfs", flag="unknown_targetLkfs")
+    private @Nullable Double value_targetLkfs;
+    private boolean unknown_targetLkfs;
     public @Nullable Double targetLkfs() {
-        if (targetLkfs == null) return null;
-        return targetLkfs.getValue("ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings.targetLkfs");
+        if (!unknown_targetLkfs) return value_targetLkfs;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings.targetLkfs' is not present");
     }
 
 }

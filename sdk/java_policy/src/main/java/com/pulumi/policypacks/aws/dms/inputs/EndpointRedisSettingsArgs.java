@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dms.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,77 +16,84 @@ public final class EndpointRedisSettingsArgs {
      * The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
      * 
      */
-    private UndeferrableValue<String> authPassword;
-
+    @PolicyResourceProperty(name="authPassword", flag="unknown_authPassword")
+    private String value_authPassword;
+    private boolean unknown_authPassword;
     public String authPassword() {
-        if (authPassword == null) return null;
-        return authPassword.getValue("EndpointRedisSettingsArgs.authPassword");
+        if (!unknown_authPassword) return value_authPassword;
+        throw new UndeferrableValueException("Value 'EndpointRedisSettingsArgs.authPassword' is not present");
     }
 
     /**
      * The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `auth_password` value to be provided. The `auth-role` option requires `auth_user_name` and `auth_password` values to be provided.
      * 
      */
-    private UndeferrableValue<String> authType;
-
+    @PolicyResourceProperty(name="authType", flag="unknown_authType")
+    private String value_authType;
+    private boolean unknown_authType;
     public String authType() {
-        if (authType == null) return null;
-        return authType.getValue("EndpointRedisSettingsArgs.authType");
+        if (!unknown_authType) return value_authType;
+        throw new UndeferrableValueException("Value 'EndpointRedisSettingsArgs.authType' is not present");
     }
 
     /**
      * The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
      * 
      */
-    private UndeferrableValue<String> authUserName;
-
+    @PolicyResourceProperty(name="authUserName", flag="unknown_authUserName")
+    private String value_authUserName;
+    private boolean unknown_authUserName;
     public String authUserName() {
-        if (authUserName == null) return null;
-        return authUserName.getValue("EndpointRedisSettingsArgs.authUserName");
+        if (!unknown_authUserName) return value_authUserName;
+        throw new UndeferrableValueException("Value 'EndpointRedisSettingsArgs.authUserName' is not present");
     }
 
     /**
      * Transmission Control Protocol (TCP) port for the endpoint.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("EndpointRedisSettingsArgs.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'EndpointRedisSettingsArgs.port' is not present");
     }
 
     /**
      * Fully qualified domain name of the endpoint.
      * 
      */
-    private UndeferrableValue<String> serverName;
-
+    @PolicyResourceProperty(name="serverName", flag="unknown_serverName")
+    private String value_serverName;
+    private boolean unknown_serverName;
     public String serverName() {
-        if (serverName == null) return null;
-        return serverName.getValue("EndpointRedisSettingsArgs.serverName");
+        if (!unknown_serverName) return value_serverName;
+        throw new UndeferrableValueException("Value 'EndpointRedisSettingsArgs.serverName' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
      * 
      */
-    private UndeferrableValue<String> sslCaCertificateArn;
-
+    @PolicyResourceProperty(name="sslCaCertificateArn", flag="unknown_sslCaCertificateArn")
+    private String value_sslCaCertificateArn;
+    private boolean unknown_sslCaCertificateArn;
     public String sslCaCertificateArn() {
-        if (sslCaCertificateArn == null) return null;
-        return sslCaCertificateArn.getValue("EndpointRedisSettingsArgs.sslCaCertificateArn");
+        if (!unknown_sslCaCertificateArn) return value_sslCaCertificateArn;
+        throw new UndeferrableValueException("Value 'EndpointRedisSettingsArgs.sslCaCertificateArn' is not present");
     }
 
     /**
      * The plaintext option doesn&#39;t provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
      * 
      */
-    private UndeferrableValue<String> sslSecurityProtocol;
-
+    @PolicyResourceProperty(name="sslSecurityProtocol", flag="unknown_sslSecurityProtocol")
+    private String value_sslSecurityProtocol;
+    private boolean unknown_sslSecurityProtocol;
     public String sslSecurityProtocol() {
-        if (sslSecurityProtocol == null) return null;
-        return sslSecurityProtocol.getValue("EndpointRedisSettingsArgs.sslSecurityProtocol");
+        if (!unknown_sslSecurityProtocol) return value_sslSecurityProtocol;
+        throw new UndeferrableValueException("Value 'EndpointRedisSettingsArgs.sslSecurityProtocol' is not present");
     }
 
 }

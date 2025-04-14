@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs {
      * A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
      * 
      */
-    private UndeferrableValue<String> consumerGroupId;
-
+    @PolicyResourceProperty(name="consumerGroupId", flag="unknown_consumerGroupId")
+    private String value_consumerGroupId;
+    private boolean unknown_consumerGroupId;
     public String consumerGroupId() {
-        if (consumerGroupId == null) return null;
-        return consumerGroupId.getValue("EventSourceMappingSelfManagedKafkaEventSourceConfigArgs.consumerGroupId");
+        if (!unknown_consumerGroupId) return value_consumerGroupId;
+        throw new UndeferrableValueException("Value 'EventSourceMappingSelfManagedKafkaEventSourceConfigArgs.consumerGroupId' is not present");
     }
 
 }

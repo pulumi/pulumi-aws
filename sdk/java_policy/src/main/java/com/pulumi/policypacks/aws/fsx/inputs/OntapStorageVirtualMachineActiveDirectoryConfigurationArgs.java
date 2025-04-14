@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.fsx.inputs.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,18 +16,20 @@ public final class OntapStorageVirtualMachineActiveDirectoryConfigurationArgs {
      * The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
      * 
      */
-    private UndeferrableValue<String> netbiosName;
-
+    @PolicyResourceProperty(name="netbiosName", flag="unknown_netbiosName")
+    private String value_netbiosName;
+    private boolean unknown_netbiosName;
     public String netbiosName() {
-        if (netbiosName == null) return null;
-        return netbiosName.getValue("OntapStorageVirtualMachineActiveDirectoryConfigurationArgs.netbiosName");
+        if (!unknown_netbiosName) return value_netbiosName;
+        throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineActiveDirectoryConfigurationArgs.netbiosName' is not present");
     }
 
-    private UndeferrableValue<OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs> selfManagedActiveDirectoryConfiguration;
-
+    @PolicyResourceProperty(name="selfManagedActiveDirectoryConfiguration", flag="unknown_selfManagedActiveDirectoryConfiguration")
+    private OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs value_selfManagedActiveDirectoryConfiguration;
+    private boolean unknown_selfManagedActiveDirectoryConfiguration;
     public OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs selfManagedActiveDirectoryConfiguration() {
-        if (selfManagedActiveDirectoryConfiguration == null) return null;
-        return selfManagedActiveDirectoryConfiguration.getValue("OntapStorageVirtualMachineActiveDirectoryConfigurationArgs.selfManagedActiveDirectoryConfiguration");
+        if (!unknown_selfManagedActiveDirectoryConfiguration) return value_selfManagedActiveDirectoryConfiguration;
+        throw new UndeferrableValueException("Value 'OntapStorageVirtualMachineActiveDirectoryConfigurationArgs.selfManagedActiveDirectoryConfiguration' is not present");
     }
 
 }

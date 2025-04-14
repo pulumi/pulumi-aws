@@ -3,29 +3,32 @@
 
 package com.pulumi.policypacks.aws.signer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class SigningJobSignedObjectS3 {
 
-    private @Nullable UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private @Nullable String value_bucket;
+    private boolean unknown_bucket;
     public @Nullable String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("SigningJobSignedObjectS3.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'SigningJobSignedObjectS3.bucket' is not present");
     }
 
     /**
      * Key name of the object that contains your unsigned code.
      * 
      */
-    private @Nullable UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private @Nullable String value_key;
+    private boolean unknown_key;
     public @Nullable String key() {
-        if (key == null) return null;
-        return key.getValue("SigningJobSignedObjectS3.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'SigningJobSignedObjectS3.key' is not present");
     }
 
 }

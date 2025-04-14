@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.outputs.BucketObjectLockConfigurationV2RuleDefaultRetention;
 
 
@@ -13,11 +14,12 @@ public final class BucketObjectLockConfigurationV2Rule {
      * Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
      * 
      */
-    private UndeferrableValue<BucketObjectLockConfigurationV2RuleDefaultRetention> defaultRetention;
-
+    @PolicyResourceProperty(name="defaultRetention", flag="unknown_defaultRetention")
+    private BucketObjectLockConfigurationV2RuleDefaultRetention value_defaultRetention;
+    private boolean unknown_defaultRetention;
     public BucketObjectLockConfigurationV2RuleDefaultRetention defaultRetention() {
-        if (defaultRetention == null) return null;
-        return defaultRetention.getValue("BucketObjectLockConfigurationV2Rule.defaultRetention");
+        if (!unknown_defaultRetention) return value_defaultRetention;
+        throw new UndeferrableValueException("Value 'BucketObjectLockConfigurationV2Rule.defaultRetention' is not present");
     }
 
 }

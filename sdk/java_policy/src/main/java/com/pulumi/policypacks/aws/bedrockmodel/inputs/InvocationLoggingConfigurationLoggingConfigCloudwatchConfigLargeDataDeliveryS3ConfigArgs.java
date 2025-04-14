@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrockmodel.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLa
      * S3 bucket name.
      * 
      */
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs.bucketName' is not present");
     }
 
     /**
      * S3 prefix.
      * 
      */
-    private UndeferrableValue<String> keyPrefix;
-
+    @PolicyResourceProperty(name="keyPrefix", flag="unknown_keyPrefix")
+    private String value_keyPrefix;
+    private boolean unknown_keyPrefix;
     public String keyPrefix() {
-        if (keyPrefix == null) return null;
-        return keyPrefix.getValue("InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs.keyPrefix");
+        if (!unknown_keyPrefix) return value_keyPrefix;
+        throw new UndeferrableValueException("Value 'InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs.keyPrefix' is not present");
     }
 
 }

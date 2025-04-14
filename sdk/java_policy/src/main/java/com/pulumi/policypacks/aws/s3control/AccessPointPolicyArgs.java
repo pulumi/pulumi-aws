@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class AccessPointPolicyArgs extends com.pulumi.resources.PolicyReso
      * The ARN of the access point that you want to associate with the specified policy.
      * 
      */
-    private UndeferrableValue<String> accessPointArn;
-
+    @PolicyResourceProperty(name="accessPointArn", flag="unknown_accessPointArn")
+    private String value_accessPointArn;
+    private boolean unknown_accessPointArn;
     public String accessPointArn() {
-        if (accessPointArn == null) return null;
-        return accessPointArn.getValue("AccessPointPolicyArgs.accessPointArn");
+        if (!unknown_accessPointArn) return value_accessPointArn;
+        throw new UndeferrableValueException("Value 'AccessPointPolicyArgs.accessPointArn' is not present");
     }
 
     /**
      * The policy that you want to apply to the specified access point.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("AccessPointPolicyArgs.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'AccessPointPolicyArgs.policy' is not present");
     }
 
 }

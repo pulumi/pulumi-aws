@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appintegrations;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appintegrations.inputs.DataIntegrationScheduleConfigArgs;
 import java.lang.String;
@@ -18,66 +19,72 @@ public final class DataIntegrationArgs extends com.pulumi.resources.PolicyResour
      * Specifies the description of the Data Integration.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("DataIntegrationArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'DataIntegrationArgs.description' is not present");
     }
 
     /**
      * Specifies the KMS key Amazon Resource Name (ARN) for the Data Integration.
      * 
      */
-    private UndeferrableValue<String> kmsKey;
-
+    @PolicyResourceProperty(name="kmsKey", flag="unknown_kmsKey")
+    private String value_kmsKey;
+    private boolean unknown_kmsKey;
     public String kmsKey() {
-        if (kmsKey == null) return null;
-        return kmsKey.getValue("DataIntegrationArgs.kmsKey");
+        if (!unknown_kmsKey) return value_kmsKey;
+        throw new UndeferrableValueException("Value 'DataIntegrationArgs.kmsKey' is not present");
     }
 
     /**
      * Specifies the name of the Data Integration.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DataIntegrationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DataIntegrationArgs.name' is not present");
     }
 
     /**
      * A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
      * 
      */
-    private UndeferrableValue<DataIntegrationScheduleConfigArgs> scheduleConfig;
-
+    @PolicyResourceProperty(name="scheduleConfig", flag="unknown_scheduleConfig")
+    private DataIntegrationScheduleConfigArgs value_scheduleConfig;
+    private boolean unknown_scheduleConfig;
     public DataIntegrationScheduleConfigArgs scheduleConfig() {
-        if (scheduleConfig == null) return null;
-        return scheduleConfig.getValue("DataIntegrationArgs.scheduleConfig");
+        if (!unknown_scheduleConfig) return value_scheduleConfig;
+        throw new UndeferrableValueException("Value 'DataIntegrationArgs.scheduleConfig' is not present");
     }
 
     /**
      * Specifies the URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
      * 
      */
-    private UndeferrableValue<String> sourceUri;
-
+    @PolicyResourceProperty(name="sourceUri", flag="unknown_sourceUri")
+    private String value_sourceUri;
+    private boolean unknown_sourceUri;
     public String sourceUri() {
-        if (sourceUri == null) return null;
-        return sourceUri.getValue("DataIntegrationArgs.sourceUri");
+        if (!unknown_sourceUri) return value_sourceUri;
+        throw new UndeferrableValueException("Value 'DataIntegrationArgs.sourceUri' is not present");
     }
 
     /**
      * Tags to apply to the Data Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DataIntegrationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DataIntegrationArgs.tags' is not present");
     }
 
 }

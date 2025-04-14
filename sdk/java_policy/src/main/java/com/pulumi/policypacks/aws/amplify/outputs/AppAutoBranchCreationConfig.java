@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.amplify.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -16,110 +17,120 @@ public final class AppAutoBranchCreationConfig {
      * Basic authorization credentials for the autocreated branch.
      * 
      */
-    private @Nullable UndeferrableValue<String> basicAuthCredentials;
-
+    @PolicyResourceProperty(name="basicAuthCredentials", flag="unknown_basicAuthCredentials")
+    private @Nullable String value_basicAuthCredentials;
+    private boolean unknown_basicAuthCredentials;
     public @Nullable String basicAuthCredentials() {
-        if (basicAuthCredentials == null) return null;
-        return basicAuthCredentials.getValue("AppAutoBranchCreationConfig.basicAuthCredentials");
+        if (!unknown_basicAuthCredentials) return value_basicAuthCredentials;
+        throw new UndeferrableValueException("Value 'AppAutoBranchCreationConfig.basicAuthCredentials' is not present");
     }
 
     /**
      * Build specification (build spec) for the autocreated branch.
      * 
      */
-    private @Nullable UndeferrableValue<String> buildSpec;
-
+    @PolicyResourceProperty(name="buildSpec", flag="unknown_buildSpec")
+    private @Nullable String value_buildSpec;
+    private boolean unknown_buildSpec;
     public @Nullable String buildSpec() {
-        if (buildSpec == null) return null;
-        return buildSpec.getValue("AppAutoBranchCreationConfig.buildSpec");
+        if (!unknown_buildSpec) return value_buildSpec;
+        throw new UndeferrableValueException("Value 'AppAutoBranchCreationConfig.buildSpec' is not present");
     }
 
     /**
      * Enables auto building for the autocreated branch.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enableAutoBuild;
-
+    @PolicyResourceProperty(name="enableAutoBuild", flag="unknown_enableAutoBuild")
+    private @Nullable Boolean value_enableAutoBuild;
+    private boolean unknown_enableAutoBuild;
     public @Nullable Boolean enableAutoBuild() {
-        if (enableAutoBuild == null) return null;
-        return enableAutoBuild.getValue("AppAutoBranchCreationConfig.enableAutoBuild");
+        if (!unknown_enableAutoBuild) return value_enableAutoBuild;
+        throw new UndeferrableValueException("Value 'AppAutoBranchCreationConfig.enableAutoBuild' is not present");
     }
 
     /**
      * Enables basic authorization for the autocreated branch.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enableBasicAuth;
-
+    @PolicyResourceProperty(name="enableBasicAuth", flag="unknown_enableBasicAuth")
+    private @Nullable Boolean value_enableBasicAuth;
+    private boolean unknown_enableBasicAuth;
     public @Nullable Boolean enableBasicAuth() {
-        if (enableBasicAuth == null) return null;
-        return enableBasicAuth.getValue("AppAutoBranchCreationConfig.enableBasicAuth");
+        if (!unknown_enableBasicAuth) return value_enableBasicAuth;
+        throw new UndeferrableValueException("Value 'AppAutoBranchCreationConfig.enableBasicAuth' is not present");
     }
 
     /**
      * Enables performance mode for the branch.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enablePerformanceMode;
-
+    @PolicyResourceProperty(name="enablePerformanceMode", flag="unknown_enablePerformanceMode")
+    private @Nullable Boolean value_enablePerformanceMode;
+    private boolean unknown_enablePerformanceMode;
     public @Nullable Boolean enablePerformanceMode() {
-        if (enablePerformanceMode == null) return null;
-        return enablePerformanceMode.getValue("AppAutoBranchCreationConfig.enablePerformanceMode");
+        if (!unknown_enablePerformanceMode) return value_enablePerformanceMode;
+        throw new UndeferrableValueException("Value 'AppAutoBranchCreationConfig.enablePerformanceMode' is not present");
     }
 
     /**
      * Enables pull request previews for the autocreated branch.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enablePullRequestPreview;
-
+    @PolicyResourceProperty(name="enablePullRequestPreview", flag="unknown_enablePullRequestPreview")
+    private @Nullable Boolean value_enablePullRequestPreview;
+    private boolean unknown_enablePullRequestPreview;
     public @Nullable Boolean enablePullRequestPreview() {
-        if (enablePullRequestPreview == null) return null;
-        return enablePullRequestPreview.getValue("AppAutoBranchCreationConfig.enablePullRequestPreview");
+        if (!unknown_enablePullRequestPreview) return value_enablePullRequestPreview;
+        throw new UndeferrableValueException("Value 'AppAutoBranchCreationConfig.enablePullRequestPreview' is not present");
     }
 
     /**
      * Environment variables for the autocreated branch.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> environmentVariables;
-
+    @PolicyResourceProperty(name="environmentVariables", flag="unknown_environmentVariables")
+    private @Nullable Map<String,String> value_environmentVariables;
+    private boolean unknown_environmentVariables;
     public @Nullable Map<String,String> environmentVariables() {
-        if (environmentVariables == null) return null;
-        return environmentVariables.getValue("AppAutoBranchCreationConfig.environmentVariables");
+        if (!unknown_environmentVariables) return value_environmentVariables;
+        throw new UndeferrableValueException("Value 'AppAutoBranchCreationConfig.environmentVariables' is not present");
     }
 
     /**
      * Framework for the autocreated branch.
      * 
      */
-    private @Nullable UndeferrableValue<String> framework;
-
+    @PolicyResourceProperty(name="framework", flag="unknown_framework")
+    private @Nullable String value_framework;
+    private boolean unknown_framework;
     public @Nullable String framework() {
-        if (framework == null) return null;
-        return framework.getValue("AppAutoBranchCreationConfig.framework");
+        if (!unknown_framework) return value_framework;
+        throw new UndeferrableValueException("Value 'AppAutoBranchCreationConfig.framework' is not present");
     }
 
     /**
      * Amplify environment name for the pull request.
      * 
      */
-    private @Nullable UndeferrableValue<String> pullRequestEnvironmentName;
-
+    @PolicyResourceProperty(name="pullRequestEnvironmentName", flag="unknown_pullRequestEnvironmentName")
+    private @Nullable String value_pullRequestEnvironmentName;
+    private boolean unknown_pullRequestEnvironmentName;
     public @Nullable String pullRequestEnvironmentName() {
-        if (pullRequestEnvironmentName == null) return null;
-        return pullRequestEnvironmentName.getValue("AppAutoBranchCreationConfig.pullRequestEnvironmentName");
+        if (!unknown_pullRequestEnvironmentName) return value_pullRequestEnvironmentName;
+        throw new UndeferrableValueException("Value 'AppAutoBranchCreationConfig.pullRequestEnvironmentName' is not present");
     }
 
     /**
      * Describes the current stage for the autocreated branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
      * 
      */
-    private @Nullable UndeferrableValue<String> stage;
-
+    @PolicyResourceProperty(name="stage", flag="unknown_stage")
+    private @Nullable String value_stage;
+    private boolean unknown_stage;
     public @Nullable String stage() {
-        if (stage == null) return null;
-        return stage.getValue("AppAutoBranchCreationConfig.stage");
+        if (!unknown_stage) return value_stage;
+        throw new UndeferrableValueException("Value 'AppAutoBranchCreationConfig.stage' is not present");
     }
 
 }

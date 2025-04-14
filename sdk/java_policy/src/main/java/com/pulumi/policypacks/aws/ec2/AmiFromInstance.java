@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.outputs.AmiFromInstanceEbsBlockDevice;
 import com.pulumi.policypacks.aws.ec2.outputs.AmiFromInstanceEphemeralBlockDevice;
@@ -21,55 +22,60 @@ public final class AmiFromInstance extends com.pulumi.resources.PolicyResourceOu
      * Machine architecture for created instances. Defaults to `x86_64`.
      * 
      */
-    private UndeferrableValue<String> architecture;
-
+    @PolicyResourceProperty(name="architecture", flag="unknown_architecture")
+    private String value_architecture;
+    private boolean unknown_architecture;
     public String architecture() {
-        if (architecture == null) return null;
-        return architecture.getValue("AmiFromInstance.architecture");
+        if (!unknown_architecture) return value_architecture;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.architecture' is not present");
     }
 
     /**
      * ARN of the AMI.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("AmiFromInstance.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.arn' is not present");
     }
 
     /**
      * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
-    private UndeferrableValue<String> bootMode;
-
+    @PolicyResourceProperty(name="bootMode", flag="unknown_bootMode")
+    private String value_bootMode;
+    private boolean unknown_bootMode;
     public String bootMode() {
-        if (bootMode == null) return null;
-        return bootMode.getValue("AmiFromInstance.bootMode");
+        if (!unknown_bootMode) return value_bootMode;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.bootMode' is not present");
     }
 
     /**
      * Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
-    private @Nullable UndeferrableValue<String> deprecationTime;
-
+    @PolicyResourceProperty(name="deprecationTime", flag="unknown_deprecationTime")
+    private @Nullable String value_deprecationTime;
+    private boolean unknown_deprecationTime;
     public @Nullable String deprecationTime() {
-        if (deprecationTime == null) return null;
-        return deprecationTime.getValue("AmiFromInstance.deprecationTime");
+        if (!unknown_deprecationTime) return value_deprecationTime;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.deprecationTime' is not present");
     }
 
     /**
      * Longer, human-readable description for the AMI.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("AmiFromInstance.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.description' is not present");
     }
 
     /**
@@ -77,22 +83,24 @@ public final class AmiFromInstance extends com.pulumi.resources.PolicyResourceOu
      * attached to created instances. The structure of this block is described below.
      * 
      */
-    private UndeferrableValue<List<AmiFromInstanceEbsBlockDevice>> ebsBlockDevices;
-
+    @PolicyResourceProperty(name="ebsBlockDevices", flag="unknown_ebsBlockDevices")
+    private List<AmiFromInstanceEbsBlockDevice> value_ebsBlockDevices;
+    private boolean unknown_ebsBlockDevices;
     public List<AmiFromInstanceEbsBlockDevice> ebsBlockDevices() {
-        if (ebsBlockDevices == null) return null;
-        return ebsBlockDevices.getValue("AmiFromInstance.ebsBlockDevices");
+        if (!unknown_ebsBlockDevices) return value_ebsBlockDevices;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.ebsBlockDevices' is not present");
     }
 
     /**
      * Whether enhanced networking with ENA is enabled. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> enaSupport;
-
+    @PolicyResourceProperty(name="enaSupport", flag="unknown_enaSupport")
+    private Boolean value_enaSupport;
+    private boolean unknown_enaSupport;
     public Boolean enaSupport() {
-        if (enaSupport == null) return null;
-        return enaSupport.getValue("AmiFromInstance.enaSupport");
+        if (!unknown_enaSupport) return value_enaSupport;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.enaSupport' is not present");
     }
 
     /**
@@ -100,18 +108,20 @@ public final class AmiFromInstance extends com.pulumi.resources.PolicyResourceOu
      * should be attached to created instances. The structure of this block is described below.
      * 
      */
-    private UndeferrableValue<List<AmiFromInstanceEphemeralBlockDevice>> ephemeralBlockDevices;
-
+    @PolicyResourceProperty(name="ephemeralBlockDevices", flag="unknown_ephemeralBlockDevices")
+    private List<AmiFromInstanceEphemeralBlockDevice> value_ephemeralBlockDevices;
+    private boolean unknown_ephemeralBlockDevices;
     public List<AmiFromInstanceEphemeralBlockDevice> ephemeralBlockDevices() {
-        if (ephemeralBlockDevices == null) return null;
-        return ephemeralBlockDevices.getValue("AmiFromInstance.ephemeralBlockDevices");
+        if (!unknown_ephemeralBlockDevices) return value_ephemeralBlockDevices;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.ephemeralBlockDevices' is not present");
     }
 
-    private UndeferrableValue<String> hypervisor;
-
+    @PolicyResourceProperty(name="hypervisor", flag="unknown_hypervisor")
+    private String value_hypervisor;
+    private boolean unknown_hypervisor;
     public String hypervisor() {
-        if (hypervisor == null) return null;
-        return hypervisor.getValue("AmiFromInstance.hypervisor");
+        if (!unknown_hypervisor) return value_hypervisor;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.hypervisor' is not present");
     }
 
     /**
@@ -119,36 +129,40 @@ public final class AmiFromInstance extends com.pulumi.resources.PolicyResourceOu
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
      * 
      */
-    private UndeferrableValue<String> imageLocation;
-
+    @PolicyResourceProperty(name="imageLocation", flag="unknown_imageLocation")
+    private String value_imageLocation;
+    private boolean unknown_imageLocation;
     public String imageLocation() {
-        if (imageLocation == null) return null;
-        return imageLocation.getValue("AmiFromInstance.imageLocation");
+        if (!unknown_imageLocation) return value_imageLocation;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.imageLocation' is not present");
     }
 
-    private UndeferrableValue<String> imageOwnerAlias;
-
+    @PolicyResourceProperty(name="imageOwnerAlias", flag="unknown_imageOwnerAlias")
+    private String value_imageOwnerAlias;
+    private boolean unknown_imageOwnerAlias;
     public String imageOwnerAlias() {
-        if (imageOwnerAlias == null) return null;
-        return imageOwnerAlias.getValue("AmiFromInstance.imageOwnerAlias");
+        if (!unknown_imageOwnerAlias) return value_imageOwnerAlias;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.imageOwnerAlias' is not present");
     }
 
-    private UndeferrableValue<String> imageType;
-
+    @PolicyResourceProperty(name="imageType", flag="unknown_imageType")
+    private String value_imageType;
+    private boolean unknown_imageType;
     public String imageType() {
-        if (imageType == null) return null;
-        return imageType.getValue("AmiFromInstance.imageType");
+        if (!unknown_imageType) return value_imageType;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.imageType' is not present");
     }
 
     /**
      * If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
      * 
      */
-    private UndeferrableValue<String> imdsSupport;
-
+    @PolicyResourceProperty(name="imdsSupport", flag="unknown_imdsSupport")
+    private String value_imdsSupport;
+    private boolean unknown_imdsSupport;
     public String imdsSupport() {
-        if (imdsSupport == null) return null;
-        return imdsSupport.getValue("AmiFromInstance.imdsSupport");
+        if (!unknown_imdsSupport) return value_imdsSupport;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.imdsSupport' is not present");
     }
 
     /**
@@ -156,68 +170,76 @@ public final class AmiFromInstance extends com.pulumi.resources.PolicyResourceOu
      * kernel in created instances.
      * 
      */
-    private UndeferrableValue<String> kernelId;
-
+    @PolicyResourceProperty(name="kernelId", flag="unknown_kernelId")
+    private String value_kernelId;
+    private boolean unknown_kernelId;
     public String kernelId() {
-        if (kernelId == null) return null;
-        return kernelId.getValue("AmiFromInstance.kernelId");
+        if (!unknown_kernelId) return value_kernelId;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.kernelId' is not present");
     }
 
     /**
      * Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
      * 
      */
-    private UndeferrableValue<String> lastLaunchedTime;
-
+    @PolicyResourceProperty(name="lastLaunchedTime", flag="unknown_lastLaunchedTime")
+    private String value_lastLaunchedTime;
+    private boolean unknown_lastLaunchedTime;
     public String lastLaunchedTime() {
-        if (lastLaunchedTime == null) return null;
-        return lastLaunchedTime.getValue("AmiFromInstance.lastLaunchedTime");
+        if (!unknown_lastLaunchedTime) return value_lastLaunchedTime;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.lastLaunchedTime' is not present");
     }
 
-    private UndeferrableValue<Boolean> manageEbsSnapshots;
-
+    @PolicyResourceProperty(name="manageEbsSnapshots", flag="unknown_manageEbsSnapshots")
+    private Boolean value_manageEbsSnapshots;
+    private boolean unknown_manageEbsSnapshots;
     public Boolean manageEbsSnapshots() {
-        if (manageEbsSnapshots == null) return null;
-        return manageEbsSnapshots.getValue("AmiFromInstance.manageEbsSnapshots");
+        if (!unknown_manageEbsSnapshots) return value_manageEbsSnapshots;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.manageEbsSnapshots' is not present");
     }
 
     /**
      * Region-unique name for the AMI.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AmiFromInstance.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.name' is not present");
     }
 
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("AmiFromInstance.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.ownerId' is not present");
     }
 
-    private UndeferrableValue<String> platform;
-
+    @PolicyResourceProperty(name="platform", flag="unknown_platform")
+    private String value_platform;
+    private boolean unknown_platform;
     public String platform() {
-        if (platform == null) return null;
-        return platform.getValue("AmiFromInstance.platform");
+        if (!unknown_platform) return value_platform;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.platform' is not present");
     }
 
-    private UndeferrableValue<String> platformDetails;
-
+    @PolicyResourceProperty(name="platformDetails", flag="unknown_platformDetails")
+    private String value_platformDetails;
+    private boolean unknown_platformDetails;
     public String platformDetails() {
-        if (platformDetails == null) return null;
-        return platformDetails.getValue("AmiFromInstance.platformDetails");
+        if (!unknown_platformDetails) return value_platformDetails;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.platformDetails' is not present");
     }
 
-    private UndeferrableValue<Boolean> public_;
-
+    @PolicyResourceProperty(name="public", flag="unknown_public_")
+    private Boolean value_public_;
+    private boolean unknown_public_;
     public Boolean public_() {
-        if (public_ == null) return null;
-        return public_.getValue("AmiFromInstance.public_");
+        if (!unknown_public_) return value_public_;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.public_' is not present");
     }
 
     /**
@@ -225,29 +247,32 @@ public final class AmiFromInstance extends com.pulumi.resources.PolicyResourceOu
      * created instances.
      * 
      */
-    private UndeferrableValue<String> ramdiskId;
-
+    @PolicyResourceProperty(name="ramdiskId", flag="unknown_ramdiskId")
+    private String value_ramdiskId;
+    private boolean unknown_ramdiskId;
     public String ramdiskId() {
-        if (ramdiskId == null) return null;
-        return ramdiskId.getValue("AmiFromInstance.ramdiskId");
+        if (!unknown_ramdiskId) return value_ramdiskId;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.ramdiskId' is not present");
     }
 
     /**
      * Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      * 
      */
-    private UndeferrableValue<String> rootDeviceName;
-
+    @PolicyResourceProperty(name="rootDeviceName", flag="unknown_rootDeviceName")
+    private String value_rootDeviceName;
+    private boolean unknown_rootDeviceName;
     public String rootDeviceName() {
-        if (rootDeviceName == null) return null;
-        return rootDeviceName.getValue("AmiFromInstance.rootDeviceName");
+        if (!unknown_rootDeviceName) return value_rootDeviceName;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.rootDeviceName' is not present");
     }
 
-    private UndeferrableValue<String> rootSnapshotId;
-
+    @PolicyResourceProperty(name="rootSnapshotId", flag="unknown_rootSnapshotId")
+    private String value_rootSnapshotId;
+    private boolean unknown_rootSnapshotId;
     public String rootSnapshotId() {
-        if (rootSnapshotId == null) return null;
-        return rootSnapshotId.getValue("AmiFromInstance.rootSnapshotId");
+        if (!unknown_rootSnapshotId) return value_rootSnapshotId;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.rootSnapshotId' is not present");
     }
 
     /**
@@ -257,22 +282,24 @@ public final class AmiFromInstance extends com.pulumi.resources.PolicyResourceOu
      * guarantees that no filesystem writes will be underway at the time of snapshot.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> snapshotWithoutReboot;
-
+    @PolicyResourceProperty(name="snapshotWithoutReboot", flag="unknown_snapshotWithoutReboot")
+    private @Nullable Boolean value_snapshotWithoutReboot;
+    private boolean unknown_snapshotWithoutReboot;
     public @Nullable Boolean snapshotWithoutReboot() {
-        if (snapshotWithoutReboot == null) return null;
-        return snapshotWithoutReboot.getValue("AmiFromInstance.snapshotWithoutReboot");
+        if (!unknown_snapshotWithoutReboot) return value_snapshotWithoutReboot;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.snapshotWithoutReboot' is not present");
     }
 
     /**
      * ID of the instance to use as the basis of the AMI.
      * 
      */
-    private UndeferrableValue<String> sourceInstanceId;
-
+    @PolicyResourceProperty(name="sourceInstanceId", flag="unknown_sourceInstanceId")
+    private String value_sourceInstanceId;
+    private boolean unknown_sourceInstanceId;
     public String sourceInstanceId() {
-        if (sourceInstanceId == null) return null;
-        return sourceInstanceId.getValue("AmiFromInstance.sourceInstanceId");
+        if (!unknown_sourceInstanceId) return value_sourceInstanceId;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.sourceInstanceId' is not present");
     }
 
     /**
@@ -280,22 +307,24 @@ public final class AmiFromInstance extends com.pulumi.resources.PolicyResourceOu
      * for created instances. No other value is supported at this time.
      * 
      */
-    private UndeferrableValue<String> sriovNetSupport;
-
+    @PolicyResourceProperty(name="sriovNetSupport", flag="unknown_sriovNetSupport")
+    private String value_sriovNetSupport;
+    private boolean unknown_sriovNetSupport;
     public String sriovNetSupport() {
-        if (sriovNetSupport == null) return null;
-        return sriovNetSupport.getValue("AmiFromInstance.sriovNetSupport");
+        if (!unknown_sriovNetSupport) return value_sriovNetSupport;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.sriovNetSupport' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AmiFromInstance.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.tags' is not present");
     }
 
     /**
@@ -304,40 +333,44 @@ public final class AmiFromInstance extends com.pulumi.resources.PolicyResourceOu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("AmiFromInstance.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.tagsAll' is not present");
     }
 
     /**
      * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
      * 
      */
-    private UndeferrableValue<String> tpmSupport;
-
+    @PolicyResourceProperty(name="tpmSupport", flag="unknown_tpmSupport")
+    private String value_tpmSupport;
+    private boolean unknown_tpmSupport;
     public String tpmSupport() {
-        if (tpmSupport == null) return null;
-        return tpmSupport.getValue("AmiFromInstance.tpmSupport");
+        if (!unknown_tpmSupport) return value_tpmSupport;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.tpmSupport' is not present");
     }
 
     /**
      * Base64 representation of the non-volatile UEFI variable store.
      * 
      */
-    private UndeferrableValue<String> uefiData;
-
+    @PolicyResourceProperty(name="uefiData", flag="unknown_uefiData")
+    private String value_uefiData;
+    private boolean unknown_uefiData;
     public String uefiData() {
-        if (uefiData == null) return null;
-        return uefiData.getValue("AmiFromInstance.uefiData");
+        if (!unknown_uefiData) return value_uefiData;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.uefiData' is not present");
     }
 
-    private UndeferrableValue<String> usageOperation;
-
+    @PolicyResourceProperty(name="usageOperation", flag="unknown_usageOperation")
+    private String value_usageOperation;
+    private boolean unknown_usageOperation;
     public String usageOperation() {
-        if (usageOperation == null) return null;
-        return usageOperation.getValue("AmiFromInstance.usageOperation");
+        if (!unknown_usageOperation) return value_usageOperation;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.usageOperation' is not present");
     }
 
     /**
@@ -346,11 +379,12 @@ public final class AmiFromInstance extends com.pulumi.resources.PolicyResourceOu
      * changes the set of further arguments that are required, as described below.
      * 
      */
-    private UndeferrableValue<String> virtualizationType;
-
+    @PolicyResourceProperty(name="virtualizationType", flag="unknown_virtualizationType")
+    private String value_virtualizationType;
+    private boolean unknown_virtualizationType;
     public String virtualizationType() {
-        if (virtualizationType == null) return null;
-        return virtualizationType.getValue("AmiFromInstance.virtualizationType");
+        if (!unknown_virtualizationType) return value_virtualizationType;
+        throw new UndeferrableValueException("Value 'AmiFromInstance.virtualizationType' is not present");
     }
 
 }

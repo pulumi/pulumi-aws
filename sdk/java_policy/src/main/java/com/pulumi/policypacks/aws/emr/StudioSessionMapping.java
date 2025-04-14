@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,55 +16,60 @@ public final class StudioSessionMapping extends com.pulumi.resources.PolicyResou
      * The globally unique identifier (GUID) of the user or group from the Amazon Web Services SSO Identity Store.
      * 
      */
-    private UndeferrableValue<String> identityId;
-
+    @PolicyResourceProperty(name="identityId", flag="unknown_identityId")
+    private String value_identityId;
+    private boolean unknown_identityId;
     public String identityId() {
-        if (identityId == null) return null;
-        return identityId.getValue("StudioSessionMapping.identityId");
+        if (!unknown_identityId) return value_identityId;
+        throw new UndeferrableValueException("Value 'StudioSessionMapping.identityId' is not present");
     }
 
     /**
      * The name of the user or group from the Amazon Web Services SSO Identity Store.
      * 
      */
-    private UndeferrableValue<String> identityName;
-
+    @PolicyResourceProperty(name="identityName", flag="unknown_identityName")
+    private String value_identityName;
+    private boolean unknown_identityName;
     public String identityName() {
-        if (identityName == null) return null;
-        return identityName.getValue("StudioSessionMapping.identityName");
+        if (!unknown_identityName) return value_identityName;
+        throw new UndeferrableValueException("Value 'StudioSessionMapping.identityName' is not present");
     }
 
     /**
      * Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
      * 
      */
-    private UndeferrableValue<String> identityType;
-
+    @PolicyResourceProperty(name="identityType", flag="unknown_identityType")
+    private String value_identityType;
+    private boolean unknown_identityType;
     public String identityType() {
-        if (identityType == null) return null;
-        return identityType.getValue("StudioSessionMapping.identityType");
+        if (!unknown_identityType) return value_identityType;
+        throw new UndeferrableValueException("Value 'StudioSessionMapping.identityType' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
      * 
      */
-    private UndeferrableValue<String> sessionPolicyArn;
-
+    @PolicyResourceProperty(name="sessionPolicyArn", flag="unknown_sessionPolicyArn")
+    private String value_sessionPolicyArn;
+    private boolean unknown_sessionPolicyArn;
     public String sessionPolicyArn() {
-        if (sessionPolicyArn == null) return null;
-        return sessionPolicyArn.getValue("StudioSessionMapping.sessionPolicyArn");
+        if (!unknown_sessionPolicyArn) return value_sessionPolicyArn;
+        throw new UndeferrableValueException("Value 'StudioSessionMapping.sessionPolicyArn' is not present");
     }
 
     /**
      * The ID of the Amazon EMR Studio to which the user or group will be mapped.
      * 
      */
-    private UndeferrableValue<String> studioId;
-
+    @PolicyResourceProperty(name="studioId", flag="unknown_studioId")
+    private String value_studioId;
+    private boolean unknown_studioId;
     public String studioId() {
-        if (studioId == null) return null;
-        return studioId.getValue("StudioSessionMapping.studioId");
+        if (!unknown_studioId) return value_studioId;
+        throw new UndeferrableValueException("Value 'StudioSessionMapping.studioId' is not present");
     }
 
 }

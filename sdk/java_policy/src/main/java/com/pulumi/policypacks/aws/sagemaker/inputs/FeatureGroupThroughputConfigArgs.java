@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,25 +12,28 @@ import javax.annotation.Nullable;
 
 public final class FeatureGroupThroughputConfigArgs {
 
-    private UndeferrableValue<Integer> provisionedReadCapacityUnits;
-
+    @PolicyResourceProperty(name="provisionedReadCapacityUnits", flag="unknown_provisionedReadCapacityUnits")
+    private Integer value_provisionedReadCapacityUnits;
+    private boolean unknown_provisionedReadCapacityUnits;
     public Integer provisionedReadCapacityUnits() {
-        if (provisionedReadCapacityUnits == null) return null;
-        return provisionedReadCapacityUnits.getValue("FeatureGroupThroughputConfigArgs.provisionedReadCapacityUnits");
+        if (!unknown_provisionedReadCapacityUnits) return value_provisionedReadCapacityUnits;
+        throw new UndeferrableValueException("Value 'FeatureGroupThroughputConfigArgs.provisionedReadCapacityUnits' is not present");
     }
 
-    private UndeferrableValue<Integer> provisionedWriteCapacityUnits;
-
+    @PolicyResourceProperty(name="provisionedWriteCapacityUnits", flag="unknown_provisionedWriteCapacityUnits")
+    private Integer value_provisionedWriteCapacityUnits;
+    private boolean unknown_provisionedWriteCapacityUnits;
     public Integer provisionedWriteCapacityUnits() {
-        if (provisionedWriteCapacityUnits == null) return null;
-        return provisionedWriteCapacityUnits.getValue("FeatureGroupThroughputConfigArgs.provisionedWriteCapacityUnits");
+        if (!unknown_provisionedWriteCapacityUnits) return value_provisionedWriteCapacityUnits;
+        throw new UndeferrableValueException("Value 'FeatureGroupThroughputConfigArgs.provisionedWriteCapacityUnits' is not present");
     }
 
-    private UndeferrableValue<String> throughputMode;
-
+    @PolicyResourceProperty(name="throughputMode", flag="unknown_throughputMode")
+    private String value_throughputMode;
+    private boolean unknown_throughputMode;
     public String throughputMode() {
-        if (throughputMode == null) return null;
-        return throughputMode.getValue("FeatureGroupThroughputConfigArgs.throughputMode");
+        if (!unknown_throughputMode) return value_throughputMode;
+        throw new UndeferrableValueException("Value 'FeatureGroupThroughputConfigArgs.throughputMode' is not present");
     }
 
 }

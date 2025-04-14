@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.inputs.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs;
 
 
@@ -13,11 +14,12 @@ public final class MonitoringSubscriptionMonitoringSubscriptionArgs {
      * A subscription configuration for additional CloudWatch metrics. See below.
      * 
      */
-    private UndeferrableValue<MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs> realtimeMetricsSubscriptionConfig;
-
+    @PolicyResourceProperty(name="realtimeMetricsSubscriptionConfig", flag="unknown_realtimeMetricsSubscriptionConfig")
+    private MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs value_realtimeMetricsSubscriptionConfig;
+    private boolean unknown_realtimeMetricsSubscriptionConfig;
     public MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs realtimeMetricsSubscriptionConfig() {
-        if (realtimeMetricsSubscriptionConfig == null) return null;
-        return realtimeMetricsSubscriptionConfig.getValue("MonitoringSubscriptionMonitoringSubscriptionArgs.realtimeMetricsSubscriptionConfig");
+        if (!unknown_realtimeMetricsSubscriptionConfig) return value_realtimeMetricsSubscriptionConfig;
+        throw new UndeferrableValueException("Value 'MonitoringSubscriptionMonitoringSubscriptionArgs.realtimeMetricsSubscriptionConfig' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscalingplans;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.autoscalingplans.outputs.ScalingPlanApplicationSource;
 import com.pulumi.policypacks.aws.autoscalingplans.outputs.ScalingPlanScalingInstruction;
@@ -19,44 +20,48 @@ public final class ScalingPlan extends com.pulumi.resources.PolicyResourceOutput
      * CloudFormation stack or set of tags. You can create one scaling plan per application source.
      * 
      */
-    private UndeferrableValue<ScalingPlanApplicationSource> applicationSource;
-
+    @PolicyResourceProperty(name="applicationSource", flag="unknown_applicationSource")
+    private ScalingPlanApplicationSource value_applicationSource;
+    private boolean unknown_applicationSource;
     public ScalingPlanApplicationSource applicationSource() {
-        if (applicationSource == null) return null;
-        return applicationSource.getValue("ScalingPlan.applicationSource");
+        if (!unknown_applicationSource) return value_applicationSource;
+        throw new UndeferrableValueException("Value 'ScalingPlan.applicationSource' is not present");
     }
 
     /**
      * Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ScalingPlan.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ScalingPlan.name' is not present");
     }
 
     /**
      * Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
      * 
      */
-    private UndeferrableValue<List<ScalingPlanScalingInstruction>> scalingInstructions;
-
+    @PolicyResourceProperty(name="scalingInstructions", flag="unknown_scalingInstructions")
+    private List<ScalingPlanScalingInstruction> value_scalingInstructions;
+    private boolean unknown_scalingInstructions;
     public List<ScalingPlanScalingInstruction> scalingInstructions() {
-        if (scalingInstructions == null) return null;
-        return scalingInstructions.getValue("ScalingPlan.scalingInstructions");
+        if (!unknown_scalingInstructions) return value_scalingInstructions;
+        throw new UndeferrableValueException("Value 'ScalingPlan.scalingInstructions' is not present");
     }
 
     /**
      * The version number of the scaling plan. This value is always 1.
      * 
      */
-    private UndeferrableValue<Integer> scalingPlanVersion;
-
+    @PolicyResourceProperty(name="scalingPlanVersion", flag="unknown_scalingPlanVersion")
+    private Integer value_scalingPlanVersion;
+    private boolean unknown_scalingPlanVersion;
     public Integer scalingPlanVersion() {
-        if (scalingPlanVersion == null) return null;
-        return scalingPlanVersion.getValue("ScalingPlan.scalingPlanVersion");
+        if (!unknown_scalingPlanVersion) return value_scalingPlanVersion;
+        throw new UndeferrableValueException("Value 'ScalingPlan.scalingPlanVersion' is not present");
     }
 
 }

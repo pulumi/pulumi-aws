@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,44 +18,48 @@ public final class SnapshotCopyGrant extends com.pulumi.resources.PolicyResource
      * Amazon Resource Name (ARN) of snapshot copy grant
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("SnapshotCopyGrant.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'SnapshotCopyGrant.arn' is not present");
     }
 
     /**
      * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("SnapshotCopyGrant.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'SnapshotCopyGrant.kmsKeyId' is not present");
     }
 
     /**
      * A friendly name for identifying the grant.
      * 
      */
-    private UndeferrableValue<String> snapshotCopyGrantName;
-
+    @PolicyResourceProperty(name="snapshotCopyGrantName", flag="unknown_snapshotCopyGrantName")
+    private String value_snapshotCopyGrantName;
+    private boolean unknown_snapshotCopyGrantName;
     public String snapshotCopyGrantName() {
-        if (snapshotCopyGrantName == null) return null;
-        return snapshotCopyGrantName.getValue("SnapshotCopyGrant.snapshotCopyGrantName");
+        if (!unknown_snapshotCopyGrantName) return value_snapshotCopyGrantName;
+        throw new UndeferrableValueException("Value 'SnapshotCopyGrant.snapshotCopyGrantName' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SnapshotCopyGrant.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SnapshotCopyGrant.tags' is not present");
     }
 
     /**
@@ -65,11 +70,12 @@ public final class SnapshotCopyGrant extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("SnapshotCopyGrant.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'SnapshotCopyGrant.tagsAll' is not present");
     }
 
 }

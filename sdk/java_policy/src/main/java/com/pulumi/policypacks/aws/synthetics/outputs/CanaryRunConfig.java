@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.synthetics.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class CanaryRunConfig {
      * Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> activeTracing;
-
+    @PolicyResourceProperty(name="activeTracing", flag="unknown_activeTracing")
+    private @Nullable Boolean value_activeTracing;
+    private boolean unknown_activeTracing;
     public @Nullable Boolean activeTracing() {
-        if (activeTracing == null) return null;
-        return activeTracing.getValue("CanaryRunConfig.activeTracing");
+        if (!unknown_activeTracing) return value_activeTracing;
+        throw new UndeferrableValueException("Value 'CanaryRunConfig.activeTracing' is not present");
     }
 
     /**
      * Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> environmentVariables;
-
+    @PolicyResourceProperty(name="environmentVariables", flag="unknown_environmentVariables")
+    private @Nullable Map<String,String> value_environmentVariables;
+    private boolean unknown_environmentVariables;
     public @Nullable Map<String,String> environmentVariables() {
-        if (environmentVariables == null) return null;
-        return environmentVariables.getValue("CanaryRunConfig.environmentVariables");
+        if (!unknown_environmentVariables) return value_environmentVariables;
+        throw new UndeferrableValueException("Value 'CanaryRunConfig.environmentVariables' is not present");
     }
 
     /**
      * Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> memoryInMb;
-
+    @PolicyResourceProperty(name="memoryInMb", flag="unknown_memoryInMb")
+    private @Nullable Integer value_memoryInMb;
+    private boolean unknown_memoryInMb;
     public @Nullable Integer memoryInMb() {
-        if (memoryInMb == null) return null;
-        return memoryInMb.getValue("CanaryRunConfig.memoryInMb");
+        if (!unknown_memoryInMb) return value_memoryInMb;
+        throw new UndeferrableValueException("Value 'CanaryRunConfig.memoryInMb' is not present");
     }
 
     /**
      * Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
      * 
      */
-    private @Nullable UndeferrableValue<Integer> timeoutInSeconds;
-
+    @PolicyResourceProperty(name="timeoutInSeconds", flag="unknown_timeoutInSeconds")
+    private @Nullable Integer value_timeoutInSeconds;
+    private boolean unknown_timeoutInSeconds;
     public @Nullable Integer timeoutInSeconds() {
-        if (timeoutInSeconds == null) return null;
-        return timeoutInSeconds.getValue("CanaryRunConfig.timeoutInSeconds");
+        if (!unknown_timeoutInSeconds) return value_timeoutInSeconds;
+        throw new UndeferrableValueException("Value 'CanaryRunConfig.timeoutInSeconds' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.GatewayRouteSpecGrpcRouteArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.GatewayRouteSpecHttp2RouteArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.GatewayRouteSpecHttpRouteArgs;
@@ -17,44 +18,48 @@ public final class GatewayRouteSpecArgs {
      * Specification of a gRPC gateway route.
      * 
      */
-    private UndeferrableValue<GatewayRouteSpecGrpcRouteArgs> grpcRoute;
-
+    @PolicyResourceProperty(name="grpcRoute", flag="unknown_grpcRoute")
+    private GatewayRouteSpecGrpcRouteArgs value_grpcRoute;
+    private boolean unknown_grpcRoute;
     public GatewayRouteSpecGrpcRouteArgs grpcRoute() {
-        if (grpcRoute == null) return null;
-        return grpcRoute.getValue("GatewayRouteSpecArgs.grpcRoute");
+        if (!unknown_grpcRoute) return value_grpcRoute;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecArgs.grpcRoute' is not present");
     }
 
     /**
      * Specification of an HTTP/2 gateway route.
      * 
      */
-    private UndeferrableValue<GatewayRouteSpecHttp2RouteArgs> http2Route;
-
+    @PolicyResourceProperty(name="http2Route", flag="unknown_http2Route")
+    private GatewayRouteSpecHttp2RouteArgs value_http2Route;
+    private boolean unknown_http2Route;
     public GatewayRouteSpecHttp2RouteArgs http2Route() {
-        if (http2Route == null) return null;
-        return http2Route.getValue("GatewayRouteSpecArgs.http2Route");
+        if (!unknown_http2Route) return value_http2Route;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecArgs.http2Route' is not present");
     }
 
     /**
      * Specification of an HTTP gateway route.
      * 
      */
-    private UndeferrableValue<GatewayRouteSpecHttpRouteArgs> httpRoute;
-
+    @PolicyResourceProperty(name="httpRoute", flag="unknown_httpRoute")
+    private GatewayRouteSpecHttpRouteArgs value_httpRoute;
+    private boolean unknown_httpRoute;
     public GatewayRouteSpecHttpRouteArgs httpRoute() {
-        if (httpRoute == null) return null;
-        return httpRoute.getValue("GatewayRouteSpecArgs.httpRoute");
+        if (!unknown_httpRoute) return value_httpRoute;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecArgs.httpRoute' is not present");
     }
 
     /**
      * Priority for the gateway route, between `0` and `1000`.
      * 
      */
-    private UndeferrableValue<Integer> priority;
-
+    @PolicyResourceProperty(name="priority", flag="unknown_priority")
+    private Integer value_priority;
+    private boolean unknown_priority;
     public Integer priority() {
-        if (priority == null) return null;
-        return priority.getValue("GatewayRouteSpecArgs.priority");
+        if (!unknown_priority) return value_priority;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecArgs.priority' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mskconnect.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ConnectorKafkaClusterEncryptionInTransitArgs {
      * The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
      * 
      */
-    private UndeferrableValue<String> encryptionType;
-
+    @PolicyResourceProperty(name="encryptionType", flag="unknown_encryptionType")
+    private String value_encryptionType;
+    private boolean unknown_encryptionType;
     public String encryptionType() {
-        if (encryptionType == null) return null;
-        return encryptionType.getValue("ConnectorKafkaClusterEncryptionInTransitArgs.encryptionType");
+        if (!unknown_encryptionType) return value_encryptionType;
+        throw new UndeferrableValueException("Value 'ConnectorKafkaClusterEncryptionInTransitArgs.encryptionType' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefini
      * Set of configuration blocks describing dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for more details.
      * 
      */
-    private UndeferrableValue<List<FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs>> dimensions;
-
+    @PolicyResourceProperty(name="dimensions", flag="unknown_dimensions")
+    private List<FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs> value_dimensions;
+    private boolean unknown_dimensions;
     public List<FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs> dimensions() {
-        if (dimensions == null) return null;
-        return dimensions.getValue("FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs.dimensions");
+        if (!unknown_dimensions) return value_dimensions;
+        throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs.dimensions' is not present");
     }
 
 }

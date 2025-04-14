@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appconfig;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appconfig.inputs.ExtensionActionPointArgs;
 import com.pulumi.policypacks.aws.appconfig.inputs.ExtensionParameterArgs;
@@ -20,55 +21,60 @@ public final class ExtensionArgs extends com.pulumi.resources.PolicyResourceInpu
      * The action points defined in the extension. Detailed below.
      * 
      */
-    private UndeferrableValue<List<ExtensionActionPointArgs>> actionPoints;
-
+    @PolicyResourceProperty(name="actionPoints", flag="unknown_actionPoints")
+    private List<ExtensionActionPointArgs> value_actionPoints;
+    private boolean unknown_actionPoints;
     public List<ExtensionActionPointArgs> actionPoints() {
-        if (actionPoints == null) return null;
-        return actionPoints.getValue("ExtensionArgs.actionPoints");
+        if (!unknown_actionPoints) return value_actionPoints;
+        throw new UndeferrableValueException("Value 'ExtensionArgs.actionPoints' is not present");
     }
 
     /**
      * Information about the extension.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ExtensionArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ExtensionArgs.description' is not present");
     }
 
     /**
      * A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ExtensionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ExtensionArgs.name' is not present");
     }
 
     /**
      * The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
      * 
      */
-    private UndeferrableValue<List<ExtensionParameterArgs>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private List<ExtensionParameterArgs> value_parameters;
+    private boolean unknown_parameters;
     public List<ExtensionParameterArgs> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("ExtensionArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'ExtensionArgs.parameters' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ExtensionArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ExtensionArgs.tags' is not present");
     }
 
 }

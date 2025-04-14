@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dynamodb.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class TableImportTableS3BucketSourceArgs {
      * The S3 bucket that is being imported from.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("TableImportTableS3BucketSourceArgs.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'TableImportTableS3BucketSourceArgs.bucket' is not present");
     }
 
     /**
      * The account number of the S3 bucket that is being imported from.
      * 
      */
-    private UndeferrableValue<String> bucketOwner;
-
+    @PolicyResourceProperty(name="bucketOwner", flag="unknown_bucketOwner")
+    private String value_bucketOwner;
+    private boolean unknown_bucketOwner;
     public String bucketOwner() {
-        if (bucketOwner == null) return null;
-        return bucketOwner.getValue("TableImportTableS3BucketSourceArgs.bucketOwner");
+        if (!unknown_bucketOwner) return value_bucketOwner;
+        throw new UndeferrableValueException("Value 'TableImportTableS3BucketSourceArgs.bucketOwner' is not present");
     }
 
     /**
      * The key prefix shared by all S3 Objects that are being imported.
      * 
      */
-    private UndeferrableValue<String> keyPrefix;
-
+    @PolicyResourceProperty(name="keyPrefix", flag="unknown_keyPrefix")
+    private String value_keyPrefix;
+    private boolean unknown_keyPrefix;
     public String keyPrefix() {
-        if (keyPrefix == null) return null;
-        return keyPrefix.getValue("TableImportTableS3BucketSourceArgs.keyPrefix");
+        if (!unknown_keyPrefix) return value_keyPrefix;
+        throw new UndeferrableValueException("Value 'TableImportTableS3BucketSourceArgs.keyPrefix' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appstream.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -15,11 +16,12 @@ public final class StackStreamingExperienceSettings {
      * Valid values are `TCP` and `UDP`.
      * 
      */
-    private @Nullable UndeferrableValue<String> preferredProtocol;
-
+    @PolicyResourceProperty(name="preferredProtocol", flag="unknown_preferredProtocol")
+    private @Nullable String value_preferredProtocol;
+    private boolean unknown_preferredProtocol;
     public @Nullable String preferredProtocol() {
-        if (preferredProtocol == null) return null;
-        return preferredProtocol.getValue("StackStreamingExperienceSettings.preferredProtocol");
+        if (!unknown_preferredProtocol) return value_preferredProtocol;
+        throw new UndeferrableValueException("Value 'StackStreamingExperienceSettings.preferredProtocol' is not present");
     }
 
 }

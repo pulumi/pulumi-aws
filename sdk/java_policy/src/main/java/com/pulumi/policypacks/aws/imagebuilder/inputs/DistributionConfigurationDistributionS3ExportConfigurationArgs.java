@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class DistributionConfigurationDistributionS3ExportConfigurationArg
      * The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
      * 
      */
-    private UndeferrableValue<String> diskImageFormat;
-
+    @PolicyResourceProperty(name="diskImageFormat", flag="unknown_diskImageFormat")
+    private String value_diskImageFormat;
+    private boolean unknown_diskImageFormat;
     public String diskImageFormat() {
-        if (diskImageFormat == null) return null;
-        return diskImageFormat.getValue("DistributionConfigurationDistributionS3ExportConfigurationArgs.diskImageFormat");
+        if (!unknown_diskImageFormat) return value_diskImageFormat;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionS3ExportConfigurationArgs.diskImageFormat' is not present");
     }
 
     /**
      * The name of the IAM role to use for exporting.
      * 
      */
-    private UndeferrableValue<String> roleName;
-
+    @PolicyResourceProperty(name="roleName", flag="unknown_roleName")
+    private String value_roleName;
+    private boolean unknown_roleName;
     public String roleName() {
-        if (roleName == null) return null;
-        return roleName.getValue("DistributionConfigurationDistributionS3ExportConfigurationArgs.roleName");
+        if (!unknown_roleName) return value_roleName;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionS3ExportConfigurationArgs.roleName' is not present");
     }
 
     /**
      * The name of the S3 bucket to store the exported image in. The bucket needs to exist before the export configuration is created.
      * 
      */
-    private UndeferrableValue<String> s3Bucket;
-
+    @PolicyResourceProperty(name="s3Bucket", flag="unknown_s3Bucket")
+    private String value_s3Bucket;
+    private boolean unknown_s3Bucket;
     public String s3Bucket() {
-        if (s3Bucket == null) return null;
-        return s3Bucket.getValue("DistributionConfigurationDistributionS3ExportConfigurationArgs.s3Bucket");
+        if (!unknown_s3Bucket) return value_s3Bucket;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionS3ExportConfigurationArgs.s3Bucket' is not present");
     }
 
     /**
      * The prefix for the exported image.
      * 
      */
-    private UndeferrableValue<String> s3Prefix;
-
+    @PolicyResourceProperty(name="s3Prefix", flag="unknown_s3Prefix")
+    private String value_s3Prefix;
+    private boolean unknown_s3Prefix;
     public String s3Prefix() {
-        if (s3Prefix == null) return null;
-        return s3Prefix.getValue("DistributionConfigurationDistributionS3ExportConfigurationArgs.s3Prefix");
+        if (!unknown_s3Prefix) return value_s3Prefix;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionS3ExportConfigurationArgs.s3Prefix' is not present");
     }
 
 }

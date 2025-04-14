@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.oam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,44 +16,48 @@ public final class SinkPolicy extends com.pulumi.resources.PolicyResourceOutput 
      * ARN of the Sink.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("SinkPolicy.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'SinkPolicy.arn' is not present");
     }
 
     /**
      * JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("SinkPolicy.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'SinkPolicy.policy' is not present");
     }
 
     /**
      * ID string that AWS generated as part of the sink ARN.
      * 
      */
-    private UndeferrableValue<String> sinkId;
-
+    @PolicyResourceProperty(name="sinkId", flag="unknown_sinkId")
+    private String value_sinkId;
+    private boolean unknown_sinkId;
     public String sinkId() {
-        if (sinkId == null) return null;
-        return sinkId.getValue("SinkPolicy.sinkId");
+        if (!unknown_sinkId) return value_sinkId;
+        throw new UndeferrableValueException("Value 'SinkPolicy.sinkId' is not present");
     }
 
     /**
      * ARN of the sink to attach this policy to.
      * 
      */
-    private UndeferrableValue<String> sinkIdentifier;
-
+    @PolicyResourceProperty(name="sinkIdentifier", flag="unknown_sinkIdentifier")
+    private String value_sinkIdentifier;
+    private boolean unknown_sinkIdentifier;
     public String sinkIdentifier() {
-        if (sinkIdentifier == null) return null;
-        return sinkIdentifier.getValue("SinkPolicy.sinkIdentifier");
+        if (!unknown_sinkIdentifier) return value_sinkIdentifier;
+        throw new UndeferrableValueException("Value 'SinkPolicy.sinkIdentifier' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualRouterSpecArgs;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class VirtualRouterArgs extends com.pulumi.resources.PolicyResource
      * Name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
      * 
      */
-    private UndeferrableValue<String> meshName;
-
+    @PolicyResourceProperty(name="meshName", flag="unknown_meshName")
+    private String value_meshName;
+    private boolean unknown_meshName;
     public String meshName() {
-        if (meshName == null) return null;
-        return meshName.getValue("VirtualRouterArgs.meshName");
+        if (!unknown_meshName) return value_meshName;
+        throw new UndeferrableValueException("Value 'VirtualRouterArgs.meshName' is not present");
     }
 
     /**
      * AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the AWS provider is currently connected to.
      * 
      */
-    private UndeferrableValue<String> meshOwner;
-
+    @PolicyResourceProperty(name="meshOwner", flag="unknown_meshOwner")
+    private String value_meshOwner;
+    private boolean unknown_meshOwner;
     public String meshOwner() {
-        if (meshOwner == null) return null;
-        return meshOwner.getValue("VirtualRouterArgs.meshOwner");
+        if (!unknown_meshOwner) return value_meshOwner;
+        throw new UndeferrableValueException("Value 'VirtualRouterArgs.meshOwner' is not present");
     }
 
     /**
      * Name to use for the virtual router. Must be between 1 and 255 characters in length.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("VirtualRouterArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'VirtualRouterArgs.name' is not present");
     }
 
     /**
      * Virtual router specification to apply.
      * 
      */
-    private UndeferrableValue<VirtualRouterSpecArgs> spec;
-
+    @PolicyResourceProperty(name="spec", flag="unknown_spec")
+    private VirtualRouterSpecArgs value_spec;
+    private boolean unknown_spec;
     public VirtualRouterSpecArgs spec() {
-        if (spec == null) return null;
-        return spec.getValue("VirtualRouterArgs.spec");
+        if (!unknown_spec) return value_spec;
+        throw new UndeferrableValueException("Value 'VirtualRouterArgs.spec' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VirtualRouterArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VirtualRouterArgs.tags' is not present");
     }
 
 }

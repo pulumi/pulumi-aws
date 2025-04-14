@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.opensearch.outputs.OutboundConnectionConnectionPropertiesCrossClusterSearch;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class OutboundConnectionConnectionProperties {
      * Configuration block for cross cluster search.
      * 
      */
-    private @Nullable UndeferrableValue<OutboundConnectionConnectionPropertiesCrossClusterSearch> crossClusterSearch;
-
+    @PolicyResourceProperty(name="crossClusterSearch", flag="unknown_crossClusterSearch")
+    private @Nullable OutboundConnectionConnectionPropertiesCrossClusterSearch value_crossClusterSearch;
+    private boolean unknown_crossClusterSearch;
     public @Nullable OutboundConnectionConnectionPropertiesCrossClusterSearch crossClusterSearch() {
-        if (crossClusterSearch == null) return null;
-        return crossClusterSearch.getValue("OutboundConnectionConnectionProperties.crossClusterSearch");
+        if (!unknown_crossClusterSearch) return value_crossClusterSearch;
+        throw new UndeferrableValueException("Value 'OutboundConnectionConnectionProperties.crossClusterSearch' is not present");
     }
 
     /**
      * The endpoint of the remote domain, is only set when `connection_mode` is `VPC_ENDPOINT` and `accept_connection` is `TRUE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> endpoint;
-
+    @PolicyResourceProperty(name="endpoint", flag="unknown_endpoint")
+    private @Nullable String value_endpoint;
+    private boolean unknown_endpoint;
     public @Nullable String endpoint() {
-        if (endpoint == null) return null;
-        return endpoint.getValue("OutboundConnectionConnectionProperties.endpoint");
+        if (!unknown_endpoint) return value_endpoint;
+        throw new UndeferrableValueException("Value 'OutboundConnectionConnectionProperties.endpoint' is not present");
     }
 
 }

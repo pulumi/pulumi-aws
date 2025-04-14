@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ChannelInputAttachmentInputSettingsNetworkInputSettings {
      * Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings> hlsInputSettings;
-
+    @PolicyResourceProperty(name="hlsInputSettings", flag="unknown_hlsInputSettings")
+    private @Nullable ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings value_hlsInputSettings;
+    private boolean unknown_hlsInputSettings;
     public @Nullable ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings hlsInputSettings() {
-        if (hlsInputSettings == null) return null;
-        return hlsInputSettings.getValue("ChannelInputAttachmentInputSettingsNetworkInputSettings.hlsInputSettings");
+        if (!unknown_hlsInputSettings) return value_hlsInputSettings;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsNetworkInputSettings.hlsInputSettings' is not present");
     }
 
     /**
      * Check HTTPS server certificates.
      * 
      */
-    private @Nullable UndeferrableValue<String> serverValidation;
-
+    @PolicyResourceProperty(name="serverValidation", flag="unknown_serverValidation")
+    private @Nullable String value_serverValidation;
+    private boolean unknown_serverValidation;
     public @Nullable String serverValidation() {
-        if (serverValidation == null) return null;
-        return serverValidation.getValue("ChannelInputAttachmentInputSettingsNetworkInputSettings.serverValidation");
+        if (!unknown_serverValidation) return value_serverValidation;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsNetworkInputSettings.serverValidation' is not present");
     }
 
 }

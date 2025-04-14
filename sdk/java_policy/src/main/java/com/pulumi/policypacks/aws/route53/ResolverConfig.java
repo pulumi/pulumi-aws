@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class ResolverConfig extends com.pulumi.resources.PolicyResourceOut
      * Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
      * 
      */
-    private UndeferrableValue<String> autodefinedReverseFlag;
-
+    @PolicyResourceProperty(name="autodefinedReverseFlag", flag="unknown_autodefinedReverseFlag")
+    private String value_autodefinedReverseFlag;
+    private boolean unknown_autodefinedReverseFlag;
     public String autodefinedReverseFlag() {
-        if (autodefinedReverseFlag == null) return null;
-        return autodefinedReverseFlag.getValue("ResolverConfig.autodefinedReverseFlag");
+        if (!unknown_autodefinedReverseFlag) return value_autodefinedReverseFlag;
+        throw new UndeferrableValueException("Value 'ResolverConfig.autodefinedReverseFlag' is not present");
     }
 
     /**
      * The AWS account ID of the owner of the VPC that this resolver configuration applies to.
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("ResolverConfig.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'ResolverConfig.ownerId' is not present");
     }
 
     /**
      * The ID of the VPC that the configuration is for.
      * 
      */
-    private UndeferrableValue<String> resourceId;
-
+    @PolicyResourceProperty(name="resourceId", flag="unknown_resourceId")
+    private String value_resourceId;
+    private boolean unknown_resourceId;
     public String resourceId() {
-        if (resourceId == null) return null;
-        return resourceId.getValue("ResolverConfig.resourceId");
+        if (!unknown_resourceId) return value_resourceId;
+        throw new UndeferrableValueException("Value 'ResolverConfig.resourceId' is not present");
     }
 
 }

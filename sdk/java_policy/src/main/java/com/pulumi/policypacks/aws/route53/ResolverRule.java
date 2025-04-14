@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.route53.outputs.ResolverRuleTargetIp;
 import java.lang.String;
@@ -19,44 +20,48 @@ public final class ResolverRule extends com.pulumi.resources.PolicyResourceOutpu
      * ARN (Amazon Resource Name) for the resolver rule.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ResolverRule.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ResolverRule.arn' is not present");
     }
 
     /**
      * DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("ResolverRule.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'ResolverRule.domainName' is not present");
     }
 
     /**
      * Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ResolverRule.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ResolverRule.name' is not present");
     }
 
     /**
      * When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("ResolverRule.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'ResolverRule.ownerId' is not present");
     }
 
     /**
@@ -64,22 +69,24 @@ public final class ResolverRule extends com.pulumi.resources.PolicyResourceOutpu
      * This argument should only be specified for `FORWARD` type rules.
      * 
      */
-    private @Nullable UndeferrableValue<String> resolverEndpointId;
-
+    @PolicyResourceProperty(name="resolverEndpointId", flag="unknown_resolverEndpointId")
+    private @Nullable String value_resolverEndpointId;
+    private boolean unknown_resolverEndpointId;
     public @Nullable String resolverEndpointId() {
-        if (resolverEndpointId == null) return null;
-        return resolverEndpointId.getValue("ResolverRule.resolverEndpointId");
+        if (!unknown_resolverEndpointId) return value_resolverEndpointId;
+        throw new UndeferrableValueException("Value 'ResolverRule.resolverEndpointId' is not present");
     }
 
     /**
      * Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
      * 
      */
-    private UndeferrableValue<String> ruleType;
-
+    @PolicyResourceProperty(name="ruleType", flag="unknown_ruleType")
+    private String value_ruleType;
+    private boolean unknown_ruleType;
     public String ruleType() {
-        if (ruleType == null) return null;
-        return ruleType.getValue("ResolverRule.ruleType");
+        if (!unknown_ruleType) return value_ruleType;
+        throw new UndeferrableValueException("Value 'ResolverRule.ruleType' is not present");
     }
 
     /**
@@ -87,22 +94,24 @@ public final class ResolverRule extends com.pulumi.resources.PolicyResourceOutpu
      * Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
      * 
      */
-    private UndeferrableValue<String> shareStatus;
-
+    @PolicyResourceProperty(name="shareStatus", flag="unknown_shareStatus")
+    private String value_shareStatus;
+    private boolean unknown_shareStatus;
     public String shareStatus() {
-        if (shareStatus == null) return null;
-        return shareStatus.getValue("ResolverRule.shareStatus");
+        if (!unknown_shareStatus) return value_shareStatus;
+        throw new UndeferrableValueException("Value 'ResolverRule.shareStatus' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ResolverRule.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ResolverRule.tags' is not present");
     }
 
     /**
@@ -113,11 +122,12 @@ public final class ResolverRule extends com.pulumi.resources.PolicyResourceOutpu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ResolverRule.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ResolverRule.tagsAll' is not present");
     }
 
     /**
@@ -125,11 +135,12 @@ public final class ResolverRule extends com.pulumi.resources.PolicyResourceOutpu
      * This argument should only be specified for `FORWARD` type rules.
      * 
      */
-    private @Nullable UndeferrableValue<List<ResolverRuleTargetIp>> targetIps;
-
+    @PolicyResourceProperty(name="targetIps", flag="unknown_targetIps")
+    private @Nullable List<ResolverRuleTargetIp> value_targetIps;
+    private boolean unknown_targetIps;
     public @Nullable List<ResolverRuleTargetIp> targetIps() {
-        if (targetIps == null) return null;
-        return targetIps.getValue("ResolverRule.targetIps");
+        if (!unknown_targetIps) return value_targetIps;
+        throw new UndeferrableValueException("Value 'ResolverRule.targetIps' is not present");
     }
 
 }

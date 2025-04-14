@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.RouteSpecGrpcRouteActionArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.RouteSpecGrpcRouteMatchArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.RouteSpecGrpcRouteRetryPolicyArgs;
@@ -17,44 +18,48 @@ public final class RouteSpecGrpcRouteArgs {
      * Action to take if a match is determined.
      * 
      */
-    private UndeferrableValue<RouteSpecGrpcRouteActionArgs> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private RouteSpecGrpcRouteActionArgs value_action;
+    private boolean unknown_action;
     public RouteSpecGrpcRouteActionArgs action() {
-        if (action == null) return null;
-        return action.getValue("RouteSpecGrpcRouteArgs.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'RouteSpecGrpcRouteArgs.action' is not present");
     }
 
     /**
      * Criteria for determining an gRPC request match.
      * 
      */
-    private UndeferrableValue<RouteSpecGrpcRouteMatchArgs> match;
-
+    @PolicyResourceProperty(name="match", flag="unknown_match")
+    private RouteSpecGrpcRouteMatchArgs value_match;
+    private boolean unknown_match;
     public RouteSpecGrpcRouteMatchArgs match() {
-        if (match == null) return null;
-        return match.getValue("RouteSpecGrpcRouteArgs.match");
+        if (!unknown_match) return value_match;
+        throw new UndeferrableValueException("Value 'RouteSpecGrpcRouteArgs.match' is not present");
     }
 
     /**
      * Retry policy.
      * 
      */
-    private UndeferrableValue<RouteSpecGrpcRouteRetryPolicyArgs> retryPolicy;
-
+    @PolicyResourceProperty(name="retryPolicy", flag="unknown_retryPolicy")
+    private RouteSpecGrpcRouteRetryPolicyArgs value_retryPolicy;
+    private boolean unknown_retryPolicy;
     public RouteSpecGrpcRouteRetryPolicyArgs retryPolicy() {
-        if (retryPolicy == null) return null;
-        return retryPolicy.getValue("RouteSpecGrpcRouteArgs.retryPolicy");
+        if (!unknown_retryPolicy) return value_retryPolicy;
+        throw new UndeferrableValueException("Value 'RouteSpecGrpcRouteArgs.retryPolicy' is not present");
     }
 
     /**
      * Types of timeouts.
      * 
      */
-    private UndeferrableValue<RouteSpecGrpcRouteTimeoutArgs> timeout;
-
+    @PolicyResourceProperty(name="timeout", flag="unknown_timeout")
+    private RouteSpecGrpcRouteTimeoutArgs value_timeout;
+    private boolean unknown_timeout;
     public RouteSpecGrpcRouteTimeoutArgs timeout() {
-        if (timeout == null) return null;
-        return timeout.getValue("RouteSpecGrpcRouteArgs.timeout");
+        if (!unknown_timeout) return value_timeout;
+        throw new UndeferrableValueException("Value 'RouteSpecGrpcRouteArgs.timeout' is not present");
     }
 
 }

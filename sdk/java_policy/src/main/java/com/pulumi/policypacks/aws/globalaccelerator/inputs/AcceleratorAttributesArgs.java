@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.globalaccelerator.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class AcceleratorAttributesArgs {
      * Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
      * 
      */
-    private UndeferrableValue<Boolean> flowLogsEnabled;
-
+    @PolicyResourceProperty(name="flowLogsEnabled", flag="unknown_flowLogsEnabled")
+    private Boolean value_flowLogsEnabled;
+    private boolean unknown_flowLogsEnabled;
     public Boolean flowLogsEnabled() {
-        if (flowLogsEnabled == null) return null;
-        return flowLogsEnabled.getValue("AcceleratorAttributesArgs.flowLogsEnabled");
+        if (!unknown_flowLogsEnabled) return value_flowLogsEnabled;
+        throw new UndeferrableValueException("Value 'AcceleratorAttributesArgs.flowLogsEnabled' is not present");
     }
 
     /**
      * The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
      * 
      */
-    private UndeferrableValue<String> flowLogsS3Bucket;
-
+    @PolicyResourceProperty(name="flowLogsS3Bucket", flag="unknown_flowLogsS3Bucket")
+    private String value_flowLogsS3Bucket;
+    private boolean unknown_flowLogsS3Bucket;
     public String flowLogsS3Bucket() {
-        if (flowLogsS3Bucket == null) return null;
-        return flowLogsS3Bucket.getValue("AcceleratorAttributesArgs.flowLogsS3Bucket");
+        if (!unknown_flowLogsS3Bucket) return value_flowLogsS3Bucket;
+        throw new UndeferrableValueException("Value 'AcceleratorAttributesArgs.flowLogsS3Bucket' is not present");
     }
 
     /**
      * The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
      * 
      */
-    private UndeferrableValue<String> flowLogsS3Prefix;
-
+    @PolicyResourceProperty(name="flowLogsS3Prefix", flag="unknown_flowLogsS3Prefix")
+    private String value_flowLogsS3Prefix;
+    private boolean unknown_flowLogsS3Prefix;
     public String flowLogsS3Prefix() {
-        if (flowLogsS3Prefix == null) return null;
-        return flowLogsS3Prefix.getValue("AcceleratorAttributesArgs.flowLogsS3Prefix");
+        if (!unknown_flowLogsS3Prefix) return value_flowLogsS3Prefix;
+        throw new UndeferrableValueException("Value 'AcceleratorAttributesArgs.flowLogsS3Prefix' is not present");
     }
 
 }

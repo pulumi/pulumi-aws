@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.msk.outputs.ReplicatorKafkaClusterAmazonMskCluster;
 import com.pulumi.policypacks.aws.msk.outputs.ReplicatorKafkaClusterVpcConfig;
 
@@ -14,22 +15,24 @@ public final class ReplicatorKafkaCluster {
      * Details of an Amazon MSK cluster.
      * 
      */
-    private UndeferrableValue<ReplicatorKafkaClusterAmazonMskCluster> amazonMskCluster;
-
+    @PolicyResourceProperty(name="amazonMskCluster", flag="unknown_amazonMskCluster")
+    private ReplicatorKafkaClusterAmazonMskCluster value_amazonMskCluster;
+    private boolean unknown_amazonMskCluster;
     public ReplicatorKafkaClusterAmazonMskCluster amazonMskCluster() {
-        if (amazonMskCluster == null) return null;
-        return amazonMskCluster.getValue("ReplicatorKafkaCluster.amazonMskCluster");
+        if (!unknown_amazonMskCluster) return value_amazonMskCluster;
+        throw new UndeferrableValueException("Value 'ReplicatorKafkaCluster.amazonMskCluster' is not present");
     }
 
     /**
      * Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
      * 
      */
-    private UndeferrableValue<ReplicatorKafkaClusterVpcConfig> vpcConfig;
-
+    @PolicyResourceProperty(name="vpcConfig", flag="unknown_vpcConfig")
+    private ReplicatorKafkaClusterVpcConfig value_vpcConfig;
+    private boolean unknown_vpcConfig;
     public ReplicatorKafkaClusterVpcConfig vpcConfig() {
-        if (vpcConfig == null) return null;
-        return vpcConfig.getValue("ReplicatorKafkaCluster.vpcConfig");
+        if (!unknown_vpcConfig) return value_vpcConfig;
+        throw new UndeferrableValueException("Value 'ReplicatorKafkaCluster.vpcConfig' is not present");
     }
 
 }

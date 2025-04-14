@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class V2modelsIntentConfirmationSettingCodeHookArgs {
      * Whether a dialog code hook is used when the intent is activated.
      * 
      */
-    private UndeferrableValue<Boolean> active;
-
+    @PolicyResourceProperty(name="active", flag="unknown_active")
+    private Boolean value_active;
+    private boolean unknown_active;
     public Boolean active() {
-        if (active == null) return null;
-        return active.getValue("V2modelsIntentConfirmationSettingCodeHookArgs.active");
+        if (!unknown_active) return value_active;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookArgs.active' is not present");
     }
 
     /**
      * Whether a Lambda function should be invoked for the dialog.
      * 
      */
-    private UndeferrableValue<Boolean> enableCodeHookInvocation;
-
+    @PolicyResourceProperty(name="enableCodeHookInvocation", flag="unknown_enableCodeHookInvocation")
+    private Boolean value_enableCodeHookInvocation;
+    private boolean unknown_enableCodeHookInvocation;
     public Boolean enableCodeHookInvocation() {
-        if (enableCodeHookInvocation == null) return null;
-        return enableCodeHookInvocation.getValue("V2modelsIntentConfirmationSettingCodeHookArgs.enableCodeHookInvocation");
+        if (!unknown_enableCodeHookInvocation) return value_enableCodeHookInvocation;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookArgs.enableCodeHookInvocation' is not present");
     }
 
     /**
      * Label that indicates the dialog step from which the dialog code hook is happening.
      * 
      */
-    private UndeferrableValue<String> invocationLabel;
-
+    @PolicyResourceProperty(name="invocationLabel", flag="unknown_invocationLabel")
+    private String value_invocationLabel;
+    private boolean unknown_invocationLabel;
     public String invocationLabel() {
-        if (invocationLabel == null) return null;
-        return invocationLabel.getValue("V2modelsIntentConfirmationSettingCodeHookArgs.invocationLabel");
+        if (!unknown_invocationLabel) return value_invocationLabel;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookArgs.invocationLabel' is not present");
     }
 
     /**
      * Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `post_code_hook_specification`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs> postCodeHookSpecification;
-
+    @PolicyResourceProperty(name="postCodeHookSpecification", flag="unknown_postCodeHookSpecification")
+    private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs value_postCodeHookSpecification;
+    private boolean unknown_postCodeHookSpecification;
     public V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs postCodeHookSpecification() {
-        if (postCodeHookSpecification == null) return null;
-        return postCodeHookSpecification.getValue("V2modelsIntentConfirmationSettingCodeHookArgs.postCodeHookSpecification");
+        if (!unknown_postCodeHookSpecification) return value_postCodeHookSpecification;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookArgs.postCodeHookSpecification' is not present");
     }
 
 }

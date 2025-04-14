@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.GatewayRouteSpecHttp2RouteAction;
 import com.pulumi.policypacks.aws.appmesh.outputs.GatewayRouteSpecHttp2RouteMatch;
 
@@ -14,22 +15,24 @@ public final class GatewayRouteSpecHttp2Route {
      * Action to take if a match is determined.
      * 
      */
-    private UndeferrableValue<GatewayRouteSpecHttp2RouteAction> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private GatewayRouteSpecHttp2RouteAction value_action;
+    private boolean unknown_action;
     public GatewayRouteSpecHttp2RouteAction action() {
-        if (action == null) return null;
-        return action.getValue("GatewayRouteSpecHttp2Route.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttp2Route.action' is not present");
     }
 
     /**
      * Criteria for determining a request match.
      * 
      */
-    private UndeferrableValue<GatewayRouteSpecHttp2RouteMatch> match;
-
+    @PolicyResourceProperty(name="match", flag="unknown_match")
+    private GatewayRouteSpecHttp2RouteMatch value_match;
+    private boolean unknown_match;
     public GatewayRouteSpecHttp2RouteMatch match() {
-        if (match == null) return null;
-        return match.getValue("GatewayRouteSpecHttp2Route.match");
+        if (!unknown_match) return value_match;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttp2Route.match' is not present");
     }
 
 }

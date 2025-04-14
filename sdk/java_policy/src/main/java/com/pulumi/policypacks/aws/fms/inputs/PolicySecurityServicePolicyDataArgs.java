@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fms.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.fms.inputs.PolicySecurityServicePolicyDataPolicyOptionArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class PolicySecurityServicePolicyDataArgs {
      * Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
      * 
      */
-    private UndeferrableValue<String> managedServiceData;
-
+    @PolicyResourceProperty(name="managedServiceData", flag="unknown_managedServiceData")
+    private String value_managedServiceData;
+    private boolean unknown_managedServiceData;
     public String managedServiceData() {
-        if (managedServiceData == null) return null;
-        return managedServiceData.getValue("PolicySecurityServicePolicyDataArgs.managedServiceData");
+        if (!unknown_managedServiceData) return value_managedServiceData;
+        throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataArgs.managedServiceData' is not present");
     }
 
     /**
      * Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
      * 
      */
-    private UndeferrableValue<PolicySecurityServicePolicyDataPolicyOptionArgs> policyOption;
-
+    @PolicyResourceProperty(name="policyOption", flag="unknown_policyOption")
+    private PolicySecurityServicePolicyDataPolicyOptionArgs value_policyOption;
+    private boolean unknown_policyOption;
     public PolicySecurityServicePolicyDataPolicyOptionArgs policyOption() {
-        if (policyOption == null) return null;
-        return policyOption.getValue("PolicySecurityServicePolicyDataArgs.policyOption");
+        if (!unknown_policyOption) return value_policyOption;
+        throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataArgs.policyOption' is not present");
     }
 
     /**
      * An integer value containing ICMP type.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("PolicySecurityServicePolicyDataArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataArgs.type' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class PipeLogConfigurationFirehoseLogDestination {
      * Amazon Resource Name (ARN) of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
      * 
      */
-    private UndeferrableValue<String> deliveryStreamArn;
-
+    @PolicyResourceProperty(name="deliveryStreamArn", flag="unknown_deliveryStreamArn")
+    private String value_deliveryStreamArn;
+    private boolean unknown_deliveryStreamArn;
     public String deliveryStreamArn() {
-        if (deliveryStreamArn == null) return null;
-        return deliveryStreamArn.getValue("PipeLogConfigurationFirehoseLogDestination.deliveryStreamArn");
+        if (!unknown_deliveryStreamArn) return value_deliveryStreamArn;
+        throw new UndeferrableValueException("Value 'PipeLogConfigurationFirehoseLogDestination.deliveryStreamArn' is not present");
     }
 
 }

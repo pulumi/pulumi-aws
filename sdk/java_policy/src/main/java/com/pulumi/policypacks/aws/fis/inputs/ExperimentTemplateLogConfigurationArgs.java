@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fis.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.fis.inputs.ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs;
 import com.pulumi.policypacks.aws.fis.inputs.ExperimentTemplateLogConfigurationS3ConfigurationArgs;
 import java.lang.Integer;
@@ -16,33 +17,36 @@ public final class ExperimentTemplateLogConfigurationArgs {
      * The configuration for experiment logging to Amazon CloudWatch Logs. See below.
      * 
      */
-    private UndeferrableValue<ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs> cloudwatchLogsConfiguration;
-
+    @PolicyResourceProperty(name="cloudwatchLogsConfiguration", flag="unknown_cloudwatchLogsConfiguration")
+    private ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs value_cloudwatchLogsConfiguration;
+    private boolean unknown_cloudwatchLogsConfiguration;
     public ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs cloudwatchLogsConfiguration() {
-        if (cloudwatchLogsConfiguration == null) return null;
-        return cloudwatchLogsConfiguration.getValue("ExperimentTemplateLogConfigurationArgs.cloudwatchLogsConfiguration");
+        if (!unknown_cloudwatchLogsConfiguration) return value_cloudwatchLogsConfiguration;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateLogConfigurationArgs.cloudwatchLogsConfiguration' is not present");
     }
 
     /**
      * The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
      * 
      */
-    private UndeferrableValue<Integer> logSchemaVersion;
-
+    @PolicyResourceProperty(name="logSchemaVersion", flag="unknown_logSchemaVersion")
+    private Integer value_logSchemaVersion;
+    private boolean unknown_logSchemaVersion;
     public Integer logSchemaVersion() {
-        if (logSchemaVersion == null) return null;
-        return logSchemaVersion.getValue("ExperimentTemplateLogConfigurationArgs.logSchemaVersion");
+        if (!unknown_logSchemaVersion) return value_logSchemaVersion;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateLogConfigurationArgs.logSchemaVersion' is not present");
     }
 
     /**
      * The configuration for experiment logging to Amazon S3. See below.
      * 
      */
-    private UndeferrableValue<ExperimentTemplateLogConfigurationS3ConfigurationArgs> s3Configuration;
-
+    @PolicyResourceProperty(name="s3Configuration", flag="unknown_s3Configuration")
+    private ExperimentTemplateLogConfigurationS3ConfigurationArgs value_s3Configuration;
+    private boolean unknown_s3Configuration;
     public ExperimentTemplateLogConfigurationS3ConfigurationArgs s3Configuration() {
-        if (s3Configuration == null) return null;
-        return s3Configuration.getValue("ExperimentTemplateLogConfigurationArgs.s3Configuration");
+        if (!unknown_s3Configuration) return value_s3Configuration;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateLogConfigurationArgs.s3Configuration' is not present");
     }
 
 }

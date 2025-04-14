@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentDataSourceVectorIngestionConfigurationChunkingConfiguration;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentDataSourceVectorIngestionConfigurationParsingConfiguration;
@@ -16,33 +17,36 @@ public final class AgentDataSourceVectorIngestionConfiguration {
      * Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunking_configuration` block for details.
      * 
      */
-    private @Nullable UndeferrableValue<AgentDataSourceVectorIngestionConfigurationChunkingConfiguration> chunkingConfiguration;
-
+    @PolicyResourceProperty(name="chunkingConfiguration", flag="unknown_chunkingConfiguration")
+    private @Nullable AgentDataSourceVectorIngestionConfigurationChunkingConfiguration value_chunkingConfiguration;
+    private boolean unknown_chunkingConfiguration;
     public @Nullable AgentDataSourceVectorIngestionConfigurationChunkingConfiguration chunkingConfiguration() {
-        if (chunkingConfiguration == null) return null;
-        return chunkingConfiguration.getValue("AgentDataSourceVectorIngestionConfiguration.chunkingConfiguration");
+        if (!unknown_chunkingConfiguration) return value_chunkingConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfiguration.chunkingConfiguration' is not present");
     }
 
     /**
      * Configuration for custom transformation of data source documents.
      * 
      */
-    private @Nullable UndeferrableValue<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration> customTransformationConfiguration;
-
+    @PolicyResourceProperty(name="customTransformationConfiguration", flag="unknown_customTransformationConfiguration")
+    private @Nullable AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration value_customTransformationConfiguration;
+    private boolean unknown_customTransformationConfiguration;
     public @Nullable AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration customTransformationConfiguration() {
-        if (customTransformationConfiguration == null) return null;
-        return customTransformationConfiguration.getValue("AgentDataSourceVectorIngestionConfiguration.customTransformationConfiguration");
+        if (!unknown_customTransformationConfiguration) return value_customTransformationConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfiguration.customTransformationConfiguration' is not present");
     }
 
     /**
      * Configuration for custom parsing of data source documents. See `parsing_configuration` block for details.
      * 
      */
-    private @Nullable UndeferrableValue<AgentDataSourceVectorIngestionConfigurationParsingConfiguration> parsingConfiguration;
-
+    @PolicyResourceProperty(name="parsingConfiguration", flag="unknown_parsingConfiguration")
+    private @Nullable AgentDataSourceVectorIngestionConfigurationParsingConfiguration value_parsingConfiguration;
+    private boolean unknown_parsingConfiguration;
     public @Nullable AgentDataSourceVectorIngestionConfigurationParsingConfiguration parsingConfiguration() {
-        if (parsingConfiguration == null) return null;
-        return parsingConfiguration.getValue("AgentDataSourceVectorIngestionConfiguration.parsingConfiguration");
+        if (!unknown_parsingConfiguration) return value_parsingConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfiguration.parsingConfiguration' is not present");
     }
 
 }

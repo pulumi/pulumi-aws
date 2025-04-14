@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DomainRetentionPolicyArgs {
      * The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Valid values are `Retain` or `Delete`.  Default value is `Retain`.
      * 
      */
-    private UndeferrableValue<String> homeEfsFileSystem;
-
+    @PolicyResourceProperty(name="homeEfsFileSystem", flag="unknown_homeEfsFileSystem")
+    private String value_homeEfsFileSystem;
+    private boolean unknown_homeEfsFileSystem;
     public String homeEfsFileSystem() {
-        if (homeEfsFileSystem == null) return null;
-        return homeEfsFileSystem.getValue("DomainRetentionPolicyArgs.homeEfsFileSystem");
+        if (!unknown_homeEfsFileSystem) return value_homeEfsFileSystem;
+        throw new UndeferrableValueException("Value 'DomainRetentionPolicyArgs.homeEfsFileSystem' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.emr.outputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange;
 import java.lang.Boolean;
@@ -20,22 +21,24 @@ public final class BlockPublicAccessConfiguration extends com.pulumi.resources.P
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<Boolean> blockPublicSecurityGroupRules;
-
+    @PolicyResourceProperty(name="blockPublicSecurityGroupRules", flag="unknown_blockPublicSecurityGroupRules")
+    private Boolean value_blockPublicSecurityGroupRules;
+    private boolean unknown_blockPublicSecurityGroupRules;
     public Boolean blockPublicSecurityGroupRules() {
-        if (blockPublicSecurityGroupRules == null) return null;
-        return blockPublicSecurityGroupRules.getValue("BlockPublicAccessConfiguration.blockPublicSecurityGroupRules");
+        if (!unknown_blockPublicSecurityGroupRules) return value_blockPublicSecurityGroupRules;
+        throw new UndeferrableValueException("Value 'BlockPublicAccessConfiguration.blockPublicSecurityGroupRules' is not present");
     }
 
     /**
      * Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<List<BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange>> permittedPublicSecurityGroupRuleRanges;
-
+    @PolicyResourceProperty(name="permittedPublicSecurityGroupRuleRanges", flag="unknown_permittedPublicSecurityGroupRuleRanges")
+    private @Nullable List<BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange> value_permittedPublicSecurityGroupRuleRanges;
+    private boolean unknown_permittedPublicSecurityGroupRuleRanges;
     public @Nullable List<BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange> permittedPublicSecurityGroupRuleRanges() {
-        if (permittedPublicSecurityGroupRuleRanges == null) return null;
-        return permittedPublicSecurityGroupRuleRanges.getValue("BlockPublicAccessConfiguration.permittedPublicSecurityGroupRuleRanges");
+        if (!unknown_permittedPublicSecurityGroupRuleRanges) return value_permittedPublicSecurityGroupRuleRanges;
+        throw new UndeferrableValueException("Value 'BlockPublicAccessConfiguration.permittedPublicSecurityGroupRuleRanges' is not present");
     }
 
 }

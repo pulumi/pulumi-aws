@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,55 +16,60 @@ public final class ServerEndpointDetailsArgs {
      * A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server&#39;s endpoint. This property can only be used when `endpoint_type` is set to `VPC`.
      * 
      */
-    private UndeferrableValue<List<String>> addressAllocationIds;
-
+    @PolicyResourceProperty(name="addressAllocationIds", flag="unknown_addressAllocationIds")
+    private List<String> value_addressAllocationIds;
+    private boolean unknown_addressAllocationIds;
     public List<String> addressAllocationIds() {
-        if (addressAllocationIds == null) return null;
-        return addressAllocationIds.getValue("ServerEndpointDetailsArgs.addressAllocationIds");
+        if (!unknown_addressAllocationIds) return value_addressAllocationIds;
+        throw new UndeferrableValueException("Value 'ServerEndpointDetailsArgs.addressAllocationIds' is not present");
     }
 
     /**
      * A list of security groups IDs that are available to attach to your server&#39;s endpoint. If no security groups are specified, the VPC&#39;s default security groups are automatically assigned to your endpoint. This property can only be used when `endpoint_type` is set to `VPC`.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("ServerEndpointDetailsArgs.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'ServerEndpointDetailsArgs.securityGroupIds' is not present");
     }
 
     /**
      * A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpoint_type` is set to `VPC`.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("ServerEndpointDetailsArgs.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'ServerEndpointDetailsArgs.subnetIds' is not present");
     }
 
     /**
      * The ID of the VPC endpoint. This property can only be used when `endpoint_type` is set to `VPC_ENDPOINT`
      * 
      */
-    private UndeferrableValue<String> vpcEndpointId;
-
+    @PolicyResourceProperty(name="vpcEndpointId", flag="unknown_vpcEndpointId")
+    private String value_vpcEndpointId;
+    private boolean unknown_vpcEndpointId;
     public String vpcEndpointId() {
-        if (vpcEndpointId == null) return null;
-        return vpcEndpointId.getValue("ServerEndpointDetailsArgs.vpcEndpointId");
+        if (!unknown_vpcEndpointId) return value_vpcEndpointId;
+        throw new UndeferrableValueException("Value 'ServerEndpointDetailsArgs.vpcEndpointId' is not present");
     }
 
     /**
      * The VPC ID of the virtual private cloud in which the SFTP server&#39;s endpoint will be hosted. This property can only be used when `endpoint_type` is set to `VPC`.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("ServerEndpointDetailsArgs.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'ServerEndpointDetailsArgs.vpcId' is not present");
     }
 
 }

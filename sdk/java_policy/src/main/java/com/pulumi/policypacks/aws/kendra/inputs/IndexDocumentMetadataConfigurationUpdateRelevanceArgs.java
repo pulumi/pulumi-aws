@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,55 +18,60 @@ public final class IndexDocumentMetadataConfigurationUpdateRelevanceArgs {
      * Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
      * 
      */
-    private UndeferrableValue<String> duration;
-
+    @PolicyResourceProperty(name="duration", flag="unknown_duration")
+    private String value_duration;
+    private boolean unknown_duration;
     public String duration() {
-        if (duration == null) return null;
-        return duration.getValue("IndexDocumentMetadataConfigurationUpdateRelevanceArgs.duration");
+        if (!unknown_duration) return value_duration;
+        throw new UndeferrableValueException("Value 'IndexDocumentMetadataConfigurationUpdateRelevanceArgs.duration' is not present");
     }
 
     /**
      * Indicates that this field determines how &#34;fresh&#34; a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
      * 
      */
-    private UndeferrableValue<Boolean> freshness;
-
+    @PolicyResourceProperty(name="freshness", flag="unknown_freshness")
+    private Boolean value_freshness;
+    private boolean unknown_freshness;
     public Boolean freshness() {
-        if (freshness == null) return null;
-        return freshness.getValue("IndexDocumentMetadataConfigurationUpdateRelevanceArgs.freshness");
+        if (!unknown_freshness) return value_freshness;
+        throw new UndeferrableValueException("Value 'IndexDocumentMetadataConfigurationUpdateRelevanceArgs.freshness' is not present");
     }
 
     /**
      * The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
      * 
      */
-    private UndeferrableValue<Integer> importance;
-
+    @PolicyResourceProperty(name="importance", flag="unknown_importance")
+    private Integer value_importance;
+    private boolean unknown_importance;
     public Integer importance() {
-        if (importance == null) return null;
-        return importance.getValue("IndexDocumentMetadataConfigurationUpdateRelevanceArgs.importance");
+        if (!unknown_importance) return value_importance;
+        throw new UndeferrableValueException("Value 'IndexDocumentMetadataConfigurationUpdateRelevanceArgs.importance' is not present");
     }
 
     /**
      * Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
      * 
      */
-    private UndeferrableValue<String> rankOrder;
-
+    @PolicyResourceProperty(name="rankOrder", flag="unknown_rankOrder")
+    private String value_rankOrder;
+    private boolean unknown_rankOrder;
     public String rankOrder() {
-        if (rankOrder == null) return null;
-        return rankOrder.getValue("IndexDocumentMetadataConfigurationUpdateRelevanceArgs.rankOrder");
+        if (!unknown_rankOrder) return value_rankOrder;
+        throw new UndeferrableValueException("Value 'IndexDocumentMetadataConfigurationUpdateRelevanceArgs.rankOrder' is not present");
     }
 
     /**
      * A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
      * 
      */
-    private UndeferrableValue<Map<String,Integer>> valuesImportanceMap;
-
+    @PolicyResourceProperty(name="valuesImportanceMap", flag="unknown_valuesImportanceMap")
+    private Map<String,Integer> value_valuesImportanceMap;
+    private boolean unknown_valuesImportanceMap;
     public Map<String,Integer> valuesImportanceMap() {
-        if (valuesImportanceMap == null) return null;
-        return valuesImportanceMap.getValue("IndexDocumentMetadataConfigurationUpdateRelevanceArgs.valuesImportanceMap");
+        if (!unknown_valuesImportanceMap) return value_valuesImportanceMap;
+        throw new UndeferrableValueException("Value 'IndexDocumentMetadataConfigurationUpdateRelevanceArgs.valuesImportanceMap' is not present");
     }
 
 }

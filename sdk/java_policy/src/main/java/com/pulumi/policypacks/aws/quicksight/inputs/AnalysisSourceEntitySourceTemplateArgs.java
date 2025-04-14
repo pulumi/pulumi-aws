@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.inputs.AnalysisSourceEntitySourceTemplateDataSetReferenceArgs;
 import java.lang.String;
 import java.util.List;
@@ -15,22 +16,24 @@ public final class AnalysisSourceEntitySourceTemplateArgs {
      * The Amazon Resource Name (ARN) of the resource.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("AnalysisSourceEntitySourceTemplateArgs.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'AnalysisSourceEntitySourceTemplateArgs.arn' is not present");
     }
 
     /**
      * List of dataset references. See data_set_references.
      * 
      */
-    private UndeferrableValue<List<AnalysisSourceEntitySourceTemplateDataSetReferenceArgs>> dataSetReferences;
-
+    @PolicyResourceProperty(name="dataSetReferences", flag="unknown_dataSetReferences")
+    private List<AnalysisSourceEntitySourceTemplateDataSetReferenceArgs> value_dataSetReferences;
+    private boolean unknown_dataSetReferences;
     public List<AnalysisSourceEntitySourceTemplateDataSetReferenceArgs> dataSetReferences() {
-        if (dataSetReferences == null) return null;
-        return dataSetReferences.getValue("AnalysisSourceEntitySourceTemplateArgs.dataSetReferences");
+        if (!unknown_dataSetReferences) return value_dataSetReferences;
+        throw new UndeferrableValueException("Value 'AnalysisSourceEntitySourceTemplateArgs.dataSetReferences' is not present");
     }
 
 }

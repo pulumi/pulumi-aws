@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appsync.outputs.DataSourceHttpConfigAuthorizationConfigAwsIamConfig;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DataSourceHttpConfigAuthorizationConfig {
      * Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
      * 
      */
-    private @Nullable UndeferrableValue<String> authorizationType;
-
+    @PolicyResourceProperty(name="authorizationType", flag="unknown_authorizationType")
+    private @Nullable String value_authorizationType;
+    private boolean unknown_authorizationType;
     public @Nullable String authorizationType() {
-        if (authorizationType == null) return null;
-        return authorizationType.getValue("DataSourceHttpConfigAuthorizationConfig.authorizationType");
+        if (!unknown_authorizationType) return value_authorizationType;
+        throw new UndeferrableValueException("Value 'DataSourceHttpConfigAuthorizationConfig.authorizationType' is not present");
     }
 
     /**
      * Identity and Access Management (IAM) settings. See `aws_iam_config` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<DataSourceHttpConfigAuthorizationConfigAwsIamConfig> awsIamConfig;
-
+    @PolicyResourceProperty(name="awsIamConfig", flag="unknown_awsIamConfig")
+    private @Nullable DataSourceHttpConfigAuthorizationConfigAwsIamConfig value_awsIamConfig;
+    private boolean unknown_awsIamConfig;
     public @Nullable DataSourceHttpConfigAuthorizationConfigAwsIamConfig awsIamConfig() {
-        if (awsIamConfig == null) return null;
-        return awsIamConfig.getValue("DataSourceHttpConfigAuthorizationConfig.awsIamConfig");
+        if (!unknown_awsIamConfig) return value_awsIamConfig;
+        throw new UndeferrableValueException("Value 'DataSourceHttpConfigAuthorizationConfig.awsIamConfig' is not present");
     }
 
 }

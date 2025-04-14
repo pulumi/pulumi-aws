@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudhsmv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudhsmv2.outputs.ClusterClusterCertificate;
 import java.lang.String;
@@ -19,99 +20,108 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * The list of cluster certificates.
      * 
      */
-    private UndeferrableValue<List<ClusterClusterCertificate>> clusterCertificates;
-
+    @PolicyResourceProperty(name="clusterCertificates", flag="unknown_clusterCertificates")
+    private List<ClusterClusterCertificate> value_clusterCertificates;
+    private boolean unknown_clusterCertificates;
     public List<ClusterClusterCertificate> clusterCertificates() {
-        if (clusterCertificates == null) return null;
-        return clusterCertificates.getValue("Cluster.clusterCertificates");
+        if (!unknown_clusterCertificates) return value_clusterCertificates;
+        throw new UndeferrableValueException("Value 'Cluster.clusterCertificates' is not present");
     }
 
     /**
      * The id of the CloudHSM cluster.
      * 
      */
-    private UndeferrableValue<String> clusterId;
-
+    @PolicyResourceProperty(name="clusterId", flag="unknown_clusterId")
+    private String value_clusterId;
+    private boolean unknown_clusterId;
     public String clusterId() {
-        if (clusterId == null) return null;
-        return clusterId.getValue("Cluster.clusterId");
+        if (!unknown_clusterId) return value_clusterId;
+        throw new UndeferrableValueException("Value 'Cluster.clusterId' is not present");
     }
 
     /**
      * The state of the CloudHSM cluster.
      * 
      */
-    private UndeferrableValue<String> clusterState;
-
+    @PolicyResourceProperty(name="clusterState", flag="unknown_clusterState")
+    private String value_clusterState;
+    private boolean unknown_clusterState;
     public String clusterState() {
-        if (clusterState == null) return null;
-        return clusterState.getValue("Cluster.clusterState");
+        if (!unknown_clusterState) return value_clusterState;
+        throw new UndeferrableValueException("Value 'Cluster.clusterState' is not present");
     }
 
     /**
      * The type of HSM module in the cluster. Currently, `hsm1.medium` and `hsm2m.medium` are supported.
      * 
      */
-    private UndeferrableValue<String> hsmType;
-
+    @PolicyResourceProperty(name="hsmType", flag="unknown_hsmType")
+    private String value_hsmType;
+    private boolean unknown_hsmType;
     public String hsmType() {
-        if (hsmType == null) return null;
-        return hsmType.getValue("Cluster.hsmType");
+        if (!unknown_hsmType) return value_hsmType;
+        throw new UndeferrableValueException("Value 'Cluster.hsmType' is not present");
     }
 
     /**
      * The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsm_type` is `hsm2m.medium`.
      * 
      */
-    private UndeferrableValue<String> mode;
-
+    @PolicyResourceProperty(name="mode", flag="unknown_mode")
+    private String value_mode;
+    private boolean unknown_mode;
     public String mode() {
-        if (mode == null) return null;
-        return mode.getValue("Cluster.mode");
+        if (!unknown_mode) return value_mode;
+        throw new UndeferrableValueException("Value 'Cluster.mode' is not present");
     }
 
     /**
      * The ID of the security group associated with the CloudHSM cluster.
      * 
      */
-    private UndeferrableValue<String> securityGroupId;
-
+    @PolicyResourceProperty(name="securityGroupId", flag="unknown_securityGroupId")
+    private String value_securityGroupId;
+    private boolean unknown_securityGroupId;
     public String securityGroupId() {
-        if (securityGroupId == null) return null;
-        return securityGroupId.getValue("Cluster.securityGroupId");
+        if (!unknown_securityGroupId) return value_securityGroupId;
+        throw new UndeferrableValueException("Value 'Cluster.securityGroupId' is not present");
     }
 
     /**
      * ID of Cloud HSM v2 cluster backup to be restored.
      * 
      */
-    private @Nullable UndeferrableValue<String> sourceBackupIdentifier;
-
+    @PolicyResourceProperty(name="sourceBackupIdentifier", flag="unknown_sourceBackupIdentifier")
+    private @Nullable String value_sourceBackupIdentifier;
+    private boolean unknown_sourceBackupIdentifier;
     public @Nullable String sourceBackupIdentifier() {
-        if (sourceBackupIdentifier == null) return null;
-        return sourceBackupIdentifier.getValue("Cluster.sourceBackupIdentifier");
+        if (!unknown_sourceBackupIdentifier) return value_sourceBackupIdentifier;
+        throw new UndeferrableValueException("Value 'Cluster.sourceBackupIdentifier' is not present");
     }
 
     /**
      * The IDs of subnets in which cluster will operate.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("Cluster.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'Cluster.subnetIds' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Cluster.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Cluster.tags' is not present");
     }
 
     /**
@@ -122,22 +132,24 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Cluster.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Cluster.tagsAll' is not present");
     }
 
     /**
      * The id of the VPC that the CloudHSM cluster resides in.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("Cluster.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'Cluster.vpcId' is not present");
     }
 
 }

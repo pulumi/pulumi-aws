@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class DataSourceConfigurationWebCrawlerConfigurationAuthenticationC
      * The list of configuration information that&#39;s required to connect to and crawl a website host using basic authentication credentials. The list includes the name and port number of the website host. Detailed below.
      * 
      */
-    private UndeferrableValue<List<DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs>> basicAuthentications;
-
+    @PolicyResourceProperty(name="basicAuthentications", flag="unknown_basicAuthentications")
+    private List<DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs> value_basicAuthentications;
+    private boolean unknown_basicAuthentications;
     public List<DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs> basicAuthentications() {
-        if (basicAuthentications == null) return null;
-        return basicAuthentications.getValue("DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs.basicAuthentications");
+        if (!unknown_basicAuthentications) return value_basicAuthentications;
+        throw new UndeferrableValueException("Value 'DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs.basicAuthentications' is not present");
     }
 
 }

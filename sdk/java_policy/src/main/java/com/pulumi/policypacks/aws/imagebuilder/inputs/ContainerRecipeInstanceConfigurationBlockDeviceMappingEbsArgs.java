@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,88 +16,96 @@ public final class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs
      * Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
      * 
      */
-    private UndeferrableValue<String> deleteOnTermination;
-
+    @PolicyResourceProperty(name="deleteOnTermination", flag="unknown_deleteOnTermination")
+    private String value_deleteOnTermination;
+    private boolean unknown_deleteOnTermination;
     public String deleteOnTermination() {
-        if (deleteOnTermination == null) return null;
-        return deleteOnTermination.getValue("ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs.deleteOnTermination");
+        if (!unknown_deleteOnTermination) return value_deleteOnTermination;
+        throw new UndeferrableValueException("Value 'ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs.deleteOnTermination' is not present");
     }
 
     /**
      * Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
      * 
      */
-    private UndeferrableValue<String> encrypted;
-
+    @PolicyResourceProperty(name="encrypted", flag="unknown_encrypted")
+    private String value_encrypted;
+    private boolean unknown_encrypted;
     public String encrypted() {
-        if (encrypted == null) return null;
-        return encrypted.getValue("ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs.encrypted");
+        if (!unknown_encrypted) return value_encrypted;
+        throw new UndeferrableValueException("Value 'ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs.encrypted' is not present");
     }
 
     /**
      * Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
      * 
      */
-    private UndeferrableValue<Integer> iops;
-
+    @PolicyResourceProperty(name="iops", flag="unknown_iops")
+    private Integer value_iops;
+    private boolean unknown_iops;
     public Integer iops() {
-        if (iops == null) return null;
-        return iops.getValue("ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs.iops");
+        if (!unknown_iops) return value_iops;
+        throw new UndeferrableValueException("Value 'ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs.iops' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs.kmsKeyId' is not present");
     }
 
     /**
      * Identifier of the EC2 Volume Snapshot.
      * 
      */
-    private UndeferrableValue<String> snapshotId;
-
+    @PolicyResourceProperty(name="snapshotId", flag="unknown_snapshotId")
+    private String value_snapshotId;
+    private boolean unknown_snapshotId;
     public String snapshotId() {
-        if (snapshotId == null) return null;
-        return snapshotId.getValue("ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs.snapshotId");
+        if (!unknown_snapshotId) return value_snapshotId;
+        throw new UndeferrableValueException("Value 'ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs.snapshotId' is not present");
     }
 
     /**
      * For GP3 volumes only. The throughput in MiB/s that the volume supports.
      * 
      */
-    private UndeferrableValue<Integer> throughput;
-
+    @PolicyResourceProperty(name="throughput", flag="unknown_throughput")
+    private Integer value_throughput;
+    private boolean unknown_throughput;
     public Integer throughput() {
-        if (throughput == null) return null;
-        return throughput.getValue("ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs.throughput");
+        if (!unknown_throughput) return value_throughput;
+        throw new UndeferrableValueException("Value 'ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs.throughput' is not present");
     }
 
     /**
      * Size of the volume, in GiB.
      * 
      */
-    private UndeferrableValue<Integer> volumeSize;
-
+    @PolicyResourceProperty(name="volumeSize", flag="unknown_volumeSize")
+    private Integer value_volumeSize;
+    private boolean unknown_volumeSize;
     public Integer volumeSize() {
-        if (volumeSize == null) return null;
-        return volumeSize.getValue("ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs.volumeSize");
+        if (!unknown_volumeSize) return value_volumeSize;
+        throw new UndeferrableValueException("Value 'ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs.volumeSize' is not present");
     }
 
     /**
      * Type of the volume. For example, `gp2` or `io2`.
      * 
      */
-    private UndeferrableValue<String> volumeType;
-
+    @PolicyResourceProperty(name="volumeType", flag="unknown_volumeType")
+    private String value_volumeType;
+    private boolean unknown_volumeType;
     public String volumeType() {
-        if (volumeType == null) return null;
-        return volumeType.getValue("ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs.volumeType");
+        if (!unknown_volumeType) return value_volumeType;
+        throw new UndeferrableValueException("Value 'ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs.volumeType' is not present");
     }
 
 }

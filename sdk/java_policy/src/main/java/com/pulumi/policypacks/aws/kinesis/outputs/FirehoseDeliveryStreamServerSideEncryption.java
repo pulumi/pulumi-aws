@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class FirehoseDeliveryStreamServerSideEncryption {
      * Whether to enable encryption at rest. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("FirehoseDeliveryStreamServerSideEncryption.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamServerSideEncryption.enabled' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the encryption key. Required when `key_type` is `CUSTOMER_MANAGED_CMK`.
      * 
      */
-    private @Nullable UndeferrableValue<String> keyArn;
-
+    @PolicyResourceProperty(name="keyArn", flag="unknown_keyArn")
+    private @Nullable String value_keyArn;
+    private boolean unknown_keyArn;
     public @Nullable String keyArn() {
-        if (keyArn == null) return null;
-        return keyArn.getValue("FirehoseDeliveryStreamServerSideEncryption.keyArn");
+        if (!unknown_keyArn) return value_keyArn;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamServerSideEncryption.keyArn' is not present");
     }
 
     /**
      * Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
      * 
      */
-    private @Nullable UndeferrableValue<String> keyType;
-
+    @PolicyResourceProperty(name="keyType", flag="unknown_keyType")
+    private @Nullable String value_keyType;
+    private boolean unknown_keyType;
     public @Nullable String keyType() {
-        if (keyType == null) return null;
-        return keyType.getValue("FirehoseDeliveryStreamServerSideEncryption.keyType");
+        if (!unknown_keyType) return value_keyType;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamServerSideEncryption.keyType' is not present");
     }
 
 }

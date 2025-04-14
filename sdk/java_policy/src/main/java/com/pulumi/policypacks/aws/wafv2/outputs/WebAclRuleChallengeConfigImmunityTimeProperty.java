@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class WebAclRuleChallengeConfigImmunityTimeProperty {
      * The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> immunityTime;
-
+    @PolicyResourceProperty(name="immunityTime", flag="unknown_immunityTime")
+    private @Nullable Integer value_immunityTime;
+    private boolean unknown_immunityTime;
     public @Nullable Integer immunityTime() {
-        if (immunityTime == null) return null;
-        return immunityTime.getValue("WebAclRuleChallengeConfigImmunityTimeProperty.immunityTime");
+        if (!unknown_immunityTime) return value_immunityTime;
+        throw new UndeferrableValueException("Value 'WebAclRuleChallengeConfigImmunityTimeProperty.immunityTime' is not present");
     }
 
 }

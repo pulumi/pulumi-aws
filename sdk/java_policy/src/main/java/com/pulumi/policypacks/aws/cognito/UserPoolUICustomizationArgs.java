@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,44 +17,48 @@ public final class UserPoolUICustomizationArgs extends com.pulumi.resources.Poli
      * The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
      * 
      */
-    private UndeferrableValue<String> clientId;
-
+    @PolicyResourceProperty(name="clientId", flag="unknown_clientId")
+    private String value_clientId;
+    private boolean unknown_clientId;
     public String clientId() {
-        if (clientId == null) return null;
-        return clientId.getValue("UserPoolUICustomizationArgs.clientId");
+        if (!unknown_clientId) return value_clientId;
+        throw new UndeferrableValueException("Value 'UserPoolUICustomizationArgs.clientId' is not present");
     }
 
     /**
      * The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
      * 
      */
-    private UndeferrableValue<String> css;
-
+    @PolicyResourceProperty(name="css", flag="unknown_css")
+    private String value_css;
+    private boolean unknown_css;
     public String css() {
-        if (css == null) return null;
-        return css.getValue("UserPoolUICustomizationArgs.css");
+        if (!unknown_css) return value_css;
+        throw new UndeferrableValueException("Value 'UserPoolUICustomizationArgs.css' is not present");
     }
 
     /**
      * The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
      * 
      */
-    private UndeferrableValue<String> imageFile;
-
+    @PolicyResourceProperty(name="imageFile", flag="unknown_imageFile")
+    private String value_imageFile;
+    private boolean unknown_imageFile;
     public String imageFile() {
-        if (imageFile == null) return null;
-        return imageFile.getValue("UserPoolUICustomizationArgs.imageFile");
+        if (!unknown_imageFile) return value_imageFile;
+        throw new UndeferrableValueException("Value 'UserPoolUICustomizationArgs.imageFile' is not present");
     }
 
     /**
      * The user pool ID for the user pool.
      * 
      */
-    private UndeferrableValue<String> userPoolId;
-
+    @PolicyResourceProperty(name="userPoolId", flag="unknown_userPoolId")
+    private String value_userPoolId;
+    private boolean unknown_userPoolId;
     public String userPoolId() {
-        if (userPoolId == null) return null;
-        return userPoolId.getValue("UserPoolUICustomizationArgs.userPoolId");
+        if (!unknown_userPoolId) return value_userPoolId;
+        throw new UndeferrableValueException("Value 'UserPoolUICustomizationArgs.userPoolId' is not present");
     }
 
 }

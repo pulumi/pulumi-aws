@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kms;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,44 +18,48 @@ public final class Ciphertext extends com.pulumi.resources.PolicyResourceOutput 
      * Base64 encoded ciphertext
      * 
      */
-    private UndeferrableValue<String> ciphertextBlob;
-
+    @PolicyResourceProperty(name="ciphertextBlob", flag="unknown_ciphertextBlob")
+    private String value_ciphertextBlob;
+    private boolean unknown_ciphertextBlob;
     public String ciphertextBlob() {
-        if (ciphertextBlob == null) return null;
-        return ciphertextBlob.getValue("Ciphertext.ciphertextBlob");
+        if (!unknown_ciphertextBlob) return value_ciphertextBlob;
+        throw new UndeferrableValueException("Value 'Ciphertext.ciphertextBlob' is not present");
     }
 
     /**
      * An optional mapping that makes up the encryption context.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> context;
-
+    @PolicyResourceProperty(name="context", flag="unknown_context")
+    private @Nullable Map<String,String> value_context;
+    private boolean unknown_context;
     public @Nullable Map<String,String> context() {
-        if (context == null) return null;
-        return context.getValue("Ciphertext.context");
+        if (!unknown_context) return value_context;
+        throw new UndeferrableValueException("Value 'Ciphertext.context' is not present");
     }
 
     /**
      * Globally unique key ID for the customer master key.
      * 
      */
-    private UndeferrableValue<String> keyId;
-
+    @PolicyResourceProperty(name="keyId", flag="unknown_keyId")
+    private String value_keyId;
+    private boolean unknown_keyId;
     public String keyId() {
-        if (keyId == null) return null;
-        return keyId.getValue("Ciphertext.keyId");
+        if (!unknown_keyId) return value_keyId;
+        throw new UndeferrableValueException("Value 'Ciphertext.keyId' is not present");
     }
 
     /**
      * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
      * 
      */
-    private UndeferrableValue<String> plaintext;
-
+    @PolicyResourceProperty(name="plaintext", flag="unknown_plaintext")
+    private String value_plaintext;
+    private boolean unknown_plaintext;
     public String plaintext() {
-        if (plaintext == null) return null;
-        return plaintext.getValue("Ciphertext.plaintext");
+        if (!unknown_plaintext) return value_plaintext;
+        throw new UndeferrableValueException("Value 'Ciphertext.plaintext' is not present");
     }
 
 }

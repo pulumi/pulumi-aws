@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecBackendArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecBackendDefaultsArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecListenerArgs;
@@ -19,55 +20,60 @@ public final class VirtualNodeSpecArgs {
      * Defaults for backends.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecBackendDefaultsArgs> backendDefaults;
-
+    @PolicyResourceProperty(name="backendDefaults", flag="unknown_backendDefaults")
+    private VirtualNodeSpecBackendDefaultsArgs value_backendDefaults;
+    private boolean unknown_backendDefaults;
     public VirtualNodeSpecBackendDefaultsArgs backendDefaults() {
-        if (backendDefaults == null) return null;
-        return backendDefaults.getValue("VirtualNodeSpecArgs.backendDefaults");
+        if (!unknown_backendDefaults) return value_backendDefaults;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecArgs.backendDefaults' is not present");
     }
 
     /**
      * Backends to which the virtual node is expected to send outbound traffic.
      * 
      */
-    private UndeferrableValue<List<VirtualNodeSpecBackendArgs>> backends;
-
+    @PolicyResourceProperty(name="backends", flag="unknown_backends")
+    private List<VirtualNodeSpecBackendArgs> value_backends;
+    private boolean unknown_backends;
     public List<VirtualNodeSpecBackendArgs> backends() {
-        if (backends == null) return null;
-        return backends.getValue("VirtualNodeSpecArgs.backends");
+        if (!unknown_backends) return value_backends;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecArgs.backends' is not present");
     }
 
     /**
      * Listeners from which the virtual node is expected to receive inbound traffic.
      * 
      */
-    private UndeferrableValue<List<VirtualNodeSpecListenerArgs>> listeners;
-
+    @PolicyResourceProperty(name="listeners", flag="unknown_listeners")
+    private List<VirtualNodeSpecListenerArgs> value_listeners;
+    private boolean unknown_listeners;
     public List<VirtualNodeSpecListenerArgs> listeners() {
-        if (listeners == null) return null;
-        return listeners.getValue("VirtualNodeSpecArgs.listeners");
+        if (!unknown_listeners) return value_listeners;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecArgs.listeners' is not present");
     }
 
     /**
      * Inbound and outbound access logging information for the virtual node.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecLoggingArgs> logging;
-
+    @PolicyResourceProperty(name="logging", flag="unknown_logging")
+    private VirtualNodeSpecLoggingArgs value_logging;
+    private boolean unknown_logging;
     public VirtualNodeSpecLoggingArgs logging() {
-        if (logging == null) return null;
-        return logging.getValue("VirtualNodeSpecArgs.logging");
+        if (!unknown_logging) return value_logging;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecArgs.logging' is not present");
     }
 
     /**
      * Service discovery information for the virtual node.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecServiceDiscoveryArgs> serviceDiscovery;
-
+    @PolicyResourceProperty(name="serviceDiscovery", flag="unknown_serviceDiscovery")
+    private VirtualNodeSpecServiceDiscoveryArgs value_serviceDiscovery;
+    private boolean unknown_serviceDiscovery;
     public VirtualNodeSpecServiceDiscoveryArgs serviceDiscovery() {
-        if (serviceDiscovery == null) return null;
-        return serviceDiscovery.getValue("VirtualNodeSpecArgs.serviceDiscovery");
+        if (!unknown_serviceDiscovery) return value_serviceDiscovery;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecArgs.serviceDiscovery' is not present");
     }
 
 }

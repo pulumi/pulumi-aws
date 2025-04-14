@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.pipes.inputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs;
 import com.pulumi.policypacks.aws.pipes.inputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgs;
 import com.pulumi.policypacks.aws.pipes.inputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs;
@@ -19,88 +20,96 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
      * List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
      * 
      */
-    private UndeferrableValue<List<String>> commands;
-
+    @PolicyResourceProperty(name="commands", flag="unknown_commands")
+    private List<String> value_commands;
+    private boolean unknown_commands;
     public List<String> commands() {
-        if (commands == null) return null;
-        return commands.getValue("PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs.commands");
+        if (!unknown_commands) return value_commands;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs.commands' is not present");
     }
 
     /**
      * The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
      * 
      */
-    private UndeferrableValue<Integer> cpu;
-
+    @PolicyResourceProperty(name="cpu", flag="unknown_cpu")
+    private Integer value_cpu;
+    private boolean unknown_cpu;
     public Integer cpu() {
-        if (cpu == null) return null;
-        return cpu.getValue("PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs.cpu");
+        if (!unknown_cpu) return value_cpu;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs.cpu' is not present");
     }
 
     /**
      * A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
      * 
      */
-    private UndeferrableValue<List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgs>> environmentFiles;
-
+    @PolicyResourceProperty(name="environmentFiles", flag="unknown_environmentFiles")
+    private List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgs> value_environmentFiles;
+    private boolean unknown_environmentFiles;
     public List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgs> environmentFiles() {
-        if (environmentFiles == null) return null;
-        return environmentFiles.getValue("PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs.environmentFiles");
+        if (!unknown_environmentFiles) return value_environmentFiles;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs.environmentFiles' is not present");
     }
 
     /**
      * The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
      * 
      */
-    private UndeferrableValue<List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs>> environments;
-
+    @PolicyResourceProperty(name="environments", flag="unknown_environments")
+    private List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs> value_environments;
+    private boolean unknown_environments;
     public List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs> environments() {
-        if (environments == null) return null;
-        return environments.getValue("PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs.environments");
+        if (!unknown_environments) return value_environments;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs.environments' is not present");
     }
 
     /**
      * The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
      * 
      */
-    private UndeferrableValue<Integer> memory;
-
+    @PolicyResourceProperty(name="memory", flag="unknown_memory")
+    private Integer value_memory;
+    private boolean unknown_memory;
     public Integer memory() {
-        if (memory == null) return null;
-        return memory.getValue("PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs.memory");
+        if (!unknown_memory) return value_memory;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs.memory' is not present");
     }
 
     /**
      * The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
      * 
      */
-    private UndeferrableValue<Integer> memoryReservation;
-
+    @PolicyResourceProperty(name="memoryReservation", flag="unknown_memoryReservation")
+    private Integer value_memoryReservation;
+    private boolean unknown_memoryReservation;
     public Integer memoryReservation() {
-        if (memoryReservation == null) return null;
-        return memoryReservation.getValue("PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs.memoryReservation");
+        if (!unknown_memoryReservation) return value_memoryReservation;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs.memoryReservation' is not present");
     }
 
     /**
      * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs.name' is not present");
     }
 
     /**
      * The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
      * 
      */
-    private UndeferrableValue<List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs>> resourceRequirements;
-
+    @PolicyResourceProperty(name="resourceRequirements", flag="unknown_resourceRequirements")
+    private List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs> value_resourceRequirements;
+    private boolean unknown_resourceRequirements;
     public List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs> resourceRequirements() {
-        if (resourceRequirements == null) return null;
-        return resourceRequirements.getValue("PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs.resourceRequirements");
+        if (!unknown_resourceRequirements) return value_resourceRequirements;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs.resourceRequirements' is not present");
     }
 
 }

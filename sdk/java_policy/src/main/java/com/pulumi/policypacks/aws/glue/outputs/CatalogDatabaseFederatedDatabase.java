@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class CatalogDatabaseFederatedDatabase {
      * Name of the connection to the external metastore.
      * 
      */
-    private @Nullable UndeferrableValue<String> connectionName;
-
+    @PolicyResourceProperty(name="connectionName", flag="unknown_connectionName")
+    private @Nullable String value_connectionName;
+    private boolean unknown_connectionName;
     public @Nullable String connectionName() {
-        if (connectionName == null) return null;
-        return connectionName.getValue("CatalogDatabaseFederatedDatabase.connectionName");
+        if (!unknown_connectionName) return value_connectionName;
+        throw new UndeferrableValueException("Value 'CatalogDatabaseFederatedDatabase.connectionName' is not present");
     }
 
     /**
      * Unique identifier for the federated database.
      * 
      */
-    private @Nullable UndeferrableValue<String> identifier;
-
+    @PolicyResourceProperty(name="identifier", flag="unknown_identifier")
+    private @Nullable String value_identifier;
+    private boolean unknown_identifier;
     public @Nullable String identifier() {
-        if (identifier == null) return null;
-        return identifier.getValue("CatalogDatabaseFederatedDatabase.identifier");
+        if (!unknown_identifier) return value_identifier;
+        throw new UndeferrableValueException("Value 'CatalogDatabaseFederatedDatabase.identifier' is not present");
     }
 
 }

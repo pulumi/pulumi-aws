@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,88 +18,96 @@ public final class Vocabulary extends com.pulumi.resources.PolicyResourceOutput 
      * The Amazon Resource Name (ARN) of the vocabulary.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Vocabulary.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Vocabulary.arn' is not present");
     }
 
     /**
      * The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table). Minimum length of `1`. Maximum length of `60000`.
      * 
      */
-    private UndeferrableValue<String> content;
-
+    @PolicyResourceProperty(name="content", flag="unknown_content")
+    private String value_content;
+    private boolean unknown_content;
     public String content() {
-        if (content == null) return null;
-        return content.getValue("Vocabulary.content");
+        if (!unknown_content) return value_content;
+        throw new UndeferrableValueException("Value 'Vocabulary.content' is not present");
     }
 
     /**
      * The reason why the custom vocabulary was not created.
      * 
      */
-    private UndeferrableValue<String> failureReason;
-
+    @PolicyResourceProperty(name="failureReason", flag="unknown_failureReason")
+    private String value_failureReason;
+    private boolean unknown_failureReason;
     public String failureReason() {
-        if (failureReason == null) return null;
-        return failureReason.getValue("Vocabulary.failureReason");
+        if (!unknown_failureReason) return value_failureReason;
+        throw new UndeferrableValueException("Value 'Vocabulary.failureReason' is not present");
     }
 
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    private UndeferrableValue<String> instanceId;
-
+    @PolicyResourceProperty(name="instanceId", flag="unknown_instanceId")
+    private String value_instanceId;
+    private boolean unknown_instanceId;
     public String instanceId() {
-        if (instanceId == null) return null;
-        return instanceId.getValue("Vocabulary.instanceId");
+        if (!unknown_instanceId) return value_instanceId;
+        throw new UndeferrableValueException("Value 'Vocabulary.instanceId' is not present");
     }
 
     /**
      * The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see [What is Amazon Transcribe?](https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html). Valid Values are `ar-AE`, `de-CH`, `de-DE`, `en-AB`, `en-AU`, `en-GB`, `en-IE`, `en-IN`, `en-US`, `en-WL`, `es-ES`, `es-US`, `fr-CA`, `fr-FR`, `hi-IN`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, `pt-PT`, `zh-CN`.
      * 
      */
-    private UndeferrableValue<String> languageCode;
-
+    @PolicyResourceProperty(name="languageCode", flag="unknown_languageCode")
+    private String value_languageCode;
+    private boolean unknown_languageCode;
     public String languageCode() {
-        if (languageCode == null) return null;
-        return languageCode.getValue("Vocabulary.languageCode");
+        if (!unknown_languageCode) return value_languageCode;
+        throw new UndeferrableValueException("Value 'Vocabulary.languageCode' is not present");
     }
 
     /**
      * The timestamp when the custom vocabulary was last modified.
      * 
      */
-    private UndeferrableValue<String> lastModifiedTime;
-
+    @PolicyResourceProperty(name="lastModifiedTime", flag="unknown_lastModifiedTime")
+    private String value_lastModifiedTime;
+    private boolean unknown_lastModifiedTime;
     public String lastModifiedTime() {
-        if (lastModifiedTime == null) return null;
-        return lastModifiedTime.getValue("Vocabulary.lastModifiedTime");
+        if (!unknown_lastModifiedTime) return value_lastModifiedTime;
+        throw new UndeferrableValueException("Value 'Vocabulary.lastModifiedTime' is not present");
     }
 
     /**
      * A unique name of the custom vocabulary. Must not be more than 140 characters.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Vocabulary.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Vocabulary.name' is not present");
     }
 
     /**
      * The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("Vocabulary.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'Vocabulary.state' is not present");
     }
 
     /**
@@ -106,11 +115,12 @@ public final class Vocabulary extends com.pulumi.resources.PolicyResourceOutput 
      * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Vocabulary.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Vocabulary.tags' is not present");
     }
 
     /**
@@ -121,22 +131,24 @@ public final class Vocabulary extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Vocabulary.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Vocabulary.tagsAll' is not present");
     }
 
     /**
      * The identifier of the custom vocabulary.
      * 
      */
-    private UndeferrableValue<String> vocabularyId;
-
+    @PolicyResourceProperty(name="vocabularyId", flag="unknown_vocabularyId")
+    private String value_vocabularyId;
+    private boolean unknown_vocabularyId;
     public String vocabularyId() {
-        if (vocabularyId == null) return null;
-        return vocabularyId.getValue("Vocabulary.vocabularyId");
+        if (!unknown_vocabularyId) return value_vocabularyId;
+        throw new UndeferrableValueException("Value 'Vocabulary.vocabularyId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cur;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -19,132 +20,144 @@ public final class ReportDefinitionArgs extends com.pulumi.resources.PolicyResou
      * A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.
      * 
      */
-    private UndeferrableValue<List<String>> additionalArtifacts;
-
+    @PolicyResourceProperty(name="additionalArtifacts", flag="unknown_additionalArtifacts")
+    private List<String> value_additionalArtifacts;
+    private boolean unknown_additionalArtifacts;
     public List<String> additionalArtifacts() {
-        if (additionalArtifacts == null) return null;
-        return additionalArtifacts.getValue("ReportDefinitionArgs.additionalArtifacts");
+        if (!unknown_additionalArtifacts) return value_additionalArtifacts;
+        throw new UndeferrableValueException("Value 'ReportDefinitionArgs.additionalArtifacts' is not present");
     }
 
     /**
      * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
      * 
      */
-    private UndeferrableValue<List<String>> additionalSchemaElements;
-
+    @PolicyResourceProperty(name="additionalSchemaElements", flag="unknown_additionalSchemaElements")
+    private List<String> value_additionalSchemaElements;
+    private boolean unknown_additionalSchemaElements;
     public List<String> additionalSchemaElements() {
-        if (additionalSchemaElements == null) return null;
-        return additionalSchemaElements.getValue("ReportDefinitionArgs.additionalSchemaElements");
+        if (!unknown_additionalSchemaElements) return value_additionalSchemaElements;
+        throw new UndeferrableValueException("Value 'ReportDefinitionArgs.additionalSchemaElements' is not present");
     }
 
     /**
      * Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
      * 
      */
-    private UndeferrableValue<String> compression;
-
+    @PolicyResourceProperty(name="compression", flag="unknown_compression")
+    private String value_compression;
+    private boolean unknown_compression;
     public String compression() {
-        if (compression == null) return null;
-        return compression.getValue("ReportDefinitionArgs.compression");
+        if (!unknown_compression) return value_compression;
+        throw new UndeferrableValueException("Value 'ReportDefinitionArgs.compression' is not present");
     }
 
     /**
      * Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
      * 
      */
-    private UndeferrableValue<String> format;
-
+    @PolicyResourceProperty(name="format", flag="unknown_format")
+    private String value_format;
+    private boolean unknown_format;
     public String format() {
-        if (format == null) return null;
-        return format.getValue("ReportDefinitionArgs.format");
+        if (!unknown_format) return value_format;
+        throw new UndeferrableValueException("Value 'ReportDefinitionArgs.format' is not present");
     }
 
     /**
      * Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
      * 
      */
-    private UndeferrableValue<Boolean> refreshClosedReports;
-
+    @PolicyResourceProperty(name="refreshClosedReports", flag="unknown_refreshClosedReports")
+    private Boolean value_refreshClosedReports;
+    private boolean unknown_refreshClosedReports;
     public Boolean refreshClosedReports() {
-        if (refreshClosedReports == null) return null;
-        return refreshClosedReports.getValue("ReportDefinitionArgs.refreshClosedReports");
+        if (!unknown_refreshClosedReports) return value_refreshClosedReports;
+        throw new UndeferrableValueException("Value 'ReportDefinitionArgs.refreshClosedReports' is not present");
     }
 
     /**
      * Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
      * 
      */
-    private UndeferrableValue<String> reportName;
-
+    @PolicyResourceProperty(name="reportName", flag="unknown_reportName")
+    private String value_reportName;
+    private boolean unknown_reportName;
     public String reportName() {
-        if (reportName == null) return null;
-        return reportName.getValue("ReportDefinitionArgs.reportName");
+        if (!unknown_reportName) return value_reportName;
+        throw new UndeferrableValueException("Value 'ReportDefinitionArgs.reportName' is not present");
     }
 
     /**
      * Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
      * 
      */
-    private UndeferrableValue<String> reportVersioning;
-
+    @PolicyResourceProperty(name="reportVersioning", flag="unknown_reportVersioning")
+    private String value_reportVersioning;
+    private boolean unknown_reportVersioning;
     public String reportVersioning() {
-        if (reportVersioning == null) return null;
-        return reportVersioning.getValue("ReportDefinitionArgs.reportVersioning");
+        if (!unknown_reportVersioning) return value_reportVersioning;
+        throw new UndeferrableValueException("Value 'ReportDefinitionArgs.reportVersioning' is not present");
     }
 
     /**
      * Name of the existing S3 bucket to hold generated reports.
      * 
      */
-    private UndeferrableValue<String> s3Bucket;
-
+    @PolicyResourceProperty(name="s3Bucket", flag="unknown_s3Bucket")
+    private String value_s3Bucket;
+    private boolean unknown_s3Bucket;
     public String s3Bucket() {
-        if (s3Bucket == null) return null;
-        return s3Bucket.getValue("ReportDefinitionArgs.s3Bucket");
+        if (!unknown_s3Bucket) return value_s3Bucket;
+        throw new UndeferrableValueException("Value 'ReportDefinitionArgs.s3Bucket' is not present");
     }
 
     /**
      * Report path prefix. Limited to 256 characters.
      * 
      */
-    private UndeferrableValue<String> s3Prefix;
-
+    @PolicyResourceProperty(name="s3Prefix", flag="unknown_s3Prefix")
+    private String value_s3Prefix;
+    private boolean unknown_s3Prefix;
     public String s3Prefix() {
-        if (s3Prefix == null) return null;
-        return s3Prefix.getValue("ReportDefinitionArgs.s3Prefix");
+        if (!unknown_s3Prefix) return value_s3Prefix;
+        throw new UndeferrableValueException("Value 'ReportDefinitionArgs.s3Prefix' is not present");
     }
 
     /**
      * Region of the existing S3 bucket to hold generated reports.
      * 
      */
-    private UndeferrableValue<String> s3Region;
-
+    @PolicyResourceProperty(name="s3Region", flag="unknown_s3Region")
+    private String value_s3Region;
+    private boolean unknown_s3Region;
     public String s3Region() {
-        if (s3Region == null) return null;
-        return s3Region.getValue("ReportDefinitionArgs.s3Region");
+        if (!unknown_s3Region) return value_s3Region;
+        throw new UndeferrableValueException("Value 'ReportDefinitionArgs.s3Region' is not present");
     }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ReportDefinitionArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ReportDefinitionArgs.tags' is not present");
     }
 
     /**
      * The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
      * 
      */
-    private UndeferrableValue<String> timeUnit;
-
+    @PolicyResourceProperty(name="timeUnit", flag="unknown_timeUnit")
+    private String value_timeUnit;
+    private boolean unknown_timeUnit;
     public String timeUnit() {
-        if (timeUnit == null) return null;
-        return timeUnit.getValue("ReportDefinitionArgs.timeUnit");
+        if (!unknown_timeUnit) return value_timeUnit;
+        throw new UndeferrableValueException("Value 'ReportDefinitionArgs.timeUnit' is not present");
     }
 
 }

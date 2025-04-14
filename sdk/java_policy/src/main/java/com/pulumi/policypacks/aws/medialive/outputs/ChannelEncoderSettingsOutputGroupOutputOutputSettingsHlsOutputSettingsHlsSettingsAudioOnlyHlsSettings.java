@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,32 +12,36 @@ import javax.annotation.Nullable;
 
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings {
 
-    private @Nullable UndeferrableValue<String> audioGroupId;
-
+    @PolicyResourceProperty(name="audioGroupId", flag="unknown_audioGroupId")
+    private @Nullable String value_audioGroupId;
+    private boolean unknown_audioGroupId;
     public @Nullable String audioGroupId() {
-        if (audioGroupId == null) return null;
-        return audioGroupId.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings.audioGroupId");
+        if (!unknown_audioGroupId) return value_audioGroupId;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings.audioGroupId' is not present");
     }
 
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage> audioOnlyImage;
-
+    @PolicyResourceProperty(name="audioOnlyImage", flag="unknown_audioOnlyImage")
+    private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage value_audioOnlyImage;
+    private boolean unknown_audioOnlyImage;
     public @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage audioOnlyImage() {
-        if (audioOnlyImage == null) return null;
-        return audioOnlyImage.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings.audioOnlyImage");
+        if (!unknown_audioOnlyImage) return value_audioOnlyImage;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings.audioOnlyImage' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> audioTrackType;
-
+    @PolicyResourceProperty(name="audioTrackType", flag="unknown_audioTrackType")
+    private @Nullable String value_audioTrackType;
+    private boolean unknown_audioTrackType;
     public @Nullable String audioTrackType() {
-        if (audioTrackType == null) return null;
-        return audioTrackType.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings.audioTrackType");
+        if (!unknown_audioTrackType) return value_audioTrackType;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings.audioTrackType' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> segmentType;
-
+    @PolicyResourceProperty(name="segmentType", flag="unknown_segmentType")
+    private @Nullable String value_segmentType;
+    private boolean unknown_segmentType;
     public @Nullable String segmentType() {
-        if (segmentType == null) return null;
-        return segmentType.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings.segmentType");
+        if (!unknown_segmentType) return value_segmentType;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings.segmentType' is not present");
     }
 
 }

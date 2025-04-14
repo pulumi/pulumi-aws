@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class SchedulingPolicyFairSharePolicyShareDistribution {
      * A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
      * 
      */
-    private UndeferrableValue<String> shareIdentifier;
-
+    @PolicyResourceProperty(name="shareIdentifier", flag="unknown_shareIdentifier")
+    private String value_shareIdentifier;
+    private boolean unknown_shareIdentifier;
     public String shareIdentifier() {
-        if (shareIdentifier == null) return null;
-        return shareIdentifier.getValue("SchedulingPolicyFairSharePolicyShareDistribution.shareIdentifier");
+        if (!unknown_shareIdentifier) return value_shareIdentifier;
+        throw new UndeferrableValueException("Value 'SchedulingPolicyFairSharePolicyShareDistribution.shareIdentifier' is not present");
     }
 
     /**
      * The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
      * 
      */
-    private @Nullable UndeferrableValue<Double> weightFactor;
-
+    @PolicyResourceProperty(name="weightFactor", flag="unknown_weightFactor")
+    private @Nullable Double value_weightFactor;
+    private boolean unknown_weightFactor;
     public @Nullable Double weightFactor() {
-        if (weightFactor == null) return null;
-        return weightFactor.getValue("SchedulingPolicyFairSharePolicyShareDistribution.weightFactor");
+        if (!unknown_weightFactor) return value_weightFactor;
+        throw new UndeferrableValueException("Value 'SchedulingPolicyFairSharePolicyShareDistribution.weightFactor' is not present");
     }
 
 }

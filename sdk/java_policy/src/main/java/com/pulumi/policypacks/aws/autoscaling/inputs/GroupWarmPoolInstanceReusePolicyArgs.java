@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class GroupWarmPoolInstanceReusePolicyArgs {
      * Whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
      * 
      */
-    private UndeferrableValue<Boolean> reuseOnScaleIn;
-
+    @PolicyResourceProperty(name="reuseOnScaleIn", flag="unknown_reuseOnScaleIn")
+    private Boolean value_reuseOnScaleIn;
+    private boolean unknown_reuseOnScaleIn;
     public Boolean reuseOnScaleIn() {
-        if (reuseOnScaleIn == null) return null;
-        return reuseOnScaleIn.getValue("GroupWarmPoolInstanceReusePolicyArgs.reuseOnScaleIn");
+        if (!unknown_reuseOnScaleIn) return value_reuseOnScaleIn;
+        throw new UndeferrableValueException("Value 'GroupWarmPoolInstanceReusePolicyArgs.reuseOnScaleIn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.securityhub.outputs.OrganizationConfigurationOrganizationConfiguration;
 import java.lang.Boolean;
@@ -17,33 +18,36 @@ public final class OrganizationConfiguration extends com.pulumi.resources.Policy
      * Whether to automatically enable Security Hub for new accounts in the organization.
      * 
      */
-    private UndeferrableValue<Boolean> autoEnable;
-
+    @PolicyResourceProperty(name="autoEnable", flag="unknown_autoEnable")
+    private Boolean value_autoEnable;
+    private boolean unknown_autoEnable;
     public Boolean autoEnable() {
-        if (autoEnable == null) return null;
-        return autoEnable.getValue("OrganizationConfiguration.autoEnable");
+        if (!unknown_autoEnable) return value_autoEnable;
+        throw new UndeferrableValueException("Value 'OrganizationConfiguration.autoEnable' is not present");
     }
 
     /**
      * Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
      * 
      */
-    private UndeferrableValue<String> autoEnableStandards;
-
+    @PolicyResourceProperty(name="autoEnableStandards", flag="unknown_autoEnableStandards")
+    private String value_autoEnableStandards;
+    private boolean unknown_autoEnableStandards;
     public String autoEnableStandards() {
-        if (autoEnableStandards == null) return null;
-        return autoEnableStandards.getValue("OrganizationConfiguration.autoEnableStandards");
+        if (!unknown_autoEnableStandards) return value_autoEnableStandards;
+        throw new UndeferrableValueException("Value 'OrganizationConfiguration.autoEnableStandards' is not present");
     }
 
     /**
      * Provides information about the way an organization is configured in Security Hub.
      * 
      */
-    private UndeferrableValue<OrganizationConfigurationOrganizationConfiguration> organizationConfiguration;
-
+    @PolicyResourceProperty(name="organizationConfiguration", flag="unknown_organizationConfiguration")
+    private OrganizationConfigurationOrganizationConfiguration value_organizationConfiguration;
+    private boolean unknown_organizationConfiguration;
     public OrganizationConfigurationOrganizationConfiguration organizationConfiguration() {
-        if (organizationConfiguration == null) return null;
-        return organizationConfiguration.getValue("OrganizationConfiguration.organizationConfiguration");
+        if (!unknown_organizationConfiguration) return value_organizationConfiguration;
+        throw new UndeferrableValueException("Value 'OrganizationConfiguration.organizationConfiguration' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.outputs.FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class FirehoseDeliveryStreamMskSourceConfiguration {
      * The authentication configuration of the Amazon MSK cluster. See `authentication_configuration` block below for details.
      * 
      */
-    private UndeferrableValue<FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration> authenticationConfiguration;
-
+    @PolicyResourceProperty(name="authenticationConfiguration", flag="unknown_authenticationConfiguration")
+    private FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration value_authenticationConfiguration;
+    private boolean unknown_authenticationConfiguration;
     public FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration authenticationConfiguration() {
-        if (authenticationConfiguration == null) return null;
-        return authenticationConfiguration.getValue("FirehoseDeliveryStreamMskSourceConfiguration.authenticationConfiguration");
+        if (!unknown_authenticationConfiguration) return value_authenticationConfiguration;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamMskSourceConfiguration.authenticationConfiguration' is not present");
     }
 
     /**
      * The ARN of the Amazon MSK cluster.
      * 
      */
-    private UndeferrableValue<String> mskClusterArn;
-
+    @PolicyResourceProperty(name="mskClusterArn", flag="unknown_mskClusterArn")
+    private String value_mskClusterArn;
+    private boolean unknown_mskClusterArn;
     public String mskClusterArn() {
-        if (mskClusterArn == null) return null;
-        return mskClusterArn.getValue("FirehoseDeliveryStreamMskSourceConfiguration.mskClusterArn");
+        if (!unknown_mskClusterArn) return value_mskClusterArn;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamMskSourceConfiguration.mskClusterArn' is not present");
     }
 
     /**
      * The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `read_from_timestamp` parameter to Epoch (1970-01-01T00:00:00Z).
      * 
      */
-    private @Nullable UndeferrableValue<String> readFromTimestamp;
-
+    @PolicyResourceProperty(name="readFromTimestamp", flag="unknown_readFromTimestamp")
+    private @Nullable String value_readFromTimestamp;
+    private boolean unknown_readFromTimestamp;
     public @Nullable String readFromTimestamp() {
-        if (readFromTimestamp == null) return null;
-        return readFromTimestamp.getValue("FirehoseDeliveryStreamMskSourceConfiguration.readFromTimestamp");
+        if (!unknown_readFromTimestamp) return value_readFromTimestamp;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamMskSourceConfiguration.readFromTimestamp' is not present");
     }
 
     /**
      * The topic name within the Amazon MSK cluster.
      * 
      */
-    private UndeferrableValue<String> topicName;
-
+    @PolicyResourceProperty(name="topicName", flag="unknown_topicName")
+    private String value_topicName;
+    private boolean unknown_topicName;
     public String topicName() {
-        if (topicName == null) return null;
-        return topicName.getValue("FirehoseDeliveryStreamMskSourceConfiguration.topicName");
+        if (!unknown_topicName) return value_topicName;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamMskSourceConfiguration.topicName' is not present");
     }
 
 }

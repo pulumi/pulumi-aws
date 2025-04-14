@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kendra.inputs.DataSourceConfigurationS3ConfigurationArgs;
 import com.pulumi.policypacks.aws.kendra.inputs.DataSourceConfigurationTemplateConfigurationArgs;
 import com.pulumi.policypacks.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationArgs;
@@ -20,22 +21,24 @@ public final class DataSourceConfigurationArgs {
      * 
      */
     @Deprecated /* s3_configuration is deprecated. Use template_configuration instead. */
-    private UndeferrableValue<DataSourceConfigurationS3ConfigurationArgs> s3Configuration;
-
+    @PolicyResourceProperty(name="s3Configuration", flag="unknown_s3Configuration")
+    private DataSourceConfigurationS3ConfigurationArgs value_s3Configuration;
+    private boolean unknown_s3Configuration;
     public DataSourceConfigurationS3ConfigurationArgs s3Configuration() {
-        if (s3Configuration == null) return null;
-        return s3Configuration.getValue("DataSourceConfigurationArgs.s3Configuration");
+        if (!unknown_s3Configuration) return value_s3Configuration;
+        throw new UndeferrableValueException("Value 'DataSourceConfigurationArgs.s3Configuration' is not present");
     }
 
     /**
      * A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
      * 
      */
-    private UndeferrableValue<DataSourceConfigurationTemplateConfigurationArgs> templateConfiguration;
-
+    @PolicyResourceProperty(name="templateConfiguration", flag="unknown_templateConfiguration")
+    private DataSourceConfigurationTemplateConfigurationArgs value_templateConfiguration;
+    private boolean unknown_templateConfiguration;
     public DataSourceConfigurationTemplateConfigurationArgs templateConfiguration() {
-        if (templateConfiguration == null) return null;
-        return templateConfiguration.getValue("DataSourceConfigurationArgs.templateConfiguration");
+        if (!unknown_templateConfiguration) return value_templateConfiguration;
+        throw new UndeferrableValueException("Value 'DataSourceConfigurationArgs.templateConfiguration' is not present");
     }
 
     /**
@@ -46,11 +49,12 @@ public final class DataSourceConfigurationArgs {
      * 
      */
     @Deprecated /* web_crawler_configuration is deprecated. Use template_configuration instead. */
-    private UndeferrableValue<DataSourceConfigurationWebCrawlerConfigurationArgs> webCrawlerConfiguration;
-
+    @PolicyResourceProperty(name="webCrawlerConfiguration", flag="unknown_webCrawlerConfiguration")
+    private DataSourceConfigurationWebCrawlerConfigurationArgs value_webCrawlerConfiguration;
+    private boolean unknown_webCrawlerConfiguration;
     public DataSourceConfigurationWebCrawlerConfigurationArgs webCrawlerConfiguration() {
-        if (webCrawlerConfiguration == null) return null;
-        return webCrawlerConfiguration.getValue("DataSourceConfigurationArgs.webCrawlerConfiguration");
+        if (!unknown_webCrawlerConfiguration) return value_webCrawlerConfiguration;
+        throw new UndeferrableValueException("Value 'DataSourceConfigurationArgs.webCrawlerConfiguration' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -16,77 +17,84 @@ public final class ClusterVpcConfig {
      * Cluster security group that is created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
      * 
      */
-    private @Nullable UndeferrableValue<String> clusterSecurityGroupId;
-
+    @PolicyResourceProperty(name="clusterSecurityGroupId", flag="unknown_clusterSecurityGroupId")
+    private @Nullable String value_clusterSecurityGroupId;
+    private boolean unknown_clusterSecurityGroupId;
     public @Nullable String clusterSecurityGroupId() {
-        if (clusterSecurityGroupId == null) return null;
-        return clusterSecurityGroupId.getValue("ClusterVpcConfig.clusterSecurityGroupId");
+        if (!unknown_clusterSecurityGroupId) return value_clusterSecurityGroupId;
+        throw new UndeferrableValueException("Value 'ClusterVpcConfig.clusterSecurityGroupId' is not present");
     }
 
     /**
      * Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> endpointPrivateAccess;
-
+    @PolicyResourceProperty(name="endpointPrivateAccess", flag="unknown_endpointPrivateAccess")
+    private @Nullable Boolean value_endpointPrivateAccess;
+    private boolean unknown_endpointPrivateAccess;
     public @Nullable Boolean endpointPrivateAccess() {
-        if (endpointPrivateAccess == null) return null;
-        return endpointPrivateAccess.getValue("ClusterVpcConfig.endpointPrivateAccess");
+        if (!unknown_endpointPrivateAccess) return value_endpointPrivateAccess;
+        throw new UndeferrableValueException("Value 'ClusterVpcConfig.endpointPrivateAccess' is not present");
     }
 
     /**
      * Whether the Amazon EKS public API server endpoint is enabled. Default is `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> endpointPublicAccess;
-
+    @PolicyResourceProperty(name="endpointPublicAccess", flag="unknown_endpointPublicAccess")
+    private @Nullable Boolean value_endpointPublicAccess;
+    private boolean unknown_endpointPublicAccess;
     public @Nullable Boolean endpointPublicAccess() {
-        if (endpointPublicAccess == null) return null;
-        return endpointPublicAccess.getValue("ClusterVpcConfig.endpointPublicAccess");
+        if (!unknown_endpointPublicAccess) return value_endpointPublicAccess;
+        throw new UndeferrableValueException("Value 'ClusterVpcConfig.endpointPublicAccess' is not present");
     }
 
     /**
      * List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. The provider will only perform drift detection of its value when present in a configuration.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> publicAccessCidrs;
-
+    @PolicyResourceProperty(name="publicAccessCidrs", flag="unknown_publicAccessCidrs")
+    private @Nullable List<String> value_publicAccessCidrs;
+    private boolean unknown_publicAccessCidrs;
     public @Nullable List<String> publicAccessCidrs() {
-        if (publicAccessCidrs == null) return null;
-        return publicAccessCidrs.getValue("ClusterVpcConfig.publicAccessCidrs");
+        if (!unknown_publicAccessCidrs) return value_publicAccessCidrs;
+        throw new UndeferrableValueException("Value 'ClusterVpcConfig.publicAccessCidrs' is not present");
     }
 
     /**
      * List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private @Nullable List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public @Nullable List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("ClusterVpcConfig.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'ClusterVpcConfig.securityGroupIds' is not present");
     }
 
     /**
      * List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("ClusterVpcConfig.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'ClusterVpcConfig.subnetIds' is not present");
     }
 
     /**
      * ID of the VPC associated with your cluster.
      * 
      */
-    private @Nullable UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private @Nullable String value_vpcId;
+    private boolean unknown_vpcId;
     public @Nullable String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("ClusterVpcConfig.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'ClusterVpcConfig.vpcId' is not present");
     }
 
 }

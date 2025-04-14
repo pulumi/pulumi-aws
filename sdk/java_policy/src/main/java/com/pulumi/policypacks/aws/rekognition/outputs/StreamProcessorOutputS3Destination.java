@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rekognition.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class StreamProcessorOutputS3Destination {
      * Name of the Amazon S3 bucket you want to associate with the streaming video project.
      * 
      */
-    private @Nullable UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private @Nullable String value_bucket;
+    private boolean unknown_bucket;
     public @Nullable String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("StreamProcessorOutputS3Destination.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'StreamProcessorOutputS3Destination.bucket' is not present");
     }
 
     /**
      * The prefix value of the location within the bucket that you want the information to be published to.
      * 
      */
-    private @Nullable UndeferrableValue<String> keyPrefix;
-
+    @PolicyResourceProperty(name="keyPrefix", flag="unknown_keyPrefix")
+    private @Nullable String value_keyPrefix;
+    private boolean unknown_keyPrefix;
     public @Nullable String keyPrefix() {
-        if (keyPrefix == null) return null;
-        return keyPrefix.getValue("StreamProcessorOutputS3Destination.keyPrefix");
+        if (!unknown_keyPrefix) return value_keyPrefix;
+        throw new UndeferrableValueException("Value 'StreamProcessorOutputS3Destination.keyPrefix' is not present");
     }
 
 }

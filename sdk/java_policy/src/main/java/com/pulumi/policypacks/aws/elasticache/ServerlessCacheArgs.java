@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticache;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.elasticache.inputs.ServerlessCacheCacheUsageLimitsArgs;
 import com.pulumi.policypacks.aws.elasticache.inputs.ServerlessCacheTimeoutsArgs;
@@ -21,55 +22,60 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.PolicyResour
      * Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
      * 
      */
-    private UndeferrableValue<ServerlessCacheCacheUsageLimitsArgs> cacheUsageLimits;
-
+    @PolicyResourceProperty(name="cacheUsageLimits", flag="unknown_cacheUsageLimits")
+    private ServerlessCacheCacheUsageLimitsArgs value_cacheUsageLimits;
+    private boolean unknown_cacheUsageLimits;
     public ServerlessCacheCacheUsageLimitsArgs cacheUsageLimits() {
-        if (cacheUsageLimits == null) return null;
-        return cacheUsageLimits.getValue("ServerlessCacheArgs.cacheUsageLimits");
+        if (!unknown_cacheUsageLimits) return value_cacheUsageLimits;
+        throw new UndeferrableValueException("Value 'ServerlessCacheArgs.cacheUsageLimits' is not present");
     }
 
     /**
      * The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `&#34;redis&#34;` or `&#34;valkey&#34;`. Defaults to `0`.
      * 
      */
-    private UndeferrableValue<String> dailySnapshotTime;
-
+    @PolicyResourceProperty(name="dailySnapshotTime", flag="unknown_dailySnapshotTime")
+    private String value_dailySnapshotTime;
+    private boolean unknown_dailySnapshotTime;
     public String dailySnapshotTime() {
-        if (dailySnapshotTime == null) return null;
-        return dailySnapshotTime.getValue("ServerlessCacheArgs.dailySnapshotTime");
+        if (!unknown_dailySnapshotTime) return value_dailySnapshotTime;
+        throw new UndeferrableValueException("Value 'ServerlessCacheArgs.dailySnapshotTime' is not present");
     }
 
     /**
      * User-provided description for the serverless cache. The default is NULL.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ServerlessCacheArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ServerlessCacheArgs.description' is not present");
     }
 
     /**
      * Name of the cache engine to be used for this cache cluster. Valid values are `memcached`, `redis` or `valkey`.
      * 
      */
-    private UndeferrableValue<String> engine;
-
+    @PolicyResourceProperty(name="engine", flag="unknown_engine")
+    private String value_engine;
+    private boolean unknown_engine;
     public String engine() {
-        if (engine == null) return null;
-        return engine.getValue("ServerlessCacheArgs.engine");
+        if (!unknown_engine) return value_engine;
+        throw new UndeferrableValueException("Value 'ServerlessCacheArgs.engine' is not present");
     }
 
     /**
      * ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("ServerlessCacheArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'ServerlessCacheArgs.kmsKeyId' is not present");
     }
 
     /**
@@ -77,11 +83,12 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.PolicyResour
      * See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
      * 
      */
-    private UndeferrableValue<String> majorEngineVersion;
-
+    @PolicyResourceProperty(name="majorEngineVersion", flag="unknown_majorEngineVersion")
+    private String value_majorEngineVersion;
+    private boolean unknown_majorEngineVersion;
     public String majorEngineVersion() {
-        if (majorEngineVersion == null) return null;
-        return majorEngineVersion.getValue("ServerlessCacheArgs.majorEngineVersion");
+        if (!unknown_majorEngineVersion) return value_majorEngineVersion;
+        throw new UndeferrableValueException("Value 'ServerlessCacheArgs.majorEngineVersion' is not present");
     }
 
     /**
@@ -90,84 +97,92 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ServerlessCacheArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ServerlessCacheArgs.name' is not present");
     }
 
     /**
      * A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("ServerlessCacheArgs.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'ServerlessCacheArgs.securityGroupIds' is not present");
     }
 
     /**
      * The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
      * 
      */
-    private UndeferrableValue<List<String>> snapshotArnsToRestores;
-
+    @PolicyResourceProperty(name="snapshotArnsToRestores", flag="unknown_snapshotArnsToRestores")
+    private List<String> value_snapshotArnsToRestores;
+    private boolean unknown_snapshotArnsToRestores;
     public List<String> snapshotArnsToRestores() {
-        if (snapshotArnsToRestores == null) return null;
-        return snapshotArnsToRestores.getValue("ServerlessCacheArgs.snapshotArnsToRestores");
+        if (!unknown_snapshotArnsToRestores) return value_snapshotArnsToRestores;
+        throw new UndeferrableValueException("Value 'ServerlessCacheArgs.snapshotArnsToRestores' is not present");
     }
 
     /**
      * The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
      * 
      */
-    private UndeferrableValue<Integer> snapshotRetentionLimit;
-
+    @PolicyResourceProperty(name="snapshotRetentionLimit", flag="unknown_snapshotRetentionLimit")
+    private Integer value_snapshotRetentionLimit;
+    private boolean unknown_snapshotRetentionLimit;
     public Integer snapshotRetentionLimit() {
-        if (snapshotRetentionLimit == null) return null;
-        return snapshotRetentionLimit.getValue("ServerlessCacheArgs.snapshotRetentionLimit");
+        if (!unknown_snapshotRetentionLimit) return value_snapshotRetentionLimit;
+        throw new UndeferrableValueException("Value 'ServerlessCacheArgs.snapshotRetentionLimit' is not present");
     }
 
     /**
      * A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("ServerlessCacheArgs.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'ServerlessCacheArgs.subnetIds' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ServerlessCacheArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ServerlessCacheArgs.tags' is not present");
     }
 
-    private UndeferrableValue<ServerlessCacheTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private ServerlessCacheTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public ServerlessCacheTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ServerlessCacheArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ServerlessCacheArgs.timeouts' is not present");
     }
 
     /**
      * The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
      * 
      */
-    private UndeferrableValue<String> userGroupId;
-
+    @PolicyResourceProperty(name="userGroupId", flag="unknown_userGroupId")
+    private String value_userGroupId;
+    private boolean unknown_userGroupId;
     public String userGroupId() {
-        if (userGroupId == null) return null;
-        return userGroupId.getValue("ServerlessCacheArgs.userGroupId");
+        if (!unknown_userGroupId) return value_userGroupId;
+        throw new UndeferrableValueException("Value 'ServerlessCacheArgs.userGroupId' is not present");
     }
 
 }

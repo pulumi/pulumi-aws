@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelArgs;
 import com.pulumi.policypacks.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationAwsOrgArgs;
 import com.pulumi.policypacks.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationDataExportArgs;
@@ -19,66 +20,72 @@ public final class StorageLensConfigurationStorageLensConfigurationArgs {
      * The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
      * 
      */
-    private UndeferrableValue<StorageLensConfigurationStorageLensConfigurationAccountLevelArgs> accountLevel;
-
+    @PolicyResourceProperty(name="accountLevel", flag="unknown_accountLevel")
+    private StorageLensConfigurationStorageLensConfigurationAccountLevelArgs value_accountLevel;
+    private boolean unknown_accountLevel;
     public StorageLensConfigurationStorageLensConfigurationAccountLevelArgs accountLevel() {
-        if (accountLevel == null) return null;
-        return accountLevel.getValue("StorageLensConfigurationStorageLensConfigurationArgs.accountLevel");
+        if (!unknown_accountLevel) return value_accountLevel;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationArgs.accountLevel' is not present");
     }
 
     /**
      * The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
      * 
      */
-    private UndeferrableValue<StorageLensConfigurationStorageLensConfigurationAwsOrgArgs> awsOrg;
-
+    @PolicyResourceProperty(name="awsOrg", flag="unknown_awsOrg")
+    private StorageLensConfigurationStorageLensConfigurationAwsOrgArgs value_awsOrg;
+    private boolean unknown_awsOrg;
     public StorageLensConfigurationStorageLensConfigurationAwsOrgArgs awsOrg() {
-        if (awsOrg == null) return null;
-        return awsOrg.getValue("StorageLensConfigurationStorageLensConfigurationArgs.awsOrg");
+        if (!unknown_awsOrg) return value_awsOrg;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationArgs.awsOrg' is not present");
     }
 
     /**
      * Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
      * 
      */
-    private UndeferrableValue<StorageLensConfigurationStorageLensConfigurationDataExportArgs> dataExport;
-
+    @PolicyResourceProperty(name="dataExport", flag="unknown_dataExport")
+    private StorageLensConfigurationStorageLensConfigurationDataExportArgs value_dataExport;
+    private boolean unknown_dataExport;
     public StorageLensConfigurationStorageLensConfigurationDataExportArgs dataExport() {
-        if (dataExport == null) return null;
-        return dataExport.getValue("StorageLensConfigurationStorageLensConfigurationArgs.dataExport");
+        if (!unknown_dataExport) return value_dataExport;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationArgs.dataExport' is not present");
     }
 
     /**
      * Whether the S3 Storage Lens configuration is enabled.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("StorageLensConfigurationStorageLensConfigurationArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationArgs.enabled' is not present");
     }
 
     /**
      * What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
      * 
      */
-    private UndeferrableValue<StorageLensConfigurationStorageLensConfigurationExcludeArgs> exclude;
-
+    @PolicyResourceProperty(name="exclude", flag="unknown_exclude")
+    private StorageLensConfigurationStorageLensConfigurationExcludeArgs value_exclude;
+    private boolean unknown_exclude;
     public StorageLensConfigurationStorageLensConfigurationExcludeArgs exclude() {
-        if (exclude == null) return null;
-        return exclude.getValue("StorageLensConfigurationStorageLensConfigurationArgs.exclude");
+        if (!unknown_exclude) return value_exclude;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationArgs.exclude' is not present");
     }
 
     /**
      * What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
      * 
      */
-    private UndeferrableValue<StorageLensConfigurationStorageLensConfigurationIncludeArgs> include;
-
+    @PolicyResourceProperty(name="include", flag="unknown_include")
+    private StorageLensConfigurationStorageLensConfigurationIncludeArgs value_include;
+    private boolean unknown_include;
     public StorageLensConfigurationStorageLensConfigurationIncludeArgs include() {
-        if (include == null) return null;
-        return include.getValue("StorageLensConfigurationStorageLensConfigurationArgs.include");
+        if (!unknown_include) return value_include;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationArgs.include' is not present");
     }
 
 }

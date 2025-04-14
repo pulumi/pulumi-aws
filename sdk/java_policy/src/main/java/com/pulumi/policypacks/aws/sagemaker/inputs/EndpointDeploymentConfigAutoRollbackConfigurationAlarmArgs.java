@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs {
      * The name of a CloudWatch alarm in your account.
      * 
      */
-    private UndeferrableValue<String> alarmName;
-
+    @PolicyResourceProperty(name="alarmName", flag="unknown_alarmName")
+    private String value_alarmName;
+    private boolean unknown_alarmName;
     public String alarmName() {
-        if (alarmName == null) return null;
-        return alarmName.getValue("EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs.alarmName");
+        if (!unknown_alarmName) return value_alarmName;
+        throw new UndeferrableValueException("Value 'EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs.alarmName' is not present");
     }
 
 }

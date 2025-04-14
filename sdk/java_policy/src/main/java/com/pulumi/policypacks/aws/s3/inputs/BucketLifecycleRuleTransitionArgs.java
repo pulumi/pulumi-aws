@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class BucketLifecycleRuleTransitionArgs {
      * Specifies the date after which you want the corresponding action to take effect.
      * 
      */
-    private UndeferrableValue<String> date;
-
+    @PolicyResourceProperty(name="date", flag="unknown_date")
+    private String value_date;
+    private boolean unknown_date;
     public String date() {
-        if (date == null) return null;
-        return date.getValue("BucketLifecycleRuleTransitionArgs.date");
+        if (!unknown_date) return value_date;
+        throw new UndeferrableValueException("Value 'BucketLifecycleRuleTransitionArgs.date' is not present");
     }
 
     /**
      * Specifies the number of days after object creation when the specific rule action takes effect.
      * 
      */
-    private UndeferrableValue<Integer> days;
-
+    @PolicyResourceProperty(name="days", flag="unknown_days")
+    private Integer value_days;
+    private boolean unknown_days;
     public Integer days() {
-        if (days == null) return null;
-        return days.getValue("BucketLifecycleRuleTransitionArgs.days");
+        if (!unknown_days) return value_days;
+        throw new UndeferrableValueException("Value 'BucketLifecycleRuleTransitionArgs.days' is not present");
     }
 
     /**
      * Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
      * 
      */
-    private UndeferrableValue<String> storageClass;
-
+    @PolicyResourceProperty(name="storageClass", flag="unknown_storageClass")
+    private String value_storageClass;
+    private boolean unknown_storageClass;
     public String storageClass() {
-        if (storageClass == null) return null;
-        return storageClass.getValue("BucketLifecycleRuleTransitionArgs.storageClass");
+        if (!unknown_storageClass) return value_storageClass;
+        throw new UndeferrableValueException("Value 'BucketLifecycleRuleTransitionArgs.storageClass' is not present");
     }
 
 }

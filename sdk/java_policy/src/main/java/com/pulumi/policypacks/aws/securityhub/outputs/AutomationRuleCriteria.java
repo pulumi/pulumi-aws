@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.securityhub.outputs.AutomationRuleCriteriaAwsAccountId;
 import com.pulumi.policypacks.aws.securityhub.outputs.AutomationRuleCriteriaAwsAccountName;
 import com.pulumi.policypacks.aws.securityhub.outputs.AutomationRuleCriteriaCompanyName;
@@ -52,418 +53,456 @@ public final class AutomationRuleCriteria {
      * The AWS account ID in which a finding was generated. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaAwsAccountId>> awsAccountIds;
-
+    @PolicyResourceProperty(name="awsAccountIds", flag="unknown_awsAccountIds")
+    private @Nullable List<AutomationRuleCriteriaAwsAccountId> value_awsAccountIds;
+    private boolean unknown_awsAccountIds;
     public @Nullable List<AutomationRuleCriteriaAwsAccountId> awsAccountIds() {
-        if (awsAccountIds == null) return null;
-        return awsAccountIds.getValue("AutomationRuleCriteria.awsAccountIds");
+        if (!unknown_awsAccountIds) return value_awsAccountIds;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.awsAccountIds' is not present");
     }
 
     /**
      * The name of the AWS account in which a finding was generated. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaAwsAccountName>> awsAccountNames;
-
+    @PolicyResourceProperty(name="awsAccountNames", flag="unknown_awsAccountNames")
+    private @Nullable List<AutomationRuleCriteriaAwsAccountName> value_awsAccountNames;
+    private boolean unknown_awsAccountNames;
     public @Nullable List<AutomationRuleCriteriaAwsAccountName> awsAccountNames() {
-        if (awsAccountNames == null) return null;
-        return awsAccountNames.getValue("AutomationRuleCriteria.awsAccountNames");
+        if (!unknown_awsAccountNames) return value_awsAccountNames;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.awsAccountNames' is not present");
     }
 
     /**
      * The name of the company for the product that generated the finding. For control-based findings, the company is AWS. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaCompanyName>> companyNames;
-
+    @PolicyResourceProperty(name="companyNames", flag="unknown_companyNames")
+    private @Nullable List<AutomationRuleCriteriaCompanyName> value_companyNames;
+    private boolean unknown_companyNames;
     public @Nullable List<AutomationRuleCriteriaCompanyName> companyNames() {
-        if (companyNames == null) return null;
-        return companyNames.getValue("AutomationRuleCriteria.companyNames");
+        if (!unknown_companyNames) return value_companyNames;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.companyNames' is not present");
     }
 
     /**
      * The unique identifier of a standard in which a control is enabled. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaComplianceAssociatedStandardsId>> complianceAssociatedStandardsIds;
-
+    @PolicyResourceProperty(name="complianceAssociatedStandardsIds", flag="unknown_complianceAssociatedStandardsIds")
+    private @Nullable List<AutomationRuleCriteriaComplianceAssociatedStandardsId> value_complianceAssociatedStandardsIds;
+    private boolean unknown_complianceAssociatedStandardsIds;
     public @Nullable List<AutomationRuleCriteriaComplianceAssociatedStandardsId> complianceAssociatedStandardsIds() {
-        if (complianceAssociatedStandardsIds == null) return null;
-        return complianceAssociatedStandardsIds.getValue("AutomationRuleCriteria.complianceAssociatedStandardsIds");
+        if (!unknown_complianceAssociatedStandardsIds) return value_complianceAssociatedStandardsIds;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.complianceAssociatedStandardsIds' is not present");
     }
 
     /**
      * The security control ID for which a finding was generated. Security control IDs are the same across standards. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaComplianceSecurityControlId>> complianceSecurityControlIds;
-
+    @PolicyResourceProperty(name="complianceSecurityControlIds", flag="unknown_complianceSecurityControlIds")
+    private @Nullable List<AutomationRuleCriteriaComplianceSecurityControlId> value_complianceSecurityControlIds;
+    private boolean unknown_complianceSecurityControlIds;
     public @Nullable List<AutomationRuleCriteriaComplianceSecurityControlId> complianceSecurityControlIds() {
-        if (complianceSecurityControlIds == null) return null;
-        return complianceSecurityControlIds.getValue("AutomationRuleCriteria.complianceSecurityControlIds");
+        if (!unknown_complianceSecurityControlIds) return value_complianceSecurityControlIds;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.complianceSecurityControlIds' is not present");
     }
 
     /**
      * The result of a security check. This field is only used for findings generated from controls. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaComplianceStatus>> complianceStatuses;
-
+    @PolicyResourceProperty(name="complianceStatuses", flag="unknown_complianceStatuses")
+    private @Nullable List<AutomationRuleCriteriaComplianceStatus> value_complianceStatuses;
+    private boolean unknown_complianceStatuses;
     public @Nullable List<AutomationRuleCriteriaComplianceStatus> complianceStatuses() {
-        if (complianceStatuses == null) return null;
-        return complianceStatuses.getValue("AutomationRuleCriteria.complianceStatuses");
+        if (!unknown_complianceStatuses) return value_complianceStatuses;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.complianceStatuses' is not present");
     }
 
     /**
      * The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaConfidence>> confidences;
-
+    @PolicyResourceProperty(name="confidences", flag="unknown_confidences")
+    private @Nullable List<AutomationRuleCriteriaConfidence> value_confidences;
+    private boolean unknown_confidences;
     public @Nullable List<AutomationRuleCriteriaConfidence> confidences() {
-        if (confidences == null) return null;
-        return confidences.getValue("AutomationRuleCriteria.confidences");
+        if (!unknown_confidences) return value_confidences;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.confidences' is not present");
     }
 
     /**
      * A timestamp that indicates when this finding record was created. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaCreatedAt>> createdAts;
-
+    @PolicyResourceProperty(name="createdAts", flag="unknown_createdAts")
+    private @Nullable List<AutomationRuleCriteriaCreatedAt> value_createdAts;
+    private boolean unknown_createdAts;
     public @Nullable List<AutomationRuleCriteriaCreatedAt> createdAts() {
-        if (createdAts == null) return null;
-        return createdAts.getValue("AutomationRuleCriteria.createdAts");
+        if (!unknown_createdAts) return value_createdAts;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.createdAts' is not present");
     }
 
     /**
      * The level of importance that is assigned to the resources that are associated with a finding. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaCriticality>> criticalities;
-
+    @PolicyResourceProperty(name="criticalities", flag="unknown_criticalities")
+    private @Nullable List<AutomationRuleCriteriaCriticality> value_criticalities;
+    private boolean unknown_criticalities;
     public @Nullable List<AutomationRuleCriteriaCriticality> criticalities() {
-        if (criticalities == null) return null;
-        return criticalities.getValue("AutomationRuleCriteria.criticalities");
+        if (!unknown_criticalities) return value_criticalities;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.criticalities' is not present");
     }
 
     /**
      * A finding&#39;s description. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaDescription>> descriptions;
-
+    @PolicyResourceProperty(name="descriptions", flag="unknown_descriptions")
+    private @Nullable List<AutomationRuleCriteriaDescription> value_descriptions;
+    private boolean unknown_descriptions;
     public @Nullable List<AutomationRuleCriteriaDescription> descriptions() {
-        if (descriptions == null) return null;
-        return descriptions.getValue("AutomationRuleCriteria.descriptions");
+        if (!unknown_descriptions) return value_descriptions;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.descriptions' is not present");
     }
 
     /**
      * A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaFirstObservedAt>> firstObservedAts;
-
+    @PolicyResourceProperty(name="firstObservedAts", flag="unknown_firstObservedAts")
+    private @Nullable List<AutomationRuleCriteriaFirstObservedAt> value_firstObservedAts;
+    private boolean unknown_firstObservedAts;
     public @Nullable List<AutomationRuleCriteriaFirstObservedAt> firstObservedAts() {
-        if (firstObservedAts == null) return null;
-        return firstObservedAts.getValue("AutomationRuleCriteria.firstObservedAts");
+        if (!unknown_firstObservedAts) return value_firstObservedAts;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.firstObservedAts' is not present");
     }
 
     /**
      * The identifier for the solution-specific component that generated a finding. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaGeneratorId>> generatorIds;
-
+    @PolicyResourceProperty(name="generatorIds", flag="unknown_generatorIds")
+    private @Nullable List<AutomationRuleCriteriaGeneratorId> value_generatorIds;
+    private boolean unknown_generatorIds;
     public @Nullable List<AutomationRuleCriteriaGeneratorId> generatorIds() {
-        if (generatorIds == null) return null;
-        return generatorIds.getValue("AutomationRuleCriteria.generatorIds");
+        if (!unknown_generatorIds) return value_generatorIds;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.generatorIds' is not present");
     }
 
     /**
      * The product-specific identifier for a finding. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaId>> ids;
-
+    @PolicyResourceProperty(name="ids", flag="unknown_ids")
+    private @Nullable List<AutomationRuleCriteriaId> value_ids;
+    private boolean unknown_ids;
     public @Nullable List<AutomationRuleCriteriaId> ids() {
-        if (ids == null) return null;
-        return ids.getValue("AutomationRuleCriteria.ids");
+        if (!unknown_ids) return value_ids;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.ids' is not present");
     }
 
     /**
      * A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaLastObservedAt>> lastObservedAts;
-
+    @PolicyResourceProperty(name="lastObservedAts", flag="unknown_lastObservedAts")
+    private @Nullable List<AutomationRuleCriteriaLastObservedAt> value_lastObservedAts;
+    private boolean unknown_lastObservedAts;
     public @Nullable List<AutomationRuleCriteriaLastObservedAt> lastObservedAts() {
-        if (lastObservedAts == null) return null;
-        return lastObservedAts.getValue("AutomationRuleCriteria.lastObservedAts");
+        if (!unknown_lastObservedAts) return value_lastObservedAts;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.lastObservedAts' is not present");
     }
 
     /**
      * The text of a user-defined note that&#39;s added to a finding. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaNoteText>> noteTexts;
-
+    @PolicyResourceProperty(name="noteTexts", flag="unknown_noteTexts")
+    private @Nullable List<AutomationRuleCriteriaNoteText> value_noteTexts;
+    private boolean unknown_noteTexts;
     public @Nullable List<AutomationRuleCriteriaNoteText> noteTexts() {
-        if (noteTexts == null) return null;
-        return noteTexts.getValue("AutomationRuleCriteria.noteTexts");
+        if (!unknown_noteTexts) return value_noteTexts;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.noteTexts' is not present");
     }
 
     /**
      * The timestamp of when the note was updated. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaNoteUpdatedAt>> noteUpdatedAts;
-
+    @PolicyResourceProperty(name="noteUpdatedAts", flag="unknown_noteUpdatedAts")
+    private @Nullable List<AutomationRuleCriteriaNoteUpdatedAt> value_noteUpdatedAts;
+    private boolean unknown_noteUpdatedAts;
     public @Nullable List<AutomationRuleCriteriaNoteUpdatedAt> noteUpdatedAts() {
-        if (noteUpdatedAts == null) return null;
-        return noteUpdatedAts.getValue("AutomationRuleCriteria.noteUpdatedAts");
+        if (!unknown_noteUpdatedAts) return value_noteUpdatedAts;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.noteUpdatedAts' is not present");
     }
 
     /**
      * The principal that created a note. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaNoteUpdatedBy>> noteUpdatedBies;
-
+    @PolicyResourceProperty(name="noteUpdatedBies", flag="unknown_noteUpdatedBies")
+    private @Nullable List<AutomationRuleCriteriaNoteUpdatedBy> value_noteUpdatedBies;
+    private boolean unknown_noteUpdatedBies;
     public @Nullable List<AutomationRuleCriteriaNoteUpdatedBy> noteUpdatedBies() {
-        if (noteUpdatedBies == null) return null;
-        return noteUpdatedBies.getValue("AutomationRuleCriteria.noteUpdatedBies");
+        if (!unknown_noteUpdatedBies) return value_noteUpdatedBies;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.noteUpdatedBies' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaProductArn>> productArns;
-
+    @PolicyResourceProperty(name="productArns", flag="unknown_productArns")
+    private @Nullable List<AutomationRuleCriteriaProductArn> value_productArns;
+    private boolean unknown_productArns;
     public @Nullable List<AutomationRuleCriteriaProductArn> productArns() {
-        if (productArns == null) return null;
-        return productArns.getValue("AutomationRuleCriteria.productArns");
+        if (!unknown_productArns) return value_productArns;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.productArns' is not present");
     }
 
     /**
      * Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaProductName>> productNames;
-
+    @PolicyResourceProperty(name="productNames", flag="unknown_productNames")
+    private @Nullable List<AutomationRuleCriteriaProductName> value_productNames;
+    private boolean unknown_productNames;
     public @Nullable List<AutomationRuleCriteriaProductName> productNames() {
-        if (productNames == null) return null;
-        return productNames.getValue("AutomationRuleCriteria.productNames");
+        if (!unknown_productNames) return value_productNames;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.productNames' is not present");
     }
 
     /**
      * Provides the current state of a finding. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaRecordState>> recordStates;
-
+    @PolicyResourceProperty(name="recordStates", flag="unknown_recordStates")
+    private @Nullable List<AutomationRuleCriteriaRecordState> value_recordStates;
+    private boolean unknown_recordStates;
     public @Nullable List<AutomationRuleCriteriaRecordState> recordStates() {
-        if (recordStates == null) return null;
-        return recordStates.getValue("AutomationRuleCriteria.recordStates");
+        if (!unknown_recordStates) return value_recordStates;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.recordStates' is not present");
     }
 
     /**
      * The product-generated identifier for a related finding.  Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaRelatedFindingsId>> relatedFindingsIds;
-
+    @PolicyResourceProperty(name="relatedFindingsIds", flag="unknown_relatedFindingsIds")
+    private @Nullable List<AutomationRuleCriteriaRelatedFindingsId> value_relatedFindingsIds;
+    private boolean unknown_relatedFindingsIds;
     public @Nullable List<AutomationRuleCriteriaRelatedFindingsId> relatedFindingsIds() {
-        if (relatedFindingsIds == null) return null;
-        return relatedFindingsIds.getValue("AutomationRuleCriteria.relatedFindingsIds");
+        if (!unknown_relatedFindingsIds) return value_relatedFindingsIds;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.relatedFindingsIds' is not present");
     }
 
     /**
      * The ARN for the product that generated a related finding. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaRelatedFindingsProductArn>> relatedFindingsProductArns;
-
+    @PolicyResourceProperty(name="relatedFindingsProductArns", flag="unknown_relatedFindingsProductArns")
+    private @Nullable List<AutomationRuleCriteriaRelatedFindingsProductArn> value_relatedFindingsProductArns;
+    private boolean unknown_relatedFindingsProductArns;
     public @Nullable List<AutomationRuleCriteriaRelatedFindingsProductArn> relatedFindingsProductArns() {
-        if (relatedFindingsProductArns == null) return null;
-        return relatedFindingsProductArns.getValue("AutomationRuleCriteria.relatedFindingsProductArns");
+        if (!unknown_relatedFindingsProductArns) return value_relatedFindingsProductArns;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.relatedFindingsProductArns' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaResourceApplicationArn>> resourceApplicationArns;
-
+    @PolicyResourceProperty(name="resourceApplicationArns", flag="unknown_resourceApplicationArns")
+    private @Nullable List<AutomationRuleCriteriaResourceApplicationArn> value_resourceApplicationArns;
+    private boolean unknown_resourceApplicationArns;
     public @Nullable List<AutomationRuleCriteriaResourceApplicationArn> resourceApplicationArns() {
-        if (resourceApplicationArns == null) return null;
-        return resourceApplicationArns.getValue("AutomationRuleCriteria.resourceApplicationArns");
+        if (!unknown_resourceApplicationArns) return value_resourceApplicationArns;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.resourceApplicationArns' is not present");
     }
 
     /**
      * The name of the application that is related to a finding. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaResourceApplicationName>> resourceApplicationNames;
-
+    @PolicyResourceProperty(name="resourceApplicationNames", flag="unknown_resourceApplicationNames")
+    private @Nullable List<AutomationRuleCriteriaResourceApplicationName> value_resourceApplicationNames;
+    private boolean unknown_resourceApplicationNames;
     public @Nullable List<AutomationRuleCriteriaResourceApplicationName> resourceApplicationNames() {
-        if (resourceApplicationNames == null) return null;
-        return resourceApplicationNames.getValue("AutomationRuleCriteria.resourceApplicationNames");
+        if (!unknown_resourceApplicationNames) return value_resourceApplicationNames;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.resourceApplicationNames' is not present");
     }
 
     /**
      * Custom fields and values about the resource that a finding pertains to. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaResourceDetailsOther>> resourceDetailsOthers;
-
+    @PolicyResourceProperty(name="resourceDetailsOthers", flag="unknown_resourceDetailsOthers")
+    private @Nullable List<AutomationRuleCriteriaResourceDetailsOther> value_resourceDetailsOthers;
+    private boolean unknown_resourceDetailsOthers;
     public @Nullable List<AutomationRuleCriteriaResourceDetailsOther> resourceDetailsOthers() {
-        if (resourceDetailsOthers == null) return null;
-        return resourceDetailsOthers.getValue("AutomationRuleCriteria.resourceDetailsOthers");
+        if (!unknown_resourceDetailsOthers) return value_resourceDetailsOthers;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.resourceDetailsOthers' is not present");
     }
 
     /**
      * The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaResourceId>> resourceIds;
-
+    @PolicyResourceProperty(name="resourceIds", flag="unknown_resourceIds")
+    private @Nullable List<AutomationRuleCriteriaResourceId> value_resourceIds;
+    private boolean unknown_resourceIds;
     public @Nullable List<AutomationRuleCriteriaResourceId> resourceIds() {
-        if (resourceIds == null) return null;
-        return resourceIds.getValue("AutomationRuleCriteria.resourceIds");
+        if (!unknown_resourceIds) return value_resourceIds;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.resourceIds' is not present");
     }
 
     /**
      * The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions. Each AWS account is scoped to one partition. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaResourcePartition>> resourcePartitions;
-
+    @PolicyResourceProperty(name="resourcePartitions", flag="unknown_resourcePartitions")
+    private @Nullable List<AutomationRuleCriteriaResourcePartition> value_resourcePartitions;
+    private boolean unknown_resourcePartitions;
     public @Nullable List<AutomationRuleCriteriaResourcePartition> resourcePartitions() {
-        if (resourcePartitions == null) return null;
-        return resourcePartitions.getValue("AutomationRuleCriteria.resourcePartitions");
+        if (!unknown_resourcePartitions) return value_resourcePartitions;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.resourcePartitions' is not present");
     }
 
     /**
      * The AWS Region where the resource that a finding pertains to is located. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaResourceRegion>> resourceRegions;
-
+    @PolicyResourceProperty(name="resourceRegions", flag="unknown_resourceRegions")
+    private @Nullable List<AutomationRuleCriteriaResourceRegion> value_resourceRegions;
+    private boolean unknown_resourceRegions;
     public @Nullable List<AutomationRuleCriteriaResourceRegion> resourceRegions() {
-        if (resourceRegions == null) return null;
-        return resourceRegions.getValue("AutomationRuleCriteria.resourceRegions");
+        if (!unknown_resourceRegions) return value_resourceRegions;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.resourceRegions' is not present");
     }
 
     /**
      * A list of AWS tags associated with a resource at the time the finding was processed. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaResourceTag>> resourceTags;
-
+    @PolicyResourceProperty(name="resourceTags", flag="unknown_resourceTags")
+    private @Nullable List<AutomationRuleCriteriaResourceTag> value_resourceTags;
+    private boolean unknown_resourceTags;
     public @Nullable List<AutomationRuleCriteriaResourceTag> resourceTags() {
-        if (resourceTags == null) return null;
-        return resourceTags.getValue("AutomationRuleCriteria.resourceTags");
+        if (!unknown_resourceTags) return value_resourceTags;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.resourceTags' is not present");
     }
 
     /**
      * The type of resource that the finding pertains to. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaResourceType>> resourceTypes;
-
+    @PolicyResourceProperty(name="resourceTypes", flag="unknown_resourceTypes")
+    private @Nullable List<AutomationRuleCriteriaResourceType> value_resourceTypes;
+    private boolean unknown_resourceTypes;
     public @Nullable List<AutomationRuleCriteriaResourceType> resourceTypes() {
-        if (resourceTypes == null) return null;
-        return resourceTypes.getValue("AutomationRuleCriteria.resourceTypes");
+        if (!unknown_resourceTypes) return value_resourceTypes;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.resourceTypes' is not present");
     }
 
     /**
      * The severity value of the finding. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaSeverityLabel>> severityLabels;
-
+    @PolicyResourceProperty(name="severityLabels", flag="unknown_severityLabels")
+    private @Nullable List<AutomationRuleCriteriaSeverityLabel> value_severityLabels;
+    private boolean unknown_severityLabels;
     public @Nullable List<AutomationRuleCriteriaSeverityLabel> severityLabels() {
-        if (severityLabels == null) return null;
-        return severityLabels.getValue("AutomationRuleCriteria.severityLabels");
+        if (!unknown_severityLabels) return value_severityLabels;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.severityLabels' is not present");
     }
 
     /**
      * Provides a URL that links to a page about the current finding in the finding product. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaSourceUrl>> sourceUrls;
-
+    @PolicyResourceProperty(name="sourceUrls", flag="unknown_sourceUrls")
+    private @Nullable List<AutomationRuleCriteriaSourceUrl> value_sourceUrls;
+    private boolean unknown_sourceUrls;
     public @Nullable List<AutomationRuleCriteriaSourceUrl> sourceUrls() {
-        if (sourceUrls == null) return null;
-        return sourceUrls.getValue("AutomationRuleCriteria.sourceUrls");
+        if (!unknown_sourceUrls) return value_sourceUrls;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.sourceUrls' is not present");
     }
 
     /**
      * A finding&#39;s title. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaTitle>> titles;
-
+    @PolicyResourceProperty(name="titles", flag="unknown_titles")
+    private @Nullable List<AutomationRuleCriteriaTitle> value_titles;
+    private boolean unknown_titles;
     public @Nullable List<AutomationRuleCriteriaTitle> titles() {
-        if (titles == null) return null;
-        return titles.getValue("AutomationRuleCriteria.titles");
+        if (!unknown_titles) return value_titles;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.titles' is not present");
     }
 
     /**
      * One or more finding types in the format of namespace/category/classifier that classify a finding. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaType>> types;
-
+    @PolicyResourceProperty(name="types", flag="unknown_types")
+    private @Nullable List<AutomationRuleCriteriaType> value_types;
+    private boolean unknown_types;
     public @Nullable List<AutomationRuleCriteriaType> types() {
-        if (types == null) return null;
-        return types.getValue("AutomationRuleCriteria.types");
+        if (!unknown_types) return value_types;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.types' is not present");
     }
 
     /**
      * A timestamp that indicates when the finding record was most recently updated. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaUpdatedAt>> updatedAts;
-
+    @PolicyResourceProperty(name="updatedAts", flag="unknown_updatedAts")
+    private @Nullable List<AutomationRuleCriteriaUpdatedAt> value_updatedAts;
+    private boolean unknown_updatedAts;
     public @Nullable List<AutomationRuleCriteriaUpdatedAt> updatedAts() {
-        if (updatedAts == null) return null;
-        return updatedAts.getValue("AutomationRuleCriteria.updatedAts");
+        if (!unknown_updatedAts) return value_updatedAts;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.updatedAts' is not present");
     }
 
     /**
      * A list of user-defined name and value string pairs added to a finding. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaUserDefinedField>> userDefinedFields;
-
+    @PolicyResourceProperty(name="userDefinedFields", flag="unknown_userDefinedFields")
+    private @Nullable List<AutomationRuleCriteriaUserDefinedField> value_userDefinedFields;
+    private boolean unknown_userDefinedFields;
     public @Nullable List<AutomationRuleCriteriaUserDefinedField> userDefinedFields() {
-        if (userDefinedFields == null) return null;
-        return userDefinedFields.getValue("AutomationRuleCriteria.userDefinedFields");
+        if (!unknown_userDefinedFields) return value_userDefinedFields;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.userDefinedFields' is not present");
     }
 
     /**
      * Provides the veracity of a finding. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaVerificationState>> verificationStates;
-
+    @PolicyResourceProperty(name="verificationStates", flag="unknown_verificationStates")
+    private @Nullable List<AutomationRuleCriteriaVerificationState> value_verificationStates;
+    private boolean unknown_verificationStates;
     public @Nullable List<AutomationRuleCriteriaVerificationState> verificationStates() {
-        if (verificationStates == null) return null;
-        return verificationStates.getValue("AutomationRuleCriteria.verificationStates");
+        if (!unknown_verificationStates) return value_verificationStates;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.verificationStates' is not present");
     }
 
     /**
      * Provides information about the status of the investigation into a finding. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<AutomationRuleCriteriaWorkflowStatus>> workflowStatuses;
-
+    @PolicyResourceProperty(name="workflowStatuses", flag="unknown_workflowStatuses")
+    private @Nullable List<AutomationRuleCriteriaWorkflowStatus> value_workflowStatuses;
+    private boolean unknown_workflowStatuses;
     public @Nullable List<AutomationRuleCriteriaWorkflowStatus> workflowStatuses() {
-        if (workflowStatuses == null) return null;
-        return workflowStatuses.getValue("AutomationRuleCriteria.workflowStatuses");
+        if (!unknown_workflowStatuses) return value_workflowStatuses;
+        throw new UndeferrableValueException("Value 'AutomationRuleCriteria.workflowStatuses' is not present");
     }
 
 }

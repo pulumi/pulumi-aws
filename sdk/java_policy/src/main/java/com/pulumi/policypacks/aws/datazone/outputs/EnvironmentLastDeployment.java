@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datazone.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.datazone.outputs.EnvironmentLastDeploymentFailureReason;
 import java.lang.Boolean;
 import java.lang.String;
@@ -12,46 +13,52 @@ import java.util.List;
 
 public final class EnvironmentLastDeployment {
 
-    private UndeferrableValue<String> deploymentId;
-
+    @PolicyResourceProperty(name="deploymentId", flag="unknown_deploymentId")
+    private String value_deploymentId;
+    private boolean unknown_deploymentId;
     public String deploymentId() {
-        if (deploymentId == null) return null;
-        return deploymentId.getValue("EnvironmentLastDeployment.deploymentId");
+        if (!unknown_deploymentId) return value_deploymentId;
+        throw new UndeferrableValueException("Value 'EnvironmentLastDeployment.deploymentId' is not present");
     }
 
-    private UndeferrableValue<String> deploymentStatus;
-
+    @PolicyResourceProperty(name="deploymentStatus", flag="unknown_deploymentStatus")
+    private String value_deploymentStatus;
+    private boolean unknown_deploymentStatus;
     public String deploymentStatus() {
-        if (deploymentStatus == null) return null;
-        return deploymentStatus.getValue("EnvironmentLastDeployment.deploymentStatus");
+        if (!unknown_deploymentStatus) return value_deploymentStatus;
+        throw new UndeferrableValueException("Value 'EnvironmentLastDeployment.deploymentStatus' is not present");
     }
 
-    private UndeferrableValue<String> deploymentType;
-
+    @PolicyResourceProperty(name="deploymentType", flag="unknown_deploymentType")
+    private String value_deploymentType;
+    private boolean unknown_deploymentType;
     public String deploymentType() {
-        if (deploymentType == null) return null;
-        return deploymentType.getValue("EnvironmentLastDeployment.deploymentType");
+        if (!unknown_deploymentType) return value_deploymentType;
+        throw new UndeferrableValueException("Value 'EnvironmentLastDeployment.deploymentType' is not present");
     }
 
-    private UndeferrableValue<List<EnvironmentLastDeploymentFailureReason>> failureReasons;
-
+    @PolicyResourceProperty(name="failureReasons", flag="unknown_failureReasons")
+    private List<EnvironmentLastDeploymentFailureReason> value_failureReasons;
+    private boolean unknown_failureReasons;
     public List<EnvironmentLastDeploymentFailureReason> failureReasons() {
-        if (failureReasons == null) return null;
-        return failureReasons.getValue("EnvironmentLastDeployment.failureReasons");
+        if (!unknown_failureReasons) return value_failureReasons;
+        throw new UndeferrableValueException("Value 'EnvironmentLastDeployment.failureReasons' is not present");
     }
 
-    private UndeferrableValue<Boolean> isDeploymentComplete;
-
+    @PolicyResourceProperty(name="isDeploymentComplete", flag="unknown_isDeploymentComplete")
+    private Boolean value_isDeploymentComplete;
+    private boolean unknown_isDeploymentComplete;
     public Boolean isDeploymentComplete() {
-        if (isDeploymentComplete == null) return null;
-        return isDeploymentComplete.getValue("EnvironmentLastDeployment.isDeploymentComplete");
+        if (!unknown_isDeploymentComplete) return value_isDeploymentComplete;
+        throw new UndeferrableValueException("Value 'EnvironmentLastDeployment.isDeploymentComplete' is not present");
     }
 
-    private UndeferrableValue<List<String>> messages;
-
+    @PolicyResourceProperty(name="messages", flag="unknown_messages")
+    private List<String> value_messages;
+    private boolean unknown_messages;
     public List<String> messages() {
-        if (messages == null) return null;
-        return messages.getValue("EnvironmentLastDeployment.messages");
+        if (!unknown_messages) return value_messages;
+        throw new UndeferrableValueException("Value 'EnvironmentLastDeployment.messages' is not present");
     }
 
 }

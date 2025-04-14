@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticache.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.elasticache.inputs.ServerlessCacheCacheUsageLimitsDataStorageArgs;
 import com.pulumi.policypacks.aws.elasticache.inputs.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class ServerlessCacheCacheUsageLimitsArgs {
      * The maximum data storage limit in the cache, expressed in Gigabytes. See `data_storage` Block for details.
      * 
      */
-    private UndeferrableValue<ServerlessCacheCacheUsageLimitsDataStorageArgs> dataStorage;
-
+    @PolicyResourceProperty(name="dataStorage", flag="unknown_dataStorage")
+    private ServerlessCacheCacheUsageLimitsDataStorageArgs value_dataStorage;
+    private boolean unknown_dataStorage;
     public ServerlessCacheCacheUsageLimitsDataStorageArgs dataStorage() {
-        if (dataStorage == null) return null;
-        return dataStorage.getValue("ServerlessCacheCacheUsageLimitsArgs.dataStorage");
+        if (!unknown_dataStorage) return value_dataStorage;
+        throw new UndeferrableValueException("Value 'ServerlessCacheCacheUsageLimitsArgs.dataStorage' is not present");
     }
 
     /**
      * The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpu_per_second` Block for details.
      * 
      */
-    private UndeferrableValue<List<ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs>> ecpuPerSeconds;
-
+    @PolicyResourceProperty(name="ecpuPerSeconds", flag="unknown_ecpuPerSeconds")
+    private List<ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs> value_ecpuPerSeconds;
+    private boolean unknown_ecpuPerSeconds;
     public List<ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs> ecpuPerSeconds() {
-        if (ecpuPerSeconds == null) return null;
-        return ecpuPerSeconds.getValue("ServerlessCacheCacheUsageLimitsArgs.ecpuPerSeconds");
+        if (!unknown_ecpuPerSeconds) return value_ecpuPerSeconds;
+        throw new UndeferrableValueException("Value 'ServerlessCacheCacheUsageLimitsArgs.ecpuPerSeconds' is not present");
     }
 
 }

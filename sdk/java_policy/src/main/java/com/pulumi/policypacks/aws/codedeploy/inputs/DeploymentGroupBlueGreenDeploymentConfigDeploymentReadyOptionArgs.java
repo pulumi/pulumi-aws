@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codedeploy.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -17,22 +18,24 @@ public final class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption
      * * `STOP_DEPLOYMENT`: Do not register new instances with load balancer unless traffic is rerouted manually. If traffic is not rerouted manually before the end of the specified wait period, the deployment status is changed to Stopped.
      * 
      */
-    private UndeferrableValue<String> actionOnTimeout;
-
+    @PolicyResourceProperty(name="actionOnTimeout", flag="unknown_actionOnTimeout")
+    private String value_actionOnTimeout;
+    private boolean unknown_actionOnTimeout;
     public String actionOnTimeout() {
-        if (actionOnTimeout == null) return null;
-        return actionOnTimeout.getValue("DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs.actionOnTimeout");
+        if (!unknown_actionOnTimeout) return value_actionOnTimeout;
+        throw new UndeferrableValueException("Value 'DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs.actionOnTimeout' is not present");
     }
 
     /**
      * The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `action_on_timeout`.
      * 
      */
-    private UndeferrableValue<Integer> waitTimeInMinutes;
-
+    @PolicyResourceProperty(name="waitTimeInMinutes", flag="unknown_waitTimeInMinutes")
+    private Integer value_waitTimeInMinutes;
+    private boolean unknown_waitTimeInMinutes;
     public Integer waitTimeInMinutes() {
-        if (waitTimeInMinutes == null) return null;
-        return waitTimeInMinutes.getValue("DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs.waitTimeInMinutes");
+        if (!unknown_waitTimeInMinutes) return value_waitTimeInMinutes;
+        throw new UndeferrableValueException("Value 'DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs.waitTimeInMinutes' is not present");
     }
 
 }

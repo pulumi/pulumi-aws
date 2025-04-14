@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pinpoint;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class ApnsSandboxChannelArgs extends com.pulumi.resources.PolicyRes
      * The application ID.
      * 
      */
-    private UndeferrableValue<String> applicationId;
-
+    @PolicyResourceProperty(name="applicationId", flag="unknown_applicationId")
+    private String value_applicationId;
+    private boolean unknown_applicationId;
     public String applicationId() {
-        if (applicationId == null) return null;
-        return applicationId.getValue("ApnsSandboxChannelArgs.applicationId");
+        if (!unknown_applicationId) return value_applicationId;
+        throw new UndeferrableValueException("Value 'ApnsSandboxChannelArgs.applicationId' is not present");
     }
 
     /**
      * The ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app.
      * 
      */
-    private UndeferrableValue<String> bundleId;
-
+    @PolicyResourceProperty(name="bundleId", flag="unknown_bundleId")
+    private String value_bundleId;
+    private boolean unknown_bundleId;
     public String bundleId() {
-        if (bundleId == null) return null;
-        return bundleId.getValue("ApnsSandboxChannelArgs.bundleId");
+        if (!unknown_bundleId) return value_bundleId;
+        throw new UndeferrableValueException("Value 'ApnsSandboxChannelArgs.bundleId' is not present");
     }
 
     /**
      * The pem encoded TLS Certificate from Apple.
      * 
      */
-    private UndeferrableValue<String> certificate;
-
+    @PolicyResourceProperty(name="certificate", flag="unknown_certificate")
+    private String value_certificate;
+    private boolean unknown_certificate;
     public String certificate() {
-        if (certificate == null) return null;
-        return certificate.getValue("ApnsSandboxChannelArgs.certificate");
+        if (!unknown_certificate) return value_certificate;
+        throw new UndeferrableValueException("Value 'ApnsSandboxChannelArgs.certificate' is not present");
     }
 
     /**
@@ -57,22 +61,24 @@ public final class ApnsSandboxChannelArgs extends com.pulumi.resources.PolicyRes
      * If you choose to use __Certificate credentials__ you will have to provide:
      * 
      */
-    private UndeferrableValue<String> defaultAuthenticationMethod;
-
+    @PolicyResourceProperty(name="defaultAuthenticationMethod", flag="unknown_defaultAuthenticationMethod")
+    private String value_defaultAuthenticationMethod;
+    private boolean unknown_defaultAuthenticationMethod;
     public String defaultAuthenticationMethod() {
-        if (defaultAuthenticationMethod == null) return null;
-        return defaultAuthenticationMethod.getValue("ApnsSandboxChannelArgs.defaultAuthenticationMethod");
+        if (!unknown_defaultAuthenticationMethod) return value_defaultAuthenticationMethod;
+        throw new UndeferrableValueException("Value 'ApnsSandboxChannelArgs.defaultAuthenticationMethod' is not present");
     }
 
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("ApnsSandboxChannelArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'ApnsSandboxChannelArgs.enabled' is not present");
     }
 
     /**
@@ -81,44 +87,48 @@ public final class ApnsSandboxChannelArgs extends com.pulumi.resources.PolicyRes
      * If you choose to use __Key credentials__ you will have to provide:
      * 
      */
-    private UndeferrableValue<String> privateKey;
-
+    @PolicyResourceProperty(name="privateKey", flag="unknown_privateKey")
+    private String value_privateKey;
+    private boolean unknown_privateKey;
     public String privateKey() {
-        if (privateKey == null) return null;
-        return privateKey.getValue("ApnsSandboxChannelArgs.privateKey");
+        if (!unknown_privateKey) return value_privateKey;
+        throw new UndeferrableValueException("Value 'ApnsSandboxChannelArgs.privateKey' is not present");
     }
 
     /**
      * The ID assigned to your Apple developer account team. This value is provided on the Membership page.
      * 
      */
-    private UndeferrableValue<String> teamId;
-
+    @PolicyResourceProperty(name="teamId", flag="unknown_teamId")
+    private String value_teamId;
+    private boolean unknown_teamId;
     public String teamId() {
-        if (teamId == null) return null;
-        return teamId.getValue("ApnsSandboxChannelArgs.teamId");
+        if (!unknown_teamId) return value_teamId;
+        throw new UndeferrableValueException("Value 'ApnsSandboxChannelArgs.teamId' is not present");
     }
 
     /**
      * The `.p8` file that you download from your Apple developer account when you create an authentication key.
      * 
      */
-    private UndeferrableValue<String> tokenKey;
-
+    @PolicyResourceProperty(name="tokenKey", flag="unknown_tokenKey")
+    private String value_tokenKey;
+    private boolean unknown_tokenKey;
     public String tokenKey() {
-        if (tokenKey == null) return null;
-        return tokenKey.getValue("ApnsSandboxChannelArgs.tokenKey");
+        if (!unknown_tokenKey) return value_tokenKey;
+        throw new UndeferrableValueException("Value 'ApnsSandboxChannelArgs.tokenKey' is not present");
     }
 
     /**
      * The ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section.
      * 
      */
-    private UndeferrableValue<String> tokenKeyId;
-
+    @PolicyResourceProperty(name="tokenKeyId", flag="unknown_tokenKeyId")
+    private String value_tokenKeyId;
+    private boolean unknown_tokenKeyId;
     public String tokenKeyId() {
-        if (tokenKeyId == null) return null;
-        return tokenKeyId.getValue("ApnsSandboxChannelArgs.tokenKeyId");
+        if (!unknown_tokenKeyId) return value_tokenKeyId;
+        throw new UndeferrableValueException("Value 'ApnsSandboxChannelArgs.tokenKeyId' is not present");
     }
 
 }

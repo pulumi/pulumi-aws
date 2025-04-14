@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecu
      * A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
      * 
      */
-    private UndeferrableValue<Integer> accessControlMaxAgeSec;
-
+    @PolicyResourceProperty(name="accessControlMaxAgeSec", flag="unknown_accessControlMaxAgeSec")
+    private Integer value_accessControlMaxAgeSec;
+    private boolean unknown_accessControlMaxAgeSec;
     public Integer accessControlMaxAgeSec() {
-        if (accessControlMaxAgeSec == null) return null;
-        return accessControlMaxAgeSec.getValue("ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity.accessControlMaxAgeSec");
+        if (!unknown_accessControlMaxAgeSec) return value_accessControlMaxAgeSec;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity.accessControlMaxAgeSec' is not present");
     }
 
     /**
      * Whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> includeSubdomains;
-
+    @PolicyResourceProperty(name="includeSubdomains", flag="unknown_includeSubdomains")
+    private @Nullable Boolean value_includeSubdomains;
+    private boolean unknown_includeSubdomains;
     public @Nullable Boolean includeSubdomains() {
-        if (includeSubdomains == null) return null;
-        return includeSubdomains.getValue("ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity.includeSubdomains");
+        if (!unknown_includeSubdomains) return value_includeSubdomains;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity.includeSubdomains' is not present");
     }
 
     /**
      * Whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
      * 
      */
-    private UndeferrableValue<Boolean> override;
-
+    @PolicyResourceProperty(name="override", flag="unknown_override")
+    private Boolean value_override;
+    private boolean unknown_override;
     public Boolean override() {
-        if (override == null) return null;
-        return override.getValue("ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity.override");
+        if (!unknown_override) return value_override;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity.override' is not present");
     }
 
     /**
      * Whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> preload;
-
+    @PolicyResourceProperty(name="preload", flag="unknown_preload")
+    private @Nullable Boolean value_preload;
+    private boolean unknown_preload;
     public @Nullable Boolean preload() {
-        if (preload == null) return null;
-        return preload.getValue("ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity.preload");
+        if (!unknown_preload) return value_preload;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity.preload' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pinpoint.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class AppLimitsArgs {
      * The maximum number of messages that the campaign can send daily.
      * 
      */
-    private UndeferrableValue<Integer> daily;
-
+    @PolicyResourceProperty(name="daily", flag="unknown_daily")
+    private Integer value_daily;
+    private boolean unknown_daily;
     public Integer daily() {
-        if (daily == null) return null;
-        return daily.getValue("AppLimitsArgs.daily");
+        if (!unknown_daily) return value_daily;
+        throw new UndeferrableValueException("Value 'AppLimitsArgs.daily' is not present");
     }
 
     /**
      * The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
      * 
      */
-    private UndeferrableValue<Integer> maximumDuration;
-
+    @PolicyResourceProperty(name="maximumDuration", flag="unknown_maximumDuration")
+    private Integer value_maximumDuration;
+    private boolean unknown_maximumDuration;
     public Integer maximumDuration() {
-        if (maximumDuration == null) return null;
-        return maximumDuration.getValue("AppLimitsArgs.maximumDuration");
+        if (!unknown_maximumDuration) return value_maximumDuration;
+        throw new UndeferrableValueException("Value 'AppLimitsArgs.maximumDuration' is not present");
     }
 
     /**
      * The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
      * 
      */
-    private UndeferrableValue<Integer> messagesPerSecond;
-
+    @PolicyResourceProperty(name="messagesPerSecond", flag="unknown_messagesPerSecond")
+    private Integer value_messagesPerSecond;
+    private boolean unknown_messagesPerSecond;
     public Integer messagesPerSecond() {
-        if (messagesPerSecond == null) return null;
-        return messagesPerSecond.getValue("AppLimitsArgs.messagesPerSecond");
+        if (!unknown_messagesPerSecond) return value_messagesPerSecond;
+        throw new UndeferrableValueException("Value 'AppLimitsArgs.messagesPerSecond' is not present");
     }
 
     /**
      * The maximum total number of messages that the campaign can send.
      * 
      */
-    private UndeferrableValue<Integer> total;
-
+    @PolicyResourceProperty(name="total", flag="unknown_total")
+    private Integer value_total;
+    private boolean unknown_total;
     public Integer total() {
-        if (total == null) return null;
-        return total.getValue("AppLimitsArgs.total");
+        if (!unknown_total) return value_total;
+        throw new UndeferrableValueException("Value 'AppLimitsArgs.total' is not present");
     }
 
 }

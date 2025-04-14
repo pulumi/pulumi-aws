@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationCrawler
      * Max number of web pages crawled from your source URLs, up to 25,000 pages.
      * 
      */
-    private UndeferrableValue<Integer> maxPages;
-
+    @PolicyResourceProperty(name="maxPages", flag="unknown_maxPages")
+    private Integer value_maxPages;
+    private boolean unknown_maxPages;
     public Integer maxPages() {
-        if (maxPages == null) return null;
-        return maxPages.getValue("AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs.maxPages");
+        if (!unknown_maxPages) return value_maxPages;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs.maxPages' is not present");
     }
 
     /**
      * Max rate at which pages are crawled, up to 300 per minute per host.
      * 
      */
-    private UndeferrableValue<Integer> rateLimit;
-
+    @PolicyResourceProperty(name="rateLimit", flag="unknown_rateLimit")
+    private Integer value_rateLimit;
+    private boolean unknown_rateLimit;
     public Integer rateLimit() {
-        if (rateLimit == null) return null;
-        return rateLimit.getValue("AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs.rateLimit");
+        if (!unknown_rateLimit) return value_rateLimit;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs.rateLimit' is not present");
     }
 
 }

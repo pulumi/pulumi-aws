@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lakeformation.inputs.OptInResourceDataTableWithColumnsColumnWildcardArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,55 +17,60 @@ public final class OptInResourceDataTableWithColumnsArgs {
      * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    private UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private String value_catalogId;
+    private boolean unknown_catalogId;
     public String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("OptInResourceDataTableWithColumnsArgs.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'OptInResourceDataTableWithColumnsArgs.catalogId' is not present");
     }
 
     /**
      * List of column names for the table. At least one of ColumnNames or ColumnWildcard is required.
      * 
      */
-    private UndeferrableValue<List<String>> columnNames;
-
+    @PolicyResourceProperty(name="columnNames", flag="unknown_columnNames")
+    private List<String> value_columnNames;
+    private boolean unknown_columnNames;
     public List<String> columnNames() {
-        if (columnNames == null) return null;
-        return columnNames.getValue("OptInResourceDataTableWithColumnsArgs.columnNames");
+        if (!unknown_columnNames) return value_columnNames;
+        throw new UndeferrableValueException("Value 'OptInResourceDataTableWithColumnsArgs.columnNames' is not present");
     }
 
     /**
      * Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
      * 
      */
-    private UndeferrableValue<OptInResourceDataTableWithColumnsColumnWildcardArgs> columnWildcard;
-
+    @PolicyResourceProperty(name="columnWildcard", flag="unknown_columnWildcard")
+    private OptInResourceDataTableWithColumnsColumnWildcardArgs value_columnWildcard;
+    private boolean unknown_columnWildcard;
     public OptInResourceDataTableWithColumnsColumnWildcardArgs columnWildcard() {
-        if (columnWildcard == null) return null;
-        return columnWildcard.getValue("OptInResourceDataTableWithColumnsArgs.columnWildcard");
+        if (!unknown_columnWildcard) return value_columnWildcard;
+        throw new UndeferrableValueException("Value 'OptInResourceDataTableWithColumnsArgs.columnWildcard' is not present");
     }
 
     /**
      * The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("OptInResourceDataTableWithColumnsArgs.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'OptInResourceDataTableWithColumnsArgs.databaseName' is not present");
     }
 
     /**
      * Name of the table.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("OptInResourceDataTableWithColumnsArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'OptInResourceDataTableWithColumnsArgs.name' is not present");
     }
 
 }

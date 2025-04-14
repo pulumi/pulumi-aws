@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssmincidents.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ssmincidents.inputs.ResponsePlanIncidentTemplateNotificationTargetArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,66 +19,72 @@ public final class ResponsePlanIncidentTemplateArgs {
      * A string used to stop Incident Manager from creating multiple incident records for the same incident.
      * 
      */
-    private UndeferrableValue<String> dedupeString;
-
+    @PolicyResourceProperty(name="dedupeString", flag="unknown_dedupeString")
+    private String value_dedupeString;
+    private boolean unknown_dedupeString;
     public String dedupeString() {
-        if (dedupeString == null) return null;
-        return dedupeString.getValue("ResponsePlanIncidentTemplateArgs.dedupeString");
+        if (!unknown_dedupeString) return value_dedupeString;
+        throw new UndeferrableValueException("Value 'ResponsePlanIncidentTemplateArgs.dedupeString' is not present");
     }
 
     /**
      * The impact value of a generated incident. The following values are supported:
      * 
      */
-    private UndeferrableValue<Integer> impact;
-
+    @PolicyResourceProperty(name="impact", flag="unknown_impact")
+    private Integer value_impact;
+    private boolean unknown_impact;
     public Integer impact() {
-        if (impact == null) return null;
-        return impact.getValue("ResponsePlanIncidentTemplateArgs.impact");
+        if (!unknown_impact) return value_impact;
+        throw new UndeferrableValueException("Value 'ResponsePlanIncidentTemplateArgs.impact' is not present");
     }
 
     /**
      * The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
      * 
      */
-    private UndeferrableValue<Map<String,String>> incidentTags;
-
+    @PolicyResourceProperty(name="incidentTags", flag="unknown_incidentTags")
+    private Map<String,String> value_incidentTags;
+    private boolean unknown_incidentTags;
     public Map<String,String> incidentTags() {
-        if (incidentTags == null) return null;
-        return incidentTags.getValue("ResponsePlanIncidentTemplateArgs.incidentTags");
+        if (!unknown_incidentTags) return value_incidentTags;
+        throw new UndeferrableValueException("Value 'ResponsePlanIncidentTemplateArgs.incidentTags' is not present");
     }
 
     /**
      * The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
      * 
      */
-    private UndeferrableValue<List<ResponsePlanIncidentTemplateNotificationTargetArgs>> notificationTargets;
-
+    @PolicyResourceProperty(name="notificationTargets", flag="unknown_notificationTargets")
+    private List<ResponsePlanIncidentTemplateNotificationTargetArgs> value_notificationTargets;
+    private boolean unknown_notificationTargets;
     public List<ResponsePlanIncidentTemplateNotificationTargetArgs> notificationTargets() {
-        if (notificationTargets == null) return null;
-        return notificationTargets.getValue("ResponsePlanIncidentTemplateArgs.notificationTargets");
+        if (!unknown_notificationTargets) return value_notificationTargets;
+        throw new UndeferrableValueException("Value 'ResponsePlanIncidentTemplateArgs.notificationTargets' is not present");
     }
 
     /**
      * The summary of an incident.
      * 
      */
-    private UndeferrableValue<String> summary;
-
+    @PolicyResourceProperty(name="summary", flag="unknown_summary")
+    private String value_summary;
+    private boolean unknown_summary;
     public String summary() {
-        if (summary == null) return null;
-        return summary.getValue("ResponsePlanIncidentTemplateArgs.summary");
+        if (!unknown_summary) return value_summary;
+        throw new UndeferrableValueException("Value 'ResponsePlanIncidentTemplateArgs.summary' is not present");
     }
 
     /**
      * The title of a generated incident.
      * 
      */
-    private UndeferrableValue<String> title;
-
+    @PolicyResourceProperty(name="title", flag="unknown_title")
+    private String value_title;
+    private boolean unknown_title;
     public String title() {
-        if (title == null) return null;
-        return title.getValue("ResponsePlanIncidentTemplateArgs.title");
+        if (!unknown_title) return value_title;
+        throw new UndeferrableValueException("Value 'ResponsePlanIncidentTemplateArgs.title' is not present");
     }
 
 }

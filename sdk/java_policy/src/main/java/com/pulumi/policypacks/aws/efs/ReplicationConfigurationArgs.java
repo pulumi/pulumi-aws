@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.efs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.efs.inputs.ReplicationConfigurationDestinationArgs;
 import java.lang.String;
@@ -16,22 +17,24 @@ public final class ReplicationConfigurationArgs extends com.pulumi.resources.Pol
      * A destination configuration block (documented below).
      * 
      */
-    private UndeferrableValue<ReplicationConfigurationDestinationArgs> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private ReplicationConfigurationDestinationArgs value_destination;
+    private boolean unknown_destination;
     public ReplicationConfigurationDestinationArgs destination() {
-        if (destination == null) return null;
-        return destination.getValue("ReplicationConfigurationArgs.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationArgs.destination' is not present");
     }
 
     /**
      * The ID of the file system that is to be replicated.
      * 
      */
-    private UndeferrableValue<String> sourceFileSystemId;
-
+    @PolicyResourceProperty(name="sourceFileSystemId", flag="unknown_sourceFileSystemId")
+    private String value_sourceFileSystemId;
+    private boolean unknown_sourceFileSystemId;
     public String sourceFileSystemId() {
-        if (sourceFileSystemId == null) return null;
-        return sourceFileSystemId.getValue("ReplicationConfigurationArgs.sourceFileSystemId");
+        if (!unknown_sourceFileSystemId) return value_sourceFileSystemId;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationArgs.sourceFileSystemId' is not present");
     }
 
 }

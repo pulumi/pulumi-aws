@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class DistributionCacheBehavior {
      * The cache behavior for the specified path.
      * 
      */
-    private UndeferrableValue<String> behavior;
-
+    @PolicyResourceProperty(name="behavior", flag="unknown_behavior")
+    private String value_behavior;
+    private boolean unknown_behavior;
     public String behavior() {
-        if (behavior == null) return null;
-        return behavior.getValue("DistributionCacheBehavior.behavior");
+        if (!unknown_behavior) return value_behavior;
+        throw new UndeferrableValueException("Value 'DistributionCacheBehavior.behavior' is not present");
     }
 
     /**
      * The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (path/to/assets/\*), and file types (\*.html, \*jpg, \*js). Directories and file paths are case-sensitive.
      * 
      */
-    private UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private String value_path;
+    private boolean unknown_path;
     public String path() {
-        if (path == null) return null;
-        return path.getValue("DistributionCacheBehavior.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'DistributionCacheBehavior.path' is not present");
     }
 
 }

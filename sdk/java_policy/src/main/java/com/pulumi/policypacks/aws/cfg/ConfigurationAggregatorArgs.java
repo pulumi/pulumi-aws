@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cfg.inputs.ConfigurationAggregatorAccountAggregationSourceArgs;
 import com.pulumi.policypacks.aws.cfg.inputs.ConfigurationAggregatorOrganizationAggregationSourceArgs;
@@ -19,33 +20,36 @@ public final class ConfigurationAggregatorArgs extends com.pulumi.resources.Poli
      * The account(s) to aggregate config data from as documented below.
      * 
      */
-    private UndeferrableValue<ConfigurationAggregatorAccountAggregationSourceArgs> accountAggregationSource;
-
+    @PolicyResourceProperty(name="accountAggregationSource", flag="unknown_accountAggregationSource")
+    private ConfigurationAggregatorAccountAggregationSourceArgs value_accountAggregationSource;
+    private boolean unknown_accountAggregationSource;
     public ConfigurationAggregatorAccountAggregationSourceArgs accountAggregationSource() {
-        if (accountAggregationSource == null) return null;
-        return accountAggregationSource.getValue("ConfigurationAggregatorArgs.accountAggregationSource");
+        if (!unknown_accountAggregationSource) return value_accountAggregationSource;
+        throw new UndeferrableValueException("Value 'ConfigurationAggregatorArgs.accountAggregationSource' is not present");
     }
 
     /**
      * The name of the configuration aggregator.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ConfigurationAggregatorArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ConfigurationAggregatorArgs.name' is not present");
     }
 
     /**
      * The organization to aggregate config data from as documented below.
      * 
      */
-    private UndeferrableValue<ConfigurationAggregatorOrganizationAggregationSourceArgs> organizationAggregationSource;
-
+    @PolicyResourceProperty(name="organizationAggregationSource", flag="unknown_organizationAggregationSource")
+    private ConfigurationAggregatorOrganizationAggregationSourceArgs value_organizationAggregationSource;
+    private boolean unknown_organizationAggregationSource;
     public ConfigurationAggregatorOrganizationAggregationSourceArgs organizationAggregationSource() {
-        if (organizationAggregationSource == null) return null;
-        return organizationAggregationSource.getValue("ConfigurationAggregatorArgs.organizationAggregationSource");
+        if (!unknown_organizationAggregationSource) return value_organizationAggregationSource;
+        throw new UndeferrableValueException("Value 'ConfigurationAggregatorArgs.organizationAggregationSource' is not present");
     }
 
     /**
@@ -54,11 +58,12 @@ public final class ConfigurationAggregatorArgs extends com.pulumi.resources.Poli
      * Either `account_aggregation_source` or `organization_aggregation_source` must be specified.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ConfigurationAggregatorArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ConfigurationAggregatorArgs.tags' is not present");
     }
 
 }

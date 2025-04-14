@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -11,22 +12,24 @@ import java.lang.String;
 @PolicyResourceType(type="aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy")
 public final class AccessGrantsInstanceResourcePolicy extends com.pulumi.resources.PolicyResourceOutput {
 
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("AccessGrantsInstanceResourcePolicy.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'AccessGrantsInstanceResourcePolicy.accountId' is not present");
     }
 
     /**
      * The policy document.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("AccessGrantsInstanceResourcePolicy.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'AccessGrantsInstanceResourcePolicy.policy' is not present");
     }
 
 }

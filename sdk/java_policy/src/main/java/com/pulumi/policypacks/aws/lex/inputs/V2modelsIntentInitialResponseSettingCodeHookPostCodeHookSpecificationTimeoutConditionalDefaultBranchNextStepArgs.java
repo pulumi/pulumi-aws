@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepDialogActionArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentArgs;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpeci
      * Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepDialogActionArgs> dialogAction;
-
+    @PolicyResourceProperty(name="dialogAction", flag="unknown_dialogAction")
+    private V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepDialogActionArgs value_dialogAction;
+    private boolean unknown_dialogAction;
     public V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepDialogActionArgs dialogAction() {
-        if (dialogAction == null) return null;
-        return dialogAction.getValue("V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepArgs.dialogAction");
+        if (!unknown_dialogAction) return value_dialogAction;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepArgs.dialogAction' is not present");
     }
 
     /**
      * Configuration block for override settings to configure the intent state. See `intent`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentArgs> intent;
-
+    @PolicyResourceProperty(name="intent", flag="unknown_intent")
+    private V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentArgs value_intent;
+    private boolean unknown_intent;
     public V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentArgs intent() {
-        if (intent == null) return null;
-        return intent.getValue("V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepArgs.intent");
+        if (!unknown_intent) return value_intent;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepArgs.intent' is not present");
     }
 
     /**
      * Map of key/value pairs representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
      * 
      */
-    private UndeferrableValue<Map<String,String>> sessionAttributes;
-
+    @PolicyResourceProperty(name="sessionAttributes", flag="unknown_sessionAttributes")
+    private Map<String,String> value_sessionAttributes;
+    private boolean unknown_sessionAttributes;
     public Map<String,String> sessionAttributes() {
-        if (sessionAttributes == null) return null;
-        return sessionAttributes.getValue("V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepArgs.sessionAttributes");
+        if (!unknown_sessionAttributes) return value_sessionAttributes;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepArgs.sessionAttributes' is not present");
     }
 
 }

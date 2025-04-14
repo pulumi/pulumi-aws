@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mskconnect.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class CustomPluginLocationS3Args {
      * The Amazon Resource Name (ARN) of an S3 bucket.
      * 
      */
-    private UndeferrableValue<String> bucketArn;
-
+    @PolicyResourceProperty(name="bucketArn", flag="unknown_bucketArn")
+    private String value_bucketArn;
+    private boolean unknown_bucketArn;
     public String bucketArn() {
-        if (bucketArn == null) return null;
-        return bucketArn.getValue("CustomPluginLocationS3Args.bucketArn");
+        if (!unknown_bucketArn) return value_bucketArn;
+        throw new UndeferrableValueException("Value 'CustomPluginLocationS3Args.bucketArn' is not present");
     }
 
     /**
      * The file key for an object in an S3 bucket.
      * 
      */
-    private UndeferrableValue<String> fileKey;
-
+    @PolicyResourceProperty(name="fileKey", flag="unknown_fileKey")
+    private String value_fileKey;
+    private boolean unknown_fileKey;
     public String fileKey() {
-        if (fileKey == null) return null;
-        return fileKey.getValue("CustomPluginLocationS3Args.fileKey");
+        if (!unknown_fileKey) return value_fileKey;
+        throw new UndeferrableValueException("Value 'CustomPluginLocationS3Args.fileKey' is not present");
     }
 
     /**
      * The version of an object in an S3 bucket.
      * 
      */
-    private UndeferrableValue<String> objectVersion;
-
+    @PolicyResourceProperty(name="objectVersion", flag="unknown_objectVersion")
+    private String value_objectVersion;
+    private boolean unknown_objectVersion;
     public String objectVersion() {
-        if (objectVersion == null) return null;
-        return objectVersion.getValue("CustomPluginLocationS3Args.objectVersion");
+        if (!unknown_objectVersion) return value_objectVersion;
+        throw new UndeferrableValueException("Value 'CustomPluginLocationS3Args.objectVersion' is not present");
     }
 
 }

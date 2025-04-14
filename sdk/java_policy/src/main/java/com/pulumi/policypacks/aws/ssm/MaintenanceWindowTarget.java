@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ssm.outputs.MaintenanceWindowTargetTarget;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class MaintenanceWindowTarget extends com.pulumi.resources.PolicyRe
      * The description of the maintenance window target.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("MaintenanceWindowTarget.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTarget.description' is not present");
     }
 
     /**
      * The name of the maintenance window target.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("MaintenanceWindowTarget.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTarget.name' is not present");
     }
 
     /**
      * User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
      * 
      */
-    private @Nullable UndeferrableValue<String> ownerInformation;
-
+    @PolicyResourceProperty(name="ownerInformation", flag="unknown_ownerInformation")
+    private @Nullable String value_ownerInformation;
+    private boolean unknown_ownerInformation;
     public @Nullable String ownerInformation() {
-        if (ownerInformation == null) return null;
-        return ownerInformation.getValue("MaintenanceWindowTarget.ownerInformation");
+        if (!unknown_ownerInformation) return value_ownerInformation;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTarget.ownerInformation' is not present");
     }
 
     /**
      * The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
      * 
      */
-    private UndeferrableValue<String> resourceType;
-
+    @PolicyResourceProperty(name="resourceType", flag="unknown_resourceType")
+    private String value_resourceType;
+    private boolean unknown_resourceType;
     public String resourceType() {
-        if (resourceType == null) return null;
-        return resourceType.getValue("MaintenanceWindowTarget.resourceType");
+        if (!unknown_resourceType) return value_resourceType;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTarget.resourceType' is not present");
     }
 
     /**
@@ -63,22 +68,24 @@ public final class MaintenanceWindowTarget extends com.pulumi.resources.PolicyRe
      * (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
      * 
      */
-    private UndeferrableValue<List<MaintenanceWindowTargetTarget>> targets;
-
+    @PolicyResourceProperty(name="targets", flag="unknown_targets")
+    private List<MaintenanceWindowTargetTarget> value_targets;
+    private boolean unknown_targets;
     public List<MaintenanceWindowTargetTarget> targets() {
-        if (targets == null) return null;
-        return targets.getValue("MaintenanceWindowTarget.targets");
+        if (!unknown_targets) return value_targets;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTarget.targets' is not present");
     }
 
     /**
      * The Id of the maintenance window to register the target with.
      * 
      */
-    private UndeferrableValue<String> windowId;
-
+    @PolicyResourceProperty(name="windowId", flag="unknown_windowId")
+    private String value_windowId;
+    private boolean unknown_windowId;
     public String windowId() {
-        if (windowId == null) return null;
-        return windowId.getValue("MaintenanceWindowTarget.windowId");
+        if (!unknown_windowId) return value_windowId;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTarget.windowId' is not present");
     }
 
 }

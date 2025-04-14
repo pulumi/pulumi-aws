@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class StreamStreamModeDetailsArgs {
      * Specifies the capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
      * 
      */
-    private UndeferrableValue<String> streamMode;
-
+    @PolicyResourceProperty(name="streamMode", flag="unknown_streamMode")
+    private String value_streamMode;
+    private boolean unknown_streamMode;
     public String streamMode() {
-        if (streamMode == null) return null;
-        return streamMode.getValue("StreamStreamModeDetailsArgs.streamMode");
+        if (!unknown_streamMode) return value_streamMode;
+        throw new UndeferrableValueException("Value 'StreamStreamModeDetailsArgs.streamMode' is not present");
     }
 
 }

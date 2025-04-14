@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedpermissions.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
      * The access token aud claim values that you want to accept in your policy store.
      * 
      */
-    private UndeferrableValue<List<String>> audiences;
-
+    @PolicyResourceProperty(name="audiences", flag="unknown_audiences")
+    private List<String> value_audiences;
+    private boolean unknown_audiences;
     public List<String> audiences() {
-        if (audiences == null) return null;
-        return audiences.getValue("IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs.audiences");
+        if (!unknown_audiences) return value_audiences;
+        throw new UndeferrableValueException("Value 'IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs.audiences' is not present");
     }
 
     /**
      * The claim that determines the principal in OIDC access tokens.
      * 
      */
-    private UndeferrableValue<String> principalIdClaim;
-
+    @PolicyResourceProperty(name="principalIdClaim", flag="unknown_principalIdClaim")
+    private String value_principalIdClaim;
+    private boolean unknown_principalIdClaim;
     public String principalIdClaim() {
-        if (principalIdClaim == null) return null;
-        return principalIdClaim.getValue("IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs.principalIdClaim");
+        if (!unknown_principalIdClaim) return value_principalIdClaim;
+        throw new UndeferrableValueException("Value 'IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs.principalIdClaim' is not present");
     }
 
 }

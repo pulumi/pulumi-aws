@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class UserProfileUserSettingsRStudioServerProAppSettings {
      * Indicates whether the current user has access to the RStudioServerPro app. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> accessStatus;
-
+    @PolicyResourceProperty(name="accessStatus", flag="unknown_accessStatus")
+    private @Nullable String value_accessStatus;
+    private boolean unknown_accessStatus;
     public @Nullable String accessStatus() {
-        if (accessStatus == null) return null;
-        return accessStatus.getValue("UserProfileUserSettingsRStudioServerProAppSettings.accessStatus");
+        if (!unknown_accessStatus) return value_accessStatus;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsRStudioServerProAppSettings.accessStatus' is not present");
     }
 
     /**
      * The level of permissions that the user has within the RStudioServerPro app. This value defaults to `R_STUDIO_USER`. The `R_STUDIO_ADMIN` value allows the user access to the RStudio Administrative Dashboard. Valid values are `R_STUDIO_USER` and `R_STUDIO_ADMIN`.
      * 
      */
-    private @Nullable UndeferrableValue<String> userGroup;
-
+    @PolicyResourceProperty(name="userGroup", flag="unknown_userGroup")
+    private @Nullable String value_userGroup;
+    private boolean unknown_userGroup;
     public @Nullable String userGroup() {
-        if (userGroup == null) return null;
-        return userGroup.getValue("UserProfileUserSettingsRStudioServerProAppSettings.userGroup");
+        if (!unknown_userGroup) return value_userGroup;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsRStudioServerProAppSettings.userGroup' is not present");
     }
 
 }

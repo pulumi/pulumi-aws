@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticsearch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class DomainAutoTuneOptionsMaintenanceScheduleDuration {
      * The unit of time specifying the duration of an Auto-Tune maintenance window. Valid values: `HOURS`.
      * 
      */
-    private UndeferrableValue<String> unit;
-
+    @PolicyResourceProperty(name="unit", flag="unknown_unit")
+    private String value_unit;
+    private boolean unknown_unit;
     public String unit() {
-        if (unit == null) return null;
-        return unit.getValue("DomainAutoTuneOptionsMaintenanceScheduleDuration.unit");
+        if (!unknown_unit) return value_unit;
+        throw new UndeferrableValueException("Value 'DomainAutoTuneOptionsMaintenanceScheduleDuration.unit' is not present");
     }
 
     /**
      * An integer specifying the value of the duration of an Auto-Tune maintenance window.
      * 
      */
-    private UndeferrableValue<Integer> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private Integer value_value;
+    private boolean unknown_value;
     public Integer value() {
-        if (value == null) return null;
-        return value.getValue("DomainAutoTuneOptionsMaintenanceScheduleDuration.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'DomainAutoTuneOptionsMaintenanceScheduleDuration.value' is not present");
     }
 
 }

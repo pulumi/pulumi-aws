@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rekognition.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class StreamProcessorSettingsConnectedHome {
      * Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> labels;
-
+    @PolicyResourceProperty(name="labels", flag="unknown_labels")
+    private @Nullable List<String> value_labels;
+    private boolean unknown_labels;
     public @Nullable List<String> labels() {
-        if (labels == null) return null;
-        return labels.getValue("StreamProcessorSettingsConnectedHome.labels");
+        if (!unknown_labels) return value_labels;
+        throw new UndeferrableValueException("Value 'StreamProcessorSettingsConnectedHome.labels' is not present");
     }
 
     /**
      * Minimum confidence required to label an object in the video.
      * 
      */
-    private @Nullable UndeferrableValue<Double> minConfidence;
-
+    @PolicyResourceProperty(name="minConfidence", flag="unknown_minConfidence")
+    private @Nullable Double value_minConfidence;
+    private boolean unknown_minConfidence;
     public @Nullable Double minConfidence() {
-        if (minConfidence == null) return null;
-        return minConfidence.getValue("StreamProcessorSettingsConnectedHome.minConfidence");
+        if (!unknown_minConfidence) return value_minConfidence;
+        throw new UndeferrableValueException("Value 'StreamProcessorSettingsConnectedHome.minConfidence' is not present");
     }
 
 }

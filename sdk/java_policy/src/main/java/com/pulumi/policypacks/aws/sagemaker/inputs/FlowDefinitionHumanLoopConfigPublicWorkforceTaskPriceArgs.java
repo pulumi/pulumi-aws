@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs {
      * Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars. See Amount In Usd details below.
      * 
      */
-    private UndeferrableValue<FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs> amountInUsd;
-
+    @PolicyResourceProperty(name="amountInUsd", flag="unknown_amountInUsd")
+    private FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs value_amountInUsd;
+    private boolean unknown_amountInUsd;
     public FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs amountInUsd() {
-        if (amountInUsd == null) return null;
-        return amountInUsd.getValue("FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs.amountInUsd");
+        if (!unknown_amountInUsd) return value_amountInUsd;
+        throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs.amountInUsd' is not present");
     }
 
 }

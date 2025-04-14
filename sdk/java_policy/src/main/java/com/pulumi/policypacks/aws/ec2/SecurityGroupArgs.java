@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.inputs.SecurityGroupEgressArgs;
 import com.pulumi.policypacks.aws.ec2.inputs.SecurityGroupIngressArgs;
@@ -21,88 +22,96 @@ public final class SecurityGroupArgs extends com.pulumi.resources.PolicyResource
      * Security group description. Defaults to `Managed by Pulumi`. Cannot be `&#34;&#34;`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you&#39;d like to classify your security groups in a way that can be updated, use `tags`.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("SecurityGroupArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'SecurityGroupArgs.description' is not present");
     }
 
     /**
      * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      * 
      */
-    private UndeferrableValue<List<SecurityGroupEgressArgs>> egress;
-
+    @PolicyResourceProperty(name="egress", flag="unknown_egress")
+    private List<SecurityGroupEgressArgs> value_egress;
+    private boolean unknown_egress;
     public List<SecurityGroupEgressArgs> egress() {
-        if (egress == null) return null;
-        return egress.getValue("SecurityGroupArgs.egress");
+        if (!unknown_egress) return value_egress;
+        throw new UndeferrableValueException("Value 'SecurityGroupArgs.egress' is not present");
     }
 
     /**
      * Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      * 
      */
-    private UndeferrableValue<List<SecurityGroupIngressArgs>> ingress;
-
+    @PolicyResourceProperty(name="ingress", flag="unknown_ingress")
+    private List<SecurityGroupIngressArgs> value_ingress;
+    private boolean unknown_ingress;
     public List<SecurityGroupIngressArgs> ingress() {
-        if (ingress == null) return null;
-        return ingress.getValue("SecurityGroupArgs.ingress");
+        if (!unknown_ingress) return value_ingress;
+        throw new UndeferrableValueException("Value 'SecurityGroupArgs.ingress' is not present");
     }
 
     /**
      * Name of the security group. If omitted, the provider will assign a random, unique name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("SecurityGroupArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'SecurityGroupArgs.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("SecurityGroupArgs.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'SecurityGroupArgs.namePrefix' is not present");
     }
 
     /**
      * Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
      * 
      */
-    private UndeferrableValue<Boolean> revokeRulesOnDelete;
-
+    @PolicyResourceProperty(name="revokeRulesOnDelete", flag="unknown_revokeRulesOnDelete")
+    private Boolean value_revokeRulesOnDelete;
+    private boolean unknown_revokeRulesOnDelete;
     public Boolean revokeRulesOnDelete() {
-        if (revokeRulesOnDelete == null) return null;
-        return revokeRulesOnDelete.getValue("SecurityGroupArgs.revokeRulesOnDelete");
+        if (!unknown_revokeRulesOnDelete) return value_revokeRulesOnDelete;
+        throw new UndeferrableValueException("Value 'SecurityGroupArgs.revokeRulesOnDelete' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SecurityGroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SecurityGroupArgs.tags' is not present");
     }
 
     /**
      * VPC ID. Defaults to the region&#39;s default VPC.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("SecurityGroupArgs.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'SecurityGroupArgs.vpcId' is not present");
     }
 
 }

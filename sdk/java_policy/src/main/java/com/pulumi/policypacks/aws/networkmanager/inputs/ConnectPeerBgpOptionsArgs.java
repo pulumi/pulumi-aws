@@ -3,18 +3,20 @@
 
 package com.pulumi.policypacks.aws.networkmanager.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
 
 public final class ConnectPeerBgpOptionsArgs {
 
-    private UndeferrableValue<Integer> peerAsn;
-
+    @PolicyResourceProperty(name="peerAsn", flag="unknown_peerAsn")
+    private Integer value_peerAsn;
+    private boolean unknown_peerAsn;
     public Integer peerAsn() {
-        if (peerAsn == null) return null;
-        return peerAsn.getValue("ConnectPeerBgpOptionsArgs.peerAsn");
+        if (!unknown_peerAsn) return value_peerAsn;
+        throw new UndeferrableValueException("Value 'ConnectPeerBgpOptionsArgs.peerAsn' is not present");
     }
 
 }

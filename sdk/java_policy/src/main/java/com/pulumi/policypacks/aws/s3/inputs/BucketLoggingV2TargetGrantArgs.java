@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.inputs.BucketLoggingV2TargetGrantGranteeArgs;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class BucketLoggingV2TargetGrantArgs {
      * Configuration block for the person being granted permissions. See below.
      * 
      */
-    private UndeferrableValue<BucketLoggingV2TargetGrantGranteeArgs> grantee;
-
+    @PolicyResourceProperty(name="grantee", flag="unknown_grantee")
+    private BucketLoggingV2TargetGrantGranteeArgs value_grantee;
+    private boolean unknown_grantee;
     public BucketLoggingV2TargetGrantGranteeArgs grantee() {
-        if (grantee == null) return null;
-        return grantee.getValue("BucketLoggingV2TargetGrantArgs.grantee");
+        if (!unknown_grantee) return value_grantee;
+        throw new UndeferrableValueException("Value 'BucketLoggingV2TargetGrantArgs.grantee' is not present");
     }
 
     /**
      * Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `READ`, `WRITE`.
      * 
      */
-    private UndeferrableValue<String> permission;
-
+    @PolicyResourceProperty(name="permission", flag="unknown_permission")
+    private String value_permission;
+    private boolean unknown_permission;
     public String permission() {
-        if (permission == null) return null;
-        return permission.getValue("BucketLoggingV2TargetGrantArgs.permission");
+        if (!unknown_permission) return value_permission;
+        throw new UndeferrableValueException("Value 'BucketLoggingV2TargetGrantArgs.permission' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.connect.outputs.QuickConnectQuickConnectConfig;
 import java.lang.String;
@@ -18,77 +19,84 @@ public final class QuickConnect extends com.pulumi.resources.PolicyResourceOutpu
      * The Amazon Resource Name (ARN) of the Quick Connect.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("QuickConnect.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'QuickConnect.arn' is not present");
     }
 
     /**
      * Specifies the description of the Quick Connect.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("QuickConnect.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'QuickConnect.description' is not present");
     }
 
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    private UndeferrableValue<String> instanceId;
-
+    @PolicyResourceProperty(name="instanceId", flag="unknown_instanceId")
+    private String value_instanceId;
+    private boolean unknown_instanceId;
     public String instanceId() {
-        if (instanceId == null) return null;
-        return instanceId.getValue("QuickConnect.instanceId");
+        if (!unknown_instanceId) return value_instanceId;
+        throw new UndeferrableValueException("Value 'QuickConnect.instanceId' is not present");
     }
 
     /**
      * Specifies the name of the Quick Connect.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("QuickConnect.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'QuickConnect.name' is not present");
     }
 
     /**
      * A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
      * 
      */
-    private UndeferrableValue<QuickConnectQuickConnectConfig> quickConnectConfig;
-
+    @PolicyResourceProperty(name="quickConnectConfig", flag="unknown_quickConnectConfig")
+    private QuickConnectQuickConnectConfig value_quickConnectConfig;
+    private boolean unknown_quickConnectConfig;
     public QuickConnectQuickConnectConfig quickConnectConfig() {
-        if (quickConnectConfig == null) return null;
-        return quickConnectConfig.getValue("QuickConnect.quickConnectConfig");
+        if (!unknown_quickConnectConfig) return value_quickConnectConfig;
+        throw new UndeferrableValueException("Value 'QuickConnect.quickConnectConfig' is not present");
     }
 
     /**
      * The identifier for the Quick Connect.
      * 
      */
-    private UndeferrableValue<String> quickConnectId;
-
+    @PolicyResourceProperty(name="quickConnectId", flag="unknown_quickConnectId")
+    private String value_quickConnectId;
+    private boolean unknown_quickConnectId;
     public String quickConnectId() {
-        if (quickConnectId == null) return null;
-        return quickConnectId.getValue("QuickConnect.quickConnectId");
+        if (!unknown_quickConnectId) return value_quickConnectId;
+        throw new UndeferrableValueException("Value 'QuickConnect.quickConnectId' is not present");
     }
 
     /**
      * Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("QuickConnect.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'QuickConnect.tags' is not present");
     }
 
     /**
@@ -99,11 +107,12 @@ public final class QuickConnect extends com.pulumi.resources.PolicyResourceOutpu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("QuickConnect.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'QuickConnect.tagsAll' is not present");
     }
 
 }

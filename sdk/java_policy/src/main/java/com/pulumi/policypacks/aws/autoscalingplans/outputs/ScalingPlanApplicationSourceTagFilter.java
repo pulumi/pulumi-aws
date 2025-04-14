@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscalingplans.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ScalingPlanApplicationSourceTagFilter {
      * Tag key.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("ScalingPlanApplicationSourceTagFilter.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'ScalingPlanApplicationSourceTagFilter.key' is not present");
     }
 
     /**
      * Tag values.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> values;
-
+    @PolicyResourceProperty(name="values", flag="unknown_values")
+    private @Nullable List<String> value_values;
+    private boolean unknown_values;
     public @Nullable List<String> values() {
-        if (values == null) return null;
-        return values.getValue("ScalingPlanApplicationSourceTagFilter.values");
+        if (!unknown_values) return value_values;
+        throw new UndeferrableValueException("Value 'ScalingPlanApplicationSourceTagFilter.values' is not present");
     }
 
 }

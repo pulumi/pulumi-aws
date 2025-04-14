@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DistributionCacheBehaviorSettingsForwardedHeadersArgs {
      * The specific headers to forward to your distribution&#39;s origin.
      * 
      */
-    private UndeferrableValue<List<String>> headersAllowLists;
-
+    @PolicyResourceProperty(name="headersAllowLists", flag="unknown_headersAllowLists")
+    private List<String> value_headersAllowLists;
+    private boolean unknown_headersAllowLists;
     public List<String> headersAllowLists() {
-        if (headersAllowLists == null) return null;
-        return headersAllowLists.getValue("DistributionCacheBehaviorSettingsForwardedHeadersArgs.headersAllowLists");
+        if (!unknown_headersAllowLists) return value_headersAllowLists;
+        throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsForwardedHeadersArgs.headersAllowLists' is not present");
     }
 
     /**
      * The headers that you want your distribution to forward to your origin and base caching on.
      * 
      */
-    private UndeferrableValue<String> option;
-
+    @PolicyResourceProperty(name="option", flag="unknown_option")
+    private String value_option;
+    private boolean unknown_option;
     public String option() {
-        if (option == null) return null;
-        return option.getValue("DistributionCacheBehaviorSettingsForwardedHeadersArgs.option");
+        if (!unknown_option) return value_option;
+        throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsForwardedHeadersArgs.option' is not present");
     }
 
 }

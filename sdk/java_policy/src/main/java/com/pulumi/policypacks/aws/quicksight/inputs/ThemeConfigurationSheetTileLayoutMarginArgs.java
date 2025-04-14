@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ThemeConfigurationSheetTileLayoutMarginArgs {
      * This Boolean value controls whether to display sheet margins.
      * 
      */
-    private UndeferrableValue<Boolean> show;
-
+    @PolicyResourceProperty(name="show", flag="unknown_show")
+    private Boolean value_show;
+    private boolean unknown_show;
     public Boolean show() {
-        if (show == null) return null;
-        return show.getValue("ThemeConfigurationSheetTileLayoutMarginArgs.show");
+        if (!unknown_show) return value_show;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationSheetTileLayoutMarginArgs.show' is not present");
     }
 
 }

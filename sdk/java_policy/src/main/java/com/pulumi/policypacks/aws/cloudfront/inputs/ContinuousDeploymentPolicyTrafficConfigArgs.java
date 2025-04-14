@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.inputs.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs;
 import com.pulumi.policypacks.aws.cloudfront.inputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class ContinuousDeploymentPolicyTrafficConfigArgs {
      * Determines which HTTP requests are sent to the staging distribution. See `single_header_config`.
      * 
      */
-    private UndeferrableValue<ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs> singleHeaderConfig;
-
+    @PolicyResourceProperty(name="singleHeaderConfig", flag="unknown_singleHeaderConfig")
+    private ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs value_singleHeaderConfig;
+    private boolean unknown_singleHeaderConfig;
     public ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs singleHeaderConfig() {
-        if (singleHeaderConfig == null) return null;
-        return singleHeaderConfig.getValue("ContinuousDeploymentPolicyTrafficConfigArgs.singleHeaderConfig");
+        if (!unknown_singleHeaderConfig) return value_singleHeaderConfig;
+        throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyTrafficConfigArgs.singleHeaderConfig' is not present");
     }
 
     /**
      * Contains the percentage of traffic to send to the staging distribution. See `single_weight_config`.
      * 
      */
-    private UndeferrableValue<ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs> singleWeightConfig;
-
+    @PolicyResourceProperty(name="singleWeightConfig", flag="unknown_singleWeightConfig")
+    private ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs value_singleWeightConfig;
+    private boolean unknown_singleWeightConfig;
     public ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs singleWeightConfig() {
-        if (singleWeightConfig == null) return null;
-        return singleWeightConfig.getValue("ContinuousDeploymentPolicyTrafficConfigArgs.singleWeightConfig");
+        if (!unknown_singleWeightConfig) return value_singleWeightConfig;
+        throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyTrafficConfigArgs.singleWeightConfig' is not present");
     }
 
     /**
      * Type of traffic configuration. Valid values are `SingleWeight` and `SingleHeader`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ContinuousDeploymentPolicyTrafficConfigArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyTrafficConfigArgs.type' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rum.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class AppMonitorCustomEvents {
      * Specifies whether this app monitor allows the web client to define and send custom events. The default is for custom events to be `DISABLED`. Valid values are `DISABLED` and `ENABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private @Nullable String value_status;
+    private boolean unknown_status;
     public @Nullable String status() {
-        if (status == null) return null;
-        return status.getValue("AppMonitorCustomEvents.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'AppMonitorCustomEvents.status' is not present");
     }
 
 }

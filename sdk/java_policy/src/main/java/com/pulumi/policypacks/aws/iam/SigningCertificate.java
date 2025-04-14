@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,44 +17,48 @@ public final class SigningCertificate extends com.pulumi.resources.PolicyResourc
      * The contents of the signing certificate in PEM-encoded format.
      * 
      */
-    private UndeferrableValue<String> certificateBody;
-
+    @PolicyResourceProperty(name="certificateBody", flag="unknown_certificateBody")
+    private String value_certificateBody;
+    private boolean unknown_certificateBody;
     public String certificateBody() {
-        if (certificateBody == null) return null;
-        return certificateBody.getValue("SigningCertificate.certificateBody");
+        if (!unknown_certificateBody) return value_certificateBody;
+        throw new UndeferrableValueException("Value 'SigningCertificate.certificateBody' is not present");
     }
 
     /**
      * The ID for the signing certificate.
      * 
      */
-    private UndeferrableValue<String> certificateId;
-
+    @PolicyResourceProperty(name="certificateId", flag="unknown_certificateId")
+    private String value_certificateId;
+    private boolean unknown_certificateId;
     public String certificateId() {
-        if (certificateId == null) return null;
-        return certificateId.getValue("SigningCertificate.certificateId");
+        if (!unknown_certificateId) return value_certificateId;
+        throw new UndeferrableValueException("Value 'SigningCertificate.certificateId' is not present");
     }
 
     /**
      * The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
      * 
      */
-    private @Nullable UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private @Nullable String value_status;
+    private boolean unknown_status;
     public @Nullable String status() {
-        if (status == null) return null;
-        return status.getValue("SigningCertificate.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'SigningCertificate.status' is not present");
     }
 
     /**
      * The name of the user the signing certificate is for.
      * 
      */
-    private UndeferrableValue<String> userName;
-
+    @PolicyResourceProperty(name="userName", flag="unknown_userName")
+    private String value_userName;
+    private boolean unknown_userName;
     public String userName() {
-        if (userName == null) return null;
-        return userName.getValue("SigningCertificate.userName");
+        if (!unknown_userName) return value_userName;
+        throw new UndeferrableValueException("Value 'SigningCertificate.userName' is not present");
     }
 
 }

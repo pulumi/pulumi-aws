@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,32 +12,36 @@ import javax.annotation.Nullable;
 
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs {
 
-    private UndeferrableValue<String> outputSdt;
-
+    @PolicyResourceProperty(name="outputSdt", flag="unknown_outputSdt")
+    private String value_outputSdt;
+    private boolean unknown_outputSdt;
     public String outputSdt() {
-        if (outputSdt == null) return null;
-        return outputSdt.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs.outputSdt");
+        if (!unknown_outputSdt) return value_outputSdt;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs.outputSdt' is not present");
     }
 
-    private UndeferrableValue<Integer> repInterval;
-
+    @PolicyResourceProperty(name="repInterval", flag="unknown_repInterval")
+    private Integer value_repInterval;
+    private boolean unknown_repInterval;
     public Integer repInterval() {
-        if (repInterval == null) return null;
-        return repInterval.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs.repInterval");
+        if (!unknown_repInterval) return value_repInterval;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs.repInterval' is not present");
     }
 
-    private UndeferrableValue<String> serviceName;
-
+    @PolicyResourceProperty(name="serviceName", flag="unknown_serviceName")
+    private String value_serviceName;
+    private boolean unknown_serviceName;
     public String serviceName() {
-        if (serviceName == null) return null;
-        return serviceName.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs.serviceName");
+        if (!unknown_serviceName) return value_serviceName;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs.serviceName' is not present");
     }
 
-    private UndeferrableValue<String> serviceProviderName;
-
+    @PolicyResourceProperty(name="serviceProviderName", flag="unknown_serviceProviderName")
+    private String value_serviceProviderName;
+    private boolean unknown_serviceProviderName;
     public String serviceProviderName() {
-        if (serviceProviderName == null) return null;
-        return serviceProviderName.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs.serviceProviderName");
+        if (!unknown_serviceProviderName) return value_serviceProviderName;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs.serviceProviderName' is not present");
     }
 
 }

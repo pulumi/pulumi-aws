@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.securityhub.inputs.AutomationRuleActionArgs;
 import com.pulumi.policypacks.aws.securityhub.inputs.AutomationRuleCriteriaArgs;
@@ -22,84 +23,92 @@ public final class AutomationRuleArgs extends com.pulumi.resources.PolicyResourc
      * A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
      * 
      */
-    private UndeferrableValue<List<AutomationRuleActionArgs>> actions;
-
+    @PolicyResourceProperty(name="actions", flag="unknown_actions")
+    private List<AutomationRuleActionArgs> value_actions;
+    private boolean unknown_actions;
     public List<AutomationRuleActionArgs> actions() {
-        if (actions == null) return null;
-        return actions.getValue("AutomationRuleArgs.actions");
+        if (!unknown_actions) return value_actions;
+        throw new UndeferrableValueException("Value 'AutomationRuleArgs.actions' is not present");
     }
 
     /**
      * A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
      * 
      */
-    private UndeferrableValue<AutomationRuleCriteriaArgs> criteria;
-
+    @PolicyResourceProperty(name="criteria", flag="unknown_criteria")
+    private AutomationRuleCriteriaArgs value_criteria;
+    private boolean unknown_criteria;
     public AutomationRuleCriteriaArgs criteria() {
-        if (criteria == null) return null;
-        return criteria.getValue("AutomationRuleArgs.criteria");
+        if (!unknown_criteria) return value_criteria;
+        throw new UndeferrableValueException("Value 'AutomationRuleArgs.criteria' is not present");
     }
 
     /**
      * The description of the rule.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("AutomationRuleArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AutomationRuleArgs.description' is not present");
     }
 
     /**
      * Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> isTerminal;
-
+    @PolicyResourceProperty(name="isTerminal", flag="unknown_isTerminal")
+    private Boolean value_isTerminal;
+    private boolean unknown_isTerminal;
     public Boolean isTerminal() {
-        if (isTerminal == null) return null;
-        return isTerminal.getValue("AutomationRuleArgs.isTerminal");
+        if (!unknown_isTerminal) return value_isTerminal;
+        throw new UndeferrableValueException("Value 'AutomationRuleArgs.isTerminal' is not present");
     }
 
     /**
      * The name of the rule.
      * 
      */
-    private UndeferrableValue<String> ruleName;
-
+    @PolicyResourceProperty(name="ruleName", flag="unknown_ruleName")
+    private String value_ruleName;
+    private boolean unknown_ruleName;
     public String ruleName() {
-        if (ruleName == null) return null;
-        return ruleName.getValue("AutomationRuleArgs.ruleName");
+        if (!unknown_ruleName) return value_ruleName;
+        throw new UndeferrableValueException("Value 'AutomationRuleArgs.ruleName' is not present");
     }
 
     /**
      * An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
      * 
      */
-    private UndeferrableValue<Integer> ruleOrder;
-
+    @PolicyResourceProperty(name="ruleOrder", flag="unknown_ruleOrder")
+    private Integer value_ruleOrder;
+    private boolean unknown_ruleOrder;
     public Integer ruleOrder() {
-        if (ruleOrder == null) return null;
-        return ruleOrder.getValue("AutomationRuleArgs.ruleOrder");
+        if (!unknown_ruleOrder) return value_ruleOrder;
+        throw new UndeferrableValueException("Value 'AutomationRuleArgs.ruleOrder' is not present");
     }
 
     /**
      * Whether the rule is active after it is created.
      * 
      */
-    private UndeferrableValue<String> ruleStatus;
-
+    @PolicyResourceProperty(name="ruleStatus", flag="unknown_ruleStatus")
+    private String value_ruleStatus;
+    private boolean unknown_ruleStatus;
     public String ruleStatus() {
-        if (ruleStatus == null) return null;
-        return ruleStatus.getValue("AutomationRuleArgs.ruleStatus");
+        if (!unknown_ruleStatus) return value_ruleStatus;
+        throw new UndeferrableValueException("Value 'AutomationRuleArgs.ruleStatus' is not present");
     }
 
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AutomationRuleArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AutomationRuleArgs.tags' is not present");
     }
 
 }

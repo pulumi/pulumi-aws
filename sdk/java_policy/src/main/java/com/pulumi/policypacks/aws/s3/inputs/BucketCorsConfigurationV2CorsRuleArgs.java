@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -16,66 +17,72 @@ public final class BucketCorsConfigurationV2CorsRuleArgs {
      * Set of Headers that are specified in the `Access-Control-Request-Headers` header.
      * 
      */
-    private UndeferrableValue<List<String>> allowedHeaders;
-
+    @PolicyResourceProperty(name="allowedHeaders", flag="unknown_allowedHeaders")
+    private List<String> value_allowedHeaders;
+    private boolean unknown_allowedHeaders;
     public List<String> allowedHeaders() {
-        if (allowedHeaders == null) return null;
-        return allowedHeaders.getValue("BucketCorsConfigurationV2CorsRuleArgs.allowedHeaders");
+        if (!unknown_allowedHeaders) return value_allowedHeaders;
+        throw new UndeferrableValueException("Value 'BucketCorsConfigurationV2CorsRuleArgs.allowedHeaders' is not present");
     }
 
     /**
      * Set of HTTP methods that you allow the origin to execute. Valid values are `GET`, `PUT`, `HEAD`, `POST`, and `DELETE`.
      * 
      */
-    private UndeferrableValue<List<String>> allowedMethods;
-
+    @PolicyResourceProperty(name="allowedMethods", flag="unknown_allowedMethods")
+    private List<String> value_allowedMethods;
+    private boolean unknown_allowedMethods;
     public List<String> allowedMethods() {
-        if (allowedMethods == null) return null;
-        return allowedMethods.getValue("BucketCorsConfigurationV2CorsRuleArgs.allowedMethods");
+        if (!unknown_allowedMethods) return value_allowedMethods;
+        throw new UndeferrableValueException("Value 'BucketCorsConfigurationV2CorsRuleArgs.allowedMethods' is not present");
     }
 
     /**
      * Set of origins you want customers to be able to access the bucket from.
      * 
      */
-    private UndeferrableValue<List<String>> allowedOrigins;
-
+    @PolicyResourceProperty(name="allowedOrigins", flag="unknown_allowedOrigins")
+    private List<String> value_allowedOrigins;
+    private boolean unknown_allowedOrigins;
     public List<String> allowedOrigins() {
-        if (allowedOrigins == null) return null;
-        return allowedOrigins.getValue("BucketCorsConfigurationV2CorsRuleArgs.allowedOrigins");
+        if (!unknown_allowedOrigins) return value_allowedOrigins;
+        throw new UndeferrableValueException("Value 'BucketCorsConfigurationV2CorsRuleArgs.allowedOrigins' is not present");
     }
 
     /**
      * Set of headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
      * 
      */
-    private UndeferrableValue<List<String>> exposeHeaders;
-
+    @PolicyResourceProperty(name="exposeHeaders", flag="unknown_exposeHeaders")
+    private List<String> value_exposeHeaders;
+    private boolean unknown_exposeHeaders;
     public List<String> exposeHeaders() {
-        if (exposeHeaders == null) return null;
-        return exposeHeaders.getValue("BucketCorsConfigurationV2CorsRuleArgs.exposeHeaders");
+        if (!unknown_exposeHeaders) return value_exposeHeaders;
+        throw new UndeferrableValueException("Value 'BucketCorsConfigurationV2CorsRuleArgs.exposeHeaders' is not present");
     }
 
     /**
      * Unique identifier for the rule. The value cannot be longer than 255 characters.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("BucketCorsConfigurationV2CorsRuleArgs.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'BucketCorsConfigurationV2CorsRuleArgs.id' is not present");
     }
 
     /**
      * Time in seconds that your browser is to cache the preflight response for the specified resource.
      * 
      */
-    private UndeferrableValue<Integer> maxAgeSeconds;
-
+    @PolicyResourceProperty(name="maxAgeSeconds", flag="unknown_maxAgeSeconds")
+    private Integer value_maxAgeSeconds;
+    private boolean unknown_maxAgeSeconds;
     public Integer maxAgeSeconds() {
-        if (maxAgeSeconds == null) return null;
-        return maxAgeSeconds.getValue("BucketCorsConfigurationV2CorsRuleArgs.maxAgeSeconds");
+        if (!unknown_maxAgeSeconds) return value_maxAgeSeconds;
+        throw new UndeferrableValueException("Value 'BucketCorsConfigurationV2CorsRuleArgs.maxAgeSeconds' is not present");
     }
 
 }

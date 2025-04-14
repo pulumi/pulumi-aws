@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,55 +18,60 @@ public final class UserGroupArgs extends com.pulumi.resources.PolicyResourceInpu
      * The description of the user group.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("UserGroupArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'UserGroupArgs.description' is not present");
     }
 
     /**
      * The name of the user group.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("UserGroupArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'UserGroupArgs.name' is not present");
     }
 
     /**
      * The precedence of the user group.
      * 
      */
-    private UndeferrableValue<Integer> precedence;
-
+    @PolicyResourceProperty(name="precedence", flag="unknown_precedence")
+    private Integer value_precedence;
+    private boolean unknown_precedence;
     public Integer precedence() {
-        if (precedence == null) return null;
-        return precedence.getValue("UserGroupArgs.precedence");
+        if (!unknown_precedence) return value_precedence;
+        throw new UndeferrableValueException("Value 'UserGroupArgs.precedence' is not present");
     }
 
     /**
      * The ARN of the IAM role to be associated with the user group.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("UserGroupArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'UserGroupArgs.roleArn' is not present");
     }
 
     /**
      * The user pool ID.
      * 
      */
-    private UndeferrableValue<String> userPoolId;
-
+    @PolicyResourceProperty(name="userPoolId", flag="unknown_userPoolId")
+    private String value_userPoolId;
+    private boolean unknown_userPoolId;
     public String userPoolId() {
-        if (userPoolId == null) return null;
-        return userPoolId.getValue("UserGroupArgs.userPoolId");
+        if (!unknown_userPoolId) return value_userPoolId;
+        throw new UndeferrableValueException("Value 'UserGroupArgs.userPoolId' is not present");
     }
 
 }

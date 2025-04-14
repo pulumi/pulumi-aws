@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.RouteSpecTcpRouteActionArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.RouteSpecTcpRouteMatchArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.RouteSpecTcpRouteTimeoutArgs;
@@ -16,29 +17,32 @@ public final class RouteSpecTcpRouteArgs {
      * Action to take if a match is determined.
      * 
      */
-    private UndeferrableValue<RouteSpecTcpRouteActionArgs> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private RouteSpecTcpRouteActionArgs value_action;
+    private boolean unknown_action;
     public RouteSpecTcpRouteActionArgs action() {
-        if (action == null) return null;
-        return action.getValue("RouteSpecTcpRouteArgs.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'RouteSpecTcpRouteArgs.action' is not present");
     }
 
-    private UndeferrableValue<RouteSpecTcpRouteMatchArgs> match;
-
+    @PolicyResourceProperty(name="match", flag="unknown_match")
+    private RouteSpecTcpRouteMatchArgs value_match;
+    private boolean unknown_match;
     public RouteSpecTcpRouteMatchArgs match() {
-        if (match == null) return null;
-        return match.getValue("RouteSpecTcpRouteArgs.match");
+        if (!unknown_match) return value_match;
+        throw new UndeferrableValueException("Value 'RouteSpecTcpRouteArgs.match' is not present");
     }
 
     /**
      * Types of timeouts.
      * 
      */
-    private UndeferrableValue<RouteSpecTcpRouteTimeoutArgs> timeout;
-
+    @PolicyResourceProperty(name="timeout", flag="unknown_timeout")
+    private RouteSpecTcpRouteTimeoutArgs value_timeout;
+    private boolean unknown_timeout;
     public RouteSpecTcpRouteTimeoutArgs timeout() {
-        if (timeout == null) return null;
-        return timeout.getValue("RouteSpecTcpRouteArgs.timeout");
+        if (!unknown_timeout) return value_timeout;
+        throw new UndeferrableValueException("Value 'RouteSpecTcpRouteArgs.timeout' is not present");
     }
 
 }

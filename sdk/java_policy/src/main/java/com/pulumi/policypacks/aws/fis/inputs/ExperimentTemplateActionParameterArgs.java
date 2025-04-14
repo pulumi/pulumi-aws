@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fis.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ExperimentTemplateActionParameterArgs {
      * Parameter name.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("ExperimentTemplateActionParameterArgs.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateActionParameterArgs.key' is not present");
     }
 
     /**
@@ -26,11 +28,12 @@ public final class ExperimentTemplateActionParameterArgs {
      * For a list of parameters supported by each action, see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("ExperimentTemplateActionParameterArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateActionParameterArgs.value' is not present");
     }
 
 }

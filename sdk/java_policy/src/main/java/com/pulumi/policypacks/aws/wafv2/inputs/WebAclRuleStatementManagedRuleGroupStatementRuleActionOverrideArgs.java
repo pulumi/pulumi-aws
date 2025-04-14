@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
      * Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
      * 
      */
-    private UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs> actionToUse;
-
+    @PolicyResourceProperty(name="actionToUse", flag="unknown_actionToUse")
+    private WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs value_actionToUse;
+    private boolean unknown_actionToUse;
     public WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs actionToUse() {
-        if (actionToUse == null) return null;
-        return actionToUse.getValue("WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs.actionToUse");
+        if (!unknown_actionToUse) return value_actionToUse;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs.actionToUse' is not present");
     }
 
     /**
      * Name of the rule to override. See the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs.name' is not present");
     }
 
 }

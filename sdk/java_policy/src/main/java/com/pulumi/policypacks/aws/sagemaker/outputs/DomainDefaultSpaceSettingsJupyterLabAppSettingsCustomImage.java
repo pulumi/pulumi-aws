@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImage {
      * The name of the App Image Config.
      * 
      */
-    private UndeferrableValue<String> appImageConfigName;
-
+    @PolicyResourceProperty(name="appImageConfigName", flag="unknown_appImageConfigName")
+    private String value_appImageConfigName;
+    private boolean unknown_appImageConfigName;
     public String appImageConfigName() {
-        if (appImageConfigName == null) return null;
-        return appImageConfigName.getValue("DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImage.appImageConfigName");
+        if (!unknown_appImageConfigName) return value_appImageConfigName;
+        throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImage.appImageConfigName' is not present");
     }
 
     /**
      * The name of the Custom Image.
      * 
      */
-    private UndeferrableValue<String> imageName;
-
+    @PolicyResourceProperty(name="imageName", flag="unknown_imageName")
+    private String value_imageName;
+    private boolean unknown_imageName;
     public String imageName() {
-        if (imageName == null) return null;
-        return imageName.getValue("DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImage.imageName");
+        if (!unknown_imageName) return value_imageName;
+        throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImage.imageName' is not present");
     }
 
     /**
      * The version number of the Custom Image.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> imageVersionNumber;
-
+    @PolicyResourceProperty(name="imageVersionNumber", flag="unknown_imageVersionNumber")
+    private @Nullable Integer value_imageVersionNumber;
+    private boolean unknown_imageVersionNumber;
     public @Nullable Integer imageVersionNumber() {
-        if (imageVersionNumber == null) return null;
-        return imageVersionNumber.getValue("DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImage.imageVersionNumber");
+        if (!unknown_imageVersionNumber) return value_imageVersionNumber;
+        throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImage.imageVersionNumber' is not present");
     }
 
 }

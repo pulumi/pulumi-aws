@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,44 +18,48 @@ public final class GatewayAssociationProposalArgs extends com.pulumi.resources.P
      * VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
      * 
      */
-    private UndeferrableValue<List<String>> allowedPrefixes;
-
+    @PolicyResourceProperty(name="allowedPrefixes", flag="unknown_allowedPrefixes")
+    private List<String> value_allowedPrefixes;
+    private boolean unknown_allowedPrefixes;
     public List<String> allowedPrefixes() {
-        if (allowedPrefixes == null) return null;
-        return allowedPrefixes.getValue("GatewayAssociationProposalArgs.allowedPrefixes");
+        if (!unknown_allowedPrefixes) return value_allowedPrefixes;
+        throw new UndeferrableValueException("Value 'GatewayAssociationProposalArgs.allowedPrefixes' is not present");
     }
 
     /**
      * The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
      * 
      */
-    private UndeferrableValue<String> associatedGatewayId;
-
+    @PolicyResourceProperty(name="associatedGatewayId", flag="unknown_associatedGatewayId")
+    private String value_associatedGatewayId;
+    private boolean unknown_associatedGatewayId;
     public String associatedGatewayId() {
-        if (associatedGatewayId == null) return null;
-        return associatedGatewayId.getValue("GatewayAssociationProposalArgs.associatedGatewayId");
+        if (!unknown_associatedGatewayId) return value_associatedGatewayId;
+        throw new UndeferrableValueException("Value 'GatewayAssociationProposalArgs.associatedGatewayId' is not present");
     }
 
     /**
      * Direct Connect Gateway identifier.
      * 
      */
-    private UndeferrableValue<String> dxGatewayId;
-
+    @PolicyResourceProperty(name="dxGatewayId", flag="unknown_dxGatewayId")
+    private String value_dxGatewayId;
+    private boolean unknown_dxGatewayId;
     public String dxGatewayId() {
-        if (dxGatewayId == null) return null;
-        return dxGatewayId.getValue("GatewayAssociationProposalArgs.dxGatewayId");
+        if (!unknown_dxGatewayId) return value_dxGatewayId;
+        throw new UndeferrableValueException("Value 'GatewayAssociationProposalArgs.dxGatewayId' is not present");
     }
 
     /**
      * AWS Account identifier of the Direct Connect Gateway&#39;s owner.
      * 
      */
-    private UndeferrableValue<String> dxGatewayOwnerAccountId;
-
+    @PolicyResourceProperty(name="dxGatewayOwnerAccountId", flag="unknown_dxGatewayOwnerAccountId")
+    private String value_dxGatewayOwnerAccountId;
+    private boolean unknown_dxGatewayOwnerAccountId;
     public String dxGatewayOwnerAccountId() {
-        if (dxGatewayOwnerAccountId == null) return null;
-        return dxGatewayOwnerAccountId.getValue("GatewayAssociationProposalArgs.dxGatewayOwnerAccountId");
+        if (!unknown_dxGatewayOwnerAccountId) return value_dxGatewayOwnerAccountId;
+        throw new UndeferrableValueException("Value 'GatewayAssociationProposalArgs.dxGatewayOwnerAccountId' is not present");
     }
 
 }

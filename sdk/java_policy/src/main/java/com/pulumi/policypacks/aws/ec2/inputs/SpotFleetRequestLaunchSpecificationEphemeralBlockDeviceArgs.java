@@ -3,24 +3,27 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgs {
 
-    private UndeferrableValue<String> deviceName;
-
+    @PolicyResourceProperty(name="deviceName", flag="unknown_deviceName")
+    private String value_deviceName;
+    private boolean unknown_deviceName;
     public String deviceName() {
-        if (deviceName == null) return null;
-        return deviceName.getValue("SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgs.deviceName");
+        if (!unknown_deviceName) return value_deviceName;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgs.deviceName' is not present");
     }
 
-    private UndeferrableValue<String> virtualName;
-
+    @PolicyResourceProperty(name="virtualName", flag="unknown_virtualName")
+    private String value_virtualName;
+    private boolean unknown_virtualName;
     public String virtualName() {
-        if (virtualName == null) return null;
-        return virtualName.getValue("SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgs.virtualName");
+        if (!unknown_virtualName) return value_virtualName;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgs.virtualName' is not present");
     }
 
 }

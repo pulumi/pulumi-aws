@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.msk.inputs.ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs;
 import com.pulumi.policypacks.aws.msk.inputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoArgs {
      * Access control settings for brokers. See below.
      * 
      */
-    private UndeferrableValue<ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs> publicAccess;
-
+    @PolicyResourceProperty(name="publicAccess", flag="unknown_publicAccess")
+    private ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs value_publicAccess;
+    private boolean unknown_publicAccess;
     public ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs publicAccess() {
-        if (publicAccess == null) return null;
-        return publicAccess.getValue("ClusterBrokerNodeGroupInfoConnectivityInfoArgs.publicAccess");
+        if (!unknown_publicAccess) return value_publicAccess;
+        throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoConnectivityInfoArgs.publicAccess' is not present");
     }
 
     /**
      * VPC connectivity access control for brokers. See below.
      * 
      */
-    private UndeferrableValue<ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs> vpcConnectivity;
-
+    @PolicyResourceProperty(name="vpcConnectivity", flag="unknown_vpcConnectivity")
+    private ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs value_vpcConnectivity;
+    private boolean unknown_vpcConnectivity;
     public ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs vpcConnectivity() {
-        if (vpcConnectivity == null) return null;
-        return vpcConnectivity.getValue("ClusterBrokerNodeGroupInfoConnectivityInfoArgs.vpcConnectivity");
+        if (!unknown_vpcConnectivity) return value_vpcConnectivity;
+        throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoConnectivityInfoArgs.vpcConnectivity' is not present");
     }
 
 }

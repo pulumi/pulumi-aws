@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ses;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class IdentityNotificationTopicArgs extends com.pulumi.resources.Po
      * The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
      * 
      */
-    private UndeferrableValue<String> identity;
-
+    @PolicyResourceProperty(name="identity", flag="unknown_identity")
+    private String value_identity;
+    private boolean unknown_identity;
     public String identity() {
-        if (identity == null) return null;
-        return identity.getValue("IdentityNotificationTopicArgs.identity");
+        if (!unknown_identity) return value_identity;
+        throw new UndeferrableValueException("Value 'IdentityNotificationTopicArgs.identity' is not present");
     }
 
     /**
      * Whether SES should include original email headers in SNS notifications of this type. `false` by default.
      * 
      */
-    private UndeferrableValue<Boolean> includeOriginalHeaders;
-
+    @PolicyResourceProperty(name="includeOriginalHeaders", flag="unknown_includeOriginalHeaders")
+    private Boolean value_includeOriginalHeaders;
+    private boolean unknown_includeOriginalHeaders;
     public Boolean includeOriginalHeaders() {
-        if (includeOriginalHeaders == null) return null;
-        return includeOriginalHeaders.getValue("IdentityNotificationTopicArgs.includeOriginalHeaders");
+        if (!unknown_includeOriginalHeaders) return value_includeOriginalHeaders;
+        throw new UndeferrableValueException("Value 'IdentityNotificationTopicArgs.includeOriginalHeaders' is not present");
     }
 
     /**
      * The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
      * 
      */
-    private UndeferrableValue<String> notificationType;
-
+    @PolicyResourceProperty(name="notificationType", flag="unknown_notificationType")
+    private String value_notificationType;
+    private boolean unknown_notificationType;
     public String notificationType() {
-        if (notificationType == null) return null;
-        return notificationType.getValue("IdentityNotificationTopicArgs.notificationType");
+        if (!unknown_notificationType) return value_notificationType;
+        throw new UndeferrableValueException("Value 'IdentityNotificationTopicArgs.notificationType' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `&#34;&#34;` (an empty string) to disable publishing.
      * 
      */
-    private UndeferrableValue<String> topicArn;
-
+    @PolicyResourceProperty(name="topicArn", flag="unknown_topicArn")
+    private String value_topicArn;
+    private boolean unknown_topicArn;
     public String topicArn() {
-        if (topicArn == null) return null;
-        return topicArn.getValue("IdentityNotificationTopicArgs.topicArn");
+        if (!unknown_topicArn) return value_topicArn;
+        throw new UndeferrableValueException("Value 'IdentityNotificationTopicArgs.topicArn' is not present");
     }
 
 }

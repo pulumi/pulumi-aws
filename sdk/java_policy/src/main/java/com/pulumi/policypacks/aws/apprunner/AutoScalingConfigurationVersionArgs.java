@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class AutoScalingConfigurationVersionArgs extends com.pulumi.resour
      * Name of the auto scaling configuration.
      * 
      */
-    private UndeferrableValue<String> autoScalingConfigurationName;
-
+    @PolicyResourceProperty(name="autoScalingConfigurationName", flag="unknown_autoScalingConfigurationName")
+    private String value_autoScalingConfigurationName;
+    private boolean unknown_autoScalingConfigurationName;
     public String autoScalingConfigurationName() {
-        if (autoScalingConfigurationName == null) return null;
-        return autoScalingConfigurationName.getValue("AutoScalingConfigurationVersionArgs.autoScalingConfigurationName");
+        if (!unknown_autoScalingConfigurationName) return value_autoScalingConfigurationName;
+        throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersionArgs.autoScalingConfigurationName' is not present");
     }
 
     /**
      * Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
      * 
      */
-    private UndeferrableValue<Integer> maxConcurrency;
-
+    @PolicyResourceProperty(name="maxConcurrency", flag="unknown_maxConcurrency")
+    private Integer value_maxConcurrency;
+    private boolean unknown_maxConcurrency;
     public Integer maxConcurrency() {
-        if (maxConcurrency == null) return null;
-        return maxConcurrency.getValue("AutoScalingConfigurationVersionArgs.maxConcurrency");
+        if (!unknown_maxConcurrency) return value_maxConcurrency;
+        throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersionArgs.maxConcurrency' is not present");
     }
 
     /**
      * Maximal number of instances that App Runner provisions for your service.
      * 
      */
-    private UndeferrableValue<Integer> maxSize;
-
+    @PolicyResourceProperty(name="maxSize", flag="unknown_maxSize")
+    private Integer value_maxSize;
+    private boolean unknown_maxSize;
     public Integer maxSize() {
-        if (maxSize == null) return null;
-        return maxSize.getValue("AutoScalingConfigurationVersionArgs.maxSize");
+        if (!unknown_maxSize) return value_maxSize;
+        throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersionArgs.maxSize' is not present");
     }
 
     /**
      * Minimal number of instances that App Runner provisions for your service.
      * 
      */
-    private UndeferrableValue<Integer> minSize;
-
+    @PolicyResourceProperty(name="minSize", flag="unknown_minSize")
+    private Integer value_minSize;
+    private boolean unknown_minSize;
     public Integer minSize() {
-        if (minSize == null) return null;
-        return minSize.getValue("AutoScalingConfigurationVersionArgs.minSize");
+        if (!unknown_minSize) return value_minSize;
+        throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersionArgs.minSize' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AutoScalingConfigurationVersionArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AutoScalingConfigurationVersionArgs.tags' is not present");
     }
 
 }

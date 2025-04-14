@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.oam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,11 +18,12 @@ public final class Sink extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the Sink.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Sink.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Sink.arn' is not present");
     }
 
     /**
@@ -30,33 +32,36 @@ public final class Sink extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Sink.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Sink.name' is not present");
     }
 
     /**
      * ID string that AWS generated as part of the sink ARN.
      * 
      */
-    private UndeferrableValue<String> sinkId;
-
+    @PolicyResourceProperty(name="sinkId", flag="unknown_sinkId")
+    private String value_sinkId;
+    private boolean unknown_sinkId;
     public String sinkId() {
-        if (sinkId == null) return null;
-        return sinkId.getValue("Sink.sinkId");
+        if (!unknown_sinkId) return value_sinkId;
+        throw new UndeferrableValueException("Value 'Sink.sinkId' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Sink.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Sink.tags' is not present");
     }
 
     /**
@@ -65,11 +70,12 @@ public final class Sink extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Sink.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Sink.tagsAll' is not present");
     }
 
 }

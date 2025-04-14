@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emrcontainers.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs {
      * The entry point of job application.
      * 
      */
-    private UndeferrableValue<String> entryPoint;
-
+    @PolicyResourceProperty(name="entryPoint", flag="unknown_entryPoint")
+    private String value_entryPoint;
+    private boolean unknown_entryPoint;
     public String entryPoint() {
-        if (entryPoint == null) return null;
-        return entryPoint.getValue("JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs.entryPoint");
+        if (!unknown_entryPoint) return value_entryPoint;
+        throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs.entryPoint' is not present");
     }
 
     /**
      * The arguments for job application.
      * 
      */
-    private UndeferrableValue<List<String>> entryPointArguments;
-
+    @PolicyResourceProperty(name="entryPointArguments", flag="unknown_entryPointArguments")
+    private List<String> value_entryPointArguments;
+    private boolean unknown_entryPointArguments;
     public List<String> entryPointArguments() {
-        if (entryPointArguments == null) return null;
-        return entryPointArguments.getValue("JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs.entryPointArguments");
+        if (!unknown_entryPointArguments) return value_entryPointArguments;
+        throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs.entryPointArguments' is not present");
     }
 
     /**
      * The Spark submit parameters that are used for job runs.
      * 
      */
-    private UndeferrableValue<String> sparkSubmitParameters;
-
+    @PolicyResourceProperty(name="sparkSubmitParameters", flag="unknown_sparkSubmitParameters")
+    private String value_sparkSubmitParameters;
+    private boolean unknown_sparkSubmitParameters;
     public String sparkSubmitParameters() {
-        if (sparkSubmitParameters == null) return null;
-        return sparkSubmitParameters.getValue("JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs.sparkSubmitParameters");
+        if (!unknown_sparkSubmitParameters) return value_sparkSubmitParameters;
+        throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs.sparkSubmitParameters' is not present");
     }
 
 }

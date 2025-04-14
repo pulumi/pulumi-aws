@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.outputs.GuardrailTopicPolicyConfigTopicsConfig;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class GuardrailTopicPolicyConfig {
      * List of topic configs in topic policy. See Topics Config for more information.
      * 
      */
-    private @Nullable UndeferrableValue<List<GuardrailTopicPolicyConfigTopicsConfig>> topicsConfigs;
-
+    @PolicyResourceProperty(name="topicsConfigs", flag="unknown_topicsConfigs")
+    private @Nullable List<GuardrailTopicPolicyConfigTopicsConfig> value_topicsConfigs;
+    private boolean unknown_topicsConfigs;
     public @Nullable List<GuardrailTopicPolicyConfigTopicsConfig> topicsConfigs() {
-        if (topicsConfigs == null) return null;
-        return topicsConfigs.getValue("GuardrailTopicPolicyConfig.topicsConfigs");
+        if (!unknown_topicsConfigs) return value_topicsConfigs;
+        throw new UndeferrableValueException("Value 'GuardrailTopicPolicyConfig.topicsConfigs' is not present");
     }
 
 }

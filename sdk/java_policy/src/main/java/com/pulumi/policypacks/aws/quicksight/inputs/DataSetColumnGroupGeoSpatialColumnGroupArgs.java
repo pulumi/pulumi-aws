@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,33 +15,36 @@ public final class DataSetColumnGroupGeoSpatialColumnGroupArgs {
      * Columns in this hierarchy.
      * 
      */
-    private UndeferrableValue<List<String>> columns;
-
+    @PolicyResourceProperty(name="columns", flag="unknown_columns")
+    private List<String> value_columns;
+    private boolean unknown_columns;
     public List<String> columns() {
-        if (columns == null) return null;
-        return columns.getValue("DataSetColumnGroupGeoSpatialColumnGroupArgs.columns");
+        if (!unknown_columns) return value_columns;
+        throw new UndeferrableValueException("Value 'DataSetColumnGroupGeoSpatialColumnGroupArgs.columns' is not present");
     }
 
     /**
      * Country code. Valid values are `US`.
      * 
      */
-    private UndeferrableValue<String> countryCode;
-
+    @PolicyResourceProperty(name="countryCode", flag="unknown_countryCode")
+    private String value_countryCode;
+    private boolean unknown_countryCode;
     public String countryCode() {
-        if (countryCode == null) return null;
-        return countryCode.getValue("DataSetColumnGroupGeoSpatialColumnGroupArgs.countryCode");
+        if (!unknown_countryCode) return value_countryCode;
+        throw new UndeferrableValueException("Value 'DataSetColumnGroupGeoSpatialColumnGroupArgs.countryCode' is not present");
     }
 
     /**
      * A display name for the hierarchy.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DataSetColumnGroupGeoSpatialColumnGroupArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DataSetColumnGroupGeoSpatialColumnGroupArgs.name' is not present");
     }
 
 }

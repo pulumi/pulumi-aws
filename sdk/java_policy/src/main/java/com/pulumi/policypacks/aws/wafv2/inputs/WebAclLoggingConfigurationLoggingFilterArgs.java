@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclLoggingConfigurationLoggingFilterFilterArgs;
 import java.lang.String;
 import java.util.List;
@@ -15,22 +16,24 @@ public final class WebAclLoggingConfigurationLoggingFilterArgs {
      * Default handling for logs that don&#39;t match any of the specified filtering conditions. Valid values for `default_behavior` are `KEEP` or `DROP`.
      * 
      */
-    private UndeferrableValue<String> defaultBehavior;
-
+    @PolicyResourceProperty(name="defaultBehavior", flag="unknown_defaultBehavior")
+    private String value_defaultBehavior;
+    private boolean unknown_defaultBehavior;
     public String defaultBehavior() {
-        if (defaultBehavior == null) return null;
-        return defaultBehavior.getValue("WebAclLoggingConfigurationLoggingFilterArgs.defaultBehavior");
+        if (!unknown_defaultBehavior) return value_defaultBehavior;
+        throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationLoggingFilterArgs.defaultBehavior' is not present");
     }
 
     /**
      * Filter(s) that you want to apply to the logs. See Filter below for more details.
      * 
      */
-    private UndeferrableValue<List<WebAclLoggingConfigurationLoggingFilterFilterArgs>> filters;
-
+    @PolicyResourceProperty(name="filters", flag="unknown_filters")
+    private List<WebAclLoggingConfigurationLoggingFilterFilterArgs> value_filters;
+    private boolean unknown_filters;
     public List<WebAclLoggingConfigurationLoggingFilterFilterArgs> filters() {
-        if (filters == null) return null;
-        return filters.getValue("WebAclLoggingConfigurationLoggingFilterArgs.filters");
+        if (!unknown_filters) return value_filters;
+        throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationLoggingFilterArgs.filters' is not present");
     }
 
 }

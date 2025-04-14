@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamwrite.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLoc
      * Bucket name of the customer S3 bucket.
      * 
      */
-    private @Nullable UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private @Nullable String value_bucketName;
+    private boolean unknown_bucketName;
     public @Nullable String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration.bucketName' is not present");
     }
 
     /**
      * Encryption option for the customer s3 location. Options are S3 server side encryption with an S3-managed key or KMS managed key. Valid values are `SSE_KMS` and `SSE_S3`.
      * 
      */
-    private @Nullable UndeferrableValue<String> encryptionOption;
-
+    @PolicyResourceProperty(name="encryptionOption", flag="unknown_encryptionOption")
+    private @Nullable String value_encryptionOption;
+    private boolean unknown_encryptionOption;
     public @Nullable String encryptionOption() {
-        if (encryptionOption == null) return null;
-        return encryptionOption.getValue("TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration.encryptionOption");
+        if (!unknown_encryptionOption) return value_encryptionOption;
+        throw new UndeferrableValueException("Value 'TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration.encryptionOption' is not present");
     }
 
     /**
      * KMS key arn for the customer s3 location when encrypting with a KMS managed key.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration.kmsKeyId' is not present");
     }
 
     /**
      * Object key prefix for the customer S3 location.
      * 
      */
-    private @Nullable UndeferrableValue<String> objectKeyPrefix;
-
+    @PolicyResourceProperty(name="objectKeyPrefix", flag="unknown_objectKeyPrefix")
+    private @Nullable String value_objectKeyPrefix;
+    private boolean unknown_objectKeyPrefix;
     public @Nullable String objectKeyPrefix() {
-        if (objectKeyPrefix == null) return null;
-        return objectKeyPrefix.getValue("TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration.objectKeyPrefix");
+        if (!unknown_objectKeyPrefix) return value_objectKeyPrefix;
+        throw new UndeferrableValueException("Value 'TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration.objectKeyPrefix' is not present");
     }
 
 }

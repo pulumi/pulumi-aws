@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.msk.inputs.ClusterEncryptionInfoEncryptionInTransitArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ClusterEncryptionInfoArgs {
      * You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS (&#39;aws/msk&#39; managed service) key will be used for encrypting the data at rest.
      * 
      */
-    private UndeferrableValue<String> encryptionAtRestKmsKeyArn;
-
+    @PolicyResourceProperty(name="encryptionAtRestKmsKeyArn", flag="unknown_encryptionAtRestKmsKeyArn")
+    private String value_encryptionAtRestKmsKeyArn;
+    private boolean unknown_encryptionAtRestKmsKeyArn;
     public String encryptionAtRestKmsKeyArn() {
-        if (encryptionAtRestKmsKeyArn == null) return null;
-        return encryptionAtRestKmsKeyArn.getValue("ClusterEncryptionInfoArgs.encryptionAtRestKmsKeyArn");
+        if (!unknown_encryptionAtRestKmsKeyArn) return value_encryptionAtRestKmsKeyArn;
+        throw new UndeferrableValueException("Value 'ClusterEncryptionInfoArgs.encryptionAtRestKmsKeyArn' is not present");
     }
 
     /**
      * Configuration block to specify encryption in transit. See below.
      * 
      */
-    private UndeferrableValue<ClusterEncryptionInfoEncryptionInTransitArgs> encryptionInTransit;
-
+    @PolicyResourceProperty(name="encryptionInTransit", flag="unknown_encryptionInTransit")
+    private ClusterEncryptionInfoEncryptionInTransitArgs value_encryptionInTransit;
+    private boolean unknown_encryptionInTransit;
     public ClusterEncryptionInfoEncryptionInTransitArgs encryptionInTransit() {
-        if (encryptionInTransit == null) return null;
-        return encryptionInTransit.getValue("ClusterEncryptionInfoArgs.encryptionInTransit");
+        if (!unknown_encryptionInTransit) return value_encryptionInTransit;
+        throw new UndeferrableValueException("Value 'ClusterEncryptionInfoArgs.encryptionInTransit' is not present");
     }
 
 }

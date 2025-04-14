@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3control.outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics;
 import com.pulumi.policypacks.aws.s3control.outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics;
 import com.pulumi.policypacks.aws.s3control.outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics;
@@ -18,55 +19,60 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
      * S3 Storage Lens activity metrics. See Activity Metrics above for more details.
      * 
      */
-    private @Nullable UndeferrableValue<StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics> activityMetrics;
-
+    @PolicyResourceProperty(name="activityMetrics", flag="unknown_activityMetrics")
+    private @Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics value_activityMetrics;
+    private boolean unknown_activityMetrics;
     public @Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics activityMetrics() {
-        if (activityMetrics == null) return null;
-        return activityMetrics.getValue("StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel.activityMetrics");
+        if (!unknown_activityMetrics) return value_activityMetrics;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel.activityMetrics' is not present");
     }
 
     /**
      * Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics above for more details.
      * 
      */
-    private @Nullable UndeferrableValue<StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics> advancedCostOptimizationMetrics;
-
+    @PolicyResourceProperty(name="advancedCostOptimizationMetrics", flag="unknown_advancedCostOptimizationMetrics")
+    private @Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics value_advancedCostOptimizationMetrics;
+    private boolean unknown_advancedCostOptimizationMetrics;
     public @Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics advancedCostOptimizationMetrics() {
-        if (advancedCostOptimizationMetrics == null) return null;
-        return advancedCostOptimizationMetrics.getValue("StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel.advancedCostOptimizationMetrics");
+        if (!unknown_advancedCostOptimizationMetrics) return value_advancedCostOptimizationMetrics;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel.advancedCostOptimizationMetrics' is not present");
     }
 
     /**
      * Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics above for more details.
      * 
      */
-    private @Nullable UndeferrableValue<StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics> advancedDataProtectionMetrics;
-
+    @PolicyResourceProperty(name="advancedDataProtectionMetrics", flag="unknown_advancedDataProtectionMetrics")
+    private @Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics value_advancedDataProtectionMetrics;
+    private boolean unknown_advancedDataProtectionMetrics;
     public @Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics advancedDataProtectionMetrics() {
-        if (advancedDataProtectionMetrics == null) return null;
-        return advancedDataProtectionMetrics.getValue("StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel.advancedDataProtectionMetrics");
+        if (!unknown_advancedDataProtectionMetrics) return value_advancedDataProtectionMetrics;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel.advancedDataProtectionMetrics' is not present");
     }
 
     /**
      * Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics above for more details.
      * 
      */
-    private @Nullable UndeferrableValue<StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics> detailedStatusCodeMetrics;
-
+    @PolicyResourceProperty(name="detailedStatusCodeMetrics", flag="unknown_detailedStatusCodeMetrics")
+    private @Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics value_detailedStatusCodeMetrics;
+    private boolean unknown_detailedStatusCodeMetrics;
     public @Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics detailedStatusCodeMetrics() {
-        if (detailedStatusCodeMetrics == null) return null;
-        return detailedStatusCodeMetrics.getValue("StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel.detailedStatusCodeMetrics");
+        if (!unknown_detailedStatusCodeMetrics) return value_detailedStatusCodeMetrics;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel.detailedStatusCodeMetrics' is not present");
     }
 
     /**
      * Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel> prefixLevel;
-
+    @PolicyResourceProperty(name="prefixLevel", flag="unknown_prefixLevel")
+    private @Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel value_prefixLevel;
+    private boolean unknown_prefixLevel;
     public @Nullable StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel prefixLevel() {
-        if (prefixLevel == null) return null;
-        return prefixLevel.getValue("StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel.prefixLevel");
+        if (!unknown_prefixLevel) return value_prefixLevel;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel.prefixLevel' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mwaa.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.mwaa.inputs.EnvironmentLoggingConfigurationDagProcessingLogsArgs;
 import com.pulumi.policypacks.aws.mwaa.inputs.EnvironmentLoggingConfigurationSchedulerLogsArgs;
 import com.pulumi.policypacks.aws.mwaa.inputs.EnvironmentLoggingConfigurationTaskLogsArgs;
@@ -18,55 +19,60 @@ public final class EnvironmentLoggingConfigurationArgs {
      * (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
      * 
      */
-    private UndeferrableValue<EnvironmentLoggingConfigurationDagProcessingLogsArgs> dagProcessingLogs;
-
+    @PolicyResourceProperty(name="dagProcessingLogs", flag="unknown_dagProcessingLogs")
+    private EnvironmentLoggingConfigurationDagProcessingLogsArgs value_dagProcessingLogs;
+    private boolean unknown_dagProcessingLogs;
     public EnvironmentLoggingConfigurationDagProcessingLogsArgs dagProcessingLogs() {
-        if (dagProcessingLogs == null) return null;
-        return dagProcessingLogs.getValue("EnvironmentLoggingConfigurationArgs.dagProcessingLogs");
+        if (!unknown_dagProcessingLogs) return value_dagProcessingLogs;
+        throw new UndeferrableValueException("Value 'EnvironmentLoggingConfigurationArgs.dagProcessingLogs' is not present");
     }
 
     /**
      * Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
      * 
      */
-    private UndeferrableValue<EnvironmentLoggingConfigurationSchedulerLogsArgs> schedulerLogs;
-
+    @PolicyResourceProperty(name="schedulerLogs", flag="unknown_schedulerLogs")
+    private EnvironmentLoggingConfigurationSchedulerLogsArgs value_schedulerLogs;
+    private boolean unknown_schedulerLogs;
     public EnvironmentLoggingConfigurationSchedulerLogsArgs schedulerLogs() {
-        if (schedulerLogs == null) return null;
-        return schedulerLogs.getValue("EnvironmentLoggingConfigurationArgs.schedulerLogs");
+        if (!unknown_schedulerLogs) return value_schedulerLogs;
+        throw new UndeferrableValueException("Value 'EnvironmentLoggingConfigurationArgs.schedulerLogs' is not present");
     }
 
     /**
      * Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
      * 
      */
-    private UndeferrableValue<EnvironmentLoggingConfigurationTaskLogsArgs> taskLogs;
-
+    @PolicyResourceProperty(name="taskLogs", flag="unknown_taskLogs")
+    private EnvironmentLoggingConfigurationTaskLogsArgs value_taskLogs;
+    private boolean unknown_taskLogs;
     public EnvironmentLoggingConfigurationTaskLogsArgs taskLogs() {
-        if (taskLogs == null) return null;
-        return taskLogs.getValue("EnvironmentLoggingConfigurationArgs.taskLogs");
+        if (!unknown_taskLogs) return value_taskLogs;
+        throw new UndeferrableValueException("Value 'EnvironmentLoggingConfigurationArgs.taskLogs' is not present");
     }
 
     /**
      * Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
      * 
      */
-    private UndeferrableValue<EnvironmentLoggingConfigurationWebserverLogsArgs> webserverLogs;
-
+    @PolicyResourceProperty(name="webserverLogs", flag="unknown_webserverLogs")
+    private EnvironmentLoggingConfigurationWebserverLogsArgs value_webserverLogs;
+    private boolean unknown_webserverLogs;
     public EnvironmentLoggingConfigurationWebserverLogsArgs webserverLogs() {
-        if (webserverLogs == null) return null;
-        return webserverLogs.getValue("EnvironmentLoggingConfigurationArgs.webserverLogs");
+        if (!unknown_webserverLogs) return value_webserverLogs;
+        throw new UndeferrableValueException("Value 'EnvironmentLoggingConfigurationArgs.webserverLogs' is not present");
     }
 
     /**
      * Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
      * 
      */
-    private UndeferrableValue<EnvironmentLoggingConfigurationWorkerLogsArgs> workerLogs;
-
+    @PolicyResourceProperty(name="workerLogs", flag="unknown_workerLogs")
+    private EnvironmentLoggingConfigurationWorkerLogsArgs value_workerLogs;
+    private boolean unknown_workerLogs;
     public EnvironmentLoggingConfigurationWorkerLogsArgs workerLogs() {
-        if (workerLogs == null) return null;
-        return workerLogs.getValue("EnvironmentLoggingConfigurationArgs.workerLogs");
+        if (!unknown_workerLogs) return value_workerLogs;
+        throw new UndeferrableValueException("Value 'EnvironmentLoggingConfigurationArgs.workerLogs' is not present");
     }
 
 }

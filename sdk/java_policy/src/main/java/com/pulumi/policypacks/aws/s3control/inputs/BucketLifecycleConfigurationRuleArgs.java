@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3control.inputs.BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs;
 import com.pulumi.policypacks.aws.s3control.inputs.BucketLifecycleConfigurationRuleExpirationArgs;
 import com.pulumi.policypacks.aws.s3control.inputs.BucketLifecycleConfigurationRuleFilterArgs;
@@ -17,55 +18,60 @@ public final class BucketLifecycleConfigurationRuleArgs {
      * Configuration block containing settings for abort incomplete multipart upload.
      * 
      */
-    private UndeferrableValue<BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs> abortIncompleteMultipartUpload;
-
+    @PolicyResourceProperty(name="abortIncompleteMultipartUpload", flag="unknown_abortIncompleteMultipartUpload")
+    private BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs value_abortIncompleteMultipartUpload;
+    private boolean unknown_abortIncompleteMultipartUpload;
     public BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs abortIncompleteMultipartUpload() {
-        if (abortIncompleteMultipartUpload == null) return null;
-        return abortIncompleteMultipartUpload.getValue("BucketLifecycleConfigurationRuleArgs.abortIncompleteMultipartUpload");
+        if (!unknown_abortIncompleteMultipartUpload) return value_abortIncompleteMultipartUpload;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationRuleArgs.abortIncompleteMultipartUpload' is not present");
     }
 
     /**
      * Configuration block containing settings for expiration of objects.
      * 
      */
-    private UndeferrableValue<BucketLifecycleConfigurationRuleExpirationArgs> expiration;
-
+    @PolicyResourceProperty(name="expiration", flag="unknown_expiration")
+    private BucketLifecycleConfigurationRuleExpirationArgs value_expiration;
+    private boolean unknown_expiration;
     public BucketLifecycleConfigurationRuleExpirationArgs expiration() {
-        if (expiration == null) return null;
-        return expiration.getValue("BucketLifecycleConfigurationRuleArgs.expiration");
+        if (!unknown_expiration) return value_expiration;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationRuleArgs.expiration' is not present");
     }
 
     /**
      * Configuration block containing settings for filtering.
      * 
      */
-    private UndeferrableValue<BucketLifecycleConfigurationRuleFilterArgs> filter;
-
+    @PolicyResourceProperty(name="filter", flag="unknown_filter")
+    private BucketLifecycleConfigurationRuleFilterArgs value_filter;
+    private boolean unknown_filter;
     public BucketLifecycleConfigurationRuleFilterArgs filter() {
-        if (filter == null) return null;
-        return filter.getValue("BucketLifecycleConfigurationRuleArgs.filter");
+        if (!unknown_filter) return value_filter;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationRuleArgs.filter' is not present");
     }
 
     /**
      * Unique identifier for the rule.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("BucketLifecycleConfigurationRuleArgs.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationRuleArgs.id' is not present");
     }
 
     /**
      * Status of the rule. Valid values: `Enabled` and `Disabled`. Defaults to `Enabled`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("BucketLifecycleConfigurationRuleArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationRuleArgs.status' is not present");
     }
 
 }

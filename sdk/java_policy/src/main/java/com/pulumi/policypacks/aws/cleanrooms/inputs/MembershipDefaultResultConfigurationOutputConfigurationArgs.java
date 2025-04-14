@@ -3,18 +3,20 @@
 
 package com.pulumi.policypacks.aws.cleanrooms.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cleanrooms.inputs.MembershipDefaultResultConfigurationOutputConfigurationS3Args;
 import javax.annotation.Nullable;
 
 
 public final class MembershipDefaultResultConfigurationOutputConfigurationArgs {
 
-    private UndeferrableValue<MembershipDefaultResultConfigurationOutputConfigurationS3Args> s3;
-
+    @PolicyResourceProperty(name="s3", flag="unknown_s3")
+    private MembershipDefaultResultConfigurationOutputConfigurationS3Args value_s3;
+    private boolean unknown_s3;
     public MembershipDefaultResultConfigurationOutputConfigurationS3Args s3() {
-        if (s3 == null) return null;
-        return s3.getValue("MembershipDefaultResultConfigurationOutputConfigurationArgs.s3");
+        if (!unknown_s3) return value_s3;
+        throw new UndeferrableValueException("Value 'MembershipDefaultResultConfigurationOutputConfigurationArgs.s3' is not present");
     }
 
 }

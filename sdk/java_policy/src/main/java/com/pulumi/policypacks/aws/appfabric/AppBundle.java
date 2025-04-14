@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appfabric;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class AppBundle extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the AppBundle.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("AppBundle.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'AppBundle.arn' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
      * 
      */
-    private @Nullable UndeferrableValue<String> customerManagedKeyArn;
-
+    @PolicyResourceProperty(name="customerManagedKeyArn", flag="unknown_customerManagedKeyArn")
+    private @Nullable String value_customerManagedKeyArn;
+    private boolean unknown_customerManagedKeyArn;
     public @Nullable String customerManagedKeyArn() {
-        if (customerManagedKeyArn == null) return null;
-        return customerManagedKeyArn.getValue("AppBundle.customerManagedKeyArn");
+        if (!unknown_customerManagedKeyArn) return value_customerManagedKeyArn;
+        throw new UndeferrableValueException("Value 'AppBundle.customerManagedKeyArn' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AppBundle.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AppBundle.tags' is not present");
     }
 
     /**
@@ -54,11 +58,12 @@ public final class AppBundle extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("AppBundle.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'AppBundle.tagsAll' is not present");
     }
 
 }

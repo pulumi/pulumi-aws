@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.outputs.EipDomainNameTimeouts;
 import java.lang.String;
@@ -17,40 +18,44 @@ public final class EipDomainName extends com.pulumi.resources.PolicyResourceOutp
      * The allocation ID.
      * 
      */
-    private UndeferrableValue<String> allocationId;
-
+    @PolicyResourceProperty(name="allocationId", flag="unknown_allocationId")
+    private String value_allocationId;
+    private boolean unknown_allocationId;
     public String allocationId() {
-        if (allocationId == null) return null;
-        return allocationId.getValue("EipDomainName.allocationId");
+        if (!unknown_allocationId) return value_allocationId;
+        throw new UndeferrableValueException("Value 'EipDomainName.allocationId' is not present");
     }
 
     /**
      * The domain name to modify for the IP address.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("EipDomainName.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'EipDomainName.domainName' is not present");
     }
 
     /**
      * The DNS pointer (PTR) record for the IP address.
      * 
      */
-    private UndeferrableValue<String> ptrRecord;
-
+    @PolicyResourceProperty(name="ptrRecord", flag="unknown_ptrRecord")
+    private String value_ptrRecord;
+    private boolean unknown_ptrRecord;
     public String ptrRecord() {
-        if (ptrRecord == null) return null;
-        return ptrRecord.getValue("EipDomainName.ptrRecord");
+        if (!unknown_ptrRecord) return value_ptrRecord;
+        throw new UndeferrableValueException("Value 'EipDomainName.ptrRecord' is not present");
     }
 
-    private @Nullable UndeferrableValue<EipDomainNameTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable EipDomainNameTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable EipDomainNameTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("EipDomainName.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'EipDomainName.timeouts' is not present");
     }
 
 }

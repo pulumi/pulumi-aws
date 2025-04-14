@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class UserPoolSchemaStringAttributeConstraintsArgs {
      * Maximum length of an attribute value of the string type.
      * 
      */
-    private UndeferrableValue<String> maxLength;
-
+    @PolicyResourceProperty(name="maxLength", flag="unknown_maxLength")
+    private String value_maxLength;
+    private boolean unknown_maxLength;
     public String maxLength() {
-        if (maxLength == null) return null;
-        return maxLength.getValue("UserPoolSchemaStringAttributeConstraintsArgs.maxLength");
+        if (!unknown_maxLength) return value_maxLength;
+        throw new UndeferrableValueException("Value 'UserPoolSchemaStringAttributeConstraintsArgs.maxLength' is not present");
     }
 
     /**
      * Minimum length of an attribute value of the string type.
      * 
      */
-    private UndeferrableValue<String> minLength;
-
+    @PolicyResourceProperty(name="minLength", flag="unknown_minLength")
+    private String value_minLength;
+    private boolean unknown_minLength;
     public String minLength() {
-        if (minLength == null) return null;
-        return minLength.getValue("UserPoolSchemaStringAttributeConstraintsArgs.minLength");
+        if (!unknown_minLength) return value_minLength;
+        throw new UndeferrableValueException("Value 'UserPoolSchemaStringAttributeConstraintsArgs.minLength' is not present");
     }
 
 }

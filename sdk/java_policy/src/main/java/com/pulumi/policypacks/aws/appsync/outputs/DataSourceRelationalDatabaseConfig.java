@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appsync.outputs.DataSourceRelationalDatabaseConfigHttpEndpointConfig;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DataSourceRelationalDatabaseConfig {
      * Amazon RDS HTTP endpoint configuration. See `http_endpoint_config` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<DataSourceRelationalDatabaseConfigHttpEndpointConfig> httpEndpointConfig;
-
+    @PolicyResourceProperty(name="httpEndpointConfig", flag="unknown_httpEndpointConfig")
+    private @Nullable DataSourceRelationalDatabaseConfigHttpEndpointConfig value_httpEndpointConfig;
+    private boolean unknown_httpEndpointConfig;
     public @Nullable DataSourceRelationalDatabaseConfigHttpEndpointConfig httpEndpointConfig() {
-        if (httpEndpointConfig == null) return null;
-        return httpEndpointConfig.getValue("DataSourceRelationalDatabaseConfig.httpEndpointConfig");
+        if (!unknown_httpEndpointConfig) return value_httpEndpointConfig;
+        throw new UndeferrableValueException("Value 'DataSourceRelationalDatabaseConfig.httpEndpointConfig' is not present");
     }
 
     /**
      * Source type for the relational database. Valid values: `RDS_HTTP_ENDPOINT`.
      * 
      */
-    private @Nullable UndeferrableValue<String> sourceType;
-
+    @PolicyResourceProperty(name="sourceType", flag="unknown_sourceType")
+    private @Nullable String value_sourceType;
+    private boolean unknown_sourceType;
     public @Nullable String sourceType() {
-        if (sourceType == null) return null;
-        return sourceType.getValue("DataSourceRelationalDatabaseConfig.sourceType");
+        if (!unknown_sourceType) return value_sourceType;
+        throw new UndeferrableValueException("Value 'DataSourceRelationalDatabaseConfig.sourceType' is not present");
     }
 
 }

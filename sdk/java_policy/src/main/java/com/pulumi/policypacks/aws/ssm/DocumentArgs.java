@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ssm.inputs.DocumentAttachmentsSourceArgs;
 import java.lang.String;
@@ -19,99 +20,108 @@ public final class DocumentArgs extends com.pulumi.resources.PolicyResourceInput
      * One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
      * 
      */
-    private UndeferrableValue<List<DocumentAttachmentsSourceArgs>> attachmentsSources;
-
+    @PolicyResourceProperty(name="attachmentsSources", flag="unknown_attachmentsSources")
+    private List<DocumentAttachmentsSourceArgs> value_attachmentsSources;
+    private boolean unknown_attachmentsSources;
     public List<DocumentAttachmentsSourceArgs> attachmentsSources() {
-        if (attachmentsSources == null) return null;
-        return attachmentsSources.getValue("DocumentArgs.attachmentsSources");
+        if (!unknown_attachmentsSources) return value_attachmentsSources;
+        throw new UndeferrableValueException("Value 'DocumentArgs.attachmentsSources' is not present");
     }
 
     /**
      * The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
      * 
      */
-    private UndeferrableValue<String> content;
-
+    @PolicyResourceProperty(name="content", flag="unknown_content")
+    private String value_content;
+    private boolean unknown_content;
     public String content() {
-        if (content == null) return null;
-        return content.getValue("DocumentArgs.content");
+        if (!unknown_content) return value_content;
+        throw new UndeferrableValueException("Value 'DocumentArgs.content' is not present");
     }
 
     /**
      * The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
      * 
      */
-    private UndeferrableValue<String> documentFormat;
-
+    @PolicyResourceProperty(name="documentFormat", flag="unknown_documentFormat")
+    private String value_documentFormat;
+    private boolean unknown_documentFormat;
     public String documentFormat() {
-        if (documentFormat == null) return null;
-        return documentFormat.getValue("DocumentArgs.documentFormat");
+        if (!unknown_documentFormat) return value_documentFormat;
+        throw new UndeferrableValueException("Value 'DocumentArgs.documentFormat' is not present");
     }
 
     /**
      * The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
      * 
      */
-    private UndeferrableValue<String> documentType;
-
+    @PolicyResourceProperty(name="documentType", flag="unknown_documentType")
+    private String value_documentType;
+    private boolean unknown_documentType;
     public String documentType() {
-        if (documentType == null) return null;
-        return documentType.getValue("DocumentArgs.documentType");
+        if (!unknown_documentType) return value_documentType;
+        throw new UndeferrableValueException("Value 'DocumentArgs.documentType' is not present");
     }
 
     /**
      * The name of the document.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DocumentArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DocumentArgs.name' is not present");
     }
 
     /**
      * Additional permissions to attach to the document. See Permissions below for details.
      * 
      */
-    private UndeferrableValue<Map<String,String>> permissions;
-
+    @PolicyResourceProperty(name="permissions", flag="unknown_permissions")
+    private Map<String,String> value_permissions;
+    private boolean unknown_permissions;
     public Map<String,String> permissions() {
-        if (permissions == null) return null;
-        return permissions.getValue("DocumentArgs.permissions");
+        if (!unknown_permissions) return value_permissions;
+        throw new UndeferrableValueException("Value 'DocumentArgs.permissions' is not present");
     }
 
     /**
      * A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DocumentArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DocumentArgs.tags' is not present");
     }
 
     /**
      * The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
      * 
      */
-    private UndeferrableValue<String> targetType;
-
+    @PolicyResourceProperty(name="targetType", flag="unknown_targetType")
+    private String value_targetType;
+    private boolean unknown_targetType;
     public String targetType() {
-        if (targetType == null) return null;
-        return targetType.getValue("DocumentArgs.targetType");
+        if (!unknown_targetType) return value_targetType;
+        throw new UndeferrableValueException("Value 'DocumentArgs.targetType' is not present");
     }
 
     /**
      * The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can&#39;t be changed.
      * 
      */
-    private UndeferrableValue<String> versionName;
-
+    @PolicyResourceProperty(name="versionName", flag="unknown_versionName")
+    private String value_versionName;
+    private boolean unknown_versionName;
     public String versionName() {
-        if (versionName == null) return null;
-        return versionName.getValue("DocumentArgs.versionName");
+        if (!unknown_versionName) return value_versionName;
+        throw new UndeferrableValueException("Value 'DocumentArgs.versionName' is not present");
     }
 
 }

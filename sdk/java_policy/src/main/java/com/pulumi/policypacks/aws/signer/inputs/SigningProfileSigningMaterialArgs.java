@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.signer.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class SigningProfileSigningMaterialArgs {
      * The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
      * 
      */
-    private UndeferrableValue<String> certificateArn;
-
+    @PolicyResourceProperty(name="certificateArn", flag="unknown_certificateArn")
+    private String value_certificateArn;
+    private boolean unknown_certificateArn;
     public String certificateArn() {
-        if (certificateArn == null) return null;
-        return certificateArn.getValue("SigningProfileSigningMaterialArgs.certificateArn");
+        if (!unknown_certificateArn) return value_certificateArn;
+        throw new UndeferrableValueException("Value 'SigningProfileSigningMaterialArgs.certificateArn' is not present");
     }
 
 }

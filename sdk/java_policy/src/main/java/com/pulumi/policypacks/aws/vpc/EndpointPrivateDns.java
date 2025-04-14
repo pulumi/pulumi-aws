@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpc;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -16,22 +17,24 @@ public final class EndpointPrivateDns extends com.pulumi.resources.PolicyResourc
      * Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
      * 
      */
-    private UndeferrableValue<Boolean> privateDnsEnabled;
-
+    @PolicyResourceProperty(name="privateDnsEnabled", flag="unknown_privateDnsEnabled")
+    private Boolean value_privateDnsEnabled;
+    private boolean unknown_privateDnsEnabled;
     public Boolean privateDnsEnabled() {
-        if (privateDnsEnabled == null) return null;
-        return privateDnsEnabled.getValue("EndpointPrivateDns.privateDnsEnabled");
+        if (!unknown_privateDnsEnabled) return value_privateDnsEnabled;
+        throw new UndeferrableValueException("Value 'EndpointPrivateDns.privateDnsEnabled' is not present");
     }
 
     /**
      * VPC endpoint identifier.
      * 
      */
-    private UndeferrableValue<String> vpcEndpointId;
-
+    @PolicyResourceProperty(name="vpcEndpointId", flag="unknown_vpcEndpointId")
+    private String value_vpcEndpointId;
+    private boolean unknown_vpcEndpointId;
     public String vpcEndpointId() {
-        if (vpcEndpointId == null) return null;
-        return vpcEndpointId.getValue("EndpointPrivateDns.vpcEndpointId");
+        if (!unknown_vpcEndpointId) return value_vpcEndpointId;
+        throw new UndeferrableValueException("Value 'EndpointPrivateDns.vpcEndpointId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ImagePipelineSchedule {
      * Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> pipelineExecutionStartCondition;
-
+    @PolicyResourceProperty(name="pipelineExecutionStartCondition", flag="unknown_pipelineExecutionStartCondition")
+    private @Nullable String value_pipelineExecutionStartCondition;
+    private boolean unknown_pipelineExecutionStartCondition;
     public @Nullable String pipelineExecutionStartCondition() {
-        if (pipelineExecutionStartCondition == null) return null;
-        return pipelineExecutionStartCondition.getValue("ImagePipelineSchedule.pipelineExecutionStartCondition");
+        if (!unknown_pipelineExecutionStartCondition) return value_pipelineExecutionStartCondition;
+        throw new UndeferrableValueException("Value 'ImagePipelineSchedule.pipelineExecutionStartCondition' is not present");
     }
 
     /**
@@ -27,22 +29,24 @@ public final class ImagePipelineSchedule {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> scheduleExpression;
-
+    @PolicyResourceProperty(name="scheduleExpression", flag="unknown_scheduleExpression")
+    private String value_scheduleExpression;
+    private boolean unknown_scheduleExpression;
     public String scheduleExpression() {
-        if (scheduleExpression == null) return null;
-        return scheduleExpression.getValue("ImagePipelineSchedule.scheduleExpression");
+        if (!unknown_scheduleExpression) return value_scheduleExpression;
+        throw new UndeferrableValueException("Value 'ImagePipelineSchedule.scheduleExpression' is not present");
     }
 
     /**
      * The timezone that applies to the scheduling expression. For example, &#34;Etc/UTC&#34;, &#34;America/Los_Angeles&#34; in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
      * 
      */
-    private @Nullable UndeferrableValue<String> timezone;
-
+    @PolicyResourceProperty(name="timezone", flag="unknown_timezone")
+    private @Nullable String value_timezone;
+    private boolean unknown_timezone;
     public @Nullable String timezone() {
-        if (timezone == null) return null;
-        return timezone.getValue("ImagePipelineSchedule.timezone");
+        if (!unknown_timezone) return value_timezone;
+        throw new UndeferrableValueException("Value 'ImagePipelineSchedule.timezone' is not present");
     }
 
 }

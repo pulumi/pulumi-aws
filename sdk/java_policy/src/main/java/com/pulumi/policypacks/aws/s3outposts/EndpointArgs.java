@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3outposts;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,55 +17,60 @@ public final class EndpointArgs extends com.pulumi.resources.PolicyResourceInput
      * Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
      * 
      */
-    private UndeferrableValue<String> accessType;
-
+    @PolicyResourceProperty(name="accessType", flag="unknown_accessType")
+    private String value_accessType;
+    private boolean unknown_accessType;
     public String accessType() {
-        if (accessType == null) return null;
-        return accessType.getValue("EndpointArgs.accessType");
+        if (!unknown_accessType) return value_accessType;
+        throw new UndeferrableValueException("Value 'EndpointArgs.accessType' is not present");
     }
 
     /**
      * The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
      * 
      */
-    private UndeferrableValue<String> customerOwnedIpv4Pool;
-
+    @PolicyResourceProperty(name="customerOwnedIpv4Pool", flag="unknown_customerOwnedIpv4Pool")
+    private String value_customerOwnedIpv4Pool;
+    private boolean unknown_customerOwnedIpv4Pool;
     public String customerOwnedIpv4Pool() {
-        if (customerOwnedIpv4Pool == null) return null;
-        return customerOwnedIpv4Pool.getValue("EndpointArgs.customerOwnedIpv4Pool");
+        if (!unknown_customerOwnedIpv4Pool) return value_customerOwnedIpv4Pool;
+        throw new UndeferrableValueException("Value 'EndpointArgs.customerOwnedIpv4Pool' is not present");
     }
 
     /**
      * Identifier of the Outpost to contain this endpoint.
      * 
      */
-    private UndeferrableValue<String> outpostId;
-
+    @PolicyResourceProperty(name="outpostId", flag="unknown_outpostId")
+    private String value_outpostId;
+    private boolean unknown_outpostId;
     public String outpostId() {
-        if (outpostId == null) return null;
-        return outpostId.getValue("EndpointArgs.outpostId");
+        if (!unknown_outpostId) return value_outpostId;
+        throw new UndeferrableValueException("Value 'EndpointArgs.outpostId' is not present");
     }
 
     /**
      * Identifier of the EC2 Security Group.
      * 
      */
-    private UndeferrableValue<String> securityGroupId;
-
+    @PolicyResourceProperty(name="securityGroupId", flag="unknown_securityGroupId")
+    private String value_securityGroupId;
+    private boolean unknown_securityGroupId;
     public String securityGroupId() {
-        if (securityGroupId == null) return null;
-        return securityGroupId.getValue("EndpointArgs.securityGroupId");
+        if (!unknown_securityGroupId) return value_securityGroupId;
+        throw new UndeferrableValueException("Value 'EndpointArgs.securityGroupId' is not present");
     }
 
     /**
      * Identifier of the EC2 Subnet.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("EndpointArgs.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'EndpointArgs.subnetId' is not present");
     }
 
 }

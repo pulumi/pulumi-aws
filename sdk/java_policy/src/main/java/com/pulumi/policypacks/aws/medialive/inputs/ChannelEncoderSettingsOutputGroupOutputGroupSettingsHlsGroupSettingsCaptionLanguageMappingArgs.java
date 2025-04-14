@@ -3,36 +3,40 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
 
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs {
 
-    private UndeferrableValue<Integer> captionChannel;
-
+    @PolicyResourceProperty(name="captionChannel", flag="unknown_captionChannel")
+    private Integer value_captionChannel;
+    private boolean unknown_captionChannel;
     public Integer captionChannel() {
-        if (captionChannel == null) return null;
-        return captionChannel.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs.captionChannel");
+        if (!unknown_captionChannel) return value_captionChannel;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs.captionChannel' is not present");
     }
 
-    private UndeferrableValue<String> languageCode;
-
+    @PolicyResourceProperty(name="languageCode", flag="unknown_languageCode")
+    private String value_languageCode;
+    private boolean unknown_languageCode;
     public String languageCode() {
-        if (languageCode == null) return null;
-        return languageCode.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs.languageCode");
+        if (!unknown_languageCode) return value_languageCode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs.languageCode' is not present");
     }
 
     /**
      * Human readable information to indicate captions available for players (eg. English, or Spanish).
      * 
      */
-    private UndeferrableValue<String> languageDescription;
-
+    @PolicyResourceProperty(name="languageDescription", flag="unknown_languageDescription")
+    private String value_languageDescription;
+    private boolean unknown_languageDescription;
     public String languageDescription() {
-        if (languageDescription == null) return null;
-        return languageDescription.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs.languageDescription");
+        if (!unknown_languageDescription) return value_languageDescription;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs.languageDescription' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -21,44 +22,48 @@ public final class LogGroupArgs extends com.pulumi.resources.PolicyResourceInput
      * permissions for the CMK whenever the encrypted data is requested.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("LogGroupArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'LogGroupArgs.kmsKeyId' is not present");
     }
 
     /**
      * Specified the log class of the log group. Possible values are: `STANDARD` or `INFREQUENT_ACCESS`.
      * 
      */
-    private UndeferrableValue<String> logGroupClass;
-
+    @PolicyResourceProperty(name="logGroupClass", flag="unknown_logGroupClass")
+    private String value_logGroupClass;
+    private boolean unknown_logGroupClass;
     public String logGroupClass() {
-        if (logGroupClass == null) return null;
-        return logGroupClass.getValue("LogGroupArgs.logGroupClass");
+        if (!unknown_logGroupClass) return value_logGroupClass;
+        throw new UndeferrableValueException("Value 'LogGroupArgs.logGroupClass' is not present");
     }
 
     /**
      * The name of the log group. If omitted, this provider will assign a random, unique name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LogGroupArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LogGroupArgs.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("LogGroupArgs.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'LogGroupArgs.namePrefix' is not present");
     }
 
     /**
@@ -67,33 +72,36 @@ public final class LogGroupArgs extends com.pulumi.resources.PolicyResourceInput
      * If you select 0, the events in the log group are always retained and never expire.
      * 
      */
-    private UndeferrableValue<Integer> retentionInDays;
-
+    @PolicyResourceProperty(name="retentionInDays", flag="unknown_retentionInDays")
+    private Integer value_retentionInDays;
+    private boolean unknown_retentionInDays;
     public Integer retentionInDays() {
-        if (retentionInDays == null) return null;
-        return retentionInDays.getValue("LogGroupArgs.retentionInDays");
+        if (!unknown_retentionInDays) return value_retentionInDays;
+        throw new UndeferrableValueException("Value 'LogGroupArgs.retentionInDays' is not present");
     }
 
     /**
      * Set to true if you do not wish the log group (and any logs it may contain) to be deleted at destroy time, and instead just remove the log group from the state.
      * 
      */
-    private UndeferrableValue<Boolean> skipDestroy;
-
+    @PolicyResourceProperty(name="skipDestroy", flag="unknown_skipDestroy")
+    private Boolean value_skipDestroy;
+    private boolean unknown_skipDestroy;
     public Boolean skipDestroy() {
-        if (skipDestroy == null) return null;
-        return skipDestroy.getValue("LogGroupArgs.skipDestroy");
+        if (!unknown_skipDestroy) return value_skipDestroy;
+        throw new UndeferrableValueException("Value 'LogGroupArgs.skipDestroy' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LogGroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LogGroupArgs.tags' is not present");
     }
 
 }

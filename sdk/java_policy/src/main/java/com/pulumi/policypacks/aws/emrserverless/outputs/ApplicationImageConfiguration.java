@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emrserverless.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ApplicationImageConfiguration {
      * The image URI.
      * 
      */
-    private UndeferrableValue<String> imageUri;
-
+    @PolicyResourceProperty(name="imageUri", flag="unknown_imageUri")
+    private String value_imageUri;
+    private boolean unknown_imageUri;
     public String imageUri() {
-        if (imageUri == null) return null;
-        return imageUri.getValue("ApplicationImageConfiguration.imageUri");
+        if (!unknown_imageUri) return value_imageUri;
+        throw new UndeferrableValueException("Value 'ApplicationImageConfiguration.imageUri' is not present");
     }
 
 }

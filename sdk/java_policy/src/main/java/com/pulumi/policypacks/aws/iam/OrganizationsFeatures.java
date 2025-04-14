@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -16,11 +17,12 @@ public final class OrganizationsFeatures extends com.pulumi.resources.PolicyReso
      * List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
      * 
      */
-    private UndeferrableValue<List<String>> enabledFeatures;
-
+    @PolicyResourceProperty(name="enabledFeatures", flag="unknown_enabledFeatures")
+    private List<String> value_enabledFeatures;
+    private boolean unknown_enabledFeatures;
     public List<String> enabledFeatures() {
-        if (enabledFeatures == null) return null;
-        return enabledFeatures.getValue("OrganizationsFeatures.enabledFeatures");
+        if (!unknown_enabledFeatures) return value_enabledFeatures;
+        throw new UndeferrableValueException("Value 'OrganizationsFeatures.enabledFeatures' is not present");
     }
 
 }

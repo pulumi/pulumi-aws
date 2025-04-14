@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class AnalyticsConfigurationStorageClassAnalysisDataExportDestinati
      * Account ID that owns the destination bucket.
      * 
      */
-    private UndeferrableValue<String> bucketAccountId;
-
+    @PolicyResourceProperty(name="bucketAccountId", flag="unknown_bucketAccountId")
+    private String value_bucketAccountId;
+    private boolean unknown_bucketAccountId;
     public String bucketAccountId() {
-        if (bucketAccountId == null) return null;
-        return bucketAccountId.getValue("AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs.bucketAccountId");
+        if (!unknown_bucketAccountId) return value_bucketAccountId;
+        throw new UndeferrableValueException("Value 'AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs.bucketAccountId' is not present");
     }
 
     /**
      * ARN of the destination bucket.
      * 
      */
-    private UndeferrableValue<String> bucketArn;
-
+    @PolicyResourceProperty(name="bucketArn", flag="unknown_bucketArn")
+    private String value_bucketArn;
+    private boolean unknown_bucketArn;
     public String bucketArn() {
-        if (bucketArn == null) return null;
-        return bucketArn.getValue("AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs.bucketArn");
+        if (!unknown_bucketArn) return value_bucketArn;
+        throw new UndeferrableValueException("Value 'AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs.bucketArn' is not present");
     }
 
     /**
      * Output format of exported analytics data. Allowed values: `CSV`. Default value: `CSV`.
      * 
      */
-    private UndeferrableValue<String> format;
-
+    @PolicyResourceProperty(name="format", flag="unknown_format")
+    private String value_format;
+    private boolean unknown_format;
     public String format() {
-        if (format == null) return null;
-        return format.getValue("AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs.format");
+        if (!unknown_format) return value_format;
+        throw new UndeferrableValueException("Value 'AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs.format' is not present");
     }
 
     /**
      * Prefix to append to exported analytics data.
      * 
      */
-    private UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private String value_prefix;
+    private boolean unknown_prefix;
     public String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs.prefix' is not present");
     }
 
 }

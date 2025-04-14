@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.imagebuilder.inputs.ContainerRecipeComponentArgs;
 import com.pulumi.policypacks.aws.imagebuilder.inputs.ContainerRecipeInstanceConfigurationArgs;
@@ -21,132 +22,144 @@ public final class ContainerRecipeArgs extends com.pulumi.resources.PolicyResour
      * Ordered configuration block(s) with components for the container recipe. Detailed below.
      * 
      */
-    private UndeferrableValue<List<ContainerRecipeComponentArgs>> components;
-
+    @PolicyResourceProperty(name="components", flag="unknown_components")
+    private List<ContainerRecipeComponentArgs> value_components;
+    private boolean unknown_components;
     public List<ContainerRecipeComponentArgs> components() {
-        if (components == null) return null;
-        return components.getValue("ContainerRecipeArgs.components");
+        if (!unknown_components) return value_components;
+        throw new UndeferrableValueException("Value 'ContainerRecipeArgs.components' is not present");
     }
 
     /**
      * The type of the container to create. Valid values: `DOCKER`.
      * 
      */
-    private UndeferrableValue<String> containerType;
-
+    @PolicyResourceProperty(name="containerType", flag="unknown_containerType")
+    private String value_containerType;
+    private boolean unknown_containerType;
     public String containerType() {
-        if (containerType == null) return null;
-        return containerType.getValue("ContainerRecipeArgs.containerType");
+        if (!unknown_containerType) return value_containerType;
+        throw new UndeferrableValueException("Value 'ContainerRecipeArgs.containerType' is not present");
     }
 
     /**
      * The description of the container recipe.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ContainerRecipeArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ContainerRecipeArgs.description' is not present");
     }
 
     /**
      * The Dockerfile template used to build the image as an inline data blob.
      * 
      */
-    private UndeferrableValue<String> dockerfileTemplateData;
-
+    @PolicyResourceProperty(name="dockerfileTemplateData", flag="unknown_dockerfileTemplateData")
+    private String value_dockerfileTemplateData;
+    private boolean unknown_dockerfileTemplateData;
     public String dockerfileTemplateData() {
-        if (dockerfileTemplateData == null) return null;
-        return dockerfileTemplateData.getValue("ContainerRecipeArgs.dockerfileTemplateData");
+        if (!unknown_dockerfileTemplateData) return value_dockerfileTemplateData;
+        throw new UndeferrableValueException("Value 'ContainerRecipeArgs.dockerfileTemplateData' is not present");
     }
 
     /**
      * The Amazon S3 URI for the Dockerfile that will be used to build the container image.
      * 
      */
-    private UndeferrableValue<String> dockerfileTemplateUri;
-
+    @PolicyResourceProperty(name="dockerfileTemplateUri", flag="unknown_dockerfileTemplateUri")
+    private String value_dockerfileTemplateUri;
+    private boolean unknown_dockerfileTemplateUri;
     public String dockerfileTemplateUri() {
-        if (dockerfileTemplateUri == null) return null;
-        return dockerfileTemplateUri.getValue("ContainerRecipeArgs.dockerfileTemplateUri");
+        if (!unknown_dockerfileTemplateUri) return value_dockerfileTemplateUri;
+        throw new UndeferrableValueException("Value 'ContainerRecipeArgs.dockerfileTemplateUri' is not present");
     }
 
     /**
      * Configuration block used to configure an instance for building and testing container images. Detailed below.
      * 
      */
-    private UndeferrableValue<ContainerRecipeInstanceConfigurationArgs> instanceConfiguration;
-
+    @PolicyResourceProperty(name="instanceConfiguration", flag="unknown_instanceConfiguration")
+    private ContainerRecipeInstanceConfigurationArgs value_instanceConfiguration;
+    private boolean unknown_instanceConfiguration;
     public ContainerRecipeInstanceConfigurationArgs instanceConfiguration() {
-        if (instanceConfiguration == null) return null;
-        return instanceConfiguration.getValue("ContainerRecipeArgs.instanceConfiguration");
+        if (!unknown_instanceConfiguration) return value_instanceConfiguration;
+        throw new UndeferrableValueException("Value 'ContainerRecipeArgs.instanceConfiguration' is not present");
     }
 
     /**
      * The KMS key used to encrypt the container image.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("ContainerRecipeArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'ContainerRecipeArgs.kmsKeyId' is not present");
     }
 
     /**
      * The name of the container recipe.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ContainerRecipeArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ContainerRecipeArgs.name' is not present");
     }
 
     /**
      * The base image for the container recipe.
      * 
      */
-    private UndeferrableValue<String> parentImage;
-
+    @PolicyResourceProperty(name="parentImage", flag="unknown_parentImage")
+    private String value_parentImage;
+    private boolean unknown_parentImage;
     public String parentImage() {
-        if (parentImage == null) return null;
-        return parentImage.getValue("ContainerRecipeArgs.parentImage");
+        if (!unknown_parentImage) return value_parentImage;
+        throw new UndeferrableValueException("Value 'ContainerRecipeArgs.parentImage' is not present");
     }
 
     /**
      * Specifies the operating system platform when you use a custom base image.
      * 
      */
-    private UndeferrableValue<String> platformOverride;
-
+    @PolicyResourceProperty(name="platformOverride", flag="unknown_platformOverride")
+    private String value_platformOverride;
+    private boolean unknown_platformOverride;
     public String platformOverride() {
-        if (platformOverride == null) return null;
-        return platformOverride.getValue("ContainerRecipeArgs.platformOverride");
+        if (!unknown_platformOverride) return value_platformOverride;
+        throw new UndeferrableValueException("Value 'ContainerRecipeArgs.platformOverride' is not present");
     }
 
     /**
      * Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ContainerRecipeArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ContainerRecipeArgs.tags' is not present");
     }
 
     /**
      * The destination repository for the container image. Detailed below.
      * 
      */
-    private UndeferrableValue<ContainerRecipeTargetRepositoryArgs> targetRepository;
-
+    @PolicyResourceProperty(name="targetRepository", flag="unknown_targetRepository")
+    private ContainerRecipeTargetRepositoryArgs value_targetRepository;
+    private boolean unknown_targetRepository;
     public ContainerRecipeTargetRepositoryArgs targetRepository() {
-        if (targetRepository == null) return null;
-        return targetRepository.getValue("ContainerRecipeArgs.targetRepository");
+        if (!unknown_targetRepository) return value_targetRepository;
+        throw new UndeferrableValueException("Value 'ContainerRecipeArgs.targetRepository' is not present");
     }
 
     /**
@@ -155,22 +168,24 @@ public final class ContainerRecipeArgs extends com.pulumi.resources.PolicyResour
      * The following attributes are optional:
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("ContainerRecipeArgs.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'ContainerRecipeArgs.version' is not present");
     }
 
     /**
      * The working directory to be used during build and test workflows.
      * 
      */
-    private UndeferrableValue<String> workingDirectory;
-
+    @PolicyResourceProperty(name="workingDirectory", flag="unknown_workingDirectory")
+    private String value_workingDirectory;
+    private boolean unknown_workingDirectory;
     public String workingDirectory() {
-        if (workingDirectory == null) return null;
-        return workingDirectory.getValue("ContainerRecipeArgs.workingDirectory");
+        if (!unknown_workingDirectory) return value_workingDirectory;
+        throw new UndeferrableValueException("Value 'ContainerRecipeArgs.workingDirectory' is not present");
     }
 
 }

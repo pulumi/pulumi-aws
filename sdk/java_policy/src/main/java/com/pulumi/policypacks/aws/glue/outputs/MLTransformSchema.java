@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class MLTransformSchema {
      * The type of data in the column.
      * 
      */
-    private @Nullable UndeferrableValue<String> dataType;
-
+    @PolicyResourceProperty(name="dataType", flag="unknown_dataType")
+    private @Nullable String value_dataType;
+    private boolean unknown_dataType;
     public @Nullable String dataType() {
-        if (dataType == null) return null;
-        return dataType.getValue("MLTransformSchema.dataType");
+        if (!unknown_dataType) return value_dataType;
+        throw new UndeferrableValueException("Value 'MLTransformSchema.dataType' is not present");
     }
 
     /**
      * The name you assign to this ML Transform. It must be unique in your account.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("MLTransformSchema.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'MLTransformSchema.name' is not present");
     }
 
 }

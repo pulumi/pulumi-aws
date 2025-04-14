@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
      * Failover condition type-specific settings. See Failover Condition Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs> failoverConditionSettings;
-
+    @PolicyResourceProperty(name="failoverConditionSettings", flag="unknown_failoverConditionSettings")
+    private ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs value_failoverConditionSettings;
+    private boolean unknown_failoverConditionSettings;
     public ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs failoverConditionSettings() {
-        if (failoverConditionSettings == null) return null;
-        return failoverConditionSettings.getValue("ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs.failoverConditionSettings");
+        if (!unknown_failoverConditionSettings) return value_failoverConditionSettings;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs.failoverConditionSettings' is not present");
     }
 
 }

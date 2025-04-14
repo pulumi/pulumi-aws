@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,55 +18,60 @@ public final class ResolverFirewallRuleGroup extends com.pulumi.resources.Policy
      * The ARN (Amazon Resource Name) of the rule group.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ResolverFirewallRuleGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroup.arn' is not present");
     }
 
     /**
      * A name that lets you identify the rule group, to manage and use it.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ResolverFirewallRuleGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroup.name' is not present");
     }
 
     /**
      * The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("ResolverFirewallRuleGroup.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroup.ownerId' is not present");
     }
 
     /**
      * Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM). Valid values: `NOT_SHARED`, `SHARED_BY_ME`, `SHARED_WITH_ME`
      * 
      */
-    private UndeferrableValue<String> shareStatus;
-
+    @PolicyResourceProperty(name="shareStatus", flag="unknown_shareStatus")
+    private String value_shareStatus;
+    private boolean unknown_shareStatus;
     public String shareStatus() {
-        if (shareStatus == null) return null;
-        return shareStatus.getValue("ResolverFirewallRuleGroup.shareStatus");
+        if (!unknown_shareStatus) return value_shareStatus;
+        throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroup.shareStatus' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ResolverFirewallRuleGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroup.tags' is not present");
     }
 
     /**
@@ -76,11 +82,12 @@ public final class ResolverFirewallRuleGroup extends com.pulumi.resources.Policy
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ResolverFirewallRuleGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroup.tagsAll' is not present");
     }
 
 }

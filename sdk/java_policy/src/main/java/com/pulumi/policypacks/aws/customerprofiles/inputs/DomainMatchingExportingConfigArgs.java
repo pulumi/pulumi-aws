@@ -3,18 +3,20 @@
 
 package com.pulumi.policypacks.aws.customerprofiles.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.customerprofiles.inputs.DomainMatchingExportingConfigS3ExportingArgs;
 import javax.annotation.Nullable;
 
 
 public final class DomainMatchingExportingConfigArgs {
 
-    private UndeferrableValue<DomainMatchingExportingConfigS3ExportingArgs> s3Exporting;
-
+    @PolicyResourceProperty(name="s3Exporting", flag="unknown_s3Exporting")
+    private DomainMatchingExportingConfigS3ExportingArgs value_s3Exporting;
+    private boolean unknown_s3Exporting;
     public DomainMatchingExportingConfigS3ExportingArgs s3Exporting() {
-        if (s3Exporting == null) return null;
-        return s3Exporting.getValue("DomainMatchingExportingConfigArgs.s3Exporting");
+        if (!unknown_s3Exporting) return value_s3Exporting;
+        throw new UndeferrableValueException("Value 'DomainMatchingExportingConfigArgs.s3Exporting' is not present");
     }
 
 }

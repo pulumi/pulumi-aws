@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,66 +18,72 @@ public final class EventArchive extends com.pulumi.resources.PolicyResourceOutpu
      * The Amazon Resource Name (ARN) of the event archive.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("EventArchive.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'EventArchive.arn' is not present");
     }
 
     /**
      * The description of the new event archive.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("EventArchive.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'EventArchive.description' is not present");
     }
 
     /**
      * Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `event_source_arn`.
      * 
      */
-    private @Nullable UndeferrableValue<String> eventPattern;
-
+    @PolicyResourceProperty(name="eventPattern", flag="unknown_eventPattern")
+    private @Nullable String value_eventPattern;
+    private boolean unknown_eventPattern;
     public @Nullable String eventPattern() {
-        if (eventPattern == null) return null;
-        return eventPattern.getValue("EventArchive.eventPattern");
+        if (!unknown_eventPattern) return value_eventPattern;
+        throw new UndeferrableValueException("Value 'EventArchive.eventPattern' is not present");
     }
 
     /**
      * Event bus source ARN from where these events should be archived.
      * 
      */
-    private UndeferrableValue<String> eventSourceArn;
-
+    @PolicyResourceProperty(name="eventSourceArn", flag="unknown_eventSourceArn")
+    private String value_eventSourceArn;
+    private boolean unknown_eventSourceArn;
     public String eventSourceArn() {
-        if (eventSourceArn == null) return null;
-        return eventSourceArn.getValue("EventArchive.eventSourceArn");
+        if (!unknown_eventSourceArn) return value_eventSourceArn;
+        throw new UndeferrableValueException("Value 'EventArchive.eventSourceArn' is not present");
     }
 
     /**
      * The name of the new event archive. The archive name cannot exceed 48 characters.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("EventArchive.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'EventArchive.name' is not present");
     }
 
     /**
      * The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> retentionDays;
-
+    @PolicyResourceProperty(name="retentionDays", flag="unknown_retentionDays")
+    private @Nullable Integer value_retentionDays;
+    private boolean unknown_retentionDays;
     public @Nullable Integer retentionDays() {
-        if (retentionDays == null) return null;
-        return retentionDays.getValue("EventArchive.retentionDays");
+        if (!unknown_retentionDays) return value_retentionDays;
+        throw new UndeferrableValueException("Value 'EventArchive.retentionDays' is not present");
     }
 
 }

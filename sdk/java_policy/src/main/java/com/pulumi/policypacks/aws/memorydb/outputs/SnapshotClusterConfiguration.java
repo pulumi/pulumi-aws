@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.memorydb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,154 +16,168 @@ public final class SnapshotClusterConfiguration {
      * Description for the cluster.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("SnapshotClusterConfiguration.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'SnapshotClusterConfiguration.description' is not present");
     }
 
     /**
      * The engine that will run on cluster nodes.
      * 
      */
-    private @Nullable UndeferrableValue<String> engine;
-
+    @PolicyResourceProperty(name="engine", flag="unknown_engine")
+    private @Nullable String value_engine;
+    private boolean unknown_engine;
     public @Nullable String engine() {
-        if (engine == null) return null;
-        return engine.getValue("SnapshotClusterConfiguration.engine");
+        if (!unknown_engine) return value_engine;
+        throw new UndeferrableValueException("Value 'SnapshotClusterConfiguration.engine' is not present");
     }
 
     /**
      * Version number of the engine used by the cluster.
      * 
      */
-    private @Nullable UndeferrableValue<String> engineVersion;
-
+    @PolicyResourceProperty(name="engineVersion", flag="unknown_engineVersion")
+    private @Nullable String value_engineVersion;
+    private boolean unknown_engineVersion;
     public @Nullable String engineVersion() {
-        if (engineVersion == null) return null;
-        return engineVersion.getValue("SnapshotClusterConfiguration.engineVersion");
+        if (!unknown_engineVersion) return value_engineVersion;
+        throw new UndeferrableValueException("Value 'SnapshotClusterConfiguration.engineVersion' is not present");
     }
 
     /**
      * The weekly time range during which maintenance on the cluster is performed.
      * 
      */
-    private @Nullable UndeferrableValue<String> maintenanceWindow;
-
+    @PolicyResourceProperty(name="maintenanceWindow", flag="unknown_maintenanceWindow")
+    private @Nullable String value_maintenanceWindow;
+    private boolean unknown_maintenanceWindow;
     public @Nullable String maintenanceWindow() {
-        if (maintenanceWindow == null) return null;
-        return maintenanceWindow.getValue("SnapshotClusterConfiguration.maintenanceWindow");
+        if (!unknown_maintenanceWindow) return value_maintenanceWindow;
+        throw new UndeferrableValueException("Value 'SnapshotClusterConfiguration.maintenanceWindow' is not present");
     }
 
     /**
      * Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("SnapshotClusterConfiguration.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'SnapshotClusterConfiguration.name' is not present");
     }
 
     /**
      * Compute and memory capacity of the nodes in the cluster.
      * 
      */
-    private @Nullable UndeferrableValue<String> nodeType;
-
+    @PolicyResourceProperty(name="nodeType", flag="unknown_nodeType")
+    private @Nullable String value_nodeType;
+    private boolean unknown_nodeType;
     public @Nullable String nodeType() {
-        if (nodeType == null) return null;
-        return nodeType.getValue("SnapshotClusterConfiguration.nodeType");
+        if (!unknown_nodeType) return value_nodeType;
+        throw new UndeferrableValueException("Value 'SnapshotClusterConfiguration.nodeType' is not present");
     }
 
     /**
      * Number of shards in the cluster.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> numShards;
-
+    @PolicyResourceProperty(name="numShards", flag="unknown_numShards")
+    private @Nullable Integer value_numShards;
+    private boolean unknown_numShards;
     public @Nullable Integer numShards() {
-        if (numShards == null) return null;
-        return numShards.getValue("SnapshotClusterConfiguration.numShards");
+        if (!unknown_numShards) return value_numShards;
+        throw new UndeferrableValueException("Value 'SnapshotClusterConfiguration.numShards' is not present");
     }
 
     /**
      * Name of the parameter group associated with the cluster.
      * 
      */
-    private @Nullable UndeferrableValue<String> parameterGroupName;
-
+    @PolicyResourceProperty(name="parameterGroupName", flag="unknown_parameterGroupName")
+    private @Nullable String value_parameterGroupName;
+    private boolean unknown_parameterGroupName;
     public @Nullable String parameterGroupName() {
-        if (parameterGroupName == null) return null;
-        return parameterGroupName.getValue("SnapshotClusterConfiguration.parameterGroupName");
+        if (!unknown_parameterGroupName) return value_parameterGroupName;
+        throw new UndeferrableValueException("Value 'SnapshotClusterConfiguration.parameterGroupName' is not present");
     }
 
     /**
      * Port number on which the cluster accepts connections.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable Integer value_port;
+    private boolean unknown_port;
     public @Nullable Integer port() {
-        if (port == null) return null;
-        return port.getValue("SnapshotClusterConfiguration.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'SnapshotClusterConfiguration.port' is not present");
     }
 
     /**
      * Number of days for which MemoryDB retains automatic snapshots before deleting them.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> snapshotRetentionLimit;
-
+    @PolicyResourceProperty(name="snapshotRetentionLimit", flag="unknown_snapshotRetentionLimit")
+    private @Nullable Integer value_snapshotRetentionLimit;
+    private boolean unknown_snapshotRetentionLimit;
     public @Nullable Integer snapshotRetentionLimit() {
-        if (snapshotRetentionLimit == null) return null;
-        return snapshotRetentionLimit.getValue("SnapshotClusterConfiguration.snapshotRetentionLimit");
+        if (!unknown_snapshotRetentionLimit) return value_snapshotRetentionLimit;
+        throw new UndeferrableValueException("Value 'SnapshotClusterConfiguration.snapshotRetentionLimit' is not present");
     }
 
     /**
      * The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
      * 
      */
-    private @Nullable UndeferrableValue<String> snapshotWindow;
-
+    @PolicyResourceProperty(name="snapshotWindow", flag="unknown_snapshotWindow")
+    private @Nullable String value_snapshotWindow;
+    private boolean unknown_snapshotWindow;
     public @Nullable String snapshotWindow() {
-        if (snapshotWindow == null) return null;
-        return snapshotWindow.getValue("SnapshotClusterConfiguration.snapshotWindow");
+        if (!unknown_snapshotWindow) return value_snapshotWindow;
+        throw new UndeferrableValueException("Value 'SnapshotClusterConfiguration.snapshotWindow' is not present");
     }
 
     /**
      * Name of the subnet group used by the cluster.
      * 
      */
-    private @Nullable UndeferrableValue<String> subnetGroupName;
-
+    @PolicyResourceProperty(name="subnetGroupName", flag="unknown_subnetGroupName")
+    private @Nullable String value_subnetGroupName;
+    private boolean unknown_subnetGroupName;
     public @Nullable String subnetGroupName() {
-        if (subnetGroupName == null) return null;
-        return subnetGroupName.getValue("SnapshotClusterConfiguration.subnetGroupName");
+        if (!unknown_subnetGroupName) return value_subnetGroupName;
+        throw new UndeferrableValueException("Value 'SnapshotClusterConfiguration.subnetGroupName' is not present");
     }
 
     /**
      * ARN of the SNS topic to which cluster notifications are sent.
      * 
      */
-    private @Nullable UndeferrableValue<String> topicArn;
-
+    @PolicyResourceProperty(name="topicArn", flag="unknown_topicArn")
+    private @Nullable String value_topicArn;
+    private boolean unknown_topicArn;
     public @Nullable String topicArn() {
-        if (topicArn == null) return null;
-        return topicArn.getValue("SnapshotClusterConfiguration.topicArn");
+        if (!unknown_topicArn) return value_topicArn;
+        throw new UndeferrableValueException("Value 'SnapshotClusterConfiguration.topicArn' is not present");
     }
 
     /**
      * The VPC in which the cluster exists.
      * 
      */
-    private @Nullable UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private @Nullable String value_vpcId;
+    private boolean unknown_vpcId;
     public @Nullable String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("SnapshotClusterConfiguration.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'SnapshotClusterConfiguration.vpcId' is not present");
     }
 
 }

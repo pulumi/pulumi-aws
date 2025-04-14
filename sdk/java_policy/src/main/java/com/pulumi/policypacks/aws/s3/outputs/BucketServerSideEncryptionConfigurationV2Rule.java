@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.outputs.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class BucketServerSideEncryptionConfigurationV2Rule {
      * Single object for setting server-side encryption by default. See below.
      * 
      */
-    private @Nullable UndeferrableValue<BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault> applyServerSideEncryptionByDefault;
-
+    @PolicyResourceProperty(name="applyServerSideEncryptionByDefault", flag="unknown_applyServerSideEncryptionByDefault")
+    private @Nullable BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault value_applyServerSideEncryptionByDefault;
+    private boolean unknown_applyServerSideEncryptionByDefault;
     public @Nullable BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault applyServerSideEncryptionByDefault() {
-        if (applyServerSideEncryptionByDefault == null) return null;
-        return applyServerSideEncryptionByDefault.getValue("BucketServerSideEncryptionConfigurationV2Rule.applyServerSideEncryptionByDefault");
+        if (!unknown_applyServerSideEncryptionByDefault) return value_applyServerSideEncryptionByDefault;
+        throw new UndeferrableValueException("Value 'BucketServerSideEncryptionConfigurationV2Rule.applyServerSideEncryptionByDefault' is not present");
     }
 
     /**
      * Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> bucketKeyEnabled;
-
+    @PolicyResourceProperty(name="bucketKeyEnabled", flag="unknown_bucketKeyEnabled")
+    private @Nullable Boolean value_bucketKeyEnabled;
+    private boolean unknown_bucketKeyEnabled;
     public @Nullable Boolean bucketKeyEnabled() {
-        if (bucketKeyEnabled == null) return null;
-        return bucketKeyEnabled.getValue("BucketServerSideEncryptionConfigurationV2Rule.bucketKeyEnabled");
+        if (!unknown_bucketKeyEnabled) return value_bucketKeyEnabled;
+        throw new UndeferrableValueException("Value 'BucketServerSideEncryptionConfigurationV2Rule.bucketKeyEnabled' is not present");
     }
 
 }

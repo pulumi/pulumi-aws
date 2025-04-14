@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.networkmanager.outputs.SiteLocation;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class Site extends com.pulumi.resources.PolicyResourceOutput {
      * Site Amazon Resource Name (ARN)
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Site.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Site.arn' is not present");
     }
 
     /**
      * Description of the Site.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Site.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Site.description' is not present");
     }
 
     /**
      * The ID of the Global Network to create the site in.
      * 
      */
-    private UndeferrableValue<String> globalNetworkId;
-
+    @PolicyResourceProperty(name="globalNetworkId", flag="unknown_globalNetworkId")
+    private String value_globalNetworkId;
+    private boolean unknown_globalNetworkId;
     public String globalNetworkId() {
-        if (globalNetworkId == null) return null;
-        return globalNetworkId.getValue("Site.globalNetworkId");
+        if (!unknown_globalNetworkId) return value_globalNetworkId;
+        throw new UndeferrableValueException("Value 'Site.globalNetworkId' is not present");
     }
 
     /**
      * The site location as documented below.
      * 
      */
-    private @Nullable UndeferrableValue<SiteLocation> location;
-
+    @PolicyResourceProperty(name="location", flag="unknown_location")
+    private @Nullable SiteLocation value_location;
+    private boolean unknown_location;
     public @Nullable SiteLocation location() {
-        if (location == null) return null;
-        return location.getValue("Site.location");
+        if (!unknown_location) return value_location;
+        throw new UndeferrableValueException("Value 'Site.location' is not present");
     }
 
     /**
      * Key-value tags for the Site. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Site.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Site.tags' is not present");
     }
 
     /**
@@ -77,11 +83,12 @@ public final class Site extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Site.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Site.tagsAll' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.MeshSpecEgressFilter;
 import com.pulumi.policypacks.aws.appmesh.outputs.MeshSpecServiceDiscovery;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class MeshSpec {
      * Egress filter rules for the service mesh.
      * 
      */
-    private @Nullable UndeferrableValue<MeshSpecEgressFilter> egressFilter;
-
+    @PolicyResourceProperty(name="egressFilter", flag="unknown_egressFilter")
+    private @Nullable MeshSpecEgressFilter value_egressFilter;
+    private boolean unknown_egressFilter;
     public @Nullable MeshSpecEgressFilter egressFilter() {
-        if (egressFilter == null) return null;
-        return egressFilter.getValue("MeshSpec.egressFilter");
+        if (!unknown_egressFilter) return value_egressFilter;
+        throw new UndeferrableValueException("Value 'MeshSpec.egressFilter' is not present");
     }
 
     /**
      * The service discovery information for the service mesh.
      * 
      */
-    private @Nullable UndeferrableValue<MeshSpecServiceDiscovery> serviceDiscovery;
-
+    @PolicyResourceProperty(name="serviceDiscovery", flag="unknown_serviceDiscovery")
+    private @Nullable MeshSpecServiceDiscovery value_serviceDiscovery;
+    private boolean unknown_serviceDiscovery;
     public @Nullable MeshSpecServiceDiscovery serviceDiscovery() {
-        if (serviceDiscovery == null) return null;
-        return serviceDiscovery.getValue("MeshSpec.serviceDiscovery");
+        if (!unknown_serviceDiscovery) return value_serviceDiscovery;
+        throw new UndeferrableValueException("Value 'MeshSpec.serviceDiscovery' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.iot.outputs.TopicRuleErrorActionKafkaHeader;
 import java.lang.String;
 import java.util.List;
@@ -17,66 +18,72 @@ public final class TopicRuleErrorActionKafka {
      * Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
      * 
      */
-    private UndeferrableValue<Map<String,String>> clientProperties;
-
+    @PolicyResourceProperty(name="clientProperties", flag="unknown_clientProperties")
+    private Map<String,String> value_clientProperties;
+    private boolean unknown_clientProperties;
     public Map<String,String> clientProperties() {
-        if (clientProperties == null) return null;
-        return clientProperties.getValue("TopicRuleErrorActionKafka.clientProperties");
+        if (!unknown_clientProperties) return value_clientProperties;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionKafka.clientProperties' is not present");
     }
 
     /**
      * The ARN of Kafka action&#39;s VPC `aws.iot.TopicRuleDestination`.
      * 
      */
-    private UndeferrableValue<String> destinationArn;
-
+    @PolicyResourceProperty(name="destinationArn", flag="unknown_destinationArn")
+    private String value_destinationArn;
+    private boolean unknown_destinationArn;
     public String destinationArn() {
-        if (destinationArn == null) return null;
-        return destinationArn.getValue("TopicRuleErrorActionKafka.destinationArn");
+        if (!unknown_destinationArn) return value_destinationArn;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionKafka.destinationArn' is not present");
     }
 
     /**
      * The list of Kafka headers that you specify. Nested arguments below.
      * 
      */
-    private @Nullable UndeferrableValue<List<TopicRuleErrorActionKafkaHeader>> headers;
-
+    @PolicyResourceProperty(name="headers", flag="unknown_headers")
+    private @Nullable List<TopicRuleErrorActionKafkaHeader> value_headers;
+    private boolean unknown_headers;
     public @Nullable List<TopicRuleErrorActionKafkaHeader> headers() {
-        if (headers == null) return null;
-        return headers.getValue("TopicRuleErrorActionKafka.headers");
+        if (!unknown_headers) return value_headers;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionKafka.headers' is not present");
     }
 
     /**
      * The Kafka message key.
      * 
      */
-    private @Nullable UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private @Nullable String value_key;
+    private boolean unknown_key;
     public @Nullable String key() {
-        if (key == null) return null;
-        return key.getValue("TopicRuleErrorActionKafka.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionKafka.key' is not present");
     }
 
     /**
      * The Kafka message partition.
      * 
      */
-    private @Nullable UndeferrableValue<String> partition;
-
+    @PolicyResourceProperty(name="partition", flag="unknown_partition")
+    private @Nullable String value_partition;
+    private boolean unknown_partition;
     public @Nullable String partition() {
-        if (partition == null) return null;
-        return partition.getValue("TopicRuleErrorActionKafka.partition");
+        if (!unknown_partition) return value_partition;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionKafka.partition' is not present");
     }
 
     /**
      * The Kafka topic for messages to be sent to the Kafka broker.
      * 
      */
-    private UndeferrableValue<String> topic;
-
+    @PolicyResourceProperty(name="topic", flag="unknown_topic")
+    private String value_topic;
+    private boolean unknown_topic;
     public String topic() {
-        if (topic == null) return null;
-        return topic.getValue("TopicRuleErrorActionKafka.topic");
+        if (!unknown_topic) return value_topic;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionKafka.topic' is not present");
     }
 
 }

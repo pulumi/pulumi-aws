@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class PermissionsDatabaseArgs {
      * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    private UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private String value_catalogId;
+    private boolean unknown_catalogId;
     public String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("PermissionsDatabaseArgs.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'PermissionsDatabaseArgs.catalogId' is not present");
     }
 
     /**
@@ -27,11 +29,12 @@ public final class PermissionsDatabaseArgs {
      * The following argument is optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PermissionsDatabaseArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PermissionsDatabaseArgs.name' is not present");
     }
 
 }

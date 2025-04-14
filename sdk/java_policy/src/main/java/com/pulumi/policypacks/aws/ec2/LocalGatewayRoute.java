@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class LocalGatewayRoute extends com.pulumi.resources.PolicyResource
      * IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
      * 
      */
-    private UndeferrableValue<String> destinationCidrBlock;
-
+    @PolicyResourceProperty(name="destinationCidrBlock", flag="unknown_destinationCidrBlock")
+    private String value_destinationCidrBlock;
+    private boolean unknown_destinationCidrBlock;
     public String destinationCidrBlock() {
-        if (destinationCidrBlock == null) return null;
-        return destinationCidrBlock.getValue("LocalGatewayRoute.destinationCidrBlock");
+        if (!unknown_destinationCidrBlock) return value_destinationCidrBlock;
+        throw new UndeferrableValueException("Value 'LocalGatewayRoute.destinationCidrBlock' is not present");
     }
 
     /**
      * Identifier of EC2 Local Gateway Route Table.
      * 
      */
-    private UndeferrableValue<String> localGatewayRouteTableId;
-
+    @PolicyResourceProperty(name="localGatewayRouteTableId", flag="unknown_localGatewayRouteTableId")
+    private String value_localGatewayRouteTableId;
+    private boolean unknown_localGatewayRouteTableId;
     public String localGatewayRouteTableId() {
-        if (localGatewayRouteTableId == null) return null;
-        return localGatewayRouteTableId.getValue("LocalGatewayRoute.localGatewayRouteTableId");
+        if (!unknown_localGatewayRouteTableId) return value_localGatewayRouteTableId;
+        throw new UndeferrableValueException("Value 'LocalGatewayRoute.localGatewayRouteTableId' is not present");
     }
 
     /**
      * Identifier of EC2 Local Gateway Virtual Interface Group.
      * 
      */
-    private UndeferrableValue<String> localGatewayVirtualInterfaceGroupId;
-
+    @PolicyResourceProperty(name="localGatewayVirtualInterfaceGroupId", flag="unknown_localGatewayVirtualInterfaceGroupId")
+    private String value_localGatewayVirtualInterfaceGroupId;
+    private boolean unknown_localGatewayVirtualInterfaceGroupId;
     public String localGatewayVirtualInterfaceGroupId() {
-        if (localGatewayVirtualInterfaceGroupId == null) return null;
-        return localGatewayVirtualInterfaceGroupId.getValue("LocalGatewayRoute.localGatewayVirtualInterfaceGroupId");
+        if (!unknown_localGatewayVirtualInterfaceGroupId) return value_localGatewayVirtualInterfaceGroupId;
+        throw new UndeferrableValueException("Value 'LocalGatewayRoute.localGatewayVirtualInterfaceGroupId' is not present");
     }
 
 }

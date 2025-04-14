@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedpermissions.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.verifiedpermissions.outputs.PolicyDefinitionStatic;
 import com.pulumi.policypacks.aws.verifiedpermissions.outputs.PolicyDefinitionTemplateLinked;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class PolicyDefinition {
      * The static policy statement. See Static below.
      * 
      */
-    private @Nullable UndeferrableValue<PolicyDefinitionStatic> static_;
-
+    @PolicyResourceProperty(name="static", flag="unknown_static_")
+    private @Nullable PolicyDefinitionStatic value_static_;
+    private boolean unknown_static_;
     public @Nullable PolicyDefinitionStatic static_() {
-        if (static_ == null) return null;
-        return static_.getValue("PolicyDefinition.static_");
+        if (!unknown_static_) return value_static_;
+        throw new UndeferrableValueException("Value 'PolicyDefinition.static_' is not present");
     }
 
     /**
      * The template linked policy. See Template Linked below.
      * 
      */
-    private @Nullable UndeferrableValue<PolicyDefinitionTemplateLinked> templateLinked;
-
+    @PolicyResourceProperty(name="templateLinked", flag="unknown_templateLinked")
+    private @Nullable PolicyDefinitionTemplateLinked value_templateLinked;
+    private boolean unknown_templateLinked;
     public @Nullable PolicyDefinitionTemplateLinked templateLinked() {
-        if (templateLinked == null) return null;
-        return templateLinked.getValue("PolicyDefinition.templateLinked");
+        if (!unknown_templateLinked) return value_templateLinked;
+        throw new UndeferrableValueException("Value 'PolicyDefinition.templateLinked' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.qldb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.qldb.inputs.StreamKinesisConfigurationArgs;
 import java.lang.String;
@@ -18,77 +19,84 @@ public final class StreamArgs extends com.pulumi.resources.PolicyResourceInput {
      * The exclusive date and time that specifies when the stream ends. If you don&#39;t define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.
      * 
      */
-    private UndeferrableValue<String> exclusiveEndTime;
-
+    @PolicyResourceProperty(name="exclusiveEndTime", flag="unknown_exclusiveEndTime")
+    private String value_exclusiveEndTime;
+    private boolean unknown_exclusiveEndTime;
     public String exclusiveEndTime() {
-        if (exclusiveEndTime == null) return null;
-        return exclusiveEndTime.getValue("StreamArgs.exclusiveEndTime");
+        if (!unknown_exclusiveEndTime) return value_exclusiveEndTime;
+        throw new UndeferrableValueException("Value 'StreamArgs.exclusiveEndTime' is not present");
     }
 
     /**
      * The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.  This cannot be in the future and must be before `exclusive_end_time`.  If you provide a value that is before the ledger&#39;s `CreationDateTime`, QLDB effectively defaults it to the ledger&#39;s `CreationDateTime`.
      * 
      */
-    private UndeferrableValue<String> inclusiveStartTime;
-
+    @PolicyResourceProperty(name="inclusiveStartTime", flag="unknown_inclusiveStartTime")
+    private String value_inclusiveStartTime;
+    private boolean unknown_inclusiveStartTime;
     public String inclusiveStartTime() {
-        if (inclusiveStartTime == null) return null;
-        return inclusiveStartTime.getValue("StreamArgs.inclusiveStartTime");
+        if (!unknown_inclusiveStartTime) return value_inclusiveStartTime;
+        throw new UndeferrableValueException("Value 'StreamArgs.inclusiveStartTime' is not present");
     }
 
     /**
      * The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
      * 
      */
-    private UndeferrableValue<StreamKinesisConfigurationArgs> kinesisConfiguration;
-
+    @PolicyResourceProperty(name="kinesisConfiguration", flag="unknown_kinesisConfiguration")
+    private StreamKinesisConfigurationArgs value_kinesisConfiguration;
+    private boolean unknown_kinesisConfiguration;
     public StreamKinesisConfigurationArgs kinesisConfiguration() {
-        if (kinesisConfiguration == null) return null;
-        return kinesisConfiguration.getValue("StreamArgs.kinesisConfiguration");
+        if (!unknown_kinesisConfiguration) return value_kinesisConfiguration;
+        throw new UndeferrableValueException("Value 'StreamArgs.kinesisConfiguration' is not present");
     }
 
     /**
      * The name of the QLDB ledger.
      * 
      */
-    private UndeferrableValue<String> ledgerName;
-
+    @PolicyResourceProperty(name="ledgerName", flag="unknown_ledgerName")
+    private String value_ledgerName;
+    private boolean unknown_ledgerName;
     public String ledgerName() {
-        if (ledgerName == null) return null;
-        return ledgerName.getValue("StreamArgs.ledgerName");
+        if (!unknown_ledgerName) return value_ledgerName;
+        throw new UndeferrableValueException("Value 'StreamArgs.ledgerName' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("StreamArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'StreamArgs.roleArn' is not present");
     }
 
     /**
      * The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
      * 
      */
-    private UndeferrableValue<String> streamName;
-
+    @PolicyResourceProperty(name="streamName", flag="unknown_streamName")
+    private String value_streamName;
+    private boolean unknown_streamName;
     public String streamName() {
-        if (streamName == null) return null;
-        return streamName.getValue("StreamArgs.streamName");
+        if (!unknown_streamName) return value_streamName;
+        throw new UndeferrableValueException("Value 'StreamArgs.streamName' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("StreamArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'StreamArgs.tags' is not present");
     }
 
 }

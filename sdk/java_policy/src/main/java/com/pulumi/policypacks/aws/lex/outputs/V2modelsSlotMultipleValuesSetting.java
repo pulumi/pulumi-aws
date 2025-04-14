@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class V2modelsSlotMultipleValuesSetting {
      * Whether a slot can return multiple values. When `true`, the slot may return more than one value in a response. When `false`, the slot returns only a single value. Multi-value slots are only available in the `en-US` locale.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> allowMultipleValues;
-
+    @PolicyResourceProperty(name="allowMultipleValues", flag="unknown_allowMultipleValues")
+    private @Nullable Boolean value_allowMultipleValues;
+    private boolean unknown_allowMultipleValues;
     public @Nullable Boolean allowMultipleValues() {
-        if (allowMultipleValues == null) return null;
-        return allowMultipleValues.getValue("V2modelsSlotMultipleValuesSetting.allowMultipleValues");
+        if (!unknown_allowMultipleValues) return value_allowMultipleValues;
+        throw new UndeferrableValueException("Value 'V2modelsSlotMultipleValuesSetting.allowMultipleValues' is not present");
     }
 
 }

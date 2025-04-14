@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.glue.inputs.MLTransformInputRecordTableArgs;
 import com.pulumi.policypacks.aws.glue.inputs.MLTransformParametersArgs;
@@ -22,132 +23,144 @@ public final class MLTransformArgs extends com.pulumi.resources.PolicyResourceIn
      * Description of the ML Transform.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("MLTransformArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'MLTransformArgs.description' is not present");
     }
 
     /**
      * The version of glue to use, for example &#34;1.0&#34;. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      * 
      */
-    private UndeferrableValue<String> glueVersion;
-
+    @PolicyResourceProperty(name="glueVersion", flag="unknown_glueVersion")
+    private String value_glueVersion;
+    private boolean unknown_glueVersion;
     public String glueVersion() {
-        if (glueVersion == null) return null;
-        return glueVersion.getValue("MLTransformArgs.glueVersion");
+        if (!unknown_glueVersion) return value_glueVersion;
+        throw new UndeferrableValueException("Value 'MLTransformArgs.glueVersion' is not present");
     }
 
     /**
      * A list of AWS Glue table definitions used by the transform. see Input Record Tables.
      * 
      */
-    private UndeferrableValue<List<MLTransformInputRecordTableArgs>> inputRecordTables;
-
+    @PolicyResourceProperty(name="inputRecordTables", flag="unknown_inputRecordTables")
+    private List<MLTransformInputRecordTableArgs> value_inputRecordTables;
+    private boolean unknown_inputRecordTables;
     public List<MLTransformInputRecordTableArgs> inputRecordTables() {
-        if (inputRecordTables == null) return null;
-        return inputRecordTables.getValue("MLTransformArgs.inputRecordTables");
+        if (!unknown_inputRecordTables) return value_inputRecordTables;
+        throw new UndeferrableValueException("Value 'MLTransformArgs.inputRecordTables' is not present");
     }
 
     /**
      * The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `max_capacity` is a mutually exclusive option with `number_of_workers` and `worker_type`.
      * 
      */
-    private UndeferrableValue<Double> maxCapacity;
-
+    @PolicyResourceProperty(name="maxCapacity", flag="unknown_maxCapacity")
+    private Double value_maxCapacity;
+    private boolean unknown_maxCapacity;
     public Double maxCapacity() {
-        if (maxCapacity == null) return null;
-        return maxCapacity.getValue("MLTransformArgs.maxCapacity");
+        if (!unknown_maxCapacity) return value_maxCapacity;
+        throw new UndeferrableValueException("Value 'MLTransformArgs.maxCapacity' is not present");
     }
 
     /**
      * The maximum number of times to retry this ML Transform if it fails.
      * 
      */
-    private UndeferrableValue<Integer> maxRetries;
-
+    @PolicyResourceProperty(name="maxRetries", flag="unknown_maxRetries")
+    private Integer value_maxRetries;
+    private boolean unknown_maxRetries;
     public Integer maxRetries() {
-        if (maxRetries == null) return null;
-        return maxRetries.getValue("MLTransformArgs.maxRetries");
+        if (!unknown_maxRetries) return value_maxRetries;
+        throw new UndeferrableValueException("Value 'MLTransformArgs.maxRetries' is not present");
     }
 
     /**
      * The name you assign to this ML Transform. It must be unique in your account.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("MLTransformArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'MLTransformArgs.name' is not present");
     }
 
     /**
      * The number of workers of a defined `worker_type` that are allocated when an ML Transform runs. Required with `worker_type`.
      * 
      */
-    private UndeferrableValue<Integer> numberOfWorkers;
-
+    @PolicyResourceProperty(name="numberOfWorkers", flag="unknown_numberOfWorkers")
+    private Integer value_numberOfWorkers;
+    private boolean unknown_numberOfWorkers;
     public Integer numberOfWorkers() {
-        if (numberOfWorkers == null) return null;
-        return numberOfWorkers.getValue("MLTransformArgs.numberOfWorkers");
+        if (!unknown_numberOfWorkers) return value_numberOfWorkers;
+        throw new UndeferrableValueException("Value 'MLTransformArgs.numberOfWorkers' is not present");
     }
 
     /**
      * The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
      * 
      */
-    private UndeferrableValue<MLTransformParametersArgs> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private MLTransformParametersArgs value_parameters;
+    private boolean unknown_parameters;
     public MLTransformParametersArgs parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("MLTransformArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'MLTransformArgs.parameters' is not present");
     }
 
     /**
      * The ARN of the IAM role associated with this ML Transform.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("MLTransformArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'MLTransformArgs.roleArn' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("MLTransformArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'MLTransformArgs.tags' is not present");
     }
 
     /**
      * The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
      * 
      */
-    private UndeferrableValue<Integer> timeout;
-
+    @PolicyResourceProperty(name="timeout", flag="unknown_timeout")
+    private Integer value_timeout;
+    private boolean unknown_timeout;
     public Integer timeout() {
-        if (timeout == null) return null;
-        return timeout.getValue("MLTransformArgs.timeout");
+        if (!unknown_timeout) return value_timeout;
+        throw new UndeferrableValueException("Value 'MLTransformArgs.timeout' is not present");
     }
 
     /**
      * The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
      * 
      */
-    private UndeferrableValue<String> workerType;
-
+    @PolicyResourceProperty(name="workerType", flag="unknown_workerType")
+    private String value_workerType;
+    private boolean unknown_workerType;
     public String workerType() {
-        if (workerType == null) return null;
-        return workerType.getValue("MLTransformArgs.workerType");
+        if (!unknown_workerType) return value_workerType;
+        throw new UndeferrableValueException("Value 'MLTransformArgs.workerType' is not present");
     }
 
 }

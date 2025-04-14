@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,33 +14,36 @@ public final class WorkteamMemberDefinitionCognitoMemberDefinitionArgs {
      * An identifier for an application client. You must create the app client ID using Amazon Cognito.
      * 
      */
-    private UndeferrableValue<String> clientId;
-
+    @PolicyResourceProperty(name="clientId", flag="unknown_clientId")
+    private String value_clientId;
+    private boolean unknown_clientId;
     public String clientId() {
-        if (clientId == null) return null;
-        return clientId.getValue("WorkteamMemberDefinitionCognitoMemberDefinitionArgs.clientId");
+        if (!unknown_clientId) return value_clientId;
+        throw new UndeferrableValueException("Value 'WorkteamMemberDefinitionCognitoMemberDefinitionArgs.clientId' is not present");
     }
 
     /**
      * An identifier for a user group.
      * 
      */
-    private UndeferrableValue<String> userGroup;
-
+    @PolicyResourceProperty(name="userGroup", flag="unknown_userGroup")
+    private String value_userGroup;
+    private boolean unknown_userGroup;
     public String userGroup() {
-        if (userGroup == null) return null;
-        return userGroup.getValue("WorkteamMemberDefinitionCognitoMemberDefinitionArgs.userGroup");
+        if (!unknown_userGroup) return value_userGroup;
+        throw new UndeferrableValueException("Value 'WorkteamMemberDefinitionCognitoMemberDefinitionArgs.userGroup' is not present");
     }
 
     /**
      * An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
      * 
      */
-    private UndeferrableValue<String> userPool;
-
+    @PolicyResourceProperty(name="userPool", flag="unknown_userPool")
+    private String value_userPool;
+    private boolean unknown_userPool;
     public String userPool() {
-        if (userPool == null) return null;
-        return userPool.getValue("WorkteamMemberDefinitionCognitoMemberDefinitionArgs.userPool");
+        if (!unknown_userPool) return value_userPool;
+        throw new UndeferrableValueException("Value 'WorkteamMemberDefinitionCognitoMemberDefinitionArgs.userPool' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securitylake;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.securitylake.inputs.SubscriberNotificationConfigurationArgs;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class SubscriberNotificationArgs extends com.pulumi.resources.Polic
      * Specify the configuration using which you want to create the subscriber notification..
      * 
      */
-    private UndeferrableValue<SubscriberNotificationConfigurationArgs> configuration;
-
+    @PolicyResourceProperty(name="configuration", flag="unknown_configuration")
+    private SubscriberNotificationConfigurationArgs value_configuration;
+    private boolean unknown_configuration;
     public SubscriberNotificationConfigurationArgs configuration() {
-        if (configuration == null) return null;
-        return configuration.getValue("SubscriberNotificationArgs.configuration");
+        if (!unknown_configuration) return value_configuration;
+        throw new UndeferrableValueException("Value 'SubscriberNotificationArgs.configuration' is not present");
     }
 
     /**
      * The subscriber ID for the notification subscription.
      * 
      */
-    private UndeferrableValue<String> subscriberId;
-
+    @PolicyResourceProperty(name="subscriberId", flag="unknown_subscriberId")
+    private String value_subscriberId;
+    private boolean unknown_subscriberId;
     public String subscriberId() {
-        if (subscriberId == null) return null;
-        return subscriberId.getValue("SubscriberNotificationArgs.subscriberId");
+        if (!unknown_subscriberId) return value_subscriberId;
+        throw new UndeferrableValueException("Value 'SubscriberNotificationArgs.subscriberId' is not present");
     }
 
 }

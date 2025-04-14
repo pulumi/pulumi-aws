@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.transfer.outputs.WorkflowOnExceptionStepTagStepDetailsTag;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class WorkflowOnExceptionStepTagStepDetails {
      * The name of the step, used as an identifier.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("WorkflowOnExceptionStepTagStepDetails.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepTagStepDetails.name' is not present");
     }
 
     /**
      * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
      * 
      */
-    private @Nullable UndeferrableValue<String> sourceFileLocation;
-
+    @PolicyResourceProperty(name="sourceFileLocation", flag="unknown_sourceFileLocation")
+    private @Nullable String value_sourceFileLocation;
+    private boolean unknown_sourceFileLocation;
     public @Nullable String sourceFileLocation() {
-        if (sourceFileLocation == null) return null;
-        return sourceFileLocation.getValue("WorkflowOnExceptionStepTagStepDetails.sourceFileLocation");
+        if (!unknown_sourceFileLocation) return value_sourceFileLocation;
+        throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepTagStepDetails.sourceFileLocation' is not present");
     }
 
     /**
      * Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
      * 
      */
-    private @Nullable UndeferrableValue<List<WorkflowOnExceptionStepTagStepDetailsTag>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable List<WorkflowOnExceptionStepTagStepDetailsTag> value_tags;
+    private boolean unknown_tags;
     public @Nullable List<WorkflowOnExceptionStepTagStepDetailsTag> tags() {
-        if (tags == null) return null;
-        return tags.getValue("WorkflowOnExceptionStepTagStepDetails.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'WorkflowOnExceptionStepTagStepDetails.tags' is not present");
     }
 
 }

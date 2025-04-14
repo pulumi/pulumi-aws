@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fms;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.fms.inputs.ResourceSetResourceSetArgs;
 import com.pulumi.policypacks.aws.fms.inputs.ResourceSetTimeoutsArgs;
@@ -20,25 +21,28 @@ public final class ResourceSetArgs extends com.pulumi.resources.PolicyResourceIn
      * Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
      * 
      */
-    private UndeferrableValue<List<ResourceSetResourceSetArgs>> resourceSets;
-
+    @PolicyResourceProperty(name="resourceSets", flag="unknown_resourceSets")
+    private List<ResourceSetResourceSetArgs> value_resourceSets;
+    private boolean unknown_resourceSets;
     public List<ResourceSetResourceSetArgs> resourceSets() {
-        if (resourceSets == null) return null;
-        return resourceSets.getValue("ResourceSetArgs.resourceSets");
+        if (!unknown_resourceSets) return value_resourceSets;
+        throw new UndeferrableValueException("Value 'ResourceSetArgs.resourceSets' is not present");
     }
 
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ResourceSetArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ResourceSetArgs.tags' is not present");
     }
 
-    private UndeferrableValue<ResourceSetTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private ResourceSetTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public ResourceSetTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ResourceSetArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ResourceSetArgs.timeouts' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ConfigurationSetSendingOptions {
      * If `true`, email sending is enabled for the configuration set. If `false`, email sending is disabled for the configuration set.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> sendingEnabled;
-
+    @PolicyResourceProperty(name="sendingEnabled", flag="unknown_sendingEnabled")
+    private @Nullable Boolean value_sendingEnabled;
+    private boolean unknown_sendingEnabled;
     public @Nullable Boolean sendingEnabled() {
-        if (sendingEnabled == null) return null;
-        return sendingEnabled.getValue("ConfigurationSetSendingOptions.sendingEnabled");
+        if (!unknown_sendingEnabled) return value_sendingEnabled;
+        throw new UndeferrableValueException("Value 'ConfigurationSetSendingOptions.sendingEnabled' is not present");
     }
 
 }

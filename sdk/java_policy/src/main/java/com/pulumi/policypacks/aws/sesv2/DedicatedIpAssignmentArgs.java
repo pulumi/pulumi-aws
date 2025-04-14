@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class DedicatedIpAssignmentArgs extends com.pulumi.resources.Policy
      * Dedicated IP address.
      * 
      */
-    private UndeferrableValue<String> destinationPoolName;
-
+    @PolicyResourceProperty(name="destinationPoolName", flag="unknown_destinationPoolName")
+    private String value_destinationPoolName;
+    private boolean unknown_destinationPoolName;
     public String destinationPoolName() {
-        if (destinationPoolName == null) return null;
-        return destinationPoolName.getValue("DedicatedIpAssignmentArgs.destinationPoolName");
+        if (!unknown_destinationPoolName) return value_destinationPoolName;
+        throw new UndeferrableValueException("Value 'DedicatedIpAssignmentArgs.destinationPoolName' is not present");
     }
 
     /**
      * Dedicated IP address.
      * 
      */
-    private UndeferrableValue<String> ip;
-
+    @PolicyResourceProperty(name="ip", flag="unknown_ip")
+    private String value_ip;
+    private boolean unknown_ip;
     public String ip() {
-        if (ip == null) return null;
-        return ip.getValue("DedicatedIpAssignmentArgs.ip");
+        if (!unknown_ip) return value_ip;
+        throw new UndeferrableValueException("Value 'DedicatedIpAssignmentArgs.ip' is not present");
     }
 
 }

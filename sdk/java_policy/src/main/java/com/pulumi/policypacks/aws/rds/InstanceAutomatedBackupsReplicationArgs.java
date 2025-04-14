@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class InstanceAutomatedBackupsReplicationArgs extends com.pulumi.re
      * The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("InstanceAutomatedBackupsReplicationArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'InstanceAutomatedBackupsReplicationArgs.kmsKeyId' is not present");
     }
 
     /**
      * A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
      * 
      */
-    private UndeferrableValue<String> preSignedUrl;
-
+    @PolicyResourceProperty(name="preSignedUrl", flag="unknown_preSignedUrl")
+    private String value_preSignedUrl;
+    private boolean unknown_preSignedUrl;
     public String preSignedUrl() {
-        if (preSignedUrl == null) return null;
-        return preSignedUrl.getValue("InstanceAutomatedBackupsReplicationArgs.preSignedUrl");
+        if (!unknown_preSignedUrl) return value_preSignedUrl;
+        throw new UndeferrableValueException("Value 'InstanceAutomatedBackupsReplicationArgs.preSignedUrl' is not present");
     }
 
     /**
      * The retention period for the replicated automated backups, defaults to `7`.
      * 
      */
-    private UndeferrableValue<Integer> retentionPeriod;
-
+    @PolicyResourceProperty(name="retentionPeriod", flag="unknown_retentionPeriod")
+    private Integer value_retentionPeriod;
+    private boolean unknown_retentionPeriod;
     public Integer retentionPeriod() {
-        if (retentionPeriod == null) return null;
-        return retentionPeriod.getValue("InstanceAutomatedBackupsReplicationArgs.retentionPeriod");
+        if (!unknown_retentionPeriod) return value_retentionPeriod;
+        throw new UndeferrableValueException("Value 'InstanceAutomatedBackupsReplicationArgs.retentionPeriod' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
      * 
      */
-    private UndeferrableValue<String> sourceDbInstanceArn;
-
+    @PolicyResourceProperty(name="sourceDbInstanceArn", flag="unknown_sourceDbInstanceArn")
+    private String value_sourceDbInstanceArn;
+    private boolean unknown_sourceDbInstanceArn;
     public String sourceDbInstanceArn() {
-        if (sourceDbInstanceArn == null) return null;
-        return sourceDbInstanceArn.getValue("InstanceAutomatedBackupsReplicationArgs.sourceDbInstanceArn");
+        if (!unknown_sourceDbInstanceArn) return value_sourceDbInstanceArn;
+        throw new UndeferrableValueException("Value 'InstanceAutomatedBackupsReplicationArgs.sourceDbInstanceArn' is not present");
     }
 
 }

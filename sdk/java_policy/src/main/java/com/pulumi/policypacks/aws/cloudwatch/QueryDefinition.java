@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,44 +18,48 @@ public final class QueryDefinition extends com.pulumi.resources.PolicyResourceOu
      * Specific log groups to use with the query.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> logGroupNames;
-
+    @PolicyResourceProperty(name="logGroupNames", flag="unknown_logGroupNames")
+    private @Nullable List<String> value_logGroupNames;
+    private boolean unknown_logGroupNames;
     public @Nullable List<String> logGroupNames() {
-        if (logGroupNames == null) return null;
-        return logGroupNames.getValue("QueryDefinition.logGroupNames");
+        if (!unknown_logGroupNames) return value_logGroupNames;
+        throw new UndeferrableValueException("Value 'QueryDefinition.logGroupNames' is not present");
     }
 
     /**
      * The name of the query.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("QueryDefinition.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'QueryDefinition.name' is not present");
     }
 
     /**
      * The query definition ID.
      * 
      */
-    private UndeferrableValue<String> queryDefinitionId;
-
+    @PolicyResourceProperty(name="queryDefinitionId", flag="unknown_queryDefinitionId")
+    private String value_queryDefinitionId;
+    private boolean unknown_queryDefinitionId;
     public String queryDefinitionId() {
-        if (queryDefinitionId == null) return null;
-        return queryDefinitionId.getValue("QueryDefinition.queryDefinitionId");
+        if (!unknown_queryDefinitionId) return value_queryDefinitionId;
+        throw new UndeferrableValueException("Value 'QueryDefinition.queryDefinitionId' is not present");
     }
 
     /**
      * The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
      * 
      */
-    private UndeferrableValue<String> queryString;
-
+    @PolicyResourceProperty(name="queryString", flag="unknown_queryString")
+    private String value_queryString;
+    private boolean unknown_queryString;
     public String queryString() {
-        if (queryString == null) return null;
-        return queryString.getValue("QueryDefinition.queryString");
+        if (!unknown_queryString) return value_queryString;
+        throw new UndeferrableValueException("Value 'QueryDefinition.queryString' is not present");
     }
 
 }

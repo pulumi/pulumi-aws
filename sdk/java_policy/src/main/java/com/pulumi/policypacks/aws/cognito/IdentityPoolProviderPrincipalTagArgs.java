@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class IdentityPoolProviderPrincipalTagArgs extends com.pulumi.resou
      * An identity pool ID.
      * 
      */
-    private UndeferrableValue<String> identityPoolId;
-
+    @PolicyResourceProperty(name="identityPoolId", flag="unknown_identityPoolId")
+    private String value_identityPoolId;
+    private boolean unknown_identityPoolId;
     public String identityPoolId() {
-        if (identityPoolId == null) return null;
-        return identityPoolId.getValue("IdentityPoolProviderPrincipalTagArgs.identityPoolId");
+        if (!unknown_identityPoolId) return value_identityPoolId;
+        throw new UndeferrableValueException("Value 'IdentityPoolProviderPrincipalTagArgs.identityPoolId' is not present");
     }
 
     /**
      * The name of the identity provider.
      * 
      */
-    private UndeferrableValue<String> identityProviderName;
-
+    @PolicyResourceProperty(name="identityProviderName", flag="unknown_identityProviderName")
+    private String value_identityProviderName;
+    private boolean unknown_identityProviderName;
     public String identityProviderName() {
-        if (identityProviderName == null) return null;
-        return identityProviderName.getValue("IdentityPoolProviderPrincipalTagArgs.identityProviderName");
+        if (!unknown_identityProviderName) return value_identityProviderName;
+        throw new UndeferrableValueException("Value 'IdentityPoolProviderPrincipalTagArgs.identityProviderName' is not present");
     }
 
     /**
      * String to string map of variables.
      * 
      */
-    private UndeferrableValue<Map<String,String>> principalTags;
-
+    @PolicyResourceProperty(name="principalTags", flag="unknown_principalTags")
+    private Map<String,String> value_principalTags;
+    private boolean unknown_principalTags;
     public Map<String,String> principalTags() {
-        if (principalTags == null) return null;
-        return principalTags.getValue("IdentityPoolProviderPrincipalTagArgs.principalTags");
+        if (!unknown_principalTags) return value_principalTags;
+        throw new UndeferrableValueException("Value 'IdentityPoolProviderPrincipalTagArgs.principalTags' is not present");
     }
 
     /**
      * use default (username and clientID) attribute mappings.
      * 
      */
-    private UndeferrableValue<Boolean> useDefaults;
-
+    @PolicyResourceProperty(name="useDefaults", flag="unknown_useDefaults")
+    private Boolean value_useDefaults;
+    private boolean unknown_useDefaults;
     public Boolean useDefaults() {
-        if (useDefaults == null) return null;
-        return useDefaults.getValue("IdentityPoolProviderPrincipalTagArgs.useDefaults");
+        if (!unknown_useDefaults) return value_useDefaults;
+        throw new UndeferrableValueException("Value 'IdentityPoolProviderPrincipalTagArgs.useDefaults' is not present");
     }
 
 }

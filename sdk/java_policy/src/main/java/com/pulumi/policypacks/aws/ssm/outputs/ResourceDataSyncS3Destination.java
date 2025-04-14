@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,55 +15,60 @@ public final class ResourceDataSyncS3Destination {
      * Name of S3 bucket where the aggregated data is stored.
      * 
      */
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("ResourceDataSyncS3Destination.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'ResourceDataSyncS3Destination.bucketName' is not present");
     }
 
     /**
      * ARN of an encryption key for a destination in Amazon S3.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private @Nullable String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public @Nullable String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("ResourceDataSyncS3Destination.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'ResourceDataSyncS3Destination.kmsKeyArn' is not present");
     }
 
     /**
      * Prefix for the bucket.
      * 
      */
-    private @Nullable UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private @Nullable String value_prefix;
+    private boolean unknown_prefix;
     public @Nullable String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("ResourceDataSyncS3Destination.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'ResourceDataSyncS3Destination.prefix' is not present");
     }
 
     /**
      * Region with the bucket targeted by the Resource Data Sync.
      * 
      */
-    private UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private String value_region;
+    private boolean unknown_region;
     public String region() {
-        if (region == null) return null;
-        return region.getValue("ResourceDataSyncS3Destination.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'ResourceDataSyncS3Destination.region' is not present");
     }
 
     /**
      * A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
      * 
      */
-    private @Nullable UndeferrableValue<String> syncFormat;
-
+    @PolicyResourceProperty(name="syncFormat", flag="unknown_syncFormat")
+    private @Nullable String value_syncFormat;
+    private boolean unknown_syncFormat;
     public @Nullable String syncFormat() {
-        if (syncFormat == null) return null;
-        return syncFormat.getValue("ResourceDataSyncS3Destination.syncFormat");
+        if (!unknown_syncFormat) return value_syncFormat;
+        throw new UndeferrableValueException("Value 'ResourceDataSyncS3Destination.syncFormat' is not present");
     }
 
 }

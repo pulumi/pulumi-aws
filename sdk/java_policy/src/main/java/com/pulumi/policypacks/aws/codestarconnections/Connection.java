@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codestarconnections;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,66 +18,72 @@ public final class Connection extends com.pulumi.resources.PolicyResourceOutput 
      * The codestar connection ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Connection.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Connection.arn' is not present");
     }
 
     /**
      * The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
      * 
      */
-    private UndeferrableValue<String> connectionStatus;
-
+    @PolicyResourceProperty(name="connectionStatus", flag="unknown_connectionStatus")
+    private String value_connectionStatus;
+    private boolean unknown_connectionStatus;
     public String connectionStatus() {
-        if (connectionStatus == null) return null;
-        return connectionStatus.getValue("Connection.connectionStatus");
+        if (!unknown_connectionStatus) return value_connectionStatus;
+        throw new UndeferrableValueException("Value 'Connection.connectionStatus' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
      * 
      */
-    private @Nullable UndeferrableValue<String> hostArn;
-
+    @PolicyResourceProperty(name="hostArn", flag="unknown_hostArn")
+    private @Nullable String value_hostArn;
+    private boolean unknown_hostArn;
     public @Nullable String hostArn() {
-        if (hostArn == null) return null;
-        return hostArn.getValue("Connection.hostArn");
+        if (!unknown_hostArn) return value_hostArn;
+        throw new UndeferrableValueException("Value 'Connection.hostArn' is not present");
     }
 
     /**
      * The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Connection.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Connection.name' is not present");
     }
 
     /**
      * The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
      * 
      */
-    private UndeferrableValue<String> providerType;
-
+    @PolicyResourceProperty(name="providerType", flag="unknown_providerType")
+    private String value_providerType;
+    private boolean unknown_providerType;
     public String providerType() {
-        if (providerType == null) return null;
-        return providerType.getValue("Connection.providerType");
+        if (!unknown_providerType) return value_providerType;
+        throw new UndeferrableValueException("Value 'Connection.providerType' is not present");
     }
 
     /**
      * Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Connection.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Connection.tags' is not present");
     }
 
     /**
@@ -87,11 +94,12 @@ public final class Connection extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Connection.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Connection.tagsAll' is not present");
     }
 
 }

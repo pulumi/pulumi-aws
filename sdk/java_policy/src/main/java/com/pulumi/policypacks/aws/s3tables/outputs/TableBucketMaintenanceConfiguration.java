@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3tables.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3tables.outputs.TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval;
 
 
@@ -14,11 +15,12 @@ public final class TableBucketMaintenanceConfiguration {
      * See `iceberg_unreferenced_file_removal` below.
      * 
      */
-    private UndeferrableValue<TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval> icebergUnreferencedFileRemoval;
-
+    @PolicyResourceProperty(name="icebergUnreferencedFileRemoval", flag="unknown_icebergUnreferencedFileRemoval")
+    private TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval value_icebergUnreferencedFileRemoval;
+    private boolean unknown_icebergUnreferencedFileRemoval;
     public TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemoval icebergUnreferencedFileRemoval() {
-        if (icebergUnreferencedFileRemoval == null) return null;
-        return icebergUnreferencedFileRemoval.getValue("TableBucketMaintenanceConfiguration.icebergUnreferencedFileRemoval");
+        if (!unknown_icebergUnreferencedFileRemoval) return value_icebergUnreferencedFileRemoval;
+        throw new UndeferrableValueException("Value 'TableBucketMaintenanceConfiguration.icebergUnreferencedFileRemoval' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafregional.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs {
      * When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
      * 
      */
-    private UndeferrableValue<String> data;
-
+    @PolicyResourceProperty(name="data", flag="unknown_data")
+    private String value_data;
+    private boolean unknown_data;
     public String data() {
-        if (data == null) return null;
-        return data.getValue("WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs.data");
+        if (!unknown_data) return value_data;
+        throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs.data' is not present");
     }
 
     /**
      * The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs.type' is not present");
     }
 
 }

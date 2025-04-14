@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.identitystore.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class UserExternalId {
      * The identifier issued to this resource by an external identity provider.
      * 
      */
-    private @Nullable UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private @Nullable String value_id;
+    private boolean unknown_id;
     public @Nullable String id() {
-        if (id == null) return null;
-        return id.getValue("UserExternalId.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'UserExternalId.id' is not present");
     }
 
     /**
      * The issuer for an external identifier.
      * 
      */
-    private @Nullable UndeferrableValue<String> issuer;
-
+    @PolicyResourceProperty(name="issuer", flag="unknown_issuer")
+    private @Nullable String value_issuer;
+    private boolean unknown_issuer;
     public @Nullable String issuer() {
-        if (issuer == null) return null;
-        return issuer.getValue("UserExternalId.issuer");
+        if (!unknown_issuer) return value_issuer;
+        throw new UndeferrableValueException("Value 'UserExternalId.issuer' is not present");
     }
 
 }

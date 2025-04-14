@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs;
 import com.pulumi.policypacks.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs;
 import com.pulumi.policypacks.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs;
@@ -26,55 +27,60 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
      * Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
      * 
      */
-    private UndeferrableValue<GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs> acceleratorCount;
-
+    @PolicyResourceProperty(name="acceleratorCount", flag="unknown_acceleratorCount")
+    private GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs value_acceleratorCount;
+    private boolean unknown_acceleratorCount;
     public GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs acceleratorCount() {
-        if (acceleratorCount == null) return null;
-        return acceleratorCount.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.acceleratorCount");
+        if (!unknown_acceleratorCount) return value_acceleratorCount;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.acceleratorCount' is not present");
     }
 
     /**
      * List of accelerator manufacturer names. Default is any manufacturer.
      * 
      */
-    private UndeferrableValue<List<String>> acceleratorManufacturers;
-
+    @PolicyResourceProperty(name="acceleratorManufacturers", flag="unknown_acceleratorManufacturers")
+    private List<String> value_acceleratorManufacturers;
+    private boolean unknown_acceleratorManufacturers;
     public List<String> acceleratorManufacturers() {
-        if (acceleratorManufacturers == null) return null;
-        return acceleratorManufacturers.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.acceleratorManufacturers");
+        if (!unknown_acceleratorManufacturers) return value_acceleratorManufacturers;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.acceleratorManufacturers' is not present");
     }
 
     /**
      * List of accelerator names. Default is any acclerator.
      * 
      */
-    private UndeferrableValue<List<String>> acceleratorNames;
-
+    @PolicyResourceProperty(name="acceleratorNames", flag="unknown_acceleratorNames")
+    private List<String> value_acceleratorNames;
+    private boolean unknown_acceleratorNames;
     public List<String> acceleratorNames() {
-        if (acceleratorNames == null) return null;
-        return acceleratorNames.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.acceleratorNames");
+        if (!unknown_acceleratorNames) return value_acceleratorNames;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.acceleratorNames' is not present");
     }
 
     /**
      * Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
      * 
      */
-    private UndeferrableValue<GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs> acceleratorTotalMemoryMib;
-
+    @PolicyResourceProperty(name="acceleratorTotalMemoryMib", flag="unknown_acceleratorTotalMemoryMib")
+    private GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs value_acceleratorTotalMemoryMib;
+    private boolean unknown_acceleratorTotalMemoryMib;
     public GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs acceleratorTotalMemoryMib() {
-        if (acceleratorTotalMemoryMib == null) return null;
-        return acceleratorTotalMemoryMib.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.acceleratorTotalMemoryMib");
+        if (!unknown_acceleratorTotalMemoryMib) return value_acceleratorTotalMemoryMib;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.acceleratorTotalMemoryMib' is not present");
     }
 
     /**
      * List of accelerator types. Default is any accelerator type.
      * 
      */
-    private UndeferrableValue<List<String>> acceleratorTypes;
-
+    @PolicyResourceProperty(name="acceleratorTypes", flag="unknown_acceleratorTypes")
+    private List<String> value_acceleratorTypes;
+    private boolean unknown_acceleratorTypes;
     public List<String> acceleratorTypes() {
-        if (acceleratorTypes == null) return null;
-        return acceleratorTypes.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.acceleratorTypes");
+        if (!unknown_acceleratorTypes) return value_acceleratorTypes;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.acceleratorTypes' is not present");
     }
 
     /**
@@ -83,44 +89,48 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
      * &gt; **NOTE:** If you specify `allowed_instance_types`, you can&#39;t specify `excluded_instance_types`.
      * 
      */
-    private UndeferrableValue<List<String>> allowedInstanceTypes;
-
+    @PolicyResourceProperty(name="allowedInstanceTypes", flag="unknown_allowedInstanceTypes")
+    private List<String> value_allowedInstanceTypes;
+    private boolean unknown_allowedInstanceTypes;
     public List<String> allowedInstanceTypes() {
-        if (allowedInstanceTypes == null) return null;
-        return allowedInstanceTypes.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.allowedInstanceTypes");
+        if (!unknown_allowedInstanceTypes) return value_allowedInstanceTypes;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.allowedInstanceTypes' is not present");
     }
 
     /**
      * Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
      * 
      */
-    private UndeferrableValue<String> bareMetal;
-
+    @PolicyResourceProperty(name="bareMetal", flag="unknown_bareMetal")
+    private String value_bareMetal;
+    private boolean unknown_bareMetal;
     public String bareMetal() {
-        if (bareMetal == null) return null;
-        return bareMetal.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.bareMetal");
+        if (!unknown_bareMetal) return value_bareMetal;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.bareMetal' is not present");
     }
 
     /**
      * Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
      * 
      */
-    private UndeferrableValue<GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs> baselineEbsBandwidthMbps;
-
+    @PolicyResourceProperty(name="baselineEbsBandwidthMbps", flag="unknown_baselineEbsBandwidthMbps")
+    private GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs value_baselineEbsBandwidthMbps;
+    private boolean unknown_baselineEbsBandwidthMbps;
     public GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs baselineEbsBandwidthMbps() {
-        if (baselineEbsBandwidthMbps == null) return null;
-        return baselineEbsBandwidthMbps.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.baselineEbsBandwidthMbps");
+        if (!unknown_baselineEbsBandwidthMbps) return value_baselineEbsBandwidthMbps;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.baselineEbsBandwidthMbps' is not present");
     }
 
     /**
      * Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
      * 
      */
-    private UndeferrableValue<String> burstablePerformance;
-
+    @PolicyResourceProperty(name="burstablePerformance", flag="unknown_burstablePerformance")
+    private String value_burstablePerformance;
+    private boolean unknown_burstablePerformance;
     public String burstablePerformance() {
-        if (burstablePerformance == null) return null;
-        return burstablePerformance.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.burstablePerformance");
+        if (!unknown_burstablePerformance) return value_burstablePerformance;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.burstablePerformance' is not present");
     }
 
     /**
@@ -129,11 +139,12 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
      * &gt; **NOTE:** Don&#39;t confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
      * 
      */
-    private UndeferrableValue<List<String>> cpuManufacturers;
-
+    @PolicyResourceProperty(name="cpuManufacturers", flag="unknown_cpuManufacturers")
+    private List<String> value_cpuManufacturers;
+    private boolean unknown_cpuManufacturers;
     public List<String> cpuManufacturers() {
-        if (cpuManufacturers == null) return null;
-        return cpuManufacturers.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.cpuManufacturers");
+        if (!unknown_cpuManufacturers) return value_cpuManufacturers;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.cpuManufacturers' is not present");
     }
 
     /**
@@ -142,99 +153,108 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
      * &gt; **NOTE:** If you specify `excluded_instance_types`, you can&#39;t specify `allowed_instance_types`.
      * 
      */
-    private UndeferrableValue<List<String>> excludedInstanceTypes;
-
+    @PolicyResourceProperty(name="excludedInstanceTypes", flag="unknown_excludedInstanceTypes")
+    private List<String> value_excludedInstanceTypes;
+    private boolean unknown_excludedInstanceTypes;
     public List<String> excludedInstanceTypes() {
-        if (excludedInstanceTypes == null) return null;
-        return excludedInstanceTypes.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.excludedInstanceTypes");
+        if (!unknown_excludedInstanceTypes) return value_excludedInstanceTypes;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.excludedInstanceTypes' is not present");
     }
 
     /**
      * List of instance generation names. Default is any generation.
      * 
      */
-    private UndeferrableValue<List<String>> instanceGenerations;
-
+    @PolicyResourceProperty(name="instanceGenerations", flag="unknown_instanceGenerations")
+    private List<String> value_instanceGenerations;
+    private boolean unknown_instanceGenerations;
     public List<String> instanceGenerations() {
-        if (instanceGenerations == null) return null;
-        return instanceGenerations.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.instanceGenerations");
+        if (!unknown_instanceGenerations) return value_instanceGenerations;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.instanceGenerations' is not present");
     }
 
     /**
      * Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
      * 
      */
-    private UndeferrableValue<String> localStorage;
-
+    @PolicyResourceProperty(name="localStorage", flag="unknown_localStorage")
+    private String value_localStorage;
+    private boolean unknown_localStorage;
     public String localStorage() {
-        if (localStorage == null) return null;
-        return localStorage.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.localStorage");
+        if (!unknown_localStorage) return value_localStorage;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.localStorage' is not present");
     }
 
     /**
      * List of local storage type names. Default any storage type.
      * 
      */
-    private UndeferrableValue<List<String>> localStorageTypes;
-
+    @PolicyResourceProperty(name="localStorageTypes", flag="unknown_localStorageTypes")
+    private List<String> value_localStorageTypes;
+    private boolean unknown_localStorageTypes;
     public List<String> localStorageTypes() {
-        if (localStorageTypes == null) return null;
-        return localStorageTypes.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.localStorageTypes");
+        if (!unknown_localStorageTypes) return value_localStorageTypes;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.localStorageTypes' is not present");
     }
 
     /**
      * The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spot_max_price_percentage_over_lowest_price`
      * 
      */
-    private UndeferrableValue<Integer> maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
-
+    @PolicyResourceProperty(name="maxSpotPriceAsPercentageOfOptimalOnDemandPrice", flag="unknown_maxSpotPriceAsPercentageOfOptimalOnDemandPrice")
+    private Integer value_maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
+    private boolean unknown_maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
     public Integer maxSpotPriceAsPercentageOfOptimalOnDemandPrice() {
-        if (maxSpotPriceAsPercentageOfOptimalOnDemandPrice == null) return null;
-        return maxSpotPriceAsPercentageOfOptimalOnDemandPrice.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.maxSpotPriceAsPercentageOfOptimalOnDemandPrice");
+        if (!unknown_maxSpotPriceAsPercentageOfOptimalOnDemandPrice) return value_maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.maxSpotPriceAsPercentageOfOptimalOnDemandPrice' is not present");
     }
 
     /**
      * Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
      * 
      */
-    private UndeferrableValue<GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs> memoryGibPerVcpu;
-
+    @PolicyResourceProperty(name="memoryGibPerVcpu", flag="unknown_memoryGibPerVcpu")
+    private GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs value_memoryGibPerVcpu;
+    private boolean unknown_memoryGibPerVcpu;
     public GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs memoryGibPerVcpu() {
-        if (memoryGibPerVcpu == null) return null;
-        return memoryGibPerVcpu.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.memoryGibPerVcpu");
+        if (!unknown_memoryGibPerVcpu) return value_memoryGibPerVcpu;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.memoryGibPerVcpu' is not present");
     }
 
     /**
      * Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
      * 
      */
-    private UndeferrableValue<GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs> memoryMib;
-
+    @PolicyResourceProperty(name="memoryMib", flag="unknown_memoryMib")
+    private GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs value_memoryMib;
+    private boolean unknown_memoryMib;
     public GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs memoryMib() {
-        if (memoryMib == null) return null;
-        return memoryMib.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.memoryMib");
+        if (!unknown_memoryMib) return value_memoryMib;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.memoryMib' is not present");
     }
 
     /**
      * Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
      * 
      */
-    private UndeferrableValue<GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsArgs> networkBandwidthGbps;
-
+    @PolicyResourceProperty(name="networkBandwidthGbps", flag="unknown_networkBandwidthGbps")
+    private GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsArgs value_networkBandwidthGbps;
+    private boolean unknown_networkBandwidthGbps;
     public GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsArgs networkBandwidthGbps() {
-        if (networkBandwidthGbps == null) return null;
-        return networkBandwidthGbps.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.networkBandwidthGbps");
+        if (!unknown_networkBandwidthGbps) return value_networkBandwidthGbps;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.networkBandwidthGbps' is not present");
     }
 
     /**
      * Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
      * 
      */
-    private UndeferrableValue<GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs> networkInterfaceCount;
-
+    @PolicyResourceProperty(name="networkInterfaceCount", flag="unknown_networkInterfaceCount")
+    private GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs value_networkInterfaceCount;
+    private boolean unknown_networkInterfaceCount;
     public GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs networkInterfaceCount() {
-        if (networkInterfaceCount == null) return null;
-        return networkInterfaceCount.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.networkInterfaceCount");
+        if (!unknown_networkInterfaceCount) return value_networkInterfaceCount;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.networkInterfaceCount' is not present");
     }
 
     /**
@@ -243,22 +263,24 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
      * If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
      * 
      */
-    private UndeferrableValue<Integer> onDemandMaxPricePercentageOverLowestPrice;
-
+    @PolicyResourceProperty(name="onDemandMaxPricePercentageOverLowestPrice", flag="unknown_onDemandMaxPricePercentageOverLowestPrice")
+    private Integer value_onDemandMaxPricePercentageOverLowestPrice;
+    private boolean unknown_onDemandMaxPricePercentageOverLowestPrice;
     public Integer onDemandMaxPricePercentageOverLowestPrice() {
-        if (onDemandMaxPricePercentageOverLowestPrice == null) return null;
-        return onDemandMaxPricePercentageOverLowestPrice.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.onDemandMaxPricePercentageOverLowestPrice");
+        if (!unknown_onDemandMaxPricePercentageOverLowestPrice) return value_onDemandMaxPricePercentageOverLowestPrice;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.onDemandMaxPricePercentageOverLowestPrice' is not present");
     }
 
     /**
      * Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> requireHibernateSupport;
-
+    @PolicyResourceProperty(name="requireHibernateSupport", flag="unknown_requireHibernateSupport")
+    private Boolean value_requireHibernateSupport;
+    private boolean unknown_requireHibernateSupport;
     public Boolean requireHibernateSupport() {
-        if (requireHibernateSupport == null) return null;
-        return requireHibernateSupport.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.requireHibernateSupport");
+        if (!unknown_requireHibernateSupport) return value_requireHibernateSupport;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.requireHibernateSupport' is not present");
     }
 
     /**
@@ -267,33 +289,36 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
      * If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
      * 
      */
-    private UndeferrableValue<Integer> spotMaxPricePercentageOverLowestPrice;
-
+    @PolicyResourceProperty(name="spotMaxPricePercentageOverLowestPrice", flag="unknown_spotMaxPricePercentageOverLowestPrice")
+    private Integer value_spotMaxPricePercentageOverLowestPrice;
+    private boolean unknown_spotMaxPricePercentageOverLowestPrice;
     public Integer spotMaxPricePercentageOverLowestPrice() {
-        if (spotMaxPricePercentageOverLowestPrice == null) return null;
-        return spotMaxPricePercentageOverLowestPrice.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.spotMaxPricePercentageOverLowestPrice");
+        if (!unknown_spotMaxPricePercentageOverLowestPrice) return value_spotMaxPricePercentageOverLowestPrice;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.spotMaxPricePercentageOverLowestPrice' is not present");
     }
 
     /**
      * Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
      * 
      */
-    private UndeferrableValue<GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs> totalLocalStorageGb;
-
+    @PolicyResourceProperty(name="totalLocalStorageGb", flag="unknown_totalLocalStorageGb")
+    private GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs value_totalLocalStorageGb;
+    private boolean unknown_totalLocalStorageGb;
     public GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs totalLocalStorageGb() {
-        if (totalLocalStorageGb == null) return null;
-        return totalLocalStorageGb.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.totalLocalStorageGb");
+        if (!unknown_totalLocalStorageGb) return value_totalLocalStorageGb;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.totalLocalStorageGb' is not present");
     }
 
     /**
      * Block describing the minimum and maximum number of vCPUs. Default is no maximum.
      * 
      */
-    private UndeferrableValue<GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs> vcpuCount;
-
+    @PolicyResourceProperty(name="vcpuCount", flag="unknown_vcpuCount")
+    private GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs value_vcpuCount;
+    private boolean unknown_vcpuCount;
     public GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs vcpuCount() {
-        if (vcpuCount == null) return null;
-        return vcpuCount.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.vcpuCount");
+        if (!unknown_vcpuCount) return value_vcpuCount;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.vcpuCount' is not present");
     }
 
 }

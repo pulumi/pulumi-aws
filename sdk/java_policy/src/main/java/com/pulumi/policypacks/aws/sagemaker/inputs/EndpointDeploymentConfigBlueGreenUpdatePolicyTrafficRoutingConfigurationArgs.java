@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs;
 import java.lang.Integer;
@@ -17,44 +18,48 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingCo
      * Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant&#39;s total instance count. See Canary Size.
      * 
      */
-    private UndeferrableValue<EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs> canarySize;
-
+    @PolicyResourceProperty(name="canarySize", flag="unknown_canarySize")
+    private EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs value_canarySize;
+    private boolean unknown_canarySize;
     public EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs canarySize() {
-        if (canarySize == null) return null;
-        return canarySize.getValue("EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs.canarySize");
+        if (!unknown_canarySize) return value_canarySize;
+        throw new UndeferrableValueException("Value 'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs.canarySize' is not present");
     }
 
     /**
      * Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant&#39;s total instance count. See Linear Step Size.
      * 
      */
-    private UndeferrableValue<EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs> linearStepSize;
-
+    @PolicyResourceProperty(name="linearStepSize", flag="unknown_linearStepSize")
+    private EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs value_linearStepSize;
+    private boolean unknown_linearStepSize;
     public EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs linearStepSize() {
-        if (linearStepSize == null) return null;
-        return linearStepSize.getValue("EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs.linearStepSize");
+        if (!unknown_linearStepSize) return value_linearStepSize;
+        throw new UndeferrableValueException("Value 'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs.linearStepSize' is not present");
     }
 
     /**
      * Traffic routing strategy type. Valid values are: `ALL_AT_ONCE`, `CANARY`, and `LINEAR`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs.type' is not present");
     }
 
     /**
      * The waiting time (in seconds) between incremental steps to turn on traffic on the new endpoint fleet. Valid values are between `0` and `3600`.
      * 
      */
-    private UndeferrableValue<Integer> waitIntervalInSeconds;
-
+    @PolicyResourceProperty(name="waitIntervalInSeconds", flag="unknown_waitIntervalInSeconds")
+    private Integer value_waitIntervalInSeconds;
+    private boolean unknown_waitIntervalInSeconds;
     public Integer waitIntervalInSeconds() {
-        if (waitIntervalInSeconds == null) return null;
-        return waitIntervalInSeconds.getValue("EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs.waitIntervalInSeconds");
+        if (!unknown_waitIntervalInSeconds) return value_waitIntervalInSeconds;
+        throw new UndeferrableValueException("Value 'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs.waitIntervalInSeconds' is not present");
     }
 
 }

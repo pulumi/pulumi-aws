@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -19,110 +20,120 @@ public final class ProxyTarget extends com.pulumi.resources.PolicyResourceOutput
      * **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
      * 
      */
-    private @Nullable UndeferrableValue<String> dbClusterIdentifier;
-
+    @PolicyResourceProperty(name="dbClusterIdentifier", flag="unknown_dbClusterIdentifier")
+    private @Nullable String value_dbClusterIdentifier;
+    private boolean unknown_dbClusterIdentifier;
     public @Nullable String dbClusterIdentifier() {
-        if (dbClusterIdentifier == null) return null;
-        return dbClusterIdentifier.getValue("ProxyTarget.dbClusterIdentifier");
+        if (!unknown_dbClusterIdentifier) return value_dbClusterIdentifier;
+        throw new UndeferrableValueException("Value 'ProxyTarget.dbClusterIdentifier' is not present");
     }
 
     /**
      * DB instance identifier.
      * 
      */
-    private @Nullable UndeferrableValue<String> dbInstanceIdentifier;
-
+    @PolicyResourceProperty(name="dbInstanceIdentifier", flag="unknown_dbInstanceIdentifier")
+    private @Nullable String value_dbInstanceIdentifier;
+    private boolean unknown_dbInstanceIdentifier;
     public @Nullable String dbInstanceIdentifier() {
-        if (dbInstanceIdentifier == null) return null;
-        return dbInstanceIdentifier.getValue("ProxyTarget.dbInstanceIdentifier");
+        if (!unknown_dbInstanceIdentifier) return value_dbInstanceIdentifier;
+        throw new UndeferrableValueException("Value 'ProxyTarget.dbInstanceIdentifier' is not present");
     }
 
     /**
      * The name of the DB proxy.
      * 
      */
-    private UndeferrableValue<String> dbProxyName;
-
+    @PolicyResourceProperty(name="dbProxyName", flag="unknown_dbProxyName")
+    private String value_dbProxyName;
+    private boolean unknown_dbProxyName;
     public String dbProxyName() {
-        if (dbProxyName == null) return null;
-        return dbProxyName.getValue("ProxyTarget.dbProxyName");
+        if (!unknown_dbProxyName) return value_dbProxyName;
+        throw new UndeferrableValueException("Value 'ProxyTarget.dbProxyName' is not present");
     }
 
     /**
      * Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
      * 
      */
-    private UndeferrableValue<String> endpoint;
-
+    @PolicyResourceProperty(name="endpoint", flag="unknown_endpoint")
+    private String value_endpoint;
+    private boolean unknown_endpoint;
     public String endpoint() {
-        if (endpoint == null) return null;
-        return endpoint.getValue("ProxyTarget.endpoint");
+        if (!unknown_endpoint) return value_endpoint;
+        throw new UndeferrableValueException("Value 'ProxyTarget.endpoint' is not present");
     }
 
     /**
      * Port for the target RDS DB Instance or Aurora DB Cluster.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("ProxyTarget.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'ProxyTarget.port' is not present");
     }
 
     /**
      * Identifier representing the DB Instance or DB Cluster target.
      * 
      */
-    private UndeferrableValue<String> rdsResourceId;
-
+    @PolicyResourceProperty(name="rdsResourceId", flag="unknown_rdsResourceId")
+    private String value_rdsResourceId;
+    private boolean unknown_rdsResourceId;
     public String rdsResourceId() {
-        if (rdsResourceId == null) return null;
-        return rdsResourceId.getValue("ProxyTarget.rdsResourceId");
+        if (!unknown_rdsResourceId) return value_rdsResourceId;
+        throw new UndeferrableValueException("Value 'ProxyTarget.rdsResourceId' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
      * 
      */
-    private UndeferrableValue<String> targetArn;
-
+    @PolicyResourceProperty(name="targetArn", flag="unknown_targetArn")
+    private String value_targetArn;
+    private boolean unknown_targetArn;
     public String targetArn() {
-        if (targetArn == null) return null;
-        return targetArn.getValue("ProxyTarget.targetArn");
+        if (!unknown_targetArn) return value_targetArn;
+        throw new UndeferrableValueException("Value 'ProxyTarget.targetArn' is not present");
     }
 
     /**
      * The name of the target group.
      * 
      */
-    private UndeferrableValue<String> targetGroupName;
-
+    @PolicyResourceProperty(name="targetGroupName", flag="unknown_targetGroupName")
+    private String value_targetGroupName;
+    private boolean unknown_targetGroupName;
     public String targetGroupName() {
-        if (targetGroupName == null) return null;
-        return targetGroupName.getValue("ProxyTarget.targetGroupName");
+        if (!unknown_targetGroupName) return value_targetGroupName;
+        throw new UndeferrableValueException("Value 'ProxyTarget.targetGroupName' is not present");
     }
 
     /**
      * DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
      * 
      */
-    private UndeferrableValue<String> trackedClusterId;
-
+    @PolicyResourceProperty(name="trackedClusterId", flag="unknown_trackedClusterId")
+    private String value_trackedClusterId;
+    private boolean unknown_trackedClusterId;
     public String trackedClusterId() {
-        if (trackedClusterId == null) return null;
-        return trackedClusterId.getValue("ProxyTarget.trackedClusterId");
+        if (!unknown_trackedClusterId) return value_trackedClusterId;
+        throw new UndeferrableValueException("Value 'ProxyTarget.trackedClusterId' is not present");
     }
 
     /**
      * Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ProxyTarget.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ProxyTarget.type' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.budgets.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,22 +15,24 @@ public final class BudgetActionDefinitionScpActionDefinitionArgs {
      * The policy ID attached.
      * 
      */
-    private UndeferrableValue<String> policyId;
-
+    @PolicyResourceProperty(name="policyId", flag="unknown_policyId")
+    private String value_policyId;
+    private boolean unknown_policyId;
     public String policyId() {
-        if (policyId == null) return null;
-        return policyId.getValue("BudgetActionDefinitionScpActionDefinitionArgs.policyId");
+        if (!unknown_policyId) return value_policyId;
+        throw new UndeferrableValueException("Value 'BudgetActionDefinitionScpActionDefinitionArgs.policyId' is not present");
     }
 
     /**
      * A list of target IDs.
      * 
      */
-    private UndeferrableValue<List<String>> targetIds;
-
+    @PolicyResourceProperty(name="targetIds", flag="unknown_targetIds")
+    private List<String> value_targetIds;
+    private boolean unknown_targetIds;
     public List<String> targetIds() {
-        if (targetIds == null) return null;
-        return targetIds.getValue("BudgetActionDefinitionScpActionDefinitionArgs.targetIds");
+        if (!unknown_targetIds) return value_targetIds;
+        throw new UndeferrableValueException("Value 'BudgetActionDefinitionScpActionDefinitionArgs.targetIds' is not present");
     }
 
 }

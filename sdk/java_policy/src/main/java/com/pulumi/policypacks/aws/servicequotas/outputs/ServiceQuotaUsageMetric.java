@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicequotas.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.servicequotas.outputs.ServiceQuotaUsageMetricMetricDimension;
 import java.lang.String;
 import java.util.List;
@@ -16,44 +17,48 @@ public final class ServiceQuotaUsageMetric {
      * The metric dimensions.
      * 
      */
-    private @Nullable UndeferrableValue<List<ServiceQuotaUsageMetricMetricDimension>> metricDimensions;
-
+    @PolicyResourceProperty(name="metricDimensions", flag="unknown_metricDimensions")
+    private @Nullable List<ServiceQuotaUsageMetricMetricDimension> value_metricDimensions;
+    private boolean unknown_metricDimensions;
     public @Nullable List<ServiceQuotaUsageMetricMetricDimension> metricDimensions() {
-        if (metricDimensions == null) return null;
-        return metricDimensions.getValue("ServiceQuotaUsageMetric.metricDimensions");
+        if (!unknown_metricDimensions) return value_metricDimensions;
+        throw new UndeferrableValueException("Value 'ServiceQuotaUsageMetric.metricDimensions' is not present");
     }
 
     /**
      * The name of the metric.
      * 
      */
-    private @Nullable UndeferrableValue<String> metricName;
-
+    @PolicyResourceProperty(name="metricName", flag="unknown_metricName")
+    private @Nullable String value_metricName;
+    private boolean unknown_metricName;
     public @Nullable String metricName() {
-        if (metricName == null) return null;
-        return metricName.getValue("ServiceQuotaUsageMetric.metricName");
+        if (!unknown_metricName) return value_metricName;
+        throw new UndeferrableValueException("Value 'ServiceQuotaUsageMetric.metricName' is not present");
     }
 
     /**
      * The namespace of the metric.
      * 
      */
-    private @Nullable UndeferrableValue<String> metricNamespace;
-
+    @PolicyResourceProperty(name="metricNamespace", flag="unknown_metricNamespace")
+    private @Nullable String value_metricNamespace;
+    private boolean unknown_metricNamespace;
     public @Nullable String metricNamespace() {
-        if (metricNamespace == null) return null;
-        return metricNamespace.getValue("ServiceQuotaUsageMetric.metricNamespace");
+        if (!unknown_metricNamespace) return value_metricNamespace;
+        throw new UndeferrableValueException("Value 'ServiceQuotaUsageMetric.metricNamespace' is not present");
     }
 
     /**
      * The metric statistic that AWS recommend you use when determining quota usage.
      * 
      */
-    private @Nullable UndeferrableValue<String> metricStatisticRecommendation;
-
+    @PolicyResourceProperty(name="metricStatisticRecommendation", flag="unknown_metricStatisticRecommendation")
+    private @Nullable String value_metricStatisticRecommendation;
+    private boolean unknown_metricStatisticRecommendation;
     public @Nullable String metricStatisticRecommendation() {
-        if (metricStatisticRecommendation == null) return null;
-        return metricStatisticRecommendation.getValue("ServiceQuotaUsageMetric.metricStatisticRecommendation");
+        if (!unknown_metricStatisticRecommendation) return value_metricStatisticRecommendation;
+        throw new UndeferrableValueException("Value 'ServiceQuotaUsageMetric.metricStatisticRecommendation' is not present");
     }
 
 }

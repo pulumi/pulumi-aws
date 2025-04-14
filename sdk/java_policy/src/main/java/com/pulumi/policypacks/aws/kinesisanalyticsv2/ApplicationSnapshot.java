@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class ApplicationSnapshot extends com.pulumi.resources.PolicyResour
      * The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
      * 
      */
-    private UndeferrableValue<String> applicationName;
-
+    @PolicyResourceProperty(name="applicationName", flag="unknown_applicationName")
+    private String value_applicationName;
+    private boolean unknown_applicationName;
     public String applicationName() {
-        if (applicationName == null) return null;
-        return applicationName.getValue("ApplicationSnapshot.applicationName");
+        if (!unknown_applicationName) return value_applicationName;
+        throw new UndeferrableValueException("Value 'ApplicationSnapshot.applicationName' is not present");
     }
 
     /**
      * The current application version ID when the snapshot was created.
      * 
      */
-    private UndeferrableValue<Integer> applicationVersionId;
-
+    @PolicyResourceProperty(name="applicationVersionId", flag="unknown_applicationVersionId")
+    private Integer value_applicationVersionId;
+    private boolean unknown_applicationVersionId;
     public Integer applicationVersionId() {
-        if (applicationVersionId == null) return null;
-        return applicationVersionId.getValue("ApplicationSnapshot.applicationVersionId");
+        if (!unknown_applicationVersionId) return value_applicationVersionId;
+        throw new UndeferrableValueException("Value 'ApplicationSnapshot.applicationVersionId' is not present");
     }
 
     /**
      * The timestamp of the application snapshot.
      * 
      */
-    private UndeferrableValue<String> snapshotCreationTimestamp;
-
+    @PolicyResourceProperty(name="snapshotCreationTimestamp", flag="unknown_snapshotCreationTimestamp")
+    private String value_snapshotCreationTimestamp;
+    private boolean unknown_snapshotCreationTimestamp;
     public String snapshotCreationTimestamp() {
-        if (snapshotCreationTimestamp == null) return null;
-        return snapshotCreationTimestamp.getValue("ApplicationSnapshot.snapshotCreationTimestamp");
+        if (!unknown_snapshotCreationTimestamp) return value_snapshotCreationTimestamp;
+        throw new UndeferrableValueException("Value 'ApplicationSnapshot.snapshotCreationTimestamp' is not present");
     }
 
     /**
      * The name of the application snapshot.
      * 
      */
-    private UndeferrableValue<String> snapshotName;
-
+    @PolicyResourceProperty(name="snapshotName", flag="unknown_snapshotName")
+    private String value_snapshotName;
+    private boolean unknown_snapshotName;
     public String snapshotName() {
-        if (snapshotName == null) return null;
-        return snapshotName.getValue("ApplicationSnapshot.snapshotName");
+        if (!unknown_snapshotName) return value_snapshotName;
+        throw new UndeferrableValueException("Value 'ApplicationSnapshot.snapshotName' is not present");
     }
 
 }

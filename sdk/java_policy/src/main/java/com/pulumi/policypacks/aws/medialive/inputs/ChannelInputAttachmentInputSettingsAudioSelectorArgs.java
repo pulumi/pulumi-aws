@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -17,18 +18,20 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorArgs {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ChannelInputAttachmentInputSettingsAudioSelectorArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorArgs.name' is not present");
     }
 
-    private UndeferrableValue<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs> selectorSettings;
-
+    @PolicyResourceProperty(name="selectorSettings", flag="unknown_selectorSettings")
+    private ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs value_selectorSettings;
+    private boolean unknown_selectorSettings;
     public ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs selectorSettings() {
-        if (selectorSettings == null) return null;
-        return selectorSettings.getValue("ChannelInputAttachmentInputSettingsAudioSelectorArgs.selectorSettings");
+        if (!unknown_selectorSettings) return value_selectorSettings;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorArgs.selectorSettings' is not present");
     }
 
 }

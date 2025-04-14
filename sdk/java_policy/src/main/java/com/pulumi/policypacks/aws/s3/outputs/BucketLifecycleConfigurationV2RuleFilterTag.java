@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class BucketLifecycleConfigurationV2RuleFilterTag {
      * Name of the object key.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("BucketLifecycleConfigurationV2RuleFilterTag.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleFilterTag.key' is not present");
     }
 
     /**
      * Value of the tag.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("BucketLifecycleConfigurationV2RuleFilterTag.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleFilterTag.value' is not present");
     }
 
 }

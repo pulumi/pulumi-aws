@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class DataSourceParametersRedshift {
      * The ID of the cluster to which to connect.
      * 
      */
-    private @Nullable UndeferrableValue<String> clusterId;
-
+    @PolicyResourceProperty(name="clusterId", flag="unknown_clusterId")
+    private @Nullable String value_clusterId;
+    private boolean unknown_clusterId;
     public @Nullable String clusterId() {
-        if (clusterId == null) return null;
-        return clusterId.getValue("DataSourceParametersRedshift.clusterId");
+        if (!unknown_clusterId) return value_clusterId;
+        throw new UndeferrableValueException("Value 'DataSourceParametersRedshift.clusterId' is not present");
     }
 
     /**
      * The database to which to connect.
      * 
      */
-    private UndeferrableValue<String> database;
-
+    @PolicyResourceProperty(name="database", flag="unknown_database")
+    private String value_database;
+    private boolean unknown_database;
     public String database() {
-        if (database == null) return null;
-        return database.getValue("DataSourceParametersRedshift.database");
+        if (!unknown_database) return value_database;
+        throw new UndeferrableValueException("Value 'DataSourceParametersRedshift.database' is not present");
     }
 
     /**
      * The host to which to connect.
      * 
      */
-    private @Nullable UndeferrableValue<String> host;
-
+    @PolicyResourceProperty(name="host", flag="unknown_host")
+    private @Nullable String value_host;
+    private boolean unknown_host;
     public @Nullable String host() {
-        if (host == null) return null;
-        return host.getValue("DataSourceParametersRedshift.host");
+        if (!unknown_host) return value_host;
+        throw new UndeferrableValueException("Value 'DataSourceParametersRedshift.host' is not present");
     }
 
     /**
      * The port to which to connect.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable Integer value_port;
+    private boolean unknown_port;
     public @Nullable Integer port() {
-        if (port == null) return null;
-        return port.getValue("DataSourceParametersRedshift.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'DataSourceParametersRedshift.port' is not present");
     }
 
 }

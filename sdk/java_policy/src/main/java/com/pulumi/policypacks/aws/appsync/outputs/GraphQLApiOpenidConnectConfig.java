@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class GraphQLApiOpenidConnectConfig {
      * Number of milliseconds a token is valid after being authenticated.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> authTtl;
-
+    @PolicyResourceProperty(name="authTtl", flag="unknown_authTtl")
+    private @Nullable Integer value_authTtl;
+    private boolean unknown_authTtl;
     public @Nullable Integer authTtl() {
-        if (authTtl == null) return null;
-        return authTtl.getValue("GraphQLApiOpenidConnectConfig.authTtl");
+        if (!unknown_authTtl) return value_authTtl;
+        throw new UndeferrableValueException("Value 'GraphQLApiOpenidConnectConfig.authTtl' is not present");
     }
 
     /**
      * Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
      * 
      */
-    private @Nullable UndeferrableValue<String> clientId;
-
+    @PolicyResourceProperty(name="clientId", flag="unknown_clientId")
+    private @Nullable String value_clientId;
+    private boolean unknown_clientId;
     public @Nullable String clientId() {
-        if (clientId == null) return null;
-        return clientId.getValue("GraphQLApiOpenidConnectConfig.clientId");
+        if (!unknown_clientId) return value_clientId;
+        throw new UndeferrableValueException("Value 'GraphQLApiOpenidConnectConfig.clientId' is not present");
     }
 
     /**
      * Number of milliseconds a token is valid after being issued to a user.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> iatTtl;
-
+    @PolicyResourceProperty(name="iatTtl", flag="unknown_iatTtl")
+    private @Nullable Integer value_iatTtl;
+    private boolean unknown_iatTtl;
     public @Nullable Integer iatTtl() {
-        if (iatTtl == null) return null;
-        return iatTtl.getValue("GraphQLApiOpenidConnectConfig.iatTtl");
+        if (!unknown_iatTtl) return value_iatTtl;
+        throw new UndeferrableValueException("Value 'GraphQLApiOpenidConnectConfig.iatTtl' is not present");
     }
 
     /**
      * Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
      * 
      */
-    private UndeferrableValue<String> issuer;
-
+    @PolicyResourceProperty(name="issuer", flag="unknown_issuer")
+    private String value_issuer;
+    private boolean unknown_issuer;
     public String issuer() {
-        if (issuer == null) return null;
-        return issuer.getValue("GraphQLApiOpenidConnectConfig.issuer");
+        if (!unknown_issuer) return value_issuer;
+        throw new UndeferrableValueException("Value 'GraphQLApiOpenidConnectConfig.issuer' is not present");
     }
 
 }

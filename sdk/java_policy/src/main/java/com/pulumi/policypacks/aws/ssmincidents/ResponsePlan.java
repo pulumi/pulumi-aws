@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssmincidents;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ssmincidents.outputs.ResponsePlanAction;
 import com.pulumi.policypacks.aws.ssmincidents.outputs.ResponsePlanIncidentTemplate;
@@ -17,75 +18,84 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:ssmincidents/responsePlan:ResponsePlan")
 public final class ResponsePlan extends com.pulumi.resources.PolicyResourceOutput {
 
-    private @Nullable UndeferrableValue<ResponsePlanAction> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private @Nullable ResponsePlanAction value_action;
+    private boolean unknown_action;
     public @Nullable ResponsePlanAction action() {
-        if (action == null) return null;
-        return action.getValue("ResponsePlan.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'ResponsePlan.action' is not present");
     }
 
     /**
      * The ARN of the response plan.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ResponsePlan.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ResponsePlan.arn' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<String>> chatChannels;
-
+    @PolicyResourceProperty(name="chatChannels", flag="unknown_chatChannels")
+    private @Nullable List<String> value_chatChannels;
+    private boolean unknown_chatChannels;
     public @Nullable List<String> chatChannels() {
-        if (chatChannels == null) return null;
-        return chatChannels.getValue("ResponsePlan.chatChannels");
+        if (!unknown_chatChannels) return value_chatChannels;
+        throw new UndeferrableValueException("Value 'ResponsePlan.chatChannels' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> displayName;
-
+    @PolicyResourceProperty(name="displayName", flag="unknown_displayName")
+    private @Nullable String value_displayName;
+    private boolean unknown_displayName;
     public @Nullable String displayName() {
-        if (displayName == null) return null;
-        return displayName.getValue("ResponsePlan.displayName");
+        if (!unknown_displayName) return value_displayName;
+        throw new UndeferrableValueException("Value 'ResponsePlan.displayName' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<String>> engagements;
-
+    @PolicyResourceProperty(name="engagements", flag="unknown_engagements")
+    private @Nullable List<String> value_engagements;
+    private boolean unknown_engagements;
     public @Nullable List<String> engagements() {
-        if (engagements == null) return null;
-        return engagements.getValue("ResponsePlan.engagements");
+        if (!unknown_engagements) return value_engagements;
+        throw new UndeferrableValueException("Value 'ResponsePlan.engagements' is not present");
     }
 
-    private UndeferrableValue<ResponsePlanIncidentTemplate> incidentTemplate;
-
+    @PolicyResourceProperty(name="incidentTemplate", flag="unknown_incidentTemplate")
+    private ResponsePlanIncidentTemplate value_incidentTemplate;
+    private boolean unknown_incidentTemplate;
     public ResponsePlanIncidentTemplate incidentTemplate() {
-        if (incidentTemplate == null) return null;
-        return incidentTemplate.getValue("ResponsePlan.incidentTemplate");
+        if (!unknown_incidentTemplate) return value_incidentTemplate;
+        throw new UndeferrableValueException("Value 'ResponsePlan.incidentTemplate' is not present");
     }
 
-    private @Nullable UndeferrableValue<ResponsePlanIntegration> integration;
-
+    @PolicyResourceProperty(name="integration", flag="unknown_integration")
+    private @Nullable ResponsePlanIntegration value_integration;
+    private boolean unknown_integration;
     public @Nullable ResponsePlanIntegration integration() {
-        if (integration == null) return null;
-        return integration.getValue("ResponsePlan.integration");
+        if (!unknown_integration) return value_integration;
+        throw new UndeferrableValueException("Value 'ResponsePlan.integration' is not present");
     }
 
     /**
      * The name of the response plan.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ResponsePlan.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ResponsePlan.name' is not present");
     }
 
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ResponsePlan.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ResponsePlan.tags' is not present");
     }
 
     /**
@@ -96,11 +106,12 @@ public final class ResponsePlan extends com.pulumi.resources.PolicyResourceOutpu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ResponsePlan.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ResponsePlan.tagsAll' is not present");
     }
 
 }

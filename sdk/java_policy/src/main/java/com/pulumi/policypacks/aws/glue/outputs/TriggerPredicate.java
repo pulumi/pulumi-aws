@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.glue.outputs.TriggerPredicateCondition;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class TriggerPredicate {
      * A list of the conditions that determine when the trigger will fire. See Conditions.
      * 
      */
-    private UndeferrableValue<List<TriggerPredicateCondition>> conditions;
-
+    @PolicyResourceProperty(name="conditions", flag="unknown_conditions")
+    private List<TriggerPredicateCondition> value_conditions;
+    private boolean unknown_conditions;
     public List<TriggerPredicateCondition> conditions() {
-        if (conditions == null) return null;
-        return conditions.getValue("TriggerPredicate.conditions");
+        if (!unknown_conditions) return value_conditions;
+        throw new UndeferrableValueException("Value 'TriggerPredicate.conditions' is not present");
     }
 
     /**
      * How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
      * 
      */
-    private @Nullable UndeferrableValue<String> logical;
-
+    @PolicyResourceProperty(name="logical", flag="unknown_logical")
+    private @Nullable String value_logical;
+    private boolean unknown_logical;
     public @Nullable String logical() {
-        if (logical == null) return null;
-        return logical.getValue("TriggerPredicate.logical");
+        if (!unknown_logical) return value_logical;
+        throw new UndeferrableValueException("Value 'TriggerPredicate.logical' is not present");
     }
 
 }

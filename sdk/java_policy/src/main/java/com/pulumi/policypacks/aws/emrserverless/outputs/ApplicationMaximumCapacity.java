@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emrserverless.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class ApplicationMaximumCapacity {
      * The maximum allowed CPU for an application.
      * 
      */
-    private UndeferrableValue<String> cpu;
-
+    @PolicyResourceProperty(name="cpu", flag="unknown_cpu")
+    private String value_cpu;
+    private boolean unknown_cpu;
     public String cpu() {
-        if (cpu == null) return null;
-        return cpu.getValue("ApplicationMaximumCapacity.cpu");
+        if (!unknown_cpu) return value_cpu;
+        throw new UndeferrableValueException("Value 'ApplicationMaximumCapacity.cpu' is not present");
     }
 
     /**
      * The maximum allowed disk for an application.
      * 
      */
-    private @Nullable UndeferrableValue<String> disk;
-
+    @PolicyResourceProperty(name="disk", flag="unknown_disk")
+    private @Nullable String value_disk;
+    private boolean unknown_disk;
     public @Nullable String disk() {
-        if (disk == null) return null;
-        return disk.getValue("ApplicationMaximumCapacity.disk");
+        if (!unknown_disk) return value_disk;
+        throw new UndeferrableValueException("Value 'ApplicationMaximumCapacity.disk' is not present");
     }
 
     /**
      * The maximum allowed resources for an application.
      * 
      */
-    private UndeferrableValue<String> memory;
-
+    @PolicyResourceProperty(name="memory", flag="unknown_memory")
+    private String value_memory;
+    private boolean unknown_memory;
     public String memory() {
-        if (memory == null) return null;
-        return memory.getValue("ApplicationMaximumCapacity.memory");
+        if (!unknown_memory) return value_memory;
+        throw new UndeferrableValueException("Value 'ApplicationMaximumCapacity.memory' is not present");
     }
 
 }

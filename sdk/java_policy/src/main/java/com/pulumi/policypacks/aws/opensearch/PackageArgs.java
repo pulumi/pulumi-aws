@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.opensearch.inputs.PackagePackageSourceArgs;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class PackageArgs extends com.pulumi.resources.PolicyResourceInput 
      * Description of the package.
      * 
      */
-    private UndeferrableValue<String> packageDescription;
-
+    @PolicyResourceProperty(name="packageDescription", flag="unknown_packageDescription")
+    private String value_packageDescription;
+    private boolean unknown_packageDescription;
     public String packageDescription() {
-        if (packageDescription == null) return null;
-        return packageDescription.getValue("PackageArgs.packageDescription");
+        if (!unknown_packageDescription) return value_packageDescription;
+        throw new UndeferrableValueException("Value 'PackageArgs.packageDescription' is not present");
     }
 
     /**
      * Unique name for the package.
      * 
      */
-    private UndeferrableValue<String> packageName;
-
+    @PolicyResourceProperty(name="packageName", flag="unknown_packageName")
+    private String value_packageName;
+    private boolean unknown_packageName;
     public String packageName() {
-        if (packageName == null) return null;
-        return packageName.getValue("PackageArgs.packageName");
+        if (!unknown_packageName) return value_packageName;
+        throw new UndeferrableValueException("Value 'PackageArgs.packageName' is not present");
     }
 
     /**
      * Configuration block for the package source options.
      * 
      */
-    private UndeferrableValue<PackagePackageSourceArgs> packageSource;
-
+    @PolicyResourceProperty(name="packageSource", flag="unknown_packageSource")
+    private PackagePackageSourceArgs value_packageSource;
+    private boolean unknown_packageSource;
     public PackagePackageSourceArgs packageSource() {
-        if (packageSource == null) return null;
-        return packageSource.getValue("PackageArgs.packageSource");
+        if (!unknown_packageSource) return value_packageSource;
+        throw new UndeferrableValueException("Value 'PackageArgs.packageSource' is not present");
     }
 
     /**
      * The type of package.
      * 
      */
-    private UndeferrableValue<String> packageType;
-
+    @PolicyResourceProperty(name="packageType", flag="unknown_packageType")
+    private String value_packageType;
+    private boolean unknown_packageType;
     public String packageType() {
-        if (packageType == null) return null;
-        return packageType.getValue("PackageArgs.packageType");
+        if (!unknown_packageType) return value_packageType;
+        throw new UndeferrableValueException("Value 'PackageArgs.packageType' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticbeanstalk;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.elasticbeanstalk.inputs.EnvironmentSettingArgs;
 import java.lang.String;
@@ -20,11 +21,12 @@ public final class EnvironmentArgs extends com.pulumi.resources.PolicyResourceIn
      * to be deployed
      * 
      */
-    private UndeferrableValue<String> application;
-
+    @PolicyResourceProperty(name="application", flag="unknown_application")
+    private String value_application;
+    private boolean unknown_application;
     public String application() {
-        if (application == null) return null;
-        return application.getValue("EnvironmentArgs.application");
+        if (!unknown_application) return value_application;
+        throw new UndeferrableValueException("Value 'EnvironmentArgs.application' is not present");
     }
 
     /**
@@ -32,22 +34,24 @@ public final class EnvironmentArgs extends com.pulumi.resources.PolicyResourceIn
      * the Environment.
      * 
      */
-    private UndeferrableValue<String> cnamePrefix;
-
+    @PolicyResourceProperty(name="cnamePrefix", flag="unknown_cnamePrefix")
+    private String value_cnamePrefix;
+    private boolean unknown_cnamePrefix;
     public String cnamePrefix() {
-        if (cnamePrefix == null) return null;
-        return cnamePrefix.getValue("EnvironmentArgs.cnamePrefix");
+        if (!unknown_cnamePrefix) return value_cnamePrefix;
+        throw new UndeferrableValueException("Value 'EnvironmentArgs.cnamePrefix' is not present");
     }
 
     /**
      * Short description of the Environment
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("EnvironmentArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'EnvironmentArgs.description' is not present");
     }
 
     /**
@@ -55,11 +59,12 @@ public final class EnvironmentArgs extends com.pulumi.resources.PolicyResourceIn
      * in the application URL
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("EnvironmentArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'EnvironmentArgs.name' is not present");
     }
 
     /**
@@ -67,11 +72,12 @@ public final class EnvironmentArgs extends com.pulumi.resources.PolicyResourceIn
      * to use in deployment
      * 
      */
-    private UndeferrableValue<String> platformArn;
-
+    @PolicyResourceProperty(name="platformArn", flag="unknown_platformArn")
+    private String value_platformArn;
+    private boolean unknown_platformArn;
     public String platformArn() {
-        if (platformArn == null) return null;
-        return platformArn.getValue("EnvironmentArgs.platformArn");
+        if (!unknown_platformArn) return value_platformArn;
+        throw new UndeferrableValueException("Value 'EnvironmentArgs.platformArn' is not present");
     }
 
     /**
@@ -81,11 +87,12 @@ public final class EnvironmentArgs extends com.pulumi.resources.PolicyResourceIn
      * use the default behavior, which is an exponential backoff
      * 
      */
-    private UndeferrableValue<String> pollInterval;
-
+    @PolicyResourceProperty(name="pollInterval", flag="unknown_pollInterval")
+    private String value_pollInterval;
+    private boolean unknown_pollInterval;
     public String pollInterval() {
-        if (pollInterval == null) return null;
-        return pollInterval.getValue("EnvironmentArgs.pollInterval");
+        if (!unknown_pollInterval) return value_pollInterval;
+        throw new UndeferrableValueException("Value 'EnvironmentArgs.pollInterval' is not present");
     }
 
     /**
@@ -94,11 +101,12 @@ public final class EnvironmentArgs extends com.pulumi.resources.PolicyResourceIn
      * below in Option Settings
      * 
      */
-    private UndeferrableValue<List<EnvironmentSettingArgs>> settings;
-
+    @PolicyResourceProperty(name="settings", flag="unknown_settings")
+    private List<EnvironmentSettingArgs> value_settings;
+    private boolean unknown_settings;
     public List<EnvironmentSettingArgs> settings() {
-        if (settings == null) return null;
-        return settings.getValue("EnvironmentArgs.settings");
+        if (!unknown_settings) return value_settings;
+        throw new UndeferrableValueException("Value 'EnvironmentArgs.settings' is not present");
     }
 
     /**
@@ -106,22 +114,24 @@ public final class EnvironmentArgs extends com.pulumi.resources.PolicyResourceIn
      * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      * 
      */
-    private UndeferrableValue<String> solutionStackName;
-
+    @PolicyResourceProperty(name="solutionStackName", flag="unknown_solutionStackName")
+    private String value_solutionStackName;
+    private boolean unknown_solutionStackName;
     public String solutionStackName() {
-        if (solutionStackName == null) return null;
-        return solutionStackName.getValue("EnvironmentArgs.solutionStackName");
+        if (!unknown_solutionStackName) return value_solutionStackName;
+        throw new UndeferrableValueException("Value 'EnvironmentArgs.solutionStackName' is not present");
     }
 
     /**
      * A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("EnvironmentArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'EnvironmentArgs.tags' is not present");
     }
 
     /**
@@ -129,11 +139,12 @@ public final class EnvironmentArgs extends com.pulumi.resources.PolicyResourceIn
      * template to use in deployment
      * 
      */
-    private UndeferrableValue<String> templateName;
-
+    @PolicyResourceProperty(name="templateName", flag="unknown_templateName")
+    private String value_templateName;
+    private boolean unknown_templateName;
     public String templateName() {
-        if (templateName == null) return null;
-        return templateName.getValue("EnvironmentArgs.templateName");
+        if (!unknown_templateName) return value_templateName;
+        throw new UndeferrableValueException("Value 'EnvironmentArgs.templateName' is not present");
     }
 
     /**
@@ -141,11 +152,12 @@ public final class EnvironmentArgs extends com.pulumi.resources.PolicyResourceIn
      * or `WebServer`. If tier is left blank `WebServer` will be used.
      * 
      */
-    private UndeferrableValue<String> tier;
-
+    @PolicyResourceProperty(name="tier", flag="unknown_tier")
+    private String value_tier;
+    private boolean unknown_tier;
     public String tier() {
-        if (tier == null) return null;
-        return tier.getValue("EnvironmentArgs.tier");
+        if (!unknown_tier) return value_tier;
+        throw new UndeferrableValueException("Value 'EnvironmentArgs.tier' is not present");
     }
 
     /**
@@ -153,11 +165,12 @@ public final class EnvironmentArgs extends com.pulumi.resources.PolicyResourceIn
      * to use in deployment.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("EnvironmentArgs.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'EnvironmentArgs.version' is not present");
     }
 
     /**
@@ -167,11 +180,12 @@ public final class EnvironmentArgs extends com.pulumi.resources.PolicyResourceIn
      * out.
      * 
      */
-    private UndeferrableValue<String> waitForReadyTimeout;
-
+    @PolicyResourceProperty(name="waitForReadyTimeout", flag="unknown_waitForReadyTimeout")
+    private String value_waitForReadyTimeout;
+    private boolean unknown_waitForReadyTimeout;
     public String waitForReadyTimeout() {
-        if (waitForReadyTimeout == null) return null;
-        return waitForReadyTimeout.getValue("EnvironmentArgs.waitForReadyTimeout");
+        if (!unknown_waitForReadyTimeout) return value_waitForReadyTimeout;
+        throw new UndeferrableValueException("Value 'EnvironmentArgs.waitForReadyTimeout' is not present");
     }
 
 }

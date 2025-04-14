@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.outputs.BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload;
 import com.pulumi.policypacks.aws.s3.outputs.BucketLifecycleConfigurationV2RuleExpiration;
 import com.pulumi.policypacks.aws.s3.outputs.BucketLifecycleConfigurationV2RuleFilter;
@@ -21,22 +22,24 @@ public final class BucketLifecycleConfigurationV2Rule {
      * Configuration block that specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. See below.
      * 
      */
-    private @Nullable UndeferrableValue<BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload> abortIncompleteMultipartUpload;
-
+    @PolicyResourceProperty(name="abortIncompleteMultipartUpload", flag="unknown_abortIncompleteMultipartUpload")
+    private @Nullable BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload value_abortIncompleteMultipartUpload;
+    private boolean unknown_abortIncompleteMultipartUpload;
     public @Nullable BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload abortIncompleteMultipartUpload() {
-        if (abortIncompleteMultipartUpload == null) return null;
-        return abortIncompleteMultipartUpload.getValue("BucketLifecycleConfigurationV2Rule.abortIncompleteMultipartUpload");
+        if (!unknown_abortIncompleteMultipartUpload) return value_abortIncompleteMultipartUpload;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2Rule.abortIncompleteMultipartUpload' is not present");
     }
 
     /**
      * Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker. See below.
      * 
      */
-    private @Nullable UndeferrableValue<BucketLifecycleConfigurationV2RuleExpiration> expiration;
-
+    @PolicyResourceProperty(name="expiration", flag="unknown_expiration")
+    private @Nullable BucketLifecycleConfigurationV2RuleExpiration value_expiration;
+    private boolean unknown_expiration;
     public @Nullable BucketLifecycleConfigurationV2RuleExpiration expiration() {
-        if (expiration == null) return null;
-        return expiration.getValue("BucketLifecycleConfigurationV2Rule.expiration");
+        if (!unknown_expiration) return value_expiration;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2Rule.expiration' is not present");
     }
 
     /**
@@ -46,44 +49,48 @@ public final class BucketLifecycleConfigurationV2Rule {
      * One of `filter` or `prefix` should be specified.
      * 
      */
-    private @Nullable UndeferrableValue<BucketLifecycleConfigurationV2RuleFilter> filter;
-
+    @PolicyResourceProperty(name="filter", flag="unknown_filter")
+    private @Nullable BucketLifecycleConfigurationV2RuleFilter value_filter;
+    private boolean unknown_filter;
     public @Nullable BucketLifecycleConfigurationV2RuleFilter filter() {
-        if (filter == null) return null;
-        return filter.getValue("BucketLifecycleConfigurationV2Rule.filter");
+        if (!unknown_filter) return value_filter;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2Rule.filter' is not present");
     }
 
     /**
      * Unique identifier for the rule. The value cannot be longer than 255 characters.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("BucketLifecycleConfigurationV2Rule.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2Rule.id' is not present");
     }
 
     /**
      * Configuration block that specifies when noncurrent object versions expire. See below.
      * 
      */
-    private @Nullable UndeferrableValue<BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration> noncurrentVersionExpiration;
-
+    @PolicyResourceProperty(name="noncurrentVersionExpiration", flag="unknown_noncurrentVersionExpiration")
+    private @Nullable BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration value_noncurrentVersionExpiration;
+    private boolean unknown_noncurrentVersionExpiration;
     public @Nullable BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration noncurrentVersionExpiration() {
-        if (noncurrentVersionExpiration == null) return null;
-        return noncurrentVersionExpiration.getValue("BucketLifecycleConfigurationV2Rule.noncurrentVersionExpiration");
+        if (!unknown_noncurrentVersionExpiration) return value_noncurrentVersionExpiration;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2Rule.noncurrentVersionExpiration' is not present");
     }
 
     /**
      * Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class. See below.
      * 
      */
-    private @Nullable UndeferrableValue<List<BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition>> noncurrentVersionTransitions;
-
+    @PolicyResourceProperty(name="noncurrentVersionTransitions", flag="unknown_noncurrentVersionTransitions")
+    private @Nullable List<BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition> value_noncurrentVersionTransitions;
+    private boolean unknown_noncurrentVersionTransitions;
     public @Nullable List<BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition> noncurrentVersionTransitions() {
-        if (noncurrentVersionTransitions == null) return null;
-        return noncurrentVersionTransitions.getValue("BucketLifecycleConfigurationV2Rule.noncurrentVersionTransitions");
+        if (!unknown_noncurrentVersionTransitions) return value_noncurrentVersionTransitions;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2Rule.noncurrentVersionTransitions' is not present");
     }
 
     /**
@@ -98,33 +105,36 @@ public final class BucketLifecycleConfigurationV2Rule {
      * 
      */
     @Deprecated /* Specify a prefix using 'filter' instead */
-    private @Nullable UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private @Nullable String value_prefix;
+    private boolean unknown_prefix;
     public @Nullable String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("BucketLifecycleConfigurationV2Rule.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2Rule.prefix' is not present");
     }
 
     /**
      * Whether the rule is currently being applied. Valid values: `Enabled` or `Disabled`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("BucketLifecycleConfigurationV2Rule.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2Rule.status' is not present");
     }
 
     /**
      * Set of configuration blocks that specify when an Amazon S3 object transitions to a specified storage class. See below.
      * 
      */
-    private @Nullable UndeferrableValue<List<BucketLifecycleConfigurationV2RuleTransition>> transitions;
-
+    @PolicyResourceProperty(name="transitions", flag="unknown_transitions")
+    private @Nullable List<BucketLifecycleConfigurationV2RuleTransition> value_transitions;
+    private boolean unknown_transitions;
     public @Nullable List<BucketLifecycleConfigurationV2RuleTransition> transitions() {
-        if (transitions == null) return null;
-        return transitions.getValue("BucketLifecycleConfigurationV2Rule.transitions");
+        if (!unknown_transitions) return value_transitions;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2Rule.transitions' is not present");
     }
 
 }

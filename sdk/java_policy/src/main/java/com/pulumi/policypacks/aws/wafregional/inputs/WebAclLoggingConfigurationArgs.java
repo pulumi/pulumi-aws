@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafregional.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafregional.inputs.WebAclLoggingConfigurationRedactedFieldsArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class WebAclLoggingConfigurationArgs {
      * Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
      * 
      */
-    private UndeferrableValue<String> logDestination;
-
+    @PolicyResourceProperty(name="logDestination", flag="unknown_logDestination")
+    private String value_logDestination;
+    private boolean unknown_logDestination;
     public String logDestination() {
-        if (logDestination == null) return null;
-        return logDestination.getValue("WebAclLoggingConfigurationArgs.logDestination");
+        if (!unknown_logDestination) return value_logDestination;
+        throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationArgs.logDestination' is not present");
     }
 
     /**
      * Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
      * 
      */
-    private UndeferrableValue<WebAclLoggingConfigurationRedactedFieldsArgs> redactedFields;
-
+    @PolicyResourceProperty(name="redactedFields", flag="unknown_redactedFields")
+    private WebAclLoggingConfigurationRedactedFieldsArgs value_redactedFields;
+    private boolean unknown_redactedFields;
     public WebAclLoggingConfigurationRedactedFieldsArgs redactedFields() {
-        if (redactedFields == null) return null;
-        return redactedFields.getValue("WebAclLoggingConfigurationArgs.redactedFields");
+        if (!unknown_redactedFields) return value_redactedFields;
+        throw new UndeferrableValueException("Value 'WebAclLoggingConfigurationArgs.redactedFields' is not present");
     }
 
 }

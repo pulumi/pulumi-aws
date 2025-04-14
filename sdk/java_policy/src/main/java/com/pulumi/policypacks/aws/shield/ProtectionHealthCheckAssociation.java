@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.shield;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class ProtectionHealthCheckAssociation extends com.pulumi.resources
      * The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
      * 
      */
-    private UndeferrableValue<String> healthCheckArn;
-
+    @PolicyResourceProperty(name="healthCheckArn", flag="unknown_healthCheckArn")
+    private String value_healthCheckArn;
+    private boolean unknown_healthCheckArn;
     public String healthCheckArn() {
-        if (healthCheckArn == null) return null;
-        return healthCheckArn.getValue("ProtectionHealthCheckAssociation.healthCheckArn");
+        if (!unknown_healthCheckArn) return value_healthCheckArn;
+        throw new UndeferrableValueException("Value 'ProtectionHealthCheckAssociation.healthCheckArn' is not present");
     }
 
     /**
      * The ID of the protected resource.
      * 
      */
-    private UndeferrableValue<String> shieldProtectionId;
-
+    @PolicyResourceProperty(name="shieldProtectionId", flag="unknown_shieldProtectionId")
+    private String value_shieldProtectionId;
+    private boolean unknown_shieldProtectionId;
     public String shieldProtectionId() {
-        if (shieldProtectionId == null) return null;
-        return shieldProtectionId.getValue("ProtectionHealthCheckAssociation.shieldProtectionId");
+        if (!unknown_shieldProtectionId) return value_shieldProtectionId;
+        throw new UndeferrableValueException("Value 'ProtectionHealthCheckAssociation.shieldProtectionId' is not present");
     }
 
 }

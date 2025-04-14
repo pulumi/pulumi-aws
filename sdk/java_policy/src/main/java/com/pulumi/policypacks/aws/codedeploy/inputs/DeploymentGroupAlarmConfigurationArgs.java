@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codedeploy.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class DeploymentGroupAlarmConfigurationArgs {
      * A list of alarms configured for the deployment group.
      * 
      */
-    private UndeferrableValue<List<String>> alarms;
-
+    @PolicyResourceProperty(name="alarms", flag="unknown_alarms")
+    private List<String> value_alarms;
+    private boolean unknown_alarms;
     public List<String> alarms() {
-        if (alarms == null) return null;
-        return alarms.getValue("DeploymentGroupAlarmConfigurationArgs.alarms");
+        if (!unknown_alarms) return value_alarms;
+        throw new UndeferrableValueException("Value 'DeploymentGroupAlarmConfigurationArgs.alarms' is not present");
     }
 
     /**
      * Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("DeploymentGroupAlarmConfigurationArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'DeploymentGroupAlarmConfigurationArgs.enabled' is not present");
     }
 
     /**
      * Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> ignorePollAlarmFailure;
-
+    @PolicyResourceProperty(name="ignorePollAlarmFailure", flag="unknown_ignorePollAlarmFailure")
+    private Boolean value_ignorePollAlarmFailure;
+    private boolean unknown_ignorePollAlarmFailure;
     public Boolean ignorePollAlarmFailure() {
-        if (ignorePollAlarmFailure == null) return null;
-        return ignorePollAlarmFailure.getValue("DeploymentGroupAlarmConfigurationArgs.ignorePollAlarmFailure");
+        if (!unknown_ignorePollAlarmFailure) return value_ignorePollAlarmFailure;
+        throw new UndeferrableValueException("Value 'DeploymentGroupAlarmConfigurationArgs.ignorePollAlarmFailure' is not present");
     }
 
 }

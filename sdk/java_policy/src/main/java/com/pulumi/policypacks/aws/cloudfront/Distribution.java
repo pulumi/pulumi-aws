@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudfront.outputs.DistributionCustomErrorResponse;
 import com.pulumi.policypacks.aws.cloudfront.outputs.DistributionDefaultCacheBehavior;
@@ -26,222 +27,248 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:cloudfront/distribution:Distribution")
 public final class Distribution extends com.pulumi.resources.PolicyResourceOutput {
 
-    private @Nullable UndeferrableValue<List<String>> aliases;
-
+    @PolicyResourceProperty(name="aliases", flag="unknown_aliases")
+    private @Nullable List<String> value_aliases;
+    private boolean unknown_aliases;
     public @Nullable List<String> aliases() {
-        if (aliases == null) return null;
-        return aliases.getValue("Distribution.aliases");
+        if (!unknown_aliases) return value_aliases;
+        throw new UndeferrableValueException("Value 'Distribution.aliases' is not present");
     }
 
     /**
      * ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Distribution.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Distribution.arn' is not present");
     }
 
     /**
      * Internal value used by CloudFront to allow future updates to the distribution configuration.
      * 
      */
-    private UndeferrableValue<String> callerReference;
-
+    @PolicyResourceProperty(name="callerReference", flag="unknown_callerReference")
+    private String value_callerReference;
+    private boolean unknown_callerReference;
     public String callerReference() {
-        if (callerReference == null) return null;
-        return callerReference.getValue("Distribution.callerReference");
+        if (!unknown_callerReference) return value_callerReference;
+        throw new UndeferrableValueException("Value 'Distribution.callerReference' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private @Nullable String value_comment;
+    private boolean unknown_comment;
     public @Nullable String comment() {
-        if (comment == null) return null;
-        return comment.getValue("Distribution.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'Distribution.comment' is not present");
     }
 
-    private UndeferrableValue<String> continuousDeploymentPolicyId;
-
+    @PolicyResourceProperty(name="continuousDeploymentPolicyId", flag="unknown_continuousDeploymentPolicyId")
+    private String value_continuousDeploymentPolicyId;
+    private boolean unknown_continuousDeploymentPolicyId;
     public String continuousDeploymentPolicyId() {
-        if (continuousDeploymentPolicyId == null) return null;
-        return continuousDeploymentPolicyId.getValue("Distribution.continuousDeploymentPolicyId");
+        if (!unknown_continuousDeploymentPolicyId) return value_continuousDeploymentPolicyId;
+        throw new UndeferrableValueException("Value 'Distribution.continuousDeploymentPolicyId' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<DistributionCustomErrorResponse>> customErrorResponses;
-
+    @PolicyResourceProperty(name="customErrorResponses", flag="unknown_customErrorResponses")
+    private @Nullable List<DistributionCustomErrorResponse> value_customErrorResponses;
+    private boolean unknown_customErrorResponses;
     public @Nullable List<DistributionCustomErrorResponse> customErrorResponses() {
-        if (customErrorResponses == null) return null;
-        return customErrorResponses.getValue("Distribution.customErrorResponses");
+        if (!unknown_customErrorResponses) return value_customErrorResponses;
+        throw new UndeferrableValueException("Value 'Distribution.customErrorResponses' is not present");
     }
 
-    private UndeferrableValue<DistributionDefaultCacheBehavior> defaultCacheBehavior;
-
+    @PolicyResourceProperty(name="defaultCacheBehavior", flag="unknown_defaultCacheBehavior")
+    private DistributionDefaultCacheBehavior value_defaultCacheBehavior;
+    private boolean unknown_defaultCacheBehavior;
     public DistributionDefaultCacheBehavior defaultCacheBehavior() {
-        if (defaultCacheBehavior == null) return null;
-        return defaultCacheBehavior.getValue("Distribution.defaultCacheBehavior");
+        if (!unknown_defaultCacheBehavior) return value_defaultCacheBehavior;
+        throw new UndeferrableValueException("Value 'Distribution.defaultCacheBehavior' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> defaultRootObject;
-
+    @PolicyResourceProperty(name="defaultRootObject", flag="unknown_defaultRootObject")
+    private @Nullable String value_defaultRootObject;
+    private boolean unknown_defaultRootObject;
     public @Nullable String defaultRootObject() {
-        if (defaultRootObject == null) return null;
-        return defaultRootObject.getValue("Distribution.defaultRootObject");
+        if (!unknown_defaultRootObject) return value_defaultRootObject;
+        throw new UndeferrableValueException("Value 'Distribution.defaultRootObject' is not present");
     }
 
     /**
      * Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("Distribution.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'Distribution.domainName' is not present");
     }
 
     /**
      * `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("Distribution.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'Distribution.enabled' is not present");
     }
 
     /**
      * Current version of the distribution&#39;s information. For example: `E2QWRUHAPOMQZL`.
      * 
      */
-    private UndeferrableValue<String> etag;
-
+    @PolicyResourceProperty(name="etag", flag="unknown_etag")
+    private String value_etag;
+    private boolean unknown_etag;
     public String etag() {
-        if (etag == null) return null;
-        return etag.getValue("Distribution.etag");
+        if (!unknown_etag) return value_etag;
+        throw new UndeferrableValueException("Value 'Distribution.etag' is not present");
     }
 
     /**
      * CloudFront Route 53 zone ID that can be used to route an [Alias Resource Record Set](http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html) to. This attribute is simply an alias for the zone ID `Z2FDTNDATAQYW2`.
      * 
      */
-    private UndeferrableValue<String> hostedZoneId;
-
+    @PolicyResourceProperty(name="hostedZoneId", flag="unknown_hostedZoneId")
+    private String value_hostedZoneId;
+    private boolean unknown_hostedZoneId;
     public String hostedZoneId() {
-        if (hostedZoneId == null) return null;
-        return hostedZoneId.getValue("Distribution.hostedZoneId");
+        if (!unknown_hostedZoneId) return value_hostedZoneId;
+        throw new UndeferrableValueException("Value 'Distribution.hostedZoneId' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> httpVersion;
-
+    @PolicyResourceProperty(name="httpVersion", flag="unknown_httpVersion")
+    private @Nullable String value_httpVersion;
+    private boolean unknown_httpVersion;
     public @Nullable String httpVersion() {
-        if (httpVersion == null) return null;
-        return httpVersion.getValue("Distribution.httpVersion");
+        if (!unknown_httpVersion) return value_httpVersion;
+        throw new UndeferrableValueException("Value 'Distribution.httpVersion' is not present");
     }
 
     /**
      * Number of invalidation batches currently in progress.
      * 
      */
-    private UndeferrableValue<Integer> inProgressValidationBatches;
-
+    @PolicyResourceProperty(name="inProgressValidationBatches", flag="unknown_inProgressValidationBatches")
+    private Integer value_inProgressValidationBatches;
+    private boolean unknown_inProgressValidationBatches;
     public Integer inProgressValidationBatches() {
-        if (inProgressValidationBatches == null) return null;
-        return inProgressValidationBatches.getValue("Distribution.inProgressValidationBatches");
+        if (!unknown_inProgressValidationBatches) return value_inProgressValidationBatches;
+        throw new UndeferrableValueException("Value 'Distribution.inProgressValidationBatches' is not present");
     }
 
-    private @Nullable UndeferrableValue<Boolean> isIpv6Enabled;
-
+    @PolicyResourceProperty(name="isIpv6Enabled", flag="unknown_isIpv6Enabled")
+    private @Nullable Boolean value_isIpv6Enabled;
+    private boolean unknown_isIpv6Enabled;
     public @Nullable Boolean isIpv6Enabled() {
-        if (isIpv6Enabled == null) return null;
-        return isIpv6Enabled.getValue("Distribution.isIpv6Enabled");
+        if (!unknown_isIpv6Enabled) return value_isIpv6Enabled;
+        throw new UndeferrableValueException("Value 'Distribution.isIpv6Enabled' is not present");
     }
 
     /**
      * Date and time the distribution was last modified.
      * 
      */
-    private UndeferrableValue<String> lastModifiedTime;
-
+    @PolicyResourceProperty(name="lastModifiedTime", flag="unknown_lastModifiedTime")
+    private String value_lastModifiedTime;
+    private boolean unknown_lastModifiedTime;
     public String lastModifiedTime() {
-        if (lastModifiedTime == null) return null;
-        return lastModifiedTime.getValue("Distribution.lastModifiedTime");
+        if (!unknown_lastModifiedTime) return value_lastModifiedTime;
+        throw new UndeferrableValueException("Value 'Distribution.lastModifiedTime' is not present");
     }
 
-    private @Nullable UndeferrableValue<DistributionLoggingConfig> loggingConfig;
-
+    @PolicyResourceProperty(name="loggingConfig", flag="unknown_loggingConfig")
+    private @Nullable DistributionLoggingConfig value_loggingConfig;
+    private boolean unknown_loggingConfig;
     public @Nullable DistributionLoggingConfig loggingConfig() {
-        if (loggingConfig == null) return null;
-        return loggingConfig.getValue("Distribution.loggingConfig");
+        if (!unknown_loggingConfig) return value_loggingConfig;
+        throw new UndeferrableValueException("Value 'Distribution.loggingConfig' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<DistributionOrderedCacheBehavior>> orderedCacheBehaviors;
-
+    @PolicyResourceProperty(name="orderedCacheBehaviors", flag="unknown_orderedCacheBehaviors")
+    private @Nullable List<DistributionOrderedCacheBehavior> value_orderedCacheBehaviors;
+    private boolean unknown_orderedCacheBehaviors;
     public @Nullable List<DistributionOrderedCacheBehavior> orderedCacheBehaviors() {
-        if (orderedCacheBehaviors == null) return null;
-        return orderedCacheBehaviors.getValue("Distribution.orderedCacheBehaviors");
+        if (!unknown_orderedCacheBehaviors) return value_orderedCacheBehaviors;
+        throw new UndeferrableValueException("Value 'Distribution.orderedCacheBehaviors' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<DistributionOriginGroup>> originGroups;
-
+    @PolicyResourceProperty(name="originGroups", flag="unknown_originGroups")
+    private @Nullable List<DistributionOriginGroup> value_originGroups;
+    private boolean unknown_originGroups;
     public @Nullable List<DistributionOriginGroup> originGroups() {
-        if (originGroups == null) return null;
-        return originGroups.getValue("Distribution.originGroups");
+        if (!unknown_originGroups) return value_originGroups;
+        throw new UndeferrableValueException("Value 'Distribution.originGroups' is not present");
     }
 
-    private UndeferrableValue<List<DistributionOrigin>> origins;
-
+    @PolicyResourceProperty(name="origins", flag="unknown_origins")
+    private List<DistributionOrigin> value_origins;
+    private boolean unknown_origins;
     public List<DistributionOrigin> origins() {
-        if (origins == null) return null;
-        return origins.getValue("Distribution.origins");
+        if (!unknown_origins) return value_origins;
+        throw new UndeferrableValueException("Value 'Distribution.origins' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> priceClass;
-
+    @PolicyResourceProperty(name="priceClass", flag="unknown_priceClass")
+    private @Nullable String value_priceClass;
+    private boolean unknown_priceClass;
     public @Nullable String priceClass() {
-        if (priceClass == null) return null;
-        return priceClass.getValue("Distribution.priceClass");
+        if (!unknown_priceClass) return value_priceClass;
+        throw new UndeferrableValueException("Value 'Distribution.priceClass' is not present");
     }
 
-    private UndeferrableValue<DistributionRestrictions> restrictions;
-
+    @PolicyResourceProperty(name="restrictions", flag="unknown_restrictions")
+    private DistributionRestrictions value_restrictions;
+    private boolean unknown_restrictions;
     public DistributionRestrictions restrictions() {
-        if (restrictions == null) return null;
-        return restrictions.getValue("Distribution.restrictions");
+        if (!unknown_restrictions) return value_restrictions;
+        throw new UndeferrableValueException("Value 'Distribution.restrictions' is not present");
     }
 
-    private @Nullable UndeferrableValue<Boolean> retainOnDelete;
-
+    @PolicyResourceProperty(name="retainOnDelete", flag="unknown_retainOnDelete")
+    private @Nullable Boolean value_retainOnDelete;
+    private boolean unknown_retainOnDelete;
     public @Nullable Boolean retainOnDelete() {
-        if (retainOnDelete == null) return null;
-        return retainOnDelete.getValue("Distribution.retainOnDelete");
+        if (!unknown_retainOnDelete) return value_retainOnDelete;
+        throw new UndeferrableValueException("Value 'Distribution.retainOnDelete' is not present");
     }
 
-    private @Nullable UndeferrableValue<Boolean> staging;
-
+    @PolicyResourceProperty(name="staging", flag="unknown_staging")
+    private @Nullable Boolean value_staging;
+    private boolean unknown_staging;
     public @Nullable Boolean staging() {
-        if (staging == null) return null;
-        return staging.getValue("Distribution.staging");
+        if (!unknown_staging) return value_staging;
+        throw new UndeferrableValueException("Value 'Distribution.staging' is not present");
     }
 
     /**
      * Current status of the distribution. `Deployed` if the distribution&#39;s information is fully propagated throughout the Amazon CloudFront system.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Distribution.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Distribution.status' is not present");
     }
 
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Distribution.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Distribution.tags' is not present");
     }
 
     /**
@@ -252,54 +279,60 @@ public final class Distribution extends com.pulumi.resources.PolicyResourceOutpu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Distribution.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Distribution.tagsAll' is not present");
     }
 
     /**
      * List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
      * 
      */
-    private UndeferrableValue<List<DistributionTrustedKeyGroup>> trustedKeyGroups;
-
+    @PolicyResourceProperty(name="trustedKeyGroups", flag="unknown_trustedKeyGroups")
+    private List<DistributionTrustedKeyGroup> value_trustedKeyGroups;
+    private boolean unknown_trustedKeyGroups;
     public List<DistributionTrustedKeyGroup> trustedKeyGroups() {
-        if (trustedKeyGroups == null) return null;
-        return trustedKeyGroups.getValue("Distribution.trustedKeyGroups");
+        if (!unknown_trustedKeyGroups) return value_trustedKeyGroups;
+        throw new UndeferrableValueException("Value 'Distribution.trustedKeyGroups' is not present");
     }
 
     /**
      * List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
      * 
      */
-    private UndeferrableValue<List<DistributionTrustedSigner>> trustedSigners;
-
+    @PolicyResourceProperty(name="trustedSigners", flag="unknown_trustedSigners")
+    private List<DistributionTrustedSigner> value_trustedSigners;
+    private boolean unknown_trustedSigners;
     public List<DistributionTrustedSigner> trustedSigners() {
-        if (trustedSigners == null) return null;
-        return trustedSigners.getValue("Distribution.trustedSigners");
+        if (!unknown_trustedSigners) return value_trustedSigners;
+        throw new UndeferrableValueException("Value 'Distribution.trustedSigners' is not present");
     }
 
-    private UndeferrableValue<DistributionViewerCertificate> viewerCertificate;
-
+    @PolicyResourceProperty(name="viewerCertificate", flag="unknown_viewerCertificate")
+    private DistributionViewerCertificate value_viewerCertificate;
+    private boolean unknown_viewerCertificate;
     public DistributionViewerCertificate viewerCertificate() {
-        if (viewerCertificate == null) return null;
-        return viewerCertificate.getValue("Distribution.viewerCertificate");
+        if (!unknown_viewerCertificate) return value_viewerCertificate;
+        throw new UndeferrableValueException("Value 'Distribution.viewerCertificate' is not present");
     }
 
-    private @Nullable UndeferrableValue<Boolean> waitForDeployment;
-
+    @PolicyResourceProperty(name="waitForDeployment", flag="unknown_waitForDeployment")
+    private @Nullable Boolean value_waitForDeployment;
+    private boolean unknown_waitForDeployment;
     public @Nullable Boolean waitForDeployment() {
-        if (waitForDeployment == null) return null;
-        return waitForDeployment.getValue("Distribution.waitForDeployment");
+        if (!unknown_waitForDeployment) return value_waitForDeployment;
+        throw new UndeferrableValueException("Value 'Distribution.waitForDeployment' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> webAclId;
-
+    @PolicyResourceProperty(name="webAclId", flag="unknown_webAclId")
+    private @Nullable String value_webAclId;
+    private boolean unknown_webAclId;
     public @Nullable String webAclId() {
-        if (webAclId == null) return null;
-        return webAclId.getValue("Distribution.webAclId");
+        if (!unknown_webAclId) return value_webAclId;
+        throw new UndeferrableValueException("Value 'Distribution.webAclId' is not present");
     }
 
 }

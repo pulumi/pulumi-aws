@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudfront.inputs.ResponseHeadersPolicyCorsConfigArgs;
 import com.pulumi.policypacks.aws.cloudfront.inputs.ResponseHeadersPolicyCustomHeadersConfigArgs;
@@ -21,88 +22,96 @@ public final class ResponseHeadersPolicyArgs extends com.pulumi.resources.Policy
      * A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
      * 
      */
-    private UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private String value_comment;
+    private boolean unknown_comment;
     public String comment() {
-        if (comment == null) return null;
-        return comment.getValue("ResponseHeadersPolicyArgs.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicyArgs.comment' is not present");
     }
 
     /**
      * A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
      * 
      */
-    private UndeferrableValue<ResponseHeadersPolicyCorsConfigArgs> corsConfig;
-
+    @PolicyResourceProperty(name="corsConfig", flag="unknown_corsConfig")
+    private ResponseHeadersPolicyCorsConfigArgs value_corsConfig;
+    private boolean unknown_corsConfig;
     public ResponseHeadersPolicyCorsConfigArgs corsConfig() {
-        if (corsConfig == null) return null;
-        return corsConfig.getValue("ResponseHeadersPolicyArgs.corsConfig");
+        if (!unknown_corsConfig) return value_corsConfig;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicyArgs.corsConfig' is not present");
     }
 
     /**
      * Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
      * 
      */
-    private UndeferrableValue<ResponseHeadersPolicyCustomHeadersConfigArgs> customHeadersConfig;
-
+    @PolicyResourceProperty(name="customHeadersConfig", flag="unknown_customHeadersConfig")
+    private ResponseHeadersPolicyCustomHeadersConfigArgs value_customHeadersConfig;
+    private boolean unknown_customHeadersConfig;
     public ResponseHeadersPolicyCustomHeadersConfigArgs customHeadersConfig() {
-        if (customHeadersConfig == null) return null;
-        return customHeadersConfig.getValue("ResponseHeadersPolicyArgs.customHeadersConfig");
+        if (!unknown_customHeadersConfig) return value_customHeadersConfig;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicyArgs.customHeadersConfig' is not present");
     }
 
     /**
      * The current version of the response headers policy.
      * 
      */
-    private UndeferrableValue<String> etag;
-
+    @PolicyResourceProperty(name="etag", flag="unknown_etag")
+    private String value_etag;
+    private boolean unknown_etag;
     public String etag() {
-        if (etag == null) return null;
-        return etag.getValue("ResponseHeadersPolicyArgs.etag");
+        if (!unknown_etag) return value_etag;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicyArgs.etag' is not present");
     }
 
     /**
      * A unique name to identify the response headers policy.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ResponseHeadersPolicyArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicyArgs.name' is not present");
     }
 
     /**
      * A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
      * 
      */
-    private UndeferrableValue<ResponseHeadersPolicyRemoveHeadersConfigArgs> removeHeadersConfig;
-
+    @PolicyResourceProperty(name="removeHeadersConfig", flag="unknown_removeHeadersConfig")
+    private ResponseHeadersPolicyRemoveHeadersConfigArgs value_removeHeadersConfig;
+    private boolean unknown_removeHeadersConfig;
     public ResponseHeadersPolicyRemoveHeadersConfigArgs removeHeadersConfig() {
-        if (removeHeadersConfig == null) return null;
-        return removeHeadersConfig.getValue("ResponseHeadersPolicyArgs.removeHeadersConfig");
+        if (!unknown_removeHeadersConfig) return value_removeHeadersConfig;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicyArgs.removeHeadersConfig' is not present");
     }
 
     /**
      * A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
      * 
      */
-    private UndeferrableValue<ResponseHeadersPolicySecurityHeadersConfigArgs> securityHeadersConfig;
-
+    @PolicyResourceProperty(name="securityHeadersConfig", flag="unknown_securityHeadersConfig")
+    private ResponseHeadersPolicySecurityHeadersConfigArgs value_securityHeadersConfig;
+    private boolean unknown_securityHeadersConfig;
     public ResponseHeadersPolicySecurityHeadersConfigArgs securityHeadersConfig() {
-        if (securityHeadersConfig == null) return null;
-        return securityHeadersConfig.getValue("ResponseHeadersPolicyArgs.securityHeadersConfig");
+        if (!unknown_securityHeadersConfig) return value_securityHeadersConfig;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicyArgs.securityHeadersConfig' is not present");
     }
 
     /**
      * A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
      * 
      */
-    private UndeferrableValue<ResponseHeadersPolicyServerTimingHeadersConfigArgs> serverTimingHeadersConfig;
-
+    @PolicyResourceProperty(name="serverTimingHeadersConfig", flag="unknown_serverTimingHeadersConfig")
+    private ResponseHeadersPolicyServerTimingHeadersConfigArgs value_serverTimingHeadersConfig;
+    private boolean unknown_serverTimingHeadersConfig;
     public ResponseHeadersPolicyServerTimingHeadersConfigArgs serverTimingHeadersConfig() {
-        if (serverTimingHeadersConfig == null) return null;
-        return serverTimingHeadersConfig.getValue("ResponseHeadersPolicyArgs.serverTimingHeadersConfig");
+        if (!unknown_serverTimingHeadersConfig) return value_serverTimingHeadersConfig;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicyArgs.serverTimingHeadersConfig' is not present");
     }
 
 }

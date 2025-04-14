@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.scheduler.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.scheduler.inputs.ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ScheduleTargetSagemakerPipelineParametersArgs {
      * Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
      * 
      */
-    private UndeferrableValue<List<ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs>> pipelineParameters;
-
+    @PolicyResourceProperty(name="pipelineParameters", flag="unknown_pipelineParameters")
+    private List<ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs> value_pipelineParameters;
+    private boolean unknown_pipelineParameters;
     public List<ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs> pipelineParameters() {
-        if (pipelineParameters == null) return null;
-        return pipelineParameters.getValue("ScheduleTargetSagemakerPipelineParametersArgs.pipelineParameters");
+        if (!unknown_pipelineParameters) return value_pipelineParameters;
+        throw new UndeferrableValueException("Value 'ScheduleTargetSagemakerPipelineParametersArgs.pipelineParameters' is not present");
     }
 
 }

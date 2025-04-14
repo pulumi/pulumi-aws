@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.qbusiness;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.qbusiness.inputs.ApplicationAttachmentsConfigurationArgs;
 import com.pulumi.policypacks.aws.qbusiness.inputs.ApplicationEncryptionConfigurationArgs;
@@ -20,55 +21,60 @@ public final class ApplicationArgs extends com.pulumi.resources.PolicyResourceIn
      * Information about whether file upload functionality is activated or deactivated for your end user. See `attachments_configuration` below.
      * 
      */
-    private UndeferrableValue<ApplicationAttachmentsConfigurationArgs> attachmentsConfiguration;
-
+    @PolicyResourceProperty(name="attachmentsConfiguration", flag="unknown_attachmentsConfiguration")
+    private ApplicationAttachmentsConfigurationArgs value_attachmentsConfiguration;
+    private boolean unknown_attachmentsConfiguration;
     public ApplicationAttachmentsConfigurationArgs attachmentsConfiguration() {
-        if (attachmentsConfiguration == null) return null;
-        return attachmentsConfiguration.getValue("ApplicationArgs.attachmentsConfiguration");
+        if (!unknown_attachmentsConfiguration) return value_attachmentsConfiguration;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.attachmentsConfiguration' is not present");
     }
 
     /**
      * Description of the Amazon Q application.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ApplicationArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.description' is not present");
     }
 
     /**
      * Name of the Amazon Q application.
      * 
      */
-    private UndeferrableValue<String> displayName;
-
+    @PolicyResourceProperty(name="displayName", flag="unknown_displayName")
+    private String value_displayName;
+    private boolean unknown_displayName;
     public String displayName() {
-        if (displayName == null) return null;
-        return displayName.getValue("ApplicationArgs.displayName");
+        if (!unknown_displayName) return value_displayName;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.displayName' is not present");
     }
 
     /**
      * Information about encryption configuration. See `encryption_configuration` below.
      * 
      */
-    private UndeferrableValue<ApplicationEncryptionConfigurationArgs> encryptionConfiguration;
-
+    @PolicyResourceProperty(name="encryptionConfiguration", flag="unknown_encryptionConfiguration")
+    private ApplicationEncryptionConfigurationArgs value_encryptionConfiguration;
+    private boolean unknown_encryptionConfiguration;
     public ApplicationEncryptionConfigurationArgs encryptionConfiguration() {
-        if (encryptionConfiguration == null) return null;
-        return encryptionConfiguration.getValue("ApplicationArgs.encryptionConfiguration");
+        if (!unknown_encryptionConfiguration) return value_encryptionConfiguration;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.encryptionConfiguration' is not present");
     }
 
     /**
      * ARN of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
      * 
      */
-    private UndeferrableValue<String> iamServiceRoleArn;
-
+    @PolicyResourceProperty(name="iamServiceRoleArn", flag="unknown_iamServiceRoleArn")
+    private String value_iamServiceRoleArn;
+    private boolean unknown_iamServiceRoleArn;
     public String iamServiceRoleArn() {
-        if (iamServiceRoleArn == null) return null;
-        return iamServiceRoleArn.getValue("ApplicationArgs.iamServiceRoleArn");
+        if (!unknown_iamServiceRoleArn) return value_iamServiceRoleArn;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.iamServiceRoleArn' is not present");
     }
 
     /**
@@ -77,25 +83,28 @@ public final class ApplicationArgs extends com.pulumi.resources.PolicyResourceIn
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> identityCenterInstanceArn;
-
+    @PolicyResourceProperty(name="identityCenterInstanceArn", flag="unknown_identityCenterInstanceArn")
+    private String value_identityCenterInstanceArn;
+    private boolean unknown_identityCenterInstanceArn;
     public String identityCenterInstanceArn() {
-        if (identityCenterInstanceArn == null) return null;
-        return identityCenterInstanceArn.getValue("ApplicationArgs.identityCenterInstanceArn");
+        if (!unknown_identityCenterInstanceArn) return value_identityCenterInstanceArn;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.identityCenterInstanceArn' is not present");
     }
 
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ApplicationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.tags' is not present");
     }
 
-    private UndeferrableValue<ApplicationTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private ApplicationTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public ApplicationTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ApplicationArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.timeouts' is not present");
     }
 
 }

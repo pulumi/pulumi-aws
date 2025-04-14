@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.glue.inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class DataCatalogEncryptionSettingsArgs extends com.pulumi.resource
      * The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
      * 
      */
-    private UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private String value_catalogId;
+    private boolean unknown_catalogId;
     public String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("DataCatalogEncryptionSettingsArgs.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'DataCatalogEncryptionSettingsArgs.catalogId' is not present");
     }
 
     /**
      * The security configuration to set. see Data Catalog Encryption Settings.
      * 
      */
-    private UndeferrableValue<DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs> dataCatalogEncryptionSettings;
-
+    @PolicyResourceProperty(name="dataCatalogEncryptionSettings", flag="unknown_dataCatalogEncryptionSettings")
+    private DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs value_dataCatalogEncryptionSettings;
+    private boolean unknown_dataCatalogEncryptionSettings;
     public DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs dataCatalogEncryptionSettings() {
-        if (dataCatalogEncryptionSettings == null) return null;
-        return dataCatalogEncryptionSettings.getValue("DataCatalogEncryptionSettingsArgs.dataCatalogEncryptionSettings");
+        if (!unknown_dataCatalogEncryptionSettings) return value_dataCatalogEncryptionSettings;
+        throw new UndeferrableValueException("Value 'DataCatalogEncryptionSettingsArgs.dataCatalogEncryptionSettings' is not present");
     }
 
 }

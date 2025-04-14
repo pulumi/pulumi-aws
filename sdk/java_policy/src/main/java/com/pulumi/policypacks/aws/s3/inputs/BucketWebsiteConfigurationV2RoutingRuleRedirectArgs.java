@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,55 +15,60 @@ public final class BucketWebsiteConfigurationV2RoutingRuleRedirectArgs {
      * Host name to use in the redirect request.
      * 
      */
-    private UndeferrableValue<String> hostName;
-
+    @PolicyResourceProperty(name="hostName", flag="unknown_hostName")
+    private String value_hostName;
+    private boolean unknown_hostName;
     public String hostName() {
-        if (hostName == null) return null;
-        return hostName.getValue("BucketWebsiteConfigurationV2RoutingRuleRedirectArgs.hostName");
+        if (!unknown_hostName) return value_hostName;
+        throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2RoutingRuleRedirectArgs.hostName' is not present");
     }
 
     /**
      * HTTP redirect code to use on the response.
      * 
      */
-    private UndeferrableValue<String> httpRedirectCode;
-
+    @PolicyResourceProperty(name="httpRedirectCode", flag="unknown_httpRedirectCode")
+    private String value_httpRedirectCode;
+    private boolean unknown_httpRedirectCode;
     public String httpRedirectCode() {
-        if (httpRedirectCode == null) return null;
-        return httpRedirectCode.getValue("BucketWebsiteConfigurationV2RoutingRuleRedirectArgs.httpRedirectCode");
+        if (!unknown_httpRedirectCode) return value_httpRedirectCode;
+        throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2RoutingRuleRedirectArgs.httpRedirectCode' is not present");
     }
 
     /**
      * Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("BucketWebsiteConfigurationV2RoutingRuleRedirectArgs.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2RoutingRuleRedirectArgs.protocol' is not present");
     }
 
     /**
      * Object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `key_prefix_equals` set to `docs/` and in the `redirect` set `replace_key_prefix_with` to `/documents`.
      * 
      */
-    private UndeferrableValue<String> replaceKeyPrefixWith;
-
+    @PolicyResourceProperty(name="replaceKeyPrefixWith", flag="unknown_replaceKeyPrefixWith")
+    private String value_replaceKeyPrefixWith;
+    private boolean unknown_replaceKeyPrefixWith;
     public String replaceKeyPrefixWith() {
-        if (replaceKeyPrefixWith == null) return null;
-        return replaceKeyPrefixWith.getValue("BucketWebsiteConfigurationV2RoutingRuleRedirectArgs.replaceKeyPrefixWith");
+        if (!unknown_replaceKeyPrefixWith) return value_replaceKeyPrefixWith;
+        throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2RoutingRuleRedirectArgs.replaceKeyPrefixWith' is not present");
     }
 
     /**
      * Specific object key to use in the redirect request. For example, redirect request to `error.html`.
      * 
      */
-    private UndeferrableValue<String> replaceKeyWith;
-
+    @PolicyResourceProperty(name="replaceKeyWith", flag="unknown_replaceKeyWith")
+    private String value_replaceKeyWith;
+    private boolean unknown_replaceKeyWith;
     public String replaceKeyWith() {
-        if (replaceKeyWith == null) return null;
-        return replaceKeyWith.getValue("BucketWebsiteConfigurationV2RoutingRuleRedirectArgs.replaceKeyWith");
+        if (!unknown_replaceKeyWith) return value_replaceKeyWith;
+        throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2RoutingRuleRedirectArgs.replaceKeyWith' is not present");
     }
 
 }

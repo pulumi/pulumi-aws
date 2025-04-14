@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.inputs.AnalysisSourceEntitySourceTemplateArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class AnalysisSourceEntityArgs {
      * The source template. See source_template.
      * 
      */
-    private UndeferrableValue<AnalysisSourceEntitySourceTemplateArgs> sourceTemplate;
-
+    @PolicyResourceProperty(name="sourceTemplate", flag="unknown_sourceTemplate")
+    private AnalysisSourceEntitySourceTemplateArgs value_sourceTemplate;
+    private boolean unknown_sourceTemplate;
     public AnalysisSourceEntitySourceTemplateArgs sourceTemplate() {
-        if (sourceTemplate == null) return null;
-        return sourceTemplate.getValue("AnalysisSourceEntityArgs.sourceTemplate");
+        if (!unknown_sourceTemplate) return value_sourceTemplate;
+        throw new UndeferrableValueException("Value 'AnalysisSourceEntityArgs.sourceTemplate' is not present");
     }
 
 }

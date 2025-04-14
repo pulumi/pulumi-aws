@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.amplify;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.amplify.inputs.AppAutoBranchCreationConfigArgs;
 import com.pulumi.policypacks.aws.amplify.inputs.AppCacheConfigArgs;
@@ -22,220 +23,240 @@ public final class AppArgs extends com.pulumi.resources.PolicyResourceInput {
      * Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
      * 
      */
-    private UndeferrableValue<String> accessToken;
-
+    @PolicyResourceProperty(name="accessToken", flag="unknown_accessToken")
+    private String value_accessToken;
+    private boolean unknown_accessToken;
     public String accessToken() {
-        if (accessToken == null) return null;
-        return accessToken.getValue("AppArgs.accessToken");
+        if (!unknown_accessToken) return value_accessToken;
+        throw new UndeferrableValueException("Value 'AppArgs.accessToken' is not present");
     }
 
     /**
      * Automated branch creation configuration for an Amplify app. See `auto_branch_creation_config` Block for details.
      * 
      */
-    private UndeferrableValue<AppAutoBranchCreationConfigArgs> autoBranchCreationConfig;
-
+    @PolicyResourceProperty(name="autoBranchCreationConfig", flag="unknown_autoBranchCreationConfig")
+    private AppAutoBranchCreationConfigArgs value_autoBranchCreationConfig;
+    private boolean unknown_autoBranchCreationConfig;
     public AppAutoBranchCreationConfigArgs autoBranchCreationConfig() {
-        if (autoBranchCreationConfig == null) return null;
-        return autoBranchCreationConfig.getValue("AppArgs.autoBranchCreationConfig");
+        if (!unknown_autoBranchCreationConfig) return value_autoBranchCreationConfig;
+        throw new UndeferrableValueException("Value 'AppArgs.autoBranchCreationConfig' is not present");
     }
 
     /**
      * Automated branch creation glob patterns for an Amplify app.
      * 
      */
-    private UndeferrableValue<List<String>> autoBranchCreationPatterns;
-
+    @PolicyResourceProperty(name="autoBranchCreationPatterns", flag="unknown_autoBranchCreationPatterns")
+    private List<String> value_autoBranchCreationPatterns;
+    private boolean unknown_autoBranchCreationPatterns;
     public List<String> autoBranchCreationPatterns() {
-        if (autoBranchCreationPatterns == null) return null;
-        return autoBranchCreationPatterns.getValue("AppArgs.autoBranchCreationPatterns");
+        if (!unknown_autoBranchCreationPatterns) return value_autoBranchCreationPatterns;
+        throw new UndeferrableValueException("Value 'AppArgs.autoBranchCreationPatterns' is not present");
     }
 
     /**
      * Credentials for basic authorization for an Amplify app.
      * 
      */
-    private UndeferrableValue<String> basicAuthCredentials;
-
+    @PolicyResourceProperty(name="basicAuthCredentials", flag="unknown_basicAuthCredentials")
+    private String value_basicAuthCredentials;
+    private boolean unknown_basicAuthCredentials;
     public String basicAuthCredentials() {
-        if (basicAuthCredentials == null) return null;
-        return basicAuthCredentials.getValue("AppArgs.basicAuthCredentials");
+        if (!unknown_basicAuthCredentials) return value_basicAuthCredentials;
+        throw new UndeferrableValueException("Value 'AppArgs.basicAuthCredentials' is not present");
     }
 
     /**
      * The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
      * 
      */
-    private UndeferrableValue<String> buildSpec;
-
+    @PolicyResourceProperty(name="buildSpec", flag="unknown_buildSpec")
+    private String value_buildSpec;
+    private boolean unknown_buildSpec;
     public String buildSpec() {
-        if (buildSpec == null) return null;
-        return buildSpec.getValue("AppArgs.buildSpec");
+        if (!unknown_buildSpec) return value_buildSpec;
+        throw new UndeferrableValueException("Value 'AppArgs.buildSpec' is not present");
     }
 
     /**
      * Cache configuration for the Amplify app. See `cache_config` Block for details.
      * 
      */
-    private UndeferrableValue<AppCacheConfigArgs> cacheConfig;
-
+    @PolicyResourceProperty(name="cacheConfig", flag="unknown_cacheConfig")
+    private AppCacheConfigArgs value_cacheConfig;
+    private boolean unknown_cacheConfig;
     public AppCacheConfigArgs cacheConfig() {
-        if (cacheConfig == null) return null;
-        return cacheConfig.getValue("AppArgs.cacheConfig");
+        if (!unknown_cacheConfig) return value_cacheConfig;
+        throw new UndeferrableValueException("Value 'AppArgs.cacheConfig' is not present");
     }
 
     /**
      * The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
      * 
      */
-    private UndeferrableValue<String> customHeaders;
-
+    @PolicyResourceProperty(name="customHeaders", flag="unknown_customHeaders")
+    private String value_customHeaders;
+    private boolean unknown_customHeaders;
     public String customHeaders() {
-        if (customHeaders == null) return null;
-        return customHeaders.getValue("AppArgs.customHeaders");
+        if (!unknown_customHeaders) return value_customHeaders;
+        throw new UndeferrableValueException("Value 'AppArgs.customHeaders' is not present");
     }
 
     /**
      * Custom rewrite and redirect rules for an Amplify app. See `custom_rule` Block for details.
      * 
      */
-    private UndeferrableValue<List<AppCustomRuleArgs>> customRules;
-
+    @PolicyResourceProperty(name="customRules", flag="unknown_customRules")
+    private List<AppCustomRuleArgs> value_customRules;
+    private boolean unknown_customRules;
     public List<AppCustomRuleArgs> customRules() {
-        if (customRules == null) return null;
-        return customRules.getValue("AppArgs.customRules");
+        if (!unknown_customRules) return value_customRules;
+        throw new UndeferrableValueException("Value 'AppArgs.customRules' is not present");
     }
 
     /**
      * Description for an Amplify app.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("AppArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AppArgs.description' is not present");
     }
 
     /**
      * Enables automated branch creation for an Amplify app.
      * 
      */
-    private UndeferrableValue<Boolean> enableAutoBranchCreation;
-
+    @PolicyResourceProperty(name="enableAutoBranchCreation", flag="unknown_enableAutoBranchCreation")
+    private Boolean value_enableAutoBranchCreation;
+    private boolean unknown_enableAutoBranchCreation;
     public Boolean enableAutoBranchCreation() {
-        if (enableAutoBranchCreation == null) return null;
-        return enableAutoBranchCreation.getValue("AppArgs.enableAutoBranchCreation");
+        if (!unknown_enableAutoBranchCreation) return value_enableAutoBranchCreation;
+        throw new UndeferrableValueException("Value 'AppArgs.enableAutoBranchCreation' is not present");
     }
 
     /**
      * Enables basic authorization for an Amplify app. This will apply to all branches that are part of this app.
      * 
      */
-    private UndeferrableValue<Boolean> enableBasicAuth;
-
+    @PolicyResourceProperty(name="enableBasicAuth", flag="unknown_enableBasicAuth")
+    private Boolean value_enableBasicAuth;
+    private boolean unknown_enableBasicAuth;
     public Boolean enableBasicAuth() {
-        if (enableBasicAuth == null) return null;
-        return enableBasicAuth.getValue("AppArgs.enableBasicAuth");
+        if (!unknown_enableBasicAuth) return value_enableBasicAuth;
+        throw new UndeferrableValueException("Value 'AppArgs.enableBasicAuth' is not present");
     }
 
     /**
      * Enables auto-building of branches for the Amplify App.
      * 
      */
-    private UndeferrableValue<Boolean> enableBranchAutoBuild;
-
+    @PolicyResourceProperty(name="enableBranchAutoBuild", flag="unknown_enableBranchAutoBuild")
+    private Boolean value_enableBranchAutoBuild;
+    private boolean unknown_enableBranchAutoBuild;
     public Boolean enableBranchAutoBuild() {
-        if (enableBranchAutoBuild == null) return null;
-        return enableBranchAutoBuild.getValue("AppArgs.enableBranchAutoBuild");
+        if (!unknown_enableBranchAutoBuild) return value_enableBranchAutoBuild;
+        throw new UndeferrableValueException("Value 'AppArgs.enableBranchAutoBuild' is not present");
     }
 
     /**
      * Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
      * 
      */
-    private UndeferrableValue<Boolean> enableBranchAutoDeletion;
-
+    @PolicyResourceProperty(name="enableBranchAutoDeletion", flag="unknown_enableBranchAutoDeletion")
+    private Boolean value_enableBranchAutoDeletion;
+    private boolean unknown_enableBranchAutoDeletion;
     public Boolean enableBranchAutoDeletion() {
-        if (enableBranchAutoDeletion == null) return null;
-        return enableBranchAutoDeletion.getValue("AppArgs.enableBranchAutoDeletion");
+        if (!unknown_enableBranchAutoDeletion) return value_enableBranchAutoDeletion;
+        throw new UndeferrableValueException("Value 'AppArgs.enableBranchAutoDeletion' is not present");
     }
 
     /**
      * Environment variables map for an Amplify app.
      * 
      */
-    private UndeferrableValue<Map<String,String>> environmentVariables;
-
+    @PolicyResourceProperty(name="environmentVariables", flag="unknown_environmentVariables")
+    private Map<String,String> value_environmentVariables;
+    private boolean unknown_environmentVariables;
     public Map<String,String> environmentVariables() {
-        if (environmentVariables == null) return null;
-        return environmentVariables.getValue("AppArgs.environmentVariables");
+        if (!unknown_environmentVariables) return value_environmentVariables;
+        throw new UndeferrableValueException("Value 'AppArgs.environmentVariables' is not present");
     }
 
     /**
      * AWS Identity and Access Management (IAM) service role for an Amplify app.
      * 
      */
-    private UndeferrableValue<String> iamServiceRoleArn;
-
+    @PolicyResourceProperty(name="iamServiceRoleArn", flag="unknown_iamServiceRoleArn")
+    private String value_iamServiceRoleArn;
+    private boolean unknown_iamServiceRoleArn;
     public String iamServiceRoleArn() {
-        if (iamServiceRoleArn == null) return null;
-        return iamServiceRoleArn.getValue("AppArgs.iamServiceRoleArn");
+        if (!unknown_iamServiceRoleArn) return value_iamServiceRoleArn;
+        throw new UndeferrableValueException("Value 'AppArgs.iamServiceRoleArn' is not present");
     }
 
     /**
      * Name for an Amplify app.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AppArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AppArgs.name' is not present");
     }
 
     /**
      * OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
      * 
      */
-    private UndeferrableValue<String> oauthToken;
-
+    @PolicyResourceProperty(name="oauthToken", flag="unknown_oauthToken")
+    private String value_oauthToken;
+    private boolean unknown_oauthToken;
     public String oauthToken() {
-        if (oauthToken == null) return null;
-        return oauthToken.getValue("AppArgs.oauthToken");
+        if (!unknown_oauthToken) return value_oauthToken;
+        throw new UndeferrableValueException("Value 'AppArgs.oauthToken' is not present");
     }
 
     /**
      * Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
      * 
      */
-    private UndeferrableValue<String> platform;
-
+    @PolicyResourceProperty(name="platform", flag="unknown_platform")
+    private String value_platform;
+    private boolean unknown_platform;
     public String platform() {
-        if (platform == null) return null;
-        return platform.getValue("AppArgs.platform");
+        if (!unknown_platform) return value_platform;
+        throw new UndeferrableValueException("Value 'AppArgs.platform' is not present");
     }
 
     /**
      * Repository for an Amplify app.
      * 
      */
-    private UndeferrableValue<String> repository;
-
+    @PolicyResourceProperty(name="repository", flag="unknown_repository")
+    private String value_repository;
+    private boolean unknown_repository;
     public String repository() {
-        if (repository == null) return null;
-        return repository.getValue("AppArgs.repository");
+        if (!unknown_repository) return value_repository;
+        throw new UndeferrableValueException("Value 'AppArgs.repository' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AppArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AppArgs.tags' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emrcontainers;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.emrcontainers.inputs.JobTemplateJobTemplateDataArgs;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class JobTemplateArgs extends com.pulumi.resources.PolicyResourceIn
      * The job template data which holds values of StartJobRun API request.
      * 
      */
-    private UndeferrableValue<JobTemplateJobTemplateDataArgs> jobTemplateData;
-
+    @PolicyResourceProperty(name="jobTemplateData", flag="unknown_jobTemplateData")
+    private JobTemplateJobTemplateDataArgs value_jobTemplateData;
+    private boolean unknown_jobTemplateData;
     public JobTemplateJobTemplateDataArgs jobTemplateData() {
-        if (jobTemplateData == null) return null;
-        return jobTemplateData.getValue("JobTemplateArgs.jobTemplateData");
+        if (!unknown_jobTemplateData) return value_jobTemplateData;
+        throw new UndeferrableValueException("Value 'JobTemplateArgs.jobTemplateData' is not present");
     }
 
     /**
      * The KMS key ARN used to encrypt the job template.
      * 
      */
-    private UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("JobTemplateArgs.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'JobTemplateArgs.kmsKeyArn' is not present");
     }
 
     /**
      * The specified name of the job template.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("JobTemplateArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'JobTemplateArgs.name' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("JobTemplateArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'JobTemplateArgs.tags' is not present");
     }
 
 }

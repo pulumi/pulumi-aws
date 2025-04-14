@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.costexplorer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.costexplorer.outputs.CostCategorySplitChargeRuleParameter;
 import java.lang.String;
 import java.util.List;
@@ -16,44 +17,48 @@ public final class CostCategorySplitChargeRule {
      * Method that&#39;s used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
      * 
      */
-    private UndeferrableValue<String> method;
-
+    @PolicyResourceProperty(name="method", flag="unknown_method")
+    private String value_method;
+    private boolean unknown_method;
     public String method() {
-        if (method == null) return null;
-        return method.getValue("CostCategorySplitChargeRule.method");
+        if (!unknown_method) return value_method;
+        throw new UndeferrableValueException("Value 'CostCategorySplitChargeRule.method' is not present");
     }
 
     /**
      * Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
      * 
      */
-    private @Nullable UndeferrableValue<List<CostCategorySplitChargeRuleParameter>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private @Nullable List<CostCategorySplitChargeRuleParameter> value_parameters;
+    private boolean unknown_parameters;
     public @Nullable List<CostCategorySplitChargeRuleParameter> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("CostCategorySplitChargeRule.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'CostCategorySplitChargeRule.parameters' is not present");
     }
 
     /**
      * Cost Category value that you want to split.
      * 
      */
-    private UndeferrableValue<String> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private String value_source;
+    private boolean unknown_source;
     public String source() {
-        if (source == null) return null;
-        return source.getValue("CostCategorySplitChargeRule.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'CostCategorySplitChargeRule.source' is not present");
     }
 
     /**
      * Cost Category values that you want to split costs across. These values can&#39;t be used as a source in other split charge rules.
      * 
      */
-    private UndeferrableValue<List<String>> targets;
-
+    @PolicyResourceProperty(name="targets", flag="unknown_targets")
+    private List<String> value_targets;
+    private boolean unknown_targets;
     public List<String> targets() {
-        if (targets == null) return null;
-        return targets.getValue("CostCategorySplitChargeRule.targets");
+        if (!unknown_targets) return value_targets;
+        throw new UndeferrableValueException("Value 'CostCategorySplitChargeRule.targets' is not present");
     }
 
 }

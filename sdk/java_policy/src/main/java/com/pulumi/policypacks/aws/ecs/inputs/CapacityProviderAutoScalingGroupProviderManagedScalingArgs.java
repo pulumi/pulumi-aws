@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -17,55 +18,60 @@ public final class CapacityProviderAutoScalingGroupProviderManagedScalingArgs {
      * For more information on how the instance warmup period contributes to managed scale-out behavior, see [Control the instances Amazon ECS terminates](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-termination-protection.html) in the _Amazon Elastic Container Service Developer Guide_.
      * 
      */
-    private UndeferrableValue<Integer> instanceWarmupPeriod;
-
+    @PolicyResourceProperty(name="instanceWarmupPeriod", flag="unknown_instanceWarmupPeriod")
+    private Integer value_instanceWarmupPeriod;
+    private boolean unknown_instanceWarmupPeriod;
     public Integer instanceWarmupPeriod() {
-        if (instanceWarmupPeriod == null) return null;
-        return instanceWarmupPeriod.getValue("CapacityProviderAutoScalingGroupProviderManagedScalingArgs.instanceWarmupPeriod");
+        if (!unknown_instanceWarmupPeriod) return value_instanceWarmupPeriod;
+        throw new UndeferrableValueException("Value 'CapacityProviderAutoScalingGroupProviderManagedScalingArgs.instanceWarmupPeriod' is not present");
     }
 
     /**
      * Maximum step adjustment size. A number between 1 and 10,000.
      * 
      */
-    private UndeferrableValue<Integer> maximumScalingStepSize;
-
+    @PolicyResourceProperty(name="maximumScalingStepSize", flag="unknown_maximumScalingStepSize")
+    private Integer value_maximumScalingStepSize;
+    private boolean unknown_maximumScalingStepSize;
     public Integer maximumScalingStepSize() {
-        if (maximumScalingStepSize == null) return null;
-        return maximumScalingStepSize.getValue("CapacityProviderAutoScalingGroupProviderManagedScalingArgs.maximumScalingStepSize");
+        if (!unknown_maximumScalingStepSize) return value_maximumScalingStepSize;
+        throw new UndeferrableValueException("Value 'CapacityProviderAutoScalingGroupProviderManagedScalingArgs.maximumScalingStepSize' is not present");
     }
 
     /**
      * Minimum step adjustment size. A number between 1 and 10,000.
      * 
      */
-    private UndeferrableValue<Integer> minimumScalingStepSize;
-
+    @PolicyResourceProperty(name="minimumScalingStepSize", flag="unknown_minimumScalingStepSize")
+    private Integer value_minimumScalingStepSize;
+    private boolean unknown_minimumScalingStepSize;
     public Integer minimumScalingStepSize() {
-        if (minimumScalingStepSize == null) return null;
-        return minimumScalingStepSize.getValue("CapacityProviderAutoScalingGroupProviderManagedScalingArgs.minimumScalingStepSize");
+        if (!unknown_minimumScalingStepSize) return value_minimumScalingStepSize;
+        throw new UndeferrableValueException("Value 'CapacityProviderAutoScalingGroupProviderManagedScalingArgs.minimumScalingStepSize' is not present");
     }
 
     /**
      * Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("CapacityProviderAutoScalingGroupProviderManagedScalingArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'CapacityProviderAutoScalingGroupProviderManagedScalingArgs.status' is not present");
     }
 
     /**
      * Target utilization for the capacity provider. A number between 1 and 100.
      * 
      */
-    private UndeferrableValue<Integer> targetCapacity;
-
+    @PolicyResourceProperty(name="targetCapacity", flag="unknown_targetCapacity")
+    private Integer value_targetCapacity;
+    private boolean unknown_targetCapacity;
     public Integer targetCapacity() {
-        if (targetCapacity == null) return null;
-        return targetCapacity.getValue("CapacityProviderAutoScalingGroupProviderManagedScalingArgs.targetCapacity");
+        if (!unknown_targetCapacity) return value_targetCapacity;
+        throw new UndeferrableValueException("Value 'CapacityProviderAutoScalingGroupProviderManagedScalingArgs.targetCapacity' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.networkfirewall.inputs.TlsInspectionConfigurationEncryptionConfigurationArgs;
 import com.pulumi.policypacks.aws.networkfirewall.inputs.TlsInspectionConfigurationTimeoutsArgs;
@@ -21,47 +22,52 @@ public final class TlsInspectionConfigurationArgs extends com.pulumi.resources.P
      * Description of the TLS inspection configuration.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("TlsInspectionConfigurationArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfigurationArgs.description' is not present");
     }
 
     /**
      * Encryption configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<List<TlsInspectionConfigurationEncryptionConfigurationArgs>> encryptionConfigurations;
-
+    @PolicyResourceProperty(name="encryptionConfigurations", flag="unknown_encryptionConfigurations")
+    private List<TlsInspectionConfigurationEncryptionConfigurationArgs> value_encryptionConfigurations;
+    private boolean unknown_encryptionConfigurations;
     public List<TlsInspectionConfigurationEncryptionConfigurationArgs> encryptionConfigurations() {
-        if (encryptionConfigurations == null) return null;
-        return encryptionConfigurations.getValue("TlsInspectionConfigurationArgs.encryptionConfigurations");
+        if (!unknown_encryptionConfigurations) return value_encryptionConfigurations;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfigurationArgs.encryptionConfigurations' is not present");
     }
 
     /**
      * Descriptive name of the TLS inspection configuration.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TlsInspectionConfigurationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfigurationArgs.name' is not present");
     }
 
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TlsInspectionConfigurationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfigurationArgs.tags' is not present");
     }
 
-    private UndeferrableValue<TlsInspectionConfigurationTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private TlsInspectionConfigurationTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public TlsInspectionConfigurationTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("TlsInspectionConfigurationArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfigurationArgs.timeouts' is not present");
     }
 
     /**
@@ -70,11 +76,12 @@ public final class TlsInspectionConfigurationArgs extends com.pulumi.resources.P
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<TlsInspectionConfigurationTlsInspectionConfigurationArgs> tlsInspectionConfiguration;
-
+    @PolicyResourceProperty(name="tlsInspectionConfiguration", flag="unknown_tlsInspectionConfiguration")
+    private TlsInspectionConfigurationTlsInspectionConfigurationArgs value_tlsInspectionConfiguration;
+    private boolean unknown_tlsInspectionConfiguration;
     public TlsInspectionConfigurationTlsInspectionConfigurationArgs tlsInspectionConfiguration() {
-        if (tlsInspectionConfiguration == null) return null;
-        return tlsInspectionConfiguration.getValue("TlsInspectionConfigurationArgs.tlsInspectionConfiguration");
+        if (!unknown_tlsInspectionConfiguration) return value_tlsInspectionConfiguration;
+        throw new UndeferrableValueException("Value 'TlsInspectionConfigurationArgs.tlsInspectionConfiguration' is not present");
     }
 
 }

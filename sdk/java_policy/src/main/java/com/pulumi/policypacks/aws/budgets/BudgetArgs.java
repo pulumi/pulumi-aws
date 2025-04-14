@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.budgets;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.budgets.inputs.BudgetAutoAdjustDataArgs;
 import com.pulumi.policypacks.aws.budgets.inputs.BudgetCostFilterArgs;
@@ -23,154 +24,168 @@ public final class BudgetArgs extends com.pulumi.resources.PolicyResourceInput {
      * The ID of the target account for budget. Will use current user&#39;s account_id by default if omitted.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("BudgetArgs.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'BudgetArgs.accountId' is not present");
     }
 
     /**
      * Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
      * 
      */
-    private UndeferrableValue<BudgetAutoAdjustDataArgs> autoAdjustData;
-
+    @PolicyResourceProperty(name="autoAdjustData", flag="unknown_autoAdjustData")
+    private BudgetAutoAdjustDataArgs value_autoAdjustData;
+    private boolean unknown_autoAdjustData;
     public BudgetAutoAdjustDataArgs autoAdjustData() {
-        if (autoAdjustData == null) return null;
-        return autoAdjustData.getValue("BudgetArgs.autoAdjustData");
+        if (!unknown_autoAdjustData) return value_autoAdjustData;
+        throw new UndeferrableValueException("Value 'BudgetArgs.autoAdjustData' is not present");
     }
 
     /**
      * Whether this budget tracks monetary cost or usage.
      * 
      */
-    private UndeferrableValue<String> budgetType;
-
+    @PolicyResourceProperty(name="budgetType", flag="unknown_budgetType")
+    private String value_budgetType;
+    private boolean unknown_budgetType;
     public String budgetType() {
-        if (budgetType == null) return null;
-        return budgetType.getValue("BudgetArgs.budgetType");
+        if (!unknown_budgetType) return value_budgetType;
+        throw new UndeferrableValueException("Value 'BudgetArgs.budgetType' is not present");
     }
 
     /**
      * A list of CostFilter name/values pair to apply to budget.
      * 
      */
-    private UndeferrableValue<List<BudgetCostFilterArgs>> costFilters;
-
+    @PolicyResourceProperty(name="costFilters", flag="unknown_costFilters")
+    private List<BudgetCostFilterArgs> value_costFilters;
+    private boolean unknown_costFilters;
     public List<BudgetCostFilterArgs> costFilters() {
-        if (costFilters == null) return null;
-        return costFilters.getValue("BudgetArgs.costFilters");
+        if (!unknown_costFilters) return value_costFilters;
+        throw new UndeferrableValueException("Value 'BudgetArgs.costFilters' is not present");
     }
 
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
      * 
      */
-    private UndeferrableValue<BudgetCostTypesArgs> costTypes;
-
+    @PolicyResourceProperty(name="costTypes", flag="unknown_costTypes")
+    private BudgetCostTypesArgs value_costTypes;
+    private boolean unknown_costTypes;
     public BudgetCostTypesArgs costTypes() {
-        if (costTypes == null) return null;
-        return costTypes.getValue("BudgetArgs.costTypes");
+        if (!unknown_costTypes) return value_costTypes;
+        throw new UndeferrableValueException("Value 'BudgetArgs.costTypes' is not present");
     }
 
     /**
      * The amount of cost or usage being measured for a budget.
      * 
      */
-    private UndeferrableValue<String> limitAmount;
-
+    @PolicyResourceProperty(name="limitAmount", flag="unknown_limitAmount")
+    private String value_limitAmount;
+    private boolean unknown_limitAmount;
     public String limitAmount() {
-        if (limitAmount == null) return null;
-        return limitAmount.getValue("BudgetArgs.limitAmount");
+        if (!unknown_limitAmount) return value_limitAmount;
+        throw new UndeferrableValueException("Value 'BudgetArgs.limitAmount' is not present");
     }
 
     /**
      * The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
      * 
      */
-    private UndeferrableValue<String> limitUnit;
-
+    @PolicyResourceProperty(name="limitUnit", flag="unknown_limitUnit")
+    private String value_limitUnit;
+    private boolean unknown_limitUnit;
     public String limitUnit() {
-        if (limitUnit == null) return null;
-        return limitUnit.getValue("BudgetArgs.limitUnit");
+        if (!unknown_limitUnit) return value_limitUnit;
+        throw new UndeferrableValueException("Value 'BudgetArgs.limitUnit' is not present");
     }
 
     /**
      * The name of a budget. Unique within accounts.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("BudgetArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'BudgetArgs.name' is not present");
     }
 
     /**
      * The prefix of the name of a budget. Unique within accounts.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("BudgetArgs.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'BudgetArgs.namePrefix' is not present");
     }
 
     /**
      * Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
      * 
      */
-    private UndeferrableValue<List<BudgetNotificationArgs>> notifications;
-
+    @PolicyResourceProperty(name="notifications", flag="unknown_notifications")
+    private List<BudgetNotificationArgs> value_notifications;
+    private boolean unknown_notifications;
     public List<BudgetNotificationArgs> notifications() {
-        if (notifications == null) return null;
-        return notifications.getValue("BudgetArgs.notifications");
+        if (!unknown_notifications) return value_notifications;
+        throw new UndeferrableValueException("Value 'BudgetArgs.notifications' is not present");
     }
 
     /**
      * Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
      * 
      */
-    private UndeferrableValue<List<BudgetPlannedLimitArgs>> plannedLimits;
-
+    @PolicyResourceProperty(name="plannedLimits", flag="unknown_plannedLimits")
+    private List<BudgetPlannedLimitArgs> value_plannedLimits;
+    private boolean unknown_plannedLimits;
     public List<BudgetPlannedLimitArgs> plannedLimits() {
-        if (plannedLimits == null) return null;
-        return plannedLimits.getValue("BudgetArgs.plannedLimits");
+        if (!unknown_plannedLimits) return value_plannedLimits;
+        throw new UndeferrableValueException("Value 'BudgetArgs.plannedLimits' is not present");
     }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("BudgetArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'BudgetArgs.tags' is not present");
     }
 
     /**
      * The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
      * 
      */
-    private UndeferrableValue<String> timePeriodEnd;
-
+    @PolicyResourceProperty(name="timePeriodEnd", flag="unknown_timePeriodEnd")
+    private String value_timePeriodEnd;
+    private boolean unknown_timePeriodEnd;
     public String timePeriodEnd() {
-        if (timePeriodEnd == null) return null;
-        return timePeriodEnd.getValue("BudgetArgs.timePeriodEnd");
+        if (!unknown_timePeriodEnd) return value_timePeriodEnd;
+        throw new UndeferrableValueException("Value 'BudgetArgs.timePeriodEnd' is not present");
     }
 
     /**
      * The start of the time period covered by the budget. If you don&#39;t specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
      * 
      */
-    private UndeferrableValue<String> timePeriodStart;
-
+    @PolicyResourceProperty(name="timePeriodStart", flag="unknown_timePeriodStart")
+    private String value_timePeriodStart;
+    private boolean unknown_timePeriodStart;
     public String timePeriodStart() {
-        if (timePeriodStart == null) return null;
-        return timePeriodStart.getValue("BudgetArgs.timePeriodStart");
+        if (!unknown_timePeriodStart) return value_timePeriodStart;
+        throw new UndeferrableValueException("Value 'BudgetArgs.timePeriodStart' is not present");
     }
 
     /**
@@ -179,11 +194,12 @@ public final class BudgetArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> timeUnit;
-
+    @PolicyResourceProperty(name="timeUnit", flag="unknown_timeUnit")
+    private String value_timeUnit;
+    private boolean unknown_timeUnit;
     public String timeUnit() {
-        if (timeUnit == null) return null;
-        return timeUnit.getValue("BudgetArgs.timeUnit");
+        if (!unknown_timeUnit) return value_timeUnit;
+        throw new UndeferrableValueException("Value 'BudgetArgs.timeUnit' is not present");
     }
 
 }

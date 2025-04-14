@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ivs.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class RecordingConfigurationThumbnailConfiguration {
      * Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
      * 
      */
-    private @Nullable UndeferrableValue<String> recordingMode;
-
+    @PolicyResourceProperty(name="recordingMode", flag="unknown_recordingMode")
+    private @Nullable String value_recordingMode;
+    private boolean unknown_recordingMode;
     public @Nullable String recordingMode() {
-        if (recordingMode == null) return null;
-        return recordingMode.getValue("RecordingConfigurationThumbnailConfiguration.recordingMode");
+        if (!unknown_recordingMode) return value_recordingMode;
+        throw new UndeferrableValueException("Value 'RecordingConfigurationThumbnailConfiguration.recordingMode' is not present");
     }
 
     /**
      * The targeted thumbnail-generation interval in seconds.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> targetIntervalSeconds;
-
+    @PolicyResourceProperty(name="targetIntervalSeconds", flag="unknown_targetIntervalSeconds")
+    private @Nullable Integer value_targetIntervalSeconds;
+    private boolean unknown_targetIntervalSeconds;
     public @Nullable Integer targetIntervalSeconds() {
-        if (targetIntervalSeconds == null) return null;
-        return targetIntervalSeconds.getValue("RecordingConfigurationThumbnailConfiguration.targetIntervalSeconds");
+        if (!unknown_targetIntervalSeconds) return value_targetIntervalSeconds;
+        throw new UndeferrableValueException("Value 'RecordingConfigurationThumbnailConfiguration.targetIntervalSeconds' is not present");
     }
 
 }

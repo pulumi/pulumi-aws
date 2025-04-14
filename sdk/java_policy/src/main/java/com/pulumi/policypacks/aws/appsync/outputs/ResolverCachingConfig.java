@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class ResolverCachingConfig {
      * The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> cachingKeys;
-
+    @PolicyResourceProperty(name="cachingKeys", flag="unknown_cachingKeys")
+    private @Nullable List<String> value_cachingKeys;
+    private boolean unknown_cachingKeys;
     public @Nullable List<String> cachingKeys() {
-        if (cachingKeys == null) return null;
-        return cachingKeys.getValue("ResolverCachingConfig.cachingKeys");
+        if (!unknown_cachingKeys) return value_cachingKeys;
+        throw new UndeferrableValueException("Value 'ResolverCachingConfig.cachingKeys' is not present");
     }
 
     /**
      * The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> ttl;
-
+    @PolicyResourceProperty(name="ttl", flag="unknown_ttl")
+    private @Nullable Integer value_ttl;
+    private boolean unknown_ttl;
     public @Nullable Integer ttl() {
-        if (ttl == null) return null;
-        return ttl.getValue("ResolverCachingConfig.ttl");
+        if (!unknown_ttl) return value_ttl;
+        throw new UndeferrableValueException("Value 'ResolverCachingConfig.ttl' is not present");
     }
 
 }

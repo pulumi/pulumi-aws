@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.securityhub.outputs.InsightFiltersAwsAccountId;
 import com.pulumi.policypacks.aws.securityhub.outputs.InsightFiltersCompanyName;
 import com.pulumi.policypacks.aws.securityhub.outputs.InsightFiltersComplianceStatus;
@@ -102,968 +103,1056 @@ public final class InsightFilters {
      * AWS account ID that a finding is generated in. See String_Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersAwsAccountId>> awsAccountIds;
-
+    @PolicyResourceProperty(name="awsAccountIds", flag="unknown_awsAccountIds")
+    private @Nullable List<InsightFiltersAwsAccountId> value_awsAccountIds;
+    private boolean unknown_awsAccountIds;
     public @Nullable List<InsightFiltersAwsAccountId> awsAccountIds() {
-        if (awsAccountIds == null) return null;
-        return awsAccountIds.getValue("InsightFilters.awsAccountIds");
+        if (!unknown_awsAccountIds) return value_awsAccountIds;
+        throw new UndeferrableValueException("Value 'InsightFilters.awsAccountIds' is not present");
     }
 
     /**
      * The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersCompanyName>> companyNames;
-
+    @PolicyResourceProperty(name="companyNames", flag="unknown_companyNames")
+    private @Nullable List<InsightFiltersCompanyName> value_companyNames;
+    private boolean unknown_companyNames;
     public @Nullable List<InsightFiltersCompanyName> companyNames() {
-        if (companyNames == null) return null;
-        return companyNames.getValue("InsightFilters.companyNames");
+        if (!unknown_companyNames) return value_companyNames;
+        throw new UndeferrableValueException("Value 'InsightFilters.companyNames' is not present");
     }
 
     /**
      * Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard, such as CIS AWS Foundations. Contains security standard-related finding details. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersComplianceStatus>> complianceStatuses;
-
+    @PolicyResourceProperty(name="complianceStatuses", flag="unknown_complianceStatuses")
+    private @Nullable List<InsightFiltersComplianceStatus> value_complianceStatuses;
+    private boolean unknown_complianceStatuses;
     public @Nullable List<InsightFiltersComplianceStatus> complianceStatuses() {
-        if (complianceStatuses == null) return null;
-        return complianceStatuses.getValue("InsightFilters.complianceStatuses");
+        if (!unknown_complianceStatuses) return value_complianceStatuses;
+        throw new UndeferrableValueException("Value 'InsightFilters.complianceStatuses' is not present");
     }
 
     /**
      * A finding&#39;s confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersConfidence>> confidences;
-
+    @PolicyResourceProperty(name="confidences", flag="unknown_confidences")
+    private @Nullable List<InsightFiltersConfidence> value_confidences;
+    private boolean unknown_confidences;
     public @Nullable List<InsightFiltersConfidence> confidences() {
-        if (confidences == null) return null;
-        return confidences.getValue("InsightFilters.confidences");
+        if (!unknown_confidences) return value_confidences;
+        throw new UndeferrableValueException("Value 'InsightFilters.confidences' is not present");
     }
 
     /**
      * An ISO8601-formatted timestamp that indicates when the security-findings provider captured the potential security issue that a finding captured. See Date Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersCreatedAt>> createdAts;
-
+    @PolicyResourceProperty(name="createdAts", flag="unknown_createdAts")
+    private @Nullable List<InsightFiltersCreatedAt> value_createdAts;
+    private boolean unknown_createdAts;
     public @Nullable List<InsightFiltersCreatedAt> createdAts() {
-        if (createdAts == null) return null;
-        return createdAts.getValue("InsightFilters.createdAts");
+        if (!unknown_createdAts) return value_createdAts;
+        throw new UndeferrableValueException("Value 'InsightFilters.createdAts' is not present");
     }
 
     /**
      * The level of importance assigned to the resources associated with the finding. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersCriticality>> criticalities;
-
+    @PolicyResourceProperty(name="criticalities", flag="unknown_criticalities")
+    private @Nullable List<InsightFiltersCriticality> value_criticalities;
+    private boolean unknown_criticalities;
     public @Nullable List<InsightFiltersCriticality> criticalities() {
-        if (criticalities == null) return null;
-        return criticalities.getValue("InsightFilters.criticalities");
+        if (!unknown_criticalities) return value_criticalities;
+        throw new UndeferrableValueException("Value 'InsightFilters.criticalities' is not present");
     }
 
     /**
      * A finding&#39;s description. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersDescription>> descriptions;
-
+    @PolicyResourceProperty(name="descriptions", flag="unknown_descriptions")
+    private @Nullable List<InsightFiltersDescription> value_descriptions;
+    private boolean unknown_descriptions;
     public @Nullable List<InsightFiltersDescription> descriptions() {
-        if (descriptions == null) return null;
-        return descriptions.getValue("InsightFilters.descriptions");
+        if (!unknown_descriptions) return value_descriptions;
+        throw new UndeferrableValueException("Value 'InsightFilters.descriptions' is not present");
     }
 
     /**
      * The finding provider value for the finding confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersFindingProviderFieldsConfidence>> findingProviderFieldsConfidences;
-
+    @PolicyResourceProperty(name="findingProviderFieldsConfidences", flag="unknown_findingProviderFieldsConfidences")
+    private @Nullable List<InsightFiltersFindingProviderFieldsConfidence> value_findingProviderFieldsConfidences;
+    private boolean unknown_findingProviderFieldsConfidences;
     public @Nullable List<InsightFiltersFindingProviderFieldsConfidence> findingProviderFieldsConfidences() {
-        if (findingProviderFieldsConfidences == null) return null;
-        return findingProviderFieldsConfidences.getValue("InsightFilters.findingProviderFieldsConfidences");
+        if (!unknown_findingProviderFieldsConfidences) return value_findingProviderFieldsConfidences;
+        throw new UndeferrableValueException("Value 'InsightFilters.findingProviderFieldsConfidences' is not present");
     }
 
     /**
      * The finding provider value for the level of importance assigned to the resources associated with the findings. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersFindingProviderFieldsCriticality>> findingProviderFieldsCriticalities;
-
+    @PolicyResourceProperty(name="findingProviderFieldsCriticalities", flag="unknown_findingProviderFieldsCriticalities")
+    private @Nullable List<InsightFiltersFindingProviderFieldsCriticality> value_findingProviderFieldsCriticalities;
+    private boolean unknown_findingProviderFieldsCriticalities;
     public @Nullable List<InsightFiltersFindingProviderFieldsCriticality> findingProviderFieldsCriticalities() {
-        if (findingProviderFieldsCriticalities == null) return null;
-        return findingProviderFieldsCriticalities.getValue("InsightFilters.findingProviderFieldsCriticalities");
+        if (!unknown_findingProviderFieldsCriticalities) return value_findingProviderFieldsCriticalities;
+        throw new UndeferrableValueException("Value 'InsightFilters.findingProviderFieldsCriticalities' is not present");
     }
 
     /**
      * The finding identifier of a related finding that is identified by the finding provider. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersFindingProviderFieldsRelatedFindingsId>> findingProviderFieldsRelatedFindingsIds;
-
+    @PolicyResourceProperty(name="findingProviderFieldsRelatedFindingsIds", flag="unknown_findingProviderFieldsRelatedFindingsIds")
+    private @Nullable List<InsightFiltersFindingProviderFieldsRelatedFindingsId> value_findingProviderFieldsRelatedFindingsIds;
+    private boolean unknown_findingProviderFieldsRelatedFindingsIds;
     public @Nullable List<InsightFiltersFindingProviderFieldsRelatedFindingsId> findingProviderFieldsRelatedFindingsIds() {
-        if (findingProviderFieldsRelatedFindingsIds == null) return null;
-        return findingProviderFieldsRelatedFindingsIds.getValue("InsightFilters.findingProviderFieldsRelatedFindingsIds");
+        if (!unknown_findingProviderFieldsRelatedFindingsIds) return value_findingProviderFieldsRelatedFindingsIds;
+        throw new UndeferrableValueException("Value 'InsightFilters.findingProviderFieldsRelatedFindingsIds' is not present");
     }
 
     /**
      * The ARN of the solution that generated a related finding that is identified by the finding provider. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersFindingProviderFieldsRelatedFindingsProductArn>> findingProviderFieldsRelatedFindingsProductArns;
-
+    @PolicyResourceProperty(name="findingProviderFieldsRelatedFindingsProductArns", flag="unknown_findingProviderFieldsRelatedFindingsProductArns")
+    private @Nullable List<InsightFiltersFindingProviderFieldsRelatedFindingsProductArn> value_findingProviderFieldsRelatedFindingsProductArns;
+    private boolean unknown_findingProviderFieldsRelatedFindingsProductArns;
     public @Nullable List<InsightFiltersFindingProviderFieldsRelatedFindingsProductArn> findingProviderFieldsRelatedFindingsProductArns() {
-        if (findingProviderFieldsRelatedFindingsProductArns == null) return null;
-        return findingProviderFieldsRelatedFindingsProductArns.getValue("InsightFilters.findingProviderFieldsRelatedFindingsProductArns");
+        if (!unknown_findingProviderFieldsRelatedFindingsProductArns) return value_findingProviderFieldsRelatedFindingsProductArns;
+        throw new UndeferrableValueException("Value 'InsightFilters.findingProviderFieldsRelatedFindingsProductArns' is not present");
     }
 
     /**
      * The finding provider value for the severity label. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersFindingProviderFieldsSeverityLabel>> findingProviderFieldsSeverityLabels;
-
+    @PolicyResourceProperty(name="findingProviderFieldsSeverityLabels", flag="unknown_findingProviderFieldsSeverityLabels")
+    private @Nullable List<InsightFiltersFindingProviderFieldsSeverityLabel> value_findingProviderFieldsSeverityLabels;
+    private boolean unknown_findingProviderFieldsSeverityLabels;
     public @Nullable List<InsightFiltersFindingProviderFieldsSeverityLabel> findingProviderFieldsSeverityLabels() {
-        if (findingProviderFieldsSeverityLabels == null) return null;
-        return findingProviderFieldsSeverityLabels.getValue("InsightFilters.findingProviderFieldsSeverityLabels");
+        if (!unknown_findingProviderFieldsSeverityLabels) return value_findingProviderFieldsSeverityLabels;
+        throw new UndeferrableValueException("Value 'InsightFilters.findingProviderFieldsSeverityLabels' is not present");
     }
 
     /**
      * The finding provider&#39;s original value for the severity. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersFindingProviderFieldsSeverityOriginal>> findingProviderFieldsSeverityOriginals;
-
+    @PolicyResourceProperty(name="findingProviderFieldsSeverityOriginals", flag="unknown_findingProviderFieldsSeverityOriginals")
+    private @Nullable List<InsightFiltersFindingProviderFieldsSeverityOriginal> value_findingProviderFieldsSeverityOriginals;
+    private boolean unknown_findingProviderFieldsSeverityOriginals;
     public @Nullable List<InsightFiltersFindingProviderFieldsSeverityOriginal> findingProviderFieldsSeverityOriginals() {
-        if (findingProviderFieldsSeverityOriginals == null) return null;
-        return findingProviderFieldsSeverityOriginals.getValue("InsightFilters.findingProviderFieldsSeverityOriginals");
+        if (!unknown_findingProviderFieldsSeverityOriginals) return value_findingProviderFieldsSeverityOriginals;
+        throw new UndeferrableValueException("Value 'InsightFilters.findingProviderFieldsSeverityOriginals' is not present");
     }
 
     /**
      * One or more finding types that the finding provider assigned to the finding. Uses the format of `namespace/category/classifier` that classify a finding. Valid namespace values include: `Software and Configuration Checks`, `TTPs`, `Effects`, `Unusual Behaviors`, and `Sensitive Data Identifications`. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersFindingProviderFieldsType>> findingProviderFieldsTypes;
-
+    @PolicyResourceProperty(name="findingProviderFieldsTypes", flag="unknown_findingProviderFieldsTypes")
+    private @Nullable List<InsightFiltersFindingProviderFieldsType> value_findingProviderFieldsTypes;
+    private boolean unknown_findingProviderFieldsTypes;
     public @Nullable List<InsightFiltersFindingProviderFieldsType> findingProviderFieldsTypes() {
-        if (findingProviderFieldsTypes == null) return null;
-        return findingProviderFieldsTypes.getValue("InsightFilters.findingProviderFieldsTypes");
+        if (!unknown_findingProviderFieldsTypes) return value_findingProviderFieldsTypes;
+        throw new UndeferrableValueException("Value 'InsightFilters.findingProviderFieldsTypes' is not present");
     }
 
     /**
      * An ISO8601-formatted timestamp that indicates when the security-findings provider first observed the potential security issue that a finding captured. See Date Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersFirstObservedAt>> firstObservedAts;
-
+    @PolicyResourceProperty(name="firstObservedAts", flag="unknown_firstObservedAts")
+    private @Nullable List<InsightFiltersFirstObservedAt> value_firstObservedAts;
+    private boolean unknown_firstObservedAts;
     public @Nullable List<InsightFiltersFirstObservedAt> firstObservedAts() {
-        if (firstObservedAts == null) return null;
-        return firstObservedAts.getValue("InsightFilters.firstObservedAts");
+        if (!unknown_firstObservedAts) return value_firstObservedAts;
+        throw new UndeferrableValueException("Value 'InsightFilters.firstObservedAts' is not present");
     }
 
     /**
      * The identifier for the solution-specific component (a discrete unit of logic) that generated a finding. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersGeneratorId>> generatorIds;
-
+    @PolicyResourceProperty(name="generatorIds", flag="unknown_generatorIds")
+    private @Nullable List<InsightFiltersGeneratorId> value_generatorIds;
+    private boolean unknown_generatorIds;
     public @Nullable List<InsightFiltersGeneratorId> generatorIds() {
-        if (generatorIds == null) return null;
-        return generatorIds.getValue("InsightFilters.generatorIds");
+        if (!unknown_generatorIds) return value_generatorIds;
+        throw new UndeferrableValueException("Value 'InsightFilters.generatorIds' is not present");
     }
 
     /**
      * The security findings provider-specific identifier for a finding. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersId>> ids;
-
+    @PolicyResourceProperty(name="ids", flag="unknown_ids")
+    private @Nullable List<InsightFiltersId> value_ids;
+    private boolean unknown_ids;
     public @Nullable List<InsightFiltersId> ids() {
-        if (ids == null) return null;
-        return ids.getValue("InsightFilters.ids");
+        if (!unknown_ids) return value_ids;
+        throw new UndeferrableValueException("Value 'InsightFilters.ids' is not present");
     }
 
     /**
      * A keyword for a finding. See Keyword Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersKeyword>> keywords;
-
+    @PolicyResourceProperty(name="keywords", flag="unknown_keywords")
+    private @Nullable List<InsightFiltersKeyword> value_keywords;
+    private boolean unknown_keywords;
     public @Nullable List<InsightFiltersKeyword> keywords() {
-        if (keywords == null) return null;
-        return keywords.getValue("InsightFilters.keywords");
+        if (!unknown_keywords) return value_keywords;
+        throw new UndeferrableValueException("Value 'InsightFilters.keywords' is not present");
     }
 
     /**
      * An ISO8601-formatted timestamp that indicates when the security-findings provider most recently observed the potential security issue that a finding captured. See Date Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersLastObservedAt>> lastObservedAts;
-
+    @PolicyResourceProperty(name="lastObservedAts", flag="unknown_lastObservedAts")
+    private @Nullable List<InsightFiltersLastObservedAt> value_lastObservedAts;
+    private boolean unknown_lastObservedAts;
     public @Nullable List<InsightFiltersLastObservedAt> lastObservedAts() {
-        if (lastObservedAts == null) return null;
-        return lastObservedAts.getValue("InsightFilters.lastObservedAts");
+        if (!unknown_lastObservedAts) return value_lastObservedAts;
+        throw new UndeferrableValueException("Value 'InsightFilters.lastObservedAts' is not present");
     }
 
     /**
      * The name of the malware that was observed. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersMalwareName>> malwareNames;
-
+    @PolicyResourceProperty(name="malwareNames", flag="unknown_malwareNames")
+    private @Nullable List<InsightFiltersMalwareName> value_malwareNames;
+    private boolean unknown_malwareNames;
     public @Nullable List<InsightFiltersMalwareName> malwareNames() {
-        if (malwareNames == null) return null;
-        return malwareNames.getValue("InsightFilters.malwareNames");
+        if (!unknown_malwareNames) return value_malwareNames;
+        throw new UndeferrableValueException("Value 'InsightFilters.malwareNames' is not present");
     }
 
     /**
      * The filesystem path of the malware that was observed. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersMalwarePath>> malwarePaths;
-
+    @PolicyResourceProperty(name="malwarePaths", flag="unknown_malwarePaths")
+    private @Nullable List<InsightFiltersMalwarePath> value_malwarePaths;
+    private boolean unknown_malwarePaths;
     public @Nullable List<InsightFiltersMalwarePath> malwarePaths() {
-        if (malwarePaths == null) return null;
-        return malwarePaths.getValue("InsightFilters.malwarePaths");
+        if (!unknown_malwarePaths) return value_malwarePaths;
+        throw new UndeferrableValueException("Value 'InsightFilters.malwarePaths' is not present");
     }
 
     /**
      * The state of the malware that was observed. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersMalwareState>> malwareStates;
-
+    @PolicyResourceProperty(name="malwareStates", flag="unknown_malwareStates")
+    private @Nullable List<InsightFiltersMalwareState> value_malwareStates;
+    private boolean unknown_malwareStates;
     public @Nullable List<InsightFiltersMalwareState> malwareStates() {
-        if (malwareStates == null) return null;
-        return malwareStates.getValue("InsightFilters.malwareStates");
+        if (!unknown_malwareStates) return value_malwareStates;
+        throw new UndeferrableValueException("Value 'InsightFilters.malwareStates' is not present");
     }
 
     /**
      * The type of the malware that was observed. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersMalwareType>> malwareTypes;
-
+    @PolicyResourceProperty(name="malwareTypes", flag="unknown_malwareTypes")
+    private @Nullable List<InsightFiltersMalwareType> value_malwareTypes;
+    private boolean unknown_malwareTypes;
     public @Nullable List<InsightFiltersMalwareType> malwareTypes() {
-        if (malwareTypes == null) return null;
-        return malwareTypes.getValue("InsightFilters.malwareTypes");
+        if (!unknown_malwareTypes) return value_malwareTypes;
+        throw new UndeferrableValueException("Value 'InsightFilters.malwareTypes' is not present");
     }
 
     /**
      * The destination domain of network-related information about a finding. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersNetworkDestinationDomain>> networkDestinationDomains;
-
+    @PolicyResourceProperty(name="networkDestinationDomains", flag="unknown_networkDestinationDomains")
+    private @Nullable List<InsightFiltersNetworkDestinationDomain> value_networkDestinationDomains;
+    private boolean unknown_networkDestinationDomains;
     public @Nullable List<InsightFiltersNetworkDestinationDomain> networkDestinationDomains() {
-        if (networkDestinationDomains == null) return null;
-        return networkDestinationDomains.getValue("InsightFilters.networkDestinationDomains");
+        if (!unknown_networkDestinationDomains) return value_networkDestinationDomains;
+        throw new UndeferrableValueException("Value 'InsightFilters.networkDestinationDomains' is not present");
     }
 
     /**
      * The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersNetworkDestinationIpv4>> networkDestinationIpv4s;
-
+    @PolicyResourceProperty(name="networkDestinationIpv4s", flag="unknown_networkDestinationIpv4s")
+    private @Nullable List<InsightFiltersNetworkDestinationIpv4> value_networkDestinationIpv4s;
+    private boolean unknown_networkDestinationIpv4s;
     public @Nullable List<InsightFiltersNetworkDestinationIpv4> networkDestinationIpv4s() {
-        if (networkDestinationIpv4s == null) return null;
-        return networkDestinationIpv4s.getValue("InsightFilters.networkDestinationIpv4s");
+        if (!unknown_networkDestinationIpv4s) return value_networkDestinationIpv4s;
+        throw new UndeferrableValueException("Value 'InsightFilters.networkDestinationIpv4s' is not present");
     }
 
     /**
      * The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersNetworkDestinationIpv6>> networkDestinationIpv6s;
-
+    @PolicyResourceProperty(name="networkDestinationIpv6s", flag="unknown_networkDestinationIpv6s")
+    private @Nullable List<InsightFiltersNetworkDestinationIpv6> value_networkDestinationIpv6s;
+    private boolean unknown_networkDestinationIpv6s;
     public @Nullable List<InsightFiltersNetworkDestinationIpv6> networkDestinationIpv6s() {
-        if (networkDestinationIpv6s == null) return null;
-        return networkDestinationIpv6s.getValue("InsightFilters.networkDestinationIpv6s");
+        if (!unknown_networkDestinationIpv6s) return value_networkDestinationIpv6s;
+        throw new UndeferrableValueException("Value 'InsightFilters.networkDestinationIpv6s' is not present");
     }
 
     /**
      * The destination port of network-related information about a finding. See Number Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersNetworkDestinationPort>> networkDestinationPorts;
-
+    @PolicyResourceProperty(name="networkDestinationPorts", flag="unknown_networkDestinationPorts")
+    private @Nullable List<InsightFiltersNetworkDestinationPort> value_networkDestinationPorts;
+    private boolean unknown_networkDestinationPorts;
     public @Nullable List<InsightFiltersNetworkDestinationPort> networkDestinationPorts() {
-        if (networkDestinationPorts == null) return null;
-        return networkDestinationPorts.getValue("InsightFilters.networkDestinationPorts");
+        if (!unknown_networkDestinationPorts) return value_networkDestinationPorts;
+        throw new UndeferrableValueException("Value 'InsightFilters.networkDestinationPorts' is not present");
     }
 
     /**
      * Indicates the direction of network traffic associated with a finding. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersNetworkDirection>> networkDirections;
-
+    @PolicyResourceProperty(name="networkDirections", flag="unknown_networkDirections")
+    private @Nullable List<InsightFiltersNetworkDirection> value_networkDirections;
+    private boolean unknown_networkDirections;
     public @Nullable List<InsightFiltersNetworkDirection> networkDirections() {
-        if (networkDirections == null) return null;
-        return networkDirections.getValue("InsightFilters.networkDirections");
+        if (!unknown_networkDirections) return value_networkDirections;
+        throw new UndeferrableValueException("Value 'InsightFilters.networkDirections' is not present");
     }
 
     /**
      * The protocol of network-related information about a finding. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersNetworkProtocol>> networkProtocols;
-
+    @PolicyResourceProperty(name="networkProtocols", flag="unknown_networkProtocols")
+    private @Nullable List<InsightFiltersNetworkProtocol> value_networkProtocols;
+    private boolean unknown_networkProtocols;
     public @Nullable List<InsightFiltersNetworkProtocol> networkProtocols() {
-        if (networkProtocols == null) return null;
-        return networkProtocols.getValue("InsightFilters.networkProtocols");
+        if (!unknown_networkProtocols) return value_networkProtocols;
+        throw new UndeferrableValueException("Value 'InsightFilters.networkProtocols' is not present");
     }
 
     /**
      * The source domain of network-related information about a finding. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersNetworkSourceDomain>> networkSourceDomains;
-
+    @PolicyResourceProperty(name="networkSourceDomains", flag="unknown_networkSourceDomains")
+    private @Nullable List<InsightFiltersNetworkSourceDomain> value_networkSourceDomains;
+    private boolean unknown_networkSourceDomains;
     public @Nullable List<InsightFiltersNetworkSourceDomain> networkSourceDomains() {
-        if (networkSourceDomains == null) return null;
-        return networkSourceDomains.getValue("InsightFilters.networkSourceDomains");
+        if (!unknown_networkSourceDomains) return value_networkSourceDomains;
+        throw new UndeferrableValueException("Value 'InsightFilters.networkSourceDomains' is not present");
     }
 
     /**
      * The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersNetworkSourceIpv4>> networkSourceIpv4s;
-
+    @PolicyResourceProperty(name="networkSourceIpv4s", flag="unknown_networkSourceIpv4s")
+    private @Nullable List<InsightFiltersNetworkSourceIpv4> value_networkSourceIpv4s;
+    private boolean unknown_networkSourceIpv4s;
     public @Nullable List<InsightFiltersNetworkSourceIpv4> networkSourceIpv4s() {
-        if (networkSourceIpv4s == null) return null;
-        return networkSourceIpv4s.getValue("InsightFilters.networkSourceIpv4s");
+        if (!unknown_networkSourceIpv4s) return value_networkSourceIpv4s;
+        throw new UndeferrableValueException("Value 'InsightFilters.networkSourceIpv4s' is not present");
     }
 
     /**
      * The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersNetworkSourceIpv6>> networkSourceIpv6s;
-
+    @PolicyResourceProperty(name="networkSourceIpv6s", flag="unknown_networkSourceIpv6s")
+    private @Nullable List<InsightFiltersNetworkSourceIpv6> value_networkSourceIpv6s;
+    private boolean unknown_networkSourceIpv6s;
     public @Nullable List<InsightFiltersNetworkSourceIpv6> networkSourceIpv6s() {
-        if (networkSourceIpv6s == null) return null;
-        return networkSourceIpv6s.getValue("InsightFilters.networkSourceIpv6s");
+        if (!unknown_networkSourceIpv6s) return value_networkSourceIpv6s;
+        throw new UndeferrableValueException("Value 'InsightFilters.networkSourceIpv6s' is not present");
     }
 
     /**
      * The source media access control (MAC) address of network-related information about a finding. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersNetworkSourceMac>> networkSourceMacs;
-
+    @PolicyResourceProperty(name="networkSourceMacs", flag="unknown_networkSourceMacs")
+    private @Nullable List<InsightFiltersNetworkSourceMac> value_networkSourceMacs;
+    private boolean unknown_networkSourceMacs;
     public @Nullable List<InsightFiltersNetworkSourceMac> networkSourceMacs() {
-        if (networkSourceMacs == null) return null;
-        return networkSourceMacs.getValue("InsightFilters.networkSourceMacs");
+        if (!unknown_networkSourceMacs) return value_networkSourceMacs;
+        throw new UndeferrableValueException("Value 'InsightFilters.networkSourceMacs' is not present");
     }
 
     /**
      * The source port of network-related information about a finding. See Number Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersNetworkSourcePort>> networkSourcePorts;
-
+    @PolicyResourceProperty(name="networkSourcePorts", flag="unknown_networkSourcePorts")
+    private @Nullable List<InsightFiltersNetworkSourcePort> value_networkSourcePorts;
+    private boolean unknown_networkSourcePorts;
     public @Nullable List<InsightFiltersNetworkSourcePort> networkSourcePorts() {
-        if (networkSourcePorts == null) return null;
-        return networkSourcePorts.getValue("InsightFilters.networkSourcePorts");
+        if (!unknown_networkSourcePorts) return value_networkSourcePorts;
+        throw new UndeferrableValueException("Value 'InsightFilters.networkSourcePorts' is not present");
     }
 
     /**
      * The text of a note. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersNoteText>> noteTexts;
-
+    @PolicyResourceProperty(name="noteTexts", flag="unknown_noteTexts")
+    private @Nullable List<InsightFiltersNoteText> value_noteTexts;
+    private boolean unknown_noteTexts;
     public @Nullable List<InsightFiltersNoteText> noteTexts() {
-        if (noteTexts == null) return null;
-        return noteTexts.getValue("InsightFilters.noteTexts");
+        if (!unknown_noteTexts) return value_noteTexts;
+        throw new UndeferrableValueException("Value 'InsightFilters.noteTexts' is not present");
     }
 
     /**
      * The timestamp of when the note was updated. See Date Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersNoteUpdatedAt>> noteUpdatedAts;
-
+    @PolicyResourceProperty(name="noteUpdatedAts", flag="unknown_noteUpdatedAts")
+    private @Nullable List<InsightFiltersNoteUpdatedAt> value_noteUpdatedAts;
+    private boolean unknown_noteUpdatedAts;
     public @Nullable List<InsightFiltersNoteUpdatedAt> noteUpdatedAts() {
-        if (noteUpdatedAts == null) return null;
-        return noteUpdatedAts.getValue("InsightFilters.noteUpdatedAts");
+        if (!unknown_noteUpdatedAts) return value_noteUpdatedAts;
+        throw new UndeferrableValueException("Value 'InsightFilters.noteUpdatedAts' is not present");
     }
 
     /**
      * The principal that created a note. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersNoteUpdatedBy>> noteUpdatedBies;
-
+    @PolicyResourceProperty(name="noteUpdatedBies", flag="unknown_noteUpdatedBies")
+    private @Nullable List<InsightFiltersNoteUpdatedBy> value_noteUpdatedBies;
+    private boolean unknown_noteUpdatedBies;
     public @Nullable List<InsightFiltersNoteUpdatedBy> noteUpdatedBies() {
-        if (noteUpdatedBies == null) return null;
-        return noteUpdatedBies.getValue("InsightFilters.noteUpdatedBies");
+        if (!unknown_noteUpdatedBies) return value_noteUpdatedBies;
+        throw new UndeferrableValueException("Value 'InsightFilters.noteUpdatedBies' is not present");
     }
 
     /**
      * The date/time that the process was launched. See Date Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersProcessLaunchedAt>> processLaunchedAts;
-
+    @PolicyResourceProperty(name="processLaunchedAts", flag="unknown_processLaunchedAts")
+    private @Nullable List<InsightFiltersProcessLaunchedAt> value_processLaunchedAts;
+    private boolean unknown_processLaunchedAts;
     public @Nullable List<InsightFiltersProcessLaunchedAt> processLaunchedAts() {
-        if (processLaunchedAts == null) return null;
-        return processLaunchedAts.getValue("InsightFilters.processLaunchedAts");
+        if (!unknown_processLaunchedAts) return value_processLaunchedAts;
+        throw new UndeferrableValueException("Value 'InsightFilters.processLaunchedAts' is not present");
     }
 
     /**
      * The name of the process. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersProcessName>> processNames;
-
+    @PolicyResourceProperty(name="processNames", flag="unknown_processNames")
+    private @Nullable List<InsightFiltersProcessName> value_processNames;
+    private boolean unknown_processNames;
     public @Nullable List<InsightFiltersProcessName> processNames() {
-        if (processNames == null) return null;
-        return processNames.getValue("InsightFilters.processNames");
+        if (!unknown_processNames) return value_processNames;
+        throw new UndeferrableValueException("Value 'InsightFilters.processNames' is not present");
     }
 
     /**
      * The parent process ID. See Number Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersProcessParentPid>> processParentPids;
-
+    @PolicyResourceProperty(name="processParentPids", flag="unknown_processParentPids")
+    private @Nullable List<InsightFiltersProcessParentPid> value_processParentPids;
+    private boolean unknown_processParentPids;
     public @Nullable List<InsightFiltersProcessParentPid> processParentPids() {
-        if (processParentPids == null) return null;
-        return processParentPids.getValue("InsightFilters.processParentPids");
+        if (!unknown_processParentPids) return value_processParentPids;
+        throw new UndeferrableValueException("Value 'InsightFilters.processParentPids' is not present");
     }
 
     /**
      * The path to the process executable. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersProcessPath>> processPaths;
-
+    @PolicyResourceProperty(name="processPaths", flag="unknown_processPaths")
+    private @Nullable List<InsightFiltersProcessPath> value_processPaths;
+    private boolean unknown_processPaths;
     public @Nullable List<InsightFiltersProcessPath> processPaths() {
-        if (processPaths == null) return null;
-        return processPaths.getValue("InsightFilters.processPaths");
+        if (!unknown_processPaths) return value_processPaths;
+        throw new UndeferrableValueException("Value 'InsightFilters.processPaths' is not present");
     }
 
     /**
      * The process ID. See Number Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersProcessPid>> processPids;
-
+    @PolicyResourceProperty(name="processPids", flag="unknown_processPids")
+    private @Nullable List<InsightFiltersProcessPid> value_processPids;
+    private boolean unknown_processPids;
     public @Nullable List<InsightFiltersProcessPid> processPids() {
-        if (processPids == null) return null;
-        return processPids.getValue("InsightFilters.processPids");
+        if (!unknown_processPids) return value_processPids;
+        throw new UndeferrableValueException("Value 'InsightFilters.processPids' is not present");
     }
 
     /**
      * The date/time that the process was terminated. See Date Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersProcessTerminatedAt>> processTerminatedAts;
-
+    @PolicyResourceProperty(name="processTerminatedAts", flag="unknown_processTerminatedAts")
+    private @Nullable List<InsightFiltersProcessTerminatedAt> value_processTerminatedAts;
+    private boolean unknown_processTerminatedAts;
     public @Nullable List<InsightFiltersProcessTerminatedAt> processTerminatedAts() {
-        if (processTerminatedAts == null) return null;
-        return processTerminatedAts.getValue("InsightFilters.processTerminatedAts");
+        if (!unknown_processTerminatedAts) return value_processTerminatedAts;
+        throw new UndeferrableValueException("Value 'InsightFilters.processTerminatedAts' is not present");
     }
 
     /**
      * The ARN generated by Security Hub that uniquely identifies a third-party company (security findings provider) after this provider&#39;s product (solution that generates findings) is registered with Security Hub. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersProductArn>> productArns;
-
+    @PolicyResourceProperty(name="productArns", flag="unknown_productArns")
+    private @Nullable List<InsightFiltersProductArn> value_productArns;
+    private boolean unknown_productArns;
     public @Nullable List<InsightFiltersProductArn> productArns() {
-        if (productArns == null) return null;
-        return productArns.getValue("InsightFilters.productArns");
+        if (!unknown_productArns) return value_productArns;
+        throw new UndeferrableValueException("Value 'InsightFilters.productArns' is not present");
     }
 
     /**
      * A data type where security-findings providers can include additional solution-specific details that aren&#39;t part of the defined `AwsSecurityFinding` format. See Map Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersProductField>> productFields;
-
+    @PolicyResourceProperty(name="productFields", flag="unknown_productFields")
+    private @Nullable List<InsightFiltersProductField> value_productFields;
+    private boolean unknown_productFields;
     public @Nullable List<InsightFiltersProductField> productFields() {
-        if (productFields == null) return null;
-        return productFields.getValue("InsightFilters.productFields");
+        if (!unknown_productFields) return value_productFields;
+        throw new UndeferrableValueException("Value 'InsightFilters.productFields' is not present");
     }
 
     /**
      * The name of the solution (product) that generates findings. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersProductName>> productNames;
-
+    @PolicyResourceProperty(name="productNames", flag="unknown_productNames")
+    private @Nullable List<InsightFiltersProductName> value_productNames;
+    private boolean unknown_productNames;
     public @Nullable List<InsightFiltersProductName> productNames() {
-        if (productNames == null) return null;
-        return productNames.getValue("InsightFilters.productNames");
+        if (!unknown_productNames) return value_productNames;
+        throw new UndeferrableValueException("Value 'InsightFilters.productNames' is not present");
     }
 
     /**
      * The recommendation of what to do about the issue described in a finding. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersRecommendationText>> recommendationTexts;
-
+    @PolicyResourceProperty(name="recommendationTexts", flag="unknown_recommendationTexts")
+    private @Nullable List<InsightFiltersRecommendationText> value_recommendationTexts;
+    private boolean unknown_recommendationTexts;
     public @Nullable List<InsightFiltersRecommendationText> recommendationTexts() {
-        if (recommendationTexts == null) return null;
-        return recommendationTexts.getValue("InsightFilters.recommendationTexts");
+        if (!unknown_recommendationTexts) return value_recommendationTexts;
+        throw new UndeferrableValueException("Value 'InsightFilters.recommendationTexts' is not present");
     }
 
     /**
      * The updated record state for the finding. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersRecordState>> recordStates;
-
+    @PolicyResourceProperty(name="recordStates", flag="unknown_recordStates")
+    private @Nullable List<InsightFiltersRecordState> value_recordStates;
+    private boolean unknown_recordStates;
     public @Nullable List<InsightFiltersRecordState> recordStates() {
-        if (recordStates == null) return null;
-        return recordStates.getValue("InsightFilters.recordStates");
+        if (!unknown_recordStates) return value_recordStates;
+        throw new UndeferrableValueException("Value 'InsightFilters.recordStates' is not present");
     }
 
     /**
      * The solution-generated identifier for a related finding. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersRelatedFindingsId>> relatedFindingsIds;
-
+    @PolicyResourceProperty(name="relatedFindingsIds", flag="unknown_relatedFindingsIds")
+    private @Nullable List<InsightFiltersRelatedFindingsId> value_relatedFindingsIds;
+    private boolean unknown_relatedFindingsIds;
     public @Nullable List<InsightFiltersRelatedFindingsId> relatedFindingsIds() {
-        if (relatedFindingsIds == null) return null;
-        return relatedFindingsIds.getValue("InsightFilters.relatedFindingsIds");
+        if (!unknown_relatedFindingsIds) return value_relatedFindingsIds;
+        throw new UndeferrableValueException("Value 'InsightFilters.relatedFindingsIds' is not present");
     }
 
     /**
      * The ARN of the solution that generated a related finding. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersRelatedFindingsProductArn>> relatedFindingsProductArns;
-
+    @PolicyResourceProperty(name="relatedFindingsProductArns", flag="unknown_relatedFindingsProductArns")
+    private @Nullable List<InsightFiltersRelatedFindingsProductArn> value_relatedFindingsProductArns;
+    private boolean unknown_relatedFindingsProductArns;
     public @Nullable List<InsightFiltersRelatedFindingsProductArn> relatedFindingsProductArns() {
-        if (relatedFindingsProductArns == null) return null;
-        return relatedFindingsProductArns.getValue("InsightFilters.relatedFindingsProductArns");
+        if (!unknown_relatedFindingsProductArns) return value_relatedFindingsProductArns;
+        throw new UndeferrableValueException("Value 'InsightFilters.relatedFindingsProductArns' is not present");
     }
 
     /**
      * The IAM profile ARN of the instance. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn>> resourceAwsEc2InstanceIamInstanceProfileArns;
-
+    @PolicyResourceProperty(name="resourceAwsEc2InstanceIamInstanceProfileArns", flag="unknown_resourceAwsEc2InstanceIamInstanceProfileArns")
+    private @Nullable List<InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn> value_resourceAwsEc2InstanceIamInstanceProfileArns;
+    private boolean unknown_resourceAwsEc2InstanceIamInstanceProfileArns;
     public @Nullable List<InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn> resourceAwsEc2InstanceIamInstanceProfileArns() {
-        if (resourceAwsEc2InstanceIamInstanceProfileArns == null) return null;
-        return resourceAwsEc2InstanceIamInstanceProfileArns.getValue("InsightFilters.resourceAwsEc2InstanceIamInstanceProfileArns");
+        if (!unknown_resourceAwsEc2InstanceIamInstanceProfileArns) return value_resourceAwsEc2InstanceIamInstanceProfileArns;
+        throw new UndeferrableValueException("Value 'InsightFilters.resourceAwsEc2InstanceIamInstanceProfileArns' is not present");
     }
 
     /**
      * The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersResourceAwsEc2InstanceImageId>> resourceAwsEc2InstanceImageIds;
-
+    @PolicyResourceProperty(name="resourceAwsEc2InstanceImageIds", flag="unknown_resourceAwsEc2InstanceImageIds")
+    private @Nullable List<InsightFiltersResourceAwsEc2InstanceImageId> value_resourceAwsEc2InstanceImageIds;
+    private boolean unknown_resourceAwsEc2InstanceImageIds;
     public @Nullable List<InsightFiltersResourceAwsEc2InstanceImageId> resourceAwsEc2InstanceImageIds() {
-        if (resourceAwsEc2InstanceImageIds == null) return null;
-        return resourceAwsEc2InstanceImageIds.getValue("InsightFilters.resourceAwsEc2InstanceImageIds");
+        if (!unknown_resourceAwsEc2InstanceImageIds) return value_resourceAwsEc2InstanceImageIds;
+        throw new UndeferrableValueException("Value 'InsightFilters.resourceAwsEc2InstanceImageIds' is not present");
     }
 
     /**
      * The IPv4 addresses associated with the instance. See Ip Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersResourceAwsEc2InstanceIpv4Address>> resourceAwsEc2InstanceIpv4Addresses;
-
+    @PolicyResourceProperty(name="resourceAwsEc2InstanceIpv4Addresses", flag="unknown_resourceAwsEc2InstanceIpv4Addresses")
+    private @Nullable List<InsightFiltersResourceAwsEc2InstanceIpv4Address> value_resourceAwsEc2InstanceIpv4Addresses;
+    private boolean unknown_resourceAwsEc2InstanceIpv4Addresses;
     public @Nullable List<InsightFiltersResourceAwsEc2InstanceIpv4Address> resourceAwsEc2InstanceIpv4Addresses() {
-        if (resourceAwsEc2InstanceIpv4Addresses == null) return null;
-        return resourceAwsEc2InstanceIpv4Addresses.getValue("InsightFilters.resourceAwsEc2InstanceIpv4Addresses");
+        if (!unknown_resourceAwsEc2InstanceIpv4Addresses) return value_resourceAwsEc2InstanceIpv4Addresses;
+        throw new UndeferrableValueException("Value 'InsightFilters.resourceAwsEc2InstanceIpv4Addresses' is not present");
     }
 
     /**
      * The IPv6 addresses associated with the instance. See Ip Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersResourceAwsEc2InstanceIpv6Address>> resourceAwsEc2InstanceIpv6Addresses;
-
+    @PolicyResourceProperty(name="resourceAwsEc2InstanceIpv6Addresses", flag="unknown_resourceAwsEc2InstanceIpv6Addresses")
+    private @Nullable List<InsightFiltersResourceAwsEc2InstanceIpv6Address> value_resourceAwsEc2InstanceIpv6Addresses;
+    private boolean unknown_resourceAwsEc2InstanceIpv6Addresses;
     public @Nullable List<InsightFiltersResourceAwsEc2InstanceIpv6Address> resourceAwsEc2InstanceIpv6Addresses() {
-        if (resourceAwsEc2InstanceIpv6Addresses == null) return null;
-        return resourceAwsEc2InstanceIpv6Addresses.getValue("InsightFilters.resourceAwsEc2InstanceIpv6Addresses");
+        if (!unknown_resourceAwsEc2InstanceIpv6Addresses) return value_resourceAwsEc2InstanceIpv6Addresses;
+        throw new UndeferrableValueException("Value 'InsightFilters.resourceAwsEc2InstanceIpv6Addresses' is not present");
     }
 
     /**
      * The key name associated with the instance. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersResourceAwsEc2InstanceKeyName>> resourceAwsEc2InstanceKeyNames;
-
+    @PolicyResourceProperty(name="resourceAwsEc2InstanceKeyNames", flag="unknown_resourceAwsEc2InstanceKeyNames")
+    private @Nullable List<InsightFiltersResourceAwsEc2InstanceKeyName> value_resourceAwsEc2InstanceKeyNames;
+    private boolean unknown_resourceAwsEc2InstanceKeyNames;
     public @Nullable List<InsightFiltersResourceAwsEc2InstanceKeyName> resourceAwsEc2InstanceKeyNames() {
-        if (resourceAwsEc2InstanceKeyNames == null) return null;
-        return resourceAwsEc2InstanceKeyNames.getValue("InsightFilters.resourceAwsEc2InstanceKeyNames");
+        if (!unknown_resourceAwsEc2InstanceKeyNames) return value_resourceAwsEc2InstanceKeyNames;
+        throw new UndeferrableValueException("Value 'InsightFilters.resourceAwsEc2InstanceKeyNames' is not present");
     }
 
     /**
      * The date and time the instance was launched. See Date Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersResourceAwsEc2InstanceLaunchedAt>> resourceAwsEc2InstanceLaunchedAts;
-
+    @PolicyResourceProperty(name="resourceAwsEc2InstanceLaunchedAts", flag="unknown_resourceAwsEc2InstanceLaunchedAts")
+    private @Nullable List<InsightFiltersResourceAwsEc2InstanceLaunchedAt> value_resourceAwsEc2InstanceLaunchedAts;
+    private boolean unknown_resourceAwsEc2InstanceLaunchedAts;
     public @Nullable List<InsightFiltersResourceAwsEc2InstanceLaunchedAt> resourceAwsEc2InstanceLaunchedAts() {
-        if (resourceAwsEc2InstanceLaunchedAts == null) return null;
-        return resourceAwsEc2InstanceLaunchedAts.getValue("InsightFilters.resourceAwsEc2InstanceLaunchedAts");
+        if (!unknown_resourceAwsEc2InstanceLaunchedAts) return value_resourceAwsEc2InstanceLaunchedAts;
+        throw new UndeferrableValueException("Value 'InsightFilters.resourceAwsEc2InstanceLaunchedAts' is not present");
     }
 
     /**
      * The identifier of the subnet that the instance was launched in. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersResourceAwsEc2InstanceSubnetId>> resourceAwsEc2InstanceSubnetIds;
-
+    @PolicyResourceProperty(name="resourceAwsEc2InstanceSubnetIds", flag="unknown_resourceAwsEc2InstanceSubnetIds")
+    private @Nullable List<InsightFiltersResourceAwsEc2InstanceSubnetId> value_resourceAwsEc2InstanceSubnetIds;
+    private boolean unknown_resourceAwsEc2InstanceSubnetIds;
     public @Nullable List<InsightFiltersResourceAwsEc2InstanceSubnetId> resourceAwsEc2InstanceSubnetIds() {
-        if (resourceAwsEc2InstanceSubnetIds == null) return null;
-        return resourceAwsEc2InstanceSubnetIds.getValue("InsightFilters.resourceAwsEc2InstanceSubnetIds");
+        if (!unknown_resourceAwsEc2InstanceSubnetIds) return value_resourceAwsEc2InstanceSubnetIds;
+        throw new UndeferrableValueException("Value 'InsightFilters.resourceAwsEc2InstanceSubnetIds' is not present");
     }
 
     /**
      * The instance type of the instance. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersResourceAwsEc2InstanceType>> resourceAwsEc2InstanceTypes;
-
+    @PolicyResourceProperty(name="resourceAwsEc2InstanceTypes", flag="unknown_resourceAwsEc2InstanceTypes")
+    private @Nullable List<InsightFiltersResourceAwsEc2InstanceType> value_resourceAwsEc2InstanceTypes;
+    private boolean unknown_resourceAwsEc2InstanceTypes;
     public @Nullable List<InsightFiltersResourceAwsEc2InstanceType> resourceAwsEc2InstanceTypes() {
-        if (resourceAwsEc2InstanceTypes == null) return null;
-        return resourceAwsEc2InstanceTypes.getValue("InsightFilters.resourceAwsEc2InstanceTypes");
+        if (!unknown_resourceAwsEc2InstanceTypes) return value_resourceAwsEc2InstanceTypes;
+        throw new UndeferrableValueException("Value 'InsightFilters.resourceAwsEc2InstanceTypes' is not present");
     }
 
     /**
      * The identifier of the VPC that the instance was launched in. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersResourceAwsEc2InstanceVpcId>> resourceAwsEc2InstanceVpcIds;
-
+    @PolicyResourceProperty(name="resourceAwsEc2InstanceVpcIds", flag="unknown_resourceAwsEc2InstanceVpcIds")
+    private @Nullable List<InsightFiltersResourceAwsEc2InstanceVpcId> value_resourceAwsEc2InstanceVpcIds;
+    private boolean unknown_resourceAwsEc2InstanceVpcIds;
     public @Nullable List<InsightFiltersResourceAwsEc2InstanceVpcId> resourceAwsEc2InstanceVpcIds() {
-        if (resourceAwsEc2InstanceVpcIds == null) return null;
-        return resourceAwsEc2InstanceVpcIds.getValue("InsightFilters.resourceAwsEc2InstanceVpcIds");
+        if (!unknown_resourceAwsEc2InstanceVpcIds) return value_resourceAwsEc2InstanceVpcIds;
+        throw new UndeferrableValueException("Value 'InsightFilters.resourceAwsEc2InstanceVpcIds' is not present");
     }
 
     /**
      * The creation date/time of the IAM access key related to a finding. See Date Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersResourceAwsIamAccessKeyCreatedAt>> resourceAwsIamAccessKeyCreatedAts;
-
+    @PolicyResourceProperty(name="resourceAwsIamAccessKeyCreatedAts", flag="unknown_resourceAwsIamAccessKeyCreatedAts")
+    private @Nullable List<InsightFiltersResourceAwsIamAccessKeyCreatedAt> value_resourceAwsIamAccessKeyCreatedAts;
+    private boolean unknown_resourceAwsIamAccessKeyCreatedAts;
     public @Nullable List<InsightFiltersResourceAwsIamAccessKeyCreatedAt> resourceAwsIamAccessKeyCreatedAts() {
-        if (resourceAwsIamAccessKeyCreatedAts == null) return null;
-        return resourceAwsIamAccessKeyCreatedAts.getValue("InsightFilters.resourceAwsIamAccessKeyCreatedAts");
+        if (!unknown_resourceAwsIamAccessKeyCreatedAts) return value_resourceAwsIamAccessKeyCreatedAts;
+        throw new UndeferrableValueException("Value 'InsightFilters.resourceAwsIamAccessKeyCreatedAts' is not present");
     }
 
     /**
      * The status of the IAM access key related to a finding. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersResourceAwsIamAccessKeyStatus>> resourceAwsIamAccessKeyStatuses;
-
+    @PolicyResourceProperty(name="resourceAwsIamAccessKeyStatuses", flag="unknown_resourceAwsIamAccessKeyStatuses")
+    private @Nullable List<InsightFiltersResourceAwsIamAccessKeyStatus> value_resourceAwsIamAccessKeyStatuses;
+    private boolean unknown_resourceAwsIamAccessKeyStatuses;
     public @Nullable List<InsightFiltersResourceAwsIamAccessKeyStatus> resourceAwsIamAccessKeyStatuses() {
-        if (resourceAwsIamAccessKeyStatuses == null) return null;
-        return resourceAwsIamAccessKeyStatuses.getValue("InsightFilters.resourceAwsIamAccessKeyStatuses");
+        if (!unknown_resourceAwsIamAccessKeyStatuses) return value_resourceAwsIamAccessKeyStatuses;
+        throw new UndeferrableValueException("Value 'InsightFilters.resourceAwsIamAccessKeyStatuses' is not present");
     }
 
     /**
      * The user associated with the IAM access key related to a finding. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersResourceAwsIamAccessKeyUserName>> resourceAwsIamAccessKeyUserNames;
-
+    @PolicyResourceProperty(name="resourceAwsIamAccessKeyUserNames", flag="unknown_resourceAwsIamAccessKeyUserNames")
+    private @Nullable List<InsightFiltersResourceAwsIamAccessKeyUserName> value_resourceAwsIamAccessKeyUserNames;
+    private boolean unknown_resourceAwsIamAccessKeyUserNames;
     public @Nullable List<InsightFiltersResourceAwsIamAccessKeyUserName> resourceAwsIamAccessKeyUserNames() {
-        if (resourceAwsIamAccessKeyUserNames == null) return null;
-        return resourceAwsIamAccessKeyUserNames.getValue("InsightFilters.resourceAwsIamAccessKeyUserNames");
+        if (!unknown_resourceAwsIamAccessKeyUserNames) return value_resourceAwsIamAccessKeyUserNames;
+        throw new UndeferrableValueException("Value 'InsightFilters.resourceAwsIamAccessKeyUserNames' is not present");
     }
 
     /**
      * The canonical user ID of the owner of the S3 bucket. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersResourceAwsS3BucketOwnerId>> resourceAwsS3BucketOwnerIds;
-
+    @PolicyResourceProperty(name="resourceAwsS3BucketOwnerIds", flag="unknown_resourceAwsS3BucketOwnerIds")
+    private @Nullable List<InsightFiltersResourceAwsS3BucketOwnerId> value_resourceAwsS3BucketOwnerIds;
+    private boolean unknown_resourceAwsS3BucketOwnerIds;
     public @Nullable List<InsightFiltersResourceAwsS3BucketOwnerId> resourceAwsS3BucketOwnerIds() {
-        if (resourceAwsS3BucketOwnerIds == null) return null;
-        return resourceAwsS3BucketOwnerIds.getValue("InsightFilters.resourceAwsS3BucketOwnerIds");
+        if (!unknown_resourceAwsS3BucketOwnerIds) return value_resourceAwsS3BucketOwnerIds;
+        throw new UndeferrableValueException("Value 'InsightFilters.resourceAwsS3BucketOwnerIds' is not present");
     }
 
     /**
      * The display name of the owner of the S3 bucket. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersResourceAwsS3BucketOwnerName>> resourceAwsS3BucketOwnerNames;
-
+    @PolicyResourceProperty(name="resourceAwsS3BucketOwnerNames", flag="unknown_resourceAwsS3BucketOwnerNames")
+    private @Nullable List<InsightFiltersResourceAwsS3BucketOwnerName> value_resourceAwsS3BucketOwnerNames;
+    private boolean unknown_resourceAwsS3BucketOwnerNames;
     public @Nullable List<InsightFiltersResourceAwsS3BucketOwnerName> resourceAwsS3BucketOwnerNames() {
-        if (resourceAwsS3BucketOwnerNames == null) return null;
-        return resourceAwsS3BucketOwnerNames.getValue("InsightFilters.resourceAwsS3BucketOwnerNames");
+        if (!unknown_resourceAwsS3BucketOwnerNames) return value_resourceAwsS3BucketOwnerNames;
+        throw new UndeferrableValueException("Value 'InsightFilters.resourceAwsS3BucketOwnerNames' is not present");
     }
 
     /**
      * The identifier of the image related to a finding. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersResourceContainerImageId>> resourceContainerImageIds;
-
+    @PolicyResourceProperty(name="resourceContainerImageIds", flag="unknown_resourceContainerImageIds")
+    private @Nullable List<InsightFiltersResourceContainerImageId> value_resourceContainerImageIds;
+    private boolean unknown_resourceContainerImageIds;
     public @Nullable List<InsightFiltersResourceContainerImageId> resourceContainerImageIds() {
-        if (resourceContainerImageIds == null) return null;
-        return resourceContainerImageIds.getValue("InsightFilters.resourceContainerImageIds");
+        if (!unknown_resourceContainerImageIds) return value_resourceContainerImageIds;
+        throw new UndeferrableValueException("Value 'InsightFilters.resourceContainerImageIds' is not present");
     }
 
     /**
      * The name of the image related to a finding. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersResourceContainerImageName>> resourceContainerImageNames;
-
+    @PolicyResourceProperty(name="resourceContainerImageNames", flag="unknown_resourceContainerImageNames")
+    private @Nullable List<InsightFiltersResourceContainerImageName> value_resourceContainerImageNames;
+    private boolean unknown_resourceContainerImageNames;
     public @Nullable List<InsightFiltersResourceContainerImageName> resourceContainerImageNames() {
-        if (resourceContainerImageNames == null) return null;
-        return resourceContainerImageNames.getValue("InsightFilters.resourceContainerImageNames");
+        if (!unknown_resourceContainerImageNames) return value_resourceContainerImageNames;
+        throw new UndeferrableValueException("Value 'InsightFilters.resourceContainerImageNames' is not present");
     }
 
     /**
      * The date/time that the container was started. See Date Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersResourceContainerLaunchedAt>> resourceContainerLaunchedAts;
-
+    @PolicyResourceProperty(name="resourceContainerLaunchedAts", flag="unknown_resourceContainerLaunchedAts")
+    private @Nullable List<InsightFiltersResourceContainerLaunchedAt> value_resourceContainerLaunchedAts;
+    private boolean unknown_resourceContainerLaunchedAts;
     public @Nullable List<InsightFiltersResourceContainerLaunchedAt> resourceContainerLaunchedAts() {
-        if (resourceContainerLaunchedAts == null) return null;
-        return resourceContainerLaunchedAts.getValue("InsightFilters.resourceContainerLaunchedAts");
+        if (!unknown_resourceContainerLaunchedAts) return value_resourceContainerLaunchedAts;
+        throw new UndeferrableValueException("Value 'InsightFilters.resourceContainerLaunchedAts' is not present");
     }
 
     /**
      * The name of the container related to a finding. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersResourceContainerName>> resourceContainerNames;
-
+    @PolicyResourceProperty(name="resourceContainerNames", flag="unknown_resourceContainerNames")
+    private @Nullable List<InsightFiltersResourceContainerName> value_resourceContainerNames;
+    private boolean unknown_resourceContainerNames;
     public @Nullable List<InsightFiltersResourceContainerName> resourceContainerNames() {
-        if (resourceContainerNames == null) return null;
-        return resourceContainerNames.getValue("InsightFilters.resourceContainerNames");
+        if (!unknown_resourceContainerNames) return value_resourceContainerNames;
+        throw new UndeferrableValueException("Value 'InsightFilters.resourceContainerNames' is not present");
     }
 
     /**
      * The details of a resource that doesn&#39;t have a specific subfield for the resource type defined. See Map Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersResourceDetailsOther>> resourceDetailsOthers;
-
+    @PolicyResourceProperty(name="resourceDetailsOthers", flag="unknown_resourceDetailsOthers")
+    private @Nullable List<InsightFiltersResourceDetailsOther> value_resourceDetailsOthers;
+    private boolean unknown_resourceDetailsOthers;
     public @Nullable List<InsightFiltersResourceDetailsOther> resourceDetailsOthers() {
-        if (resourceDetailsOthers == null) return null;
-        return resourceDetailsOthers.getValue("InsightFilters.resourceDetailsOthers");
+        if (!unknown_resourceDetailsOthers) return value_resourceDetailsOthers;
+        throw new UndeferrableValueException("Value 'InsightFilters.resourceDetailsOthers' is not present");
     }
 
     /**
      * The canonical identifier for the given resource type. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersResourceId>> resourceIds;
-
+    @PolicyResourceProperty(name="resourceIds", flag="unknown_resourceIds")
+    private @Nullable List<InsightFiltersResourceId> value_resourceIds;
+    private boolean unknown_resourceIds;
     public @Nullable List<InsightFiltersResourceId> resourceIds() {
-        if (resourceIds == null) return null;
-        return resourceIds.getValue("InsightFilters.resourceIds");
+        if (!unknown_resourceIds) return value_resourceIds;
+        throw new UndeferrableValueException("Value 'InsightFilters.resourceIds' is not present");
     }
 
     /**
      * The canonical AWS partition name that the Region is assigned to. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersResourcePartition>> resourcePartitions;
-
+    @PolicyResourceProperty(name="resourcePartitions", flag="unknown_resourcePartitions")
+    private @Nullable List<InsightFiltersResourcePartition> value_resourcePartitions;
+    private boolean unknown_resourcePartitions;
     public @Nullable List<InsightFiltersResourcePartition> resourcePartitions() {
-        if (resourcePartitions == null) return null;
-        return resourcePartitions.getValue("InsightFilters.resourcePartitions");
+        if (!unknown_resourcePartitions) return value_resourcePartitions;
+        throw new UndeferrableValueException("Value 'InsightFilters.resourcePartitions' is not present");
     }
 
     /**
      * The canonical AWS external Region name where this resource is located. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersResourceRegion>> resourceRegions;
-
+    @PolicyResourceProperty(name="resourceRegions", flag="unknown_resourceRegions")
+    private @Nullable List<InsightFiltersResourceRegion> value_resourceRegions;
+    private boolean unknown_resourceRegions;
     public @Nullable List<InsightFiltersResourceRegion> resourceRegions() {
-        if (resourceRegions == null) return null;
-        return resourceRegions.getValue("InsightFilters.resourceRegions");
+        if (!unknown_resourceRegions) return value_resourceRegions;
+        throw new UndeferrableValueException("Value 'InsightFilters.resourceRegions' is not present");
     }
 
     /**
      * A list of AWS tags associated with a resource at the time the finding was processed. See Map Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersResourceTag>> resourceTags;
-
+    @PolicyResourceProperty(name="resourceTags", flag="unknown_resourceTags")
+    private @Nullable List<InsightFiltersResourceTag> value_resourceTags;
+    private boolean unknown_resourceTags;
     public @Nullable List<InsightFiltersResourceTag> resourceTags() {
-        if (resourceTags == null) return null;
-        return resourceTags.getValue("InsightFilters.resourceTags");
+        if (!unknown_resourceTags) return value_resourceTags;
+        throw new UndeferrableValueException("Value 'InsightFilters.resourceTags' is not present");
     }
 
     /**
      * Specifies the type of the resource that details are provided for. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersResourceType>> resourceTypes;
-
+    @PolicyResourceProperty(name="resourceTypes", flag="unknown_resourceTypes")
+    private @Nullable List<InsightFiltersResourceType> value_resourceTypes;
+    private boolean unknown_resourceTypes;
     public @Nullable List<InsightFiltersResourceType> resourceTypes() {
-        if (resourceTypes == null) return null;
-        return resourceTypes.getValue("InsightFilters.resourceTypes");
+        if (!unknown_resourceTypes) return value_resourceTypes;
+        throw new UndeferrableValueException("Value 'InsightFilters.resourceTypes' is not present");
     }
 
     /**
      * The label of a finding&#39;s severity. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersSeverityLabel>> severityLabels;
-
+    @PolicyResourceProperty(name="severityLabels", flag="unknown_severityLabels")
+    private @Nullable List<InsightFiltersSeverityLabel> value_severityLabels;
+    private boolean unknown_severityLabels;
     public @Nullable List<InsightFiltersSeverityLabel> severityLabels() {
-        if (severityLabels == null) return null;
-        return severityLabels.getValue("InsightFilters.severityLabels");
+        if (!unknown_severityLabels) return value_severityLabels;
+        throw new UndeferrableValueException("Value 'InsightFilters.severityLabels' is not present");
     }
 
     /**
      * A URL that links to a page about the current finding in the security-findings provider&#39;s solution. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersSourceUrl>> sourceUrls;
-
+    @PolicyResourceProperty(name="sourceUrls", flag="unknown_sourceUrls")
+    private @Nullable List<InsightFiltersSourceUrl> value_sourceUrls;
+    private boolean unknown_sourceUrls;
     public @Nullable List<InsightFiltersSourceUrl> sourceUrls() {
-        if (sourceUrls == null) return null;
-        return sourceUrls.getValue("InsightFilters.sourceUrls");
+        if (!unknown_sourceUrls) return value_sourceUrls;
+        throw new UndeferrableValueException("Value 'InsightFilters.sourceUrls' is not present");
     }
 
     /**
      * The category of a threat intelligence indicator. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersThreatIntelIndicatorCategory>> threatIntelIndicatorCategories;
-
+    @PolicyResourceProperty(name="threatIntelIndicatorCategories", flag="unknown_threatIntelIndicatorCategories")
+    private @Nullable List<InsightFiltersThreatIntelIndicatorCategory> value_threatIntelIndicatorCategories;
+    private boolean unknown_threatIntelIndicatorCategories;
     public @Nullable List<InsightFiltersThreatIntelIndicatorCategory> threatIntelIndicatorCategories() {
-        if (threatIntelIndicatorCategories == null) return null;
-        return threatIntelIndicatorCategories.getValue("InsightFilters.threatIntelIndicatorCategories");
+        if (!unknown_threatIntelIndicatorCategories) return value_threatIntelIndicatorCategories;
+        throw new UndeferrableValueException("Value 'InsightFilters.threatIntelIndicatorCategories' is not present");
     }
 
     /**
      * The date/time of the last observation of a threat intelligence indicator. See Date Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersThreatIntelIndicatorLastObservedAt>> threatIntelIndicatorLastObservedAts;
-
+    @PolicyResourceProperty(name="threatIntelIndicatorLastObservedAts", flag="unknown_threatIntelIndicatorLastObservedAts")
+    private @Nullable List<InsightFiltersThreatIntelIndicatorLastObservedAt> value_threatIntelIndicatorLastObservedAts;
+    private boolean unknown_threatIntelIndicatorLastObservedAts;
     public @Nullable List<InsightFiltersThreatIntelIndicatorLastObservedAt> threatIntelIndicatorLastObservedAts() {
-        if (threatIntelIndicatorLastObservedAts == null) return null;
-        return threatIntelIndicatorLastObservedAts.getValue("InsightFilters.threatIntelIndicatorLastObservedAts");
+        if (!unknown_threatIntelIndicatorLastObservedAts) return value_threatIntelIndicatorLastObservedAts;
+        throw new UndeferrableValueException("Value 'InsightFilters.threatIntelIndicatorLastObservedAts' is not present");
     }
 
     /**
      * The URL for more details from the source of the threat intelligence. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersThreatIntelIndicatorSourceUrl>> threatIntelIndicatorSourceUrls;
-
+    @PolicyResourceProperty(name="threatIntelIndicatorSourceUrls", flag="unknown_threatIntelIndicatorSourceUrls")
+    private @Nullable List<InsightFiltersThreatIntelIndicatorSourceUrl> value_threatIntelIndicatorSourceUrls;
+    private boolean unknown_threatIntelIndicatorSourceUrls;
     public @Nullable List<InsightFiltersThreatIntelIndicatorSourceUrl> threatIntelIndicatorSourceUrls() {
-        if (threatIntelIndicatorSourceUrls == null) return null;
-        return threatIntelIndicatorSourceUrls.getValue("InsightFilters.threatIntelIndicatorSourceUrls");
+        if (!unknown_threatIntelIndicatorSourceUrls) return value_threatIntelIndicatorSourceUrls;
+        throw new UndeferrableValueException("Value 'InsightFilters.threatIntelIndicatorSourceUrls' is not present");
     }
 
     /**
      * The source of the threat intelligence. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersThreatIntelIndicatorSource>> threatIntelIndicatorSources;
-
+    @PolicyResourceProperty(name="threatIntelIndicatorSources", flag="unknown_threatIntelIndicatorSources")
+    private @Nullable List<InsightFiltersThreatIntelIndicatorSource> value_threatIntelIndicatorSources;
+    private boolean unknown_threatIntelIndicatorSources;
     public @Nullable List<InsightFiltersThreatIntelIndicatorSource> threatIntelIndicatorSources() {
-        if (threatIntelIndicatorSources == null) return null;
-        return threatIntelIndicatorSources.getValue("InsightFilters.threatIntelIndicatorSources");
+        if (!unknown_threatIntelIndicatorSources) return value_threatIntelIndicatorSources;
+        throw new UndeferrableValueException("Value 'InsightFilters.threatIntelIndicatorSources' is not present");
     }
 
     /**
      * The type of a threat intelligence indicator. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersThreatIntelIndicatorType>> threatIntelIndicatorTypes;
-
+    @PolicyResourceProperty(name="threatIntelIndicatorTypes", flag="unknown_threatIntelIndicatorTypes")
+    private @Nullable List<InsightFiltersThreatIntelIndicatorType> value_threatIntelIndicatorTypes;
+    private boolean unknown_threatIntelIndicatorTypes;
     public @Nullable List<InsightFiltersThreatIntelIndicatorType> threatIntelIndicatorTypes() {
-        if (threatIntelIndicatorTypes == null) return null;
-        return threatIntelIndicatorTypes.getValue("InsightFilters.threatIntelIndicatorTypes");
+        if (!unknown_threatIntelIndicatorTypes) return value_threatIntelIndicatorTypes;
+        throw new UndeferrableValueException("Value 'InsightFilters.threatIntelIndicatorTypes' is not present");
     }
 
     /**
      * The value of a threat intelligence indicator. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersThreatIntelIndicatorValue>> threatIntelIndicatorValues;
-
+    @PolicyResourceProperty(name="threatIntelIndicatorValues", flag="unknown_threatIntelIndicatorValues")
+    private @Nullable List<InsightFiltersThreatIntelIndicatorValue> value_threatIntelIndicatorValues;
+    private boolean unknown_threatIntelIndicatorValues;
     public @Nullable List<InsightFiltersThreatIntelIndicatorValue> threatIntelIndicatorValues() {
-        if (threatIntelIndicatorValues == null) return null;
-        return threatIntelIndicatorValues.getValue("InsightFilters.threatIntelIndicatorValues");
+        if (!unknown_threatIntelIndicatorValues) return value_threatIntelIndicatorValues;
+        throw new UndeferrableValueException("Value 'InsightFilters.threatIntelIndicatorValues' is not present");
     }
 
     /**
      * A finding&#39;s title. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersTitle>> titles;
-
+    @PolicyResourceProperty(name="titles", flag="unknown_titles")
+    private @Nullable List<InsightFiltersTitle> value_titles;
+    private boolean unknown_titles;
     public @Nullable List<InsightFiltersTitle> titles() {
-        if (titles == null) return null;
-        return titles.getValue("InsightFilters.titles");
+        if (!unknown_titles) return value_titles;
+        throw new UndeferrableValueException("Value 'InsightFilters.titles' is not present");
     }
 
     /**
      * A finding type in the format of `namespace/category/classifier` that classifies a finding. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersType>> types;
-
+    @PolicyResourceProperty(name="types", flag="unknown_types")
+    private @Nullable List<InsightFiltersType> value_types;
+    private boolean unknown_types;
     public @Nullable List<InsightFiltersType> types() {
-        if (types == null) return null;
-        return types.getValue("InsightFilters.types");
+        if (!unknown_types) return value_types;
+        throw new UndeferrableValueException("Value 'InsightFilters.types' is not present");
     }
 
     /**
      * An ISO8601-formatted timestamp that indicates when the security-findings provider last updated the finding record. See Date Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersUpdatedAt>> updatedAts;
-
+    @PolicyResourceProperty(name="updatedAts", flag="unknown_updatedAts")
+    private @Nullable List<InsightFiltersUpdatedAt> value_updatedAts;
+    private boolean unknown_updatedAts;
     public @Nullable List<InsightFiltersUpdatedAt> updatedAts() {
-        if (updatedAts == null) return null;
-        return updatedAts.getValue("InsightFilters.updatedAts");
+        if (!unknown_updatedAts) return value_updatedAts;
+        throw new UndeferrableValueException("Value 'InsightFilters.updatedAts' is not present");
     }
 
     /**
      * A list of name/value string pairs associated with the finding. These are custom, user-defined fields added to a finding. See Map Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersUserDefinedValue>> userDefinedValues;
-
+    @PolicyResourceProperty(name="userDefinedValues", flag="unknown_userDefinedValues")
+    private @Nullable List<InsightFiltersUserDefinedValue> value_userDefinedValues;
+    private boolean unknown_userDefinedValues;
     public @Nullable List<InsightFiltersUserDefinedValue> userDefinedValues() {
-        if (userDefinedValues == null) return null;
-        return userDefinedValues.getValue("InsightFilters.userDefinedValues");
+        if (!unknown_userDefinedValues) return value_userDefinedValues;
+        throw new UndeferrableValueException("Value 'InsightFilters.userDefinedValues' is not present");
     }
 
     /**
      * The veracity of a finding. See String Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersVerificationState>> verificationStates;
-
+    @PolicyResourceProperty(name="verificationStates", flag="unknown_verificationStates")
+    private @Nullable List<InsightFiltersVerificationState> value_verificationStates;
+    private boolean unknown_verificationStates;
     public @Nullable List<InsightFiltersVerificationState> verificationStates() {
-        if (verificationStates == null) return null;
-        return verificationStates.getValue("InsightFilters.verificationStates");
+        if (!unknown_verificationStates) return value_verificationStates;
+        throw new UndeferrableValueException("Value 'InsightFilters.verificationStates' is not present");
     }
 
     /**
      * The status of the investigation into a finding. See Workflow Status Filter below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<InsightFiltersWorkflowStatus>> workflowStatuses;
-
+    @PolicyResourceProperty(name="workflowStatuses", flag="unknown_workflowStatuses")
+    private @Nullable List<InsightFiltersWorkflowStatus> value_workflowStatuses;
+    private boolean unknown_workflowStatuses;
     public @Nullable List<InsightFiltersWorkflowStatus> workflowStatuses() {
-        if (workflowStatuses == null) return null;
-        return workflowStatuses.getValue("InsightFilters.workflowStatuses");
+        if (!unknown_workflowStatuses) return value_workflowStatuses;
+        throw new UndeferrableValueException("Value 'InsightFilters.workflowStatuses' is not present");
     }
 
 }

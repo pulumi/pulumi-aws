@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.paymentcryptography;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.paymentcryptography.outputs.KeyKeyAttributes;
 import com.pulumi.policypacks.aws.paymentcryptography.outputs.KeyTimeouts;
@@ -21,40 +22,44 @@ public final class Key extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the key.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Key.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Key.arn' is not present");
     }
 
-    private UndeferrableValue<Integer> deletionWindowInDays;
-
+    @PolicyResourceProperty(name="deletionWindowInDays", flag="unknown_deletionWindowInDays")
+    private Integer value_deletionWindowInDays;
+    private boolean unknown_deletionWindowInDays;
     public Integer deletionWindowInDays() {
-        if (deletionWindowInDays == null) return null;
-        return deletionWindowInDays.getValue("Key.deletionWindowInDays");
+        if (!unknown_deletionWindowInDays) return value_deletionWindowInDays;
+        throw new UndeferrableValueException("Value 'Key.deletionWindowInDays' is not present");
     }
 
     /**
      * Whether to enable the key.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("Key.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'Key.enabled' is not present");
     }
 
     /**
      * Whether the key is exportable from the service.
      * 
      */
-    private UndeferrableValue<Boolean> exportable;
-
+    @PolicyResourceProperty(name="exportable", flag="unknown_exportable")
+    private Boolean value_exportable;
+    private boolean unknown_exportable;
     public Boolean exportable() {
-        if (exportable == null) return null;
-        return exportable.getValue("Key.exportable");
+        if (!unknown_exportable) return value_exportable;
+        throw new UndeferrableValueException("Value 'Key.exportable' is not present");
     }
 
     /**
@@ -63,66 +68,72 @@ public final class Key extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private @Nullable UndeferrableValue<KeyKeyAttributes> keyAttributes;
-
+    @PolicyResourceProperty(name="keyAttributes", flag="unknown_keyAttributes")
+    private @Nullable KeyKeyAttributes value_keyAttributes;
+    private boolean unknown_keyAttributes;
     public @Nullable KeyKeyAttributes keyAttributes() {
-        if (keyAttributes == null) return null;
-        return keyAttributes.getValue("Key.keyAttributes");
+        if (!unknown_keyAttributes) return value_keyAttributes;
+        throw new UndeferrableValueException("Value 'Key.keyAttributes' is not present");
     }
 
     /**
      * Key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.
      * 
      */
-    private UndeferrableValue<String> keyCheckValue;
-
+    @PolicyResourceProperty(name="keyCheckValue", flag="unknown_keyCheckValue")
+    private String value_keyCheckValue;
+    private boolean unknown_keyCheckValue;
     public String keyCheckValue() {
-        if (keyCheckValue == null) return null;
-        return keyCheckValue.getValue("Key.keyCheckValue");
+        if (!unknown_keyCheckValue) return value_keyCheckValue;
+        throw new UndeferrableValueException("Value 'Key.keyCheckValue' is not present");
     }
 
     /**
      * Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
      * 
      */
-    private UndeferrableValue<String> keyCheckValueAlgorithm;
-
+    @PolicyResourceProperty(name="keyCheckValueAlgorithm", flag="unknown_keyCheckValueAlgorithm")
+    private String value_keyCheckValueAlgorithm;
+    private boolean unknown_keyCheckValueAlgorithm;
     public String keyCheckValueAlgorithm() {
-        if (keyCheckValueAlgorithm == null) return null;
-        return keyCheckValueAlgorithm.getValue("Key.keyCheckValueAlgorithm");
+        if (!unknown_keyCheckValueAlgorithm) return value_keyCheckValueAlgorithm;
+        throw new UndeferrableValueException("Value 'Key.keyCheckValueAlgorithm' is not present");
     }
 
     /**
      * Source of the key material.
      * 
      */
-    private UndeferrableValue<String> keyOrigin;
-
+    @PolicyResourceProperty(name="keyOrigin", flag="unknown_keyOrigin")
+    private String value_keyOrigin;
+    private boolean unknown_keyOrigin;
     public String keyOrigin() {
-        if (keyOrigin == null) return null;
-        return keyOrigin.getValue("Key.keyOrigin");
+        if (!unknown_keyOrigin) return value_keyOrigin;
+        throw new UndeferrableValueException("Value 'Key.keyOrigin' is not present");
     }
 
     /**
      * State of key that is being created or deleted.
      * 
      */
-    private UndeferrableValue<String> keyState;
-
+    @PolicyResourceProperty(name="keyState", flag="unknown_keyState")
+    private String value_keyState;
+    private boolean unknown_keyState;
     public String keyState() {
-        if (keyState == null) return null;
-        return keyState.getValue("Key.keyState");
+        if (!unknown_keyState) return value_keyState;
+        throw new UndeferrableValueException("Value 'Key.keyState' is not present");
     }
 
     /**
      * Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Key.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Key.tags' is not present");
     }
 
     /**
@@ -133,18 +144,20 @@ public final class Key extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Key.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Key.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<KeyTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable KeyTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable KeyTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("Key.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'Key.timeouts' is not present");
     }
 
 }

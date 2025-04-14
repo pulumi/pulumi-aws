@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class ClusterActivityStreamArgs extends com.pulumi.resources.Policy
      * Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
      * 
      */
-    private UndeferrableValue<Boolean> engineNativeAuditFieldsIncluded;
-
+    @PolicyResourceProperty(name="engineNativeAuditFieldsIncluded", flag="unknown_engineNativeAuditFieldsIncluded")
+    private Boolean value_engineNativeAuditFieldsIncluded;
+    private boolean unknown_engineNativeAuditFieldsIncluded;
     public Boolean engineNativeAuditFieldsIncluded() {
-        if (engineNativeAuditFieldsIncluded == null) return null;
-        return engineNativeAuditFieldsIncluded.getValue("ClusterActivityStreamArgs.engineNativeAuditFieldsIncluded");
+        if (!unknown_engineNativeAuditFieldsIncluded) return value_engineNativeAuditFieldsIncluded;
+        throw new UndeferrableValueException("Value 'ClusterActivityStreamArgs.engineNativeAuditFieldsIncluded' is not present");
     }
 
     /**
      * The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("ClusterActivityStreamArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'ClusterActivityStreamArgs.kmsKeyId' is not present");
     }
 
     /**
      * Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
      * 
      */
-    private UndeferrableValue<String> mode;
-
+    @PolicyResourceProperty(name="mode", flag="unknown_mode")
+    private String value_mode;
+    private boolean unknown_mode;
     public String mode() {
-        if (mode == null) return null;
-        return mode.getValue("ClusterActivityStreamArgs.mode");
+        if (!unknown_mode) return value_mode;
+        throw new UndeferrableValueException("Value 'ClusterActivityStreamArgs.mode' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the DB cluster.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("ClusterActivityStreamArgs.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'ClusterActivityStreamArgs.resourceArn' is not present");
     }
 
 }

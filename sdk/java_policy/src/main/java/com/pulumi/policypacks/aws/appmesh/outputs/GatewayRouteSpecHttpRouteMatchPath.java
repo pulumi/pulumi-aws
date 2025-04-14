@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class GatewayRouteSpecHttpRouteMatchPath {
      * The exact path to match on.
      * 
      */
-    private @Nullable UndeferrableValue<String> exact;
-
+    @PolicyResourceProperty(name="exact", flag="unknown_exact")
+    private @Nullable String value_exact;
+    private boolean unknown_exact;
     public @Nullable String exact() {
-        if (exact == null) return null;
-        return exact.getValue("GatewayRouteSpecHttpRouteMatchPath.exact");
+        if (!unknown_exact) return value_exact;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteMatchPath.exact' is not present");
     }
 
     /**
      * The regex used to match the path.
      * 
      */
-    private @Nullable UndeferrableValue<String> regex;
-
+    @PolicyResourceProperty(name="regex", flag="unknown_regex")
+    private @Nullable String value_regex;
+    private boolean unknown_regex;
     public @Nullable String regex() {
-        if (regex == null) return null;
-        return regex.getValue("GatewayRouteSpecHttpRouteMatchPath.regex");
+        if (!unknown_regex) return value_regex;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteMatchPath.regex' is not present");
     }
 
 }

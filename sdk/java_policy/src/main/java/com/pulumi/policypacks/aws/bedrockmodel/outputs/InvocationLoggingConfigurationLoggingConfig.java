@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrockmodel.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrockmodel.outputs.InvocationLoggingConfigurationLoggingConfigCloudwatchConfig;
 import com.pulumi.policypacks.aws.bedrockmodel.outputs.InvocationLoggingConfigurationLoggingConfigS3Config;
 import java.lang.Boolean;
@@ -16,66 +17,72 @@ public final class InvocationLoggingConfigurationLoggingConfig {
      * CloudWatch logging configuration. See `cloudwatch_config` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<InvocationLoggingConfigurationLoggingConfigCloudwatchConfig> cloudwatchConfig;
-
+    @PolicyResourceProperty(name="cloudwatchConfig", flag="unknown_cloudwatchConfig")
+    private @Nullable InvocationLoggingConfigurationLoggingConfigCloudwatchConfig value_cloudwatchConfig;
+    private boolean unknown_cloudwatchConfig;
     public @Nullable InvocationLoggingConfigurationLoggingConfigCloudwatchConfig cloudwatchConfig() {
-        if (cloudwatchConfig == null) return null;
-        return cloudwatchConfig.getValue("InvocationLoggingConfigurationLoggingConfig.cloudwatchConfig");
+        if (!unknown_cloudwatchConfig) return value_cloudwatchConfig;
+        throw new UndeferrableValueException("Value 'InvocationLoggingConfigurationLoggingConfig.cloudwatchConfig' is not present");
     }
 
     /**
      * Set to include embeddings data in the log delivery. Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> embeddingDataDeliveryEnabled;
-
+    @PolicyResourceProperty(name="embeddingDataDeliveryEnabled", flag="unknown_embeddingDataDeliveryEnabled")
+    private @Nullable Boolean value_embeddingDataDeliveryEnabled;
+    private boolean unknown_embeddingDataDeliveryEnabled;
     public @Nullable Boolean embeddingDataDeliveryEnabled() {
-        if (embeddingDataDeliveryEnabled == null) return null;
-        return embeddingDataDeliveryEnabled.getValue("InvocationLoggingConfigurationLoggingConfig.embeddingDataDeliveryEnabled");
+        if (!unknown_embeddingDataDeliveryEnabled) return value_embeddingDataDeliveryEnabled;
+        throw new UndeferrableValueException("Value 'InvocationLoggingConfigurationLoggingConfig.embeddingDataDeliveryEnabled' is not present");
     }
 
     /**
      * Set to include image data in the log delivery. Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> imageDataDeliveryEnabled;
-
+    @PolicyResourceProperty(name="imageDataDeliveryEnabled", flag="unknown_imageDataDeliveryEnabled")
+    private @Nullable Boolean value_imageDataDeliveryEnabled;
+    private boolean unknown_imageDataDeliveryEnabled;
     public @Nullable Boolean imageDataDeliveryEnabled() {
-        if (imageDataDeliveryEnabled == null) return null;
-        return imageDataDeliveryEnabled.getValue("InvocationLoggingConfigurationLoggingConfig.imageDataDeliveryEnabled");
+        if (!unknown_imageDataDeliveryEnabled) return value_imageDataDeliveryEnabled;
+        throw new UndeferrableValueException("Value 'InvocationLoggingConfigurationLoggingConfig.imageDataDeliveryEnabled' is not present");
     }
 
     /**
      * S3 configuration for storing log data. See `s3_config` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<InvocationLoggingConfigurationLoggingConfigS3Config> s3Config;
-
+    @PolicyResourceProperty(name="s3Config", flag="unknown_s3Config")
+    private @Nullable InvocationLoggingConfigurationLoggingConfigS3Config value_s3Config;
+    private boolean unknown_s3Config;
     public @Nullable InvocationLoggingConfigurationLoggingConfigS3Config s3Config() {
-        if (s3Config == null) return null;
-        return s3Config.getValue("InvocationLoggingConfigurationLoggingConfig.s3Config");
+        if (!unknown_s3Config) return value_s3Config;
+        throw new UndeferrableValueException("Value 'InvocationLoggingConfigurationLoggingConfig.s3Config' is not present");
     }
 
     /**
      * Set to include text data in the log delivery. Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> textDataDeliveryEnabled;
-
+    @PolicyResourceProperty(name="textDataDeliveryEnabled", flag="unknown_textDataDeliveryEnabled")
+    private @Nullable Boolean value_textDataDeliveryEnabled;
+    private boolean unknown_textDataDeliveryEnabled;
     public @Nullable Boolean textDataDeliveryEnabled() {
-        if (textDataDeliveryEnabled == null) return null;
-        return textDataDeliveryEnabled.getValue("InvocationLoggingConfigurationLoggingConfig.textDataDeliveryEnabled");
+        if (!unknown_textDataDeliveryEnabled) return value_textDataDeliveryEnabled;
+        throw new UndeferrableValueException("Value 'InvocationLoggingConfigurationLoggingConfig.textDataDeliveryEnabled' is not present");
     }
 
     /**
      * Set to include text data in the log delivery. Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> videoDataDeliveryEnabled;
-
+    @PolicyResourceProperty(name="videoDataDeliveryEnabled", flag="unknown_videoDataDeliveryEnabled")
+    private @Nullable Boolean value_videoDataDeliveryEnabled;
+    private boolean unknown_videoDataDeliveryEnabled;
     public @Nullable Boolean videoDataDeliveryEnabled() {
-        if (videoDataDeliveryEnabled == null) return null;
-        return videoDataDeliveryEnabled.getValue("InvocationLoggingConfigurationLoggingConfig.videoDataDeliveryEnabled");
+        if (!unknown_videoDataDeliveryEnabled) return value_videoDataDeliveryEnabled;
+        throw new UndeferrableValueException("Value 'InvocationLoggingConfigurationLoggingConfig.videoDataDeliveryEnabled' is not present");
     }
 
 }

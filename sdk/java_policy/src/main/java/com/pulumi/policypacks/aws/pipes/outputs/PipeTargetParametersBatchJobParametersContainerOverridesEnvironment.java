@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class PipeTargetParametersBatchJobParametersContainerOverridesEnvir
      * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("PipeTargetParametersBatchJobParametersContainerOverridesEnvironment.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParametersContainerOverridesEnvironment.name' is not present");
     }
 
     /**
      * Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
      * 
      */
-    private @Nullable UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private @Nullable String value_value;
+    private boolean unknown_value;
     public @Nullable String value() {
-        if (value == null) return null;
-        return value.getValue("PipeTargetParametersBatchJobParametersContainerOverridesEnvironment.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParametersContainerOverridesEnvironment.value' is not present");
     }
 
 }

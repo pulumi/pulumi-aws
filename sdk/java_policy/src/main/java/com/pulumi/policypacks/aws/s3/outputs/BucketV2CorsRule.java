@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -16,55 +17,60 @@ public final class BucketV2CorsRule {
      * List of headers allowed.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> allowedHeaders;
-
+    @PolicyResourceProperty(name="allowedHeaders", flag="unknown_allowedHeaders")
+    private @Nullable List<String> value_allowedHeaders;
+    private boolean unknown_allowedHeaders;
     public @Nullable List<String> allowedHeaders() {
-        if (allowedHeaders == null) return null;
-        return allowedHeaders.getValue("BucketV2CorsRule.allowedHeaders");
+        if (!unknown_allowedHeaders) return value_allowedHeaders;
+        throw new UndeferrableValueException("Value 'BucketV2CorsRule.allowedHeaders' is not present");
     }
 
     /**
      * One or more HTTP methods that you allow the origin to execute. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
      * 
      */
-    private UndeferrableValue<List<String>> allowedMethods;
-
+    @PolicyResourceProperty(name="allowedMethods", flag="unknown_allowedMethods")
+    private List<String> value_allowedMethods;
+    private boolean unknown_allowedMethods;
     public List<String> allowedMethods() {
-        if (allowedMethods == null) return null;
-        return allowedMethods.getValue("BucketV2CorsRule.allowedMethods");
+        if (!unknown_allowedMethods) return value_allowedMethods;
+        throw new UndeferrableValueException("Value 'BucketV2CorsRule.allowedMethods' is not present");
     }
 
     /**
      * One or more origins you want customers to be able to access the bucket from.
      * 
      */
-    private UndeferrableValue<List<String>> allowedOrigins;
-
+    @PolicyResourceProperty(name="allowedOrigins", flag="unknown_allowedOrigins")
+    private List<String> value_allowedOrigins;
+    private boolean unknown_allowedOrigins;
     public List<String> allowedOrigins() {
-        if (allowedOrigins == null) return null;
-        return allowedOrigins.getValue("BucketV2CorsRule.allowedOrigins");
+        if (!unknown_allowedOrigins) return value_allowedOrigins;
+        throw new UndeferrableValueException("Value 'BucketV2CorsRule.allowedOrigins' is not present");
     }
 
     /**
      * One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> exposeHeaders;
-
+    @PolicyResourceProperty(name="exposeHeaders", flag="unknown_exposeHeaders")
+    private @Nullable List<String> value_exposeHeaders;
+    private boolean unknown_exposeHeaders;
     public @Nullable List<String> exposeHeaders() {
-        if (exposeHeaders == null) return null;
-        return exposeHeaders.getValue("BucketV2CorsRule.exposeHeaders");
+        if (!unknown_exposeHeaders) return value_exposeHeaders;
+        throw new UndeferrableValueException("Value 'BucketV2CorsRule.exposeHeaders' is not present");
     }
 
     /**
      * Specifies time in seconds that browser can cache the response for a preflight request.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxAgeSeconds;
-
+    @PolicyResourceProperty(name="maxAgeSeconds", flag="unknown_maxAgeSeconds")
+    private @Nullable Integer value_maxAgeSeconds;
+    private boolean unknown_maxAgeSeconds;
     public @Nullable Integer maxAgeSeconds() {
-        if (maxAgeSeconds == null) return null;
-        return maxAgeSeconds.getValue("BucketV2CorsRule.maxAgeSeconds");
+        if (!unknown_maxAgeSeconds) return value_maxAgeSeconds;
+        throw new UndeferrableValueException("Value 'BucketV2CorsRule.maxAgeSeconds' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dms;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.dms.outputs.EndpointElasticsearchSettings;
 import com.pulumi.policypacks.aws.dms.outputs.EndpointKafkaSettings;
@@ -27,110 +28,120 @@ public final class Endpoint extends com.pulumi.resources.PolicyResourceOutput {
      * ARN for the certificate.
      * 
      */
-    private UndeferrableValue<String> certificateArn;
-
+    @PolicyResourceProperty(name="certificateArn", flag="unknown_certificateArn")
+    private String value_certificateArn;
+    private boolean unknown_certificateArn;
     public String certificateArn() {
-        if (certificateArn == null) return null;
-        return certificateArn.getValue("Endpoint.certificateArn");
+        if (!unknown_certificateArn) return value_certificateArn;
+        throw new UndeferrableValueException("Value 'Endpoint.certificateArn' is not present");
     }
 
     /**
      * Name of the endpoint database.
      * 
      */
-    private @Nullable UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private @Nullable String value_databaseName;
+    private boolean unknown_databaseName;
     public @Nullable String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("Endpoint.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'Endpoint.databaseName' is not present");
     }
 
     /**
      * Configuration block for OpenSearch settings. See below.
      * 
      */
-    private @Nullable UndeferrableValue<EndpointElasticsearchSettings> elasticsearchSettings;
-
+    @PolicyResourceProperty(name="elasticsearchSettings", flag="unknown_elasticsearchSettings")
+    private @Nullable EndpointElasticsearchSettings value_elasticsearchSettings;
+    private boolean unknown_elasticsearchSettings;
     public @Nullable EndpointElasticsearchSettings elasticsearchSettings() {
-        if (elasticsearchSettings == null) return null;
-        return elasticsearchSettings.getValue("Endpoint.elasticsearchSettings");
+        if (!unknown_elasticsearchSettings) return value_elasticsearchSettings;
+        throw new UndeferrableValueException("Value 'Endpoint.elasticsearchSettings' is not present");
     }
 
     /**
      * ARN for the endpoint.
      * 
      */
-    private UndeferrableValue<String> endpointArn;
-
+    @PolicyResourceProperty(name="endpointArn", flag="unknown_endpointArn")
+    private String value_endpointArn;
+    private boolean unknown_endpointArn;
     public String endpointArn() {
-        if (endpointArn == null) return null;
-        return endpointArn.getValue("Endpoint.endpointArn");
+        if (!unknown_endpointArn) return value_endpointArn;
+        throw new UndeferrableValueException("Value 'Endpoint.endpointArn' is not present");
     }
 
     /**
      * Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
      * 
      */
-    private UndeferrableValue<String> endpointId;
-
+    @PolicyResourceProperty(name="endpointId", flag="unknown_endpointId")
+    private String value_endpointId;
+    private boolean unknown_endpointId;
     public String endpointId() {
-        if (endpointId == null) return null;
-        return endpointId.getValue("Endpoint.endpointId");
+        if (!unknown_endpointId) return value_endpointId;
+        throw new UndeferrableValueException("Value 'Endpoint.endpointId' is not present");
     }
 
     /**
      * Type of endpoint. Valid values are `source`, `target`.
      * 
      */
-    private UndeferrableValue<String> endpointType;
-
+    @PolicyResourceProperty(name="endpointType", flag="unknown_endpointType")
+    private String value_endpointType;
+    private boolean unknown_endpointType;
     public String endpointType() {
-        if (endpointType == null) return null;
-        return endpointType.getValue("Endpoint.endpointType");
+        if (!unknown_endpointType) return value_endpointType;
+        throw new UndeferrableValueException("Value 'Endpoint.endpointType' is not present");
     }
 
     /**
      * Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `aurora-serverless`, `aurora-postgresql-serverless`,`azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`,`redshift-serverless`, `s3`, `sqlserver`, `neptune` ,`sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
      * 
      */
-    private UndeferrableValue<String> engineName;
-
+    @PolicyResourceProperty(name="engineName", flag="unknown_engineName")
+    private String value_engineName;
+    private boolean unknown_engineName;
     public String engineName() {
-        if (engineName == null) return null;
-        return engineName.getValue("Endpoint.engineName");
+        if (!unknown_engineName) return value_engineName;
+        throw new UndeferrableValueException("Value 'Endpoint.engineName' is not present");
     }
 
     /**
      * Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
      * 
      */
-    private UndeferrableValue<String> extraConnectionAttributes;
-
+    @PolicyResourceProperty(name="extraConnectionAttributes", flag="unknown_extraConnectionAttributes")
+    private String value_extraConnectionAttributes;
+    private boolean unknown_extraConnectionAttributes;
     public String extraConnectionAttributes() {
-        if (extraConnectionAttributes == null) return null;
-        return extraConnectionAttributes.getValue("Endpoint.extraConnectionAttributes");
+        if (!unknown_extraConnectionAttributes) return value_extraConnectionAttributes;
+        throw new UndeferrableValueException("Value 'Endpoint.extraConnectionAttributes' is not present");
     }
 
     /**
      * Configuration block for Kafka settings. See below.
      * 
      */
-    private @Nullable UndeferrableValue<EndpointKafkaSettings> kafkaSettings;
-
+    @PolicyResourceProperty(name="kafkaSettings", flag="unknown_kafkaSettings")
+    private @Nullable EndpointKafkaSettings value_kafkaSettings;
+    private boolean unknown_kafkaSettings;
     public @Nullable EndpointKafkaSettings kafkaSettings() {
-        if (kafkaSettings == null) return null;
-        return kafkaSettings.getValue("Endpoint.kafkaSettings");
+        if (!unknown_kafkaSettings) return value_kafkaSettings;
+        throw new UndeferrableValueException("Value 'Endpoint.kafkaSettings' is not present");
     }
 
     /**
      * Configuration block for Kinesis settings. See below.
      * 
      */
-    private @Nullable UndeferrableValue<EndpointKinesisSettings> kinesisSettings;
-
+    @PolicyResourceProperty(name="kinesisSettings", flag="unknown_kinesisSettings")
+    private @Nullable EndpointKinesisSettings value_kinesisSettings;
+    private boolean unknown_kinesisSettings;
     public @Nullable EndpointKinesisSettings kinesisSettings() {
-        if (kinesisSettings == null) return null;
-        return kinesisSettings.getValue("Endpoint.kinesisSettings");
+        if (!unknown_kinesisSettings) return value_kinesisSettings;
+        throw new UndeferrableValueException("Value 'Endpoint.kinesisSettings' is not present");
     }
 
     /**
@@ -139,91 +150,100 @@ public final class Endpoint extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("Endpoint.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'Endpoint.kmsKeyArn' is not present");
     }
 
     /**
      * Configuration block for MongoDB settings. See below.
      * 
      */
-    private @Nullable UndeferrableValue<EndpointMongodbSettings> mongodbSettings;
-
+    @PolicyResourceProperty(name="mongodbSettings", flag="unknown_mongodbSettings")
+    private @Nullable EndpointMongodbSettings value_mongodbSettings;
+    private boolean unknown_mongodbSettings;
     public @Nullable EndpointMongodbSettings mongodbSettings() {
-        if (mongodbSettings == null) return null;
-        return mongodbSettings.getValue("Endpoint.mongodbSettings");
+        if (!unknown_mongodbSettings) return value_mongodbSettings;
+        throw new UndeferrableValueException("Value 'Endpoint.mongodbSettings' is not present");
     }
 
     /**
      * Password to be used to login to the endpoint database.
      * 
      */
-    private @Nullable UndeferrableValue<String> password;
-
+    @PolicyResourceProperty(name="password", flag="unknown_password")
+    private @Nullable String value_password;
+    private boolean unknown_password;
     public @Nullable String password() {
-        if (password == null) return null;
-        return password.getValue("Endpoint.password");
+        if (!unknown_password) return value_password;
+        throw new UndeferrableValueException("Value 'Endpoint.password' is not present");
     }
 
-    private @Nullable UndeferrableValue<Boolean> pauseReplicationTasks;
-
+    @PolicyResourceProperty(name="pauseReplicationTasks", flag="unknown_pauseReplicationTasks")
+    private @Nullable Boolean value_pauseReplicationTasks;
+    private boolean unknown_pauseReplicationTasks;
     public @Nullable Boolean pauseReplicationTasks() {
-        if (pauseReplicationTasks == null) return null;
-        return pauseReplicationTasks.getValue("Endpoint.pauseReplicationTasks");
+        if (!unknown_pauseReplicationTasks) return value_pauseReplicationTasks;
+        throw new UndeferrableValueException("Value 'Endpoint.pauseReplicationTasks' is not present");
     }
 
     /**
      * Port used by the endpoint database.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable Integer value_port;
+    private boolean unknown_port;
     public @Nullable Integer port() {
-        if (port == null) return null;
-        return port.getValue("Endpoint.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'Endpoint.port' is not present");
     }
 
     /**
      * Configuration block for Postgres settings. See below.
      * 
      */
-    private @Nullable UndeferrableValue<EndpointPostgresSettings> postgresSettings;
-
+    @PolicyResourceProperty(name="postgresSettings", flag="unknown_postgresSettings")
+    private @Nullable EndpointPostgresSettings value_postgresSettings;
+    private boolean unknown_postgresSettings;
     public @Nullable EndpointPostgresSettings postgresSettings() {
-        if (postgresSettings == null) return null;
-        return postgresSettings.getValue("Endpoint.postgresSettings");
+        if (!unknown_postgresSettings) return value_postgresSettings;
+        throw new UndeferrableValueException("Value 'Endpoint.postgresSettings' is not present");
     }
 
-    private @Nullable UndeferrableValue<EndpointRedisSettings> redisSettings;
-
+    @PolicyResourceProperty(name="redisSettings", flag="unknown_redisSettings")
+    private @Nullable EndpointRedisSettings value_redisSettings;
+    private boolean unknown_redisSettings;
     public @Nullable EndpointRedisSettings redisSettings() {
-        if (redisSettings == null) return null;
-        return redisSettings.getValue("Endpoint.redisSettings");
+        if (!unknown_redisSettings) return value_redisSettings;
+        throw new UndeferrableValueException("Value 'Endpoint.redisSettings' is not present");
     }
 
     /**
      * Configuration block for Redshift settings. See below.
      * 
      */
-    private UndeferrableValue<EndpointRedshiftSettings> redshiftSettings;
-
+    @PolicyResourceProperty(name="redshiftSettings", flag="unknown_redshiftSettings")
+    private EndpointRedshiftSettings value_redshiftSettings;
+    private boolean unknown_redshiftSettings;
     public EndpointRedshiftSettings redshiftSettings() {
-        if (redshiftSettings == null) return null;
-        return redshiftSettings.getValue("Endpoint.redshiftSettings");
+        if (!unknown_redshiftSettings) return value_redshiftSettings;
+        throw new UndeferrableValueException("Value 'Endpoint.redshiftSettings' is not present");
     }
 
     /**
      * (**Deprecated**, use the `aws.dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
      * 
      */
-    private @Nullable UndeferrableValue<EndpointS3Settings> s3Settings;
-
+    @PolicyResourceProperty(name="s3Settings", flag="unknown_s3Settings")
+    private @Nullable EndpointS3Settings value_s3Settings;
+    private boolean unknown_s3Settings;
     public @Nullable EndpointS3Settings s3Settings() {
-        if (s3Settings == null) return null;
-        return s3Settings.getValue("Endpoint.s3Settings");
+        if (!unknown_s3Settings) return value_s3Settings;
+        throw new UndeferrableValueException("Value 'Endpoint.s3Settings' is not present");
     }
 
     /**
@@ -232,66 +252,72 @@ public final class Endpoint extends com.pulumi.resources.PolicyResourceOutput {
      * &gt; **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can&#39;t specify both.
      * 
      */
-    private @Nullable UndeferrableValue<String> secretsManagerAccessRoleArn;
-
+    @PolicyResourceProperty(name="secretsManagerAccessRoleArn", flag="unknown_secretsManagerAccessRoleArn")
+    private @Nullable String value_secretsManagerAccessRoleArn;
+    private boolean unknown_secretsManagerAccessRoleArn;
     public @Nullable String secretsManagerAccessRoleArn() {
-        if (secretsManagerAccessRoleArn == null) return null;
-        return secretsManagerAccessRoleArn.getValue("Endpoint.secretsManagerAccessRoleArn");
+        if (!unknown_secretsManagerAccessRoleArn) return value_secretsManagerAccessRoleArn;
+        throw new UndeferrableValueException("Value 'Endpoint.secretsManagerAccessRoleArn' is not present");
     }
 
     /**
      * Full ARN, partial ARN, or friendly name of the Secrets Manager secret that contains the endpoint connection details. Supported only when `engine_name` is `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift`, or `sqlserver`.
      * 
      */
-    private @Nullable UndeferrableValue<String> secretsManagerArn;
-
+    @PolicyResourceProperty(name="secretsManagerArn", flag="unknown_secretsManagerArn")
+    private @Nullable String value_secretsManagerArn;
+    private boolean unknown_secretsManagerArn;
     public @Nullable String secretsManagerArn() {
-        if (secretsManagerArn == null) return null;
-        return secretsManagerArn.getValue("Endpoint.secretsManagerArn");
+        if (!unknown_secretsManagerArn) return value_secretsManagerArn;
+        throw new UndeferrableValueException("Value 'Endpoint.secretsManagerArn' is not present");
     }
 
     /**
      * Host name of the server.
      * 
      */
-    private @Nullable UndeferrableValue<String> serverName;
-
+    @PolicyResourceProperty(name="serverName", flag="unknown_serverName")
+    private @Nullable String value_serverName;
+    private boolean unknown_serverName;
     public @Nullable String serverName() {
-        if (serverName == null) return null;
-        return serverName.getValue("Endpoint.serverName");
+        if (!unknown_serverName) return value_serverName;
+        throw new UndeferrableValueException("Value 'Endpoint.serverName' is not present");
     }
 
     /**
      * ARN used by the service access IAM role for dynamodb endpoints.
      * 
      */
-    private @Nullable UndeferrableValue<String> serviceAccessRole;
-
+    @PolicyResourceProperty(name="serviceAccessRole", flag="unknown_serviceAccessRole")
+    private @Nullable String value_serviceAccessRole;
+    private boolean unknown_serviceAccessRole;
     public @Nullable String serviceAccessRole() {
-        if (serviceAccessRole == null) return null;
-        return serviceAccessRole.getValue("Endpoint.serviceAccessRole");
+        if (!unknown_serviceAccessRole) return value_serviceAccessRole;
+        throw new UndeferrableValueException("Value 'Endpoint.serviceAccessRole' is not present");
     }
 
     /**
      * SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
      * 
      */
-    private UndeferrableValue<String> sslMode;
-
+    @PolicyResourceProperty(name="sslMode", flag="unknown_sslMode")
+    private String value_sslMode;
+    private boolean unknown_sslMode;
     public String sslMode() {
-        if (sslMode == null) return null;
-        return sslMode.getValue("Endpoint.sslMode");
+        if (!unknown_sslMode) return value_sslMode;
+        throw new UndeferrableValueException("Value 'Endpoint.sslMode' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Endpoint.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Endpoint.tags' is not present");
     }
 
     /**
@@ -302,22 +328,24 @@ public final class Endpoint extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Endpoint.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Endpoint.tagsAll' is not present");
     }
 
     /**
      * User name to be used to login to the endpoint database.
      * 
      */
-    private @Nullable UndeferrableValue<String> username;
-
+    @PolicyResourceProperty(name="username", flag="unknown_username")
+    private @Nullable String value_username;
+    private boolean unknown_username;
     public @Nullable String username() {
-        if (username == null) return null;
-        return username.getValue("Endpoint.username");
+        if (!unknown_username) return value_username;
+        throw new UndeferrableValueException("Value 'Endpoint.username' is not present");
     }
 
 }

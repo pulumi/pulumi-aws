@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datazone.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class UserProfileTimeouts {
      * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours).
      * 
      */
-    private @Nullable UndeferrableValue<String> create;
-
+    @PolicyResourceProperty(name="create", flag="unknown_create")
+    private @Nullable String value_create;
+    private boolean unknown_create;
     public @Nullable String create() {
-        if (create == null) return null;
-        return create.getValue("UserProfileTimeouts.create");
+        if (!unknown_create) return value_create;
+        throw new UndeferrableValueException("Value 'UserProfileTimeouts.create' is not present");
     }
 
     /**
      * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours).
      * 
      */
-    private @Nullable UndeferrableValue<String> update;
-
+    @PolicyResourceProperty(name="update", flag="unknown_update")
+    private @Nullable String value_update;
+    private boolean unknown_update;
     public @Nullable String update() {
-        if (update == null) return null;
-        return update.getValue("UserProfileTimeouts.update");
+        if (!unknown_update) return value_update;
+        throw new UndeferrableValueException("Value 'UserProfileTimeouts.update' is not present");
     }
 
 }

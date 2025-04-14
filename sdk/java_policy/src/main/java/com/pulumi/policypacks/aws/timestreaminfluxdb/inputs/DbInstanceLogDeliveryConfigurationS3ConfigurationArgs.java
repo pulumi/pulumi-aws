@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreaminfluxdb.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 
@@ -14,11 +15,12 @@ public final class DbInstanceLogDeliveryConfigurationS3ConfigurationArgs {
      * Name of the S3 bucket to deliver logs to.
      * 
      */
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("DbInstanceLogDeliveryConfigurationS3ConfigurationArgs.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'DbInstanceLogDeliveryConfigurationS3ConfigurationArgs.bucketName' is not present");
     }
 
     /**
@@ -27,11 +29,12 @@ public final class DbInstanceLogDeliveryConfigurationS3ConfigurationArgs {
      * **Note**: The following arguments do updates in-place: `db_parameter_group_identifier`, `log_delivery_configuration`, `port`, `deployment_type`, `db_instance_type`, and `tags`. Changes to any other argument after a DB instance has been deployed will cause destruction and re-creation of the DB instance. Additionally, when `db_parameter_group_identifier` is added to a DB instance or modified, the DB instance will be updated in-place but if `db_parameter_group_identifier` is removed from a DB instance, the DB instance will be destroyed and re-created.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("DbInstanceLogDeliveryConfigurationS3ConfigurationArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'DbInstanceLogDeliveryConfigurationS3ConfigurationArgs.enabled' is not present");
     }
 
 }

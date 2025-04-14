@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codecommit;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,55 +18,60 @@ public final class RepositoryArgs extends com.pulumi.resources.PolicyResourceInp
      * The default branch of the repository. The branch specified here needs to exist.
      * 
      */
-    private UndeferrableValue<String> defaultBranch;
-
+    @PolicyResourceProperty(name="defaultBranch", flag="unknown_defaultBranch")
+    private String value_defaultBranch;
+    private boolean unknown_defaultBranch;
     public String defaultBranch() {
-        if (defaultBranch == null) return null;
-        return defaultBranch.getValue("RepositoryArgs.defaultBranch");
+        if (!unknown_defaultBranch) return value_defaultBranch;
+        throw new UndeferrableValueException("Value 'RepositoryArgs.defaultBranch' is not present");
     }
 
     /**
      * The description of the repository. This needs to be less than 1000 characters
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("RepositoryArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'RepositoryArgs.description' is not present");
     }
 
     /**
      * The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("RepositoryArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'RepositoryArgs.kmsKeyId' is not present");
     }
 
     /**
      * The name for the repository. This needs to be less than 100 characters.
      * 
      */
-    private UndeferrableValue<String> repositoryName;
-
+    @PolicyResourceProperty(name="repositoryName", flag="unknown_repositoryName")
+    private String value_repositoryName;
+    private boolean unknown_repositoryName;
     public String repositoryName() {
-        if (repositoryName == null) return null;
-        return repositoryName.getValue("RepositoryArgs.repositoryName");
+        if (!unknown_repositoryName) return value_repositoryName;
+        throw new UndeferrableValueException("Value 'RepositoryArgs.repositoryName' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RepositoryArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RepositoryArgs.tags' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.budgets.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class BudgetAutoAdjustDataHistoricalOptionsArgs {
      * (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
      * 
      */
-    private UndeferrableValue<Integer> budgetAdjustmentPeriod;
-
+    @PolicyResourceProperty(name="budgetAdjustmentPeriod", flag="unknown_budgetAdjustmentPeriod")
+    private Integer value_budgetAdjustmentPeriod;
+    private boolean unknown_budgetAdjustmentPeriod;
     public Integer budgetAdjustmentPeriod() {
-        if (budgetAdjustmentPeriod == null) return null;
-        return budgetAdjustmentPeriod.getValue("BudgetAutoAdjustDataHistoricalOptionsArgs.budgetAdjustmentPeriod");
+        if (!unknown_budgetAdjustmentPeriod) return value_budgetAdjustmentPeriod;
+        throw new UndeferrableValueException("Value 'BudgetAutoAdjustDataHistoricalOptionsArgs.budgetAdjustmentPeriod' is not present");
     }
 
     /**
      * (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budget_adjustment_period` and your historical cost data.
      * 
      */
-    private UndeferrableValue<Integer> lookbackAvailablePeriods;
-
+    @PolicyResourceProperty(name="lookbackAvailablePeriods", flag="unknown_lookbackAvailablePeriods")
+    private Integer value_lookbackAvailablePeriods;
+    private boolean unknown_lookbackAvailablePeriods;
     public Integer lookbackAvailablePeriods() {
-        if (lookbackAvailablePeriods == null) return null;
-        return lookbackAvailablePeriods.getValue("BudgetAutoAdjustDataHistoricalOptionsArgs.lookbackAvailablePeriods");
+        if (!unknown_lookbackAvailablePeriods) return value_lookbackAvailablePeriods;
+        throw new UndeferrableValueException("Value 'BudgetAutoAdjustDataHistoricalOptionsArgs.lookbackAvailablePeriods' is not present");
     }
 
 }

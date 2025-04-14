@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -16,55 +17,60 @@ public final class RestoreTestingPlanRecoveryPointSelectionArgs {
      * Specifies the algorithm used for selecting recovery points. Valid values are &#34;RANDOM_WITHIN_WINDOW&#34; and &#34;LATEST_WITHIN_WINDOW&#34;.
      * 
      */
-    private UndeferrableValue<String> algorithm;
-
+    @PolicyResourceProperty(name="algorithm", flag="unknown_algorithm")
+    private String value_algorithm;
+    private boolean unknown_algorithm;
     public String algorithm() {
-        if (algorithm == null) return null;
-        return algorithm.getValue("RestoreTestingPlanRecoveryPointSelectionArgs.algorithm");
+        if (!unknown_algorithm) return value_algorithm;
+        throw new UndeferrableValueException("Value 'RestoreTestingPlanRecoveryPointSelectionArgs.algorithm' is not present");
     }
 
     /**
      * Specifies the backup vaults to exclude from the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to exclude all backup vaults.
      * 
      */
-    private UndeferrableValue<List<String>> excludeVaults;
-
+    @PolicyResourceProperty(name="excludeVaults", flag="unknown_excludeVaults")
+    private List<String> value_excludeVaults;
+    private boolean unknown_excludeVaults;
     public List<String> excludeVaults() {
-        if (excludeVaults == null) return null;
-        return excludeVaults.getValue("RestoreTestingPlanRecoveryPointSelectionArgs.excludeVaults");
+        if (!unknown_excludeVaults) return value_excludeVaults;
+        throw new UndeferrableValueException("Value 'RestoreTestingPlanRecoveryPointSelectionArgs.excludeVaults' is not present");
     }
 
     /**
      * Specifies the backup vaults to include in the recovery point selection. Each value must be a valid AWS ARN for a backup vault or &#34;*&#34; to include all backup vaults.
      * 
      */
-    private UndeferrableValue<List<String>> includeVaults;
-
+    @PolicyResourceProperty(name="includeVaults", flag="unknown_includeVaults")
+    private List<String> value_includeVaults;
+    private boolean unknown_includeVaults;
     public List<String> includeVaults() {
-        if (includeVaults == null) return null;
-        return includeVaults.getValue("RestoreTestingPlanRecoveryPointSelectionArgs.includeVaults");
+        if (!unknown_includeVaults) return value_includeVaults;
+        throw new UndeferrableValueException("Value 'RestoreTestingPlanRecoveryPointSelectionArgs.includeVaults' is not present");
     }
 
     /**
      * Specifies the types of recovery points to include in the selection. Valid values are &#34;CONTINUOUS&#34; and &#34;SNAPSHOT&#34;.
      * 
      */
-    private UndeferrableValue<List<String>> recoveryPointTypes;
-
+    @PolicyResourceProperty(name="recoveryPointTypes", flag="unknown_recoveryPointTypes")
+    private List<String> value_recoveryPointTypes;
+    private boolean unknown_recoveryPointTypes;
     public List<String> recoveryPointTypes() {
-        if (recoveryPointTypes == null) return null;
-        return recoveryPointTypes.getValue("RestoreTestingPlanRecoveryPointSelectionArgs.recoveryPointTypes");
+        if (!unknown_recoveryPointTypes) return value_recoveryPointTypes;
+        throw new UndeferrableValueException("Value 'RestoreTestingPlanRecoveryPointSelectionArgs.recoveryPointTypes' is not present");
     }
 
     /**
      * Specifies the number of days within which the recovery points should be selected. Must be a value between 1 and 365.
      * 
      */
-    private UndeferrableValue<Integer> selectionWindowDays;
-
+    @PolicyResourceProperty(name="selectionWindowDays", flag="unknown_selectionWindowDays")
+    private Integer value_selectionWindowDays;
+    private boolean unknown_selectionWindowDays;
     public Integer selectionWindowDays() {
-        if (selectionWindowDays == null) return null;
-        return selectionWindowDays.getValue("RestoreTestingPlanRecoveryPointSelectionArgs.selectionWindowDays");
+        if (!unknown_selectionWindowDays) return value_selectionWindowDays;
+        throw new UndeferrableValueException("Value 'RestoreTestingPlanRecoveryPointSelectionArgs.selectionWindowDays' is not present");
     }
 
 }

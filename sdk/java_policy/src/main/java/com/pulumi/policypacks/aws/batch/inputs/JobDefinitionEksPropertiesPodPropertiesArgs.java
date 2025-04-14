@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesContainersArgs;
 import com.pulumi.policypacks.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs;
 import com.pulumi.policypacks.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerArgs;
@@ -21,99 +22,108 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs {
      * Properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
      * 
      */
-    private UndeferrableValue<JobDefinitionEksPropertiesPodPropertiesContainersArgs> containers;
-
+    @PolicyResourceProperty(name="containers", flag="unknown_containers")
+    private JobDefinitionEksPropertiesPodPropertiesContainersArgs value_containers;
+    private boolean unknown_containers;
     public JobDefinitionEksPropertiesPodPropertiesContainersArgs containers() {
-        if (containers == null) return null;
-        return containers.getValue("JobDefinitionEksPropertiesPodPropertiesArgs.containers");
+        if (!unknown_containers) return value_containers;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesArgs.containers' is not present");
     }
 
     /**
      * DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod&#39;s DNS policy in the Kubernetes documentation.
      * 
      */
-    private UndeferrableValue<String> dnsPolicy;
-
+    @PolicyResourceProperty(name="dnsPolicy", flag="unknown_dnsPolicy")
+    private String value_dnsPolicy;
+    private boolean unknown_dnsPolicy;
     public String dnsPolicy() {
-        if (dnsPolicy == null) return null;
-        return dnsPolicy.getValue("JobDefinitionEksPropertiesPodPropertiesArgs.dnsPolicy");
+        if (!unknown_dnsPolicy) return value_dnsPolicy;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesArgs.dnsPolicy' is not present");
     }
 
     /**
      * Whether the pod uses the hosts&#39; network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don&#39;t require the overhead of IP allocation for each pod for incoming connections.
      * 
      */
-    private UndeferrableValue<Boolean> hostNetwork;
-
+    @PolicyResourceProperty(name="hostNetwork", flag="unknown_hostNetwork")
+    private Boolean value_hostNetwork;
+    private boolean unknown_hostNetwork;
     public Boolean hostNetwork() {
-        if (hostNetwork == null) return null;
-        return hostNetwork.getValue("JobDefinitionEksPropertiesPodPropertiesArgs.hostNetwork");
+        if (!unknown_hostNetwork) return value_hostNetwork;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesArgs.hostNetwork' is not present");
     }
 
     /**
      * List of Kubernetes secret resources. See `image_pull_secret` below.
      * 
      */
-    private UndeferrableValue<List<JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs>> imagePullSecrets;
-
+    @PolicyResourceProperty(name="imagePullSecrets", flag="unknown_imagePullSecrets")
+    private List<JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs> value_imagePullSecrets;
+    private boolean unknown_imagePullSecrets;
     public List<JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs> imagePullSecrets() {
-        if (imagePullSecrets == null) return null;
-        return imagePullSecrets.getValue("JobDefinitionEksPropertiesPodPropertiesArgs.imagePullSecrets");
+        if (!unknown_imagePullSecrets) return value_imagePullSecrets;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesArgs.imagePullSecrets' is not present");
     }
 
     /**
      * Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
      * 
      */
-    private UndeferrableValue<List<JobDefinitionEksPropertiesPodPropertiesInitContainerArgs>> initContainers;
-
+    @PolicyResourceProperty(name="initContainers", flag="unknown_initContainers")
+    private List<JobDefinitionEksPropertiesPodPropertiesInitContainerArgs> value_initContainers;
+    private boolean unknown_initContainers;
     public List<JobDefinitionEksPropertiesPodPropertiesInitContainerArgs> initContainers() {
-        if (initContainers == null) return null;
-        return initContainers.getValue("JobDefinitionEksPropertiesPodPropertiesArgs.initContainers");
+        if (!unknown_initContainers) return value_initContainers;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesArgs.initContainers' is not present");
     }
 
     /**
      * Metadata about the Kubernetes pod.
      * 
      */
-    private UndeferrableValue<JobDefinitionEksPropertiesPodPropertiesMetadataArgs> metadata;
-
+    @PolicyResourceProperty(name="metadata", flag="unknown_metadata")
+    private JobDefinitionEksPropertiesPodPropertiesMetadataArgs value_metadata;
+    private boolean unknown_metadata;
     public JobDefinitionEksPropertiesPodPropertiesMetadataArgs metadata() {
-        if (metadata == null) return null;
-        return metadata.getValue("JobDefinitionEksPropertiesPodPropertiesArgs.metadata");
+        if (!unknown_metadata) return value_metadata;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesArgs.metadata' is not present");
     }
 
     /**
      * Name of the service account that&#39;s used to run the pod.
      * 
      */
-    private UndeferrableValue<String> serviceAccountName;
-
+    @PolicyResourceProperty(name="serviceAccountName", flag="unknown_serviceAccountName")
+    private String value_serviceAccountName;
+    private boolean unknown_serviceAccountName;
     public String serviceAccountName() {
-        if (serviceAccountName == null) return null;
-        return serviceAccountName.getValue("JobDefinitionEksPropertiesPodPropertiesArgs.serviceAccountName");
+        if (!unknown_serviceAccountName) return value_serviceAccountName;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesArgs.serviceAccountName' is not present");
     }
 
     /**
      * Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
      * 
      */
-    private UndeferrableValue<Boolean> shareProcessNamespace;
-
+    @PolicyResourceProperty(name="shareProcessNamespace", flag="unknown_shareProcessNamespace")
+    private Boolean value_shareProcessNamespace;
+    private boolean unknown_shareProcessNamespace;
     public Boolean shareProcessNamespace() {
-        if (shareProcessNamespace == null) return null;
-        return shareProcessNamespace.getValue("JobDefinitionEksPropertiesPodPropertiesArgs.shareProcessNamespace");
+        if (!unknown_shareProcessNamespace) return value_shareProcessNamespace;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesArgs.shareProcessNamespace' is not present");
     }
 
     /**
      * Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
      * 
      */
-    private UndeferrableValue<List<JobDefinitionEksPropertiesPodPropertiesVolumeArgs>> volumes;
-
+    @PolicyResourceProperty(name="volumes", flag="unknown_volumes")
+    private List<JobDefinitionEksPropertiesPodPropertiesVolumeArgs> value_volumes;
+    private boolean unknown_volumes;
     public List<JobDefinitionEksPropertiesPodPropertiesVolumeArgs> volumes() {
-        if (volumes == null) return null;
-        return volumes.getValue("JobDefinitionEksPropertiesPodPropertiesArgs.volumes");
+        if (!unknown_volumes) return value_volumes;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesArgs.volumes' is not present");
     }
 
 }

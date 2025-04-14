@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll;
 import java.lang.String;
 import java.util.List;
@@ -16,25 +17,28 @@ public final class WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatch
      * An empty configuration block that is used for inspecting all headers.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll> all;
-
+    @PolicyResourceProperty(name="all", flag="unknown_all")
+    private @Nullable WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll value_all;
+    private boolean unknown_all;
     public @Nullable WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll all() {
-        if (all == null) return null;
-        return all.getValue("WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern.all");
+        if (!unknown_all) return value_all;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern.all' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<String>> excludedCookies;
-
+    @PolicyResourceProperty(name="excludedCookies", flag="unknown_excludedCookies")
+    private @Nullable List<String> value_excludedCookies;
+    private boolean unknown_excludedCookies;
     public @Nullable List<String> excludedCookies() {
-        if (excludedCookies == null) return null;
-        return excludedCookies.getValue("WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern.excludedCookies");
+        if (!unknown_excludedCookies) return value_excludedCookies;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern.excludedCookies' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<String>> includedCookies;
-
+    @PolicyResourceProperty(name="includedCookies", flag="unknown_includedCookies")
+    private @Nullable List<String> value_includedCookies;
+    private boolean unknown_includedCookies;
     public @Nullable List<String> includedCookies() {
-        if (includedCookies == null) return null;
-        return includedCookies.getValue("WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern.includedCookies");
+        if (!unknown_includedCookies) return value_includedCookies;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern.includedCookies' is not present");
     }
 
 }

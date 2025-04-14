@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elb.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class LoadBalancerHealthCheckArgs {
      * The number of checks before the instance is declared healthy.
      * 
      */
-    private UndeferrableValue<Integer> healthyThreshold;
-
+    @PolicyResourceProperty(name="healthyThreshold", flag="unknown_healthyThreshold")
+    private Integer value_healthyThreshold;
+    private boolean unknown_healthyThreshold;
     public Integer healthyThreshold() {
-        if (healthyThreshold == null) return null;
-        return healthyThreshold.getValue("LoadBalancerHealthCheckArgs.healthyThreshold");
+        if (!unknown_healthyThreshold) return value_healthyThreshold;
+        throw new UndeferrableValueException("Value 'LoadBalancerHealthCheckArgs.healthyThreshold' is not present");
     }
 
     /**
      * The interval between checks.
      * 
      */
-    private UndeferrableValue<Integer> interval;
-
+    @PolicyResourceProperty(name="interval", flag="unknown_interval")
+    private Integer value_interval;
+    private boolean unknown_interval;
     public Integer interval() {
-        if (interval == null) return null;
-        return interval.getValue("LoadBalancerHealthCheckArgs.interval");
+        if (!unknown_interval) return value_interval;
+        throw new UndeferrableValueException("Value 'LoadBalancerHealthCheckArgs.interval' is not present");
     }
 
     /**
@@ -39,33 +42,36 @@ public final class LoadBalancerHealthCheckArgs {
      * * `TCP`, `SSL` - PORT is required, PATH is not supported
      * 
      */
-    private UndeferrableValue<String> target;
-
+    @PolicyResourceProperty(name="target", flag="unknown_target")
+    private String value_target;
+    private boolean unknown_target;
     public String target() {
-        if (target == null) return null;
-        return target.getValue("LoadBalancerHealthCheckArgs.target");
+        if (!unknown_target) return value_target;
+        throw new UndeferrableValueException("Value 'LoadBalancerHealthCheckArgs.target' is not present");
     }
 
     /**
      * The length of time before the check times out.
      * 
      */
-    private UndeferrableValue<Integer> timeout;
-
+    @PolicyResourceProperty(name="timeout", flag="unknown_timeout")
+    private Integer value_timeout;
+    private boolean unknown_timeout;
     public Integer timeout() {
-        if (timeout == null) return null;
-        return timeout.getValue("LoadBalancerHealthCheckArgs.timeout");
+        if (!unknown_timeout) return value_timeout;
+        throw new UndeferrableValueException("Value 'LoadBalancerHealthCheckArgs.timeout' is not present");
     }
 
     /**
      * The number of checks before the instance is declared unhealthy.
      * 
      */
-    private UndeferrableValue<Integer> unhealthyThreshold;
-
+    @PolicyResourceProperty(name="unhealthyThreshold", flag="unknown_unhealthyThreshold")
+    private Integer value_unhealthyThreshold;
+    private boolean unknown_unhealthyThreshold;
     public Integer unhealthyThreshold() {
-        if (unhealthyThreshold == null) return null;
-        return unhealthyThreshold.getValue("LoadBalancerHealthCheckArgs.unhealthyThreshold");
+        if (!unknown_unhealthyThreshold) return value_unhealthyThreshold;
+        throw new UndeferrableValueException("Value 'LoadBalancerHealthCheckArgs.unhealthyThreshold' is not present");
     }
 
 }

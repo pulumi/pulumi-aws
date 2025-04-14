@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 
 
@@ -13,11 +14,12 @@ public final class CustomModelValidationMetric {
      * The validation loss associated with the validator.
      * 
      */
-    private UndeferrableValue<Double> validationLoss;
-
+    @PolicyResourceProperty(name="validationLoss", flag="unknown_validationLoss")
+    private Double value_validationLoss;
+    private boolean unknown_validationLoss;
     public Double validationLoss() {
-        if (validationLoss == null) return null;
-        return validationLoss.getValue("CustomModelValidationMetric.validationLoss");
+        if (!unknown_validationLoss) return value_validationLoss;
+        throw new UndeferrableValueException("Value 'CustomModelValidationMetric.validationLoss' is not present");
     }
 
 }

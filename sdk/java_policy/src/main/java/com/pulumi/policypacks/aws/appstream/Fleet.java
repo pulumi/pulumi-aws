@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appstream;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appstream.outputs.FleetComputeCapacity;
 import com.pulumi.policypacks.aws.appstream.outputs.FleetDomainJoinInfo;
@@ -22,176 +23,192 @@ public final class Fleet extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the appstream fleet.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Fleet.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Fleet.arn' is not present");
     }
 
     /**
      * Configuration block for the desired capacity of the fleet. See below.
      * 
      */
-    private UndeferrableValue<FleetComputeCapacity> computeCapacity;
-
+    @PolicyResourceProperty(name="computeCapacity", flag="unknown_computeCapacity")
+    private FleetComputeCapacity value_computeCapacity;
+    private boolean unknown_computeCapacity;
     public FleetComputeCapacity computeCapacity() {
-        if (computeCapacity == null) return null;
-        return computeCapacity.getValue("Fleet.computeCapacity");
+        if (!unknown_computeCapacity) return value_computeCapacity;
+        throw new UndeferrableValueException("Value 'Fleet.computeCapacity' is not present");
     }
 
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the fleet was created.
      * 
      */
-    private UndeferrableValue<String> createdTime;
-
+    @PolicyResourceProperty(name="createdTime", flag="unknown_createdTime")
+    private String value_createdTime;
+    private boolean unknown_createdTime;
     public String createdTime() {
-        if (createdTime == null) return null;
-        return createdTime.getValue("Fleet.createdTime");
+        if (!unknown_createdTime) return value_createdTime;
+        throw new UndeferrableValueException("Value 'Fleet.createdTime' is not present");
     }
 
     /**
      * Description to display.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("Fleet.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Fleet.description' is not present");
     }
 
     /**
      * Amount of time that a streaming session remains active after users disconnect.
      * 
      */
-    private UndeferrableValue<Integer> disconnectTimeoutInSeconds;
-
+    @PolicyResourceProperty(name="disconnectTimeoutInSeconds", flag="unknown_disconnectTimeoutInSeconds")
+    private Integer value_disconnectTimeoutInSeconds;
+    private boolean unknown_disconnectTimeoutInSeconds;
     public Integer disconnectTimeoutInSeconds() {
-        if (disconnectTimeoutInSeconds == null) return null;
-        return disconnectTimeoutInSeconds.getValue("Fleet.disconnectTimeoutInSeconds");
+        if (!unknown_disconnectTimeoutInSeconds) return value_disconnectTimeoutInSeconds;
+        throw new UndeferrableValueException("Value 'Fleet.disconnectTimeoutInSeconds' is not present");
     }
 
     /**
      * Human-readable friendly name for the AppStream fleet.
      * 
      */
-    private UndeferrableValue<String> displayName;
-
+    @PolicyResourceProperty(name="displayName", flag="unknown_displayName")
+    private String value_displayName;
+    private boolean unknown_displayName;
     public String displayName() {
-        if (displayName == null) return null;
-        return displayName.getValue("Fleet.displayName");
+        if (!unknown_displayName) return value_displayName;
+        throw new UndeferrableValueException("Value 'Fleet.displayName' is not present");
     }
 
     /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
      * 
      */
-    private UndeferrableValue<FleetDomainJoinInfo> domainJoinInfo;
-
+    @PolicyResourceProperty(name="domainJoinInfo", flag="unknown_domainJoinInfo")
+    private FleetDomainJoinInfo value_domainJoinInfo;
+    private boolean unknown_domainJoinInfo;
     public FleetDomainJoinInfo domainJoinInfo() {
-        if (domainJoinInfo == null) return null;
-        return domainJoinInfo.getValue("Fleet.domainJoinInfo");
+        if (!unknown_domainJoinInfo) return value_domainJoinInfo;
+        throw new UndeferrableValueException("Value 'Fleet.domainJoinInfo' is not present");
     }
 
     /**
      * Enables or disables default internet access for the fleet.
      * 
      */
-    private UndeferrableValue<Boolean> enableDefaultInternetAccess;
-
+    @PolicyResourceProperty(name="enableDefaultInternetAccess", flag="unknown_enableDefaultInternetAccess")
+    private Boolean value_enableDefaultInternetAccess;
+    private boolean unknown_enableDefaultInternetAccess;
     public Boolean enableDefaultInternetAccess() {
-        if (enableDefaultInternetAccess == null) return null;
-        return enableDefaultInternetAccess.getValue("Fleet.enableDefaultInternetAccess");
+        if (!unknown_enableDefaultInternetAccess) return value_enableDefaultInternetAccess;
+        throw new UndeferrableValueException("Value 'Fleet.enableDefaultInternetAccess' is not present");
     }
 
     /**
      * Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
      * 
      */
-    private UndeferrableValue<String> fleetType;
-
+    @PolicyResourceProperty(name="fleetType", flag="unknown_fleetType")
+    private String value_fleetType;
+    private boolean unknown_fleetType;
     public String fleetType() {
-        if (fleetType == null) return null;
-        return fleetType.getValue("Fleet.fleetType");
+        if (!unknown_fleetType) return value_fleetType;
+        throw new UndeferrableValueException("Value 'Fleet.fleetType' is not present");
     }
 
     /**
      * ARN of the IAM role to apply to the fleet.
      * 
      */
-    private UndeferrableValue<String> iamRoleArn;
-
+    @PolicyResourceProperty(name="iamRoleArn", flag="unknown_iamRoleArn")
+    private String value_iamRoleArn;
+    private boolean unknown_iamRoleArn;
     public String iamRoleArn() {
-        if (iamRoleArn == null) return null;
-        return iamRoleArn.getValue("Fleet.iamRoleArn");
+        if (!unknown_iamRoleArn) return value_iamRoleArn;
+        throw new UndeferrableValueException("Value 'Fleet.iamRoleArn' is not present");
     }
 
     /**
      * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins. Defaults to `0`. Valid value is between `60` and ` 3600  `seconds.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> idleDisconnectTimeoutInSeconds;
-
+    @PolicyResourceProperty(name="idleDisconnectTimeoutInSeconds", flag="unknown_idleDisconnectTimeoutInSeconds")
+    private @Nullable Integer value_idleDisconnectTimeoutInSeconds;
+    private boolean unknown_idleDisconnectTimeoutInSeconds;
     public @Nullable Integer idleDisconnectTimeoutInSeconds() {
-        if (idleDisconnectTimeoutInSeconds == null) return null;
-        return idleDisconnectTimeoutInSeconds.getValue("Fleet.idleDisconnectTimeoutInSeconds");
+        if (!unknown_idleDisconnectTimeoutInSeconds) return value_idleDisconnectTimeoutInSeconds;
+        throw new UndeferrableValueException("Value 'Fleet.idleDisconnectTimeoutInSeconds' is not present");
     }
 
     /**
      * ARN of the public, private, or shared image to use.
      * 
      */
-    private UndeferrableValue<String> imageArn;
-
+    @PolicyResourceProperty(name="imageArn", flag="unknown_imageArn")
+    private String value_imageArn;
+    private boolean unknown_imageArn;
     public String imageArn() {
-        if (imageArn == null) return null;
-        return imageArn.getValue("Fleet.imageArn");
+        if (!unknown_imageArn) return value_imageArn;
+        throw new UndeferrableValueException("Value 'Fleet.imageArn' is not present");
     }
 
     /**
      * Name of the image used to create the fleet.
      * 
      */
-    private UndeferrableValue<String> imageName;
-
+    @PolicyResourceProperty(name="imageName", flag="unknown_imageName")
+    private String value_imageName;
+    private boolean unknown_imageName;
     public String imageName() {
-        if (imageName == null) return null;
-        return imageName.getValue("Fleet.imageName");
+        if (!unknown_imageName) return value_imageName;
+        throw new UndeferrableValueException("Value 'Fleet.imageName' is not present");
     }
 
     /**
      * Instance type to use when launching fleet instances.
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("Fleet.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'Fleet.instanceType' is not present");
     }
 
     /**
      * The maximum number of user sessions on an instance. This only applies to multi-session fleets.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxSessionsPerInstance;
-
+    @PolicyResourceProperty(name="maxSessionsPerInstance", flag="unknown_maxSessionsPerInstance")
+    private @Nullable Integer value_maxSessionsPerInstance;
+    private boolean unknown_maxSessionsPerInstance;
     public @Nullable Integer maxSessionsPerInstance() {
-        if (maxSessionsPerInstance == null) return null;
-        return maxSessionsPerInstance.getValue("Fleet.maxSessionsPerInstance");
+        if (!unknown_maxSessionsPerInstance) return value_maxSessionsPerInstance;
+        throw new UndeferrableValueException("Value 'Fleet.maxSessionsPerInstance' is not present");
     }
 
     /**
      * Maximum amount of time that a streaming session can remain active, in seconds.
      * 
      */
-    private UndeferrableValue<Integer> maxUserDurationInSeconds;
-
+    @PolicyResourceProperty(name="maxUserDurationInSeconds", flag="unknown_maxUserDurationInSeconds")
+    private Integer value_maxUserDurationInSeconds;
+    private boolean unknown_maxUserDurationInSeconds;
     public Integer maxUserDurationInSeconds() {
-        if (maxUserDurationInSeconds == null) return null;
-        return maxUserDurationInSeconds.getValue("Fleet.maxUserDurationInSeconds");
+        if (!unknown_maxUserDurationInSeconds) return value_maxUserDurationInSeconds;
+        throw new UndeferrableValueException("Value 'Fleet.maxUserDurationInSeconds' is not present");
     }
 
     /**
@@ -200,44 +217,48 @@ public final class Fleet extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Fleet.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Fleet.name' is not present");
     }
 
     /**
      * State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("Fleet.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'Fleet.state' is not present");
     }
 
     /**
      * AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
      * 
      */
-    private UndeferrableValue<String> streamView;
-
+    @PolicyResourceProperty(name="streamView", flag="unknown_streamView")
+    private String value_streamView;
+    private boolean unknown_streamView;
     public String streamView() {
-        if (streamView == null) return null;
-        return streamView.getValue("Fleet.streamView");
+        if (!unknown_streamView) return value_streamView;
+        throw new UndeferrableValueException("Value 'Fleet.streamView' is not present");
     }
 
     /**
      * Map of tags to attach to AppStream instances.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Fleet.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Fleet.tags' is not present");
     }
 
     /**
@@ -246,22 +267,24 @@ public final class Fleet extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Fleet.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Fleet.tagsAll' is not present");
     }
 
     /**
      * Configuration block for the VPC configuration for the image builder. See below.
      * 
      */
-    private UndeferrableValue<FleetVpcConfig> vpcConfig;
-
+    @PolicyResourceProperty(name="vpcConfig", flag="unknown_vpcConfig")
+    private FleetVpcConfig value_vpcConfig;
+    private boolean unknown_vpcConfig;
     public FleetVpcConfig vpcConfig() {
-        if (vpcConfig == null) return null;
-        return vpcConfig.getValue("Fleet.vpcConfig");
+        if (!unknown_vpcConfig) return value_vpcConfig;
+        throw new UndeferrableValueException("Value 'Fleet.vpcConfig' is not present");
     }
 
 }

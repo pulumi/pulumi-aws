@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directoryservice.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class SharedDirectoryTarget {
      * Identifier of the directory consumer account.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("SharedDirectoryTarget.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'SharedDirectoryTarget.id' is not present");
     }
 
     /**
      * Type of identifier to be used in the `id` field. Valid value is `ACCOUNT`. Default is `ACCOUNT`.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("SharedDirectoryTarget.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'SharedDirectoryTarget.type' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class TypeArgs extends com.pulumi.resources.PolicyResourceInput {
      * GraphQL API ID.
      * 
      */
-    private UndeferrableValue<String> apiId;
-
+    @PolicyResourceProperty(name="apiId", flag="unknown_apiId")
+    private String value_apiId;
+    private boolean unknown_apiId;
     public String apiId() {
-        if (apiId == null) return null;
-        return apiId.getValue("TypeArgs.apiId");
+        if (!unknown_apiId) return value_apiId;
+        throw new UndeferrableValueException("Value 'TypeArgs.apiId' is not present");
     }
 
     /**
      * The type definition.
      * 
      */
-    private UndeferrableValue<String> definition;
-
+    @PolicyResourceProperty(name="definition", flag="unknown_definition")
+    private String value_definition;
+    private boolean unknown_definition;
     public String definition() {
-        if (definition == null) return null;
-        return definition.getValue("TypeArgs.definition");
+        if (!unknown_definition) return value_definition;
+        throw new UndeferrableValueException("Value 'TypeArgs.definition' is not present");
     }
 
     /**
      * The type format: `SDL` or `JSON`.
      * 
      */
-    private UndeferrableValue<String> format;
-
+    @PolicyResourceProperty(name="format", flag="unknown_format")
+    private String value_format;
+    private boolean unknown_format;
     public String format() {
-        if (format == null) return null;
-        return format.getValue("TypeArgs.format");
+        if (!unknown_format) return value_format;
+        throw new UndeferrableValueException("Value 'TypeArgs.format' is not present");
     }
 
 }

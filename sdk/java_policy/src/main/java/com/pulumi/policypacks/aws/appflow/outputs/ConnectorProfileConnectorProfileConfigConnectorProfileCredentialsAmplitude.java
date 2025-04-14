@@ -3,28 +3,31 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude {
 
-    private UndeferrableValue<String> apiKey;
-
+    @PolicyResourceProperty(name="apiKey", flag="unknown_apiKey")
+    private String value_apiKey;
+    private boolean unknown_apiKey;
     public String apiKey() {
-        if (apiKey == null) return null;
-        return apiKey.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude.apiKey");
+        if (!unknown_apiKey) return value_apiKey;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude.apiKey' is not present");
     }
 
     /**
      * The Secret Access Key portion of the credentials.
      * 
      */
-    private UndeferrableValue<String> secretKey;
-
+    @PolicyResourceProperty(name="secretKey", flag="unknown_secretKey")
+    private String value_secretKey;
+    private boolean unknown_secretKey;
     public String secretKey() {
-        if (secretKey == null) return null;
-        return secretKey.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude.secretKey");
+        if (!unknown_secretKey) return value_secretKey;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude.secretKey' is not present");
     }
 
 }

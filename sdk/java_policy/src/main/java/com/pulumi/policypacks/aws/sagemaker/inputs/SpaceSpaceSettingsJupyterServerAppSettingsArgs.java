@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class SpaceSpaceSettingsJupyterServerAppSettingsArgs {
      * A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
      * 
      */
-    private UndeferrableValue<List<SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs>> codeRepositories;
-
+    @PolicyResourceProperty(name="codeRepositories", flag="unknown_codeRepositories")
+    private List<SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs> value_codeRepositories;
+    private boolean unknown_codeRepositories;
     public List<SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs> codeRepositories() {
-        if (codeRepositories == null) return null;
-        return codeRepositories.getValue("SpaceSpaceSettingsJupyterServerAppSettingsArgs.codeRepositories");
+        if (!unknown_codeRepositories) return value_codeRepositories;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSettingsJupyterServerAppSettingsArgs.codeRepositories' is not present");
     }
 
     /**
      * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
      * 
      */
-    private UndeferrableValue<SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
-
+    @PolicyResourceProperty(name="defaultResourceSpec", flag="unknown_defaultResourceSpec")
+    private SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs value_defaultResourceSpec;
+    private boolean unknown_defaultResourceSpec;
     public SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs defaultResourceSpec() {
-        if (defaultResourceSpec == null) return null;
-        return defaultResourceSpec.getValue("SpaceSpaceSettingsJupyterServerAppSettingsArgs.defaultResourceSpec");
+        if (!unknown_defaultResourceSpec) return value_defaultResourceSpec;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSettingsJupyterServerAppSettingsArgs.defaultResourceSpec' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
      * 
      */
-    private UndeferrableValue<List<String>> lifecycleConfigArns;
-
+    @PolicyResourceProperty(name="lifecycleConfigArns", flag="unknown_lifecycleConfigArns")
+    private List<String> value_lifecycleConfigArns;
+    private boolean unknown_lifecycleConfigArns;
     public List<String> lifecycleConfigArns() {
-        if (lifecycleConfigArns == null) return null;
-        return lifecycleConfigArns.getValue("SpaceSpaceSettingsJupyterServerAppSettingsArgs.lifecycleConfigArns");
+        if (!unknown_lifecycleConfigArns) return value_lifecycleConfigArns;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSettingsJupyterServerAppSettingsArgs.lifecycleConfigArns' is not present");
     }
 
 }

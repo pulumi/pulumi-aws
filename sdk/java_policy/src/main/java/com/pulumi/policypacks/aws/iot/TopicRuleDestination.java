@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.iot.outputs.TopicRuleDestinationVpcConfiguration;
 import java.lang.Boolean;
@@ -18,33 +19,36 @@ public final class TopicRuleDestination extends com.pulumi.resources.PolicyResou
      * The ARN of the topic rule destination
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("TopicRuleDestination.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'TopicRuleDestination.arn' is not present");
     }
 
     /**
      * Whether or not to enable the destination. Default: `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("TopicRuleDestination.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'TopicRuleDestination.enabled' is not present");
     }
 
     /**
      * Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
      * 
      */
-    private UndeferrableValue<TopicRuleDestinationVpcConfiguration> vpcConfiguration;
-
+    @PolicyResourceProperty(name="vpcConfiguration", flag="unknown_vpcConfiguration")
+    private TopicRuleDestinationVpcConfiguration value_vpcConfiguration;
+    private boolean unknown_vpcConfiguration;
     public TopicRuleDestinationVpcConfiguration vpcConfiguration() {
-        if (vpcConfiguration == null) return null;
-        return vpcConfiguration.getValue("TopicRuleDestination.vpcConfiguration");
+        if (!unknown_vpcConfiguration) return value_vpcConfiguration;
+        throw new UndeferrableValueException("Value 'TopicRuleDestination.vpcConfiguration' is not present");
     }
 
 }

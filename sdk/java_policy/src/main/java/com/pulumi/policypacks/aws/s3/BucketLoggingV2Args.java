@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3.inputs.BucketLoggingV2TargetGrantArgs;
 import com.pulumi.policypacks.aws.s3.inputs.BucketLoggingV2TargetObjectKeyFormatArgs;
@@ -19,66 +20,72 @@ public final class BucketLoggingV2Args extends com.pulumi.resources.PolicyResour
      * Name of the bucket.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("BucketLoggingV2Args.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'BucketLoggingV2Args.bucket' is not present");
     }
 
     /**
      * Account ID of the expected bucket owner.
      * 
      */
-    private UndeferrableValue<String> expectedBucketOwner;
-
+    @PolicyResourceProperty(name="expectedBucketOwner", flag="unknown_expectedBucketOwner")
+    private String value_expectedBucketOwner;
+    private boolean unknown_expectedBucketOwner;
     public String expectedBucketOwner() {
-        if (expectedBucketOwner == null) return null;
-        return expectedBucketOwner.getValue("BucketLoggingV2Args.expectedBucketOwner");
+        if (!unknown_expectedBucketOwner) return value_expectedBucketOwner;
+        throw new UndeferrableValueException("Value 'BucketLoggingV2Args.expectedBucketOwner' is not present");
     }
 
     /**
      * Name of the bucket where you want Amazon S3 to store server access logs.
      * 
      */
-    private UndeferrableValue<String> targetBucket;
-
+    @PolicyResourceProperty(name="targetBucket", flag="unknown_targetBucket")
+    private String value_targetBucket;
+    private boolean unknown_targetBucket;
     public String targetBucket() {
-        if (targetBucket == null) return null;
-        return targetBucket.getValue("BucketLoggingV2Args.targetBucket");
+        if (!unknown_targetBucket) return value_targetBucket;
+        throw new UndeferrableValueException("Value 'BucketLoggingV2Args.targetBucket' is not present");
     }
 
     /**
      * Set of configuration blocks with information for granting permissions. See below.
      * 
      */
-    private UndeferrableValue<List<BucketLoggingV2TargetGrantArgs>> targetGrants;
-
+    @PolicyResourceProperty(name="targetGrants", flag="unknown_targetGrants")
+    private List<BucketLoggingV2TargetGrantArgs> value_targetGrants;
+    private boolean unknown_targetGrants;
     public List<BucketLoggingV2TargetGrantArgs> targetGrants() {
-        if (targetGrants == null) return null;
-        return targetGrants.getValue("BucketLoggingV2Args.targetGrants");
+        if (!unknown_targetGrants) return value_targetGrants;
+        throw new UndeferrableValueException("Value 'BucketLoggingV2Args.targetGrants' is not present");
     }
 
     /**
      * Amazon S3 key format for log objects. See below.
      * 
      */
-    private UndeferrableValue<BucketLoggingV2TargetObjectKeyFormatArgs> targetObjectKeyFormat;
-
+    @PolicyResourceProperty(name="targetObjectKeyFormat", flag="unknown_targetObjectKeyFormat")
+    private BucketLoggingV2TargetObjectKeyFormatArgs value_targetObjectKeyFormat;
+    private boolean unknown_targetObjectKeyFormat;
     public BucketLoggingV2TargetObjectKeyFormatArgs targetObjectKeyFormat() {
-        if (targetObjectKeyFormat == null) return null;
-        return targetObjectKeyFormat.getValue("BucketLoggingV2Args.targetObjectKeyFormat");
+        if (!unknown_targetObjectKeyFormat) return value_targetObjectKeyFormat;
+        throw new UndeferrableValueException("Value 'BucketLoggingV2Args.targetObjectKeyFormat' is not present");
     }
 
     /**
      * Prefix for all log object keys.
      * 
      */
-    private UndeferrableValue<String> targetPrefix;
-
+    @PolicyResourceProperty(name="targetPrefix", flag="unknown_targetPrefix")
+    private String value_targetPrefix;
+    private boolean unknown_targetPrefix;
     public String targetPrefix() {
-        if (targetPrefix == null) return null;
-        return targetPrefix.getValue("BucketLoggingV2Args.targetPrefix");
+        if (!unknown_targetPrefix) return value_targetPrefix;
+        throw new UndeferrableValueException("Value 'BucketLoggingV2Args.targetPrefix' is not present");
     }
 
 }

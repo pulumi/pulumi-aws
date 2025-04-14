@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.evidently.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class LaunchExecution {
      * The date and time that the launch ended.
      * 
      */
-    private @Nullable UndeferrableValue<String> endedTime;
-
+    @PolicyResourceProperty(name="endedTime", flag="unknown_endedTime")
+    private @Nullable String value_endedTime;
+    private boolean unknown_endedTime;
     public @Nullable String endedTime() {
-        if (endedTime == null) return null;
-        return endedTime.getValue("LaunchExecution.endedTime");
+        if (!unknown_endedTime) return value_endedTime;
+        throw new UndeferrableValueException("Value 'LaunchExecution.endedTime' is not present");
     }
 
     /**
      * The date and time that the launch started.
      * 
      */
-    private @Nullable UndeferrableValue<String> startedTime;
-
+    @PolicyResourceProperty(name="startedTime", flag="unknown_startedTime")
+    private @Nullable String value_startedTime;
+    private boolean unknown_startedTime;
     public @Nullable String startedTime() {
-        if (startedTime == null) return null;
-        return startedTime.getValue("LaunchExecution.startedTime");
+        if (!unknown_startedTime) return value_startedTime;
+        throw new UndeferrableValueException("Value 'LaunchExecution.startedTime' is not present");
     }
 
 }

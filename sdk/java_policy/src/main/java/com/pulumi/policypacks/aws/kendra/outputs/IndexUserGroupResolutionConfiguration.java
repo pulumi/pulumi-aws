@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class IndexUserGroupResolutionConfiguration {
      * The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
      * 
      */
-    private UndeferrableValue<String> userGroupResolutionMode;
-
+    @PolicyResourceProperty(name="userGroupResolutionMode", flag="unknown_userGroupResolutionMode")
+    private String value_userGroupResolutionMode;
+    private boolean unknown_userGroupResolutionMode;
     public String userGroupResolutionMode() {
-        if (userGroupResolutionMode == null) return null;
-        return userGroupResolutionMode.getValue("IndexUserGroupResolutionConfiguration.userGroupResolutionMode");
+        if (!unknown_userGroupResolutionMode) return value_userGroupResolutionMode;
+        throw new UndeferrableValueException("Value 'IndexUserGroupResolutionConfiguration.userGroupResolutionMode' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.devopsguru.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ServiceIntegrationLogsAnomalyDetectionArgs {
      * Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups. Valid values are `DISABLED` and `ENABLED`.
      * 
      */
-    private UndeferrableValue<String> optInStatus;
-
+    @PolicyResourceProperty(name="optInStatus", flag="unknown_optInStatus")
+    private String value_optInStatus;
+    private boolean unknown_optInStatus;
     public String optInStatus() {
-        if (optInStatus == null) return null;
-        return optInStatus.getValue("ServiceIntegrationLogsAnomalyDetectionArgs.optInStatus");
+        if (!unknown_optInStatus) return value_optInStatus;
+        throw new UndeferrableValueException("Value 'ServiceIntegrationLogsAnomalyDetectionArgs.optInStatus' is not present");
     }
 
 }

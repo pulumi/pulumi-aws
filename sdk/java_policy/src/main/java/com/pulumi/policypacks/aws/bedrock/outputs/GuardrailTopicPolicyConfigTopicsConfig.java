@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class GuardrailTopicPolicyConfigTopicsConfig {
      * Definition of topic in topic policy.
      * 
      */
-    private UndeferrableValue<String> definition;
-
+    @PolicyResourceProperty(name="definition", flag="unknown_definition")
+    private String value_definition;
+    private boolean unknown_definition;
     public String definition() {
-        if (definition == null) return null;
-        return definition.getValue("GuardrailTopicPolicyConfigTopicsConfig.definition");
+        if (!unknown_definition) return value_definition;
+        throw new UndeferrableValueException("Value 'GuardrailTopicPolicyConfigTopicsConfig.definition' is not present");
     }
 
     /**
      * List of text examples.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> examples;
-
+    @PolicyResourceProperty(name="examples", flag="unknown_examples")
+    private @Nullable List<String> value_examples;
+    private boolean unknown_examples;
     public @Nullable List<String> examples() {
-        if (examples == null) return null;
-        return examples.getValue("GuardrailTopicPolicyConfigTopicsConfig.examples");
+        if (!unknown_examples) return value_examples;
+        throw new UndeferrableValueException("Value 'GuardrailTopicPolicyConfigTopicsConfig.examples' is not present");
     }
 
     /**
      * Name of topic in topic policy.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("GuardrailTopicPolicyConfigTopicsConfig.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'GuardrailTopicPolicyConfigTopicsConfig.name' is not present");
     }
 
     /**
      * Type of topic in a policy.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("GuardrailTopicPolicyConfigTopicsConfig.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'GuardrailTopicPolicyConfigTopicsConfig.type' is not present");
     }
 
 }

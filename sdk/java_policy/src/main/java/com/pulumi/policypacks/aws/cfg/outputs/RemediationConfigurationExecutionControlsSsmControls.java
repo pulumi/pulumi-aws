@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class RemediationConfigurationExecutionControlsSsmControls {
      * Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> concurrentExecutionRatePercentage;
-
+    @PolicyResourceProperty(name="concurrentExecutionRatePercentage", flag="unknown_concurrentExecutionRatePercentage")
+    private @Nullable Integer value_concurrentExecutionRatePercentage;
+    private boolean unknown_concurrentExecutionRatePercentage;
     public @Nullable Integer concurrentExecutionRatePercentage() {
-        if (concurrentExecutionRatePercentage == null) return null;
-        return concurrentExecutionRatePercentage.getValue("RemediationConfigurationExecutionControlsSsmControls.concurrentExecutionRatePercentage");
+        if (!unknown_concurrentExecutionRatePercentage) return value_concurrentExecutionRatePercentage;
+        throw new UndeferrableValueException("Value 'RemediationConfigurationExecutionControlsSsmControls.concurrentExecutionRatePercentage' is not present");
     }
 
     /**
      * Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> errorPercentage;
-
+    @PolicyResourceProperty(name="errorPercentage", flag="unknown_errorPercentage")
+    private @Nullable Integer value_errorPercentage;
+    private boolean unknown_errorPercentage;
     public @Nullable Integer errorPercentage() {
-        if (errorPercentage == null) return null;
-        return errorPercentage.getValue("RemediationConfigurationExecutionControlsSsmControls.errorPercentage");
+        if (!unknown_errorPercentage) return value_errorPercentage;
+        throw new UndeferrableValueException("Value 'RemediationConfigurationExecutionControlsSsmControls.errorPercentage' is not present");
     }
 
 }

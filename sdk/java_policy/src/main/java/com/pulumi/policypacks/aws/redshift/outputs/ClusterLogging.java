@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -17,55 +18,60 @@ public final class ClusterLogging {
      * For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
      * 
      */
-    private @Nullable UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private @Nullable String value_bucketName;
+    private boolean unknown_bucketName;
     public @Nullable String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("ClusterLogging.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'ClusterLogging.bucketName' is not present");
     }
 
     /**
      * Enables logging information such as queries and connection attempts, for the specified Amazon Redshift cluster.
      * 
      */
-    private UndeferrableValue<Boolean> enable;
-
+    @PolicyResourceProperty(name="enable", flag="unknown_enable")
+    private Boolean value_enable;
+    private boolean unknown_enable;
     public Boolean enable() {
-        if (enable == null) return null;
-        return enable.getValue("ClusterLogging.enable");
+        if (!unknown_enable) return value_enable;
+        throw new UndeferrableValueException("Value 'ClusterLogging.enable' is not present");
     }
 
     /**
      * The log destination type. An enum with possible values of `s3` and `cloudwatch`.
      * 
      */
-    private @Nullable UndeferrableValue<String> logDestinationType;
-
+    @PolicyResourceProperty(name="logDestinationType", flag="unknown_logDestinationType")
+    private @Nullable String value_logDestinationType;
+    private boolean unknown_logDestinationType;
     public @Nullable String logDestinationType() {
-        if (logDestinationType == null) return null;
-        return logDestinationType.getValue("ClusterLogging.logDestinationType");
+        if (!unknown_logDestinationType) return value_logDestinationType;
+        throw new UndeferrableValueException("Value 'ClusterLogging.logDestinationType' is not present");
     }
 
     /**
      * The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`. Valid log types are `connectionlog`, `userlog`, and `useractivitylog`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> logExports;
-
+    @PolicyResourceProperty(name="logExports", flag="unknown_logExports")
+    private @Nullable List<String> value_logExports;
+    private boolean unknown_logExports;
     public @Nullable List<String> logExports() {
-        if (logExports == null) return null;
-        return logExports.getValue("ClusterLogging.logExports");
+        if (!unknown_logExports) return value_logExports;
+        throw new UndeferrableValueException("Value 'ClusterLogging.logExports' is not present");
     }
 
     /**
      * The prefix applied to the log file names.
      * 
      */
-    private @Nullable UndeferrableValue<String> s3KeyPrefix;
-
+    @PolicyResourceProperty(name="s3KeyPrefix", flag="unknown_s3KeyPrefix")
+    private @Nullable String value_s3KeyPrefix;
+    private boolean unknown_s3KeyPrefix;
     public @Nullable String s3KeyPrefix() {
-        if (s3KeyPrefix == null) return null;
-        return s3KeyPrefix.getValue("ClusterLogging.s3KeyPrefix");
+        if (!unknown_s3KeyPrefix) return value_s3KeyPrefix;
+        throw new UndeferrableValueException("Value 'ClusterLogging.s3KeyPrefix' is not present");
     }
 
 }

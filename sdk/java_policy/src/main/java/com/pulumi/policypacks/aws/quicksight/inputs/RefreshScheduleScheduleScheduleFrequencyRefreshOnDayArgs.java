@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs {
      * The day of the month that you want to schedule refresh on.
      * 
      */
-    private UndeferrableValue<String> dayOfMonth;
-
+    @PolicyResourceProperty(name="dayOfMonth", flag="unknown_dayOfMonth")
+    private String value_dayOfMonth;
+    private boolean unknown_dayOfMonth;
     public String dayOfMonth() {
-        if (dayOfMonth == null) return null;
-        return dayOfMonth.getValue("RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs.dayOfMonth");
+        if (!unknown_dayOfMonth) return value_dayOfMonth;
+        throw new UndeferrableValueException("Value 'RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs.dayOfMonth' is not present");
     }
 
     /**
      * The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
      * 
      */
-    private UndeferrableValue<String> dayOfWeek;
-
+    @PolicyResourceProperty(name="dayOfWeek", flag="unknown_dayOfWeek")
+    private String value_dayOfWeek;
+    private boolean unknown_dayOfWeek;
     public String dayOfWeek() {
-        if (dayOfWeek == null) return null;
-        return dayOfWeek.getValue("RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs.dayOfWeek");
+        if (!unknown_dayOfWeek) return value_dayOfWeek;
+        throw new UndeferrableValueException("Value 'RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs.dayOfWeek' is not present");
     }
 
 }

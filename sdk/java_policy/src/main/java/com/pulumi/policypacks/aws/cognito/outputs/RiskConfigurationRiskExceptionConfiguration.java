@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -17,11 +18,12 @@ public final class RiskConfigurationRiskExceptionConfiguration {
      * Can contain a maximum of 200 items.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> blockedIpRangeLists;
-
+    @PolicyResourceProperty(name="blockedIpRangeLists", flag="unknown_blockedIpRangeLists")
+    private @Nullable List<String> value_blockedIpRangeLists;
+    private boolean unknown_blockedIpRangeLists;
     public @Nullable List<String> blockedIpRangeLists() {
-        if (blockedIpRangeLists == null) return null;
-        return blockedIpRangeLists.getValue("RiskConfigurationRiskExceptionConfiguration.blockedIpRangeLists");
+        if (!unknown_blockedIpRangeLists) return value_blockedIpRangeLists;
+        throw new UndeferrableValueException("Value 'RiskConfigurationRiskExceptionConfiguration.blockedIpRangeLists' is not present");
     }
 
     /**
@@ -30,11 +32,12 @@ public final class RiskConfigurationRiskExceptionConfiguration {
      * Can contain a maximum of 200 items.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> skippedIpRangeLists;
-
+    @PolicyResourceProperty(name="skippedIpRangeLists", flag="unknown_skippedIpRangeLists")
+    private @Nullable List<String> value_skippedIpRangeLists;
+    private boolean unknown_skippedIpRangeLists;
     public @Nullable List<String> skippedIpRangeLists() {
-        if (skippedIpRangeLists == null) return null;
-        return skippedIpRangeLists.getValue("RiskConfigurationRiskExceptionConfiguration.skippedIpRangeLists");
+        if (!unknown_skippedIpRangeLists) return value_skippedIpRangeLists;
+        throw new UndeferrableValueException("Value 'RiskConfigurationRiskExceptionConfiguration.skippedIpRangeLists' is not present");
     }
 
 }

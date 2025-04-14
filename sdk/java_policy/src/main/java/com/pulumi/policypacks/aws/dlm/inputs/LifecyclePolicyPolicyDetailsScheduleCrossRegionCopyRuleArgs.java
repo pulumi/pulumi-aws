@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dlm.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.dlm.inputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs;
 import com.pulumi.policypacks.aws.dlm.inputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs;
 import java.lang.Boolean;
@@ -13,46 +14,52 @@ import javax.annotation.Nullable;
 
 public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs {
 
-    private UndeferrableValue<String> cmkArn;
-
+    @PolicyResourceProperty(name="cmkArn", flag="unknown_cmkArn")
+    private String value_cmkArn;
+    private boolean unknown_cmkArn;
     public String cmkArn() {
-        if (cmkArn == null) return null;
-        return cmkArn.getValue("LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs.cmkArn");
+        if (!unknown_cmkArn) return value_cmkArn;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs.cmkArn' is not present");
     }
 
-    private UndeferrableValue<Boolean> copyTags;
-
+    @PolicyResourceProperty(name="copyTags", flag="unknown_copyTags")
+    private Boolean value_copyTags;
+    private boolean unknown_copyTags;
     public Boolean copyTags() {
-        if (copyTags == null) return null;
-        return copyTags.getValue("LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs.copyTags");
+        if (!unknown_copyTags) return value_copyTags;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs.copyTags' is not present");
     }
 
-    private UndeferrableValue<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs> deprecateRule;
-
+    @PolicyResourceProperty(name="deprecateRule", flag="unknown_deprecateRule")
+    private LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs value_deprecateRule;
+    private boolean unknown_deprecateRule;
     public LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs deprecateRule() {
-        if (deprecateRule == null) return null;
-        return deprecateRule.getValue("LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs.deprecateRule");
+        if (!unknown_deprecateRule) return value_deprecateRule;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs.deprecateRule' is not present");
     }
 
-    private UndeferrableValue<Boolean> encrypted;
-
+    @PolicyResourceProperty(name="encrypted", flag="unknown_encrypted")
+    private Boolean value_encrypted;
+    private boolean unknown_encrypted;
     public Boolean encrypted() {
-        if (encrypted == null) return null;
-        return encrypted.getValue("LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs.encrypted");
+        if (!unknown_encrypted) return value_encrypted;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs.encrypted' is not present");
     }
 
-    private UndeferrableValue<LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs> retainRule;
-
+    @PolicyResourceProperty(name="retainRule", flag="unknown_retainRule")
+    private LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs value_retainRule;
+    private boolean unknown_retainRule;
     public LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs retainRule() {
-        if (retainRule == null) return null;
-        return retainRule.getValue("LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs.retainRule");
+        if (!unknown_retainRule) return value_retainRule;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs.retainRule' is not present");
     }
 
-    private UndeferrableValue<String> target;
-
+    @PolicyResourceProperty(name="target", flag="unknown_target")
+    private String value_target;
+    private boolean unknown_target;
     public String target() {
-        if (target == null) return null;
-        return target.getValue("LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs.target");
+        if (!unknown_target) return value_target;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs.target' is not present");
     }
 
 }

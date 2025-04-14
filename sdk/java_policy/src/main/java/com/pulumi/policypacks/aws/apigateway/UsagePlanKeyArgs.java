@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class UsagePlanKeyArgs extends com.pulumi.resources.PolicyResourceI
      * Identifier of the API key resource.
      * 
      */
-    private UndeferrableValue<String> keyId;
-
+    @PolicyResourceProperty(name="keyId", flag="unknown_keyId")
+    private String value_keyId;
+    private boolean unknown_keyId;
     public String keyId() {
-        if (keyId == null) return null;
-        return keyId.getValue("UsagePlanKeyArgs.keyId");
+        if (!unknown_keyId) return value_keyId;
+        throw new UndeferrableValueException("Value 'UsagePlanKeyArgs.keyId' is not present");
     }
 
     /**
      * Type of the API key resource. Currently, the valid key type is API_KEY.
      * 
      */
-    private UndeferrableValue<String> keyType;
-
+    @PolicyResourceProperty(name="keyType", flag="unknown_keyType")
+    private String value_keyType;
+    private boolean unknown_keyType;
     public String keyType() {
-        if (keyType == null) return null;
-        return keyType.getValue("UsagePlanKeyArgs.keyType");
+        if (!unknown_keyType) return value_keyType;
+        throw new UndeferrableValueException("Value 'UsagePlanKeyArgs.keyType' is not present");
     }
 
     /**
      * Id of the usage plan resource representing to associate the key to.
      * 
      */
-    private UndeferrableValue<String> usagePlanId;
-
+    @PolicyResourceProperty(name="usagePlanId", flag="unknown_usagePlanId")
+    private String value_usagePlanId;
+    private boolean unknown_usagePlanId;
     public String usagePlanId() {
-        if (usagePlanId == null) return null;
-        return usagePlanId.getValue("UsagePlanKeyArgs.usagePlanId");
+        if (!unknown_usagePlanId) return value_usagePlanId;
+        throw new UndeferrableValueException("Value 'UsagePlanKeyArgs.usagePlanId' is not present");
     }
 
 }

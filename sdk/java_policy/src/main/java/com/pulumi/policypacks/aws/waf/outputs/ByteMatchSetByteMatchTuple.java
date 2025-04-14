@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.waf.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.waf.outputs.ByteMatchSetByteMatchTupleFieldToMatch;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ByteMatchSetByteMatchTuple {
      * The part of a web request that you want to search, such as a specified header or a query string.
      * 
      */
-    private UndeferrableValue<ByteMatchSetByteMatchTupleFieldToMatch> fieldToMatch;
-
+    @PolicyResourceProperty(name="fieldToMatch", flag="unknown_fieldToMatch")
+    private ByteMatchSetByteMatchTupleFieldToMatch value_fieldToMatch;
+    private boolean unknown_fieldToMatch;
     public ByteMatchSetByteMatchTupleFieldToMatch fieldToMatch() {
-        if (fieldToMatch == null) return null;
-        return fieldToMatch.getValue("ByteMatchSetByteMatchTuple.fieldToMatch");
+        if (!unknown_fieldToMatch) return value_fieldToMatch;
+        throw new UndeferrableValueException("Value 'ByteMatchSetByteMatchTuple.fieldToMatch' is not present");
     }
 
     /**
@@ -30,11 +32,12 @@ public final class ByteMatchSetByteMatchTuple {
      * for all supported values.
      * 
      */
-    private UndeferrableValue<String> positionalConstraint;
-
+    @PolicyResourceProperty(name="positionalConstraint", flag="unknown_positionalConstraint")
+    private String value_positionalConstraint;
+    private boolean unknown_positionalConstraint;
     public String positionalConstraint() {
-        if (positionalConstraint == null) return null;
-        return positionalConstraint.getValue("ByteMatchSetByteMatchTuple.positionalConstraint");
+        if (!unknown_positionalConstraint) return value_positionalConstraint;
+        throw new UndeferrableValueException("Value 'ByteMatchSetByteMatchTuple.positionalConstraint' is not present");
     }
 
     /**
@@ -43,11 +46,12 @@ public final class ByteMatchSetByteMatchTuple {
      * for all supported values.
      * 
      */
-    private @Nullable UndeferrableValue<String> targetString;
-
+    @PolicyResourceProperty(name="targetString", flag="unknown_targetString")
+    private @Nullable String value_targetString;
+    private boolean unknown_targetString;
     public @Nullable String targetString() {
-        if (targetString == null) return null;
-        return targetString.getValue("ByteMatchSetByteMatchTuple.targetString");
+        if (!unknown_targetString) return value_targetString;
+        throw new UndeferrableValueException("Value 'ByteMatchSetByteMatchTuple.targetString' is not present");
     }
 
     /**
@@ -58,11 +62,12 @@ public final class ByteMatchSetByteMatchTuple {
      * for all supported values.
      * 
      */
-    private UndeferrableValue<String> textTransformation;
-
+    @PolicyResourceProperty(name="textTransformation", flag="unknown_textTransformation")
+    private String value_textTransformation;
+    private boolean unknown_textTransformation;
     public String textTransformation() {
-        if (textTransformation == null) return null;
-        return textTransformation.getValue("ByteMatchSetByteMatchTuple.textTransformation");
+        if (!unknown_textTransformation) return value_textTransformation;
+        throw new UndeferrableValueException("Value 'ByteMatchSetByteMatchTuple.textTransformation' is not present");
     }
 
 }

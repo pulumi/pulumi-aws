@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamwrite.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.timestreamwrite.outputs.TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLoc
      * Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration> s3Configuration;
-
+    @PolicyResourceProperty(name="s3Configuration", flag="unknown_s3Configuration")
+    private @Nullable TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration value_s3Configuration;
+    private boolean unknown_s3Configuration;
     public @Nullable TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration s3Configuration() {
-        if (s3Configuration == null) return null;
-        return s3Configuration.getValue("TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation.s3Configuration");
+        if (!unknown_s3Configuration) return value_s3Configuration;
+        throw new UndeferrableValueException("Value 'TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation.s3Configuration' is not present");
     }
 
 }

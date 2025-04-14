@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,55 +18,60 @@ public final class ResponseArgs extends com.pulumi.resources.PolicyResourceInput
      * Map of parameters (paths, query strings and headers) of the Gateway Response.
      * 
      */
-    private UndeferrableValue<Map<String,String>> responseParameters;
-
+    @PolicyResourceProperty(name="responseParameters", flag="unknown_responseParameters")
+    private Map<String,String> value_responseParameters;
+    private boolean unknown_responseParameters;
     public Map<String,String> responseParameters() {
-        if (responseParameters == null) return null;
-        return responseParameters.getValue("ResponseArgs.responseParameters");
+        if (!unknown_responseParameters) return value_responseParameters;
+        throw new UndeferrableValueException("Value 'ResponseArgs.responseParameters' is not present");
     }
 
     /**
      * Map of templates used to transform the response body.
      * 
      */
-    private UndeferrableValue<Map<String,String>> responseTemplates;
-
+    @PolicyResourceProperty(name="responseTemplates", flag="unknown_responseTemplates")
+    private Map<String,String> value_responseTemplates;
+    private boolean unknown_responseTemplates;
     public Map<String,String> responseTemplates() {
-        if (responseTemplates == null) return null;
-        return responseTemplates.getValue("ResponseArgs.responseTemplates");
+        if (!unknown_responseTemplates) return value_responseTemplates;
+        throw new UndeferrableValueException("Value 'ResponseArgs.responseTemplates' is not present");
     }
 
     /**
      * Response type of the associated GatewayResponse.
      * 
      */
-    private UndeferrableValue<String> responseType;
-
+    @PolicyResourceProperty(name="responseType", flag="unknown_responseType")
+    private String value_responseType;
+    private boolean unknown_responseType;
     public String responseType() {
-        if (responseType == null) return null;
-        return responseType.getValue("ResponseArgs.responseType");
+        if (!unknown_responseType) return value_responseType;
+        throw new UndeferrableValueException("Value 'ResponseArgs.responseType' is not present");
     }
 
     /**
      * String identifier of the associated REST API.
      * 
      */
-    private UndeferrableValue<String> restApiId;
-
+    @PolicyResourceProperty(name="restApiId", flag="unknown_restApiId")
+    private String value_restApiId;
+    private boolean unknown_restApiId;
     public String restApiId() {
-        if (restApiId == null) return null;
-        return restApiId.getValue("ResponseArgs.restApiId");
+        if (!unknown_restApiId) return value_restApiId;
+        throw new UndeferrableValueException("Value 'ResponseArgs.restApiId' is not present");
     }
 
     /**
      * HTTP status code of the Gateway Response.
      * 
      */
-    private UndeferrableValue<String> statusCode;
-
+    @PolicyResourceProperty(name="statusCode", flag="unknown_statusCode")
+    private String value_statusCode;
+    private boolean unknown_statusCode;
     public String statusCode() {
-        if (statusCode == null) return null;
-        return statusCode.getValue("ResponseArgs.statusCode");
+        if (!unknown_statusCode) return value_statusCode;
+        throw new UndeferrableValueException("Value 'ResponseArgs.statusCode' is not present");
     }
 
 }

@@ -3,25 +3,28 @@
 
 package com.pulumi.policypacks.aws.autoscaling.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
 
 public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps {
 
-    private @Nullable UndeferrableValue<Integer> max;
-
+    @PolicyResourceProperty(name="max", flag="unknown_max")
+    private @Nullable Integer value_max;
+    private boolean unknown_max;
     public @Nullable Integer max() {
-        if (max == null) return null;
-        return max.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps.max");
+        if (!unknown_max) return value_max;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps.max' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> min;
-
+    @PolicyResourceProperty(name="min", flag="unknown_min")
+    private @Nullable Integer value_min;
+    private boolean unknown_min;
     public @Nullable Integer min() {
-        if (min == null) return null;
-        return min.getValue("GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps.min");
+        if (!unknown_min) return value_min;
+        throw new UndeferrableValueException("Value 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps.min' is not present");
     }
 
 }

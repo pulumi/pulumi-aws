@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class DistributionOriginArgs {
      * The name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DistributionOriginArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DistributionOriginArgs.name' is not present");
     }
 
     /**
      * The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
      * 
      */
-    private UndeferrableValue<String> protocolPolicy;
-
+    @PolicyResourceProperty(name="protocolPolicy", flag="unknown_protocolPolicy")
+    private String value_protocolPolicy;
+    private boolean unknown_protocolPolicy;
     public String protocolPolicy() {
-        if (protocolPolicy == null) return null;
-        return protocolPolicy.getValue("DistributionOriginArgs.protocolPolicy");
+        if (!unknown_protocolPolicy) return value_protocolPolicy;
+        throw new UndeferrableValueException("Value 'DistributionOriginArgs.protocolPolicy' is not present");
     }
 
     /**
      * The AWS Region name of the origin resource.
      * 
      */
-    private UndeferrableValue<String> regionName;
-
+    @PolicyResourceProperty(name="regionName", flag="unknown_regionName")
+    private String value_regionName;
+    private boolean unknown_regionName;
     public String regionName() {
-        if (regionName == null) return null;
-        return regionName.getValue("DistributionOriginArgs.regionName");
+        if (!unknown_regionName) return value_regionName;
+        throw new UndeferrableValueException("Value 'DistributionOriginArgs.regionName' is not present");
     }
 
     /**
      * The resource type of the origin resource (e.g., Instance).
      * 
      */
-    private UndeferrableValue<String> resourceType;
-
+    @PolicyResourceProperty(name="resourceType", flag="unknown_resourceType")
+    private String value_resourceType;
+    private boolean unknown_resourceType;
     public String resourceType() {
-        if (resourceType == null) return null;
-        return resourceType.getValue("DistributionOriginArgs.resourceType");
+        if (!unknown_resourceType) return value_resourceType;
+        throw new UndeferrableValueException("Value 'DistributionOriginArgs.resourceType' is not present");
     }
 
 }

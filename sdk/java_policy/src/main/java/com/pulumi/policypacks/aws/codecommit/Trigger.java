@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codecommit;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.codecommit.outputs.TriggerTrigger;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class Trigger extends com.pulumi.resources.PolicyResourceOutput {
      * System-generated unique identifier.
      * 
      */
-    private UndeferrableValue<String> configurationId;
-
+    @PolicyResourceProperty(name="configurationId", flag="unknown_configurationId")
+    private String value_configurationId;
+    private boolean unknown_configurationId;
     public String configurationId() {
-        if (configurationId == null) return null;
-        return configurationId.getValue("Trigger.configurationId");
+        if (!unknown_configurationId) return value_configurationId;
+        throw new UndeferrableValueException("Value 'Trigger.configurationId' is not present");
     }
 
     /**
      * The name for the repository. This needs to be less than 100 characters.
      * 
      */
-    private UndeferrableValue<String> repositoryName;
-
+    @PolicyResourceProperty(name="repositoryName", flag="unknown_repositoryName")
+    private String value_repositoryName;
+    private boolean unknown_repositoryName;
     public String repositoryName() {
-        if (repositoryName == null) return null;
-        return repositoryName.getValue("Trigger.repositoryName");
+        if (!unknown_repositoryName) return value_repositoryName;
+        throw new UndeferrableValueException("Value 'Trigger.repositoryName' is not present");
     }
 
     /**
      * The name of the trigger.
      * 
      */
-    private UndeferrableValue<List<TriggerTrigger>> triggers;
-
+    @PolicyResourceProperty(name="triggers", flag="unknown_triggers")
+    private List<TriggerTrigger> value_triggers;
+    private boolean unknown_triggers;
     public List<TriggerTrigger> triggers() {
-        if (triggers == null) return null;
-        return triggers.getValue("Trigger.triggers");
+        if (!unknown_triggers) return value_triggers;
+        throw new UndeferrableValueException("Value 'Trigger.triggers' is not present");
     }
 
 }

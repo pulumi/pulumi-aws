@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,69 +16,76 @@ public final class ProviderAssumeRoleWithWebIdentityArgs {
      * The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
      * 
      */
-    private UndeferrableValue<String> duration;
-
+    @PolicyResourceProperty(name="duration", flag="unknown_duration")
+    private String value_duration;
+    private boolean unknown_duration;
     public String duration() {
-        if (duration == null) return null;
-        return duration.getValue("ProviderAssumeRoleWithWebIdentityArgs.duration");
+        if (!unknown_duration) return value_duration;
+        throw new UndeferrableValueException("Value 'ProviderAssumeRoleWithWebIdentityArgs.duration' is not present");
     }
 
     /**
      * IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("ProviderAssumeRoleWithWebIdentityArgs.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'ProviderAssumeRoleWithWebIdentityArgs.policy' is not present");
     }
 
     /**
      * Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
      * 
      */
-    private UndeferrableValue<List<String>> policyArns;
-
+    @PolicyResourceProperty(name="policyArns", flag="unknown_policyArns")
+    private List<String> value_policyArns;
+    private boolean unknown_policyArns;
     public List<String> policyArns() {
-        if (policyArns == null) return null;
-        return policyArns.getValue("ProviderAssumeRoleWithWebIdentityArgs.policyArns");
+        if (!unknown_policyArns) return value_policyArns;
+        throw new UndeferrableValueException("Value 'ProviderAssumeRoleWithWebIdentityArgs.policyArns' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("ProviderAssumeRoleWithWebIdentityArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'ProviderAssumeRoleWithWebIdentityArgs.roleArn' is not present");
     }
 
     /**
      * An identifier for the assumed role session.
      * 
      */
-    private UndeferrableValue<String> sessionName;
-
+    @PolicyResourceProperty(name="sessionName", flag="unknown_sessionName")
+    private String value_sessionName;
+    private boolean unknown_sessionName;
     public String sessionName() {
-        if (sessionName == null) return null;
-        return sessionName.getValue("ProviderAssumeRoleWithWebIdentityArgs.sessionName");
+        if (!unknown_sessionName) return value_sessionName;
+        throw new UndeferrableValueException("Value 'ProviderAssumeRoleWithWebIdentityArgs.sessionName' is not present");
     }
 
-    private UndeferrableValue<String> webIdentityToken;
-
+    @PolicyResourceProperty(name="webIdentityToken", flag="unknown_webIdentityToken")
+    private String value_webIdentityToken;
+    private boolean unknown_webIdentityToken;
     public String webIdentityToken() {
-        if (webIdentityToken == null) return null;
-        return webIdentityToken.getValue("ProviderAssumeRoleWithWebIdentityArgs.webIdentityToken");
+        if (!unknown_webIdentityToken) return value_webIdentityToken;
+        throw new UndeferrableValueException("Value 'ProviderAssumeRoleWithWebIdentityArgs.webIdentityToken' is not present");
     }
 
-    private UndeferrableValue<String> webIdentityTokenFile;
-
+    @PolicyResourceProperty(name="webIdentityTokenFile", flag="unknown_webIdentityTokenFile")
+    private String value_webIdentityTokenFile;
+    private boolean unknown_webIdentityTokenFile;
     public String webIdentityTokenFile() {
-        if (webIdentityTokenFile == null) return null;
-        return webIdentityTokenFile.getValue("ProviderAssumeRoleWithWebIdentityArgs.webIdentityTokenFile");
+        if (!unknown_webIdentityTokenFile) return value_webIdentityTokenFile;
+        throw new UndeferrableValueException("Value 'ProviderAssumeRoleWithWebIdentityArgs.webIdentityTokenFile' is not present");
     }
 
 }

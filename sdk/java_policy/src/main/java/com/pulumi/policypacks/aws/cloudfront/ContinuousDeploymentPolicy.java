@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudfront.outputs.ContinuousDeploymentPolicyStagingDistributionDnsNames;
 import com.pulumi.policypacks.aws.cloudfront.outputs.ContinuousDeploymentPolicyTrafficConfig;
@@ -19,66 +20,72 @@ public final class ContinuousDeploymentPolicy extends com.pulumi.resources.Polic
      * The continuous deployment policy ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ContinuousDeploymentPolicy.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicy.arn' is not present");
     }
 
     /**
      * Whether this continuous deployment policy is enabled.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("ContinuousDeploymentPolicy.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicy.enabled' is not present");
     }
 
     /**
      * Current version of the continuous distribution policy.
      * 
      */
-    private UndeferrableValue<String> etag;
-
+    @PolicyResourceProperty(name="etag", flag="unknown_etag")
+    private String value_etag;
+    private boolean unknown_etag;
     public String etag() {
-        if (etag == null) return null;
-        return etag.getValue("ContinuousDeploymentPolicy.etag");
+        if (!unknown_etag) return value_etag;
+        throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicy.etag' is not present");
     }
 
     /**
      * Date and time the continuous deployment policy was last modified.
      * 
      */
-    private UndeferrableValue<String> lastModifiedTime;
-
+    @PolicyResourceProperty(name="lastModifiedTime", flag="unknown_lastModifiedTime")
+    private String value_lastModifiedTime;
+    private boolean unknown_lastModifiedTime;
     public String lastModifiedTime() {
-        if (lastModifiedTime == null) return null;
-        return lastModifiedTime.getValue("ContinuousDeploymentPolicy.lastModifiedTime");
+        if (!unknown_lastModifiedTime) return value_lastModifiedTime;
+        throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicy.lastModifiedTime' is not present");
     }
 
     /**
      * CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
      * 
      */
-    private @Nullable UndeferrableValue<ContinuousDeploymentPolicyStagingDistributionDnsNames> stagingDistributionDnsNames;
-
+    @PolicyResourceProperty(name="stagingDistributionDnsNames", flag="unknown_stagingDistributionDnsNames")
+    private @Nullable ContinuousDeploymentPolicyStagingDistributionDnsNames value_stagingDistributionDnsNames;
+    private boolean unknown_stagingDistributionDnsNames;
     public @Nullable ContinuousDeploymentPolicyStagingDistributionDnsNames stagingDistributionDnsNames() {
-        if (stagingDistributionDnsNames == null) return null;
-        return stagingDistributionDnsNames.getValue("ContinuousDeploymentPolicy.stagingDistributionDnsNames");
+        if (!unknown_stagingDistributionDnsNames) return value_stagingDistributionDnsNames;
+        throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicy.stagingDistributionDnsNames' is not present");
     }
 
     /**
      * Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
      * 
      */
-    private @Nullable UndeferrableValue<ContinuousDeploymentPolicyTrafficConfig> trafficConfig;
-
+    @PolicyResourceProperty(name="trafficConfig", flag="unknown_trafficConfig")
+    private @Nullable ContinuousDeploymentPolicyTrafficConfig value_trafficConfig;
+    private boolean unknown_trafficConfig;
     public @Nullable ContinuousDeploymentPolicyTrafficConfig trafficConfig() {
-        if (trafficConfig == null) return null;
-        return trafficConfig.getValue("ContinuousDeploymentPolicy.trafficConfig");
+        if (!unknown_trafficConfig) return value_trafficConfig;
+        throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicy.trafficConfig' is not present");
     }
 
 }

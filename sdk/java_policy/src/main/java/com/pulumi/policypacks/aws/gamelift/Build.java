@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.gamelift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.gamelift.outputs.BuildStorageLocation;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class Build extends com.pulumi.resources.PolicyResourceOutput {
      * GameLift Build ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Build.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Build.arn' is not present");
     }
 
     /**
      * Name of the build
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Build.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Build.name' is not present");
     }
 
     /**
      * Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
      * 
      */
-    private UndeferrableValue<String> operatingSystem;
-
+    @PolicyResourceProperty(name="operatingSystem", flag="unknown_operatingSystem")
+    private String value_operatingSystem;
+    private boolean unknown_operatingSystem;
     public String operatingSystem() {
-        if (operatingSystem == null) return null;
-        return operatingSystem.getValue("Build.operatingSystem");
+        if (!unknown_operatingSystem) return value_operatingSystem;
+        throw new UndeferrableValueException("Value 'Build.operatingSystem' is not present");
     }
 
     /**
      * Information indicating where your game build files are stored. See below.
      * 
      */
-    private UndeferrableValue<BuildStorageLocation> storageLocation;
-
+    @PolicyResourceProperty(name="storageLocation", flag="unknown_storageLocation")
+    private BuildStorageLocation value_storageLocation;
+    private boolean unknown_storageLocation;
     public BuildStorageLocation storageLocation() {
-        if (storageLocation == null) return null;
-        return storageLocation.getValue("Build.storageLocation");
+        if (!unknown_storageLocation) return value_storageLocation;
+        throw new UndeferrableValueException("Value 'Build.storageLocation' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Build.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Build.tags' is not present");
     }
 
     /**
@@ -77,22 +83,24 @@ public final class Build extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Build.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Build.tagsAll' is not present");
     }
 
     /**
      * Version that is associated with this build.
      * 
      */
-    private @Nullable UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private @Nullable String value_version;
+    private boolean unknown_version;
     public @Nullable String version() {
-        if (version == null) return null;
-        return version.getValue("Build.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'Build.version' is not present");
     }
 
 }

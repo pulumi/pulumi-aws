@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class AppImageConfigKernelGatewayImageConfigKernelSpec {
      * The display name of the kernel.
      * 
      */
-    private @Nullable UndeferrableValue<String> displayName;
-
+    @PolicyResourceProperty(name="displayName", flag="unknown_displayName")
+    private @Nullable String value_displayName;
+    private boolean unknown_displayName;
     public @Nullable String displayName() {
-        if (displayName == null) return null;
-        return displayName.getValue("AppImageConfigKernelGatewayImageConfigKernelSpec.displayName");
+        if (!unknown_displayName) return value_displayName;
+        throw new UndeferrableValueException("Value 'AppImageConfigKernelGatewayImageConfigKernelSpec.displayName' is not present");
     }
 
     /**
      * The name of the kernel.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AppImageConfigKernelGatewayImageConfigKernelSpec.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AppImageConfigKernelGatewayImageConfigKernelSpec.name' is not present");
     }
 
 }

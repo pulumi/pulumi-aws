@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.outputs.SpaceOwnershipSettings;
 import com.pulumi.policypacks.aws.sagemaker.outputs.SpaceSpaceSettings;
@@ -20,99 +21,108 @@ public final class Space extends com.pulumi.resources.PolicyResourceOutput {
      * The space&#39;s Amazon Resource Name (ARN).
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Space.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Space.arn' is not present");
     }
 
     /**
      * The ID of the associated Domain.
      * 
      */
-    private UndeferrableValue<String> domainId;
-
+    @PolicyResourceProperty(name="domainId", flag="unknown_domainId")
+    private String value_domainId;
+    private boolean unknown_domainId;
     public String domainId() {
-        if (domainId == null) return null;
-        return domainId.getValue("Space.domainId");
+        if (!unknown_domainId) return value_domainId;
+        throw new UndeferrableValueException("Value 'Space.domainId' is not present");
     }
 
     /**
      * The ID of the space&#39;s profile in the Amazon Elastic File System volume.
      * 
      */
-    private UndeferrableValue<String> homeEfsFileSystemUid;
-
+    @PolicyResourceProperty(name="homeEfsFileSystemUid", flag="unknown_homeEfsFileSystemUid")
+    private String value_homeEfsFileSystemUid;
+    private boolean unknown_homeEfsFileSystemUid;
     public String homeEfsFileSystemUid() {
-        if (homeEfsFileSystemUid == null) return null;
-        return homeEfsFileSystemUid.getValue("Space.homeEfsFileSystemUid");
+        if (!unknown_homeEfsFileSystemUid) return value_homeEfsFileSystemUid;
+        throw new UndeferrableValueException("Value 'Space.homeEfsFileSystemUid' is not present");
     }
 
     /**
      * A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
      * 
      */
-    private @Nullable UndeferrableValue<SpaceOwnershipSettings> ownershipSettings;
-
+    @PolicyResourceProperty(name="ownershipSettings", flag="unknown_ownershipSettings")
+    private @Nullable SpaceOwnershipSettings value_ownershipSettings;
+    private boolean unknown_ownershipSettings;
     public @Nullable SpaceOwnershipSettings ownershipSettings() {
-        if (ownershipSettings == null) return null;
-        return ownershipSettings.getValue("Space.ownershipSettings");
+        if (!unknown_ownershipSettings) return value_ownershipSettings;
+        throw new UndeferrableValueException("Value 'Space.ownershipSettings' is not present");
     }
 
     /**
      * The name of the space that appears in the SageMaker AI Studio UI.
      * 
      */
-    private @Nullable UndeferrableValue<String> spaceDisplayName;
-
+    @PolicyResourceProperty(name="spaceDisplayName", flag="unknown_spaceDisplayName")
+    private @Nullable String value_spaceDisplayName;
+    private boolean unknown_spaceDisplayName;
     public @Nullable String spaceDisplayName() {
-        if (spaceDisplayName == null) return null;
-        return spaceDisplayName.getValue("Space.spaceDisplayName");
+        if (!unknown_spaceDisplayName) return value_spaceDisplayName;
+        throw new UndeferrableValueException("Value 'Space.spaceDisplayName' is not present");
     }
 
     /**
      * The name of the space.
      * 
      */
-    private UndeferrableValue<String> spaceName;
-
+    @PolicyResourceProperty(name="spaceName", flag="unknown_spaceName")
+    private String value_spaceName;
+    private boolean unknown_spaceName;
     public String spaceName() {
-        if (spaceName == null) return null;
-        return spaceName.getValue("Space.spaceName");
+        if (!unknown_spaceName) return value_spaceName;
+        throw new UndeferrableValueException("Value 'Space.spaceName' is not present");
     }
 
     /**
      * A collection of space settings. See `space_settings` Block below.
      * 
      */
-    private @Nullable UndeferrableValue<SpaceSpaceSettings> spaceSettings;
-
+    @PolicyResourceProperty(name="spaceSettings", flag="unknown_spaceSettings")
+    private @Nullable SpaceSpaceSettings value_spaceSettings;
+    private boolean unknown_spaceSettings;
     public @Nullable SpaceSpaceSettings spaceSettings() {
-        if (spaceSettings == null) return null;
-        return spaceSettings.getValue("Space.spaceSettings");
+        if (!unknown_spaceSettings) return value_spaceSettings;
+        throw new UndeferrableValueException("Value 'Space.spaceSettings' is not present");
     }
 
     /**
      * A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
      * 
      */
-    private @Nullable UndeferrableValue<SpaceSpaceSharingSettings> spaceSharingSettings;
-
+    @PolicyResourceProperty(name="spaceSharingSettings", flag="unknown_spaceSharingSettings")
+    private @Nullable SpaceSpaceSharingSettings value_spaceSharingSettings;
+    private boolean unknown_spaceSharingSettings;
     public @Nullable SpaceSpaceSharingSettings spaceSharingSettings() {
-        if (spaceSharingSettings == null) return null;
-        return spaceSharingSettings.getValue("Space.spaceSharingSettings");
+        if (!unknown_spaceSharingSettings) return value_spaceSharingSettings;
+        throw new UndeferrableValueException("Value 'Space.spaceSharingSettings' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Space.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Space.tags' is not present");
     }
 
     /**
@@ -123,22 +133,24 @@ public final class Space extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Space.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Space.tagsAll' is not present");
     }
 
     /**
      * Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.
      * 
      */
-    private UndeferrableValue<String> url;
-
+    @PolicyResourceProperty(name="url", flag="unknown_url")
+    private String value_url;
+    private boolean unknown_url;
     public String url() {
-        if (url == null) return null;
-        return url.getValue("Space.url");
+        if (!unknown_url) return value_url;
+        throw new UndeferrableValueException("Value 'Space.url' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,22 +15,24 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      * Strings in the body of the response that indicate a failed login attempt.
      * 
      */
-    private UndeferrableValue<List<String>> failureStrings;
-
+    @PolicyResourceProperty(name="failureStrings", flag="unknown_failureStrings")
+    private List<String> value_failureStrings;
+    private boolean unknown_failureStrings;
     public List<String> failureStrings() {
-        if (failureStrings == null) return null;
-        return failureStrings.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContainsArgs.failureStrings");
+        if (!unknown_failureStrings) return value_failureStrings;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContainsArgs.failureStrings' is not present");
     }
 
     /**
      * Strings in the body of the response that indicate a successful login attempt.
      * 
      */
-    private UndeferrableValue<List<String>> successStrings;
-
+    @PolicyResourceProperty(name="successStrings", flag="unknown_successStrings")
+    private List<String> value_successStrings;
+    private boolean unknown_successStrings;
     public List<String> successStrings() {
-        if (successStrings == null) return null;
-        return successStrings.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContainsArgs.successStrings");
+        if (!unknown_successStrings) return value_successStrings;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContainsArgs.successStrings' is not present");
     }
 
 }

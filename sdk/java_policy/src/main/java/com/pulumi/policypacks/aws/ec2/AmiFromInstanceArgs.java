@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.inputs.AmiFromInstanceEbsBlockDeviceArgs;
 import com.pulumi.policypacks.aws.ec2.inputs.AmiFromInstanceEphemeralBlockDeviceArgs;
@@ -21,22 +22,24 @@ public final class AmiFromInstanceArgs extends com.pulumi.resources.PolicyResour
      * Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
-    private UndeferrableValue<String> deprecationTime;
-
+    @PolicyResourceProperty(name="deprecationTime", flag="unknown_deprecationTime")
+    private String value_deprecationTime;
+    private boolean unknown_deprecationTime;
     public String deprecationTime() {
-        if (deprecationTime == null) return null;
-        return deprecationTime.getValue("AmiFromInstanceArgs.deprecationTime");
+        if (!unknown_deprecationTime) return value_deprecationTime;
+        throw new UndeferrableValueException("Value 'AmiFromInstanceArgs.deprecationTime' is not present");
     }
 
     /**
      * Longer, human-readable description for the AMI.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("AmiFromInstanceArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AmiFromInstanceArgs.description' is not present");
     }
 
     /**
@@ -44,11 +47,12 @@ public final class AmiFromInstanceArgs extends com.pulumi.resources.PolicyResour
      * attached to created instances. The structure of this block is described below.
      * 
      */
-    private UndeferrableValue<List<AmiFromInstanceEbsBlockDeviceArgs>> ebsBlockDevices;
-
+    @PolicyResourceProperty(name="ebsBlockDevices", flag="unknown_ebsBlockDevices")
+    private List<AmiFromInstanceEbsBlockDeviceArgs> value_ebsBlockDevices;
+    private boolean unknown_ebsBlockDevices;
     public List<AmiFromInstanceEbsBlockDeviceArgs> ebsBlockDevices() {
-        if (ebsBlockDevices == null) return null;
-        return ebsBlockDevices.getValue("AmiFromInstanceArgs.ebsBlockDevices");
+        if (!unknown_ebsBlockDevices) return value_ebsBlockDevices;
+        throw new UndeferrableValueException("Value 'AmiFromInstanceArgs.ebsBlockDevices' is not present");
     }
 
     /**
@@ -56,22 +60,24 @@ public final class AmiFromInstanceArgs extends com.pulumi.resources.PolicyResour
      * should be attached to created instances. The structure of this block is described below.
      * 
      */
-    private UndeferrableValue<List<AmiFromInstanceEphemeralBlockDeviceArgs>> ephemeralBlockDevices;
-
+    @PolicyResourceProperty(name="ephemeralBlockDevices", flag="unknown_ephemeralBlockDevices")
+    private List<AmiFromInstanceEphemeralBlockDeviceArgs> value_ephemeralBlockDevices;
+    private boolean unknown_ephemeralBlockDevices;
     public List<AmiFromInstanceEphemeralBlockDeviceArgs> ephemeralBlockDevices() {
-        if (ephemeralBlockDevices == null) return null;
-        return ephemeralBlockDevices.getValue("AmiFromInstanceArgs.ephemeralBlockDevices");
+        if (!unknown_ephemeralBlockDevices) return value_ephemeralBlockDevices;
+        throw new UndeferrableValueException("Value 'AmiFromInstanceArgs.ephemeralBlockDevices' is not present");
     }
 
     /**
      * Region-unique name for the AMI.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AmiFromInstanceArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AmiFromInstanceArgs.name' is not present");
     }
 
     /**
@@ -81,33 +87,36 @@ public final class AmiFromInstanceArgs extends com.pulumi.resources.PolicyResour
      * guarantees that no filesystem writes will be underway at the time of snapshot.
      * 
      */
-    private UndeferrableValue<Boolean> snapshotWithoutReboot;
-
+    @PolicyResourceProperty(name="snapshotWithoutReboot", flag="unknown_snapshotWithoutReboot")
+    private Boolean value_snapshotWithoutReboot;
+    private boolean unknown_snapshotWithoutReboot;
     public Boolean snapshotWithoutReboot() {
-        if (snapshotWithoutReboot == null) return null;
-        return snapshotWithoutReboot.getValue("AmiFromInstanceArgs.snapshotWithoutReboot");
+        if (!unknown_snapshotWithoutReboot) return value_snapshotWithoutReboot;
+        throw new UndeferrableValueException("Value 'AmiFromInstanceArgs.snapshotWithoutReboot' is not present");
     }
 
     /**
      * ID of the instance to use as the basis of the AMI.
      * 
      */
-    private UndeferrableValue<String> sourceInstanceId;
-
+    @PolicyResourceProperty(name="sourceInstanceId", flag="unknown_sourceInstanceId")
+    private String value_sourceInstanceId;
+    private boolean unknown_sourceInstanceId;
     public String sourceInstanceId() {
-        if (sourceInstanceId == null) return null;
-        return sourceInstanceId.getValue("AmiFromInstanceArgs.sourceInstanceId");
+        if (!unknown_sourceInstanceId) return value_sourceInstanceId;
+        throw new UndeferrableValueException("Value 'AmiFromInstanceArgs.sourceInstanceId' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AmiFromInstanceArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AmiFromInstanceArgs.tags' is not present");
     }
 
 }

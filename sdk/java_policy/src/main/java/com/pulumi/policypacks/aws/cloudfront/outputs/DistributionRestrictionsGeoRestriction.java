@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DistributionRestrictionsGeoRestriction {
      * [ISO 3166-1-alpha-2 codes][4] for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> locations;
-
+    @PolicyResourceProperty(name="locations", flag="unknown_locations")
+    private @Nullable List<String> value_locations;
+    private boolean unknown_locations;
     public @Nullable List<String> locations() {
-        if (locations == null) return null;
-        return locations.getValue("DistributionRestrictionsGeoRestriction.locations");
+        if (!unknown_locations) return value_locations;
+        throw new UndeferrableValueException("Value 'DistributionRestrictionsGeoRestriction.locations' is not present");
     }
 
     /**
      * Method that you want to use to restrict distribution of your content by country: `none`, `whitelist`, or `blacklist`.
      * 
      */
-    private UndeferrableValue<String> restrictionType;
-
+    @PolicyResourceProperty(name="restrictionType", flag="unknown_restrictionType")
+    private String value_restrictionType;
+    private boolean unknown_restrictionType;
     public String restrictionType() {
-        if (restrictionType == null) return null;
-        return restrictionType.getValue("DistributionRestrictionsGeoRestriction.restrictionType");
+        if (!unknown_restrictionType) return value_restrictionType;
+        throw new UndeferrableValueException("Value 'DistributionRestrictionsGeoRestriction.restrictionType' is not present");
     }
 
 }

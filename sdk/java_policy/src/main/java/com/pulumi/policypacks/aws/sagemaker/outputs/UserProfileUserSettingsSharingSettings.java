@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class UserProfileUserSettingsSharingSettings {
      * Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
      * 
      */
-    private @Nullable UndeferrableValue<String> notebookOutputOption;
-
+    @PolicyResourceProperty(name="notebookOutputOption", flag="unknown_notebookOutputOption")
+    private @Nullable String value_notebookOutputOption;
+    private boolean unknown_notebookOutputOption;
     public @Nullable String notebookOutputOption() {
-        if (notebookOutputOption == null) return null;
-        return notebookOutputOption.getValue("UserProfileUserSettingsSharingSettings.notebookOutputOption");
+        if (!unknown_notebookOutputOption) return value_notebookOutputOption;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsSharingSettings.notebookOutputOption' is not present");
     }
 
     /**
      * When `notebook_output_option` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
      * 
      */
-    private @Nullable UndeferrableValue<String> s3KmsKeyId;
-
+    @PolicyResourceProperty(name="s3KmsKeyId", flag="unknown_s3KmsKeyId")
+    private @Nullable String value_s3KmsKeyId;
+    private boolean unknown_s3KmsKeyId;
     public @Nullable String s3KmsKeyId() {
-        if (s3KmsKeyId == null) return null;
-        return s3KmsKeyId.getValue("UserProfileUserSettingsSharingSettings.s3KmsKeyId");
+        if (!unknown_s3KmsKeyId) return value_s3KmsKeyId;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsSharingSettings.s3KmsKeyId' is not present");
     }
 
     /**
      * When `notebook_output_option` is Allowed, the Amazon S3 bucket used to save the notebook cell output.
      * 
      */
-    private @Nullable UndeferrableValue<String> s3OutputPath;
-
+    @PolicyResourceProperty(name="s3OutputPath", flag="unknown_s3OutputPath")
+    private @Nullable String value_s3OutputPath;
+    private boolean unknown_s3OutputPath;
     public @Nullable String s3OutputPath() {
-        if (s3OutputPath == null) return null;
-        return s3OutputPath.getValue("UserProfileUserSettingsSharingSettings.s3OutputPath");
+        if (!unknown_s3OutputPath) return value_s3OutputPath;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsSharingSettings.s3OutputPath' is not present");
     }
 
 }

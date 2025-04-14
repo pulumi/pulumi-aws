@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codestarnotifications.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class NotificationRuleTarget {
      * The ARN of notification rule target. For example, a SNS Topic ARN.
      * 
      */
-    private UndeferrableValue<String> address;
-
+    @PolicyResourceProperty(name="address", flag="unknown_address")
+    private String value_address;
+    private boolean unknown_address;
     public String address() {
-        if (address == null) return null;
-        return address.getValue("NotificationRuleTarget.address");
+        if (!unknown_address) return value_address;
+        throw new UndeferrableValueException("Value 'NotificationRuleTarget.address' is not present");
     }
 
     /**
      * The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private @Nullable String value_status;
+    private boolean unknown_status;
     public @Nullable String status() {
-        if (status == null) return null;
-        return status.getValue("NotificationRuleTarget.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'NotificationRuleTarget.status' is not present");
     }
 
     /**
      * The type of the notification target. Default value is `SNS`.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("NotificationRuleTarget.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'NotificationRuleTarget.type' is not present");
     }
 
 }

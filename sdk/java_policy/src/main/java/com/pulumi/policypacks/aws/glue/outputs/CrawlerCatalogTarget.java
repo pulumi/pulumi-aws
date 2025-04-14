@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class CrawlerCatalogTarget {
      * The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
      * 
      */
-    private @Nullable UndeferrableValue<String> connectionName;
-
+    @PolicyResourceProperty(name="connectionName", flag="unknown_connectionName")
+    private @Nullable String value_connectionName;
+    private boolean unknown_connectionName;
     public @Nullable String connectionName() {
-        if (connectionName == null) return null;
-        return connectionName.getValue("CrawlerCatalogTarget.connectionName");
+        if (!unknown_connectionName) return value_connectionName;
+        throw new UndeferrableValueException("Value 'CrawlerCatalogTarget.connectionName' is not present");
     }
 
     /**
      * The name of the Glue database to be synchronized.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("CrawlerCatalogTarget.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'CrawlerCatalogTarget.databaseName' is not present");
     }
 
     /**
@@ -41,33 +44,36 @@ public final class CrawlerCatalogTarget {
      * &gt; **Note:** `configuration` for catalog target crawlers will have `{ ... &#34;Grouping&#34;: { &#34;TableGroupingPolicy&#34;: &#34;CombineCompatibleSchemas&#34;} }` by default.
      * 
      */
-    private @Nullable UndeferrableValue<String> dlqEventQueueArn;
-
+    @PolicyResourceProperty(name="dlqEventQueueArn", flag="unknown_dlqEventQueueArn")
+    private @Nullable String value_dlqEventQueueArn;
+    private boolean unknown_dlqEventQueueArn;
     public @Nullable String dlqEventQueueArn() {
-        if (dlqEventQueueArn == null) return null;
-        return dlqEventQueueArn.getValue("CrawlerCatalogTarget.dlqEventQueueArn");
+        if (!unknown_dlqEventQueueArn) return value_dlqEventQueueArn;
+        throw new UndeferrableValueException("Value 'CrawlerCatalogTarget.dlqEventQueueArn' is not present");
     }
 
     /**
      * A valid Amazon SQS ARN.
      * 
      */
-    private @Nullable UndeferrableValue<String> eventQueueArn;
-
+    @PolicyResourceProperty(name="eventQueueArn", flag="unknown_eventQueueArn")
+    private @Nullable String value_eventQueueArn;
+    private boolean unknown_eventQueueArn;
     public @Nullable String eventQueueArn() {
-        if (eventQueueArn == null) return null;
-        return eventQueueArn.getValue("CrawlerCatalogTarget.eventQueueArn");
+        if (!unknown_eventQueueArn) return value_eventQueueArn;
+        throw new UndeferrableValueException("Value 'CrawlerCatalogTarget.eventQueueArn' is not present");
     }
 
     /**
      * A list of catalog tables to be synchronized.
      * 
      */
-    private UndeferrableValue<List<String>> tables;
-
+    @PolicyResourceProperty(name="tables", flag="unknown_tables")
+    private List<String> value_tables;
+    private boolean unknown_tables;
     public List<String> tables() {
-        if (tables == null) return null;
-        return tables.getValue("CrawlerCatalogTarget.tables");
+        if (!unknown_tables) return value_tables;
+        throw new UndeferrableValueException("Value 'CrawlerCatalogTarget.tables' is not present");
     }
 
 }

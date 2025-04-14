@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs;
 import java.lang.Boolean;
@@ -18,44 +19,48 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs {
      * Listener&#39;s TLS certificate.
      * 
      */
-    private UndeferrableValue<VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs> certificate;
-
+    @PolicyResourceProperty(name="certificate", flag="unknown_certificate")
+    private VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs value_certificate;
+    private boolean unknown_certificate;
     public VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs certificate() {
-        if (certificate == null) return null;
-        return certificate.getValue("VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs.certificate");
+        if (!unknown_certificate) return value_certificate;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs.certificate' is not present");
     }
 
     /**
      * Whether the policy is enforced. Default is `true`.
      * 
      */
-    private UndeferrableValue<Boolean> enforce;
-
+    @PolicyResourceProperty(name="enforce", flag="unknown_enforce")
+    private Boolean value_enforce;
+    private boolean unknown_enforce;
     public Boolean enforce() {
-        if (enforce == null) return null;
-        return enforce.getValue("VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs.enforce");
+        if (!unknown_enforce) return value_enforce;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs.enforce' is not present");
     }
 
     /**
      * One or more ports that the policy is enforced for.
      * 
      */
-    private UndeferrableValue<List<Integer>> ports;
-
+    @PolicyResourceProperty(name="ports", flag="unknown_ports")
+    private List<Integer> value_ports;
+    private boolean unknown_ports;
     public List<Integer> ports() {
-        if (ports == null) return null;
-        return ports.getValue("VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs.ports");
+        if (!unknown_ports) return value_ports;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs.ports' is not present");
     }
 
     /**
      * Listener&#39;s Transport Layer Security (TLS) validation context.
      * 
      */
-    private UndeferrableValue<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs> validation;
-
+    @PolicyResourceProperty(name="validation", flag="unknown_validation")
+    private VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs value_validation;
+    private boolean unknown_validation;
     public VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs validation() {
-        if (validation == null) return null;
-        return validation.getValue("VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs.validation");
+        if (!unknown_validation) return value_validation;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs.validation' is not present");
     }
 
 }

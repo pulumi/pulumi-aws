@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DomainConfigurationAuthorizerConfig {
      * A Boolean that specifies whether the domain configuration&#39;s authorization service can be overridden.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> allowAuthorizerOverride;
-
+    @PolicyResourceProperty(name="allowAuthorizerOverride", flag="unknown_allowAuthorizerOverride")
+    private @Nullable Boolean value_allowAuthorizerOverride;
+    private boolean unknown_allowAuthorizerOverride;
     public @Nullable Boolean allowAuthorizerOverride() {
-        if (allowAuthorizerOverride == null) return null;
-        return allowAuthorizerOverride.getValue("DomainConfigurationAuthorizerConfig.allowAuthorizerOverride");
+        if (!unknown_allowAuthorizerOverride) return value_allowAuthorizerOverride;
+        throw new UndeferrableValueException("Value 'DomainConfigurationAuthorizerConfig.allowAuthorizerOverride' is not present");
     }
 
     /**
      * The name of the authorization service for a domain configuration.
      * 
      */
-    private @Nullable UndeferrableValue<String> defaultAuthorizerName;
-
+    @PolicyResourceProperty(name="defaultAuthorizerName", flag="unknown_defaultAuthorizerName")
+    private @Nullable String value_defaultAuthorizerName;
+    private boolean unknown_defaultAuthorizerName;
     public @Nullable String defaultAuthorizerName() {
-        if (defaultAuthorizerName == null) return null;
-        return defaultAuthorizerName.getValue("DomainConfigurationAuthorizerConfig.defaultAuthorizerName");
+        if (!unknown_defaultAuthorizerName) return value_defaultAuthorizerName;
+        throw new UndeferrableValueException("Value 'DomainConfigurationAuthorizerConfig.defaultAuthorizerName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class DataSetLogicalTableMapDataTransformCastColumnTypeOperation {
      * Column name.
      * 
      */
-    private UndeferrableValue<String> columnName;
-
+    @PolicyResourceProperty(name="columnName", flag="unknown_columnName")
+    private String value_columnName;
+    private boolean unknown_columnName;
     public String columnName() {
-        if (columnName == null) return null;
-        return columnName.getValue("DataSetLogicalTableMapDataTransformCastColumnTypeOperation.columnName");
+        if (!unknown_columnName) return value_columnName;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformCastColumnTypeOperation.columnName' is not present");
     }
 
     /**
      * When casting a column from string to datetime type, you can supply a string in a format supported by Amazon QuickSight to denote the source data format.
      * 
      */
-    private @Nullable UndeferrableValue<String> format;
-
+    @PolicyResourceProperty(name="format", flag="unknown_format")
+    private @Nullable String value_format;
+    private boolean unknown_format;
     public @Nullable String format() {
-        if (format == null) return null;
-        return format.getValue("DataSetLogicalTableMapDataTransformCastColumnTypeOperation.format");
+        if (!unknown_format) return value_format;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformCastColumnTypeOperation.format' is not present");
     }
 
     /**
      * New column data type. Valid values are `STRING`, `INTEGER`, `DECIMAL`, `DATETIME`.
      * 
      */
-    private UndeferrableValue<String> newColumnType;
-
+    @PolicyResourceProperty(name="newColumnType", flag="unknown_newColumnType")
+    private String value_newColumnType;
+    private boolean unknown_newColumnType;
     public String newColumnType() {
-        if (newColumnType == null) return null;
-        return newColumnType.getValue("DataSetLogicalTableMapDataTransformCastColumnTypeOperation.newColumnType");
+        if (!unknown_newColumnType) return value_newColumnType;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformCastColumnTypeOperation.newColumnType' is not present");
     }
 
 }

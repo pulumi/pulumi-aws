@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class UserProfileUserSettingsRSessionAppSettingsCustomImageArgs {
      * The name of the App Image Config.
      * 
      */
-    private UndeferrableValue<String> appImageConfigName;
-
+    @PolicyResourceProperty(name="appImageConfigName", flag="unknown_appImageConfigName")
+    private String value_appImageConfigName;
+    private boolean unknown_appImageConfigName;
     public String appImageConfigName() {
-        if (appImageConfigName == null) return null;
-        return appImageConfigName.getValue("UserProfileUserSettingsRSessionAppSettingsCustomImageArgs.appImageConfigName");
+        if (!unknown_appImageConfigName) return value_appImageConfigName;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsRSessionAppSettingsCustomImageArgs.appImageConfigName' is not present");
     }
 
     /**
      * The name of the Custom Image.
      * 
      */
-    private UndeferrableValue<String> imageName;
-
+    @PolicyResourceProperty(name="imageName", flag="unknown_imageName")
+    private String value_imageName;
+    private boolean unknown_imageName;
     public String imageName() {
-        if (imageName == null) return null;
-        return imageName.getValue("UserProfileUserSettingsRSessionAppSettingsCustomImageArgs.imageName");
+        if (!unknown_imageName) return value_imageName;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsRSessionAppSettingsCustomImageArgs.imageName' is not present");
     }
 
     /**
      * The version number of the Custom Image.
      * 
      */
-    private UndeferrableValue<Integer> imageVersionNumber;
-
+    @PolicyResourceProperty(name="imageVersionNumber", flag="unknown_imageVersionNumber")
+    private Integer value_imageVersionNumber;
+    private boolean unknown_imageVersionNumber;
     public Integer imageVersionNumber() {
-        if (imageVersionNumber == null) return null;
-        return imageVersionNumber.getValue("UserProfileUserSettingsRSessionAppSettingsCustomImageArgs.imageVersionNumber");
+        if (!unknown_imageVersionNumber) return value_imageVersionNumber;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsRSessionAppSettingsCustomImageArgs.imageVersionNumber' is not present");
     }
 
 }

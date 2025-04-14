@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.costexplorer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class CostCategoryRuleRuleOrNotDimension {
      * Unique name of the Cost Category.
      * 
      */
-    private @Nullable UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private @Nullable String value_key;
+    private boolean unknown_key;
     public @Nullable String key() {
-        if (key == null) return null;
-        return key.getValue("CostCategoryRuleRuleOrNotDimension.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'CostCategoryRuleRuleOrNotDimension.key' is not present");
     }
 
     /**
      * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> matchOptions;
-
+    @PolicyResourceProperty(name="matchOptions", flag="unknown_matchOptions")
+    private @Nullable List<String> value_matchOptions;
+    private boolean unknown_matchOptions;
     public @Nullable List<String> matchOptions() {
-        if (matchOptions == null) return null;
-        return matchOptions.getValue("CostCategoryRuleRuleOrNotDimension.matchOptions");
+        if (!unknown_matchOptions) return value_matchOptions;
+        throw new UndeferrableValueException("Value 'CostCategoryRuleRuleOrNotDimension.matchOptions' is not present");
     }
 
     /**
      * Specific value of the Cost Category.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> values;
-
+    @PolicyResourceProperty(name="values", flag="unknown_values")
+    private @Nullable List<String> value_values;
+    private boolean unknown_values;
     public @Nullable List<String> values() {
-        if (values == null) return null;
-        return values.getValue("CostCategoryRuleRuleOrNotDimension.values");
+        if (!unknown_values) return value_values;
+        throw new UndeferrableValueException("Value 'CostCategoryRuleRuleOrNotDimension.values' is not present");
     }
 
 }

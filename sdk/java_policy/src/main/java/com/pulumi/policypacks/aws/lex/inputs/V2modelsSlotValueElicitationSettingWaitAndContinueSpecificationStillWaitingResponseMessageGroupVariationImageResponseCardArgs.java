@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgs;
 import java.lang.String;
 import java.util.List;
@@ -12,32 +13,36 @@ import javax.annotation.Nullable;
 
 public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs {
 
-    private UndeferrableValue<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgs>> buttons;
-
+    @PolicyResourceProperty(name="buttons", flag="unknown_buttons")
+    private List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgs> value_buttons;
+    private boolean unknown_buttons;
     public List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgs> buttons() {
-        if (buttons == null) return null;
-        return buttons.getValue("V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs.buttons");
+        if (!unknown_buttons) return value_buttons;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs.buttons' is not present");
     }
 
-    private UndeferrableValue<String> imageUrl;
-
+    @PolicyResourceProperty(name="imageUrl", flag="unknown_imageUrl")
+    private String value_imageUrl;
+    private boolean unknown_imageUrl;
     public String imageUrl() {
-        if (imageUrl == null) return null;
-        return imageUrl.getValue("V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs.imageUrl");
+        if (!unknown_imageUrl) return value_imageUrl;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs.imageUrl' is not present");
     }
 
-    private UndeferrableValue<String> subtitle;
-
+    @PolicyResourceProperty(name="subtitle", flag="unknown_subtitle")
+    private String value_subtitle;
+    private boolean unknown_subtitle;
     public String subtitle() {
-        if (subtitle == null) return null;
-        return subtitle.getValue("V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs.subtitle");
+        if (!unknown_subtitle) return value_subtitle;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs.subtitle' is not present");
     }
 
-    private UndeferrableValue<String> title;
-
+    @PolicyResourceProperty(name="title", flag="unknown_title")
+    private String value_title;
+    private boolean unknown_title;
     public String title() {
-        if (title == null) return null;
-        return title.getValue("V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs.title");
+        if (!unknown_title) return value_title;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs.title' is not present");
     }
 
 }

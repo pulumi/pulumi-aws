@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DataQualityJobDefinitionDataQualityJobInputBatchTransformInpu
      * Indicates if the CSV data has a header.
      * 
      */
-    private UndeferrableValue<Boolean> header;
-
+    @PolicyResourceProperty(name="header", flag="unknown_header")
+    private Boolean value_header;
+    private boolean unknown_header;
     public Boolean header() {
-        if (header == null) return null;
-        return header.getValue("DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgs.header");
+        if (!unknown_header) return value_header;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgs.header' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class TransitGatewayPeeringArgs extends com.pulumi.resources.Policy
      * The ID of a core network.
      * 
      */
-    private UndeferrableValue<String> coreNetworkId;
-
+    @PolicyResourceProperty(name="coreNetworkId", flag="unknown_coreNetworkId")
+    private String value_coreNetworkId;
+    private boolean unknown_coreNetworkId;
     public String coreNetworkId() {
-        if (coreNetworkId == null) return null;
-        return coreNetworkId.getValue("TransitGatewayPeeringArgs.coreNetworkId");
+        if (!unknown_coreNetworkId) return value_coreNetworkId;
+        throw new UndeferrableValueException("Value 'TransitGatewayPeeringArgs.coreNetworkId' is not present");
     }
 
     /**
      * Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TransitGatewayPeeringArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TransitGatewayPeeringArgs.tags' is not present");
     }
 
     /**
      * The ARN of the transit gateway for the peering request.
      * 
      */
-    private UndeferrableValue<String> transitGatewayArn;
-
+    @PolicyResourceProperty(name="transitGatewayArn", flag="unknown_transitGatewayArn")
+    private String value_transitGatewayArn;
+    private boolean unknown_transitGatewayArn;
     public String transitGatewayArn() {
-        if (transitGatewayArn == null) return null;
-        return transitGatewayArn.getValue("TransitGatewayPeeringArgs.transitGatewayArn");
+        if (!unknown_transitGatewayArn) return value_transitGatewayArn;
+        throw new UndeferrableValueException("Value 'TransitGatewayPeeringArgs.transitGatewayArn' is not present");
     }
 
 }

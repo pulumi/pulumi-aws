@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class AgentAgentActionGroupApiSchemaS3Args {
      * Name of the S3 bucket.
      * 
      */
-    private UndeferrableValue<String> s3BucketName;
-
+    @PolicyResourceProperty(name="s3BucketName", flag="unknown_s3BucketName")
+    private String value_s3BucketName;
+    private boolean unknown_s3BucketName;
     public String s3BucketName() {
-        if (s3BucketName == null) return null;
-        return s3BucketName.getValue("AgentAgentActionGroupApiSchemaS3Args.s3BucketName");
+        if (!unknown_s3BucketName) return value_s3BucketName;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupApiSchemaS3Args.s3BucketName' is not present");
     }
 
     /**
      * S3 object key containing the resource.
      * 
      */
-    private UndeferrableValue<String> s3ObjectKey;
-
+    @PolicyResourceProperty(name="s3ObjectKey", flag="unknown_s3ObjectKey")
+    private String value_s3ObjectKey;
+    private boolean unknown_s3ObjectKey;
     public String s3ObjectKey() {
-        if (s3ObjectKey == null) return null;
-        return s3ObjectKey.getValue("AgentAgentActionGroupApiSchemaS3Args.s3ObjectKey");
+        if (!unknown_s3ObjectKey) return value_s3ObjectKey;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupApiSchemaS3Args.s3ObjectKey' is not present");
     }
 
 }

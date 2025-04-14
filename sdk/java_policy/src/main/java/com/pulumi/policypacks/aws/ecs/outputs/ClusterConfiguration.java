@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ecs.outputs.ClusterConfigurationExecuteCommandConfiguration;
 import com.pulumi.policypacks.aws.ecs.outputs.ClusterConfigurationManagedStorageConfiguration;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ClusterConfiguration {
      * Details of the execute command configuration. See `execute_command_configuration` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<ClusterConfigurationExecuteCommandConfiguration> executeCommandConfiguration;
-
+    @PolicyResourceProperty(name="executeCommandConfiguration", flag="unknown_executeCommandConfiguration")
+    private @Nullable ClusterConfigurationExecuteCommandConfiguration value_executeCommandConfiguration;
+    private boolean unknown_executeCommandConfiguration;
     public @Nullable ClusterConfigurationExecuteCommandConfiguration executeCommandConfiguration() {
-        if (executeCommandConfiguration == null) return null;
-        return executeCommandConfiguration.getValue("ClusterConfiguration.executeCommandConfiguration");
+        if (!unknown_executeCommandConfiguration) return value_executeCommandConfiguration;
+        throw new UndeferrableValueException("Value 'ClusterConfiguration.executeCommandConfiguration' is not present");
     }
 
     /**
      * Details of the managed storage configuration. See `managed_storage_configuration` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<ClusterConfigurationManagedStorageConfiguration> managedStorageConfiguration;
-
+    @PolicyResourceProperty(name="managedStorageConfiguration", flag="unknown_managedStorageConfiguration")
+    private @Nullable ClusterConfigurationManagedStorageConfiguration value_managedStorageConfiguration;
+    private boolean unknown_managedStorageConfiguration;
     public @Nullable ClusterConfigurationManagedStorageConfiguration managedStorageConfiguration() {
-        if (managedStorageConfiguration == null) return null;
-        return managedStorageConfiguration.getValue("ClusterConfiguration.managedStorageConfiguration");
+        if (!unknown_managedStorageConfiguration) return value_managedStorageConfiguration;
+        throw new UndeferrableValueException("Value 'ClusterConfiguration.managedStorageConfiguration' is not present");
     }
 
 }

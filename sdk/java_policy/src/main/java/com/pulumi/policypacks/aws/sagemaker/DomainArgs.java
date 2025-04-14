@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.inputs.DomainDefaultSpaceSettingsArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.DomainDefaultUserSettingsArgs;
@@ -22,132 +23,144 @@ public final class DomainArgs extends com.pulumi.resources.PolicyResourceInput {
      * Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
      * 
      */
-    private UndeferrableValue<String> appNetworkAccessType;
-
+    @PolicyResourceProperty(name="appNetworkAccessType", flag="unknown_appNetworkAccessType")
+    private String value_appNetworkAccessType;
+    private boolean unknown_appNetworkAccessType;
     public String appNetworkAccessType() {
-        if (appNetworkAccessType == null) return null;
-        return appNetworkAccessType.getValue("DomainArgs.appNetworkAccessType");
+        if (!unknown_appNetworkAccessType) return value_appNetworkAccessType;
+        throw new UndeferrableValueException("Value 'DomainArgs.appNetworkAccessType' is not present");
     }
 
     /**
      * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
      * 
      */
-    private UndeferrableValue<String> appSecurityGroupManagement;
-
+    @PolicyResourceProperty(name="appSecurityGroupManagement", flag="unknown_appSecurityGroupManagement")
+    private String value_appSecurityGroupManagement;
+    private boolean unknown_appSecurityGroupManagement;
     public String appSecurityGroupManagement() {
-        if (appSecurityGroupManagement == null) return null;
-        return appSecurityGroupManagement.getValue("DomainArgs.appSecurityGroupManagement");
+        if (!unknown_appSecurityGroupManagement) return value_appSecurityGroupManagement;
+        throw new UndeferrableValueException("Value 'DomainArgs.appSecurityGroupManagement' is not present");
     }
 
     /**
      * The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
      * 
      */
-    private UndeferrableValue<String> authMode;
-
+    @PolicyResourceProperty(name="authMode", flag="unknown_authMode")
+    private String value_authMode;
+    private boolean unknown_authMode;
     public String authMode() {
-        if (authMode == null) return null;
-        return authMode.getValue("DomainArgs.authMode");
+        if (!unknown_authMode) return value_authMode;
+        throw new UndeferrableValueException("Value 'DomainArgs.authMode' is not present");
     }
 
     /**
      * The default space settings. See `default_space_settings` Block below.
      * 
      */
-    private UndeferrableValue<DomainDefaultSpaceSettingsArgs> defaultSpaceSettings;
-
+    @PolicyResourceProperty(name="defaultSpaceSettings", flag="unknown_defaultSpaceSettings")
+    private DomainDefaultSpaceSettingsArgs value_defaultSpaceSettings;
+    private boolean unknown_defaultSpaceSettings;
     public DomainDefaultSpaceSettingsArgs defaultSpaceSettings() {
-        if (defaultSpaceSettings == null) return null;
-        return defaultSpaceSettings.getValue("DomainArgs.defaultSpaceSettings");
+        if (!unknown_defaultSpaceSettings) return value_defaultSpaceSettings;
+        throw new UndeferrableValueException("Value 'DomainArgs.defaultSpaceSettings' is not present");
     }
 
     /**
      * The default user settings. See `default_user_settings` Block below.
      * 
      */
-    private UndeferrableValue<DomainDefaultUserSettingsArgs> defaultUserSettings;
-
+    @PolicyResourceProperty(name="defaultUserSettings", flag="unknown_defaultUserSettings")
+    private DomainDefaultUserSettingsArgs value_defaultUserSettings;
+    private boolean unknown_defaultUserSettings;
     public DomainDefaultUserSettingsArgs defaultUserSettings() {
-        if (defaultUserSettings == null) return null;
-        return defaultUserSettings.getValue("DomainArgs.defaultUserSettings");
+        if (!unknown_defaultUserSettings) return value_defaultUserSettings;
+        throw new UndeferrableValueException("Value 'DomainArgs.defaultUserSettings' is not present");
     }
 
     /**
      * The domain name.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("DomainArgs.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'DomainArgs.domainName' is not present");
     }
 
     /**
      * The domain settings. See `domain_settings` Block below.
      * 
      */
-    private UndeferrableValue<DomainDomainSettingsArgs> domainSettings;
-
+    @PolicyResourceProperty(name="domainSettings", flag="unknown_domainSettings")
+    private DomainDomainSettingsArgs value_domainSettings;
+    private boolean unknown_domainSettings;
     public DomainDomainSettingsArgs domainSettings() {
-        if (domainSettings == null) return null;
-        return domainSettings.getValue("DomainArgs.domainSettings");
+        if (!unknown_domainSettings) return value_domainSettings;
+        throw new UndeferrableValueException("Value 'DomainArgs.domainSettings' is not present");
     }
 
     /**
      * The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("DomainArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'DomainArgs.kmsKeyId' is not present");
     }
 
     /**
      * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
      * 
      */
-    private UndeferrableValue<DomainRetentionPolicyArgs> retentionPolicy;
-
+    @PolicyResourceProperty(name="retentionPolicy", flag="unknown_retentionPolicy")
+    private DomainRetentionPolicyArgs value_retentionPolicy;
+    private boolean unknown_retentionPolicy;
     public DomainRetentionPolicyArgs retentionPolicy() {
-        if (retentionPolicy == null) return null;
-        return retentionPolicy.getValue("DomainArgs.retentionPolicy");
+        if (!unknown_retentionPolicy) return value_retentionPolicy;
+        throw new UndeferrableValueException("Value 'DomainArgs.retentionPolicy' is not present");
     }
 
     /**
      * The VPC subnets that Studio uses for communication.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("DomainArgs.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'DomainArgs.subnetIds' is not present");
     }
 
     /**
      * Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> tagPropagation;
-
+    @PolicyResourceProperty(name="tagPropagation", flag="unknown_tagPropagation")
+    private String value_tagPropagation;
+    private boolean unknown_tagPropagation;
     public String tagPropagation() {
-        if (tagPropagation == null) return null;
-        return tagPropagation.getValue("DomainArgs.tagPropagation");
+        if (!unknown_tagPropagation) return value_tagPropagation;
+        throw new UndeferrableValueException("Value 'DomainArgs.tagPropagation' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DomainArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DomainArgs.tags' is not present");
     }
 
     /**
@@ -156,11 +169,12 @@ public final class DomainArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("DomainArgs.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'DomainArgs.vpcId' is not present");
     }
 
 }

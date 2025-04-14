@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,44 +16,48 @@ public final class StaticIp extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN of the Lightsail static IP
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("StaticIp.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'StaticIp.arn' is not present");
     }
 
     /**
      * The allocated static IP address
      * 
      */
-    private UndeferrableValue<String> ipAddress;
-
+    @PolicyResourceProperty(name="ipAddress", flag="unknown_ipAddress")
+    private String value_ipAddress;
+    private boolean unknown_ipAddress;
     public String ipAddress() {
-        if (ipAddress == null) return null;
-        return ipAddress.getValue("StaticIp.ipAddress");
+        if (!unknown_ipAddress) return value_ipAddress;
+        throw new UndeferrableValueException("Value 'StaticIp.ipAddress' is not present");
     }
 
     /**
      * The name for the allocated static IP
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("StaticIp.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'StaticIp.name' is not present");
     }
 
     /**
      * The support code.
      * 
      */
-    private UndeferrableValue<String> supportCode;
-
+    @PolicyResourceProperty(name="supportCode", flag="unknown_supportCode")
+    private String value_supportCode;
+    private boolean unknown_supportCode;
     public String supportCode() {
-        if (supportCode == null) return null;
-        return supportCode.getValue("StaticIp.supportCode");
+        if (!unknown_supportCode) return value_supportCode;
+        throw new UndeferrableValueException("Value 'StaticIp.supportCode' is not present");
     }
 
 }

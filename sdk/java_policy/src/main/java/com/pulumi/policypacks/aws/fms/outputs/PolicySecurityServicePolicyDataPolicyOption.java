@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fms.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.fms.outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy;
 import com.pulumi.policypacks.aws.fms.outputs.PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy;
 import com.pulumi.policypacks.aws.fms.outputs.PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy;
@@ -16,29 +17,32 @@ public final class PolicySecurityServicePolicyDataPolicyOption {
      * Defines NACL rules across accounts in their AWS Organization. See the `network_acl_common_policy` block.
      * 
      */
-    private @Nullable UndeferrableValue<PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy> networkAclCommonPolicy;
-
+    @PolicyResourceProperty(name="networkAclCommonPolicy", flag="unknown_networkAclCommonPolicy")
+    private @Nullable PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy value_networkAclCommonPolicy;
+    private boolean unknown_networkAclCommonPolicy;
     public @Nullable PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicy networkAclCommonPolicy() {
-        if (networkAclCommonPolicy == null) return null;
-        return networkAclCommonPolicy.getValue("PolicySecurityServicePolicyDataPolicyOption.networkAclCommonPolicy");
+        if (!unknown_networkAclCommonPolicy) return value_networkAclCommonPolicy;
+        throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOption.networkAclCommonPolicy' is not present");
     }
 
     /**
      * Defines the deployment model to use for the firewall policy.  See the `network_firewall_policy` block.
      * 
      */
-    private @Nullable UndeferrableValue<PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy> networkFirewallPolicy;
-
+    @PolicyResourceProperty(name="networkFirewallPolicy", flag="unknown_networkFirewallPolicy")
+    private @Nullable PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy value_networkFirewallPolicy;
+    private boolean unknown_networkFirewallPolicy;
     public @Nullable PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy networkFirewallPolicy() {
-        if (networkFirewallPolicy == null) return null;
-        return networkFirewallPolicy.getValue("PolicySecurityServicePolicyDataPolicyOption.networkFirewallPolicy");
+        if (!unknown_networkFirewallPolicy) return value_networkFirewallPolicy;
+        throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOption.networkFirewallPolicy' is not present");
     }
 
-    private @Nullable UndeferrableValue<PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy> thirdPartyFirewallPolicy;
-
+    @PolicyResourceProperty(name="thirdPartyFirewallPolicy", flag="unknown_thirdPartyFirewallPolicy")
+    private @Nullable PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy value_thirdPartyFirewallPolicy;
+    private boolean unknown_thirdPartyFirewallPolicy;
     public @Nullable PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy thirdPartyFirewallPolicy() {
-        if (thirdPartyFirewallPolicy == null) return null;
-        return thirdPartyFirewallPolicy.getValue("PolicySecurityServicePolicyDataPolicyOption.thirdPartyFirewallPolicy");
+        if (!unknown_thirdPartyFirewallPolicy) return value_thirdPartyFirewallPolicy;
+        throw new UndeferrableValueException("Value 'PolicySecurityServicePolicyDataPolicyOption.thirdPartyFirewallPolicy' is not present");
     }
 
 }

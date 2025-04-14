@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,44 +17,48 @@ public final class SshKeyArgs extends com.pulumi.resources.PolicyResourceInput {
      * Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
      * 
      */
-    private UndeferrableValue<String> encoding;
-
+    @PolicyResourceProperty(name="encoding", flag="unknown_encoding")
+    private String value_encoding;
+    private boolean unknown_encoding;
     public String encoding() {
-        if (encoding == null) return null;
-        return encoding.getValue("SshKeyArgs.encoding");
+        if (!unknown_encoding) return value_encoding;
+        throw new UndeferrableValueException("Value 'SshKeyArgs.encoding' is not present");
     }
 
     /**
      * The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
      * 
      */
-    private UndeferrableValue<String> publicKey;
-
+    @PolicyResourceProperty(name="publicKey", flag="unknown_publicKey")
+    private String value_publicKey;
+    private boolean unknown_publicKey;
     public String publicKey() {
-        if (publicKey == null) return null;
-        return publicKey.getValue("SshKeyArgs.publicKey");
+        if (!unknown_publicKey) return value_publicKey;
+        throw new UndeferrableValueException("Value 'SshKeyArgs.publicKey' is not present");
     }
 
     /**
      * The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("SshKeyArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'SshKeyArgs.status' is not present");
     }
 
     /**
      * The name of the IAM user to associate the SSH public key with.
      * 
      */
-    private UndeferrableValue<String> username;
-
+    @PolicyResourceProperty(name="username", flag="unknown_username")
+    private String value_username;
+    private boolean unknown_username;
     public String username() {
-        if (username == null) return null;
-        return username.getValue("SshKeyArgs.username");
+        if (!unknown_username) return value_username;
+        throw new UndeferrableValueException("Value 'SshKeyArgs.username' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudtrail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,55 +16,60 @@ public final class OrganizationDelegatedAdminAccount extends com.pulumi.resource
      * An organization member account ID that you want to designate as a delegated administrator.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("OrganizationDelegatedAdminAccount.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'OrganizationDelegatedAdminAccount.accountId' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("OrganizationDelegatedAdminAccount.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'OrganizationDelegatedAdminAccount.arn' is not present");
     }
 
     /**
      * The email address that is associated with the delegated administrator&#39;s AWS account.
      * 
      */
-    private UndeferrableValue<String> email;
-
+    @PolicyResourceProperty(name="email", flag="unknown_email")
+    private String value_email;
+    private boolean unknown_email;
     public String email() {
-        if (email == null) return null;
-        return email.getValue("OrganizationDelegatedAdminAccount.email");
+        if (!unknown_email) return value_email;
+        throw new UndeferrableValueException("Value 'OrganizationDelegatedAdminAccount.email' is not present");
     }
 
     /**
      * The friendly name of the delegated administrator&#39;s account.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("OrganizationDelegatedAdminAccount.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'OrganizationDelegatedAdminAccount.name' is not present");
     }
 
     /**
      * The AWS CloudTrail service principal name.
      * 
      */
-    private UndeferrableValue<String> servicePrincipal;
-
+    @PolicyResourceProperty(name="servicePrincipal", flag="unknown_servicePrincipal")
+    private String value_servicePrincipal;
+    private boolean unknown_servicePrincipal;
     public String servicePrincipal() {
-        if (servicePrincipal == null) return null;
-        return servicePrincipal.getValue("OrganizationDelegatedAdminAccount.servicePrincipal");
+        if (!unknown_servicePrincipal) return value_servicePrincipal;
+        throw new UndeferrableValueException("Value 'OrganizationDelegatedAdminAccount.servicePrincipal' is not present");
     }
 
 }

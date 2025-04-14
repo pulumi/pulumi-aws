@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.inspector;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,22 +17,24 @@ public final class AssessmentTargetArgs extends com.pulumi.resources.PolicyResou
      * The name of the assessment target.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AssessmentTargetArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AssessmentTargetArgs.name' is not present");
     }
 
     /**
      * Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
      * 
      */
-    private UndeferrableValue<String> resourceGroupArn;
-
+    @PolicyResourceProperty(name="resourceGroupArn", flag="unknown_resourceGroupArn")
+    private String value_resourceGroupArn;
+    private boolean unknown_resourceGroupArn;
     public String resourceGroupArn() {
-        if (resourceGroupArn == null) return null;
-        return resourceGroupArn.getValue("AssessmentTargetArgs.resourceGroupArn");
+        if (!unknown_resourceGroupArn) return value_resourceGroupArn;
+        throw new UndeferrableValueException("Value 'AssessmentTargetArgs.resourceGroupArn' is not present");
     }
 
 }

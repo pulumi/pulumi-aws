@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class EndpointConfigurationAsyncInferenceConfigClientConfigArgs {
      * The maximum number of concurrent requests sent by the SageMaker AI client to the model container. If no value is provided, Amazon SageMaker AI will choose an optimal value for you.
      * 
      */
-    private UndeferrableValue<Integer> maxConcurrentInvocationsPerInstance;
-
+    @PolicyResourceProperty(name="maxConcurrentInvocationsPerInstance", flag="unknown_maxConcurrentInvocationsPerInstance")
+    private Integer value_maxConcurrentInvocationsPerInstance;
+    private boolean unknown_maxConcurrentInvocationsPerInstance;
     public Integer maxConcurrentInvocationsPerInstance() {
-        if (maxConcurrentInvocationsPerInstance == null) return null;
-        return maxConcurrentInvocationsPerInstance.getValue("EndpointConfigurationAsyncInferenceConfigClientConfigArgs.maxConcurrentInvocationsPerInstance");
+        if (!unknown_maxConcurrentInvocationsPerInstance) return value_maxConcurrentInvocationsPerInstance;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationAsyncInferenceConfigClientConfigArgs.maxConcurrentInvocationsPerInstance' is not present");
     }
 
 }

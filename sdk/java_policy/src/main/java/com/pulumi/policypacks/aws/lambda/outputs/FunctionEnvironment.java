@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class FunctionEnvironment {
      * Map of environment variables that are accessible from the function code during execution. If provided at least one key must be present.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> variables;
-
+    @PolicyResourceProperty(name="variables", flag="unknown_variables")
+    private @Nullable Map<String,String> value_variables;
+    private boolean unknown_variables;
     public @Nullable Map<String,String> variables() {
-        if (variables == null) return null;
-        return variables.getValue("FunctionEnvironment.variables");
+        if (!unknown_variables) return value_variables;
+        throw new UndeferrableValueException("Value 'FunctionEnvironment.variables' is not present");
     }
 
 }

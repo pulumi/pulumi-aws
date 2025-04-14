@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securitylake.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.securitylake.inputs.DataLakeConfigurationEncryptionConfigurationArgs;
 import com.pulumi.policypacks.aws.securitylake.inputs.DataLakeConfigurationLifecycleConfigurationArgs;
 import com.pulumi.policypacks.aws.securitylake.inputs.DataLakeConfigurationReplicationConfigurationArgs;
@@ -18,44 +19,48 @@ public final class DataLakeConfigurationArgs {
      * Provides encryption details of Amazon Security Lake object.
      * 
      */
-    private UndeferrableValue<List<DataLakeConfigurationEncryptionConfigurationArgs>> encryptionConfigurations;
-
+    @PolicyResourceProperty(name="encryptionConfigurations", flag="unknown_encryptionConfigurations")
+    private List<DataLakeConfigurationEncryptionConfigurationArgs> value_encryptionConfigurations;
+    private boolean unknown_encryptionConfigurations;
     public List<DataLakeConfigurationEncryptionConfigurationArgs> encryptionConfigurations() {
-        if (encryptionConfigurations == null) return null;
-        return encryptionConfigurations.getValue("DataLakeConfigurationArgs.encryptionConfigurations");
+        if (!unknown_encryptionConfigurations) return value_encryptionConfigurations;
+        throw new UndeferrableValueException("Value 'DataLakeConfigurationArgs.encryptionConfigurations' is not present");
     }
 
     /**
      * Provides lifecycle details of Amazon Security Lake object.
      * 
      */
-    private UndeferrableValue<DataLakeConfigurationLifecycleConfigurationArgs> lifecycleConfiguration;
-
+    @PolicyResourceProperty(name="lifecycleConfiguration", flag="unknown_lifecycleConfiguration")
+    private DataLakeConfigurationLifecycleConfigurationArgs value_lifecycleConfiguration;
+    private boolean unknown_lifecycleConfiguration;
     public DataLakeConfigurationLifecycleConfigurationArgs lifecycleConfiguration() {
-        if (lifecycleConfiguration == null) return null;
-        return lifecycleConfiguration.getValue("DataLakeConfigurationArgs.lifecycleConfiguration");
+        if (!unknown_lifecycleConfiguration) return value_lifecycleConfiguration;
+        throw new UndeferrableValueException("Value 'DataLakeConfigurationArgs.lifecycleConfiguration' is not present");
     }
 
     /**
      * The AWS Regions where Security Lake is automatically enabled.
      * 
      */
-    private UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private String value_region;
+    private boolean unknown_region;
     public String region() {
-        if (region == null) return null;
-        return region.getValue("DataLakeConfigurationArgs.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'DataLakeConfigurationArgs.region' is not present");
     }
 
     /**
      * Provides replication details of Amazon Security Lake object.
      * 
      */
-    private UndeferrableValue<DataLakeConfigurationReplicationConfigurationArgs> replicationConfiguration;
-
+    @PolicyResourceProperty(name="replicationConfiguration", flag="unknown_replicationConfiguration")
+    private DataLakeConfigurationReplicationConfigurationArgs value_replicationConfiguration;
+    private boolean unknown_replicationConfiguration;
     public DataLakeConfigurationReplicationConfigurationArgs replicationConfiguration() {
-        if (replicationConfiguration == null) return null;
-        return replicationConfiguration.getValue("DataLakeConfigurationArgs.replicationConfiguration");
+        if (!unknown_replicationConfiguration) return value_replicationConfiguration;
+        throw new UndeferrableValueException("Value 'DataLakeConfigurationArgs.replicationConfiguration' is not present");
     }
 
 }

@@ -3,18 +3,20 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
 
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings {
 
-    private @Nullable UndeferrableValue<Integer> repInterval;
-
+    @PolicyResourceProperty(name="repInterval", flag="unknown_repInterval")
+    private @Nullable Integer value_repInterval;
+    private boolean unknown_repInterval;
     public @Nullable Integer repInterval() {
-        if (repInterval == null) return null;
-        return repInterval.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings.repInterval");
+        if (!unknown_repInterval) return value_repInterval;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings.repInterval' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.athena.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class WorkgroupConfigurationResultConfigurationAclConfiguration {
      * Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
      * 
      */
-    private UndeferrableValue<String> s3AclOption;
-
+    @PolicyResourceProperty(name="s3AclOption", flag="unknown_s3AclOption")
+    private String value_s3AclOption;
+    private boolean unknown_s3AclOption;
     public String s3AclOption() {
-        if (s3AclOption == null) return null;
-        return s3AclOption.getValue("WorkgroupConfigurationResultConfigurationAclConfiguration.s3AclOption");
+        if (!unknown_s3AclOption) return value_s3AclOption;
+        throw new UndeferrableValueException("Value 'WorkgroupConfigurationResultConfigurationAclConfiguration.s3AclOption' is not present");
     }
 
 }

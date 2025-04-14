@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.enums.ProtocolType;
 import java.lang.Boolean;
@@ -20,110 +21,120 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.PolicyReso
      * List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
      * 
      */
-    private UndeferrableValue<List<String>> cidrBlocks;
-
+    @PolicyResourceProperty(name="cidrBlocks", flag="unknown_cidrBlocks")
+    private List<String> value_cidrBlocks;
+    private boolean unknown_cidrBlocks;
     public List<String> cidrBlocks() {
-        if (cidrBlocks == null) return null;
-        return cidrBlocks.getValue("SecurityGroupRuleArgs.cidrBlocks");
+        if (!unknown_cidrBlocks) return value_cidrBlocks;
+        throw new UndeferrableValueException("Value 'SecurityGroupRuleArgs.cidrBlocks' is not present");
     }
 
     /**
      * Description of the rule.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("SecurityGroupRuleArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'SecurityGroupRuleArgs.description' is not present");
     }
 
     /**
      * Start port (or ICMP type number if protocol is &#34;icmp&#34; or &#34;icmpv6&#34;).
      * 
      */
-    private UndeferrableValue<Integer> fromPort;
-
+    @PolicyResourceProperty(name="fromPort", flag="unknown_fromPort")
+    private Integer value_fromPort;
+    private boolean unknown_fromPort;
     public Integer fromPort() {
-        if (fromPort == null) return null;
-        return fromPort.getValue("SecurityGroupRuleArgs.fromPort");
+        if (!unknown_fromPort) return value_fromPort;
+        throw new UndeferrableValueException("Value 'SecurityGroupRuleArgs.fromPort' is not present");
     }
 
     /**
      * List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
      * 
      */
-    private UndeferrableValue<List<String>> ipv6CidrBlocks;
-
+    @PolicyResourceProperty(name="ipv6CidrBlocks", flag="unknown_ipv6CidrBlocks")
+    private List<String> value_ipv6CidrBlocks;
+    private boolean unknown_ipv6CidrBlocks;
     public List<String> ipv6CidrBlocks() {
-        if (ipv6CidrBlocks == null) return null;
-        return ipv6CidrBlocks.getValue("SecurityGroupRuleArgs.ipv6CidrBlocks");
+        if (!unknown_ipv6CidrBlocks) return value_ipv6CidrBlocks;
+        throw new UndeferrableValueException("Value 'SecurityGroupRuleArgs.ipv6CidrBlocks' is not present");
     }
 
     /**
      * List of Prefix List IDs.
      * 
      */
-    private UndeferrableValue<List<String>> prefixListIds;
-
+    @PolicyResourceProperty(name="prefixListIds", flag="unknown_prefixListIds")
+    private List<String> value_prefixListIds;
+    private boolean unknown_prefixListIds;
     public List<String> prefixListIds() {
-        if (prefixListIds == null) return null;
-        return prefixListIds.getValue("SecurityGroupRuleArgs.prefixListIds");
+        if (!unknown_prefixListIds) return value_prefixListIds;
+        throw new UndeferrableValueException("Value 'SecurityGroupRuleArgs.prefixListIds' is not present");
     }
 
     /**
      * Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("SecurityGroupRuleArgs.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'SecurityGroupRuleArgs.protocol' is not present");
     }
 
     /**
      * Security group to apply this rule to.
      * 
      */
-    private UndeferrableValue<String> securityGroupId;
-
+    @PolicyResourceProperty(name="securityGroupId", flag="unknown_securityGroupId")
+    private String value_securityGroupId;
+    private boolean unknown_securityGroupId;
     public String securityGroupId() {
-        if (securityGroupId == null) return null;
-        return securityGroupId.getValue("SecurityGroupRuleArgs.securityGroupId");
+        if (!unknown_securityGroupId) return value_securityGroupId;
+        throw new UndeferrableValueException("Value 'SecurityGroupRuleArgs.securityGroupId' is not present");
     }
 
     /**
      * Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
      * 
      */
-    private UndeferrableValue<Boolean> self;
-
+    @PolicyResourceProperty(name="self", flag="unknown_self")
+    private Boolean value_self;
+    private boolean unknown_self;
     public Boolean self() {
-        if (self == null) return null;
-        return self.getValue("SecurityGroupRuleArgs.self");
+        if (!unknown_self) return value_self;
+        throw new UndeferrableValueException("Value 'SecurityGroupRuleArgs.self' is not present");
     }
 
     /**
      * Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
      * 
      */
-    private UndeferrableValue<String> sourceSecurityGroupId;
-
+    @PolicyResourceProperty(name="sourceSecurityGroupId", flag="unknown_sourceSecurityGroupId")
+    private String value_sourceSecurityGroupId;
+    private boolean unknown_sourceSecurityGroupId;
     public String sourceSecurityGroupId() {
-        if (sourceSecurityGroupId == null) return null;
-        return sourceSecurityGroupId.getValue("SecurityGroupRuleArgs.sourceSecurityGroupId");
+        if (!unknown_sourceSecurityGroupId) return value_sourceSecurityGroupId;
+        throw new UndeferrableValueException("Value 'SecurityGroupRuleArgs.sourceSecurityGroupId' is not present");
     }
 
     /**
      * End port (or ICMP code if protocol is &#34;icmp&#34;).
      * 
      */
-    private UndeferrableValue<Integer> toPort;
-
+    @PolicyResourceProperty(name="toPort", flag="unknown_toPort")
+    private Integer value_toPort;
+    private boolean unknown_toPort;
     public Integer toPort() {
-        if (toPort == null) return null;
-        return toPort.getValue("SecurityGroupRuleArgs.toPort");
+        if (!unknown_toPort) return value_toPort;
+        throw new UndeferrableValueException("Value 'SecurityGroupRuleArgs.toPort' is not present");
     }
 
     /**
@@ -135,11 +146,12 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.PolicyReso
      * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("SecurityGroupRuleArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'SecurityGroupRuleArgs.type' is not present");
     }
 
 }

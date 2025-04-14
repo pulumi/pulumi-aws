@@ -3,39 +3,44 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
 
 public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs {
 
-    private UndeferrableValue<String> deletionCharacter;
-
+    @PolicyResourceProperty(name="deletionCharacter", flag="unknown_deletionCharacter")
+    private String value_deletionCharacter;
+    private boolean unknown_deletionCharacter;
     public String deletionCharacter() {
-        if (deletionCharacter == null) return null;
-        return deletionCharacter.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs.deletionCharacter");
+        if (!unknown_deletionCharacter) return value_deletionCharacter;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs.deletionCharacter' is not present");
     }
 
-    private UndeferrableValue<String> endCharacter;
-
+    @PolicyResourceProperty(name="endCharacter", flag="unknown_endCharacter")
+    private String value_endCharacter;
+    private boolean unknown_endCharacter;
     public String endCharacter() {
-        if (endCharacter == null) return null;
-        return endCharacter.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs.endCharacter");
+        if (!unknown_endCharacter) return value_endCharacter;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs.endCharacter' is not present");
     }
 
-    private UndeferrableValue<Integer> endTimeoutMs;
-
+    @PolicyResourceProperty(name="endTimeoutMs", flag="unknown_endTimeoutMs")
+    private Integer value_endTimeoutMs;
+    private boolean unknown_endTimeoutMs;
     public Integer endTimeoutMs() {
-        if (endTimeoutMs == null) return null;
-        return endTimeoutMs.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs.endTimeoutMs");
+        if (!unknown_endTimeoutMs) return value_endTimeoutMs;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs.endTimeoutMs' is not present");
     }
 
-    private UndeferrableValue<Integer> maxLength;
-
+    @PolicyResourceProperty(name="maxLength", flag="unknown_maxLength")
+    private Integer value_maxLength;
+    private boolean unknown_maxLength;
     public Integer maxLength() {
-        if (maxLength == null) return null;
-        return maxLength.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs.maxLength");
+        if (!unknown_maxLength) return value_maxLength;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs.maxLength' is not present");
     }
 
 }

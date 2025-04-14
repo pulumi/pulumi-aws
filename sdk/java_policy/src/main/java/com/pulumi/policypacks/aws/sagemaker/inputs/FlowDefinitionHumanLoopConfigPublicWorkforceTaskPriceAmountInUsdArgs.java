@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountIn
      * The fractional portion, in cents, of the amount. Valid value range between `0` and `99`.
      * 
      */
-    private UndeferrableValue<Integer> cents;
-
+    @PolicyResourceProperty(name="cents", flag="unknown_cents")
+    private Integer value_cents;
+    private boolean unknown_cents;
     public Integer cents() {
-        if (cents == null) return null;
-        return cents.getValue("FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs.cents");
+        if (!unknown_cents) return value_cents;
+        throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs.cents' is not present");
     }
 
     /**
      * The whole number of dollars in the amount. Valid value range between `0` and `2`.
      * 
      */
-    private UndeferrableValue<Integer> dollars;
-
+    @PolicyResourceProperty(name="dollars", flag="unknown_dollars")
+    private Integer value_dollars;
+    private boolean unknown_dollars;
     public Integer dollars() {
-        if (dollars == null) return null;
-        return dollars.getValue("FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs.dollars");
+        if (!unknown_dollars) return value_dollars;
+        throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs.dollars' is not present");
     }
 
     /**
      * Fractions of a cent, in tenths. Valid value range between `0` and `9`.
      * 
      */
-    private UndeferrableValue<Integer> tenthFractionsOfACent;
-
+    @PolicyResourceProperty(name="tenthFractionsOfACent", flag="unknown_tenthFractionsOfACent")
+    private Integer value_tenthFractionsOfACent;
+    private boolean unknown_tenthFractionsOfACent;
     public Integer tenthFractionsOfACent() {
-        if (tenthFractionsOfACent == null) return null;
-        return tenthFractionsOfACent.getValue("FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs.tenthFractionsOfACent");
+        if (!unknown_tenthFractionsOfACent) return value_tenthFractionsOfACent;
+        throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs.tenthFractionsOfACent' is not present");
     }
 
 }

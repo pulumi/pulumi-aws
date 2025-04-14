@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ssm.outputs.ResourceDataSyncS3Destination;
 import java.lang.String;
@@ -16,22 +17,24 @@ public final class ResourceDataSync extends com.pulumi.resources.PolicyResourceO
      * Name for the configuration.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ResourceDataSync.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ResourceDataSync.name' is not present");
     }
 
     /**
      * Amazon S3 configuration details for the sync.
      * 
      */
-    private UndeferrableValue<ResourceDataSyncS3Destination> s3Destination;
-
+    @PolicyResourceProperty(name="s3Destination", flag="unknown_s3Destination")
+    private ResourceDataSyncS3Destination value_s3Destination;
+    private boolean unknown_s3Destination;
     public ResourceDataSyncS3Destination s3Destination() {
-        if (s3Destination == null) return null;
-        return s3Destination.getValue("ResourceDataSync.s3Destination");
+        if (!unknown_s3Destination) return value_s3Destination;
+        throw new UndeferrableValueException("Value 'ResourceDataSync.s3Destination' is not present");
     }
 
 }

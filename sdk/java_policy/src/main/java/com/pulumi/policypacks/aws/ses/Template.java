@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ses;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,55 +17,60 @@ public final class Template extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN of the SES template
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Template.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Template.arn' is not present");
     }
 
     /**
      * The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
      * 
      */
-    private @Nullable UndeferrableValue<String> html;
-
+    @PolicyResourceProperty(name="html", flag="unknown_html")
+    private @Nullable String value_html;
+    private boolean unknown_html;
     public @Nullable String html() {
-        if (html == null) return null;
-        return html.getValue("Template.html");
+        if (!unknown_html) return value_html;
+        throw new UndeferrableValueException("Value 'Template.html' is not present");
     }
 
     /**
      * The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Template.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Template.name' is not present");
     }
 
     /**
      * The subject line of the email.
      * 
      */
-    private @Nullable UndeferrableValue<String> subject;
-
+    @PolicyResourceProperty(name="subject", flag="unknown_subject")
+    private @Nullable String value_subject;
+    private boolean unknown_subject;
     public @Nullable String subject() {
-        if (subject == null) return null;
-        return subject.getValue("Template.subject");
+        if (!unknown_subject) return value_subject;
+        throw new UndeferrableValueException("Value 'Template.subject' is not present");
     }
 
     /**
      * The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
      * 
      */
-    private @Nullable UndeferrableValue<String> text;
-
+    @PolicyResourceProperty(name="text", flag="unknown_text")
+    private @Nullable String value_text;
+    private boolean unknown_text;
     public @Nullable String text() {
-        if (text == null) return null;
-        return text.getValue("Template.text");
+        if (!unknown_text) return value_text;
+        throw new UndeferrableValueException("Value 'Template.text' is not present");
     }
 
 }

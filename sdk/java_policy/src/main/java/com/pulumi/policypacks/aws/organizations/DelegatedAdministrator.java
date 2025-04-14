@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.organizations;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,99 +16,108 @@ public final class DelegatedAdministrator extends com.pulumi.resources.PolicyRes
      * The account ID number of the member account in the organization to register as a delegated administrator.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("DelegatedAdministrator.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'DelegatedAdministrator.accountId' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("DelegatedAdministrator.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'DelegatedAdministrator.arn' is not present");
     }
 
     /**
      * The date when the account was made a delegated administrator.
      * 
      */
-    private UndeferrableValue<String> delegationEnabledDate;
-
+    @PolicyResourceProperty(name="delegationEnabledDate", flag="unknown_delegationEnabledDate")
+    private String value_delegationEnabledDate;
+    private boolean unknown_delegationEnabledDate;
     public String delegationEnabledDate() {
-        if (delegationEnabledDate == null) return null;
-        return delegationEnabledDate.getValue("DelegatedAdministrator.delegationEnabledDate");
+        if (!unknown_delegationEnabledDate) return value_delegationEnabledDate;
+        throw new UndeferrableValueException("Value 'DelegatedAdministrator.delegationEnabledDate' is not present");
     }
 
     /**
      * The email address that is associated with the delegated administrator&#39;s AWS account.
      * 
      */
-    private UndeferrableValue<String> email;
-
+    @PolicyResourceProperty(name="email", flag="unknown_email")
+    private String value_email;
+    private boolean unknown_email;
     public String email() {
-        if (email == null) return null;
-        return email.getValue("DelegatedAdministrator.email");
+        if (!unknown_email) return value_email;
+        throw new UndeferrableValueException("Value 'DelegatedAdministrator.email' is not present");
     }
 
     /**
      * The method by which the delegated administrator&#39;s account joined the organization.
      * 
      */
-    private UndeferrableValue<String> joinedMethod;
-
+    @PolicyResourceProperty(name="joinedMethod", flag="unknown_joinedMethod")
+    private String value_joinedMethod;
+    private boolean unknown_joinedMethod;
     public String joinedMethod() {
-        if (joinedMethod == null) return null;
-        return joinedMethod.getValue("DelegatedAdministrator.joinedMethod");
+        if (!unknown_joinedMethod) return value_joinedMethod;
+        throw new UndeferrableValueException("Value 'DelegatedAdministrator.joinedMethod' is not present");
     }
 
     /**
      * The date when the delegated administrator&#39;s account became a part of the organization.
      * 
      */
-    private UndeferrableValue<String> joinedTimestamp;
-
+    @PolicyResourceProperty(name="joinedTimestamp", flag="unknown_joinedTimestamp")
+    private String value_joinedTimestamp;
+    private boolean unknown_joinedTimestamp;
     public String joinedTimestamp() {
-        if (joinedTimestamp == null) return null;
-        return joinedTimestamp.getValue("DelegatedAdministrator.joinedTimestamp");
+        if (!unknown_joinedTimestamp) return value_joinedTimestamp;
+        throw new UndeferrableValueException("Value 'DelegatedAdministrator.joinedTimestamp' is not present");
     }
 
     /**
      * The friendly name of the delegated administrator&#39;s account.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DelegatedAdministrator.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DelegatedAdministrator.name' is not present");
     }
 
     /**
      * The service principal of the AWS service for which you want to make the member account a delegated administrator.
      * 
      */
-    private UndeferrableValue<String> servicePrincipal;
-
+    @PolicyResourceProperty(name="servicePrincipal", flag="unknown_servicePrincipal")
+    private String value_servicePrincipal;
+    private boolean unknown_servicePrincipal;
     public String servicePrincipal() {
-        if (servicePrincipal == null) return null;
-        return servicePrincipal.getValue("DelegatedAdministrator.servicePrincipal");
+        if (!unknown_servicePrincipal) return value_servicePrincipal;
+        throw new UndeferrableValueException("Value 'DelegatedAdministrator.servicePrincipal' is not present");
     }
 
     /**
      * The status of the delegated administrator&#39;s account in the organization.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("DelegatedAdministrator.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'DelegatedAdministrator.status' is not present");
     }
 
 }

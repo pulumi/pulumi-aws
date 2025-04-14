@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.imagebuilder.outputs.ImageRecipeBlockDeviceMapping;
 import com.pulumi.policypacks.aws.imagebuilder.outputs.ImageRecipeComponent;
@@ -21,121 +22,132 @@ public final class ImageRecipe extends com.pulumi.resources.PolicyResourceOutput
      * Amazon Resource Name (ARN) of the image recipe.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ImageRecipe.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ImageRecipe.arn' is not present");
     }
 
     /**
      * Configuration block(s) with block device mappings for the image recipe. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ImageRecipeBlockDeviceMapping>> blockDeviceMappings;
-
+    @PolicyResourceProperty(name="blockDeviceMappings", flag="unknown_blockDeviceMappings")
+    private @Nullable List<ImageRecipeBlockDeviceMapping> value_blockDeviceMappings;
+    private boolean unknown_blockDeviceMappings;
     public @Nullable List<ImageRecipeBlockDeviceMapping> blockDeviceMappings() {
-        if (blockDeviceMappings == null) return null;
-        return blockDeviceMappings.getValue("ImageRecipe.blockDeviceMappings");
+        if (!unknown_blockDeviceMappings) return value_blockDeviceMappings;
+        throw new UndeferrableValueException("Value 'ImageRecipe.blockDeviceMappings' is not present");
     }
 
     /**
      * Ordered configuration block(s) with components for the image recipe. Detailed below.
      * 
      */
-    private UndeferrableValue<List<ImageRecipeComponent>> components;
-
+    @PolicyResourceProperty(name="components", flag="unknown_components")
+    private List<ImageRecipeComponent> value_components;
+    private boolean unknown_components;
     public List<ImageRecipeComponent> components() {
-        if (components == null) return null;
-        return components.getValue("ImageRecipe.components");
+        if (!unknown_components) return value_components;
+        throw new UndeferrableValueException("Value 'ImageRecipe.components' is not present");
     }
 
     /**
      * Date the image recipe was created.
      * 
      */
-    private UndeferrableValue<String> dateCreated;
-
+    @PolicyResourceProperty(name="dateCreated", flag="unknown_dateCreated")
+    private String value_dateCreated;
+    private boolean unknown_dateCreated;
     public String dateCreated() {
-        if (dateCreated == null) return null;
-        return dateCreated.getValue("ImageRecipe.dateCreated");
+        if (!unknown_dateCreated) return value_dateCreated;
+        throw new UndeferrableValueException("Value 'ImageRecipe.dateCreated' is not present");
     }
 
     /**
      * Description of the image recipe.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ImageRecipe.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ImageRecipe.description' is not present");
     }
 
     /**
      * Name of the image recipe.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ImageRecipe.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ImageRecipe.name' is not present");
     }
 
     /**
      * Owner of the image recipe.
      * 
      */
-    private UndeferrableValue<String> owner;
-
+    @PolicyResourceProperty(name="owner", flag="unknown_owner")
+    private String value_owner;
+    private boolean unknown_owner;
     public String owner() {
-        if (owner == null) return null;
-        return owner.getValue("ImageRecipe.owner");
+        if (!unknown_owner) return value_owner;
+        throw new UndeferrableValueException("Value 'ImageRecipe.owner' is not present");
     }
 
     /**
      * The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
      * 
      */
-    private UndeferrableValue<String> parentImage;
-
+    @PolicyResourceProperty(name="parentImage", flag="unknown_parentImage")
+    private String value_parentImage;
+    private boolean unknown_parentImage;
     public String parentImage() {
-        if (parentImage == null) return null;
-        return parentImage.getValue("ImageRecipe.parentImage");
+        if (!unknown_parentImage) return value_parentImage;
+        throw new UndeferrableValueException("Value 'ImageRecipe.parentImage' is not present");
     }
 
     /**
      * Platform of the image recipe.
      * 
      */
-    private UndeferrableValue<String> platform;
-
+    @PolicyResourceProperty(name="platform", flag="unknown_platform")
+    private String value_platform;
+    private boolean unknown_platform;
     public String platform() {
-        if (platform == null) return null;
-        return platform.getValue("ImageRecipe.platform");
+        if (!unknown_platform) return value_platform;
+        throw new UndeferrableValueException("Value 'ImageRecipe.platform' is not present");
     }
 
     /**
      * Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
      * 
      */
-    private UndeferrableValue<ImageRecipeSystemsManagerAgent> systemsManagerAgent;
-
+    @PolicyResourceProperty(name="systemsManagerAgent", flag="unknown_systemsManagerAgent")
+    private ImageRecipeSystemsManagerAgent value_systemsManagerAgent;
+    private boolean unknown_systemsManagerAgent;
     public ImageRecipeSystemsManagerAgent systemsManagerAgent() {
-        if (systemsManagerAgent == null) return null;
-        return systemsManagerAgent.getValue("ImageRecipe.systemsManagerAgent");
+        if (!unknown_systemsManagerAgent) return value_systemsManagerAgent;
+        throw new UndeferrableValueException("Value 'ImageRecipe.systemsManagerAgent' is not present");
     }
 
     /**
      * Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ImageRecipe.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ImageRecipe.tags' is not present");
     }
 
     /**
@@ -146,22 +158,24 @@ public final class ImageRecipe extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ImageRecipe.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ImageRecipe.tagsAll' is not present");
     }
 
     /**
      * Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
      * 
      */
-    private UndeferrableValue<String> userDataBase64;
-
+    @PolicyResourceProperty(name="userDataBase64", flag="unknown_userDataBase64")
+    private String value_userDataBase64;
+    private boolean unknown_userDataBase64;
     public String userDataBase64() {
-        if (userDataBase64 == null) return null;
-        return userDataBase64.getValue("ImageRecipe.userDataBase64");
+        if (!unknown_userDataBase64) return value_userDataBase64;
+        throw new UndeferrableValueException("Value 'ImageRecipe.userDataBase64' is not present");
     }
 
     /**
@@ -170,22 +184,24 @@ public final class ImageRecipe extends com.pulumi.resources.PolicyResourceOutput
      * The following attributes are optional:
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("ImageRecipe.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'ImageRecipe.version' is not present");
     }
 
     /**
      * The working directory to be used during build and test workflows.
      * 
      */
-    private @Nullable UndeferrableValue<String> workingDirectory;
-
+    @PolicyResourceProperty(name="workingDirectory", flag="unknown_workingDirectory")
+    private @Nullable String value_workingDirectory;
+    private boolean unknown_workingDirectory;
     public @Nullable String workingDirectory() {
-        if (workingDirectory == null) return null;
-        return workingDirectory.getValue("ImageRecipe.workingDirectory");
+        if (!unknown_workingDirectory) return value_workingDirectory;
+        throw new UndeferrableValueException("Value 'ImageRecipe.workingDirectory' is not present");
     }
 
 }

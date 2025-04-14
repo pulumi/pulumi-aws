@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ivschat.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ivschat.outputs.LoggingConfigurationDestinationConfigurationCloudwatchLogs;
 import com.pulumi.policypacks.aws.ivschat.outputs.LoggingConfigurationDestinationConfigurationFirehose;
 import com.pulumi.policypacks.aws.ivschat.outputs.LoggingConfigurationDestinationConfigurationS3;
@@ -16,33 +17,36 @@ public final class LoggingConfigurationDestinationConfiguration {
      * An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
      * 
      */
-    private @Nullable UndeferrableValue<LoggingConfigurationDestinationConfigurationCloudwatchLogs> cloudwatchLogs;
-
+    @PolicyResourceProperty(name="cloudwatchLogs", flag="unknown_cloudwatchLogs")
+    private @Nullable LoggingConfigurationDestinationConfigurationCloudwatchLogs value_cloudwatchLogs;
+    private boolean unknown_cloudwatchLogs;
     public @Nullable LoggingConfigurationDestinationConfigurationCloudwatchLogs cloudwatchLogs() {
-        if (cloudwatchLogs == null) return null;
-        return cloudwatchLogs.getValue("LoggingConfigurationDestinationConfiguration.cloudwatchLogs");
+        if (!unknown_cloudwatchLogs) return value_cloudwatchLogs;
+        throw new UndeferrableValueException("Value 'LoggingConfigurationDestinationConfiguration.cloudwatchLogs' is not present");
     }
 
     /**
      * An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
      * 
      */
-    private @Nullable UndeferrableValue<LoggingConfigurationDestinationConfigurationFirehose> firehose;
-
+    @PolicyResourceProperty(name="firehose", flag="unknown_firehose")
+    private @Nullable LoggingConfigurationDestinationConfigurationFirehose value_firehose;
+    private boolean unknown_firehose;
     public @Nullable LoggingConfigurationDestinationConfigurationFirehose firehose() {
-        if (firehose == null) return null;
-        return firehose.getValue("LoggingConfigurationDestinationConfiguration.firehose");
+        if (!unknown_firehose) return value_firehose;
+        throw new UndeferrableValueException("Value 'LoggingConfigurationDestinationConfiguration.firehose' is not present");
     }
 
     /**
      * An Amazon S3 destination configuration where chat activity will be logged.
      * 
      */
-    private @Nullable UndeferrableValue<LoggingConfigurationDestinationConfigurationS3> s3;
-
+    @PolicyResourceProperty(name="s3", flag="unknown_s3")
+    private @Nullable LoggingConfigurationDestinationConfigurationS3 value_s3;
+    private boolean unknown_s3;
     public @Nullable LoggingConfigurationDestinationConfigurationS3 s3() {
-        if (s3 == null) return null;
-        return s3.getValue("LoggingConfigurationDestinationConfiguration.s3");
+        if (!unknown_s3) return value_s3;
+        throw new UndeferrableValueException("Value 'LoggingConfigurationDestinationConfiguration.s3' is not present");
     }
 
 }

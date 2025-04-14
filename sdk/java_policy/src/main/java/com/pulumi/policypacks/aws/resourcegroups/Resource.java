@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.resourcegroups;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class Resource extends com.pulumi.resources.PolicyResourceOutput {
      * Name or ARN of the resource group to add resources to.
      * 
      */
-    private UndeferrableValue<String> groupArn;
-
+    @PolicyResourceProperty(name="groupArn", flag="unknown_groupArn")
+    private String value_groupArn;
+    private boolean unknown_groupArn;
     public String groupArn() {
-        if (groupArn == null) return null;
-        return groupArn.getValue("Resource.groupArn");
+        if (!unknown_groupArn) return value_groupArn;
+        throw new UndeferrableValueException("Value 'Resource.groupArn' is not present");
     }
 
     /**
      * ARN of the resource to be added to the group.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("Resource.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'Resource.resourceArn' is not present");
     }
 
     /**
      * The resource type of a resource, such as `AWS::EC2::Instance`.
      * 
      */
-    private UndeferrableValue<String> resourceType;
-
+    @PolicyResourceProperty(name="resourceType", flag="unknown_resourceType")
+    private String value_resourceType;
+    private boolean unknown_resourceType;
     public String resourceType() {
-        if (resourceType == null) return null;
-        return resourceType.getValue("Resource.resourceType");
+        if (!unknown_resourceType) return value_resourceType;
+        throw new UndeferrableValueException("Value 'Resource.resourceType' is not present");
     }
 
 }

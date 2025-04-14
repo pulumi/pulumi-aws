@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.computeoptimizer.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class RecommendationPreferencesUtilizationPreferenceMetricParameter
      * The headroom value in percentage used for the specified metric parameter. Valid values: `PERCENT_30`, `PERCENT_20`, `PERCENT_10`, `PERCENT_0`.
      * 
      */
-    private UndeferrableValue<String> headroom;
-
+    @PolicyResourceProperty(name="headroom", flag="unknown_headroom")
+    private String value_headroom;
+    private boolean unknown_headroom;
     public String headroom() {
-        if (headroom == null) return null;
-        return headroom.getValue("RecommendationPreferencesUtilizationPreferenceMetricParametersArgs.headroom");
+        if (!unknown_headroom) return value_headroom;
+        throw new UndeferrableValueException("Value 'RecommendationPreferencesUtilizationPreferenceMetricParametersArgs.headroom' is not present");
     }
 
     /**
      * The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
      * 
      */
-    private UndeferrableValue<String> threshold;
-
+    @PolicyResourceProperty(name="threshold", flag="unknown_threshold")
+    private String value_threshold;
+    private boolean unknown_threshold;
     public String threshold() {
-        if (threshold == null) return null;
-        return threshold.getValue("RecommendationPreferencesUtilizationPreferenceMetricParametersArgs.threshold");
+        if (!unknown_threshold) return value_threshold;
+        throw new UndeferrableValueException("Value 'RecommendationPreferencesUtilizationPreferenceMetricParametersArgs.threshold' is not present");
     }
 
 }

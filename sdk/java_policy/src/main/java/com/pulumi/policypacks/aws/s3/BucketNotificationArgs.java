@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3.inputs.BucketNotificationLambdaFunctionArgs;
 import com.pulumi.policypacks.aws.s3.inputs.BucketNotificationQueueArgs;
@@ -23,55 +24,60 @@ public final class BucketNotificationArgs extends com.pulumi.resources.PolicyRes
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("BucketNotificationArgs.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'BucketNotificationArgs.bucket' is not present");
     }
 
     /**
      * Whether to enable Amazon EventBridge notifications. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> eventbridge;
-
+    @PolicyResourceProperty(name="eventbridge", flag="unknown_eventbridge")
+    private Boolean value_eventbridge;
+    private boolean unknown_eventbridge;
     public Boolean eventbridge() {
-        if (eventbridge == null) return null;
-        return eventbridge.getValue("BucketNotificationArgs.eventbridge");
+        if (!unknown_eventbridge) return value_eventbridge;
+        throw new UndeferrableValueException("Value 'BucketNotificationArgs.eventbridge' is not present");
     }
 
     /**
      * Used to configure notifications to a Lambda Function. See below.
      * 
      */
-    private UndeferrableValue<List<BucketNotificationLambdaFunctionArgs>> lambdaFunctions;
-
+    @PolicyResourceProperty(name="lambdaFunctions", flag="unknown_lambdaFunctions")
+    private List<BucketNotificationLambdaFunctionArgs> value_lambdaFunctions;
+    private boolean unknown_lambdaFunctions;
     public List<BucketNotificationLambdaFunctionArgs> lambdaFunctions() {
-        if (lambdaFunctions == null) return null;
-        return lambdaFunctions.getValue("BucketNotificationArgs.lambdaFunctions");
+        if (!unknown_lambdaFunctions) return value_lambdaFunctions;
+        throw new UndeferrableValueException("Value 'BucketNotificationArgs.lambdaFunctions' is not present");
     }
 
     /**
      * Notification configuration to SQS Queue. See below.
      * 
      */
-    private UndeferrableValue<List<BucketNotificationQueueArgs>> queues;
-
+    @PolicyResourceProperty(name="queues", flag="unknown_queues")
+    private List<BucketNotificationQueueArgs> value_queues;
+    private boolean unknown_queues;
     public List<BucketNotificationQueueArgs> queues() {
-        if (queues == null) return null;
-        return queues.getValue("BucketNotificationArgs.queues");
+        if (!unknown_queues) return value_queues;
+        throw new UndeferrableValueException("Value 'BucketNotificationArgs.queues' is not present");
     }
 
     /**
      * Notification configuration to SNS Topic. See below.
      * 
      */
-    private UndeferrableValue<List<BucketNotificationTopicArgs>> topics;
-
+    @PolicyResourceProperty(name="topics", flag="unknown_topics")
+    private List<BucketNotificationTopicArgs> value_topics;
+    private boolean unknown_topics;
     public List<BucketNotificationTopicArgs> topics() {
-        if (topics == null) return null;
-        return topics.getValue("BucketNotificationArgs.topics");
+        if (!unknown_topics) return value_topics;
+        throw new UndeferrableValueException("Value 'BucketNotificationArgs.topics' is not present");
     }
 
 }

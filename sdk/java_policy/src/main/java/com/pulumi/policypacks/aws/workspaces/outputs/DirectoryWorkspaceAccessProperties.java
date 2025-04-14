@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.workspaces.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,88 +15,96 @@ public final class DirectoryWorkspaceAccessProperties {
      * Indicates whether users can use Android devices to access their WorkSpaces.
      * 
      */
-    private @Nullable UndeferrableValue<String> deviceTypeAndroid;
-
+    @PolicyResourceProperty(name="deviceTypeAndroid", flag="unknown_deviceTypeAndroid")
+    private @Nullable String value_deviceTypeAndroid;
+    private boolean unknown_deviceTypeAndroid;
     public @Nullable String deviceTypeAndroid() {
-        if (deviceTypeAndroid == null) return null;
-        return deviceTypeAndroid.getValue("DirectoryWorkspaceAccessProperties.deviceTypeAndroid");
+        if (!unknown_deviceTypeAndroid) return value_deviceTypeAndroid;
+        throw new UndeferrableValueException("Value 'DirectoryWorkspaceAccessProperties.deviceTypeAndroid' is not present");
     }
 
     /**
      * Indicates whether users can use Chromebooks to access their WorkSpaces.
      * 
      */
-    private @Nullable UndeferrableValue<String> deviceTypeChromeos;
-
+    @PolicyResourceProperty(name="deviceTypeChromeos", flag="unknown_deviceTypeChromeos")
+    private @Nullable String value_deviceTypeChromeos;
+    private boolean unknown_deviceTypeChromeos;
     public @Nullable String deviceTypeChromeos() {
-        if (deviceTypeChromeos == null) return null;
-        return deviceTypeChromeos.getValue("DirectoryWorkspaceAccessProperties.deviceTypeChromeos");
+        if (!unknown_deviceTypeChromeos) return value_deviceTypeChromeos;
+        throw new UndeferrableValueException("Value 'DirectoryWorkspaceAccessProperties.deviceTypeChromeos' is not present");
     }
 
     /**
      * Indicates whether users can use iOS devices to access their WorkSpaces.
      * 
      */
-    private @Nullable UndeferrableValue<String> deviceTypeIos;
-
+    @PolicyResourceProperty(name="deviceTypeIos", flag="unknown_deviceTypeIos")
+    private @Nullable String value_deviceTypeIos;
+    private boolean unknown_deviceTypeIos;
     public @Nullable String deviceTypeIos() {
-        if (deviceTypeIos == null) return null;
-        return deviceTypeIos.getValue("DirectoryWorkspaceAccessProperties.deviceTypeIos");
+        if (!unknown_deviceTypeIos) return value_deviceTypeIos;
+        throw new UndeferrableValueException("Value 'DirectoryWorkspaceAccessProperties.deviceTypeIos' is not present");
     }
 
     /**
      * Indicates whether users can use Linux clients to access their WorkSpaces.
      * 
      */
-    private @Nullable UndeferrableValue<String> deviceTypeLinux;
-
+    @PolicyResourceProperty(name="deviceTypeLinux", flag="unknown_deviceTypeLinux")
+    private @Nullable String value_deviceTypeLinux;
+    private boolean unknown_deviceTypeLinux;
     public @Nullable String deviceTypeLinux() {
-        if (deviceTypeLinux == null) return null;
-        return deviceTypeLinux.getValue("DirectoryWorkspaceAccessProperties.deviceTypeLinux");
+        if (!unknown_deviceTypeLinux) return value_deviceTypeLinux;
+        throw new UndeferrableValueException("Value 'DirectoryWorkspaceAccessProperties.deviceTypeLinux' is not present");
     }
 
     /**
      * Indicates whether users can use macOS clients to access their WorkSpaces.
      * 
      */
-    private @Nullable UndeferrableValue<String> deviceTypeOsx;
-
+    @PolicyResourceProperty(name="deviceTypeOsx", flag="unknown_deviceTypeOsx")
+    private @Nullable String value_deviceTypeOsx;
+    private boolean unknown_deviceTypeOsx;
     public @Nullable String deviceTypeOsx() {
-        if (deviceTypeOsx == null) return null;
-        return deviceTypeOsx.getValue("DirectoryWorkspaceAccessProperties.deviceTypeOsx");
+        if (!unknown_deviceTypeOsx) return value_deviceTypeOsx;
+        throw new UndeferrableValueException("Value 'DirectoryWorkspaceAccessProperties.deviceTypeOsx' is not present");
     }
 
     /**
      * Indicates whether users can access their WorkSpaces through a web browser.
      * 
      */
-    private @Nullable UndeferrableValue<String> deviceTypeWeb;
-
+    @PolicyResourceProperty(name="deviceTypeWeb", flag="unknown_deviceTypeWeb")
+    private @Nullable String value_deviceTypeWeb;
+    private boolean unknown_deviceTypeWeb;
     public @Nullable String deviceTypeWeb() {
-        if (deviceTypeWeb == null) return null;
-        return deviceTypeWeb.getValue("DirectoryWorkspaceAccessProperties.deviceTypeWeb");
+        if (!unknown_deviceTypeWeb) return value_deviceTypeWeb;
+        throw new UndeferrableValueException("Value 'DirectoryWorkspaceAccessProperties.deviceTypeWeb' is not present");
     }
 
     /**
      * Indicates whether users can use Windows clients to access their WorkSpaces.
      * 
      */
-    private @Nullable UndeferrableValue<String> deviceTypeWindows;
-
+    @PolicyResourceProperty(name="deviceTypeWindows", flag="unknown_deviceTypeWindows")
+    private @Nullable String value_deviceTypeWindows;
+    private boolean unknown_deviceTypeWindows;
     public @Nullable String deviceTypeWindows() {
-        if (deviceTypeWindows == null) return null;
-        return deviceTypeWindows.getValue("DirectoryWorkspaceAccessProperties.deviceTypeWindows");
+        if (!unknown_deviceTypeWindows) return value_deviceTypeWindows;
+        throw new UndeferrableValueException("Value 'DirectoryWorkspaceAccessProperties.deviceTypeWindows' is not present");
     }
 
     /**
      * Indicates whether users can use zero client devices to access their WorkSpaces.
      * 
      */
-    private @Nullable UndeferrableValue<String> deviceTypeZeroclient;
-
+    @PolicyResourceProperty(name="deviceTypeZeroclient", flag="unknown_deviceTypeZeroclient")
+    private @Nullable String value_deviceTypeZeroclient;
+    private boolean unknown_deviceTypeZeroclient;
     public @Nullable String deviceTypeZeroclient() {
-        if (deviceTypeZeroclient == null) return null;
-        return deviceTypeZeroclient.getValue("DirectoryWorkspaceAccessProperties.deviceTypeZeroclient");
+        if (!unknown_deviceTypeZeroclient) return value_deviceTypeZeroclient;
+        throw new UndeferrableValueException("Value 'DirectoryWorkspaceAccessProperties.deviceTypeZeroclient' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class PipelineVariable {
      * The default value of a pipeline-level variable.
      * 
      */
-    private @Nullable UndeferrableValue<String> defaultValue;
-
+    @PolicyResourceProperty(name="defaultValue", flag="unknown_defaultValue")
+    private @Nullable String value_defaultValue;
+    private boolean unknown_defaultValue;
     public @Nullable String defaultValue() {
-        if (defaultValue == null) return null;
-        return defaultValue.getValue("PipelineVariable.defaultValue");
+        if (!unknown_defaultValue) return value_defaultValue;
+        throw new UndeferrableValueException("Value 'PipelineVariable.defaultValue' is not present");
     }
 
     /**
      * The description of a pipeline-level variable.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("PipelineVariable.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'PipelineVariable.description' is not present");
     }
 
     /**
      * The name of a pipeline-level variable.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PipelineVariable.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PipelineVariable.name' is not present");
     }
 
 }

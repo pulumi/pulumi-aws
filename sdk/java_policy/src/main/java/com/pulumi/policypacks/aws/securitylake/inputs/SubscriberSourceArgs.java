@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securitylake.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.securitylake.inputs.SubscriberSourceAwsLogSourceResourceArgs;
 import com.pulumi.policypacks.aws.securitylake.inputs.SubscriberSourceCustomLogSourceResourceArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class SubscriberSourceArgs {
      * Amazon Security Lake supports log and event collection for natively supported AWS services. See `aws_log_source_resource` Block below.
      * 
      */
-    private UndeferrableValue<SubscriberSourceAwsLogSourceResourceArgs> awsLogSourceResource;
-
+    @PolicyResourceProperty(name="awsLogSourceResource", flag="unknown_awsLogSourceResource")
+    private SubscriberSourceAwsLogSourceResourceArgs value_awsLogSourceResource;
+    private boolean unknown_awsLogSourceResource;
     public SubscriberSourceAwsLogSourceResourceArgs awsLogSourceResource() {
-        if (awsLogSourceResource == null) return null;
-        return awsLogSourceResource.getValue("SubscriberSourceArgs.awsLogSourceResource");
+        if (!unknown_awsLogSourceResource) return value_awsLogSourceResource;
+        throw new UndeferrableValueException("Value 'SubscriberSourceArgs.awsLogSourceResource' is not present");
     }
 
     /**
      * Amazon Security Lake supports custom source types. See `custom_log_source_resource` Block below.
      * 
      */
-    private UndeferrableValue<SubscriberSourceCustomLogSourceResourceArgs> customLogSourceResource;
-
+    @PolicyResourceProperty(name="customLogSourceResource", flag="unknown_customLogSourceResource")
+    private SubscriberSourceCustomLogSourceResourceArgs value_customLogSourceResource;
+    private boolean unknown_customLogSourceResource;
     public SubscriberSourceCustomLogSourceResourceArgs customLogSourceResource() {
-        if (customLogSourceResource == null) return null;
-        return customLogSourceResource.getValue("SubscriberSourceArgs.customLogSourceResource");
+        if (!unknown_customLogSourceResource) return value_customLogSourceResource;
+        throw new UndeferrableValueException("Value 'SubscriberSourceArgs.customLogSourceResource' is not present");
     }
 
 }

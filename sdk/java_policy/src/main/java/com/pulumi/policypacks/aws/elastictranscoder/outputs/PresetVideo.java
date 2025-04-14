@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elastictranscoder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,143 +15,156 @@ public final class PresetVideo {
      * The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `max_width`, `max_height`, `sizing_policy`, `padding_policy`, and `display_aspect_ratio` instead of `resolution` and `aspect_ratio`.)
      * 
      */
-    private @Nullable UndeferrableValue<String> aspectRatio;
-
+    @PolicyResourceProperty(name="aspectRatio", flag="unknown_aspectRatio")
+    private @Nullable String value_aspectRatio;
+    private boolean unknown_aspectRatio;
     public @Nullable String aspectRatio() {
-        if (aspectRatio == null) return null;
-        return aspectRatio.getValue("PresetVideo.aspectRatio");
+        if (!unknown_aspectRatio) return value_aspectRatio;
+        throw new UndeferrableValueException("Value 'PresetVideo.aspectRatio' is not present");
     }
 
     /**
      * The bit rate of the video stream in the output file, in kilobits/second. You can configure variable bit rate or constant bit rate encoding.
      * 
      */
-    private @Nullable UndeferrableValue<String> bitRate;
-
+    @PolicyResourceProperty(name="bitRate", flag="unknown_bitRate")
+    private @Nullable String value_bitRate;
+    private boolean unknown_bitRate;
     public @Nullable String bitRate() {
-        if (bitRate == null) return null;
-        return bitRate.getValue("PresetVideo.bitRate");
+        if (!unknown_bitRate) return value_bitRate;
+        throw new UndeferrableValueException("Value 'PresetVideo.bitRate' is not present");
     }
 
     /**
      * The video codec for the output file. Valid values are `gif`, `H.264`, `mpeg2`, `vp8`, and `vp9`.
      * 
      */
-    private @Nullable UndeferrableValue<String> codec;
-
+    @PolicyResourceProperty(name="codec", flag="unknown_codec")
+    private @Nullable String value_codec;
+    private boolean unknown_codec;
     public @Nullable String codec() {
-        if (codec == null) return null;
-        return codec.getValue("PresetVideo.codec");
+        if (!unknown_codec) return value_codec;
+        throw new UndeferrableValueException("Value 'PresetVideo.codec' is not present");
     }
 
     /**
      * The value that Elastic Transcoder adds to the metadata in the output file. If you set DisplayAspectRatio to auto, Elastic Transcoder chooses an aspect ratio that ensures square pixels. If you specify another option, Elastic Transcoder sets that value in the output file.
      * 
      */
-    private @Nullable UndeferrableValue<String> displayAspectRatio;
-
+    @PolicyResourceProperty(name="displayAspectRatio", flag="unknown_displayAspectRatio")
+    private @Nullable String value_displayAspectRatio;
+    private boolean unknown_displayAspectRatio;
     public @Nullable String displayAspectRatio() {
-        if (displayAspectRatio == null) return null;
-        return displayAspectRatio.getValue("PresetVideo.displayAspectRatio");
+        if (!unknown_displayAspectRatio) return value_displayAspectRatio;
+        throw new UndeferrableValueException("Value 'PresetVideo.displayAspectRatio' is not present");
     }
 
     /**
      * Whether to use a fixed value for Video:FixedGOP. Not applicable for containers of type gif. Valid values are true and false. Also known as, Fixed Number of Frames Between Keyframes.
      * 
      */
-    private @Nullable UndeferrableValue<String> fixedGop;
-
+    @PolicyResourceProperty(name="fixedGop", flag="unknown_fixedGop")
+    private @Nullable String value_fixedGop;
+    private boolean unknown_fixedGop;
     public @Nullable String fixedGop() {
-        if (fixedGop == null) return null;
-        return fixedGop.getValue("PresetVideo.fixedGop");
+        if (!unknown_fixedGop) return value_fixedGop;
+        throw new UndeferrableValueException("Value 'PresetVideo.fixedGop' is not present");
     }
 
     /**
      * The frames per second for the video stream in the output file. The following values are valid: `auto`, `10`, `15`, `23.97`, `24`, `25`, `29.97`, `30`, `50`, `60`.
      * 
      */
-    private @Nullable UndeferrableValue<String> frameRate;
-
+    @PolicyResourceProperty(name="frameRate", flag="unknown_frameRate")
+    private @Nullable String value_frameRate;
+    private boolean unknown_frameRate;
     public @Nullable String frameRate() {
-        if (frameRate == null) return null;
-        return frameRate.getValue("PresetVideo.frameRate");
+        if (!unknown_frameRate) return value_frameRate;
+        throw new UndeferrableValueException("Value 'PresetVideo.frameRate' is not present");
     }
 
     /**
      * The maximum number of frames between key frames. Not applicable for containers of type gif.
      * 
      */
-    private @Nullable UndeferrableValue<String> keyframesMaxDist;
-
+    @PolicyResourceProperty(name="keyframesMaxDist", flag="unknown_keyframesMaxDist")
+    private @Nullable String value_keyframesMaxDist;
+    private boolean unknown_keyframesMaxDist;
     public @Nullable String keyframesMaxDist() {
-        if (keyframesMaxDist == null) return null;
-        return keyframesMaxDist.getValue("PresetVideo.keyframesMaxDist");
+        if (!unknown_keyframesMaxDist) return value_keyframesMaxDist;
+        throw new UndeferrableValueException("Value 'PresetVideo.keyframesMaxDist' is not present");
     }
 
     /**
      * If you specify auto for FrameRate, Elastic Transcoder uses the frame rate of the input video for the frame rate of the output video, up to the maximum frame rate. If you do not specify a MaxFrameRate, Elastic Transcoder will use a default of 30.
      * 
      */
-    private @Nullable UndeferrableValue<String> maxFrameRate;
-
+    @PolicyResourceProperty(name="maxFrameRate", flag="unknown_maxFrameRate")
+    private @Nullable String value_maxFrameRate;
+    private boolean unknown_maxFrameRate;
     public @Nullable String maxFrameRate() {
-        if (maxFrameRate == null) return null;
-        return maxFrameRate.getValue("PresetVideo.maxFrameRate");
+        if (!unknown_maxFrameRate) return value_maxFrameRate;
+        throw new UndeferrableValueException("Value 'PresetVideo.maxFrameRate' is not present");
     }
 
     /**
      * The maximum height of the output video in pixels. If you specify auto, Elastic Transcoder uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 96 and 3072, inclusive.
      * 
      */
-    private @Nullable UndeferrableValue<String> maxHeight;
-
+    @PolicyResourceProperty(name="maxHeight", flag="unknown_maxHeight")
+    private @Nullable String value_maxHeight;
+    private boolean unknown_maxHeight;
     public @Nullable String maxHeight() {
-        if (maxHeight == null) return null;
-        return maxHeight.getValue("PresetVideo.maxHeight");
+        if (!unknown_maxHeight) return value_maxHeight;
+        throw new UndeferrableValueException("Value 'PresetVideo.maxHeight' is not present");
     }
 
     /**
      * The maximum width of the output video in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even integer between 128 and 4096, inclusive.
      * 
      */
-    private @Nullable UndeferrableValue<String> maxWidth;
-
+    @PolicyResourceProperty(name="maxWidth", flag="unknown_maxWidth")
+    private @Nullable String value_maxWidth;
+    private boolean unknown_maxWidth;
     public @Nullable String maxWidth() {
-        if (maxWidth == null) return null;
-        return maxWidth.getValue("PresetVideo.maxWidth");
+        if (!unknown_maxWidth) return value_maxWidth;
+        throw new UndeferrableValueException("Value 'PresetVideo.maxWidth' is not present");
     }
 
     /**
      * When you set PaddingPolicy to Pad, Elastic Transcoder might add black bars to the top and bottom and/or left and right sides of the output video to make the total size of the output video match the values that you specified for `max_width` and `max_height`.
      * 
      */
-    private @Nullable UndeferrableValue<String> paddingPolicy;
-
+    @PolicyResourceProperty(name="paddingPolicy", flag="unknown_paddingPolicy")
+    private @Nullable String value_paddingPolicy;
+    private boolean unknown_paddingPolicy;
     public @Nullable String paddingPolicy() {
-        if (paddingPolicy == null) return null;
-        return paddingPolicy.getValue("PresetVideo.paddingPolicy");
+        if (!unknown_paddingPolicy) return value_paddingPolicy;
+        throw new UndeferrableValueException("Value 'PresetVideo.paddingPolicy' is not present");
     }
 
     /**
      * The width and height of the video in the output file, in pixels. Valid values are `auto` and `widthxheight`. (see note for `aspect_ratio`)
      * 
      */
-    private @Nullable UndeferrableValue<String> resolution;
-
+    @PolicyResourceProperty(name="resolution", flag="unknown_resolution")
+    private @Nullable String value_resolution;
+    private boolean unknown_resolution;
     public @Nullable String resolution() {
-        if (resolution == null) return null;
-        return resolution.getValue("PresetVideo.resolution");
+        if (!unknown_resolution) return value_resolution;
+        throw new UndeferrableValueException("Value 'PresetVideo.resolution' is not present");
     }
 
     /**
      * A value that controls scaling of the output video. Valid values are: `Fit`, `Fill`, `Stretch`, `Keep`, `ShrinkToFit`, `ShrinkToFill`.
      * 
      */
-    private @Nullable UndeferrableValue<String> sizingPolicy;
-
+    @PolicyResourceProperty(name="sizingPolicy", flag="unknown_sizingPolicy")
+    private @Nullable String value_sizingPolicy;
+    private boolean unknown_sizingPolicy;
     public @Nullable String sizingPolicy() {
-        if (sizingPolicy == null) return null;
-        return sizingPolicy.getValue("PresetVideo.sizingPolicy");
+        if (!unknown_sizingPolicy) return value_sizingPolicy;
+        throw new UndeferrableValueException("Value 'PresetVideo.sizingPolicy' is not present");
     }
 
 }

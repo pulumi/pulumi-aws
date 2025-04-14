@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codedeploy.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -16,11 +17,12 @@ public final class DeploymentGroupAutoRollbackConfigurationArgs {
      * Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("DeploymentGroupAutoRollbackConfigurationArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'DeploymentGroupAutoRollbackConfigurationArgs.enabled' is not present");
     }
 
     /**
@@ -29,11 +31,12 @@ public final class DeploymentGroupAutoRollbackConfigurationArgs {
      * _Only one `auto_rollback_configuration` is allowed_.
      * 
      */
-    private UndeferrableValue<List<String>> events;
-
+    @PolicyResourceProperty(name="events", flag="unknown_events")
+    private List<String> value_events;
+    private boolean unknown_events;
     public List<String> events() {
-        if (events == null) return null;
-        return events.getValue("DeploymentGroupAutoRollbackConfigurationArgs.events");
+        if (!unknown_events) return value_events;
+        throw new UndeferrableValueException("Value 'DeploymentGroupAutoRollbackConfigurationArgs.events' is not present");
     }
 
 }

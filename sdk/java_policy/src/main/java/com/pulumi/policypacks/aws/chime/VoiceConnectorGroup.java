@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chime;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.chime.outputs.VoiceConnectorGroupConnector;
 import java.lang.String;
@@ -18,22 +19,24 @@ public final class VoiceConnectorGroup extends com.pulumi.resources.PolicyResour
      * The Amazon Chime Voice Connectors to route inbound calls to.
      * 
      */
-    private @Nullable UndeferrableValue<List<VoiceConnectorGroupConnector>> connectors;
-
+    @PolicyResourceProperty(name="connectors", flag="unknown_connectors")
+    private @Nullable List<VoiceConnectorGroupConnector> value_connectors;
+    private boolean unknown_connectors;
     public @Nullable List<VoiceConnectorGroupConnector> connectors() {
-        if (connectors == null) return null;
-        return connectors.getValue("VoiceConnectorGroup.connectors");
+        if (!unknown_connectors) return value_connectors;
+        throw new UndeferrableValueException("Value 'VoiceConnectorGroup.connectors' is not present");
     }
 
     /**
      * The name of the Amazon Chime Voice Connector group.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("VoiceConnectorGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'VoiceConnectorGroup.name' is not present");
     }
 
 }

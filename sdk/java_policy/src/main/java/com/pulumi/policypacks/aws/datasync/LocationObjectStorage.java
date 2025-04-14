@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -19,121 +20,132 @@ public final class LocationObjectStorage extends com.pulumi.resources.PolicyReso
      * The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
      * 
      */
-    private @Nullable UndeferrableValue<String> accessKey;
-
+    @PolicyResourceProperty(name="accessKey", flag="unknown_accessKey")
+    private @Nullable String value_accessKey;
+    private boolean unknown_accessKey;
     public @Nullable String accessKey() {
-        if (accessKey == null) return null;
-        return accessKey.getValue("LocationObjectStorage.accessKey");
+        if (!unknown_accessKey) return value_accessKey;
+        throw new UndeferrableValueException("Value 'LocationObjectStorage.accessKey' is not present");
     }
 
     /**
      * A list of DataSync Agent ARNs with which this location will be associated.
      * 
      */
-    private UndeferrableValue<List<String>> agentArns;
-
+    @PolicyResourceProperty(name="agentArns", flag="unknown_agentArns")
+    private List<String> value_agentArns;
+    private boolean unknown_agentArns;
     public List<String> agentArns() {
-        if (agentArns == null) return null;
-        return agentArns.getValue("LocationObjectStorage.agentArns");
+        if (!unknown_agentArns) return value_agentArns;
+        throw new UndeferrableValueException("Value 'LocationObjectStorage.agentArns' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("LocationObjectStorage.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'LocationObjectStorage.arn' is not present");
     }
 
     /**
      * The bucket on the self-managed object storage server that is used to read data from.
      * 
      */
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("LocationObjectStorage.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'LocationObjectStorage.bucketName' is not present");
     }
 
     /**
      * The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
      * 
      */
-    private @Nullable UndeferrableValue<String> secretKey;
-
+    @PolicyResourceProperty(name="secretKey", flag="unknown_secretKey")
+    private @Nullable String value_secretKey;
+    private boolean unknown_secretKey;
     public @Nullable String secretKey() {
-        if (secretKey == null) return null;
-        return secretKey.getValue("LocationObjectStorage.secretKey");
+        if (!unknown_secretKey) return value_secretKey;
+        throw new UndeferrableValueException("Value 'LocationObjectStorage.secretKey' is not present");
     }
 
     /**
      * Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
      * 
      */
-    private @Nullable UndeferrableValue<String> serverCertificate;
-
+    @PolicyResourceProperty(name="serverCertificate", flag="unknown_serverCertificate")
+    private @Nullable String value_serverCertificate;
+    private boolean unknown_serverCertificate;
     public @Nullable String serverCertificate() {
-        if (serverCertificate == null) return null;
-        return serverCertificate.getValue("LocationObjectStorage.serverCertificate");
+        if (!unknown_serverCertificate) return value_serverCertificate;
+        throw new UndeferrableValueException("Value 'LocationObjectStorage.serverCertificate' is not present");
     }
 
     /**
      * The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
      * 
      */
-    private UndeferrableValue<String> serverHostname;
-
+    @PolicyResourceProperty(name="serverHostname", flag="unknown_serverHostname")
+    private String value_serverHostname;
+    private boolean unknown_serverHostname;
     public String serverHostname() {
-        if (serverHostname == null) return null;
-        return serverHostname.getValue("LocationObjectStorage.serverHostname");
+        if (!unknown_serverHostname) return value_serverHostname;
+        throw new UndeferrableValueException("Value 'LocationObjectStorage.serverHostname' is not present");
     }
 
     /**
      * The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (`HTTP`) or TCP 443 (`HTTPS`). You can specify a custom port if your self-managed object storage server requires one.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> serverPort;
-
+    @PolicyResourceProperty(name="serverPort", flag="unknown_serverPort")
+    private @Nullable Integer value_serverPort;
+    private boolean unknown_serverPort;
     public @Nullable Integer serverPort() {
-        if (serverPort == null) return null;
-        return serverPort.getValue("LocationObjectStorage.serverPort");
+        if (!unknown_serverPort) return value_serverPort;
+        throw new UndeferrableValueException("Value 'LocationObjectStorage.serverPort' is not present");
     }
 
     /**
      * The protocol that the object storage server uses to communicate. Valid values are `HTTP` or `HTTPS`.
      * 
      */
-    private @Nullable UndeferrableValue<String> serverProtocol;
-
+    @PolicyResourceProperty(name="serverProtocol", flag="unknown_serverProtocol")
+    private @Nullable String value_serverProtocol;
+    private boolean unknown_serverProtocol;
     public @Nullable String serverProtocol() {
-        if (serverProtocol == null) return null;
-        return serverProtocol.getValue("LocationObjectStorage.serverProtocol");
+        if (!unknown_serverProtocol) return value_serverProtocol;
+        throw new UndeferrableValueException("Value 'LocationObjectStorage.serverProtocol' is not present");
     }
 
     /**
      * A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn&#39;t specified, it will default to /.
      * 
      */
-    private UndeferrableValue<String> subdirectory;
-
+    @PolicyResourceProperty(name="subdirectory", flag="unknown_subdirectory")
+    private String value_subdirectory;
+    private boolean unknown_subdirectory;
     public String subdirectory() {
-        if (subdirectory == null) return null;
-        return subdirectory.getValue("LocationObjectStorage.subdirectory");
+        if (!unknown_subdirectory) return value_subdirectory;
+        throw new UndeferrableValueException("Value 'LocationObjectStorage.subdirectory' is not present");
     }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LocationObjectStorage.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LocationObjectStorage.tags' is not present");
     }
 
     /**
@@ -144,22 +156,24 @@ public final class LocationObjectStorage extends com.pulumi.resources.PolicyReso
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("LocationObjectStorage.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'LocationObjectStorage.tagsAll' is not present");
     }
 
     /**
      * The URL of the Object Storage location that was described.
      * 
      */
-    private UndeferrableValue<String> uri;
-
+    @PolicyResourceProperty(name="uri", flag="unknown_uri")
+    private String value_uri;
+    private boolean unknown_uri;
     public String uri() {
-        if (uri == null) return null;
-        return uri.getValue("LocationObjectStorage.uri");
+        if (!unknown_uri) return value_uri;
+        throw new UndeferrableValueException("Value 'LocationObjectStorage.uri' is not present");
     }
 
 }

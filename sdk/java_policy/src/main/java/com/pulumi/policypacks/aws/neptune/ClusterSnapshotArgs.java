@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.neptune;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class ClusterSnapshotArgs extends com.pulumi.resources.PolicyResour
      * The DB Cluster Identifier from which to take the snapshot.
      * 
      */
-    private UndeferrableValue<String> dbClusterIdentifier;
-
+    @PolicyResourceProperty(name="dbClusterIdentifier", flag="unknown_dbClusterIdentifier")
+    private String value_dbClusterIdentifier;
+    private boolean unknown_dbClusterIdentifier;
     public String dbClusterIdentifier() {
-        if (dbClusterIdentifier == null) return null;
-        return dbClusterIdentifier.getValue("ClusterSnapshotArgs.dbClusterIdentifier");
+        if (!unknown_dbClusterIdentifier) return value_dbClusterIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotArgs.dbClusterIdentifier' is not present");
     }
 
     /**
      * The Identifier for the snapshot.
      * 
      */
-    private UndeferrableValue<String> dbClusterSnapshotIdentifier;
-
+    @PolicyResourceProperty(name="dbClusterSnapshotIdentifier", flag="unknown_dbClusterSnapshotIdentifier")
+    private String value_dbClusterSnapshotIdentifier;
+    private boolean unknown_dbClusterSnapshotIdentifier;
     public String dbClusterSnapshotIdentifier() {
-        if (dbClusterSnapshotIdentifier == null) return null;
-        return dbClusterSnapshotIdentifier.getValue("ClusterSnapshotArgs.dbClusterSnapshotIdentifier");
+        if (!unknown_dbClusterSnapshotIdentifier) return value_dbClusterSnapshotIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotArgs.dbClusterSnapshotIdentifier' is not present");
     }
 
 }

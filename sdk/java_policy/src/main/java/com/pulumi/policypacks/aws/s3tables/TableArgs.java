@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3tables;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3tables.inputs.TableMaintenanceConfigurationArgs;
 import java.lang.String;
@@ -18,11 +19,12 @@ public final class TableArgs extends com.pulumi.resources.PolicyResourceInput {
      * Must be `ICEBERG`.
      * 
      */
-    private UndeferrableValue<String> format;
-
+    @PolicyResourceProperty(name="format", flag="unknown_format")
+    private String value_format;
+    private boolean unknown_format;
     public String format() {
-        if (format == null) return null;
-        return format.getValue("TableArgs.format");
+        if (!unknown_format) return value_format;
+        throw new UndeferrableValueException("Value 'TableArgs.format' is not present");
     }
 
     /**
@@ -30,11 +32,12 @@ public final class TableArgs extends com.pulumi.resources.PolicyResourceInput {
      * See `maintenance_configuration` below.
      * 
      */
-    private UndeferrableValue<TableMaintenanceConfigurationArgs> maintenanceConfiguration;
-
+    @PolicyResourceProperty(name="maintenanceConfiguration", flag="unknown_maintenanceConfiguration")
+    private TableMaintenanceConfigurationArgs value_maintenanceConfiguration;
+    private boolean unknown_maintenanceConfiguration;
     public TableMaintenanceConfigurationArgs maintenanceConfiguration() {
-        if (maintenanceConfiguration == null) return null;
-        return maintenanceConfiguration.getValue("TableArgs.maintenanceConfiguration");
+        if (!unknown_maintenanceConfiguration) return value_maintenanceConfiguration;
+        throw new UndeferrableValueException("Value 'TableArgs.maintenanceConfiguration' is not present");
     }
 
     /**
@@ -44,11 +47,12 @@ public final class TableArgs extends com.pulumi.resources.PolicyResourceInput {
      * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TableArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TableArgs.name' is not present");
     }
 
     /**
@@ -57,11 +61,12 @@ public final class TableArgs extends com.pulumi.resources.PolicyResourceInput {
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      * 
      */
-    private UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private String value_namespace;
+    private boolean unknown_namespace;
     public String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("TableArgs.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'TableArgs.namespace' is not present");
     }
 
     /**
@@ -70,11 +75,12 @@ public final class TableArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following argument is optional:
      * 
      */
-    private UndeferrableValue<String> tableBucketArn;
-
+    @PolicyResourceProperty(name="tableBucketArn", flag="unknown_tableBucketArn")
+    private String value_tableBucketArn;
+    private boolean unknown_tableBucketArn;
     public String tableBucketArn() {
-        if (tableBucketArn == null) return null;
-        return tableBucketArn.getValue("TableArgs.tableBucketArn");
+        if (!unknown_tableBucketArn) return value_tableBucketArn;
+        throw new UndeferrableValueException("Value 'TableArgs.tableBucketArn' is not present");
     }
 
 }

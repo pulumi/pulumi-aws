@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,55 +16,60 @@ public final class DefaultNetworkAclEgress {
      * The action to take.
      * 
      */
-    private UndeferrableValue<String> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private String value_action;
+    private boolean unknown_action;
     public String action() {
-        if (action == null) return null;
-        return action.getValue("DefaultNetworkAclEgress.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'DefaultNetworkAclEgress.action' is not present");
     }
 
     /**
      * The CIDR block to match. This must be a valid network mask.
      * 
      */
-    private @Nullable UndeferrableValue<String> cidrBlock;
-
+    @PolicyResourceProperty(name="cidrBlock", flag="unknown_cidrBlock")
+    private @Nullable String value_cidrBlock;
+    private boolean unknown_cidrBlock;
     public @Nullable String cidrBlock() {
-        if (cidrBlock == null) return null;
-        return cidrBlock.getValue("DefaultNetworkAclEgress.cidrBlock");
+        if (!unknown_cidrBlock) return value_cidrBlock;
+        throw new UndeferrableValueException("Value 'DefaultNetworkAclEgress.cidrBlock' is not present");
     }
 
     /**
      * The from port to match.
      * 
      */
-    private UndeferrableValue<Integer> fromPort;
-
+    @PolicyResourceProperty(name="fromPort", flag="unknown_fromPort")
+    private Integer value_fromPort;
+    private boolean unknown_fromPort;
     public Integer fromPort() {
-        if (fromPort == null) return null;
-        return fromPort.getValue("DefaultNetworkAclEgress.fromPort");
+        if (!unknown_fromPort) return value_fromPort;
+        throw new UndeferrableValueException("Value 'DefaultNetworkAclEgress.fromPort' is not present");
     }
 
     /**
      * The ICMP type code to be used. Default 0.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> icmpCode;
-
+    @PolicyResourceProperty(name="icmpCode", flag="unknown_icmpCode")
+    private @Nullable Integer value_icmpCode;
+    private boolean unknown_icmpCode;
     public @Nullable Integer icmpCode() {
-        if (icmpCode == null) return null;
-        return icmpCode.getValue("DefaultNetworkAclEgress.icmpCode");
+        if (!unknown_icmpCode) return value_icmpCode;
+        throw new UndeferrableValueException("Value 'DefaultNetworkAclEgress.icmpCode' is not present");
     }
 
     /**
      * The ICMP type to be used. Default 0.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> icmpType;
-
+    @PolicyResourceProperty(name="icmpType", flag="unknown_icmpType")
+    private @Nullable Integer value_icmpType;
+    private boolean unknown_icmpType;
     public @Nullable Integer icmpType() {
-        if (icmpType == null) return null;
-        return icmpType.getValue("DefaultNetworkAclEgress.icmpType");
+        if (!unknown_icmpType) return value_icmpType;
+        throw new UndeferrableValueException("Value 'DefaultNetworkAclEgress.icmpType' is not present");
     }
 
     /**
@@ -72,33 +78,36 @@ public final class DefaultNetworkAclEgress {
      * &gt; For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
      * 
      */
-    private @Nullable UndeferrableValue<String> ipv6CidrBlock;
-
+    @PolicyResourceProperty(name="ipv6CidrBlock", flag="unknown_ipv6CidrBlock")
+    private @Nullable String value_ipv6CidrBlock;
+    private boolean unknown_ipv6CidrBlock;
     public @Nullable String ipv6CidrBlock() {
-        if (ipv6CidrBlock == null) return null;
-        return ipv6CidrBlock.getValue("DefaultNetworkAclEgress.ipv6CidrBlock");
+        if (!unknown_ipv6CidrBlock) return value_ipv6CidrBlock;
+        throw new UndeferrableValueException("Value 'DefaultNetworkAclEgress.ipv6CidrBlock' is not present");
     }
 
     /**
      * The protocol to match. If using the -1 &#39;all&#39; protocol, you must specify a from and to port of 0.
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("DefaultNetworkAclEgress.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'DefaultNetworkAclEgress.protocol' is not present");
     }
 
     /**
      * The rule number. Used for ordering.
      * 
      */
-    private UndeferrableValue<Integer> ruleNo;
-
+    @PolicyResourceProperty(name="ruleNo", flag="unknown_ruleNo")
+    private Integer value_ruleNo;
+    private boolean unknown_ruleNo;
     public Integer ruleNo() {
-        if (ruleNo == null) return null;
-        return ruleNo.getValue("DefaultNetworkAclEgress.ruleNo");
+        if (!unknown_ruleNo) return value_ruleNo;
+        throw new UndeferrableValueException("Value 'DefaultNetworkAclEgress.ruleNo' is not present");
     }
 
     /**
@@ -107,11 +116,12 @@ public final class DefaultNetworkAclEgress {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<Integer> toPort;
-
+    @PolicyResourceProperty(name="toPort", flag="unknown_toPort")
+    private Integer value_toPort;
+    private boolean unknown_toPort;
     public Integer toPort() {
-        if (toPort == null) return null;
-        return toPort.getValue("DefaultNetworkAclEgress.toPort");
+        if (!unknown_toPort) return value_toPort;
+        throw new UndeferrableValueException("Value 'DefaultNetworkAclEgress.toPort' is not present");
     }
 
 }

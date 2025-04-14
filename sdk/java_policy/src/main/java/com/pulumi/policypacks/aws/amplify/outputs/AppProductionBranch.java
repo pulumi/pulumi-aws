@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.amplify.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class AppProductionBranch {
      * Branch name for the production branch.
      * 
      */
-    private @Nullable UndeferrableValue<String> branchName;
-
+    @PolicyResourceProperty(name="branchName", flag="unknown_branchName")
+    private @Nullable String value_branchName;
+    private boolean unknown_branchName;
     public @Nullable String branchName() {
-        if (branchName == null) return null;
-        return branchName.getValue("AppProductionBranch.branchName");
+        if (!unknown_branchName) return value_branchName;
+        throw new UndeferrableValueException("Value 'AppProductionBranch.branchName' is not present");
     }
 
     /**
      * Last deploy time of the production branch.
      * 
      */
-    private @Nullable UndeferrableValue<String> lastDeployTime;
-
+    @PolicyResourceProperty(name="lastDeployTime", flag="unknown_lastDeployTime")
+    private @Nullable String value_lastDeployTime;
+    private boolean unknown_lastDeployTime;
     public @Nullable String lastDeployTime() {
-        if (lastDeployTime == null) return null;
-        return lastDeployTime.getValue("AppProductionBranch.lastDeployTime");
+        if (!unknown_lastDeployTime) return value_lastDeployTime;
+        throw new UndeferrableValueException("Value 'AppProductionBranch.lastDeployTime' is not present");
     }
 
     /**
      * Status of the production branch.
      * 
      */
-    private @Nullable UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private @Nullable String value_status;
+    private boolean unknown_status;
     public @Nullable String status() {
-        if (status == null) return null;
-        return status.getValue("AppProductionBranch.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'AppProductionBranch.status' is not present");
     }
 
     /**
      * Thumbnail URL for the production branch.
      * 
      */
-    private @Nullable UndeferrableValue<String> thumbnailUrl;
-
+    @PolicyResourceProperty(name="thumbnailUrl", flag="unknown_thumbnailUrl")
+    private @Nullable String value_thumbnailUrl;
+    private boolean unknown_thumbnailUrl;
     public @Nullable String thumbnailUrl() {
-        if (thumbnailUrl == null) return null;
-        return thumbnailUrl.getValue("AppProductionBranch.thumbnailUrl");
+        if (!unknown_thumbnailUrl) return value_thumbnailUrl;
+        throw new UndeferrableValueException("Value 'AppProductionBranch.thumbnailUrl' is not present");
     }
 
 }

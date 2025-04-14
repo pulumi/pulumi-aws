@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pinpoint;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,47 +18,52 @@ public final class GcmChannelArgs extends com.pulumi.resources.PolicyResourceInp
      * Platform credential API key from Google.
      * 
      */
-    private UndeferrableValue<String> apiKey;
-
+    @PolicyResourceProperty(name="apiKey", flag="unknown_apiKey")
+    private String value_apiKey;
+    private boolean unknown_apiKey;
     public String apiKey() {
-        if (apiKey == null) return null;
-        return apiKey.getValue("GcmChannelArgs.apiKey");
+        if (!unknown_apiKey) return value_apiKey;
+        throw new UndeferrableValueException("Value 'GcmChannelArgs.apiKey' is not present");
     }
 
     /**
      * The application ID.
      * 
      */
-    private UndeferrableValue<String> applicationId;
-
+    @PolicyResourceProperty(name="applicationId", flag="unknown_applicationId")
+    private String value_applicationId;
+    private boolean unknown_applicationId;
     public String applicationId() {
-        if (applicationId == null) return null;
-        return applicationId.getValue("GcmChannelArgs.applicationId");
+        if (!unknown_applicationId) return value_applicationId;
+        throw new UndeferrableValueException("Value 'GcmChannelArgs.applicationId' is not present");
     }
 
-    private UndeferrableValue<String> defaultAuthenticationMethod;
-
+    @PolicyResourceProperty(name="defaultAuthenticationMethod", flag="unknown_defaultAuthenticationMethod")
+    private String value_defaultAuthenticationMethod;
+    private boolean unknown_defaultAuthenticationMethod;
     public String defaultAuthenticationMethod() {
-        if (defaultAuthenticationMethod == null) return null;
-        return defaultAuthenticationMethod.getValue("GcmChannelArgs.defaultAuthenticationMethod");
+        if (!unknown_defaultAuthenticationMethod) return value_defaultAuthenticationMethod;
+        throw new UndeferrableValueException("Value 'GcmChannelArgs.defaultAuthenticationMethod' is not present");
     }
 
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("GcmChannelArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'GcmChannelArgs.enabled' is not present");
     }
 
-    private UndeferrableValue<String> serviceJson;
-
+    @PolicyResourceProperty(name="serviceJson", flag="unknown_serviceJson")
+    private String value_serviceJson;
+    private boolean unknown_serviceJson;
     public String serviceJson() {
-        if (serviceJson == null) return null;
-        return serviceJson.getValue("GcmChannelArgs.serviceJson");
+        if (!unknown_serviceJson) return value_serviceJson;
+        throw new UndeferrableValueException("Value 'GcmChannelArgs.serviceJson' is not present");
     }
 
 }

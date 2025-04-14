@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsN
      * Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings> nielsenCbetSettings;
-
+    @PolicyResourceProperty(name="nielsenCbetSettings", flag="unknown_nielsenCbetSettings")
+    private @Nullable ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings value_nielsenCbetSettings;
+    private boolean unknown_nielsenCbetSettings;
     public @Nullable ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings nielsenCbetSettings() {
-        if (nielsenCbetSettings == null) return null;
-        return nielsenCbetSettings.getValue("ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings.nielsenCbetSettings");
+        if (!unknown_nielsenCbetSettings) return value_nielsenCbetSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings.nielsenCbetSettings' is not present");
     }
 
     /**
      * Distribution types to assign to the watermarks. Options are `PROGRAM_CONTENT` and `FINAL_DISTRIBUTOR`.
      * 
      */
-    private @Nullable UndeferrableValue<String> nielsenDistributionType;
-
+    @PolicyResourceProperty(name="nielsenDistributionType", flag="unknown_nielsenDistributionType")
+    private @Nullable String value_nielsenDistributionType;
+    private boolean unknown_nielsenDistributionType;
     public @Nullable String nielsenDistributionType() {
-        if (nielsenDistributionType == null) return null;
-        return nielsenDistributionType.getValue("ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings.nielsenDistributionType");
+        if (!unknown_nielsenDistributionType) return value_nielsenDistributionType;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings.nielsenDistributionType' is not present");
     }
 
     /**
      * Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting>> nielsenNaesIiNwSettings;
-
+    @PolicyResourceProperty(name="nielsenNaesIiNwSettings", flag="unknown_nielsenNaesIiNwSettings")
+    private @Nullable List<ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting> value_nielsenNaesIiNwSettings;
+    private boolean unknown_nielsenNaesIiNwSettings;
     public @Nullable List<ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting> nielsenNaesIiNwSettings() {
-        if (nielsenNaesIiNwSettings == null) return null;
-        return nielsenNaesIiNwSettings.getValue("ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings.nielsenNaesIiNwSettings");
+        if (!unknown_nielsenNaesIiNwSettings) return value_nielsenNaesIiNwSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings.nielsenNaesIiNwSettings' is not present");
     }
 
 }

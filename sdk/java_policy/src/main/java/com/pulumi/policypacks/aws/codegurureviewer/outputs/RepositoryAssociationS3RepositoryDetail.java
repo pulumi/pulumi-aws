@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codegurureviewer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codegurureviewer.outputs.RepositoryAssociationS3RepositoryDetailCodeArtifact;
 import java.lang.String;
 import java.util.List;
@@ -16,18 +17,20 @@ public final class RepositoryAssociationS3RepositoryDetail {
      * The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
      * 
      */
-    private @Nullable UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private @Nullable String value_bucketName;
+    private boolean unknown_bucketName;
     public @Nullable String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("RepositoryAssociationS3RepositoryDetail.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'RepositoryAssociationS3RepositoryDetail.bucketName' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<RepositoryAssociationS3RepositoryDetailCodeArtifact>> codeArtifacts;
-
+    @PolicyResourceProperty(name="codeArtifacts", flag="unknown_codeArtifacts")
+    private @Nullable List<RepositoryAssociationS3RepositoryDetailCodeArtifact> value_codeArtifacts;
+    private boolean unknown_codeArtifacts;
     public @Nullable List<RepositoryAssociationS3RepositoryDetailCodeArtifact> codeArtifacts() {
-        if (codeArtifacts == null) return null;
-        return codeArtifacts.getValue("RepositoryAssociationS3RepositoryDetail.codeArtifacts");
+        if (!unknown_codeArtifacts) return value_codeArtifacts;
+        throw new UndeferrableValueException("Value 'RepositoryAssociationS3RepositoryDetail.codeArtifacts' is not present");
     }
 
 }

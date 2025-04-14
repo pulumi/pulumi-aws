@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class V2modelsIntentConfirmationSettingElicitationCodeHook {
      * Whether a Lambda function should be invoked for the dialog.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enableCodeHookInvocation;
-
+    @PolicyResourceProperty(name="enableCodeHookInvocation", flag="unknown_enableCodeHookInvocation")
+    private @Nullable Boolean value_enableCodeHookInvocation;
+    private boolean unknown_enableCodeHookInvocation;
     public @Nullable Boolean enableCodeHookInvocation() {
-        if (enableCodeHookInvocation == null) return null;
-        return enableCodeHookInvocation.getValue("V2modelsIntentConfirmationSettingElicitationCodeHook.enableCodeHookInvocation");
+        if (!unknown_enableCodeHookInvocation) return value_enableCodeHookInvocation;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingElicitationCodeHook.enableCodeHookInvocation' is not present");
     }
 
     /**
      * Label that indicates the dialog step from which the dialog code hook is happening.
      * 
      */
-    private @Nullable UndeferrableValue<String> invocationLabel;
-
+    @PolicyResourceProperty(name="invocationLabel", flag="unknown_invocationLabel")
+    private @Nullable String value_invocationLabel;
+    private boolean unknown_invocationLabel;
     public @Nullable String invocationLabel() {
-        if (invocationLabel == null) return null;
-        return invocationLabel.getValue("V2modelsIntentConfirmationSettingElicitationCodeHook.invocationLabel");
+        if (!unknown_invocationLabel) return value_invocationLabel;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingElicitationCodeHook.invocationLabel' is not present");
     }
 
 }

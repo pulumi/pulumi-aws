@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualGatewaySpecLoggingAccessLogFileFormatArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class VirtualGatewaySpecLoggingAccessLogFileArgs {
      * The specified format for the logs.
      * 
      */
-    private UndeferrableValue<VirtualGatewaySpecLoggingAccessLogFileFormatArgs> format;
-
+    @PolicyResourceProperty(name="format", flag="unknown_format")
+    private VirtualGatewaySpecLoggingAccessLogFileFormatArgs value_format;
+    private boolean unknown_format;
     public VirtualGatewaySpecLoggingAccessLogFileFormatArgs format() {
-        if (format == null) return null;
-        return format.getValue("VirtualGatewaySpecLoggingAccessLogFileArgs.format");
+        if (!unknown_format) return value_format;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecLoggingAccessLogFileArgs.format' is not present");
     }
 
     /**
      * File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
      * 
      */
-    private UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private String value_path;
+    private boolean unknown_path;
     public String path() {
-        if (path == null) return null;
-        return path.getValue("VirtualGatewaySpecLoggingAccessLogFileArgs.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecLoggingAccessLogFileArgs.path' is not present");
     }
 
 }

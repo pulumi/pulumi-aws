@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class AccessPointPolicy extends com.pulumi.resources.PolicyResource
      * The ARN of the access point that you want to associate with the specified policy.
      * 
      */
-    private UndeferrableValue<String> accessPointArn;
-
+    @PolicyResourceProperty(name="accessPointArn", flag="unknown_accessPointArn")
+    private String value_accessPointArn;
+    private boolean unknown_accessPointArn;
     public String accessPointArn() {
-        if (accessPointArn == null) return null;
-        return accessPointArn.getValue("AccessPointPolicy.accessPointArn");
+        if (!unknown_accessPointArn) return value_accessPointArn;
+        throw new UndeferrableValueException("Value 'AccessPointPolicy.accessPointArn' is not present");
     }
 
     /**
      * Indicates whether this access point currently has a policy that allows public access.
      * 
      */
-    private UndeferrableValue<Boolean> hasPublicAccessPolicy;
-
+    @PolicyResourceProperty(name="hasPublicAccessPolicy", flag="unknown_hasPublicAccessPolicy")
+    private Boolean value_hasPublicAccessPolicy;
+    private boolean unknown_hasPublicAccessPolicy;
     public Boolean hasPublicAccessPolicy() {
-        if (hasPublicAccessPolicy == null) return null;
-        return hasPublicAccessPolicy.getValue("AccessPointPolicy.hasPublicAccessPolicy");
+        if (!unknown_hasPublicAccessPolicy) return value_hasPublicAccessPolicy;
+        throw new UndeferrableValueException("Value 'AccessPointPolicy.hasPublicAccessPolicy' is not present");
     }
 
     /**
      * The policy that you want to apply to the specified access point.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("AccessPointPolicy.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'AccessPointPolicy.policy' is not present");
     }
 
 }

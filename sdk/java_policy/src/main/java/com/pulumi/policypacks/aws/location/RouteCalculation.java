@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.location;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class RouteCalculation extends com.pulumi.resources.PolicyResourceO
      * The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
      * 
      */
-    private UndeferrableValue<String> calculatorArn;
-
+    @PolicyResourceProperty(name="calculatorArn", flag="unknown_calculatorArn")
+    private String value_calculatorArn;
+    private boolean unknown_calculatorArn;
     public String calculatorArn() {
-        if (calculatorArn == null) return null;
-        return calculatorArn.getValue("RouteCalculation.calculatorArn");
+        if (!unknown_calculatorArn) return value_calculatorArn;
+        throw new UndeferrableValueException("Value 'RouteCalculation.calculatorArn' is not present");
     }
 
     /**
      * The name of the route calculator resource.
      * 
      */
-    private UndeferrableValue<String> calculatorName;
-
+    @PolicyResourceProperty(name="calculatorName", flag="unknown_calculatorName")
+    private String value_calculatorName;
+    private boolean unknown_calculatorName;
     public String calculatorName() {
-        if (calculatorName == null) return null;
-        return calculatorName.getValue("RouteCalculation.calculatorName");
+        if (!unknown_calculatorName) return value_calculatorName;
+        throw new UndeferrableValueException("Value 'RouteCalculation.calculatorName' is not present");
     }
 
     /**
      * The timestamp for when the route calculator resource was created in ISO 8601 format.
      * 
      */
-    private UndeferrableValue<String> createTime;
-
+    @PolicyResourceProperty(name="createTime", flag="unknown_createTime")
+    private String value_createTime;
+    private boolean unknown_createTime;
     public String createTime() {
-        if (createTime == null) return null;
-        return createTime.getValue("RouteCalculation.createTime");
+        if (!unknown_createTime) return value_createTime;
+        throw new UndeferrableValueException("Value 'RouteCalculation.createTime' is not present");
     }
 
     /**
@@ -52,33 +56,36 @@ public final class RouteCalculation extends com.pulumi.resources.PolicyResourceO
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> dataSource;
-
+    @PolicyResourceProperty(name="dataSource", flag="unknown_dataSource")
+    private String value_dataSource;
+    private boolean unknown_dataSource;
     public String dataSource() {
-        if (dataSource == null) return null;
-        return dataSource.getValue("RouteCalculation.dataSource");
+        if (!unknown_dataSource) return value_dataSource;
+        throw new UndeferrableValueException("Value 'RouteCalculation.dataSource' is not present");
     }
 
     /**
      * The optional description for the route calculator resource.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("RouteCalculation.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'RouteCalculation.description' is not present");
     }
 
     /**
      * Key-value tags for the route calculator. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RouteCalculation.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RouteCalculation.tags' is not present");
     }
 
     /**
@@ -89,22 +96,24 @@ public final class RouteCalculation extends com.pulumi.resources.PolicyResourceO
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("RouteCalculation.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'RouteCalculation.tagsAll' is not present");
     }
 
     /**
      * The timestamp for when the route calculator resource was last update in ISO 8601.
      * 
      */
-    private UndeferrableValue<String> updateTime;
-
+    @PolicyResourceProperty(name="updateTime", flag="unknown_updateTime")
+    private String value_updateTime;
+    private boolean unknown_updateTime;
     public String updateTime() {
-        if (updateTime == null) return null;
-        return updateTime.getValue("RouteCalculation.updateTime");
+        if (!unknown_updateTime) return value_updateTime;
+        throw new UndeferrableValueException("Value 'RouteCalculation.updateTime' is not present");
     }
 
 }

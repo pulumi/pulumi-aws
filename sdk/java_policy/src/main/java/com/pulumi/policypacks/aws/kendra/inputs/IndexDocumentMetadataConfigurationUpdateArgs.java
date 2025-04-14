@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kendra.inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs;
 import com.pulumi.policypacks.aws.kendra.inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class IndexDocumentMetadataConfigurationUpdateArgs {
      * The name of the index field. Minimum length of 1. Maximum length of 30.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("IndexDocumentMetadataConfigurationUpdateArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'IndexDocumentMetadataConfigurationUpdateArgs.name' is not present");
     }
 
     /**
      * A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
      * 
      */
-    private UndeferrableValue<IndexDocumentMetadataConfigurationUpdateRelevanceArgs> relevance;
-
+    @PolicyResourceProperty(name="relevance", flag="unknown_relevance")
+    private IndexDocumentMetadataConfigurationUpdateRelevanceArgs value_relevance;
+    private boolean unknown_relevance;
     public IndexDocumentMetadataConfigurationUpdateRelevanceArgs relevance() {
-        if (relevance == null) return null;
-        return relevance.getValue("IndexDocumentMetadataConfigurationUpdateArgs.relevance");
+        if (!unknown_relevance) return value_relevance;
+        throw new UndeferrableValueException("Value 'IndexDocumentMetadataConfigurationUpdateArgs.relevance' is not present");
     }
 
     /**
      * A block that provides information about how the field is used during a search. Documented below. Detailed below
      * 
      */
-    private UndeferrableValue<IndexDocumentMetadataConfigurationUpdateSearchArgs> search;
-
+    @PolicyResourceProperty(name="search", flag="unknown_search")
+    private IndexDocumentMetadataConfigurationUpdateSearchArgs value_search;
+    private boolean unknown_search;
     public IndexDocumentMetadataConfigurationUpdateSearchArgs search() {
-        if (search == null) return null;
-        return search.getValue("IndexDocumentMetadataConfigurationUpdateArgs.search");
+        if (!unknown_search) return value_search;
+        throw new UndeferrableValueException("Value 'IndexDocumentMetadataConfigurationUpdateArgs.search' is not present");
     }
 
     /**
      * The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("IndexDocumentMetadataConfigurationUpdateArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'IndexDocumentMetadataConfigurationUpdateArgs.type' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class TrafficPolicyArgs extends com.pulumi.resources.PolicyResource
      * Comment for the traffic policy.
      * 
      */
-    private UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private String value_comment;
+    private boolean unknown_comment;
     public String comment() {
-        if (comment == null) return null;
-        return comment.getValue("TrafficPolicyArgs.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'TrafficPolicyArgs.comment' is not present");
     }
 
     /**
@@ -29,22 +31,24 @@ public final class TrafficPolicyArgs extends com.pulumi.resources.PolicyResource
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> document;
-
+    @PolicyResourceProperty(name="document", flag="unknown_document")
+    private String value_document;
+    private boolean unknown_document;
     public String document() {
-        if (document == null) return null;
-        return document.getValue("TrafficPolicyArgs.document");
+        if (!unknown_document) return value_document;
+        throw new UndeferrableValueException("Value 'TrafficPolicyArgs.document' is not present");
     }
 
     /**
      * Name of the traffic policy.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TrafficPolicyArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TrafficPolicyArgs.name' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -16,33 +17,36 @@ public final class FrameworkControlScope {
      * The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> complianceResourceIds;
-
+    @PolicyResourceProperty(name="complianceResourceIds", flag="unknown_complianceResourceIds")
+    private @Nullable List<String> value_complianceResourceIds;
+    private boolean unknown_complianceResourceIds;
     public @Nullable List<String> complianceResourceIds() {
-        if (complianceResourceIds == null) return null;
-        return complianceResourceIds.getValue("FrameworkControlScope.complianceResourceIds");
+        if (!unknown_complianceResourceIds) return value_complianceResourceIds;
+        throw new UndeferrableValueException("Value 'FrameworkControlScope.complianceResourceIds' is not present");
     }
 
     /**
      * Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> complianceResourceTypes;
-
+    @PolicyResourceProperty(name="complianceResourceTypes", flag="unknown_complianceResourceTypes")
+    private @Nullable List<String> value_complianceResourceTypes;
+    private boolean unknown_complianceResourceTypes;
     public @Nullable List<String> complianceResourceTypes() {
-        if (complianceResourceTypes == null) return null;
-        return complianceResourceTypes.getValue("FrameworkControlScope.complianceResourceTypes");
+        if (!unknown_complianceResourceTypes) return value_complianceResourceTypes;
+        throw new UndeferrableValueException("Value 'FrameworkControlScope.complianceResourceTypes' is not present");
     }
 
     /**
      * The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("FrameworkControlScope.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'FrameworkControlScope.tags' is not present");
     }
 
 }

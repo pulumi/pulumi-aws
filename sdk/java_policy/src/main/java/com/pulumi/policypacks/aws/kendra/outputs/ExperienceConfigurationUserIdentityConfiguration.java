@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ExperienceConfigurationUserIdentityConfiguration {
      * The AWS SSO field name that contains the identifiers of your users, such as their emails.
      * 
      */
-    private UndeferrableValue<String> identityAttributeName;
-
+    @PolicyResourceProperty(name="identityAttributeName", flag="unknown_identityAttributeName")
+    private String value_identityAttributeName;
+    private boolean unknown_identityAttributeName;
     public String identityAttributeName() {
-        if (identityAttributeName == null) return null;
-        return identityAttributeName.getValue("ExperienceConfigurationUserIdentityConfiguration.identityAttributeName");
+        if (!unknown_identityAttributeName) return value_identityAttributeName;
+        throw new UndeferrableValueException("Value 'ExperienceConfigurationUserIdentityConfiguration.identityAttributeName' is not present");
     }
 
 }

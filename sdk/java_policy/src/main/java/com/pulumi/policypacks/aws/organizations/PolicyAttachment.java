@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.organizations;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class PolicyAttachment extends com.pulumi.resources.PolicyResourceO
      * The unique identifier (ID) of the policy that you want to attach to the target.
      * 
      */
-    private UndeferrableValue<String> policyId;
-
+    @PolicyResourceProperty(name="policyId", flag="unknown_policyId")
+    private String value_policyId;
+    private boolean unknown_policyId;
     public String policyId() {
-        if (policyId == null) return null;
-        return policyId.getValue("PolicyAttachment.policyId");
+        if (!unknown_policyId) return value_policyId;
+        throw new UndeferrableValueException("Value 'PolicyAttachment.policyId' is not present");
     }
 
     /**
      * If set to `true`, destroy will **not** detach the policy and instead just remove the resource from state. This can be useful in situations where the attachment must be preserved to meet the AWS minimum requirement of 1 attached policy.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> skipDestroy;
-
+    @PolicyResourceProperty(name="skipDestroy", flag="unknown_skipDestroy")
+    private @Nullable Boolean value_skipDestroy;
+    private boolean unknown_skipDestroy;
     public @Nullable Boolean skipDestroy() {
-        if (skipDestroy == null) return null;
-        return skipDestroy.getValue("PolicyAttachment.skipDestroy");
+        if (!unknown_skipDestroy) return value_skipDestroy;
+        throw new UndeferrableValueException("Value 'PolicyAttachment.skipDestroy' is not present");
     }
 
     /**
      * The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
      * 
      */
-    private UndeferrableValue<String> targetId;
-
+    @PolicyResourceProperty(name="targetId", flag="unknown_targetId")
+    private String value_targetId;
+    private boolean unknown_targetId;
     public String targetId() {
-        if (targetId == null) return null;
-        return targetId.getValue("PolicyAttachment.targetId");
+        if (!unknown_targetId) return value_targetId;
+        throw new UndeferrableValueException("Value 'PolicyAttachment.targetId' is not present");
     }
 
 }

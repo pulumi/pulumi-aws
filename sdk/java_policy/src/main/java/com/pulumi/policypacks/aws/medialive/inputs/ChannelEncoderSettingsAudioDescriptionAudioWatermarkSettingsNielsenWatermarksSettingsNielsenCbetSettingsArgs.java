@@ -3,39 +3,43 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs {
 
-    private UndeferrableValue<String> cbetCheckDigitString;
-
+    @PolicyResourceProperty(name="cbetCheckDigitString", flag="unknown_cbetCheckDigitString")
+    private String value_cbetCheckDigitString;
+    private boolean unknown_cbetCheckDigitString;
     public String cbetCheckDigitString() {
-        if (cbetCheckDigitString == null) return null;
-        return cbetCheckDigitString.getValue("ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs.cbetCheckDigitString");
+        if (!unknown_cbetCheckDigitString) return value_cbetCheckDigitString;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs.cbetCheckDigitString' is not present");
     }
 
     /**
      * Determines the method of CBET insertion mode when prior encoding is detected on the same layer.
      * 
      */
-    private UndeferrableValue<String> cbetStepaside;
-
+    @PolicyResourceProperty(name="cbetStepaside", flag="unknown_cbetStepaside")
+    private String value_cbetStepaside;
+    private boolean unknown_cbetStepaside;
     public String cbetStepaside() {
-        if (cbetStepaside == null) return null;
-        return cbetStepaside.getValue("ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs.cbetStepaside");
+        if (!unknown_cbetStepaside) return value_cbetStepaside;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs.cbetStepaside' is not present");
     }
 
     /**
      * CBET source ID to use in the watermark.
      * 
      */
-    private UndeferrableValue<String> csid;
-
+    @PolicyResourceProperty(name="csid", flag="unknown_csid")
+    private String value_csid;
+    private boolean unknown_csid;
     public String csid() {
-        if (csid == null) return null;
-        return csid.getValue("ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs.csid");
+        if (!unknown_csid) return value_csid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs.csid' is not present");
     }
 
 }

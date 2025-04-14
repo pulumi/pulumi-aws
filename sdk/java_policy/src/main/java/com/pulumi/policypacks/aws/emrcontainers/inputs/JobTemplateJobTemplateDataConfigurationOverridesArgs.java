@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emrcontainers.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.emrcontainers.inputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs;
 import com.pulumi.policypacks.aws.emrcontainers.inputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesArgs {
      * The configurations for the application running by the job run.
      * 
      */
-    private UndeferrableValue<List<JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs>> applicationConfigurations;
-
+    @PolicyResourceProperty(name="applicationConfigurations", flag="unknown_applicationConfigurations")
+    private List<JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs> value_applicationConfigurations;
+    private boolean unknown_applicationConfigurations;
     public List<JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs> applicationConfigurations() {
-        if (applicationConfigurations == null) return null;
-        return applicationConfigurations.getValue("JobTemplateJobTemplateDataConfigurationOverridesArgs.applicationConfigurations");
+        if (!unknown_applicationConfigurations) return value_applicationConfigurations;
+        throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverridesArgs.applicationConfigurations' is not present");
     }
 
     /**
      * The configurations for monitoring.
      * 
      */
-    private UndeferrableValue<JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs> monitoringConfiguration;
-
+    @PolicyResourceProperty(name="monitoringConfiguration", flag="unknown_monitoringConfiguration")
+    private JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs value_monitoringConfiguration;
+    private boolean unknown_monitoringConfiguration;
     public JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs monitoringConfiguration() {
-        if (monitoringConfiguration == null) return null;
-        return monitoringConfiguration.getValue("JobTemplateJobTemplateDataConfigurationOverridesArgs.monitoringConfiguration");
+        if (!unknown_monitoringConfiguration) return value_monitoringConfiguration;
+        throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverridesArgs.monitoringConfiguration' is not present");
     }
 
 }

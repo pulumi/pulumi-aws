@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.outputs.InventoryDestinationBucketEncryption;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,55 +16,60 @@ public final class InventoryDestinationBucket {
      * ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
      * 
      */
-    private @Nullable UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private @Nullable String value_accountId;
+    private boolean unknown_accountId;
     public @Nullable String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("InventoryDestinationBucket.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'InventoryDestinationBucket.accountId' is not present");
     }
 
     /**
      * Amazon S3 bucket ARN of the destination.
      * 
      */
-    private UndeferrableValue<String> bucketArn;
-
+    @PolicyResourceProperty(name="bucketArn", flag="unknown_bucketArn")
+    private String value_bucketArn;
+    private boolean unknown_bucketArn;
     public String bucketArn() {
-        if (bucketArn == null) return null;
-        return bucketArn.getValue("InventoryDestinationBucket.bucketArn");
+        if (!unknown_bucketArn) return value_bucketArn;
+        throw new UndeferrableValueException("Value 'InventoryDestinationBucket.bucketArn' is not present");
     }
 
     /**
      * Contains the type of server-side encryption to use to encrypt the inventory (documented below).
      * 
      */
-    private @Nullable UndeferrableValue<InventoryDestinationBucketEncryption> encryption;
-
+    @PolicyResourceProperty(name="encryption", flag="unknown_encryption")
+    private @Nullable InventoryDestinationBucketEncryption value_encryption;
+    private boolean unknown_encryption;
     public @Nullable InventoryDestinationBucketEncryption encryption() {
-        if (encryption == null) return null;
-        return encryption.getValue("InventoryDestinationBucket.encryption");
+        if (!unknown_encryption) return value_encryption;
+        throw new UndeferrableValueException("Value 'InventoryDestinationBucket.encryption' is not present");
     }
 
     /**
      * Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
      * 
      */
-    private UndeferrableValue<String> format;
-
+    @PolicyResourceProperty(name="format", flag="unknown_format")
+    private String value_format;
+    private boolean unknown_format;
     public String format() {
-        if (format == null) return null;
-        return format.getValue("InventoryDestinationBucket.format");
+        if (!unknown_format) return value_format;
+        throw new UndeferrableValueException("Value 'InventoryDestinationBucket.format' is not present");
     }
 
     /**
      * Prefix that is prepended to all inventory results.
      * 
      */
-    private @Nullable UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private @Nullable String value_prefix;
+    private boolean unknown_prefix;
     public @Nullable String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("InventoryDestinationBucket.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'InventoryDestinationBucket.prefix' is not present");
     }
 
 }

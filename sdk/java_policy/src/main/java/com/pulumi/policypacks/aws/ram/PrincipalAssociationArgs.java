@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ram;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class PrincipalAssociationArgs extends com.pulumi.resources.PolicyR
      * The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
      * 
      */
-    private UndeferrableValue<String> principal;
-
+    @PolicyResourceProperty(name="principal", flag="unknown_principal")
+    private String value_principal;
+    private boolean unknown_principal;
     public String principal() {
-        if (principal == null) return null;
-        return principal.getValue("PrincipalAssociationArgs.principal");
+        if (!unknown_principal) return value_principal;
+        throw new UndeferrableValueException("Value 'PrincipalAssociationArgs.principal' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the resource share.
      * 
      */
-    private UndeferrableValue<String> resourceShareArn;
-
+    @PolicyResourceProperty(name="resourceShareArn", flag="unknown_resourceShareArn")
+    private String value_resourceShareArn;
+    private boolean unknown_resourceShareArn;
     public String resourceShareArn() {
-        if (resourceShareArn == null) return null;
-        return resourceShareArn.getValue("PrincipalAssociationArgs.resourceShareArn");
+        if (!unknown_resourceShareArn) return value_resourceShareArn;
+        throw new UndeferrableValueException("Value 'PrincipalAssociationArgs.resourceShareArn' is not present");
     }
 
 }

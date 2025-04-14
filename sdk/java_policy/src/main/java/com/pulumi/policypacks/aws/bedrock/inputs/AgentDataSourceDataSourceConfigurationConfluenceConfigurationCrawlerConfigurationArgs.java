@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class AgentDataSourceDataSourceConfigurationConfluenceConfiguration
      * The Salesforce standard object configuration. See `filter_configuration` block for details.
      * 
      */
-    private UndeferrableValue<AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs> filterConfiguration;
-
+    @PolicyResourceProperty(name="filterConfiguration", flag="unknown_filterConfiguration")
+    private AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs value_filterConfiguration;
+    private boolean unknown_filterConfiguration;
     public AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs filterConfiguration() {
-        if (filterConfiguration == null) return null;
-        return filterConfiguration.getValue("AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs.filterConfiguration");
+        if (!unknown_filterConfiguration) return value_filterConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs.filterConfiguration' is not present");
     }
 
 }

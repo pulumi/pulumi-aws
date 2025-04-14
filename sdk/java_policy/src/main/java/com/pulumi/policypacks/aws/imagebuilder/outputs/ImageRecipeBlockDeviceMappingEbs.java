@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,88 +16,96 @@ public final class ImageRecipeBlockDeviceMappingEbs {
      * Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
      * 
      */
-    private @Nullable UndeferrableValue<String> deleteOnTermination;
-
+    @PolicyResourceProperty(name="deleteOnTermination", flag="unknown_deleteOnTermination")
+    private @Nullable String value_deleteOnTermination;
+    private boolean unknown_deleteOnTermination;
     public @Nullable String deleteOnTermination() {
-        if (deleteOnTermination == null) return null;
-        return deleteOnTermination.getValue("ImageRecipeBlockDeviceMappingEbs.deleteOnTermination");
+        if (!unknown_deleteOnTermination) return value_deleteOnTermination;
+        throw new UndeferrableValueException("Value 'ImageRecipeBlockDeviceMappingEbs.deleteOnTermination' is not present");
     }
 
     /**
      * Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
      * 
      */
-    private @Nullable UndeferrableValue<String> encrypted;
-
+    @PolicyResourceProperty(name="encrypted", flag="unknown_encrypted")
+    private @Nullable String value_encrypted;
+    private boolean unknown_encrypted;
     public @Nullable String encrypted() {
-        if (encrypted == null) return null;
-        return encrypted.getValue("ImageRecipeBlockDeviceMappingEbs.encrypted");
+        if (!unknown_encrypted) return value_encrypted;
+        throw new UndeferrableValueException("Value 'ImageRecipeBlockDeviceMappingEbs.encrypted' is not present");
     }
 
     /**
      * Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> iops;
-
+    @PolicyResourceProperty(name="iops", flag="unknown_iops")
+    private @Nullable Integer value_iops;
+    private boolean unknown_iops;
     public @Nullable Integer iops() {
-        if (iops == null) return null;
-        return iops.getValue("ImageRecipeBlockDeviceMappingEbs.iops");
+        if (!unknown_iops) return value_iops;
+        throw new UndeferrableValueException("Value 'ImageRecipeBlockDeviceMappingEbs.iops' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("ImageRecipeBlockDeviceMappingEbs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'ImageRecipeBlockDeviceMappingEbs.kmsKeyId' is not present");
     }
 
     /**
      * Identifier of the EC2 Volume Snapshot.
      * 
      */
-    private @Nullable UndeferrableValue<String> snapshotId;
-
+    @PolicyResourceProperty(name="snapshotId", flag="unknown_snapshotId")
+    private @Nullable String value_snapshotId;
+    private boolean unknown_snapshotId;
     public @Nullable String snapshotId() {
-        if (snapshotId == null) return null;
-        return snapshotId.getValue("ImageRecipeBlockDeviceMappingEbs.snapshotId");
+        if (!unknown_snapshotId) return value_snapshotId;
+        throw new UndeferrableValueException("Value 'ImageRecipeBlockDeviceMappingEbs.snapshotId' is not present");
     }
 
     /**
      * For GP3 volumes only. The throughput in MiB/s that the volume supports.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> throughput;
-
+    @PolicyResourceProperty(name="throughput", flag="unknown_throughput")
+    private @Nullable Integer value_throughput;
+    private boolean unknown_throughput;
     public @Nullable Integer throughput() {
-        if (throughput == null) return null;
-        return throughput.getValue("ImageRecipeBlockDeviceMappingEbs.throughput");
+        if (!unknown_throughput) return value_throughput;
+        throw new UndeferrableValueException("Value 'ImageRecipeBlockDeviceMappingEbs.throughput' is not present");
     }
 
     /**
      * Size of the volume, in GiB.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> volumeSize;
-
+    @PolicyResourceProperty(name="volumeSize", flag="unknown_volumeSize")
+    private @Nullable Integer value_volumeSize;
+    private boolean unknown_volumeSize;
     public @Nullable Integer volumeSize() {
-        if (volumeSize == null) return null;
-        return volumeSize.getValue("ImageRecipeBlockDeviceMappingEbs.volumeSize");
+        if (!unknown_volumeSize) return value_volumeSize;
+        throw new UndeferrableValueException("Value 'ImageRecipeBlockDeviceMappingEbs.volumeSize' is not present");
     }
 
     /**
      * Type of the volume. For example, `gp2` or `io2`.
      * 
      */
-    private @Nullable UndeferrableValue<String> volumeType;
-
+    @PolicyResourceProperty(name="volumeType", flag="unknown_volumeType")
+    private @Nullable String value_volumeType;
+    private boolean unknown_volumeType;
     public @Nullable String volumeType() {
-        if (volumeType == null) return null;
-        return volumeType.getValue("ImageRecipeBlockDeviceMappingEbs.volumeType");
+        if (!unknown_volumeType) return value_volumeType;
+        throw new UndeferrableValueException("Value 'ImageRecipeBlockDeviceMappingEbs.volumeType' is not present");
     }
 
 }

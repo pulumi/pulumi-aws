@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.connect.inputs.HoursOfOperationConfigEndTimeArgs;
 import com.pulumi.policypacks.aws.connect.inputs.HoursOfOperationConfigStartTimeArgs;
 import java.lang.String;
@@ -15,33 +16,36 @@ public final class HoursOfOperationConfigArgs {
      * Specifies the day that the hours of operation applies to.
      * 
      */
-    private UndeferrableValue<String> day;
-
+    @PolicyResourceProperty(name="day", flag="unknown_day")
+    private String value_day;
+    private boolean unknown_day;
     public String day() {
-        if (day == null) return null;
-        return day.getValue("HoursOfOperationConfigArgs.day");
+        if (!unknown_day) return value_day;
+        throw new UndeferrableValueException("Value 'HoursOfOperationConfigArgs.day' is not present");
     }
 
     /**
      * A end time block specifies the time that your contact center closes. The `end_time` is documented below.
      * 
      */
-    private UndeferrableValue<HoursOfOperationConfigEndTimeArgs> endTime;
-
+    @PolicyResourceProperty(name="endTime", flag="unknown_endTime")
+    private HoursOfOperationConfigEndTimeArgs value_endTime;
+    private boolean unknown_endTime;
     public HoursOfOperationConfigEndTimeArgs endTime() {
-        if (endTime == null) return null;
-        return endTime.getValue("HoursOfOperationConfigArgs.endTime");
+        if (!unknown_endTime) return value_endTime;
+        throw new UndeferrableValueException("Value 'HoursOfOperationConfigArgs.endTime' is not present");
     }
 
     /**
      * A start time block specifies the time that your contact center opens. The `start_time` is documented below.
      * 
      */
-    private UndeferrableValue<HoursOfOperationConfigStartTimeArgs> startTime;
-
+    @PolicyResourceProperty(name="startTime", flag="unknown_startTime")
+    private HoursOfOperationConfigStartTimeArgs value_startTime;
+    private boolean unknown_startTime;
     public HoursOfOperationConfigStartTimeArgs startTime() {
-        if (startTime == null) return null;
-        return startTime.getValue("HoursOfOperationConfigArgs.startTime");
+        if (!unknown_startTime) return value_startTime;
+        throw new UndeferrableValueException("Value 'HoursOfOperationConfigArgs.startTime' is not present");
     }
 
 }

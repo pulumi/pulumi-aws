@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,29 +16,32 @@ public final class ClusterPolicy extends com.pulumi.resources.PolicyResourceOutp
      * The Amazon Resource Name (ARN) that uniquely identifies the cluster.
      * 
      */
-    private UndeferrableValue<String> clusterArn;
-
+    @PolicyResourceProperty(name="clusterArn", flag="unknown_clusterArn")
+    private String value_clusterArn;
+    private boolean unknown_clusterArn;
     public String clusterArn() {
-        if (clusterArn == null) return null;
-        return clusterArn.getValue("ClusterPolicy.clusterArn");
+        if (!unknown_clusterArn) return value_clusterArn;
+        throw new UndeferrableValueException("Value 'ClusterPolicy.clusterArn' is not present");
     }
 
-    private UndeferrableValue<String> currentVersion;
-
+    @PolicyResourceProperty(name="currentVersion", flag="unknown_currentVersion")
+    private String value_currentVersion;
+    private boolean unknown_currentVersion;
     public String currentVersion() {
-        if (currentVersion == null) return null;
-        return currentVersion.getValue("ClusterPolicy.currentVersion");
+        if (!unknown_currentVersion) return value_currentVersion;
+        throw new UndeferrableValueException("Value 'ClusterPolicy.currentVersion' is not present");
     }
 
     /**
      * Resource policy for cluster.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("ClusterPolicy.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'ClusterPolicy.policy' is not present");
     }
 
 }

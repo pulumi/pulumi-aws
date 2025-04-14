@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.gamelift.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class FleetRuntimeConfigurationServerProcessArgs {
      * Number of server processes using this configuration to run concurrently on an instance.
      * 
      */
-    private UndeferrableValue<Integer> concurrentExecutions;
-
+    @PolicyResourceProperty(name="concurrentExecutions", flag="unknown_concurrentExecutions")
+    private Integer value_concurrentExecutions;
+    private boolean unknown_concurrentExecutions;
     public Integer concurrentExecutions() {
-        if (concurrentExecutions == null) return null;
-        return concurrentExecutions.getValue("FleetRuntimeConfigurationServerProcessArgs.concurrentExecutions");
+        if (!unknown_concurrentExecutions) return value_concurrentExecutions;
+        throw new UndeferrableValueException("Value 'FleetRuntimeConfigurationServerProcessArgs.concurrentExecutions' is not present");
     }
 
     /**
      * Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\game`, and for Linux instances `/local/game`.
      * 
      */
-    private UndeferrableValue<String> launchPath;
-
+    @PolicyResourceProperty(name="launchPath", flag="unknown_launchPath")
+    private String value_launchPath;
+    private boolean unknown_launchPath;
     public String launchPath() {
-        if (launchPath == null) return null;
-        return launchPath.getValue("FleetRuntimeConfigurationServerProcessArgs.launchPath");
+        if (!unknown_launchPath) return value_launchPath;
+        throw new UndeferrableValueException("Value 'FleetRuntimeConfigurationServerProcessArgs.launchPath' is not present");
     }
 
     /**
      * Optional list of parameters to pass to the server executable on launch.
      * 
      */
-    private UndeferrableValue<String> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private String value_parameters;
+    private boolean unknown_parameters;
     public String parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("FleetRuntimeConfigurationServerProcessArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'FleetRuntimeConfigurationServerProcessArgs.parameters' is not present");
     }
 
 }

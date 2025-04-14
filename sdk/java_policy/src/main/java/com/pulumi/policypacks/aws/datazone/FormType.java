@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.datazone.outputs.FormTypeImport;
 import com.pulumi.policypacks.aws.datazone.outputs.FormTypeModel;
@@ -20,131 +21,144 @@ public final class FormType extends com.pulumi.resources.PolicyResourceOutput {
      * Creation time of the Form Type.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("FormType.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'FormType.createdAt' is not present");
     }
 
     /**
      * Creator of the Form Type.
      * 
      */
-    private UndeferrableValue<String> createdBy;
-
+    @PolicyResourceProperty(name="createdBy", flag="unknown_createdBy")
+    private String value_createdBy;
+    private boolean unknown_createdBy;
     public String createdBy() {
-        if (createdBy == null) return null;
-        return createdBy.getValue("FormType.createdBy");
+        if (!unknown_createdBy) return value_createdBy;
+        throw new UndeferrableValueException("Value 'FormType.createdBy' is not present");
     }
 
     /**
      * Description of form type. Must have a length of between 1 and 2048 characters.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("FormType.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'FormType.description' is not present");
     }
 
     /**
      * Identifier of the domain.
      * 
      */
-    private UndeferrableValue<String> domainIdentifier;
-
+    @PolicyResourceProperty(name="domainIdentifier", flag="unknown_domainIdentifier")
+    private String value_domainIdentifier;
+    private boolean unknown_domainIdentifier;
     public String domainIdentifier() {
-        if (domainIdentifier == null) return null;
-        return domainIdentifier.getValue("FormType.domainIdentifier");
+        if (!unknown_domainIdentifier) return value_domainIdentifier;
+        throw new UndeferrableValueException("Value 'FormType.domainIdentifier' is not present");
     }
 
-    private UndeferrableValue<List<FormTypeImport>> imports;
-
+    @PolicyResourceProperty(name="imports", flag="unknown_imports")
+    private List<FormTypeImport> value_imports;
+    private boolean unknown_imports;
     public List<FormTypeImport> imports() {
-        if (imports == null) return null;
-        return imports.getValue("FormType.imports");
+        if (!unknown_imports) return value_imports;
+        throw new UndeferrableValueException("Value 'FormType.imports' is not present");
     }
 
     /**
      * Object of the model of the form type that contains the following attributes.
      * 
      */
-    private @Nullable UndeferrableValue<FormTypeModel> model;
-
+    @PolicyResourceProperty(name="model", flag="unknown_model")
+    private @Nullable FormTypeModel value_model;
+    private boolean unknown_model;
     public @Nullable FormTypeModel model() {
-        if (model == null) return null;
-        return model.getValue("FormType.model");
+        if (!unknown_model) return value_model;
+        throw new UndeferrableValueException("Value 'FormType.model' is not present");
     }
 
     /**
      * Name of the form type. Must be the name of the structure in smithy document.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("FormType.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FormType.name' is not present");
     }
 
     /**
      * Origin domain id of the Form Type.
      * 
      */
-    private UndeferrableValue<String> originDomainId;
-
+    @PolicyResourceProperty(name="originDomainId", flag="unknown_originDomainId")
+    private String value_originDomainId;
+    private boolean unknown_originDomainId;
     public String originDomainId() {
-        if (originDomainId == null) return null;
-        return originDomainId.getValue("FormType.originDomainId");
+        if (!unknown_originDomainId) return value_originDomainId;
+        throw new UndeferrableValueException("Value 'FormType.originDomainId' is not present");
     }
 
     /**
      * Origin project id of the Form Type.
      * 
      */
-    private UndeferrableValue<String> originProjectId;
-
+    @PolicyResourceProperty(name="originProjectId", flag="unknown_originProjectId")
+    private String value_originProjectId;
+    private boolean unknown_originProjectId;
     public String originProjectId() {
-        if (originProjectId == null) return null;
-        return originProjectId.getValue("FormType.originProjectId");
+        if (!unknown_originProjectId) return value_originProjectId;
+        throw new UndeferrableValueException("Value 'FormType.originProjectId' is not present");
     }
 
     /**
      * Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
      * 
      */
-    private UndeferrableValue<String> owningProjectIdentifier;
-
+    @PolicyResourceProperty(name="owningProjectIdentifier", flag="unknown_owningProjectIdentifier")
+    private String value_owningProjectIdentifier;
+    private boolean unknown_owningProjectIdentifier;
     public String owningProjectIdentifier() {
-        if (owningProjectIdentifier == null) return null;
-        return owningProjectIdentifier.getValue("FormType.owningProjectIdentifier");
+        if (!unknown_owningProjectIdentifier) return value_owningProjectIdentifier;
+        throw new UndeferrableValueException("Value 'FormType.owningProjectIdentifier' is not present");
     }
 
     /**
      * Revision of the Form Type.
      * 
      */
-    private UndeferrableValue<String> revision;
-
+    @PolicyResourceProperty(name="revision", flag="unknown_revision")
+    private String value_revision;
+    private boolean unknown_revision;
     public String revision() {
-        if (revision == null) return null;
-        return revision.getValue("FormType.revision");
+        if (!unknown_revision) return value_revision;
+        throw new UndeferrableValueException("Value 'FormType.revision' is not present");
     }
 
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("FormType.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'FormType.status' is not present");
     }
 
-    private @Nullable UndeferrableValue<FormTypeTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable FormTypeTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable FormTypeTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("FormType.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'FormType.timeouts' is not present");
     }
 
 }

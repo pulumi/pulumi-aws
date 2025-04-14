@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.location;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -19,44 +20,48 @@ public final class GeofenceCollectionArgs extends com.pulumi.resources.PolicyRes
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> collectionName;
-
+    @PolicyResourceProperty(name="collectionName", flag="unknown_collectionName")
+    private String value_collectionName;
+    private boolean unknown_collectionName;
     public String collectionName() {
-        if (collectionName == null) return null;
-        return collectionName.getValue("GeofenceCollectionArgs.collectionName");
+        if (!unknown_collectionName) return value_collectionName;
+        throw new UndeferrableValueException("Value 'GeofenceCollectionArgs.collectionName' is not present");
     }
 
     /**
      * The optional description for the geofence collection.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("GeofenceCollectionArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'GeofenceCollectionArgs.description' is not present");
     }
 
     /**
      * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("GeofenceCollectionArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'GeofenceCollectionArgs.kmsKeyId' is not present");
     }
 
     /**
      * Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("GeofenceCollectionArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'GeofenceCollectionArgs.tags' is not present");
     }
 
 }

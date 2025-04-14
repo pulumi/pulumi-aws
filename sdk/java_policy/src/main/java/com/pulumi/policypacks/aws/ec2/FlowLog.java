@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.outputs.FlowLogDestinationOptions;
 import java.lang.Integer;
@@ -19,88 +20,96 @@ public final class FlowLog extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN of the Flow Log.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("FlowLog.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'FlowLog.arn' is not present");
     }
 
     /**
      * ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
      * 
      */
-    private @Nullable UndeferrableValue<String> deliverCrossAccountRole;
-
+    @PolicyResourceProperty(name="deliverCrossAccountRole", flag="unknown_deliverCrossAccountRole")
+    private @Nullable String value_deliverCrossAccountRole;
+    private boolean unknown_deliverCrossAccountRole;
     public @Nullable String deliverCrossAccountRole() {
-        if (deliverCrossAccountRole == null) return null;
-        return deliverCrossAccountRole.getValue("FlowLog.deliverCrossAccountRole");
+        if (!unknown_deliverCrossAccountRole) return value_deliverCrossAccountRole;
+        throw new UndeferrableValueException("Value 'FlowLog.deliverCrossAccountRole' is not present");
     }
 
     /**
      * Describes the destination options for a flow log. More details below.
      * 
      */
-    private @Nullable UndeferrableValue<FlowLogDestinationOptions> destinationOptions;
-
+    @PolicyResourceProperty(name="destinationOptions", flag="unknown_destinationOptions")
+    private @Nullable FlowLogDestinationOptions value_destinationOptions;
+    private boolean unknown_destinationOptions;
     public @Nullable FlowLogDestinationOptions destinationOptions() {
-        if (destinationOptions == null) return null;
-        return destinationOptions.getValue("FlowLog.destinationOptions");
+        if (!unknown_destinationOptions) return value_destinationOptions;
+        throw new UndeferrableValueException("Value 'FlowLog.destinationOptions' is not present");
     }
 
     /**
      * Elastic Network Interface ID to attach to
      * 
      */
-    private @Nullable UndeferrableValue<String> eniId;
-
+    @PolicyResourceProperty(name="eniId", flag="unknown_eniId")
+    private @Nullable String value_eniId;
+    private boolean unknown_eniId;
     public @Nullable String eniId() {
-        if (eniId == null) return null;
-        return eniId.getValue("FlowLog.eniId");
+        if (!unknown_eniId) return value_eniId;
+        throw new UndeferrableValueException("Value 'FlowLog.eniId' is not present");
     }
 
     /**
      * The ARN for the IAM role that&#39;s used to post flow logs to a CloudWatch Logs log group
      * 
      */
-    private @Nullable UndeferrableValue<String> iamRoleArn;
-
+    @PolicyResourceProperty(name="iamRoleArn", flag="unknown_iamRoleArn")
+    private @Nullable String value_iamRoleArn;
+    private boolean unknown_iamRoleArn;
     public @Nullable String iamRoleArn() {
-        if (iamRoleArn == null) return null;
-        return iamRoleArn.getValue("FlowLog.iamRoleArn");
+        if (!unknown_iamRoleArn) return value_iamRoleArn;
+        throw new UndeferrableValueException("Value 'FlowLog.iamRoleArn' is not present");
     }
 
     /**
      * The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
      * 
      */
-    private UndeferrableValue<String> logDestination;
-
+    @PolicyResourceProperty(name="logDestination", flag="unknown_logDestination")
+    private String value_logDestination;
+    private boolean unknown_logDestination;
     public String logDestination() {
-        if (logDestination == null) return null;
-        return logDestination.getValue("FlowLog.logDestination");
+        if (!unknown_logDestination) return value_logDestination;
+        throw new UndeferrableValueException("Value 'FlowLog.logDestination' is not present");
     }
 
     /**
      * The type of the logging destination. Valid values: `cloud-watch-logs`, `s3`, `kinesis-data-firehose`. Default: `cloud-watch-logs`.
      * 
      */
-    private @Nullable UndeferrableValue<String> logDestinationType;
-
+    @PolicyResourceProperty(name="logDestinationType", flag="unknown_logDestinationType")
+    private @Nullable String value_logDestinationType;
+    private boolean unknown_logDestinationType;
     public @Nullable String logDestinationType() {
-        if (logDestinationType == null) return null;
-        return logDestinationType.getValue("FlowLog.logDestinationType");
+        if (!unknown_logDestinationType) return value_logDestinationType;
+        throw new UndeferrableValueException("Value 'FlowLog.logDestinationType' is not present");
     }
 
     /**
      * The fields to include in the flow log record. Accepted format example: `&#34;$${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport}&#34;`.
      * 
      */
-    private UndeferrableValue<String> logFormat;
-
+    @PolicyResourceProperty(name="logFormat", flag="unknown_logFormat")
+    private String value_logFormat;
+    private boolean unknown_logFormat;
     public String logFormat() {
-        if (logFormat == null) return null;
-        return logFormat.getValue("FlowLog.logFormat");
+        if (!unknown_logFormat) return value_logFormat;
+        throw new UndeferrableValueException("Value 'FlowLog.logFormat' is not present");
     }
 
     /**
@@ -111,11 +120,12 @@ public final class FlowLog extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* log_group_name is deprecated. Use log_destination instead. */
-    private UndeferrableValue<String> logGroupName;
-
+    @PolicyResourceProperty(name="logGroupName", flag="unknown_logGroupName")
+    private String value_logGroupName;
+    private boolean unknown_logGroupName;
     public String logGroupName() {
-        if (logGroupName == null) return null;
-        return logGroupName.getValue("FlowLog.logGroupName");
+        if (!unknown_logGroupName) return value_logGroupName;
+        throw new UndeferrableValueException("Value 'FlowLog.logGroupName' is not present");
     }
 
     /**
@@ -125,33 +135,36 @@ public final class FlowLog extends com.pulumi.resources.PolicyResourceOutput {
      * minutes). Default: `600`. When `transit_gateway_id` or `transit_gateway_attachment_id` is specified, `max_aggregation_interval` *must* be 60 seconds (1 minute).
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxAggregationInterval;
-
+    @PolicyResourceProperty(name="maxAggregationInterval", flag="unknown_maxAggregationInterval")
+    private @Nullable Integer value_maxAggregationInterval;
+    private boolean unknown_maxAggregationInterval;
     public @Nullable Integer maxAggregationInterval() {
-        if (maxAggregationInterval == null) return null;
-        return maxAggregationInterval.getValue("FlowLog.maxAggregationInterval");
+        if (!unknown_maxAggregationInterval) return value_maxAggregationInterval;
+        throw new UndeferrableValueException("Value 'FlowLog.maxAggregationInterval' is not present");
     }
 
     /**
      * Subnet ID to attach to
      * 
      */
-    private @Nullable UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private @Nullable String value_subnetId;
+    private boolean unknown_subnetId;
     public @Nullable String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("FlowLog.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'FlowLog.subnetId' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("FlowLog.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'FlowLog.tags' is not present");
     }
 
     /**
@@ -162,55 +175,60 @@ public final class FlowLog extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("FlowLog.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'FlowLog.tagsAll' is not present");
     }
 
     /**
      * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
      * 
      */
-    private @Nullable UndeferrableValue<String> trafficType;
-
+    @PolicyResourceProperty(name="trafficType", flag="unknown_trafficType")
+    private @Nullable String value_trafficType;
+    private boolean unknown_trafficType;
     public @Nullable String trafficType() {
-        if (trafficType == null) return null;
-        return trafficType.getValue("FlowLog.trafficType");
+        if (!unknown_trafficType) return value_trafficType;
+        throw new UndeferrableValueException("Value 'FlowLog.trafficType' is not present");
     }
 
     /**
      * Transit Gateway Attachment ID to attach to
      * 
      */
-    private @Nullable UndeferrableValue<String> transitGatewayAttachmentId;
-
+    @PolicyResourceProperty(name="transitGatewayAttachmentId", flag="unknown_transitGatewayAttachmentId")
+    private @Nullable String value_transitGatewayAttachmentId;
+    private boolean unknown_transitGatewayAttachmentId;
     public @Nullable String transitGatewayAttachmentId() {
-        if (transitGatewayAttachmentId == null) return null;
-        return transitGatewayAttachmentId.getValue("FlowLog.transitGatewayAttachmentId");
+        if (!unknown_transitGatewayAttachmentId) return value_transitGatewayAttachmentId;
+        throw new UndeferrableValueException("Value 'FlowLog.transitGatewayAttachmentId' is not present");
     }
 
     /**
      * Transit Gateway ID to attach to
      * 
      */
-    private @Nullable UndeferrableValue<String> transitGatewayId;
-
+    @PolicyResourceProperty(name="transitGatewayId", flag="unknown_transitGatewayId")
+    private @Nullable String value_transitGatewayId;
+    private boolean unknown_transitGatewayId;
     public @Nullable String transitGatewayId() {
-        if (transitGatewayId == null) return null;
-        return transitGatewayId.getValue("FlowLog.transitGatewayId");
+        if (!unknown_transitGatewayId) return value_transitGatewayId;
+        throw new UndeferrableValueException("Value 'FlowLog.transitGatewayId' is not present");
     }
 
     /**
      * VPC ID to attach to
      * 
      */
-    private @Nullable UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private @Nullable String value_vpcId;
+    private boolean unknown_vpcId;
     public @Nullable String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("FlowLog.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'FlowLog.vpcId' is not present");
     }
 
 }

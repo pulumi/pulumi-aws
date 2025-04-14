@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticache.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -12,33 +13,36 @@ import javax.annotation.Nullable;
 
 public final class UserAuthenticationMode {
 
-    private @Nullable UndeferrableValue<Integer> passwordCount;
-
+    @PolicyResourceProperty(name="passwordCount", flag="unknown_passwordCount")
+    private @Nullable Integer value_passwordCount;
+    private boolean unknown_passwordCount;
     public @Nullable Integer passwordCount() {
-        if (passwordCount == null) return null;
-        return passwordCount.getValue("UserAuthenticationMode.passwordCount");
+        if (!unknown_passwordCount) return value_passwordCount;
+        throw new UndeferrableValueException("Value 'UserAuthenticationMode.passwordCount' is not present");
     }
 
     /**
      * Specifies the passwords to use for authentication if `type` is set to `password`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> passwords;
-
+    @PolicyResourceProperty(name="passwords", flag="unknown_passwords")
+    private @Nullable List<String> value_passwords;
+    private boolean unknown_passwords;
     public @Nullable List<String> passwords() {
-        if (passwords == null) return null;
-        return passwords.getValue("UserAuthenticationMode.passwords");
+        if (!unknown_passwords) return value_passwords;
+        throw new UndeferrableValueException("Value 'UserAuthenticationMode.passwords' is not present");
     }
 
     /**
      * Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("UserAuthenticationMode.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'UserAuthenticationMode.type' is not present");
     }
 
 }

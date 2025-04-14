@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.evidently;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.evidently.inputs.FeatureVariationArgs;
 import java.lang.String;
@@ -19,88 +20,96 @@ public final class FeatureArgs extends com.pulumi.resources.PolicyResourceInput 
      * The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `default_variation`, the first variation listed in the `variations` structure is used as the default variation.
      * 
      */
-    private UndeferrableValue<String> defaultVariation;
-
+    @PolicyResourceProperty(name="defaultVariation", flag="unknown_defaultVariation")
+    private String value_defaultVariation;
+    private boolean unknown_defaultVariation;
     public String defaultVariation() {
-        if (defaultVariation == null) return null;
-        return defaultVariation.getValue("FeatureArgs.defaultVariation");
+        if (!unknown_defaultVariation) return value_defaultVariation;
+        throw new UndeferrableValueException("Value 'FeatureArgs.defaultVariation' is not present");
     }
 
     /**
      * Specifies the description of the feature.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("FeatureArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'FeatureArgs.description' is not present");
     }
 
     /**
      * Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
      * 
      */
-    private UndeferrableValue<Map<String,String>> entityOverrides;
-
+    @PolicyResourceProperty(name="entityOverrides", flag="unknown_entityOverrides")
+    private Map<String,String> value_entityOverrides;
+    private boolean unknown_entityOverrides;
     public Map<String,String> entityOverrides() {
-        if (entityOverrides == null) return null;
-        return entityOverrides.getValue("FeatureArgs.entityOverrides");
+        if (!unknown_entityOverrides) return value_entityOverrides;
+        throw new UndeferrableValueException("Value 'FeatureArgs.entityOverrides' is not present");
     }
 
     /**
      * Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
      * 
      */
-    private UndeferrableValue<String> evaluationStrategy;
-
+    @PolicyResourceProperty(name="evaluationStrategy", flag="unknown_evaluationStrategy")
+    private String value_evaluationStrategy;
+    private boolean unknown_evaluationStrategy;
     public String evaluationStrategy() {
-        if (evaluationStrategy == null) return null;
-        return evaluationStrategy.getValue("FeatureArgs.evaluationStrategy");
+        if (!unknown_evaluationStrategy) return value_evaluationStrategy;
+        throw new UndeferrableValueException("Value 'FeatureArgs.evaluationStrategy' is not present");
     }
 
     /**
      * The name for the new feature. Minimum length of `1`. Maximum length of `127`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("FeatureArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FeatureArgs.name' is not present");
     }
 
     /**
      * The name or ARN of the project that is to contain the new feature.
      * 
      */
-    private UndeferrableValue<String> project;
-
+    @PolicyResourceProperty(name="project", flag="unknown_project")
+    private String value_project;
+    private boolean unknown_project;
     public String project() {
-        if (project == null) return null;
-        return project.getValue("FeatureArgs.project");
+        if (!unknown_project) return value_project;
+        throw new UndeferrableValueException("Value 'FeatureArgs.project' is not present");
     }
 
     /**
      * Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("FeatureArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'FeatureArgs.tags' is not present");
     }
 
     /**
      * One or more blocks that contain the configuration of the feature&#39;s different variations. Detailed below
      * 
      */
-    private UndeferrableValue<List<FeatureVariationArgs>> variations;
-
+    @PolicyResourceProperty(name="variations", flag="unknown_variations")
+    private List<FeatureVariationArgs> value_variations;
+    private boolean unknown_variations;
     public List<FeatureVariationArgs> variations() {
-        if (variations == null) return null;
-        return variations.getValue("FeatureArgs.variations");
+        if (!unknown_variations) return value_variations;
+        throw new UndeferrableValueException("Value 'FeatureArgs.variations' is not present");
     }
 
 }

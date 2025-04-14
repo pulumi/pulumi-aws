@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,66 +19,72 @@ public final class ResolverFirewallRuleGroupAssociationArgs extends com.pulumi.r
      * The unique identifier of the firewall rule group.
      * 
      */
-    private UndeferrableValue<String> firewallRuleGroupId;
-
+    @PolicyResourceProperty(name="firewallRuleGroupId", flag="unknown_firewallRuleGroupId")
+    private String value_firewallRuleGroupId;
+    private boolean unknown_firewallRuleGroupId;
     public String firewallRuleGroupId() {
-        if (firewallRuleGroupId == null) return null;
-        return firewallRuleGroupId.getValue("ResolverFirewallRuleGroupAssociationArgs.firewallRuleGroupId");
+        if (!unknown_firewallRuleGroupId) return value_firewallRuleGroupId;
+        throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroupAssociationArgs.firewallRuleGroupId' is not present");
     }
 
     /**
      * If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> mutationProtection;
-
+    @PolicyResourceProperty(name="mutationProtection", flag="unknown_mutationProtection")
+    private String value_mutationProtection;
+    private boolean unknown_mutationProtection;
     public String mutationProtection() {
-        if (mutationProtection == null) return null;
-        return mutationProtection.getValue("ResolverFirewallRuleGroupAssociationArgs.mutationProtection");
+        if (!unknown_mutationProtection) return value_mutationProtection;
+        throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroupAssociationArgs.mutationProtection' is not present");
     }
 
     /**
      * A name that lets you identify the rule group association, to manage and use it.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ResolverFirewallRuleGroupAssociationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroupAssociationArgs.name' is not present");
     }
 
     /**
      * The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
      * 
      */
-    private UndeferrableValue<Integer> priority;
-
+    @PolicyResourceProperty(name="priority", flag="unknown_priority")
+    private Integer value_priority;
+    private boolean unknown_priority;
     public Integer priority() {
-        if (priority == null) return null;
-        return priority.getValue("ResolverFirewallRuleGroupAssociationArgs.priority");
+        if (!unknown_priority) return value_priority;
+        throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroupAssociationArgs.priority' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ResolverFirewallRuleGroupAssociationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroupAssociationArgs.tags' is not present");
     }
 
     /**
      * The unique identifier of the VPC that you want to associate with the rule group.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("ResolverFirewallRuleGroupAssociationArgs.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'ResolverFirewallRuleGroupAssociationArgs.vpcId' is not present");
     }
 
 }

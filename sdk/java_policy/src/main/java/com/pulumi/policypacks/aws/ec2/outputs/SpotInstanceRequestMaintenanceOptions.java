@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class SpotInstanceRequestMaintenanceOptions {
      * Automatic recovery behavior of the Instance. Can be `&#34;default&#34;` or `&#34;disabled&#34;`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
      * 
      */
-    private @Nullable UndeferrableValue<String> autoRecovery;
-
+    @PolicyResourceProperty(name="autoRecovery", flag="unknown_autoRecovery")
+    private @Nullable String value_autoRecovery;
+    private boolean unknown_autoRecovery;
     public @Nullable String autoRecovery() {
-        if (autoRecovery == null) return null;
-        return autoRecovery.getValue("SpotInstanceRequestMaintenanceOptions.autoRecovery");
+        if (!unknown_autoRecovery) return value_autoRecovery;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequestMaintenanceOptions.autoRecovery' is not present");
     }
 
 }

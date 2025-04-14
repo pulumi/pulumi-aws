@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedpermissions;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.verifiedpermissions.outputs.PolicyStoreValidationSettings;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class PolicyStore extends com.pulumi.resources.PolicyResourceOutput
      * The ARN of the Policy Store.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("PolicyStore.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'PolicyStore.arn' is not present");
     }
 
     /**
      * A description of the Policy Store.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("PolicyStore.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'PolicyStore.description' is not present");
     }
 
     /**
      * The ID of the Policy Store.
      * 
      */
-    private UndeferrableValue<String> policyStoreId;
-
+    @PolicyResourceProperty(name="policyStoreId", flag="unknown_policyStoreId")
+    private String value_policyStoreId;
+    private boolean unknown_policyStoreId;
     public String policyStoreId() {
-        if (policyStoreId == null) return null;
-        return policyStoreId.getValue("PolicyStore.policyStoreId");
+        if (!unknown_policyStoreId) return value_policyStoreId;
+        throw new UndeferrableValueException("Value 'PolicyStore.policyStoreId' is not present");
     }
 
     /**
      * Validation settings for the policy store.
      * 
      */
-    private @Nullable UndeferrableValue<PolicyStoreValidationSettings> validationSettings;
-
+    @PolicyResourceProperty(name="validationSettings", flag="unknown_validationSettings")
+    private @Nullable PolicyStoreValidationSettings value_validationSettings;
+    private boolean unknown_validationSettings;
     public @Nullable PolicyStoreValidationSettings validationSettings() {
-        if (validationSettings == null) return null;
-        return validationSettings.getValue("PolicyStore.validationSettings");
+        if (!unknown_validationSettings) return value_validationSettings;
+        throw new UndeferrableValueException("Value 'PolicyStore.validationSettings' is not present");
     }
 
 }

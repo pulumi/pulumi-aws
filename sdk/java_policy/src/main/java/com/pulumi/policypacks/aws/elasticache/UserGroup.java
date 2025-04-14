@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticache;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,33 +19,36 @@ public final class UserGroup extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN that identifies the user group.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("UserGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'UserGroup.arn' is not present");
     }
 
     /**
      * The current supported value are `redis`, `valkey` (case insensitive).
      * 
      */
-    private UndeferrableValue<String> engine;
-
+    @PolicyResourceProperty(name="engine", flag="unknown_engine")
+    private String value_engine;
+    private boolean unknown_engine;
     public String engine() {
-        if (engine == null) return null;
-        return engine.getValue("UserGroup.engine");
+        if (!unknown_engine) return value_engine;
+        throw new UndeferrableValueException("Value 'UserGroup.engine' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("UserGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'UserGroup.tags' is not present");
     }
 
     /**
@@ -55,11 +59,12 @@ public final class UserGroup extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("UserGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'UserGroup.tagsAll' is not present");
     }
 
     /**
@@ -68,22 +73,24 @@ public final class UserGroup extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> userGroupId;
-
+    @PolicyResourceProperty(name="userGroupId", flag="unknown_userGroupId")
+    private String value_userGroupId;
+    private boolean unknown_userGroupId;
     public String userGroupId() {
-        if (userGroupId == null) return null;
-        return userGroupId.getValue("UserGroup.userGroupId");
+        if (!unknown_userGroupId) return value_userGroupId;
+        throw new UndeferrableValueException("Value 'UserGroup.userGroupId' is not present");
     }
 
     /**
      * The list of user IDs that belong to the user group.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> userIds;
-
+    @PolicyResourceProperty(name="userIds", flag="unknown_userIds")
+    private @Nullable List<String> value_userIds;
+    private boolean unknown_userIds;
     public @Nullable List<String> userIds() {
-        if (userIds == null) return null;
-        return userIds.getValue("UserGroup.userIds");
+        if (!unknown_userIds) return value_userIds;
+        throw new UndeferrableValueException("Value 'UserGroup.userIds' is not present");
     }
 
 }

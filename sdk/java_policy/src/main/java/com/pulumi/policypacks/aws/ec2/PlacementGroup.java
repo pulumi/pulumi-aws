@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,22 +19,24 @@ public final class PlacementGroup extends com.pulumi.resources.PolicyResourceOut
      * Amazon Resource Name (ARN) of the placement group.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("PlacementGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'PlacementGroup.arn' is not present");
     }
 
     /**
      * The name of the placement group.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PlacementGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PlacementGroup.name' is not present");
     }
 
     /**
@@ -42,22 +45,24 @@ public final class PlacementGroup extends com.pulumi.resources.PolicyResourceOut
      * `partition`.  Valid values are 1 - 7 (default is `2`).
      * 
      */
-    private UndeferrableValue<Integer> partitionCount;
-
+    @PolicyResourceProperty(name="partitionCount", flag="unknown_partitionCount")
+    private Integer value_partitionCount;
+    private boolean unknown_partitionCount;
     public Integer partitionCount() {
-        if (partitionCount == null) return null;
-        return partitionCount.getValue("PlacementGroup.partitionCount");
+        if (!unknown_partitionCount) return value_partitionCount;
+        throw new UndeferrableValueException("Value 'PlacementGroup.partitionCount' is not present");
     }
 
     /**
      * The ID of the placement group.
      * 
      */
-    private UndeferrableValue<String> placementGroupId;
-
+    @PolicyResourceProperty(name="placementGroupId", flag="unknown_placementGroupId")
+    private String value_placementGroupId;
+    private boolean unknown_placementGroupId;
     public String placementGroupId() {
-        if (placementGroupId == null) return null;
-        return placementGroupId.getValue("PlacementGroup.placementGroupId");
+        if (!unknown_placementGroupId) return value_placementGroupId;
+        throw new UndeferrableValueException("Value 'PlacementGroup.placementGroupId' is not present");
     }
 
     /**
@@ -65,33 +70,36 @@ public final class PlacementGroup extends com.pulumi.resources.PolicyResourceOut
      * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
      * 
      */
-    private UndeferrableValue<String> spreadLevel;
-
+    @PolicyResourceProperty(name="spreadLevel", flag="unknown_spreadLevel")
+    private String value_spreadLevel;
+    private boolean unknown_spreadLevel;
     public String spreadLevel() {
-        if (spreadLevel == null) return null;
-        return spreadLevel.getValue("PlacementGroup.spreadLevel");
+        if (!unknown_spreadLevel) return value_spreadLevel;
+        throw new UndeferrableValueException("Value 'PlacementGroup.spreadLevel' is not present");
     }
 
     /**
      * The placement strategy. Can be `cluster`, `partition` or `spread`.
      * 
      */
-    private UndeferrableValue<String> strategy;
-
+    @PolicyResourceProperty(name="strategy", flag="unknown_strategy")
+    private String value_strategy;
+    private boolean unknown_strategy;
     public String strategy() {
-        if (strategy == null) return null;
-        return strategy.getValue("PlacementGroup.strategy");
+        if (!unknown_strategy) return value_strategy;
+        throw new UndeferrableValueException("Value 'PlacementGroup.strategy' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("PlacementGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'PlacementGroup.tags' is not present");
     }
 
     /**
@@ -102,11 +110,12 @@ public final class PlacementGroup extends com.pulumi.resources.PolicyResourceOut
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("PlacementGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'PlacementGroup.tagsAll' is not present");
     }
 
 }

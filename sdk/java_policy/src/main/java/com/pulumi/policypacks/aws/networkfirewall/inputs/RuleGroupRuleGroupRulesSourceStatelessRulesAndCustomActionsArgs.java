@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs;
 import com.pulumi.policypacks.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsAr
      * Set of configuration blocks containing custom action definitions that are available for use by the set of `stateless rule`. See Custom Action below for details.
      * 
      */
-    private UndeferrableValue<List<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs>> customActions;
-
+    @PolicyResourceProperty(name="customActions", flag="unknown_customActions")
+    private List<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs> value_customActions;
+    private boolean unknown_customActions;
     public List<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs> customActions() {
-        if (customActions == null) return null;
-        return customActions.getValue("RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs.customActions");
+        if (!unknown_customActions) return value_customActions;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs.customActions' is not present");
     }
 
     /**
      * Set of configuration blocks containing the stateless rules for use in the stateless rule group. See Stateless Rule below for details.
      * 
      */
-    private UndeferrableValue<List<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs>> statelessRules;
-
+    @PolicyResourceProperty(name="statelessRules", flag="unknown_statelessRules")
+    private List<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs> value_statelessRules;
+    private boolean unknown_statelessRules;
     public List<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs> statelessRules() {
-        if (statelessRules == null) return null;
-        return statelessRules.getValue("RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs.statelessRules");
+        if (!unknown_statelessRules) return value_statelessRules;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs.statelessRules' is not present");
     }
 
 }

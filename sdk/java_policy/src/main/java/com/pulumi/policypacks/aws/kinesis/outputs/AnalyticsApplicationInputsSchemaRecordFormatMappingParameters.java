@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.outputs.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv;
 import com.pulumi.policypacks.aws.kinesis.outputs.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class AnalyticsApplicationInputsSchemaRecordFormatMappingParameters
      * See CSV Mapping Parameters below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv> csv;
-
+    @PolicyResourceProperty(name="csv", flag="unknown_csv")
+    private @Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv value_csv;
+    private boolean unknown_csv;
     public @Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv csv() {
-        if (csv == null) return null;
-        return csv.getValue("AnalyticsApplicationInputsSchemaRecordFormatMappingParameters.csv");
+        if (!unknown_csv) return value_csv;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsSchemaRecordFormatMappingParameters.csv' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class AnalyticsApplicationInputsSchemaRecordFormatMappingParameters
      * See JSON Mapping Parameters below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson> json;
-
+    @PolicyResourceProperty(name="json", flag="unknown_json")
+    private @Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson value_json;
+    private boolean unknown_json;
     public @Nullable AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson json() {
-        if (json == null) return null;
-        return json.getValue("AnalyticsApplicationInputsSchemaRecordFormatMappingParameters.json");
+        if (!unknown_json) return value_json;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationInputsSchemaRecordFormatMappingParameters.json' is not present");
     }
 
 }

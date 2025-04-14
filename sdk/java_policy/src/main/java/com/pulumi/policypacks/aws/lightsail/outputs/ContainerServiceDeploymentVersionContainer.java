@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -16,55 +17,60 @@ public final class ContainerServiceDeploymentVersionContainer {
      * The launch command for the container. A list of string.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> commands;
-
+    @PolicyResourceProperty(name="commands", flag="unknown_commands")
+    private @Nullable List<String> value_commands;
+    private boolean unknown_commands;
     public @Nullable List<String> commands() {
-        if (commands == null) return null;
-        return commands.getValue("ContainerServiceDeploymentVersionContainer.commands");
+        if (!unknown_commands) return value_commands;
+        throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionContainer.commands' is not present");
     }
 
     /**
      * The name for the container.
      * 
      */
-    private UndeferrableValue<String> containerName;
-
+    @PolicyResourceProperty(name="containerName", flag="unknown_containerName")
+    private String value_containerName;
+    private boolean unknown_containerName;
     public String containerName() {
-        if (containerName == null) return null;
-        return containerName.getValue("ContainerServiceDeploymentVersionContainer.containerName");
+        if (!unknown_containerName) return value_containerName;
+        throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionContainer.containerName' is not present");
     }
 
     /**
      * A key-value map of the environment variables of the container.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> environment;
-
+    @PolicyResourceProperty(name="environment", flag="unknown_environment")
+    private @Nullable Map<String,String> value_environment;
+    private boolean unknown_environment;
     public @Nullable Map<String,String> environment() {
-        if (environment == null) return null;
-        return environment.getValue("ContainerServiceDeploymentVersionContainer.environment");
+        if (!unknown_environment) return value_environment;
+        throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionContainer.environment' is not present");
     }
 
     /**
      * The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don&#39;t start with a colon. For example, `nginx:latest` or `nginx`.
      * 
      */
-    private UndeferrableValue<String> image;
-
+    @PolicyResourceProperty(name="image", flag="unknown_image")
+    private String value_image;
+    private boolean unknown_image;
     public String image() {
-        if (image == null) return null;
-        return image.getValue("ContainerServiceDeploymentVersionContainer.image");
+        if (!unknown_image) return value_image;
+        throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionContainer.image' is not present");
     }
 
     /**
      * A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> ports;
-
+    @PolicyResourceProperty(name="ports", flag="unknown_ports")
+    private @Nullable Map<String,String> value_ports;
+    private boolean unknown_ports;
     public @Nullable Map<String,String> ports() {
-        if (ports == null) return null;
-        return ports.getValue("ContainerServiceDeploymentVersionContainer.ports");
+        if (!unknown_ports) return value_ports;
+        throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionContainer.ports' is not present");
     }
 
 }

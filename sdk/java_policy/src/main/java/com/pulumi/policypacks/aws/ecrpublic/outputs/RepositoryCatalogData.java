@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecrpublic.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,66 +16,72 @@ public final class RepositoryCatalogData {
      * A detailed description of the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The text must be in markdown format.
      * 
      */
-    private @Nullable UndeferrableValue<String> aboutText;
-
+    @PolicyResourceProperty(name="aboutText", flag="unknown_aboutText")
+    private @Nullable String value_aboutText;
+    private boolean unknown_aboutText;
     public @Nullable String aboutText() {
-        if (aboutText == null) return null;
-        return aboutText.getValue("RepositoryCatalogData.aboutText");
+        if (!unknown_aboutText) return value_aboutText;
+        throw new UndeferrableValueException("Value 'RepositoryCatalogData.aboutText' is not present");
     }
 
     /**
      * The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `ARM`, `ARM 64`, `x86`, `x86-64`
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> architectures;
-
+    @PolicyResourceProperty(name="architectures", flag="unknown_architectures")
+    private @Nullable List<String> value_architectures;
+    private boolean unknown_architectures;
     public @Nullable List<String> architectures() {
-        if (architectures == null) return null;
-        return architectures.getValue("RepositoryCatalogData.architectures");
+        if (!unknown_architectures) return value_architectures;
+        throw new UndeferrableValueException("Value 'RepositoryCatalogData.architectures' is not present");
     }
 
     /**
      * A short description of the contents of the repository. This text appears in both the image details and also when searching for repositories on the Amazon ECR Public Gallery.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("RepositoryCatalogData.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'RepositoryCatalogData.description' is not present");
     }
 
     /**
      * The base64-encoded repository logo payload. (Only visible for verified accounts) Note that drift detection is disabled for this attribute.
      * 
      */
-    private @Nullable UndeferrableValue<String> logoImageBlob;
-
+    @PolicyResourceProperty(name="logoImageBlob", flag="unknown_logoImageBlob")
+    private @Nullable String value_logoImageBlob;
+    private boolean unknown_logoImageBlob;
     public @Nullable String logoImageBlob() {
-        if (logoImageBlob == null) return null;
-        return logoImageBlob.getValue("RepositoryCatalogData.logoImageBlob");
+        if (!unknown_logoImageBlob) return value_logoImageBlob;
+        throw new UndeferrableValueException("Value 'RepositoryCatalogData.logoImageBlob' is not present");
     }
 
     /**
      * The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> operatingSystems;
-
+    @PolicyResourceProperty(name="operatingSystems", flag="unknown_operatingSystems")
+    private @Nullable List<String> value_operatingSystems;
+    private boolean unknown_operatingSystems;
     public @Nullable List<String> operatingSystems() {
-        if (operatingSystems == null) return null;
-        return operatingSystems.getValue("RepositoryCatalogData.operatingSystems");
+        if (!unknown_operatingSystems) return value_operatingSystems;
+        throw new UndeferrableValueException("Value 'RepositoryCatalogData.operatingSystems' is not present");
     }
 
     /**
      * Detailed information on how to use the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The usage text provides context, support information, and additional usage details for users of the repository. The text must be in markdown format.
      * 
      */
-    private @Nullable UndeferrableValue<String> usageText;
-
+    @PolicyResourceProperty(name="usageText", flag="unknown_usageText")
+    private @Nullable String value_usageText;
+    private boolean unknown_usageText;
     public @Nullable String usageText() {
-        if (usageText == null) return null;
-        return usageText.getValue("RepositoryCatalogData.usageText");
+        if (!unknown_usageText) return value_usageText;
+        throw new UndeferrableValueException("Value 'RepositoryCatalogData.usageText' is not present");
     }
 
 }

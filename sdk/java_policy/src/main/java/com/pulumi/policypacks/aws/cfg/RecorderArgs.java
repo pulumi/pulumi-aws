@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cfg.inputs.RecorderRecordingGroupArgs;
 import com.pulumi.policypacks.aws.cfg.inputs.RecorderRecordingModeArgs;
@@ -18,44 +19,48 @@ public final class RecorderArgs extends com.pulumi.resources.PolicyResourceInput
      * The name of the recorder. Defaults to `default`. Changing it recreates the resource.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RecorderArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RecorderArgs.name' is not present");
     }
 
     /**
      * Recording group - see below.
      * 
      */
-    private UndeferrableValue<RecorderRecordingGroupArgs> recordingGroup;
-
+    @PolicyResourceProperty(name="recordingGroup", flag="unknown_recordingGroup")
+    private RecorderRecordingGroupArgs value_recordingGroup;
+    private boolean unknown_recordingGroup;
     public RecorderRecordingGroupArgs recordingGroup() {
-        if (recordingGroup == null) return null;
-        return recordingGroup.getValue("RecorderArgs.recordingGroup");
+        if (!unknown_recordingGroup) return value_recordingGroup;
+        throw new UndeferrableValueException("Value 'RecorderArgs.recordingGroup' is not present");
     }
 
     /**
      * Recording mode - see below.
      * 
      */
-    private UndeferrableValue<RecorderRecordingModeArgs> recordingMode;
-
+    @PolicyResourceProperty(name="recordingMode", flag="unknown_recordingMode")
+    private RecorderRecordingModeArgs value_recordingMode;
+    private boolean unknown_recordingMode;
     public RecorderRecordingModeArgs recordingMode() {
-        if (recordingMode == null) return null;
-        return recordingMode.getValue("RecorderArgs.recordingMode");
+        if (!unknown_recordingMode) return value_recordingMode;
+        throw new UndeferrableValueException("Value 'RecorderArgs.recordingMode' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("RecorderArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'RecorderArgs.roleArn' is not present");
     }
 
 }

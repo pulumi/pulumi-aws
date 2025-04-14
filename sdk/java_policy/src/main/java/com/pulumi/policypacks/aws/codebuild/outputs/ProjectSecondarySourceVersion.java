@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ProjectSecondarySourceVersion {
      * An identifier for a source in the build project.
      * 
      */
-    private UndeferrableValue<String> sourceIdentifier;
-
+    @PolicyResourceProperty(name="sourceIdentifier", flag="unknown_sourceIdentifier")
+    private String value_sourceIdentifier;
+    private boolean unknown_sourceIdentifier;
     public String sourceIdentifier() {
-        if (sourceIdentifier == null) return null;
-        return sourceIdentifier.getValue("ProjectSecondarySourceVersion.sourceIdentifier");
+        if (!unknown_sourceIdentifier) return value_sourceIdentifier;
+        throw new UndeferrableValueException("Value 'ProjectSecondarySourceVersion.sourceIdentifier' is not present");
     }
 
     /**
@@ -26,11 +28,12 @@ public final class ProjectSecondarySourceVersion {
      * for more details.
      * 
      */
-    private UndeferrableValue<String> sourceVersion;
-
+    @PolicyResourceProperty(name="sourceVersion", flag="unknown_sourceVersion")
+    private String value_sourceVersion;
+    private boolean unknown_sourceVersion;
     public String sourceVersion() {
-        if (sourceVersion == null) return null;
-        return sourceVersion.getValue("ProjectSecondarySourceVersion.sourceVersion");
+        if (!unknown_sourceVersion) return value_sourceVersion;
+        throw new UndeferrableValueException("Value 'ProjectSecondarySourceVersion.sourceVersion' is not present");
     }
 
 }

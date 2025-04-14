@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.msk.inputs.ClusterLoggingInfoBrokerLogsArgs;
 
 
@@ -13,11 +14,12 @@ public final class ClusterLoggingInfoArgs {
      * Configuration block for Broker Logs settings for logging info. See below.
      * 
      */
-    private UndeferrableValue<ClusterLoggingInfoBrokerLogsArgs> brokerLogs;
-
+    @PolicyResourceProperty(name="brokerLogs", flag="unknown_brokerLogs")
+    private ClusterLoggingInfoBrokerLogsArgs value_brokerLogs;
+    private boolean unknown_brokerLogs;
     public ClusterLoggingInfoBrokerLogsArgs brokerLogs() {
-        if (brokerLogs == null) return null;
-        return brokerLogs.getValue("ClusterLoggingInfoArgs.brokerLogs");
+        if (!unknown_brokerLogs) return value_brokerLogs;
+        throw new UndeferrableValueException("Value 'ClusterLoggingInfoArgs.brokerLogs' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dynamodb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class TableAttribute {
      * Name of the attribute
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TableAttribute.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TableAttribute.name' is not present");
     }
 
     /**
      * Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("TableAttribute.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'TableAttribute.type' is not present");
     }
 
 }

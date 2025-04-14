@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class PipeTargetParametersBatchJobParametersArrayProperties {
      * The size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> size;
-
+    @PolicyResourceProperty(name="size", flag="unknown_size")
+    private @Nullable Integer value_size;
+    private boolean unknown_size;
     public @Nullable Integer size() {
-        if (size == null) return null;
-        return size.getValue("PipeTargetParametersBatchJobParametersArrayProperties.size");
+        if (!unknown_size) return value_size;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParametersArrayProperties.size' is not present");
     }
 
 }

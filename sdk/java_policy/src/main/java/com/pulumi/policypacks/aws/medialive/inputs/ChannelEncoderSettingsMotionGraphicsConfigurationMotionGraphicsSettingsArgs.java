@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphi
      * Html Motion Graphics Settings.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs> htmlMotionGraphicsSettings;
-
+    @PolicyResourceProperty(name="htmlMotionGraphicsSettings", flag="unknown_htmlMotionGraphicsSettings")
+    private ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs value_htmlMotionGraphicsSettings;
+    private boolean unknown_htmlMotionGraphicsSettings;
     public ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs htmlMotionGraphicsSettings() {
-        if (htmlMotionGraphicsSettings == null) return null;
-        return htmlMotionGraphicsSettings.getValue("ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs.htmlMotionGraphicsSettings");
+        if (!unknown_htmlMotionGraphicsSettings) return value_htmlMotionGraphicsSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs.htmlMotionGraphicsSettings' is not present");
     }
 
 }

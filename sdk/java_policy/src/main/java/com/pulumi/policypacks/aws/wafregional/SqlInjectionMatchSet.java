@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafregional;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.wafregional.outputs.SqlInjectionMatchSetSqlInjectionMatchTuple;
 import java.lang.String;
@@ -18,22 +19,24 @@ public final class SqlInjectionMatchSet extends com.pulumi.resources.PolicyResou
      * The name or description of the SizeConstraintSet.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("SqlInjectionMatchSet.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'SqlInjectionMatchSet.name' is not present");
     }
 
     /**
      * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
      * 
      */
-    private @Nullable UndeferrableValue<List<SqlInjectionMatchSetSqlInjectionMatchTuple>> sqlInjectionMatchTuples;
-
+    @PolicyResourceProperty(name="sqlInjectionMatchTuples", flag="unknown_sqlInjectionMatchTuples")
+    private @Nullable List<SqlInjectionMatchSetSqlInjectionMatchTuple> value_sqlInjectionMatchTuples;
+    private boolean unknown_sqlInjectionMatchTuples;
     public @Nullable List<SqlInjectionMatchSetSqlInjectionMatchTuple> sqlInjectionMatchTuples() {
-        if (sqlInjectionMatchTuples == null) return null;
-        return sqlInjectionMatchTuples.getValue("SqlInjectionMatchSet.sqlInjectionMatchTuples");
+        if (!unknown_sqlInjectionMatchTuples) return value_sqlInjectionMatchTuples;
+        throw new UndeferrableValueException("Value 'SqlInjectionMatchSet.sqlInjectionMatchTuples' is not present");
     }
 
 }

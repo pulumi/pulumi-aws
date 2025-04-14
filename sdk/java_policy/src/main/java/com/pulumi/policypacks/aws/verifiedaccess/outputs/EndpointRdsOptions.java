@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -12,53 +13,60 @@ import javax.annotation.Nullable;
 
 public final class EndpointRdsOptions {
 
-    private @Nullable UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable Integer value_port;
+    private boolean unknown_port;
     public @Nullable Integer port() {
-        if (port == null) return null;
-        return port.getValue("EndpointRdsOptions.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'EndpointRdsOptions.port' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private @Nullable String value_protocol;
+    private boolean unknown_protocol;
     public @Nullable String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("EndpointRdsOptions.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'EndpointRdsOptions.protocol' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> rdsDbClusterArn;
-
+    @PolicyResourceProperty(name="rdsDbClusterArn", flag="unknown_rdsDbClusterArn")
+    private @Nullable String value_rdsDbClusterArn;
+    private boolean unknown_rdsDbClusterArn;
     public @Nullable String rdsDbClusterArn() {
-        if (rdsDbClusterArn == null) return null;
-        return rdsDbClusterArn.getValue("EndpointRdsOptions.rdsDbClusterArn");
+        if (!unknown_rdsDbClusterArn) return value_rdsDbClusterArn;
+        throw new UndeferrableValueException("Value 'EndpointRdsOptions.rdsDbClusterArn' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> rdsDbInstanceArn;
-
+    @PolicyResourceProperty(name="rdsDbInstanceArn", flag="unknown_rdsDbInstanceArn")
+    private @Nullable String value_rdsDbInstanceArn;
+    private boolean unknown_rdsDbInstanceArn;
     public @Nullable String rdsDbInstanceArn() {
-        if (rdsDbInstanceArn == null) return null;
-        return rdsDbInstanceArn.getValue("EndpointRdsOptions.rdsDbInstanceArn");
+        if (!unknown_rdsDbInstanceArn) return value_rdsDbInstanceArn;
+        throw new UndeferrableValueException("Value 'EndpointRdsOptions.rdsDbInstanceArn' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> rdsDbProxyArn;
-
+    @PolicyResourceProperty(name="rdsDbProxyArn", flag="unknown_rdsDbProxyArn")
+    private @Nullable String value_rdsDbProxyArn;
+    private boolean unknown_rdsDbProxyArn;
     public @Nullable String rdsDbProxyArn() {
-        if (rdsDbProxyArn == null) return null;
-        return rdsDbProxyArn.getValue("EndpointRdsOptions.rdsDbProxyArn");
+        if (!unknown_rdsDbProxyArn) return value_rdsDbProxyArn;
+        throw new UndeferrableValueException("Value 'EndpointRdsOptions.rdsDbProxyArn' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> rdsEndpoint;
-
+    @PolicyResourceProperty(name="rdsEndpoint", flag="unknown_rdsEndpoint")
+    private @Nullable String value_rdsEndpoint;
+    private boolean unknown_rdsEndpoint;
     public @Nullable String rdsEndpoint() {
-        if (rdsEndpoint == null) return null;
-        return rdsEndpoint.getValue("EndpointRdsOptions.rdsEndpoint");
+        if (!unknown_rdsEndpoint) return value_rdsEndpoint;
+        throw new UndeferrableValueException("Value 'EndpointRdsOptions.rdsEndpoint' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private @Nullable List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public @Nullable List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("EndpointRdsOptions.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'EndpointRdsOptions.subnetIds' is not present");
     }
 
 }

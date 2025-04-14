@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.alb.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.alb.inputs.ListenerRuleConditionHostHeaderArgs;
 import com.pulumi.policypacks.aws.alb.inputs.ListenerRuleConditionHttpHeaderArgs;
 import com.pulumi.policypacks.aws.alb.inputs.ListenerRuleConditionHttpRequestMethodArgs;
@@ -20,55 +21,60 @@ public final class ListenerRuleConditionArgs {
      * Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
      * 
      */
-    private UndeferrableValue<ListenerRuleConditionHostHeaderArgs> hostHeader;
-
+    @PolicyResourceProperty(name="hostHeader", flag="unknown_hostHeader")
+    private ListenerRuleConditionHostHeaderArgs value_hostHeader;
+    private boolean unknown_hostHeader;
     public ListenerRuleConditionHostHeaderArgs hostHeader() {
-        if (hostHeader == null) return null;
-        return hostHeader.getValue("ListenerRuleConditionArgs.hostHeader");
+        if (!unknown_hostHeader) return value_hostHeader;
+        throw new UndeferrableValueException("Value 'ListenerRuleConditionArgs.hostHeader' is not present");
     }
 
     /**
      * HTTP headers to match. HTTP Header block fields documented below.
      * 
      */
-    private UndeferrableValue<ListenerRuleConditionHttpHeaderArgs> httpHeader;
-
+    @PolicyResourceProperty(name="httpHeader", flag="unknown_httpHeader")
+    private ListenerRuleConditionHttpHeaderArgs value_httpHeader;
+    private boolean unknown_httpHeader;
     public ListenerRuleConditionHttpHeaderArgs httpHeader() {
-        if (httpHeader == null) return null;
-        return httpHeader.getValue("ListenerRuleConditionArgs.httpHeader");
+        if (!unknown_httpHeader) return value_httpHeader;
+        throw new UndeferrableValueException("Value 'ListenerRuleConditionArgs.httpHeader' is not present");
     }
 
     /**
      * Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
      * 
      */
-    private UndeferrableValue<ListenerRuleConditionHttpRequestMethodArgs> httpRequestMethod;
-
+    @PolicyResourceProperty(name="httpRequestMethod", flag="unknown_httpRequestMethod")
+    private ListenerRuleConditionHttpRequestMethodArgs value_httpRequestMethod;
+    private boolean unknown_httpRequestMethod;
     public ListenerRuleConditionHttpRequestMethodArgs httpRequestMethod() {
-        if (httpRequestMethod == null) return null;
-        return httpRequestMethod.getValue("ListenerRuleConditionArgs.httpRequestMethod");
+        if (!unknown_httpRequestMethod) return value_httpRequestMethod;
+        throw new UndeferrableValueException("Value 'ListenerRuleConditionArgs.httpRequestMethod' is not present");
     }
 
     /**
      * Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query_string` condition.
      * 
      */
-    private UndeferrableValue<ListenerRuleConditionPathPatternArgs> pathPattern;
-
+    @PolicyResourceProperty(name="pathPattern", flag="unknown_pathPattern")
+    private ListenerRuleConditionPathPatternArgs value_pathPattern;
+    private boolean unknown_pathPattern;
     public ListenerRuleConditionPathPatternArgs pathPattern() {
-        if (pathPattern == null) return null;
-        return pathPattern.getValue("ListenerRuleConditionArgs.pathPattern");
+        if (!unknown_pathPattern) return value_pathPattern;
+        throw new UndeferrableValueException("Value 'ListenerRuleConditionArgs.pathPattern' is not present");
     }
 
     /**
      * Query strings to match. Query String block fields documented below.
      * 
      */
-    private UndeferrableValue<List<ListenerRuleConditionQueryStringArgs>> queryStrings;
-
+    @PolicyResourceProperty(name="queryStrings", flag="unknown_queryStrings")
+    private List<ListenerRuleConditionQueryStringArgs> value_queryStrings;
+    private boolean unknown_queryStrings;
     public List<ListenerRuleConditionQueryStringArgs> queryStrings() {
-        if (queryStrings == null) return null;
-        return queryStrings.getValue("ListenerRuleConditionArgs.queryStrings");
+        if (!unknown_queryStrings) return value_queryStrings;
+        throw new UndeferrableValueException("Value 'ListenerRuleConditionArgs.queryStrings' is not present");
     }
 
     /**
@@ -77,11 +83,12 @@ public final class ListenerRuleConditionArgs {
      * &gt; **NOTE::** Exactly one of `host_header`, `http_header`, `http_request_method`, `path_pattern`, `query_string` or `source_ip` must be set per condition.
      * 
      */
-    private UndeferrableValue<ListenerRuleConditionSourceIpArgs> sourceIp;
-
+    @PolicyResourceProperty(name="sourceIp", flag="unknown_sourceIp")
+    private ListenerRuleConditionSourceIpArgs value_sourceIp;
+    private boolean unknown_sourceIp;
     public ListenerRuleConditionSourceIpArgs sourceIp() {
-        if (sourceIp == null) return null;
-        return sourceIp.getValue("ListenerRuleConditionArgs.sourceIp");
+        if (!unknown_sourceIp) return value_sourceIp;
+        throw new UndeferrableValueException("Value 'ListenerRuleConditionArgs.sourceIp' is not present");
     }
 
 }

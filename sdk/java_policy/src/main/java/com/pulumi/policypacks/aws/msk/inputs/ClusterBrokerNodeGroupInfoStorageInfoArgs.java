@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.msk.inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoArgs {
      * A block that contains EBS volume information. See below.
      * 
      */
-    private UndeferrableValue<ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs> ebsStorageInfo;
-
+    @PolicyResourceProperty(name="ebsStorageInfo", flag="unknown_ebsStorageInfo")
+    private ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs value_ebsStorageInfo;
+    private boolean unknown_ebsStorageInfo;
     public ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs ebsStorageInfo() {
-        if (ebsStorageInfo == null) return null;
-        return ebsStorageInfo.getValue("ClusterBrokerNodeGroupInfoStorageInfoArgs.ebsStorageInfo");
+        if (!unknown_ebsStorageInfo) return value_ebsStorageInfo;
+        throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoStorageInfoArgs.ebsStorageInfo' is not present");
     }
 
 }

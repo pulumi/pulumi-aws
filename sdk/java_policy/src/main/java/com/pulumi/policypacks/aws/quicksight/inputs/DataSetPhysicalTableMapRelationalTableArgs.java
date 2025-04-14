@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.inputs.DataSetPhysicalTableMapRelationalTableInputColumnArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,55 +17,60 @@ public final class DataSetPhysicalTableMapRelationalTableArgs {
      * Catalog associated with the table.
      * 
      */
-    private UndeferrableValue<String> catalog;
-
+    @PolicyResourceProperty(name="catalog", flag="unknown_catalog")
+    private String value_catalog;
+    private boolean unknown_catalog;
     public String catalog() {
-        if (catalog == null) return null;
-        return catalog.getValue("DataSetPhysicalTableMapRelationalTableArgs.catalog");
+        if (!unknown_catalog) return value_catalog;
+        throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapRelationalTableArgs.catalog' is not present");
     }
 
     /**
      * ARN of the data source.
      * 
      */
-    private UndeferrableValue<String> dataSourceArn;
-
+    @PolicyResourceProperty(name="dataSourceArn", flag="unknown_dataSourceArn")
+    private String value_dataSourceArn;
+    private boolean unknown_dataSourceArn;
     public String dataSourceArn() {
-        if (dataSourceArn == null) return null;
-        return dataSourceArn.getValue("DataSetPhysicalTableMapRelationalTableArgs.dataSourceArn");
+        if (!unknown_dataSourceArn) return value_dataSourceArn;
+        throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapRelationalTableArgs.dataSourceArn' is not present");
     }
 
     /**
      * Column schema of the table. See input_columns.
      * 
      */
-    private UndeferrableValue<List<DataSetPhysicalTableMapRelationalTableInputColumnArgs>> inputColumns;
-
+    @PolicyResourceProperty(name="inputColumns", flag="unknown_inputColumns")
+    private List<DataSetPhysicalTableMapRelationalTableInputColumnArgs> value_inputColumns;
+    private boolean unknown_inputColumns;
     public List<DataSetPhysicalTableMapRelationalTableInputColumnArgs> inputColumns() {
-        if (inputColumns == null) return null;
-        return inputColumns.getValue("DataSetPhysicalTableMapRelationalTableArgs.inputColumns");
+        if (!unknown_inputColumns) return value_inputColumns;
+        throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapRelationalTableArgs.inputColumns' is not present");
     }
 
     /**
      * Name of the relational table.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DataSetPhysicalTableMapRelationalTableArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapRelationalTableArgs.name' is not present");
     }
 
     /**
      * Schema name. This name applies to certain relational database engines.
      * 
      */
-    private UndeferrableValue<String> schema;
-
+    @PolicyResourceProperty(name="schema", flag="unknown_schema")
+    private String value_schema;
+    private boolean unknown_schema;
     public String schema() {
-        if (schema == null) return null;
-        return schema.getValue("DataSetPhysicalTableMapRelationalTableArgs.schema");
+        if (!unknown_schema) return value_schema;
+        throw new UndeferrableValueException("Value 'DataSetPhysicalTableMapRelationalTableArgs.schema' is not present");
     }
 
 }

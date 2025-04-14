@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.codepipeline.inputs.CustomActionTypeConfigurationPropertyArgs;
 import com.pulumi.policypacks.aws.codepipeline.inputs.CustomActionTypeInputArtifactDetailsArgs;
@@ -22,64 +23,72 @@ public final class CustomActionTypeArgs extends com.pulumi.resources.PolicyResou
      * The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
      * 
      */
-    private UndeferrableValue<String> category;
-
+    @PolicyResourceProperty(name="category", flag="unknown_category")
+    private String value_category;
+    private boolean unknown_category;
     public String category() {
-        if (category == null) return null;
-        return category.getValue("CustomActionTypeArgs.category");
+        if (!unknown_category) return value_category;
+        throw new UndeferrableValueException("Value 'CustomActionTypeArgs.category' is not present");
     }
 
     /**
      * The configuration properties for the custom action. Max 10 items.
      * 
      */
-    private UndeferrableValue<List<CustomActionTypeConfigurationPropertyArgs>> configurationProperties;
-
+    @PolicyResourceProperty(name="configurationProperties", flag="unknown_configurationProperties")
+    private List<CustomActionTypeConfigurationPropertyArgs> value_configurationProperties;
+    private boolean unknown_configurationProperties;
     public List<CustomActionTypeConfigurationPropertyArgs> configurationProperties() {
-        if (configurationProperties == null) return null;
-        return configurationProperties.getValue("CustomActionTypeArgs.configurationProperties");
+        if (!unknown_configurationProperties) return value_configurationProperties;
+        throw new UndeferrableValueException("Value 'CustomActionTypeArgs.configurationProperties' is not present");
     }
 
-    private UndeferrableValue<CustomActionTypeInputArtifactDetailsArgs> inputArtifactDetails;
-
+    @PolicyResourceProperty(name="inputArtifactDetails", flag="unknown_inputArtifactDetails")
+    private CustomActionTypeInputArtifactDetailsArgs value_inputArtifactDetails;
+    private boolean unknown_inputArtifactDetails;
     public CustomActionTypeInputArtifactDetailsArgs inputArtifactDetails() {
-        if (inputArtifactDetails == null) return null;
-        return inputArtifactDetails.getValue("CustomActionTypeArgs.inputArtifactDetails");
+        if (!unknown_inputArtifactDetails) return value_inputArtifactDetails;
+        throw new UndeferrableValueException("Value 'CustomActionTypeArgs.inputArtifactDetails' is not present");
     }
 
-    private UndeferrableValue<CustomActionTypeOutputArtifactDetailsArgs> outputArtifactDetails;
-
+    @PolicyResourceProperty(name="outputArtifactDetails", flag="unknown_outputArtifactDetails")
+    private CustomActionTypeOutputArtifactDetailsArgs value_outputArtifactDetails;
+    private boolean unknown_outputArtifactDetails;
     public CustomActionTypeOutputArtifactDetailsArgs outputArtifactDetails() {
-        if (outputArtifactDetails == null) return null;
-        return outputArtifactDetails.getValue("CustomActionTypeArgs.outputArtifactDetails");
+        if (!unknown_outputArtifactDetails) return value_outputArtifactDetails;
+        throw new UndeferrableValueException("Value 'CustomActionTypeArgs.outputArtifactDetails' is not present");
     }
 
-    private UndeferrableValue<String> providerName;
-
+    @PolicyResourceProperty(name="providerName", flag="unknown_providerName")
+    private String value_providerName;
+    private boolean unknown_providerName;
     public String providerName() {
-        if (providerName == null) return null;
-        return providerName.getValue("CustomActionTypeArgs.providerName");
+        if (!unknown_providerName) return value_providerName;
+        throw new UndeferrableValueException("Value 'CustomActionTypeArgs.providerName' is not present");
     }
 
-    private UndeferrableValue<CustomActionTypeSettingsArgs> settings;
-
+    @PolicyResourceProperty(name="settings", flag="unknown_settings")
+    private CustomActionTypeSettingsArgs value_settings;
+    private boolean unknown_settings;
     public CustomActionTypeSettingsArgs settings() {
-        if (settings == null) return null;
-        return settings.getValue("CustomActionTypeArgs.settings");
+        if (!unknown_settings) return value_settings;
+        throw new UndeferrableValueException("Value 'CustomActionTypeArgs.settings' is not present");
     }
 
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CustomActionTypeArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CustomActionTypeArgs.tags' is not present");
     }
 
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("CustomActionTypeArgs.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'CustomActionTypeArgs.version' is not present");
     }
 
 }

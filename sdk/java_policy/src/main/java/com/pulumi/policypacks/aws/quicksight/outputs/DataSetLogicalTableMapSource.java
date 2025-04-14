@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.outputs.DataSetLogicalTableMapSourceJoinInstruction;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class DataSetLogicalTableMapSource {
      * ARN of the parent data set.
      * 
      */
-    private @Nullable UndeferrableValue<String> dataSetArn;
-
+    @PolicyResourceProperty(name="dataSetArn", flag="unknown_dataSetArn")
+    private @Nullable String value_dataSetArn;
+    private boolean unknown_dataSetArn;
     public @Nullable String dataSetArn() {
-        if (dataSetArn == null) return null;
-        return dataSetArn.getValue("DataSetLogicalTableMapSource.dataSetArn");
+        if (!unknown_dataSetArn) return value_dataSetArn;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapSource.dataSetArn' is not present");
     }
 
     /**
      * Specifies the result of a join of two logical tables. See join_instruction.
      * 
      */
-    private @Nullable UndeferrableValue<DataSetLogicalTableMapSourceJoinInstruction> joinInstruction;
-
+    @PolicyResourceProperty(name="joinInstruction", flag="unknown_joinInstruction")
+    private @Nullable DataSetLogicalTableMapSourceJoinInstruction value_joinInstruction;
+    private boolean unknown_joinInstruction;
     public @Nullable DataSetLogicalTableMapSourceJoinInstruction joinInstruction() {
-        if (joinInstruction == null) return null;
-        return joinInstruction.getValue("DataSetLogicalTableMapSource.joinInstruction");
+        if (!unknown_joinInstruction) return value_joinInstruction;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapSource.joinInstruction' is not present");
     }
 
     /**
      * Physical table ID.
      * 
      */
-    private @Nullable UndeferrableValue<String> physicalTableId;
-
+    @PolicyResourceProperty(name="physicalTableId", flag="unknown_physicalTableId")
+    private @Nullable String value_physicalTableId;
+    private boolean unknown_physicalTableId;
     public @Nullable String physicalTableId() {
-        if (physicalTableId == null) return null;
-        return physicalTableId.getValue("DataSetLogicalTableMapSource.physicalTableId");
+        if (!unknown_physicalTableId) return value_physicalTableId;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapSource.physicalTableId' is not present");
     }
 
 }

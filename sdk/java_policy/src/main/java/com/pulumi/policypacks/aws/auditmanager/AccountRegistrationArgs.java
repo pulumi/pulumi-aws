@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.auditmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class AccountRegistrationArgs extends com.pulumi.resources.PolicyRe
      * Identifier for the delegated administrator account.
      * 
      */
-    private UndeferrableValue<String> delegatedAdminAccount;
-
+    @PolicyResourceProperty(name="delegatedAdminAccount", flag="unknown_delegatedAdminAccount")
+    private String value_delegatedAdminAccount;
+    private boolean unknown_delegatedAdminAccount;
     public String delegatedAdminAccount() {
-        if (delegatedAdminAccount == null) return null;
-        return delegatedAdminAccount.getValue("AccountRegistrationArgs.delegatedAdminAccount");
+        if (!unknown_delegatedAdminAccount) return value_delegatedAdminAccount;
+        throw new UndeferrableValueException("Value 'AccountRegistrationArgs.delegatedAdminAccount' is not present");
     }
 
     /**
      * Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
      * 
      */
-    private UndeferrableValue<Boolean> deregisterOnDestroy;
-
+    @PolicyResourceProperty(name="deregisterOnDestroy", flag="unknown_deregisterOnDestroy")
+    private Boolean value_deregisterOnDestroy;
+    private boolean unknown_deregisterOnDestroy;
     public Boolean deregisterOnDestroy() {
-        if (deregisterOnDestroy == null) return null;
-        return deregisterOnDestroy.getValue("AccountRegistrationArgs.deregisterOnDestroy");
+        if (!unknown_deregisterOnDestroy) return value_deregisterOnDestroy;
+        throw new UndeferrableValueException("Value 'AccountRegistrationArgs.deregisterOnDestroy' is not present");
     }
 
     /**
      * KMS key identifier.
      * 
      */
-    private UndeferrableValue<String> kmsKey;
-
+    @PolicyResourceProperty(name="kmsKey", flag="unknown_kmsKey")
+    private String value_kmsKey;
+    private boolean unknown_kmsKey;
     public String kmsKey() {
-        if (kmsKey == null) return null;
-        return kmsKey.getValue("AccountRegistrationArgs.kmsKey");
+        if (!unknown_kmsKey) return value_kmsKey;
+        throw new UndeferrableValueException("Value 'AccountRegistrationArgs.kmsKey' is not present");
     }
 
 }

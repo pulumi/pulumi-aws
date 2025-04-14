@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codebuild.outputs.ProjectSecondarySourceAuth;
 import com.pulumi.policypacks.aws.codebuild.outputs.ProjectSecondarySourceBuildStatusConfig;
 import com.pulumi.policypacks.aws.codebuild.outputs.ProjectSecondarySourceGitSubmodulesConfig;
@@ -20,11 +21,12 @@ public final class ProjectSecondarySource {
      * Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<ProjectSecondarySourceAuth> auth;
-
+    @PolicyResourceProperty(name="auth", flag="unknown_auth")
+    private @Nullable ProjectSecondarySourceAuth value_auth;
+    private boolean unknown_auth;
     public @Nullable ProjectSecondarySourceAuth auth() {
-        if (auth == null) return null;
-        return auth.getValue("ProjectSecondarySource.auth");
+        if (!unknown_auth) return value_auth;
+        throw new UndeferrableValueException("Value 'ProjectSecondarySource.auth' is not present");
     }
 
     /**
@@ -33,11 +35,12 @@ public final class ProjectSecondarySource {
      * Enterprise, GitLab, GitLab Self Managed, or Bitbucket. `build_status_config` blocks are documented below.
      * 
      */
-    private @Nullable UndeferrableValue<ProjectSecondarySourceBuildStatusConfig> buildStatusConfig;
-
+    @PolicyResourceProperty(name="buildStatusConfig", flag="unknown_buildStatusConfig")
+    private @Nullable ProjectSecondarySourceBuildStatusConfig value_buildStatusConfig;
+    private boolean unknown_buildStatusConfig;
     public @Nullable ProjectSecondarySourceBuildStatusConfig buildStatusConfig() {
-        if (buildStatusConfig == null) return null;
-        return buildStatusConfig.getValue("ProjectSecondarySource.buildStatusConfig");
+        if (!unknown_buildStatusConfig) return value_buildStatusConfig;
+        throw new UndeferrableValueException("Value 'ProjectSecondarySource.buildStatusConfig' is not present");
     }
 
     /**
@@ -46,11 +49,12 @@ public final class ProjectSecondarySource {
      * path leveraging the `file()` built-in.
      * 
      */
-    private @Nullable UndeferrableValue<String> buildspec;
-
+    @PolicyResourceProperty(name="buildspec", flag="unknown_buildspec")
+    private @Nullable String value_buildspec;
+    private boolean unknown_buildspec;
     public @Nullable String buildspec() {
-        if (buildspec == null) return null;
-        return buildspec.getValue("ProjectSecondarySource.buildspec");
+        if (!unknown_buildspec) return value_buildspec;
+        throw new UndeferrableValueException("Value 'ProjectSecondarySource.buildspec' is not present");
     }
 
     /**
@@ -60,44 +64,48 @@ public final class ProjectSecondarySource {
      * for details.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> gitCloneDepth;
-
+    @PolicyResourceProperty(name="gitCloneDepth", flag="unknown_gitCloneDepth")
+    private @Nullable Integer value_gitCloneDepth;
+    private boolean unknown_gitCloneDepth;
     public @Nullable Integer gitCloneDepth() {
-        if (gitCloneDepth == null) return null;
-        return gitCloneDepth.getValue("ProjectSecondarySource.gitCloneDepth");
+        if (!unknown_gitCloneDepth) return value_gitCloneDepth;
+        throw new UndeferrableValueException("Value 'ProjectSecondarySource.gitCloneDepth' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<ProjectSecondarySourceGitSubmodulesConfig> gitSubmodulesConfig;
-
+    @PolicyResourceProperty(name="gitSubmodulesConfig", flag="unknown_gitSubmodulesConfig")
+    private @Nullable ProjectSecondarySourceGitSubmodulesConfig value_gitSubmodulesConfig;
+    private boolean unknown_gitSubmodulesConfig;
     public @Nullable ProjectSecondarySourceGitSubmodulesConfig gitSubmodulesConfig() {
-        if (gitSubmodulesConfig == null) return null;
-        return gitSubmodulesConfig.getValue("ProjectSecondarySource.gitSubmodulesConfig");
+        if (!unknown_gitSubmodulesConfig) return value_gitSubmodulesConfig;
+        throw new UndeferrableValueException("Value 'ProjectSecondarySource.gitSubmodulesConfig' is not present");
     }
 
     /**
      * Ignore SSL warnings when connecting to source control.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> insecureSsl;
-
+    @PolicyResourceProperty(name="insecureSsl", flag="unknown_insecureSsl")
+    private @Nullable Boolean value_insecureSsl;
+    private boolean unknown_insecureSsl;
     public @Nullable Boolean insecureSsl() {
-        if (insecureSsl == null) return null;
-        return insecureSsl.getValue("ProjectSecondarySource.insecureSsl");
+        if (!unknown_insecureSsl) return value_insecureSsl;
+        throw new UndeferrableValueException("Value 'ProjectSecondarySource.insecureSsl' is not present");
     }
 
     /**
      * Location of the source code from git or s3.
      * 
      */
-    private @Nullable UndeferrableValue<String> location;
-
+    @PolicyResourceProperty(name="location", flag="unknown_location")
+    private @Nullable String value_location;
+    private boolean unknown_location;
     public @Nullable String location() {
-        if (location == null) return null;
-        return location.getValue("ProjectSecondarySource.location");
+        if (!unknown_location) return value_location;
+        throw new UndeferrableValueException("Value 'ProjectSecondarySource.location' is not present");
     }
 
     /**
@@ -106,11 +114,12 @@ public final class ProjectSecondarySource {
      * Bitbucket.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> reportBuildStatus;
-
+    @PolicyResourceProperty(name="reportBuildStatus", flag="unknown_reportBuildStatus")
+    private @Nullable Boolean value_reportBuildStatus;
+    private boolean unknown_reportBuildStatus;
     public @Nullable Boolean reportBuildStatus() {
-        if (reportBuildStatus == null) return null;
-        return reportBuildStatus.getValue("ProjectSecondarySource.reportBuildStatus");
+        if (!unknown_reportBuildStatus) return value_reportBuildStatus;
+        throw new UndeferrableValueException("Value 'ProjectSecondarySource.reportBuildStatus' is not present");
     }
 
     /**
@@ -118,11 +127,12 @@ public final class ProjectSecondarySource {
      * characters and underscores, and must be less than 128 characters in length.
      * 
      */
-    private UndeferrableValue<String> sourceIdentifier;
-
+    @PolicyResourceProperty(name="sourceIdentifier", flag="unknown_sourceIdentifier")
+    private String value_sourceIdentifier;
+    private boolean unknown_sourceIdentifier;
     public String sourceIdentifier() {
-        if (sourceIdentifier == null) return null;
-        return sourceIdentifier.getValue("ProjectSecondarySource.sourceIdentifier");
+        if (!unknown_sourceIdentifier) return value_sourceIdentifier;
+        throw new UndeferrableValueException("Value 'ProjectSecondarySource.sourceIdentifier' is not present");
     }
 
     /**
@@ -130,11 +140,12 @@ public final class ProjectSecondarySource {
      * `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ProjectSecondarySource.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ProjectSecondarySource.type' is not present");
     }
 
 }

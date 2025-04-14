@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssoadmin;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class ApplicationAssignment extends com.pulumi.resources.PolicyReso
      * ARN of the application.
      * 
      */
-    private UndeferrableValue<String> applicationArn;
-
+    @PolicyResourceProperty(name="applicationArn", flag="unknown_applicationArn")
+    private String value_applicationArn;
+    private boolean unknown_applicationArn;
     public String applicationArn() {
-        if (applicationArn == null) return null;
-        return applicationArn.getValue("ApplicationAssignment.applicationArn");
+        if (!unknown_applicationArn) return value_applicationArn;
+        throw new UndeferrableValueException("Value 'ApplicationAssignment.applicationArn' is not present");
     }
 
     /**
      * An identifier for an object in IAM Identity Center, such as a user or group.
      * 
      */
-    private UndeferrableValue<String> principalId;
-
+    @PolicyResourceProperty(name="principalId", flag="unknown_principalId")
+    private String value_principalId;
+    private boolean unknown_principalId;
     public String principalId() {
-        if (principalId == null) return null;
-        return principalId.getValue("ApplicationAssignment.principalId");
+        if (!unknown_principalId) return value_principalId;
+        throw new UndeferrableValueException("Value 'ApplicationAssignment.principalId' is not present");
     }
 
     /**
      * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
      * 
      */
-    private UndeferrableValue<String> principalType;
-
+    @PolicyResourceProperty(name="principalType", flag="unknown_principalType")
+    private String value_principalType;
+    private boolean unknown_principalType;
     public String principalType() {
-        if (principalType == null) return null;
-        return principalType.getValue("ApplicationAssignment.principalType");
+        if (!unknown_principalType) return value_principalType;
+        throw new UndeferrableValueException("Value 'ApplicationAssignment.principalType' is not present");
     }
 
 }

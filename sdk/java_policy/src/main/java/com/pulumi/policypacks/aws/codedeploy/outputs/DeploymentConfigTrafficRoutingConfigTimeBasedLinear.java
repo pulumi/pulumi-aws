@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codedeploy.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class DeploymentConfigTrafficRoutingConfigTimeBasedLinear {
      * The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> interval;
-
+    @PolicyResourceProperty(name="interval", flag="unknown_interval")
+    private @Nullable Integer value_interval;
+    private boolean unknown_interval;
     public @Nullable Integer interval() {
-        if (interval == null) return null;
-        return interval.getValue("DeploymentConfigTrafficRoutingConfigTimeBasedLinear.interval");
+        if (!unknown_interval) return value_interval;
+        throw new UndeferrableValueException("Value 'DeploymentConfigTrafficRoutingConfigTimeBasedLinear.interval' is not present");
     }
 
     /**
      * The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> percentage;
-
+    @PolicyResourceProperty(name="percentage", flag="unknown_percentage")
+    private @Nullable Integer value_percentage;
+    private boolean unknown_percentage;
     public @Nullable Integer percentage() {
-        if (percentage == null) return null;
-        return percentage.getValue("DeploymentConfigTrafficRoutingConfigTimeBasedLinear.percentage");
+        if (!unknown_percentage) return value_percentage;
+        throw new UndeferrableValueException("Value 'DeploymentConfigTrafficRoutingConfigTimeBasedLinear.percentage' is not present");
     }
 
 }

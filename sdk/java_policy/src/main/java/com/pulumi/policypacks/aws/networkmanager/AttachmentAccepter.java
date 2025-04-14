@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,121 +18,132 @@ public final class AttachmentAccepter extends com.pulumi.resources.PolicyResourc
      * The ID of the attachment.
      * 
      */
-    private UndeferrableValue<String> attachmentId;
-
+    @PolicyResourceProperty(name="attachmentId", flag="unknown_attachmentId")
+    private String value_attachmentId;
+    private boolean unknown_attachmentId;
     public String attachmentId() {
-        if (attachmentId == null) return null;
-        return attachmentId.getValue("AttachmentAccepter.attachmentId");
+        if (!unknown_attachmentId) return value_attachmentId;
+        throw new UndeferrableValueException("Value 'AttachmentAccepter.attachmentId' is not present");
     }
 
     /**
      * The policy rule number associated with the attachment.
      * 
      */
-    private UndeferrableValue<Integer> attachmentPolicyRuleNumber;
-
+    @PolicyResourceProperty(name="attachmentPolicyRuleNumber", flag="unknown_attachmentPolicyRuleNumber")
+    private Integer value_attachmentPolicyRuleNumber;
+    private boolean unknown_attachmentPolicyRuleNumber;
     public Integer attachmentPolicyRuleNumber() {
-        if (attachmentPolicyRuleNumber == null) return null;
-        return attachmentPolicyRuleNumber.getValue("AttachmentAccepter.attachmentPolicyRuleNumber");
+        if (!unknown_attachmentPolicyRuleNumber) return value_attachmentPolicyRuleNumber;
+        throw new UndeferrableValueException("Value 'AttachmentAccepter.attachmentPolicyRuleNumber' is not present");
     }
 
     /**
      * The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
      * 
      */
-    private UndeferrableValue<String> attachmentType;
-
+    @PolicyResourceProperty(name="attachmentType", flag="unknown_attachmentType")
+    private String value_attachmentType;
+    private boolean unknown_attachmentType;
     public String attachmentType() {
-        if (attachmentType == null) return null;
-        return attachmentType.getValue("AttachmentAccepter.attachmentType");
+        if (!unknown_attachmentType) return value_attachmentType;
+        throw new UndeferrableValueException("Value 'AttachmentAccepter.attachmentType' is not present");
     }
 
     /**
      * The ARN of a core network.
      * 
      */
-    private UndeferrableValue<String> coreNetworkArn;
-
+    @PolicyResourceProperty(name="coreNetworkArn", flag="unknown_coreNetworkArn")
+    private String value_coreNetworkArn;
+    private boolean unknown_coreNetworkArn;
     public String coreNetworkArn() {
-        if (coreNetworkArn == null) return null;
-        return coreNetworkArn.getValue("AttachmentAccepter.coreNetworkArn");
+        if (!unknown_coreNetworkArn) return value_coreNetworkArn;
+        throw new UndeferrableValueException("Value 'AttachmentAccepter.coreNetworkArn' is not present");
     }
 
     /**
      * The id of a core network.
      * 
      */
-    private UndeferrableValue<String> coreNetworkId;
-
+    @PolicyResourceProperty(name="coreNetworkId", flag="unknown_coreNetworkId")
+    private String value_coreNetworkId;
+    private boolean unknown_coreNetworkId;
     public String coreNetworkId() {
-        if (coreNetworkId == null) return null;
-        return coreNetworkId.getValue("AttachmentAccepter.coreNetworkId");
+        if (!unknown_coreNetworkId) return value_coreNetworkId;
+        throw new UndeferrableValueException("Value 'AttachmentAccepter.coreNetworkId' is not present");
     }
 
     /**
      * The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edge_locations`.
      * 
      */
-    private UndeferrableValue<String> edgeLocation;
-
+    @PolicyResourceProperty(name="edgeLocation", flag="unknown_edgeLocation")
+    private String value_edgeLocation;
+    private boolean unknown_edgeLocation;
     public String edgeLocation() {
-        if (edgeLocation == null) return null;
-        return edgeLocation.getValue("AttachmentAccepter.edgeLocation");
+        if (!unknown_edgeLocation) return value_edgeLocation;
+        throw new UndeferrableValueException("Value 'AttachmentAccepter.edgeLocation' is not present");
     }
 
     /**
      * The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
      * 
      */
-    private UndeferrableValue<List<String>> edgeLocations;
-
+    @PolicyResourceProperty(name="edgeLocations", flag="unknown_edgeLocations")
+    private List<String> value_edgeLocations;
+    private boolean unknown_edgeLocations;
     public List<String> edgeLocations() {
-        if (edgeLocations == null) return null;
-        return edgeLocations.getValue("AttachmentAccepter.edgeLocations");
+        if (!unknown_edgeLocations) return value_edgeLocations;
+        throw new UndeferrableValueException("Value 'AttachmentAccepter.edgeLocations' is not present");
     }
 
     /**
      * The ID of the attachment account owner.
      * 
      */
-    private UndeferrableValue<String> ownerAccountId;
-
+    @PolicyResourceProperty(name="ownerAccountId", flag="unknown_ownerAccountId")
+    private String value_ownerAccountId;
+    private boolean unknown_ownerAccountId;
     public String ownerAccountId() {
-        if (ownerAccountId == null) return null;
-        return ownerAccountId.getValue("AttachmentAccepter.ownerAccountId");
+        if (!unknown_ownerAccountId) return value_ownerAccountId;
+        throw new UndeferrableValueException("Value 'AttachmentAccepter.ownerAccountId' is not present");
     }
 
     /**
      * The attachment resource ARN.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("AttachmentAccepter.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'AttachmentAccepter.resourceArn' is not present");
     }
 
     /**
      * The name of the segment attachment.
      * 
      */
-    private UndeferrableValue<String> segmentName;
-
+    @PolicyResourceProperty(name="segmentName", flag="unknown_segmentName")
+    private String value_segmentName;
+    private boolean unknown_segmentName;
     public String segmentName() {
-        if (segmentName == null) return null;
-        return segmentName.getValue("AttachmentAccepter.segmentName");
+        if (!unknown_segmentName) return value_segmentName;
+        throw new UndeferrableValueException("Value 'AttachmentAccepter.segmentName' is not present");
     }
 
     /**
      * The state of the attachment.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("AttachmentAccepter.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'AttachmentAccepter.state' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class PlanRuleCopyActionLifecycle {
      * Specifies the number of days after creation that a recovery point is moved to cold storage.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> coldStorageAfter;
-
+    @PolicyResourceProperty(name="coldStorageAfter", flag="unknown_coldStorageAfter")
+    private @Nullable Integer value_coldStorageAfter;
+    private boolean unknown_coldStorageAfter;
     public @Nullable Integer coldStorageAfter() {
-        if (coldStorageAfter == null) return null;
-        return coldStorageAfter.getValue("PlanRuleCopyActionLifecycle.coldStorageAfter");
+        if (!unknown_coldStorageAfter) return value_coldStorageAfter;
+        throw new UndeferrableValueException("Value 'PlanRuleCopyActionLifecycle.coldStorageAfter' is not present");
     }
 
     /**
      * Specifies the number of days after creation that a recovery point is deleted. Must be 90 days greater than `cold_storage_after`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> deleteAfter;
-
+    @PolicyResourceProperty(name="deleteAfter", flag="unknown_deleteAfter")
+    private @Nullable Integer value_deleteAfter;
+    private boolean unknown_deleteAfter;
     public @Nullable Integer deleteAfter() {
-        if (deleteAfter == null) return null;
-        return deleteAfter.getValue("PlanRuleCopyActionLifecycle.deleteAfter");
+        if (!unknown_deleteAfter) return value_deleteAfter;
+        throw new UndeferrableValueException("Value 'PlanRuleCopyActionLifecycle.deleteAfter' is not present");
     }
 
     /**
      * This setting will instruct your backup plan to transition supported resources to archive (cold) storage tier in accordance with your lifecycle settings.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> optInToArchiveForSupportedResources;
-
+    @PolicyResourceProperty(name="optInToArchiveForSupportedResources", flag="unknown_optInToArchiveForSupportedResources")
+    private @Nullable Boolean value_optInToArchiveForSupportedResources;
+    private boolean unknown_optInToArchiveForSupportedResources;
     public @Nullable Boolean optInToArchiveForSupportedResources() {
-        if (optInToArchiveForSupportedResources == null) return null;
-        return optInToArchiveForSupportedResources.getValue("PlanRuleCopyActionLifecycle.optInToArchiveForSupportedResources");
+        if (!unknown_optInToArchiveForSupportedResources) return value_optInToArchiveForSupportedResources;
+        throw new UndeferrableValueException("Value 'PlanRuleCopyActionLifecycle.optInToArchiveForSupportedResources' is not present");
     }
 
 }

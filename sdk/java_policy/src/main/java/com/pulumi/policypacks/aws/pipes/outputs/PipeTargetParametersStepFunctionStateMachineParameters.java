@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class PipeTargetParametersStepFunctionStateMachineParameters {
      * Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
      * 
      */
-    private UndeferrableValue<String> invocationType;
-
+    @PolicyResourceProperty(name="invocationType", flag="unknown_invocationType")
+    private String value_invocationType;
+    private boolean unknown_invocationType;
     public String invocationType() {
-        if (invocationType == null) return null;
-        return invocationType.getValue("PipeTargetParametersStepFunctionStateMachineParameters.invocationType");
+        if (!unknown_invocationType) return value_invocationType;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersStepFunctionStateMachineParameters.invocationType' is not present");
     }
 
 }

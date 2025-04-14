@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.outputs.SpotInstanceRequestCapacityReservationSpecification;
 import com.pulumi.policypacks.aws.ec2.outputs.SpotInstanceRequestCpuOptions;
@@ -32,40 +33,44 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
      * 
      */
-    private UndeferrableValue<String> ami;
-
+    @PolicyResourceProperty(name="ami", flag="unknown_ami")
+    private String value_ami;
+    private boolean unknown_ami;
     public String ami() {
-        if (ami == null) return null;
-        return ami.getValue("SpotInstanceRequest.ami");
+        if (!unknown_ami) return value_ami;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.ami' is not present");
     }
 
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("SpotInstanceRequest.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.arn' is not present");
     }
 
     /**
      * Whether to associate a public IP address with an instance in a VPC.
      * 
      */
-    private UndeferrableValue<Boolean> associatePublicIpAddress;
-
+    @PolicyResourceProperty(name="associatePublicIpAddress", flag="unknown_associatePublicIpAddress")
+    private Boolean value_associatePublicIpAddress;
+    private boolean unknown_associatePublicIpAddress;
     public Boolean associatePublicIpAddress() {
-        if (associatePublicIpAddress == null) return null;
-        return associatePublicIpAddress.getValue("SpotInstanceRequest.associatePublicIpAddress");
+        if (!unknown_associatePublicIpAddress) return value_associatePublicIpAddress;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.associatePublicIpAddress' is not present");
     }
 
     /**
      * AZ to start the instance in.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("SpotInstanceRequest.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.availabilityZone' is not present");
     }
 
     /**
@@ -74,11 +79,12 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * Note that you can&#39;t specify an Availability Zone group or a launch group if you specify a duration.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> blockDurationMinutes;
-
+    @PolicyResourceProperty(name="blockDurationMinutes", flag="unknown_blockDurationMinutes")
+    private @Nullable Integer value_blockDurationMinutes;
+    private boolean unknown_blockDurationMinutes;
     public @Nullable Integer blockDurationMinutes() {
-        if (blockDurationMinutes == null) return null;
-        return blockDurationMinutes.getValue("SpotInstanceRequest.blockDurationMinutes");
+        if (!unknown_blockDurationMinutes) return value_blockDurationMinutes;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.blockDurationMinutes' is not present");
     }
 
     /**
@@ -87,11 +93,12 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
      * 
      */
-    private UndeferrableValue<SpotInstanceRequestCapacityReservationSpecification> capacityReservationSpecification;
-
+    @PolicyResourceProperty(name="capacityReservationSpecification", flag="unknown_capacityReservationSpecification")
+    private SpotInstanceRequestCapacityReservationSpecification value_capacityReservationSpecification;
+    private boolean unknown_capacityReservationSpecification;
     public SpotInstanceRequestCapacityReservationSpecification capacityReservationSpecification() {
-        if (capacityReservationSpecification == null) return null;
-        return capacityReservationSpecification.getValue("SpotInstanceRequest.capacityReservationSpecification");
+        if (!unknown_capacityReservationSpecification) return value_capacityReservationSpecification;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.capacityReservationSpecification' is not present");
     }
 
     /**
@@ -102,22 +109,24 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* cpu_core_count is deprecated. Use cpu_options instead. */
-    private UndeferrableValue<Integer> cpuCoreCount;
-
+    @PolicyResourceProperty(name="cpuCoreCount", flag="unknown_cpuCoreCount")
+    private Integer value_cpuCoreCount;
+    private boolean unknown_cpuCoreCount;
     public Integer cpuCoreCount() {
-        if (cpuCoreCount == null) return null;
-        return cpuCoreCount.getValue("SpotInstanceRequest.cpuCoreCount");
+        if (!unknown_cpuCoreCount) return value_cpuCoreCount;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.cpuCoreCount' is not present");
     }
 
     /**
      * The CPU options for the instance. See CPU Options below for more details.
      * 
      */
-    private UndeferrableValue<SpotInstanceRequestCpuOptions> cpuOptions;
-
+    @PolicyResourceProperty(name="cpuOptions", flag="unknown_cpuOptions")
+    private SpotInstanceRequestCpuOptions value_cpuOptions;
+    private boolean unknown_cpuOptions;
     public SpotInstanceRequestCpuOptions cpuOptions() {
-        if (cpuOptions == null) return null;
-        return cpuOptions.getValue("SpotInstanceRequest.cpuOptions");
+        if (!unknown_cpuOptions) return value_cpuOptions;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.cpuOptions' is not present");
     }
 
     /**
@@ -128,227 +137,248 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* cpu_threads_per_core is deprecated. Use cpu_options instead. */
-    private UndeferrableValue<Integer> cpuThreadsPerCore;
-
+    @PolicyResourceProperty(name="cpuThreadsPerCore", flag="unknown_cpuThreadsPerCore")
+    private Integer value_cpuThreadsPerCore;
+    private boolean unknown_cpuThreadsPerCore;
     public Integer cpuThreadsPerCore() {
-        if (cpuThreadsPerCore == null) return null;
-        return cpuThreadsPerCore.getValue("SpotInstanceRequest.cpuThreadsPerCore");
+        if (!unknown_cpuThreadsPerCore) return value_cpuThreadsPerCore;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.cpuThreadsPerCore' is not present");
     }
 
     /**
      * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
      * 
      */
-    private @Nullable UndeferrableValue<SpotInstanceRequestCreditSpecification> creditSpecification;
-
+    @PolicyResourceProperty(name="creditSpecification", flag="unknown_creditSpecification")
+    private @Nullable SpotInstanceRequestCreditSpecification value_creditSpecification;
+    private boolean unknown_creditSpecification;
     public @Nullable SpotInstanceRequestCreditSpecification creditSpecification() {
-        if (creditSpecification == null) return null;
-        return creditSpecification.getValue("SpotInstanceRequest.creditSpecification");
+        if (!unknown_creditSpecification) return value_creditSpecification;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.creditSpecification' is not present");
     }
 
     /**
      * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
      * 
      */
-    private UndeferrableValue<Boolean> disableApiStop;
-
+    @PolicyResourceProperty(name="disableApiStop", flag="unknown_disableApiStop")
+    private Boolean value_disableApiStop;
+    private boolean unknown_disableApiStop;
     public Boolean disableApiStop() {
-        if (disableApiStop == null) return null;
-        return disableApiStop.getValue("SpotInstanceRequest.disableApiStop");
+        if (!unknown_disableApiStop) return value_disableApiStop;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.disableApiStop' is not present");
     }
 
     /**
      * If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
      * 
      */
-    private UndeferrableValue<Boolean> disableApiTermination;
-
+    @PolicyResourceProperty(name="disableApiTermination", flag="unknown_disableApiTermination")
+    private Boolean value_disableApiTermination;
+    private boolean unknown_disableApiTermination;
     public Boolean disableApiTermination() {
-        if (disableApiTermination == null) return null;
-        return disableApiTermination.getValue("SpotInstanceRequest.disableApiTermination");
+        if (!unknown_disableApiTermination) return value_disableApiTermination;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.disableApiTermination' is not present");
     }
 
     /**
      * One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
      * 
      */
-    private UndeferrableValue<List<SpotInstanceRequestEbsBlockDevice>> ebsBlockDevices;
-
+    @PolicyResourceProperty(name="ebsBlockDevices", flag="unknown_ebsBlockDevices")
+    private List<SpotInstanceRequestEbsBlockDevice> value_ebsBlockDevices;
+    private boolean unknown_ebsBlockDevices;
     public List<SpotInstanceRequestEbsBlockDevice> ebsBlockDevices() {
-        if (ebsBlockDevices == null) return null;
-        return ebsBlockDevices.getValue("SpotInstanceRequest.ebsBlockDevices");
+        if (!unknown_ebsBlockDevices) return value_ebsBlockDevices;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.ebsBlockDevices' is not present");
     }
 
     /**
      * If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
      * 
      */
-    private UndeferrableValue<Boolean> ebsOptimized;
-
+    @PolicyResourceProperty(name="ebsOptimized", flag="unknown_ebsOptimized")
+    private Boolean value_ebsOptimized;
+    private boolean unknown_ebsOptimized;
     public Boolean ebsOptimized() {
-        if (ebsOptimized == null) return null;
-        return ebsOptimized.getValue("SpotInstanceRequest.ebsOptimized");
+        if (!unknown_ebsOptimized) return value_ebsOptimized;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.ebsOptimized' is not present");
     }
 
     /**
      * Whether to assign a primary IPv6 Global Unicast Address (GUA) to the instance when launched in a dual-stack or IPv6-only subnet. A primary IPv6 address ensures a consistent IPv6 address for the instance and is automatically assigned by AWS to the ENI. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains until the instance is terminated or the ENI is detached. Disabling `enable_primary_ipv6` after it has been enabled forces recreation of the instance.
      * 
      */
-    private UndeferrableValue<Boolean> enablePrimaryIpv6;
-
+    @PolicyResourceProperty(name="enablePrimaryIpv6", flag="unknown_enablePrimaryIpv6")
+    private Boolean value_enablePrimaryIpv6;
+    private boolean unknown_enablePrimaryIpv6;
     public Boolean enablePrimaryIpv6() {
-        if (enablePrimaryIpv6 == null) return null;
-        return enablePrimaryIpv6.getValue("SpotInstanceRequest.enablePrimaryIpv6");
+        if (!unknown_enablePrimaryIpv6) return value_enablePrimaryIpv6;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.enablePrimaryIpv6' is not present");
     }
 
     /**
      * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
      * 
      */
-    private UndeferrableValue<SpotInstanceRequestEnclaveOptions> enclaveOptions;
-
+    @PolicyResourceProperty(name="enclaveOptions", flag="unknown_enclaveOptions")
+    private SpotInstanceRequestEnclaveOptions value_enclaveOptions;
+    private boolean unknown_enclaveOptions;
     public SpotInstanceRequestEnclaveOptions enclaveOptions() {
-        if (enclaveOptions == null) return null;
-        return enclaveOptions.getValue("SpotInstanceRequest.enclaveOptions");
+        if (!unknown_enclaveOptions) return value_enclaveOptions;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.enclaveOptions' is not present");
     }
 
     /**
      * One or more configuration blocks to customize Ephemeral (also known as &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
      * 
      */
-    private UndeferrableValue<List<SpotInstanceRequestEphemeralBlockDevice>> ephemeralBlockDevices;
-
+    @PolicyResourceProperty(name="ephemeralBlockDevices", flag="unknown_ephemeralBlockDevices")
+    private List<SpotInstanceRequestEphemeralBlockDevice> value_ephemeralBlockDevices;
+    private boolean unknown_ephemeralBlockDevices;
     public List<SpotInstanceRequestEphemeralBlockDevice> ephemeralBlockDevices() {
-        if (ephemeralBlockDevices == null) return null;
-        return ephemeralBlockDevices.getValue("SpotInstanceRequest.ephemeralBlockDevices");
+        if (!unknown_ephemeralBlockDevices) return value_ephemeralBlockDevices;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.ephemeralBlockDevices' is not present");
     }
 
     /**
      * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> getPasswordData;
-
+    @PolicyResourceProperty(name="getPasswordData", flag="unknown_getPasswordData")
+    private @Nullable Boolean value_getPasswordData;
+    private boolean unknown_getPasswordData;
     public @Nullable Boolean getPasswordData() {
-        if (getPasswordData == null) return null;
-        return getPasswordData.getValue("SpotInstanceRequest.getPasswordData");
+        if (!unknown_getPasswordData) return value_getPasswordData;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.getPasswordData' is not present");
     }
 
     /**
      * If true, the launched EC2 instance will support hibernation.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> hibernation;
-
+    @PolicyResourceProperty(name="hibernation", flag="unknown_hibernation")
+    private @Nullable Boolean value_hibernation;
+    private boolean unknown_hibernation;
     public @Nullable Boolean hibernation() {
-        if (hibernation == null) return null;
-        return hibernation.getValue("SpotInstanceRequest.hibernation");
+        if (!unknown_hibernation) return value_hibernation;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.hibernation' is not present");
     }
 
     /**
      * ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
      * 
      */
-    private UndeferrableValue<String> hostId;
-
+    @PolicyResourceProperty(name="hostId", flag="unknown_hostId")
+    private String value_hostId;
+    private boolean unknown_hostId;
     public String hostId() {
-        if (hostId == null) return null;
-        return hostId.getValue("SpotInstanceRequest.hostId");
+        if (!unknown_hostId) return value_hostId;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.hostId' is not present");
     }
 
     /**
      * ARN of the host resource group in which to launch the instances. If you specify an ARN, omit the `tenancy` parameter or set it to `host`.
      * 
      */
-    private UndeferrableValue<String> hostResourceGroupArn;
-
+    @PolicyResourceProperty(name="hostResourceGroupArn", flag="unknown_hostResourceGroupArn")
+    private String value_hostResourceGroupArn;
+    private boolean unknown_hostResourceGroupArn;
     public String hostResourceGroupArn() {
-        if (hostResourceGroupArn == null) return null;
-        return hostResourceGroupArn.getValue("SpotInstanceRequest.hostResourceGroupArn");
+        if (!unknown_hostResourceGroupArn) return value_hostResourceGroupArn;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.hostResourceGroupArn' is not present");
     }
 
     /**
      * IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
      * 
      */
-    private UndeferrableValue<String> iamInstanceProfile;
-
+    @PolicyResourceProperty(name="iamInstanceProfile", flag="unknown_iamInstanceProfile")
+    private String value_iamInstanceProfile;
+    private boolean unknown_iamInstanceProfile;
     public String iamInstanceProfile() {
-        if (iamInstanceProfile == null) return null;
-        return iamInstanceProfile.getValue("SpotInstanceRequest.iamInstanceProfile");
+        if (!unknown_iamInstanceProfile) return value_iamInstanceProfile;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.iamInstanceProfile' is not present");
     }
 
     /**
      * Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
      * 
      */
-    private UndeferrableValue<String> instanceInitiatedShutdownBehavior;
-
+    @PolicyResourceProperty(name="instanceInitiatedShutdownBehavior", flag="unknown_instanceInitiatedShutdownBehavior")
+    private String value_instanceInitiatedShutdownBehavior;
+    private boolean unknown_instanceInitiatedShutdownBehavior;
     public String instanceInitiatedShutdownBehavior() {
-        if (instanceInitiatedShutdownBehavior == null) return null;
-        return instanceInitiatedShutdownBehavior.getValue("SpotInstanceRequest.instanceInitiatedShutdownBehavior");
+        if (!unknown_instanceInitiatedShutdownBehavior) return value_instanceInitiatedShutdownBehavior;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.instanceInitiatedShutdownBehavior' is not present");
     }
 
     /**
      * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
      * 
      */
-    private @Nullable UndeferrableValue<String> instanceInterruptionBehavior;
-
+    @PolicyResourceProperty(name="instanceInterruptionBehavior", flag="unknown_instanceInterruptionBehavior")
+    private @Nullable String value_instanceInterruptionBehavior;
+    private boolean unknown_instanceInterruptionBehavior;
     public @Nullable String instanceInterruptionBehavior() {
-        if (instanceInterruptionBehavior == null) return null;
-        return instanceInterruptionBehavior.getValue("SpotInstanceRequest.instanceInterruptionBehavior");
+        if (!unknown_instanceInterruptionBehavior) return value_instanceInterruptionBehavior;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.instanceInterruptionBehavior' is not present");
     }
 
-    private UndeferrableValue<String> instanceState;
-
+    @PolicyResourceProperty(name="instanceState", flag="unknown_instanceState")
+    private String value_instanceState;
+    private boolean unknown_instanceState;
     public String instanceState() {
-        if (instanceState == null) return null;
-        return instanceState.getValue("SpotInstanceRequest.instanceState");
+        if (!unknown_instanceState) return value_instanceState;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.instanceState' is not present");
     }
 
     /**
      * Instance type to use for the instance. Required unless `launch_template` is specified and the Launch Template specifies an instance type. If an instance type is specified in the Launch Template, setting `instance_type` will override the instance type specified in the Launch Template. Updates to this field will trigger a stop/start of the EC2 instance.
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("SpotInstanceRequest.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.instanceType' is not present");
     }
 
     /**
      * Number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      * 
      */
-    private UndeferrableValue<Integer> ipv6AddressCount;
-
+    @PolicyResourceProperty(name="ipv6AddressCount", flag="unknown_ipv6AddressCount")
+    private Integer value_ipv6AddressCount;
+    private boolean unknown_ipv6AddressCount;
     public Integer ipv6AddressCount() {
-        if (ipv6AddressCount == null) return null;
-        return ipv6AddressCount.getValue("SpotInstanceRequest.ipv6AddressCount");
+        if (!unknown_ipv6AddressCount) return value_ipv6AddressCount;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.ipv6AddressCount' is not present");
     }
 
     /**
      * Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
      * 
      */
-    private UndeferrableValue<List<String>> ipv6Addresses;
-
+    @PolicyResourceProperty(name="ipv6Addresses", flag="unknown_ipv6Addresses")
+    private List<String> value_ipv6Addresses;
+    private boolean unknown_ipv6Addresses;
     public List<String> ipv6Addresses() {
-        if (ipv6Addresses == null) return null;
-        return ipv6Addresses.getValue("SpotInstanceRequest.ipv6Addresses");
+        if (!unknown_ipv6Addresses) return value_ipv6Addresses;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.ipv6Addresses' is not present");
     }
 
     /**
      * Key name of the Key Pair to use for the instance; which can be managed using the `aws.ec2.KeyPair` resource.
      * 
      */
-    private UndeferrableValue<String> keyName;
-
+    @PolicyResourceProperty(name="keyName", flag="unknown_keyName")
+    private String value_keyName;
+    private boolean unknown_keyName;
     public String keyName() {
-        if (keyName == null) return null;
-        return keyName.getValue("SpotInstanceRequest.keyName");
+        if (!unknown_keyName) return value_keyName;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.keyName' is not present");
     }
 
     /**
@@ -356,109 +386,120 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * If left empty instances are launched and terminated individually.
      * 
      */
-    private @Nullable UndeferrableValue<String> launchGroup;
-
+    @PolicyResourceProperty(name="launchGroup", flag="unknown_launchGroup")
+    private @Nullable String value_launchGroup;
+    private boolean unknown_launchGroup;
     public @Nullable String launchGroup() {
-        if (launchGroup == null) return null;
-        return launchGroup.getValue("SpotInstanceRequest.launchGroup");
+        if (!unknown_launchGroup) return value_launchGroup;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.launchGroup' is not present");
     }
 
     /**
      * Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template. See Launch Template Specification below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<SpotInstanceRequestLaunchTemplate> launchTemplate;
-
+    @PolicyResourceProperty(name="launchTemplate", flag="unknown_launchTemplate")
+    private @Nullable SpotInstanceRequestLaunchTemplate value_launchTemplate;
+    private boolean unknown_launchTemplate;
     public @Nullable SpotInstanceRequestLaunchTemplate launchTemplate() {
-        if (launchTemplate == null) return null;
-        return launchTemplate.getValue("SpotInstanceRequest.launchTemplate");
+        if (!unknown_launchTemplate) return value_launchTemplate;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.launchTemplate' is not present");
     }
 
     /**
      * Maintenance and recovery options for the instance. See Maintenance Options below for more details.
      * 
      */
-    private UndeferrableValue<SpotInstanceRequestMaintenanceOptions> maintenanceOptions;
-
+    @PolicyResourceProperty(name="maintenanceOptions", flag="unknown_maintenanceOptions")
+    private SpotInstanceRequestMaintenanceOptions value_maintenanceOptions;
+    private boolean unknown_maintenanceOptions;
     public SpotInstanceRequestMaintenanceOptions maintenanceOptions() {
-        if (maintenanceOptions == null) return null;
-        return maintenanceOptions.getValue("SpotInstanceRequest.maintenanceOptions");
+        if (!unknown_maintenanceOptions) return value_maintenanceOptions;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.maintenanceOptions' is not present");
     }
 
     /**
      * Customize the metadata options of the instance. See Metadata Options below for more details.
      * 
      */
-    private UndeferrableValue<SpotInstanceRequestMetadataOptions> metadataOptions;
-
+    @PolicyResourceProperty(name="metadataOptions", flag="unknown_metadataOptions")
+    private SpotInstanceRequestMetadataOptions value_metadataOptions;
+    private boolean unknown_metadataOptions;
     public SpotInstanceRequestMetadataOptions metadataOptions() {
-        if (metadataOptions == null) return null;
-        return metadataOptions.getValue("SpotInstanceRequest.metadataOptions");
+        if (!unknown_metadataOptions) return value_metadataOptions;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.metadataOptions' is not present");
     }
 
     /**
      * If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
      * 
      */
-    private UndeferrableValue<Boolean> monitoring;
-
+    @PolicyResourceProperty(name="monitoring", flag="unknown_monitoring")
+    private Boolean value_monitoring;
+    private boolean unknown_monitoring;
     public Boolean monitoring() {
-        if (monitoring == null) return null;
-        return monitoring.getValue("SpotInstanceRequest.monitoring");
+        if (!unknown_monitoring) return value_monitoring;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.monitoring' is not present");
     }
 
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      * 
      */
-    private UndeferrableValue<List<SpotInstanceRequestNetworkInterface>> networkInterfaces;
-
+    @PolicyResourceProperty(name="networkInterfaces", flag="unknown_networkInterfaces")
+    private List<SpotInstanceRequestNetworkInterface> value_networkInterfaces;
+    private boolean unknown_networkInterfaces;
     public List<SpotInstanceRequestNetworkInterface> networkInterfaces() {
-        if (networkInterfaces == null) return null;
-        return networkInterfaces.getValue("SpotInstanceRequest.networkInterfaces");
+        if (!unknown_networkInterfaces) return value_networkInterfaces;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.networkInterfaces' is not present");
     }
 
-    private UndeferrableValue<String> outpostArn;
-
+    @PolicyResourceProperty(name="outpostArn", flag="unknown_outpostArn")
+    private String value_outpostArn;
+    private boolean unknown_outpostArn;
     public String outpostArn() {
-        if (outpostArn == null) return null;
-        return outpostArn.getValue("SpotInstanceRequest.outpostArn");
+        if (!unknown_outpostArn) return value_outpostArn;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.outpostArn' is not present");
     }
 
-    private UndeferrableValue<String> passwordData;
-
+    @PolicyResourceProperty(name="passwordData", flag="unknown_passwordData")
+    private String value_passwordData;
+    private boolean unknown_passwordData;
     public String passwordData() {
-        if (passwordData == null) return null;
-        return passwordData.getValue("SpotInstanceRequest.passwordData");
+        if (!unknown_passwordData) return value_passwordData;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.passwordData' is not present");
     }
 
     /**
      * Placement Group to start the instance in.
      * 
      */
-    private UndeferrableValue<String> placementGroup;
-
+    @PolicyResourceProperty(name="placementGroup", flag="unknown_placementGroup")
+    private String value_placementGroup;
+    private boolean unknown_placementGroup;
     public String placementGroup() {
-        if (placementGroup == null) return null;
-        return placementGroup.getValue("SpotInstanceRequest.placementGroup");
+        if (!unknown_placementGroup) return value_placementGroup;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.placementGroup' is not present");
     }
 
     /**
      * Number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource&#39;s `strategy` argument is set to `&#34;partition&#34;`.
      * 
      */
-    private UndeferrableValue<Integer> placementPartitionNumber;
-
+    @PolicyResourceProperty(name="placementPartitionNumber", flag="unknown_placementPartitionNumber")
+    private Integer value_placementPartitionNumber;
+    private boolean unknown_placementPartitionNumber;
     public Integer placementPartitionNumber() {
-        if (placementPartitionNumber == null) return null;
-        return placementPartitionNumber.getValue("SpotInstanceRequest.placementPartitionNumber");
+        if (!unknown_placementPartitionNumber) return value_placementPartitionNumber;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.placementPartitionNumber' is not present");
     }
 
-    private UndeferrableValue<String> primaryNetworkInterfaceId;
-
+    @PolicyResourceProperty(name="primaryNetworkInterfaceId", flag="unknown_primaryNetworkInterfaceId")
+    private String value_primaryNetworkInterfaceId;
+    private boolean unknown_primaryNetworkInterfaceId;
     public String primaryNetworkInterfaceId() {
-        if (primaryNetworkInterfaceId == null) return null;
-        return primaryNetworkInterfaceId.getValue("SpotInstanceRequest.primaryNetworkInterfaceId");
+        if (!unknown_primaryNetworkInterfaceId) return value_primaryNetworkInterfaceId;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.primaryNetworkInterfaceId' is not present");
     }
 
     /**
@@ -467,33 +508,36 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * for your VPC
      * 
      */
-    private UndeferrableValue<String> privateDns;
-
+    @PolicyResourceProperty(name="privateDns", flag="unknown_privateDns")
+    private String value_privateDns;
+    private boolean unknown_privateDns;
     public String privateDns() {
-        if (privateDns == null) return null;
-        return privateDns.getValue("SpotInstanceRequest.privateDns");
+        if (!unknown_privateDns) return value_privateDns;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.privateDns' is not present");
     }
 
     /**
      * Options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
      * 
      */
-    private UndeferrableValue<SpotInstanceRequestPrivateDnsNameOptions> privateDnsNameOptions;
-
+    @PolicyResourceProperty(name="privateDnsNameOptions", flag="unknown_privateDnsNameOptions")
+    private SpotInstanceRequestPrivateDnsNameOptions value_privateDnsNameOptions;
+    private boolean unknown_privateDnsNameOptions;
     public SpotInstanceRequestPrivateDnsNameOptions privateDnsNameOptions() {
-        if (privateDnsNameOptions == null) return null;
-        return privateDnsNameOptions.getValue("SpotInstanceRequest.privateDnsNameOptions");
+        if (!unknown_privateDnsNameOptions) return value_privateDnsNameOptions;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.privateDnsNameOptions' is not present");
     }
 
     /**
      * Private IP address to associate with the instance in a VPC.
      * 
      */
-    private UndeferrableValue<String> privateIp;
-
+    @PolicyResourceProperty(name="privateIp", flag="unknown_privateIp")
+    private String value_privateIp;
+    private boolean unknown_privateIp;
     public String privateIp() {
-        if (privateIp == null) return null;
-        return privateIp.getValue("SpotInstanceRequest.privateIp");
+        if (!unknown_privateIp) return value_privateIp;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.privateIp' is not present");
     }
 
     /**
@@ -501,44 +545,48 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * is only available if you&#39;ve enabled DNS hostnames for your VPC
      * 
      */
-    private UndeferrableValue<String> publicDns;
-
+    @PolicyResourceProperty(name="publicDns", flag="unknown_publicDns")
+    private String value_publicDns;
+    private boolean unknown_publicDns;
     public String publicDns() {
-        if (publicDns == null) return null;
-        return publicDns.getValue("SpotInstanceRequest.publicDns");
+        if (!unknown_publicDns) return value_publicDns;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.publicDns' is not present");
     }
 
     /**
      * The public IP address assigned to the instance, if applicable.
      * 
      */
-    private UndeferrableValue<String> publicIp;
-
+    @PolicyResourceProperty(name="publicIp", flag="unknown_publicIp")
+    private String value_publicIp;
+    private boolean unknown_publicIp;
     public String publicIp() {
-        if (publicIp == null) return null;
-        return publicIp.getValue("SpotInstanceRequest.publicIp");
+        if (!unknown_publicIp) return value_publicIp;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.publicIp' is not present");
     }
 
     /**
      * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      * 
      */
-    private UndeferrableValue<SpotInstanceRequestRootBlockDevice> rootBlockDevice;
-
+    @PolicyResourceProperty(name="rootBlockDevice", flag="unknown_rootBlockDevice")
+    private SpotInstanceRequestRootBlockDevice value_rootBlockDevice;
+    private boolean unknown_rootBlockDevice;
     public SpotInstanceRequestRootBlockDevice rootBlockDevice() {
-        if (rootBlockDevice == null) return null;
-        return rootBlockDevice.getValue("SpotInstanceRequest.rootBlockDevice");
+        if (!unknown_rootBlockDevice) return value_rootBlockDevice;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.rootBlockDevice' is not present");
     }
 
     /**
      * List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      * 
      */
-    private UndeferrableValue<List<String>> secondaryPrivateIps;
-
+    @PolicyResourceProperty(name="secondaryPrivateIps", flag="unknown_secondaryPrivateIps")
+    private List<String> value_secondaryPrivateIps;
+    private boolean unknown_secondaryPrivateIps;
     public List<String> secondaryPrivateIps() {
-        if (secondaryPrivateIps == null) return null;
-        return secondaryPrivateIps.getValue("SpotInstanceRequest.secondaryPrivateIps");
+        if (!unknown_secondaryPrivateIps) return value_secondaryPrivateIps;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.secondaryPrivateIps' is not present");
     }
 
     /**
@@ -547,22 +595,24 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * &gt; **NOTE:** If you are creating Instances in a VPC, use `vpc_security_group_ids` instead.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroups;
-
+    @PolicyResourceProperty(name="securityGroups", flag="unknown_securityGroups")
+    private List<String> value_securityGroups;
+    private boolean unknown_securityGroups;
     public List<String> securityGroups() {
-        if (securityGroups == null) return null;
-        return securityGroups.getValue("SpotInstanceRequest.securityGroups");
+        if (!unknown_securityGroups) return value_securityGroups;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.securityGroups' is not present");
     }
 
     /**
      * Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> sourceDestCheck;
-
+    @PolicyResourceProperty(name="sourceDestCheck", flag="unknown_sourceDestCheck")
+    private @Nullable Boolean value_sourceDestCheck;
+    private boolean unknown_sourceDestCheck;
     public @Nullable Boolean sourceDestCheck() {
-        if (sourceDestCheck == null) return null;
-        return sourceDestCheck.getValue("SpotInstanceRequest.sourceDestCheck");
+        if (!unknown_sourceDestCheck) return value_sourceDestCheck;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.sourceDestCheck' is not present");
     }
 
     /**
@@ -571,11 +621,12 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * of the Spot Instance Request.
      * 
      */
-    private UndeferrableValue<String> spotBidStatus;
-
+    @PolicyResourceProperty(name="spotBidStatus", flag="unknown_spotBidStatus")
+    private String value_spotBidStatus;
+    private boolean unknown_spotBidStatus;
     public String spotBidStatus() {
-        if (spotBidStatus == null) return null;
-        return spotBidStatus.getValue("SpotInstanceRequest.spotBidStatus");
+        if (!unknown_spotBidStatus) return value_spotBidStatus;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.spotBidStatus' is not present");
     }
 
     /**
@@ -583,22 +634,24 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * the Spot Instance request.
      * 
      */
-    private UndeferrableValue<String> spotInstanceId;
-
+    @PolicyResourceProperty(name="spotInstanceId", flag="unknown_spotInstanceId")
+    private String value_spotInstanceId;
+    private boolean unknown_spotInstanceId;
     public String spotInstanceId() {
-        if (spotInstanceId == null) return null;
-        return spotInstanceId.getValue("SpotInstanceRequest.spotInstanceId");
+        if (!unknown_spotInstanceId) return value_spotInstanceId;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.spotInstanceId' is not present");
     }
 
     /**
      * The maximum price to request on the spot market.
      * 
      */
-    private UndeferrableValue<String> spotPrice;
-
+    @PolicyResourceProperty(name="spotPrice", flag="unknown_spotPrice")
+    private String value_spotPrice;
+    private boolean unknown_spotPrice;
     public String spotPrice() {
-        if (spotPrice == null) return null;
-        return spotPrice.getValue("SpotInstanceRequest.spotPrice");
+        if (!unknown_spotPrice) return value_spotPrice;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.spotPrice' is not present");
     }
 
     /**
@@ -607,11 +660,12 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * of the Spot Instance Request.
      * 
      */
-    private UndeferrableValue<String> spotRequestState;
-
+    @PolicyResourceProperty(name="spotRequestState", flag="unknown_spotRequestState")
+    private String value_spotRequestState;
+    private boolean unknown_spotRequestState;
     public String spotRequestState() {
-        if (spotRequestState == null) return null;
-        return spotRequestState.getValue("SpotInstanceRequest.spotRequestState");
+        if (!unknown_spotRequestState) return value_spotRequestState;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.spotRequestState' is not present");
     }
 
     /**
@@ -619,33 +673,36 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * the instance is terminated, the spot request will be closed.
      * 
      */
-    private @Nullable UndeferrableValue<String> spotType;
-
+    @PolicyResourceProperty(name="spotType", flag="unknown_spotType")
+    private @Nullable String value_spotType;
+    private boolean unknown_spotType;
     public @Nullable String spotType() {
-        if (spotType == null) return null;
-        return spotType.getValue("SpotInstanceRequest.spotType");
+        if (!unknown_spotType) return value_spotType;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.spotType' is not present");
     }
 
     /**
      * VPC Subnet ID to launch in.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("SpotInstanceRequest.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.subnetId' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SpotInstanceRequest.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.tags' is not present");
     }
 
     /**
@@ -656,77 +713,84 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("SpotInstanceRequest.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.tagsAll' is not present");
     }
 
     /**
      * Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for the import-instance command. Valid values are `default`, `dedicated`, and `host`.
      * 
      */
-    private UndeferrableValue<String> tenancy;
-
+    @PolicyResourceProperty(name="tenancy", flag="unknown_tenancy")
+    private String value_tenancy;
+    private boolean unknown_tenancy;
     public String tenancy() {
-        if (tenancy == null) return null;
-        return tenancy.getValue("SpotInstanceRequest.tenancy");
+        if (!unknown_tenancy) return value_tenancy;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.tenancy' is not present");
     }
 
     /**
      * User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
      * 
      */
-    private UndeferrableValue<String> userData;
-
+    @PolicyResourceProperty(name="userData", flag="unknown_userData")
+    private String value_userData;
+    private boolean unknown_userData;
     public String userData() {
-        if (userData == null) return null;
-        return userData.getValue("SpotInstanceRequest.userData");
+        if (!unknown_userData) return value_userData;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.userData' is not present");
     }
 
     /**
      * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
      * 
      */
-    private UndeferrableValue<String> userDataBase64;
-
+    @PolicyResourceProperty(name="userDataBase64", flag="unknown_userDataBase64")
+    private String value_userDataBase64;
+    private boolean unknown_userDataBase64;
     public String userDataBase64() {
-        if (userDataBase64 == null) return null;
-        return userDataBase64.getValue("SpotInstanceRequest.userDataBase64");
+        if (!unknown_userDataBase64) return value_userDataBase64;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.userDataBase64' is not present");
     }
 
     /**
      * When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate of the EC2 instance when set to `true`. Defaults to `false` if not set.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> userDataReplaceOnChange;
-
+    @PolicyResourceProperty(name="userDataReplaceOnChange", flag="unknown_userDataReplaceOnChange")
+    private @Nullable Boolean value_userDataReplaceOnChange;
+    private boolean unknown_userDataReplaceOnChange;
     public @Nullable Boolean userDataReplaceOnChange() {
-        if (userDataReplaceOnChange == null) return null;
-        return userDataReplaceOnChange.getValue("SpotInstanceRequest.userDataReplaceOnChange");
+        if (!unknown_userDataReplaceOnChange) return value_userDataReplaceOnChange;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.userDataReplaceOnChange' is not present");
     }
 
     /**
      * The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
      * 
      */
-    private UndeferrableValue<String> validFrom;
-
+    @PolicyResourceProperty(name="validFrom", flag="unknown_validFrom")
+    private String value_validFrom;
+    private boolean unknown_validFrom;
     public String validFrom() {
-        if (validFrom == null) return null;
-        return validFrom.getValue("SpotInstanceRequest.validFrom");
+        if (!unknown_validFrom) return value_validFrom;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.validFrom' is not present");
     }
 
     /**
      * The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
      * 
      */
-    private UndeferrableValue<String> validUntil;
-
+    @PolicyResourceProperty(name="validUntil", flag="unknown_validUntil")
+    private String value_validUntil;
+    private boolean unknown_validUntil;
     public String validUntil() {
-        if (validUntil == null) return null;
-        return validUntil.getValue("SpotInstanceRequest.validUntil");
+        if (!unknown_validUntil) return value_validUntil;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.validUntil' is not present");
     }
 
     /**
@@ -735,22 +799,24 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * &gt; **NOTE:** Do not use `volume_tags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> volumeTags;
-
+    @PolicyResourceProperty(name="volumeTags", flag="unknown_volumeTags")
+    private @Nullable Map<String,String> value_volumeTags;
+    private boolean unknown_volumeTags;
     public @Nullable Map<String,String> volumeTags() {
-        if (volumeTags == null) return null;
-        return volumeTags.getValue("SpotInstanceRequest.volumeTags");
+        if (!unknown_volumeTags) return value_volumeTags;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.volumeTags' is not present");
     }
 
     /**
      * List of security group IDs to associate with.
      * 
      */
-    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
-
+    @PolicyResourceProperty(name="vpcSecurityGroupIds", flag="unknown_vpcSecurityGroupIds")
+    private List<String> value_vpcSecurityGroupIds;
+    private boolean unknown_vpcSecurityGroupIds;
     public List<String> vpcSecurityGroupIds() {
-        if (vpcSecurityGroupIds == null) return null;
-        return vpcSecurityGroupIds.getValue("SpotInstanceRequest.vpcSecurityGroupIds");
+        if (!unknown_vpcSecurityGroupIds) return value_vpcSecurityGroupIds;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.vpcSecurityGroupIds' is not present");
     }
 
     /**
@@ -759,11 +825,12 @@ public final class SpotInstanceRequest extends com.pulumi.resources.PolicyResour
      * timeout of 10m is reached.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> waitForFulfillment;
-
+    @PolicyResourceProperty(name="waitForFulfillment", flag="unknown_waitForFulfillment")
+    private @Nullable Boolean value_waitForFulfillment;
+    private boolean unknown_waitForFulfillment;
     public @Nullable Boolean waitForFulfillment() {
-        if (waitForFulfillment == null) return null;
-        return waitForFulfillment.getValue("SpotInstanceRequest.waitForFulfillment");
+        if (!unknown_waitForFulfillment) return value_waitForFulfillment;
+        throw new UndeferrableValueException("Value 'SpotInstanceRequest.waitForFulfillment' is not present");
     }
 
 }

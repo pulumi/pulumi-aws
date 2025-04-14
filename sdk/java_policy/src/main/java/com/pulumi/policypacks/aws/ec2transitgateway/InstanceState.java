@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class InstanceState extends com.pulumi.resources.PolicyResourceOutp
      * Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> force;
-
+    @PolicyResourceProperty(name="force", flag="unknown_force")
+    private @Nullable Boolean value_force;
+    private boolean unknown_force;
     public @Nullable Boolean force() {
-        if (force == null) return null;
-        return force.getValue("InstanceState.force");
+        if (!unknown_force) return value_force;
+        throw new UndeferrableValueException("Value 'InstanceState.force' is not present");
     }
 
     /**
      * ID of the instance.
      * 
      */
-    private UndeferrableValue<String> instanceId;
-
+    @PolicyResourceProperty(name="instanceId", flag="unknown_instanceId")
+    private String value_instanceId;
+    private boolean unknown_instanceId;
     public String instanceId() {
-        if (instanceId == null) return null;
-        return instanceId.getValue("InstanceState.instanceId");
+        if (!unknown_instanceId) return value_instanceId;
+        throw new UndeferrableValueException("Value 'InstanceState.instanceId' is not present");
     }
 
     /**
@@ -41,11 +44,12 @@ public final class InstanceState extends com.pulumi.resources.PolicyResourceOutp
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("InstanceState.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'InstanceState.state' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53recoverycontrol;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class RoutingControl extends com.pulumi.resources.PolicyResourceOut
      * ARN of the routing control.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("RoutingControl.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'RoutingControl.arn' is not present");
     }
 
     /**
      * ARN of the cluster in which this routing control will reside.
      * 
      */
-    private UndeferrableValue<String> clusterArn;
-
+    @PolicyResourceProperty(name="clusterArn", flag="unknown_clusterArn")
+    private String value_clusterArn;
+    private boolean unknown_clusterArn;
     public String clusterArn() {
-        if (clusterArn == null) return null;
-        return clusterArn.getValue("RoutingControl.clusterArn");
+        if (!unknown_clusterArn) return value_clusterArn;
+        throw new UndeferrableValueException("Value 'RoutingControl.clusterArn' is not present");
     }
 
     /**
      * ARN of the control panel in which this routing control will reside.
      * 
      */
-    private UndeferrableValue<String> controlPanelArn;
-
+    @PolicyResourceProperty(name="controlPanelArn", flag="unknown_controlPanelArn")
+    private String value_controlPanelArn;
+    private boolean unknown_controlPanelArn;
     public String controlPanelArn() {
-        if (controlPanelArn == null) return null;
-        return controlPanelArn.getValue("RoutingControl.controlPanelArn");
+        if (!unknown_controlPanelArn) return value_controlPanelArn;
+        throw new UndeferrableValueException("Value 'RoutingControl.controlPanelArn' is not present");
     }
 
     /**
@@ -50,22 +54,24 @@ public final class RoutingControl extends com.pulumi.resources.PolicyResourceOut
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RoutingControl.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RoutingControl.name' is not present");
     }
 
     /**
      * Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("RoutingControl.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'RoutingControl.status' is not present");
     }
 
 }

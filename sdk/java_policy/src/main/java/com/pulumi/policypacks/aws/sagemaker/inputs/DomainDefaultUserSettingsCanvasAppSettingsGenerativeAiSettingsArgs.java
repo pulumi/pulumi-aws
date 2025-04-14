@@ -3,18 +3,20 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs {
 
-    private UndeferrableValue<String> amazonBedrockRoleArn;
-
+    @PolicyResourceProperty(name="amazonBedrockRoleArn", flag="unknown_amazonBedrockRoleArn")
+    private String value_amazonBedrockRoleArn;
+    private boolean unknown_amazonBedrockRoleArn;
     public String amazonBedrockRoleArn() {
-        if (amazonBedrockRoleArn == null) return null;
-        return amazonBedrockRoleArn.getValue("DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs.amazonBedrockRoleArn");
+        if (!unknown_amazonBedrockRoleArn) return value_amazonBedrockRoleArn;
+        throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs.amazonBedrockRoleArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cognito.inputs.UserPoolAdminCreateUserConfigInviteMessageTemplateArgs;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class UserPoolAdminCreateUserConfigArgs {
      * Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
      * 
      */
-    private UndeferrableValue<Boolean> allowAdminCreateUserOnly;
-
+    @PolicyResourceProperty(name="allowAdminCreateUserOnly", flag="unknown_allowAdminCreateUserOnly")
+    private Boolean value_allowAdminCreateUserOnly;
+    private boolean unknown_allowAdminCreateUserOnly;
     public Boolean allowAdminCreateUserOnly() {
-        if (allowAdminCreateUserOnly == null) return null;
-        return allowAdminCreateUserOnly.getValue("UserPoolAdminCreateUserConfigArgs.allowAdminCreateUserOnly");
+        if (!unknown_allowAdminCreateUserOnly) return value_allowAdminCreateUserOnly;
+        throw new UndeferrableValueException("Value 'UserPoolAdminCreateUserConfigArgs.allowAdminCreateUserOnly' is not present");
     }
 
     /**
      * Invite message template structure. Detailed below.
      * 
      */
-    private UndeferrableValue<UserPoolAdminCreateUserConfigInviteMessageTemplateArgs> inviteMessageTemplate;
-
+    @PolicyResourceProperty(name="inviteMessageTemplate", flag="unknown_inviteMessageTemplate")
+    private UserPoolAdminCreateUserConfigInviteMessageTemplateArgs value_inviteMessageTemplate;
+    private boolean unknown_inviteMessageTemplate;
     public UserPoolAdminCreateUserConfigInviteMessageTemplateArgs inviteMessageTemplate() {
-        if (inviteMessageTemplate == null) return null;
-        return inviteMessageTemplate.getValue("UserPoolAdminCreateUserConfigArgs.inviteMessageTemplate");
+        if (!unknown_inviteMessageTemplate) return value_inviteMessageTemplate;
+        throw new UndeferrableValueException("Value 'UserPoolAdminCreateUserConfigArgs.inviteMessageTemplate' is not present");
     }
 
 }

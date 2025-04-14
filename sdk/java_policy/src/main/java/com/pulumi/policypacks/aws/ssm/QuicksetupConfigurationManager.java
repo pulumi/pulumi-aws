@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ssm.outputs.QuicksetupConfigurationManagerConfigurationDefinition;
 import com.pulumi.policypacks.aws.ssm.outputs.QuicksetupConfigurationManagerStatusSummary;
@@ -21,33 +22,36 @@ public final class QuicksetupConfigurationManager extends com.pulumi.resources.P
      * Definition of the Quick Setup configuration that the configuration manager deploys. See `configuration_definition` below.
      * 
      */
-    private @Nullable UndeferrableValue<QuicksetupConfigurationManagerConfigurationDefinition> configurationDefinition;
-
+    @PolicyResourceProperty(name="configurationDefinition", flag="unknown_configurationDefinition")
+    private @Nullable QuicksetupConfigurationManagerConfigurationDefinition value_configurationDefinition;
+    private boolean unknown_configurationDefinition;
     public @Nullable QuicksetupConfigurationManagerConfigurationDefinition configurationDefinition() {
-        if (configurationDefinition == null) return null;
-        return configurationDefinition.getValue("QuicksetupConfigurationManager.configurationDefinition");
+        if (!unknown_configurationDefinition) return value_configurationDefinition;
+        throw new UndeferrableValueException("Value 'QuicksetupConfigurationManager.configurationDefinition' is not present");
     }
 
     /**
      * Description of the configuration manager.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("QuicksetupConfigurationManager.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'QuicksetupConfigurationManager.description' is not present");
     }
 
     /**
      * ARN of the Configuration Manager.
      * 
      */
-    private UndeferrableValue<String> managerArn;
-
+    @PolicyResourceProperty(name="managerArn", flag="unknown_managerArn")
+    private String value_managerArn;
+    private boolean unknown_managerArn;
     public String managerArn() {
-        if (managerArn == null) return null;
-        return managerArn.getValue("QuicksetupConfigurationManager.managerArn");
+        if (!unknown_managerArn) return value_managerArn;
+        throw new UndeferrableValueException("Value 'QuicksetupConfigurationManager.managerArn' is not present");
     }
 
     /**
@@ -56,33 +60,36 @@ public final class QuicksetupConfigurationManager extends com.pulumi.resources.P
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("QuicksetupConfigurationManager.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'QuicksetupConfigurationManager.name' is not present");
     }
 
     /**
      * A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `status_summaries` below.
      * 
      */
-    private UndeferrableValue<List<QuicksetupConfigurationManagerStatusSummary>> statusSummaries;
-
+    @PolicyResourceProperty(name="statusSummaries", flag="unknown_statusSummaries")
+    private List<QuicksetupConfigurationManagerStatusSummary> value_statusSummaries;
+    private boolean unknown_statusSummaries;
     public List<QuicksetupConfigurationManagerStatusSummary> statusSummaries() {
-        if (statusSummaries == null) return null;
-        return statusSummaries.getValue("QuicksetupConfigurationManager.statusSummaries");
+        if (!unknown_statusSummaries) return value_statusSummaries;
+        throw new UndeferrableValueException("Value 'QuicksetupConfigurationManager.statusSummaries' is not present");
     }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("QuicksetupConfigurationManager.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'QuicksetupConfigurationManager.tags' is not present");
     }
 
     /**
@@ -93,18 +100,20 @@ public final class QuicksetupConfigurationManager extends com.pulumi.resources.P
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("QuicksetupConfigurationManager.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'QuicksetupConfigurationManager.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<QuicksetupConfigurationManagerTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable QuicksetupConfigurationManagerTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable QuicksetupConfigurationManagerTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("QuicksetupConfigurationManager.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'QuicksetupConfigurationManager.timeouts' is not present");
     }
 
 }

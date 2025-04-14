@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chimesdkmediapipelines.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationR
      * Collection of keywords to match.
      * 
      */
-    private UndeferrableValue<List<String>> keywords;
-
+    @PolicyResourceProperty(name="keywords", flag="unknown_keywords")
+    private List<String> value_keywords;
+    private boolean unknown_keywords;
     public List<String> keywords() {
-        if (keywords == null) return null;
-        return keywords.getValue("MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration.keywords");
+        if (!unknown_keywords) return value_keywords;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration.keywords' is not present");
     }
 
     /**
      * Negate the rule.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> negate;
-
+    @PolicyResourceProperty(name="negate", flag="unknown_negate")
+    private @Nullable Boolean value_negate;
+    private boolean unknown_negate;
     public @Nullable Boolean negate() {
-        if (negate == null) return null;
-        return negate.getValue("MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration.negate");
+        if (!unknown_negate) return value_negate;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration.negate' is not present");
     }
 
     /**
      * Rule name.
      * 
      */
-    private UndeferrableValue<String> ruleName;
-
+    @PolicyResourceProperty(name="ruleName", flag="unknown_ruleName")
+    private String value_ruleName;
+    private boolean unknown_ruleName;
     public String ruleName() {
-        if (ruleName == null) return null;
-        return ruleName.getValue("MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration.ruleName");
+        if (!unknown_ruleName) return value_ruleName;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration.ruleName' is not present");
     }
 
 }

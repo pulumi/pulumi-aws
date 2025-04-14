@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference {
      * Set of Managed Prefix IP ARN(s)
      * 
      */
-    private UndeferrableValue<String> referenceArn;
-
+    @PolicyResourceProperty(name="referenceArn", flag="unknown_referenceArn")
+    private String value_referenceArn;
+    private boolean unknown_referenceArn;
     public String referenceArn() {
-        if (referenceArn == null) return null;
-        return referenceArn.getValue("RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference.referenceArn");
+        if (!unknown_referenceArn) return value_referenceArn;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReference.referenceArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.transfer.outputs.WorkflowOnExceptionStep;
 import com.pulumi.policypacks.aws.transfer.outputs.WorkflowStep;
@@ -20,55 +21,60 @@ public final class Workflow extends com.pulumi.resources.PolicyResourceOutput {
      * The Workflow ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Workflow.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Workflow.arn' is not present");
     }
 
     /**
      * A textual description for the workflow.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Workflow.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Workflow.description' is not present");
     }
 
     /**
      * Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
      * 
      */
-    private @Nullable UndeferrableValue<List<WorkflowOnExceptionStep>> onExceptionSteps;
-
+    @PolicyResourceProperty(name="onExceptionSteps", flag="unknown_onExceptionSteps")
+    private @Nullable List<WorkflowOnExceptionStep> value_onExceptionSteps;
+    private boolean unknown_onExceptionSteps;
     public @Nullable List<WorkflowOnExceptionStep> onExceptionSteps() {
-        if (onExceptionSteps == null) return null;
-        return onExceptionSteps.getValue("Workflow.onExceptionSteps");
+        if (!unknown_onExceptionSteps) return value_onExceptionSteps;
+        throw new UndeferrableValueException("Value 'Workflow.onExceptionSteps' is not present");
     }
 
     /**
      * Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
      * 
      */
-    private UndeferrableValue<List<WorkflowStep>> steps;
-
+    @PolicyResourceProperty(name="steps", flag="unknown_steps")
+    private List<WorkflowStep> value_steps;
+    private boolean unknown_steps;
     public List<WorkflowStep> steps() {
-        if (steps == null) return null;
-        return steps.getValue("Workflow.steps");
+        if (!unknown_steps) return value_steps;
+        throw new UndeferrableValueException("Value 'Workflow.steps' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Workflow.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Workflow.tags' is not present");
     }
 
     /**
@@ -79,11 +85,12 @@ public final class Workflow extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Workflow.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Workflow.tagsAll' is not present");
     }
 
 }

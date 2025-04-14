@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mediapackage.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class ChannelHlsIngestIngestEndpoint {
      * The password
      * 
      */
-    private @Nullable UndeferrableValue<String> password;
-
+    @PolicyResourceProperty(name="password", flag="unknown_password")
+    private @Nullable String value_password;
+    private boolean unknown_password;
     public @Nullable String password() {
-        if (password == null) return null;
-        return password.getValue("ChannelHlsIngestIngestEndpoint.password");
+        if (!unknown_password) return value_password;
+        throw new UndeferrableValueException("Value 'ChannelHlsIngestIngestEndpoint.password' is not present");
     }
 
     /**
      * The URL
      * 
      */
-    private @Nullable UndeferrableValue<String> url;
-
+    @PolicyResourceProperty(name="url", flag="unknown_url")
+    private @Nullable String value_url;
+    private boolean unknown_url;
     public @Nullable String url() {
-        if (url == null) return null;
-        return url.getValue("ChannelHlsIngestIngestEndpoint.url");
+        if (!unknown_url) return value_url;
+        throw new UndeferrableValueException("Value 'ChannelHlsIngestIngestEndpoint.url' is not present");
     }
 
     /**
      * The username
      * 
      */
-    private @Nullable UndeferrableValue<String> username;
-
+    @PolicyResourceProperty(name="username", flag="unknown_username")
+    private @Nullable String value_username;
+    private boolean unknown_username;
     public @Nullable String username() {
-        if (username == null) return null;
-        return username.getValue("ChannelHlsIngestIngestEndpoint.username");
+        if (!unknown_username) return value_username;
+        throw new UndeferrableValueException("Value 'ChannelHlsIngestIngestEndpoint.username' is not present");
     }
 
 }

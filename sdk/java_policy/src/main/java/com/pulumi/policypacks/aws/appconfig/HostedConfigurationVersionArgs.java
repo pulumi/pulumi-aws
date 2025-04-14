@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appconfig;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,55 +17,60 @@ public final class HostedConfigurationVersionArgs extends com.pulumi.resources.P
      * Application ID.
      * 
      */
-    private UndeferrableValue<String> applicationId;
-
+    @PolicyResourceProperty(name="applicationId", flag="unknown_applicationId")
+    private String value_applicationId;
+    private boolean unknown_applicationId;
     public String applicationId() {
-        if (applicationId == null) return null;
-        return applicationId.getValue("HostedConfigurationVersionArgs.applicationId");
+        if (!unknown_applicationId) return value_applicationId;
+        throw new UndeferrableValueException("Value 'HostedConfigurationVersionArgs.applicationId' is not present");
     }
 
     /**
      * Configuration profile ID.
      * 
      */
-    private UndeferrableValue<String> configurationProfileId;
-
+    @PolicyResourceProperty(name="configurationProfileId", flag="unknown_configurationProfileId")
+    private String value_configurationProfileId;
+    private boolean unknown_configurationProfileId;
     public String configurationProfileId() {
-        if (configurationProfileId == null) return null;
-        return configurationProfileId.getValue("HostedConfigurationVersionArgs.configurationProfileId");
+        if (!unknown_configurationProfileId) return value_configurationProfileId;
+        throw new UndeferrableValueException("Value 'HostedConfigurationVersionArgs.configurationProfileId' is not present");
     }
 
     /**
      * Content of the configuration or the configuration data.
      * 
      */
-    private UndeferrableValue<String> content;
-
+    @PolicyResourceProperty(name="content", flag="unknown_content")
+    private String value_content;
+    private boolean unknown_content;
     public String content() {
-        if (content == null) return null;
-        return content.getValue("HostedConfigurationVersionArgs.content");
+        if (!unknown_content) return value_content;
+        throw new UndeferrableValueException("Value 'HostedConfigurationVersionArgs.content' is not present");
     }
 
     /**
      * Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
      * 
      */
-    private UndeferrableValue<String> contentType;
-
+    @PolicyResourceProperty(name="contentType", flag="unknown_contentType")
+    private String value_contentType;
+    private boolean unknown_contentType;
     public String contentType() {
-        if (contentType == null) return null;
-        return contentType.getValue("HostedConfigurationVersionArgs.contentType");
+        if (!unknown_contentType) return value_contentType;
+        throw new UndeferrableValueException("Value 'HostedConfigurationVersionArgs.contentType' is not present");
     }
 
     /**
      * Description of the configuration.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("HostedConfigurationVersionArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'HostedConfigurationVersionArgs.description' is not present");
     }
 
 }

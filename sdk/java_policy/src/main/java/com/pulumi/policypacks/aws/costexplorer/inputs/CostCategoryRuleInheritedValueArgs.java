@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.costexplorer.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class CostCategoryRuleInheritedValueArgs {
      * Key to extract cost category values.
      * 
      */
-    private UndeferrableValue<String> dimensionKey;
-
+    @PolicyResourceProperty(name="dimensionKey", flag="unknown_dimensionKey")
+    private String value_dimensionKey;
+    private boolean unknown_dimensionKey;
     public String dimensionKey() {
-        if (dimensionKey == null) return null;
-        return dimensionKey.getValue("CostCategoryRuleInheritedValueArgs.dimensionKey");
+        if (!unknown_dimensionKey) return value_dimensionKey;
+        throw new UndeferrableValueException("Value 'CostCategoryRuleInheritedValueArgs.dimensionKey' is not present");
     }
 
     /**
      * Name of the dimension that&#39;s used to group costs. If you specify `LINKED_ACCOUNT_NAME`, the cost category value is based on account name. If you specify `TAG`, the cost category value will be based on the value of the specified tag key. Valid values are `LINKED_ACCOUNT_NAME`, `TAG`
      * 
      */
-    private UndeferrableValue<String> dimensionName;
-
+    @PolicyResourceProperty(name="dimensionName", flag="unknown_dimensionName")
+    private String value_dimensionName;
+    private boolean unknown_dimensionName;
     public String dimensionName() {
-        if (dimensionName == null) return null;
-        return dimensionName.getValue("CostCategoryRuleInheritedValueArgs.dimensionName");
+        if (!unknown_dimensionName) return value_dimensionName;
+        throw new UndeferrableValueException("Value 'CostCategoryRuleInheritedValueArgs.dimensionName' is not present");
     }
 
 }

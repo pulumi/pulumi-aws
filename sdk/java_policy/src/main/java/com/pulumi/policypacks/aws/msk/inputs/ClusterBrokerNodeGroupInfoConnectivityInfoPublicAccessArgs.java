@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs {
      * Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs.type' is not present");
     }
 
 }

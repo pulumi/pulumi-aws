@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rolesanywhere.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.rolesanywhere.outputs.TrustAnchorSourceSourceData;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class TrustAnchorSource {
      * The data denoting the source of trust, documented below
      * 
      */
-    private UndeferrableValue<TrustAnchorSourceSourceData> sourceData;
-
+    @PolicyResourceProperty(name="sourceData", flag="unknown_sourceData")
+    private TrustAnchorSourceSourceData value_sourceData;
+    private boolean unknown_sourceData;
     public TrustAnchorSourceSourceData sourceData() {
-        if (sourceData == null) return null;
-        return sourceData.getValue("TrustAnchorSource.sourceData");
+        if (!unknown_sourceData) return value_sourceData;
+        throw new UndeferrableValueException("Value 'TrustAnchorSource.sourceData' is not present");
     }
 
     /**
      * The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
      * 
      */
-    private UndeferrableValue<String> sourceType;
-
+    @PolicyResourceProperty(name="sourceType", flag="unknown_sourceType")
+    private String value_sourceType;
+    private boolean unknown_sourceType;
     public String sourceType() {
-        if (sourceType == null) return null;
-        return sourceType.getValue("TrustAnchorSource.sourceType");
+        if (!unknown_sourceType) return value_sourceType;
+        throw new UndeferrableValueException("Value 'TrustAnchorSource.sourceType' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mq.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class BrokerLogsArgs {
      * Enables audit logging. Auditing is only possible for `engine_type` of `ActiveMQ`. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> audit;
-
+    @PolicyResourceProperty(name="audit", flag="unknown_audit")
+    private Boolean value_audit;
+    private boolean unknown_audit;
     public Boolean audit() {
-        if (audit == null) return null;
-        return audit.getValue("BrokerLogsArgs.audit");
+        if (!unknown_audit) return value_audit;
+        throw new UndeferrableValueException("Value 'BrokerLogsArgs.audit' is not present");
     }
 
     /**
      * Enables general logging via CloudWatch. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> general;
-
+    @PolicyResourceProperty(name="general", flag="unknown_general")
+    private Boolean value_general;
+    private boolean unknown_general;
     public Boolean general() {
-        if (general == null) return null;
-        return general.getValue("BrokerLogsArgs.general");
+        if (!unknown_general) return value_general;
+        throw new UndeferrableValueException("Value 'BrokerLogsArgs.general' is not present");
     }
 
 }

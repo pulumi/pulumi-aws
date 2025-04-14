@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -19,110 +20,120 @@ public final class VpcAttachmentArgs extends com.pulumi.resources.PolicyResource
      * Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
      * 
      */
-    private UndeferrableValue<String> applianceModeSupport;
-
+    @PolicyResourceProperty(name="applianceModeSupport", flag="unknown_applianceModeSupport")
+    private String value_applianceModeSupport;
+    private boolean unknown_applianceModeSupport;
     public String applianceModeSupport() {
-        if (applianceModeSupport == null) return null;
-        return applianceModeSupport.getValue("VpcAttachmentArgs.applianceModeSupport");
+        if (!unknown_applianceModeSupport) return value_applianceModeSupport;
+        throw new UndeferrableValueException("Value 'VpcAttachmentArgs.applianceModeSupport' is not present");
     }
 
     /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      * 
      */
-    private UndeferrableValue<String> dnsSupport;
-
+    @PolicyResourceProperty(name="dnsSupport", flag="unknown_dnsSupport")
+    private String value_dnsSupport;
+    private boolean unknown_dnsSupport;
     public String dnsSupport() {
-        if (dnsSupport == null) return null;
-        return dnsSupport.getValue("VpcAttachmentArgs.dnsSupport");
+        if (!unknown_dnsSupport) return value_dnsSupport;
+        throw new UndeferrableValueException("Value 'VpcAttachmentArgs.dnsSupport' is not present");
     }
 
     /**
      * Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
      * 
      */
-    private UndeferrableValue<String> ipv6Support;
-
+    @PolicyResourceProperty(name="ipv6Support", flag="unknown_ipv6Support")
+    private String value_ipv6Support;
+    private boolean unknown_ipv6Support;
     public String ipv6Support() {
-        if (ipv6Support == null) return null;
-        return ipv6Support.getValue("VpcAttachmentArgs.ipv6Support");
+        if (!unknown_ipv6Support) return value_ipv6Support;
+        throw new UndeferrableValueException("Value 'VpcAttachmentArgs.ipv6Support' is not present");
     }
 
     /**
      * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
      * 
      */
-    private UndeferrableValue<String> securityGroupReferencingSupport;
-
+    @PolicyResourceProperty(name="securityGroupReferencingSupport", flag="unknown_securityGroupReferencingSupport")
+    private String value_securityGroupReferencingSupport;
+    private boolean unknown_securityGroupReferencingSupport;
     public String securityGroupReferencingSupport() {
-        if (securityGroupReferencingSupport == null) return null;
-        return securityGroupReferencingSupport.getValue("VpcAttachmentArgs.securityGroupReferencingSupport");
+        if (!unknown_securityGroupReferencingSupport) return value_securityGroupReferencingSupport;
+        throw new UndeferrableValueException("Value 'VpcAttachmentArgs.securityGroupReferencingSupport' is not present");
     }
 
     /**
      * Identifiers of EC2 Subnets.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("VpcAttachmentArgs.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'VpcAttachmentArgs.subnetIds' is not present");
     }
 
     /**
      * Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VpcAttachmentArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VpcAttachmentArgs.tags' is not present");
     }
 
     /**
      * Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      * 
      */
-    private UndeferrableValue<Boolean> transitGatewayDefaultRouteTableAssociation;
-
+    @PolicyResourceProperty(name="transitGatewayDefaultRouteTableAssociation", flag="unknown_transitGatewayDefaultRouteTableAssociation")
+    private Boolean value_transitGatewayDefaultRouteTableAssociation;
+    private boolean unknown_transitGatewayDefaultRouteTableAssociation;
     public Boolean transitGatewayDefaultRouteTableAssociation() {
-        if (transitGatewayDefaultRouteTableAssociation == null) return null;
-        return transitGatewayDefaultRouteTableAssociation.getValue("VpcAttachmentArgs.transitGatewayDefaultRouteTableAssociation");
+        if (!unknown_transitGatewayDefaultRouteTableAssociation) return value_transitGatewayDefaultRouteTableAssociation;
+        throw new UndeferrableValueException("Value 'VpcAttachmentArgs.transitGatewayDefaultRouteTableAssociation' is not present");
     }
 
     /**
      * Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      * 
      */
-    private UndeferrableValue<Boolean> transitGatewayDefaultRouteTablePropagation;
-
+    @PolicyResourceProperty(name="transitGatewayDefaultRouteTablePropagation", flag="unknown_transitGatewayDefaultRouteTablePropagation")
+    private Boolean value_transitGatewayDefaultRouteTablePropagation;
+    private boolean unknown_transitGatewayDefaultRouteTablePropagation;
     public Boolean transitGatewayDefaultRouteTablePropagation() {
-        if (transitGatewayDefaultRouteTablePropagation == null) return null;
-        return transitGatewayDefaultRouteTablePropagation.getValue("VpcAttachmentArgs.transitGatewayDefaultRouteTablePropagation");
+        if (!unknown_transitGatewayDefaultRouteTablePropagation) return value_transitGatewayDefaultRouteTablePropagation;
+        throw new UndeferrableValueException("Value 'VpcAttachmentArgs.transitGatewayDefaultRouteTablePropagation' is not present");
     }
 
     /**
      * Identifier of EC2 Transit Gateway.
      * 
      */
-    private UndeferrableValue<String> transitGatewayId;
-
+    @PolicyResourceProperty(name="transitGatewayId", flag="unknown_transitGatewayId")
+    private String value_transitGatewayId;
+    private boolean unknown_transitGatewayId;
     public String transitGatewayId() {
-        if (transitGatewayId == null) return null;
-        return transitGatewayId.getValue("VpcAttachmentArgs.transitGatewayId");
+        if (!unknown_transitGatewayId) return value_transitGatewayId;
+        throw new UndeferrableValueException("Value 'VpcAttachmentArgs.transitGatewayId' is not present");
     }
 
     /**
      * Identifier of EC2 VPC.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("VpcAttachmentArgs.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'VpcAttachmentArgs.vpcId' is not present");
     }
 
 }

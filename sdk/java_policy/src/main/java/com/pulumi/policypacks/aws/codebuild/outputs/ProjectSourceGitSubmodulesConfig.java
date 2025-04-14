@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 
 
@@ -13,11 +14,12 @@ public final class ProjectSourceGitSubmodulesConfig {
      * Whether to fetch Git submodules for the AWS CodeBuild build project.
      * 
      */
-    private UndeferrableValue<Boolean> fetchSubmodules;
-
+    @PolicyResourceProperty(name="fetchSubmodules", flag="unknown_fetchSubmodules")
+    private Boolean value_fetchSubmodules;
+    private boolean unknown_fetchSubmodules;
     public Boolean fetchSubmodules() {
-        if (fetchSubmodules == null) return null;
-        return fetchSubmodules.getValue("ProjectSourceGitSubmodulesConfig.fetchSubmodules");
+        if (!unknown_fetchSubmodules) return value_fetchSubmodules;
+        throw new UndeferrableValueException("Value 'ProjectSourceGitSubmodulesConfig.fetchSubmodules' is not present");
     }
 
 }

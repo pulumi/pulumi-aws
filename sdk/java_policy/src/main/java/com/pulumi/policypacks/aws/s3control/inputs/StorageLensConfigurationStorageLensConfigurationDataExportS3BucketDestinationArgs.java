@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,66 +16,72 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
      * The account ID of the owner of the S3 Storage Lens metrics export bucket.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs.accountId' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the bucket.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs.arn' is not present");
     }
 
     /**
      * Encryption of the metrics exports in this bucket. See Encryption below for more details.
      * 
      */
-    private UndeferrableValue<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs> encryption;
-
+    @PolicyResourceProperty(name="encryption", flag="unknown_encryption")
+    private StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs value_encryption;
+    private boolean unknown_encryption;
     public StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs encryption() {
-        if (encryption == null) return null;
-        return encryption.getValue("StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs.encryption");
+        if (!unknown_encryption) return value_encryption;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs.encryption' is not present");
     }
 
     /**
      * The export format. Valid values: `CSV`, `Parquet`.
      * 
      */
-    private UndeferrableValue<String> format;
-
+    @PolicyResourceProperty(name="format", flag="unknown_format")
+    private String value_format;
+    private boolean unknown_format;
     public String format() {
-        if (format == null) return null;
-        return format.getValue("StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs.format");
+        if (!unknown_format) return value_format;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs.format' is not present");
     }
 
     /**
      * The schema version of the export file. Valid values: `V_1`.
      * 
      */
-    private UndeferrableValue<String> outputSchemaVersion;
-
+    @PolicyResourceProperty(name="outputSchemaVersion", flag="unknown_outputSchemaVersion")
+    private String value_outputSchemaVersion;
+    private boolean unknown_outputSchemaVersion;
     public String outputSchemaVersion() {
-        if (outputSchemaVersion == null) return null;
-        return outputSchemaVersion.getValue("StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs.outputSchemaVersion");
+        if (!unknown_outputSchemaVersion) return value_outputSchemaVersion;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs.outputSchemaVersion' is not present");
     }
 
     /**
      * The prefix of the destination bucket where the metrics export will be delivered.
      * 
      */
-    private UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private String value_prefix;
+    private boolean unknown_prefix;
     public String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs.prefix' is not present");
     }
 
 }

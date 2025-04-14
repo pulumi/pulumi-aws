@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mq.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class BrokerConfiguration {
      * The Configuration ID.
      * 
      */
-    private @Nullable UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private @Nullable String value_id;
+    private boolean unknown_id;
     public @Nullable String id() {
-        if (id == null) return null;
-        return id.getValue("BrokerConfiguration.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'BrokerConfiguration.id' is not present");
     }
 
     /**
      * Revision of the Configuration.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> revision;
-
+    @PolicyResourceProperty(name="revision", flag="unknown_revision")
+    private @Nullable Integer value_revision;
+    private boolean unknown_revision;
     public @Nullable Integer revision() {
-        if (revision == null) return null;
-        return revision.getValue("BrokerConfiguration.revision");
+        if (!unknown_revision) return value_revision;
+        throw new UndeferrableValueException("Value 'BrokerConfiguration.revision' is not present");
     }
 
 }

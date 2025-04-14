@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.msk.inputs.ServerlessClusterClientAuthenticationArgs;
 import com.pulumi.policypacks.aws.msk.inputs.ServerlessClusterVpcConfigArgs;
@@ -20,44 +21,48 @@ public final class ServerlessClusterArgs extends com.pulumi.resources.PolicyReso
      * Specifies client authentication information for the serverless cluster. See below.
      * 
      */
-    private UndeferrableValue<ServerlessClusterClientAuthenticationArgs> clientAuthentication;
-
+    @PolicyResourceProperty(name="clientAuthentication", flag="unknown_clientAuthentication")
+    private ServerlessClusterClientAuthenticationArgs value_clientAuthentication;
+    private boolean unknown_clientAuthentication;
     public ServerlessClusterClientAuthenticationArgs clientAuthentication() {
-        if (clientAuthentication == null) return null;
-        return clientAuthentication.getValue("ServerlessClusterArgs.clientAuthentication");
+        if (!unknown_clientAuthentication) return value_clientAuthentication;
+        throw new UndeferrableValueException("Value 'ServerlessClusterArgs.clientAuthentication' is not present");
     }
 
     /**
      * The name of the serverless cluster.
      * 
      */
-    private UndeferrableValue<String> clusterName;
-
+    @PolicyResourceProperty(name="clusterName", flag="unknown_clusterName")
+    private String value_clusterName;
+    private boolean unknown_clusterName;
     public String clusterName() {
-        if (clusterName == null) return null;
-        return clusterName.getValue("ServerlessClusterArgs.clusterName");
+        if (!unknown_clusterName) return value_clusterName;
+        throw new UndeferrableValueException("Value 'ServerlessClusterArgs.clusterName' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ServerlessClusterArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ServerlessClusterArgs.tags' is not present");
     }
 
     /**
      * VPC configuration information. See below.
      * 
      */
-    private UndeferrableValue<List<ServerlessClusterVpcConfigArgs>> vpcConfigs;
-
+    @PolicyResourceProperty(name="vpcConfigs", flag="unknown_vpcConfigs")
+    private List<ServerlessClusterVpcConfigArgs> value_vpcConfigs;
+    private boolean unknown_vpcConfigs;
     public List<ServerlessClusterVpcConfigArgs> vpcConfigs() {
-        if (vpcConfigs == null) return null;
-        return vpcConfigs.getValue("ServerlessClusterArgs.vpcConfigs");
+        if (!unknown_vpcConfigs) return value_vpcConfigs;
+        throw new UndeferrableValueException("Value 'ServerlessClusterArgs.vpcConfigs' is not present");
     }
 
 }

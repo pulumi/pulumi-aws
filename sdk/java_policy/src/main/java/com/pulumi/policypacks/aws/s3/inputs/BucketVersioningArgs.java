@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class BucketVersioningArgs {
      * Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("BucketVersioningArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'BucketVersioningArgs.enabled' is not present");
     }
 
     /**
      * Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`. This cannot be used to toggle this setting but is available to allow managed buckets to reflect the state in AWS
      * 
      */
-    private UndeferrableValue<Boolean> mfaDelete;
-
+    @PolicyResourceProperty(name="mfaDelete", flag="unknown_mfaDelete")
+    private Boolean value_mfaDelete;
+    private boolean unknown_mfaDelete;
     public Boolean mfaDelete() {
-        if (mfaDelete == null) return null;
-        return mfaDelete.getValue("BucketVersioningArgs.mfaDelete");
+        if (!unknown_mfaDelete) return value_mfaDelete;
+        throw new UndeferrableValueException("Value 'BucketVersioningArgs.mfaDelete' is not present");
     }
 
 }

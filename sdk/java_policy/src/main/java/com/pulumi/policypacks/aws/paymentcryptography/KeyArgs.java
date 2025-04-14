@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.paymentcryptography;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.paymentcryptography.inputs.KeyKeyAttributesArgs;
 import com.pulumi.policypacks.aws.paymentcryptography.inputs.KeyTimeoutsArgs;
@@ -17,33 +18,36 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:paymentcryptography/key:Key")
 public final class KeyArgs extends com.pulumi.resources.PolicyResourceInput {
 
-    private UndeferrableValue<Integer> deletionWindowInDays;
-
+    @PolicyResourceProperty(name="deletionWindowInDays", flag="unknown_deletionWindowInDays")
+    private Integer value_deletionWindowInDays;
+    private boolean unknown_deletionWindowInDays;
     public Integer deletionWindowInDays() {
-        if (deletionWindowInDays == null) return null;
-        return deletionWindowInDays.getValue("KeyArgs.deletionWindowInDays");
+        if (!unknown_deletionWindowInDays) return value_deletionWindowInDays;
+        throw new UndeferrableValueException("Value 'KeyArgs.deletionWindowInDays' is not present");
     }
 
     /**
      * Whether to enable the key.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("KeyArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'KeyArgs.enabled' is not present");
     }
 
     /**
      * Whether the key is exportable from the service.
      * 
      */
-    private UndeferrableValue<Boolean> exportable;
-
+    @PolicyResourceProperty(name="exportable", flag="unknown_exportable")
+    private Boolean value_exportable;
+    private boolean unknown_exportable;
     public Boolean exportable() {
-        if (exportable == null) return null;
-        return exportable.getValue("KeyArgs.exportable");
+        if (!unknown_exportable) return value_exportable;
+        throw new UndeferrableValueException("Value 'KeyArgs.exportable' is not present");
     }
 
     /**
@@ -52,40 +56,44 @@ public final class KeyArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<KeyKeyAttributesArgs> keyAttributes;
-
+    @PolicyResourceProperty(name="keyAttributes", flag="unknown_keyAttributes")
+    private KeyKeyAttributesArgs value_keyAttributes;
+    private boolean unknown_keyAttributes;
     public KeyKeyAttributesArgs keyAttributes() {
-        if (keyAttributes == null) return null;
-        return keyAttributes.getValue("KeyArgs.keyAttributes");
+        if (!unknown_keyAttributes) return value_keyAttributes;
+        throw new UndeferrableValueException("Value 'KeyArgs.keyAttributes' is not present");
     }
 
     /**
      * Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
      * 
      */
-    private UndeferrableValue<String> keyCheckValueAlgorithm;
-
+    @PolicyResourceProperty(name="keyCheckValueAlgorithm", flag="unknown_keyCheckValueAlgorithm")
+    private String value_keyCheckValueAlgorithm;
+    private boolean unknown_keyCheckValueAlgorithm;
     public String keyCheckValueAlgorithm() {
-        if (keyCheckValueAlgorithm == null) return null;
-        return keyCheckValueAlgorithm.getValue("KeyArgs.keyCheckValueAlgorithm");
+        if (!unknown_keyCheckValueAlgorithm) return value_keyCheckValueAlgorithm;
+        throw new UndeferrableValueException("Value 'KeyArgs.keyCheckValueAlgorithm' is not present");
     }
 
     /**
      * Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("KeyArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'KeyArgs.tags' is not present");
     }
 
-    private UndeferrableValue<KeyTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private KeyTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public KeyTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("KeyArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'KeyArgs.timeouts' is not present");
     }
 
 }

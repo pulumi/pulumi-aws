@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2clientvpn.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,55 +15,60 @@ public final class EndpointAuthenticationOption {
      * The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
      * 
      */
-    private @Nullable UndeferrableValue<String> activeDirectoryId;
-
+    @PolicyResourceProperty(name="activeDirectoryId", flag="unknown_activeDirectoryId")
+    private @Nullable String value_activeDirectoryId;
+    private boolean unknown_activeDirectoryId;
     public @Nullable String activeDirectoryId() {
-        if (activeDirectoryId == null) return null;
-        return activeDirectoryId.getValue("EndpointAuthenticationOption.activeDirectoryId");
+        if (!unknown_activeDirectoryId) return value_activeDirectoryId;
+        throw new UndeferrableValueException("Value 'EndpointAuthenticationOption.activeDirectoryId' is not present");
     }
 
     /**
      * The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM). Only necessary when type is set to `certificate-authentication`.
      * 
      */
-    private @Nullable UndeferrableValue<String> rootCertificateChainArn;
-
+    @PolicyResourceProperty(name="rootCertificateChainArn", flag="unknown_rootCertificateChainArn")
+    private @Nullable String value_rootCertificateChainArn;
+    private boolean unknown_rootCertificateChainArn;
     public @Nullable String rootCertificateChainArn() {
-        if (rootCertificateChainArn == null) return null;
-        return rootCertificateChainArn.getValue("EndpointAuthenticationOption.rootCertificateChainArn");
+        if (!unknown_rootCertificateChainArn) return value_rootCertificateChainArn;
+        throw new UndeferrableValueException("Value 'EndpointAuthenticationOption.rootCertificateChainArn' is not present");
     }
 
     /**
      * The ARN of the IAM SAML identity provider if type is `federated-authentication`.
      * 
      */
-    private @Nullable UndeferrableValue<String> samlProviderArn;
-
+    @PolicyResourceProperty(name="samlProviderArn", flag="unknown_samlProviderArn")
+    private @Nullable String value_samlProviderArn;
+    private boolean unknown_samlProviderArn;
     public @Nullable String samlProviderArn() {
-        if (samlProviderArn == null) return null;
-        return samlProviderArn.getValue("EndpointAuthenticationOption.samlProviderArn");
+        if (!unknown_samlProviderArn) return value_samlProviderArn;
+        throw new UndeferrableValueException("Value 'EndpointAuthenticationOption.samlProviderArn' is not present");
     }
 
     /**
      * The ARN of the IAM SAML identity provider for the self service portal if type is `federated-authentication`.
      * 
      */
-    private @Nullable UndeferrableValue<String> selfServiceSamlProviderArn;
-
+    @PolicyResourceProperty(name="selfServiceSamlProviderArn", flag="unknown_selfServiceSamlProviderArn")
+    private @Nullable String value_selfServiceSamlProviderArn;
+    private boolean unknown_selfServiceSamlProviderArn;
     public @Nullable String selfServiceSamlProviderArn() {
-        if (selfServiceSamlProviderArn == null) return null;
-        return selfServiceSamlProviderArn.getValue("EndpointAuthenticationOption.selfServiceSamlProviderArn");
+        if (!unknown_selfServiceSamlProviderArn) return value_selfServiceSamlProviderArn;
+        throw new UndeferrableValueException("Value 'EndpointAuthenticationOption.selfServiceSamlProviderArn' is not present");
     }
 
     /**
      * The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, `directory-service-authentication` to use Active Directory authentication, or `federated-authentication` to use Federated Authentication via SAML 2.0.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("EndpointAuthenticationOption.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'EndpointAuthenticationOption.type' is not present");
     }
 
 }

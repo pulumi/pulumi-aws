@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bcmdata.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bcmdata.inputs.ExportExportDestinationConfigurationS3DestinationArgs;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ExportExportDestinationConfigurationArgs {
      * Object that describes the destination of the data exports file. See the `s3_destination` argument reference below.
      * 
      */
-    private UndeferrableValue<List<ExportExportDestinationConfigurationS3DestinationArgs>> s3Destinations;
-
+    @PolicyResourceProperty(name="s3Destinations", flag="unknown_s3Destinations")
+    private List<ExportExportDestinationConfigurationS3DestinationArgs> value_s3Destinations;
+    private boolean unknown_s3Destinations;
     public List<ExportExportDestinationConfigurationS3DestinationArgs> s3Destinations() {
-        if (s3Destinations == null) return null;
-        return s3Destinations.getValue("ExportExportDestinationConfigurationArgs.s3Destinations");
+        if (!unknown_s3Destinations) return value_s3Destinations;
+        throw new UndeferrableValueException("Value 'ExportExportDestinationConfigurationArgs.s3Destinations' is not present");
     }
 
 }

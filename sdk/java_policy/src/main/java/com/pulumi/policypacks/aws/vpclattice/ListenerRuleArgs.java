@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.vpclattice.inputs.ListenerRuleActionArgs;
 import com.pulumi.policypacks.aws.vpclattice.inputs.ListenerRuleMatchArgs;
@@ -20,44 +21,48 @@ public final class ListenerRuleArgs extends com.pulumi.resources.PolicyResourceI
      * The action for the listener rule.
      * 
      */
-    private UndeferrableValue<ListenerRuleActionArgs> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private ListenerRuleActionArgs value_action;
+    private boolean unknown_action;
     public ListenerRuleActionArgs action() {
-        if (action == null) return null;
-        return action.getValue("ListenerRuleArgs.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'ListenerRuleArgs.action' is not present");
     }
 
     /**
      * The ID or Amazon Resource Name (ARN) of the listener.
      * 
      */
-    private UndeferrableValue<String> listenerIdentifier;
-
+    @PolicyResourceProperty(name="listenerIdentifier", flag="unknown_listenerIdentifier")
+    private String value_listenerIdentifier;
+    private boolean unknown_listenerIdentifier;
     public String listenerIdentifier() {
-        if (listenerIdentifier == null) return null;
-        return listenerIdentifier.getValue("ListenerRuleArgs.listenerIdentifier");
+        if (!unknown_listenerIdentifier) return value_listenerIdentifier;
+        throw new UndeferrableValueException("Value 'ListenerRuleArgs.listenerIdentifier' is not present");
     }
 
     /**
      * The rule match.
      * 
      */
-    private UndeferrableValue<ListenerRuleMatchArgs> match;
-
+    @PolicyResourceProperty(name="match", flag="unknown_match")
+    private ListenerRuleMatchArgs value_match;
+    private boolean unknown_match;
     public ListenerRuleMatchArgs match() {
-        if (match == null) return null;
-        return match.getValue("ListenerRuleArgs.match");
+        if (!unknown_match) return value_match;
+        throw new UndeferrableValueException("Value 'ListenerRuleArgs.match' is not present");
     }
 
     /**
      * The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can&#39;t use a hyphen as the first or last character, or immediately after another hyphen.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ListenerRuleArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ListenerRuleArgs.name' is not present");
     }
 
     /**
@@ -66,33 +71,36 @@ public final class ListenerRuleArgs extends com.pulumi.resources.PolicyResourceI
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<Integer> priority;
-
+    @PolicyResourceProperty(name="priority", flag="unknown_priority")
+    private Integer value_priority;
+    private boolean unknown_priority;
     public Integer priority() {
-        if (priority == null) return null;
-        return priority.getValue("ListenerRuleArgs.priority");
+        if (!unknown_priority) return value_priority;
+        throw new UndeferrableValueException("Value 'ListenerRuleArgs.priority' is not present");
     }
 
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service.
      * 
      */
-    private UndeferrableValue<String> serviceIdentifier;
-
+    @PolicyResourceProperty(name="serviceIdentifier", flag="unknown_serviceIdentifier")
+    private String value_serviceIdentifier;
+    private boolean unknown_serviceIdentifier;
     public String serviceIdentifier() {
-        if (serviceIdentifier == null) return null;
-        return serviceIdentifier.getValue("ListenerRuleArgs.serviceIdentifier");
+        if (!unknown_serviceIdentifier) return value_serviceIdentifier;
+        throw new UndeferrableValueException("Value 'ListenerRuleArgs.serviceIdentifier' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ListenerRuleArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ListenerRuleArgs.tags' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.amp.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.amp.inputs.ScraperDestinationAmpArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ScraperDestinationArgs {
      * Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
      * 
      */
-    private UndeferrableValue<ScraperDestinationAmpArgs> amp;
-
+    @PolicyResourceProperty(name="amp", flag="unknown_amp")
+    private ScraperDestinationAmpArgs value_amp;
+    private boolean unknown_amp;
     public ScraperDestinationAmpArgs amp() {
-        if (amp == null) return null;
-        return amp.getValue("ScraperDestinationArgs.amp");
+        if (!unknown_amp) return value_amp;
+        throw new UndeferrableValueException("Value 'ScraperDestinationArgs.amp' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,154 +18,168 @@ public final class AccountSubscription extends com.pulumi.resources.PolicyResour
      * Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
      * 
      */
-    private UndeferrableValue<String> accountName;
-
+    @PolicyResourceProperty(name="accountName", flag="unknown_accountName")
+    private String value_accountName;
+    private boolean unknown_accountName;
     public String accountName() {
-        if (accountName == null) return null;
-        return accountName.getValue("AccountSubscription.accountName");
+        if (!unknown_accountName) return value_accountName;
+        throw new UndeferrableValueException("Value 'AccountSubscription.accountName' is not present");
     }
 
     /**
      * Status of the Amazon QuickSight account&#39;s subscription.
      * 
      */
-    private UndeferrableValue<String> accountSubscriptionStatus;
-
+    @PolicyResourceProperty(name="accountSubscriptionStatus", flag="unknown_accountSubscriptionStatus")
+    private String value_accountSubscriptionStatus;
+    private boolean unknown_accountSubscriptionStatus;
     public String accountSubscriptionStatus() {
-        if (accountSubscriptionStatus == null) return null;
-        return accountSubscriptionStatus.getValue("AccountSubscription.accountSubscriptionStatus");
+        if (!unknown_accountSubscriptionStatus) return value_accountSubscriptionStatus;
+        throw new UndeferrableValueException("Value 'AccountSubscription.accountSubscriptionStatus' is not present");
     }
 
     /**
      * Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
      * 
      */
-    private @Nullable UndeferrableValue<String> activeDirectoryName;
-
+    @PolicyResourceProperty(name="activeDirectoryName", flag="unknown_activeDirectoryName")
+    private @Nullable String value_activeDirectoryName;
+    private boolean unknown_activeDirectoryName;
     public @Nullable String activeDirectoryName() {
-        if (activeDirectoryName == null) return null;
-        return activeDirectoryName.getValue("AccountSubscription.activeDirectoryName");
+        if (!unknown_activeDirectoryName) return value_activeDirectoryName;
+        throw new UndeferrableValueException("Value 'AccountSubscription.activeDirectoryName' is not present");
     }
 
     /**
      * Admin group associated with your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> adminGroups;
-
+    @PolicyResourceProperty(name="adminGroups", flag="unknown_adminGroups")
+    private @Nullable List<String> value_adminGroups;
+    private boolean unknown_adminGroups;
     public @Nullable List<String> adminGroups() {
-        if (adminGroups == null) return null;
-        return adminGroups.getValue("AccountSubscription.adminGroups");
+        if (!unknown_adminGroups) return value_adminGroups;
+        throw new UndeferrableValueException("Value 'AccountSubscription.adminGroups' is not present");
     }
 
     /**
      * Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
      * 
      */
-    private UndeferrableValue<String> authenticationMethod;
-
+    @PolicyResourceProperty(name="authenticationMethod", flag="unknown_authenticationMethod")
+    private String value_authenticationMethod;
+    private boolean unknown_authenticationMethod;
     public String authenticationMethod() {
-        if (authenticationMethod == null) return null;
-        return authenticationMethod.getValue("AccountSubscription.authenticationMethod");
+        if (!unknown_authenticationMethod) return value_authenticationMethod;
+        throw new UndeferrableValueException("Value 'AccountSubscription.authenticationMethod' is not present");
     }
 
     /**
      * Author group associated with your Active Directory.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> authorGroups;
-
+    @PolicyResourceProperty(name="authorGroups", flag="unknown_authorGroups")
+    private @Nullable List<String> value_authorGroups;
+    private boolean unknown_authorGroups;
     public @Nullable List<String> authorGroups() {
-        if (authorGroups == null) return null;
-        return authorGroups.getValue("AccountSubscription.authorGroups");
+        if (!unknown_authorGroups) return value_authorGroups;
+        throw new UndeferrableValueException("Value 'AccountSubscription.authorGroups' is not present");
     }
 
     /**
      * AWS account ID hosting the QuickSight account. Default to provider account.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("AccountSubscription.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'AccountSubscription.awsAccountId' is not present");
     }
 
     /**
      * A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      * 
      */
-    private @Nullable UndeferrableValue<String> contactNumber;
-
+    @PolicyResourceProperty(name="contactNumber", flag="unknown_contactNumber")
+    private @Nullable String value_contactNumber;
+    private boolean unknown_contactNumber;
     public @Nullable String contactNumber() {
-        if (contactNumber == null) return null;
-        return contactNumber.getValue("AccountSubscription.contactNumber");
+        if (!unknown_contactNumber) return value_contactNumber;
+        throw new UndeferrableValueException("Value 'AccountSubscription.contactNumber' is not present");
     }
 
     /**
      * Active Directory ID that is associated with your Amazon QuickSight account.
      * 
      */
-    private @Nullable UndeferrableValue<String> directoryId;
-
+    @PolicyResourceProperty(name="directoryId", flag="unknown_directoryId")
+    private @Nullable String value_directoryId;
+    private boolean unknown_directoryId;
     public @Nullable String directoryId() {
-        if (directoryId == null) return null;
-        return directoryId.getValue("AccountSubscription.directoryId");
+        if (!unknown_directoryId) return value_directoryId;
+        throw new UndeferrableValueException("Value 'AccountSubscription.directoryId' is not present");
     }
 
     /**
      * Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
      * 
      */
-    private UndeferrableValue<String> edition;
-
+    @PolicyResourceProperty(name="edition", flag="unknown_edition")
+    private String value_edition;
+    private boolean unknown_edition;
     public String edition() {
-        if (edition == null) return null;
-        return edition.getValue("AccountSubscription.edition");
+        if (!unknown_edition) return value_edition;
+        throw new UndeferrableValueException("Value 'AccountSubscription.edition' is not present");
     }
 
     /**
      * Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      * 
      */
-    private @Nullable UndeferrableValue<String> emailAddress;
-
+    @PolicyResourceProperty(name="emailAddress", flag="unknown_emailAddress")
+    private @Nullable String value_emailAddress;
+    private boolean unknown_emailAddress;
     public @Nullable String emailAddress() {
-        if (emailAddress == null) return null;
-        return emailAddress.getValue("AccountSubscription.emailAddress");
+        if (!unknown_emailAddress) return value_emailAddress;
+        throw new UndeferrableValueException("Value 'AccountSubscription.emailAddress' is not present");
     }
 
     /**
      * First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      * 
      */
-    private @Nullable UndeferrableValue<String> firstName;
-
+    @PolicyResourceProperty(name="firstName", flag="unknown_firstName")
+    private @Nullable String value_firstName;
+    private boolean unknown_firstName;
     public @Nullable String firstName() {
-        if (firstName == null) return null;
-        return firstName.getValue("AccountSubscription.firstName");
+        if (!unknown_firstName) return value_firstName;
+        throw new UndeferrableValueException("Value 'AccountSubscription.firstName' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) for the IAM Identity Center instance.
      * 
      */
-    private @Nullable UndeferrableValue<String> iamIdentityCenterInstanceArn;
-
+    @PolicyResourceProperty(name="iamIdentityCenterInstanceArn", flag="unknown_iamIdentityCenterInstanceArn")
+    private @Nullable String value_iamIdentityCenterInstanceArn;
+    private boolean unknown_iamIdentityCenterInstanceArn;
     public @Nullable String iamIdentityCenterInstanceArn() {
-        if (iamIdentityCenterInstanceArn == null) return null;
-        return iamIdentityCenterInstanceArn.getValue("AccountSubscription.iamIdentityCenterInstanceArn");
+        if (!unknown_iamIdentityCenterInstanceArn) return value_iamIdentityCenterInstanceArn;
+        throw new UndeferrableValueException("Value 'AccountSubscription.iamIdentityCenterInstanceArn' is not present");
     }
 
     /**
      * Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      * 
      */
-    private @Nullable UndeferrableValue<String> lastName;
-
+    @PolicyResourceProperty(name="lastName", flag="unknown_lastName")
+    private @Nullable String value_lastName;
+    private boolean unknown_lastName;
     public @Nullable String lastName() {
-        if (lastName == null) return null;
-        return lastName.getValue("AccountSubscription.lastName");
+        if (!unknown_lastName) return value_lastName;
+        throw new UndeferrableValueException("Value 'AccountSubscription.lastName' is not present");
     }
 
     /**
@@ -173,33 +188,36 @@ public final class AccountSubscription extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> notificationEmail;
-
+    @PolicyResourceProperty(name="notificationEmail", flag="unknown_notificationEmail")
+    private String value_notificationEmail;
+    private boolean unknown_notificationEmail;
     public String notificationEmail() {
-        if (notificationEmail == null) return null;
-        return notificationEmail.getValue("AccountSubscription.notificationEmail");
+        if (!unknown_notificationEmail) return value_notificationEmail;
+        throw new UndeferrableValueException("Value 'AccountSubscription.notificationEmail' is not present");
     }
 
     /**
      * Reader group associated with your Active Directory.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> readerGroups;
-
+    @PolicyResourceProperty(name="readerGroups", flag="unknown_readerGroups")
+    private @Nullable List<String> value_readerGroups;
+    private boolean unknown_readerGroups;
     public @Nullable List<String> readerGroups() {
-        if (readerGroups == null) return null;
-        return readerGroups.getValue("AccountSubscription.readerGroups");
+        if (!unknown_readerGroups) return value_readerGroups;
+        throw new UndeferrableValueException("Value 'AccountSubscription.readerGroups' is not present");
     }
 
     /**
      * Realm of the Active Directory that is associated with your Amazon QuickSight account.
      * 
      */
-    private @Nullable UndeferrableValue<String> realm;
-
+    @PolicyResourceProperty(name="realm", flag="unknown_realm")
+    private @Nullable String value_realm;
+    private boolean unknown_realm;
     public @Nullable String realm() {
-        if (realm == null) return null;
-        return realm.getValue("AccountSubscription.realm");
+        if (!unknown_realm) return value_realm;
+        throw new UndeferrableValueException("Value 'AccountSubscription.realm' is not present");
     }
 
 }

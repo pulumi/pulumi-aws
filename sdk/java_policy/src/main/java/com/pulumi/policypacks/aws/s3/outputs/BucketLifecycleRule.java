@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.outputs.BucketLifecycleRuleExpiration;
 import com.pulumi.policypacks.aws.s3.outputs.BucketLifecycleRuleNoncurrentVersionExpiration;
 import com.pulumi.policypacks.aws.s3.outputs.BucketLifecycleRuleNoncurrentVersionTransition;
@@ -22,55 +23,60 @@ public final class BucketLifecycleRule {
      * Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> abortIncompleteMultipartUploadDays;
-
+    @PolicyResourceProperty(name="abortIncompleteMultipartUploadDays", flag="unknown_abortIncompleteMultipartUploadDays")
+    private @Nullable Integer value_abortIncompleteMultipartUploadDays;
+    private boolean unknown_abortIncompleteMultipartUploadDays;
     public @Nullable Integer abortIncompleteMultipartUploadDays() {
-        if (abortIncompleteMultipartUploadDays == null) return null;
-        return abortIncompleteMultipartUploadDays.getValue("BucketLifecycleRule.abortIncompleteMultipartUploadDays");
+        if (!unknown_abortIncompleteMultipartUploadDays) return value_abortIncompleteMultipartUploadDays;
+        throw new UndeferrableValueException("Value 'BucketLifecycleRule.abortIncompleteMultipartUploadDays' is not present");
     }
 
     /**
      * Specifies lifecycle rule status.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("BucketLifecycleRule.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'BucketLifecycleRule.enabled' is not present");
     }
 
     /**
      * Specifies a period in the object&#39;s expire (documented below).
      * 
      */
-    private @Nullable UndeferrableValue<BucketLifecycleRuleExpiration> expiration;
-
+    @PolicyResourceProperty(name="expiration", flag="unknown_expiration")
+    private @Nullable BucketLifecycleRuleExpiration value_expiration;
+    private boolean unknown_expiration;
     public @Nullable BucketLifecycleRuleExpiration expiration() {
-        if (expiration == null) return null;
-        return expiration.getValue("BucketLifecycleRule.expiration");
+        if (!unknown_expiration) return value_expiration;
+        throw new UndeferrableValueException("Value 'BucketLifecycleRule.expiration' is not present");
     }
 
     /**
      * Unique identifier for the rule. Must be less than or equal to 255 characters in length.
      * 
      */
-    private @Nullable UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private @Nullable String value_id;
+    private boolean unknown_id;
     public @Nullable String id() {
-        if (id == null) return null;
-        return id.getValue("BucketLifecycleRule.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'BucketLifecycleRule.id' is not present");
     }
 
     /**
      * Specifies when noncurrent object versions expire (documented below).
      * 
      */
-    private @Nullable UndeferrableValue<BucketLifecycleRuleNoncurrentVersionExpiration> noncurrentVersionExpiration;
-
+    @PolicyResourceProperty(name="noncurrentVersionExpiration", flag="unknown_noncurrentVersionExpiration")
+    private @Nullable BucketLifecycleRuleNoncurrentVersionExpiration value_noncurrentVersionExpiration;
+    private boolean unknown_noncurrentVersionExpiration;
     public @Nullable BucketLifecycleRuleNoncurrentVersionExpiration noncurrentVersionExpiration() {
-        if (noncurrentVersionExpiration == null) return null;
-        return noncurrentVersionExpiration.getValue("BucketLifecycleRule.noncurrentVersionExpiration");
+        if (!unknown_noncurrentVersionExpiration) return value_noncurrentVersionExpiration;
+        throw new UndeferrableValueException("Value 'BucketLifecycleRule.noncurrentVersionExpiration' is not present");
     }
 
     /**
@@ -79,44 +85,48 @@ public final class BucketLifecycleRule {
      * At least one of `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, `noncurrent_version_transition` must be specified.
      * 
      */
-    private @Nullable UndeferrableValue<List<BucketLifecycleRuleNoncurrentVersionTransition>> noncurrentVersionTransitions;
-
+    @PolicyResourceProperty(name="noncurrentVersionTransitions", flag="unknown_noncurrentVersionTransitions")
+    private @Nullable List<BucketLifecycleRuleNoncurrentVersionTransition> value_noncurrentVersionTransitions;
+    private boolean unknown_noncurrentVersionTransitions;
     public @Nullable List<BucketLifecycleRuleNoncurrentVersionTransition> noncurrentVersionTransitions() {
-        if (noncurrentVersionTransitions == null) return null;
-        return noncurrentVersionTransitions.getValue("BucketLifecycleRule.noncurrentVersionTransitions");
+        if (!unknown_noncurrentVersionTransitions) return value_noncurrentVersionTransitions;
+        throw new UndeferrableValueException("Value 'BucketLifecycleRule.noncurrentVersionTransitions' is not present");
     }
 
     /**
      * Object key prefix identifying one or more objects to which the rule applies.
      * 
      */
-    private @Nullable UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private @Nullable String value_prefix;
+    private boolean unknown_prefix;
     public @Nullable String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("BucketLifecycleRule.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'BucketLifecycleRule.prefix' is not present");
     }
 
     /**
      * Specifies object tags key and value.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("BucketLifecycleRule.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'BucketLifecycleRule.tags' is not present");
     }
 
     /**
      * Specifies a period in the object&#39;s transitions (documented below).
      * 
      */
-    private @Nullable UndeferrableValue<List<BucketLifecycleRuleTransition>> transitions;
-
+    @PolicyResourceProperty(name="transitions", flag="unknown_transitions")
+    private @Nullable List<BucketLifecycleRuleTransition> value_transitions;
+    private boolean unknown_transitions;
     public @Nullable List<BucketLifecycleRuleTransition> transitions() {
-        if (transitions == null) return null;
-        return transitions.getValue("BucketLifecycleRule.transitions");
+        if (!unknown_transitions) return value_transitions;
+        throw new UndeferrableValueException("Value 'BucketLifecycleRule.transitions' is not present");
     }
 
 }

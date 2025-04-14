@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.scheduler.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.scheduler.outputs.ScheduleTargetEcsParametersCapacityProviderStrategy;
 import com.pulumi.policypacks.aws.scheduler.outputs.ScheduleTargetEcsParametersNetworkConfiguration;
 import com.pulumi.policypacks.aws.scheduler.outputs.ScheduleTargetEcsParametersPlacementConstraint;
@@ -22,143 +23,156 @@ public final class ScheduleTargetEcsParameters {
      * Up to `6` capacity provider strategies to use for the task. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ScheduleTargetEcsParametersCapacityProviderStrategy>> capacityProviderStrategies;
-
+    @PolicyResourceProperty(name="capacityProviderStrategies", flag="unknown_capacityProviderStrategies")
+    private @Nullable List<ScheduleTargetEcsParametersCapacityProviderStrategy> value_capacityProviderStrategies;
+    private boolean unknown_capacityProviderStrategies;
     public @Nullable List<ScheduleTargetEcsParametersCapacityProviderStrategy> capacityProviderStrategies() {
-        if (capacityProviderStrategies == null) return null;
-        return capacityProviderStrategies.getValue("ScheduleTargetEcsParameters.capacityProviderStrategies");
+        if (!unknown_capacityProviderStrategies) return value_capacityProviderStrategies;
+        throw new UndeferrableValueException("Value 'ScheduleTargetEcsParameters.capacityProviderStrategies' is not present");
     }
 
     /**
      * Specifies whether to enable Amazon ECS managed tags for the task. For more information, see [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the Amazon ECS Developer Guide.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enableEcsManagedTags;
-
+    @PolicyResourceProperty(name="enableEcsManagedTags", flag="unknown_enableEcsManagedTags")
+    private @Nullable Boolean value_enableEcsManagedTags;
+    private boolean unknown_enableEcsManagedTags;
     public @Nullable Boolean enableEcsManagedTags() {
-        if (enableEcsManagedTags == null) return null;
-        return enableEcsManagedTags.getValue("ScheduleTargetEcsParameters.enableEcsManagedTags");
+        if (!unknown_enableEcsManagedTags) return value_enableEcsManagedTags;
+        throw new UndeferrableValueException("Value 'ScheduleTargetEcsParameters.enableEcsManagedTags' is not present");
     }
 
     /**
      * Specifies whether to enable the execute command functionality for the containers in this task.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enableExecuteCommand;
-
+    @PolicyResourceProperty(name="enableExecuteCommand", flag="unknown_enableExecuteCommand")
+    private @Nullable Boolean value_enableExecuteCommand;
+    private boolean unknown_enableExecuteCommand;
     public @Nullable Boolean enableExecuteCommand() {
-        if (enableExecuteCommand == null) return null;
-        return enableExecuteCommand.getValue("ScheduleTargetEcsParameters.enableExecuteCommand");
+        if (!unknown_enableExecuteCommand) return value_enableExecuteCommand;
+        throw new UndeferrableValueException("Value 'ScheduleTargetEcsParameters.enableExecuteCommand' is not present");
     }
 
     /**
      * Specifies an ECS task group for the task. At most 255 characters.
      * 
      */
-    private @Nullable UndeferrableValue<String> group;
-
+    @PolicyResourceProperty(name="group", flag="unknown_group")
+    private @Nullable String value_group;
+    private boolean unknown_group;
     public @Nullable String group() {
-        if (group == null) return null;
-        return group.getValue("ScheduleTargetEcsParameters.group");
+        if (!unknown_group) return value_group;
+        throw new UndeferrableValueException("Value 'ScheduleTargetEcsParameters.group' is not present");
     }
 
     /**
      * Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. One of: `EC2`, `FARGATE`, `EXTERNAL`.
      * 
      */
-    private @Nullable UndeferrableValue<String> launchType;
-
+    @PolicyResourceProperty(name="launchType", flag="unknown_launchType")
+    private @Nullable String value_launchType;
+    private boolean unknown_launchType;
     public @Nullable String launchType() {
-        if (launchType == null) return null;
-        return launchType.getValue("ScheduleTargetEcsParameters.launchType");
+        if (!unknown_launchType) return value_launchType;
+        throw new UndeferrableValueException("Value 'ScheduleTargetEcsParameters.launchType' is not present");
     }
 
     /**
      * Configures the networking associated with the task. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<ScheduleTargetEcsParametersNetworkConfiguration> networkConfiguration;
-
+    @PolicyResourceProperty(name="networkConfiguration", flag="unknown_networkConfiguration")
+    private @Nullable ScheduleTargetEcsParametersNetworkConfiguration value_networkConfiguration;
+    private boolean unknown_networkConfiguration;
     public @Nullable ScheduleTargetEcsParametersNetworkConfiguration networkConfiguration() {
-        if (networkConfiguration == null) return null;
-        return networkConfiguration.getValue("ScheduleTargetEcsParameters.networkConfiguration");
+        if (!unknown_networkConfiguration) return value_networkConfiguration;
+        throw new UndeferrableValueException("Value 'ScheduleTargetEcsParameters.networkConfiguration' is not present");
     }
 
     /**
      * A set of up to 10 placement constraints to use for the task. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ScheduleTargetEcsParametersPlacementConstraint>> placementConstraints;
-
+    @PolicyResourceProperty(name="placementConstraints", flag="unknown_placementConstraints")
+    private @Nullable List<ScheduleTargetEcsParametersPlacementConstraint> value_placementConstraints;
+    private boolean unknown_placementConstraints;
     public @Nullable List<ScheduleTargetEcsParametersPlacementConstraint> placementConstraints() {
-        if (placementConstraints == null) return null;
-        return placementConstraints.getValue("ScheduleTargetEcsParameters.placementConstraints");
+        if (!unknown_placementConstraints) return value_placementConstraints;
+        throw new UndeferrableValueException("Value 'ScheduleTargetEcsParameters.placementConstraints' is not present");
     }
 
     /**
      * A set of up to 5 placement strategies. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ScheduleTargetEcsParametersPlacementStrategy>> placementStrategies;
-
+    @PolicyResourceProperty(name="placementStrategies", flag="unknown_placementStrategies")
+    private @Nullable List<ScheduleTargetEcsParametersPlacementStrategy> value_placementStrategies;
+    private boolean unknown_placementStrategies;
     public @Nullable List<ScheduleTargetEcsParametersPlacementStrategy> placementStrategies() {
-        if (placementStrategies == null) return null;
-        return placementStrategies.getValue("ScheduleTargetEcsParameters.placementStrategies");
+        if (!unknown_placementStrategies) return value_placementStrategies;
+        throw new UndeferrableValueException("Value 'ScheduleTargetEcsParameters.placementStrategies' is not present");
     }
 
     /**
      * Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`.
      * 
      */
-    private @Nullable UndeferrableValue<String> platformVersion;
-
+    @PolicyResourceProperty(name="platformVersion", flag="unknown_platformVersion")
+    private @Nullable String value_platformVersion;
+    private boolean unknown_platformVersion;
     public @Nullable String platformVersion() {
-        if (platformVersion == null) return null;
-        return platformVersion.getValue("ScheduleTargetEcsParameters.platformVersion");
+        if (!unknown_platformVersion) return value_platformVersion;
+        throw new UndeferrableValueException("Value 'ScheduleTargetEcsParameters.platformVersion' is not present");
     }
 
     /**
      * Specifies whether to propagate the tags from the task definition to the task. One of: `TASK_DEFINITION`.
      * 
      */
-    private @Nullable UndeferrableValue<String> propagateTags;
-
+    @PolicyResourceProperty(name="propagateTags", flag="unknown_propagateTags")
+    private @Nullable String value_propagateTags;
+    private boolean unknown_propagateTags;
     public @Nullable String propagateTags() {
-        if (propagateTags == null) return null;
-        return propagateTags.getValue("ScheduleTargetEcsParameters.propagateTags");
+        if (!unknown_propagateTags) return value_propagateTags;
+        throw new UndeferrableValueException("Value 'ScheduleTargetEcsParameters.propagateTags' is not present");
     }
 
     /**
      * Reference ID to use for the task.
      * 
      */
-    private @Nullable UndeferrableValue<String> referenceId;
-
+    @PolicyResourceProperty(name="referenceId", flag="unknown_referenceId")
+    private @Nullable String value_referenceId;
+    private boolean unknown_referenceId;
     public @Nullable String referenceId() {
-        if (referenceId == null) return null;
-        return referenceId.getValue("ScheduleTargetEcsParameters.referenceId");
+        if (!unknown_referenceId) return value_referenceId;
+        throw new UndeferrableValueException("Value 'ScheduleTargetEcsParameters.referenceId' is not present");
     }
 
     /**
      * The metadata that you apply to the task. Each tag consists of a key and an optional value. For more information, see [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) in the Amazon ECS API Reference.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ScheduleTargetEcsParameters.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ScheduleTargetEcsParameters.tags' is not present");
     }
 
     /**
      * The number of tasks to create. Ranges from `1` (default) to `10`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> taskCount;
-
+    @PolicyResourceProperty(name="taskCount", flag="unknown_taskCount")
+    private @Nullable Integer value_taskCount;
+    private boolean unknown_taskCount;
     public @Nullable Integer taskCount() {
-        if (taskCount == null) return null;
-        return taskCount.getValue("ScheduleTargetEcsParameters.taskCount");
+        if (!unknown_taskCount) return value_taskCount;
+        throw new UndeferrableValueException("Value 'ScheduleTargetEcsParameters.taskCount' is not present");
     }
 
     /**
@@ -167,11 +181,12 @@ public final class ScheduleTargetEcsParameters {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> taskDefinitionArn;
-
+    @PolicyResourceProperty(name="taskDefinitionArn", flag="unknown_taskDefinitionArn")
+    private String value_taskDefinitionArn;
+    private boolean unknown_taskDefinitionArn;
     public String taskDefinitionArn() {
-        if (taskDefinitionArn == null) return null;
-        return taskDefinitionArn.getValue("ScheduleTargetEcsParameters.taskDefinitionArn");
+        if (!unknown_taskDefinitionArn) return value_taskDefinitionArn;
+        throw new UndeferrableValueException("Value 'ScheduleTargetEcsParameters.taskDefinitionArn' is not present");
     }
 
 }

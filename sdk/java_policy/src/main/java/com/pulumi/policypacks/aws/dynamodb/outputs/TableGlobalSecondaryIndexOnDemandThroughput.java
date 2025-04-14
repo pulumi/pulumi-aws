@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dynamodb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class TableGlobalSecondaryIndexOnDemandThroughput {
      * Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxReadRequestUnits;
-
+    @PolicyResourceProperty(name="maxReadRequestUnits", flag="unknown_maxReadRequestUnits")
+    private @Nullable Integer value_maxReadRequestUnits;
+    private boolean unknown_maxReadRequestUnits;
     public @Nullable Integer maxReadRequestUnits() {
-        if (maxReadRequestUnits == null) return null;
-        return maxReadRequestUnits.getValue("TableGlobalSecondaryIndexOnDemandThroughput.maxReadRequestUnits");
+        if (!unknown_maxReadRequestUnits) return value_maxReadRequestUnits;
+        throw new UndeferrableValueException("Value 'TableGlobalSecondaryIndexOnDemandThroughput.maxReadRequestUnits' is not present");
     }
 
     /**
      * Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxWriteRequestUnits;
-
+    @PolicyResourceProperty(name="maxWriteRequestUnits", flag="unknown_maxWriteRequestUnits")
+    private @Nullable Integer value_maxWriteRequestUnits;
+    private boolean unknown_maxWriteRequestUnits;
     public @Nullable Integer maxWriteRequestUnits() {
-        if (maxWriteRequestUnits == null) return null;
-        return maxWriteRequestUnits.getValue("TableGlobalSecondaryIndexOnDemandThroughput.maxWriteRequestUnits");
+        if (!unknown_maxWriteRequestUnits) return value_maxWriteRequestUnits;
+        throw new UndeferrableValueException("Value 'TableGlobalSecondaryIndexOnDemandThroughput.maxWriteRequestUnits' is not present");
     }
 
 }

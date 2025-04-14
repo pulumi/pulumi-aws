@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.synthetics.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class CanarySchedule {
      * Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> durationInSeconds;
-
+    @PolicyResourceProperty(name="durationInSeconds", flag="unknown_durationInSeconds")
+    private @Nullable Integer value_durationInSeconds;
+    private boolean unknown_durationInSeconds;
     public @Nullable Integer durationInSeconds() {
-        if (durationInSeconds == null) return null;
-        return durationInSeconds.getValue("CanarySchedule.durationInSeconds");
+        if (!unknown_durationInSeconds) return value_durationInSeconds;
+        throw new UndeferrableValueException("Value 'CanarySchedule.durationInSeconds' is not present");
     }
 
     /**
      * Rate expression or cron expression that defines how often the canary is to run. For rate expression, the syntax is `rate(number unit)`. _unit_ can be `minute`, `minutes`, or `hour`. For cron expression, the syntax is `cron(expression)`. For more information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html).
      * 
      */
-    private UndeferrableValue<String> expression;
-
+    @PolicyResourceProperty(name="expression", flag="unknown_expression")
+    private String value_expression;
+    private boolean unknown_expression;
     public String expression() {
-        if (expression == null) return null;
-        return expression.getValue("CanarySchedule.expression");
+        if (!unknown_expression) return value_expression;
+        throw new UndeferrableValueException("Value 'CanarySchedule.expression' is not present");
     }
 
 }

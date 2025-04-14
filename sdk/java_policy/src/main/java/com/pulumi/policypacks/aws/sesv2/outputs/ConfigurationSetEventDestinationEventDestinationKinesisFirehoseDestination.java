@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class ConfigurationSetEventDestinationEventDestinationKinesisFireho
      * The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
      * 
      */
-    private UndeferrableValue<String> deliveryStreamArn;
-
+    @PolicyResourceProperty(name="deliveryStreamArn", flag="unknown_deliveryStreamArn")
+    private String value_deliveryStreamArn;
+    private boolean unknown_deliveryStreamArn;
     public String deliveryStreamArn() {
-        if (deliveryStreamArn == null) return null;
-        return deliveryStreamArn.getValue("ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination.deliveryStreamArn");
+        if (!unknown_deliveryStreamArn) return value_deliveryStreamArn;
+        throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination.deliveryStreamArn' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
      * 
      */
-    private UndeferrableValue<String> iamRoleArn;
-
+    @PolicyResourceProperty(name="iamRoleArn", flag="unknown_iamRoleArn")
+    private String value_iamRoleArn;
+    private boolean unknown_iamRoleArn;
     public String iamRoleArn() {
-        if (iamRoleArn == null) return null;
-        return iamRoleArn.getValue("ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination.iamRoleArn");
+        if (!unknown_iamRoleArn) return value_iamRoleArn;
+        throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination.iamRoleArn' is not present");
     }
 
 }

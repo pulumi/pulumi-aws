@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.msk.outputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput;
 import java.lang.Integer;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo {
      * A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
      * 
      */
-    private @Nullable UndeferrableValue<ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput> provisionedThroughput;
-
+    @PolicyResourceProperty(name="provisionedThroughput", flag="unknown_provisionedThroughput")
+    private @Nullable ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput value_provisionedThroughput;
+    private boolean unknown_provisionedThroughput;
     public @Nullable ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput provisionedThroughput() {
-        if (provisionedThroughput == null) return null;
-        return provisionedThroughput.getValue("ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo.provisionedThroughput");
+        if (!unknown_provisionedThroughput) return value_provisionedThroughput;
+        throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo.provisionedThroughput' is not present");
     }
 
     /**
      * The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> volumeSize;
-
+    @PolicyResourceProperty(name="volumeSize", flag="unknown_volumeSize")
+    private @Nullable Integer value_volumeSize;
+    private boolean unknown_volumeSize;
     public @Nullable Integer volumeSize() {
-        if (volumeSize == null) return null;
-        return volumeSize.getValue("ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo.volumeSize");
+        if (!unknown_volumeSize) return value_volumeSize;
+        throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo.volumeSize' is not present");
     }
 
 }

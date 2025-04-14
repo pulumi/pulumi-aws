@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,44 +16,48 @@ public final class ResolverDnsSecConfig extends com.pulumi.resources.PolicyResou
      * The ARN for a configuration for DNSSEC validation.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ResolverDnsSecConfig.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ResolverDnsSecConfig.arn' is not present");
     }
 
     /**
      * The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("ResolverDnsSecConfig.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'ResolverDnsSecConfig.ownerId' is not present");
     }
 
     /**
      * The ID of the virtual private cloud (VPC) that you&#39;re updating the DNSSEC validation status for.
      * 
      */
-    private UndeferrableValue<String> resourceId;
-
+    @PolicyResourceProperty(name="resourceId", flag="unknown_resourceId")
+    private String value_resourceId;
+    private boolean unknown_resourceId;
     public String resourceId() {
-        if (resourceId == null) return null;
-        return resourceId.getValue("ResolverDnsSecConfig.resourceId");
+        if (!unknown_resourceId) return value_resourceId;
+        throw new UndeferrableValueException("Value 'ResolverDnsSecConfig.resourceId' is not present");
     }
 
     /**
      * The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> validationStatus;
-
+    @PolicyResourceProperty(name="validationStatus", flag="unknown_validationStatus")
+    private String value_validationStatus;
+    private boolean unknown_validationStatus;
     public String validationStatus() {
-        if (validationStatus == null) return null;
-        return validationStatus.getValue("ResolverDnsSecConfig.validationStatus");
+        if (!unknown_validationStatus) return value_validationStatus;
+        throw new UndeferrableValueException("Value 'ResolverDnsSecConfig.validationStatus' is not present");
     }
 
 }

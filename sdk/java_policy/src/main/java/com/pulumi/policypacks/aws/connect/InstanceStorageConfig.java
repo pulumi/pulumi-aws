@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.connect.outputs.InstanceStorageConfigStorageConfig;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class InstanceStorageConfig extends com.pulumi.resources.PolicyReso
      * The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
      * 
      */
-    private UndeferrableValue<String> associationId;
-
+    @PolicyResourceProperty(name="associationId", flag="unknown_associationId")
+    private String value_associationId;
+    private boolean unknown_associationId;
     public String associationId() {
-        if (associationId == null) return null;
-        return associationId.getValue("InstanceStorageConfig.associationId");
+        if (!unknown_associationId) return value_associationId;
+        throw new UndeferrableValueException("Value 'InstanceStorageConfig.associationId' is not present");
     }
 
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    private UndeferrableValue<String> instanceId;
-
+    @PolicyResourceProperty(name="instanceId", flag="unknown_instanceId")
+    private String value_instanceId;
+    private boolean unknown_instanceId;
     public String instanceId() {
-        if (instanceId == null) return null;
-        return instanceId.getValue("InstanceStorageConfig.instanceId");
+        if (!unknown_instanceId) return value_instanceId;
+        throw new UndeferrableValueException("Value 'InstanceStorageConfig.instanceId' is not present");
     }
 
     /**
      * A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `EMAIL_MESSAGES` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
      * 
      */
-    private UndeferrableValue<String> resourceType;
-
+    @PolicyResourceProperty(name="resourceType", flag="unknown_resourceType")
+    private String value_resourceType;
+    private boolean unknown_resourceType;
     public String resourceType() {
-        if (resourceType == null) return null;
-        return resourceType.getValue("InstanceStorageConfig.resourceType");
+        if (!unknown_resourceType) return value_resourceType;
+        throw new UndeferrableValueException("Value 'InstanceStorageConfig.resourceType' is not present");
     }
 
     /**
      * Specifies the storage configuration options for the Connect Instance. Documented below.
      * 
      */
-    private UndeferrableValue<InstanceStorageConfigStorageConfig> storageConfig;
-
+    @PolicyResourceProperty(name="storageConfig", flag="unknown_storageConfig")
+    private InstanceStorageConfigStorageConfig value_storageConfig;
+    private boolean unknown_storageConfig;
     public InstanceStorageConfigStorageConfig storageConfig() {
-        if (storageConfig == null) return null;
-        return storageConfig.getValue("InstanceStorageConfig.storageConfig");
+        if (!unknown_storageConfig) return value_storageConfig;
+        throw new UndeferrableValueException("Value 'InstanceStorageConfig.storageConfig' is not present");
     }
 
 }

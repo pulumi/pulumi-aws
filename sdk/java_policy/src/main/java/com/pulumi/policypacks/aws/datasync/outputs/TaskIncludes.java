@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class TaskIncludes {
      * The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
      * 
      */
-    private @Nullable UndeferrableValue<String> filterType;
-
+    @PolicyResourceProperty(name="filterType", flag="unknown_filterType")
+    private @Nullable String value_filterType;
+    private boolean unknown_filterType;
     public @Nullable String filterType() {
-        if (filterType == null) return null;
-        return filterType.getValue("TaskIncludes.filterType");
+        if (!unknown_filterType) return value_filterType;
+        throw new UndeferrableValueException("Value 'TaskIncludes.filterType' is not present");
     }
 
     /**
      * A single filter string that consists of the patterns to include. The patterns are delimited by &#34;|&#34; (that is, a pipe), for example: `/folder1|/folder2`
      * 
      */
-    private @Nullable UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private @Nullable String value_value;
+    private boolean unknown_value;
     public @Nullable String value() {
-        if (value == null) return null;
-        return value.getValue("TaskIncludes.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'TaskIncludes.value' is not present");
     }
 
 }

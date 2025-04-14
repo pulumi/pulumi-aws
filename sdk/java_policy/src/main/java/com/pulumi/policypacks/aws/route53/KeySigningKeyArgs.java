@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,22 +17,24 @@ public final class KeySigningKeyArgs extends com.pulumi.resources.PolicyResource
      * Identifier of the Route 53 Hosted Zone.
      * 
      */
-    private UndeferrableValue<String> hostedZoneId;
-
+    @PolicyResourceProperty(name="hostedZoneId", flag="unknown_hostedZoneId")
+    private String value_hostedZoneId;
+    private boolean unknown_hostedZoneId;
     public String hostedZoneId() {
-        if (hostedZoneId == null) return null;
-        return hostedZoneId.getValue("KeySigningKeyArgs.hostedZoneId");
+        if (!unknown_hostedZoneId) return value_hostedZoneId;
+        throw new UndeferrableValueException("Value 'KeySigningKeyArgs.hostedZoneId' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
      * 
      */
-    private UndeferrableValue<String> keyManagementServiceArn;
-
+    @PolicyResourceProperty(name="keyManagementServiceArn", flag="unknown_keyManagementServiceArn")
+    private String value_keyManagementServiceArn;
+    private boolean unknown_keyManagementServiceArn;
     public String keyManagementServiceArn() {
-        if (keyManagementServiceArn == null) return null;
-        return keyManagementServiceArn.getValue("KeySigningKeyArgs.keyManagementServiceArn");
+        if (!unknown_keyManagementServiceArn) return value_keyManagementServiceArn;
+        throw new UndeferrableValueException("Value 'KeySigningKeyArgs.keyManagementServiceArn' is not present");
     }
 
     /**
@@ -40,22 +43,24 @@ public final class KeySigningKeyArgs extends com.pulumi.resources.PolicyResource
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("KeySigningKeyArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'KeySigningKeyArgs.name' is not present");
     }
 
     /**
      * Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("KeySigningKeyArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'KeySigningKeyArgs.status' is not present");
     }
 
 }

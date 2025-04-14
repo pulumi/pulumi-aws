@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class GroupAvailabilityZoneDistributionArgs {
      * The strategy to use for distributing capacity across the Availability Zones. Valid values are `balanced-only` and `balanced-best-effort`. Default is `balanced-best-effort`.
      * 
      */
-    private UndeferrableValue<String> capacityDistributionStrategy;
-
+    @PolicyResourceProperty(name="capacityDistributionStrategy", flag="unknown_capacityDistributionStrategy")
+    private String value_capacityDistributionStrategy;
+    private boolean unknown_capacityDistributionStrategy;
     public String capacityDistributionStrategy() {
-        if (capacityDistributionStrategy == null) return null;
-        return capacityDistributionStrategy.getValue("GroupAvailabilityZoneDistributionArgs.capacityDistributionStrategy");
+        if (!unknown_capacityDistributionStrategy) return value_capacityDistributionStrategy;
+        throw new UndeferrableValueException("Value 'GroupAvailabilityZoneDistributionArgs.capacityDistributionStrategy' is not present");
     }
 
 }

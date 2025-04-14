@@ -3,17 +3,19 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class DistributionOriginGroupMember {
 
-    private UndeferrableValue<String> originId;
-
+    @PolicyResourceProperty(name="originId", flag="unknown_originId")
+    private String value_originId;
+    private boolean unknown_originId;
     public String originId() {
-        if (originId == null) return null;
-        return originId.getValue("DistributionOriginGroupMember.originId");
+        if (!unknown_originId) return value_originId;
+        throw new UndeferrableValueException("Value 'DistributionOriginGroupMember.originId' is not present");
     }
 
 }

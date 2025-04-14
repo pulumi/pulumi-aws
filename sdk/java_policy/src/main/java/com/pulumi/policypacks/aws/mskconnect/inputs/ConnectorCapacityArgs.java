@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mskconnect.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.mskconnect.inputs.ConnectorCapacityAutoscalingArgs;
 import com.pulumi.policypacks.aws.mskconnect.inputs.ConnectorCapacityProvisionedCapacityArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ConnectorCapacityArgs {
      * Information about the auto scaling parameters for the connector. See `autoscaling` Block for details.
      * 
      */
-    private UndeferrableValue<ConnectorCapacityAutoscalingArgs> autoscaling;
-
+    @PolicyResourceProperty(name="autoscaling", flag="unknown_autoscaling")
+    private ConnectorCapacityAutoscalingArgs value_autoscaling;
+    private boolean unknown_autoscaling;
     public ConnectorCapacityAutoscalingArgs autoscaling() {
-        if (autoscaling == null) return null;
-        return autoscaling.getValue("ConnectorCapacityArgs.autoscaling");
+        if (!unknown_autoscaling) return value_autoscaling;
+        throw new UndeferrableValueException("Value 'ConnectorCapacityArgs.autoscaling' is not present");
     }
 
     /**
      * Details about a fixed capacity allocated to a connector. See `provisioned_capacity` Block for details.
      * 
      */
-    private UndeferrableValue<ConnectorCapacityProvisionedCapacityArgs> provisionedCapacity;
-
+    @PolicyResourceProperty(name="provisionedCapacity", flag="unknown_provisionedCapacity")
+    private ConnectorCapacityProvisionedCapacityArgs value_provisionedCapacity;
+    private boolean unknown_provisionedCapacity;
     public ConnectorCapacityProvisionedCapacityArgs provisionedCapacity() {
-        if (provisionedCapacity == null) return null;
-        return provisionedCapacity.getValue("ConnectorCapacityArgs.provisionedCapacity");
+        if (!unknown_provisionedCapacity) return value_provisionedCapacity;
+        throw new UndeferrableValueException("Value 'ConnectorCapacityArgs.provisionedCapacity' is not present");
     }
 
 }

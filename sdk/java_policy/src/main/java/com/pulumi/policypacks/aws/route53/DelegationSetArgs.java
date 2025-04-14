@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -17,11 +18,12 @@ public final class DelegationSetArgs extends com.pulumi.resources.PolicyResource
      * (helpful for identifying single delegation set amongst others)
      * 
      */
-    private UndeferrableValue<String> referenceName;
-
+    @PolicyResourceProperty(name="referenceName", flag="unknown_referenceName")
+    private String value_referenceName;
+    private boolean unknown_referenceName;
     public String referenceName() {
-        if (referenceName == null) return null;
-        return referenceName.getValue("DelegationSetArgs.referenceName");
+        if (!unknown_referenceName) return value_referenceName;
+        throw new UndeferrableValueException("Value 'DelegationSetArgs.referenceName' is not present");
     }
 
 }

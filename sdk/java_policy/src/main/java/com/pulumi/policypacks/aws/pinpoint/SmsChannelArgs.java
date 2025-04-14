@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pinpoint;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class SmsChannelArgs extends com.pulumi.resources.PolicyResourceInp
      * ID of the application.
      * 
      */
-    private UndeferrableValue<String> applicationId;
-
+    @PolicyResourceProperty(name="applicationId", flag="unknown_applicationId")
+    private String value_applicationId;
+    private boolean unknown_applicationId;
     public String applicationId() {
-        if (applicationId == null) return null;
-        return applicationId.getValue("SmsChannelArgs.applicationId");
+        if (!unknown_applicationId) return value_applicationId;
+        throw new UndeferrableValueException("Value 'SmsChannelArgs.applicationId' is not present");
     }
 
     /**
      * Whether the channel is enabled or disabled. By default, it is set to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("SmsChannelArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'SmsChannelArgs.enabled' is not present");
     }
 
     /**
      * Identifier of the sender for your messages.
      * 
      */
-    private UndeferrableValue<String> senderId;
-
+    @PolicyResourceProperty(name="senderId", flag="unknown_senderId")
+    private String value_senderId;
+    private boolean unknown_senderId;
     public String senderId() {
-        if (senderId == null) return null;
-        return senderId.getValue("SmsChannelArgs.senderId");
+        if (!unknown_senderId) return value_senderId;
+        throw new UndeferrableValueException("Value 'SmsChannelArgs.senderId' is not present");
     }
 
     /**
      * Short Code registered with the phone provider.
      * 
      */
-    private UndeferrableValue<String> shortCode;
-
+    @PolicyResourceProperty(name="shortCode", flag="unknown_shortCode")
+    private String value_shortCode;
+    private boolean unknown_shortCode;
     public String shortCode() {
-        if (shortCode == null) return null;
-        return shortCode.getValue("SmsChannelArgs.shortCode");
+        if (!unknown_shortCode) return value_shortCode;
+        throw new UndeferrableValueException("Value 'SmsChannelArgs.shortCode' is not present");
     }
 
 }

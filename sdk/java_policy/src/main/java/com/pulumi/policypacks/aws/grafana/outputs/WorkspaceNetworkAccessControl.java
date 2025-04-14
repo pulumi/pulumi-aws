@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.grafana.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,22 +15,24 @@ public final class WorkspaceNetworkAccessControl {
      * An array of prefix list IDs.
      * 
      */
-    private UndeferrableValue<List<String>> prefixListIds;
-
+    @PolicyResourceProperty(name="prefixListIds", flag="unknown_prefixListIds")
+    private List<String> value_prefixListIds;
+    private boolean unknown_prefixListIds;
     public List<String> prefixListIds() {
-        if (prefixListIds == null) return null;
-        return prefixListIds.getValue("WorkspaceNetworkAccessControl.prefixListIds");
+        if (!unknown_prefixListIds) return value_prefixListIds;
+        throw new UndeferrableValueException("Value 'WorkspaceNetworkAccessControl.prefixListIds' is not present");
     }
 
     /**
      * An array of Amazon VPC endpoint IDs for the workspace. The only VPC endpoints that can be specified here are interface VPC endpoints for Grafana workspaces (using the com.amazonaws.[region].grafana-workspace service endpoint). Other VPC endpoints will be ignored.
      * 
      */
-    private UndeferrableValue<List<String>> vpceIds;
-
+    @PolicyResourceProperty(name="vpceIds", flag="unknown_vpceIds")
+    private List<String> value_vpceIds;
+    private boolean unknown_vpceIds;
     public List<String> vpceIds() {
-        if (vpceIds == null) return null;
-        return vpceIds.getValue("WorkspaceNetworkAccessControl.vpceIds");
+        if (!unknown_vpceIds) return value_vpceIds;
+        throw new UndeferrableValueException("Value 'WorkspaceNetworkAccessControl.vpceIds' is not present");
     }
 
 }

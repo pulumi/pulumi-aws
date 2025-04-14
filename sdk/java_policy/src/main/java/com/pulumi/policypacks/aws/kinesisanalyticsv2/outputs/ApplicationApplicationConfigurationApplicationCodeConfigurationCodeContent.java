@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
      * Information about the Amazon S3 bucket containing the application code.
      * 
      */
-    private @Nullable UndeferrableValue<ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation> s3ContentLocation;
-
+    @PolicyResourceProperty(name="s3ContentLocation", flag="unknown_s3ContentLocation")
+    private @Nullable ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation value_s3ContentLocation;
+    private boolean unknown_s3ContentLocation;
     public @Nullable ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation s3ContentLocation() {
-        if (s3ContentLocation == null) return null;
-        return s3ContentLocation.getValue("ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent.s3ContentLocation");
+        if (!unknown_s3ContentLocation) return value_s3ContentLocation;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent.s3ContentLocation' is not present");
     }
 
     /**
      * The text-format code for the application.
      * 
      */
-    private @Nullable UndeferrableValue<String> textContent;
-
+    @PolicyResourceProperty(name="textContent", flag="unknown_textContent")
+    private @Nullable String value_textContent;
+    private boolean unknown_textContent;
     public @Nullable String textContent() {
-        if (textContent == null) return null;
-        return textContent.getValue("ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent.textContent");
+        if (!unknown_textContent) return value_textContent;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent.textContent' is not present");
     }
 
 }

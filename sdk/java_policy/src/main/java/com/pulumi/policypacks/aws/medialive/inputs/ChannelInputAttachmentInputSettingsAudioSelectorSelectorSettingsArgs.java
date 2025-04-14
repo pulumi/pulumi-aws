@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs;
@@ -17,44 +18,48 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
      * Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
      * 
      */
-    private UndeferrableValue<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs> audioHlsRenditionSelection;
-
+    @PolicyResourceProperty(name="audioHlsRenditionSelection", flag="unknown_audioHlsRenditionSelection")
+    private ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs value_audioHlsRenditionSelection;
+    private boolean unknown_audioHlsRenditionSelection;
     public ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs audioHlsRenditionSelection() {
-        if (audioHlsRenditionSelection == null) return null;
-        return audioHlsRenditionSelection.getValue("ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs.audioHlsRenditionSelection");
+        if (!unknown_audioHlsRenditionSelection) return value_audioHlsRenditionSelection;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs.audioHlsRenditionSelection' is not present");
     }
 
     /**
      * Audio Language Selection. See Audio Language Selection for more details.
      * 
      */
-    private UndeferrableValue<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs> audioLanguageSelection;
-
+    @PolicyResourceProperty(name="audioLanguageSelection", flag="unknown_audioLanguageSelection")
+    private ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs value_audioLanguageSelection;
+    private boolean unknown_audioLanguageSelection;
     public ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs audioLanguageSelection() {
-        if (audioLanguageSelection == null) return null;
-        return audioLanguageSelection.getValue("ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs.audioLanguageSelection");
+        if (!unknown_audioLanguageSelection) return value_audioLanguageSelection;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs.audioLanguageSelection' is not present");
     }
 
     /**
      * Audio Pid Selection. See Audio PID Selection for more details.
      * 
      */
-    private UndeferrableValue<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs> audioPidSelection;
-
+    @PolicyResourceProperty(name="audioPidSelection", flag="unknown_audioPidSelection")
+    private ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs value_audioPidSelection;
+    private boolean unknown_audioPidSelection;
     public ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs audioPidSelection() {
-        if (audioPidSelection == null) return null;
-        return audioPidSelection.getValue("ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs.audioPidSelection");
+        if (!unknown_audioPidSelection) return value_audioPidSelection;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs.audioPidSelection' is not present");
     }
 
     /**
      * Audio Track Selection. See Audio Track Selection for more details.
      * 
      */
-    private UndeferrableValue<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs> audioTrackSelection;
-
+    @PolicyResourceProperty(name="audioTrackSelection", flag="unknown_audioTrackSelection")
+    private ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs value_audioTrackSelection;
+    private boolean unknown_audioTrackSelection;
     public ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs audioTrackSelection() {
-        if (audioTrackSelection == null) return null;
-        return audioTrackSelection.getValue("ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs.audioTrackSelection");
+        if (!unknown_audioTrackSelection) return value_audioTrackSelection;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs.audioTrackSelection' is not present");
     }
 
 }

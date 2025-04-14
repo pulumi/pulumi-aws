@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.opensearch.outputs.DomainAutoTuneOptionsMaintenanceScheduleDuration;
 import java.lang.String;
 
@@ -14,33 +15,36 @@ public final class DomainAutoTuneOptionsMaintenanceSchedule {
      * A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
      * 
      */
-    private UndeferrableValue<String> cronExpressionForRecurrence;
-
+    @PolicyResourceProperty(name="cronExpressionForRecurrence", flag="unknown_cronExpressionForRecurrence")
+    private String value_cronExpressionForRecurrence;
+    private boolean unknown_cronExpressionForRecurrence;
     public String cronExpressionForRecurrence() {
-        if (cronExpressionForRecurrence == null) return null;
-        return cronExpressionForRecurrence.getValue("DomainAutoTuneOptionsMaintenanceSchedule.cronExpressionForRecurrence");
+        if (!unknown_cronExpressionForRecurrence) return value_cronExpressionForRecurrence;
+        throw new UndeferrableValueException("Value 'DomainAutoTuneOptionsMaintenanceSchedule.cronExpressionForRecurrence' is not present");
     }
 
     /**
      * Configuration block for the duration of the Auto-Tune maintenance window. Detailed below.
      * 
      */
-    private UndeferrableValue<DomainAutoTuneOptionsMaintenanceScheduleDuration> duration;
-
+    @PolicyResourceProperty(name="duration", flag="unknown_duration")
+    private DomainAutoTuneOptionsMaintenanceScheduleDuration value_duration;
+    private boolean unknown_duration;
     public DomainAutoTuneOptionsMaintenanceScheduleDuration duration() {
-        if (duration == null) return null;
-        return duration.getValue("DomainAutoTuneOptionsMaintenanceSchedule.duration");
+        if (!unknown_duration) return value_duration;
+        throw new UndeferrableValueException("Value 'DomainAutoTuneOptionsMaintenanceSchedule.duration' is not present");
     }
 
     /**
      * Date and time at which to start the Auto-Tune maintenance schedule in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private UndeferrableValue<String> startAt;
-
+    @PolicyResourceProperty(name="startAt", flag="unknown_startAt")
+    private String value_startAt;
+    private boolean unknown_startAt;
     public String startAt() {
-        if (startAt == null) return null;
-        return startAt.getValue("DomainAutoTuneOptionsMaintenanceSchedule.startAt");
+        if (!unknown_startAt) return value_startAt;
+        throw new UndeferrableValueException("Value 'DomainAutoTuneOptionsMaintenanceSchedule.startAt' is not present");
     }
 
 }

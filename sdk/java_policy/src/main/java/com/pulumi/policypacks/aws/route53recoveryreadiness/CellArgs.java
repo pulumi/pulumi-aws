@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53recoveryreadiness;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -20,33 +21,36 @@ public final class CellArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> cellName;
-
+    @PolicyResourceProperty(name="cellName", flag="unknown_cellName")
+    private String value_cellName;
+    private boolean unknown_cellName;
     public String cellName() {
-        if (cellName == null) return null;
-        return cellName.getValue("CellArgs.cellName");
+        if (!unknown_cellName) return value_cellName;
+        throw new UndeferrableValueException("Value 'CellArgs.cellName' is not present");
     }
 
     /**
      * List of cell arns to add as nested fault domains within this cell.
      * 
      */
-    private UndeferrableValue<List<String>> cells;
-
+    @PolicyResourceProperty(name="cells", flag="unknown_cells")
+    private List<String> value_cells;
+    private boolean unknown_cells;
     public List<String> cells() {
-        if (cells == null) return null;
-        return cells.getValue("CellArgs.cells");
+        if (!unknown_cells) return value_cells;
+        throw new UndeferrableValueException("Value 'CellArgs.cells' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CellArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CellArgs.tags' is not present");
     }
 
 }

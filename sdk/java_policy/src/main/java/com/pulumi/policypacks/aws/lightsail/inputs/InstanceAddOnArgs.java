@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,33 +14,36 @@ public final class InstanceAddOnArgs {
      * The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
      * 
      */
-    private UndeferrableValue<String> snapshotTime;
-
+    @PolicyResourceProperty(name="snapshotTime", flag="unknown_snapshotTime")
+    private String value_snapshotTime;
+    private boolean unknown_snapshotTime;
     public String snapshotTime() {
-        if (snapshotTime == null) return null;
-        return snapshotTime.getValue("InstanceAddOnArgs.snapshotTime");
+        if (!unknown_snapshotTime) return value_snapshotTime;
+        throw new UndeferrableValueException("Value 'InstanceAddOnArgs.snapshotTime' is not present");
     }
 
     /**
      * The status of the add-on. Valid Values: `Enabled`, `Disabled`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("InstanceAddOnArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'InstanceAddOnArgs.status' is not present");
     }
 
     /**
      * The add-on type. There is currently only one valid type `AutoSnapshot`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("InstanceAddOnArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'InstanceAddOnArgs.type' is not present");
     }
 
 }

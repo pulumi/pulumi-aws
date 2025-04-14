@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class AttachmentArgs extends com.pulumi.resources.PolicyResourceInp
      * Name of ASG to associate with the ELB.
      * 
      */
-    private UndeferrableValue<String> autoscalingGroupName;
-
+    @PolicyResourceProperty(name="autoscalingGroupName", flag="unknown_autoscalingGroupName")
+    private String value_autoscalingGroupName;
+    private boolean unknown_autoscalingGroupName;
     public String autoscalingGroupName() {
-        if (autoscalingGroupName == null) return null;
-        return autoscalingGroupName.getValue("AttachmentArgs.autoscalingGroupName");
+        if (!unknown_autoscalingGroupName) return value_autoscalingGroupName;
+        throw new UndeferrableValueException("Value 'AttachmentArgs.autoscalingGroupName' is not present");
     }
 
     /**
      * Name of the ELB.
      * 
      */
-    private UndeferrableValue<String> elb;
-
+    @PolicyResourceProperty(name="elb", flag="unknown_elb")
+    private String value_elb;
+    private boolean unknown_elb;
     public String elb() {
-        if (elb == null) return null;
-        return elb.getValue("AttachmentArgs.elb");
+        if (!unknown_elb) return value_elb;
+        throw new UndeferrableValueException("Value 'AttachmentArgs.elb' is not present");
     }
 
     /**
      * ARN of a load balancer target group.
      * 
      */
-    private UndeferrableValue<String> lbTargetGroupArn;
-
+    @PolicyResourceProperty(name="lbTargetGroupArn", flag="unknown_lbTargetGroupArn")
+    private String value_lbTargetGroupArn;
+    private boolean unknown_lbTargetGroupArn;
     public String lbTargetGroupArn() {
-        if (lbTargetGroupArn == null) return null;
-        return lbTargetGroupArn.getValue("AttachmentArgs.lbTargetGroupArn");
+        if (!unknown_lbTargetGroupArn) return value_lbTargetGroupArn;
+        throw new UndeferrableValueException("Value 'AttachmentArgs.lbTargetGroupArn' is not present");
     }
 
 }

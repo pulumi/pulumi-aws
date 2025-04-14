@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.guardduty.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.guardduty.inputs.DetectorDatasourcesKubernetesArgs;
 import com.pulumi.policypacks.aws.guardduty.inputs.DetectorDatasourcesMalwareProtectionArgs;
 import com.pulumi.policypacks.aws.guardduty.inputs.DetectorDatasourcesS3LogsArgs;
@@ -17,11 +18,12 @@ public final class DetectorDatasourcesArgs {
      * See Kubernetes and Kubernetes Audit Logs below for more details.
      * 
      */
-    private UndeferrableValue<DetectorDatasourcesKubernetesArgs> kubernetes;
-
+    @PolicyResourceProperty(name="kubernetes", flag="unknown_kubernetes")
+    private DetectorDatasourcesKubernetesArgs value_kubernetes;
+    private boolean unknown_kubernetes;
     public DetectorDatasourcesKubernetesArgs kubernetes() {
-        if (kubernetes == null) return null;
-        return kubernetes.getValue("DetectorDatasourcesArgs.kubernetes");
+        if (!unknown_kubernetes) return value_kubernetes;
+        throw new UndeferrableValueException("Value 'DetectorDatasourcesArgs.kubernetes' is not present");
     }
 
     /**
@@ -29,11 +31,12 @@ public final class DetectorDatasourcesArgs {
      * See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
      * 
      */
-    private UndeferrableValue<DetectorDatasourcesMalwareProtectionArgs> malwareProtection;
-
+    @PolicyResourceProperty(name="malwareProtection", flag="unknown_malwareProtection")
+    private DetectorDatasourcesMalwareProtectionArgs value_malwareProtection;
+    private boolean unknown_malwareProtection;
     public DetectorDatasourcesMalwareProtectionArgs malwareProtection() {
-        if (malwareProtection == null) return null;
-        return malwareProtection.getValue("DetectorDatasourcesArgs.malwareProtection");
+        if (!unknown_malwareProtection) return value_malwareProtection;
+        throw new UndeferrableValueException("Value 'DetectorDatasourcesArgs.malwareProtection' is not present");
     }
 
     /**
@@ -41,11 +44,12 @@ public final class DetectorDatasourcesArgs {
      * See S3 Logs below for more details.
      * 
      */
-    private UndeferrableValue<DetectorDatasourcesS3LogsArgs> s3Logs;
-
+    @PolicyResourceProperty(name="s3Logs", flag="unknown_s3Logs")
+    private DetectorDatasourcesS3LogsArgs value_s3Logs;
+    private boolean unknown_s3Logs;
     public DetectorDatasourcesS3LogsArgs s3Logs() {
-        if (s3Logs == null) return null;
-        return s3Logs.getValue("DetectorDatasourcesArgs.s3Logs");
+        if (!unknown_s3Logs) return value_s3Logs;
+        throw new UndeferrableValueException("Value 'DetectorDatasourcesArgs.s3Logs' is not present");
     }
 
 }

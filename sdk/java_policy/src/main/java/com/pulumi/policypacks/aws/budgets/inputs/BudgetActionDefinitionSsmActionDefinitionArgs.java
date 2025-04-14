@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.budgets.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,33 +15,36 @@ public final class BudgetActionDefinitionSsmActionDefinitionArgs {
      * The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
      * 
      */
-    private UndeferrableValue<String> actionSubType;
-
+    @PolicyResourceProperty(name="actionSubType", flag="unknown_actionSubType")
+    private String value_actionSubType;
+    private boolean unknown_actionSubType;
     public String actionSubType() {
-        if (actionSubType == null) return null;
-        return actionSubType.getValue("BudgetActionDefinitionSsmActionDefinitionArgs.actionSubType");
+        if (!unknown_actionSubType) return value_actionSubType;
+        throw new UndeferrableValueException("Value 'BudgetActionDefinitionSsmActionDefinitionArgs.actionSubType' is not present");
     }
 
     /**
      * The EC2 and RDS instance IDs.
      * 
      */
-    private UndeferrableValue<List<String>> instanceIds;
-
+    @PolicyResourceProperty(name="instanceIds", flag="unknown_instanceIds")
+    private List<String> value_instanceIds;
+    private boolean unknown_instanceIds;
     public List<String> instanceIds() {
-        if (instanceIds == null) return null;
-        return instanceIds.getValue("BudgetActionDefinitionSsmActionDefinitionArgs.instanceIds");
+        if (!unknown_instanceIds) return value_instanceIds;
+        throw new UndeferrableValueException("Value 'BudgetActionDefinitionSsmActionDefinitionArgs.instanceIds' is not present");
     }
 
     /**
      * The Region to run the SSM document.
      * 
      */
-    private UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private String value_region;
+    private boolean unknown_region;
     public String region() {
-        if (region == null) return null;
-        return region.getValue("BudgetActionDefinitionSsmActionDefinitionArgs.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'BudgetActionDefinitionSsmActionDefinitionArgs.region' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,127 +12,144 @@ import javax.annotation.Nullable;
 
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs {
 
-    private UndeferrableValue<Integer> audioFramesPerPes;
-
+    @PolicyResourceProperty(name="audioFramesPerPes", flag="unknown_audioFramesPerPes")
+    private Integer value_audioFramesPerPes;
+    private boolean unknown_audioFramesPerPes;
     public Integer audioFramesPerPes() {
-        if (audioFramesPerPes == null) return null;
-        return audioFramesPerPes.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.audioFramesPerPes");
+        if (!unknown_audioFramesPerPes) return value_audioFramesPerPes;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.audioFramesPerPes' is not present");
     }
 
-    private UndeferrableValue<String> audioPids;
-
+    @PolicyResourceProperty(name="audioPids", flag="unknown_audioPids")
+    private String value_audioPids;
+    private boolean unknown_audioPids;
     public String audioPids() {
-        if (audioPids == null) return null;
-        return audioPids.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.audioPids");
+        if (!unknown_audioPids) return value_audioPids;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.audioPids' is not present");
     }
 
-    private UndeferrableValue<String> ecmPid;
-
+    @PolicyResourceProperty(name="ecmPid", flag="unknown_ecmPid")
+    private String value_ecmPid;
+    private boolean unknown_ecmPid;
     public String ecmPid() {
-        if (ecmPid == null) return null;
-        return ecmPid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.ecmPid");
+        if (!unknown_ecmPid) return value_ecmPid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.ecmPid' is not present");
     }
 
-    private UndeferrableValue<String> nielsenId3Behavior;
-
+    @PolicyResourceProperty(name="nielsenId3Behavior", flag="unknown_nielsenId3Behavior")
+    private String value_nielsenId3Behavior;
+    private boolean unknown_nielsenId3Behavior;
     public String nielsenId3Behavior() {
-        if (nielsenId3Behavior == null) return null;
-        return nielsenId3Behavior.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.nielsenId3Behavior");
+        if (!unknown_nielsenId3Behavior) return value_nielsenId3Behavior;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.nielsenId3Behavior' is not present");
     }
 
-    private UndeferrableValue<Integer> patInterval;
-
+    @PolicyResourceProperty(name="patInterval", flag="unknown_patInterval")
+    private Integer value_patInterval;
+    private boolean unknown_patInterval;
     public Integer patInterval() {
-        if (patInterval == null) return null;
-        return patInterval.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.patInterval");
+        if (!unknown_patInterval) return value_patInterval;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.patInterval' is not present");
     }
 
-    private UndeferrableValue<String> pcrControl;
-
+    @PolicyResourceProperty(name="pcrControl", flag="unknown_pcrControl")
+    private String value_pcrControl;
+    private boolean unknown_pcrControl;
     public String pcrControl() {
-        if (pcrControl == null) return null;
-        return pcrControl.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.pcrControl");
+        if (!unknown_pcrControl) return value_pcrControl;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.pcrControl' is not present");
     }
 
-    private UndeferrableValue<Integer> pcrPeriod;
-
+    @PolicyResourceProperty(name="pcrPeriod", flag="unknown_pcrPeriod")
+    private Integer value_pcrPeriod;
+    private boolean unknown_pcrPeriod;
     public Integer pcrPeriod() {
-        if (pcrPeriod == null) return null;
-        return pcrPeriod.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.pcrPeriod");
+        if (!unknown_pcrPeriod) return value_pcrPeriod;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.pcrPeriod' is not present");
     }
 
-    private UndeferrableValue<String> pcrPid;
-
+    @PolicyResourceProperty(name="pcrPid", flag="unknown_pcrPid")
+    private String value_pcrPid;
+    private boolean unknown_pcrPid;
     public String pcrPid() {
-        if (pcrPid == null) return null;
-        return pcrPid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.pcrPid");
+        if (!unknown_pcrPid) return value_pcrPid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.pcrPid' is not present");
     }
 
-    private UndeferrableValue<Integer> pmtInterval;
-
+    @PolicyResourceProperty(name="pmtInterval", flag="unknown_pmtInterval")
+    private Integer value_pmtInterval;
+    private boolean unknown_pmtInterval;
     public Integer pmtInterval() {
-        if (pmtInterval == null) return null;
-        return pmtInterval.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.pmtInterval");
+        if (!unknown_pmtInterval) return value_pmtInterval;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.pmtInterval' is not present");
     }
 
-    private UndeferrableValue<String> pmtPid;
-
+    @PolicyResourceProperty(name="pmtPid", flag="unknown_pmtPid")
+    private String value_pmtPid;
+    private boolean unknown_pmtPid;
     public String pmtPid() {
-        if (pmtPid == null) return null;
-        return pmtPid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.pmtPid");
+        if (!unknown_pmtPid) return value_pmtPid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.pmtPid' is not present");
     }
 
-    private UndeferrableValue<Integer> programNum;
-
+    @PolicyResourceProperty(name="programNum", flag="unknown_programNum")
+    private Integer value_programNum;
+    private boolean unknown_programNum;
     public Integer programNum() {
-        if (programNum == null) return null;
-        return programNum.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.programNum");
+        if (!unknown_programNum) return value_programNum;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.programNum' is not present");
     }
 
-    private UndeferrableValue<String> scte35Behavior;
-
+    @PolicyResourceProperty(name="scte35Behavior", flag="unknown_scte35Behavior")
+    private String value_scte35Behavior;
+    private boolean unknown_scte35Behavior;
     public String scte35Behavior() {
-        if (scte35Behavior == null) return null;
-        return scte35Behavior.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.scte35Behavior");
+        if (!unknown_scte35Behavior) return value_scte35Behavior;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.scte35Behavior' is not present");
     }
 
     /**
      * PID from which to read SCTE-35 messages.
      * 
      */
-    private UndeferrableValue<String> scte35Pid;
-
+    @PolicyResourceProperty(name="scte35Pid", flag="unknown_scte35Pid")
+    private String value_scte35Pid;
+    private boolean unknown_scte35Pid;
     public String scte35Pid() {
-        if (scte35Pid == null) return null;
-        return scte35Pid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.scte35Pid");
+        if (!unknown_scte35Pid) return value_scte35Pid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.scte35Pid' is not present");
     }
 
-    private UndeferrableValue<String> timedMetadataBehavior;
-
+    @PolicyResourceProperty(name="timedMetadataBehavior", flag="unknown_timedMetadataBehavior")
+    private String value_timedMetadataBehavior;
+    private boolean unknown_timedMetadataBehavior;
     public String timedMetadataBehavior() {
-        if (timedMetadataBehavior == null) return null;
-        return timedMetadataBehavior.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.timedMetadataBehavior");
+        if (!unknown_timedMetadataBehavior) return value_timedMetadataBehavior;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.timedMetadataBehavior' is not present");
     }
 
-    private UndeferrableValue<String> timedMetadataPid;
-
+    @PolicyResourceProperty(name="timedMetadataPid", flag="unknown_timedMetadataPid")
+    private String value_timedMetadataPid;
+    private boolean unknown_timedMetadataPid;
     public String timedMetadataPid() {
-        if (timedMetadataPid == null) return null;
-        return timedMetadataPid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.timedMetadataPid");
+        if (!unknown_timedMetadataPid) return value_timedMetadataPid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.timedMetadataPid' is not present");
     }
 
-    private UndeferrableValue<Integer> transportStreamId;
-
+    @PolicyResourceProperty(name="transportStreamId", flag="unknown_transportStreamId")
+    private Integer value_transportStreamId;
+    private boolean unknown_transportStreamId;
     public Integer transportStreamId() {
-        if (transportStreamId == null) return null;
-        return transportStreamId.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.transportStreamId");
+        if (!unknown_transportStreamId) return value_transportStreamId;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.transportStreamId' is not present");
     }
 
-    private UndeferrableValue<String> videoPid;
-
+    @PolicyResourceProperty(name="videoPid", flag="unknown_videoPid")
+    private String value_videoPid;
+    private boolean unknown_videoPid;
     public String videoPid() {
-        if (videoPid == null) return null;
-        return videoPid.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.videoPid");
+        if (!unknown_videoPid) return value_videoPid;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8SettingsArgs.videoPid' is not present");
     }
 
 }

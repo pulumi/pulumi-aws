@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.glue.inputs.CatalogTableOpenTableFormatInputArgs;
 import com.pulumi.policypacks.aws.glue.inputs.CatalogTablePartitionIndexArgs;
@@ -24,11 +25,12 @@ public final class CatalogTableArgs extends com.pulumi.resources.PolicyResourceI
      * ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
      * 
      */
-    private UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private String value_catalogId;
+    private boolean unknown_catalogId;
     public String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("CatalogTableArgs.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'CatalogTableArgs.catalogId' is not present");
     }
 
     /**
@@ -37,154 +39,168 @@ public final class CatalogTableArgs extends com.pulumi.resources.PolicyResourceI
      * The follow arguments are optional:
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("CatalogTableArgs.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'CatalogTableArgs.databaseName' is not present");
     }
 
     /**
      * Description of the table.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("CatalogTableArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'CatalogTableArgs.description' is not present");
     }
 
     /**
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("CatalogTableArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'CatalogTableArgs.name' is not present");
     }
 
     /**
      * Configuration block for open table formats. See `open_table_format_input` below.
      * 
      */
-    private UndeferrableValue<CatalogTableOpenTableFormatInputArgs> openTableFormatInput;
-
+    @PolicyResourceProperty(name="openTableFormatInput", flag="unknown_openTableFormatInput")
+    private CatalogTableOpenTableFormatInputArgs value_openTableFormatInput;
+    private boolean unknown_openTableFormatInput;
     public CatalogTableOpenTableFormatInputArgs openTableFormatInput() {
-        if (openTableFormatInput == null) return null;
-        return openTableFormatInput.getValue("CatalogTableArgs.openTableFormatInput");
+        if (!unknown_openTableFormatInput) return value_openTableFormatInput;
+        throw new UndeferrableValueException("Value 'CatalogTableArgs.openTableFormatInput' is not present");
     }
 
     /**
      * Owner of the table.
      * 
      */
-    private UndeferrableValue<String> owner;
-
+    @PolicyResourceProperty(name="owner", flag="unknown_owner")
+    private String value_owner;
+    private boolean unknown_owner;
     public String owner() {
-        if (owner == null) return null;
-        return owner.getValue("CatalogTableArgs.owner");
+        if (!unknown_owner) return value_owner;
+        throw new UndeferrableValueException("Value 'CatalogTableArgs.owner' is not present");
     }
 
     /**
      * Properties associated with this table, as a list of key-value pairs.
      * 
      */
-    private UndeferrableValue<Map<String,String>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private Map<String,String> value_parameters;
+    private boolean unknown_parameters;
     public Map<String,String> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("CatalogTableArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'CatalogTableArgs.parameters' is not present");
     }
 
     /**
      * Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
      * 
      */
-    private UndeferrableValue<List<CatalogTablePartitionIndexArgs>> partitionIndices;
-
+    @PolicyResourceProperty(name="partitionIndices", flag="unknown_partitionIndices")
+    private List<CatalogTablePartitionIndexArgs> value_partitionIndices;
+    private boolean unknown_partitionIndices;
     public List<CatalogTablePartitionIndexArgs> partitionIndices() {
-        if (partitionIndices == null) return null;
-        return partitionIndices.getValue("CatalogTableArgs.partitionIndices");
+        if (!unknown_partitionIndices) return value_partitionIndices;
+        throw new UndeferrableValueException("Value 'CatalogTableArgs.partitionIndices' is not present");
     }
 
     /**
      * Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
      * 
      */
-    private UndeferrableValue<List<CatalogTablePartitionKeyArgs>> partitionKeys;
-
+    @PolicyResourceProperty(name="partitionKeys", flag="unknown_partitionKeys")
+    private List<CatalogTablePartitionKeyArgs> value_partitionKeys;
+    private boolean unknown_partitionKeys;
     public List<CatalogTablePartitionKeyArgs> partitionKeys() {
-        if (partitionKeys == null) return null;
-        return partitionKeys.getValue("CatalogTableArgs.partitionKeys");
+        if (!unknown_partitionKeys) return value_partitionKeys;
+        throw new UndeferrableValueException("Value 'CatalogTableArgs.partitionKeys' is not present");
     }
 
     /**
      * Retention time for this table.
      * 
      */
-    private UndeferrableValue<Integer> retention;
-
+    @PolicyResourceProperty(name="retention", flag="unknown_retention")
+    private Integer value_retention;
+    private boolean unknown_retention;
     public Integer retention() {
-        if (retention == null) return null;
-        return retention.getValue("CatalogTableArgs.retention");
+        if (!unknown_retention) return value_retention;
+        throw new UndeferrableValueException("Value 'CatalogTableArgs.retention' is not present");
     }
 
     /**
      * Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
      * 
      */
-    private UndeferrableValue<CatalogTableStorageDescriptorArgs> storageDescriptor;
-
+    @PolicyResourceProperty(name="storageDescriptor", flag="unknown_storageDescriptor")
+    private CatalogTableStorageDescriptorArgs value_storageDescriptor;
+    private boolean unknown_storageDescriptor;
     public CatalogTableStorageDescriptorArgs storageDescriptor() {
-        if (storageDescriptor == null) return null;
-        return storageDescriptor.getValue("CatalogTableArgs.storageDescriptor");
+        if (!unknown_storageDescriptor) return value_storageDescriptor;
+        throw new UndeferrableValueException("Value 'CatalogTableArgs.storageDescriptor' is not present");
     }
 
     /**
      * Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
      * 
      */
-    private UndeferrableValue<String> tableType;
-
+    @PolicyResourceProperty(name="tableType", flag="unknown_tableType")
+    private String value_tableType;
+    private boolean unknown_tableType;
     public String tableType() {
-        if (tableType == null) return null;
-        return tableType.getValue("CatalogTableArgs.tableType");
+        if (!unknown_tableType) return value_tableType;
+        throw new UndeferrableValueException("Value 'CatalogTableArgs.tableType' is not present");
     }
 
     /**
      * Configuration block of a target table for resource linking. See `target_table` below.
      * 
      */
-    private UndeferrableValue<CatalogTableTargetTableArgs> targetTable;
-
+    @PolicyResourceProperty(name="targetTable", flag="unknown_targetTable")
+    private CatalogTableTargetTableArgs value_targetTable;
+    private boolean unknown_targetTable;
     public CatalogTableTargetTableArgs targetTable() {
-        if (targetTable == null) return null;
-        return targetTable.getValue("CatalogTableArgs.targetTable");
+        if (!unknown_targetTable) return value_targetTable;
+        throw new UndeferrableValueException("Value 'CatalogTableArgs.targetTable' is not present");
     }
 
     /**
      * If the table is a view, the expanded text of the view; otherwise null.
      * 
      */
-    private UndeferrableValue<String> viewExpandedText;
-
+    @PolicyResourceProperty(name="viewExpandedText", flag="unknown_viewExpandedText")
+    private String value_viewExpandedText;
+    private boolean unknown_viewExpandedText;
     public String viewExpandedText() {
-        if (viewExpandedText == null) return null;
-        return viewExpandedText.getValue("CatalogTableArgs.viewExpandedText");
+        if (!unknown_viewExpandedText) return value_viewExpandedText;
+        throw new UndeferrableValueException("Value 'CatalogTableArgs.viewExpandedText' is not present");
     }
 
     /**
      * If the table is a view, the original text of the view; otherwise null.
      * 
      */
-    private UndeferrableValue<String> viewOriginalText;
-
+    @PolicyResourceProperty(name="viewOriginalText", flag="unknown_viewOriginalText")
+    private String value_viewOriginalText;
+    private boolean unknown_viewOriginalText;
     public String viewOriginalText() {
-        if (viewOriginalText == null) return null;
-        return viewOriginalText.getValue("CatalogTableArgs.viewOriginalText");
+        if (!unknown_viewOriginalText) return value_viewOriginalText;
+        throw new UndeferrableValueException("Value 'CatalogTableArgs.viewOriginalText' is not present");
     }
 
 }

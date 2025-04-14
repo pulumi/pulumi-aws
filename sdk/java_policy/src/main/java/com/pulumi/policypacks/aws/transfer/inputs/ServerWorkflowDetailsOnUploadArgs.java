@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class ServerWorkflowDetailsOnUploadArgs {
      * Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
      * 
      */
-    private UndeferrableValue<String> executionRole;
-
+    @PolicyResourceProperty(name="executionRole", flag="unknown_executionRole")
+    private String value_executionRole;
+    private boolean unknown_executionRole;
     public String executionRole() {
-        if (executionRole == null) return null;
-        return executionRole.getValue("ServerWorkflowDetailsOnUploadArgs.executionRole");
+        if (!unknown_executionRole) return value_executionRole;
+        throw new UndeferrableValueException("Value 'ServerWorkflowDetailsOnUploadArgs.executionRole' is not present");
     }
 
     /**
      * A unique identifier for the workflow.
      * 
      */
-    private UndeferrableValue<String> workflowId;
-
+    @PolicyResourceProperty(name="workflowId", flag="unknown_workflowId")
+    private String value_workflowId;
+    private boolean unknown_workflowId;
     public String workflowId() {
-        if (workflowId == null) return null;
-        return workflowId.getValue("ServerWorkflowDetailsOnUploadArgs.workflowId");
+        if (!unknown_workflowId) return value_workflowId;
+        throw new UndeferrableValueException("Value 'ServerWorkflowDetailsOnUploadArgs.workflowId' is not present");
     }
 
 }

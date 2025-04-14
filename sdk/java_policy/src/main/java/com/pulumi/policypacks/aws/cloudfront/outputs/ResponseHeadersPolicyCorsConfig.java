@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.outputs.ResponseHeadersPolicyCorsConfigAccessControlAllowHeaders;
 import com.pulumi.policypacks.aws.cloudfront.outputs.ResponseHeadersPolicyCorsConfigAccessControlAllowMethods;
 import com.pulumi.policypacks.aws.cloudfront.outputs.ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins;
@@ -19,77 +20,84 @@ public final class ResponseHeadersPolicyCorsConfig {
      * A Boolean value that CloudFront uses as the value for the `Access-Control-Allow-Credentials` HTTP response header.
      * 
      */
-    private UndeferrableValue<Boolean> accessControlAllowCredentials;
-
+    @PolicyResourceProperty(name="accessControlAllowCredentials", flag="unknown_accessControlAllowCredentials")
+    private Boolean value_accessControlAllowCredentials;
+    private boolean unknown_accessControlAllowCredentials;
     public Boolean accessControlAllowCredentials() {
-        if (accessControlAllowCredentials == null) return null;
-        return accessControlAllowCredentials.getValue("ResponseHeadersPolicyCorsConfig.accessControlAllowCredentials");
+        if (!unknown_accessControlAllowCredentials) return value_accessControlAllowCredentials;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicyCorsConfig.accessControlAllowCredentials' is not present");
     }
 
     /**
      * Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the `Access-Control-Allow-Headers` HTTP response header.
      * 
      */
-    private UndeferrableValue<ResponseHeadersPolicyCorsConfigAccessControlAllowHeaders> accessControlAllowHeaders;
-
+    @PolicyResourceProperty(name="accessControlAllowHeaders", flag="unknown_accessControlAllowHeaders")
+    private ResponseHeadersPolicyCorsConfigAccessControlAllowHeaders value_accessControlAllowHeaders;
+    private boolean unknown_accessControlAllowHeaders;
     public ResponseHeadersPolicyCorsConfigAccessControlAllowHeaders accessControlAllowHeaders() {
-        if (accessControlAllowHeaders == null) return null;
-        return accessControlAllowHeaders.getValue("ResponseHeadersPolicyCorsConfig.accessControlAllowHeaders");
+        if (!unknown_accessControlAllowHeaders) return value_accessControlAllowHeaders;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicyCorsConfig.accessControlAllowHeaders' is not present");
     }
 
     /**
      * Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the `Access-Control-Allow-Methods` HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
      * 
      */
-    private UndeferrableValue<ResponseHeadersPolicyCorsConfigAccessControlAllowMethods> accessControlAllowMethods;
-
+    @PolicyResourceProperty(name="accessControlAllowMethods", flag="unknown_accessControlAllowMethods")
+    private ResponseHeadersPolicyCorsConfigAccessControlAllowMethods value_accessControlAllowMethods;
+    private boolean unknown_accessControlAllowMethods;
     public ResponseHeadersPolicyCorsConfigAccessControlAllowMethods accessControlAllowMethods() {
-        if (accessControlAllowMethods == null) return null;
-        return accessControlAllowMethods.getValue("ResponseHeadersPolicyCorsConfig.accessControlAllowMethods");
+        if (!unknown_accessControlAllowMethods) return value_accessControlAllowMethods;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicyCorsConfig.accessControlAllowMethods' is not present");
     }
 
     /**
      * Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the `Access-Control-Allow-Origin` HTTP response header.
      * 
      */
-    private UndeferrableValue<ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins> accessControlAllowOrigins;
-
+    @PolicyResourceProperty(name="accessControlAllowOrigins", flag="unknown_accessControlAllowOrigins")
+    private ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins value_accessControlAllowOrigins;
+    private boolean unknown_accessControlAllowOrigins;
     public ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins accessControlAllowOrigins() {
-        if (accessControlAllowOrigins == null) return null;
-        return accessControlAllowOrigins.getValue("ResponseHeadersPolicyCorsConfig.accessControlAllowOrigins");
+        if (!unknown_accessControlAllowOrigins) return value_accessControlAllowOrigins;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicyCorsConfig.accessControlAllowOrigins' is not present");
     }
 
     /**
      * Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the `Access-Control-Expose-Headers` HTTP response header.
      * 
      */
-    private @Nullable UndeferrableValue<ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders> accessControlExposeHeaders;
-
+    @PolicyResourceProperty(name="accessControlExposeHeaders", flag="unknown_accessControlExposeHeaders")
+    private @Nullable ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders value_accessControlExposeHeaders;
+    private boolean unknown_accessControlExposeHeaders;
     public @Nullable ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders accessControlExposeHeaders() {
-        if (accessControlExposeHeaders == null) return null;
-        return accessControlExposeHeaders.getValue("ResponseHeadersPolicyCorsConfig.accessControlExposeHeaders");
+        if (!unknown_accessControlExposeHeaders) return value_accessControlExposeHeaders;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicyCorsConfig.accessControlExposeHeaders' is not present");
     }
 
     /**
      * A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> accessControlMaxAgeSec;
-
+    @PolicyResourceProperty(name="accessControlMaxAgeSec", flag="unknown_accessControlMaxAgeSec")
+    private @Nullable Integer value_accessControlMaxAgeSec;
+    private boolean unknown_accessControlMaxAgeSec;
     public @Nullable Integer accessControlMaxAgeSec() {
-        if (accessControlMaxAgeSec == null) return null;
-        return accessControlMaxAgeSec.getValue("ResponseHeadersPolicyCorsConfig.accessControlMaxAgeSec");
+        if (!unknown_accessControlMaxAgeSec) return value_accessControlMaxAgeSec;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicyCorsConfig.accessControlMaxAgeSec' is not present");
     }
 
     /**
      * A Boolean value that determines how CloudFront behaves for the HTTP response header.
      * 
      */
-    private UndeferrableValue<Boolean> originOverride;
-
+    @PolicyResourceProperty(name="originOverride", flag="unknown_originOverride")
+    private Boolean value_originOverride;
+    private boolean unknown_originOverride;
     public Boolean originOverride() {
-        if (originOverride == null) return null;
-        return originOverride.getValue("ResponseHeadersPolicyCorsConfig.originOverride");
+        if (!unknown_originOverride) return value_originOverride;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicyCorsConfig.originOverride' is not present");
     }
 
 }

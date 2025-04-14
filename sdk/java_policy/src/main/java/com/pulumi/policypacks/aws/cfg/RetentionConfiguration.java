@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,22 +17,24 @@ public final class RetentionConfiguration extends com.pulumi.resources.PolicyRes
      * The name of the retention configuration object. The object is always named **default**.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RetentionConfiguration.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RetentionConfiguration.name' is not present");
     }
 
     /**
      * The number of days AWS Config stores historical information.
      * 
      */
-    private UndeferrableValue<Integer> retentionPeriodInDays;
-
+    @PolicyResourceProperty(name="retentionPeriodInDays", flag="unknown_retentionPeriodInDays")
+    private Integer value_retentionPeriodInDays;
+    private boolean unknown_retentionPeriodInDays;
     public Integer retentionPeriodInDays() {
-        if (retentionPeriodInDays == null) return null;
-        return retentionPeriodInDays.getValue("RetentionConfiguration.retentionPeriodInDays");
+        if (!unknown_retentionPeriodInDays) return value_retentionPeriodInDays;
+        throw new UndeferrableValueException("Value 'RetentionConfiguration.retentionPeriodInDays' is not present");
     }
 
 }

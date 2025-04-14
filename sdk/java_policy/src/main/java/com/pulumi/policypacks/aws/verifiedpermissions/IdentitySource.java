@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedpermissions;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.verifiedpermissions.outputs.IdentitySourceConfiguration;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class IdentitySource extends com.pulumi.resources.PolicyResourceOut
      * Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
      * 
      */
-    private @Nullable UndeferrableValue<IdentitySourceConfiguration> configuration;
-
+    @PolicyResourceProperty(name="configuration", flag="unknown_configuration")
+    private @Nullable IdentitySourceConfiguration value_configuration;
+    private boolean unknown_configuration;
     public @Nullable IdentitySourceConfiguration configuration() {
-        if (configuration == null) return null;
-        return configuration.getValue("IdentitySource.configuration");
+        if (!unknown_configuration) return value_configuration;
+        throw new UndeferrableValueException("Value 'IdentitySource.configuration' is not present");
     }
 
     /**
      * Specifies the ID of the policy store in which you want to store this identity source.
      * 
      */
-    private UndeferrableValue<String> policyStoreId;
-
+    @PolicyResourceProperty(name="policyStoreId", flag="unknown_policyStoreId")
+    private String value_policyStoreId;
+    private boolean unknown_policyStoreId;
     public String policyStoreId() {
-        if (policyStoreId == null) return null;
-        return policyStoreId.getValue("IdentitySource.policyStoreId");
+        if (!unknown_policyStoreId) return value_policyStoreId;
+        throw new UndeferrableValueException("Value 'IdentitySource.policyStoreId' is not present");
     }
 
     /**
      * Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
      * 
      */
-    private UndeferrableValue<String> principalEntityType;
-
+    @PolicyResourceProperty(name="principalEntityType", flag="unknown_principalEntityType")
+    private String value_principalEntityType;
+    private boolean unknown_principalEntityType;
     public String principalEntityType() {
-        if (principalEntityType == null) return null;
-        return principalEntityType.getValue("IdentitySource.principalEntityType");
+        if (!unknown_principalEntityType) return value_principalEntityType;
+        throw new UndeferrableValueException("Value 'IdentitySource.principalEntityType' is not present");
     }
 
 }

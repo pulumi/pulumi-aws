@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -16,40 +17,44 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
      * A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
      * 
      */
-    private @Nullable UndeferrableValue<String> dateValue;
-
+    @PolicyResourceProperty(name="dateValue", flag="unknown_dateValue")
+    private @Nullable String value_dateValue;
+    private boolean unknown_dateValue;
     public @Nullable String dateValue() {
-        if (dateValue == null) return null;
-        return dateValue.getValue("DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue.dateValue");
+        if (!unknown_dateValue) return value_dateValue;
+        throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue.dateValue' is not present");
     }
 
     /**
      * A long integer value.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> longValue;
-
+    @PolicyResourceProperty(name="longValue", flag="unknown_longValue")
+    private @Nullable Integer value_longValue;
+    private boolean unknown_longValue;
     public @Nullable Integer longValue() {
-        if (longValue == null) return null;
-        return longValue.getValue("DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue.longValue");
+        if (!unknown_longValue) return value_longValue;
+        throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue.longValue' is not present");
     }
 
     /**
      * A list of strings.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> stringListValues;
-
+    @PolicyResourceProperty(name="stringListValues", flag="unknown_stringListValues")
+    private @Nullable List<String> value_stringListValues;
+    private boolean unknown_stringListValues;
     public @Nullable List<String> stringListValues() {
-        if (stringListValues == null) return null;
-        return stringListValues.getValue("DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue.stringListValues");
+        if (!unknown_stringListValues) return value_stringListValues;
+        throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue.stringListValues' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> stringValue;
-
+    @PolicyResourceProperty(name="stringValue", flag="unknown_stringValue")
+    private @Nullable String value_stringValue;
+    private boolean unknown_stringValue;
     public @Nullable String stringValue() {
-        if (stringValue == null) return null;
-        return stringValue.getValue("DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue.stringValue");
+        if (!unknown_stringValue) return value_stringValue;
+        throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue.stringValue' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class IndexIndexStatisticTextDocumentStatistic {
      * The total size, in bytes, of the indexed documents.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> indexedTextBytes;
-
+    @PolicyResourceProperty(name="indexedTextBytes", flag="unknown_indexedTextBytes")
+    private @Nullable Integer value_indexedTextBytes;
+    private boolean unknown_indexedTextBytes;
     public @Nullable Integer indexedTextBytes() {
-        if (indexedTextBytes == null) return null;
-        return indexedTextBytes.getValue("IndexIndexStatisticTextDocumentStatistic.indexedTextBytes");
+        if (!unknown_indexedTextBytes) return value_indexedTextBytes;
+        throw new UndeferrableValueException("Value 'IndexIndexStatisticTextDocumentStatistic.indexedTextBytes' is not present");
     }
 
     /**
      * The number of text documents indexed.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> indexedTextDocumentsCount;
-
+    @PolicyResourceProperty(name="indexedTextDocumentsCount", flag="unknown_indexedTextDocumentsCount")
+    private @Nullable Integer value_indexedTextDocumentsCount;
+    private boolean unknown_indexedTextDocumentsCount;
     public @Nullable Integer indexedTextDocumentsCount() {
-        if (indexedTextDocumentsCount == null) return null;
-        return indexedTextDocumentsCount.getValue("IndexIndexStatisticTextDocumentStatistic.indexedTextDocumentsCount");
+        if (!unknown_indexedTextDocumentsCount) return value_indexedTextDocumentsCount;
+        throw new UndeferrableValueException("Value 'IndexIndexStatisticTextDocumentStatistic.indexedTextDocumentsCount' is not present");
     }
 
 }

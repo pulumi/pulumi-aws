@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DistributionOrderedCacheBehaviorForwardedValuesCookies {
      * Whether you want CloudFront to forward cookies to the origin that is associated with this cache behavior. You can specify `all`, `none` or `whitelist`. If `whitelist`, you must include the subsequent `whitelisted_names`.
      * 
      */
-    private UndeferrableValue<String> forward;
-
+    @PolicyResourceProperty(name="forward", flag="unknown_forward")
+    private String value_forward;
+    private boolean unknown_forward;
     public String forward() {
-        if (forward == null) return null;
-        return forward.getValue("DistributionOrderedCacheBehaviorForwardedValuesCookies.forward");
+        if (!unknown_forward) return value_forward;
+        throw new UndeferrableValueException("Value 'DistributionOrderedCacheBehaviorForwardedValuesCookies.forward' is not present");
     }
 
     /**
      * If you have specified `whitelist` to `forward`, the whitelisted cookies that you want CloudFront to forward to your origin.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> whitelistedNames;
-
+    @PolicyResourceProperty(name="whitelistedNames", flag="unknown_whitelistedNames")
+    private @Nullable List<String> value_whitelistedNames;
+    private boolean unknown_whitelistedNames;
     public @Nullable List<String> whitelistedNames() {
-        if (whitelistedNames == null) return null;
-        return whitelistedNames.getValue("DistributionOrderedCacheBehaviorForwardedValuesCookies.whitelistedNames");
+        if (!unknown_whitelistedNames) return value_whitelistedNames;
+        throw new UndeferrableValueException("Value 'DistributionOrderedCacheBehaviorForwardedValuesCookies.whitelistedNames' is not present");
     }
 
 }

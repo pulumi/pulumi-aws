@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ServiceServiceConnectConfigurationServiceClientAlias {
      * Name that you use in the applications of client tasks to connect to this service.
      * 
      */
-    private @Nullable UndeferrableValue<String> dnsName;
-
+    @PolicyResourceProperty(name="dnsName", flag="unknown_dnsName")
+    private @Nullable String value_dnsName;
+    private boolean unknown_dnsName;
     public @Nullable String dnsName() {
-        if (dnsName == null) return null;
-        return dnsName.getValue("ServiceServiceConnectConfigurationServiceClientAlias.dnsName");
+        if (!unknown_dnsName) return value_dnsName;
+        throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationServiceClientAlias.dnsName' is not present");
     }
 
     /**
      * Listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("ServiceServiceConnectConfigurationServiceClientAlias.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationServiceClientAlias.port' is not present");
     }
 
 }

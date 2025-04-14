@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lakeformation.outputs.PermissionsLfTagPolicyExpression;
 import java.lang.String;
 import java.util.List;
@@ -16,11 +17,12 @@ public final class PermissionsLfTagPolicy {
      * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    private @Nullable UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private @Nullable String value_catalogId;
+    private boolean unknown_catalogId;
     public @Nullable String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("PermissionsLfTagPolicy.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'PermissionsLfTagPolicy.catalogId' is not present");
     }
 
     /**
@@ -29,22 +31,24 @@ public final class PermissionsLfTagPolicy {
      * The following argument is optional:
      * 
      */
-    private UndeferrableValue<List<PermissionsLfTagPolicyExpression>> expressions;
-
+    @PolicyResourceProperty(name="expressions", flag="unknown_expressions")
+    private List<PermissionsLfTagPolicyExpression> value_expressions;
+    private boolean unknown_expressions;
     public List<PermissionsLfTagPolicyExpression> expressions() {
-        if (expressions == null) return null;
-        return expressions.getValue("PermissionsLfTagPolicy.expressions");
+        if (!unknown_expressions) return value_expressions;
+        throw new UndeferrableValueException("Value 'PermissionsLfTagPolicy.expressions' is not present");
     }
 
     /**
      * The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
      * 
      */
-    private UndeferrableValue<String> resourceType;
-
+    @PolicyResourceProperty(name="resourceType", flag="unknown_resourceType")
+    private String value_resourceType;
+    private boolean unknown_resourceType;
     public String resourceType() {
-        if (resourceType == null) return null;
-        return resourceType.getValue("PermissionsLfTagPolicy.resourceType");
+        if (!unknown_resourceType) return value_resourceType;
+        throw new UndeferrableValueException("Value 'PermissionsLfTagPolicy.resourceType' is not present");
     }
 
 }

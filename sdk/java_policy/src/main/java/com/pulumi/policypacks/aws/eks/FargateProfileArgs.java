@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.eks.inputs.FargateProfileSelectorArgs;
 import java.lang.String;
@@ -19,44 +20,48 @@ public final class FargateProfileArgs extends com.pulumi.resources.PolicyResourc
      * Name of the EKS Cluster.
      * 
      */
-    private UndeferrableValue<String> clusterName;
-
+    @PolicyResourceProperty(name="clusterName", flag="unknown_clusterName")
+    private String value_clusterName;
+    private boolean unknown_clusterName;
     public String clusterName() {
-        if (clusterName == null) return null;
-        return clusterName.getValue("FargateProfileArgs.clusterName");
+        if (!unknown_clusterName) return value_clusterName;
+        throw new UndeferrableValueException("Value 'FargateProfileArgs.clusterName' is not present");
     }
 
     /**
      * Name of the EKS Fargate Profile.
      * 
      */
-    private UndeferrableValue<String> fargateProfileName;
-
+    @PolicyResourceProperty(name="fargateProfileName", flag="unknown_fargateProfileName")
+    private String value_fargateProfileName;
+    private boolean unknown_fargateProfileName;
     public String fargateProfileName() {
-        if (fargateProfileName == null) return null;
-        return fargateProfileName.getValue("FargateProfileArgs.fargateProfileName");
+        if (!unknown_fargateProfileName) return value_fargateProfileName;
+        throw new UndeferrableValueException("Value 'FargateProfileArgs.fargateProfileName' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
      * 
      */
-    private UndeferrableValue<String> podExecutionRoleArn;
-
+    @PolicyResourceProperty(name="podExecutionRoleArn", flag="unknown_podExecutionRoleArn")
+    private String value_podExecutionRoleArn;
+    private boolean unknown_podExecutionRoleArn;
     public String podExecutionRoleArn() {
-        if (podExecutionRoleArn == null) return null;
-        return podExecutionRoleArn.getValue("FargateProfileArgs.podExecutionRoleArn");
+        if (!unknown_podExecutionRoleArn) return value_podExecutionRoleArn;
+        throw new UndeferrableValueException("Value 'FargateProfileArgs.podExecutionRoleArn' is not present");
     }
 
     /**
      * Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
      * 
      */
-    private UndeferrableValue<List<FargateProfileSelectorArgs>> selectors;
-
+    @PolicyResourceProperty(name="selectors", flag="unknown_selectors")
+    private List<FargateProfileSelectorArgs> value_selectors;
+    private boolean unknown_selectors;
     public List<FargateProfileSelectorArgs> selectors() {
-        if (selectors == null) return null;
-        return selectors.getValue("FargateProfileArgs.selectors");
+        if (!unknown_selectors) return value_selectors;
+        throw new UndeferrableValueException("Value 'FargateProfileArgs.selectors' is not present");
     }
 
     /**
@@ -65,22 +70,24 @@ public final class FargateProfileArgs extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("FargateProfileArgs.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'FargateProfileArgs.subnetIds' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("FargateProfileArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'FargateProfileArgs.tags' is not present");
     }
 
 }

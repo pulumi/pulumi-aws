@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class FlowDefinitionHumanLoopActivationConfigHumanLoopActivationCon
      * A JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. For more information about how to structure the JSON, see [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html).
      * 
      */
-    private UndeferrableValue<String> humanLoopActivationConditions;
-
+    @PolicyResourceProperty(name="humanLoopActivationConditions", flag="unknown_humanLoopActivationConditions")
+    private String value_humanLoopActivationConditions;
+    private boolean unknown_humanLoopActivationConditions;
     public String humanLoopActivationConditions() {
-        if (humanLoopActivationConditions == null) return null;
-        return humanLoopActivationConditions.getValue("FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs.humanLoopActivationConditions");
+        if (!unknown_humanLoopActivationConditions) return value_humanLoopActivationConditions;
+        throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs.humanLoopActivationConditions' is not present");
     }
 
 }

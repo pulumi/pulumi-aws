@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cleanrooms.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cleanrooms.outputs.MembershipDefaultResultConfigurationOutputConfiguration;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,11 +12,12 @@ import javax.annotation.Nullable;
 
 public final class MembershipDefaultResultConfiguration {
 
-    private @Nullable UndeferrableValue<MembershipDefaultResultConfigurationOutputConfiguration> outputConfiguration;
-
+    @PolicyResourceProperty(name="outputConfiguration", flag="unknown_outputConfiguration")
+    private @Nullable MembershipDefaultResultConfigurationOutputConfiguration value_outputConfiguration;
+    private boolean unknown_outputConfiguration;
     public @Nullable MembershipDefaultResultConfigurationOutputConfiguration outputConfiguration() {
-        if (outputConfiguration == null) return null;
-        return outputConfiguration.getValue("MembershipDefaultResultConfiguration.outputConfiguration");
+        if (!unknown_outputConfiguration) return value_outputConfiguration;
+        throw new UndeferrableValueException("Value 'MembershipDefaultResultConfiguration.outputConfiguration' is not present");
     }
 
     /**
@@ -25,11 +27,12 @@ public final class MembershipDefaultResultConfiguration {
      * - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
      * 
      */
-    private @Nullable UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private @Nullable String value_roleArn;
+    private boolean unknown_roleArn;
     public @Nullable String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("MembershipDefaultResultConfiguration.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'MembershipDefaultResultConfiguration.roleArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class PipeLogConfigurationS3LogDestination {
      * Name of the Amazon S3 bucket to which EventBridge delivers the log records for the pipe.
      * 
      */
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("PipeLogConfigurationS3LogDestination.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'PipeLogConfigurationS3LogDestination.bucketName' is not present");
     }
 
     /**
      * Amazon Web Services account that owns the Amazon S3 bucket to which EventBridge delivers the log records for the pipe.
      * 
      */
-    private UndeferrableValue<String> bucketOwner;
-
+    @PolicyResourceProperty(name="bucketOwner", flag="unknown_bucketOwner")
+    private String value_bucketOwner;
+    private boolean unknown_bucketOwner;
     public String bucketOwner() {
-        if (bucketOwner == null) return null;
-        return bucketOwner.getValue("PipeLogConfigurationS3LogDestination.bucketOwner");
+        if (!unknown_bucketOwner) return value_bucketOwner;
+        throw new UndeferrableValueException("Value 'PipeLogConfigurationS3LogDestination.bucketOwner' is not present");
     }
 
     /**
      * EventBridge format for the log records. Valid values `json`, `plain` and `w3c`.
      * 
      */
-    private @Nullable UndeferrableValue<String> outputFormat;
-
+    @PolicyResourceProperty(name="outputFormat", flag="unknown_outputFormat")
+    private @Nullable String value_outputFormat;
+    private boolean unknown_outputFormat;
     public @Nullable String outputFormat() {
-        if (outputFormat == null) return null;
-        return outputFormat.getValue("PipeLogConfigurationS3LogDestination.outputFormat");
+        if (!unknown_outputFormat) return value_outputFormat;
+        throw new UndeferrableValueException("Value 'PipeLogConfigurationS3LogDestination.outputFormat' is not present");
     }
 
     /**
      * Prefix text with which to begin Amazon S3 log object names.
      * 
      */
-    private @Nullable UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private @Nullable String value_prefix;
+    private boolean unknown_prefix;
     public @Nullable String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("PipeLogConfigurationS3LogDestination.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'PipeLogConfigurationS3LogDestination.prefix' is not present");
     }
 
 }

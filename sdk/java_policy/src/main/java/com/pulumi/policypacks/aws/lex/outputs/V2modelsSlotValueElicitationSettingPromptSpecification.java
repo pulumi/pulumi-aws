@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroup;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecification;
 import java.lang.Boolean;
@@ -15,39 +16,44 @@ import javax.annotation.Nullable;
 
 public final class V2modelsSlotValueElicitationSettingPromptSpecification {
 
-    private @Nullable UndeferrableValue<Boolean> allowInterrupt;
-
+    @PolicyResourceProperty(name="allowInterrupt", flag="unknown_allowInterrupt")
+    private @Nullable Boolean value_allowInterrupt;
+    private boolean unknown_allowInterrupt;
     public @Nullable Boolean allowInterrupt() {
-        if (allowInterrupt == null) return null;
-        return allowInterrupt.getValue("V2modelsSlotValueElicitationSettingPromptSpecification.allowInterrupt");
+        if (!unknown_allowInterrupt) return value_allowInterrupt;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecification.allowInterrupt' is not present");
     }
 
-    private UndeferrableValue<Integer> maxRetries;
-
+    @PolicyResourceProperty(name="maxRetries", flag="unknown_maxRetries")
+    private Integer value_maxRetries;
+    private boolean unknown_maxRetries;
     public Integer maxRetries() {
-        if (maxRetries == null) return null;
-        return maxRetries.getValue("V2modelsSlotValueElicitationSettingPromptSpecification.maxRetries");
+        if (!unknown_maxRetries) return value_maxRetries;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecification.maxRetries' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroup>> messageGroups;
-
+    @PolicyResourceProperty(name="messageGroups", flag="unknown_messageGroups")
+    private @Nullable List<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroup> value_messageGroups;
+    private boolean unknown_messageGroups;
     public @Nullable List<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroup> messageGroups() {
-        if (messageGroups == null) return null;
-        return messageGroups.getValue("V2modelsSlotValueElicitationSettingPromptSpecification.messageGroups");
+        if (!unknown_messageGroups) return value_messageGroups;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecification.messageGroups' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> messageSelectionStrategy;
-
+    @PolicyResourceProperty(name="messageSelectionStrategy", flag="unknown_messageSelectionStrategy")
+    private @Nullable String value_messageSelectionStrategy;
+    private boolean unknown_messageSelectionStrategy;
     public @Nullable String messageSelectionStrategy() {
-        if (messageSelectionStrategy == null) return null;
-        return messageSelectionStrategy.getValue("V2modelsSlotValueElicitationSettingPromptSpecification.messageSelectionStrategy");
+        if (!unknown_messageSelectionStrategy) return value_messageSelectionStrategy;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecification.messageSelectionStrategy' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecification>> promptAttemptsSpecifications;
-
+    @PolicyResourceProperty(name="promptAttemptsSpecifications", flag="unknown_promptAttemptsSpecifications")
+    private @Nullable List<V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecification> value_promptAttemptsSpecifications;
+    private boolean unknown_promptAttemptsSpecifications;
     public @Nullable List<V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecification> promptAttemptsSpecifications() {
-        if (promptAttemptsSpecifications == null) return null;
-        return promptAttemptsSpecifications.getValue("V2modelsSlotValueElicitationSettingPromptSpecification.promptAttemptsSpecifications");
+        if (!unknown_promptAttemptsSpecifications) return value_promptAttemptsSpecifications;
+        throw new UndeferrableValueException("Value 'V2modelsSlotValueElicitationSettingPromptSpecification.promptAttemptsSpecifications' is not present");
     }
 
 }

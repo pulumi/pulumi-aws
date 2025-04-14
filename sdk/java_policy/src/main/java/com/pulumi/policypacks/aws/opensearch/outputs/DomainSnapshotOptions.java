@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,11 +14,12 @@ public final class DomainSnapshotOptions {
      * Hour during which the service takes an automated daily snapshot of the indices in the domain.
      * 
      */
-    private UndeferrableValue<Integer> automatedSnapshotStartHour;
-
+    @PolicyResourceProperty(name="automatedSnapshotStartHour", flag="unknown_automatedSnapshotStartHour")
+    private Integer value_automatedSnapshotStartHour;
+    private boolean unknown_automatedSnapshotStartHour;
     public Integer automatedSnapshotStartHour() {
-        if (automatedSnapshotStartHour == null) return null;
-        return automatedSnapshotStartHour.getValue("DomainSnapshotOptions.automatedSnapshotStartHour");
+        if (!unknown_automatedSnapshotStartHour) return value_automatedSnapshotStartHour;
+        throw new UndeferrableValueException("Value 'DomainSnapshotOptions.automatedSnapshotStartHour' is not present");
     }
 
 }

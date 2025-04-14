@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chimesdkmediapipelines.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.chimesdkmediapipelines.outputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,143 +18,156 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
      * Filter for category events to be delivered to insights target.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> callAnalyticsStreamCategories;
-
+    @PolicyResourceProperty(name="callAnalyticsStreamCategories", flag="unknown_callAnalyticsStreamCategories")
+    private @Nullable List<String> value_callAnalyticsStreamCategories;
+    private boolean unknown_callAnalyticsStreamCategories;
     public @Nullable List<String> callAnalyticsStreamCategories() {
-        if (callAnalyticsStreamCategories == null) return null;
-        return callAnalyticsStreamCategories.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.callAnalyticsStreamCategories");
+        if (!unknown_callAnalyticsStreamCategories) return value_callAnalyticsStreamCategories;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.callAnalyticsStreamCategories' is not present");
     }
 
     /**
      * Labels all personally identifiable information (PII) identified in Utterance events.
      * 
      */
-    private @Nullable UndeferrableValue<String> contentIdentificationType;
-
+    @PolicyResourceProperty(name="contentIdentificationType", flag="unknown_contentIdentificationType")
+    private @Nullable String value_contentIdentificationType;
+    private boolean unknown_contentIdentificationType;
     public @Nullable String contentIdentificationType() {
-        if (contentIdentificationType == null) return null;
-        return contentIdentificationType.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.contentIdentificationType");
+        if (!unknown_contentIdentificationType) return value_contentIdentificationType;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.contentIdentificationType' is not present");
     }
 
     /**
      * Redacts all personally identifiable information (PII) identified in Utterance events.
      * 
      */
-    private @Nullable UndeferrableValue<String> contentRedactionType;
-
+    @PolicyResourceProperty(name="contentRedactionType", flag="unknown_contentRedactionType")
+    private @Nullable String value_contentRedactionType;
+    private boolean unknown_contentRedactionType;
     public @Nullable String contentRedactionType() {
-        if (contentRedactionType == null) return null;
-        return contentRedactionType.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.contentRedactionType");
+        if (!unknown_contentRedactionType) return value_contentRedactionType;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.contentRedactionType' is not present");
     }
 
     /**
      * Enables partial result stabilization in Utterance events.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enablePartialResultsStabilization;
-
+    @PolicyResourceProperty(name="enablePartialResultsStabilization", flag="unknown_enablePartialResultsStabilization")
+    private @Nullable Boolean value_enablePartialResultsStabilization;
+    private boolean unknown_enablePartialResultsStabilization;
     public @Nullable Boolean enablePartialResultsStabilization() {
-        if (enablePartialResultsStabilization == null) return null;
-        return enablePartialResultsStabilization.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.enablePartialResultsStabilization");
+        if (!unknown_enablePartialResultsStabilization) return value_enablePartialResultsStabilization;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.enablePartialResultsStabilization' is not present");
     }
 
     /**
      * Filters partial Utterance events from delivery to the insights target.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> filterPartialResults;
-
+    @PolicyResourceProperty(name="filterPartialResults", flag="unknown_filterPartialResults")
+    private @Nullable Boolean value_filterPartialResults;
+    private boolean unknown_filterPartialResults;
     public @Nullable Boolean filterPartialResults() {
-        if (filterPartialResults == null) return null;
-        return filterPartialResults.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.filterPartialResults");
+        if (!unknown_filterPartialResults) return value_filterPartialResults;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.filterPartialResults' is not present");
     }
 
     /**
      * Language code for the transcription model.
      * 
      */
-    private UndeferrableValue<String> languageCode;
-
+    @PolicyResourceProperty(name="languageCode", flag="unknown_languageCode")
+    private String value_languageCode;
+    private boolean unknown_languageCode;
     public String languageCode() {
-        if (languageCode == null) return null;
-        return languageCode.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.languageCode");
+        if (!unknown_languageCode) return value_languageCode;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.languageCode' is not present");
     }
 
     /**
      * Name of custom language model for transcription.
      * 
      */
-    private @Nullable UndeferrableValue<String> languageModelName;
-
+    @PolicyResourceProperty(name="languageModelName", flag="unknown_languageModelName")
+    private @Nullable String value_languageModelName;
+    private boolean unknown_languageModelName;
     public @Nullable String languageModelName() {
-        if (languageModelName == null) return null;
-        return languageModelName.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.languageModelName");
+        if (!unknown_languageModelName) return value_languageModelName;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.languageModelName' is not present");
     }
 
     /**
      * Level of stability to use when partial results stabilization is enabled.
      * 
      */
-    private @Nullable UndeferrableValue<String> partialResultsStability;
-
+    @PolicyResourceProperty(name="partialResultsStability", flag="unknown_partialResultsStability")
+    private @Nullable String value_partialResultsStability;
+    private boolean unknown_partialResultsStability;
     public @Nullable String partialResultsStability() {
-        if (partialResultsStability == null) return null;
-        return partialResultsStability.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.partialResultsStability");
+        if (!unknown_partialResultsStability) return value_partialResultsStability;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.partialResultsStability' is not present");
     }
 
     /**
      * Types of personally identifiable information (PII) to redact from an Utterance event.
      * 
      */
-    private @Nullable UndeferrableValue<String> piiEntityTypes;
-
+    @PolicyResourceProperty(name="piiEntityTypes", flag="unknown_piiEntityTypes")
+    private @Nullable String value_piiEntityTypes;
+    private boolean unknown_piiEntityTypes;
     public @Nullable String piiEntityTypes() {
-        if (piiEntityTypes == null) return null;
-        return piiEntityTypes.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.piiEntityTypes");
+        if (!unknown_piiEntityTypes) return value_piiEntityTypes;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.piiEntityTypes' is not present");
     }
 
     /**
      * Settings for post call analytics.
      * 
      */
-    private @Nullable UndeferrableValue<MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings> postCallAnalyticsSettings;
-
+    @PolicyResourceProperty(name="postCallAnalyticsSettings", flag="unknown_postCallAnalyticsSettings")
+    private @Nullable MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings value_postCallAnalyticsSettings;
+    private boolean unknown_postCallAnalyticsSettings;
     public @Nullable MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings postCallAnalyticsSettings() {
-        if (postCallAnalyticsSettings == null) return null;
-        return postCallAnalyticsSettings.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.postCallAnalyticsSettings");
+        if (!unknown_postCallAnalyticsSettings) return value_postCallAnalyticsSettings;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.postCallAnalyticsSettings' is not present");
     }
 
     /**
      * Method for applying a vocabulary filter to Utterance events.
      * 
      */
-    private @Nullable UndeferrableValue<String> vocabularyFilterMethod;
-
+    @PolicyResourceProperty(name="vocabularyFilterMethod", flag="unknown_vocabularyFilterMethod")
+    private @Nullable String value_vocabularyFilterMethod;
+    private boolean unknown_vocabularyFilterMethod;
     public @Nullable String vocabularyFilterMethod() {
-        if (vocabularyFilterMethod == null) return null;
-        return vocabularyFilterMethod.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.vocabularyFilterMethod");
+        if (!unknown_vocabularyFilterMethod) return value_vocabularyFilterMethod;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.vocabularyFilterMethod' is not present");
     }
 
     /**
      * Name of the custom vocabulary filter to use when processing Utterance events.
      * 
      */
-    private @Nullable UndeferrableValue<String> vocabularyFilterName;
-
+    @PolicyResourceProperty(name="vocabularyFilterName", flag="unknown_vocabularyFilterName")
+    private @Nullable String value_vocabularyFilterName;
+    private boolean unknown_vocabularyFilterName;
     public @Nullable String vocabularyFilterName() {
-        if (vocabularyFilterName == null) return null;
-        return vocabularyFilterName.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.vocabularyFilterName");
+        if (!unknown_vocabularyFilterName) return value_vocabularyFilterName;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.vocabularyFilterName' is not present");
     }
 
     /**
      * Name of the custom vocabulary to use when processing Utterance events.
      * 
      */
-    private @Nullable UndeferrableValue<String> vocabularyName;
-
+    @PolicyResourceProperty(name="vocabularyName", flag="unknown_vocabularyName")
+    private @Nullable String value_vocabularyName;
+    private boolean unknown_vocabularyName;
     public @Nullable String vocabularyName() {
-        if (vocabularyName == null) return null;
-        return vocabularyName.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.vocabularyName");
+        if (!unknown_vocabularyName) return value_vocabularyName;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration.vocabularyName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codepipeline.outputs.PipelineStageOnFailureConditionRule;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class PipelineStageOnFailureCondition {
      * The action to be done when the condition is met. For example, rolling back an execution for a failure condition. Possible values are `ROLLBACK`, `FAIL`, `RETRY` and `SKIP`.
      * 
      */
-    private @Nullable UndeferrableValue<String> result;
-
+    @PolicyResourceProperty(name="result", flag="unknown_result")
+    private @Nullable String value_result;
+    private boolean unknown_result;
     public @Nullable String result() {
-        if (result == null) return null;
-        return result.getValue("PipelineStageOnFailureCondition.result");
+        if (!unknown_result) return value_result;
+        throw new UndeferrableValueException("Value 'PipelineStageOnFailureCondition.result' is not present");
     }
 
     /**
      * The rules that make up the condition. Defined as a `rule` block below.
      * 
      */
-    private UndeferrableValue<List<PipelineStageOnFailureConditionRule>> rules;
-
+    @PolicyResourceProperty(name="rules", flag="unknown_rules")
+    private List<PipelineStageOnFailureConditionRule> value_rules;
+    private boolean unknown_rules;
     public List<PipelineStageOnFailureConditionRule> rules() {
-        if (rules == null) return null;
-        return rules.getValue("PipelineStageOnFailureCondition.rules");
+        if (!unknown_rules) return value_rules;
+        throw new UndeferrableValueException("Value 'PipelineStageOnFailureCondition.rules' is not present");
     }
 
 }

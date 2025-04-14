@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroup;
 import java.lang.Boolean;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class V2modelsIntentInitialResponseSettingConditionalConditionalBra
      * Whether the user can interrupt a speech response from Amazon Lex.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> allowInterrupt;
-
+    @PolicyResourceProperty(name="allowInterrupt", flag="unknown_allowInterrupt")
+    private @Nullable Boolean value_allowInterrupt;
+    private boolean unknown_allowInterrupt;
     public @Nullable Boolean allowInterrupt() {
-        if (allowInterrupt == null) return null;
-        return allowInterrupt.getValue("V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponse.allowInterrupt");
+        if (!unknown_allowInterrupt) return value_allowInterrupt;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponse.allowInterrupt' is not present");
     }
 
     /**
      * Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
      * 
      */
-    private @Nullable UndeferrableValue<List<V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroup>> messageGroups;
-
+    @PolicyResourceProperty(name="messageGroups", flag="unknown_messageGroups")
+    private @Nullable List<V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroup> value_messageGroups;
+    private boolean unknown_messageGroups;
     public @Nullable List<V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroup> messageGroups() {
-        if (messageGroups == null) return null;
-        return messageGroups.getValue("V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponse.messageGroups");
+        if (!unknown_messageGroups) return value_messageGroups;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponse.messageGroups' is not present");
     }
 
 }

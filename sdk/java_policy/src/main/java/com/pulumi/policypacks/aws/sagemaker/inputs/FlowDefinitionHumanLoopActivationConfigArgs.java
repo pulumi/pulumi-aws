@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class FlowDefinitionHumanLoopActivationConfigArgs {
      * defines under what conditions SageMaker AI creates a human loop. See Human Loop Activation Conditions Config details below.
      * 
      */
-    private UndeferrableValue<FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs> humanLoopActivationConditionsConfig;
-
+    @PolicyResourceProperty(name="humanLoopActivationConditionsConfig", flag="unknown_humanLoopActivationConditionsConfig")
+    private FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs value_humanLoopActivationConditionsConfig;
+    private boolean unknown_humanLoopActivationConditionsConfig;
     public FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs humanLoopActivationConditionsConfig() {
-        if (humanLoopActivationConditionsConfig == null) return null;
-        return humanLoopActivationConditionsConfig.getValue("FlowDefinitionHumanLoopActivationConfigArgs.humanLoopActivationConditionsConfig");
+        if (!unknown_humanLoopActivationConditionsConfig) return value_humanLoopActivationConditionsConfig;
+        throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopActivationConfigArgs.humanLoopActivationConditionsConfig' is not present");
     }
 
 }

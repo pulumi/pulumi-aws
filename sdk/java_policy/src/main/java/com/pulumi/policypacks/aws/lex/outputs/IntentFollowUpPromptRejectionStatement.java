@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.IntentFollowUpPromptRejectionStatementMessage;
 import java.lang.String;
 import java.util.List;
@@ -12,18 +13,20 @@ import javax.annotation.Nullable;
 
 public final class IntentFollowUpPromptRejectionStatement {
 
-    private UndeferrableValue<List<IntentFollowUpPromptRejectionStatementMessage>> messages;
-
+    @PolicyResourceProperty(name="messages", flag="unknown_messages")
+    private List<IntentFollowUpPromptRejectionStatementMessage> value_messages;
+    private boolean unknown_messages;
     public List<IntentFollowUpPromptRejectionStatementMessage> messages() {
-        if (messages == null) return null;
-        return messages.getValue("IntentFollowUpPromptRejectionStatement.messages");
+        if (!unknown_messages) return value_messages;
+        throw new UndeferrableValueException("Value 'IntentFollowUpPromptRejectionStatement.messages' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> responseCard;
-
+    @PolicyResourceProperty(name="responseCard", flag="unknown_responseCard")
+    private @Nullable String value_responseCard;
+    private boolean unknown_responseCard;
     public @Nullable String responseCard() {
-        if (responseCard == null) return null;
-        return responseCard.getValue("IntentFollowUpPromptRejectionStatement.responseCard");
+        if (!unknown_responseCard) return value_responseCard;
+        throw new UndeferrableValueException("Value 'IntentFollowUpPromptRejectionStatement.responseCard' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgs;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArgs;
@@ -14,39 +15,44 @@ import javax.annotation.Nullable;
 
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs {
 
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgs> hlsAkamaiSettings;
-
+    @PolicyResourceProperty(name="hlsAkamaiSettings", flag="unknown_hlsAkamaiSettings")
+    private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgs value_hlsAkamaiSettings;
+    private boolean unknown_hlsAkamaiSettings;
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgs hlsAkamaiSettings() {
-        if (hlsAkamaiSettings == null) return null;
-        return hlsAkamaiSettings.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs.hlsAkamaiSettings");
+        if (!unknown_hlsAkamaiSettings) return value_hlsAkamaiSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs.hlsAkamaiSettings' is not present");
     }
 
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs> hlsBasicPutSettings;
-
+    @PolicyResourceProperty(name="hlsBasicPutSettings", flag="unknown_hlsBasicPutSettings")
+    private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs value_hlsBasicPutSettings;
+    private boolean unknown_hlsBasicPutSettings;
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs hlsBasicPutSettings() {
-        if (hlsBasicPutSettings == null) return null;
-        return hlsBasicPutSettings.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs.hlsBasicPutSettings");
+        if (!unknown_hlsBasicPutSettings) return value_hlsBasicPutSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs.hlsBasicPutSettings' is not present");
     }
 
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArgs> hlsMediaStoreSettings;
-
+    @PolicyResourceProperty(name="hlsMediaStoreSettings", flag="unknown_hlsMediaStoreSettings")
+    private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArgs value_hlsMediaStoreSettings;
+    private boolean unknown_hlsMediaStoreSettings;
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArgs hlsMediaStoreSettings() {
-        if (hlsMediaStoreSettings == null) return null;
-        return hlsMediaStoreSettings.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs.hlsMediaStoreSettings");
+        if (!unknown_hlsMediaStoreSettings) return value_hlsMediaStoreSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs.hlsMediaStoreSettings' is not present");
     }
 
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgs> hlsS3Settings;
-
+    @PolicyResourceProperty(name="hlsS3Settings", flag="unknown_hlsS3Settings")
+    private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgs value_hlsS3Settings;
+    private boolean unknown_hlsS3Settings;
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgs hlsS3Settings() {
-        if (hlsS3Settings == null) return null;
-        return hlsS3Settings.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs.hlsS3Settings");
+        if (!unknown_hlsS3Settings) return value_hlsS3Settings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs.hlsS3Settings' is not present");
     }
 
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgs> hlsWebdavSettings;
-
+    @PolicyResourceProperty(name="hlsWebdavSettings", flag="unknown_hlsWebdavSettings")
+    private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgs value_hlsWebdavSettings;
+    private boolean unknown_hlsWebdavSettings;
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgs hlsWebdavSettings() {
-        if (hlsWebdavSettings == null) return null;
-        return hlsWebdavSettings.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs.hlsWebdavSettings");
+        if (!unknown_hlsWebdavSettings) return value_hlsWebdavSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs.hlsWebdavSettings' is not present");
     }
 
 }

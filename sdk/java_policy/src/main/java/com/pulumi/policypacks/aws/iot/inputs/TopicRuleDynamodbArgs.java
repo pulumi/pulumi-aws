@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,110 +15,120 @@ public final class TopicRuleDynamodbArgs {
      * The hash key name.
      * 
      */
-    private UndeferrableValue<String> hashKeyField;
-
+    @PolicyResourceProperty(name="hashKeyField", flag="unknown_hashKeyField")
+    private String value_hashKeyField;
+    private boolean unknown_hashKeyField;
     public String hashKeyField() {
-        if (hashKeyField == null) return null;
-        return hashKeyField.getValue("TopicRuleDynamodbArgs.hashKeyField");
+        if (!unknown_hashKeyField) return value_hashKeyField;
+        throw new UndeferrableValueException("Value 'TopicRuleDynamodbArgs.hashKeyField' is not present");
     }
 
     /**
      * The hash key type. Valid values are &#34;STRING&#34; or &#34;NUMBER&#34;.
      * 
      */
-    private UndeferrableValue<String> hashKeyType;
-
+    @PolicyResourceProperty(name="hashKeyType", flag="unknown_hashKeyType")
+    private String value_hashKeyType;
+    private boolean unknown_hashKeyType;
     public String hashKeyType() {
-        if (hashKeyType == null) return null;
-        return hashKeyType.getValue("TopicRuleDynamodbArgs.hashKeyType");
+        if (!unknown_hashKeyType) return value_hashKeyType;
+        throw new UndeferrableValueException("Value 'TopicRuleDynamodbArgs.hashKeyType' is not present");
     }
 
     /**
      * The hash key value.
      * 
      */
-    private UndeferrableValue<String> hashKeyValue;
-
+    @PolicyResourceProperty(name="hashKeyValue", flag="unknown_hashKeyValue")
+    private String value_hashKeyValue;
+    private boolean unknown_hashKeyValue;
     public String hashKeyValue() {
-        if (hashKeyValue == null) return null;
-        return hashKeyValue.getValue("TopicRuleDynamodbArgs.hashKeyValue");
+        if (!unknown_hashKeyValue) return value_hashKeyValue;
+        throw new UndeferrableValueException("Value 'TopicRuleDynamodbArgs.hashKeyValue' is not present");
     }
 
     /**
      * The operation. Valid values are &#34;INSERT&#34;, &#34;UPDATE&#34;, or &#34;DELETE&#34;.
      * 
      */
-    private UndeferrableValue<String> operation;
-
+    @PolicyResourceProperty(name="operation", flag="unknown_operation")
+    private String value_operation;
+    private boolean unknown_operation;
     public String operation() {
-        if (operation == null) return null;
-        return operation.getValue("TopicRuleDynamodbArgs.operation");
+        if (!unknown_operation) return value_operation;
+        throw new UndeferrableValueException("Value 'TopicRuleDynamodbArgs.operation' is not present");
     }
 
     /**
      * The action payload.
      * 
      */
-    private UndeferrableValue<String> payloadField;
-
+    @PolicyResourceProperty(name="payloadField", flag="unknown_payloadField")
+    private String value_payloadField;
+    private boolean unknown_payloadField;
     public String payloadField() {
-        if (payloadField == null) return null;
-        return payloadField.getValue("TopicRuleDynamodbArgs.payloadField");
+        if (!unknown_payloadField) return value_payloadField;
+        throw new UndeferrableValueException("Value 'TopicRuleDynamodbArgs.payloadField' is not present");
     }
 
     /**
      * The range key name.
      * 
      */
-    private UndeferrableValue<String> rangeKeyField;
-
+    @PolicyResourceProperty(name="rangeKeyField", flag="unknown_rangeKeyField")
+    private String value_rangeKeyField;
+    private boolean unknown_rangeKeyField;
     public String rangeKeyField() {
-        if (rangeKeyField == null) return null;
-        return rangeKeyField.getValue("TopicRuleDynamodbArgs.rangeKeyField");
+        if (!unknown_rangeKeyField) return value_rangeKeyField;
+        throw new UndeferrableValueException("Value 'TopicRuleDynamodbArgs.rangeKeyField' is not present");
     }
 
     /**
      * The range key type. Valid values are &#34;STRING&#34; or &#34;NUMBER&#34;.
      * 
      */
-    private UndeferrableValue<String> rangeKeyType;
-
+    @PolicyResourceProperty(name="rangeKeyType", flag="unknown_rangeKeyType")
+    private String value_rangeKeyType;
+    private boolean unknown_rangeKeyType;
     public String rangeKeyType() {
-        if (rangeKeyType == null) return null;
-        return rangeKeyType.getValue("TopicRuleDynamodbArgs.rangeKeyType");
+        if (!unknown_rangeKeyType) return value_rangeKeyType;
+        throw new UndeferrableValueException("Value 'TopicRuleDynamodbArgs.rangeKeyType' is not present");
     }
 
     /**
      * The range key value.
      * 
      */
-    private UndeferrableValue<String> rangeKeyValue;
-
+    @PolicyResourceProperty(name="rangeKeyValue", flag="unknown_rangeKeyValue")
+    private String value_rangeKeyValue;
+    private boolean unknown_rangeKeyValue;
     public String rangeKeyValue() {
-        if (rangeKeyValue == null) return null;
-        return rangeKeyValue.getValue("TopicRuleDynamodbArgs.rangeKeyValue");
+        if (!unknown_rangeKeyValue) return value_rangeKeyValue;
+        throw new UndeferrableValueException("Value 'TopicRuleDynamodbArgs.rangeKeyValue' is not present");
     }
 
     /**
      * The ARN of the IAM role that grants access to the DynamoDB table.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("TopicRuleDynamodbArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'TopicRuleDynamodbArgs.roleArn' is not present");
     }
 
     /**
      * The name of the DynamoDB table.
      * 
      */
-    private UndeferrableValue<String> tableName;
-
+    @PolicyResourceProperty(name="tableName", flag="unknown_tableName")
+    private String value_tableName;
+    private boolean unknown_tableName;
     public String tableName() {
-        if (tableName == null) return null;
-        return tableName.getValue("TopicRuleDynamodbArgs.tableName");
+        if (!unknown_tableName) return value_tableName;
+        throw new UndeferrableValueException("Value 'TopicRuleDynamodbArgs.tableName' is not present");
     }
 
 }

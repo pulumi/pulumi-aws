@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,11 +18,12 @@ public final class AccountArgs extends com.pulumi.resources.PolicyResourceInput 
      * ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging &amp; monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
      * 
      */
-    private UndeferrableValue<String> cloudwatchRoleArn;
-
+    @PolicyResourceProperty(name="cloudwatchRoleArn", flag="unknown_cloudwatchRoleArn")
+    private String value_cloudwatchRoleArn;
+    private boolean unknown_cloudwatchRoleArn;
     public String cloudwatchRoleArn() {
-        if (cloudwatchRoleArn == null) return null;
-        return cloudwatchRoleArn.getValue("AccountArgs.cloudwatchRoleArn");
+        if (!unknown_cloudwatchRoleArn) return value_cloudwatchRoleArn;
+        throw new UndeferrableValueException("Value 'AccountArgs.cloudwatchRoleArn' is not present");
     }
 
     /**
@@ -34,11 +36,12 @@ public final class AccountArgs extends com.pulumi.resources.PolicyResourceInput 
      * 
      */
     @Deprecated /* The ""reset_on_delete"" attribute will be removed in a future version of the provider */
-    private UndeferrableValue<Boolean> resetOnDelete;
-
+    @PolicyResourceProperty(name="resetOnDelete", flag="unknown_resetOnDelete")
+    private Boolean value_resetOnDelete;
+    private boolean unknown_resetOnDelete;
     public Boolean resetOnDelete() {
-        if (resetOnDelete == null) return null;
-        return resetOnDelete.getValue("AccountArgs.resetOnDelete");
+        if (!unknown_resetOnDelete) return value_resetOnDelete;
+        throw new UndeferrableValueException("Value 'AccountArgs.resetOnDelete' is not present");
     }
 
 }

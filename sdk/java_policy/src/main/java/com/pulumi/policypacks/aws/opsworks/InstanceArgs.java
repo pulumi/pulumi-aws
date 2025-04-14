@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.opsworks.inputs.InstanceEbsBlockDeviceArgs;
 import com.pulumi.policypacks.aws.opsworks.inputs.InstanceEphemeralBlockDeviceArgs;
@@ -21,264 +22,288 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * OpsWorks agent to install. Default is `INHERIT`.
      * 
      */
-    private UndeferrableValue<String> agentVersion;
-
+    @PolicyResourceProperty(name="agentVersion", flag="unknown_agentVersion")
+    private String value_agentVersion;
+    private boolean unknown_agentVersion;
     public String agentVersion() {
-        if (agentVersion == null) return null;
-        return agentVersion.getValue("InstanceArgs.agentVersion");
+        if (!unknown_agentVersion) return value_agentVersion;
+        throw new UndeferrableValueException("Value 'InstanceArgs.agentVersion' is not present");
     }
 
     /**
      * AMI to use for the instance.  If an AMI is specified, `os` must be `Custom`.
      * 
      */
-    private UndeferrableValue<String> amiId;
-
+    @PolicyResourceProperty(name="amiId", flag="unknown_amiId")
+    private String value_amiId;
+    private boolean unknown_amiId;
     public String amiId() {
-        if (amiId == null) return null;
-        return amiId.getValue("InstanceArgs.amiId");
+        if (!unknown_amiId) return value_amiId;
+        throw new UndeferrableValueException("Value 'InstanceArgs.amiId' is not present");
     }
 
     /**
      * Machine architecture for created instances.  Valid values are `x86_64` or `i386`. The default is `x86_64`.
      * 
      */
-    private UndeferrableValue<String> architecture;
-
+    @PolicyResourceProperty(name="architecture", flag="unknown_architecture")
+    private String value_architecture;
+    private boolean unknown_architecture;
     public String architecture() {
-        if (architecture == null) return null;
-        return architecture.getValue("InstanceArgs.architecture");
+        if (!unknown_architecture) return value_architecture;
+        throw new UndeferrableValueException("Value 'InstanceArgs.architecture' is not present");
     }
 
     /**
      * Creates load-based or time-based instances.  Valid values are `load`, `timer`.
      * 
      */
-    private UndeferrableValue<String> autoScalingType;
-
+    @PolicyResourceProperty(name="autoScalingType", flag="unknown_autoScalingType")
+    private String value_autoScalingType;
+    private boolean unknown_autoScalingType;
     public String autoScalingType() {
-        if (autoScalingType == null) return null;
-        return autoScalingType.getValue("InstanceArgs.autoScalingType");
+        if (!unknown_autoScalingType) return value_autoScalingType;
+        throw new UndeferrableValueException("Value 'InstanceArgs.autoScalingType' is not present");
     }
 
     /**
      * Name of the availability zone where instances will be created by default.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("InstanceArgs.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'InstanceArgs.availabilityZone' is not present");
     }
 
     /**
      * Time that the instance was created.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("InstanceArgs.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'InstanceArgs.createdAt' is not present");
     }
 
     /**
      * Whether to delete EBS volume on deletion. Default is `true`.
      * 
      */
-    private UndeferrableValue<Boolean> deleteEbs;
-
+    @PolicyResourceProperty(name="deleteEbs", flag="unknown_deleteEbs")
+    private Boolean value_deleteEbs;
+    private boolean unknown_deleteEbs;
     public Boolean deleteEbs() {
-        if (deleteEbs == null) return null;
-        return deleteEbs.getValue("InstanceArgs.deleteEbs");
+        if (!unknown_deleteEbs) return value_deleteEbs;
+        throw new UndeferrableValueException("Value 'InstanceArgs.deleteEbs' is not present");
     }
 
     /**
      * Whether to delete the Elastic IP on deletion.
      * 
      */
-    private UndeferrableValue<Boolean> deleteEip;
-
+    @PolicyResourceProperty(name="deleteEip", flag="unknown_deleteEip")
+    private Boolean value_deleteEip;
+    private boolean unknown_deleteEip;
     public Boolean deleteEip() {
-        if (deleteEip == null) return null;
-        return deleteEip.getValue("InstanceArgs.deleteEip");
+        if (!unknown_deleteEip) return value_deleteEip;
+        throw new UndeferrableValueException("Value 'InstanceArgs.deleteEip' is not present");
     }
 
     /**
      * Configuration block for additional EBS block devices to attach to the instance. See Block Devices below.
      * 
      */
-    private UndeferrableValue<List<InstanceEbsBlockDeviceArgs>> ebsBlockDevices;
-
+    @PolicyResourceProperty(name="ebsBlockDevices", flag="unknown_ebsBlockDevices")
+    private List<InstanceEbsBlockDeviceArgs> value_ebsBlockDevices;
+    private boolean unknown_ebsBlockDevices;
     public List<InstanceEbsBlockDeviceArgs> ebsBlockDevices() {
-        if (ebsBlockDevices == null) return null;
-        return ebsBlockDevices.getValue("InstanceArgs.ebsBlockDevices");
+        if (!unknown_ebsBlockDevices) return value_ebsBlockDevices;
+        throw new UndeferrableValueException("Value 'InstanceArgs.ebsBlockDevices' is not present");
     }
 
     /**
      * Whether the launched EC2 instance will be EBS-optimized.
      * 
      */
-    private UndeferrableValue<Boolean> ebsOptimized;
-
+    @PolicyResourceProperty(name="ebsOptimized", flag="unknown_ebsOptimized")
+    private Boolean value_ebsOptimized;
+    private boolean unknown_ebsOptimized;
     public Boolean ebsOptimized() {
-        if (ebsOptimized == null) return null;
-        return ebsOptimized.getValue("InstanceArgs.ebsOptimized");
+        if (!unknown_ebsOptimized) return value_ebsOptimized;
+        throw new UndeferrableValueException("Value 'InstanceArgs.ebsOptimized' is not present");
     }
 
     /**
      * ECS cluster&#39;s ARN for container instances.
      * 
      */
-    private UndeferrableValue<String> ecsClusterArn;
-
+    @PolicyResourceProperty(name="ecsClusterArn", flag="unknown_ecsClusterArn")
+    private String value_ecsClusterArn;
+    private boolean unknown_ecsClusterArn;
     public String ecsClusterArn() {
-        if (ecsClusterArn == null) return null;
-        return ecsClusterArn.getValue("InstanceArgs.ecsClusterArn");
+        if (!unknown_ecsClusterArn) return value_ecsClusterArn;
+        throw new UndeferrableValueException("Value 'InstanceArgs.ecsClusterArn' is not present");
     }
 
     /**
      * Instance Elastic IP address.
      * 
      */
-    private UndeferrableValue<String> elasticIp;
-
+    @PolicyResourceProperty(name="elasticIp", flag="unknown_elasticIp")
+    private String value_elasticIp;
+    private boolean unknown_elasticIp;
     public String elasticIp() {
-        if (elasticIp == null) return null;
-        return elasticIp.getValue("InstanceArgs.elasticIp");
+        if (!unknown_elasticIp) return value_elasticIp;
+        throw new UndeferrableValueException("Value 'InstanceArgs.elasticIp' is not present");
     }
 
     /**
      * Configuration block for ephemeral (also known as &#34;Instance Store&#34;) volumes on the instance. See Block Devices below.
      * 
      */
-    private UndeferrableValue<List<InstanceEphemeralBlockDeviceArgs>> ephemeralBlockDevices;
-
+    @PolicyResourceProperty(name="ephemeralBlockDevices", flag="unknown_ephemeralBlockDevices")
+    private List<InstanceEphemeralBlockDeviceArgs> value_ephemeralBlockDevices;
+    private boolean unknown_ephemeralBlockDevices;
     public List<InstanceEphemeralBlockDeviceArgs> ephemeralBlockDevices() {
-        if (ephemeralBlockDevices == null) return null;
-        return ephemeralBlockDevices.getValue("InstanceArgs.ephemeralBlockDevices");
+        if (!unknown_ephemeralBlockDevices) return value_ephemeralBlockDevices;
+        throw new UndeferrableValueException("Value 'InstanceArgs.ephemeralBlockDevices' is not present");
     }
 
     /**
      * Instance&#39;s host name.
      * 
      */
-    private UndeferrableValue<String> hostname;
-
+    @PolicyResourceProperty(name="hostname", flag="unknown_hostname")
+    private String value_hostname;
+    private boolean unknown_hostname;
     public String hostname() {
-        if (hostname == null) return null;
-        return hostname.getValue("InstanceArgs.hostname");
+        if (!unknown_hostname) return value_hostname;
+        throw new UndeferrableValueException("Value 'InstanceArgs.hostname' is not present");
     }
 
     /**
      * For registered instances, infrastructure class: ec2 or on-premises.
      * 
      */
-    private UndeferrableValue<String> infrastructureClass;
-
+    @PolicyResourceProperty(name="infrastructureClass", flag="unknown_infrastructureClass")
+    private String value_infrastructureClass;
+    private boolean unknown_infrastructureClass;
     public String infrastructureClass() {
-        if (infrastructureClass == null) return null;
-        return infrastructureClass.getValue("InstanceArgs.infrastructureClass");
+        if (!unknown_infrastructureClass) return value_infrastructureClass;
+        throw new UndeferrableValueException("Value 'InstanceArgs.infrastructureClass' is not present");
     }
 
     /**
      * Controls where to install OS and package updates when the instance boots.  Default is `true`.
      * 
      */
-    private UndeferrableValue<Boolean> installUpdatesOnBoot;
-
+    @PolicyResourceProperty(name="installUpdatesOnBoot", flag="unknown_installUpdatesOnBoot")
+    private Boolean value_installUpdatesOnBoot;
+    private boolean unknown_installUpdatesOnBoot;
     public Boolean installUpdatesOnBoot() {
-        if (installUpdatesOnBoot == null) return null;
-        return installUpdatesOnBoot.getValue("InstanceArgs.installUpdatesOnBoot");
+        if (!unknown_installUpdatesOnBoot) return value_installUpdatesOnBoot;
+        throw new UndeferrableValueException("Value 'InstanceArgs.installUpdatesOnBoot' is not present");
     }
 
     /**
      * ARN of the instance&#39;s IAM profile.
      * 
      */
-    private UndeferrableValue<String> instanceProfileArn;
-
+    @PolicyResourceProperty(name="instanceProfileArn", flag="unknown_instanceProfileArn")
+    private String value_instanceProfileArn;
+    private boolean unknown_instanceProfileArn;
     public String instanceProfileArn() {
-        if (instanceProfileArn == null) return null;
-        return instanceProfileArn.getValue("InstanceArgs.instanceProfileArn");
+        if (!unknown_instanceProfileArn) return value_instanceProfileArn;
+        throw new UndeferrableValueException("Value 'InstanceArgs.instanceProfileArn' is not present");
     }
 
     /**
      * Type of instance to start.
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("InstanceArgs.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'InstanceArgs.instanceType' is not present");
     }
 
     /**
      * List of the layers the instance will belong to.
      * 
      */
-    private UndeferrableValue<List<String>> layerIds;
-
+    @PolicyResourceProperty(name="layerIds", flag="unknown_layerIds")
+    private List<String> value_layerIds;
+    private boolean unknown_layerIds;
     public List<String> layerIds() {
-        if (layerIds == null) return null;
-        return layerIds.getValue("InstanceArgs.layerIds");
+        if (!unknown_layerIds) return value_layerIds;
+        throw new UndeferrableValueException("Value 'InstanceArgs.layerIds' is not present");
     }
 
     /**
      * Name of operating system that will be installed.
      * 
      */
-    private UndeferrableValue<String> os;
-
+    @PolicyResourceProperty(name="os", flag="unknown_os")
+    private String value_os;
+    private boolean unknown_os;
     public String os() {
-        if (os == null) return null;
-        return os.getValue("InstanceArgs.os");
+        if (!unknown_os) return value_os;
+        throw new UndeferrableValueException("Value 'InstanceArgs.os' is not present");
     }
 
     /**
      * Configuration block for the root block device of the instance. See Block Devices below.
      * 
      */
-    private UndeferrableValue<List<InstanceRootBlockDeviceArgs>> rootBlockDevices;
-
+    @PolicyResourceProperty(name="rootBlockDevices", flag="unknown_rootBlockDevices")
+    private List<InstanceRootBlockDeviceArgs> value_rootBlockDevices;
+    private boolean unknown_rootBlockDevices;
     public List<InstanceRootBlockDeviceArgs> rootBlockDevices() {
-        if (rootBlockDevices == null) return null;
-        return rootBlockDevices.getValue("InstanceArgs.rootBlockDevices");
+        if (!unknown_rootBlockDevices) return value_rootBlockDevices;
+        throw new UndeferrableValueException("Value 'InstanceArgs.rootBlockDevices' is not present");
     }
 
     /**
      * Name of the type of root device instances will have by default. Valid values are `ebs` or `instance-store`.
      * 
      */
-    private UndeferrableValue<String> rootDeviceType;
-
+    @PolicyResourceProperty(name="rootDeviceType", flag="unknown_rootDeviceType")
+    private String value_rootDeviceType;
+    private boolean unknown_rootDeviceType;
     public String rootDeviceType() {
-        if (rootDeviceType == null) return null;
-        return rootDeviceType.getValue("InstanceArgs.rootDeviceType");
+        if (!unknown_rootDeviceType) return value_rootDeviceType;
+        throw new UndeferrableValueException("Value 'InstanceArgs.rootDeviceType' is not present");
     }
 
     /**
      * Associated security groups.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("InstanceArgs.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'InstanceArgs.securityGroupIds' is not present");
     }
 
     /**
      * Name of the SSH keypair that instances will have by default.
      * 
      */
-    private UndeferrableValue<String> sshKeyName;
-
+    @PolicyResourceProperty(name="sshKeyName", flag="unknown_sshKeyName")
+    private String value_sshKeyName;
+    private boolean unknown_sshKeyName;
     public String sshKeyName() {
-        if (sshKeyName == null) return null;
-        return sshKeyName.getValue("InstanceArgs.sshKeyName");
+        if (!unknown_sshKeyName) return value_sshKeyName;
+        throw new UndeferrableValueException("Value 'InstanceArgs.sshKeyName' is not present");
     }
 
     /**
@@ -287,66 +312,72 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> stackId;
-
+    @PolicyResourceProperty(name="stackId", flag="unknown_stackId")
+    private String value_stackId;
+    private boolean unknown_stackId;
     public String stackId() {
-        if (stackId == null) return null;
-        return stackId.getValue("InstanceArgs.stackId");
+        if (!unknown_stackId) return value_stackId;
+        throw new UndeferrableValueException("Value 'InstanceArgs.stackId' is not present");
     }
 
     /**
      * Desired state of the instance. Valid values are `running` or `stopped`.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("InstanceArgs.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'InstanceArgs.state' is not present");
     }
 
     /**
      * Instance status. Will be one of `booting`, `connection_lost`, `online`, `pending`, `rebooting`, `requested`, `running_setup`, `setup_failed`, `shutting_down`, `start_failed`, `stop_failed`, `stopped`, `stopping`, `terminated`, or `terminating`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("InstanceArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'InstanceArgs.status' is not present");
     }
 
     /**
      * Subnet ID to attach to.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("InstanceArgs.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'InstanceArgs.subnetId' is not present");
     }
 
     /**
      * Instance tenancy to use. Valid values are `default`, `dedicated` or `host`.
      * 
      */
-    private UndeferrableValue<String> tenancy;
-
+    @PolicyResourceProperty(name="tenancy", flag="unknown_tenancy")
+    private String value_tenancy;
+    private boolean unknown_tenancy;
     public String tenancy() {
-        if (tenancy == null) return null;
-        return tenancy.getValue("InstanceArgs.tenancy");
+        if (!unknown_tenancy) return value_tenancy;
+        throw new UndeferrableValueException("Value 'InstanceArgs.tenancy' is not present");
     }
 
     /**
      * Keyword to choose what virtualization mode created instances will use. Valid values are `paravirtual` or `hvm`.
      * 
      */
-    private UndeferrableValue<String> virtualizationType;
-
+    @PolicyResourceProperty(name="virtualizationType", flag="unknown_virtualizationType")
+    private String value_virtualizationType;
+    private boolean unknown_virtualizationType;
     public String virtualizationType() {
-        if (virtualizationType == null) return null;
-        return virtualizationType.getValue("InstanceArgs.virtualizationType");
+        if (!unknown_virtualizationType) return value_virtualizationType;
+        throw new UndeferrableValueException("Value 'InstanceArgs.virtualizationType' is not present");
     }
 
 }

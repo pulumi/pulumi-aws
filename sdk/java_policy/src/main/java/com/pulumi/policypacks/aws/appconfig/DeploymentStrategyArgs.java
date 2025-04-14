@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appconfig;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Double;
 import java.lang.Integer;
@@ -19,88 +20,96 @@ public final class DeploymentStrategyArgs extends com.pulumi.resources.PolicyRes
      * Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
      * 
      */
-    private UndeferrableValue<Integer> deploymentDurationInMinutes;
-
+    @PolicyResourceProperty(name="deploymentDurationInMinutes", flag="unknown_deploymentDurationInMinutes")
+    private Integer value_deploymentDurationInMinutes;
+    private boolean unknown_deploymentDurationInMinutes;
     public Integer deploymentDurationInMinutes() {
-        if (deploymentDurationInMinutes == null) return null;
-        return deploymentDurationInMinutes.getValue("DeploymentStrategyArgs.deploymentDurationInMinutes");
+        if (!unknown_deploymentDurationInMinutes) return value_deploymentDurationInMinutes;
+        throw new UndeferrableValueException("Value 'DeploymentStrategyArgs.deploymentDurationInMinutes' is not present");
     }
 
     /**
      * Description of the deployment strategy. Can be at most 1024 characters.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("DeploymentStrategyArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'DeploymentStrategyArgs.description' is not present");
     }
 
     /**
      * Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
      * 
      */
-    private UndeferrableValue<Integer> finalBakeTimeInMinutes;
-
+    @PolicyResourceProperty(name="finalBakeTimeInMinutes", flag="unknown_finalBakeTimeInMinutes")
+    private Integer value_finalBakeTimeInMinutes;
+    private boolean unknown_finalBakeTimeInMinutes;
     public Integer finalBakeTimeInMinutes() {
-        if (finalBakeTimeInMinutes == null) return null;
-        return finalBakeTimeInMinutes.getValue("DeploymentStrategyArgs.finalBakeTimeInMinutes");
+        if (!unknown_finalBakeTimeInMinutes) return value_finalBakeTimeInMinutes;
+        throw new UndeferrableValueException("Value 'DeploymentStrategyArgs.finalBakeTimeInMinutes' is not present");
     }
 
     /**
      * Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
      * 
      */
-    private UndeferrableValue<Double> growthFactor;
-
+    @PolicyResourceProperty(name="growthFactor", flag="unknown_growthFactor")
+    private Double value_growthFactor;
+    private boolean unknown_growthFactor;
     public Double growthFactor() {
-        if (growthFactor == null) return null;
-        return growthFactor.getValue("DeploymentStrategyArgs.growthFactor");
+        if (!unknown_growthFactor) return value_growthFactor;
+        throw new UndeferrableValueException("Value 'DeploymentStrategyArgs.growthFactor' is not present");
     }
 
     /**
      * Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
      * 
      */
-    private UndeferrableValue<String> growthType;
-
+    @PolicyResourceProperty(name="growthType", flag="unknown_growthType")
+    private String value_growthType;
+    private boolean unknown_growthType;
     public String growthType() {
-        if (growthType == null) return null;
-        return growthType.getValue("DeploymentStrategyArgs.growthType");
+        if (!unknown_growthType) return value_growthType;
+        throw new UndeferrableValueException("Value 'DeploymentStrategyArgs.growthType' is not present");
     }
 
     /**
      * Name for the deployment strategy. Must be between 1 and 64 characters in length.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DeploymentStrategyArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DeploymentStrategyArgs.name' is not present");
     }
 
     /**
      * Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
      * 
      */
-    private UndeferrableValue<String> replicateTo;
-
+    @PolicyResourceProperty(name="replicateTo", flag="unknown_replicateTo")
+    private String value_replicateTo;
+    private boolean unknown_replicateTo;
     public String replicateTo() {
-        if (replicateTo == null) return null;
-        return replicateTo.getValue("DeploymentStrategyArgs.replicateTo");
+        if (!unknown_replicateTo) return value_replicateTo;
+        throw new UndeferrableValueException("Value 'DeploymentStrategyArgs.replicateTo' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DeploymentStrategyArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DeploymentStrategyArgs.tags' is not present");
     }
 
 }

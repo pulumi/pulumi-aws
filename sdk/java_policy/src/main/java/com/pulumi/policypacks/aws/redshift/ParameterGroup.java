@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.redshift.outputs.ParameterGroupParameter;
 import java.lang.String;
@@ -19,55 +20,60 @@ public final class ParameterGroup extends com.pulumi.resources.PolicyResourceOut
      * Amazon Resource Name (ARN) of parameter group
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ParameterGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ParameterGroup.arn' is not present");
     }
 
     /**
      * The description of the Redshift parameter group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ParameterGroup.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ParameterGroup.description' is not present");
     }
 
     /**
      * The family of the Redshift parameter group.
      * 
      */
-    private UndeferrableValue<String> family;
-
+    @PolicyResourceProperty(name="family", flag="unknown_family")
+    private String value_family;
+    private boolean unknown_family;
     public String family() {
-        if (family == null) return null;
-        return family.getValue("ParameterGroup.family");
+        if (!unknown_family) return value_family;
+        throw new UndeferrableValueException("Value 'ParameterGroup.family' is not present");
     }
 
     /**
      * The name of the Redshift parameter.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ParameterGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ParameterGroup.name' is not present");
     }
 
     /**
      * A list of Redshift parameters to apply.
      * 
      */
-    private @Nullable UndeferrableValue<List<ParameterGroupParameter>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private @Nullable List<ParameterGroupParameter> value_parameters;
+    private boolean unknown_parameters;
     public @Nullable List<ParameterGroupParameter> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("ParameterGroup.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'ParameterGroup.parameters' is not present");
     }
 
     /**
@@ -76,11 +82,12 @@ public final class ParameterGroup extends com.pulumi.resources.PolicyResourceOut
      * You can read more about the parameters that Redshift supports in the [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html)
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ParameterGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ParameterGroup.tags' is not present");
     }
 
     /**
@@ -91,11 +98,12 @@ public final class ParameterGroup extends com.pulumi.resources.PolicyResourceOut
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ParameterGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ParameterGroup.tagsAll' is not present");
     }
 
 }

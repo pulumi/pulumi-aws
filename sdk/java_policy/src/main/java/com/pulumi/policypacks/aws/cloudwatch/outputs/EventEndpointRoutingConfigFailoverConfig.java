@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudwatch.outputs.EventEndpointRoutingConfigFailoverConfigPrimary;
 import com.pulumi.policypacks.aws.cloudwatch.outputs.EventEndpointRoutingConfigFailoverConfigSecondary;
 
@@ -14,22 +15,24 @@ public final class EventEndpointRoutingConfigFailoverConfig {
      * Parameters used for the primary Region. Documented below.
      * 
      */
-    private UndeferrableValue<EventEndpointRoutingConfigFailoverConfigPrimary> primary;
-
+    @PolicyResourceProperty(name="primary", flag="unknown_primary")
+    private EventEndpointRoutingConfigFailoverConfigPrimary value_primary;
+    private boolean unknown_primary;
     public EventEndpointRoutingConfigFailoverConfigPrimary primary() {
-        if (primary == null) return null;
-        return primary.getValue("EventEndpointRoutingConfigFailoverConfig.primary");
+        if (!unknown_primary) return value_primary;
+        throw new UndeferrableValueException("Value 'EventEndpointRoutingConfigFailoverConfig.primary' is not present");
     }
 
     /**
      * Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
      * 
      */
-    private UndeferrableValue<EventEndpointRoutingConfigFailoverConfigSecondary> secondary;
-
+    @PolicyResourceProperty(name="secondary", flag="unknown_secondary")
+    private EventEndpointRoutingConfigFailoverConfigSecondary value_secondary;
+    private boolean unknown_secondary;
     public EventEndpointRoutingConfigFailoverConfigSecondary secondary() {
-        if (secondary == null) return null;
-        return secondary.getValue("EventEndpointRoutingConfigFailoverConfig.secondary");
+        if (!unknown_secondary) return value_secondary;
+        throw new UndeferrableValueException("Value 'EventEndpointRoutingConfigFailoverConfig.secondary' is not present");
     }
 
 }

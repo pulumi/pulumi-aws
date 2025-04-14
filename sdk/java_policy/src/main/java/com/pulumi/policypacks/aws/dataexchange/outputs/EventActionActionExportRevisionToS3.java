@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dataexchange.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.dataexchange.outputs.EventActionActionExportRevisionToS3Encryption;
 import com.pulumi.policypacks.aws.dataexchange.outputs.EventActionActionExportRevisionToS3RevisionDestination;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class EventActionActionExportRevisionToS3 {
      * Described in `encryption` Configuration Block below.
      * 
      */
-    private @Nullable UndeferrableValue<EventActionActionExportRevisionToS3Encryption> encryption;
-
+    @PolicyResourceProperty(name="encryption", flag="unknown_encryption")
+    private @Nullable EventActionActionExportRevisionToS3Encryption value_encryption;
+    private boolean unknown_encryption;
     public @Nullable EventActionActionExportRevisionToS3Encryption encryption() {
-        if (encryption == null) return null;
-        return encryption.getValue("EventActionActionExportRevisionToS3.encryption");
+        if (!unknown_encryption) return value_encryption;
+        throw new UndeferrableValueException("Value 'EventActionActionExportRevisionToS3.encryption' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class EventActionActionExportRevisionToS3 {
      * Described in `revision_destination` Configuration Block below.
      * 
      */
-    private @Nullable UndeferrableValue<EventActionActionExportRevisionToS3RevisionDestination> revisionDestination;
-
+    @PolicyResourceProperty(name="revisionDestination", flag="unknown_revisionDestination")
+    private @Nullable EventActionActionExportRevisionToS3RevisionDestination value_revisionDestination;
+    private boolean unknown_revisionDestination;
     public @Nullable EventActionActionExportRevisionToS3RevisionDestination revisionDestination() {
-        if (revisionDestination == null) return null;
-        return revisionDestination.getValue("EventActionActionExportRevisionToS3.revisionDestination");
+        if (!unknown_revisionDestination) return value_revisionDestination;
+        throw new UndeferrableValueException("Value 'EventActionActionExportRevisionToS3.revisionDestination' is not present");
     }
 
 }

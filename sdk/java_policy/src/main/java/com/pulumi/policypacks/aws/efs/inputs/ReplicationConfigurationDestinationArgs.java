@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.efs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,51 +15,56 @@ public final class ReplicationConfigurationDestinationArgs {
      * The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
      * 
      */
-    private UndeferrableValue<String> availabilityZoneName;
-
+    @PolicyResourceProperty(name="availabilityZoneName", flag="unknown_availabilityZoneName")
+    private String value_availabilityZoneName;
+    private boolean unknown_availabilityZoneName;
     public String availabilityZoneName() {
-        if (availabilityZoneName == null) return null;
-        return availabilityZoneName.getValue("ReplicationConfigurationDestinationArgs.availabilityZoneName");
+        if (!unknown_availabilityZoneName) return value_availabilityZoneName;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationDestinationArgs.availabilityZoneName' is not present");
     }
 
     /**
      * The ID of the destination file system for the replication. If no ID is provided, then EFS creates a new file system with the default settings.
      * 
      */
-    private UndeferrableValue<String> fileSystemId;
-
+    @PolicyResourceProperty(name="fileSystemId", flag="unknown_fileSystemId")
+    private String value_fileSystemId;
+    private boolean unknown_fileSystemId;
     public String fileSystemId() {
-        if (fileSystemId == null) return null;
-        return fileSystemId.getValue("ReplicationConfigurationDestinationArgs.fileSystemId");
+        if (!unknown_fileSystemId) return value_fileSystemId;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationDestinationArgs.fileSystemId' is not present");
     }
 
     /**
      * The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("ReplicationConfigurationDestinationArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationDestinationArgs.kmsKeyId' is not present");
     }
 
     /**
      * The region in which the replica should be created.
      * 
      */
-    private UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private String value_region;
+    private boolean unknown_region;
     public String region() {
-        if (region == null) return null;
-        return region.getValue("ReplicationConfigurationDestinationArgs.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationDestinationArgs.region' is not present");
     }
 
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("ReplicationConfigurationDestinationArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationDestinationArgs.status' is not present");
     }
 
 }

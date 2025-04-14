@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class DistributionConfigurationDistributionLaunchTemplateConfigurat
      * The account ID that this configuration applies to.
      * 
      */
-    private @Nullable UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private @Nullable String value_accountId;
+    private boolean unknown_accountId;
     public @Nullable String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("DistributionConfigurationDistributionLaunchTemplateConfiguration.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionLaunchTemplateConfiguration.accountId' is not present");
     }
 
     /**
      * Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> default_;
-
+    @PolicyResourceProperty(name="default", flag="unknown_default_")
+    private @Nullable Boolean value_default_;
+    private boolean unknown_default_;
     public @Nullable Boolean default_() {
-        if (default_ == null) return null;
-        return default_.getValue("DistributionConfigurationDistributionLaunchTemplateConfiguration.default_");
+        if (!unknown_default_) return value_default_;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionLaunchTemplateConfiguration.default_' is not present");
     }
 
     /**
      * The ID of the Amazon EC2 launch template to use.
      * 
      */
-    private UndeferrableValue<String> launchTemplateId;
-
+    @PolicyResourceProperty(name="launchTemplateId", flag="unknown_launchTemplateId")
+    private String value_launchTemplateId;
+    private boolean unknown_launchTemplateId;
     public String launchTemplateId() {
-        if (launchTemplateId == null) return null;
-        return launchTemplateId.getValue("DistributionConfigurationDistributionLaunchTemplateConfiguration.launchTemplateId");
+        if (!unknown_launchTemplateId) return value_launchTemplateId;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistributionLaunchTemplateConfiguration.launchTemplateId' is not present");
     }
 
 }

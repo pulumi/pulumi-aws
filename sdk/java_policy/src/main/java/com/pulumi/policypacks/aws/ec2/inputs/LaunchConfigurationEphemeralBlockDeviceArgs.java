@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,25 +12,28 @@ import javax.annotation.Nullable;
 
 public final class LaunchConfigurationEphemeralBlockDeviceArgs {
 
-    private UndeferrableValue<String> deviceName;
-
+    @PolicyResourceProperty(name="deviceName", flag="unknown_deviceName")
+    private String value_deviceName;
+    private boolean unknown_deviceName;
     public String deviceName() {
-        if (deviceName == null) return null;
-        return deviceName.getValue("LaunchConfigurationEphemeralBlockDeviceArgs.deviceName");
+        if (!unknown_deviceName) return value_deviceName;
+        throw new UndeferrableValueException("Value 'LaunchConfigurationEphemeralBlockDeviceArgs.deviceName' is not present");
     }
 
-    private UndeferrableValue<Boolean> noDevice;
-
+    @PolicyResourceProperty(name="noDevice", flag="unknown_noDevice")
+    private Boolean value_noDevice;
+    private boolean unknown_noDevice;
     public Boolean noDevice() {
-        if (noDevice == null) return null;
-        return noDevice.getValue("LaunchConfigurationEphemeralBlockDeviceArgs.noDevice");
+        if (!unknown_noDevice) return value_noDevice;
+        throw new UndeferrableValueException("Value 'LaunchConfigurationEphemeralBlockDeviceArgs.noDevice' is not present");
     }
 
-    private UndeferrableValue<String> virtualName;
-
+    @PolicyResourceProperty(name="virtualName", flag="unknown_virtualName")
+    private String value_virtualName;
+    private boolean unknown_virtualName;
     public String virtualName() {
-        if (virtualName == null) return null;
-        return virtualName.getValue("LaunchConfigurationEphemeralBlockDeviceArgs.virtualName");
+        if (!unknown_virtualName) return value_virtualName;
+        throw new UndeferrableValueException("Value 'LaunchConfigurationEphemeralBlockDeviceArgs.virtualName' is not present");
     }
 
 }

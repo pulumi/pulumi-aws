@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentAgentKnowledgeBaseAssociationTimeoutsArgs;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class AgentAgentKnowledgeBaseAssociationArgs extends com.pulumi.res
      * Unique identifier of the agent with which you want to associate the knowledge base.
      * 
      */
-    private UndeferrableValue<String> agentId;
-
+    @PolicyResourceProperty(name="agentId", flag="unknown_agentId")
+    private String value_agentId;
+    private boolean unknown_agentId;
     public String agentId() {
-        if (agentId == null) return null;
-        return agentId.getValue("AgentAgentKnowledgeBaseAssociationArgs.agentId");
+        if (!unknown_agentId) return value_agentId;
+        throw new UndeferrableValueException("Value 'AgentAgentKnowledgeBaseAssociationArgs.agentId' is not present");
     }
 
     /**
      * Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
      * 
      */
-    private UndeferrableValue<String> agentVersion;
-
+    @PolicyResourceProperty(name="agentVersion", flag="unknown_agentVersion")
+    private String value_agentVersion;
+    private boolean unknown_agentVersion;
     public String agentVersion() {
-        if (agentVersion == null) return null;
-        return agentVersion.getValue("AgentAgentKnowledgeBaseAssociationArgs.agentVersion");
+        if (!unknown_agentVersion) return value_agentVersion;
+        throw new UndeferrableValueException("Value 'AgentAgentKnowledgeBaseAssociationArgs.agentVersion' is not present");
     }
 
     /**
      * Description of what the agent should use the knowledge base for.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("AgentAgentKnowledgeBaseAssociationArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AgentAgentKnowledgeBaseAssociationArgs.description' is not present");
     }
 
     /**
      * Unique identifier of the knowledge base to associate with the agent.
      * 
      */
-    private UndeferrableValue<String> knowledgeBaseId;
-
+    @PolicyResourceProperty(name="knowledgeBaseId", flag="unknown_knowledgeBaseId")
+    private String value_knowledgeBaseId;
+    private boolean unknown_knowledgeBaseId;
     public String knowledgeBaseId() {
-        if (knowledgeBaseId == null) return null;
-        return knowledgeBaseId.getValue("AgentAgentKnowledgeBaseAssociationArgs.knowledgeBaseId");
+        if (!unknown_knowledgeBaseId) return value_knowledgeBaseId;
+        throw new UndeferrableValueException("Value 'AgentAgentKnowledgeBaseAssociationArgs.knowledgeBaseId' is not present");
     }
 
     /**
@@ -63,18 +68,20 @@ public final class AgentAgentKnowledgeBaseAssociationArgs extends com.pulumi.res
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> knowledgeBaseState;
-
+    @PolicyResourceProperty(name="knowledgeBaseState", flag="unknown_knowledgeBaseState")
+    private String value_knowledgeBaseState;
+    private boolean unknown_knowledgeBaseState;
     public String knowledgeBaseState() {
-        if (knowledgeBaseState == null) return null;
-        return knowledgeBaseState.getValue("AgentAgentKnowledgeBaseAssociationArgs.knowledgeBaseState");
+        if (!unknown_knowledgeBaseState) return value_knowledgeBaseState;
+        throw new UndeferrableValueException("Value 'AgentAgentKnowledgeBaseAssociationArgs.knowledgeBaseState' is not present");
     }
 
-    private UndeferrableValue<AgentAgentKnowledgeBaseAssociationTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private AgentAgentKnowledgeBaseAssociationTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public AgentAgentKnowledgeBaseAssociationTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("AgentAgentKnowledgeBaseAssociationArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'AgentAgentKnowledgeBaseAssociationArgs.timeouts' is not present");
     }
 
 }

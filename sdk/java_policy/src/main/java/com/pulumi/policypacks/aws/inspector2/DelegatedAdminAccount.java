@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.inspector2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class DelegatedAdminAccount extends com.pulumi.resources.PolicyReso
      * Account to enable as delegated admin account.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("DelegatedAdminAccount.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'DelegatedAdminAccount.accountId' is not present");
     }
 
     /**
      * Status of this delegated admin account.
      * 
      */
-    private UndeferrableValue<String> relationshipStatus;
-
+    @PolicyResourceProperty(name="relationshipStatus", flag="unknown_relationshipStatus")
+    private String value_relationshipStatus;
+    private boolean unknown_relationshipStatus;
     public String relationshipStatus() {
-        if (relationshipStatus == null) return null;
-        return relationshipStatus.getValue("DelegatedAdminAccount.relationshipStatus");
+        if (!unknown_relationshipStatus) return value_relationshipStatus;
+        throw new UndeferrableValueException("Value 'DelegatedAdminAccount.relationshipStatus' is not present");
     }
 
 }

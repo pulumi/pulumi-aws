@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,77 +19,84 @@ public final class IpSetArgs extends com.pulumi.resources.PolicyResourceInput {
      * Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
      * 
      */
-    private UndeferrableValue<List<String>> addresses;
-
+    @PolicyResourceProperty(name="addresses", flag="unknown_addresses")
+    private List<String> value_addresses;
+    private boolean unknown_addresses;
     public List<String> addresses() {
-        if (addresses == null) return null;
-        return addresses.getValue("IpSetArgs.addresses");
+        if (!unknown_addresses) return value_addresses;
+        throw new UndeferrableValueException("Value 'IpSetArgs.addresses' is not present");
     }
 
     /**
      * A friendly description of the IP set.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("IpSetArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'IpSetArgs.description' is not present");
     }
 
     /**
      * Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
      * 
      */
-    private UndeferrableValue<String> ipAddressVersion;
-
+    @PolicyResourceProperty(name="ipAddressVersion", flag="unknown_ipAddressVersion")
+    private String value_ipAddressVersion;
+    private boolean unknown_ipAddressVersion;
     public String ipAddressVersion() {
-        if (ipAddressVersion == null) return null;
-        return ipAddressVersion.getValue("IpSetArgs.ipAddressVersion");
+        if (!unknown_ipAddressVersion) return value_ipAddressVersion;
+        throw new UndeferrableValueException("Value 'IpSetArgs.ipAddressVersion' is not present");
     }
 
     /**
      * A friendly name of the IP set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("IpSetArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'IpSetArgs.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("IpSetArgs.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'IpSetArgs.namePrefix' is not present");
     }
 
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
      * 
      */
-    private UndeferrableValue<String> scope;
-
+    @PolicyResourceProperty(name="scope", flag="unknown_scope")
+    private String value_scope;
+    private boolean unknown_scope;
     public String scope() {
-        if (scope == null) return null;
-        return scope.getValue("IpSetArgs.scope");
+        if (!unknown_scope) return value_scope;
+        throw new UndeferrableValueException("Value 'IpSetArgs.scope' is not present");
     }
 
     /**
      * An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("IpSetArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'IpSetArgs.tags' is not present");
     }
 
 }

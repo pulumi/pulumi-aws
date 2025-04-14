@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emrcontainers;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.emrcontainers.outputs.JobTemplateJobTemplateData;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class JobTemplate extends com.pulumi.resources.PolicyResourceOutput
      * ARN of the job template.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("JobTemplate.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'JobTemplate.arn' is not present");
     }
 
     /**
      * The job template data which holds values of StartJobRun API request.
      * 
      */
-    private UndeferrableValue<JobTemplateJobTemplateData> jobTemplateData;
-
+    @PolicyResourceProperty(name="jobTemplateData", flag="unknown_jobTemplateData")
+    private JobTemplateJobTemplateData value_jobTemplateData;
+    private boolean unknown_jobTemplateData;
     public JobTemplateJobTemplateData jobTemplateData() {
-        if (jobTemplateData == null) return null;
-        return jobTemplateData.getValue("JobTemplate.jobTemplateData");
+        if (!unknown_jobTemplateData) return value_jobTemplateData;
+        throw new UndeferrableValueException("Value 'JobTemplate.jobTemplateData' is not present");
     }
 
     /**
      * The KMS key ARN used to encrypt the job template.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private @Nullable String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public @Nullable String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("JobTemplate.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'JobTemplate.kmsKeyArn' is not present");
     }
 
     /**
      * The specified name of the job template.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("JobTemplate.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'JobTemplate.name' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("JobTemplate.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'JobTemplate.tags' is not present");
     }
 
     /**
@@ -77,11 +83,12 @@ public final class JobTemplate extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("JobTemplate.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'JobTemplate.tagsAll' is not present");
     }
 
 }

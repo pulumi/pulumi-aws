@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class VirtualServiceSpecProviderVirtualNodeArgs {
      * Name of the virtual node that is acting as a service provider. Must be between 1 and 255 characters in length.
      * 
      */
-    private UndeferrableValue<String> virtualNodeName;
-
+    @PolicyResourceProperty(name="virtualNodeName", flag="unknown_virtualNodeName")
+    private String value_virtualNodeName;
+    private boolean unknown_virtualNodeName;
     public String virtualNodeName() {
-        if (virtualNodeName == null) return null;
-        return virtualNodeName.getValue("VirtualServiceSpecProviderVirtualNodeArgs.virtualNodeName");
+        if (!unknown_virtualNodeName) return value_virtualNodeName;
+        throw new UndeferrableValueException("Value 'VirtualServiceSpecProviderVirtualNodeArgs.virtualNodeName' is not present");
     }
 
 }

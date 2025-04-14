@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,77 +18,84 @@ public final class HsmConfigurationArgs extends com.pulumi.resources.PolicyResou
      * A text description of the HSM configuration to be created.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("HsmConfigurationArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'HsmConfigurationArgs.description' is not present");
     }
 
     /**
      * The identifier to be assigned to the new Amazon Redshift HSM configuration.
      * 
      */
-    private UndeferrableValue<String> hsmConfigurationIdentifier;
-
+    @PolicyResourceProperty(name="hsmConfigurationIdentifier", flag="unknown_hsmConfigurationIdentifier")
+    private String value_hsmConfigurationIdentifier;
+    private boolean unknown_hsmConfigurationIdentifier;
     public String hsmConfigurationIdentifier() {
-        if (hsmConfigurationIdentifier == null) return null;
-        return hsmConfigurationIdentifier.getValue("HsmConfigurationArgs.hsmConfigurationIdentifier");
+        if (!unknown_hsmConfigurationIdentifier) return value_hsmConfigurationIdentifier;
+        throw new UndeferrableValueException("Value 'HsmConfigurationArgs.hsmConfigurationIdentifier' is not present");
     }
 
     /**
      * The IP address that the Amazon Redshift cluster must use to access the HSM.
      * 
      */
-    private UndeferrableValue<String> hsmIpAddress;
-
+    @PolicyResourceProperty(name="hsmIpAddress", flag="unknown_hsmIpAddress")
+    private String value_hsmIpAddress;
+    private boolean unknown_hsmIpAddress;
     public String hsmIpAddress() {
-        if (hsmIpAddress == null) return null;
-        return hsmIpAddress.getValue("HsmConfigurationArgs.hsmIpAddress");
+        if (!unknown_hsmIpAddress) return value_hsmIpAddress;
+        throw new UndeferrableValueException("Value 'HsmConfigurationArgs.hsmIpAddress' is not present");
     }
 
     /**
      * The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
      * 
      */
-    private UndeferrableValue<String> hsmPartitionName;
-
+    @PolicyResourceProperty(name="hsmPartitionName", flag="unknown_hsmPartitionName")
+    private String value_hsmPartitionName;
+    private boolean unknown_hsmPartitionName;
     public String hsmPartitionName() {
-        if (hsmPartitionName == null) return null;
-        return hsmPartitionName.getValue("HsmConfigurationArgs.hsmPartitionName");
+        if (!unknown_hsmPartitionName) return value_hsmPartitionName;
+        throw new UndeferrableValueException("Value 'HsmConfigurationArgs.hsmPartitionName' is not present");
     }
 
     /**
      * The password required to access the HSM partition.
      * 
      */
-    private UndeferrableValue<String> hsmPartitionPassword;
-
+    @PolicyResourceProperty(name="hsmPartitionPassword", flag="unknown_hsmPartitionPassword")
+    private String value_hsmPartitionPassword;
+    private boolean unknown_hsmPartitionPassword;
     public String hsmPartitionPassword() {
-        if (hsmPartitionPassword == null) return null;
-        return hsmPartitionPassword.getValue("HsmConfigurationArgs.hsmPartitionPassword");
+        if (!unknown_hsmPartitionPassword) return value_hsmPartitionPassword;
+        throw new UndeferrableValueException("Value 'HsmConfigurationArgs.hsmPartitionPassword' is not present");
     }
 
     /**
      * The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
      * 
      */
-    private UndeferrableValue<String> hsmServerPublicCertificate;
-
+    @PolicyResourceProperty(name="hsmServerPublicCertificate", flag="unknown_hsmServerPublicCertificate")
+    private String value_hsmServerPublicCertificate;
+    private boolean unknown_hsmServerPublicCertificate;
     public String hsmServerPublicCertificate() {
-        if (hsmServerPublicCertificate == null) return null;
-        return hsmServerPublicCertificate.getValue("HsmConfigurationArgs.hsmServerPublicCertificate");
+        if (!unknown_hsmServerPublicCertificate) return value_hsmServerPublicCertificate;
+        throw new UndeferrableValueException("Value 'HsmConfigurationArgs.hsmServerPublicCertificate' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("HsmConfigurationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'HsmConfigurationArgs.tags' is not present");
     }
 
 }

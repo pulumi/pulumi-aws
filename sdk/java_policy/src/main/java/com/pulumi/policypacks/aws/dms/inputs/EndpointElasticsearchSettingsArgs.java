@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dms.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,55 +17,60 @@ public final class EndpointElasticsearchSettingsArgs {
      * Endpoint for the OpenSearch cluster.
      * 
      */
-    private UndeferrableValue<String> endpointUri;
-
+    @PolicyResourceProperty(name="endpointUri", flag="unknown_endpointUri")
+    private String value_endpointUri;
+    private boolean unknown_endpointUri;
     public String endpointUri() {
-        if (endpointUri == null) return null;
-        return endpointUri.getValue("EndpointElasticsearchSettingsArgs.endpointUri");
+        if (!unknown_endpointUri) return value_endpointUri;
+        throw new UndeferrableValueException("Value 'EndpointElasticsearchSettingsArgs.endpointUri' is not present");
     }
 
     /**
      * Maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster. Default is `300`.
      * 
      */
-    private UndeferrableValue<Integer> errorRetryDuration;
-
+    @PolicyResourceProperty(name="errorRetryDuration", flag="unknown_errorRetryDuration")
+    private Integer value_errorRetryDuration;
+    private boolean unknown_errorRetryDuration;
     public Integer errorRetryDuration() {
-        if (errorRetryDuration == null) return null;
-        return errorRetryDuration.getValue("EndpointElasticsearchSettingsArgs.errorRetryDuration");
+        if (!unknown_errorRetryDuration) return value_errorRetryDuration;
+        throw new UndeferrableValueException("Value 'EndpointElasticsearchSettingsArgs.errorRetryDuration' is not present");
     }
 
     /**
      * Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
      * 
      */
-    private UndeferrableValue<Integer> fullLoadErrorPercentage;
-
+    @PolicyResourceProperty(name="fullLoadErrorPercentage", flag="unknown_fullLoadErrorPercentage")
+    private Integer value_fullLoadErrorPercentage;
+    private boolean unknown_fullLoadErrorPercentage;
     public Integer fullLoadErrorPercentage() {
-        if (fullLoadErrorPercentage == null) return null;
-        return fullLoadErrorPercentage.getValue("EndpointElasticsearchSettingsArgs.fullLoadErrorPercentage");
+        if (!unknown_fullLoadErrorPercentage) return value_fullLoadErrorPercentage;
+        throw new UndeferrableValueException("Value 'EndpointElasticsearchSettingsArgs.fullLoadErrorPercentage' is not present");
     }
 
     /**
      * ARN of the IAM Role with permissions to write to the OpenSearch cluster.
      * 
      */
-    private UndeferrableValue<String> serviceAccessRoleArn;
-
+    @PolicyResourceProperty(name="serviceAccessRoleArn", flag="unknown_serviceAccessRoleArn")
+    private String value_serviceAccessRoleArn;
+    private boolean unknown_serviceAccessRoleArn;
     public String serviceAccessRoleArn() {
-        if (serviceAccessRoleArn == null) return null;
-        return serviceAccessRoleArn.getValue("EndpointElasticsearchSettingsArgs.serviceAccessRoleArn");
+        if (!unknown_serviceAccessRoleArn) return value_serviceAccessRoleArn;
+        throw new UndeferrableValueException("Value 'EndpointElasticsearchSettingsArgs.serviceAccessRoleArn' is not present");
     }
 
     /**
      * Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> useNewMappingType;
-
+    @PolicyResourceProperty(name="useNewMappingType", flag="unknown_useNewMappingType")
+    private Boolean value_useNewMappingType;
+    private boolean unknown_useNewMappingType;
     public Boolean useNewMappingType() {
-        if (useNewMappingType == null) return null;
-        return useNewMappingType.getValue("EndpointElasticsearchSettingsArgs.useNewMappingType");
+        if (!unknown_useNewMappingType) return value_useNewMappingType;
+        throw new UndeferrableValueException("Value 'EndpointElasticsearchSettingsArgs.useNewMappingType' is not present");
     }
 
 }

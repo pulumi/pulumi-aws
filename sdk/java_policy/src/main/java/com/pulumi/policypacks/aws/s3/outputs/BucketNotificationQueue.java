@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,55 +16,60 @@ public final class BucketNotificationQueue {
      * Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
      * 
      */
-    private UndeferrableValue<List<String>> events;
-
+    @PolicyResourceProperty(name="events", flag="unknown_events")
+    private List<String> value_events;
+    private boolean unknown_events;
     public List<String> events() {
-        if (events == null) return null;
-        return events.getValue("BucketNotificationQueue.events");
+        if (!unknown_events) return value_events;
+        throw new UndeferrableValueException("Value 'BucketNotificationQueue.events' is not present");
     }
 
     /**
      * Object key name prefix.
      * 
      */
-    private @Nullable UndeferrableValue<String> filterPrefix;
-
+    @PolicyResourceProperty(name="filterPrefix", flag="unknown_filterPrefix")
+    private @Nullable String value_filterPrefix;
+    private boolean unknown_filterPrefix;
     public @Nullable String filterPrefix() {
-        if (filterPrefix == null) return null;
-        return filterPrefix.getValue("BucketNotificationQueue.filterPrefix");
+        if (!unknown_filterPrefix) return value_filterPrefix;
+        throw new UndeferrableValueException("Value 'BucketNotificationQueue.filterPrefix' is not present");
     }
 
     /**
      * Object key name suffix.
      * 
      */
-    private @Nullable UndeferrableValue<String> filterSuffix;
-
+    @PolicyResourceProperty(name="filterSuffix", flag="unknown_filterSuffix")
+    private @Nullable String value_filterSuffix;
+    private boolean unknown_filterSuffix;
     public @Nullable String filterSuffix() {
-        if (filterSuffix == null) return null;
-        return filterSuffix.getValue("BucketNotificationQueue.filterSuffix");
+        if (!unknown_filterSuffix) return value_filterSuffix;
+        throw new UndeferrableValueException("Value 'BucketNotificationQueue.filterSuffix' is not present");
     }
 
     /**
      * Unique identifier for each of the notification configurations.
      * 
      */
-    private @Nullable UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private @Nullable String value_id;
+    private boolean unknown_id;
     public @Nullable String id() {
-        if (id == null) return null;
-        return id.getValue("BucketNotificationQueue.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'BucketNotificationQueue.id' is not present");
     }
 
     /**
      * SQS queue ARN.
      * 
      */
-    private UndeferrableValue<String> queueArn;
-
+    @PolicyResourceProperty(name="queueArn", flag="unknown_queueArn")
+    private String value_queueArn;
+    private boolean unknown_queueArn;
     public String queueArn() {
-        if (queueArn == null) return null;
-        return queueArn.getValue("BucketNotificationQueue.queueArn");
+        if (!unknown_queueArn) return value_queueArn;
+        throw new UndeferrableValueException("Value 'BucketNotificationQueue.queueArn' is not present");
     }
 
 }

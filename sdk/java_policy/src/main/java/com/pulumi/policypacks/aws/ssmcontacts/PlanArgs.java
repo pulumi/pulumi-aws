@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssmcontacts;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ssmcontacts.inputs.PlanStageArgs;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class PlanArgs extends com.pulumi.resources.PolicyResourceInput {
      * The Amazon Resource Name (ARN) of the contact or escalation plan.
      * 
      */
-    private UndeferrableValue<String> contactId;
-
+    @PolicyResourceProperty(name="contactId", flag="unknown_contactId")
+    private String value_contactId;
+    private boolean unknown_contactId;
     public String contactId() {
-        if (contactId == null) return null;
-        return contactId.getValue("PlanArgs.contactId");
+        if (!unknown_contactId) return value_contactId;
+        throw new UndeferrableValueException("Value 'PlanArgs.contactId' is not present");
     }
 
     /**
      * One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
      * 
      */
-    private UndeferrableValue<List<PlanStageArgs>> stages;
-
+    @PolicyResourceProperty(name="stages", flag="unknown_stages")
+    private List<PlanStageArgs> value_stages;
+    private boolean unknown_stages;
     public List<PlanStageArgs> stages() {
-        if (stages == null) return null;
-        return stages.getValue("PlanArgs.stages");
+        if (!unknown_stages) return value_stages;
+        throw new UndeferrableValueException("Value 'PlanArgs.stages' is not present");
     }
 
 }

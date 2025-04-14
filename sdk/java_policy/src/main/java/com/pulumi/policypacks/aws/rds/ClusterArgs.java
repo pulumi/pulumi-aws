@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.rds.enums.EngineMode;
 import com.pulumi.policypacks.aws.rds.enums.EngineType;
@@ -26,33 +27,36 @@ public final class ClusterArgs extends com.pulumi.resources.PolicyResourceInput 
      * The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
      * 
      */
-    private UndeferrableValue<Integer> allocatedStorage;
-
+    @PolicyResourceProperty(name="allocatedStorage", flag="unknown_allocatedStorage")
+    private Integer value_allocatedStorage;
+    private boolean unknown_allocatedStorage;
     public Integer allocatedStorage() {
-        if (allocatedStorage == null) return null;
-        return allocatedStorage.getValue("ClusterArgs.allocatedStorage");
+        if (!unknown_allocatedStorage) return value_allocatedStorage;
+        throw new UndeferrableValueException("Value 'ClusterArgs.allocatedStorage' is not present");
     }
 
     /**
      * Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> allowMajorVersionUpgrade;
-
+    @PolicyResourceProperty(name="allowMajorVersionUpgrade", flag="unknown_allowMajorVersionUpgrade")
+    private Boolean value_allowMajorVersionUpgrade;
+    private boolean unknown_allowMajorVersionUpgrade;
     public Boolean allowMajorVersionUpgrade() {
-        if (allowMajorVersionUpgrade == null) return null;
-        return allowMajorVersionUpgrade.getValue("ClusterArgs.allowMajorVersionUpgrade");
+        if (!unknown_allowMajorVersionUpgrade) return value_allowMajorVersionUpgrade;
+        throw new UndeferrableValueException("Value 'ClusterArgs.allowMajorVersionUpgrade' is not present");
     }
 
     /**
      * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
      * 
      */
-    private UndeferrableValue<Boolean> applyImmediately;
-
+    @PolicyResourceProperty(name="applyImmediately", flag="unknown_applyImmediately")
+    private Boolean value_applyImmediately;
+    private boolean unknown_applyImmediately;
     public Boolean applyImmediately() {
-        if (applyImmediately == null) return null;
-        return applyImmediately.getValue("ClusterArgs.applyImmediately");
+        if (!unknown_applyImmediately) return value_applyImmediately;
+        throw new UndeferrableValueException("Value 'ClusterArgs.applyImmediately' is not present");
     }
 
     /**
@@ -62,154 +66,168 @@ public final class ClusterArgs extends com.pulumi.resources.PolicyResourceInput 
      * A maximum of 3 AZs can be configured.
      * 
      */
-    private UndeferrableValue<List<String>> availabilityZones;
-
+    @PolicyResourceProperty(name="availabilityZones", flag="unknown_availabilityZones")
+    private List<String> value_availabilityZones;
+    private boolean unknown_availabilityZones;
     public List<String> availabilityZones() {
-        if (availabilityZones == null) return null;
-        return availabilityZones.getValue("ClusterArgs.availabilityZones");
+        if (!unknown_availabilityZones) return value_availabilityZones;
+        throw new UndeferrableValueException("Value 'ClusterArgs.availabilityZones' is not present");
     }
 
     /**
      * Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
      * 
      */
-    private UndeferrableValue<Integer> backtrackWindow;
-
+    @PolicyResourceProperty(name="backtrackWindow", flag="unknown_backtrackWindow")
+    private Integer value_backtrackWindow;
+    private boolean unknown_backtrackWindow;
     public Integer backtrackWindow() {
-        if (backtrackWindow == null) return null;
-        return backtrackWindow.getValue("ClusterArgs.backtrackWindow");
+        if (!unknown_backtrackWindow) return value_backtrackWindow;
+        throw new UndeferrableValueException("Value 'ClusterArgs.backtrackWindow' is not present");
     }
 
     /**
      * Days to retain backups for. Default `1`
      * 
      */
-    private UndeferrableValue<Integer> backupRetentionPeriod;
-
+    @PolicyResourceProperty(name="backupRetentionPeriod", flag="unknown_backupRetentionPeriod")
+    private Integer value_backupRetentionPeriod;
+    private boolean unknown_backupRetentionPeriod;
     public Integer backupRetentionPeriod() {
-        if (backupRetentionPeriod == null) return null;
-        return backupRetentionPeriod.getValue("ClusterArgs.backupRetentionPeriod");
+        if (!unknown_backupRetentionPeriod) return value_backupRetentionPeriod;
+        throw new UndeferrableValueException("Value 'ClusterArgs.backupRetentionPeriod' is not present");
     }
 
     /**
      * The CA certificate identifier to use for the DB cluster&#39;s server certificate.
      * 
      */
-    private UndeferrableValue<String> caCertificateIdentifier;
-
+    @PolicyResourceProperty(name="caCertificateIdentifier", flag="unknown_caCertificateIdentifier")
+    private String value_caCertificateIdentifier;
+    private boolean unknown_caCertificateIdentifier;
     public String caCertificateIdentifier() {
-        if (caCertificateIdentifier == null) return null;
-        return caCertificateIdentifier.getValue("ClusterArgs.caCertificateIdentifier");
+        if (!unknown_caCertificateIdentifier) return value_caCertificateIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterArgs.caCertificateIdentifier' is not present");
     }
 
     /**
      * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
      * 
      */
-    private UndeferrableValue<String> clusterIdentifier;
-
+    @PolicyResourceProperty(name="clusterIdentifier", flag="unknown_clusterIdentifier")
+    private String value_clusterIdentifier;
+    private boolean unknown_clusterIdentifier;
     public String clusterIdentifier() {
-        if (clusterIdentifier == null) return null;
-        return clusterIdentifier.getValue("ClusterArgs.clusterIdentifier");
+        if (!unknown_clusterIdentifier) return value_clusterIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterArgs.clusterIdentifier' is not present");
     }
 
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
      * 
      */
-    private UndeferrableValue<String> clusterIdentifierPrefix;
-
+    @PolicyResourceProperty(name="clusterIdentifierPrefix", flag="unknown_clusterIdentifierPrefix")
+    private String value_clusterIdentifierPrefix;
+    private boolean unknown_clusterIdentifierPrefix;
     public String clusterIdentifierPrefix() {
-        if (clusterIdentifierPrefix == null) return null;
-        return clusterIdentifierPrefix.getValue("ClusterArgs.clusterIdentifierPrefix");
+        if (!unknown_clusterIdentifierPrefix) return value_clusterIdentifierPrefix;
+        throw new UndeferrableValueException("Value 'ClusterArgs.clusterIdentifierPrefix' is not present");
     }
 
     /**
      * List of RDS Instances that are a part of this cluster
      * 
      */
-    private UndeferrableValue<List<String>> clusterMembers;
-
+    @PolicyResourceProperty(name="clusterMembers", flag="unknown_clusterMembers")
+    private List<String> value_clusterMembers;
+    private boolean unknown_clusterMembers;
     public List<String> clusterMembers() {
-        if (clusterMembers == null) return null;
-        return clusterMembers.getValue("ClusterArgs.clusterMembers");
+        if (!unknown_clusterMembers) return value_clusterMembers;
+        throw new UndeferrableValueException("Value 'ClusterArgs.clusterMembers' is not present");
     }
 
     /**
      * Specifies the scalability mode of the Aurora DB cluster. When set to `limitless`, the cluster operates as an Aurora Limitless Database. When set to `standard` (the default), the cluster uses normal DB instance creation. Valid values: `limitless`, `standard`.
      * 
      */
-    private UndeferrableValue<String> clusterScalabilityType;
-
+    @PolicyResourceProperty(name="clusterScalabilityType", flag="unknown_clusterScalabilityType")
+    private String value_clusterScalabilityType;
+    private boolean unknown_clusterScalabilityType;
     public String clusterScalabilityType() {
-        if (clusterScalabilityType == null) return null;
-        return clusterScalabilityType.getValue("ClusterArgs.clusterScalabilityType");
+        if (!unknown_clusterScalabilityType) return value_clusterScalabilityType;
+        throw new UndeferrableValueException("Value 'ClusterArgs.clusterScalabilityType' is not present");
     }
 
     /**
      * Copy all Cluster `tags` to snapshots. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> copyTagsToSnapshot;
-
+    @PolicyResourceProperty(name="copyTagsToSnapshot", flag="unknown_copyTagsToSnapshot")
+    private Boolean value_copyTagsToSnapshot;
+    private boolean unknown_copyTagsToSnapshot;
     public Boolean copyTagsToSnapshot() {
-        if (copyTagsToSnapshot == null) return null;
-        return copyTagsToSnapshot.getValue("ClusterArgs.copyTagsToSnapshot");
+        if (!unknown_copyTagsToSnapshot) return value_copyTagsToSnapshot;
+        throw new UndeferrableValueException("Value 'ClusterArgs.copyTagsToSnapshot' is not present");
     }
 
     /**
      * The mode of Database Insights to enable for the DB cluster. Valid values: `standard`, `advanced`.
      * 
      */
-    private UndeferrableValue<String> databaseInsightsMode;
-
+    @PolicyResourceProperty(name="databaseInsightsMode", flag="unknown_databaseInsightsMode")
+    private String value_databaseInsightsMode;
+    private boolean unknown_databaseInsightsMode;
     public String databaseInsightsMode() {
-        if (databaseInsightsMode == null) return null;
-        return databaseInsightsMode.getValue("ClusterArgs.databaseInsightsMode");
+        if (!unknown_databaseInsightsMode) return value_databaseInsightsMode;
+        throw new UndeferrableValueException("Value 'ClusterArgs.databaseInsightsMode' is not present");
     }
 
     /**
      * Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("ClusterArgs.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'ClusterArgs.databaseName' is not present");
     }
 
     /**
      * The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
      * 
      */
-    private UndeferrableValue<String> dbClusterInstanceClass;
-
+    @PolicyResourceProperty(name="dbClusterInstanceClass", flag="unknown_dbClusterInstanceClass")
+    private String value_dbClusterInstanceClass;
+    private boolean unknown_dbClusterInstanceClass;
     public String dbClusterInstanceClass() {
-        if (dbClusterInstanceClass == null) return null;
-        return dbClusterInstanceClass.getValue("ClusterArgs.dbClusterInstanceClass");
+        if (!unknown_dbClusterInstanceClass) return value_dbClusterInstanceClass;
+        throw new UndeferrableValueException("Value 'ClusterArgs.dbClusterInstanceClass' is not present");
     }
 
     /**
      * A cluster parameter group to associate with the cluster.
      * 
      */
-    private UndeferrableValue<String> dbClusterParameterGroupName;
-
+    @PolicyResourceProperty(name="dbClusterParameterGroupName", flag="unknown_dbClusterParameterGroupName")
+    private String value_dbClusterParameterGroupName;
+    private boolean unknown_dbClusterParameterGroupName;
     public String dbClusterParameterGroupName() {
-        if (dbClusterParameterGroupName == null) return null;
-        return dbClusterParameterGroupName.getValue("ClusterArgs.dbClusterParameterGroupName");
+        if (!unknown_dbClusterParameterGroupName) return value_dbClusterParameterGroupName;
+        throw new UndeferrableValueException("Value 'ClusterArgs.dbClusterParameterGroupName' is not present");
     }
 
     /**
      * Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
      * 
      */
-    private UndeferrableValue<String> dbInstanceParameterGroupName;
-
+    @PolicyResourceProperty(name="dbInstanceParameterGroupName", flag="unknown_dbInstanceParameterGroupName")
+    private String value_dbInstanceParameterGroupName;
+    private boolean unknown_dbInstanceParameterGroupName;
     public String dbInstanceParameterGroupName() {
-        if (dbInstanceParameterGroupName == null) return null;
-        return dbInstanceParameterGroupName.getValue("ClusterArgs.dbInstanceParameterGroupName");
+        if (!unknown_dbInstanceParameterGroupName) return value_dbInstanceParameterGroupName;
+        throw new UndeferrableValueException("Value 'ClusterArgs.dbInstanceParameterGroupName' is not present");
     }
 
     /**
@@ -217,33 +235,36 @@ public final class ClusterArgs extends com.pulumi.resources.PolicyResourceInput 
      * **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
      * 
      */
-    private UndeferrableValue<String> dbSubnetGroupName;
-
+    @PolicyResourceProperty(name="dbSubnetGroupName", flag="unknown_dbSubnetGroupName")
+    private String value_dbSubnetGroupName;
+    private boolean unknown_dbSubnetGroupName;
     public String dbSubnetGroupName() {
-        if (dbSubnetGroupName == null) return null;
-        return dbSubnetGroupName.getValue("ClusterArgs.dbSubnetGroupName");
+        if (!unknown_dbSubnetGroupName) return value_dbSubnetGroupName;
+        throw new UndeferrableValueException("Value 'ClusterArgs.dbSubnetGroupName' is not present");
     }
 
     /**
      * For use with RDS Custom.
      * 
      */
-    private UndeferrableValue<String> dbSystemId;
-
+    @PolicyResourceProperty(name="dbSystemId", flag="unknown_dbSystemId")
+    private String value_dbSystemId;
+    private boolean unknown_dbSystemId;
     public String dbSystemId() {
-        if (dbSystemId == null) return null;
-        return dbSystemId.getValue("ClusterArgs.dbSystemId");
+        if (!unknown_dbSystemId) return value_dbSystemId;
+        throw new UndeferrableValueException("Value 'ClusterArgs.dbSystemId' is not present");
     }
 
     /**
      * Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
      * 
      */
-    private UndeferrableValue<Boolean> deleteAutomatedBackups;
-
+    @PolicyResourceProperty(name="deleteAutomatedBackups", flag="unknown_deleteAutomatedBackups")
+    private Boolean value_deleteAutomatedBackups;
+    private boolean unknown_deleteAutomatedBackups;
     public Boolean deleteAutomatedBackups() {
-        if (deleteAutomatedBackups == null) return null;
-        return deleteAutomatedBackups.getValue("ClusterArgs.deleteAutomatedBackups");
+        if (!unknown_deleteAutomatedBackups) return value_deleteAutomatedBackups;
+        throw new UndeferrableValueException("Value 'ClusterArgs.deleteAutomatedBackups' is not present");
     }
 
     /**
@@ -252,458 +273,500 @@ public final class ClusterArgs extends com.pulumi.resources.PolicyResourceInput 
      * The default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> deletionProtection;
-
+    @PolicyResourceProperty(name="deletionProtection", flag="unknown_deletionProtection")
+    private Boolean value_deletionProtection;
+    private boolean unknown_deletionProtection;
     public Boolean deletionProtection() {
-        if (deletionProtection == null) return null;
-        return deletionProtection.getValue("ClusterArgs.deletionProtection");
+        if (!unknown_deletionProtection) return value_deletionProtection;
+        throw new UndeferrableValueException("Value 'ClusterArgs.deletionProtection' is not present");
     }
 
     /**
      * The ID of the Directory Service Active Directory domain to create the cluster in.
      * 
      */
-    private UndeferrableValue<String> domain;
-
+    @PolicyResourceProperty(name="domain", flag="unknown_domain")
+    private String value_domain;
+    private boolean unknown_domain;
     public String domain() {
-        if (domain == null) return null;
-        return domain.getValue("ClusterArgs.domain");
+        if (!unknown_domain) return value_domain;
+        throw new UndeferrableValueException("Value 'ClusterArgs.domain' is not present");
     }
 
     /**
      * The name of the IAM role to be used when making API calls to the Directory Service.
      * 
      */
-    private UndeferrableValue<String> domainIamRoleName;
-
+    @PolicyResourceProperty(name="domainIamRoleName", flag="unknown_domainIamRoleName")
+    private String value_domainIamRoleName;
+    private boolean unknown_domainIamRoleName;
     public String domainIamRoleName() {
-        if (domainIamRoleName == null) return null;
-        return domainIamRoleName.getValue("ClusterArgs.domainIamRoleName");
+        if (!unknown_domainIamRoleName) return value_domainIamRoleName;
+        throw new UndeferrableValueException("Value 'ClusterArgs.domainIamRoleName' is not present");
     }
 
     /**
      * Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`&#39;s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
      * 
      */
-    private UndeferrableValue<Boolean> enableGlobalWriteForwarding;
-
+    @PolicyResourceProperty(name="enableGlobalWriteForwarding", flag="unknown_enableGlobalWriteForwarding")
+    private Boolean value_enableGlobalWriteForwarding;
+    private boolean unknown_enableGlobalWriteForwarding;
     public Boolean enableGlobalWriteForwarding() {
-        if (enableGlobalWriteForwarding == null) return null;
-        return enableGlobalWriteForwarding.getValue("ClusterArgs.enableGlobalWriteForwarding");
+        if (!unknown_enableGlobalWriteForwarding) return value_enableGlobalWriteForwarding;
+        throw new UndeferrableValueException("Value 'ClusterArgs.enableGlobalWriteForwarding' is not present");
     }
 
     /**
      * Enable HTTP endpoint (data API). Only valid for some combinations of `engine_mode`, `engine` and `engine_version` and only available in some regions. See the [Region and version availability](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html#data-api.regions) section of the documentation. This option also does not work with any of these options specified: `snapshot_identifier`, `replication_source_identifier`, `s3_import`.
      * 
      */
-    private UndeferrableValue<Boolean> enableHttpEndpoint;
-
+    @PolicyResourceProperty(name="enableHttpEndpoint", flag="unknown_enableHttpEndpoint")
+    private Boolean value_enableHttpEndpoint;
+    private boolean unknown_enableHttpEndpoint;
     public Boolean enableHttpEndpoint() {
-        if (enableHttpEndpoint == null) return null;
-        return enableHttpEndpoint.getValue("ClusterArgs.enableHttpEndpoint");
+        if (!unknown_enableHttpEndpoint) return value_enableHttpEndpoint;
+        throw new UndeferrableValueException("Value 'ClusterArgs.enableHttpEndpoint' is not present");
     }
 
     /**
      * Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren&#39;t allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
      * 
      */
-    private UndeferrableValue<Boolean> enableLocalWriteForwarding;
-
+    @PolicyResourceProperty(name="enableLocalWriteForwarding", flag="unknown_enableLocalWriteForwarding")
+    private Boolean value_enableLocalWriteForwarding;
+    private boolean unknown_enableLocalWriteForwarding;
     public Boolean enableLocalWriteForwarding() {
-        if (enableLocalWriteForwarding == null) return null;
-        return enableLocalWriteForwarding.getValue("ClusterArgs.enableLocalWriteForwarding");
+        if (!unknown_enableLocalWriteForwarding) return value_enableLocalWriteForwarding;
+        throw new UndeferrableValueException("Value 'ClusterArgs.enableLocalWriteForwarding' is not present");
     }
 
     /**
      * Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `iam-db-auth-error`, `postgresql` (PostgreSQL).
      * 
      */
-    private UndeferrableValue<List<String>> enabledCloudwatchLogsExports;
-
+    @PolicyResourceProperty(name="enabledCloudwatchLogsExports", flag="unknown_enabledCloudwatchLogsExports")
+    private List<String> value_enabledCloudwatchLogsExports;
+    private boolean unknown_enabledCloudwatchLogsExports;
     public List<String> enabledCloudwatchLogsExports() {
-        if (enabledCloudwatchLogsExports == null) return null;
-        return enabledCloudwatchLogsExports.getValue("ClusterArgs.enabledCloudwatchLogsExports");
+        if (!unknown_enabledCloudwatchLogsExports) return value_enabledCloudwatchLogsExports;
+        throw new UndeferrableValueException("Value 'ClusterArgs.enabledCloudwatchLogsExports' is not present");
     }
 
     /**
      * Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      * 
      */
-    private UndeferrableValue<String> engine;
-
+    @PolicyResourceProperty(name="engine", flag="unknown_engine")
+    private String value_engine;
+    private boolean unknown_engine;
     public String engine() {
-        if (engine == null) return null;
-        return engine.getValue("ClusterArgs.engine");
+        if (!unknown_engine) return value_engine;
+        throw new UndeferrableValueException("Value 'ClusterArgs.engine' is not present");
     }
 
     /**
      * The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
      * 
      */
-    private UndeferrableValue<String> engineLifecycleSupport;
-
+    @PolicyResourceProperty(name="engineLifecycleSupport", flag="unknown_engineLifecycleSupport")
+    private String value_engineLifecycleSupport;
+    private boolean unknown_engineLifecycleSupport;
     public String engineLifecycleSupport() {
-        if (engineLifecycleSupport == null) return null;
-        return engineLifecycleSupport.getValue("ClusterArgs.engineLifecycleSupport");
+        if (!unknown_engineLifecycleSupport) return value_engineLifecycleSupport;
+        throw new UndeferrableValueException("Value 'ClusterArgs.engineLifecycleSupport' is not present");
     }
 
     /**
      * Database engine mode. Valid values: `global` (only valid for Aurora MySQL 1.21 and earlier), `parallelquery`, `provisioned`, `serverless`. Defaults to: `provisioned`. Specify an empty value (`&#34;&#34;`) for no engine mode. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) for limitations when using `serverless`.
      * 
      */
-    private UndeferrableValue<String> engineMode;
-
+    @PolicyResourceProperty(name="engineMode", flag="unknown_engineMode")
+    private String value_engineMode;
+    private boolean unknown_engineMode;
     public String engineMode() {
-        if (engineMode == null) return null;
-        return engineMode.getValue("ClusterArgs.engineMode");
+        if (!unknown_engineMode) return value_engineMode;
+        throw new UndeferrableValueException("Value 'ClusterArgs.engineMode' is not present");
     }
 
     /**
      * Database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value, or by running `aws rds describe-db-engine-versions`. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attribute Reference below.
      * 
      */
-    private UndeferrableValue<String> engineVersion;
-
+    @PolicyResourceProperty(name="engineVersion", flag="unknown_engineVersion")
+    private String value_engineVersion;
+    private boolean unknown_engineVersion;
     public String engineVersion() {
-        if (engineVersion == null) return null;
-        return engineVersion.getValue("ClusterArgs.engineVersion");
+        if (!unknown_engineVersion) return value_engineVersion;
+        throw new UndeferrableValueException("Value 'ClusterArgs.engineVersion' is not present");
     }
 
     /**
      * Name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
      * 
      */
-    private UndeferrableValue<String> finalSnapshotIdentifier;
-
+    @PolicyResourceProperty(name="finalSnapshotIdentifier", flag="unknown_finalSnapshotIdentifier")
+    private String value_finalSnapshotIdentifier;
+    private boolean unknown_finalSnapshotIdentifier;
     public String finalSnapshotIdentifier() {
-        if (finalSnapshotIdentifier == null) return null;
-        return finalSnapshotIdentifier.getValue("ClusterArgs.finalSnapshotIdentifier");
+        if (!unknown_finalSnapshotIdentifier) return value_finalSnapshotIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterArgs.finalSnapshotIdentifier' is not present");
     }
 
     /**
      * Global cluster identifier specified on `aws.rds.GlobalCluster`.
      * 
      */
-    private UndeferrableValue<String> globalClusterIdentifier;
-
+    @PolicyResourceProperty(name="globalClusterIdentifier", flag="unknown_globalClusterIdentifier")
+    private String value_globalClusterIdentifier;
+    private boolean unknown_globalClusterIdentifier;
     public String globalClusterIdentifier() {
-        if (globalClusterIdentifier == null) return null;
-        return globalClusterIdentifier.getValue("ClusterArgs.globalClusterIdentifier");
+        if (!unknown_globalClusterIdentifier) return value_globalClusterIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterArgs.globalClusterIdentifier' is not present");
     }
 
     /**
      * Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
      * 
      */
-    private UndeferrableValue<Boolean> iamDatabaseAuthenticationEnabled;
-
+    @PolicyResourceProperty(name="iamDatabaseAuthenticationEnabled", flag="unknown_iamDatabaseAuthenticationEnabled")
+    private Boolean value_iamDatabaseAuthenticationEnabled;
+    private boolean unknown_iamDatabaseAuthenticationEnabled;
     public Boolean iamDatabaseAuthenticationEnabled() {
-        if (iamDatabaseAuthenticationEnabled == null) return null;
-        return iamDatabaseAuthenticationEnabled.getValue("ClusterArgs.iamDatabaseAuthenticationEnabled");
+        if (!unknown_iamDatabaseAuthenticationEnabled) return value_iamDatabaseAuthenticationEnabled;
+        throw new UndeferrableValueException("Value 'ClusterArgs.iamDatabaseAuthenticationEnabled' is not present");
     }
 
     /**
      * List of ARNs for the IAM roles to associate to the RDS Cluster.
      * 
      */
-    private UndeferrableValue<List<String>> iamRoles;
-
+    @PolicyResourceProperty(name="iamRoles", flag="unknown_iamRoles")
+    private List<String> value_iamRoles;
+    private boolean unknown_iamRoles;
     public List<String> iamRoles() {
-        if (iamRoles == null) return null;
-        return iamRoles.getValue("ClusterArgs.iamRoles");
+        if (!unknown_iamRoles) return value_iamRoles;
+        throw new UndeferrableValueException("Value 'ClusterArgs.iamRoles' is not present");
     }
 
     /**
      * Amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster. For information about valid Iops values, see [Amazon RDS Provisioned IOPS storage to improve performance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS) in the Amazon RDS User Guide. (This setting is required to create a Multi-AZ DB cluster). Must be a multiple between .5 and 50 of the storage amount for the DB cluster.
      * 
      */
-    private UndeferrableValue<Integer> iops;
-
+    @PolicyResourceProperty(name="iops", flag="unknown_iops")
+    private Integer value_iops;
+    private boolean unknown_iops;
     public Integer iops() {
-        if (iops == null) return null;
-        return iops.getValue("ClusterArgs.iops");
+        if (!unknown_iops) return value_iops;
+        throw new UndeferrableValueException("Value 'ClusterArgs.iops' is not present");
     }
 
     /**
      * ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("ClusterArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'ClusterArgs.kmsKeyId' is not present");
     }
 
     /**
      * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
      * 
      */
-    private UndeferrableValue<Boolean> manageMasterUserPassword;
-
+    @PolicyResourceProperty(name="manageMasterUserPassword", flag="unknown_manageMasterUserPassword")
+    private Boolean value_manageMasterUserPassword;
+    private boolean unknown_manageMasterUserPassword;
     public Boolean manageMasterUserPassword() {
-        if (manageMasterUserPassword == null) return null;
-        return manageMasterUserPassword.getValue("ClusterArgs.manageMasterUserPassword");
+        if (!unknown_manageMasterUserPassword) return value_manageMasterUserPassword;
+        throw new UndeferrableValueException("Value 'ClusterArgs.manageMasterUserPassword' is not present");
     }
 
     /**
      * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
      * 
      */
-    private UndeferrableValue<String> masterPassword;
-
+    @PolicyResourceProperty(name="masterPassword", flag="unknown_masterPassword")
+    private String value_masterPassword;
+    private boolean unknown_masterPassword;
     public String masterPassword() {
-        if (masterPassword == null) return null;
-        return masterPassword.getValue("ClusterArgs.masterPassword");
+        if (!unknown_masterPassword) return value_masterPassword;
+        throw new UndeferrableValueException("Value 'ClusterArgs.masterPassword' is not present");
     }
 
     /**
      * Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
      * 
      */
-    private UndeferrableValue<String> masterUserSecretKmsKeyId;
-
+    @PolicyResourceProperty(name="masterUserSecretKmsKeyId", flag="unknown_masterUserSecretKmsKeyId")
+    private String value_masterUserSecretKmsKeyId;
+    private boolean unknown_masterUserSecretKmsKeyId;
     public String masterUserSecretKmsKeyId() {
-        if (masterUserSecretKmsKeyId == null) return null;
-        return masterUserSecretKmsKeyId.getValue("ClusterArgs.masterUserSecretKmsKeyId");
+        if (!unknown_masterUserSecretKmsKeyId) return value_masterUserSecretKmsKeyId;
+        throw new UndeferrableValueException("Value 'ClusterArgs.masterUserSecretKmsKeyId' is not present");
     }
 
     /**
      * Username for the master DB user. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
      * 
      */
-    private UndeferrableValue<String> masterUsername;
-
+    @PolicyResourceProperty(name="masterUsername", flag="unknown_masterUsername")
+    private String value_masterUsername;
+    private boolean unknown_masterUsername;
     public String masterUsername() {
-        if (masterUsername == null) return null;
-        return masterUsername.getValue("ClusterArgs.masterUsername");
+        if (!unknown_masterUsername) return value_masterUsername;
+        throw new UndeferrableValueException("Value 'ClusterArgs.masterUsername' is not present");
     }
 
     /**
      * Interval, in seconds, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
      * 
      */
-    private UndeferrableValue<Integer> monitoringInterval;
-
+    @PolicyResourceProperty(name="monitoringInterval", flag="unknown_monitoringInterval")
+    private Integer value_monitoringInterval;
+    private boolean unknown_monitoringInterval;
     public Integer monitoringInterval() {
-        if (monitoringInterval == null) return null;
-        return monitoringInterval.getValue("ClusterArgs.monitoringInterval");
+        if (!unknown_monitoringInterval) return value_monitoringInterval;
+        throw new UndeferrableValueException("Value 'ClusterArgs.monitoringInterval' is not present");
     }
 
     /**
      * ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Clusters.
      * 
      */
-    private UndeferrableValue<String> monitoringRoleArn;
-
+    @PolicyResourceProperty(name="monitoringRoleArn", flag="unknown_monitoringRoleArn")
+    private String value_monitoringRoleArn;
+    private boolean unknown_monitoringRoleArn;
     public String monitoringRoleArn() {
-        if (monitoringRoleArn == null) return null;
-        return monitoringRoleArn.getValue("ClusterArgs.monitoringRoleArn");
+        if (!unknown_monitoringRoleArn) return value_monitoringRoleArn;
+        throw new UndeferrableValueException("Value 'ClusterArgs.monitoringRoleArn' is not present");
     }
 
     /**
      * Network type of the cluster. Valid values: `IPV4`, `DUAL`.
      * 
      */
-    private UndeferrableValue<String> networkType;
-
+    @PolicyResourceProperty(name="networkType", flag="unknown_networkType")
+    private String value_networkType;
+    private boolean unknown_networkType;
     public String networkType() {
-        if (networkType == null) return null;
-        return networkType.getValue("ClusterArgs.networkType");
+        if (!unknown_networkType) return value_networkType;
+        throw new UndeferrableValueException("Value 'ClusterArgs.networkType' is not present");
     }
 
     /**
      * Enables Performance Insights.
      * 
      */
-    private UndeferrableValue<Boolean> performanceInsightsEnabled;
-
+    @PolicyResourceProperty(name="performanceInsightsEnabled", flag="unknown_performanceInsightsEnabled")
+    private Boolean value_performanceInsightsEnabled;
+    private boolean unknown_performanceInsightsEnabled;
     public Boolean performanceInsightsEnabled() {
-        if (performanceInsightsEnabled == null) return null;
-        return performanceInsightsEnabled.getValue("ClusterArgs.performanceInsightsEnabled");
+        if (!unknown_performanceInsightsEnabled) return value_performanceInsightsEnabled;
+        throw new UndeferrableValueException("Value 'ClusterArgs.performanceInsightsEnabled' is not present");
     }
 
     /**
      * Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
      * 
      */
-    private UndeferrableValue<String> performanceInsightsKmsKeyId;
-
+    @PolicyResourceProperty(name="performanceInsightsKmsKeyId", flag="unknown_performanceInsightsKmsKeyId")
+    private String value_performanceInsightsKmsKeyId;
+    private boolean unknown_performanceInsightsKmsKeyId;
     public String performanceInsightsKmsKeyId() {
-        if (performanceInsightsKmsKeyId == null) return null;
-        return performanceInsightsKmsKeyId.getValue("ClusterArgs.performanceInsightsKmsKeyId");
+        if (!unknown_performanceInsightsKmsKeyId) return value_performanceInsightsKmsKeyId;
+        throw new UndeferrableValueException("Value 'ClusterArgs.performanceInsightsKmsKeyId' is not present");
     }
 
     /**
      * Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
      * 
      */
-    private UndeferrableValue<Integer> performanceInsightsRetentionPeriod;
-
+    @PolicyResourceProperty(name="performanceInsightsRetentionPeriod", flag="unknown_performanceInsightsRetentionPeriod")
+    private Integer value_performanceInsightsRetentionPeriod;
+    private boolean unknown_performanceInsightsRetentionPeriod;
     public Integer performanceInsightsRetentionPeriod() {
-        if (performanceInsightsRetentionPeriod == null) return null;
-        return performanceInsightsRetentionPeriod.getValue("ClusterArgs.performanceInsightsRetentionPeriod");
+        if (!unknown_performanceInsightsRetentionPeriod) return value_performanceInsightsRetentionPeriod;
+        throw new UndeferrableValueException("Value 'ClusterArgs.performanceInsightsRetentionPeriod' is not present");
     }
 
     /**
      * Port on which the DB accepts connections.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("ClusterArgs.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'ClusterArgs.port' is not present");
     }
 
     /**
      * Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region, e.g. `04:00-09:00`.
      * 
      */
-    private UndeferrableValue<String> preferredBackupWindow;
-
+    @PolicyResourceProperty(name="preferredBackupWindow", flag="unknown_preferredBackupWindow")
+    private String value_preferredBackupWindow;
+    private boolean unknown_preferredBackupWindow;
     public String preferredBackupWindow() {
-        if (preferredBackupWindow == null) return null;
-        return preferredBackupWindow.getValue("ClusterArgs.preferredBackupWindow");
+        if (!unknown_preferredBackupWindow) return value_preferredBackupWindow;
+        throw new UndeferrableValueException("Value 'ClusterArgs.preferredBackupWindow' is not present");
     }
 
     /**
      * Weekly time range during which system maintenance can occur, in (UTC) e.g., `wed:04:00-wed:04:30`
      * 
      */
-    private UndeferrableValue<String> preferredMaintenanceWindow;
-
+    @PolicyResourceProperty(name="preferredMaintenanceWindow", flag="unknown_preferredMaintenanceWindow")
+    private String value_preferredMaintenanceWindow;
+    private boolean unknown_preferredMaintenanceWindow;
     public String preferredMaintenanceWindow() {
-        if (preferredMaintenanceWindow == null) return null;
-        return preferredMaintenanceWindow.getValue("ClusterArgs.preferredMaintenanceWindow");
+        if (!unknown_preferredMaintenanceWindow) return value_preferredMaintenanceWindow;
+        throw new UndeferrableValueException("Value 'ClusterArgs.preferredMaintenanceWindow' is not present");
     }
 
     /**
      * ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. **Note:** Removing this attribute after creation will promote the read replica to a standalone cluster. If DB Cluster is part of a Global Cluster, use the `ignoreChanges` resource option to prevent Pulumi from showing differences for this argument instead of configuring this value.
      * 
      */
-    private UndeferrableValue<String> replicationSourceIdentifier;
-
+    @PolicyResourceProperty(name="replicationSourceIdentifier", flag="unknown_replicationSourceIdentifier")
+    private String value_replicationSourceIdentifier;
+    private boolean unknown_replicationSourceIdentifier;
     public String replicationSourceIdentifier() {
-        if (replicationSourceIdentifier == null) return null;
-        return replicationSourceIdentifier.getValue("ClusterArgs.replicationSourceIdentifier");
+        if (!unknown_replicationSourceIdentifier) return value_replicationSourceIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterArgs.replicationSourceIdentifier' is not present");
     }
 
     /**
      * Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
      * 
      */
-    private UndeferrableValue<ClusterRestoreToPointInTimeArgs> restoreToPointInTime;
-
+    @PolicyResourceProperty(name="restoreToPointInTime", flag="unknown_restoreToPointInTime")
+    private ClusterRestoreToPointInTimeArgs value_restoreToPointInTime;
+    private boolean unknown_restoreToPointInTime;
     public ClusterRestoreToPointInTimeArgs restoreToPointInTime() {
-        if (restoreToPointInTime == null) return null;
-        return restoreToPointInTime.getValue("ClusterArgs.restoreToPointInTime");
+        if (!unknown_restoreToPointInTime) return value_restoreToPointInTime;
+        throw new UndeferrableValueException("Value 'ClusterArgs.restoreToPointInTime' is not present");
     }
 
-    private UndeferrableValue<ClusterS3ImportArgs> s3Import;
-
+    @PolicyResourceProperty(name="s3Import", flag="unknown_s3Import")
+    private ClusterS3ImportArgs value_s3Import;
+    private boolean unknown_s3Import;
     public ClusterS3ImportArgs s3Import() {
-        if (s3Import == null) return null;
-        return s3Import.getValue("ClusterArgs.s3Import");
+        if (!unknown_s3Import) return value_s3Import;
+        throw new UndeferrableValueException("Value 'ClusterArgs.s3Import' is not present");
     }
 
     /**
      * Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
      * 
      */
-    private UndeferrableValue<ClusterScalingConfigurationArgs> scalingConfiguration;
-
+    @PolicyResourceProperty(name="scalingConfiguration", flag="unknown_scalingConfiguration")
+    private ClusterScalingConfigurationArgs value_scalingConfiguration;
+    private boolean unknown_scalingConfiguration;
     public ClusterScalingConfigurationArgs scalingConfiguration() {
-        if (scalingConfiguration == null) return null;
-        return scalingConfiguration.getValue("ClusterArgs.scalingConfiguration");
+        if (!unknown_scalingConfiguration) return value_scalingConfiguration;
+        throw new UndeferrableValueException("Value 'ClusterArgs.scalingConfiguration' is not present");
     }
 
     /**
      * Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
      * 
      */
-    private UndeferrableValue<ClusterServerlessv2ScalingConfigurationArgs> serverlessv2ScalingConfiguration;
-
+    @PolicyResourceProperty(name="serverlessv2ScalingConfiguration", flag="unknown_serverlessv2ScalingConfiguration")
+    private ClusterServerlessv2ScalingConfigurationArgs value_serverlessv2ScalingConfiguration;
+    private boolean unknown_serverlessv2ScalingConfiguration;
     public ClusterServerlessv2ScalingConfigurationArgs serverlessv2ScalingConfiguration() {
-        if (serverlessv2ScalingConfiguration == null) return null;
-        return serverlessv2ScalingConfiguration.getValue("ClusterArgs.serverlessv2ScalingConfiguration");
+        if (!unknown_serverlessv2ScalingConfiguration) return value_serverlessv2ScalingConfiguration;
+        throw new UndeferrableValueException("Value 'ClusterArgs.serverlessv2ScalingConfiguration' is not present");
     }
 
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> skipFinalSnapshot;
-
+    @PolicyResourceProperty(name="skipFinalSnapshot", flag="unknown_skipFinalSnapshot")
+    private Boolean value_skipFinalSnapshot;
+    private boolean unknown_skipFinalSnapshot;
     public Boolean skipFinalSnapshot() {
-        if (skipFinalSnapshot == null) return null;
-        return skipFinalSnapshot.getValue("ClusterArgs.skipFinalSnapshot");
+        if (!unknown_skipFinalSnapshot) return value_skipFinalSnapshot;
+        throw new UndeferrableValueException("Value 'ClusterArgs.skipFinalSnapshot' is not present");
     }
 
     /**
      * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
      * 
      */
-    private UndeferrableValue<String> snapshotIdentifier;
-
+    @PolicyResourceProperty(name="snapshotIdentifier", flag="unknown_snapshotIdentifier")
+    private String value_snapshotIdentifier;
+    private boolean unknown_snapshotIdentifier;
     public String snapshotIdentifier() {
-        if (snapshotIdentifier == null) return null;
-        return snapshotIdentifier.getValue("ClusterArgs.snapshotIdentifier");
+        if (!unknown_snapshotIdentifier) return value_snapshotIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterArgs.snapshotIdentifier' is not present");
     }
 
     /**
      * The source region for an encrypted replica DB cluster.
      * 
      */
-    private UndeferrableValue<String> sourceRegion;
-
+    @PolicyResourceProperty(name="sourceRegion", flag="unknown_sourceRegion")
+    private String value_sourceRegion;
+    private boolean unknown_sourceRegion;
     public String sourceRegion() {
-        if (sourceRegion == null) return null;
-        return sourceRegion.getValue("ClusterArgs.sourceRegion");
+        if (!unknown_sourceRegion) return value_sourceRegion;
+        throw new UndeferrableValueException("Value 'ClusterArgs.sourceRegion' is not present");
     }
 
     /**
      * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engine_mode` and `true` for `serverless` `engine_mode`. When restoring an unencrypted `snapshot_identifier`, the `kms_key_id` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    private UndeferrableValue<Boolean> storageEncrypted;
-
+    @PolicyResourceProperty(name="storageEncrypted", flag="unknown_storageEncrypted")
+    private Boolean value_storageEncrypted;
+    private boolean unknown_storageEncrypted;
     public Boolean storageEncrypted() {
-        if (storageEncrypted == null) return null;
-        return storageEncrypted.getValue("ClusterArgs.storageEncrypted");
+        if (!unknown_storageEncrypted) return value_storageEncrypted;
+        throw new UndeferrableValueException("Value 'ClusterArgs.storageEncrypted' is not present");
     }
 
     /**
      * (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storage_type` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `&#34;&#34;`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2` (Multi-AZ DB Clusters). Default: `&#34;&#34;` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
      * 
      */
-    private UndeferrableValue<String> storageType;
-
+    @PolicyResourceProperty(name="storageType", flag="unknown_storageType")
+    private String value_storageType;
+    private boolean unknown_storageType;
     public String storageType() {
-        if (storageType == null) return null;
-        return storageType.getValue("ClusterArgs.storageType");
+        if (!unknown_storageType) return value_storageType;
+        throw new UndeferrableValueException("Value 'ClusterArgs.storageType' is not present");
     }
 
     /**
      * A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ClusterArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ClusterArgs.tags' is not present");
     }
 
     /**
      * List of VPC security groups to associate with the Cluster
      * 
      */
-    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
-
+    @PolicyResourceProperty(name="vpcSecurityGroupIds", flag="unknown_vpcSecurityGroupIds")
+    private List<String> value_vpcSecurityGroupIds;
+    private boolean unknown_vpcSecurityGroupIds;
     public List<String> vpcSecurityGroupIds() {
-        if (vpcSecurityGroupIds == null) return null;
-        return vpcSecurityGroupIds.getValue("ClusterArgs.vpcSecurityGroupIds");
+        if (!unknown_vpcSecurityGroupIds) return value_vpcSecurityGroupIds;
+        throw new UndeferrableValueException("Value 'ClusterArgs.vpcSecurityGroupIds' is not present");
     }
 
 }

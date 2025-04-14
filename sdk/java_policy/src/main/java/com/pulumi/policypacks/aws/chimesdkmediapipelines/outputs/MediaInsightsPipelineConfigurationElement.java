@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chimesdkmediapipelines.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.chimesdkmediapipelines.outputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration;
 import com.pulumi.policypacks.aws.chimesdkmediapipelines.outputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration;
 import com.pulumi.policypacks.aws.chimesdkmediapipelines.outputs.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration;
@@ -22,99 +23,108 @@ public final class MediaInsightsPipelineConfigurationElement {
      * Configuration for Amazon Transcribe Call Analytics processor.
      * 
      */
-    private @Nullable UndeferrableValue<MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration> amazonTranscribeCallAnalyticsProcessorConfiguration;
-
+    @PolicyResourceProperty(name="amazonTranscribeCallAnalyticsProcessorConfiguration", flag="unknown_amazonTranscribeCallAnalyticsProcessorConfiguration")
+    private @Nullable MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration value_amazonTranscribeCallAnalyticsProcessorConfiguration;
+    private boolean unknown_amazonTranscribeCallAnalyticsProcessorConfiguration;
     public @Nullable MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration amazonTranscribeCallAnalyticsProcessorConfiguration() {
-        if (amazonTranscribeCallAnalyticsProcessorConfiguration == null) return null;
-        return amazonTranscribeCallAnalyticsProcessorConfiguration.getValue("MediaInsightsPipelineConfigurationElement.amazonTranscribeCallAnalyticsProcessorConfiguration");
+        if (!unknown_amazonTranscribeCallAnalyticsProcessorConfiguration) return value_amazonTranscribeCallAnalyticsProcessorConfiguration;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElement.amazonTranscribeCallAnalyticsProcessorConfiguration' is not present");
     }
 
     /**
      * Configuration for Amazon Transcribe processor.
      * 
      */
-    private @Nullable UndeferrableValue<MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration> amazonTranscribeProcessorConfiguration;
-
+    @PolicyResourceProperty(name="amazonTranscribeProcessorConfiguration", flag="unknown_amazonTranscribeProcessorConfiguration")
+    private @Nullable MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration value_amazonTranscribeProcessorConfiguration;
+    private boolean unknown_amazonTranscribeProcessorConfiguration;
     public @Nullable MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration amazonTranscribeProcessorConfiguration() {
-        if (amazonTranscribeProcessorConfiguration == null) return null;
-        return amazonTranscribeProcessorConfiguration.getValue("MediaInsightsPipelineConfigurationElement.amazonTranscribeProcessorConfiguration");
+        if (!unknown_amazonTranscribeProcessorConfiguration) return value_amazonTranscribeProcessorConfiguration;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElement.amazonTranscribeProcessorConfiguration' is not present");
     }
 
     /**
      * Configuration for Kinesis Data Stream sink.
      * 
      */
-    private @Nullable UndeferrableValue<MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration> kinesisDataStreamSinkConfiguration;
-
+    @PolicyResourceProperty(name="kinesisDataStreamSinkConfiguration", flag="unknown_kinesisDataStreamSinkConfiguration")
+    private @Nullable MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration value_kinesisDataStreamSinkConfiguration;
+    private boolean unknown_kinesisDataStreamSinkConfiguration;
     public @Nullable MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration kinesisDataStreamSinkConfiguration() {
-        if (kinesisDataStreamSinkConfiguration == null) return null;
-        return kinesisDataStreamSinkConfiguration.getValue("MediaInsightsPipelineConfigurationElement.kinesisDataStreamSinkConfiguration");
+        if (!unknown_kinesisDataStreamSinkConfiguration) return value_kinesisDataStreamSinkConfiguration;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElement.kinesisDataStreamSinkConfiguration' is not present");
     }
 
     /**
      * Configuration for Lambda Function sink.
      * 
      */
-    private @Nullable UndeferrableValue<MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration> lambdaFunctionSinkConfiguration;
-
+    @PolicyResourceProperty(name="lambdaFunctionSinkConfiguration", flag="unknown_lambdaFunctionSinkConfiguration")
+    private @Nullable MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration value_lambdaFunctionSinkConfiguration;
+    private boolean unknown_lambdaFunctionSinkConfiguration;
     public @Nullable MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration lambdaFunctionSinkConfiguration() {
-        if (lambdaFunctionSinkConfiguration == null) return null;
-        return lambdaFunctionSinkConfiguration.getValue("MediaInsightsPipelineConfigurationElement.lambdaFunctionSinkConfiguration");
+        if (!unknown_lambdaFunctionSinkConfiguration) return value_lambdaFunctionSinkConfiguration;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElement.lambdaFunctionSinkConfiguration' is not present");
     }
 
     /**
      * Configuration for S3 recording sink.
      * 
      */
-    private @Nullable UndeferrableValue<MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration> s3RecordingSinkConfiguration;
-
+    @PolicyResourceProperty(name="s3RecordingSinkConfiguration", flag="unknown_s3RecordingSinkConfiguration")
+    private @Nullable MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration value_s3RecordingSinkConfiguration;
+    private boolean unknown_s3RecordingSinkConfiguration;
     public @Nullable MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration s3RecordingSinkConfiguration() {
-        if (s3RecordingSinkConfiguration == null) return null;
-        return s3RecordingSinkConfiguration.getValue("MediaInsightsPipelineConfigurationElement.s3RecordingSinkConfiguration");
+        if (!unknown_s3RecordingSinkConfiguration) return value_s3RecordingSinkConfiguration;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElement.s3RecordingSinkConfiguration' is not present");
     }
 
     /**
      * Configuration for SNS Topic sink.
      * 
      */
-    private @Nullable UndeferrableValue<MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration> snsTopicSinkConfiguration;
-
+    @PolicyResourceProperty(name="snsTopicSinkConfiguration", flag="unknown_snsTopicSinkConfiguration")
+    private @Nullable MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration value_snsTopicSinkConfiguration;
+    private boolean unknown_snsTopicSinkConfiguration;
     public @Nullable MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration snsTopicSinkConfiguration() {
-        if (snsTopicSinkConfiguration == null) return null;
-        return snsTopicSinkConfiguration.getValue("MediaInsightsPipelineConfigurationElement.snsTopicSinkConfiguration");
+        if (!unknown_snsTopicSinkConfiguration) return value_snsTopicSinkConfiguration;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElement.snsTopicSinkConfiguration' is not present");
     }
 
     /**
      * Configuration for SQS Queue sink.
      * 
      */
-    private @Nullable UndeferrableValue<MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration> sqsQueueSinkConfiguration;
-
+    @PolicyResourceProperty(name="sqsQueueSinkConfiguration", flag="unknown_sqsQueueSinkConfiguration")
+    private @Nullable MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration value_sqsQueueSinkConfiguration;
+    private boolean unknown_sqsQueueSinkConfiguration;
     public @Nullable MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration sqsQueueSinkConfiguration() {
-        if (sqsQueueSinkConfiguration == null) return null;
-        return sqsQueueSinkConfiguration.getValue("MediaInsightsPipelineConfigurationElement.sqsQueueSinkConfiguration");
+        if (!unknown_sqsQueueSinkConfiguration) return value_sqsQueueSinkConfiguration;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElement.sqsQueueSinkConfiguration' is not present");
     }
 
     /**
      * Element type.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("MediaInsightsPipelineConfigurationElement.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElement.type' is not present");
     }
 
     /**
      * Configuration for Voice analytics processor.
      * 
      */
-    private @Nullable UndeferrableValue<MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration> voiceAnalyticsProcessorConfiguration;
-
+    @PolicyResourceProperty(name="voiceAnalyticsProcessorConfiguration", flag="unknown_voiceAnalyticsProcessorConfiguration")
+    private @Nullable MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration value_voiceAnalyticsProcessorConfiguration;
+    private boolean unknown_voiceAnalyticsProcessorConfiguration;
     public @Nullable MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration voiceAnalyticsProcessorConfiguration() {
-        if (voiceAnalyticsProcessorConfiguration == null) return null;
-        return voiceAnalyticsProcessorConfiguration.getValue("MediaInsightsPipelineConfigurationElement.voiceAnalyticsProcessorConfiguration");
+        if (!unknown_voiceAnalyticsProcessorConfiguration) return value_voiceAnalyticsProcessorConfiguration;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElement.voiceAnalyticsProcessorConfiguration' is not present");
     }
 
 }

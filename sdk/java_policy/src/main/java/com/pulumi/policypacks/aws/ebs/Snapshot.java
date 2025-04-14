@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ebs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,121 +20,132 @@ public final class Snapshot extends com.pulumi.resources.PolicyResourceOutput {
      * Amazon Resource Name (ARN) of the EBS Snapshot.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Snapshot.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Snapshot.arn' is not present");
     }
 
     /**
      * The data encryption key identifier for the snapshot.
      * 
      */
-    private UndeferrableValue<String> dataEncryptionKeyId;
-
+    @PolicyResourceProperty(name="dataEncryptionKeyId", flag="unknown_dataEncryptionKeyId")
+    private String value_dataEncryptionKeyId;
+    private boolean unknown_dataEncryptionKeyId;
     public String dataEncryptionKeyId() {
-        if (dataEncryptionKeyId == null) return null;
-        return dataEncryptionKeyId.getValue("Snapshot.dataEncryptionKeyId");
+        if (!unknown_dataEncryptionKeyId) return value_dataEncryptionKeyId;
+        throw new UndeferrableValueException("Value 'Snapshot.dataEncryptionKeyId' is not present");
     }
 
     /**
      * A description of what the snapshot is.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Snapshot.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Snapshot.description' is not present");
     }
 
     /**
      * Whether the snapshot is encrypted.
      * 
      */
-    private UndeferrableValue<Boolean> encrypted;
-
+    @PolicyResourceProperty(name="encrypted", flag="unknown_encrypted")
+    private Boolean value_encrypted;
+    private boolean unknown_encrypted;
     public Boolean encrypted() {
-        if (encrypted == null) return null;
-        return encrypted.getValue("Snapshot.encrypted");
+        if (!unknown_encrypted) return value_encrypted;
+        throw new UndeferrableValueException("Value 'Snapshot.encrypted' is not present");
     }
 
     /**
      * The ARN for the KMS encryption key.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("Snapshot.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'Snapshot.kmsKeyId' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
      * 
      */
-    private @Nullable UndeferrableValue<String> outpostArn;
-
+    @PolicyResourceProperty(name="outpostArn", flag="unknown_outpostArn")
+    private @Nullable String value_outpostArn;
+    private boolean unknown_outpostArn;
     public @Nullable String outpostArn() {
-        if (outpostArn == null) return null;
-        return outpostArn.getValue("Snapshot.outpostArn");
+        if (!unknown_outpostArn) return value_outpostArn;
+        throw new UndeferrableValueException("Value 'Snapshot.outpostArn' is not present");
     }
 
     /**
      * Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
      * 
      */
-    private UndeferrableValue<String> ownerAlias;
-
+    @PolicyResourceProperty(name="ownerAlias", flag="unknown_ownerAlias")
+    private String value_ownerAlias;
+    private boolean unknown_ownerAlias;
     public String ownerAlias() {
-        if (ownerAlias == null) return null;
-        return ownerAlias.getValue("Snapshot.ownerAlias");
+        if (!unknown_ownerAlias) return value_ownerAlias;
+        throw new UndeferrableValueException("Value 'Snapshot.ownerAlias' is not present");
     }
 
     /**
      * The AWS account ID of the EBS snapshot owner.
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("Snapshot.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'Snapshot.ownerId' is not present");
     }
 
     /**
      * Indicates whether to permanently restore an archived snapshot.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> permanentRestore;
-
+    @PolicyResourceProperty(name="permanentRestore", flag="unknown_permanentRestore")
+    private @Nullable Boolean value_permanentRestore;
+    private boolean unknown_permanentRestore;
     public @Nullable Boolean permanentRestore() {
-        if (permanentRestore == null) return null;
-        return permanentRestore.getValue("Snapshot.permanentRestore");
+        if (!unknown_permanentRestore) return value_permanentRestore;
+        throw new UndeferrableValueException("Value 'Snapshot.permanentRestore' is not present");
     }
 
     /**
      * The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
      * 
      */
-    private UndeferrableValue<String> storageTier;
-
+    @PolicyResourceProperty(name="storageTier", flag="unknown_storageTier")
+    private String value_storageTier;
+    private boolean unknown_storageTier;
     public String storageTier() {
-        if (storageTier == null) return null;
-        return storageTier.getValue("Snapshot.storageTier");
+        if (!unknown_storageTier) return value_storageTier;
+        throw new UndeferrableValueException("Value 'Snapshot.storageTier' is not present");
     }
 
     /**
      * A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Snapshot.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Snapshot.tags' is not present");
     }
 
     /**
@@ -144,44 +156,48 @@ public final class Snapshot extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Snapshot.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Snapshot.tagsAll' is not present");
     }
 
     /**
      * Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> temporaryRestoreDays;
-
+    @PolicyResourceProperty(name="temporaryRestoreDays", flag="unknown_temporaryRestoreDays")
+    private @Nullable Integer value_temporaryRestoreDays;
+    private boolean unknown_temporaryRestoreDays;
     public @Nullable Integer temporaryRestoreDays() {
-        if (temporaryRestoreDays == null) return null;
-        return temporaryRestoreDays.getValue("Snapshot.temporaryRestoreDays");
+        if (!unknown_temporaryRestoreDays) return value_temporaryRestoreDays;
+        throw new UndeferrableValueException("Value 'Snapshot.temporaryRestoreDays' is not present");
     }
 
     /**
      * The Volume ID of which to make a snapshot.
      * 
      */
-    private UndeferrableValue<String> volumeId;
-
+    @PolicyResourceProperty(name="volumeId", flag="unknown_volumeId")
+    private String value_volumeId;
+    private boolean unknown_volumeId;
     public String volumeId() {
-        if (volumeId == null) return null;
-        return volumeId.getValue("Snapshot.volumeId");
+        if (!unknown_volumeId) return value_volumeId;
+        throw new UndeferrableValueException("Value 'Snapshot.volumeId' is not present");
     }
 
     /**
      * The size of the drive in GiBs.
      * 
      */
-    private UndeferrableValue<Integer> volumeSize;
-
+    @PolicyResourceProperty(name="volumeSize", flag="unknown_volumeSize")
+    private Integer value_volumeSize;
+    private boolean unknown_volumeSize;
     public Integer volumeSize() {
-        if (volumeSize == null) return null;
-        return volumeSize.getValue("Snapshot.volumeSize");
+        if (!unknown_volumeSize) return value_volumeSize;
+        throw new UndeferrableValueException("Value 'Snapshot.volumeSize' is not present");
     }
 
 }

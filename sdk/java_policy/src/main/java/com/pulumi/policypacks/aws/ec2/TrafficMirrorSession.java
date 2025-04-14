@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,77 +19,84 @@ public final class TrafficMirrorSession extends com.pulumi.resources.PolicyResou
      * The ARN of the traffic mirror session.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("TrafficMirrorSession.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'TrafficMirrorSession.arn' is not present");
     }
 
     /**
      * A description of the traffic mirror session.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("TrafficMirrorSession.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'TrafficMirrorSession.description' is not present");
     }
 
     /**
      * ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
      * 
      */
-    private UndeferrableValue<String> networkInterfaceId;
-
+    @PolicyResourceProperty(name="networkInterfaceId", flag="unknown_networkInterfaceId")
+    private String value_networkInterfaceId;
+    private boolean unknown_networkInterfaceId;
     public String networkInterfaceId() {
-        if (networkInterfaceId == null) return null;
-        return networkInterfaceId.getValue("TrafficMirrorSession.networkInterfaceId");
+        if (!unknown_networkInterfaceId) return value_networkInterfaceId;
+        throw new UndeferrableValueException("Value 'TrafficMirrorSession.networkInterfaceId' is not present");
     }
 
     /**
      * The AWS account ID of the session owner.
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("TrafficMirrorSession.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'TrafficMirrorSession.ownerId' is not present");
     }
 
     /**
      * The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
      * 
      */
-    private UndeferrableValue<Integer> packetLength;
-
+    @PolicyResourceProperty(name="packetLength", flag="unknown_packetLength")
+    private Integer value_packetLength;
+    private boolean unknown_packetLength;
     public Integer packetLength() {
-        if (packetLength == null) return null;
-        return packetLength.getValue("TrafficMirrorSession.packetLength");
+        if (!unknown_packetLength) return value_packetLength;
+        throw new UndeferrableValueException("Value 'TrafficMirrorSession.packetLength' is not present");
     }
 
     /**
      * The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
      * 
      */
-    private UndeferrableValue<Integer> sessionNumber;
-
+    @PolicyResourceProperty(name="sessionNumber", flag="unknown_sessionNumber")
+    private Integer value_sessionNumber;
+    private boolean unknown_sessionNumber;
     public Integer sessionNumber() {
-        if (sessionNumber == null) return null;
-        return sessionNumber.getValue("TrafficMirrorSession.sessionNumber");
+        if (!unknown_sessionNumber) return value_sessionNumber;
+        throw new UndeferrableValueException("Value 'TrafficMirrorSession.sessionNumber' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TrafficMirrorSession.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TrafficMirrorSession.tags' is not present");
     }
 
     /**
@@ -99,44 +107,48 @@ public final class TrafficMirrorSession extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("TrafficMirrorSession.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'TrafficMirrorSession.tagsAll' is not present");
     }
 
     /**
      * ID of the traffic mirror filter to be used
      * 
      */
-    private UndeferrableValue<String> trafficMirrorFilterId;
-
+    @PolicyResourceProperty(name="trafficMirrorFilterId", flag="unknown_trafficMirrorFilterId")
+    private String value_trafficMirrorFilterId;
+    private boolean unknown_trafficMirrorFilterId;
     public String trafficMirrorFilterId() {
-        if (trafficMirrorFilterId == null) return null;
-        return trafficMirrorFilterId.getValue("TrafficMirrorSession.trafficMirrorFilterId");
+        if (!unknown_trafficMirrorFilterId) return value_trafficMirrorFilterId;
+        throw new UndeferrableValueException("Value 'TrafficMirrorSession.trafficMirrorFilterId' is not present");
     }
 
     /**
      * ID of the traffic mirror target to be used
      * 
      */
-    private UndeferrableValue<String> trafficMirrorTargetId;
-
+    @PolicyResourceProperty(name="trafficMirrorTargetId", flag="unknown_trafficMirrorTargetId")
+    private String value_trafficMirrorTargetId;
+    private boolean unknown_trafficMirrorTargetId;
     public String trafficMirrorTargetId() {
-        if (trafficMirrorTargetId == null) return null;
-        return trafficMirrorTargetId.getValue("TrafficMirrorSession.trafficMirrorTargetId");
+        if (!unknown_trafficMirrorTargetId) return value_trafficMirrorTargetId;
+        throw new UndeferrableValueException("Value 'TrafficMirrorSession.trafficMirrorTargetId' is not present");
     }
 
     /**
      * The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
      * 
      */
-    private UndeferrableValue<Integer> virtualNetworkId;
-
+    @PolicyResourceProperty(name="virtualNetworkId", flag="unknown_virtualNetworkId")
+    private Integer value_virtualNetworkId;
+    private boolean unknown_virtualNetworkId;
     public Integer virtualNetworkId() {
-        if (virtualNetworkId == null) return null;
-        return virtualNetworkId.getValue("TrafficMirrorSession.virtualNetworkId");
+        if (!unknown_virtualNetworkId) return value_virtualNetworkId;
+        throw new UndeferrableValueException("Value 'TrafficMirrorSession.virtualNetworkId' is not present");
     }
 
 }

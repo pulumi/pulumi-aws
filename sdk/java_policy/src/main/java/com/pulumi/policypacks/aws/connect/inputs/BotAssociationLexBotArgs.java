@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class BotAssociationLexBotArgs {
      * The Region that the Amazon Lex (V1) bot was created in. Defaults to current region.
      * 
      */
-    private UndeferrableValue<String> lexRegion;
-
+    @PolicyResourceProperty(name="lexRegion", flag="unknown_lexRegion")
+    private String value_lexRegion;
+    private boolean unknown_lexRegion;
     public String lexRegion() {
-        if (lexRegion == null) return null;
-        return lexRegion.getValue("BotAssociationLexBotArgs.lexRegion");
+        if (!unknown_lexRegion) return value_lexRegion;
+        throw new UndeferrableValueException("Value 'BotAssociationLexBotArgs.lexRegion' is not present");
     }
 
     /**
      * The name of the Amazon Lex (V1) bot.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("BotAssociationLexBotArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'BotAssociationLexBotArgs.name' is not present");
     }
 
 }

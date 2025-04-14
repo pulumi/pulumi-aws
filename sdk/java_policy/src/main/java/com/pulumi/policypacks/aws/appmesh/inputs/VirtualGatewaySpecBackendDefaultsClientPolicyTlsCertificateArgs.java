@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateAr
      * Local file certificate.
      * 
      */
-    private UndeferrableValue<VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs> file;
-
+    @PolicyResourceProperty(name="file", flag="unknown_file")
+    private VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs value_file;
+    private boolean unknown_file;
     public VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs file() {
-        if (file == null) return null;
-        return file.getValue("VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs.file");
+        if (!unknown_file) return value_file;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs.file' is not present");
     }
 
     /**
      * A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
-    private UndeferrableValue<VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs> sds;
-
+    @PolicyResourceProperty(name="sds", flag="unknown_sds")
+    private VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs value_sds;
+    private boolean unknown_sds;
     public VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs sds() {
-        if (sds == null) return null;
-        return sds.getValue("VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs.sds");
+        if (!unknown_sds) return value_sds;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs.sds' is not present");
     }
 
 }

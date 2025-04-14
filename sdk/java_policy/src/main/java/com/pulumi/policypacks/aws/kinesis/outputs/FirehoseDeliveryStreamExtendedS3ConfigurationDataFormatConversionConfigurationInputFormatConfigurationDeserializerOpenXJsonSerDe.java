@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -16,33 +17,36 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
      * When set to true, which is the default, Kinesis Data Firehose converts JSON keys to lowercase before deserializing them.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> caseInsensitive;
-
+    @PolicyResourceProperty(name="caseInsensitive", flag="unknown_caseInsensitive")
+    private @Nullable Boolean value_caseInsensitive;
+    private boolean unknown_caseInsensitive;
     public @Nullable Boolean caseInsensitive() {
-        if (caseInsensitive == null) return null;
-        return caseInsensitive.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe.caseInsensitive");
+        if (!unknown_caseInsensitive) return value_caseInsensitive;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe.caseInsensitive' is not present");
     }
 
     /**
      * A map of column names to JSON keys that aren&#39;t identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = &#34;timestamp&#34; }` to map this key to a column named ts.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> columnToJsonKeyMappings;
-
+    @PolicyResourceProperty(name="columnToJsonKeyMappings", flag="unknown_columnToJsonKeyMappings")
+    private @Nullable Map<String,String> value_columnToJsonKeyMappings;
+    private boolean unknown_columnToJsonKeyMappings;
     public @Nullable Map<String,String> columnToJsonKeyMappings() {
-        if (columnToJsonKeyMappings == null) return null;
-        return columnToJsonKeyMappings.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe.columnToJsonKeyMappings");
+        if (!unknown_columnToJsonKeyMappings) return value_columnToJsonKeyMappings;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe.columnToJsonKeyMappings' is not present");
     }
 
     /**
      * When set to `true`, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is &#34;a.b&#34;, you can define the column name to be &#34;a_b&#34; when using this option. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> convertDotsInJsonKeysToUnderscores;
-
+    @PolicyResourceProperty(name="convertDotsInJsonKeysToUnderscores", flag="unknown_convertDotsInJsonKeysToUnderscores")
+    private @Nullable Boolean value_convertDotsInJsonKeysToUnderscores;
+    private boolean unknown_convertDotsInJsonKeysToUnderscores;
     public @Nullable Boolean convertDotsInJsonKeysToUnderscores() {
-        if (convertDotsInJsonKeysToUnderscores == null) return null;
-        return convertDotsInJsonKeysToUnderscores.getValue("FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe.convertDotsInJsonKeysToUnderscores");
+        if (!unknown_convertDotsInJsonKeysToUnderscores) return value_convertDotsInJsonKeysToUnderscores;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe.convertDotsInJsonKeysToUnderscores' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DataQualityJobDefinitionDataQualityBaselineConfigConstraintsR
      * The Amazon S3 URI for the constraints resource.
      * 
      */
-    private @Nullable UndeferrableValue<String> s3Uri;
-
+    @PolicyResourceProperty(name="s3Uri", flag="unknown_s3Uri")
+    private @Nullable String value_s3Uri;
+    private boolean unknown_s3Uri;
     public @Nullable String s3Uri() {
-        if (s3Uri == null) return null;
-        return s3Uri.getValue("DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource.s3Uri");
+        if (!unknown_s3Uri) return value_s3Uri;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource.s3Uri' is not present");
     }
 
 }

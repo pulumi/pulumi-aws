@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.inputs.RefreshScheduleScheduleScheduleFrequencyArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class RefreshScheduleScheduleArgs {
      * The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
      * 
      */
-    private UndeferrableValue<String> refreshType;
-
+    @PolicyResourceProperty(name="refreshType", flag="unknown_refreshType")
+    private String value_refreshType;
+    private boolean unknown_refreshType;
     public String refreshType() {
-        if (refreshType == null) return null;
-        return refreshType.getValue("RefreshScheduleScheduleArgs.refreshType");
+        if (!unknown_refreshType) return value_refreshType;
+        throw new UndeferrableValueException("Value 'RefreshScheduleScheduleArgs.refreshType' is not present");
     }
 
     /**
      * The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
      * 
      */
-    private UndeferrableValue<RefreshScheduleScheduleScheduleFrequencyArgs> scheduleFrequency;
-
+    @PolicyResourceProperty(name="scheduleFrequency", flag="unknown_scheduleFrequency")
+    private RefreshScheduleScheduleScheduleFrequencyArgs value_scheduleFrequency;
+    private boolean unknown_scheduleFrequency;
     public RefreshScheduleScheduleScheduleFrequencyArgs scheduleFrequency() {
-        if (scheduleFrequency == null) return null;
-        return scheduleFrequency.getValue("RefreshScheduleScheduleArgs.scheduleFrequency");
+        if (!unknown_scheduleFrequency) return value_scheduleFrequency;
+        throw new UndeferrableValueException("Value 'RefreshScheduleScheduleArgs.scheduleFrequency' is not present");
     }
 
     /**
      * Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
      * 
      */
-    private UndeferrableValue<String> startAfterDateTime;
-
+    @PolicyResourceProperty(name="startAfterDateTime", flag="unknown_startAfterDateTime")
+    private String value_startAfterDateTime;
+    private boolean unknown_startAfterDateTime;
     public String startAfterDateTime() {
-        if (startAfterDateTime == null) return null;
-        return startAfterDateTime.getValue("RefreshScheduleScheduleArgs.startAfterDateTime");
+        if (!unknown_startAfterDateTime) return value_startAfterDateTime;
+        throw new UndeferrableValueException("Value 'RefreshScheduleScheduleArgs.startAfterDateTime' is not present");
     }
 
 }

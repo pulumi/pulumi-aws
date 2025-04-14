@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.outputs.DefaultSecurityGroupEgress;
 import com.pulumi.policypacks.aws.ec2.outputs.DefaultSecurityGroupIngress;
@@ -21,91 +22,100 @@ public final class DefaultSecurityGroup extends com.pulumi.resources.PolicyResou
      * ARN of the security group.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("DefaultSecurityGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'DefaultSecurityGroup.arn' is not present");
     }
 
     /**
      * Description of the security group.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("DefaultSecurityGroup.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'DefaultSecurityGroup.description' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<List<DefaultSecurityGroupEgress>> egress;
-
+    @PolicyResourceProperty(name="egress", flag="unknown_egress")
+    private List<DefaultSecurityGroupEgress> value_egress;
+    private boolean unknown_egress;
     public List<DefaultSecurityGroupEgress> egress() {
-        if (egress == null) return null;
-        return egress.getValue("DefaultSecurityGroup.egress");
+        if (!unknown_egress) return value_egress;
+        throw new UndeferrableValueException("Value 'DefaultSecurityGroup.egress' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<List<DefaultSecurityGroupIngress>> ingress;
-
+    @PolicyResourceProperty(name="ingress", flag="unknown_ingress")
+    private List<DefaultSecurityGroupIngress> value_ingress;
+    private boolean unknown_ingress;
     public List<DefaultSecurityGroupIngress> ingress() {
-        if (ingress == null) return null;
-        return ingress.getValue("DefaultSecurityGroup.ingress");
+        if (!unknown_ingress) return value_ingress;
+        throw new UndeferrableValueException("Value 'DefaultSecurityGroup.ingress' is not present");
     }
 
     /**
      * Name of the security group.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DefaultSecurityGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DefaultSecurityGroup.name' is not present");
     }
 
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("DefaultSecurityGroup.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'DefaultSecurityGroup.namePrefix' is not present");
     }
 
     /**
      * Owner ID.
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("DefaultSecurityGroup.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'DefaultSecurityGroup.ownerId' is not present");
     }
 
-    private @Nullable UndeferrableValue<Boolean> revokeRulesOnDelete;
-
+    @PolicyResourceProperty(name="revokeRulesOnDelete", flag="unknown_revokeRulesOnDelete")
+    private @Nullable Boolean value_revokeRulesOnDelete;
+    private boolean unknown_revokeRulesOnDelete;
     public @Nullable Boolean revokeRulesOnDelete() {
-        if (revokeRulesOnDelete == null) return null;
-        return revokeRulesOnDelete.getValue("DefaultSecurityGroup.revokeRulesOnDelete");
+        if (!unknown_revokeRulesOnDelete) return value_revokeRulesOnDelete;
+        throw new UndeferrableValueException("Value 'DefaultSecurityGroup.revokeRulesOnDelete' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DefaultSecurityGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DefaultSecurityGroup.tags' is not present");
     }
 
     /**
@@ -116,22 +126,24 @@ public final class DefaultSecurityGroup extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("DefaultSecurityGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'DefaultSecurityGroup.tagsAll' is not present");
     }
 
     /**
      * VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("DefaultSecurityGroup.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'DefaultSecurityGroup.vpcId' is not present");
     }
 
 }

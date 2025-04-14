@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class DataSourceParametersAwsIotAnalyticsArgs {
      * The name of the data set to which to connect.
      * 
      */
-    private UndeferrableValue<String> dataSetName;
-
+    @PolicyResourceProperty(name="dataSetName", flag="unknown_dataSetName")
+    private String value_dataSetName;
+    private boolean unknown_dataSetName;
     public String dataSetName() {
-        if (dataSetName == null) return null;
-        return dataSetName.getValue("DataSourceParametersAwsIotAnalyticsArgs.dataSetName");
+        if (!unknown_dataSetName) return value_dataSetName;
+        throw new UndeferrableValueException("Value 'DataSourceParametersAwsIotAnalyticsArgs.dataSetName' is not present");
     }
 
 }

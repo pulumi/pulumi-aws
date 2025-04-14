@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs
      * The ARN of the Secrets Manager secret containing the credentials.
      * 
      */
-    private UndeferrableValue<String> basicAuth;
-
+    @PolicyResourceProperty(name="basicAuth", flag="unknown_basicAuth")
+    private String value_basicAuth;
+    private boolean unknown_basicAuth;
     public String basicAuth() {
-        if (basicAuth == null) return null;
-        return basicAuth.getValue("PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs.basicAuth");
+        if (!unknown_basicAuth) return value_basicAuth;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs.basicAuth' is not present");
     }
 
     /**
      * The ARN of the Secrets Manager secret containing the credentials.
      * 
      */
-    private UndeferrableValue<String> clientCertificateTlsAuth;
-
+    @PolicyResourceProperty(name="clientCertificateTlsAuth", flag="unknown_clientCertificateTlsAuth")
+    private String value_clientCertificateTlsAuth;
+    private boolean unknown_clientCertificateTlsAuth;
     public String clientCertificateTlsAuth() {
-        if (clientCertificateTlsAuth == null) return null;
-        return clientCertificateTlsAuth.getValue("PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs.clientCertificateTlsAuth");
+        if (!unknown_clientCertificateTlsAuth) return value_clientCertificateTlsAuth;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs.clientCertificateTlsAuth' is not present");
     }
 
     /**
      * The ARN of the Secrets Manager secret containing the credentials.
      * 
      */
-    private UndeferrableValue<String> saslScram256Auth;
-
+    @PolicyResourceProperty(name="saslScram256Auth", flag="unknown_saslScram256Auth")
+    private String value_saslScram256Auth;
+    private boolean unknown_saslScram256Auth;
     public String saslScram256Auth() {
-        if (saslScram256Auth == null) return null;
-        return saslScram256Auth.getValue("PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs.saslScram256Auth");
+        if (!unknown_saslScram256Auth) return value_saslScram256Auth;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs.saslScram256Auth' is not present");
     }
 
     /**
      * The ARN of the Secrets Manager secret containing the credentials.
      * 
      */
-    private UndeferrableValue<String> saslScram512Auth;
-
+    @PolicyResourceProperty(name="saslScram512Auth", flag="unknown_saslScram512Auth")
+    private String value_saslScram512Auth;
+    private boolean unknown_saslScram512Auth;
     public String saslScram512Auth() {
-        if (saslScram512Auth == null) return null;
-        return saslScram512Auth.getValue("PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs.saslScram512Auth");
+        if (!unknown_saslScram512Auth) return value_saslScram512Auth;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs.saslScram512Auth' is not present");
     }
 
 }

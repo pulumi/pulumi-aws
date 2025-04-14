@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cognito.inputs.UserPoolAccountRecoverySettingRecoveryMechanismArgs;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class UserPoolAccountRecoverySettingArgs {
      * List of Account Recovery Options of the following structure:
      * 
      */
-    private UndeferrableValue<List<UserPoolAccountRecoverySettingRecoveryMechanismArgs>> recoveryMechanisms;
-
+    @PolicyResourceProperty(name="recoveryMechanisms", flag="unknown_recoveryMechanisms")
+    private List<UserPoolAccountRecoverySettingRecoveryMechanismArgs> value_recoveryMechanisms;
+    private boolean unknown_recoveryMechanisms;
     public List<UserPoolAccountRecoverySettingRecoveryMechanismArgs> recoveryMechanisms() {
-        if (recoveryMechanisms == null) return null;
-        return recoveryMechanisms.getValue("UserPoolAccountRecoverySettingArgs.recoveryMechanisms");
+        if (!unknown_recoveryMechanisms) return value_recoveryMechanisms;
+        throw new UndeferrableValueException("Value 'UserPoolAccountRecoverySettingArgs.recoveryMechanisms' is not present");
     }
 
 }

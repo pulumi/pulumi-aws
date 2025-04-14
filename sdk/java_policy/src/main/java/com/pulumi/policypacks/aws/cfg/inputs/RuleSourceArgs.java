@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cfg.inputs.RuleSourceCustomPolicyDetailsArgs;
 import com.pulumi.policypacks.aws.cfg.inputs.RuleSourceSourceDetailArgs;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class RuleSourceArgs {
      * Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
      * 
      */
-    private UndeferrableValue<RuleSourceCustomPolicyDetailsArgs> customPolicyDetails;
-
+    @PolicyResourceProperty(name="customPolicyDetails", flag="unknown_customPolicyDetails")
+    private RuleSourceCustomPolicyDetailsArgs value_customPolicyDetails;
+    private boolean unknown_customPolicyDetails;
     public RuleSourceCustomPolicyDetailsArgs customPolicyDetails() {
-        if (customPolicyDetails == null) return null;
-        return customPolicyDetails.getValue("RuleSourceArgs.customPolicyDetails");
+        if (!unknown_customPolicyDetails) return value_customPolicyDetails;
+        throw new UndeferrableValueException("Value 'RuleSourceArgs.customPolicyDetails' is not present");
     }
 
     /**
      * Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS`, `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g., via the `aws.lambda.Permission` resource.
      * 
      */
-    private UndeferrableValue<String> owner;
-
+    @PolicyResourceProperty(name="owner", flag="unknown_owner")
+    private String value_owner;
+    private boolean unknown_owner;
     public String owner() {
-        if (owner == null) return null;
-        return owner.getValue("RuleSourceArgs.owner");
+        if (!unknown_owner) return value_owner;
+        throw new UndeferrableValueException("Value 'RuleSourceArgs.owner' is not present");
     }
 
     /**
      * Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
      * 
      */
-    private UndeferrableValue<List<RuleSourceSourceDetailArgs>> sourceDetails;
-
+    @PolicyResourceProperty(name="sourceDetails", flag="unknown_sourceDetails")
+    private List<RuleSourceSourceDetailArgs> value_sourceDetails;
+    private boolean unknown_sourceDetails;
     public List<RuleSourceSourceDetailArgs> sourceDetails() {
-        if (sourceDetails == null) return null;
-        return sourceDetails.getValue("RuleSourceArgs.sourceDetails");
+        if (!unknown_sourceDetails) return value_sourceDetails;
+        throw new UndeferrableValueException("Value 'RuleSourceArgs.sourceDetails' is not present");
     }
 
     /**
      * For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `aws.lambda.Function` resource.
      * 
      */
-    private UndeferrableValue<String> sourceIdentifier;
-
+    @PolicyResourceProperty(name="sourceIdentifier", flag="unknown_sourceIdentifier")
+    private String value_sourceIdentifier;
+    private boolean unknown_sourceIdentifier;
     public String sourceIdentifier() {
-        if (sourceIdentifier == null) return null;
-        return sourceIdentifier.getValue("RuleSourceArgs.sourceIdentifier");
+        if (!unknown_sourceIdentifier) return value_sourceIdentifier;
+        throw new UndeferrableValueException("Value 'RuleSourceArgs.sourceIdentifier' is not present");
     }
 
 }

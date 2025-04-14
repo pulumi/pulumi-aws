@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField;
@@ -19,66 +20,72 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      * The names of the fields in the request payload that contain your customer&#39;s primary physical address. See `address_fields` for more details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields> addressFields;
-
+    @PolicyResourceProperty(name="addressFields", flag="unknown_addressFields")
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields value_addressFields;
+    private boolean unknown_addressFields;
     public @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionAddressFields addressFields() {
-        if (addressFields == null) return null;
-        return addressFields.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection.addressFields");
+        if (!unknown_addressFields) return value_addressFields;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection.addressFields' is not present");
     }
 
     /**
      * The name of the field in the request payload that contains your customer&#39;s email. See `email_field` for more details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField> emailField;
-
+    @PolicyResourceProperty(name="emailField", flag="unknown_emailField")
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField value_emailField;
+    private boolean unknown_emailField;
     public @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField emailField() {
-        if (emailField == null) return null;
-        return emailField.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection.emailField");
+        if (!unknown_emailField) return value_emailField;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection.emailField' is not present");
     }
 
     /**
      * Details about your login page password field. See `password_field` for more details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField> passwordField;
-
+    @PolicyResourceProperty(name="passwordField", flag="unknown_passwordField")
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField value_passwordField;
+    private boolean unknown_passwordField;
     public @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField passwordField() {
-        if (passwordField == null) return null;
-        return passwordField.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection.passwordField");
+        if (!unknown_passwordField) return value_passwordField;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection.passwordField' is not present");
     }
 
     /**
      * The payload type for your login endpoint, either JSON or form encoded.
      * 
      */
-    private UndeferrableValue<String> payloadType;
-
+    @PolicyResourceProperty(name="payloadType", flag="unknown_payloadType")
+    private String value_payloadType;
+    private boolean unknown_payloadType;
     public String payloadType() {
-        if (payloadType == null) return null;
-        return payloadType.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection.payloadType");
+        if (!unknown_payloadType) return value_payloadType;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection.payloadType' is not present");
     }
 
     /**
      * The names of the fields in the request payload that contain your customer&#39;s primary phone number. See `phone_number_fields` for more details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields> phoneNumberFields;
-
+    @PolicyResourceProperty(name="phoneNumberFields", flag="unknown_phoneNumberFields")
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields value_phoneNumberFields;
+    private boolean unknown_phoneNumberFields;
     public @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPhoneNumberFields phoneNumberFields() {
-        if (phoneNumberFields == null) return null;
-        return phoneNumberFields.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection.phoneNumberFields");
+        if (!unknown_phoneNumberFields) return value_phoneNumberFields;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection.phoneNumberFields' is not present");
     }
 
     /**
      * Details about your login page username field. See `username_field` for more details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField> usernameField;
-
+    @PolicyResourceProperty(name="usernameField", flag="unknown_usernameField")
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField value_usernameField;
+    private boolean unknown_usernameField;
     public @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField usernameField() {
-        if (usernameField == null) return null;
-        return usernameField.getValue("WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection.usernameField");
+        if (!unknown_usernameField) return value_usernameField;
+        throw new UndeferrableValueException("Value 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection.usernameField' is not present");
     }
 
 }

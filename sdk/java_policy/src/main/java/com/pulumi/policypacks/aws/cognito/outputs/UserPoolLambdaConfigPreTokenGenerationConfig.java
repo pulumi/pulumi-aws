@@ -3,24 +3,27 @@
 
 package com.pulumi.policypacks.aws.cognito.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class UserPoolLambdaConfigPreTokenGenerationConfig {
 
-    private UndeferrableValue<String> lambdaArn;
-
+    @PolicyResourceProperty(name="lambdaArn", flag="unknown_lambdaArn")
+    private String value_lambdaArn;
+    private boolean unknown_lambdaArn;
     public String lambdaArn() {
-        if (lambdaArn == null) return null;
-        return lambdaArn.getValue("UserPoolLambdaConfigPreTokenGenerationConfig.lambdaArn");
+        if (!unknown_lambdaArn) return value_lambdaArn;
+        throw new UndeferrableValueException("Value 'UserPoolLambdaConfigPreTokenGenerationConfig.lambdaArn' is not present");
     }
 
-    private UndeferrableValue<String> lambdaVersion;
-
+    @PolicyResourceProperty(name="lambdaVersion", flag="unknown_lambdaVersion")
+    private String value_lambdaVersion;
+    private boolean unknown_lambdaVersion;
     public String lambdaVersion() {
-        if (lambdaVersion == null) return null;
-        return lambdaVersion.getValue("UserPoolLambdaConfigPreTokenGenerationConfig.lambdaVersion");
+        if (!unknown_lambdaVersion) return value_lambdaVersion;
+        throw new UndeferrableValueException("Value 'UserPoolLambdaConfigPreTokenGenerationConfig.lambdaVersion' is not present");
     }
 
 }

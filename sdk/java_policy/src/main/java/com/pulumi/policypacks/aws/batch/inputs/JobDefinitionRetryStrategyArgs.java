@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.batch.inputs.JobDefinitionRetryStrategyEvaluateOnExitArgs;
 import java.lang.Integer;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class JobDefinitionRetryStrategyArgs {
      * Number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
      * 
      */
-    private UndeferrableValue<Integer> attempts;
-
+    @PolicyResourceProperty(name="attempts", flag="unknown_attempts")
+    private Integer value_attempts;
+    private boolean unknown_attempts;
     public Integer attempts() {
-        if (attempts == null) return null;
-        return attempts.getValue("JobDefinitionRetryStrategyArgs.attempts");
+        if (!unknown_attempts) return value_attempts;
+        throw new UndeferrableValueException("Value 'JobDefinitionRetryStrategyArgs.attempts' is not present");
     }
 
     /**
      * Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
      * 
      */
-    private UndeferrableValue<List<JobDefinitionRetryStrategyEvaluateOnExitArgs>> evaluateOnExits;
-
+    @PolicyResourceProperty(name="evaluateOnExits", flag="unknown_evaluateOnExits")
+    private List<JobDefinitionRetryStrategyEvaluateOnExitArgs> value_evaluateOnExits;
+    private boolean unknown_evaluateOnExits;
     public List<JobDefinitionRetryStrategyEvaluateOnExitArgs> evaluateOnExits() {
-        if (evaluateOnExits == null) return null;
-        return evaluateOnExits.getValue("JobDefinitionRetryStrategyArgs.evaluateOnExits");
+        if (!unknown_evaluateOnExits) return value_evaluateOnExits;
+        throw new UndeferrableValueException("Value 'JobDefinitionRetryStrategyArgs.evaluateOnExits' is not present");
     }
 
 }

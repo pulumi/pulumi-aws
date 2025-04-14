@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class UserPoolUserAttributeUpdateSettings {
      * A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `auto_verified_attributes`. Valid values: `email`, `phone_number`.
      * 
      */
-    private UndeferrableValue<List<String>> attributesRequireVerificationBeforeUpdates;
-
+    @PolicyResourceProperty(name="attributesRequireVerificationBeforeUpdates", flag="unknown_attributesRequireVerificationBeforeUpdates")
+    private List<String> value_attributesRequireVerificationBeforeUpdates;
+    private boolean unknown_attributesRequireVerificationBeforeUpdates;
     public List<String> attributesRequireVerificationBeforeUpdates() {
-        if (attributesRequireVerificationBeforeUpdates == null) return null;
-        return attributesRequireVerificationBeforeUpdates.getValue("UserPoolUserAttributeUpdateSettings.attributesRequireVerificationBeforeUpdates");
+        if (!unknown_attributesRequireVerificationBeforeUpdates) return value_attributesRequireVerificationBeforeUpdates;
+        throw new UndeferrableValueException("Value 'UserPoolUserAttributeUpdateSettings.attributesRequireVerificationBeforeUpdates' is not present");
     }
 
 }

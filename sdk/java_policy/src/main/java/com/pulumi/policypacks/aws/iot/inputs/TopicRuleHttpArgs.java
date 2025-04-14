@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.iot.inputs.TopicRuleHttpHttpHeaderArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class TopicRuleHttpArgs {
      * The HTTPS URL used to verify ownership of `url`.
      * 
      */
-    private UndeferrableValue<String> confirmationUrl;
-
+    @PolicyResourceProperty(name="confirmationUrl", flag="unknown_confirmationUrl")
+    private String value_confirmationUrl;
+    private boolean unknown_confirmationUrl;
     public String confirmationUrl() {
-        if (confirmationUrl == null) return null;
-        return confirmationUrl.getValue("TopicRuleHttpArgs.confirmationUrl");
+        if (!unknown_confirmationUrl) return value_confirmationUrl;
+        throw new UndeferrableValueException("Value 'TopicRuleHttpArgs.confirmationUrl' is not present");
     }
 
     /**
      * Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
      * 
      */
-    private UndeferrableValue<List<TopicRuleHttpHttpHeaderArgs>> httpHeaders;
-
+    @PolicyResourceProperty(name="httpHeaders", flag="unknown_httpHeaders")
+    private List<TopicRuleHttpHttpHeaderArgs> value_httpHeaders;
+    private boolean unknown_httpHeaders;
     public List<TopicRuleHttpHttpHeaderArgs> httpHeaders() {
-        if (httpHeaders == null) return null;
-        return httpHeaders.getValue("TopicRuleHttpArgs.httpHeaders");
+        if (!unknown_httpHeaders) return value_httpHeaders;
+        throw new UndeferrableValueException("Value 'TopicRuleHttpArgs.httpHeaders' is not present");
     }
 
     /**
      * The HTTPS URL.
      * 
      */
-    private UndeferrableValue<String> url;
-
+    @PolicyResourceProperty(name="url", flag="unknown_url")
+    private String value_url;
+    private boolean unknown_url;
     public String url() {
-        if (url == null) return null;
-        return url.getValue("TopicRuleHttpArgs.url");
+        if (!unknown_url) return value_url;
+        throw new UndeferrableValueException("Value 'TopicRuleHttpArgs.url' is not present");
     }
 
 }

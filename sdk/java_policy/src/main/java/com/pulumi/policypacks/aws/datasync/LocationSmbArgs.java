@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.datasync.inputs.LocationSmbMountOptionsArgs;
 import java.lang.String;
@@ -19,88 +20,96 @@ public final class LocationSmbArgs extends com.pulumi.resources.PolicyResourceIn
      * A list of DataSync Agent ARNs with which this location will be associated.
      * 
      */
-    private UndeferrableValue<List<String>> agentArns;
-
+    @PolicyResourceProperty(name="agentArns", flag="unknown_agentArns")
+    private List<String> value_agentArns;
+    private boolean unknown_agentArns;
     public List<String> agentArns() {
-        if (agentArns == null) return null;
-        return agentArns.getValue("LocationSmbArgs.agentArns");
+        if (!unknown_agentArns) return value_agentArns;
+        throw new UndeferrableValueException("Value 'LocationSmbArgs.agentArns' is not present");
     }
 
     /**
      * The name of the Windows domain the SMB server belongs to.
      * 
      */
-    private UndeferrableValue<String> domain;
-
+    @PolicyResourceProperty(name="domain", flag="unknown_domain")
+    private String value_domain;
+    private boolean unknown_domain;
     public String domain() {
-        if (domain == null) return null;
-        return domain.getValue("LocationSmbArgs.domain");
+        if (!unknown_domain) return value_domain;
+        throw new UndeferrableValueException("Value 'LocationSmbArgs.domain' is not present");
     }
 
     /**
      * Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
      * 
      */
-    private UndeferrableValue<LocationSmbMountOptionsArgs> mountOptions;
-
+    @PolicyResourceProperty(name="mountOptions", flag="unknown_mountOptions")
+    private LocationSmbMountOptionsArgs value_mountOptions;
+    private boolean unknown_mountOptions;
     public LocationSmbMountOptionsArgs mountOptions() {
-        if (mountOptions == null) return null;
-        return mountOptions.getValue("LocationSmbArgs.mountOptions");
+        if (!unknown_mountOptions) return value_mountOptions;
+        throw new UndeferrableValueException("Value 'LocationSmbArgs.mountOptions' is not present");
     }
 
     /**
      * The password of the user who can mount the share and has file permissions in the SMB.
      * 
      */
-    private UndeferrableValue<String> password;
-
+    @PolicyResourceProperty(name="password", flag="unknown_password")
+    private String value_password;
+    private boolean unknown_password;
     public String password() {
-        if (password == null) return null;
-        return password.getValue("LocationSmbArgs.password");
+        if (!unknown_password) return value_password;
+        throw new UndeferrableValueException("Value 'LocationSmbArgs.password' is not present");
     }
 
     /**
      * Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
      * 
      */
-    private UndeferrableValue<String> serverHostname;
-
+    @PolicyResourceProperty(name="serverHostname", flag="unknown_serverHostname")
+    private String value_serverHostname;
+    private boolean unknown_serverHostname;
     public String serverHostname() {
-        if (serverHostname == null) return null;
-        return serverHostname.getValue("LocationSmbArgs.serverHostname");
+        if (!unknown_serverHostname) return value_serverHostname;
+        throw new UndeferrableValueException("Value 'LocationSmbArgs.serverHostname' is not present");
     }
 
     /**
      * Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
      * 
      */
-    private UndeferrableValue<String> subdirectory;
-
+    @PolicyResourceProperty(name="subdirectory", flag="unknown_subdirectory")
+    private String value_subdirectory;
+    private boolean unknown_subdirectory;
     public String subdirectory() {
-        if (subdirectory == null) return null;
-        return subdirectory.getValue("LocationSmbArgs.subdirectory");
+        if (!unknown_subdirectory) return value_subdirectory;
+        throw new UndeferrableValueException("Value 'LocationSmbArgs.subdirectory' is not present");
     }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LocationSmbArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LocationSmbArgs.tags' is not present");
     }
 
     /**
      * The user who can mount the share and has file and folder permissions in the SMB share.
      * 
      */
-    private UndeferrableValue<String> user;
-
+    @PolicyResourceProperty(name="user", flag="unknown_user")
+    private String value_user;
+    private boolean unknown_user;
     public String user() {
-        if (user == null) return null;
-        return user.getValue("LocationSmbArgs.user");
+        if (!unknown_user) return value_user;
+        throw new UndeferrableValueException("Value 'LocationSmbArgs.user' is not present");
     }
 
 }

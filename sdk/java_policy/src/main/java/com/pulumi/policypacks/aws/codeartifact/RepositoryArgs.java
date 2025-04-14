@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codeartifact;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.codeartifact.inputs.RepositoryExternalConnectionsArgs;
 import com.pulumi.policypacks.aws.codeartifact.inputs.RepositoryUpstreamArgs;
@@ -20,77 +21,84 @@ public final class RepositoryArgs extends com.pulumi.resources.PolicyResourceInp
      * The description of the repository.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("RepositoryArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'RepositoryArgs.description' is not present");
     }
 
     /**
      * The domain that contains the created repository.
      * 
      */
-    private UndeferrableValue<String> domain;
-
+    @PolicyResourceProperty(name="domain", flag="unknown_domain")
+    private String value_domain;
+    private boolean unknown_domain;
     public String domain() {
-        if (domain == null) return null;
-        return domain.getValue("RepositoryArgs.domain");
+        if (!unknown_domain) return value_domain;
+        throw new UndeferrableValueException("Value 'RepositoryArgs.domain' is not present");
     }
 
     /**
      * The account number of the AWS account that owns the domain.
      * 
      */
-    private UndeferrableValue<String> domainOwner;
-
+    @PolicyResourceProperty(name="domainOwner", flag="unknown_domainOwner")
+    private String value_domainOwner;
+    private boolean unknown_domainOwner;
     public String domainOwner() {
-        if (domainOwner == null) return null;
-        return domainOwner.getValue("RepositoryArgs.domainOwner");
+        if (!unknown_domainOwner) return value_domainOwner;
+        throw new UndeferrableValueException("Value 'RepositoryArgs.domainOwner' is not present");
     }
 
     /**
      * An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
      * 
      */
-    private UndeferrableValue<RepositoryExternalConnectionsArgs> externalConnections;
-
+    @PolicyResourceProperty(name="externalConnections", flag="unknown_externalConnections")
+    private RepositoryExternalConnectionsArgs value_externalConnections;
+    private boolean unknown_externalConnections;
     public RepositoryExternalConnectionsArgs externalConnections() {
-        if (externalConnections == null) return null;
-        return externalConnections.getValue("RepositoryArgs.externalConnections");
+        if (!unknown_externalConnections) return value_externalConnections;
+        throw new UndeferrableValueException("Value 'RepositoryArgs.externalConnections' is not present");
     }
 
     /**
      * The name of the repository to create.
      * 
      */
-    private UndeferrableValue<String> repository;
-
+    @PolicyResourceProperty(name="repository", flag="unknown_repository")
+    private String value_repository;
+    private boolean unknown_repository;
     public String repository() {
-        if (repository == null) return null;
-        return repository.getValue("RepositoryArgs.repository");
+        if (!unknown_repository) return value_repository;
+        throw new UndeferrableValueException("Value 'RepositoryArgs.repository' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RepositoryArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RepositoryArgs.tags' is not present");
     }
 
     /**
      * A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
      * 
      */
-    private UndeferrableValue<List<RepositoryUpstreamArgs>> upstreams;
-
+    @PolicyResourceProperty(name="upstreams", flag="unknown_upstreams")
+    private List<RepositoryUpstreamArgs> value_upstreams;
+    private boolean unknown_upstreams;
     public List<RepositoryUpstreamArgs> upstreams() {
-        if (upstreams == null) return null;
-        return upstreams.getValue("RepositoryArgs.upstreams");
+        if (!unknown_upstreams) return value_upstreams;
+        throw new UndeferrableValueException("Value 'RepositoryArgs.upstreams' is not present");
     }
 
 }

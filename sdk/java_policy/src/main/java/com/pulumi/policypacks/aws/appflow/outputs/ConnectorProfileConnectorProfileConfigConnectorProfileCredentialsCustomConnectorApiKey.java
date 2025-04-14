@@ -3,25 +3,28 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey {
 
-    private UndeferrableValue<String> apiKey;
-
+    @PolicyResourceProperty(name="apiKey", flag="unknown_apiKey")
+    private String value_apiKey;
+    private boolean unknown_apiKey;
     public String apiKey() {
-        if (apiKey == null) return null;
-        return apiKey.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey.apiKey");
+        if (!unknown_apiKey) return value_apiKey;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey.apiKey' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> apiSecretKey;
-
+    @PolicyResourceProperty(name="apiSecretKey", flag="unknown_apiSecretKey")
+    private @Nullable String value_apiSecretKey;
+    private boolean unknown_apiSecretKey;
     public @Nullable String apiSecretKey() {
-        if (apiSecretKey == null) return null;
-        return apiSecretKey.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey.apiSecretKey");
+        if (!unknown_apiSecretKey) return value_apiSecretKey;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey.apiSecretKey' is not present");
     }
 
 }

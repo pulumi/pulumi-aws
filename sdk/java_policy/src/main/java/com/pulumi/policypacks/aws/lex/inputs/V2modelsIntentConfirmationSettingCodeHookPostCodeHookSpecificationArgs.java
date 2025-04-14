@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseArgs;
@@ -22,99 +23,108 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
      * Configuration block for conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalArgs> failureConditional;
-
+    @PolicyResourceProperty(name="failureConditional", flag="unknown_failureConditional")
+    private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalArgs value_failureConditional;
+    private boolean unknown_failureConditional;
     public V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalArgs failureConditional() {
-        if (failureConditional == null) return null;
-        return failureConditional.getValue("V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs.failureConditional");
+        if (!unknown_failureConditional) return value_failureConditional;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs.failureConditional' is not present");
     }
 
     /**
      * Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed . See `failure_next_step`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepArgs> failureNextStep;
-
+    @PolicyResourceProperty(name="failureNextStep", flag="unknown_failureNextStep")
+    private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepArgs value_failureNextStep;
+    private boolean unknown_failureNextStep;
     public V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepArgs failureNextStep() {
-        if (failureNextStep == null) return null;
-        return failureNextStep.getValue("V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs.failureNextStep");
+        if (!unknown_failureNextStep) return value_failureNextStep;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs.failureNextStep' is not present");
     }
 
     /**
      * Configuration block for message groups that Amazon Lex uses to respond the user input. See `failure_response`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseArgs> failureResponse;
-
+    @PolicyResourceProperty(name="failureResponse", flag="unknown_failureResponse")
+    private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseArgs value_failureResponse;
+    private boolean unknown_failureResponse;
     public V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseArgs failureResponse() {
-        if (failureResponse == null) return null;
-        return failureResponse.getValue("V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs.failureResponse");
+        if (!unknown_failureResponse) return value_failureResponse;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs.failureResponse' is not present");
     }
 
     /**
      * Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `success_conditional`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalArgs> successConditional;
-
+    @PolicyResourceProperty(name="successConditional", flag="unknown_successConditional")
+    private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalArgs value_successConditional;
+    private boolean unknown_successConditional;
     public V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalArgs successConditional() {
-        if (successConditional == null) return null;
-        return successConditional.getValue("V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs.successConditional");
+        if (!unknown_successConditional) return value_successConditional;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs.successConditional' is not present");
     }
 
     /**
      * Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `success_next_step`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepArgs> successNextStep;
-
+    @PolicyResourceProperty(name="successNextStep", flag="unknown_successNextStep")
+    private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepArgs value_successNextStep;
+    private boolean unknown_successNextStep;
     public V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepArgs successNextStep() {
-        if (successNextStep == null) return null;
-        return successNextStep.getValue("V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs.successNextStep");
+        if (!unknown_successNextStep) return value_successNextStep;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs.successNextStep' is not present");
     }
 
     /**
      * Configuration block for message groups that Amazon Lex uses to respond the user input. See `success_response`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseArgs> successResponse;
-
+    @PolicyResourceProperty(name="successResponse", flag="unknown_successResponse")
+    private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseArgs value_successResponse;
+    private boolean unknown_successResponse;
     public V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseArgs successResponse() {
-        if (successResponse == null) return null;
-        return successResponse.getValue("V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs.successResponse");
+        if (!unknown_successResponse) return value_successResponse;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs.successResponse' is not present");
     }
 
     /**
      * Configuration block for conditional branches to evaluate if the code hook times out. See `timeout_conditional`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalArgs> timeoutConditional;
-
+    @PolicyResourceProperty(name="timeoutConditional", flag="unknown_timeoutConditional")
+    private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalArgs value_timeoutConditional;
+    private boolean unknown_timeoutConditional;
     public V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalArgs timeoutConditional() {
-        if (timeoutConditional == null) return null;
-        return timeoutConditional.getValue("V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs.timeoutConditional");
+        if (!unknown_timeoutConditional) return value_timeoutConditional;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs.timeoutConditional' is not present");
     }
 
     /**
      * Configuration block for the next step that the bot runs when the code hook times out. See `timeout_next_step`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepArgs> timeoutNextStep;
-
+    @PolicyResourceProperty(name="timeoutNextStep", flag="unknown_timeoutNextStep")
+    private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepArgs value_timeoutNextStep;
+    private boolean unknown_timeoutNextStep;
     public V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepArgs timeoutNextStep() {
-        if (timeoutNextStep == null) return null;
-        return timeoutNextStep.getValue("V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs.timeoutNextStep");
+        if (!unknown_timeoutNextStep) return value_timeoutNextStep;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs.timeoutNextStep' is not present");
     }
 
     /**
      * Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `timeout_response`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseArgs> timeoutResponse;
-
+    @PolicyResourceProperty(name="timeoutResponse", flag="unknown_timeoutResponse")
+    private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseArgs value_timeoutResponse;
+    private boolean unknown_timeoutResponse;
     public V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseArgs timeoutResponse() {
-        if (timeoutResponse == null) return null;
-        return timeoutResponse.getValue("V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs.timeoutResponse");
+        if (!unknown_timeoutResponse) return value_timeoutResponse;
+        throw new UndeferrableValueException("Value 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs.timeoutResponse' is not present");
     }
 
 }

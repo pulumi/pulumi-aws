@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.signer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class SigningProfileSignatureValidityPeriod {
      * The time unit for signature validity. Valid values: `DAYS`, `MONTHS`, `YEARS`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("SigningProfileSignatureValidityPeriod.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'SigningProfileSignatureValidityPeriod.type' is not present");
     }
 
     /**
      * The numerical value of the time unit for signature validity.
      * 
      */
-    private UndeferrableValue<Integer> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private Integer value_value;
+    private boolean unknown_value;
     public Integer value() {
-        if (value == null) return null;
-        return value.getValue("SigningProfileSignatureValidityPeriod.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'SigningProfileSignatureValidityPeriod.value' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lambda.inputs.AliasRoutingConfigArgs;
 import java.lang.String;
@@ -17,55 +18,60 @@ public final class AliasArgs extends com.pulumi.resources.PolicyResourceInput {
      * Description of the alias.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("AliasArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AliasArgs.description' is not present");
     }
 
     /**
      * Lambda Function name or ARN.
      * 
      */
-    private UndeferrableValue<String> functionName;
-
+    @PolicyResourceProperty(name="functionName", flag="unknown_functionName")
+    private String value_functionName;
+    private boolean unknown_functionName;
     public String functionName() {
-        if (functionName == null) return null;
-        return functionName.getValue("AliasArgs.functionName");
+        if (!unknown_functionName) return value_functionName;
+        throw new UndeferrableValueException("Value 'AliasArgs.functionName' is not present");
     }
 
     /**
      * Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
      * 
      */
-    private UndeferrableValue<String> functionVersion;
-
+    @PolicyResourceProperty(name="functionVersion", flag="unknown_functionVersion")
+    private String value_functionVersion;
+    private boolean unknown_functionVersion;
     public String functionVersion() {
-        if (functionVersion == null) return null;
-        return functionVersion.getValue("AliasArgs.functionVersion");
+        if (!unknown_functionVersion) return value_functionVersion;
+        throw new UndeferrableValueException("Value 'AliasArgs.functionVersion' is not present");
     }
 
     /**
      * Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AliasArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AliasArgs.name' is not present");
     }
 
     /**
      * The Lambda alias&#39; route configuration settings. Fields documented below
      * 
      */
-    private UndeferrableValue<AliasRoutingConfigArgs> routingConfig;
-
+    @PolicyResourceProperty(name="routingConfig", flag="unknown_routingConfig")
+    private AliasRoutingConfigArgs value_routingConfig;
+    private boolean unknown_routingConfig;
     public AliasRoutingConfigArgs routingConfig() {
-        if (routingConfig == null) return null;
-        return routingConfig.getValue("AliasArgs.routingConfig");
+        if (!unknown_routingConfig) return value_routingConfig;
+        throw new UndeferrableValueException("Value 'AliasArgs.routingConfig' is not present");
     }
 
 }

@@ -3,80 +3,88 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift {
 
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift.bucketName' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> bucketPrefix;
-
+    @PolicyResourceProperty(name="bucketPrefix", flag="unknown_bucketPrefix")
+    private @Nullable String value_bucketPrefix;
+    private boolean unknown_bucketPrefix;
     public @Nullable String bucketPrefix() {
-        if (bucketPrefix == null) return null;
-        return bucketPrefix.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift.bucketPrefix");
+        if (!unknown_bucketPrefix) return value_bucketPrefix;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift.bucketPrefix' is not present");
     }
 
     /**
      * The unique ID that&#39;s assigned to an Amazon Redshift cluster.
      * 
      */
-    private @Nullable UndeferrableValue<String> clusterIdentifier;
-
+    @PolicyResourceProperty(name="clusterIdentifier", flag="unknown_clusterIdentifier")
+    private @Nullable String value_clusterIdentifier;
+    private boolean unknown_clusterIdentifier;
     public @Nullable String clusterIdentifier() {
-        if (clusterIdentifier == null) return null;
-        return clusterIdentifier.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift.clusterIdentifier");
+        if (!unknown_clusterIdentifier) return value_clusterIdentifier;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift.clusterIdentifier' is not present");
     }
 
     /**
      * ARN of the IAM role that permits AppFlow to access the database through Data API.
      * 
      */
-    private @Nullable UndeferrableValue<String> dataApiRoleArn;
-
+    @PolicyResourceProperty(name="dataApiRoleArn", flag="unknown_dataApiRoleArn")
+    private @Nullable String value_dataApiRoleArn;
+    private boolean unknown_dataApiRoleArn;
     public @Nullable String dataApiRoleArn() {
-        if (dataApiRoleArn == null) return null;
-        return dataApiRoleArn.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift.dataApiRoleArn");
+        if (!unknown_dataApiRoleArn) return value_dataApiRoleArn;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift.dataApiRoleArn' is not present");
     }
 
     /**
      * The name of an Amazon Redshift database.
      * 
      */
-    private @Nullable UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private @Nullable String value_databaseName;
+    private boolean unknown_databaseName;
     public @Nullable String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift.databaseName' is not present");
     }
 
     /**
      * The JDBC URL of the Amazon Redshift cluster.
      * 
      */
-    private @Nullable UndeferrableValue<String> databaseUrl;
-
+    @PolicyResourceProperty(name="databaseUrl", flag="unknown_databaseUrl")
+    private @Nullable String value_databaseUrl;
+    private boolean unknown_databaseUrl;
     public @Nullable String databaseUrl() {
-        if (databaseUrl == null) return null;
-        return databaseUrl.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift.databaseUrl");
+        if (!unknown_databaseUrl) return value_databaseUrl;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift.databaseUrl' is not present");
     }
 
     /**
      * ARN of the IAM role.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift.roleArn' is not present");
     }
 
 }

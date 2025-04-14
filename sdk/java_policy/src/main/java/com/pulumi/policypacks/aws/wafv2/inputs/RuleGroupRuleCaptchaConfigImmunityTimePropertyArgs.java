@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs {
      * The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
      * 
      */
-    private UndeferrableValue<Integer> immunityTime;
-
+    @PolicyResourceProperty(name="immunityTime", flag="unknown_immunityTime")
+    private Integer value_immunityTime;
+    private boolean unknown_immunityTime;
     public Integer immunityTime() {
-        if (immunityTime == null) return null;
-        return immunityTime.getValue("RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs.immunityTime");
+        if (!unknown_immunityTime) return value_immunityTime;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs.immunityTime' is not present");
     }
 
 }

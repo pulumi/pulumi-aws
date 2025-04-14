@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.inputs.GuardrailWordPolicyConfigManagedWordListsConfigArgs;
 import com.pulumi.policypacks.aws.bedrock.inputs.GuardrailWordPolicyConfigWordsConfigArgs;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class GuardrailWordPolicyConfigArgs {
      * A config for the list of managed words. See Managed Word Lists Config for more information.
      * 
      */
-    private UndeferrableValue<List<GuardrailWordPolicyConfigManagedWordListsConfigArgs>> managedWordListsConfigs;
-
+    @PolicyResourceProperty(name="managedWordListsConfigs", flag="unknown_managedWordListsConfigs")
+    private List<GuardrailWordPolicyConfigManagedWordListsConfigArgs> value_managedWordListsConfigs;
+    private boolean unknown_managedWordListsConfigs;
     public List<GuardrailWordPolicyConfigManagedWordListsConfigArgs> managedWordListsConfigs() {
-        if (managedWordListsConfigs == null) return null;
-        return managedWordListsConfigs.getValue("GuardrailWordPolicyConfigArgs.managedWordListsConfigs");
+        if (!unknown_managedWordListsConfigs) return value_managedWordListsConfigs;
+        throw new UndeferrableValueException("Value 'GuardrailWordPolicyConfigArgs.managedWordListsConfigs' is not present");
     }
 
     /**
      * List of custom word configs. See Words Config for more information.
      * 
      */
-    private UndeferrableValue<List<GuardrailWordPolicyConfigWordsConfigArgs>> wordsConfigs;
-
+    @PolicyResourceProperty(name="wordsConfigs", flag="unknown_wordsConfigs")
+    private List<GuardrailWordPolicyConfigWordsConfigArgs> value_wordsConfigs;
+    private boolean unknown_wordsConfigs;
     public List<GuardrailWordPolicyConfigWordsConfigArgs> wordsConfigs() {
-        if (wordsConfigs == null) return null;
-        return wordsConfigs.getValue("GuardrailWordPolicyConfigArgs.wordsConfigs");
+        if (!unknown_wordsConfigs) return value_wordsConfigs;
+        throw new UndeferrableValueException("Value 'GuardrailWordPolicyConfigArgs.wordsConfigs' is not present");
     }
 
 }

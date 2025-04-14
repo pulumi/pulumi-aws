@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class ThingArgs extends com.pulumi.resources.PolicyResourceInput {
      * Map of attributes of the thing.
      * 
      */
-    private UndeferrableValue<Map<String,String>> attributes;
-
+    @PolicyResourceProperty(name="attributes", flag="unknown_attributes")
+    private Map<String,String> value_attributes;
+    private boolean unknown_attributes;
     public Map<String,String> attributes() {
-        if (attributes == null) return null;
-        return attributes.getValue("ThingArgs.attributes");
+        if (!unknown_attributes) return value_attributes;
+        throw new UndeferrableValueException("Value 'ThingArgs.attributes' is not present");
     }
 
     /**
      * The name of the thing.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ThingArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ThingArgs.name' is not present");
     }
 
     /**
      * The thing type name.
      * 
      */
-    private UndeferrableValue<String> thingTypeName;
-
+    @PolicyResourceProperty(name="thingTypeName", flag="unknown_thingTypeName")
+    private String value_thingTypeName;
+    private boolean unknown_thingTypeName;
     public String thingTypeName() {
-        if (thingTypeName == null) return null;
-        return thingTypeName.getValue("ThingArgs.thingTypeName");
+        if (!unknown_thingTypeName) return value_thingTypeName;
+        throw new UndeferrableValueException("Value 'ThingArgs.thingTypeName' is not present");
     }
 
 }

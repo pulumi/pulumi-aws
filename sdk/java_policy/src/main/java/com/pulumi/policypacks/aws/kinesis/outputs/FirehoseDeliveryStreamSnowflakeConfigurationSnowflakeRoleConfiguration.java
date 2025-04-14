@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConf
      * Whether the Snowflake role is enabled.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration.enabled' is not present");
     }
 
     /**
      * The Snowflake role.
      * 
      */
-    private @Nullable UndeferrableValue<String> snowflakeRole;
-
+    @PolicyResourceProperty(name="snowflakeRole", flag="unknown_snowflakeRole")
+    private @Nullable String value_snowflakeRole;
+    private boolean unknown_snowflakeRole;
     public @Nullable String snowflakeRole() {
-        if (snowflakeRole == null) return null;
-        return snowflakeRole.getValue("FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration.snowflakeRole");
+        if (!unknown_snowflakeRole) return value_snowflakeRole;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration.snowflakeRole' is not present");
     }
 
 }

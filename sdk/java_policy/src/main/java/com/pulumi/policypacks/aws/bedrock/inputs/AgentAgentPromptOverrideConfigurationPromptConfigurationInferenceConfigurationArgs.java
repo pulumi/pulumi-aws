@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,55 +17,60 @@ public final class AgentAgentPromptOverrideConfigurationPromptConfigurationInfer
      * Maximum number of tokens to allow in the generated response.
      * 
      */
-    private UndeferrableValue<Integer> maxLength;
-
+    @PolicyResourceProperty(name="maxLength", flag="unknown_maxLength")
+    private Integer value_maxLength;
+    private boolean unknown_maxLength;
     public Integer maxLength() {
-        if (maxLength == null) return null;
-        return maxLength.getValue("AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs.maxLength");
+        if (!unknown_maxLength) return value_maxLength;
+        throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs.maxLength' is not present");
     }
 
     /**
      * List of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
      * 
      */
-    private UndeferrableValue<List<String>> stopSequences;
-
+    @PolicyResourceProperty(name="stopSequences", flag="unknown_stopSequences")
+    private List<String> value_stopSequences;
+    private boolean unknown_stopSequences;
     public List<String> stopSequences() {
-        if (stopSequences == null) return null;
-        return stopSequences.getValue("AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs.stopSequences");
+        if (!unknown_stopSequences) return value_stopSequences;
+        throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs.stopSequences' is not present");
     }
 
     /**
      * Likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.
      * 
      */
-    private UndeferrableValue<Double> temperature;
-
+    @PolicyResourceProperty(name="temperature", flag="unknown_temperature")
+    private Double value_temperature;
+    private boolean unknown_temperature;
     public Double temperature() {
-        if (temperature == null) return null;
-        return temperature.getValue("AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs.temperature");
+        if (!unknown_temperature) return value_temperature;
+        throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs.temperature' is not present");
     }
 
     /**
      * Number of top most-likely candidates, between 0 and 500, from which the model chooses the next token in the sequence.
      * 
      */
-    private UndeferrableValue<Integer> topK;
-
+    @PolicyResourceProperty(name="topK", flag="unknown_topK")
+    private Integer value_topK;
+    private boolean unknown_topK;
     public Integer topK() {
-        if (topK == null) return null;
-        return topK.getValue("AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs.topK");
+        if (!unknown_topK) return value_topK;
+        throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs.topK' is not present");
     }
 
     /**
      * Top percentage of the probability distribution of next tokens, between 0 and 1 (denoting 0% and 100%), from which the model chooses the next token in the sequence.
      * 
      */
-    private UndeferrableValue<Double> topP;
-
+    @PolicyResourceProperty(name="topP", flag="unknown_topP")
+    private Double value_topP;
+    private boolean unknown_topP;
     public Double topP() {
-        if (topP == null) return null;
-        return topP.getValue("AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs.topP");
+        if (!unknown_topP) return value_topP;
+        throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs.topP' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLogg
      * Enables or disables the logging. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions.enabled' is not present");
     }
 
     /**
      * The CloudWatch group name for logging. This value is required if `enabled` is true.
      * 
      */
-    private @Nullable UndeferrableValue<String> logGroupName;
-
+    @PolicyResourceProperty(name="logGroupName", flag="unknown_logGroupName")
+    private @Nullable String value_logGroupName;
+    private boolean unknown_logGroupName;
     public @Nullable String logGroupName() {
-        if (logGroupName == null) return null;
-        return logGroupName.getValue("FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions.logGroupName");
+        if (!unknown_logGroupName) return value_logGroupName;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions.logGroupName' is not present");
     }
 
     /**
      * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
      * 
      */
-    private @Nullable UndeferrableValue<String> logStreamName;
-
+    @PolicyResourceProperty(name="logStreamName", flag="unknown_logStreamName")
+    private @Nullable String value_logStreamName;
+    private boolean unknown_logStreamName;
     public @Nullable String logStreamName() {
-        if (logStreamName == null) return null;
-        return logStreamName.getValue("FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions.logStreamName");
+        if (!unknown_logStreamName) return value_logStreamName;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions.logStreamName' is not present");
     }
 
 }

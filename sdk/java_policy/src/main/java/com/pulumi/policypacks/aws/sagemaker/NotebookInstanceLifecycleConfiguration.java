@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,44 +17,48 @@ public final class NotebookInstanceLifecycleConfiguration extends com.pulumi.res
      * The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("NotebookInstanceLifecycleConfiguration.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'NotebookInstanceLifecycleConfiguration.arn' is not present");
     }
 
     /**
      * The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("NotebookInstanceLifecycleConfiguration.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'NotebookInstanceLifecycleConfiguration.name' is not present");
     }
 
     /**
      * A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
      * 
      */
-    private @Nullable UndeferrableValue<String> onCreate;
-
+    @PolicyResourceProperty(name="onCreate", flag="unknown_onCreate")
+    private @Nullable String value_onCreate;
+    private boolean unknown_onCreate;
     public @Nullable String onCreate() {
-        if (onCreate == null) return null;
-        return onCreate.getValue("NotebookInstanceLifecycleConfiguration.onCreate");
+        if (!unknown_onCreate) return value_onCreate;
+        throw new UndeferrableValueException("Value 'NotebookInstanceLifecycleConfiguration.onCreate' is not present");
     }
 
     /**
      * A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it&#39;s created.
      * 
      */
-    private @Nullable UndeferrableValue<String> onStart;
-
+    @PolicyResourceProperty(name="onStart", flag="unknown_onStart")
+    private @Nullable String value_onStart;
+    private boolean unknown_onStart;
     public @Nullable String onStart() {
-        if (onStart == null) return null;
-        return onStart.getValue("NotebookInstanceLifecycleConfiguration.onStart");
+        if (!unknown_onStart) return value_onStart;
+        throw new UndeferrableValueException("Value 'NotebookInstanceLifecycleConfiguration.onStart' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lakeformation.inputs.ResourceLfTagTableWithColumnsColumnWildcardArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,44 +17,48 @@ public final class ResourceLfTagTableWithColumnsArgs {
      * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    private UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private String value_catalogId;
+    private boolean unknown_catalogId;
     public String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("ResourceLfTagTableWithColumnsArgs.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'ResourceLfTagTableWithColumnsArgs.catalogId' is not present");
     }
 
     /**
      * Set of column names for the table.
      * 
      */
-    private UndeferrableValue<List<String>> columnNames;
-
+    @PolicyResourceProperty(name="columnNames", flag="unknown_columnNames")
+    private List<String> value_columnNames;
+    private boolean unknown_columnNames;
     public List<String> columnNames() {
-        if (columnNames == null) return null;
-        return columnNames.getValue("ResourceLfTagTableWithColumnsArgs.columnNames");
+        if (!unknown_columnNames) return value_columnNames;
+        throw new UndeferrableValueException("Value 'ResourceLfTagTableWithColumnsArgs.columnNames' is not present");
     }
 
     /**
      * Option to add column wildcard. See Column Wildcard for more details.
      * 
      */
-    private UndeferrableValue<ResourceLfTagTableWithColumnsColumnWildcardArgs> columnWildcard;
-
+    @PolicyResourceProperty(name="columnWildcard", flag="unknown_columnWildcard")
+    private ResourceLfTagTableWithColumnsColumnWildcardArgs value_columnWildcard;
+    private boolean unknown_columnWildcard;
     public ResourceLfTagTableWithColumnsColumnWildcardArgs columnWildcard() {
-        if (columnWildcard == null) return null;
-        return columnWildcard.getValue("ResourceLfTagTableWithColumnsArgs.columnWildcard");
+        if (!unknown_columnWildcard) return value_columnWildcard;
+        throw new UndeferrableValueException("Value 'ResourceLfTagTableWithColumnsArgs.columnWildcard' is not present");
     }
 
     /**
      * Name of the database for the table with columns resource. Unique to the Data Catalog.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("ResourceLfTagTableWithColumnsArgs.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'ResourceLfTagTableWithColumnsArgs.databaseName' is not present");
     }
 
     /**
@@ -62,11 +67,12 @@ public final class ResourceLfTagTableWithColumnsArgs {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ResourceLfTagTableWithColumnsArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ResourceLfTagTableWithColumnsArgs.name' is not present");
     }
 
 }

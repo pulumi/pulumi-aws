@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3.outputs.BucketServerSideEncryptionConfigurationV2Rule;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class BucketServerSideEncryptionConfigurationV2 extends com.pulumi.
      * ID (name) of the bucket.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("BucketServerSideEncryptionConfigurationV2.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'BucketServerSideEncryptionConfigurationV2.bucket' is not present");
     }
 
     /**
      * Account ID of the expected bucket owner.
      * 
      */
-    private @Nullable UndeferrableValue<String> expectedBucketOwner;
-
+    @PolicyResourceProperty(name="expectedBucketOwner", flag="unknown_expectedBucketOwner")
+    private @Nullable String value_expectedBucketOwner;
+    private boolean unknown_expectedBucketOwner;
     public @Nullable String expectedBucketOwner() {
-        if (expectedBucketOwner == null) return null;
-        return expectedBucketOwner.getValue("BucketServerSideEncryptionConfigurationV2.expectedBucketOwner");
+        if (!unknown_expectedBucketOwner) return value_expectedBucketOwner;
+        throw new UndeferrableValueException("Value 'BucketServerSideEncryptionConfigurationV2.expectedBucketOwner' is not present");
     }
 
     /**
      * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
      * 
      */
-    private UndeferrableValue<List<BucketServerSideEncryptionConfigurationV2Rule>> rules;
-
+    @PolicyResourceProperty(name="rules", flag="unknown_rules")
+    private List<BucketServerSideEncryptionConfigurationV2Rule> value_rules;
+    private boolean unknown_rules;
     public List<BucketServerSideEncryptionConfigurationV2Rule> rules() {
-        if (rules == null) return null;
-        return rules.getValue("BucketServerSideEncryptionConfigurationV2.rules");
+        if (!unknown_rules) return value_rules;
+        throw new UndeferrableValueException("Value 'BucketServerSideEncryptionConfigurationV2.rules' is not present");
     }
 
 }

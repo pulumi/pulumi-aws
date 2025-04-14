@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.vpclattice.outputs.ServiceDnsEntry;
 import java.lang.String;
@@ -19,55 +20,60 @@ public final class Service extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the service.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Service.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Service.arn' is not present");
     }
 
     /**
      * Type of IAM policy. Either `NONE` or `AWS_IAM`.
      * 
      */
-    private UndeferrableValue<String> authType;
-
+    @PolicyResourceProperty(name="authType", flag="unknown_authType")
+    private String value_authType;
+    private boolean unknown_authType;
     public String authType() {
-        if (authType == null) return null;
-        return authType.getValue("Service.authType");
+        if (!unknown_authType) return value_authType;
+        throw new UndeferrableValueException("Value 'Service.authType' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the certificate.
      * 
      */
-    private @Nullable UndeferrableValue<String> certificateArn;
-
+    @PolicyResourceProperty(name="certificateArn", flag="unknown_certificateArn")
+    private @Nullable String value_certificateArn;
+    private boolean unknown_certificateArn;
     public @Nullable String certificateArn() {
-        if (certificateArn == null) return null;
-        return certificateArn.getValue("Service.certificateArn");
+        if (!unknown_certificateArn) return value_certificateArn;
+        throw new UndeferrableValueException("Value 'Service.certificateArn' is not present");
     }
 
     /**
      * Custom domain name of the service.
      * 
      */
-    private @Nullable UndeferrableValue<String> customDomainName;
-
+    @PolicyResourceProperty(name="customDomainName", flag="unknown_customDomainName")
+    private @Nullable String value_customDomainName;
+    private boolean unknown_customDomainName;
     public @Nullable String customDomainName() {
-        if (customDomainName == null) return null;
-        return customDomainName.getValue("Service.customDomainName");
+        if (!unknown_customDomainName) return value_customDomainName;
+        throw new UndeferrableValueException("Value 'Service.customDomainName' is not present");
     }
 
     /**
      * DNS name of the service.
      * 
      */
-    private UndeferrableValue<List<ServiceDnsEntry>> dnsEntries;
-
+    @PolicyResourceProperty(name="dnsEntries", flag="unknown_dnsEntries")
+    private List<ServiceDnsEntry> value_dnsEntries;
+    private boolean unknown_dnsEntries;
     public List<ServiceDnsEntry> dnsEntries() {
-        if (dnsEntries == null) return null;
-        return dnsEntries.getValue("Service.dnsEntries");
+        if (!unknown_dnsEntries) return value_dnsEntries;
+        throw new UndeferrableValueException("Value 'Service.dnsEntries' is not present");
     }
 
     /**
@@ -76,33 +82,36 @@ public final class Service extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Service.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Service.name' is not present");
     }
 
     /**
      * Status of the service.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Service.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Service.status' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Service.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Service.tags' is not present");
     }
 
     /**
@@ -113,11 +122,12 @@ public final class Service extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Service.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Service.tagsAll' is not present");
     }
 
 }

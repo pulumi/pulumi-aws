@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directoryservice;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.directoryservice.outputs.DirectoryConnectSettings;
 import com.pulumi.policypacks.aws.directoryservice.outputs.DirectoryVpcSettings;
@@ -22,154 +23,168 @@ public final class Directory extends com.pulumi.resources.PolicyResourceOutput {
      * The access URL for the directory, such as `http://alias.awsapps.com`.
      * 
      */
-    private UndeferrableValue<String> accessUrl;
-
+    @PolicyResourceProperty(name="accessUrl", flag="unknown_accessUrl")
+    private String value_accessUrl;
+    private boolean unknown_accessUrl;
     public String accessUrl() {
-        if (accessUrl == null) return null;
-        return accessUrl.getValue("Directory.accessUrl");
+        if (!unknown_accessUrl) return value_accessUrl;
+        throw new UndeferrableValueException("Value 'Directory.accessUrl' is not present");
     }
 
     /**
      * The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
      * 
      */
-    private UndeferrableValue<String> alias;
-
+    @PolicyResourceProperty(name="alias", flag="unknown_alias")
+    private String value_alias;
+    private boolean unknown_alias;
     public String alias() {
-        if (alias == null) return null;
-        return alias.getValue("Directory.alias");
+        if (!unknown_alias) return value_alias;
+        throw new UndeferrableValueException("Value 'Directory.alias' is not present");
     }
 
     /**
      * Connector related information about the directory. Fields documented below.
      * 
      */
-    private @Nullable UndeferrableValue<DirectoryConnectSettings> connectSettings;
-
+    @PolicyResourceProperty(name="connectSettings", flag="unknown_connectSettings")
+    private @Nullable DirectoryConnectSettings value_connectSettings;
+    private boolean unknown_connectSettings;
     public @Nullable DirectoryConnectSettings connectSettings() {
-        if (connectSettings == null) return null;
-        return connectSettings.getValue("Directory.connectSettings");
+        if (!unknown_connectSettings) return value_connectSettings;
+        throw new UndeferrableValueException("Value 'Directory.connectSettings' is not present");
     }
 
     /**
      * A textual description for the directory.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Directory.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Directory.description' is not present");
     }
 
     /**
      * The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
      * 
      */
-    private UndeferrableValue<Integer> desiredNumberOfDomainControllers;
-
+    @PolicyResourceProperty(name="desiredNumberOfDomainControllers", flag="unknown_desiredNumberOfDomainControllers")
+    private Integer value_desiredNumberOfDomainControllers;
+    private boolean unknown_desiredNumberOfDomainControllers;
     public Integer desiredNumberOfDomainControllers() {
-        if (desiredNumberOfDomainControllers == null) return null;
-        return desiredNumberOfDomainControllers.getValue("Directory.desiredNumberOfDomainControllers");
+        if (!unknown_desiredNumberOfDomainControllers) return value_desiredNumberOfDomainControllers;
+        throw new UndeferrableValueException("Value 'Directory.desiredNumberOfDomainControllers' is not present");
     }
 
     /**
      * A list of IP addresses of the DNS servers for the directory or connector.
      * 
      */
-    private UndeferrableValue<List<String>> dnsIpAddresses;
-
+    @PolicyResourceProperty(name="dnsIpAddresses", flag="unknown_dnsIpAddresses")
+    private List<String> value_dnsIpAddresses;
+    private boolean unknown_dnsIpAddresses;
     public List<String> dnsIpAddresses() {
-        if (dnsIpAddresses == null) return null;
-        return dnsIpAddresses.getValue("Directory.dnsIpAddresses");
+        if (!unknown_dnsIpAddresses) return value_dnsIpAddresses;
+        throw new UndeferrableValueException("Value 'Directory.dnsIpAddresses' is not present");
     }
 
     /**
      * The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
      * 
      */
-    private UndeferrableValue<String> edition;
-
+    @PolicyResourceProperty(name="edition", flag="unknown_edition")
+    private String value_edition;
+    private boolean unknown_edition;
     public String edition() {
-        if (edition == null) return null;
-        return edition.getValue("Directory.edition");
+        if (!unknown_edition) return value_edition;
+        throw new UndeferrableValueException("Value 'Directory.edition' is not present");
     }
 
     /**
      * Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enableSso;
-
+    @PolicyResourceProperty(name="enableSso", flag="unknown_enableSso")
+    private @Nullable Boolean value_enableSso;
+    private boolean unknown_enableSso;
     public @Nullable Boolean enableSso() {
-        if (enableSso == null) return null;
-        return enableSso.getValue("Directory.enableSso");
+        if (!unknown_enableSso) return value_enableSso;
+        throw new UndeferrableValueException("Value 'Directory.enableSso' is not present");
     }
 
     /**
      * The fully qualified name for the directory, such as `corp.example.com`
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Directory.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Directory.name' is not present");
     }
 
     /**
      * The password for the directory administrator or connector user.
      * 
      */
-    private UndeferrableValue<String> password;
-
+    @PolicyResourceProperty(name="password", flag="unknown_password")
+    private String value_password;
+    private boolean unknown_password;
     public String password() {
-        if (password == null) return null;
-        return password.getValue("Directory.password");
+        if (!unknown_password) return value_password;
+        throw new UndeferrableValueException("Value 'Directory.password' is not present");
     }
 
     /**
      * The ID of the security group created by the directory.
      * 
      */
-    private UndeferrableValue<String> securityGroupId;
-
+    @PolicyResourceProperty(name="securityGroupId", flag="unknown_securityGroupId")
+    private String value_securityGroupId;
+    private boolean unknown_securityGroupId;
     public String securityGroupId() {
-        if (securityGroupId == null) return null;
-        return securityGroupId.getValue("Directory.securityGroupId");
+        if (!unknown_securityGroupId) return value_securityGroupId;
+        throw new UndeferrableValueException("Value 'Directory.securityGroupId' is not present");
     }
 
     /**
      * The short name of the directory, such as `CORP`.
      * 
      */
-    private UndeferrableValue<String> shortName;
-
+    @PolicyResourceProperty(name="shortName", flag="unknown_shortName")
+    private String value_shortName;
+    private boolean unknown_shortName;
     public String shortName() {
-        if (shortName == null) return null;
-        return shortName.getValue("Directory.shortName");
+        if (!unknown_shortName) return value_shortName;
+        throw new UndeferrableValueException("Value 'Directory.shortName' is not present");
     }
 
     /**
      * (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
      * 
      */
-    private UndeferrableValue<String> size;
-
+    @PolicyResourceProperty(name="size", flag="unknown_size")
+    private String value_size;
+    private boolean unknown_size;
     public String size() {
-        if (size == null) return null;
-        return size.getValue("Directory.size");
+        if (!unknown_size) return value_size;
+        throw new UndeferrableValueException("Value 'Directory.size' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Directory.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Directory.tags' is not present");
     }
 
     /**
@@ -180,33 +195,36 @@ public final class Directory extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Directory.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Directory.tagsAll' is not present");
     }
 
     /**
      * The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("Directory.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'Directory.type' is not present");
     }
 
     /**
      * VPC related information about the directory. Fields documented below.
      * 
      */
-    private @Nullable UndeferrableValue<DirectoryVpcSettings> vpcSettings;
-
+    @PolicyResourceProperty(name="vpcSettings", flag="unknown_vpcSettings")
+    private @Nullable DirectoryVpcSettings value_vpcSettings;
+    private boolean unknown_vpcSettings;
     public @Nullable DirectoryVpcSettings vpcSettings() {
-        if (vpcSettings == null) return null;
-        return vpcSettings.getValue("Directory.vpcSettings");
+        if (!unknown_vpcSettings) return value_vpcSettings;
+        throw new UndeferrableValueException("Value 'Directory.vpcSettings' is not present");
     }
 
 }

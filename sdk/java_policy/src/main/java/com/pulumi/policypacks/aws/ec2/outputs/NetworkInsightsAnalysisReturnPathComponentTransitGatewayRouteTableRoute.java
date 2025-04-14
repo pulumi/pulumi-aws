@@ -3,60 +3,68 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute {
 
-    private @Nullable UndeferrableValue<String> attachmentId;
-
+    @PolicyResourceProperty(name="attachmentId", flag="unknown_attachmentId")
+    private @Nullable String value_attachmentId;
+    private boolean unknown_attachmentId;
     public @Nullable String attachmentId() {
-        if (attachmentId == null) return null;
-        return attachmentId.getValue("NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute.attachmentId");
+        if (!unknown_attachmentId) return value_attachmentId;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute.attachmentId' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> destinationCidr;
-
+    @PolicyResourceProperty(name="destinationCidr", flag="unknown_destinationCidr")
+    private @Nullable String value_destinationCidr;
+    private boolean unknown_destinationCidr;
     public @Nullable String destinationCidr() {
-        if (destinationCidr == null) return null;
-        return destinationCidr.getValue("NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute.destinationCidr");
+        if (!unknown_destinationCidr) return value_destinationCidr;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute.destinationCidr' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> prefixListId;
-
+    @PolicyResourceProperty(name="prefixListId", flag="unknown_prefixListId")
+    private @Nullable String value_prefixListId;
+    private boolean unknown_prefixListId;
     public @Nullable String prefixListId() {
-        if (prefixListId == null) return null;
-        return prefixListId.getValue("NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute.prefixListId");
+        if (!unknown_prefixListId) return value_prefixListId;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute.prefixListId' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> resourceId;
-
+    @PolicyResourceProperty(name="resourceId", flag="unknown_resourceId")
+    private @Nullable String value_resourceId;
+    private boolean unknown_resourceId;
     public @Nullable String resourceId() {
-        if (resourceId == null) return null;
-        return resourceId.getValue("NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute.resourceId");
+        if (!unknown_resourceId) return value_resourceId;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute.resourceId' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> resourceType;
-
+    @PolicyResourceProperty(name="resourceType", flag="unknown_resourceType")
+    private @Nullable String value_resourceType;
+    private boolean unknown_resourceType;
     public @Nullable String resourceType() {
-        if (resourceType == null) return null;
-        return resourceType.getValue("NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute.resourceType");
+        if (!unknown_resourceType) return value_resourceType;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute.resourceType' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> routeOrigin;
-
+    @PolicyResourceProperty(name="routeOrigin", flag="unknown_routeOrigin")
+    private @Nullable String value_routeOrigin;
+    private boolean unknown_routeOrigin;
     public @Nullable String routeOrigin() {
-        if (routeOrigin == null) return null;
-        return routeOrigin.getValue("NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute.routeOrigin");
+        if (!unknown_routeOrigin) return value_routeOrigin;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute.routeOrigin' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private @Nullable String value_state;
+    private boolean unknown_state;
     public @Nullable String state() {
-        if (state == null) return null;
-        return state.getValue("NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRoute.state' is not present");
     }
 
 }

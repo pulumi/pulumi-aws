@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssmincidents;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ssmincidents.outputs.ReplicationSetRegion;
 import java.lang.Boolean;
@@ -20,51 +21,56 @@ public final class ReplicationSet extends com.pulumi.resources.PolicyResourceOut
      * The ARN of the replication set.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ReplicationSet.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ReplicationSet.arn' is not present");
     }
 
     /**
      * The ARN of the user who created the replication set.
      * 
      */
-    private UndeferrableValue<String> createdBy;
-
+    @PolicyResourceProperty(name="createdBy", flag="unknown_createdBy")
+    private String value_createdBy;
+    private boolean unknown_createdBy;
     public String createdBy() {
-        if (createdBy == null) return null;
-        return createdBy.getValue("ReplicationSet.createdBy");
+        if (!unknown_createdBy) return value_createdBy;
+        throw new UndeferrableValueException("Value 'ReplicationSet.createdBy' is not present");
     }
 
     /**
      * If `true`, the last region in a replication set cannot be deleted.
      * 
      */
-    private UndeferrableValue<Boolean> deletionProtected;
-
+    @PolicyResourceProperty(name="deletionProtected", flag="unknown_deletionProtected")
+    private Boolean value_deletionProtected;
+    private boolean unknown_deletionProtected;
     public Boolean deletionProtected() {
-        if (deletionProtected == null) return null;
-        return deletionProtected.getValue("ReplicationSet.deletionProtected");
+        if (!unknown_deletionProtected) return value_deletionProtected;
+        throw new UndeferrableValueException("Value 'ReplicationSet.deletionProtected' is not present");
     }
 
     /**
      * A timestamp showing when the replication set was last modified.
      * 
      */
-    private UndeferrableValue<String> lastModifiedBy;
-
+    @PolicyResourceProperty(name="lastModifiedBy", flag="unknown_lastModifiedBy")
+    private String value_lastModifiedBy;
+    private boolean unknown_lastModifiedBy;
     public String lastModifiedBy() {
-        if (lastModifiedBy == null) return null;
-        return lastModifiedBy.getValue("ReplicationSet.lastModifiedBy");
+        if (!unknown_lastModifiedBy) return value_lastModifiedBy;
+        throw new UndeferrableValueException("Value 'ReplicationSet.lastModifiedBy' is not present");
     }
 
-    private UndeferrableValue<List<ReplicationSetRegion>> regions;
-
+    @PolicyResourceProperty(name="regions", flag="unknown_regions")
+    private List<ReplicationSetRegion> value_regions;
+    private boolean unknown_regions;
     public List<ReplicationSetRegion> regions() {
-        if (regions == null) return null;
-        return regions.getValue("ReplicationSet.regions");
+        if (!unknown_regions) return value_regions;
+        throw new UndeferrableValueException("Value 'ReplicationSet.regions' is not present");
     }
 
     /**
@@ -72,18 +78,20 @@ public final class ReplicationSet extends com.pulumi.resources.PolicyResourceOut
      * * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("ReplicationSet.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'ReplicationSet.status' is not present");
     }
 
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ReplicationSet.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ReplicationSet.tags' is not present");
     }
 
     /**
@@ -94,11 +102,12 @@ public final class ReplicationSet extends com.pulumi.resources.PolicyResourceOut
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ReplicationSet.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ReplicationSet.tagsAll' is not present");
     }
 
 }

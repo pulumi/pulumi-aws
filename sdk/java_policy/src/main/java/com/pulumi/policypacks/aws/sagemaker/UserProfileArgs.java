@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.inputs.UserProfileUserSettingsArgs;
 import java.lang.String;
@@ -18,66 +19,72 @@ public final class UserProfileArgs extends com.pulumi.resources.PolicyResourceIn
      * The ID of the associated Domain.
      * 
      */
-    private UndeferrableValue<String> domainId;
-
+    @PolicyResourceProperty(name="domainId", flag="unknown_domainId")
+    private String value_domainId;
+    private boolean unknown_domainId;
     public String domainId() {
-        if (domainId == null) return null;
-        return domainId.getValue("UserProfileArgs.domainId");
+        if (!unknown_domainId) return value_domainId;
+        throw new UndeferrableValueException("Value 'UserProfileArgs.domainId' is not present");
     }
 
     /**
      * A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain&#39;s AuthMode is SSO, this field is required. If the Domain&#39;s AuthMode is not SSO, this field cannot be specified.
      * 
      */
-    private UndeferrableValue<String> singleSignOnUserIdentifier;
-
+    @PolicyResourceProperty(name="singleSignOnUserIdentifier", flag="unknown_singleSignOnUserIdentifier")
+    private String value_singleSignOnUserIdentifier;
+    private boolean unknown_singleSignOnUserIdentifier;
     public String singleSignOnUserIdentifier() {
-        if (singleSignOnUserIdentifier == null) return null;
-        return singleSignOnUserIdentifier.getValue("UserProfileArgs.singleSignOnUserIdentifier");
+        if (!unknown_singleSignOnUserIdentifier) return value_singleSignOnUserIdentifier;
+        throw new UndeferrableValueException("Value 'UserProfileArgs.singleSignOnUserIdentifier' is not present");
     }
 
     /**
      * The username of the associated AWS Single Sign-On User for this User Profile. If the Domain&#39;s AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain&#39;s AuthMode is not SSO, this field cannot be specified.
      * 
      */
-    private UndeferrableValue<String> singleSignOnUserValue;
-
+    @PolicyResourceProperty(name="singleSignOnUserValue", flag="unknown_singleSignOnUserValue")
+    private String value_singleSignOnUserValue;
+    private boolean unknown_singleSignOnUserValue;
     public String singleSignOnUserValue() {
-        if (singleSignOnUserValue == null) return null;
-        return singleSignOnUserValue.getValue("UserProfileArgs.singleSignOnUserValue");
+        if (!unknown_singleSignOnUserValue) return value_singleSignOnUserValue;
+        throw new UndeferrableValueException("Value 'UserProfileArgs.singleSignOnUserValue' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("UserProfileArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'UserProfileArgs.tags' is not present");
     }
 
     /**
      * The name for the User Profile.
      * 
      */
-    private UndeferrableValue<String> userProfileName;
-
+    @PolicyResourceProperty(name="userProfileName", flag="unknown_userProfileName")
+    private String value_userProfileName;
+    private boolean unknown_userProfileName;
     public String userProfileName() {
-        if (userProfileName == null) return null;
-        return userProfileName.getValue("UserProfileArgs.userProfileName");
+        if (!unknown_userProfileName) return value_userProfileName;
+        throw new UndeferrableValueException("Value 'UserProfileArgs.userProfileName' is not present");
     }
 
     /**
      * The user settings. See User Settings below.
      * 
      */
-    private UndeferrableValue<UserProfileUserSettingsArgs> userSettings;
-
+    @PolicyResourceProperty(name="userSettings", flag="unknown_userSettings")
+    private UserProfileUserSettingsArgs value_userSettings;
+    private boolean unknown_userSettings;
     public UserProfileUserSettingsArgs userSettings() {
-        if (userSettings == null) return null;
-        return userSettings.getValue("UserProfileArgs.userSettings");
+        if (!unknown_userSettings) return value_userSettings;
+        throw new UndeferrableValueException("Value 'UserProfileArgs.userSettings' is not present");
     }
 
 }

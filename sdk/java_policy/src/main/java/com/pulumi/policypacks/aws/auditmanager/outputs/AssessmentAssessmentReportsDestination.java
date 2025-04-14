@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.auditmanager.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class AssessmentAssessmentReportsDestination {
      * Destination of the assessment report. This value be in the form `s3://{bucket_name}`.
      * 
      */
-    private UndeferrableValue<String> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private String value_destination;
+    private boolean unknown_destination;
     public String destination() {
-        if (destination == null) return null;
-        return destination.getValue("AssessmentAssessmentReportsDestination.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'AssessmentAssessmentReportsDestination.destination' is not present");
     }
 
     /**
      * Destination type. Currently, `S3` is the only valid value.
      * 
      */
-    private UndeferrableValue<String> destinationType;
-
+    @PolicyResourceProperty(name="destinationType", flag="unknown_destinationType")
+    private String value_destinationType;
+    private boolean unknown_destinationType;
     public String destinationType() {
-        if (destinationType == null) return null;
-        return destinationType.getValue("AssessmentAssessmentReportsDestination.destinationType");
+        if (!unknown_destinationType) return value_destinationType;
+        throw new UndeferrableValueException("Value 'AssessmentAssessmentReportsDestination.destinationType' is not present");
     }
 
 }

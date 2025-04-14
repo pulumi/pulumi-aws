@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.pipes.outputs.PipeTargetParametersEcsTaskParametersCapacityProviderStrategy;
 import com.pulumi.policypacks.aws.pipes.outputs.PipeTargetParametersEcsTaskParametersNetworkConfiguration;
 import com.pulumi.policypacks.aws.pipes.outputs.PipeTargetParametersEcsTaskParametersOverrides;
@@ -23,165 +24,180 @@ public final class PipeTargetParametersEcsTaskParameters {
      * List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<PipeTargetParametersEcsTaskParametersCapacityProviderStrategy>> capacityProviderStrategies;
-
+    @PolicyResourceProperty(name="capacityProviderStrategies", flag="unknown_capacityProviderStrategies")
+    private @Nullable List<PipeTargetParametersEcsTaskParametersCapacityProviderStrategy> value_capacityProviderStrategies;
+    private boolean unknown_capacityProviderStrategies;
     public @Nullable List<PipeTargetParametersEcsTaskParametersCapacityProviderStrategy> capacityProviderStrategies() {
-        if (capacityProviderStrategies == null) return null;
-        return capacityProviderStrategies.getValue("PipeTargetParametersEcsTaskParameters.capacityProviderStrategies");
+        if (!unknown_capacityProviderStrategies) return value_capacityProviderStrategies;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParameters.capacityProviderStrategies' is not present");
     }
 
     /**
      * Specifies whether to enable Amazon ECS managed tags for the task. Valid values: true, false.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enableEcsManagedTags;
-
+    @PolicyResourceProperty(name="enableEcsManagedTags", flag="unknown_enableEcsManagedTags")
+    private @Nullable Boolean value_enableEcsManagedTags;
+    private boolean unknown_enableEcsManagedTags;
     public @Nullable Boolean enableEcsManagedTags() {
-        if (enableEcsManagedTags == null) return null;
-        return enableEcsManagedTags.getValue("PipeTargetParametersEcsTaskParameters.enableEcsManagedTags");
+        if (!unknown_enableEcsManagedTags) return value_enableEcsManagedTags;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParameters.enableEcsManagedTags' is not present");
     }
 
     /**
      * Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task. Valid values: true, false.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enableExecuteCommand;
-
+    @PolicyResourceProperty(name="enableExecuteCommand", flag="unknown_enableExecuteCommand")
+    private @Nullable Boolean value_enableExecuteCommand;
+    private boolean unknown_enableExecuteCommand;
     public @Nullable Boolean enableExecuteCommand() {
-        if (enableExecuteCommand == null) return null;
-        return enableExecuteCommand.getValue("PipeTargetParametersEcsTaskParameters.enableExecuteCommand");
+        if (!unknown_enableExecuteCommand) return value_enableExecuteCommand;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParameters.enableExecuteCommand' is not present");
     }
 
     /**
      * Specifies an Amazon ECS task group for the task. The maximum length is 255 characters.
      * 
      */
-    private @Nullable UndeferrableValue<String> group;
-
+    @PolicyResourceProperty(name="group", flag="unknown_group")
+    private @Nullable String value_group;
+    private boolean unknown_group;
     public @Nullable String group() {
-        if (group == null) return null;
-        return group.getValue("PipeTargetParametersEcsTaskParameters.group");
+        if (!unknown_group) return value_group;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParameters.group' is not present");
     }
 
     /**
      * Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. Valid Values: EC2, FARGATE, EXTERNAL
      * 
      */
-    private @Nullable UndeferrableValue<String> launchType;
-
+    @PolicyResourceProperty(name="launchType", flag="unknown_launchType")
+    private @Nullable String value_launchType;
+    private boolean unknown_launchType;
     public @Nullable String launchType() {
-        if (launchType == null) return null;
-        return launchType.getValue("PipeTargetParametersEcsTaskParameters.launchType");
+        if (!unknown_launchType) return value_launchType;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParameters.launchType' is not present");
     }
 
     /**
      * Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<PipeTargetParametersEcsTaskParametersNetworkConfiguration> networkConfiguration;
-
+    @PolicyResourceProperty(name="networkConfiguration", flag="unknown_networkConfiguration")
+    private @Nullable PipeTargetParametersEcsTaskParametersNetworkConfiguration value_networkConfiguration;
+    private boolean unknown_networkConfiguration;
     public @Nullable PipeTargetParametersEcsTaskParametersNetworkConfiguration networkConfiguration() {
-        if (networkConfiguration == null) return null;
-        return networkConfiguration.getValue("PipeTargetParametersEcsTaskParameters.networkConfiguration");
+        if (!unknown_networkConfiguration) return value_networkConfiguration;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParameters.networkConfiguration' is not present");
     }
 
     /**
      * The overrides that are associated with a task. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<PipeTargetParametersEcsTaskParametersOverrides> overrides;
-
+    @PolicyResourceProperty(name="overrides", flag="unknown_overrides")
+    private @Nullable PipeTargetParametersEcsTaskParametersOverrides value_overrides;
+    private boolean unknown_overrides;
     public @Nullable PipeTargetParametersEcsTaskParametersOverrides overrides() {
-        if (overrides == null) return null;
-        return overrides.getValue("PipeTargetParametersEcsTaskParameters.overrides");
+        if (!unknown_overrides) return value_overrides;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParameters.overrides' is not present");
     }
 
     /**
      * An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<PipeTargetParametersEcsTaskParametersPlacementConstraint>> placementConstraints;
-
+    @PolicyResourceProperty(name="placementConstraints", flag="unknown_placementConstraints")
+    private @Nullable List<PipeTargetParametersEcsTaskParametersPlacementConstraint> value_placementConstraints;
+    private boolean unknown_placementConstraints;
     public @Nullable List<PipeTargetParametersEcsTaskParametersPlacementConstraint> placementConstraints() {
-        if (placementConstraints == null) return null;
-        return placementConstraints.getValue("PipeTargetParametersEcsTaskParameters.placementConstraints");
+        if (!unknown_placementConstraints) return value_placementConstraints;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParameters.placementConstraints' is not present");
     }
 
     /**
      * The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<PipeTargetParametersEcsTaskParametersPlacementStrategy>> placementStrategies;
-
+    @PolicyResourceProperty(name="placementStrategies", flag="unknown_placementStrategies")
+    private @Nullable List<PipeTargetParametersEcsTaskParametersPlacementStrategy> value_placementStrategies;
+    private boolean unknown_placementStrategies;
     public @Nullable List<PipeTargetParametersEcsTaskParametersPlacementStrategy> placementStrategies() {
-        if (placementStrategies == null) return null;
-        return placementStrategies.getValue("PipeTargetParametersEcsTaskParameters.placementStrategies");
+        if (!unknown_placementStrategies) return value_placementStrategies;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParameters.placementStrategies' is not present");
     }
 
     /**
      * Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This structure is used only if LaunchType is FARGATE.
      * 
      */
-    private @Nullable UndeferrableValue<String> platformVersion;
-
+    @PolicyResourceProperty(name="platformVersion", flag="unknown_platformVersion")
+    private @Nullable String value_platformVersion;
+    private boolean unknown_platformVersion;
     public @Nullable String platformVersion() {
-        if (platformVersion == null) return null;
-        return platformVersion.getValue("PipeTargetParametersEcsTaskParameters.platformVersion");
+        if (!unknown_platformVersion) return value_platformVersion;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParameters.platformVersion' is not present");
     }
 
     /**
      * Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action. Valid Values: TASK_DEFINITION
      * 
      */
-    private @Nullable UndeferrableValue<String> propagateTags;
-
+    @PolicyResourceProperty(name="propagateTags", flag="unknown_propagateTags")
+    private @Nullable String value_propagateTags;
+    private boolean unknown_propagateTags;
     public @Nullable String propagateTags() {
-        if (propagateTags == null) return null;
-        return propagateTags.getValue("PipeTargetParametersEcsTaskParameters.propagateTags");
+        if (!unknown_propagateTags) return value_propagateTags;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParameters.propagateTags' is not present");
     }
 
     /**
      * The reference ID to use for the task. Maximum length of 1,024.
      * 
      */
-    private @Nullable UndeferrableValue<String> referenceId;
-
+    @PolicyResourceProperty(name="referenceId", flag="unknown_referenceId")
+    private @Nullable String value_referenceId;
+    private boolean unknown_referenceId;
     public @Nullable String referenceId() {
-        if (referenceId == null) return null;
-        return referenceId.getValue("PipeTargetParametersEcsTaskParameters.referenceId");
+        if (!unknown_referenceId) return value_referenceId;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParameters.referenceId' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("PipeTargetParametersEcsTaskParameters.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParameters.tags' is not present");
     }
 
     /**
      * The number of tasks to create based on TaskDefinition. The default is 1.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> taskCount;
-
+    @PolicyResourceProperty(name="taskCount", flag="unknown_taskCount")
+    private @Nullable Integer value_taskCount;
+    private boolean unknown_taskCount;
     public @Nullable Integer taskCount() {
-        if (taskCount == null) return null;
-        return taskCount.getValue("PipeTargetParametersEcsTaskParameters.taskCount");
+        if (!unknown_taskCount) return value_taskCount;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParameters.taskCount' is not present");
     }
 
     /**
      * The ARN of the task definition to use if the event target is an Amazon ECS task.
      * 
      */
-    private UndeferrableValue<String> taskDefinitionArn;
-
+    @PolicyResourceProperty(name="taskDefinitionArn", flag="unknown_taskDefinitionArn")
+    private String value_taskDefinitionArn;
+    private boolean unknown_taskDefinitionArn;
     public String taskDefinitionArn() {
-        if (taskDefinitionArn == null) return null;
-        return taskDefinitionArn.getValue("PipeTargetParametersEcsTaskParameters.taskDefinitionArn");
+        if (!unknown_taskDefinitionArn) return value_taskDefinitionArn;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParameters.taskDefinitionArn' is not present");
     }
 
 }

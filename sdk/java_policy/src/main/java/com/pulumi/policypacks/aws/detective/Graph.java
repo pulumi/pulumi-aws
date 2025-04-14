@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.detective;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class Graph extends com.pulumi.resources.PolicyResourceOutput {
      * Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
      * 
      */
-    private UndeferrableValue<String> createdTime;
-
+    @PolicyResourceProperty(name="createdTime", flag="unknown_createdTime")
+    private String value_createdTime;
+    private boolean unknown_createdTime;
     public String createdTime() {
-        if (createdTime == null) return null;
-        return createdTime.getValue("Graph.createdTime");
+        if (!unknown_createdTime) return value_createdTime;
+        throw new UndeferrableValueException("Value 'Graph.createdTime' is not present");
     }
 
     /**
      * ARN of the Detective Graph.
      * 
      */
-    private UndeferrableValue<String> graphArn;
-
+    @PolicyResourceProperty(name="graphArn", flag="unknown_graphArn")
+    private String value_graphArn;
+    private boolean unknown_graphArn;
     public String graphArn() {
-        if (graphArn == null) return null;
-        return graphArn.getValue("Graph.graphArn");
+        if (!unknown_graphArn) return value_graphArn;
+        throw new UndeferrableValueException("Value 'Graph.graphArn' is not present");
     }
 
     /**
      * A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Graph.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Graph.tags' is not present");
     }
 
     /**
@@ -52,11 +56,12 @@ public final class Graph extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Graph.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Graph.tagsAll' is not present");
     }
 
 }

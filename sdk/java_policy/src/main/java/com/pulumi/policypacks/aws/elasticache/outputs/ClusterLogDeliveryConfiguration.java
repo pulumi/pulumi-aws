@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticache.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,44 +14,48 @@ public final class ClusterLogDeliveryConfiguration {
      * Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
      * 
      */
-    private UndeferrableValue<String> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private String value_destination;
+    private boolean unknown_destination;
     public String destination() {
-        if (destination == null) return null;
-        return destination.getValue("ClusterLogDeliveryConfiguration.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'ClusterLogDeliveryConfiguration.destination' is not present");
     }
 
     /**
      * For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
      * 
      */
-    private UndeferrableValue<String> destinationType;
-
+    @PolicyResourceProperty(name="destinationType", flag="unknown_destinationType")
+    private String value_destinationType;
+    private boolean unknown_destinationType;
     public String destinationType() {
-        if (destinationType == null) return null;
-        return destinationType.getValue("ClusterLogDeliveryConfiguration.destinationType");
+        if (!unknown_destinationType) return value_destinationType;
+        throw new UndeferrableValueException("Value 'ClusterLogDeliveryConfiguration.destinationType' is not present");
     }
 
     /**
      * Valid values are `json` or `text`
      * 
      */
-    private UndeferrableValue<String> logFormat;
-
+    @PolicyResourceProperty(name="logFormat", flag="unknown_logFormat")
+    private String value_logFormat;
+    private boolean unknown_logFormat;
     public String logFormat() {
-        if (logFormat == null) return null;
-        return logFormat.getValue("ClusterLogDeliveryConfiguration.logFormat");
+        if (!unknown_logFormat) return value_logFormat;
+        throw new UndeferrableValueException("Value 'ClusterLogDeliveryConfiguration.logFormat' is not present");
     }
 
     /**
      * Valid values are  `slow-log` or `engine-log`. Max 1 of each.
      * 
      */
-    private UndeferrableValue<String> logType;
-
+    @PolicyResourceProperty(name="logType", flag="unknown_logType")
+    private String value_logType;
+    private boolean unknown_logType;
     public String logType() {
-        if (logType == null) return null;
-        return logType.getValue("ClusterLogDeliveryConfiguration.logType");
+        if (!unknown_logType) return value_logType;
+        throw new UndeferrableValueException("Value 'ClusterLogDeliveryConfiguration.logType' is not present");
     }
 
 }

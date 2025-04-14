@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class BucketV2LifecycleRuleNoncurrentVersionExpiration {
      * Specifies the number of days noncurrent object versions expire.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> days;
-
+    @PolicyResourceProperty(name="days", flag="unknown_days")
+    private @Nullable Integer value_days;
+    private boolean unknown_days;
     public @Nullable Integer days() {
-        if (days == null) return null;
-        return days.getValue("BucketV2LifecycleRuleNoncurrentVersionExpiration.days");
+        if (!unknown_days) return value_days;
+        throw new UndeferrableValueException("Value 'BucketV2LifecycleRuleNoncurrentVersionExpiration.days' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class ApplicationApplicationConfigurationEnvironmentProperties {
      * Describes the execution property groups.
      * 
      */
-    private UndeferrableValue<List<ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup>> propertyGroups;
-
+    @PolicyResourceProperty(name="propertyGroups", flag="unknown_propertyGroups")
+    private List<ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup> value_propertyGroups;
+    private boolean unknown_propertyGroups;
     public List<ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup> propertyGroups() {
-        if (propertyGroups == null) return null;
-        return propertyGroups.getValue("ApplicationApplicationConfigurationEnvironmentProperties.propertyGroups");
+        if (!unknown_propertyGroups) return value_propertyGroups;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationEnvironmentProperties.propertyGroups' is not present");
     }
 
 }

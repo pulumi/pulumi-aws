@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class PipeTargetParametersBatchJobParametersRetryStrategy {
      * The number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> attempts;
-
+    @PolicyResourceProperty(name="attempts", flag="unknown_attempts")
+    private @Nullable Integer value_attempts;
+    private boolean unknown_attempts;
     public @Nullable Integer attempts() {
-        if (attempts == null) return null;
-        return attempts.getValue("PipeTargetParametersBatchJobParametersRetryStrategy.attempts");
+        if (!unknown_attempts) return value_attempts;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersBatchJobParametersRetryStrategy.attempts' is not present");
     }
 
 }

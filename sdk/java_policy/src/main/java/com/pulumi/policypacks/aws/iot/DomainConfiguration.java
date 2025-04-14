@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.iot.outputs.DomainConfigurationAuthorizerConfig;
 import com.pulumi.policypacks.aws.iot.outputs.DomainConfigurationTlsConfig;
@@ -20,99 +21,108 @@ public final class DomainConfiguration extends com.pulumi.resources.PolicyResour
      * The ARN of the domain configuration.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("DomainConfiguration.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'DomainConfiguration.arn' is not present");
     }
 
     /**
      * An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
      * 
      */
-    private @Nullable UndeferrableValue<DomainConfigurationAuthorizerConfig> authorizerConfig;
-
+    @PolicyResourceProperty(name="authorizerConfig", flag="unknown_authorizerConfig")
+    private @Nullable DomainConfigurationAuthorizerConfig value_authorizerConfig;
+    private boolean unknown_authorizerConfig;
     public @Nullable DomainConfigurationAuthorizerConfig authorizerConfig() {
-        if (authorizerConfig == null) return null;
-        return authorizerConfig.getValue("DomainConfiguration.authorizerConfig");
+        if (!unknown_authorizerConfig) return value_authorizerConfig;
+        throw new UndeferrableValueException("Value 'DomainConfiguration.authorizerConfig' is not present");
     }
 
     /**
      * Fully-qualified domain name.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("DomainConfiguration.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'DomainConfiguration.domainName' is not present");
     }
 
     /**
      * The type of the domain.
      * 
      */
-    private UndeferrableValue<String> domainType;
-
+    @PolicyResourceProperty(name="domainType", flag="unknown_domainType")
+    private String value_domainType;
+    private boolean unknown_domainType;
     public String domainType() {
-        if (domainType == null) return null;
-        return domainType.getValue("DomainConfiguration.domainType");
+        if (!unknown_domainType) return value_domainType;
+        throw new UndeferrableValueException("Value 'DomainConfiguration.domainType' is not present");
     }
 
     /**
      * The name of the domain configuration. This value must be unique to a region.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DomainConfiguration.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DomainConfiguration.name' is not present");
     }
 
     /**
      * The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domain_name`, the cert must include it.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> serverCertificateArns;
-
+    @PolicyResourceProperty(name="serverCertificateArns", flag="unknown_serverCertificateArns")
+    private @Nullable List<String> value_serverCertificateArns;
+    private boolean unknown_serverCertificateArns;
     public @Nullable List<String> serverCertificateArns() {
-        if (serverCertificateArns == null) return null;
-        return serverCertificateArns.getValue("DomainConfiguration.serverCertificateArns");
+        if (!unknown_serverCertificateArns) return value_serverCertificateArns;
+        throw new UndeferrableValueException("Value 'DomainConfiguration.serverCertificateArns' is not present");
     }
 
     /**
      * The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
      * 
      */
-    private @Nullable UndeferrableValue<String> serviceType;
-
+    @PolicyResourceProperty(name="serviceType", flag="unknown_serviceType")
+    private @Nullable String value_serviceType;
+    private boolean unknown_serviceType;
     public @Nullable String serviceType() {
-        if (serviceType == null) return null;
-        return serviceType.getValue("DomainConfiguration.serviceType");
+        if (!unknown_serviceType) return value_serviceType;
+        throw new UndeferrableValueException("Value 'DomainConfiguration.serviceType' is not present");
     }
 
     /**
      * The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private @Nullable String value_status;
+    private boolean unknown_status;
     public @Nullable String status() {
-        if (status == null) return null;
-        return status.getValue("DomainConfiguration.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'DomainConfiguration.status' is not present");
     }
 
     /**
      * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DomainConfiguration.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DomainConfiguration.tags' is not present");
     }
 
     /**
@@ -123,33 +133,36 @@ public final class DomainConfiguration extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("DomainConfiguration.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'DomainConfiguration.tagsAll' is not present");
     }
 
     /**
      * An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
      * 
      */
-    private UndeferrableValue<DomainConfigurationTlsConfig> tlsConfig;
-
+    @PolicyResourceProperty(name="tlsConfig", flag="unknown_tlsConfig")
+    private DomainConfigurationTlsConfig value_tlsConfig;
+    private boolean unknown_tlsConfig;
     public DomainConfigurationTlsConfig tlsConfig() {
-        if (tlsConfig == null) return null;
-        return tlsConfig.getValue("DomainConfiguration.tlsConfig");
+        if (!unknown_tlsConfig) return value_tlsConfig;
+        throw new UndeferrableValueException("Value 'DomainConfiguration.tlsConfig' is not present");
     }
 
     /**
      * The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
      * 
      */
-    private @Nullable UndeferrableValue<String> validationCertificateArn;
-
+    @PolicyResourceProperty(name="validationCertificateArn", flag="unknown_validationCertificateArn")
+    private @Nullable String value_validationCertificateArn;
+    private boolean unknown_validationCertificateArn;
     public @Nullable String validationCertificateArn() {
-        if (validationCertificateArn == null) return null;
-        return validationCertificateArn.getValue("DomainConfiguration.validationCertificateArn");
+        if (!unknown_validationCertificateArn) return value_validationCertificateArn;
+        throw new UndeferrableValueException("Value 'DomainConfiguration.validationCertificateArn' is not present");
     }
 
 }

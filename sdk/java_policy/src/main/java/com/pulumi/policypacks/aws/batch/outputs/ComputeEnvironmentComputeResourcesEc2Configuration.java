@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ComputeEnvironmentComputeResourcesEc2Configuration {
      * The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resources` block.
      * 
      */
-    private @Nullable UndeferrableValue<String> imageIdOverride;
-
+    @PolicyResourceProperty(name="imageIdOverride", flag="unknown_imageIdOverride")
+    private @Nullable String value_imageIdOverride;
+    private boolean unknown_imageIdOverride;
     public @Nullable String imageIdOverride() {
-        if (imageIdOverride == null) return null;
-        return imageIdOverride.getValue("ComputeEnvironmentComputeResourcesEc2Configuration.imageIdOverride");
+        if (!unknown_imageIdOverride) return value_imageIdOverride;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResourcesEc2Configuration.imageIdOverride' is not present");
     }
 
     /**
      * The image type to match with the instance type to select an AMI. If the `image_id_override` parameter isn&#39;t specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
      * 
      */
-    private @Nullable UndeferrableValue<String> imageType;
-
+    @PolicyResourceProperty(name="imageType", flag="unknown_imageType")
+    private @Nullable String value_imageType;
+    private boolean unknown_imageType;
     public @Nullable String imageType() {
-        if (imageType == null) return null;
-        return imageType.getValue("ComputeEnvironmentComputeResourcesEc2Configuration.imageType");
+        if (!unknown_imageType) return value_imageType;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResourcesEc2Configuration.imageType' is not present");
     }
 
 }

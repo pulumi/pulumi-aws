@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecr;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class LifecyclePolicyArgs extends com.pulumi.resources.PolicyResour
      * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `policy` argument.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("LifecyclePolicyArgs.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyArgs.policy' is not present");
     }
 
     /**
      * Name of the repository to apply the policy.
      * 
      */
-    private UndeferrableValue<String> repository;
-
+    @PolicyResourceProperty(name="repository", flag="unknown_repository")
+    private String value_repository;
+    private boolean unknown_repository;
     public String repository() {
-        if (repository == null) return null;
-        return repository.getValue("LifecyclePolicyArgs.repository");
+        if (!unknown_repository) return value_repository;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyArgs.repository' is not present");
     }
 
 }

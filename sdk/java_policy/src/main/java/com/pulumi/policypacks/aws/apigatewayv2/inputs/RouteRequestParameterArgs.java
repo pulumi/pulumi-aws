@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class RouteRequestParameterArgs {
      * Request parameter key. This is a [request data mapping parameter](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-data-mapping.html#websocket-mapping-request-parameters).
      * 
      */
-    private UndeferrableValue<String> requestParameterKey;
-
+    @PolicyResourceProperty(name="requestParameterKey", flag="unknown_requestParameterKey")
+    private String value_requestParameterKey;
+    private boolean unknown_requestParameterKey;
     public String requestParameterKey() {
-        if (requestParameterKey == null) return null;
-        return requestParameterKey.getValue("RouteRequestParameterArgs.requestParameterKey");
+        if (!unknown_requestParameterKey) return value_requestParameterKey;
+        throw new UndeferrableValueException("Value 'RouteRequestParameterArgs.requestParameterKey' is not present");
     }
 
     /**
      * Boolean whether or not the parameter is required.
      * 
      */
-    private UndeferrableValue<Boolean> required;
-
+    @PolicyResourceProperty(name="required", flag="unknown_required")
+    private Boolean value_required;
+    private boolean unknown_required;
     public Boolean required() {
-        if (required == null) return null;
-        return required.getValue("RouteRequestParameterArgs.required");
+        if (!unknown_required) return value_required;
+        throw new UndeferrableValueException("Value 'RouteRequestParameterArgs.required' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.opensearch.outputs.OutboundConnectionConnectionProperties;
 import com.pulumi.policypacks.aws.opensearch.outputs.OutboundConnectionLocalDomainInfo;
@@ -20,77 +21,84 @@ public final class OutboundConnection extends com.pulumi.resources.PolicyResourc
      * Accepts the connection.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> acceptConnection;
-
+    @PolicyResourceProperty(name="acceptConnection", flag="unknown_acceptConnection")
+    private @Nullable Boolean value_acceptConnection;
+    private boolean unknown_acceptConnection;
     public @Nullable Boolean acceptConnection() {
-        if (acceptConnection == null) return null;
-        return acceptConnection.getValue("OutboundConnection.acceptConnection");
+        if (!unknown_acceptConnection) return value_acceptConnection;
+        throw new UndeferrableValueException("Value 'OutboundConnection.acceptConnection' is not present");
     }
 
     /**
      * Specifies the connection alias that will be used by the customer for this connection.
      * 
      */
-    private UndeferrableValue<String> connectionAlias;
-
+    @PolicyResourceProperty(name="connectionAlias", flag="unknown_connectionAlias")
+    private String value_connectionAlias;
+    private boolean unknown_connectionAlias;
     public String connectionAlias() {
-        if (connectionAlias == null) return null;
-        return connectionAlias.getValue("OutboundConnection.connectionAlias");
+        if (!unknown_connectionAlias) return value_connectionAlias;
+        throw new UndeferrableValueException("Value 'OutboundConnection.connectionAlias' is not present");
     }
 
     /**
      * Specifies the connection mode. Accepted values are `DIRECT` or `VPC_ENDPOINT`.
      * 
      */
-    private UndeferrableValue<String> connectionMode;
-
+    @PolicyResourceProperty(name="connectionMode", flag="unknown_connectionMode")
+    private String value_connectionMode;
+    private boolean unknown_connectionMode;
     public String connectionMode() {
-        if (connectionMode == null) return null;
-        return connectionMode.getValue("OutboundConnection.connectionMode");
+        if (!unknown_connectionMode) return value_connectionMode;
+        throw new UndeferrableValueException("Value 'OutboundConnection.connectionMode' is not present");
     }
 
     /**
      * Configuration block for the outbound connection.
      * 
      */
-    private UndeferrableValue<OutboundConnectionConnectionProperties> connectionProperties;
-
+    @PolicyResourceProperty(name="connectionProperties", flag="unknown_connectionProperties")
+    private OutboundConnectionConnectionProperties value_connectionProperties;
+    private boolean unknown_connectionProperties;
     public OutboundConnectionConnectionProperties connectionProperties() {
-        if (connectionProperties == null) return null;
-        return connectionProperties.getValue("OutboundConnection.connectionProperties");
+        if (!unknown_connectionProperties) return value_connectionProperties;
+        throw new UndeferrableValueException("Value 'OutboundConnection.connectionProperties' is not present");
     }
 
     /**
      * Status of the connection request.
      * 
      */
-    private UndeferrableValue<String> connectionStatus;
-
+    @PolicyResourceProperty(name="connectionStatus", flag="unknown_connectionStatus")
+    private String value_connectionStatus;
+    private boolean unknown_connectionStatus;
     public String connectionStatus() {
-        if (connectionStatus == null) return null;
-        return connectionStatus.getValue("OutboundConnection.connectionStatus");
+        if (!unknown_connectionStatus) return value_connectionStatus;
+        throw new UndeferrableValueException("Value 'OutboundConnection.connectionStatus' is not present");
     }
 
     /**
      * Configuration block for the local Opensearch domain.
      * 
      */
-    private UndeferrableValue<OutboundConnectionLocalDomainInfo> localDomainInfo;
-
+    @PolicyResourceProperty(name="localDomainInfo", flag="unknown_localDomainInfo")
+    private OutboundConnectionLocalDomainInfo value_localDomainInfo;
+    private boolean unknown_localDomainInfo;
     public OutboundConnectionLocalDomainInfo localDomainInfo() {
-        if (localDomainInfo == null) return null;
-        return localDomainInfo.getValue("OutboundConnection.localDomainInfo");
+        if (!unknown_localDomainInfo) return value_localDomainInfo;
+        throw new UndeferrableValueException("Value 'OutboundConnection.localDomainInfo' is not present");
     }
 
     /**
      * Configuration block for the remote Opensearch domain.
      * 
      */
-    private UndeferrableValue<OutboundConnectionRemoteDomainInfo> remoteDomainInfo;
-
+    @PolicyResourceProperty(name="remoteDomainInfo", flag="unknown_remoteDomainInfo")
+    private OutboundConnectionRemoteDomainInfo value_remoteDomainInfo;
+    private boolean unknown_remoteDomainInfo;
     public OutboundConnectionRemoteDomainInfo remoteDomainInfo() {
-        if (remoteDomainInfo == null) return null;
-        return remoteDomainInfo.getValue("OutboundConnection.remoteDomainInfo");
+        if (!unknown_remoteDomainInfo) return value_remoteDomainInfo;
+        throw new UndeferrableValueException("Value 'OutboundConnection.remoteDomainInfo' is not present");
     }
 
 }

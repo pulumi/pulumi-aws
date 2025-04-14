@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ses;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ses.inputs.ConfigurationSetDeliveryOptionsArgs;
 import com.pulumi.policypacks.aws.ses.inputs.ConfigurationSetTrackingOptionsArgs;
@@ -19,11 +20,12 @@ public final class ConfigurationSetArgs extends com.pulumi.resources.PolicyResou
      * Whether messages that use the configuration set are required to use TLS. See below.
      * 
      */
-    private UndeferrableValue<ConfigurationSetDeliveryOptionsArgs> deliveryOptions;
-
+    @PolicyResourceProperty(name="deliveryOptions", flag="unknown_deliveryOptions")
+    private ConfigurationSetDeliveryOptionsArgs value_deliveryOptions;
+    private boolean unknown_deliveryOptions;
     public ConfigurationSetDeliveryOptionsArgs deliveryOptions() {
-        if (deliveryOptions == null) return null;
-        return deliveryOptions.getValue("ConfigurationSetArgs.deliveryOptions");
+        if (!unknown_deliveryOptions) return value_deliveryOptions;
+        throw new UndeferrableValueException("Value 'ConfigurationSetArgs.deliveryOptions' is not present");
     }
 
     /**
@@ -32,44 +34,48 @@ public final class ConfigurationSetArgs extends com.pulumi.resources.PolicyResou
      * The following argument is optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ConfigurationSetArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ConfigurationSetArgs.name' is not present");
     }
 
     /**
      * Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> reputationMetricsEnabled;
-
+    @PolicyResourceProperty(name="reputationMetricsEnabled", flag="unknown_reputationMetricsEnabled")
+    private Boolean value_reputationMetricsEnabled;
+    private boolean unknown_reputationMetricsEnabled;
     public Boolean reputationMetricsEnabled() {
-        if (reputationMetricsEnabled == null) return null;
-        return reputationMetricsEnabled.getValue("ConfigurationSetArgs.reputationMetricsEnabled");
+        if (!unknown_reputationMetricsEnabled) return value_reputationMetricsEnabled;
+        throw new UndeferrableValueException("Value 'ConfigurationSetArgs.reputationMetricsEnabled' is not present");
     }
 
     /**
      * Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
      * 
      */
-    private UndeferrableValue<Boolean> sendingEnabled;
-
+    @PolicyResourceProperty(name="sendingEnabled", flag="unknown_sendingEnabled")
+    private Boolean value_sendingEnabled;
+    private boolean unknown_sendingEnabled;
     public Boolean sendingEnabled() {
-        if (sendingEnabled == null) return null;
-        return sendingEnabled.getValue("ConfigurationSetArgs.sendingEnabled");
+        if (!unknown_sendingEnabled) return value_sendingEnabled;
+        throw new UndeferrableValueException("Value 'ConfigurationSetArgs.sendingEnabled' is not present");
     }
 
     /**
      * Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
      * 
      */
-    private UndeferrableValue<ConfigurationSetTrackingOptionsArgs> trackingOptions;
-
+    @PolicyResourceProperty(name="trackingOptions", flag="unknown_trackingOptions")
+    private ConfigurationSetTrackingOptionsArgs value_trackingOptions;
+    private boolean unknown_trackingOptions;
     public ConfigurationSetTrackingOptionsArgs trackingOptions() {
-        if (trackingOptions == null) return null;
-        return trackingOptions.getValue("ConfigurationSetArgs.trackingOptions");
+        if (!unknown_trackingOptions) return value_trackingOptions;
+        throw new UndeferrableValueException("Value 'ConfigurationSetArgs.trackingOptions' is not present");
     }
 
 }

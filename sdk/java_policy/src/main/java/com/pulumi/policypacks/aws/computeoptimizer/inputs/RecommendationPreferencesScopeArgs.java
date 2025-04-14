@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.computeoptimizer.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class RecommendationPreferencesScopeArgs {
      * The name of the scope. Valid values: `Organization`, `AccountId`, `ResourceArn`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RecommendationPreferencesScopeArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RecommendationPreferencesScopeArgs.name' is not present");
     }
 
     /**
      * The value of the scope. `ALL_ACCOUNTS` for `Organization` scopes, AWS account ID for `AccountId` scopes, ARN of an EC2 instance or an Auto Scaling group for `ResourceArn` scopes.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("RecommendationPreferencesScopeArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'RecommendationPreferencesScopeArgs.value' is not present");
     }
 
 }

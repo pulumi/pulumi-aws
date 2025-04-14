@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dynamodb.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class TableLocalSecondaryIndexArgs {
      * Name of the index
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TableLocalSecondaryIndexArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TableLocalSecondaryIndexArgs.name' is not present");
     }
 
     /**
      * Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
      * 
      */
-    private UndeferrableValue<List<String>> nonKeyAttributes;
-
+    @PolicyResourceProperty(name="nonKeyAttributes", flag="unknown_nonKeyAttributes")
+    private List<String> value_nonKeyAttributes;
+    private boolean unknown_nonKeyAttributes;
     public List<String> nonKeyAttributes() {
-        if (nonKeyAttributes == null) return null;
-        return nonKeyAttributes.getValue("TableLocalSecondaryIndexArgs.nonKeyAttributes");
+        if (!unknown_nonKeyAttributes) return value_nonKeyAttributes;
+        throw new UndeferrableValueException("Value 'TableLocalSecondaryIndexArgs.nonKeyAttributes' is not present");
     }
 
     /**
      * One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
      * 
      */
-    private UndeferrableValue<String> projectionType;
-
+    @PolicyResourceProperty(name="projectionType", flag="unknown_projectionType")
+    private String value_projectionType;
+    private boolean unknown_projectionType;
     public String projectionType() {
-        if (projectionType == null) return null;
-        return projectionType.getValue("TableLocalSecondaryIndexArgs.projectionType");
+        if (!unknown_projectionType) return value_projectionType;
+        throw new UndeferrableValueException("Value 'TableLocalSecondaryIndexArgs.projectionType' is not present");
     }
 
     /**
      * Name of the range key.
      * 
      */
-    private UndeferrableValue<String> rangeKey;
-
+    @PolicyResourceProperty(name="rangeKey", flag="unknown_rangeKey")
+    private String value_rangeKey;
+    private boolean unknown_rangeKey;
     public String rangeKey() {
-        if (rangeKey == null) return null;
-        return rangeKey.getValue("TableLocalSecondaryIndexArgs.rangeKey");
+        if (!unknown_rangeKey) return value_rangeKey;
+        throw new UndeferrableValueException("Value 'TableLocalSecondaryIndexArgs.rangeKey' is not present");
     }
 
 }

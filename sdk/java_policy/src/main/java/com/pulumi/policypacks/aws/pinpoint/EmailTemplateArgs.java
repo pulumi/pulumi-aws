@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pinpoint;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.pinpoint.inputs.EmailTemplateEmailTemplateArgs;
 import java.lang.String;
@@ -19,29 +20,32 @@ public final class EmailTemplateArgs extends com.pulumi.resources.PolicyResource
      * Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
      * 
      */
-    private UndeferrableValue<List<EmailTemplateEmailTemplateArgs>> emailTemplates;
-
+    @PolicyResourceProperty(name="emailTemplates", flag="unknown_emailTemplates")
+    private List<EmailTemplateEmailTemplateArgs> value_emailTemplates;
+    private boolean unknown_emailTemplates;
     public List<EmailTemplateEmailTemplateArgs> emailTemplates() {
-        if (emailTemplates == null) return null;
-        return emailTemplates.getValue("EmailTemplateArgs.emailTemplates");
+        if (!unknown_emailTemplates) return value_emailTemplates;
+        throw new UndeferrableValueException("Value 'EmailTemplateArgs.emailTemplates' is not present");
     }
 
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("EmailTemplateArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'EmailTemplateArgs.tags' is not present");
     }
 
     /**
      * name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
      * 
      */
-    private UndeferrableValue<String> templateName;
-
+    @PolicyResourceProperty(name="templateName", flag="unknown_templateName")
+    private String value_templateName;
+    private boolean unknown_templateName;
     public String templateName() {
-        if (templateName == null) return null;
-        return templateName.getValue("EmailTemplateArgs.templateName");
+        if (!unknown_templateName) return value_templateName;
+        throw new UndeferrableValueException("Value 'EmailTemplateArgs.templateName' is not present");
     }
 
 }

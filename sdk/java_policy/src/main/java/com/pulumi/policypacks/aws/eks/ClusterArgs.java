@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.eks.inputs.ClusterAccessConfigArgs;
 import com.pulumi.policypacks.aws.eks.inputs.ClusterComputeConfigArgs;
@@ -29,161 +30,176 @@ public final class ClusterArgs extends com.pulumi.resources.PolicyResourceInput 
      * Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
      * 
      */
-    private UndeferrableValue<ClusterAccessConfigArgs> accessConfig;
-
+    @PolicyResourceProperty(name="accessConfig", flag="unknown_accessConfig")
+    private ClusterAccessConfigArgs value_accessConfig;
+    private boolean unknown_accessConfig;
     public ClusterAccessConfigArgs accessConfig() {
-        if (accessConfig == null) return null;
-        return accessConfig.getValue("ClusterArgs.accessConfig");
+        if (!unknown_accessConfig) return value_accessConfig;
+        throw new UndeferrableValueException("Value 'ClusterArgs.accessConfig' is not present");
     }
 
     /**
      * Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> bootstrapSelfManagedAddons;
-
+    @PolicyResourceProperty(name="bootstrapSelfManagedAddons", flag="unknown_bootstrapSelfManagedAddons")
+    private Boolean value_bootstrapSelfManagedAddons;
+    private boolean unknown_bootstrapSelfManagedAddons;
     public Boolean bootstrapSelfManagedAddons() {
-        if (bootstrapSelfManagedAddons == null) return null;
-        return bootstrapSelfManagedAddons.getValue("ClusterArgs.bootstrapSelfManagedAddons");
+        if (!unknown_bootstrapSelfManagedAddons) return value_bootstrapSelfManagedAddons;
+        throw new UndeferrableValueException("Value 'ClusterArgs.bootstrapSelfManagedAddons' is not present");
     }
 
     /**
      * Configuration block with compute configuration for EKS Auto Mode. Detailed below.
      * 
      */
-    private UndeferrableValue<ClusterComputeConfigArgs> computeConfig;
-
+    @PolicyResourceProperty(name="computeConfig", flag="unknown_computeConfig")
+    private ClusterComputeConfigArgs value_computeConfig;
+    private boolean unknown_computeConfig;
     public ClusterComputeConfigArgs computeConfig() {
-        if (computeConfig == null) return null;
-        return computeConfig.getValue("ClusterArgs.computeConfig");
+        if (!unknown_computeConfig) return value_computeConfig;
+        throw new UndeferrableValueException("Value 'ClusterArgs.computeConfig' is not present");
     }
 
-    private UndeferrableValue<List<String>> defaultAddonsToRemoves;
-
+    @PolicyResourceProperty(name="defaultAddonsToRemoves", flag="unknown_defaultAddonsToRemoves")
+    private List<String> value_defaultAddonsToRemoves;
+    private boolean unknown_defaultAddonsToRemoves;
     public List<String> defaultAddonsToRemoves() {
-        if (defaultAddonsToRemoves == null) return null;
-        return defaultAddonsToRemoves.getValue("ClusterArgs.defaultAddonsToRemoves");
+        if (!unknown_defaultAddonsToRemoves) return value_defaultAddonsToRemoves;
+        throw new UndeferrableValueException("Value 'ClusterArgs.defaultAddonsToRemoves' is not present");
     }
 
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
      * 
      */
-    private UndeferrableValue<List<String>> enabledClusterLogTypes;
-
+    @PolicyResourceProperty(name="enabledClusterLogTypes", flag="unknown_enabledClusterLogTypes")
+    private List<String> value_enabledClusterLogTypes;
+    private boolean unknown_enabledClusterLogTypes;
     public List<String> enabledClusterLogTypes() {
-        if (enabledClusterLogTypes == null) return null;
-        return enabledClusterLogTypes.getValue("ClusterArgs.enabledClusterLogTypes");
+        if (!unknown_enabledClusterLogTypes) return value_enabledClusterLogTypes;
+        throw new UndeferrableValueException("Value 'ClusterArgs.enabledClusterLogTypes' is not present");
     }
 
     /**
      * Configuration block with encryption configuration for the cluster. Detailed below.
      * 
      */
-    private UndeferrableValue<ClusterEncryptionConfigArgs> encryptionConfig;
-
+    @PolicyResourceProperty(name="encryptionConfig", flag="unknown_encryptionConfig")
+    private ClusterEncryptionConfigArgs value_encryptionConfig;
+    private boolean unknown_encryptionConfig;
     public ClusterEncryptionConfigArgs encryptionConfig() {
-        if (encryptionConfig == null) return null;
-        return encryptionConfig.getValue("ClusterArgs.encryptionConfig");
+        if (!unknown_encryptionConfig) return value_encryptionConfig;
+        throw new UndeferrableValueException("Value 'ClusterArgs.encryptionConfig' is not present");
     }
 
     /**
      * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    private UndeferrableValue<ClusterKubernetesNetworkConfigArgs> kubernetesNetworkConfig;
-
+    @PolicyResourceProperty(name="kubernetesNetworkConfig", flag="unknown_kubernetesNetworkConfig")
+    private ClusterKubernetesNetworkConfigArgs value_kubernetesNetworkConfig;
+    private boolean unknown_kubernetesNetworkConfig;
     public ClusterKubernetesNetworkConfigArgs kubernetesNetworkConfig() {
-        if (kubernetesNetworkConfig == null) return null;
-        return kubernetesNetworkConfig.getValue("ClusterArgs.kubernetesNetworkConfig");
+        if (!unknown_kubernetesNetworkConfig) return value_kubernetesNetworkConfig;
+        throw new UndeferrableValueException("Value 'ClusterArgs.kubernetesNetworkConfig' is not present");
     }
 
     /**
      * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]*$`).
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ClusterArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ClusterArgs.name' is not present");
     }
 
     /**
      * Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn&#39;t available for creating Amazon EKS clusters on the AWS cloud.
      * 
      */
-    private UndeferrableValue<ClusterOutpostConfigArgs> outpostConfig;
-
+    @PolicyResourceProperty(name="outpostConfig", flag="unknown_outpostConfig")
+    private ClusterOutpostConfigArgs value_outpostConfig;
+    private boolean unknown_outpostConfig;
     public ClusterOutpostConfigArgs outpostConfig() {
-        if (outpostConfig == null) return null;
-        return outpostConfig.getValue("ClusterArgs.outpostConfig");
+        if (!unknown_outpostConfig) return value_outpostConfig;
+        throw new UndeferrableValueException("Value 'ClusterArgs.outpostConfig' is not present");
     }
 
     /**
      * Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
      * 
      */
-    private UndeferrableValue<ClusterRemoteNetworkConfigArgs> remoteNetworkConfig;
-
+    @PolicyResourceProperty(name="remoteNetworkConfig", flag="unknown_remoteNetworkConfig")
+    private ClusterRemoteNetworkConfigArgs value_remoteNetworkConfig;
+    private boolean unknown_remoteNetworkConfig;
     public ClusterRemoteNetworkConfigArgs remoteNetworkConfig() {
-        if (remoteNetworkConfig == null) return null;
-        return remoteNetworkConfig.getValue("ClusterArgs.remoteNetworkConfig");
+        if (!unknown_remoteNetworkConfig) return value_remoteNetworkConfig;
+        throw new UndeferrableValueException("Value 'ClusterArgs.remoteNetworkConfig' is not present");
     }
 
     /**
      * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `aws.iam.RolePolicy` resource or `aws.iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("ClusterArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'ClusterArgs.roleArn' is not present");
     }
 
     /**
      * Configuration block with storage configuration for EKS Auto Mode. Detailed below.
      * 
      */
-    private UndeferrableValue<ClusterStorageConfigArgs> storageConfig;
-
+    @PolicyResourceProperty(name="storageConfig", flag="unknown_storageConfig")
+    private ClusterStorageConfigArgs value_storageConfig;
+    private boolean unknown_storageConfig;
     public ClusterStorageConfigArgs storageConfig() {
-        if (storageConfig == null) return null;
-        return storageConfig.getValue("ClusterArgs.storageConfig");
+        if (!unknown_storageConfig) return value_storageConfig;
+        throw new UndeferrableValueException("Value 'ClusterArgs.storageConfig' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ClusterArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ClusterArgs.tags' is not present");
     }
 
     /**
      * Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
      * 
      */
-    private UndeferrableValue<ClusterUpgradePolicyArgs> upgradePolicy;
-
+    @PolicyResourceProperty(name="upgradePolicy", flag="unknown_upgradePolicy")
+    private ClusterUpgradePolicyArgs value_upgradePolicy;
+    private boolean unknown_upgradePolicy;
     public ClusterUpgradePolicyArgs upgradePolicy() {
-        if (upgradePolicy == null) return null;
-        return upgradePolicy.getValue("ClusterArgs.upgradePolicy");
+        if (!unknown_upgradePolicy) return value_upgradePolicy;
+        throw new UndeferrableValueException("Value 'ClusterArgs.upgradePolicy' is not present");
     }
 
     /**
      * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("ClusterArgs.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'ClusterArgs.version' is not present");
     }
 
     /**
@@ -192,22 +208,24 @@ public final class ClusterArgs extends com.pulumi.resources.PolicyResourceInput 
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<ClusterVpcConfigArgs> vpcConfig;
-
+    @PolicyResourceProperty(name="vpcConfig", flag="unknown_vpcConfig")
+    private ClusterVpcConfigArgs value_vpcConfig;
+    private boolean unknown_vpcConfig;
     public ClusterVpcConfigArgs vpcConfig() {
-        if (vpcConfig == null) return null;
-        return vpcConfig.getValue("ClusterArgs.vpcConfig");
+        if (!unknown_vpcConfig) return value_vpcConfig;
+        throw new UndeferrableValueException("Value 'ClusterArgs.vpcConfig' is not present");
     }
 
     /**
      * Configuration block with zonal shift configuration for the cluster. Detailed below.
      * 
      */
-    private UndeferrableValue<ClusterZonalShiftConfigArgs> zonalShiftConfig;
-
+    @PolicyResourceProperty(name="zonalShiftConfig", flag="unknown_zonalShiftConfig")
+    private ClusterZonalShiftConfigArgs value_zonalShiftConfig;
+    private boolean unknown_zonalShiftConfig;
     public ClusterZonalShiftConfigArgs zonalShiftConfig() {
-        if (zonalShiftConfig == null) return null;
-        return zonalShiftConfig.getValue("ClusterArgs.zonalShiftConfig");
+        if (!unknown_zonalShiftConfig) return value_zonalShiftConfig;
+        throw new UndeferrableValueException("Value 'ClusterArgs.zonalShiftConfig' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.budgets.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -16,66 +17,72 @@ public final class BudgetNotification {
      * (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
      * 
      */
-    private UndeferrableValue<String> comparisonOperator;
-
+    @PolicyResourceProperty(name="comparisonOperator", flag="unknown_comparisonOperator")
+    private String value_comparisonOperator;
+    private boolean unknown_comparisonOperator;
     public String comparisonOperator() {
-        if (comparisonOperator == null) return null;
-        return comparisonOperator.getValue("BudgetNotification.comparisonOperator");
+        if (!unknown_comparisonOperator) return value_comparisonOperator;
+        throw new UndeferrableValueException("Value 'BudgetNotification.comparisonOperator' is not present");
     }
 
     /**
      * (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
      * 
      */
-    private UndeferrableValue<String> notificationType;
-
+    @PolicyResourceProperty(name="notificationType", flag="unknown_notificationType")
+    private String value_notificationType;
+    private boolean unknown_notificationType;
     public String notificationType() {
-        if (notificationType == null) return null;
-        return notificationType.getValue("BudgetNotification.notificationType");
+        if (!unknown_notificationType) return value_notificationType;
+        throw new UndeferrableValueException("Value 'BudgetNotification.notificationType' is not present");
     }
 
     /**
      * (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> subscriberEmailAddresses;
-
+    @PolicyResourceProperty(name="subscriberEmailAddresses", flag="unknown_subscriberEmailAddresses")
+    private @Nullable List<String> value_subscriberEmailAddresses;
+    private boolean unknown_subscriberEmailAddresses;
     public @Nullable List<String> subscriberEmailAddresses() {
-        if (subscriberEmailAddresses == null) return null;
-        return subscriberEmailAddresses.getValue("BudgetNotification.subscriberEmailAddresses");
+        if (!unknown_subscriberEmailAddresses) return value_subscriberEmailAddresses;
+        throw new UndeferrableValueException("Value 'BudgetNotification.subscriberEmailAddresses' is not present");
     }
 
     /**
      * (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> subscriberSnsTopicArns;
-
+    @PolicyResourceProperty(name="subscriberSnsTopicArns", flag="unknown_subscriberSnsTopicArns")
+    private @Nullable List<String> value_subscriberSnsTopicArns;
+    private boolean unknown_subscriberSnsTopicArns;
     public @Nullable List<String> subscriberSnsTopicArns() {
-        if (subscriberSnsTopicArns == null) return null;
-        return subscriberSnsTopicArns.getValue("BudgetNotification.subscriberSnsTopicArns");
+        if (!unknown_subscriberSnsTopicArns) return value_subscriberSnsTopicArns;
+        throw new UndeferrableValueException("Value 'BudgetNotification.subscriberSnsTopicArns' is not present");
     }
 
     /**
      * (Required) Threshold when the notification should be sent.
      * 
      */
-    private UndeferrableValue<Double> threshold;
-
+    @PolicyResourceProperty(name="threshold", flag="unknown_threshold")
+    private Double value_threshold;
+    private boolean unknown_threshold;
     public Double threshold() {
-        if (threshold == null) return null;
-        return threshold.getValue("BudgetNotification.threshold");
+        if (!unknown_threshold) return value_threshold;
+        throw new UndeferrableValueException("Value 'BudgetNotification.threshold' is not present");
     }
 
     /**
      * (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
      * 
      */
-    private UndeferrableValue<String> thresholdType;
-
+    @PolicyResourceProperty(name="thresholdType", flag="unknown_thresholdType")
+    private String value_thresholdType;
+    private boolean unknown_thresholdType;
     public String thresholdType() {
-        if (thresholdType == null) return null;
-        return thresholdType.getValue("BudgetNotification.thresholdType");
+        if (!unknown_thresholdType) return value_thresholdType;
+        throw new UndeferrableValueException("Value 'BudgetNotification.thresholdType' is not present");
     }
 
 }

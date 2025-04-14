@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.inspector2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.inspector2.inputs.OrganizationConfigurationAutoEnableArgs;
 
@@ -15,11 +16,12 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Po
      * Configuration block for auto enabling. See below.
      * 
      */
-    private UndeferrableValue<OrganizationConfigurationAutoEnableArgs> autoEnable;
-
+    @PolicyResourceProperty(name="autoEnable", flag="unknown_autoEnable")
+    private OrganizationConfigurationAutoEnableArgs value_autoEnable;
+    private boolean unknown_autoEnable;
     public OrganizationConfigurationAutoEnableArgs autoEnable() {
-        if (autoEnable == null) return null;
-        return autoEnable.getValue("OrganizationConfigurationArgs.autoEnable");
+        if (!unknown_autoEnable) return value_autoEnable;
+        throw new UndeferrableValueException("Value 'OrganizationConfigurationArgs.autoEnable' is not present");
     }
 
 }

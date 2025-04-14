@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.backup.inputs.PlanRuleCopyActionLifecycleArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class PlanRuleCopyActionArgs {
      * An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
      * 
      */
-    private UndeferrableValue<String> destinationVaultArn;
-
+    @PolicyResourceProperty(name="destinationVaultArn", flag="unknown_destinationVaultArn")
+    private String value_destinationVaultArn;
+    private boolean unknown_destinationVaultArn;
     public String destinationVaultArn() {
-        if (destinationVaultArn == null) return null;
-        return destinationVaultArn.getValue("PlanRuleCopyActionArgs.destinationVaultArn");
+        if (!unknown_destinationVaultArn) return value_destinationVaultArn;
+        throw new UndeferrableValueException("Value 'PlanRuleCopyActionArgs.destinationVaultArn' is not present");
     }
 
     /**
      * The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
      * 
      */
-    private UndeferrableValue<PlanRuleCopyActionLifecycleArgs> lifecycle;
-
+    @PolicyResourceProperty(name="lifecycle", flag="unknown_lifecycle")
+    private PlanRuleCopyActionLifecycleArgs value_lifecycle;
+    private boolean unknown_lifecycle;
     public PlanRuleCopyActionLifecycleArgs lifecycle() {
-        if (lifecycle == null) return null;
-        return lifecycle.getValue("PlanRuleCopyActionArgs.lifecycle");
+        if (!unknown_lifecycle) return value_lifecycle;
+        throw new UndeferrableValueException("Value 'PlanRuleCopyActionArgs.lifecycle' is not present");
     }
 
 }

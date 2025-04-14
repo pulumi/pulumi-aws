@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.devopsguru.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.devopsguru.inputs.EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class EventSourcesConfigEventSourceArgs {
      * Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazon_code_guru_profiler` below.
      * 
      */
-    private UndeferrableValue<List<EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs>> amazonCodeGuruProfilers;
-
+    @PolicyResourceProperty(name="amazonCodeGuruProfilers", flag="unknown_amazonCodeGuruProfilers")
+    private List<EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs> value_amazonCodeGuruProfilers;
+    private boolean unknown_amazonCodeGuruProfilers;
     public List<EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs> amazonCodeGuruProfilers() {
-        if (amazonCodeGuruProfilers == null) return null;
-        return amazonCodeGuruProfilers.getValue("EventSourcesConfigEventSourceArgs.amazonCodeGuruProfilers");
+        if (!unknown_amazonCodeGuruProfilers) return value_amazonCodeGuruProfilers;
+        throw new UndeferrableValueException("Value 'EventSourcesConfigEventSourceArgs.amazonCodeGuruProfilers' is not present");
     }
 
 }

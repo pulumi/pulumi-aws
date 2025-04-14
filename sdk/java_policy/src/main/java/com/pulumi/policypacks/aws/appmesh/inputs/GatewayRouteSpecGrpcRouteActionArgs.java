@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.GatewayRouteSpecGrpcRouteActionTargetArgs;
 
 
@@ -13,11 +14,12 @@ public final class GatewayRouteSpecGrpcRouteActionArgs {
      * Target that traffic is routed to when a request matches the gateway route.
      * 
      */
-    private UndeferrableValue<GatewayRouteSpecGrpcRouteActionTargetArgs> target;
-
+    @PolicyResourceProperty(name="target", flag="unknown_target")
+    private GatewayRouteSpecGrpcRouteActionTargetArgs value_target;
+    private boolean unknown_target;
     public GatewayRouteSpecGrpcRouteActionTargetArgs target() {
-        if (target == null) return null;
-        return target.getValue("GatewayRouteSpecGrpcRouteActionArgs.target");
+        if (!unknown_target) return value_target;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecGrpcRouteActionArgs.target' is not present");
     }
 
 }

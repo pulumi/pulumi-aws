@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.outputs.DataSetLogicalTableMapDataTransformCastColumnTypeOperation;
 import com.pulumi.policypacks.aws.quicksight.outputs.DataSetLogicalTableMapDataTransformCreateColumnsOperation;
 import com.pulumi.policypacks.aws.quicksight.outputs.DataSetLogicalTableMapDataTransformFilterOperation;
@@ -20,77 +21,84 @@ public final class DataSetLogicalTableMapDataTransform {
      * A transform operation that casts a column to a different type. See cast_column_type_operation.
      * 
      */
-    private @Nullable UndeferrableValue<DataSetLogicalTableMapDataTransformCastColumnTypeOperation> castColumnTypeOperation;
-
+    @PolicyResourceProperty(name="castColumnTypeOperation", flag="unknown_castColumnTypeOperation")
+    private @Nullable DataSetLogicalTableMapDataTransformCastColumnTypeOperation value_castColumnTypeOperation;
+    private boolean unknown_castColumnTypeOperation;
     public @Nullable DataSetLogicalTableMapDataTransformCastColumnTypeOperation castColumnTypeOperation() {
-        if (castColumnTypeOperation == null) return null;
-        return castColumnTypeOperation.getValue("DataSetLogicalTableMapDataTransform.castColumnTypeOperation");
+        if (!unknown_castColumnTypeOperation) return value_castColumnTypeOperation;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransform.castColumnTypeOperation' is not present");
     }
 
     /**
      * An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
      * 
      */
-    private @Nullable UndeferrableValue<DataSetLogicalTableMapDataTransformCreateColumnsOperation> createColumnsOperation;
-
+    @PolicyResourceProperty(name="createColumnsOperation", flag="unknown_createColumnsOperation")
+    private @Nullable DataSetLogicalTableMapDataTransformCreateColumnsOperation value_createColumnsOperation;
+    private boolean unknown_createColumnsOperation;
     public @Nullable DataSetLogicalTableMapDataTransformCreateColumnsOperation createColumnsOperation() {
-        if (createColumnsOperation == null) return null;
-        return createColumnsOperation.getValue("DataSetLogicalTableMapDataTransform.createColumnsOperation");
+        if (!unknown_createColumnsOperation) return value_createColumnsOperation;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransform.createColumnsOperation' is not present");
     }
 
     /**
      * An operation that filters rows based on some condition. See filter_operation.
      * 
      */
-    private @Nullable UndeferrableValue<DataSetLogicalTableMapDataTransformFilterOperation> filterOperation;
-
+    @PolicyResourceProperty(name="filterOperation", flag="unknown_filterOperation")
+    private @Nullable DataSetLogicalTableMapDataTransformFilterOperation value_filterOperation;
+    private boolean unknown_filterOperation;
     public @Nullable DataSetLogicalTableMapDataTransformFilterOperation filterOperation() {
-        if (filterOperation == null) return null;
-        return filterOperation.getValue("DataSetLogicalTableMapDataTransform.filterOperation");
+        if (!unknown_filterOperation) return value_filterOperation;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransform.filterOperation' is not present");
     }
 
     /**
      * An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
      * 
      */
-    private @Nullable UndeferrableValue<DataSetLogicalTableMapDataTransformProjectOperation> projectOperation;
-
+    @PolicyResourceProperty(name="projectOperation", flag="unknown_projectOperation")
+    private @Nullable DataSetLogicalTableMapDataTransformProjectOperation value_projectOperation;
+    private boolean unknown_projectOperation;
     public @Nullable DataSetLogicalTableMapDataTransformProjectOperation projectOperation() {
-        if (projectOperation == null) return null;
-        return projectOperation.getValue("DataSetLogicalTableMapDataTransform.projectOperation");
+        if (!unknown_projectOperation) return value_projectOperation;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransform.projectOperation' is not present");
     }
 
     /**
      * An operation that renames a column. See rename_column_operation.
      * 
      */
-    private @Nullable UndeferrableValue<DataSetLogicalTableMapDataTransformRenameColumnOperation> renameColumnOperation;
-
+    @PolicyResourceProperty(name="renameColumnOperation", flag="unknown_renameColumnOperation")
+    private @Nullable DataSetLogicalTableMapDataTransformRenameColumnOperation value_renameColumnOperation;
+    private boolean unknown_renameColumnOperation;
     public @Nullable DataSetLogicalTableMapDataTransformRenameColumnOperation renameColumnOperation() {
-        if (renameColumnOperation == null) return null;
-        return renameColumnOperation.getValue("DataSetLogicalTableMapDataTransform.renameColumnOperation");
+        if (!unknown_renameColumnOperation) return value_renameColumnOperation;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransform.renameColumnOperation' is not present");
     }
 
     /**
      * An operation that tags a column with additional information. See tag_column_operation.
      * 
      */
-    private @Nullable UndeferrableValue<DataSetLogicalTableMapDataTransformTagColumnOperation> tagColumnOperation;
-
+    @PolicyResourceProperty(name="tagColumnOperation", flag="unknown_tagColumnOperation")
+    private @Nullable DataSetLogicalTableMapDataTransformTagColumnOperation value_tagColumnOperation;
+    private boolean unknown_tagColumnOperation;
     public @Nullable DataSetLogicalTableMapDataTransformTagColumnOperation tagColumnOperation() {
-        if (tagColumnOperation == null) return null;
-        return tagColumnOperation.getValue("DataSetLogicalTableMapDataTransform.tagColumnOperation");
+        if (!unknown_tagColumnOperation) return value_tagColumnOperation;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransform.tagColumnOperation' is not present");
     }
 
     /**
      * A transform operation that removes tags associated with a column. See untag_column_operation.
      * 
      */
-    private @Nullable UndeferrableValue<DataSetLogicalTableMapDataTransformUntagColumnOperation> untagColumnOperation;
-
+    @PolicyResourceProperty(name="untagColumnOperation", flag="unknown_untagColumnOperation")
+    private @Nullable DataSetLogicalTableMapDataTransformUntagColumnOperation value_untagColumnOperation;
+    private boolean unknown_untagColumnOperation;
     public @Nullable DataSetLogicalTableMapDataTransformUntagColumnOperation untagColumnOperation() {
-        if (untagColumnOperation == null) return null;
-        return untagColumnOperation.getValue("DataSetLogicalTableMapDataTransform.untagColumnOperation");
+        if (!unknown_untagColumnOperation) return value_untagColumnOperation;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransform.untagColumnOperation' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -15,11 +16,12 @@ public final class BucketWebsiteConfigurationV2IndexDocumentArgs {
      * The suffix must not be empty and must not include a slash character.
      * 
      */
-    private UndeferrableValue<String> suffix;
-
+    @PolicyResourceProperty(name="suffix", flag="unknown_suffix")
+    private String value_suffix;
+    private boolean unknown_suffix;
     public String suffix() {
-        if (suffix == null) return null;
-        return suffix.getValue("BucketWebsiteConfigurationV2IndexDocumentArgs.suffix");
+        if (!unknown_suffix) return value_suffix;
+        throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2IndexDocumentArgs.suffix' is not present");
     }
 
 }

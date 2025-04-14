@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ecs.outputs.TaskDefinitionEphemeralStorage;
 import com.pulumi.policypacks.aws.ecs.outputs.TaskDefinitionInferenceAccelerator;
@@ -26,44 +27,48 @@ public final class TaskDefinition extends com.pulumi.resources.PolicyResourceOut
      * Full ARN of the Task Definition (including both `family` and `revision`).
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("TaskDefinition.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'TaskDefinition.arn' is not present");
     }
 
     /**
      * ARN of the Task Definition with the trailing `revision` removed. This may be useful for situations where the latest task definition is always desired. If a revision isn&#39;t specified, the latest ACTIVE revision is used. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html#ECS-StartTask-request-taskDefinition) for details.
      * 
      */
-    private UndeferrableValue<String> arnWithoutRevision;
-
+    @PolicyResourceProperty(name="arnWithoutRevision", flag="unknown_arnWithoutRevision")
+    private String value_arnWithoutRevision;
+    private boolean unknown_arnWithoutRevision;
     public String arnWithoutRevision() {
-        if (arnWithoutRevision == null) return null;
-        return arnWithoutRevision.getValue("TaskDefinition.arnWithoutRevision");
+        if (!unknown_arnWithoutRevision) return value_arnWithoutRevision;
+        throw new UndeferrableValueException("Value 'TaskDefinition.arnWithoutRevision' is not present");
     }
 
     /**
      * A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
      * 
      */
-    private UndeferrableValue<String> containerDefinitions;
-
+    @PolicyResourceProperty(name="containerDefinitions", flag="unknown_containerDefinitions")
+    private String value_containerDefinitions;
+    private boolean unknown_containerDefinitions;
     public String containerDefinitions() {
-        if (containerDefinitions == null) return null;
-        return containerDefinitions.getValue("TaskDefinition.containerDefinitions");
+        if (!unknown_containerDefinitions) return value_containerDefinitions;
+        throw new UndeferrableValueException("Value 'TaskDefinition.containerDefinitions' is not present");
     }
 
     /**
      * Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
      * 
      */
-    private @Nullable UndeferrableValue<String> cpu;
-
+    @PolicyResourceProperty(name="cpu", flag="unknown_cpu")
+    private @Nullable String value_cpu;
+    private boolean unknown_cpu;
     public @Nullable String cpu() {
-        if (cpu == null) return null;
-        return cpu.getValue("TaskDefinition.cpu");
+        if (!unknown_cpu) return value_cpu;
+        throw new UndeferrableValueException("Value 'TaskDefinition.cpu' is not present");
     }
 
     /**
@@ -72,33 +77,36 @@ public final class TaskDefinition extends com.pulumi.resources.PolicyResourceOut
      * **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn&#39;t available on Windows.
      * 
      */
-    private UndeferrableValue<Boolean> enableFaultInjection;
-
+    @PolicyResourceProperty(name="enableFaultInjection", flag="unknown_enableFaultInjection")
+    private Boolean value_enableFaultInjection;
+    private boolean unknown_enableFaultInjection;
     public Boolean enableFaultInjection() {
-        if (enableFaultInjection == null) return null;
-        return enableFaultInjection.getValue("TaskDefinition.enableFaultInjection");
+        if (!unknown_enableFaultInjection) return value_enableFaultInjection;
+        throw new UndeferrableValueException("Value 'TaskDefinition.enableFaultInjection' is not present");
     }
 
     /**
      * The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
      * 
      */
-    private @Nullable UndeferrableValue<TaskDefinitionEphemeralStorage> ephemeralStorage;
-
+    @PolicyResourceProperty(name="ephemeralStorage", flag="unknown_ephemeralStorage")
+    private @Nullable TaskDefinitionEphemeralStorage value_ephemeralStorage;
+    private boolean unknown_ephemeralStorage;
     public @Nullable TaskDefinitionEphemeralStorage ephemeralStorage() {
-        if (ephemeralStorage == null) return null;
-        return ephemeralStorage.getValue("TaskDefinition.ephemeralStorage");
+        if (!unknown_ephemeralStorage) return value_ephemeralStorage;
+        throw new UndeferrableValueException("Value 'TaskDefinition.ephemeralStorage' is not present");
     }
 
     /**
      * ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
      * 
      */
-    private @Nullable UndeferrableValue<String> executionRoleArn;
-
+    @PolicyResourceProperty(name="executionRoleArn", flag="unknown_executionRoleArn")
+    private @Nullable String value_executionRoleArn;
+    private boolean unknown_executionRoleArn;
     public @Nullable String executionRoleArn() {
-        if (executionRoleArn == null) return null;
-        return executionRoleArn.getValue("TaskDefinition.executionRoleArn");
+        if (!unknown_executionRoleArn) return value_executionRoleArn;
+        throw new UndeferrableValueException("Value 'TaskDefinition.executionRoleArn' is not present");
     }
 
     /**
@@ -107,143 +115,156 @@ public final class TaskDefinition extends com.pulumi.resources.PolicyResourceOut
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> family;
-
+    @PolicyResourceProperty(name="family", flag="unknown_family")
+    private String value_family;
+    private boolean unknown_family;
     public String family() {
-        if (family == null) return null;
-        return family.getValue("TaskDefinition.family");
+        if (!unknown_family) return value_family;
+        throw new UndeferrableValueException("Value 'TaskDefinition.family' is not present");
     }
 
     /**
      * Configuration block(s) with Inference Accelerators settings. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<TaskDefinitionInferenceAccelerator>> inferenceAccelerators;
-
+    @PolicyResourceProperty(name="inferenceAccelerators", flag="unknown_inferenceAccelerators")
+    private @Nullable List<TaskDefinitionInferenceAccelerator> value_inferenceAccelerators;
+    private boolean unknown_inferenceAccelerators;
     public @Nullable List<TaskDefinitionInferenceAccelerator> inferenceAccelerators() {
-        if (inferenceAccelerators == null) return null;
-        return inferenceAccelerators.getValue("TaskDefinition.inferenceAccelerators");
+        if (!unknown_inferenceAccelerators) return value_inferenceAccelerators;
+        throw new UndeferrableValueException("Value 'TaskDefinition.inferenceAccelerators' is not present");
     }
 
     /**
      * IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
      * 
      */
-    private @Nullable UndeferrableValue<String> ipcMode;
-
+    @PolicyResourceProperty(name="ipcMode", flag="unknown_ipcMode")
+    private @Nullable String value_ipcMode;
+    private boolean unknown_ipcMode;
     public @Nullable String ipcMode() {
-        if (ipcMode == null) return null;
-        return ipcMode.getValue("TaskDefinition.ipcMode");
+        if (!unknown_ipcMode) return value_ipcMode;
+        throw new UndeferrableValueException("Value 'TaskDefinition.ipcMode' is not present");
     }
 
     /**
      * Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
      * 
      */
-    private @Nullable UndeferrableValue<String> memory;
-
+    @PolicyResourceProperty(name="memory", flag="unknown_memory")
+    private @Nullable String value_memory;
+    private boolean unknown_memory;
     public @Nullable String memory() {
-        if (memory == null) return null;
-        return memory.getValue("TaskDefinition.memory");
+        if (!unknown_memory) return value_memory;
+        throw new UndeferrableValueException("Value 'TaskDefinition.memory' is not present");
     }
 
     /**
      * Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
      * 
      */
-    private UndeferrableValue<String> networkMode;
-
+    @PolicyResourceProperty(name="networkMode", flag="unknown_networkMode")
+    private String value_networkMode;
+    private boolean unknown_networkMode;
     public String networkMode() {
-        if (networkMode == null) return null;
-        return networkMode.getValue("TaskDefinition.networkMode");
+        if (!unknown_networkMode) return value_networkMode;
+        throw new UndeferrableValueException("Value 'TaskDefinition.networkMode' is not present");
     }
 
     /**
      * Process namespace to use for the containers in the task. The valid values are `host` and `task`.
      * 
      */
-    private @Nullable UndeferrableValue<String> pidMode;
-
+    @PolicyResourceProperty(name="pidMode", flag="unknown_pidMode")
+    private @Nullable String value_pidMode;
+    private boolean unknown_pidMode;
     public @Nullable String pidMode() {
-        if (pidMode == null) return null;
-        return pidMode.getValue("TaskDefinition.pidMode");
+        if (!unknown_pidMode) return value_pidMode;
+        throw new UndeferrableValueException("Value 'TaskDefinition.pidMode' is not present");
     }
 
     /**
      * Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<TaskDefinitionPlacementConstraint>> placementConstraints;
-
+    @PolicyResourceProperty(name="placementConstraints", flag="unknown_placementConstraints")
+    private @Nullable List<TaskDefinitionPlacementConstraint> value_placementConstraints;
+    private boolean unknown_placementConstraints;
     public @Nullable List<TaskDefinitionPlacementConstraint> placementConstraints() {
-        if (placementConstraints == null) return null;
-        return placementConstraints.getValue("TaskDefinition.placementConstraints");
+        if (!unknown_placementConstraints) return value_placementConstraints;
+        throw new UndeferrableValueException("Value 'TaskDefinition.placementConstraints' is not present");
     }
 
     /**
      * Configuration block for the App Mesh proxy. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<TaskDefinitionProxyConfiguration> proxyConfiguration;
-
+    @PolicyResourceProperty(name="proxyConfiguration", flag="unknown_proxyConfiguration")
+    private @Nullable TaskDefinitionProxyConfiguration value_proxyConfiguration;
+    private boolean unknown_proxyConfiguration;
     public @Nullable TaskDefinitionProxyConfiguration proxyConfiguration() {
-        if (proxyConfiguration == null) return null;
-        return proxyConfiguration.getValue("TaskDefinition.proxyConfiguration");
+        if (!unknown_proxyConfiguration) return value_proxyConfiguration;
+        throw new UndeferrableValueException("Value 'TaskDefinition.proxyConfiguration' is not present");
     }
 
     /**
      * Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> requiresCompatibilities;
-
+    @PolicyResourceProperty(name="requiresCompatibilities", flag="unknown_requiresCompatibilities")
+    private @Nullable List<String> value_requiresCompatibilities;
+    private boolean unknown_requiresCompatibilities;
     public @Nullable List<String> requiresCompatibilities() {
-        if (requiresCompatibilities == null) return null;
-        return requiresCompatibilities.getValue("TaskDefinition.requiresCompatibilities");
+        if (!unknown_requiresCompatibilities) return value_requiresCompatibilities;
+        throw new UndeferrableValueException("Value 'TaskDefinition.requiresCompatibilities' is not present");
     }
 
     /**
      * Revision of the task in a particular family.
      * 
      */
-    private UndeferrableValue<Integer> revision;
-
+    @PolicyResourceProperty(name="revision", flag="unknown_revision")
+    private Integer value_revision;
+    private boolean unknown_revision;
     public Integer revision() {
-        if (revision == null) return null;
-        return revision.getValue("TaskDefinition.revision");
+        if (!unknown_revision) return value_revision;
+        throw new UndeferrableValueException("Value 'TaskDefinition.revision' is not present");
     }
 
     /**
      * Configuration block for runtime_platform that containers in your task may use.
      * 
      */
-    private @Nullable UndeferrableValue<TaskDefinitionRuntimePlatform> runtimePlatform;
-
+    @PolicyResourceProperty(name="runtimePlatform", flag="unknown_runtimePlatform")
+    private @Nullable TaskDefinitionRuntimePlatform value_runtimePlatform;
+    private boolean unknown_runtimePlatform;
     public @Nullable TaskDefinitionRuntimePlatform runtimePlatform() {
-        if (runtimePlatform == null) return null;
-        return runtimePlatform.getValue("TaskDefinition.runtimePlatform");
+        if (!unknown_runtimePlatform) return value_runtimePlatform;
+        throw new UndeferrableValueException("Value 'TaskDefinition.runtimePlatform' is not present");
     }
 
     /**
      * Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> skipDestroy;
-
+    @PolicyResourceProperty(name="skipDestroy", flag="unknown_skipDestroy")
+    private @Nullable Boolean value_skipDestroy;
+    private boolean unknown_skipDestroy;
     public @Nullable Boolean skipDestroy() {
-        if (skipDestroy == null) return null;
-        return skipDestroy.getValue("TaskDefinition.skipDestroy");
+        if (!unknown_skipDestroy) return value_skipDestroy;
+        throw new UndeferrableValueException("Value 'TaskDefinition.skipDestroy' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TaskDefinition.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TaskDefinition.tags' is not present");
     }
 
     /**
@@ -254,44 +275,48 @@ public final class TaskDefinition extends com.pulumi.resources.PolicyResourceOut
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("TaskDefinition.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'TaskDefinition.tagsAll' is not present");
     }
 
     /**
      * ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
      * 
      */
-    private @Nullable UndeferrableValue<String> taskRoleArn;
-
+    @PolicyResourceProperty(name="taskRoleArn", flag="unknown_taskRoleArn")
+    private @Nullable String value_taskRoleArn;
+    private boolean unknown_taskRoleArn;
     public @Nullable String taskRoleArn() {
-        if (taskRoleArn == null) return null;
-        return taskRoleArn.getValue("TaskDefinition.taskRoleArn");
+        if (!unknown_taskRoleArn) return value_taskRoleArn;
+        throw new UndeferrableValueException("Value 'TaskDefinition.taskRoleArn' is not present");
     }
 
     /**
      * Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> trackLatest;
-
+    @PolicyResourceProperty(name="trackLatest", flag="unknown_trackLatest")
+    private @Nullable Boolean value_trackLatest;
+    private boolean unknown_trackLatest;
     public @Nullable Boolean trackLatest() {
-        if (trackLatest == null) return null;
-        return trackLatest.getValue("TaskDefinition.trackLatest");
+        if (!unknown_trackLatest) return value_trackLatest;
+        throw new UndeferrableValueException("Value 'TaskDefinition.trackLatest' is not present");
     }
 
     /**
      * Configuration block for volumes that containers in your task may use. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<TaskDefinitionVolume>> volumes;
-
+    @PolicyResourceProperty(name="volumes", flag="unknown_volumes")
+    private @Nullable List<TaskDefinitionVolume> value_volumes;
+    private boolean unknown_volumes;
     public @Nullable List<TaskDefinitionVolume> volumes() {
-        if (volumes == null) return null;
-        return volumes.getValue("TaskDefinition.volumes");
+        if (!unknown_volumes) return value_volumes;
+        throw new UndeferrableValueException("Value 'TaskDefinition.volumes' is not present");
     }
 
 }

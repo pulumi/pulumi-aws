@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,11 +17,12 @@ public final class BgpPeer extends com.pulumi.resources.PolicyResourceOutput {
      * The address family for the BGP peer. ` ipv4  ` or `ipv6`.
      * 
      */
-    private UndeferrableValue<String> addressFamily;
-
+    @PolicyResourceProperty(name="addressFamily", flag="unknown_addressFamily")
+    private String value_addressFamily;
+    private boolean unknown_addressFamily;
     public String addressFamily() {
-        if (addressFamily == null) return null;
-        return addressFamily.getValue("BgpPeer.addressFamily");
+        if (!unknown_addressFamily) return value_addressFamily;
+        throw new UndeferrableValueException("Value 'BgpPeer.addressFamily' is not present");
     }
 
     /**
@@ -28,66 +30,72 @@ public final class BgpPeer extends com.pulumi.resources.PolicyResourceOutput {
      * Required for IPv4 BGP peers on public virtual interfaces.
      * 
      */
-    private UndeferrableValue<String> amazonAddress;
-
+    @PolicyResourceProperty(name="amazonAddress", flag="unknown_amazonAddress")
+    private String value_amazonAddress;
+    private boolean unknown_amazonAddress;
     public String amazonAddress() {
-        if (amazonAddress == null) return null;
-        return amazonAddress.getValue("BgpPeer.amazonAddress");
+        if (!unknown_amazonAddress) return value_amazonAddress;
+        throw new UndeferrableValueException("Value 'BgpPeer.amazonAddress' is not present");
     }
 
     /**
      * The Direct Connect endpoint on which the BGP peer terminates.
      * 
      */
-    private UndeferrableValue<String> awsDevice;
-
+    @PolicyResourceProperty(name="awsDevice", flag="unknown_awsDevice")
+    private String value_awsDevice;
+    private boolean unknown_awsDevice;
     public String awsDevice() {
-        if (awsDevice == null) return null;
-        return awsDevice.getValue("BgpPeer.awsDevice");
+        if (!unknown_awsDevice) return value_awsDevice;
+        throw new UndeferrableValueException("Value 'BgpPeer.awsDevice' is not present");
     }
 
     /**
      * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
      * 
      */
-    private UndeferrableValue<Integer> bgpAsn;
-
+    @PolicyResourceProperty(name="bgpAsn", flag="unknown_bgpAsn")
+    private Integer value_bgpAsn;
+    private boolean unknown_bgpAsn;
     public Integer bgpAsn() {
-        if (bgpAsn == null) return null;
-        return bgpAsn.getValue("BgpPeer.bgpAsn");
+        if (!unknown_bgpAsn) return value_bgpAsn;
+        throw new UndeferrableValueException("Value 'BgpPeer.bgpAsn' is not present");
     }
 
     /**
      * The authentication key for BGP configuration.
      * 
      */
-    private UndeferrableValue<String> bgpAuthKey;
-
+    @PolicyResourceProperty(name="bgpAuthKey", flag="unknown_bgpAuthKey")
+    private String value_bgpAuthKey;
+    private boolean unknown_bgpAuthKey;
     public String bgpAuthKey() {
-        if (bgpAuthKey == null) return null;
-        return bgpAuthKey.getValue("BgpPeer.bgpAuthKey");
+        if (!unknown_bgpAuthKey) return value_bgpAuthKey;
+        throw new UndeferrableValueException("Value 'BgpPeer.bgpAuthKey' is not present");
     }
 
     /**
      * The ID of the BGP peer.
      * 
      */
-    private UndeferrableValue<String> bgpPeerId;
-
+    @PolicyResourceProperty(name="bgpPeerId", flag="unknown_bgpPeerId")
+    private String value_bgpPeerId;
+    private boolean unknown_bgpPeerId;
     public String bgpPeerId() {
-        if (bgpPeerId == null) return null;
-        return bgpPeerId.getValue("BgpPeer.bgpPeerId");
+        if (!unknown_bgpPeerId) return value_bgpPeerId;
+        throw new UndeferrableValueException("Value 'BgpPeer.bgpPeerId' is not present");
     }
 
     /**
      * The Up/Down state of the BGP peer.
      * 
      */
-    private UndeferrableValue<String> bgpStatus;
-
+    @PolicyResourceProperty(name="bgpStatus", flag="unknown_bgpStatus")
+    private String value_bgpStatus;
+    private boolean unknown_bgpStatus;
     public String bgpStatus() {
-        if (bgpStatus == null) return null;
-        return bgpStatus.getValue("BgpPeer.bgpStatus");
+        if (!unknown_bgpStatus) return value_bgpStatus;
+        throw new UndeferrableValueException("Value 'BgpPeer.bgpStatus' is not present");
     }
 
     /**
@@ -95,22 +103,24 @@ public final class BgpPeer extends com.pulumi.resources.PolicyResourceOutput {
      * Required for IPv4 BGP peers on public virtual interfaces.
      * 
      */
-    private UndeferrableValue<String> customerAddress;
-
+    @PolicyResourceProperty(name="customerAddress", flag="unknown_customerAddress")
+    private String value_customerAddress;
+    private boolean unknown_customerAddress;
     public String customerAddress() {
-        if (customerAddress == null) return null;
-        return customerAddress.getValue("BgpPeer.customerAddress");
+        if (!unknown_customerAddress) return value_customerAddress;
+        throw new UndeferrableValueException("Value 'BgpPeer.customerAddress' is not present");
     }
 
     /**
      * The ID of the Direct Connect virtual interface on which to create the BGP peer.
      * 
      */
-    private UndeferrableValue<String> virtualInterfaceId;
-
+    @PolicyResourceProperty(name="virtualInterfaceId", flag="unknown_virtualInterfaceId")
+    private String value_virtualInterfaceId;
+    private boolean unknown_virtualInterfaceId;
     public String virtualInterfaceId() {
-        if (virtualInterfaceId == null) return null;
-        return virtualInterfaceId.getValue("BgpPeer.virtualInterfaceId");
+        if (!unknown_virtualInterfaceId) return value_virtualInterfaceId;
+        throw new UndeferrableValueException("Value 'BgpPeer.virtualInterfaceId' is not present");
     }
 
 }

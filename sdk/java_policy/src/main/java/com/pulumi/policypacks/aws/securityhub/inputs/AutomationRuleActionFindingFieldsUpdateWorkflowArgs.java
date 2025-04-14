@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class AutomationRuleActionFindingFieldsUpdateWorkflowArgs {
      * The status of the investigation into the finding. The allowed values are the following `NEW`, `NOTIFIED`, `RESOLVED` and `SUPPRESSED`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("AutomationRuleActionFindingFieldsUpdateWorkflowArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdateWorkflowArgs.status' is not present");
     }
 
 }

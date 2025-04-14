@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,66 +18,72 @@ public final class FunctionUrlCorsArgs {
      * Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> allowCredentials;
-
+    @PolicyResourceProperty(name="allowCredentials", flag="unknown_allowCredentials")
+    private Boolean value_allowCredentials;
+    private boolean unknown_allowCredentials;
     public Boolean allowCredentials() {
-        if (allowCredentials == null) return null;
-        return allowCredentials.getValue("FunctionUrlCorsArgs.allowCredentials");
+        if (!unknown_allowCredentials) return value_allowCredentials;
+        throw new UndeferrableValueException("Value 'FunctionUrlCorsArgs.allowCredentials' is not present");
     }
 
     /**
      * The HTTP headers that origins can include in requests to the function URL. For example: `[&#34;date&#34;, &#34;keep-alive&#34;, &#34;x-custom-header&#34;]`.
      * 
      */
-    private UndeferrableValue<List<String>> allowHeaders;
-
+    @PolicyResourceProperty(name="allowHeaders", flag="unknown_allowHeaders")
+    private List<String> value_allowHeaders;
+    private boolean unknown_allowHeaders;
     public List<String> allowHeaders() {
-        if (allowHeaders == null) return null;
-        return allowHeaders.getValue("FunctionUrlCorsArgs.allowHeaders");
+        if (!unknown_allowHeaders) return value_allowHeaders;
+        throw new UndeferrableValueException("Value 'FunctionUrlCorsArgs.allowHeaders' is not present");
     }
 
     /**
      * The HTTP methods that are allowed when calling the function URL. For example: `[&#34;GET&#34;, &#34;POST&#34;, &#34;DELETE&#34;]`, or the wildcard character (`[&#34;*&#34;]`).
      * 
      */
-    private UndeferrableValue<List<String>> allowMethods;
-
+    @PolicyResourceProperty(name="allowMethods", flag="unknown_allowMethods")
+    private List<String> value_allowMethods;
+    private boolean unknown_allowMethods;
     public List<String> allowMethods() {
-        if (allowMethods == null) return null;
-        return allowMethods.getValue("FunctionUrlCorsArgs.allowMethods");
+        if (!unknown_allowMethods) return value_allowMethods;
+        throw new UndeferrableValueException("Value 'FunctionUrlCorsArgs.allowMethods' is not present");
     }
 
     /**
      * The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`&#34;*&#34;`)), separated by a comma. For example: `[&#34;https://www.example.com&#34;, &#34;http://localhost:60905&#34;]`.
      * 
      */
-    private UndeferrableValue<List<String>> allowOrigins;
-
+    @PolicyResourceProperty(name="allowOrigins", flag="unknown_allowOrigins")
+    private List<String> value_allowOrigins;
+    private boolean unknown_allowOrigins;
     public List<String> allowOrigins() {
-        if (allowOrigins == null) return null;
-        return allowOrigins.getValue("FunctionUrlCorsArgs.allowOrigins");
+        if (!unknown_allowOrigins) return value_allowOrigins;
+        throw new UndeferrableValueException("Value 'FunctionUrlCorsArgs.allowOrigins' is not present");
     }
 
     /**
      * The HTTP headers in your function response that you want to expose to origins that call the function URL.
      * 
      */
-    private UndeferrableValue<List<String>> exposeHeaders;
-
+    @PolicyResourceProperty(name="exposeHeaders", flag="unknown_exposeHeaders")
+    private List<String> value_exposeHeaders;
+    private boolean unknown_exposeHeaders;
     public List<String> exposeHeaders() {
-        if (exposeHeaders == null) return null;
-        return exposeHeaders.getValue("FunctionUrlCorsArgs.exposeHeaders");
+        if (!unknown_exposeHeaders) return value_exposeHeaders;
+        throw new UndeferrableValueException("Value 'FunctionUrlCorsArgs.exposeHeaders' is not present");
     }
 
     /**
      * The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn&#39;t cache results. The maximum value is `86400`.
      * 
      */
-    private UndeferrableValue<Integer> maxAge;
-
+    @PolicyResourceProperty(name="maxAge", flag="unknown_maxAge")
+    private Integer value_maxAge;
+    private boolean unknown_maxAge;
     public Integer maxAge() {
-        if (maxAge == null) return null;
-        return maxAge.getValue("FunctionUrlCorsArgs.maxAge");
+        if (!unknown_maxAge) return value_maxAge;
+        throw new UndeferrableValueException("Value 'FunctionUrlCorsArgs.maxAge' is not present");
     }
 
 }

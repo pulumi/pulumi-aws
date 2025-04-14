@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lightsail.inputs.ContainerServiceDeploymentVersionContainerArgs;
 import com.pulumi.policypacks.aws.lightsail.inputs.ContainerServiceDeploymentVersionPublicEndpointArgs;
@@ -19,33 +20,36 @@ public final class ContainerServiceDeploymentVersionArgs extends com.pulumi.reso
      * A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
      * 
      */
-    private UndeferrableValue<List<ContainerServiceDeploymentVersionContainerArgs>> containers;
-
+    @PolicyResourceProperty(name="containers", flag="unknown_containers")
+    private List<ContainerServiceDeploymentVersionContainerArgs> value_containers;
+    private boolean unknown_containers;
     public List<ContainerServiceDeploymentVersionContainerArgs> containers() {
-        if (containers == null) return null;
-        return containers.getValue("ContainerServiceDeploymentVersionArgs.containers");
+        if (!unknown_containers) return value_containers;
+        throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionArgs.containers' is not present");
     }
 
     /**
      * A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
      * 
      */
-    private UndeferrableValue<ContainerServiceDeploymentVersionPublicEndpointArgs> publicEndpoint;
-
+    @PolicyResourceProperty(name="publicEndpoint", flag="unknown_publicEndpoint")
+    private ContainerServiceDeploymentVersionPublicEndpointArgs value_publicEndpoint;
+    private boolean unknown_publicEndpoint;
     public ContainerServiceDeploymentVersionPublicEndpointArgs publicEndpoint() {
-        if (publicEndpoint == null) return null;
-        return publicEndpoint.getValue("ContainerServiceDeploymentVersionArgs.publicEndpoint");
+        if (!unknown_publicEndpoint) return value_publicEndpoint;
+        throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionArgs.publicEndpoint' is not present");
     }
 
     /**
      * The name for the container service.
      * 
      */
-    private UndeferrableValue<String> serviceName;
-
+    @PolicyResourceProperty(name="serviceName", flag="unknown_serviceName")
+    private String value_serviceName;
+    private boolean unknown_serviceName;
     public String serviceName() {
-        if (serviceName == null) return null;
-        return serviceName.getValue("ContainerServiceDeploymentVersionArgs.serviceName");
+        if (!unknown_serviceName) return value_serviceName;
+        throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionArgs.serviceName' is not present");
     }
 
 }

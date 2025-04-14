@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codecommit;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,88 +17,96 @@ public final class ApprovalRuleTemplate extends com.pulumi.resources.PolicyResou
      * The ID of the approval rule template
      * 
      */
-    private UndeferrableValue<String> approvalRuleTemplateId;
-
+    @PolicyResourceProperty(name="approvalRuleTemplateId", flag="unknown_approvalRuleTemplateId")
+    private String value_approvalRuleTemplateId;
+    private boolean unknown_approvalRuleTemplateId;
     public String approvalRuleTemplateId() {
-        if (approvalRuleTemplateId == null) return null;
-        return approvalRuleTemplateId.getValue("ApprovalRuleTemplate.approvalRuleTemplateId");
+        if (!unknown_approvalRuleTemplateId) return value_approvalRuleTemplateId;
+        throw new UndeferrableValueException("Value 'ApprovalRuleTemplate.approvalRuleTemplateId' is not present");
     }
 
     /**
      * The content of the approval rule template. Maximum of 3000 characters.
      * 
      */
-    private UndeferrableValue<String> content;
-
+    @PolicyResourceProperty(name="content", flag="unknown_content")
+    private String value_content;
+    private boolean unknown_content;
     public String content() {
-        if (content == null) return null;
-        return content.getValue("ApprovalRuleTemplate.content");
+        if (!unknown_content) return value_content;
+        throw new UndeferrableValueException("Value 'ApprovalRuleTemplate.content' is not present");
     }
 
     /**
      * The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private UndeferrableValue<String> creationDate;
-
+    @PolicyResourceProperty(name="creationDate", flag="unknown_creationDate")
+    private String value_creationDate;
+    private boolean unknown_creationDate;
     public String creationDate() {
-        if (creationDate == null) return null;
-        return creationDate.getValue("ApprovalRuleTemplate.creationDate");
+        if (!unknown_creationDate) return value_creationDate;
+        throw new UndeferrableValueException("Value 'ApprovalRuleTemplate.creationDate' is not present");
     }
 
     /**
      * The description of the approval rule template. Maximum of 1000 characters.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ApprovalRuleTemplate.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ApprovalRuleTemplate.description' is not present");
     }
 
     /**
      * The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private UndeferrableValue<String> lastModifiedDate;
-
+    @PolicyResourceProperty(name="lastModifiedDate", flag="unknown_lastModifiedDate")
+    private String value_lastModifiedDate;
+    private boolean unknown_lastModifiedDate;
     public String lastModifiedDate() {
-        if (lastModifiedDate == null) return null;
-        return lastModifiedDate.getValue("ApprovalRuleTemplate.lastModifiedDate");
+        if (!unknown_lastModifiedDate) return value_lastModifiedDate;
+        throw new UndeferrableValueException("Value 'ApprovalRuleTemplate.lastModifiedDate' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
      * 
      */
-    private UndeferrableValue<String> lastModifiedUser;
-
+    @PolicyResourceProperty(name="lastModifiedUser", flag="unknown_lastModifiedUser")
+    private String value_lastModifiedUser;
+    private boolean unknown_lastModifiedUser;
     public String lastModifiedUser() {
-        if (lastModifiedUser == null) return null;
-        return lastModifiedUser.getValue("ApprovalRuleTemplate.lastModifiedUser");
+        if (!unknown_lastModifiedUser) return value_lastModifiedUser;
+        throw new UndeferrableValueException("Value 'ApprovalRuleTemplate.lastModifiedUser' is not present");
     }
 
     /**
      * The name for the approval rule template. Maximum of 100 characters.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ApprovalRuleTemplate.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ApprovalRuleTemplate.name' is not present");
     }
 
     /**
      * The SHA-256 hash signature for the content of the approval rule template.
      * 
      */
-    private UndeferrableValue<String> ruleContentSha256;
-
+    @PolicyResourceProperty(name="ruleContentSha256", flag="unknown_ruleContentSha256")
+    private String value_ruleContentSha256;
+    private boolean unknown_ruleContentSha256;
     public String ruleContentSha256() {
-        if (ruleContentSha256 == null) return null;
-        return ruleContentSha256.getValue("ApprovalRuleTemplate.ruleContentSha256");
+        if (!unknown_ruleContentSha256) return value_ruleContentSha256;
+        throw new UndeferrableValueException("Value 'ApprovalRuleTemplate.ruleContentSha256' is not present");
     }
 
 }

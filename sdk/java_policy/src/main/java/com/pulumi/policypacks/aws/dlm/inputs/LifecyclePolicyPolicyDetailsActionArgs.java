@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dlm.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.dlm.inputs.LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs;
 import java.lang.String;
 import java.util.List;
@@ -15,18 +16,20 @@ public final class LifecyclePolicyPolicyDetailsActionArgs {
      * The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.
      * 
      */
-    private UndeferrableValue<List<LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs>> crossRegionCopies;
-
+    @PolicyResourceProperty(name="crossRegionCopies", flag="unknown_crossRegionCopies")
+    private List<LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs> value_crossRegionCopies;
+    private boolean unknown_crossRegionCopies;
     public List<LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs> crossRegionCopies() {
-        if (crossRegionCopies == null) return null;
-        return crossRegionCopies.getValue("LifecyclePolicyPolicyDetailsActionArgs.crossRegionCopies");
+        if (!unknown_crossRegionCopies) return value_crossRegionCopies;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsActionArgs.crossRegionCopies' is not present");
     }
 
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LifecyclePolicyPolicyDetailsActionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsActionArgs.name' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.amplify;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.amplify.inputs.DomainAssociationCertificateSettingsArgs;
 import com.pulumi.policypacks.aws.amplify.inputs.DomainAssociationSubDomainArgs;
@@ -20,66 +21,72 @@ public final class DomainAssociationArgs extends com.pulumi.resources.PolicyReso
      * Unique ID for an Amplify app.
      * 
      */
-    private UndeferrableValue<String> appId;
-
+    @PolicyResourceProperty(name="appId", flag="unknown_appId")
+    private String value_appId;
+    private boolean unknown_appId;
     public String appId() {
-        if (appId == null) return null;
-        return appId.getValue("DomainAssociationArgs.appId");
+        if (!unknown_appId) return value_appId;
+        throw new UndeferrableValueException("Value 'DomainAssociationArgs.appId' is not present");
     }
 
     /**
      * The type of SSL/TLS certificate to use for your custom domain. If you don&#39;t specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
      * 
      */
-    private UndeferrableValue<DomainAssociationCertificateSettingsArgs> certificateSettings;
-
+    @PolicyResourceProperty(name="certificateSettings", flag="unknown_certificateSettings")
+    private DomainAssociationCertificateSettingsArgs value_certificateSettings;
+    private boolean unknown_certificateSettings;
     public DomainAssociationCertificateSettingsArgs certificateSettings() {
-        if (certificateSettings == null) return null;
-        return certificateSettings.getValue("DomainAssociationArgs.certificateSettings");
+        if (!unknown_certificateSettings) return value_certificateSettings;
+        throw new UndeferrableValueException("Value 'DomainAssociationArgs.certificateSettings' is not present");
     }
 
     /**
      * Domain name for the domain association.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("DomainAssociationArgs.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'DomainAssociationArgs.domainName' is not present");
     }
 
     /**
      * Enables the automated creation of subdomains for branches.
      * 
      */
-    private UndeferrableValue<Boolean> enableAutoSubDomain;
-
+    @PolicyResourceProperty(name="enableAutoSubDomain", flag="unknown_enableAutoSubDomain")
+    private Boolean value_enableAutoSubDomain;
+    private boolean unknown_enableAutoSubDomain;
     public Boolean enableAutoSubDomain() {
-        if (enableAutoSubDomain == null) return null;
-        return enableAutoSubDomain.getValue("DomainAssociationArgs.enableAutoSubDomain");
+        if (!unknown_enableAutoSubDomain) return value_enableAutoSubDomain;
+        throw new UndeferrableValueException("Value 'DomainAssociationArgs.enableAutoSubDomain' is not present");
     }
 
     /**
      * Setting for the subdomain. Documented below.
      * 
      */
-    private UndeferrableValue<List<DomainAssociationSubDomainArgs>> subDomains;
-
+    @PolicyResourceProperty(name="subDomains", flag="unknown_subDomains")
+    private List<DomainAssociationSubDomainArgs> value_subDomains;
+    private boolean unknown_subDomains;
     public List<DomainAssociationSubDomainArgs> subDomains() {
-        if (subDomains == null) return null;
-        return subDomains.getValue("DomainAssociationArgs.subDomains");
+        if (!unknown_subDomains) return value_subDomains;
+        throw new UndeferrableValueException("Value 'DomainAssociationArgs.subDomains' is not present");
     }
 
     /**
      * If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
      * 
      */
-    private UndeferrableValue<Boolean> waitForVerification;
-
+    @PolicyResourceProperty(name="waitForVerification", flag="unknown_waitForVerification")
+    private Boolean value_waitForVerification;
+    private boolean unknown_waitForVerification;
     public Boolean waitForVerification() {
-        if (waitForVerification == null) return null;
-        return waitForVerification.getValue("DomainAssociationArgs.waitForVerification");
+        if (!unknown_waitForVerification) return value_waitForVerification;
+        throw new UndeferrableValueException("Value 'DomainAssociationArgs.waitForVerification' is not present");
     }
 
 }

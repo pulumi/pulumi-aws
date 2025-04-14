@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class DeploymentCanarySettingsArgs {
      * Percentage (0.0-100.0) of traffic routed to the canary deployment.
      * 
      */
-    private UndeferrableValue<Double> percentTraffic;
-
+    @PolicyResourceProperty(name="percentTraffic", flag="unknown_percentTraffic")
+    private Double value_percentTraffic;
+    private boolean unknown_percentTraffic;
     public Double percentTraffic() {
-        if (percentTraffic == null) return null;
-        return percentTraffic.getValue("DeploymentCanarySettingsArgs.percentTraffic");
+        if (!unknown_percentTraffic) return value_percentTraffic;
+        throw new UndeferrableValueException("Value 'DeploymentCanarySettingsArgs.percentTraffic' is not present");
     }
 
     /**
      * Stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
      * 
      */
-    private UndeferrableValue<Map<String,String>> stageVariableOverrides;
-
+    @PolicyResourceProperty(name="stageVariableOverrides", flag="unknown_stageVariableOverrides")
+    private Map<String,String> value_stageVariableOverrides;
+    private boolean unknown_stageVariableOverrides;
     public Map<String,String> stageVariableOverrides() {
-        if (stageVariableOverrides == null) return null;
-        return stageVariableOverrides.getValue("DeploymentCanarySettingsArgs.stageVariableOverrides");
+        if (!unknown_stageVariableOverrides) return value_stageVariableOverrides;
+        throw new UndeferrableValueException("Value 'DeploymentCanarySettingsArgs.stageVariableOverrides' is not present");
     }
 
     /**
      * Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
      * 
      */
-    private UndeferrableValue<Boolean> useStageCache;
-
+    @PolicyResourceProperty(name="useStageCache", flag="unknown_useStageCache")
+    private Boolean value_useStageCache;
+    private boolean unknown_useStageCache;
     public Boolean useStageCache() {
-        if (useStageCache == null) return null;
-        return useStageCache.getValue("DeploymentCanarySettingsArgs.useStageCache");
+        if (!unknown_useStageCache) return value_useStageCache;
+        throw new UndeferrableValueException("Value 'DeploymentCanarySettingsArgs.useStageCache' is not present");
     }
 
 }

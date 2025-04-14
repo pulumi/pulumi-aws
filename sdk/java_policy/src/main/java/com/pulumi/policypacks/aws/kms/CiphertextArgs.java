@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kms;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class CiphertextArgs extends com.pulumi.resources.PolicyResourceInp
      * An optional mapping that makes up the encryption context.
      * 
      */
-    private UndeferrableValue<Map<String,String>> context;
-
+    @PolicyResourceProperty(name="context", flag="unknown_context")
+    private Map<String,String> value_context;
+    private boolean unknown_context;
     public Map<String,String> context() {
-        if (context == null) return null;
-        return context.getValue("CiphertextArgs.context");
+        if (!unknown_context) return value_context;
+        throw new UndeferrableValueException("Value 'CiphertextArgs.context' is not present");
     }
 
     /**
      * Globally unique key ID for the customer master key.
      * 
      */
-    private UndeferrableValue<String> keyId;
-
+    @PolicyResourceProperty(name="keyId", flag="unknown_keyId")
+    private String value_keyId;
+    private boolean unknown_keyId;
     public String keyId() {
-        if (keyId == null) return null;
-        return keyId.getValue("CiphertextArgs.keyId");
+        if (!unknown_keyId) return value_keyId;
+        throw new UndeferrableValueException("Value 'CiphertextArgs.keyId' is not present");
     }
 
     /**
      * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
      * 
      */
-    private UndeferrableValue<String> plaintext;
-
+    @PolicyResourceProperty(name="plaintext", flag="unknown_plaintext")
+    private String value_plaintext;
+    private boolean unknown_plaintext;
     public String plaintext() {
-        if (plaintext == null) return null;
-        return plaintext.getValue("CiphertextArgs.plaintext");
+        if (!unknown_plaintext) return value_plaintext;
+        throw new UndeferrableValueException("Value 'CiphertextArgs.plaintext' is not present");
     }
 
 }

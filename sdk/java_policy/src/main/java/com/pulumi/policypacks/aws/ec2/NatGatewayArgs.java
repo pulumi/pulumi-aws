@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -19,88 +20,96 @@ public final class NatGatewayArgs extends com.pulumi.resources.PolicyResourceInp
      * The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
      * 
      */
-    private UndeferrableValue<String> allocationId;
-
+    @PolicyResourceProperty(name="allocationId", flag="unknown_allocationId")
+    private String value_allocationId;
+    private boolean unknown_allocationId;
     public String allocationId() {
-        if (allocationId == null) return null;
-        return allocationId.getValue("NatGatewayArgs.allocationId");
+        if (!unknown_allocationId) return value_allocationId;
+        throw new UndeferrableValueException("Value 'NatGatewayArgs.allocationId' is not present");
     }
 
     /**
      * Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
      * 
      */
-    private UndeferrableValue<String> connectivityType;
-
+    @PolicyResourceProperty(name="connectivityType", flag="unknown_connectivityType")
+    private String value_connectivityType;
+    private boolean unknown_connectivityType;
     public String connectivityType() {
-        if (connectivityType == null) return null;
-        return connectivityType.getValue("NatGatewayArgs.connectivityType");
+        if (!unknown_connectivityType) return value_connectivityType;
+        throw new UndeferrableValueException("Value 'NatGatewayArgs.connectivityType' is not present");
     }
 
     /**
      * The private IPv4 address to assign to the NAT Gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
      * 
      */
-    private UndeferrableValue<String> privateIp;
-
+    @PolicyResourceProperty(name="privateIp", flag="unknown_privateIp")
+    private String value_privateIp;
+    private boolean unknown_privateIp;
     public String privateIp() {
-        if (privateIp == null) return null;
-        return privateIp.getValue("NatGatewayArgs.privateIp");
+        if (!unknown_privateIp) return value_privateIp;
+        throw new UndeferrableValueException("Value 'NatGatewayArgs.privateIp' is not present");
     }
 
     /**
      * A list of secondary allocation EIP IDs for this NAT Gateway.
      * 
      */
-    private UndeferrableValue<List<String>> secondaryAllocationIds;
-
+    @PolicyResourceProperty(name="secondaryAllocationIds", flag="unknown_secondaryAllocationIds")
+    private List<String> value_secondaryAllocationIds;
+    private boolean unknown_secondaryAllocationIds;
     public List<String> secondaryAllocationIds() {
-        if (secondaryAllocationIds == null) return null;
-        return secondaryAllocationIds.getValue("NatGatewayArgs.secondaryAllocationIds");
+        if (!unknown_secondaryAllocationIds) return value_secondaryAllocationIds;
+        throw new UndeferrableValueException("Value 'NatGatewayArgs.secondaryAllocationIds' is not present");
     }
 
     /**
      * [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
      * 
      */
-    private UndeferrableValue<Integer> secondaryPrivateIpAddressCount;
-
+    @PolicyResourceProperty(name="secondaryPrivateIpAddressCount", flag="unknown_secondaryPrivateIpAddressCount")
+    private Integer value_secondaryPrivateIpAddressCount;
+    private boolean unknown_secondaryPrivateIpAddressCount;
     public Integer secondaryPrivateIpAddressCount() {
-        if (secondaryPrivateIpAddressCount == null) return null;
-        return secondaryPrivateIpAddressCount.getValue("NatGatewayArgs.secondaryPrivateIpAddressCount");
+        if (!unknown_secondaryPrivateIpAddressCount) return value_secondaryPrivateIpAddressCount;
+        throw new UndeferrableValueException("Value 'NatGatewayArgs.secondaryPrivateIpAddressCount' is not present");
     }
 
     /**
      * A list of secondary private IPv4 addresses to assign to the NAT Gateway.
      * 
      */
-    private UndeferrableValue<List<String>> secondaryPrivateIpAddresses;
-
+    @PolicyResourceProperty(name="secondaryPrivateIpAddresses", flag="unknown_secondaryPrivateIpAddresses")
+    private List<String> value_secondaryPrivateIpAddresses;
+    private boolean unknown_secondaryPrivateIpAddresses;
     public List<String> secondaryPrivateIpAddresses() {
-        if (secondaryPrivateIpAddresses == null) return null;
-        return secondaryPrivateIpAddresses.getValue("NatGatewayArgs.secondaryPrivateIpAddresses");
+        if (!unknown_secondaryPrivateIpAddresses) return value_secondaryPrivateIpAddresses;
+        throw new UndeferrableValueException("Value 'NatGatewayArgs.secondaryPrivateIpAddresses' is not present");
     }
 
     /**
      * The Subnet ID of the subnet in which to place the NAT Gateway.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("NatGatewayArgs.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'NatGatewayArgs.subnetId' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("NatGatewayArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'NatGatewayArgs.tags' is not present");
     }
 
 }

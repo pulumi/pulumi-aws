@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.outputs.WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class WorkteamWorkerAccessConfigurationS3Presign {
      * Use this parameter to specify the allowed request source. Possible sources are either SourceIp or VpcSourceIp. see IAM Policy Constraints details below.
      * 
      */
-    private @Nullable UndeferrableValue<WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints> iamPolicyConstraints;
-
+    @PolicyResourceProperty(name="iamPolicyConstraints", flag="unknown_iamPolicyConstraints")
+    private @Nullable WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints value_iamPolicyConstraints;
+    private boolean unknown_iamPolicyConstraints;
     public @Nullable WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints iamPolicyConstraints() {
-        if (iamPolicyConstraints == null) return null;
-        return iamPolicyConstraints.getValue("WorkteamWorkerAccessConfigurationS3Presign.iamPolicyConstraints");
+        if (!unknown_iamPolicyConstraints) return value_iamPolicyConstraints;
+        throw new UndeferrableValueException("Value 'WorkteamWorkerAccessConfigurationS3Presign.iamPolicyConstraints' is not present");
     }
 
 }

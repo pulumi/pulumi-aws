@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appautoscaling;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appautoscaling.inputs.TargetSuspendedStateArgs;
 import java.lang.Integer;
@@ -19,88 +20,96 @@ public final class TargetArgs extends com.pulumi.resources.PolicyResourceInput {
      * Max capacity of the scalable target.
      * 
      */
-    private UndeferrableValue<Integer> maxCapacity;
-
+    @PolicyResourceProperty(name="maxCapacity", flag="unknown_maxCapacity")
+    private Integer value_maxCapacity;
+    private boolean unknown_maxCapacity;
     public Integer maxCapacity() {
-        if (maxCapacity == null) return null;
-        return maxCapacity.getValue("TargetArgs.maxCapacity");
+        if (!unknown_maxCapacity) return value_maxCapacity;
+        throw new UndeferrableValueException("Value 'TargetArgs.maxCapacity' is not present");
     }
 
     /**
      * Min capacity of the scalable target.
      * 
      */
-    private UndeferrableValue<Integer> minCapacity;
-
+    @PolicyResourceProperty(name="minCapacity", flag="unknown_minCapacity")
+    private Integer value_minCapacity;
+    private boolean unknown_minCapacity;
     public Integer minCapacity() {
-        if (minCapacity == null) return null;
-        return minCapacity.getValue("TargetArgs.minCapacity");
+        if (!unknown_minCapacity) return value_minCapacity;
+        throw new UndeferrableValueException("Value 'TargetArgs.minCapacity' is not present");
     }
 
     /**
      * Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      * 
      */
-    private UndeferrableValue<String> resourceId;
-
+    @PolicyResourceProperty(name="resourceId", flag="unknown_resourceId")
+    private String value_resourceId;
+    private boolean unknown_resourceId;
     public String resourceId() {
-        if (resourceId == null) return null;
-        return resourceId.getValue("TargetArgs.resourceId");
+        if (!unknown_resourceId) return value_resourceId;
+        throw new UndeferrableValueException("Value 'TargetArgs.resourceId' is not present");
     }
 
     /**
      * ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("TargetArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'TargetArgs.roleArn' is not present");
     }
 
     /**
      * Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      * 
      */
-    private UndeferrableValue<String> scalableDimension;
-
+    @PolicyResourceProperty(name="scalableDimension", flag="unknown_scalableDimension")
+    private String value_scalableDimension;
+    private boolean unknown_scalableDimension;
     public String scalableDimension() {
-        if (scalableDimension == null) return null;
-        return scalableDimension.getValue("TargetArgs.scalableDimension");
+        if (!unknown_scalableDimension) return value_scalableDimension;
+        throw new UndeferrableValueException("Value 'TargetArgs.scalableDimension' is not present");
     }
 
     /**
      * AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
      * 
      */
-    private UndeferrableValue<String> serviceNamespace;
-
+    @PolicyResourceProperty(name="serviceNamespace", flag="unknown_serviceNamespace")
+    private String value_serviceNamespace;
+    private boolean unknown_serviceNamespace;
     public String serviceNamespace() {
-        if (serviceNamespace == null) return null;
-        return serviceNamespace.getValue("TargetArgs.serviceNamespace");
+        if (!unknown_serviceNamespace) return value_serviceNamespace;
+        throw new UndeferrableValueException("Value 'TargetArgs.serviceNamespace' is not present");
     }
 
     /**
      * Specifies whether the scaling activities for a scalable target are in a suspended state.
      * 
      */
-    private UndeferrableValue<TargetSuspendedStateArgs> suspendedState;
-
+    @PolicyResourceProperty(name="suspendedState", flag="unknown_suspendedState")
+    private TargetSuspendedStateArgs value_suspendedState;
+    private boolean unknown_suspendedState;
     public TargetSuspendedStateArgs suspendedState() {
-        if (suspendedState == null) return null;
-        return suspendedState.getValue("TargetArgs.suspendedState");
+        if (!unknown_suspendedState) return value_suspendedState;
+        throw new UndeferrableValueException("Value 'TargetArgs.suspendedState' is not present");
     }
 
     /**
      * Map of tags to assign to the scalable target. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TargetArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TargetArgs.tags' is not present");
     }
 
 }

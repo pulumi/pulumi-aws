@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
      * Name of the Amazon S3 bucket.
      * 
      */
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs.bucketName' is not present");
     }
 
     /**
      * Amazon S3 bucket prefix.
      * 
      */
-    private UndeferrableValue<String> bucketPrefix;
-
+    @PolicyResourceProperty(name="bucketPrefix", flag="unknown_bucketPrefix")
+    private String value_bucketPrefix;
+    private boolean unknown_bucketPrefix;
     public String bucketPrefix() {
-        if (bucketPrefix == null) return null;
-        return bucketPrefix.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs.bucketPrefix");
+        if (!unknown_bucketPrefix) return value_bucketPrefix;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs.bucketPrefix' is not present");
     }
 
     /**
      * If the flow should fail after the first instance of a failure when attempting to place data in the destination.
      * 
      */
-    private UndeferrableValue<Boolean> failOnFirstDestinationError;
-
+    @PolicyResourceProperty(name="failOnFirstDestinationError", flag="unknown_failOnFirstDestinationError")
+    private Boolean value_failOnFirstDestinationError;
+    private boolean unknown_failOnFirstDestinationError;
     public Boolean failOnFirstDestinationError() {
-        if (failOnFirstDestinationError == null) return null;
-        return failOnFirstDestinationError.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs.failOnFirstDestinationError");
+        if (!unknown_failOnFirstDestinationError) return value_failOnFirstDestinationError;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs.failOnFirstDestinationError' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class LogDeliveryDestinationPolicyArgs extends com.pulumi.resources
      * The name of the delivery destination to assign this policy to.
      * 
      */
-    private UndeferrableValue<String> deliveryDestinationName;
-
+    @PolicyResourceProperty(name="deliveryDestinationName", flag="unknown_deliveryDestinationName")
+    private String value_deliveryDestinationName;
+    private boolean unknown_deliveryDestinationName;
     public String deliveryDestinationName() {
-        if (deliveryDestinationName == null) return null;
-        return deliveryDestinationName.getValue("LogDeliveryDestinationPolicyArgs.deliveryDestinationName");
+        if (!unknown_deliveryDestinationName) return value_deliveryDestinationName;
+        throw new UndeferrableValueException("Value 'LogDeliveryDestinationPolicyArgs.deliveryDestinationName' is not present");
     }
 
     /**
      * The contents of the policy.
      * 
      */
-    private UndeferrableValue<String> deliveryDestinationPolicy;
-
+    @PolicyResourceProperty(name="deliveryDestinationPolicy", flag="unknown_deliveryDestinationPolicy")
+    private String value_deliveryDestinationPolicy;
+    private boolean unknown_deliveryDestinationPolicy;
     public String deliveryDestinationPolicy() {
-        if (deliveryDestinationPolicy == null) return null;
-        return deliveryDestinationPolicy.getValue("LogDeliveryDestinationPolicyArgs.deliveryDestinationPolicy");
+        if (!unknown_deliveryDestinationPolicy) return value_deliveryDestinationPolicy;
+        throw new UndeferrableValueException("Value 'LogDeliveryDestinationPolicyArgs.deliveryDestinationPolicy' is not present");
     }
 
 }

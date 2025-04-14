@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codebuild.outputs.WebhookFilterGroupFilter;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class WebhookFilterGroup {
      * A webhook filter for the group. Filter blocks are documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<WebhookFilterGroupFilter>> filters;
-
+    @PolicyResourceProperty(name="filters", flag="unknown_filters")
+    private @Nullable List<WebhookFilterGroupFilter> value_filters;
+    private boolean unknown_filters;
     public @Nullable List<WebhookFilterGroupFilter> filters() {
-        if (filters == null) return null;
-        return filters.getValue("WebhookFilterGroup.filters");
+        if (!unknown_filters) return value_filters;
+        throw new UndeferrableValueException("Value 'WebhookFilterGroup.filters' is not present");
     }
 
 }

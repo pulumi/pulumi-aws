@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datazone.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,32 +12,36 @@ import javax.annotation.Nullable;
 
 public final class AssetTypeFormsInputArgs {
 
-    private UndeferrableValue<String> mapBlockKey;
-
+    @PolicyResourceProperty(name="mapBlockKey", flag="unknown_mapBlockKey")
+    private String value_mapBlockKey;
+    private boolean unknown_mapBlockKey;
     public String mapBlockKey() {
-        if (mapBlockKey == null) return null;
-        return mapBlockKey.getValue("AssetTypeFormsInputArgs.mapBlockKey");
+        if (!unknown_mapBlockKey) return value_mapBlockKey;
+        throw new UndeferrableValueException("Value 'AssetTypeFormsInputArgs.mapBlockKey' is not present");
     }
 
-    private UndeferrableValue<Boolean> required;
-
+    @PolicyResourceProperty(name="required", flag="unknown_required")
+    private Boolean value_required;
+    private boolean unknown_required;
     public Boolean required() {
-        if (required == null) return null;
-        return required.getValue("AssetTypeFormsInputArgs.required");
+        if (!unknown_required) return value_required;
+        throw new UndeferrableValueException("Value 'AssetTypeFormsInputArgs.required' is not present");
     }
 
-    private UndeferrableValue<String> typeIdentifier;
-
+    @PolicyResourceProperty(name="typeIdentifier", flag="unknown_typeIdentifier")
+    private String value_typeIdentifier;
+    private boolean unknown_typeIdentifier;
     public String typeIdentifier() {
-        if (typeIdentifier == null) return null;
-        return typeIdentifier.getValue("AssetTypeFormsInputArgs.typeIdentifier");
+        if (!unknown_typeIdentifier) return value_typeIdentifier;
+        throw new UndeferrableValueException("Value 'AssetTypeFormsInputArgs.typeIdentifier' is not present");
     }
 
-    private UndeferrableValue<String> typeRevision;
-
+    @PolicyResourceProperty(name="typeRevision", flag="unknown_typeRevision")
+    private String value_typeRevision;
+    private boolean unknown_typeRevision;
     public String typeRevision() {
-        if (typeRevision == null) return null;
-        return typeRevision.getValue("AssetTypeFormsInputArgs.typeRevision");
+        if (!unknown_typeRevision) return value_typeRevision;
+        throw new UndeferrableValueException("Value 'AssetTypeFormsInputArgs.typeRevision' is not present");
     }
 
 }

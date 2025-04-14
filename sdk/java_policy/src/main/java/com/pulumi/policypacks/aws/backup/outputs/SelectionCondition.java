@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.backup.outputs.SelectionConditionStringEqual;
 import com.pulumi.policypacks.aws.backup.outputs.SelectionConditionStringLike;
 import com.pulumi.policypacks.aws.backup.outputs.SelectionConditionStringNotEqual;
@@ -18,44 +19,48 @@ public final class SelectionCondition {
      * Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching&#34;. See below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<SelectionConditionStringEqual>> stringEquals;
-
+    @PolicyResourceProperty(name="stringEquals", flag="unknown_stringEquals")
+    private @Nullable List<SelectionConditionStringEqual> value_stringEquals;
+    private boolean unknown_stringEquals;
     public @Nullable List<SelectionConditionStringEqual> stringEquals() {
-        if (stringEquals == null) return null;
-        return stringEquals.getValue("SelectionCondition.stringEquals");
+        if (!unknown_stringEquals) return value_stringEquals;
+        throw new UndeferrableValueException("Value 'SelectionCondition.stringEquals' is not present");
     }
 
     /**
      * Filters the values of your tagged resources for matching tag values with the use of a wildcard character (`*`) anywhere in the string. For example, `prod*` or `*rod*` matches the tag value `production`. See below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<SelectionConditionStringLike>> stringLikes;
-
+    @PolicyResourceProperty(name="stringLikes", flag="unknown_stringLikes")
+    private @Nullable List<SelectionConditionStringLike> value_stringLikes;
+    private boolean unknown_stringLikes;
     public @Nullable List<SelectionConditionStringLike> stringLikes() {
-        if (stringLikes == null) return null;
-        return stringLikes.getValue("SelectionCondition.stringLikes");
+        if (!unknown_stringLikes) return value_stringLikes;
+        throw new UndeferrableValueException("Value 'SelectionCondition.stringLikes' is not present");
     }
 
     /**
      * Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching&#34;. See below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<SelectionConditionStringNotEqual>> stringNotEquals;
-
+    @PolicyResourceProperty(name="stringNotEquals", flag="unknown_stringNotEquals")
+    private @Nullable List<SelectionConditionStringNotEqual> value_stringNotEquals;
+    private boolean unknown_stringNotEquals;
     public @Nullable List<SelectionConditionStringNotEqual> stringNotEquals() {
-        if (stringNotEquals == null) return null;
-        return stringNotEquals.getValue("SelectionCondition.stringNotEquals");
+        if (!unknown_stringNotEquals) return value_stringNotEquals;
+        throw new UndeferrableValueException("Value 'SelectionCondition.stringNotEquals' is not present");
     }
 
     /**
      * Filters the values of your tagged resources for non-matching tag values with the use of a wildcard character (`*`) anywhere in the string. See below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<SelectionConditionStringNotLike>> stringNotLikes;
-
+    @PolicyResourceProperty(name="stringNotLikes", flag="unknown_stringNotLikes")
+    private @Nullable List<SelectionConditionStringNotLike> value_stringNotLikes;
+    private boolean unknown_stringNotLikes;
     public @Nullable List<SelectionConditionStringNotLike> stringNotLikes() {
-        if (stringNotLikes == null) return null;
-        return stringNotLikes.getValue("SelectionCondition.stringNotLikes");
+        if (!unknown_stringNotLikes) return value_stringNotLikes;
+        throw new UndeferrableValueException("Value 'SelectionCondition.stringNotLikes' is not present");
     }
 
 }

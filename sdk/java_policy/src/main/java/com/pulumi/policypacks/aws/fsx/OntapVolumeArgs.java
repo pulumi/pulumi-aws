@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.fsx.inputs.OntapVolumeAggregateConfigurationArgs;
 import com.pulumi.policypacks.aws.fsx.inputs.OntapVolumeSnaplockConfigurationArgs;
@@ -22,154 +23,168 @@ public final class OntapVolumeArgs extends com.pulumi.resources.PolicyResourceIn
      * The Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
      * 
      */
-    private UndeferrableValue<OntapVolumeAggregateConfigurationArgs> aggregateConfiguration;
-
+    @PolicyResourceProperty(name="aggregateConfiguration", flag="unknown_aggregateConfiguration")
+    private OntapVolumeAggregateConfigurationArgs value_aggregateConfiguration;
+    private boolean unknown_aggregateConfiguration;
     public OntapVolumeAggregateConfigurationArgs aggregateConfiguration() {
-        if (aggregateConfiguration == null) return null;
-        return aggregateConfiguration.getValue("OntapVolumeArgs.aggregateConfiguration");
+        if (!unknown_aggregateConfiguration) return value_aggregateConfiguration;
+        throw new UndeferrableValueException("Value 'OntapVolumeArgs.aggregateConfiguration' is not present");
     }
 
     /**
      * Setting this to `true` allows a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> bypassSnaplockEnterpriseRetention;
-
+    @PolicyResourceProperty(name="bypassSnaplockEnterpriseRetention", flag="unknown_bypassSnaplockEnterpriseRetention")
+    private Boolean value_bypassSnaplockEnterpriseRetention;
+    private boolean unknown_bypassSnaplockEnterpriseRetention;
     public Boolean bypassSnaplockEnterpriseRetention() {
-        if (bypassSnaplockEnterpriseRetention == null) return null;
-        return bypassSnaplockEnterpriseRetention.getValue("OntapVolumeArgs.bypassSnaplockEnterpriseRetention");
+        if (!unknown_bypassSnaplockEnterpriseRetention) return value_bypassSnaplockEnterpriseRetention;
+        throw new UndeferrableValueException("Value 'OntapVolumeArgs.bypassSnaplockEnterpriseRetention' is not present");
     }
 
     /**
      * A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> copyTagsToBackups;
-
+    @PolicyResourceProperty(name="copyTagsToBackups", flag="unknown_copyTagsToBackups")
+    private Boolean value_copyTagsToBackups;
+    private boolean unknown_copyTagsToBackups;
     public Boolean copyTagsToBackups() {
-        if (copyTagsToBackups == null) return null;
-        return copyTagsToBackups.getValue("OntapVolumeArgs.copyTagsToBackups");
+        if (!unknown_copyTagsToBackups) return value_copyTagsToBackups;
+        throw new UndeferrableValueException("Value 'OntapVolumeArgs.copyTagsToBackups' is not present");
     }
 
     /**
      * A map of tags to apply to the volume&#39;s final backup.
      * 
      */
-    private UndeferrableValue<Map<String,String>> finalBackupTags;
-
+    @PolicyResourceProperty(name="finalBackupTags", flag="unknown_finalBackupTags")
+    private Map<String,String> value_finalBackupTags;
+    private boolean unknown_finalBackupTags;
     public Map<String,String> finalBackupTags() {
-        if (finalBackupTags == null) return null;
-        return finalBackupTags.getValue("OntapVolumeArgs.finalBackupTags");
+        if (!unknown_finalBackupTags) return value_finalBackupTags;
+        throw new UndeferrableValueException("Value 'OntapVolumeArgs.finalBackupTags' is not present");
     }
 
     /**
      * Specifies the location in the storage virtual machine&#39;s namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
      * 
      */
-    private UndeferrableValue<String> junctionPath;
-
+    @PolicyResourceProperty(name="junctionPath", flag="unknown_junctionPath")
+    private String value_junctionPath;
+    private boolean unknown_junctionPath;
     public String junctionPath() {
-        if (junctionPath == null) return null;
-        return junctionPath.getValue("OntapVolumeArgs.junctionPath");
+        if (!unknown_junctionPath) return value_junctionPath;
+        throw new UndeferrableValueException("Value 'OntapVolumeArgs.junctionPath' is not present");
     }
 
     /**
      * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("OntapVolumeArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'OntapVolumeArgs.name' is not present");
     }
 
     /**
      * Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
      * 
      */
-    private UndeferrableValue<String> ontapVolumeType;
-
+    @PolicyResourceProperty(name="ontapVolumeType", flag="unknown_ontapVolumeType")
+    private String value_ontapVolumeType;
+    private boolean unknown_ontapVolumeType;
     public String ontapVolumeType() {
-        if (ontapVolumeType == null) return null;
-        return ontapVolumeType.getValue("OntapVolumeArgs.ontapVolumeType");
+        if (!unknown_ontapVolumeType) return value_ontapVolumeType;
+        throw new UndeferrableValueException("Value 'OntapVolumeArgs.ontapVolumeType' is not present");
     }
 
     /**
      * Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
      * 
      */
-    private UndeferrableValue<String> securityStyle;
-
+    @PolicyResourceProperty(name="securityStyle", flag="unknown_securityStyle")
+    private String value_securityStyle;
+    private boolean unknown_securityStyle;
     public String securityStyle() {
-        if (securityStyle == null) return null;
-        return securityStyle.getValue("OntapVolumeArgs.securityStyle");
+        if (!unknown_securityStyle) return value_securityStyle;
+        throw new UndeferrableValueException("Value 'OntapVolumeArgs.securityStyle' is not present");
     }
 
     /**
      * Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      * 
      */
-    private UndeferrableValue<String> sizeInBytes;
-
+    @PolicyResourceProperty(name="sizeInBytes", flag="unknown_sizeInBytes")
+    private String value_sizeInBytes;
+    private boolean unknown_sizeInBytes;
     public String sizeInBytes() {
-        if (sizeInBytes == null) return null;
-        return sizeInBytes.getValue("OntapVolumeArgs.sizeInBytes");
+        if (!unknown_sizeInBytes) return value_sizeInBytes;
+        throw new UndeferrableValueException("Value 'OntapVolumeArgs.sizeInBytes' is not present");
     }
 
     /**
      * Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
      * 
      */
-    private UndeferrableValue<Integer> sizeInMegabytes;
-
+    @PolicyResourceProperty(name="sizeInMegabytes", flag="unknown_sizeInMegabytes")
+    private Integer value_sizeInMegabytes;
+    private boolean unknown_sizeInMegabytes;
     public Integer sizeInMegabytes() {
-        if (sizeInMegabytes == null) return null;
-        return sizeInMegabytes.getValue("OntapVolumeArgs.sizeInMegabytes");
+        if (!unknown_sizeInMegabytes) return value_sizeInMegabytes;
+        throw new UndeferrableValueException("Value 'OntapVolumeArgs.sizeInMegabytes' is not present");
     }
 
     /**
      * When enabled, will skip the default final backup taken when the volume is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> skipFinalBackup;
-
+    @PolicyResourceProperty(name="skipFinalBackup", flag="unknown_skipFinalBackup")
+    private Boolean value_skipFinalBackup;
+    private boolean unknown_skipFinalBackup;
     public Boolean skipFinalBackup() {
-        if (skipFinalBackup == null) return null;
-        return skipFinalBackup.getValue("OntapVolumeArgs.skipFinalBackup");
+        if (!unknown_skipFinalBackup) return value_skipFinalBackup;
+        throw new UndeferrableValueException("Value 'OntapVolumeArgs.skipFinalBackup' is not present");
     }
 
     /**
      * The SnapLock configuration for an FSx for ONTAP volume. See `snaplock_configuration` Block for details.
      * 
      */
-    private UndeferrableValue<OntapVolumeSnaplockConfigurationArgs> snaplockConfiguration;
-
+    @PolicyResourceProperty(name="snaplockConfiguration", flag="unknown_snaplockConfiguration")
+    private OntapVolumeSnaplockConfigurationArgs value_snaplockConfiguration;
+    private boolean unknown_snaplockConfiguration;
     public OntapVolumeSnaplockConfigurationArgs snaplockConfiguration() {
-        if (snaplockConfiguration == null) return null;
-        return snaplockConfiguration.getValue("OntapVolumeArgs.snaplockConfiguration");
+        if (!unknown_snaplockConfiguration) return value_snaplockConfiguration;
+        throw new UndeferrableValueException("Value 'OntapVolumeArgs.snaplockConfiguration' is not present");
     }
 
     /**
      * Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
      * 
      */
-    private UndeferrableValue<String> snapshotPolicy;
-
+    @PolicyResourceProperty(name="snapshotPolicy", flag="unknown_snapshotPolicy")
+    private String value_snapshotPolicy;
+    private boolean unknown_snapshotPolicy;
     public String snapshotPolicy() {
-        if (snapshotPolicy == null) return null;
-        return snapshotPolicy.getValue("OntapVolumeArgs.snapshotPolicy");
+        if (!unknown_snapshotPolicy) return value_snapshotPolicy;
+        throw new UndeferrableValueException("Value 'OntapVolumeArgs.snapshotPolicy' is not present");
     }
 
     /**
      * Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
      * 
      */
-    private UndeferrableValue<Boolean> storageEfficiencyEnabled;
-
+    @PolicyResourceProperty(name="storageEfficiencyEnabled", flag="unknown_storageEfficiencyEnabled")
+    private Boolean value_storageEfficiencyEnabled;
+    private boolean unknown_storageEfficiencyEnabled;
     public Boolean storageEfficiencyEnabled() {
-        if (storageEfficiencyEnabled == null) return null;
-        return storageEfficiencyEnabled.getValue("OntapVolumeArgs.storageEfficiencyEnabled");
+        if (!unknown_storageEfficiencyEnabled) return value_storageEfficiencyEnabled;
+        throw new UndeferrableValueException("Value 'OntapVolumeArgs.storageEfficiencyEnabled' is not present");
     }
 
     /**
@@ -178,55 +193,60 @@ public final class OntapVolumeArgs extends com.pulumi.resources.PolicyResourceIn
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> storageVirtualMachineId;
-
+    @PolicyResourceProperty(name="storageVirtualMachineId", flag="unknown_storageVirtualMachineId")
+    private String value_storageVirtualMachineId;
+    private boolean unknown_storageVirtualMachineId;
     public String storageVirtualMachineId() {
-        if (storageVirtualMachineId == null) return null;
-        return storageVirtualMachineId.getValue("OntapVolumeArgs.storageVirtualMachineId");
+        if (!unknown_storageVirtualMachineId) return value_storageVirtualMachineId;
+        throw new UndeferrableValueException("Value 'OntapVolumeArgs.storageVirtualMachineId' is not present");
     }
 
     /**
      * A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("OntapVolumeArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'OntapVolumeArgs.tags' is not present");
     }
 
     /**
      * The data tiering policy for an FSx for ONTAP volume. See `tiering_policy` Block for details.
      * 
      */
-    private UndeferrableValue<OntapVolumeTieringPolicyArgs> tieringPolicy;
-
+    @PolicyResourceProperty(name="tieringPolicy", flag="unknown_tieringPolicy")
+    private OntapVolumeTieringPolicyArgs value_tieringPolicy;
+    private boolean unknown_tieringPolicy;
     public OntapVolumeTieringPolicyArgs tieringPolicy() {
-        if (tieringPolicy == null) return null;
-        return tieringPolicy.getValue("OntapVolumeArgs.tieringPolicy");
+        if (!unknown_tieringPolicy) return value_tieringPolicy;
+        throw new UndeferrableValueException("Value 'OntapVolumeArgs.tieringPolicy' is not present");
     }
 
     /**
      * Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
      * 
      */
-    private UndeferrableValue<String> volumeStyle;
-
+    @PolicyResourceProperty(name="volumeStyle", flag="unknown_volumeStyle")
+    private String value_volumeStyle;
+    private boolean unknown_volumeStyle;
     public String volumeStyle() {
-        if (volumeStyle == null) return null;
-        return volumeStyle.getValue("OntapVolumeArgs.volumeStyle");
+        if (!unknown_volumeStyle) return value_volumeStyle;
+        throw new UndeferrableValueException("Value 'OntapVolumeArgs.volumeStyle' is not present");
     }
 
     /**
      * The type of volume, currently the only valid value is `ONTAP`.
      * 
      */
-    private UndeferrableValue<String> volumeType;
-
+    @PolicyResourceProperty(name="volumeType", flag="unknown_volumeType")
+    private String value_volumeType;
+    private boolean unknown_volumeType;
     public String volumeType() {
-        if (volumeType == null) return null;
-        return volumeType.getValue("OntapVolumeArgs.volumeType");
+        if (!unknown_volumeType) return value_volumeType;
+        throw new UndeferrableValueException("Value 'OntapVolumeArgs.volumeType' is not present");
     }
 
 }

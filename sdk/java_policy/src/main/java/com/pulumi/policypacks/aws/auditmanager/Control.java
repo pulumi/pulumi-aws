@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.auditmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.auditmanager.outputs.ControlControlMappingSource;
 import java.lang.String;
@@ -19,22 +20,24 @@ public final class Control extends com.pulumi.resources.PolicyResourceOutput {
      * Recommended actions to carry out if the control isn&#39;t fulfilled.
      * 
      */
-    private @Nullable UndeferrableValue<String> actionPlanInstructions;
-
+    @PolicyResourceProperty(name="actionPlanInstructions", flag="unknown_actionPlanInstructions")
+    private @Nullable String value_actionPlanInstructions;
+    private boolean unknown_actionPlanInstructions;
     public @Nullable String actionPlanInstructions() {
-        if (actionPlanInstructions == null) return null;
-        return actionPlanInstructions.getValue("Control.actionPlanInstructions");
+        if (!unknown_actionPlanInstructions) return value_actionPlanInstructions;
+        throw new UndeferrableValueException("Value 'Control.actionPlanInstructions' is not present");
     }
 
     /**
      * Title of the action plan for remediating the control.
      * 
      */
-    private @Nullable UndeferrableValue<String> actionPlanTitle;
-
+    @PolicyResourceProperty(name="actionPlanTitle", flag="unknown_actionPlanTitle")
+    private @Nullable String value_actionPlanTitle;
+    private boolean unknown_actionPlanTitle;
     public @Nullable String actionPlanTitle() {
-        if (actionPlanTitle == null) return null;
-        return actionPlanTitle.getValue("Control.actionPlanTitle");
+        if (!unknown_actionPlanTitle) return value_actionPlanTitle;
+        throw new UndeferrableValueException("Value 'Control.actionPlanTitle' is not present");
     }
 
     /**
@@ -42,11 +45,12 @@ public final class Control extends com.pulumi.resources.PolicyResourceOutput {
      * * `control_mapping_sources.*.source_id` - Unique identifier for the source.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Control.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Control.arn' is not present");
     }
 
     /**
@@ -55,44 +59,48 @@ public final class Control extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private @Nullable UndeferrableValue<List<ControlControlMappingSource>> controlMappingSources;
-
+    @PolicyResourceProperty(name="controlMappingSources", flag="unknown_controlMappingSources")
+    private @Nullable List<ControlControlMappingSource> value_controlMappingSources;
+    private boolean unknown_controlMappingSources;
     public @Nullable List<ControlControlMappingSource> controlMappingSources() {
-        if (controlMappingSources == null) return null;
-        return controlMappingSources.getValue("Control.controlMappingSources");
+        if (!unknown_controlMappingSources) return value_controlMappingSources;
+        throw new UndeferrableValueException("Value 'Control.controlMappingSources' is not present");
     }
 
     /**
      * Description of the control.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Control.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Control.description' is not present");
     }
 
     /**
      * Name of the control.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Control.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Control.name' is not present");
     }
 
     /**
      * A map of tags to assign to the control. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Control.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Control.tags' is not present");
     }
 
     /**
@@ -101,33 +109,36 @@ public final class Control extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Control.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Control.tagsAll' is not present");
     }
 
     /**
      * Steps to follow to determine if the control is satisfied.
      * 
      */
-    private @Nullable UndeferrableValue<String> testingInformation;
-
+    @PolicyResourceProperty(name="testingInformation", flag="unknown_testingInformation")
+    private @Nullable String value_testingInformation;
+    private boolean unknown_testingInformation;
     public @Nullable String testingInformation() {
-        if (testingInformation == null) return null;
-        return testingInformation.getValue("Control.testingInformation");
+        if (!unknown_testingInformation) return value_testingInformation;
+        throw new UndeferrableValueException("Value 'Control.testingInformation' is not present");
     }
 
     /**
      * Type of control, such as a custom control or a standard control.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("Control.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'Control.type' is not present");
     }
 
 }

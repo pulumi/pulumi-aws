@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.outputs.VpcIpamResourceDiscoveryOperatingRegion;
 import java.lang.Boolean;
@@ -20,77 +21,84 @@ public final class VpcIpamResourceDiscovery extends com.pulumi.resources.PolicyR
      * Amazon Resource Name (ARN) of IPAM Resource Discovery
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("VpcIpamResourceDiscovery.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'VpcIpamResourceDiscovery.arn' is not present");
     }
 
     /**
      * A description for the IPAM Resource Discovery.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("VpcIpamResourceDiscovery.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'VpcIpamResourceDiscovery.description' is not present");
     }
 
     /**
      * The home region of the Resource Discovery
      * 
      */
-    private UndeferrableValue<String> ipamResourceDiscoveryRegion;
-
+    @PolicyResourceProperty(name="ipamResourceDiscoveryRegion", flag="unknown_ipamResourceDiscoveryRegion")
+    private String value_ipamResourceDiscoveryRegion;
+    private boolean unknown_ipamResourceDiscoveryRegion;
     public String ipamResourceDiscoveryRegion() {
-        if (ipamResourceDiscoveryRegion == null) return null;
-        return ipamResourceDiscoveryRegion.getValue("VpcIpamResourceDiscovery.ipamResourceDiscoveryRegion");
+        if (!unknown_ipamResourceDiscoveryRegion) return value_ipamResourceDiscoveryRegion;
+        throw new UndeferrableValueException("Value 'VpcIpamResourceDiscovery.ipamResourceDiscoveryRegion' is not present");
     }
 
     /**
      * A boolean to identify if the Resource Discovery is the accounts default resource discovery
      * 
      */
-    private UndeferrableValue<Boolean> isDefault;
-
+    @PolicyResourceProperty(name="isDefault", flag="unknown_isDefault")
+    private Boolean value_isDefault;
+    private boolean unknown_isDefault;
     public Boolean isDefault() {
-        if (isDefault == null) return null;
-        return isDefault.getValue("VpcIpamResourceDiscovery.isDefault");
+        if (!unknown_isDefault) return value_isDefault;
+        throw new UndeferrableValueException("Value 'VpcIpamResourceDiscovery.isDefault' is not present");
     }
 
     /**
      * Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the region_name parameter. **You must set your provider block region as an operating_region.**
      * 
      */
-    private UndeferrableValue<List<VpcIpamResourceDiscoveryOperatingRegion>> operatingRegions;
-
+    @PolicyResourceProperty(name="operatingRegions", flag="unknown_operatingRegions")
+    private List<VpcIpamResourceDiscoveryOperatingRegion> value_operatingRegions;
+    private boolean unknown_operatingRegions;
     public List<VpcIpamResourceDiscoveryOperatingRegion> operatingRegions() {
-        if (operatingRegions == null) return null;
-        return operatingRegions.getValue("VpcIpamResourceDiscovery.operatingRegions");
+        if (!unknown_operatingRegions) return value_operatingRegions;
+        throw new UndeferrableValueException("Value 'VpcIpamResourceDiscovery.operatingRegions' is not present");
     }
 
     /**
      * The account ID for the account that manages the Resource Discovery
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("VpcIpamResourceDiscovery.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'VpcIpamResourceDiscovery.ownerId' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VpcIpamResourceDiscovery.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VpcIpamResourceDiscovery.tags' is not present");
     }
 
     /**
@@ -101,11 +109,12 @@ public final class VpcIpamResourceDiscovery extends com.pulumi.resources.PolicyR
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("VpcIpamResourceDiscovery.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'VpcIpamResourceDiscovery.tagsAll' is not present");
     }
 
 }

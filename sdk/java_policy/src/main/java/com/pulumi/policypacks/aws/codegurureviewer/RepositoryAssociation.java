@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codegurureviewer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.codegurureviewer.outputs.RepositoryAssociationKmsKeyDetails;
 import com.pulumi.policypacks.aws.codegurureviewer.outputs.RepositoryAssociationRepository;
@@ -21,77 +22,84 @@ public final class RepositoryAssociation extends com.pulumi.resources.PolicyReso
      * The Amazon Resource Name (ARN) identifying the repository association.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("RepositoryAssociation.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'RepositoryAssociation.arn' is not present");
     }
 
     /**
      * The ID of the repository association.
      * 
      */
-    private UndeferrableValue<String> associationId;
-
+    @PolicyResourceProperty(name="associationId", flag="unknown_associationId")
+    private String value_associationId;
+    private boolean unknown_associationId;
     public String associationId() {
-        if (associationId == null) return null;
-        return associationId.getValue("RepositoryAssociation.associationId");
+        if (!unknown_associationId) return value_associationId;
+        throw new UndeferrableValueException("Value 'RepositoryAssociation.associationId' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
      * 
      */
-    private UndeferrableValue<String> connectionArn;
-
+    @PolicyResourceProperty(name="connectionArn", flag="unknown_connectionArn")
+    private String value_connectionArn;
+    private boolean unknown_connectionArn;
     public String connectionArn() {
-        if (connectionArn == null) return null;
-        return connectionArn.getValue("RepositoryAssociation.connectionArn");
+        if (!unknown_connectionArn) return value_connectionArn;
+        throw new UndeferrableValueException("Value 'RepositoryAssociation.connectionArn' is not present");
     }
 
     /**
      * An object describing the KMS key to asssociate. Block is documented below.
      * 
      */
-    private @Nullable UndeferrableValue<RepositoryAssociationKmsKeyDetails> kmsKeyDetails;
-
+    @PolicyResourceProperty(name="kmsKeyDetails", flag="unknown_kmsKeyDetails")
+    private @Nullable RepositoryAssociationKmsKeyDetails value_kmsKeyDetails;
+    private boolean unknown_kmsKeyDetails;
     public @Nullable RepositoryAssociationKmsKeyDetails kmsKeyDetails() {
-        if (kmsKeyDetails == null) return null;
-        return kmsKeyDetails.getValue("RepositoryAssociation.kmsKeyDetails");
+        if (!unknown_kmsKeyDetails) return value_kmsKeyDetails;
+        throw new UndeferrableValueException("Value 'RepositoryAssociation.kmsKeyDetails' is not present");
     }
 
     /**
      * The name of the repository.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RepositoryAssociation.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RepositoryAssociation.name' is not present");
     }
 
     /**
      * The owner of the repository.
      * 
      */
-    private UndeferrableValue<String> owner;
-
+    @PolicyResourceProperty(name="owner", flag="unknown_owner")
+    private String value_owner;
+    private boolean unknown_owner;
     public String owner() {
-        if (owner == null) return null;
-        return owner.getValue("RepositoryAssociation.owner");
+        if (!unknown_owner) return value_owner;
+        throw new UndeferrableValueException("Value 'RepositoryAssociation.owner' is not present");
     }
 
     /**
      * The provider type of the repository association.
      * 
      */
-    private UndeferrableValue<String> providerType;
-
+    @PolicyResourceProperty(name="providerType", flag="unknown_providerType")
+    private String value_providerType;
+    private boolean unknown_providerType;
     public String providerType() {
-        if (providerType == null) return null;
-        return providerType.getValue("RepositoryAssociation.providerType");
+        if (!unknown_providerType) return value_providerType;
+        throw new UndeferrableValueException("Value 'RepositoryAssociation.providerType' is not present");
     }
 
     /**
@@ -100,47 +108,52 @@ public final class RepositoryAssociation extends com.pulumi.resources.PolicyReso
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<RepositoryAssociationRepository> repository;
-
+    @PolicyResourceProperty(name="repository", flag="unknown_repository")
+    private RepositoryAssociationRepository value_repository;
+    private boolean unknown_repository;
     public RepositoryAssociationRepository repository() {
-        if (repository == null) return null;
-        return repository.getValue("RepositoryAssociation.repository");
+        if (!unknown_repository) return value_repository;
+        throw new UndeferrableValueException("Value 'RepositoryAssociation.repository' is not present");
     }
 
-    private UndeferrableValue<List<RepositoryAssociationS3RepositoryDetail>> s3RepositoryDetails;
-
+    @PolicyResourceProperty(name="s3RepositoryDetails", flag="unknown_s3RepositoryDetails")
+    private List<RepositoryAssociationS3RepositoryDetail> value_s3RepositoryDetails;
+    private boolean unknown_s3RepositoryDetails;
     public List<RepositoryAssociationS3RepositoryDetail> s3RepositoryDetails() {
-        if (s3RepositoryDetails == null) return null;
-        return s3RepositoryDetails.getValue("RepositoryAssociation.s3RepositoryDetails");
+        if (!unknown_s3RepositoryDetails) return value_s3RepositoryDetails;
+        throw new UndeferrableValueException("Value 'RepositoryAssociation.s3RepositoryDetails' is not present");
     }
 
     /**
      * The state of the repository association.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("RepositoryAssociation.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'RepositoryAssociation.state' is not present");
     }
 
     /**
      * A description of why the repository association is in the current state.
      * 
      */
-    private UndeferrableValue<String> stateReason;
-
+    @PolicyResourceProperty(name="stateReason", flag="unknown_stateReason")
+    private String value_stateReason;
+    private boolean unknown_stateReason;
     public String stateReason() {
-        if (stateReason == null) return null;
-        return stateReason.getValue("RepositoryAssociation.stateReason");
+        if (!unknown_stateReason) return value_stateReason;
+        throw new UndeferrableValueException("Value 'RepositoryAssociation.stateReason' is not present");
     }
 
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RepositoryAssociation.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RepositoryAssociation.tags' is not present");
     }
 
     /**
@@ -149,11 +162,12 @@ public final class RepositoryAssociation extends com.pulumi.resources.PolicyReso
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("RepositoryAssociation.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'RepositoryAssociation.tagsAll' is not present");
     }
 
 }

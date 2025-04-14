@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dms;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,132 +19,144 @@ public final class ReplicationTaskArgs extends com.pulumi.resources.PolicyResour
      * Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
      * 
      */
-    private UndeferrableValue<String> cdcStartPosition;
-
+    @PolicyResourceProperty(name="cdcStartPosition", flag="unknown_cdcStartPosition")
+    private String value_cdcStartPosition;
+    private boolean unknown_cdcStartPosition;
     public String cdcStartPosition() {
-        if (cdcStartPosition == null) return null;
-        return cdcStartPosition.getValue("ReplicationTaskArgs.cdcStartPosition");
+        if (!unknown_cdcStartPosition) return value_cdcStartPosition;
+        throw new UndeferrableValueException("Value 'ReplicationTaskArgs.cdcStartPosition' is not present");
     }
 
     /**
      * RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
      * 
      */
-    private UndeferrableValue<String> cdcStartTime;
-
+    @PolicyResourceProperty(name="cdcStartTime", flag="unknown_cdcStartTime")
+    private String value_cdcStartTime;
+    private boolean unknown_cdcStartTime;
     public String cdcStartTime() {
-        if (cdcStartTime == null) return null;
-        return cdcStartTime.getValue("ReplicationTaskArgs.cdcStartTime");
+        if (!unknown_cdcStartTime) return value_cdcStartTime;
+        throw new UndeferrableValueException("Value 'ReplicationTaskArgs.cdcStartTime' is not present");
     }
 
     /**
      * Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
      * 
      */
-    private UndeferrableValue<String> migrationType;
-
+    @PolicyResourceProperty(name="migrationType", flag="unknown_migrationType")
+    private String value_migrationType;
+    private boolean unknown_migrationType;
     public String migrationType() {
-        if (migrationType == null) return null;
-        return migrationType.getValue("ReplicationTaskArgs.migrationType");
+        if (!unknown_migrationType) return value_migrationType;
+        throw new UndeferrableValueException("Value 'ReplicationTaskArgs.migrationType' is not present");
     }
 
     /**
      * ARN of the replication instance.
      * 
      */
-    private UndeferrableValue<String> replicationInstanceArn;
-
+    @PolicyResourceProperty(name="replicationInstanceArn", flag="unknown_replicationInstanceArn")
+    private String value_replicationInstanceArn;
+    private boolean unknown_replicationInstanceArn;
     public String replicationInstanceArn() {
-        if (replicationInstanceArn == null) return null;
-        return replicationInstanceArn.getValue("ReplicationTaskArgs.replicationInstanceArn");
+        if (!unknown_replicationInstanceArn) return value_replicationInstanceArn;
+        throw new UndeferrableValueException("Value 'ReplicationTaskArgs.replicationInstanceArn' is not present");
     }
 
     /**
      * Replication task identifier which must contain from 1 to 255 alphanumeric characters or hyphens, first character must be a letter, cannot end with a hyphen, and cannot contain two consecutive hyphens.
      * 
      */
-    private UndeferrableValue<String> replicationTaskId;
-
+    @PolicyResourceProperty(name="replicationTaskId", flag="unknown_replicationTaskId")
+    private String value_replicationTaskId;
+    private boolean unknown_replicationTaskId;
     public String replicationTaskId() {
-        if (replicationTaskId == null) return null;
-        return replicationTaskId.getValue("ReplicationTaskArgs.replicationTaskId");
+        if (!unknown_replicationTaskId) return value_replicationTaskId;
+        throw new UndeferrableValueException("Value 'ReplicationTaskArgs.replicationTaskId' is not present");
     }
 
     /**
      * Escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html). Note that `Logging.CloudWatchLogGroup` and `Logging.CloudWatchLogStream` are read only and should not be defined, even as `null`, in the configuration since AWS provides a value for these settings.
      * 
      */
-    private UndeferrableValue<String> replicationTaskSettings;
-
+    @PolicyResourceProperty(name="replicationTaskSettings", flag="unknown_replicationTaskSettings")
+    private String value_replicationTaskSettings;
+    private boolean unknown_replicationTaskSettings;
     public String replicationTaskSettings() {
-        if (replicationTaskSettings == null) return null;
-        return replicationTaskSettings.getValue("ReplicationTaskArgs.replicationTaskSettings");
+        if (!unknown_replicationTaskSettings) return value_replicationTaskSettings;
+        throw new UndeferrableValueException("Value 'ReplicationTaskArgs.replicationTaskSettings' is not present");
     }
 
     /**
      * A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
      * 
      */
-    private UndeferrableValue<String> resourceIdentifier;
-
+    @PolicyResourceProperty(name="resourceIdentifier", flag="unknown_resourceIdentifier")
+    private String value_resourceIdentifier;
+    private boolean unknown_resourceIdentifier;
     public String resourceIdentifier() {
-        if (resourceIdentifier == null) return null;
-        return resourceIdentifier.getValue("ReplicationTaskArgs.resourceIdentifier");
+        if (!unknown_resourceIdentifier) return value_resourceIdentifier;
+        throw new UndeferrableValueException("Value 'ReplicationTaskArgs.resourceIdentifier' is not present");
     }
 
     /**
      * ARN that uniquely identifies the source endpoint.
      * 
      */
-    private UndeferrableValue<String> sourceEndpointArn;
-
+    @PolicyResourceProperty(name="sourceEndpointArn", flag="unknown_sourceEndpointArn")
+    private String value_sourceEndpointArn;
+    private boolean unknown_sourceEndpointArn;
     public String sourceEndpointArn() {
-        if (sourceEndpointArn == null) return null;
-        return sourceEndpointArn.getValue("ReplicationTaskArgs.sourceEndpointArn");
+        if (!unknown_sourceEndpointArn) return value_sourceEndpointArn;
+        throw new UndeferrableValueException("Value 'ReplicationTaskArgs.sourceEndpointArn' is not present");
     }
 
     /**
      * Whether to run or stop the replication task.
      * 
      */
-    private UndeferrableValue<Boolean> startReplicationTask;
-
+    @PolicyResourceProperty(name="startReplicationTask", flag="unknown_startReplicationTask")
+    private Boolean value_startReplicationTask;
+    private boolean unknown_startReplicationTask;
     public Boolean startReplicationTask() {
-        if (startReplicationTask == null) return null;
-        return startReplicationTask.getValue("ReplicationTaskArgs.startReplicationTask");
+        if (!unknown_startReplicationTask) return value_startReplicationTask;
+        throw new UndeferrableValueException("Value 'ReplicationTaskArgs.startReplicationTask' is not present");
     }
 
     /**
      * Escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
      * 
      */
-    private UndeferrableValue<String> tableMappings;
-
+    @PolicyResourceProperty(name="tableMappings", flag="unknown_tableMappings")
+    private String value_tableMappings;
+    private boolean unknown_tableMappings;
     public String tableMappings() {
-        if (tableMappings == null) return null;
-        return tableMappings.getValue("ReplicationTaskArgs.tableMappings");
+        if (!unknown_tableMappings) return value_tableMappings;
+        throw new UndeferrableValueException("Value 'ReplicationTaskArgs.tableMappings' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ReplicationTaskArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ReplicationTaskArgs.tags' is not present");
     }
 
     /**
      * ARN that uniquely identifies the target endpoint.
      * 
      */
-    private UndeferrableValue<String> targetEndpointArn;
-
+    @PolicyResourceProperty(name="targetEndpointArn", flag="unknown_targetEndpointArn")
+    private String value_targetEndpointArn;
+    private boolean unknown_targetEndpointArn;
     public String targetEndpointArn() {
-        if (targetEndpointArn == null) return null;
-        return targetEndpointArn.getValue("ReplicationTaskArgs.targetEndpointArn");
+        if (!unknown_targetEndpointArn) return value_targetEndpointArn;
+        throw new UndeferrableValueException("Value 'ReplicationTaskArgs.targetEndpointArn' is not present");
     }
 
 }

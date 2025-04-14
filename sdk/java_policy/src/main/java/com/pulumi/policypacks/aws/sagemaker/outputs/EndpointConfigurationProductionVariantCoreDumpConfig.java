@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class EndpointConfigurationProductionVariantCoreDumpConfig {
      * The Amazon S3 bucket to send the core dump to.
      * 
      */
-    private UndeferrableValue<String> destinationS3Uri;
-
+    @PolicyResourceProperty(name="destinationS3Uri", flag="unknown_destinationS3Uri")
+    private String value_destinationS3Uri;
+    private boolean unknown_destinationS3Uri;
     public String destinationS3Uri() {
-        if (destinationS3Uri == null) return null;
-        return destinationS3Uri.getValue("EndpointConfigurationProductionVariantCoreDumpConfig.destinationS3Uri");
+        if (!unknown_destinationS3Uri) return value_destinationS3Uri;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationProductionVariantCoreDumpConfig.destinationS3Uri' is not present");
     }
 
     /**
      * The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker AI uses to encrypt the core dump data at rest using Amazon S3 server-side encryption.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("EndpointConfigurationProductionVariantCoreDumpConfig.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationProductionVariantCoreDumpConfig.kmsKeyId' is not present");
     }
 
 }

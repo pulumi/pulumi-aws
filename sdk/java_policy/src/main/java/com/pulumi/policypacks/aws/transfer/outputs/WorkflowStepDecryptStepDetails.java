@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.transfer.outputs.WorkflowStepDecryptStepDetailsDestinationFileLocation;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,55 +16,60 @@ public final class WorkflowStepDecryptStepDetails {
      * Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
      * 
      */
-    private @Nullable UndeferrableValue<WorkflowStepDecryptStepDetailsDestinationFileLocation> destinationFileLocation;
-
+    @PolicyResourceProperty(name="destinationFileLocation", flag="unknown_destinationFileLocation")
+    private @Nullable WorkflowStepDecryptStepDetailsDestinationFileLocation value_destinationFileLocation;
+    private boolean unknown_destinationFileLocation;
     public @Nullable WorkflowStepDecryptStepDetailsDestinationFileLocation destinationFileLocation() {
-        if (destinationFileLocation == null) return null;
-        return destinationFileLocation.getValue("WorkflowStepDecryptStepDetails.destinationFileLocation");
+        if (!unknown_destinationFileLocation) return value_destinationFileLocation;
+        throw new UndeferrableValueException("Value 'WorkflowStepDecryptStepDetails.destinationFileLocation' is not present");
     }
 
     /**
      * The name of the step, used as an identifier.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("WorkflowStepDecryptStepDetails.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'WorkflowStepDecryptStepDetails.name' is not present");
     }
 
     /**
      * A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> overwriteExisting;
-
+    @PolicyResourceProperty(name="overwriteExisting", flag="unknown_overwriteExisting")
+    private @Nullable String value_overwriteExisting;
+    private boolean unknown_overwriteExisting;
     public @Nullable String overwriteExisting() {
-        if (overwriteExisting == null) return null;
-        return overwriteExisting.getValue("WorkflowStepDecryptStepDetails.overwriteExisting");
+        if (!unknown_overwriteExisting) return value_overwriteExisting;
+        throw new UndeferrableValueException("Value 'WorkflowStepDecryptStepDetails.overwriteExisting' is not present");
     }
 
     /**
      * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
      * 
      */
-    private @Nullable UndeferrableValue<String> sourceFileLocation;
-
+    @PolicyResourceProperty(name="sourceFileLocation", flag="unknown_sourceFileLocation")
+    private @Nullable String value_sourceFileLocation;
+    private boolean unknown_sourceFileLocation;
     public @Nullable String sourceFileLocation() {
-        if (sourceFileLocation == null) return null;
-        return sourceFileLocation.getValue("WorkflowStepDecryptStepDetails.sourceFileLocation");
+        if (!unknown_sourceFileLocation) return value_sourceFileLocation;
+        throw new UndeferrableValueException("Value 'WorkflowStepDecryptStepDetails.sourceFileLocation' is not present");
     }
 
     /**
      * The type of encryption used. Currently, this value must be `&#34;PGP&#34;`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("WorkflowStepDecryptStepDetails.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'WorkflowStepDecryptStepDetails.type' is not present");
     }
 
 }

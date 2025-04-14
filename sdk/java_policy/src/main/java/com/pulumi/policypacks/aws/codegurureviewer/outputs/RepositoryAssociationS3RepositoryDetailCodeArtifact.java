@@ -3,25 +3,28 @@
 
 package com.pulumi.policypacks.aws.codegurureviewer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class RepositoryAssociationS3RepositoryDetailCodeArtifact {
 
-    private @Nullable UndeferrableValue<String> buildArtifactsObjectKey;
-
+    @PolicyResourceProperty(name="buildArtifactsObjectKey", flag="unknown_buildArtifactsObjectKey")
+    private @Nullable String value_buildArtifactsObjectKey;
+    private boolean unknown_buildArtifactsObjectKey;
     public @Nullable String buildArtifactsObjectKey() {
-        if (buildArtifactsObjectKey == null) return null;
-        return buildArtifactsObjectKey.getValue("RepositoryAssociationS3RepositoryDetailCodeArtifact.buildArtifactsObjectKey");
+        if (!unknown_buildArtifactsObjectKey) return value_buildArtifactsObjectKey;
+        throw new UndeferrableValueException("Value 'RepositoryAssociationS3RepositoryDetailCodeArtifact.buildArtifactsObjectKey' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> sourceCodeArtifactsObjectKey;
-
+    @PolicyResourceProperty(name="sourceCodeArtifactsObjectKey", flag="unknown_sourceCodeArtifactsObjectKey")
+    private @Nullable String value_sourceCodeArtifactsObjectKey;
+    private boolean unknown_sourceCodeArtifactsObjectKey;
     public @Nullable String sourceCodeArtifactsObjectKey() {
-        if (sourceCodeArtifactsObjectKey == null) return null;
-        return sourceCodeArtifactsObjectKey.getValue("RepositoryAssociationS3RepositoryDetailCodeArtifact.sourceCodeArtifactsObjectKey");
+        if (!unknown_sourceCodeArtifactsObjectKey) return value_sourceCodeArtifactsObjectKey;
+        throw new UndeferrableValueException("Value 'RepositoryAssociationS3RepositoryDetailCodeArtifact.sourceCodeArtifactsObjectKey' is not present");
     }
 
 }

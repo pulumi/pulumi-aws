@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,11 +14,12 @@ public final class VirtualNodeSpecListenerConnectionPoolTcpArgs {
      * Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
      * 
      */
-    private UndeferrableValue<Integer> maxConnections;
-
+    @PolicyResourceProperty(name="maxConnections", flag="unknown_maxConnections")
+    private Integer value_maxConnections;
+    private boolean unknown_maxConnections;
     public Integer maxConnections() {
-        if (maxConnections == null) return null;
-        return maxConnections.getValue("VirtualNodeSpecListenerConnectionPoolTcpArgs.maxConnections");
+        if (!unknown_maxConnections) return value_maxConnections;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerConnectionPoolTcpArgs.maxConnections' is not present");
     }
 
 }

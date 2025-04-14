@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.neptunegraph;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.neptunegraph.inputs.GraphTimeoutsArgs;
 import com.pulumi.policypacks.aws.neptunegraph.inputs.GraphVectorSearchConfigurationArgs;
@@ -22,11 +23,12 @@ public final class GraphArgs extends com.pulumi.resources.PolicyResourceInput {
      * protection is enabled.
      * 
      */
-    private UndeferrableValue<Boolean> deletionProtection;
-
+    @PolicyResourceProperty(name="deletionProtection", flag="unknown_deletionProtection")
+    private Boolean value_deletionProtection;
+    private boolean unknown_deletionProtection;
     public Boolean deletionProtection() {
-        if (deletionProtection == null) return null;
-        return deletionProtection.getValue("GraphArgs.deletionProtection");
+        if (!unknown_deletionProtection) return value_deletionProtection;
+        throw new UndeferrableValueException("Value 'GraphArgs.deletionProtection' is not present");
     }
 
     /**
@@ -36,44 +38,48 @@ public final class GraphArgs extends com.pulumi.resources.PolicyResourceInput {
      * UUID.
      * 
      */
-    private UndeferrableValue<String> graphName;
-
+    @PolicyResourceProperty(name="graphName", flag="unknown_graphName")
+    private String value_graphName;
+    private boolean unknown_graphName;
     public String graphName() {
-        if (graphName == null) return null;
-        return graphName.getValue("GraphArgs.graphName");
+        if (!unknown_graphName) return value_graphName;
+        throw new UndeferrableValueException("Value 'GraphArgs.graphName' is not present");
     }
 
     /**
      * Allows user to specify name prefix and have remainder of name automatically generated.
      * 
      */
-    private UndeferrableValue<String> graphNamePrefix;
-
+    @PolicyResourceProperty(name="graphNamePrefix", flag="unknown_graphNamePrefix")
+    private String value_graphNamePrefix;
+    private boolean unknown_graphNamePrefix;
     public String graphNamePrefix() {
-        if (graphNamePrefix == null) return null;
-        return graphNamePrefix.getValue("GraphArgs.graphNamePrefix");
+        if (!unknown_graphNamePrefix) return value_graphNamePrefix;
+        throw new UndeferrableValueException("Value 'GraphArgs.graphNamePrefix' is not present");
     }
 
     /**
      * Specifies a KMS key to use to encrypt data in the new graph. Value must be ARN of KMS Key.
      * 
      */
-    private UndeferrableValue<String> kmsKeyIdentifier;
-
+    @PolicyResourceProperty(name="kmsKeyIdentifier", flag="unknown_kmsKeyIdentifier")
+    private String value_kmsKeyIdentifier;
+    private boolean unknown_kmsKeyIdentifier;
     public String kmsKeyIdentifier() {
-        if (kmsKeyIdentifier == null) return null;
-        return kmsKeyIdentifier.getValue("GraphArgs.kmsKeyIdentifier");
+        if (!unknown_kmsKeyIdentifier) return value_kmsKeyIdentifier;
+        throw new UndeferrableValueException("Value 'GraphArgs.kmsKeyIdentifier' is not present");
     }
 
     /**
      * The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
      * 
      */
-    private UndeferrableValue<Integer> provisionedMemory;
-
+    @PolicyResourceProperty(name="provisionedMemory", flag="unknown_provisionedMemory")
+    private Integer value_provisionedMemory;
+    private boolean unknown_provisionedMemory;
     public Integer provisionedMemory() {
-        if (provisionedMemory == null) return null;
-        return provisionedMemory.getValue("GraphArgs.provisionedMemory");
+        if (!unknown_provisionedMemory) return value_provisionedMemory;
+        throw new UndeferrableValueException("Value 'GraphArgs.provisionedMemory' is not present");
     }
 
     /**
@@ -83,47 +89,52 @@ public final class GraphArgs extends com.pulumi.resources.PolicyResourceInput {
      * the DNS name resolves to a private IP address that is reachable from the VPC.
      * 
      */
-    private UndeferrableValue<Boolean> publicConnectivity;
-
+    @PolicyResourceProperty(name="publicConnectivity", flag="unknown_publicConnectivity")
+    private Boolean value_publicConnectivity;
+    private boolean unknown_publicConnectivity;
     public Boolean publicConnectivity() {
-        if (publicConnectivity == null) return null;
-        return publicConnectivity.getValue("GraphArgs.publicConnectivity");
+        if (!unknown_publicConnectivity) return value_publicConnectivity;
+        throw new UndeferrableValueException("Value 'GraphArgs.publicConnectivity' is not present");
     }
 
     /**
      * The number of replicas in other AZs. Value must be between 0 and 2.
      * 
      */
-    private UndeferrableValue<Integer> replicaCount;
-
+    @PolicyResourceProperty(name="replicaCount", flag="unknown_replicaCount")
+    private Integer value_replicaCount;
+    private boolean unknown_replicaCount;
     public Integer replicaCount() {
-        if (replicaCount == null) return null;
-        return replicaCount.getValue("GraphArgs.replicaCount");
+        if (!unknown_replicaCount) return value_replicaCount;
+        throw new UndeferrableValueException("Value 'GraphArgs.replicaCount' is not present");
     }
 
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("GraphArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'GraphArgs.tags' is not present");
     }
 
-    private UndeferrableValue<GraphTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private GraphTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public GraphTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("GraphArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'GraphArgs.timeouts' is not present");
     }
 
     /**
      * Vector search configuration for the Neptune Graph
      * 
      */
-    private UndeferrableValue<GraphVectorSearchConfigurationArgs> vectorSearchConfiguration;
-
+    @PolicyResourceProperty(name="vectorSearchConfiguration", flag="unknown_vectorSearchConfiguration")
+    private GraphVectorSearchConfigurationArgs value_vectorSearchConfiguration;
+    private boolean unknown_vectorSearchConfiguration;
     public GraphVectorSearchConfigurationArgs vectorSearchConfiguration() {
-        if (vectorSearchConfiguration == null) return null;
-        return vectorSearchConfiguration.getValue("GraphArgs.vectorSearchConfiguration");
+        if (!unknown_vectorSearchConfiguration) return value_vectorSearchConfiguration;
+        throw new UndeferrableValueException("Value 'GraphArgs.vectorSearchConfiguration' is not present");
     }
 
 }

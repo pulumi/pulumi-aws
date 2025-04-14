@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lakeformation.inputs.OptInResourceDataCatalogArgs;
 import com.pulumi.policypacks.aws.lakeformation.inputs.OptInResourceDataDataCellsFilterArgs;
 import com.pulumi.policypacks.aws.lakeformation.inputs.OptInResourceDataDataLocationArgs;
@@ -23,99 +24,108 @@ public final class OptInResourceDataArgs {
      * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See Catalog for more details.
      * 
      */
-    private UndeferrableValue<List<OptInResourceDataCatalogArgs>> catalogs;
-
+    @PolicyResourceProperty(name="catalogs", flag="unknown_catalogs")
+    private List<OptInResourceDataCatalogArgs> value_catalogs;
+    private boolean unknown_catalogs;
     public List<OptInResourceDataCatalogArgs> catalogs() {
-        if (catalogs == null) return null;
-        return catalogs.getValue("OptInResourceDataArgs.catalogs");
+        if (!unknown_catalogs) return value_catalogs;
+        throw new UndeferrableValueException("Value 'OptInResourceDataArgs.catalogs' is not present");
     }
 
     /**
      * Data cell filter. See Data Cells Filter for more details.
      * 
      */
-    private UndeferrableValue<List<OptInResourceDataDataCellsFilterArgs>> dataCellsFilters;
-
+    @PolicyResourceProperty(name="dataCellsFilters", flag="unknown_dataCellsFilters")
+    private List<OptInResourceDataDataCellsFilterArgs> value_dataCellsFilters;
+    private boolean unknown_dataCellsFilters;
     public List<OptInResourceDataDataCellsFilterArgs> dataCellsFilters() {
-        if (dataCellsFilters == null) return null;
-        return dataCellsFilters.getValue("OptInResourceDataArgs.dataCellsFilters");
+        if (!unknown_dataCellsFilters) return value_dataCellsFilters;
+        throw new UndeferrableValueException("Value 'OptInResourceDataArgs.dataCellsFilters' is not present");
     }
 
     /**
      * Location of an Amazon S3 path where permissions are granted or revoked. See Data Location for more details.
      * 
      */
-    private UndeferrableValue<List<OptInResourceDataDataLocationArgs>> dataLocations;
-
+    @PolicyResourceProperty(name="dataLocations", flag="unknown_dataLocations")
+    private List<OptInResourceDataDataLocationArgs> value_dataLocations;
+    private boolean unknown_dataLocations;
     public List<OptInResourceDataDataLocationArgs> dataLocations() {
-        if (dataLocations == null) return null;
-        return dataLocations.getValue("OptInResourceDataArgs.dataLocations");
+        if (!unknown_dataLocations) return value_dataLocations;
+        throw new UndeferrableValueException("Value 'OptInResourceDataArgs.dataLocations' is not present");
     }
 
     /**
      * Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See Database for more details.
      * 
      */
-    private UndeferrableValue<OptInResourceDataDatabaseArgs> database;
-
+    @PolicyResourceProperty(name="database", flag="unknown_database")
+    private OptInResourceDataDatabaseArgs value_database;
+    private boolean unknown_database;
     public OptInResourceDataDatabaseArgs database() {
-        if (database == null) return null;
-        return database.getValue("OptInResourceDataArgs.database");
+        if (!unknown_database) return value_database;
+        throw new UndeferrableValueException("Value 'OptInResourceDataArgs.database' is not present");
     }
 
     /**
      * LF-tag key and values attached to a resource.
      * 
      */
-    private UndeferrableValue<OptInResourceDataLfTagArgs> lfTag;
-
+    @PolicyResourceProperty(name="lfTag", flag="unknown_lfTag")
+    private OptInResourceDataLfTagArgs value_lfTag;
+    private boolean unknown_lfTag;
     public OptInResourceDataLfTagArgs lfTag() {
-        if (lfTag == null) return null;
-        return lfTag.getValue("OptInResourceDataArgs.lfTag");
+        if (!unknown_lfTag) return value_lfTag;
+        throw new UndeferrableValueException("Value 'OptInResourceDataArgs.lfTag' is not present");
     }
 
     /**
      * Logical expression composed of one or more LF-Tag key:value pairs. See LF-Tag Expression for more details.
      * 
      */
-    private UndeferrableValue<List<OptInResourceDataLfTagExpressionArgs>> lfTagExpressions;
-
+    @PolicyResourceProperty(name="lfTagExpressions", flag="unknown_lfTagExpressions")
+    private List<OptInResourceDataLfTagExpressionArgs> value_lfTagExpressions;
+    private boolean unknown_lfTagExpressions;
     public List<OptInResourceDataLfTagExpressionArgs> lfTagExpressions() {
-        if (lfTagExpressions == null) return null;
-        return lfTagExpressions.getValue("OptInResourceDataArgs.lfTagExpressions");
+        if (!unknown_lfTagExpressions) return value_lfTagExpressions;
+        throw new UndeferrableValueException("Value 'OptInResourceDataArgs.lfTagExpressions' is not present");
     }
 
     /**
      * List of LF-Tag conditions or saved LF-Tag expressions that define a resource&#39;s LF-Tag policy. See LF-Tag Policy for more details.
      * 
      */
-    private UndeferrableValue<List<OptInResourceDataLfTagPolicyArgs>> lfTagPolicies;
-
+    @PolicyResourceProperty(name="lfTagPolicies", flag="unknown_lfTagPolicies")
+    private List<OptInResourceDataLfTagPolicyArgs> value_lfTagPolicies;
+    private boolean unknown_lfTagPolicies;
     public List<OptInResourceDataLfTagPolicyArgs> lfTagPolicies() {
-        if (lfTagPolicies == null) return null;
-        return lfTagPolicies.getValue("OptInResourceDataArgs.lfTagPolicies");
+        if (!unknown_lfTagPolicies) return value_lfTagPolicies;
+        throw new UndeferrableValueException("Value 'OptInResourceDataArgs.lfTagPolicies' is not present");
     }
 
     /**
      * Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See Table for more details.
      * 
      */
-    private UndeferrableValue<OptInResourceDataTableArgs> table;
-
+    @PolicyResourceProperty(name="table", flag="unknown_table")
+    private OptInResourceDataTableArgs value_table;
+    private boolean unknown_table;
     public OptInResourceDataTableArgs table() {
-        if (table == null) return null;
-        return table.getValue("OptInResourceDataArgs.table");
+        if (!unknown_table) return value_table;
+        throw new UndeferrableValueException("Value 'OptInResourceDataArgs.table' is not present");
     }
 
     /**
      * Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See Table With Columns for more details.
      * 
      */
-    private UndeferrableValue<OptInResourceDataTableWithColumnsArgs> tableWithColumns;
-
+    @PolicyResourceProperty(name="tableWithColumns", flag="unknown_tableWithColumns")
+    private OptInResourceDataTableWithColumnsArgs value_tableWithColumns;
+    private boolean unknown_tableWithColumns;
     public OptInResourceDataTableWithColumnsArgs tableWithColumns() {
-        if (tableWithColumns == null) return null;
-        return tableWithColumns.getValue("OptInResourceDataArgs.tableWithColumns");
+        if (!unknown_tableWithColumns) return value_tableWithColumns;
+        throw new UndeferrableValueException("Value 'OptInResourceDataArgs.tableWithColumns' is not present");
     }
 
 }

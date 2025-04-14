@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class CrawlerSchemaChangePolicy {
      * The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> deleteBehavior;
-
+    @PolicyResourceProperty(name="deleteBehavior", flag="unknown_deleteBehavior")
+    private @Nullable String value_deleteBehavior;
+    private boolean unknown_deleteBehavior;
     public @Nullable String deleteBehavior() {
-        if (deleteBehavior == null) return null;
-        return deleteBehavior.getValue("CrawlerSchemaChangePolicy.deleteBehavior");
+        if (!unknown_deleteBehavior) return value_deleteBehavior;
+        throw new UndeferrableValueException("Value 'CrawlerSchemaChangePolicy.deleteBehavior' is not present");
     }
 
     /**
      * The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> updateBehavior;
-
+    @PolicyResourceProperty(name="updateBehavior", flag="unknown_updateBehavior")
+    private @Nullable String value_updateBehavior;
+    private boolean unknown_updateBehavior;
     public @Nullable String updateBehavior() {
-        if (updateBehavior == null) return null;
-        return updateBehavior.getValue("CrawlerSchemaChangePolicy.updateBehavior");
+        if (!unknown_updateBehavior) return value_updateBehavior;
+        throw new UndeferrableValueException("Value 'CrawlerSchemaChangePolicy.updateBehavior' is not present");
     }
 
 }

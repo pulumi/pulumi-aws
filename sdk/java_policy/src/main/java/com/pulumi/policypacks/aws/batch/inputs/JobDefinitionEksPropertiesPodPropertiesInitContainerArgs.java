@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs;
 import com.pulumi.policypacks.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs;
 import com.pulumi.policypacks.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs;
@@ -19,99 +20,108 @@ public final class JobDefinitionEksPropertiesPodPropertiesInitContainerArgs {
      * Array of arguments to the entrypoint. If this isn&#39;t specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container&#39;s environment.
      * 
      */
-    private UndeferrableValue<List<String>> args;
-
+    @PolicyResourceProperty(name="args", flag="unknown_args")
+    private List<String> value_args;
+    private boolean unknown_args;
     public List<String> args() {
-        if (args == null) return null;
-        return args.getValue("JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.args");
+        if (!unknown_args) return value_args;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.args' is not present");
     }
 
     /**
      * Entrypoint for the container. This isn&#39;t run within a shell. If this isn&#39;t specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container&#39;s environment.
      * 
      */
-    private UndeferrableValue<List<String>> commands;
-
+    @PolicyResourceProperty(name="commands", flag="unknown_commands")
+    private List<String> value_commands;
+    private boolean unknown_commands;
     public List<String> commands() {
-        if (commands == null) return null;
-        return commands.getValue("JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.commands");
+        if (!unknown_commands) return value_commands;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.commands' is not present");
     }
 
     /**
      * Environment variables to pass to a container. See EKS Environment below.
      * 
      */
-    private UndeferrableValue<List<JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs>> envs;
-
+    @PolicyResourceProperty(name="envs", flag="unknown_envs")
+    private List<JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs> value_envs;
+    private boolean unknown_envs;
     public List<JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs> envs() {
-        if (envs == null) return null;
-        return envs.getValue("JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.envs");
+        if (!unknown_envs) return value_envs;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.envs' is not present");
     }
 
     /**
      * Docker image used to start the container.
      * 
      */
-    private UndeferrableValue<String> image;
-
+    @PolicyResourceProperty(name="image", flag="unknown_image")
+    private String value_image;
+    private boolean unknown_image;
     public String image() {
-        if (image == null) return null;
-        return image.getValue("JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.image");
+        if (!unknown_image) return value_image;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.image' is not present");
     }
 
     /**
      * Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
      * 
      */
-    private UndeferrableValue<String> imagePullPolicy;
-
+    @PolicyResourceProperty(name="imagePullPolicy", flag="unknown_imagePullPolicy")
+    private String value_imagePullPolicy;
+    private boolean unknown_imagePullPolicy;
     public String imagePullPolicy() {
-        if (imagePullPolicy == null) return null;
-        return imagePullPolicy.getValue("JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.imagePullPolicy");
+        if (!unknown_imagePullPolicy) return value_imagePullPolicy;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.imagePullPolicy' is not present");
     }
 
     /**
      * Name of the job definition.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.name' is not present");
     }
 
     /**
      * Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
      * 
      */
-    private UndeferrableValue<JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs> resources;
-
+    @PolicyResourceProperty(name="resources", flag="unknown_resources")
+    private JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs value_resources;
+    private boolean unknown_resources;
     public JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs resources() {
-        if (resources == null) return null;
-        return resources.getValue("JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.resources");
+        if (!unknown_resources) return value_resources;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.resources' is not present");
     }
 
     /**
      * Security context for a job.
      * 
      */
-    private UndeferrableValue<JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs> securityContext;
-
+    @PolicyResourceProperty(name="securityContext", flag="unknown_securityContext")
+    private JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs value_securityContext;
+    private boolean unknown_securityContext;
     public JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs securityContext() {
-        if (securityContext == null) return null;
-        return securityContext.getValue("JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.securityContext");
+        if (!unknown_securityContext) return value_securityContext;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.securityContext' is not present");
     }
 
     /**
      * Volume mounts for the container.
      * 
      */
-    private UndeferrableValue<List<JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs>> volumeMounts;
-
+    @PolicyResourceProperty(name="volumeMounts", flag="unknown_volumeMounts")
+    private List<JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs> value_volumeMounts;
+    private boolean unknown_volumeMounts;
     public List<JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs> volumeMounts() {
-        if (volumeMounts == null) return null;
-        return volumeMounts.getValue("JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.volumeMounts");
+        if (!unknown_volumeMounts) return value_volumeMounts;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesInitContainerArgs.volumeMounts' is not present");
     }
 
 }

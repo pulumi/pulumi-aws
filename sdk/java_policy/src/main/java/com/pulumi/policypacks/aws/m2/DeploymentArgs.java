@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.m2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.m2.inputs.DeploymentTimeoutsArgs;
 import java.lang.Boolean;
@@ -19,58 +20,64 @@ public final class DeploymentArgs extends com.pulumi.resources.PolicyResourceInp
      * Application to deploy.
      * 
      */
-    private UndeferrableValue<String> applicationId;
-
+    @PolicyResourceProperty(name="applicationId", flag="unknown_applicationId")
+    private String value_applicationId;
+    private boolean unknown_applicationId;
     public String applicationId() {
-        if (applicationId == null) return null;
-        return applicationId.getValue("DeploymentArgs.applicationId");
+        if (!unknown_applicationId) return value_applicationId;
+        throw new UndeferrableValueException("Value 'DeploymentArgs.applicationId' is not present");
     }
 
     /**
      * Version to application to deploy
      * 
      */
-    private UndeferrableValue<Integer> applicationVersion;
-
+    @PolicyResourceProperty(name="applicationVersion", flag="unknown_applicationVersion")
+    private Integer value_applicationVersion;
+    private boolean unknown_applicationVersion;
     public Integer applicationVersion() {
-        if (applicationVersion == null) return null;
-        return applicationVersion.getValue("DeploymentArgs.applicationVersion");
+        if (!unknown_applicationVersion) return value_applicationVersion;
+        throw new UndeferrableValueException("Value 'DeploymentArgs.applicationVersion' is not present");
     }
 
     /**
      * Environment to deploy application to.
      * 
      */
-    private UndeferrableValue<String> environmentId;
-
+    @PolicyResourceProperty(name="environmentId", flag="unknown_environmentId")
+    private String value_environmentId;
+    private boolean unknown_environmentId;
     public String environmentId() {
-        if (environmentId == null) return null;
-        return environmentId.getValue("DeploymentArgs.environmentId");
+        if (!unknown_environmentId) return value_environmentId;
+        throw new UndeferrableValueException("Value 'DeploymentArgs.environmentId' is not present");
     }
 
-    private UndeferrableValue<Boolean> forceStop;
-
+    @PolicyResourceProperty(name="forceStop", flag="unknown_forceStop")
+    private Boolean value_forceStop;
+    private boolean unknown_forceStop;
     public Boolean forceStop() {
-        if (forceStop == null) return null;
-        return forceStop.getValue("DeploymentArgs.forceStop");
+        if (!unknown_forceStop) return value_forceStop;
+        throw new UndeferrableValueException("Value 'DeploymentArgs.forceStop' is not present");
     }
 
     /**
      * Start the application once deployed.
      * 
      */
-    private UndeferrableValue<Boolean> start;
-
+    @PolicyResourceProperty(name="start", flag="unknown_start")
+    private Boolean value_start;
+    private boolean unknown_start;
     public Boolean start() {
-        if (start == null) return null;
-        return start.getValue("DeploymentArgs.start");
+        if (!unknown_start) return value_start;
+        throw new UndeferrableValueException("Value 'DeploymentArgs.start' is not present");
     }
 
-    private UndeferrableValue<DeploymentTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private DeploymentTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public DeploymentTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("DeploymentArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'DeploymentArgs.timeouts' is not present");
     }
 
 }

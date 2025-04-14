@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.rds.inputs.ExportTaskTimeoutsArgs;
 import java.lang.String;
@@ -18,66 +19,72 @@ public final class ExportTaskArgs extends com.pulumi.resources.PolicyResourceInp
      * Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
      * 
      */
-    private UndeferrableValue<List<String>> exportOnlies;
-
+    @PolicyResourceProperty(name="exportOnlies", flag="unknown_exportOnlies")
+    private List<String> value_exportOnlies;
+    private boolean unknown_exportOnlies;
     public List<String> exportOnlies() {
-        if (exportOnlies == null) return null;
-        return exportOnlies.getValue("ExportTaskArgs.exportOnlies");
+        if (!unknown_exportOnlies) return value_exportOnlies;
+        throw new UndeferrableValueException("Value 'ExportTaskArgs.exportOnlies' is not present");
     }
 
     /**
      * Unique identifier for the snapshot export task.
      * 
      */
-    private UndeferrableValue<String> exportTaskIdentifier;
-
+    @PolicyResourceProperty(name="exportTaskIdentifier", flag="unknown_exportTaskIdentifier")
+    private String value_exportTaskIdentifier;
+    private boolean unknown_exportTaskIdentifier;
     public String exportTaskIdentifier() {
-        if (exportTaskIdentifier == null) return null;
-        return exportTaskIdentifier.getValue("ExportTaskArgs.exportTaskIdentifier");
+        if (!unknown_exportTaskIdentifier) return value_exportTaskIdentifier;
+        throw new UndeferrableValueException("Value 'ExportTaskArgs.exportTaskIdentifier' is not present");
     }
 
     /**
      * ARN of the IAM role to use for writing to the Amazon S3 bucket.
      * 
      */
-    private UndeferrableValue<String> iamRoleArn;
-
+    @PolicyResourceProperty(name="iamRoleArn", flag="unknown_iamRoleArn")
+    private String value_iamRoleArn;
+    private boolean unknown_iamRoleArn;
     public String iamRoleArn() {
-        if (iamRoleArn == null) return null;
-        return iamRoleArn.getValue("ExportTaskArgs.iamRoleArn");
+        if (!unknown_iamRoleArn) return value_iamRoleArn;
+        throw new UndeferrableValueException("Value 'ExportTaskArgs.iamRoleArn' is not present");
     }
 
     /**
      * ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("ExportTaskArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'ExportTaskArgs.kmsKeyId' is not present");
     }
 
     /**
      * Name of the Amazon S3 bucket to export the snapshot to.
      * 
      */
-    private UndeferrableValue<String> s3BucketName;
-
+    @PolicyResourceProperty(name="s3BucketName", flag="unknown_s3BucketName")
+    private String value_s3BucketName;
+    private boolean unknown_s3BucketName;
     public String s3BucketName() {
-        if (s3BucketName == null) return null;
-        return s3BucketName.getValue("ExportTaskArgs.s3BucketName");
+        if (!unknown_s3BucketName) return value_s3BucketName;
+        throw new UndeferrableValueException("Value 'ExportTaskArgs.s3BucketName' is not present");
     }
 
     /**
      * Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
      * 
      */
-    private UndeferrableValue<String> s3Prefix;
-
+    @PolicyResourceProperty(name="s3Prefix", flag="unknown_s3Prefix")
+    private String value_s3Prefix;
+    private boolean unknown_s3Prefix;
     public String s3Prefix() {
-        if (s3Prefix == null) return null;
-        return s3Prefix.getValue("ExportTaskArgs.s3Prefix");
+        if (!unknown_s3Prefix) return value_s3Prefix;
+        throw new UndeferrableValueException("Value 'ExportTaskArgs.s3Prefix' is not present");
     }
 
     /**
@@ -86,18 +93,20 @@ public final class ExportTaskArgs extends com.pulumi.resources.PolicyResourceInp
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> sourceArn;
-
+    @PolicyResourceProperty(name="sourceArn", flag="unknown_sourceArn")
+    private String value_sourceArn;
+    private boolean unknown_sourceArn;
     public String sourceArn() {
-        if (sourceArn == null) return null;
-        return sourceArn.getValue("ExportTaskArgs.sourceArn");
+        if (!unknown_sourceArn) return value_sourceArn;
+        throw new UndeferrableValueException("Value 'ExportTaskArgs.sourceArn' is not present");
     }
 
-    private UndeferrableValue<ExportTaskTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private ExportTaskTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public ExportTaskTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ExportTaskArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ExportTaskArgs.timeouts' is not present");
     }
 
 }

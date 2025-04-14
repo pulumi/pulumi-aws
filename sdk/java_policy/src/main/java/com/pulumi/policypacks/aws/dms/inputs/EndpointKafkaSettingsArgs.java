@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dms.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,209 +17,228 @@ public final class EndpointKafkaSettingsArgs {
      * Kafka broker location. Specify in the form broker-hostname-or-ip:port.
      * 
      */
-    private UndeferrableValue<String> broker;
-
+    @PolicyResourceProperty(name="broker", flag="unknown_broker")
+    private String value_broker;
+    private boolean unknown_broker;
     public String broker() {
-        if (broker == null) return null;
-        return broker.getValue("EndpointKafkaSettingsArgs.broker");
+        if (!unknown_broker) return value_broker;
+        throw new UndeferrableValueException("Value 'EndpointKafkaSettingsArgs.broker' is not present");
     }
 
     /**
      * Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> includeControlDetails;
-
+    @PolicyResourceProperty(name="includeControlDetails", flag="unknown_includeControlDetails")
+    private Boolean value_includeControlDetails;
+    private boolean unknown_includeControlDetails;
     public Boolean includeControlDetails() {
-        if (includeControlDetails == null) return null;
-        return includeControlDetails.getValue("EndpointKafkaSettingsArgs.includeControlDetails");
+        if (!unknown_includeControlDetails) return value_includeControlDetails;
+        throw new UndeferrableValueException("Value 'EndpointKafkaSettingsArgs.includeControlDetails' is not present");
     }
 
     /**
      * Include NULL and empty columns for records migrated to the endpoint. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> includeNullAndEmpty;
-
+    @PolicyResourceProperty(name="includeNullAndEmpty", flag="unknown_includeNullAndEmpty")
+    private Boolean value_includeNullAndEmpty;
+    private boolean unknown_includeNullAndEmpty;
     public Boolean includeNullAndEmpty() {
-        if (includeNullAndEmpty == null) return null;
-        return includeNullAndEmpty.getValue("EndpointKafkaSettingsArgs.includeNullAndEmpty");
+        if (!unknown_includeNullAndEmpty) return value_includeNullAndEmpty;
+        throw new UndeferrableValueException("Value 'EndpointKafkaSettingsArgs.includeNullAndEmpty' is not present");
     }
 
     /**
      * Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> includePartitionValue;
-
+    @PolicyResourceProperty(name="includePartitionValue", flag="unknown_includePartitionValue")
+    private Boolean value_includePartitionValue;
+    private boolean unknown_includePartitionValue;
     public Boolean includePartitionValue() {
-        if (includePartitionValue == null) return null;
-        return includePartitionValue.getValue("EndpointKafkaSettingsArgs.includePartitionValue");
+        if (!unknown_includePartitionValue) return value_includePartitionValue;
+        throw new UndeferrableValueException("Value 'EndpointKafkaSettingsArgs.includePartitionValue' is not present");
     }
 
     /**
      * Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> includeTableAlterOperations;
-
+    @PolicyResourceProperty(name="includeTableAlterOperations", flag="unknown_includeTableAlterOperations")
+    private Boolean value_includeTableAlterOperations;
+    private boolean unknown_includeTableAlterOperations;
     public Boolean includeTableAlterOperations() {
-        if (includeTableAlterOperations == null) return null;
-        return includeTableAlterOperations.getValue("EndpointKafkaSettingsArgs.includeTableAlterOperations");
+        if (!unknown_includeTableAlterOperations) return value_includeTableAlterOperations;
+        throw new UndeferrableValueException("Value 'EndpointKafkaSettingsArgs.includeTableAlterOperations' is not present");
     }
 
     /**
      * Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transaction_id`, previous `transaction_id`, and `transaction_record_id` (the record offset within a transaction). Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> includeTransactionDetails;
-
+    @PolicyResourceProperty(name="includeTransactionDetails", flag="unknown_includeTransactionDetails")
+    private Boolean value_includeTransactionDetails;
+    private boolean unknown_includeTransactionDetails;
     public Boolean includeTransactionDetails() {
-        if (includeTransactionDetails == null) return null;
-        return includeTransactionDetails.getValue("EndpointKafkaSettingsArgs.includeTransactionDetails");
+        if (!unknown_includeTransactionDetails) return value_includeTransactionDetails;
+        throw new UndeferrableValueException("Value 'EndpointKafkaSettingsArgs.includeTransactionDetails' is not present");
     }
 
     /**
      * Output format for the records created on the endpoint. Message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
      * 
      */
-    private UndeferrableValue<String> messageFormat;
-
+    @PolicyResourceProperty(name="messageFormat", flag="unknown_messageFormat")
+    private String value_messageFormat;
+    private boolean unknown_messageFormat;
     public String messageFormat() {
-        if (messageFormat == null) return null;
-        return messageFormat.getValue("EndpointKafkaSettingsArgs.messageFormat");
+        if (!unknown_messageFormat) return value_messageFormat;
+        throw new UndeferrableValueException("Value 'EndpointKafkaSettingsArgs.messageFormat' is not present");
     }
 
     /**
      * Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
      * 
      */
-    private UndeferrableValue<Integer> messageMaxBytes;
-
+    @PolicyResourceProperty(name="messageMaxBytes", flag="unknown_messageMaxBytes")
+    private Integer value_messageMaxBytes;
+    private boolean unknown_messageMaxBytes;
     public Integer messageMaxBytes() {
-        if (messageMaxBytes == null) return null;
-        return messageMaxBytes.getValue("EndpointKafkaSettingsArgs.messageMaxBytes");
+        if (!unknown_messageMaxBytes) return value_messageMaxBytes;
+        throw new UndeferrableValueException("Value 'EndpointKafkaSettingsArgs.messageMaxBytes' is not present");
     }
 
     /**
      * Set this optional parameter to true to avoid adding a &#39;0x&#39; prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a &#39;0x&#39; prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `no_hex_prefix` endpoint setting to enable migration of RAW data type columns without adding the `&#39;0x&#39;` prefix.
      * 
      */
-    private UndeferrableValue<Boolean> noHexPrefix;
-
+    @PolicyResourceProperty(name="noHexPrefix", flag="unknown_noHexPrefix")
+    private Boolean value_noHexPrefix;
+    private boolean unknown_noHexPrefix;
     public Boolean noHexPrefix() {
-        if (noHexPrefix == null) return null;
-        return noHexPrefix.getValue("EndpointKafkaSettingsArgs.noHexPrefix");
+        if (!unknown_noHexPrefix) return value_noHexPrefix;
+        throw new UndeferrableValueException("Value 'EndpointKafkaSettingsArgs.noHexPrefix' is not present");
     }
 
     /**
      * Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> partitionIncludeSchemaTable;
-
+    @PolicyResourceProperty(name="partitionIncludeSchemaTable", flag="unknown_partitionIncludeSchemaTable")
+    private Boolean value_partitionIncludeSchemaTable;
+    private boolean unknown_partitionIncludeSchemaTable;
     public Boolean partitionIncludeSchemaTable() {
-        if (partitionIncludeSchemaTable == null) return null;
-        return partitionIncludeSchemaTable.getValue("EndpointKafkaSettingsArgs.partitionIncludeSchemaTable");
+        if (!unknown_partitionIncludeSchemaTable) return value_partitionIncludeSchemaTable;
+        throw new UndeferrableValueException("Value 'EndpointKafkaSettingsArgs.partitionIncludeSchemaTable' is not present");
     }
 
     /**
      * For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
      * 
      */
-    private UndeferrableValue<String> saslMechanism;
-
+    @PolicyResourceProperty(name="saslMechanism", flag="unknown_saslMechanism")
+    private String value_saslMechanism;
+    private boolean unknown_saslMechanism;
     public String saslMechanism() {
-        if (saslMechanism == null) return null;
-        return saslMechanism.getValue("EndpointKafkaSettingsArgs.saslMechanism");
+        if (!unknown_saslMechanism) return value_saslMechanism;
+        throw new UndeferrableValueException("Value 'EndpointKafkaSettingsArgs.saslMechanism' is not present");
     }
 
     /**
      * Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
      * 
      */
-    private UndeferrableValue<String> saslPassword;
-
+    @PolicyResourceProperty(name="saslPassword", flag="unknown_saslPassword")
+    private String value_saslPassword;
+    private boolean unknown_saslPassword;
     public String saslPassword() {
-        if (saslPassword == null) return null;
-        return saslPassword.getValue("EndpointKafkaSettingsArgs.saslPassword");
+        if (!unknown_saslPassword) return value_saslPassword;
+        throw new UndeferrableValueException("Value 'EndpointKafkaSettingsArgs.saslPassword' is not present");
     }
 
     /**
      * Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
      * 
      */
-    private UndeferrableValue<String> saslUsername;
-
+    @PolicyResourceProperty(name="saslUsername", flag="unknown_saslUsername")
+    private String value_saslUsername;
+    private boolean unknown_saslUsername;
     public String saslUsername() {
-        if (saslUsername == null) return null;
-        return saslUsername.getValue("EndpointKafkaSettingsArgs.saslUsername");
+        if (!unknown_saslUsername) return value_saslUsername;
+        throw new UndeferrableValueException("Value 'EndpointKafkaSettingsArgs.saslUsername' is not present");
     }
 
     /**
      * Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
      * 
      */
-    private UndeferrableValue<String> securityProtocol;
-
+    @PolicyResourceProperty(name="securityProtocol", flag="unknown_securityProtocol")
+    private String value_securityProtocol;
+    private boolean unknown_securityProtocol;
     public String securityProtocol() {
-        if (securityProtocol == null) return null;
-        return securityProtocol.getValue("EndpointKafkaSettingsArgs.securityProtocol");
+        if (!unknown_securityProtocol) return value_securityProtocol;
+        throw new UndeferrableValueException("Value 'EndpointKafkaSettingsArgs.securityProtocol' is not present");
     }
 
     /**
      * ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
      * 
      */
-    private UndeferrableValue<String> sslCaCertificateArn;
-
+    @PolicyResourceProperty(name="sslCaCertificateArn", flag="unknown_sslCaCertificateArn")
+    private String value_sslCaCertificateArn;
+    private boolean unknown_sslCaCertificateArn;
     public String sslCaCertificateArn() {
-        if (sslCaCertificateArn == null) return null;
-        return sslCaCertificateArn.getValue("EndpointKafkaSettingsArgs.sslCaCertificateArn");
+        if (!unknown_sslCaCertificateArn) return value_sslCaCertificateArn;
+        throw new UndeferrableValueException("Value 'EndpointKafkaSettingsArgs.sslCaCertificateArn' is not present");
     }
 
     /**
      * ARN of the client certificate used to securely connect to a Kafka target endpoint.
      * 
      */
-    private UndeferrableValue<String> sslClientCertificateArn;
-
+    @PolicyResourceProperty(name="sslClientCertificateArn", flag="unknown_sslClientCertificateArn")
+    private String value_sslClientCertificateArn;
+    private boolean unknown_sslClientCertificateArn;
     public String sslClientCertificateArn() {
-        if (sslClientCertificateArn == null) return null;
-        return sslClientCertificateArn.getValue("EndpointKafkaSettingsArgs.sslClientCertificateArn");
+        if (!unknown_sslClientCertificateArn) return value_sslClientCertificateArn;
+        throw new UndeferrableValueException("Value 'EndpointKafkaSettingsArgs.sslClientCertificateArn' is not present");
     }
 
     /**
      * ARN for the client private key used to securely connect to a Kafka target endpoint.
      * 
      */
-    private UndeferrableValue<String> sslClientKeyArn;
-
+    @PolicyResourceProperty(name="sslClientKeyArn", flag="unknown_sslClientKeyArn")
+    private String value_sslClientKeyArn;
+    private boolean unknown_sslClientKeyArn;
     public String sslClientKeyArn() {
-        if (sslClientKeyArn == null) return null;
-        return sslClientKeyArn.getValue("EndpointKafkaSettingsArgs.sslClientKeyArn");
+        if (!unknown_sslClientKeyArn) return value_sslClientKeyArn;
+        throw new UndeferrableValueException("Value 'EndpointKafkaSettingsArgs.sslClientKeyArn' is not present");
     }
 
     /**
      * Password for the client private key used to securely connect to a Kafka target endpoint.
      * 
      */
-    private UndeferrableValue<String> sslClientKeyPassword;
-
+    @PolicyResourceProperty(name="sslClientKeyPassword", flag="unknown_sslClientKeyPassword")
+    private String value_sslClientKeyPassword;
+    private boolean unknown_sslClientKeyPassword;
     public String sslClientKeyPassword() {
-        if (sslClientKeyPassword == null) return null;
-        return sslClientKeyPassword.getValue("EndpointKafkaSettingsArgs.sslClientKeyPassword");
+        if (!unknown_sslClientKeyPassword) return value_sslClientKeyPassword;
+        throw new UndeferrableValueException("Value 'EndpointKafkaSettingsArgs.sslClientKeyPassword' is not present");
     }
 
     /**
      * Kafka topic for migration. Default is `kafka-default-topic`.
      * 
      */
-    private UndeferrableValue<String> topic;
-
+    @PolicyResourceProperty(name="topic", flag="unknown_topic")
+    private String value_topic;
+    private boolean unknown_topic;
     public String topic() {
-        if (topic == null) return null;
-        return topic.getValue("EndpointKafkaSettingsArgs.topic");
+        if (!unknown_topic) return value_topic;
+        throw new UndeferrableValueException("Value 'EndpointKafkaSettingsArgs.topic' is not present");
     }
 
 }

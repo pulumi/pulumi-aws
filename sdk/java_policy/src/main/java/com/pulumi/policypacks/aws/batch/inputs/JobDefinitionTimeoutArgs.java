@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class JobDefinitionTimeoutArgs {
      * Time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
      * 
      */
-    private UndeferrableValue<Integer> attemptDurationSeconds;
-
+    @PolicyResourceProperty(name="attemptDurationSeconds", flag="unknown_attemptDurationSeconds")
+    private Integer value_attemptDurationSeconds;
+    private boolean unknown_attemptDurationSeconds;
     public Integer attemptDurationSeconds() {
-        if (attemptDurationSeconds == null) return null;
-        return attemptDurationSeconds.getValue("JobDefinitionTimeoutArgs.attemptDurationSeconds");
+        if (!unknown_attemptDurationSeconds) return value_attemptDurationSeconds;
+        throw new UndeferrableValueException("Value 'JobDefinitionTimeoutArgs.attemptDurationSeconds' is not present");
     }
 
 }

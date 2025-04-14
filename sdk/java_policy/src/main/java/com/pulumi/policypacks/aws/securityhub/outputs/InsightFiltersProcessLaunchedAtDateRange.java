@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class InsightFiltersProcessLaunchedAtDateRange {
      * A date range unit for the date filter. Valid values: `DAYS`.
      * 
      */
-    private UndeferrableValue<String> unit;
-
+    @PolicyResourceProperty(name="unit", flag="unknown_unit")
+    private String value_unit;
+    private boolean unknown_unit;
     public String unit() {
-        if (unit == null) return null;
-        return unit.getValue("InsightFiltersProcessLaunchedAtDateRange.unit");
+        if (!unknown_unit) return value_unit;
+        throw new UndeferrableValueException("Value 'InsightFiltersProcessLaunchedAtDateRange.unit' is not present");
     }
 
     /**
      * A date range value for the date filter, provided as an Integer.
      * 
      */
-    private UndeferrableValue<Integer> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private Integer value_value;
+    private boolean unknown_value;
     public Integer value() {
-        if (value == null) return null;
-        return value.getValue("InsightFiltersProcessLaunchedAtDateRange.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'InsightFiltersProcessLaunchedAtDateRange.value' is not present");
     }
 
 }

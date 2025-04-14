@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class ProjectEnvironmentEnvironmentVariable {
      * Environment variable&#39;s name or key.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ProjectEnvironmentEnvironmentVariable.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ProjectEnvironmentEnvironmentVariable.name' is not present");
     }
 
     /**
      * Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("ProjectEnvironmentEnvironmentVariable.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ProjectEnvironmentEnvironmentVariable.type' is not present");
     }
 
     /**
      * Environment variable&#39;s value.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("ProjectEnvironmentEnvironmentVariable.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'ProjectEnvironmentEnvironmentVariable.value' is not present");
     }
 
 }

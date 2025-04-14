@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.inputs.DistributionOriginGroupFailoverCriteriaArgs;
 import com.pulumi.policypacks.aws.cloudfront.inputs.DistributionOriginGroupMemberArgs;
 import java.lang.String;
@@ -16,29 +17,32 @@ public final class DistributionOriginGroupArgs {
      * The failover criteria for when to failover to the secondary origin.
      * 
      */
-    private UndeferrableValue<DistributionOriginGroupFailoverCriteriaArgs> failoverCriteria;
-
+    @PolicyResourceProperty(name="failoverCriteria", flag="unknown_failoverCriteria")
+    private DistributionOriginGroupFailoverCriteriaArgs value_failoverCriteria;
+    private boolean unknown_failoverCriteria;
     public DistributionOriginGroupFailoverCriteriaArgs failoverCriteria() {
-        if (failoverCriteria == null) return null;
-        return failoverCriteria.getValue("DistributionOriginGroupArgs.failoverCriteria");
+        if (!unknown_failoverCriteria) return value_failoverCriteria;
+        throw new UndeferrableValueException("Value 'DistributionOriginGroupArgs.failoverCriteria' is not present");
     }
 
     /**
      * Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
      * 
      */
-    private UndeferrableValue<List<DistributionOriginGroupMemberArgs>> members;
-
+    @PolicyResourceProperty(name="members", flag="unknown_members")
+    private List<DistributionOriginGroupMemberArgs> value_members;
+    private boolean unknown_members;
     public List<DistributionOriginGroupMemberArgs> members() {
-        if (members == null) return null;
-        return members.getValue("DistributionOriginGroupArgs.members");
+        if (!unknown_members) return value_members;
+        throw new UndeferrableValueException("Value 'DistributionOriginGroupArgs.members' is not present");
     }
 
-    private UndeferrableValue<String> originId;
-
+    @PolicyResourceProperty(name="originId", flag="unknown_originId")
+    private String value_originId;
+    private boolean unknown_originId;
     public String originId() {
-        if (originId == null) return null;
-        return originId.getValue("DistributionOriginGroupArgs.originId");
+        if (!unknown_originId) return value_originId;
+        throw new UndeferrableValueException("Value 'DistributionOriginGroupArgs.originId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codecommit;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,99 +18,108 @@ public final class Repository extends com.pulumi.resources.PolicyResourceOutput 
      * The ARN of the repository
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Repository.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Repository.arn' is not present");
     }
 
     /**
      * The URL to use for cloning the repository over HTTPS.
      * 
      */
-    private UndeferrableValue<String> cloneUrlHttp;
-
+    @PolicyResourceProperty(name="cloneUrlHttp", flag="unknown_cloneUrlHttp")
+    private String value_cloneUrlHttp;
+    private boolean unknown_cloneUrlHttp;
     public String cloneUrlHttp() {
-        if (cloneUrlHttp == null) return null;
-        return cloneUrlHttp.getValue("Repository.cloneUrlHttp");
+        if (!unknown_cloneUrlHttp) return value_cloneUrlHttp;
+        throw new UndeferrableValueException("Value 'Repository.cloneUrlHttp' is not present");
     }
 
     /**
      * The URL to use for cloning the repository over SSH.
      * 
      */
-    private UndeferrableValue<String> cloneUrlSsh;
-
+    @PolicyResourceProperty(name="cloneUrlSsh", flag="unknown_cloneUrlSsh")
+    private String value_cloneUrlSsh;
+    private boolean unknown_cloneUrlSsh;
     public String cloneUrlSsh() {
-        if (cloneUrlSsh == null) return null;
-        return cloneUrlSsh.getValue("Repository.cloneUrlSsh");
+        if (!unknown_cloneUrlSsh) return value_cloneUrlSsh;
+        throw new UndeferrableValueException("Value 'Repository.cloneUrlSsh' is not present");
     }
 
     /**
      * The default branch of the repository. The branch specified here needs to exist.
      * 
      */
-    private @Nullable UndeferrableValue<String> defaultBranch;
-
+    @PolicyResourceProperty(name="defaultBranch", flag="unknown_defaultBranch")
+    private @Nullable String value_defaultBranch;
+    private boolean unknown_defaultBranch;
     public @Nullable String defaultBranch() {
-        if (defaultBranch == null) return null;
-        return defaultBranch.getValue("Repository.defaultBranch");
+        if (!unknown_defaultBranch) return value_defaultBranch;
+        throw new UndeferrableValueException("Value 'Repository.defaultBranch' is not present");
     }
 
     /**
      * The description of the repository. This needs to be less than 1000 characters
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Repository.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Repository.description' is not present");
     }
 
     /**
      * The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("Repository.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'Repository.kmsKeyId' is not present");
     }
 
     /**
      * The ID of the repository
      * 
      */
-    private UndeferrableValue<String> repositoryId;
-
+    @PolicyResourceProperty(name="repositoryId", flag="unknown_repositoryId")
+    private String value_repositoryId;
+    private boolean unknown_repositoryId;
     public String repositoryId() {
-        if (repositoryId == null) return null;
-        return repositoryId.getValue("Repository.repositoryId");
+        if (!unknown_repositoryId) return value_repositoryId;
+        throw new UndeferrableValueException("Value 'Repository.repositoryId' is not present");
     }
 
     /**
      * The name for the repository. This needs to be less than 100 characters.
      * 
      */
-    private UndeferrableValue<String> repositoryName;
-
+    @PolicyResourceProperty(name="repositoryName", flag="unknown_repositoryName")
+    private String value_repositoryName;
+    private boolean unknown_repositoryName;
     public String repositoryName() {
-        if (repositoryName == null) return null;
-        return repositoryName.getValue("Repository.repositoryName");
+        if (!unknown_repositoryName) return value_repositoryName;
+        throw new UndeferrableValueException("Value 'Repository.repositoryName' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Repository.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Repository.tags' is not present");
     }
 
     /**
@@ -120,11 +130,12 @@ public final class Repository extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Repository.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Repository.tagsAll' is not present");
     }
 
 }

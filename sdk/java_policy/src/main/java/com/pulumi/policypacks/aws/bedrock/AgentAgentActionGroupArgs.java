@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentAgentActionGroupActionGroupExecutorArgs;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentAgentActionGroupApiSchemaArgs;
@@ -23,77 +24,84 @@ public final class AgentAgentActionGroupArgs extends com.pulumi.resources.Policy
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<AgentAgentActionGroupActionGroupExecutorArgs> actionGroupExecutor;
-
+    @PolicyResourceProperty(name="actionGroupExecutor", flag="unknown_actionGroupExecutor")
+    private AgentAgentActionGroupActionGroupExecutorArgs value_actionGroupExecutor;
+    private boolean unknown_actionGroupExecutor;
     public AgentAgentActionGroupActionGroupExecutorArgs actionGroupExecutor() {
-        if (actionGroupExecutor == null) return null;
-        return actionGroupExecutor.getValue("AgentAgentActionGroupArgs.actionGroupExecutor");
+        if (!unknown_actionGroupExecutor) return value_actionGroupExecutor;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupArgs.actionGroupExecutor' is not present");
     }
 
     /**
      * Name of the action group.
      * 
      */
-    private UndeferrableValue<String> actionGroupName;
-
+    @PolicyResourceProperty(name="actionGroupName", flag="unknown_actionGroupName")
+    private String value_actionGroupName;
+    private boolean unknown_actionGroupName;
     public String actionGroupName() {
-        if (actionGroupName == null) return null;
-        return actionGroupName.getValue("AgentAgentActionGroupArgs.actionGroupName");
+        if (!unknown_actionGroupName) return value_actionGroupName;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupArgs.actionGroupName' is not present");
     }
 
     /**
      * Whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> actionGroupState;
-
+    @PolicyResourceProperty(name="actionGroupState", flag="unknown_actionGroupState")
+    private String value_actionGroupState;
+    private boolean unknown_actionGroupState;
     public String actionGroupState() {
-        if (actionGroupState == null) return null;
-        return actionGroupState.getValue("AgentAgentActionGroupArgs.actionGroupState");
+        if (!unknown_actionGroupState) return value_actionGroupState;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupArgs.actionGroupState' is not present");
     }
 
     /**
      * The unique identifier of the agent for which to create the action group.
      * 
      */
-    private UndeferrableValue<String> agentId;
-
+    @PolicyResourceProperty(name="agentId", flag="unknown_agentId")
+    private String value_agentId;
+    private boolean unknown_agentId;
     public String agentId() {
-        if (agentId == null) return null;
-        return agentId.getValue("AgentAgentActionGroupArgs.agentId");
+        if (!unknown_agentId) return value_agentId;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupArgs.agentId' is not present");
     }
 
     /**
      * Version of the agent for which to create the action group. Valid values: `DRAFT`.
      * 
      */
-    private UndeferrableValue<String> agentVersion;
-
+    @PolicyResourceProperty(name="agentVersion", flag="unknown_agentVersion")
+    private String value_agentVersion;
+    private boolean unknown_agentVersion;
     public String agentVersion() {
-        if (agentVersion == null) return null;
-        return agentVersion.getValue("AgentAgentActionGroupArgs.agentVersion");
+        if (!unknown_agentVersion) return value_agentVersion;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupArgs.agentVersion' is not present");
     }
 
     /**
      * Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` Block for details.
      * 
      */
-    private UndeferrableValue<AgentAgentActionGroupApiSchemaArgs> apiSchema;
-
+    @PolicyResourceProperty(name="apiSchema", flag="unknown_apiSchema")
+    private AgentAgentActionGroupApiSchemaArgs value_apiSchema;
+    private boolean unknown_apiSchema;
     public AgentAgentActionGroupApiSchemaArgs apiSchema() {
-        if (apiSchema == null) return null;
-        return apiSchema.getValue("AgentAgentActionGroupArgs.apiSchema");
+        if (!unknown_apiSchema) return value_apiSchema;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupArgs.apiSchema' is not present");
     }
 
     /**
      * Description of the action group.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("AgentAgentActionGroupArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupArgs.description' is not present");
     }
 
     /**
@@ -102,51 +110,56 @@ public final class AgentAgentActionGroupArgs extends com.pulumi.resources.Policy
      * See `function_schema` Block for details.
      * 
      */
-    private UndeferrableValue<AgentAgentActionGroupFunctionSchemaArgs> functionSchema;
-
+    @PolicyResourceProperty(name="functionSchema", flag="unknown_functionSchema")
+    private AgentAgentActionGroupFunctionSchemaArgs value_functionSchema;
+    private boolean unknown_functionSchema;
     public AgentAgentActionGroupFunctionSchemaArgs functionSchema() {
-        if (functionSchema == null) return null;
-        return functionSchema.getValue("AgentAgentActionGroupArgs.functionSchema");
+        if (!unknown_functionSchema) return value_functionSchema;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupArgs.functionSchema' is not present");
     }
 
     /**
      * To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
      * 
      */
-    private UndeferrableValue<String> parentActionGroupSignature;
-
+    @PolicyResourceProperty(name="parentActionGroupSignature", flag="unknown_parentActionGroupSignature")
+    private String value_parentActionGroupSignature;
+    private boolean unknown_parentActionGroupSignature;
     public String parentActionGroupSignature() {
-        if (parentActionGroupSignature == null) return null;
-        return parentActionGroupSignature.getValue("AgentAgentActionGroupArgs.parentActionGroupSignature");
+        if (!unknown_parentActionGroupSignature) return value_parentActionGroupSignature;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupArgs.parentActionGroupSignature' is not present");
     }
 
     /**
      * Whether or not to prepare the agent after creation or modification. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> prepareAgent;
-
+    @PolicyResourceProperty(name="prepareAgent", flag="unknown_prepareAgent")
+    private Boolean value_prepareAgent;
+    private boolean unknown_prepareAgent;
     public Boolean prepareAgent() {
-        if (prepareAgent == null) return null;
-        return prepareAgent.getValue("AgentAgentActionGroupArgs.prepareAgent");
+        if (!unknown_prepareAgent) return value_prepareAgent;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupArgs.prepareAgent' is not present");
     }
 
     /**
      * Whether the in-use check is skipped when deleting the action group.
      * 
      */
-    private UndeferrableValue<Boolean> skipResourceInUseCheck;
-
+    @PolicyResourceProperty(name="skipResourceInUseCheck", flag="unknown_skipResourceInUseCheck")
+    private Boolean value_skipResourceInUseCheck;
+    private boolean unknown_skipResourceInUseCheck;
     public Boolean skipResourceInUseCheck() {
-        if (skipResourceInUseCheck == null) return null;
-        return skipResourceInUseCheck.getValue("AgentAgentActionGroupArgs.skipResourceInUseCheck");
+        if (!unknown_skipResourceInUseCheck) return value_skipResourceInUseCheck;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupArgs.skipResourceInUseCheck' is not present");
     }
 
-    private UndeferrableValue<AgentAgentActionGroupTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private AgentAgentActionGroupTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public AgentAgentActionGroupTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("AgentAgentActionGroupArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupArgs.timeouts' is not present");
     }
 
 }

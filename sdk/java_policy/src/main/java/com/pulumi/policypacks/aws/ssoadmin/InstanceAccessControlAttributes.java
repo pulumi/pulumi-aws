@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssoadmin;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ssoadmin.outputs.InstanceAccessControlAttributesAttribute;
 import java.lang.String;
@@ -17,36 +18,40 @@ public final class InstanceAccessControlAttributes extends com.pulumi.resources.
      * See AccessControlAttribute for more details.
      * 
      */
-    private UndeferrableValue<List<InstanceAccessControlAttributesAttribute>> attributes;
-
+    @PolicyResourceProperty(name="attributes", flag="unknown_attributes")
+    private List<InstanceAccessControlAttributesAttribute> value_attributes;
+    private boolean unknown_attributes;
     public List<InstanceAccessControlAttributesAttribute> attributes() {
-        if (attributes == null) return null;
-        return attributes.getValue("InstanceAccessControlAttributes.attributes");
+        if (!unknown_attributes) return value_attributes;
+        throw new UndeferrableValueException("Value 'InstanceAccessControlAttributes.attributes' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance.
      * 
      */
-    private UndeferrableValue<String> instanceArn;
-
+    @PolicyResourceProperty(name="instanceArn", flag="unknown_instanceArn")
+    private String value_instanceArn;
+    private boolean unknown_instanceArn;
     public String instanceArn() {
-        if (instanceArn == null) return null;
-        return instanceArn.getValue("InstanceAccessControlAttributes.instanceArn");
+        if (!unknown_instanceArn) return value_instanceArn;
+        throw new UndeferrableValueException("Value 'InstanceAccessControlAttributes.instanceArn' is not present");
     }
 
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("InstanceAccessControlAttributes.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'InstanceAccessControlAttributes.status' is not present");
     }
 
-    private UndeferrableValue<String> statusReason;
-
+    @PolicyResourceProperty(name="statusReason", flag="unknown_statusReason")
+    private String value_statusReason;
+    private boolean unknown_statusReason;
     public String statusReason() {
-        if (statusReason == null) return null;
-        return statusReason.getValue("InstanceAccessControlAttributes.statusReason");
+        if (!unknown_statusReason) return value_statusReason;
+        throw new UndeferrableValueException("Value 'InstanceAccessControlAttributes.statusReason' is not present");
     }
 
 }

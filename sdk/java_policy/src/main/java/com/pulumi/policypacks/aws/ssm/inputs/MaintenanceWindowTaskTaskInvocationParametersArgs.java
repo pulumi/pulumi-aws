@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs;
 import com.pulumi.policypacks.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs;
 import com.pulumi.policypacks.aws.ssm.inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs;
@@ -17,44 +18,48 @@ public final class MaintenanceWindowTaskTaskInvocationParametersArgs {
      * The parameters for an AUTOMATION task type. Documented below.
      * 
      */
-    private UndeferrableValue<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs> automationParameters;
-
+    @PolicyResourceProperty(name="automationParameters", flag="unknown_automationParameters")
+    private MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs value_automationParameters;
+    private boolean unknown_automationParameters;
     public MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs automationParameters() {
-        if (automationParameters == null) return null;
-        return automationParameters.getValue("MaintenanceWindowTaskTaskInvocationParametersArgs.automationParameters");
+        if (!unknown_automationParameters) return value_automationParameters;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersArgs.automationParameters' is not present");
     }
 
     /**
      * The parameters for a LAMBDA task type. Documented below.
      * 
      */
-    private UndeferrableValue<MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs> lambdaParameters;
-
+    @PolicyResourceProperty(name="lambdaParameters", flag="unknown_lambdaParameters")
+    private MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs value_lambdaParameters;
+    private boolean unknown_lambdaParameters;
     public MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs lambdaParameters() {
-        if (lambdaParameters == null) return null;
-        return lambdaParameters.getValue("MaintenanceWindowTaskTaskInvocationParametersArgs.lambdaParameters");
+        if (!unknown_lambdaParameters) return value_lambdaParameters;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersArgs.lambdaParameters' is not present");
     }
 
     /**
      * The parameters for a RUN_COMMAND task type. Documented below.
      * 
      */
-    private UndeferrableValue<MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs> runCommandParameters;
-
+    @PolicyResourceProperty(name="runCommandParameters", flag="unknown_runCommandParameters")
+    private MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs value_runCommandParameters;
+    private boolean unknown_runCommandParameters;
     public MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs runCommandParameters() {
-        if (runCommandParameters == null) return null;
-        return runCommandParameters.getValue("MaintenanceWindowTaskTaskInvocationParametersArgs.runCommandParameters");
+        if (!unknown_runCommandParameters) return value_runCommandParameters;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersArgs.runCommandParameters' is not present");
     }
 
     /**
      * The parameters for a STEP_FUNCTIONS task type. Documented below.
      * 
      */
-    private UndeferrableValue<MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs> stepFunctionsParameters;
-
+    @PolicyResourceProperty(name="stepFunctionsParameters", flag="unknown_stepFunctionsParameters")
+    private MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs value_stepFunctionsParameters;
+    private boolean unknown_stepFunctionsParameters;
     public MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs stepFunctionsParameters() {
-        if (stepFunctionsParameters == null) return null;
-        return stepFunctionsParameters.getValue("MaintenanceWindowTaskTaskInvocationParametersArgs.stepFunctionsParameters");
+        if (!unknown_stepFunctionsParameters) return value_stepFunctionsParameters;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersArgs.stepFunctionsParameters' is not present");
     }
 
 }

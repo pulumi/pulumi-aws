@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelInputAttachmentInputSettingsAudioSelectorArgs;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelInputAttachmentInputSettingsCaptionSelectorArgs;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs;
@@ -20,117 +21,128 @@ public final class ChannelInputAttachmentInputSettingsArgs {
      * Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
      * 
      */
-    private UndeferrableValue<List<ChannelInputAttachmentInputSettingsAudioSelectorArgs>> audioSelectors;
-
+    @PolicyResourceProperty(name="audioSelectors", flag="unknown_audioSelectors")
+    private List<ChannelInputAttachmentInputSettingsAudioSelectorArgs> value_audioSelectors;
+    private boolean unknown_audioSelectors;
     public List<ChannelInputAttachmentInputSettingsAudioSelectorArgs> audioSelectors() {
-        if (audioSelectors == null) return null;
-        return audioSelectors.getValue("ChannelInputAttachmentInputSettingsArgs.audioSelectors");
+        if (!unknown_audioSelectors) return value_audioSelectors;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsArgs.audioSelectors' is not present");
     }
 
     /**
      * Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
      * 
      */
-    private UndeferrableValue<List<ChannelInputAttachmentInputSettingsCaptionSelectorArgs>> captionSelectors;
-
+    @PolicyResourceProperty(name="captionSelectors", flag="unknown_captionSelectors")
+    private List<ChannelInputAttachmentInputSettingsCaptionSelectorArgs> value_captionSelectors;
+    private boolean unknown_captionSelectors;
     public List<ChannelInputAttachmentInputSettingsCaptionSelectorArgs> captionSelectors() {
-        if (captionSelectors == null) return null;
-        return captionSelectors.getValue("ChannelInputAttachmentInputSettingsArgs.captionSelectors");
+        if (!unknown_captionSelectors) return value_captionSelectors;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsArgs.captionSelectors' is not present");
     }
 
     /**
      * Enable or disable the deblock filter when filtering.
      * 
      */
-    private UndeferrableValue<String> deblockFilter;
-
+    @PolicyResourceProperty(name="deblockFilter", flag="unknown_deblockFilter")
+    private String value_deblockFilter;
+    private boolean unknown_deblockFilter;
     public String deblockFilter() {
-        if (deblockFilter == null) return null;
-        return deblockFilter.getValue("ChannelInputAttachmentInputSettingsArgs.deblockFilter");
+        if (!unknown_deblockFilter) return value_deblockFilter;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsArgs.deblockFilter' is not present");
     }
 
     /**
      * Enable or disable the denoise filter when filtering.
      * 
      */
-    private UndeferrableValue<String> denoiseFilter;
-
+    @PolicyResourceProperty(name="denoiseFilter", flag="unknown_denoiseFilter")
+    private String value_denoiseFilter;
+    private boolean unknown_denoiseFilter;
     public String denoiseFilter() {
-        if (denoiseFilter == null) return null;
-        return denoiseFilter.getValue("ChannelInputAttachmentInputSettingsArgs.denoiseFilter");
+        if (!unknown_denoiseFilter) return value_denoiseFilter;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsArgs.denoiseFilter' is not present");
     }
 
     /**
      * Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
      * 
      */
-    private UndeferrableValue<Integer> filterStrength;
-
+    @PolicyResourceProperty(name="filterStrength", flag="unknown_filterStrength")
+    private Integer value_filterStrength;
+    private boolean unknown_filterStrength;
     public Integer filterStrength() {
-        if (filterStrength == null) return null;
-        return filterStrength.getValue("ChannelInputAttachmentInputSettingsArgs.filterStrength");
+        if (!unknown_filterStrength) return value_filterStrength;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsArgs.filterStrength' is not present");
     }
 
     /**
      * Turns on the filter for the input.
      * 
      */
-    private UndeferrableValue<String> inputFilter;
-
+    @PolicyResourceProperty(name="inputFilter", flag="unknown_inputFilter")
+    private String value_inputFilter;
+    private boolean unknown_inputFilter;
     public String inputFilter() {
-        if (inputFilter == null) return null;
-        return inputFilter.getValue("ChannelInputAttachmentInputSettingsArgs.inputFilter");
+        if (!unknown_inputFilter) return value_inputFilter;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsArgs.inputFilter' is not present");
     }
 
     /**
      * Input settings. See Network Input Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs> networkInputSettings;
-
+    @PolicyResourceProperty(name="networkInputSettings", flag="unknown_networkInputSettings")
+    private ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs value_networkInputSettings;
+    private boolean unknown_networkInputSettings;
     public ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs networkInputSettings() {
-        if (networkInputSettings == null) return null;
-        return networkInputSettings.getValue("ChannelInputAttachmentInputSettingsArgs.networkInputSettings");
+        if (!unknown_networkInputSettings) return value_networkInputSettings;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsArgs.networkInputSettings' is not present");
     }
 
     /**
      * PID from which to read SCTE-35 messages.
      * 
      */
-    private UndeferrableValue<Integer> scte35Pid;
-
+    @PolicyResourceProperty(name="scte35Pid", flag="unknown_scte35Pid")
+    private Integer value_scte35Pid;
+    private boolean unknown_scte35Pid;
     public Integer scte35Pid() {
-        if (scte35Pid == null) return null;
-        return scte35Pid.getValue("ChannelInputAttachmentInputSettingsArgs.scte35Pid");
+        if (!unknown_scte35Pid) return value_scte35Pid;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsArgs.scte35Pid' is not present");
     }
 
     /**
      * Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
      * 
      */
-    private UndeferrableValue<String> smpte2038DataPreference;
-
+    @PolicyResourceProperty(name="smpte2038DataPreference", flag="unknown_smpte2038DataPreference")
+    private String value_smpte2038DataPreference;
+    private boolean unknown_smpte2038DataPreference;
     public String smpte2038DataPreference() {
-        if (smpte2038DataPreference == null) return null;
-        return smpte2038DataPreference.getValue("ChannelInputAttachmentInputSettingsArgs.smpte2038DataPreference");
+        if (!unknown_smpte2038DataPreference) return value_smpte2038DataPreference;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsArgs.smpte2038DataPreference' is not present");
     }
 
     /**
      * Loop input if it is a file.
      * 
      */
-    private UndeferrableValue<String> sourceEndBehavior;
-
+    @PolicyResourceProperty(name="sourceEndBehavior", flag="unknown_sourceEndBehavior")
+    private String value_sourceEndBehavior;
+    private boolean unknown_sourceEndBehavior;
     public String sourceEndBehavior() {
-        if (sourceEndBehavior == null) return null;
-        return sourceEndBehavior.getValue("ChannelInputAttachmentInputSettingsArgs.sourceEndBehavior");
+        if (!unknown_sourceEndBehavior) return value_sourceEndBehavior;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsArgs.sourceEndBehavior' is not present");
     }
 
-    private UndeferrableValue<ChannelInputAttachmentInputSettingsVideoSelectorArgs> videoSelector;
-
+    @PolicyResourceProperty(name="videoSelector", flag="unknown_videoSelector")
+    private ChannelInputAttachmentInputSettingsVideoSelectorArgs value_videoSelector;
+    private boolean unknown_videoSelector;
     public ChannelInputAttachmentInputSettingsVideoSelectorArgs videoSelector() {
-        if (videoSelector == null) return null;
-        return videoSelector.getValue("ChannelInputAttachmentInputSettingsArgs.videoSelector");
+        if (!unknown_videoSelector) return value_videoSelector;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsArgs.videoSelector' is not present");
     }
 
 }

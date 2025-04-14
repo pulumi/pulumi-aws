@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dataexchange.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class EventActionActionExportRevisionToS3Encryption {
      * ARN of the KMS key used for encryption.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private @Nullable String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public @Nullable String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("EventActionActionExportRevisionToS3Encryption.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'EventActionActionExportRevisionToS3Encryption.kmsKeyArn' is not present");
     }
 
     /**
@@ -26,11 +28,12 @@ public final class EventActionActionExportRevisionToS3Encryption {
      * Valid values are `aws:kms` or `aws:s3`.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("EventActionActionExportRevisionToS3Encryption.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'EventActionActionExportRevisionToS3Encryption.type' is not present");
     }
 
 }

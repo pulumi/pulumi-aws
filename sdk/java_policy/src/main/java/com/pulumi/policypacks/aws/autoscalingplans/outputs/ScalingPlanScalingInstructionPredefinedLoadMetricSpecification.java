@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscalingplans.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ScalingPlanScalingInstructionPredefinedLoadMetricSpecificatio
      * Metric type. Valid values: `ALBTargetGroupRequestCount`, `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`.
      * 
      */
-    private UndeferrableValue<String> predefinedLoadMetricType;
-
+    @PolicyResourceProperty(name="predefinedLoadMetricType", flag="unknown_predefinedLoadMetricType")
+    private String value_predefinedLoadMetricType;
+    private boolean unknown_predefinedLoadMetricType;
     public String predefinedLoadMetricType() {
-        if (predefinedLoadMetricType == null) return null;
-        return predefinedLoadMetricType.getValue("ScalingPlanScalingInstructionPredefinedLoadMetricSpecification.predefinedLoadMetricType");
+        if (!unknown_predefinedLoadMetricType) return value_predefinedLoadMetricType;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionPredefinedLoadMetricSpecification.predefinedLoadMetricType' is not present");
     }
 
     /**
      * Identifies the resource associated with the metric type.
      * 
      */
-    private @Nullable UndeferrableValue<String> resourceLabel;
-
+    @PolicyResourceProperty(name="resourceLabel", flag="unknown_resourceLabel")
+    private @Nullable String value_resourceLabel;
+    private boolean unknown_resourceLabel;
     public @Nullable String resourceLabel() {
-        if (resourceLabel == null) return null;
-        return resourceLabel.getValue("ScalingPlanScalingInstructionPredefinedLoadMetricSpecification.resourceLabel");
+        if (!unknown_resourceLabel) return value_resourceLabel;
+        throw new UndeferrableValueException("Value 'ScalingPlanScalingInstructionPredefinedLoadMetricSpecification.resourceLabel' is not present");
     }
 
 }

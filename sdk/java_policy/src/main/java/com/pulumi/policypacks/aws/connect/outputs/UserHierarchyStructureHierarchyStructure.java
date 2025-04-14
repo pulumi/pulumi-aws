@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.connect.outputs.UserHierarchyStructureHierarchyStructureLevelFive;
 import com.pulumi.policypacks.aws.connect.outputs.UserHierarchyStructureHierarchyStructureLevelFour;
 import com.pulumi.policypacks.aws.connect.outputs.UserHierarchyStructureHierarchyStructureLevelOne;
@@ -20,55 +21,60 @@ public final class UserHierarchyStructureHierarchyStructure {
      * Each level block supports the following arguments:
      * 
      */
-    private @Nullable UndeferrableValue<UserHierarchyStructureHierarchyStructureLevelFive> levelFive;
-
+    @PolicyResourceProperty(name="levelFive", flag="unknown_levelFive")
+    private @Nullable UserHierarchyStructureHierarchyStructureLevelFive value_levelFive;
+    private boolean unknown_levelFive;
     public @Nullable UserHierarchyStructureHierarchyStructureLevelFive levelFive() {
-        if (levelFive == null) return null;
-        return levelFive.getValue("UserHierarchyStructureHierarchyStructure.levelFive");
+        if (!unknown_levelFive) return value_levelFive;
+        throw new UndeferrableValueException("Value 'UserHierarchyStructureHierarchyStructure.levelFive' is not present");
     }
 
     /**
      * A block that defines the details of level four. The level block is documented below.
      * 
      */
-    private @Nullable UndeferrableValue<UserHierarchyStructureHierarchyStructureLevelFour> levelFour;
-
+    @PolicyResourceProperty(name="levelFour", flag="unknown_levelFour")
+    private @Nullable UserHierarchyStructureHierarchyStructureLevelFour value_levelFour;
+    private boolean unknown_levelFour;
     public @Nullable UserHierarchyStructureHierarchyStructureLevelFour levelFour() {
-        if (levelFour == null) return null;
-        return levelFour.getValue("UserHierarchyStructureHierarchyStructure.levelFour");
+        if (!unknown_levelFour) return value_levelFour;
+        throw new UndeferrableValueException("Value 'UserHierarchyStructureHierarchyStructure.levelFour' is not present");
     }
 
     /**
      * A block that defines the details of level one. The level block is documented below.
      * 
      */
-    private @Nullable UndeferrableValue<UserHierarchyStructureHierarchyStructureLevelOne> levelOne;
-
+    @PolicyResourceProperty(name="levelOne", flag="unknown_levelOne")
+    private @Nullable UserHierarchyStructureHierarchyStructureLevelOne value_levelOne;
+    private boolean unknown_levelOne;
     public @Nullable UserHierarchyStructureHierarchyStructureLevelOne levelOne() {
-        if (levelOne == null) return null;
-        return levelOne.getValue("UserHierarchyStructureHierarchyStructure.levelOne");
+        if (!unknown_levelOne) return value_levelOne;
+        throw new UndeferrableValueException("Value 'UserHierarchyStructureHierarchyStructure.levelOne' is not present");
     }
 
     /**
      * A block that defines the details of level three. The level block is documented below.
      * 
      */
-    private @Nullable UndeferrableValue<UserHierarchyStructureHierarchyStructureLevelThree> levelThree;
-
+    @PolicyResourceProperty(name="levelThree", flag="unknown_levelThree")
+    private @Nullable UserHierarchyStructureHierarchyStructureLevelThree value_levelThree;
+    private boolean unknown_levelThree;
     public @Nullable UserHierarchyStructureHierarchyStructureLevelThree levelThree() {
-        if (levelThree == null) return null;
-        return levelThree.getValue("UserHierarchyStructureHierarchyStructure.levelThree");
+        if (!unknown_levelThree) return value_levelThree;
+        throw new UndeferrableValueException("Value 'UserHierarchyStructureHierarchyStructure.levelThree' is not present");
     }
 
     /**
      * A block that defines the details of level two. The level block is documented below.
      * 
      */
-    private @Nullable UndeferrableValue<UserHierarchyStructureHierarchyStructureLevelTwo> levelTwo;
-
+    @PolicyResourceProperty(name="levelTwo", flag="unknown_levelTwo")
+    private @Nullable UserHierarchyStructureHierarchyStructureLevelTwo value_levelTwo;
+    private boolean unknown_levelTwo;
     public @Nullable UserHierarchyStructureHierarchyStructureLevelTwo levelTwo() {
-        if (levelTwo == null) return null;
-        return levelTwo.getValue("UserHierarchyStructureHierarchyStructure.levelTwo");
+        if (!unknown_levelTwo) return value_levelTwo;
+        throw new UndeferrableValueException("Value 'UserHierarchyStructureHierarchyStructure.levelTwo' is not present");
     }
 
 }

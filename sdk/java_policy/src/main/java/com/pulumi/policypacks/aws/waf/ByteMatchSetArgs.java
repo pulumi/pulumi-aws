@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.waf;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.waf.inputs.ByteMatchSetByteMatchTupleArgs;
 import java.lang.String;
@@ -20,22 +21,24 @@ public final class ByteMatchSetArgs extends com.pulumi.resources.PolicyResourceI
      * the location in requests that you want to search, and other settings.
      * 
      */
-    private UndeferrableValue<List<ByteMatchSetByteMatchTupleArgs>> byteMatchTuples;
-
+    @PolicyResourceProperty(name="byteMatchTuples", flag="unknown_byteMatchTuples")
+    private List<ByteMatchSetByteMatchTupleArgs> value_byteMatchTuples;
+    private boolean unknown_byteMatchTuples;
     public List<ByteMatchSetByteMatchTupleArgs> byteMatchTuples() {
-        if (byteMatchTuples == null) return null;
-        return byteMatchTuples.getValue("ByteMatchSetArgs.byteMatchTuples");
+        if (!unknown_byteMatchTuples) return value_byteMatchTuples;
+        throw new UndeferrableValueException("Value 'ByteMatchSetArgs.byteMatchTuples' is not present");
     }
 
     /**
      * The name or description of the Byte Match Set.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ByteMatchSetArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ByteMatchSetArgs.name' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs {
      * String map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
      * 
      */
-    private UndeferrableValue<Map<String,String>> attributes;
-
+    @PolicyResourceProperty(name="attributes", flag="unknown_attributes")
+    private Map<String,String> value_attributes;
+    private boolean unknown_attributes;
     public Map<String,String> attributes() {
-        if (attributes == null) return null;
-        return attributes.getValue("VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs.attributes");
+        if (!unknown_attributes) return value_attributes;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs.attributes' is not present");
     }
 
     /**
@@ -27,22 +29,24 @@ public final class VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs {
      * Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
      * 
      */
-    private UndeferrableValue<String> namespaceName;
-
+    @PolicyResourceProperty(name="namespaceName", flag="unknown_namespaceName")
+    private String value_namespaceName;
+    private boolean unknown_namespaceName;
     public String namespaceName() {
-        if (namespaceName == null) return null;
-        return namespaceName.getValue("VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs.namespaceName");
+        if (!unknown_namespaceName) return value_namespaceName;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs.namespaceName' is not present");
     }
 
     /**
      * Name of the AWS Cloud Map service to use. Use the `aws.servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
      * 
      */
-    private UndeferrableValue<String> serviceName;
-
+    @PolicyResourceProperty(name="serviceName", flag="unknown_serviceName")
+    private String value_serviceName;
+    private boolean unknown_serviceName;
     public String serviceName() {
-        if (serviceName == null) return null;
-        return serviceName.getValue("VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs.serviceName");
+        if (!unknown_serviceName) return value_serviceName;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs.serviceName' is not present");
     }
 
 }

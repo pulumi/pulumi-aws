@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.enums.PlacementStrategy;
 import java.lang.Integer;
@@ -19,11 +20,12 @@ public final class PlacementGroupArgs extends com.pulumi.resources.PolicyResourc
      * The name of the placement group.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PlacementGroupArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PlacementGroupArgs.name' is not present");
     }
 
     /**
@@ -32,11 +34,12 @@ public final class PlacementGroupArgs extends com.pulumi.resources.PolicyResourc
      * `partition`.  Valid values are 1 - 7 (default is `2`).
      * 
      */
-    private UndeferrableValue<Integer> partitionCount;
-
+    @PolicyResourceProperty(name="partitionCount", flag="unknown_partitionCount")
+    private Integer value_partitionCount;
+    private boolean unknown_partitionCount;
     public Integer partitionCount() {
-        if (partitionCount == null) return null;
-        return partitionCount.getValue("PlacementGroupArgs.partitionCount");
+        if (!unknown_partitionCount) return value_partitionCount;
+        throw new UndeferrableValueException("Value 'PlacementGroupArgs.partitionCount' is not present");
     }
 
     /**
@@ -44,33 +47,36 @@ public final class PlacementGroupArgs extends com.pulumi.resources.PolicyResourc
      * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
      * 
      */
-    private UndeferrableValue<String> spreadLevel;
-
+    @PolicyResourceProperty(name="spreadLevel", flag="unknown_spreadLevel")
+    private String value_spreadLevel;
+    private boolean unknown_spreadLevel;
     public String spreadLevel() {
-        if (spreadLevel == null) return null;
-        return spreadLevel.getValue("PlacementGroupArgs.spreadLevel");
+        if (!unknown_spreadLevel) return value_spreadLevel;
+        throw new UndeferrableValueException("Value 'PlacementGroupArgs.spreadLevel' is not present");
     }
 
     /**
      * The placement strategy. Can be `cluster`, `partition` or `spread`.
      * 
      */
-    private UndeferrableValue<String> strategy;
-
+    @PolicyResourceProperty(name="strategy", flag="unknown_strategy")
+    private String value_strategy;
+    private boolean unknown_strategy;
     public String strategy() {
-        if (strategy == null) return null;
-        return strategy.getValue("PlacementGroupArgs.strategy");
+        if (!unknown_strategy) return value_strategy;
+        throw new UndeferrableValueException("Value 'PlacementGroupArgs.strategy' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("PlacementGroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'PlacementGroupArgs.tags' is not present");
     }
 
 }

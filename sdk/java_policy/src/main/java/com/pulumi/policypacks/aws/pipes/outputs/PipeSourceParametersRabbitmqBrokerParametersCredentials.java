@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class PipeSourceParametersRabbitmqBrokerParametersCredentials {
      * The ARN of the Secrets Manager secret containing the credentials.
      * 
      */
-    private UndeferrableValue<String> basicAuth;
-
+    @PolicyResourceProperty(name="basicAuth", flag="unknown_basicAuth")
+    private String value_basicAuth;
+    private boolean unknown_basicAuth;
     public String basicAuth() {
-        if (basicAuth == null) return null;
-        return basicAuth.getValue("PipeSourceParametersRabbitmqBrokerParametersCredentials.basicAuth");
+        if (!unknown_basicAuth) return value_basicAuth;
+        throw new UndeferrableValueException("Value 'PipeSourceParametersRabbitmqBrokerParametersCredentials.basicAuth' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class DataSetFieldFolder {
      * An array of column names to add to the folder. A column can only be in one folder.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> columns;
-
+    @PolicyResourceProperty(name="columns", flag="unknown_columns")
+    private @Nullable List<String> value_columns;
+    private boolean unknown_columns;
     public @Nullable List<String> columns() {
-        if (columns == null) return null;
-        return columns.getValue("DataSetFieldFolder.columns");
+        if (!unknown_columns) return value_columns;
+        throw new UndeferrableValueException("Value 'DataSetFieldFolder.columns' is not present");
     }
 
     /**
      * Field folder description.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("DataSetFieldFolder.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'DataSetFieldFolder.description' is not present");
     }
 
     /**
      * Key of the field folder map.
      * 
      */
-    private UndeferrableValue<String> fieldFoldersId;
-
+    @PolicyResourceProperty(name="fieldFoldersId", flag="unknown_fieldFoldersId")
+    private String value_fieldFoldersId;
+    private boolean unknown_fieldFoldersId;
     public String fieldFoldersId() {
-        if (fieldFoldersId == null) return null;
-        return fieldFoldersId.getValue("DataSetFieldFolder.fieldFoldersId");
+        if (!unknown_fieldFoldersId) return value_fieldFoldersId;
+        throw new UndeferrableValueException("Value 'DataSetFieldFolder.fieldFoldersId' is not present");
     }
 
 }

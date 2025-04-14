@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ivschat.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -15,11 +16,12 @@ public final class LoggingConfigurationDestinationConfigurationS3 {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("LoggingConfigurationDestinationConfigurationS3.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'LoggingConfigurationDestinationConfigurationS3.bucketName' is not present");
     }
 
 }

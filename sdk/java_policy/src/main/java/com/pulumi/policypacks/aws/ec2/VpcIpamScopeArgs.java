@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class VpcIpamScopeArgs extends com.pulumi.resources.PolicyResourceI
      * A description for the scope you&#39;re creating.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("VpcIpamScopeArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'VpcIpamScopeArgs.description' is not present");
     }
 
     /**
      * The ID of the IPAM for which you&#39;re creating this scope.
      * 
      */
-    private UndeferrableValue<String> ipamId;
-
+    @PolicyResourceProperty(name="ipamId", flag="unknown_ipamId")
+    private String value_ipamId;
+    private boolean unknown_ipamId;
     public String ipamId() {
-        if (ipamId == null) return null;
-        return ipamId.getValue("VpcIpamScopeArgs.ipamId");
+        if (!unknown_ipamId) return value_ipamId;
+        throw new UndeferrableValueException("Value 'VpcIpamScopeArgs.ipamId' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VpcIpamScopeArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VpcIpamScopeArgs.tags' is not present");
     }
 
 }

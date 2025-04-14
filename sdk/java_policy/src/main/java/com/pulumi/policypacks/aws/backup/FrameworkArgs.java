@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.backup.inputs.FrameworkControlArgs;
 import java.lang.String;
@@ -19,44 +20,48 @@ public final class FrameworkArgs extends com.pulumi.resources.PolicyResourceInpu
      * One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
      * 
      */
-    private UndeferrableValue<List<FrameworkControlArgs>> controls;
-
+    @PolicyResourceProperty(name="controls", flag="unknown_controls")
+    private List<FrameworkControlArgs> value_controls;
+    private boolean unknown_controls;
     public List<FrameworkControlArgs> controls() {
-        if (controls == null) return null;
-        return controls.getValue("FrameworkArgs.controls");
+        if (!unknown_controls) return value_controls;
+        throw new UndeferrableValueException("Value 'FrameworkArgs.controls' is not present");
     }
 
     /**
      * The description of the framework with a maximum of 1,024 characters
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("FrameworkArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'FrameworkArgs.description' is not present");
     }
 
     /**
      * The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("FrameworkArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FrameworkArgs.name' is not present");
     }
 
     /**
      * Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("FrameworkArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'FrameworkArgs.tags' is not present");
     }
 
 }

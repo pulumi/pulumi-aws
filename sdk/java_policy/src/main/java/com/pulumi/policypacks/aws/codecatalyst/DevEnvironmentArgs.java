@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codecatalyst;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.codecatalyst.inputs.DevEnvironmentIdesArgs;
 import com.pulumi.policypacks.aws.codecatalyst.inputs.DevEnvironmentPersistentStorageArgs;
@@ -17,33 +18,36 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:codecatalyst/devEnvironment:DevEnvironment")
 public final class DevEnvironmentArgs extends com.pulumi.resources.PolicyResourceInput {
 
-    private UndeferrableValue<String> alias;
-
+    @PolicyResourceProperty(name="alias", flag="unknown_alias")
+    private String value_alias;
+    private boolean unknown_alias;
     public String alias() {
-        if (alias == null) return null;
-        return alias.getValue("DevEnvironmentArgs.alias");
+        if (!unknown_alias) return value_alias;
+        throw new UndeferrableValueException("Value 'DevEnvironmentArgs.alias' is not present");
     }
 
     /**
      * Information about the integrated development environment (IDE) configured for a Dev Environment.
      * 
      */
-    private UndeferrableValue<DevEnvironmentIdesArgs> ides;
-
+    @PolicyResourceProperty(name="ides", flag="unknown_ides")
+    private DevEnvironmentIdesArgs value_ides;
+    private boolean unknown_ides;
     public DevEnvironmentIdesArgs ides() {
-        if (ides == null) return null;
-        return ides.getValue("DevEnvironmentArgs.ides");
+        if (!unknown_ides) return value_ides;
+        throw new UndeferrableValueException("Value 'DevEnvironmentArgs.ides' is not present");
     }
 
     /**
      * The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
      * 
      */
-    private UndeferrableValue<Integer> inactivityTimeoutMinutes;
-
+    @PolicyResourceProperty(name="inactivityTimeoutMinutes", flag="unknown_inactivityTimeoutMinutes")
+    private Integer value_inactivityTimeoutMinutes;
+    private boolean unknown_inactivityTimeoutMinutes;
     public Integer inactivityTimeoutMinutes() {
-        if (inactivityTimeoutMinutes == null) return null;
-        return inactivityTimeoutMinutes.getValue("DevEnvironmentArgs.inactivityTimeoutMinutes");
+        if (!unknown_inactivityTimeoutMinutes) return value_inactivityTimeoutMinutes;
+        throw new UndeferrableValueException("Value 'DevEnvironmentArgs.inactivityTimeoutMinutes' is not present");
     }
 
     /**
@@ -52,55 +56,60 @@ public final class DevEnvironmentArgs extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("DevEnvironmentArgs.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'DevEnvironmentArgs.instanceType' is not present");
     }
 
     /**
      * Information about the amount of storage allocated to the Dev Environment.
      * 
      */
-    private UndeferrableValue<DevEnvironmentPersistentStorageArgs> persistentStorage;
-
+    @PolicyResourceProperty(name="persistentStorage", flag="unknown_persistentStorage")
+    private DevEnvironmentPersistentStorageArgs value_persistentStorage;
+    private boolean unknown_persistentStorage;
     public DevEnvironmentPersistentStorageArgs persistentStorage() {
-        if (persistentStorage == null) return null;
-        return persistentStorage.getValue("DevEnvironmentArgs.persistentStorage");
+        if (!unknown_persistentStorage) return value_persistentStorage;
+        throw new UndeferrableValueException("Value 'DevEnvironmentArgs.persistentStorage' is not present");
     }
 
     /**
      * The name of the project in the space.
      * 
      */
-    private UndeferrableValue<String> projectName;
-
+    @PolicyResourceProperty(name="projectName", flag="unknown_projectName")
+    private String value_projectName;
+    private boolean unknown_projectName;
     public String projectName() {
-        if (projectName == null) return null;
-        return projectName.getValue("DevEnvironmentArgs.projectName");
+        if (!unknown_projectName) return value_projectName;
+        throw new UndeferrableValueException("Value 'DevEnvironmentArgs.projectName' is not present");
     }
 
     /**
      * The source repository that contains the branch to clone into the Dev Environment.
      * 
      */
-    private UndeferrableValue<List<DevEnvironmentRepositoryArgs>> repositories;
-
+    @PolicyResourceProperty(name="repositories", flag="unknown_repositories")
+    private List<DevEnvironmentRepositoryArgs> value_repositories;
+    private boolean unknown_repositories;
     public List<DevEnvironmentRepositoryArgs> repositories() {
-        if (repositories == null) return null;
-        return repositories.getValue("DevEnvironmentArgs.repositories");
+        if (!unknown_repositories) return value_repositories;
+        throw new UndeferrableValueException("Value 'DevEnvironmentArgs.repositories' is not present");
     }
 
     /**
      * The name of the space.
      * 
      */
-    private UndeferrableValue<String> spaceName;
-
+    @PolicyResourceProperty(name="spaceName", flag="unknown_spaceName")
+    private String value_spaceName;
+    private boolean unknown_spaceName;
     public String spaceName() {
-        if (spaceName == null) return null;
-        return spaceName.getValue("DevEnvironmentArgs.spaceName");
+        if (!unknown_spaceName) return value_spaceName;
+        throw new UndeferrableValueException("Value 'DevEnvironmentArgs.spaceName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.datazone.outputs.DomainSingleSignOn;
 import com.pulumi.policypacks.aws.datazone.outputs.DomainTimeouts;
@@ -20,22 +21,24 @@ public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the Domain.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Domain.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Domain.arn' is not present");
     }
 
     /**
      * Description of the Domain.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Domain.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Domain.description' is not present");
     }
 
     /**
@@ -44,73 +47,80 @@ public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> domainExecutionRole;
-
+    @PolicyResourceProperty(name="domainExecutionRole", flag="unknown_domainExecutionRole")
+    private String value_domainExecutionRole;
+    private boolean unknown_domainExecutionRole;
     public String domainExecutionRole() {
-        if (domainExecutionRole == null) return null;
-        return domainExecutionRole.getValue("Domain.domainExecutionRole");
+        if (!unknown_domainExecutionRole) return value_domainExecutionRole;
+        throw new UndeferrableValueException("Value 'Domain.domainExecutionRole' is not present");
     }
 
     /**
      * ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyIdentifier;
-
+    @PolicyResourceProperty(name="kmsKeyIdentifier", flag="unknown_kmsKeyIdentifier")
+    private @Nullable String value_kmsKeyIdentifier;
+    private boolean unknown_kmsKeyIdentifier;
     public @Nullable String kmsKeyIdentifier() {
-        if (kmsKeyIdentifier == null) return null;
-        return kmsKeyIdentifier.getValue("Domain.kmsKeyIdentifier");
+        if (!unknown_kmsKeyIdentifier) return value_kmsKeyIdentifier;
+        throw new UndeferrableValueException("Value 'Domain.kmsKeyIdentifier' is not present");
     }
 
     /**
      * Name of the Domain.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Domain.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Domain.name' is not present");
     }
 
     /**
      * URL of the data portal for the Domain.
      * 
      */
-    private UndeferrableValue<String> portalUrl;
-
+    @PolicyResourceProperty(name="portalUrl", flag="unknown_portalUrl")
+    private String value_portalUrl;
+    private boolean unknown_portalUrl;
     public String portalUrl() {
-        if (portalUrl == null) return null;
-        return portalUrl.getValue("Domain.portalUrl");
+        if (!unknown_portalUrl) return value_portalUrl;
+        throw new UndeferrableValueException("Value 'Domain.portalUrl' is not present");
     }
 
     /**
      * Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
      * 
      */
-    private @Nullable UndeferrableValue<DomainSingleSignOn> singleSignOn;
-
+    @PolicyResourceProperty(name="singleSignOn", flag="unknown_singleSignOn")
+    private @Nullable DomainSingleSignOn value_singleSignOn;
+    private boolean unknown_singleSignOn;
     public @Nullable DomainSingleSignOn singleSignOn() {
-        if (singleSignOn == null) return null;
-        return singleSignOn.getValue("Domain.singleSignOn");
+        if (!unknown_singleSignOn) return value_singleSignOn;
+        throw new UndeferrableValueException("Value 'Domain.singleSignOn' is not present");
     }
 
     /**
      * Whether to skip the deletion check for the Domain.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> skipDeletionCheck;
-
+    @PolicyResourceProperty(name="skipDeletionCheck", flag="unknown_skipDeletionCheck")
+    private @Nullable Boolean value_skipDeletionCheck;
+    private boolean unknown_skipDeletionCheck;
     public @Nullable Boolean skipDeletionCheck() {
-        if (skipDeletionCheck == null) return null;
-        return skipDeletionCheck.getValue("Domain.skipDeletionCheck");
+        if (!unknown_skipDeletionCheck) return value_skipDeletionCheck;
+        throw new UndeferrableValueException("Value 'Domain.skipDeletionCheck' is not present");
     }
 
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Domain.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Domain.tags' is not present");
     }
 
     /**
@@ -121,18 +131,20 @@ public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Domain.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Domain.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<DomainTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable DomainTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable DomainTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("Domain.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'Domain.timeouts' is not present");
     }
 
 }

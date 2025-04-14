@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclDefaultActionAllowArgs;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclDefaultActionBlockArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class WebAclDefaultActionArgs {
      * Specifies that AWS WAF should allow requests by default. See `allow` below for details.
      * 
      */
-    private UndeferrableValue<WebAclDefaultActionAllowArgs> allow;
-
+    @PolicyResourceProperty(name="allow", flag="unknown_allow")
+    private WebAclDefaultActionAllowArgs value_allow;
+    private boolean unknown_allow;
     public WebAclDefaultActionAllowArgs allow() {
-        if (allow == null) return null;
-        return allow.getValue("WebAclDefaultActionArgs.allow");
+        if (!unknown_allow) return value_allow;
+        throw new UndeferrableValueException("Value 'WebAclDefaultActionArgs.allow' is not present");
     }
 
     /**
      * Specifies that AWS WAF should block requests by default. See `block` below for details.
      * 
      */
-    private UndeferrableValue<WebAclDefaultActionBlockArgs> block;
-
+    @PolicyResourceProperty(name="block", flag="unknown_block")
+    private WebAclDefaultActionBlockArgs value_block;
+    private boolean unknown_block;
     public WebAclDefaultActionBlockArgs block() {
-        if (block == null) return null;
-        return block.getValue("WebAclDefaultActionArgs.block");
+        if (!unknown_block) return value_block;
+        throw new UndeferrableValueException("Value 'WebAclDefaultActionArgs.block' is not present");
     }
 
 }

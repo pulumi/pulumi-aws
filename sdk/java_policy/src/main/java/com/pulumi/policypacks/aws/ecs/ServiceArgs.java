@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ecs.inputs.ServiceAlarmsArgs;
 import com.pulumi.policypacks.aws.ecs.inputs.ServiceCapacityProviderStrategyArgs;
@@ -32,132 +33,144 @@ public final class ServiceArgs extends com.pulumi.resources.PolicyResourceInput 
      * Information about the CloudWatch alarms. See below.
      * 
      */
-    private UndeferrableValue<ServiceAlarmsArgs> alarms;
-
+    @PolicyResourceProperty(name="alarms", flag="unknown_alarms")
+    private ServiceAlarmsArgs value_alarms;
+    private boolean unknown_alarms;
     public ServiceAlarmsArgs alarms() {
-        if (alarms == null) return null;
-        return alarms.getValue("ServiceArgs.alarms");
+        if (!unknown_alarms) return value_alarms;
+        throw new UndeferrableValueException("Value 'ServiceArgs.alarms' is not present");
     }
 
     /**
      * ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> availabilityZoneRebalancing;
-
+    @PolicyResourceProperty(name="availabilityZoneRebalancing", flag="unknown_availabilityZoneRebalancing")
+    private String value_availabilityZoneRebalancing;
+    private boolean unknown_availabilityZoneRebalancing;
     public String availabilityZoneRebalancing() {
-        if (availabilityZoneRebalancing == null) return null;
-        return availabilityZoneRebalancing.getValue("ServiceArgs.availabilityZoneRebalancing");
+        if (!unknown_availabilityZoneRebalancing) return value_availabilityZoneRebalancing;
+        throw new UndeferrableValueException("Value 'ServiceArgs.availabilityZoneRebalancing' is not present");
     }
 
     /**
      * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
      * 
      */
-    private UndeferrableValue<List<ServiceCapacityProviderStrategyArgs>> capacityProviderStrategies;
-
+    @PolicyResourceProperty(name="capacityProviderStrategies", flag="unknown_capacityProviderStrategies")
+    private List<ServiceCapacityProviderStrategyArgs> value_capacityProviderStrategies;
+    private boolean unknown_capacityProviderStrategies;
     public List<ServiceCapacityProviderStrategyArgs> capacityProviderStrategies() {
-        if (capacityProviderStrategies == null) return null;
-        return capacityProviderStrategies.getValue("ServiceArgs.capacityProviderStrategies");
+        if (!unknown_capacityProviderStrategies) return value_capacityProviderStrategies;
+        throw new UndeferrableValueException("Value 'ServiceArgs.capacityProviderStrategies' is not present");
     }
 
     /**
      * ARN of an ECS cluster.
      * 
      */
-    private UndeferrableValue<String> cluster;
-
+    @PolicyResourceProperty(name="cluster", flag="unknown_cluster")
+    private String value_cluster;
+    private boolean unknown_cluster;
     public String cluster() {
-        if (cluster == null) return null;
-        return cluster.getValue("ServiceArgs.cluster");
+        if (!unknown_cluster) return value_cluster;
+        throw new UndeferrableValueException("Value 'ServiceArgs.cluster' is not present");
     }
 
     /**
      * Configuration block for deployment circuit breaker. See below.
      * 
      */
-    private UndeferrableValue<ServiceDeploymentCircuitBreakerArgs> deploymentCircuitBreaker;
-
+    @PolicyResourceProperty(name="deploymentCircuitBreaker", flag="unknown_deploymentCircuitBreaker")
+    private ServiceDeploymentCircuitBreakerArgs value_deploymentCircuitBreaker;
+    private boolean unknown_deploymentCircuitBreaker;
     public ServiceDeploymentCircuitBreakerArgs deploymentCircuitBreaker() {
-        if (deploymentCircuitBreaker == null) return null;
-        return deploymentCircuitBreaker.getValue("ServiceArgs.deploymentCircuitBreaker");
+        if (!unknown_deploymentCircuitBreaker) return value_deploymentCircuitBreaker;
+        throw new UndeferrableValueException("Value 'ServiceArgs.deploymentCircuitBreaker' is not present");
     }
 
     /**
      * Configuration block for deployment controller configuration. See below.
      * 
      */
-    private UndeferrableValue<ServiceDeploymentControllerArgs> deploymentController;
-
+    @PolicyResourceProperty(name="deploymentController", flag="unknown_deploymentController")
+    private ServiceDeploymentControllerArgs value_deploymentController;
+    private boolean unknown_deploymentController;
     public ServiceDeploymentControllerArgs deploymentController() {
-        if (deploymentController == null) return null;
-        return deploymentController.getValue("ServiceArgs.deploymentController");
+        if (!unknown_deploymentController) return value_deploymentController;
+        throw new UndeferrableValueException("Value 'ServiceArgs.deploymentController' is not present");
     }
 
     /**
      * Upper limit (as a percentage of the service&#39;s desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
      * 
      */
-    private UndeferrableValue<Integer> deploymentMaximumPercent;
-
+    @PolicyResourceProperty(name="deploymentMaximumPercent", flag="unknown_deploymentMaximumPercent")
+    private Integer value_deploymentMaximumPercent;
+    private boolean unknown_deploymentMaximumPercent;
     public Integer deploymentMaximumPercent() {
-        if (deploymentMaximumPercent == null) return null;
-        return deploymentMaximumPercent.getValue("ServiceArgs.deploymentMaximumPercent");
+        if (!unknown_deploymentMaximumPercent) return value_deploymentMaximumPercent;
+        throw new UndeferrableValueException("Value 'ServiceArgs.deploymentMaximumPercent' is not present");
     }
 
     /**
      * Lower limit (as a percentage of the service&#39;s desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
      * 
      */
-    private UndeferrableValue<Integer> deploymentMinimumHealthyPercent;
-
+    @PolicyResourceProperty(name="deploymentMinimumHealthyPercent", flag="unknown_deploymentMinimumHealthyPercent")
+    private Integer value_deploymentMinimumHealthyPercent;
+    private boolean unknown_deploymentMinimumHealthyPercent;
     public Integer deploymentMinimumHealthyPercent() {
-        if (deploymentMinimumHealthyPercent == null) return null;
-        return deploymentMinimumHealthyPercent.getValue("ServiceArgs.deploymentMinimumHealthyPercent");
+        if (!unknown_deploymentMinimumHealthyPercent) return value_deploymentMinimumHealthyPercent;
+        throw new UndeferrableValueException("Value 'ServiceArgs.deploymentMinimumHealthyPercent' is not present");
     }
 
     /**
      * Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
      * 
      */
-    private UndeferrableValue<Integer> desiredCount;
-
+    @PolicyResourceProperty(name="desiredCount", flag="unknown_desiredCount")
+    private Integer value_desiredCount;
+    private boolean unknown_desiredCount;
     public Integer desiredCount() {
-        if (desiredCount == null) return null;
-        return desiredCount.getValue("ServiceArgs.desiredCount");
+        if (!unknown_desiredCount) return value_desiredCount;
+        throw new UndeferrableValueException("Value 'ServiceArgs.desiredCount' is not present");
     }
 
     /**
      * Whether to enable Amazon ECS managed tags for the tasks within the service.
      * 
      */
-    private UndeferrableValue<Boolean> enableEcsManagedTags;
-
+    @PolicyResourceProperty(name="enableEcsManagedTags", flag="unknown_enableEcsManagedTags")
+    private Boolean value_enableEcsManagedTags;
+    private boolean unknown_enableEcsManagedTags;
     public Boolean enableEcsManagedTags() {
-        if (enableEcsManagedTags == null) return null;
-        return enableEcsManagedTags.getValue("ServiceArgs.enableEcsManagedTags");
+        if (!unknown_enableEcsManagedTags) return value_enableEcsManagedTags;
+        throw new UndeferrableValueException("Value 'ServiceArgs.enableEcsManagedTags' is not present");
     }
 
     /**
      * Whether to enable Amazon ECS Exec for the tasks within the service.
      * 
      */
-    private UndeferrableValue<Boolean> enableExecuteCommand;
-
+    @PolicyResourceProperty(name="enableExecuteCommand", flag="unknown_enableExecuteCommand")
+    private Boolean value_enableExecuteCommand;
+    private boolean unknown_enableExecuteCommand;
     public Boolean enableExecuteCommand() {
-        if (enableExecuteCommand == null) return null;
-        return enableExecuteCommand.getValue("ServiceArgs.enableExecuteCommand");
+        if (!unknown_enableExecuteCommand) return value_enableExecuteCommand;
+        throw new UndeferrableValueException("Value 'ServiceArgs.enableExecuteCommand' is not present");
     }
 
     /**
      * Enable to delete a service even if it wasn&#39;t scaled down to zero tasks. It&#39;s only necessary to use this if the service uses the `REPLICA` scheduling strategy.
      * 
      */
-    private UndeferrableValue<Boolean> forceDelete;
-
+    @PolicyResourceProperty(name="forceDelete", flag="unknown_forceDelete")
+    private Boolean value_forceDelete;
+    private boolean unknown_forceDelete;
     public Boolean forceDelete() {
-        if (forceDelete == null) return null;
-        return forceDelete.getValue("ServiceArgs.forceDelete");
+        if (!unknown_forceDelete) return value_forceDelete;
+        throw new UndeferrableValueException("Value 'ServiceArgs.forceDelete' is not present");
     }
 
     /**
@@ -165,55 +178,60 @@ public final class ServiceArgs extends com.pulumi.resources.PolicyResourceInput 
      * When using the forceNewDeployment property you also need to configure the triggers property.
      * 
      */
-    private UndeferrableValue<Boolean> forceNewDeployment;
-
+    @PolicyResourceProperty(name="forceNewDeployment", flag="unknown_forceNewDeployment")
+    private Boolean value_forceNewDeployment;
+    private boolean unknown_forceNewDeployment;
     public Boolean forceNewDeployment() {
-        if (forceNewDeployment == null) return null;
-        return forceNewDeployment.getValue("ServiceArgs.forceNewDeployment");
+        if (!unknown_forceNewDeployment) return value_forceNewDeployment;
+        throw new UndeferrableValueException("Value 'ServiceArgs.forceNewDeployment' is not present");
     }
 
     /**
      * Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
      * 
      */
-    private UndeferrableValue<Integer> healthCheckGracePeriodSeconds;
-
+    @PolicyResourceProperty(name="healthCheckGracePeriodSeconds", flag="unknown_healthCheckGracePeriodSeconds")
+    private Integer value_healthCheckGracePeriodSeconds;
+    private boolean unknown_healthCheckGracePeriodSeconds;
     public Integer healthCheckGracePeriodSeconds() {
-        if (healthCheckGracePeriodSeconds == null) return null;
-        return healthCheckGracePeriodSeconds.getValue("ServiceArgs.healthCheckGracePeriodSeconds");
+        if (!unknown_healthCheckGracePeriodSeconds) return value_healthCheckGracePeriodSeconds;
+        throw new UndeferrableValueException("Value 'ServiceArgs.healthCheckGracePeriodSeconds' is not present");
     }
 
     /**
      * ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
      * 
      */
-    private UndeferrableValue<String> iamRole;
-
+    @PolicyResourceProperty(name="iamRole", flag="unknown_iamRole")
+    private String value_iamRole;
+    private boolean unknown_iamRole;
     public String iamRole() {
-        if (iamRole == null) return null;
-        return iamRole.getValue("ServiceArgs.iamRole");
+        if (!unknown_iamRole) return value_iamRole;
+        throw new UndeferrableValueException("Value 'ServiceArgs.iamRole' is not present");
     }
 
     /**
      * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`. Conflicts with `capacity_provider_strategy`.
      * 
      */
-    private UndeferrableValue<String> launchType;
-
+    @PolicyResourceProperty(name="launchType", flag="unknown_launchType")
+    private String value_launchType;
+    private boolean unknown_launchType;
     public String launchType() {
-        if (launchType == null) return null;
-        return launchType.getValue("ServiceArgs.launchType");
+        if (!unknown_launchType) return value_launchType;
+        throw new UndeferrableValueException("Value 'ServiceArgs.launchType' is not present");
     }
 
     /**
      * Configuration block for load balancers. See below.
      * 
      */
-    private UndeferrableValue<List<ServiceLoadBalancerArgs>> loadBalancers;
-
+    @PolicyResourceProperty(name="loadBalancers", flag="unknown_loadBalancers")
+    private List<ServiceLoadBalancerArgs> value_loadBalancers;
+    private boolean unknown_loadBalancers;
     public List<ServiceLoadBalancerArgs> loadBalancers() {
-        if (loadBalancers == null) return null;
-        return loadBalancers.getValue("ServiceArgs.loadBalancers");
+        if (!unknown_loadBalancers) return value_loadBalancers;
+        throw new UndeferrableValueException("Value 'ServiceArgs.loadBalancers' is not present");
     }
 
     /**
@@ -222,165 +240,180 @@ public final class ServiceArgs extends com.pulumi.resources.PolicyResourceInput 
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ServiceArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ServiceArgs.name' is not present");
     }
 
     /**
      * Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
      * 
      */
-    private UndeferrableValue<ServiceNetworkConfigurationArgs> networkConfiguration;
-
+    @PolicyResourceProperty(name="networkConfiguration", flag="unknown_networkConfiguration")
+    private ServiceNetworkConfigurationArgs value_networkConfiguration;
+    private boolean unknown_networkConfiguration;
     public ServiceNetworkConfigurationArgs networkConfiguration() {
-        if (networkConfiguration == null) return null;
-        return networkConfiguration.getValue("ServiceArgs.networkConfiguration");
+        if (!unknown_networkConfiguration) return value_networkConfiguration;
+        throw new UndeferrableValueException("Value 'ServiceArgs.networkConfiguration' is not present");
     }
 
     /**
      * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
      * 
      */
-    private UndeferrableValue<List<ServiceOrderedPlacementStrategyArgs>> orderedPlacementStrategies;
-
+    @PolicyResourceProperty(name="orderedPlacementStrategies", flag="unknown_orderedPlacementStrategies")
+    private List<ServiceOrderedPlacementStrategyArgs> value_orderedPlacementStrategies;
+    private boolean unknown_orderedPlacementStrategies;
     public List<ServiceOrderedPlacementStrategyArgs> orderedPlacementStrategies() {
-        if (orderedPlacementStrategies == null) return null;
-        return orderedPlacementStrategies.getValue("ServiceArgs.orderedPlacementStrategies");
+        if (!unknown_orderedPlacementStrategies) return value_orderedPlacementStrategies;
+        throw new UndeferrableValueException("Value 'ServiceArgs.orderedPlacementStrategies' is not present");
     }
 
     /**
      * Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
      * 
      */
-    private UndeferrableValue<List<ServicePlacementConstraintArgs>> placementConstraints;
-
+    @PolicyResourceProperty(name="placementConstraints", flag="unknown_placementConstraints")
+    private List<ServicePlacementConstraintArgs> value_placementConstraints;
+    private boolean unknown_placementConstraints;
     public List<ServicePlacementConstraintArgs> placementConstraints() {
-        if (placementConstraints == null) return null;
-        return placementConstraints.getValue("ServiceArgs.placementConstraints");
+        if (!unknown_placementConstraints) return value_placementConstraints;
+        throw new UndeferrableValueException("Value 'ServiceArgs.placementConstraints' is not present");
     }
 
     /**
      * Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      * 
      */
-    private UndeferrableValue<String> platformVersion;
-
+    @PolicyResourceProperty(name="platformVersion", flag="unknown_platformVersion")
+    private String value_platformVersion;
+    private boolean unknown_platformVersion;
     public String platformVersion() {
-        if (platformVersion == null) return null;
-        return platformVersion.getValue("ServiceArgs.platformVersion");
+        if (!unknown_platformVersion) return value_platformVersion;
+        throw new UndeferrableValueException("Value 'ServiceArgs.platformVersion' is not present");
     }
 
     /**
      * Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
      * 
      */
-    private UndeferrableValue<String> propagateTags;
-
+    @PolicyResourceProperty(name="propagateTags", flag="unknown_propagateTags")
+    private String value_propagateTags;
+    private boolean unknown_propagateTags;
     public String propagateTags() {
-        if (propagateTags == null) return null;
-        return propagateTags.getValue("ServiceArgs.propagateTags");
+        if (!unknown_propagateTags) return value_propagateTags;
+        throw new UndeferrableValueException("Value 'ServiceArgs.propagateTags' is not present");
     }
 
     /**
      * Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don&#39;t support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
      * 
      */
-    private UndeferrableValue<String> schedulingStrategy;
-
+    @PolicyResourceProperty(name="schedulingStrategy", flag="unknown_schedulingStrategy")
+    private String value_schedulingStrategy;
+    private boolean unknown_schedulingStrategy;
     public String schedulingStrategy() {
-        if (schedulingStrategy == null) return null;
-        return schedulingStrategy.getValue("ServiceArgs.schedulingStrategy");
+        if (!unknown_schedulingStrategy) return value_schedulingStrategy;
+        throw new UndeferrableValueException("Value 'ServiceArgs.schedulingStrategy' is not present");
     }
 
     /**
      * ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
      * 
      */
-    private UndeferrableValue<ServiceServiceConnectConfigurationArgs> serviceConnectConfiguration;
-
+    @PolicyResourceProperty(name="serviceConnectConfiguration", flag="unknown_serviceConnectConfiguration")
+    private ServiceServiceConnectConfigurationArgs value_serviceConnectConfiguration;
+    private boolean unknown_serviceConnectConfiguration;
     public ServiceServiceConnectConfigurationArgs serviceConnectConfiguration() {
-        if (serviceConnectConfiguration == null) return null;
-        return serviceConnectConfiguration.getValue("ServiceArgs.serviceConnectConfiguration");
+        if (!unknown_serviceConnectConfiguration) return value_serviceConnectConfiguration;
+        throw new UndeferrableValueException("Value 'ServiceArgs.serviceConnectConfiguration' is not present");
     }
 
     /**
      * Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
      * 
      */
-    private UndeferrableValue<ServiceServiceRegistriesArgs> serviceRegistries;
-
+    @PolicyResourceProperty(name="serviceRegistries", flag="unknown_serviceRegistries")
+    private ServiceServiceRegistriesArgs value_serviceRegistries;
+    private boolean unknown_serviceRegistries;
     public ServiceServiceRegistriesArgs serviceRegistries() {
-        if (serviceRegistries == null) return null;
-        return serviceRegistries.getValue("ServiceArgs.serviceRegistries");
+        if (!unknown_serviceRegistries) return value_serviceRegistries;
+        throw new UndeferrableValueException("Value 'ServiceArgs.serviceRegistries' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ServiceArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ServiceArgs.tags' is not present");
     }
 
     /**
      * Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
      * 
      */
-    private UndeferrableValue<String> taskDefinition;
-
+    @PolicyResourceProperty(name="taskDefinition", flag="unknown_taskDefinition")
+    private String value_taskDefinition;
+    private boolean unknown_taskDefinition;
     public String taskDefinition() {
-        if (taskDefinition == null) return null;
-        return taskDefinition.getValue("ServiceArgs.taskDefinition");
+        if (!unknown_taskDefinition) return value_taskDefinition;
+        throw new UndeferrableValueException("Value 'ServiceArgs.taskDefinition' is not present");
     }
 
     /**
      * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `&#34;plantimestamp()&#34;`. When using the triggers property you also need to set the forceNewDeployment property to True.
      * 
      */
-    private UndeferrableValue<Map<String,String>> triggers;
-
+    @PolicyResourceProperty(name="triggers", flag="unknown_triggers")
+    private Map<String,String> value_triggers;
+    private boolean unknown_triggers;
     public Map<String,String> triggers() {
-        if (triggers == null) return null;
-        return triggers.getValue("ServiceArgs.triggers");
+        if (!unknown_triggers) return value_triggers;
+        throw new UndeferrableValueException("Value 'ServiceArgs.triggers' is not present");
     }
 
     /**
      * Configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume. See below.
      * 
      */
-    private UndeferrableValue<ServiceVolumeConfigurationArgs> volumeConfiguration;
-
+    @PolicyResourceProperty(name="volumeConfiguration", flag="unknown_volumeConfiguration")
+    private ServiceVolumeConfigurationArgs value_volumeConfiguration;
+    private boolean unknown_volumeConfiguration;
     public ServiceVolumeConfigurationArgs volumeConfiguration() {
-        if (volumeConfiguration == null) return null;
-        return volumeConfiguration.getValue("ServiceArgs.volumeConfiguration");
+        if (!unknown_volumeConfiguration) return value_volumeConfiguration;
+        throw new UndeferrableValueException("Value 'ServiceArgs.volumeConfiguration' is not present");
     }
 
     /**
      * The VPC Lattice configuration for your service that allows Lattice to connect, secure, and monitor your service across multiple accounts and VPCs. See below.
      * 
      */
-    private UndeferrableValue<List<ServiceVpcLatticeConfigurationArgs>> vpcLatticeConfigurations;
-
+    @PolicyResourceProperty(name="vpcLatticeConfigurations", flag="unknown_vpcLatticeConfigurations")
+    private List<ServiceVpcLatticeConfigurationArgs> value_vpcLatticeConfigurations;
+    private boolean unknown_vpcLatticeConfigurations;
     public List<ServiceVpcLatticeConfigurationArgs> vpcLatticeConfigurations() {
-        if (vpcLatticeConfigurations == null) return null;
-        return vpcLatticeConfigurations.getValue("ServiceArgs.vpcLatticeConfigurations");
+        if (!unknown_vpcLatticeConfigurations) return value_vpcLatticeConfigurations;
+        throw new UndeferrableValueException("Value 'ServiceArgs.vpcLatticeConfigurations' is not present");
     }
 
     /**
      * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
      * 
      */
-    private UndeferrableValue<Boolean> waitForSteadyState;
-
+    @PolicyResourceProperty(name="waitForSteadyState", flag="unknown_waitForSteadyState")
+    private Boolean value_waitForSteadyState;
+    private boolean unknown_waitForSteadyState;
     public Boolean waitForSteadyState() {
-        if (waitForSteadyState == null) return null;
-        return waitForSteadyState.getValue("ServiceArgs.waitForSteadyState");
+        if (!unknown_waitForSteadyState) return value_waitForSteadyState;
+        throw new UndeferrableValueException("Value 'ServiceArgs.waitForSteadyState' is not present");
     }
 
 }

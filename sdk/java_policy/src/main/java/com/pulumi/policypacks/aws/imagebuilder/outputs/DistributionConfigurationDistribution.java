@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.imagebuilder.outputs.DistributionConfigurationDistributionAmiDistributionConfiguration;
 import com.pulumi.policypacks.aws.imagebuilder.outputs.DistributionConfigurationDistributionContainerDistributionConfiguration;
 import com.pulumi.policypacks.aws.imagebuilder.outputs.DistributionConfigurationDistributionFastLaunchConfiguration;
@@ -20,55 +21,60 @@ public final class DistributionConfigurationDistribution {
      * Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<DistributionConfigurationDistributionAmiDistributionConfiguration> amiDistributionConfiguration;
-
+    @PolicyResourceProperty(name="amiDistributionConfiguration", flag="unknown_amiDistributionConfiguration")
+    private @Nullable DistributionConfigurationDistributionAmiDistributionConfiguration value_amiDistributionConfiguration;
+    private boolean unknown_amiDistributionConfiguration;
     public @Nullable DistributionConfigurationDistributionAmiDistributionConfiguration amiDistributionConfiguration() {
-        if (amiDistributionConfiguration == null) return null;
-        return amiDistributionConfiguration.getValue("DistributionConfigurationDistribution.amiDistributionConfiguration");
+        if (!unknown_amiDistributionConfiguration) return value_amiDistributionConfiguration;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistribution.amiDistributionConfiguration' is not present");
     }
 
     /**
      * Configuration block with container distribution settings. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<DistributionConfigurationDistributionContainerDistributionConfiguration> containerDistributionConfiguration;
-
+    @PolicyResourceProperty(name="containerDistributionConfiguration", flag="unknown_containerDistributionConfiguration")
+    private @Nullable DistributionConfigurationDistributionContainerDistributionConfiguration value_containerDistributionConfiguration;
+    private boolean unknown_containerDistributionConfiguration;
     public @Nullable DistributionConfigurationDistributionContainerDistributionConfiguration containerDistributionConfiguration() {
-        if (containerDistributionConfiguration == null) return null;
-        return containerDistributionConfiguration.getValue("DistributionConfigurationDistribution.containerDistributionConfiguration");
+        if (!unknown_containerDistributionConfiguration) return value_containerDistributionConfiguration;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistribution.containerDistributionConfiguration' is not present");
     }
 
     /**
      * Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<DistributionConfigurationDistributionFastLaunchConfiguration>> fastLaunchConfigurations;
-
+    @PolicyResourceProperty(name="fastLaunchConfigurations", flag="unknown_fastLaunchConfigurations")
+    private @Nullable List<DistributionConfigurationDistributionFastLaunchConfiguration> value_fastLaunchConfigurations;
+    private boolean unknown_fastLaunchConfigurations;
     public @Nullable List<DistributionConfigurationDistributionFastLaunchConfiguration> fastLaunchConfigurations() {
-        if (fastLaunchConfigurations == null) return null;
-        return fastLaunchConfigurations.getValue("DistributionConfigurationDistribution.fastLaunchConfigurations");
+        if (!unknown_fastLaunchConfigurations) return value_fastLaunchConfigurations;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistribution.fastLaunchConfigurations' is not present");
     }
 
     /**
      * Set of launch template configuration settings that apply to image distribution. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<DistributionConfigurationDistributionLaunchTemplateConfiguration>> launchTemplateConfigurations;
-
+    @PolicyResourceProperty(name="launchTemplateConfigurations", flag="unknown_launchTemplateConfigurations")
+    private @Nullable List<DistributionConfigurationDistributionLaunchTemplateConfiguration> value_launchTemplateConfigurations;
+    private boolean unknown_launchTemplateConfigurations;
     public @Nullable List<DistributionConfigurationDistributionLaunchTemplateConfiguration> launchTemplateConfigurations() {
-        if (launchTemplateConfigurations == null) return null;
-        return launchTemplateConfigurations.getValue("DistributionConfigurationDistribution.launchTemplateConfigurations");
+        if (!unknown_launchTemplateConfigurations) return value_launchTemplateConfigurations;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistribution.launchTemplateConfigurations' is not present");
     }
 
     /**
      * Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> licenseConfigurationArns;
-
+    @PolicyResourceProperty(name="licenseConfigurationArns", flag="unknown_licenseConfigurationArns")
+    private @Nullable List<String> value_licenseConfigurationArns;
+    private boolean unknown_licenseConfigurationArns;
     public @Nullable List<String> licenseConfigurationArns() {
-        if (licenseConfigurationArns == null) return null;
-        return licenseConfigurationArns.getValue("DistributionConfigurationDistribution.licenseConfigurationArns");
+        if (!unknown_licenseConfigurationArns) return value_licenseConfigurationArns;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistribution.licenseConfigurationArns' is not present");
     }
 
     /**
@@ -77,22 +83,24 @@ public final class DistributionConfigurationDistribution {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private String value_region;
+    private boolean unknown_region;
     public String region() {
-        if (region == null) return null;
-        return region.getValue("DistributionConfigurationDistribution.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistribution.region' is not present");
     }
 
     /**
      * Configuration block with S3 export settings. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<DistributionConfigurationDistributionS3ExportConfiguration> s3ExportConfiguration;
-
+    @PolicyResourceProperty(name="s3ExportConfiguration", flag="unknown_s3ExportConfiguration")
+    private @Nullable DistributionConfigurationDistributionS3ExportConfiguration value_s3ExportConfiguration;
+    private boolean unknown_s3ExportConfiguration;
     public @Nullable DistributionConfigurationDistributionS3ExportConfiguration s3ExportConfiguration() {
-        if (s3ExportConfiguration == null) return null;
-        return s3ExportConfiguration.getValue("DistributionConfigurationDistribution.s3ExportConfiguration");
+        if (!unknown_s3ExportConfiguration) return value_s3ExportConfiguration;
+        throw new UndeferrableValueException("Value 'DistributionConfigurationDistribution.s3ExportConfiguration' is not present");
     }
 
 }

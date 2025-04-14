@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53domains;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.route53domains.outputs.RegisteredDomainAdminContact;
 import com.pulumi.policypacks.aws.route53domains.outputs.RegisteredDomainBillingContact;
@@ -24,198 +25,216 @@ public final class RegisteredDomain extends com.pulumi.resources.PolicyResourceO
      * Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
      * 
      */
-    private UndeferrableValue<String> abuseContactEmail;
-
+    @PolicyResourceProperty(name="abuseContactEmail", flag="unknown_abuseContactEmail")
+    private String value_abuseContactEmail;
+    private boolean unknown_abuseContactEmail;
     public String abuseContactEmail() {
-        if (abuseContactEmail == null) return null;
-        return abuseContactEmail.getValue("RegisteredDomain.abuseContactEmail");
+        if (!unknown_abuseContactEmail) return value_abuseContactEmail;
+        throw new UndeferrableValueException("Value 'RegisteredDomain.abuseContactEmail' is not present");
     }
 
     /**
      * Phone number for reporting abuse.
      * 
      */
-    private UndeferrableValue<String> abuseContactPhone;
-
+    @PolicyResourceProperty(name="abuseContactPhone", flag="unknown_abuseContactPhone")
+    private String value_abuseContactPhone;
+    private boolean unknown_abuseContactPhone;
     public String abuseContactPhone() {
-        if (abuseContactPhone == null) return null;
-        return abuseContactPhone.getValue("RegisteredDomain.abuseContactPhone");
+        if (!unknown_abuseContactPhone) return value_abuseContactPhone;
+        throw new UndeferrableValueException("Value 'RegisteredDomain.abuseContactPhone' is not present");
     }
 
     /**
      * Details about the domain administrative contact. See Contact Blocks for more details.
      * 
      */
-    private UndeferrableValue<RegisteredDomainAdminContact> adminContact;
-
+    @PolicyResourceProperty(name="adminContact", flag="unknown_adminContact")
+    private RegisteredDomainAdminContact value_adminContact;
+    private boolean unknown_adminContact;
     public RegisteredDomainAdminContact adminContact() {
-        if (adminContact == null) return null;
-        return adminContact.getValue("RegisteredDomain.adminContact");
+        if (!unknown_adminContact) return value_adminContact;
+        throw new UndeferrableValueException("Value 'RegisteredDomain.adminContact' is not present");
     }
 
     /**
      * Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> adminPrivacy;
-
+    @PolicyResourceProperty(name="adminPrivacy", flag="unknown_adminPrivacy")
+    private @Nullable Boolean value_adminPrivacy;
+    private boolean unknown_adminPrivacy;
     public @Nullable Boolean adminPrivacy() {
-        if (adminPrivacy == null) return null;
-        return adminPrivacy.getValue("RegisteredDomain.adminPrivacy");
+        if (!unknown_adminPrivacy) return value_adminPrivacy;
+        throw new UndeferrableValueException("Value 'RegisteredDomain.adminPrivacy' is not present");
     }
 
     /**
      * Whether the domain registration is set to renew automatically. Default: `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> autoRenew;
-
+    @PolicyResourceProperty(name="autoRenew", flag="unknown_autoRenew")
+    private @Nullable Boolean value_autoRenew;
+    private boolean unknown_autoRenew;
     public @Nullable Boolean autoRenew() {
-        if (autoRenew == null) return null;
-        return autoRenew.getValue("RegisteredDomain.autoRenew");
+        if (!unknown_autoRenew) return value_autoRenew;
+        throw new UndeferrableValueException("Value 'RegisteredDomain.autoRenew' is not present");
     }
 
     /**
      * Details about the domain billing contact. See Contact Blocks for more details.
      * 
      */
-    private UndeferrableValue<RegisteredDomainBillingContact> billingContact;
-
+    @PolicyResourceProperty(name="billingContact", flag="unknown_billingContact")
+    private RegisteredDomainBillingContact value_billingContact;
+    private boolean unknown_billingContact;
     public RegisteredDomainBillingContact billingContact() {
-        if (billingContact == null) return null;
-        return billingContact.getValue("RegisteredDomain.billingContact");
+        if (!unknown_billingContact) return value_billingContact;
+        throw new UndeferrableValueException("Value 'RegisteredDomain.billingContact' is not present");
     }
 
     /**
      * Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> billingPrivacy;
-
+    @PolicyResourceProperty(name="billingPrivacy", flag="unknown_billingPrivacy")
+    private @Nullable Boolean value_billingPrivacy;
+    private boolean unknown_billingPrivacy;
     public @Nullable Boolean billingPrivacy() {
-        if (billingPrivacy == null) return null;
-        return billingPrivacy.getValue("RegisteredDomain.billingPrivacy");
+        if (!unknown_billingPrivacy) return value_billingPrivacy;
+        throw new UndeferrableValueException("Value 'RegisteredDomain.billingPrivacy' is not present");
     }
 
     /**
      * The date when the domain was created as found in the response to a WHOIS query.
      * 
      */
-    private UndeferrableValue<String> creationDate;
-
+    @PolicyResourceProperty(name="creationDate", flag="unknown_creationDate")
+    private String value_creationDate;
+    private boolean unknown_creationDate;
     public String creationDate() {
-        if (creationDate == null) return null;
-        return creationDate.getValue("RegisteredDomain.creationDate");
+        if (!unknown_creationDate) return value_creationDate;
+        throw new UndeferrableValueException("Value 'RegisteredDomain.creationDate' is not present");
     }
 
     /**
      * The name of the registered domain.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("RegisteredDomain.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'RegisteredDomain.domainName' is not present");
     }
 
     /**
      * The date when the registration for the domain is set to expire.
      * 
      */
-    private UndeferrableValue<String> expirationDate;
-
+    @PolicyResourceProperty(name="expirationDate", flag="unknown_expirationDate")
+    private String value_expirationDate;
+    private boolean unknown_expirationDate;
     public String expirationDate() {
-        if (expirationDate == null) return null;
-        return expirationDate.getValue("RegisteredDomain.expirationDate");
+        if (!unknown_expirationDate) return value_expirationDate;
+        throw new UndeferrableValueException("Value 'RegisteredDomain.expirationDate' is not present");
     }
 
     /**
      * The list of nameservers for the domain. See `name_server` Blocks for more details.
      * 
      */
-    private UndeferrableValue<List<RegisteredDomainNameServer>> nameServers;
-
+    @PolicyResourceProperty(name="nameServers", flag="unknown_nameServers")
+    private List<RegisteredDomainNameServer> value_nameServers;
+    private boolean unknown_nameServers;
     public List<RegisteredDomainNameServer> nameServers() {
-        if (nameServers == null) return null;
-        return nameServers.getValue("RegisteredDomain.nameServers");
+        if (!unknown_nameServers) return value_nameServers;
+        throw new UndeferrableValueException("Value 'RegisteredDomain.nameServers' is not present");
     }
 
     /**
      * Details about the domain registrant. See Contact Blocks for more details.
      * 
      */
-    private UndeferrableValue<RegisteredDomainRegistrantContact> registrantContact;
-
+    @PolicyResourceProperty(name="registrantContact", flag="unknown_registrantContact")
+    private RegisteredDomainRegistrantContact value_registrantContact;
+    private boolean unknown_registrantContact;
     public RegisteredDomainRegistrantContact registrantContact() {
-        if (registrantContact == null) return null;
-        return registrantContact.getValue("RegisteredDomain.registrantContact");
+        if (!unknown_registrantContact) return value_registrantContact;
+        throw new UndeferrableValueException("Value 'RegisteredDomain.registrantContact' is not present");
     }
 
     /**
      * Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> registrantPrivacy;
-
+    @PolicyResourceProperty(name="registrantPrivacy", flag="unknown_registrantPrivacy")
+    private @Nullable Boolean value_registrantPrivacy;
+    private boolean unknown_registrantPrivacy;
     public @Nullable Boolean registrantPrivacy() {
-        if (registrantPrivacy == null) return null;
-        return registrantPrivacy.getValue("RegisteredDomain.registrantPrivacy");
+        if (!unknown_registrantPrivacy) return value_registrantPrivacy;
+        throw new UndeferrableValueException("Value 'RegisteredDomain.registrantPrivacy' is not present");
     }
 
     /**
      * Name of the registrar of the domain as identified in the registry.
      * 
      */
-    private UndeferrableValue<String> registrarName;
-
+    @PolicyResourceProperty(name="registrarName", flag="unknown_registrarName")
+    private String value_registrarName;
+    private boolean unknown_registrarName;
     public String registrarName() {
-        if (registrarName == null) return null;
-        return registrarName.getValue("RegisteredDomain.registrarName");
+        if (!unknown_registrarName) return value_registrarName;
+        throw new UndeferrableValueException("Value 'RegisteredDomain.registrarName' is not present");
     }
 
     /**
      * Web address of the registrar.
      * 
      */
-    private UndeferrableValue<String> registrarUrl;
-
+    @PolicyResourceProperty(name="registrarUrl", flag="unknown_registrarUrl")
+    private String value_registrarUrl;
+    private boolean unknown_registrarUrl;
     public String registrarUrl() {
-        if (registrarUrl == null) return null;
-        return registrarUrl.getValue("RegisteredDomain.registrarUrl");
+        if (!unknown_registrarUrl) return value_registrarUrl;
+        throw new UndeferrableValueException("Value 'RegisteredDomain.registrarUrl' is not present");
     }
 
     /**
      * Reseller of the domain.
      * 
      */
-    private UndeferrableValue<String> reseller;
-
+    @PolicyResourceProperty(name="reseller", flag="unknown_reseller")
+    private String value_reseller;
+    private boolean unknown_reseller;
     public String reseller() {
-        if (reseller == null) return null;
-        return reseller.getValue("RegisteredDomain.reseller");
+        if (!unknown_reseller) return value_reseller;
+        throw new UndeferrableValueException("Value 'RegisteredDomain.reseller' is not present");
     }
 
     /**
      * List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
      * 
      */
-    private UndeferrableValue<List<String>> statusLists;
-
+    @PolicyResourceProperty(name="statusLists", flag="unknown_statusLists")
+    private List<String> value_statusLists;
+    private boolean unknown_statusLists;
     public List<String> statusLists() {
-        if (statusLists == null) return null;
-        return statusLists.getValue("RegisteredDomain.statusLists");
+        if (!unknown_statusLists) return value_statusLists;
+        throw new UndeferrableValueException("Value 'RegisteredDomain.statusLists' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("RegisteredDomain.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'RegisteredDomain.tags' is not present");
     }
 
     /**
@@ -226,66 +245,72 @@ public final class RegisteredDomain extends com.pulumi.resources.PolicyResourceO
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("RegisteredDomain.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'RegisteredDomain.tagsAll' is not present");
     }
 
     /**
      * Details about the domain technical contact. See Contact Blocks for more details.
      * 
      */
-    private UndeferrableValue<RegisteredDomainTechContact> techContact;
-
+    @PolicyResourceProperty(name="techContact", flag="unknown_techContact")
+    private RegisteredDomainTechContact value_techContact;
+    private boolean unknown_techContact;
     public RegisteredDomainTechContact techContact() {
-        if (techContact == null) return null;
-        return techContact.getValue("RegisteredDomain.techContact");
+        if (!unknown_techContact) return value_techContact;
+        throw new UndeferrableValueException("Value 'RegisteredDomain.techContact' is not present");
     }
 
     /**
      * Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> techPrivacy;
-
+    @PolicyResourceProperty(name="techPrivacy", flag="unknown_techPrivacy")
+    private @Nullable Boolean value_techPrivacy;
+    private boolean unknown_techPrivacy;
     public @Nullable Boolean techPrivacy() {
-        if (techPrivacy == null) return null;
-        return techPrivacy.getValue("RegisteredDomain.techPrivacy");
+        if (!unknown_techPrivacy) return value_techPrivacy;
+        throw new UndeferrableValueException("Value 'RegisteredDomain.techPrivacy' is not present");
     }
 
     /**
      * Whether the domain is locked for transfer. Default: `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> transferLock;
-
+    @PolicyResourceProperty(name="transferLock", flag="unknown_transferLock")
+    private @Nullable Boolean value_transferLock;
+    private boolean unknown_transferLock;
     public @Nullable Boolean transferLock() {
-        if (transferLock == null) return null;
-        return transferLock.getValue("RegisteredDomain.transferLock");
+        if (!unknown_transferLock) return value_transferLock;
+        throw new UndeferrableValueException("Value 'RegisteredDomain.transferLock' is not present");
     }
 
     /**
      * The last updated date of the domain as found in the response to a WHOIS query.
      * 
      */
-    private UndeferrableValue<String> updatedDate;
-
+    @PolicyResourceProperty(name="updatedDate", flag="unknown_updatedDate")
+    private String value_updatedDate;
+    private boolean unknown_updatedDate;
     public String updatedDate() {
-        if (updatedDate == null) return null;
-        return updatedDate.getValue("RegisteredDomain.updatedDate");
+        if (!unknown_updatedDate) return value_updatedDate;
+        throw new UndeferrableValueException("Value 'RegisteredDomain.updatedDate' is not present");
     }
 
     /**
      * The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.
      * 
      */
-    private UndeferrableValue<String> whoisServer;
-
+    @PolicyResourceProperty(name="whoisServer", flag="unknown_whoisServer")
+    private String value_whoisServer;
+    private boolean unknown_whoisServer;
     public String whoisServer() {
-        if (whoisServer == null) return null;
-        return whoisServer.getValue("RegisteredDomain.whoisServer");
+        if (!unknown_whoisServer) return value_whoisServer;
+        throw new UndeferrableValueException("Value 'RegisteredDomain.whoisServer' is not present");
     }
 
 }

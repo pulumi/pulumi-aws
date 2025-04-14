@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings;
@@ -18,55 +19,60 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settin
      * Sets the colorspace metadata to be passed through.
      * 
      */
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings> colorSpacePassthroughSettings;
-
+    @PolicyResourceProperty(name="colorSpacePassthroughSettings", flag="unknown_colorSpacePassthroughSettings")
+    private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings value_colorSpacePassthroughSettings;
+    private boolean unknown_colorSpacePassthroughSettings;
     public @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings colorSpacePassthroughSettings() {
-        if (colorSpacePassthroughSettings == null) return null;
-        return colorSpacePassthroughSettings.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings.colorSpacePassthroughSettings");
+        if (!unknown_colorSpacePassthroughSettings) return value_colorSpacePassthroughSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings.colorSpacePassthroughSettings' is not present");
     }
 
     /**
      * Set the colorspace to Dolby Vision81.
      * 
      */
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings> dolbyVision81Settings;
-
+    @PolicyResourceProperty(name="dolbyVision81Settings", flag="unknown_dolbyVision81Settings")
+    private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings value_dolbyVision81Settings;
+    private boolean unknown_dolbyVision81Settings;
     public @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings dolbyVision81Settings() {
-        if (dolbyVision81Settings == null) return null;
-        return dolbyVision81Settings.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings.dolbyVision81Settings");
+        if (!unknown_dolbyVision81Settings) return value_dolbyVision81Settings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings.dolbyVision81Settings' is not present");
     }
 
     /**
      * Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings> hdr10Settings;
-
+    @PolicyResourceProperty(name="hdr10Settings", flag="unknown_hdr10Settings")
+    private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings value_hdr10Settings;
+    private boolean unknown_hdr10Settings;
     public @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings hdr10Settings() {
-        if (hdr10Settings == null) return null;
-        return hdr10Settings.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings.hdr10Settings");
+        if (!unknown_hdr10Settings) return value_hdr10Settings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings.hdr10Settings' is not present");
     }
 
     /**
      * Set the colorspace to Rec. 601.
      * 
      */
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings> rec601Settings;
-
+    @PolicyResourceProperty(name="rec601Settings", flag="unknown_rec601Settings")
+    private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings value_rec601Settings;
+    private boolean unknown_rec601Settings;
     public @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings rec601Settings() {
-        if (rec601Settings == null) return null;
-        return rec601Settings.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings.rec601Settings");
+        if (!unknown_rec601Settings) return value_rec601Settings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings.rec601Settings' is not present");
     }
 
     /**
      * Set the colorspace to Rec. 709.
      * 
      */
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings> rec709Settings;
-
+    @PolicyResourceProperty(name="rec709Settings", flag="unknown_rec709Settings")
+    private @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings value_rec709Settings;
+    private boolean unknown_rec709Settings;
     public @Nullable ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings rec709Settings() {
-        if (rec709Settings == null) return null;
-        return rec709Settings.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings.rec709Settings");
+        if (!unknown_rec709Settings) return value_rec709Settings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings.rec709Settings' is not present");
     }
 
 }

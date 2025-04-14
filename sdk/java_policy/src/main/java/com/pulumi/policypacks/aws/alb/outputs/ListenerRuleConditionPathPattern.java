@@ -3,18 +3,20 @@
 
 package com.pulumi.policypacks.aws.alb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
 
 public final class ListenerRuleConditionPathPattern {
 
-    private UndeferrableValue<List<String>> values;
-
+    @PolicyResourceProperty(name="values", flag="unknown_values")
+    private List<String> value_values;
+    private boolean unknown_values;
     public List<String> values() {
-        if (values == null) return null;
-        return values.getValue("ListenerRuleConditionPathPattern.values");
+        if (!unknown_values) return value_values;
+        throw new UndeferrableValueException("Value 'ListenerRuleConditionPathPattern.values' is not present");
     }
 
 }

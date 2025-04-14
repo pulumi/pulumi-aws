@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class DomainClusterConfigNodeOptionNodeConfig {
      * Number of nodes of a particular node type in the cluster.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> count;
-
+    @PolicyResourceProperty(name="count", flag="unknown_count")
+    private @Nullable Integer value_count;
+    private boolean unknown_count;
     public @Nullable Integer count() {
-        if (count == null) return null;
-        return count.getValue("DomainClusterConfigNodeOptionNodeConfig.count");
+        if (!unknown_count) return value_count;
+        throw new UndeferrableValueException("Value 'DomainClusterConfigNodeOptionNodeConfig.count' is not present");
     }
 
     /**
      * Whether a particular node type is enabled.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("DomainClusterConfigNodeOptionNodeConfig.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'DomainClusterConfigNodeOptionNodeConfig.enabled' is not present");
     }
 
     /**
      * The instance type of a particular node type in the cluster.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("DomainClusterConfigNodeOptionNodeConfig.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'DomainClusterConfigNodeOptionNodeConfig.type' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3.outputs.AnalyticsConfigurationFilter;
 import com.pulumi.policypacks.aws.s3.outputs.AnalyticsConfigurationStorageClassAnalysis;
@@ -18,44 +19,48 @@ public final class AnalyticsConfiguration extends com.pulumi.resources.PolicyRes
      * Name of the bucket this analytics configuration is associated with.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("AnalyticsConfiguration.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'AnalyticsConfiguration.bucket' is not present");
     }
 
     /**
      * Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
      * 
      */
-    private @Nullable UndeferrableValue<AnalyticsConfigurationFilter> filter;
-
+    @PolicyResourceProperty(name="filter", flag="unknown_filter")
+    private @Nullable AnalyticsConfigurationFilter value_filter;
+    private boolean unknown_filter;
     public @Nullable AnalyticsConfigurationFilter filter() {
-        if (filter == null) return null;
-        return filter.getValue("AnalyticsConfiguration.filter");
+        if (!unknown_filter) return value_filter;
+        throw new UndeferrableValueException("Value 'AnalyticsConfiguration.filter' is not present");
     }
 
     /**
      * Unique identifier of the analytics configuration for the bucket.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AnalyticsConfiguration.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AnalyticsConfiguration.name' is not present");
     }
 
     /**
      * Configuration for the analytics data export (documented below).
      * 
      */
-    private @Nullable UndeferrableValue<AnalyticsConfigurationStorageClassAnalysis> storageClassAnalysis;
-
+    @PolicyResourceProperty(name="storageClassAnalysis", flag="unknown_storageClassAnalysis")
+    private @Nullable AnalyticsConfigurationStorageClassAnalysis value_storageClassAnalysis;
+    private boolean unknown_storageClassAnalysis;
     public @Nullable AnalyticsConfigurationStorageClassAnalysis storageClassAnalysis() {
-        if (storageClassAnalysis == null) return null;
-        return storageClassAnalysis.getValue("AnalyticsConfiguration.storageClassAnalysis");
+        if (!unknown_storageClassAnalysis) return value_storageClassAnalysis;
+        throw new UndeferrableValueException("Value 'AnalyticsConfiguration.storageClassAnalysis' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.amplify;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,55 +16,60 @@ public final class BackendEnvironment extends com.pulumi.resources.PolicyResourc
      * Unique ID for an Amplify app.
      * 
      */
-    private UndeferrableValue<String> appId;
-
+    @PolicyResourceProperty(name="appId", flag="unknown_appId")
+    private String value_appId;
+    private boolean unknown_appId;
     public String appId() {
-        if (appId == null) return null;
-        return appId.getValue("BackendEnvironment.appId");
+        if (!unknown_appId) return value_appId;
+        throw new UndeferrableValueException("Value 'BackendEnvironment.appId' is not present");
     }
 
     /**
      * ARN for a backend environment that is part of an Amplify app.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("BackendEnvironment.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'BackendEnvironment.arn' is not present");
     }
 
     /**
      * Name of deployment artifacts.
      * 
      */
-    private UndeferrableValue<String> deploymentArtifacts;
-
+    @PolicyResourceProperty(name="deploymentArtifacts", flag="unknown_deploymentArtifacts")
+    private String value_deploymentArtifacts;
+    private boolean unknown_deploymentArtifacts;
     public String deploymentArtifacts() {
-        if (deploymentArtifacts == null) return null;
-        return deploymentArtifacts.getValue("BackendEnvironment.deploymentArtifacts");
+        if (!unknown_deploymentArtifacts) return value_deploymentArtifacts;
+        throw new UndeferrableValueException("Value 'BackendEnvironment.deploymentArtifacts' is not present");
     }
 
     /**
      * Name for the backend environment.
      * 
      */
-    private UndeferrableValue<String> environmentName;
-
+    @PolicyResourceProperty(name="environmentName", flag="unknown_environmentName")
+    private String value_environmentName;
+    private boolean unknown_environmentName;
     public String environmentName() {
-        if (environmentName == null) return null;
-        return environmentName.getValue("BackendEnvironment.environmentName");
+        if (!unknown_environmentName) return value_environmentName;
+        throw new UndeferrableValueException("Value 'BackendEnvironment.environmentName' is not present");
     }
 
     /**
      * AWS CloudFormation stack name of a backend environment.
      * 
      */
-    private UndeferrableValue<String> stackName;
-
+    @PolicyResourceProperty(name="stackName", flag="unknown_stackName")
+    private String value_stackName;
+    private boolean unknown_stackName;
     public String stackName() {
-        if (stackName == null) return null;
-        return stackName.getValue("BackendEnvironment.stackName");
+        if (!unknown_stackName) return value_stackName;
+        throw new UndeferrableValueException("Value 'BackendEnvironment.stackName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securitylake.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.securitylake.inputs.DataLakeConfigurationLifecycleConfigurationExpirationArgs;
 import com.pulumi.policypacks.aws.securitylake.inputs.DataLakeConfigurationLifecycleConfigurationTransitionArgs;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class DataLakeConfigurationLifecycleConfigurationArgs {
      * Provides data expiration details of Amazon Security Lake object.
      * 
      */
-    private UndeferrableValue<DataLakeConfigurationLifecycleConfigurationExpirationArgs> expiration;
-
+    @PolicyResourceProperty(name="expiration", flag="unknown_expiration")
+    private DataLakeConfigurationLifecycleConfigurationExpirationArgs value_expiration;
+    private boolean unknown_expiration;
     public DataLakeConfigurationLifecycleConfigurationExpirationArgs expiration() {
-        if (expiration == null) return null;
-        return expiration.getValue("DataLakeConfigurationLifecycleConfigurationArgs.expiration");
+        if (!unknown_expiration) return value_expiration;
+        throw new UndeferrableValueException("Value 'DataLakeConfigurationLifecycleConfigurationArgs.expiration' is not present");
     }
 
     /**
      * Provides data storage transition details of Amazon Security Lake object.
      * 
      */
-    private UndeferrableValue<List<DataLakeConfigurationLifecycleConfigurationTransitionArgs>> transitions;
-
+    @PolicyResourceProperty(name="transitions", flag="unknown_transitions")
+    private List<DataLakeConfigurationLifecycleConfigurationTransitionArgs> value_transitions;
+    private boolean unknown_transitions;
     public List<DataLakeConfigurationLifecycleConfigurationTransitionArgs> transitions() {
-        if (transitions == null) return null;
-        return transitions.getValue("DataLakeConfigurationLifecycleConfigurationArgs.transitions");
+        if (!unknown_transitions) return value_transitions;
+        throw new UndeferrableValueException("Value 'DataLakeConfigurationLifecycleConfigurationArgs.transitions' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class VpnGatewayAttachment extends com.pulumi.resources.PolicyResou
      * The ID of the VPC.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("VpnGatewayAttachment.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'VpnGatewayAttachment.vpcId' is not present");
     }
 
     /**
      * The ID of the Virtual Private Gateway.
      * 
      */
-    private UndeferrableValue<String> vpnGatewayId;
-
+    @PolicyResourceProperty(name="vpnGatewayId", flag="unknown_vpnGatewayId")
+    private String value_vpnGatewayId;
+    private boolean unknown_vpnGatewayId;
     public String vpnGatewayId() {
-        if (vpnGatewayId == null) return null;
-        return vpnGatewayId.getValue("VpnGatewayAttachment.vpnGatewayId");
+        if (!unknown_vpnGatewayId) return value_vpnGatewayId;
+        throw new UndeferrableValueException("Value 'VpnGatewayAttachment.vpnGatewayId' is not present");
     }
 
 }

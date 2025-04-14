@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.outputs.DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class DomainDomainSettingsRStudioServerProDomainSettings {
      * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block above.
      * 
      */
-    private @Nullable UndeferrableValue<DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec> defaultResourceSpec;
-
+    @PolicyResourceProperty(name="defaultResourceSpec", flag="unknown_defaultResourceSpec")
+    private @Nullable DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec value_defaultResourceSpec;
+    private boolean unknown_defaultResourceSpec;
     public @Nullable DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec defaultResourceSpec() {
-        if (defaultResourceSpec == null) return null;
-        return defaultResourceSpec.getValue("DomainDomainSettingsRStudioServerProDomainSettings.defaultResourceSpec");
+        if (!unknown_defaultResourceSpec) return value_defaultResourceSpec;
+        throw new UndeferrableValueException("Value 'DomainDomainSettingsRStudioServerProDomainSettings.defaultResourceSpec' is not present");
     }
 
     /**
      * The ARN of the execution role for the RStudioServerPro Domain-level app.
      * 
      */
-    private UndeferrableValue<String> domainExecutionRoleArn;
-
+    @PolicyResourceProperty(name="domainExecutionRoleArn", flag="unknown_domainExecutionRoleArn")
+    private String value_domainExecutionRoleArn;
+    private boolean unknown_domainExecutionRoleArn;
     public String domainExecutionRoleArn() {
-        if (domainExecutionRoleArn == null) return null;
-        return domainExecutionRoleArn.getValue("DomainDomainSettingsRStudioServerProDomainSettings.domainExecutionRoleArn");
+        if (!unknown_domainExecutionRoleArn) return value_domainExecutionRoleArn;
+        throw new UndeferrableValueException("Value 'DomainDomainSettingsRStudioServerProDomainSettings.domainExecutionRoleArn' is not present");
     }
 
     /**
      * A URL pointing to an RStudio Connect server.
      * 
      */
-    private @Nullable UndeferrableValue<String> rStudioConnectUrl;
-
+    @PolicyResourceProperty(name="rStudioConnectUrl", flag="unknown_rStudioConnectUrl")
+    private @Nullable String value_rStudioConnectUrl;
+    private boolean unknown_rStudioConnectUrl;
     public @Nullable String rStudioConnectUrl() {
-        if (rStudioConnectUrl == null) return null;
-        return rStudioConnectUrl.getValue("DomainDomainSettingsRStudioServerProDomainSettings.rStudioConnectUrl");
+        if (!unknown_rStudioConnectUrl) return value_rStudioConnectUrl;
+        throw new UndeferrableValueException("Value 'DomainDomainSettingsRStudioServerProDomainSettings.rStudioConnectUrl' is not present");
     }
 
     /**
      * A URL pointing to an RStudio Package Manager server.
      * 
      */
-    private @Nullable UndeferrableValue<String> rStudioPackageManagerUrl;
-
+    @PolicyResourceProperty(name="rStudioPackageManagerUrl", flag="unknown_rStudioPackageManagerUrl")
+    private @Nullable String value_rStudioPackageManagerUrl;
+    private boolean unknown_rStudioPackageManagerUrl;
     public @Nullable String rStudioPackageManagerUrl() {
-        if (rStudioPackageManagerUrl == null) return null;
-        return rStudioPackageManagerUrl.getValue("DomainDomainSettingsRStudioServerProDomainSettings.rStudioPackageManagerUrl");
+        if (!unknown_rStudioPackageManagerUrl) return value_rStudioPackageManagerUrl;
+        throw new UndeferrableValueException("Value 'DomainDomainSettingsRStudioServerProDomainSettings.rStudioPackageManagerUrl' is not present");
     }
 
 }

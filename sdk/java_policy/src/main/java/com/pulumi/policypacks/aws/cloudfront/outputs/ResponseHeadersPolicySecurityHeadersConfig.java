@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.outputs.ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy;
 import com.pulumi.policypacks.aws.cloudfront.outputs.ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions;
 import com.pulumi.policypacks.aws.cloudfront.outputs.ResponseHeadersPolicySecurityHeadersConfigFrameOptions;
@@ -19,66 +20,72 @@ public final class ResponseHeadersPolicySecurityHeadersConfig {
      * The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header. See Content Security Policy for more information.
      * 
      */
-    private @Nullable UndeferrableValue<ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy> contentSecurityPolicy;
-
+    @PolicyResourceProperty(name="contentSecurityPolicy", flag="unknown_contentSecurityPolicy")
+    private @Nullable ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy value_contentSecurityPolicy;
+    private boolean unknown_contentSecurityPolicy;
     public @Nullable ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy contentSecurityPolicy() {
-        if (contentSecurityPolicy == null) return null;
-        return contentSecurityPolicy.getValue("ResponseHeadersPolicySecurityHeadersConfig.contentSecurityPolicy");
+        if (!unknown_contentSecurityPolicy) return value_contentSecurityPolicy;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfig.contentSecurityPolicy' is not present");
     }
 
     /**
      * Determines whether CloudFront includes the `X-Content-Type-Options` HTTP response header with its value set to `nosniff`. See Content Type Options for more information.
      * 
      */
-    private @Nullable UndeferrableValue<ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions> contentTypeOptions;
-
+    @PolicyResourceProperty(name="contentTypeOptions", flag="unknown_contentTypeOptions")
+    private @Nullable ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions value_contentTypeOptions;
+    private boolean unknown_contentTypeOptions;
     public @Nullable ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions contentTypeOptions() {
-        if (contentTypeOptions == null) return null;
-        return contentTypeOptions.getValue("ResponseHeadersPolicySecurityHeadersConfig.contentTypeOptions");
+        if (!unknown_contentTypeOptions) return value_contentTypeOptions;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfig.contentTypeOptions' is not present");
     }
 
     /**
      * Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header’s value. See Frame Options for more information.
      * 
      */
-    private @Nullable UndeferrableValue<ResponseHeadersPolicySecurityHeadersConfigFrameOptions> frameOptions;
-
+    @PolicyResourceProperty(name="frameOptions", flag="unknown_frameOptions")
+    private @Nullable ResponseHeadersPolicySecurityHeadersConfigFrameOptions value_frameOptions;
+    private boolean unknown_frameOptions;
     public @Nullable ResponseHeadersPolicySecurityHeadersConfigFrameOptions frameOptions() {
-        if (frameOptions == null) return null;
-        return frameOptions.getValue("ResponseHeadersPolicySecurityHeadersConfig.frameOptions");
+        if (!unknown_frameOptions) return value_frameOptions;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfig.frameOptions' is not present");
     }
 
     /**
      * Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header’s value. See Referrer Policy for more information.
      * 
      */
-    private @Nullable UndeferrableValue<ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy> referrerPolicy;
-
+    @PolicyResourceProperty(name="referrerPolicy", flag="unknown_referrerPolicy")
+    private @Nullable ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy value_referrerPolicy;
+    private boolean unknown_referrerPolicy;
     public @Nullable ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy referrerPolicy() {
-        if (referrerPolicy == null) return null;
-        return referrerPolicy.getValue("ResponseHeadersPolicySecurityHeadersConfig.referrerPolicy");
+        if (!unknown_referrerPolicy) return value_referrerPolicy;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfig.referrerPolicy' is not present");
     }
 
     /**
      * Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header’s value. See Strict Transport Security for more information.
      * 
      */
-    private @Nullable UndeferrableValue<ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity> strictTransportSecurity;
-
+    @PolicyResourceProperty(name="strictTransportSecurity", flag="unknown_strictTransportSecurity")
+    private @Nullable ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity value_strictTransportSecurity;
+    private boolean unknown_strictTransportSecurity;
     public @Nullable ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity strictTransportSecurity() {
-        if (strictTransportSecurity == null) return null;
-        return strictTransportSecurity.getValue("ResponseHeadersPolicySecurityHeadersConfig.strictTransportSecurity");
+        if (!unknown_strictTransportSecurity) return value_strictTransportSecurity;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfig.strictTransportSecurity' is not present");
     }
 
     /**
      * Determine whether CloudFront includes the `X-XSS-Protection` HTTP response header and the header’s value. See XSS Protection for more information.
      * 
      */
-    private @Nullable UndeferrableValue<ResponseHeadersPolicySecurityHeadersConfigXssProtection> xssProtection;
-
+    @PolicyResourceProperty(name="xssProtection", flag="unknown_xssProtection")
+    private @Nullable ResponseHeadersPolicySecurityHeadersConfigXssProtection value_xssProtection;
+    private boolean unknown_xssProtection;
     public @Nullable ResponseHeadersPolicySecurityHeadersConfigXssProtection xssProtection() {
-        if (xssProtection == null) return null;
-        return xssProtection.getValue("ResponseHeadersPolicySecurityHeadersConfig.xssProtection");
+        if (!unknown_xssProtection) return value_xssProtection;
+        throw new UndeferrableValueException("Value 'ResponseHeadersPolicySecurityHeadersConfig.xssProtection' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class VirtualGatewaySpecLoggingAccessLogFileFormatArgs {
      * The logging format for JSON.
      * 
      */
-    private UndeferrableValue<List<VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs>> jsons;
-
+    @PolicyResourceProperty(name="jsons", flag="unknown_jsons")
+    private List<VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs> value_jsons;
+    private boolean unknown_jsons;
     public List<VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs> jsons() {
-        if (jsons == null) return null;
-        return jsons.getValue("VirtualGatewaySpecLoggingAccessLogFileFormatArgs.jsons");
+        if (!unknown_jsons) return value_jsons;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecLoggingAccessLogFileFormatArgs.jsons' is not present");
     }
 
     /**
      * The logging format for text. Must be between 1 and 1000 characters in length.
      * 
      */
-    private UndeferrableValue<String> text;
-
+    @PolicyResourceProperty(name="text", flag="unknown_text")
+    private String value_text;
+    private boolean unknown_text;
     public String text() {
-        if (text == null) return null;
-        return text.getValue("VirtualGatewaySpecLoggingAccessLogFileFormatArgs.text");
+        if (!unknown_text) return value_text;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecLoggingAccessLogFileFormatArgs.text' is not present");
     }
 
 }

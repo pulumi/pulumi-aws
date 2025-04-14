@@ -3,24 +3,27 @@
 
 package com.pulumi.policypacks.aws.route53.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class RecordGeoproximityRoutingPolicyCoordinateArgs {
 
-    private UndeferrableValue<String> latitude;
-
+    @PolicyResourceProperty(name="latitude", flag="unknown_latitude")
+    private String value_latitude;
+    private boolean unknown_latitude;
     public String latitude() {
-        if (latitude == null) return null;
-        return latitude.getValue("RecordGeoproximityRoutingPolicyCoordinateArgs.latitude");
+        if (!unknown_latitude) return value_latitude;
+        throw new UndeferrableValueException("Value 'RecordGeoproximityRoutingPolicyCoordinateArgs.latitude' is not present");
     }
 
-    private UndeferrableValue<String> longitude;
-
+    @PolicyResourceProperty(name="longitude", flag="unknown_longitude")
+    private String value_longitude;
+    private boolean unknown_longitude;
     public String longitude() {
-        if (longitude == null) return null;
-        return longitude.getValue("RecordGeoproximityRoutingPolicyCoordinateArgs.longitude");
+        if (!unknown_longitude) return value_longitude;
+        throw new UndeferrableValueException("Value 'RecordGeoproximityRoutingPolicyCoordinateArgs.longitude' is not present");
     }
 
 }

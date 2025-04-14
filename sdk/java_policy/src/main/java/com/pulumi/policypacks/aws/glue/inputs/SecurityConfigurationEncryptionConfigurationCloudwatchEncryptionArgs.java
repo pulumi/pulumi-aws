@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class SecurityConfigurationEncryptionConfigurationCloudwatchEncrypt
      * Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> cloudwatchEncryptionMode;
-
+    @PolicyResourceProperty(name="cloudwatchEncryptionMode", flag="unknown_cloudwatchEncryptionMode")
+    private String value_cloudwatchEncryptionMode;
+    private boolean unknown_cloudwatchEncryptionMode;
     public String cloudwatchEncryptionMode() {
-        if (cloudwatchEncryptionMode == null) return null;
-        return cloudwatchEncryptionMode.getValue("SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs.cloudwatchEncryptionMode");
+        if (!unknown_cloudwatchEncryptionMode) return value_cloudwatchEncryptionMode;
+        throw new UndeferrableValueException("Value 'SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs.cloudwatchEncryptionMode' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
      * 
      */
-    private UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs.kmsKeyArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codepipeline.outputs.PipelineTriggerAllGitConfiguration;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class PipelineTriggerAll {
      * Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `git_configuration` block is documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<PipelineTriggerAllGitConfiguration>> gitConfigurations;
-
+    @PolicyResourceProperty(name="gitConfigurations", flag="unknown_gitConfigurations")
+    private @Nullable List<PipelineTriggerAllGitConfiguration> value_gitConfigurations;
+    private boolean unknown_gitConfigurations;
     public @Nullable List<PipelineTriggerAllGitConfiguration> gitConfigurations() {
-        if (gitConfigurations == null) return null;
-        return gitConfigurations.getValue("PipelineTriggerAll.gitConfigurations");
+        if (!unknown_gitConfigurations) return value_gitConfigurations;
+        throw new UndeferrableValueException("Value 'PipelineTriggerAll.gitConfigurations' is not present");
     }
 
     /**
      * The source provider for the event. Possible value is `CodeStarSourceConnection`.
      * 
      */
-    private @Nullable UndeferrableValue<String> providerType;
-
+    @PolicyResourceProperty(name="providerType", flag="unknown_providerType")
+    private @Nullable String value_providerType;
+    private boolean unknown_providerType;
     public @Nullable String providerType() {
-        if (providerType == null) return null;
-        return providerType.getValue("PipelineTriggerAll.providerType");
+        if (!unknown_providerType) return value_providerType;
+        throw new UndeferrableValueException("Value 'PipelineTriggerAll.providerType' is not present");
     }
 
 }

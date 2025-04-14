@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.customerprofiles;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.customerprofiles.inputs.DomainMatchingArgs;
 import com.pulumi.policypacks.aws.customerprofiles.inputs.DomainRuleBasedMatchingArgs;
@@ -20,22 +21,24 @@ public final class DomainArgs extends com.pulumi.resources.PolicyResourceInput {
      * The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
      * 
      */
-    private UndeferrableValue<String> deadLetterQueueUrl;
-
+    @PolicyResourceProperty(name="deadLetterQueueUrl", flag="unknown_deadLetterQueueUrl")
+    private String value_deadLetterQueueUrl;
+    private boolean unknown_deadLetterQueueUrl;
     public String deadLetterQueueUrl() {
-        if (deadLetterQueueUrl == null) return null;
-        return deadLetterQueueUrl.getValue("DomainArgs.deadLetterQueueUrl");
+        if (!unknown_deadLetterQueueUrl) return value_deadLetterQueueUrl;
+        throw new UndeferrableValueException("Value 'DomainArgs.deadLetterQueueUrl' is not present");
     }
 
     /**
      * The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
      * 
      */
-    private UndeferrableValue<String> defaultEncryptionKey;
-
+    @PolicyResourceProperty(name="defaultEncryptionKey", flag="unknown_defaultEncryptionKey")
+    private String value_defaultEncryptionKey;
+    private boolean unknown_defaultEncryptionKey;
     public String defaultEncryptionKey() {
-        if (defaultEncryptionKey == null) return null;
-        return defaultEncryptionKey.getValue("DomainArgs.defaultEncryptionKey");
+        if (!unknown_defaultEncryptionKey) return value_defaultEncryptionKey;
+        throw new UndeferrableValueException("Value 'DomainArgs.defaultEncryptionKey' is not present");
     }
 
     /**
@@ -44,55 +47,60 @@ public final class DomainArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<Integer> defaultExpirationDays;
-
+    @PolicyResourceProperty(name="defaultExpirationDays", flag="unknown_defaultExpirationDays")
+    private Integer value_defaultExpirationDays;
+    private boolean unknown_defaultExpirationDays;
     public Integer defaultExpirationDays() {
-        if (defaultExpirationDays == null) return null;
-        return defaultExpirationDays.getValue("DomainArgs.defaultExpirationDays");
+        if (!unknown_defaultExpirationDays) return value_defaultExpirationDays;
+        throw new UndeferrableValueException("Value 'DomainArgs.defaultExpirationDays' is not present");
     }
 
     /**
      * The name for your Customer Profile domain. It must be unique for your AWS account.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("DomainArgs.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'DomainArgs.domainName' is not present");
     }
 
     /**
      * A block that specifies the process of matching duplicate profiles. Documented below.
      * 
      */
-    private UndeferrableValue<DomainMatchingArgs> matching;
-
+    @PolicyResourceProperty(name="matching", flag="unknown_matching")
+    private DomainMatchingArgs value_matching;
+    private boolean unknown_matching;
     public DomainMatchingArgs matching() {
-        if (matching == null) return null;
-        return matching.getValue("DomainArgs.matching");
+        if (!unknown_matching) return value_matching;
+        throw new UndeferrableValueException("Value 'DomainArgs.matching' is not present");
     }
 
     /**
      * A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
      * 
      */
-    private UndeferrableValue<DomainRuleBasedMatchingArgs> ruleBasedMatching;
-
+    @PolicyResourceProperty(name="ruleBasedMatching", flag="unknown_ruleBasedMatching")
+    private DomainRuleBasedMatchingArgs value_ruleBasedMatching;
+    private boolean unknown_ruleBasedMatching;
     public DomainRuleBasedMatchingArgs ruleBasedMatching() {
-        if (ruleBasedMatching == null) return null;
-        return ruleBasedMatching.getValue("DomainArgs.ruleBasedMatching");
+        if (!unknown_ruleBasedMatching) return value_ruleBasedMatching;
+        throw new UndeferrableValueException("Value 'DomainArgs.ruleBasedMatching' is not present");
     }
 
     /**
      * Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DomainArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DomainArgs.tags' is not present");
     }
 
 }

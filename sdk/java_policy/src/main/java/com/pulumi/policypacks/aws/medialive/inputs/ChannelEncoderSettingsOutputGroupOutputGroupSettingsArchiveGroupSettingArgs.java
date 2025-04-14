@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs;
 import java.lang.Integer;
@@ -16,33 +17,36 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
      * Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs> archiveCdnSettings;
-
+    @PolicyResourceProperty(name="archiveCdnSettings", flag="unknown_archiveCdnSettings")
+    private ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs value_archiveCdnSettings;
+    private boolean unknown_archiveCdnSettings;
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs archiveCdnSettings() {
-        if (archiveCdnSettings == null) return null;
-        return archiveCdnSettings.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs.archiveCdnSettings");
+        if (!unknown_archiveCdnSettings) return value_archiveCdnSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs.archiveCdnSettings' is not present");
     }
 
     /**
      * A director and base filename where archive files should be written. See Destination for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs value_destination;
+    private boolean unknown_destination;
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs destination() {
-        if (destination == null) return null;
-        return destination.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs.destination' is not present");
     }
 
     /**
      * Number of seconds to write to archive file before closing and starting a new one.
      * 
      */
-    private UndeferrableValue<Integer> rolloverInterval;
-
+    @PolicyResourceProperty(name="rolloverInterval", flag="unknown_rolloverInterval")
+    private Integer value_rolloverInterval;
+    private boolean unknown_rolloverInterval;
     public Integer rolloverInterval() {
-        if (rolloverInterval == null) return null;
-        return rolloverInterval.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs.rolloverInterval");
+        if (!unknown_rolloverInterval) return value_rolloverInterval;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs.rolloverInterval' is not present");
     }
 
 }

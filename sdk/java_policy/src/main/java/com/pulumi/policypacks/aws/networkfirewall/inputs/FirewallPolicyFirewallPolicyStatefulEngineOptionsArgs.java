@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs {
      * Amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
      * 
      */
-    private UndeferrableValue<FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs> flowTimeouts;
-
+    @PolicyResourceProperty(name="flowTimeouts", flag="unknown_flowTimeouts")
+    private FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs value_flowTimeouts;
+    private boolean unknown_flowTimeouts;
     public FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs flowTimeouts() {
-        if (flowTimeouts == null) return null;
-        return flowTimeouts.getValue("FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs.flowTimeouts");
+        if (!unknown_flowTimeouts) return value_flowTimeouts;
+        throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs.flowTimeouts' is not present");
     }
 
     /**
      * Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
      * 
      */
-    private UndeferrableValue<String> ruleOrder;
-
+    @PolicyResourceProperty(name="ruleOrder", flag="unknown_ruleOrder")
+    private String value_ruleOrder;
+    private boolean unknown_ruleOrder;
     public String ruleOrder() {
-        if (ruleOrder == null) return null;
-        return ruleOrder.getValue("FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs.ruleOrder");
+        if (!unknown_ruleOrder) return value_ruleOrder;
+        throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs.ruleOrder' is not present");
     }
 
     /**
      * Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
      * 
      */
-    private UndeferrableValue<String> streamExceptionPolicy;
-
+    @PolicyResourceProperty(name="streamExceptionPolicy", flag="unknown_streamExceptionPolicy")
+    private String value_streamExceptionPolicy;
+    private boolean unknown_streamExceptionPolicy;
     public String streamExceptionPolicy() {
-        if (streamExceptionPolicy == null) return null;
-        return streamExceptionPolicy.getValue("FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs.streamExceptionPolicy");
+        if (!unknown_streamExceptionPolicy) return value_streamExceptionPolicy;
+        throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs.streamExceptionPolicy' is not present");
     }
 
 }

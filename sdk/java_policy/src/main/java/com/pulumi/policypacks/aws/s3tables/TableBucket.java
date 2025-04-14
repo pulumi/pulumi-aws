@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3tables;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3tables.outputs.TableBucketMaintenanceConfiguration;
 import java.lang.String;
@@ -16,22 +17,24 @@ public final class TableBucket extends com.pulumi.resources.PolicyResourceOutput
      * ARN of the table bucket.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("TableBucket.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'TableBucket.arn' is not present");
     }
 
     /**
      * Date and time when the bucket was created.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("TableBucket.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'TableBucket.createdAt' is not present");
     }
 
     /**
@@ -39,11 +42,12 @@ public final class TableBucket extends com.pulumi.resources.PolicyResourceOutput
      * See `maintenance_configuration` below.
      * 
      */
-    private UndeferrableValue<TableBucketMaintenanceConfiguration> maintenanceConfiguration;
-
+    @PolicyResourceProperty(name="maintenanceConfiguration", flag="unknown_maintenanceConfiguration")
+    private TableBucketMaintenanceConfiguration value_maintenanceConfiguration;
+    private boolean unknown_maintenanceConfiguration;
     public TableBucketMaintenanceConfiguration maintenanceConfiguration() {
-        if (maintenanceConfiguration == null) return null;
-        return maintenanceConfiguration.getValue("TableBucket.maintenanceConfiguration");
+        if (!unknown_maintenanceConfiguration) return value_maintenanceConfiguration;
+        throw new UndeferrableValueException("Value 'TableBucket.maintenanceConfiguration' is not present");
     }
 
     /**
@@ -55,22 +59,24 @@ public final class TableBucket extends com.pulumi.resources.PolicyResourceOutput
      * The following argument is optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TableBucket.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TableBucket.name' is not present");
     }
 
     /**
      * Account ID of the account that owns the table bucket.
      * 
      */
-    private UndeferrableValue<String> ownerAccountId;
-
+    @PolicyResourceProperty(name="ownerAccountId", flag="unknown_ownerAccountId")
+    private String value_ownerAccountId;
+    private boolean unknown_ownerAccountId;
     public String ownerAccountId() {
-        if (ownerAccountId == null) return null;
-        return ownerAccountId.getValue("TableBucket.ownerAccountId");
+        if (!unknown_ownerAccountId) return value_ownerAccountId;
+        throw new UndeferrableValueException("Value 'TableBucket.ownerAccountId' is not present");
     }
 
 }

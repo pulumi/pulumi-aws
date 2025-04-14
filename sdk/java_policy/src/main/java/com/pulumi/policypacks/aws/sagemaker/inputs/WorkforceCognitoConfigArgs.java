@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class WorkforceCognitoConfigArgs {
      * The client ID for your Amazon Cognito user pool.
      * 
      */
-    private UndeferrableValue<String> clientId;
-
+    @PolicyResourceProperty(name="clientId", flag="unknown_clientId")
+    private String value_clientId;
+    private boolean unknown_clientId;
     public String clientId() {
-        if (clientId == null) return null;
-        return clientId.getValue("WorkforceCognitoConfigArgs.clientId");
+        if (!unknown_clientId) return value_clientId;
+        throw new UndeferrableValueException("Value 'WorkforceCognitoConfigArgs.clientId' is not present");
     }
 
     /**
      * ID for your Amazon Cognito user pool.
      * 
      */
-    private UndeferrableValue<String> userPool;
-
+    @PolicyResourceProperty(name="userPool", flag="unknown_userPool")
+    private String value_userPool;
+    private boolean unknown_userPool;
     public String userPool() {
-        if (userPool == null) return null;
-        return userPool.getValue("WorkforceCognitoConfigArgs.userPool");
+        if (!unknown_userPool) return value_userPool;
+        throw new UndeferrableValueException("Value 'WorkforceCognitoConfigArgs.userPool' is not present");
     }
 
 }

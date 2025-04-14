@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.auditmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,44 +17,48 @@ public final class AssessmentDelegationArgs extends com.pulumi.resources.PolicyR
      * Identifier for the assessment.
      * 
      */
-    private UndeferrableValue<String> assessmentId;
-
+    @PolicyResourceProperty(name="assessmentId", flag="unknown_assessmentId")
+    private String value_assessmentId;
+    private boolean unknown_assessmentId;
     public String assessmentId() {
-        if (assessmentId == null) return null;
-        return assessmentId.getValue("AssessmentDelegationArgs.assessmentId");
+        if (!unknown_assessmentId) return value_assessmentId;
+        throw new UndeferrableValueException("Value 'AssessmentDelegationArgs.assessmentId' is not present");
     }
 
     /**
      * Comment describing the delegation request.
      * 
      */
-    private UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private String value_comment;
+    private boolean unknown_comment;
     public String comment() {
-        if (comment == null) return null;
-        return comment.getValue("AssessmentDelegationArgs.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'AssessmentDelegationArgs.comment' is not present");
     }
 
     /**
      * Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
      * 
      */
-    private UndeferrableValue<String> controlSetId;
-
+    @PolicyResourceProperty(name="controlSetId", flag="unknown_controlSetId")
+    private String value_controlSetId;
+    private boolean unknown_controlSetId;
     public String controlSetId() {
-        if (controlSetId == null) return null;
-        return controlSetId.getValue("AssessmentDelegationArgs.controlSetId");
+        if (!unknown_controlSetId) return value_controlSetId;
+        throw new UndeferrableValueException("Value 'AssessmentDelegationArgs.controlSetId' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the IAM role.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("AssessmentDelegationArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'AssessmentDelegationArgs.roleArn' is not present");
     }
 
     /**
@@ -62,11 +67,12 @@ public final class AssessmentDelegationArgs extends com.pulumi.resources.PolicyR
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> roleType;
-
+    @PolicyResourceProperty(name="roleType", flag="unknown_roleType")
+    private String value_roleType;
+    private boolean unknown_roleType;
     public String roleType() {
-        if (roleType == null) return null;
-        return roleType.getValue("AssessmentDelegationArgs.roleType");
+        if (!unknown_roleType) return value_roleType;
+        throw new UndeferrableValueException("Value 'AssessmentDelegationArgs.roleType' is not present");
     }
 
 }

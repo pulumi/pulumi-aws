@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseArgs;
 import java.lang.Boolean;
@@ -17,44 +18,48 @@ public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificat
      * Whether fulfillment updates are sent to the user. When this field is true, updates are sent. If the active field is set to true, the `start_response`, `update_response`, and `timeout_in_seconds` fields are required.
      * 
      */
-    private UndeferrableValue<Boolean> active;
-
+    @PolicyResourceProperty(name="active", flag="unknown_active")
+    private Boolean value_active;
+    private boolean unknown_active;
     public Boolean active() {
-        if (active == null) return null;
-        return active.getValue("V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgs.active");
+        if (!unknown_active) return value_active;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgs.active' is not present");
     }
 
     /**
      * Configuration block for the message sent to users when the fulfillment Lambda functions starts running.
      * 
      */
-    private UndeferrableValue<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseArgs> startResponse;
-
+    @PolicyResourceProperty(name="startResponse", flag="unknown_startResponse")
+    private V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseArgs value_startResponse;
+    private boolean unknown_startResponse;
     public V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseArgs startResponse() {
-        if (startResponse == null) return null;
-        return startResponse.getValue("V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgs.startResponse");
+        if (!unknown_startResponse) return value_startResponse;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgs.startResponse' is not present");
     }
 
     /**
      * Length of time that the fulfillment Lambda function should run before it times out.
      * 
      */
-    private UndeferrableValue<Integer> timeoutInSeconds;
-
+    @PolicyResourceProperty(name="timeoutInSeconds", flag="unknown_timeoutInSeconds")
+    private Integer value_timeoutInSeconds;
+    private boolean unknown_timeoutInSeconds;
     public Integer timeoutInSeconds() {
-        if (timeoutInSeconds == null) return null;
-        return timeoutInSeconds.getValue("V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgs.timeoutInSeconds");
+        if (!unknown_timeoutInSeconds) return value_timeoutInSeconds;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgs.timeoutInSeconds' is not present");
     }
 
     /**
      * Configuration block for messages sent periodically to the user while the fulfillment Lambda function is running.
      * 
      */
-    private UndeferrableValue<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseArgs> updateResponse;
-
+    @PolicyResourceProperty(name="updateResponse", flag="unknown_updateResponse")
+    private V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseArgs value_updateResponse;
+    private boolean unknown_updateResponse;
     public V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseArgs updateResponse() {
-        if (updateResponse == null) return null;
-        return updateResponse.getValue("V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgs.updateResponse");
+        if (!unknown_updateResponse) return value_updateResponse;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgs.updateResponse' is not present");
     }
 
 }

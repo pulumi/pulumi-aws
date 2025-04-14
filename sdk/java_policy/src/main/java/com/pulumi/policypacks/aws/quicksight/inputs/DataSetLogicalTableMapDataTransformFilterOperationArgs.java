@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class DataSetLogicalTableMapDataTransformFilterOperationArgs {
      * An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
      * 
      */
-    private UndeferrableValue<String> conditionExpression;
-
+    @PolicyResourceProperty(name="conditionExpression", flag="unknown_conditionExpression")
+    private String value_conditionExpression;
+    private boolean unknown_conditionExpression;
     public String conditionExpression() {
-        if (conditionExpression == null) return null;
-        return conditionExpression.getValue("DataSetLogicalTableMapDataTransformFilterOperationArgs.conditionExpression");
+        if (!unknown_conditionExpression) return value_conditionExpression;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformFilterOperationArgs.conditionExpression' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.transfer.outputs.WorkflowOnExceptionStepCopyStepDetails;
 import com.pulumi.policypacks.aws.transfer.outputs.WorkflowOnExceptionStepCustomStepDetails;
 import com.pulumi.policypacks.aws.transfer.outputs.WorkflowOnExceptionStepDecryptStepDetails;
@@ -19,62 +20,68 @@ public final class WorkflowOnExceptionStep {
      * Details for a step that performs a file copy. See Copy Step Details below.
      * 
      */
-    private @Nullable UndeferrableValue<WorkflowOnExceptionStepCopyStepDetails> copyStepDetails;
-
+    @PolicyResourceProperty(name="copyStepDetails", flag="unknown_copyStepDetails")
+    private @Nullable WorkflowOnExceptionStepCopyStepDetails value_copyStepDetails;
+    private boolean unknown_copyStepDetails;
     public @Nullable WorkflowOnExceptionStepCopyStepDetails copyStepDetails() {
-        if (copyStepDetails == null) return null;
-        return copyStepDetails.getValue("WorkflowOnExceptionStep.copyStepDetails");
+        if (!unknown_copyStepDetails) return value_copyStepDetails;
+        throw new UndeferrableValueException("Value 'WorkflowOnExceptionStep.copyStepDetails' is not present");
     }
 
     /**
      * Details for a step that invokes a lambda function.
      * 
      */
-    private @Nullable UndeferrableValue<WorkflowOnExceptionStepCustomStepDetails> customStepDetails;
-
+    @PolicyResourceProperty(name="customStepDetails", flag="unknown_customStepDetails")
+    private @Nullable WorkflowOnExceptionStepCustomStepDetails value_customStepDetails;
+    private boolean unknown_customStepDetails;
     public @Nullable WorkflowOnExceptionStepCustomStepDetails customStepDetails() {
-        if (customStepDetails == null) return null;
-        return customStepDetails.getValue("WorkflowOnExceptionStep.customStepDetails");
+        if (!unknown_customStepDetails) return value_customStepDetails;
+        throw new UndeferrableValueException("Value 'WorkflowOnExceptionStep.customStepDetails' is not present");
     }
 
     /**
      * Details for a step that decrypts the file.
      * 
      */
-    private @Nullable UndeferrableValue<WorkflowOnExceptionStepDecryptStepDetails> decryptStepDetails;
-
+    @PolicyResourceProperty(name="decryptStepDetails", flag="unknown_decryptStepDetails")
+    private @Nullable WorkflowOnExceptionStepDecryptStepDetails value_decryptStepDetails;
+    private boolean unknown_decryptStepDetails;
     public @Nullable WorkflowOnExceptionStepDecryptStepDetails decryptStepDetails() {
-        if (decryptStepDetails == null) return null;
-        return decryptStepDetails.getValue("WorkflowOnExceptionStep.decryptStepDetails");
+        if (!unknown_decryptStepDetails) return value_decryptStepDetails;
+        throw new UndeferrableValueException("Value 'WorkflowOnExceptionStep.decryptStepDetails' is not present");
     }
 
     /**
      * Details for a step that deletes the file.
      * 
      */
-    private @Nullable UndeferrableValue<WorkflowOnExceptionStepDeleteStepDetails> deleteStepDetails;
-
+    @PolicyResourceProperty(name="deleteStepDetails", flag="unknown_deleteStepDetails")
+    private @Nullable WorkflowOnExceptionStepDeleteStepDetails value_deleteStepDetails;
+    private boolean unknown_deleteStepDetails;
     public @Nullable WorkflowOnExceptionStepDeleteStepDetails deleteStepDetails() {
-        if (deleteStepDetails == null) return null;
-        return deleteStepDetails.getValue("WorkflowOnExceptionStep.deleteStepDetails");
+        if (!unknown_deleteStepDetails) return value_deleteStepDetails;
+        throw new UndeferrableValueException("Value 'WorkflowOnExceptionStep.deleteStepDetails' is not present");
     }
 
     /**
      * Details for a step that creates one or more tags.
      * 
      */
-    private @Nullable UndeferrableValue<WorkflowOnExceptionStepTagStepDetails> tagStepDetails;
-
+    @PolicyResourceProperty(name="tagStepDetails", flag="unknown_tagStepDetails")
+    private @Nullable WorkflowOnExceptionStepTagStepDetails value_tagStepDetails;
+    private boolean unknown_tagStepDetails;
     public @Nullable WorkflowOnExceptionStepTagStepDetails tagStepDetails() {
-        if (tagStepDetails == null) return null;
-        return tagStepDetails.getValue("WorkflowOnExceptionStep.tagStepDetails");
+        if (!unknown_tagStepDetails) return value_tagStepDetails;
+        throw new UndeferrableValueException("Value 'WorkflowOnExceptionStep.tagStepDetails' is not present");
     }
 
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("WorkflowOnExceptionStep.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'WorkflowOnExceptionStep.type' is not present");
     }
 
 }

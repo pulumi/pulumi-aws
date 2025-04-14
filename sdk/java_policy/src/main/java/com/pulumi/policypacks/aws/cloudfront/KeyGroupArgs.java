@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,33 +18,36 @@ public final class KeyGroupArgs extends com.pulumi.resources.PolicyResourceInput
      * A comment to describe the key group..
      * 
      */
-    private UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private String value_comment;
+    private boolean unknown_comment;
     public String comment() {
-        if (comment == null) return null;
-        return comment.getValue("KeyGroupArgs.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'KeyGroupArgs.comment' is not present");
     }
 
     /**
      * A list of the identifiers of the public keys in the key group.
      * 
      */
-    private UndeferrableValue<List<String>> items;
-
+    @PolicyResourceProperty(name="items", flag="unknown_items")
+    private List<String> value_items;
+    private boolean unknown_items;
     public List<String> items() {
-        if (items == null) return null;
-        return items.getValue("KeyGroupArgs.items");
+        if (!unknown_items) return value_items;
+        throw new UndeferrableValueException("Value 'KeyGroupArgs.items' is not present");
     }
 
     /**
      * A name to identify the key group.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("KeyGroupArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'KeyGroupArgs.name' is not present");
     }
 
 }

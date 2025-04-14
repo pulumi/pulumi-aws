@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.alb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -16,110 +17,120 @@ public final class ListenerDefaultActionAuthenticateOidc {
      * Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> authenticationRequestExtraParams;
-
+    @PolicyResourceProperty(name="authenticationRequestExtraParams", flag="unknown_authenticationRequestExtraParams")
+    private @Nullable Map<String,String> value_authenticationRequestExtraParams;
+    private boolean unknown_authenticationRequestExtraParams;
     public @Nullable Map<String,String> authenticationRequestExtraParams() {
-        if (authenticationRequestExtraParams == null) return null;
-        return authenticationRequestExtraParams.getValue("ListenerDefaultActionAuthenticateOidc.authenticationRequestExtraParams");
+        if (!unknown_authenticationRequestExtraParams) return value_authenticationRequestExtraParams;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionAuthenticateOidc.authenticationRequestExtraParams' is not present");
     }
 
     /**
      * Authorization endpoint of the IdP.
      * 
      */
-    private UndeferrableValue<String> authorizationEndpoint;
-
+    @PolicyResourceProperty(name="authorizationEndpoint", flag="unknown_authorizationEndpoint")
+    private String value_authorizationEndpoint;
+    private boolean unknown_authorizationEndpoint;
     public String authorizationEndpoint() {
-        if (authorizationEndpoint == null) return null;
-        return authorizationEndpoint.getValue("ListenerDefaultActionAuthenticateOidc.authorizationEndpoint");
+        if (!unknown_authorizationEndpoint) return value_authorizationEndpoint;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionAuthenticateOidc.authorizationEndpoint' is not present");
     }
 
     /**
      * OAuth 2.0 client identifier.
      * 
      */
-    private UndeferrableValue<String> clientId;
-
+    @PolicyResourceProperty(name="clientId", flag="unknown_clientId")
+    private String value_clientId;
+    private boolean unknown_clientId;
     public String clientId() {
-        if (clientId == null) return null;
-        return clientId.getValue("ListenerDefaultActionAuthenticateOidc.clientId");
+        if (!unknown_clientId) return value_clientId;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionAuthenticateOidc.clientId' is not present");
     }
 
     /**
      * OAuth 2.0 client secret.
      * 
      */
-    private UndeferrableValue<String> clientSecret;
-
+    @PolicyResourceProperty(name="clientSecret", flag="unknown_clientSecret")
+    private String value_clientSecret;
+    private boolean unknown_clientSecret;
     public String clientSecret() {
-        if (clientSecret == null) return null;
-        return clientSecret.getValue("ListenerDefaultActionAuthenticateOidc.clientSecret");
+        if (!unknown_clientSecret) return value_clientSecret;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionAuthenticateOidc.clientSecret' is not present");
     }
 
     /**
      * OIDC issuer identifier of the IdP.
      * 
      */
-    private UndeferrableValue<String> issuer;
-
+    @PolicyResourceProperty(name="issuer", flag="unknown_issuer")
+    private String value_issuer;
+    private boolean unknown_issuer;
     public String issuer() {
-        if (issuer == null) return null;
-        return issuer.getValue("ListenerDefaultActionAuthenticateOidc.issuer");
+        if (!unknown_issuer) return value_issuer;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionAuthenticateOidc.issuer' is not present");
     }
 
     /**
      * Behavior if the user is not authenticated. Valid values: `deny`, `allow` and `authenticate`
      * 
      */
-    private @Nullable UndeferrableValue<String> onUnauthenticatedRequest;
-
+    @PolicyResourceProperty(name="onUnauthenticatedRequest", flag="unknown_onUnauthenticatedRequest")
+    private @Nullable String value_onUnauthenticatedRequest;
+    private boolean unknown_onUnauthenticatedRequest;
     public @Nullable String onUnauthenticatedRequest() {
-        if (onUnauthenticatedRequest == null) return null;
-        return onUnauthenticatedRequest.getValue("ListenerDefaultActionAuthenticateOidc.onUnauthenticatedRequest");
+        if (!unknown_onUnauthenticatedRequest) return value_onUnauthenticatedRequest;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionAuthenticateOidc.onUnauthenticatedRequest' is not present");
     }
 
     /**
      * Set of user claims to be requested from the IdP.
      * 
      */
-    private @Nullable UndeferrableValue<String> scope;
-
+    @PolicyResourceProperty(name="scope", flag="unknown_scope")
+    private @Nullable String value_scope;
+    private boolean unknown_scope;
     public @Nullable String scope() {
-        if (scope == null) return null;
-        return scope.getValue("ListenerDefaultActionAuthenticateOidc.scope");
+        if (!unknown_scope) return value_scope;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionAuthenticateOidc.scope' is not present");
     }
 
     /**
      * Name of the cookie used to maintain session information.
      * 
      */
-    private @Nullable UndeferrableValue<String> sessionCookieName;
-
+    @PolicyResourceProperty(name="sessionCookieName", flag="unknown_sessionCookieName")
+    private @Nullable String value_sessionCookieName;
+    private boolean unknown_sessionCookieName;
     public @Nullable String sessionCookieName() {
-        if (sessionCookieName == null) return null;
-        return sessionCookieName.getValue("ListenerDefaultActionAuthenticateOidc.sessionCookieName");
+        if (!unknown_sessionCookieName) return value_sessionCookieName;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionAuthenticateOidc.sessionCookieName' is not present");
     }
 
     /**
      * Maximum duration of the authentication session, in seconds.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> sessionTimeout;
-
+    @PolicyResourceProperty(name="sessionTimeout", flag="unknown_sessionTimeout")
+    private @Nullable Integer value_sessionTimeout;
+    private boolean unknown_sessionTimeout;
     public @Nullable Integer sessionTimeout() {
-        if (sessionTimeout == null) return null;
-        return sessionTimeout.getValue("ListenerDefaultActionAuthenticateOidc.sessionTimeout");
+        if (!unknown_sessionTimeout) return value_sessionTimeout;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionAuthenticateOidc.sessionTimeout' is not present");
     }
 
     /**
      * Token endpoint of the IdP.
      * 
      */
-    private UndeferrableValue<String> tokenEndpoint;
-
+    @PolicyResourceProperty(name="tokenEndpoint", flag="unknown_tokenEndpoint")
+    private String value_tokenEndpoint;
+    private boolean unknown_tokenEndpoint;
     public String tokenEndpoint() {
-        if (tokenEndpoint == null) return null;
-        return tokenEndpoint.getValue("ListenerDefaultActionAuthenticateOidc.tokenEndpoint");
+        if (!unknown_tokenEndpoint) return value_tokenEndpoint;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionAuthenticateOidc.tokenEndpoint' is not present");
     }
 
     /**
@@ -128,11 +139,12 @@ public final class ListenerDefaultActionAuthenticateOidc {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> userInfoEndpoint;
-
+    @PolicyResourceProperty(name="userInfoEndpoint", flag="unknown_userInfoEndpoint")
+    private String value_userInfoEndpoint;
+    private boolean unknown_userInfoEndpoint;
     public String userInfoEndpoint() {
-        if (userInfoEndpoint == null) return null;
-        return userInfoEndpoint.getValue("ListenerDefaultActionAuthenticateOidc.userInfoEndpoint");
+        if (!unknown_userInfoEndpoint) return value_userInfoEndpoint;
+        throw new UndeferrableValueException("Value 'ListenerDefaultActionAuthenticateOidc.userInfoEndpoint' is not present");
     }
 
 }

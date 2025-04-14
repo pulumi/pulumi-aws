@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rum;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.rum.inputs.AppMonitorAppMonitorConfigurationArgs;
 import com.pulumi.policypacks.aws.rum.inputs.AppMonitorCustomEventsArgs;
@@ -20,66 +21,72 @@ public final class AppMonitorArgs extends com.pulumi.resources.PolicyResourceInp
      * configuration data for the app monitor. See app_monitor_configuration below.
      * 
      */
-    private UndeferrableValue<AppMonitorAppMonitorConfigurationArgs> appMonitorConfiguration;
-
+    @PolicyResourceProperty(name="appMonitorConfiguration", flag="unknown_appMonitorConfiguration")
+    private AppMonitorAppMonitorConfigurationArgs value_appMonitorConfiguration;
+    private boolean unknown_appMonitorConfiguration;
     public AppMonitorAppMonitorConfigurationArgs appMonitorConfiguration() {
-        if (appMonitorConfiguration == null) return null;
-        return appMonitorConfiguration.getValue("AppMonitorArgs.appMonitorConfiguration");
+        if (!unknown_appMonitorConfiguration) return value_appMonitorConfiguration;
+        throw new UndeferrableValueException("Value 'AppMonitorArgs.appMonitorConfiguration' is not present");
     }
 
     /**
      * Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED`. See custom_events below.
      * 
      */
-    private UndeferrableValue<AppMonitorCustomEventsArgs> customEvents;
-
+    @PolicyResourceProperty(name="customEvents", flag="unknown_customEvents")
+    private AppMonitorCustomEventsArgs value_customEvents;
+    private boolean unknown_customEvents;
     public AppMonitorCustomEventsArgs customEvents() {
-        if (customEvents == null) return null;
-        return customEvents.getValue("AppMonitorArgs.customEvents");
+        if (!unknown_customEvents) return value_customEvents;
+        throw new UndeferrableValueException("Value 'AppMonitorArgs.customEvents' is not present");
     }
 
     /**
      * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter  specifies whether RUM sends a copy of this telemetry data to Amazon CloudWatch Logs in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur Amazon CloudWatch Logs charges. Default value is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> cwLogEnabled;
-
+    @PolicyResourceProperty(name="cwLogEnabled", flag="unknown_cwLogEnabled")
+    private Boolean value_cwLogEnabled;
+    private boolean unknown_cwLogEnabled;
     public Boolean cwLogEnabled() {
-        if (cwLogEnabled == null) return null;
-        return cwLogEnabled.getValue("AppMonitorArgs.cwLogEnabled");
+        if (!unknown_cwLogEnabled) return value_cwLogEnabled;
+        throw new UndeferrableValueException("Value 'AppMonitorArgs.cwLogEnabled' is not present");
     }
 
     /**
      * The top-level internet domain name for which your application has administrative authority.
      * 
      */
-    private UndeferrableValue<String> domain;
-
+    @PolicyResourceProperty(name="domain", flag="unknown_domain")
+    private String value_domain;
+    private boolean unknown_domain;
     public String domain() {
-        if (domain == null) return null;
-        return domain.getValue("AppMonitorArgs.domain");
+        if (!unknown_domain) return value_domain;
+        throw new UndeferrableValueException("Value 'AppMonitorArgs.domain' is not present");
     }
 
     /**
      * The name of the log stream.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AppMonitorArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AppMonitorArgs.name' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AppMonitorArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AppMonitorArgs.tags' is not present");
     }
 
 }

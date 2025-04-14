@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicediscovery;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,55 +18,60 @@ public final class PrivateDnsNamespace extends com.pulumi.resources.PolicyResour
      * The ARN that Amazon Route 53 assigns to the namespace when you create it.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("PrivateDnsNamespace.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'PrivateDnsNamespace.arn' is not present");
     }
 
     /**
      * The description that you specify for the namespace when you create it.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("PrivateDnsNamespace.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'PrivateDnsNamespace.description' is not present");
     }
 
     /**
      * The ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
      * 
      */
-    private UndeferrableValue<String> hostedZone;
-
+    @PolicyResourceProperty(name="hostedZone", flag="unknown_hostedZone")
+    private String value_hostedZone;
+    private boolean unknown_hostedZone;
     public String hostedZone() {
-        if (hostedZone == null) return null;
-        return hostedZone.getValue("PrivateDnsNamespace.hostedZone");
+        if (!unknown_hostedZone) return value_hostedZone;
+        throw new UndeferrableValueException("Value 'PrivateDnsNamespace.hostedZone' is not present");
     }
 
     /**
      * The name of the namespace.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PrivateDnsNamespace.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PrivateDnsNamespace.name' is not present");
     }
 
     /**
      * A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("PrivateDnsNamespace.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'PrivateDnsNamespace.tags' is not present");
     }
 
     /**
@@ -76,22 +82,24 @@ public final class PrivateDnsNamespace extends com.pulumi.resources.PolicyResour
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("PrivateDnsNamespace.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'PrivateDnsNamespace.tagsAll' is not present");
     }
 
     /**
      * The ID of VPC that you want to associate the namespace with.
      * 
      */
-    private UndeferrableValue<String> vpc;
-
+    @PolicyResourceProperty(name="vpc", flag="unknown_vpc")
+    private String value_vpc;
+    private boolean unknown_vpc;
     public String vpc() {
-        if (vpc == null) return null;
-        return vpc.getValue("PrivateDnsNamespace.vpc");
+        if (!unknown_vpc) return value_vpc;
+        throw new UndeferrableValueException("Value 'PrivateDnsNamespace.vpc' is not present");
     }
 
 }

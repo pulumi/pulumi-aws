@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,55 +18,60 @@ public final class RouteTableAssociation extends com.pulumi.resources.PolicyReso
      * Boolean whether the Gateway Attachment should remove any current Route Table association before associating with the specified Route Table. Default value: `false`. This argument is intended for use with EC2 Transit Gateways shared into the current account, otherwise the `transit_gateway_default_route_table_association` argument of the `aws.ec2transitgateway.VpcAttachment` resource should be used.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> replaceExistingAssociation;
-
+    @PolicyResourceProperty(name="replaceExistingAssociation", flag="unknown_replaceExistingAssociation")
+    private @Nullable Boolean value_replaceExistingAssociation;
+    private boolean unknown_replaceExistingAssociation;
     public @Nullable Boolean replaceExistingAssociation() {
-        if (replaceExistingAssociation == null) return null;
-        return replaceExistingAssociation.getValue("RouteTableAssociation.replaceExistingAssociation");
+        if (!unknown_replaceExistingAssociation) return value_replaceExistingAssociation;
+        throw new UndeferrableValueException("Value 'RouteTableAssociation.replaceExistingAssociation' is not present");
     }
 
     /**
      * Identifier of the resource
      * 
      */
-    private UndeferrableValue<String> resourceId;
-
+    @PolicyResourceProperty(name="resourceId", flag="unknown_resourceId")
+    private String value_resourceId;
+    private boolean unknown_resourceId;
     public String resourceId() {
-        if (resourceId == null) return null;
-        return resourceId.getValue("RouteTableAssociation.resourceId");
+        if (!unknown_resourceId) return value_resourceId;
+        throw new UndeferrableValueException("Value 'RouteTableAssociation.resourceId' is not present");
     }
 
     /**
      * Type of the resource
      * 
      */
-    private UndeferrableValue<String> resourceType;
-
+    @PolicyResourceProperty(name="resourceType", flag="unknown_resourceType")
+    private String value_resourceType;
+    private boolean unknown_resourceType;
     public String resourceType() {
-        if (resourceType == null) return null;
-        return resourceType.getValue("RouteTableAssociation.resourceType");
+        if (!unknown_resourceType) return value_resourceType;
+        throw new UndeferrableValueException("Value 'RouteTableAssociation.resourceType' is not present");
     }
 
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      * 
      */
-    private UndeferrableValue<String> transitGatewayAttachmentId;
-
+    @PolicyResourceProperty(name="transitGatewayAttachmentId", flag="unknown_transitGatewayAttachmentId")
+    private String value_transitGatewayAttachmentId;
+    private boolean unknown_transitGatewayAttachmentId;
     public String transitGatewayAttachmentId() {
-        if (transitGatewayAttachmentId == null) return null;
-        return transitGatewayAttachmentId.getValue("RouteTableAssociation.transitGatewayAttachmentId");
+        if (!unknown_transitGatewayAttachmentId) return value_transitGatewayAttachmentId;
+        throw new UndeferrableValueException("Value 'RouteTableAssociation.transitGatewayAttachmentId' is not present");
     }
 
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      * 
      */
-    private UndeferrableValue<String> transitGatewayRouteTableId;
-
+    @PolicyResourceProperty(name="transitGatewayRouteTableId", flag="unknown_transitGatewayRouteTableId")
+    private String value_transitGatewayRouteTableId;
+    private boolean unknown_transitGatewayRouteTableId;
     public String transitGatewayRouteTableId() {
-        if (transitGatewayRouteTableId == null) return null;
-        return transitGatewayRouteTableId.getValue("RouteTableAssociation.transitGatewayRouteTableId");
+        if (!unknown_transitGatewayRouteTableId) return value_transitGatewayRouteTableId;
+        throw new UndeferrableValueException("Value 'RouteTableAssociation.transitGatewayRouteTableId' is not present");
     }
 
 }

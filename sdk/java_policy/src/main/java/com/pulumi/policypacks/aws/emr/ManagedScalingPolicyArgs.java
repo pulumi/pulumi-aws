@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.emr.inputs.ManagedScalingPolicyComputeLimitArgs;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class ManagedScalingPolicyArgs extends com.pulumi.resources.PolicyR
      * ID of the EMR cluster
      * 
      */
-    private UndeferrableValue<String> clusterId;
-
+    @PolicyResourceProperty(name="clusterId", flag="unknown_clusterId")
+    private String value_clusterId;
+    private boolean unknown_clusterId;
     public String clusterId() {
-        if (clusterId == null) return null;
-        return clusterId.getValue("ManagedScalingPolicyArgs.clusterId");
+        if (!unknown_clusterId) return value_clusterId;
+        throw new UndeferrableValueException("Value 'ManagedScalingPolicyArgs.clusterId' is not present");
     }
 
     /**
      * Configuration block with compute limit settings. Described below.
      * 
      */
-    private UndeferrableValue<List<ManagedScalingPolicyComputeLimitArgs>> computeLimits;
-
+    @PolicyResourceProperty(name="computeLimits", flag="unknown_computeLimits")
+    private List<ManagedScalingPolicyComputeLimitArgs> value_computeLimits;
+    private boolean unknown_computeLimits;
     public List<ManagedScalingPolicyComputeLimitArgs> computeLimits() {
-        if (computeLimits == null) return null;
-        return computeLimits.getValue("ManagedScalingPolicyArgs.computeLimits");
+        if (!unknown_computeLimits) return value_computeLimits;
+        throw new UndeferrableValueException("Value 'ManagedScalingPolicyArgs.computeLimits' is not present");
     }
 
 }

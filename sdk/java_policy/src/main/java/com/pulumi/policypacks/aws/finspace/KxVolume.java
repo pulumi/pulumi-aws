@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.finspace;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.finspace.outputs.KxVolumeAttachedCluster;
 import com.pulumi.policypacks.aws.finspace.outputs.KxVolumeNas1Configuration;
@@ -20,18 +21,20 @@ public final class KxVolume extends com.pulumi.resources.PolicyResourceOutput {
      * Amazon Resource Name (ARN) identifier of the KX volume.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("KxVolume.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'KxVolume.arn' is not present");
     }
 
-    private UndeferrableValue<List<KxVolumeAttachedCluster>> attachedClusters;
-
+    @PolicyResourceProperty(name="attachedClusters", flag="unknown_attachedClusters")
+    private List<KxVolumeAttachedCluster> value_attachedClusters;
+    private boolean unknown_attachedClusters;
     public List<KxVolumeAttachedCluster> attachedClusters() {
-        if (attachedClusters == null) return null;
-        return attachedClusters.getValue("KxVolume.attachedClusters");
+        if (!unknown_attachedClusters) return value_attachedClusters;
+        throw new UndeferrableValueException("Value 'KxVolume.attachedClusters' is not present");
     }
 
     /**
@@ -40,11 +43,12 @@ public final class KxVolume extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<List<String>> availabilityZones;
-
+    @PolicyResourceProperty(name="availabilityZones", flag="unknown_availabilityZones")
+    private List<String> value_availabilityZones;
+    private boolean unknown_availabilityZones;
     public List<String> availabilityZones() {
-        if (availabilityZones == null) return null;
-        return availabilityZones.getValue("KxVolume.availabilityZones");
+        if (!unknown_availabilityZones) return value_availabilityZones;
+        throw new UndeferrableValueException("Value 'KxVolume.availabilityZones' is not present");
     }
 
     /**
@@ -52,77 +56,84 @@ public final class KxVolume extends com.pulumi.resources.PolicyResourceOutput {
      * * `SINGLE` - Assigns one availability zone per volume.
      * 
      */
-    private UndeferrableValue<String> azMode;
-
+    @PolicyResourceProperty(name="azMode", flag="unknown_azMode")
+    private String value_azMode;
+    private boolean unknown_azMode;
     public String azMode() {
-        if (azMode == null) return null;
-        return azMode.getValue("KxVolume.azMode");
+        if (!unknown_azMode) return value_azMode;
+        throw new UndeferrableValueException("Value 'KxVolume.azMode' is not present");
     }
 
     /**
      * The timestamp at which the volume was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
      * 
      */
-    private UndeferrableValue<String> createdTimestamp;
-
+    @PolicyResourceProperty(name="createdTimestamp", flag="unknown_createdTimestamp")
+    private String value_createdTimestamp;
+    private boolean unknown_createdTimestamp;
     public String createdTimestamp() {
-        if (createdTimestamp == null) return null;
-        return createdTimestamp.getValue("KxVolume.createdTimestamp");
+        if (!unknown_createdTimestamp) return value_createdTimestamp;
+        throw new UndeferrableValueException("Value 'KxVolume.createdTimestamp' is not present");
     }
 
     /**
      * Description of the volume.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("KxVolume.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'KxVolume.description' is not present");
     }
 
     /**
      * A unique identifier for the kdb environment, whose clusters can attach to the volume.
      * 
      */
-    private UndeferrableValue<String> environmentId;
-
+    @PolicyResourceProperty(name="environmentId", flag="unknown_environmentId")
+    private String value_environmentId;
+    private boolean unknown_environmentId;
     public String environmentId() {
-        if (environmentId == null) return null;
-        return environmentId.getValue("KxVolume.environmentId");
+        if (!unknown_environmentId) return value_environmentId;
+        throw new UndeferrableValueException("Value 'KxVolume.environmentId' is not present");
     }
 
     /**
      * Last timestamp at which the volume was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
      * 
      */
-    private UndeferrableValue<String> lastModifiedTimestamp;
-
+    @PolicyResourceProperty(name="lastModifiedTimestamp", flag="unknown_lastModifiedTimestamp")
+    private String value_lastModifiedTimestamp;
+    private boolean unknown_lastModifiedTimestamp;
     public String lastModifiedTimestamp() {
-        if (lastModifiedTimestamp == null) return null;
-        return lastModifiedTimestamp.getValue("KxVolume.lastModifiedTimestamp");
+        if (!unknown_lastModifiedTimestamp) return value_lastModifiedTimestamp;
+        throw new UndeferrableValueException("Value 'KxVolume.lastModifiedTimestamp' is not present");
     }
 
     /**
      * Unique name for the volumr that you want to create.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("KxVolume.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'KxVolume.name' is not present");
     }
 
     /**
      * Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
      * 
      */
-    private @Nullable UndeferrableValue<List<KxVolumeNas1Configuration>> nas1Configurations;
-
+    @PolicyResourceProperty(name="nas1Configurations", flag="unknown_nas1Configurations")
+    private @Nullable List<KxVolumeNas1Configuration> value_nas1Configurations;
+    private boolean unknown_nas1Configurations;
     public @Nullable List<KxVolumeNas1Configuration> nas1Configurations() {
-        if (nas1Configurations == null) return null;
-        return nas1Configurations.getValue("KxVolume.nas1Configurations");
+        if (!unknown_nas1Configurations) return value_nas1Configurations;
+        throw new UndeferrableValueException("Value 'KxVolume.nas1Configurations' is not present");
     }
 
     /**
@@ -138,33 +149,36 @@ public final class KxVolume extends com.pulumi.resources.PolicyResourceOutput {
      * * `DELETED` – The volume is successfully deleted.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("KxVolume.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'KxVolume.status' is not present");
     }
 
     /**
      * The error message when a failed state occurs.
      * 
      */
-    private UndeferrableValue<String> statusReason;
-
+    @PolicyResourceProperty(name="statusReason", flag="unknown_statusReason")
+    private String value_statusReason;
+    private boolean unknown_statusReason;
     public String statusReason() {
-        if (statusReason == null) return null;
-        return statusReason.getValue("KxVolume.statusReason");
+        if (!unknown_statusReason) return value_statusReason;
+        throw new UndeferrableValueException("Value 'KxVolume.statusReason' is not present");
     }
 
     /**
      * A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("KxVolume.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'KxVolume.tags' is not present");
     }
 
     /**
@@ -173,22 +187,24 @@ public final class KxVolume extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("KxVolume.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'KxVolume.tagsAll' is not present");
     }
 
     /**
      * The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("KxVolume.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'KxVolume.type' is not present");
     }
 
 }

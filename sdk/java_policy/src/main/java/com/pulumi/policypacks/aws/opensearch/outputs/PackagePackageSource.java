@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class PackagePackageSource {
      * The name of the Amazon S3 bucket containing the package.
      * 
      */
-    private UndeferrableValue<String> s3BucketName;
-
+    @PolicyResourceProperty(name="s3BucketName", flag="unknown_s3BucketName")
+    private String value_s3BucketName;
+    private boolean unknown_s3BucketName;
     public String s3BucketName() {
-        if (s3BucketName == null) return null;
-        return s3BucketName.getValue("PackagePackageSource.s3BucketName");
+        if (!unknown_s3BucketName) return value_s3BucketName;
+        throw new UndeferrableValueException("Value 'PackagePackageSource.s3BucketName' is not present");
     }
 
     /**
      * Key (file name) of the package.
      * 
      */
-    private UndeferrableValue<String> s3Key;
-
+    @PolicyResourceProperty(name="s3Key", flag="unknown_s3Key")
+    private String value_s3Key;
+    private boolean unknown_s3Key;
     public String s3Key() {
-        if (s3Key == null) return null;
-        return s3Key.getValue("PackagePackageSource.s3Key");
+        if (!unknown_s3Key) return value_s3Key;
+        throw new UndeferrableValueException("Value 'PackagePackageSource.s3Key' is not present");
     }
 
 }

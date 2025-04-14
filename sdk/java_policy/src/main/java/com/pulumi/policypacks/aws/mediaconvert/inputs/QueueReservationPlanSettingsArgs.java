@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mediaconvert.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,33 +15,36 @@ public final class QueueReservationPlanSettingsArgs {
      * The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
      * 
      */
-    private UndeferrableValue<String> commitment;
-
+    @PolicyResourceProperty(name="commitment", flag="unknown_commitment")
+    private String value_commitment;
+    private boolean unknown_commitment;
     public String commitment() {
-        if (commitment == null) return null;
-        return commitment.getValue("QueueReservationPlanSettingsArgs.commitment");
+        if (!unknown_commitment) return value_commitment;
+        throw new UndeferrableValueException("Value 'QueueReservationPlanSettingsArgs.commitment' is not present");
     }
 
     /**
      * Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
      * 
      */
-    private UndeferrableValue<String> renewalType;
-
+    @PolicyResourceProperty(name="renewalType", flag="unknown_renewalType")
+    private String value_renewalType;
+    private boolean unknown_renewalType;
     public String renewalType() {
-        if (renewalType == null) return null;
-        return renewalType.getValue("QueueReservationPlanSettingsArgs.renewalType");
+        if (!unknown_renewalType) return value_renewalType;
+        throw new UndeferrableValueException("Value 'QueueReservationPlanSettingsArgs.renewalType' is not present");
     }
 
     /**
      * Specifies the number of reserved transcode slots (RTS) for queue.
      * 
      */
-    private UndeferrableValue<Integer> reservedSlots;
-
+    @PolicyResourceProperty(name="reservedSlots", flag="unknown_reservedSlots")
+    private Integer value_reservedSlots;
+    private boolean unknown_reservedSlots;
     public Integer reservedSlots() {
-        if (reservedSlots == null) return null;
-        return reservedSlots.getValue("QueueReservationPlanSettingsArgs.reservedSlots");
+        if (!unknown_reservedSlots) return value_reservedSlots;
+        throw new UndeferrableValueException("Value 'QueueReservationPlanSettingsArgs.reservedSlots' is not present");
     }
 
 }

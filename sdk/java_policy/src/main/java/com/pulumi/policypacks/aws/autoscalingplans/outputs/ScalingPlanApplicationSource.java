@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscalingplans.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.autoscalingplans.outputs.ScalingPlanApplicationSourceTagFilter;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class ScalingPlanApplicationSource {
      * ARN of a AWS CloudFormation stack.
      * 
      */
-    private @Nullable UndeferrableValue<String> cloudformationStackArn;
-
+    @PolicyResourceProperty(name="cloudformationStackArn", flag="unknown_cloudformationStackArn")
+    private @Nullable String value_cloudformationStackArn;
+    private boolean unknown_cloudformationStackArn;
     public @Nullable String cloudformationStackArn() {
-        if (cloudformationStackArn == null) return null;
-        return cloudformationStackArn.getValue("ScalingPlanApplicationSource.cloudformationStackArn");
+        if (!unknown_cloudformationStackArn) return value_cloudformationStackArn;
+        throw new UndeferrableValueException("Value 'ScalingPlanApplicationSource.cloudformationStackArn' is not present");
     }
 
     /**
      * Set of tags.
      * 
      */
-    private @Nullable UndeferrableValue<List<ScalingPlanApplicationSourceTagFilter>> tagFilters;
-
+    @PolicyResourceProperty(name="tagFilters", flag="unknown_tagFilters")
+    private @Nullable List<ScalingPlanApplicationSourceTagFilter> value_tagFilters;
+    private boolean unknown_tagFilters;
     public @Nullable List<ScalingPlanApplicationSourceTagFilter> tagFilters() {
-        if (tagFilters == null) return null;
-        return tagFilters.getValue("ScalingPlanApplicationSource.tagFilters");
+        if (!unknown_tagFilters) return value_tagFilters;
+        throw new UndeferrableValueException("Value 'ScalingPlanApplicationSource.tagFilters' is not present");
     }
 
 }

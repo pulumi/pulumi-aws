@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 
@@ -14,33 +15,36 @@ public final class RecordsExclusiveResourceRecordSetAliasTargetArgs {
      * DNS domain name for another resource record set in this hosted zone.
      * 
      */
-    private UndeferrableValue<String> dnsName;
-
+    @PolicyResourceProperty(name="dnsName", flag="unknown_dnsName")
+    private String value_dnsName;
+    private boolean unknown_dnsName;
     public String dnsName() {
-        if (dnsName == null) return null;
-        return dnsName.getValue("RecordsExclusiveResourceRecordSetAliasTargetArgs.dnsName");
+        if (!unknown_dnsName) return value_dnsName;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSetAliasTargetArgs.dnsName' is not present");
     }
 
     /**
      * Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [the AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health) for additional details.
      * 
      */
-    private UndeferrableValue<Boolean> evaluateTargetHealth;
-
+    @PolicyResourceProperty(name="evaluateTargetHealth", flag="unknown_evaluateTargetHealth")
+    private Boolean value_evaluateTargetHealth;
+    private boolean unknown_evaluateTargetHealth;
     public Boolean evaluateTargetHealth() {
-        if (evaluateTargetHealth == null) return null;
-        return evaluateTargetHealth.getValue("RecordsExclusiveResourceRecordSetAliasTargetArgs.evaluateTargetHealth");
+        if (!unknown_evaluateTargetHealth) return value_evaluateTargetHealth;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSetAliasTargetArgs.evaluateTargetHealth' is not present");
     }
 
     /**
      * Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, AWS Global Accelerator, or Route 53 hosted zone. See `resource_elb.zone_id` for an example.
      * 
      */
-    private UndeferrableValue<String> hostedZoneId;
-
+    @PolicyResourceProperty(name="hostedZoneId", flag="unknown_hostedZoneId")
+    private String value_hostedZoneId;
+    private boolean unknown_hostedZoneId;
     public String hostedZoneId() {
-        if (hostedZoneId == null) return null;
-        return hostedZoneId.getValue("RecordsExclusiveResourceRecordSetAliasTargetArgs.hostedZoneId");
+        if (!unknown_hostedZoneId) return value_hostedZoneId;
+        throw new UndeferrableValueException("Value 'RecordsExclusiveResourceRecordSetAliasTargetArgs.hostedZoneId' is not present");
     }
 
 }

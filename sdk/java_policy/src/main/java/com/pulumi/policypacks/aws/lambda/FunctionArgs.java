@@ -4,7 +4,8 @@
 package com.pulumi.policypacks.aws.lambda;
 
 import com.pulumi.asset.Archive;
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lambda.enums.Runtime;
 import com.pulumi.policypacks.aws.lambda.inputs.FunctionDeadLetterConfigArgs;
@@ -31,198 +32,216 @@ public final class FunctionArgs extends com.pulumi.resources.PolicyResourceInput
      * Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stay the same.
      * 
      */
-    private UndeferrableValue<List<String>> architectures;
-
+    @PolicyResourceProperty(name="architectures", flag="unknown_architectures")
+    private List<String> value_architectures;
+    private boolean unknown_architectures;
     public List<String> architectures() {
-        if (architectures == null) return null;
-        return architectures.getValue("FunctionArgs.architectures");
+        if (!unknown_architectures) return value_architectures;
+        throw new UndeferrableValueException("Value 'FunctionArgs.architectures' is not present");
     }
 
     /**
      * Path to the function&#39;s deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
      * 
      */
-    private UndeferrableValue<Archive> code;
-
+    @PolicyResourceProperty(name="code", flag="unknown_code")
+    private Archive value_code;
+    private boolean unknown_code;
     public Archive code() {
-        if (code == null) return null;
-        return code.getValue("FunctionArgs.code");
+        if (!unknown_code) return value_code;
+        throw new UndeferrableValueException("Value 'FunctionArgs.code' is not present");
     }
 
     /**
      * To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
      * 
      */
-    private UndeferrableValue<String> codeSigningConfigArn;
-
+    @PolicyResourceProperty(name="codeSigningConfigArn", flag="unknown_codeSigningConfigArn")
+    private String value_codeSigningConfigArn;
+    private boolean unknown_codeSigningConfigArn;
     public String codeSigningConfigArn() {
-        if (codeSigningConfigArn == null) return null;
-        return codeSigningConfigArn.getValue("FunctionArgs.codeSigningConfigArn");
+        if (!unknown_codeSigningConfigArn) return value_codeSigningConfigArn;
+        throw new UndeferrableValueException("Value 'FunctionArgs.codeSigningConfigArn' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<FunctionDeadLetterConfigArgs> deadLetterConfig;
-
+    @PolicyResourceProperty(name="deadLetterConfig", flag="unknown_deadLetterConfig")
+    private FunctionDeadLetterConfigArgs value_deadLetterConfig;
+    private boolean unknown_deadLetterConfig;
     public FunctionDeadLetterConfigArgs deadLetterConfig() {
-        if (deadLetterConfig == null) return null;
-        return deadLetterConfig.getValue("FunctionArgs.deadLetterConfig");
+        if (!unknown_deadLetterConfig) return value_deadLetterConfig;
+        throw new UndeferrableValueException("Value 'FunctionArgs.deadLetterConfig' is not present");
     }
 
     /**
      * Description of what your Lambda Function does.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("FunctionArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'FunctionArgs.description' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<FunctionEnvironmentArgs> environment;
-
+    @PolicyResourceProperty(name="environment", flag="unknown_environment")
+    private FunctionEnvironmentArgs value_environment;
+    private boolean unknown_environment;
     public FunctionEnvironmentArgs environment() {
-        if (environment == null) return null;
-        return environment.getValue("FunctionArgs.environment");
+        if (!unknown_environment) return value_environment;
+        throw new UndeferrableValueException("Value 'FunctionArgs.environment' is not present");
     }
 
     /**
      * The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
      * 
      */
-    private UndeferrableValue<FunctionEphemeralStorageArgs> ephemeralStorage;
-
+    @PolicyResourceProperty(name="ephemeralStorage", flag="unknown_ephemeralStorage")
+    private FunctionEphemeralStorageArgs value_ephemeralStorage;
+    private boolean unknown_ephemeralStorage;
     public FunctionEphemeralStorageArgs ephemeralStorage() {
-        if (ephemeralStorage == null) return null;
-        return ephemeralStorage.getValue("FunctionArgs.ephemeralStorage");
+        if (!unknown_ephemeralStorage) return value_ephemeralStorage;
+        throw new UndeferrableValueException("Value 'FunctionArgs.ephemeralStorage' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<FunctionFileSystemConfigArgs> fileSystemConfig;
-
+    @PolicyResourceProperty(name="fileSystemConfig", flag="unknown_fileSystemConfig")
+    private FunctionFileSystemConfigArgs value_fileSystemConfig;
+    private boolean unknown_fileSystemConfig;
     public FunctionFileSystemConfigArgs fileSystemConfig() {
-        if (fileSystemConfig == null) return null;
-        return fileSystemConfig.getValue("FunctionArgs.fileSystemConfig");
+        if (!unknown_fileSystemConfig) return value_fileSystemConfig;
+        throw new UndeferrableValueException("Value 'FunctionArgs.fileSystemConfig' is not present");
     }
 
     /**
      * Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
      * 
      */
-    private UndeferrableValue<String> handler;
-
+    @PolicyResourceProperty(name="handler", flag="unknown_handler")
+    private String value_handler;
+    private boolean unknown_handler;
     public String handler() {
-        if (handler == null) return null;
-        return handler.getValue("FunctionArgs.handler");
+        if (!unknown_handler) return value_handler;
+        throw new UndeferrableValueException("Value 'FunctionArgs.handler' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<FunctionImageConfigArgs> imageConfig;
-
+    @PolicyResourceProperty(name="imageConfig", flag="unknown_imageConfig")
+    private FunctionImageConfigArgs value_imageConfig;
+    private boolean unknown_imageConfig;
     public FunctionImageConfigArgs imageConfig() {
-        if (imageConfig == null) return null;
-        return imageConfig.getValue("FunctionArgs.imageConfig");
+        if (!unknown_imageConfig) return value_imageConfig;
+        throw new UndeferrableValueException("Value 'FunctionArgs.imageConfig' is not present");
     }
 
     /**
      * ECR image URI containing the function&#39;s deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
      * 
      */
-    private UndeferrableValue<String> imageUri;
-
+    @PolicyResourceProperty(name="imageUri", flag="unknown_imageUri")
+    private String value_imageUri;
+    private boolean unknown_imageUri;
     public String imageUri() {
-        if (imageUri == null) return null;
-        return imageUri.getValue("FunctionArgs.imageUri");
+        if (!unknown_imageUri) return value_imageUri;
+        throw new UndeferrableValueException("Value 'FunctionArgs.imageUri' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
      * 
      */
-    private UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("FunctionArgs.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'FunctionArgs.kmsKeyArn' is not present");
     }
 
     /**
      * List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
      * 
      */
-    private UndeferrableValue<List<String>> layers;
-
+    @PolicyResourceProperty(name="layers", flag="unknown_layers")
+    private List<String> value_layers;
+    private boolean unknown_layers;
     public List<String> layers() {
-        if (layers == null) return null;
-        return layers.getValue("FunctionArgs.layers");
+        if (!unknown_layers) return value_layers;
+        throw new UndeferrableValueException("Value 'FunctionArgs.layers' is not present");
     }
 
     /**
      * Configuration block used to specify advanced logging settings. Detailed below.
      * 
      */
-    private UndeferrableValue<FunctionLoggingConfigArgs> loggingConfig;
-
+    @PolicyResourceProperty(name="loggingConfig", flag="unknown_loggingConfig")
+    private FunctionLoggingConfigArgs value_loggingConfig;
+    private boolean unknown_loggingConfig;
     public FunctionLoggingConfigArgs loggingConfig() {
-        if (loggingConfig == null) return null;
-        return loggingConfig.getValue("FunctionArgs.loggingConfig");
+        if (!unknown_loggingConfig) return value_loggingConfig;
+        throw new UndeferrableValueException("Value 'FunctionArgs.loggingConfig' is not present");
     }
 
     /**
      * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
      * 
      */
-    private UndeferrableValue<Integer> memorySize;
-
+    @PolicyResourceProperty(name="memorySize", flag="unknown_memorySize")
+    private Integer value_memorySize;
+    private boolean unknown_memorySize;
     public Integer memorySize() {
-        if (memorySize == null) return null;
-        return memorySize.getValue("FunctionArgs.memorySize");
+        if (!unknown_memorySize) return value_memorySize;
+        throw new UndeferrableValueException("Value 'FunctionArgs.memorySize' is not present");
     }
 
     /**
      * Unique name for your Lambda Function.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("FunctionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FunctionArgs.name' is not present");
     }
 
     /**
      * Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
      * 
      */
-    private UndeferrableValue<String> packageType;
-
+    @PolicyResourceProperty(name="packageType", flag="unknown_packageType")
+    private String value_packageType;
+    private boolean unknown_packageType;
     public String packageType() {
-        if (packageType == null) return null;
-        return packageType.getValue("FunctionArgs.packageType");
+        if (!unknown_packageType) return value_packageType;
+        throw new UndeferrableValueException("Value 'FunctionArgs.packageType' is not present");
     }
 
     /**
      * Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> publish;
-
+    @PolicyResourceProperty(name="publish", flag="unknown_publish")
+    private Boolean value_publish;
+    private boolean unknown_publish;
     public Boolean publish() {
-        if (publish == null) return null;
-        return publish.getValue("FunctionArgs.publish");
+        if (!unknown_publish) return value_publish;
+        throw new UndeferrableValueException("Value 'FunctionArgs.publish' is not present");
     }
 
     /**
@@ -232,11 +251,12 @@ public final class FunctionArgs extends com.pulumi.resources.PolicyResourceInput
      * Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
      * 
      */
-    private UndeferrableValue<Boolean> replaceSecurityGroupsOnDestroy;
-
+    @PolicyResourceProperty(name="replaceSecurityGroupsOnDestroy", flag="unknown_replaceSecurityGroupsOnDestroy")
+    private Boolean value_replaceSecurityGroupsOnDestroy;
+    private boolean unknown_replaceSecurityGroupsOnDestroy;
     public Boolean replaceSecurityGroupsOnDestroy() {
-        if (replaceSecurityGroupsOnDestroy == null) return null;
-        return replaceSecurityGroupsOnDestroy.getValue("FunctionArgs.replaceSecurityGroupsOnDestroy");
+        if (!unknown_replaceSecurityGroupsOnDestroy) return value_replaceSecurityGroupsOnDestroy;
+        throw new UndeferrableValueException("Value 'FunctionArgs.replaceSecurityGroupsOnDestroy' is not present");
     }
 
     /**
@@ -244,22 +264,24 @@ public final class FunctionArgs extends com.pulumi.resources.PolicyResourceInput
      * `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
      * 
      */
-    private UndeferrableValue<List<String>> replacementSecurityGroupIds;
-
+    @PolicyResourceProperty(name="replacementSecurityGroupIds", flag="unknown_replacementSecurityGroupIds")
+    private List<String> value_replacementSecurityGroupIds;
+    private boolean unknown_replacementSecurityGroupIds;
     public List<String> replacementSecurityGroupIds() {
-        if (replacementSecurityGroupIds == null) return null;
-        return replacementSecurityGroupIds.getValue("FunctionArgs.replacementSecurityGroupIds");
+        if (!unknown_replacementSecurityGroupIds) return value_replacementSecurityGroupIds;
+        throw new UndeferrableValueException("Value 'FunctionArgs.replacementSecurityGroupIds' is not present");
     }
 
     /**
      * Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
      * 
      */
-    private UndeferrableValue<Integer> reservedConcurrentExecutions;
-
+    @PolicyResourceProperty(name="reservedConcurrentExecutions", flag="unknown_reservedConcurrentExecutions")
+    private Integer value_reservedConcurrentExecutions;
+    private boolean unknown_reservedConcurrentExecutions;
     public Integer reservedConcurrentExecutions() {
-        if (reservedConcurrentExecutions == null) return null;
-        return reservedConcurrentExecutions.getValue("FunctionArgs.reservedConcurrentExecutions");
+        if (!unknown_reservedConcurrentExecutions) return value_reservedConcurrentExecutions;
+        throw new UndeferrableValueException("Value 'FunctionArgs.reservedConcurrentExecutions' is not present");
     }
 
     /**
@@ -268,132 +290,144 @@ public final class FunctionArgs extends com.pulumi.resources.PolicyResourceInput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> role;
-
+    @PolicyResourceProperty(name="role", flag="unknown_role")
+    private String value_role;
+    private boolean unknown_role;
     public String role() {
-        if (role == null) return null;
-        return role.getValue("FunctionArgs.role");
+        if (!unknown_role) return value_role;
+        throw new UndeferrableValueException("Value 'FunctionArgs.role' is not present");
     }
 
     /**
      * Identifier of the function&#39;s runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
      * 
      */
-    private UndeferrableValue<String> runtime;
-
+    @PolicyResourceProperty(name="runtime", flag="unknown_runtime")
+    private String value_runtime;
+    private boolean unknown_runtime;
     public String runtime() {
-        if (runtime == null) return null;
-        return runtime.getValue("FunctionArgs.runtime");
+        if (!unknown_runtime) return value_runtime;
+        throw new UndeferrableValueException("Value 'FunctionArgs.runtime' is not present");
     }
 
     /**
      * S3 bucket location containing the function&#39;s deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
      * 
      */
-    private UndeferrableValue<String> s3Bucket;
-
+    @PolicyResourceProperty(name="s3Bucket", flag="unknown_s3Bucket")
+    private String value_s3Bucket;
+    private boolean unknown_s3Bucket;
     public String s3Bucket() {
-        if (s3Bucket == null) return null;
-        return s3Bucket.getValue("FunctionArgs.s3Bucket");
+        if (!unknown_s3Bucket) return value_s3Bucket;
+        throw new UndeferrableValueException("Value 'FunctionArgs.s3Bucket' is not present");
     }
 
     /**
      * S3 key of an object containing the function&#39;s deployment package. When `s3_bucket` is set, `s3_key` is required.
      * 
      */
-    private UndeferrableValue<String> s3Key;
-
+    @PolicyResourceProperty(name="s3Key", flag="unknown_s3Key")
+    private String value_s3Key;
+    private boolean unknown_s3Key;
     public String s3Key() {
-        if (s3Key == null) return null;
-        return s3Key.getValue("FunctionArgs.s3Key");
+        if (!unknown_s3Key) return value_s3Key;
+        throw new UndeferrableValueException("Value 'FunctionArgs.s3Key' is not present");
     }
 
     /**
      * Object version containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`.
      * 
      */
-    private UndeferrableValue<String> s3ObjectVersion;
-
+    @PolicyResourceProperty(name="s3ObjectVersion", flag="unknown_s3ObjectVersion")
+    private String value_s3ObjectVersion;
+    private boolean unknown_s3ObjectVersion;
     public String s3ObjectVersion() {
-        if (s3ObjectVersion == null) return null;
-        return s3ObjectVersion.getValue("FunctionArgs.s3ObjectVersion");
+        if (!unknown_s3ObjectVersion) return value_s3ObjectVersion;
+        throw new UndeferrableValueException("Value 'FunctionArgs.s3ObjectVersion' is not present");
     }
 
     /**
      * Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
      * 
      */
-    private UndeferrableValue<Boolean> skipDestroy;
-
+    @PolicyResourceProperty(name="skipDestroy", flag="unknown_skipDestroy")
+    private Boolean value_skipDestroy;
+    private boolean unknown_skipDestroy;
     public Boolean skipDestroy() {
-        if (skipDestroy == null) return null;
-        return skipDestroy.getValue("FunctionArgs.skipDestroy");
+        if (!unknown_skipDestroy) return value_skipDestroy;
+        throw new UndeferrableValueException("Value 'FunctionArgs.skipDestroy' is not present");
     }
 
     /**
      * Snap start settings block. Detailed below.
      * 
      */
-    private UndeferrableValue<FunctionSnapStartArgs> snapStart;
-
+    @PolicyResourceProperty(name="snapStart", flag="unknown_snapStart")
+    private FunctionSnapStartArgs value_snapStart;
+    private boolean unknown_snapStart;
     public FunctionSnapStartArgs snapStart() {
-        if (snapStart == null) return null;
-        return snapStart.getValue("FunctionArgs.snapStart");
+        if (!unknown_snapStart) return value_snapStart;
+        throw new UndeferrableValueException("Value 'FunctionArgs.snapStart' is not present");
     }
 
     /**
      * Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
      * 
      */
-    private UndeferrableValue<String> sourceCodeHash;
-
+    @PolicyResourceProperty(name="sourceCodeHash", flag="unknown_sourceCodeHash")
+    private String value_sourceCodeHash;
+    private boolean unknown_sourceCodeHash;
     public String sourceCodeHash() {
-        if (sourceCodeHash == null) return null;
-        return sourceCodeHash.getValue("FunctionArgs.sourceCodeHash");
+        if (!unknown_sourceCodeHash) return value_sourceCodeHash;
+        throw new UndeferrableValueException("Value 'FunctionArgs.sourceCodeHash' is not present");
     }
 
     /**
      * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("FunctionArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'FunctionArgs.tags' is not present");
     }
 
     /**
      * Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
      * 
      */
-    private UndeferrableValue<Integer> timeout;
-
+    @PolicyResourceProperty(name="timeout", flag="unknown_timeout")
+    private Integer value_timeout;
+    private boolean unknown_timeout;
     public Integer timeout() {
-        if (timeout == null) return null;
-        return timeout.getValue("FunctionArgs.timeout");
+        if (!unknown_timeout) return value_timeout;
+        throw new UndeferrableValueException("Value 'FunctionArgs.timeout' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<FunctionTracingConfigArgs> tracingConfig;
-
+    @PolicyResourceProperty(name="tracingConfig", flag="unknown_tracingConfig")
+    private FunctionTracingConfigArgs value_tracingConfig;
+    private boolean unknown_tracingConfig;
     public FunctionTracingConfigArgs tracingConfig() {
-        if (tracingConfig == null) return null;
-        return tracingConfig.getValue("FunctionArgs.tracingConfig");
+        if (!unknown_tracingConfig) return value_tracingConfig;
+        throw new UndeferrableValueException("Value 'FunctionArgs.tracingConfig' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<FunctionVpcConfigArgs> vpcConfig;
-
+    @PolicyResourceProperty(name="vpcConfig", flag="unknown_vpcConfig")
+    private FunctionVpcConfigArgs value_vpcConfig;
+    private boolean unknown_vpcConfig;
     public FunctionVpcConfigArgs vpcConfig() {
-        if (vpcConfig == null) return null;
-        return vpcConfig.getValue("FunctionArgs.vpcConfig");
+        if (!unknown_vpcConfig) return value_vpcConfig;
+        throw new UndeferrableValueException("Value 'FunctionArgs.vpcConfig' is not present");
     }
 
 }

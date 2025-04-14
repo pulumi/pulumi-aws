@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3tables;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -17,22 +18,24 @@ public final class NamespaceArgs extends com.pulumi.resources.PolicyResourceInpu
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      * 
      */
-    private UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private String value_namespace;
+    private boolean unknown_namespace;
     public String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("NamespaceArgs.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'NamespaceArgs.namespace' is not present");
     }
 
     /**
      * ARN referencing the Table Bucket that contains this Namespace.
      * 
      */
-    private UndeferrableValue<String> tableBucketArn;
-
+    @PolicyResourceProperty(name="tableBucketArn", flag="unknown_tableBucketArn")
+    private String value_tableBucketArn;
+    private boolean unknown_tableBucketArn;
     public String tableBucketArn() {
-        if (tableBucketArn == null) return null;
-        return tableBucketArn.getValue("NamespaceArgs.tableBucketArn");
+        if (!unknown_tableBucketArn) return value_tableBucketArn;
+        throw new UndeferrableValueException("Value 'NamespaceArgs.tableBucketArn' is not present");
     }
 
 }

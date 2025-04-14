@@ -3,18 +3,20 @@
 
 package com.pulumi.policypacks.aws.cleanrooms.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cleanrooms.outputs.MembershipPaymentConfigurationQueryCompute;
 import javax.annotation.Nullable;
 
 
 public final class MembershipPaymentConfiguration {
 
-    private @Nullable UndeferrableValue<MembershipPaymentConfigurationQueryCompute> queryCompute;
-
+    @PolicyResourceProperty(name="queryCompute", flag="unknown_queryCompute")
+    private @Nullable MembershipPaymentConfigurationQueryCompute value_queryCompute;
+    private boolean unknown_queryCompute;
     public @Nullable MembershipPaymentConfigurationQueryCompute queryCompute() {
-        if (queryCompute == null) return null;
-        return queryCompute.getValue("MembershipPaymentConfiguration.queryCompute");
+        if (!unknown_queryCompute) return value_queryCompute;
+        throw new UndeferrableValueException("Value 'MembershipPaymentConfiguration.queryCompute' is not present");
     }
 
 }

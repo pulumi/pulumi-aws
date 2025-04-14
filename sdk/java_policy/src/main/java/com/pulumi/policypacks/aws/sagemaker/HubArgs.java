@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.inputs.HubS3StorageConfigArgs;
 import java.lang.String;
@@ -19,66 +20,72 @@ public final class HubArgs extends com.pulumi.resources.PolicyResourceInput {
      * A description of the hub.
      * 
      */
-    private UndeferrableValue<String> hubDescription;
-
+    @PolicyResourceProperty(name="hubDescription", flag="unknown_hubDescription")
+    private String value_hubDescription;
+    private boolean unknown_hubDescription;
     public String hubDescription() {
-        if (hubDescription == null) return null;
-        return hubDescription.getValue("HubArgs.hubDescription");
+        if (!unknown_hubDescription) return value_hubDescription;
+        throw new UndeferrableValueException("Value 'HubArgs.hubDescription' is not present");
     }
 
     /**
      * The display name of the hub.
      * 
      */
-    private UndeferrableValue<String> hubDisplayName;
-
+    @PolicyResourceProperty(name="hubDisplayName", flag="unknown_hubDisplayName")
+    private String value_hubDisplayName;
+    private boolean unknown_hubDisplayName;
     public String hubDisplayName() {
-        if (hubDisplayName == null) return null;
-        return hubDisplayName.getValue("HubArgs.hubDisplayName");
+        if (!unknown_hubDisplayName) return value_hubDisplayName;
+        throw new UndeferrableValueException("Value 'HubArgs.hubDisplayName' is not present");
     }
 
     /**
      * The name of the hub.
      * 
      */
-    private UndeferrableValue<String> hubName;
-
+    @PolicyResourceProperty(name="hubName", flag="unknown_hubName")
+    private String value_hubName;
+    private boolean unknown_hubName;
     public String hubName() {
-        if (hubName == null) return null;
-        return hubName.getValue("HubArgs.hubName");
+        if (!unknown_hubName) return value_hubName;
+        throw new UndeferrableValueException("Value 'HubArgs.hubName' is not present");
     }
 
     /**
      * The searchable keywords for the hub.
      * 
      */
-    private UndeferrableValue<List<String>> hubSearchKeywords;
-
+    @PolicyResourceProperty(name="hubSearchKeywords", flag="unknown_hubSearchKeywords")
+    private List<String> value_hubSearchKeywords;
+    private boolean unknown_hubSearchKeywords;
     public List<String> hubSearchKeywords() {
-        if (hubSearchKeywords == null) return null;
-        return hubSearchKeywords.getValue("HubArgs.hubSearchKeywords");
+        if (!unknown_hubSearchKeywords) return value_hubSearchKeywords;
+        throw new UndeferrableValueException("Value 'HubArgs.hubSearchKeywords' is not present");
     }
 
     /**
      * The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
      * 
      */
-    private UndeferrableValue<HubS3StorageConfigArgs> s3StorageConfig;
-
+    @PolicyResourceProperty(name="s3StorageConfig", flag="unknown_s3StorageConfig")
+    private HubS3StorageConfigArgs value_s3StorageConfig;
+    private boolean unknown_s3StorageConfig;
     public HubS3StorageConfigArgs s3StorageConfig() {
-        if (s3StorageConfig == null) return null;
-        return s3StorageConfig.getValue("HubArgs.s3StorageConfig");
+        if (!unknown_s3StorageConfig) return value_s3StorageConfig;
+        throw new UndeferrableValueException("Value 'HubArgs.s3StorageConfig' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("HubArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'HubArgs.tags' is not present");
     }
 
 }

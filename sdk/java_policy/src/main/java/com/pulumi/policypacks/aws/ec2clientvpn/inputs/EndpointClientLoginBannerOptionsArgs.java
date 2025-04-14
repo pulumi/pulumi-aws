@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2clientvpn.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class EndpointClientLoginBannerOptionsArgs {
      * Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
      * 
      */
-    private UndeferrableValue<String> bannerText;
-
+    @PolicyResourceProperty(name="bannerText", flag="unknown_bannerText")
+    private String value_bannerText;
+    private boolean unknown_bannerText;
     public String bannerText() {
-        if (bannerText == null) return null;
-        return bannerText.getValue("EndpointClientLoginBannerOptionsArgs.bannerText");
+        if (!unknown_bannerText) return value_bannerText;
+        throw new UndeferrableValueException("Value 'EndpointClientLoginBannerOptionsArgs.bannerText' is not present");
     }
 
     /**
      * Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("EndpointClientLoginBannerOptionsArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'EndpointClientLoginBannerOptionsArgs.enabled' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,55 +18,60 @@ public final class DomainEntry extends com.pulumi.resources.PolicyResourceOutput
      * The name of the Lightsail domain in which to create the entry
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("DomainEntry.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'DomainEntry.domainName' is not present");
     }
 
     /**
      * If the entry should be an alias Defaults to `false`
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> isAlias;
-
+    @PolicyResourceProperty(name="isAlias", flag="unknown_isAlias")
+    private @Nullable Boolean value_isAlias;
+    private boolean unknown_isAlias;
     public @Nullable Boolean isAlias() {
-        if (isAlias == null) return null;
-        return isAlias.getValue("DomainEntry.isAlias");
+        if (!unknown_isAlias) return value_isAlias;
+        throw new UndeferrableValueException("Value 'DomainEntry.isAlias' is not present");
     }
 
     /**
      * Name of the entry record
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DomainEntry.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DomainEntry.name' is not present");
     }
 
     /**
      * Target of the domain entry
      * 
      */
-    private UndeferrableValue<String> target;
-
+    @PolicyResourceProperty(name="target", flag="unknown_target")
+    private String value_target;
+    private boolean unknown_target;
     public String target() {
-        if (target == null) return null;
-        return target.getValue("DomainEntry.target");
+        if (!unknown_target) return value_target;
+        throw new UndeferrableValueException("Value 'DomainEntry.target' is not present");
     }
 
     /**
      * Type of record
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("DomainEntry.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'DomainEntry.type' is not present");
     }
 
 }

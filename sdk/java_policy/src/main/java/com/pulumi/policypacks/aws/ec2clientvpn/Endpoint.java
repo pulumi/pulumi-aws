@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2clientvpn;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2clientvpn.outputs.EndpointAuthenticationOption;
 import com.pulumi.policypacks.aws.ec2clientvpn.outputs.EndpointClientConnectOptions;
@@ -24,187 +25,204 @@ public final class Endpoint extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN of the Client VPN endpoint.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Endpoint.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Endpoint.arn' is not present");
     }
 
     /**
      * Information about the authentication method to be used to authenticate clients.
      * 
      */
-    private UndeferrableValue<List<EndpointAuthenticationOption>> authenticationOptions;
-
+    @PolicyResourceProperty(name="authenticationOptions", flag="unknown_authenticationOptions")
+    private List<EndpointAuthenticationOption> value_authenticationOptions;
+    private boolean unknown_authenticationOptions;
     public List<EndpointAuthenticationOption> authenticationOptions() {
-        if (authenticationOptions == null) return null;
-        return authenticationOptions.getValue("Endpoint.authenticationOptions");
+        if (!unknown_authenticationOptions) return value_authenticationOptions;
+        throw new UndeferrableValueException("Value 'Endpoint.authenticationOptions' is not present");
     }
 
     /**
      * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
      * 
      */
-    private UndeferrableValue<String> clientCidrBlock;
-
+    @PolicyResourceProperty(name="clientCidrBlock", flag="unknown_clientCidrBlock")
+    private String value_clientCidrBlock;
+    private boolean unknown_clientCidrBlock;
     public String clientCidrBlock() {
-        if (clientCidrBlock == null) return null;
-        return clientCidrBlock.getValue("Endpoint.clientCidrBlock");
+        if (!unknown_clientCidrBlock) return value_clientCidrBlock;
+        throw new UndeferrableValueException("Value 'Endpoint.clientCidrBlock' is not present");
     }
 
     /**
      * The options for managing connection authorization for new client connections.
      * 
      */
-    private UndeferrableValue<EndpointClientConnectOptions> clientConnectOptions;
-
+    @PolicyResourceProperty(name="clientConnectOptions", flag="unknown_clientConnectOptions")
+    private EndpointClientConnectOptions value_clientConnectOptions;
+    private boolean unknown_clientConnectOptions;
     public EndpointClientConnectOptions clientConnectOptions() {
-        if (clientConnectOptions == null) return null;
-        return clientConnectOptions.getValue("Endpoint.clientConnectOptions");
+        if (!unknown_clientConnectOptions) return value_clientConnectOptions;
+        throw new UndeferrableValueException("Value 'Endpoint.clientConnectOptions' is not present");
     }
 
     /**
      * Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
      * 
      */
-    private UndeferrableValue<EndpointClientLoginBannerOptions> clientLoginBannerOptions;
-
+    @PolicyResourceProperty(name="clientLoginBannerOptions", flag="unknown_clientLoginBannerOptions")
+    private EndpointClientLoginBannerOptions value_clientLoginBannerOptions;
+    private boolean unknown_clientLoginBannerOptions;
     public EndpointClientLoginBannerOptions clientLoginBannerOptions() {
-        if (clientLoginBannerOptions == null) return null;
-        return clientLoginBannerOptions.getValue("Endpoint.clientLoginBannerOptions");
+        if (!unknown_clientLoginBannerOptions) return value_clientLoginBannerOptions;
+        throw new UndeferrableValueException("Value 'Endpoint.clientLoginBannerOptions' is not present");
     }
 
     /**
      * Information about the client connection logging options.
      * 
      */
-    private UndeferrableValue<EndpointConnectionLogOptions> connectionLogOptions;
-
+    @PolicyResourceProperty(name="connectionLogOptions", flag="unknown_connectionLogOptions")
+    private EndpointConnectionLogOptions value_connectionLogOptions;
+    private boolean unknown_connectionLogOptions;
     public EndpointConnectionLogOptions connectionLogOptions() {
-        if (connectionLogOptions == null) return null;
-        return connectionLogOptions.getValue("Endpoint.connectionLogOptions");
+        if (!unknown_connectionLogOptions) return value_connectionLogOptions;
+        throw new UndeferrableValueException("Value 'Endpoint.connectionLogOptions' is not present");
     }
 
     /**
      * A brief description of the Client VPN endpoint.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Endpoint.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Endpoint.description' is not present");
     }
 
     /**
      * Indicates whether the client VPN session is disconnected after the maximum `session_timeout_hours` is reached. If `true`, users are prompted to reconnect client VPN. If `false`, client VPN attempts to reconnect automatically. The default value is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> disconnectOnSessionTimeout;
-
+    @PolicyResourceProperty(name="disconnectOnSessionTimeout", flag="unknown_disconnectOnSessionTimeout")
+    private Boolean value_disconnectOnSessionTimeout;
+    private boolean unknown_disconnectOnSessionTimeout;
     public Boolean disconnectOnSessionTimeout() {
-        if (disconnectOnSessionTimeout == null) return null;
-        return disconnectOnSessionTimeout.getValue("Endpoint.disconnectOnSessionTimeout");
+        if (!unknown_disconnectOnSessionTimeout) return value_disconnectOnSessionTimeout;
+        throw new UndeferrableValueException("Value 'Endpoint.disconnectOnSessionTimeout' is not present");
     }
 
     /**
      * The DNS name to be used by clients when establishing their VPN session.
      * 
      */
-    private UndeferrableValue<String> dnsName;
-
+    @PolicyResourceProperty(name="dnsName", flag="unknown_dnsName")
+    private String value_dnsName;
+    private boolean unknown_dnsName;
     public String dnsName() {
-        if (dnsName == null) return null;
-        return dnsName.getValue("Endpoint.dnsName");
+        if (!unknown_dnsName) return value_dnsName;
+        throw new UndeferrableValueException("Value 'Endpoint.dnsName' is not present");
     }
 
     /**
      * Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> dnsServers;
-
+    @PolicyResourceProperty(name="dnsServers", flag="unknown_dnsServers")
+    private @Nullable List<String> value_dnsServers;
+    private boolean unknown_dnsServers;
     public @Nullable List<String> dnsServers() {
-        if (dnsServers == null) return null;
-        return dnsServers.getValue("Endpoint.dnsServers");
+        if (!unknown_dnsServers) return value_dnsServers;
+        throw new UndeferrableValueException("Value 'Endpoint.dnsServers' is not present");
     }
 
     /**
      * The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("Endpoint.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'Endpoint.securityGroupIds' is not present");
     }
 
     /**
      * Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
      * 
      */
-    private @Nullable UndeferrableValue<String> selfServicePortal;
-
+    @PolicyResourceProperty(name="selfServicePortal", flag="unknown_selfServicePortal")
+    private @Nullable String value_selfServicePortal;
+    private boolean unknown_selfServicePortal;
     public @Nullable String selfServicePortal() {
-        if (selfServicePortal == null) return null;
-        return selfServicePortal.getValue("Endpoint.selfServicePortal");
+        if (!unknown_selfServicePortal) return value_selfServicePortal;
+        throw new UndeferrableValueException("Value 'Endpoint.selfServicePortal' is not present");
     }
 
     /**
      * The URL of the self-service portal.
      * 
      */
-    private UndeferrableValue<String> selfServicePortalUrl;
-
+    @PolicyResourceProperty(name="selfServicePortalUrl", flag="unknown_selfServicePortalUrl")
+    private String value_selfServicePortalUrl;
+    private boolean unknown_selfServicePortalUrl;
     public String selfServicePortalUrl() {
-        if (selfServicePortalUrl == null) return null;
-        return selfServicePortalUrl.getValue("Endpoint.selfServicePortalUrl");
+        if (!unknown_selfServicePortalUrl) return value_selfServicePortalUrl;
+        throw new UndeferrableValueException("Value 'Endpoint.selfServicePortalUrl' is not present");
     }
 
     /**
      * The ARN of the ACM server certificate.
      * 
      */
-    private UndeferrableValue<String> serverCertificateArn;
-
+    @PolicyResourceProperty(name="serverCertificateArn", flag="unknown_serverCertificateArn")
+    private String value_serverCertificateArn;
+    private boolean unknown_serverCertificateArn;
     public String serverCertificateArn() {
-        if (serverCertificateArn == null) return null;
-        return serverCertificateArn.getValue("Endpoint.serverCertificateArn");
+        if (!unknown_serverCertificateArn) return value_serverCertificateArn;
+        throw new UndeferrableValueException("Value 'Endpoint.serverCertificateArn' is not present");
     }
 
     /**
      * The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
      * 
      */
-    private @Nullable UndeferrableValue<Integer> sessionTimeoutHours;
-
+    @PolicyResourceProperty(name="sessionTimeoutHours", flag="unknown_sessionTimeoutHours")
+    private @Nullable Integer value_sessionTimeoutHours;
+    private boolean unknown_sessionTimeoutHours;
     public @Nullable Integer sessionTimeoutHours() {
-        if (sessionTimeoutHours == null) return null;
-        return sessionTimeoutHours.getValue("Endpoint.sessionTimeoutHours");
+        if (!unknown_sessionTimeoutHours) return value_sessionTimeoutHours;
+        throw new UndeferrableValueException("Value 'Endpoint.sessionTimeoutHours' is not present");
     }
 
     /**
      * Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> splitTunnel;
-
+    @PolicyResourceProperty(name="splitTunnel", flag="unknown_splitTunnel")
+    private @Nullable Boolean value_splitTunnel;
+    private boolean unknown_splitTunnel;
     public @Nullable Boolean splitTunnel() {
-        if (splitTunnel == null) return null;
-        return splitTunnel.getValue("Endpoint.splitTunnel");
+        if (!unknown_splitTunnel) return value_splitTunnel;
+        throw new UndeferrableValueException("Value 'Endpoint.splitTunnel' is not present");
     }
 
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Endpoint.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Endpoint.tags' is not present");
     }
 
     /**
@@ -215,44 +233,48 @@ public final class Endpoint extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Endpoint.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Endpoint.tagsAll' is not present");
     }
 
     /**
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      * 
      */
-    private @Nullable UndeferrableValue<String> transportProtocol;
-
+    @PolicyResourceProperty(name="transportProtocol", flag="unknown_transportProtocol")
+    private @Nullable String value_transportProtocol;
+    private boolean unknown_transportProtocol;
     public @Nullable String transportProtocol() {
-        if (transportProtocol == null) return null;
-        return transportProtocol.getValue("Endpoint.transportProtocol");
+        if (!unknown_transportProtocol) return value_transportProtocol;
+        throw new UndeferrableValueException("Value 'Endpoint.transportProtocol' is not present");
     }
 
     /**
      * The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("Endpoint.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'Endpoint.vpcId' is not present");
     }
 
     /**
      * The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> vpnPort;
-
+    @PolicyResourceProperty(name="vpnPort", flag="unknown_vpnPort")
+    private @Nullable Integer value_vpnPort;
+    private boolean unknown_vpnPort;
     public @Nullable Integer vpnPort() {
-        if (vpnPort == null) return null;
-        return vpnPort.getValue("Endpoint.vpnPort");
+        if (!unknown_vpnPort) return value_vpnPort;
+        throw new UndeferrableValueException("Value 'Endpoint.vpnPort' is not present");
     }
 
 }

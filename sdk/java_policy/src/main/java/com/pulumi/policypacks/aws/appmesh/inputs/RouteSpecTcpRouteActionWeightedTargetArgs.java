@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class RouteSpecTcpRouteActionWeightedTargetArgs {
      * The targeted port of the weighted object.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("RouteSpecTcpRouteActionWeightedTargetArgs.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'RouteSpecTcpRouteActionWeightedTargetArgs.port' is not present");
     }
 
     /**
      * Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
      * 
      */
-    private UndeferrableValue<String> virtualNode;
-
+    @PolicyResourceProperty(name="virtualNode", flag="unknown_virtualNode")
+    private String value_virtualNode;
+    private boolean unknown_virtualNode;
     public String virtualNode() {
-        if (virtualNode == null) return null;
-        return virtualNode.getValue("RouteSpecTcpRouteActionWeightedTargetArgs.virtualNode");
+        if (!unknown_virtualNode) return value_virtualNode;
+        throw new UndeferrableValueException("Value 'RouteSpecTcpRouteActionWeightedTargetArgs.virtualNode' is not present");
     }
 
     /**
      * Relative weight of the weighted target. An integer between 0 and 100.
      * 
      */
-    private UndeferrableValue<Integer> weight;
-
+    @PolicyResourceProperty(name="weight", flag="unknown_weight")
+    private Integer value_weight;
+    private boolean unknown_weight;
     public Integer weight() {
-        if (weight == null) return null;
-        return weight.getValue("RouteSpecTcpRouteActionWeightedTargetArgs.weight");
+        if (!unknown_weight) return value_weight;
+        throw new UndeferrableValueException("Value 'RouteSpecTcpRouteActionWeightedTargetArgs.weight' is not present");
     }
 
 }

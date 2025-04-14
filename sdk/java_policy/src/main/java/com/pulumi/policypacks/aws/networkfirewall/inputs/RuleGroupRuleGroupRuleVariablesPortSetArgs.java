@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.networkfirewall.inputs.RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class RuleGroupRuleGroupRuleVariablesPortSetArgs {
      * An unique alphanumeric string to identify the `port_set`.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("RuleGroupRuleGroupRuleVariablesPortSetArgs.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRuleVariablesPortSetArgs.key' is not present");
     }
 
     /**
      * A configuration block that defines a set of port ranges. See Port Set below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs> portSet;
-
+    @PolicyResourceProperty(name="portSet", flag="unknown_portSet")
+    private RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs value_portSet;
+    private boolean unknown_portSet;
     public RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs portSet() {
-        if (portSet == null) return null;
-        return portSet.getValue("RuleGroupRuleGroupRuleVariablesPortSetArgs.portSet");
+        if (!unknown_portSet) return value_portSet;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRuleVariablesPortSetArgs.portSet' is not present");
     }
 
 }

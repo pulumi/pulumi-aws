@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicequotas;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Double;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class TemplateArgs extends com.pulumi.resources.PolicyResourceInput
      * Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
      * 
      */
-    private UndeferrableValue<String> quotaCode;
-
+    @PolicyResourceProperty(name="quotaCode", flag="unknown_quotaCode")
+    private String value_quotaCode;
+    private boolean unknown_quotaCode;
     public String quotaCode() {
-        if (quotaCode == null) return null;
-        return quotaCode.getValue("TemplateArgs.quotaCode");
+        if (!unknown_quotaCode) return value_quotaCode;
+        throw new UndeferrableValueException("Value 'TemplateArgs.quotaCode' is not present");
     }
 
     /**
      * AWS Region to which the template applies.
      * 
      */
-    private UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private String value_region;
+    private boolean unknown_region;
     public String region() {
-        if (region == null) return null;
-        return region.getValue("TemplateArgs.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'TemplateArgs.region' is not present");
     }
 
     /**
      * Service identifier. To find the service code value for an AWS service, use the aws.servicequotas.getService data source.
      * 
      */
-    private UndeferrableValue<String> serviceCode;
-
+    @PolicyResourceProperty(name="serviceCode", flag="unknown_serviceCode")
+    private String value_serviceCode;
+    private boolean unknown_serviceCode;
     public String serviceCode() {
-        if (serviceCode == null) return null;
-        return serviceCode.getValue("TemplateArgs.serviceCode");
+        if (!unknown_serviceCode) return value_serviceCode;
+        throw new UndeferrableValueException("Value 'TemplateArgs.serviceCode' is not present");
     }
 
     /**
      * The new, increased value for the quota.
      * 
      */
-    private UndeferrableValue<Double> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private Double value_value;
+    private boolean unknown_value;
     public Double value() {
-        if (value == null) return null;
-        return value.getValue("TemplateArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'TemplateArgs.value' is not present");
     }
 
 }

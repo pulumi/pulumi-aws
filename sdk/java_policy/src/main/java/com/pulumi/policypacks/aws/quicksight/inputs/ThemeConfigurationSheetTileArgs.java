@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.inputs.ThemeConfigurationSheetTileBorderArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ThemeConfigurationSheetTileArgs {
      * The border around a tile. See border.
      * 
      */
-    private UndeferrableValue<ThemeConfigurationSheetTileBorderArgs> border;
-
+    @PolicyResourceProperty(name="border", flag="unknown_border")
+    private ThemeConfigurationSheetTileBorderArgs value_border;
+    private boolean unknown_border;
     public ThemeConfigurationSheetTileBorderArgs border() {
-        if (border == null) return null;
-        return border.getValue("ThemeConfigurationSheetTileArgs.border");
+        if (!unknown_border) return value_border;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationSheetTileArgs.border' is not present");
     }
 
 }

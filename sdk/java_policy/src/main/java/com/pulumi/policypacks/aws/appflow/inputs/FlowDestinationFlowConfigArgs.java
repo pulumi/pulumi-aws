@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class FlowDestinationFlowConfigArgs {
      * API version that the destination connector uses.
      * 
      */
-    private UndeferrableValue<String> apiVersion;
-
+    @PolicyResourceProperty(name="apiVersion", flag="unknown_apiVersion")
+    private String value_apiVersion;
+    private boolean unknown_apiVersion;
     public String apiVersion() {
-        if (apiVersion == null) return null;
-        return apiVersion.getValue("FlowDestinationFlowConfigArgs.apiVersion");
+        if (!unknown_apiVersion) return value_apiVersion;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigArgs.apiVersion' is not present");
     }
 
     /**
      * Name of the connector profile. This name must be unique for each connector profile in the AWS account.
      * 
      */
-    private UndeferrableValue<String> connectorProfileName;
-
+    @PolicyResourceProperty(name="connectorProfileName", flag="unknown_connectorProfileName")
+    private String value_connectorProfileName;
+    private boolean unknown_connectorProfileName;
     public String connectorProfileName() {
-        if (connectorProfileName == null) return null;
-        return connectorProfileName.getValue("FlowDestinationFlowConfigArgs.connectorProfileName");
+        if (!unknown_connectorProfileName) return value_connectorProfileName;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigArgs.connectorProfileName' is not present");
     }
 
     /**
      * Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
      * 
      */
-    private UndeferrableValue<String> connectorType;
-
+    @PolicyResourceProperty(name="connectorType", flag="unknown_connectorType")
+    private String value_connectorType;
+    private boolean unknown_connectorType;
     public String connectorType() {
-        if (connectorType == null) return null;
-        return connectorType.getValue("FlowDestinationFlowConfigArgs.connectorType");
+        if (!unknown_connectorType) return value_connectorType;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigArgs.connectorType' is not present");
     }
 
     /**
      * This stores the information that is required to query a particular connector. See Destination Connector Properties for more information.
      * 
      */
-    private UndeferrableValue<FlowDestinationFlowConfigDestinationConnectorPropertiesArgs> destinationConnectorProperties;
-
+    @PolicyResourceProperty(name="destinationConnectorProperties", flag="unknown_destinationConnectorProperties")
+    private FlowDestinationFlowConfigDestinationConnectorPropertiesArgs value_destinationConnectorProperties;
+    private boolean unknown_destinationConnectorProperties;
     public FlowDestinationFlowConfigDestinationConnectorPropertiesArgs destinationConnectorProperties() {
-        if (destinationConnectorProperties == null) return null;
-        return destinationConnectorProperties.getValue("FlowDestinationFlowConfigArgs.destinationConnectorProperties");
+        if (!unknown_destinationConnectorProperties) return value_destinationConnectorProperties;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigArgs.destinationConnectorProperties' is not present");
     }
 
 }

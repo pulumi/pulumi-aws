@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
      * Specify the canned ACL to apply to each S3 request.
      * 
      */
-    private UndeferrableValue<String> cannedAcl;
-
+    @PolicyResourceProperty(name="cannedAcl", flag="unknown_cannedAcl")
+    private String value_cannedAcl;
+    private boolean unknown_cannedAcl;
     public String cannedAcl() {
-        if (cannedAcl == null) return null;
-        return cannedAcl.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgs.cannedAcl");
+        if (!unknown_cannedAcl) return value_cannedAcl;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgs.cannedAcl' is not present");
     }
 
 }

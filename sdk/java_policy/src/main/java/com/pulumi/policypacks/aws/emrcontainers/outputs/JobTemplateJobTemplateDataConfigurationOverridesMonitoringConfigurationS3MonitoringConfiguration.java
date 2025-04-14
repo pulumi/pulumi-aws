@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emrcontainers.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class JobTemplateJobTemplateDataConfigurationOverridesMonitoringCon
      * Amazon S3 destination URI for log publishing.
      * 
      */
-    private UndeferrableValue<String> logUri;
-
+    @PolicyResourceProperty(name="logUri", flag="unknown_logUri")
+    private String value_logUri;
+    private boolean unknown_logUri;
     public String logUri() {
-        if (logUri == null) return null;
-        return logUri.getValue("JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration.logUri");
+        if (!unknown_logUri) return value_logUri;
+        throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration.logUri' is not present");
     }
 
 }

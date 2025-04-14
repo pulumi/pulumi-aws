@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.apigateway.inputs.UsagePlanApiStageThrottleArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class UsagePlanApiStageArgs {
      * API Id of the associated API stage in a usage plan.
      * 
      */
-    private UndeferrableValue<String> apiId;
-
+    @PolicyResourceProperty(name="apiId", flag="unknown_apiId")
+    private String value_apiId;
+    private boolean unknown_apiId;
     public String apiId() {
-        if (apiId == null) return null;
-        return apiId.getValue("UsagePlanApiStageArgs.apiId");
+        if (!unknown_apiId) return value_apiId;
+        throw new UndeferrableValueException("Value 'UsagePlanApiStageArgs.apiId' is not present");
     }
 
     /**
      * API stage name of the associated API stage in a usage plan.
      * 
      */
-    private UndeferrableValue<String> stage;
-
+    @PolicyResourceProperty(name="stage", flag="unknown_stage")
+    private String value_stage;
+    private boolean unknown_stage;
     public String stage() {
-        if (stage == null) return null;
-        return stage.getValue("UsagePlanApiStageArgs.stage");
+        if (!unknown_stage) return value_stage;
+        throw new UndeferrableValueException("Value 'UsagePlanApiStageArgs.stage' is not present");
     }
 
     /**
      * The throttling limits of the usage plan.
      * 
      */
-    private UndeferrableValue<List<UsagePlanApiStageThrottleArgs>> throttles;
-
+    @PolicyResourceProperty(name="throttles", flag="unknown_throttles")
+    private List<UsagePlanApiStageThrottleArgs> value_throttles;
+    private boolean unknown_throttles;
     public List<UsagePlanApiStageThrottleArgs> throttles() {
-        if (throttles == null) return null;
-        return throttles.getValue("UsagePlanApiStageArgs.throttles");
+        if (!unknown_throttles) return value_throttles;
+        throw new UndeferrableValueException("Value 'UsagePlanApiStageArgs.throttles' is not present");
     }
 
 }

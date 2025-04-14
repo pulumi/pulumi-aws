@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.inputs.NetworkAclEgressArgs;
 import com.pulumi.policypacks.aws.ec2.inputs.NetworkAclIngressArgs;
@@ -20,55 +21,60 @@ public final class NetworkAclArgs extends com.pulumi.resources.PolicyResourceInp
      * Specifies an egress rule. Parameters defined below.
      * 
      */
-    private UndeferrableValue<List<NetworkAclEgressArgs>> egress;
-
+    @PolicyResourceProperty(name="egress", flag="unknown_egress")
+    private List<NetworkAclEgressArgs> value_egress;
+    private boolean unknown_egress;
     public List<NetworkAclEgressArgs> egress() {
-        if (egress == null) return null;
-        return egress.getValue("NetworkAclArgs.egress");
+        if (!unknown_egress) return value_egress;
+        throw new UndeferrableValueException("Value 'NetworkAclArgs.egress' is not present");
     }
 
     /**
      * Specifies an ingress rule. Parameters defined below.
      * 
      */
-    private UndeferrableValue<List<NetworkAclIngressArgs>> ingress;
-
+    @PolicyResourceProperty(name="ingress", flag="unknown_ingress")
+    private List<NetworkAclIngressArgs> value_ingress;
+    private boolean unknown_ingress;
     public List<NetworkAclIngressArgs> ingress() {
-        if (ingress == null) return null;
-        return ingress.getValue("NetworkAclArgs.ingress");
+        if (!unknown_ingress) return value_ingress;
+        throw new UndeferrableValueException("Value 'NetworkAclArgs.ingress' is not present");
     }
 
     /**
      * A list of Subnet IDs to apply the ACL to
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("NetworkAclArgs.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'NetworkAclArgs.subnetIds' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("NetworkAclArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'NetworkAclArgs.tags' is not present");
     }
 
     /**
      * The ID of the associated VPC.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("NetworkAclArgs.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'NetworkAclArgs.vpcId' is not present");
     }
 
 }

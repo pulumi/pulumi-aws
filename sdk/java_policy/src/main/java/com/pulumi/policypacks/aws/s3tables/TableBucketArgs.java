@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3tables;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3tables.inputs.TableBucketMaintenanceConfigurationArgs;
 import java.lang.String;
@@ -18,11 +19,12 @@ public final class TableBucketArgs extends com.pulumi.resources.PolicyResourceIn
      * See `maintenance_configuration` below.
      * 
      */
-    private UndeferrableValue<TableBucketMaintenanceConfigurationArgs> maintenanceConfiguration;
-
+    @PolicyResourceProperty(name="maintenanceConfiguration", flag="unknown_maintenanceConfiguration")
+    private TableBucketMaintenanceConfigurationArgs value_maintenanceConfiguration;
+    private boolean unknown_maintenanceConfiguration;
     public TableBucketMaintenanceConfigurationArgs maintenanceConfiguration() {
-        if (maintenanceConfiguration == null) return null;
-        return maintenanceConfiguration.getValue("TableBucketArgs.maintenanceConfiguration");
+        if (!unknown_maintenanceConfiguration) return value_maintenanceConfiguration;
+        throw new UndeferrableValueException("Value 'TableBucketArgs.maintenanceConfiguration' is not present");
     }
 
     /**
@@ -34,11 +36,12 @@ public final class TableBucketArgs extends com.pulumi.resources.PolicyResourceIn
      * The following argument is optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TableBucketArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TableBucketArgs.name' is not present");
     }
 
 }

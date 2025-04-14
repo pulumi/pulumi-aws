@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.comprehend;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.comprehend.outputs.EntityRecognizerInputDataConfig;
 import com.pulumi.policypacks.aws.comprehend.outputs.EntityRecognizerVpcConfig;
@@ -19,22 +20,24 @@ public final class EntityRecognizer extends com.pulumi.resources.PolicyResourceO
      * ARN of the Entity Recognizer version.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("EntityRecognizer.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'EntityRecognizer.arn' is not present");
     }
 
     /**
      * The ARN for an IAM Role which allows Comprehend to read the training and testing data.
      * 
      */
-    private UndeferrableValue<String> dataAccessRoleArn;
-
+    @PolicyResourceProperty(name="dataAccessRoleArn", flag="unknown_dataAccessRoleArn")
+    private String value_dataAccessRoleArn;
+    private boolean unknown_dataAccessRoleArn;
     public String dataAccessRoleArn() {
-        if (dataAccessRoleArn == null) return null;
-        return dataAccessRoleArn.getValue("EntityRecognizer.dataAccessRoleArn");
+        if (!unknown_dataAccessRoleArn) return value_dataAccessRoleArn;
+        throw new UndeferrableValueException("Value 'EntityRecognizer.dataAccessRoleArn' is not present");
     }
 
     /**
@@ -42,11 +45,12 @@ public final class EntityRecognizer extends com.pulumi.resources.PolicyResourceO
      * See the `input_data_config` Configuration Block section below.
      * 
      */
-    private UndeferrableValue<EntityRecognizerInputDataConfig> inputDataConfig;
-
+    @PolicyResourceProperty(name="inputDataConfig", flag="unknown_inputDataConfig")
+    private EntityRecognizerInputDataConfig value_inputDataConfig;
+    private boolean unknown_inputDataConfig;
     public EntityRecognizerInputDataConfig inputDataConfig() {
-        if (inputDataConfig == null) return null;
-        return inputDataConfig.getValue("EntityRecognizer.inputDataConfig");
+        if (!unknown_inputDataConfig) return value_inputDataConfig;
+        throw new UndeferrableValueException("Value 'EntityRecognizer.inputDataConfig' is not present");
     }
 
     /**
@@ -54,22 +58,24 @@ public final class EntityRecognizer extends com.pulumi.resources.PolicyResourceO
      * One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
      * 
      */
-    private UndeferrableValue<String> languageCode;
-
+    @PolicyResourceProperty(name="languageCode", flag="unknown_languageCode")
+    private String value_languageCode;
+    private boolean unknown_languageCode;
     public String languageCode() {
-        if (languageCode == null) return null;
-        return languageCode.getValue("EntityRecognizer.languageCode");
+        if (!unknown_languageCode) return value_languageCode;
+        throw new UndeferrableValueException("Value 'EntityRecognizer.languageCode' is not present");
     }
 
     /**
      * The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
      * 
      */
-    private @Nullable UndeferrableValue<String> modelKmsKeyId;
-
+    @PolicyResourceProperty(name="modelKmsKeyId", flag="unknown_modelKmsKeyId")
+    private @Nullable String value_modelKmsKeyId;
+    private boolean unknown_modelKmsKeyId;
     public @Nullable String modelKmsKeyId() {
-        if (modelKmsKeyId == null) return null;
-        return modelKmsKeyId.getValue("EntityRecognizer.modelKmsKeyId");
+        if (!unknown_modelKmsKeyId) return value_modelKmsKeyId;
+        throw new UndeferrableValueException("Value 'EntityRecognizer.modelKmsKeyId' is not present");
     }
 
     /**
@@ -80,22 +86,24 @@ public final class EntityRecognizer extends com.pulumi.resources.PolicyResourceO
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("EntityRecognizer.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'EntityRecognizer.name' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("EntityRecognizer.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'EntityRecognizer.tags' is not present");
     }
 
     /**
@@ -106,11 +114,12 @@ public final class EntityRecognizer extends com.pulumi.resources.PolicyResourceO
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("EntityRecognizer.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'EntityRecognizer.tagsAll' is not present");
     }
 
     /**
@@ -123,11 +132,12 @@ public final class EntityRecognizer extends com.pulumi.resources.PolicyResourceO
      * Conflicts with `version_name_prefix`.
      * 
      */
-    private UndeferrableValue<String> versionName;
-
+    @PolicyResourceProperty(name="versionName", flag="unknown_versionName")
+    private String value_versionName;
+    private boolean unknown_versionName;
     public String versionName() {
-        if (versionName == null) return null;
-        return versionName.getValue("EntityRecognizer.versionName");
+        if (!unknown_versionName) return value_versionName;
+        throw new UndeferrableValueException("Value 'EntityRecognizer.versionName' is not present");
     }
 
     /**
@@ -137,22 +147,24 @@ public final class EntityRecognizer extends com.pulumi.resources.PolicyResourceO
      * Conflicts with `version_name`.
      * 
      */
-    private UndeferrableValue<String> versionNamePrefix;
-
+    @PolicyResourceProperty(name="versionNamePrefix", flag="unknown_versionNamePrefix")
+    private String value_versionNamePrefix;
+    private boolean unknown_versionNamePrefix;
     public String versionNamePrefix() {
-        if (versionNamePrefix == null) return null;
-        return versionNamePrefix.getValue("EntityRecognizer.versionNamePrefix");
+        if (!unknown_versionNamePrefix) return value_versionNamePrefix;
+        throw new UndeferrableValueException("Value 'EntityRecognizer.versionNamePrefix' is not present");
     }
 
     /**
      * ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
      * 
      */
-    private @Nullable UndeferrableValue<String> volumeKmsKeyId;
-
+    @PolicyResourceProperty(name="volumeKmsKeyId", flag="unknown_volumeKmsKeyId")
+    private @Nullable String value_volumeKmsKeyId;
+    private boolean unknown_volumeKmsKeyId;
     public @Nullable String volumeKmsKeyId() {
-        if (volumeKmsKeyId == null) return null;
-        return volumeKmsKeyId.getValue("EntityRecognizer.volumeKmsKeyId");
+        if (!unknown_volumeKmsKeyId) return value_volumeKmsKeyId;
+        throw new UndeferrableValueException("Value 'EntityRecognizer.volumeKmsKeyId' is not present");
     }
 
     /**
@@ -160,11 +172,12 @@ public final class EntityRecognizer extends com.pulumi.resources.PolicyResourceO
      * See the `vpc_config` Configuration Block section below.
      * 
      */
-    private @Nullable UndeferrableValue<EntityRecognizerVpcConfig> vpcConfig;
-
+    @PolicyResourceProperty(name="vpcConfig", flag="unknown_vpcConfig")
+    private @Nullable EntityRecognizerVpcConfig value_vpcConfig;
+    private boolean unknown_vpcConfig;
     public @Nullable EntityRecognizerVpcConfig vpcConfig() {
-        if (vpcConfig == null) return null;
-        return vpcConfig.getValue("EntityRecognizer.vpcConfig");
+        if (!unknown_vpcConfig) return value_vpcConfig;
+        throw new UndeferrableValueException("Value 'EntityRecognizer.vpcConfig' is not present");
     }
 
 }

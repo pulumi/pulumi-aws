@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration;
 import java.lang.String;
 import java.util.List;
@@ -15,66 +16,72 @@ public final class AgentAgentPromptOverrideConfigurationPromptConfiguration {
      * prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
      * 
      */
-    private UndeferrableValue<String> basePromptTemplate;
-
+    @PolicyResourceProperty(name="basePromptTemplate", flag="unknown_basePromptTemplate")
+    private String value_basePromptTemplate;
+    private boolean unknown_basePromptTemplate;
     public String basePromptTemplate() {
-        if (basePromptTemplate == null) return null;
-        return basePromptTemplate.getValue("AgentAgentPromptOverrideConfigurationPromptConfiguration.basePromptTemplate");
+        if (!unknown_basePromptTemplate) return value_basePromptTemplate;
+        throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfigurationPromptConfiguration.basePromptTemplate' is not present");
     }
 
     /**
      * Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `prompt_type`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inference_configuration` Block for details.
      * 
      */
-    private UndeferrableValue<List<AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration>> inferenceConfigurations;
-
+    @PolicyResourceProperty(name="inferenceConfigurations", flag="unknown_inferenceConfigurations")
+    private List<AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration> value_inferenceConfigurations;
+    private boolean unknown_inferenceConfigurations;
     public List<AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration> inferenceConfigurations() {
-        if (inferenceConfigurations == null) return null;
-        return inferenceConfigurations.getValue("AgentAgentPromptOverrideConfigurationPromptConfiguration.inferenceConfigurations");
+        if (!unknown_inferenceConfigurations) return value_inferenceConfigurations;
+        throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfigurationPromptConfiguration.inferenceConfigurations' is not present");
     }
 
     /**
      * Whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `prompt_type`. If you set the argument as `OVERRIDDEN`, the `override_lambda` argument in the `prompt_override_configuration` block must be specified with the ARN of a Lambda function. Valid values: `DEFAULT`, `OVERRIDDEN`.
      * 
      */
-    private UndeferrableValue<String> parserMode;
-
+    @PolicyResourceProperty(name="parserMode", flag="unknown_parserMode")
+    private String value_parserMode;
+    private boolean unknown_parserMode;
     public String parserMode() {
-        if (parserMode == null) return null;
-        return parserMode.getValue("AgentAgentPromptOverrideConfigurationPromptConfiguration.parserMode");
+        if (!unknown_parserMode) return value_parserMode;
+        throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfigurationPromptConfiguration.parserMode' is not present");
     }
 
     /**
      * Whether to override the default prompt template for this `prompt_type`. Set this argument to `OVERRIDDEN` to use the prompt that you provide in the `base_prompt_template`. If you leave it as `DEFAULT`, the agent uses a default prompt template. Valid values: `DEFAULT`, `OVERRIDDEN`.
      * 
      */
-    private UndeferrableValue<String> promptCreationMode;
-
+    @PolicyResourceProperty(name="promptCreationMode", flag="unknown_promptCreationMode")
+    private String value_promptCreationMode;
+    private boolean unknown_promptCreationMode;
     public String promptCreationMode() {
-        if (promptCreationMode == null) return null;
-        return promptCreationMode.getValue("AgentAgentPromptOverrideConfigurationPromptConfiguration.promptCreationMode");
+        if (!unknown_promptCreationMode) return value_promptCreationMode;
+        throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfigurationPromptConfiguration.promptCreationMode' is not present");
     }
 
     /**
      * Whether to allow the agent to carry out the step specified in the `prompt_type`. If you set this argument to `DISABLED`, the agent skips that step. Valid Values: `ENABLED`, `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> promptState;
-
+    @PolicyResourceProperty(name="promptState", flag="unknown_promptState")
+    private String value_promptState;
+    private boolean unknown_promptState;
     public String promptState() {
-        if (promptState == null) return null;
-        return promptState.getValue("AgentAgentPromptOverrideConfigurationPromptConfiguration.promptState");
+        if (!unknown_promptState) return value_promptState;
+        throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfigurationPromptConfiguration.promptState' is not present");
     }
 
     /**
      * Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
      * 
      */
-    private UndeferrableValue<String> promptType;
-
+    @PolicyResourceProperty(name="promptType", flag="unknown_promptType")
+    private String value_promptType;
+    private boolean unknown_promptType;
     public String promptType() {
-        if (promptType == null) return null;
-        return promptType.getValue("AgentAgentPromptOverrideConfigurationPromptConfiguration.promptType");
+        if (!unknown_promptType) return value_promptType;
+        throw new UndeferrableValueException("Value 'AgentAgentPromptOverrideConfigurationPromptConfiguration.promptType' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class BudgetResourceAssociation extends com.pulumi.resources.Policy
      * Budget name.
      * 
      */
-    private UndeferrableValue<String> budgetName;
-
+    @PolicyResourceProperty(name="budgetName", flag="unknown_budgetName")
+    private String value_budgetName;
+    private boolean unknown_budgetName;
     public String budgetName() {
-        if (budgetName == null) return null;
-        return budgetName.getValue("BudgetResourceAssociation.budgetName");
+        if (!unknown_budgetName) return value_budgetName;
+        throw new UndeferrableValueException("Value 'BudgetResourceAssociation.budgetName' is not present");
     }
 
     /**
      * Resource identifier.
      * 
      */
-    private UndeferrableValue<String> resourceId;
-
+    @PolicyResourceProperty(name="resourceId", flag="unknown_resourceId")
+    private String value_resourceId;
+    private boolean unknown_resourceId;
     public String resourceId() {
-        if (resourceId == null) return null;
-        return resourceId.getValue("BudgetResourceAssociation.resourceId");
+        if (!unknown_resourceId) return value_resourceId;
+        throw new UndeferrableValueException("Value 'BudgetResourceAssociation.resourceId' is not present");
     }
 
 }

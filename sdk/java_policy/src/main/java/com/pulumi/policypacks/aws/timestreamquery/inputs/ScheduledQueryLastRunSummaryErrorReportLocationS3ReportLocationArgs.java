@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamquery.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocati
      * S3 bucket name.
      * 
      */
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs.bucketName' is not present");
     }
 
     /**
      * S3 key.
      * 
      */
-    private UndeferrableValue<String> objectKey;
-
+    @PolicyResourceProperty(name="objectKey", flag="unknown_objectKey")
+    private String value_objectKey;
+    private boolean unknown_objectKey;
     public String objectKey() {
-        if (objectKey == null) return null;
-        return objectKey.getValue("ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs.objectKey");
+        if (!unknown_objectKey) return value_objectKey;
+        throw new UndeferrableValueException("Value 'ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs.objectKey' is not present");
     }
 
 }

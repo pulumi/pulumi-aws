@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.datazone.inputs.FormTypeModelArgs;
 import com.pulumi.policypacks.aws.datazone.inputs.FormTypeTimeoutsArgs;
@@ -18,69 +19,76 @@ public final class FormTypeArgs extends com.pulumi.resources.PolicyResourceInput
      * Description of form type. Must have a length of between 1 and 2048 characters.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("FormTypeArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'FormTypeArgs.description' is not present");
     }
 
     /**
      * Identifier of the domain.
      * 
      */
-    private UndeferrableValue<String> domainIdentifier;
-
+    @PolicyResourceProperty(name="domainIdentifier", flag="unknown_domainIdentifier")
+    private String value_domainIdentifier;
+    private boolean unknown_domainIdentifier;
     public String domainIdentifier() {
-        if (domainIdentifier == null) return null;
-        return domainIdentifier.getValue("FormTypeArgs.domainIdentifier");
+        if (!unknown_domainIdentifier) return value_domainIdentifier;
+        throw new UndeferrableValueException("Value 'FormTypeArgs.domainIdentifier' is not present");
     }
 
     /**
      * Object of the model of the form type that contains the following attributes.
      * 
      */
-    private UndeferrableValue<FormTypeModelArgs> model;
-
+    @PolicyResourceProperty(name="model", flag="unknown_model")
+    private FormTypeModelArgs value_model;
+    private boolean unknown_model;
     public FormTypeModelArgs model() {
-        if (model == null) return null;
-        return model.getValue("FormTypeArgs.model");
+        if (!unknown_model) return value_model;
+        throw new UndeferrableValueException("Value 'FormTypeArgs.model' is not present");
     }
 
     /**
      * Name of the form type. Must be the name of the structure in smithy document.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("FormTypeArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FormTypeArgs.name' is not present");
     }
 
     /**
      * Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
      * 
      */
-    private UndeferrableValue<String> owningProjectIdentifier;
-
+    @PolicyResourceProperty(name="owningProjectIdentifier", flag="unknown_owningProjectIdentifier")
+    private String value_owningProjectIdentifier;
+    private boolean unknown_owningProjectIdentifier;
     public String owningProjectIdentifier() {
-        if (owningProjectIdentifier == null) return null;
-        return owningProjectIdentifier.getValue("FormTypeArgs.owningProjectIdentifier");
+        if (!unknown_owningProjectIdentifier) return value_owningProjectIdentifier;
+        throw new UndeferrableValueException("Value 'FormTypeArgs.owningProjectIdentifier' is not present");
     }
 
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("FormTypeArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'FormTypeArgs.status' is not present");
     }
 
-    private UndeferrableValue<FormTypeTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private FormTypeTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public FormTypeTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("FormTypeArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'FormTypeArgs.timeouts' is not present");
     }
 
 }

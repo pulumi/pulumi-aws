@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fis.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.fis.inputs.ExperimentTemplateActionParameterArgs;
 import com.pulumi.policypacks.aws.fis.inputs.ExperimentTemplateActionTargetArgs;
 import java.lang.String;
@@ -17,66 +18,72 @@ public final class ExperimentTemplateActionArgs {
      * ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
      * 
      */
-    private UndeferrableValue<String> actionId;
-
+    @PolicyResourceProperty(name="actionId", flag="unknown_actionId")
+    private String value_actionId;
+    private boolean unknown_actionId;
     public String actionId() {
-        if (actionId == null) return null;
-        return actionId.getValue("ExperimentTemplateActionArgs.actionId");
+        if (!unknown_actionId) return value_actionId;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateActionArgs.actionId' is not present");
     }
 
     /**
      * Description of the action.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ExperimentTemplateActionArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateActionArgs.description' is not present");
     }
 
     /**
      * Friendly name of the action.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ExperimentTemplateActionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateActionArgs.name' is not present");
     }
 
     /**
      * Parameter(s) for the action, if applicable. See below.
      * 
      */
-    private UndeferrableValue<List<ExperimentTemplateActionParameterArgs>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private List<ExperimentTemplateActionParameterArgs> value_parameters;
+    private boolean unknown_parameters;
     public List<ExperimentTemplateActionParameterArgs> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("ExperimentTemplateActionArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateActionArgs.parameters' is not present");
     }
 
     /**
      * Set of action names that must complete before this action can be executed.
      * 
      */
-    private UndeferrableValue<List<String>> startAfters;
-
+    @PolicyResourceProperty(name="startAfters", flag="unknown_startAfters")
+    private List<String> value_startAfters;
+    private boolean unknown_startAfters;
     public List<String> startAfters() {
-        if (startAfters == null) return null;
-        return startAfters.getValue("ExperimentTemplateActionArgs.startAfters");
+        if (!unknown_startAfters) return value_startAfters;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateActionArgs.startAfters' is not present");
     }
 
     /**
      * Action&#39;s target, if applicable. See below.
      * 
      */
-    private UndeferrableValue<ExperimentTemplateActionTargetArgs> target;
-
+    @PolicyResourceProperty(name="target", flag="unknown_target")
+    private ExperimentTemplateActionTargetArgs value_target;
+    private boolean unknown_target;
     public ExperimentTemplateActionTargetArgs target() {
-        if (target == null) return null;
-        return target.getValue("ExperimentTemplateActionArgs.target");
+        if (!unknown_target) return value_target;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateActionArgs.target' is not present");
     }
 
 }

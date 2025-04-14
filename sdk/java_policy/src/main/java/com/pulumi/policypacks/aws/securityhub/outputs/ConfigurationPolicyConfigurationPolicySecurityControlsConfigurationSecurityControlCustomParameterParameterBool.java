@@ -3,17 +3,19 @@
 
 package com.pulumi.policypacks.aws.securityhub.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 
 
 public final class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool {
 
-    private UndeferrableValue<Boolean> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private Boolean value_value;
+    private boolean unknown_value;
     public Boolean value() {
-        if (value == null) return null;
-        return value.getValue("ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool.value' is not present");
     }
 
 }

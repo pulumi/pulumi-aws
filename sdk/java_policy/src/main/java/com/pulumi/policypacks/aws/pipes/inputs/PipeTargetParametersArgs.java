@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.pipes.inputs.PipeTargetParametersBatchJobParametersArgs;
 import com.pulumi.policypacks.aws.pipes.inputs.PipeTargetParametersCloudwatchLogsParametersArgs;
 import com.pulumi.policypacks.aws.pipes.inputs.PipeTargetParametersEcsTaskParametersArgs;
@@ -25,132 +26,144 @@ public final class PipeTargetParametersArgs {
      * The parameters for using an AWS Batch job as a target. Detailed below.
      * 
      */
-    private UndeferrableValue<PipeTargetParametersBatchJobParametersArgs> batchJobParameters;
-
+    @PolicyResourceProperty(name="batchJobParameters", flag="unknown_batchJobParameters")
+    private PipeTargetParametersBatchJobParametersArgs value_batchJobParameters;
+    private boolean unknown_batchJobParameters;
     public PipeTargetParametersBatchJobParametersArgs batchJobParameters() {
-        if (batchJobParameters == null) return null;
-        return batchJobParameters.getValue("PipeTargetParametersArgs.batchJobParameters");
+        if (!unknown_batchJobParameters) return value_batchJobParameters;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersArgs.batchJobParameters' is not present");
     }
 
     /**
      * The parameters for using an CloudWatch Logs log stream as a target. Detailed below.
      * 
      */
-    private UndeferrableValue<PipeTargetParametersCloudwatchLogsParametersArgs> cloudwatchLogsParameters;
-
+    @PolicyResourceProperty(name="cloudwatchLogsParameters", flag="unknown_cloudwatchLogsParameters")
+    private PipeTargetParametersCloudwatchLogsParametersArgs value_cloudwatchLogsParameters;
+    private boolean unknown_cloudwatchLogsParameters;
     public PipeTargetParametersCloudwatchLogsParametersArgs cloudwatchLogsParameters() {
-        if (cloudwatchLogsParameters == null) return null;
-        return cloudwatchLogsParameters.getValue("PipeTargetParametersArgs.cloudwatchLogsParameters");
+        if (!unknown_cloudwatchLogsParameters) return value_cloudwatchLogsParameters;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersArgs.cloudwatchLogsParameters' is not present");
     }
 
     /**
      * The parameters for using an Amazon ECS task as a target. Detailed below.
      * 
      */
-    private UndeferrableValue<PipeTargetParametersEcsTaskParametersArgs> ecsTaskParameters;
-
+    @PolicyResourceProperty(name="ecsTaskParameters", flag="unknown_ecsTaskParameters")
+    private PipeTargetParametersEcsTaskParametersArgs value_ecsTaskParameters;
+    private boolean unknown_ecsTaskParameters;
     public PipeTargetParametersEcsTaskParametersArgs ecsTaskParameters() {
-        if (ecsTaskParameters == null) return null;
-        return ecsTaskParameters.getValue("PipeTargetParametersArgs.ecsTaskParameters");
+        if (!unknown_ecsTaskParameters) return value_ecsTaskParameters;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersArgs.ecsTaskParameters' is not present");
     }
 
     /**
      * The parameters for using an EventBridge event bus as a target. Detailed below.
      * 
      */
-    private UndeferrableValue<PipeTargetParametersEventbridgeEventBusParametersArgs> eventbridgeEventBusParameters;
-
+    @PolicyResourceProperty(name="eventbridgeEventBusParameters", flag="unknown_eventbridgeEventBusParameters")
+    private PipeTargetParametersEventbridgeEventBusParametersArgs value_eventbridgeEventBusParameters;
+    private boolean unknown_eventbridgeEventBusParameters;
     public PipeTargetParametersEventbridgeEventBusParametersArgs eventbridgeEventBusParameters() {
-        if (eventbridgeEventBusParameters == null) return null;
-        return eventbridgeEventBusParameters.getValue("PipeTargetParametersArgs.eventbridgeEventBusParameters");
+        if (!unknown_eventbridgeEventBusParameters) return value_eventbridgeEventBusParameters;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersArgs.eventbridgeEventBusParameters' is not present");
     }
 
     /**
      * These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. Detailed below.
      * 
      */
-    private UndeferrableValue<PipeTargetParametersHttpParametersArgs> httpParameters;
-
+    @PolicyResourceProperty(name="httpParameters", flag="unknown_httpParameters")
+    private PipeTargetParametersHttpParametersArgs value_httpParameters;
+    private boolean unknown_httpParameters;
     public PipeTargetParametersHttpParametersArgs httpParameters() {
-        if (httpParameters == null) return null;
-        return httpParameters.getValue("PipeTargetParametersArgs.httpParameters");
+        if (!unknown_httpParameters) return value_httpParameters;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersArgs.httpParameters' is not present");
     }
 
     /**
      * Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. Maximum length of 8192 characters.
      * 
      */
-    private UndeferrableValue<String> inputTemplate;
-
+    @PolicyResourceProperty(name="inputTemplate", flag="unknown_inputTemplate")
+    private String value_inputTemplate;
+    private boolean unknown_inputTemplate;
     public String inputTemplate() {
-        if (inputTemplate == null) return null;
-        return inputTemplate.getValue("PipeTargetParametersArgs.inputTemplate");
+        if (!unknown_inputTemplate) return value_inputTemplate;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersArgs.inputTemplate' is not present");
     }
 
     /**
      * The parameters for using a Kinesis stream as a source. Detailed below.
      * 
      */
-    private UndeferrableValue<PipeTargetParametersKinesisStreamParametersArgs> kinesisStreamParameters;
-
+    @PolicyResourceProperty(name="kinesisStreamParameters", flag="unknown_kinesisStreamParameters")
+    private PipeTargetParametersKinesisStreamParametersArgs value_kinesisStreamParameters;
+    private boolean unknown_kinesisStreamParameters;
     public PipeTargetParametersKinesisStreamParametersArgs kinesisStreamParameters() {
-        if (kinesisStreamParameters == null) return null;
-        return kinesisStreamParameters.getValue("PipeTargetParametersArgs.kinesisStreamParameters");
+        if (!unknown_kinesisStreamParameters) return value_kinesisStreamParameters;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersArgs.kinesisStreamParameters' is not present");
     }
 
     /**
      * The parameters for using a Lambda function as a target. Detailed below.
      * 
      */
-    private UndeferrableValue<PipeTargetParametersLambdaFunctionParametersArgs> lambdaFunctionParameters;
-
+    @PolicyResourceProperty(name="lambdaFunctionParameters", flag="unknown_lambdaFunctionParameters")
+    private PipeTargetParametersLambdaFunctionParametersArgs value_lambdaFunctionParameters;
+    private boolean unknown_lambdaFunctionParameters;
     public PipeTargetParametersLambdaFunctionParametersArgs lambdaFunctionParameters() {
-        if (lambdaFunctionParameters == null) return null;
-        return lambdaFunctionParameters.getValue("PipeTargetParametersArgs.lambdaFunctionParameters");
+        if (!unknown_lambdaFunctionParameters) return value_lambdaFunctionParameters;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersArgs.lambdaFunctionParameters' is not present");
     }
 
     /**
      * These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. Detailed below.
      * 
      */
-    private UndeferrableValue<PipeTargetParametersRedshiftDataParametersArgs> redshiftDataParameters;
-
+    @PolicyResourceProperty(name="redshiftDataParameters", flag="unknown_redshiftDataParameters")
+    private PipeTargetParametersRedshiftDataParametersArgs value_redshiftDataParameters;
+    private boolean unknown_redshiftDataParameters;
     public PipeTargetParametersRedshiftDataParametersArgs redshiftDataParameters() {
-        if (redshiftDataParameters == null) return null;
-        return redshiftDataParameters.getValue("PipeTargetParametersArgs.redshiftDataParameters");
+        if (!unknown_redshiftDataParameters) return value_redshiftDataParameters;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersArgs.redshiftDataParameters' is not present");
     }
 
     /**
      * The parameters for using a SageMaker AI pipeline as a target. Detailed below.
      * 
      */
-    private UndeferrableValue<PipeTargetParametersSagemakerPipelineParametersArgs> sagemakerPipelineParameters;
-
+    @PolicyResourceProperty(name="sagemakerPipelineParameters", flag="unknown_sagemakerPipelineParameters")
+    private PipeTargetParametersSagemakerPipelineParametersArgs value_sagemakerPipelineParameters;
+    private boolean unknown_sagemakerPipelineParameters;
     public PipeTargetParametersSagemakerPipelineParametersArgs sagemakerPipelineParameters() {
-        if (sagemakerPipelineParameters == null) return null;
-        return sagemakerPipelineParameters.getValue("PipeTargetParametersArgs.sagemakerPipelineParameters");
+        if (!unknown_sagemakerPipelineParameters) return value_sagemakerPipelineParameters;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersArgs.sagemakerPipelineParameters' is not present");
     }
 
     /**
      * The parameters for using a Amazon SQS stream as a target. Detailed below.
      * 
      */
-    private UndeferrableValue<PipeTargetParametersSqsQueueParametersArgs> sqsQueueParameters;
-
+    @PolicyResourceProperty(name="sqsQueueParameters", flag="unknown_sqsQueueParameters")
+    private PipeTargetParametersSqsQueueParametersArgs value_sqsQueueParameters;
+    private boolean unknown_sqsQueueParameters;
     public PipeTargetParametersSqsQueueParametersArgs sqsQueueParameters() {
-        if (sqsQueueParameters == null) return null;
-        return sqsQueueParameters.getValue("PipeTargetParametersArgs.sqsQueueParameters");
+        if (!unknown_sqsQueueParameters) return value_sqsQueueParameters;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersArgs.sqsQueueParameters' is not present");
     }
 
     /**
      * The parameters for using a Step Functions state machine as a target. Detailed below.
      * 
      */
-    private UndeferrableValue<PipeTargetParametersStepFunctionStateMachineParametersArgs> stepFunctionStateMachineParameters;
-
+    @PolicyResourceProperty(name="stepFunctionStateMachineParameters", flag="unknown_stepFunctionStateMachineParameters")
+    private PipeTargetParametersStepFunctionStateMachineParametersArgs value_stepFunctionStateMachineParameters;
+    private boolean unknown_stepFunctionStateMachineParameters;
     public PipeTargetParametersStepFunctionStateMachineParametersArgs stepFunctionStateMachineParameters() {
-        if (stepFunctionStateMachineParameters == null) return null;
-        return stepFunctionStateMachineParameters.getValue("PipeTargetParametersArgs.stepFunctionStateMachineParameters");
+        if (!unknown_stepFunctionStateMachineParameters) return value_stepFunctionStateMachineParameters;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersArgs.stepFunctionStateMachineParameters' is not present");
     }
 
 }

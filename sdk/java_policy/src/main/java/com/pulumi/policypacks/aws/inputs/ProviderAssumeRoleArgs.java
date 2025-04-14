@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -16,99 +17,108 @@ public final class ProviderAssumeRoleArgs {
      * The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
      * 
      */
-    private UndeferrableValue<String> duration;
-
+    @PolicyResourceProperty(name="duration", flag="unknown_duration")
+    private String value_duration;
+    private boolean unknown_duration;
     public String duration() {
-        if (duration == null) return null;
-        return duration.getValue("ProviderAssumeRoleArgs.duration");
+        if (!unknown_duration) return value_duration;
+        throw new UndeferrableValueException("Value 'ProviderAssumeRoleArgs.duration' is not present");
     }
 
     /**
      * A unique identifier that might be required when you assume a role in another account.
      * 
      */
-    private UndeferrableValue<String> externalId;
-
+    @PolicyResourceProperty(name="externalId", flag="unknown_externalId")
+    private String value_externalId;
+    private boolean unknown_externalId;
     public String externalId() {
-        if (externalId == null) return null;
-        return externalId.getValue("ProviderAssumeRoleArgs.externalId");
+        if (!unknown_externalId) return value_externalId;
+        throw new UndeferrableValueException("Value 'ProviderAssumeRoleArgs.externalId' is not present");
     }
 
     /**
      * IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("ProviderAssumeRoleArgs.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'ProviderAssumeRoleArgs.policy' is not present");
     }
 
     /**
      * Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
      * 
      */
-    private UndeferrableValue<List<String>> policyArns;
-
+    @PolicyResourceProperty(name="policyArns", flag="unknown_policyArns")
+    private List<String> value_policyArns;
+    private boolean unknown_policyArns;
     public List<String> policyArns() {
-        if (policyArns == null) return null;
-        return policyArns.getValue("ProviderAssumeRoleArgs.policyArns");
+        if (!unknown_policyArns) return value_policyArns;
+        throw new UndeferrableValueException("Value 'ProviderAssumeRoleArgs.policyArns' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("ProviderAssumeRoleArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'ProviderAssumeRoleArgs.roleArn' is not present");
     }
 
     /**
      * An identifier for the assumed role session.
      * 
      */
-    private UndeferrableValue<String> sessionName;
-
+    @PolicyResourceProperty(name="sessionName", flag="unknown_sessionName")
+    private String value_sessionName;
+    private boolean unknown_sessionName;
     public String sessionName() {
-        if (sessionName == null) return null;
-        return sessionName.getValue("ProviderAssumeRoleArgs.sessionName");
+        if (!unknown_sessionName) return value_sessionName;
+        throw new UndeferrableValueException("Value 'ProviderAssumeRoleArgs.sessionName' is not present");
     }
 
     /**
      * Source identity specified by the principal assuming the role.
      * 
      */
-    private UndeferrableValue<String> sourceIdentity;
-
+    @PolicyResourceProperty(name="sourceIdentity", flag="unknown_sourceIdentity")
+    private String value_sourceIdentity;
+    private boolean unknown_sourceIdentity;
     public String sourceIdentity() {
-        if (sourceIdentity == null) return null;
-        return sourceIdentity.getValue("ProviderAssumeRoleArgs.sourceIdentity");
+        if (!unknown_sourceIdentity) return value_sourceIdentity;
+        throw new UndeferrableValueException("Value 'ProviderAssumeRoleArgs.sourceIdentity' is not present");
     }
 
     /**
      * Assume role session tags.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ProviderAssumeRoleArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ProviderAssumeRoleArgs.tags' is not present");
     }
 
     /**
      * Assume role session tag keys to pass to any subsequent sessions.
      * 
      */
-    private UndeferrableValue<List<String>> transitiveTagKeys;
-
+    @PolicyResourceProperty(name="transitiveTagKeys", flag="unknown_transitiveTagKeys")
+    private List<String> value_transitiveTagKeys;
+    private boolean unknown_transitiveTagKeys;
     public List<String> transitiveTagKeys() {
-        if (transitiveTagKeys == null) return null;
-        return transitiveTagKeys.getValue("ProviderAssumeRoleArgs.transitiveTagKeys");
+        if (!unknown_transitiveTagKeys) return value_transitiveTagKeys;
+        throw new UndeferrableValueException("Value 'ProviderAssumeRoleArgs.transitiveTagKeys' is not present");
     }
 
 }

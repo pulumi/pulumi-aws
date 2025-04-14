@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cfg.outputs.RuleEvaluationMode;
 import com.pulumi.policypacks.aws.cfg.outputs.RuleScope;
@@ -21,110 +22,120 @@ public final class Rule extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN of the config rule
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Rule.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Rule.arn' is not present");
     }
 
     /**
      * Description of the rule
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Rule.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Rule.description' is not present");
     }
 
     /**
      * The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
      * 
      */
-    private UndeferrableValue<List<RuleEvaluationMode>> evaluationModes;
-
+    @PolicyResourceProperty(name="evaluationModes", flag="unknown_evaluationModes")
+    private List<RuleEvaluationMode> value_evaluationModes;
+    private boolean unknown_evaluationModes;
     public List<RuleEvaluationMode> evaluationModes() {
-        if (evaluationModes == null) return null;
-        return evaluationModes.getValue("Rule.evaluationModes");
+        if (!unknown_evaluationModes) return value_evaluationModes;
+        throw new UndeferrableValueException("Value 'Rule.evaluationModes' is not present");
     }
 
     /**
      * A string in JSON format that is passed to the AWS Config rule Lambda function.
      * 
      */
-    private @Nullable UndeferrableValue<String> inputParameters;
-
+    @PolicyResourceProperty(name="inputParameters", flag="unknown_inputParameters")
+    private @Nullable String value_inputParameters;
+    private boolean unknown_inputParameters;
     public @Nullable String inputParameters() {
-        if (inputParameters == null) return null;
-        return inputParameters.getValue("Rule.inputParameters");
+        if (!unknown_inputParameters) return value_inputParameters;
+        throw new UndeferrableValueException("Value 'Rule.inputParameters' is not present");
     }
 
     /**
      * The maximum frequency with which AWS Config runs evaluations for a rule.
      * 
      */
-    private @Nullable UndeferrableValue<String> maximumExecutionFrequency;
-
+    @PolicyResourceProperty(name="maximumExecutionFrequency", flag="unknown_maximumExecutionFrequency")
+    private @Nullable String value_maximumExecutionFrequency;
+    private boolean unknown_maximumExecutionFrequency;
     public @Nullable String maximumExecutionFrequency() {
-        if (maximumExecutionFrequency == null) return null;
-        return maximumExecutionFrequency.getValue("Rule.maximumExecutionFrequency");
+        if (!unknown_maximumExecutionFrequency) return value_maximumExecutionFrequency;
+        throw new UndeferrableValueException("Value 'Rule.maximumExecutionFrequency' is not present");
     }
 
     /**
      * The name of the rule
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Rule.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Rule.name' is not present");
     }
 
     /**
      * The ID of the config rule
      * 
      */
-    private UndeferrableValue<String> ruleId;
-
+    @PolicyResourceProperty(name="ruleId", flag="unknown_ruleId")
+    private String value_ruleId;
+    private boolean unknown_ruleId;
     public String ruleId() {
-        if (ruleId == null) return null;
-        return ruleId.getValue("Rule.ruleId");
+        if (!unknown_ruleId) return value_ruleId;
+        throw new UndeferrableValueException("Value 'Rule.ruleId' is not present");
     }
 
     /**
      * Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
      * 
      */
-    private @Nullable UndeferrableValue<RuleScope> scope;
-
+    @PolicyResourceProperty(name="scope", flag="unknown_scope")
+    private @Nullable RuleScope value_scope;
+    private boolean unknown_scope;
     public @Nullable RuleScope scope() {
-        if (scope == null) return null;
-        return scope.getValue("Rule.scope");
+        if (!unknown_scope) return value_scope;
+        throw new UndeferrableValueException("Value 'Rule.scope' is not present");
     }
 
     /**
      * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
      * 
      */
-    private UndeferrableValue<RuleSource> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private RuleSource value_source;
+    private boolean unknown_source;
     public RuleSource source() {
-        if (source == null) return null;
-        return source.getValue("Rule.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'Rule.source' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Rule.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Rule.tags' is not present");
     }
 
     /**
@@ -135,11 +146,12 @@ public final class Rule extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Rule.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Rule.tagsAll' is not present");
     }
 
 }

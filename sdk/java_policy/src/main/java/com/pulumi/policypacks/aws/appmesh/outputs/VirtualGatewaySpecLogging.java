@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualGatewaySpecLoggingAccessLog;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class VirtualGatewaySpecLogging {
      * Access log configuration for a virtual gateway.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualGatewaySpecLoggingAccessLog> accessLog;
-
+    @PolicyResourceProperty(name="accessLog", flag="unknown_accessLog")
+    private @Nullable VirtualGatewaySpecLoggingAccessLog value_accessLog;
+    private boolean unknown_accessLog;
     public @Nullable VirtualGatewaySpecLoggingAccessLog accessLog() {
-        if (accessLog == null) return null;
-        return accessLog.getValue("VirtualGatewaySpecLogging.accessLog");
+        if (!unknown_accessLog) return value_accessLog;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecLogging.accessLog' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.backup.outputs.LogicallyAirGappedVaultTimeouts;
 import java.lang.Integer;
@@ -19,55 +20,60 @@ public final class LogicallyAirGappedVault extends com.pulumi.resources.PolicyRe
      * The ARN of the Logically Air Gapped Backup Vault.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("LogicallyAirGappedVault.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'LogicallyAirGappedVault.arn' is not present");
     }
 
     /**
      * Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
      * 
      */
-    private UndeferrableValue<Integer> maxRetentionDays;
-
+    @PolicyResourceProperty(name="maxRetentionDays", flag="unknown_maxRetentionDays")
+    private Integer value_maxRetentionDays;
+    private boolean unknown_maxRetentionDays;
     public Integer maxRetentionDays() {
-        if (maxRetentionDays == null) return null;
-        return maxRetentionDays.getValue("LogicallyAirGappedVault.maxRetentionDays");
+        if (!unknown_maxRetentionDays) return value_maxRetentionDays;
+        throw new UndeferrableValueException("Value 'LogicallyAirGappedVault.maxRetentionDays' is not present");
     }
 
     /**
      * Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
      * 
      */
-    private UndeferrableValue<Integer> minRetentionDays;
-
+    @PolicyResourceProperty(name="minRetentionDays", flag="unknown_minRetentionDays")
+    private Integer value_minRetentionDays;
+    private boolean unknown_minRetentionDays;
     public Integer minRetentionDays() {
-        if (minRetentionDays == null) return null;
-        return minRetentionDays.getValue("LogicallyAirGappedVault.minRetentionDays");
+        if (!unknown_minRetentionDays) return value_minRetentionDays;
+        throw new UndeferrableValueException("Value 'LogicallyAirGappedVault.minRetentionDays' is not present");
     }
 
     /**
      * Name of the Logically Air Gapped Backup Vault to create.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LogicallyAirGappedVault.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LogicallyAirGappedVault.name' is not present");
     }
 
     /**
      * Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LogicallyAirGappedVault.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LogicallyAirGappedVault.tags' is not present");
     }
 
     /**
@@ -78,18 +84,20 @@ public final class LogicallyAirGappedVault extends com.pulumi.resources.PolicyRe
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("LogicallyAirGappedVault.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'LogicallyAirGappedVault.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<LogicallyAirGappedVaultTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable LogicallyAirGappedVaultTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable LogicallyAirGappedVaultTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("LogicallyAirGappedVault.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'LogicallyAirGappedVault.timeouts' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.outputs.VpcEndpointServicePrivateDnsNameConfiguration;
 import java.lang.Boolean;
@@ -20,176 +21,192 @@ public final class VpcEndpointService extends com.pulumi.resources.PolicyResourc
      * Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
      * 
      */
-    private UndeferrableValue<Boolean> acceptanceRequired;
-
+    @PolicyResourceProperty(name="acceptanceRequired", flag="unknown_acceptanceRequired")
+    private Boolean value_acceptanceRequired;
+    private boolean unknown_acceptanceRequired;
     public Boolean acceptanceRequired() {
-        if (acceptanceRequired == null) return null;
-        return acceptanceRequired.getValue("VpcEndpointService.acceptanceRequired");
+        if (!unknown_acceptanceRequired) return value_acceptanceRequired;
+        throw new UndeferrableValueException("Value 'VpcEndpointService.acceptanceRequired' is not present");
     }
 
     /**
      * The ARNs of one or more principals allowed to discover the endpoint service.
      * 
      */
-    private UndeferrableValue<List<String>> allowedPrincipals;
-
+    @PolicyResourceProperty(name="allowedPrincipals", flag="unknown_allowedPrincipals")
+    private List<String> value_allowedPrincipals;
+    private boolean unknown_allowedPrincipals;
     public List<String> allowedPrincipals() {
-        if (allowedPrincipals == null) return null;
-        return allowedPrincipals.getValue("VpcEndpointService.allowedPrincipals");
+        if (!unknown_allowedPrincipals) return value_allowedPrincipals;
+        throw new UndeferrableValueException("Value 'VpcEndpointService.allowedPrincipals' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the VPC endpoint service.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("VpcEndpointService.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'VpcEndpointService.arn' is not present");
     }
 
     /**
      * A set of Availability Zones in which the service is available.
      * 
      */
-    private UndeferrableValue<List<String>> availabilityZones;
-
+    @PolicyResourceProperty(name="availabilityZones", flag="unknown_availabilityZones")
+    private List<String> value_availabilityZones;
+    private boolean unknown_availabilityZones;
     public List<String> availabilityZones() {
-        if (availabilityZones == null) return null;
-        return availabilityZones.getValue("VpcEndpointService.availabilityZones");
+        if (!unknown_availabilityZones) return value_availabilityZones;
+        throw new UndeferrableValueException("Value 'VpcEndpointService.availabilityZones' is not present");
     }
 
     /**
      * A set of DNS names for the service.
      * 
      */
-    private UndeferrableValue<List<String>> baseEndpointDnsNames;
-
+    @PolicyResourceProperty(name="baseEndpointDnsNames", flag="unknown_baseEndpointDnsNames")
+    private List<String> value_baseEndpointDnsNames;
+    private boolean unknown_baseEndpointDnsNames;
     public List<String> baseEndpointDnsNames() {
-        if (baseEndpointDnsNames == null) return null;
-        return baseEndpointDnsNames.getValue("VpcEndpointService.baseEndpointDnsNames");
+        if (!unknown_baseEndpointDnsNames) return value_baseEndpointDnsNames;
+        throw new UndeferrableValueException("Value 'VpcEndpointService.baseEndpointDnsNames' is not present");
     }
 
     /**
      * Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> gatewayLoadBalancerArns;
-
+    @PolicyResourceProperty(name="gatewayLoadBalancerArns", flag="unknown_gatewayLoadBalancerArns")
+    private @Nullable List<String> value_gatewayLoadBalancerArns;
+    private boolean unknown_gatewayLoadBalancerArns;
     public @Nullable List<String> gatewayLoadBalancerArns() {
-        if (gatewayLoadBalancerArns == null) return null;
-        return gatewayLoadBalancerArns.getValue("VpcEndpointService.gatewayLoadBalancerArns");
+        if (!unknown_gatewayLoadBalancerArns) return value_gatewayLoadBalancerArns;
+        throw new UndeferrableValueException("Value 'VpcEndpointService.gatewayLoadBalancerArns' is not present");
     }
 
     /**
      * Whether or not the service manages its VPC endpoints - `true` or `false`.
      * 
      */
-    private UndeferrableValue<Boolean> managesVpcEndpoints;
-
+    @PolicyResourceProperty(name="managesVpcEndpoints", flag="unknown_managesVpcEndpoints")
+    private Boolean value_managesVpcEndpoints;
+    private boolean unknown_managesVpcEndpoints;
     public Boolean managesVpcEndpoints() {
-        if (managesVpcEndpoints == null) return null;
-        return managesVpcEndpoints.getValue("VpcEndpointService.managesVpcEndpoints");
+        if (!unknown_managesVpcEndpoints) return value_managesVpcEndpoints;
+        throw new UndeferrableValueException("Value 'VpcEndpointService.managesVpcEndpoints' is not present");
     }
 
     /**
      * Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> networkLoadBalancerArns;
-
+    @PolicyResourceProperty(name="networkLoadBalancerArns", flag="unknown_networkLoadBalancerArns")
+    private @Nullable List<String> value_networkLoadBalancerArns;
+    private boolean unknown_networkLoadBalancerArns;
     public @Nullable List<String> networkLoadBalancerArns() {
-        if (networkLoadBalancerArns == null) return null;
-        return networkLoadBalancerArns.getValue("VpcEndpointService.networkLoadBalancerArns");
+        if (!unknown_networkLoadBalancerArns) return value_networkLoadBalancerArns;
+        throw new UndeferrableValueException("Value 'VpcEndpointService.networkLoadBalancerArns' is not present");
     }
 
     /**
      * The private DNS name for the service.
      * 
      */
-    private UndeferrableValue<String> privateDnsName;
-
+    @PolicyResourceProperty(name="privateDnsName", flag="unknown_privateDnsName")
+    private String value_privateDnsName;
+    private boolean unknown_privateDnsName;
     public String privateDnsName() {
-        if (privateDnsName == null) return null;
-        return privateDnsName.getValue("VpcEndpointService.privateDnsName");
+        if (!unknown_privateDnsName) return value_privateDnsName;
+        throw new UndeferrableValueException("Value 'VpcEndpointService.privateDnsName' is not present");
     }
 
     /**
      * List of objects containing information about the endpoint service private DNS name configuration.
      * 
      */
-    private UndeferrableValue<List<VpcEndpointServicePrivateDnsNameConfiguration>> privateDnsNameConfigurations;
-
+    @PolicyResourceProperty(name="privateDnsNameConfigurations", flag="unknown_privateDnsNameConfigurations")
+    private List<VpcEndpointServicePrivateDnsNameConfiguration> value_privateDnsNameConfigurations;
+    private boolean unknown_privateDnsNameConfigurations;
     public List<VpcEndpointServicePrivateDnsNameConfiguration> privateDnsNameConfigurations() {
-        if (privateDnsNameConfigurations == null) return null;
-        return privateDnsNameConfigurations.getValue("VpcEndpointService.privateDnsNameConfigurations");
+        if (!unknown_privateDnsNameConfigurations) return value_privateDnsNameConfigurations;
+        throw new UndeferrableValueException("Value 'VpcEndpointService.privateDnsNameConfigurations' is not present");
     }
 
     /**
      * The service name.
      * 
      */
-    private UndeferrableValue<String> serviceName;
-
+    @PolicyResourceProperty(name="serviceName", flag="unknown_serviceName")
+    private String value_serviceName;
+    private boolean unknown_serviceName;
     public String serviceName() {
-        if (serviceName == null) return null;
-        return serviceName.getValue("VpcEndpointService.serviceName");
+        if (!unknown_serviceName) return value_serviceName;
+        throw new UndeferrableValueException("Value 'VpcEndpointService.serviceName' is not present");
     }
 
     /**
      * The service type, `Gateway` or `Interface`.
      * 
      */
-    private UndeferrableValue<String> serviceType;
-
+    @PolicyResourceProperty(name="serviceType", flag="unknown_serviceType")
+    private String value_serviceType;
+    private boolean unknown_serviceType;
     public String serviceType() {
-        if (serviceType == null) return null;
-        return serviceType.getValue("VpcEndpointService.serviceType");
+        if (!unknown_serviceType) return value_serviceType;
+        throw new UndeferrableValueException("Value 'VpcEndpointService.serviceType' is not present");
     }
 
     /**
      * Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("VpcEndpointService.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'VpcEndpointService.state' is not present");
     }
 
     /**
      * The supported IP address types. The possible values are `ipv4` and `ipv6`.
      * 
      */
-    private UndeferrableValue<List<String>> supportedIpAddressTypes;
-
+    @PolicyResourceProperty(name="supportedIpAddressTypes", flag="unknown_supportedIpAddressTypes")
+    private List<String> value_supportedIpAddressTypes;
+    private boolean unknown_supportedIpAddressTypes;
     public List<String> supportedIpAddressTypes() {
-        if (supportedIpAddressTypes == null) return null;
-        return supportedIpAddressTypes.getValue("VpcEndpointService.supportedIpAddressTypes");
+        if (!unknown_supportedIpAddressTypes) return value_supportedIpAddressTypes;
+        throw new UndeferrableValueException("Value 'VpcEndpointService.supportedIpAddressTypes' is not present");
     }
 
     /**
      * The set of regions from which service consumers can access the service.
      * 
      */
-    private UndeferrableValue<List<String>> supportedRegions;
-
+    @PolicyResourceProperty(name="supportedRegions", flag="unknown_supportedRegions")
+    private List<String> value_supportedRegions;
+    private boolean unknown_supportedRegions;
     public List<String> supportedRegions() {
-        if (supportedRegions == null) return null;
-        return supportedRegions.getValue("VpcEndpointService.supportedRegions");
+        if (!unknown_supportedRegions) return value_supportedRegions;
+        throw new UndeferrableValueException("Value 'VpcEndpointService.supportedRegions' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VpcEndpointService.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VpcEndpointService.tags' is not present");
     }
 
     /**
@@ -200,11 +217,12 @@ public final class VpcEndpointService extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("VpcEndpointService.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'VpcEndpointService.tagsAll' is not present");
     }
 
 }

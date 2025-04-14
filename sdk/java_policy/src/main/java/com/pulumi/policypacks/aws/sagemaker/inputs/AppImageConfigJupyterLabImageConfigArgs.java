@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.AppImageConfigJupyterLabImageConfigContainerConfigArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.AppImageConfigJupyterLabImageConfigFileSystemConfigArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class AppImageConfigJupyterLabImageConfigArgs {
      * The configuration used to run the application image container. See Container Config details below.
      * 
      */
-    private UndeferrableValue<AppImageConfigJupyterLabImageConfigContainerConfigArgs> containerConfig;
-
+    @PolicyResourceProperty(name="containerConfig", flag="unknown_containerConfig")
+    private AppImageConfigJupyterLabImageConfigContainerConfigArgs value_containerConfig;
+    private boolean unknown_containerConfig;
     public AppImageConfigJupyterLabImageConfigContainerConfigArgs containerConfig() {
-        if (containerConfig == null) return null;
-        return containerConfig.getValue("AppImageConfigJupyterLabImageConfigArgs.containerConfig");
+        if (!unknown_containerConfig) return value_containerConfig;
+        throw new UndeferrableValueException("Value 'AppImageConfigJupyterLabImageConfigArgs.containerConfig' is not present");
     }
 
     /**
      * The URL where the Git repository is located. See File System Config details below.
      * 
      */
-    private UndeferrableValue<AppImageConfigJupyterLabImageConfigFileSystemConfigArgs> fileSystemConfig;
-
+    @PolicyResourceProperty(name="fileSystemConfig", flag="unknown_fileSystemConfig")
+    private AppImageConfigJupyterLabImageConfigFileSystemConfigArgs value_fileSystemConfig;
+    private boolean unknown_fileSystemConfig;
     public AppImageConfigJupyterLabImageConfigFileSystemConfigArgs fileSystemConfig() {
-        if (fileSystemConfig == null) return null;
-        return fileSystemConfig.getValue("AppImageConfigJupyterLabImageConfigArgs.fileSystemConfig");
+        if (!unknown_fileSystemConfig) return value_fileSystemConfig;
+        throw new UndeferrableValueException("Value 'AppImageConfigJupyterLabImageConfigArgs.fileSystemConfig' is not present");
     }
 
 }

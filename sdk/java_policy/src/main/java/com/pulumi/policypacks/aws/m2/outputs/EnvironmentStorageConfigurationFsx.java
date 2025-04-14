@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.m2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class EnvironmentStorageConfigurationFsx {
      * Id of the FSX filesystem to mount.
      * 
      */
-    private UndeferrableValue<String> fileSystemId;
-
+    @PolicyResourceProperty(name="fileSystemId", flag="unknown_fileSystemId")
+    private String value_fileSystemId;
+    private boolean unknown_fileSystemId;
     public String fileSystemId() {
-        if (fileSystemId == null) return null;
-        return fileSystemId.getValue("EnvironmentStorageConfigurationFsx.fileSystemId");
+        if (!unknown_fileSystemId) return value_fileSystemId;
+        throw new UndeferrableValueException("Value 'EnvironmentStorageConfigurationFsx.fileSystemId' is not present");
     }
 
     /**
      * Path to mount the filesystem on, must start with `/m2/mount/`.
      * 
      */
-    private UndeferrableValue<String> mountPoint;
-
+    @PolicyResourceProperty(name="mountPoint", flag="unknown_mountPoint")
+    private String value_mountPoint;
+    private boolean unknown_mountPoint;
     public String mountPoint() {
-        if (mountPoint == null) return null;
-        return mountPoint.getValue("EnvironmentStorageConfigurationFsx.mountPoint");
+        if (!unknown_mountPoint) return value_mountPoint;
+        throw new UndeferrableValueException("Value 'EnvironmentStorageConfigurationFsx.mountPoint' is not present");
     }
 
 }

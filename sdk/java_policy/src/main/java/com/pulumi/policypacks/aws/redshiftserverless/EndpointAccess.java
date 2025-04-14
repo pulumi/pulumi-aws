@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshiftserverless;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.redshiftserverless.outputs.EndpointAccessVpcEndpoint;
 import java.lang.Integer;
@@ -19,99 +20,108 @@ public final class EndpointAccess extends com.pulumi.resources.PolicyResourceOut
      * The DNS address of the VPC endpoint.
      * 
      */
-    private UndeferrableValue<String> address;
-
+    @PolicyResourceProperty(name="address", flag="unknown_address")
+    private String value_address;
+    private boolean unknown_address;
     public String address() {
-        if (address == null) return null;
-        return address.getValue("EndpointAccess.address");
+        if (!unknown_address) return value_address;
+        throw new UndeferrableValueException("Value 'EndpointAccess.address' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("EndpointAccess.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'EndpointAccess.arn' is not present");
     }
 
     /**
      * The name of the endpoint.
      * 
      */
-    private UndeferrableValue<String> endpointName;
-
+    @PolicyResourceProperty(name="endpointName", flag="unknown_endpointName")
+    private String value_endpointName;
+    private boolean unknown_endpointName;
     public String endpointName() {
-        if (endpointName == null) return null;
-        return endpointName.getValue("EndpointAccess.endpointName");
+        if (!unknown_endpointName) return value_endpointName;
+        throw new UndeferrableValueException("Value 'EndpointAccess.endpointName' is not present");
     }
 
     /**
      * The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
      * 
      */
-    private @Nullable UndeferrableValue<String> ownerAccount;
-
+    @PolicyResourceProperty(name="ownerAccount", flag="unknown_ownerAccount")
+    private @Nullable String value_ownerAccount;
+    private boolean unknown_ownerAccount;
     public @Nullable String ownerAccount() {
-        if (ownerAccount == null) return null;
-        return ownerAccount.getValue("EndpointAccess.ownerAccount");
+        if (!unknown_ownerAccount) return value_ownerAccount;
+        throw new UndeferrableValueException("Value 'EndpointAccess.ownerAccount' is not present");
     }
 
     /**
      * The port that Amazon Redshift Serverless listens on.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("EndpointAccess.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'EndpointAccess.port' is not present");
     }
 
     /**
      * An array of VPC subnet IDs to associate with the endpoint.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("EndpointAccess.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'EndpointAccess.subnetIds' is not present");
     }
 
     /**
      * The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
      * 
      */
-    private UndeferrableValue<List<EndpointAccessVpcEndpoint>> vpcEndpoints;
-
+    @PolicyResourceProperty(name="vpcEndpoints", flag="unknown_vpcEndpoints")
+    private List<EndpointAccessVpcEndpoint> value_vpcEndpoints;
+    private boolean unknown_vpcEndpoints;
     public List<EndpointAccessVpcEndpoint> vpcEndpoints() {
-        if (vpcEndpoints == null) return null;
-        return vpcEndpoints.getValue("EndpointAccess.vpcEndpoints");
+        if (!unknown_vpcEndpoints) return value_vpcEndpoints;
+        throw new UndeferrableValueException("Value 'EndpointAccess.vpcEndpoints' is not present");
     }
 
     /**
      * An array of security group IDs to associate with the workgroup.
      * 
      */
-    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
-
+    @PolicyResourceProperty(name="vpcSecurityGroupIds", flag="unknown_vpcSecurityGroupIds")
+    private List<String> value_vpcSecurityGroupIds;
+    private boolean unknown_vpcSecurityGroupIds;
     public List<String> vpcSecurityGroupIds() {
-        if (vpcSecurityGroupIds == null) return null;
-        return vpcSecurityGroupIds.getValue("EndpointAccess.vpcSecurityGroupIds");
+        if (!unknown_vpcSecurityGroupIds) return value_vpcSecurityGroupIds;
+        throw new UndeferrableValueException("Value 'EndpointAccess.vpcSecurityGroupIds' is not present");
     }
 
     /**
      * The name of the workgroup.
      * 
      */
-    private UndeferrableValue<String> workgroupName;
-
+    @PolicyResourceProperty(name="workgroupName", flag="unknown_workgroupName")
+    private String value_workgroupName;
+    private boolean unknown_workgroupName;
     public String workgroupName() {
-        if (workgroupName == null) return null;
-        return workgroupName.getValue("EndpointAccess.workgroupName");
+        if (!unknown_workgroupName) return value_workgroupName;
+        throw new UndeferrableValueException("Value 'EndpointAccess.workgroupName' is not present");
     }
 
 }

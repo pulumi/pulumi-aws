@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -17,22 +18,24 @@ public final class EventBusPolicy extends com.pulumi.resources.PolicyResourceOut
      * If you omit this, the permissions are set on the `default` event bus.
      * 
      */
-    private @Nullable UndeferrableValue<String> eventBusName;
-
+    @PolicyResourceProperty(name="eventBusName", flag="unknown_eventBusName")
+    private @Nullable String value_eventBusName;
+    private boolean unknown_eventBusName;
     public @Nullable String eventBusName() {
-        if (eventBusName == null) return null;
-        return eventBusName.getValue("EventBusPolicy.eventBusName");
+        if (!unknown_eventBusName) return value_eventBusName;
+        throw new UndeferrableValueException("Value 'EventBusPolicy.eventBusName' is not present");
     }
 
     /**
      * The text of the policy.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("EventBusPolicy.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'EventBusPolicy.policy' is not present");
     }
 
 }

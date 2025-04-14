@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecr.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class ReplicationConfigurationReplicationConfigurationRuleRepositor
      * The repository filter details.
      * 
      */
-    private UndeferrableValue<String> filter;
-
+    @PolicyResourceProperty(name="filter", flag="unknown_filter")
+    private String value_filter;
+    private boolean unknown_filter;
     public String filter() {
-        if (filter == null) return null;
-        return filter.getValue("ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs.filter");
+        if (!unknown_filter) return value_filter;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs.filter' is not present");
     }
 
     /**
      * The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
      * 
      */
-    private UndeferrableValue<String> filterType;
-
+    @PolicyResourceProperty(name="filterType", flag="unknown_filterType")
+    private String value_filterType;
+    private boolean unknown_filterType;
     public String filterType() {
-        if (filterType == null) return null;
-        return filterType.getValue("ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs.filterType");
+        if (!unknown_filterType) return value_filterType;
+        throw new UndeferrableValueException("Value 'ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs.filterType' is not present");
     }
 
 }

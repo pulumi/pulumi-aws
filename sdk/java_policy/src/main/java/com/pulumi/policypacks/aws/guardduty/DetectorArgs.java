@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.guardduty;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.guardduty.inputs.DetectorDatasourcesArgs;
 import java.lang.Boolean;
@@ -19,44 +20,48 @@ public final class DetectorArgs extends com.pulumi.resources.PolicyResourceInput
      * Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
      * 
      */
-    private UndeferrableValue<DetectorDatasourcesArgs> datasources;
-
+    @PolicyResourceProperty(name="datasources", flag="unknown_datasources")
+    private DetectorDatasourcesArgs value_datasources;
+    private boolean unknown_datasources;
     public DetectorDatasourcesArgs datasources() {
-        if (datasources == null) return null;
-        return datasources.getValue("DetectorArgs.datasources");
+        if (!unknown_datasources) return value_datasources;
+        throw new UndeferrableValueException("Value 'DetectorArgs.datasources' is not present");
     }
 
     /**
      * Enable monitoring and feedback reporting. Setting to `false` is equivalent to &#34;suspending&#34; GuardDuty. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> enable;
-
+    @PolicyResourceProperty(name="enable", flag="unknown_enable")
+    private Boolean value_enable;
+    private boolean unknown_enable;
     public Boolean enable() {
-        if (enable == null) return null;
-        return enable.getValue("DetectorArgs.enable");
+        if (!unknown_enable) return value_enable;
+        throw new UndeferrableValueException("Value 'DetectorArgs.enable' is not present");
     }
 
     /**
      * Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
      * 
      */
-    private UndeferrableValue<String> findingPublishingFrequency;
-
+    @PolicyResourceProperty(name="findingPublishingFrequency", flag="unknown_findingPublishingFrequency")
+    private String value_findingPublishingFrequency;
+    private boolean unknown_findingPublishingFrequency;
     public String findingPublishingFrequency() {
-        if (findingPublishingFrequency == null) return null;
-        return findingPublishingFrequency.getValue("DetectorArgs.findingPublishingFrequency");
+        if (!unknown_findingPublishingFrequency) return value_findingPublishingFrequency;
+        throw new UndeferrableValueException("Value 'DetectorArgs.findingPublishingFrequency' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DetectorArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DetectorArgs.tags' is not present");
     }
 
 }

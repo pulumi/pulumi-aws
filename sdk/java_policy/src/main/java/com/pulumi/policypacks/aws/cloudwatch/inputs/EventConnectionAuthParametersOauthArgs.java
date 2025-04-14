@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudwatch.inputs.EventConnectionAuthParametersOauthClientParametersArgs;
 import com.pulumi.policypacks.aws.cloudwatch.inputs.EventConnectionAuthParametersOauthOauthHttpParametersArgs;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class EventConnectionAuthParametersOauthArgs {
      * The URL to the authorization endpoint.
      * 
      */
-    private UndeferrableValue<String> authorizationEndpoint;
-
+    @PolicyResourceProperty(name="authorizationEndpoint", flag="unknown_authorizationEndpoint")
+    private String value_authorizationEndpoint;
+    private boolean unknown_authorizationEndpoint;
     public String authorizationEndpoint() {
-        if (authorizationEndpoint == null) return null;
-        return authorizationEndpoint.getValue("EventConnectionAuthParametersOauthArgs.authorizationEndpoint");
+        if (!unknown_authorizationEndpoint) return value_authorizationEndpoint;
+        throw new UndeferrableValueException("Value 'EventConnectionAuthParametersOauthArgs.authorizationEndpoint' is not present");
     }
 
     /**
      * Contains the client parameters for OAuth authorization. Contains the following two parameters.
      * 
      */
-    private UndeferrableValue<EventConnectionAuthParametersOauthClientParametersArgs> clientParameters;
-
+    @PolicyResourceProperty(name="clientParameters", flag="unknown_clientParameters")
+    private EventConnectionAuthParametersOauthClientParametersArgs value_clientParameters;
+    private boolean unknown_clientParameters;
     public EventConnectionAuthParametersOauthClientParametersArgs clientParameters() {
-        if (clientParameters == null) return null;
-        return clientParameters.getValue("EventConnectionAuthParametersOauthArgs.clientParameters");
+        if (!unknown_clientParameters) return value_clientParameters;
+        throw new UndeferrableValueException("Value 'EventConnectionAuthParametersOauthArgs.clientParameters' is not present");
     }
 
     /**
      * A password for the authorization. Created and stored in AWS Secrets Manager.
      * 
      */
-    private UndeferrableValue<String> httpMethod;
-
+    @PolicyResourceProperty(name="httpMethod", flag="unknown_httpMethod")
+    private String value_httpMethod;
+    private boolean unknown_httpMethod;
     public String httpMethod() {
-        if (httpMethod == null) return null;
-        return httpMethod.getValue("EventConnectionAuthParametersOauthArgs.httpMethod");
+        if (!unknown_httpMethod) return value_httpMethod;
+        throw new UndeferrableValueException("Value 'EventConnectionAuthParametersOauthArgs.httpMethod' is not present");
     }
 
     /**
      * OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
      * 
      */
-    private UndeferrableValue<EventConnectionAuthParametersOauthOauthHttpParametersArgs> oauthHttpParameters;
-
+    @PolicyResourceProperty(name="oauthHttpParameters", flag="unknown_oauthHttpParameters")
+    private EventConnectionAuthParametersOauthOauthHttpParametersArgs value_oauthHttpParameters;
+    private boolean unknown_oauthHttpParameters;
     public EventConnectionAuthParametersOauthOauthHttpParametersArgs oauthHttpParameters() {
-        if (oauthHttpParameters == null) return null;
-        return oauthHttpParameters.getValue("EventConnectionAuthParametersOauthArgs.oauthHttpParameters");
+        if (!unknown_oauthHttpParameters) return value_oauthHttpParameters;
+        throw new UndeferrableValueException("Value 'EventConnectionAuthParametersOauthArgs.oauthHttpParameters' is not present");
     }
 
 }

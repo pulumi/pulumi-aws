@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class PermissionsTableArgs {
      * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      * 
      */
-    private UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private String value_catalogId;
+    private boolean unknown_catalogId;
     public String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("PermissionsTableArgs.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'PermissionsTableArgs.catalogId' is not present");
     }
 
     /**
      * Name of the database for the table. Unique to a Data Catalog.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("PermissionsTableArgs.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'PermissionsTableArgs.databaseName' is not present");
     }
 
     /**
      * Name of the table.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PermissionsTableArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PermissionsTableArgs.name' is not present");
     }
 
     /**
@@ -50,11 +54,12 @@ public final class PermissionsTableArgs {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<Boolean> wildcard;
-
+    @PolicyResourceProperty(name="wildcard", flag="unknown_wildcard")
+    private Boolean value_wildcard;
+    private boolean unknown_wildcard;
     public Boolean wildcard() {
-        if (wildcard == null) return null;
-        return wildcard.getValue("PermissionsTableArgs.wildcard");
+        if (!unknown_wildcard) return value_wildcard;
+        throw new UndeferrableValueException("Value 'PermissionsTableArgs.wildcard' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,55 +18,60 @@ public final class PortfolioShareArgs extends com.pulumi.resources.PolicyResourc
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      * 
      */
-    private UndeferrableValue<String> acceptLanguage;
-
+    @PolicyResourceProperty(name="acceptLanguage", flag="unknown_acceptLanguage")
+    private String value_acceptLanguage;
+    private boolean unknown_acceptLanguage;
     public String acceptLanguage() {
-        if (acceptLanguage == null) return null;
-        return acceptLanguage.getValue("PortfolioShareArgs.acceptLanguage");
+        if (!unknown_acceptLanguage) return value_acceptLanguage;
+        throw new UndeferrableValueException("Value 'PortfolioShareArgs.acceptLanguage' is not present");
     }
 
     /**
      * Portfolio identifier.
      * 
      */
-    private UndeferrableValue<String> portfolioId;
-
+    @PolicyResourceProperty(name="portfolioId", flag="unknown_portfolioId")
+    private String value_portfolioId;
+    private boolean unknown_portfolioId;
     public String portfolioId() {
-        if (portfolioId == null) return null;
-        return portfolioId.getValue("PortfolioShareArgs.portfolioId");
+        if (!unknown_portfolioId) return value_portfolioId;
+        throw new UndeferrableValueException("Value 'PortfolioShareArgs.portfolioId' is not present");
     }
 
     /**
      * Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
      * 
      */
-    private UndeferrableValue<String> principalId;
-
+    @PolicyResourceProperty(name="principalId", flag="unknown_principalId")
+    private String value_principalId;
+    private boolean unknown_principalId;
     public String principalId() {
-        if (principalId == null) return null;
-        return principalId.getValue("PortfolioShareArgs.principalId");
+        if (!unknown_principalId) return value_principalId;
+        throw new UndeferrableValueException("Value 'PortfolioShareArgs.principalId' is not present");
     }
 
     /**
      * Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
      * 
      */
-    private UndeferrableValue<Boolean> sharePrincipals;
-
+    @PolicyResourceProperty(name="sharePrincipals", flag="unknown_sharePrincipals")
+    private Boolean value_sharePrincipals;
+    private boolean unknown_sharePrincipals;
     public Boolean sharePrincipals() {
-        if (sharePrincipals == null) return null;
-        return sharePrincipals.getValue("PortfolioShareArgs.sharePrincipals");
+        if (!unknown_sharePrincipals) return value_sharePrincipals;
+        throw new UndeferrableValueException("Value 'PortfolioShareArgs.sharePrincipals' is not present");
     }
 
     /**
      * Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
      * 
      */
-    private UndeferrableValue<Boolean> shareTagOptions;
-
+    @PolicyResourceProperty(name="shareTagOptions", flag="unknown_shareTagOptions")
+    private Boolean value_shareTagOptions;
+    private boolean unknown_shareTagOptions;
     public Boolean shareTagOptions() {
-        if (shareTagOptions == null) return null;
-        return shareTagOptions.getValue("PortfolioShareArgs.shareTagOptions");
+        if (!unknown_shareTagOptions) return value_shareTagOptions;
+        throw new UndeferrableValueException("Value 'PortfolioShareArgs.shareTagOptions' is not present");
     }
 
     /**
@@ -74,22 +80,24 @@ public final class PortfolioShareArgs extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("PortfolioShareArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'PortfolioShareArgs.type' is not present");
     }
 
     /**
      * Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
      * 
      */
-    private UndeferrableValue<Boolean> waitForAcceptance;
-
+    @PolicyResourceProperty(name="waitForAcceptance", flag="unknown_waitForAcceptance")
+    private Boolean value_waitForAcceptance;
+    private boolean unknown_waitForAcceptance;
     public Boolean waitForAcceptance() {
-        if (waitForAcceptance == null) return null;
-        return waitForAcceptance.getValue("PortfolioShareArgs.waitForAcceptance");
+        if (!unknown_waitForAcceptance) return value_waitForAcceptance;
+        throw new UndeferrableValueException("Value 'PortfolioShareArgs.waitForAcceptance' is not present");
     }
 
 }

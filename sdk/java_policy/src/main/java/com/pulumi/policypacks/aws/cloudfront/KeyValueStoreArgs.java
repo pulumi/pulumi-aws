@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudfront.inputs.KeyValueStoreTimeoutsArgs;
 import java.lang.String;
@@ -17,11 +18,12 @@ public final class KeyValueStoreArgs extends com.pulumi.resources.PolicyResource
      * Comment.
      * 
      */
-    private UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private String value_comment;
+    private boolean unknown_comment;
     public String comment() {
-        if (comment == null) return null;
-        return comment.getValue("KeyValueStoreArgs.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'KeyValueStoreArgs.comment' is not present");
     }
 
     /**
@@ -30,18 +32,20 @@ public final class KeyValueStoreArgs extends com.pulumi.resources.PolicyResource
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("KeyValueStoreArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'KeyValueStoreArgs.name' is not present");
     }
 
-    private UndeferrableValue<KeyValueStoreTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private KeyValueStoreTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public KeyValueStoreTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("KeyValueStoreArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'KeyValueStoreArgs.timeouts' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.backup.outputs.FrameworkControl;
 import java.lang.String;
@@ -19,88 +20,96 @@ public final class Framework extends com.pulumi.resources.PolicyResourceOutput {
      * The ARN of the backup framework.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Framework.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Framework.arn' is not present");
     }
 
     /**
      * One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
      * 
      */
-    private UndeferrableValue<List<FrameworkControl>> controls;
-
+    @PolicyResourceProperty(name="controls", flag="unknown_controls")
+    private List<FrameworkControl> value_controls;
+    private boolean unknown_controls;
     public List<FrameworkControl> controls() {
-        if (controls == null) return null;
-        return controls.getValue("Framework.controls");
+        if (!unknown_controls) return value_controls;
+        throw new UndeferrableValueException("Value 'Framework.controls' is not present");
     }
 
     /**
      * The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
-    private UndeferrableValue<String> creationTime;
-
+    @PolicyResourceProperty(name="creationTime", flag="unknown_creationTime")
+    private String value_creationTime;
+    private boolean unknown_creationTime;
     public String creationTime() {
-        if (creationTime == null) return null;
-        return creationTime.getValue("Framework.creationTime");
+        if (!unknown_creationTime) return value_creationTime;
+        throw new UndeferrableValueException("Value 'Framework.creationTime' is not present");
     }
 
     /**
      * The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
      * 
      */
-    private UndeferrableValue<String> deploymentStatus;
-
+    @PolicyResourceProperty(name="deploymentStatus", flag="unknown_deploymentStatus")
+    private String value_deploymentStatus;
+    private boolean unknown_deploymentStatus;
     public String deploymentStatus() {
-        if (deploymentStatus == null) return null;
-        return deploymentStatus.getValue("Framework.deploymentStatus");
+        if (!unknown_deploymentStatus) return value_deploymentStatus;
+        throw new UndeferrableValueException("Value 'Framework.deploymentStatus' is not present");
     }
 
     /**
      * The description of the framework with a maximum of 1,024 characters
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Framework.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Framework.description' is not present");
     }
 
     /**
      * The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Framework.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Framework.name' is not present");
     }
 
     /**
      * A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Framework.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Framework.status' is not present");
     }
 
     /**
      * Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Framework.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Framework.tags' is not present");
     }
 
     /**
@@ -111,11 +120,12 @@ public final class Framework extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Framework.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Framework.tagsAll' is not present");
     }
 
 }

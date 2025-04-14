@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 
@@ -17,33 +18,36 @@ public final class LoggingConfigurationLoggingConfigurationLogDestinationConfig 
      * * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the name of the delivery stream.
      * 
      */
-    private UndeferrableValue<Map<String,String>> logDestination;
-
+    @PolicyResourceProperty(name="logDestination", flag="unknown_logDestination")
+    private Map<String,String> value_logDestination;
+    private boolean unknown_logDestination;
     public Map<String,String> logDestination() {
-        if (logDestination == null) return null;
-        return logDestination.getValue("LoggingConfigurationLoggingConfigurationLogDestinationConfig.logDestination");
+        if (!unknown_logDestination) return value_logDestination;
+        throw new UndeferrableValueException("Value 'LoggingConfigurationLoggingConfigurationLogDestinationConfig.logDestination' is not present");
     }
 
     /**
      * The location to send logs to. Valid values: `S3`, `CloudWatchLogs`, `KinesisDataFirehose`.
      * 
      */
-    private UndeferrableValue<String> logDestinationType;
-
+    @PolicyResourceProperty(name="logDestinationType", flag="unknown_logDestinationType")
+    private String value_logDestinationType;
+    private boolean unknown_logDestinationType;
     public String logDestinationType() {
-        if (logDestinationType == null) return null;
-        return logDestinationType.getValue("LoggingConfigurationLoggingConfigurationLogDestinationConfig.logDestinationType");
+        if (!unknown_logDestinationType) return value_logDestinationType;
+        throw new UndeferrableValueException("Value 'LoggingConfigurationLoggingConfigurationLogDestinationConfig.logDestinationType' is not present");
     }
 
     /**
      * The type of log to send. Valid values: `ALERT` or `FLOW` or `TLS`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
      * 
      */
-    private UndeferrableValue<String> logType;
-
+    @PolicyResourceProperty(name="logType", flag="unknown_logType")
+    private String value_logType;
+    private boolean unknown_logType;
     public String logType() {
-        if (logType == null) return null;
-        return logType.getValue("LoggingConfigurationLoggingConfigurationLogDestinationConfig.logType");
+        if (!unknown_logType) return value_logType;
+        throw new UndeferrableValueException("Value 'LoggingConfigurationLoggingConfigurationLogDestinationConfig.logType' is not present");
     }
 
 }

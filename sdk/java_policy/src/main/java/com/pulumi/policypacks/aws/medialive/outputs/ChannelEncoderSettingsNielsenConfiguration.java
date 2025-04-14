@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ChannelEncoderSettingsNielsenConfiguration {
      * Enter the Distributor ID assigned to your organization by Nielsen.
      * 
      */
-    private @Nullable UndeferrableValue<String> distributorId;
-
+    @PolicyResourceProperty(name="distributorId", flag="unknown_distributorId")
+    private @Nullable String value_distributorId;
+    private boolean unknown_distributorId;
     public @Nullable String distributorId() {
-        if (distributorId == null) return null;
-        return distributorId.getValue("ChannelEncoderSettingsNielsenConfiguration.distributorId");
+        if (!unknown_distributorId) return value_distributorId;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsNielsenConfiguration.distributorId' is not present");
     }
 
     /**
      * Enables Nielsen PCM to ID3 tagging.
      * 
      */
-    private @Nullable UndeferrableValue<String> nielsenPcmToId3Tagging;
-
+    @PolicyResourceProperty(name="nielsenPcmToId3Tagging", flag="unknown_nielsenPcmToId3Tagging")
+    private @Nullable String value_nielsenPcmToId3Tagging;
+    private boolean unknown_nielsenPcmToId3Tagging;
     public @Nullable String nielsenPcmToId3Tagging() {
-        if (nielsenPcmToId3Tagging == null) return null;
-        return nielsenPcmToId3Tagging.getValue("ChannelEncoderSettingsNielsenConfiguration.nielsenPcmToId3Tagging");
+        if (!unknown_nielsenPcmToId3Tagging) return value_nielsenPcmToId3Tagging;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsNielsenConfiguration.nielsenPcmToId3Tagging' is not present");
     }
 
 }

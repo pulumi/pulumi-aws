@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedpermissions;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.verifiedpermissions.inputs.PolicyDefinitionArgs;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class PolicyArgs extends com.pulumi.resources.PolicyResourceInput {
      * The definition of the policy. See Definition below.
      * 
      */
-    private UndeferrableValue<PolicyDefinitionArgs> definition;
-
+    @PolicyResourceProperty(name="definition", flag="unknown_definition")
+    private PolicyDefinitionArgs value_definition;
+    private boolean unknown_definition;
     public PolicyDefinitionArgs definition() {
-        if (definition == null) return null;
-        return definition.getValue("PolicyArgs.definition");
+        if (!unknown_definition) return value_definition;
+        throw new UndeferrableValueException("Value 'PolicyArgs.definition' is not present");
     }
 
     /**
      * The Policy Store ID of the policy store.
      * 
      */
-    private UndeferrableValue<String> policyStoreId;
-
+    @PolicyResourceProperty(name="policyStoreId", flag="unknown_policyStoreId")
+    private String value_policyStoreId;
+    private boolean unknown_policyStoreId;
     public String policyStoreId() {
-        if (policyStoreId == null) return null;
-        return policyStoreId.getValue("PolicyArgs.policyStoreId");
+        if (!unknown_policyStoreId) return value_policyStoreId;
+        throw new UndeferrableValueException("Value 'PolicyArgs.policyStoreId' is not present");
     }
 
 }

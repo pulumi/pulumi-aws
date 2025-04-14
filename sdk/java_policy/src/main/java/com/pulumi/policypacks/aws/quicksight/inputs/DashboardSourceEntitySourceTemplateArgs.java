@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.inputs.DashboardSourceEntitySourceTemplateDataSetReferenceArgs;
 import java.lang.String;
 import java.util.List;
@@ -15,22 +16,24 @@ public final class DashboardSourceEntitySourceTemplateArgs {
      * The Amazon Resource Name (ARN) of the resource.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("DashboardSourceEntitySourceTemplateArgs.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'DashboardSourceEntitySourceTemplateArgs.arn' is not present");
     }
 
     /**
      * List of dataset references. See data_set_references.
      * 
      */
-    private UndeferrableValue<List<DashboardSourceEntitySourceTemplateDataSetReferenceArgs>> dataSetReferences;
-
+    @PolicyResourceProperty(name="dataSetReferences", flag="unknown_dataSetReferences")
+    private List<DashboardSourceEntitySourceTemplateDataSetReferenceArgs> value_dataSetReferences;
+    private boolean unknown_dataSetReferences;
     public List<DashboardSourceEntitySourceTemplateDataSetReferenceArgs> dataSetReferences() {
-        if (dataSetReferences == null) return null;
-        return dataSetReferences.getValue("DashboardSourceEntitySourceTemplateArgs.dataSetReferences");
+        if (!unknown_dataSetReferences) return value_dataSetReferences;
+        throw new UndeferrableValueException("Value 'DashboardSourceEntitySourceTemplateArgs.dataSetReferences' is not present");
     }
 
 }

@@ -3,39 +3,44 @@
 
 package com.pulumi.policypacks.aws.s3control.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
 
 public final class MultiRegionAccessPointDetailsPublicAccessBlock {
 
-    private @Nullable UndeferrableValue<Boolean> blockPublicAcls;
-
+    @PolicyResourceProperty(name="blockPublicAcls", flag="unknown_blockPublicAcls")
+    private @Nullable Boolean value_blockPublicAcls;
+    private boolean unknown_blockPublicAcls;
     public @Nullable Boolean blockPublicAcls() {
-        if (blockPublicAcls == null) return null;
-        return blockPublicAcls.getValue("MultiRegionAccessPointDetailsPublicAccessBlock.blockPublicAcls");
+        if (!unknown_blockPublicAcls) return value_blockPublicAcls;
+        throw new UndeferrableValueException("Value 'MultiRegionAccessPointDetailsPublicAccessBlock.blockPublicAcls' is not present");
     }
 
-    private @Nullable UndeferrableValue<Boolean> blockPublicPolicy;
-
+    @PolicyResourceProperty(name="blockPublicPolicy", flag="unknown_blockPublicPolicy")
+    private @Nullable Boolean value_blockPublicPolicy;
+    private boolean unknown_blockPublicPolicy;
     public @Nullable Boolean blockPublicPolicy() {
-        if (blockPublicPolicy == null) return null;
-        return blockPublicPolicy.getValue("MultiRegionAccessPointDetailsPublicAccessBlock.blockPublicPolicy");
+        if (!unknown_blockPublicPolicy) return value_blockPublicPolicy;
+        throw new UndeferrableValueException("Value 'MultiRegionAccessPointDetailsPublicAccessBlock.blockPublicPolicy' is not present");
     }
 
-    private @Nullable UndeferrableValue<Boolean> ignorePublicAcls;
-
+    @PolicyResourceProperty(name="ignorePublicAcls", flag="unknown_ignorePublicAcls")
+    private @Nullable Boolean value_ignorePublicAcls;
+    private boolean unknown_ignorePublicAcls;
     public @Nullable Boolean ignorePublicAcls() {
-        if (ignorePublicAcls == null) return null;
-        return ignorePublicAcls.getValue("MultiRegionAccessPointDetailsPublicAccessBlock.ignorePublicAcls");
+        if (!unknown_ignorePublicAcls) return value_ignorePublicAcls;
+        throw new UndeferrableValueException("Value 'MultiRegionAccessPointDetailsPublicAccessBlock.ignorePublicAcls' is not present");
     }
 
-    private @Nullable UndeferrableValue<Boolean> restrictPublicBuckets;
-
+    @PolicyResourceProperty(name="restrictPublicBuckets", flag="unknown_restrictPublicBuckets")
+    private @Nullable Boolean value_restrictPublicBuckets;
+    private boolean unknown_restrictPublicBuckets;
     public @Nullable Boolean restrictPublicBuckets() {
-        if (restrictPublicBuckets == null) return null;
-        return restrictPublicBuckets.getValue("MultiRegionAccessPointDetailsPublicAccessBlock.restrictPublicBuckets");
+        if (!unknown_restrictPublicBuckets) return value_restrictPublicBuckets;
+        throw new UndeferrableValueException("Value 'MultiRegionAccessPointDetailsPublicAccessBlock.restrictPublicBuckets' is not present");
     }
 
 }

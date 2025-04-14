@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.rds.outputs.ShardGroupTimeouts;
 import java.lang.Boolean;
@@ -21,110 +22,120 @@ public final class ShardGroup extends com.pulumi.resources.PolicyResourceOutput 
      * ARN of the shard group.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ShardGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ShardGroup.arn' is not present");
     }
 
     /**
      * Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
      * 
      */
-    private UndeferrableValue<Integer> computeRedundancy;
-
+    @PolicyResourceProperty(name="computeRedundancy", flag="unknown_computeRedundancy")
+    private Integer value_computeRedundancy;
+    private boolean unknown_computeRedundancy;
     public Integer computeRedundancy() {
-        if (computeRedundancy == null) return null;
-        return computeRedundancy.getValue("ShardGroup.computeRedundancy");
+        if (!unknown_computeRedundancy) return value_computeRedundancy;
+        throw new UndeferrableValueException("Value 'ShardGroup.computeRedundancy' is not present");
     }
 
     /**
      * The name of the primary DB cluster for the DB shard group.
      * 
      */
-    private UndeferrableValue<String> dbClusterIdentifier;
-
+    @PolicyResourceProperty(name="dbClusterIdentifier", flag="unknown_dbClusterIdentifier")
+    private String value_dbClusterIdentifier;
+    private boolean unknown_dbClusterIdentifier;
     public String dbClusterIdentifier() {
-        if (dbClusterIdentifier == null) return null;
-        return dbClusterIdentifier.getValue("ShardGroup.dbClusterIdentifier");
+        if (!unknown_dbClusterIdentifier) return value_dbClusterIdentifier;
+        throw new UndeferrableValueException("Value 'ShardGroup.dbClusterIdentifier' is not present");
     }
 
     /**
      * The name of the DB shard group.
      * 
      */
-    private UndeferrableValue<String> dbShardGroupIdentifier;
-
+    @PolicyResourceProperty(name="dbShardGroupIdentifier", flag="unknown_dbShardGroupIdentifier")
+    private String value_dbShardGroupIdentifier;
+    private boolean unknown_dbShardGroupIdentifier;
     public String dbShardGroupIdentifier() {
-        if (dbShardGroupIdentifier == null) return null;
-        return dbShardGroupIdentifier.getValue("ShardGroup.dbShardGroupIdentifier");
+        if (!unknown_dbShardGroupIdentifier) return value_dbShardGroupIdentifier;
+        throw new UndeferrableValueException("Value 'ShardGroup.dbShardGroupIdentifier' is not present");
     }
 
     /**
      * The AWS Region-unique, immutable identifier for the DB shard group.
      * 
      */
-    private UndeferrableValue<String> dbShardGroupResourceId;
-
+    @PolicyResourceProperty(name="dbShardGroupResourceId", flag="unknown_dbShardGroupResourceId")
+    private String value_dbShardGroupResourceId;
+    private boolean unknown_dbShardGroupResourceId;
     public String dbShardGroupResourceId() {
-        if (dbShardGroupResourceId == null) return null;
-        return dbShardGroupResourceId.getValue("ShardGroup.dbShardGroupResourceId");
+        if (!unknown_dbShardGroupResourceId) return value_dbShardGroupResourceId;
+        throw new UndeferrableValueException("Value 'ShardGroup.dbShardGroupResourceId' is not present");
     }
 
     /**
      * The connection endpoint for the DB shard group.
      * 
      */
-    private UndeferrableValue<String> endpoint;
-
+    @PolicyResourceProperty(name="endpoint", flag="unknown_endpoint")
+    private String value_endpoint;
+    private boolean unknown_endpoint;
     public String endpoint() {
-        if (endpoint == null) return null;
-        return endpoint.getValue("ShardGroup.endpoint");
+        if (!unknown_endpoint) return value_endpoint;
+        throw new UndeferrableValueException("Value 'ShardGroup.endpoint' is not present");
     }
 
     /**
      * The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
      * 
      */
-    private UndeferrableValue<Double> maxAcu;
-
+    @PolicyResourceProperty(name="maxAcu", flag="unknown_maxAcu")
+    private Double value_maxAcu;
+    private boolean unknown_maxAcu;
     public Double maxAcu() {
-        if (maxAcu == null) return null;
-        return maxAcu.getValue("ShardGroup.maxAcu");
+        if (!unknown_maxAcu) return value_maxAcu;
+        throw new UndeferrableValueException("Value 'ShardGroup.maxAcu' is not present");
     }
 
     /**
      * The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
      * 
      */
-    private UndeferrableValue<Double> minAcu;
-
+    @PolicyResourceProperty(name="minAcu", flag="unknown_minAcu")
+    private Double value_minAcu;
+    private boolean unknown_minAcu;
     public Double minAcu() {
-        if (minAcu == null) return null;
-        return minAcu.getValue("ShardGroup.minAcu");
+        if (!unknown_minAcu) return value_minAcu;
+        throw new UndeferrableValueException("Value 'ShardGroup.minAcu' is not present");
     }
 
     /**
      * Indicates whether the DB shard group is publicly accessible.
      * 
      */
-    private UndeferrableValue<Boolean> publiclyAccessible;
-
+    @PolicyResourceProperty(name="publiclyAccessible", flag="unknown_publiclyAccessible")
+    private Boolean value_publiclyAccessible;
+    private boolean unknown_publiclyAccessible;
     public Boolean publiclyAccessible() {
-        if (publiclyAccessible == null) return null;
-        return publiclyAccessible.getValue("ShardGroup.publiclyAccessible");
+        if (!unknown_publiclyAccessible) return value_publiclyAccessible;
+        throw new UndeferrableValueException("Value 'ShardGroup.publiclyAccessible' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ShardGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ShardGroup.tags' is not present");
     }
 
     /**
@@ -135,18 +146,20 @@ public final class ShardGroup extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ShardGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ShardGroup.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<ShardGroupTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable ShardGroupTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable ShardGroupTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ShardGroup.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ShardGroup.timeouts' is not present");
     }
 
 }

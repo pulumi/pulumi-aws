@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
      * Settings for a foundation model used to parse documents in a data source. See `bedrock_foundation_model_configuration` block for details.
      * 
      */
-    private UndeferrableValue<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs> bedrockFoundationModelConfiguration;
-
+    @PolicyResourceProperty(name="bedrockFoundationModelConfiguration", flag="unknown_bedrockFoundationModelConfiguration")
+    private AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs value_bedrockFoundationModelConfiguration;
+    private boolean unknown_bedrockFoundationModelConfiguration;
     public AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs bedrockFoundationModelConfiguration() {
-        if (bedrockFoundationModelConfiguration == null) return null;
-        return bedrockFoundationModelConfiguration.getValue("AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs.bedrockFoundationModelConfiguration");
+        if (!unknown_bedrockFoundationModelConfiguration) return value_bedrockFoundationModelConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs.bedrockFoundationModelConfiguration' is not present");
     }
 
     /**
      * Currently only `BEDROCK_FOUNDATION_MODEL` is supported
      * 
      */
-    private UndeferrableValue<String> parsingStrategy;
-
+    @PolicyResourceProperty(name="parsingStrategy", flag="unknown_parsingStrategy")
+    private String value_parsingStrategy;
+    private boolean unknown_parsingStrategy;
     public String parsingStrategy() {
-        if (parsingStrategy == null) return null;
-        return parsingStrategy.getValue("AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs.parsingStrategy");
+        if (!unknown_parsingStrategy) return value_parsingStrategy;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs.parsingStrategy' is not present");
     }
 
 }

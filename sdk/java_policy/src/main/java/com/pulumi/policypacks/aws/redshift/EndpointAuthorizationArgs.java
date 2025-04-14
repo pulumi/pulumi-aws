@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class EndpointAuthorizationArgs extends com.pulumi.resources.Policy
      * The Amazon Web Services account ID to grant access to.
      * 
      */
-    private UndeferrableValue<String> account;
-
+    @PolicyResourceProperty(name="account", flag="unknown_account")
+    private String value_account;
+    private boolean unknown_account;
     public String account() {
-        if (account == null) return null;
-        return account.getValue("EndpointAuthorizationArgs.account");
+        if (!unknown_account) return value_account;
+        throw new UndeferrableValueException("Value 'EndpointAuthorizationArgs.account' is not present");
     }
 
     /**
      * The cluster identifier of the cluster to grant access to.
      * 
      */
-    private UndeferrableValue<String> clusterIdentifier;
-
+    @PolicyResourceProperty(name="clusterIdentifier", flag="unknown_clusterIdentifier")
+    private String value_clusterIdentifier;
+    private boolean unknown_clusterIdentifier;
     public String clusterIdentifier() {
-        if (clusterIdentifier == null) return null;
-        return clusterIdentifier.getValue("EndpointAuthorizationArgs.clusterIdentifier");
+        if (!unknown_clusterIdentifier) return value_clusterIdentifier;
+        throw new UndeferrableValueException("Value 'EndpointAuthorizationArgs.clusterIdentifier' is not present");
     }
 
     /**
      * Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> forceDelete;
-
+    @PolicyResourceProperty(name="forceDelete", flag="unknown_forceDelete")
+    private Boolean value_forceDelete;
+    private boolean unknown_forceDelete;
     public Boolean forceDelete() {
-        if (forceDelete == null) return null;
-        return forceDelete.getValue("EndpointAuthorizationArgs.forceDelete");
+        if (!unknown_forceDelete) return value_forceDelete;
+        throw new UndeferrableValueException("Value 'EndpointAuthorizationArgs.forceDelete' is not present");
     }
 
     /**
      * The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
      * 
      */
-    private UndeferrableValue<List<String>> vpcIds;
-
+    @PolicyResourceProperty(name="vpcIds", flag="unknown_vpcIds")
+    private List<String> value_vpcIds;
+    private boolean unknown_vpcIds;
     public List<String> vpcIds() {
-        if (vpcIds == null) return null;
-        return vpcIds.getValue("EndpointAuthorizationArgs.vpcIds");
+        if (!unknown_vpcIds) return value_vpcIds;
+        throw new UndeferrableValueException("Value 'EndpointAuthorizationArgs.vpcIds' is not present");
     }
 
 }

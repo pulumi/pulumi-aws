@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroup;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -17,33 +18,36 @@ public final class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificat
      * Whether the user can interrupt the start message while it is playing.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> allowInterrupt;
-
+    @PolicyResourceProperty(name="allowInterrupt", flag="unknown_allowInterrupt")
+    private @Nullable Boolean value_allowInterrupt;
+    private boolean unknown_allowInterrupt;
     public @Nullable Boolean allowInterrupt() {
-        if (allowInterrupt == null) return null;
-        return allowInterrupt.getValue("V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponse.allowInterrupt");
+        if (!unknown_allowInterrupt) return value_allowInterrupt;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponse.allowInterrupt' is not present");
     }
 
     /**
      * Frequency that a message is sent to the user. When the period ends, Amazon Lex chooses a message from the message groups and plays it to the user. If the fulfillment Lambda returns before the first period ends, an update message is not played to the user.
      * 
      */
-    private UndeferrableValue<Integer> frequencyInSeconds;
-
+    @PolicyResourceProperty(name="frequencyInSeconds", flag="unknown_frequencyInSeconds")
+    private Integer value_frequencyInSeconds;
+    private boolean unknown_frequencyInSeconds;
     public Integer frequencyInSeconds() {
-        if (frequencyInSeconds == null) return null;
-        return frequencyInSeconds.getValue("V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponse.frequencyInSeconds");
+        if (!unknown_frequencyInSeconds) return value_frequencyInSeconds;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponse.frequencyInSeconds' is not present");
     }
 
     /**
      * Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `message_group`.
      * 
      */
-    private @Nullable UndeferrableValue<List<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroup>> messageGroups;
-
+    @PolicyResourceProperty(name="messageGroups", flag="unknown_messageGroups")
+    private @Nullable List<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroup> value_messageGroups;
+    private boolean unknown_messageGroups;
     public @Nullable List<V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroup> messageGroups() {
-        if (messageGroups == null) return null;
-        return messageGroups.getValue("V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponse.messageGroups");
+        if (!unknown_messageGroups) return value_messageGroups;
+        throw new UndeferrableValueException("Value 'V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponse.messageGroups' is not present");
     }
 
 }

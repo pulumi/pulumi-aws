@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,11 +14,12 @@ public final class PipelineParallelismConfigurationArgs {
      * The max number of steps that can be executed in parallel.
      * 
      */
-    private UndeferrableValue<Integer> maxParallelExecutionSteps;
-
+    @PolicyResourceProperty(name="maxParallelExecutionSteps", flag="unknown_maxParallelExecutionSteps")
+    private Integer value_maxParallelExecutionSteps;
+    private boolean unknown_maxParallelExecutionSteps;
     public Integer maxParallelExecutionSteps() {
-        if (maxParallelExecutionSteps == null) return null;
-        return maxParallelExecutionSteps.getValue("PipelineParallelismConfigurationArgs.maxParallelExecutionSteps");
+        if (!unknown_maxParallelExecutionSteps) return value_maxParallelExecutionSteps;
+        throw new UndeferrableValueException("Value 'PipelineParallelismConfigurationArgs.maxParallelExecutionSteps' is not present");
     }
 
 }

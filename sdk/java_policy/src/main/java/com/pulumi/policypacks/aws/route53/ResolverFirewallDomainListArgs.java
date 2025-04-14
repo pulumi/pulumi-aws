@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,33 +19,36 @@ public final class ResolverFirewallDomainListArgs extends com.pulumi.resources.P
      * A array of domains for the firewall domain list.
      * 
      */
-    private UndeferrableValue<List<String>> domains;
-
+    @PolicyResourceProperty(name="domains", flag="unknown_domains")
+    private List<String> value_domains;
+    private boolean unknown_domains;
     public List<String> domains() {
-        if (domains == null) return null;
-        return domains.getValue("ResolverFirewallDomainListArgs.domains");
+        if (!unknown_domains) return value_domains;
+        throw new UndeferrableValueException("Value 'ResolverFirewallDomainListArgs.domains' is not present");
     }
 
     /**
      * A name that lets you identify the domain list, to manage and use it.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ResolverFirewallDomainListArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ResolverFirewallDomainListArgs.name' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. f configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ResolverFirewallDomainListArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ResolverFirewallDomainListArgs.tags' is not present");
     }
 
 }

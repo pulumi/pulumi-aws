@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class TargetGroupStickiness {
      * Only used when the type is `lb_cookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
      * 
      */
-    private @Nullable UndeferrableValue<Integer> cookieDuration;
-
+    @PolicyResourceProperty(name="cookieDuration", flag="unknown_cookieDuration")
+    private @Nullable Integer value_cookieDuration;
+    private boolean unknown_cookieDuration;
     public @Nullable Integer cookieDuration() {
-        if (cookieDuration == null) return null;
-        return cookieDuration.getValue("TargetGroupStickiness.cookieDuration");
+        if (!unknown_cookieDuration) return value_cookieDuration;
+        throw new UndeferrableValueException("Value 'TargetGroupStickiness.cookieDuration' is not present");
     }
 
     /**
      * Name of the application based cookie. AWSALB, AWSALBAPP, and AWSALBTG prefixes are reserved and cannot be used. Only needed when type is `app_cookie`.
      * 
      */
-    private @Nullable UndeferrableValue<String> cookieName;
-
+    @PolicyResourceProperty(name="cookieName", flag="unknown_cookieName")
+    private @Nullable String value_cookieName;
+    private boolean unknown_cookieName;
     public @Nullable String cookieName() {
-        if (cookieName == null) return null;
-        return cookieName.getValue("TargetGroupStickiness.cookieName");
+        if (!unknown_cookieName) return value_cookieName;
+        throw new UndeferrableValueException("Value 'TargetGroupStickiness.cookieName' is not present");
     }
 
     /**
      * Boolean to enable / disable `stickiness`. Default is `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("TargetGroupStickiness.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'TargetGroupStickiness.enabled' is not present");
     }
 
     /**
      * The type of sticky sessions. The only current possible values are `lb_cookie`, `app_cookie` for ALBs, `source_ip` for NLBs, and `source_ip_dest_ip`, `source_ip_dest_ip_proto` for GWLBs.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("TargetGroupStickiness.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'TargetGroupStickiness.type' is not present");
     }
 
 }

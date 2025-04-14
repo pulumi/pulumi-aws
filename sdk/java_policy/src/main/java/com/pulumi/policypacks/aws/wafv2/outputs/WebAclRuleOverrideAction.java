@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleOverrideActionCount;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclRuleOverrideActionNone;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class WebAclRuleOverrideAction {
      * Override the rule action setting to count (i.e., only count matches). Configured as an empty block `{}`.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleOverrideActionCount> count;
-
+    @PolicyResourceProperty(name="count", flag="unknown_count")
+    private @Nullable WebAclRuleOverrideActionCount value_count;
+    private boolean unknown_count;
     public @Nullable WebAclRuleOverrideActionCount count() {
-        if (count == null) return null;
-        return count.getValue("WebAclRuleOverrideAction.count");
+        if (!unknown_count) return value_count;
+        throw new UndeferrableValueException("Value 'WebAclRuleOverrideAction.count' is not present");
     }
 
     /**
      * Don&#39;t override the rule action setting. Configured as an empty block `{}`.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclRuleOverrideActionNone> none;
-
+    @PolicyResourceProperty(name="none", flag="unknown_none")
+    private @Nullable WebAclRuleOverrideActionNone value_none;
+    private boolean unknown_none;
     public @Nullable WebAclRuleOverrideActionNone none() {
-        if (none == null) return null;
-        return none.getValue("WebAclRuleOverrideAction.none");
+        if (!unknown_none) return value_none;
+        throw new UndeferrableValueException("Value 'WebAclRuleOverrideAction.none' is not present");
     }
 
 }

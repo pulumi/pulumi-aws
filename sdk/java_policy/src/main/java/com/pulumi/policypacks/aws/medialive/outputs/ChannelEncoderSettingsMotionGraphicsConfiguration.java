@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ChannelEncoderSettingsMotionGraphicsConfiguration {
      * Motion Graphics Insertion.
      * 
      */
-    private @Nullable UndeferrableValue<String> motionGraphicsInsertion;
-
+    @PolicyResourceProperty(name="motionGraphicsInsertion", flag="unknown_motionGraphicsInsertion")
+    private @Nullable String value_motionGraphicsInsertion;
+    private boolean unknown_motionGraphicsInsertion;
     public @Nullable String motionGraphicsInsertion() {
-        if (motionGraphicsInsertion == null) return null;
-        return motionGraphicsInsertion.getValue("ChannelEncoderSettingsMotionGraphicsConfiguration.motionGraphicsInsertion");
+        if (!unknown_motionGraphicsInsertion) return value_motionGraphicsInsertion;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsMotionGraphicsConfiguration.motionGraphicsInsertion' is not present");
     }
 
     /**
      * Motion Graphics Settings. See Motion Graphics Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings> motionGraphicsSettings;
-
+    @PolicyResourceProperty(name="motionGraphicsSettings", flag="unknown_motionGraphicsSettings")
+    private ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings value_motionGraphicsSettings;
+    private boolean unknown_motionGraphicsSettings;
     public ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings motionGraphicsSettings() {
-        if (motionGraphicsSettings == null) return null;
-        return motionGraphicsSettings.getValue("ChannelEncoderSettingsMotionGraphicsConfiguration.motionGraphicsSettings");
+        if (!unknown_motionGraphicsSettings) return value_motionGraphicsSettings;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsMotionGraphicsConfiguration.motionGraphicsSettings' is not present");
     }
 
 }

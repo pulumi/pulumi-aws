@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lakeformation.outputs.OptInCondition;
 import com.pulumi.policypacks.aws.lakeformation.outputs.OptInPrincipal;
@@ -20,51 +21,56 @@ public final class OptIn extends com.pulumi.resources.PolicyResourceOutput {
      * Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
      * 
      */
-    private @Nullable UndeferrableValue<List<OptInCondition>> conditions;
-
+    @PolicyResourceProperty(name="conditions", flag="unknown_conditions")
+    private @Nullable List<OptInCondition> value_conditions;
+    private boolean unknown_conditions;
     public @Nullable List<OptInCondition> conditions() {
-        if (conditions == null) return null;
-        return conditions.getValue("OptIn.conditions");
+        if (!unknown_conditions) return value_conditions;
+        throw new UndeferrableValueException("Value 'OptIn.conditions' is not present");
     }
 
     /**
      * Last modified date and time of the record.
      * 
      */
-    private UndeferrableValue<String> lastModified;
-
+    @PolicyResourceProperty(name="lastModified", flag="unknown_lastModified")
+    private String value_lastModified;
+    private boolean unknown_lastModified;
     public String lastModified() {
-        if (lastModified == null) return null;
-        return lastModified.getValue("OptIn.lastModified");
+        if (!unknown_lastModified) return value_lastModified;
+        throw new UndeferrableValueException("Value 'OptIn.lastModified' is not present");
     }
 
-    private UndeferrableValue<String> lastUpdatedBy;
-
+    @PolicyResourceProperty(name="lastUpdatedBy", flag="unknown_lastUpdatedBy")
+    private String value_lastUpdatedBy;
+    private boolean unknown_lastUpdatedBy;
     public String lastUpdatedBy() {
-        if (lastUpdatedBy == null) return null;
-        return lastUpdatedBy.getValue("OptIn.lastUpdatedBy");
+        if (!unknown_lastUpdatedBy) return value_lastUpdatedBy;
+        throw new UndeferrableValueException("Value 'OptIn.lastUpdatedBy' is not present");
     }
 
     /**
      * Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<OptInPrincipal>> principals;
-
+    @PolicyResourceProperty(name="principals", flag="unknown_principals")
+    private @Nullable List<OptInPrincipal> value_principals;
+    private boolean unknown_principals;
     public @Nullable List<OptInPrincipal> principals() {
-        if (principals == null) return null;
-        return principals.getValue("OptIn.principals");
+        if (!unknown_principals) return value_principals;
+        throw new UndeferrableValueException("Value 'OptIn.principals' is not present");
     }
 
     /**
      * Structure for the resource. See Resource for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<OptInResourceData>> resourceDatas;
-
+    @PolicyResourceProperty(name="resourceDatas", flag="unknown_resourceDatas")
+    private @Nullable List<OptInResourceData> value_resourceDatas;
+    private boolean unknown_resourceDatas;
     public @Nullable List<OptInResourceData> resourceDatas() {
-        if (resourceDatas == null) return null;
-        return resourceDatas.getValue("OptIn.resourceDatas");
+        if (!unknown_resourceDatas) return value_resourceDatas;
+        throw new UndeferrableValueException("Value 'OptIn.resourceDatas' is not present");
     }
 
 }

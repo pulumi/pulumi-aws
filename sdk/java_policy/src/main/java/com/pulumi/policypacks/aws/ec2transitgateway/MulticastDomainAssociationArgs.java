@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class MulticastDomainAssociationArgs extends com.pulumi.resources.P
      * The ID of the subnet to associate with the transit gateway multicast domain.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("MulticastDomainAssociationArgs.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'MulticastDomainAssociationArgs.subnetId' is not present");
     }
 
     /**
      * The ID of the transit gateway attachment.
      * 
      */
-    private UndeferrableValue<String> transitGatewayAttachmentId;
-
+    @PolicyResourceProperty(name="transitGatewayAttachmentId", flag="unknown_transitGatewayAttachmentId")
+    private String value_transitGatewayAttachmentId;
+    private boolean unknown_transitGatewayAttachmentId;
     public String transitGatewayAttachmentId() {
-        if (transitGatewayAttachmentId == null) return null;
-        return transitGatewayAttachmentId.getValue("MulticastDomainAssociationArgs.transitGatewayAttachmentId");
+        if (!unknown_transitGatewayAttachmentId) return value_transitGatewayAttachmentId;
+        throw new UndeferrableValueException("Value 'MulticastDomainAssociationArgs.transitGatewayAttachmentId' is not present");
     }
 
     /**
      * The ID of the transit gateway multicast domain.
      * 
      */
-    private UndeferrableValue<String> transitGatewayMulticastDomainId;
-
+    @PolicyResourceProperty(name="transitGatewayMulticastDomainId", flag="unknown_transitGatewayMulticastDomainId")
+    private String value_transitGatewayMulticastDomainId;
+    private boolean unknown_transitGatewayMulticastDomainId;
     public String transitGatewayMulticastDomainId() {
-        if (transitGatewayMulticastDomainId == null) return null;
-        return transitGatewayMulticastDomainId.getValue("MulticastDomainAssociationArgs.transitGatewayMulticastDomainId");
+        if (!unknown_transitGatewayMulticastDomainId) return value_transitGatewayMulticastDomainId;
+        throw new UndeferrableValueException("Value 'MulticastDomainAssociationArgs.transitGatewayMulticastDomainId' is not present");
     }
 
 }

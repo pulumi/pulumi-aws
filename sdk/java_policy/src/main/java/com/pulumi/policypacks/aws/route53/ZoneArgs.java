@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.route53.inputs.ZoneVpcArgs;
 import java.lang.Boolean;
@@ -20,66 +21,72 @@ public final class ZoneArgs extends com.pulumi.resources.PolicyResourceInput {
      * A comment for the hosted zone. Defaults to &#39;Managed by Pulumi&#39;.
      * 
      */
-    private UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private String value_comment;
+    private boolean unknown_comment;
     public String comment() {
-        if (comment == null) return null;
-        return comment.getValue("ZoneArgs.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'ZoneArgs.comment' is not present");
     }
 
     /**
      * The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
      * 
      */
-    private UndeferrableValue<String> delegationSetId;
-
+    @PolicyResourceProperty(name="delegationSetId", flag="unknown_delegationSetId")
+    private String value_delegationSetId;
+    private boolean unknown_delegationSetId;
     public String delegationSetId() {
-        if (delegationSetId == null) return null;
-        return delegationSetId.getValue("ZoneArgs.delegationSetId");
+        if (!unknown_delegationSetId) return value_delegationSetId;
+        throw new UndeferrableValueException("Value 'ZoneArgs.delegationSetId' is not present");
     }
 
     /**
      * Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
      * 
      */
-    private UndeferrableValue<Boolean> forceDestroy;
-
+    @PolicyResourceProperty(name="forceDestroy", flag="unknown_forceDestroy")
+    private Boolean value_forceDestroy;
+    private boolean unknown_forceDestroy;
     public Boolean forceDestroy() {
-        if (forceDestroy == null) return null;
-        return forceDestroy.getValue("ZoneArgs.forceDestroy");
+        if (!unknown_forceDestroy) return value_forceDestroy;
+        throw new UndeferrableValueException("Value 'ZoneArgs.forceDestroy' is not present");
     }
 
     /**
      * This is the name of the hosted zone.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ZoneArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ZoneArgs.name' is not present");
     }
 
     /**
      * A mapping of tags to assign to the zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ZoneArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ZoneArgs.tags' is not present");
     }
 
     /**
      * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
      * 
      */
-    private UndeferrableValue<List<ZoneVpcArgs>> vpcs;
-
+    @PolicyResourceProperty(name="vpcs", flag="unknown_vpcs")
+    private List<ZoneVpcArgs> value_vpcs;
+    private boolean unknown_vpcs;
     public List<ZoneVpcArgs> vpcs() {
-        if (vpcs == null) return null;
-        return vpcs.getValue("ZoneArgs.vpcs");
+        if (!unknown_vpcs) return value_vpcs;
+        throw new UndeferrableValueException("Value 'ZoneArgs.vpcs' is not present");
     }
 
 }

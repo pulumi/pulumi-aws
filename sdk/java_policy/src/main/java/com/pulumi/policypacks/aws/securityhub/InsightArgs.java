@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.securityhub.inputs.InsightFiltersArgs;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class InsightArgs extends com.pulumi.resources.PolicyResourceInput 
      * A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
      * 
      */
-    private UndeferrableValue<InsightFiltersArgs> filters;
-
+    @PolicyResourceProperty(name="filters", flag="unknown_filters")
+    private InsightFiltersArgs value_filters;
+    private boolean unknown_filters;
     public InsightFiltersArgs filters() {
-        if (filters == null) return null;
-        return filters.getValue("InsightArgs.filters");
+        if (!unknown_filters) return value_filters;
+        throw new UndeferrableValueException("Value 'InsightArgs.filters' is not present");
     }
 
     /**
      * The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
      * 
      */
-    private UndeferrableValue<String> groupByAttribute;
-
+    @PolicyResourceProperty(name="groupByAttribute", flag="unknown_groupByAttribute")
+    private String value_groupByAttribute;
+    private boolean unknown_groupByAttribute;
     public String groupByAttribute() {
-        if (groupByAttribute == null) return null;
-        return groupByAttribute.getValue("InsightArgs.groupByAttribute");
+        if (!unknown_groupByAttribute) return value_groupByAttribute;
+        throw new UndeferrableValueException("Value 'InsightArgs.groupByAttribute' is not present");
     }
 
     /**
      * The name of the custom insight.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("InsightArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'InsightArgs.name' is not present");
     }
 
 }

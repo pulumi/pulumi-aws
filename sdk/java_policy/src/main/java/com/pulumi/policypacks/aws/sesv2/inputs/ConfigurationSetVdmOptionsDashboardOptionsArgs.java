@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ConfigurationSetVdmOptionsDashboardOptionsArgs {
      * Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> engagementMetrics;
-
+    @PolicyResourceProperty(name="engagementMetrics", flag="unknown_engagementMetrics")
+    private String value_engagementMetrics;
+    private boolean unknown_engagementMetrics;
     public String engagementMetrics() {
-        if (engagementMetrics == null) return null;
-        return engagementMetrics.getValue("ConfigurationSetVdmOptionsDashboardOptionsArgs.engagementMetrics");
+        if (!unknown_engagementMetrics) return value_engagementMetrics;
+        throw new UndeferrableValueException("Value 'ConfigurationSetVdmOptionsDashboardOptionsArgs.engagementMetrics' is not present");
     }
 
 }

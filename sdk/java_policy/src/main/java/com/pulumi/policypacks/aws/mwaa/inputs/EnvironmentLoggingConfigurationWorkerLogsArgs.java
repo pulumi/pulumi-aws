@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mwaa.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,33 +12,36 @@ import javax.annotation.Nullable;
 
 public final class EnvironmentLoggingConfigurationWorkerLogsArgs {
 
-    private UndeferrableValue<String> cloudWatchLogGroupArn;
-
+    @PolicyResourceProperty(name="cloudWatchLogGroupArn", flag="unknown_cloudWatchLogGroupArn")
+    private String value_cloudWatchLogGroupArn;
+    private boolean unknown_cloudWatchLogGroupArn;
     public String cloudWatchLogGroupArn() {
-        if (cloudWatchLogGroupArn == null) return null;
-        return cloudWatchLogGroupArn.getValue("EnvironmentLoggingConfigurationWorkerLogsArgs.cloudWatchLogGroupArn");
+        if (!unknown_cloudWatchLogGroupArn) return value_cloudWatchLogGroupArn;
+        throw new UndeferrableValueException("Value 'EnvironmentLoggingConfigurationWorkerLogsArgs.cloudWatchLogGroupArn' is not present");
     }
 
     /**
      * Enabling or disabling the collection of logs
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("EnvironmentLoggingConfigurationWorkerLogsArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'EnvironmentLoggingConfigurationWorkerLogsArgs.enabled' is not present");
     }
 
     /**
      * Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
      * 
      */
-    private UndeferrableValue<String> logLevel;
-
+    @PolicyResourceProperty(name="logLevel", flag="unknown_logLevel")
+    private String value_logLevel;
+    private boolean unknown_logLevel;
     public String logLevel() {
-        if (logLevel == null) return null;
-        return logLevel.getValue("EnvironmentLoggingConfigurationWorkerLogsArgs.logLevel");
+        if (!unknown_logLevel) return value_logLevel;
+        throw new UndeferrableValueException("Value 'EnvironmentLoggingConfigurationWorkerLogsArgs.logLevel' is not present");
     }
 
 }

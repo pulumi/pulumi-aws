@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -19,99 +20,108 @@ public final class ComponentArgs extends com.pulumi.resources.PolicyResourceInpu
      * Change description of the component.
      * 
      */
-    private UndeferrableValue<String> changeDescription;
-
+    @PolicyResourceProperty(name="changeDescription", flag="unknown_changeDescription")
+    private String value_changeDescription;
+    private boolean unknown_changeDescription;
     public String changeDescription() {
-        if (changeDescription == null) return null;
-        return changeDescription.getValue("ComponentArgs.changeDescription");
+        if (!unknown_changeDescription) return value_changeDescription;
+        throw new UndeferrableValueException("Value 'ComponentArgs.changeDescription' is not present");
     }
 
     /**
      * Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
      * 
      */
-    private UndeferrableValue<String> data;
-
+    @PolicyResourceProperty(name="data", flag="unknown_data")
+    private String value_data;
+    private boolean unknown_data;
     public String data() {
-        if (data == null) return null;
-        return data.getValue("ComponentArgs.data");
+        if (!unknown_data) return value_data;
+        throw new UndeferrableValueException("Value 'ComponentArgs.data' is not present");
     }
 
     /**
      * Description of the component.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ComponentArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ComponentArgs.description' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("ComponentArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'ComponentArgs.kmsKeyId' is not present");
     }
 
     /**
      * Name of the component.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ComponentArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ComponentArgs.name' is not present");
     }
 
     /**
      * Platform of the component.
      * 
      */
-    private UndeferrableValue<String> platform;
-
+    @PolicyResourceProperty(name="platform", flag="unknown_platform")
+    private String value_platform;
+    private boolean unknown_platform;
     public String platform() {
-        if (platform == null) return null;
-        return platform.getValue("ComponentArgs.platform");
+        if (!unknown_platform) return value_platform;
+        throw new UndeferrableValueException("Value 'ComponentArgs.platform' is not present");
     }
 
     /**
      * Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> skipDestroy;
-
+    @PolicyResourceProperty(name="skipDestroy", flag="unknown_skipDestroy")
+    private Boolean value_skipDestroy;
+    private boolean unknown_skipDestroy;
     public Boolean skipDestroy() {
-        if (skipDestroy == null) return null;
-        return skipDestroy.getValue("ComponentArgs.skipDestroy");
+        if (!unknown_skipDestroy) return value_skipDestroy;
+        throw new UndeferrableValueException("Value 'ComponentArgs.skipDestroy' is not present");
     }
 
     /**
      * Set of Operating Systems (OS) supported by the component.
      * 
      */
-    private UndeferrableValue<List<String>> supportedOsVersions;
-
+    @PolicyResourceProperty(name="supportedOsVersions", flag="unknown_supportedOsVersions")
+    private List<String> value_supportedOsVersions;
+    private boolean unknown_supportedOsVersions;
     public List<String> supportedOsVersions() {
-        if (supportedOsVersions == null) return null;
-        return supportedOsVersions.getValue("ComponentArgs.supportedOsVersions");
+        if (!unknown_supportedOsVersions) return value_supportedOsVersions;
+        throw new UndeferrableValueException("Value 'ComponentArgs.supportedOsVersions' is not present");
     }
 
     /**
      * Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ComponentArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ComponentArgs.tags' is not present");
     }
 
     /**
@@ -120,11 +130,12 @@ public final class ComponentArgs extends com.pulumi.resources.PolicyResourceInpu
      * &gt; **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
      * 
      */
-    private UndeferrableValue<String> uri;
-
+    @PolicyResourceProperty(name="uri", flag="unknown_uri")
+    private String value_uri;
+    private boolean unknown_uri;
     public String uri() {
-        if (uri == null) return null;
-        return uri.getValue("ComponentArgs.uri");
+        if (!unknown_uri) return value_uri;
+        throw new UndeferrableValueException("Value 'ComponentArgs.uri' is not present");
     }
 
     /**
@@ -133,11 +144,12 @@ public final class ComponentArgs extends com.pulumi.resources.PolicyResourceInpu
      * The following attributes are optional:
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("ComponentArgs.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'ComponentArgs.version' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudsearch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,110 +16,120 @@ public final class DomainIndexFieldArgs {
      * The analysis scheme you want to use for a `text` field. The analysis scheme specifies the language-specific text processing options that are used during indexing.
      * 
      */
-    private UndeferrableValue<String> analysisScheme;
-
+    @PolicyResourceProperty(name="analysisScheme", flag="unknown_analysisScheme")
+    private String value_analysisScheme;
+    private boolean unknown_analysisScheme;
     public String analysisScheme() {
-        if (analysisScheme == null) return null;
-        return analysisScheme.getValue("DomainIndexFieldArgs.analysisScheme");
+        if (!unknown_analysisScheme) return value_analysisScheme;
+        throw new UndeferrableValueException("Value 'DomainIndexFieldArgs.analysisScheme' is not present");
     }
 
     /**
      * The default value for the field. This value is used when no value is specified for the field in the document data.
      * 
      */
-    private UndeferrableValue<String> defaultValue;
-
+    @PolicyResourceProperty(name="defaultValue", flag="unknown_defaultValue")
+    private String value_defaultValue;
+    private boolean unknown_defaultValue;
     public String defaultValue() {
-        if (defaultValue == null) return null;
-        return defaultValue.getValue("DomainIndexFieldArgs.defaultValue");
+        if (!unknown_defaultValue) return value_defaultValue;
+        throw new UndeferrableValueException("Value 'DomainIndexFieldArgs.defaultValue' is not present");
     }
 
     /**
      * You can get facet information by enabling this.
      * 
      */
-    private UndeferrableValue<Boolean> facet;
-
+    @PolicyResourceProperty(name="facet", flag="unknown_facet")
+    private Boolean value_facet;
+    private boolean unknown_facet;
     public Boolean facet() {
-        if (facet == null) return null;
-        return facet.getValue("DomainIndexFieldArgs.facet");
+        if (!unknown_facet) return value_facet;
+        throw new UndeferrableValueException("Value 'DomainIndexFieldArgs.facet' is not present");
     }
 
     /**
      * You can highlight information.
      * 
      */
-    private UndeferrableValue<Boolean> highlight;
-
+    @PolicyResourceProperty(name="highlight", flag="unknown_highlight")
+    private Boolean value_highlight;
+    private boolean unknown_highlight;
     public Boolean highlight() {
-        if (highlight == null) return null;
-        return highlight.getValue("DomainIndexFieldArgs.highlight");
+        if (!unknown_highlight) return value_highlight;
+        throw new UndeferrableValueException("Value 'DomainIndexFieldArgs.highlight' is not present");
     }
 
     /**
      * A unique name for the field. Field names must begin with a letter and be at least 1 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DomainIndexFieldArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DomainIndexFieldArgs.name' is not present");
     }
 
     /**
      * You can enable returning the value of all searchable fields.
      * 
      */
-    private UndeferrableValue<Boolean> return_;
-
+    @PolicyResourceProperty(name="return", flag="unknown_return_")
+    private Boolean value_return_;
+    private boolean unknown_return_;
     public Boolean return_() {
-        if (return_ == null) return null;
-        return return_.getValue("DomainIndexFieldArgs.return_");
+        if (!unknown_return_) return value_return_;
+        throw new UndeferrableValueException("Value 'DomainIndexFieldArgs.return_' is not present");
     }
 
     /**
      * You can set whether this index should be searchable or not.
      * 
      */
-    private UndeferrableValue<Boolean> search;
-
+    @PolicyResourceProperty(name="search", flag="unknown_search")
+    private Boolean value_search;
+    private boolean unknown_search;
     public Boolean search() {
-        if (search == null) return null;
-        return search.getValue("DomainIndexFieldArgs.search");
+        if (!unknown_search) return value_search;
+        throw new UndeferrableValueException("Value 'DomainIndexFieldArgs.search' is not present");
     }
 
     /**
      * You can enable the property to be sortable.
      * 
      */
-    private UndeferrableValue<Boolean> sort;
-
+    @PolicyResourceProperty(name="sort", flag="unknown_sort")
+    private Boolean value_sort;
+    private boolean unknown_sort;
     public Boolean sort() {
-        if (sort == null) return null;
-        return sort.getValue("DomainIndexFieldArgs.sort");
+        if (!unknown_sort) return value_sort;
+        throw new UndeferrableValueException("Value 'DomainIndexFieldArgs.sort' is not present");
     }
 
     /**
      * A comma-separated list of source fields to map to the field. Specifying a source field copies data from one field to another, enabling you to use the same source data in different ways by configuring different options for the fields.
      * 
      */
-    private UndeferrableValue<String> sourceFields;
-
+    @PolicyResourceProperty(name="sourceFields", flag="unknown_sourceFields")
+    private String value_sourceFields;
+    private boolean unknown_sourceFields;
     public String sourceFields() {
-        if (sourceFields == null) return null;
-        return sourceFields.getValue("DomainIndexFieldArgs.sourceFields");
+        if (!unknown_sourceFields) return value_sourceFields;
+        throw new UndeferrableValueException("Value 'DomainIndexFieldArgs.sourceFields' is not present");
     }
 
     /**
      * The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("DomainIndexFieldArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'DomainIndexFieldArgs.type' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class ListenerRuleActionFixedResponse {
      * The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
      * 
      */
-    private UndeferrableValue<String> contentType;
-
+    @PolicyResourceProperty(name="contentType", flag="unknown_contentType")
+    private String value_contentType;
+    private boolean unknown_contentType;
     public String contentType() {
-        if (contentType == null) return null;
-        return contentType.getValue("ListenerRuleActionFixedResponse.contentType");
+        if (!unknown_contentType) return value_contentType;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionFixedResponse.contentType' is not present");
     }
 
     /**
      * The message body.
      * 
      */
-    private @Nullable UndeferrableValue<String> messageBody;
-
+    @PolicyResourceProperty(name="messageBody", flag="unknown_messageBody")
+    private @Nullable String value_messageBody;
+    private boolean unknown_messageBody;
     public @Nullable String messageBody() {
-        if (messageBody == null) return null;
-        return messageBody.getValue("ListenerRuleActionFixedResponse.messageBody");
+        if (!unknown_messageBody) return value_messageBody;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionFixedResponse.messageBody' is not present");
     }
 
     /**
      * The HTTP response code. Valid values are `2XX`, `4XX`, or `5XX`.
      * 
      */
-    private @Nullable UndeferrableValue<String> statusCode;
-
+    @PolicyResourceProperty(name="statusCode", flag="unknown_statusCode")
+    private @Nullable String value_statusCode;
+    private boolean unknown_statusCode;
     public @Nullable String statusCode() {
-        if (statusCode == null) return null;
-        return statusCode.getValue("ListenerRuleActionFixedResponse.statusCode");
+        if (!unknown_statusCode) return value_statusCode;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionFixedResponse.statusCode' is not present");
     }
 
 }

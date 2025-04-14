@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration;
@@ -16,33 +17,36 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
      * Describes an application&#39;s checkpointing configuration.
      * 
      */
-    private @Nullable UndeferrableValue<ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration> checkpointConfiguration;
-
+    @PolicyResourceProperty(name="checkpointConfiguration", flag="unknown_checkpointConfiguration")
+    private @Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration value_checkpointConfiguration;
+    private boolean unknown_checkpointConfiguration;
     public @Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration checkpointConfiguration() {
-        if (checkpointConfiguration == null) return null;
-        return checkpointConfiguration.getValue("ApplicationApplicationConfigurationFlinkApplicationConfiguration.checkpointConfiguration");
+        if (!unknown_checkpointConfiguration) return value_checkpointConfiguration;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationFlinkApplicationConfiguration.checkpointConfiguration' is not present");
     }
 
     /**
      * Describes configuration parameters for CloudWatch logging for an application.
      * 
      */
-    private @Nullable UndeferrableValue<ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration> monitoringConfiguration;
-
+    @PolicyResourceProperty(name="monitoringConfiguration", flag="unknown_monitoringConfiguration")
+    private @Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration value_monitoringConfiguration;
+    private boolean unknown_monitoringConfiguration;
     public @Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration monitoringConfiguration() {
-        if (monitoringConfiguration == null) return null;
-        return monitoringConfiguration.getValue("ApplicationApplicationConfigurationFlinkApplicationConfiguration.monitoringConfiguration");
+        if (!unknown_monitoringConfiguration) return value_monitoringConfiguration;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationFlinkApplicationConfiguration.monitoringConfiguration' is not present");
     }
 
     /**
      * Describes parameters for how an application executes multiple tasks simultaneously.
      * 
      */
-    private @Nullable UndeferrableValue<ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration> parallelismConfiguration;
-
+    @PolicyResourceProperty(name="parallelismConfiguration", flag="unknown_parallelismConfiguration")
+    private @Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration value_parallelismConfiguration;
+    private boolean unknown_parallelismConfiguration;
     public @Nullable ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration parallelismConfiguration() {
-        if (parallelismConfiguration == null) return null;
-        return parallelismConfiguration.getValue("ApplicationApplicationConfigurationFlinkApplicationConfiguration.parallelismConfiguration");
+        if (!unknown_parallelismConfiguration) return value_parallelismConfiguration;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationFlinkApplicationConfiguration.parallelismConfiguration' is not present");
     }
 
 }

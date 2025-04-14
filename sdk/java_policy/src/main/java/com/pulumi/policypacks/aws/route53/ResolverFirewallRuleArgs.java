@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,121 +18,132 @@ public final class ResolverFirewallRuleArgs extends com.pulumi.resources.PolicyR
      * The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule&#39;s domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
      * 
      */
-    private UndeferrableValue<String> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private String value_action;
+    private boolean unknown_action;
     public String action() {
-        if (action == null) return null;
-        return action.getValue("ResolverFirewallRuleArgs.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'ResolverFirewallRuleArgs.action' is not present");
     }
 
     /**
      * The DNS record&#39;s type. This determines the format of the record value that you provided in BlockOverrideDomain. Value values: `CNAME`.
      * 
      */
-    private UndeferrableValue<String> blockOverrideDnsType;
-
+    @PolicyResourceProperty(name="blockOverrideDnsType", flag="unknown_blockOverrideDnsType")
+    private String value_blockOverrideDnsType;
+    private boolean unknown_blockOverrideDnsType;
     public String blockOverrideDnsType() {
-        if (blockOverrideDnsType == null) return null;
-        return blockOverrideDnsType.getValue("ResolverFirewallRuleArgs.blockOverrideDnsType");
+        if (!unknown_blockOverrideDnsType) return value_blockOverrideDnsType;
+        throw new UndeferrableValueException("Value 'ResolverFirewallRuleArgs.blockOverrideDnsType' is not present");
     }
 
     /**
      * The custom DNS record to send back in response to the query.
      * 
      */
-    private UndeferrableValue<String> blockOverrideDomain;
-
+    @PolicyResourceProperty(name="blockOverrideDomain", flag="unknown_blockOverrideDomain")
+    private String value_blockOverrideDomain;
+    private boolean unknown_blockOverrideDomain;
     public String blockOverrideDomain() {
-        if (blockOverrideDomain == null) return null;
-        return blockOverrideDomain.getValue("ResolverFirewallRuleArgs.blockOverrideDomain");
+        if (!unknown_blockOverrideDomain) return value_blockOverrideDomain;
+        throw new UndeferrableValueException("Value 'ResolverFirewallRuleArgs.blockOverrideDomain' is not present");
     }
 
     /**
      * The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Minimum value of 0. Maximum value of 604800.
      * 
      */
-    private UndeferrableValue<Integer> blockOverrideTtl;
-
+    @PolicyResourceProperty(name="blockOverrideTtl", flag="unknown_blockOverrideTtl")
+    private Integer value_blockOverrideTtl;
+    private boolean unknown_blockOverrideTtl;
     public Integer blockOverrideTtl() {
-        if (blockOverrideTtl == null) return null;
-        return blockOverrideTtl.getValue("ResolverFirewallRuleArgs.blockOverrideTtl");
+        if (!unknown_blockOverrideTtl) return value_blockOverrideTtl;
+        throw new UndeferrableValueException("Value 'ResolverFirewallRuleArgs.blockOverrideTtl' is not present");
     }
 
     /**
      * The way that you want DNS Firewall to block the request. Valid values: `NODATA`, `NXDOMAIN`, `OVERRIDE`.
      * 
      */
-    private UndeferrableValue<String> blockResponse;
-
+    @PolicyResourceProperty(name="blockResponse", flag="unknown_blockResponse")
+    private String value_blockResponse;
+    private boolean unknown_blockResponse;
     public String blockResponse() {
-        if (blockResponse == null) return null;
-        return blockResponse.getValue("ResolverFirewallRuleArgs.blockResponse");
+        if (!unknown_blockResponse) return value_blockResponse;
+        throw new UndeferrableValueException("Value 'ResolverFirewallRuleArgs.blockResponse' is not present");
     }
 
     /**
      * The ID of the domain list that you want to use in the rule.
      * 
      */
-    private UndeferrableValue<String> firewallDomainListId;
-
+    @PolicyResourceProperty(name="firewallDomainListId", flag="unknown_firewallDomainListId")
+    private String value_firewallDomainListId;
+    private boolean unknown_firewallDomainListId;
     public String firewallDomainListId() {
-        if (firewallDomainListId == null) return null;
-        return firewallDomainListId.getValue("ResolverFirewallRuleArgs.firewallDomainListId");
+        if (!unknown_firewallDomainListId) return value_firewallDomainListId;
+        throw new UndeferrableValueException("Value 'ResolverFirewallRuleArgs.firewallDomainListId' is not present");
     }
 
     /**
      * Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
      * 
      */
-    private UndeferrableValue<String> firewallDomainRedirectionAction;
-
+    @PolicyResourceProperty(name="firewallDomainRedirectionAction", flag="unknown_firewallDomainRedirectionAction")
+    private String value_firewallDomainRedirectionAction;
+    private boolean unknown_firewallDomainRedirectionAction;
     public String firewallDomainRedirectionAction() {
-        if (firewallDomainRedirectionAction == null) return null;
-        return firewallDomainRedirectionAction.getValue("ResolverFirewallRuleArgs.firewallDomainRedirectionAction");
+        if (!unknown_firewallDomainRedirectionAction) return value_firewallDomainRedirectionAction;
+        throw new UndeferrableValueException("Value 'ResolverFirewallRuleArgs.firewallDomainRedirectionAction' is not present");
     }
 
     /**
      * The unique identifier of the firewall rule group where you want to create the rule.
      * 
      */
-    private UndeferrableValue<String> firewallRuleGroupId;
-
+    @PolicyResourceProperty(name="firewallRuleGroupId", flag="unknown_firewallRuleGroupId")
+    private String value_firewallRuleGroupId;
+    private boolean unknown_firewallRuleGroupId;
     public String firewallRuleGroupId() {
-        if (firewallRuleGroupId == null) return null;
-        return firewallRuleGroupId.getValue("ResolverFirewallRuleArgs.firewallRuleGroupId");
+        if (!unknown_firewallRuleGroupId) return value_firewallRuleGroupId;
+        throw new UndeferrableValueException("Value 'ResolverFirewallRuleArgs.firewallRuleGroupId' is not present");
     }
 
     /**
      * A name that lets you identify the rule, to manage and use it.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ResolverFirewallRuleArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ResolverFirewallRuleArgs.name' is not present");
     }
 
     /**
      * The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
      * 
      */
-    private UndeferrableValue<Integer> priority;
-
+    @PolicyResourceProperty(name="priority", flag="unknown_priority")
+    private Integer value_priority;
+    private boolean unknown_priority;
     public Integer priority() {
-        if (priority == null) return null;
-        return priority.getValue("ResolverFirewallRuleArgs.priority");
+        if (!unknown_priority) return value_priority;
+        throw new UndeferrableValueException("Value 'ResolverFirewallRuleArgs.priority' is not present");
     }
 
     /**
      * The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
      * 
      */
-    private UndeferrableValue<String> qType;
-
+    @PolicyResourceProperty(name="qType", flag="unknown_qType")
+    private String value_qType;
+    private boolean unknown_qType;
     public String qType() {
-        if (qType == null) return null;
-        return qType.getValue("ResolverFirewallRuleArgs.qType");
+        if (!unknown_qType) return value_qType;
+        throw new UndeferrableValueException("Value 'ResolverFirewallRuleArgs.qType' is not present");
     }
 
 }

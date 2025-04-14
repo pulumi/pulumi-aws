@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.storagegateway.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -12,11 +13,12 @@ import javax.annotation.Nullable;
 
 public final class GatewaySmbActiveDirectorySettings {
 
-    private @Nullable UndeferrableValue<String> activeDirectoryStatus;
-
+    @PolicyResourceProperty(name="activeDirectoryStatus", flag="unknown_activeDirectoryStatus")
+    private @Nullable String value_activeDirectoryStatus;
+    private boolean unknown_activeDirectoryStatus;
     public @Nullable String activeDirectoryStatus() {
-        if (activeDirectoryStatus == null) return null;
-        return activeDirectoryStatus.getValue("GatewaySmbActiveDirectorySettings.activeDirectoryStatus");
+        if (!unknown_activeDirectoryStatus) return value_activeDirectoryStatus;
+        throw new UndeferrableValueException("Value 'GatewaySmbActiveDirectorySettings.activeDirectoryStatus' is not present");
     }
 
     /**
@@ -24,22 +26,24 @@ public final class GatewaySmbActiveDirectorySettings {
      * If you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> domainControllers;
-
+    @PolicyResourceProperty(name="domainControllers", flag="unknown_domainControllers")
+    private @Nullable List<String> value_domainControllers;
+    private boolean unknown_domainControllers;
     public @Nullable List<String> domainControllers() {
-        if (domainControllers == null) return null;
-        return domainControllers.getValue("GatewaySmbActiveDirectorySettings.domainControllers");
+        if (!unknown_domainControllers) return value_domainControllers;
+        throw new UndeferrableValueException("Value 'GatewaySmbActiveDirectorySettings.domainControllers' is not present");
     }
 
     /**
      * The name of the domain that you want the gateway to join.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("GatewaySmbActiveDirectorySettings.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'GatewaySmbActiveDirectorySettings.domainName' is not present");
     }
 
     /**
@@ -47,44 +51,48 @@ public final class GatewaySmbActiveDirectorySettings {
      * computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
      * 
      */
-    private @Nullable UndeferrableValue<String> organizationalUnit;
-
+    @PolicyResourceProperty(name="organizationalUnit", flag="unknown_organizationalUnit")
+    private @Nullable String value_organizationalUnit;
+    private boolean unknown_organizationalUnit;
     public @Nullable String organizationalUnit() {
-        if (organizationalUnit == null) return null;
-        return organizationalUnit.getValue("GatewaySmbActiveDirectorySettings.organizationalUnit");
+        if (!unknown_organizationalUnit) return value_organizationalUnit;
+        throw new UndeferrableValueException("Value 'GatewaySmbActiveDirectorySettings.organizationalUnit' is not present");
     }
 
     /**
      * The password of the user who has permission to add the gateway to the Active Directory domain.
      * 
      */
-    private UndeferrableValue<String> password;
-
+    @PolicyResourceProperty(name="password", flag="unknown_password")
+    private String value_password;
+    private boolean unknown_password;
     public String password() {
-        if (password == null) return null;
-        return password.getValue("GatewaySmbActiveDirectorySettings.password");
+        if (!unknown_password) return value_password;
+        throw new UndeferrableValueException("Value 'GatewaySmbActiveDirectorySettings.password' is not present");
     }
 
     /**
      * Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> timeoutInSeconds;
-
+    @PolicyResourceProperty(name="timeoutInSeconds", flag="unknown_timeoutInSeconds")
+    private @Nullable Integer value_timeoutInSeconds;
+    private boolean unknown_timeoutInSeconds;
     public @Nullable Integer timeoutInSeconds() {
-        if (timeoutInSeconds == null) return null;
-        return timeoutInSeconds.getValue("GatewaySmbActiveDirectorySettings.timeoutInSeconds");
+        if (!unknown_timeoutInSeconds) return value_timeoutInSeconds;
+        throw new UndeferrableValueException("Value 'GatewaySmbActiveDirectorySettings.timeoutInSeconds' is not present");
     }
 
     /**
      * The user name of user who has permission to add the gateway to the Active Directory domain.
      * 
      */
-    private UndeferrableValue<String> username;
-
+    @PolicyResourceProperty(name="username", flag="unknown_username")
+    private String value_username;
+    private boolean unknown_username;
     public String username() {
-        if (username == null) return null;
-        return username.getValue("GatewaySmbActiveDirectorySettings.username");
+        if (!unknown_username) return value_username;
+        throw new UndeferrableValueException("Value 'GatewaySmbActiveDirectorySettings.username' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class SpaceSpaceSharingSettings {
      * Specifies the sharing type of the space. Valid values are `Private` and `Shared`.
      * 
      */
-    private UndeferrableValue<String> sharingType;
-
+    @PolicyResourceProperty(name="sharingType", flag="unknown_sharingType")
+    private String value_sharingType;
+    private boolean unknown_sharingType;
     public String sharingType() {
-        if (sharingType == null) return null;
-        return sharingType.getValue("SpaceSpaceSharingSettings.sharingType");
+        if (!unknown_sharingType) return value_sharingType;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSharingSettings.sharingType' is not present");
     }
 
 }

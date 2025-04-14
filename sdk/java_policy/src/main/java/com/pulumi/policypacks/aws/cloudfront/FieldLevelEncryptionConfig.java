@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudfront.outputs.FieldLevelEncryptionConfigContentTypeProfileConfig;
 import com.pulumi.policypacks.aws.cloudfront.outputs.FieldLevelEncryptionConfigQueryArgProfileConfig;
@@ -18,66 +19,72 @@ public final class FieldLevelEncryptionConfig extends com.pulumi.resources.Polic
      * The Field Level Encryption Config ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("FieldLevelEncryptionConfig.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfig.arn' is not present");
     }
 
     /**
      * Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
      * 
      */
-    private UndeferrableValue<String> callerReference;
-
+    @PolicyResourceProperty(name="callerReference", flag="unknown_callerReference")
+    private String value_callerReference;
+    private boolean unknown_callerReference;
     public String callerReference() {
-        if (callerReference == null) return null;
-        return callerReference.getValue("FieldLevelEncryptionConfig.callerReference");
+        if (!unknown_callerReference) return value_callerReference;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfig.callerReference' is not present");
     }
 
     /**
      * An optional comment about the Field Level Encryption Config.
      * 
      */
-    private @Nullable UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private @Nullable String value_comment;
+    private boolean unknown_comment;
     public @Nullable String comment() {
-        if (comment == null) return null;
-        return comment.getValue("FieldLevelEncryptionConfig.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfig.comment' is not present");
     }
 
     /**
      * Content Type Profile Config specifies when to forward content if a content type isn&#39;t recognized and profiles to use as by default in a request if a query argument doesn&#39;t specify a profile to use.
      * 
      */
-    private UndeferrableValue<FieldLevelEncryptionConfigContentTypeProfileConfig> contentTypeProfileConfig;
-
+    @PolicyResourceProperty(name="contentTypeProfileConfig", flag="unknown_contentTypeProfileConfig")
+    private FieldLevelEncryptionConfigContentTypeProfileConfig value_contentTypeProfileConfig;
+    private boolean unknown_contentTypeProfileConfig;
     public FieldLevelEncryptionConfigContentTypeProfileConfig contentTypeProfileConfig() {
-        if (contentTypeProfileConfig == null) return null;
-        return contentTypeProfileConfig.getValue("FieldLevelEncryptionConfig.contentTypeProfileConfig");
+        if (!unknown_contentTypeProfileConfig) return value_contentTypeProfileConfig;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfig.contentTypeProfileConfig' is not present");
     }
 
     /**
      * The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
      * 
      */
-    private UndeferrableValue<String> etag;
-
+    @PolicyResourceProperty(name="etag", flag="unknown_etag")
+    private String value_etag;
+    private boolean unknown_etag;
     public String etag() {
-        if (etag == null) return null;
-        return etag.getValue("FieldLevelEncryptionConfig.etag");
+        if (!unknown_etag) return value_etag;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfig.etag' is not present");
     }
 
     /**
      * Query Arg Profile Config that specifies when to forward content if a profile isn&#39;t found and the profile that can be provided as a query argument in a request.
      * 
      */
-    private UndeferrableValue<FieldLevelEncryptionConfigQueryArgProfileConfig> queryArgProfileConfig;
-
+    @PolicyResourceProperty(name="queryArgProfileConfig", flag="unknown_queryArgProfileConfig")
+    private FieldLevelEncryptionConfigQueryArgProfileConfig value_queryArgProfileConfig;
+    private boolean unknown_queryArgProfileConfig;
     public FieldLevelEncryptionConfigQueryArgProfileConfig queryArgProfileConfig() {
-        if (queryArgProfileConfig == null) return null;
-        return queryArgProfileConfig.getValue("FieldLevelEncryptionConfig.queryArgProfileConfig");
+        if (!unknown_queryArgProfileConfig) return value_queryArgProfileConfig;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfig.queryArgProfileConfig' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.iot.inputs.ThingTypePropertiesArgs;
 import java.lang.Boolean;
@@ -19,44 +20,48 @@ public final class ThingTypeArgs extends com.pulumi.resources.PolicyResourceInpu
      * Whether the thing type is deprecated. If true, no new things could be associated with this type.
      * 
      */
-    private UndeferrableValue<Boolean> deprecated;
-
+    @PolicyResourceProperty(name="deprecated", flag="unknown_deprecated")
+    private Boolean value_deprecated;
+    private boolean unknown_deprecated;
     public Boolean deprecated() {
-        if (deprecated == null) return null;
-        return deprecated.getValue("ThingTypeArgs.deprecated");
+        if (!unknown_deprecated) return value_deprecated;
+        throw new UndeferrableValueException("Value 'ThingTypeArgs.deprecated' is not present");
     }
 
     /**
      * The name of the thing type.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ThingTypeArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ThingTypeArgs.name' is not present");
     }
 
     /**
      * , Configuration block that can contain the following properties of the thing type:
      * 
      */
-    private UndeferrableValue<ThingTypePropertiesArgs> properties;
-
+    @PolicyResourceProperty(name="properties", flag="unknown_properties")
+    private ThingTypePropertiesArgs value_properties;
+    private boolean unknown_properties;
     public ThingTypePropertiesArgs properties() {
-        if (properties == null) return null;
-        return properties.getValue("ThingTypeArgs.properties");
+        if (!unknown_properties) return value_properties;
+        throw new UndeferrableValueException("Value 'ThingTypeArgs.properties' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ThingTypeArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ThingTypeArgs.tags' is not present");
     }
 
 }

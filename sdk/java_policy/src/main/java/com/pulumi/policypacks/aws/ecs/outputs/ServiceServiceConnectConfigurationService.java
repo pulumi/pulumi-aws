@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ecs.outputs.ServiceServiceConnectConfigurationServiceClientAlias;
 import com.pulumi.policypacks.aws.ecs.outputs.ServiceServiceConnectConfigurationServiceTimeout;
 import com.pulumi.policypacks.aws.ecs.outputs.ServiceServiceConnectConfigurationServiceTls;
@@ -19,66 +20,72 @@ public final class ServiceServiceConnectConfigurationService {
      * List of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ServiceServiceConnectConfigurationServiceClientAlias>> clientAlias;
-
+    @PolicyResourceProperty(name="clientAlias", flag="unknown_clientAlias")
+    private @Nullable List<ServiceServiceConnectConfigurationServiceClientAlias> value_clientAlias;
+    private boolean unknown_clientAlias;
     public @Nullable List<ServiceServiceConnectConfigurationServiceClientAlias> clientAlias() {
-        if (clientAlias == null) return null;
-        return clientAlias.getValue("ServiceServiceConnectConfigurationService.clientAlias");
+        if (!unknown_clientAlias) return value_clientAlias;
+        throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationService.clientAlias' is not present");
     }
 
     /**
      * Name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
      * 
      */
-    private @Nullable UndeferrableValue<String> discoveryName;
-
+    @PolicyResourceProperty(name="discoveryName", flag="unknown_discoveryName")
+    private @Nullable String value_discoveryName;
+    private boolean unknown_discoveryName;
     public @Nullable String discoveryName() {
-        if (discoveryName == null) return null;
-        return discoveryName.getValue("ServiceServiceConnectConfigurationService.discoveryName");
+        if (!unknown_discoveryName) return value_discoveryName;
+        throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationService.discoveryName' is not present");
     }
 
     /**
      * Port number for the Service Connect proxy to listen on.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> ingressPortOverride;
-
+    @PolicyResourceProperty(name="ingressPortOverride", flag="unknown_ingressPortOverride")
+    private @Nullable Integer value_ingressPortOverride;
+    private boolean unknown_ingressPortOverride;
     public @Nullable Integer ingressPortOverride() {
-        if (ingressPortOverride == null) return null;
-        return ingressPortOverride.getValue("ServiceServiceConnectConfigurationService.ingressPortOverride");
+        if (!unknown_ingressPortOverride) return value_ingressPortOverride;
+        throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationService.ingressPortOverride' is not present");
     }
 
     /**
      * Name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
      * 
      */
-    private UndeferrableValue<String> portName;
-
+    @PolicyResourceProperty(name="portName", flag="unknown_portName")
+    private String value_portName;
+    private boolean unknown_portName;
     public String portName() {
-        if (portName == null) return null;
-        return portName.getValue("ServiceServiceConnectConfigurationService.portName");
+        if (!unknown_portName) return value_portName;
+        throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationService.portName' is not present");
     }
 
     /**
      * Configuration timeouts for Service Connect
      * 
      */
-    private @Nullable UndeferrableValue<ServiceServiceConnectConfigurationServiceTimeout> timeout;
-
+    @PolicyResourceProperty(name="timeout", flag="unknown_timeout")
+    private @Nullable ServiceServiceConnectConfigurationServiceTimeout value_timeout;
+    private boolean unknown_timeout;
     public @Nullable ServiceServiceConnectConfigurationServiceTimeout timeout() {
-        if (timeout == null) return null;
-        return timeout.getValue("ServiceServiceConnectConfigurationService.timeout");
+        if (!unknown_timeout) return value_timeout;
+        throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationService.timeout' is not present");
     }
 
     /**
      * Configuration for enabling Transport Layer Security (TLS)
      * 
      */
-    private @Nullable UndeferrableValue<ServiceServiceConnectConfigurationServiceTls> tls;
-
+    @PolicyResourceProperty(name="tls", flag="unknown_tls")
+    private @Nullable ServiceServiceConnectConfigurationServiceTls value_tls;
+    private boolean unknown_tls;
     public @Nullable ServiceServiceConnectConfigurationServiceTls tls() {
-        if (tls == null) return null;
-        return tls.getValue("ServiceServiceConnectConfigurationService.tls");
+        if (!unknown_tls) return value_tls;
+        throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationService.tls' is not present");
     }
 
 }

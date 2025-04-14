@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dataexchange.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class EventActionActionExportRevisionToS3RevisionDestinationArgs {
      * The S3 bucket where the revision will be exported.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("EventActionActionExportRevisionToS3RevisionDestinationArgs.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'EventActionActionExportRevisionToS3RevisionDestinationArgs.bucket' is not present");
     }
 
     /**
@@ -26,11 +28,12 @@ public final class EventActionActionExportRevisionToS3RevisionDestinationArgs {
      * Defaults to `${Revision.CreatedAt}/${Asset.Name}`.
      * 
      */
-    private UndeferrableValue<String> keyPattern;
-
+    @PolicyResourceProperty(name="keyPattern", flag="unknown_keyPattern")
+    private String value_keyPattern;
+    private boolean unknown_keyPattern;
     public String keyPattern() {
-        if (keyPattern == null) return null;
-        return keyPattern.getValue("EventActionActionExportRevisionToS3RevisionDestinationArgs.keyPattern");
+        if (!unknown_keyPattern) return value_keyPattern;
+        throw new UndeferrableValueException("Value 'EventActionActionExportRevisionToS3RevisionDestinationArgs.keyPattern' is not present");
     }
 
 }

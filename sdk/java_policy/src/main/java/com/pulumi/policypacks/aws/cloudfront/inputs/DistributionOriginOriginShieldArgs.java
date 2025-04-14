@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DistributionOriginOriginShieldArgs {
      * `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("DistributionOriginOriginShieldArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'DistributionOriginOriginShieldArgs.enabled' is not present");
     }
 
     /**
      * AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as `us-east-2`.
      * 
      */
-    private UndeferrableValue<String> originShieldRegion;
-
+    @PolicyResourceProperty(name="originShieldRegion", flag="unknown_originShieldRegion")
+    private String value_originShieldRegion;
+    private boolean unknown_originShieldRegion;
     public String originShieldRegion() {
-        if (originShieldRegion == null) return null;
-        return originShieldRegion.getValue("DistributionOriginOriginShieldArgs.originShieldRegion");
+        if (!unknown_originShieldRegion) return value_originShieldRegion;
+        throw new UndeferrableValueException("Value 'DistributionOriginOriginShieldArgs.originShieldRegion' is not present");
     }
 
 }

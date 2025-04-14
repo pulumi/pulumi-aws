@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class DistributionCustomErrorResponseArgs {
      * Minimum amount of time you want HTTP error codes to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated.
      * 
      */
-    private UndeferrableValue<Integer> errorCachingMinTtl;
-
+    @PolicyResourceProperty(name="errorCachingMinTtl", flag="unknown_errorCachingMinTtl")
+    private Integer value_errorCachingMinTtl;
+    private boolean unknown_errorCachingMinTtl;
     public Integer errorCachingMinTtl() {
-        if (errorCachingMinTtl == null) return null;
-        return errorCachingMinTtl.getValue("DistributionCustomErrorResponseArgs.errorCachingMinTtl");
+        if (!unknown_errorCachingMinTtl) return value_errorCachingMinTtl;
+        throw new UndeferrableValueException("Value 'DistributionCustomErrorResponseArgs.errorCachingMinTtl' is not present");
     }
 
     /**
      * 4xx or 5xx HTTP status code that you want to customize.
      * 
      */
-    private UndeferrableValue<Integer> errorCode;
-
+    @PolicyResourceProperty(name="errorCode", flag="unknown_errorCode")
+    private Integer value_errorCode;
+    private boolean unknown_errorCode;
     public Integer errorCode() {
-        if (errorCode == null) return null;
-        return errorCode.getValue("DistributionCustomErrorResponseArgs.errorCode");
+        if (!unknown_errorCode) return value_errorCode;
+        throw new UndeferrableValueException("Value 'DistributionCustomErrorResponseArgs.errorCode' is not present");
     }
 
     /**
      * HTTP status code that you want CloudFront to return with the custom error page to the viewer.
      * 
      */
-    private UndeferrableValue<Integer> responseCode;
-
+    @PolicyResourceProperty(name="responseCode", flag="unknown_responseCode")
+    private Integer value_responseCode;
+    private boolean unknown_responseCode;
     public Integer responseCode() {
-        if (responseCode == null) return null;
-        return responseCode.getValue("DistributionCustomErrorResponseArgs.responseCode");
+        if (!unknown_responseCode) return value_responseCode;
+        throw new UndeferrableValueException("Value 'DistributionCustomErrorResponseArgs.responseCode' is not present");
     }
 
     /**
      * Path of the custom error page (for example, `/custom_404.html`).
      * 
      */
-    private UndeferrableValue<String> responsePagePath;
-
+    @PolicyResourceProperty(name="responsePagePath", flag="unknown_responsePagePath")
+    private String value_responsePagePath;
+    private boolean unknown_responsePagePath;
     public String responsePagePath() {
-        if (responsePagePath == null) return null;
-        return responsePagePath.getValue("DistributionCustomErrorResponseArgs.responsePagePath");
+        if (!unknown_responsePagePath) return value_responsePagePath;
+        throw new UndeferrableValueException("Value 'DistributionCustomErrorResponseArgs.responsePagePath' is not present");
     }
 
 }

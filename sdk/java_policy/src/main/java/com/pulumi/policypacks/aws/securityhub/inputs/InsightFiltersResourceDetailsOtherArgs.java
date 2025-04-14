@@ -3,35 +3,39 @@
 
 package com.pulumi.policypacks.aws.securityhub.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class InsightFiltersResourceDetailsOtherArgs {
 
-    private UndeferrableValue<String> comparison;
-
+    @PolicyResourceProperty(name="comparison", flag="unknown_comparison")
+    private String value_comparison;
+    private boolean unknown_comparison;
     public String comparison() {
-        if (comparison == null) return null;
-        return comparison.getValue("InsightFiltersResourceDetailsOtherArgs.comparison");
+        if (!unknown_comparison) return value_comparison;
+        throw new UndeferrableValueException("Value 'InsightFiltersResourceDetailsOtherArgs.comparison' is not present");
     }
 
     /**
      * The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("InsightFiltersResourceDetailsOtherArgs.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'InsightFiltersResourceDetailsOtherArgs.key' is not present");
     }
 
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("InsightFiltersResourceDetailsOtherArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'InsightFiltersResourceDetailsOtherArgs.value' is not present");
     }
 
 }

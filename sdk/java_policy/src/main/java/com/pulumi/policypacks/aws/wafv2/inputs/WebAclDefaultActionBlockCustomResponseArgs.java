@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.WebAclDefaultActionBlockCustomResponseResponseHeaderArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class WebAclDefaultActionBlockCustomResponseArgs {
      * References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `custom_response_body` block of this resource.
      * 
      */
-    private UndeferrableValue<String> customResponseBodyKey;
-
+    @PolicyResourceProperty(name="customResponseBodyKey", flag="unknown_customResponseBodyKey")
+    private String value_customResponseBodyKey;
+    private boolean unknown_customResponseBodyKey;
     public String customResponseBodyKey() {
-        if (customResponseBodyKey == null) return null;
-        return customResponseBodyKey.getValue("WebAclDefaultActionBlockCustomResponseArgs.customResponseBodyKey");
+        if (!unknown_customResponseBodyKey) return value_customResponseBodyKey;
+        throw new UndeferrableValueException("Value 'WebAclDefaultActionBlockCustomResponseArgs.customResponseBodyKey' is not present");
     }
 
     /**
      * The HTTP status code to return to the client.
      * 
      */
-    private UndeferrableValue<Integer> responseCode;
-
+    @PolicyResourceProperty(name="responseCode", flag="unknown_responseCode")
+    private Integer value_responseCode;
+    private boolean unknown_responseCode;
     public Integer responseCode() {
-        if (responseCode == null) return null;
-        return responseCode.getValue("WebAclDefaultActionBlockCustomResponseArgs.responseCode");
+        if (!unknown_responseCode) return value_responseCode;
+        throw new UndeferrableValueException("Value 'WebAclDefaultActionBlockCustomResponseArgs.responseCode' is not present");
     }
 
     /**
      * The `response_header` blocks used to define the HTTP response headers added to the response. See `response_header` below for details.
      * 
      */
-    private UndeferrableValue<List<WebAclDefaultActionBlockCustomResponseResponseHeaderArgs>> responseHeaders;
-
+    @PolicyResourceProperty(name="responseHeaders", flag="unknown_responseHeaders")
+    private List<WebAclDefaultActionBlockCustomResponseResponseHeaderArgs> value_responseHeaders;
+    private boolean unknown_responseHeaders;
     public List<WebAclDefaultActionBlockCustomResponseResponseHeaderArgs> responseHeaders() {
-        if (responseHeaders == null) return null;
-        return responseHeaders.getValue("WebAclDefaultActionBlockCustomResponseArgs.responseHeaders");
+        if (!unknown_responseHeaders) return value_responseHeaders;
+        throw new UndeferrableValueException("Value 'WebAclDefaultActionBlockCustomResponseArgs.responseHeaders' is not present");
     }
 
 }

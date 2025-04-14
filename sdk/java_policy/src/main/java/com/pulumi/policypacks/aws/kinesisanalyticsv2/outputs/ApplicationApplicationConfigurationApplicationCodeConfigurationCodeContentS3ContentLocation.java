@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
      * The ARN for the S3 bucket containing the application code.
      * 
      */
-    private UndeferrableValue<String> bucketArn;
-
+    @PolicyResourceProperty(name="bucketArn", flag="unknown_bucketArn")
+    private String value_bucketArn;
+    private boolean unknown_bucketArn;
     public String bucketArn() {
-        if (bucketArn == null) return null;
-        return bucketArn.getValue("ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation.bucketArn");
+        if (!unknown_bucketArn) return value_bucketArn;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation.bucketArn' is not present");
     }
 
     /**
      * The file key for the object containing the application code.
      * 
      */
-    private UndeferrableValue<String> fileKey;
-
+    @PolicyResourceProperty(name="fileKey", flag="unknown_fileKey")
+    private String value_fileKey;
+    private boolean unknown_fileKey;
     public String fileKey() {
-        if (fileKey == null) return null;
-        return fileKey.getValue("ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation.fileKey");
+        if (!unknown_fileKey) return value_fileKey;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation.fileKey' is not present");
     }
 
     /**
      * The version of the object containing the application code.
      * 
      */
-    private @Nullable UndeferrableValue<String> objectVersion;
-
+    @PolicyResourceProperty(name="objectVersion", flag="unknown_objectVersion")
+    private @Nullable String value_objectVersion;
+    private boolean unknown_objectVersion;
     public @Nullable String objectVersion() {
-        if (objectVersion == null) return null;
-        return objectVersion.getValue("ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation.objectVersion");
+        if (!unknown_objectVersion) return value_objectVersion;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation.objectVersion' is not present");
     }
 
 }

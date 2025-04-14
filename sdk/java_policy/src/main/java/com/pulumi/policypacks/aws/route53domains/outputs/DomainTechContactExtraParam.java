@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53domains.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class DomainTechContactExtraParam {
      * The name of an additional parameter that is required by a top-level domain.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DomainTechContactExtraParam.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DomainTechContactExtraParam.name' is not present");
     }
 
     /**
      * The value that corresponds with the name of an extra parameter.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("DomainTechContactExtraParam.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'DomainTechContactExtraParam.value' is not present");
     }
 
 }

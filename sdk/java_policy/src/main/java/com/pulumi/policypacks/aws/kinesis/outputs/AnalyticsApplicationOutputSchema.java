@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class AnalyticsApplicationOutputSchema {
      * The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
      * 
      */
-    private UndeferrableValue<String> recordFormatType;
-
+    @PolicyResourceProperty(name="recordFormatType", flag="unknown_recordFormatType")
+    private String value_recordFormatType;
+    private boolean unknown_recordFormatType;
     public String recordFormatType() {
-        if (recordFormatType == null) return null;
-        return recordFormatType.getValue("AnalyticsApplicationOutputSchema.recordFormatType");
+        if (!unknown_recordFormatType) return value_recordFormatType;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationOutputSchema.recordFormatType' is not present");
     }
 
 }

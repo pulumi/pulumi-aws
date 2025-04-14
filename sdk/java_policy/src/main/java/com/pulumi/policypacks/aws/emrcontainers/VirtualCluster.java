@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emrcontainers;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.emrcontainers.outputs.VirtualClusterContainerProvider;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class VirtualCluster extends com.pulumi.resources.PolicyResourceOut
      * ARN of the cluster.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("VirtualCluster.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'VirtualCluster.arn' is not present");
     }
 
     /**
      * Configuration block for the container provider associated with your cluster.
      * 
      */
-    private UndeferrableValue<VirtualClusterContainerProvider> containerProvider;
-
+    @PolicyResourceProperty(name="containerProvider", flag="unknown_containerProvider")
+    private VirtualClusterContainerProvider value_containerProvider;
+    private boolean unknown_containerProvider;
     public VirtualClusterContainerProvider containerProvider() {
-        if (containerProvider == null) return null;
-        return containerProvider.getValue("VirtualCluster.containerProvider");
+        if (!unknown_containerProvider) return value_containerProvider;
+        throw new UndeferrableValueException("Value 'VirtualCluster.containerProvider' is not present");
     }
 
     /**
      * Name of the virtual cluster.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("VirtualCluster.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'VirtualCluster.name' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VirtualCluster.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VirtualCluster.tags' is not present");
     }
 
     /**
@@ -66,11 +71,12 @@ public final class VirtualCluster extends com.pulumi.resources.PolicyResourceOut
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("VirtualCluster.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'VirtualCluster.tagsAll' is not present");
     }
 
 }

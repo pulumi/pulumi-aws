@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.secretsmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,55 +18,60 @@ public final class SecretVersion extends com.pulumi.resources.PolicyResourceOutp
      * The ARN of the secret.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("SecretVersion.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'SecretVersion.arn' is not present");
     }
 
     /**
      * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` or `secret_string_wo` is not set. Needs to be encoded to base64.
      * 
      */
-    private @Nullable UndeferrableValue<String> secretBinary;
-
+    @PolicyResourceProperty(name="secretBinary", flag="unknown_secretBinary")
+    private @Nullable String value_secretBinary;
+    private boolean unknown_secretBinary;
     public @Nullable String secretBinary() {
-        if (secretBinary == null) return null;
-        return secretBinary.getValue("SecretVersion.secretBinary");
+        if (!unknown_secretBinary) return value_secretBinary;
+        throw new UndeferrableValueException("Value 'SecretVersion.secretBinary' is not present");
     }
 
     /**
      * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
      * 
      */
-    private UndeferrableValue<String> secretId;
-
+    @PolicyResourceProperty(name="secretId", flag="unknown_secretId")
+    private String value_secretId;
+    private boolean unknown_secretId;
     public String secretId() {
-        if (secretId == null) return null;
-        return secretId.getValue("SecretVersion.secretId");
+        if (!unknown_secretId) return value_secretId;
+        throw new UndeferrableValueException("Value 'SecretVersion.secretId' is not present");
     }
 
     /**
      * Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string_wo` is not set.
      * 
      */
-    private @Nullable UndeferrableValue<String> secretString;
-
+    @PolicyResourceProperty(name="secretString", flag="unknown_secretString")
+    private @Nullable String value_secretString;
+    private boolean unknown_secretString;
     public @Nullable String secretString() {
-        if (secretString == null) return null;
-        return secretString.getValue("SecretVersion.secretString");
+        if (!unknown_secretString) return value_secretString;
+        throw new UndeferrableValueException("Value 'SecretVersion.secretString' is not present");
     }
 
     /**
      * The unique identifier of the version of the secret.
      * 
      */
-    private UndeferrableValue<String> versionId;
-
+    @PolicyResourceProperty(name="versionId", flag="unknown_versionId")
+    private String value_versionId;
+    private boolean unknown_versionId;
     public String versionId() {
-        if (versionId == null) return null;
-        return versionId.getValue("SecretVersion.versionId");
+        if (!unknown_versionId) return value_versionId;
+        throw new UndeferrableValueException("Value 'SecretVersion.versionId' is not present");
     }
 
     /**
@@ -74,11 +80,12 @@ public final class SecretVersion extends com.pulumi.resources.PolicyResourceOutp
      * &gt; **NOTE:** If `version_stages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
      * 
      */
-    private UndeferrableValue<List<String>> versionStages;
-
+    @PolicyResourceProperty(name="versionStages", flag="unknown_versionStages")
+    private List<String> value_versionStages;
+    private boolean unknown_versionStages;
     public List<String> versionStages() {
-        if (versionStages == null) return null;
-        return versionStages.getValue("SecretVersion.versionStages");
+        if (!unknown_versionStages) return value_versionStages;
+        throw new UndeferrableValueException("Value 'SecretVersion.versionStages' is not present");
     }
 
 }

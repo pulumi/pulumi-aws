@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,11 +16,12 @@ public final class SecurityTokenServicePreferences extends com.pulumi.resources.
      * The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
      * 
      */
-    private UndeferrableValue<String> globalEndpointTokenVersion;
-
+    @PolicyResourceProperty(name="globalEndpointTokenVersion", flag="unknown_globalEndpointTokenVersion")
+    private String value_globalEndpointTokenVersion;
+    private boolean unknown_globalEndpointTokenVersion;
     public String globalEndpointTokenVersion() {
-        if (globalEndpointTokenVersion == null) return null;
-        return globalEndpointTokenVersion.getValue("SecurityTokenServicePreferences.globalEndpointTokenVersion");
+        if (!unknown_globalEndpointTokenVersion) return value_globalEndpointTokenVersion;
+        throw new UndeferrableValueException("Value 'SecurityTokenServicePreferences.globalEndpointTokenVersion' is not present");
     }
 
 }

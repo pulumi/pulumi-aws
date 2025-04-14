@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class V2modelsIntentKendraConfigurationArgs {
      * ARN of the Amazon Kendra index that you want the AMAZON.KendraSearchIntent intent to search. The index must be in the same account and Region as the Amazon Lex bot.
      * 
      */
-    private UndeferrableValue<String> kendraIndex;
-
+    @PolicyResourceProperty(name="kendraIndex", flag="unknown_kendraIndex")
+    private String value_kendraIndex;
+    private boolean unknown_kendraIndex;
     public String kendraIndex() {
-        if (kendraIndex == null) return null;
-        return kendraIndex.getValue("V2modelsIntentKendraConfigurationArgs.kendraIndex");
+        if (!unknown_kendraIndex) return value_kendraIndex;
+        throw new UndeferrableValueException("Value 'V2modelsIntentKendraConfigurationArgs.kendraIndex' is not present");
     }
 
     /**
      * Query filter that Amazon Lex sends to Amazon Kendra to filter the response from a query. The filter is in the format defined by Amazon Kendra. For more information, see [Filtering queries](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html).
      * 
      */
-    private UndeferrableValue<String> queryFilterString;
-
+    @PolicyResourceProperty(name="queryFilterString", flag="unknown_queryFilterString")
+    private String value_queryFilterString;
+    private boolean unknown_queryFilterString;
     public String queryFilterString() {
-        if (queryFilterString == null) return null;
-        return queryFilterString.getValue("V2modelsIntentKendraConfigurationArgs.queryFilterString");
+        if (!unknown_queryFilterString) return value_queryFilterString;
+        throw new UndeferrableValueException("Value 'V2modelsIntentKendraConfigurationArgs.queryFilterString' is not present");
     }
 
     /**
      * Whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
      * 
      */
-    private UndeferrableValue<Boolean> queryFilterStringEnabled;
-
+    @PolicyResourceProperty(name="queryFilterStringEnabled", flag="unknown_queryFilterStringEnabled")
+    private Boolean value_queryFilterStringEnabled;
+    private boolean unknown_queryFilterStringEnabled;
     public Boolean queryFilterStringEnabled() {
-        if (queryFilterStringEnabled == null) return null;
-        return queryFilterStringEnabled.getValue("V2modelsIntentKendraConfigurationArgs.queryFilterStringEnabled");
+        if (!unknown_queryFilterStringEnabled) return value_queryFilterStringEnabled;
+        throw new UndeferrableValueException("Value 'V2modelsIntentKendraConfigurationArgs.queryFilterStringEnabled' is not present");
     }
 
 }

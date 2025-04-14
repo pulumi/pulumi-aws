@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationArgs;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentDataSourceServerSideEncryptionConfigurationArgs;
@@ -20,44 +21,48 @@ public final class AgentDataSourceArgs extends com.pulumi.resources.PolicyResour
      * Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
      * 
      */
-    private UndeferrableValue<String> dataDeletionPolicy;
-
+    @PolicyResourceProperty(name="dataDeletionPolicy", flag="unknown_dataDeletionPolicy")
+    private String value_dataDeletionPolicy;
+    private boolean unknown_dataDeletionPolicy;
     public String dataDeletionPolicy() {
-        if (dataDeletionPolicy == null) return null;
-        return dataDeletionPolicy.getValue("AgentDataSourceArgs.dataDeletionPolicy");
+        if (!unknown_dataDeletionPolicy) return value_dataDeletionPolicy;
+        throw new UndeferrableValueException("Value 'AgentDataSourceArgs.dataDeletionPolicy' is not present");
     }
 
     /**
      * Details about how the data source is stored. See `data_source_configuration` block for details.
      * 
      */
-    private UndeferrableValue<AgentDataSourceDataSourceConfigurationArgs> dataSourceConfiguration;
-
+    @PolicyResourceProperty(name="dataSourceConfiguration", flag="unknown_dataSourceConfiguration")
+    private AgentDataSourceDataSourceConfigurationArgs value_dataSourceConfiguration;
+    private boolean unknown_dataSourceConfiguration;
     public AgentDataSourceDataSourceConfigurationArgs dataSourceConfiguration() {
-        if (dataSourceConfiguration == null) return null;
-        return dataSourceConfiguration.getValue("AgentDataSourceArgs.dataSourceConfiguration");
+        if (!unknown_dataSourceConfiguration) return value_dataSourceConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceArgs.dataSourceConfiguration' is not present");
     }
 
     /**
      * Description of the data source.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("AgentDataSourceArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AgentDataSourceArgs.description' is not present");
     }
 
     /**
      * Unique identifier of the knowledge base to which the data source belongs.
      * 
      */
-    private UndeferrableValue<String> knowledgeBaseId;
-
+    @PolicyResourceProperty(name="knowledgeBaseId", flag="unknown_knowledgeBaseId")
+    private String value_knowledgeBaseId;
+    private boolean unknown_knowledgeBaseId;
     public String knowledgeBaseId() {
-        if (knowledgeBaseId == null) return null;
-        return knowledgeBaseId.getValue("AgentDataSourceArgs.knowledgeBaseId");
+        if (!unknown_knowledgeBaseId) return value_knowledgeBaseId;
+        throw new UndeferrableValueException("Value 'AgentDataSourceArgs.knowledgeBaseId' is not present");
     }
 
     /**
@@ -66,40 +71,44 @@ public final class AgentDataSourceArgs extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AgentDataSourceArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AgentDataSourceArgs.name' is not present");
     }
 
     /**
      * Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
      * 
      */
-    private UndeferrableValue<AgentDataSourceServerSideEncryptionConfigurationArgs> serverSideEncryptionConfiguration;
-
+    @PolicyResourceProperty(name="serverSideEncryptionConfiguration", flag="unknown_serverSideEncryptionConfiguration")
+    private AgentDataSourceServerSideEncryptionConfigurationArgs value_serverSideEncryptionConfiguration;
+    private boolean unknown_serverSideEncryptionConfiguration;
     public AgentDataSourceServerSideEncryptionConfigurationArgs serverSideEncryptionConfiguration() {
-        if (serverSideEncryptionConfiguration == null) return null;
-        return serverSideEncryptionConfiguration.getValue("AgentDataSourceArgs.serverSideEncryptionConfiguration");
+        if (!unknown_serverSideEncryptionConfiguration) return value_serverSideEncryptionConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceArgs.serverSideEncryptionConfiguration' is not present");
     }
 
-    private UndeferrableValue<AgentDataSourceTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private AgentDataSourceTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public AgentDataSourceTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("AgentDataSourceArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'AgentDataSourceArgs.timeouts' is not present");
     }
 
     /**
      * Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
      * 
      */
-    private UndeferrableValue<AgentDataSourceVectorIngestionConfigurationArgs> vectorIngestionConfiguration;
-
+    @PolicyResourceProperty(name="vectorIngestionConfiguration", flag="unknown_vectorIngestionConfiguration")
+    private AgentDataSourceVectorIngestionConfigurationArgs value_vectorIngestionConfiguration;
+    private boolean unknown_vectorIngestionConfiguration;
     public AgentDataSourceVectorIngestionConfigurationArgs vectorIngestionConfiguration() {
-        if (vectorIngestionConfiguration == null) return null;
-        return vectorIngestionConfiguration.getValue("AgentDataSourceArgs.vectorIngestionConfiguration");
+        if (!unknown_vectorIngestionConfiguration) return value_vectorIngestionConfiguration;
+        throw new UndeferrableValueException("Value 'AgentDataSourceArgs.vectorIngestionConfiguration' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.outputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles;
 import java.lang.Boolean;
 
@@ -14,22 +15,24 @@ public final class FieldLevelEncryptionConfigContentTypeProfileConfig {
      * Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
      * 
      */
-    private UndeferrableValue<FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles> contentTypeProfiles;
-
+    @PolicyResourceProperty(name="contentTypeProfiles", flag="unknown_contentTypeProfiles")
+    private FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles value_contentTypeProfiles;
+    private boolean unknown_contentTypeProfiles;
     public FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles contentTypeProfiles() {
-        if (contentTypeProfiles == null) return null;
-        return contentTypeProfiles.getValue("FieldLevelEncryptionConfigContentTypeProfileConfig.contentTypeProfiles");
+        if (!unknown_contentTypeProfiles) return value_contentTypeProfiles;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfigContentTypeProfileConfig.contentTypeProfiles' is not present");
     }
 
     /**
      * specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown.
      * 
      */
-    private UndeferrableValue<Boolean> forwardWhenContentTypeIsUnknown;
-
+    @PolicyResourceProperty(name="forwardWhenContentTypeIsUnknown", flag="unknown_forwardWhenContentTypeIsUnknown")
+    private Boolean value_forwardWhenContentTypeIsUnknown;
+    private boolean unknown_forwardWhenContentTypeIsUnknown;
     public Boolean forwardWhenContentTypeIsUnknown() {
-        if (forwardWhenContentTypeIsUnknown == null) return null;
-        return forwardWhenContentTypeIsUnknown.getValue("FieldLevelEncryptionConfigContentTypeProfileConfig.forwardWhenContentTypeIsUnknown");
+        if (!unknown_forwardWhenContentTypeIsUnknown) return value_forwardWhenContentTypeIsUnknown;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfigContentTypeProfileConfig.forwardWhenContentTypeIsUnknown' is not present");
     }
 
 }

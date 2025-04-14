@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,44 +14,48 @@ public final class PermissionsDataCellsFilter {
      * The name of the database.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("PermissionsDataCellsFilter.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'PermissionsDataCellsFilter.databaseName' is not present");
     }
 
     /**
      * The name of the data cells filter.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PermissionsDataCellsFilter.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PermissionsDataCellsFilter.name' is not present");
     }
 
     /**
      * The ID of the Data Catalog.
      * 
      */
-    private UndeferrableValue<String> tableCatalogId;
-
+    @PolicyResourceProperty(name="tableCatalogId", flag="unknown_tableCatalogId")
+    private String value_tableCatalogId;
+    private boolean unknown_tableCatalogId;
     public String tableCatalogId() {
-        if (tableCatalogId == null) return null;
-        return tableCatalogId.getValue("PermissionsDataCellsFilter.tableCatalogId");
+        if (!unknown_tableCatalogId) return value_tableCatalogId;
+        throw new UndeferrableValueException("Value 'PermissionsDataCellsFilter.tableCatalogId' is not present");
     }
 
     /**
      * The name of the table.
      * 
      */
-    private UndeferrableValue<String> tableName;
-
+    @PolicyResourceProperty(name="tableName", flag="unknown_tableName")
+    private String value_tableName;
+    private boolean unknown_tableName;
     public String tableName() {
-        if (tableName == null) return null;
-        return tableName.getValue("PermissionsDataCellsFilter.tableName");
+        if (!unknown_tableName) return value_tableName;
+        throw new UndeferrableValueException("Value 'PermissionsDataCellsFilter.tableName' is not present");
     }
 
 }

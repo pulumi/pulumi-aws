@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.datasync.inputs.NfsLocationMountOptionsArgs;
 import com.pulumi.policypacks.aws.datasync.inputs.NfsLocationOnPremConfigArgs;
@@ -19,55 +20,60 @@ public final class NfsLocationArgs extends com.pulumi.resources.PolicyResourceIn
      * Configuration block containing mount options used by DataSync to access the NFS Server.
      * 
      */
-    private UndeferrableValue<NfsLocationMountOptionsArgs> mountOptions;
-
+    @PolicyResourceProperty(name="mountOptions", flag="unknown_mountOptions")
+    private NfsLocationMountOptionsArgs value_mountOptions;
+    private boolean unknown_mountOptions;
     public NfsLocationMountOptionsArgs mountOptions() {
-        if (mountOptions == null) return null;
-        return mountOptions.getValue("NfsLocationArgs.mountOptions");
+        if (!unknown_mountOptions) return value_mountOptions;
+        throw new UndeferrableValueException("Value 'NfsLocationArgs.mountOptions' is not present");
     }
 
     /**
      * Configuration block containing information for connecting to the NFS File System.
      * 
      */
-    private UndeferrableValue<NfsLocationOnPremConfigArgs> onPremConfig;
-
+    @PolicyResourceProperty(name="onPremConfig", flag="unknown_onPremConfig")
+    private NfsLocationOnPremConfigArgs value_onPremConfig;
+    private boolean unknown_onPremConfig;
     public NfsLocationOnPremConfigArgs onPremConfig() {
-        if (onPremConfig == null) return null;
-        return onPremConfig.getValue("NfsLocationArgs.onPremConfig");
+        if (!unknown_onPremConfig) return value_onPremConfig;
+        throw new UndeferrableValueException("Value 'NfsLocationArgs.onPremConfig' is not present");
     }
 
     /**
      * Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
      * 
      */
-    private UndeferrableValue<String> serverHostname;
-
+    @PolicyResourceProperty(name="serverHostname", flag="unknown_serverHostname")
+    private String value_serverHostname;
+    private boolean unknown_serverHostname;
     public String serverHostname() {
-        if (serverHostname == null) return null;
-        return serverHostname.getValue("NfsLocationArgs.serverHostname");
+        if (!unknown_serverHostname) return value_serverHostname;
+        throw new UndeferrableValueException("Value 'NfsLocationArgs.serverHostname' is not present");
     }
 
     /**
      * Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
      * 
      */
-    private UndeferrableValue<String> subdirectory;
-
+    @PolicyResourceProperty(name="subdirectory", flag="unknown_subdirectory")
+    private String value_subdirectory;
+    private boolean unknown_subdirectory;
     public String subdirectory() {
-        if (subdirectory == null) return null;
-        return subdirectory.getValue("NfsLocationArgs.subdirectory");
+        if (!unknown_subdirectory) return value_subdirectory;
+        throw new UndeferrableValueException("Value 'NfsLocationArgs.subdirectory' is not present");
     }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("NfsLocationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'NfsLocationArgs.tags' is not present");
     }
 
 }

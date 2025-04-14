@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.imagebuilder.inputs.LifecyclePolicyPolicyDetailExclusionRulesAmisArgs;
 import java.lang.String;
 import java.util.Map;
@@ -16,22 +17,24 @@ public final class LifecyclePolicyPolicyDetailExclusionRulesArgs {
      * Lists configuration values that apply to AMIs that Image Builder should exclude from the lifecycle action. Detailed below.
      * 
      */
-    private UndeferrableValue<LifecyclePolicyPolicyDetailExclusionRulesAmisArgs> amis;
-
+    @PolicyResourceProperty(name="amis", flag="unknown_amis")
+    private LifecyclePolicyPolicyDetailExclusionRulesAmisArgs value_amis;
+    private boolean unknown_amis;
     public LifecyclePolicyPolicyDetailExclusionRulesAmisArgs amis() {
-        if (amis == null) return null;
-        return amis.getValue("LifecyclePolicyPolicyDetailExclusionRulesArgs.amis");
+        if (!unknown_amis) return value_amis;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailExclusionRulesArgs.amis' is not present");
     }
 
     /**
      * Contains a list of tags that Image Builder uses to skip lifecycle actions for Image Builder image resources that have them.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tagMap;
-
+    @PolicyResourceProperty(name="tagMap", flag="unknown_tagMap")
+    private Map<String,String> value_tagMap;
+    private boolean unknown_tagMap;
     public Map<String,String> tagMap() {
-        if (tagMap == null) return null;
-        return tagMap.getValue("LifecyclePolicyPolicyDetailExclusionRulesArgs.tagMap");
+        if (!unknown_tagMap) return value_tagMap;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailExclusionRulesArgs.tagMap' is not present");
     }
 
 }

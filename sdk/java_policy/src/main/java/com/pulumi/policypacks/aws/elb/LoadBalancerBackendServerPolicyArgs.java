@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class LoadBalancerBackendServerPolicyArgs extends com.pulumi.resour
      * The instance port to apply the policy to.
      * 
      */
-    private UndeferrableValue<Integer> instancePort;
-
+    @PolicyResourceProperty(name="instancePort", flag="unknown_instancePort")
+    private Integer value_instancePort;
+    private boolean unknown_instancePort;
     public Integer instancePort() {
-        if (instancePort == null) return null;
-        return instancePort.getValue("LoadBalancerBackendServerPolicyArgs.instancePort");
+        if (!unknown_instancePort) return value_instancePort;
+        throw new UndeferrableValueException("Value 'LoadBalancerBackendServerPolicyArgs.instancePort' is not present");
     }
 
     /**
      * The load balancer to attach the policy to.
      * 
      */
-    private UndeferrableValue<String> loadBalancerName;
-
+    @PolicyResourceProperty(name="loadBalancerName", flag="unknown_loadBalancerName")
+    private String value_loadBalancerName;
+    private boolean unknown_loadBalancerName;
     public String loadBalancerName() {
-        if (loadBalancerName == null) return null;
-        return loadBalancerName.getValue("LoadBalancerBackendServerPolicyArgs.loadBalancerName");
+        if (!unknown_loadBalancerName) return value_loadBalancerName;
+        throw new UndeferrableValueException("Value 'LoadBalancerBackendServerPolicyArgs.loadBalancerName' is not present");
     }
 
     /**
      * List of Policy Names to apply to the backend server.
      * 
      */
-    private UndeferrableValue<List<String>> policyNames;
-
+    @PolicyResourceProperty(name="policyNames", flag="unknown_policyNames")
+    private List<String> value_policyNames;
+    private boolean unknown_policyNames;
     public List<String> policyNames() {
-        if (policyNames == null) return null;
-        return policyNames.getValue("LoadBalancerBackendServerPolicyArgs.policyNames");
+        if (!unknown_policyNames) return value_policyNames;
+        throw new UndeferrableValueException("Value 'LoadBalancerBackendServerPolicyArgs.policyNames' is not present");
     }
 
 }

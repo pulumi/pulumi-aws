@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.comprehend.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -15,22 +16,24 @@ public final class DocumentClassifierOutputDataConfigArgs {
      * Can be a KMS Key ID, a KMS Key ARN, a KMS Alias name, or a KMS Alias ARN.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("DocumentClassifierOutputDataConfigArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'DocumentClassifierOutputDataConfigArgs.kmsKeyId' is not present");
     }
 
     /**
      * Full path for the output documents.
      * 
      */
-    private UndeferrableValue<String> outputS3Uri;
-
+    @PolicyResourceProperty(name="outputS3Uri", flag="unknown_outputS3Uri")
+    private String value_outputS3Uri;
+    private boolean unknown_outputS3Uri;
     public String outputS3Uri() {
-        if (outputS3Uri == null) return null;
-        return outputS3Uri.getValue("DocumentClassifierOutputDataConfigArgs.outputS3Uri");
+        if (!unknown_outputS3Uri) return value_outputS3Uri;
+        throw new UndeferrableValueException("Value 'DocumentClassifierOutputDataConfigArgs.outputS3Uri' is not present");
     }
 
     /**
@@ -38,11 +41,12 @@ public final class DocumentClassifierOutputDataConfigArgs {
      * The full path to the output file will be returned in `output_s3_uri`.
      * 
      */
-    private UndeferrableValue<String> s3Uri;
-
+    @PolicyResourceProperty(name="s3Uri", flag="unknown_s3Uri")
+    private String value_s3Uri;
+    private boolean unknown_s3Uri;
     public String s3Uri() {
-        if (s3Uri == null) return null;
-        return s3Uri.getValue("DocumentClassifierOutputDataConfigArgs.s3Uri");
+        if (!unknown_s3Uri) return value_s3Uri;
+        throw new UndeferrableValueException("Value 'DocumentClassifierOutputDataConfigArgs.s3Uri' is not present");
     }
 
 }

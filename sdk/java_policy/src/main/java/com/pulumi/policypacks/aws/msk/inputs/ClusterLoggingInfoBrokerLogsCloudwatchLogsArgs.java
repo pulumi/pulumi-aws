@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,22 +12,24 @@ import javax.annotation.Nullable;
 
 public final class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs {
 
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs.enabled' is not present");
     }
 
     /**
      * Name of the Cloudwatch Log Group to deliver logs to.
      * 
      */
-    private UndeferrableValue<String> logGroup;
-
+    @PolicyResourceProperty(name="logGroup", flag="unknown_logGroup")
+    private String value_logGroup;
+    private boolean unknown_logGroup;
     public String logGroup() {
-        if (logGroup == null) return null;
-        return logGroup.getValue("ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs.logGroup");
+        if (!unknown_logGroup) return value_logGroup;
+        throw new UndeferrableValueException("Value 'ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs.logGroup' is not present");
     }
 
 }

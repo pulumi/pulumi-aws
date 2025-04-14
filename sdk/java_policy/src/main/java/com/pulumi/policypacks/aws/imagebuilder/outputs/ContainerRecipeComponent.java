@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.imagebuilder.outputs.ContainerRecipeComponentParameter;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class ContainerRecipeComponent {
      * Amazon Resource Name (ARN) of the Image Builder Component to associate.
      * 
      */
-    private UndeferrableValue<String> componentArn;
-
+    @PolicyResourceProperty(name="componentArn", flag="unknown_componentArn")
+    private String value_componentArn;
+    private boolean unknown_componentArn;
     public String componentArn() {
-        if (componentArn == null) return null;
-        return componentArn.getValue("ContainerRecipeComponent.componentArn");
+        if (!unknown_componentArn) return value_componentArn;
+        throw new UndeferrableValueException("Value 'ContainerRecipeComponent.componentArn' is not present");
     }
 
     /**
      * Configuration block(s) for parameters to configure the component. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ContainerRecipeComponentParameter>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private @Nullable List<ContainerRecipeComponentParameter> value_parameters;
+    private boolean unknown_parameters;
     public @Nullable List<ContainerRecipeComponentParameter> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("ContainerRecipeComponent.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'ContainerRecipeComponent.parameters' is not present");
     }
 
 }

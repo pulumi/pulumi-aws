@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.apprunner.inputs.ObservabilityConfigurationTraceConfigurationArgs;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class ObservabilityConfigurationArgs extends com.pulumi.resources.P
      * Name of the observability configuration.
      * 
      */
-    private UndeferrableValue<String> observabilityConfigurationName;
-
+    @PolicyResourceProperty(name="observabilityConfigurationName", flag="unknown_observabilityConfigurationName")
+    private String value_observabilityConfigurationName;
+    private boolean unknown_observabilityConfigurationName;
     public String observabilityConfigurationName() {
-        if (observabilityConfigurationName == null) return null;
-        return observabilityConfigurationName.getValue("ObservabilityConfigurationArgs.observabilityConfigurationName");
+        if (!unknown_observabilityConfigurationName) return value_observabilityConfigurationName;
+        throw new UndeferrableValueException("Value 'ObservabilityConfigurationArgs.observabilityConfigurationName' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ObservabilityConfigurationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ObservabilityConfigurationArgs.tags' is not present");
     }
 
     /**
      * Configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
      * 
      */
-    private UndeferrableValue<ObservabilityConfigurationTraceConfigurationArgs> traceConfiguration;
-
+    @PolicyResourceProperty(name="traceConfiguration", flag="unknown_traceConfiguration")
+    private ObservabilityConfigurationTraceConfigurationArgs value_traceConfiguration;
+    private boolean unknown_traceConfiguration;
     public ObservabilityConfigurationTraceConfigurationArgs traceConfiguration() {
-        if (traceConfiguration == null) return null;
-        return traceConfiguration.getValue("ObservabilityConfigurationArgs.traceConfiguration");
+        if (!unknown_traceConfiguration) return value_traceConfiguration;
+        throw new UndeferrableValueException("Value 'ObservabilityConfigurationArgs.traceConfiguration' is not present");
     }
 
 }

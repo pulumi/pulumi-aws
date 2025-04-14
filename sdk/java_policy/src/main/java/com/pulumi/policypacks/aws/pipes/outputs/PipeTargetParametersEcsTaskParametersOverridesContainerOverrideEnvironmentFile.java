@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
      * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile.type' is not present");
     }
 
     /**
      * Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile.value' is not present");
     }
 
 }

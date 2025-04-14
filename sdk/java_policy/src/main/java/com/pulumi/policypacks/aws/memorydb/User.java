@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.memorydb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.memorydb.outputs.UserAuthenticationMode;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class User extends com.pulumi.resources.PolicyResourceOutput {
      * Access permissions string used for this user.
      * 
      */
-    private UndeferrableValue<String> accessString;
-
+    @PolicyResourceProperty(name="accessString", flag="unknown_accessString")
+    private String value_accessString;
+    private boolean unknown_accessString;
     public String accessString() {
-        if (accessString == null) return null;
-        return accessString.getValue("User.accessString");
+        if (!unknown_accessString) return value_accessString;
+        throw new UndeferrableValueException("Value 'User.accessString' is not present");
     }
 
     /**
      * ARN of the user.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("User.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'User.arn' is not present");
     }
 
     /**
      * Denotes the user&#39;s authentication properties. Detailed below.
      * 
      */
-    private UndeferrableValue<UserAuthenticationMode> authenticationMode;
-
+    @PolicyResourceProperty(name="authenticationMode", flag="unknown_authenticationMode")
+    private UserAuthenticationMode value_authenticationMode;
+    private boolean unknown_authenticationMode;
     public UserAuthenticationMode authenticationMode() {
-        if (authenticationMode == null) return null;
-        return authenticationMode.getValue("User.authenticationMode");
+        if (!unknown_authenticationMode) return value_authenticationMode;
+        throw new UndeferrableValueException("Value 'User.authenticationMode' is not present");
     }
 
     /**
      * Minimum engine version supported for the user.
      * 
      */
-    private UndeferrableValue<String> minimumEngineVersion;
-
+    @PolicyResourceProperty(name="minimumEngineVersion", flag="unknown_minimumEngineVersion")
+    private String value_minimumEngineVersion;
+    private boolean unknown_minimumEngineVersion;
     public String minimumEngineVersion() {
-        if (minimumEngineVersion == null) return null;
-        return minimumEngineVersion.getValue("User.minimumEngineVersion");
+        if (!unknown_minimumEngineVersion) return value_minimumEngineVersion;
+        throw new UndeferrableValueException("Value 'User.minimumEngineVersion' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("User.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'User.tags' is not present");
     }
 
     /**
@@ -77,11 +83,12 @@ public final class User extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("User.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'User.tagsAll' is not present");
     }
 
     /**
@@ -90,11 +97,12 @@ public final class User extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> userName;
-
+    @PolicyResourceProperty(name="userName", flag="unknown_userName")
+    private String value_userName;
+    private boolean unknown_userName;
     public String userName() {
-        if (userName == null) return null;
-        return userName.getValue("User.userName");
+        if (!unknown_userName) return value_userName;
+        throw new UndeferrableValueException("Value 'User.userName' is not present");
     }
 
 }

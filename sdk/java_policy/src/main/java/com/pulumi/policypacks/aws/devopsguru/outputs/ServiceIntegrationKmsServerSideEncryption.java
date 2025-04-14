@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.devopsguru.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class ServiceIntegrationKmsServerSideEncryption {
      * KMS key ID. This value can be a key ID, key ARN, alias name, or alias ARN.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("ServiceIntegrationKmsServerSideEncryption.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'ServiceIntegrationKmsServerSideEncryption.kmsKeyId' is not present");
     }
 
     /**
      * Specifies whether KMS integration is enabled. Valid values are `DISABLED` and `ENABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> optInStatus;
-
+    @PolicyResourceProperty(name="optInStatus", flag="unknown_optInStatus")
+    private @Nullable String value_optInStatus;
+    private boolean unknown_optInStatus;
     public @Nullable String optInStatus() {
-        if (optInStatus == null) return null;
-        return optInStatus.getValue("ServiceIntegrationKmsServerSideEncryption.optInStatus");
+        if (!unknown_optInStatus) return value_optInStatus;
+        throw new UndeferrableValueException("Value 'ServiceIntegrationKmsServerSideEncryption.optInStatus' is not present");
     }
 
     /**
      * Type of KMS key used. Valid values are `CUSTOMER_MANAGED_KEY` and `AWS_OWNED_KMS_KEY`.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("ServiceIntegrationKmsServerSideEncryption.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ServiceIntegrationKmsServerSideEncryption.type' is not present");
     }
 
 }

@@ -3,25 +3,28 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
 
 public final class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRange {
 
-    private @Nullable UndeferrableValue<Integer> from;
-
+    @PolicyResourceProperty(name="from", flag="unknown_from")
+    private @Nullable Integer value_from;
+    private boolean unknown_from;
     public @Nullable Integer from() {
-        if (from == null) return null;
-        return from.getValue("NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRange.from");
+        if (!unknown_from) return value_from;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRange.from' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> to;
-
+    @PolicyResourceProperty(name="to", flag="unknown_to")
+    private @Nullable Integer value_to;
+    private boolean unknown_to;
     public @Nullable Integer to() {
-        if (to == null) return null;
-        return to.getValue("NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRange.to");
+        if (!unknown_to) return value_to;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRange.to' is not present");
     }
 
 }

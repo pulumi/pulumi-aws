@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.inputs.ThemeConfigurationSheetTileArgs;
 import com.pulumi.policypacks.aws.quicksight.inputs.ThemeConfigurationSheetTileLayoutArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ThemeConfigurationSheetArgs {
      * The display options for tiles. See tile.
      * 
      */
-    private UndeferrableValue<ThemeConfigurationSheetTileArgs> tile;
-
+    @PolicyResourceProperty(name="tile", flag="unknown_tile")
+    private ThemeConfigurationSheetTileArgs value_tile;
+    private boolean unknown_tile;
     public ThemeConfigurationSheetTileArgs tile() {
-        if (tile == null) return null;
-        return tile.getValue("ThemeConfigurationSheetArgs.tile");
+        if (!unknown_tile) return value_tile;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationSheetArgs.tile' is not present");
     }
 
     /**
      * The layout options for tiles. See tile_layout.
      * 
      */
-    private UndeferrableValue<ThemeConfigurationSheetTileLayoutArgs> tileLayout;
-
+    @PolicyResourceProperty(name="tileLayout", flag="unknown_tileLayout")
+    private ThemeConfigurationSheetTileLayoutArgs value_tileLayout;
+    private boolean unknown_tileLayout;
     public ThemeConfigurationSheetTileLayoutArgs tileLayout() {
-        if (tileLayout == null) return null;
-        return tileLayout.getValue("ThemeConfigurationSheetArgs.tileLayout");
+        if (!unknown_tileLayout) return value_tileLayout;
+        throw new UndeferrableValueException("Value 'ThemeConfigurationSheetArgs.tileLayout' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssoadmin;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,66 +17,72 @@ public final class AccountAssignment extends com.pulumi.resources.PolicyResource
      * The Amazon Resource Name (ARN) of the SSO Instance.
      * 
      */
-    private UndeferrableValue<String> instanceArn;
-
+    @PolicyResourceProperty(name="instanceArn", flag="unknown_instanceArn")
+    private String value_instanceArn;
+    private boolean unknown_instanceArn;
     public String instanceArn() {
-        if (instanceArn == null) return null;
-        return instanceArn.getValue("AccountAssignment.instanceArn");
+        if (!unknown_instanceArn) return value_instanceArn;
+        throw new UndeferrableValueException("Value 'AccountAssignment.instanceArn' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
      * 
      */
-    private UndeferrableValue<String> permissionSetArn;
-
+    @PolicyResourceProperty(name="permissionSetArn", flag="unknown_permissionSetArn")
+    private String value_permissionSetArn;
+    private boolean unknown_permissionSetArn;
     public String permissionSetArn() {
-        if (permissionSetArn == null) return null;
-        return permissionSetArn.getValue("AccountAssignment.permissionSetArn");
+        if (!unknown_permissionSetArn) return value_permissionSetArn;
+        throw new UndeferrableValueException("Value 'AccountAssignment.permissionSetArn' is not present");
     }
 
     /**
      * An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
      * 
      */
-    private UndeferrableValue<String> principalId;
-
+    @PolicyResourceProperty(name="principalId", flag="unknown_principalId")
+    private String value_principalId;
+    private boolean unknown_principalId;
     public String principalId() {
-        if (principalId == null) return null;
-        return principalId.getValue("AccountAssignment.principalId");
+        if (!unknown_principalId) return value_principalId;
+        throw new UndeferrableValueException("Value 'AccountAssignment.principalId' is not present");
     }
 
     /**
      * The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
      * 
      */
-    private UndeferrableValue<String> principalType;
-
+    @PolicyResourceProperty(name="principalType", flag="unknown_principalType")
+    private String value_principalType;
+    private boolean unknown_principalType;
     public String principalType() {
-        if (principalType == null) return null;
-        return principalType.getValue("AccountAssignment.principalType");
+        if (!unknown_principalType) return value_principalType;
+        throw new UndeferrableValueException("Value 'AccountAssignment.principalType' is not present");
     }
 
     /**
      * An AWS account identifier, typically a 10-12 digit string.
      * 
      */
-    private UndeferrableValue<String> targetId;
-
+    @PolicyResourceProperty(name="targetId", flag="unknown_targetId")
+    private String value_targetId;
+    private boolean unknown_targetId;
     public String targetId() {
-        if (targetId == null) return null;
-        return targetId.getValue("AccountAssignment.targetId");
+        if (!unknown_targetId) return value_targetId;
+        throw new UndeferrableValueException("Value 'AccountAssignment.targetId' is not present");
     }
 
     /**
      * The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
      * 
      */
-    private @Nullable UndeferrableValue<String> targetType;
-
+    @PolicyResourceProperty(name="targetType", flag="unknown_targetType")
+    private @Nullable String value_targetType;
+    private boolean unknown_targetType;
     public @Nullable String targetType() {
-        if (targetType == null) return null;
-        return targetType.getValue("AccountAssignment.targetType");
+        if (!unknown_targetType) return value_targetType;
+        throw new UndeferrableValueException("Value 'AccountAssignment.targetType' is not present");
     }
 
 }

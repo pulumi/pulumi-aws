@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.customerprofiles.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class DomainRuleBasedMatchingAttributeTypesSelectorArgs {
      * The `Address` type. You can choose from `Address`, `BusinessAddress`, `MaillingAddress`, and `ShippingAddress`.
      * 
      */
-    private UndeferrableValue<List<String>> addresses;
-
+    @PolicyResourceProperty(name="addresses", flag="unknown_addresses")
+    private List<String> value_addresses;
+    private boolean unknown_addresses;
     public List<String> addresses() {
-        if (addresses == null) return null;
-        return addresses.getValue("DomainRuleBasedMatchingAttributeTypesSelectorArgs.addresses");
+        if (!unknown_addresses) return value_addresses;
+        throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingAttributeTypesSelectorArgs.addresses' is not present");
     }
 
     /**
      * Configures the `AttributeMatchingModel`, you can either choose `ONE_TO_ONE` or `MANY_TO_MANY`.
      * 
      */
-    private UndeferrableValue<String> attributeMatchingModel;
-
+    @PolicyResourceProperty(name="attributeMatchingModel", flag="unknown_attributeMatchingModel")
+    private String value_attributeMatchingModel;
+    private boolean unknown_attributeMatchingModel;
     public String attributeMatchingModel() {
-        if (attributeMatchingModel == null) return null;
-        return attributeMatchingModel.getValue("DomainRuleBasedMatchingAttributeTypesSelectorArgs.attributeMatchingModel");
+        if (!unknown_attributeMatchingModel) return value_attributeMatchingModel;
+        throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingAttributeTypesSelectorArgs.attributeMatchingModel' is not present");
     }
 
     /**
      * The `Email` type. You can choose from `EmailAddress`, `BusinessEmailAddress` and `PersonalEmailAddress`.
      * 
      */
-    private UndeferrableValue<List<String>> emailAddresses;
-
+    @PolicyResourceProperty(name="emailAddresses", flag="unknown_emailAddresses")
+    private List<String> value_emailAddresses;
+    private boolean unknown_emailAddresses;
     public List<String> emailAddresses() {
-        if (emailAddresses == null) return null;
-        return emailAddresses.getValue("DomainRuleBasedMatchingAttributeTypesSelectorArgs.emailAddresses");
+        if (!unknown_emailAddresses) return value_emailAddresses;
+        throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingAttributeTypesSelectorArgs.emailAddresses' is not present");
     }
 
     /**
      * The `PhoneNumber` type. You can choose from `PhoneNumber`, `HomePhoneNumber`, and `MobilePhoneNumber`.
      * 
      */
-    private UndeferrableValue<List<String>> phoneNumbers;
-
+    @PolicyResourceProperty(name="phoneNumbers", flag="unknown_phoneNumbers")
+    private List<String> value_phoneNumbers;
+    private boolean unknown_phoneNumbers;
     public List<String> phoneNumbers() {
-        if (phoneNumbers == null) return null;
-        return phoneNumbers.getValue("DomainRuleBasedMatchingAttributeTypesSelectorArgs.phoneNumbers");
+        if (!unknown_phoneNumbers) return value_phoneNumbers;
+        throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingAttributeTypesSelectorArgs.phoneNumbers' is not present");
     }
 
 }

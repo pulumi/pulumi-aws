@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudfront.inputs.OriginRequestPolicyCookiesConfigArgs;
 import com.pulumi.policypacks.aws.cloudfront.inputs.OriginRequestPolicyHeadersConfigArgs;
@@ -19,55 +20,60 @@ public final class OriginRequestPolicyArgs extends com.pulumi.resources.PolicyRe
      * Comment to describe the origin request policy.
      * 
      */
-    private UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private String value_comment;
+    private boolean unknown_comment;
     public String comment() {
-        if (comment == null) return null;
-        return comment.getValue("OriginRequestPolicyArgs.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'OriginRequestPolicyArgs.comment' is not present");
     }
 
     /**
      * Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
      * 
      */
-    private UndeferrableValue<OriginRequestPolicyCookiesConfigArgs> cookiesConfig;
-
+    @PolicyResourceProperty(name="cookiesConfig", flag="unknown_cookiesConfig")
+    private OriginRequestPolicyCookiesConfigArgs value_cookiesConfig;
+    private boolean unknown_cookiesConfig;
     public OriginRequestPolicyCookiesConfigArgs cookiesConfig() {
-        if (cookiesConfig == null) return null;
-        return cookiesConfig.getValue("OriginRequestPolicyArgs.cookiesConfig");
+        if (!unknown_cookiesConfig) return value_cookiesConfig;
+        throw new UndeferrableValueException("Value 'OriginRequestPolicyArgs.cookiesConfig' is not present");
     }
 
     /**
      * Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
      * 
      */
-    private UndeferrableValue<OriginRequestPolicyHeadersConfigArgs> headersConfig;
-
+    @PolicyResourceProperty(name="headersConfig", flag="unknown_headersConfig")
+    private OriginRequestPolicyHeadersConfigArgs value_headersConfig;
+    private boolean unknown_headersConfig;
     public OriginRequestPolicyHeadersConfigArgs headersConfig() {
-        if (headersConfig == null) return null;
-        return headersConfig.getValue("OriginRequestPolicyArgs.headersConfig");
+        if (!unknown_headersConfig) return value_headersConfig;
+        throw new UndeferrableValueException("Value 'OriginRequestPolicyArgs.headersConfig' is not present");
     }
 
     /**
      * Unique name to identify the origin request policy.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("OriginRequestPolicyArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'OriginRequestPolicyArgs.name' is not present");
     }
 
     /**
      * Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
      * 
      */
-    private UndeferrableValue<OriginRequestPolicyQueryStringsConfigArgs> queryStringsConfig;
-
+    @PolicyResourceProperty(name="queryStringsConfig", flag="unknown_queryStringsConfig")
+    private OriginRequestPolicyQueryStringsConfigArgs value_queryStringsConfig;
+    private boolean unknown_queryStringsConfig;
     public OriginRequestPolicyQueryStringsConfigArgs queryStringsConfig() {
-        if (queryStringsConfig == null) return null;
-        return queryStringsConfig.getValue("OriginRequestPolicyArgs.queryStringsConfig");
+        if (!unknown_queryStringsConfig) return value_queryStringsConfig;
+        throw new UndeferrableValueException("Value 'OriginRequestPolicyArgs.queryStringsConfig' is not present");
     }
 
 }

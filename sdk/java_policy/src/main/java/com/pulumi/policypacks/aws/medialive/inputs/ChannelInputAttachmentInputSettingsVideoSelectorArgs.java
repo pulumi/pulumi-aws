@@ -3,25 +3,28 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class ChannelInputAttachmentInputSettingsVideoSelectorArgs {
 
-    private UndeferrableValue<String> colorSpace;
-
+    @PolicyResourceProperty(name="colorSpace", flag="unknown_colorSpace")
+    private String value_colorSpace;
+    private boolean unknown_colorSpace;
     public String colorSpace() {
-        if (colorSpace == null) return null;
-        return colorSpace.getValue("ChannelInputAttachmentInputSettingsVideoSelectorArgs.colorSpace");
+        if (!unknown_colorSpace) return value_colorSpace;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsVideoSelectorArgs.colorSpace' is not present");
     }
 
-    private UndeferrableValue<String> colorSpaceUsage;
-
+    @PolicyResourceProperty(name="colorSpaceUsage", flag="unknown_colorSpaceUsage")
+    private String value_colorSpaceUsage;
+    private boolean unknown_colorSpaceUsage;
     public String colorSpaceUsage() {
-        if (colorSpaceUsage == null) return null;
-        return colorSpaceUsage.getValue("ChannelInputAttachmentInputSettingsVideoSelectorArgs.colorSpaceUsage");
+        if (!unknown_colorSpaceUsage) return value_colorSpaceUsage;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsVideoSelectorArgs.colorSpaceUsage' is not present");
     }
 
 }

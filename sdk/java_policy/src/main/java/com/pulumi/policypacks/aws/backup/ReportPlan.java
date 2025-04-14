@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.backup.outputs.ReportPlanReportDeliveryChannel;
 import com.pulumi.policypacks.aws.backup.outputs.ReportPlanReportSetting;
@@ -19,88 +20,96 @@ public final class ReportPlan extends com.pulumi.resources.PolicyResourceOutput 
      * The ARN of the backup report plan.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ReportPlan.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ReportPlan.arn' is not present");
     }
 
     /**
      * The date and time that a report plan is created, in Unix format and Coordinated Universal Time (UTC).
      * 
      */
-    private UndeferrableValue<String> creationTime;
-
+    @PolicyResourceProperty(name="creationTime", flag="unknown_creationTime")
+    private String value_creationTime;
+    private boolean unknown_creationTime;
     public String creationTime() {
-        if (creationTime == null) return null;
-        return creationTime.getValue("ReportPlan.creationTime");
+        if (!unknown_creationTime) return value_creationTime;
+        throw new UndeferrableValueException("Value 'ReportPlan.creationTime' is not present");
     }
 
     /**
      * The deployment status of a report plan. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED`.
      * 
      */
-    private UndeferrableValue<String> deploymentStatus;
-
+    @PolicyResourceProperty(name="deploymentStatus", flag="unknown_deploymentStatus")
+    private String value_deploymentStatus;
+    private boolean unknown_deploymentStatus;
     public String deploymentStatus() {
-        if (deploymentStatus == null) return null;
-        return deploymentStatus.getValue("ReportPlan.deploymentStatus");
+        if (!unknown_deploymentStatus) return value_deploymentStatus;
+        throw new UndeferrableValueException("Value 'ReportPlan.deploymentStatus' is not present");
     }
 
     /**
      * The description of the report plan with a maximum of 1,024 characters
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ReportPlan.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ReportPlan.description' is not present");
     }
 
     /**
      * The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ReportPlan.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ReportPlan.name' is not present");
     }
 
     /**
      * An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
      * 
      */
-    private UndeferrableValue<ReportPlanReportDeliveryChannel> reportDeliveryChannel;
-
+    @PolicyResourceProperty(name="reportDeliveryChannel", flag="unknown_reportDeliveryChannel")
+    private ReportPlanReportDeliveryChannel value_reportDeliveryChannel;
+    private boolean unknown_reportDeliveryChannel;
     public ReportPlanReportDeliveryChannel reportDeliveryChannel() {
-        if (reportDeliveryChannel == null) return null;
-        return reportDeliveryChannel.getValue("ReportPlan.reportDeliveryChannel");
+        if (!unknown_reportDeliveryChannel) return value_reportDeliveryChannel;
+        throw new UndeferrableValueException("Value 'ReportPlan.reportDeliveryChannel' is not present");
     }
 
     /**
      * An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
      * 
      */
-    private UndeferrableValue<ReportPlanReportSetting> reportSetting;
-
+    @PolicyResourceProperty(name="reportSetting", flag="unknown_reportSetting")
+    private ReportPlanReportSetting value_reportSetting;
+    private boolean unknown_reportSetting;
     public ReportPlanReportSetting reportSetting() {
-        if (reportSetting == null) return null;
-        return reportSetting.getValue("ReportPlan.reportSetting");
+        if (!unknown_reportSetting) return value_reportSetting;
+        throw new UndeferrableValueException("Value 'ReportPlan.reportSetting' is not present");
     }
 
     /**
      * Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ReportPlan.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ReportPlan.tags' is not present");
     }
 
     /**
@@ -111,11 +120,12 @@ public final class ReportPlan extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ReportPlan.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ReportPlan.tagsAll' is not present");
     }
 
 }

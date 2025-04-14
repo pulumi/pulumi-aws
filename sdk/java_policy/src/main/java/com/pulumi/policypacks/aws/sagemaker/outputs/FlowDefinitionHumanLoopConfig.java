@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.outputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,99 +18,108 @@ public final class FlowDefinitionHumanLoopConfig {
      * The Amazon Resource Name (ARN) of the human task user interface.
      * 
      */
-    private UndeferrableValue<String> humanTaskUiArn;
-
+    @PolicyResourceProperty(name="humanTaskUiArn", flag="unknown_humanTaskUiArn")
+    private String value_humanTaskUiArn;
+    private boolean unknown_humanTaskUiArn;
     public String humanTaskUiArn() {
-        if (humanTaskUiArn == null) return null;
-        return humanTaskUiArn.getValue("FlowDefinitionHumanLoopConfig.humanTaskUiArn");
+        if (!unknown_humanTaskUiArn) return value_humanTaskUiArn;
+        throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfig.humanTaskUiArn' is not present");
     }
 
     /**
      * Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. See Public Workforce Task Price details below.
      * 
      */
-    private @Nullable UndeferrableValue<FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice> publicWorkforceTaskPrice;
-
+    @PolicyResourceProperty(name="publicWorkforceTaskPrice", flag="unknown_publicWorkforceTaskPrice")
+    private @Nullable FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice value_publicWorkforceTaskPrice;
+    private boolean unknown_publicWorkforceTaskPrice;
     public @Nullable FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice publicWorkforceTaskPrice() {
-        if (publicWorkforceTaskPrice == null) return null;
-        return publicWorkforceTaskPrice.getValue("FlowDefinitionHumanLoopConfig.publicWorkforceTaskPrice");
+        if (!unknown_publicWorkforceTaskPrice) return value_publicWorkforceTaskPrice;
+        throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfig.publicWorkforceTaskPrice' is not present");
     }
 
     /**
      * The length of time that a task remains available for review by human workers. Valid value range between `1` and `864000`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> taskAvailabilityLifetimeInSeconds;
-
+    @PolicyResourceProperty(name="taskAvailabilityLifetimeInSeconds", flag="unknown_taskAvailabilityLifetimeInSeconds")
+    private @Nullable Integer value_taskAvailabilityLifetimeInSeconds;
+    private boolean unknown_taskAvailabilityLifetimeInSeconds;
     public @Nullable Integer taskAvailabilityLifetimeInSeconds() {
-        if (taskAvailabilityLifetimeInSeconds == null) return null;
-        return taskAvailabilityLifetimeInSeconds.getValue("FlowDefinitionHumanLoopConfig.taskAvailabilityLifetimeInSeconds");
+        if (!unknown_taskAvailabilityLifetimeInSeconds) return value_taskAvailabilityLifetimeInSeconds;
+        throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfig.taskAvailabilityLifetimeInSeconds' is not present");
     }
 
     /**
      * The number of distinct workers who will perform the same task on each object. Valid value range between `1` and `3`.
      * 
      */
-    private UndeferrableValue<Integer> taskCount;
-
+    @PolicyResourceProperty(name="taskCount", flag="unknown_taskCount")
+    private Integer value_taskCount;
+    private boolean unknown_taskCount;
     public Integer taskCount() {
-        if (taskCount == null) return null;
-        return taskCount.getValue("FlowDefinitionHumanLoopConfig.taskCount");
+        if (!unknown_taskCount) return value_taskCount;
+        throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfig.taskCount' is not present");
     }
 
     /**
      * A description for the human worker task.
      * 
      */
-    private UndeferrableValue<String> taskDescription;
-
+    @PolicyResourceProperty(name="taskDescription", flag="unknown_taskDescription")
+    private String value_taskDescription;
+    private boolean unknown_taskDescription;
     public String taskDescription() {
-        if (taskDescription == null) return null;
-        return taskDescription.getValue("FlowDefinitionHumanLoopConfig.taskDescription");
+        if (!unknown_taskDescription) return value_taskDescription;
+        throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfig.taskDescription' is not present");
     }
 
     /**
      * An array of keywords used to describe the task so that workers can discover the task.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> taskKeywords;
-
+    @PolicyResourceProperty(name="taskKeywords", flag="unknown_taskKeywords")
+    private @Nullable List<String> value_taskKeywords;
+    private boolean unknown_taskKeywords;
     public @Nullable List<String> taskKeywords() {
-        if (taskKeywords == null) return null;
-        return taskKeywords.getValue("FlowDefinitionHumanLoopConfig.taskKeywords");
+        if (!unknown_taskKeywords) return value_taskKeywords;
+        throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfig.taskKeywords' is not present");
     }
 
     /**
      * The amount of time that a worker has to complete a task. The default value is `3600` seconds.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> taskTimeLimitInSeconds;
-
+    @PolicyResourceProperty(name="taskTimeLimitInSeconds", flag="unknown_taskTimeLimitInSeconds")
+    private @Nullable Integer value_taskTimeLimitInSeconds;
+    private boolean unknown_taskTimeLimitInSeconds;
     public @Nullable Integer taskTimeLimitInSeconds() {
-        if (taskTimeLimitInSeconds == null) return null;
-        return taskTimeLimitInSeconds.getValue("FlowDefinitionHumanLoopConfig.taskTimeLimitInSeconds");
+        if (!unknown_taskTimeLimitInSeconds) return value_taskTimeLimitInSeconds;
+        throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfig.taskTimeLimitInSeconds' is not present");
     }
 
     /**
      * A title for the human worker task.
      * 
      */
-    private UndeferrableValue<String> taskTitle;
-
+    @PolicyResourceProperty(name="taskTitle", flag="unknown_taskTitle")
+    private String value_taskTitle;
+    private boolean unknown_taskTitle;
     public String taskTitle() {
-        if (taskTitle == null) return null;
-        return taskTitle.getValue("FlowDefinitionHumanLoopConfig.taskTitle");
+        if (!unknown_taskTitle) return value_taskTitle;
+        throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfig.taskTitle' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
      * 
      */
-    private UndeferrableValue<String> workteamArn;
-
+    @PolicyResourceProperty(name="workteamArn", flag="unknown_workteamArn")
+    private String value_workteamArn;
+    private boolean unknown_workteamArn;
     public String workteamArn() {
-        if (workteamArn == null) return null;
-        return workteamArn.getValue("FlowDefinitionHumanLoopConfig.workteamArn");
+        if (!unknown_workteamArn) return value_workteamArn;
+        throw new UndeferrableValueException("Value 'FlowDefinitionHumanLoopConfig.workteamArn' is not present");
     }
 
 }

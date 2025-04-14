@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elastictranscoder.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,55 +15,60 @@ public final class PresetAudioArgs {
      * The method of organizing audio channels and tracks. Use Audio:Channels to specify the number of channels in your output, and Audio:AudioPackingMode to specify the number of tracks and their relation to the channels. If you do not specify an Audio:AudioPackingMode, Elastic Transcoder uses SingleTrack.
      * 
      */
-    private UndeferrableValue<String> audioPackingMode;
-
+    @PolicyResourceProperty(name="audioPackingMode", flag="unknown_audioPackingMode")
+    private String value_audioPackingMode;
+    private boolean unknown_audioPackingMode;
     public String audioPackingMode() {
-        if (audioPackingMode == null) return null;
-        return audioPackingMode.getValue("PresetAudioArgs.audioPackingMode");
+        if (!unknown_audioPackingMode) return value_audioPackingMode;
+        throw new UndeferrableValueException("Value 'PresetAudioArgs.audioPackingMode' is not present");
     }
 
     /**
      * The bit rate of the audio stream in the output file, in kilobits/second. Enter an integer between 64 and 320, inclusive.
      * 
      */
-    private UndeferrableValue<String> bitRate;
-
+    @PolicyResourceProperty(name="bitRate", flag="unknown_bitRate")
+    private String value_bitRate;
+    private boolean unknown_bitRate;
     public String bitRate() {
-        if (bitRate == null) return null;
-        return bitRate.getValue("PresetAudioArgs.bitRate");
+        if (!unknown_bitRate) return value_bitRate;
+        throw new UndeferrableValueException("Value 'PresetAudioArgs.bitRate' is not present");
     }
 
     /**
      * The number of audio channels in the output file
      * 
      */
-    private UndeferrableValue<String> channels;
-
+    @PolicyResourceProperty(name="channels", flag="unknown_channels")
+    private String value_channels;
+    private boolean unknown_channels;
     public String channels() {
-        if (channels == null) return null;
-        return channels.getValue("PresetAudioArgs.channels");
+        if (!unknown_channels) return value_channels;
+        throw new UndeferrableValueException("Value 'PresetAudioArgs.channels' is not present");
     }
 
     /**
      * The audio codec for the output file. Valid values are `AAC`, `flac`, `mp2`, `mp3`, `pcm`, and `vorbis`.
      * 
      */
-    private UndeferrableValue<String> codec;
-
+    @PolicyResourceProperty(name="codec", flag="unknown_codec")
+    private String value_codec;
+    private boolean unknown_codec;
     public String codec() {
-        if (codec == null) return null;
-        return codec.getValue("PresetAudioArgs.codec");
+        if (!unknown_codec) return value_codec;
+        throw new UndeferrableValueException("Value 'PresetAudioArgs.codec' is not present");
     }
 
     /**
      * The sample rate of the audio stream in the output file, in hertz. Valid values are: `auto`, `22050`, `32000`, `44100`, `48000`, `96000`
      * 
      */
-    private UndeferrableValue<String> sampleRate;
-
+    @PolicyResourceProperty(name="sampleRate", flag="unknown_sampleRate")
+    private String value_sampleRate;
+    private boolean unknown_sampleRate;
     public String sampleRate() {
-        if (sampleRate == null) return null;
-        return sampleRate.getValue("PresetAudioArgs.sampleRate");
+        if (!unknown_sampleRate) return value_sampleRate;
+        throw new UndeferrableValueException("Value 'PresetAudioArgs.sampleRate' is not present");
     }
 
 }

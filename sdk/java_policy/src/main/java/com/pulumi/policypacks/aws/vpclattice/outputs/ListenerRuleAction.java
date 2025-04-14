@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.vpclattice.outputs.ListenerRuleActionFixedResponse;
 import com.pulumi.policypacks.aws.vpclattice.outputs.ListenerRuleActionForward;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ListenerRuleAction {
      * Describes the rule action that returns a custom HTTP response.
      * 
      */
-    private @Nullable UndeferrableValue<ListenerRuleActionFixedResponse> fixedResponse;
-
+    @PolicyResourceProperty(name="fixedResponse", flag="unknown_fixedResponse")
+    private @Nullable ListenerRuleActionFixedResponse value_fixedResponse;
+    private boolean unknown_fixedResponse;
     public @Nullable ListenerRuleActionFixedResponse fixedResponse() {
-        if (fixedResponse == null) return null;
-        return fixedResponse.getValue("ListenerRuleAction.fixedResponse");
+        if (!unknown_fixedResponse) return value_fixedResponse;
+        throw new UndeferrableValueException("Value 'ListenerRuleAction.fixedResponse' is not present");
     }
 
     /**
      * The forward action. Traffic that matches the rule is forwarded to the specified target groups.
      * 
      */
-    private @Nullable UndeferrableValue<ListenerRuleActionForward> forward;
-
+    @PolicyResourceProperty(name="forward", flag="unknown_forward")
+    private @Nullable ListenerRuleActionForward value_forward;
+    private boolean unknown_forward;
     public @Nullable ListenerRuleActionForward forward() {
-        if (forward == null) return null;
-        return forward.getValue("ListenerRuleAction.forward");
+        if (!unknown_forward) return value_forward;
+        throw new UndeferrableValueException("Value 'ListenerRuleAction.forward' is not present");
     }
 
 }

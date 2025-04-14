@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -19,33 +20,36 @@ public final class DedicatedIpPoolArgs extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> poolName;
-
+    @PolicyResourceProperty(name="poolName", flag="unknown_poolName")
+    private String value_poolName;
+    private boolean unknown_poolName;
     public String poolName() {
-        if (poolName == null) return null;
-        return poolName.getValue("DedicatedIpPoolArgs.poolName");
+        if (!unknown_poolName) return value_poolName;
+        throw new UndeferrableValueException("Value 'DedicatedIpPoolArgs.poolName' is not present");
     }
 
     /**
      * IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
      * 
      */
-    private UndeferrableValue<String> scalingMode;
-
+    @PolicyResourceProperty(name="scalingMode", flag="unknown_scalingMode")
+    private String value_scalingMode;
+    private boolean unknown_scalingMode;
     public String scalingMode() {
-        if (scalingMode == null) return null;
-        return scalingMode.getValue("DedicatedIpPoolArgs.scalingMode");
+        if (!unknown_scalingMode) return value_scalingMode;
+        throw new UndeferrableValueException("Value 'DedicatedIpPoolArgs.scalingMode' is not present");
     }
 
     /**
      * A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DedicatedIpPoolArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DedicatedIpPoolArgs.tags' is not present");
     }
 
 }

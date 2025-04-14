@@ -3,29 +3,32 @@
 
 package com.pulumi.policypacks.aws.cognito.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 
 
 public final class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs {
 
-    private UndeferrableValue<String> eventAction;
-
+    @PolicyResourceProperty(name="eventAction", flag="unknown_eventAction")
+    private String value_eventAction;
+    private boolean unknown_eventAction;
     public String eventAction() {
-        if (eventAction == null) return null;
-        return eventAction.getValue("RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs.eventAction");
+        if (!unknown_eventAction) return value_eventAction;
+        throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs.eventAction' is not present");
     }
 
     /**
      * Whether to send a notification.
      * 
      */
-    private UndeferrableValue<Boolean> notify_;
-
+    @PolicyResourceProperty(name="notify", flag="unknown_notify_")
+    private Boolean value_notify_;
+    private boolean unknown_notify_;
     public Boolean notify_() {
-        if (notify_ == null) return null;
-        return notify_.getValue("RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs.notify_");
+        if (!unknown_notify_) return value_notify_;
+        throw new UndeferrableValueException("Value 'RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs.notify_' is not present");
     }
 
 }

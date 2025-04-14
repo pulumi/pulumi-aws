@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,55 +18,60 @@ public final class PermissionArgs extends com.pulumi.resources.PolicyResourceInp
      * Whether the user is allowed to use SSH to communicate with the instance
      * 
      */
-    private UndeferrableValue<Boolean> allowSsh;
-
+    @PolicyResourceProperty(name="allowSsh", flag="unknown_allowSsh")
+    private Boolean value_allowSsh;
+    private boolean unknown_allowSsh;
     public Boolean allowSsh() {
-        if (allowSsh == null) return null;
-        return allowSsh.getValue("PermissionArgs.allowSsh");
+        if (!unknown_allowSsh) return value_allowSsh;
+        throw new UndeferrableValueException("Value 'PermissionArgs.allowSsh' is not present");
     }
 
     /**
      * Whether the user is allowed to use sudo to elevate privileges
      * 
      */
-    private UndeferrableValue<Boolean> allowSudo;
-
+    @PolicyResourceProperty(name="allowSudo", flag="unknown_allowSudo")
+    private Boolean value_allowSudo;
+    private boolean unknown_allowSudo;
     public Boolean allowSudo() {
-        if (allowSudo == null) return null;
-        return allowSudo.getValue("PermissionArgs.allowSudo");
+        if (!unknown_allowSudo) return value_allowSudo;
+        throw new UndeferrableValueException("Value 'PermissionArgs.allowSudo' is not present");
     }
 
     /**
      * The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
      * 
      */
-    private UndeferrableValue<String> level;
-
+    @PolicyResourceProperty(name="level", flag="unknown_level")
+    private String value_level;
+    private boolean unknown_level;
     public String level() {
-        if (level == null) return null;
-        return level.getValue("PermissionArgs.level");
+        if (!unknown_level) return value_level;
+        throw new UndeferrableValueException("Value 'PermissionArgs.level' is not present");
     }
 
     /**
      * The stack to set the permissions for
      * 
      */
-    private UndeferrableValue<String> stackId;
-
+    @PolicyResourceProperty(name="stackId", flag="unknown_stackId")
+    private String value_stackId;
+    private boolean unknown_stackId;
     public String stackId() {
-        if (stackId == null) return null;
-        return stackId.getValue("PermissionArgs.stackId");
+        if (!unknown_stackId) return value_stackId;
+        throw new UndeferrableValueException("Value 'PermissionArgs.stackId' is not present");
     }
 
     /**
      * The user&#39;s IAM ARN to set permissions for
      * 
      */
-    private UndeferrableValue<String> userArn;
-
+    @PolicyResourceProperty(name="userArn", flag="unknown_userArn")
+    private String value_userArn;
+    private boolean unknown_userArn;
     public String userArn() {
-        if (userArn == null) return null;
-        return userArn.getValue("PermissionArgs.userArn");
+        if (!unknown_userArn) return value_userArn;
+        throw new UndeferrableValueException("Value 'PermissionArgs.userArn' is not present");
     }
 
 }

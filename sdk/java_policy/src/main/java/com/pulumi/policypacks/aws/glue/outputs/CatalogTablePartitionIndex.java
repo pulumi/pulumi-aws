@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,29 +16,32 @@ public final class CatalogTablePartitionIndex {
      * Name of the partition index.
      * 
      */
-    private UndeferrableValue<String> indexName;
-
+    @PolicyResourceProperty(name="indexName", flag="unknown_indexName")
+    private String value_indexName;
+    private boolean unknown_indexName;
     public String indexName() {
-        if (indexName == null) return null;
-        return indexName.getValue("CatalogTablePartitionIndex.indexName");
+        if (!unknown_indexName) return value_indexName;
+        throw new UndeferrableValueException("Value 'CatalogTablePartitionIndex.indexName' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> indexStatus;
-
+    @PolicyResourceProperty(name="indexStatus", flag="unknown_indexStatus")
+    private @Nullable String value_indexStatus;
+    private boolean unknown_indexStatus;
     public @Nullable String indexStatus() {
-        if (indexStatus == null) return null;
-        return indexStatus.getValue("CatalogTablePartitionIndex.indexStatus");
+        if (!unknown_indexStatus) return value_indexStatus;
+        throw new UndeferrableValueException("Value 'CatalogTablePartitionIndex.indexStatus' is not present");
     }
 
     /**
      * Keys for the partition index.
      * 
      */
-    private UndeferrableValue<List<String>> keys;
-
+    @PolicyResourceProperty(name="keys", flag="unknown_keys")
+    private List<String> value_keys;
+    private boolean unknown_keys;
     public List<String> keys() {
-        if (keys == null) return null;
-        return keys.getValue("CatalogTablePartitionIndex.keys");
+        if (!unknown_keys) return value_keys;
+        throw new UndeferrableValueException("Value 'CatalogTablePartitionIndex.keys' is not present");
     }
 
 }

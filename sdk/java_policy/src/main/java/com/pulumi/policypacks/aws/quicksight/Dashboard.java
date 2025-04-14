@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.quicksight.outputs.DashboardDashboardPublishOptions;
 import com.pulumi.policypacks.aws.quicksight.outputs.DashboardParameters;
@@ -23,150 +24,164 @@ public final class Dashboard extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the dashboard.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Dashboard.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Dashboard.arn' is not present");
     }
 
     /**
      * AWS account ID.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("Dashboard.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'Dashboard.awsAccountId' is not present");
     }
 
     /**
      * The time that the dashboard was created.
      * 
      */
-    private UndeferrableValue<String> createdTime;
-
+    @PolicyResourceProperty(name="createdTime", flag="unknown_createdTime")
+    private String value_createdTime;
+    private boolean unknown_createdTime;
     public String createdTime() {
-        if (createdTime == null) return null;
-        return createdTime.getValue("Dashboard.createdTime");
+        if (!unknown_createdTime) return value_createdTime;
+        throw new UndeferrableValueException("Value 'Dashboard.createdTime' is not present");
     }
 
     /**
      * Identifier for the dashboard.
      * 
      */
-    private UndeferrableValue<String> dashboardId;
-
+    @PolicyResourceProperty(name="dashboardId", flag="unknown_dashboardId")
+    private String value_dashboardId;
+    private boolean unknown_dashboardId;
     public String dashboardId() {
-        if (dashboardId == null) return null;
-        return dashboardId.getValue("Dashboard.dashboardId");
+        if (!unknown_dashboardId) return value_dashboardId;
+        throw new UndeferrableValueException("Value 'Dashboard.dashboardId' is not present");
     }
 
     /**
      * Options for publishing the dashboard. See dashboard_publish_options.
      * 
      */
-    private UndeferrableValue<DashboardDashboardPublishOptions> dashboardPublishOptions;
-
+    @PolicyResourceProperty(name="dashboardPublishOptions", flag="unknown_dashboardPublishOptions")
+    private DashboardDashboardPublishOptions value_dashboardPublishOptions;
+    private boolean unknown_dashboardPublishOptions;
     public DashboardDashboardPublishOptions dashboardPublishOptions() {
-        if (dashboardPublishOptions == null) return null;
-        return dashboardPublishOptions.getValue("Dashboard.dashboardPublishOptions");
+        if (!unknown_dashboardPublishOptions) return value_dashboardPublishOptions;
+        throw new UndeferrableValueException("Value 'Dashboard.dashboardPublishOptions' is not present");
     }
 
-    private UndeferrableValue<String> lastPublishedTime;
-
+    @PolicyResourceProperty(name="lastPublishedTime", flag="unknown_lastPublishedTime")
+    private String value_lastPublishedTime;
+    private boolean unknown_lastPublishedTime;
     public String lastPublishedTime() {
-        if (lastPublishedTime == null) return null;
-        return lastPublishedTime.getValue("Dashboard.lastPublishedTime");
+        if (!unknown_lastPublishedTime) return value_lastPublishedTime;
+        throw new UndeferrableValueException("Value 'Dashboard.lastPublishedTime' is not present");
     }
 
     /**
      * The time that the dashboard was last updated.
      * 
      */
-    private UndeferrableValue<String> lastUpdatedTime;
-
+    @PolicyResourceProperty(name="lastUpdatedTime", flag="unknown_lastUpdatedTime")
+    private String value_lastUpdatedTime;
+    private boolean unknown_lastUpdatedTime;
     public String lastUpdatedTime() {
-        if (lastUpdatedTime == null) return null;
-        return lastUpdatedTime.getValue("Dashboard.lastUpdatedTime");
+        if (!unknown_lastUpdatedTime) return value_lastUpdatedTime;
+        throw new UndeferrableValueException("Value 'Dashboard.lastUpdatedTime' is not present");
     }
 
     /**
      * Display name for the dashboard.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Dashboard.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Dashboard.name' is not present");
     }
 
     /**
      * The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
      * 
      */
-    private UndeferrableValue<DashboardParameters> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private DashboardParameters value_parameters;
+    private boolean unknown_parameters;
     public DashboardParameters parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("Dashboard.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'Dashboard.parameters' is not present");
     }
 
     /**
      * A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
      * 
      */
-    private @Nullable UndeferrableValue<List<DashboardPermission>> permissions;
-
+    @PolicyResourceProperty(name="permissions", flag="unknown_permissions")
+    private @Nullable List<DashboardPermission> value_permissions;
+    private boolean unknown_permissions;
     public @Nullable List<DashboardPermission> permissions() {
-        if (permissions == null) return null;
-        return permissions.getValue("Dashboard.permissions");
+        if (!unknown_permissions) return value_permissions;
+        throw new UndeferrableValueException("Value 'Dashboard.permissions' is not present");
     }
 
     /**
      * The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
      * 
      */
-    private @Nullable UndeferrableValue<DashboardSourceEntity> sourceEntity;
-
+    @PolicyResourceProperty(name="sourceEntity", flag="unknown_sourceEntity")
+    private @Nullable DashboardSourceEntity value_sourceEntity;
+    private boolean unknown_sourceEntity;
     public @Nullable DashboardSourceEntity sourceEntity() {
-        if (sourceEntity == null) return null;
-        return sourceEntity.getValue("Dashboard.sourceEntity");
+        if (!unknown_sourceEntity) return value_sourceEntity;
+        throw new UndeferrableValueException("Value 'Dashboard.sourceEntity' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of a template that was used to create this dashboard.
      * 
      */
-    private UndeferrableValue<String> sourceEntityArn;
-
+    @PolicyResourceProperty(name="sourceEntityArn", flag="unknown_sourceEntityArn")
+    private String value_sourceEntityArn;
+    private boolean unknown_sourceEntityArn;
     public String sourceEntityArn() {
-        if (sourceEntityArn == null) return null;
-        return sourceEntityArn.getValue("Dashboard.sourceEntityArn");
+        if (!unknown_sourceEntityArn) return value_sourceEntityArn;
+        throw new UndeferrableValueException("Value 'Dashboard.sourceEntityArn' is not present");
     }
 
     /**
      * The dashboard creation status.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Dashboard.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Dashboard.status' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Dashboard.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Dashboard.tags' is not present");
     }
 
     /**
@@ -177,22 +192,24 @@ public final class Dashboard extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Dashboard.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Dashboard.tagsAll' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
      * 
      */
-    private @Nullable UndeferrableValue<String> themeArn;
-
+    @PolicyResourceProperty(name="themeArn", flag="unknown_themeArn")
+    private @Nullable String value_themeArn;
+    private boolean unknown_themeArn;
     public @Nullable String themeArn() {
-        if (themeArn == null) return null;
-        return themeArn.getValue("Dashboard.themeArn");
+        if (!unknown_themeArn) return value_themeArn;
+        throw new UndeferrableValueException("Value 'Dashboard.themeArn' is not present");
     }
 
     /**
@@ -201,22 +218,24 @@ public final class Dashboard extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> versionDescription;
-
+    @PolicyResourceProperty(name="versionDescription", flag="unknown_versionDescription")
+    private String value_versionDescription;
+    private boolean unknown_versionDescription;
     public String versionDescription() {
-        if (versionDescription == null) return null;
-        return versionDescription.getValue("Dashboard.versionDescription");
+        if (!unknown_versionDescription) return value_versionDescription;
+        throw new UndeferrableValueException("Value 'Dashboard.versionDescription' is not present");
     }
 
     /**
      * The version number of the dashboard version.
      * 
      */
-    private UndeferrableValue<Integer> versionNumber;
-
+    @PolicyResourceProperty(name="versionNumber", flag="unknown_versionNumber")
+    private Integer value_versionNumber;
+    private boolean unknown_versionNumber;
     public Integer versionNumber() {
-        if (versionNumber == null) return null;
-        return versionNumber.getValue("Dashboard.versionNumber");
+        if (!unknown_versionNumber) return value_versionNumber;
+        throw new UndeferrableValueException("Value 'Dashboard.versionNumber' is not present");
     }
 
 }

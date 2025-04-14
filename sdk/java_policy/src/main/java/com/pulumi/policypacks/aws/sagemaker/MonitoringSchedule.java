@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.outputs.MonitoringScheduleMonitoringScheduleConfig;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class MonitoringSchedule extends com.pulumi.resources.PolicyResourc
      * The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("MonitoringSchedule.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'MonitoringSchedule.arn' is not present");
     }
 
     /**
      * The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
      * 
      */
-    private UndeferrableValue<MonitoringScheduleMonitoringScheduleConfig> monitoringScheduleConfig;
-
+    @PolicyResourceProperty(name="monitoringScheduleConfig", flag="unknown_monitoringScheduleConfig")
+    private MonitoringScheduleMonitoringScheduleConfig value_monitoringScheduleConfig;
+    private boolean unknown_monitoringScheduleConfig;
     public MonitoringScheduleMonitoringScheduleConfig monitoringScheduleConfig() {
-        if (monitoringScheduleConfig == null) return null;
-        return monitoringScheduleConfig.getValue("MonitoringSchedule.monitoringScheduleConfig");
+        if (!unknown_monitoringScheduleConfig) return value_monitoringScheduleConfig;
+        throw new UndeferrableValueException("Value 'MonitoringSchedule.monitoringScheduleConfig' is not present");
     }
 
     /**
      * The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("MonitoringSchedule.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'MonitoringSchedule.name' is not present");
     }
 
     /**
      * A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("MonitoringSchedule.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'MonitoringSchedule.tags' is not present");
     }
 
     /**
@@ -66,11 +71,12 @@ public final class MonitoringSchedule extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("MonitoringSchedule.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'MonitoringSchedule.tagsAll' is not present");
     }
 
 }

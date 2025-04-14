@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dynamodb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,22 +19,24 @@ public final class TableReplica extends com.pulumi.resources.PolicyResourceOutpu
      * ARN of the table replica.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("TableReplica.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'TableReplica.arn' is not present");
     }
 
     /**
      * Whether deletion protection is enabled (true) or disabled (false) on the table replica.
      * 
      */
-    private UndeferrableValue<Boolean> deletionProtectionEnabled;
-
+    @PolicyResourceProperty(name="deletionProtectionEnabled", flag="unknown_deletionProtectionEnabled")
+    private Boolean value_deletionProtectionEnabled;
+    private boolean unknown_deletionProtectionEnabled;
     public Boolean deletionProtectionEnabled() {
-        if (deletionProtectionEnabled == null) return null;
-        return deletionProtectionEnabled.getValue("TableReplica.deletionProtectionEnabled");
+        if (!unknown_deletionProtectionEnabled) return value_deletionProtectionEnabled;
+        throw new UndeferrableValueException("Value 'TableReplica.deletionProtectionEnabled' is not present");
     }
 
     /**
@@ -42,55 +45,60 @@ public final class TableReplica extends com.pulumi.resources.PolicyResourceOutpu
      * Optional arguments:
      * 
      */
-    private UndeferrableValue<String> globalTableArn;
-
+    @PolicyResourceProperty(name="globalTableArn", flag="unknown_globalTableArn")
+    private String value_globalTableArn;
+    private boolean unknown_globalTableArn;
     public String globalTableArn() {
-        if (globalTableArn == null) return null;
-        return globalTableArn.getValue("TableReplica.globalTableArn");
+        if (!unknown_globalTableArn) return value_globalTableArn;
+        throw new UndeferrableValueException("Value 'TableReplica.globalTableArn' is not present");
     }
 
     /**
      * ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
      * 
      */
-    private UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("TableReplica.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'TableReplica.kmsKeyArn' is not present");
     }
 
     /**
      * Whether to enable Point In Time Recovery for the table replica. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> pointInTimeRecovery;
-
+    @PolicyResourceProperty(name="pointInTimeRecovery", flag="unknown_pointInTimeRecovery")
+    private @Nullable Boolean value_pointInTimeRecovery;
+    private boolean unknown_pointInTimeRecovery;
     public @Nullable Boolean pointInTimeRecovery() {
-        if (pointInTimeRecovery == null) return null;
-        return pointInTimeRecovery.getValue("TableReplica.pointInTimeRecovery");
+        if (!unknown_pointInTimeRecovery) return value_pointInTimeRecovery;
+        throw new UndeferrableValueException("Value 'TableReplica.pointInTimeRecovery' is not present");
     }
 
     /**
      * Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
      * 
      */
-    private @Nullable UndeferrableValue<String> tableClassOverride;
-
+    @PolicyResourceProperty(name="tableClassOverride", flag="unknown_tableClassOverride")
+    private @Nullable String value_tableClassOverride;
+    private boolean unknown_tableClassOverride;
     public @Nullable String tableClassOverride() {
-        if (tableClassOverride == null) return null;
-        return tableClassOverride.getValue("TableReplica.tableClassOverride");
+        if (!unknown_tableClassOverride) return value_tableClassOverride;
+        throw new UndeferrableValueException("Value 'TableReplica.tableClassOverride' is not present");
     }
 
     /**
      * Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TableReplica.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TableReplica.tags' is not present");
     }
 
     /**
@@ -101,11 +109,12 @@ public final class TableReplica extends com.pulumi.resources.PolicyResourceOutpu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("TableReplica.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'TableReplica.tagsAll' is not present");
     }
 
 }

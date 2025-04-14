@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.networkmanager.outputs.LinkBandwidth;
 import java.lang.String;
@@ -18,77 +19,84 @@ public final class Link extends com.pulumi.resources.PolicyResourceOutput {
      * Link Amazon Resource Name (ARN).
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Link.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Link.arn' is not present");
     }
 
     /**
      * The upload speed and download speed in Mbps. Documented below.
      * 
      */
-    private UndeferrableValue<LinkBandwidth> bandwidth;
-
+    @PolicyResourceProperty(name="bandwidth", flag="unknown_bandwidth")
+    private LinkBandwidth value_bandwidth;
+    private boolean unknown_bandwidth;
     public LinkBandwidth bandwidth() {
-        if (bandwidth == null) return null;
-        return bandwidth.getValue("Link.bandwidth");
+        if (!unknown_bandwidth) return value_bandwidth;
+        throw new UndeferrableValueException("Value 'Link.bandwidth' is not present");
     }
 
     /**
      * A description of the link.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Link.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Link.description' is not present");
     }
 
     /**
      * The ID of the global network.
      * 
      */
-    private UndeferrableValue<String> globalNetworkId;
-
+    @PolicyResourceProperty(name="globalNetworkId", flag="unknown_globalNetworkId")
+    private String value_globalNetworkId;
+    private boolean unknown_globalNetworkId;
     public String globalNetworkId() {
-        if (globalNetworkId == null) return null;
-        return globalNetworkId.getValue("Link.globalNetworkId");
+        if (!unknown_globalNetworkId) return value_globalNetworkId;
+        throw new UndeferrableValueException("Value 'Link.globalNetworkId' is not present");
     }
 
     /**
      * The provider of the link.
      * 
      */
-    private @Nullable UndeferrableValue<String> providerName;
-
+    @PolicyResourceProperty(name="providerName", flag="unknown_providerName")
+    private @Nullable String value_providerName;
+    private boolean unknown_providerName;
     public @Nullable String providerName() {
-        if (providerName == null) return null;
-        return providerName.getValue("Link.providerName");
+        if (!unknown_providerName) return value_providerName;
+        throw new UndeferrableValueException("Value 'Link.providerName' is not present");
     }
 
     /**
      * The ID of the site.
      * 
      */
-    private UndeferrableValue<String> siteId;
-
+    @PolicyResourceProperty(name="siteId", flag="unknown_siteId")
+    private String value_siteId;
+    private boolean unknown_siteId;
     public String siteId() {
-        if (siteId == null) return null;
-        return siteId.getValue("Link.siteId");
+        if (!unknown_siteId) return value_siteId;
+        throw new UndeferrableValueException("Value 'Link.siteId' is not present");
     }
 
     /**
      * Key-value tags for the link. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Link.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Link.tags' is not present");
     }
 
     /**
@@ -99,22 +107,24 @@ public final class Link extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Link.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Link.tagsAll' is not present");
     }
 
     /**
      * The type of the link.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("Link.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'Link.type' is not present");
     }
 
 }

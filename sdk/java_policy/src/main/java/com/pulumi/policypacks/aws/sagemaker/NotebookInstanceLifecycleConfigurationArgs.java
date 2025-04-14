@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class NotebookInstanceLifecycleConfigurationArgs extends com.pulumi
      * The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("NotebookInstanceLifecycleConfigurationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'NotebookInstanceLifecycleConfigurationArgs.name' is not present");
     }
 
     /**
      * A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
      * 
      */
-    private UndeferrableValue<String> onCreate;
-
+    @PolicyResourceProperty(name="onCreate", flag="unknown_onCreate")
+    private String value_onCreate;
+    private boolean unknown_onCreate;
     public String onCreate() {
-        if (onCreate == null) return null;
-        return onCreate.getValue("NotebookInstanceLifecycleConfigurationArgs.onCreate");
+        if (!unknown_onCreate) return value_onCreate;
+        throw new UndeferrableValueException("Value 'NotebookInstanceLifecycleConfigurationArgs.onCreate' is not present");
     }
 
     /**
      * A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it&#39;s created.
      * 
      */
-    private UndeferrableValue<String> onStart;
-
+    @PolicyResourceProperty(name="onStart", flag="unknown_onStart")
+    private String value_onStart;
+    private boolean unknown_onStart;
     public String onStart() {
-        if (onStart == null) return null;
-        return onStart.getValue("NotebookInstanceLifecycleConfigurationArgs.onStart");
+        if (!unknown_onStart) return value_onStart;
+        throw new UndeferrableValueException("Value 'NotebookInstanceLifecycleConfigurationArgs.onStart' is not present");
     }
 
 }

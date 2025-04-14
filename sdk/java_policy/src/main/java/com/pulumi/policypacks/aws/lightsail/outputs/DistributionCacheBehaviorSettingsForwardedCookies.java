@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DistributionCacheBehaviorSettingsForwardedCookies {
      * The specific cookies to forward to your distribution&#39;s origin.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> cookiesAllowLists;
-
+    @PolicyResourceProperty(name="cookiesAllowLists", flag="unknown_cookiesAllowLists")
+    private @Nullable List<String> value_cookiesAllowLists;
+    private boolean unknown_cookiesAllowLists;
     public @Nullable List<String> cookiesAllowLists() {
-        if (cookiesAllowLists == null) return null;
-        return cookiesAllowLists.getValue("DistributionCacheBehaviorSettingsForwardedCookies.cookiesAllowLists");
+        if (!unknown_cookiesAllowLists) return value_cookiesAllowLists;
+        throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsForwardedCookies.cookiesAllowLists' is not present");
     }
 
     /**
      * Specifies which cookies to forward to the distribution&#39;s origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
      * 
      */
-    private @Nullable UndeferrableValue<String> option;
-
+    @PolicyResourceProperty(name="option", flag="unknown_option")
+    private @Nullable String value_option;
+    private boolean unknown_option;
     public @Nullable String option() {
-        if (option == null) return null;
-        return option.getValue("DistributionCacheBehaviorSettingsForwardedCookies.option");
+        if (!unknown_option) return value_option;
+        throw new UndeferrableValueException("Value 'DistributionCacheBehaviorSettingsForwardedCookies.option' is not present");
     }
 
 }

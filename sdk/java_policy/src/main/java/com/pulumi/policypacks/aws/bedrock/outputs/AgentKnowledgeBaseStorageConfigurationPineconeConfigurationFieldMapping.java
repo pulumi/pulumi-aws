@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFi
      * Name of the field in which Amazon Bedrock stores metadata about the vector store.
      * 
      */
-    private @Nullable UndeferrableValue<String> metadataField;
-
+    @PolicyResourceProperty(name="metadataField", flag="unknown_metadataField")
+    private @Nullable String value_metadataField;
+    private boolean unknown_metadataField;
     public @Nullable String metadataField() {
-        if (metadataField == null) return null;
-        return metadataField.getValue("AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping.metadataField");
+        if (!unknown_metadataField) return value_metadataField;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping.metadataField' is not present");
     }
 
     /**
      * Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
      * 
      */
-    private @Nullable UndeferrableValue<String> textField;
-
+    @PolicyResourceProperty(name="textField", flag="unknown_textField")
+    private @Nullable String value_textField;
+    private boolean unknown_textField;
     public @Nullable String textField() {
-        if (textField == null) return null;
-        return textField.getValue("AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping.textField");
+        if (!unknown_textField) return value_textField;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping.textField' is not present");
     }
 
 }

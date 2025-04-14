@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.outputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsv;
 import com.pulumi.policypacks.aws.sagemaker.outputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class DataQualityJobDefinitionDataQualityJobInputBatchTransformInpu
      * The CSV dataset used in the monitoring job. Fields are documented below.
      * 
      */
-    private @Nullable UndeferrableValue<DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsv> csv;
-
+    @PolicyResourceProperty(name="csv", flag="unknown_csv")
+    private @Nullable DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsv value_csv;
+    private boolean unknown_csv;
     public @Nullable DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsv csv() {
-        if (csv == null) return null;
-        return csv.getValue("DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat.csv");
+        if (!unknown_csv) return value_csv;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat.csv' is not present");
     }
 
     /**
      * The JSON dataset used in the monitoring job. Fields are documented below.
      * 
      */
-    private @Nullable UndeferrableValue<DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson> json;
-
+    @PolicyResourceProperty(name="json", flag="unknown_json")
+    private @Nullable DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson value_json;
+    private boolean unknown_json;
     public @Nullable DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson json() {
-        if (json == null) return null;
-        return json.getValue("DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat.json");
+        if (!unknown_json) return value_json;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat.json' is not present");
     }
 
 }

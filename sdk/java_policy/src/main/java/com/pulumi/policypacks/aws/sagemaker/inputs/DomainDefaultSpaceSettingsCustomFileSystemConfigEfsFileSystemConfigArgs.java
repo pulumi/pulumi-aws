@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystem
      * The ID of your Amazon EFS file system.
      * 
      */
-    private UndeferrableValue<String> fileSystemId;
-
+    @PolicyResourceProperty(name="fileSystemId", flag="unknown_fileSystemId")
+    private String value_fileSystemId;
+    private boolean unknown_fileSystemId;
     public String fileSystemId() {
-        if (fileSystemId == null) return null;
-        return fileSystemId.getValue("DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfigArgs.fileSystemId");
+        if (!unknown_fileSystemId) return value_fileSystemId;
+        throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfigArgs.fileSystemId' is not present");
     }
 
     /**
      * The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
      * 
      */
-    private UndeferrableValue<String> fileSystemPath;
-
+    @PolicyResourceProperty(name="fileSystemPath", flag="unknown_fileSystemPath")
+    private String value_fileSystemPath;
+    private boolean unknown_fileSystemPath;
     public String fileSystemPath() {
-        if (fileSystemPath == null) return null;
-        return fileSystemPath.getValue("DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfigArgs.fileSystemPath");
+        if (!unknown_fileSystemPath) return value_fileSystemPath;
+        throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfigArgs.fileSystemPath' is not present");
     }
 
 }

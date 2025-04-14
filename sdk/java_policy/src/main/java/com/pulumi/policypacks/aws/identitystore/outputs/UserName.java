@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.identitystore.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class UserName {
      * The family name of the user.
      * 
      */
-    private UndeferrableValue<String> familyName;
-
+    @PolicyResourceProperty(name="familyName", flag="unknown_familyName")
+    private String value_familyName;
+    private boolean unknown_familyName;
     public String familyName() {
-        if (familyName == null) return null;
-        return familyName.getValue("UserName.familyName");
+        if (!unknown_familyName) return value_familyName;
+        throw new UndeferrableValueException("Value 'UserName.familyName' is not present");
     }
 
     /**
      * The name that is typically displayed when the name is shown for display.
      * 
      */
-    private @Nullable UndeferrableValue<String> formatted;
-
+    @PolicyResourceProperty(name="formatted", flag="unknown_formatted")
+    private @Nullable String value_formatted;
+    private boolean unknown_formatted;
     public @Nullable String formatted() {
-        if (formatted == null) return null;
-        return formatted.getValue("UserName.formatted");
+        if (!unknown_formatted) return value_formatted;
+        throw new UndeferrableValueException("Value 'UserName.formatted' is not present");
     }
 
     /**
@@ -38,44 +41,48 @@ public final class UserName {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> givenName;
-
+    @PolicyResourceProperty(name="givenName", flag="unknown_givenName")
+    private String value_givenName;
+    private boolean unknown_givenName;
     public String givenName() {
-        if (givenName == null) return null;
-        return givenName.getValue("UserName.givenName");
+        if (!unknown_givenName) return value_givenName;
+        throw new UndeferrableValueException("Value 'UserName.givenName' is not present");
     }
 
     /**
      * The honorific prefix of the user.
      * 
      */
-    private @Nullable UndeferrableValue<String> honorificPrefix;
-
+    @PolicyResourceProperty(name="honorificPrefix", flag="unknown_honorificPrefix")
+    private @Nullable String value_honorificPrefix;
+    private boolean unknown_honorificPrefix;
     public @Nullable String honorificPrefix() {
-        if (honorificPrefix == null) return null;
-        return honorificPrefix.getValue("UserName.honorificPrefix");
+        if (!unknown_honorificPrefix) return value_honorificPrefix;
+        throw new UndeferrableValueException("Value 'UserName.honorificPrefix' is not present");
     }
 
     /**
      * The honorific suffix of the user.
      * 
      */
-    private @Nullable UndeferrableValue<String> honorificSuffix;
-
+    @PolicyResourceProperty(name="honorificSuffix", flag="unknown_honorificSuffix")
+    private @Nullable String value_honorificSuffix;
+    private boolean unknown_honorificSuffix;
     public @Nullable String honorificSuffix() {
-        if (honorificSuffix == null) return null;
-        return honorificSuffix.getValue("UserName.honorificSuffix");
+        if (!unknown_honorificSuffix) return value_honorificSuffix;
+        throw new UndeferrableValueException("Value 'UserName.honorificSuffix' is not present");
     }
 
     /**
      * The middle name of the user.
      * 
      */
-    private @Nullable UndeferrableValue<String> middleName;
-
+    @PolicyResourceProperty(name="middleName", flag="unknown_middleName")
+    private @Nullable String value_middleName;
+    private boolean unknown_middleName;
     public @Nullable String middleName() {
-        if (middleName == null) return null;
-        return middleName.getValue("UserName.middleName");
+        if (!unknown_middleName) return value_middleName;
+        throw new UndeferrableValueException("Value 'UserName.middleName' is not present");
     }
 
 }

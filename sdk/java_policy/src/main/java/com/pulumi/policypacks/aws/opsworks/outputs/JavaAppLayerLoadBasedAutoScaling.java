@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.opsworks.outputs.JavaAppLayerLoadBasedAutoScalingDownscaling;
 import com.pulumi.policypacks.aws.opsworks.outputs.JavaAppLayerLoadBasedAutoScalingUpscaling;
 import java.lang.Boolean;
@@ -12,25 +13,28 @@ import javax.annotation.Nullable;
 
 public final class JavaAppLayerLoadBasedAutoScaling {
 
-    private @Nullable UndeferrableValue<JavaAppLayerLoadBasedAutoScalingDownscaling> downscaling;
-
+    @PolicyResourceProperty(name="downscaling", flag="unknown_downscaling")
+    private @Nullable JavaAppLayerLoadBasedAutoScalingDownscaling value_downscaling;
+    private boolean unknown_downscaling;
     public @Nullable JavaAppLayerLoadBasedAutoScalingDownscaling downscaling() {
-        if (downscaling == null) return null;
-        return downscaling.getValue("JavaAppLayerLoadBasedAutoScaling.downscaling");
+        if (!unknown_downscaling) return value_downscaling;
+        throw new UndeferrableValueException("Value 'JavaAppLayerLoadBasedAutoScaling.downscaling' is not present");
     }
 
-    private @Nullable UndeferrableValue<Boolean> enable;
-
+    @PolicyResourceProperty(name="enable", flag="unknown_enable")
+    private @Nullable Boolean value_enable;
+    private boolean unknown_enable;
     public @Nullable Boolean enable() {
-        if (enable == null) return null;
-        return enable.getValue("JavaAppLayerLoadBasedAutoScaling.enable");
+        if (!unknown_enable) return value_enable;
+        throw new UndeferrableValueException("Value 'JavaAppLayerLoadBasedAutoScaling.enable' is not present");
     }
 
-    private @Nullable UndeferrableValue<JavaAppLayerLoadBasedAutoScalingUpscaling> upscaling;
-
+    @PolicyResourceProperty(name="upscaling", flag="unknown_upscaling")
+    private @Nullable JavaAppLayerLoadBasedAutoScalingUpscaling value_upscaling;
+    private boolean unknown_upscaling;
     public @Nullable JavaAppLayerLoadBasedAutoScalingUpscaling upscaling() {
-        if (upscaling == null) return null;
-        return upscaling.getValue("JavaAppLayerLoadBasedAutoScaling.upscaling");
+        if (!unknown_upscaling) return value_upscaling;
+        throw new UndeferrableValueException("Value 'JavaAppLayerLoadBasedAutoScaling.upscaling' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.vpclattice.inputs.ServiceNetworkResourceAssociationTimeoutsArgs;
 import java.lang.String;
@@ -18,11 +19,12 @@ public final class ServiceNetworkResourceAssociationArgs extends com.pulumi.reso
      * Identifier of Resource Configuration to associate to the Service Network.
      * 
      */
-    private UndeferrableValue<String> resourceConfigurationIdentifier;
-
+    @PolicyResourceProperty(name="resourceConfigurationIdentifier", flag="unknown_resourceConfigurationIdentifier")
+    private String value_resourceConfigurationIdentifier;
+    private boolean unknown_resourceConfigurationIdentifier;
     public String resourceConfigurationIdentifier() {
-        if (resourceConfigurationIdentifier == null) return null;
-        return resourceConfigurationIdentifier.getValue("ServiceNetworkResourceAssociationArgs.resourceConfigurationIdentifier");
+        if (!unknown_resourceConfigurationIdentifier) return value_resourceConfigurationIdentifier;
+        throw new UndeferrableValueException("Value 'ServiceNetworkResourceAssociationArgs.resourceConfigurationIdentifier' is not present");
     }
 
     /**
@@ -31,29 +33,32 @@ public final class ServiceNetworkResourceAssociationArgs extends com.pulumi.reso
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> serviceNetworkIdentifier;
-
+    @PolicyResourceProperty(name="serviceNetworkIdentifier", flag="unknown_serviceNetworkIdentifier")
+    private String value_serviceNetworkIdentifier;
+    private boolean unknown_serviceNetworkIdentifier;
     public String serviceNetworkIdentifier() {
-        if (serviceNetworkIdentifier == null) return null;
-        return serviceNetworkIdentifier.getValue("ServiceNetworkResourceAssociationArgs.serviceNetworkIdentifier");
+        if (!unknown_serviceNetworkIdentifier) return value_serviceNetworkIdentifier;
+        throw new UndeferrableValueException("Value 'ServiceNetworkResourceAssociationArgs.serviceNetworkIdentifier' is not present");
     }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ServiceNetworkResourceAssociationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ServiceNetworkResourceAssociationArgs.tags' is not present");
     }
 
-    private UndeferrableValue<ServiceNetworkResourceAssociationTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private ServiceNetworkResourceAssociationTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public ServiceNetworkResourceAssociationTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ServiceNetworkResourceAssociationArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ServiceNetworkResourceAssociationArgs.timeouts' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,44 +18,48 @@ public final class DomainNameAccessAssociationArgs extends com.pulumi.resources.
      * The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
      * 
      */
-    private UndeferrableValue<String> accessAssociationSource;
-
+    @PolicyResourceProperty(name="accessAssociationSource", flag="unknown_accessAssociationSource")
+    private String value_accessAssociationSource;
+    private boolean unknown_accessAssociationSource;
     public String accessAssociationSource() {
-        if (accessAssociationSource == null) return null;
-        return accessAssociationSource.getValue("DomainNameAccessAssociationArgs.accessAssociationSource");
+        if (!unknown_accessAssociationSource) return value_accessAssociationSource;
+        throw new UndeferrableValueException("Value 'DomainNameAccessAssociationArgs.accessAssociationSource' is not present");
     }
 
     /**
      * The type of the domain name access association source. Valid values are `VPCE`.
      * 
      */
-    private UndeferrableValue<String> accessAssociationSourceType;
-
+    @PolicyResourceProperty(name="accessAssociationSourceType", flag="unknown_accessAssociationSourceType")
+    private String value_accessAssociationSourceType;
+    private boolean unknown_accessAssociationSourceType;
     public String accessAssociationSourceType() {
-        if (accessAssociationSourceType == null) return null;
-        return accessAssociationSourceType.getValue("DomainNameAccessAssociationArgs.accessAssociationSourceType");
+        if (!unknown_accessAssociationSourceType) return value_accessAssociationSourceType;
+        throw new UndeferrableValueException("Value 'DomainNameAccessAssociationArgs.accessAssociationSourceType' is not present");
     }
 
     /**
      * The ARN of the domain name.
      * 
      */
-    private UndeferrableValue<String> domainNameArn;
-
+    @PolicyResourceProperty(name="domainNameArn", flag="unknown_domainNameArn")
+    private String value_domainNameArn;
+    private boolean unknown_domainNameArn;
     public String domainNameArn() {
-        if (domainNameArn == null) return null;
-        return domainNameArn.getValue("DomainNameAccessAssociationArgs.domainNameArn");
+        if (!unknown_domainNameArn) return value_domainNameArn;
+        throw new UndeferrableValueException("Value 'DomainNameAccessAssociationArgs.domainNameArn' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DomainNameAccessAssociationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DomainNameAccessAssociationArgs.tags' is not present");
     }
 
 }

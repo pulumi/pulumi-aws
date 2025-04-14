@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class TaskSetScaleArgs {
      * The unit of measure for the scale value. Default: `PERCENT`.
      * 
      */
-    private UndeferrableValue<String> unit;
-
+    @PolicyResourceProperty(name="unit", flag="unknown_unit")
+    private String value_unit;
+    private boolean unknown_unit;
     public String unit() {
-        if (unit == null) return null;
-        return unit.getValue("TaskSetScaleArgs.unit");
+        if (!unknown_unit) return value_unit;
+        throw new UndeferrableValueException("Value 'TaskSetScaleArgs.unit' is not present");
     }
 
     /**
      * The value, specified as a percent total of a service&#39;s `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
      * 
      */
-    private UndeferrableValue<Double> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private Double value_value;
+    private boolean unknown_value;
     public Double value() {
-        if (value == null) return null;
-        return value.getValue("TaskSetScaleArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'TaskSetScaleArgs.value' is not present");
     }
 
 }

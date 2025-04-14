@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class InstanceLoggingConfigurationAccessLogsS3 {
      * The name of S3 bucket.
      * 
      */
-    private @Nullable UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private @Nullable String value_bucketName;
+    private boolean unknown_bucketName;
     public @Nullable String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("InstanceLoggingConfigurationAccessLogsS3.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'InstanceLoggingConfigurationAccessLogsS3.bucketName' is not present");
     }
 
     /**
      * The ID of the AWS account that owns the Amazon S3 bucket.
      * 
      */
-    private @Nullable UndeferrableValue<String> bucketOwner;
-
+    @PolicyResourceProperty(name="bucketOwner", flag="unknown_bucketOwner")
+    private @Nullable String value_bucketOwner;
+    private boolean unknown_bucketOwner;
     public @Nullable String bucketOwner() {
-        if (bucketOwner == null) return null;
-        return bucketOwner.getValue("InstanceLoggingConfigurationAccessLogsS3.bucketOwner");
+        if (!unknown_bucketOwner) return value_bucketOwner;
+        throw new UndeferrableValueException("Value 'InstanceLoggingConfigurationAccessLogsS3.bucketOwner' is not present");
     }
 
     /**
      * Indicates whether logging is enabled.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("InstanceLoggingConfigurationAccessLogsS3.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'InstanceLoggingConfigurationAccessLogsS3.enabled' is not present");
     }
 
     /**
      * The bucket prefix.
      * 
      */
-    private @Nullable UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private @Nullable String value_prefix;
+    private boolean unknown_prefix;
     public @Nullable String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("InstanceLoggingConfigurationAccessLogsS3.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'InstanceLoggingConfigurationAccessLogsS3.prefix' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53recoverycontrol;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -17,66 +18,72 @@ public final class ControlPanel extends com.pulumi.resources.PolicyResourceOutpu
      * ARN of the control panel.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ControlPanel.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ControlPanel.arn' is not present");
     }
 
     /**
      * ARN of the cluster in which this control panel will reside.
      * 
      */
-    private UndeferrableValue<String> clusterArn;
-
+    @PolicyResourceProperty(name="clusterArn", flag="unknown_clusterArn")
+    private String value_clusterArn;
+    private boolean unknown_clusterArn;
     public String clusterArn() {
-        if (clusterArn == null) return null;
-        return clusterArn.getValue("ControlPanel.clusterArn");
+        if (!unknown_clusterArn) return value_clusterArn;
+        throw new UndeferrableValueException("Value 'ControlPanel.clusterArn' is not present");
     }
 
     /**
      * Whether a control panel is default.
      * 
      */
-    private UndeferrableValue<Boolean> defaultControlPanel;
-
+    @PolicyResourceProperty(name="defaultControlPanel", flag="unknown_defaultControlPanel")
+    private Boolean value_defaultControlPanel;
+    private boolean unknown_defaultControlPanel;
     public Boolean defaultControlPanel() {
-        if (defaultControlPanel == null) return null;
-        return defaultControlPanel.getValue("ControlPanel.defaultControlPanel");
+        if (!unknown_defaultControlPanel) return value_defaultControlPanel;
+        throw new UndeferrableValueException("Value 'ControlPanel.defaultControlPanel' is not present");
     }
 
     /**
      * Name describing the control panel.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ControlPanel.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ControlPanel.name' is not present");
     }
 
     /**
      * Number routing controls in a control panel.
      * 
      */
-    private UndeferrableValue<Integer> routingControlCount;
-
+    @PolicyResourceProperty(name="routingControlCount", flag="unknown_routingControlCount")
+    private Integer value_routingControlCount;
+    private boolean unknown_routingControlCount;
     public Integer routingControlCount() {
-        if (routingControlCount == null) return null;
-        return routingControlCount.getValue("ControlPanel.routingControlCount");
+        if (!unknown_routingControlCount) return value_routingControlCount;
+        throw new UndeferrableValueException("Value 'ControlPanel.routingControlCount' is not present");
     }
 
     /**
      * Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("ControlPanel.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'ControlPanel.status' is not present");
     }
 
 }

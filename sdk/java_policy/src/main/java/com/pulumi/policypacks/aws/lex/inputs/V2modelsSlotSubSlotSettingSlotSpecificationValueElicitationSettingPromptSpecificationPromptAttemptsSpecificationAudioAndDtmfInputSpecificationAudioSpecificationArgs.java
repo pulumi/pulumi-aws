@@ -3,24 +3,27 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
 public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs {
 
-    private UndeferrableValue<Integer> endTimeoutMs;
-
+    @PolicyResourceProperty(name="endTimeoutMs", flag="unknown_endTimeoutMs")
+    private Integer value_endTimeoutMs;
+    private boolean unknown_endTimeoutMs;
     public Integer endTimeoutMs() {
-        if (endTimeoutMs == null) return null;
-        return endTimeoutMs.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs.endTimeoutMs");
+        if (!unknown_endTimeoutMs) return value_endTimeoutMs;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs.endTimeoutMs' is not present");
     }
 
-    private UndeferrableValue<Integer> maxLengthMs;
-
+    @PolicyResourceProperty(name="maxLengthMs", flag="unknown_maxLengthMs")
+    private Integer value_maxLengthMs;
+    private boolean unknown_maxLengthMs;
     public Integer maxLengthMs() {
-        if (maxLengthMs == null) return null;
-        return maxLengthMs.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs.maxLengthMs");
+        if (!unknown_maxLengthMs) return value_maxLengthMs;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs.maxLengthMs' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.devicefarm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.devicefarm.outputs.DevicePoolRule;
 import java.lang.Integer;
@@ -20,77 +21,84 @@ public final class DevicePool extends com.pulumi.resources.PolicyResourceOutput 
      * The Amazon Resource Name of this Device Pool
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("DevicePool.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'DevicePool.arn' is not present");
     }
 
     /**
      * The device pool&#39;s description.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("DevicePool.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'DevicePool.description' is not present");
     }
 
     /**
      * The number of devices that Device Farm can add to your device pool.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxDevices;
-
+    @PolicyResourceProperty(name="maxDevices", flag="unknown_maxDevices")
+    private @Nullable Integer value_maxDevices;
+    private boolean unknown_maxDevices;
     public @Nullable Integer maxDevices() {
-        if (maxDevices == null) return null;
-        return maxDevices.getValue("DevicePool.maxDevices");
+        if (!unknown_maxDevices) return value_maxDevices;
+        throw new UndeferrableValueException("Value 'DevicePool.maxDevices' is not present");
     }
 
     /**
      * The name of the Device Pool
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DevicePool.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DevicePool.name' is not present");
     }
 
     /**
      * The ARN of the project for the device pool.
      * 
      */
-    private UndeferrableValue<String> projectArn;
-
+    @PolicyResourceProperty(name="projectArn", flag="unknown_projectArn")
+    private String value_projectArn;
+    private boolean unknown_projectArn;
     public String projectArn() {
-        if (projectArn == null) return null;
-        return projectArn.getValue("DevicePool.projectArn");
+        if (!unknown_projectArn) return value_projectArn;
+        throw new UndeferrableValueException("Value 'DevicePool.projectArn' is not present");
     }
 
     /**
      * The device pool&#39;s rules. See Rule.
      * 
      */
-    private UndeferrableValue<List<DevicePoolRule>> rules;
-
+    @PolicyResourceProperty(name="rules", flag="unknown_rules")
+    private List<DevicePoolRule> value_rules;
+    private boolean unknown_rules;
     public List<DevicePoolRule> rules() {
-        if (rules == null) return null;
-        return rules.getValue("DevicePool.rules");
+        if (!unknown_rules) return value_rules;
+        throw new UndeferrableValueException("Value 'DevicePool.rules' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DevicePool.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DevicePool.tags' is not present");
     }
 
     /**
@@ -101,18 +109,20 @@ public final class DevicePool extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("DevicePool.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'DevicePool.tagsAll' is not present");
     }
 
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("DevicePool.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'DevicePool.type' is not present");
     }
 
 }

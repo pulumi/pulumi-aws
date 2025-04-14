@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs;
 import com.pulumi.policypacks.aws.bedrock.inputs.AgentKnowledgeBaseStorageConfigurationArgs;
@@ -20,44 +21,48 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.PolicyRes
      * Description of the knowledge base.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("AgentKnowledgeBaseArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseArgs.description' is not present");
     }
 
     /**
      * Details about the embeddings configuration of the knowledge base. See `knowledge_base_configuration` block for details.
      * 
      */
-    private UndeferrableValue<AgentKnowledgeBaseKnowledgeBaseConfigurationArgs> knowledgeBaseConfiguration;
-
+    @PolicyResourceProperty(name="knowledgeBaseConfiguration", flag="unknown_knowledgeBaseConfiguration")
+    private AgentKnowledgeBaseKnowledgeBaseConfigurationArgs value_knowledgeBaseConfiguration;
+    private boolean unknown_knowledgeBaseConfiguration;
     public AgentKnowledgeBaseKnowledgeBaseConfigurationArgs knowledgeBaseConfiguration() {
-        if (knowledgeBaseConfiguration == null) return null;
-        return knowledgeBaseConfiguration.getValue("AgentKnowledgeBaseArgs.knowledgeBaseConfiguration");
+        if (!unknown_knowledgeBaseConfiguration) return value_knowledgeBaseConfiguration;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseArgs.knowledgeBaseConfiguration' is not present");
     }
 
     /**
      * Name of the knowledge base.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AgentKnowledgeBaseArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseArgs.name' is not present");
     }
 
     /**
      * ARN of the IAM role with permissions to invoke API operations on the knowledge base.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("AgentKnowledgeBaseArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseArgs.roleArn' is not present");
     }
 
     /**
@@ -66,29 +71,32 @@ public final class AgentKnowledgeBaseArgs extends com.pulumi.resources.PolicyRes
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<AgentKnowledgeBaseStorageConfigurationArgs> storageConfiguration;
-
+    @PolicyResourceProperty(name="storageConfiguration", flag="unknown_storageConfiguration")
+    private AgentKnowledgeBaseStorageConfigurationArgs value_storageConfiguration;
+    private boolean unknown_storageConfiguration;
     public AgentKnowledgeBaseStorageConfigurationArgs storageConfiguration() {
-        if (storageConfiguration == null) return null;
-        return storageConfiguration.getValue("AgentKnowledgeBaseArgs.storageConfiguration");
+        if (!unknown_storageConfiguration) return value_storageConfiguration;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseArgs.storageConfiguration' is not present");
     }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AgentKnowledgeBaseArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseArgs.tags' is not present");
     }
 
-    private UndeferrableValue<AgentKnowledgeBaseTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private AgentKnowledgeBaseTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public AgentKnowledgeBaseTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("AgentKnowledgeBaseArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'AgentKnowledgeBaseArgs.timeouts' is not present");
     }
 
 }

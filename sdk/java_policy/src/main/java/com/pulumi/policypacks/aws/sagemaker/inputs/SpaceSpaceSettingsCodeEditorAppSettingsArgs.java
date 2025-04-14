@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class SpaceSpaceSettingsCodeEditorAppSettingsArgs {
      * Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
      * 
      */
-    private UndeferrableValue<SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs> appLifecycleManagement;
-
+    @PolicyResourceProperty(name="appLifecycleManagement", flag="unknown_appLifecycleManagement")
+    private SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs value_appLifecycleManagement;
+    private boolean unknown_appLifecycleManagement;
     public SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs appLifecycleManagement() {
-        if (appLifecycleManagement == null) return null;
-        return appLifecycleManagement.getValue("SpaceSpaceSettingsCodeEditorAppSettingsArgs.appLifecycleManagement");
+        if (!unknown_appLifecycleManagement) return value_appLifecycleManagement;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSettingsCodeEditorAppSettingsArgs.appLifecycleManagement' is not present");
     }
 
     /**
      * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
      * 
      */
-    private UndeferrableValue<SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
-
+    @PolicyResourceProperty(name="defaultResourceSpec", flag="unknown_defaultResourceSpec")
+    private SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs value_defaultResourceSpec;
+    private boolean unknown_defaultResourceSpec;
     public SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpecArgs defaultResourceSpec() {
-        if (defaultResourceSpec == null) return null;
-        return defaultResourceSpec.getValue("SpaceSpaceSettingsCodeEditorAppSettingsArgs.defaultResourceSpec");
+        if (!unknown_defaultResourceSpec) return value_defaultResourceSpec;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSettingsCodeEditorAppSettingsArgs.defaultResourceSpec' is not present");
     }
 
 }

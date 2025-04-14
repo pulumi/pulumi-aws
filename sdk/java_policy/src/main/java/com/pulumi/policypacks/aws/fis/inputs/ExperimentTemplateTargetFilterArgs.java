@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fis.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class ExperimentTemplateTargetFilterArgs {
      * Attribute path for the filter.
      * 
      */
-    private UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private String value_path;
+    private boolean unknown_path;
     public String path() {
-        if (path == null) return null;
-        return path.getValue("ExperimentTemplateTargetFilterArgs.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateTargetFilterArgs.path' is not present");
     }
 
     /**
@@ -27,11 +29,12 @@ public final class ExperimentTemplateTargetFilterArgs {
      * &gt; **NOTE:** Values specified in a `filter` are joined with an `OR` clause, while values across multiple `filter` blocks are joined with an `AND` clause. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters).
      * 
      */
-    private UndeferrableValue<List<String>> values;
-
+    @PolicyResourceProperty(name="values", flag="unknown_values")
+    private List<String> value_values;
+    private boolean unknown_values;
     public List<String> values() {
-        if (values == null) return null;
-        return values.getValue("ExperimentTemplateTargetFilterArgs.values");
+        if (!unknown_values) return value_values;
+        throw new UndeferrableValueException("Value 'ExperimentTemplateTargetFilterArgs.values' is not present");
     }
 
 }

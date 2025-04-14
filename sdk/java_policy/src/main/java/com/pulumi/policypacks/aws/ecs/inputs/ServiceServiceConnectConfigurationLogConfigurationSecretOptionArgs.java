@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class ServiceServiceConnectConfigurationLogConfigurationSecretOptio
      * Name of the secret.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs.name' is not present");
     }
 
     /**
      * Secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
      * 
      */
-    private UndeferrableValue<String> valueFrom;
-
+    @PolicyResourceProperty(name="valueFrom", flag="unknown_valueFrom")
+    private String value_valueFrom;
+    private boolean unknown_valueFrom;
     public String valueFrom() {
-        if (valueFrom == null) return null;
-        return valueFrom.getValue("ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs.valueFrom");
+        if (!unknown_valueFrom) return value_valueFrom;
+        throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs.valueFrom' is not present");
     }
 
 }

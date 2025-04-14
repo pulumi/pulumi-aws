@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.outputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig;
 import java.lang.Double;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig {
      * Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user&#39;s requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `session_stickiness_config`.
      * 
      */
-    private @Nullable UndeferrableValue<ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig> sessionStickinessConfig;
-
+    @PolicyResourceProperty(name="sessionStickinessConfig", flag="unknown_sessionStickinessConfig")
+    private @Nullable ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig value_sessionStickinessConfig;
+    private boolean unknown_sessionStickinessConfig;
     public @Nullable ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig sessionStickinessConfig() {
-        if (sessionStickinessConfig == null) return null;
-        return sessionStickinessConfig.getValue("ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig.sessionStickinessConfig");
+        if (!unknown_sessionStickinessConfig) return value_sessionStickinessConfig;
+        throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig.sessionStickinessConfig' is not present");
     }
 
     /**
      * The percentage of traffic to send to a staging distribution, expressed as a decimal number between `0` and `.15`.
      * 
      */
-    private UndeferrableValue<Double> weight;
-
+    @PolicyResourceProperty(name="weight", flag="unknown_weight")
+    private Double value_weight;
+    private boolean unknown_weight;
     public Double weight() {
-        if (weight == null) return null;
-        return weight.getValue("ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig.weight");
+        if (!unknown_weight) return value_weight;
+        throw new UndeferrableValueException("Value 'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig.weight' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.bedrock.outputs.GuardrailContentPolicyConfig;
 import com.pulumi.policypacks.aws.bedrock.outputs.GuardrailContextualGroundingPolicyConfig;
@@ -23,99 +24,108 @@ public final class Guardrail extends com.pulumi.resources.PolicyResourceOutput {
      * Message to return when the guardrail blocks a prompt.
      * 
      */
-    private UndeferrableValue<String> blockedInputMessaging;
-
+    @PolicyResourceProperty(name="blockedInputMessaging", flag="unknown_blockedInputMessaging")
+    private String value_blockedInputMessaging;
+    private boolean unknown_blockedInputMessaging;
     public String blockedInputMessaging() {
-        if (blockedInputMessaging == null) return null;
-        return blockedInputMessaging.getValue("Guardrail.blockedInputMessaging");
+        if (!unknown_blockedInputMessaging) return value_blockedInputMessaging;
+        throw new UndeferrableValueException("Value 'Guardrail.blockedInputMessaging' is not present");
     }
 
     /**
      * Message to return when the guardrail blocks a model response.
      * 
      */
-    private UndeferrableValue<String> blockedOutputsMessaging;
-
+    @PolicyResourceProperty(name="blockedOutputsMessaging", flag="unknown_blockedOutputsMessaging")
+    private String value_blockedOutputsMessaging;
+    private boolean unknown_blockedOutputsMessaging;
     public String blockedOutputsMessaging() {
-        if (blockedOutputsMessaging == null) return null;
-        return blockedOutputsMessaging.getValue("Guardrail.blockedOutputsMessaging");
+        if (!unknown_blockedOutputsMessaging) return value_blockedOutputsMessaging;
+        throw new UndeferrableValueException("Value 'Guardrail.blockedOutputsMessaging' is not present");
     }
 
     /**
      * Content policy config for a guardrail. See Content Policy Config for more information.
      * 
      */
-    private @Nullable UndeferrableValue<GuardrailContentPolicyConfig> contentPolicyConfig;
-
+    @PolicyResourceProperty(name="contentPolicyConfig", flag="unknown_contentPolicyConfig")
+    private @Nullable GuardrailContentPolicyConfig value_contentPolicyConfig;
+    private boolean unknown_contentPolicyConfig;
     public @Nullable GuardrailContentPolicyConfig contentPolicyConfig() {
-        if (contentPolicyConfig == null) return null;
-        return contentPolicyConfig.getValue("Guardrail.contentPolicyConfig");
+        if (!unknown_contentPolicyConfig) return value_contentPolicyConfig;
+        throw new UndeferrableValueException("Value 'Guardrail.contentPolicyConfig' is not present");
     }
 
     /**
      * Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
      * 
      */
-    private @Nullable UndeferrableValue<GuardrailContextualGroundingPolicyConfig> contextualGroundingPolicyConfig;
-
+    @PolicyResourceProperty(name="contextualGroundingPolicyConfig", flag="unknown_contextualGroundingPolicyConfig")
+    private @Nullable GuardrailContextualGroundingPolicyConfig value_contextualGroundingPolicyConfig;
+    private boolean unknown_contextualGroundingPolicyConfig;
     public @Nullable GuardrailContextualGroundingPolicyConfig contextualGroundingPolicyConfig() {
-        if (contextualGroundingPolicyConfig == null) return null;
-        return contextualGroundingPolicyConfig.getValue("Guardrail.contextualGroundingPolicyConfig");
+        if (!unknown_contextualGroundingPolicyConfig) return value_contextualGroundingPolicyConfig;
+        throw new UndeferrableValueException("Value 'Guardrail.contextualGroundingPolicyConfig' is not present");
     }
 
     /**
      * Unix epoch timestamp in seconds for when the Guardrail was created.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("Guardrail.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'Guardrail.createdAt' is not present");
     }
 
     /**
      * Description of the guardrail or its version.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("Guardrail.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Guardrail.description' is not present");
     }
 
     /**
      * ARN of the Guardrail.
      * 
      */
-    private UndeferrableValue<String> guardrailArn;
-
+    @PolicyResourceProperty(name="guardrailArn", flag="unknown_guardrailArn")
+    private String value_guardrailArn;
+    private boolean unknown_guardrailArn;
     public String guardrailArn() {
-        if (guardrailArn == null) return null;
-        return guardrailArn.getValue("Guardrail.guardrailArn");
+        if (!unknown_guardrailArn) return value_guardrailArn;
+        throw new UndeferrableValueException("Value 'Guardrail.guardrailArn' is not present");
     }
 
     /**
      * ID of the Guardrail.
      * 
      */
-    private UndeferrableValue<String> guardrailId;
-
+    @PolicyResourceProperty(name="guardrailId", flag="unknown_guardrailId")
+    private String value_guardrailId;
+    private boolean unknown_guardrailId;
     public String guardrailId() {
-        if (guardrailId == null) return null;
-        return guardrailId.getValue("Guardrail.guardrailId");
+        if (!unknown_guardrailId) return value_guardrailId;
+        throw new UndeferrableValueException("Value 'Guardrail.guardrailId' is not present");
     }
 
     /**
      * The KMS key with which the guardrail was encrypted at rest.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private @Nullable String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public @Nullable String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("Guardrail.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'Guardrail.kmsKeyArn' is not present");
     }
 
     /**
@@ -124,44 +134,48 @@ public final class Guardrail extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Guardrail.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Guardrail.name' is not present");
     }
 
     /**
      * Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
      * 
      */
-    private @Nullable UndeferrableValue<GuardrailSensitiveInformationPolicyConfig> sensitiveInformationPolicyConfig;
-
+    @PolicyResourceProperty(name="sensitiveInformationPolicyConfig", flag="unknown_sensitiveInformationPolicyConfig")
+    private @Nullable GuardrailSensitiveInformationPolicyConfig value_sensitiveInformationPolicyConfig;
+    private boolean unknown_sensitiveInformationPolicyConfig;
     public @Nullable GuardrailSensitiveInformationPolicyConfig sensitiveInformationPolicyConfig() {
-        if (sensitiveInformationPolicyConfig == null) return null;
-        return sensitiveInformationPolicyConfig.getValue("Guardrail.sensitiveInformationPolicyConfig");
+        if (!unknown_sensitiveInformationPolicyConfig) return value_sensitiveInformationPolicyConfig;
+        throw new UndeferrableValueException("Value 'Guardrail.sensitiveInformationPolicyConfig' is not present");
     }
 
     /**
      * Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Guardrail.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Guardrail.status' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Guardrail.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Guardrail.tags' is not present");
     }
 
     /**
@@ -170,51 +184,56 @@ public final class Guardrail extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Guardrail.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Guardrail.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<GuardrailTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable GuardrailTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable GuardrailTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("Guardrail.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'Guardrail.timeouts' is not present");
     }
 
     /**
      * Topic policy config for a guardrail. See Topic Policy Config for more information.
      * 
      */
-    private @Nullable UndeferrableValue<GuardrailTopicPolicyConfig> topicPolicyConfig;
-
+    @PolicyResourceProperty(name="topicPolicyConfig", flag="unknown_topicPolicyConfig")
+    private @Nullable GuardrailTopicPolicyConfig value_topicPolicyConfig;
+    private boolean unknown_topicPolicyConfig;
     public @Nullable GuardrailTopicPolicyConfig topicPolicyConfig() {
-        if (topicPolicyConfig == null) return null;
-        return topicPolicyConfig.getValue("Guardrail.topicPolicyConfig");
+        if (!unknown_topicPolicyConfig) return value_topicPolicyConfig;
+        throw new UndeferrableValueException("Value 'Guardrail.topicPolicyConfig' is not present");
     }
 
     /**
      * Version of the Guardrail.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("Guardrail.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'Guardrail.version' is not present");
     }
 
     /**
      * Word policy config for a guardrail. See Word Policy Config for more information.
      * 
      */
-    private @Nullable UndeferrableValue<GuardrailWordPolicyConfig> wordPolicyConfig;
-
+    @PolicyResourceProperty(name="wordPolicyConfig", flag="unknown_wordPolicyConfig")
+    private @Nullable GuardrailWordPolicyConfig value_wordPolicyConfig;
+    private boolean unknown_wordPolicyConfig;
     public @Nullable GuardrailWordPolicyConfig wordPolicyConfig() {
-        if (wordPolicyConfig == null) return null;
-        return wordPolicyConfig.getValue("Guardrail.wordPolicyConfig");
+        if (!unknown_wordPolicyConfig) return value_wordPolicyConfig;
+        throw new UndeferrableValueException("Value 'Guardrail.wordPolicyConfig' is not present");
     }
 
 }

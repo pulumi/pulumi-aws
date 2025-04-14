@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,22 +17,24 @@ public final class StandardsControlAssociationArgs extends com.pulumi.resources.
      * The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> associationStatus;
-
+    @PolicyResourceProperty(name="associationStatus", flag="unknown_associationStatus")
+    private String value_associationStatus;
+    private boolean unknown_associationStatus;
     public String associationStatus() {
-        if (associationStatus == null) return null;
-        return associationStatus.getValue("StandardsControlAssociationArgs.associationStatus");
+        if (!unknown_associationStatus) return value_associationStatus;
+        throw new UndeferrableValueException("Value 'StandardsControlAssociationArgs.associationStatus' is not present");
     }
 
     /**
      * The unique identifier for the security control whose enablement status you want to update.
      * 
      */
-    private UndeferrableValue<String> securityControlId;
-
+    @PolicyResourceProperty(name="securityControlId", flag="unknown_securityControlId")
+    private String value_securityControlId;
+    private boolean unknown_securityControlId;
     public String securityControlId() {
-        if (securityControlId == null) return null;
-        return securityControlId.getValue("StandardsControlAssociationArgs.securityControlId");
+        if (!unknown_securityControlId) return value_securityControlId;
+        throw new UndeferrableValueException("Value 'StandardsControlAssociationArgs.securityControlId' is not present");
     }
 
     /**
@@ -40,22 +43,24 @@ public final class StandardsControlAssociationArgs extends com.pulumi.resources.
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> standardsArn;
-
+    @PolicyResourceProperty(name="standardsArn", flag="unknown_standardsArn")
+    private String value_standardsArn;
+    private boolean unknown_standardsArn;
     public String standardsArn() {
-        if (standardsArn == null) return null;
-        return standardsArn.getValue("StandardsControlAssociationArgs.standardsArn");
+        if (!unknown_standardsArn) return value_standardsArn;
+        throw new UndeferrableValueException("Value 'StandardsControlAssociationArgs.standardsArn' is not present");
     }
 
     /**
      * The reason for updating the control&#39;s enablement status in the standard. Required when `association_status` is `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> updatedReason;
-
+    @PolicyResourceProperty(name="updatedReason", flag="unknown_updatedReason")
+    private String value_updatedReason;
+    private boolean unknown_updatedReason;
     public String updatedReason() {
-        if (updatedReason == null) return null;
-        return updatedReason.getValue("StandardsControlAssociationArgs.updatedReason");
+        if (!unknown_updatedReason) return value_updatedReason;
+        throw new UndeferrableValueException("Value 'StandardsControlAssociationArgs.updatedReason' is not present");
     }
 
 }

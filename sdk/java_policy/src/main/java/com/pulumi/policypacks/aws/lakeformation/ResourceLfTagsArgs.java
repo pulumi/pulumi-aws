@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lakeformation.inputs.ResourceLfTagsDatabaseArgs;
 import com.pulumi.policypacks.aws.lakeformation.inputs.ResourceLfTagsLfTagArgs;
@@ -21,22 +22,24 @@ public final class ResourceLfTagsArgs extends com.pulumi.resources.PolicyResourc
      * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      * 
      */
-    private UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private String value_catalogId;
+    private boolean unknown_catalogId;
     public String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("ResourceLfTagsArgs.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'ResourceLfTagsArgs.catalogId' is not present");
     }
 
     /**
      * Configuration block for a database resource. See below.
      * 
      */
-    private UndeferrableValue<ResourceLfTagsDatabaseArgs> database;
-
+    @PolicyResourceProperty(name="database", flag="unknown_database")
+    private ResourceLfTagsDatabaseArgs value_database;
+    private boolean unknown_database;
     public ResourceLfTagsDatabaseArgs database() {
-        if (database == null) return null;
-        return database.getValue("ResourceLfTagsArgs.database");
+        if (!unknown_database) return value_database;
+        throw new UndeferrableValueException("Value 'ResourceLfTagsArgs.database' is not present");
     }
 
     /**
@@ -45,22 +48,24 @@ public final class ResourceLfTagsArgs extends com.pulumi.resources.PolicyResourc
      * Exactly one of the following is required:
      * 
      */
-    private UndeferrableValue<List<ResourceLfTagsLfTagArgs>> lfTags;
-
+    @PolicyResourceProperty(name="lfTags", flag="unknown_lfTags")
+    private List<ResourceLfTagsLfTagArgs> value_lfTags;
+    private boolean unknown_lfTags;
     public List<ResourceLfTagsLfTagArgs> lfTags() {
-        if (lfTags == null) return null;
-        return lfTags.getValue("ResourceLfTagsArgs.lfTags");
+        if (!unknown_lfTags) return value_lfTags;
+        throw new UndeferrableValueException("Value 'ResourceLfTagsArgs.lfTags' is not present");
     }
 
     /**
      * Configuration block for a table resource. See below.
      * 
      */
-    private UndeferrableValue<ResourceLfTagsTableArgs> table;
-
+    @PolicyResourceProperty(name="table", flag="unknown_table")
+    private ResourceLfTagsTableArgs value_table;
+    private boolean unknown_table;
     public ResourceLfTagsTableArgs table() {
-        if (table == null) return null;
-        return table.getValue("ResourceLfTagsArgs.table");
+        if (!unknown_table) return value_table;
+        throw new UndeferrableValueException("Value 'ResourceLfTagsArgs.table' is not present");
     }
 
     /**
@@ -69,11 +74,12 @@ public final class ResourceLfTagsArgs extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<ResourceLfTagsTableWithColumnsArgs> tableWithColumns;
-
+    @PolicyResourceProperty(name="tableWithColumns", flag="unknown_tableWithColumns")
+    private ResourceLfTagsTableWithColumnsArgs value_tableWithColumns;
+    private boolean unknown_tableWithColumns;
     public ResourceLfTagsTableWithColumnsArgs tableWithColumns() {
-        if (tableWithColumns == null) return null;
-        return tableWithColumns.getValue("ResourceLfTagsArgs.tableWithColumns");
+        if (!unknown_tableWithColumns) return value_tableWithColumns;
+        throw new UndeferrableValueException("Value 'ResourceLfTagsArgs.tableWithColumns' is not present");
     }
 
 }

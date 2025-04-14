@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -18,22 +19,24 @@ public final class EventTargetInputTransformerArgs {
      * * The keys can&#39;t start with &#34;AWS&#34;.
      * 
      */
-    private UndeferrableValue<Map<String,String>> inputPaths;
-
+    @PolicyResourceProperty(name="inputPaths", flag="unknown_inputPaths")
+    private Map<String,String> value_inputPaths;
+    private boolean unknown_inputPaths;
     public Map<String,String> inputPaths() {
-        if (inputPaths == null) return null;
-        return inputPaths.getValue("EventTargetInputTransformerArgs.inputPaths");
+        if (!unknown_inputPaths) return value_inputPaths;
+        throw new UndeferrableValueException("Value 'EventTargetInputTransformerArgs.inputPaths' is not present");
     }
 
     /**
      * Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
      * 
      */
-    private UndeferrableValue<String> inputTemplate;
-
+    @PolicyResourceProperty(name="inputTemplate", flag="unknown_inputTemplate")
+    private String value_inputTemplate;
+    private boolean unknown_inputTemplate;
     public String inputTemplate() {
-        if (inputTemplate == null) return null;
-        return inputTemplate.getValue("EventTargetInputTransformerArgs.inputTemplate");
+        if (!unknown_inputTemplate) return value_inputTemplate;
+        throw new UndeferrableValueException("Value 'EventTargetInputTransformerArgs.inputTemplate' is not present");
     }
 
 }

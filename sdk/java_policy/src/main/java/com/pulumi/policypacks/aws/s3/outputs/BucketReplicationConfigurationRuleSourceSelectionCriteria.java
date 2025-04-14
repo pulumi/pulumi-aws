@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.outputs.BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects;
 import javax.annotation.Nullable;
 
@@ -15,11 +16,12 @@ public final class BucketReplicationConfigurationRuleSourceSelectionCriteria {
      * in `destination` must be specified as well.
      * 
      */
-    private @Nullable UndeferrableValue<BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects> sseKmsEncryptedObjects;
-
+    @PolicyResourceProperty(name="sseKmsEncryptedObjects", flag="unknown_sseKmsEncryptedObjects")
+    private @Nullable BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects value_sseKmsEncryptedObjects;
+    private boolean unknown_sseKmsEncryptedObjects;
     public @Nullable BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects sseKmsEncryptedObjects() {
-        if (sseKmsEncryptedObjects == null) return null;
-        return sseKmsEncryptedObjects.getValue("BucketReplicationConfigurationRuleSourceSelectionCriteria.sseKmsEncryptedObjects");
+        if (!unknown_sseKmsEncryptedObjects) return value_sseKmsEncryptedObjects;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigurationRuleSourceSelectionCriteria.sseKmsEncryptedObjects' is not present");
     }
 
 }

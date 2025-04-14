@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class RoleMembershipArgs extends com.pulumi.resources.PolicyResourc
      * AWS account ID. Defaults to the account of the caller identity if not configured.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("RoleMembershipArgs.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'RoleMembershipArgs.awsAccountId' is not present");
     }
 
     /**
      * Name of the group to be added to the role.
      * 
      */
-    private UndeferrableValue<String> memberName;
-
+    @PolicyResourceProperty(name="memberName", flag="unknown_memberName")
+    private String value_memberName;
+    private boolean unknown_memberName;
     public String memberName() {
-        if (memberName == null) return null;
-        return memberName.getValue("RoleMembershipArgs.memberName");
+        if (!unknown_memberName) return value_memberName;
+        throw new UndeferrableValueException("Value 'RoleMembershipArgs.memberName' is not present");
     }
 
     /**
      * Name of the namespace. Defaults to `default`.
      * 
      */
-    private UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private String value_namespace;
+    private boolean unknown_namespace;
     public String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("RoleMembershipArgs.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'RoleMembershipArgs.namespace' is not present");
     }
 
     /**
@@ -51,11 +55,12 @@ public final class RoleMembershipArgs extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> role;
-
+    @PolicyResourceProperty(name="role", flag="unknown_role")
+    private String value_role;
+    private boolean unknown_role;
     public String role() {
-        if (role == null) return null;
-        return role.getValue("RoleMembershipArgs.role");
+        if (!unknown_role) return value_role;
+        throw new UndeferrableValueException("Value 'RoleMembershipArgs.role' is not present");
     }
 
 }

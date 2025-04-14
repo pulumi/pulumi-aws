@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class AgentAgentCollaboratorTimeouts {
      * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours).
      * 
      */
-    private @Nullable UndeferrableValue<String> create;
-
+    @PolicyResourceProperty(name="create", flag="unknown_create")
+    private @Nullable String value_create;
+    private boolean unknown_create;
     public @Nullable String create() {
-        if (create == null) return null;
-        return create.getValue("AgentAgentCollaboratorTimeouts.create");
+        if (!unknown_create) return value_create;
+        throw new UndeferrableValueException("Value 'AgentAgentCollaboratorTimeouts.create' is not present");
     }
 
     /**
      * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
      * 
      */
-    private @Nullable UndeferrableValue<String> delete;
-
+    @PolicyResourceProperty(name="delete", flag="unknown_delete")
+    private @Nullable String value_delete;
+    private boolean unknown_delete;
     public @Nullable String delete() {
-        if (delete == null) return null;
-        return delete.getValue("AgentAgentCollaboratorTimeouts.delete");
+        if (!unknown_delete) return value_delete;
+        throw new UndeferrableValueException("Value 'AgentAgentCollaboratorTimeouts.delete' is not present");
     }
 
     /**
      * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours).
      * 
      */
-    private @Nullable UndeferrableValue<String> update;
-
+    @PolicyResourceProperty(name="update", flag="unknown_update")
+    private @Nullable String value_update;
+    private boolean unknown_update;
     public @Nullable String update() {
-        if (update == null) return null;
-        return update.getValue("AgentAgentCollaboratorTimeouts.update");
+        if (!unknown_update) return value_update;
+        throw new UndeferrableValueException("Value 'AgentAgentCollaboratorTimeouts.update' is not present");
     }
 
 }

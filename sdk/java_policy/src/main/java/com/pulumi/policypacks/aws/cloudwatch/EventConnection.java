@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudwatch.outputs.EventConnectionAuthParameters;
 import com.pulumi.policypacks.aws.cloudwatch.outputs.EventConnectionInvocationConnectivityParameters;
@@ -18,77 +19,84 @@ public final class EventConnection extends com.pulumi.resources.PolicyResourceOu
      * The Amazon Resource Name (ARN) of the connection.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("EventConnection.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'EventConnection.arn' is not present");
     }
 
     /**
      * Parameters used for authorization. A maximum of 1 are allowed. Documented below.
      * 
      */
-    private UndeferrableValue<EventConnectionAuthParameters> authParameters;
-
+    @PolicyResourceProperty(name="authParameters", flag="unknown_authParameters")
+    private EventConnectionAuthParameters value_authParameters;
+    private boolean unknown_authParameters;
     public EventConnectionAuthParameters authParameters() {
-        if (authParameters == null) return null;
-        return authParameters.getValue("EventConnection.authParameters");
+        if (!unknown_authParameters) return value_authParameters;
+        throw new UndeferrableValueException("Value 'EventConnection.authParameters' is not present");
     }
 
     /**
      * Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
      * 
      */
-    private UndeferrableValue<String> authorizationType;
-
+    @PolicyResourceProperty(name="authorizationType", flag="unknown_authorizationType")
+    private String value_authorizationType;
+    private boolean unknown_authorizationType;
     public String authorizationType() {
-        if (authorizationType == null) return null;
-        return authorizationType.getValue("EventConnection.authorizationType");
+        if (!unknown_authorizationType) return value_authorizationType;
+        throw new UndeferrableValueException("Value 'EventConnection.authorizationType' is not present");
     }
 
     /**
      * Enter a description for the connection. Maximum of 512 characters.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("EventConnection.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'EventConnection.description' is not present");
     }
 
     /**
      * The parameters to use for invoking a private API. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<EventConnectionInvocationConnectivityParameters> invocationConnectivityParameters;
-
+    @PolicyResourceProperty(name="invocationConnectivityParameters", flag="unknown_invocationConnectivityParameters")
+    private @Nullable EventConnectionInvocationConnectivityParameters value_invocationConnectivityParameters;
+    private boolean unknown_invocationConnectivityParameters;
     public @Nullable EventConnectionInvocationConnectivityParameters invocationConnectivityParameters() {
-        if (invocationConnectivityParameters == null) return null;
-        return invocationConnectivityParameters.getValue("EventConnection.invocationConnectivityParameters");
+        if (!unknown_invocationConnectivityParameters) return value_invocationConnectivityParameters;
+        throw new UndeferrableValueException("Value 'EventConnection.invocationConnectivityParameters' is not present");
     }
 
     /**
      * The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("EventConnection.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'EventConnection.name' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
      * 
      */
-    private UndeferrableValue<String> secretArn;
-
+    @PolicyResourceProperty(name="secretArn", flag="unknown_secretArn")
+    private String value_secretArn;
+    private boolean unknown_secretArn;
     public String secretArn() {
-        if (secretArn == null) return null;
-        return secretArn.getValue("EventConnection.secretArn");
+        if (!unknown_secretArn) return value_secretArn;
+        throw new UndeferrableValueException("Value 'EventConnection.secretArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cfg.inputs.RecorderRecordingModeRecordingModeOverrideArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class RecorderRecordingModeArgs {
      * Default recording frequency. `CONTINUOUS` or `DAILY`.
      * 
      */
-    private UndeferrableValue<String> recordingFrequency;
-
+    @PolicyResourceProperty(name="recordingFrequency", flag="unknown_recordingFrequency")
+    private String value_recordingFrequency;
+    private boolean unknown_recordingFrequency;
     public String recordingFrequency() {
-        if (recordingFrequency == null) return null;
-        return recordingFrequency.getValue("RecorderRecordingModeArgs.recordingFrequency");
+        if (!unknown_recordingFrequency) return value_recordingFrequency;
+        throw new UndeferrableValueException("Value 'RecorderRecordingModeArgs.recordingFrequency' is not present");
     }
 
     /**
      * Recording mode overrides. Detailed below.
      * 
      */
-    private UndeferrableValue<RecorderRecordingModeRecordingModeOverrideArgs> recordingModeOverride;
-
+    @PolicyResourceProperty(name="recordingModeOverride", flag="unknown_recordingModeOverride")
+    private RecorderRecordingModeRecordingModeOverrideArgs value_recordingModeOverride;
+    private boolean unknown_recordingModeOverride;
     public RecorderRecordingModeRecordingModeOverrideArgs recordingModeOverride() {
-        if (recordingModeOverride == null) return null;
-        return recordingModeOverride.getValue("RecorderRecordingModeArgs.recordingModeOverride");
+        if (!unknown_recordingModeOverride) return value_recordingModeOverride;
+        throw new UndeferrableValueException("Value 'RecorderRecordingModeArgs.recordingModeOverride' is not present");
     }
 
 }

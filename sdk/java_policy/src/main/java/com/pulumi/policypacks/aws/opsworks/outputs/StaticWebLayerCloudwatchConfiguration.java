@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.opsworks.outputs.StaticWebLayerCloudwatchConfigurationLogStream;
 import java.lang.Boolean;
 import java.util.List;
@@ -12,18 +13,20 @@ import javax.annotation.Nullable;
 
 public final class StaticWebLayerCloudwatchConfiguration {
 
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("StaticWebLayerCloudwatchConfiguration.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'StaticWebLayerCloudwatchConfiguration.enabled' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<StaticWebLayerCloudwatchConfigurationLogStream>> logStreams;
-
+    @PolicyResourceProperty(name="logStreams", flag="unknown_logStreams")
+    private @Nullable List<StaticWebLayerCloudwatchConfigurationLogStream> value_logStreams;
+    private boolean unknown_logStreams;
     public @Nullable List<StaticWebLayerCloudwatchConfigurationLogStream> logStreams() {
-        if (logStreams == null) return null;
-        return logStreams.getValue("StaticWebLayerCloudwatchConfiguration.logStreams");
+        if (!unknown_logStreams) return value_logStreams;
+        throw new UndeferrableValueException("Value 'StaticWebLayerCloudwatchConfiguration.logStreams' is not present");
     }
 
 }

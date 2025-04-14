@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecification;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification;
 import com.pulumi.policypacks.aws.lex.outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtterance;
@@ -19,11 +20,12 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
      * See the `default_value_specification` argument reference below.
      * 
      */
-    private @Nullable UndeferrableValue<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecification>> defaultValueSpecifications;
-
+    @PolicyResourceProperty(name="defaultValueSpecifications", flag="unknown_defaultValueSpecifications")
+    private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecification> value_defaultValueSpecifications;
+    private boolean unknown_defaultValueSpecifications;
     public @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecification> defaultValueSpecifications() {
-        if (defaultValueSpecifications == null) return null;
-        return defaultValueSpecifications.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting.defaultValueSpecifications");
+        if (!unknown_defaultValueSpecifications) return value_defaultValueSpecifications;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting.defaultValueSpecifications' is not present");
     }
 
     /**
@@ -31,18 +33,20 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
      * See the `aws.lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
      * 
      */
-    private UndeferrableValue<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification> promptSpecification;
-
+    @PolicyResourceProperty(name="promptSpecification", flag="unknown_promptSpecification")
+    private V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification value_promptSpecification;
+    private boolean unknown_promptSpecification;
     public V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification promptSpecification() {
-        if (promptSpecification == null) return null;
-        return promptSpecification.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting.promptSpecification");
+        if (!unknown_promptSpecification) return value_promptSpecification;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting.promptSpecification' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtterance>> sampleUtterances;
-
+    @PolicyResourceProperty(name="sampleUtterances", flag="unknown_sampleUtterances")
+    private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtterance> value_sampleUtterances;
+    private boolean unknown_sampleUtterances;
     public @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtterance> sampleUtterances() {
-        if (sampleUtterances == null) return null;
-        return sampleUtterances.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting.sampleUtterances");
+        if (!unknown_sampleUtterances) return value_sampleUtterances;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting.sampleUtterances' is not present");
     }
 
     /**
@@ -50,11 +54,12 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
      * See the `wait_and_continue_specification` argument reference below.
      * 
      */
-    private @Nullable UndeferrableValue<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification>> waitAndContinueSpecifications;
-
+    @PolicyResourceProperty(name="waitAndContinueSpecifications", flag="unknown_waitAndContinueSpecifications")
+    private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification> value_waitAndContinueSpecifications;
+    private boolean unknown_waitAndContinueSpecifications;
     public @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification> waitAndContinueSpecifications() {
-        if (waitAndContinueSpecifications == null) return null;
-        return waitAndContinueSpecifications.getValue("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting.waitAndContinueSpecifications");
+        if (!unknown_waitAndContinueSpecifications) return value_waitAndContinueSpecifications;
+        throw new UndeferrableValueException("Value 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting.waitAndContinueSpecifications' is not present");
     }
 
 }

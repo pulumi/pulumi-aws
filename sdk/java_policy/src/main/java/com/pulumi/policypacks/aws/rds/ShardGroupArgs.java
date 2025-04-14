@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.rds.inputs.ShardGroupTimeoutsArgs;
 import java.lang.Boolean;
@@ -21,84 +22,92 @@ public final class ShardGroupArgs extends com.pulumi.resources.PolicyResourceInp
      * Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
      * 
      */
-    private UndeferrableValue<Integer> computeRedundancy;
-
+    @PolicyResourceProperty(name="computeRedundancy", flag="unknown_computeRedundancy")
+    private Integer value_computeRedundancy;
+    private boolean unknown_computeRedundancy;
     public Integer computeRedundancy() {
-        if (computeRedundancy == null) return null;
-        return computeRedundancy.getValue("ShardGroupArgs.computeRedundancy");
+        if (!unknown_computeRedundancy) return value_computeRedundancy;
+        throw new UndeferrableValueException("Value 'ShardGroupArgs.computeRedundancy' is not present");
     }
 
     /**
      * The name of the primary DB cluster for the DB shard group.
      * 
      */
-    private UndeferrableValue<String> dbClusterIdentifier;
-
+    @PolicyResourceProperty(name="dbClusterIdentifier", flag="unknown_dbClusterIdentifier")
+    private String value_dbClusterIdentifier;
+    private boolean unknown_dbClusterIdentifier;
     public String dbClusterIdentifier() {
-        if (dbClusterIdentifier == null) return null;
-        return dbClusterIdentifier.getValue("ShardGroupArgs.dbClusterIdentifier");
+        if (!unknown_dbClusterIdentifier) return value_dbClusterIdentifier;
+        throw new UndeferrableValueException("Value 'ShardGroupArgs.dbClusterIdentifier' is not present");
     }
 
     /**
      * The name of the DB shard group.
      * 
      */
-    private UndeferrableValue<String> dbShardGroupIdentifier;
-
+    @PolicyResourceProperty(name="dbShardGroupIdentifier", flag="unknown_dbShardGroupIdentifier")
+    private String value_dbShardGroupIdentifier;
+    private boolean unknown_dbShardGroupIdentifier;
     public String dbShardGroupIdentifier() {
-        if (dbShardGroupIdentifier == null) return null;
-        return dbShardGroupIdentifier.getValue("ShardGroupArgs.dbShardGroupIdentifier");
+        if (!unknown_dbShardGroupIdentifier) return value_dbShardGroupIdentifier;
+        throw new UndeferrableValueException("Value 'ShardGroupArgs.dbShardGroupIdentifier' is not present");
     }
 
     /**
      * The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
      * 
      */
-    private UndeferrableValue<Double> maxAcu;
-
+    @PolicyResourceProperty(name="maxAcu", flag="unknown_maxAcu")
+    private Double value_maxAcu;
+    private boolean unknown_maxAcu;
     public Double maxAcu() {
-        if (maxAcu == null) return null;
-        return maxAcu.getValue("ShardGroupArgs.maxAcu");
+        if (!unknown_maxAcu) return value_maxAcu;
+        throw new UndeferrableValueException("Value 'ShardGroupArgs.maxAcu' is not present");
     }
 
     /**
      * The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
      * 
      */
-    private UndeferrableValue<Double> minAcu;
-
+    @PolicyResourceProperty(name="minAcu", flag="unknown_minAcu")
+    private Double value_minAcu;
+    private boolean unknown_minAcu;
     public Double minAcu() {
-        if (minAcu == null) return null;
-        return minAcu.getValue("ShardGroupArgs.minAcu");
+        if (!unknown_minAcu) return value_minAcu;
+        throw new UndeferrableValueException("Value 'ShardGroupArgs.minAcu' is not present");
     }
 
     /**
      * Indicates whether the DB shard group is publicly accessible.
      * 
      */
-    private UndeferrableValue<Boolean> publiclyAccessible;
-
+    @PolicyResourceProperty(name="publiclyAccessible", flag="unknown_publiclyAccessible")
+    private Boolean value_publiclyAccessible;
+    private boolean unknown_publiclyAccessible;
     public Boolean publiclyAccessible() {
-        if (publiclyAccessible == null) return null;
-        return publiclyAccessible.getValue("ShardGroupArgs.publiclyAccessible");
+        if (!unknown_publiclyAccessible) return value_publiclyAccessible;
+        throw new UndeferrableValueException("Value 'ShardGroupArgs.publiclyAccessible' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ShardGroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ShardGroupArgs.tags' is not present");
     }
 
-    private UndeferrableValue<ShardGroupTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private ShardGroupTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public ShardGroupTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ShardGroupArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ShardGroupArgs.timeouts' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cleanrooms;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cleanrooms.inputs.MembershipDefaultResultConfigurationArgs;
 import com.pulumi.policypacks.aws.cleanrooms.inputs.MembershipPaymentConfigurationArgs;
@@ -19,51 +20,56 @@ public final class MembershipArgs extends com.pulumi.resources.PolicyResourceInp
      * The ID of the collaboration to which the member was invited.
      * 
      */
-    private UndeferrableValue<String> collaborationId;
-
+    @PolicyResourceProperty(name="collaborationId", flag="unknown_collaborationId")
+    private String value_collaborationId;
+    private boolean unknown_collaborationId;
     public String collaborationId() {
-        if (collaborationId == null) return null;
-        return collaborationId.getValue("MembershipArgs.collaborationId");
+        if (!unknown_collaborationId) return value_collaborationId;
+        throw new UndeferrableValueException("Value 'MembershipArgs.collaborationId' is not present");
     }
 
     /**
      * The default configuration for a query result.
      * 
      */
-    private UndeferrableValue<MembershipDefaultResultConfigurationArgs> defaultResultConfiguration;
-
+    @PolicyResourceProperty(name="defaultResultConfiguration", flag="unknown_defaultResultConfiguration")
+    private MembershipDefaultResultConfigurationArgs value_defaultResultConfiguration;
+    private boolean unknown_defaultResultConfiguration;
     public MembershipDefaultResultConfigurationArgs defaultResultConfiguration() {
-        if (defaultResultConfiguration == null) return null;
-        return defaultResultConfiguration.getValue("MembershipArgs.defaultResultConfiguration");
+        if (!unknown_defaultResultConfiguration) return value_defaultResultConfiguration;
+        throw new UndeferrableValueException("Value 'MembershipArgs.defaultResultConfiguration' is not present");
     }
 
-    private UndeferrableValue<MembershipPaymentConfigurationArgs> paymentConfiguration;
-
+    @PolicyResourceProperty(name="paymentConfiguration", flag="unknown_paymentConfiguration")
+    private MembershipPaymentConfigurationArgs value_paymentConfiguration;
+    private boolean unknown_paymentConfiguration;
     public MembershipPaymentConfigurationArgs paymentConfiguration() {
-        if (paymentConfiguration == null) return null;
-        return paymentConfiguration.getValue("MembershipArgs.paymentConfiguration");
+        if (!unknown_paymentConfiguration) return value_paymentConfiguration;
+        throw new UndeferrableValueException("Value 'MembershipArgs.paymentConfiguration' is not present");
     }
 
     /**
      * An indicator as to whether query logging has been enabled or disabled for the membership.
      * 
      */
-    private UndeferrableValue<String> queryLogStatus;
-
+    @PolicyResourceProperty(name="queryLogStatus", flag="unknown_queryLogStatus")
+    private String value_queryLogStatus;
+    private boolean unknown_queryLogStatus;
     public String queryLogStatus() {
-        if (queryLogStatus == null) return null;
-        return queryLogStatus.getValue("MembershipArgs.queryLogStatus");
+        if (!unknown_queryLogStatus) return value_queryLogStatus;
+        throw new UndeferrableValueException("Value 'MembershipArgs.queryLogStatus' is not present");
     }
 
     /**
      * Key value pairs which tag the membership.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("MembershipArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'MembershipArgs.tags' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.iot.outputs.TopicRuleErrorActionTimestreamDimension;
 import com.pulumi.policypacks.aws.iot.outputs.TopicRuleErrorActionTimestreamTimestamp;
 import java.lang.String;
@@ -17,55 +18,60 @@ public final class TopicRuleErrorActionTimestream {
      * The name of an Amazon Timestream database.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("TopicRuleErrorActionTimestream.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionTimestream.databaseName' is not present");
     }
 
     /**
      * Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
      * 
      */
-    private UndeferrableValue<List<TopicRuleErrorActionTimestreamDimension>> dimensions;
-
+    @PolicyResourceProperty(name="dimensions", flag="unknown_dimensions")
+    private List<TopicRuleErrorActionTimestreamDimension> value_dimensions;
+    private boolean unknown_dimensions;
     public List<TopicRuleErrorActionTimestreamDimension> dimensions() {
-        if (dimensions == null) return null;
-        return dimensions.getValue("TopicRuleErrorActionTimestream.dimensions");
+        if (!unknown_dimensions) return value_dimensions;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionTimestream.dimensions' is not present");
     }
 
     /**
      * The ARN of the role that grants permission to write to the Amazon Timestream database table.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("TopicRuleErrorActionTimestream.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionTimestream.roleArn' is not present");
     }
 
     /**
      * The name of the database table into which to write the measure records.
      * 
      */
-    private UndeferrableValue<String> tableName;
-
+    @PolicyResourceProperty(name="tableName", flag="unknown_tableName")
+    private String value_tableName;
+    private boolean unknown_tableName;
     public String tableName() {
-        if (tableName == null) return null;
-        return tableName.getValue("TopicRuleErrorActionTimestream.tableName");
+        if (!unknown_tableName) return value_tableName;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionTimestream.tableName' is not present");
     }
 
     /**
      * Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record&#39;s timestamp in the time column. Nested arguments below.
      * 
      */
-    private @Nullable UndeferrableValue<TopicRuleErrorActionTimestreamTimestamp> timestamp;
-
+    @PolicyResourceProperty(name="timestamp", flag="unknown_timestamp")
+    private @Nullable TopicRuleErrorActionTimestreamTimestamp value_timestamp;
+    private boolean unknown_timestamp;
     public @Nullable TopicRuleErrorActionTimestreamTimestamp timestamp() {
-        if (timestamp == null) return null;
-        return timestamp.getValue("TopicRuleErrorActionTimestream.timestamp");
+        if (!unknown_timestamp) return value_timestamp;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionTimestream.timestamp' is not present");
     }
 
 }

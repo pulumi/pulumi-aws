@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ecs.outputs.ServiceVolumeConfigurationManagedEbsVolumeTagSpecification;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -18,110 +19,120 @@ public final class ServiceVolumeConfigurationManagedEbsVolume {
      * Whether the volume should be encrypted. Default value is `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> encrypted;
-
+    @PolicyResourceProperty(name="encrypted", flag="unknown_encrypted")
+    private @Nullable Boolean value_encrypted;
+    private boolean unknown_encrypted;
     public @Nullable Boolean encrypted() {
-        if (encrypted == null) return null;
-        return encrypted.getValue("ServiceVolumeConfigurationManagedEbsVolume.encrypted");
+        if (!unknown_encrypted) return value_encrypted;
+        throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolume.encrypted' is not present");
     }
 
     /**
      * Linux filesystem type for the volume. For volumes created from a snapshot, same filesystem type must be specified that the volume was using when the snapshot was created. Valid values are `ext3`, `ext4`, `xfs`. Default value is `xfs`.
      * 
      */
-    private @Nullable UndeferrableValue<String> fileSystemType;
-
+    @PolicyResourceProperty(name="fileSystemType", flag="unknown_fileSystemType")
+    private @Nullable String value_fileSystemType;
+    private boolean unknown_fileSystemType;
     public @Nullable String fileSystemType() {
-        if (fileSystemType == null) return null;
-        return fileSystemType.getValue("ServiceVolumeConfigurationManagedEbsVolume.fileSystemType");
+        if (!unknown_fileSystemType) return value_fileSystemType;
+        throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolume.fileSystemType' is not present");
     }
 
     /**
      * Number of I/O operations per second (IOPS).
      * 
      */
-    private @Nullable UndeferrableValue<Integer> iops;
-
+    @PolicyResourceProperty(name="iops", flag="unknown_iops")
+    private @Nullable Integer value_iops;
+    private boolean unknown_iops;
     public @Nullable Integer iops() {
-        if (iops == null) return null;
-        return iops.getValue("ServiceVolumeConfigurationManagedEbsVolume.iops");
+        if (!unknown_iops) return value_iops;
+        throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolume.iops' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("ServiceVolumeConfigurationManagedEbsVolume.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolume.kmsKeyId' is not present");
     }
 
     /**
      * Amazon ECS infrastructure IAM role that is used to manage your Amazon Web Services infrastructure. Recommended using the Amazon ECS-managed `AmazonECSInfrastructureRolePolicyForVolumes` IAM policy with this role.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("ServiceVolumeConfigurationManagedEbsVolume.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolume.roleArn' is not present");
     }
 
     /**
      * Size of the volume in GiB. You must specify either a `size_in_gb` or a `snapshot_id`. You can optionally specify a volume size greater than or equal to the snapshot size.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> sizeInGb;
-
+    @PolicyResourceProperty(name="sizeInGb", flag="unknown_sizeInGb")
+    private @Nullable Integer value_sizeInGb;
+    private boolean unknown_sizeInGb;
     public @Nullable Integer sizeInGb() {
-        if (sizeInGb == null) return null;
-        return sizeInGb.getValue("ServiceVolumeConfigurationManagedEbsVolume.sizeInGb");
+        if (!unknown_sizeInGb) return value_sizeInGb;
+        throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolume.sizeInGb' is not present");
     }
 
     /**
      * Snapshot that Amazon ECS uses to create the volume. You must specify either a `size_in_gb` or a `snapshot_id`.
      * 
      */
-    private @Nullable UndeferrableValue<String> snapshotId;
-
+    @PolicyResourceProperty(name="snapshotId", flag="unknown_snapshotId")
+    private @Nullable String value_snapshotId;
+    private boolean unknown_snapshotId;
     public @Nullable String snapshotId() {
-        if (snapshotId == null) return null;
-        return snapshotId.getValue("ServiceVolumeConfigurationManagedEbsVolume.snapshotId");
+        if (!unknown_snapshotId) return value_snapshotId;
+        throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolume.snapshotId' is not present");
     }
 
     /**
      * The tags to apply to the volume. See below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ServiceVolumeConfigurationManagedEbsVolumeTagSpecification>> tagSpecifications;
-
+    @PolicyResourceProperty(name="tagSpecifications", flag="unknown_tagSpecifications")
+    private @Nullable List<ServiceVolumeConfigurationManagedEbsVolumeTagSpecification> value_tagSpecifications;
+    private boolean unknown_tagSpecifications;
     public @Nullable List<ServiceVolumeConfigurationManagedEbsVolumeTagSpecification> tagSpecifications() {
-        if (tagSpecifications == null) return null;
-        return tagSpecifications.getValue("ServiceVolumeConfigurationManagedEbsVolume.tagSpecifications");
+        if (!unknown_tagSpecifications) return value_tagSpecifications;
+        throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolume.tagSpecifications' is not present");
     }
 
     /**
      * Throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> throughput;
-
+    @PolicyResourceProperty(name="throughput", flag="unknown_throughput")
+    private @Nullable Integer value_throughput;
+    private boolean unknown_throughput;
     public @Nullable Integer throughput() {
-        if (throughput == null) return null;
-        return throughput.getValue("ServiceVolumeConfigurationManagedEbsVolume.throughput");
+        if (!unknown_throughput) return value_throughput;
+        throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolume.throughput' is not present");
     }
 
     /**
      * Volume type.
      * 
      */
-    private @Nullable UndeferrableValue<String> volumeType;
-
+    @PolicyResourceProperty(name="volumeType", flag="unknown_volumeType")
+    private @Nullable String value_volumeType;
+    private boolean unknown_volumeType;
     public @Nullable String volumeType() {
-        if (volumeType == null) return null;
-        return volumeType.getValue("ServiceVolumeConfigurationManagedEbsVolume.volumeType");
+        if (!unknown_volumeType) return value_volumeType;
+        throw new UndeferrableValueException("Value 'ServiceVolumeConfigurationManagedEbsVolume.volumeType' is not present");
     }
 
 }

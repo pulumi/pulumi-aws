@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.inputs.DefaultSecurityGroupEgressArgs;
 import com.pulumi.policypacks.aws.ec2.inputs.DefaultSecurityGroupIngressArgs;
@@ -21,51 +22,56 @@ public final class DefaultSecurityGroupArgs extends com.pulumi.resources.PolicyR
      * Configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<List<DefaultSecurityGroupEgressArgs>> egress;
-
+    @PolicyResourceProperty(name="egress", flag="unknown_egress")
+    private List<DefaultSecurityGroupEgressArgs> value_egress;
+    private boolean unknown_egress;
     public List<DefaultSecurityGroupEgressArgs> egress() {
-        if (egress == null) return null;
-        return egress.getValue("DefaultSecurityGroupArgs.egress");
+        if (!unknown_egress) return value_egress;
+        throw new UndeferrableValueException("Value 'DefaultSecurityGroupArgs.egress' is not present");
     }
 
     /**
      * Configuration block. Detailed below.
      * 
      */
-    private UndeferrableValue<List<DefaultSecurityGroupIngressArgs>> ingress;
-
+    @PolicyResourceProperty(name="ingress", flag="unknown_ingress")
+    private List<DefaultSecurityGroupIngressArgs> value_ingress;
+    private boolean unknown_ingress;
     public List<DefaultSecurityGroupIngressArgs> ingress() {
-        if (ingress == null) return null;
-        return ingress.getValue("DefaultSecurityGroupArgs.ingress");
+        if (!unknown_ingress) return value_ingress;
+        throw new UndeferrableValueException("Value 'DefaultSecurityGroupArgs.ingress' is not present");
     }
 
-    private UndeferrableValue<Boolean> revokeRulesOnDelete;
-
+    @PolicyResourceProperty(name="revokeRulesOnDelete", flag="unknown_revokeRulesOnDelete")
+    private Boolean value_revokeRulesOnDelete;
+    private boolean unknown_revokeRulesOnDelete;
     public Boolean revokeRulesOnDelete() {
-        if (revokeRulesOnDelete == null) return null;
-        return revokeRulesOnDelete.getValue("DefaultSecurityGroupArgs.revokeRulesOnDelete");
+        if (!unknown_revokeRulesOnDelete) return value_revokeRulesOnDelete;
+        throw new UndeferrableValueException("Value 'DefaultSecurityGroupArgs.revokeRulesOnDelete' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DefaultSecurityGroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DefaultSecurityGroupArgs.tags' is not present");
     }
 
     /**
      * VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("DefaultSecurityGroupArgs.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'DefaultSecurityGroupArgs.vpcId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.connect.inputs.QueueOutboundCallerConfigArgs;
 import java.lang.Integer;
@@ -20,99 +21,108 @@ public final class QueueArgs extends com.pulumi.resources.PolicyResourceInput {
      * Specifies the description of the Queue.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("QueueArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'QueueArgs.description' is not present");
     }
 
     /**
      * Specifies the identifier of the Hours of Operation.
      * 
      */
-    private UndeferrableValue<String> hoursOfOperationId;
-
+    @PolicyResourceProperty(name="hoursOfOperationId", flag="unknown_hoursOfOperationId")
+    private String value_hoursOfOperationId;
+    private boolean unknown_hoursOfOperationId;
     public String hoursOfOperationId() {
-        if (hoursOfOperationId == null) return null;
-        return hoursOfOperationId.getValue("QueueArgs.hoursOfOperationId");
+        if (!unknown_hoursOfOperationId) return value_hoursOfOperationId;
+        throw new UndeferrableValueException("Value 'QueueArgs.hoursOfOperationId' is not present");
     }
 
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    private UndeferrableValue<String> instanceId;
-
+    @PolicyResourceProperty(name="instanceId", flag="unknown_instanceId")
+    private String value_instanceId;
+    private boolean unknown_instanceId;
     public String instanceId() {
-        if (instanceId == null) return null;
-        return instanceId.getValue("QueueArgs.instanceId");
+        if (!unknown_instanceId) return value_instanceId;
+        throw new UndeferrableValueException("Value 'QueueArgs.instanceId' is not present");
     }
 
     /**
      * Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
      * 
      */
-    private UndeferrableValue<Integer> maxContacts;
-
+    @PolicyResourceProperty(name="maxContacts", flag="unknown_maxContacts")
+    private Integer value_maxContacts;
+    private boolean unknown_maxContacts;
     public Integer maxContacts() {
-        if (maxContacts == null) return null;
-        return maxContacts.getValue("QueueArgs.maxContacts");
+        if (!unknown_maxContacts) return value_maxContacts;
+        throw new UndeferrableValueException("Value 'QueueArgs.maxContacts' is not present");
     }
 
     /**
      * Specifies the name of the Queue.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("QueueArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'QueueArgs.name' is not present");
     }
 
     /**
      * A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
      * 
      */
-    private UndeferrableValue<QueueOutboundCallerConfigArgs> outboundCallerConfig;
-
+    @PolicyResourceProperty(name="outboundCallerConfig", flag="unknown_outboundCallerConfig")
+    private QueueOutboundCallerConfigArgs value_outboundCallerConfig;
+    private boolean unknown_outboundCallerConfig;
     public QueueOutboundCallerConfigArgs outboundCallerConfig() {
-        if (outboundCallerConfig == null) return null;
-        return outboundCallerConfig.getValue("QueueArgs.outboundCallerConfig");
+        if (!unknown_outboundCallerConfig) return value_outboundCallerConfig;
+        throw new UndeferrableValueException("Value 'QueueArgs.outboundCallerConfig' is not present");
     }
 
     /**
      * Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
      * 
      */
-    private UndeferrableValue<List<String>> quickConnectIds;
-
+    @PolicyResourceProperty(name="quickConnectIds", flag="unknown_quickConnectIds")
+    private List<String> value_quickConnectIds;
+    private boolean unknown_quickConnectIds;
     public List<String> quickConnectIds() {
-        if (quickConnectIds == null) return null;
-        return quickConnectIds.getValue("QueueArgs.quickConnectIds");
+        if (!unknown_quickConnectIds) return value_quickConnectIds;
+        throw new UndeferrableValueException("Value 'QueueArgs.quickConnectIds' is not present");
     }
 
     /**
      * Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("QueueArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'QueueArgs.status' is not present");
     }
 
     /**
      * Tags to apply to the Queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("QueueArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'QueueArgs.tags' is not present");
     }
 
 }

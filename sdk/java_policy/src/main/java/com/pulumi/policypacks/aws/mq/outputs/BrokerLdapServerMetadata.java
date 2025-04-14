@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mq.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -16,121 +17,132 @@ public final class BrokerLdapServerMetadata {
      * List of a fully qualified domain name of the LDAP server and an optional failover server.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> hosts;
-
+    @PolicyResourceProperty(name="hosts", flag="unknown_hosts")
+    private @Nullable List<String> value_hosts;
+    private boolean unknown_hosts;
     public @Nullable List<String> hosts() {
-        if (hosts == null) return null;
-        return hosts.getValue("BrokerLdapServerMetadata.hosts");
+        if (!unknown_hosts) return value_hosts;
+        throw new UndeferrableValueException("Value 'BrokerLdapServerMetadata.hosts' is not present");
     }
 
     /**
      * Fully qualified name of the directory to search for a user’s groups.
      * 
      */
-    private @Nullable UndeferrableValue<String> roleBase;
-
+    @PolicyResourceProperty(name="roleBase", flag="unknown_roleBase")
+    private @Nullable String value_roleBase;
+    private boolean unknown_roleBase;
     public @Nullable String roleBase() {
-        if (roleBase == null) return null;
-        return roleBase.getValue("BrokerLdapServerMetadata.roleBase");
+        if (!unknown_roleBase) return value_roleBase;
+        throw new UndeferrableValueException("Value 'BrokerLdapServerMetadata.roleBase' is not present");
     }
 
     /**
      * Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
      * 
      */
-    private @Nullable UndeferrableValue<String> roleName;
-
+    @PolicyResourceProperty(name="roleName", flag="unknown_roleName")
+    private @Nullable String value_roleName;
+    private boolean unknown_roleName;
     public @Nullable String roleName() {
-        if (roleName == null) return null;
-        return roleName.getValue("BrokerLdapServerMetadata.roleName");
+        if (!unknown_roleName) return value_roleName;
+        throw new UndeferrableValueException("Value 'BrokerLdapServerMetadata.roleName' is not present");
     }
 
     /**
      * Search criteria for groups.
      * 
      */
-    private @Nullable UndeferrableValue<String> roleSearchMatching;
-
+    @PolicyResourceProperty(name="roleSearchMatching", flag="unknown_roleSearchMatching")
+    private @Nullable String value_roleSearchMatching;
+    private boolean unknown_roleSearchMatching;
     public @Nullable String roleSearchMatching() {
-        if (roleSearchMatching == null) return null;
-        return roleSearchMatching.getValue("BrokerLdapServerMetadata.roleSearchMatching");
+        if (!unknown_roleSearchMatching) return value_roleSearchMatching;
+        throw new UndeferrableValueException("Value 'BrokerLdapServerMetadata.roleSearchMatching' is not present");
     }
 
     /**
      * Whether the directory search scope is the entire sub-tree.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> roleSearchSubtree;
-
+    @PolicyResourceProperty(name="roleSearchSubtree", flag="unknown_roleSearchSubtree")
+    private @Nullable Boolean value_roleSearchSubtree;
+    private boolean unknown_roleSearchSubtree;
     public @Nullable Boolean roleSearchSubtree() {
-        if (roleSearchSubtree == null) return null;
-        return roleSearchSubtree.getValue("BrokerLdapServerMetadata.roleSearchSubtree");
+        if (!unknown_roleSearchSubtree) return value_roleSearchSubtree;
+        throw new UndeferrableValueException("Value 'BrokerLdapServerMetadata.roleSearchSubtree' is not present");
     }
 
     /**
      * Service account password.
      * 
      */
-    private @Nullable UndeferrableValue<String> serviceAccountPassword;
-
+    @PolicyResourceProperty(name="serviceAccountPassword", flag="unknown_serviceAccountPassword")
+    private @Nullable String value_serviceAccountPassword;
+    private boolean unknown_serviceAccountPassword;
     public @Nullable String serviceAccountPassword() {
-        if (serviceAccountPassword == null) return null;
-        return serviceAccountPassword.getValue("BrokerLdapServerMetadata.serviceAccountPassword");
+        if (!unknown_serviceAccountPassword) return value_serviceAccountPassword;
+        throw new UndeferrableValueException("Value 'BrokerLdapServerMetadata.serviceAccountPassword' is not present");
     }
 
     /**
      * Service account username.
      * 
      */
-    private @Nullable UndeferrableValue<String> serviceAccountUsername;
-
+    @PolicyResourceProperty(name="serviceAccountUsername", flag="unknown_serviceAccountUsername")
+    private @Nullable String value_serviceAccountUsername;
+    private boolean unknown_serviceAccountUsername;
     public @Nullable String serviceAccountUsername() {
-        if (serviceAccountUsername == null) return null;
-        return serviceAccountUsername.getValue("BrokerLdapServerMetadata.serviceAccountUsername");
+        if (!unknown_serviceAccountUsername) return value_serviceAccountUsername;
+        throw new UndeferrableValueException("Value 'BrokerLdapServerMetadata.serviceAccountUsername' is not present");
     }
 
     /**
      * Fully qualified name of the directory where you want to search for users.
      * 
      */
-    private @Nullable UndeferrableValue<String> userBase;
-
+    @PolicyResourceProperty(name="userBase", flag="unknown_userBase")
+    private @Nullable String value_userBase;
+    private boolean unknown_userBase;
     public @Nullable String userBase() {
-        if (userBase == null) return null;
-        return userBase.getValue("BrokerLdapServerMetadata.userBase");
+        if (!unknown_userBase) return value_userBase;
+        throw new UndeferrableValueException("Value 'BrokerLdapServerMetadata.userBase' is not present");
     }
 
     /**
      * Specifies the name of the LDAP attribute for the user group membership.
      * 
      */
-    private @Nullable UndeferrableValue<String> userRoleName;
-
+    @PolicyResourceProperty(name="userRoleName", flag="unknown_userRoleName")
+    private @Nullable String value_userRoleName;
+    private boolean unknown_userRoleName;
     public @Nullable String userRoleName() {
-        if (userRoleName == null) return null;
-        return userRoleName.getValue("BrokerLdapServerMetadata.userRoleName");
+        if (!unknown_userRoleName) return value_userRoleName;
+        throw new UndeferrableValueException("Value 'BrokerLdapServerMetadata.userRoleName' is not present");
     }
 
     /**
      * Search criteria for users.
      * 
      */
-    private @Nullable UndeferrableValue<String> userSearchMatching;
-
+    @PolicyResourceProperty(name="userSearchMatching", flag="unknown_userSearchMatching")
+    private @Nullable String value_userSearchMatching;
+    private boolean unknown_userSearchMatching;
     public @Nullable String userSearchMatching() {
-        if (userSearchMatching == null) return null;
-        return userSearchMatching.getValue("BrokerLdapServerMetadata.userSearchMatching");
+        if (!unknown_userSearchMatching) return value_userSearchMatching;
+        throw new UndeferrableValueException("Value 'BrokerLdapServerMetadata.userSearchMatching' is not present");
     }
 
     /**
      * Whether the directory search scope is the entire sub-tree.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> userSearchSubtree;
-
+    @PolicyResourceProperty(name="userSearchSubtree", flag="unknown_userSearchSubtree")
+    private @Nullable Boolean value_userSearchSubtree;
+    private boolean unknown_userSearchSubtree;
     public @Nullable Boolean userSearchSubtree() {
-        if (userSearchSubtree == null) return null;
-        return userSearchSubtree.getValue("BrokerLdapServerMetadata.userSearchSubtree");
+        if (!unknown_userSearchSubtree) return value_userSearchSubtree;
+        throw new UndeferrableValueException("Value 'BrokerLdapServerMetadata.userSearchSubtree' is not present");
     }
 
 }

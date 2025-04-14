@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.datasync.outputs.NfsLocationMountOptions;
 import com.pulumi.policypacks.aws.datasync.outputs.NfsLocationOnPremConfig;
@@ -19,66 +20,72 @@ public final class NfsLocation extends com.pulumi.resources.PolicyResourceOutput
      * Amazon Resource Name (ARN) of the DataSync Location.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("NfsLocation.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'NfsLocation.arn' is not present");
     }
 
     /**
      * Configuration block containing mount options used by DataSync to access the NFS Server.
      * 
      */
-    private @Nullable UndeferrableValue<NfsLocationMountOptions> mountOptions;
-
+    @PolicyResourceProperty(name="mountOptions", flag="unknown_mountOptions")
+    private @Nullable NfsLocationMountOptions value_mountOptions;
+    private boolean unknown_mountOptions;
     public @Nullable NfsLocationMountOptions mountOptions() {
-        if (mountOptions == null) return null;
-        return mountOptions.getValue("NfsLocation.mountOptions");
+        if (!unknown_mountOptions) return value_mountOptions;
+        throw new UndeferrableValueException("Value 'NfsLocation.mountOptions' is not present");
     }
 
     /**
      * Configuration block containing information for connecting to the NFS File System.
      * 
      */
-    private UndeferrableValue<NfsLocationOnPremConfig> onPremConfig;
-
+    @PolicyResourceProperty(name="onPremConfig", flag="unknown_onPremConfig")
+    private NfsLocationOnPremConfig value_onPremConfig;
+    private boolean unknown_onPremConfig;
     public NfsLocationOnPremConfig onPremConfig() {
-        if (onPremConfig == null) return null;
-        return onPremConfig.getValue("NfsLocation.onPremConfig");
+        if (!unknown_onPremConfig) return value_onPremConfig;
+        throw new UndeferrableValueException("Value 'NfsLocation.onPremConfig' is not present");
     }
 
     /**
      * Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
      * 
      */
-    private UndeferrableValue<String> serverHostname;
-
+    @PolicyResourceProperty(name="serverHostname", flag="unknown_serverHostname")
+    private String value_serverHostname;
+    private boolean unknown_serverHostname;
     public String serverHostname() {
-        if (serverHostname == null) return null;
-        return serverHostname.getValue("NfsLocation.serverHostname");
+        if (!unknown_serverHostname) return value_serverHostname;
+        throw new UndeferrableValueException("Value 'NfsLocation.serverHostname' is not present");
     }
 
     /**
      * Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
      * 
      */
-    private UndeferrableValue<String> subdirectory;
-
+    @PolicyResourceProperty(name="subdirectory", flag="unknown_subdirectory")
+    private String value_subdirectory;
+    private boolean unknown_subdirectory;
     public String subdirectory() {
-        if (subdirectory == null) return null;
-        return subdirectory.getValue("NfsLocation.subdirectory");
+        if (!unknown_subdirectory) return value_subdirectory;
+        throw new UndeferrableValueException("Value 'NfsLocation.subdirectory' is not present");
     }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("NfsLocation.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'NfsLocation.tags' is not present");
     }
 
     /**
@@ -89,18 +96,20 @@ public final class NfsLocation extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("NfsLocation.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'NfsLocation.tagsAll' is not present");
     }
 
-    private UndeferrableValue<String> uri;
-
+    @PolicyResourceProperty(name="uri", flag="unknown_uri")
+    private String value_uri;
+    private boolean unknown_uri;
     public String uri() {
-        if (uri == null) return null;
-        return uri.getValue("NfsLocation.uri");
+        if (!unknown_uri) return value_uri;
+        throw new UndeferrableValueException("Value 'NfsLocation.uri' is not present");
     }
 
 }

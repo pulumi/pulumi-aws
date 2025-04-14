@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificati
      * The ID of the launch template. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs.id' is not present");
     }
 
     /**
      * The name of the launch template. Conflicts with `id`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs.name' is not present");
     }
 
     /**
@@ -40,11 +43,12 @@ public final class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificati
      * what you can specify as spot fleet does not support all the attributes that are supported by autoscaling groups. [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#launch-templates-spot-fleet) is currently sparse, but at least `instance_initiated_shutdown_behavior` is confirmed unsupported.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs.version' is not present");
     }
 
 }

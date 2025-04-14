@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appfabric.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class AppAuthorizationTenantArgs {
      * The display name of the tenant.
      * 
      */
-    private UndeferrableValue<String> tenantDisplayName;
-
+    @PolicyResourceProperty(name="tenantDisplayName", flag="unknown_tenantDisplayName")
+    private String value_tenantDisplayName;
+    private boolean unknown_tenantDisplayName;
     public String tenantDisplayName() {
-        if (tenantDisplayName == null) return null;
-        return tenantDisplayName.getValue("AppAuthorizationTenantArgs.tenantDisplayName");
+        if (!unknown_tenantDisplayName) return value_tenantDisplayName;
+        throw new UndeferrableValueException("Value 'AppAuthorizationTenantArgs.tenantDisplayName' is not present");
     }
 
     /**
      * The ID of the application tenant.
      * 
      */
-    private UndeferrableValue<String> tenantIdentifier;
-
+    @PolicyResourceProperty(name="tenantIdentifier", flag="unknown_tenantIdentifier")
+    private String value_tenantIdentifier;
+    private boolean unknown_tenantIdentifier;
     public String tenantIdentifier() {
-        if (tenantIdentifier == null) return null;
-        return tenantIdentifier.getValue("AppAuthorizationTenantArgs.tenantIdentifier");
+        if (!unknown_tenantIdentifier) return value_tenantIdentifier;
+        throw new UndeferrableValueException("Value 'AppAuthorizationTenantArgs.tenantIdentifier' is not present");
     }
 
 }

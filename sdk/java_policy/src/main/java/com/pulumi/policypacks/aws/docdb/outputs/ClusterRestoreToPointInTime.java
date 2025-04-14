@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.docdb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class ClusterRestoreToPointInTime {
      * The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
      * 
      */
-    private @Nullable UndeferrableValue<String> restoreToTime;
-
+    @PolicyResourceProperty(name="restoreToTime", flag="unknown_restoreToTime")
+    private @Nullable String value_restoreToTime;
+    private boolean unknown_restoreToTime;
     public @Nullable String restoreToTime() {
-        if (restoreToTime == null) return null;
-        return restoreToTime.getValue("ClusterRestoreToPointInTime.restoreToTime");
+        if (!unknown_restoreToTime) return value_restoreToTime;
+        throw new UndeferrableValueException("Value 'ClusterRestoreToPointInTime.restoreToTime' is not present");
     }
 
     /**
      * The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
      * 
      */
-    private @Nullable UndeferrableValue<String> restoreType;
-
+    @PolicyResourceProperty(name="restoreType", flag="unknown_restoreType")
+    private @Nullable String value_restoreType;
+    private boolean unknown_restoreType;
     public @Nullable String restoreType() {
-        if (restoreType == null) return null;
-        return restoreType.getValue("ClusterRestoreToPointInTime.restoreType");
+        if (!unknown_restoreType) return value_restoreType;
+        throw new UndeferrableValueException("Value 'ClusterRestoreToPointInTime.restoreType' is not present");
     }
 
     /**
      * The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
      * 
      */
-    private UndeferrableValue<String> sourceClusterIdentifier;
-
+    @PolicyResourceProperty(name="sourceClusterIdentifier", flag="unknown_sourceClusterIdentifier")
+    private String value_sourceClusterIdentifier;
+    private boolean unknown_sourceClusterIdentifier;
     public String sourceClusterIdentifier() {
-        if (sourceClusterIdentifier == null) return null;
-        return sourceClusterIdentifier.getValue("ClusterRestoreToPointInTime.sourceClusterIdentifier");
+        if (!unknown_sourceClusterIdentifier) return value_sourceClusterIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterRestoreToPointInTime.sourceClusterIdentifier' is not present");
     }
 
     /**
      * A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_to_time`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> useLatestRestorableTime;
-
+    @PolicyResourceProperty(name="useLatestRestorableTime", flag="unknown_useLatestRestorableTime")
+    private @Nullable Boolean value_useLatestRestorableTime;
+    private boolean unknown_useLatestRestorableTime;
     public @Nullable Boolean useLatestRestorableTime() {
-        if (useLatestRestorableTime == null) return null;
-        return useLatestRestorableTime.getValue("ClusterRestoreToPointInTime.useLatestRestorableTime");
+        if (!unknown_useLatestRestorableTime) return value_useLatestRestorableTime;
+        throw new UndeferrableValueException("Value 'ClusterRestoreToPointInTime.useLatestRestorableTime' is not present");
     }
 
 }

@@ -3,25 +3,28 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
 
 public final class NetworkInsightsAnalysisExplanationClassicLoadBalancerListener {
 
-    private @Nullable UndeferrableValue<Integer> instancePort;
-
+    @PolicyResourceProperty(name="instancePort", flag="unknown_instancePort")
+    private @Nullable Integer value_instancePort;
+    private boolean unknown_instancePort;
     public @Nullable Integer instancePort() {
-        if (instancePort == null) return null;
-        return instancePort.getValue("NetworkInsightsAnalysisExplanationClassicLoadBalancerListener.instancePort");
+        if (!unknown_instancePort) return value_instancePort;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationClassicLoadBalancerListener.instancePort' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> loadBalancerPort;
-
+    @PolicyResourceProperty(name="loadBalancerPort", flag="unknown_loadBalancerPort")
+    private @Nullable Integer value_loadBalancerPort;
+    private boolean unknown_loadBalancerPort;
     public @Nullable Integer loadBalancerPort() {
-        if (loadBalancerPort == null) return null;
-        return loadBalancerPort.getValue("NetworkInsightsAnalysisExplanationClassicLoadBalancerListener.loadBalancerPort");
+        if (!unknown_loadBalancerPort) return value_loadBalancerPort;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisExplanationClassicLoadBalancerListener.loadBalancerPort' is not present");
     }
 
 }

@@ -3,35 +3,39 @@
 
 package com.pulumi.policypacks.aws.securityhub.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class InsightFiltersResourceDetailsOther {
 
-    private UndeferrableValue<String> comparison;
-
+    @PolicyResourceProperty(name="comparison", flag="unknown_comparison")
+    private String value_comparison;
+    private boolean unknown_comparison;
     public String comparison() {
-        if (comparison == null) return null;
-        return comparison.getValue("InsightFiltersResourceDetailsOther.comparison");
+        if (!unknown_comparison) return value_comparison;
+        throw new UndeferrableValueException("Value 'InsightFiltersResourceDetailsOther.comparison' is not present");
     }
 
     /**
      * The key of the map filter. For example, for `ResourceTags`, `Key` identifies the name of the tag. For `UserDefinedFields`, `Key` is the name of the field.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("InsightFiltersResourceDetailsOther.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'InsightFiltersResourceDetailsOther.key' is not present");
     }
 
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("InsightFiltersResourceDetailsOther.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'InsightFiltersResourceDetailsOther.value' is not present");
     }
 
 }

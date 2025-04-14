@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2transitgateway.outputs.InstanceConnectEndpointTimeouts;
 import java.lang.Boolean;
@@ -20,110 +21,120 @@ public final class InstanceConnectEndpoint extends com.pulumi.resources.PolicyRe
      * The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("InstanceConnectEndpoint.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.arn' is not present");
     }
 
     /**
      * The Availability Zone of the EC2 Instance Connect Endpoint.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("InstanceConnectEndpoint.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.availabilityZone' is not present");
     }
 
     /**
      * The DNS name of the EC2 Instance Connect Endpoint.
      * 
      */
-    private UndeferrableValue<String> dnsName;
-
+    @PolicyResourceProperty(name="dnsName", flag="unknown_dnsName")
+    private String value_dnsName;
+    private boolean unknown_dnsName;
     public String dnsName() {
-        if (dnsName == null) return null;
-        return dnsName.getValue("InstanceConnectEndpoint.dnsName");
+        if (!unknown_dnsName) return value_dnsName;
+        throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.dnsName' is not present");
     }
 
     /**
      * The DNS name of the EC2 Instance Connect FIPS Endpoint.
      * 
      */
-    private UndeferrableValue<String> fipsDnsName;
-
+    @PolicyResourceProperty(name="fipsDnsName", flag="unknown_fipsDnsName")
+    private String value_fipsDnsName;
+    private boolean unknown_fipsDnsName;
     public String fipsDnsName() {
-        if (fipsDnsName == null) return null;
-        return fipsDnsName.getValue("InstanceConnectEndpoint.fipsDnsName");
+        if (!unknown_fipsDnsName) return value_fipsDnsName;
+        throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.fipsDnsName' is not present");
     }
 
     /**
      * The IDs of the ENIs that Amazon EC2 automatically created when creating the EC2 Instance Connect Endpoint.
      * 
      */
-    private UndeferrableValue<List<String>> networkInterfaceIds;
-
+    @PolicyResourceProperty(name="networkInterfaceIds", flag="unknown_networkInterfaceIds")
+    private List<String> value_networkInterfaceIds;
+    private boolean unknown_networkInterfaceIds;
     public List<String> networkInterfaceIds() {
-        if (networkInterfaceIds == null) return null;
-        return networkInterfaceIds.getValue("InstanceConnectEndpoint.networkInterfaceIds");
+        if (!unknown_networkInterfaceIds) return value_networkInterfaceIds;
+        throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.networkInterfaceIds' is not present");
     }
 
     /**
      * The ID of the AWS account that created the EC2 Instance Connect Endpoint.
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("InstanceConnectEndpoint.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.ownerId' is not present");
     }
 
     /**
      * Indicates whether your client&#39;s IP address is preserved as the source. Default: `true`.
      * 
      */
-    private UndeferrableValue<Boolean> preserveClientIp;
-
+    @PolicyResourceProperty(name="preserveClientIp", flag="unknown_preserveClientIp")
+    private Boolean value_preserveClientIp;
+    private boolean unknown_preserveClientIp;
     public Boolean preserveClientIp() {
-        if (preserveClientIp == null) return null;
-        return preserveClientIp.getValue("InstanceConnectEndpoint.preserveClientIp");
+        if (!unknown_preserveClientIp) return value_preserveClientIp;
+        throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.preserveClientIp' is not present");
     }
 
     /**
      * One or more security groups to associate with the endpoint. If you don&#39;t specify a security group, the default security group for the VPC will be associated with the endpoint.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("InstanceConnectEndpoint.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.securityGroupIds' is not present");
     }
 
     /**
      * The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("InstanceConnectEndpoint.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.subnetId' is not present");
     }
 
     /**
      * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("InstanceConnectEndpoint.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.tags' is not present");
     }
 
     /**
@@ -134,29 +145,32 @@ public final class InstanceConnectEndpoint extends com.pulumi.resources.PolicyRe
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("InstanceConnectEndpoint.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<InstanceConnectEndpointTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable InstanceConnectEndpointTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable InstanceConnectEndpointTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("InstanceConnectEndpoint.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.timeouts' is not present");
     }
 
     /**
      * The ID of the VPC in which the EC2 Instance Connect Endpoint was created.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("InstanceConnectEndpoint.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'InstanceConnectEndpoint.vpcId' is not present");
     }
 
 }

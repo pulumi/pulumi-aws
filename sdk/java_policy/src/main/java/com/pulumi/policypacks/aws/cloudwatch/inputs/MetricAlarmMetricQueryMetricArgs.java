@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -16,11 +17,12 @@ public final class MetricAlarmMetricQueryMetricArgs {
      * The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      * 
      */
-    private UndeferrableValue<Map<String,String>> dimensions;
-
+    @PolicyResourceProperty(name="dimensions", flag="unknown_dimensions")
+    private Map<String,String> value_dimensions;
+    private boolean unknown_dimensions;
     public Map<String,String> dimensions() {
-        if (dimensions == null) return null;
-        return dimensions.getValue("MetricAlarmMetricQueryMetricArgs.dimensions");
+        if (!unknown_dimensions) return value_dimensions;
+        throw new UndeferrableValueException("Value 'MetricAlarmMetricQueryMetricArgs.dimensions' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class MetricAlarmMetricQueryMetricArgs {
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      * 
      */
-    private UndeferrableValue<String> metricName;
-
+    @PolicyResourceProperty(name="metricName", flag="unknown_metricName")
+    private String value_metricName;
+    private boolean unknown_metricName;
     public String metricName() {
-        if (metricName == null) return null;
-        return metricName.getValue("MetricAlarmMetricQueryMetricArgs.metricName");
+        if (!unknown_metricName) return value_metricName;
+        throw new UndeferrableValueException("Value 'MetricAlarmMetricQueryMetricArgs.metricName' is not present");
     }
 
     /**
@@ -40,11 +43,12 @@ public final class MetricAlarmMetricQueryMetricArgs {
      * See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
      * 
      */
-    private UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private String value_namespace;
+    private boolean unknown_namespace;
     public String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("MetricAlarmMetricQueryMetricArgs.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'MetricAlarmMetricQueryMetricArgs.namespace' is not present");
     }
 
     /**
@@ -53,11 +57,12 @@ public final class MetricAlarmMetricQueryMetricArgs {
      * For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
      * 
      */
-    private UndeferrableValue<Integer> period;
-
+    @PolicyResourceProperty(name="period", flag="unknown_period")
+    private Integer value_period;
+    private boolean unknown_period;
     public Integer period() {
-        if (period == null) return null;
-        return period.getValue("MetricAlarmMetricQueryMetricArgs.period");
+        if (!unknown_period) return value_period;
+        throw new UndeferrableValueException("Value 'MetricAlarmMetricQueryMetricArgs.period' is not present");
     }
 
     /**
@@ -65,22 +70,24 @@ public final class MetricAlarmMetricQueryMetricArgs {
      * See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
      * 
      */
-    private UndeferrableValue<String> stat;
-
+    @PolicyResourceProperty(name="stat", flag="unknown_stat")
+    private String value_stat;
+    private boolean unknown_stat;
     public String stat() {
-        if (stat == null) return null;
-        return stat.getValue("MetricAlarmMetricQueryMetricArgs.stat");
+        if (!unknown_stat) return value_stat;
+        throw new UndeferrableValueException("Value 'MetricAlarmMetricQueryMetricArgs.stat' is not present");
     }
 
     /**
      * The unit for this metric.
      * 
      */
-    private UndeferrableValue<String> unit;
-
+    @PolicyResourceProperty(name="unit", flag="unknown_unit")
+    private String value_unit;
+    private boolean unknown_unit;
     public String unit() {
-        if (unit == null) return null;
-        return unit.getValue("MetricAlarmMetricQueryMetricArgs.unit");
+        if (!unknown_unit) return value_unit;
+        throw new UndeferrableValueException("Value 'MetricAlarmMetricQueryMetricArgs.unit' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclAssociationConfig;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclCaptchaConfig;
@@ -26,172 +27,188 @@ public final class WebAcl extends com.pulumi.resources.PolicyResourceOutput {
      * The URL to use in SDK integrations with managed rule groups.
      * 
      */
-    private UndeferrableValue<String> applicationIntegrationUrl;
-
+    @PolicyResourceProperty(name="applicationIntegrationUrl", flag="unknown_applicationIntegrationUrl")
+    private String value_applicationIntegrationUrl;
+    private boolean unknown_applicationIntegrationUrl;
     public String applicationIntegrationUrl() {
-        if (applicationIntegrationUrl == null) return null;
-        return applicationIntegrationUrl.getValue("WebAcl.applicationIntegrationUrl");
+        if (!unknown_applicationIntegrationUrl) return value_applicationIntegrationUrl;
+        throw new UndeferrableValueException("Value 'WebAcl.applicationIntegrationUrl' is not present");
     }
 
     /**
      * The ARN of the WAF WebACL.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("WebAcl.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'WebAcl.arn' is not present");
     }
 
     /**
      * Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclAssociationConfig> associationConfig;
-
+    @PolicyResourceProperty(name="associationConfig", flag="unknown_associationConfig")
+    private @Nullable WebAclAssociationConfig value_associationConfig;
+    private boolean unknown_associationConfig;
     public @Nullable WebAclAssociationConfig associationConfig() {
-        if (associationConfig == null) return null;
-        return associationConfig.getValue("WebAcl.associationConfig");
+        if (!unknown_associationConfig) return value_associationConfig;
+        throw new UndeferrableValueException("Value 'WebAcl.associationConfig' is not present");
     }
 
     /**
      * Web ACL capacity units (WCUs) currently being used by this web ACL.
      * 
      */
-    private UndeferrableValue<Integer> capacity;
-
+    @PolicyResourceProperty(name="capacity", flag="unknown_capacity")
+    private Integer value_capacity;
+    private boolean unknown_capacity;
     public Integer capacity() {
-        if (capacity == null) return null;
-        return capacity.getValue("WebAcl.capacity");
+        if (!unknown_capacity) return value_capacity;
+        throw new UndeferrableValueException("Value 'WebAcl.capacity' is not present");
     }
 
     /**
      * Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclCaptchaConfig> captchaConfig;
-
+    @PolicyResourceProperty(name="captchaConfig", flag="unknown_captchaConfig")
+    private @Nullable WebAclCaptchaConfig value_captchaConfig;
+    private boolean unknown_captchaConfig;
     public @Nullable WebAclCaptchaConfig captchaConfig() {
-        if (captchaConfig == null) return null;
-        return captchaConfig.getValue("WebAcl.captchaConfig");
+        if (!unknown_captchaConfig) return value_captchaConfig;
+        throw new UndeferrableValueException("Value 'WebAcl.captchaConfig' is not present");
     }
 
     /**
      * Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<WebAclChallengeConfig> challengeConfig;
-
+    @PolicyResourceProperty(name="challengeConfig", flag="unknown_challengeConfig")
+    private @Nullable WebAclChallengeConfig value_challengeConfig;
+    private boolean unknown_challengeConfig;
     public @Nullable WebAclChallengeConfig challengeConfig() {
-        if (challengeConfig == null) return null;
-        return challengeConfig.getValue("WebAcl.challengeConfig");
+        if (!unknown_challengeConfig) return value_challengeConfig;
+        throw new UndeferrableValueException("Value 'WebAcl.challengeConfig' is not present");
     }
 
     /**
      * Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<WebAclCustomResponseBody>> customResponseBodies;
-
+    @PolicyResourceProperty(name="customResponseBodies", flag="unknown_customResponseBodies")
+    private @Nullable List<WebAclCustomResponseBody> value_customResponseBodies;
+    private boolean unknown_customResponseBodies;
     public @Nullable List<WebAclCustomResponseBody> customResponseBodies() {
-        if (customResponseBodies == null) return null;
-        return customResponseBodies.getValue("WebAcl.customResponseBodies");
+        if (!unknown_customResponseBodies) return value_customResponseBodies;
+        throw new UndeferrableValueException("Value 'WebAcl.customResponseBodies' is not present");
     }
 
     /**
      * Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
      * 
      */
-    private UndeferrableValue<WebAclDefaultAction> defaultAction;
-
+    @PolicyResourceProperty(name="defaultAction", flag="unknown_defaultAction")
+    private WebAclDefaultAction value_defaultAction;
+    private boolean unknown_defaultAction;
     public WebAclDefaultAction defaultAction() {
-        if (defaultAction == null) return null;
-        return defaultAction.getValue("WebAcl.defaultAction");
+        if (!unknown_defaultAction) return value_defaultAction;
+        throw new UndeferrableValueException("Value 'WebAcl.defaultAction' is not present");
     }
 
     /**
      * Friendly description of the WebACL.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("WebAcl.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'WebAcl.description' is not present");
     }
 
-    private UndeferrableValue<String> lockToken;
-
+    @PolicyResourceProperty(name="lockToken", flag="unknown_lockToken")
+    private String value_lockToken;
+    private boolean unknown_lockToken;
     public String lockToken() {
-        if (lockToken == null) return null;
-        return lockToken.getValue("WebAcl.lockToken");
+        if (!unknown_lockToken) return value_lockToken;
+        throw new UndeferrableValueException("Value 'WebAcl.lockToken' is not present");
     }
 
     /**
      * Friendly name of the WebACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("WebAcl.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'WebAcl.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("WebAcl.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'WebAcl.namePrefix' is not present");
     }
 
     /**
      * Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. Additionally, importing an existing web ACL into a configuration with `rule_json` set will result in a one time in-place update as the remote rule configuration is initially written to the `rule` attribute. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
      * 
      */
-    private @Nullable UndeferrableValue<String> ruleJson;
-
+    @PolicyResourceProperty(name="ruleJson", flag="unknown_ruleJson")
+    private @Nullable String value_ruleJson;
+    private boolean unknown_ruleJson;
     public @Nullable String ruleJson() {
-        if (ruleJson == null) return null;
-        return ruleJson.getValue("WebAcl.ruleJson");
+        if (!unknown_ruleJson) return value_ruleJson;
+        throw new UndeferrableValueException("Value 'WebAcl.ruleJson' is not present");
     }
 
     /**
      * Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<WebAclRule>> rules;
-
+    @PolicyResourceProperty(name="rules", flag="unknown_rules")
+    private @Nullable List<WebAclRule> value_rules;
+    private boolean unknown_rules;
     public @Nullable List<WebAclRule> rules() {
-        if (rules == null) return null;
-        return rules.getValue("WebAcl.rules");
+        if (!unknown_rules) return value_rules;
+        throw new UndeferrableValueException("Value 'WebAcl.rules' is not present");
     }
 
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      * 
      */
-    private UndeferrableValue<String> scope;
-
+    @PolicyResourceProperty(name="scope", flag="unknown_scope")
+    private String value_scope;
+    private boolean unknown_scope;
     public String scope() {
-        if (scope == null) return null;
-        return scope.getValue("WebAcl.scope");
+        if (!unknown_scope) return value_scope;
+        throw new UndeferrableValueException("Value 'WebAcl.scope' is not present");
     }
 
     /**
      * Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("WebAcl.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'WebAcl.tags' is not present");
     }
 
     /**
@@ -202,33 +219,36 @@ public final class WebAcl extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("WebAcl.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'WebAcl.tagsAll' is not present");
     }
 
     /**
      * Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don&#39;t specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource&#39;s host domain plus all domains in the token domain list, including their prefixed subdomains.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> tokenDomains;
-
+    @PolicyResourceProperty(name="tokenDomains", flag="unknown_tokenDomains")
+    private @Nullable List<String> value_tokenDomains;
+    private boolean unknown_tokenDomains;
     public @Nullable List<String> tokenDomains() {
-        if (tokenDomains == null) return null;
-        return tokenDomains.getValue("WebAcl.tokenDomains");
+        if (!unknown_tokenDomains) return value_tokenDomains;
+        throw new UndeferrableValueException("Value 'WebAcl.tokenDomains' is not present");
     }
 
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
      * 
      */
-    private UndeferrableValue<WebAclVisibilityConfig> visibilityConfig;
-
+    @PolicyResourceProperty(name="visibilityConfig", flag="unknown_visibilityConfig")
+    private WebAclVisibilityConfig value_visibilityConfig;
+    private boolean unknown_visibilityConfig;
     public WebAclVisibilityConfig visibilityConfig() {
-        if (visibilityConfig == null) return null;
-        return visibilityConfig.getValue("WebAcl.visibilityConfig");
+        if (!unknown_visibilityConfig) return value_visibilityConfig;
+        throw new UndeferrableValueException("Value 'WebAcl.visibilityConfig' is not present");
     }
 
 }

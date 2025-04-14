@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -18,66 +19,72 @@ public final class Bucket extends com.pulumi.resources.PolicyResourceOutput {
      * Amazon Resource Name (ARN) of the bucket.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Bucket.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Bucket.arn' is not present");
     }
 
     /**
      * Name of the bucket.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("Bucket.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'Bucket.bucket' is not present");
     }
 
     /**
      * UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private UndeferrableValue<String> creationDate;
-
+    @PolicyResourceProperty(name="creationDate", flag="unknown_creationDate")
+    private String value_creationDate;
+    private boolean unknown_creationDate;
     public String creationDate() {
-        if (creationDate == null) return null;
-        return creationDate.getValue("Bucket.creationDate");
+        if (!unknown_creationDate) return value_creationDate;
+        throw new UndeferrableValueException("Value 'Bucket.creationDate' is not present");
     }
 
     /**
      * Identifier of the Outpost to contain this bucket.
      * 
      */
-    private UndeferrableValue<String> outpostId;
-
+    @PolicyResourceProperty(name="outpostId", flag="unknown_outpostId")
+    private String value_outpostId;
+    private boolean unknown_outpostId;
     public String outpostId() {
-        if (outpostId == null) return null;
-        return outpostId.getValue("Bucket.outpostId");
+        if (!unknown_outpostId) return value_outpostId;
+        throw new UndeferrableValueException("Value 'Bucket.outpostId' is not present");
     }
 
     /**
      * Boolean whether Public Access Block is enabled.
      * 
      */
-    private UndeferrableValue<Boolean> publicAccessBlockEnabled;
-
+    @PolicyResourceProperty(name="publicAccessBlockEnabled", flag="unknown_publicAccessBlockEnabled")
+    private Boolean value_publicAccessBlockEnabled;
+    private boolean unknown_publicAccessBlockEnabled;
     public Boolean publicAccessBlockEnabled() {
-        if (publicAccessBlockEnabled == null) return null;
-        return publicAccessBlockEnabled.getValue("Bucket.publicAccessBlockEnabled");
+        if (!unknown_publicAccessBlockEnabled) return value_publicAccessBlockEnabled;
+        throw new UndeferrableValueException("Value 'Bucket.publicAccessBlockEnabled' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Bucket.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Bucket.tags' is not present");
     }
 
     /**
@@ -88,11 +95,12 @@ public final class Bucket extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Bucket.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Bucket.tagsAll' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,55 +18,60 @@ public final class Member extends com.pulumi.resources.PolicyResourceOutput {
      * The ID of the member AWS account.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("Member.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'Member.accountId' is not present");
     }
 
     /**
      * The email of the member AWS account.
      * 
      */
-    private @Nullable UndeferrableValue<String> email;
-
+    @PolicyResourceProperty(name="email", flag="unknown_email")
+    private @Nullable String value_email;
+    private boolean unknown_email;
     public @Nullable String email() {
-        if (email == null) return null;
-        return email.getValue("Member.email");
+        if (!unknown_email) return value_email;
+        throw new UndeferrableValueException("Value 'Member.email' is not present");
     }
 
     /**
      * Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> invite;
-
+    @PolicyResourceProperty(name="invite", flag="unknown_invite")
+    private @Nullable Boolean value_invite;
+    private boolean unknown_invite;
     public @Nullable Boolean invite() {
-        if (invite == null) return null;
-        return invite.getValue("Member.invite");
+        if (!unknown_invite) return value_invite;
+        throw new UndeferrableValueException("Value 'Member.invite' is not present");
     }
 
     /**
      * The ID of the master Security Hub AWS account.
      * 
      */
-    private UndeferrableValue<String> masterId;
-
+    @PolicyResourceProperty(name="masterId", flag="unknown_masterId")
+    private String value_masterId;
+    private boolean unknown_masterId;
     public String masterId() {
-        if (masterId == null) return null;
-        return masterId.getValue("Member.masterId");
+        if (!unknown_masterId) return value_masterId;
+        throw new UndeferrableValueException("Value 'Member.masterId' is not present");
     }
 
     /**
      * The status of the member account relationship.
      * 
      */
-    private UndeferrableValue<String> memberStatus;
-
+    @PolicyResourceProperty(name="memberStatus", flag="unknown_memberStatus")
+    private String value_memberStatus;
+    private boolean unknown_memberStatus;
     public String memberStatus() {
-        if (memberStatus == null) return null;
-        return memberStatus.getValue("Member.memberStatus");
+        if (!unknown_memberStatus) return value_memberStatus;
+        throw new UndeferrableValueException("Value 'Member.memberStatus' is not present");
     }
 
 }

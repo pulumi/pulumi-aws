@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sns;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,132 +17,144 @@ public final class PlatformApplicationArgs extends com.pulumi.resources.PolicyRe
      * The bundle identifier that&#39;s assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
      * 
      */
-    private UndeferrableValue<String> applePlatformBundleId;
-
+    @PolicyResourceProperty(name="applePlatformBundleId", flag="unknown_applePlatformBundleId")
+    private String value_applePlatformBundleId;
+    private boolean unknown_applePlatformBundleId;
     public String applePlatformBundleId() {
-        if (applePlatformBundleId == null) return null;
-        return applePlatformBundleId.getValue("PlatformApplicationArgs.applePlatformBundleId");
+        if (!unknown_applePlatformBundleId) return value_applePlatformBundleId;
+        throw new UndeferrableValueException("Value 'PlatformApplicationArgs.applePlatformBundleId' is not present");
     }
 
     /**
      * The identifier that&#39;s assigned to your Apple developer account team. Must be 10 alphanumeric characters.
      * 
      */
-    private UndeferrableValue<String> applePlatformTeamId;
-
+    @PolicyResourceProperty(name="applePlatformTeamId", flag="unknown_applePlatformTeamId")
+    private String value_applePlatformTeamId;
+    private boolean unknown_applePlatformTeamId;
     public String applePlatformTeamId() {
-        if (applePlatformTeamId == null) return null;
-        return applePlatformTeamId.getValue("PlatformApplicationArgs.applePlatformTeamId");
+        if (!unknown_applePlatformTeamId) return value_applePlatformTeamId;
+        throw new UndeferrableValueException("Value 'PlatformApplicationArgs.applePlatformTeamId' is not present");
     }
 
     /**
      * The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
      * 
      */
-    private UndeferrableValue<String> eventDeliveryFailureTopicArn;
-
+    @PolicyResourceProperty(name="eventDeliveryFailureTopicArn", flag="unknown_eventDeliveryFailureTopicArn")
+    private String value_eventDeliveryFailureTopicArn;
+    private boolean unknown_eventDeliveryFailureTopicArn;
     public String eventDeliveryFailureTopicArn() {
-        if (eventDeliveryFailureTopicArn == null) return null;
-        return eventDeliveryFailureTopicArn.getValue("PlatformApplicationArgs.eventDeliveryFailureTopicArn");
+        if (!unknown_eventDeliveryFailureTopicArn) return value_eventDeliveryFailureTopicArn;
+        throw new UndeferrableValueException("Value 'PlatformApplicationArgs.eventDeliveryFailureTopicArn' is not present");
     }
 
     /**
      * The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
      * 
      */
-    private UndeferrableValue<String> eventEndpointCreatedTopicArn;
-
+    @PolicyResourceProperty(name="eventEndpointCreatedTopicArn", flag="unknown_eventEndpointCreatedTopicArn")
+    private String value_eventEndpointCreatedTopicArn;
+    private boolean unknown_eventEndpointCreatedTopicArn;
     public String eventEndpointCreatedTopicArn() {
-        if (eventEndpointCreatedTopicArn == null) return null;
-        return eventEndpointCreatedTopicArn.getValue("PlatformApplicationArgs.eventEndpointCreatedTopicArn");
+        if (!unknown_eventEndpointCreatedTopicArn) return value_eventEndpointCreatedTopicArn;
+        throw new UndeferrableValueException("Value 'PlatformApplicationArgs.eventEndpointCreatedTopicArn' is not present");
     }
 
     /**
      * The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
      * 
      */
-    private UndeferrableValue<String> eventEndpointDeletedTopicArn;
-
+    @PolicyResourceProperty(name="eventEndpointDeletedTopicArn", flag="unknown_eventEndpointDeletedTopicArn")
+    private String value_eventEndpointDeletedTopicArn;
+    private boolean unknown_eventEndpointDeletedTopicArn;
     public String eventEndpointDeletedTopicArn() {
-        if (eventEndpointDeletedTopicArn == null) return null;
-        return eventEndpointDeletedTopicArn.getValue("PlatformApplicationArgs.eventEndpointDeletedTopicArn");
+        if (!unknown_eventEndpointDeletedTopicArn) return value_eventEndpointDeletedTopicArn;
+        throw new UndeferrableValueException("Value 'PlatformApplicationArgs.eventEndpointDeletedTopicArn' is not present");
     }
 
     /**
      * The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
      * 
      */
-    private UndeferrableValue<String> eventEndpointUpdatedTopicArn;
-
+    @PolicyResourceProperty(name="eventEndpointUpdatedTopicArn", flag="unknown_eventEndpointUpdatedTopicArn")
+    private String value_eventEndpointUpdatedTopicArn;
+    private boolean unknown_eventEndpointUpdatedTopicArn;
     public String eventEndpointUpdatedTopicArn() {
-        if (eventEndpointUpdatedTopicArn == null) return null;
-        return eventEndpointUpdatedTopicArn.getValue("PlatformApplicationArgs.eventEndpointUpdatedTopicArn");
+        if (!unknown_eventEndpointUpdatedTopicArn) return value_eventEndpointUpdatedTopicArn;
+        throw new UndeferrableValueException("Value 'PlatformApplicationArgs.eventEndpointUpdatedTopicArn' is not present");
     }
 
     /**
      * The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
      * 
      */
-    private UndeferrableValue<String> failureFeedbackRoleArn;
-
+    @PolicyResourceProperty(name="failureFeedbackRoleArn", flag="unknown_failureFeedbackRoleArn")
+    private String value_failureFeedbackRoleArn;
+    private boolean unknown_failureFeedbackRoleArn;
     public String failureFeedbackRoleArn() {
-        if (failureFeedbackRoleArn == null) return null;
-        return failureFeedbackRoleArn.getValue("PlatformApplicationArgs.failureFeedbackRoleArn");
+        if (!unknown_failureFeedbackRoleArn) return value_failureFeedbackRoleArn;
+        throw new UndeferrableValueException("Value 'PlatformApplicationArgs.failureFeedbackRoleArn' is not present");
     }
 
     /**
      * The friendly name for the SNS platform application
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("PlatformApplicationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'PlatformApplicationArgs.name' is not present");
     }
 
     /**
      * The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
      * 
      */
-    private UndeferrableValue<String> platform;
-
+    @PolicyResourceProperty(name="platform", flag="unknown_platform")
+    private String value_platform;
+    private boolean unknown_platform;
     public String platform() {
-        if (platform == null) return null;
-        return platform.getValue("PlatformApplicationArgs.platform");
+        if (!unknown_platform) return value_platform;
+        throw new UndeferrableValueException("Value 'PlatformApplicationArgs.platform' is not present");
     }
 
     /**
      * Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      * 
      */
-    private UndeferrableValue<String> platformCredential;
-
+    @PolicyResourceProperty(name="platformCredential", flag="unknown_platformCredential")
+    private String value_platformCredential;
+    private boolean unknown_platformCredential;
     public String platformCredential() {
-        if (platformCredential == null) return null;
-        return platformCredential.getValue("PlatformApplicationArgs.platformCredential");
+        if (!unknown_platformCredential) return value_platformCredential;
+        throw new UndeferrableValueException("Value 'PlatformApplicationArgs.platformCredential' is not present");
     }
 
     /**
      * Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      * 
      */
-    private UndeferrableValue<String> platformPrincipal;
-
+    @PolicyResourceProperty(name="platformPrincipal", flag="unknown_platformPrincipal")
+    private String value_platformPrincipal;
+    private boolean unknown_platformPrincipal;
     public String platformPrincipal() {
-        if (platformPrincipal == null) return null;
-        return platformPrincipal.getValue("PlatformApplicationArgs.platformPrincipal");
+        if (!unknown_platformPrincipal) return value_platformPrincipal;
+        throw new UndeferrableValueException("Value 'PlatformApplicationArgs.platformPrincipal' is not present");
     }
 
     /**
      * The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
      * 
      */
-    private UndeferrableValue<String> successFeedbackRoleArn;
-
+    @PolicyResourceProperty(name="successFeedbackRoleArn", flag="unknown_successFeedbackRoleArn")
+    private String value_successFeedbackRoleArn;
+    private boolean unknown_successFeedbackRoleArn;
     public String successFeedbackRoleArn() {
-        if (successFeedbackRoleArn == null) return null;
-        return successFeedbackRoleArn.getValue("PlatformApplicationArgs.successFeedbackRoleArn");
+        if (!unknown_successFeedbackRoleArn) return value_successFeedbackRoleArn;
+        throw new UndeferrableValueException("Value 'PlatformApplicationArgs.successFeedbackRoleArn' is not present");
     }
 
     /**
@@ -150,11 +163,12 @@ public final class PlatformApplicationArgs extends com.pulumi.resources.PolicyRe
      * The following attributes are needed only when using APNS token credentials:
      * 
      */
-    private UndeferrableValue<String> successFeedbackSampleRate;
-
+    @PolicyResourceProperty(name="successFeedbackSampleRate", flag="unknown_successFeedbackSampleRate")
+    private String value_successFeedbackSampleRate;
+    private boolean unknown_successFeedbackSampleRate;
     public String successFeedbackSampleRate() {
-        if (successFeedbackSampleRate == null) return null;
-        return successFeedbackSampleRate.getValue("PlatformApplicationArgs.successFeedbackSampleRate");
+        if (!unknown_successFeedbackSampleRate) return value_successFeedbackSampleRate;
+        throw new UndeferrableValueException("Value 'PlatformApplicationArgs.successFeedbackSampleRate' is not present");
     }
 
 }

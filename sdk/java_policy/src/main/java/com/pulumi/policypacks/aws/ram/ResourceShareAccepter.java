@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ram;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -16,88 +17,96 @@ public final class ResourceShareAccepter extends com.pulumi.resources.PolicyReso
      * The ARN of the resource share invitation.
      * 
      */
-    private UndeferrableValue<String> invitationArn;
-
+    @PolicyResourceProperty(name="invitationArn", flag="unknown_invitationArn")
+    private String value_invitationArn;
+    private boolean unknown_invitationArn;
     public String invitationArn() {
-        if (invitationArn == null) return null;
-        return invitationArn.getValue("ResourceShareAccepter.invitationArn");
+        if (!unknown_invitationArn) return value_invitationArn;
+        throw new UndeferrableValueException("Value 'ResourceShareAccepter.invitationArn' is not present");
     }
 
     /**
      * The account ID of the receiver account which accepts the invitation.
      * 
      */
-    private UndeferrableValue<String> receiverAccountId;
-
+    @PolicyResourceProperty(name="receiverAccountId", flag="unknown_receiverAccountId")
+    private String value_receiverAccountId;
+    private boolean unknown_receiverAccountId;
     public String receiverAccountId() {
-        if (receiverAccountId == null) return null;
-        return receiverAccountId.getValue("ResourceShareAccepter.receiverAccountId");
+        if (!unknown_receiverAccountId) return value_receiverAccountId;
+        throw new UndeferrableValueException("Value 'ResourceShareAccepter.receiverAccountId' is not present");
     }
 
     /**
      * A list of the resource ARNs shared via the resource share.
      * 
      */
-    private UndeferrableValue<List<String>> resources;
-
+    @PolicyResourceProperty(name="resources", flag="unknown_resources")
+    private List<String> value_resources;
+    private boolean unknown_resources;
     public List<String> resources() {
-        if (resources == null) return null;
-        return resources.getValue("ResourceShareAccepter.resources");
+        if (!unknown_resources) return value_resources;
+        throw new UndeferrableValueException("Value 'ResourceShareAccepter.resources' is not present");
     }
 
     /**
      * The account ID of the sender account which submits the invitation.
      * 
      */
-    private UndeferrableValue<String> senderAccountId;
-
+    @PolicyResourceProperty(name="senderAccountId", flag="unknown_senderAccountId")
+    private String value_senderAccountId;
+    private boolean unknown_senderAccountId;
     public String senderAccountId() {
-        if (senderAccountId == null) return null;
-        return senderAccountId.getValue("ResourceShareAccepter.senderAccountId");
+        if (!unknown_senderAccountId) return value_senderAccountId;
+        throw new UndeferrableValueException("Value 'ResourceShareAccepter.senderAccountId' is not present");
     }
 
     /**
      * The ARN of the resource share.
      * 
      */
-    private UndeferrableValue<String> shareArn;
-
+    @PolicyResourceProperty(name="shareArn", flag="unknown_shareArn")
+    private String value_shareArn;
+    private boolean unknown_shareArn;
     public String shareArn() {
-        if (shareArn == null) return null;
-        return shareArn.getValue("ResourceShareAccepter.shareArn");
+        if (!unknown_shareArn) return value_shareArn;
+        throw new UndeferrableValueException("Value 'ResourceShareAccepter.shareArn' is not present");
     }
 
     /**
      * The ID of the resource share as displayed in the console.
      * 
      */
-    private UndeferrableValue<String> shareId;
-
+    @PolicyResourceProperty(name="shareId", flag="unknown_shareId")
+    private String value_shareId;
+    private boolean unknown_shareId;
     public String shareId() {
-        if (shareId == null) return null;
-        return shareId.getValue("ResourceShareAccepter.shareId");
+        if (!unknown_shareId) return value_shareId;
+        throw new UndeferrableValueException("Value 'ResourceShareAccepter.shareId' is not present");
     }
 
     /**
      * The name of the resource share.
      * 
      */
-    private UndeferrableValue<String> shareName;
-
+    @PolicyResourceProperty(name="shareName", flag="unknown_shareName")
+    private String value_shareName;
+    private boolean unknown_shareName;
     public String shareName() {
-        if (shareName == null) return null;
-        return shareName.getValue("ResourceShareAccepter.shareName");
+        if (!unknown_shareName) return value_shareName;
+        throw new UndeferrableValueException("Value 'ResourceShareAccepter.shareName' is not present");
     }
 
     /**
      * The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("ResourceShareAccepter.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'ResourceShareAccepter.status' is not present");
     }
 
 }

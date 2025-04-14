@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpc;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.vpc.inputs.SecurityGroupVpcAssociationTimeoutsArgs;
 import java.lang.String;
@@ -17,29 +18,32 @@ public final class SecurityGroupVpcAssociationArgs extends com.pulumi.resources.
      * The ID of the security group.
      * 
      */
-    private UndeferrableValue<String> securityGroupId;
-
+    @PolicyResourceProperty(name="securityGroupId", flag="unknown_securityGroupId")
+    private String value_securityGroupId;
+    private boolean unknown_securityGroupId;
     public String securityGroupId() {
-        if (securityGroupId == null) return null;
-        return securityGroupId.getValue("SecurityGroupVpcAssociationArgs.securityGroupId");
+        if (!unknown_securityGroupId) return value_securityGroupId;
+        throw new UndeferrableValueException("Value 'SecurityGroupVpcAssociationArgs.securityGroupId' is not present");
     }
 
-    private UndeferrableValue<SecurityGroupVpcAssociationTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private SecurityGroupVpcAssociationTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public SecurityGroupVpcAssociationTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("SecurityGroupVpcAssociationArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'SecurityGroupVpcAssociationArgs.timeouts' is not present");
     }
 
     /**
      * The ID of the VPC to make the association with.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("SecurityGroupVpcAssociationArgs.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'SecurityGroupVpcAssociationArgs.vpcId' is not present");
     }
 
 }

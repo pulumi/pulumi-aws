@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 
 
@@ -13,11 +14,12 @@ public final class CustomModelTrainingMetric {
      * Loss metric associated with the customization job.
      * 
      */
-    private UndeferrableValue<Double> trainingLoss;
-
+    @PolicyResourceProperty(name="trainingLoss", flag="unknown_trainingLoss")
+    private Double value_trainingLoss;
+    private boolean unknown_trainingLoss;
     public Double trainingLoss() {
-        if (trainingLoss == null) return null;
-        return trainingLoss.getValue("CustomModelTrainingMetric.trainingLoss");
+        if (!unknown_trainingLoss) return value_trainingLoss;
+        throw new UndeferrableValueException("Value 'CustomModelTrainingMetric.trainingLoss' is not present");
     }
 
 }

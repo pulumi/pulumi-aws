@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class CapacityBlockReservationTimeoutsArgs {
      * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &#34;30s&#34; or &#34;2h45m&#34;. Valid time units are &#34;s&#34; (seconds), &#34;m&#34; (minutes), &#34;h&#34; (hours).
      * 
      */
-    private UndeferrableValue<String> create;
-
+    @PolicyResourceProperty(name="create", flag="unknown_create")
+    private String value_create;
+    private boolean unknown_create;
     public String create() {
-        if (create == null) return null;
-        return create.getValue("CapacityBlockReservationTimeoutsArgs.create");
+        if (!unknown_create) return value_create;
+        throw new UndeferrableValueException("Value 'CapacityBlockReservationTimeoutsArgs.create' is not present");
     }
 
 }

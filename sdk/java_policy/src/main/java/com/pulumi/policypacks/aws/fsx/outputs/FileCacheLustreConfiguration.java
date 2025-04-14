@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.fsx.outputs.FileCacheLustreConfigurationLogConfiguration;
 import com.pulumi.policypacks.aws.fsx.outputs.FileCacheLustreConfigurationMetadataConfiguration;
 import java.lang.Integer;
@@ -18,58 +19,64 @@ public final class FileCacheLustreConfiguration {
      * Specifies the cache deployment type. The only supported value is `CACHE_1`.
      * 
      */
-    private UndeferrableValue<String> deploymentType;
-
+    @PolicyResourceProperty(name="deploymentType", flag="unknown_deploymentType")
+    private String value_deploymentType;
+    private boolean unknown_deploymentType;
     public String deploymentType() {
-        if (deploymentType == null) return null;
-        return deploymentType.getValue("FileCacheLustreConfiguration.deploymentType");
+        if (!unknown_deploymentType) return value_deploymentType;
+        throw new UndeferrableValueException("Value 'FileCacheLustreConfiguration.deploymentType' is not present");
     }
 
-    private @Nullable UndeferrableValue<List<FileCacheLustreConfigurationLogConfiguration>> logConfigurations;
-
+    @PolicyResourceProperty(name="logConfigurations", flag="unknown_logConfigurations")
+    private @Nullable List<FileCacheLustreConfigurationLogConfiguration> value_logConfigurations;
+    private boolean unknown_logConfigurations;
     public @Nullable List<FileCacheLustreConfigurationLogConfiguration> logConfigurations() {
-        if (logConfigurations == null) return null;
-        return logConfigurations.getValue("FileCacheLustreConfiguration.logConfigurations");
+        if (!unknown_logConfigurations) return value_logConfigurations;
+        throw new UndeferrableValueException("Value 'FileCacheLustreConfiguration.logConfigurations' is not present");
     }
 
     /**
      * The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
      * 
      */
-    private UndeferrableValue<List<FileCacheLustreConfigurationMetadataConfiguration>> metadataConfigurations;
-
+    @PolicyResourceProperty(name="metadataConfigurations", flag="unknown_metadataConfigurations")
+    private List<FileCacheLustreConfigurationMetadataConfiguration> value_metadataConfigurations;
+    private boolean unknown_metadataConfigurations;
     public List<FileCacheLustreConfigurationMetadataConfiguration> metadataConfigurations() {
-        if (metadataConfigurations == null) return null;
-        return metadataConfigurations.getValue("FileCacheLustreConfiguration.metadataConfigurations");
+        if (!unknown_metadataConfigurations) return value_metadataConfigurations;
+        throw new UndeferrableValueException("Value 'FileCacheLustreConfiguration.metadataConfigurations' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> mountName;
-
+    @PolicyResourceProperty(name="mountName", flag="unknown_mountName")
+    private @Nullable String value_mountName;
+    private boolean unknown_mountName;
     public @Nullable String mountName() {
-        if (mountName == null) return null;
-        return mountName.getValue("FileCacheLustreConfiguration.mountName");
+        if (!unknown_mountName) return value_mountName;
+        throw new UndeferrableValueException("Value 'FileCacheLustreConfiguration.mountName' is not present");
     }
 
     /**
      * Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
      * 
      */
-    private UndeferrableValue<Integer> perUnitStorageThroughput;
-
+    @PolicyResourceProperty(name="perUnitStorageThroughput", flag="unknown_perUnitStorageThroughput")
+    private Integer value_perUnitStorageThroughput;
+    private boolean unknown_perUnitStorageThroughput;
     public Integer perUnitStorageThroughput() {
-        if (perUnitStorageThroughput == null) return null;
-        return perUnitStorageThroughput.getValue("FileCacheLustreConfiguration.perUnitStorageThroughput");
+        if (!unknown_perUnitStorageThroughput) return value_perUnitStorageThroughput;
+        throw new UndeferrableValueException("Value 'FileCacheLustreConfiguration.perUnitStorageThroughput' is not present");
     }
 
     /**
      * A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
      * 
      */
-    private @Nullable UndeferrableValue<String> weeklyMaintenanceStartTime;
-
+    @PolicyResourceProperty(name="weeklyMaintenanceStartTime", flag="unknown_weeklyMaintenanceStartTime")
+    private @Nullable String value_weeklyMaintenanceStartTime;
+    private boolean unknown_weeklyMaintenanceStartTime;
     public @Nullable String weeklyMaintenanceStartTime() {
-        if (weeklyMaintenanceStartTime == null) return null;
-        return weeklyMaintenanceStartTime.getValue("FileCacheLustreConfiguration.weeklyMaintenanceStartTime");
+        if (!unknown_weeklyMaintenanceStartTime) return value_weeklyMaintenanceStartTime;
+        throw new UndeferrableValueException("Value 'FileCacheLustreConfiguration.weeklyMaintenanceStartTime' is not present");
     }
 
 }

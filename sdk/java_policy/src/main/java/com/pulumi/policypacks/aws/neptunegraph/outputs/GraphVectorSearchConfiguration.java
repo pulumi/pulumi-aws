@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.neptunegraph.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class GraphVectorSearchConfiguration {
      * Specifies the number of dimensions for vector embeddings.  Value must be between 1 and 65,535.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> vectorSearchDimension;
-
+    @PolicyResourceProperty(name="vectorSearchDimension", flag="unknown_vectorSearchDimension")
+    private @Nullable Integer value_vectorSearchDimension;
+    private boolean unknown_vectorSearchDimension;
     public @Nullable Integer vectorSearchDimension() {
-        if (vectorSearchDimension == null) return null;
-        return vectorSearchDimension.getValue("GraphVectorSearchConfiguration.vectorSearchDimension");
+        if (!unknown_vectorSearchDimension) return value_vectorSearchDimension;
+        throw new UndeferrableValueException("Value 'GraphVectorSearchConfiguration.vectorSearchDimension' is not present");
     }
 
 }

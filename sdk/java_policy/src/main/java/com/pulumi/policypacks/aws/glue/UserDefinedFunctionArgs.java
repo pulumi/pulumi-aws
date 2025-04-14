@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.glue.inputs.UserDefinedFunctionResourceUriArgs;
 import java.lang.String;
@@ -18,77 +19,84 @@ public final class UserDefinedFunctionArgs extends com.pulumi.resources.PolicyRe
      * ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
      * 
      */
-    private UndeferrableValue<String> catalogId;
-
+    @PolicyResourceProperty(name="catalogId", flag="unknown_catalogId")
+    private String value_catalogId;
+    private boolean unknown_catalogId;
     public String catalogId() {
-        if (catalogId == null) return null;
-        return catalogId.getValue("UserDefinedFunctionArgs.catalogId");
+        if (!unknown_catalogId) return value_catalogId;
+        throw new UndeferrableValueException("Value 'UserDefinedFunctionArgs.catalogId' is not present");
     }
 
     /**
      * The Java class that contains the function code.
      * 
      */
-    private UndeferrableValue<String> className;
-
+    @PolicyResourceProperty(name="className", flag="unknown_className")
+    private String value_className;
+    private boolean unknown_className;
     public String className() {
-        if (className == null) return null;
-        return className.getValue("UserDefinedFunctionArgs.className");
+        if (!unknown_className) return value_className;
+        throw new UndeferrableValueException("Value 'UserDefinedFunctionArgs.className' is not present");
     }
 
     /**
      * The name of the Database to create the Function.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("UserDefinedFunctionArgs.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'UserDefinedFunctionArgs.databaseName' is not present");
     }
 
     /**
      * The name of the function.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("UserDefinedFunctionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'UserDefinedFunctionArgs.name' is not present");
     }
 
     /**
      * The owner of the function.
      * 
      */
-    private UndeferrableValue<String> ownerName;
-
+    @PolicyResourceProperty(name="ownerName", flag="unknown_ownerName")
+    private String value_ownerName;
+    private boolean unknown_ownerName;
     public String ownerName() {
-        if (ownerName == null) return null;
-        return ownerName.getValue("UserDefinedFunctionArgs.ownerName");
+        if (!unknown_ownerName) return value_ownerName;
+        throw new UndeferrableValueException("Value 'UserDefinedFunctionArgs.ownerName' is not present");
     }
 
     /**
      * The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
      * 
      */
-    private UndeferrableValue<String> ownerType;
-
+    @PolicyResourceProperty(name="ownerType", flag="unknown_ownerType")
+    private String value_ownerType;
+    private boolean unknown_ownerType;
     public String ownerType() {
-        if (ownerType == null) return null;
-        return ownerType.getValue("UserDefinedFunctionArgs.ownerType");
+        if (!unknown_ownerType) return value_ownerType;
+        throw new UndeferrableValueException("Value 'UserDefinedFunctionArgs.ownerType' is not present");
     }
 
     /**
      * The configuration block for Resource URIs. See resource uris below for more details.
      * 
      */
-    private UndeferrableValue<List<UserDefinedFunctionResourceUriArgs>> resourceUris;
-
+    @PolicyResourceProperty(name="resourceUris", flag="unknown_resourceUris")
+    private List<UserDefinedFunctionResourceUriArgs> value_resourceUris;
+    private boolean unknown_resourceUris;
     public List<UserDefinedFunctionResourceUriArgs> resourceUris() {
-        if (resourceUris == null) return null;
-        return resourceUris.getValue("UserDefinedFunctionArgs.resourceUris");
+        if (!unknown_resourceUris) return value_resourceUris;
+        throw new UndeferrableValueException("Value 'UserDefinedFunctionArgs.resourceUris' is not present");
     }
 
 }

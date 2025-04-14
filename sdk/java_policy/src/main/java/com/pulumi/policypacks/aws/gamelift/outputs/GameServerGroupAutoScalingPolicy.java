@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.gamelift.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.gamelift.outputs.GameServerGroupAutoScalingPolicyTargetTrackingConfiguration;
 import java.lang.Integer;
 import javax.annotation.Nullable;
@@ -18,18 +19,20 @@ public final class GameServerGroupAutoScalingPolicy {
      * because it avoids prematurely starting new instances. Defaults to `60`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> estimatedInstanceWarmup;
-
+    @PolicyResourceProperty(name="estimatedInstanceWarmup", flag="unknown_estimatedInstanceWarmup")
+    private @Nullable Integer value_estimatedInstanceWarmup;
+    private boolean unknown_estimatedInstanceWarmup;
     public @Nullable Integer estimatedInstanceWarmup() {
-        if (estimatedInstanceWarmup == null) return null;
-        return estimatedInstanceWarmup.getValue("GameServerGroupAutoScalingPolicy.estimatedInstanceWarmup");
+        if (!unknown_estimatedInstanceWarmup) return value_estimatedInstanceWarmup;
+        throw new UndeferrableValueException("Value 'GameServerGroupAutoScalingPolicy.estimatedInstanceWarmup' is not present");
     }
 
-    private UndeferrableValue<GameServerGroupAutoScalingPolicyTargetTrackingConfiguration> targetTrackingConfiguration;
-
+    @PolicyResourceProperty(name="targetTrackingConfiguration", flag="unknown_targetTrackingConfiguration")
+    private GameServerGroupAutoScalingPolicyTargetTrackingConfiguration value_targetTrackingConfiguration;
+    private boolean unknown_targetTrackingConfiguration;
     public GameServerGroupAutoScalingPolicyTargetTrackingConfiguration targetTrackingConfiguration() {
-        if (targetTrackingConfiguration == null) return null;
-        return targetTrackingConfiguration.getValue("GameServerGroupAutoScalingPolicy.targetTrackingConfiguration");
+        if (!unknown_targetTrackingConfiguration) return value_targetTrackingConfiguration;
+        throw new UndeferrableValueException("Value 'GameServerGroupAutoScalingPolicy.targetTrackingConfiguration' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.customerprofiles.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class DomainRuleBasedMatchingMatchingRuleArgs {
      * A single rule level of the `match_rules`. Configures how the rule-based matching process should match profiles.
      * 
      */
-    private UndeferrableValue<List<String>> rules;
-
+    @PolicyResourceProperty(name="rules", flag="unknown_rules")
+    private List<String> value_rules;
+    private boolean unknown_rules;
     public List<String> rules() {
-        if (rules == null) return null;
-        return rules.getValue("DomainRuleBasedMatchingMatchingRuleArgs.rules");
+        if (!unknown_rules) return value_rules;
+        throw new UndeferrableValueException("Value 'DomainRuleBasedMatchingMatchingRuleArgs.rules' is not present");
     }
 
 }

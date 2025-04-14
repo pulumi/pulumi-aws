@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.datazone.outputs.ProjectFailureReason;
 import com.pulumi.policypacks.aws.datazone.outputs.ProjectTimeouts;
@@ -20,77 +21,84 @@ public final class Project extends com.pulumi.resources.PolicyResourceOutput {
      * Timestamp of when the project was made.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("Project.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'Project.createdAt' is not present");
     }
 
     /**
      * Creator of the project.
      * 
      */
-    private UndeferrableValue<String> createdBy;
-
+    @PolicyResourceProperty(name="createdBy", flag="unknown_createdBy")
+    private String value_createdBy;
+    private boolean unknown_createdBy;
     public String createdBy() {
-        if (createdBy == null) return null;
-        return createdBy.getValue("Project.createdBy");
+        if (!unknown_createdBy) return value_createdBy;
+        throw new UndeferrableValueException("Value 'Project.createdBy' is not present");
     }
 
     /**
      * Description of project.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Project.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Project.description' is not present");
     }
 
     /**
      * Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
      * 
      */
-    private UndeferrableValue<String> domainIdentifier;
-
+    @PolicyResourceProperty(name="domainIdentifier", flag="unknown_domainIdentifier")
+    private String value_domainIdentifier;
+    private boolean unknown_domainIdentifier;
     public String domainIdentifier() {
-        if (domainIdentifier == null) return null;
-        return domainIdentifier.getValue("Project.domainIdentifier");
+        if (!unknown_domainIdentifier) return value_domainIdentifier;
+        throw new UndeferrableValueException("Value 'Project.domainIdentifier' is not present");
     }
 
     /**
      * List of error messages if operation cannot be completed.
      * 
      */
-    private UndeferrableValue<List<ProjectFailureReason>> failureReasons;
-
+    @PolicyResourceProperty(name="failureReasons", flag="unknown_failureReasons")
+    private List<ProjectFailureReason> value_failureReasons;
+    private boolean unknown_failureReasons;
     public List<ProjectFailureReason> failureReasons() {
-        if (failureReasons == null) return null;
-        return failureReasons.getValue("Project.failureReasons");
+        if (!unknown_failureReasons) return value_failureReasons;
+        throw new UndeferrableValueException("Value 'Project.failureReasons' is not present");
     }
 
     /**
      * List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> glossaryTerms;
-
+    @PolicyResourceProperty(name="glossaryTerms", flag="unknown_glossaryTerms")
+    private @Nullable List<String> value_glossaryTerms;
+    private boolean unknown_glossaryTerms;
     public @Nullable List<String> glossaryTerms() {
-        if (glossaryTerms == null) return null;
-        return glossaryTerms.getValue("Project.glossaryTerms");
+        if (!unknown_glossaryTerms) return value_glossaryTerms;
+        throw new UndeferrableValueException("Value 'Project.glossaryTerms' is not present");
     }
 
     /**
      * Timestamp of when the project was last updated.
      * 
      */
-    private UndeferrableValue<String> lastUpdatedAt;
-
+    @PolicyResourceProperty(name="lastUpdatedAt", flag="unknown_lastUpdatedAt")
+    private String value_lastUpdatedAt;
+    private boolean unknown_lastUpdatedAt;
     public String lastUpdatedAt() {
-        if (lastUpdatedAt == null) return null;
-        return lastUpdatedAt.getValue("Project.lastUpdatedAt");
+        if (!unknown_lastUpdatedAt) return value_lastUpdatedAt;
+        throw new UndeferrableValueException("Value 'Project.lastUpdatedAt' is not present");
     }
 
     /**
@@ -99,40 +107,44 @@ public final class Project extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Project.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Project.name' is not present");
     }
 
     /**
      * Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
      * 
      */
-    private UndeferrableValue<String> projectStatus;
-
+    @PolicyResourceProperty(name="projectStatus", flag="unknown_projectStatus")
+    private String value_projectStatus;
+    private boolean unknown_projectStatus;
     public String projectStatus() {
-        if (projectStatus == null) return null;
-        return projectStatus.getValue("Project.projectStatus");
+        if (!unknown_projectStatus) return value_projectStatus;
+        throw new UndeferrableValueException("Value 'Project.projectStatus' is not present");
     }
 
     /**
      * Optional flag to delete all child entities within the project.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> skipDeletionCheck;
-
+    @PolicyResourceProperty(name="skipDeletionCheck", flag="unknown_skipDeletionCheck")
+    private @Nullable Boolean value_skipDeletionCheck;
+    private boolean unknown_skipDeletionCheck;
     public @Nullable Boolean skipDeletionCheck() {
-        if (skipDeletionCheck == null) return null;
-        return skipDeletionCheck.getValue("Project.skipDeletionCheck");
+        if (!unknown_skipDeletionCheck) return value_skipDeletionCheck;
+        throw new UndeferrableValueException("Value 'Project.skipDeletionCheck' is not present");
     }
 
-    private @Nullable UndeferrableValue<ProjectTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable ProjectTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable ProjectTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("Project.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'Project.timeouts' is not present");
     }
 
 }

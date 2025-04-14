@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamquery.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpat
      * Partition key used for partitioning, which can be a default measure_name or a customer defined partition key.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> partitionKeys;
-
+    @PolicyResourceProperty(name="partitionKeys", flag="unknown_partitionKeys")
+    private @Nullable List<String> value_partitionKeys;
+    private boolean unknown_partitionKeys;
     public @Nullable List<String> partitionKeys() {
-        if (partitionKeys == null) return null;
-        return partitionKeys.getValue("ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxis.partitionKeys");
+        if (!unknown_partitionKeys) return value_partitionKeys;
+        throw new UndeferrableValueException("Value 'ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxis.partitionKeys' is not present");
     }
 
     /**
      * ARN of the table which is queried with the largest time range.
      * 
      */
-    private @Nullable UndeferrableValue<String> tableArn;
-
+    @PolicyResourceProperty(name="tableArn", flag="unknown_tableArn")
+    private @Nullable String value_tableArn;
+    private boolean unknown_tableArn;
     public @Nullable String tableArn() {
-        if (tableArn == null) return null;
-        return tableArn.getValue("ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxis.tableArn");
+        if (!unknown_tableArn) return value_tableArn;
+        throw new UndeferrableValueException("Value 'ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxis.tableArn' is not present");
     }
 
     /**
      * Maximum duration in nanoseconds between the start and end of the query.
      * 
      */
-    private @Nullable UndeferrableValue<Double> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private @Nullable Double value_value;
+    private boolean unknown_value;
     public @Nullable Double value() {
-        if (value == null) return null;
-        return value.getValue("ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxis.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxis.value' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codecatalyst.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -16,22 +17,24 @@ public final class DevEnvironmentRepository {
      * persistent storage (`  persistent_storage `) supports the following:
      * 
      */
-    private @Nullable UndeferrableValue<String> branchName;
-
+    @PolicyResourceProperty(name="branchName", flag="unknown_branchName")
+    private @Nullable String value_branchName;
+    private boolean unknown_branchName;
     public @Nullable String branchName() {
-        if (branchName == null) return null;
-        return branchName.getValue("DevEnvironmentRepository.branchName");
+        if (!unknown_branchName) return value_branchName;
+        throw new UndeferrableValueException("Value 'DevEnvironmentRepository.branchName' is not present");
     }
 
     /**
      * The name of the source repository.
      * 
      */
-    private UndeferrableValue<String> repositoryName;
-
+    @PolicyResourceProperty(name="repositoryName", flag="unknown_repositoryName")
+    private String value_repositoryName;
+    private boolean unknown_repositoryName;
     public String repositoryName() {
-        if (repositoryName == null) return null;
-        return repositoryName.getValue("DevEnvironmentRepository.repositoryName");
+        if (!unknown_repositoryName) return value_repositoryName;
+        throw new UndeferrableValueException("Value 'DevEnvironmentRepository.repositoryName' is not present");
     }
 
 }

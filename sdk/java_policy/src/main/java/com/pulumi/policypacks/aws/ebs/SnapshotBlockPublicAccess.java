@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ebs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,11 +16,12 @@ public final class SnapshotBlockPublicAccess extends com.pulumi.resources.Policy
      * The mode in which to enable &#34;Block public access for snapshots&#34; for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("SnapshotBlockPublicAccess.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'SnapshotBlockPublicAccess.state' is not present");
     }
 
 }

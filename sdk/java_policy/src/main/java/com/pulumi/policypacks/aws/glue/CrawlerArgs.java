@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.glue.inputs.CrawlerCatalogTargetArgs;
 import com.pulumi.policypacks.aws.glue.inputs.CrawlerDeltaTargetArgs;
@@ -30,242 +31,264 @@ public final class CrawlerArgs extends com.pulumi.resources.PolicyResourceInput 
      * List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
      * 
      */
-    private UndeferrableValue<List<CrawlerCatalogTargetArgs>> catalogTargets;
-
+    @PolicyResourceProperty(name="catalogTargets", flag="unknown_catalogTargets")
+    private List<CrawlerCatalogTargetArgs> value_catalogTargets;
+    private boolean unknown_catalogTargets;
     public List<CrawlerCatalogTargetArgs> catalogTargets() {
-        if (catalogTargets == null) return null;
-        return catalogTargets.getValue("CrawlerArgs.catalogTargets");
+        if (!unknown_catalogTargets) return value_catalogTargets;
+        throw new UndeferrableValueException("Value 'CrawlerArgs.catalogTargets' is not present");
     }
 
     /**
      * List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
      * 
      */
-    private UndeferrableValue<List<String>> classifiers;
-
+    @PolicyResourceProperty(name="classifiers", flag="unknown_classifiers")
+    private List<String> value_classifiers;
+    private boolean unknown_classifiers;
     public List<String> classifiers() {
-        if (classifiers == null) return null;
-        return classifiers.getValue("CrawlerArgs.classifiers");
+        if (!unknown_classifiers) return value_classifiers;
+        throw new UndeferrableValueException("Value 'CrawlerArgs.classifiers' is not present");
     }
 
     /**
      * JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
      * 
      */
-    private UndeferrableValue<String> configuration;
-
+    @PolicyResourceProperty(name="configuration", flag="unknown_configuration")
+    private String value_configuration;
+    private boolean unknown_configuration;
     public String configuration() {
-        if (configuration == null) return null;
-        return configuration.getValue("CrawlerArgs.configuration");
+        if (!unknown_configuration) return value_configuration;
+        throw new UndeferrableValueException("Value 'CrawlerArgs.configuration' is not present");
     }
 
     /**
      * Glue database where results are written.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("CrawlerArgs.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'CrawlerArgs.databaseName' is not present");
     }
 
     /**
      * List of nested Delta Lake target arguments. See Delta Target below.
      * 
      */
-    private UndeferrableValue<List<CrawlerDeltaTargetArgs>> deltaTargets;
-
+    @PolicyResourceProperty(name="deltaTargets", flag="unknown_deltaTargets")
+    private List<CrawlerDeltaTargetArgs> value_deltaTargets;
+    private boolean unknown_deltaTargets;
     public List<CrawlerDeltaTargetArgs> deltaTargets() {
-        if (deltaTargets == null) return null;
-        return deltaTargets.getValue("CrawlerArgs.deltaTargets");
+        if (!unknown_deltaTargets) return value_deltaTargets;
+        throw new UndeferrableValueException("Value 'CrawlerArgs.deltaTargets' is not present");
     }
 
     /**
      * Description of the crawler.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("CrawlerArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'CrawlerArgs.description' is not present");
     }
 
     /**
      * List of nested DynamoDB target arguments. See Dynamodb Target below.
      * 
      */
-    private UndeferrableValue<List<CrawlerDynamodbTargetArgs>> dynamodbTargets;
-
+    @PolicyResourceProperty(name="dynamodbTargets", flag="unknown_dynamodbTargets")
+    private List<CrawlerDynamodbTargetArgs> value_dynamodbTargets;
+    private boolean unknown_dynamodbTargets;
     public List<CrawlerDynamodbTargetArgs> dynamodbTargets() {
-        if (dynamodbTargets == null) return null;
-        return dynamodbTargets.getValue("CrawlerArgs.dynamodbTargets");
+        if (!unknown_dynamodbTargets) return value_dynamodbTargets;
+        throw new UndeferrableValueException("Value 'CrawlerArgs.dynamodbTargets' is not present");
     }
 
     /**
      * List of nested Hudi target arguments. See Iceberg Target below.
      * 
      */
-    private UndeferrableValue<List<CrawlerHudiTargetArgs>> hudiTargets;
-
+    @PolicyResourceProperty(name="hudiTargets", flag="unknown_hudiTargets")
+    private List<CrawlerHudiTargetArgs> value_hudiTargets;
+    private boolean unknown_hudiTargets;
     public List<CrawlerHudiTargetArgs> hudiTargets() {
-        if (hudiTargets == null) return null;
-        return hudiTargets.getValue("CrawlerArgs.hudiTargets");
+        if (!unknown_hudiTargets) return value_hudiTargets;
+        throw new UndeferrableValueException("Value 'CrawlerArgs.hudiTargets' is not present");
     }
 
     /**
      * List of nested Iceberg target arguments. See Iceberg Target below.
      * 
      */
-    private UndeferrableValue<List<CrawlerIcebergTargetArgs>> icebergTargets;
-
+    @PolicyResourceProperty(name="icebergTargets", flag="unknown_icebergTargets")
+    private List<CrawlerIcebergTargetArgs> value_icebergTargets;
+    private boolean unknown_icebergTargets;
     public List<CrawlerIcebergTargetArgs> icebergTargets() {
-        if (icebergTargets == null) return null;
-        return icebergTargets.getValue("CrawlerArgs.icebergTargets");
+        if (!unknown_icebergTargets) return value_icebergTargets;
+        throw new UndeferrableValueException("Value 'CrawlerArgs.icebergTargets' is not present");
     }
 
     /**
      * List of nested JDBC target arguments. See JDBC Target below.
      * 
      */
-    private UndeferrableValue<List<CrawlerJdbcTargetArgs>> jdbcTargets;
-
+    @PolicyResourceProperty(name="jdbcTargets", flag="unknown_jdbcTargets")
+    private List<CrawlerJdbcTargetArgs> value_jdbcTargets;
+    private boolean unknown_jdbcTargets;
     public List<CrawlerJdbcTargetArgs> jdbcTargets() {
-        if (jdbcTargets == null) return null;
-        return jdbcTargets.getValue("CrawlerArgs.jdbcTargets");
+        if (!unknown_jdbcTargets) return value_jdbcTargets;
+        throw new UndeferrableValueException("Value 'CrawlerArgs.jdbcTargets' is not present");
     }
 
     /**
      * Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
      * 
      */
-    private UndeferrableValue<CrawlerLakeFormationConfigurationArgs> lakeFormationConfiguration;
-
+    @PolicyResourceProperty(name="lakeFormationConfiguration", flag="unknown_lakeFormationConfiguration")
+    private CrawlerLakeFormationConfigurationArgs value_lakeFormationConfiguration;
+    private boolean unknown_lakeFormationConfiguration;
     public CrawlerLakeFormationConfigurationArgs lakeFormationConfiguration() {
-        if (lakeFormationConfiguration == null) return null;
-        return lakeFormationConfiguration.getValue("CrawlerArgs.lakeFormationConfiguration");
+        if (!unknown_lakeFormationConfiguration) return value_lakeFormationConfiguration;
+        throw new UndeferrableValueException("Value 'CrawlerArgs.lakeFormationConfiguration' is not present");
     }
 
     /**
      * Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
      * 
      */
-    private UndeferrableValue<CrawlerLineageConfigurationArgs> lineageConfiguration;
-
+    @PolicyResourceProperty(name="lineageConfiguration", flag="unknown_lineageConfiguration")
+    private CrawlerLineageConfigurationArgs value_lineageConfiguration;
+    private boolean unknown_lineageConfiguration;
     public CrawlerLineageConfigurationArgs lineageConfiguration() {
-        if (lineageConfiguration == null) return null;
-        return lineageConfiguration.getValue("CrawlerArgs.lineageConfiguration");
+        if (!unknown_lineageConfiguration) return value_lineageConfiguration;
+        throw new UndeferrableValueException("Value 'CrawlerArgs.lineageConfiguration' is not present");
     }
 
     /**
      * List of nested MongoDB target arguments. See MongoDB Target below.
      * 
      */
-    private UndeferrableValue<List<CrawlerMongodbTargetArgs>> mongodbTargets;
-
+    @PolicyResourceProperty(name="mongodbTargets", flag="unknown_mongodbTargets")
+    private List<CrawlerMongodbTargetArgs> value_mongodbTargets;
+    private boolean unknown_mongodbTargets;
     public List<CrawlerMongodbTargetArgs> mongodbTargets() {
-        if (mongodbTargets == null) return null;
-        return mongodbTargets.getValue("CrawlerArgs.mongodbTargets");
+        if (!unknown_mongodbTargets) return value_mongodbTargets;
+        throw new UndeferrableValueException("Value 'CrawlerArgs.mongodbTargets' is not present");
     }
 
     /**
      * Name of the crawler.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("CrawlerArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'CrawlerArgs.name' is not present");
     }
 
     /**
      * A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
      * 
      */
-    private UndeferrableValue<CrawlerRecrawlPolicyArgs> recrawlPolicy;
-
+    @PolicyResourceProperty(name="recrawlPolicy", flag="unknown_recrawlPolicy")
+    private CrawlerRecrawlPolicyArgs value_recrawlPolicy;
+    private boolean unknown_recrawlPolicy;
     public CrawlerRecrawlPolicyArgs recrawlPolicy() {
-        if (recrawlPolicy == null) return null;
-        return recrawlPolicy.getValue("CrawlerArgs.recrawlPolicy");
+        if (!unknown_recrawlPolicy) return value_recrawlPolicy;
+        throw new UndeferrableValueException("Value 'CrawlerArgs.recrawlPolicy' is not present");
     }
 
     /**
      * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      * 
      */
-    private UndeferrableValue<String> role;
-
+    @PolicyResourceProperty(name="role", flag="unknown_role")
+    private String value_role;
+    private boolean unknown_role;
     public String role() {
-        if (role == null) return null;
-        return role.getValue("CrawlerArgs.role");
+        if (!unknown_role) return value_role;
+        throw new UndeferrableValueException("Value 'CrawlerArgs.role' is not present");
     }
 
     /**
      * List of nested Amazon S3 target arguments. See S3 Target below.
      * 
      */
-    private UndeferrableValue<List<CrawlerS3TargetArgs>> s3Targets;
-
+    @PolicyResourceProperty(name="s3Targets", flag="unknown_s3Targets")
+    private List<CrawlerS3TargetArgs> value_s3Targets;
+    private boolean unknown_s3Targets;
     public List<CrawlerS3TargetArgs> s3Targets() {
-        if (s3Targets == null) return null;
-        return s3Targets.getValue("CrawlerArgs.s3Targets");
+        if (!unknown_s3Targets) return value_s3Targets;
+        throw new UndeferrableValueException("Value 'CrawlerArgs.s3Targets' is not present");
     }
 
     /**
      * A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
      * 
      */
-    private UndeferrableValue<String> schedule;
-
+    @PolicyResourceProperty(name="schedule", flag="unknown_schedule")
+    private String value_schedule;
+    private boolean unknown_schedule;
     public String schedule() {
-        if (schedule == null) return null;
-        return schedule.getValue("CrawlerArgs.schedule");
+        if (!unknown_schedule) return value_schedule;
+        throw new UndeferrableValueException("Value 'CrawlerArgs.schedule' is not present");
     }
 
     /**
      * Policy for the crawler&#39;s update and deletion behavior. See Schema Change Policy below.
      * 
      */
-    private UndeferrableValue<CrawlerSchemaChangePolicyArgs> schemaChangePolicy;
-
+    @PolicyResourceProperty(name="schemaChangePolicy", flag="unknown_schemaChangePolicy")
+    private CrawlerSchemaChangePolicyArgs value_schemaChangePolicy;
+    private boolean unknown_schemaChangePolicy;
     public CrawlerSchemaChangePolicyArgs schemaChangePolicy() {
-        if (schemaChangePolicy == null) return null;
-        return schemaChangePolicy.getValue("CrawlerArgs.schemaChangePolicy");
+        if (!unknown_schemaChangePolicy) return value_schemaChangePolicy;
+        throw new UndeferrableValueException("Value 'CrawlerArgs.schemaChangePolicy' is not present");
     }
 
     /**
      * The name of Security Configuration to be used by the crawler
      * 
      */
-    private UndeferrableValue<String> securityConfiguration;
-
+    @PolicyResourceProperty(name="securityConfiguration", flag="unknown_securityConfiguration")
+    private String value_securityConfiguration;
+    private boolean unknown_securityConfiguration;
     public String securityConfiguration() {
-        if (securityConfiguration == null) return null;
-        return securityConfiguration.getValue("CrawlerArgs.securityConfiguration");
+        if (!unknown_securityConfiguration) return value_securityConfiguration;
+        throw new UndeferrableValueException("Value 'CrawlerArgs.securityConfiguration' is not present");
     }
 
     /**
      * The table prefix used for catalog tables that are created.
      * 
      */
-    private UndeferrableValue<String> tablePrefix;
-
+    @PolicyResourceProperty(name="tablePrefix", flag="unknown_tablePrefix")
+    private String value_tablePrefix;
+    private boolean unknown_tablePrefix;
     public String tablePrefix() {
-        if (tablePrefix == null) return null;
-        return tablePrefix.getValue("CrawlerArgs.tablePrefix");
+        if (!unknown_tablePrefix) return value_tablePrefix;
+        throw new UndeferrableValueException("Value 'CrawlerArgs.tablePrefix' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CrawlerArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CrawlerArgs.tags' is not present");
     }
 
 }

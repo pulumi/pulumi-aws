@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.outputs.DataSetPhysicalTableMapCustomSql;
 import com.pulumi.policypacks.aws.quicksight.outputs.DataSetPhysicalTableMapRelationalTable;
 import com.pulumi.policypacks.aws.quicksight.outputs.DataSetPhysicalTableMapS3Source;
@@ -17,44 +18,48 @@ public final class DataSetPhysicalTableMap {
      * A physical table type built from the results of the custom SQL query. See custom_sql.
      * 
      */
-    private @Nullable UndeferrableValue<DataSetPhysicalTableMapCustomSql> customSql;
-
+    @PolicyResourceProperty(name="customSql", flag="unknown_customSql")
+    private @Nullable DataSetPhysicalTableMapCustomSql value_customSql;
+    private boolean unknown_customSql;
     public @Nullable DataSetPhysicalTableMapCustomSql customSql() {
-        if (customSql == null) return null;
-        return customSql.getValue("DataSetPhysicalTableMap.customSql");
+        if (!unknown_customSql) return value_customSql;
+        throw new UndeferrableValueException("Value 'DataSetPhysicalTableMap.customSql' is not present");
     }
 
     /**
      * Key of the physical table map.
      * 
      */
-    private UndeferrableValue<String> physicalTableMapId;
-
+    @PolicyResourceProperty(name="physicalTableMapId", flag="unknown_physicalTableMapId")
+    private String value_physicalTableMapId;
+    private boolean unknown_physicalTableMapId;
     public String physicalTableMapId() {
-        if (physicalTableMapId == null) return null;
-        return physicalTableMapId.getValue("DataSetPhysicalTableMap.physicalTableMapId");
+        if (!unknown_physicalTableMapId) return value_physicalTableMapId;
+        throw new UndeferrableValueException("Value 'DataSetPhysicalTableMap.physicalTableMapId' is not present");
     }
 
     /**
      * A physical table type for relational data sources. See relational_table.
      * 
      */
-    private @Nullable UndeferrableValue<DataSetPhysicalTableMapRelationalTable> relationalTable;
-
+    @PolicyResourceProperty(name="relationalTable", flag="unknown_relationalTable")
+    private @Nullable DataSetPhysicalTableMapRelationalTable value_relationalTable;
+    private boolean unknown_relationalTable;
     public @Nullable DataSetPhysicalTableMapRelationalTable relationalTable() {
-        if (relationalTable == null) return null;
-        return relationalTable.getValue("DataSetPhysicalTableMap.relationalTable");
+        if (!unknown_relationalTable) return value_relationalTable;
+        throw new UndeferrableValueException("Value 'DataSetPhysicalTableMap.relationalTable' is not present");
     }
 
     /**
      * A physical table type for as S3 data source. See s3_source.
      * 
      */
-    private @Nullable UndeferrableValue<DataSetPhysicalTableMapS3Source> s3Source;
-
+    @PolicyResourceProperty(name="s3Source", flag="unknown_s3Source")
+    private @Nullable DataSetPhysicalTableMapS3Source value_s3Source;
+    private boolean unknown_s3Source;
     public @Nullable DataSetPhysicalTableMapS3Source s3Source() {
-        if (s3Source == null) return null;
-        return s3Source.getValue("DataSetPhysicalTableMap.s3Source");
+        if (!unknown_s3Source) return value_s3Source;
+        throw new UndeferrableValueException("Value 'DataSetPhysicalTableMap.s3Source' is not present");
     }
 
 }

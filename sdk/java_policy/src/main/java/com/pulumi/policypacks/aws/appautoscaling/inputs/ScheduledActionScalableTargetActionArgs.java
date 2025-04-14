@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appautoscaling.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ScheduledActionScalableTargetActionArgs {
      * Maximum capacity. At least one of `max_capacity` or `min_capacity` must be set.
      * 
      */
-    private UndeferrableValue<Integer> maxCapacity;
-
+    @PolicyResourceProperty(name="maxCapacity", flag="unknown_maxCapacity")
+    private Integer value_maxCapacity;
+    private boolean unknown_maxCapacity;
     public Integer maxCapacity() {
-        if (maxCapacity == null) return null;
-        return maxCapacity.getValue("ScheduledActionScalableTargetActionArgs.maxCapacity");
+        if (!unknown_maxCapacity) return value_maxCapacity;
+        throw new UndeferrableValueException("Value 'ScheduledActionScalableTargetActionArgs.maxCapacity' is not present");
     }
 
     /**
      * Minimum capacity. At least one of `min_capacity` or `max_capacity` must be set.
      * 
      */
-    private UndeferrableValue<Integer> minCapacity;
-
+    @PolicyResourceProperty(name="minCapacity", flag="unknown_minCapacity")
+    private Integer value_minCapacity;
+    private boolean unknown_minCapacity;
     public Integer minCapacity() {
-        if (minCapacity == null) return null;
-        return minCapacity.getValue("ScheduledActionScalableTargetActionArgs.minCapacity");
+        if (!unknown_minCapacity) return value_minCapacity;
+        throw new UndeferrableValueException("Value 'ScheduledActionScalableTargetActionArgs.minCapacity' is not present");
     }
 
 }

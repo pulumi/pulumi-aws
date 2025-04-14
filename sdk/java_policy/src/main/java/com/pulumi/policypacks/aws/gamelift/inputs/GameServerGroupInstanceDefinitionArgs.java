@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.gamelift.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class GameServerGroupInstanceDefinitionArgs {
      * An EC2 instance type.
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("GameServerGroupInstanceDefinitionArgs.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'GameServerGroupInstanceDefinitionArgs.instanceType' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class GameServerGroupInstanceDefinitionArgs {
      * the most cost-effective options.
      * 
      */
-    private UndeferrableValue<String> weightedCapacity;
-
+    @PolicyResourceProperty(name="weightedCapacity", flag="unknown_weightedCapacity")
+    private String value_weightedCapacity;
+    private boolean unknown_weightedCapacity;
     public String weightedCapacity() {
-        if (weightedCapacity == null) return null;
-        return weightedCapacity.getValue("GameServerGroupInstanceDefinitionArgs.weightedCapacity");
+        if (!unknown_weightedCapacity) return value_weightedCapacity;
+        throw new UndeferrableValueException("Value 'GameServerGroupInstanceDefinitionArgs.weightedCapacity' is not present");
     }
 
 }

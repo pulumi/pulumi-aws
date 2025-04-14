@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.imagebuilder.outputs.LifecyclePolicyPolicyDetailAction;
 import com.pulumi.policypacks.aws.imagebuilder.outputs.LifecyclePolicyPolicyDetailExclusionRules;
 import com.pulumi.policypacks.aws.imagebuilder.outputs.LifecyclePolicyPolicyDetailFilter;
@@ -16,22 +17,24 @@ public final class LifecyclePolicyPolicyDetail {
      * Configuration details for the policy action.
      * 
      */
-    private @Nullable UndeferrableValue<LifecyclePolicyPolicyDetailAction> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private @Nullable LifecyclePolicyPolicyDetailAction value_action;
+    private boolean unknown_action;
     public @Nullable LifecyclePolicyPolicyDetailAction action() {
-        if (action == null) return null;
-        return action.getValue("LifecyclePolicyPolicyDetail.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetail.action' is not present");
     }
 
     /**
      * Additional rules to specify resources that should be exempt from policy actions.
      * 
      */
-    private @Nullable UndeferrableValue<LifecyclePolicyPolicyDetailExclusionRules> exclusionRules;
-
+    @PolicyResourceProperty(name="exclusionRules", flag="unknown_exclusionRules")
+    private @Nullable LifecyclePolicyPolicyDetailExclusionRules value_exclusionRules;
+    private boolean unknown_exclusionRules;
     public @Nullable LifecyclePolicyPolicyDetailExclusionRules exclusionRules() {
-        if (exclusionRules == null) return null;
-        return exclusionRules.getValue("LifecyclePolicyPolicyDetail.exclusionRules");
+        if (!unknown_exclusionRules) return value_exclusionRules;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetail.exclusionRules' is not present");
     }
 
     /**
@@ -40,11 +43,12 @@ public final class LifecyclePolicyPolicyDetail {
      * The following arguments are optional:
      * 
      */
-    private @Nullable UndeferrableValue<LifecyclePolicyPolicyDetailFilter> filter;
-
+    @PolicyResourceProperty(name="filter", flag="unknown_filter")
+    private @Nullable LifecyclePolicyPolicyDetailFilter value_filter;
+    private boolean unknown_filter;
     public @Nullable LifecyclePolicyPolicyDetailFilter filter() {
-        if (filter == null) return null;
-        return filter.getValue("LifecyclePolicyPolicyDetail.filter");
+        if (!unknown_filter) return value_filter;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetail.filter' is not present");
     }
 
 }

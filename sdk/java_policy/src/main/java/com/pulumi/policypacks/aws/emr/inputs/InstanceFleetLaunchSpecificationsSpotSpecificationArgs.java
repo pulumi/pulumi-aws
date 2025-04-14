@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class InstanceFleetLaunchSpecificationsSpotSpecificationArgs {
      * Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
      * 
      */
-    private UndeferrableValue<String> allocationStrategy;
-
+    @PolicyResourceProperty(name="allocationStrategy", flag="unknown_allocationStrategy")
+    private String value_allocationStrategy;
+    private boolean unknown_allocationStrategy;
     public String allocationStrategy() {
-        if (allocationStrategy == null) return null;
-        return allocationStrategy.getValue("InstanceFleetLaunchSpecificationsSpotSpecificationArgs.allocationStrategy");
+        if (!unknown_allocationStrategy) return value_allocationStrategy;
+        throw new UndeferrableValueException("Value 'InstanceFleetLaunchSpecificationsSpotSpecificationArgs.allocationStrategy' is not present");
     }
 
     /**
      * The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
      * 
      */
-    private UndeferrableValue<Integer> blockDurationMinutes;
-
+    @PolicyResourceProperty(name="blockDurationMinutes", flag="unknown_blockDurationMinutes")
+    private Integer value_blockDurationMinutes;
+    private boolean unknown_blockDurationMinutes;
     public Integer blockDurationMinutes() {
-        if (blockDurationMinutes == null) return null;
-        return blockDurationMinutes.getValue("InstanceFleetLaunchSpecificationsSpotSpecificationArgs.blockDurationMinutes");
+        if (!unknown_blockDurationMinutes) return value_blockDurationMinutes;
+        throw new UndeferrableValueException("Value 'InstanceFleetLaunchSpecificationsSpotSpecificationArgs.blockDurationMinutes' is not present");
     }
 
     /**
      * The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
      * 
      */
-    private UndeferrableValue<String> timeoutAction;
-
+    @PolicyResourceProperty(name="timeoutAction", flag="unknown_timeoutAction")
+    private String value_timeoutAction;
+    private boolean unknown_timeoutAction;
     public String timeoutAction() {
-        if (timeoutAction == null) return null;
-        return timeoutAction.getValue("InstanceFleetLaunchSpecificationsSpotSpecificationArgs.timeoutAction");
+        if (!unknown_timeoutAction) return value_timeoutAction;
+        throw new UndeferrableValueException("Value 'InstanceFleetLaunchSpecificationsSpotSpecificationArgs.timeoutAction' is not present");
     }
 
     /**
      * The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
      * 
      */
-    private UndeferrableValue<Integer> timeoutDurationMinutes;
-
+    @PolicyResourceProperty(name="timeoutDurationMinutes", flag="unknown_timeoutDurationMinutes")
+    private Integer value_timeoutDurationMinutes;
+    private boolean unknown_timeoutDurationMinutes;
     public Integer timeoutDurationMinutes() {
-        if (timeoutDurationMinutes == null) return null;
-        return timeoutDurationMinutes.getValue("InstanceFleetLaunchSpecificationsSpotSpecificationArgs.timeoutDurationMinutes");
+        if (!unknown_timeoutDurationMinutes) return value_timeoutDurationMinutes;
+        throw new UndeferrableValueException("Value 'InstanceFleetLaunchSpecificationsSpotSpecificationArgs.timeoutDurationMinutes' is not present");
     }
 
 }

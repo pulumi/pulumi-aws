@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chime;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.chime.inputs.SdkvoiceGlobalSettingsVoiceConnectorArgs;
 
@@ -15,11 +16,12 @@ public final class SdkvoiceGlobalSettingsArgs extends com.pulumi.resources.Polic
      * The Voice Connector settings. See voice_connector.
      * 
      */
-    private UndeferrableValue<SdkvoiceGlobalSettingsVoiceConnectorArgs> voiceConnector;
-
+    @PolicyResourceProperty(name="voiceConnector", flag="unknown_voiceConnector")
+    private SdkvoiceGlobalSettingsVoiceConnectorArgs value_voiceConnector;
+    private boolean unknown_voiceConnector;
     public SdkvoiceGlobalSettingsVoiceConnectorArgs voiceConnector() {
-        if (voiceConnector == null) return null;
-        return voiceConnector.getValue("SdkvoiceGlobalSettingsArgs.voiceConnector");
+        if (!unknown_voiceConnector) return value_voiceConnector;
+        throw new UndeferrableValueException("Value 'SdkvoiceGlobalSettingsArgs.voiceConnector' is not present");
     }
 
 }

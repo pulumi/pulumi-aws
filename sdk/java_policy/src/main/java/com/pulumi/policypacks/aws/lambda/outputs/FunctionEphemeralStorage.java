@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class FunctionEphemeralStorage {
      * The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeral_storage` value defaults to `512`MB and the maximum supported value is `10240`MB.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> size;
-
+    @PolicyResourceProperty(name="size", flag="unknown_size")
+    private @Nullable Integer value_size;
+    private boolean unknown_size;
     public @Nullable Integer size() {
-        if (size == null) return null;
-        return size.getValue("FunctionEphemeralStorage.size");
+        if (!unknown_size) return value_size;
+        throw new UndeferrableValueException("Value 'FunctionEphemeralStorage.size' is not present");
     }
 
 }

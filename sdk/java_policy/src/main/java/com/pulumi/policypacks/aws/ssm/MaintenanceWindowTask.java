@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ssm.outputs.MaintenanceWindowTaskTarget;
 import com.pulumi.policypacks.aws.ssm.outputs.MaintenanceWindowTaskTaskInvocationParameters;
@@ -20,154 +21,168 @@ public final class MaintenanceWindowTask extends com.pulumi.resources.PolicyReso
      * The ARN of the maintenance window task.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("MaintenanceWindowTask.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTask.arn' is not present");
     }
 
     /**
      * Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
      * 
      */
-    private @Nullable UndeferrableValue<String> cutoffBehavior;
-
+    @PolicyResourceProperty(name="cutoffBehavior", flag="unknown_cutoffBehavior")
+    private @Nullable String value_cutoffBehavior;
+    private boolean unknown_cutoffBehavior;
     public @Nullable String cutoffBehavior() {
-        if (cutoffBehavior == null) return null;
-        return cutoffBehavior.getValue("MaintenanceWindowTask.cutoffBehavior");
+        if (!unknown_cutoffBehavior) return value_cutoffBehavior;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTask.cutoffBehavior' is not present");
     }
 
     /**
      * The description of the maintenance window task.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("MaintenanceWindowTask.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTask.description' is not present");
     }
 
     /**
      * The maximum number of targets this task can be run for in parallel.
      * 
      */
-    private UndeferrableValue<String> maxConcurrency;
-
+    @PolicyResourceProperty(name="maxConcurrency", flag="unknown_maxConcurrency")
+    private String value_maxConcurrency;
+    private boolean unknown_maxConcurrency;
     public String maxConcurrency() {
-        if (maxConcurrency == null) return null;
-        return maxConcurrency.getValue("MaintenanceWindowTask.maxConcurrency");
+        if (!unknown_maxConcurrency) return value_maxConcurrency;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTask.maxConcurrency' is not present");
     }
 
     /**
      * The maximum number of errors allowed before this task stops being scheduled.
      * 
      */
-    private UndeferrableValue<String> maxErrors;
-
+    @PolicyResourceProperty(name="maxErrors", flag="unknown_maxErrors")
+    private String value_maxErrors;
+    private boolean unknown_maxErrors;
     public String maxErrors() {
-        if (maxErrors == null) return null;
-        return maxErrors.getValue("MaintenanceWindowTask.maxErrors");
+        if (!unknown_maxErrors) return value_maxErrors;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTask.maxErrors' is not present");
     }
 
     /**
      * The name of the maintenance window task.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("MaintenanceWindowTask.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTask.name' is not present");
     }
 
     /**
      * The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> priority;
-
+    @PolicyResourceProperty(name="priority", flag="unknown_priority")
+    private @Nullable Integer value_priority;
+    private boolean unknown_priority;
     public @Nullable Integer priority() {
-        if (priority == null) return null;
-        return priority.getValue("MaintenanceWindowTask.priority");
+        if (!unknown_priority) return value_priority;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTask.priority' is not present");
     }
 
     /**
      * The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account&#39;s service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
      * 
      */
-    private UndeferrableValue<String> serviceRoleArn;
-
+    @PolicyResourceProperty(name="serviceRoleArn", flag="unknown_serviceRoleArn")
+    private String value_serviceRoleArn;
+    private boolean unknown_serviceRoleArn;
     public String serviceRoleArn() {
-        if (serviceRoleArn == null) return null;
-        return serviceRoleArn.getValue("MaintenanceWindowTask.serviceRoleArn");
+        if (!unknown_serviceRoleArn) return value_serviceRoleArn;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTask.serviceRoleArn' is not present");
     }
 
     /**
      * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      * 
      */
-    private @Nullable UndeferrableValue<List<MaintenanceWindowTaskTarget>> targets;
-
+    @PolicyResourceProperty(name="targets", flag="unknown_targets")
+    private @Nullable List<MaintenanceWindowTaskTarget> value_targets;
+    private boolean unknown_targets;
     public @Nullable List<MaintenanceWindowTaskTarget> targets() {
-        if (targets == null) return null;
-        return targets.getValue("MaintenanceWindowTask.targets");
+        if (!unknown_targets) return value_targets;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTask.targets' is not present");
     }
 
     /**
      * The ARN of the task to execute.
      * 
      */
-    private UndeferrableValue<String> taskArn;
-
+    @PolicyResourceProperty(name="taskArn", flag="unknown_taskArn")
+    private String value_taskArn;
+    private boolean unknown_taskArn;
     public String taskArn() {
-        if (taskArn == null) return null;
-        return taskArn.getValue("MaintenanceWindowTask.taskArn");
+        if (!unknown_taskArn) return value_taskArn;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTask.taskArn' is not present");
     }
 
     /**
      * Configuration block with parameters for task execution.
      * 
      */
-    private @Nullable UndeferrableValue<MaintenanceWindowTaskTaskInvocationParameters> taskInvocationParameters;
-
+    @PolicyResourceProperty(name="taskInvocationParameters", flag="unknown_taskInvocationParameters")
+    private @Nullable MaintenanceWindowTaskTaskInvocationParameters value_taskInvocationParameters;
+    private boolean unknown_taskInvocationParameters;
     public @Nullable MaintenanceWindowTaskTaskInvocationParameters taskInvocationParameters() {
-        if (taskInvocationParameters == null) return null;
-        return taskInvocationParameters.getValue("MaintenanceWindowTask.taskInvocationParameters");
+        if (!unknown_taskInvocationParameters) return value_taskInvocationParameters;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTask.taskInvocationParameters' is not present");
     }
 
     /**
      * The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
      * 
      */
-    private UndeferrableValue<String> taskType;
-
+    @PolicyResourceProperty(name="taskType", flag="unknown_taskType")
+    private String value_taskType;
+    private boolean unknown_taskType;
     public String taskType() {
-        if (taskType == null) return null;
-        return taskType.getValue("MaintenanceWindowTask.taskType");
+        if (!unknown_taskType) return value_taskType;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTask.taskType' is not present");
     }
 
     /**
      * The Id of the maintenance window to register the task with.
      * 
      */
-    private UndeferrableValue<String> windowId;
-
+    @PolicyResourceProperty(name="windowId", flag="unknown_windowId")
+    private String value_windowId;
+    private boolean unknown_windowId;
     public String windowId() {
-        if (windowId == null) return null;
-        return windowId.getValue("MaintenanceWindowTask.windowId");
+        if (!unknown_windowId) return value_windowId;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTask.windowId' is not present");
     }
 
     /**
      * The ID of the maintenance window task.
      * 
      */
-    private UndeferrableValue<String> windowTaskId;
-
+    @PolicyResourceProperty(name="windowTaskId", flag="unknown_windowTaskId")
+    private String value_windowTaskId;
+    private boolean unknown_windowTaskId;
     public String windowTaskId() {
-        if (windowTaskId == null) return null;
-        return windowTaskId.getValue("MaintenanceWindowTask.windowTaskId");
+        if (!unknown_windowTaskId) return value_windowTaskId;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTask.windowTaskId' is not present");
     }
 
 }

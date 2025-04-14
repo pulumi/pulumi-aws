@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs;
 import com.pulumi.policypacks.aws.cloudfront.inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs;
 import com.pulumi.policypacks.aws.cloudfront.inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs;
@@ -17,55 +18,60 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs {
      * Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
      * 
      */
-    private UndeferrableValue<CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs> cookiesConfig;
-
+    @PolicyResourceProperty(name="cookiesConfig", flag="unknown_cookiesConfig")
+    private CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs value_cookiesConfig;
+    private boolean unknown_cookiesConfig;
     public CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs cookiesConfig() {
-        if (cookiesConfig == null) return null;
-        return cookiesConfig.getValue("CachePolicyParametersInCacheKeyAndForwardedToOriginArgs.cookiesConfig");
+        if (!unknown_cookiesConfig) return value_cookiesConfig;
+        throw new UndeferrableValueException("Value 'CachePolicyParametersInCacheKeyAndForwardedToOriginArgs.cookiesConfig' is not present");
     }
 
     /**
      * Flag determines whether the Accept-Encoding HTTP header is included in the cache key and in requests that CloudFront sends to the origin.
      * 
      */
-    private UndeferrableValue<Boolean> enableAcceptEncodingBrotli;
-
+    @PolicyResourceProperty(name="enableAcceptEncodingBrotli", flag="unknown_enableAcceptEncodingBrotli")
+    private Boolean value_enableAcceptEncodingBrotli;
+    private boolean unknown_enableAcceptEncodingBrotli;
     public Boolean enableAcceptEncodingBrotli() {
-        if (enableAcceptEncodingBrotli == null) return null;
-        return enableAcceptEncodingBrotli.getValue("CachePolicyParametersInCacheKeyAndForwardedToOriginArgs.enableAcceptEncodingBrotli");
+        if (!unknown_enableAcceptEncodingBrotli) return value_enableAcceptEncodingBrotli;
+        throw new UndeferrableValueException("Value 'CachePolicyParametersInCacheKeyAndForwardedToOriginArgs.enableAcceptEncodingBrotli' is not present");
     }
 
     /**
      * Whether the Accept-Encoding HTTP header is included in the cache key and in requests sent to the origin by CloudFront.
      * 
      */
-    private UndeferrableValue<Boolean> enableAcceptEncodingGzip;
-
+    @PolicyResourceProperty(name="enableAcceptEncodingGzip", flag="unknown_enableAcceptEncodingGzip")
+    private Boolean value_enableAcceptEncodingGzip;
+    private boolean unknown_enableAcceptEncodingGzip;
     public Boolean enableAcceptEncodingGzip() {
-        if (enableAcceptEncodingGzip == null) return null;
-        return enableAcceptEncodingGzip.getValue("CachePolicyParametersInCacheKeyAndForwardedToOriginArgs.enableAcceptEncodingGzip");
+        if (!unknown_enableAcceptEncodingGzip) return value_enableAcceptEncodingGzip;
+        throw new UndeferrableValueException("Value 'CachePolicyParametersInCacheKeyAndForwardedToOriginArgs.enableAcceptEncodingGzip' is not present");
     }
 
     /**
      * Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
      * 
      */
-    private UndeferrableValue<CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs> headersConfig;
-
+    @PolicyResourceProperty(name="headersConfig", flag="unknown_headersConfig")
+    private CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs value_headersConfig;
+    private boolean unknown_headersConfig;
     public CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs headersConfig() {
-        if (headersConfig == null) return null;
-        return headersConfig.getValue("CachePolicyParametersInCacheKeyAndForwardedToOriginArgs.headersConfig");
+        if (!unknown_headersConfig) return value_headersConfig;
+        throw new UndeferrableValueException("Value 'CachePolicyParametersInCacheKeyAndForwardedToOriginArgs.headersConfig' is not present");
     }
 
     /**
      * Whether any URL query strings in viewer requests are included in the cache key. It also automatically includes these query strings in requests that CloudFront sends to the origin. Please refer to the Query String Config for more information.
      * 
      */
-    private UndeferrableValue<CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs> queryStringsConfig;
-
+    @PolicyResourceProperty(name="queryStringsConfig", flag="unknown_queryStringsConfig")
+    private CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs value_queryStringsConfig;
+    private boolean unknown_queryStringsConfig;
     public CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs queryStringsConfig() {
-        if (queryStringsConfig == null) return null;
-        return queryStringsConfig.getValue("CachePolicyParametersInCacheKeyAndForwardedToOriginArgs.queryStringsConfig");
+        if (!unknown_queryStringsConfig) return value_queryStringsConfig;
+        throw new UndeferrableValueException("Value 'CachePolicyParametersInCacheKeyAndForwardedToOriginArgs.queryStringsConfig' is not present");
     }
 
 }

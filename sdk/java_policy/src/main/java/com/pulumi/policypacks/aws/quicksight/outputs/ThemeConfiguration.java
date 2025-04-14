@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.outputs.ThemeConfigurationDataColorPalette;
 import com.pulumi.policypacks.aws.quicksight.outputs.ThemeConfigurationSheet;
 import com.pulumi.policypacks.aws.quicksight.outputs.ThemeConfigurationTypography;
@@ -17,44 +18,48 @@ public final class ThemeConfiguration {
      * Color properties that apply to chart data colors. See data_color_palette.
      * 
      */
-    private @Nullable UndeferrableValue<ThemeConfigurationDataColorPalette> dataColorPalette;
-
+    @PolicyResourceProperty(name="dataColorPalette", flag="unknown_dataColorPalette")
+    private @Nullable ThemeConfigurationDataColorPalette value_dataColorPalette;
+    private boolean unknown_dataColorPalette;
     public @Nullable ThemeConfigurationDataColorPalette dataColorPalette() {
-        if (dataColorPalette == null) return null;
-        return dataColorPalette.getValue("ThemeConfiguration.dataColorPalette");
+        if (!unknown_dataColorPalette) return value_dataColorPalette;
+        throw new UndeferrableValueException("Value 'ThemeConfiguration.dataColorPalette' is not present");
     }
 
     /**
      * Display options related to sheets. See sheet.
      * 
      */
-    private @Nullable UndeferrableValue<ThemeConfigurationSheet> sheet;
-
+    @PolicyResourceProperty(name="sheet", flag="unknown_sheet")
+    private @Nullable ThemeConfigurationSheet value_sheet;
+    private boolean unknown_sheet;
     public @Nullable ThemeConfigurationSheet sheet() {
-        if (sheet == null) return null;
-        return sheet.getValue("ThemeConfiguration.sheet");
+        if (!unknown_sheet) return value_sheet;
+        throw new UndeferrableValueException("Value 'ThemeConfiguration.sheet' is not present");
     }
 
     /**
      * Determines the typography options. See typography.
      * 
      */
-    private @Nullable UndeferrableValue<ThemeConfigurationTypography> typography;
-
+    @PolicyResourceProperty(name="typography", flag="unknown_typography")
+    private @Nullable ThemeConfigurationTypography value_typography;
+    private boolean unknown_typography;
     public @Nullable ThemeConfigurationTypography typography() {
-        if (typography == null) return null;
-        return typography.getValue("ThemeConfiguration.typography");
+        if (!unknown_typography) return value_typography;
+        throw new UndeferrableValueException("Value 'ThemeConfiguration.typography' is not present");
     }
 
     /**
      * Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
      * 
      */
-    private @Nullable UndeferrableValue<ThemeConfigurationUiColorPalette> uiColorPalette;
-
+    @PolicyResourceProperty(name="uiColorPalette", flag="unknown_uiColorPalette")
+    private @Nullable ThemeConfigurationUiColorPalette value_uiColorPalette;
+    private boolean unknown_uiColorPalette;
     public @Nullable ThemeConfigurationUiColorPalette uiColorPalette() {
-        if (uiColorPalette == null) return null;
-        return uiColorPalette.getValue("ThemeConfiguration.uiColorPalette");
+        if (!unknown_uiColorPalette) return value_uiColorPalette;
+        throw new UndeferrableValueException("Value 'ThemeConfiguration.uiColorPalette' is not present");
     }
 
 }

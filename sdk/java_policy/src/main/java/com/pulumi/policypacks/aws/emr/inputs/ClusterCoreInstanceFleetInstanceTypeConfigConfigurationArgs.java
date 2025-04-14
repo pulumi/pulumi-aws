@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs {
      * Classification within a configuration.
      * 
      */
-    private UndeferrableValue<String> classification;
-
+    @PolicyResourceProperty(name="classification", flag="unknown_classification")
+    private String value_classification;
+    private boolean unknown_classification;
     public String classification() {
-        if (classification == null) return null;
-        return classification.getValue("ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs.classification");
+        if (!unknown_classification) return value_classification;
+        throw new UndeferrableValueException("Value 'ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs.classification' is not present");
     }
 
     /**
      * Map of properties specified within a configuration classification.
      * 
      */
-    private UndeferrableValue<Map<String,String>> properties;
-
+    @PolicyResourceProperty(name="properties", flag="unknown_properties")
+    private Map<String,String> value_properties;
+    private boolean unknown_properties;
     public Map<String,String> properties() {
-        if (properties == null) return null;
-        return properties.getValue("ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs.properties");
+        if (!unknown_properties) return value_properties;
+        throw new UndeferrableValueException("Value 'ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs.properties' is not present");
     }
 
 }

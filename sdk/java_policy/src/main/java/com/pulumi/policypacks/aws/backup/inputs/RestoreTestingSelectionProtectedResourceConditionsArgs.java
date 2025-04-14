@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.backup.inputs.RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs;
 import com.pulumi.policypacks.aws.backup.inputs.RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class RestoreTestingSelectionProtectedResourceConditionsArgs {
      * The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called &#34;exact matching.&#34;. See the structure for details
      * 
      */
-    private UndeferrableValue<List<RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs>> stringEquals;
-
+    @PolicyResourceProperty(name="stringEquals", flag="unknown_stringEquals")
+    private List<RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs> value_stringEquals;
+    private boolean unknown_stringEquals;
     public List<RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs> stringEquals() {
-        if (stringEquals == null) return null;
-        return stringEquals.getValue("RestoreTestingSelectionProtectedResourceConditionsArgs.stringEquals");
+        if (!unknown_stringEquals) return value_stringEquals;
+        throw new UndeferrableValueException("Value 'RestoreTestingSelectionProtectedResourceConditionsArgs.stringEquals' is not present");
     }
 
     /**
      * The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called &#34;negated matching.&#34;. See the structure for details
      * 
      */
-    private UndeferrableValue<List<RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs>> stringNotEquals;
-
+    @PolicyResourceProperty(name="stringNotEquals", flag="unknown_stringNotEquals")
+    private List<RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs> value_stringNotEquals;
+    private boolean unknown_stringNotEquals;
     public List<RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs> stringNotEquals() {
-        if (stringNotEquals == null) return null;
-        return stringNotEquals.getValue("RestoreTestingSelectionProtectedResourceConditionsArgs.stringNotEquals");
+        if (!unknown_stringNotEquals) return value_stringNotEquals;
+        throw new UndeferrableValueException("Value 'RestoreTestingSelectionProtectedResourceConditionsArgs.stringNotEquals' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appflow.outputs.FlowDestinationFlowConfig;
 import com.pulumi.policypacks.aws.appflow.outputs.FlowMetadataCatalogConfig;
@@ -23,99 +24,108 @@ public final class Flow extends com.pulumi.resources.PolicyResourceOutput {
      * Flow&#39;s ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Flow.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Flow.arn' is not present");
     }
 
     /**
      * Description of the flow you want to create.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Flow.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Flow.description' is not present");
     }
 
     /**
      * A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
      * 
      */
-    private UndeferrableValue<List<FlowDestinationFlowConfig>> destinationFlowConfigs;
-
+    @PolicyResourceProperty(name="destinationFlowConfigs", flag="unknown_destinationFlowConfigs")
+    private List<FlowDestinationFlowConfig> value_destinationFlowConfigs;
+    private boolean unknown_destinationFlowConfigs;
     public List<FlowDestinationFlowConfig> destinationFlowConfigs() {
-        if (destinationFlowConfigs == null) return null;
-        return destinationFlowConfigs.getValue("Flow.destinationFlowConfigs");
+        if (!unknown_destinationFlowConfigs) return value_destinationFlowConfigs;
+        throw new UndeferrableValueException("Value 'Flow.destinationFlowConfigs' is not present");
     }
 
     /**
      * The current status of the flow.
      * 
      */
-    private UndeferrableValue<String> flowStatus;
-
+    @PolicyResourceProperty(name="flowStatus", flag="unknown_flowStatus")
+    private String value_flowStatus;
+    private boolean unknown_flowStatus;
     public String flowStatus() {
-        if (flowStatus == null) return null;
-        return flowStatus.getValue("Flow.flowStatus");
+        if (!unknown_flowStatus) return value_flowStatus;
+        throw new UndeferrableValueException("Value 'Flow.flowStatus' is not present");
     }
 
     /**
      * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      * 
      */
-    private UndeferrableValue<String> kmsArn;
-
+    @PolicyResourceProperty(name="kmsArn", flag="unknown_kmsArn")
+    private String value_kmsArn;
+    private boolean unknown_kmsArn;
     public String kmsArn() {
-        if (kmsArn == null) return null;
-        return kmsArn.getValue("Flow.kmsArn");
+        if (!unknown_kmsArn) return value_kmsArn;
+        throw new UndeferrableValueException("Value 'Flow.kmsArn' is not present");
     }
 
     /**
      * A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
      * 
      */
-    private UndeferrableValue<FlowMetadataCatalogConfig> metadataCatalogConfig;
-
+    @PolicyResourceProperty(name="metadataCatalogConfig", flag="unknown_metadataCatalogConfig")
+    private FlowMetadataCatalogConfig value_metadataCatalogConfig;
+    private boolean unknown_metadataCatalogConfig;
     public FlowMetadataCatalogConfig metadataCatalogConfig() {
-        if (metadataCatalogConfig == null) return null;
-        return metadataCatalogConfig.getValue("Flow.metadataCatalogConfig");
+        if (!unknown_metadataCatalogConfig) return value_metadataCatalogConfig;
+        throw new UndeferrableValueException("Value 'Flow.metadataCatalogConfig' is not present");
     }
 
     /**
      * Name of the flow.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Flow.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Flow.name' is not present");
     }
 
     /**
      * The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
      * 
      */
-    private UndeferrableValue<FlowSourceFlowConfig> sourceFlowConfig;
-
+    @PolicyResourceProperty(name="sourceFlowConfig", flag="unknown_sourceFlowConfig")
+    private FlowSourceFlowConfig value_sourceFlowConfig;
+    private boolean unknown_sourceFlowConfig;
     public FlowSourceFlowConfig sourceFlowConfig() {
-        if (sourceFlowConfig == null) return null;
-        return sourceFlowConfig.getValue("Flow.sourceFlowConfig");
+        if (!unknown_sourceFlowConfig) return value_sourceFlowConfig;
+        throw new UndeferrableValueException("Value 'Flow.sourceFlowConfig' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Flow.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Flow.tags' is not present");
     }
 
     /**
@@ -126,33 +136,36 @@ public final class Flow extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Flow.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Flow.tagsAll' is not present");
     }
 
     /**
      * A Task that Amazon AppFlow performs while transferring the data in the flow run.
      * 
      */
-    private UndeferrableValue<List<FlowTask>> tasks;
-
+    @PolicyResourceProperty(name="tasks", flag="unknown_tasks")
+    private List<FlowTask> value_tasks;
+    private boolean unknown_tasks;
     public List<FlowTask> tasks() {
-        if (tasks == null) return null;
-        return tasks.getValue("Flow.tasks");
+        if (!unknown_tasks) return value_tasks;
+        throw new UndeferrableValueException("Value 'Flow.tasks' is not present");
     }
 
     /**
      * A Trigger that determine how and when the flow runs.
      * 
      */
-    private UndeferrableValue<FlowTriggerConfig> triggerConfig;
-
+    @PolicyResourceProperty(name="triggerConfig", flag="unknown_triggerConfig")
+    private FlowTriggerConfig value_triggerConfig;
+    private boolean unknown_triggerConfig;
     public FlowTriggerConfig triggerConfig() {
-        if (triggerConfig == null) return null;
-        return triggerConfig.getValue("Flow.triggerConfig");
+        if (!unknown_triggerConfig) return value_triggerConfig;
+        throw new UndeferrableValueException("Value 'Flow.triggerConfig' is not present");
     }
 
 }

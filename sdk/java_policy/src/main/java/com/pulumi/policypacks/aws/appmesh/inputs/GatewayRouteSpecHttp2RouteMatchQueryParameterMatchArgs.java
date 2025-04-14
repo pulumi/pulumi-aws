@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs {
      * The exact query parameter to match on.
      * 
      */
-    private UndeferrableValue<String> exact;
-
+    @PolicyResourceProperty(name="exact", flag="unknown_exact")
+    private String value_exact;
+    private boolean unknown_exact;
     public String exact() {
-        if (exact == null) return null;
-        return exact.getValue("GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs.exact");
+        if (!unknown_exact) return value_exact;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs.exact' is not present");
     }
 
 }

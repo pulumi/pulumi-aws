@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,40 +19,44 @@ public final class OpenIdConnectProviderArgs extends com.pulumi.resources.Policy
      * List of client IDs (audiences) that identify the application registered with the OpenID Connect provider. This is the value sent as the `client_id` parameter in OAuth requests.
      * 
      */
-    private UndeferrableValue<List<String>> clientIdLists;
-
+    @PolicyResourceProperty(name="clientIdLists", flag="unknown_clientIdLists")
+    private List<String> value_clientIdLists;
+    private boolean unknown_clientIdLists;
     public List<String> clientIdLists() {
-        if (clientIdLists == null) return null;
-        return clientIdLists.getValue("OpenIdConnectProviderArgs.clientIdLists");
+        if (!unknown_clientIdLists) return value_clientIdLists;
+        throw new UndeferrableValueException("Value 'OpenIdConnectProviderArgs.clientIdLists' is not present");
     }
 
     /**
      * Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("OpenIdConnectProviderArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'OpenIdConnectProviderArgs.tags' is not present");
     }
 
-    private UndeferrableValue<List<String>> thumbprintLists;
-
+    @PolicyResourceProperty(name="thumbprintLists", flag="unknown_thumbprintLists")
+    private List<String> value_thumbprintLists;
+    private boolean unknown_thumbprintLists;
     public List<String> thumbprintLists() {
-        if (thumbprintLists == null) return null;
-        return thumbprintLists.getValue("OpenIdConnectProviderArgs.thumbprintLists");
+        if (!unknown_thumbprintLists) return value_thumbprintLists;
+        throw new UndeferrableValueException("Value 'OpenIdConnectProviderArgs.thumbprintLists' is not present");
     }
 
     /**
      * URL of the identity provider, corresponding to the `iss` claim.
      * 
      */
-    private UndeferrableValue<String> url;
-
+    @PolicyResourceProperty(name="url", flag="unknown_url")
+    private String value_url;
+    private boolean unknown_url;
     public String url() {
-        if (url == null) return null;
-        return url.getValue("OpenIdConnectProviderArgs.url");
+        if (!unknown_url) return value_url;
+        throw new UndeferrableValueException("Value 'OpenIdConnectProviderArgs.url' is not present");
     }
 
 }

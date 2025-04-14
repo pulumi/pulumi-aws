@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class ServiceInstanceConfiguration {
      * Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `256|512|1024|2048|4096|(0.25|0.5|1|2|4) vCPU`.
      * 
      */
-    private @Nullable UndeferrableValue<String> cpu;
-
+    @PolicyResourceProperty(name="cpu", flag="unknown_cpu")
+    private @Nullable String value_cpu;
+    private boolean unknown_cpu;
     public @Nullable String cpu() {
-        if (cpu == null) return null;
-        return cpu.getValue("ServiceInstanceConfiguration.cpu");
+        if (!unknown_cpu) return value_cpu;
+        throw new UndeferrableValueException("Value 'ServiceInstanceConfiguration.cpu' is not present");
     }
 
     /**
      * ARN of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
      * 
      */
-    private @Nullable UndeferrableValue<String> instanceRoleArn;
-
+    @PolicyResourceProperty(name="instanceRoleArn", flag="unknown_instanceRoleArn")
+    private @Nullable String value_instanceRoleArn;
+    private boolean unknown_instanceRoleArn;
     public @Nullable String instanceRoleArn() {
-        if (instanceRoleArn == null) return null;
-        return instanceRoleArn.getValue("ServiceInstanceConfiguration.instanceRoleArn");
+        if (!unknown_instanceRoleArn) return value_instanceRoleArn;
+        throw new UndeferrableValueException("Value 'ServiceInstanceConfiguration.instanceRoleArn' is not present");
     }
 
     /**
      * Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `512|1024|2048|3072|4096|6144|8192|10240|12288|(0.5|1|2|3|4|6|8|10|12) GB`.
      * 
      */
-    private @Nullable UndeferrableValue<String> memory;
-
+    @PolicyResourceProperty(name="memory", flag="unknown_memory")
+    private @Nullable String value_memory;
+    private boolean unknown_memory;
     public @Nullable String memory() {
-        if (memory == null) return null;
-        return memory.getValue("ServiceInstanceConfiguration.memory");
+        if (!unknown_memory) return value_memory;
+        throw new UndeferrableValueException("Value 'ServiceInstanceConfiguration.memory' is not present");
     }
 
 }

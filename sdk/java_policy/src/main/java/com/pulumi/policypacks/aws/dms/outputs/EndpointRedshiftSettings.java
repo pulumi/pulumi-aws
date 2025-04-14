@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dms.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,55 +15,60 @@ public final class EndpointRedshiftSettings {
      * Custom S3 Bucket Object prefix for intermediate storage.
      * 
      */
-    private @Nullable UndeferrableValue<String> bucketFolder;
-
+    @PolicyResourceProperty(name="bucketFolder", flag="unknown_bucketFolder")
+    private @Nullable String value_bucketFolder;
+    private boolean unknown_bucketFolder;
     public @Nullable String bucketFolder() {
-        if (bucketFolder == null) return null;
-        return bucketFolder.getValue("EndpointRedshiftSettings.bucketFolder");
+        if (!unknown_bucketFolder) return value_bucketFolder;
+        throw new UndeferrableValueException("Value 'EndpointRedshiftSettings.bucketFolder' is not present");
     }
 
     /**
      * Custom S3 Bucket name for intermediate storage.
      * 
      */
-    private @Nullable UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private @Nullable String value_bucketName;
+    private boolean unknown_bucketName;
     public @Nullable String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("EndpointRedshiftSettings.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'EndpointRedshiftSettings.bucketName' is not present");
     }
 
     /**
      * The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
      * 
      */
-    private @Nullable UndeferrableValue<String> encryptionMode;
-
+    @PolicyResourceProperty(name="encryptionMode", flag="unknown_encryptionMode")
+    private @Nullable String value_encryptionMode;
+    private boolean unknown_encryptionMode;
     public @Nullable String encryptionMode() {
-        if (encryptionMode == null) return null;
-        return encryptionMode.getValue("EndpointRedshiftSettings.encryptionMode");
+        if (!unknown_encryptionMode) return value_encryptionMode;
+        throw new UndeferrableValueException("Value 'EndpointRedshiftSettings.encryptionMode' is not present");
     }
 
     /**
      * ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
      * 
      */
-    private @Nullable UndeferrableValue<String> serverSideEncryptionKmsKeyId;
-
+    @PolicyResourceProperty(name="serverSideEncryptionKmsKeyId", flag="unknown_serverSideEncryptionKmsKeyId")
+    private @Nullable String value_serverSideEncryptionKmsKeyId;
+    private boolean unknown_serverSideEncryptionKmsKeyId;
     public @Nullable String serverSideEncryptionKmsKeyId() {
-        if (serverSideEncryptionKmsKeyId == null) return null;
-        return serverSideEncryptionKmsKeyId.getValue("EndpointRedshiftSettings.serverSideEncryptionKmsKeyId");
+        if (!unknown_serverSideEncryptionKmsKeyId) return value_serverSideEncryptionKmsKeyId;
+        throw new UndeferrableValueException("Value 'EndpointRedshiftSettings.serverSideEncryptionKmsKeyId' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
      * 
      */
-    private @Nullable UndeferrableValue<String> serviceAccessRoleArn;
-
+    @PolicyResourceProperty(name="serviceAccessRoleArn", flag="unknown_serviceAccessRoleArn")
+    private @Nullable String value_serviceAccessRoleArn;
+    private boolean unknown_serviceAccessRoleArn;
     public @Nullable String serviceAccessRoleArn() {
-        if (serviceAccessRoleArn == null) return null;
-        return serviceAccessRoleArn.getValue("EndpointRedshiftSettings.serviceAccessRoleArn");
+        if (!unknown_serviceAccessRoleArn) return value_serviceAccessRoleArn;
+        throw new UndeferrableValueException("Value 'EndpointRedshiftSettings.serviceAccessRoleArn' is not present");
     }
 
 }

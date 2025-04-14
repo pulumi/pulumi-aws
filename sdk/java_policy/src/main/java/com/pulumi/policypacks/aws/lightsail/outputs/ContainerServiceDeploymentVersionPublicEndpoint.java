@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lightsail.outputs.ContainerServiceDeploymentVersionPublicEndpointHealthCheck;
 import java.lang.Integer;
 import java.lang.String;
@@ -15,33 +16,36 @@ public final class ContainerServiceDeploymentVersionPublicEndpoint {
      * The name of the container for the endpoint.
      * 
      */
-    private UndeferrableValue<String> containerName;
-
+    @PolicyResourceProperty(name="containerName", flag="unknown_containerName")
+    private String value_containerName;
+    private boolean unknown_containerName;
     public String containerName() {
-        if (containerName == null) return null;
-        return containerName.getValue("ContainerServiceDeploymentVersionPublicEndpoint.containerName");
+        if (!unknown_containerName) return value_containerName;
+        throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionPublicEndpoint.containerName' is not present");
     }
 
     /**
      * The port of the container to which traffic is forwarded to.
      * 
      */
-    private UndeferrableValue<Integer> containerPort;
-
+    @PolicyResourceProperty(name="containerPort", flag="unknown_containerPort")
+    private Integer value_containerPort;
+    private boolean unknown_containerPort;
     public Integer containerPort() {
-        if (containerPort == null) return null;
-        return containerPort.getValue("ContainerServiceDeploymentVersionPublicEndpoint.containerPort");
+        if (!unknown_containerPort) return value_containerPort;
+        throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionPublicEndpoint.containerPort' is not present");
     }
 
     /**
      * A configuration block that describes the health check configuration of the container. Detailed below.
      * 
      */
-    private UndeferrableValue<ContainerServiceDeploymentVersionPublicEndpointHealthCheck> healthCheck;
-
+    @PolicyResourceProperty(name="healthCheck", flag="unknown_healthCheck")
+    private ContainerServiceDeploymentVersionPublicEndpointHealthCheck value_healthCheck;
+    private boolean unknown_healthCheck;
     public ContainerServiceDeploymentVersionPublicEndpointHealthCheck healthCheck() {
-        if (healthCheck == null) return null;
-        return healthCheck.getValue("ContainerServiceDeploymentVersionPublicEndpoint.healthCheck");
+        if (!unknown_healthCheck) return value_healthCheck;
+        throw new UndeferrableValueException("Value 'ContainerServiceDeploymentVersionPublicEndpoint.healthCheck' is not present");
     }
 
 }

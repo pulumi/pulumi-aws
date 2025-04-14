@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.datasync.inputs.LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs;
 
 
@@ -13,11 +14,12 @@ public final class LocationFsxOntapFileSystemProtocolNfsArgs {
      * Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
      * 
      */
-    private UndeferrableValue<LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs> mountOptions;
-
+    @PolicyResourceProperty(name="mountOptions", flag="unknown_mountOptions")
+    private LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs value_mountOptions;
+    private boolean unknown_mountOptions;
     public LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs mountOptions() {
-        if (mountOptions == null) return null;
-        return mountOptions.getValue("LocationFsxOntapFileSystemProtocolNfsArgs.mountOptions");
+        if (!unknown_mountOptions) return value_mountOptions;
+        throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystemProtocolNfsArgs.mountOptions' is not present");
     }
 
 }

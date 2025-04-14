@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class EndpointConfigurationDataCaptureConfigCaptureOption {
      * Specifies the data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
      * 
      */
-    private UndeferrableValue<String> captureMode;
-
+    @PolicyResourceProperty(name="captureMode", flag="unknown_captureMode")
+    private String value_captureMode;
+    private boolean unknown_captureMode;
     public String captureMode() {
-        if (captureMode == null) return null;
-        return captureMode.getValue("EndpointConfigurationDataCaptureConfigCaptureOption.captureMode");
+        if (!unknown_captureMode) return value_captureMode;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationDataCaptureConfigCaptureOption.captureMode' is not present");
     }
 
 }

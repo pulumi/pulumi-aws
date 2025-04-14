@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codedeploy;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.codedeploy.outputs.DeploymentConfigMinimumHealthyHosts;
 import com.pulumi.policypacks.aws.codedeploy.outputs.DeploymentConfigTrafficRoutingConfig;
@@ -19,77 +20,84 @@ public final class DeploymentConfig extends com.pulumi.resources.PolicyResourceO
      * The ARN of the deployment config.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("DeploymentConfig.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'DeploymentConfig.arn' is not present");
     }
 
     /**
      * The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
      * 
      */
-    private @Nullable UndeferrableValue<String> computePlatform;
-
+    @PolicyResourceProperty(name="computePlatform", flag="unknown_computePlatform")
+    private @Nullable String value_computePlatform;
+    private boolean unknown_computePlatform;
     public @Nullable String computePlatform() {
-        if (computePlatform == null) return null;
-        return computePlatform.getValue("DeploymentConfig.computePlatform");
+        if (!unknown_computePlatform) return value_computePlatform;
+        throw new UndeferrableValueException("Value 'DeploymentConfig.computePlatform' is not present");
     }
 
     /**
      * The AWS Assigned deployment config id
      * 
      */
-    private UndeferrableValue<String> deploymentConfigId;
-
+    @PolicyResourceProperty(name="deploymentConfigId", flag="unknown_deploymentConfigId")
+    private String value_deploymentConfigId;
+    private boolean unknown_deploymentConfigId;
     public String deploymentConfigId() {
-        if (deploymentConfigId == null) return null;
-        return deploymentConfigId.getValue("DeploymentConfig.deploymentConfigId");
+        if (!unknown_deploymentConfigId) return value_deploymentConfigId;
+        throw new UndeferrableValueException("Value 'DeploymentConfig.deploymentConfigId' is not present");
     }
 
     /**
      * The name of the deployment config.
      * 
      */
-    private UndeferrableValue<String> deploymentConfigName;
-
+    @PolicyResourceProperty(name="deploymentConfigName", flag="unknown_deploymentConfigName")
+    private String value_deploymentConfigName;
+    private boolean unknown_deploymentConfigName;
     public String deploymentConfigName() {
-        if (deploymentConfigName == null) return null;
-        return deploymentConfigName.getValue("DeploymentConfig.deploymentConfigName");
+        if (!unknown_deploymentConfigName) return value_deploymentConfigName;
+        throw new UndeferrableValueException("Value 'DeploymentConfig.deploymentConfigName' is not present");
     }
 
     /**
      * A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
      * 
      */
-    private @Nullable UndeferrableValue<DeploymentConfigMinimumHealthyHosts> minimumHealthyHosts;
-
+    @PolicyResourceProperty(name="minimumHealthyHosts", flag="unknown_minimumHealthyHosts")
+    private @Nullable DeploymentConfigMinimumHealthyHosts value_minimumHealthyHosts;
+    private boolean unknown_minimumHealthyHosts;
     public @Nullable DeploymentConfigMinimumHealthyHosts minimumHealthyHosts() {
-        if (minimumHealthyHosts == null) return null;
-        return minimumHealthyHosts.getValue("DeploymentConfig.minimumHealthyHosts");
+        if (!unknown_minimumHealthyHosts) return value_minimumHealthyHosts;
+        throw new UndeferrableValueException("Value 'DeploymentConfig.minimumHealthyHosts' is not present");
     }
 
     /**
      * A traffic_routing_config block. Traffic Routing Config is documented below.
      * 
      */
-    private @Nullable UndeferrableValue<DeploymentConfigTrafficRoutingConfig> trafficRoutingConfig;
-
+    @PolicyResourceProperty(name="trafficRoutingConfig", flag="unknown_trafficRoutingConfig")
+    private @Nullable DeploymentConfigTrafficRoutingConfig value_trafficRoutingConfig;
+    private boolean unknown_trafficRoutingConfig;
     public @Nullable DeploymentConfigTrafficRoutingConfig trafficRoutingConfig() {
-        if (trafficRoutingConfig == null) return null;
-        return trafficRoutingConfig.getValue("DeploymentConfig.trafficRoutingConfig");
+        if (!unknown_trafficRoutingConfig) return value_trafficRoutingConfig;
+        throw new UndeferrableValueException("Value 'DeploymentConfig.trafficRoutingConfig' is not present");
     }
 
     /**
      * A zonal_config block. Zonal Config is documented below.
      * 
      */
-    private @Nullable UndeferrableValue<DeploymentConfigZonalConfig> zonalConfig;
-
+    @PolicyResourceProperty(name="zonalConfig", flag="unknown_zonalConfig")
+    private @Nullable DeploymentConfigZonalConfig value_zonalConfig;
+    private boolean unknown_zonalConfig;
     public @Nullable DeploymentConfigZonalConfig zonalConfig() {
-        if (zonalConfig == null) return null;
-        return zonalConfig.getValue("DeploymentConfig.zonalConfig");
+        if (!unknown_zonalConfig) return value_zonalConfig;
+        throw new UndeferrableValueException("Value 'DeploymentConfig.zonalConfig' is not present");
     }
 
 }

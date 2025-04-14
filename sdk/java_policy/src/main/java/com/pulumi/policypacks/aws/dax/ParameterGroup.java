@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dax;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.dax.outputs.ParameterGroupParameter;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class ParameterGroup extends com.pulumi.resources.PolicyResourceOut
      * A description of the parameter group.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ParameterGroup.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ParameterGroup.description' is not present");
     }
 
     /**
      * The name of the parameter group.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ParameterGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ParameterGroup.name' is not present");
     }
 
     /**
      * The parameters of the parameter group.
      * 
      */
-    private UndeferrableValue<List<ParameterGroupParameter>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private List<ParameterGroupParameter> value_parameters;
+    private boolean unknown_parameters;
     public List<ParameterGroupParameter> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("ParameterGroup.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'ParameterGroup.parameters' is not present");
     }
 
 }

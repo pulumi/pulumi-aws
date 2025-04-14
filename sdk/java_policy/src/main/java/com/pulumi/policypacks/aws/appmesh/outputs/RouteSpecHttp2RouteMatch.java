@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.RouteSpecHttp2RouteMatchHeader;
 import com.pulumi.policypacks.aws.appmesh.outputs.RouteSpecHttp2RouteMatchPath;
 import com.pulumi.policypacks.aws.appmesh.outputs.RouteSpecHttp2RouteMatchQueryParameter;
@@ -19,44 +20,48 @@ public final class RouteSpecHttp2RouteMatch {
      * Client request headers to match on.
      * 
      */
-    private @Nullable UndeferrableValue<List<RouteSpecHttp2RouteMatchHeader>> headers;
-
+    @PolicyResourceProperty(name="headers", flag="unknown_headers")
+    private @Nullable List<RouteSpecHttp2RouteMatchHeader> value_headers;
+    private boolean unknown_headers;
     public @Nullable List<RouteSpecHttp2RouteMatchHeader> headers() {
-        if (headers == null) return null;
-        return headers.getValue("RouteSpecHttp2RouteMatch.headers");
+        if (!unknown_headers) return value_headers;
+        throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteMatch.headers' is not present");
     }
 
     /**
      * Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
      * 
      */
-    private @Nullable UndeferrableValue<String> method;
-
+    @PolicyResourceProperty(name="method", flag="unknown_method")
+    private @Nullable String value_method;
+    private boolean unknown_method;
     public @Nullable String method() {
-        if (method == null) return null;
-        return method.getValue("RouteSpecHttp2RouteMatch.method");
+        if (!unknown_method) return value_method;
+        throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteMatch.method' is not present");
     }
 
     /**
      * Client request path to match on.
      * 
      */
-    private @Nullable UndeferrableValue<RouteSpecHttp2RouteMatchPath> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private @Nullable RouteSpecHttp2RouteMatchPath value_path;
+    private boolean unknown_path;
     public @Nullable RouteSpecHttp2RouteMatchPath path() {
-        if (path == null) return null;
-        return path.getValue("RouteSpecHttp2RouteMatch.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteMatch.path' is not present");
     }
 
     /**
      * The port number to match from the request.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable Integer value_port;
+    private boolean unknown_port;
     public @Nullable Integer port() {
-        if (port == null) return null;
-        return port.getValue("RouteSpecHttp2RouteMatch.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteMatch.port' is not present");
     }
 
     /**
@@ -64,33 +69,36 @@ public final class RouteSpecHttp2RouteMatch {
      * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
      * 
      */
-    private @Nullable UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private @Nullable String value_prefix;
+    private boolean unknown_prefix;
     public @Nullable String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("RouteSpecHttp2RouteMatch.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteMatch.prefix' is not present");
     }
 
     /**
      * Client request query parameters to match on.
      * 
      */
-    private @Nullable UndeferrableValue<List<RouteSpecHttp2RouteMatchQueryParameter>> queryParameters;
-
+    @PolicyResourceProperty(name="queryParameters", flag="unknown_queryParameters")
+    private @Nullable List<RouteSpecHttp2RouteMatchQueryParameter> value_queryParameters;
+    private boolean unknown_queryParameters;
     public @Nullable List<RouteSpecHttp2RouteMatchQueryParameter> queryParameters() {
-        if (queryParameters == null) return null;
-        return queryParameters.getValue("RouteSpecHttp2RouteMatch.queryParameters");
+        if (!unknown_queryParameters) return value_queryParameters;
+        throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteMatch.queryParameters' is not present");
     }
 
     /**
      * Client request header scheme to match on. Valid values: `http`, `https`.
      * 
      */
-    private @Nullable UndeferrableValue<String> scheme;
-
+    @PolicyResourceProperty(name="scheme", flag="unknown_scheme")
+    private @Nullable String value_scheme;
+    private boolean unknown_scheme;
     public @Nullable String scheme() {
-        if (scheme == null) return null;
-        return scheme.getValue("RouteSpecHttp2RouteMatch.scheme");
+        if (!unknown_scheme) return value_scheme;
+        throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteMatch.scheme' is not present");
     }
 
 }

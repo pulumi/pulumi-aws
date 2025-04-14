@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.guardduty.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,77 +16,84 @@ public final class FilterFindingCriteriaCriterionArgs {
      * List of string values to be evaluated.
      * 
      */
-    private UndeferrableValue<List<String>> equals_;
-
+    @PolicyResourceProperty(name="equals", flag="unknown_equals_")
+    private List<String> value_equals_;
+    private boolean unknown_equals_;
     public List<String> equals_() {
-        if (equals_ == null) return null;
-        return equals_.getValue("FilterFindingCriteriaCriterionArgs.equals_");
+        if (!unknown_equals_) return value_equals_;
+        throw new UndeferrableValueException("Value 'FilterFindingCriteriaCriterionArgs.equals_' is not present");
     }
 
     /**
      * The name of the field to be evaluated. The full list of field names can be found in [AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria).
      * 
      */
-    private UndeferrableValue<String> field;
-
+    @PolicyResourceProperty(name="field", flag="unknown_field")
+    private String value_field;
+    private boolean unknown_field;
     public String field() {
-        if (field == null) return null;
-        return field.getValue("FilterFindingCriteriaCriterionArgs.field");
+        if (!unknown_field) return value_field;
+        throw new UndeferrableValueException("Value 'FilterFindingCriteriaCriterionArgs.field' is not present");
     }
 
     /**
      * A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private UndeferrableValue<String> greaterThan;
-
+    @PolicyResourceProperty(name="greaterThan", flag="unknown_greaterThan")
+    private String value_greaterThan;
+    private boolean unknown_greaterThan;
     public String greaterThan() {
-        if (greaterThan == null) return null;
-        return greaterThan.getValue("FilterFindingCriteriaCriterionArgs.greaterThan");
+        if (!unknown_greaterThan) return value_greaterThan;
+        throw new UndeferrableValueException("Value 'FilterFindingCriteriaCriterionArgs.greaterThan' is not present");
     }
 
     /**
      * A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private UndeferrableValue<String> greaterThanOrEqual;
-
+    @PolicyResourceProperty(name="greaterThanOrEqual", flag="unknown_greaterThanOrEqual")
+    private String value_greaterThanOrEqual;
+    private boolean unknown_greaterThanOrEqual;
     public String greaterThanOrEqual() {
-        if (greaterThanOrEqual == null) return null;
-        return greaterThanOrEqual.getValue("FilterFindingCriteriaCriterionArgs.greaterThanOrEqual");
+        if (!unknown_greaterThanOrEqual) return value_greaterThanOrEqual;
+        throw new UndeferrableValueException("Value 'FilterFindingCriteriaCriterionArgs.greaterThanOrEqual' is not present");
     }
 
     /**
      * A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private UndeferrableValue<String> lessThan;
-
+    @PolicyResourceProperty(name="lessThan", flag="unknown_lessThan")
+    private String value_lessThan;
+    private boolean unknown_lessThan;
     public String lessThan() {
-        if (lessThan == null) return null;
-        return lessThan.getValue("FilterFindingCriteriaCriterionArgs.lessThan");
+        if (!unknown_lessThan) return value_lessThan;
+        throw new UndeferrableValueException("Value 'FilterFindingCriteriaCriterionArgs.lessThan' is not present");
     }
 
     /**
      * A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      * 
      */
-    private UndeferrableValue<String> lessThanOrEqual;
-
+    @PolicyResourceProperty(name="lessThanOrEqual", flag="unknown_lessThanOrEqual")
+    private String value_lessThanOrEqual;
+    private boolean unknown_lessThanOrEqual;
     public String lessThanOrEqual() {
-        if (lessThanOrEqual == null) return null;
-        return lessThanOrEqual.getValue("FilterFindingCriteriaCriterionArgs.lessThanOrEqual");
+        if (!unknown_lessThanOrEqual) return value_lessThanOrEqual;
+        throw new UndeferrableValueException("Value 'FilterFindingCriteriaCriterionArgs.lessThanOrEqual' is not present");
     }
 
     /**
      * List of string values to be evaluated.
      * 
      */
-    private UndeferrableValue<List<String>> notEquals;
-
+    @PolicyResourceProperty(name="notEquals", flag="unknown_notEquals")
+    private List<String> value_notEquals;
+    private boolean unknown_notEquals;
     public List<String> notEquals() {
-        if (notEquals == null) return null;
-        return notEquals.getValue("FilterFindingCriteriaCriterionArgs.notEquals");
+        if (!unknown_notEquals) return value_notEquals;
+        throw new UndeferrableValueException("Value 'FilterFindingCriteriaCriterionArgs.notEquals' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.oam.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.oam.outputs.LinkLinkConfigurationLogGroupConfiguration;
 import com.pulumi.policypacks.aws.oam.outputs.LinkLinkConfigurationMetricConfiguration;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class LinkLinkConfiguration {
      * Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `log_group_configuration` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<LinkLinkConfigurationLogGroupConfiguration> logGroupConfiguration;
-
+    @PolicyResourceProperty(name="logGroupConfiguration", flag="unknown_logGroupConfiguration")
+    private @Nullable LinkLinkConfigurationLogGroupConfiguration value_logGroupConfiguration;
+    private boolean unknown_logGroupConfiguration;
     public @Nullable LinkLinkConfigurationLogGroupConfiguration logGroupConfiguration() {
-        if (logGroupConfiguration == null) return null;
-        return logGroupConfiguration.getValue("LinkLinkConfiguration.logGroupConfiguration");
+        if (!unknown_logGroupConfiguration) return value_logGroupConfiguration;
+        throw new UndeferrableValueException("Value 'LinkLinkConfiguration.logGroupConfiguration' is not present");
     }
 
     /**
      * Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metric_configuration` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<LinkLinkConfigurationMetricConfiguration> metricConfiguration;
-
+    @PolicyResourceProperty(name="metricConfiguration", flag="unknown_metricConfiguration")
+    private @Nullable LinkLinkConfigurationMetricConfiguration value_metricConfiguration;
+    private boolean unknown_metricConfiguration;
     public @Nullable LinkLinkConfigurationMetricConfiguration metricConfiguration() {
-        if (metricConfiguration == null) return null;
-        return metricConfiguration.getValue("LinkLinkConfiguration.metricConfiguration");
+        if (!unknown_metricConfiguration) return value_metricConfiguration;
+        throw new UndeferrableValueException("Value 'LinkLinkConfiguration.metricConfiguration' is not present");
     }
 
 }

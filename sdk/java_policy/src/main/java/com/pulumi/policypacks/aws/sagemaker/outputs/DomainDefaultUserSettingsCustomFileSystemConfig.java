@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.outputs.DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DomainDefaultUserSettingsCustomFileSystemConfig {
      * The default EBS storage settings for a private space. See `efs_file_system_config` Block below.
      * 
      */
-    private @Nullable UndeferrableValue<DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig> efsFileSystemConfig;
-
+    @PolicyResourceProperty(name="efsFileSystemConfig", flag="unknown_efsFileSystemConfig")
+    private @Nullable DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig value_efsFileSystemConfig;
+    private boolean unknown_efsFileSystemConfig;
     public @Nullable DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig efsFileSystemConfig() {
-        if (efsFileSystemConfig == null) return null;
-        return efsFileSystemConfig.getValue("DomainDefaultUserSettingsCustomFileSystemConfig.efsFileSystemConfig");
+        if (!unknown_efsFileSystemConfig) return value_efsFileSystemConfig;
+        throw new UndeferrableValueException("Value 'DomainDefaultUserSettingsCustomFileSystemConfig.efsFileSystemConfig' is not present");
     }
 
 }

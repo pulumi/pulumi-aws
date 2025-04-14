@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.RouteSpecGrpcRouteTimeoutIdleArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.RouteSpecGrpcRouteTimeoutPerRequestArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class RouteSpecGrpcRouteTimeoutArgs {
      * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
      * 
      */
-    private UndeferrableValue<RouteSpecGrpcRouteTimeoutIdleArgs> idle;
-
+    @PolicyResourceProperty(name="idle", flag="unknown_idle")
+    private RouteSpecGrpcRouteTimeoutIdleArgs value_idle;
+    private boolean unknown_idle;
     public RouteSpecGrpcRouteTimeoutIdleArgs idle() {
-        if (idle == null) return null;
-        return idle.getValue("RouteSpecGrpcRouteTimeoutArgs.idle");
+        if (!unknown_idle) return value_idle;
+        throw new UndeferrableValueException("Value 'RouteSpecGrpcRouteTimeoutArgs.idle' is not present");
     }
 
     /**
      * Per request timeout.
      * 
      */
-    private UndeferrableValue<RouteSpecGrpcRouteTimeoutPerRequestArgs> perRequest;
-
+    @PolicyResourceProperty(name="perRequest", flag="unknown_perRequest")
+    private RouteSpecGrpcRouteTimeoutPerRequestArgs value_perRequest;
+    private boolean unknown_perRequest;
     public RouteSpecGrpcRouteTimeoutPerRequestArgs perRequest() {
-        if (perRequest == null) return null;
-        return perRequest.getValue("RouteSpecGrpcRouteTimeoutArgs.perRequest");
+        if (!unknown_perRequest) return value_perRequest;
+        throw new UndeferrableValueException("Value 'RouteSpecGrpcRouteTimeoutArgs.perRequest' is not present");
     }
 
 }

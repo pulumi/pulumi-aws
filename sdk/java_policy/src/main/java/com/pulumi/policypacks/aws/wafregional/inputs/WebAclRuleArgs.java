@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafregional.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafregional.inputs.WebAclRuleActionArgs;
 import com.pulumi.policypacks.aws.wafregional.inputs.WebAclRuleOverrideActionArgs;
 import java.lang.Integer;
@@ -17,22 +18,24 @@ public final class WebAclRuleArgs {
      * Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`. Detailed below.
      * 
      */
-    private UndeferrableValue<WebAclRuleActionArgs> action;
-
+    @PolicyResourceProperty(name="action", flag="unknown_action")
+    private WebAclRuleActionArgs value_action;
+    private boolean unknown_action;
     public WebAclRuleActionArgs action() {
-        if (action == null) return null;
-        return action.getValue("WebAclRuleArgs.action");
+        if (!unknown_action) return value_action;
+        throw new UndeferrableValueException("Value 'WebAclRuleArgs.action' is not present");
     }
 
     /**
      * Configuration block of the override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`. Detailed below.
      * 
      */
-    private UndeferrableValue<WebAclRuleOverrideActionArgs> overrideAction;
-
+    @PolicyResourceProperty(name="overrideAction", flag="unknown_overrideAction")
+    private WebAclRuleOverrideActionArgs value_overrideAction;
+    private boolean unknown_overrideAction;
     public WebAclRuleOverrideActionArgs overrideAction() {
-        if (overrideAction == null) return null;
-        return overrideAction.getValue("WebAclRuleArgs.overrideAction");
+        if (!unknown_overrideAction) return value_overrideAction;
+        throw new UndeferrableValueException("Value 'WebAclRuleArgs.overrideAction' is not present");
     }
 
     /**
@@ -40,33 +43,36 @@ public final class WebAclRuleArgs {
      * Rules with a lower value are evaluated before rules with a higher value.
      * 
      */
-    private UndeferrableValue<Integer> priority;
-
+    @PolicyResourceProperty(name="priority", flag="unknown_priority")
+    private Integer value_priority;
+    private boolean unknown_priority;
     public Integer priority() {
-        if (priority == null) return null;
-        return priority.getValue("WebAclRuleArgs.priority");
+        if (!unknown_priority) return value_priority;
+        throw new UndeferrableValueException("Value 'WebAclRuleArgs.priority' is not present");
     }
 
     /**
      * ID of the associated WAF (Regional) rule (e.g., `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
      * 
      */
-    private UndeferrableValue<String> ruleId;
-
+    @PolicyResourceProperty(name="ruleId", flag="unknown_ruleId")
+    private String value_ruleId;
+    private boolean unknown_ruleId;
     public String ruleId() {
-        if (ruleId == null) return null;
-        return ruleId.getValue("WebAclRuleArgs.ruleId");
+        if (!unknown_ruleId) return value_ruleId;
+        throw new UndeferrableValueException("Value 'WebAclRuleArgs.ruleId' is not present");
     }
 
     /**
      * The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("WebAclRuleArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'WebAclRuleArgs.type' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 
 
@@ -13,22 +14,24 @@ public final class ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd {
      * (Required) The hour of the day.
      * 
      */
-    private UndeferrableValue<Integer> hourOfDay;
-
+    @PolicyResourceProperty(name="hourOfDay", flag="unknown_hourOfDay")
+    private Integer value_hourOfDay;
+    private boolean unknown_hourOfDay;
     public Integer hourOfDay() {
-        if (hourOfDay == null) return null;
-        return hourOfDay.getValue("ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd.hourOfDay");
+        if (!unknown_hourOfDay) return value_hourOfDay;
+        throw new UndeferrableValueException("Value 'ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd.hourOfDay' is not present");
     }
 
     /**
      * (Required) The minutes of the hour.
      * 
      */
-    private UndeferrableValue<Integer> minuteOfHour;
-
+    @PolicyResourceProperty(name="minuteOfHour", flag="unknown_minuteOfHour")
+    private Integer value_minuteOfHour;
+    private boolean unknown_minuteOfHour;
     public Integer minuteOfHour() {
-        if (minuteOfHour == null) return null;
-        return minuteOfHour.getValue("ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd.minuteOfHour");
+        if (!unknown_minuteOfHour) return value_minuteOfHour;
+        throw new UndeferrableValueException("Value 'ContactsRotationRecurrenceShiftCoverageCoverageTimeEnd.minuteOfHour' is not present");
     }
 
 }

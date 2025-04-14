@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cfg.outputs.RecorderRecordingModeRecordingModeOverride;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class RecorderRecordingMode {
      * Default recording frequency. `CONTINUOUS` or `DAILY`.
      * 
      */
-    private @Nullable UndeferrableValue<String> recordingFrequency;
-
+    @PolicyResourceProperty(name="recordingFrequency", flag="unknown_recordingFrequency")
+    private @Nullable String value_recordingFrequency;
+    private boolean unknown_recordingFrequency;
     public @Nullable String recordingFrequency() {
-        if (recordingFrequency == null) return null;
-        return recordingFrequency.getValue("RecorderRecordingMode.recordingFrequency");
+        if (!unknown_recordingFrequency) return value_recordingFrequency;
+        throw new UndeferrableValueException("Value 'RecorderRecordingMode.recordingFrequency' is not present");
     }
 
     /**
      * Recording mode overrides. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<RecorderRecordingModeRecordingModeOverride> recordingModeOverride;
-
+    @PolicyResourceProperty(name="recordingModeOverride", flag="unknown_recordingModeOverride")
+    private @Nullable RecorderRecordingModeRecordingModeOverride value_recordingModeOverride;
+    private boolean unknown_recordingModeOverride;
     public @Nullable RecorderRecordingModeRecordingModeOverride recordingModeOverride() {
-        if (recordingModeOverride == null) return null;
-        return recordingModeOverride.getValue("RecorderRecordingMode.recordingModeOverride");
+        if (!unknown_recordingModeOverride) return value_recordingModeOverride;
+        throw new UndeferrableValueException("Value 'RecorderRecordingMode.recordingModeOverride' is not present");
     }
 
 }

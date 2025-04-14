@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicediscovery.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class ServiceDnsConfigDnsRecordArgs {
      * The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
      * 
      */
-    private UndeferrableValue<Integer> ttl;
-
+    @PolicyResourceProperty(name="ttl", flag="unknown_ttl")
+    private Integer value_ttl;
+    private boolean unknown_ttl;
     public Integer ttl() {
-        if (ttl == null) return null;
-        return ttl.getValue("ServiceDnsConfigDnsRecordArgs.ttl");
+        if (!unknown_ttl) return value_ttl;
+        throw new UndeferrableValueException("Value 'ServiceDnsConfigDnsRecordArgs.ttl' is not present");
     }
 
     /**
      * The type of the resource, which indicates the value that Amazon Route 53 returns in response to DNS queries. Valid Values: A, AAAA, SRV, CNAME
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ServiceDnsConfigDnsRecordArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ServiceDnsConfigDnsRecordArgs.type' is not present");
     }
 
 }

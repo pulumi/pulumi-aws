@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bcmdata.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ExportExportDataQueryArgs {
      * Query statement.
      * 
      */
-    private UndeferrableValue<String> queryStatement;
-
+    @PolicyResourceProperty(name="queryStatement", flag="unknown_queryStatement")
+    private String value_queryStatement;
+    private boolean unknown_queryStatement;
     public String queryStatement() {
-        if (queryStatement == null) return null;
-        return queryStatement.getValue("ExportExportDataQueryArgs.queryStatement");
+        if (!unknown_queryStatement) return value_queryStatement;
+        throw new UndeferrableValueException("Value 'ExportExportDataQueryArgs.queryStatement' is not present");
     }
 
     /**
      * Table configuration.
      * 
      */
-    private UndeferrableValue<Map<String,Map<String,String>>> tableConfigurations;
-
+    @PolicyResourceProperty(name="tableConfigurations", flag="unknown_tableConfigurations")
+    private Map<String,Map<String,String>> value_tableConfigurations;
+    private boolean unknown_tableConfigurations;
     public Map<String,Map<String,String>> tableConfigurations() {
-        if (tableConfigurations == null) return null;
-        return tableConfigurations.getValue("ExportExportDataQueryArgs.tableConfigurations");
+        if (!unknown_tableConfigurations) return value_tableConfigurations;
+        throw new UndeferrableValueException("Value 'ExportExportDataQueryArgs.tableConfigurations' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.rds.inputs.InstanceDesiredStateTimeoutsArgs;
 import java.lang.String;
@@ -17,29 +18,32 @@ public final class InstanceDesiredStateArgs extends com.pulumi.resources.PolicyR
      * DB Instance Identifier
      * 
      */
-    private UndeferrableValue<String> identifier;
-
+    @PolicyResourceProperty(name="identifier", flag="unknown_identifier")
+    private String value_identifier;
+    private boolean unknown_identifier;
     public String identifier() {
-        if (identifier == null) return null;
-        return identifier.getValue("InstanceDesiredStateArgs.identifier");
+        if (!unknown_identifier) return value_identifier;
+        throw new UndeferrableValueException("Value 'InstanceDesiredStateArgs.identifier' is not present");
     }
 
     /**
      * Configured state of the DB Instance. Valid values are `available` and `stopped`.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("InstanceDesiredStateArgs.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'InstanceDesiredStateArgs.state' is not present");
     }
 
-    private UndeferrableValue<InstanceDesiredStateTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private InstanceDesiredStateTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public InstanceDesiredStateTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("InstanceDesiredStateArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'InstanceDesiredStateArgs.timeouts' is not present");
     }
 
 }

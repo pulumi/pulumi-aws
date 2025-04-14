@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class InstancePrivateDnsNameOptionsArgs {
      * Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
      * 
      */
-    private UndeferrableValue<Boolean> enableResourceNameDnsARecord;
-
+    @PolicyResourceProperty(name="enableResourceNameDnsARecord", flag="unknown_enableResourceNameDnsARecord")
+    private Boolean value_enableResourceNameDnsARecord;
+    private boolean unknown_enableResourceNameDnsARecord;
     public Boolean enableResourceNameDnsARecord() {
-        if (enableResourceNameDnsARecord == null) return null;
-        return enableResourceNameDnsARecord.getValue("InstancePrivateDnsNameOptionsArgs.enableResourceNameDnsARecord");
+        if (!unknown_enableResourceNameDnsARecord) return value_enableResourceNameDnsARecord;
+        throw new UndeferrableValueException("Value 'InstancePrivateDnsNameOptionsArgs.enableResourceNameDnsARecord' is not present");
     }
 
     /**
      * Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
      * 
      */
-    private UndeferrableValue<Boolean> enableResourceNameDnsAaaaRecord;
-
+    @PolicyResourceProperty(name="enableResourceNameDnsAaaaRecord", flag="unknown_enableResourceNameDnsAaaaRecord")
+    private Boolean value_enableResourceNameDnsAaaaRecord;
+    private boolean unknown_enableResourceNameDnsAaaaRecord;
     public Boolean enableResourceNameDnsAaaaRecord() {
-        if (enableResourceNameDnsAaaaRecord == null) return null;
-        return enableResourceNameDnsAaaaRecord.getValue("InstancePrivateDnsNameOptionsArgs.enableResourceNameDnsAaaaRecord");
+        if (!unknown_enableResourceNameDnsAaaaRecord) return value_enableResourceNameDnsAaaaRecord;
+        throw new UndeferrableValueException("Value 'InstancePrivateDnsNameOptionsArgs.enableResourceNameDnsAaaaRecord' is not present");
     }
 
     /**
      * Type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
      * 
      */
-    private UndeferrableValue<String> hostnameType;
-
+    @PolicyResourceProperty(name="hostnameType", flag="unknown_hostnameType")
+    private String value_hostnameType;
+    private boolean unknown_hostnameType;
     public String hostnameType() {
-        if (hostnameType == null) return null;
-        return hostnameType.getValue("InstancePrivateDnsNameOptionsArgs.hostnameType");
+        if (!unknown_hostnameType) return value_hostnameType;
+        throw new UndeferrableValueException("Value 'InstancePrivateDnsNameOptionsArgs.hostnameType' is not present");
     }
 
 }

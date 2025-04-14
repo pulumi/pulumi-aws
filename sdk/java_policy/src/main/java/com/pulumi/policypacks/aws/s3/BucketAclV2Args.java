@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class BucketAclV2Args extends com.pulumi.resources.PolicyResourceIn
      * Configuration block that sets the ACL permissions for an object per grantee. See below.
      * 
      */
-    private UndeferrableValue<BucketAclV2AccessControlPolicyArgs> accessControlPolicy;
-
+    @PolicyResourceProperty(name="accessControlPolicy", flag="unknown_accessControlPolicy")
+    private BucketAclV2AccessControlPolicyArgs value_accessControlPolicy;
+    private boolean unknown_accessControlPolicy;
     public BucketAclV2AccessControlPolicyArgs accessControlPolicy() {
-        if (accessControlPolicy == null) return null;
-        return accessControlPolicy.getValue("BucketAclV2Args.accessControlPolicy");
+        if (!unknown_accessControlPolicy) return value_accessControlPolicy;
+        throw new UndeferrableValueException("Value 'BucketAclV2Args.accessControlPolicy' is not present");
     }
 
     /**
      * Specifies the Canned ACL to apply to the bucket. Valid values: `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, `bucket-owner-full-control`, `log-delivery-write`. Full details are available on the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
      * 
      */
-    private UndeferrableValue<String> acl;
-
+    @PolicyResourceProperty(name="acl", flag="unknown_acl")
+    private String value_acl;
+    private boolean unknown_acl;
     public String acl() {
-        if (acl == null) return null;
-        return acl.getValue("BucketAclV2Args.acl");
+        if (!unknown_acl) return value_acl;
+        throw new UndeferrableValueException("Value 'BucketAclV2Args.acl' is not present");
     }
 
     /**
      * Bucket to which to apply the ACL.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("BucketAclV2Args.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'BucketAclV2Args.bucket' is not present");
     }
 
     /**
      * Account ID of the expected bucket owner.
      * 
      */
-    private UndeferrableValue<String> expectedBucketOwner;
-
+    @PolicyResourceProperty(name="expectedBucketOwner", flag="unknown_expectedBucketOwner")
+    private String value_expectedBucketOwner;
+    private boolean unknown_expectedBucketOwner;
     public String expectedBucketOwner() {
-        if (expectedBucketOwner == null) return null;
-        return expectedBucketOwner.getValue("BucketAclV2Args.expectedBucketOwner");
+        if (!unknown_expectedBucketOwner) return value_expectedBucketOwner;
+        throw new UndeferrableValueException("Value 'BucketAclV2Args.expectedBucketOwner' is not present");
     }
 
 }

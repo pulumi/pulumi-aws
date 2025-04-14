@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class AccessGrantGrantee {
      * Grantee identifier.
      * 
      */
-    private UndeferrableValue<String> granteeIdentifier;
-
+    @PolicyResourceProperty(name="granteeIdentifier", flag="unknown_granteeIdentifier")
+    private String value_granteeIdentifier;
+    private boolean unknown_granteeIdentifier;
     public String granteeIdentifier() {
-        if (granteeIdentifier == null) return null;
-        return granteeIdentifier.getValue("AccessGrantGrantee.granteeIdentifier");
+        if (!unknown_granteeIdentifier) return value_granteeIdentifier;
+        throw new UndeferrableValueException("Value 'AccessGrantGrantee.granteeIdentifier' is not present");
     }
 
     /**
      * Grantee types. Valid values: `DIRECTORY_USER`, `DIRECTORY_GROUP`, `IAM`.
      * 
      */
-    private UndeferrableValue<String> granteeType;
-
+    @PolicyResourceProperty(name="granteeType", flag="unknown_granteeType")
+    private String value_granteeType;
+    private boolean unknown_granteeType;
     public String granteeType() {
-        if (granteeType == null) return null;
-        return granteeType.getValue("AccessGrantGrantee.granteeType");
+        if (!unknown_granteeType) return value_granteeType;
+        throw new UndeferrableValueException("Value 'AccessGrantGrantee.granteeType' is not present");
     }
 
 }

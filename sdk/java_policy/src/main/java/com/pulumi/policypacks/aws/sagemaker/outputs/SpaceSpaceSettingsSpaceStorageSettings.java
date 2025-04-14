@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.outputs.SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings;
 
 
@@ -13,11 +14,12 @@ public final class SpaceSpaceSettingsSpaceStorageSettings {
      * A collection of EBS storage settings for a space. See `ebs_storage_settings` Block below.
      * 
      */
-    private UndeferrableValue<SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings> ebsStorageSettings;
-
+    @PolicyResourceProperty(name="ebsStorageSettings", flag="unknown_ebsStorageSettings")
+    private SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings value_ebsStorageSettings;
+    private boolean unknown_ebsStorageSettings;
     public SpaceSpaceSettingsSpaceStorageSettingsEbsStorageSettings ebsStorageSettings() {
-        if (ebsStorageSettings == null) return null;
-        return ebsStorageSettings.getValue("SpaceSpaceSettingsSpaceStorageSettings.ebsStorageSettings");
+        if (!unknown_ebsStorageSettings) return value_ebsStorageSettings;
+        throw new UndeferrableValueException("Value 'SpaceSpaceSettingsSpaceStorageSettings.ebsStorageSettings' is not present");
     }
 
 }

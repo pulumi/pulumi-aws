@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.RouteSpecHttp2RouteMatchHeaderMatch;
 import java.lang.Boolean;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class RouteSpecHttp2RouteMatchHeader {
      * If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> invert;
-
+    @PolicyResourceProperty(name="invert", flag="unknown_invert")
+    private @Nullable Boolean value_invert;
+    private boolean unknown_invert;
     public @Nullable Boolean invert() {
-        if (invert == null) return null;
-        return invert.getValue("RouteSpecHttp2RouteMatchHeader.invert");
+        if (!unknown_invert) return value_invert;
+        throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteMatchHeader.invert' is not present");
     }
 
     /**
      * Method and value to match the header value sent with a request. Specify one match method.
      * 
      */
-    private @Nullable UndeferrableValue<RouteSpecHttp2RouteMatchHeaderMatch> match;
-
+    @PolicyResourceProperty(name="match", flag="unknown_match")
+    private @Nullable RouteSpecHttp2RouteMatchHeaderMatch value_match;
+    private boolean unknown_match;
     public @Nullable RouteSpecHttp2RouteMatchHeaderMatch match() {
-        if (match == null) return null;
-        return match.getValue("RouteSpecHttp2RouteMatchHeader.match");
+        if (!unknown_match) return value_match;
+        throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteMatchHeader.match' is not present");
     }
 
     /**
      * Name for the HTTP header in the client request that will be matched on.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("RouteSpecHttp2RouteMatchHeader.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'RouteSpecHttp2RouteMatchHeader.name' is not present");
     }
 
 }

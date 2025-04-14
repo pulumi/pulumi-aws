@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -15,22 +16,24 @@ public final class AgentAgentMemoryConfigurationArgs {
      * The type of memory being stored by the agent. See [AWS API documentation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_MemoryConfiguration.html) for possible values.
      * 
      */
-    private UndeferrableValue<List<String>> enabledMemoryTypes;
-
+    @PolicyResourceProperty(name="enabledMemoryTypes", flag="unknown_enabledMemoryTypes")
+    private List<String> value_enabledMemoryTypes;
+    private boolean unknown_enabledMemoryTypes;
     public List<String> enabledMemoryTypes() {
-        if (enabledMemoryTypes == null) return null;
-        return enabledMemoryTypes.getValue("AgentAgentMemoryConfigurationArgs.enabledMemoryTypes");
+        if (!unknown_enabledMemoryTypes) return value_enabledMemoryTypes;
+        throw new UndeferrableValueException("Value 'AgentAgentMemoryConfigurationArgs.enabledMemoryTypes' is not present");
     }
 
     /**
      * The number of days the agent is configured to retain the conversational context. Minimum value of 0, maximum value of 30.
      * 
      */
-    private UndeferrableValue<Integer> storageDays;
-
+    @PolicyResourceProperty(name="storageDays", flag="unknown_storageDays")
+    private Integer value_storageDays;
+    private boolean unknown_storageDays;
     public Integer storageDays() {
-        if (storageDays == null) return null;
-        return storageDays.getValue("AgentAgentMemoryConfigurationArgs.storageDays");
+        if (!unknown_storageDays) return value_storageDays;
+        throw new UndeferrableValueException("Value 'AgentAgentMemoryConfigurationArgs.storageDays' is not present");
     }
 
 }

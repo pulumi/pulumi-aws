@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.datasync.outputs.LocationFsxOntapFileSystemProtocolNfs;
 import com.pulumi.policypacks.aws.datasync.outputs.LocationFsxOntapFileSystemProtocolSmb;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class LocationFsxOntapFileSystemProtocol {
      * Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
      * 
      */
-    private @Nullable UndeferrableValue<LocationFsxOntapFileSystemProtocolNfs> nfs;
-
+    @PolicyResourceProperty(name="nfs", flag="unknown_nfs")
+    private @Nullable LocationFsxOntapFileSystemProtocolNfs value_nfs;
+    private boolean unknown_nfs;
     public @Nullable LocationFsxOntapFileSystemProtocolNfs nfs() {
-        if (nfs == null) return null;
-        return nfs.getValue("LocationFsxOntapFileSystemProtocol.nfs");
+        if (!unknown_nfs) return value_nfs;
+        throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystemProtocol.nfs' is not present");
     }
 
     /**
      * Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
      * 
      */
-    private @Nullable UndeferrableValue<LocationFsxOntapFileSystemProtocolSmb> smb;
-
+    @PolicyResourceProperty(name="smb", flag="unknown_smb")
+    private @Nullable LocationFsxOntapFileSystemProtocolSmb value_smb;
+    private boolean unknown_smb;
     public @Nullable LocationFsxOntapFileSystemProtocolSmb smb() {
-        if (smb == null) return null;
-        return smb.getValue("LocationFsxOntapFileSystemProtocol.smb");
+        if (!unknown_smb) return value_smb;
+        throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystemProtocol.smb' is not present");
     }
 
 }

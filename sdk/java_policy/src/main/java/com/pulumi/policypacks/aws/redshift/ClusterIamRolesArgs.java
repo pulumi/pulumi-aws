@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.redshift;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,33 +18,36 @@ public final class ClusterIamRolesArgs extends com.pulumi.resources.PolicyResour
      * The name of the Redshift Cluster IAM Roles.
      * 
      */
-    private UndeferrableValue<String> clusterIdentifier;
-
+    @PolicyResourceProperty(name="clusterIdentifier", flag="unknown_clusterIdentifier")
+    private String value_clusterIdentifier;
+    private boolean unknown_clusterIdentifier;
     public String clusterIdentifier() {
-        if (clusterIdentifier == null) return null;
-        return clusterIdentifier.getValue("ClusterIamRolesArgs.clusterIdentifier");
+        if (!unknown_clusterIdentifier) return value_clusterIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterIamRolesArgs.clusterIdentifier' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
-    private UndeferrableValue<String> defaultIamRoleArn;
-
+    @PolicyResourceProperty(name="defaultIamRoleArn", flag="unknown_defaultIamRoleArn")
+    private String value_defaultIamRoleArn;
+    private boolean unknown_defaultIamRoleArn;
     public String defaultIamRoleArn() {
-        if (defaultIamRoleArn == null) return null;
-        return defaultIamRoleArn.getValue("ClusterIamRolesArgs.defaultIamRoleArn");
+        if (!unknown_defaultIamRoleArn) return value_defaultIamRoleArn;
+        throw new UndeferrableValueException("Value 'ClusterIamRolesArgs.defaultIamRoleArn' is not present");
     }
 
     /**
      * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
      * 
      */
-    private UndeferrableValue<List<String>> iamRoleArns;
-
+    @PolicyResourceProperty(name="iamRoleArns", flag="unknown_iamRoleArns")
+    private List<String> value_iamRoleArns;
+    private boolean unknown_iamRoleArns;
     public List<String> iamRoleArns() {
-        if (iamRoleArns == null) return null;
-        return iamRoleArns.getValue("ClusterIamRolesArgs.iamRoleArns");
+        if (!unknown_iamRoleArns) return value_iamRoleArns;
+        throw new UndeferrableValueException("Value 'ClusterIamRolesArgs.iamRoleArns' is not present");
     }
 
 }

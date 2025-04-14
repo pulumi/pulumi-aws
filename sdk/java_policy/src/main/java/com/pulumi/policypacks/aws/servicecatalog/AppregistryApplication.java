@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicecatalog;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class AppregistryApplication extends com.pulumi.resources.PolicyRes
      * A map with a single tag key-value pair used to associate resources with the application. This attribute can be passed directly into the `tags` argument of another resource, or merged into a map of existing tags.
      * 
      */
-    private UndeferrableValue<Map<String,String>> applicationTag;
-
+    @PolicyResourceProperty(name="applicationTag", flag="unknown_applicationTag")
+    private Map<String,String> value_applicationTag;
+    private boolean unknown_applicationTag;
     public Map<String,String> applicationTag() {
-        if (applicationTag == null) return null;
-        return applicationTag.getValue("AppregistryApplication.applicationTag");
+        if (!unknown_applicationTag) return value_applicationTag;
+        throw new UndeferrableValueException("Value 'AppregistryApplication.applicationTag' is not present");
     }
 
     /**
      * ARN (Amazon Resource Name) of the application.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("AppregistryApplication.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'AppregistryApplication.arn' is not present");
     }
 
     /**
      * Description of the application.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("AppregistryApplication.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AppregistryApplication.description' is not present");
     }
 
     /**
@@ -52,22 +56,24 @@ public final class AppregistryApplication extends com.pulumi.resources.PolicyRes
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AppregistryApplication.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AppregistryApplication.name' is not present");
     }
 
     /**
      * A map of tags assigned to the Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AppregistryApplication.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AppregistryApplication.tags' is not present");
     }
 
     /**
@@ -78,11 +84,12 @@ public final class AppregistryApplication extends com.pulumi.resources.PolicyRes
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("AppregistryApplication.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'AppregistryApplication.tagsAll' is not present");
     }
 
 }

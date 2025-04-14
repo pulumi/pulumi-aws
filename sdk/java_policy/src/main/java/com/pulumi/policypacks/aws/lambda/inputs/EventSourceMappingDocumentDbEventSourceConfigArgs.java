@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class EventSourceMappingDocumentDbEventSourceConfigArgs {
      * The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
      * 
      */
-    private UndeferrableValue<String> collectionName;
-
+    @PolicyResourceProperty(name="collectionName", flag="unknown_collectionName")
+    private String value_collectionName;
+    private boolean unknown_collectionName;
     public String collectionName() {
-        if (collectionName == null) return null;
-        return collectionName.getValue("EventSourceMappingDocumentDbEventSourceConfigArgs.collectionName");
+        if (!unknown_collectionName) return value_collectionName;
+        throw new UndeferrableValueException("Value 'EventSourceMappingDocumentDbEventSourceConfigArgs.collectionName' is not present");
     }
 
     /**
      * The name of the database to consume within the DocumentDB cluster.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("EventSourceMappingDocumentDbEventSourceConfigArgs.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'EventSourceMappingDocumentDbEventSourceConfigArgs.databaseName' is not present");
     }
 
     /**
      * Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
      * 
      */
-    private UndeferrableValue<String> fullDocument;
-
+    @PolicyResourceProperty(name="fullDocument", flag="unknown_fullDocument")
+    private String value_fullDocument;
+    private boolean unknown_fullDocument;
     public String fullDocument() {
-        if (fullDocument == null) return null;
-        return fullDocument.getValue("EventSourceMappingDocumentDbEventSourceConfigArgs.fullDocument");
+        if (!unknown_fullDocument) return value_fullDocument;
+        throw new UndeferrableValueException("Value 'EventSourceMappingDocumentDbEventSourceConfigArgs.fullDocument' is not present");
     }
 
 }

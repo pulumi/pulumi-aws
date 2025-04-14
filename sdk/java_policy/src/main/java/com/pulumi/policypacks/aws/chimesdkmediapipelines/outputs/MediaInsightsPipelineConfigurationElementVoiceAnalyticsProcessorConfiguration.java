@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chimesdkmediapipelines.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class MediaInsightsPipelineConfigurationElementVoiceAnalyticsProces
      * Enable speaker search.
      * 
      */
-    private UndeferrableValue<String> speakerSearchStatus;
-
+    @PolicyResourceProperty(name="speakerSearchStatus", flag="unknown_speakerSearchStatus")
+    private String value_speakerSearchStatus;
+    private boolean unknown_speakerSearchStatus;
     public String speakerSearchStatus() {
-        if (speakerSearchStatus == null) return null;
-        return speakerSearchStatus.getValue("MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration.speakerSearchStatus");
+        if (!unknown_speakerSearchStatus) return value_speakerSearchStatus;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration.speakerSearchStatus' is not present");
     }
 
     /**
      * Enable voice tone analysis.
      * 
      */
-    private UndeferrableValue<String> voiceToneAnalysisStatus;
-
+    @PolicyResourceProperty(name="voiceToneAnalysisStatus", flag="unknown_voiceToneAnalysisStatus")
+    private String value_voiceToneAnalysisStatus;
+    private boolean unknown_voiceToneAnalysisStatus;
     public String voiceToneAnalysisStatus() {
-        if (voiceToneAnalysisStatus == null) return null;
-        return voiceToneAnalysisStatus.getValue("MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration.voiceToneAnalysisStatus");
+        if (!unknown_voiceToneAnalysisStatus) return value_voiceToneAnalysisStatus;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration.voiceToneAnalysisStatus' is not present");
     }
 
 }

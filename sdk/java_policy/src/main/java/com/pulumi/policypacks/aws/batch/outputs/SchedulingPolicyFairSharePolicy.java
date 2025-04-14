@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.batch.outputs.SchedulingPolicyFairSharePolicyShareDistribution;
 import java.lang.Integer;
 import java.util.List;
@@ -16,29 +17,32 @@ public final class SchedulingPolicyFairSharePolicy {
      * A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
      * 
      */
-    private @Nullable UndeferrableValue<Integer> computeReservation;
-
+    @PolicyResourceProperty(name="computeReservation", flag="unknown_computeReservation")
+    private @Nullable Integer value_computeReservation;
+    private boolean unknown_computeReservation;
     public @Nullable Integer computeReservation() {
-        if (computeReservation == null) return null;
-        return computeReservation.getValue("SchedulingPolicyFairSharePolicy.computeReservation");
+        if (!unknown_computeReservation) return value_computeReservation;
+        throw new UndeferrableValueException("Value 'SchedulingPolicyFairSharePolicy.computeReservation' is not present");
     }
 
-    private @Nullable UndeferrableValue<Integer> shareDecaySeconds;
-
+    @PolicyResourceProperty(name="shareDecaySeconds", flag="unknown_shareDecaySeconds")
+    private @Nullable Integer value_shareDecaySeconds;
+    private boolean unknown_shareDecaySeconds;
     public @Nullable Integer shareDecaySeconds() {
-        if (shareDecaySeconds == null) return null;
-        return shareDecaySeconds.getValue("SchedulingPolicyFairSharePolicy.shareDecaySeconds");
+        if (!unknown_shareDecaySeconds) return value_shareDecaySeconds;
+        throw new UndeferrableValueException("Value 'SchedulingPolicyFairSharePolicy.shareDecaySeconds' is not present");
     }
 
     /**
      * One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<SchedulingPolicyFairSharePolicyShareDistribution>> shareDistributions;
-
+    @PolicyResourceProperty(name="shareDistributions", flag="unknown_shareDistributions")
+    private @Nullable List<SchedulingPolicyFairSharePolicyShareDistribution> value_shareDistributions;
+    private boolean unknown_shareDistributions;
     public @Nullable List<SchedulingPolicyFairSharePolicyShareDistribution> shareDistributions() {
-        if (shareDistributions == null) return null;
-        return shareDistributions.getValue("SchedulingPolicyFairSharePolicy.shareDistributions");
+        if (!unknown_shareDistributions) return value_shareDistributions;
+        throw new UndeferrableValueException("Value 'SchedulingPolicyFairSharePolicy.shareDistributions' is not present");
     }
 
 }

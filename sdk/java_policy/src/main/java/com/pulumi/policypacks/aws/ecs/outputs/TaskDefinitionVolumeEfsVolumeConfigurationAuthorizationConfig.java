@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig
      * Access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
      * 
      */
-    private @Nullable UndeferrableValue<String> accessPointId;
-
+    @PolicyResourceProperty(name="accessPointId", flag="unknown_accessPointId")
+    private @Nullable String value_accessPointId;
+    private boolean unknown_accessPointId;
     public @Nullable String accessPointId() {
-        if (accessPointId == null) return null;
-        return accessPointId.getValue("TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig.accessPointId");
+        if (!unknown_accessPointId) return value_accessPointId;
+        throw new UndeferrableValueException("Value 'TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig.accessPointId' is not present");
     }
 
     /**
      * Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
      * 
      */
-    private @Nullable UndeferrableValue<String> iam;
-
+    @PolicyResourceProperty(name="iam", flag="unknown_iam")
+    private @Nullable String value_iam;
+    private boolean unknown_iam;
     public @Nullable String iam() {
-        if (iam == null) return null;
-        return iam.getValue("TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig.iam");
+        if (!unknown_iam) return value_iam;
+        throw new UndeferrableValueException("Value 'TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig.iam' is not present");
     }
 
 }

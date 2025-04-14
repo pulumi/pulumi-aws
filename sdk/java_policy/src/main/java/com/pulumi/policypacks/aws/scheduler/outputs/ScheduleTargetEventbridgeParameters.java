@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.scheduler.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class ScheduleTargetEventbridgeParameters {
      * Free-form string used to decide what fields to expect in the event detail. Up to 128 characters.
      * 
      */
-    private UndeferrableValue<String> detailType;
-
+    @PolicyResourceProperty(name="detailType", flag="unknown_detailType")
+    private String value_detailType;
+    private boolean unknown_detailType;
     public String detailType() {
-        if (detailType == null) return null;
-        return detailType.getValue("ScheduleTargetEventbridgeParameters.detailType");
+        if (!unknown_detailType) return value_detailType;
+        throw new UndeferrableValueException("Value 'ScheduleTargetEventbridgeParameters.detailType' is not present");
     }
 
     /**
      * Source of the event.
      * 
      */
-    private UndeferrableValue<String> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private String value_source;
+    private boolean unknown_source;
     public String source() {
-        if (source == null) return null;
-        return source.getValue("ScheduleTargetEventbridgeParameters.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'ScheduleTargetEventbridgeParameters.source' is not present");
     }
 
 }

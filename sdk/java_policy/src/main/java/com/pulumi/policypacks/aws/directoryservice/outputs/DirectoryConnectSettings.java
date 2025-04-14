@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directoryservice.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -11,66 +12,72 @@ import javax.annotation.Nullable;
 
 public final class DirectoryConnectSettings {
 
-    private @Nullable UndeferrableValue<List<String>> availabilityZones;
-
+    @PolicyResourceProperty(name="availabilityZones", flag="unknown_availabilityZones")
+    private @Nullable List<String> value_availabilityZones;
+    private boolean unknown_availabilityZones;
     public @Nullable List<String> availabilityZones() {
-        if (availabilityZones == null) return null;
-        return availabilityZones.getValue("DirectoryConnectSettings.availabilityZones");
+        if (!unknown_availabilityZones) return value_availabilityZones;
+        throw new UndeferrableValueException("Value 'DirectoryConnectSettings.availabilityZones' is not present");
     }
 
     /**
      * The IP addresses of the AD Connector servers.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> connectIps;
-
+    @PolicyResourceProperty(name="connectIps", flag="unknown_connectIps")
+    private @Nullable List<String> value_connectIps;
+    private boolean unknown_connectIps;
     public @Nullable List<String> connectIps() {
-        if (connectIps == null) return null;
-        return connectIps.getValue("DirectoryConnectSettings.connectIps");
+        if (!unknown_connectIps) return value_connectIps;
+        throw new UndeferrableValueException("Value 'DirectoryConnectSettings.connectIps' is not present");
     }
 
     /**
      * The DNS IP addresses of the domain to connect to.
      * 
      */
-    private UndeferrableValue<List<String>> customerDnsIps;
-
+    @PolicyResourceProperty(name="customerDnsIps", flag="unknown_customerDnsIps")
+    private List<String> value_customerDnsIps;
+    private boolean unknown_customerDnsIps;
     public List<String> customerDnsIps() {
-        if (customerDnsIps == null) return null;
-        return customerDnsIps.getValue("DirectoryConnectSettings.customerDnsIps");
+        if (!unknown_customerDnsIps) return value_customerDnsIps;
+        throw new UndeferrableValueException("Value 'DirectoryConnectSettings.customerDnsIps' is not present");
     }
 
     /**
      * The username corresponding to the password provided.
      * 
      */
-    private UndeferrableValue<String> customerUsername;
-
+    @PolicyResourceProperty(name="customerUsername", flag="unknown_customerUsername")
+    private String value_customerUsername;
+    private boolean unknown_customerUsername;
     public String customerUsername() {
-        if (customerUsername == null) return null;
-        return customerUsername.getValue("DirectoryConnectSettings.customerUsername");
+        if (!unknown_customerUsername) return value_customerUsername;
+        throw new UndeferrableValueException("Value 'DirectoryConnectSettings.customerUsername' is not present");
     }
 
     /**
      * The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("DirectoryConnectSettings.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'DirectoryConnectSettings.subnetIds' is not present");
     }
 
     /**
      * The identifier of the VPC that the directory is in.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("DirectoryConnectSettings.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'DirectoryConnectSettings.vpcId' is not present");
     }
 
 }

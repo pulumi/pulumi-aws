@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 
 
@@ -13,22 +14,24 @@ public final class ServiceDeploymentCircuitBreakerArgs {
      * Whether to enable the deployment circuit breaker logic for the service.
      * 
      */
-    private UndeferrableValue<Boolean> enable;
-
+    @PolicyResourceProperty(name="enable", flag="unknown_enable")
+    private Boolean value_enable;
+    private boolean unknown_enable;
     public Boolean enable() {
-        if (enable == null) return null;
-        return enable.getValue("ServiceDeploymentCircuitBreakerArgs.enable");
+        if (!unknown_enable) return value_enable;
+        throw new UndeferrableValueException("Value 'ServiceDeploymentCircuitBreakerArgs.enable' is not present");
     }
 
     /**
      * Whether to enable Amazon ECS to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
      * 
      */
-    private UndeferrableValue<Boolean> rollback;
-
+    @PolicyResourceProperty(name="rollback", flag="unknown_rollback")
+    private Boolean value_rollback;
+    private boolean unknown_rollback;
     public Boolean rollback() {
-        if (rollback == null) return null;
-        return rollback.getValue("ServiceDeploymentCircuitBreakerArgs.rollback");
+        if (!unknown_rollback) return value_rollback;
+        throw new UndeferrableValueException("Value 'ServiceDeploymentCircuitBreakerArgs.rollback' is not present");
     }
 
 }

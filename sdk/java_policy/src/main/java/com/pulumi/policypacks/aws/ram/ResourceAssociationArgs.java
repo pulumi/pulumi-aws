@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ram;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class ResourceAssociationArgs extends com.pulumi.resources.PolicyRe
      * Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("ResourceAssociationArgs.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'ResourceAssociationArgs.resourceArn' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the RAM Resource Share.
      * 
      */
-    private UndeferrableValue<String> resourceShareArn;
-
+    @PolicyResourceProperty(name="resourceShareArn", flag="unknown_resourceShareArn")
+    private String value_resourceShareArn;
+    private boolean unknown_resourceShareArn;
     public String resourceShareArn() {
-        if (resourceShareArn == null) return null;
-        return resourceShareArn.getValue("ResourceAssociationArgs.resourceShareArn");
+        if (!unknown_resourceShareArn) return value_resourceShareArn;
+        throw new UndeferrableValueException("Value 'ResourceAssociationArgs.resourceShareArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmonitor;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -14,55 +15,60 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:networkmonitor/probe:Probe")
 public final class Probe extends com.pulumi.resources.PolicyResourceOutput {
 
-    private UndeferrableValue<String> addressFamily;
-
+    @PolicyResourceProperty(name="addressFamily", flag="unknown_addressFamily")
+    private String value_addressFamily;
+    private boolean unknown_addressFamily;
     public String addressFamily() {
-        if (addressFamily == null) return null;
-        return addressFamily.getValue("Probe.addressFamily");
+        if (!unknown_addressFamily) return value_addressFamily;
+        throw new UndeferrableValueException("Value 'Probe.addressFamily' is not present");
     }
 
     /**
      * The ARN of the attachment.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Probe.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Probe.arn' is not present");
     }
 
     /**
      * The destination IP address. This must be either IPV4 or IPV6.
      * 
      */
-    private UndeferrableValue<String> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private String value_destination;
+    private boolean unknown_destination;
     public String destination() {
-        if (destination == null) return null;
-        return destination.getValue("Probe.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'Probe.destination' is not present");
     }
 
     /**
      * The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> destinationPort;
-
+    @PolicyResourceProperty(name="destinationPort", flag="unknown_destinationPort")
+    private @Nullable Integer value_destinationPort;
+    private boolean unknown_destinationPort;
     public @Nullable Integer destinationPort() {
-        if (destinationPort == null) return null;
-        return destinationPort.getValue("Probe.destinationPort");
+        if (!unknown_destinationPort) return value_destinationPort;
+        throw new UndeferrableValueException("Value 'Probe.destinationPort' is not present");
     }
 
     /**
      * The name of the monitor.
      * 
      */
-    private UndeferrableValue<String> monitorName;
-
+    @PolicyResourceProperty(name="monitorName", flag="unknown_monitorName")
+    private String value_monitorName;
+    private boolean unknown_monitorName;
     public String monitorName() {
-        if (monitorName == null) return null;
-        return monitorName.getValue("Probe.monitorName");
+        if (!unknown_monitorName) return value_monitorName;
+        throw new UndeferrableValueException("Value 'Probe.monitorName' is not present");
     }
 
     /**
@@ -71,51 +77,56 @@ public final class Probe extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<Integer> packetSize;
-
+    @PolicyResourceProperty(name="packetSize", flag="unknown_packetSize")
+    private Integer value_packetSize;
+    private boolean unknown_packetSize;
     public Integer packetSize() {
-        if (packetSize == null) return null;
-        return packetSize.getValue("Probe.packetSize");
+        if (!unknown_packetSize) return value_packetSize;
+        throw new UndeferrableValueException("Value 'Probe.packetSize' is not present");
     }
 
-    private UndeferrableValue<String> probeId;
-
+    @PolicyResourceProperty(name="probeId", flag="unknown_probeId")
+    private String value_probeId;
+    private boolean unknown_probeId;
     public String probeId() {
-        if (probeId == null) return null;
-        return probeId.getValue("Probe.probeId");
+        if (!unknown_probeId) return value_probeId;
+        throw new UndeferrableValueException("Value 'Probe.probeId' is not present");
     }
 
     /**
      * The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("Probe.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'Probe.protocol' is not present");
     }
 
     /**
      * The ARN of the subnet.
      * 
      */
-    private UndeferrableValue<String> sourceArn;
-
+    @PolicyResourceProperty(name="sourceArn", flag="unknown_sourceArn")
+    private String value_sourceArn;
+    private boolean unknown_sourceArn;
     public String sourceArn() {
-        if (sourceArn == null) return null;
-        return sourceArn.getValue("Probe.sourceArn");
+        if (!unknown_sourceArn) return value_sourceArn;
+        throw new UndeferrableValueException("Value 'Probe.sourceArn' is not present");
     }
 
     /**
      * Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Probe.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Probe.tags' is not present");
     }
 
     /**
@@ -126,18 +137,20 @@ public final class Probe extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Probe.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Probe.tagsAll' is not present");
     }
 
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("Probe.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'Probe.vpcId' is not present");
     }
 
 }

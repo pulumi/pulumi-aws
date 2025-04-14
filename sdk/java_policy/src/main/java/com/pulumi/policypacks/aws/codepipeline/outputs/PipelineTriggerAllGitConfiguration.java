@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codepipeline.outputs.PipelineTriggerAllGitConfigurationPullRequest;
 import com.pulumi.policypacks.aws.codepipeline.outputs.PipelineTriggerAllGitConfigurationPush;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class PipelineTriggerAllGitConfiguration {
      * The field where the repository event that will start the pipeline is specified as pull requests. A `pull_request` block is documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<PipelineTriggerAllGitConfigurationPullRequest>> pullRequests;
-
+    @PolicyResourceProperty(name="pullRequests", flag="unknown_pullRequests")
+    private @Nullable List<PipelineTriggerAllGitConfigurationPullRequest> value_pullRequests;
+    private boolean unknown_pullRequests;
     public @Nullable List<PipelineTriggerAllGitConfigurationPullRequest> pullRequests() {
-        if (pullRequests == null) return null;
-        return pullRequests.getValue("PipelineTriggerAllGitConfiguration.pullRequests");
+        if (!unknown_pullRequests) return value_pullRequests;
+        throw new UndeferrableValueException("Value 'PipelineTriggerAllGitConfiguration.pullRequests' is not present");
     }
 
     /**
      * The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<PipelineTriggerAllGitConfigurationPush>> pushes;
-
+    @PolicyResourceProperty(name="pushes", flag="unknown_pushes")
+    private @Nullable List<PipelineTriggerAllGitConfigurationPush> value_pushes;
+    private boolean unknown_pushes;
     public @Nullable List<PipelineTriggerAllGitConfigurationPush> pushes() {
-        if (pushes == null) return null;
-        return pushes.getValue("PipelineTriggerAllGitConfiguration.pushes");
+        if (!unknown_pushes) return value_pushes;
+        throw new UndeferrableValueException("Value 'PipelineTriggerAllGitConfiguration.pushes' is not present");
     }
 
     /**
      * The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
      * 
      */
-    private @Nullable UndeferrableValue<String> sourceActionName;
-
+    @PolicyResourceProperty(name="sourceActionName", flag="unknown_sourceActionName")
+    private @Nullable String value_sourceActionName;
+    private boolean unknown_sourceActionName;
     public @Nullable String sourceActionName() {
-        if (sourceActionName == null) return null;
-        return sourceActionName.getValue("PipelineTriggerAllGitConfiguration.sourceActionName");
+        if (!unknown_sourceActionName) return value_sourceActionName;
+        throw new UndeferrableValueException("Value 'PipelineTriggerAllGitConfiguration.sourceActionName' is not present");
     }
 
 }

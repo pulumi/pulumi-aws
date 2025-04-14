@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.outputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv;
 import com.pulumi.policypacks.aws.kinesis.outputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMap
      * See CSV Mapping Parameters below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv> csv;
-
+    @PolicyResourceProperty(name="csv", flag="unknown_csv")
+    private @Nullable AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv value_csv;
+    private boolean unknown_csv;
     public @Nullable AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv csv() {
-        if (csv == null) return null;
-        return csv.getValue("AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters.csv");
+        if (!unknown_csv) return value_csv;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters.csv' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMap
      * See JSON Mapping Parameters below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson> json;
-
+    @PolicyResourceProperty(name="json", flag="unknown_json")
+    private @Nullable AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson value_json;
+    private boolean unknown_json;
     public @Nullable AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson json() {
-        if (json == null) return null;
-        return json.getValue("AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters.json");
+        if (!unknown_json) return value_json;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters.json' is not present");
     }
 
 }

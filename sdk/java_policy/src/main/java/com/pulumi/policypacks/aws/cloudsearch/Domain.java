@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudsearch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudsearch.outputs.DomainEndpointOptions;
 import com.pulumi.policypacks.aws.cloudsearch.outputs.DomainIndexField;
@@ -21,99 +22,108 @@ public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
      * The domain&#39;s ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Domain.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Domain.arn' is not present");
     }
 
     /**
      * The service endpoint for updating documents in a search domain.
      * 
      */
-    private UndeferrableValue<String> documentServiceEndpoint;
-
+    @PolicyResourceProperty(name="documentServiceEndpoint", flag="unknown_documentServiceEndpoint")
+    private String value_documentServiceEndpoint;
+    private boolean unknown_documentServiceEndpoint;
     public String documentServiceEndpoint() {
-        if (documentServiceEndpoint == null) return null;
-        return documentServiceEndpoint.getValue("Domain.documentServiceEndpoint");
+        if (!unknown_documentServiceEndpoint) return value_documentServiceEndpoint;
+        throw new UndeferrableValueException("Value 'Domain.documentServiceEndpoint' is not present");
     }
 
     /**
      * An internally generated unique identifier for the domain.
      * 
      */
-    private UndeferrableValue<String> domainId;
-
+    @PolicyResourceProperty(name="domainId", flag="unknown_domainId")
+    private String value_domainId;
+    private boolean unknown_domainId;
     public String domainId() {
-        if (domainId == null) return null;
-        return domainId.getValue("Domain.domainId");
+        if (!unknown_domainId) return value_domainId;
+        throw new UndeferrableValueException("Value 'Domain.domainId' is not present");
     }
 
     /**
      * Domain endpoint options. Documented below.
      * 
      */
-    private UndeferrableValue<DomainEndpointOptions> endpointOptions;
-
+    @PolicyResourceProperty(name="endpointOptions", flag="unknown_endpointOptions")
+    private DomainEndpointOptions value_endpointOptions;
+    private boolean unknown_endpointOptions;
     public DomainEndpointOptions endpointOptions() {
-        if (endpointOptions == null) return null;
-        return endpointOptions.getValue("Domain.endpointOptions");
+        if (!unknown_endpointOptions) return value_endpointOptions;
+        throw new UndeferrableValueException("Value 'Domain.endpointOptions' is not present");
     }
 
     /**
      * The index fields for documents added to the domain. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<DomainIndexField>> indexFields;
-
+    @PolicyResourceProperty(name="indexFields", flag="unknown_indexFields")
+    private @Nullable List<DomainIndexField> value_indexFields;
+    private boolean unknown_indexFields;
     public @Nullable List<DomainIndexField> indexFields() {
-        if (indexFields == null) return null;
-        return indexFields.getValue("Domain.indexFields");
+        if (!unknown_indexFields) return value_indexFields;
+        throw new UndeferrableValueException("Value 'Domain.indexFields' is not present");
     }
 
     /**
      * Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
      * 
      */
-    private UndeferrableValue<Boolean> multiAz;
-
+    @PolicyResourceProperty(name="multiAz", flag="unknown_multiAz")
+    private Boolean value_multiAz;
+    private boolean unknown_multiAz;
     public Boolean multiAz() {
-        if (multiAz == null) return null;
-        return multiAz.getValue("Domain.multiAz");
+        if (!unknown_multiAz) return value_multiAz;
+        throw new UndeferrableValueException("Value 'Domain.multiAz' is not present");
     }
 
     /**
      * The name of the CloudSearch domain.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Domain.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Domain.name' is not present");
     }
 
     /**
      * Domain scaling parameters. Documented below.
      * 
      */
-    private UndeferrableValue<DomainScalingParameters> scalingParameters;
-
+    @PolicyResourceProperty(name="scalingParameters", flag="unknown_scalingParameters")
+    private DomainScalingParameters value_scalingParameters;
+    private boolean unknown_scalingParameters;
     public DomainScalingParameters scalingParameters() {
-        if (scalingParameters == null) return null;
-        return scalingParameters.getValue("Domain.scalingParameters");
+        if (!unknown_scalingParameters) return value_scalingParameters;
+        throw new UndeferrableValueException("Value 'Domain.scalingParameters' is not present");
     }
 
     /**
      * The service endpoint for requesting search results from a search domain.
      * 
      */
-    private UndeferrableValue<String> searchServiceEndpoint;
-
+    @PolicyResourceProperty(name="searchServiceEndpoint", flag="unknown_searchServiceEndpoint")
+    private String value_searchServiceEndpoint;
+    private boolean unknown_searchServiceEndpoint;
     public String searchServiceEndpoint() {
-        if (searchServiceEndpoint == null) return null;
-        return searchServiceEndpoint.getValue("Domain.searchServiceEndpoint");
+        if (!unknown_searchServiceEndpoint) return value_searchServiceEndpoint;
+        throw new UndeferrableValueException("Value 'Domain.searchServiceEndpoint' is not present");
     }
 
 }

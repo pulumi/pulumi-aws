@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.rds.inputs.ProxyDefaultTargetGroupConnectionPoolConfigArgs;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class ProxyDefaultTargetGroupArgs extends com.pulumi.resources.Poli
      * The settings that determine the size and behavior of the connection pool for the target group.
      * 
      */
-    private UndeferrableValue<ProxyDefaultTargetGroupConnectionPoolConfigArgs> connectionPoolConfig;
-
+    @PolicyResourceProperty(name="connectionPoolConfig", flag="unknown_connectionPoolConfig")
+    private ProxyDefaultTargetGroupConnectionPoolConfigArgs value_connectionPoolConfig;
+    private boolean unknown_connectionPoolConfig;
     public ProxyDefaultTargetGroupConnectionPoolConfigArgs connectionPoolConfig() {
-        if (connectionPoolConfig == null) return null;
-        return connectionPoolConfig.getValue("ProxyDefaultTargetGroupArgs.connectionPoolConfig");
+        if (!unknown_connectionPoolConfig) return value_connectionPoolConfig;
+        throw new UndeferrableValueException("Value 'ProxyDefaultTargetGroupArgs.connectionPoolConfig' is not present");
     }
 
     /**
      * Name of the RDS DB Proxy.
      * 
      */
-    private UndeferrableValue<String> dbProxyName;
-
+    @PolicyResourceProperty(name="dbProxyName", flag="unknown_dbProxyName")
+    private String value_dbProxyName;
+    private boolean unknown_dbProxyName;
     public String dbProxyName() {
-        if (dbProxyName == null) return null;
-        return dbProxyName.getValue("ProxyDefaultTargetGroupArgs.dbProxyName");
+        if (!unknown_dbProxyName) return value_dbProxyName;
+        throw new UndeferrableValueException("Value 'ProxyDefaultTargetGroupArgs.dbProxyName' is not present");
     }
 
 }

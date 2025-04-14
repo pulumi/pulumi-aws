@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ivschat;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ivschat.inputs.LoggingConfigurationDestinationConfigurationArgs;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class LoggingConfigurationArgs extends com.pulumi.resources.PolicyR
      * Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
      * 
      */
-    private UndeferrableValue<LoggingConfigurationDestinationConfigurationArgs> destinationConfiguration;
-
+    @PolicyResourceProperty(name="destinationConfiguration", flag="unknown_destinationConfiguration")
+    private LoggingConfigurationDestinationConfigurationArgs value_destinationConfiguration;
+    private boolean unknown_destinationConfiguration;
     public LoggingConfigurationDestinationConfigurationArgs destinationConfiguration() {
-        if (destinationConfiguration == null) return null;
-        return destinationConfiguration.getValue("LoggingConfigurationArgs.destinationConfiguration");
+        if (!unknown_destinationConfiguration) return value_destinationConfiguration;
+        throw new UndeferrableValueException("Value 'LoggingConfigurationArgs.destinationConfiguration' is not present");
     }
 
     /**
      * Logging Configuration name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LoggingConfigurationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LoggingConfigurationArgs.name' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LoggingConfigurationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LoggingConfigurationArgs.tags' is not present");
     }
 
 }

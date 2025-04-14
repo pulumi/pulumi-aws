@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.athena.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -15,11 +16,12 @@ public final class DatabaseAclConfiguration {
      * &gt; **NOTE:** When Athena queries are executed, result files may be created in the specified bucket. Consider using `force_destroy` on the bucket too in order to avoid any problems when destroying the bucket.
      * 
      */
-    private UndeferrableValue<String> s3AclOption;
-
+    @PolicyResourceProperty(name="s3AclOption", flag="unknown_s3AclOption")
+    private String value_s3AclOption;
+    private boolean unknown_s3AclOption;
     public String s3AclOption() {
-        if (s3AclOption == null) return null;
-        return s3AclOption.getValue("DatabaseAclConfiguration.s3AclOption");
+        if (!unknown_s3AclOption) return value_s3AclOption;
+        throw new UndeferrableValueException("Value 'DatabaseAclConfiguration.s3AclOption' is not present");
     }
 
 }

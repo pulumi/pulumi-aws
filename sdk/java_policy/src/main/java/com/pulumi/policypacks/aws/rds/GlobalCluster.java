@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.rds.outputs.GlobalClusterGlobalClusterMember;
 import java.lang.Boolean;
@@ -20,161 +21,176 @@ public final class GlobalCluster extends com.pulumi.resources.PolicyResourceOutp
      * RDS Global Cluster Amazon Resource Name (ARN).
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("GlobalCluster.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'GlobalCluster.arn' is not present");
     }
 
     /**
      * Name for an automatically created database on cluster creation. Pulumi will only perform drift detection if a configuration value is provided.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("GlobalCluster.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'GlobalCluster.databaseName' is not present");
     }
 
     /**
      * If the Global Cluster should have deletion protection enabled. The database can&#39;t be deleted when this value is set to `true`. The default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> deletionProtection;
-
+    @PolicyResourceProperty(name="deletionProtection", flag="unknown_deletionProtection")
+    private @Nullable Boolean value_deletionProtection;
+    private boolean unknown_deletionProtection;
     public @Nullable Boolean deletionProtection() {
-        if (deletionProtection == null) return null;
-        return deletionProtection.getValue("GlobalCluster.deletionProtection");
+        if (!unknown_deletionProtection) return value_deletionProtection;
+        throw new UndeferrableValueException("Value 'GlobalCluster.deletionProtection' is not present");
     }
 
     /**
      * Writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
      * 
      */
-    private UndeferrableValue<String> endpoint;
-
+    @PolicyResourceProperty(name="endpoint", flag="unknown_endpoint")
+    private String value_endpoint;
+    private boolean unknown_endpoint;
     public String endpoint() {
-        if (endpoint == null) return null;
-        return endpoint.getValue("GlobalCluster.endpoint");
+        if (!unknown_endpoint) return value_endpoint;
+        throw new UndeferrableValueException("Value 'GlobalCluster.endpoint' is not present");
     }
 
     /**
      * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Valid values: `aurora`, `aurora-mysql`, `aurora-postgresql`. Defaults to `aurora`. Conflicts with `source_db_cluster_identifier`.
      * 
      */
-    private UndeferrableValue<String> engine;
-
+    @PolicyResourceProperty(name="engine", flag="unknown_engine")
+    private String value_engine;
+    private boolean unknown_engine;
     public String engine() {
-        if (engine == null) return null;
-        return engine.getValue("GlobalCluster.engine");
+        if (!unknown_engine) return value_engine;
+        throw new UndeferrableValueException("Value 'GlobalCluster.engine' is not present");
     }
 
     /**
      * The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
      * 
      */
-    private UndeferrableValue<String> engineLifecycleSupport;
-
+    @PolicyResourceProperty(name="engineLifecycleSupport", flag="unknown_engineLifecycleSupport")
+    private String value_engineLifecycleSupport;
+    private boolean unknown_engineLifecycleSupport;
     public String engineLifecycleSupport() {
-        if (engineLifecycleSupport == null) return null;
-        return engineLifecycleSupport.getValue("GlobalCluster.engineLifecycleSupport");
+        if (!unknown_engineLifecycleSupport) return value_engineLifecycleSupport;
+        throw new UndeferrableValueException("Value 'GlobalCluster.engineLifecycleSupport' is not present");
     }
 
     /**
      * Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `aws.rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `aws.rds.Cluster` resource as shown above in Upgrading Engine Versions example.
      * 
      */
-    private UndeferrableValue<String> engineVersion;
-
+    @PolicyResourceProperty(name="engineVersion", flag="unknown_engineVersion")
+    private String value_engineVersion;
+    private boolean unknown_engineVersion;
     public String engineVersion() {
-        if (engineVersion == null) return null;
-        return engineVersion.getValue("GlobalCluster.engineVersion");
+        if (!unknown_engineVersion) return value_engineVersion;
+        throw new UndeferrableValueException("Value 'GlobalCluster.engineVersion' is not present");
     }
 
-    private UndeferrableValue<String> engineVersionActual;
-
+    @PolicyResourceProperty(name="engineVersionActual", flag="unknown_engineVersionActual")
+    private String value_engineVersionActual;
+    private boolean unknown_engineVersionActual;
     public String engineVersionActual() {
-        if (engineVersionActual == null) return null;
-        return engineVersionActual.getValue("GlobalCluster.engineVersionActual");
+        if (!unknown_engineVersionActual) return value_engineVersionActual;
+        throw new UndeferrableValueException("Value 'GlobalCluster.engineVersionActual' is not present");
     }
 
     /**
      * Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> forceDestroy;
-
+    @PolicyResourceProperty(name="forceDestroy", flag="unknown_forceDestroy")
+    private @Nullable Boolean value_forceDestroy;
+    private boolean unknown_forceDestroy;
     public @Nullable Boolean forceDestroy() {
-        if (forceDestroy == null) return null;
-        return forceDestroy.getValue("GlobalCluster.forceDestroy");
+        if (!unknown_forceDestroy) return value_forceDestroy;
+        throw new UndeferrableValueException("Value 'GlobalCluster.forceDestroy' is not present");
     }
 
     /**
      * Global cluster identifier.
      * 
      */
-    private UndeferrableValue<String> globalClusterIdentifier;
-
+    @PolicyResourceProperty(name="globalClusterIdentifier", flag="unknown_globalClusterIdentifier")
+    private String value_globalClusterIdentifier;
+    private boolean unknown_globalClusterIdentifier;
     public String globalClusterIdentifier() {
-        if (globalClusterIdentifier == null) return null;
-        return globalClusterIdentifier.getValue("GlobalCluster.globalClusterIdentifier");
+        if (!unknown_globalClusterIdentifier) return value_globalClusterIdentifier;
+        throw new UndeferrableValueException("Value 'GlobalCluster.globalClusterIdentifier' is not present");
     }
 
     /**
      * Set of objects containing Global Cluster members.
      * 
      */
-    private UndeferrableValue<List<GlobalClusterGlobalClusterMember>> globalClusterMembers;
-
+    @PolicyResourceProperty(name="globalClusterMembers", flag="unknown_globalClusterMembers")
+    private List<GlobalClusterGlobalClusterMember> value_globalClusterMembers;
+    private boolean unknown_globalClusterMembers;
     public List<GlobalClusterGlobalClusterMember> globalClusterMembers() {
-        if (globalClusterMembers == null) return null;
-        return globalClusterMembers.getValue("GlobalCluster.globalClusterMembers");
+        if (!unknown_globalClusterMembers) return value_globalClusterMembers;
+        throw new UndeferrableValueException("Value 'GlobalCluster.globalClusterMembers' is not present");
     }
 
     /**
      * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
      * 
      */
-    private UndeferrableValue<String> globalClusterResourceId;
-
+    @PolicyResourceProperty(name="globalClusterResourceId", flag="unknown_globalClusterResourceId")
+    private String value_globalClusterResourceId;
+    private boolean unknown_globalClusterResourceId;
     public String globalClusterResourceId() {
-        if (globalClusterResourceId == null) return null;
-        return globalClusterResourceId.getValue("GlobalCluster.globalClusterResourceId");
+        if (!unknown_globalClusterResourceId) return value_globalClusterResourceId;
+        throw new UndeferrableValueException("Value 'GlobalCluster.globalClusterResourceId' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engine_version`. This allows upgrading the engine version of the Global Cluster.
      * 
      */
-    private UndeferrableValue<String> sourceDbClusterIdentifier;
-
+    @PolicyResourceProperty(name="sourceDbClusterIdentifier", flag="unknown_sourceDbClusterIdentifier")
+    private String value_sourceDbClusterIdentifier;
+    private boolean unknown_sourceDbClusterIdentifier;
     public String sourceDbClusterIdentifier() {
-        if (sourceDbClusterIdentifier == null) return null;
-        return sourceDbClusterIdentifier.getValue("GlobalCluster.sourceDbClusterIdentifier");
+        if (!unknown_sourceDbClusterIdentifier) return value_sourceDbClusterIdentifier;
+        throw new UndeferrableValueException("Value 'GlobalCluster.sourceDbClusterIdentifier' is not present");
     }
 
     /**
      * Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
-    private UndeferrableValue<Boolean> storageEncrypted;
-
+    @PolicyResourceProperty(name="storageEncrypted", flag="unknown_storageEncrypted")
+    private Boolean value_storageEncrypted;
+    private boolean unknown_storageEncrypted;
     public Boolean storageEncrypted() {
-        if (storageEncrypted == null) return null;
-        return storageEncrypted.getValue("GlobalCluster.storageEncrypted");
+        if (!unknown_storageEncrypted) return value_storageEncrypted;
+        throw new UndeferrableValueException("Value 'GlobalCluster.storageEncrypted' is not present");
     }
 
     /**
      * A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("GlobalCluster.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'GlobalCluster.tags' is not present");
     }
 
     /**
@@ -185,11 +201,12 @@ public final class GlobalCluster extends com.pulumi.resources.PolicyResourceOutp
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("GlobalCluster.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'GlobalCluster.tagsAll' is not present");
     }
 
 }

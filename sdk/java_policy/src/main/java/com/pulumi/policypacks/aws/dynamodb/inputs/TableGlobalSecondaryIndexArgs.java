@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dynamodb.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.dynamodb.inputs.TableGlobalSecondaryIndexOnDemandThroughputArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,88 +18,96 @@ public final class TableGlobalSecondaryIndexArgs {
      * Name of the hash key in the index; must be defined as an attribute in the resource.
      * 
      */
-    private UndeferrableValue<String> hashKey;
-
+    @PolicyResourceProperty(name="hashKey", flag="unknown_hashKey")
+    private String value_hashKey;
+    private boolean unknown_hashKey;
     public String hashKey() {
-        if (hashKey == null) return null;
-        return hashKey.getValue("TableGlobalSecondaryIndexArgs.hashKey");
+        if (!unknown_hashKey) return value_hashKey;
+        throw new UndeferrableValueException("Value 'TableGlobalSecondaryIndexArgs.hashKey' is not present");
     }
 
     /**
      * Name of the index.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TableGlobalSecondaryIndexArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TableGlobalSecondaryIndexArgs.name' is not present");
     }
 
     /**
      * Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
      * 
      */
-    private UndeferrableValue<List<String>> nonKeyAttributes;
-
+    @PolicyResourceProperty(name="nonKeyAttributes", flag="unknown_nonKeyAttributes")
+    private List<String> value_nonKeyAttributes;
+    private boolean unknown_nonKeyAttributes;
     public List<String> nonKeyAttributes() {
-        if (nonKeyAttributes == null) return null;
-        return nonKeyAttributes.getValue("TableGlobalSecondaryIndexArgs.nonKeyAttributes");
+        if (!unknown_nonKeyAttributes) return value_nonKeyAttributes;
+        throw new UndeferrableValueException("Value 'TableGlobalSecondaryIndexArgs.nonKeyAttributes' is not present");
     }
 
     /**
      * Sets the maximum number of read and write units for the specified on-demand table. See below.
      * 
      */
-    private UndeferrableValue<TableGlobalSecondaryIndexOnDemandThroughputArgs> onDemandThroughput;
-
+    @PolicyResourceProperty(name="onDemandThroughput", flag="unknown_onDemandThroughput")
+    private TableGlobalSecondaryIndexOnDemandThroughputArgs value_onDemandThroughput;
+    private boolean unknown_onDemandThroughput;
     public TableGlobalSecondaryIndexOnDemandThroughputArgs onDemandThroughput() {
-        if (onDemandThroughput == null) return null;
-        return onDemandThroughput.getValue("TableGlobalSecondaryIndexArgs.onDemandThroughput");
+        if (!unknown_onDemandThroughput) return value_onDemandThroughput;
+        throw new UndeferrableValueException("Value 'TableGlobalSecondaryIndexArgs.onDemandThroughput' is not present");
     }
 
     /**
      * One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
      * 
      */
-    private UndeferrableValue<String> projectionType;
-
+    @PolicyResourceProperty(name="projectionType", flag="unknown_projectionType")
+    private String value_projectionType;
+    private boolean unknown_projectionType;
     public String projectionType() {
-        if (projectionType == null) return null;
-        return projectionType.getValue("TableGlobalSecondaryIndexArgs.projectionType");
+        if (!unknown_projectionType) return value_projectionType;
+        throw new UndeferrableValueException("Value 'TableGlobalSecondaryIndexArgs.projectionType' is not present");
     }
 
     /**
      * Name of the range key; must be defined
      * 
      */
-    private UndeferrableValue<String> rangeKey;
-
+    @PolicyResourceProperty(name="rangeKey", flag="unknown_rangeKey")
+    private String value_rangeKey;
+    private boolean unknown_rangeKey;
     public String rangeKey() {
-        if (rangeKey == null) return null;
-        return rangeKey.getValue("TableGlobalSecondaryIndexArgs.rangeKey");
+        if (!unknown_rangeKey) return value_rangeKey;
+        throw new UndeferrableValueException("Value 'TableGlobalSecondaryIndexArgs.rangeKey' is not present");
     }
 
     /**
      * Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
      * 
      */
-    private UndeferrableValue<Integer> readCapacity;
-
+    @PolicyResourceProperty(name="readCapacity", flag="unknown_readCapacity")
+    private Integer value_readCapacity;
+    private boolean unknown_readCapacity;
     public Integer readCapacity() {
-        if (readCapacity == null) return null;
-        return readCapacity.getValue("TableGlobalSecondaryIndexArgs.readCapacity");
+        if (!unknown_readCapacity) return value_readCapacity;
+        throw new UndeferrableValueException("Value 'TableGlobalSecondaryIndexArgs.readCapacity' is not present");
     }
 
     /**
      * Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
      * 
      */
-    private UndeferrableValue<Integer> writeCapacity;
-
+    @PolicyResourceProperty(name="writeCapacity", flag="unknown_writeCapacity")
+    private Integer value_writeCapacity;
+    private boolean unknown_writeCapacity;
     public Integer writeCapacity() {
-        if (writeCapacity == null) return null;
-        return writeCapacity.getValue("TableGlobalSecondaryIndexArgs.writeCapacity");
+        if (!unknown_writeCapacity) return value_writeCapacity;
+        throw new UndeferrableValueException("Value 'TableGlobalSecondaryIndexArgs.writeCapacity' is not present");
     }
 
 }

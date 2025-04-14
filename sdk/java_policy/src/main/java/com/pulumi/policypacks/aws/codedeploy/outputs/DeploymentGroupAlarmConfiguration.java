@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codedeploy.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class DeploymentGroupAlarmConfiguration {
      * A list of alarms configured for the deployment group.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> alarms;
-
+    @PolicyResourceProperty(name="alarms", flag="unknown_alarms")
+    private @Nullable List<String> value_alarms;
+    private boolean unknown_alarms;
     public @Nullable List<String> alarms() {
-        if (alarms == null) return null;
-        return alarms.getValue("DeploymentGroupAlarmConfiguration.alarms");
+        if (!unknown_alarms) return value_alarms;
+        throw new UndeferrableValueException("Value 'DeploymentGroupAlarmConfiguration.alarms' is not present");
     }
 
     /**
      * Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("DeploymentGroupAlarmConfiguration.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'DeploymentGroupAlarmConfiguration.enabled' is not present");
     }
 
     /**
      * Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> ignorePollAlarmFailure;
-
+    @PolicyResourceProperty(name="ignorePollAlarmFailure", flag="unknown_ignorePollAlarmFailure")
+    private @Nullable Boolean value_ignorePollAlarmFailure;
+    private boolean unknown_ignorePollAlarmFailure;
     public @Nullable Boolean ignorePollAlarmFailure() {
-        if (ignorePollAlarmFailure == null) return null;
-        return ignorePollAlarmFailure.getValue("DeploymentGroupAlarmConfiguration.ignorePollAlarmFailure");
+        if (!unknown_ignorePollAlarmFailure) return value_ignorePollAlarmFailure;
+        throw new UndeferrableValueException("Value 'DeploymentGroupAlarmConfiguration.ignorePollAlarmFailure' is not present");
     }
 
 }

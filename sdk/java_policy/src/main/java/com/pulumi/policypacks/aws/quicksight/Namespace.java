@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.quicksight.outputs.NamespaceTimeouts;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class Namespace extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the Namespace.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Namespace.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Namespace.arn' is not present");
     }
 
     /**
      * AWS account ID.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("Namespace.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'Namespace.awsAccountId' is not present");
     }
 
     /**
      * Namespace AWS Region.
      * 
      */
-    private UndeferrableValue<String> capacityRegion;
-
+    @PolicyResourceProperty(name="capacityRegion", flag="unknown_capacityRegion")
+    private String value_capacityRegion;
+    private boolean unknown_capacityRegion;
     public String capacityRegion() {
-        if (capacityRegion == null) return null;
-        return capacityRegion.getValue("Namespace.capacityRegion");
+        if (!unknown_capacityRegion) return value_capacityRegion;
+        throw new UndeferrableValueException("Value 'Namespace.capacityRegion' is not present");
     }
 
     /**
      * Creation status of the namespace.
      * 
      */
-    private UndeferrableValue<String> creationStatus;
-
+    @PolicyResourceProperty(name="creationStatus", flag="unknown_creationStatus")
+    private String value_creationStatus;
+    private boolean unknown_creationStatus;
     public String creationStatus() {
-        if (creationStatus == null) return null;
-        return creationStatus.getValue("Namespace.creationStatus");
+        if (!unknown_creationStatus) return value_creationStatus;
+        throw new UndeferrableValueException("Value 'Namespace.creationStatus' is not present");
     }
 
     /**
      * User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
      * 
      */
-    private UndeferrableValue<String> identityStore;
-
+    @PolicyResourceProperty(name="identityStore", flag="unknown_identityStore")
+    private String value_identityStore;
+    private boolean unknown_identityStore;
     public String identityStore() {
-        if (identityStore == null) return null;
-        return identityStore.getValue("Namespace.identityStore");
+        if (!unknown_identityStore) return value_identityStore;
+        throw new UndeferrableValueException("Value 'Namespace.identityStore' is not present");
     }
 
     /**
@@ -75,22 +81,24 @@ public final class Namespace extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private String value_namespace;
+    private boolean unknown_namespace;
     public String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("Namespace.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'Namespace.namespace' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Namespace.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Namespace.tags' is not present");
     }
 
     /**
@@ -101,18 +109,20 @@ public final class Namespace extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Namespace.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Namespace.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<NamespaceTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable NamespaceTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable NamespaceTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("Namespace.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'Namespace.timeouts' is not present");
     }
 
 }

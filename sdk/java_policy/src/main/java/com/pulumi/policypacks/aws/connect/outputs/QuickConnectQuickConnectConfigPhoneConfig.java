@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class QuickConnectQuickConnectConfigPhoneConfig {
      * Specifies the phone number in in E.164 format.
      * 
      */
-    private UndeferrableValue<String> phoneNumber;
-
+    @PolicyResourceProperty(name="phoneNumber", flag="unknown_phoneNumber")
+    private String value_phoneNumber;
+    private boolean unknown_phoneNumber;
     public String phoneNumber() {
-        if (phoneNumber == null) return null;
-        return phoneNumber.getValue("QuickConnectQuickConnectConfigPhoneConfig.phoneNumber");
+        if (!unknown_phoneNumber) return value_phoneNumber;
+        throw new UndeferrableValueException("Value 'QuickConnectQuickConnectConfigPhoneConfig.phoneNumber' is not present");
     }
 
 }

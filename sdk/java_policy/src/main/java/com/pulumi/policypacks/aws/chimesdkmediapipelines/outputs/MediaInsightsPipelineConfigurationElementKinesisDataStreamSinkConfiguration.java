@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chimesdkmediapipelines.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class MediaInsightsPipelineConfigurationElementKinesisDataStreamSin
      * Kinesis Data Stream to deliver results.
      * 
      */
-    private UndeferrableValue<String> insightsTarget;
-
+    @PolicyResourceProperty(name="insightsTarget", flag="unknown_insightsTarget")
+    private String value_insightsTarget;
+    private boolean unknown_insightsTarget;
     public String insightsTarget() {
-        if (insightsTarget == null) return null;
-        return insightsTarget.getValue("MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration.insightsTarget");
+        if (!unknown_insightsTarget) return value_insightsTarget;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration.insightsTarget' is not present");
     }
 
 }

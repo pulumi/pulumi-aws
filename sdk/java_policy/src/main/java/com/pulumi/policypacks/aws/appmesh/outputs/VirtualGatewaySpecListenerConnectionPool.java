@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualGatewaySpecListenerConnectionPoolGrpc;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualGatewaySpecListenerConnectionPoolHttp2;
 import com.pulumi.policypacks.aws.appmesh.outputs.VirtualGatewaySpecListenerConnectionPoolHttp;
@@ -16,33 +17,36 @@ public final class VirtualGatewaySpecListenerConnectionPool {
      * Connection pool information for gRPC listeners.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualGatewaySpecListenerConnectionPoolGrpc> grpc;
-
+    @PolicyResourceProperty(name="grpc", flag="unknown_grpc")
+    private @Nullable VirtualGatewaySpecListenerConnectionPoolGrpc value_grpc;
+    private boolean unknown_grpc;
     public @Nullable VirtualGatewaySpecListenerConnectionPoolGrpc grpc() {
-        if (grpc == null) return null;
-        return grpc.getValue("VirtualGatewaySpecListenerConnectionPool.grpc");
+        if (!unknown_grpc) return value_grpc;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerConnectionPool.grpc' is not present");
     }
 
     /**
      * Connection pool information for HTTP listeners.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualGatewaySpecListenerConnectionPoolHttp> http;
-
+    @PolicyResourceProperty(name="http", flag="unknown_http")
+    private @Nullable VirtualGatewaySpecListenerConnectionPoolHttp value_http;
+    private boolean unknown_http;
     public @Nullable VirtualGatewaySpecListenerConnectionPoolHttp http() {
-        if (http == null) return null;
-        return http.getValue("VirtualGatewaySpecListenerConnectionPool.http");
+        if (!unknown_http) return value_http;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerConnectionPool.http' is not present");
     }
 
     /**
      * Connection pool information for HTTP2 listeners.
      * 
      */
-    private @Nullable UndeferrableValue<VirtualGatewaySpecListenerConnectionPoolHttp2> http2;
-
+    @PolicyResourceProperty(name="http2", flag="unknown_http2")
+    private @Nullable VirtualGatewaySpecListenerConnectionPoolHttp2 value_http2;
+    private boolean unknown_http2;
     public @Nullable VirtualGatewaySpecListenerConnectionPoolHttp2 http2() {
-        if (http2 == null) return null;
-        return http2.getValue("VirtualGatewaySpecListenerConnectionPool.http2");
+        if (!unknown_http2) return value_http2;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerConnectionPool.http2' is not present");
     }
 
 }

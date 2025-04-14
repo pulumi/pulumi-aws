@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticache;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.elasticache.inputs.ReservedCacheNodeTimeoutsArgs;
 import java.lang.Integer;
@@ -20,11 +21,12 @@ public final class ReservedCacheNodeArgs extends com.pulumi.resources.PolicyReso
      * Default value is `1`.
      * 
      */
-    private UndeferrableValue<Integer> cacheNodeCount;
-
+    @PolicyResourceProperty(name="cacheNodeCount", flag="unknown_cacheNodeCount")
+    private Integer value_cacheNodeCount;
+    private boolean unknown_cacheNodeCount;
     public Integer cacheNodeCount() {
-        if (cacheNodeCount == null) return null;
-        return cacheNodeCount.getValue("ReservedCacheNodeArgs.cacheNodeCount");
+        if (!unknown_cacheNodeCount) return value_cacheNodeCount;
+        throw new UndeferrableValueException("Value 'ReservedCacheNodeArgs.cacheNodeCount' is not present");
     }
 
     /**
@@ -34,29 +36,32 @@ public final class ReservedCacheNodeArgs extends com.pulumi.resources.PolicyReso
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> reservedCacheNodesOfferingId;
-
+    @PolicyResourceProperty(name="reservedCacheNodesOfferingId", flag="unknown_reservedCacheNodesOfferingId")
+    private String value_reservedCacheNodesOfferingId;
+    private boolean unknown_reservedCacheNodesOfferingId;
     public String reservedCacheNodesOfferingId() {
-        if (reservedCacheNodesOfferingId == null) return null;
-        return reservedCacheNodesOfferingId.getValue("ReservedCacheNodeArgs.reservedCacheNodesOfferingId");
+        if (!unknown_reservedCacheNodesOfferingId) return value_reservedCacheNodesOfferingId;
+        throw new UndeferrableValueException("Value 'ReservedCacheNodeArgs.reservedCacheNodesOfferingId' is not present");
     }
 
     /**
      * Map of tags to assign to the reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ReservedCacheNodeArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ReservedCacheNodeArgs.tags' is not present");
     }
 
-    private UndeferrableValue<ReservedCacheNodeTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private ReservedCacheNodeTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public ReservedCacheNodeTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ReservedCacheNodeArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ReservedCacheNodeArgs.timeouts' is not present");
     }
 
 }

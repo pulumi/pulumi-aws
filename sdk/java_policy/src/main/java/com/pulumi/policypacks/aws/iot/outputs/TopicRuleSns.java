@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class TopicRuleSns {
      * The message format of the message to publish. Accepted values are &#34;JSON&#34; and &#34;RAW&#34;.
      * 
      */
-    private @Nullable UndeferrableValue<String> messageFormat;
-
+    @PolicyResourceProperty(name="messageFormat", flag="unknown_messageFormat")
+    private @Nullable String value_messageFormat;
+    private boolean unknown_messageFormat;
     public @Nullable String messageFormat() {
-        if (messageFormat == null) return null;
-        return messageFormat.getValue("TopicRuleSns.messageFormat");
+        if (!unknown_messageFormat) return value_messageFormat;
+        throw new UndeferrableValueException("Value 'TopicRuleSns.messageFormat' is not present");
     }
 
     /**
      * The ARN of the IAM role that grants access.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("TopicRuleSns.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'TopicRuleSns.roleArn' is not present");
     }
 
     /**
      * The ARN of the SNS topic.
      * 
      */
-    private UndeferrableValue<String> targetArn;
-
+    @PolicyResourceProperty(name="targetArn", flag="unknown_targetArn")
+    private String value_targetArn;
+    private boolean unknown_targetArn;
     public String targetArn() {
-        if (targetArn == null) return null;
-        return targetArn.getValue("TopicRuleSns.targetArn");
+        if (!unknown_targetArn) return value_targetArn;
+        throw new UndeferrableValueException("Value 'TopicRuleSns.targetArn' is not present");
     }
 
 }

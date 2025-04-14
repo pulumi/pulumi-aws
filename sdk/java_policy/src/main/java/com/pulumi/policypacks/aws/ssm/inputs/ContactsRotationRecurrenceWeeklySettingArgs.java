@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ssm.inputs.ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ContactsRotationRecurrenceWeeklySettingArgs {
      * (Required) The day of the week when the shift coverage occurs.
      * 
      */
-    private UndeferrableValue<String> dayOfWeek;
-
+    @PolicyResourceProperty(name="dayOfWeek", flag="unknown_dayOfWeek")
+    private String value_dayOfWeek;
+    private boolean unknown_dayOfWeek;
     public String dayOfWeek() {
-        if (dayOfWeek == null) return null;
-        return dayOfWeek.getValue("ContactsRotationRecurrenceWeeklySettingArgs.dayOfWeek");
+        if (!unknown_dayOfWeek) return value_dayOfWeek;
+        throw new UndeferrableValueException("Value 'ContactsRotationRecurrenceWeeklySettingArgs.dayOfWeek' is not present");
     }
 
     /**
      * (Required) The hand off time. See Hand Off Time for more details.
      * 
      */
-    private UndeferrableValue<ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs> handOffTime;
-
+    @PolicyResourceProperty(name="handOffTime", flag="unknown_handOffTime")
+    private ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs value_handOffTime;
+    private boolean unknown_handOffTime;
     public ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs handOffTime() {
-        if (handOffTime == null) return null;
-        return handOffTime.getValue("ContactsRotationRecurrenceWeeklySettingArgs.handOffTime");
+        if (!unknown_handOffTime) return value_handOffTime;
+        throw new UndeferrableValueException("Value 'ContactsRotationRecurrenceWeeklySettingArgs.handOffTime' is not present");
     }
 
 }

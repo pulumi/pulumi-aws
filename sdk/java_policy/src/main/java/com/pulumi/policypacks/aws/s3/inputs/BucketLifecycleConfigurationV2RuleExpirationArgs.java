@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class BucketLifecycleConfigurationV2RuleExpirationArgs {
      * Date the object is to be moved or deleted. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
      * 
      */
-    private UndeferrableValue<String> date;
-
+    @PolicyResourceProperty(name="date", flag="unknown_date")
+    private String value_date;
+    private boolean unknown_date;
     public String date() {
-        if (date == null) return null;
-        return date.getValue("BucketLifecycleConfigurationV2RuleExpirationArgs.date");
+        if (!unknown_date) return value_date;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleExpirationArgs.date' is not present");
     }
 
     /**
      * Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
      * 
      */
-    private UndeferrableValue<Integer> days;
-
+    @PolicyResourceProperty(name="days", flag="unknown_days")
+    private Integer value_days;
+    private boolean unknown_days;
     public Integer days() {
-        if (days == null) return null;
-        return days.getValue("BucketLifecycleConfigurationV2RuleExpirationArgs.days");
+        if (!unknown_days) return value_days;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleExpirationArgs.days' is not present");
     }
 
     /**
      * Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to `true`, the delete marker will be expired; if set to `false` the policy takes no action.
      * 
      */
-    private UndeferrableValue<Boolean> expiredObjectDeleteMarker;
-
+    @PolicyResourceProperty(name="expiredObjectDeleteMarker", flag="unknown_expiredObjectDeleteMarker")
+    private Boolean value_expiredObjectDeleteMarker;
+    private boolean unknown_expiredObjectDeleteMarker;
     public Boolean expiredObjectDeleteMarker() {
-        if (expiredObjectDeleteMarker == null) return null;
-        return expiredObjectDeleteMarker.getValue("BucketLifecycleConfigurationV2RuleExpirationArgs.expiredObjectDeleteMarker");
+        if (!unknown_expiredObjectDeleteMarker) return value_expiredObjectDeleteMarker;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleExpirationArgs.expiredObjectDeleteMarker' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeSecret {
      * Whether the secret or the secret&#39;s keys must be defined.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> optional;
-
+    @PolicyResourceProperty(name="optional", flag="unknown_optional")
+    private @Nullable Boolean value_optional;
+    private boolean unknown_optional;
     public @Nullable Boolean optional() {
-        if (optional == null) return null;
-        return optional.getValue("JobDefinitionEksPropertiesPodPropertiesVolumeSecret.optional");
+        if (!unknown_optional) return value_optional;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesVolumeSecret.optional' is not present");
     }
 
     /**
      * Name of the secret. The name must be allowed as a DNS subdomain name.
      * 
      */
-    private UndeferrableValue<String> secretName;
-
+    @PolicyResourceProperty(name="secretName", flag="unknown_secretName")
+    private String value_secretName;
+    private boolean unknown_secretName;
     public String secretName() {
-        if (secretName == null) return null;
-        return secretName.getValue("JobDefinitionEksPropertiesPodPropertiesVolumeSecret.secretName");
+        if (!unknown_secretName) return value_secretName;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesVolumeSecret.secretName' is not present");
     }
 
 }

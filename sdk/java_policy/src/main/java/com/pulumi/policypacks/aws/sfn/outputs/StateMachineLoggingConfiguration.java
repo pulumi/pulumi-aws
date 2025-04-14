@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sfn.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class StateMachineLoggingConfiguration {
      * Determines whether execution data is included in your log. When set to `false`, data is excluded.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> includeExecutionData;
-
+    @PolicyResourceProperty(name="includeExecutionData", flag="unknown_includeExecutionData")
+    private @Nullable Boolean value_includeExecutionData;
+    private boolean unknown_includeExecutionData;
     public @Nullable Boolean includeExecutionData() {
-        if (includeExecutionData == null) return null;
-        return includeExecutionData.getValue("StateMachineLoggingConfiguration.includeExecutionData");
+        if (!unknown_includeExecutionData) return value_includeExecutionData;
+        throw new UndeferrableValueException("Value 'StateMachineLoggingConfiguration.includeExecutionData' is not present");
     }
 
     /**
      * Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
      * 
      */
-    private @Nullable UndeferrableValue<String> level;
-
+    @PolicyResourceProperty(name="level", flag="unknown_level")
+    private @Nullable String value_level;
+    private boolean unknown_level;
     public @Nullable String level() {
-        if (level == null) return null;
-        return level.getValue("StateMachineLoggingConfiguration.level");
+        if (!unknown_level) return value_level;
+        throw new UndeferrableValueException("Value 'StateMachineLoggingConfiguration.level' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
      * 
      */
-    private @Nullable UndeferrableValue<String> logDestination;
-
+    @PolicyResourceProperty(name="logDestination", flag="unknown_logDestination")
+    private @Nullable String value_logDestination;
+    private boolean unknown_logDestination;
     public @Nullable String logDestination() {
-        if (logDestination == null) return null;
-        return logDestination.getValue("StateMachineLoggingConfiguration.logDestination");
+        if (!unknown_logDestination) return value_logDestination;
+        throw new UndeferrableValueException("Value 'StateMachineLoggingConfiguration.logDestination' is not present");
     }
 
 }

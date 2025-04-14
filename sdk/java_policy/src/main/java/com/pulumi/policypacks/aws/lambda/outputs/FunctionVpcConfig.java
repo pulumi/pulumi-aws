@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -16,44 +17,48 @@ public final class FunctionVpcConfig {
      * Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> ipv6AllowedForDualStack;
-
+    @PolicyResourceProperty(name="ipv6AllowedForDualStack", flag="unknown_ipv6AllowedForDualStack")
+    private @Nullable Boolean value_ipv6AllowedForDualStack;
+    private boolean unknown_ipv6AllowedForDualStack;
     public @Nullable Boolean ipv6AllowedForDualStack() {
-        if (ipv6AllowedForDualStack == null) return null;
-        return ipv6AllowedForDualStack.getValue("FunctionVpcConfig.ipv6AllowedForDualStack");
+        if (!unknown_ipv6AllowedForDualStack) return value_ipv6AllowedForDualStack;
+        throw new UndeferrableValueException("Value 'FunctionVpcConfig.ipv6AllowedForDualStack' is not present");
     }
 
     /**
      * List of security group IDs associated with the Lambda function.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("FunctionVpcConfig.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'FunctionVpcConfig.securityGroupIds' is not present");
     }
 
     /**
      * List of subnet IDs associated with the Lambda function.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("FunctionVpcConfig.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'FunctionVpcConfig.subnetIds' is not present");
     }
 
     /**
      * ID of the VPC.
      * 
      */
-    private @Nullable UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private @Nullable String value_vpcId;
+    private boolean unknown_vpcId;
     public @Nullable String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("FunctionVpcConfig.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'FunctionVpcConfig.vpcId' is not present");
     }
 
 }

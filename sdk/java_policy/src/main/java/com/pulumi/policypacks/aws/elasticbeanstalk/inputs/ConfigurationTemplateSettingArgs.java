@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticbeanstalk.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,32 +15,36 @@ public final class ConfigurationTemplateSettingArgs {
      * A unique name for this Template.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ConfigurationTemplateSettingArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ConfigurationTemplateSettingArgs.name' is not present");
     }
 
-    private UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private String value_namespace;
+    private boolean unknown_namespace;
     public String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("ConfigurationTemplateSettingArgs.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'ConfigurationTemplateSettingArgs.namespace' is not present");
     }
 
-    private UndeferrableValue<String> resource;
-
+    @PolicyResourceProperty(name="resource", flag="unknown_resource")
+    private String value_resource;
+    private boolean unknown_resource;
     public String resource() {
-        if (resource == null) return null;
-        return resource.getValue("ConfigurationTemplateSettingArgs.resource");
+        if (!unknown_resource) return value_resource;
+        throw new UndeferrableValueException("Value 'ConfigurationTemplateSettingArgs.resource' is not present");
     }
 
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("ConfigurationTemplateSettingArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'ConfigurationTemplateSettingArgs.value' is not present");
     }
 
 }

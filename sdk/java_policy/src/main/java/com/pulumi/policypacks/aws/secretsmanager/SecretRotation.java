@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.secretsmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.secretsmanager.outputs.SecretRotationRotationRules;
 import java.lang.Boolean;
@@ -18,55 +19,60 @@ public final class SecretRotation extends com.pulumi.resources.PolicyResourceOut
      * Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotation_rules`. For secrets that use a Lambda rotation function to rotate, if you don&#39;t immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> rotateImmediately;
-
+    @PolicyResourceProperty(name="rotateImmediately", flag="unknown_rotateImmediately")
+    private @Nullable Boolean value_rotateImmediately;
+    private boolean unknown_rotateImmediately;
     public @Nullable Boolean rotateImmediately() {
-        if (rotateImmediately == null) return null;
-        return rotateImmediately.getValue("SecretRotation.rotateImmediately");
+        if (!unknown_rotateImmediately) return value_rotateImmediately;
+        throw new UndeferrableValueException("Value 'SecretRotation.rotateImmediately' is not present");
     }
 
     /**
      * Specifies whether automatic rotation is enabled for this secret.
      * 
      */
-    private UndeferrableValue<Boolean> rotationEnabled;
-
+    @PolicyResourceProperty(name="rotationEnabled", flag="unknown_rotationEnabled")
+    private Boolean value_rotationEnabled;
+    private boolean unknown_rotationEnabled;
     public Boolean rotationEnabled() {
-        if (rotationEnabled == null) return null;
-        return rotationEnabled.getValue("SecretRotation.rotationEnabled");
+        if (!unknown_rotationEnabled) return value_rotationEnabled;
+        throw new UndeferrableValueException("Value 'SecretRotation.rotationEnabled' is not present");
     }
 
     /**
      * Specifies the ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
      * 
      */
-    private @Nullable UndeferrableValue<String> rotationLambdaArn;
-
+    @PolicyResourceProperty(name="rotationLambdaArn", flag="unknown_rotationLambdaArn")
+    private @Nullable String value_rotationLambdaArn;
+    private boolean unknown_rotationLambdaArn;
     public @Nullable String rotationLambdaArn() {
-        if (rotationLambdaArn == null) return null;
-        return rotationLambdaArn.getValue("SecretRotation.rotationLambdaArn");
+        if (!unknown_rotationLambdaArn) return value_rotationLambdaArn;
+        throw new UndeferrableValueException("Value 'SecretRotation.rotationLambdaArn' is not present");
     }
 
     /**
      * A structure that defines the rotation configuration for this secret. Defined below.
      * 
      */
-    private UndeferrableValue<SecretRotationRotationRules> rotationRules;
-
+    @PolicyResourceProperty(name="rotationRules", flag="unknown_rotationRules")
+    private SecretRotationRotationRules value_rotationRules;
+    private boolean unknown_rotationRules;
     public SecretRotationRotationRules rotationRules() {
-        if (rotationRules == null) return null;
-        return rotationRules.getValue("SecretRotation.rotationRules");
+        if (!unknown_rotationRules) return value_rotationRules;
+        throw new UndeferrableValueException("Value 'SecretRotation.rotationRules' is not present");
     }
 
     /**
      * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
      * 
      */
-    private UndeferrableValue<String> secretId;
-
+    @PolicyResourceProperty(name="secretId", flag="unknown_secretId")
+    private String value_secretId;
+    private boolean unknown_secretId;
     public String secretId() {
-        if (secretId == null) return null;
-        return secretId.getValue("SecretRotation.secretId");
+        if (!unknown_secretId) return value_secretId;
+        throw new UndeferrableValueException("Value 'SecretRotation.secretId' is not present");
     }
 
 }

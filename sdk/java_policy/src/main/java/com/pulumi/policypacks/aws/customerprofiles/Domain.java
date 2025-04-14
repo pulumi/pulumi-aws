@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.customerprofiles;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.customerprofiles.outputs.DomainMatching;
 import com.pulumi.policypacks.aws.customerprofiles.outputs.DomainRuleBasedMatching;
@@ -20,33 +21,36 @@ public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
      * The Amazon Resource Name (ARN) of the Customer Profiles Domain.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Domain.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Domain.arn' is not present");
     }
 
     /**
      * The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
      * 
      */
-    private @Nullable UndeferrableValue<String> deadLetterQueueUrl;
-
+    @PolicyResourceProperty(name="deadLetterQueueUrl", flag="unknown_deadLetterQueueUrl")
+    private @Nullable String value_deadLetterQueueUrl;
+    private boolean unknown_deadLetterQueueUrl;
     public @Nullable String deadLetterQueueUrl() {
-        if (deadLetterQueueUrl == null) return null;
-        return deadLetterQueueUrl.getValue("Domain.deadLetterQueueUrl");
+        if (!unknown_deadLetterQueueUrl) return value_deadLetterQueueUrl;
+        throw new UndeferrableValueException("Value 'Domain.deadLetterQueueUrl' is not present");
     }
 
     /**
      * The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
      * 
      */
-    private @Nullable UndeferrableValue<String> defaultEncryptionKey;
-
+    @PolicyResourceProperty(name="defaultEncryptionKey", flag="unknown_defaultEncryptionKey")
+    private @Nullable String value_defaultEncryptionKey;
+    private boolean unknown_defaultEncryptionKey;
     public @Nullable String defaultEncryptionKey() {
-        if (defaultEncryptionKey == null) return null;
-        return defaultEncryptionKey.getValue("Domain.defaultEncryptionKey");
+        if (!unknown_defaultEncryptionKey) return value_defaultEncryptionKey;
+        throw new UndeferrableValueException("Value 'Domain.defaultEncryptionKey' is not present");
     }
 
     /**
@@ -55,55 +59,60 @@ public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<Integer> defaultExpirationDays;
-
+    @PolicyResourceProperty(name="defaultExpirationDays", flag="unknown_defaultExpirationDays")
+    private Integer value_defaultExpirationDays;
+    private boolean unknown_defaultExpirationDays;
     public Integer defaultExpirationDays() {
-        if (defaultExpirationDays == null) return null;
-        return defaultExpirationDays.getValue("Domain.defaultExpirationDays");
+        if (!unknown_defaultExpirationDays) return value_defaultExpirationDays;
+        throw new UndeferrableValueException("Value 'Domain.defaultExpirationDays' is not present");
     }
 
     /**
      * The name for your Customer Profile domain. It must be unique for your AWS account.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("Domain.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'Domain.domainName' is not present");
     }
 
     /**
      * A block that specifies the process of matching duplicate profiles. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<DomainMatching> matching;
-
+    @PolicyResourceProperty(name="matching", flag="unknown_matching")
+    private @Nullable DomainMatching value_matching;
+    private boolean unknown_matching;
     public @Nullable DomainMatching matching() {
-        if (matching == null) return null;
-        return matching.getValue("Domain.matching");
+        if (!unknown_matching) return value_matching;
+        throw new UndeferrableValueException("Value 'Domain.matching' is not present");
     }
 
     /**
      * A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<DomainRuleBasedMatching> ruleBasedMatching;
-
+    @PolicyResourceProperty(name="ruleBasedMatching", flag="unknown_ruleBasedMatching")
+    private @Nullable DomainRuleBasedMatching value_ruleBasedMatching;
+    private boolean unknown_ruleBasedMatching;
     public @Nullable DomainRuleBasedMatching ruleBasedMatching() {
-        if (ruleBasedMatching == null) return null;
-        return ruleBasedMatching.getValue("Domain.ruleBasedMatching");
+        if (!unknown_ruleBasedMatching) return value_ruleBasedMatching;
+        throw new UndeferrableValueException("Value 'Domain.ruleBasedMatching' is not present");
     }
 
     /**
      * Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Domain.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Domain.tags' is not present");
     }
 
     /**
@@ -114,11 +123,12 @@ public final class Domain extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Domain.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Domain.tagsAll' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dms.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,66 +18,72 @@ public final class ReplicationConfigComputeConfigArgs {
      * The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("ReplicationConfigComputeConfigArgs.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'ReplicationConfigComputeConfigArgs.availabilityZone' is not present");
     }
 
     /**
      * A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
      * 
      */
-    private UndeferrableValue<String> dnsNameServers;
-
+    @PolicyResourceProperty(name="dnsNameServers", flag="unknown_dnsNameServers")
+    private String value_dnsNameServers;
+    private boolean unknown_dnsNameServers;
     public String dnsNameServers() {
-        if (dnsNameServers == null) return null;
-        return dnsNameServers.getValue("ReplicationConfigComputeConfigArgs.dnsNameServers");
+        if (!unknown_dnsNameServers) return value_dnsNameServers;
+        throw new UndeferrableValueException("Value 'ReplicationConfigComputeConfigArgs.dnsNameServers' is not present");
     }
 
     /**
      * An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don&#39;t specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("ReplicationConfigComputeConfigArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'ReplicationConfigComputeConfigArgs.kmsKeyId' is not present");
     }
 
     /**
      * Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCUs as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
      * 
      */
-    private UndeferrableValue<Integer> maxCapacityUnits;
-
+    @PolicyResourceProperty(name="maxCapacityUnits", flag="unknown_maxCapacityUnits")
+    private Integer value_maxCapacityUnits;
+    private boolean unknown_maxCapacityUnits;
     public Integer maxCapacityUnits() {
-        if (maxCapacityUnits == null) return null;
-        return maxCapacityUnits.getValue("ReplicationConfigComputeConfigArgs.maxCapacityUnits");
+        if (!unknown_maxCapacityUnits) return value_maxCapacityUnits;
+        throw new UndeferrableValueException("Value 'ReplicationConfigComputeConfigArgs.maxCapacityUnits' is not present");
     }
 
     /**
      * Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn&#39;t set DMS sets the lowest allowed value, 1.
      * 
      */
-    private UndeferrableValue<Integer> minCapacityUnits;
-
+    @PolicyResourceProperty(name="minCapacityUnits", flag="unknown_minCapacityUnits")
+    private Integer value_minCapacityUnits;
+    private boolean unknown_minCapacityUnits;
     public Integer minCapacityUnits() {
-        if (minCapacityUnits == null) return null;
-        return minCapacityUnits.getValue("ReplicationConfigComputeConfigArgs.minCapacityUnits");
+        if (!unknown_minCapacityUnits) return value_minCapacityUnits;
+        throw new UndeferrableValueException("Value 'ReplicationConfigComputeConfigArgs.minCapacityUnits' is not present");
     }
 
     /**
      * Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> multiAz;
-
+    @PolicyResourceProperty(name="multiAz", flag="unknown_multiAz")
+    private Boolean value_multiAz;
+    private boolean unknown_multiAz;
     public Boolean multiAz() {
-        if (multiAz == null) return null;
-        return multiAz.getValue("ReplicationConfigComputeConfigArgs.multiAz");
+        if (!unknown_multiAz) return value_multiAz;
+        throw new UndeferrableValueException("Value 'ReplicationConfigComputeConfigArgs.multiAz' is not present");
     }
 
     /**
@@ -88,33 +95,36 @@ public final class ReplicationConfigComputeConfigArgs {
      * - Constraints: Minimum 30-minute window.
      * 
      */
-    private UndeferrableValue<String> preferredMaintenanceWindow;
-
+    @PolicyResourceProperty(name="preferredMaintenanceWindow", flag="unknown_preferredMaintenanceWindow")
+    private String value_preferredMaintenanceWindow;
+    private boolean unknown_preferredMaintenanceWindow;
     public String preferredMaintenanceWindow() {
-        if (preferredMaintenanceWindow == null) return null;
-        return preferredMaintenanceWindow.getValue("ReplicationConfigComputeConfigArgs.preferredMaintenanceWindow");
+        if (!unknown_preferredMaintenanceWindow) return value_preferredMaintenanceWindow;
+        throw new UndeferrableValueException("Value 'ReplicationConfigComputeConfigArgs.preferredMaintenanceWindow' is not present");
     }
 
     /**
      * Specifies a subnet group identifier to associate with the DMS Serverless replication.
      * 
      */
-    private UndeferrableValue<String> replicationSubnetGroupId;
-
+    @PolicyResourceProperty(name="replicationSubnetGroupId", flag="unknown_replicationSubnetGroupId")
+    private String value_replicationSubnetGroupId;
+    private boolean unknown_replicationSubnetGroupId;
     public String replicationSubnetGroupId() {
-        if (replicationSubnetGroupId == null) return null;
-        return replicationSubnetGroupId.getValue("ReplicationConfigComputeConfigArgs.replicationSubnetGroupId");
+        if (!unknown_replicationSubnetGroupId) return value_replicationSubnetGroupId;
+        throw new UndeferrableValueException("Value 'ReplicationConfigComputeConfigArgs.replicationSubnetGroupId' is not present");
     }
 
     /**
      * Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
      * 
      */
-    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
-
+    @PolicyResourceProperty(name="vpcSecurityGroupIds", flag="unknown_vpcSecurityGroupIds")
+    private List<String> value_vpcSecurityGroupIds;
+    private boolean unknown_vpcSecurityGroupIds;
     public List<String> vpcSecurityGroupIds() {
-        if (vpcSecurityGroupIds == null) return null;
-        return vpcSecurityGroupIds.getValue("ReplicationConfigComputeConfigArgs.vpcSecurityGroupIds");
+        if (!unknown_vpcSecurityGroupIds) return value_vpcSecurityGroupIds;
+        throw new UndeferrableValueException("Value 'ReplicationConfigComputeConfigArgs.vpcSecurityGroupIds' is not present");
     }
 
 }

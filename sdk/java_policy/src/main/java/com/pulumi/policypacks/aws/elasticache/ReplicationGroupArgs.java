@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticache;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.elasticache.inputs.ReplicationGroupLogDeliveryConfigurationArgs;
 import java.lang.Boolean;
@@ -21,11 +22,12 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.PolicyResou
      * Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> applyImmediately;
-
+    @PolicyResourceProperty(name="applyImmediately", flag="unknown_applyImmediately")
+    private Boolean value_applyImmediately;
+    private boolean unknown_applyImmediately;
     public Boolean applyImmediately() {
-        if (applyImmediately == null) return null;
-        return applyImmediately.getValue("ReplicationGroupArgs.applyImmediately");
+        if (!unknown_applyImmediately) return value_applyImmediately;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.applyImmediately' is not present");
     }
 
     /**
@@ -34,33 +36,36 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.PolicyResou
      * When `engine` is `valkey`, default is `true`.
      * 
      */
-    private UndeferrableValue<Boolean> atRestEncryptionEnabled;
-
+    @PolicyResourceProperty(name="atRestEncryptionEnabled", flag="unknown_atRestEncryptionEnabled")
+    private Boolean value_atRestEncryptionEnabled;
+    private boolean unknown_atRestEncryptionEnabled;
     public Boolean atRestEncryptionEnabled() {
-        if (atRestEncryptionEnabled == null) return null;
-        return atRestEncryptionEnabled.getValue("ReplicationGroupArgs.atRestEncryptionEnabled");
+        if (!unknown_atRestEncryptionEnabled) return value_atRestEncryptionEnabled;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.atRestEncryptionEnabled' is not present");
     }
 
     /**
      * Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
      * 
      */
-    private UndeferrableValue<String> authToken;
-
+    @PolicyResourceProperty(name="authToken", flag="unknown_authToken")
+    private String value_authToken;
+    private boolean unknown_authToken;
     public String authToken() {
-        if (authToken == null) return null;
-        return authToken.getValue("ReplicationGroupArgs.authToken");
+        if (!unknown_authToken) return value_authToken;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.authToken' is not present");
     }
 
     /**
      * Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
      * 
      */
-    private UndeferrableValue<String> authTokenUpdateStrategy;
-
+    @PolicyResourceProperty(name="authTokenUpdateStrategy", flag="unknown_authTokenUpdateStrategy")
+    private String value_authTokenUpdateStrategy;
+    private boolean unknown_authTokenUpdateStrategy;
     public String authTokenUpdateStrategy() {
-        if (authTokenUpdateStrategy == null) return null;
-        return authTokenUpdateStrategy.getValue("ReplicationGroupArgs.authTokenUpdateStrategy");
+        if (!unknown_authTokenUpdateStrategy) return value_authTokenUpdateStrategy;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.authTokenUpdateStrategy' is not present");
     }
 
     /**
@@ -69,55 +74,60 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.PolicyResou
      * Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> autoMinorVersionUpgrade;
-
+    @PolicyResourceProperty(name="autoMinorVersionUpgrade", flag="unknown_autoMinorVersionUpgrade")
+    private Boolean value_autoMinorVersionUpgrade;
+    private boolean unknown_autoMinorVersionUpgrade;
     public Boolean autoMinorVersionUpgrade() {
-        if (autoMinorVersionUpgrade == null) return null;
-        return autoMinorVersionUpgrade.getValue("ReplicationGroupArgs.autoMinorVersionUpgrade");
+        if (!unknown_autoMinorVersionUpgrade) return value_autoMinorVersionUpgrade;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.autoMinorVersionUpgrade' is not present");
     }
 
     /**
      * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> automaticFailoverEnabled;
-
+    @PolicyResourceProperty(name="automaticFailoverEnabled", flag="unknown_automaticFailoverEnabled")
+    private Boolean value_automaticFailoverEnabled;
+    private boolean unknown_automaticFailoverEnabled;
     public Boolean automaticFailoverEnabled() {
-        if (automaticFailoverEnabled == null) return null;
-        return automaticFailoverEnabled.getValue("ReplicationGroupArgs.automaticFailoverEnabled");
+        if (!unknown_automaticFailoverEnabled) return value_automaticFailoverEnabled;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.automaticFailoverEnabled' is not present");
     }
 
     /**
      * Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
      * 
      */
-    private UndeferrableValue<String> clusterMode;
-
+    @PolicyResourceProperty(name="clusterMode", flag="unknown_clusterMode")
+    private String value_clusterMode;
+    private boolean unknown_clusterMode;
     public String clusterMode() {
-        if (clusterMode == null) return null;
-        return clusterMode.getValue("ReplicationGroupArgs.clusterMode");
+        if (!unknown_clusterMode) return value_clusterMode;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.clusterMode' is not present");
     }
 
     /**
      * Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
      * 
      */
-    private UndeferrableValue<Boolean> dataTieringEnabled;
-
+    @PolicyResourceProperty(name="dataTieringEnabled", flag="unknown_dataTieringEnabled")
+    private Boolean value_dataTieringEnabled;
+    private boolean unknown_dataTieringEnabled;
     public Boolean dataTieringEnabled() {
-        if (dataTieringEnabled == null) return null;
-        return dataTieringEnabled.getValue("ReplicationGroupArgs.dataTieringEnabled");
+        if (!unknown_dataTieringEnabled) return value_dataTieringEnabled;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.dataTieringEnabled' is not present");
     }
 
     /**
      * User-created description for the replication group. Must not be empty.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ReplicationGroupArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.description' is not present");
     }
 
     /**
@@ -126,11 +136,12 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.PolicyResou
      * Default is `redis`.
      * 
      */
-    private UndeferrableValue<String> engine;
-
+    @PolicyResourceProperty(name="engine", flag="unknown_engine")
+    private String value_engine;
+    private boolean unknown_engine;
     public String engine() {
-        if (engine == null) return null;
-        return engine.getValue("ReplicationGroupArgs.engine");
+        if (!unknown_engine) return value_engine;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.engine' is not present");
     }
 
     /**
@@ -142,77 +153,84 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.PolicyResou
      * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
      * 
      */
-    private UndeferrableValue<String> engineVersion;
-
+    @PolicyResourceProperty(name="engineVersion", flag="unknown_engineVersion")
+    private String value_engineVersion;
+    private boolean unknown_engineVersion;
     public String engineVersion() {
-        if (engineVersion == null) return null;
-        return engineVersion.getValue("ReplicationGroupArgs.engineVersion");
+        if (!unknown_engineVersion) return value_engineVersion;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.engineVersion' is not present");
     }
 
     /**
      * The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
      * 
      */
-    private UndeferrableValue<String> finalSnapshotIdentifier;
-
+    @PolicyResourceProperty(name="finalSnapshotIdentifier", flag="unknown_finalSnapshotIdentifier")
+    private String value_finalSnapshotIdentifier;
+    private boolean unknown_finalSnapshotIdentifier;
     public String finalSnapshotIdentifier() {
-        if (finalSnapshotIdentifier == null) return null;
-        return finalSnapshotIdentifier.getValue("ReplicationGroupArgs.finalSnapshotIdentifier");
+        if (!unknown_finalSnapshotIdentifier) return value_finalSnapshotIdentifier;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.finalSnapshotIdentifier' is not present");
     }
 
     /**
      * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
      * 
      */
-    private UndeferrableValue<String> globalReplicationGroupId;
-
+    @PolicyResourceProperty(name="globalReplicationGroupId", flag="unknown_globalReplicationGroupId")
+    private String value_globalReplicationGroupId;
+    private boolean unknown_globalReplicationGroupId;
     public String globalReplicationGroupId() {
-        if (globalReplicationGroupId == null) return null;
-        return globalReplicationGroupId.getValue("ReplicationGroupArgs.globalReplicationGroupId");
+        if (!unknown_globalReplicationGroupId) return value_globalReplicationGroupId;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.globalReplicationGroupId' is not present");
     }
 
     /**
      * The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
      * 
      */
-    private UndeferrableValue<String> ipDiscovery;
-
+    @PolicyResourceProperty(name="ipDiscovery", flag="unknown_ipDiscovery")
+    private String value_ipDiscovery;
+    private boolean unknown_ipDiscovery;
     public String ipDiscovery() {
-        if (ipDiscovery == null) return null;
-        return ipDiscovery.getValue("ReplicationGroupArgs.ipDiscovery");
+        if (!unknown_ipDiscovery) return value_ipDiscovery;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.ipDiscovery' is not present");
     }
 
     /**
      * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("ReplicationGroupArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.kmsKeyId' is not present");
     }
 
     /**
      * Specifies the destination and format of Redis OSS/Valkey [SLOWLOG](https://redis.io/commands/slowlog) or Redis OSS/Valkey [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
      * 
      */
-    private UndeferrableValue<List<ReplicationGroupLogDeliveryConfigurationArgs>> logDeliveryConfigurations;
-
+    @PolicyResourceProperty(name="logDeliveryConfigurations", flag="unknown_logDeliveryConfigurations")
+    private List<ReplicationGroupLogDeliveryConfigurationArgs> value_logDeliveryConfigurations;
+    private boolean unknown_logDeliveryConfigurations;
     public List<ReplicationGroupLogDeliveryConfigurationArgs> logDeliveryConfigurations() {
-        if (logDeliveryConfigurations == null) return null;
-        return logDeliveryConfigurations.getValue("ReplicationGroupArgs.logDeliveryConfigurations");
+        if (!unknown_logDeliveryConfigurations) return value_logDeliveryConfigurations;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.logDeliveryConfigurations' is not present");
     }
 
     /**
      * Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
      * 
      */
-    private UndeferrableValue<String> maintenanceWindow;
-
+    @PolicyResourceProperty(name="maintenanceWindow", flag="unknown_maintenanceWindow")
+    private String value_maintenanceWindow;
+    private boolean unknown_maintenanceWindow;
     public String maintenanceWindow() {
-        if (maintenanceWindow == null) return null;
-        return maintenanceWindow.getValue("ReplicationGroupArgs.maintenanceWindow");
+        if (!unknown_maintenanceWindow) return value_maintenanceWindow;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.maintenanceWindow' is not present");
     }
 
     /**
@@ -221,22 +239,24 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.PolicyResou
      * Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> multiAzEnabled;
-
+    @PolicyResourceProperty(name="multiAzEnabled", flag="unknown_multiAzEnabled")
+    private Boolean value_multiAzEnabled;
+    private boolean unknown_multiAzEnabled;
     public Boolean multiAzEnabled() {
-        if (multiAzEnabled == null) return null;
-        return multiAzEnabled.getValue("ReplicationGroupArgs.multiAzEnabled");
+        if (!unknown_multiAzEnabled) return value_multiAzEnabled;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.multiAzEnabled' is not present");
     }
 
     /**
      * The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
      * 
      */
-    private UndeferrableValue<String> networkType;
-
+    @PolicyResourceProperty(name="networkType", flag="unknown_networkType")
+    private String value_networkType;
+    private boolean unknown_networkType;
     public String networkType() {
-        if (networkType == null) return null;
-        return networkType.getValue("ReplicationGroupArgs.networkType");
+        if (!unknown_networkType) return value_networkType;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.networkType' is not present");
     }
 
     /**
@@ -246,22 +266,24 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.PolicyResou
      * Cannot be set if `global_replication_group_id` is set.
      * 
      */
-    private UndeferrableValue<String> nodeType;
-
+    @PolicyResourceProperty(name="nodeType", flag="unknown_nodeType")
+    private String value_nodeType;
+    private boolean unknown_nodeType;
     public String nodeType() {
-        if (nodeType == null) return null;
-        return nodeType.getValue("ReplicationGroupArgs.nodeType");
+        if (!unknown_nodeType) return value_nodeType;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.nodeType' is not present");
     }
 
     /**
      * ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
      * 
      */
-    private UndeferrableValue<String> notificationTopicArn;
-
+    @PolicyResourceProperty(name="notificationTopicArn", flag="unknown_notificationTopicArn")
+    private String value_notificationTopicArn;
+    private boolean unknown_notificationTopicArn;
     public String notificationTopicArn() {
-        if (notificationTopicArn == null) return null;
-        return notificationTopicArn.getValue("ReplicationGroupArgs.notificationTopicArn");
+        if (!unknown_notificationTopicArn) return value_notificationTopicArn;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.notificationTopicArn' is not present");
     }
 
     /**
@@ -272,11 +294,12 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.PolicyResou
      * Defaults to `1`.
      * 
      */
-    private UndeferrableValue<Integer> numCacheClusters;
-
+    @PolicyResourceProperty(name="numCacheClusters", flag="unknown_numCacheClusters")
+    private Integer value_numCacheClusters;
+    private boolean unknown_numCacheClusters;
     public Integer numCacheClusters() {
-        if (numCacheClusters == null) return null;
-        return numCacheClusters.getValue("ReplicationGroupArgs.numCacheClusters");
+        if (!unknown_numCacheClusters) return value_numCacheClusters;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.numCacheClusters' is not present");
     }
 
     /**
@@ -285,44 +308,48 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.PolicyResou
      * Conflicts with `num_cache_clusters`.
      * 
      */
-    private UndeferrableValue<Integer> numNodeGroups;
-
+    @PolicyResourceProperty(name="numNodeGroups", flag="unknown_numNodeGroups")
+    private Integer value_numNodeGroups;
+    private boolean unknown_numNodeGroups;
     public Integer numNodeGroups() {
-        if (numNodeGroups == null) return null;
-        return numNodeGroups.getValue("ReplicationGroupArgs.numNodeGroups");
+        if (!unknown_numNodeGroups) return value_numNodeGroups;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.numNodeGroups' is not present");
     }
 
     /**
      * Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable &#34;cluster mode&#34;, i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
      * 
      */
-    private UndeferrableValue<String> parameterGroupName;
-
+    @PolicyResourceProperty(name="parameterGroupName", flag="unknown_parameterGroupName")
+    private String value_parameterGroupName;
+    private boolean unknown_parameterGroupName;
     public String parameterGroupName() {
-        if (parameterGroupName == null) return null;
-        return parameterGroupName.getValue("ReplicationGroupArgs.parameterGroupName");
+        if (!unknown_parameterGroupName) return value_parameterGroupName;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.parameterGroupName' is not present");
     }
 
     /**
      * Port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("ReplicationGroupArgs.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.port' is not present");
     }
 
     /**
      * List of EC2 availability zones in which the replication group&#39;s cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
      * 
      */
-    private UndeferrableValue<List<String>> preferredCacheClusterAzs;
-
+    @PolicyResourceProperty(name="preferredCacheClusterAzs", flag="unknown_preferredCacheClusterAzs")
+    private List<String> value_preferredCacheClusterAzs;
+    private boolean unknown_preferredCacheClusterAzs;
     public List<String> preferredCacheClusterAzs() {
-        if (preferredCacheClusterAzs == null) return null;
-        return preferredCacheClusterAzs.getValue("ReplicationGroupArgs.preferredCacheClusterAzs");
+        if (!unknown_preferredCacheClusterAzs) return value_preferredCacheClusterAzs;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.preferredCacheClusterAzs' is not present");
     }
 
     /**
@@ -333,11 +360,12 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.PolicyResou
      * Can only be set if `num_node_groups` is set.
      * 
      */
-    private UndeferrableValue<Integer> replicasPerNodeGroup;
-
+    @PolicyResourceProperty(name="replicasPerNodeGroup", flag="unknown_replicasPerNodeGroup")
+    private Integer value_replicasPerNodeGroup;
+    private boolean unknown_replicasPerNodeGroup;
     public Integer replicasPerNodeGroup() {
-        if (replicasPerNodeGroup == null) return null;
-        return replicasPerNodeGroup.getValue("ReplicationGroupArgs.replicasPerNodeGroup");
+        if (!unknown_replicasPerNodeGroup) return value_replicasPerNodeGroup;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.replicasPerNodeGroup' is not present");
     }
 
     /**
@@ -346,99 +374,108 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.PolicyResou
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> replicationGroupId;
-
+    @PolicyResourceProperty(name="replicationGroupId", flag="unknown_replicationGroupId")
+    private String value_replicationGroupId;
+    private boolean unknown_replicationGroupId;
     public String replicationGroupId() {
-        if (replicationGroupId == null) return null;
-        return replicationGroupId.getValue("ReplicationGroupArgs.replicationGroupId");
+        if (!unknown_replicationGroupId) return value_replicationGroupId;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.replicationGroupId' is not present");
     }
 
     /**
      * IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("ReplicationGroupArgs.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.securityGroupIds' is not present");
     }
 
     /**
      * Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupNames;
-
+    @PolicyResourceProperty(name="securityGroupNames", flag="unknown_securityGroupNames")
+    private List<String> value_securityGroupNames;
+    private boolean unknown_securityGroupNames;
     public List<String> securityGroupNames() {
-        if (securityGroupNames == null) return null;
-        return securityGroupNames.getValue("ReplicationGroupArgs.securityGroupNames");
+        if (!unknown_securityGroupNames) return value_securityGroupNames;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.securityGroupNames' is not present");
     }
 
     /**
      * List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
      * 
      */
-    private UndeferrableValue<List<String>> snapshotArns;
-
+    @PolicyResourceProperty(name="snapshotArns", flag="unknown_snapshotArns")
+    private List<String> value_snapshotArns;
+    private boolean unknown_snapshotArns;
     public List<String> snapshotArns() {
-        if (snapshotArns == null) return null;
-        return snapshotArns.getValue("ReplicationGroupArgs.snapshotArns");
+        if (!unknown_snapshotArns) return value_snapshotArns;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.snapshotArns' is not present");
     }
 
     /**
      * Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
      * 
      */
-    private UndeferrableValue<String> snapshotName;
-
+    @PolicyResourceProperty(name="snapshotName", flag="unknown_snapshotName")
+    private String value_snapshotName;
+    private boolean unknown_snapshotName;
     public String snapshotName() {
-        if (snapshotName == null) return null;
-        return snapshotName.getValue("ReplicationGroupArgs.snapshotName");
+        if (!unknown_snapshotName) return value_snapshotName;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.snapshotName' is not present");
     }
 
     /**
      * Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
      * 
      */
-    private UndeferrableValue<Integer> snapshotRetentionLimit;
-
+    @PolicyResourceProperty(name="snapshotRetentionLimit", flag="unknown_snapshotRetentionLimit")
+    private Integer value_snapshotRetentionLimit;
+    private boolean unknown_snapshotRetentionLimit;
     public Integer snapshotRetentionLimit() {
-        if (snapshotRetentionLimit == null) return null;
-        return snapshotRetentionLimit.getValue("ReplicationGroupArgs.snapshotRetentionLimit");
+        if (!unknown_snapshotRetentionLimit) return value_snapshotRetentionLimit;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.snapshotRetentionLimit' is not present");
     }
 
     /**
      * Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
      * 
      */
-    private UndeferrableValue<String> snapshotWindow;
-
+    @PolicyResourceProperty(name="snapshotWindow", flag="unknown_snapshotWindow")
+    private String value_snapshotWindow;
+    private boolean unknown_snapshotWindow;
     public String snapshotWindow() {
-        if (snapshotWindow == null) return null;
-        return snapshotWindow.getValue("ReplicationGroupArgs.snapshotWindow");
+        if (!unknown_snapshotWindow) return value_snapshotWindow;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.snapshotWindow' is not present");
     }
 
     /**
      * Name of the cache subnet group to be used for the replication group.
      * 
      */
-    private UndeferrableValue<String> subnetGroupName;
-
+    @PolicyResourceProperty(name="subnetGroupName", flag="unknown_subnetGroupName")
+    private String value_subnetGroupName;
+    private boolean unknown_subnetGroupName;
     public String subnetGroupName() {
-        if (subnetGroupName == null) return null;
-        return subnetGroupName.getValue("ReplicationGroupArgs.subnetGroupName");
+        if (!unknown_subnetGroupName) return value_subnetGroupName;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.subnetGroupName' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ReplicationGroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.tags' is not present");
     }
 
     /**
@@ -447,11 +484,12 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.PolicyResou
      * Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
      * 
      */
-    private UndeferrableValue<Boolean> transitEncryptionEnabled;
-
+    @PolicyResourceProperty(name="transitEncryptionEnabled", flag="unknown_transitEncryptionEnabled")
+    private Boolean value_transitEncryptionEnabled;
+    private boolean unknown_transitEncryptionEnabled;
     public Boolean transitEncryptionEnabled() {
-        if (transitEncryptionEnabled == null) return null;
-        return transitEncryptionEnabled.getValue("ReplicationGroupArgs.transitEncryptionEnabled");
+        if (!unknown_transitEncryptionEnabled) return value_transitEncryptionEnabled;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.transitEncryptionEnabled' is not present");
     }
 
     /**
@@ -461,22 +499,24 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.PolicyResou
      * See the `TransitEncryptionMode` field in the [`CreateReplicationGroup` API documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) for additional details.
      * 
      */
-    private UndeferrableValue<String> transitEncryptionMode;
-
+    @PolicyResourceProperty(name="transitEncryptionMode", flag="unknown_transitEncryptionMode")
+    private String value_transitEncryptionMode;
+    private boolean unknown_transitEncryptionMode;
     public String transitEncryptionMode() {
-        if (transitEncryptionMode == null) return null;
-        return transitEncryptionMode.getValue("ReplicationGroupArgs.transitEncryptionMode");
+        if (!unknown_transitEncryptionMode) return value_transitEncryptionMode;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.transitEncryptionMode' is not present");
     }
 
     /**
      * User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
      * 
      */
-    private UndeferrableValue<List<String>> userGroupIds;
-
+    @PolicyResourceProperty(name="userGroupIds", flag="unknown_userGroupIds")
+    private List<String> value_userGroupIds;
+    private boolean unknown_userGroupIds;
     public List<String> userGroupIds() {
-        if (userGroupIds == null) return null;
-        return userGroupIds.getValue("ReplicationGroupArgs.userGroupIds");
+        if (!unknown_userGroupIds) return value_userGroupIds;
+        throw new UndeferrableValueException("Value 'ReplicationGroupArgs.userGroupIds' is not present");
     }
 
 }

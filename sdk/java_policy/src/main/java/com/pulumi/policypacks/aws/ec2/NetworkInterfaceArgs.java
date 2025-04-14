@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.inputs.NetworkInterfaceAttachmentArgs;
 import java.lang.Boolean;
@@ -21,205 +22,224 @@ public final class NetworkInterfaceArgs extends com.pulumi.resources.PolicyResou
      * Configuration block to define the attachment of the ENI. See Attachment below for more details!
      * 
      */
-    private UndeferrableValue<List<NetworkInterfaceAttachmentArgs>> attachments;
-
+    @PolicyResourceProperty(name="attachments", flag="unknown_attachments")
+    private List<NetworkInterfaceAttachmentArgs> value_attachments;
+    private boolean unknown_attachments;
     public List<NetworkInterfaceAttachmentArgs> attachments() {
-        if (attachments == null) return null;
-        return attachments.getValue("NetworkInterfaceArgs.attachments");
+        if (!unknown_attachments) return value_attachments;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.attachments' is not present");
     }
 
     /**
      * Description for the network interface.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("NetworkInterfaceArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.description' is not present");
     }
 
     /**
      * Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
      * 
      */
-    private UndeferrableValue<Boolean> enablePrimaryIpv6;
-
+    @PolicyResourceProperty(name="enablePrimaryIpv6", flag="unknown_enablePrimaryIpv6")
+    private Boolean value_enablePrimaryIpv6;
+    private boolean unknown_enablePrimaryIpv6;
     public Boolean enablePrimaryIpv6() {
-        if (enablePrimaryIpv6 == null) return null;
-        return enablePrimaryIpv6.getValue("NetworkInterfaceArgs.enablePrimaryIpv6");
+        if (!unknown_enablePrimaryIpv6) return value_enablePrimaryIpv6;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.enablePrimaryIpv6' is not present");
     }
 
     /**
      * Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
      * 
      */
-    private UndeferrableValue<String> interfaceType;
-
+    @PolicyResourceProperty(name="interfaceType", flag="unknown_interfaceType")
+    private String value_interfaceType;
+    private boolean unknown_interfaceType;
     public String interfaceType() {
-        if (interfaceType == null) return null;
-        return interfaceType.getValue("NetworkInterfaceArgs.interfaceType");
+        if (!unknown_interfaceType) return value_interfaceType;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.interfaceType' is not present");
     }
 
     /**
      * Number of IPv4 prefixes that AWS automatically assigns to the network interface.
      * 
      */
-    private UndeferrableValue<Integer> ipv4PrefixCount;
-
+    @PolicyResourceProperty(name="ipv4PrefixCount", flag="unknown_ipv4PrefixCount")
+    private Integer value_ipv4PrefixCount;
+    private boolean unknown_ipv4PrefixCount;
     public Integer ipv4PrefixCount() {
-        if (ipv4PrefixCount == null) return null;
-        return ipv4PrefixCount.getValue("NetworkInterfaceArgs.ipv4PrefixCount");
+        if (!unknown_ipv4PrefixCount) return value_ipv4PrefixCount;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.ipv4PrefixCount' is not present");
     }
 
     /**
      * One or more IPv4 prefixes assigned to the network interface.
      * 
      */
-    private UndeferrableValue<List<String>> ipv4Prefixes;
-
+    @PolicyResourceProperty(name="ipv4Prefixes", flag="unknown_ipv4Prefixes")
+    private List<String> value_ipv4Prefixes;
+    private boolean unknown_ipv4Prefixes;
     public List<String> ipv4Prefixes() {
-        if (ipv4Prefixes == null) return null;
-        return ipv4Prefixes.getValue("NetworkInterfaceArgs.ipv4Prefixes");
+        if (!unknown_ipv4Prefixes) return value_ipv4Prefixes;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.ipv4Prefixes' is not present");
     }
 
     /**
      * Number of IPv6 addresses to assign to a network interface. You can&#39;t use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
      * 
      */
-    private UndeferrableValue<Integer> ipv6AddressCount;
-
+    @PolicyResourceProperty(name="ipv6AddressCount", flag="unknown_ipv6AddressCount")
+    private Integer value_ipv6AddressCount;
+    private boolean unknown_ipv6AddressCount;
     public Integer ipv6AddressCount() {
-        if (ipv6AddressCount == null) return null;
-        return ipv6AddressCount.getValue("NetworkInterfaceArgs.ipv6AddressCount");
+        if (!unknown_ipv6AddressCount) return value_ipv6AddressCount;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.ipv6AddressCount' is not present");
     }
 
     /**
      * Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> ipv6AddressListEnabled;
-
+    @PolicyResourceProperty(name="ipv6AddressListEnabled", flag="unknown_ipv6AddressListEnabled")
+    private Boolean value_ipv6AddressListEnabled;
+    private boolean unknown_ipv6AddressListEnabled;
     public Boolean ipv6AddressListEnabled() {
-        if (ipv6AddressListEnabled == null) return null;
-        return ipv6AddressListEnabled.getValue("NetworkInterfaceArgs.ipv6AddressListEnabled");
+        if (!unknown_ipv6AddressListEnabled) return value_ipv6AddressListEnabled;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.ipv6AddressListEnabled' is not present");
     }
 
     /**
      * List of private IPs to assign to the ENI in sequential order.
      * 
      */
-    private UndeferrableValue<List<String>> ipv6AddressLists;
-
+    @PolicyResourceProperty(name="ipv6AddressLists", flag="unknown_ipv6AddressLists")
+    private List<String> value_ipv6AddressLists;
+    private boolean unknown_ipv6AddressLists;
     public List<String> ipv6AddressLists() {
-        if (ipv6AddressLists == null) return null;
-        return ipv6AddressLists.getValue("NetworkInterfaceArgs.ipv6AddressLists");
+        if (!unknown_ipv6AddressLists) return value_ipv6AddressLists;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.ipv6AddressLists' is not present");
     }
 
     /**
      * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can&#39;t use this option if you&#39;re specifying `ipv6_address_count`.
      * 
      */
-    private UndeferrableValue<List<String>> ipv6Addresses;
-
+    @PolicyResourceProperty(name="ipv6Addresses", flag="unknown_ipv6Addresses")
+    private List<String> value_ipv6Addresses;
+    private boolean unknown_ipv6Addresses;
     public List<String> ipv6Addresses() {
-        if (ipv6Addresses == null) return null;
-        return ipv6Addresses.getValue("NetworkInterfaceArgs.ipv6Addresses");
+        if (!unknown_ipv6Addresses) return value_ipv6Addresses;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.ipv6Addresses' is not present");
     }
 
     /**
      * Number of IPv6 prefixes that AWS automatically assigns to the network interface.
      * 
      */
-    private UndeferrableValue<Integer> ipv6PrefixCount;
-
+    @PolicyResourceProperty(name="ipv6PrefixCount", flag="unknown_ipv6PrefixCount")
+    private Integer value_ipv6PrefixCount;
+    private boolean unknown_ipv6PrefixCount;
     public Integer ipv6PrefixCount() {
-        if (ipv6PrefixCount == null) return null;
-        return ipv6PrefixCount.getValue("NetworkInterfaceArgs.ipv6PrefixCount");
+        if (!unknown_ipv6PrefixCount) return value_ipv6PrefixCount;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.ipv6PrefixCount' is not present");
     }
 
     /**
      * One or more IPv6 prefixes assigned to the network interface.
      * 
      */
-    private UndeferrableValue<List<String>> ipv6Prefixes;
-
+    @PolicyResourceProperty(name="ipv6Prefixes", flag="unknown_ipv6Prefixes")
+    private List<String> value_ipv6Prefixes;
+    private boolean unknown_ipv6Prefixes;
     public List<String> ipv6Prefixes() {
-        if (ipv6Prefixes == null) return null;
-        return ipv6Prefixes.getValue("NetworkInterfaceArgs.ipv6Prefixes");
+        if (!unknown_ipv6Prefixes) return value_ipv6Prefixes;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.ipv6Prefixes' is not present");
     }
 
-    private UndeferrableValue<String> privateIp;
-
+    @PolicyResourceProperty(name="privateIp", flag="unknown_privateIp")
+    private String value_privateIp;
+    private boolean unknown_privateIp;
     public String privateIp() {
-        if (privateIp == null) return null;
-        return privateIp.getValue("NetworkInterfaceArgs.privateIp");
+        if (!unknown_privateIp) return value_privateIp;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.privateIp' is not present");
     }
 
     /**
      * Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> privateIpListEnabled;
-
+    @PolicyResourceProperty(name="privateIpListEnabled", flag="unknown_privateIpListEnabled")
+    private Boolean value_privateIpListEnabled;
+    private boolean unknown_privateIpListEnabled;
     public Boolean privateIpListEnabled() {
-        if (privateIpListEnabled == null) return null;
-        return privateIpListEnabled.getValue("NetworkInterfaceArgs.privateIpListEnabled");
+        if (!unknown_privateIpListEnabled) return value_privateIpListEnabled;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.privateIpListEnabled' is not present");
     }
 
     /**
      * List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
      * 
      */
-    private UndeferrableValue<List<String>> privateIpLists;
-
+    @PolicyResourceProperty(name="privateIpLists", flag="unknown_privateIpLists")
+    private List<String> value_privateIpLists;
+    private boolean unknown_privateIpLists;
     public List<String> privateIpLists() {
-        if (privateIpLists == null) return null;
-        return privateIpLists.getValue("NetworkInterfaceArgs.privateIpLists");
+        if (!unknown_privateIpLists) return value_privateIpLists;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.privateIpLists' is not present");
     }
 
     /**
      * List of private IPs to assign to the ENI without regard to order.
      * 
      */
-    private UndeferrableValue<List<String>> privateIps;
-
+    @PolicyResourceProperty(name="privateIps", flag="unknown_privateIps")
+    private List<String> value_privateIps;
+    private boolean unknown_privateIps;
     public List<String> privateIps() {
-        if (privateIps == null) return null;
-        return privateIps.getValue("NetworkInterfaceArgs.privateIps");
+        if (!unknown_privateIps) return value_privateIps;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.privateIps' is not present");
     }
 
     /**
      * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
      * 
      */
-    private UndeferrableValue<Integer> privateIpsCount;
-
+    @PolicyResourceProperty(name="privateIpsCount", flag="unknown_privateIpsCount")
+    private Integer value_privateIpsCount;
+    private boolean unknown_privateIpsCount;
     public Integer privateIpsCount() {
-        if (privateIpsCount == null) return null;
-        return privateIpsCount.getValue("NetworkInterfaceArgs.privateIpsCount");
+        if (!unknown_privateIpsCount) return value_privateIpsCount;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.privateIpsCount' is not present");
     }
 
     /**
      * List of security group IDs to assign to the ENI.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroups;
-
+    @PolicyResourceProperty(name="securityGroups", flag="unknown_securityGroups")
+    private List<String> value_securityGroups;
+    private boolean unknown_securityGroups;
     public List<String> securityGroups() {
-        if (securityGroups == null) return null;
-        return securityGroups.getValue("NetworkInterfaceArgs.securityGroups");
+        if (!unknown_securityGroups) return value_securityGroups;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.securityGroups' is not present");
     }
 
     /**
      * Whether to enable source destination checking for the ENI. Default true.
      * 
      */
-    private UndeferrableValue<Boolean> sourceDestCheck;
-
+    @PolicyResourceProperty(name="sourceDestCheck", flag="unknown_sourceDestCheck")
+    private Boolean value_sourceDestCheck;
+    private boolean unknown_sourceDestCheck;
     public Boolean sourceDestCheck() {
-        if (sourceDestCheck == null) return null;
-        return sourceDestCheck.getValue("NetworkInterfaceArgs.sourceDestCheck");
+        if (!unknown_sourceDestCheck) return value_sourceDestCheck;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.sourceDestCheck' is not present");
     }
 
     /**
@@ -228,22 +248,24 @@ public final class NetworkInterfaceArgs extends com.pulumi.resources.PolicyResou
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("NetworkInterfaceArgs.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.subnetId' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("NetworkInterfaceArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'NetworkInterfaceArgs.tags' is not present");
     }
 
 }

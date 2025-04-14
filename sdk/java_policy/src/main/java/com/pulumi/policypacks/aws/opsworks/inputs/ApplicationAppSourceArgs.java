@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,66 +15,72 @@ public final class ApplicationAppSourceArgs {
      * Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
      * 
      */
-    private UndeferrableValue<String> password;
-
+    @PolicyResourceProperty(name="password", flag="unknown_password")
+    private String value_password;
+    private boolean unknown_password;
     public String password() {
-        if (password == null) return null;
-        return password.getValue("ApplicationAppSourceArgs.password");
+        if (!unknown_password) return value_password;
+        throw new UndeferrableValueException("Value 'ApplicationAppSourceArgs.password' is not present");
     }
 
     /**
      * For sources that are version-aware, the revision to use.
      * 
      */
-    private UndeferrableValue<String> revision;
-
+    @PolicyResourceProperty(name="revision", flag="unknown_revision")
+    private String value_revision;
+    private boolean unknown_revision;
     public String revision() {
-        if (revision == null) return null;
-        return revision.getValue("ApplicationAppSourceArgs.revision");
+        if (!unknown_revision) return value_revision;
+        throw new UndeferrableValueException("Value 'ApplicationAppSourceArgs.revision' is not present");
     }
 
     /**
      * SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
      * 
      */
-    private UndeferrableValue<String> sshKey;
-
+    @PolicyResourceProperty(name="sshKey", flag="unknown_sshKey")
+    private String value_sshKey;
+    private boolean unknown_sshKey;
     public String sshKey() {
-        if (sshKey == null) return null;
-        return sshKey.getValue("ApplicationAppSourceArgs.sshKey");
+        if (!unknown_sshKey) return value_sshKey;
+        throw new UndeferrableValueException("Value 'ApplicationAppSourceArgs.sshKey' is not present");
     }
 
     /**
      * The type of source to use. For example, &#34;archive&#34;.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ApplicationAppSourceArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ApplicationAppSourceArgs.type' is not present");
     }
 
     /**
      * The URL where the app resource can be found.
      * 
      */
-    private UndeferrableValue<String> url;
-
+    @PolicyResourceProperty(name="url", flag="unknown_url")
+    private String value_url;
+    private boolean unknown_url;
     public String url() {
-        if (url == null) return null;
-        return url.getValue("ApplicationAppSourceArgs.url");
+        if (!unknown_url) return value_url;
+        throw new UndeferrableValueException("Value 'ApplicationAppSourceArgs.url' is not present");
     }
 
     /**
      * Username to use when authenticating to the source.
      * 
      */
-    private UndeferrableValue<String> username;
-
+    @PolicyResourceProperty(name="username", flag="unknown_username")
+    private String value_username;
+    private boolean unknown_username;
     public String username() {
-        if (username == null) return null;
-        return username.getValue("ApplicationAppSourceArgs.username");
+        if (!unknown_username) return value_username;
+        throw new UndeferrableValueException("Value 'ApplicationAppSourceArgs.username' is not present");
     }
 
 }

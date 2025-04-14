@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class DataSourceParametersS3ManifestFileLocationArgs {
      * The name of the bucket that contains the manifest file.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("DataSourceParametersS3ManifestFileLocationArgs.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'DataSourceParametersS3ManifestFileLocationArgs.bucket' is not present");
     }
 
     /**
      * The key of the manifest file within the bucket.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("DataSourceParametersS3ManifestFileLocationArgs.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'DataSourceParametersS3ManifestFileLocationArgs.key' is not present");
     }
 
 }

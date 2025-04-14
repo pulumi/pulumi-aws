@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.devicefarm.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class DevicePoolRuleArgs {
      * The rule&#39;s stringified attribute. Valid values are: `APPIUM_VERSION`, `ARN`, `AVAILABILITY`, `FLEET_TYPE`, `FORM_FACTOR`, `INSTANCE_ARN`, `INSTANCE_LABELS`, `MANUFACTURER`, `MODEL`, `OS_VERSION`, `PLATFORM`, `REMOTE_ACCESS_ENABLED`, `REMOTE_DEBUG_ENABLED`.
      * 
      */
-    private UndeferrableValue<String> attribute;
-
+    @PolicyResourceProperty(name="attribute", flag="unknown_attribute")
+    private String value_attribute;
+    private boolean unknown_attribute;
     public String attribute() {
-        if (attribute == null) return null;
-        return attribute.getValue("DevicePoolRuleArgs.attribute");
+        if (!unknown_attribute) return value_attribute;
+        throw new UndeferrableValueException("Value 'DevicePoolRuleArgs.attribute' is not present");
     }
 
     /**
      * Specifies how Device Farm compares the rule&#39;s attribute to the value. For the operators that are supported by each attribute. Valid values are: `EQUALS`, `NOT_IN`, `IN`, `GREATER_THAN`, `GREATER_THAN_OR_EQUALS`, `LESS_THAN`, `LESS_THAN_OR_EQUALS`, `CONTAINS`.
      * 
      */
-    private UndeferrableValue<String> operator;
-
+    @PolicyResourceProperty(name="operator", flag="unknown_operator")
+    private String value_operator;
+    private boolean unknown_operator;
     public String operator() {
-        if (operator == null) return null;
-        return operator.getValue("DevicePoolRuleArgs.operator");
+        if (!unknown_operator) return value_operator;
+        throw new UndeferrableValueException("Value 'DevicePoolRuleArgs.operator' is not present");
     }
 
     /**
      * The rule&#39;s value.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("DevicePoolRuleArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'DevicePoolRuleArgs.value' is not present");
     }
 
 }

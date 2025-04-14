@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class V2modelsSlotTypeCompositeSlotTypeSettingArgs {
      * See `sub_slots` argument reference below.
      * 
      */
-    private UndeferrableValue<List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs>> subSlots;
-
+    @PolicyResourceProperty(name="subSlots", flag="unknown_subSlots")
+    private List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs> value_subSlots;
+    private boolean unknown_subSlots;
     public List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs> subSlots() {
-        if (subSlots == null) return null;
-        return subSlots.getValue("V2modelsSlotTypeCompositeSlotTypeSettingArgs.subSlots");
+        if (!unknown_subSlots) return value_subSlots;
+        throw new UndeferrableValueException("Value 'V2modelsSlotTypeCompositeSlotTypeSettingArgs.subSlots' is not present");
     }
 
 }

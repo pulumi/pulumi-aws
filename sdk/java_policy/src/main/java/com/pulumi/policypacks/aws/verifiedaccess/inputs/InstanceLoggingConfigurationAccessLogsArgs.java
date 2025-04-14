@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.verifiedaccess.inputs.InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs;
 import com.pulumi.policypacks.aws.verifiedaccess.inputs.InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs;
 import com.pulumi.policypacks.aws.verifiedaccess.inputs.InstanceLoggingConfigurationAccessLogsS3Args;
@@ -18,55 +19,60 @@ public final class InstanceLoggingConfigurationAccessLogsArgs {
      * A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
      * 
      */
-    private UndeferrableValue<InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs> cloudwatchLogs;
-
+    @PolicyResourceProperty(name="cloudwatchLogs", flag="unknown_cloudwatchLogs")
+    private InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs value_cloudwatchLogs;
+    private boolean unknown_cloudwatchLogs;
     public InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs cloudwatchLogs() {
-        if (cloudwatchLogs == null) return null;
-        return cloudwatchLogs.getValue("InstanceLoggingConfigurationAccessLogsArgs.cloudwatchLogs");
+        if (!unknown_cloudwatchLogs) return value_cloudwatchLogs;
+        throw new UndeferrableValueException("Value 'InstanceLoggingConfigurationAccessLogsArgs.cloudwatchLogs' is not present");
     }
 
     /**
      * Include trust data sent by trust providers into the logs.
      * 
      */
-    private UndeferrableValue<Boolean> includeTrustContext;
-
+    @PolicyResourceProperty(name="includeTrustContext", flag="unknown_includeTrustContext")
+    private Boolean value_includeTrustContext;
+    private boolean unknown_includeTrustContext;
     public Boolean includeTrustContext() {
-        if (includeTrustContext == null) return null;
-        return includeTrustContext.getValue("InstanceLoggingConfigurationAccessLogsArgs.includeTrustContext");
+        if (!unknown_includeTrustContext) return value_includeTrustContext;
+        throw new UndeferrableValueException("Value 'InstanceLoggingConfigurationAccessLogsArgs.includeTrustContext' is not present");
     }
 
     /**
      * A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
      * 
      */
-    private UndeferrableValue<InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs> kinesisDataFirehose;
-
+    @PolicyResourceProperty(name="kinesisDataFirehose", flag="unknown_kinesisDataFirehose")
+    private InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs value_kinesisDataFirehose;
+    private boolean unknown_kinesisDataFirehose;
     public InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs kinesisDataFirehose() {
-        if (kinesisDataFirehose == null) return null;
-        return kinesisDataFirehose.getValue("InstanceLoggingConfigurationAccessLogsArgs.kinesisDataFirehose");
+        if (!unknown_kinesisDataFirehose) return value_kinesisDataFirehose;
+        throw new UndeferrableValueException("Value 'InstanceLoggingConfigurationAccessLogsArgs.kinesisDataFirehose' is not present");
     }
 
     /**
      * The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
      * 
      */
-    private UndeferrableValue<String> logVersion;
-
+    @PolicyResourceProperty(name="logVersion", flag="unknown_logVersion")
+    private String value_logVersion;
+    private boolean unknown_logVersion;
     public String logVersion() {
-        if (logVersion == null) return null;
-        return logVersion.getValue("InstanceLoggingConfigurationAccessLogsArgs.logVersion");
+        if (!unknown_logVersion) return value_logVersion;
+        throw new UndeferrableValueException("Value 'InstanceLoggingConfigurationAccessLogsArgs.logVersion' is not present");
     }
 
     /**
      * A block that specifies configures sending Verified Access logs to S3. Detailed below.
      * 
      */
-    private UndeferrableValue<InstanceLoggingConfigurationAccessLogsS3Args> s3;
-
+    @PolicyResourceProperty(name="s3", flag="unknown_s3")
+    private InstanceLoggingConfigurationAccessLogsS3Args value_s3;
+    private boolean unknown_s3;
     public InstanceLoggingConfigurationAccessLogsS3Args s3() {
-        if (s3 == null) return null;
-        return s3.getValue("InstanceLoggingConfigurationAccessLogsArgs.s3");
+        if (!unknown_s3) return value_s3;
+        throw new UndeferrableValueException("Value 'InstanceLoggingConfigurationAccessLogsArgs.s3' is not present");
     }
 
 }

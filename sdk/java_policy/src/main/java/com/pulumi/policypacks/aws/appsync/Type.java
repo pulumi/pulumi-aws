@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,66 +16,72 @@ public final class Type extends com.pulumi.resources.PolicyResourceOutput {
      * GraphQL API ID.
      * 
      */
-    private UndeferrableValue<String> apiId;
-
+    @PolicyResourceProperty(name="apiId", flag="unknown_apiId")
+    private String value_apiId;
+    private boolean unknown_apiId;
     public String apiId() {
-        if (apiId == null) return null;
-        return apiId.getValue("Type.apiId");
+        if (!unknown_apiId) return value_apiId;
+        throw new UndeferrableValueException("Value 'Type.apiId' is not present");
     }
 
     /**
      * The ARN of the type.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Type.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Type.arn' is not present");
     }
 
     /**
      * The type definition.
      * 
      */
-    private UndeferrableValue<String> definition;
-
+    @PolicyResourceProperty(name="definition", flag="unknown_definition")
+    private String value_definition;
+    private boolean unknown_definition;
     public String definition() {
-        if (definition == null) return null;
-        return definition.getValue("Type.definition");
+        if (!unknown_definition) return value_definition;
+        throw new UndeferrableValueException("Value 'Type.definition' is not present");
     }
 
     /**
      * The type description.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("Type.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Type.description' is not present");
     }
 
     /**
      * The type format: `SDL` or `JSON`.
      * 
      */
-    private UndeferrableValue<String> format;
-
+    @PolicyResourceProperty(name="format", flag="unknown_format")
+    private String value_format;
+    private boolean unknown_format;
     public String format() {
-        if (format == null) return null;
-        return format.getValue("Type.format");
+        if (!unknown_format) return value_format;
+        throw new UndeferrableValueException("Value 'Type.format' is not present");
     }
 
     /**
      * The type name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Type.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Type.name' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3tables;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -17,11 +18,12 @@ public final class TablePolicy extends com.pulumi.resources.PolicyResourceOutput
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TablePolicy.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TablePolicy.name' is not present");
     }
 
     /**
@@ -30,33 +32,36 @@ public final class TablePolicy extends com.pulumi.resources.PolicyResourceOutput
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      * 
      */
-    private UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private String value_namespace;
+    private boolean unknown_namespace;
     public String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("TablePolicy.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'TablePolicy.namespace' is not present");
     }
 
     /**
      * Amazon Web Services resource-based policy document in JSON format.
      * 
      */
-    private UndeferrableValue<String> resourcePolicy;
-
+    @PolicyResourceProperty(name="resourcePolicy", flag="unknown_resourcePolicy")
+    private String value_resourcePolicy;
+    private boolean unknown_resourcePolicy;
     public String resourcePolicy() {
-        if (resourcePolicy == null) return null;
-        return resourcePolicy.getValue("TablePolicy.resourcePolicy");
+        if (!unknown_resourcePolicy) return value_resourcePolicy;
+        throw new UndeferrableValueException("Value 'TablePolicy.resourcePolicy' is not present");
     }
 
     /**
      * ARN referencing the Table Bucket that contains this Namespace.
      * 
      */
-    private UndeferrableValue<String> tableBucketArn;
-
+    @PolicyResourceProperty(name="tableBucketArn", flag="unknown_tableBucketArn")
+    private String value_tableBucketArn;
+    private boolean unknown_tableBucketArn;
     public String tableBucketArn() {
-        if (tableBucketArn == null) return null;
-        return tableBucketArn.getValue("TablePolicy.tableBucketArn");
+        if (!unknown_tableBucketArn) return value_tableBucketArn;
+        throw new UndeferrableValueException("Value 'TablePolicy.tableBucketArn' is not present");
     }
 
 }

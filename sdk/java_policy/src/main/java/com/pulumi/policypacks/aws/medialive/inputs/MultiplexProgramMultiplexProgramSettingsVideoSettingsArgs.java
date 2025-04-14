@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs;
 import java.lang.Integer;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs {
      * Constant bitrate value.
      * 
      */
-    private UndeferrableValue<Integer> constantBitrate;
-
+    @PolicyResourceProperty(name="constantBitrate", flag="unknown_constantBitrate")
+    private Integer value_constantBitrate;
+    private boolean unknown_constantBitrate;
     public Integer constantBitrate() {
-        if (constantBitrate == null) return null;
-        return constantBitrate.getValue("MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs.constantBitrate");
+        if (!unknown_constantBitrate) return value_constantBitrate;
+        throw new UndeferrableValueException("Value 'MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs.constantBitrate' is not present");
     }
 
     /**
      * Statmux settings. See Statmux Settings for more details.
      * 
      */
-    private UndeferrableValue<MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs> statmuxSettings;
-
+    @PolicyResourceProperty(name="statmuxSettings", flag="unknown_statmuxSettings")
+    private MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs value_statmuxSettings;
+    private boolean unknown_statmuxSettings;
     public MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs statmuxSettings() {
-        if (statmuxSettings == null) return null;
-        return statmuxSettings.getValue("MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs.statmuxSettings");
+        if (!unknown_statmuxSettings) return value_statmuxSettings;
+        throw new UndeferrableValueException("Value 'MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs.statmuxSettings' is not present");
     }
 
 }

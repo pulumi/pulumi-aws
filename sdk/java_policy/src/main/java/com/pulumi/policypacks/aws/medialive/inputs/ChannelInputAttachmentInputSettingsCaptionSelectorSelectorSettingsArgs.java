@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs;
@@ -20,77 +21,84 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
      * Ancillary Source Settings. See Ancillary Source Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs> ancillarySourceSettings;
-
+    @PolicyResourceProperty(name="ancillarySourceSettings", flag="unknown_ancillarySourceSettings")
+    private ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs value_ancillarySourceSettings;
+    private boolean unknown_ancillarySourceSettings;
     public ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs ancillarySourceSettings() {
-        if (ancillarySourceSettings == null) return null;
-        return ancillarySourceSettings.getValue("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs.ancillarySourceSettings");
+        if (!unknown_ancillarySourceSettings) return value_ancillarySourceSettings;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs.ancillarySourceSettings' is not present");
     }
 
     /**
      * ARIB Source Settings.
      * 
      */
-    private UndeferrableValue<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs> aribSourceSettings;
-
+    @PolicyResourceProperty(name="aribSourceSettings", flag="unknown_aribSourceSettings")
+    private ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs value_aribSourceSettings;
+    private boolean unknown_aribSourceSettings;
     public ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs aribSourceSettings() {
-        if (aribSourceSettings == null) return null;
-        return aribSourceSettings.getValue("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs.aribSourceSettings");
+        if (!unknown_aribSourceSettings) return value_aribSourceSettings;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs.aribSourceSettings' is not present");
     }
 
     /**
      * DVB Sub Source Settings. See DVB Sub Source Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs> dvbSubSourceSettings;
-
+    @PolicyResourceProperty(name="dvbSubSourceSettings", flag="unknown_dvbSubSourceSettings")
+    private ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs value_dvbSubSourceSettings;
+    private boolean unknown_dvbSubSourceSettings;
     public ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs dvbSubSourceSettings() {
-        if (dvbSubSourceSettings == null) return null;
-        return dvbSubSourceSettings.getValue("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs.dvbSubSourceSettings");
+        if (!unknown_dvbSubSourceSettings) return value_dvbSubSourceSettings;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs.dvbSubSourceSettings' is not present");
     }
 
     /**
      * Embedded Source Settings. See Embedded Source Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs> embeddedSourceSettings;
-
+    @PolicyResourceProperty(name="embeddedSourceSettings", flag="unknown_embeddedSourceSettings")
+    private ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs value_embeddedSourceSettings;
+    private boolean unknown_embeddedSourceSettings;
     public ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs embeddedSourceSettings() {
-        if (embeddedSourceSettings == null) return null;
-        return embeddedSourceSettings.getValue("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs.embeddedSourceSettings");
+        if (!unknown_embeddedSourceSettings) return value_embeddedSourceSettings;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs.embeddedSourceSettings' is not present");
     }
 
     /**
      * SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs> scte20SourceSettings;
-
+    @PolicyResourceProperty(name="scte20SourceSettings", flag="unknown_scte20SourceSettings")
+    private ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs value_scte20SourceSettings;
+    private boolean unknown_scte20SourceSettings;
     public ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs scte20SourceSettings() {
-        if (scte20SourceSettings == null) return null;
-        return scte20SourceSettings.getValue("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs.scte20SourceSettings");
+        if (!unknown_scte20SourceSettings) return value_scte20SourceSettings;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs.scte20SourceSettings' is not present");
     }
 
     /**
      * SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs> scte27SourceSettings;
-
+    @PolicyResourceProperty(name="scte27SourceSettings", flag="unknown_scte27SourceSettings")
+    private ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs value_scte27SourceSettings;
+    private boolean unknown_scte27SourceSettings;
     public ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs scte27SourceSettings() {
-        if (scte27SourceSettings == null) return null;
-        return scte27SourceSettings.getValue("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs.scte27SourceSettings");
+        if (!unknown_scte27SourceSettings) return value_scte27SourceSettings;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs.scte27SourceSettings' is not present");
     }
 
     /**
      * Teletext Source Settings. See Teletext Source Settings for more details.
      * 
      */
-    private UndeferrableValue<ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs> teletextSourceSettings;
-
+    @PolicyResourceProperty(name="teletextSourceSettings", flag="unknown_teletextSourceSettings")
+    private ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs value_teletextSourceSettings;
+    private boolean unknown_teletextSourceSettings;
     public ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs teletextSourceSettings() {
-        if (teletextSourceSettings == null) return null;
-        return teletextSourceSettings.getValue("ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs.teletextSourceSettings");
+        if (!unknown_teletextSourceSettings) return value_teletextSourceSettings;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs.teletextSourceSettings' is not present");
     }
 
 }

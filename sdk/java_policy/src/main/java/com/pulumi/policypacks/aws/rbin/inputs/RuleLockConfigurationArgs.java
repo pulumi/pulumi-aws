@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rbin.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.rbin.inputs.RuleLockConfigurationUnlockDelayArgs;
 
 
@@ -13,11 +14,12 @@ public final class RuleLockConfigurationArgs {
      * Information about the retention rule unlock delay. See `unlock_delay` below.
      * 
      */
-    private UndeferrableValue<RuleLockConfigurationUnlockDelayArgs> unlockDelay;
-
+    @PolicyResourceProperty(name="unlockDelay", flag="unknown_unlockDelay")
+    private RuleLockConfigurationUnlockDelayArgs value_unlockDelay;
+    private boolean unknown_unlockDelay;
     public RuleLockConfigurationUnlockDelayArgs unlockDelay() {
-        if (unlockDelay == null) return null;
-        return unlockDelay.getValue("RuleLockConfigurationArgs.unlockDelay");
+        if (!unknown_unlockDelay) return value_unlockDelay;
+        throw new UndeferrableValueException("Value 'RuleLockConfigurationArgs.unlockDelay' is not present");
     }
 
 }

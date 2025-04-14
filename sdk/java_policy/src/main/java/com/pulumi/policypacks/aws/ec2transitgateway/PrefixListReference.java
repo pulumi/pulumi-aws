@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2transitgateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,40 +18,44 @@ public final class PrefixListReference extends com.pulumi.resources.PolicyResour
      * Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> blackhole;
-
+    @PolicyResourceProperty(name="blackhole", flag="unknown_blackhole")
+    private @Nullable Boolean value_blackhole;
+    private boolean unknown_blackhole;
     public @Nullable Boolean blackhole() {
-        if (blackhole == null) return null;
-        return blackhole.getValue("PrefixListReference.blackhole");
+        if (!unknown_blackhole) return value_blackhole;
+        throw new UndeferrableValueException("Value 'PrefixListReference.blackhole' is not present");
     }
 
     /**
      * Identifier of EC2 Prefix List.
      * 
      */
-    private UndeferrableValue<String> prefixListId;
-
+    @PolicyResourceProperty(name="prefixListId", flag="unknown_prefixListId")
+    private String value_prefixListId;
+    private boolean unknown_prefixListId;
     public String prefixListId() {
-        if (prefixListId == null) return null;
-        return prefixListId.getValue("PrefixListReference.prefixListId");
+        if (!unknown_prefixListId) return value_prefixListId;
+        throw new UndeferrableValueException("Value 'PrefixListReference.prefixListId' is not present");
     }
 
-    private UndeferrableValue<String> prefixListOwnerId;
-
+    @PolicyResourceProperty(name="prefixListOwnerId", flag="unknown_prefixListOwnerId")
+    private String value_prefixListOwnerId;
+    private boolean unknown_prefixListOwnerId;
     public String prefixListOwnerId() {
-        if (prefixListOwnerId == null) return null;
-        return prefixListOwnerId.getValue("PrefixListReference.prefixListOwnerId");
+        if (!unknown_prefixListOwnerId) return value_prefixListOwnerId;
+        throw new UndeferrableValueException("Value 'PrefixListReference.prefixListOwnerId' is not present");
     }
 
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      * 
      */
-    private @Nullable UndeferrableValue<String> transitGatewayAttachmentId;
-
+    @PolicyResourceProperty(name="transitGatewayAttachmentId", flag="unknown_transitGatewayAttachmentId")
+    private @Nullable String value_transitGatewayAttachmentId;
+    private boolean unknown_transitGatewayAttachmentId;
     public @Nullable String transitGatewayAttachmentId() {
-        if (transitGatewayAttachmentId == null) return null;
-        return transitGatewayAttachmentId.getValue("PrefixListReference.transitGatewayAttachmentId");
+        if (!unknown_transitGatewayAttachmentId) return value_transitGatewayAttachmentId;
+        throw new UndeferrableValueException("Value 'PrefixListReference.transitGatewayAttachmentId' is not present");
     }
 
     /**
@@ -59,11 +64,12 @@ public final class PrefixListReference extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> transitGatewayRouteTableId;
-
+    @PolicyResourceProperty(name="transitGatewayRouteTableId", flag="unknown_transitGatewayRouteTableId")
+    private String value_transitGatewayRouteTableId;
+    private boolean unknown_transitGatewayRouteTableId;
     public String transitGatewayRouteTableId() {
-        if (transitGatewayRouteTableId == null) return null;
-        return transitGatewayRouteTableId.getValue("PrefixListReference.transitGatewayRouteTableId");
+        if (!unknown_transitGatewayRouteTableId) return value_transitGatewayRouteTableId;
+        throw new UndeferrableValueException("Value 'PrefixListReference.transitGatewayRouteTableId' is not present");
     }
 
 }

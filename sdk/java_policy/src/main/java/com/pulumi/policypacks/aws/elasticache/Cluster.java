@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticache;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.elasticache.outputs.ClusterCacheNode;
 import com.pulumi.policypacks.aws.elasticache.outputs.ClusterLogDeliveryConfiguration;
@@ -22,22 +23,24 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html).
      * 
      */
-    private UndeferrableValue<Boolean> applyImmediately;
-
+    @PolicyResourceProperty(name="applyImmediately", flag="unknown_applyImmediately")
+    private Boolean value_applyImmediately;
+    private boolean unknown_applyImmediately;
     public Boolean applyImmediately() {
-        if (applyImmediately == null) return null;
-        return applyImmediately.getValue("Cluster.applyImmediately");
+        if (!unknown_applyImmediately) return value_applyImmediately;
+        throw new UndeferrableValueException("Value 'Cluster.applyImmediately' is not present");
     }
 
     /**
      * The ARN of the created ElastiCache Cluster.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Cluster.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Cluster.arn' is not present");
     }
 
     /**
@@ -46,88 +49,96 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<String> autoMinorVersionUpgrade;
-
+    @PolicyResourceProperty(name="autoMinorVersionUpgrade", flag="unknown_autoMinorVersionUpgrade")
+    private @Nullable String value_autoMinorVersionUpgrade;
+    private boolean unknown_autoMinorVersionUpgrade;
     public @Nullable String autoMinorVersionUpgrade() {
-        if (autoMinorVersionUpgrade == null) return null;
-        return autoMinorVersionUpgrade.getValue("Cluster.autoMinorVersionUpgrade");
+        if (!unknown_autoMinorVersionUpgrade) return value_autoMinorVersionUpgrade;
+        throw new UndeferrableValueException("Value 'Cluster.autoMinorVersionUpgrade' is not present");
     }
 
     /**
      * Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("Cluster.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'Cluster.availabilityZone' is not present");
     }
 
     /**
      * Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster&#39;s region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`.
      * 
      */
-    private UndeferrableValue<String> azMode;
-
+    @PolicyResourceProperty(name="azMode", flag="unknown_azMode")
+    private String value_azMode;
+    private boolean unknown_azMode;
     public String azMode() {
-        if (azMode == null) return null;
-        return azMode.getValue("Cluster.azMode");
+        if (!unknown_azMode) return value_azMode;
+        throw new UndeferrableValueException("Value 'Cluster.azMode' is not present");
     }
 
     /**
      * List of node objects including `id`, `address`, `port` and `availability_zone`.
      * 
      */
-    private UndeferrableValue<List<ClusterCacheNode>> cacheNodes;
-
+    @PolicyResourceProperty(name="cacheNodes", flag="unknown_cacheNodes")
+    private List<ClusterCacheNode> value_cacheNodes;
+    private boolean unknown_cacheNodes;
     public List<ClusterCacheNode> cacheNodes() {
-        if (cacheNodes == null) return null;
-        return cacheNodes.getValue("Cluster.cacheNodes");
+        if (!unknown_cacheNodes) return value_cacheNodes;
+        throw new UndeferrableValueException("Value 'Cluster.cacheNodes' is not present");
     }
 
     /**
      * (Memcached only) DNS name of the cache cluster without the port appended.
      * 
      */
-    private UndeferrableValue<String> clusterAddress;
-
+    @PolicyResourceProperty(name="clusterAddress", flag="unknown_clusterAddress")
+    private String value_clusterAddress;
+    private boolean unknown_clusterAddress;
     public String clusterAddress() {
-        if (clusterAddress == null) return null;
-        return clusterAddress.getValue("Cluster.clusterAddress");
+        if (!unknown_clusterAddress) return value_clusterAddress;
+        throw new UndeferrableValueException("Value 'Cluster.clusterAddress' is not present");
     }
 
     /**
      * Group identifier. ElastiCache converts this name to lowercase. Changing this value will re-create the resource.
      * 
      */
-    private UndeferrableValue<String> clusterId;
-
+    @PolicyResourceProperty(name="clusterId", flag="unknown_clusterId")
+    private String value_clusterId;
+    private boolean unknown_clusterId;
     public String clusterId() {
-        if (clusterId == null) return null;
-        return clusterId.getValue("Cluster.clusterId");
+        if (!unknown_clusterId) return value_clusterId;
+        throw new UndeferrableValueException("Value 'Cluster.clusterId' is not present");
     }
 
     /**
      * (Memcached only) Configuration endpoint to allow host discovery.
      * 
      */
-    private UndeferrableValue<String> configurationEndpoint;
-
+    @PolicyResourceProperty(name="configurationEndpoint", flag="unknown_configurationEndpoint")
+    private String value_configurationEndpoint;
+    private boolean unknown_configurationEndpoint;
     public String configurationEndpoint() {
-        if (configurationEndpoint == null) return null;
-        return configurationEndpoint.getValue("Cluster.configurationEndpoint");
+        if (!unknown_configurationEndpoint) return value_configurationEndpoint;
+        throw new UndeferrableValueException("Value 'Cluster.configurationEndpoint' is not present");
     }
 
     /**
      * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` and `redis`.
      * 
      */
-    private UndeferrableValue<String> engine;
-
+    @PolicyResourceProperty(name="engine", flag="unknown_engine")
+    private String value_engine;
+    private boolean unknown_engine;
     public String engine() {
-        if (engine == null) return null;
-        return engine.getValue("Cluster.engine");
+        if (!unknown_engine) return value_engine;
+        throw new UndeferrableValueException("Value 'Cluster.engine' is not present");
     }
 
     /**
@@ -141,55 +152,60 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
      * 
      */
-    private UndeferrableValue<String> engineVersion;
-
+    @PolicyResourceProperty(name="engineVersion", flag="unknown_engineVersion")
+    private String value_engineVersion;
+    private boolean unknown_engineVersion;
     public String engineVersion() {
-        if (engineVersion == null) return null;
-        return engineVersion.getValue("Cluster.engineVersion");
+        if (!unknown_engineVersion) return value_engineVersion;
+        throw new UndeferrableValueException("Value 'Cluster.engineVersion' is not present");
     }
 
     /**
      * Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
      * 
      */
-    private UndeferrableValue<String> engineVersionActual;
-
+    @PolicyResourceProperty(name="engineVersionActual", flag="unknown_engineVersionActual")
+    private String value_engineVersionActual;
+    private boolean unknown_engineVersionActual;
     public String engineVersionActual() {
-        if (engineVersionActual == null) return null;
-        return engineVersionActual.getValue("Cluster.engineVersionActual");
+        if (!unknown_engineVersionActual) return value_engineVersionActual;
+        throw new UndeferrableValueException("Value 'Cluster.engineVersionActual' is not present");
     }
 
     /**
      * Name of your final cluster snapshot. If omitted, no final snapshot will be made.
      * 
      */
-    private @Nullable UndeferrableValue<String> finalSnapshotIdentifier;
-
+    @PolicyResourceProperty(name="finalSnapshotIdentifier", flag="unknown_finalSnapshotIdentifier")
+    private @Nullable String value_finalSnapshotIdentifier;
+    private boolean unknown_finalSnapshotIdentifier;
     public @Nullable String finalSnapshotIdentifier() {
-        if (finalSnapshotIdentifier == null) return null;
-        return finalSnapshotIdentifier.getValue("Cluster.finalSnapshotIdentifier");
+        if (!unknown_finalSnapshotIdentifier) return value_finalSnapshotIdentifier;
+        throw new UndeferrableValueException("Value 'Cluster.finalSnapshotIdentifier' is not present");
     }
 
     /**
      * The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
      * 
      */
-    private UndeferrableValue<String> ipDiscovery;
-
+    @PolicyResourceProperty(name="ipDiscovery", flag="unknown_ipDiscovery")
+    private String value_ipDiscovery;
+    private boolean unknown_ipDiscovery;
     public String ipDiscovery() {
-        if (ipDiscovery == null) return null;
-        return ipDiscovery.getValue("Cluster.ipDiscovery");
+        if (!unknown_ipDiscovery) return value_ipDiscovery;
+        throw new UndeferrableValueException("Value 'Cluster.ipDiscovery' is not present");
     }
 
     /**
      * Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<ClusterLogDeliveryConfiguration>> logDeliveryConfigurations;
-
+    @PolicyResourceProperty(name="logDeliveryConfigurations", flag="unknown_logDeliveryConfigurations")
+    private @Nullable List<ClusterLogDeliveryConfiguration> value_logDeliveryConfigurations;
+    private boolean unknown_logDeliveryConfigurations;
     public @Nullable List<ClusterLogDeliveryConfiguration> logDeliveryConfigurations() {
-        if (logDeliveryConfigurations == null) return null;
-        return logDeliveryConfigurations.getValue("Cluster.logDeliveryConfigurations");
+        if (!unknown_logDeliveryConfigurations) return value_logDeliveryConfigurations;
+        throw new UndeferrableValueException("Value 'Cluster.logDeliveryConfigurations' is not present");
     }
 
     /**
@@ -198,22 +214,24 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
      * 
      */
-    private UndeferrableValue<String> maintenanceWindow;
-
+    @PolicyResourceProperty(name="maintenanceWindow", flag="unknown_maintenanceWindow")
+    private String value_maintenanceWindow;
+    private boolean unknown_maintenanceWindow;
     public String maintenanceWindow() {
-        if (maintenanceWindow == null) return null;
-        return maintenanceWindow.getValue("Cluster.maintenanceWindow");
+        if (!unknown_maintenanceWindow) return value_maintenanceWindow;
+        throw new UndeferrableValueException("Value 'Cluster.maintenanceWindow' is not present");
     }
 
     /**
      * The IP versions for cache cluster connections. IPv6 is supported with Redis engine `6.2` onword or Memcached version `1.6.6` for all [Nitro system](https://aws.amazon.com/ec2/nitro/) instances. Valid values are `ipv4`, `ipv6` or `dual_stack`.
      * 
      */
-    private UndeferrableValue<String> networkType;
-
+    @PolicyResourceProperty(name="networkType", flag="unknown_networkType")
+    private String value_networkType;
+    private boolean unknown_networkType;
     public String networkType() {
-        if (networkType == null) return null;
-        return networkType.getValue("Cluster.networkType");
+        if (!unknown_networkType) return value_networkType;
+        throw new UndeferrableValueException("Value 'Cluster.networkType' is not present");
     }
 
     /**
@@ -223,44 +241,48 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * For Memcached, changing this value will re-create the resource.
      * 
      */
-    private UndeferrableValue<String> nodeType;
-
+    @PolicyResourceProperty(name="nodeType", flag="unknown_nodeType")
+    private String value_nodeType;
+    private boolean unknown_nodeType;
     public String nodeType() {
-        if (nodeType == null) return null;
-        return nodeType.getValue("Cluster.nodeType");
+        if (!unknown_nodeType) return value_nodeType;
+        throw new UndeferrableValueException("Value 'Cluster.nodeType' is not present");
     }
 
     /**
      * ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`.
      * 
      */
-    private @Nullable UndeferrableValue<String> notificationTopicArn;
-
+    @PolicyResourceProperty(name="notificationTopicArn", flag="unknown_notificationTopicArn")
+    private @Nullable String value_notificationTopicArn;
+    private boolean unknown_notificationTopicArn;
     public @Nullable String notificationTopicArn() {
-        if (notificationTopicArn == null) return null;
-        return notificationTopicArn.getValue("Cluster.notificationTopicArn");
+        if (!unknown_notificationTopicArn) return value_notificationTopicArn;
+        throw new UndeferrableValueException("Value 'Cluster.notificationTopicArn' is not present");
     }
 
     /**
      * The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
      * 
      */
-    private UndeferrableValue<Integer> numCacheNodes;
-
+    @PolicyResourceProperty(name="numCacheNodes", flag="unknown_numCacheNodes")
+    private Integer value_numCacheNodes;
+    private boolean unknown_numCacheNodes;
     public Integer numCacheNodes() {
-        if (numCacheNodes == null) return null;
-        return numCacheNodes.getValue("Cluster.numCacheNodes");
+        if (!unknown_numCacheNodes) return value_numCacheNodes;
+        throw new UndeferrableValueException("Value 'Cluster.numCacheNodes' is not present");
     }
 
     /**
      * Specify the outpost mode that will apply to the cache cluster creation. Valid values are `&#34;single-outpost&#34;` and `&#34;cross-outpost&#34;`, however AWS currently only supports `&#34;single-outpost&#34;` mode.
      * 
      */
-    private @Nullable UndeferrableValue<String> outpostMode;
-
+    @PolicyResourceProperty(name="outpostMode", flag="unknown_outpostMode")
+    private @Nullable String value_outpostMode;
+    private boolean unknown_outpostMode;
     public @Nullable String outpostMode() {
-        if (outpostMode == null) return null;
-        return outpostMode.getValue("Cluster.outpostMode");
+        if (!unknown_outpostMode) return value_outpostMode;
+        throw new UndeferrableValueException("Value 'Cluster.outpostMode' is not present");
     }
 
     /**
@@ -269,132 +291,144 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> parameterGroupName;
-
+    @PolicyResourceProperty(name="parameterGroupName", flag="unknown_parameterGroupName")
+    private String value_parameterGroupName;
+    private boolean unknown_parameterGroupName;
     public String parameterGroupName() {
-        if (parameterGroupName == null) return null;
-        return parameterGroupName.getValue("Cluster.parameterGroupName");
+        if (!unknown_parameterGroupName) return value_parameterGroupName;
+        throw new UndeferrableValueException("Value 'Cluster.parameterGroupName' is not present");
     }
 
     /**
      * The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("Cluster.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'Cluster.port' is not present");
     }
 
     /**
      * List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> preferredAvailabilityZones;
-
+    @PolicyResourceProperty(name="preferredAvailabilityZones", flag="unknown_preferredAvailabilityZones")
+    private @Nullable List<String> value_preferredAvailabilityZones;
+    private boolean unknown_preferredAvailabilityZones;
     public @Nullable List<String> preferredAvailabilityZones() {
-        if (preferredAvailabilityZones == null) return null;
-        return preferredAvailabilityZones.getValue("Cluster.preferredAvailabilityZones");
+        if (!unknown_preferredAvailabilityZones) return value_preferredAvailabilityZones;
+        throw new UndeferrableValueException("Value 'Cluster.preferredAvailabilityZones' is not present");
     }
 
     /**
      * The outpost ARN in which the cache cluster will be created.
      * 
      */
-    private UndeferrableValue<String> preferredOutpostArn;
-
+    @PolicyResourceProperty(name="preferredOutpostArn", flag="unknown_preferredOutpostArn")
+    private String value_preferredOutpostArn;
+    private boolean unknown_preferredOutpostArn;
     public String preferredOutpostArn() {
-        if (preferredOutpostArn == null) return null;
-        return preferredOutpostArn.getValue("Cluster.preferredOutpostArn");
+        if (!unknown_preferredOutpostArn) return value_preferredOutpostArn;
+        throw new UndeferrableValueException("Value 'Cluster.preferredOutpostArn' is not present");
     }
 
     /**
      * ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
      * 
      */
-    private UndeferrableValue<String> replicationGroupId;
-
+    @PolicyResourceProperty(name="replicationGroupId", flag="unknown_replicationGroupId")
+    private String value_replicationGroupId;
+    private boolean unknown_replicationGroupId;
     public String replicationGroupId() {
-        if (replicationGroupId == null) return null;
-        return replicationGroupId.getValue("Cluster.replicationGroupId");
+        if (!unknown_replicationGroupId) return value_replicationGroupId;
+        throw new UndeferrableValueException("Value 'Cluster.replicationGroupId' is not present");
     }
 
     /**
      * One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("Cluster.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'Cluster.securityGroupIds' is not present");
     }
 
     /**
      * Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
      * 
      */
-    private @Nullable UndeferrableValue<String> snapshotArns;
-
+    @PolicyResourceProperty(name="snapshotArns", flag="unknown_snapshotArns")
+    private @Nullable String value_snapshotArns;
+    private boolean unknown_snapshotArns;
     public @Nullable String snapshotArns() {
-        if (snapshotArns == null) return null;
-        return snapshotArns.getValue("Cluster.snapshotArns");
+        if (!unknown_snapshotArns) return value_snapshotArns;
+        throw new UndeferrableValueException("Value 'Cluster.snapshotArns' is not present");
     }
 
     /**
      * Name of a snapshot from which to restore data into the new node group. Changing `snapshot_name` forces a new resource.
      * 
      */
-    private @Nullable UndeferrableValue<String> snapshotName;
-
+    @PolicyResourceProperty(name="snapshotName", flag="unknown_snapshotName")
+    private @Nullable String value_snapshotName;
+    private boolean unknown_snapshotName;
     public @Nullable String snapshotName() {
-        if (snapshotName == null) return null;
-        return snapshotName.getValue("Cluster.snapshotName");
+        if (!unknown_snapshotName) return value_snapshotName;
+        throw new UndeferrableValueException("Value 'Cluster.snapshotName' is not present");
     }
 
     /**
      * Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
      * 
      */
-    private @Nullable UndeferrableValue<Integer> snapshotRetentionLimit;
-
+    @PolicyResourceProperty(name="snapshotRetentionLimit", flag="unknown_snapshotRetentionLimit")
+    private @Nullable Integer value_snapshotRetentionLimit;
+    private boolean unknown_snapshotRetentionLimit;
     public @Nullable Integer snapshotRetentionLimit() {
-        if (snapshotRetentionLimit == null) return null;
-        return snapshotRetentionLimit.getValue("Cluster.snapshotRetentionLimit");
+        if (!unknown_snapshotRetentionLimit) return value_snapshotRetentionLimit;
+        throw new UndeferrableValueException("Value 'Cluster.snapshotRetentionLimit' is not present");
     }
 
     /**
      * Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
      * 
      */
-    private UndeferrableValue<String> snapshotWindow;
-
+    @PolicyResourceProperty(name="snapshotWindow", flag="unknown_snapshotWindow")
+    private String value_snapshotWindow;
+    private boolean unknown_snapshotWindow;
     public String snapshotWindow() {
-        if (snapshotWindow == null) return null;
-        return snapshotWindow.getValue("Cluster.snapshotWindow");
+        if (!unknown_snapshotWindow) return value_snapshotWindow;
+        throw new UndeferrableValueException("Value 'Cluster.snapshotWindow' is not present");
     }
 
     /**
      * Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource. Cannot be provided with `replication_group_id.`
      * 
      */
-    private UndeferrableValue<String> subnetGroupName;
-
+    @PolicyResourceProperty(name="subnetGroupName", flag="unknown_subnetGroupName")
+    private String value_subnetGroupName;
+    private boolean unknown_subnetGroupName;
     public String subnetGroupName() {
-        if (subnetGroupName == null) return null;
-        return subnetGroupName.getValue("Cluster.subnetGroupName");
+        if (!unknown_subnetGroupName) return value_subnetGroupName;
+        throw new UndeferrableValueException("Value 'Cluster.subnetGroupName' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Cluster.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Cluster.tags' is not present");
     }
 
     /**
@@ -405,22 +439,24 @@ public final class Cluster extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Cluster.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Cluster.tagsAll' is not present");
     }
 
     /**
      * Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
      * 
      */
-    private UndeferrableValue<Boolean> transitEncryptionEnabled;
-
+    @PolicyResourceProperty(name="transitEncryptionEnabled", flag="unknown_transitEncryptionEnabled")
+    private Boolean value_transitEncryptionEnabled;
+    private boolean unknown_transitEncryptionEnabled;
     public Boolean transitEncryptionEnabled() {
-        if (transitEncryptionEnabled == null) return null;
-        return transitEncryptionEnabled.getValue("Cluster.transitEncryptionEnabled");
+        if (!unknown_transitEncryptionEnabled) return value_transitEncryptionEnabled;
+        throw new UndeferrableValueException("Value 'Cluster.transitEncryptionEnabled' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class AccessLogSubscription extends com.pulumi.resources.PolicyReso
      * Amazon Resource Name (ARN) of the access log subscription.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("AccessLogSubscription.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'AccessLogSubscription.arn' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the log destination.
      * 
      */
-    private UndeferrableValue<String> destinationArn;
-
+    @PolicyResourceProperty(name="destinationArn", flag="unknown_destinationArn")
+    private String value_destinationArn;
+    private boolean unknown_destinationArn;
     public String destinationArn() {
-        if (destinationArn == null) return null;
-        return destinationArn.getValue("AccessLogSubscription.destinationArn");
+        if (!unknown_destinationArn) return value_destinationArn;
+        throw new UndeferrableValueException("Value 'AccessLogSubscription.destinationArn' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the service network or service.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("AccessLogSubscription.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'AccessLogSubscription.resourceArn' is not present");
     }
 
     /**
@@ -52,29 +56,32 @@ public final class AccessLogSubscription extends com.pulumi.resources.PolicyReso
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> resourceIdentifier;
-
+    @PolicyResourceProperty(name="resourceIdentifier", flag="unknown_resourceIdentifier")
+    private String value_resourceIdentifier;
+    private boolean unknown_resourceIdentifier;
     public String resourceIdentifier() {
-        if (resourceIdentifier == null) return null;
-        return resourceIdentifier.getValue("AccessLogSubscription.resourceIdentifier");
+        if (!unknown_resourceIdentifier) return value_resourceIdentifier;
+        throw new UndeferrableValueException("Value 'AccessLogSubscription.resourceIdentifier' is not present");
     }
 
     /**
      * Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
      * 
      */
-    private UndeferrableValue<String> serviceNetworkLogType;
-
+    @PolicyResourceProperty(name="serviceNetworkLogType", flag="unknown_serviceNetworkLogType")
+    private String value_serviceNetworkLogType;
+    private boolean unknown_serviceNetworkLogType;
     public String serviceNetworkLogType() {
-        if (serviceNetworkLogType == null) return null;
-        return serviceNetworkLogType.getValue("AccessLogSubscription.serviceNetworkLogType");
+        if (!unknown_serviceNetworkLogType) return value_serviceNetworkLogType;
+        throw new UndeferrableValueException("Value 'AccessLogSubscription.serviceNetworkLogType' is not present");
     }
 
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AccessLogSubscription.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AccessLogSubscription.tags' is not present");
     }
 
     /**
@@ -83,11 +90,12 @@ public final class AccessLogSubscription extends com.pulumi.resources.PolicyReso
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("AccessLogSubscription.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'AccessLogSubscription.tagsAll' is not present");
     }
 
 }

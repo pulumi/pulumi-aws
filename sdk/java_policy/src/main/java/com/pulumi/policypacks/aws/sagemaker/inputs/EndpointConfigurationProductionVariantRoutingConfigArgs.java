@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class EndpointConfigurationProductionVariantRoutingConfigArgs {
      * Sets how the endpoint routes incoming traffic. Valid values are `LEAST_OUTSTANDING_REQUESTS` and `RANDOM`. `LEAST_OUTSTANDING_REQUESTS` routes requests to the specific instances that have more capacity to process them. `RANDOM` routes each request to a randomly chosen instance.
      * 
      */
-    private UndeferrableValue<String> routingStrategy;
-
+    @PolicyResourceProperty(name="routingStrategy", flag="unknown_routingStrategy")
+    private String value_routingStrategy;
+    private boolean unknown_routingStrategy;
     public String routingStrategy() {
-        if (routingStrategy == null) return null;
-        return routingStrategy.getValue("EndpointConfigurationProductionVariantRoutingConfigArgs.routingStrategy");
+        if (!unknown_routingStrategy) return value_routingStrategy;
+        throw new UndeferrableValueException("Value 'EndpointConfigurationProductionVariantRoutingConfigArgs.routingStrategy' is not present");
     }
 
 }

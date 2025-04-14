@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclAssociationConfigRequestBodyApiGateway;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclAssociationConfigRequestBodyAppRunnerService;
 import com.pulumi.policypacks.aws.wafv2.outputs.WebAclAssociationConfigRequestBodyCloudfront;
@@ -19,55 +20,60 @@ public final class WebAclAssociationConfigRequestBody {
      * Customizes the request body that your protected Amazon API Gateway REST APIs forward to AWS WAF for inspection. Applicable only when `scope` is set to `CLOUDFRONT`. See `api_gateway` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<WebAclAssociationConfigRequestBodyApiGateway>> apiGateways;
-
+    @PolicyResourceProperty(name="apiGateways", flag="unknown_apiGateways")
+    private @Nullable List<WebAclAssociationConfigRequestBodyApiGateway> value_apiGateways;
+    private boolean unknown_apiGateways;
     public @Nullable List<WebAclAssociationConfigRequestBodyApiGateway> apiGateways() {
-        if (apiGateways == null) return null;
-        return apiGateways.getValue("WebAclAssociationConfigRequestBody.apiGateways");
+        if (!unknown_apiGateways) return value_apiGateways;
+        throw new UndeferrableValueException("Value 'WebAclAssociationConfigRequestBody.apiGateways' is not present");
     }
 
     /**
      * Customizes the request body that your protected Amazon App Runner services forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `app_runner_service` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<WebAclAssociationConfigRequestBodyAppRunnerService>> appRunnerServices;
-
+    @PolicyResourceProperty(name="appRunnerServices", flag="unknown_appRunnerServices")
+    private @Nullable List<WebAclAssociationConfigRequestBodyAppRunnerService> value_appRunnerServices;
+    private boolean unknown_appRunnerServices;
     public @Nullable List<WebAclAssociationConfigRequestBodyAppRunnerService> appRunnerServices() {
-        if (appRunnerServices == null) return null;
-        return appRunnerServices.getValue("WebAclAssociationConfigRequestBody.appRunnerServices");
+        if (!unknown_appRunnerServices) return value_appRunnerServices;
+        throw new UndeferrableValueException("Value 'WebAclAssociationConfigRequestBody.appRunnerServices' is not present");
     }
 
     /**
      * Customizes the request body that your protected Amazon CloudFront distributions forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cloudfront` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<WebAclAssociationConfigRequestBodyCloudfront>> cloudfronts;
-
+    @PolicyResourceProperty(name="cloudfronts", flag="unknown_cloudfronts")
+    private @Nullable List<WebAclAssociationConfigRequestBodyCloudfront> value_cloudfronts;
+    private boolean unknown_cloudfronts;
     public @Nullable List<WebAclAssociationConfigRequestBodyCloudfront> cloudfronts() {
-        if (cloudfronts == null) return null;
-        return cloudfronts.getValue("WebAclAssociationConfigRequestBody.cloudfronts");
+        if (!unknown_cloudfronts) return value_cloudfronts;
+        throw new UndeferrableValueException("Value 'WebAclAssociationConfigRequestBody.cloudfronts' is not present");
     }
 
     /**
      * Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cognito_user_pool` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<WebAclAssociationConfigRequestBodyCognitoUserPool>> cognitoUserPools;
-
+    @PolicyResourceProperty(name="cognitoUserPools", flag="unknown_cognitoUserPools")
+    private @Nullable List<WebAclAssociationConfigRequestBodyCognitoUserPool> value_cognitoUserPools;
+    private boolean unknown_cognitoUserPools;
     public @Nullable List<WebAclAssociationConfigRequestBodyCognitoUserPool> cognitoUserPools() {
-        if (cognitoUserPools == null) return null;
-        return cognitoUserPools.getValue("WebAclAssociationConfigRequestBody.cognitoUserPools");
+        if (!unknown_cognitoUserPools) return value_cognitoUserPools;
+        throw new UndeferrableValueException("Value 'WebAclAssociationConfigRequestBody.cognitoUserPools' is not present");
     }
 
     /**
      * Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verified_access_instance` below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<WebAclAssociationConfigRequestBodyVerifiedAccessInstance>> verifiedAccessInstances;
-
+    @PolicyResourceProperty(name="verifiedAccessInstances", flag="unknown_verifiedAccessInstances")
+    private @Nullable List<WebAclAssociationConfigRequestBodyVerifiedAccessInstance> value_verifiedAccessInstances;
+    private boolean unknown_verifiedAccessInstances;
     public @Nullable List<WebAclAssociationConfigRequestBodyVerifiedAccessInstance> verifiedAccessInstances() {
-        if (verifiedAccessInstances == null) return null;
-        return verifiedAccessInstances.getValue("WebAclAssociationConfigRequestBody.verifiedAccessInstances");
+        if (!unknown_verifiedAccessInstances) return value_verifiedAccessInstances;
+        throw new UndeferrableValueException("Value 'WebAclAssociationConfigRequestBody.verifiedAccessInstances' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.connect.outputs.UserHierarchyGroupHierarchyPath;
 import java.lang.String;
@@ -19,77 +20,84 @@ public final class UserHierarchyGroup extends com.pulumi.resources.PolicyResourc
      * The Amazon Resource Name (ARN) of the hierarchy group.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("UserHierarchyGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'UserHierarchyGroup.arn' is not present");
     }
 
     /**
      * The identifier for the hierarchy group.
      * 
      */
-    private UndeferrableValue<String> hierarchyGroupId;
-
+    @PolicyResourceProperty(name="hierarchyGroupId", flag="unknown_hierarchyGroupId")
+    private String value_hierarchyGroupId;
+    private boolean unknown_hierarchyGroupId;
     public String hierarchyGroupId() {
-        if (hierarchyGroupId == null) return null;
-        return hierarchyGroupId.getValue("UserHierarchyGroup.hierarchyGroupId");
+        if (!unknown_hierarchyGroupId) return value_hierarchyGroupId;
+        throw new UndeferrableValueException("Value 'UserHierarchyGroup.hierarchyGroupId' is not present");
     }
 
     /**
      * A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
      * 
      */
-    private UndeferrableValue<List<UserHierarchyGroupHierarchyPath>> hierarchyPaths;
-
+    @PolicyResourceProperty(name="hierarchyPaths", flag="unknown_hierarchyPaths")
+    private List<UserHierarchyGroupHierarchyPath> value_hierarchyPaths;
+    private boolean unknown_hierarchyPaths;
     public List<UserHierarchyGroupHierarchyPath> hierarchyPaths() {
-        if (hierarchyPaths == null) return null;
-        return hierarchyPaths.getValue("UserHierarchyGroup.hierarchyPaths");
+        if (!unknown_hierarchyPaths) return value_hierarchyPaths;
+        throw new UndeferrableValueException("Value 'UserHierarchyGroup.hierarchyPaths' is not present");
     }
 
     /**
      * Specifies the identifier of the hosting Amazon Connect Instance.
      * 
      */
-    private UndeferrableValue<String> instanceId;
-
+    @PolicyResourceProperty(name="instanceId", flag="unknown_instanceId")
+    private String value_instanceId;
+    private boolean unknown_instanceId;
     public String instanceId() {
-        if (instanceId == null) return null;
-        return instanceId.getValue("UserHierarchyGroup.instanceId");
+        if (!unknown_instanceId) return value_instanceId;
+        throw new UndeferrableValueException("Value 'UserHierarchyGroup.instanceId' is not present");
     }
 
     /**
      * The identifier of the level in the hierarchy group.
      * 
      */
-    private UndeferrableValue<String> levelId;
-
+    @PolicyResourceProperty(name="levelId", flag="unknown_levelId")
+    private String value_levelId;
+    private boolean unknown_levelId;
     public String levelId() {
-        if (levelId == null) return null;
-        return levelId.getValue("UserHierarchyGroup.levelId");
+        if (!unknown_levelId) return value_levelId;
+        throw new UndeferrableValueException("Value 'UserHierarchyGroup.levelId' is not present");
     }
 
     /**
      * The name of the user hierarchy group. Must not be more than 100 characters.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("UserHierarchyGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'UserHierarchyGroup.name' is not present");
     }
 
     /**
      * The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
      * 
      */
-    private @Nullable UndeferrableValue<String> parentGroupId;
-
+    @PolicyResourceProperty(name="parentGroupId", flag="unknown_parentGroupId")
+    private @Nullable String value_parentGroupId;
+    private boolean unknown_parentGroupId;
     public @Nullable String parentGroupId() {
-        if (parentGroupId == null) return null;
-        return parentGroupId.getValue("UserHierarchyGroup.parentGroupId");
+        if (!unknown_parentGroupId) return value_parentGroupId;
+        throw new UndeferrableValueException("Value 'UserHierarchyGroup.parentGroupId' is not present");
     }
 
     /**
@@ -97,11 +105,12 @@ public final class UserHierarchyGroup extends com.pulumi.resources.PolicyResourc
      * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("UserHierarchyGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'UserHierarchyGroup.tags' is not present");
     }
 
     /**
@@ -112,11 +121,12 @@ public final class UserHierarchyGroup extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("UserHierarchyGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'UserHierarchyGroup.tagsAll' is not present");
     }
 
 }

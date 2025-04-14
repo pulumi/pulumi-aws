@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.amplify.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class AppCustomRuleArgs {
      * Condition for a URL rewrite or redirect rule, such as a country code.
      * 
      */
-    private UndeferrableValue<String> condition;
-
+    @PolicyResourceProperty(name="condition", flag="unknown_condition")
+    private String value_condition;
+    private boolean unknown_condition;
     public String condition() {
-        if (condition == null) return null;
-        return condition.getValue("AppCustomRuleArgs.condition");
+        if (!unknown_condition) return value_condition;
+        throw new UndeferrableValueException("Value 'AppCustomRuleArgs.condition' is not present");
     }
 
     /**
      * Source pattern for a URL rewrite or redirect rule.
      * 
      */
-    private UndeferrableValue<String> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private String value_source;
+    private boolean unknown_source;
     public String source() {
-        if (source == null) return null;
-        return source.getValue("AppCustomRuleArgs.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'AppCustomRuleArgs.source' is not present");
     }
 
     /**
      * Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("AppCustomRuleArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'AppCustomRuleArgs.status' is not present");
     }
 
     /**
      * Target pattern for a URL rewrite or redirect rule.
      * 
      */
-    private UndeferrableValue<String> target;
-
+    @PolicyResourceProperty(name="target", flag="unknown_target")
+    private String value_target;
+    private boolean unknown_target;
     public String target() {
-        if (target == null) return null;
-        return target.getValue("AppCustomRuleArgs.target");
+        if (!unknown_target) return value_target;
+        throw new UndeferrableValueException("Value 'AppCustomRuleArgs.target' is not present");
     }
 
 }

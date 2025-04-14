@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.workspaces.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,55 +16,60 @@ public final class DirectoryWorkspaceCreationPropertiesArgs {
      * The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
      * 
      */
-    private UndeferrableValue<String> customSecurityGroupId;
-
+    @PolicyResourceProperty(name="customSecurityGroupId", flag="unknown_customSecurityGroupId")
+    private String value_customSecurityGroupId;
+    private boolean unknown_customSecurityGroupId;
     public String customSecurityGroupId() {
-        if (customSecurityGroupId == null) return null;
-        return customSecurityGroupId.getValue("DirectoryWorkspaceCreationPropertiesArgs.customSecurityGroupId");
+        if (!unknown_customSecurityGroupId) return value_customSecurityGroupId;
+        throw new UndeferrableValueException("Value 'DirectoryWorkspaceCreationPropertiesArgs.customSecurityGroupId' is not present");
     }
 
     /**
      * The default organizational unit (OU) for your WorkSpace directories. Should conform `&#34;OU=&lt;value&gt;,DC=&lt;value&gt;,...,DC=&lt;value&gt;&#34;` pattern.
      * 
      */
-    private UndeferrableValue<String> defaultOu;
-
+    @PolicyResourceProperty(name="defaultOu", flag="unknown_defaultOu")
+    private String value_defaultOu;
+    private boolean unknown_defaultOu;
     public String defaultOu() {
-        if (defaultOu == null) return null;
-        return defaultOu.getValue("DirectoryWorkspaceCreationPropertiesArgs.defaultOu");
+        if (!unknown_defaultOu) return value_defaultOu;
+        throw new UndeferrableValueException("Value 'DirectoryWorkspaceCreationPropertiesArgs.defaultOu' is not present");
     }
 
     /**
      * Indicates whether internet access is enabled for your WorkSpaces.
      * 
      */
-    private UndeferrableValue<Boolean> enableInternetAccess;
-
+    @PolicyResourceProperty(name="enableInternetAccess", flag="unknown_enableInternetAccess")
+    private Boolean value_enableInternetAccess;
+    private boolean unknown_enableInternetAccess;
     public Boolean enableInternetAccess() {
-        if (enableInternetAccess == null) return null;
-        return enableInternetAccess.getValue("DirectoryWorkspaceCreationPropertiesArgs.enableInternetAccess");
+        if (!unknown_enableInternetAccess) return value_enableInternetAccess;
+        throw new UndeferrableValueException("Value 'DirectoryWorkspaceCreationPropertiesArgs.enableInternetAccess' is not present");
     }
 
     /**
      * Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html)..
      * 
      */
-    private UndeferrableValue<Boolean> enableMaintenanceMode;
-
+    @PolicyResourceProperty(name="enableMaintenanceMode", flag="unknown_enableMaintenanceMode")
+    private Boolean value_enableMaintenanceMode;
+    private boolean unknown_enableMaintenanceMode;
     public Boolean enableMaintenanceMode() {
-        if (enableMaintenanceMode == null) return null;
-        return enableMaintenanceMode.getValue("DirectoryWorkspaceCreationPropertiesArgs.enableMaintenanceMode");
+        if (!unknown_enableMaintenanceMode) return value_enableMaintenanceMode;
+        throw new UndeferrableValueException("Value 'DirectoryWorkspaceCreationPropertiesArgs.enableMaintenanceMode' is not present");
     }
 
     /**
      * Indicates whether users are local administrators of their WorkSpaces.
      * 
      */
-    private UndeferrableValue<Boolean> userEnabledAsLocalAdministrator;
-
+    @PolicyResourceProperty(name="userEnabledAsLocalAdministrator", flag="unknown_userEnabledAsLocalAdministrator")
+    private Boolean value_userEnabledAsLocalAdministrator;
+    private boolean unknown_userEnabledAsLocalAdministrator;
     public Boolean userEnabledAsLocalAdministrator() {
-        if (userEnabledAsLocalAdministrator == null) return null;
-        return userEnabledAsLocalAdministrator.getValue("DirectoryWorkspaceCreationPropertiesArgs.userEnabledAsLocalAdministrator");
+        if (!unknown_userEnabledAsLocalAdministrator) return value_userEnabledAsLocalAdministrator;
+        throw new UndeferrableValueException("Value 'DirectoryWorkspaceCreationPropertiesArgs.userEnabledAsLocalAdministrator' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class RuleGroupRuleCaptchaConfigArgs {
      * Defines custom immunity time. See Immunity Time Property below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs> immunityTimeProperty;
-
+    @PolicyResourceProperty(name="immunityTimeProperty", flag="unknown_immunityTimeProperty")
+    private RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs value_immunityTimeProperty;
+    private boolean unknown_immunityTimeProperty;
     public RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs immunityTimeProperty() {
-        if (immunityTimeProperty == null) return null;
-        return immunityTimeProperty.getValue("RuleGroupRuleCaptchaConfigArgs.immunityTimeProperty");
+        if (!unknown_immunityTimeProperty) return value_immunityTimeProperty;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleCaptchaConfigArgs.immunityTimeProperty' is not present");
     }
 
 }

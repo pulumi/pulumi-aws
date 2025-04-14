@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 
 
@@ -13,11 +14,12 @@ public final class ClusterOpenMonitoringPrometheusJmxExporter {
      * Indicates whether you want to enable or disable the Node Exporter.
      * 
      */
-    private UndeferrableValue<Boolean> enabledInBroker;
-
+    @PolicyResourceProperty(name="enabledInBroker", flag="unknown_enabledInBroker")
+    private Boolean value_enabledInBroker;
+    private boolean unknown_enabledInBroker;
     public Boolean enabledInBroker() {
-        if (enabledInBroker == null) return null;
-        return enabledInBroker.getValue("ClusterOpenMonitoringPrometheusJmxExporter.enabledInBroker");
+        if (!unknown_enabledInBroker) return value_enabledInBroker;
+        throw new UndeferrableValueException("Value 'ClusterOpenMonitoringPrometheusJmxExporter.enabledInBroker' is not present");
     }
 
 }

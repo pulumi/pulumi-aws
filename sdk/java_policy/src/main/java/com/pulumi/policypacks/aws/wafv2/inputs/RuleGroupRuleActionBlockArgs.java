@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.RuleGroupRuleActionBlockCustomResponseArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class RuleGroupRuleActionBlockArgs {
      * Defines a custom response for the web request. See Custom Response below for details.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleActionBlockCustomResponseArgs> customResponse;
-
+    @PolicyResourceProperty(name="customResponse", flag="unknown_customResponse")
+    private RuleGroupRuleActionBlockCustomResponseArgs value_customResponse;
+    private boolean unknown_customResponse;
     public RuleGroupRuleActionBlockCustomResponseArgs customResponse() {
-        if (customResponse == null) return null;
-        return customResponse.getValue("RuleGroupRuleActionBlockArgs.customResponse");
+        if (!unknown_customResponse) return value_customResponse;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleActionBlockArgs.customResponse' is not present");
     }
 
 }

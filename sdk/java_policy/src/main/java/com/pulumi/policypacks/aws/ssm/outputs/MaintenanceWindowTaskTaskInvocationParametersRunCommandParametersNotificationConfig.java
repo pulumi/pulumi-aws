@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
      * An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
      * 
      */
-    private @Nullable UndeferrableValue<String> notificationArn;
-
+    @PolicyResourceProperty(name="notificationArn", flag="unknown_notificationArn")
+    private @Nullable String value_notificationArn;
+    private boolean unknown_notificationArn;
     public @Nullable String notificationArn() {
-        if (notificationArn == null) return null;
-        return notificationArn.getValue("MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig.notificationArn");
+        if (!unknown_notificationArn) return value_notificationArn;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig.notificationArn' is not present");
     }
 
     /**
      * The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> notificationEvents;
-
+    @PolicyResourceProperty(name="notificationEvents", flag="unknown_notificationEvents")
+    private @Nullable List<String> value_notificationEvents;
+    private boolean unknown_notificationEvents;
     public @Nullable List<String> notificationEvents() {
-        if (notificationEvents == null) return null;
-        return notificationEvents.getValue("MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig.notificationEvents");
+        if (!unknown_notificationEvents) return value_notificationEvents;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig.notificationEvents' is not present");
     }
 
     /**
      * When specified with `Command`, receive notification when the status of a command changes. When specified with `Invocation`, for commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. Valid values: `Command` and `Invocation`
      * 
      */
-    private @Nullable UndeferrableValue<String> notificationType;
-
+    @PolicyResourceProperty(name="notificationType", flag="unknown_notificationType")
+    private @Nullable String value_notificationType;
+    private boolean unknown_notificationType;
     public @Nullable String notificationType() {
-        if (notificationType == null) return null;
-        return notificationType.getValue("MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig.notificationType");
+        if (!unknown_notificationType) return value_notificationType;
+        throw new UndeferrableValueException("Value 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig.notificationType' is not present");
     }
 
 }

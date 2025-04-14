@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.gamelift.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class FleetResourceCreationLimitPolicy {
      * Maximum number of game sessions that an individual can create during the policy period.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> newGameSessionsPerCreator;
-
+    @PolicyResourceProperty(name="newGameSessionsPerCreator", flag="unknown_newGameSessionsPerCreator")
+    private @Nullable Integer value_newGameSessionsPerCreator;
+    private boolean unknown_newGameSessionsPerCreator;
     public @Nullable Integer newGameSessionsPerCreator() {
-        if (newGameSessionsPerCreator == null) return null;
-        return newGameSessionsPerCreator.getValue("FleetResourceCreationLimitPolicy.newGameSessionsPerCreator");
+        if (!unknown_newGameSessionsPerCreator) return value_newGameSessionsPerCreator;
+        throw new UndeferrableValueException("Value 'FleetResourceCreationLimitPolicy.newGameSessionsPerCreator' is not present");
     }
 
     /**
      * Time span used in evaluating the resource creation limit policy.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> policyPeriodInMinutes;
-
+    @PolicyResourceProperty(name="policyPeriodInMinutes", flag="unknown_policyPeriodInMinutes")
+    private @Nullable Integer value_policyPeriodInMinutes;
+    private boolean unknown_policyPeriodInMinutes;
     public @Nullable Integer policyPeriodInMinutes() {
-        if (policyPeriodInMinutes == null) return null;
-        return policyPeriodInMinutes.getValue("FleetResourceCreationLimitPolicy.policyPeriodInMinutes");
+        if (!unknown_policyPeriodInMinutes) return value_policyPeriodInMinutes;
+        throw new UndeferrableValueException("Value 'FleetResourceCreationLimitPolicy.policyPeriodInMinutes' is not present");
     }
 
 }

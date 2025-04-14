@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securitylake;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.securitylake.inputs.SubscriberSourceArgs;
 import com.pulumi.policypacks.aws.securitylake.inputs.SubscriberSubscriberIdentityArgs;
@@ -20,73 +21,80 @@ public final class SubscriberArgs extends com.pulumi.resources.PolicyResourceInp
      * The Amazon S3 or Lake Formation access type.
      * 
      */
-    private UndeferrableValue<String> accessType;
-
+    @PolicyResourceProperty(name="accessType", flag="unknown_accessType")
+    private String value_accessType;
+    private boolean unknown_accessType;
     public String accessType() {
-        if (accessType == null) return null;
-        return accessType.getValue("SubscriberArgs.accessType");
+        if (!unknown_accessType) return value_accessType;
+        throw new UndeferrableValueException("Value 'SubscriberArgs.accessType' is not present");
     }
 
     /**
      * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      * 
      */
-    private UndeferrableValue<SubscriberSourceArgs> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private SubscriberSourceArgs value_source;
+    private boolean unknown_source;
     public SubscriberSourceArgs source() {
-        if (source == null) return null;
-        return source.getValue("SubscriberArgs.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'SubscriberArgs.source' is not present");
     }
 
     /**
      * The description for your subscriber account in Security Lake.
      * 
      */
-    private UndeferrableValue<String> subscriberDescription;
-
+    @PolicyResourceProperty(name="subscriberDescription", flag="unknown_subscriberDescription")
+    private String value_subscriberDescription;
+    private boolean unknown_subscriberDescription;
     public String subscriberDescription() {
-        if (subscriberDescription == null) return null;
-        return subscriberDescription.getValue("SubscriberArgs.subscriberDescription");
+        if (!unknown_subscriberDescription) return value_subscriberDescription;
+        throw new UndeferrableValueException("Value 'SubscriberArgs.subscriberDescription' is not present");
     }
 
     /**
      * The AWS identity used to access your data. See `subscriber_identity` Block below.
      * 
      */
-    private UndeferrableValue<SubscriberSubscriberIdentityArgs> subscriberIdentity;
-
+    @PolicyResourceProperty(name="subscriberIdentity", flag="unknown_subscriberIdentity")
+    private SubscriberSubscriberIdentityArgs value_subscriberIdentity;
+    private boolean unknown_subscriberIdentity;
     public SubscriberSubscriberIdentityArgs subscriberIdentity() {
-        if (subscriberIdentity == null) return null;
-        return subscriberIdentity.getValue("SubscriberArgs.subscriberIdentity");
+        if (!unknown_subscriberIdentity) return value_subscriberIdentity;
+        throw new UndeferrableValueException("Value 'SubscriberArgs.subscriberIdentity' is not present");
     }
 
     /**
      * The name of your Security Lake subscriber account.
      * 
      */
-    private UndeferrableValue<String> subscriberName;
-
+    @PolicyResourceProperty(name="subscriberName", flag="unknown_subscriberName")
+    private String value_subscriberName;
+    private boolean unknown_subscriberName;
     public String subscriberName() {
-        if (subscriberName == null) return null;
-        return subscriberName.getValue("SubscriberArgs.subscriberName");
+        if (!unknown_subscriberName) return value_subscriberName;
+        throw new UndeferrableValueException("Value 'SubscriberArgs.subscriberName' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SubscriberArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SubscriberArgs.tags' is not present");
     }
 
-    private UndeferrableValue<SubscriberTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private SubscriberTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public SubscriberTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("SubscriberArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'SubscriberArgs.timeouts' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.keyspaces;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.keyspaces.inputs.TableCapacitySpecificationArgs;
 import com.pulumi.policypacks.aws.keyspaces.inputs.TableClientSideTimestampsArgs;
@@ -25,88 +26,96 @@ public final class TableArgs extends com.pulumi.resources.PolicyResourceInput {
      * Specifies the read/write throughput capacity mode for the table.
      * 
      */
-    private UndeferrableValue<TableCapacitySpecificationArgs> capacitySpecification;
-
+    @PolicyResourceProperty(name="capacitySpecification", flag="unknown_capacitySpecification")
+    private TableCapacitySpecificationArgs value_capacitySpecification;
+    private boolean unknown_capacitySpecification;
     public TableCapacitySpecificationArgs capacitySpecification() {
-        if (capacitySpecification == null) return null;
-        return capacitySpecification.getValue("TableArgs.capacitySpecification");
+        if (!unknown_capacitySpecification) return value_capacitySpecification;
+        throw new UndeferrableValueException("Value 'TableArgs.capacitySpecification' is not present");
     }
 
     /**
      * Enables client-side timestamps for the table. By default, the setting is disabled.
      * 
      */
-    private UndeferrableValue<TableClientSideTimestampsArgs> clientSideTimestamps;
-
+    @PolicyResourceProperty(name="clientSideTimestamps", flag="unknown_clientSideTimestamps")
+    private TableClientSideTimestampsArgs value_clientSideTimestamps;
+    private boolean unknown_clientSideTimestamps;
     public TableClientSideTimestampsArgs clientSideTimestamps() {
-        if (clientSideTimestamps == null) return null;
-        return clientSideTimestamps.getValue("TableArgs.clientSideTimestamps");
+        if (!unknown_clientSideTimestamps) return value_clientSideTimestamps;
+        throw new UndeferrableValueException("Value 'TableArgs.clientSideTimestamps' is not present");
     }
 
     /**
      * A description of the table.
      * 
      */
-    private UndeferrableValue<TableCommentArgs> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private TableCommentArgs value_comment;
+    private boolean unknown_comment;
     public TableCommentArgs comment() {
-        if (comment == null) return null;
-        return comment.getValue("TableArgs.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'TableArgs.comment' is not present");
     }
 
     /**
      * The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
      * 
      */
-    private UndeferrableValue<Integer> defaultTimeToLive;
-
+    @PolicyResourceProperty(name="defaultTimeToLive", flag="unknown_defaultTimeToLive")
+    private Integer value_defaultTimeToLive;
+    private boolean unknown_defaultTimeToLive;
     public Integer defaultTimeToLive() {
-        if (defaultTimeToLive == null) return null;
-        return defaultTimeToLive.getValue("TableArgs.defaultTimeToLive");
+        if (!unknown_defaultTimeToLive) return value_defaultTimeToLive;
+        throw new UndeferrableValueException("Value 'TableArgs.defaultTimeToLive' is not present");
     }
 
     /**
      * Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
      * 
      */
-    private UndeferrableValue<TableEncryptionSpecificationArgs> encryptionSpecification;
-
+    @PolicyResourceProperty(name="encryptionSpecification", flag="unknown_encryptionSpecification")
+    private TableEncryptionSpecificationArgs value_encryptionSpecification;
+    private boolean unknown_encryptionSpecification;
     public TableEncryptionSpecificationArgs encryptionSpecification() {
-        if (encryptionSpecification == null) return null;
-        return encryptionSpecification.getValue("TableArgs.encryptionSpecification");
+        if (!unknown_encryptionSpecification) return value_encryptionSpecification;
+        throw new UndeferrableValueException("Value 'TableArgs.encryptionSpecification' is not present");
     }
 
     /**
      * The name of the keyspace that the table is going to be created in.
      * 
      */
-    private UndeferrableValue<String> keyspaceName;
-
+    @PolicyResourceProperty(name="keyspaceName", flag="unknown_keyspaceName")
+    private String value_keyspaceName;
+    private boolean unknown_keyspaceName;
     public String keyspaceName() {
-        if (keyspaceName == null) return null;
-        return keyspaceName.getValue("TableArgs.keyspaceName");
+        if (!unknown_keyspaceName) return value_keyspaceName;
+        throw new UndeferrableValueException("Value 'TableArgs.keyspaceName' is not present");
     }
 
     /**
      * Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
      * 
      */
-    private UndeferrableValue<TablePointInTimeRecoveryArgs> pointInTimeRecovery;
-
+    @PolicyResourceProperty(name="pointInTimeRecovery", flag="unknown_pointInTimeRecovery")
+    private TablePointInTimeRecoveryArgs value_pointInTimeRecovery;
+    private boolean unknown_pointInTimeRecovery;
     public TablePointInTimeRecoveryArgs pointInTimeRecovery() {
-        if (pointInTimeRecovery == null) return null;
-        return pointInTimeRecovery.getValue("TableArgs.pointInTimeRecovery");
+        if (!unknown_pointInTimeRecovery) return value_pointInTimeRecovery;
+        throw new UndeferrableValueException("Value 'TableArgs.pointInTimeRecovery' is not present");
     }
 
     /**
      * Describes the schema of the table.
      * 
      */
-    private UndeferrableValue<TableSchemaDefinitionArgs> schemaDefinition;
-
+    @PolicyResourceProperty(name="schemaDefinition", flag="unknown_schemaDefinition")
+    private TableSchemaDefinitionArgs value_schemaDefinition;
+    private boolean unknown_schemaDefinition;
     public TableSchemaDefinitionArgs schemaDefinition() {
-        if (schemaDefinition == null) return null;
-        return schemaDefinition.getValue("TableArgs.schemaDefinition");
+        if (!unknown_schemaDefinition) return value_schemaDefinition;
+        throw new UndeferrableValueException("Value 'TableArgs.schemaDefinition' is not present");
     }
 
     /**
@@ -115,33 +124,36 @@ public final class TableArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> tableName;
-
+    @PolicyResourceProperty(name="tableName", flag="unknown_tableName")
+    private String value_tableName;
+    private boolean unknown_tableName;
     public String tableName() {
-        if (tableName == null) return null;
-        return tableName.getValue("TableArgs.tableName");
+        if (!unknown_tableName) return value_tableName;
+        throw new UndeferrableValueException("Value 'TableArgs.tableName' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TableArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TableArgs.tags' is not present");
     }
 
     /**
      * Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
      * 
      */
-    private UndeferrableValue<TableTtlArgs> ttl;
-
+    @PolicyResourceProperty(name="ttl", flag="unknown_ttl")
+    private TableTtlArgs value_ttl;
+    private boolean unknown_ttl;
     public TableTtlArgs ttl() {
-        if (ttl == null) return null;
-        return ttl.getValue("TableArgs.ttl");
+        if (!unknown_ttl) return value_ttl;
+        throw new UndeferrableValueException("Value 'TableArgs.ttl' is not present");
     }
 
 }

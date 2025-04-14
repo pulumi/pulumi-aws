@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,40 +15,44 @@ public final class ResolverEndpointIpAddress {
      * IPv4 address in the subnet that you want to use for DNS queries.
      * 
      */
-    private @Nullable UndeferrableValue<String> ip;
-
+    @PolicyResourceProperty(name="ip", flag="unknown_ip")
+    private @Nullable String value_ip;
+    private boolean unknown_ip;
     public @Nullable String ip() {
-        if (ip == null) return null;
-        return ip.getValue("ResolverEndpointIpAddress.ip");
+        if (!unknown_ip) return value_ip;
+        throw new UndeferrableValueException("Value 'ResolverEndpointIpAddress.ip' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> ipId;
-
+    @PolicyResourceProperty(name="ipId", flag="unknown_ipId")
+    private @Nullable String value_ipId;
+    private boolean unknown_ipId;
     public @Nullable String ipId() {
-        if (ipId == null) return null;
-        return ipId.getValue("ResolverEndpointIpAddress.ipId");
+        if (!unknown_ipId) return value_ipId;
+        throw new UndeferrableValueException("Value 'ResolverEndpointIpAddress.ipId' is not present");
     }
 
     /**
      * IPv6 address in the subnet that you want to use for DNS queries.
      * 
      */
-    private @Nullable UndeferrableValue<String> ipv6;
-
+    @PolicyResourceProperty(name="ipv6", flag="unknown_ipv6")
+    private @Nullable String value_ipv6;
+    private boolean unknown_ipv6;
     public @Nullable String ipv6() {
-        if (ipv6 == null) return null;
-        return ipv6.getValue("ResolverEndpointIpAddress.ipv6");
+        if (!unknown_ipv6) return value_ipv6;
+        throw new UndeferrableValueException("Value 'ResolverEndpointIpAddress.ipv6' is not present");
     }
 
     /**
      * ID of the subnet that contains the IP address.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("ResolverEndpointIpAddress.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'ResolverEndpointIpAddress.subnetId' is not present");
     }
 
 }

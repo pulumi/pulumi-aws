@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ClassifierJsonClassifier {
      * A `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
      * 
      */
-    private UndeferrableValue<String> jsonPath;
-
+    @PolicyResourceProperty(name="jsonPath", flag="unknown_jsonPath")
+    private String value_jsonPath;
+    private boolean unknown_jsonPath;
     public String jsonPath() {
-        if (jsonPath == null) return null;
-        return jsonPath.getValue("ClassifierJsonClassifier.jsonPath");
+        if (!unknown_jsonPath) return value_jsonPath;
+        throw new UndeferrableValueException("Value 'ClassifierJsonClassifier.jsonPath' is not present");
     }
 
 }

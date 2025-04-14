@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ChannelEncoderSettingsAvailBlankingArgs {
      * Blanking image to be used. See Avail Blanking Image for more details.
      * 
      */
-    private UndeferrableValue<ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs> availBlankingImage;
-
+    @PolicyResourceProperty(name="availBlankingImage", flag="unknown_availBlankingImage")
+    private ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs value_availBlankingImage;
+    private boolean unknown_availBlankingImage;
     public ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs availBlankingImage() {
-        if (availBlankingImage == null) return null;
-        return availBlankingImage.getValue("ChannelEncoderSettingsAvailBlankingArgs.availBlankingImage");
+        if (!unknown_availBlankingImage) return value_availBlankingImage;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAvailBlankingArgs.availBlankingImage' is not present");
     }
 
     /**
      * When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("ChannelEncoderSettingsAvailBlankingArgs.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAvailBlankingArgs.state' is not present");
     }
 
 }

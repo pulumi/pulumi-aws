@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.imagebuilder.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.imagebuilder.inputs.ImagePipelineImageScanningConfigurationEcrConfigurationArgs;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ImagePipelineImageScanningConfigurationArgs {
      * Configuration block with ECR configuration for image scanning. Detailed below.
      * 
      */
-    private UndeferrableValue<ImagePipelineImageScanningConfigurationEcrConfigurationArgs> ecrConfiguration;
-
+    @PolicyResourceProperty(name="ecrConfiguration", flag="unknown_ecrConfiguration")
+    private ImagePipelineImageScanningConfigurationEcrConfigurationArgs value_ecrConfiguration;
+    private boolean unknown_ecrConfiguration;
     public ImagePipelineImageScanningConfigurationEcrConfigurationArgs ecrConfiguration() {
-        if (ecrConfiguration == null) return null;
-        return ecrConfiguration.getValue("ImagePipelineImageScanningConfigurationArgs.ecrConfiguration");
+        if (!unknown_ecrConfiguration) return value_ecrConfiguration;
+        throw new UndeferrableValueException("Value 'ImagePipelineImageScanningConfigurationArgs.ecrConfiguration' is not present");
     }
 
     /**
      * Whether image scans are enabled. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> imageScanningEnabled;
-
+    @PolicyResourceProperty(name="imageScanningEnabled", flag="unknown_imageScanningEnabled")
+    private Boolean value_imageScanningEnabled;
+    private boolean unknown_imageScanningEnabled;
     public Boolean imageScanningEnabled() {
-        if (imageScanningEnabled == null) return null;
-        return imageScanningEnabled.getValue("ImagePipelineImageScanningConfigurationArgs.imageScanningEnabled");
+        if (!unknown_imageScanningEnabled) return value_imageScanningEnabled;
+        throw new UndeferrableValueException("Value 'ImagePipelineImageScanningConfigurationArgs.imageScanningEnabled' is not present");
     }
 
 }

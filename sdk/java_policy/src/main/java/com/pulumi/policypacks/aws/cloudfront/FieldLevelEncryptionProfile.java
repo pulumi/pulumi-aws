@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudfront.outputs.FieldLevelEncryptionProfileEncryptionEntities;
 import java.lang.String;
@@ -17,66 +18,72 @@ public final class FieldLevelEncryptionProfile extends com.pulumi.resources.Poli
      * The Field Level Encryption Profile ARN.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("FieldLevelEncryptionProfile.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfile.arn' is not present");
     }
 
     /**
      * Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
      * 
      */
-    private UndeferrableValue<String> callerReference;
-
+    @PolicyResourceProperty(name="callerReference", flag="unknown_callerReference")
+    private String value_callerReference;
+    private boolean unknown_callerReference;
     public String callerReference() {
-        if (callerReference == null) return null;
-        return callerReference.getValue("FieldLevelEncryptionProfile.callerReference");
+        if (!unknown_callerReference) return value_callerReference;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfile.callerReference' is not present");
     }
 
     /**
      * An optional comment about the Field Level Encryption Profile.
      * 
      */
-    private @Nullable UndeferrableValue<String> comment;
-
+    @PolicyResourceProperty(name="comment", flag="unknown_comment")
+    private @Nullable String value_comment;
+    private boolean unknown_comment;
     public @Nullable String comment() {
-        if (comment == null) return null;
-        return comment.getValue("FieldLevelEncryptionProfile.comment");
+        if (!unknown_comment) return value_comment;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfile.comment' is not present");
     }
 
     /**
      * The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
      * 
      */
-    private UndeferrableValue<FieldLevelEncryptionProfileEncryptionEntities> encryptionEntities;
-
+    @PolicyResourceProperty(name="encryptionEntities", flag="unknown_encryptionEntities")
+    private FieldLevelEncryptionProfileEncryptionEntities value_encryptionEntities;
+    private boolean unknown_encryptionEntities;
     public FieldLevelEncryptionProfileEncryptionEntities encryptionEntities() {
-        if (encryptionEntities == null) return null;
-        return encryptionEntities.getValue("FieldLevelEncryptionProfile.encryptionEntities");
+        if (!unknown_encryptionEntities) return value_encryptionEntities;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfile.encryptionEntities' is not present");
     }
 
     /**
      * The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
      * 
      */
-    private UndeferrableValue<String> etag;
-
+    @PolicyResourceProperty(name="etag", flag="unknown_etag")
+    private String value_etag;
+    private boolean unknown_etag;
     public String etag() {
-        if (etag == null) return null;
-        return etag.getValue("FieldLevelEncryptionProfile.etag");
+        if (!unknown_etag) return value_etag;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfile.etag' is not present");
     }
 
     /**
      * The name of the Field Level Encryption Profile.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("FieldLevelEncryptionProfile.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionProfile.name' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,33 +18,36 @@ public final class QueryDefinitionArgs extends com.pulumi.resources.PolicyResour
      * Specific log groups to use with the query.
      * 
      */
-    private UndeferrableValue<List<String>> logGroupNames;
-
+    @PolicyResourceProperty(name="logGroupNames", flag="unknown_logGroupNames")
+    private List<String> value_logGroupNames;
+    private boolean unknown_logGroupNames;
     public List<String> logGroupNames() {
-        if (logGroupNames == null) return null;
-        return logGroupNames.getValue("QueryDefinitionArgs.logGroupNames");
+        if (!unknown_logGroupNames) return value_logGroupNames;
+        throw new UndeferrableValueException("Value 'QueryDefinitionArgs.logGroupNames' is not present");
     }
 
     /**
      * The name of the query.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("QueryDefinitionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'QueryDefinitionArgs.name' is not present");
     }
 
     /**
      * The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
      * 
      */
-    private UndeferrableValue<String> queryString;
-
+    @PolicyResourceProperty(name="queryString", flag="unknown_queryString")
+    private String value_queryString;
+    private boolean unknown_queryString;
     public String queryString() {
-        if (queryString == null) return null;
-        return queryString.getValue("QueryDefinitionArgs.queryString");
+        if (!unknown_queryString) return value_queryString;
+        throw new UndeferrableValueException("Value 'QueryDefinitionArgs.queryString' is not present");
     }
 
 }

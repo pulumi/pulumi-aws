@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.auditmanager.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.auditmanager.outputs.ControlControlMappingSourceSourceKeyword;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,62 +16,68 @@ public final class ControlControlMappingSource {
      * Description of the source.
      * 
      */
-    private @Nullable UndeferrableValue<String> sourceDescription;
-
+    @PolicyResourceProperty(name="sourceDescription", flag="unknown_sourceDescription")
+    private @Nullable String value_sourceDescription;
+    private boolean unknown_sourceDescription;
     public @Nullable String sourceDescription() {
-        if (sourceDescription == null) return null;
-        return sourceDescription.getValue("ControlControlMappingSource.sourceDescription");
+        if (!unknown_sourceDescription) return value_sourceDescription;
+        throw new UndeferrableValueException("Value 'ControlControlMappingSource.sourceDescription' is not present");
     }
 
     /**
      * Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
      * 
      */
-    private @Nullable UndeferrableValue<String> sourceFrequency;
-
+    @PolicyResourceProperty(name="sourceFrequency", flag="unknown_sourceFrequency")
+    private @Nullable String value_sourceFrequency;
+    private boolean unknown_sourceFrequency;
     public @Nullable String sourceFrequency() {
-        if (sourceFrequency == null) return null;
-        return sourceFrequency.getValue("ControlControlMappingSource.sourceFrequency");
+        if (!unknown_sourceFrequency) return value_sourceFrequency;
+        throw new UndeferrableValueException("Value 'ControlControlMappingSource.sourceFrequency' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> sourceId;
-
+    @PolicyResourceProperty(name="sourceId", flag="unknown_sourceId")
+    private @Nullable String value_sourceId;
+    private boolean unknown_sourceId;
     public @Nullable String sourceId() {
-        if (sourceId == null) return null;
-        return sourceId.getValue("ControlControlMappingSource.sourceId");
+        if (!unknown_sourceId) return value_sourceId;
+        throw new UndeferrableValueException("Value 'ControlControlMappingSource.sourceId' is not present");
     }
 
     /**
      * The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
      * 
      */
-    private @Nullable UndeferrableValue<ControlControlMappingSourceSourceKeyword> sourceKeyword;
-
+    @PolicyResourceProperty(name="sourceKeyword", flag="unknown_sourceKeyword")
+    private @Nullable ControlControlMappingSourceSourceKeyword value_sourceKeyword;
+    private boolean unknown_sourceKeyword;
     public @Nullable ControlControlMappingSourceSourceKeyword sourceKeyword() {
-        if (sourceKeyword == null) return null;
-        return sourceKeyword.getValue("ControlControlMappingSource.sourceKeyword");
+        if (!unknown_sourceKeyword) return value_sourceKeyword;
+        throw new UndeferrableValueException("Value 'ControlControlMappingSource.sourceKeyword' is not present");
     }
 
     /**
      * Name of the source.
      * 
      */
-    private UndeferrableValue<String> sourceName;
-
+    @PolicyResourceProperty(name="sourceName", flag="unknown_sourceName")
+    private String value_sourceName;
+    private boolean unknown_sourceName;
     public String sourceName() {
-        if (sourceName == null) return null;
-        return sourceName.getValue("ControlControlMappingSource.sourceName");
+        if (!unknown_sourceName) return value_sourceName;
+        throw new UndeferrableValueException("Value 'ControlControlMappingSource.sourceName' is not present");
     }
 
     /**
      * The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
      * 
      */
-    private UndeferrableValue<String> sourceSetUpOption;
-
+    @PolicyResourceProperty(name="sourceSetUpOption", flag="unknown_sourceSetUpOption")
+    private String value_sourceSetUpOption;
+    private boolean unknown_sourceSetUpOption;
     public String sourceSetUpOption() {
-        if (sourceSetUpOption == null) return null;
-        return sourceSetUpOption.getValue("ControlControlMappingSource.sourceSetUpOption");
+        if (!unknown_sourceSetUpOption) return value_sourceSetUpOption;
+        throw new UndeferrableValueException("Value 'ControlControlMappingSource.sourceSetUpOption' is not present");
     }
 
     /**
@@ -79,22 +86,24 @@ public final class ControlControlMappingSource {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> sourceType;
-
+    @PolicyResourceProperty(name="sourceType", flag="unknown_sourceType")
+    private String value_sourceType;
+    private boolean unknown_sourceType;
     public String sourceType() {
-        if (sourceType == null) return null;
-        return sourceType.getValue("ControlControlMappingSource.sourceType");
+        if (!unknown_sourceType) return value_sourceType;
+        throw new UndeferrableValueException("Value 'ControlControlMappingSource.sourceType' is not present");
     }
 
     /**
      * Instructions for troubleshooting the control.
      * 
      */
-    private @Nullable UndeferrableValue<String> troubleshootingText;
-
+    @PolicyResourceProperty(name="troubleshootingText", flag="unknown_troubleshootingText")
+    private @Nullable String value_troubleshootingText;
+    private boolean unknown_troubleshootingText;
     public @Nullable String troubleshootingText() {
-        if (troubleshootingText == null) return null;
-        return troubleshootingText.getValue("ControlControlMappingSource.troubleshootingText");
+        if (!unknown_troubleshootingText) return value_troubleshootingText;
+        throw new UndeferrableValueException("Value 'ControlControlMappingSource.troubleshootingText' is not present");
     }
 
 }

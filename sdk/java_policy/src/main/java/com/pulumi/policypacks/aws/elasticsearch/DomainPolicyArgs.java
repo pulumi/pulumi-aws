@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticsearch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class DomainPolicyArgs extends com.pulumi.resources.PolicyResourceI
      * IAM policy document specifying the access policies for the domain
      * 
      */
-    private UndeferrableValue<String> accessPolicies;
-
+    @PolicyResourceProperty(name="accessPolicies", flag="unknown_accessPolicies")
+    private String value_accessPolicies;
+    private boolean unknown_accessPolicies;
     public String accessPolicies() {
-        if (accessPolicies == null) return null;
-        return accessPolicies.getValue("DomainPolicyArgs.accessPolicies");
+        if (!unknown_accessPolicies) return value_accessPolicies;
+        throw new UndeferrableValueException("Value 'DomainPolicyArgs.accessPolicies' is not present");
     }
 
     /**
      * Name of the domain.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("DomainPolicyArgs.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'DomainPolicyArgs.domainName' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.storagegateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class TapePoolArgs extends com.pulumi.resources.PolicyResourceInput
      * The name of the new custom tape pool.
      * 
      */
-    private UndeferrableValue<String> poolName;
-
+    @PolicyResourceProperty(name="poolName", flag="unknown_poolName")
+    private String value_poolName;
+    private boolean unknown_poolName;
     public String poolName() {
-        if (poolName == null) return null;
-        return poolName.getValue("TapePoolArgs.poolName");
+        if (!unknown_poolName) return value_poolName;
+        throw new UndeferrableValueException("Value 'TapePoolArgs.poolName' is not present");
     }
 
     /**
      * Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
      * 
      */
-    private UndeferrableValue<Integer> retentionLockTimeInDays;
-
+    @PolicyResourceProperty(name="retentionLockTimeInDays", flag="unknown_retentionLockTimeInDays")
+    private Integer value_retentionLockTimeInDays;
+    private boolean unknown_retentionLockTimeInDays;
     public Integer retentionLockTimeInDays() {
-        if (retentionLockTimeInDays == null) return null;
-        return retentionLockTimeInDays.getValue("TapePoolArgs.retentionLockTimeInDays");
+        if (!unknown_retentionLockTimeInDays) return value_retentionLockTimeInDays;
+        throw new UndeferrableValueException("Value 'TapePoolArgs.retentionLockTimeInDays' is not present");
     }
 
     /**
      * Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
      * 
      */
-    private UndeferrableValue<String> retentionLockType;
-
+    @PolicyResourceProperty(name="retentionLockType", flag="unknown_retentionLockType")
+    private String value_retentionLockType;
+    private boolean unknown_retentionLockType;
     public String retentionLockType() {
-        if (retentionLockType == null) return null;
-        return retentionLockType.getValue("TapePoolArgs.retentionLockType");
+        if (!unknown_retentionLockType) return value_retentionLockType;
+        throw new UndeferrableValueException("Value 'TapePoolArgs.retentionLockType' is not present");
     }
 
     /**
      * The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class that corresponds to the pool. Possible values are `DEEP_ARCHIVE` or `GLACIER`.
      * 
      */
-    private UndeferrableValue<String> storageClass;
-
+    @PolicyResourceProperty(name="storageClass", flag="unknown_storageClass")
+    private String value_storageClass;
+    private boolean unknown_storageClass;
     public String storageClass() {
-        if (storageClass == null) return null;
-        return storageClass.getValue("TapePoolArgs.storageClass");
+        if (!unknown_storageClass) return value_storageClass;
+        throw new UndeferrableValueException("Value 'TapePoolArgs.storageClass' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TapePoolArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TapePoolArgs.tags' is not present");
     }
 
 }

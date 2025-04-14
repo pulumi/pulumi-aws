@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.route53.outputs.ProfilesResourceAssociationTimeouts;
 import java.lang.String;
@@ -17,91 +18,100 @@ public final class ProfilesResourceAssociation extends com.pulumi.resources.Poli
      * Name of the Profile Resource Association.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ProfilesResourceAssociation.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ProfilesResourceAssociation.name' is not present");
     }
 
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("ProfilesResourceAssociation.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'ProfilesResourceAssociation.ownerId' is not present");
     }
 
     /**
      * ID of the profile associated with the VPC.
      * 
      */
-    private UndeferrableValue<String> profileId;
-
+    @PolicyResourceProperty(name="profileId", flag="unknown_profileId")
+    private String value_profileId;
+    private boolean unknown_profileId;
     public String profileId() {
-        if (profileId == null) return null;
-        return profileId.getValue("ProfilesResourceAssociation.profileId");
+        if (!unknown_profileId) return value_profileId;
+        throw new UndeferrableValueException("Value 'ProfilesResourceAssociation.profileId' is not present");
     }
 
     /**
      * Resource ID of the resource to be associated with the profile.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("ProfilesResourceAssociation.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'ProfilesResourceAssociation.resourceArn' is not present");
     }
 
     /**
      * Resource properties for the resource to be associated with the profile.
      * 
      */
-    private @Nullable UndeferrableValue<String> resourceProperties;
-
+    @PolicyResourceProperty(name="resourceProperties", flag="unknown_resourceProperties")
+    private @Nullable String value_resourceProperties;
+    private boolean unknown_resourceProperties;
     public @Nullable String resourceProperties() {
-        if (resourceProperties == null) return null;
-        return resourceProperties.getValue("ProfilesResourceAssociation.resourceProperties");
+        if (!unknown_resourceProperties) return value_resourceProperties;
+        throw new UndeferrableValueException("Value 'ProfilesResourceAssociation.resourceProperties' is not present");
     }
 
     /**
      * Type of resource associated with the profile.
      * 
      */
-    private UndeferrableValue<String> resourceType;
-
+    @PolicyResourceProperty(name="resourceType", flag="unknown_resourceType")
+    private String value_resourceType;
+    private boolean unknown_resourceType;
     public String resourceType() {
-        if (resourceType == null) return null;
-        return resourceType.getValue("ProfilesResourceAssociation.resourceType");
+        if (!unknown_resourceType) return value_resourceType;
+        throw new UndeferrableValueException("Value 'ProfilesResourceAssociation.resourceType' is not present");
     }
 
     /**
      * Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("ProfilesResourceAssociation.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'ProfilesResourceAssociation.status' is not present");
     }
 
     /**
      * Status message of the Profile Resource Association.
      * 
      */
-    private UndeferrableValue<String> statusMessage;
-
+    @PolicyResourceProperty(name="statusMessage", flag="unknown_statusMessage")
+    private String value_statusMessage;
+    private boolean unknown_statusMessage;
     public String statusMessage() {
-        if (statusMessage == null) return null;
-        return statusMessage.getValue("ProfilesResourceAssociation.statusMessage");
+        if (!unknown_statusMessage) return value_statusMessage;
+        throw new UndeferrableValueException("Value 'ProfilesResourceAssociation.statusMessage' is not present");
     }
 
-    private @Nullable UndeferrableValue<ProfilesResourceAssociationTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable ProfilesResourceAssociationTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable ProfilesResourceAssociationTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ProfilesResourceAssociation.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ProfilesResourceAssociation.timeouts' is not present");
     }
 
 }

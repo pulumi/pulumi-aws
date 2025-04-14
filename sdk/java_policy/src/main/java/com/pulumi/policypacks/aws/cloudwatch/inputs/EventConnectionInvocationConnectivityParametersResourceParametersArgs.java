@@ -3,29 +3,32 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
 
 public final class EventConnectionInvocationConnectivityParametersResourceParametersArgs {
 
-    private UndeferrableValue<String> resourceAssociationArn;
-
+    @PolicyResourceProperty(name="resourceAssociationArn", flag="unknown_resourceAssociationArn")
+    private String value_resourceAssociationArn;
+    private boolean unknown_resourceAssociationArn;
     public String resourceAssociationArn() {
-        if (resourceAssociationArn == null) return null;
-        return resourceAssociationArn.getValue("EventConnectionInvocationConnectivityParametersResourceParametersArgs.resourceAssociationArn");
+        if (!unknown_resourceAssociationArn) return value_resourceAssociationArn;
+        throw new UndeferrableValueException("Value 'EventConnectionInvocationConnectivityParametersResourceParametersArgs.resourceAssociationArn' is not present");
     }
 
     /**
      * ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
      * 
      */
-    private UndeferrableValue<String> resourceConfigurationArn;
-
+    @PolicyResourceProperty(name="resourceConfigurationArn", flag="unknown_resourceConfigurationArn")
+    private String value_resourceConfigurationArn;
+    private boolean unknown_resourceConfigurationArn;
     public String resourceConfigurationArn() {
-        if (resourceConfigurationArn == null) return null;
-        return resourceConfigurationArn.getValue("EventConnectionInvocationConnectivityParametersResourceParametersArgs.resourceConfigurationArn");
+        if (!unknown_resourceConfigurationArn) return value_resourceConfigurationArn;
+        throw new UndeferrableValueException("Value 'EventConnectionInvocationConnectivityParametersResourceParametersArgs.resourceConfigurationArn' is not present");
     }
 
 }

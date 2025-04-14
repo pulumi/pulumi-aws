@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -17,33 +18,36 @@ public final class LbStickinessPolicyArgs extends com.pulumi.resources.PolicyRes
      * The cookie duration in seconds. This determines the length of the session stickiness.
      * 
      */
-    private UndeferrableValue<Integer> cookieDuration;
-
+    @PolicyResourceProperty(name="cookieDuration", flag="unknown_cookieDuration")
+    private Integer value_cookieDuration;
+    private boolean unknown_cookieDuration;
     public Integer cookieDuration() {
-        if (cookieDuration == null) return null;
-        return cookieDuration.getValue("LbStickinessPolicyArgs.cookieDuration");
+        if (!unknown_cookieDuration) return value_cookieDuration;
+        throw new UndeferrableValueException("Value 'LbStickinessPolicyArgs.cookieDuration' is not present");
     }
 
     /**
      * The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("LbStickinessPolicyArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'LbStickinessPolicyArgs.enabled' is not present");
     }
 
     /**
      * The name of the load balancer to which you want to enable session stickiness.
      * 
      */
-    private UndeferrableValue<String> lbName;
-
+    @PolicyResourceProperty(name="lbName", flag="unknown_lbName")
+    private String value_lbName;
+    private boolean unknown_lbName;
     public String lbName() {
-        if (lbName == null) return null;
-        return lbName.getValue("LbStickinessPolicyArgs.lbName");
+        if (!unknown_lbName) return value_lbName;
+        throw new UndeferrableValueException("Value 'LbStickinessPolicyArgs.lbName' is not present");
     }
 
 }

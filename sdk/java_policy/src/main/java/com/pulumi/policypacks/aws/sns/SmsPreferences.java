@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sns;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,66 +18,72 @@ public final class SmsPreferences extends com.pulumi.resources.PolicyResourceOut
      * A string, such as your business brand, that is displayed as the sender on the receiving device.
      * 
      */
-    private @Nullable UndeferrableValue<String> defaultSenderId;
-
+    @PolicyResourceProperty(name="defaultSenderId", flag="unknown_defaultSenderId")
+    private @Nullable String value_defaultSenderId;
+    private boolean unknown_defaultSenderId;
     public @Nullable String defaultSenderId() {
-        if (defaultSenderId == null) return null;
-        return defaultSenderId.getValue("SmsPreferences.defaultSenderId");
+        if (!unknown_defaultSenderId) return value_defaultSenderId;
+        throw new UndeferrableValueException("Value 'SmsPreferences.defaultSenderId' is not present");
     }
 
     /**
      * The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
      * 
      */
-    private @Nullable UndeferrableValue<String> defaultSmsType;
-
+    @PolicyResourceProperty(name="defaultSmsType", flag="unknown_defaultSmsType")
+    private @Nullable String value_defaultSmsType;
+    private boolean unknown_defaultSmsType;
     public @Nullable String defaultSmsType() {
-        if (defaultSmsType == null) return null;
-        return defaultSmsType.getValue("SmsPreferences.defaultSmsType");
+        if (!unknown_defaultSmsType) return value_defaultSmsType;
+        throw new UndeferrableValueException("Value 'SmsPreferences.defaultSmsType' is not present");
     }
 
     /**
      * The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
      * 
      */
-    private @Nullable UndeferrableValue<String> deliveryStatusIamRoleArn;
-
+    @PolicyResourceProperty(name="deliveryStatusIamRoleArn", flag="unknown_deliveryStatusIamRoleArn")
+    private @Nullable String value_deliveryStatusIamRoleArn;
+    private boolean unknown_deliveryStatusIamRoleArn;
     public @Nullable String deliveryStatusIamRoleArn() {
-        if (deliveryStatusIamRoleArn == null) return null;
-        return deliveryStatusIamRoleArn.getValue("SmsPreferences.deliveryStatusIamRoleArn");
+        if (!unknown_deliveryStatusIamRoleArn) return value_deliveryStatusIamRoleArn;
+        throw new UndeferrableValueException("Value 'SmsPreferences.deliveryStatusIamRoleArn' is not present");
     }
 
     /**
      * The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
      * 
      */
-    private @Nullable UndeferrableValue<String> deliveryStatusSuccessSamplingRate;
-
+    @PolicyResourceProperty(name="deliveryStatusSuccessSamplingRate", flag="unknown_deliveryStatusSuccessSamplingRate")
+    private @Nullable String value_deliveryStatusSuccessSamplingRate;
+    private boolean unknown_deliveryStatusSuccessSamplingRate;
     public @Nullable String deliveryStatusSuccessSamplingRate() {
-        if (deliveryStatusSuccessSamplingRate == null) return null;
-        return deliveryStatusSuccessSamplingRate.getValue("SmsPreferences.deliveryStatusSuccessSamplingRate");
+        if (!unknown_deliveryStatusSuccessSamplingRate) return value_deliveryStatusSuccessSamplingRate;
+        throw new UndeferrableValueException("Value 'SmsPreferences.deliveryStatusSuccessSamplingRate' is not present");
     }
 
     /**
      * The maximum amount in USD that you are willing to spend each month to send SMS messages.
      * 
      */
-    private UndeferrableValue<Integer> monthlySpendLimit;
-
+    @PolicyResourceProperty(name="monthlySpendLimit", flag="unknown_monthlySpendLimit")
+    private Integer value_monthlySpendLimit;
+    private boolean unknown_monthlySpendLimit;
     public Integer monthlySpendLimit() {
-        if (monthlySpendLimit == null) return null;
-        return monthlySpendLimit.getValue("SmsPreferences.monthlySpendLimit");
+        if (!unknown_monthlySpendLimit) return value_monthlySpendLimit;
+        throw new UndeferrableValueException("Value 'SmsPreferences.monthlySpendLimit' is not present");
     }
 
     /**
      * The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
      * 
      */
-    private @Nullable UndeferrableValue<String> usageReportS3Bucket;
-
+    @PolicyResourceProperty(name="usageReportS3Bucket", flag="unknown_usageReportS3Bucket")
+    private @Nullable String value_usageReportS3Bucket;
+    private boolean unknown_usageReportS3Bucket;
     public @Nullable String usageReportS3Bucket() {
-        if (usageReportS3Bucket == null) return null;
-        return usageReportS3Bucket.getValue("SmsPreferences.usageReportS3Bucket");
+        if (!unknown_usageReportS3Bucket) return value_usageReportS3Bucket;
+        throw new UndeferrableValueException("Value 'SmsPreferences.usageReportS3Bucket' is not present");
     }
 
 }

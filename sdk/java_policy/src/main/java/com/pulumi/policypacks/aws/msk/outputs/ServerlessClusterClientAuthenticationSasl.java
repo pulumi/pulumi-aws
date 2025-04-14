@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.msk.outputs.ServerlessClusterClientAuthenticationSaslIam;
 
 
@@ -13,11 +14,12 @@ public final class ServerlessClusterClientAuthenticationSasl {
      * Details for client authentication using IAM. See below.
      * 
      */
-    private UndeferrableValue<ServerlessClusterClientAuthenticationSaslIam> iam;
-
+    @PolicyResourceProperty(name="iam", flag="unknown_iam")
+    private ServerlessClusterClientAuthenticationSaslIam value_iam;
+    private boolean unknown_iam;
     public ServerlessClusterClientAuthenticationSaslIam iam() {
-        if (iam == null) return null;
-        return iam.getValue("ServerlessClusterClientAuthenticationSasl.iam");
+        if (!unknown_iam) return value_iam;
+        throw new UndeferrableValueException("Value 'ServerlessClusterClientAuthenticationSasl.iam' is not present");
     }
 
 }

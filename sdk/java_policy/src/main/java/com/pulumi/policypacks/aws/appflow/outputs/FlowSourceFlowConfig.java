@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.outputs.FlowSourceFlowConfigIncrementalPullConfig;
 import com.pulumi.policypacks.aws.appflow.outputs.FlowSourceFlowConfigSourceConnectorProperties;
 import java.lang.String;
@@ -16,55 +17,60 @@ public final class FlowSourceFlowConfig {
      * API version that the destination connector uses.
      * 
      */
-    private @Nullable UndeferrableValue<String> apiVersion;
-
+    @PolicyResourceProperty(name="apiVersion", flag="unknown_apiVersion")
+    private @Nullable String value_apiVersion;
+    private boolean unknown_apiVersion;
     public @Nullable String apiVersion() {
-        if (apiVersion == null) return null;
-        return apiVersion.getValue("FlowSourceFlowConfig.apiVersion");
+        if (!unknown_apiVersion) return value_apiVersion;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfig.apiVersion' is not present");
     }
 
     /**
      * Name of the connector profile. This name must be unique for each connector profile in the AWS account.
      * 
      */
-    private @Nullable UndeferrableValue<String> connectorProfileName;
-
+    @PolicyResourceProperty(name="connectorProfileName", flag="unknown_connectorProfileName")
+    private @Nullable String value_connectorProfileName;
+    private boolean unknown_connectorProfileName;
     public @Nullable String connectorProfileName() {
-        if (connectorProfileName == null) return null;
-        return connectorProfileName.getValue("FlowSourceFlowConfig.connectorProfileName");
+        if (!unknown_connectorProfileName) return value_connectorProfileName;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfig.connectorProfileName' is not present");
     }
 
     /**
      * Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
      * 
      */
-    private UndeferrableValue<String> connectorType;
-
+    @PolicyResourceProperty(name="connectorType", flag="unknown_connectorType")
+    private String value_connectorType;
+    private boolean unknown_connectorType;
     public String connectorType() {
-        if (connectorType == null) return null;
-        return connectorType.getValue("FlowSourceFlowConfig.connectorType");
+        if (!unknown_connectorType) return value_connectorType;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfig.connectorType' is not present");
     }
 
     /**
      * Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull. See Incremental Pull Config for more details.
      * 
      */
-    private @Nullable UndeferrableValue<FlowSourceFlowConfigIncrementalPullConfig> incrementalPullConfig;
-
+    @PolicyResourceProperty(name="incrementalPullConfig", flag="unknown_incrementalPullConfig")
+    private @Nullable FlowSourceFlowConfigIncrementalPullConfig value_incrementalPullConfig;
+    private boolean unknown_incrementalPullConfig;
     public @Nullable FlowSourceFlowConfigIncrementalPullConfig incrementalPullConfig() {
-        if (incrementalPullConfig == null) return null;
-        return incrementalPullConfig.getValue("FlowSourceFlowConfig.incrementalPullConfig");
+        if (!unknown_incrementalPullConfig) return value_incrementalPullConfig;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfig.incrementalPullConfig' is not present");
     }
 
     /**
      * Information that is required to query a particular source connector. See Source Connector Properties for details.
      * 
      */
-    private UndeferrableValue<FlowSourceFlowConfigSourceConnectorProperties> sourceConnectorProperties;
-
+    @PolicyResourceProperty(name="sourceConnectorProperties", flag="unknown_sourceConnectorProperties")
+    private FlowSourceFlowConfigSourceConnectorProperties value_sourceConnectorProperties;
+    private boolean unknown_sourceConnectorProperties;
     public FlowSourceFlowConfigSourceConnectorProperties sourceConnectorProperties() {
-        if (sourceConnectorProperties == null) return null;
-        return sourceConnectorProperties.getValue("FlowSourceFlowConfig.sourceConnectorProperties");
+        if (!unknown_sourceConnectorProperties) return value_sourceConnectorProperties;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfig.sourceConnectorProperties' is not present");
     }
 
 }

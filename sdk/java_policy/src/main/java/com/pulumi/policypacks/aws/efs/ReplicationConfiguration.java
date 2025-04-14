@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.efs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.efs.outputs.ReplicationConfigurationDestination;
 import java.lang.String;
@@ -18,66 +19,72 @@ public final class ReplicationConfiguration extends com.pulumi.resources.PolicyR
      * * `destination[0].status` - The status of the replication.
      * 
      */
-    private UndeferrableValue<String> creationTime;
-
+    @PolicyResourceProperty(name="creationTime", flag="unknown_creationTime")
+    private String value_creationTime;
+    private boolean unknown_creationTime;
     public String creationTime() {
-        if (creationTime == null) return null;
-        return creationTime.getValue("ReplicationConfiguration.creationTime");
+        if (!unknown_creationTime) return value_creationTime;
+        throw new UndeferrableValueException("Value 'ReplicationConfiguration.creationTime' is not present");
     }
 
     /**
      * A destination configuration block (documented below).
      * 
      */
-    private UndeferrableValue<ReplicationConfigurationDestination> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private ReplicationConfigurationDestination value_destination;
+    private boolean unknown_destination;
     public ReplicationConfigurationDestination destination() {
-        if (destination == null) return null;
-        return destination.getValue("ReplicationConfiguration.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'ReplicationConfiguration.destination' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
      * 
      */
-    private UndeferrableValue<String> originalSourceFileSystemArn;
-
+    @PolicyResourceProperty(name="originalSourceFileSystemArn", flag="unknown_originalSourceFileSystemArn")
+    private String value_originalSourceFileSystemArn;
+    private boolean unknown_originalSourceFileSystemArn;
     public String originalSourceFileSystemArn() {
-        if (originalSourceFileSystemArn == null) return null;
-        return originalSourceFileSystemArn.getValue("ReplicationConfiguration.originalSourceFileSystemArn");
+        if (!unknown_originalSourceFileSystemArn) return value_originalSourceFileSystemArn;
+        throw new UndeferrableValueException("Value 'ReplicationConfiguration.originalSourceFileSystemArn' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
      * 
      */
-    private UndeferrableValue<String> sourceFileSystemArn;
-
+    @PolicyResourceProperty(name="sourceFileSystemArn", flag="unknown_sourceFileSystemArn")
+    private String value_sourceFileSystemArn;
+    private boolean unknown_sourceFileSystemArn;
     public String sourceFileSystemArn() {
-        if (sourceFileSystemArn == null) return null;
-        return sourceFileSystemArn.getValue("ReplicationConfiguration.sourceFileSystemArn");
+        if (!unknown_sourceFileSystemArn) return value_sourceFileSystemArn;
+        throw new UndeferrableValueException("Value 'ReplicationConfiguration.sourceFileSystemArn' is not present");
     }
 
     /**
      * The ID of the file system that is to be replicated.
      * 
      */
-    private UndeferrableValue<String> sourceFileSystemId;
-
+    @PolicyResourceProperty(name="sourceFileSystemId", flag="unknown_sourceFileSystemId")
+    private String value_sourceFileSystemId;
+    private boolean unknown_sourceFileSystemId;
     public String sourceFileSystemId() {
-        if (sourceFileSystemId == null) return null;
-        return sourceFileSystemId.getValue("ReplicationConfiguration.sourceFileSystemId");
+        if (!unknown_sourceFileSystemId) return value_sourceFileSystemId;
+        throw new UndeferrableValueException("Value 'ReplicationConfiguration.sourceFileSystemId' is not present");
     }
 
     /**
      * The AWS Region in which the source Amazon EFS file system is located.
      * 
      */
-    private UndeferrableValue<String> sourceFileSystemRegion;
-
+    @PolicyResourceProperty(name="sourceFileSystemRegion", flag="unknown_sourceFileSystemRegion")
+    private String value_sourceFileSystemRegion;
+    private boolean unknown_sourceFileSystemRegion;
     public String sourceFileSystemRegion() {
-        if (sourceFileSystemRegion == null) return null;
-        return sourceFileSystemRegion.getValue("ReplicationConfiguration.sourceFileSystemRegion");
+        if (!unknown_sourceFileSystemRegion) return value_sourceFileSystemRegion;
+        throw new UndeferrableValueException("Value 'ReplicationConfiguration.sourceFileSystemRegion' is not present");
     }
 
 }

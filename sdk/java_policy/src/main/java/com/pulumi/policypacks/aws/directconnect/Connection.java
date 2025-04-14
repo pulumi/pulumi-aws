@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,143 +20,156 @@ public final class Connection extends com.pulumi.resources.PolicyResourceOutput 
      * The ARN of the connection.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Connection.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Connection.arn' is not present");
     }
 
     /**
      * The Direct Connect endpoint on which the physical connection terminates.
      * 
      */
-    private UndeferrableValue<String> awsDevice;
-
+    @PolicyResourceProperty(name="awsDevice", flag="unknown_awsDevice")
+    private String value_awsDevice;
+    private boolean unknown_awsDevice;
     public String awsDevice() {
-        if (awsDevice == null) return null;
-        return awsDevice.getValue("Connection.awsDevice");
+        if (!unknown_awsDevice) return value_awsDevice;
+        throw new UndeferrableValueException("Value 'Connection.awsDevice' is not present");
     }
 
     /**
      * The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps, 100Gbps, and 400Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Dedicated Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html) and [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
      * 
      */
-    private UndeferrableValue<String> bandwidth;
-
+    @PolicyResourceProperty(name="bandwidth", flag="unknown_bandwidth")
+    private String value_bandwidth;
+    private boolean unknown_bandwidth;
     public String bandwidth() {
-        if (bandwidth == null) return null;
-        return bandwidth.getValue("Connection.bandwidth");
+        if (!unknown_bandwidth) return value_bandwidth;
+        throw new UndeferrableValueException("Value 'Connection.bandwidth' is not present");
     }
 
     /**
      * The connection MAC Security (MACsec) encryption mode. MAC Security (MACsec) is only available on dedicated connections. Valid values are `no_encrypt`, `should_encrypt`, and `must_encrypt`.
      * 
      */
-    private UndeferrableValue<String> encryptionMode;
-
+    @PolicyResourceProperty(name="encryptionMode", flag="unknown_encryptionMode")
+    private String value_encryptionMode;
+    private boolean unknown_encryptionMode;
     public String encryptionMode() {
-        if (encryptionMode == null) return null;
-        return encryptionMode.getValue("Connection.encryptionMode");
+        if (!unknown_encryptionMode) return value_encryptionMode;
+        throw new UndeferrableValueException("Value 'Connection.encryptionMode' is not present");
     }
 
     /**
      * Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
      * 
      */
-    private UndeferrableValue<String> hasLogicalRedundancy;
-
+    @PolicyResourceProperty(name="hasLogicalRedundancy", flag="unknown_hasLogicalRedundancy")
+    private String value_hasLogicalRedundancy;
+    private boolean unknown_hasLogicalRedundancy;
     public String hasLogicalRedundancy() {
-        if (hasLogicalRedundancy == null) return null;
-        return hasLogicalRedundancy.getValue("Connection.hasLogicalRedundancy");
+        if (!unknown_hasLogicalRedundancy) return value_hasLogicalRedundancy;
+        throw new UndeferrableValueException("Value 'Connection.hasLogicalRedundancy' is not present");
     }
 
     /**
      * Boolean value representing if jumbo frames have been enabled for this connection.
      * 
      */
-    private UndeferrableValue<Boolean> jumboFrameCapable;
-
+    @PolicyResourceProperty(name="jumboFrameCapable", flag="unknown_jumboFrameCapable")
+    private Boolean value_jumboFrameCapable;
+    private boolean unknown_jumboFrameCapable;
     public Boolean jumboFrameCapable() {
-        if (jumboFrameCapable == null) return null;
-        return jumboFrameCapable.getValue("Connection.jumboFrameCapable");
+        if (!unknown_jumboFrameCapable) return value_jumboFrameCapable;
+        throw new UndeferrableValueException("Value 'Connection.jumboFrameCapable' is not present");
     }
 
     /**
      * The AWS Direct Connect location where the connection is located. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
      * 
      */
-    private UndeferrableValue<String> location;
-
+    @PolicyResourceProperty(name="location", flag="unknown_location")
+    private String value_location;
+    private boolean unknown_location;
     public String location() {
-        if (location == null) return null;
-        return location.getValue("Connection.location");
+        if (!unknown_location) return value_location;
+        throw new UndeferrableValueException("Value 'Connection.location' is not present");
     }
 
     /**
      * Boolean value indicating whether the connection supports MAC Security (MACsec).
      * 
      */
-    private UndeferrableValue<Boolean> macsecCapable;
-
+    @PolicyResourceProperty(name="macsecCapable", flag="unknown_macsecCapable")
+    private Boolean value_macsecCapable;
+    private boolean unknown_macsecCapable;
     public Boolean macsecCapable() {
-        if (macsecCapable == null) return null;
-        return macsecCapable.getValue("Connection.macsecCapable");
+        if (!unknown_macsecCapable) return value_macsecCapable;
+        throw new UndeferrableValueException("Value 'Connection.macsecCapable' is not present");
     }
 
     /**
      * The name of the connection.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Connection.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Connection.name' is not present");
     }
 
     /**
      * The ID of the AWS account that owns the connection.
      * 
      */
-    private UndeferrableValue<String> ownerAccountId;
-
+    @PolicyResourceProperty(name="ownerAccountId", flag="unknown_ownerAccountId")
+    private String value_ownerAccountId;
+    private boolean unknown_ownerAccountId;
     public String ownerAccountId() {
-        if (ownerAccountId == null) return null;
-        return ownerAccountId.getValue("Connection.ownerAccountId");
+        if (!unknown_ownerAccountId) return value_ownerAccountId;
+        throw new UndeferrableValueException("Value 'Connection.ownerAccountId' is not present");
     }
 
     /**
      * The name of the AWS Direct Connect service provider associated with the connection.
      * 
      */
-    private UndeferrableValue<String> partnerName;
-
+    @PolicyResourceProperty(name="partnerName", flag="unknown_partnerName")
+    private String value_partnerName;
+    private boolean unknown_partnerName;
     public String partnerName() {
-        if (partnerName == null) return null;
-        return partnerName.getValue("Connection.partnerName");
+        if (!unknown_partnerName) return value_partnerName;
+        throw new UndeferrableValueException("Value 'Connection.partnerName' is not present");
     }
 
     /**
      * The MAC Security (MACsec) port link status of the connection.
      * 
      */
-    private UndeferrableValue<String> portEncryptionStatus;
-
+    @PolicyResourceProperty(name="portEncryptionStatus", flag="unknown_portEncryptionStatus")
+    private String value_portEncryptionStatus;
+    private boolean unknown_portEncryptionStatus;
     public String portEncryptionStatus() {
-        if (portEncryptionStatus == null) return null;
-        return portEncryptionStatus.getValue("Connection.portEncryptionStatus");
+        if (!unknown_portEncryptionStatus) return value_portEncryptionStatus;
+        throw new UndeferrableValueException("Value 'Connection.portEncryptionStatus' is not present");
     }
 
     /**
      * The name of the service provider associated with the connection.
      * 
      */
-    private UndeferrableValue<String> providerName;
-
+    @PolicyResourceProperty(name="providerName", flag="unknown_providerName")
+    private String value_providerName;
+    private boolean unknown_providerName;
     public String providerName() {
-        if (providerName == null) return null;
-        return providerName.getValue("Connection.providerName");
+        if (!unknown_providerName) return value_providerName;
+        throw new UndeferrableValueException("Value 'Connection.providerName' is not present");
     }
 
     /**
@@ -164,33 +178,36 @@ public final class Connection extends com.pulumi.resources.PolicyResourceOutput 
      * &gt; **NOTE:** Changing the value of `request_macsec` will cause the resource to be destroyed and re-created.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> requestMacsec;
-
+    @PolicyResourceProperty(name="requestMacsec", flag="unknown_requestMacsec")
+    private @Nullable Boolean value_requestMacsec;
+    private boolean unknown_requestMacsec;
     public @Nullable Boolean requestMacsec() {
-        if (requestMacsec == null) return null;
-        return requestMacsec.getValue("Connection.requestMacsec");
+        if (!unknown_requestMacsec) return value_requestMacsec;
+        throw new UndeferrableValueException("Value 'Connection.requestMacsec' is not present");
     }
 
     /**
      * Set to true if you do not wish the connection to be deleted at destroy time, and instead just removed from the state.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> skipDestroy;
-
+    @PolicyResourceProperty(name="skipDestroy", flag="unknown_skipDestroy")
+    private @Nullable Boolean value_skipDestroy;
+    private boolean unknown_skipDestroy;
     public @Nullable Boolean skipDestroy() {
-        if (skipDestroy == null) return null;
-        return skipDestroy.getValue("Connection.skipDestroy");
+        if (!unknown_skipDestroy) return value_skipDestroy;
+        throw new UndeferrableValueException("Value 'Connection.skipDestroy' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Connection.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Connection.tags' is not present");
     }
 
     /**
@@ -201,22 +218,24 @@ public final class Connection extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Connection.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Connection.tagsAll' is not present");
     }
 
     /**
      * The VLAN ID.
      * 
      */
-    private UndeferrableValue<Integer> vlanId;
-
+    @PolicyResourceProperty(name="vlanId", flag="unknown_vlanId")
+    private Integer value_vlanId;
+    private boolean unknown_vlanId;
     public Integer vlanId() {
-        if (vlanId == null) return null;
-        return vlanId.getValue("Connection.vlanId");
+        if (!unknown_vlanId) return value_vlanId;
+        throw new UndeferrableValueException("Value 'Connection.vlanId' is not present");
     }
 
 }

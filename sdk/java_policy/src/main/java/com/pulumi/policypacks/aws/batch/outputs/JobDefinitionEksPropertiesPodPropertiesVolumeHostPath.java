@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class JobDefinitionEksPropertiesPodPropertiesVolumeHostPath {
      * Path of the file or directory on the host to mount into containers on the pod.
      * 
      */
-    private UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private String value_path;
+    private boolean unknown_path;
     public String path() {
-        if (path == null) return null;
-        return path.getValue("JobDefinitionEksPropertiesPodPropertiesVolumeHostPath.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesVolumeHostPath.path' is not present");
     }
 
 }

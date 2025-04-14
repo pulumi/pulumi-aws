@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,66 +15,72 @@ public final class TopicRuleErrorActionCloudwatchMetric {
      * The CloudWatch metric name.
      * 
      */
-    private UndeferrableValue<String> metricName;
-
+    @PolicyResourceProperty(name="metricName", flag="unknown_metricName")
+    private String value_metricName;
+    private boolean unknown_metricName;
     public String metricName() {
-        if (metricName == null) return null;
-        return metricName.getValue("TopicRuleErrorActionCloudwatchMetric.metricName");
+        if (!unknown_metricName) return value_metricName;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionCloudwatchMetric.metricName' is not present");
     }
 
     /**
      * The CloudWatch metric namespace name.
      * 
      */
-    private UndeferrableValue<String> metricNamespace;
-
+    @PolicyResourceProperty(name="metricNamespace", flag="unknown_metricNamespace")
+    private String value_metricNamespace;
+    private boolean unknown_metricNamespace;
     public String metricNamespace() {
-        if (metricNamespace == null) return null;
-        return metricNamespace.getValue("TopicRuleErrorActionCloudwatchMetric.metricNamespace");
+        if (!unknown_metricNamespace) return value_metricNamespace;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionCloudwatchMetric.metricNamespace' is not present");
     }
 
     /**
      * An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
      * 
      */
-    private @Nullable UndeferrableValue<String> metricTimestamp;
-
+    @PolicyResourceProperty(name="metricTimestamp", flag="unknown_metricTimestamp")
+    private @Nullable String value_metricTimestamp;
+    private boolean unknown_metricTimestamp;
     public @Nullable String metricTimestamp() {
-        if (metricTimestamp == null) return null;
-        return metricTimestamp.getValue("TopicRuleErrorActionCloudwatchMetric.metricTimestamp");
+        if (!unknown_metricTimestamp) return value_metricTimestamp;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionCloudwatchMetric.metricTimestamp' is not present");
     }
 
     /**
      * The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
      * 
      */
-    private UndeferrableValue<String> metricUnit;
-
+    @PolicyResourceProperty(name="metricUnit", flag="unknown_metricUnit")
+    private String value_metricUnit;
+    private boolean unknown_metricUnit;
     public String metricUnit() {
-        if (metricUnit == null) return null;
-        return metricUnit.getValue("TopicRuleErrorActionCloudwatchMetric.metricUnit");
+        if (!unknown_metricUnit) return value_metricUnit;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionCloudwatchMetric.metricUnit' is not present");
     }
 
     /**
      * The CloudWatch metric value.
      * 
      */
-    private UndeferrableValue<String> metricValue;
-
+    @PolicyResourceProperty(name="metricValue", flag="unknown_metricValue")
+    private String value_metricValue;
+    private boolean unknown_metricValue;
     public String metricValue() {
-        if (metricValue == null) return null;
-        return metricValue.getValue("TopicRuleErrorActionCloudwatchMetric.metricValue");
+        if (!unknown_metricValue) return value_metricValue;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionCloudwatchMetric.metricValue' is not present");
     }
 
     /**
      * The IAM role ARN that allows access to the CloudWatch metric.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("TopicRuleErrorActionCloudwatchMetric.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'TopicRuleErrorActionCloudwatchMetric.roleArn' is not present");
     }
 
 }

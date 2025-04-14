@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3.outputs.InventoryDestination;
 import com.pulumi.policypacks.aws.s3.outputs.InventoryFilter;
@@ -21,88 +22,96 @@ public final class Inventory extends com.pulumi.resources.PolicyResourceOutput {
      * Name of the source bucket that inventory lists the objects for.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("Inventory.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'Inventory.bucket' is not present");
     }
 
     /**
      * Contains information about where to publish the inventory results (documented below).
      * 
      */
-    private UndeferrableValue<InventoryDestination> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private InventoryDestination value_destination;
+    private boolean unknown_destination;
     public InventoryDestination destination() {
-        if (destination == null) return null;
-        return destination.getValue("Inventory.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'Inventory.destination' is not present");
     }
 
     /**
      * Specifies whether the inventory is enabled or disabled.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private @Nullable Boolean value_enabled;
+    private boolean unknown_enabled;
     public @Nullable Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("Inventory.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'Inventory.enabled' is not present");
     }
 
     /**
      * Specifies an inventory filter. The inventory only includes objects that meet the filter&#39;s criteria (documented below).
      * 
      */
-    private @Nullable UndeferrableValue<InventoryFilter> filter;
-
+    @PolicyResourceProperty(name="filter", flag="unknown_filter")
+    private @Nullable InventoryFilter value_filter;
+    private boolean unknown_filter;
     public @Nullable InventoryFilter filter() {
-        if (filter == null) return null;
-        return filter.getValue("Inventory.filter");
+        if (!unknown_filter) return value_filter;
+        throw new UndeferrableValueException("Value 'Inventory.filter' is not present");
     }
 
     /**
      * Object versions to include in the inventory list. Valid values: `All`, `Current`.
      * 
      */
-    private UndeferrableValue<String> includedObjectVersions;
-
+    @PolicyResourceProperty(name="includedObjectVersions", flag="unknown_includedObjectVersions")
+    private String value_includedObjectVersions;
+    private boolean unknown_includedObjectVersions;
     public String includedObjectVersions() {
-        if (includedObjectVersions == null) return null;
-        return includedObjectVersions.getValue("Inventory.includedObjectVersions");
+        if (!unknown_includedObjectVersions) return value_includedObjectVersions;
+        throw new UndeferrableValueException("Value 'Inventory.includedObjectVersions' is not present");
     }
 
     /**
      * Unique identifier of the inventory configuration for the bucket.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Inventory.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Inventory.name' is not present");
     }
 
     /**
      * List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> optionalFields;
-
+    @PolicyResourceProperty(name="optionalFields", flag="unknown_optionalFields")
+    private @Nullable List<String> value_optionalFields;
+    private boolean unknown_optionalFields;
     public @Nullable List<String> optionalFields() {
-        if (optionalFields == null) return null;
-        return optionalFields.getValue("Inventory.optionalFields");
+        if (!unknown_optionalFields) return value_optionalFields;
+        throw new UndeferrableValueException("Value 'Inventory.optionalFields' is not present");
     }
 
     /**
      * Specifies the schedule for generating inventory results (documented below).
      * 
      */
-    private UndeferrableValue<InventorySchedule> schedule;
-
+    @PolicyResourceProperty(name="schedule", flag="unknown_schedule")
+    private InventorySchedule value_schedule;
+    private boolean unknown_schedule;
     public InventorySchedule schedule() {
-        if (schedule == null) return null;
-        return schedule.getValue("Inventory.schedule");
+        if (!unknown_schedule) return value_schedule;
+        throw new UndeferrableValueException("Value 'Inventory.schedule' is not present");
     }
 
 }

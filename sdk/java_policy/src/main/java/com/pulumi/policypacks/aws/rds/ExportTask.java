@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.rds.outputs.ExportTaskTimeouts;
 import java.lang.Integer;
@@ -19,99 +20,108 @@ public final class ExportTask extends com.pulumi.resources.PolicyResourceOutput 
      * Data to be exported from the snapshot. If this parameter is not provided, all the snapshot data is exported. Valid values are documented in the [AWS StartExportTask API documentation](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestParameters).
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> exportOnlies;
-
+    @PolicyResourceProperty(name="exportOnlies", flag="unknown_exportOnlies")
+    private @Nullable List<String> value_exportOnlies;
+    private boolean unknown_exportOnlies;
     public @Nullable List<String> exportOnlies() {
-        if (exportOnlies == null) return null;
-        return exportOnlies.getValue("ExportTask.exportOnlies");
+        if (!unknown_exportOnlies) return value_exportOnlies;
+        throw new UndeferrableValueException("Value 'ExportTask.exportOnlies' is not present");
     }
 
     /**
      * Unique identifier for the snapshot export task.
      * 
      */
-    private UndeferrableValue<String> exportTaskIdentifier;
-
+    @PolicyResourceProperty(name="exportTaskIdentifier", flag="unknown_exportTaskIdentifier")
+    private String value_exportTaskIdentifier;
+    private boolean unknown_exportTaskIdentifier;
     public String exportTaskIdentifier() {
-        if (exportTaskIdentifier == null) return null;
-        return exportTaskIdentifier.getValue("ExportTask.exportTaskIdentifier");
+        if (!unknown_exportTaskIdentifier) return value_exportTaskIdentifier;
+        throw new UndeferrableValueException("Value 'ExportTask.exportTaskIdentifier' is not present");
     }
 
     /**
      * Reason the export failed, if it failed.
      * 
      */
-    private UndeferrableValue<String> failureCause;
-
+    @PolicyResourceProperty(name="failureCause", flag="unknown_failureCause")
+    private String value_failureCause;
+    private boolean unknown_failureCause;
     public String failureCause() {
-        if (failureCause == null) return null;
-        return failureCause.getValue("ExportTask.failureCause");
+        if (!unknown_failureCause) return value_failureCause;
+        throw new UndeferrableValueException("Value 'ExportTask.failureCause' is not present");
     }
 
     /**
      * ARN of the IAM role to use for writing to the Amazon S3 bucket.
      * 
      */
-    private UndeferrableValue<String> iamRoleArn;
-
+    @PolicyResourceProperty(name="iamRoleArn", flag="unknown_iamRoleArn")
+    private String value_iamRoleArn;
+    private boolean unknown_iamRoleArn;
     public String iamRoleArn() {
-        if (iamRoleArn == null) return null;
-        return iamRoleArn.getValue("ExportTask.iamRoleArn");
+        if (!unknown_iamRoleArn) return value_iamRoleArn;
+        throw new UndeferrableValueException("Value 'ExportTask.iamRoleArn' is not present");
     }
 
     /**
      * ID of the Amazon Web Services KMS key to use to encrypt the snapshot.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("ExportTask.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'ExportTask.kmsKeyId' is not present");
     }
 
     /**
      * Progress of the snapshot export task as a percentage.
      * 
      */
-    private UndeferrableValue<Integer> percentProgress;
-
+    @PolicyResourceProperty(name="percentProgress", flag="unknown_percentProgress")
+    private Integer value_percentProgress;
+    private boolean unknown_percentProgress;
     public Integer percentProgress() {
-        if (percentProgress == null) return null;
-        return percentProgress.getValue("ExportTask.percentProgress");
+        if (!unknown_percentProgress) return value_percentProgress;
+        throw new UndeferrableValueException("Value 'ExportTask.percentProgress' is not present");
     }
 
     /**
      * Name of the Amazon S3 bucket to export the snapshot to.
      * 
      */
-    private UndeferrableValue<String> s3BucketName;
-
+    @PolicyResourceProperty(name="s3BucketName", flag="unknown_s3BucketName")
+    private String value_s3BucketName;
+    private boolean unknown_s3BucketName;
     public String s3BucketName() {
-        if (s3BucketName == null) return null;
-        return s3BucketName.getValue("ExportTask.s3BucketName");
+        if (!unknown_s3BucketName) return value_s3BucketName;
+        throw new UndeferrableValueException("Value 'ExportTask.s3BucketName' is not present");
     }
 
     /**
      * Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
      * 
      */
-    private UndeferrableValue<String> s3Prefix;
-
+    @PolicyResourceProperty(name="s3Prefix", flag="unknown_s3Prefix")
+    private String value_s3Prefix;
+    private boolean unknown_s3Prefix;
     public String s3Prefix() {
-        if (s3Prefix == null) return null;
-        return s3Prefix.getValue("ExportTask.s3Prefix");
+        if (!unknown_s3Prefix) return value_s3Prefix;
+        throw new UndeferrableValueException("Value 'ExportTask.s3Prefix' is not present");
     }
 
     /**
      * Time that the snapshot was created.
      * 
      */
-    private UndeferrableValue<String> snapshotTime;
-
+    @PolicyResourceProperty(name="snapshotTime", flag="unknown_snapshotTime")
+    private String value_snapshotTime;
+    private boolean unknown_snapshotTime;
     public String snapshotTime() {
-        if (snapshotTime == null) return null;
-        return snapshotTime.getValue("ExportTask.snapshotTime");
+        if (!unknown_snapshotTime) return value_snapshotTime;
+        throw new UndeferrableValueException("Value 'ExportTask.snapshotTime' is not present");
     }
 
     /**
@@ -120,73 +130,80 @@ public final class ExportTask extends com.pulumi.resources.PolicyResourceOutput 
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> sourceArn;
-
+    @PolicyResourceProperty(name="sourceArn", flag="unknown_sourceArn")
+    private String value_sourceArn;
+    private boolean unknown_sourceArn;
     public String sourceArn() {
-        if (sourceArn == null) return null;
-        return sourceArn.getValue("ExportTask.sourceArn");
+        if (!unknown_sourceArn) return value_sourceArn;
+        throw new UndeferrableValueException("Value 'ExportTask.sourceArn' is not present");
     }
 
     /**
      * Type of source for the export.
      * 
      */
-    private UndeferrableValue<String> sourceType;
-
+    @PolicyResourceProperty(name="sourceType", flag="unknown_sourceType")
+    private String value_sourceType;
+    private boolean unknown_sourceType;
     public String sourceType() {
-        if (sourceType == null) return null;
-        return sourceType.getValue("ExportTask.sourceType");
+        if (!unknown_sourceType) return value_sourceType;
+        throw new UndeferrableValueException("Value 'ExportTask.sourceType' is not present");
     }
 
     /**
      * Status of the export task.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("ExportTask.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'ExportTask.status' is not present");
     }
 
     /**
      * Time that the snapshot export task completed.
      * 
      */
-    private UndeferrableValue<String> taskEndTime;
-
+    @PolicyResourceProperty(name="taskEndTime", flag="unknown_taskEndTime")
+    private String value_taskEndTime;
+    private boolean unknown_taskEndTime;
     public String taskEndTime() {
-        if (taskEndTime == null) return null;
-        return taskEndTime.getValue("ExportTask.taskEndTime");
+        if (!unknown_taskEndTime) return value_taskEndTime;
+        throw new UndeferrableValueException("Value 'ExportTask.taskEndTime' is not present");
     }
 
     /**
      * Time that the snapshot export task started.
      * 
      */
-    private UndeferrableValue<String> taskStartTime;
-
+    @PolicyResourceProperty(name="taskStartTime", flag="unknown_taskStartTime")
+    private String value_taskStartTime;
+    private boolean unknown_taskStartTime;
     public String taskStartTime() {
-        if (taskStartTime == null) return null;
-        return taskStartTime.getValue("ExportTask.taskStartTime");
+        if (!unknown_taskStartTime) return value_taskStartTime;
+        throw new UndeferrableValueException("Value 'ExportTask.taskStartTime' is not present");
     }
 
-    private @Nullable UndeferrableValue<ExportTaskTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable ExportTaskTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable ExportTaskTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ExportTask.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ExportTask.timeouts' is not present");
     }
 
     /**
      * Warning about the snapshot export task, if any.
      * 
      */
-    private UndeferrableValue<String> warningMessage;
-
+    @PolicyResourceProperty(name="warningMessage", flag="unknown_warningMessage")
+    private String value_warningMessage;
+    private boolean unknown_warningMessage;
     public String warningMessage() {
-        if (warningMessage == null) return null;
-        return warningMessage.getValue("ExportTask.warningMessage");
+        if (!unknown_warningMessage) return value_warningMessage;
+        throw new UndeferrableValueException("Value 'ExportTask.warningMessage' is not present");
     }
 
 }

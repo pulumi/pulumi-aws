@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,44 +19,48 @@ public final class SnapshotArgs extends com.pulumi.resources.PolicyResourceInput
      * The DB Instance Identifier from which to take the snapshot.
      * 
      */
-    private UndeferrableValue<String> dbInstanceIdentifier;
-
+    @PolicyResourceProperty(name="dbInstanceIdentifier", flag="unknown_dbInstanceIdentifier")
+    private String value_dbInstanceIdentifier;
+    private boolean unknown_dbInstanceIdentifier;
     public String dbInstanceIdentifier() {
-        if (dbInstanceIdentifier == null) return null;
-        return dbInstanceIdentifier.getValue("SnapshotArgs.dbInstanceIdentifier");
+        if (!unknown_dbInstanceIdentifier) return value_dbInstanceIdentifier;
+        throw new UndeferrableValueException("Value 'SnapshotArgs.dbInstanceIdentifier' is not present");
     }
 
     /**
      * The Identifier for the snapshot.
      * 
      */
-    private UndeferrableValue<String> dbSnapshotIdentifier;
-
+    @PolicyResourceProperty(name="dbSnapshotIdentifier", flag="unknown_dbSnapshotIdentifier")
+    private String value_dbSnapshotIdentifier;
+    private boolean unknown_dbSnapshotIdentifier;
     public String dbSnapshotIdentifier() {
-        if (dbSnapshotIdentifier == null) return null;
-        return dbSnapshotIdentifier.getValue("SnapshotArgs.dbSnapshotIdentifier");
+        if (!unknown_dbSnapshotIdentifier) return value_dbSnapshotIdentifier;
+        throw new UndeferrableValueException("Value 'SnapshotArgs.dbSnapshotIdentifier' is not present");
     }
 
     /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      * 
      */
-    private UndeferrableValue<List<String>> sharedAccounts;
-
+    @PolicyResourceProperty(name="sharedAccounts", flag="unknown_sharedAccounts")
+    private List<String> value_sharedAccounts;
+    private boolean unknown_sharedAccounts;
     public List<String> sharedAccounts() {
-        if (sharedAccounts == null) return null;
-        return sharedAccounts.getValue("SnapshotArgs.sharedAccounts");
+        if (!unknown_sharedAccounts) return value_sharedAccounts;
+        throw new UndeferrableValueException("Value 'SnapshotArgs.sharedAccounts' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SnapshotArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SnapshotArgs.tags' is not present");
     }
 
 }

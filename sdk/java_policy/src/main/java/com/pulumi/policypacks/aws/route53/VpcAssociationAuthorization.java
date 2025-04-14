@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class VpcAssociationAuthorization extends com.pulumi.resources.Poli
      * The VPC to authorize for association with the private hosted zone.
      * 
      */
-    private UndeferrableValue<String> vpcId;
-
+    @PolicyResourceProperty(name="vpcId", flag="unknown_vpcId")
+    private String value_vpcId;
+    private boolean unknown_vpcId;
     public String vpcId() {
-        if (vpcId == null) return null;
-        return vpcId.getValue("VpcAssociationAuthorization.vpcId");
+        if (!unknown_vpcId) return value_vpcId;
+        throw new UndeferrableValueException("Value 'VpcAssociationAuthorization.vpcId' is not present");
     }
 
     /**
      * The VPC&#39;s region. Defaults to the region of the AWS provider.
      * 
      */
-    private UndeferrableValue<String> vpcRegion;
-
+    @PolicyResourceProperty(name="vpcRegion", flag="unknown_vpcRegion")
+    private String value_vpcRegion;
+    private boolean unknown_vpcRegion;
     public String vpcRegion() {
-        if (vpcRegion == null) return null;
-        return vpcRegion.getValue("VpcAssociationAuthorization.vpcRegion");
+        if (!unknown_vpcRegion) return value_vpcRegion;
+        throw new UndeferrableValueException("Value 'VpcAssociationAuthorization.vpcRegion' is not present");
     }
 
     /**
      * The ID of the private hosted zone that you want to authorize associating a VPC with.
      * 
      */
-    private UndeferrableValue<String> zoneId;
-
+    @PolicyResourceProperty(name="zoneId", flag="unknown_zoneId")
+    private String value_zoneId;
+    private boolean unknown_zoneId;
     public String zoneId() {
-        if (zoneId == null) return null;
-        return zoneId.getValue("VpcAssociationAuthorization.zoneId");
+        if (!unknown_zoneId) return value_zoneId;
+        throw new UndeferrableValueException("Value 'VpcAssociationAuthorization.zoneId' is not present");
     }
 
 }

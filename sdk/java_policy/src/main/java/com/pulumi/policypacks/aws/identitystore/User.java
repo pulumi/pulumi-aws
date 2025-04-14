@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.identitystore;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.identitystore.outputs.UserAddresses;
 import com.pulumi.policypacks.aws.identitystore.outputs.UserEmails;
@@ -22,154 +23,168 @@ public final class User extends com.pulumi.resources.PolicyResourceOutput {
      * Details about the user&#39;s address. At most 1 address is allowed. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<UserAddresses> addresses;
-
+    @PolicyResourceProperty(name="addresses", flag="unknown_addresses")
+    private @Nullable UserAddresses value_addresses;
+    private boolean unknown_addresses;
     public @Nullable UserAddresses addresses() {
-        if (addresses == null) return null;
-        return addresses.getValue("User.addresses");
+        if (!unknown_addresses) return value_addresses;
+        throw new UndeferrableValueException("Value 'User.addresses' is not present");
     }
 
     /**
      * The name that is typically displayed when the user is referenced.
      * 
      */
-    private UndeferrableValue<String> displayName;
-
+    @PolicyResourceProperty(name="displayName", flag="unknown_displayName")
+    private String value_displayName;
+    private boolean unknown_displayName;
     public String displayName() {
-        if (displayName == null) return null;
-        return displayName.getValue("User.displayName");
+        if (!unknown_displayName) return value_displayName;
+        throw new UndeferrableValueException("Value 'User.displayName' is not present");
     }
 
     /**
      * Details about the user&#39;s email. At most 1 email is allowed. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<UserEmails> emails;
-
+    @PolicyResourceProperty(name="emails", flag="unknown_emails")
+    private @Nullable UserEmails value_emails;
+    private boolean unknown_emails;
     public @Nullable UserEmails emails() {
-        if (emails == null) return null;
-        return emails.getValue("User.emails");
+        if (!unknown_emails) return value_emails;
+        throw new UndeferrableValueException("Value 'User.emails' is not present");
     }
 
     /**
      * A list of identifiers issued to this resource by an external identity provider.
      * 
      */
-    private UndeferrableValue<List<UserExternalId>> externalIds;
-
+    @PolicyResourceProperty(name="externalIds", flag="unknown_externalIds")
+    private List<UserExternalId> value_externalIds;
+    private boolean unknown_externalIds;
     public List<UserExternalId> externalIds() {
-        if (externalIds == null) return null;
-        return externalIds.getValue("User.externalIds");
+        if (!unknown_externalIds) return value_externalIds;
+        throw new UndeferrableValueException("Value 'User.externalIds' is not present");
     }
 
     /**
      * The globally unique identifier for the identity store that this user is in.
      * 
      */
-    private UndeferrableValue<String> identityStoreId;
-
+    @PolicyResourceProperty(name="identityStoreId", flag="unknown_identityStoreId")
+    private String value_identityStoreId;
+    private boolean unknown_identityStoreId;
     public String identityStoreId() {
-        if (identityStoreId == null) return null;
-        return identityStoreId.getValue("User.identityStoreId");
+        if (!unknown_identityStoreId) return value_identityStoreId;
+        throw new UndeferrableValueException("Value 'User.identityStoreId' is not present");
     }
 
     /**
      * The user&#39;s geographical region or location.
      * 
      */
-    private @Nullable UndeferrableValue<String> locale;
-
+    @PolicyResourceProperty(name="locale", flag="unknown_locale")
+    private @Nullable String value_locale;
+    private boolean unknown_locale;
     public @Nullable String locale() {
-        if (locale == null) return null;
-        return locale.getValue("User.locale");
+        if (!unknown_locale) return value_locale;
+        throw new UndeferrableValueException("Value 'User.locale' is not present");
     }
 
     /**
      * Details about the user&#39;s full name. Detailed below.
      * 
      */
-    private UndeferrableValue<UserName> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private UserName value_name;
+    private boolean unknown_name;
     public UserName name() {
-        if (name == null) return null;
-        return name.getValue("User.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'User.name' is not present");
     }
 
     /**
      * An alternate name for the user.
      * 
      */
-    private @Nullable UndeferrableValue<String> nickname;
-
+    @PolicyResourceProperty(name="nickname", flag="unknown_nickname")
+    private @Nullable String value_nickname;
+    private boolean unknown_nickname;
     public @Nullable String nickname() {
-        if (nickname == null) return null;
-        return nickname.getValue("User.nickname");
+        if (!unknown_nickname) return value_nickname;
+        throw new UndeferrableValueException("Value 'User.nickname' is not present");
     }
 
     /**
      * Details about the user&#39;s phone number. At most 1 phone number is allowed. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<UserPhoneNumbers> phoneNumbers;
-
+    @PolicyResourceProperty(name="phoneNumbers", flag="unknown_phoneNumbers")
+    private @Nullable UserPhoneNumbers value_phoneNumbers;
+    private boolean unknown_phoneNumbers;
     public @Nullable UserPhoneNumbers phoneNumbers() {
-        if (phoneNumbers == null) return null;
-        return phoneNumbers.getValue("User.phoneNumbers");
+        if (!unknown_phoneNumbers) return value_phoneNumbers;
+        throw new UndeferrableValueException("Value 'User.phoneNumbers' is not present");
     }
 
     /**
      * The preferred language of the user.
      * 
      */
-    private @Nullable UndeferrableValue<String> preferredLanguage;
-
+    @PolicyResourceProperty(name="preferredLanguage", flag="unknown_preferredLanguage")
+    private @Nullable String value_preferredLanguage;
+    private boolean unknown_preferredLanguage;
     public @Nullable String preferredLanguage() {
-        if (preferredLanguage == null) return null;
-        return preferredLanguage.getValue("User.preferredLanguage");
+        if (!unknown_preferredLanguage) return value_preferredLanguage;
+        throw new UndeferrableValueException("Value 'User.preferredLanguage' is not present");
     }
 
     /**
      * An URL that may be associated with the user.
      * 
      */
-    private @Nullable UndeferrableValue<String> profileUrl;
-
+    @PolicyResourceProperty(name="profileUrl", flag="unknown_profileUrl")
+    private @Nullable String value_profileUrl;
+    private boolean unknown_profileUrl;
     public @Nullable String profileUrl() {
-        if (profileUrl == null) return null;
-        return profileUrl.getValue("User.profileUrl");
+        if (!unknown_profileUrl) return value_profileUrl;
+        throw new UndeferrableValueException("Value 'User.profileUrl' is not present");
     }
 
     /**
      * The user&#39;s time zone.
      * 
      */
-    private @Nullable UndeferrableValue<String> timezone;
-
+    @PolicyResourceProperty(name="timezone", flag="unknown_timezone")
+    private @Nullable String value_timezone;
+    private boolean unknown_timezone;
     public @Nullable String timezone() {
-        if (timezone == null) return null;
-        return timezone.getValue("User.timezone");
+        if (!unknown_timezone) return value_timezone;
+        throw new UndeferrableValueException("Value 'User.timezone' is not present");
     }
 
     /**
      * The user&#39;s title.
      * 
      */
-    private @Nullable UndeferrableValue<String> title;
-
+    @PolicyResourceProperty(name="title", flag="unknown_title")
+    private @Nullable String value_title;
+    private boolean unknown_title;
     public @Nullable String title() {
-        if (title == null) return null;
-        return title.getValue("User.title");
+        if (!unknown_title) return value_title;
+        throw new UndeferrableValueException("Value 'User.title' is not present");
     }
 
     /**
      * The identifier for this user in the identity store.
      * 
      */
-    private UndeferrableValue<String> userId;
-
+    @PolicyResourceProperty(name="userId", flag="unknown_userId")
+    private String value_userId;
+    private boolean unknown_userId;
     public String userId() {
-        if (userId == null) return null;
-        return userId.getValue("User.userId");
+        if (!unknown_userId) return value_userId;
+        throw new UndeferrableValueException("Value 'User.userId' is not present");
     }
 
     /**
@@ -178,22 +193,24 @@ public final class User extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> userName;
-
+    @PolicyResourceProperty(name="userName", flag="unknown_userName")
+    private String value_userName;
+    private boolean unknown_userName;
     public String userName() {
-        if (userName == null) return null;
-        return userName.getValue("User.userName");
+        if (!unknown_userName) return value_userName;
+        throw new UndeferrableValueException("Value 'User.userName' is not present");
     }
 
     /**
      * The user type.
      * 
      */
-    private @Nullable UndeferrableValue<String> userType;
-
+    @PolicyResourceProperty(name="userType", flag="unknown_userType")
+    private @Nullable String value_userType;
+    private boolean unknown_userType;
     public @Nullable String userType() {
-        if (userType == null) return null;
-        return userType.getValue("User.userType");
+        if (!unknown_userType) return value_userType;
+        throw new UndeferrableValueException("Value 'User.userType' is not present");
     }
 
 }

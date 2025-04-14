@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigateway.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,55 +15,60 @@ public final class DocumentationPartLocationArgs {
      * HTTP verb of a method. The default value is `*` for any method.
      * 
      */
-    private UndeferrableValue<String> method;
-
+    @PolicyResourceProperty(name="method", flag="unknown_method")
+    private String value_method;
+    private boolean unknown_method;
     public String method() {
-        if (method == null) return null;
-        return method.getValue("DocumentationPartLocationArgs.method");
+        if (!unknown_method) return value_method;
+        throw new UndeferrableValueException("Value 'DocumentationPartLocationArgs.method' is not present");
     }
 
     /**
      * Name of the targeted API entity.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DocumentationPartLocationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DocumentationPartLocationArgs.name' is not present");
     }
 
     /**
      * URL path of the target. The default value is `/` for the root resource.
      * 
      */
-    private UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private String value_path;
+    private boolean unknown_path;
     public String path() {
-        if (path == null) return null;
-        return path.getValue("DocumentationPartLocationArgs.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'DocumentationPartLocationArgs.path' is not present");
     }
 
     /**
      * HTTP status code of a response. The default value is `*` for any status code.
      * 
      */
-    private UndeferrableValue<String> statusCode;
-
+    @PolicyResourceProperty(name="statusCode", flag="unknown_statusCode")
+    private String value_statusCode;
+    private boolean unknown_statusCode;
     public String statusCode() {
-        if (statusCode == null) return null;
-        return statusCode.getValue("DocumentationPartLocationArgs.statusCode");
+        if (!unknown_statusCode) return value_statusCode;
+        throw new UndeferrableValueException("Value 'DocumentationPartLocationArgs.statusCode' is not present");
     }
 
     /**
      * Type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("DocumentationPartLocationArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'DocumentationPartLocationArgs.type' is not present");
     }
 
 }

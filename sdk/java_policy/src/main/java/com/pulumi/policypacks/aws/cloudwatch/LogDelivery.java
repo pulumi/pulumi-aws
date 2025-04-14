@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudwatch.outputs.LogDeliveryS3DeliveryConfiguration;
 import java.lang.String;
@@ -19,77 +20,84 @@ public final class LogDelivery extends com.pulumi.resources.PolicyResourceOutput
      * The Amazon Resource Name (ARN) of the delivery.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("LogDelivery.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'LogDelivery.arn' is not present");
     }
 
     /**
      * The ARN of the delivery destination to use for this delivery.
      * 
      */
-    private UndeferrableValue<String> deliveryDestinationArn;
-
+    @PolicyResourceProperty(name="deliveryDestinationArn", flag="unknown_deliveryDestinationArn")
+    private String value_deliveryDestinationArn;
+    private boolean unknown_deliveryDestinationArn;
     public String deliveryDestinationArn() {
-        if (deliveryDestinationArn == null) return null;
-        return deliveryDestinationArn.getValue("LogDelivery.deliveryDestinationArn");
+        if (!unknown_deliveryDestinationArn) return value_deliveryDestinationArn;
+        throw new UndeferrableValueException("Value 'LogDelivery.deliveryDestinationArn' is not present");
     }
 
     /**
      * The name of the delivery source to use for this delivery.
      * 
      */
-    private UndeferrableValue<String> deliverySourceName;
-
+    @PolicyResourceProperty(name="deliverySourceName", flag="unknown_deliverySourceName")
+    private String value_deliverySourceName;
+    private boolean unknown_deliverySourceName;
     public String deliverySourceName() {
-        if (deliverySourceName == null) return null;
-        return deliverySourceName.getValue("LogDelivery.deliverySourceName");
+        if (!unknown_deliverySourceName) return value_deliverySourceName;
+        throw new UndeferrableValueException("Value 'LogDelivery.deliverySourceName' is not present");
     }
 
     /**
      * The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
      * 
      */
-    private UndeferrableValue<String> fieldDelimiter;
-
+    @PolicyResourceProperty(name="fieldDelimiter", flag="unknown_fieldDelimiter")
+    private String value_fieldDelimiter;
+    private boolean unknown_fieldDelimiter;
     public String fieldDelimiter() {
-        if (fieldDelimiter == null) return null;
-        return fieldDelimiter.getValue("LogDelivery.fieldDelimiter");
+        if (!unknown_fieldDelimiter) return value_fieldDelimiter;
+        throw new UndeferrableValueException("Value 'LogDelivery.fieldDelimiter' is not present");
     }
 
     /**
      * The list of record fields to be delivered to the destination, in order.
      * 
      */
-    private UndeferrableValue<List<String>> recordFields;
-
+    @PolicyResourceProperty(name="recordFields", flag="unknown_recordFields")
+    private List<String> value_recordFields;
+    private boolean unknown_recordFields;
     public List<String> recordFields() {
-        if (recordFields == null) return null;
-        return recordFields.getValue("LogDelivery.recordFields");
+        if (!unknown_recordFields) return value_recordFields;
+        throw new UndeferrableValueException("Value 'LogDelivery.recordFields' is not present");
     }
 
     /**
      * Parameters that are valid only when the delivery&#39;s delivery destination is an S3 bucket.
      * 
      */
-    private UndeferrableValue<List<LogDeliveryS3DeliveryConfiguration>> s3DeliveryConfigurations;
-
+    @PolicyResourceProperty(name="s3DeliveryConfigurations", flag="unknown_s3DeliveryConfigurations")
+    private List<LogDeliveryS3DeliveryConfiguration> value_s3DeliveryConfigurations;
+    private boolean unknown_s3DeliveryConfigurations;
     public List<LogDeliveryS3DeliveryConfiguration> s3DeliveryConfigurations() {
-        if (s3DeliveryConfigurations == null) return null;
-        return s3DeliveryConfigurations.getValue("LogDelivery.s3DeliveryConfigurations");
+        if (!unknown_s3DeliveryConfigurations) return value_s3DeliveryConfigurations;
+        throw new UndeferrableValueException("Value 'LogDelivery.s3DeliveryConfigurations' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LogDelivery.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LogDelivery.tags' is not present");
     }
 
     /**
@@ -100,11 +108,12 @@ public final class LogDelivery extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("LogDelivery.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'LogDelivery.tagsAll' is not present");
     }
 
 }

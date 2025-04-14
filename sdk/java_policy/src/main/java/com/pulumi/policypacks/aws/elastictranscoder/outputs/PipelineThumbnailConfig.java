@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elastictranscoder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class PipelineThumbnailConfig {
      * The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
      * 
      */
-    private @Nullable UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private @Nullable String value_bucket;
+    private boolean unknown_bucket;
     public @Nullable String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("PipelineThumbnailConfig.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'PipelineThumbnailConfig.bucket' is not present");
     }
 
     /**
      * The Amazon S3 storage class, Standard or ReducedRedundancy, that you want Elastic Transcoder to assign to the thumbnails that it stores in your Amazon S3 bucket.
      * 
      */
-    private @Nullable UndeferrableValue<String> storageClass;
-
+    @PolicyResourceProperty(name="storageClass", flag="unknown_storageClass")
+    private @Nullable String value_storageClass;
+    private boolean unknown_storageClass;
     public @Nullable String storageClass() {
-        if (storageClass == null) return null;
-        return storageClass.getValue("PipelineThumbnailConfig.storageClass");
+        if (!unknown_storageClass) return value_storageClass;
+        throw new UndeferrableValueException("Value 'PipelineThumbnailConfig.storageClass' is not present");
     }
 
 }

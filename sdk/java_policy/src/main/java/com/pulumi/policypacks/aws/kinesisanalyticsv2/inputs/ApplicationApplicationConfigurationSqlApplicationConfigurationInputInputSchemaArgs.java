@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesisanalyticsv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs;
 import com.pulumi.policypacks.aws.kinesisanalyticsv2.inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
      * Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
      * 
      */
-    private UndeferrableValue<List<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs>> recordColumns;
-
+    @PolicyResourceProperty(name="recordColumns", flag="unknown_recordColumns")
+    private List<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs> value_recordColumns;
+    private boolean unknown_recordColumns;
     public List<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs> recordColumns() {
-        if (recordColumns == null) return null;
-        return recordColumns.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs.recordColumns");
+        if (!unknown_recordColumns) return value_recordColumns;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs.recordColumns' is not present");
     }
 
     /**
      * Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
      * 
      */
-    private UndeferrableValue<String> recordEncoding;
-
+    @PolicyResourceProperty(name="recordEncoding", flag="unknown_recordEncoding")
+    private String value_recordEncoding;
+    private boolean unknown_recordEncoding;
     public String recordEncoding() {
-        if (recordEncoding == null) return null;
-        return recordEncoding.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs.recordEncoding");
+        if (!unknown_recordEncoding) return value_recordEncoding;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs.recordEncoding' is not present");
     }
 
     /**
      * Specifies the format of the records on the streaming source.
      * 
      */
-    private UndeferrableValue<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs> recordFormat;
-
+    @PolicyResourceProperty(name="recordFormat", flag="unknown_recordFormat")
+    private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs value_recordFormat;
+    private boolean unknown_recordFormat;
     public ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs recordFormat() {
-        if (recordFormat == null) return null;
-        return recordFormat.getValue("ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs.recordFormat");
+        if (!unknown_recordFormat) return value_recordFormat;
+        throw new UndeferrableValueException("Value 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs.recordFormat' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class DistributionDefaultCacheBehaviorForwardedValuesArgs {
      * The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).
      * 
      */
-    private UndeferrableValue<DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs> cookies;
-
+    @PolicyResourceProperty(name="cookies", flag="unknown_cookies")
+    private DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs value_cookies;
+    private boolean unknown_cookies;
     public DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs cookies() {
-        if (cookies == null) return null;
-        return cookies.getValue("DistributionDefaultCacheBehaviorForwardedValuesArgs.cookies");
+        if (!unknown_cookies) return value_cookies;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorForwardedValuesArgs.cookies' is not present");
     }
 
     /**
      * Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
      * 
      */
-    private UndeferrableValue<List<String>> headers;
-
+    @PolicyResourceProperty(name="headers", flag="unknown_headers")
+    private List<String> value_headers;
+    private boolean unknown_headers;
     public List<String> headers() {
-        if (headers == null) return null;
-        return headers.getValue("DistributionDefaultCacheBehaviorForwardedValuesArgs.headers");
+        if (!unknown_headers) return value_headers;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorForwardedValuesArgs.headers' is not present");
     }
 
     /**
      * Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.
      * 
      */
-    private UndeferrableValue<Boolean> queryString;
-
+    @PolicyResourceProperty(name="queryString", flag="unknown_queryString")
+    private Boolean value_queryString;
+    private boolean unknown_queryString;
     public Boolean queryString() {
-        if (queryString == null) return null;
-        return queryString.getValue("DistributionDefaultCacheBehaviorForwardedValuesArgs.queryString");
+        if (!unknown_queryString) return value_queryString;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorForwardedValuesArgs.queryString' is not present");
     }
 
     /**
      * When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
      * 
      */
-    private UndeferrableValue<List<String>> queryStringCacheKeys;
-
+    @PolicyResourceProperty(name="queryStringCacheKeys", flag="unknown_queryStringCacheKeys")
+    private List<String> value_queryStringCacheKeys;
+    private boolean unknown_queryStringCacheKeys;
     public List<String> queryStringCacheKeys() {
-        if (queryStringCacheKeys == null) return null;
-        return queryStringCacheKeys.getValue("DistributionDefaultCacheBehaviorForwardedValuesArgs.queryStringCacheKeys");
+        if (!unknown_queryStringCacheKeys) return value_queryStringCacheKeys;
+        throw new UndeferrableValueException("Value 'DistributionDefaultCacheBehaviorForwardedValuesArgs.queryStringCacheKeys' is not present");
     }
 
 }

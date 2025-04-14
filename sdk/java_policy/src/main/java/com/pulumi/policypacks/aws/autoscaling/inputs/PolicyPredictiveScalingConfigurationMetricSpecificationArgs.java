@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs;
 import com.pulumi.policypacks.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs;
 import com.pulumi.policypacks.aws.autoscaling.inputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs;
@@ -20,77 +21,84 @@ public final class PolicyPredictiveScalingConfigurationMetricSpecificationArgs {
      * Customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
      * 
      */
-    private UndeferrableValue<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs> customizedCapacityMetricSpecification;
-
+    @PolicyResourceProperty(name="customizedCapacityMetricSpecification", flag="unknown_customizedCapacityMetricSpecification")
+    private PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs value_customizedCapacityMetricSpecification;
+    private boolean unknown_customizedCapacityMetricSpecification;
     public PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs customizedCapacityMetricSpecification() {
-        if (customizedCapacityMetricSpecification == null) return null;
-        return customizedCapacityMetricSpecification.getValue("PolicyPredictiveScalingConfigurationMetricSpecificationArgs.customizedCapacityMetricSpecification");
+        if (!unknown_customizedCapacityMetricSpecification) return value_customizedCapacityMetricSpecification;
+        throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationArgs.customizedCapacityMetricSpecification' is not present");
     }
 
     /**
      * Customized load metric specification.
      * 
      */
-    private UndeferrableValue<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs> customizedLoadMetricSpecification;
-
+    @PolicyResourceProperty(name="customizedLoadMetricSpecification", flag="unknown_customizedLoadMetricSpecification")
+    private PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs value_customizedLoadMetricSpecification;
+    private boolean unknown_customizedLoadMetricSpecification;
     public PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs customizedLoadMetricSpecification() {
-        if (customizedLoadMetricSpecification == null) return null;
-        return customizedLoadMetricSpecification.getValue("PolicyPredictiveScalingConfigurationMetricSpecificationArgs.customizedLoadMetricSpecification");
+        if (!unknown_customizedLoadMetricSpecification) return value_customizedLoadMetricSpecification;
+        throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationArgs.customizedLoadMetricSpecification' is not present");
     }
 
     /**
      * Customized scaling metric specification.
      * 
      */
-    private UndeferrableValue<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs> customizedScalingMetricSpecification;
-
+    @PolicyResourceProperty(name="customizedScalingMetricSpecification", flag="unknown_customizedScalingMetricSpecification")
+    private PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs value_customizedScalingMetricSpecification;
+    private boolean unknown_customizedScalingMetricSpecification;
     public PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs customizedScalingMetricSpecification() {
-        if (customizedScalingMetricSpecification == null) return null;
-        return customizedScalingMetricSpecification.getValue("PolicyPredictiveScalingConfigurationMetricSpecificationArgs.customizedScalingMetricSpecification");
+        if (!unknown_customizedScalingMetricSpecification) return value_customizedScalingMetricSpecification;
+        throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationArgs.customizedScalingMetricSpecification' is not present");
     }
 
     /**
      * Predefined load metric specification.
      * 
      */
-    private UndeferrableValue<PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs> predefinedLoadMetricSpecification;
-
+    @PolicyResourceProperty(name="predefinedLoadMetricSpecification", flag="unknown_predefinedLoadMetricSpecification")
+    private PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs value_predefinedLoadMetricSpecification;
+    private boolean unknown_predefinedLoadMetricSpecification;
     public PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs predefinedLoadMetricSpecification() {
-        if (predefinedLoadMetricSpecification == null) return null;
-        return predefinedLoadMetricSpecification.getValue("PolicyPredictiveScalingConfigurationMetricSpecificationArgs.predefinedLoadMetricSpecification");
+        if (!unknown_predefinedLoadMetricSpecification) return value_predefinedLoadMetricSpecification;
+        throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationArgs.predefinedLoadMetricSpecification' is not present");
     }
 
     /**
      * Metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
      * 
      */
-    private UndeferrableValue<PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs> predefinedMetricPairSpecification;
-
+    @PolicyResourceProperty(name="predefinedMetricPairSpecification", flag="unknown_predefinedMetricPairSpecification")
+    private PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs value_predefinedMetricPairSpecification;
+    private boolean unknown_predefinedMetricPairSpecification;
     public PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs predefinedMetricPairSpecification() {
-        if (predefinedMetricPairSpecification == null) return null;
-        return predefinedMetricPairSpecification.getValue("PolicyPredictiveScalingConfigurationMetricSpecificationArgs.predefinedMetricPairSpecification");
+        if (!unknown_predefinedMetricPairSpecification) return value_predefinedMetricPairSpecification;
+        throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationArgs.predefinedMetricPairSpecification' is not present");
     }
 
     /**
      * Predefined scaling metric specification.
      * 
      */
-    private UndeferrableValue<PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs> predefinedScalingMetricSpecification;
-
+    @PolicyResourceProperty(name="predefinedScalingMetricSpecification", flag="unknown_predefinedScalingMetricSpecification")
+    private PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs value_predefinedScalingMetricSpecification;
+    private boolean unknown_predefinedScalingMetricSpecification;
     public PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs predefinedScalingMetricSpecification() {
-        if (predefinedScalingMetricSpecification == null) return null;
-        return predefinedScalingMetricSpecification.getValue("PolicyPredictiveScalingConfigurationMetricSpecificationArgs.predefinedScalingMetricSpecification");
+        if (!unknown_predefinedScalingMetricSpecification) return value_predefinedScalingMetricSpecification;
+        throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationArgs.predefinedScalingMetricSpecification' is not present");
     }
 
     /**
      * Target value for the metric.
      * 
      */
-    private UndeferrableValue<Double> targetValue;
-
+    @PolicyResourceProperty(name="targetValue", flag="unknown_targetValue")
+    private Double value_targetValue;
+    private boolean unknown_targetValue;
     public Double targetValue() {
-        if (targetValue == null) return null;
-        return targetValue.getValue("PolicyPredictiveScalingConfigurationMetricSpecificationArgs.targetValue");
+        if (!unknown_targetValue) return value_targetValue;
+        throw new UndeferrableValueException("Value 'PolicyPredictiveScalingConfigurationMetricSpecificationArgs.targetValue' is not present");
     }
 
 }

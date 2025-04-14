@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionPar
      * Description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs.description' is not present");
     }
 
     /**
@@ -28,33 +30,36 @@ public final class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionPar
      * **Note:** The argument name `map_block_key` may seem out of context, but is necessary for backward compatibility reasons in the provider.
      * 
      */
-    private UndeferrableValue<String> mapBlockKey;
-
+    @PolicyResourceProperty(name="mapBlockKey", flag="unknown_mapBlockKey")
+    private String value_mapBlockKey;
+    private boolean unknown_mapBlockKey;
     public String mapBlockKey() {
-        if (mapBlockKey == null) return null;
-        return mapBlockKey.getValue("AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs.mapBlockKey");
+        if (!unknown_mapBlockKey) return value_mapBlockKey;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs.mapBlockKey' is not present");
     }
 
     /**
      * Whether the parameter is required for the agent to complete the function for action group invocation.
      * 
      */
-    private UndeferrableValue<Boolean> required;
-
+    @PolicyResourceProperty(name="required", flag="unknown_required")
+    private Boolean value_required;
+    private boolean unknown_required;
     public Boolean required() {
-        if (required == null) return null;
-        return required.getValue("AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs.required");
+        if (!unknown_required) return value_required;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs.required' is not present");
     }
 
     /**
      * Data type of the parameter. Valid values: `string`, `number`, `integer`, `boolean`, `array`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs.type' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.inputs.NetworkInterfacePermissionTimeoutsArgs;
 import java.lang.String;
@@ -17,40 +18,44 @@ public final class NetworkInterfacePermissionArgs extends com.pulumi.resources.P
      * The Amazon Web Services account ID.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("NetworkInterfacePermissionArgs.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'NetworkInterfacePermissionArgs.awsAccountId' is not present");
     }
 
     /**
      * The ID of the network interface.
      * 
      */
-    private UndeferrableValue<String> networkInterfaceId;
-
+    @PolicyResourceProperty(name="networkInterfaceId", flag="unknown_networkInterfaceId")
+    private String value_networkInterfaceId;
+    private boolean unknown_networkInterfaceId;
     public String networkInterfaceId() {
-        if (networkInterfaceId == null) return null;
-        return networkInterfaceId.getValue("NetworkInterfacePermissionArgs.networkInterfaceId");
+        if (!unknown_networkInterfaceId) return value_networkInterfaceId;
+        throw new UndeferrableValueException("Value 'NetworkInterfacePermissionArgs.networkInterfaceId' is not present");
     }
 
     /**
      * The type of permission to grant. Valid values are `INSTANCE-ATTACH` or `EIP-ASSOCIATE`.
      * 
      */
-    private UndeferrableValue<String> permission;
-
+    @PolicyResourceProperty(name="permission", flag="unknown_permission")
+    private String value_permission;
+    private boolean unknown_permission;
     public String permission() {
-        if (permission == null) return null;
-        return permission.getValue("NetworkInterfacePermissionArgs.permission");
+        if (!unknown_permission) return value_permission;
+        throw new UndeferrableValueException("Value 'NetworkInterfacePermissionArgs.permission' is not present");
     }
 
-    private UndeferrableValue<NetworkInterfacePermissionTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private NetworkInterfacePermissionTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public NetworkInterfacePermissionTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("NetworkInterfacePermissionArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'NetworkInterfacePermissionArgs.timeouts' is not present");
     }
 
 }

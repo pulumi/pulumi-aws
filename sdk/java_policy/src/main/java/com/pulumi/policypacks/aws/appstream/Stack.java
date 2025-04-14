@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appstream;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appstream.outputs.StackAccessEndpoint;
 import com.pulumi.policypacks.aws.appstream.outputs.StackApplicationSettings;
@@ -24,11 +25,12 @@ public final class Stack extends com.pulumi.resources.PolicyResourceOutput {
      * See `access_endpoints` below.
      * 
      */
-    private UndeferrableValue<List<StackAccessEndpoint>> accessEndpoints;
-
+    @PolicyResourceProperty(name="accessEndpoints", flag="unknown_accessEndpoints")
+    private List<StackAccessEndpoint> value_accessEndpoints;
+    private boolean unknown_accessEndpoints;
     public List<StackAccessEndpoint> accessEndpoints() {
-        if (accessEndpoints == null) return null;
-        return accessEndpoints.getValue("Stack.accessEndpoints");
+        if (!unknown_accessEndpoints) return value_accessEndpoints;
+        throw new UndeferrableValueException("Value 'Stack.accessEndpoints' is not present");
     }
 
     /**
@@ -36,77 +38,84 @@ public final class Stack extends com.pulumi.resources.PolicyResourceOutput {
      * See `application_settings` below.
      * 
      */
-    private UndeferrableValue<StackApplicationSettings> applicationSettings;
-
+    @PolicyResourceProperty(name="applicationSettings", flag="unknown_applicationSettings")
+    private StackApplicationSettings value_applicationSettings;
+    private boolean unknown_applicationSettings;
     public StackApplicationSettings applicationSettings() {
-        if (applicationSettings == null) return null;
-        return applicationSettings.getValue("Stack.applicationSettings");
+        if (!unknown_applicationSettings) return value_applicationSettings;
+        throw new UndeferrableValueException("Value 'Stack.applicationSettings' is not present");
     }
 
     /**
      * ARN of the appstream stack.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Stack.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Stack.arn' is not present");
     }
 
     /**
      * Date and time, in UTC and extended RFC 3339 format, when the stack was created.
      * 
      */
-    private UndeferrableValue<String> createdTime;
-
+    @PolicyResourceProperty(name="createdTime", flag="unknown_createdTime")
+    private String value_createdTime;
+    private boolean unknown_createdTime;
     public String createdTime() {
-        if (createdTime == null) return null;
-        return createdTime.getValue("Stack.createdTime");
+        if (!unknown_createdTime) return value_createdTime;
+        throw new UndeferrableValueException("Value 'Stack.createdTime' is not present");
     }
 
     /**
      * Description for the AppStream stack.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Stack.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Stack.description' is not present");
     }
 
     /**
      * Stack name to display.
      * 
      */
-    private @Nullable UndeferrableValue<String> displayName;
-
+    @PolicyResourceProperty(name="displayName", flag="unknown_displayName")
+    private @Nullable String value_displayName;
+    private boolean unknown_displayName;
     public @Nullable String displayName() {
-        if (displayName == null) return null;
-        return displayName.getValue("Stack.displayName");
+        if (!unknown_displayName) return value_displayName;
+        throw new UndeferrableValueException("Value 'Stack.displayName' is not present");
     }
 
     /**
      * Domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
      * 
      */
-    private UndeferrableValue<List<String>> embedHostDomains;
-
+    @PolicyResourceProperty(name="embedHostDomains", flag="unknown_embedHostDomains")
+    private List<String> value_embedHostDomains;
+    private boolean unknown_embedHostDomains;
     public List<String> embedHostDomains() {
-        if (embedHostDomains == null) return null;
-        return embedHostDomains.getValue("Stack.embedHostDomains");
+        if (!unknown_embedHostDomains) return value_embedHostDomains;
+        throw new UndeferrableValueException("Value 'Stack.embedHostDomains' is not present");
     }
 
     /**
      * URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed. .
      * 
      */
-    private UndeferrableValue<String> feedbackUrl;
-
+    @PolicyResourceProperty(name="feedbackUrl", flag="unknown_feedbackUrl")
+    private String value_feedbackUrl;
+    private boolean unknown_feedbackUrl;
     public String feedbackUrl() {
-        if (feedbackUrl == null) return null;
-        return feedbackUrl.getValue("Stack.feedbackUrl");
+        if (!unknown_feedbackUrl) return value_feedbackUrl;
+        throw new UndeferrableValueException("Value 'Stack.feedbackUrl' is not present");
     }
 
     /**
@@ -115,22 +124,24 @@ public final class Stack extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Stack.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Stack.name' is not present");
     }
 
     /**
      * URL that users are redirected to after their streaming session ends.
      * 
      */
-    private UndeferrableValue<String> redirectUrl;
-
+    @PolicyResourceProperty(name="redirectUrl", flag="unknown_redirectUrl")
+    private String value_redirectUrl;
+    private boolean unknown_redirectUrl;
     public String redirectUrl() {
-        if (redirectUrl == null) return null;
-        return redirectUrl.getValue("Stack.redirectUrl");
+        if (!unknown_redirectUrl) return value_redirectUrl;
+        throw new UndeferrableValueException("Value 'Stack.redirectUrl' is not present");
     }
 
     /**
@@ -138,11 +149,12 @@ public final class Stack extends com.pulumi.resources.PolicyResourceOutput {
      * See `storage_connectors` below.
      * 
      */
-    private UndeferrableValue<List<StackStorageConnector>> storageConnectors;
-
+    @PolicyResourceProperty(name="storageConnectors", flag="unknown_storageConnectors")
+    private List<StackStorageConnector> value_storageConnectors;
+    private boolean unknown_storageConnectors;
     public List<StackStorageConnector> storageConnectors() {
-        if (storageConnectors == null) return null;
-        return storageConnectors.getValue("Stack.storageConnectors");
+        if (!unknown_storageConnectors) return value_storageConnectors;
+        throw new UndeferrableValueException("Value 'Stack.storageConnectors' is not present");
     }
 
     /**
@@ -150,22 +162,24 @@ public final class Stack extends com.pulumi.resources.PolicyResourceOutput {
      * See `streaming_experience_settings` below.
      * 
      */
-    private UndeferrableValue<StackStreamingExperienceSettings> streamingExperienceSettings;
-
+    @PolicyResourceProperty(name="streamingExperienceSettings", flag="unknown_streamingExperienceSettings")
+    private StackStreamingExperienceSettings value_streamingExperienceSettings;
+    private boolean unknown_streamingExperienceSettings;
     public StackStreamingExperienceSettings streamingExperienceSettings() {
-        if (streamingExperienceSettings == null) return null;
-        return streamingExperienceSettings.getValue("Stack.streamingExperienceSettings");
+        if (!unknown_streamingExperienceSettings) return value_streamingExperienceSettings;
+        throw new UndeferrableValueException("Value 'Stack.streamingExperienceSettings' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Stack.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Stack.tags' is not present");
     }
 
     /**
@@ -174,11 +188,12 @@ public final class Stack extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Stack.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Stack.tagsAll' is not present");
     }
 
     /**
@@ -186,11 +201,12 @@ public final class Stack extends com.pulumi.resources.PolicyResourceOutput {
      * See `user_settings` below.
      * 
      */
-    private UndeferrableValue<List<StackUserSetting>> userSettings;
-
+    @PolicyResourceProperty(name="userSettings", flag="unknown_userSettings")
+    private List<StackUserSetting> value_userSettings;
+    private boolean unknown_userSettings;
     public List<StackUserSetting> userSettings() {
-        if (userSettings == null) return null;
-        return userSettings.getValue("Stack.userSettings");
+        if (!unknown_userSettings) return value_userSettings;
+        throw new UndeferrableValueException("Value 'Stack.userSettings' is not present");
     }
 
 }

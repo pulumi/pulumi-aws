@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class AssociationOutputLocationArgs {
      * The S3 bucket name.
      * 
      */
-    private UndeferrableValue<String> s3BucketName;
-
+    @PolicyResourceProperty(name="s3BucketName", flag="unknown_s3BucketName")
+    private String value_s3BucketName;
+    private boolean unknown_s3BucketName;
     public String s3BucketName() {
-        if (s3BucketName == null) return null;
-        return s3BucketName.getValue("AssociationOutputLocationArgs.s3BucketName");
+        if (!unknown_s3BucketName) return value_s3BucketName;
+        throw new UndeferrableValueException("Value 'AssociationOutputLocationArgs.s3BucketName' is not present");
     }
 
     /**
      * The S3 bucket prefix. Results stored in the root if not configured.
      * 
      */
-    private UndeferrableValue<String> s3KeyPrefix;
-
+    @PolicyResourceProperty(name="s3KeyPrefix", flag="unknown_s3KeyPrefix")
+    private String value_s3KeyPrefix;
+    private boolean unknown_s3KeyPrefix;
     public String s3KeyPrefix() {
-        if (s3KeyPrefix == null) return null;
-        return s3KeyPrefix.getValue("AssociationOutputLocationArgs.s3KeyPrefix");
+        if (!unknown_s3KeyPrefix) return value_s3KeyPrefix;
+        throw new UndeferrableValueException("Value 'AssociationOutputLocationArgs.s3KeyPrefix' is not present");
     }
 
     /**
@@ -38,11 +41,12 @@ public final class AssociationOutputLocationArgs {
      * Targets specify what instance IDs or tags to apply the document to and has these keys:
      * 
      */
-    private UndeferrableValue<String> s3Region;
-
+    @PolicyResourceProperty(name="s3Region", flag="unknown_s3Region")
+    private String value_s3Region;
+    private boolean unknown_s3Region;
     public String s3Region() {
-        if (s3Region == null) return null;
-        return s3Region.getValue("AssociationOutputLocationArgs.s3Region");
+        if (!unknown_s3Region) return value_s3Region;
+        throw new UndeferrableValueException("Value 'AssociationOutputLocationArgs.s3Region' is not present");
     }
 
 }

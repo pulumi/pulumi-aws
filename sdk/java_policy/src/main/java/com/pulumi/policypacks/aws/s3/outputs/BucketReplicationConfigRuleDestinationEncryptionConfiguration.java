@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class BucketReplicationConfigRuleDestinationEncryptionConfiguration
      * ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
      * 
      */
-    private UndeferrableValue<String> replicaKmsKeyId;
-
+    @PolicyResourceProperty(name="replicaKmsKeyId", flag="unknown_replicaKmsKeyId")
+    private String value_replicaKmsKeyId;
+    private boolean unknown_replicaKmsKeyId;
     public String replicaKmsKeyId() {
-        if (replicaKmsKeyId == null) return null;
-        return replicaKmsKeyId.getValue("BucketReplicationConfigRuleDestinationEncryptionConfiguration.replicaKmsKeyId");
+        if (!unknown_replicaKmsKeyId) return value_replicaKmsKeyId;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleDestinationEncryptionConfiguration.replicaKmsKeyId' is not present");
     }
 
 }

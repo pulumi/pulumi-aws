@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,33 +15,36 @@ public final class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefres
      * The name of the lookback window column.
      * 
      */
-    private UndeferrableValue<String> columnName;
-
+    @PolicyResourceProperty(name="columnName", flag="unknown_columnName")
+    private String value_columnName;
+    private boolean unknown_columnName;
     public String columnName() {
-        if (columnName == null) return null;
-        return columnName.getValue("DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow.columnName");
+        if (!unknown_columnName) return value_columnName;
+        throw new UndeferrableValueException("Value 'DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow.columnName' is not present");
     }
 
     /**
      * The lookback window column size.
      * 
      */
-    private UndeferrableValue<Integer> size;
-
+    @PolicyResourceProperty(name="size", flag="unknown_size")
+    private Integer value_size;
+    private boolean unknown_size;
     public Integer size() {
-        if (size == null) return null;
-        return size.getValue("DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow.size");
+        if (!unknown_size) return value_size;
+        throw new UndeferrableValueException("Value 'DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow.size' is not present");
     }
 
     /**
      * The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
      * 
      */
-    private UndeferrableValue<String> sizeUnit;
-
+    @PolicyResourceProperty(name="sizeUnit", flag="unknown_sizeUnit")
+    private String value_sizeUnit;
+    private boolean unknown_sizeUnit;
     public String sizeUnit() {
-        if (sizeUnit == null) return null;
-        return sizeUnit.getValue("DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow.sizeUnit");
+        if (!unknown_sizeUnit) return value_sizeUnit;
+        throw new UndeferrableValueException("Value 'DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow.sizeUnit' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appstream.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -15,22 +16,24 @@ public final class StackAccessEndpoint {
      * See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
      * 
      */
-    private UndeferrableValue<String> endpointType;
-
+    @PolicyResourceProperty(name="endpointType", flag="unknown_endpointType")
+    private String value_endpointType;
+    private boolean unknown_endpointType;
     public String endpointType() {
-        if (endpointType == null) return null;
-        return endpointType.getValue("StackAccessEndpoint.endpointType");
+        if (!unknown_endpointType) return value_endpointType;
+        throw new UndeferrableValueException("Value 'StackAccessEndpoint.endpointType' is not present");
     }
 
     /**
      * ID of the VPC in which the interface endpoint is used.
      * 
      */
-    private @Nullable UndeferrableValue<String> vpceId;
-
+    @PolicyResourceProperty(name="vpceId", flag="unknown_vpceId")
+    private @Nullable String value_vpceId;
+    private boolean unknown_vpceId;
     public @Nullable String vpceId() {
-        if (vpceId == null) return null;
-        return vpceId.getValue("StackAccessEndpoint.vpceId");
+        if (!unknown_vpceId) return value_vpceId;
+        throw new UndeferrableValueException("Value 'StackAccessEndpoint.vpceId' is not present");
     }
 
 }

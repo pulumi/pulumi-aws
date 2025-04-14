@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.vpclattice.outputs.ListenerDefaultActionFixedResponse;
 import com.pulumi.policypacks.aws.vpclattice.outputs.ListenerDefaultActionForward;
 import java.util.List;
@@ -12,11 +13,12 @@ import javax.annotation.Nullable;
 
 public final class ListenerDefaultAction {
 
-    private @Nullable UndeferrableValue<ListenerDefaultActionFixedResponse> fixedResponse;
-
+    @PolicyResourceProperty(name="fixedResponse", flag="unknown_fixedResponse")
+    private @Nullable ListenerDefaultActionFixedResponse value_fixedResponse;
+    private boolean unknown_fixedResponse;
     public @Nullable ListenerDefaultActionFixedResponse fixedResponse() {
-        if (fixedResponse == null) return null;
-        return fixedResponse.getValue("ListenerDefaultAction.fixedResponse");
+        if (!unknown_fixedResponse) return value_fixedResponse;
+        throw new UndeferrableValueException("Value 'ListenerDefaultAction.fixedResponse' is not present");
     }
 
     /**
@@ -25,11 +27,12 @@ public final class ListenerDefaultAction {
      * &gt; **NOTE:** You must specify exactly one of the following argument blocks: `fixed_response` or `forward`.
      * 
      */
-    private @Nullable UndeferrableValue<List<ListenerDefaultActionForward>> forwards;
-
+    @PolicyResourceProperty(name="forwards", flag="unknown_forwards")
+    private @Nullable List<ListenerDefaultActionForward> value_forwards;
+    private boolean unknown_forwards;
     public @Nullable List<ListenerDefaultActionForward> forwards() {
-        if (forwards == null) return null;
-        return forwards.getValue("ListenerDefaultAction.forwards");
+        if (!unknown_forwards) return value_forwards;
+        throw new UndeferrableValueException("Value 'ListenerDefaultAction.forwards' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.docdb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.docdb.outputs.ClusterParameterGroupParameter;
 import java.lang.String;
@@ -19,77 +20,84 @@ public final class ClusterParameterGroup extends com.pulumi.resources.PolicyReso
      * The ARN of the DocumentDB cluster parameter group.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ClusterParameterGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ClusterParameterGroup.arn' is not present");
     }
 
     /**
      * The description of the DocumentDB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ClusterParameterGroup.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ClusterParameterGroup.description' is not present");
     }
 
     /**
      * The family of the DocumentDB cluster parameter group.
      * 
      */
-    private UndeferrableValue<String> family;
-
+    @PolicyResourceProperty(name="family", flag="unknown_family")
+    private String value_family;
+    private boolean unknown_family;
     public String family() {
-        if (family == null) return null;
-        return family.getValue("ClusterParameterGroup.family");
+        if (!unknown_family) return value_family;
+        throw new UndeferrableValueException("Value 'ClusterParameterGroup.family' is not present");
     }
 
     /**
      * The name of the DocumentDB parameter.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ClusterParameterGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ClusterParameterGroup.name' is not present");
     }
 
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("ClusterParameterGroup.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'ClusterParameterGroup.namePrefix' is not present");
     }
 
     /**
      * A list of DocumentDB parameters to apply. Setting parameters to system default values may show a difference on imported resources.
      * 
      */
-    private @Nullable UndeferrableValue<List<ClusterParameterGroupParameter>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private @Nullable List<ClusterParameterGroupParameter> value_parameters;
+    private boolean unknown_parameters;
     public @Nullable List<ClusterParameterGroupParameter> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("ClusterParameterGroup.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'ClusterParameterGroup.parameters' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ClusterParameterGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ClusterParameterGroup.tags' is not present");
     }
 
     /**
@@ -100,11 +108,12 @@ public final class ClusterParameterGroup extends com.pulumi.resources.PolicyReso
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ClusterParameterGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ClusterParameterGroup.tagsAll' is not present");
     }
 
 }

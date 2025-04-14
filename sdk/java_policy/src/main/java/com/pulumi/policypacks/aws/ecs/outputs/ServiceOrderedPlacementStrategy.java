@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -19,22 +20,24 @@ public final class ServiceOrderedPlacementStrategy {
      * &gt; **Note:** for `spread`, `host` and `instanceId` will be normalized, by AWS, to be `instanceId`. This means the statefile will show `instanceId` but your config will differ if you use `host`.
      * 
      */
-    private @Nullable UndeferrableValue<String> field;
-
+    @PolicyResourceProperty(name="field", flag="unknown_field")
+    private @Nullable String value_field;
+    private boolean unknown_field;
     public @Nullable String field() {
-        if (field == null) return null;
-        return field.getValue("ServiceOrderedPlacementStrategy.field");
+        if (!unknown_field) return value_field;
+        throw new UndeferrableValueException("Value 'ServiceOrderedPlacementStrategy.field' is not present");
     }
 
     /**
      * Type of placement strategy. Must be one of: `binpack`, `random`, or `spread`
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ServiceOrderedPlacementStrategy.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ServiceOrderedPlacementStrategy.type' is not present");
     }
 
 }

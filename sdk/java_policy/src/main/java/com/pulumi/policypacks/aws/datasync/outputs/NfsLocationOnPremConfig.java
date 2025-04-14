@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class NfsLocationOnPremConfig {
      * List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
      * 
      */
-    private UndeferrableValue<List<String>> agentArns;
-
+    @PolicyResourceProperty(name="agentArns", flag="unknown_agentArns")
+    private List<String> value_agentArns;
+    private boolean unknown_agentArns;
     public List<String> agentArns() {
-        if (agentArns == null) return null;
-        return agentArns.getValue("NfsLocationOnPremConfig.agentArns");
+        if (!unknown_agentArns) return value_agentArns;
+        throw new UndeferrableValueException("Value 'NfsLocationOnPremConfig.agentArns' is not present");
     }
 
 }

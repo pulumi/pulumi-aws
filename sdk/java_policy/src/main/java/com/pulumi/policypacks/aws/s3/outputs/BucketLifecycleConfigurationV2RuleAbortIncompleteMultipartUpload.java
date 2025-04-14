@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpl
      * Number of days after which Amazon S3 aborts an incomplete multipart upload.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> daysAfterInitiation;
-
+    @PolicyResourceProperty(name="daysAfterInitiation", flag="unknown_daysAfterInitiation")
+    private @Nullable Integer value_daysAfterInitiation;
+    private boolean unknown_daysAfterInitiation;
     public @Nullable Integer daysAfterInitiation() {
-        if (daysAfterInitiation == null) return null;
-        return daysAfterInitiation.getValue("BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload.daysAfterInitiation");
+        if (!unknown_daysAfterInitiation) return value_daysAfterInitiation;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload.daysAfterInitiation' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sesv2.inputs.EmailIdentityDkimSigningAttributesArgs;
 import java.lang.String;
@@ -18,22 +19,24 @@ public final class EmailIdentityArgs extends com.pulumi.resources.PolicyResource
      * The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
      * 
      */
-    private UndeferrableValue<String> configurationSetName;
-
+    @PolicyResourceProperty(name="configurationSetName", flag="unknown_configurationSetName")
+    private String value_configurationSetName;
+    private boolean unknown_configurationSetName;
     public String configurationSetName() {
-        if (configurationSetName == null) return null;
-        return configurationSetName.getValue("EmailIdentityArgs.configurationSetName");
+        if (!unknown_configurationSetName) return value_configurationSetName;
+        throw new UndeferrableValueException("Value 'EmailIdentityArgs.configurationSetName' is not present");
     }
 
     /**
      * The configuration of the DKIM authentication settings for an email domain identity.
      * 
      */
-    private UndeferrableValue<EmailIdentityDkimSigningAttributesArgs> dkimSigningAttributes;
-
+    @PolicyResourceProperty(name="dkimSigningAttributes", flag="unknown_dkimSigningAttributes")
+    private EmailIdentityDkimSigningAttributesArgs value_dkimSigningAttributes;
+    private boolean unknown_dkimSigningAttributes;
     public EmailIdentityDkimSigningAttributesArgs dkimSigningAttributes() {
-        if (dkimSigningAttributes == null) return null;
-        return dkimSigningAttributes.getValue("EmailIdentityArgs.dkimSigningAttributes");
+        if (!unknown_dkimSigningAttributes) return value_dkimSigningAttributes;
+        throw new UndeferrableValueException("Value 'EmailIdentityArgs.dkimSigningAttributes' is not present");
     }
 
     /**
@@ -42,22 +45,24 @@ public final class EmailIdentityArgs extends com.pulumi.resources.PolicyResource
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> emailIdentity;
-
+    @PolicyResourceProperty(name="emailIdentity", flag="unknown_emailIdentity")
+    private String value_emailIdentity;
+    private boolean unknown_emailIdentity;
     public String emailIdentity() {
-        if (emailIdentity == null) return null;
-        return emailIdentity.getValue("EmailIdentityArgs.emailIdentity");
+        if (!unknown_emailIdentity) return value_emailIdentity;
+        throw new UndeferrableValueException("Value 'EmailIdentityArgs.emailIdentity' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("EmailIdentityArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'EmailIdentityArgs.tags' is not present");
     }
 
 }

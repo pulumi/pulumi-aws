@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ec2.outputs.LaunchTemplateInstanceRequirementsAcceleratorCount;
 import com.pulumi.policypacks.aws.ec2.outputs.LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib;
 import com.pulumi.policypacks.aws.ec2.outputs.LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps;
@@ -26,55 +27,60 @@ public final class LaunchTemplateInstanceRequirements {
      * Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
      * 
      */
-    private @Nullable UndeferrableValue<LaunchTemplateInstanceRequirementsAcceleratorCount> acceleratorCount;
-
+    @PolicyResourceProperty(name="acceleratorCount", flag="unknown_acceleratorCount")
+    private @Nullable LaunchTemplateInstanceRequirementsAcceleratorCount value_acceleratorCount;
+    private boolean unknown_acceleratorCount;
     public @Nullable LaunchTemplateInstanceRequirementsAcceleratorCount acceleratorCount() {
-        if (acceleratorCount == null) return null;
-        return acceleratorCount.getValue("LaunchTemplateInstanceRequirements.acceleratorCount");
+        if (!unknown_acceleratorCount) return value_acceleratorCount;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirements.acceleratorCount' is not present");
     }
 
     /**
      * List of accelerator manufacturer names. Default is any manufacturer.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> acceleratorManufacturers;
-
+    @PolicyResourceProperty(name="acceleratorManufacturers", flag="unknown_acceleratorManufacturers")
+    private @Nullable List<String> value_acceleratorManufacturers;
+    private boolean unknown_acceleratorManufacturers;
     public @Nullable List<String> acceleratorManufacturers() {
-        if (acceleratorManufacturers == null) return null;
-        return acceleratorManufacturers.getValue("LaunchTemplateInstanceRequirements.acceleratorManufacturers");
+        if (!unknown_acceleratorManufacturers) return value_acceleratorManufacturers;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirements.acceleratorManufacturers' is not present");
     }
 
     /**
      * List of accelerator names. Default is any acclerator.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> acceleratorNames;
-
+    @PolicyResourceProperty(name="acceleratorNames", flag="unknown_acceleratorNames")
+    private @Nullable List<String> value_acceleratorNames;
+    private boolean unknown_acceleratorNames;
     public @Nullable List<String> acceleratorNames() {
-        if (acceleratorNames == null) return null;
-        return acceleratorNames.getValue("LaunchTemplateInstanceRequirements.acceleratorNames");
+        if (!unknown_acceleratorNames) return value_acceleratorNames;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirements.acceleratorNames' is not present");
     }
 
     /**
      * Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
      * 
      */
-    private @Nullable UndeferrableValue<LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib> acceleratorTotalMemoryMib;
-
+    @PolicyResourceProperty(name="acceleratorTotalMemoryMib", flag="unknown_acceleratorTotalMemoryMib")
+    private @Nullable LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib value_acceleratorTotalMemoryMib;
+    private boolean unknown_acceleratorTotalMemoryMib;
     public @Nullable LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib acceleratorTotalMemoryMib() {
-        if (acceleratorTotalMemoryMib == null) return null;
-        return acceleratorTotalMemoryMib.getValue("LaunchTemplateInstanceRequirements.acceleratorTotalMemoryMib");
+        if (!unknown_acceleratorTotalMemoryMib) return value_acceleratorTotalMemoryMib;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirements.acceleratorTotalMemoryMib' is not present");
     }
 
     /**
      * List of accelerator types. Default is any accelerator type.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> acceleratorTypes;
-
+    @PolicyResourceProperty(name="acceleratorTypes", flag="unknown_acceleratorTypes")
+    private @Nullable List<String> value_acceleratorTypes;
+    private boolean unknown_acceleratorTypes;
     public @Nullable List<String> acceleratorTypes() {
-        if (acceleratorTypes == null) return null;
-        return acceleratorTypes.getValue("LaunchTemplateInstanceRequirements.acceleratorTypes");
+        if (!unknown_acceleratorTypes) return value_acceleratorTypes;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirements.acceleratorTypes' is not present");
     }
 
     /**
@@ -83,44 +89,48 @@ public final class LaunchTemplateInstanceRequirements {
      * &gt; **NOTE:** If you specify `allowed_instance_types`, you can&#39;t specify `excluded_instance_types`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> allowedInstanceTypes;
-
+    @PolicyResourceProperty(name="allowedInstanceTypes", flag="unknown_allowedInstanceTypes")
+    private @Nullable List<String> value_allowedInstanceTypes;
+    private boolean unknown_allowedInstanceTypes;
     public @Nullable List<String> allowedInstanceTypes() {
-        if (allowedInstanceTypes == null) return null;
-        return allowedInstanceTypes.getValue("LaunchTemplateInstanceRequirements.allowedInstanceTypes");
+        if (!unknown_allowedInstanceTypes) return value_allowedInstanceTypes;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirements.allowedInstanceTypes' is not present");
     }
 
     /**
      * Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
      * 
      */
-    private @Nullable UndeferrableValue<String> bareMetal;
-
+    @PolicyResourceProperty(name="bareMetal", flag="unknown_bareMetal")
+    private @Nullable String value_bareMetal;
+    private boolean unknown_bareMetal;
     public @Nullable String bareMetal() {
-        if (bareMetal == null) return null;
-        return bareMetal.getValue("LaunchTemplateInstanceRequirements.bareMetal");
+        if (!unknown_bareMetal) return value_bareMetal;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirements.bareMetal' is not present");
     }
 
     /**
      * Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
      * 
      */
-    private @Nullable UndeferrableValue<LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps> baselineEbsBandwidthMbps;
-
+    @PolicyResourceProperty(name="baselineEbsBandwidthMbps", flag="unknown_baselineEbsBandwidthMbps")
+    private @Nullable LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps value_baselineEbsBandwidthMbps;
+    private boolean unknown_baselineEbsBandwidthMbps;
     public @Nullable LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps baselineEbsBandwidthMbps() {
-        if (baselineEbsBandwidthMbps == null) return null;
-        return baselineEbsBandwidthMbps.getValue("LaunchTemplateInstanceRequirements.baselineEbsBandwidthMbps");
+        if (!unknown_baselineEbsBandwidthMbps) return value_baselineEbsBandwidthMbps;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirements.baselineEbsBandwidthMbps' is not present");
     }
 
     /**
      * Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
      * 
      */
-    private @Nullable UndeferrableValue<String> burstablePerformance;
-
+    @PolicyResourceProperty(name="burstablePerformance", flag="unknown_burstablePerformance")
+    private @Nullable String value_burstablePerformance;
+    private boolean unknown_burstablePerformance;
     public @Nullable String burstablePerformance() {
-        if (burstablePerformance == null) return null;
-        return burstablePerformance.getValue("LaunchTemplateInstanceRequirements.burstablePerformance");
+        if (!unknown_burstablePerformance) return value_burstablePerformance;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirements.burstablePerformance' is not present");
     }
 
     /**
@@ -129,11 +139,12 @@ public final class LaunchTemplateInstanceRequirements {
      * &gt; **NOTE:** Don&#39;t confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> cpuManufacturers;
-
+    @PolicyResourceProperty(name="cpuManufacturers", flag="unknown_cpuManufacturers")
+    private @Nullable List<String> value_cpuManufacturers;
+    private boolean unknown_cpuManufacturers;
     public @Nullable List<String> cpuManufacturers() {
-        if (cpuManufacturers == null) return null;
-        return cpuManufacturers.getValue("LaunchTemplateInstanceRequirements.cpuManufacturers");
+        if (!unknown_cpuManufacturers) return value_cpuManufacturers;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirements.cpuManufacturers' is not present");
     }
 
     /**
@@ -142,99 +153,108 @@ public final class LaunchTemplateInstanceRequirements {
      * &gt; **NOTE:** If you specify `excluded_instance_types`, you can&#39;t specify `allowed_instance_types`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> excludedInstanceTypes;
-
+    @PolicyResourceProperty(name="excludedInstanceTypes", flag="unknown_excludedInstanceTypes")
+    private @Nullable List<String> value_excludedInstanceTypes;
+    private boolean unknown_excludedInstanceTypes;
     public @Nullable List<String> excludedInstanceTypes() {
-        if (excludedInstanceTypes == null) return null;
-        return excludedInstanceTypes.getValue("LaunchTemplateInstanceRequirements.excludedInstanceTypes");
+        if (!unknown_excludedInstanceTypes) return value_excludedInstanceTypes;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirements.excludedInstanceTypes' is not present");
     }
 
     /**
      * List of instance generation names. Default is any generation.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> instanceGenerations;
-
+    @PolicyResourceProperty(name="instanceGenerations", flag="unknown_instanceGenerations")
+    private @Nullable List<String> value_instanceGenerations;
+    private boolean unknown_instanceGenerations;
     public @Nullable List<String> instanceGenerations() {
-        if (instanceGenerations == null) return null;
-        return instanceGenerations.getValue("LaunchTemplateInstanceRequirements.instanceGenerations");
+        if (!unknown_instanceGenerations) return value_instanceGenerations;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirements.instanceGenerations' is not present");
     }
 
     /**
      * Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
      * 
      */
-    private @Nullable UndeferrableValue<String> localStorage;
-
+    @PolicyResourceProperty(name="localStorage", flag="unknown_localStorage")
+    private @Nullable String value_localStorage;
+    private boolean unknown_localStorage;
     public @Nullable String localStorage() {
-        if (localStorage == null) return null;
-        return localStorage.getValue("LaunchTemplateInstanceRequirements.localStorage");
+        if (!unknown_localStorage) return value_localStorage;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirements.localStorage' is not present");
     }
 
     /**
      * List of local storage type names. Default any storage type.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> localStorageTypes;
-
+    @PolicyResourceProperty(name="localStorageTypes", flag="unknown_localStorageTypes")
+    private @Nullable List<String> value_localStorageTypes;
+    private boolean unknown_localStorageTypes;
     public @Nullable List<String> localStorageTypes() {
-        if (localStorageTypes == null) return null;
-        return localStorageTypes.getValue("LaunchTemplateInstanceRequirements.localStorageTypes");
+        if (!unknown_localStorageTypes) return value_localStorageTypes;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirements.localStorageTypes' is not present");
     }
 
     /**
      * The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spot_max_price_percentage_over_lowest_price`
      * 
      */
-    private @Nullable UndeferrableValue<Integer> maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
-
+    @PolicyResourceProperty(name="maxSpotPriceAsPercentageOfOptimalOnDemandPrice", flag="unknown_maxSpotPriceAsPercentageOfOptimalOnDemandPrice")
+    private @Nullable Integer value_maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
+    private boolean unknown_maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
     public @Nullable Integer maxSpotPriceAsPercentageOfOptimalOnDemandPrice() {
-        if (maxSpotPriceAsPercentageOfOptimalOnDemandPrice == null) return null;
-        return maxSpotPriceAsPercentageOfOptimalOnDemandPrice.getValue("LaunchTemplateInstanceRequirements.maxSpotPriceAsPercentageOfOptimalOnDemandPrice");
+        if (!unknown_maxSpotPriceAsPercentageOfOptimalOnDemandPrice) return value_maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirements.maxSpotPriceAsPercentageOfOptimalOnDemandPrice' is not present");
     }
 
     /**
      * Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
      * 
      */
-    private @Nullable UndeferrableValue<LaunchTemplateInstanceRequirementsMemoryGibPerVcpu> memoryGibPerVcpu;
-
+    @PolicyResourceProperty(name="memoryGibPerVcpu", flag="unknown_memoryGibPerVcpu")
+    private @Nullable LaunchTemplateInstanceRequirementsMemoryGibPerVcpu value_memoryGibPerVcpu;
+    private boolean unknown_memoryGibPerVcpu;
     public @Nullable LaunchTemplateInstanceRequirementsMemoryGibPerVcpu memoryGibPerVcpu() {
-        if (memoryGibPerVcpu == null) return null;
-        return memoryGibPerVcpu.getValue("LaunchTemplateInstanceRequirements.memoryGibPerVcpu");
+        if (!unknown_memoryGibPerVcpu) return value_memoryGibPerVcpu;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirements.memoryGibPerVcpu' is not present");
     }
 
     /**
      * Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
      * 
      */
-    private UndeferrableValue<LaunchTemplateInstanceRequirementsMemoryMib> memoryMib;
-
+    @PolicyResourceProperty(name="memoryMib", flag="unknown_memoryMib")
+    private LaunchTemplateInstanceRequirementsMemoryMib value_memoryMib;
+    private boolean unknown_memoryMib;
     public LaunchTemplateInstanceRequirementsMemoryMib memoryMib() {
-        if (memoryMib == null) return null;
-        return memoryMib.getValue("LaunchTemplateInstanceRequirements.memoryMib");
+        if (!unknown_memoryMib) return value_memoryMib;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirements.memoryMib' is not present");
     }
 
     /**
      * Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
      * 
      */
-    private @Nullable UndeferrableValue<LaunchTemplateInstanceRequirementsNetworkBandwidthGbps> networkBandwidthGbps;
-
+    @PolicyResourceProperty(name="networkBandwidthGbps", flag="unknown_networkBandwidthGbps")
+    private @Nullable LaunchTemplateInstanceRequirementsNetworkBandwidthGbps value_networkBandwidthGbps;
+    private boolean unknown_networkBandwidthGbps;
     public @Nullable LaunchTemplateInstanceRequirementsNetworkBandwidthGbps networkBandwidthGbps() {
-        if (networkBandwidthGbps == null) return null;
-        return networkBandwidthGbps.getValue("LaunchTemplateInstanceRequirements.networkBandwidthGbps");
+        if (!unknown_networkBandwidthGbps) return value_networkBandwidthGbps;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirements.networkBandwidthGbps' is not present");
     }
 
     /**
      * Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
      * 
      */
-    private @Nullable UndeferrableValue<LaunchTemplateInstanceRequirementsNetworkInterfaceCount> networkInterfaceCount;
-
+    @PolicyResourceProperty(name="networkInterfaceCount", flag="unknown_networkInterfaceCount")
+    private @Nullable LaunchTemplateInstanceRequirementsNetworkInterfaceCount value_networkInterfaceCount;
+    private boolean unknown_networkInterfaceCount;
     public @Nullable LaunchTemplateInstanceRequirementsNetworkInterfaceCount networkInterfaceCount() {
-        if (networkInterfaceCount == null) return null;
-        return networkInterfaceCount.getValue("LaunchTemplateInstanceRequirements.networkInterfaceCount");
+        if (!unknown_networkInterfaceCount) return value_networkInterfaceCount;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirements.networkInterfaceCount' is not present");
     }
 
     /**
@@ -243,22 +263,24 @@ public final class LaunchTemplateInstanceRequirements {
      * If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> onDemandMaxPricePercentageOverLowestPrice;
-
+    @PolicyResourceProperty(name="onDemandMaxPricePercentageOverLowestPrice", flag="unknown_onDemandMaxPricePercentageOverLowestPrice")
+    private @Nullable Integer value_onDemandMaxPricePercentageOverLowestPrice;
+    private boolean unknown_onDemandMaxPricePercentageOverLowestPrice;
     public @Nullable Integer onDemandMaxPricePercentageOverLowestPrice() {
-        if (onDemandMaxPricePercentageOverLowestPrice == null) return null;
-        return onDemandMaxPricePercentageOverLowestPrice.getValue("LaunchTemplateInstanceRequirements.onDemandMaxPricePercentageOverLowestPrice");
+        if (!unknown_onDemandMaxPricePercentageOverLowestPrice) return value_onDemandMaxPricePercentageOverLowestPrice;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirements.onDemandMaxPricePercentageOverLowestPrice' is not present");
     }
 
     /**
      * Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> requireHibernateSupport;
-
+    @PolicyResourceProperty(name="requireHibernateSupport", flag="unknown_requireHibernateSupport")
+    private @Nullable Boolean value_requireHibernateSupport;
+    private boolean unknown_requireHibernateSupport;
     public @Nullable Boolean requireHibernateSupport() {
-        if (requireHibernateSupport == null) return null;
-        return requireHibernateSupport.getValue("LaunchTemplateInstanceRequirements.requireHibernateSupport");
+        if (!unknown_requireHibernateSupport) return value_requireHibernateSupport;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirements.requireHibernateSupport' is not present");
     }
 
     /**
@@ -267,33 +289,36 @@ public final class LaunchTemplateInstanceRequirements {
      * If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> spotMaxPricePercentageOverLowestPrice;
-
+    @PolicyResourceProperty(name="spotMaxPricePercentageOverLowestPrice", flag="unknown_spotMaxPricePercentageOverLowestPrice")
+    private @Nullable Integer value_spotMaxPricePercentageOverLowestPrice;
+    private boolean unknown_spotMaxPricePercentageOverLowestPrice;
     public @Nullable Integer spotMaxPricePercentageOverLowestPrice() {
-        if (spotMaxPricePercentageOverLowestPrice == null) return null;
-        return spotMaxPricePercentageOverLowestPrice.getValue("LaunchTemplateInstanceRequirements.spotMaxPricePercentageOverLowestPrice");
+        if (!unknown_spotMaxPricePercentageOverLowestPrice) return value_spotMaxPricePercentageOverLowestPrice;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirements.spotMaxPricePercentageOverLowestPrice' is not present");
     }
 
     /**
      * Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
      * 
      */
-    private @Nullable UndeferrableValue<LaunchTemplateInstanceRequirementsTotalLocalStorageGb> totalLocalStorageGb;
-
+    @PolicyResourceProperty(name="totalLocalStorageGb", flag="unknown_totalLocalStorageGb")
+    private @Nullable LaunchTemplateInstanceRequirementsTotalLocalStorageGb value_totalLocalStorageGb;
+    private boolean unknown_totalLocalStorageGb;
     public @Nullable LaunchTemplateInstanceRequirementsTotalLocalStorageGb totalLocalStorageGb() {
-        if (totalLocalStorageGb == null) return null;
-        return totalLocalStorageGb.getValue("LaunchTemplateInstanceRequirements.totalLocalStorageGb");
+        if (!unknown_totalLocalStorageGb) return value_totalLocalStorageGb;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirements.totalLocalStorageGb' is not present");
     }
 
     /**
      * Block describing the minimum and maximum number of vCPUs. Default is no maximum.
      * 
      */
-    private UndeferrableValue<LaunchTemplateInstanceRequirementsVcpuCount> vcpuCount;
-
+    @PolicyResourceProperty(name="vcpuCount", flag="unknown_vcpuCount")
+    private LaunchTemplateInstanceRequirementsVcpuCount value_vcpuCount;
+    private boolean unknown_vcpuCount;
     public LaunchTemplateInstanceRequirementsVcpuCount vcpuCount() {
-        if (vcpuCount == null) return null;
-        return vcpuCount.getValue("LaunchTemplateInstanceRequirements.vcpuCount");
+        if (!unknown_vcpuCount) return value_vcpuCount;
+        throw new UndeferrableValueException("Value 'LaunchTemplateInstanceRequirements.vcpuCount' is not present");
     }
 
 }

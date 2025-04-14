@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.datasync.outputs.LocationHdfsNameNode;
 import com.pulumi.policypacks.aws.datasync.outputs.LocationHdfsQopConfiguration;
@@ -21,176 +22,192 @@ public final class LocationHdfs extends com.pulumi.resources.PolicyResourceOutpu
      * A list of DataSync Agent ARNs with which this location will be associated.
      * 
      */
-    private UndeferrableValue<List<String>> agentArns;
-
+    @PolicyResourceProperty(name="agentArns", flag="unknown_agentArns")
+    private List<String> value_agentArns;
+    private boolean unknown_agentArns;
     public List<String> agentArns() {
-        if (agentArns == null) return null;
-        return agentArns.getValue("LocationHdfs.agentArns");
+        if (!unknown_agentArns) return value_agentArns;
+        throw new UndeferrableValueException("Value 'LocationHdfs.agentArns' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("LocationHdfs.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'LocationHdfs.arn' is not present");
     }
 
     /**
      * The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
      * 
      */
-    private @Nullable UndeferrableValue<String> authenticationType;
-
+    @PolicyResourceProperty(name="authenticationType", flag="unknown_authenticationType")
+    private @Nullable String value_authenticationType;
+    private boolean unknown_authenticationType;
     public @Nullable String authenticationType() {
-        if (authenticationType == null) return null;
-        return authenticationType.getValue("LocationHdfs.authenticationType");
+        if (!unknown_authenticationType) return value_authenticationType;
+        throw new UndeferrableValueException("Value 'LocationHdfs.authenticationType' is not present");
     }
 
     /**
      * The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
      * 
      */
-    private @Nullable UndeferrableValue<Integer> blockSize;
-
+    @PolicyResourceProperty(name="blockSize", flag="unknown_blockSize")
+    private @Nullable Integer value_blockSize;
+    private boolean unknown_blockSize;
     public @Nullable Integer blockSize() {
-        if (blockSize == null) return null;
-        return blockSize.getValue("LocationHdfs.blockSize");
+        if (!unknown_blockSize) return value_blockSize;
+        throw new UndeferrableValueException("Value 'LocationHdfs.blockSize' is not present");
     }
 
     /**
      * The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
      * 
      */
-    private @Nullable UndeferrableValue<String> kerberosKeytab;
-
+    @PolicyResourceProperty(name="kerberosKeytab", flag="unknown_kerberosKeytab")
+    private @Nullable String value_kerberosKeytab;
+    private boolean unknown_kerberosKeytab;
     public @Nullable String kerberosKeytab() {
-        if (kerberosKeytab == null) return null;
-        return kerberosKeytab.getValue("LocationHdfs.kerberosKeytab");
+        if (!unknown_kerberosKeytab) return value_kerberosKeytab;
+        throw new UndeferrableValueException("Value 'LocationHdfs.kerberosKeytab' is not present");
     }
 
     /**
      * Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
      * 
      */
-    private @Nullable UndeferrableValue<String> kerberosKeytabBase64;
-
+    @PolicyResourceProperty(name="kerberosKeytabBase64", flag="unknown_kerberosKeytabBase64")
+    private @Nullable String value_kerberosKeytabBase64;
+    private boolean unknown_kerberosKeytabBase64;
     public @Nullable String kerberosKeytabBase64() {
-        if (kerberosKeytabBase64 == null) return null;
-        return kerberosKeytabBase64.getValue("LocationHdfs.kerberosKeytabBase64");
+        if (!unknown_kerberosKeytabBase64) return value_kerberosKeytabBase64;
+        throw new UndeferrableValueException("Value 'LocationHdfs.kerberosKeytabBase64' is not present");
     }
 
     /**
      * The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
      * 
      */
-    private @Nullable UndeferrableValue<String> kerberosKrb5Conf;
-
+    @PolicyResourceProperty(name="kerberosKrb5Conf", flag="unknown_kerberosKrb5Conf")
+    private @Nullable String value_kerberosKrb5Conf;
+    private boolean unknown_kerberosKrb5Conf;
     public @Nullable String kerberosKrb5Conf() {
-        if (kerberosKrb5Conf == null) return null;
-        return kerberosKrb5Conf.getValue("LocationHdfs.kerberosKrb5Conf");
+        if (!unknown_kerberosKrb5Conf) return value_kerberosKrb5Conf;
+        throw new UndeferrableValueException("Value 'LocationHdfs.kerberosKrb5Conf' is not present");
     }
 
     /**
      * Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
      * 
      */
-    private @Nullable UndeferrableValue<String> kerberosKrb5ConfBase64;
-
+    @PolicyResourceProperty(name="kerberosKrb5ConfBase64", flag="unknown_kerberosKrb5ConfBase64")
+    private @Nullable String value_kerberosKrb5ConfBase64;
+    private boolean unknown_kerberosKrb5ConfBase64;
     public @Nullable String kerberosKrb5ConfBase64() {
-        if (kerberosKrb5ConfBase64 == null) return null;
-        return kerberosKrb5ConfBase64.getValue("LocationHdfs.kerberosKrb5ConfBase64");
+        if (!unknown_kerberosKrb5ConfBase64) return value_kerberosKrb5ConfBase64;
+        throw new UndeferrableValueException("Value 'LocationHdfs.kerberosKrb5ConfBase64' is not present");
     }
 
     /**
      * The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
      * 
      */
-    private @Nullable UndeferrableValue<String> kerberosPrincipal;
-
+    @PolicyResourceProperty(name="kerberosPrincipal", flag="unknown_kerberosPrincipal")
+    private @Nullable String value_kerberosPrincipal;
+    private boolean unknown_kerberosPrincipal;
     public @Nullable String kerberosPrincipal() {
-        if (kerberosPrincipal == null) return null;
-        return kerberosPrincipal.getValue("LocationHdfs.kerberosPrincipal");
+        if (!unknown_kerberosPrincipal) return value_kerberosPrincipal;
+        throw new UndeferrableValueException("Value 'LocationHdfs.kerberosPrincipal' is not present");
     }
 
     /**
      * The URI of the HDFS cluster&#39;s Key Management Server (KMS).
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyProviderUri;
-
+    @PolicyResourceProperty(name="kmsKeyProviderUri", flag="unknown_kmsKeyProviderUri")
+    private @Nullable String value_kmsKeyProviderUri;
+    private boolean unknown_kmsKeyProviderUri;
     public @Nullable String kmsKeyProviderUri() {
-        if (kmsKeyProviderUri == null) return null;
-        return kmsKeyProviderUri.getValue("LocationHdfs.kmsKeyProviderUri");
+        if (!unknown_kmsKeyProviderUri) return value_kmsKeyProviderUri;
+        throw new UndeferrableValueException("Value 'LocationHdfs.kmsKeyProviderUri' is not present");
     }
 
     /**
      * The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
      * 
      */
-    private UndeferrableValue<List<LocationHdfsNameNode>> nameNodes;
-
+    @PolicyResourceProperty(name="nameNodes", flag="unknown_nameNodes")
+    private List<LocationHdfsNameNode> value_nameNodes;
+    private boolean unknown_nameNodes;
     public List<LocationHdfsNameNode> nameNodes() {
-        if (nameNodes == null) return null;
-        return nameNodes.getValue("LocationHdfs.nameNodes");
+        if (!unknown_nameNodes) return value_nameNodes;
+        throw new UndeferrableValueException("Value 'LocationHdfs.nameNodes' is not present");
     }
 
     /**
      * The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn&#39;t specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
      * 
      */
-    private UndeferrableValue<LocationHdfsQopConfiguration> qopConfiguration;
-
+    @PolicyResourceProperty(name="qopConfiguration", flag="unknown_qopConfiguration")
+    private LocationHdfsQopConfiguration value_qopConfiguration;
+    private boolean unknown_qopConfiguration;
     public LocationHdfsQopConfiguration qopConfiguration() {
-        if (qopConfiguration == null) return null;
-        return qopConfiguration.getValue("LocationHdfs.qopConfiguration");
+        if (!unknown_qopConfiguration) return value_qopConfiguration;
+        throw new UndeferrableValueException("Value 'LocationHdfs.qopConfiguration' is not present");
     }
 
     /**
      * The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> replicationFactor;
-
+    @PolicyResourceProperty(name="replicationFactor", flag="unknown_replicationFactor")
+    private @Nullable Integer value_replicationFactor;
+    private boolean unknown_replicationFactor;
     public @Nullable Integer replicationFactor() {
-        if (replicationFactor == null) return null;
-        return replicationFactor.getValue("LocationHdfs.replicationFactor");
+        if (!unknown_replicationFactor) return value_replicationFactor;
+        throw new UndeferrableValueException("Value 'LocationHdfs.replicationFactor' is not present");
     }
 
     /**
      * The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
      * 
      */
-    private @Nullable UndeferrableValue<String> simpleUser;
-
+    @PolicyResourceProperty(name="simpleUser", flag="unknown_simpleUser")
+    private @Nullable String value_simpleUser;
+    private boolean unknown_simpleUser;
     public @Nullable String simpleUser() {
-        if (simpleUser == null) return null;
-        return simpleUser.getValue("LocationHdfs.simpleUser");
+        if (!unknown_simpleUser) return value_simpleUser;
+        throw new UndeferrableValueException("Value 'LocationHdfs.simpleUser' is not present");
     }
 
     /**
      * A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn&#39;t specified, it will default to /.
      * 
      */
-    private @Nullable UndeferrableValue<String> subdirectory;
-
+    @PolicyResourceProperty(name="subdirectory", flag="unknown_subdirectory")
+    private @Nullable String value_subdirectory;
+    private boolean unknown_subdirectory;
     public @Nullable String subdirectory() {
-        if (subdirectory == null) return null;
-        return subdirectory.getValue("LocationHdfs.subdirectory");
+        if (!unknown_subdirectory) return value_subdirectory;
+        throw new UndeferrableValueException("Value 'LocationHdfs.subdirectory' is not present");
     }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LocationHdfs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LocationHdfs.tags' is not present");
     }
 
     /**
@@ -201,18 +218,20 @@ public final class LocationHdfs extends com.pulumi.resources.PolicyResourceOutpu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("LocationHdfs.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'LocationHdfs.tagsAll' is not present");
     }
 
-    private UndeferrableValue<String> uri;
-
+    @PolicyResourceProperty(name="uri", flag="unknown_uri")
+    private String value_uri;
+    private boolean unknown_uri;
     public String uri() {
-        if (uri == null) return null;
-        return uri.getValue("LocationHdfs.uri");
+        if (!unknown_uri) return value_uri;
+        throw new UndeferrableValueException("Value 'LocationHdfs.uri' is not present");
     }
 
 }

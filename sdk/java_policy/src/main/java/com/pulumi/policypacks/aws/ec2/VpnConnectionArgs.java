@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.inputs.VpnConnectionTunnel1LogOptionsArgs;
 import com.pulumi.policypacks.aws.ec2.inputs.VpnConnectionTunnel2LogOptionsArgs;
@@ -22,594 +23,648 @@ public final class VpnConnectionArgs extends com.pulumi.resources.PolicyResource
      * The ID of the customer gateway.
      * 
      */
-    private UndeferrableValue<String> customerGatewayId;
-
+    @PolicyResourceProperty(name="customerGatewayId", flag="unknown_customerGatewayId")
+    private String value_customerGatewayId;
+    private boolean unknown_customerGatewayId;
     public String customerGatewayId() {
-        if (customerGatewayId == null) return null;
-        return customerGatewayId.getValue("VpnConnectionArgs.customerGatewayId");
+        if (!unknown_customerGatewayId) return value_customerGatewayId;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.customerGatewayId' is not present");
     }
 
     /**
      * Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
      * 
      */
-    private UndeferrableValue<Boolean> enableAcceleration;
-
+    @PolicyResourceProperty(name="enableAcceleration", flag="unknown_enableAcceleration")
+    private Boolean value_enableAcceleration;
+    private boolean unknown_enableAcceleration;
     public Boolean enableAcceleration() {
-        if (enableAcceleration == null) return null;
-        return enableAcceleration.getValue("VpnConnectionArgs.enableAcceleration");
+        if (!unknown_enableAcceleration) return value_enableAcceleration;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.enableAcceleration' is not present");
     }
 
     /**
      * The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
      * 
      */
-    private UndeferrableValue<String> localIpv4NetworkCidr;
-
+    @PolicyResourceProperty(name="localIpv4NetworkCidr", flag="unknown_localIpv4NetworkCidr")
+    private String value_localIpv4NetworkCidr;
+    private boolean unknown_localIpv4NetworkCidr;
     public String localIpv4NetworkCidr() {
-        if (localIpv4NetworkCidr == null) return null;
-        return localIpv4NetworkCidr.getValue("VpnConnectionArgs.localIpv4NetworkCidr");
+        if (!unknown_localIpv4NetworkCidr) return value_localIpv4NetworkCidr;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.localIpv4NetworkCidr' is not present");
     }
 
     /**
      * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
      * 
      */
-    private UndeferrableValue<String> localIpv6NetworkCidr;
-
+    @PolicyResourceProperty(name="localIpv6NetworkCidr", flag="unknown_localIpv6NetworkCidr")
+    private String value_localIpv6NetworkCidr;
+    private boolean unknown_localIpv6NetworkCidr;
     public String localIpv6NetworkCidr() {
-        if (localIpv6NetworkCidr == null) return null;
-        return localIpv6NetworkCidr.getValue("VpnConnectionArgs.localIpv6NetworkCidr");
+        if (!unknown_localIpv6NetworkCidr) return value_localIpv6NetworkCidr;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.localIpv6NetworkCidr' is not present");
     }
 
     /**
      * Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
      * 
      */
-    private UndeferrableValue<String> outsideIpAddressType;
-
+    @PolicyResourceProperty(name="outsideIpAddressType", flag="unknown_outsideIpAddressType")
+    private String value_outsideIpAddressType;
+    private boolean unknown_outsideIpAddressType;
     public String outsideIpAddressType() {
-        if (outsideIpAddressType == null) return null;
-        return outsideIpAddressType.getValue("VpnConnectionArgs.outsideIpAddressType");
+        if (!unknown_outsideIpAddressType) return value_outsideIpAddressType;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.outsideIpAddressType' is not present");
     }
 
     /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
      * 
      */
-    private UndeferrableValue<String> remoteIpv4NetworkCidr;
-
+    @PolicyResourceProperty(name="remoteIpv4NetworkCidr", flag="unknown_remoteIpv4NetworkCidr")
+    private String value_remoteIpv4NetworkCidr;
+    private boolean unknown_remoteIpv4NetworkCidr;
     public String remoteIpv4NetworkCidr() {
-        if (remoteIpv4NetworkCidr == null) return null;
-        return remoteIpv4NetworkCidr.getValue("VpnConnectionArgs.remoteIpv4NetworkCidr");
+        if (!unknown_remoteIpv4NetworkCidr) return value_remoteIpv4NetworkCidr;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.remoteIpv4NetworkCidr' is not present");
     }
 
     /**
      * The IPv6 CIDR on the AWS side of the VPN connection.
      * 
      */
-    private UndeferrableValue<String> remoteIpv6NetworkCidr;
-
+    @PolicyResourceProperty(name="remoteIpv6NetworkCidr", flag="unknown_remoteIpv6NetworkCidr")
+    private String value_remoteIpv6NetworkCidr;
+    private boolean unknown_remoteIpv6NetworkCidr;
     public String remoteIpv6NetworkCidr() {
-        if (remoteIpv6NetworkCidr == null) return null;
-        return remoteIpv6NetworkCidr.getValue("VpnConnectionArgs.remoteIpv6NetworkCidr");
+        if (!unknown_remoteIpv6NetworkCidr) return value_remoteIpv6NetworkCidr;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.remoteIpv6NetworkCidr' is not present");
     }
 
     /**
      * Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don&#39;t support BGP.
      * 
      */
-    private UndeferrableValue<Boolean> staticRoutesOnly;
-
+    @PolicyResourceProperty(name="staticRoutesOnly", flag="unknown_staticRoutesOnly")
+    private Boolean value_staticRoutesOnly;
+    private boolean unknown_staticRoutesOnly;
     public Boolean staticRoutesOnly() {
-        if (staticRoutesOnly == null) return null;
-        return staticRoutesOnly.getValue("VpnConnectionArgs.staticRoutesOnly");
+        if (!unknown_staticRoutesOnly) return value_staticRoutesOnly;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.staticRoutesOnly' is not present");
     }
 
     /**
      * Tags to apply to the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VpnConnectionArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tags' is not present");
     }
 
     /**
      * The ID of the EC2 Transit Gateway.
      * 
      */
-    private UndeferrableValue<String> transitGatewayId;
-
+    @PolicyResourceProperty(name="transitGatewayId", flag="unknown_transitGatewayId")
+    private String value_transitGatewayId;
+    private boolean unknown_transitGatewayId;
     public String transitGatewayId() {
-        if (transitGatewayId == null) return null;
-        return transitGatewayId.getValue("VpnConnectionArgs.transitGatewayId");
+        if (!unknown_transitGatewayId) return value_transitGatewayId;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.transitGatewayId' is not present");
     }
 
     /**
      * . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
      * 
      */
-    private UndeferrableValue<String> transportTransitGatewayAttachmentId;
-
+    @PolicyResourceProperty(name="transportTransitGatewayAttachmentId", flag="unknown_transportTransitGatewayAttachmentId")
+    private String value_transportTransitGatewayAttachmentId;
+    private boolean unknown_transportTransitGatewayAttachmentId;
     public String transportTransitGatewayAttachmentId() {
-        if (transportTransitGatewayAttachmentId == null) return null;
-        return transportTransitGatewayAttachmentId.getValue("VpnConnectionArgs.transportTransitGatewayAttachmentId");
+        if (!unknown_transportTransitGatewayAttachmentId) return value_transportTransitGatewayAttachmentId;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.transportTransitGatewayAttachmentId' is not present");
     }
 
     /**
      * The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
      * 
      */
-    private UndeferrableValue<String> tunnel1DpdTimeoutAction;
-
+    @PolicyResourceProperty(name="tunnel1DpdTimeoutAction", flag="unknown_tunnel1DpdTimeoutAction")
+    private String value_tunnel1DpdTimeoutAction;
+    private boolean unknown_tunnel1DpdTimeoutAction;
     public String tunnel1DpdTimeoutAction() {
-        if (tunnel1DpdTimeoutAction == null) return null;
-        return tunnel1DpdTimeoutAction.getValue("VpnConnectionArgs.tunnel1DpdTimeoutAction");
+        if (!unknown_tunnel1DpdTimeoutAction) return value_tunnel1DpdTimeoutAction;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel1DpdTimeoutAction' is not present");
     }
 
     /**
      * The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
      * 
      */
-    private UndeferrableValue<Integer> tunnel1DpdTimeoutSeconds;
-
+    @PolicyResourceProperty(name="tunnel1DpdTimeoutSeconds", flag="unknown_tunnel1DpdTimeoutSeconds")
+    private Integer value_tunnel1DpdTimeoutSeconds;
+    private boolean unknown_tunnel1DpdTimeoutSeconds;
     public Integer tunnel1DpdTimeoutSeconds() {
-        if (tunnel1DpdTimeoutSeconds == null) return null;
-        return tunnel1DpdTimeoutSeconds.getValue("VpnConnectionArgs.tunnel1DpdTimeoutSeconds");
+        if (!unknown_tunnel1DpdTimeoutSeconds) return value_tunnel1DpdTimeoutSeconds;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel1DpdTimeoutSeconds' is not present");
     }
 
     /**
      * Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
      * 
      */
-    private UndeferrableValue<Boolean> tunnel1EnableTunnelLifecycleControl;
-
+    @PolicyResourceProperty(name="tunnel1EnableTunnelLifecycleControl", flag="unknown_tunnel1EnableTunnelLifecycleControl")
+    private Boolean value_tunnel1EnableTunnelLifecycleControl;
+    private boolean unknown_tunnel1EnableTunnelLifecycleControl;
     public Boolean tunnel1EnableTunnelLifecycleControl() {
-        if (tunnel1EnableTunnelLifecycleControl == null) return null;
-        return tunnel1EnableTunnelLifecycleControl.getValue("VpnConnectionArgs.tunnel1EnableTunnelLifecycleControl");
+        if (!unknown_tunnel1EnableTunnelLifecycleControl) return value_tunnel1EnableTunnelLifecycleControl;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel1EnableTunnelLifecycleControl' is not present");
     }
 
     /**
      * The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
      * 
      */
-    private UndeferrableValue<List<String>> tunnel1IkeVersions;
-
+    @PolicyResourceProperty(name="tunnel1IkeVersions", flag="unknown_tunnel1IkeVersions")
+    private List<String> value_tunnel1IkeVersions;
+    private boolean unknown_tunnel1IkeVersions;
     public List<String> tunnel1IkeVersions() {
-        if (tunnel1IkeVersions == null) return null;
-        return tunnel1IkeVersions.getValue("VpnConnectionArgs.tunnel1IkeVersions");
+        if (!unknown_tunnel1IkeVersions) return value_tunnel1IkeVersions;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel1IkeVersions' is not present");
     }
 
     /**
      * The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
      * 
      */
-    private UndeferrableValue<String> tunnel1InsideCidr;
-
+    @PolicyResourceProperty(name="tunnel1InsideCidr", flag="unknown_tunnel1InsideCidr")
+    private String value_tunnel1InsideCidr;
+    private boolean unknown_tunnel1InsideCidr;
     public String tunnel1InsideCidr() {
-        if (tunnel1InsideCidr == null) return null;
-        return tunnel1InsideCidr.getValue("VpnConnectionArgs.tunnel1InsideCidr");
+        if (!unknown_tunnel1InsideCidr) return value_tunnel1InsideCidr;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel1InsideCidr' is not present");
     }
 
     /**
      * The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      * 
      */
-    private UndeferrableValue<String> tunnel1InsideIpv6Cidr;
-
+    @PolicyResourceProperty(name="tunnel1InsideIpv6Cidr", flag="unknown_tunnel1InsideIpv6Cidr")
+    private String value_tunnel1InsideIpv6Cidr;
+    private boolean unknown_tunnel1InsideIpv6Cidr;
     public String tunnel1InsideIpv6Cidr() {
-        if (tunnel1InsideIpv6Cidr == null) return null;
-        return tunnel1InsideIpv6Cidr.getValue("VpnConnectionArgs.tunnel1InsideIpv6Cidr");
+        if (!unknown_tunnel1InsideIpv6Cidr) return value_tunnel1InsideIpv6Cidr;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel1InsideIpv6Cidr' is not present");
     }
 
     /**
      * Options for logging VPN tunnel activity. See Log Options below for more details.
      * 
      */
-    private UndeferrableValue<VpnConnectionTunnel1LogOptionsArgs> tunnel1LogOptions;
-
+    @PolicyResourceProperty(name="tunnel1LogOptions", flag="unknown_tunnel1LogOptions")
+    private VpnConnectionTunnel1LogOptionsArgs value_tunnel1LogOptions;
+    private boolean unknown_tunnel1LogOptions;
     public VpnConnectionTunnel1LogOptionsArgs tunnel1LogOptions() {
-        if (tunnel1LogOptions == null) return null;
-        return tunnel1LogOptions.getValue("VpnConnectionArgs.tunnel1LogOptions");
+        if (!unknown_tunnel1LogOptions) return value_tunnel1LogOptions;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel1LogOptions' is not present");
     }
 
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
      * 
      */
-    private UndeferrableValue<List<Integer>> tunnel1Phase1DhGroupNumbers;
-
+    @PolicyResourceProperty(name="tunnel1Phase1DhGroupNumbers", flag="unknown_tunnel1Phase1DhGroupNumbers")
+    private List<Integer> value_tunnel1Phase1DhGroupNumbers;
+    private boolean unknown_tunnel1Phase1DhGroupNumbers;
     public List<Integer> tunnel1Phase1DhGroupNumbers() {
-        if (tunnel1Phase1DhGroupNumbers == null) return null;
-        return tunnel1Phase1DhGroupNumbers.getValue("VpnConnectionArgs.tunnel1Phase1DhGroupNumbers");
+        if (!unknown_tunnel1Phase1DhGroupNumbers) return value_tunnel1Phase1DhGroupNumbers;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel1Phase1DhGroupNumbers' is not present");
     }
 
     /**
      * List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
      * 
      */
-    private UndeferrableValue<List<String>> tunnel1Phase1EncryptionAlgorithms;
-
+    @PolicyResourceProperty(name="tunnel1Phase1EncryptionAlgorithms", flag="unknown_tunnel1Phase1EncryptionAlgorithms")
+    private List<String> value_tunnel1Phase1EncryptionAlgorithms;
+    private boolean unknown_tunnel1Phase1EncryptionAlgorithms;
     public List<String> tunnel1Phase1EncryptionAlgorithms() {
-        if (tunnel1Phase1EncryptionAlgorithms == null) return null;
-        return tunnel1Phase1EncryptionAlgorithms.getValue("VpnConnectionArgs.tunnel1Phase1EncryptionAlgorithms");
+        if (!unknown_tunnel1Phase1EncryptionAlgorithms) return value_tunnel1Phase1EncryptionAlgorithms;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel1Phase1EncryptionAlgorithms' is not present");
     }
 
     /**
      * One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
      * 
      */
-    private UndeferrableValue<List<String>> tunnel1Phase1IntegrityAlgorithms;
-
+    @PolicyResourceProperty(name="tunnel1Phase1IntegrityAlgorithms", flag="unknown_tunnel1Phase1IntegrityAlgorithms")
+    private List<String> value_tunnel1Phase1IntegrityAlgorithms;
+    private boolean unknown_tunnel1Phase1IntegrityAlgorithms;
     public List<String> tunnel1Phase1IntegrityAlgorithms() {
-        if (tunnel1Phase1IntegrityAlgorithms == null) return null;
-        return tunnel1Phase1IntegrityAlgorithms.getValue("VpnConnectionArgs.tunnel1Phase1IntegrityAlgorithms");
+        if (!unknown_tunnel1Phase1IntegrityAlgorithms) return value_tunnel1Phase1IntegrityAlgorithms;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel1Phase1IntegrityAlgorithms' is not present");
     }
 
     /**
      * The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
      * 
      */
-    private UndeferrableValue<Integer> tunnel1Phase1LifetimeSeconds;
-
+    @PolicyResourceProperty(name="tunnel1Phase1LifetimeSeconds", flag="unknown_tunnel1Phase1LifetimeSeconds")
+    private Integer value_tunnel1Phase1LifetimeSeconds;
+    private boolean unknown_tunnel1Phase1LifetimeSeconds;
     public Integer tunnel1Phase1LifetimeSeconds() {
-        if (tunnel1Phase1LifetimeSeconds == null) return null;
-        return tunnel1Phase1LifetimeSeconds.getValue("VpnConnectionArgs.tunnel1Phase1LifetimeSeconds");
+        if (!unknown_tunnel1Phase1LifetimeSeconds) return value_tunnel1Phase1LifetimeSeconds;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel1Phase1LifetimeSeconds' is not present");
     }
 
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      * 
      */
-    private UndeferrableValue<List<Integer>> tunnel1Phase2DhGroupNumbers;
-
+    @PolicyResourceProperty(name="tunnel1Phase2DhGroupNumbers", flag="unknown_tunnel1Phase2DhGroupNumbers")
+    private List<Integer> value_tunnel1Phase2DhGroupNumbers;
+    private boolean unknown_tunnel1Phase2DhGroupNumbers;
     public List<Integer> tunnel1Phase2DhGroupNumbers() {
-        if (tunnel1Phase2DhGroupNumbers == null) return null;
-        return tunnel1Phase2DhGroupNumbers.getValue("VpnConnectionArgs.tunnel1Phase2DhGroupNumbers");
+        if (!unknown_tunnel1Phase2DhGroupNumbers) return value_tunnel1Phase2DhGroupNumbers;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel1Phase2DhGroupNumbers' is not present");
     }
 
     /**
      * List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
      * 
      */
-    private UndeferrableValue<List<String>> tunnel1Phase2EncryptionAlgorithms;
-
+    @PolicyResourceProperty(name="tunnel1Phase2EncryptionAlgorithms", flag="unknown_tunnel1Phase2EncryptionAlgorithms")
+    private List<String> value_tunnel1Phase2EncryptionAlgorithms;
+    private boolean unknown_tunnel1Phase2EncryptionAlgorithms;
     public List<String> tunnel1Phase2EncryptionAlgorithms() {
-        if (tunnel1Phase2EncryptionAlgorithms == null) return null;
-        return tunnel1Phase2EncryptionAlgorithms.getValue("VpnConnectionArgs.tunnel1Phase2EncryptionAlgorithms");
+        if (!unknown_tunnel1Phase2EncryptionAlgorithms) return value_tunnel1Phase2EncryptionAlgorithms;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel1Phase2EncryptionAlgorithms' is not present");
     }
 
     /**
      * List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
      * 
      */
-    private UndeferrableValue<List<String>> tunnel1Phase2IntegrityAlgorithms;
-
+    @PolicyResourceProperty(name="tunnel1Phase2IntegrityAlgorithms", flag="unknown_tunnel1Phase2IntegrityAlgorithms")
+    private List<String> value_tunnel1Phase2IntegrityAlgorithms;
+    private boolean unknown_tunnel1Phase2IntegrityAlgorithms;
     public List<String> tunnel1Phase2IntegrityAlgorithms() {
-        if (tunnel1Phase2IntegrityAlgorithms == null) return null;
-        return tunnel1Phase2IntegrityAlgorithms.getValue("VpnConnectionArgs.tunnel1Phase2IntegrityAlgorithms");
+        if (!unknown_tunnel1Phase2IntegrityAlgorithms) return value_tunnel1Phase2IntegrityAlgorithms;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel1Phase2IntegrityAlgorithms' is not present");
     }
 
     /**
      * The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
      * 
      */
-    private UndeferrableValue<Integer> tunnel1Phase2LifetimeSeconds;
-
+    @PolicyResourceProperty(name="tunnel1Phase2LifetimeSeconds", flag="unknown_tunnel1Phase2LifetimeSeconds")
+    private Integer value_tunnel1Phase2LifetimeSeconds;
+    private boolean unknown_tunnel1Phase2LifetimeSeconds;
     public Integer tunnel1Phase2LifetimeSeconds() {
-        if (tunnel1Phase2LifetimeSeconds == null) return null;
-        return tunnel1Phase2LifetimeSeconds.getValue("VpnConnectionArgs.tunnel1Phase2LifetimeSeconds");
+        if (!unknown_tunnel1Phase2LifetimeSeconds) return value_tunnel1Phase2LifetimeSeconds;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel1Phase2LifetimeSeconds' is not present");
     }
 
     /**
      * The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      * 
      */
-    private UndeferrableValue<String> tunnel1PresharedKey;
-
+    @PolicyResourceProperty(name="tunnel1PresharedKey", flag="unknown_tunnel1PresharedKey")
+    private String value_tunnel1PresharedKey;
+    private boolean unknown_tunnel1PresharedKey;
     public String tunnel1PresharedKey() {
-        if (tunnel1PresharedKey == null) return null;
-        return tunnel1PresharedKey.getValue("VpnConnectionArgs.tunnel1PresharedKey");
+        if (!unknown_tunnel1PresharedKey) return value_tunnel1PresharedKey;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel1PresharedKey' is not present");
     }
 
     /**
      * The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      * 
      */
-    private UndeferrableValue<Integer> tunnel1RekeyFuzzPercentage;
-
+    @PolicyResourceProperty(name="tunnel1RekeyFuzzPercentage", flag="unknown_tunnel1RekeyFuzzPercentage")
+    private Integer value_tunnel1RekeyFuzzPercentage;
+    private boolean unknown_tunnel1RekeyFuzzPercentage;
     public Integer tunnel1RekeyFuzzPercentage() {
-        if (tunnel1RekeyFuzzPercentage == null) return null;
-        return tunnel1RekeyFuzzPercentage.getValue("VpnConnectionArgs.tunnel1RekeyFuzzPercentage");
+        if (!unknown_tunnel1RekeyFuzzPercentage) return value_tunnel1RekeyFuzzPercentage;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel1RekeyFuzzPercentage' is not present");
     }
 
     /**
      * The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel1_phase2_lifetime_seconds`.
      * 
      */
-    private UndeferrableValue<Integer> tunnel1RekeyMarginTimeSeconds;
-
+    @PolicyResourceProperty(name="tunnel1RekeyMarginTimeSeconds", flag="unknown_tunnel1RekeyMarginTimeSeconds")
+    private Integer value_tunnel1RekeyMarginTimeSeconds;
+    private boolean unknown_tunnel1RekeyMarginTimeSeconds;
     public Integer tunnel1RekeyMarginTimeSeconds() {
-        if (tunnel1RekeyMarginTimeSeconds == null) return null;
-        return tunnel1RekeyMarginTimeSeconds.getValue("VpnConnectionArgs.tunnel1RekeyMarginTimeSeconds");
+        if (!unknown_tunnel1RekeyMarginTimeSeconds) return value_tunnel1RekeyMarginTimeSeconds;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel1RekeyMarginTimeSeconds' is not present");
     }
 
     /**
      * The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
      * 
      */
-    private UndeferrableValue<Integer> tunnel1ReplayWindowSize;
-
+    @PolicyResourceProperty(name="tunnel1ReplayWindowSize", flag="unknown_tunnel1ReplayWindowSize")
+    private Integer value_tunnel1ReplayWindowSize;
+    private boolean unknown_tunnel1ReplayWindowSize;
     public Integer tunnel1ReplayWindowSize() {
-        if (tunnel1ReplayWindowSize == null) return null;
-        return tunnel1ReplayWindowSize.getValue("VpnConnectionArgs.tunnel1ReplayWindowSize");
+        if (!unknown_tunnel1ReplayWindowSize) return value_tunnel1ReplayWindowSize;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel1ReplayWindowSize' is not present");
     }
 
     /**
      * The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
      * 
      */
-    private UndeferrableValue<String> tunnel1StartupAction;
-
+    @PolicyResourceProperty(name="tunnel1StartupAction", flag="unknown_tunnel1StartupAction")
+    private String value_tunnel1StartupAction;
+    private boolean unknown_tunnel1StartupAction;
     public String tunnel1StartupAction() {
-        if (tunnel1StartupAction == null) return null;
-        return tunnel1StartupAction.getValue("VpnConnectionArgs.tunnel1StartupAction");
+        if (!unknown_tunnel1StartupAction) return value_tunnel1StartupAction;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel1StartupAction' is not present");
     }
 
     /**
      * The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
      * 
      */
-    private UndeferrableValue<String> tunnel2DpdTimeoutAction;
-
+    @PolicyResourceProperty(name="tunnel2DpdTimeoutAction", flag="unknown_tunnel2DpdTimeoutAction")
+    private String value_tunnel2DpdTimeoutAction;
+    private boolean unknown_tunnel2DpdTimeoutAction;
     public String tunnel2DpdTimeoutAction() {
-        if (tunnel2DpdTimeoutAction == null) return null;
-        return tunnel2DpdTimeoutAction.getValue("VpnConnectionArgs.tunnel2DpdTimeoutAction");
+        if (!unknown_tunnel2DpdTimeoutAction) return value_tunnel2DpdTimeoutAction;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel2DpdTimeoutAction' is not present");
     }
 
     /**
      * The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
      * 
      */
-    private UndeferrableValue<Integer> tunnel2DpdTimeoutSeconds;
-
+    @PolicyResourceProperty(name="tunnel2DpdTimeoutSeconds", flag="unknown_tunnel2DpdTimeoutSeconds")
+    private Integer value_tunnel2DpdTimeoutSeconds;
+    private boolean unknown_tunnel2DpdTimeoutSeconds;
     public Integer tunnel2DpdTimeoutSeconds() {
-        if (tunnel2DpdTimeoutSeconds == null) return null;
-        return tunnel2DpdTimeoutSeconds.getValue("VpnConnectionArgs.tunnel2DpdTimeoutSeconds");
+        if (!unknown_tunnel2DpdTimeoutSeconds) return value_tunnel2DpdTimeoutSeconds;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel2DpdTimeoutSeconds' is not present");
     }
 
     /**
      * Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
      * 
      */
-    private UndeferrableValue<Boolean> tunnel2EnableTunnelLifecycleControl;
-
+    @PolicyResourceProperty(name="tunnel2EnableTunnelLifecycleControl", flag="unknown_tunnel2EnableTunnelLifecycleControl")
+    private Boolean value_tunnel2EnableTunnelLifecycleControl;
+    private boolean unknown_tunnel2EnableTunnelLifecycleControl;
     public Boolean tunnel2EnableTunnelLifecycleControl() {
-        if (tunnel2EnableTunnelLifecycleControl == null) return null;
-        return tunnel2EnableTunnelLifecycleControl.getValue("VpnConnectionArgs.tunnel2EnableTunnelLifecycleControl");
+        if (!unknown_tunnel2EnableTunnelLifecycleControl) return value_tunnel2EnableTunnelLifecycleControl;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel2EnableTunnelLifecycleControl' is not present");
     }
 
     /**
      * The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
      * 
      */
-    private UndeferrableValue<List<String>> tunnel2IkeVersions;
-
+    @PolicyResourceProperty(name="tunnel2IkeVersions", flag="unknown_tunnel2IkeVersions")
+    private List<String> value_tunnel2IkeVersions;
+    private boolean unknown_tunnel2IkeVersions;
     public List<String> tunnel2IkeVersions() {
-        if (tunnel2IkeVersions == null) return null;
-        return tunnel2IkeVersions.getValue("VpnConnectionArgs.tunnel2IkeVersions");
+        if (!unknown_tunnel2IkeVersions) return value_tunnel2IkeVersions;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel2IkeVersions' is not present");
     }
 
     /**
      * The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
      * 
      */
-    private UndeferrableValue<String> tunnel2InsideCidr;
-
+    @PolicyResourceProperty(name="tunnel2InsideCidr", flag="unknown_tunnel2InsideCidr")
+    private String value_tunnel2InsideCidr;
+    private boolean unknown_tunnel2InsideCidr;
     public String tunnel2InsideCidr() {
-        if (tunnel2InsideCidr == null) return null;
-        return tunnel2InsideCidr.getValue("VpnConnectionArgs.tunnel2InsideCidr");
+        if (!unknown_tunnel2InsideCidr) return value_tunnel2InsideCidr;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel2InsideCidr' is not present");
     }
 
     /**
      * The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      * 
      */
-    private UndeferrableValue<String> tunnel2InsideIpv6Cidr;
-
+    @PolicyResourceProperty(name="tunnel2InsideIpv6Cidr", flag="unknown_tunnel2InsideIpv6Cidr")
+    private String value_tunnel2InsideIpv6Cidr;
+    private boolean unknown_tunnel2InsideIpv6Cidr;
     public String tunnel2InsideIpv6Cidr() {
-        if (tunnel2InsideIpv6Cidr == null) return null;
-        return tunnel2InsideIpv6Cidr.getValue("VpnConnectionArgs.tunnel2InsideIpv6Cidr");
+        if (!unknown_tunnel2InsideIpv6Cidr) return value_tunnel2InsideIpv6Cidr;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel2InsideIpv6Cidr' is not present");
     }
 
     /**
      * Options for logging VPN tunnel activity. See Log Options below for more details.
      * 
      */
-    private UndeferrableValue<VpnConnectionTunnel2LogOptionsArgs> tunnel2LogOptions;
-
+    @PolicyResourceProperty(name="tunnel2LogOptions", flag="unknown_tunnel2LogOptions")
+    private VpnConnectionTunnel2LogOptionsArgs value_tunnel2LogOptions;
+    private boolean unknown_tunnel2LogOptions;
     public VpnConnectionTunnel2LogOptionsArgs tunnel2LogOptions() {
-        if (tunnel2LogOptions == null) return null;
-        return tunnel2LogOptions.getValue("VpnConnectionArgs.tunnel2LogOptions");
+        if (!unknown_tunnel2LogOptions) return value_tunnel2LogOptions;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel2LogOptions' is not present");
     }
 
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
      * 
      */
-    private UndeferrableValue<List<Integer>> tunnel2Phase1DhGroupNumbers;
-
+    @PolicyResourceProperty(name="tunnel2Phase1DhGroupNumbers", flag="unknown_tunnel2Phase1DhGroupNumbers")
+    private List<Integer> value_tunnel2Phase1DhGroupNumbers;
+    private boolean unknown_tunnel2Phase1DhGroupNumbers;
     public List<Integer> tunnel2Phase1DhGroupNumbers() {
-        if (tunnel2Phase1DhGroupNumbers == null) return null;
-        return tunnel2Phase1DhGroupNumbers.getValue("VpnConnectionArgs.tunnel2Phase1DhGroupNumbers");
+        if (!unknown_tunnel2Phase1DhGroupNumbers) return value_tunnel2Phase1DhGroupNumbers;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel2Phase1DhGroupNumbers' is not present");
     }
 
     /**
      * List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
      * 
      */
-    private UndeferrableValue<List<String>> tunnel2Phase1EncryptionAlgorithms;
-
+    @PolicyResourceProperty(name="tunnel2Phase1EncryptionAlgorithms", flag="unknown_tunnel2Phase1EncryptionAlgorithms")
+    private List<String> value_tunnel2Phase1EncryptionAlgorithms;
+    private boolean unknown_tunnel2Phase1EncryptionAlgorithms;
     public List<String> tunnel2Phase1EncryptionAlgorithms() {
-        if (tunnel2Phase1EncryptionAlgorithms == null) return null;
-        return tunnel2Phase1EncryptionAlgorithms.getValue("VpnConnectionArgs.tunnel2Phase1EncryptionAlgorithms");
+        if (!unknown_tunnel2Phase1EncryptionAlgorithms) return value_tunnel2Phase1EncryptionAlgorithms;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel2Phase1EncryptionAlgorithms' is not present");
     }
 
     /**
      * One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
      * 
      */
-    private UndeferrableValue<List<String>> tunnel2Phase1IntegrityAlgorithms;
-
+    @PolicyResourceProperty(name="tunnel2Phase1IntegrityAlgorithms", flag="unknown_tunnel2Phase1IntegrityAlgorithms")
+    private List<String> value_tunnel2Phase1IntegrityAlgorithms;
+    private boolean unknown_tunnel2Phase1IntegrityAlgorithms;
     public List<String> tunnel2Phase1IntegrityAlgorithms() {
-        if (tunnel2Phase1IntegrityAlgorithms == null) return null;
-        return tunnel2Phase1IntegrityAlgorithms.getValue("VpnConnectionArgs.tunnel2Phase1IntegrityAlgorithms");
+        if (!unknown_tunnel2Phase1IntegrityAlgorithms) return value_tunnel2Phase1IntegrityAlgorithms;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel2Phase1IntegrityAlgorithms' is not present");
     }
 
     /**
      * The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
      * 
      */
-    private UndeferrableValue<Integer> tunnel2Phase1LifetimeSeconds;
-
+    @PolicyResourceProperty(name="tunnel2Phase1LifetimeSeconds", flag="unknown_tunnel2Phase1LifetimeSeconds")
+    private Integer value_tunnel2Phase1LifetimeSeconds;
+    private boolean unknown_tunnel2Phase1LifetimeSeconds;
     public Integer tunnel2Phase1LifetimeSeconds() {
-        if (tunnel2Phase1LifetimeSeconds == null) return null;
-        return tunnel2Phase1LifetimeSeconds.getValue("VpnConnectionArgs.tunnel2Phase1LifetimeSeconds");
+        if (!unknown_tunnel2Phase1LifetimeSeconds) return value_tunnel2Phase1LifetimeSeconds;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel2Phase1LifetimeSeconds' is not present");
     }
 
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      * 
      */
-    private UndeferrableValue<List<Integer>> tunnel2Phase2DhGroupNumbers;
-
+    @PolicyResourceProperty(name="tunnel2Phase2DhGroupNumbers", flag="unknown_tunnel2Phase2DhGroupNumbers")
+    private List<Integer> value_tunnel2Phase2DhGroupNumbers;
+    private boolean unknown_tunnel2Phase2DhGroupNumbers;
     public List<Integer> tunnel2Phase2DhGroupNumbers() {
-        if (tunnel2Phase2DhGroupNumbers == null) return null;
-        return tunnel2Phase2DhGroupNumbers.getValue("VpnConnectionArgs.tunnel2Phase2DhGroupNumbers");
+        if (!unknown_tunnel2Phase2DhGroupNumbers) return value_tunnel2Phase2DhGroupNumbers;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel2Phase2DhGroupNumbers' is not present");
     }
 
     /**
      * List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
      * 
      */
-    private UndeferrableValue<List<String>> tunnel2Phase2EncryptionAlgorithms;
-
+    @PolicyResourceProperty(name="tunnel2Phase2EncryptionAlgorithms", flag="unknown_tunnel2Phase2EncryptionAlgorithms")
+    private List<String> value_tunnel2Phase2EncryptionAlgorithms;
+    private boolean unknown_tunnel2Phase2EncryptionAlgorithms;
     public List<String> tunnel2Phase2EncryptionAlgorithms() {
-        if (tunnel2Phase2EncryptionAlgorithms == null) return null;
-        return tunnel2Phase2EncryptionAlgorithms.getValue("VpnConnectionArgs.tunnel2Phase2EncryptionAlgorithms");
+        if (!unknown_tunnel2Phase2EncryptionAlgorithms) return value_tunnel2Phase2EncryptionAlgorithms;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel2Phase2EncryptionAlgorithms' is not present");
     }
 
     /**
      * List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
      * 
      */
-    private UndeferrableValue<List<String>> tunnel2Phase2IntegrityAlgorithms;
-
+    @PolicyResourceProperty(name="tunnel2Phase2IntegrityAlgorithms", flag="unknown_tunnel2Phase2IntegrityAlgorithms")
+    private List<String> value_tunnel2Phase2IntegrityAlgorithms;
+    private boolean unknown_tunnel2Phase2IntegrityAlgorithms;
     public List<String> tunnel2Phase2IntegrityAlgorithms() {
-        if (tunnel2Phase2IntegrityAlgorithms == null) return null;
-        return tunnel2Phase2IntegrityAlgorithms.getValue("VpnConnectionArgs.tunnel2Phase2IntegrityAlgorithms");
+        if (!unknown_tunnel2Phase2IntegrityAlgorithms) return value_tunnel2Phase2IntegrityAlgorithms;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel2Phase2IntegrityAlgorithms' is not present");
     }
 
     /**
      * The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
      * 
      */
-    private UndeferrableValue<Integer> tunnel2Phase2LifetimeSeconds;
-
+    @PolicyResourceProperty(name="tunnel2Phase2LifetimeSeconds", flag="unknown_tunnel2Phase2LifetimeSeconds")
+    private Integer value_tunnel2Phase2LifetimeSeconds;
+    private boolean unknown_tunnel2Phase2LifetimeSeconds;
     public Integer tunnel2Phase2LifetimeSeconds() {
-        if (tunnel2Phase2LifetimeSeconds == null) return null;
-        return tunnel2Phase2LifetimeSeconds.getValue("VpnConnectionArgs.tunnel2Phase2LifetimeSeconds");
+        if (!unknown_tunnel2Phase2LifetimeSeconds) return value_tunnel2Phase2LifetimeSeconds;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel2Phase2LifetimeSeconds' is not present");
     }
 
     /**
      * The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      * 
      */
-    private UndeferrableValue<String> tunnel2PresharedKey;
-
+    @PolicyResourceProperty(name="tunnel2PresharedKey", flag="unknown_tunnel2PresharedKey")
+    private String value_tunnel2PresharedKey;
+    private boolean unknown_tunnel2PresharedKey;
     public String tunnel2PresharedKey() {
-        if (tunnel2PresharedKey == null) return null;
-        return tunnel2PresharedKey.getValue("VpnConnectionArgs.tunnel2PresharedKey");
+        if (!unknown_tunnel2PresharedKey) return value_tunnel2PresharedKey;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel2PresharedKey' is not present");
     }
 
     /**
      * The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2_rekey_margin_time_seconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      * 
      */
-    private UndeferrableValue<Integer> tunnel2RekeyFuzzPercentage;
-
+    @PolicyResourceProperty(name="tunnel2RekeyFuzzPercentage", flag="unknown_tunnel2RekeyFuzzPercentage")
+    private Integer value_tunnel2RekeyFuzzPercentage;
+    private boolean unknown_tunnel2RekeyFuzzPercentage;
     public Integer tunnel2RekeyFuzzPercentage() {
-        if (tunnel2RekeyFuzzPercentage == null) return null;
-        return tunnel2RekeyFuzzPercentage.getValue("VpnConnectionArgs.tunnel2RekeyFuzzPercentage");
+        if (!unknown_tunnel2RekeyFuzzPercentage) return value_tunnel2RekeyFuzzPercentage;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel2RekeyFuzzPercentage' is not present");
     }
 
     /**
      * The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2_rekey_fuzz_percentage`. Valid value is between `60` and half of `tunnel2_phase2_lifetime_seconds`.
      * 
      */
-    private UndeferrableValue<Integer> tunnel2RekeyMarginTimeSeconds;
-
+    @PolicyResourceProperty(name="tunnel2RekeyMarginTimeSeconds", flag="unknown_tunnel2RekeyMarginTimeSeconds")
+    private Integer value_tunnel2RekeyMarginTimeSeconds;
+    private boolean unknown_tunnel2RekeyMarginTimeSeconds;
     public Integer tunnel2RekeyMarginTimeSeconds() {
-        if (tunnel2RekeyMarginTimeSeconds == null) return null;
-        return tunnel2RekeyMarginTimeSeconds.getValue("VpnConnectionArgs.tunnel2RekeyMarginTimeSeconds");
+        if (!unknown_tunnel2RekeyMarginTimeSeconds) return value_tunnel2RekeyMarginTimeSeconds;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel2RekeyMarginTimeSeconds' is not present");
     }
 
     /**
      * The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
      * 
      */
-    private UndeferrableValue<Integer> tunnel2ReplayWindowSize;
-
+    @PolicyResourceProperty(name="tunnel2ReplayWindowSize", flag="unknown_tunnel2ReplayWindowSize")
+    private Integer value_tunnel2ReplayWindowSize;
+    private boolean unknown_tunnel2ReplayWindowSize;
     public Integer tunnel2ReplayWindowSize() {
-        if (tunnel2ReplayWindowSize == null) return null;
-        return tunnel2ReplayWindowSize.getValue("VpnConnectionArgs.tunnel2ReplayWindowSize");
+        if (!unknown_tunnel2ReplayWindowSize) return value_tunnel2ReplayWindowSize;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel2ReplayWindowSize' is not present");
     }
 
     /**
      * The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
      * 
      */
-    private UndeferrableValue<String> tunnel2StartupAction;
-
+    @PolicyResourceProperty(name="tunnel2StartupAction", flag="unknown_tunnel2StartupAction")
+    private String value_tunnel2StartupAction;
+    private boolean unknown_tunnel2StartupAction;
     public String tunnel2StartupAction() {
-        if (tunnel2StartupAction == null) return null;
-        return tunnel2StartupAction.getValue("VpnConnectionArgs.tunnel2StartupAction");
+        if (!unknown_tunnel2StartupAction) return value_tunnel2StartupAction;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnel2StartupAction' is not present");
     }
 
     /**
      * Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
      * 
      */
-    private UndeferrableValue<String> tunnelInsideIpVersion;
-
+    @PolicyResourceProperty(name="tunnelInsideIpVersion", flag="unknown_tunnelInsideIpVersion")
+    private String value_tunnelInsideIpVersion;
+    private boolean unknown_tunnelInsideIpVersion;
     public String tunnelInsideIpVersion() {
-        if (tunnelInsideIpVersion == null) return null;
-        return tunnelInsideIpVersion.getValue("VpnConnectionArgs.tunnelInsideIpVersion");
+        if (!unknown_tunnelInsideIpVersion) return value_tunnelInsideIpVersion;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.tunnelInsideIpVersion' is not present");
     }
 
     /**
      * The type of VPN connection. The only type AWS supports at this time is &#34;ipsec.1&#34;.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("VpnConnectionArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.type' is not present");
     }
 
     /**
      * The ID of the Virtual Private Gateway.
      * 
      */
-    private UndeferrableValue<String> vpnGatewayId;
-
+    @PolicyResourceProperty(name="vpnGatewayId", flag="unknown_vpnGatewayId")
+    private String value_vpnGatewayId;
+    private boolean unknown_vpnGatewayId;
     public String vpnGatewayId() {
-        if (vpnGatewayId == null) return null;
-        return vpnGatewayId.getValue("VpnConnectionArgs.vpnGatewayId");
+        if (!unknown_vpnGatewayId) return value_vpnGatewayId;
+        throw new UndeferrableValueException("Value 'VpnConnectionArgs.vpnGatewayId' is not present");
     }
 
 }

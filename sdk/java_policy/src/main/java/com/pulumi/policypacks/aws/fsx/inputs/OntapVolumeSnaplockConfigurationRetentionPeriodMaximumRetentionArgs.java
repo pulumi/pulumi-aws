@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetenti
      * The type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE`, the files are retained forever. If you set it to `UNSPECIFIED`, the files are retained until you set an explicit retention period. Valid values: `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `INFINITE`, `UNSPECIFIED`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs.type' is not present");
     }
 
     /**
      * The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
      * 
      */
-    private UndeferrableValue<Integer> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private Integer value_value;
+    private boolean unknown_value;
     public Integer value() {
-        if (value == null) return null;
-        return value.getValue("OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs.value' is not present");
     }
 
 }

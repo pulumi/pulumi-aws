@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBat
      * Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs.type' is not present");
     }
 
     /**
      * Defines the capacity size, either as a number of instances or a capacity percentage.
      * 
      */
-    private UndeferrableValue<Integer> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private Integer value_value;
+    private boolean unknown_value;
     public Integer value() {
-        if (value == null) return null;
-        return value.getValue("EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs.value' is not present");
     }
 
 }

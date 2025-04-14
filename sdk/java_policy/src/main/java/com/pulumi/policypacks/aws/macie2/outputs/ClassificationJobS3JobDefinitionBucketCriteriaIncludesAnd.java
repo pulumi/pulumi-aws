@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.macie2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.macie2.outputs.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion;
 import com.pulumi.policypacks.aws.macie2.outputs.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd {
      * A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
      * 
      */
-    private @Nullable UndeferrableValue<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion> simpleCriterion;
-
+    @PolicyResourceProperty(name="simpleCriterion", flag="unknown_simpleCriterion")
+    private @Nullable ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion value_simpleCriterion;
+    private boolean unknown_simpleCriterion;
     public @Nullable ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion simpleCriterion() {
-        if (simpleCriterion == null) return null;
-        return simpleCriterion.getValue("ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd.simpleCriterion");
+        if (!unknown_simpleCriterion) return value_simpleCriterion;
+        throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd.simpleCriterion' is not present");
     }
 
     /**
      * A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
      * 
      */
-    private @Nullable UndeferrableValue<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion> tagCriterion;
-
+    @PolicyResourceProperty(name="tagCriterion", flag="unknown_tagCriterion")
+    private @Nullable ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion value_tagCriterion;
+    private boolean unknown_tagCriterion;
     public @Nullable ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion tagCriterion() {
-        if (tagCriterion == null) return null;
-        return tagCriterion.getValue("ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd.tagCriterion");
+        if (!unknown_tagCriterion) return value_tagCriterion;
+        throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd.tagCriterion' is not present");
     }
 
 }

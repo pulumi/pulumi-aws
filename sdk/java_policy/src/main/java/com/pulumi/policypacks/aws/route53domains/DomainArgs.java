@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53domains;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.route53domains.inputs.DomainAdminContactArgs;
 import com.pulumi.policypacks.aws.route53domains.inputs.DomainBillingContactArgs;
@@ -26,161 +27,176 @@ public final class DomainArgs extends com.pulumi.resources.PolicyResourceInput {
      * Details about the domain administrative contact. See Contact Blocks for more details.
      * 
      */
-    private UndeferrableValue<DomainAdminContactArgs> adminContact;
-
+    @PolicyResourceProperty(name="adminContact", flag="unknown_adminContact")
+    private DomainAdminContactArgs value_adminContact;
+    private boolean unknown_adminContact;
     public DomainAdminContactArgs adminContact() {
-        if (adminContact == null) return null;
-        return adminContact.getValue("DomainArgs.adminContact");
+        if (!unknown_adminContact) return value_adminContact;
+        throw new UndeferrableValueException("Value 'DomainArgs.adminContact' is not present");
     }
 
     /**
      * Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
      * 
      */
-    private UndeferrableValue<Boolean> adminPrivacy;
-
+    @PolicyResourceProperty(name="adminPrivacy", flag="unknown_adminPrivacy")
+    private Boolean value_adminPrivacy;
+    private boolean unknown_adminPrivacy;
     public Boolean adminPrivacy() {
-        if (adminPrivacy == null) return null;
-        return adminPrivacy.getValue("DomainArgs.adminPrivacy");
+        if (!unknown_adminPrivacy) return value_adminPrivacy;
+        throw new UndeferrableValueException("Value 'DomainArgs.adminPrivacy' is not present");
     }
 
     /**
      * Whether the domain registration is set to renew automatically. Default: `true`.
      * 
      */
-    private UndeferrableValue<Boolean> autoRenew;
-
+    @PolicyResourceProperty(name="autoRenew", flag="unknown_autoRenew")
+    private Boolean value_autoRenew;
+    private boolean unknown_autoRenew;
     public Boolean autoRenew() {
-        if (autoRenew == null) return null;
-        return autoRenew.getValue("DomainArgs.autoRenew");
+        if (!unknown_autoRenew) return value_autoRenew;
+        throw new UndeferrableValueException("Value 'DomainArgs.autoRenew' is not present");
     }
 
     /**
      * Details about the domain billing contact. See Contact Blocks for more details.
      * 
      */
-    private UndeferrableValue<List<DomainBillingContactArgs>> billingContacts;
-
+    @PolicyResourceProperty(name="billingContacts", flag="unknown_billingContacts")
+    private List<DomainBillingContactArgs> value_billingContacts;
+    private boolean unknown_billingContacts;
     public List<DomainBillingContactArgs> billingContacts() {
-        if (billingContacts == null) return null;
-        return billingContacts.getValue("DomainArgs.billingContacts");
+        if (!unknown_billingContacts) return value_billingContacts;
+        throw new UndeferrableValueException("Value 'DomainArgs.billingContacts' is not present");
     }
 
     /**
      * Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
      * 
      */
-    private UndeferrableValue<Boolean> billingPrivacy;
-
+    @PolicyResourceProperty(name="billingPrivacy", flag="unknown_billingPrivacy")
+    private Boolean value_billingPrivacy;
+    private boolean unknown_billingPrivacy;
     public Boolean billingPrivacy() {
-        if (billingPrivacy == null) return null;
-        return billingPrivacy.getValue("DomainArgs.billingPrivacy");
+        if (!unknown_billingPrivacy) return value_billingPrivacy;
+        throw new UndeferrableValueException("Value 'DomainArgs.billingPrivacy' is not present");
     }
 
     /**
      * The name of the domain.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("DomainArgs.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'DomainArgs.domainName' is not present");
     }
 
     /**
      * The number of years that you want to register the domain for. Domains are registered for a minimum of one year. Increasing the duration renews the domain.
      * 
      */
-    private UndeferrableValue<Integer> durationInYears;
-
+    @PolicyResourceProperty(name="durationInYears", flag="unknown_durationInYears")
+    private Integer value_durationInYears;
+    private boolean unknown_durationInYears;
     public Integer durationInYears() {
-        if (durationInYears == null) return null;
-        return durationInYears.getValue("DomainArgs.durationInYears");
+        if (!unknown_durationInYears) return value_durationInYears;
+        throw new UndeferrableValueException("Value 'DomainArgs.durationInYears' is not present");
     }
 
     /**
      * The list of nameservers for the domain. See `name_server` Blocks for more details.
      * 
      */
-    private UndeferrableValue<List<DomainNameServerArgs>> nameServers;
-
+    @PolicyResourceProperty(name="nameServers", flag="unknown_nameServers")
+    private List<DomainNameServerArgs> value_nameServers;
+    private boolean unknown_nameServers;
     public List<DomainNameServerArgs> nameServers() {
-        if (nameServers == null) return null;
-        return nameServers.getValue("DomainArgs.nameServers");
+        if (!unknown_nameServers) return value_nameServers;
+        throw new UndeferrableValueException("Value 'DomainArgs.nameServers' is not present");
     }
 
     /**
      * Details about the domain registrant. See Contact Blocks for more details.
      * 
      */
-    private UndeferrableValue<DomainRegistrantContactArgs> registrantContact;
-
+    @PolicyResourceProperty(name="registrantContact", flag="unknown_registrantContact")
+    private DomainRegistrantContactArgs value_registrantContact;
+    private boolean unknown_registrantContact;
     public DomainRegistrantContactArgs registrantContact() {
-        if (registrantContact == null) return null;
-        return registrantContact.getValue("DomainArgs.registrantContact");
+        if (!unknown_registrantContact) return value_registrantContact;
+        throw new UndeferrableValueException("Value 'DomainArgs.registrantContact' is not present");
     }
 
     /**
      * Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
      * 
      */
-    private UndeferrableValue<Boolean> registrantPrivacy;
-
+    @PolicyResourceProperty(name="registrantPrivacy", flag="unknown_registrantPrivacy")
+    private Boolean value_registrantPrivacy;
+    private boolean unknown_registrantPrivacy;
     public Boolean registrantPrivacy() {
-        if (registrantPrivacy == null) return null;
-        return registrantPrivacy.getValue("DomainArgs.registrantPrivacy");
+        if (!unknown_registrantPrivacy) return value_registrantPrivacy;
+        throw new UndeferrableValueException("Value 'DomainArgs.registrantPrivacy' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DomainArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DomainArgs.tags' is not present");
     }
 
     /**
      * Details about the domain technical contact. See Contact Blocks for more details.
      * 
      */
-    private UndeferrableValue<DomainTechContactArgs> techContact;
-
+    @PolicyResourceProperty(name="techContact", flag="unknown_techContact")
+    private DomainTechContactArgs value_techContact;
+    private boolean unknown_techContact;
     public DomainTechContactArgs techContact() {
-        if (techContact == null) return null;
-        return techContact.getValue("DomainArgs.techContact");
+        if (!unknown_techContact) return value_techContact;
+        throw new UndeferrableValueException("Value 'DomainArgs.techContact' is not present");
     }
 
     /**
      * Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
      * 
      */
-    private UndeferrableValue<Boolean> techPrivacy;
-
+    @PolicyResourceProperty(name="techPrivacy", flag="unknown_techPrivacy")
+    private Boolean value_techPrivacy;
+    private boolean unknown_techPrivacy;
     public Boolean techPrivacy() {
-        if (techPrivacy == null) return null;
-        return techPrivacy.getValue("DomainArgs.techPrivacy");
+        if (!unknown_techPrivacy) return value_techPrivacy;
+        throw new UndeferrableValueException("Value 'DomainArgs.techPrivacy' is not present");
     }
 
-    private UndeferrableValue<DomainTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private DomainTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public DomainTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("DomainArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'DomainArgs.timeouts' is not present");
     }
 
     /**
      * Whether the domain is locked for transfer. Default: `true`.
      * 
      */
-    private UndeferrableValue<Boolean> transferLock;
-
+    @PolicyResourceProperty(name="transferLock", flag="unknown_transferLock")
+    private Boolean value_transferLock;
+    private boolean unknown_transferLock;
     public Boolean transferLock() {
-        if (transferLock == null) return null;
-        return transferLock.getValue("DomainArgs.transferLock");
+        if (!unknown_transferLock) return value_transferLock;
+        throw new UndeferrableValueException("Value 'DomainArgs.transferLock' is not present");
     }
 
 }

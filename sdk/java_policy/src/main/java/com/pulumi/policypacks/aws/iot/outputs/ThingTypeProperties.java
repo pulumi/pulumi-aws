@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ThingTypeProperties {
      * The description of the thing type.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ThingTypeProperties.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ThingTypeProperties.description' is not present");
     }
 
     /**
      * A list of searchable thing attribute names.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> searchableAttributes;
-
+    @PolicyResourceProperty(name="searchableAttributes", flag="unknown_searchableAttributes")
+    private @Nullable List<String> value_searchableAttributes;
+    private boolean unknown_searchableAttributes;
     public @Nullable List<String> searchableAttributes() {
-        if (searchableAttributes == null) return null;
-        return searchableAttributes.getValue("ThingTypeProperties.searchableAttributes");
+        if (!unknown_searchableAttributes) return value_searchableAttributes;
+        throw new UndeferrableValueException("Value 'ThingTypeProperties.searchableAttributes' is not present");
     }
 
 }

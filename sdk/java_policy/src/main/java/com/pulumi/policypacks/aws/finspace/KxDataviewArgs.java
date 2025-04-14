@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.finspace;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.finspace.inputs.KxDataviewSegmentConfigurationArgs;
 import java.lang.Boolean;
@@ -20,22 +21,24 @@ public final class KxDataviewArgs extends com.pulumi.resources.PolicyResourceInp
      * The option to specify whether you want to apply all the future additions and corrections automatically to the dataview, when you ingest new changesets. The default value is false.
      * 
      */
-    private UndeferrableValue<Boolean> autoUpdate;
-
+    @PolicyResourceProperty(name="autoUpdate", flag="unknown_autoUpdate")
+    private Boolean value_autoUpdate;
+    private boolean unknown_autoUpdate;
     public Boolean autoUpdate() {
-        if (autoUpdate == null) return null;
-        return autoUpdate.getValue("KxDataviewArgs.autoUpdate");
+        if (!unknown_autoUpdate) return value_autoUpdate;
+        throw new UndeferrableValueException("Value 'KxDataviewArgs.autoUpdate' is not present");
     }
 
     /**
      * The identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
      * 
      */
-    private UndeferrableValue<String> availabilityZoneId;
-
+    @PolicyResourceProperty(name="availabilityZoneId", flag="unknown_availabilityZoneId")
+    private String value_availabilityZoneId;
+    private boolean unknown_availabilityZoneId;
     public String availabilityZoneId() {
-        if (availabilityZoneId == null) return null;
-        return availabilityZoneId.getValue("KxDataviewArgs.availabilityZoneId");
+        if (!unknown_availabilityZoneId) return value_availabilityZoneId;
+        throw new UndeferrableValueException("Value 'KxDataviewArgs.availabilityZoneId' is not present");
     }
 
     /**
@@ -44,55 +47,60 @@ public final class KxDataviewArgs extends com.pulumi.resources.PolicyResourceInp
      * * `MULTI` - Assigns all the availability zones per cluster.
      * 
      */
-    private UndeferrableValue<String> azMode;
-
+    @PolicyResourceProperty(name="azMode", flag="unknown_azMode")
+    private String value_azMode;
+    private boolean unknown_azMode;
     public String azMode() {
-        if (azMode == null) return null;
-        return azMode.getValue("KxDataviewArgs.azMode");
+        if (!unknown_azMode) return value_azMode;
+        throw new UndeferrableValueException("Value 'KxDataviewArgs.azMode' is not present");
     }
 
     /**
      * A unique identifier of the changeset of the database that you want to use to ingest data.
      * 
      */
-    private UndeferrableValue<String> changesetId;
-
+    @PolicyResourceProperty(name="changesetId", flag="unknown_changesetId")
+    private String value_changesetId;
+    private boolean unknown_changesetId;
     public String changesetId() {
-        if (changesetId == null) return null;
-        return changesetId.getValue("KxDataviewArgs.changesetId");
+        if (!unknown_changesetId) return value_changesetId;
+        throw new UndeferrableValueException("Value 'KxDataviewArgs.changesetId' is not present");
     }
 
     /**
      * The name of the database where you want to create a dataview.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("KxDataviewArgs.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'KxDataviewArgs.databaseName' is not present");
     }
 
     /**
      * A description for the dataview.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("KxDataviewArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'KxDataviewArgs.description' is not present");
     }
 
     /**
      * Unique identifier for the KX environment.
      * 
      */
-    private UndeferrableValue<String> environmentId;
-
+    @PolicyResourceProperty(name="environmentId", flag="unknown_environmentId")
+    private String value_environmentId;
+    private boolean unknown_environmentId;
     public String environmentId() {
-        if (environmentId == null) return null;
-        return environmentId.getValue("KxDataviewArgs.environmentId");
+        if (!unknown_environmentId) return value_environmentId;
+        throw new UndeferrableValueException("Value 'KxDataviewArgs.environmentId' is not present");
     }
 
     /**
@@ -101,11 +109,12 @@ public final class KxDataviewArgs extends com.pulumi.resources.PolicyResourceInp
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("KxDataviewArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'KxDataviewArgs.name' is not present");
     }
 
     /**
@@ -115,33 +124,36 @@ public final class KxDataviewArgs extends com.pulumi.resources.PolicyResourceInp
      * * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
      * 
      */
-    private UndeferrableValue<Boolean> readWrite;
-
+    @PolicyResourceProperty(name="readWrite", flag="unknown_readWrite")
+    private Boolean value_readWrite;
+    private boolean unknown_readWrite;
     public Boolean readWrite() {
-        if (readWrite == null) return null;
-        return readWrite.getValue("KxDataviewArgs.readWrite");
+        if (!unknown_readWrite) return value_readWrite;
+        throw new UndeferrableValueException("Value 'KxDataviewArgs.readWrite' is not present");
     }
 
     /**
      * The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
      * 
      */
-    private UndeferrableValue<List<KxDataviewSegmentConfigurationArgs>> segmentConfigurations;
-
+    @PolicyResourceProperty(name="segmentConfigurations", flag="unknown_segmentConfigurations")
+    private List<KxDataviewSegmentConfigurationArgs> value_segmentConfigurations;
+    private boolean unknown_segmentConfigurations;
     public List<KxDataviewSegmentConfigurationArgs> segmentConfigurations() {
-        if (segmentConfigurations == null) return null;
-        return segmentConfigurations.getValue("KxDataviewArgs.segmentConfigurations");
+        if (!unknown_segmentConfigurations) return value_segmentConfigurations;
+        throw new UndeferrableValueException("Value 'KxDataviewArgs.segmentConfigurations' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("KxDataviewArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'KxDataviewArgs.tags' is not present");
     }
 
 }

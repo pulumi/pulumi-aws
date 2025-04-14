@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transcribe;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,44 +19,48 @@ public final class VocabularyFilter extends com.pulumi.resources.PolicyResourceO
      * ARN of the VocabularyFilter.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("VocabularyFilter.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'VocabularyFilter.arn' is not present");
     }
 
     /**
      * Generated download URI.
      * 
      */
-    private UndeferrableValue<String> downloadUri;
-
+    @PolicyResourceProperty(name="downloadUri", flag="unknown_downloadUri")
+    private String value_downloadUri;
+    private boolean unknown_downloadUri;
     public String downloadUri() {
-        if (downloadUri == null) return null;
-        return downloadUri.getValue("VocabularyFilter.downloadUri");
+        if (!unknown_downloadUri) return value_downloadUri;
+        throw new UndeferrableValueException("Value 'VocabularyFilter.downloadUri' is not present");
     }
 
     /**
      * The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
      * 
      */
-    private UndeferrableValue<String> languageCode;
-
+    @PolicyResourceProperty(name="languageCode", flag="unknown_languageCode")
+    private String value_languageCode;
+    private boolean unknown_languageCode;
     public String languageCode() {
-        if (languageCode == null) return null;
-        return languageCode.getValue("VocabularyFilter.languageCode");
+        if (!unknown_languageCode) return value_languageCode;
+        throw new UndeferrableValueException("Value 'VocabularyFilter.languageCode' is not present");
     }
 
     /**
      * A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VocabularyFilter.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VocabularyFilter.tags' is not present");
     }
 
     /**
@@ -64,22 +69,24 @@ public final class VocabularyFilter extends com.pulumi.resources.PolicyResourceO
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("VocabularyFilter.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'VocabularyFilter.tagsAll' is not present");
     }
 
     /**
      * The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
      * 
      */
-    private @Nullable UndeferrableValue<String> vocabularyFilterFileUri;
-
+    @PolicyResourceProperty(name="vocabularyFilterFileUri", flag="unknown_vocabularyFilterFileUri")
+    private @Nullable String value_vocabularyFilterFileUri;
+    private boolean unknown_vocabularyFilterFileUri;
     public @Nullable String vocabularyFilterFileUri() {
-        if (vocabularyFilterFileUri == null) return null;
-        return vocabularyFilterFileUri.getValue("VocabularyFilter.vocabularyFilterFileUri");
+        if (!unknown_vocabularyFilterFileUri) return value_vocabularyFilterFileUri;
+        throw new UndeferrableValueException("Value 'VocabularyFilter.vocabularyFilterFileUri' is not present");
     }
 
     /**
@@ -88,22 +95,24 @@ public final class VocabularyFilter extends com.pulumi.resources.PolicyResourceO
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> vocabularyFilterName;
-
+    @PolicyResourceProperty(name="vocabularyFilterName", flag="unknown_vocabularyFilterName")
+    private String value_vocabularyFilterName;
+    private boolean unknown_vocabularyFilterName;
     public String vocabularyFilterName() {
-        if (vocabularyFilterName == null) return null;
-        return vocabularyFilterName.getValue("VocabularyFilter.vocabularyFilterName");
+        if (!unknown_vocabularyFilterName) return value_vocabularyFilterName;
+        throw new UndeferrableValueException("Value 'VocabularyFilter.vocabularyFilterName' is not present");
     }
 
     /**
      * A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> words;
-
+    @PolicyResourceProperty(name="words", flag="unknown_words")
+    private @Nullable List<String> value_words;
+    private boolean unknown_words;
     public @Nullable List<String> words() {
-        if (words == null) return null;
-        return words.getValue("VocabularyFilter.words");
+        if (!unknown_words) return value_words;
+        throw new UndeferrableValueException("Value 'VocabularyFilter.words' is not present");
     }
 
 }

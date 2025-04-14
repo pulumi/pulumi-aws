@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.budgets.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class BudgetActionDefinitionIamActionDefinition {
      * A list of groups to be attached. There must be at least one group.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> groups;
-
+    @PolicyResourceProperty(name="groups", flag="unknown_groups")
+    private @Nullable List<String> value_groups;
+    private boolean unknown_groups;
     public @Nullable List<String> groups() {
-        if (groups == null) return null;
-        return groups.getValue("BudgetActionDefinitionIamActionDefinition.groups");
+        if (!unknown_groups) return value_groups;
+        throw new UndeferrableValueException("Value 'BudgetActionDefinitionIamActionDefinition.groups' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the policy to be attached.
      * 
      */
-    private UndeferrableValue<String> policyArn;
-
+    @PolicyResourceProperty(name="policyArn", flag="unknown_policyArn")
+    private String value_policyArn;
+    private boolean unknown_policyArn;
     public String policyArn() {
-        if (policyArn == null) return null;
-        return policyArn.getValue("BudgetActionDefinitionIamActionDefinition.policyArn");
+        if (!unknown_policyArn) return value_policyArn;
+        throw new UndeferrableValueException("Value 'BudgetActionDefinitionIamActionDefinition.policyArn' is not present");
     }
 
     /**
      * A list of roles to be attached. There must be at least one role.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> roles;
-
+    @PolicyResourceProperty(name="roles", flag="unknown_roles")
+    private @Nullable List<String> value_roles;
+    private boolean unknown_roles;
     public @Nullable List<String> roles() {
-        if (roles == null) return null;
-        return roles.getValue("BudgetActionDefinitionIamActionDefinition.roles");
+        if (!unknown_roles) return value_roles;
+        throw new UndeferrableValueException("Value 'BudgetActionDefinitionIamActionDefinition.roles' is not present");
     }
 
     /**
      * A list of users to be attached. There must be at least one user.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> users;
-
+    @PolicyResourceProperty(name="users", flag="unknown_users")
+    private @Nullable List<String> value_users;
+    private boolean unknown_users;
     public @Nullable List<String> users() {
-        if (users == null) return null;
-        return users.getValue("BudgetActionDefinitionIamActionDefinition.users");
+        if (!unknown_users) return value_users;
+        throw new UndeferrableValueException("Value 'BudgetActionDefinitionIamActionDefinition.users' is not present");
     }
 
 }

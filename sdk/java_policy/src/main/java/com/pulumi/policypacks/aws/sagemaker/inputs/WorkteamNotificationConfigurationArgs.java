@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class WorkteamNotificationConfigurationArgs {
      * The ARN for the SNS topic to which notifications should be published.
      * 
      */
-    private UndeferrableValue<String> notificationTopicArn;
-
+    @PolicyResourceProperty(name="notificationTopicArn", flag="unknown_notificationTopicArn")
+    private String value_notificationTopicArn;
+    private boolean unknown_notificationTopicArn;
     public String notificationTopicArn() {
-        if (notificationTopicArn == null) return null;
-        return notificationTopicArn.getValue("WorkteamNotificationConfigurationArgs.notificationTopicArn");
+        if (!unknown_notificationTopicArn) return value_notificationTopicArn;
+        throw new UndeferrableValueException("Value 'WorkteamNotificationConfigurationArgs.notificationTopicArn' is not present");
     }
 
 }

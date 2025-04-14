@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class CidrCollection extends com.pulumi.resources.PolicyResourceOut
      * The Amazon Resource Name (ARN) of the CIDR collection.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("CidrCollection.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'CidrCollection.arn' is not present");
     }
 
     /**
      * Unique name for the CIDR collection.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("CidrCollection.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'CidrCollection.name' is not present");
     }
 
     /**
      * The lastest version of the CIDR collection.
      * 
      */
-    private UndeferrableValue<Integer> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private Integer value_version;
+    private boolean unknown_version;
     public Integer version() {
-        if (version == null) return null;
-        return version.getValue("CidrCollection.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'CidrCollection.version' is not present");
     }
 
 }

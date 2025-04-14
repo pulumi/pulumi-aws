@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,29 +15,32 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
      * The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
      * 
      */
-    private UndeferrableValue<String> authCodeUrl;
-
+    @PolicyResourceProperty(name="authCodeUrl", flag="unknown_authCodeUrl")
+    private String value_authCodeUrl;
+    private boolean unknown_authCodeUrl;
     public String authCodeUrl() {
-        if (authCodeUrl == null) return null;
-        return authCodeUrl.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties.authCodeUrl");
+        if (!unknown_authCodeUrl) return value_authCodeUrl;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties.authCodeUrl' is not present");
     }
 
     /**
      * The OAuth scopes required for OAuth type authentication.
      * 
      */
-    private UndeferrableValue<List<String>> oauthScopes;
-
+    @PolicyResourceProperty(name="oauthScopes", flag="unknown_oauthScopes")
+    private List<String> value_oauthScopes;
+    private boolean unknown_oauthScopes;
     public List<String> oauthScopes() {
-        if (oauthScopes == null) return null;
-        return oauthScopes.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties.oauthScopes");
+        if (!unknown_oauthScopes) return value_oauthScopes;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties.oauthScopes' is not present");
     }
 
-    private UndeferrableValue<String> tokenUrl;
-
+    @PolicyResourceProperty(name="tokenUrl", flag="unknown_tokenUrl")
+    private String value_tokenUrl;
+    private boolean unknown_tokenUrl;
     public String tokenUrl() {
-        if (tokenUrl == null) return null;
-        return tokenUrl.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties.tokenUrl");
+        if (!unknown_tokenUrl) return value_tokenUrl;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties.tokenUrl' is not present");
     }
 
 }

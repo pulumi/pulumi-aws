@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kendra.inputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs;
 import com.pulumi.policypacks.aws.kendra.inputs.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs;
 import com.pulumi.policypacks.aws.kendra.inputs.DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs;
@@ -18,44 +19,48 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationArgs {
      * Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra. Minimum number of `0` items. Maximum number of `100` items. Detailed below.
      * 
      */
-    private UndeferrableValue<List<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs>> inlineConfigurations;
-
+    @PolicyResourceProperty(name="inlineConfigurations", flag="unknown_inlineConfigurations")
+    private List<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs> value_inlineConfigurations;
+    private boolean unknown_inlineConfigurations;
     public List<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs> inlineConfigurations() {
-        if (inlineConfigurations == null) return null;
-        return inlineConfigurations.getValue("DataSourceCustomDocumentEnrichmentConfigurationArgs.inlineConfigurations");
+        if (!unknown_inlineConfigurations) return value_inlineConfigurations;
+        throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationArgs.inlineConfigurations' is not present");
     }
 
     /**
      * A block that specifies the configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
      * 
      */
-    private UndeferrableValue<DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs> postExtractionHookConfiguration;
-
+    @PolicyResourceProperty(name="postExtractionHookConfiguration", flag="unknown_postExtractionHookConfiguration")
+    private DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs value_postExtractionHookConfiguration;
+    private boolean unknown_postExtractionHookConfiguration;
     public DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs postExtractionHookConfiguration() {
-        if (postExtractionHookConfiguration == null) return null;
-        return postExtractionHookConfiguration.getValue("DataSourceCustomDocumentEnrichmentConfigurationArgs.postExtractionHookConfiguration");
+        if (!unknown_postExtractionHookConfiguration) return value_postExtractionHookConfiguration;
+        throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationArgs.postExtractionHookConfiguration' is not present");
     }
 
     /**
      * Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
      * 
      */
-    private UndeferrableValue<DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs> preExtractionHookConfiguration;
-
+    @PolicyResourceProperty(name="preExtractionHookConfiguration", flag="unknown_preExtractionHookConfiguration")
+    private DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs value_preExtractionHookConfiguration;
+    private boolean unknown_preExtractionHookConfiguration;
     public DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs preExtractionHookConfiguration() {
-        if (preExtractionHookConfiguration == null) return null;
-        return preExtractionHookConfiguration.getValue("DataSourceCustomDocumentEnrichmentConfigurationArgs.preExtractionHookConfiguration");
+        if (!unknown_preExtractionHookConfiguration) return value_preExtractionHookConfiguration;
+        throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationArgs.preExtractionHookConfiguration' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of a role with permission to run `pre_extraction_hook_configuration` and `post_extraction_hook_configuration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("DataSourceCustomDocumentEnrichmentConfigurationArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationArgs.roleArn' is not present");
     }
 
 }

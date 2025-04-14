@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ClusterClientAuthenticationTlsArgs {
      * List of ACM Certificate Authority Amazon Resource Names (ARNs).
      * 
      */
-    private UndeferrableValue<List<String>> certificateAuthorityArns;
-
+    @PolicyResourceProperty(name="certificateAuthorityArns", flag="unknown_certificateAuthorityArns")
+    private List<String> value_certificateAuthorityArns;
+    private boolean unknown_certificateAuthorityArns;
     public List<String> certificateAuthorityArns() {
-        if (certificateAuthorityArns == null) return null;
-        return certificateAuthorityArns.getValue("ClusterClientAuthenticationTlsArgs.certificateAuthorityArns");
+        if (!unknown_certificateAuthorityArns) return value_certificateAuthorityArns;
+        throw new UndeferrableValueException("Value 'ClusterClientAuthenticationTlsArgs.certificateAuthorityArns' is not present");
     }
 
 }

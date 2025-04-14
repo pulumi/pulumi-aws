@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.securityhub.inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs;
 import com.pulumi.policypacks.aws.securityhub.inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs;
 import com.pulumi.policypacks.aws.securityhub.inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs;
@@ -22,110 +23,120 @@ public final class ConfigurationPolicyConfigurationPolicySecurityControlsConfigu
      * The bool `value` for a Boolean-typed Security Hub Control Parameter.
      * 
      */
-    private UndeferrableValue<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs> bool;
-
+    @PolicyResourceProperty(name="bool", flag="unknown_bool")
+    private ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs value_bool;
+    private boolean unknown_bool;
     public ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs bool() {
-        if (bool == null) return null;
-        return bool.getValue("ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.bool");
+        if (!unknown_bool) return value_bool;
+        throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.bool' is not present");
     }
 
     /**
      * The float `value` for a Double-typed Security Hub Control Parameter.
      * 
      */
-    private UndeferrableValue<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs> double_;
-
+    @PolicyResourceProperty(name="double", flag="unknown_double_")
+    private ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs value_double_;
+    private boolean unknown_double_;
     public ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs double_() {
-        if (double_ == null) return null;
-        return double_.getValue("ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.double_");
+        if (!unknown_double_) return value_double_;
+        throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.double_' is not present");
     }
 
     /**
      * The string `value` for a Enum-typed Security Hub Control Parameter.
      * 
      */
-    private UndeferrableValue<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs> enum_;
-
+    @PolicyResourceProperty(name="enum", flag="unknown_enum_")
+    private ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs value_enum_;
+    private boolean unknown_enum_;
     public ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs enum_() {
-        if (enum_ == null) return null;
-        return enum_.getValue("ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.enum_");
+        if (!unknown_enum_) return value_enum_;
+        throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.enum_' is not present");
     }
 
     /**
      * The string list `value` for a EnumList-typed Security Hub Control Parameter.
      * 
      */
-    private UndeferrableValue<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs> enumList;
-
+    @PolicyResourceProperty(name="enumList", flag="unknown_enumList")
+    private ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs value_enumList;
+    private boolean unknown_enumList;
     public ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs enumList() {
-        if (enumList == null) return null;
-        return enumList.getValue("ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.enumList");
+        if (!unknown_enumList) return value_enumList;
+        throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.enumList' is not present");
     }
 
     /**
      * The int `value` for a Int-typed Security Hub Control Parameter.
      * 
      */
-    private UndeferrableValue<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs> int_;
-
+    @PolicyResourceProperty(name="int", flag="unknown_int_")
+    private ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs value_int_;
+    private boolean unknown_int_;
     public ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs int_() {
-        if (int_ == null) return null;
-        return int_.getValue("ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.int_");
+        if (!unknown_int_) return value_int_;
+        throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.int_' is not present");
     }
 
     /**
      * The int list `value` for a IntList-typed Security Hub Control Parameter.
      * 
      */
-    private UndeferrableValue<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs> intList;
-
+    @PolicyResourceProperty(name="intList", flag="unknown_intList")
+    private ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs value_intList;
+    private boolean unknown_intList;
     public ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs intList() {
-        if (intList == null) return null;
-        return intList.getValue("ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.intList");
+        if (!unknown_intList) return value_intList;
+        throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.intList' is not present");
     }
 
     /**
      * The name of the control parameter. For more information see the [Security Hub controls reference] documentation.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.name' is not present");
     }
 
     /**
      * The string `value` for a String-typed Security Hub Control Parameter.
      * 
      */
-    private UndeferrableValue<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs> string;
-
+    @PolicyResourceProperty(name="string", flag="unknown_string")
+    private ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs value_string;
+    private boolean unknown_string;
     public ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs string() {
-        if (string == null) return null;
-        return string.getValue("ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.string");
+        if (!unknown_string) return value_string;
+        throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.string' is not present");
     }
 
     /**
      * The string list `value` for a StringList-typed Security Hub Control Parameter.
      * 
      */
-    private UndeferrableValue<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs> stringList;
-
+    @PolicyResourceProperty(name="stringList", flag="unknown_stringList")
+    private ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs value_stringList;
+    private boolean unknown_stringList;
     public ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs stringList() {
-        if (stringList == null) return null;
-        return stringList.getValue("ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.stringList");
+        if (!unknown_stringList) return value_stringList;
+        throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.stringList' is not present");
     }
 
     /**
      * Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior. Valid values: `DEFAULT`, `CUSTOM`.
      * 
      */
-    private UndeferrableValue<String> valueType;
-
+    @PolicyResourceProperty(name="valueType", flag="unknown_valueType")
+    private String value_valueType;
+    private boolean unknown_valueType;
     public String valueType() {
-        if (valueType == null) return null;
-        return valueType.getValue("ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.valueType");
+        if (!unknown_valueType) return value_valueType;
+        throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.valueType' is not present");
     }
 
 }

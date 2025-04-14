@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,44 +16,48 @@ public final class ServiceSetting extends com.pulumi.resources.PolicyResourceOut
      * ARN of the service setting.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ServiceSetting.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ServiceSetting.arn' is not present");
     }
 
     /**
      * ID of the service setting.
      * 
      */
-    private UndeferrableValue<String> settingId;
-
+    @PolicyResourceProperty(name="settingId", flag="unknown_settingId")
+    private String value_settingId;
+    private boolean unknown_settingId;
     public String settingId() {
-        if (settingId == null) return null;
-        return settingId.getValue("ServiceSetting.settingId");
+        if (!unknown_settingId) return value_settingId;
+        throw new UndeferrableValueException("Value 'ServiceSetting.settingId' is not present");
     }
 
     /**
      * Value of the service setting.
      * 
      */
-    private UndeferrableValue<String> settingValue;
-
+    @PolicyResourceProperty(name="settingValue", flag="unknown_settingValue")
+    private String value_settingValue;
+    private boolean unknown_settingValue;
     public String settingValue() {
-        if (settingValue == null) return null;
-        return settingValue.getValue("ServiceSetting.settingValue");
+        if (!unknown_settingValue) return value_settingValue;
+        throw new UndeferrableValueException("Value 'ServiceSetting.settingValue' is not present");
     }
 
     /**
      * Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("ServiceSetting.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'ServiceSetting.status' is not present");
     }
 
 }

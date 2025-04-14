@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.resourcegroups.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class GroupResourceQuery {
      * The resource query as a JSON string.
      * 
      */
-    private UndeferrableValue<String> query;
-
+    @PolicyResourceProperty(name="query", flag="unknown_query")
+    private String value_query;
+    private boolean unknown_query;
     public String query() {
-        if (query == null) return null;
-        return query.getValue("GroupResourceQuery.query");
+        if (!unknown_query) return value_query;
+        throw new UndeferrableValueException("Value 'GroupResourceQuery.query' is not present");
     }
 
     /**
      * The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("GroupResourceQuery.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'GroupResourceQuery.type' is not present");
     }
 
 }

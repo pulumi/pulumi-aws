@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedpermissions;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,22 +17,24 @@ public final class PolicyTemplateArgs extends com.pulumi.resources.PolicyResourc
      * Provides a description for the policy template.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("PolicyTemplateArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'PolicyTemplateArgs.description' is not present");
     }
 
     /**
      * The ID of the Policy Store.
      * 
      */
-    private UndeferrableValue<String> policyStoreId;
-
+    @PolicyResourceProperty(name="policyStoreId", flag="unknown_policyStoreId")
+    private String value_policyStoreId;
+    private boolean unknown_policyStoreId;
     public String policyStoreId() {
-        if (policyStoreId == null) return null;
-        return policyStoreId.getValue("PolicyTemplateArgs.policyStoreId");
+        if (!unknown_policyStoreId) return value_policyStoreId;
+        throw new UndeferrableValueException("Value 'PolicyTemplateArgs.policyStoreId' is not present");
     }
 
     /**
@@ -40,11 +43,12 @@ public final class PolicyTemplateArgs extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> statement;
-
+    @PolicyResourceProperty(name="statement", flag="unknown_statement")
+    private String value_statement;
+    private boolean unknown_statement;
     public String statement() {
-        if (statement == null) return null;
-        return statement.getValue("PolicyTemplateArgs.statement");
+        if (!unknown_statement) return value_statement;
+        throw new UndeferrableValueException("Value 'PolicyTemplateArgs.statement' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.medialive.inputs.InputSecurityGroupWhitelistRuleArgs;
 import java.lang.String;
@@ -19,11 +20,12 @@ public final class InputSecurityGroupArgs extends com.pulumi.resources.PolicyRes
      * A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("InputSecurityGroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'InputSecurityGroupArgs.tags' is not present");
     }
 
     /**
@@ -32,11 +34,12 @@ public final class InputSecurityGroupArgs extends com.pulumi.resources.PolicyRes
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<List<InputSecurityGroupWhitelistRuleArgs>> whitelistRules;
-
+    @PolicyResourceProperty(name="whitelistRules", flag="unknown_whitelistRules")
+    private List<InputSecurityGroupWhitelistRuleArgs> value_whitelistRules;
+    private boolean unknown_whitelistRules;
     public List<InputSecurityGroupWhitelistRuleArgs> whitelistRules() {
-        if (whitelistRules == null) return null;
-        return whitelistRules.getValue("InputSecurityGroupArgs.whitelistRules");
+        if (!unknown_whitelistRules) return value_whitelistRules;
+        throw new UndeferrableValueException("Value 'InputSecurityGroupArgs.whitelistRules' is not present");
     }
 
 }

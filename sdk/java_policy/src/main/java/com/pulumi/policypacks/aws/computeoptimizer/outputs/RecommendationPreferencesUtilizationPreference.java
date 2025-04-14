@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.computeoptimizer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.computeoptimizer.outputs.RecommendationPreferencesUtilizationPreferenceMetricParameters;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class RecommendationPreferencesUtilizationPreference {
      * The name of the resource utilization metric name to customize. Valid values: `CpuUtilization`, `MemoryUtilization`.
      * 
      */
-    private UndeferrableValue<String> metricName;
-
+    @PolicyResourceProperty(name="metricName", flag="unknown_metricName")
+    private String value_metricName;
+    private boolean unknown_metricName;
     public String metricName() {
-        if (metricName == null) return null;
-        return metricName.getValue("RecommendationPreferencesUtilizationPreference.metricName");
+        if (!unknown_metricName) return value_metricName;
+        throw new UndeferrableValueException("Value 'RecommendationPreferencesUtilizationPreference.metricName' is not present");
     }
 
     /**
      * The parameters to set when customizing the resource utilization thresholds.
      * 
      */
-    private @Nullable UndeferrableValue<RecommendationPreferencesUtilizationPreferenceMetricParameters> metricParameters;
-
+    @PolicyResourceProperty(name="metricParameters", flag="unknown_metricParameters")
+    private @Nullable RecommendationPreferencesUtilizationPreferenceMetricParameters value_metricParameters;
+    private boolean unknown_metricParameters;
     public @Nullable RecommendationPreferencesUtilizationPreferenceMetricParameters metricParameters() {
-        if (metricParameters == null) return null;
-        return metricParameters.getValue("RecommendationPreferencesUtilizationPreference.metricParameters");
+        if (!unknown_metricParameters) return value_metricParameters;
+        throw new UndeferrableValueException("Value 'RecommendationPreferencesUtilizationPreference.metricParameters' is not present");
     }
 
 }

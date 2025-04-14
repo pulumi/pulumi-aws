@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3control.inputs.BucketLifecycleConfigurationRuleArgs;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class BucketLifecycleConfigurationArgs extends com.pulumi.resources
      * Amazon Resource Name (ARN) of the bucket.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("BucketLifecycleConfigurationArgs.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationArgs.bucket' is not present");
     }
 
     /**
      * Configuration block(s) containing lifecycle rules for the bucket.
      * 
      */
-    private UndeferrableValue<List<BucketLifecycleConfigurationRuleArgs>> rules;
-
+    @PolicyResourceProperty(name="rules", flag="unknown_rules")
+    private List<BucketLifecycleConfigurationRuleArgs> value_rules;
+    private boolean unknown_rules;
     public List<BucketLifecycleConfigurationRuleArgs> rules() {
-        if (rules == null) return null;
-        return rules.getValue("BucketLifecycleConfigurationArgs.rules");
+        if (!unknown_rules) return value_rules;
+        throw new UndeferrableValueException("Value 'BucketLifecycleConfigurationArgs.rules' is not present");
     }
 
 }

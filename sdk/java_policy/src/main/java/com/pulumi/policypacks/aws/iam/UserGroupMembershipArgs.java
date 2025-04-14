@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class UserGroupMembershipArgs extends com.pulumi.resources.PolicyRe
      * A list of IAM Groups to add the user to
      * 
      */
-    private UndeferrableValue<List<String>> groups;
-
+    @PolicyResourceProperty(name="groups", flag="unknown_groups")
+    private List<String> value_groups;
+    private boolean unknown_groups;
     public List<String> groups() {
-        if (groups == null) return null;
-        return groups.getValue("UserGroupMembershipArgs.groups");
+        if (!unknown_groups) return value_groups;
+        throw new UndeferrableValueException("Value 'UserGroupMembershipArgs.groups' is not present");
     }
 
     /**
      * The name of the IAM User to add to groups
      * 
      */
-    private UndeferrableValue<String> user;
-
+    @PolicyResourceProperty(name="user", flag="unknown_user")
+    private String value_user;
+    private boolean unknown_user;
     public String user() {
-        if (user == null) return null;
-        return user.getValue("UserGroupMembershipArgs.user");
+        if (!unknown_user) return value_user;
+        throw new UndeferrableValueException("Value 'UserGroupMembershipArgs.user' is not present");
     }
 
 }

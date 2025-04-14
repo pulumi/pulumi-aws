@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepository
      * The URL of the Git repository.
      * 
      */
-    private UndeferrableValue<String> repositoryUrl;
-
+    @PolicyResourceProperty(name="repositoryUrl", flag="unknown_repositoryUrl")
+    private String value_repositoryUrl;
+    private boolean unknown_repositoryUrl;
     public String repositoryUrl() {
-        if (repositoryUrl == null) return null;
-        return repositoryUrl.getValue("DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepository.repositoryUrl");
+        if (!unknown_repositoryUrl) return value_repositoryUrl;
+        throw new UndeferrableValueException("Value 'DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepository.repositoryUrl' is not present");
     }
 
 }

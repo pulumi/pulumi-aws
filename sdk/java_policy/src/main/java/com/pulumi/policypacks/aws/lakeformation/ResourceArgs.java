@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lakeformation;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -19,11 +20,12 @@ public final class ResourceArgs extends com.pulumi.resources.PolicyResourceInput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ResourceArgs.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ResourceArgs.arn' is not present");
     }
 
     /**
@@ -32,40 +34,44 @@ public final class ResourceArgs extends com.pulumi.resources.PolicyResourceInput
      * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
      * 
      */
-    private UndeferrableValue<Boolean> hybridAccessEnabled;
-
+    @PolicyResourceProperty(name="hybridAccessEnabled", flag="unknown_hybridAccessEnabled")
+    private Boolean value_hybridAccessEnabled;
+    private boolean unknown_hybridAccessEnabled;
     public Boolean hybridAccessEnabled() {
-        if (hybridAccessEnabled == null) return null;
-        return hybridAccessEnabled.getValue("ResourceArgs.hybridAccessEnabled");
+        if (!unknown_hybridAccessEnabled) return value_hybridAccessEnabled;
+        throw new UndeferrableValueException("Value 'ResourceArgs.hybridAccessEnabled' is not present");
     }
 
     /**
      * Role that has read/write access to the resource.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("ResourceArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'ResourceArgs.roleArn' is not present");
     }
 
     /**
      * Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
      * 
      */
-    private UndeferrableValue<Boolean> useServiceLinkedRole;
-
+    @PolicyResourceProperty(name="useServiceLinkedRole", flag="unknown_useServiceLinkedRole")
+    private Boolean value_useServiceLinkedRole;
+    private boolean unknown_useServiceLinkedRole;
     public Boolean useServiceLinkedRole() {
-        if (useServiceLinkedRole == null) return null;
-        return useServiceLinkedRole.getValue("ResourceArgs.useServiceLinkedRole");
+        if (!unknown_useServiceLinkedRole) return value_useServiceLinkedRole;
+        throw new UndeferrableValueException("Value 'ResourceArgs.useServiceLinkedRole' is not present");
     }
 
-    private UndeferrableValue<Boolean> withFederation;
-
+    @PolicyResourceProperty(name="withFederation", flag="unknown_withFederation")
+    private Boolean value_withFederation;
+    private boolean unknown_withFederation;
     public Boolean withFederation() {
-        if (withFederation == null) return null;
-        return withFederation.getValue("ResourceArgs.withFederation");
+        if (!unknown_withFederation) return value_withFederation;
+        throw new UndeferrableValueException("Value 'ResourceArgs.withFederation' is not present");
     }
 
 }

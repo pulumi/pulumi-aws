@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class ClusterIdentityOidc {
      * Issuer URL for the OpenID Connect identity provider.
      * 
      */
-    private @Nullable UndeferrableValue<String> issuer;
-
+    @PolicyResourceProperty(name="issuer", flag="unknown_issuer")
+    private @Nullable String value_issuer;
+    private boolean unknown_issuer;
     public @Nullable String issuer() {
-        if (issuer == null) return null;
-        return issuer.getValue("ClusterIdentityOidc.issuer");
+        if (!unknown_issuer) return value_issuer;
+        throw new UndeferrableValueException("Value 'ClusterIdentityOidc.issuer' is not present");
     }
 
 }

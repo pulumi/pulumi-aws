@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class DistributionOrderedCacheBehaviorFunctionAssociation {
      * Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`.
      * 
      */
-    private UndeferrableValue<String> eventType;
-
+    @PolicyResourceProperty(name="eventType", flag="unknown_eventType")
+    private String value_eventType;
+    private boolean unknown_eventType;
     public String eventType() {
-        if (eventType == null) return null;
-        return eventType.getValue("DistributionOrderedCacheBehaviorFunctionAssociation.eventType");
+        if (!unknown_eventType) return value_eventType;
+        throw new UndeferrableValueException("Value 'DistributionOrderedCacheBehaviorFunctionAssociation.eventType' is not present");
     }
 
     /**
      * ARN of the CloudFront function.
      * 
      */
-    private UndeferrableValue<String> functionArn;
-
+    @PolicyResourceProperty(name="functionArn", flag="unknown_functionArn")
+    private String value_functionArn;
+    private boolean unknown_functionArn;
     public String functionArn() {
-        if (functionArn == null) return null;
-        return functionArn.getValue("DistributionOrderedCacheBehaviorFunctionAssociation.functionArn");
+        if (!unknown_functionArn) return value_functionArn;
+        throw new UndeferrableValueException("Value 'DistributionOrderedCacheBehaviorFunctionAssociation.functionArn' is not present");
     }
 
 }

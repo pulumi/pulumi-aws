@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,18 +16,20 @@ public final class ClusterLoggingInfoBrokerLogsFirehoseArgs {
      * Name of the Kinesis Data Firehose delivery stream to deliver logs to.
      * 
      */
-    private UndeferrableValue<String> deliveryStream;
-
+    @PolicyResourceProperty(name="deliveryStream", flag="unknown_deliveryStream")
+    private String value_deliveryStream;
+    private boolean unknown_deliveryStream;
     public String deliveryStream() {
-        if (deliveryStream == null) return null;
-        return deliveryStream.getValue("ClusterLoggingInfoBrokerLogsFirehoseArgs.deliveryStream");
+        if (!unknown_deliveryStream) return value_deliveryStream;
+        throw new UndeferrableValueException("Value 'ClusterLoggingInfoBrokerLogsFirehoseArgs.deliveryStream' is not present");
     }
 
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("ClusterLoggingInfoBrokerLogsFirehoseArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'ClusterLoggingInfoBrokerLogsFirehoseArgs.enabled' is not present");
     }
 
 }

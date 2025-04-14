@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey;
 import com.pulumi.policypacks.aws.appflow.outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic;
 import com.pulumi.policypacks.aws.appflow.outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom;
@@ -14,55 +15,60 @@ import javax.annotation.Nullable;
 
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector {
 
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey> apiKey;
-
+    @PolicyResourceProperty(name="apiKey", flag="unknown_apiKey")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey value_apiKey;
+    private boolean unknown_apiKey;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey apiKey() {
-        if (apiKey == null) return null;
-        return apiKey.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector.apiKey");
+        if (!unknown_apiKey) return value_apiKey;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector.apiKey' is not present");
     }
 
     /**
      * The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
      * 
      */
-    private UndeferrableValue<String> authenticationType;
-
+    @PolicyResourceProperty(name="authenticationType", flag="unknown_authenticationType")
+    private String value_authenticationType;
+    private boolean unknown_authenticationType;
     public String authenticationType() {
-        if (authenticationType == null) return null;
-        return authenticationType.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector.authenticationType");
+        if (!unknown_authenticationType) return value_authenticationType;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector.authenticationType' is not present");
     }
 
     /**
      * Basic credentials that are required for the authentication of the user.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic> basic;
-
+    @PolicyResourceProperty(name="basic", flag="unknown_basic")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic value_basic;
+    private boolean unknown_basic;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic basic() {
-        if (basic == null) return null;
-        return basic.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector.basic");
+        if (!unknown_basic) return value_basic;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector.basic' is not present");
     }
 
     /**
      * If the connector uses the custom authentication mechanism, this holds the required credentials.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom> custom;
-
+    @PolicyResourceProperty(name="custom", flag="unknown_custom")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom value_custom;
+    private boolean unknown_custom;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom custom() {
-        if (custom == null) return null;
-        return custom.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector.custom");
+        if (!unknown_custom) return value_custom;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector.custom' is not present");
     }
 
     /**
      * OAuth 2.0 credentials required for the authentication of the user.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2> oauth2;
-
+    @PolicyResourceProperty(name="oauth2", flag="unknown_oauth2")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 value_oauth2;
+    private boolean unknown_oauth2;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 oauth2() {
-        if (oauth2 == null) return null;
-        return oauth2.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector.oauth2");
+        if (!unknown_oauth2) return value_oauth2;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector.oauth2' is not present");
     }
 
 }

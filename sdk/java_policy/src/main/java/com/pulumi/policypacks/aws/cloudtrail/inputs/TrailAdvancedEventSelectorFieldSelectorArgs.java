@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudtrail.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,77 +16,84 @@ public final class TrailAdvancedEventSelectorFieldSelectorArgs {
      * A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
      * 
      */
-    private UndeferrableValue<List<String>> endsWiths;
-
+    @PolicyResourceProperty(name="endsWiths", flag="unknown_endsWiths")
+    private List<String> value_endsWiths;
+    private boolean unknown_endsWiths;
     public List<String> endsWiths() {
-        if (endsWiths == null) return null;
-        return endsWiths.getValue("TrailAdvancedEventSelectorFieldSelectorArgs.endsWiths");
+        if (!unknown_endsWiths) return value_endsWiths;
+        throw new UndeferrableValueException("Value 'TrailAdvancedEventSelectorFieldSelectorArgs.endsWiths' is not present");
     }
 
     /**
      * A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
      * 
      */
-    private UndeferrableValue<List<String>> equals_;
-
+    @PolicyResourceProperty(name="equals", flag="unknown_equals_")
+    private List<String> value_equals_;
+    private boolean unknown_equals_;
     public List<String> equals_() {
-        if (equals_ == null) return null;
-        return equals_.getValue("TrailAdvancedEventSelectorFieldSelectorArgs.equals_");
+        if (!unknown_equals_) return value_equals_;
+        throw new UndeferrableValueException("Value 'TrailAdvancedEventSelectorFieldSelectorArgs.equals_' is not present");
     }
 
     /**
      * Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
      * 
      */
-    private UndeferrableValue<String> field;
-
+    @PolicyResourceProperty(name="field", flag="unknown_field")
+    private String value_field;
+    private boolean unknown_field;
     public String field() {
-        if (field == null) return null;
-        return field.getValue("TrailAdvancedEventSelectorFieldSelectorArgs.field");
+        if (!unknown_field) return value_field;
+        throw new UndeferrableValueException("Value 'TrailAdvancedEventSelectorFieldSelectorArgs.field' is not present");
     }
 
     /**
      * A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
      * 
      */
-    private UndeferrableValue<List<String>> notEndsWiths;
-
+    @PolicyResourceProperty(name="notEndsWiths", flag="unknown_notEndsWiths")
+    private List<String> value_notEndsWiths;
+    private boolean unknown_notEndsWiths;
     public List<String> notEndsWiths() {
-        if (notEndsWiths == null) return null;
-        return notEndsWiths.getValue("TrailAdvancedEventSelectorFieldSelectorArgs.notEndsWiths");
+        if (!unknown_notEndsWiths) return value_notEndsWiths;
+        throw new UndeferrableValueException("Value 'TrailAdvancedEventSelectorFieldSelectorArgs.notEndsWiths' is not present");
     }
 
     /**
      * A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
      * 
      */
-    private UndeferrableValue<List<String>> notEquals;
-
+    @PolicyResourceProperty(name="notEquals", flag="unknown_notEquals")
+    private List<String> value_notEquals;
+    private boolean unknown_notEquals;
     public List<String> notEquals() {
-        if (notEquals == null) return null;
-        return notEquals.getValue("TrailAdvancedEventSelectorFieldSelectorArgs.notEquals");
+        if (!unknown_notEquals) return value_notEquals;
+        throw new UndeferrableValueException("Value 'TrailAdvancedEventSelectorFieldSelectorArgs.notEquals' is not present");
     }
 
     /**
      * A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
      * 
      */
-    private UndeferrableValue<List<String>> notStartsWiths;
-
+    @PolicyResourceProperty(name="notStartsWiths", flag="unknown_notStartsWiths")
+    private List<String> value_notStartsWiths;
+    private boolean unknown_notStartsWiths;
     public List<String> notStartsWiths() {
-        if (notStartsWiths == null) return null;
-        return notStartsWiths.getValue("TrailAdvancedEventSelectorFieldSelectorArgs.notStartsWiths");
+        if (!unknown_notStartsWiths) return value_notStartsWiths;
+        throw new UndeferrableValueException("Value 'TrailAdvancedEventSelectorFieldSelectorArgs.notStartsWiths' is not present");
     }
 
     /**
      * A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
      * 
      */
-    private UndeferrableValue<List<String>> startsWiths;
-
+    @PolicyResourceProperty(name="startsWiths", flag="unknown_startsWiths")
+    private List<String> value_startsWiths;
+    private boolean unknown_startsWiths;
     public List<String> startsWiths() {
-        if (startsWiths == null) return null;
-        return startsWiths.getValue("TrailAdvancedEventSelectorFieldSelectorArgs.startsWiths");
+        if (!unknown_startsWiths) return value_startsWiths;
+        throw new UndeferrableValueException("Value 'TrailAdvancedEventSelectorFieldSelectorArgs.startsWiths' is not present");
     }
 
 }

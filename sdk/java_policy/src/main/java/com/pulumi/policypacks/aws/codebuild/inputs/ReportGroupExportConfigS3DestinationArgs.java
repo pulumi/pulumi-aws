@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ReportGroupExportConfigS3DestinationArgs {
      * The name of the S3 bucket where the raw data of a report are exported.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("ReportGroupExportConfigS3DestinationArgs.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'ReportGroupExportConfigS3DestinationArgs.bucket' is not present");
     }
 
     /**
@@ -27,44 +29,48 @@ public final class ReportGroupExportConfigS3DestinationArgs {
      * **Note: the API does not currently allow setting encryption as disabled**
      * 
      */
-    private UndeferrableValue<Boolean> encryptionDisabled;
-
+    @PolicyResourceProperty(name="encryptionDisabled", flag="unknown_encryptionDisabled")
+    private Boolean value_encryptionDisabled;
+    private boolean unknown_encryptionDisabled;
     public Boolean encryptionDisabled() {
-        if (encryptionDisabled == null) return null;
-        return encryptionDisabled.getValue("ReportGroupExportConfigS3DestinationArgs.encryptionDisabled");
+        if (!unknown_encryptionDisabled) return value_encryptionDisabled;
+        throw new UndeferrableValueException("Value 'ReportGroupExportConfigS3DestinationArgs.encryptionDisabled' is not present");
     }
 
     /**
      * The encryption key for the report&#39;s encrypted raw data. The KMS key ARN.
      * 
      */
-    private UndeferrableValue<String> encryptionKey;
-
+    @PolicyResourceProperty(name="encryptionKey", flag="unknown_encryptionKey")
+    private String value_encryptionKey;
+    private boolean unknown_encryptionKey;
     public String encryptionKey() {
-        if (encryptionKey == null) return null;
-        return encryptionKey.getValue("ReportGroupExportConfigS3DestinationArgs.encryptionKey");
+        if (!unknown_encryptionKey) return value_encryptionKey;
+        throw new UndeferrableValueException("Value 'ReportGroupExportConfigS3DestinationArgs.encryptionKey' is not present");
     }
 
     /**
      * The type of build output artifact to create. Valid values are: `NONE` (default) and `ZIP`.
      * 
      */
-    private UndeferrableValue<String> packaging;
-
+    @PolicyResourceProperty(name="packaging", flag="unknown_packaging")
+    private String value_packaging;
+    private boolean unknown_packaging;
     public String packaging() {
-        if (packaging == null) return null;
-        return packaging.getValue("ReportGroupExportConfigS3DestinationArgs.packaging");
+        if (!unknown_packaging) return value_packaging;
+        throw new UndeferrableValueException("Value 'ReportGroupExportConfigS3DestinationArgs.packaging' is not present");
     }
 
     /**
      * The path to the exported report&#39;s raw data results.
      * 
      */
-    private UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private String value_path;
+    private boolean unknown_path;
     public String path() {
-        if (path == null) return null;
-        return path.getValue("ReportGroupExportConfigS3DestinationArgs.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'ReportGroupExportConfigS3DestinationArgs.path' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.EndpointDeploymentConfigAutoRollbackConfigurationArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.EndpointDeploymentConfigBlueGreenUpdatePolicyArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.EndpointDeploymentConfigRollingUpdatePolicyArgs;
@@ -16,33 +17,36 @@ public final class EndpointDeploymentConfigArgs {
      * Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
      * 
      */
-    private UndeferrableValue<EndpointDeploymentConfigAutoRollbackConfigurationArgs> autoRollbackConfiguration;
-
+    @PolicyResourceProperty(name="autoRollbackConfiguration", flag="unknown_autoRollbackConfiguration")
+    private EndpointDeploymentConfigAutoRollbackConfigurationArgs value_autoRollbackConfiguration;
+    private boolean unknown_autoRollbackConfiguration;
     public EndpointDeploymentConfigAutoRollbackConfigurationArgs autoRollbackConfiguration() {
-        if (autoRollbackConfiguration == null) return null;
-        return autoRollbackConfiguration.getValue("EndpointDeploymentConfigArgs.autoRollbackConfiguration");
+        if (!unknown_autoRollbackConfiguration) return value_autoRollbackConfiguration;
+        throw new UndeferrableValueException("Value 'EndpointDeploymentConfigArgs.autoRollbackConfiguration' is not present");
     }
 
     /**
      * Update policy for a blue/green deployment. If this update policy is specified, SageMaker AI creates a new fleet during the deployment while maintaining the old fleet. SageMaker AI flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker AI uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
      * 
      */
-    private UndeferrableValue<EndpointDeploymentConfigBlueGreenUpdatePolicyArgs> blueGreenUpdatePolicy;
-
+    @PolicyResourceProperty(name="blueGreenUpdatePolicy", flag="unknown_blueGreenUpdatePolicy")
+    private EndpointDeploymentConfigBlueGreenUpdatePolicyArgs value_blueGreenUpdatePolicy;
+    private boolean unknown_blueGreenUpdatePolicy;
     public EndpointDeploymentConfigBlueGreenUpdatePolicyArgs blueGreenUpdatePolicy() {
-        if (blueGreenUpdatePolicy == null) return null;
-        return blueGreenUpdatePolicy.getValue("EndpointDeploymentConfigArgs.blueGreenUpdatePolicy");
+        if (!unknown_blueGreenUpdatePolicy) return value_blueGreenUpdatePolicy;
+        throw new UndeferrableValueException("Value 'EndpointDeploymentConfigArgs.blueGreenUpdatePolicy' is not present");
     }
 
     /**
      * Specifies a rolling deployment strategy for updating a SageMaker AI endpoint. See Rolling Update Policy.
      * 
      */
-    private UndeferrableValue<EndpointDeploymentConfigRollingUpdatePolicyArgs> rollingUpdatePolicy;
-
+    @PolicyResourceProperty(name="rollingUpdatePolicy", flag="unknown_rollingUpdatePolicy")
+    private EndpointDeploymentConfigRollingUpdatePolicyArgs value_rollingUpdatePolicy;
+    private boolean unknown_rollingUpdatePolicy;
     public EndpointDeploymentConfigRollingUpdatePolicyArgs rollingUpdatePolicy() {
-        if (rollingUpdatePolicy == null) return null;
-        return rollingUpdatePolicy.getValue("EndpointDeploymentConfigArgs.rollingUpdatePolicy");
+        if (!unknown_rollingUpdatePolicy) return value_rollingUpdatePolicy;
+        throw new UndeferrableValueException("Value 'EndpointDeploymentConfigArgs.rollingUpdatePolicy' is not present");
     }
 
 }

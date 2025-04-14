@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codestarnotifications;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.codestarnotifications.inputs.NotificationRuleTargetArgs;
 import java.lang.String;
@@ -19,11 +20,12 @@ public final class NotificationRuleArgs extends com.pulumi.resources.PolicyResou
      * The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
      * 
      */
-    private UndeferrableValue<String> detailType;
-
+    @PolicyResourceProperty(name="detailType", flag="unknown_detailType")
+    private String value_detailType;
+    private boolean unknown_detailType;
     public String detailType() {
-        if (detailType == null) return null;
-        return detailType.getValue("NotificationRuleArgs.detailType");
+        if (!unknown_detailType) return value_detailType;
+        throw new UndeferrableValueException("Value 'NotificationRuleArgs.detailType' is not present");
     }
 
     /**
@@ -31,66 +33,72 @@ public final class NotificationRuleArgs extends com.pulumi.resources.PolicyResou
      * For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
      * 
      */
-    private UndeferrableValue<List<String>> eventTypeIds;
-
+    @PolicyResourceProperty(name="eventTypeIds", flag="unknown_eventTypeIds")
+    private List<String> value_eventTypeIds;
+    private boolean unknown_eventTypeIds;
     public List<String> eventTypeIds() {
-        if (eventTypeIds == null) return null;
-        return eventTypeIds.getValue("NotificationRuleArgs.eventTypeIds");
+        if (!unknown_eventTypeIds) return value_eventTypeIds;
+        throw new UndeferrableValueException("Value 'NotificationRuleArgs.eventTypeIds' is not present");
     }
 
     /**
      * The name of notification rule.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("NotificationRuleArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'NotificationRuleArgs.name' is not present");
     }
 
     /**
      * The ARN of the resource to associate with the notification rule.
      * 
      */
-    private UndeferrableValue<String> resource;
-
+    @PolicyResourceProperty(name="resource", flag="unknown_resource")
+    private String value_resource;
+    private boolean unknown_resource;
     public String resource() {
-        if (resource == null) return null;
-        return resource.getValue("NotificationRuleArgs.resource");
+        if (!unknown_resource) return value_resource;
+        throw new UndeferrableValueException("Value 'NotificationRuleArgs.resource' is not present");
     }
 
     /**
      * The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("NotificationRuleArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'NotificationRuleArgs.status' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("NotificationRuleArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'NotificationRuleArgs.tags' is not present");
     }
 
     /**
      * Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
      * 
      */
-    private UndeferrableValue<List<NotificationRuleTargetArgs>> targets;
-
+    @PolicyResourceProperty(name="targets", flag="unknown_targets")
+    private List<NotificationRuleTargetArgs> value_targets;
+    private boolean unknown_targets;
     public List<NotificationRuleTargetArgs> targets() {
-        if (targets == null) return null;
-        return targets.getValue("NotificationRuleArgs.targets");
+        if (!unknown_targets) return value_targets;
+        throw new UndeferrableValueException("Value 'NotificationRuleArgs.targets' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,44 +17,48 @@ public final class ServerlessAccessPolicy extends com.pulumi.resources.PolicyRes
      * Description of the policy. Typically used to store information about the permissions defined in the policy.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ServerlessAccessPolicy.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ServerlessAccessPolicy.description' is not present");
     }
 
     /**
      * Name of the policy.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ServerlessAccessPolicy.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ServerlessAccessPolicy.name' is not present");
     }
 
     /**
      * JSON policy document to use as the content for the new policy
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("ServerlessAccessPolicy.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'ServerlessAccessPolicy.policy' is not present");
     }
 
     /**
      * Version of the policy.
      * 
      */
-    private UndeferrableValue<String> policyVersion;
-
+    @PolicyResourceProperty(name="policyVersion", flag="unknown_policyVersion")
+    private String value_policyVersion;
+    private boolean unknown_policyVersion;
     public String policyVersion() {
-        if (policyVersion == null) return null;
-        return policyVersion.getValue("ServerlessAccessPolicy.policyVersion");
+        if (!unknown_policyVersion) return value_policyVersion;
+        throw new UndeferrableValueException("Value 'ServerlessAccessPolicy.policyVersion' is not present");
     }
 
     /**
@@ -62,11 +67,12 @@ public final class ServerlessAccessPolicy extends com.pulumi.resources.PolicyRes
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ServerlessAccessPolicy.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ServerlessAccessPolicy.type' is not present");
     }
 
 }

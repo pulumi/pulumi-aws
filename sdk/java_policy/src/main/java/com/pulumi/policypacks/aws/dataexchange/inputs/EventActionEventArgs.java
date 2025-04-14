@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dataexchange.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.dataexchange.inputs.EventActionEventRevisionPublishedArgs;
 import javax.annotation.Nullable;
 
@@ -15,11 +16,12 @@ public final class EventActionEventArgs {
      * Described in `revision_published` Configuration Block below.
      * 
      */
-    private UndeferrableValue<EventActionEventRevisionPublishedArgs> revisionPublished;
-
+    @PolicyResourceProperty(name="revisionPublished", flag="unknown_revisionPublished")
+    private EventActionEventRevisionPublishedArgs value_revisionPublished;
+    private boolean unknown_revisionPublished;
     public EventActionEventRevisionPublishedArgs revisionPublished() {
-        if (revisionPublished == null) return null;
-        return revisionPublished.getValue("EventActionEventArgs.revisionPublished");
+        if (!unknown_revisionPublished) return value_revisionPublished;
+        throw new UndeferrableValueException("Value 'EventActionEventArgs.revisionPublished' is not present");
     }
 
 }

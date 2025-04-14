@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emrcontainers.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.emrcontainers.outputs.VirtualClusterContainerProviderInfo;
 import java.lang.String;
 
@@ -14,33 +15,36 @@ public final class VirtualClusterContainerProvider {
      * The name of the container provider that is running your EMR Containers cluster
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("VirtualClusterContainerProvider.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'VirtualClusterContainerProvider.id' is not present");
     }
 
     /**
      * Nested list containing information about the configuration of the container provider
      * 
      */
-    private UndeferrableValue<VirtualClusterContainerProviderInfo> info;
-
+    @PolicyResourceProperty(name="info", flag="unknown_info")
+    private VirtualClusterContainerProviderInfo value_info;
+    private boolean unknown_info;
     public VirtualClusterContainerProviderInfo info() {
-        if (info == null) return null;
-        return info.getValue("VirtualClusterContainerProvider.info");
+        if (!unknown_info) return value_info;
+        throw new UndeferrableValueException("Value 'VirtualClusterContainerProvider.info' is not present");
     }
 
     /**
      * The type of the container provider
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("VirtualClusterContainerProvider.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'VirtualClusterContainerProvider.type' is not present");
     }
 
 }

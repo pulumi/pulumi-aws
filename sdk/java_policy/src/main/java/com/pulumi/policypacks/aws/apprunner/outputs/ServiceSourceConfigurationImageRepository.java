@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.apprunner.outputs.ServiceSourceConfigurationImageRepositoryImageConfiguration;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ServiceSourceConfigurationImageRepository {
      * Configuration for running the identified image. See Image Configuration below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ServiceSourceConfigurationImageRepositoryImageConfiguration> imageConfiguration;
-
+    @PolicyResourceProperty(name="imageConfiguration", flag="unknown_imageConfiguration")
+    private @Nullable ServiceSourceConfigurationImageRepositoryImageConfiguration value_imageConfiguration;
+    private boolean unknown_imageConfiguration;
     public @Nullable ServiceSourceConfigurationImageRepositoryImageConfiguration imageConfiguration() {
-        if (imageConfiguration == null) return null;
-        return imageConfiguration.getValue("ServiceSourceConfigurationImageRepository.imageConfiguration");
+        if (!unknown_imageConfiguration) return value_imageConfiguration;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationImageRepository.imageConfiguration' is not present");
     }
 
     /**
@@ -27,22 +29,24 @@ public final class ServiceSourceConfigurationImageRepository {
      * image name format, see Pulling an image in the Amazon ECR User Guide.
      * 
      */
-    private UndeferrableValue<String> imageIdentifier;
-
+    @PolicyResourceProperty(name="imageIdentifier", flag="unknown_imageIdentifier")
+    private String value_imageIdentifier;
+    private boolean unknown_imageIdentifier;
     public String imageIdentifier() {
-        if (imageIdentifier == null) return null;
-        return imageIdentifier.getValue("ServiceSourceConfigurationImageRepository.imageIdentifier");
+        if (!unknown_imageIdentifier) return value_imageIdentifier;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationImageRepository.imageIdentifier' is not present");
     }
 
     /**
      * Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
      * 
      */
-    private UndeferrableValue<String> imageRepositoryType;
-
+    @PolicyResourceProperty(name="imageRepositoryType", flag="unknown_imageRepositoryType")
+    private String value_imageRepositoryType;
+    private boolean unknown_imageRepositoryType;
     public String imageRepositoryType() {
-        if (imageRepositoryType == null) return null;
-        return imageRepositoryType.getValue("ServiceSourceConfigurationImageRepository.imageRepositoryType");
+        if (!unknown_imageRepositoryType) return value_imageRepositoryType;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationImageRepository.imageRepositoryType' is not present");
     }
 
 }

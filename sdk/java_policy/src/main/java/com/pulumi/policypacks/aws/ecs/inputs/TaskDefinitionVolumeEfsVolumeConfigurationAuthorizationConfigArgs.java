@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig
      * Access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
      * 
      */
-    private UndeferrableValue<String> accessPointId;
-
+    @PolicyResourceProperty(name="accessPointId", flag="unknown_accessPointId")
+    private String value_accessPointId;
+    private boolean unknown_accessPointId;
     public String accessPointId() {
-        if (accessPointId == null) return null;
-        return accessPointId.getValue("TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs.accessPointId");
+        if (!unknown_accessPointId) return value_accessPointId;
+        throw new UndeferrableValueException("Value 'TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs.accessPointId' is not present");
     }
 
     /**
      * Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
      * 
      */
-    private UndeferrableValue<String> iam;
-
+    @PolicyResourceProperty(name="iam", flag="unknown_iam")
+    private String value_iam;
+    private boolean unknown_iam;
     public String iam() {
-        if (iam == null) return null;
-        return iam.getValue("TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs.iam");
+        if (!unknown_iam) return value_iam;
+        throw new UndeferrableValueException("Value 'TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs.iam' is not present");
     }
 
 }

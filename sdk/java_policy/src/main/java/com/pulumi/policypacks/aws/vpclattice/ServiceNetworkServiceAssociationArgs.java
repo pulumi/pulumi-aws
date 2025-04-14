@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,11 +18,12 @@ public final class ServiceNetworkServiceAssociationArgs extends com.pulumi.resou
      * The ID or Amazon Resource Identifier (ARN) of the service.
      * 
      */
-    private UndeferrableValue<String> serviceIdentifier;
-
+    @PolicyResourceProperty(name="serviceIdentifier", flag="unknown_serviceIdentifier")
+    private String value_serviceIdentifier;
+    private boolean unknown_serviceIdentifier;
     public String serviceIdentifier() {
-        if (serviceIdentifier == null) return null;
-        return serviceIdentifier.getValue("ServiceNetworkServiceAssociationArgs.serviceIdentifier");
+        if (!unknown_serviceIdentifier) return value_serviceIdentifier;
+        throw new UndeferrableValueException("Value 'ServiceNetworkServiceAssociationArgs.serviceIdentifier' is not present");
     }
 
     /**
@@ -29,22 +31,24 @@ public final class ServiceNetworkServiceAssociationArgs extends com.pulumi.resou
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> serviceNetworkIdentifier;
-
+    @PolicyResourceProperty(name="serviceNetworkIdentifier", flag="unknown_serviceNetworkIdentifier")
+    private String value_serviceNetworkIdentifier;
+    private boolean unknown_serviceNetworkIdentifier;
     public String serviceNetworkIdentifier() {
-        if (serviceNetworkIdentifier == null) return null;
-        return serviceNetworkIdentifier.getValue("ServiceNetworkServiceAssociationArgs.serviceNetworkIdentifier");
+        if (!unknown_serviceNetworkIdentifier) return value_serviceNetworkIdentifier;
+        throw new UndeferrableValueException("Value 'ServiceNetworkServiceAssociationArgs.serviceNetworkIdentifier' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ServiceNetworkServiceAssociationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ServiceNetworkServiceAssociationArgs.tags' is not present");
     }
 
 }

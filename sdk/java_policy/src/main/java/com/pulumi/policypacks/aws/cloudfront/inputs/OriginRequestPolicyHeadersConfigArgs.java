@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudfront.inputs.OriginRequestPolicyHeadersConfigHeadersArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,18 +12,20 @@ import javax.annotation.Nullable;
 
 public final class OriginRequestPolicyHeadersConfigArgs {
 
-    private UndeferrableValue<String> headerBehavior;
-
+    @PolicyResourceProperty(name="headerBehavior", flag="unknown_headerBehavior")
+    private String value_headerBehavior;
+    private boolean unknown_headerBehavior;
     public String headerBehavior() {
-        if (headerBehavior == null) return null;
-        return headerBehavior.getValue("OriginRequestPolicyHeadersConfigArgs.headerBehavior");
+        if (!unknown_headerBehavior) return value_headerBehavior;
+        throw new UndeferrableValueException("Value 'OriginRequestPolicyHeadersConfigArgs.headerBehavior' is not present");
     }
 
-    private UndeferrableValue<OriginRequestPolicyHeadersConfigHeadersArgs> headers;
-
+    @PolicyResourceProperty(name="headers", flag="unknown_headers")
+    private OriginRequestPolicyHeadersConfigHeadersArgs value_headers;
+    private boolean unknown_headers;
     public OriginRequestPolicyHeadersConfigHeadersArgs headers() {
-        if (headers == null) return null;
-        return headers.getValue("OriginRequestPolicyHeadersConfigArgs.headers");
+        if (!unknown_headers) return value_headers;
+        throw new UndeferrableValueException("Value 'OriginRequestPolicyHeadersConfigArgs.headers' is not present");
     }
 
 }

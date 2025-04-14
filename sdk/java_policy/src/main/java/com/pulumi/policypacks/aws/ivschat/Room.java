@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ivschat;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ivschat.outputs.RoomMessageReviewHandler;
 import java.lang.Integer;
@@ -20,11 +21,12 @@ public final class Room extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the Room.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Room.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Room.arn' is not present");
     }
 
     /**
@@ -32,11 +34,12 @@ public final class Room extends com.pulumi.resources.PolicyResourceOutput {
      * ARNs to attach to the room.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> loggingConfigurationIdentifiers;
-
+    @PolicyResourceProperty(name="loggingConfigurationIdentifiers", flag="unknown_loggingConfigurationIdentifiers")
+    private @Nullable List<String> value_loggingConfigurationIdentifiers;
+    private boolean unknown_loggingConfigurationIdentifiers;
     public @Nullable List<String> loggingConfigurationIdentifiers() {
-        if (loggingConfigurationIdentifiers == null) return null;
-        return loggingConfigurationIdentifiers.getValue("Room.loggingConfigurationIdentifiers");
+        if (!unknown_loggingConfigurationIdentifiers) return value_loggingConfigurationIdentifiers;
+        throw new UndeferrableValueException("Value 'Room.loggingConfigurationIdentifiers' is not present");
     }
 
     /**
@@ -45,11 +48,12 @@ public final class Room extends com.pulumi.resources.PolicyResourceOutput {
      * specifically to rune/code-point count, not number of bytes.
      * 
      */
-    private UndeferrableValue<Integer> maximumMessageLength;
-
+    @PolicyResourceProperty(name="maximumMessageLength", flag="unknown_maximumMessageLength")
+    private Integer value_maximumMessageLength;
+    private boolean unknown_maximumMessageLength;
     public Integer maximumMessageLength() {
-        if (maximumMessageLength == null) return null;
-        return maximumMessageLength.getValue("Room.maximumMessageLength");
+        if (!unknown_maximumMessageLength) return value_maximumMessageLength;
+        throw new UndeferrableValueException("Value 'Room.maximumMessageLength' is not present");
     }
 
     /**
@@ -57,11 +61,12 @@ public final class Room extends com.pulumi.resources.PolicyResourceOutput {
      * second that can be sent to the room (by all clients).
      * 
      */
-    private UndeferrableValue<Integer> maximumMessageRatePerSecond;
-
+    @PolicyResourceProperty(name="maximumMessageRatePerSecond", flag="unknown_maximumMessageRatePerSecond")
+    private Integer value_maximumMessageRatePerSecond;
+    private boolean unknown_maximumMessageRatePerSecond;
     public Integer maximumMessageRatePerSecond() {
-        if (maximumMessageRatePerSecond == null) return null;
-        return maximumMessageRatePerSecond.getValue("Room.maximumMessageRatePerSecond");
+        if (!unknown_maximumMessageRatePerSecond) return value_maximumMessageRatePerSecond;
+        throw new UndeferrableValueException("Value 'Room.maximumMessageRatePerSecond' is not present");
     }
 
     /**
@@ -69,33 +74,36 @@ public final class Room extends com.pulumi.resources.PolicyResourceOutput {
      * review of messages.
      * 
      */
-    private @Nullable UndeferrableValue<RoomMessageReviewHandler> messageReviewHandler;
-
+    @PolicyResourceProperty(name="messageReviewHandler", flag="unknown_messageReviewHandler")
+    private @Nullable RoomMessageReviewHandler value_messageReviewHandler;
+    private boolean unknown_messageReviewHandler;
     public @Nullable RoomMessageReviewHandler messageReviewHandler() {
-        if (messageReviewHandler == null) return null;
-        return messageReviewHandler.getValue("Room.messageReviewHandler");
+        if (!unknown_messageReviewHandler) return value_messageReviewHandler;
+        throw new UndeferrableValueException("Value 'Room.messageReviewHandler' is not present");
     }
 
     /**
      * Room name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Room.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Room.name' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Room.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Room.tags' is not present");
     }
 
     /**
@@ -106,11 +114,12 @@ public final class Room extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Room.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Room.tagsAll' is not present");
     }
 
 }

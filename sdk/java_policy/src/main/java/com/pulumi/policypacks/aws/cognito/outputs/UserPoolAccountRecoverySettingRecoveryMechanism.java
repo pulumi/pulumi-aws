@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class UserPoolAccountRecoverySettingRecoveryMechanism {
      * Recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("UserPoolAccountRecoverySettingRecoveryMechanism.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'UserPoolAccountRecoverySettingRecoveryMechanism.name' is not present");
     }
 
     /**
      * Positive integer specifying priority of a method with 1 being the highest priority.
      * 
      */
-    private UndeferrableValue<Integer> priority;
-
+    @PolicyResourceProperty(name="priority", flag="unknown_priority")
+    private Integer value_priority;
+    private boolean unknown_priority;
     public Integer priority() {
-        if (priority == null) return null;
-        return priority.getValue("UserPoolAccountRecoverySettingRecoveryMechanism.priority");
+        if (!unknown_priority) return value_priority;
+        throw new UndeferrableValueException("Value 'UserPoolAccountRecoverySettingRecoveryMechanism.priority' is not present");
     }
 
 }

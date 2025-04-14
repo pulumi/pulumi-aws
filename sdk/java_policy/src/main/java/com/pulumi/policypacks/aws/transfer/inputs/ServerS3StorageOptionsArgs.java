@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -16,11 +17,12 @@ public final class ServerS3StorageOptionsArgs {
      * By default, home directory mappings have a `TYPE` of `DIRECTORY`. If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` Type to `FILE` if you want a mapping to have a file target. See [Using logical directories to simplify your Transfer Family directory structures](https://docs.aws.amazon.com/transfer/latest/userguide/logical-dir-mappings.html) for details.
      * 
      */
-    private UndeferrableValue<String> directoryListingOptimization;
-
+    @PolicyResourceProperty(name="directoryListingOptimization", flag="unknown_directoryListingOptimization")
+    private String value_directoryListingOptimization;
+    private boolean unknown_directoryListingOptimization;
     public String directoryListingOptimization() {
-        if (directoryListingOptimization == null) return null;
-        return directoryListingOptimization.getValue("ServerS3StorageOptionsArgs.directoryListingOptimization");
+        if (!unknown_directoryListingOptimization) return value_directoryListingOptimization;
+        throw new UndeferrableValueException("Value 'ServerS3StorageOptionsArgs.directoryListingOptimization' is not present");
     }
 
 }

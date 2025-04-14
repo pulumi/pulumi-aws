@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class PatchGroup extends com.pulumi.resources.PolicyResourceOutput 
      * The ID of the patch baseline to register the patch group with.
      * 
      */
-    private UndeferrableValue<String> baselineId;
-
+    @PolicyResourceProperty(name="baselineId", flag="unknown_baselineId")
+    private String value_baselineId;
+    private boolean unknown_baselineId;
     public String baselineId() {
-        if (baselineId == null) return null;
-        return baselineId.getValue("PatchGroup.baselineId");
+        if (!unknown_baselineId) return value_baselineId;
+        throw new UndeferrableValueException("Value 'PatchGroup.baselineId' is not present");
     }
 
     /**
      * The name of the patch group that should be registered with the patch baseline.
      * 
      */
-    private UndeferrableValue<String> patchGroup;
-
+    @PolicyResourceProperty(name="patchGroup", flag="unknown_patchGroup")
+    private String value_patchGroup;
+    private boolean unknown_patchGroup;
     public String patchGroup() {
-        if (patchGroup == null) return null;
-        return patchGroup.getValue("PatchGroup.patchGroup");
+        if (!unknown_patchGroup) return value_patchGroup;
+        throw new UndeferrableValueException("Value 'PatchGroup.patchGroup' is not present");
     }
 
 }

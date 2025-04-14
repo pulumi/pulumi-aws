@@ -3,28 +3,31 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
 public final class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs {
 
-    private UndeferrableValue<String> profileId;
-
+    @PolicyResourceProperty(name="profileId", flag="unknown_profileId")
+    private String value_profileId;
+    private boolean unknown_profileId;
     public String profileId() {
-        if (profileId == null) return null;
-        return profileId.getValue("FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs.profileId");
+        if (!unknown_profileId) return value_profileId;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs.profileId' is not present");
     }
 
     /**
      * Query argument for field-level encryption query argument-profile mapping.
      * 
      */
-    private UndeferrableValue<String> queryArg;
-
+    @PolicyResourceProperty(name="queryArg", flag="unknown_queryArg")
+    private String value_queryArg;
+    private boolean unknown_queryArg;
     public String queryArg() {
-        if (queryArg == null) return null;
-        return queryArg.getValue("FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs.queryArg");
+        if (!unknown_queryArg) return value_queryArg;
+        throw new UndeferrableValueException("Value 'FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs.queryArg' is not present");
     }
 
 }

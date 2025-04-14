@@ -3,29 +3,32 @@
 
 package com.pulumi.policypacks.aws.dlm.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.dlm.inputs.LifecyclePolicyPolicyDetailsEventSourceParametersArgs;
 import java.lang.String;
 
 
 public final class LifecyclePolicyPolicyDetailsEventSourceArgs {
 
-    private UndeferrableValue<LifecyclePolicyPolicyDetailsEventSourceParametersArgs> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private LifecyclePolicyPolicyDetailsEventSourceParametersArgs value_parameters;
+    private boolean unknown_parameters;
     public LifecyclePolicyPolicyDetailsEventSourceParametersArgs parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("LifecyclePolicyPolicyDetailsEventSourceArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsEventSourceArgs.parameters' is not present");
     }
 
     /**
      * The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("LifecyclePolicyPolicyDetailsEventSourceArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsEventSourceArgs.type' is not present");
     }
 
 }

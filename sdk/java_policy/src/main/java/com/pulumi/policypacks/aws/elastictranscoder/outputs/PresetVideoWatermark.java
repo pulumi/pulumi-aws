@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elastictranscoder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,110 +15,120 @@ public final class PresetVideoWatermark {
      * The horizontal position of the watermark unless you specify a nonzero value for `horzontal_offset`.
      * 
      */
-    private @Nullable UndeferrableValue<String> horizontalAlign;
-
+    @PolicyResourceProperty(name="horizontalAlign", flag="unknown_horizontalAlign")
+    private @Nullable String value_horizontalAlign;
+    private boolean unknown_horizontalAlign;
     public @Nullable String horizontalAlign() {
-        if (horizontalAlign == null) return null;
-        return horizontalAlign.getValue("PresetVideoWatermark.horizontalAlign");
+        if (!unknown_horizontalAlign) return value_horizontalAlign;
+        throw new UndeferrableValueException("Value 'PresetVideoWatermark.horizontalAlign' is not present");
     }
 
     /**
      * The amount by which you want the horizontal position of the watermark to be offset from the position specified by `horizontal_align`.
      * 
      */
-    private @Nullable UndeferrableValue<String> horizontalOffset;
-
+    @PolicyResourceProperty(name="horizontalOffset", flag="unknown_horizontalOffset")
+    private @Nullable String value_horizontalOffset;
+    private boolean unknown_horizontalOffset;
     public @Nullable String horizontalOffset() {
-        if (horizontalOffset == null) return null;
-        return horizontalOffset.getValue("PresetVideoWatermark.horizontalOffset");
+        if (!unknown_horizontalOffset) return value_horizontalOffset;
+        throw new UndeferrableValueException("Value 'PresetVideoWatermark.horizontalOffset' is not present");
     }
 
     /**
      * A unique identifier for the settings for one watermark. The value of Id can be up to 40 characters long. You can specify settings for up to four watermarks.
      * 
      */
-    private @Nullable UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private @Nullable String value_id;
+    private boolean unknown_id;
     public @Nullable String id() {
-        if (id == null) return null;
-        return id.getValue("PresetVideoWatermark.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'PresetVideoWatermark.id' is not present");
     }
 
     /**
      * The maximum height of the watermark.
      * 
      */
-    private @Nullable UndeferrableValue<String> maxHeight;
-
+    @PolicyResourceProperty(name="maxHeight", flag="unknown_maxHeight")
+    private @Nullable String value_maxHeight;
+    private boolean unknown_maxHeight;
     public @Nullable String maxHeight() {
-        if (maxHeight == null) return null;
-        return maxHeight.getValue("PresetVideoWatermark.maxHeight");
+        if (!unknown_maxHeight) return value_maxHeight;
+        throw new UndeferrableValueException("Value 'PresetVideoWatermark.maxHeight' is not present");
     }
 
     /**
      * The maximum width of the watermark.
      * 
      */
-    private @Nullable UndeferrableValue<String> maxWidth;
-
+    @PolicyResourceProperty(name="maxWidth", flag="unknown_maxWidth")
+    private @Nullable String value_maxWidth;
+    private boolean unknown_maxWidth;
     public @Nullable String maxWidth() {
-        if (maxWidth == null) return null;
-        return maxWidth.getValue("PresetVideoWatermark.maxWidth");
+        if (!unknown_maxWidth) return value_maxWidth;
+        throw new UndeferrableValueException("Value 'PresetVideoWatermark.maxWidth' is not present");
     }
 
     /**
      * A percentage that indicates how much you want a watermark to obscure the video in the location where it appears.
      * 
      */
-    private @Nullable UndeferrableValue<String> opacity;
-
+    @PolicyResourceProperty(name="opacity", flag="unknown_opacity")
+    private @Nullable String value_opacity;
+    private boolean unknown_opacity;
     public @Nullable String opacity() {
-        if (opacity == null) return null;
-        return opacity.getValue("PresetVideoWatermark.opacity");
+        if (!unknown_opacity) return value_opacity;
+        throw new UndeferrableValueException("Value 'PresetVideoWatermark.opacity' is not present");
     }
 
     /**
      * A value that controls scaling of the watermark. Valid values are: `Fit`, `Stretch`, `ShrinkToFit`
      * 
      */
-    private @Nullable UndeferrableValue<String> sizingPolicy;
-
+    @PolicyResourceProperty(name="sizingPolicy", flag="unknown_sizingPolicy")
+    private @Nullable String value_sizingPolicy;
+    private boolean unknown_sizingPolicy;
     public @Nullable String sizingPolicy() {
-        if (sizingPolicy == null) return null;
-        return sizingPolicy.getValue("PresetVideoWatermark.sizingPolicy");
+        if (!unknown_sizingPolicy) return value_sizingPolicy;
+        throw new UndeferrableValueException("Value 'PresetVideoWatermark.sizingPolicy' is not present");
     }
 
     /**
      * A value that determines how Elastic Transcoder interprets values that you specified for `video_watermarks.horizontal_offset`, `video_watermarks.vertical_offset`, `video_watermarks.max_width`, and `video_watermarks.max_height`. Valid values are `Content` and `Frame`.
      * 
      */
-    private @Nullable UndeferrableValue<String> target;
-
+    @PolicyResourceProperty(name="target", flag="unknown_target")
+    private @Nullable String value_target;
+    private boolean unknown_target;
     public @Nullable String target() {
-        if (target == null) return null;
-        return target.getValue("PresetVideoWatermark.target");
+        if (!unknown_target) return value_target;
+        throw new UndeferrableValueException("Value 'PresetVideoWatermark.target' is not present");
     }
 
     /**
      * The vertical position of the watermark unless you specify a nonzero value for `vertical_align`. Valid values are `Top`, `Bottom`, `Center`.
      * 
      */
-    private @Nullable UndeferrableValue<String> verticalAlign;
-
+    @PolicyResourceProperty(name="verticalAlign", flag="unknown_verticalAlign")
+    private @Nullable String value_verticalAlign;
+    private boolean unknown_verticalAlign;
     public @Nullable String verticalAlign() {
-        if (verticalAlign == null) return null;
-        return verticalAlign.getValue("PresetVideoWatermark.verticalAlign");
+        if (!unknown_verticalAlign) return value_verticalAlign;
+        throw new UndeferrableValueException("Value 'PresetVideoWatermark.verticalAlign' is not present");
     }
 
     /**
      * The amount by which you want the vertical position of the watermark to be offset from the position specified by `vertical_align`
      * 
      */
-    private @Nullable UndeferrableValue<String> verticalOffset;
-
+    @PolicyResourceProperty(name="verticalOffset", flag="unknown_verticalOffset")
+    private @Nullable String value_verticalOffset;
+    private boolean unknown_verticalOffset;
     public @Nullable String verticalOffset() {
-        if (verticalOffset == null) return null;
-        return verticalOffset.getValue("PresetVideoWatermark.verticalOffset");
+        if (!unknown_verticalOffset) return value_verticalOffset;
+        throw new UndeferrableValueException("Value 'PresetVideoWatermark.verticalOffset' is not present");
     }
 
 }

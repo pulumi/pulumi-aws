@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appautoscaling.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appautoscaling.outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension;
 import com.pulumi.policypacks.aws.appautoscaling.outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric;
 import java.lang.String;
@@ -17,66 +18,72 @@ public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetri
      * Dimensions of the metric.
      * 
      */
-    private @Nullable UndeferrableValue<List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension>> dimensions;
-
+    @PolicyResourceProperty(name="dimensions", flag="unknown_dimensions")
+    private @Nullable List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension> value_dimensions;
+    private boolean unknown_dimensions;
     public @Nullable List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension> dimensions() {
-        if (dimensions == null) return null;
-        return dimensions.getValue("PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification.dimensions");
+        if (!unknown_dimensions) return value_dimensions;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification.dimensions' is not present");
     }
 
     /**
      * Name of the metric.
      * 
      */
-    private @Nullable UndeferrableValue<String> metricName;
-
+    @PolicyResourceProperty(name="metricName", flag="unknown_metricName")
+    private @Nullable String value_metricName;
+    private boolean unknown_metricName;
     public @Nullable String metricName() {
-        if (metricName == null) return null;
-        return metricName.getValue("PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification.metricName");
+        if (!unknown_metricName) return value_metricName;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification.metricName' is not present");
     }
 
     /**
      * Metrics to include, as a metric data query.
      * 
      */
-    private @Nullable UndeferrableValue<List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric>> metrics;
-
+    @PolicyResourceProperty(name="metrics", flag="unknown_metrics")
+    private @Nullable List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric> value_metrics;
+    private boolean unknown_metrics;
     public @Nullable List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric> metrics() {
-        if (metrics == null) return null;
-        return metrics.getValue("PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification.metrics");
+        if (!unknown_metrics) return value_metrics;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification.metrics' is not present");
     }
 
     /**
      * Namespace of the metric.
      * 
      */
-    private @Nullable UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private @Nullable String value_namespace;
+    private boolean unknown_namespace;
     public @Nullable String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification.namespace' is not present");
     }
 
     /**
      * Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
      * 
      */
-    private @Nullable UndeferrableValue<String> statistic;
-
+    @PolicyResourceProperty(name="statistic", flag="unknown_statistic")
+    private @Nullable String value_statistic;
+    private boolean unknown_statistic;
     public @Nullable String statistic() {
-        if (statistic == null) return null;
-        return statistic.getValue("PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification.statistic");
+        if (!unknown_statistic) return value_statistic;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification.statistic' is not present");
     }
 
     /**
      * Unit of the metrics to return.
      * 
      */
-    private @Nullable UndeferrableValue<String> unit;
-
+    @PolicyResourceProperty(name="unit", flag="unknown_unit")
+    private @Nullable String value_unit;
+    private boolean unknown_unit;
     public @Nullable String unit() {
-        if (unit == null) return null;
-        return unit.getValue("PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification.unit");
+        if (!unknown_unit) return value_unit;
+        throw new UndeferrableValueException("Value 'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification.unit' is not present");
     }
 
 }

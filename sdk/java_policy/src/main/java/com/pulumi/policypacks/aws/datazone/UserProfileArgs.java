@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.datazone.inputs.UserProfileTimeoutsArgs;
 import java.lang.String;
@@ -17,29 +18,32 @@ public final class UserProfileArgs extends com.pulumi.resources.PolicyResourceIn
      * The domain identifier.
      * 
      */
-    private UndeferrableValue<String> domainIdentifier;
-
+    @PolicyResourceProperty(name="domainIdentifier", flag="unknown_domainIdentifier")
+    private String value_domainIdentifier;
+    private boolean unknown_domainIdentifier;
     public String domainIdentifier() {
-        if (domainIdentifier == null) return null;
-        return domainIdentifier.getValue("UserProfileArgs.domainIdentifier");
+        if (!unknown_domainIdentifier) return value_domainIdentifier;
+        throw new UndeferrableValueException("Value 'UserProfileArgs.domainIdentifier' is not present");
     }
 
     /**
      * The user profile status.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("UserProfileArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'UserProfileArgs.status' is not present");
     }
 
-    private UndeferrableValue<UserProfileTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private UserProfileTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public UserProfileTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("UserProfileArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'UserProfileArgs.timeouts' is not present");
     }
 
     /**
@@ -48,22 +52,24 @@ public final class UserProfileArgs extends com.pulumi.resources.PolicyResourceIn
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> userIdentifier;
-
+    @PolicyResourceProperty(name="userIdentifier", flag="unknown_userIdentifier")
+    private String value_userIdentifier;
+    private boolean unknown_userIdentifier;
     public String userIdentifier() {
-        if (userIdentifier == null) return null;
-        return userIdentifier.getValue("UserProfileArgs.userIdentifier");
+        if (!unknown_userIdentifier) return value_userIdentifier;
+        throw new UndeferrableValueException("Value 'UserProfileArgs.userIdentifier' is not present");
     }
 
     /**
      * The user type.
      * 
      */
-    private UndeferrableValue<String> userType;
-
+    @PolicyResourceProperty(name="userType", flag="unknown_userType")
+    private String value_userType;
+    private boolean unknown_userType;
     public String userType() {
-        if (userType == null) return null;
-        return userType.getValue("UserProfileArgs.userType");
+        if (!unknown_userType) return value_userType;
+        throw new UndeferrableValueException("Value 'UserProfileArgs.userType' is not present");
     }
 
 }

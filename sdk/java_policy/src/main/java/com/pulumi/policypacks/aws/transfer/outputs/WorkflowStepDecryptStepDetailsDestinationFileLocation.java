@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.transfer.outputs.WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation;
 import com.pulumi.policypacks.aws.transfer.outputs.WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class WorkflowStepDecryptStepDetailsDestinationFileLocation {
      * Specifies the details for the EFS file being copied.
      * 
      */
-    private @Nullable UndeferrableValue<WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation> efsFileLocation;
-
+    @PolicyResourceProperty(name="efsFileLocation", flag="unknown_efsFileLocation")
+    private @Nullable WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation value_efsFileLocation;
+    private boolean unknown_efsFileLocation;
     public @Nullable WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation efsFileLocation() {
-        if (efsFileLocation == null) return null;
-        return efsFileLocation.getValue("WorkflowStepDecryptStepDetailsDestinationFileLocation.efsFileLocation");
+        if (!unknown_efsFileLocation) return value_efsFileLocation;
+        throw new UndeferrableValueException("Value 'WorkflowStepDecryptStepDetailsDestinationFileLocation.efsFileLocation' is not present");
     }
 
     /**
      * Specifies the details for the S3 file being copied.
      * 
      */
-    private @Nullable UndeferrableValue<WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation> s3FileLocation;
-
+    @PolicyResourceProperty(name="s3FileLocation", flag="unknown_s3FileLocation")
+    private @Nullable WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation value_s3FileLocation;
+    private boolean unknown_s3FileLocation;
     public @Nullable WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation s3FileLocation() {
-        if (s3FileLocation == null) return null;
-        return s3FileLocation.getValue("WorkflowStepDecryptStepDetailsDestinationFileLocation.s3FileLocation");
+        if (!unknown_s3FileLocation) return value_s3FileLocation;
+        throw new UndeferrableValueException("Value 'WorkflowStepDecryptStepDetailsDestinationFileLocation.s3FileLocation' is not present");
     }
 
 }

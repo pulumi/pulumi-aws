@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.shield;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.shield.outputs.DrtAccessLogBucketAssociationTimeouts;
 import java.lang.String;
@@ -17,29 +18,32 @@ public final class DrtAccessLogBucketAssociation extends com.pulumi.resources.Po
      * The Amazon S3 bucket that contains the logs that you want to share.
      * 
      */
-    private UndeferrableValue<String> logBucket;
-
+    @PolicyResourceProperty(name="logBucket", flag="unknown_logBucket")
+    private String value_logBucket;
+    private boolean unknown_logBucket;
     public String logBucket() {
-        if (logBucket == null) return null;
-        return logBucket.getValue("DrtAccessLogBucketAssociation.logBucket");
+        if (!unknown_logBucket) return value_logBucket;
+        throw new UndeferrableValueException("Value 'DrtAccessLogBucketAssociation.logBucket' is not present");
     }
 
     /**
      * The ID of the Role Arn association used for allowing Shield DRT Access.
      * 
      */
-    private UndeferrableValue<String> roleArnAssociationId;
-
+    @PolicyResourceProperty(name="roleArnAssociationId", flag="unknown_roleArnAssociationId")
+    private String value_roleArnAssociationId;
+    private boolean unknown_roleArnAssociationId;
     public String roleArnAssociationId() {
-        if (roleArnAssociationId == null) return null;
-        return roleArnAssociationId.getValue("DrtAccessLogBucketAssociation.roleArnAssociationId");
+        if (!unknown_roleArnAssociationId) return value_roleArnAssociationId;
+        throw new UndeferrableValueException("Value 'DrtAccessLogBucketAssociation.roleArnAssociationId' is not present");
     }
 
-    private @Nullable UndeferrableValue<DrtAccessLogBucketAssociationTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable DrtAccessLogBucketAssociationTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable DrtAccessLogBucketAssociationTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("DrtAccessLogBucketAssociation.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'DrtAccessLogBucketAssociation.timeouts' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.outputs.RouteSpecGrpcRoute;
 import com.pulumi.policypacks.aws.appmesh.outputs.RouteSpecHttp2Route;
 import com.pulumi.policypacks.aws.appmesh.outputs.RouteSpecHttpRoute;
@@ -18,33 +19,36 @@ public final class RouteSpec {
      * GRPC routing information for the route.
      * 
      */
-    private @Nullable UndeferrableValue<RouteSpecGrpcRoute> grpcRoute;
-
+    @PolicyResourceProperty(name="grpcRoute", flag="unknown_grpcRoute")
+    private @Nullable RouteSpecGrpcRoute value_grpcRoute;
+    private boolean unknown_grpcRoute;
     public @Nullable RouteSpecGrpcRoute grpcRoute() {
-        if (grpcRoute == null) return null;
-        return grpcRoute.getValue("RouteSpec.grpcRoute");
+        if (!unknown_grpcRoute) return value_grpcRoute;
+        throw new UndeferrableValueException("Value 'RouteSpec.grpcRoute' is not present");
     }
 
     /**
      * HTTP/2 routing information for the route.
      * 
      */
-    private @Nullable UndeferrableValue<RouteSpecHttp2Route> http2Route;
-
+    @PolicyResourceProperty(name="http2Route", flag="unknown_http2Route")
+    private @Nullable RouteSpecHttp2Route value_http2Route;
+    private boolean unknown_http2Route;
     public @Nullable RouteSpecHttp2Route http2Route() {
-        if (http2Route == null) return null;
-        return http2Route.getValue("RouteSpec.http2Route");
+        if (!unknown_http2Route) return value_http2Route;
+        throw new UndeferrableValueException("Value 'RouteSpec.http2Route' is not present");
     }
 
     /**
      * HTTP routing information for the route.
      * 
      */
-    private @Nullable UndeferrableValue<RouteSpecHttpRoute> httpRoute;
-
+    @PolicyResourceProperty(name="httpRoute", flag="unknown_httpRoute")
+    private @Nullable RouteSpecHttpRoute value_httpRoute;
+    private boolean unknown_httpRoute;
     public @Nullable RouteSpecHttpRoute httpRoute() {
-        if (httpRoute == null) return null;
-        return httpRoute.getValue("RouteSpec.httpRoute");
+        if (!unknown_httpRoute) return value_httpRoute;
+        throw new UndeferrableValueException("Value 'RouteSpec.httpRoute' is not present");
     }
 
     /**
@@ -52,22 +56,24 @@ public final class RouteSpec {
      * Routes are matched based on the specified value, where `0` is the highest priority.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> priority;
-
+    @PolicyResourceProperty(name="priority", flag="unknown_priority")
+    private @Nullable Integer value_priority;
+    private boolean unknown_priority;
     public @Nullable Integer priority() {
-        if (priority == null) return null;
-        return priority.getValue("RouteSpec.priority");
+        if (!unknown_priority) return value_priority;
+        throw new UndeferrableValueException("Value 'RouteSpec.priority' is not present");
     }
 
     /**
      * TCP routing information for the route.
      * 
      */
-    private @Nullable UndeferrableValue<RouteSpecTcpRoute> tcpRoute;
-
+    @PolicyResourceProperty(name="tcpRoute", flag="unknown_tcpRoute")
+    private @Nullable RouteSpecTcpRoute value_tcpRoute;
+    private boolean unknown_tcpRoute;
     public @Nullable RouteSpecTcpRoute tcpRoute() {
-        if (tcpRoute == null) return null;
-        return tcpRoute.getValue("RouteSpec.tcpRoute");
+        if (!unknown_tcpRoute) return value_tcpRoute;
+        throw new UndeferrableValueException("Value 'RouteSpec.tcpRoute' is not present");
     }
 
 }

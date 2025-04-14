@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.grafana.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,22 +15,24 @@ public final class WorkspaceVpcConfigurationArgs {
      * The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("WorkspaceVpcConfigurationArgs.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'WorkspaceVpcConfigurationArgs.securityGroupIds' is not present");
     }
 
     /**
      * The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
      * 
      */
-    private UndeferrableValue<List<String>> subnetIds;
-
+    @PolicyResourceProperty(name="subnetIds", flag="unknown_subnetIds")
+    private List<String> value_subnetIds;
+    private boolean unknown_subnetIds;
     public List<String> subnetIds() {
-        if (subnetIds == null) return null;
-        return subnetIds.getValue("WorkspaceVpcConfigurationArgs.subnetIds");
+        if (!unknown_subnetIds) return value_subnetIds;
+        throw new UndeferrableValueException("Value 'WorkspaceVpcConfigurationArgs.subnetIds' is not present");
     }
 
 }

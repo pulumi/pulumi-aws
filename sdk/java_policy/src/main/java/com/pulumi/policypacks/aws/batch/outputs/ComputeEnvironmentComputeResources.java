@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.batch.outputs.ComputeEnvironmentComputeResourcesEc2Configuration;
 import com.pulumi.policypacks.aws.batch.outputs.ComputeEnvironmentComputeResourcesLaunchTemplate;
 import java.lang.Integer;
@@ -19,187 +20,204 @@ public final class ComputeEnvironmentComputeResources {
      * The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    private @Nullable UndeferrableValue<String> allocationStrategy;
-
+    @PolicyResourceProperty(name="allocationStrategy", flag="unknown_allocationStrategy")
+    private @Nullable String value_allocationStrategy;
+    private boolean unknown_allocationStrategy;
     public @Nullable String allocationStrategy() {
-        if (allocationStrategy == null) return null;
-        return allocationStrategy.getValue("ComputeEnvironmentComputeResources.allocationStrategy");
+        if (!unknown_allocationStrategy) return value_allocationStrategy;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.allocationStrategy' is not present");
     }
 
     /**
      * Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> bidPercentage;
-
+    @PolicyResourceProperty(name="bidPercentage", flag="unknown_bidPercentage")
+    private @Nullable Integer value_bidPercentage;
+    private boolean unknown_bidPercentage;
     public @Nullable Integer bidPercentage() {
-        if (bidPercentage == null) return null;
-        return bidPercentage.getValue("ComputeEnvironmentComputeResources.bidPercentage");
+        if (!unknown_bidPercentage) return value_bidPercentage;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.bidPercentage' is not present");
     }
 
     /**
      * The desired number of EC2 vCPUS in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> desiredVcpus;
-
+    @PolicyResourceProperty(name="desiredVcpus", flag="unknown_desiredVcpus")
+    private @Nullable Integer value_desiredVcpus;
+    private boolean unknown_desiredVcpus;
     public @Nullable Integer desiredVcpus() {
-        if (desiredVcpus == null) return null;
-        return desiredVcpus.getValue("ComputeEnvironmentComputeResources.desiredVcpus");
+        if (!unknown_desiredVcpus) return value_desiredVcpus;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.desiredVcpus' is not present");
     }
 
     /**
      * Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn&#39;t specified, the default is ECS_AL2. This parameter isn&#39;t applicable to jobs that are running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    private @Nullable UndeferrableValue<List<ComputeEnvironmentComputeResourcesEc2Configuration>> ec2Configurations;
-
+    @PolicyResourceProperty(name="ec2Configurations", flag="unknown_ec2Configurations")
+    private @Nullable List<ComputeEnvironmentComputeResourcesEc2Configuration> value_ec2Configurations;
+    private boolean unknown_ec2Configurations;
     public @Nullable List<ComputeEnvironmentComputeResourcesEc2Configuration> ec2Configurations() {
-        if (ec2Configurations == null) return null;
-        return ec2Configurations.getValue("ComputeEnvironmentComputeResources.ec2Configurations");
+        if (!unknown_ec2Configurations) return value_ec2Configurations;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.ec2Configurations' is not present");
     }
 
     /**
      * The EC2 key pair that is used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    private @Nullable UndeferrableValue<String> ec2KeyPair;
-
+    @PolicyResourceProperty(name="ec2KeyPair", flag="unknown_ec2KeyPair")
+    private @Nullable String value_ec2KeyPair;
+    private boolean unknown_ec2KeyPair;
     public @Nullable String ec2KeyPair() {
-        if (ec2KeyPair == null) return null;
-        return ec2KeyPair.getValue("ComputeEnvironmentComputeResources.ec2KeyPair");
+        if (!unknown_ec2KeyPair) return value_ec2KeyPair;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.ec2KeyPair' is not present");
     }
 
     /**
      * The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified. (Deprecated, use `ec2_configuration` `image_id_override` instead)
      * 
      */
-    private @Nullable UndeferrableValue<String> imageId;
-
+    @PolicyResourceProperty(name="imageId", flag="unknown_imageId")
+    private @Nullable String value_imageId;
+    private boolean unknown_imageId;
     public @Nullable String imageId() {
-        if (imageId == null) return null;
-        return imageId.getValue("ComputeEnvironmentComputeResources.imageId");
+        if (!unknown_imageId) return value_imageId;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.imageId' is not present");
     }
 
     /**
      * The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    private @Nullable UndeferrableValue<String> instanceRole;
-
+    @PolicyResourceProperty(name="instanceRole", flag="unknown_instanceRole")
+    private @Nullable String value_instanceRole;
+    private boolean unknown_instanceRole;
     public @Nullable String instanceRole() {
-        if (instanceRole == null) return null;
-        return instanceRole.getValue("ComputeEnvironmentComputeResources.instanceRole");
+        if (!unknown_instanceRole) return value_instanceRole;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.instanceRole' is not present");
     }
 
     /**
      * A list of instance types that may be launched. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> instanceTypes;
-
+    @PolicyResourceProperty(name="instanceTypes", flag="unknown_instanceTypes")
+    private @Nullable List<String> value_instanceTypes;
+    private boolean unknown_instanceTypes;
     public @Nullable List<String> instanceTypes() {
-        if (instanceTypes == null) return null;
-        return instanceTypes.getValue("ComputeEnvironmentComputeResources.instanceTypes");
+        if (!unknown_instanceTypes) return value_instanceTypes;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.instanceTypes' is not present");
     }
 
     /**
      * The launch template to use for your compute resources. See details below. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    private @Nullable UndeferrableValue<ComputeEnvironmentComputeResourcesLaunchTemplate> launchTemplate;
-
+    @PolicyResourceProperty(name="launchTemplate", flag="unknown_launchTemplate")
+    private @Nullable ComputeEnvironmentComputeResourcesLaunchTemplate value_launchTemplate;
+    private boolean unknown_launchTemplate;
     public @Nullable ComputeEnvironmentComputeResourcesLaunchTemplate launchTemplate() {
-        if (launchTemplate == null) return null;
-        return launchTemplate.getValue("ComputeEnvironmentComputeResources.launchTemplate");
+        if (!unknown_launchTemplate) return value_launchTemplate;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.launchTemplate' is not present");
     }
 
     /**
      * The maximum number of EC2 vCPUs that an environment can reach.
      * 
      */
-    private UndeferrableValue<Integer> maxVcpus;
-
+    @PolicyResourceProperty(name="maxVcpus", flag="unknown_maxVcpus")
+    private Integer value_maxVcpus;
+    private boolean unknown_maxVcpus;
     public Integer maxVcpus() {
-        if (maxVcpus == null) return null;
-        return maxVcpus.getValue("ComputeEnvironmentComputeResources.maxVcpus");
+        if (!unknown_maxVcpus) return value_maxVcpus;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.maxVcpus' is not present");
     }
 
     /**
      * The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> minVcpus;
-
+    @PolicyResourceProperty(name="minVcpus", flag="unknown_minVcpus")
+    private @Nullable Integer value_minVcpus;
+    private boolean unknown_minVcpus;
     public @Nullable Integer minVcpus() {
-        if (minVcpus == null) return null;
-        return minVcpus.getValue("ComputeEnvironmentComputeResources.minVcpus");
+        if (!unknown_minVcpus) return value_minVcpus;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.minVcpus' is not present");
     }
 
     /**
      * The Amazon EC2 placement group to associate with your compute resources.
      * 
      */
-    private @Nullable UndeferrableValue<String> placementGroup;
-
+    @PolicyResourceProperty(name="placementGroup", flag="unknown_placementGroup")
+    private @Nullable String value_placementGroup;
+    private boolean unknown_placementGroup;
     public @Nullable String placementGroup() {
-        if (placementGroup == null) return null;
-        return placementGroup.getValue("ComputeEnvironmentComputeResources.placementGroup");
+        if (!unknown_placementGroup) return value_placementGroup;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.placementGroup' is not present");
     }
 
     /**
      * A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private @Nullable List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public @Nullable List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("ComputeEnvironmentComputeResources.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.securityGroupIds' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    private @Nullable UndeferrableValue<String> spotIamFleetRole;
-
+    @PolicyResourceProperty(name="spotIamFleetRole", flag="unknown_spotIamFleetRole")
+    private @Nullable String value_spotIamFleetRole;
+    private boolean unknown_spotIamFleetRole;
     public @Nullable String spotIamFleetRole() {
-        if (spotIamFleetRole == null) return null;
-        return spotIamFleetRole.getValue("ComputeEnvironmentComputeResources.spotIamFleetRole");
+        if (!unknown_spotIamFleetRole) return value_spotIamFleetRole;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.spotIamFleetRole' is not present");
     }
 
     /**
      * A list of VPC subnets into which the compute resources are launched.
      * 
      */
-    private UndeferrableValue<List<String>> subnets;
-
+    @PolicyResourceProperty(name="subnets", flag="unknown_subnets")
+    private List<String> value_subnets;
+    private boolean unknown_subnets;
     public List<String> subnets() {
-        if (subnets == null) return null;
-        return subnets.getValue("ComputeEnvironmentComputeResources.subnets");
+        if (!unknown_subnets) return value_subnets;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.subnets' is not present");
     }
 
     /**
      * Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ComputeEnvironmentComputeResources.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.tags' is not present");
     }
 
     /**
      * The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ComputeEnvironmentComputeResources.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ComputeEnvironmentComputeResources.type' is not present");
     }
 
 }

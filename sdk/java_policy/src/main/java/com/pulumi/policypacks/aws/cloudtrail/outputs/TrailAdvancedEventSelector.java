@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudtrail.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudtrail.outputs.TrailAdvancedEventSelectorFieldSelector;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class TrailAdvancedEventSelector {
      * Specifies the selector statements in an advanced event selector. Fields documented below.
      * 
      */
-    private UndeferrableValue<List<TrailAdvancedEventSelectorFieldSelector>> fieldSelectors;
-
+    @PolicyResourceProperty(name="fieldSelectors", flag="unknown_fieldSelectors")
+    private List<TrailAdvancedEventSelectorFieldSelector> value_fieldSelectors;
+    private boolean unknown_fieldSelectors;
     public List<TrailAdvancedEventSelectorFieldSelector> fieldSelectors() {
-        if (fieldSelectors == null) return null;
-        return fieldSelectors.getValue("TrailAdvancedEventSelector.fieldSelectors");
+        if (!unknown_fieldSelectors) return value_fieldSelectors;
+        throw new UndeferrableValueException("Value 'TrailAdvancedEventSelector.fieldSelectors' is not present");
     }
 
     /**
      * Name of the trail.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("TrailAdvancedEventSelector.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TrailAdvancedEventSelector.name' is not present");
     }
 
 }

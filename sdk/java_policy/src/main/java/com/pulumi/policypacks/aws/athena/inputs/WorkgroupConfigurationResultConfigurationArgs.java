@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.athena.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.athena.inputs.WorkgroupConfigurationResultConfigurationAclConfigurationArgs;
 import com.pulumi.policypacks.aws.athena.inputs.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class WorkgroupConfigurationResultConfigurationArgs {
      * That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
      * 
      */
-    private UndeferrableValue<WorkgroupConfigurationResultConfigurationAclConfigurationArgs> aclConfiguration;
-
+    @PolicyResourceProperty(name="aclConfiguration", flag="unknown_aclConfiguration")
+    private WorkgroupConfigurationResultConfigurationAclConfigurationArgs value_aclConfiguration;
+    private boolean unknown_aclConfiguration;
     public WorkgroupConfigurationResultConfigurationAclConfigurationArgs aclConfiguration() {
-        if (aclConfiguration == null) return null;
-        return aclConfiguration.getValue("WorkgroupConfigurationResultConfigurationArgs.aclConfiguration");
+        if (!unknown_aclConfiguration) return value_aclConfiguration;
+        throw new UndeferrableValueException("Value 'WorkgroupConfigurationResultConfigurationArgs.aclConfiguration' is not present");
     }
 
     /**
      * Configuration block with encryption settings. See Encryption Configuration below.
      * 
      */
-    private UndeferrableValue<WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs> encryptionConfiguration;
-
+    @PolicyResourceProperty(name="encryptionConfiguration", flag="unknown_encryptionConfiguration")
+    private WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs value_encryptionConfiguration;
+    private boolean unknown_encryptionConfiguration;
     public WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs encryptionConfiguration() {
-        if (encryptionConfiguration == null) return null;
-        return encryptionConfiguration.getValue("WorkgroupConfigurationResultConfigurationArgs.encryptionConfiguration");
+        if (!unknown_encryptionConfiguration) return value_encryptionConfiguration;
+        throw new UndeferrableValueException("Value 'WorkgroupConfigurationResultConfigurationArgs.encryptionConfiguration' is not present");
     }
 
     /**
      * AWS account ID that you expect to be the owner of the Amazon S3 bucket.
      * 
      */
-    private UndeferrableValue<String> expectedBucketOwner;
-
+    @PolicyResourceProperty(name="expectedBucketOwner", flag="unknown_expectedBucketOwner")
+    private String value_expectedBucketOwner;
+    private boolean unknown_expectedBucketOwner;
     public String expectedBucketOwner() {
-        if (expectedBucketOwner == null) return null;
-        return expectedBucketOwner.getValue("WorkgroupConfigurationResultConfigurationArgs.expectedBucketOwner");
+        if (!unknown_expectedBucketOwner) return value_expectedBucketOwner;
+        throw new UndeferrableValueException("Value 'WorkgroupConfigurationResultConfigurationArgs.expectedBucketOwner' is not present");
     }
 
     /**
      * Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
      * 
      */
-    private UndeferrableValue<String> outputLocation;
-
+    @PolicyResourceProperty(name="outputLocation", flag="unknown_outputLocation")
+    private String value_outputLocation;
+    private boolean unknown_outputLocation;
     public String outputLocation() {
-        if (outputLocation == null) return null;
-        return outputLocation.getValue("WorkgroupConfigurationResultConfigurationArgs.outputLocation");
+        if (!unknown_outputLocation) return value_outputLocation;
+        throw new UndeferrableValueException("Value 'WorkgroupConfigurationResultConfigurationArgs.outputLocation' is not present");
     }
 
 }

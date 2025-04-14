@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kinesis.inputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,22 +17,24 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArg
      * See Mapping Parameters below for more details.
      * 
      */
-    private UndeferrableValue<AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs> mappingParameters;
-
+    @PolicyResourceProperty(name="mappingParameters", flag="unknown_mappingParameters")
+    private AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs value_mappingParameters;
+    private boolean unknown_mappingParameters;
     public AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs mappingParameters() {
-        if (mappingParameters == null) return null;
-        return mappingParameters.getValue("AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs.mappingParameters");
+        if (!unknown_mappingParameters) return value_mappingParameters;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs.mappingParameters' is not present");
     }
 
     /**
      * The type of Record Format. Can be `CSV` or `JSON`.
      * 
      */
-    private UndeferrableValue<String> recordFormatType;
-
+    @PolicyResourceProperty(name="recordFormatType", flag="unknown_recordFormatType")
+    private String value_recordFormatType;
+    private boolean unknown_recordFormatType;
     public String recordFormatType() {
-        if (recordFormatType == null) return null;
-        return recordFormatType.getValue("AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs.recordFormatType");
+        if (!unknown_recordFormatType) return value_recordFormatType;
+        throw new UndeferrableValueException("Value 'AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs.recordFormatType' is not present");
     }
 
 }

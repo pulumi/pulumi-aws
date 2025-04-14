@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class GraphQLApiLambdaAuthorizerConfigArgs {
      * Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
      * 
      */
-    private UndeferrableValue<Integer> authorizerResultTtlInSeconds;
-
+    @PolicyResourceProperty(name="authorizerResultTtlInSeconds", flag="unknown_authorizerResultTtlInSeconds")
+    private Integer value_authorizerResultTtlInSeconds;
+    private boolean unknown_authorizerResultTtlInSeconds;
     public Integer authorizerResultTtlInSeconds() {
-        if (authorizerResultTtlInSeconds == null) return null;
-        return authorizerResultTtlInSeconds.getValue("GraphQLApiLambdaAuthorizerConfigArgs.authorizerResultTtlInSeconds");
+        if (!unknown_authorizerResultTtlInSeconds) return value_authorizerResultTtlInSeconds;
+        throw new UndeferrableValueException("Value 'GraphQLApiLambdaAuthorizerConfigArgs.authorizerResultTtlInSeconds' is not present");
     }
 
     /**
      * ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
      * 
      */
-    private UndeferrableValue<String> authorizerUri;
-
+    @PolicyResourceProperty(name="authorizerUri", flag="unknown_authorizerUri")
+    private String value_authorizerUri;
+    private boolean unknown_authorizerUri;
     public String authorizerUri() {
-        if (authorizerUri == null) return null;
-        return authorizerUri.getValue("GraphQLApiLambdaAuthorizerConfigArgs.authorizerUri");
+        if (!unknown_authorizerUri) return value_authorizerUri;
+        throw new UndeferrableValueException("Value 'GraphQLApiLambdaAuthorizerConfigArgs.authorizerUri' is not present");
     }
 
     /**
      * Regular expression for validation of tokens before the Lambda function is called.
      * 
      */
-    private UndeferrableValue<String> identityValidationExpression;
-
+    @PolicyResourceProperty(name="identityValidationExpression", flag="unknown_identityValidationExpression")
+    private String value_identityValidationExpression;
+    private boolean unknown_identityValidationExpression;
     public String identityValidationExpression() {
-        if (identityValidationExpression == null) return null;
-        return identityValidationExpression.getValue("GraphQLApiLambdaAuthorizerConfigArgs.identityValidationExpression");
+        if (!unknown_identityValidationExpression) return value_identityValidationExpression;
+        throw new UndeferrableValueException("Value 'GraphQLApiLambdaAuthorizerConfigArgs.identityValidationExpression' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArg
      * The replacement strategy to use. Only available for spot fleets with `fleet_type` set to `maintain`. Valid values: `launch`.
      * 
      */
-    private UndeferrableValue<String> replacementStrategy;
-
+    @PolicyResourceProperty(name="replacementStrategy", flag="unknown_replacementStrategy")
+    private String value_replacementStrategy;
+    private boolean unknown_replacementStrategy;
     public String replacementStrategy() {
-        if (replacementStrategy == null) return null;
-        return replacementStrategy.getValue("SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs.replacementStrategy");
+        if (!unknown_replacementStrategy) return value_replacementStrategy;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs.replacementStrategy' is not present");
     }
 
 }

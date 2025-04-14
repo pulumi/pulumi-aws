@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iot.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class IndexingConfigurationThingIndexingConfigurationCustomField {
      * The name of the field.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("IndexingConfigurationThingIndexingConfigurationCustomField.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'IndexingConfigurationThingIndexingConfigurationCustomField.name' is not present");
     }
 
     /**
      * The data type of the field. Valid values: `Number`, `String`, `Boolean`.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("IndexingConfigurationThingIndexingConfigurationCustomField.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'IndexingConfigurationThingIndexingConfigurationCustomField.type' is not present");
     }
 
 }

@@ -3,25 +3,28 @@
 
 package com.pulumi.policypacks.aws.elasticache.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.String;
 
 
 public final class ReservedCacheNodeRecurringCharge {
 
-    private UndeferrableValue<Double> recurringChargeAmount;
-
+    @PolicyResourceProperty(name="recurringChargeAmount", flag="unknown_recurringChargeAmount")
+    private Double value_recurringChargeAmount;
+    private boolean unknown_recurringChargeAmount;
     public Double recurringChargeAmount() {
-        if (recurringChargeAmount == null) return null;
-        return recurringChargeAmount.getValue("ReservedCacheNodeRecurringCharge.recurringChargeAmount");
+        if (!unknown_recurringChargeAmount) return value_recurringChargeAmount;
+        throw new UndeferrableValueException("Value 'ReservedCacheNodeRecurringCharge.recurringChargeAmount' is not present");
     }
 
-    private UndeferrableValue<String> recurringChargeFrequency;
-
+    @PolicyResourceProperty(name="recurringChargeFrequency", flag="unknown_recurringChargeFrequency")
+    private String value_recurringChargeFrequency;
+    private boolean unknown_recurringChargeFrequency;
     public String recurringChargeFrequency() {
-        if (recurringChargeFrequency == null) return null;
-        return recurringChargeFrequency.getValue("ReservedCacheNodeRecurringCharge.recurringChargeFrequency");
+        if (!unknown_recurringChargeFrequency) return value_recurringChargeFrequency;
+        throw new UndeferrableValueException("Value 'ReservedCacheNodeRecurringCharge.recurringChargeFrequency' is not present");
     }
 
 }

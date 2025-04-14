@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lightsail.inputs.InstancePublicPortsPortInfoArgs;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class InstancePublicPortsArgs extends com.pulumi.resources.PolicyRe
      * Name of the Lightsail Instance.
      * 
      */
-    private UndeferrableValue<String> instanceName;
-
+    @PolicyResourceProperty(name="instanceName", flag="unknown_instanceName")
+    private String value_instanceName;
+    private boolean unknown_instanceName;
     public String instanceName() {
-        if (instanceName == null) return null;
-        return instanceName.getValue("InstancePublicPortsArgs.instanceName");
+        if (!unknown_instanceName) return value_instanceName;
+        throw new UndeferrableValueException("Value 'InstancePublicPortsArgs.instanceName' is not present");
     }
 
     /**
      * Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
      * 
      */
-    private UndeferrableValue<List<InstancePublicPortsPortInfoArgs>> portInfos;
-
+    @PolicyResourceProperty(name="portInfos", flag="unknown_portInfos")
+    private List<InstancePublicPortsPortInfoArgs> value_portInfos;
+    private boolean unknown_portInfos;
     public List<InstancePublicPortsPortInfoArgs> portInfos() {
-        if (portInfos == null) return null;
-        return portInfos.getValue("InstancePublicPortsArgs.portInfos");
+        if (!unknown_portInfos) return value_portInfos;
+        throw new UndeferrableValueException("Value 'InstancePublicPortsArgs.portInfos' is not present");
     }
 
 }

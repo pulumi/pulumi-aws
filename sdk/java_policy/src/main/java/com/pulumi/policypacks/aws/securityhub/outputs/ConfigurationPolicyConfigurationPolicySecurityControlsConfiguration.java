@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.securityhub.outputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class ConfigurationPolicyConfigurationPolicySecurityControlsConfigu
      * A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabled_control_identifiers`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> disabledControlIdentifiers;
-
+    @PolicyResourceProperty(name="disabledControlIdentifiers", flag="unknown_disabledControlIdentifiers")
+    private @Nullable List<String> value_disabledControlIdentifiers;
+    private boolean unknown_disabledControlIdentifiers;
     public @Nullable List<String> disabledControlIdentifiers() {
-        if (disabledControlIdentifiers == null) return null;
-        return disabledControlIdentifiers.getValue("ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration.disabledControlIdentifiers");
+        if (!unknown_disabledControlIdentifiers) return value_disabledControlIdentifiers;
+        throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration.disabledControlIdentifiers' is not present");
     }
 
     /**
      * A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabled_control_identifiers`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> enabledControlIdentifiers;
-
+    @PolicyResourceProperty(name="enabledControlIdentifiers", flag="unknown_enabledControlIdentifiers")
+    private @Nullable List<String> value_enabledControlIdentifiers;
+    private boolean unknown_enabledControlIdentifiers;
     public @Nullable List<String> enabledControlIdentifiers() {
-        if (enabledControlIdentifiers == null) return null;
-        return enabledControlIdentifiers.getValue("ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration.enabledControlIdentifiers");
+        if (!unknown_enabledControlIdentifiers) return value_enabledControlIdentifiers;
+        throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration.enabledControlIdentifiers' is not present");
     }
 
     /**
      * A list of control parameter customizations that are included in a configuration policy. Include multiple blocks to define multiple control custom parameters. See below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter>> securityControlCustomParameters;
-
+    @PolicyResourceProperty(name="securityControlCustomParameters", flag="unknown_securityControlCustomParameters")
+    private @Nullable List<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter> value_securityControlCustomParameters;
+    private boolean unknown_securityControlCustomParameters;
     public @Nullable List<ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter> securityControlCustomParameters() {
-        if (securityControlCustomParameters == null) return null;
-        return securityControlCustomParameters.getValue("ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration.securityControlCustomParameters");
+        if (!unknown_securityControlCustomParameters) return value_securityControlCustomParameters;
+        throw new UndeferrableValueException("Value 'ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration.securityControlCustomParameters' is not present");
     }
 
 }

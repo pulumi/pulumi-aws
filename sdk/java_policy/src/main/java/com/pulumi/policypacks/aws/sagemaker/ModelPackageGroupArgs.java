@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,33 +18,36 @@ public final class ModelPackageGroupArgs extends com.pulumi.resources.PolicyReso
      * A description for the model group.
      * 
      */
-    private UndeferrableValue<String> modelPackageGroupDescription;
-
+    @PolicyResourceProperty(name="modelPackageGroupDescription", flag="unknown_modelPackageGroupDescription")
+    private String value_modelPackageGroupDescription;
+    private boolean unknown_modelPackageGroupDescription;
     public String modelPackageGroupDescription() {
-        if (modelPackageGroupDescription == null) return null;
-        return modelPackageGroupDescription.getValue("ModelPackageGroupArgs.modelPackageGroupDescription");
+        if (!unknown_modelPackageGroupDescription) return value_modelPackageGroupDescription;
+        throw new UndeferrableValueException("Value 'ModelPackageGroupArgs.modelPackageGroupDescription' is not present");
     }
 
     /**
      * The name of the model group.
      * 
      */
-    private UndeferrableValue<String> modelPackageGroupName;
-
+    @PolicyResourceProperty(name="modelPackageGroupName", flag="unknown_modelPackageGroupName")
+    private String value_modelPackageGroupName;
+    private boolean unknown_modelPackageGroupName;
     public String modelPackageGroupName() {
-        if (modelPackageGroupName == null) return null;
-        return modelPackageGroupName.getValue("ModelPackageGroupArgs.modelPackageGroupName");
+        if (!unknown_modelPackageGroupName) return value_modelPackageGroupName;
+        throw new UndeferrableValueException("Value 'ModelPackageGroupArgs.modelPackageGroupName' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ModelPackageGroupArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ModelPackageGroupArgs.tags' is not present");
     }
 
 }

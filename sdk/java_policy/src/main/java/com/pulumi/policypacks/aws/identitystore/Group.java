@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.identitystore;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.identitystore.outputs.GroupExternalId;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class Group extends com.pulumi.resources.PolicyResourceOutput {
      * A string containing the description of the group.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("Group.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Group.description' is not present");
     }
 
     /**
      * A string containing the name of the group. This value is commonly displayed when the group is referenced.
      * 
      */
-    private UndeferrableValue<String> displayName;
-
+    @PolicyResourceProperty(name="displayName", flag="unknown_displayName")
+    private String value_displayName;
+    private boolean unknown_displayName;
     public String displayName() {
-        if (displayName == null) return null;
-        return displayName.getValue("Group.displayName");
+        if (!unknown_displayName) return value_displayName;
+        throw new UndeferrableValueException("Value 'Group.displayName' is not present");
     }
 
     /**
      * A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
      * 
      */
-    private UndeferrableValue<List<GroupExternalId>> externalIds;
-
+    @PolicyResourceProperty(name="externalIds", flag="unknown_externalIds")
+    private List<GroupExternalId> value_externalIds;
+    private boolean unknown_externalIds;
     public List<GroupExternalId> externalIds() {
-        if (externalIds == null) return null;
-        return externalIds.getValue("Group.externalIds");
+        if (!unknown_externalIds) return value_externalIds;
+        throw new UndeferrableValueException("Value 'Group.externalIds' is not present");
     }
 
     /**
      * The identifier of the newly created group in the identity store.
      * 
      */
-    private UndeferrableValue<String> groupId;
-
+    @PolicyResourceProperty(name="groupId", flag="unknown_groupId")
+    private String value_groupId;
+    private boolean unknown_groupId;
     public String groupId() {
-        if (groupId == null) return null;
-        return groupId.getValue("Group.groupId");
+        if (!unknown_groupId) return value_groupId;
+        throw new UndeferrableValueException("Value 'Group.groupId' is not present");
     }
 
     /**
@@ -64,11 +69,12 @@ public final class Group extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> identityStoreId;
-
+    @PolicyResourceProperty(name="identityStoreId", flag="unknown_identityStoreId")
+    private String value_identityStoreId;
+    private boolean unknown_identityStoreId;
     public String identityStoreId() {
-        if (identityStoreId == null) return null;
-        return identityStoreId.getValue("Group.identityStoreId");
+        if (!unknown_identityStoreId) return value_identityStoreId;
+        throw new UndeferrableValueException("Value 'Group.identityStoreId' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class UserProfileUserSettingsRStudioServerProAppSettingsArgs {
      * Indicates whether the current user has access to the RStudioServerPro app. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> accessStatus;
-
+    @PolicyResourceProperty(name="accessStatus", flag="unknown_accessStatus")
+    private String value_accessStatus;
+    private boolean unknown_accessStatus;
     public String accessStatus() {
-        if (accessStatus == null) return null;
-        return accessStatus.getValue("UserProfileUserSettingsRStudioServerProAppSettingsArgs.accessStatus");
+        if (!unknown_accessStatus) return value_accessStatus;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsRStudioServerProAppSettingsArgs.accessStatus' is not present");
     }
 
     /**
      * The level of permissions that the user has within the RStudioServerPro app. This value defaults to `R_STUDIO_USER`. The `R_STUDIO_ADMIN` value allows the user access to the RStudio Administrative Dashboard. Valid values are `R_STUDIO_USER` and `R_STUDIO_ADMIN`.
      * 
      */
-    private UndeferrableValue<String> userGroup;
-
+    @PolicyResourceProperty(name="userGroup", flag="unknown_userGroup")
+    private String value_userGroup;
+    private boolean unknown_userGroup;
     public String userGroup() {
-        if (userGroup == null) return null;
-        return userGroup.getValue("UserProfileUserSettingsRStudioServerProAppSettingsArgs.userGroup");
+        if (!unknown_userGroup) return value_userGroup;
+        throw new UndeferrableValueException("Value 'UserProfileUserSettingsRStudioServerProAppSettingsArgs.userGroup' is not present");
     }
 
 }

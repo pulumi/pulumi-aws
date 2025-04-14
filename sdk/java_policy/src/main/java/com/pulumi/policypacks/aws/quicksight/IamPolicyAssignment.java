@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.quicksight.outputs.IamPolicyAssignmentIdentities;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class IamPolicyAssignment extends com.pulumi.resources.PolicyResour
      * Assignment ID.
      * 
      */
-    private UndeferrableValue<String> assignmentId;
-
+    @PolicyResourceProperty(name="assignmentId", flag="unknown_assignmentId")
+    private String value_assignmentId;
+    private boolean unknown_assignmentId;
     public String assignmentId() {
-        if (assignmentId == null) return null;
-        return assignmentId.getValue("IamPolicyAssignment.assignmentId");
+        if (!unknown_assignmentId) return value_assignmentId;
+        throw new UndeferrableValueException("Value 'IamPolicyAssignment.assignmentId' is not present");
     }
 
     /**
      * Name of the assignment.
      * 
      */
-    private UndeferrableValue<String> assignmentName;
-
+    @PolicyResourceProperty(name="assignmentName", flag="unknown_assignmentName")
+    private String value_assignmentName;
+    private boolean unknown_assignmentName;
     public String assignmentName() {
-        if (assignmentName == null) return null;
-        return assignmentName.getValue("IamPolicyAssignment.assignmentName");
+        if (!unknown_assignmentName) return value_assignmentName;
+        throw new UndeferrableValueException("Value 'IamPolicyAssignment.assignmentName' is not present");
     }
 
     /**
@@ -41,55 +44,60 @@ public final class IamPolicyAssignment extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> assignmentStatus;
-
+    @PolicyResourceProperty(name="assignmentStatus", flag="unknown_assignmentStatus")
+    private String value_assignmentStatus;
+    private boolean unknown_assignmentStatus;
     public String assignmentStatus() {
-        if (assignmentStatus == null) return null;
-        return assignmentStatus.getValue("IamPolicyAssignment.assignmentStatus");
+        if (!unknown_assignmentStatus) return value_assignmentStatus;
+        throw new UndeferrableValueException("Value 'IamPolicyAssignment.assignmentStatus' is not present");
     }
 
     /**
      * AWS account ID.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("IamPolicyAssignment.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'IamPolicyAssignment.awsAccountId' is not present");
     }
 
     /**
      * Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
      * 
      */
-    private @Nullable UndeferrableValue<IamPolicyAssignmentIdentities> identities;
-
+    @PolicyResourceProperty(name="identities", flag="unknown_identities")
+    private @Nullable IamPolicyAssignmentIdentities value_identities;
+    private boolean unknown_identities;
     public @Nullable IamPolicyAssignmentIdentities identities() {
-        if (identities == null) return null;
-        return identities.getValue("IamPolicyAssignment.identities");
+        if (!unknown_identities) return value_identities;
+        throw new UndeferrableValueException("Value 'IamPolicyAssignment.identities' is not present");
     }
 
     /**
      * Namespace that contains the assignment. Defaults to `default`.
      * 
      */
-    private UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private String value_namespace;
+    private boolean unknown_namespace;
     public String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("IamPolicyAssignment.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'IamPolicyAssignment.namespace' is not present");
     }
 
     /**
      * ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
      * 
      */
-    private @Nullable UndeferrableValue<String> policyArn;
-
+    @PolicyResourceProperty(name="policyArn", flag="unknown_policyArn")
+    private @Nullable String value_policyArn;
+    private boolean unknown_policyArn;
     public @Nullable String policyArn() {
-        if (policyArn == null) return null;
-        return policyArn.getValue("IamPolicyAssignment.policyArn");
+        if (!unknown_policyArn) return value_policyArn;
+        throw new UndeferrableValueException("Value 'IamPolicyAssignment.policyArn' is not present");
     }
 
 }

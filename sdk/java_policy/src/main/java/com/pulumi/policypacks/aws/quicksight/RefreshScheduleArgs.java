@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.quicksight.inputs.RefreshScheduleScheduleArgs;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class RefreshScheduleArgs extends com.pulumi.resources.PolicyResour
      * AWS account ID.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("RefreshScheduleArgs.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'RefreshScheduleArgs.awsAccountId' is not present");
     }
 
     /**
      * The ID of the dataset.
      * 
      */
-    private UndeferrableValue<String> dataSetId;
-
+    @PolicyResourceProperty(name="dataSetId", flag="unknown_dataSetId")
+    private String value_dataSetId;
+    private boolean unknown_dataSetId;
     public String dataSetId() {
-        if (dataSetId == null) return null;
-        return dataSetId.getValue("RefreshScheduleArgs.dataSetId");
+        if (!unknown_dataSetId) return value_dataSetId;
+        throw new UndeferrableValueException("Value 'RefreshScheduleArgs.dataSetId' is not present");
     }
 
     /**
@@ -41,22 +44,24 @@ public final class RefreshScheduleArgs extends com.pulumi.resources.PolicyResour
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<RefreshScheduleScheduleArgs> schedule;
-
+    @PolicyResourceProperty(name="schedule", flag="unknown_schedule")
+    private RefreshScheduleScheduleArgs value_schedule;
+    private boolean unknown_schedule;
     public RefreshScheduleScheduleArgs schedule() {
-        if (schedule == null) return null;
-        return schedule.getValue("RefreshScheduleArgs.schedule");
+        if (!unknown_schedule) return value_schedule;
+        throw new UndeferrableValueException("Value 'RefreshScheduleArgs.schedule' is not present");
     }
 
     /**
      * The ID of the refresh schedule.
      * 
      */
-    private UndeferrableValue<String> scheduleId;
-
+    @PolicyResourceProperty(name="scheduleId", flag="unknown_scheduleId")
+    private String value_scheduleId;
+    private boolean unknown_scheduleId;
     public String scheduleId() {
-        if (scheduleId == null) return null;
-        return scheduleId.getValue("RefreshScheduleArgs.scheduleId");
+        if (!unknown_scheduleId) return value_scheduleId;
+        throw new UndeferrableValueException("Value 'RefreshScheduleArgs.scheduleId' is not present");
     }
 
 }

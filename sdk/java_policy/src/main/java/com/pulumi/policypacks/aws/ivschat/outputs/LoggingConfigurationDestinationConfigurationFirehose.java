@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ivschat.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class LoggingConfigurationDestinationConfigurationFirehose {
      * Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
      * 
      */
-    private UndeferrableValue<String> deliveryStreamName;
-
+    @PolicyResourceProperty(name="deliveryStreamName", flag="unknown_deliveryStreamName")
+    private String value_deliveryStreamName;
+    private boolean unknown_deliveryStreamName;
     public String deliveryStreamName() {
-        if (deliveryStreamName == null) return null;
-        return deliveryStreamName.getValue("LoggingConfigurationDestinationConfigurationFirehose.deliveryStreamName");
+        if (!unknown_deliveryStreamName) return value_deliveryStreamName;
+        throw new UndeferrableValueException("Value 'LoggingConfigurationDestinationConfigurationFirehose.deliveryStreamName' is not present");
     }
 
 }

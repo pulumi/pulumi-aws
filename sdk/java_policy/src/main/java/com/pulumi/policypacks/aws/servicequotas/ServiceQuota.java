@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.servicequotas;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.servicequotas.outputs.ServiceQuotaUsageMetric;
 import java.lang.Boolean;
@@ -19,113 +20,124 @@ public final class ServiceQuota extends com.pulumi.resources.PolicyResourceOutpu
      * Whether the service quota can be increased.
      * 
      */
-    private UndeferrableValue<Boolean> adjustable;
-
+    @PolicyResourceProperty(name="adjustable", flag="unknown_adjustable")
+    private Boolean value_adjustable;
+    private boolean unknown_adjustable;
     public Boolean adjustable() {
-        if (adjustable == null) return null;
-        return adjustable.getValue("ServiceQuota.adjustable");
+        if (!unknown_adjustable) return value_adjustable;
+        throw new UndeferrableValueException("Value 'ServiceQuota.adjustable' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the service quota.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ServiceQuota.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ServiceQuota.arn' is not present");
     }
 
     /**
      * Default value of the service quota.
      * 
      */
-    private UndeferrableValue<Double> defaultValue;
-
+    @PolicyResourceProperty(name="defaultValue", flag="unknown_defaultValue")
+    private Double value_defaultValue;
+    private boolean unknown_defaultValue;
     public Double defaultValue() {
-        if (defaultValue == null) return null;
-        return defaultValue.getValue("ServiceQuota.defaultValue");
+        if (!unknown_defaultValue) return value_defaultValue;
+        throw new UndeferrableValueException("Value 'ServiceQuota.defaultValue' is not present");
     }
 
     /**
      * Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
      * 
      */
-    private UndeferrableValue<String> quotaCode;
-
+    @PolicyResourceProperty(name="quotaCode", flag="unknown_quotaCode")
+    private String value_quotaCode;
+    private boolean unknown_quotaCode;
     public String quotaCode() {
-        if (quotaCode == null) return null;
-        return quotaCode.getValue("ServiceQuota.quotaCode");
+        if (!unknown_quotaCode) return value_quotaCode;
+        throw new UndeferrableValueException("Value 'ServiceQuota.quotaCode' is not present");
     }
 
     /**
      * Name of the quota.
      * 
      */
-    private UndeferrableValue<String> quotaName;
-
+    @PolicyResourceProperty(name="quotaName", flag="unknown_quotaName")
+    private String value_quotaName;
+    private boolean unknown_quotaName;
     public String quotaName() {
-        if (quotaName == null) return null;
-        return quotaName.getValue("ServiceQuota.quotaName");
+        if (!unknown_quotaName) return value_quotaName;
+        throw new UndeferrableValueException("Value 'ServiceQuota.quotaName' is not present");
     }
 
-    private UndeferrableValue<String> requestId;
-
+    @PolicyResourceProperty(name="requestId", flag="unknown_requestId")
+    private String value_requestId;
+    private boolean unknown_requestId;
     public String requestId() {
-        if (requestId == null) return null;
-        return requestId.getValue("ServiceQuota.requestId");
+        if (!unknown_requestId) return value_requestId;
+        throw new UndeferrableValueException("Value 'ServiceQuota.requestId' is not present");
     }
 
-    private UndeferrableValue<String> requestStatus;
-
+    @PolicyResourceProperty(name="requestStatus", flag="unknown_requestStatus")
+    private String value_requestStatus;
+    private boolean unknown_requestStatus;
     public String requestStatus() {
-        if (requestStatus == null) return null;
-        return requestStatus.getValue("ServiceQuota.requestStatus");
+        if (!unknown_requestStatus) return value_requestStatus;
+        throw new UndeferrableValueException("Value 'ServiceQuota.requestStatus' is not present");
     }
 
     /**
      * Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
      * 
      */
-    private UndeferrableValue<String> serviceCode;
-
+    @PolicyResourceProperty(name="serviceCode", flag="unknown_serviceCode")
+    private String value_serviceCode;
+    private boolean unknown_serviceCode;
     public String serviceCode() {
-        if (serviceCode == null) return null;
-        return serviceCode.getValue("ServiceQuota.serviceCode");
+        if (!unknown_serviceCode) return value_serviceCode;
+        throw new UndeferrableValueException("Value 'ServiceQuota.serviceCode' is not present");
     }
 
     /**
      * Name of the service.
      * 
      */
-    private UndeferrableValue<String> serviceName;
-
+    @PolicyResourceProperty(name="serviceName", flag="unknown_serviceName")
+    private String value_serviceName;
+    private boolean unknown_serviceName;
     public String serviceName() {
-        if (serviceName == null) return null;
-        return serviceName.getValue("ServiceQuota.serviceName");
+        if (!unknown_serviceName) return value_serviceName;
+        throw new UndeferrableValueException("Value 'ServiceQuota.serviceName' is not present");
     }
 
     /**
      * Information about the measurement.
      * 
      */
-    private UndeferrableValue<List<ServiceQuotaUsageMetric>> usageMetrics;
-
+    @PolicyResourceProperty(name="usageMetrics", flag="unknown_usageMetrics")
+    private List<ServiceQuotaUsageMetric> value_usageMetrics;
+    private boolean unknown_usageMetrics;
     public List<ServiceQuotaUsageMetric> usageMetrics() {
-        if (usageMetrics == null) return null;
-        return usageMetrics.getValue("ServiceQuota.usageMetrics");
+        if (!unknown_usageMetrics) return value_usageMetrics;
+        throw new UndeferrableValueException("Value 'ServiceQuota.usageMetrics' is not present");
     }
 
     /**
      * Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
      * 
      */
-    private UndeferrableValue<Double> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private Double value_value;
+    private boolean unknown_value;
     public Double value() {
-        if (value == null) return null;
-        return value.getValue("ServiceQuota.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'ServiceQuota.value' is not present");
     }
 
 }

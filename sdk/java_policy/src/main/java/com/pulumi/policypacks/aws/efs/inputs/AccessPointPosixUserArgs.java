@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.efs.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class AccessPointPosixUserArgs {
      * POSIX group ID used for all file system operations using this access point.
      * 
      */
-    private UndeferrableValue<Integer> gid;
-
+    @PolicyResourceProperty(name="gid", flag="unknown_gid")
+    private Integer value_gid;
+    private boolean unknown_gid;
     public Integer gid() {
-        if (gid == null) return null;
-        return gid.getValue("AccessPointPosixUserArgs.gid");
+        if (!unknown_gid) return value_gid;
+        throw new UndeferrableValueException("Value 'AccessPointPosixUserArgs.gid' is not present");
     }
 
     /**
      * Secondary POSIX group IDs used for all file system operations using this access point.
      * 
      */
-    private UndeferrableValue<List<Integer>> secondaryGids;
-
+    @PolicyResourceProperty(name="secondaryGids", flag="unknown_secondaryGids")
+    private List<Integer> value_secondaryGids;
+    private boolean unknown_secondaryGids;
     public List<Integer> secondaryGids() {
-        if (secondaryGids == null) return null;
-        return secondaryGids.getValue("AccessPointPosixUserArgs.secondaryGids");
+        if (!unknown_secondaryGids) return value_secondaryGids;
+        throw new UndeferrableValueException("Value 'AccessPointPosixUserArgs.secondaryGids' is not present");
     }
 
     /**
      * POSIX user ID used for all file system operations using this access point.
      * 
      */
-    private UndeferrableValue<Integer> uid;
-
+    @PolicyResourceProperty(name="uid", flag="unknown_uid")
+    private Integer value_uid;
+    private boolean unknown_uid;
     public Integer uid() {
-        if (uid == null) return null;
-        return uid.getValue("AccessPointPosixUserArgs.uid");
+        if (!unknown_uid) return value_uid;
+        throw new UndeferrableValueException("Value 'AccessPointPosixUserArgs.uid' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directoryservice;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,99 +20,108 @@ public final class RadiusSettings extends com.pulumi.resources.PolicyResourceOut
      * The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
      * 
      */
-    private UndeferrableValue<String> authenticationProtocol;
-
+    @PolicyResourceProperty(name="authenticationProtocol", flag="unknown_authenticationProtocol")
+    private String value_authenticationProtocol;
+    private boolean unknown_authenticationProtocol;
     public String authenticationProtocol() {
-        if (authenticationProtocol == null) return null;
-        return authenticationProtocol.getValue("RadiusSettings.authenticationProtocol");
+        if (!unknown_authenticationProtocol) return value_authenticationProtocol;
+        throw new UndeferrableValueException("Value 'RadiusSettings.authenticationProtocol' is not present");
     }
 
     /**
      * The identifier of the directory for which you want to manager RADIUS settings.
      * 
      */
-    private UndeferrableValue<String> directoryId;
-
+    @PolicyResourceProperty(name="directoryId", flag="unknown_directoryId")
+    private String value_directoryId;
+    private boolean unknown_directoryId;
     public String directoryId() {
-        if (directoryId == null) return null;
-        return directoryId.getValue("RadiusSettings.directoryId");
+        if (!unknown_directoryId) return value_directoryId;
+        throw new UndeferrableValueException("Value 'RadiusSettings.directoryId' is not present");
     }
 
     /**
      * Display label.
      * 
      */
-    private UndeferrableValue<String> displayLabel;
-
+    @PolicyResourceProperty(name="displayLabel", flag="unknown_displayLabel")
+    private String value_displayLabel;
+    private boolean unknown_displayLabel;
     public String displayLabel() {
-        if (displayLabel == null) return null;
-        return displayLabel.getValue("RadiusSettings.displayLabel");
+        if (!unknown_displayLabel) return value_displayLabel;
+        throw new UndeferrableValueException("Value 'RadiusSettings.displayLabel' is not present");
     }
 
     /**
      * The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
      * 
      */
-    private UndeferrableValue<Integer> radiusPort;
-
+    @PolicyResourceProperty(name="radiusPort", flag="unknown_radiusPort")
+    private Integer value_radiusPort;
+    private boolean unknown_radiusPort;
     public Integer radiusPort() {
-        if (radiusPort == null) return null;
-        return radiusPort.getValue("RadiusSettings.radiusPort");
+        if (!unknown_radiusPort) return value_radiusPort;
+        throw new UndeferrableValueException("Value 'RadiusSettings.radiusPort' is not present");
     }
 
     /**
      * The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
      * 
      */
-    private UndeferrableValue<Integer> radiusRetries;
-
+    @PolicyResourceProperty(name="radiusRetries", flag="unknown_radiusRetries")
+    private Integer value_radiusRetries;
+    private boolean unknown_radiusRetries;
     public Integer radiusRetries() {
-        if (radiusRetries == null) return null;
-        return radiusRetries.getValue("RadiusSettings.radiusRetries");
+        if (!unknown_radiusRetries) return value_radiusRetries;
+        throw new UndeferrableValueException("Value 'RadiusSettings.radiusRetries' is not present");
     }
 
     /**
      * An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
      * 
      */
-    private UndeferrableValue<List<String>> radiusServers;
-
+    @PolicyResourceProperty(name="radiusServers", flag="unknown_radiusServers")
+    private List<String> value_radiusServers;
+    private boolean unknown_radiusServers;
     public List<String> radiusServers() {
-        if (radiusServers == null) return null;
-        return radiusServers.getValue("RadiusSettings.radiusServers");
+        if (!unknown_radiusServers) return value_radiusServers;
+        throw new UndeferrableValueException("Value 'RadiusSettings.radiusServers' is not present");
     }
 
     /**
      * The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
      * 
      */
-    private UndeferrableValue<Integer> radiusTimeout;
-
+    @PolicyResourceProperty(name="radiusTimeout", flag="unknown_radiusTimeout")
+    private Integer value_radiusTimeout;
+    private boolean unknown_radiusTimeout;
     public Integer radiusTimeout() {
-        if (radiusTimeout == null) return null;
-        return radiusTimeout.getValue("RadiusSettings.radiusTimeout");
+        if (!unknown_radiusTimeout) return value_radiusTimeout;
+        throw new UndeferrableValueException("Value 'RadiusSettings.radiusTimeout' is not present");
     }
 
     /**
      * Required for enabling RADIUS on the directory.
      * 
      */
-    private UndeferrableValue<String> sharedSecret;
-
+    @PolicyResourceProperty(name="sharedSecret", flag="unknown_sharedSecret")
+    private String value_sharedSecret;
+    private boolean unknown_sharedSecret;
     public String sharedSecret() {
-        if (sharedSecret == null) return null;
-        return sharedSecret.getValue("RadiusSettings.sharedSecret");
+        if (!unknown_sharedSecret) return value_sharedSecret;
+        throw new UndeferrableValueException("Value 'RadiusSettings.sharedSecret' is not present");
     }
 
     /**
      * Not currently used.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> useSameUsername;
-
+    @PolicyResourceProperty(name="useSameUsername", flag="unknown_useSameUsername")
+    private @Nullable Boolean value_useSameUsername;
+    private boolean unknown_useSameUsername;
     public @Nullable Boolean useSameUsername() {
-        if (useSameUsername == null) return null;
-        return useSameUsername.getValue("RadiusSettings.useSameUsername");
+        if (!unknown_useSameUsername) return value_useSameUsername;
+        throw new UndeferrableValueException("Value 'RadiusSettings.useSameUsername' is not present");
     }
 
 }

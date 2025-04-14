@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3tables.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3tables.outputs.TableMaintenanceConfigurationIcebergCompaction;
 import com.pulumi.policypacks.aws.s3tables.outputs.TableMaintenanceConfigurationIcebergSnapshotManagement;
 
@@ -15,11 +16,12 @@ public final class TableMaintenanceConfiguration {
      * See `iceberg_compaction` below.
      * 
      */
-    private UndeferrableValue<TableMaintenanceConfigurationIcebergCompaction> icebergCompaction;
-
+    @PolicyResourceProperty(name="icebergCompaction", flag="unknown_icebergCompaction")
+    private TableMaintenanceConfigurationIcebergCompaction value_icebergCompaction;
+    private boolean unknown_icebergCompaction;
     public TableMaintenanceConfigurationIcebergCompaction icebergCompaction() {
-        if (icebergCompaction == null) return null;
-        return icebergCompaction.getValue("TableMaintenanceConfiguration.icebergCompaction");
+        if (!unknown_icebergCompaction) return value_icebergCompaction;
+        throw new UndeferrableValueException("Value 'TableMaintenanceConfiguration.icebergCompaction' is not present");
     }
 
     /**
@@ -27,11 +29,12 @@ public final class TableMaintenanceConfiguration {
      * See `iceberg_snapshot_management` below.
      * 
      */
-    private UndeferrableValue<TableMaintenanceConfigurationIcebergSnapshotManagement> icebergSnapshotManagement;
-
+    @PolicyResourceProperty(name="icebergSnapshotManagement", flag="unknown_icebergSnapshotManagement")
+    private TableMaintenanceConfigurationIcebergSnapshotManagement value_icebergSnapshotManagement;
+    private boolean unknown_icebergSnapshotManagement;
     public TableMaintenanceConfigurationIcebergSnapshotManagement icebergSnapshotManagement() {
-        if (icebergSnapshotManagement == null) return null;
-        return icebergSnapshotManagement.getValue("TableMaintenanceConfiguration.icebergSnapshotManagement");
+        if (!unknown_icebergSnapshotManagement) return value_icebergSnapshotManagement;
+        throw new UndeferrableValueException("Value 'TableMaintenanceConfiguration.icebergSnapshotManagement' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lex.inputs.IntentConclusionStatementArgs;
 import com.pulumi.policypacks.aws.lex.inputs.IntentConfirmationPromptArgs;
@@ -29,11 +30,12 @@ public final class IntentArgs extends com.pulumi.resources.PolicyResourceInput {
      * mutually exclusive. You can specify only one. Attributes are documented under statement.
      * 
      */
-    private UndeferrableValue<IntentConclusionStatementArgs> conclusionStatement;
-
+    @PolicyResourceProperty(name="conclusionStatement", flag="unknown_conclusionStatement")
+    private IntentConclusionStatementArgs value_conclusionStatement;
+    private boolean unknown_conclusionStatement;
     public IntentConclusionStatementArgs conclusionStatement() {
-        if (conclusionStatement == null) return null;
-        return conclusionStatement.getValue("IntentArgs.conclusionStatement");
+        if (!unknown_conclusionStatement) return value_conclusionStatement;
+        throw new UndeferrableValueException("Value 'IntentArgs.conclusionStatement' is not present");
     }
 
     /**
@@ -42,11 +44,12 @@ public final class IntentArgs extends com.pulumi.resources.PolicyResourceInput {
      * or neither. Attributes are documented under prompt.
      * 
      */
-    private UndeferrableValue<IntentConfirmationPromptArgs> confirmationPrompt;
-
+    @PolicyResourceProperty(name="confirmationPrompt", flag="unknown_confirmationPrompt")
+    private IntentConfirmationPromptArgs value_confirmationPrompt;
+    private boolean unknown_confirmationPrompt;
     public IntentConfirmationPromptArgs confirmationPrompt() {
-        if (confirmationPrompt == null) return null;
-        return confirmationPrompt.getValue("IntentArgs.confirmationPrompt");
+        if (!unknown_confirmationPrompt) return value_confirmationPrompt;
+        throw new UndeferrableValueException("Value 'IntentArgs.confirmationPrompt' is not present");
     }
 
     /**
@@ -54,22 +57,24 @@ public final class IntentArgs extends com.pulumi.resources.PolicyResourceInput {
      * resource is created and on each update. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> createVersion;
-
+    @PolicyResourceProperty(name="createVersion", flag="unknown_createVersion")
+    private Boolean value_createVersion;
+    private boolean unknown_createVersion;
     public Boolean createVersion() {
-        if (createVersion == null) return null;
-        return createVersion.getValue("IntentArgs.createVersion");
+        if (!unknown_createVersion) return value_createVersion;
+        throw new UndeferrableValueException("Value 'IntentArgs.createVersion' is not present");
     }
 
     /**
      * A description of the intent. Must be less than or equal to 200 characters in length.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("IntentArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'IntentArgs.description' is not present");
     }
 
     /**
@@ -77,11 +82,12 @@ public final class IntentArgs extends com.pulumi.resources.PolicyResourceInput {
      * invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
      * 
      */
-    private UndeferrableValue<IntentDialogCodeHookArgs> dialogCodeHook;
-
+    @PolicyResourceProperty(name="dialogCodeHook", flag="unknown_dialogCodeHook")
+    private IntentDialogCodeHookArgs value_dialogCodeHook;
+    private boolean unknown_dialogCodeHook;
     public IntentDialogCodeHookArgs dialogCodeHook() {
-        if (dialogCodeHook == null) return null;
-        return dialogCodeHook.getValue("IntentArgs.dialogCodeHook");
+        if (!unknown_dialogCodeHook) return value_dialogCodeHook;
+        throw new UndeferrableValueException("Value 'IntentArgs.dialogCodeHook' is not present");
     }
 
     /**
@@ -91,11 +97,12 @@ public final class IntentArgs extends com.pulumi.resources.PolicyResourceInput {
      * exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
      * 
      */
-    private UndeferrableValue<IntentFollowUpPromptArgs> followUpPrompt;
-
+    @PolicyResourceProperty(name="followUpPrompt", flag="unknown_followUpPrompt")
+    private IntentFollowUpPromptArgs value_followUpPrompt;
+    private boolean unknown_followUpPrompt;
     public IntentFollowUpPromptArgs followUpPrompt() {
-        if (followUpPrompt == null) return null;
-        return followUpPrompt.getValue("IntentArgs.followUpPrompt");
+        if (!unknown_followUpPrompt) return value_followUpPrompt;
+        throw new UndeferrableValueException("Value 'IntentArgs.followUpPrompt' is not present");
     }
 
     /**
@@ -104,22 +111,24 @@ public final class IntentArgs extends com.pulumi.resources.PolicyResourceInput {
      * places an order with a local pizza store. Attributes are documented under fulfillment_activity.
      * 
      */
-    private UndeferrableValue<IntentFulfillmentActivityArgs> fulfillmentActivity;
-
+    @PolicyResourceProperty(name="fulfillmentActivity", flag="unknown_fulfillmentActivity")
+    private IntentFulfillmentActivityArgs value_fulfillmentActivity;
+    private boolean unknown_fulfillmentActivity;
     public IntentFulfillmentActivityArgs fulfillmentActivity() {
-        if (fulfillmentActivity == null) return null;
-        return fulfillmentActivity.getValue("IntentArgs.fulfillmentActivity");
+        if (!unknown_fulfillmentActivity) return value_fulfillmentActivity;
+        throw new UndeferrableValueException("Value 'IntentArgs.fulfillmentActivity' is not present");
     }
 
     /**
      * The name of the intent, not case sensitive. Must be less than or equal to 100 characters in length.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("IntentArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'IntentArgs.name' is not present");
     }
 
     /**
@@ -129,11 +138,12 @@ public final class IntentArgs extends com.pulumi.resources.PolicyResourceInput {
      * in the Alexa Skills Kit.
      * 
      */
-    private UndeferrableValue<String> parentIntentSignature;
-
+    @PolicyResourceProperty(name="parentIntentSignature", flag="unknown_parentIntentSignature")
+    private String value_parentIntentSignature;
+    private boolean unknown_parentIntentSignature;
     public String parentIntentSignature() {
-        if (parentIntentSignature == null) return null;
-        return parentIntentSignature.getValue("IntentArgs.parentIntentSignature");
+        if (!unknown_parentIntentSignature) return value_parentIntentSignature;
+        throw new UndeferrableValueException("Value 'IntentArgs.parentIntentSignature' is not present");
     }
 
     /**
@@ -143,11 +153,12 @@ public final class IntentArgs extends com.pulumi.resources.PolicyResourceInput {
      * Attributes are documented under statement.
      * 
      */
-    private UndeferrableValue<IntentRejectionStatementArgs> rejectionStatement;
-
+    @PolicyResourceProperty(name="rejectionStatement", flag="unknown_rejectionStatement")
+    private IntentRejectionStatementArgs value_rejectionStatement;
+    private boolean unknown_rejectionStatement;
     public IntentRejectionStatementArgs rejectionStatement() {
-        if (rejectionStatement == null) return null;
-        return rejectionStatement.getValue("IntentArgs.rejectionStatement");
+        if (!unknown_rejectionStatement) return value_rejectionStatement;
+        throw new UndeferrableValueException("Value 'IntentArgs.rejectionStatement' is not present");
     }
 
     /**
@@ -156,11 +167,12 @@ public final class IntentArgs extends com.pulumi.resources.PolicyResourceInput {
      * In each utterance, a slot name is enclosed in curly braces. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
      * 
      */
-    private UndeferrableValue<List<String>> sampleUtterances;
-
+    @PolicyResourceProperty(name="sampleUtterances", flag="unknown_sampleUtterances")
+    private List<String> value_sampleUtterances;
+    private boolean unknown_sampleUtterances;
     public List<String> sampleUtterances() {
-        if (sampleUtterances == null) return null;
-        return sampleUtterances.getValue("IntentArgs.sampleUtterances");
+        if (!unknown_sampleUtterances) return value_sampleUtterances;
+        throw new UndeferrableValueException("Value 'IntentArgs.sampleUtterances' is not present");
     }
 
     /**
@@ -168,11 +180,12 @@ public final class IntentArgs extends com.pulumi.resources.PolicyResourceInput {
      * from the user using prompts defined in the slots. Attributes are documented under slot.
      * 
      */
-    private UndeferrableValue<List<IntentSlotArgs>> slots;
-
+    @PolicyResourceProperty(name="slots", flag="unknown_slots")
+    private List<IntentSlotArgs> value_slots;
+    private boolean unknown_slots;
     public List<IntentSlotArgs> slots() {
-        if (slots == null) return null;
-        return slots.getValue("IntentArgs.slots");
+        if (!unknown_slots) return value_slots;
+        throw new UndeferrableValueException("Value 'IntentArgs.slots' is not present");
     }
 
 }

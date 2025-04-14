@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.efs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -16,55 +17,60 @@ public final class MountTarget extends com.pulumi.resources.PolicyResourceOutput
      * The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
      * 
      */
-    private UndeferrableValue<String> availabilityZoneId;
-
+    @PolicyResourceProperty(name="availabilityZoneId", flag="unknown_availabilityZoneId")
+    private String value_availabilityZoneId;
+    private boolean unknown_availabilityZoneId;
     public String availabilityZoneId() {
-        if (availabilityZoneId == null) return null;
-        return availabilityZoneId.getValue("MountTarget.availabilityZoneId");
+        if (!unknown_availabilityZoneId) return value_availabilityZoneId;
+        throw new UndeferrableValueException("Value 'MountTarget.availabilityZoneId' is not present");
     }
 
     /**
      * The name of the Availability Zone (AZ) that the mount target resides in.
      * 
      */
-    private UndeferrableValue<String> availabilityZoneName;
-
+    @PolicyResourceProperty(name="availabilityZoneName", flag="unknown_availabilityZoneName")
+    private String value_availabilityZoneName;
+    private boolean unknown_availabilityZoneName;
     public String availabilityZoneName() {
-        if (availabilityZoneName == null) return null;
-        return availabilityZoneName.getValue("MountTarget.availabilityZoneName");
+        if (!unknown_availabilityZoneName) return value_availabilityZoneName;
+        throw new UndeferrableValueException("Value 'MountTarget.availabilityZoneName' is not present");
     }
 
     /**
      * The DNS name for the EFS file system.
      * 
      */
-    private UndeferrableValue<String> dnsName;
-
+    @PolicyResourceProperty(name="dnsName", flag="unknown_dnsName")
+    private String value_dnsName;
+    private boolean unknown_dnsName;
     public String dnsName() {
-        if (dnsName == null) return null;
-        return dnsName.getValue("MountTarget.dnsName");
+        if (!unknown_dnsName) return value_dnsName;
+        throw new UndeferrableValueException("Value 'MountTarget.dnsName' is not present");
     }
 
     /**
      * Amazon Resource Name of the file system.
      * 
      */
-    private UndeferrableValue<String> fileSystemArn;
-
+    @PolicyResourceProperty(name="fileSystemArn", flag="unknown_fileSystemArn")
+    private String value_fileSystemArn;
+    private boolean unknown_fileSystemArn;
     public String fileSystemArn() {
-        if (fileSystemArn == null) return null;
-        return fileSystemArn.getValue("MountTarget.fileSystemArn");
+        if (!unknown_fileSystemArn) return value_fileSystemArn;
+        throw new UndeferrableValueException("Value 'MountTarget.fileSystemArn' is not present");
     }
 
     /**
      * The ID of the file system for which the mount target is intended.
      * 
      */
-    private UndeferrableValue<String> fileSystemId;
-
+    @PolicyResourceProperty(name="fileSystemId", flag="unknown_fileSystemId")
+    private String value_fileSystemId;
+    private boolean unknown_fileSystemId;
     public String fileSystemId() {
-        if (fileSystemId == null) return null;
-        return fileSystemId.getValue("MountTarget.fileSystemId");
+        if (!unknown_fileSystemId) return value_fileSystemId;
+        throw new UndeferrableValueException("Value 'MountTarget.fileSystemId' is not present");
     }
 
     /**
@@ -72,44 +78,48 @@ public final class MountTarget extends com.pulumi.resources.PolicyResourceOutput
      * which the file system may be mounted via the mount target.
      * 
      */
-    private UndeferrableValue<String> ipAddress;
-
+    @PolicyResourceProperty(name="ipAddress", flag="unknown_ipAddress")
+    private String value_ipAddress;
+    private boolean unknown_ipAddress;
     public String ipAddress() {
-        if (ipAddress == null) return null;
-        return ipAddress.getValue("MountTarget.ipAddress");
+        if (!unknown_ipAddress) return value_ipAddress;
+        throw new UndeferrableValueException("Value 'MountTarget.ipAddress' is not present");
     }
 
     /**
      * The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
      * 
      */
-    private UndeferrableValue<String> mountTargetDnsName;
-
+    @PolicyResourceProperty(name="mountTargetDnsName", flag="unknown_mountTargetDnsName")
+    private String value_mountTargetDnsName;
+    private boolean unknown_mountTargetDnsName;
     public String mountTargetDnsName() {
-        if (mountTargetDnsName == null) return null;
-        return mountTargetDnsName.getValue("MountTarget.mountTargetDnsName");
+        if (!unknown_mountTargetDnsName) return value_mountTargetDnsName;
+        throw new UndeferrableValueException("Value 'MountTarget.mountTargetDnsName' is not present");
     }
 
     /**
      * The ID of the network interface that Amazon EFS created when it created the mount target.
      * 
      */
-    private UndeferrableValue<String> networkInterfaceId;
-
+    @PolicyResourceProperty(name="networkInterfaceId", flag="unknown_networkInterfaceId")
+    private String value_networkInterfaceId;
+    private boolean unknown_networkInterfaceId;
     public String networkInterfaceId() {
-        if (networkInterfaceId == null) return null;
-        return networkInterfaceId.getValue("MountTarget.networkInterfaceId");
+        if (!unknown_networkInterfaceId) return value_networkInterfaceId;
+        throw new UndeferrableValueException("Value 'MountTarget.networkInterfaceId' is not present");
     }
 
     /**
      * AWS account ID that owns the resource.
      * 
      */
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("MountTarget.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'MountTarget.ownerId' is not present");
     }
 
     /**
@@ -117,22 +127,24 @@ public final class MountTarget extends com.pulumi.resources.PolicyResourceOutput
      * be for the same VPC as subnet specified) in effect for the mount target.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroups;
-
+    @PolicyResourceProperty(name="securityGroups", flag="unknown_securityGroups")
+    private List<String> value_securityGroups;
+    private boolean unknown_securityGroups;
     public List<String> securityGroups() {
-        if (securityGroups == null) return null;
-        return securityGroups.getValue("MountTarget.securityGroups");
+        if (!unknown_securityGroups) return value_securityGroups;
+        throw new UndeferrableValueException("Value 'MountTarget.securityGroups' is not present");
     }
 
     /**
      * The ID of the subnet to add the mount target in.
      * 
      */
-    private UndeferrableValue<String> subnetId;
-
+    @PolicyResourceProperty(name="subnetId", flag="unknown_subnetId")
+    private String value_subnetId;
+    private boolean unknown_subnetId;
     public String subnetId() {
-        if (subnetId == null) return null;
-        return subnetId.getValue("MountTarget.subnetId");
+        if (!unknown_subnetId) return value_subnetId;
+        throw new UndeferrableValueException("Value 'MountTarget.subnetId' is not present");
     }
 
 }

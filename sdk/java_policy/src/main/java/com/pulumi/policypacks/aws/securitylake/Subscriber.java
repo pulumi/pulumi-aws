@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securitylake;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.securitylake.outputs.SubscriberSource;
 import com.pulumi.policypacks.aws.securitylake.outputs.SubscriberSubscriberIdentity;
@@ -20,143 +21,156 @@ public final class Subscriber extends com.pulumi.resources.PolicyResourceOutput 
      * The Amazon S3 or Lake Formation access type.
      * 
      */
-    private UndeferrableValue<String> accessType;
-
+    @PolicyResourceProperty(name="accessType", flag="unknown_accessType")
+    private String value_accessType;
+    private boolean unknown_accessType;
     public String accessType() {
-        if (accessType == null) return null;
-        return accessType.getValue("Subscriber.accessType");
+        if (!unknown_accessType) return value_accessType;
+        throw new UndeferrableValueException("Value 'Subscriber.accessType' is not present");
     }
 
     /**
      * ARN of the Data Lake.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Subscriber.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Subscriber.arn' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
      * 
      */
-    private UndeferrableValue<String> resourceShareArn;
-
+    @PolicyResourceProperty(name="resourceShareArn", flag="unknown_resourceShareArn")
+    private String value_resourceShareArn;
+    private boolean unknown_resourceShareArn;
     public String resourceShareArn() {
-        if (resourceShareArn == null) return null;
-        return resourceShareArn.getValue("Subscriber.resourceShareArn");
+        if (!unknown_resourceShareArn) return value_resourceShareArn;
+        throw new UndeferrableValueException("Value 'Subscriber.resourceShareArn' is not present");
     }
 
     /**
      * The name of the resource share.
      * 
      */
-    private UndeferrableValue<String> resourceShareName;
-
+    @PolicyResourceProperty(name="resourceShareName", flag="unknown_resourceShareName")
+    private String value_resourceShareName;
+    private boolean unknown_resourceShareName;
     public String resourceShareName() {
-        if (resourceShareName == null) return null;
-        return resourceShareName.getValue("Subscriber.resourceShareName");
+        if (!unknown_resourceShareName) return value_resourceShareName;
+        throw new UndeferrableValueException("Value 'Subscriber.resourceShareName' is not present");
     }
 
     /**
      * The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("Subscriber.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'Subscriber.roleArn' is not present");
     }
 
     /**
      * The ARN for the Amazon Security Lake Amazon S3 bucket.
      * 
      */
-    private UndeferrableValue<String> s3BucketArn;
-
+    @PolicyResourceProperty(name="s3BucketArn", flag="unknown_s3BucketArn")
+    private String value_s3BucketArn;
+    private boolean unknown_s3BucketArn;
     public String s3BucketArn() {
-        if (s3BucketArn == null) return null;
-        return s3BucketArn.getValue("Subscriber.s3BucketArn");
+        if (!unknown_s3BucketArn) return value_s3BucketArn;
+        throw new UndeferrableValueException("Value 'Subscriber.s3BucketArn' is not present");
     }
 
     /**
      * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      * 
      */
-    private @Nullable UndeferrableValue<SubscriberSource> source;
-
+    @PolicyResourceProperty(name="source", flag="unknown_source")
+    private @Nullable SubscriberSource value_source;
+    private boolean unknown_source;
     public @Nullable SubscriberSource source() {
-        if (source == null) return null;
-        return source.getValue("Subscriber.source");
+        if (!unknown_source) return value_source;
+        throw new UndeferrableValueException("Value 'Subscriber.source' is not present");
     }
 
     /**
      * The description for your subscriber account in Security Lake.
      * 
      */
-    private @Nullable UndeferrableValue<String> subscriberDescription;
-
+    @PolicyResourceProperty(name="subscriberDescription", flag="unknown_subscriberDescription")
+    private @Nullable String value_subscriberDescription;
+    private boolean unknown_subscriberDescription;
     public @Nullable String subscriberDescription() {
-        if (subscriberDescription == null) return null;
-        return subscriberDescription.getValue("Subscriber.subscriberDescription");
+        if (!unknown_subscriberDescription) return value_subscriberDescription;
+        throw new UndeferrableValueException("Value 'Subscriber.subscriberDescription' is not present");
     }
 
     /**
      * The subscriber endpoint to which exception messages are posted.
      * 
      */
-    private UndeferrableValue<String> subscriberEndpoint;
-
+    @PolicyResourceProperty(name="subscriberEndpoint", flag="unknown_subscriberEndpoint")
+    private String value_subscriberEndpoint;
+    private boolean unknown_subscriberEndpoint;
     public String subscriberEndpoint() {
-        if (subscriberEndpoint == null) return null;
-        return subscriberEndpoint.getValue("Subscriber.subscriberEndpoint");
+        if (!unknown_subscriberEndpoint) return value_subscriberEndpoint;
+        throw new UndeferrableValueException("Value 'Subscriber.subscriberEndpoint' is not present");
     }
 
     /**
      * The AWS identity used to access your data. See `subscriber_identity` Block below.
      * 
      */
-    private @Nullable UndeferrableValue<SubscriberSubscriberIdentity> subscriberIdentity;
-
+    @PolicyResourceProperty(name="subscriberIdentity", flag="unknown_subscriberIdentity")
+    private @Nullable SubscriberSubscriberIdentity value_subscriberIdentity;
+    private boolean unknown_subscriberIdentity;
     public @Nullable SubscriberSubscriberIdentity subscriberIdentity() {
-        if (subscriberIdentity == null) return null;
-        return subscriberIdentity.getValue("Subscriber.subscriberIdentity");
+        if (!unknown_subscriberIdentity) return value_subscriberIdentity;
+        throw new UndeferrableValueException("Value 'Subscriber.subscriberIdentity' is not present");
     }
 
     /**
      * The name of your Security Lake subscriber account.
      * 
      */
-    private @Nullable UndeferrableValue<String> subscriberName;
-
+    @PolicyResourceProperty(name="subscriberName", flag="unknown_subscriberName")
+    private @Nullable String value_subscriberName;
+    private boolean unknown_subscriberName;
     public @Nullable String subscriberName() {
-        if (subscriberName == null) return null;
-        return subscriberName.getValue("Subscriber.subscriberName");
+        if (!unknown_subscriberName) return value_subscriberName;
+        throw new UndeferrableValueException("Value 'Subscriber.subscriberName' is not present");
     }
 
     /**
      * The subscriber status of the Amazon Security Lake subscriber account.
      * 
      */
-    private UndeferrableValue<String> subscriberStatus;
-
+    @PolicyResourceProperty(name="subscriberStatus", flag="unknown_subscriberStatus")
+    private String value_subscriberStatus;
+    private boolean unknown_subscriberStatus;
     public String subscriberStatus() {
-        if (subscriberStatus == null) return null;
-        return subscriberStatus.getValue("Subscriber.subscriberStatus");
+        if (!unknown_subscriberStatus) return value_subscriberStatus;
+        throw new UndeferrableValueException("Value 'Subscriber.subscriberStatus' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Subscriber.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Subscriber.tags' is not present");
     }
 
     /**
@@ -167,18 +181,20 @@ public final class Subscriber extends com.pulumi.resources.PolicyResourceOutput 
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Subscriber.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Subscriber.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<SubscriberTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable SubscriberTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable SubscriberTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("Subscriber.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'Subscriber.timeouts' is not present");
     }
 
 }

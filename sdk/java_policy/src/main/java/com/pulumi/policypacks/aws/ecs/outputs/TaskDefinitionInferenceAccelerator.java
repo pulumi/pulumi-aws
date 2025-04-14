@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class TaskDefinitionInferenceAccelerator {
      * Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
      * 
      */
-    private UndeferrableValue<String> deviceName;
-
+    @PolicyResourceProperty(name="deviceName", flag="unknown_deviceName")
+    private String value_deviceName;
+    private boolean unknown_deviceName;
     public String deviceName() {
-        if (deviceName == null) return null;
-        return deviceName.getValue("TaskDefinitionInferenceAccelerator.deviceName");
+        if (!unknown_deviceName) return value_deviceName;
+        throw new UndeferrableValueException("Value 'TaskDefinitionInferenceAccelerator.deviceName' is not present");
     }
 
     /**
      * Elastic Inference accelerator type to use.
      * 
      */
-    private UndeferrableValue<String> deviceType;
-
+    @PolicyResourceProperty(name="deviceType", flag="unknown_deviceType")
+    private String value_deviceType;
+    private boolean unknown_deviceType;
     public String deviceType() {
-        if (deviceType == null) return null;
-        return deviceType.getValue("TaskDefinitionInferenceAccelerator.deviceType");
+        if (!unknown_deviceType) return value_deviceType;
+        throw new UndeferrableValueException("Value 'TaskDefinitionInferenceAccelerator.deviceType' is not present");
     }
 
 }

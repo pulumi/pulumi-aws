@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -17,33 +18,36 @@ public final class MemberArgs extends com.pulumi.resources.PolicyResourceInput {
      * The ID of the member AWS account.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("MemberArgs.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'MemberArgs.accountId' is not present");
     }
 
     /**
      * The email of the member AWS account.
      * 
      */
-    private UndeferrableValue<String> email;
-
+    @PolicyResourceProperty(name="email", flag="unknown_email")
+    private String value_email;
+    private boolean unknown_email;
     public String email() {
-        if (email == null) return null;
-        return email.getValue("MemberArgs.email");
+        if (!unknown_email) return value_email;
+        throw new UndeferrableValueException("Value 'MemberArgs.email' is not present");
     }
 
     /**
      * Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> invite;
-
+    @PolicyResourceProperty(name="invite", flag="unknown_invite")
+    private Boolean value_invite;
+    private boolean unknown_invite;
     public Boolean invite() {
-        if (invite == null) return null;
-        return invite.getValue("MemberArgs.invite");
+        if (!unknown_invite) return value_invite;
+        throw new UndeferrableValueException("Value 'MemberArgs.invite' is not present");
     }
 
 }

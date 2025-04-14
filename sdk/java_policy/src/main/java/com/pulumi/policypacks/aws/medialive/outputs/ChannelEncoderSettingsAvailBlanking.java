@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.outputs.ChannelEncoderSettingsAvailBlankingAvailBlankingImage;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ChannelEncoderSettingsAvailBlanking {
      * Blanking image to be used. See Avail Blanking Image for more details.
      * 
      */
-    private @Nullable UndeferrableValue<ChannelEncoderSettingsAvailBlankingAvailBlankingImage> availBlankingImage;
-
+    @PolicyResourceProperty(name="availBlankingImage", flag="unknown_availBlankingImage")
+    private @Nullable ChannelEncoderSettingsAvailBlankingAvailBlankingImage value_availBlankingImage;
+    private boolean unknown_availBlankingImage;
     public @Nullable ChannelEncoderSettingsAvailBlankingAvailBlankingImage availBlankingImage() {
-        if (availBlankingImage == null) return null;
-        return availBlankingImage.getValue("ChannelEncoderSettingsAvailBlanking.availBlankingImage");
+        if (!unknown_availBlankingImage) return value_availBlankingImage;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAvailBlanking.availBlankingImage' is not present");
     }
 
     /**
      * When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
      * 
      */
-    private @Nullable UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private @Nullable String value_state;
+    private boolean unknown_state;
     public @Nullable String state() {
-        if (state == null) return null;
-        return state.getValue("ChannelEncoderSettingsAvailBlanking.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAvailBlanking.state' is not present");
     }
 
 }

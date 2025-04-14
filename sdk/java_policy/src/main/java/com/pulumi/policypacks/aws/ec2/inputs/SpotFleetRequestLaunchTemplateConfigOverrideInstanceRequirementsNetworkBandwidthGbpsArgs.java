@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequireme
      * Maximum.
      * 
      */
-    private UndeferrableValue<Double> max;
-
+    @PolicyResourceProperty(name="max", flag="unknown_max")
+    private Double value_max;
+    private boolean unknown_max;
     public Double max() {
-        if (max == null) return null;
-        return max.getValue("SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs.max");
+        if (!unknown_max) return value_max;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs.max' is not present");
     }
 
     /**
      * Minimum.
      * 
      */
-    private UndeferrableValue<Double> min;
-
+    @PolicyResourceProperty(name="min", flag="unknown_min")
+    private Double value_min;
+    private boolean unknown_min;
     public Double min() {
-        if (min == null) return null;
-        return min.getValue("SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs.min");
+        if (!unknown_min) return value_min;
+        throw new UndeferrableValueException("Value 'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs.min' is not present");
     }
 
 }

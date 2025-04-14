@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.outputs.DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class DataSetLogicalTableMapDataTransformCreateColumnsOperation {
      * Calculated columns to create. See columns.
      * 
      */
-    private UndeferrableValue<List<DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn>> columns;
-
+    @PolicyResourceProperty(name="columns", flag="unknown_columns")
+    private List<DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn> value_columns;
+    private boolean unknown_columns;
     public List<DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn> columns() {
-        if (columns == null) return null;
-        return columns.getValue("DataSetLogicalTableMapDataTransformCreateColumnsOperation.columns");
+        if (!unknown_columns) return value_columns;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformCreateColumnsOperation.columns' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.datasync.inputs.LocationFsxOntapFileSystemProtocolArgs;
 import java.lang.String;
@@ -19,11 +20,12 @@ public final class LocationFsxOntapFileSystemArgs extends com.pulumi.resources.P
      * The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
      * 
      */
-    private UndeferrableValue<LocationFsxOntapFileSystemProtocolArgs> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private LocationFsxOntapFileSystemProtocolArgs value_protocol;
+    private boolean unknown_protocol;
     public LocationFsxOntapFileSystemProtocolArgs protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("LocationFsxOntapFileSystemArgs.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystemArgs.protocol' is not present");
     }
 
     /**
@@ -32,11 +34,12 @@ public final class LocationFsxOntapFileSystemArgs extends com.pulumi.resources.P
      * * Server Message Block (SMB): TCP port 445
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupArns;
-
+    @PolicyResourceProperty(name="securityGroupArns", flag="unknown_securityGroupArns")
+    private List<String> value_securityGroupArns;
+    private boolean unknown_securityGroupArns;
     public List<String> securityGroupArns() {
-        if (securityGroupArns == null) return null;
-        return securityGroupArns.getValue("LocationFsxOntapFileSystemArgs.securityGroupArns");
+        if (!unknown_securityGroupArns) return value_securityGroupArns;
+        throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystemArgs.securityGroupArns' is not present");
     }
 
     /**
@@ -45,33 +48,36 @@ public final class LocationFsxOntapFileSystemArgs extends com.pulumi.resources.P
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> storageVirtualMachineArn;
-
+    @PolicyResourceProperty(name="storageVirtualMachineArn", flag="unknown_storageVirtualMachineArn")
+    private String value_storageVirtualMachineArn;
+    private boolean unknown_storageVirtualMachineArn;
     public String storageVirtualMachineArn() {
-        if (storageVirtualMachineArn == null) return null;
-        return storageVirtualMachineArn.getValue("LocationFsxOntapFileSystemArgs.storageVirtualMachineArn");
+        if (!unknown_storageVirtualMachineArn) return value_storageVirtualMachineArn;
+        throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystemArgs.storageVirtualMachineArn' is not present");
     }
 
     /**
      * Path to the file share in the SVM where you&#39;ll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).
      * 
      */
-    private UndeferrableValue<String> subdirectory;
-
+    @PolicyResourceProperty(name="subdirectory", flag="unknown_subdirectory")
+    private String value_subdirectory;
+    private boolean unknown_subdirectory;
     public String subdirectory() {
-        if (subdirectory == null) return null;
-        return subdirectory.getValue("LocationFsxOntapFileSystemArgs.subdirectory");
+        if (!unknown_subdirectory) return value_subdirectory;
+        throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystemArgs.subdirectory' is not present");
     }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LocationFsxOntapFileSystemArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LocationFsxOntapFileSystemArgs.tags' is not present");
     }
 
 }

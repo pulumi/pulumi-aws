@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs {
      * This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
      * 
      */
-    private UndeferrableValue<Integer> errorClearTimeMsec;
-
+    @PolicyResourceProperty(name="errorClearTimeMsec", flag="unknown_errorClearTimeMsec")
+    private Integer value_errorClearTimeMsec;
+    private boolean unknown_errorClearTimeMsec;
     public Integer errorClearTimeMsec() {
-        if (errorClearTimeMsec == null) return null;
-        return errorClearTimeMsec.getValue("ChannelInputAttachmentAutomaticInputFailoverSettingsArgs.errorClearTimeMsec");
+        if (!unknown_errorClearTimeMsec) return value_errorClearTimeMsec;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentAutomaticInputFailoverSettingsArgs.errorClearTimeMsec' is not present");
     }
 
     /**
      * A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
      * 
      */
-    private UndeferrableValue<List<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs>> failoverConditions;
-
+    @PolicyResourceProperty(name="failoverConditions", flag="unknown_failoverConditions")
+    private List<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs> value_failoverConditions;
+    private boolean unknown_failoverConditions;
     public List<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs> failoverConditions() {
-        if (failoverConditions == null) return null;
-        return failoverConditions.getValue("ChannelInputAttachmentAutomaticInputFailoverSettingsArgs.failoverConditions");
+        if (!unknown_failoverConditions) return value_failoverConditions;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentAutomaticInputFailoverSettingsArgs.failoverConditions' is not present");
     }
 
     /**
      * Input preference when deciding which input to make active when a previously failed input has recovered.
      * 
      */
-    private UndeferrableValue<String> inputPreference;
-
+    @PolicyResourceProperty(name="inputPreference", flag="unknown_inputPreference")
+    private String value_inputPreference;
+    private boolean unknown_inputPreference;
     public String inputPreference() {
-        if (inputPreference == null) return null;
-        return inputPreference.getValue("ChannelInputAttachmentAutomaticInputFailoverSettingsArgs.inputPreference");
+        if (!unknown_inputPreference) return value_inputPreference;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentAutomaticInputFailoverSettingsArgs.inputPreference' is not present");
     }
 
     /**
      * The input ID of the secondary input in the automatic input failover pair.
      * 
      */
-    private UndeferrableValue<String> secondaryInputId;
-
+    @PolicyResourceProperty(name="secondaryInputId", flag="unknown_secondaryInputId")
+    private String value_secondaryInputId;
+    private boolean unknown_secondaryInputId;
     public String secondaryInputId() {
-        if (secondaryInputId == null) return null;
-        return secondaryInputId.getValue("ChannelInputAttachmentAutomaticInputFailoverSettingsArgs.secondaryInputId");
+        if (!unknown_secondaryInputId) return value_secondaryInputId;
+        throw new UndeferrableValueException("Value 'ChannelInputAttachmentAutomaticInputFailoverSettingsArgs.secondaryInputId' is not present");
     }
 
 }

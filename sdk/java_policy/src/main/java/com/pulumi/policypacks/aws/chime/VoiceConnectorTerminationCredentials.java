@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chime;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.chime.outputs.VoiceConnectorTerminationCredentialsCredential;
 import java.lang.String;
@@ -17,22 +18,24 @@ public final class VoiceConnectorTerminationCredentials extends com.pulumi.resou
      * List of termination SIP credentials.
      * 
      */
-    private UndeferrableValue<List<VoiceConnectorTerminationCredentialsCredential>> credentials;
-
+    @PolicyResourceProperty(name="credentials", flag="unknown_credentials")
+    private List<VoiceConnectorTerminationCredentialsCredential> value_credentials;
+    private boolean unknown_credentials;
     public List<VoiceConnectorTerminationCredentialsCredential> credentials() {
-        if (credentials == null) return null;
-        return credentials.getValue("VoiceConnectorTerminationCredentials.credentials");
+        if (!unknown_credentials) return value_credentials;
+        throw new UndeferrableValueException("Value 'VoiceConnectorTerminationCredentials.credentials' is not present");
     }
 
     /**
      * Amazon Chime Voice Connector ID.
      * 
      */
-    private UndeferrableValue<String> voiceConnectorId;
-
+    @PolicyResourceProperty(name="voiceConnectorId", flag="unknown_voiceConnectorId")
+    private String value_voiceConnectorId;
+    private boolean unknown_voiceConnectorId;
     public String voiceConnectorId() {
-        if (voiceConnectorId == null) return null;
-        return voiceConnectorId.getValue("VoiceConnectorTerminationCredentials.voiceConnectorId");
+        if (!unknown_voiceConnectorId) return value_voiceConnectorId;
+        throw new UndeferrableValueException("Value 'VoiceConnectorTerminationCredentials.voiceConnectorId' is not present");
     }
 
 }

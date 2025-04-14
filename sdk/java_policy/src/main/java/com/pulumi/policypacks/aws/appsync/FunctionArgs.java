@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appsync.inputs.FunctionRuntimeArgs;
 import com.pulumi.policypacks.aws.appsync.inputs.FunctionSyncConfigArgs;
@@ -19,121 +20,132 @@ public final class FunctionArgs extends com.pulumi.resources.PolicyResourceInput
      * ID of the associated AppSync API.
      * 
      */
-    private UndeferrableValue<String> apiId;
-
+    @PolicyResourceProperty(name="apiId", flag="unknown_apiId")
+    private String value_apiId;
+    private boolean unknown_apiId;
     public String apiId() {
-        if (apiId == null) return null;
-        return apiId.getValue("FunctionArgs.apiId");
+        if (!unknown_apiId) return value_apiId;
+        throw new UndeferrableValueException("Value 'FunctionArgs.apiId' is not present");
     }
 
     /**
      * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
      * 
      */
-    private UndeferrableValue<String> code;
-
+    @PolicyResourceProperty(name="code", flag="unknown_code")
+    private String value_code;
+    private boolean unknown_code;
     public String code() {
-        if (code == null) return null;
-        return code.getValue("FunctionArgs.code");
+        if (!unknown_code) return value_code;
+        throw new UndeferrableValueException("Value 'FunctionArgs.code' is not present");
     }
 
     /**
      * Function data source name.
      * 
      */
-    private UndeferrableValue<String> dataSource;
-
+    @PolicyResourceProperty(name="dataSource", flag="unknown_dataSource")
+    private String value_dataSource;
+    private boolean unknown_dataSource;
     public String dataSource() {
-        if (dataSource == null) return null;
-        return dataSource.getValue("FunctionArgs.dataSource");
+        if (!unknown_dataSource) return value_dataSource;
+        throw new UndeferrableValueException("Value 'FunctionArgs.dataSource' is not present");
     }
 
     /**
      * Function description.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("FunctionArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'FunctionArgs.description' is not present");
     }
 
     /**
      * Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
      * 
      */
-    private UndeferrableValue<String> functionVersion;
-
+    @PolicyResourceProperty(name="functionVersion", flag="unknown_functionVersion")
+    private String value_functionVersion;
+    private boolean unknown_functionVersion;
     public String functionVersion() {
-        if (functionVersion == null) return null;
-        return functionVersion.getValue("FunctionArgs.functionVersion");
+        if (!unknown_functionVersion) return value_functionVersion;
+        throw new UndeferrableValueException("Value 'FunctionArgs.functionVersion' is not present");
     }
 
     /**
      * Maximum batching size for a resolver. Valid values are between `0` and `2000`.
      * 
      */
-    private UndeferrableValue<Integer> maxBatchSize;
-
+    @PolicyResourceProperty(name="maxBatchSize", flag="unknown_maxBatchSize")
+    private Integer value_maxBatchSize;
+    private boolean unknown_maxBatchSize;
     public Integer maxBatchSize() {
-        if (maxBatchSize == null) return null;
-        return maxBatchSize.getValue("FunctionArgs.maxBatchSize");
+        if (!unknown_maxBatchSize) return value_maxBatchSize;
+        throw new UndeferrableValueException("Value 'FunctionArgs.maxBatchSize' is not present");
     }
 
     /**
      * Function name. The function name does not have to be unique.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("FunctionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'FunctionArgs.name' is not present");
     }
 
     /**
      * Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
      * 
      */
-    private UndeferrableValue<String> requestMappingTemplate;
-
+    @PolicyResourceProperty(name="requestMappingTemplate", flag="unknown_requestMappingTemplate")
+    private String value_requestMappingTemplate;
+    private boolean unknown_requestMappingTemplate;
     public String requestMappingTemplate() {
-        if (requestMappingTemplate == null) return null;
-        return requestMappingTemplate.getValue("FunctionArgs.requestMappingTemplate");
+        if (!unknown_requestMappingTemplate) return value_requestMappingTemplate;
+        throw new UndeferrableValueException("Value 'FunctionArgs.requestMappingTemplate' is not present");
     }
 
     /**
      * Function response mapping template.
      * 
      */
-    private UndeferrableValue<String> responseMappingTemplate;
-
+    @PolicyResourceProperty(name="responseMappingTemplate", flag="unknown_responseMappingTemplate")
+    private String value_responseMappingTemplate;
+    private boolean unknown_responseMappingTemplate;
     public String responseMappingTemplate() {
-        if (responseMappingTemplate == null) return null;
-        return responseMappingTemplate.getValue("FunctionArgs.responseMappingTemplate");
+        if (!unknown_responseMappingTemplate) return value_responseMappingTemplate;
+        throw new UndeferrableValueException("Value 'FunctionArgs.responseMappingTemplate' is not present");
     }
 
     /**
      * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
      * 
      */
-    private UndeferrableValue<FunctionRuntimeArgs> runtime;
-
+    @PolicyResourceProperty(name="runtime", flag="unknown_runtime")
+    private FunctionRuntimeArgs value_runtime;
+    private boolean unknown_runtime;
     public FunctionRuntimeArgs runtime() {
-        if (runtime == null) return null;
-        return runtime.getValue("FunctionArgs.runtime");
+        if (!unknown_runtime) return value_runtime;
+        throw new UndeferrableValueException("Value 'FunctionArgs.runtime' is not present");
     }
 
     /**
      * Describes a Sync configuration for a resolver. See `sync_config` Block for details.
      * 
      */
-    private UndeferrableValue<FunctionSyncConfigArgs> syncConfig;
-
+    @PolicyResourceProperty(name="syncConfig", flag="unknown_syncConfig")
+    private FunctionSyncConfigArgs value_syncConfig;
+    private boolean unknown_syncConfig;
     public FunctionSyncConfigArgs syncConfig() {
-        if (syncConfig == null) return null;
-        return syncConfig.getValue("FunctionArgs.syncConfig");
+        if (!unknown_syncConfig) return value_syncConfig;
+        throw new UndeferrableValueException("Value 'FunctionArgs.syncConfig' is not present");
     }
 
 }

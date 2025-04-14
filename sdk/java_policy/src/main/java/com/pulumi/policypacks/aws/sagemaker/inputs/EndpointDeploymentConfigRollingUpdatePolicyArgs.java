@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs;
 import com.pulumi.policypacks.aws.sagemaker.inputs.EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs;
 import java.lang.Integer;
@@ -16,44 +17,48 @@ public final class EndpointDeploymentConfigRollingUpdatePolicyArgs {
      * Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant&#39;s total instance count. See Maximum Batch Size.
      * 
      */
-    private UndeferrableValue<EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs> maximumBatchSize;
-
+    @PolicyResourceProperty(name="maximumBatchSize", flag="unknown_maximumBatchSize")
+    private EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs value_maximumBatchSize;
+    private boolean unknown_maximumBatchSize;
     public EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs maximumBatchSize() {
-        if (maximumBatchSize == null) return null;
-        return maximumBatchSize.getValue("EndpointDeploymentConfigRollingUpdatePolicyArgs.maximumBatchSize");
+        if (!unknown_maximumBatchSize) return value_maximumBatchSize;
+        throw new UndeferrableValueException("Value 'EndpointDeploymentConfigRollingUpdatePolicyArgs.maximumBatchSize' is not present");
     }
 
     /**
      * The time limit for the total deployment. Exceeding this limit causes a timeout. Valid values are between `600` and `14400`.
      * 
      */
-    private UndeferrableValue<Integer> maximumExecutionTimeoutInSeconds;
-
+    @PolicyResourceProperty(name="maximumExecutionTimeoutInSeconds", flag="unknown_maximumExecutionTimeoutInSeconds")
+    private Integer value_maximumExecutionTimeoutInSeconds;
+    private boolean unknown_maximumExecutionTimeoutInSeconds;
     public Integer maximumExecutionTimeoutInSeconds() {
-        if (maximumExecutionTimeoutInSeconds == null) return null;
-        return maximumExecutionTimeoutInSeconds.getValue("EndpointDeploymentConfigRollingUpdatePolicyArgs.maximumExecutionTimeoutInSeconds");
+        if (!unknown_maximumExecutionTimeoutInSeconds) return value_maximumExecutionTimeoutInSeconds;
+        throw new UndeferrableValueException("Value 'EndpointDeploymentConfigRollingUpdatePolicyArgs.maximumExecutionTimeoutInSeconds' is not present");
     }
 
     /**
      * Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
      * 
      */
-    private UndeferrableValue<EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs> rollbackMaximumBatchSize;
-
+    @PolicyResourceProperty(name="rollbackMaximumBatchSize", flag="unknown_rollbackMaximumBatchSize")
+    private EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs value_rollbackMaximumBatchSize;
+    private boolean unknown_rollbackMaximumBatchSize;
     public EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs rollbackMaximumBatchSize() {
-        if (rollbackMaximumBatchSize == null) return null;
-        return rollbackMaximumBatchSize.getValue("EndpointDeploymentConfigRollingUpdatePolicyArgs.rollbackMaximumBatchSize");
+        if (!unknown_rollbackMaximumBatchSize) return value_rollbackMaximumBatchSize;
+        throw new UndeferrableValueException("Value 'EndpointDeploymentConfigRollingUpdatePolicyArgs.rollbackMaximumBatchSize' is not present");
     }
 
     /**
      * The length of the baking period, during which SageMaker AI monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
      * 
      */
-    private UndeferrableValue<Integer> waitIntervalInSeconds;
-
+    @PolicyResourceProperty(name="waitIntervalInSeconds", flag="unknown_waitIntervalInSeconds")
+    private Integer value_waitIntervalInSeconds;
+    private boolean unknown_waitIntervalInSeconds;
     public Integer waitIntervalInSeconds() {
-        if (waitIntervalInSeconds == null) return null;
-        return waitIntervalInSeconds.getValue("EndpointDeploymentConfigRollingUpdatePolicyArgs.waitIntervalInSeconds");
+        if (!unknown_waitIntervalInSeconds) return value_waitIntervalInSeconds;
+        throw new UndeferrableValueException("Value 'EndpointDeploymentConfigRollingUpdatePolicyArgs.waitIntervalInSeconds' is not present");
     }
 
 }

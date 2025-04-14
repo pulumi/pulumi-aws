@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.xray;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,22 +17,24 @@ public final class EncryptionConfig extends com.pulumi.resources.PolicyResourceO
      * An AWS KMS customer master key (CMK) ARN.
      * 
      */
-    private @Nullable UndeferrableValue<String> keyId;
-
+    @PolicyResourceProperty(name="keyId", flag="unknown_keyId")
+    private @Nullable String value_keyId;
+    private boolean unknown_keyId;
     public @Nullable String keyId() {
-        if (keyId == null) return null;
-        return keyId.getValue("EncryptionConfig.keyId");
+        if (!unknown_keyId) return value_keyId;
+        throw new UndeferrableValueException("Value 'EncryptionConfig.keyId' is not present");
     }
 
     /**
      * The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("EncryptionConfig.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'EncryptionConfig.type' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lb.outputs.ListenerDefaultActionAuthenticateCognito;
 import com.pulumi.policypacks.aws.lb.outputs.ListenerDefaultActionAuthenticateOidc;
 import com.pulumi.policypacks.aws.lb.outputs.ListenerDefaultActionFixedResponse;
@@ -20,77 +21,84 @@ public final class ListenerDefaultAction {
      * Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
      * 
      */
-    private @Nullable UndeferrableValue<ListenerDefaultActionAuthenticateCognito> authenticateCognito;
-
+    @PolicyResourceProperty(name="authenticateCognito", flag="unknown_authenticateCognito")
+    private @Nullable ListenerDefaultActionAuthenticateCognito value_authenticateCognito;
+    private boolean unknown_authenticateCognito;
     public @Nullable ListenerDefaultActionAuthenticateCognito authenticateCognito() {
-        if (authenticateCognito == null) return null;
-        return authenticateCognito.getValue("ListenerDefaultAction.authenticateCognito");
+        if (!unknown_authenticateCognito) return value_authenticateCognito;
+        throw new UndeferrableValueException("Value 'ListenerDefaultAction.authenticateCognito' is not present");
     }
 
     /**
      * Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. See below.
      * 
      */
-    private @Nullable UndeferrableValue<ListenerDefaultActionAuthenticateOidc> authenticateOidc;
-
+    @PolicyResourceProperty(name="authenticateOidc", flag="unknown_authenticateOidc")
+    private @Nullable ListenerDefaultActionAuthenticateOidc value_authenticateOidc;
+    private boolean unknown_authenticateOidc;
     public @Nullable ListenerDefaultActionAuthenticateOidc authenticateOidc() {
-        if (authenticateOidc == null) return null;
-        return authenticateOidc.getValue("ListenerDefaultAction.authenticateOidc");
+        if (!unknown_authenticateOidc) return value_authenticateOidc;
+        throw new UndeferrableValueException("Value 'ListenerDefaultAction.authenticateOidc' is not present");
     }
 
     /**
      * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
      * 
      */
-    private @Nullable UndeferrableValue<ListenerDefaultActionFixedResponse> fixedResponse;
-
+    @PolicyResourceProperty(name="fixedResponse", flag="unknown_fixedResponse")
+    private @Nullable ListenerDefaultActionFixedResponse value_fixedResponse;
+    private boolean unknown_fixedResponse;
     public @Nullable ListenerDefaultActionFixedResponse fixedResponse() {
-        if (fixedResponse == null) return null;
-        return fixedResponse.getValue("ListenerDefaultAction.fixedResponse");
+        if (!unknown_fixedResponse) return value_fixedResponse;
+        throw new UndeferrableValueException("Value 'ListenerDefaultAction.fixedResponse' is not present");
     }
 
     /**
      * Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
      * 
      */
-    private @Nullable UndeferrableValue<ListenerDefaultActionForward> forward;
-
+    @PolicyResourceProperty(name="forward", flag="unknown_forward")
+    private @Nullable ListenerDefaultActionForward value_forward;
+    private boolean unknown_forward;
     public @Nullable ListenerDefaultActionForward forward() {
-        if (forward == null) return null;
-        return forward.getValue("ListenerDefaultAction.forward");
+        if (!unknown_forward) return value_forward;
+        throw new UndeferrableValueException("Value 'ListenerDefaultAction.forward' is not present");
     }
 
     /**
      * Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> order;
-
+    @PolicyResourceProperty(name="order", flag="unknown_order")
+    private @Nullable Integer value_order;
+    private boolean unknown_order;
     public @Nullable Integer order() {
-        if (order == null) return null;
-        return order.getValue("ListenerDefaultAction.order");
+        if (!unknown_order) return value_order;
+        throw new UndeferrableValueException("Value 'ListenerDefaultAction.order' is not present");
     }
 
     /**
      * Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
      * 
      */
-    private @Nullable UndeferrableValue<ListenerDefaultActionRedirect> redirect;
-
+    @PolicyResourceProperty(name="redirect", flag="unknown_redirect")
+    private @Nullable ListenerDefaultActionRedirect value_redirect;
+    private boolean unknown_redirect;
     public @Nullable ListenerDefaultActionRedirect redirect() {
-        if (redirect == null) return null;
-        return redirect.getValue("ListenerDefaultAction.redirect");
+        if (!unknown_redirect) return value_redirect;
+        throw new UndeferrableValueException("Value 'ListenerDefaultAction.redirect' is not present");
     }
 
     /**
      * ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead. Can be specified with `forward` but ARNs must match.
      * 
      */
-    private @Nullable UndeferrableValue<String> targetGroupArn;
-
+    @PolicyResourceProperty(name="targetGroupArn", flag="unknown_targetGroupArn")
+    private @Nullable String value_targetGroupArn;
+    private boolean unknown_targetGroupArn;
     public @Nullable String targetGroupArn() {
-        if (targetGroupArn == null) return null;
-        return targetGroupArn.getValue("ListenerDefaultAction.targetGroupArn");
+        if (!unknown_targetGroupArn) return value_targetGroupArn;
+        throw new UndeferrableValueException("Value 'ListenerDefaultAction.targetGroupArn' is not present");
     }
 
     /**
@@ -99,11 +107,12 @@ public final class ListenerDefaultAction {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ListenerDefaultAction.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ListenerDefaultAction.type' is not present");
     }
 
 }

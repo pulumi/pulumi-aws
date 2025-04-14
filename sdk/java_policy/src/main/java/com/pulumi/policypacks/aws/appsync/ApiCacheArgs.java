@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appsync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -18,66 +19,72 @@ public final class ApiCacheArgs extends com.pulumi.resources.PolicyResourceInput
      * Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
      * 
      */
-    private UndeferrableValue<String> apiCachingBehavior;
-
+    @PolicyResourceProperty(name="apiCachingBehavior", flag="unknown_apiCachingBehavior")
+    private String value_apiCachingBehavior;
+    private boolean unknown_apiCachingBehavior;
     public String apiCachingBehavior() {
-        if (apiCachingBehavior == null) return null;
-        return apiCachingBehavior.getValue("ApiCacheArgs.apiCachingBehavior");
+        if (!unknown_apiCachingBehavior) return value_apiCachingBehavior;
+        throw new UndeferrableValueException("Value 'ApiCacheArgs.apiCachingBehavior' is not present");
     }
 
     /**
      * GraphQL API ID.
      * 
      */
-    private UndeferrableValue<String> apiId;
-
+    @PolicyResourceProperty(name="apiId", flag="unknown_apiId")
+    private String value_apiId;
+    private boolean unknown_apiId;
     public String apiId() {
-        if (apiId == null) return null;
-        return apiId.getValue("ApiCacheArgs.apiId");
+        if (!unknown_apiId) return value_apiId;
+        throw new UndeferrableValueException("Value 'ApiCacheArgs.apiId' is not present");
     }
 
     /**
      * At-rest encryption flag for cache. You cannot update this setting after creation.
      * 
      */
-    private UndeferrableValue<Boolean> atRestEncryptionEnabled;
-
+    @PolicyResourceProperty(name="atRestEncryptionEnabled", flag="unknown_atRestEncryptionEnabled")
+    private Boolean value_atRestEncryptionEnabled;
+    private boolean unknown_atRestEncryptionEnabled;
     public Boolean atRestEncryptionEnabled() {
-        if (atRestEncryptionEnabled == null) return null;
-        return atRestEncryptionEnabled.getValue("ApiCacheArgs.atRestEncryptionEnabled");
+        if (!unknown_atRestEncryptionEnabled) return value_atRestEncryptionEnabled;
+        throw new UndeferrableValueException("Value 'ApiCacheArgs.atRestEncryptionEnabled' is not present");
     }
 
     /**
      * Transit encryption flag when connecting to cache. You cannot update this setting after creation.
      * 
      */
-    private UndeferrableValue<Boolean> transitEncryptionEnabled;
-
+    @PolicyResourceProperty(name="transitEncryptionEnabled", flag="unknown_transitEncryptionEnabled")
+    private Boolean value_transitEncryptionEnabled;
+    private boolean unknown_transitEncryptionEnabled;
     public Boolean transitEncryptionEnabled() {
-        if (transitEncryptionEnabled == null) return null;
-        return transitEncryptionEnabled.getValue("ApiCacheArgs.transitEncryptionEnabled");
+        if (!unknown_transitEncryptionEnabled) return value_transitEncryptionEnabled;
+        throw new UndeferrableValueException("Value 'ApiCacheArgs.transitEncryptionEnabled' is not present");
     }
 
     /**
      * TTL in seconds for cache entries.
      * 
      */
-    private UndeferrableValue<Integer> ttl;
-
+    @PolicyResourceProperty(name="ttl", flag="unknown_ttl")
+    private Integer value_ttl;
+    private boolean unknown_ttl;
     public Integer ttl() {
-        if (ttl == null) return null;
-        return ttl.getValue("ApiCacheArgs.ttl");
+        if (!unknown_ttl) return value_ttl;
+        throw new UndeferrableValueException("Value 'ApiCacheArgs.ttl' is not present");
     }
 
     /**
      * Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ApiCacheArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ApiCacheArgs.type' is not present");
     }
 
 }

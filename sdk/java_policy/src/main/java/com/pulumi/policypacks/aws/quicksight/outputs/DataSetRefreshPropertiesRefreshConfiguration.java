@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.outputs.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh;
 
 
@@ -13,11 +14,12 @@ public final class DataSetRefreshPropertiesRefreshConfiguration {
      * The incremental refresh for the data set. See incremental_refresh.
      * 
      */
-    private UndeferrableValue<DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh> incrementalRefresh;
-
+    @PolicyResourceProperty(name="incrementalRefresh", flag="unknown_incrementalRefresh")
+    private DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh value_incrementalRefresh;
+    private boolean unknown_incrementalRefresh;
     public DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh incrementalRefresh() {
-        if (incrementalRefresh == null) return null;
-        return incrementalRefresh.getValue("DataSetRefreshPropertiesRefreshConfiguration.incrementalRefresh");
+        if (!unknown_incrementalRefresh) return value_incrementalRefresh;
+        throw new UndeferrableValueException("Value 'DataSetRefreshPropertiesRefreshConfiguration.incrementalRefresh' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kendra.outputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue;
 import java.lang.Boolean;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
      * The identifier of the target document attribute or metadata field. For example, &#39;Department&#39; could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
      * 
      */
-    private @Nullable UndeferrableValue<String> targetDocumentAttributeKey;
-
+    @PolicyResourceProperty(name="targetDocumentAttributeKey", flag="unknown_targetDocumentAttributeKey")
+    private @Nullable String value_targetDocumentAttributeKey;
+    private boolean unknown_targetDocumentAttributeKey;
     public @Nullable String targetDocumentAttributeKey() {
-        if (targetDocumentAttributeKey == null) return null;
-        return targetDocumentAttributeKey.getValue("DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget.targetDocumentAttributeKey");
+        if (!unknown_targetDocumentAttributeKey) return value_targetDocumentAttributeKey;
+        throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget.targetDocumentAttributeKey' is not present");
     }
 
     /**
      * The target value you want to create for the target attribute. For example, &#39;Finance&#39; could be the target value for the target attribute key &#39;Department&#39;. See target_document_attribute_value.
      * 
      */
-    private @Nullable UndeferrableValue<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue> targetDocumentAttributeValue;
-
+    @PolicyResourceProperty(name="targetDocumentAttributeValue", flag="unknown_targetDocumentAttributeValue")
+    private @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue value_targetDocumentAttributeValue;
+    private boolean unknown_targetDocumentAttributeValue;
     public @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue targetDocumentAttributeValue() {
-        if (targetDocumentAttributeValue == null) return null;
-        return targetDocumentAttributeValue.getValue("DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget.targetDocumentAttributeValue");
+        if (!unknown_targetDocumentAttributeValue) return value_targetDocumentAttributeValue;
+        throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget.targetDocumentAttributeValue' is not present");
     }
 
     /**
      * `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE`. To create a target value (`TargetDocumentAttributeValue`), set this to `FALSE`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> targetDocumentAttributeValueDeletion;
-
+    @PolicyResourceProperty(name="targetDocumentAttributeValueDeletion", flag="unknown_targetDocumentAttributeValueDeletion")
+    private @Nullable Boolean value_targetDocumentAttributeValueDeletion;
+    private boolean unknown_targetDocumentAttributeValueDeletion;
     public @Nullable Boolean targetDocumentAttributeValueDeletion() {
-        if (targetDocumentAttributeValueDeletion == null) return null;
-        return targetDocumentAttributeValueDeletion.getValue("DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget.targetDocumentAttributeValueDeletion");
+        if (!unknown_targetDocumentAttributeValueDeletion) return value_targetDocumentAttributeValueDeletion;
+        throw new UndeferrableValueException("Value 'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget.targetDocumentAttributeValueDeletion' is not present");
     }
 
 }

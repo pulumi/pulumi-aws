@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fms.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,73 +16,80 @@ public final class ResourceSetResourceSetArgs {
      * Description of the resource set.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ResourceSetResourceSetArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ResourceSetResourceSetArgs.description' is not present");
     }
 
     /**
      * Unique identifier for the resource set. It&#39;s returned in the responses to create and list commands. You provide it to operations like update and delete.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("ResourceSetResourceSetArgs.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'ResourceSetResourceSetArgs.id' is not present");
     }
 
     /**
      * Last time that the reosurce set was changed.
      * 
      */
-    private UndeferrableValue<String> lastUpdateTime;
-
+    @PolicyResourceProperty(name="lastUpdateTime", flag="unknown_lastUpdateTime")
+    private String value_lastUpdateTime;
+    private boolean unknown_lastUpdateTime;
     public String lastUpdateTime() {
-        if (lastUpdateTime == null) return null;
-        return lastUpdateTime.getValue("ResourceSetResourceSetArgs.lastUpdateTime");
+        if (!unknown_lastUpdateTime) return value_lastUpdateTime;
+        throw new UndeferrableValueException("Value 'ResourceSetResourceSetArgs.lastUpdateTime' is not present");
     }
 
     /**
      * Descriptive name of the resource set. You can&#39;t change the name of a resource set after you create it.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ResourceSetResourceSetArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ResourceSetResourceSetArgs.name' is not present");
     }
 
     /**
      * Indicates whether the resource set is in or out of the admin&#39;s Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can&#39;t edit or delete the resource set.)
      * 
      */
-    private UndeferrableValue<String> resourceSetStatus;
-
+    @PolicyResourceProperty(name="resourceSetStatus", flag="unknown_resourceSetStatus")
+    private String value_resourceSetStatus;
+    private boolean unknown_resourceSetStatus;
     public String resourceSetStatus() {
-        if (resourceSetStatus == null) return null;
-        return resourceSetStatus.getValue("ResourceSetResourceSetArgs.resourceSetStatus");
+        if (!unknown_resourceSetStatus) return value_resourceSetStatus;
+        throw new UndeferrableValueException("Value 'ResourceSetResourceSetArgs.resourceSetStatus' is not present");
     }
 
     /**
      * Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
      * 
      */
-    private UndeferrableValue<List<String>> resourceTypeLists;
-
+    @PolicyResourceProperty(name="resourceTypeLists", flag="unknown_resourceTypeLists")
+    private List<String> value_resourceTypeLists;
+    private boolean unknown_resourceTypeLists;
     public List<String> resourceTypeLists() {
-        if (resourceTypeLists == null) return null;
-        return resourceTypeLists.getValue("ResourceSetResourceSetArgs.resourceTypeLists");
+        if (!unknown_resourceTypeLists) return value_resourceTypeLists;
+        throw new UndeferrableValueException("Value 'ResourceSetResourceSetArgs.resourceTypeLists' is not present");
     }
 
-    private UndeferrableValue<String> updateToken;
-
+    @PolicyResourceProperty(name="updateToken", flag="unknown_updateToken")
+    private String value_updateToken;
+    private boolean unknown_updateToken;
     public String updateToken() {
-        if (updateToken == null) return null;
-        return updateToken.getValue("ResourceSetResourceSetArgs.updateToken");
+        if (!unknown_updateToken) return value_updateToken;
+        throw new UndeferrableValueException("Value 'ResourceSetResourceSetArgs.updateToken' is not present");
     }
 
 }

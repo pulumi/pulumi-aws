@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.gamelift.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,44 +15,48 @@ public final class FleetEc2InboundPermissionArgs {
      * Starting value for a range of allowed port numbers.
      * 
      */
-    private UndeferrableValue<Integer> fromPort;
-
+    @PolicyResourceProperty(name="fromPort", flag="unknown_fromPort")
+    private Integer value_fromPort;
+    private boolean unknown_fromPort;
     public Integer fromPort() {
-        if (fromPort == null) return null;
-        return fromPort.getValue("FleetEc2InboundPermissionArgs.fromPort");
+        if (!unknown_fromPort) return value_fromPort;
+        throw new UndeferrableValueException("Value 'FleetEc2InboundPermissionArgs.fromPort' is not present");
     }
 
     /**
      * Range of allowed IP addresses expressed in CIDR notationE.g., `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
      * 
      */
-    private UndeferrableValue<String> ipRange;
-
+    @PolicyResourceProperty(name="ipRange", flag="unknown_ipRange")
+    private String value_ipRange;
+    private boolean unknown_ipRange;
     public String ipRange() {
-        if (ipRange == null) return null;
-        return ipRange.getValue("FleetEc2InboundPermissionArgs.ipRange");
+        if (!unknown_ipRange) return value_ipRange;
+        throw new UndeferrableValueException("Value 'FleetEc2InboundPermissionArgs.ipRange' is not present");
     }
 
     /**
      * Network communication protocol used by the fleetE.g., `TCP` or `UDP`
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("FleetEc2InboundPermissionArgs.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'FleetEc2InboundPermissionArgs.protocol' is not present");
     }
 
     /**
      * Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `from_port`.
      * 
      */
-    private UndeferrableValue<Integer> toPort;
-
+    @PolicyResourceProperty(name="toPort", flag="unknown_toPort")
+    private Integer value_toPort;
+    private boolean unknown_toPort;
     public Integer toPort() {
-        if (toPort == null) return null;
-        return toPort.getValue("FleetEc2InboundPermissionArgs.toPort");
+        if (!unknown_toPort) return value_toPort;
+        throw new UndeferrableValueException("Value 'FleetEc2InboundPermissionArgs.toPort' is not present");
     }
 
 }

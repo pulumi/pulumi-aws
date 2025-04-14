@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cloudwatch.inputs.EventConnectionAuthParametersArgs;
 import com.pulumi.policypacks.aws.cloudwatch.inputs.EventConnectionInvocationConnectivityParametersArgs;
@@ -18,55 +19,60 @@ public final class EventConnectionArgs extends com.pulumi.resources.PolicyResour
      * Parameters used for authorization. A maximum of 1 are allowed. Documented below.
      * 
      */
-    private UndeferrableValue<EventConnectionAuthParametersArgs> authParameters;
-
+    @PolicyResourceProperty(name="authParameters", flag="unknown_authParameters")
+    private EventConnectionAuthParametersArgs value_authParameters;
+    private boolean unknown_authParameters;
     public EventConnectionAuthParametersArgs authParameters() {
-        if (authParameters == null) return null;
-        return authParameters.getValue("EventConnectionArgs.authParameters");
+        if (!unknown_authParameters) return value_authParameters;
+        throw new UndeferrableValueException("Value 'EventConnectionArgs.authParameters' is not present");
     }
 
     /**
      * Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
      * 
      */
-    private UndeferrableValue<String> authorizationType;
-
+    @PolicyResourceProperty(name="authorizationType", flag="unknown_authorizationType")
+    private String value_authorizationType;
+    private boolean unknown_authorizationType;
     public String authorizationType() {
-        if (authorizationType == null) return null;
-        return authorizationType.getValue("EventConnectionArgs.authorizationType");
+        if (!unknown_authorizationType) return value_authorizationType;
+        throw new UndeferrableValueException("Value 'EventConnectionArgs.authorizationType' is not present");
     }
 
     /**
      * Enter a description for the connection. Maximum of 512 characters.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("EventConnectionArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'EventConnectionArgs.description' is not present");
     }
 
     /**
      * The parameters to use for invoking a private API. Documented below.
      * 
      */
-    private UndeferrableValue<EventConnectionInvocationConnectivityParametersArgs> invocationConnectivityParameters;
-
+    @PolicyResourceProperty(name="invocationConnectivityParameters", flag="unknown_invocationConnectivityParameters")
+    private EventConnectionInvocationConnectivityParametersArgs value_invocationConnectivityParameters;
+    private boolean unknown_invocationConnectivityParameters;
     public EventConnectionInvocationConnectivityParametersArgs invocationConnectivityParameters() {
-        if (invocationConnectivityParameters == null) return null;
-        return invocationConnectivityParameters.getValue("EventConnectionArgs.invocationConnectivityParameters");
+        if (!unknown_invocationConnectivityParameters) return value_invocationConnectivityParameters;
+        throw new UndeferrableValueException("Value 'EventConnectionArgs.invocationConnectivityParameters' is not present");
     }
 
     /**
      * The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("EventConnectionArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'EventConnectionArgs.name' is not present");
     }
 
 }

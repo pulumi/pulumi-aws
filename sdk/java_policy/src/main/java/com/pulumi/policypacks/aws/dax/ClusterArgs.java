@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dax;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.dax.inputs.ClusterServerSideEncryptionArgs;
 import java.lang.Integer;
@@ -21,11 +22,12 @@ public final class ClusterArgs extends com.pulumi.resources.PolicyResourceInput 
      * nodes will be created
      * 
      */
-    private UndeferrableValue<List<String>> availabilityZones;
-
+    @PolicyResourceProperty(name="availabilityZones", flag="unknown_availabilityZones")
+    private List<String> value_availabilityZones;
+    private boolean unknown_availabilityZones;
     public List<String> availabilityZones() {
-        if (availabilityZones == null) return null;
-        return availabilityZones.getValue("ClusterArgs.availabilityZones");
+        if (!unknown_availabilityZones) return value_availabilityZones;
+        throw new UndeferrableValueException("Value 'ClusterArgs.availabilityZones' is not present");
     }
 
     /**
@@ -34,11 +36,12 @@ public final class ClusterArgs extends com.pulumi.resources.PolicyResourceInput 
      * Default value is `NONE`.
      * 
      */
-    private UndeferrableValue<String> clusterEndpointEncryptionType;
-
+    @PolicyResourceProperty(name="clusterEndpointEncryptionType", flag="unknown_clusterEndpointEncryptionType")
+    private String value_clusterEndpointEncryptionType;
+    private boolean unknown_clusterEndpointEncryptionType;
     public String clusterEndpointEncryptionType() {
-        if (clusterEndpointEncryptionType == null) return null;
-        return clusterEndpointEncryptionType.getValue("ClusterArgs.clusterEndpointEncryptionType");
+        if (!unknown_clusterEndpointEncryptionType) return value_clusterEndpointEncryptionType;
+        throw new UndeferrableValueException("Value 'ClusterArgs.clusterEndpointEncryptionType' is not present");
     }
 
     /**
@@ -46,22 +49,24 @@ public final class ClusterArgs extends com.pulumi.resources.PolicyResourceInput 
      * lowercase
      * 
      */
-    private UndeferrableValue<String> clusterName;
-
+    @PolicyResourceProperty(name="clusterName", flag="unknown_clusterName")
+    private String value_clusterName;
+    private boolean unknown_clusterName;
     public String clusterName() {
-        if (clusterName == null) return null;
-        return clusterName.getValue("ClusterArgs.clusterName");
+        if (!unknown_clusterName) return value_clusterName;
+        throw new UndeferrableValueException("Value 'ClusterArgs.clusterName' is not present");
     }
 
     /**
      * Description for the cluster
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ClusterArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ClusterArgs.description' is not present");
     }
 
     /**
@@ -70,11 +75,12 @@ public final class ClusterArgs extends com.pulumi.resources.PolicyResourceInput 
      * permissions to access DynamoDB on your behalf
      * 
      */
-    private UndeferrableValue<String> iamRoleArn;
-
+    @PolicyResourceProperty(name="iamRoleArn", flag="unknown_iamRoleArn")
+    private String value_iamRoleArn;
+    private boolean unknown_iamRoleArn;
     public String iamRoleArn() {
-        if (iamRoleArn == null) return null;
-        return iamRoleArn.getValue("ClusterArgs.iamRoleArn");
+        if (!unknown_iamRoleArn) return value_iamRoleArn;
+        throw new UndeferrableValueException("Value 'ClusterArgs.iamRoleArn' is not present");
     }
 
     /**
@@ -84,11 +90,12 @@ public final class ClusterArgs extends com.pulumi.resources.PolicyResourceInput 
      * `sun:05:00-sun:09:00`
      * 
      */
-    private UndeferrableValue<String> maintenanceWindow;
-
+    @PolicyResourceProperty(name="maintenanceWindow", flag="unknown_maintenanceWindow")
+    private String value_maintenanceWindow;
+    private boolean unknown_maintenanceWindow;
     public String maintenanceWindow() {
-        if (maintenanceWindow == null) return null;
-        return maintenanceWindow.getValue("ClusterArgs.maintenanceWindow");
+        if (!unknown_maintenanceWindow) return value_maintenanceWindow;
+        throw new UndeferrableValueException("Value 'ClusterArgs.maintenanceWindow' is not present");
     }
 
     /**
@@ -96,11 +103,12 @@ public final class ClusterArgs extends com.pulumi.resources.PolicyResourceInput 
      * [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
      * 
      */
-    private UndeferrableValue<String> nodeType;
-
+    @PolicyResourceProperty(name="nodeType", flag="unknown_nodeType")
+    private String value_nodeType;
+    private boolean unknown_nodeType;
     public String nodeType() {
-        if (nodeType == null) return null;
-        return nodeType.getValue("ClusterArgs.nodeType");
+        if (!unknown_nodeType) return value_nodeType;
+        throw new UndeferrableValueException("Value 'ClusterArgs.nodeType' is not present");
     }
 
     /**
@@ -109,11 +117,12 @@ public final class ClusterArgs extends com.pulumi.resources.PolicyResourceInput 
      * `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
      * 
      */
-    private UndeferrableValue<String> notificationTopicArn;
-
+    @PolicyResourceProperty(name="notificationTopicArn", flag="unknown_notificationTopicArn")
+    private String value_notificationTopicArn;
+    private boolean unknown_notificationTopicArn;
     public String notificationTopicArn() {
-        if (notificationTopicArn == null) return null;
-        return notificationTopicArn.getValue("ClusterArgs.notificationTopicArn");
+        if (!unknown_notificationTopicArn) return value_notificationTopicArn;
+        throw new UndeferrableValueException("Value 'ClusterArgs.notificationTopicArn' is not present");
     }
 
     /**
@@ -121,11 +130,12 @@ public final class ClusterArgs extends com.pulumi.resources.PolicyResourceInput 
      * with this DAX cluster
      * 
      */
-    private UndeferrableValue<String> parameterGroupName;
-
+    @PolicyResourceProperty(name="parameterGroupName", flag="unknown_parameterGroupName")
+    private String value_parameterGroupName;
+    private boolean unknown_parameterGroupName;
     public String parameterGroupName() {
-        if (parameterGroupName == null) return null;
-        return parameterGroupName.getValue("ClusterArgs.parameterGroupName");
+        if (!unknown_parameterGroupName) return value_parameterGroupName;
+        throw new UndeferrableValueException("Value 'ClusterArgs.parameterGroupName' is not present");
     }
 
     /**
@@ -134,11 +144,12 @@ public final class ClusterArgs extends com.pulumi.resources.PolicyResourceInput 
      * replicas
      * 
      */
-    private UndeferrableValue<Integer> replicationFactor;
-
+    @PolicyResourceProperty(name="replicationFactor", flag="unknown_replicationFactor")
+    private Integer value_replicationFactor;
+    private boolean unknown_replicationFactor;
     public Integer replicationFactor() {
-        if (replicationFactor == null) return null;
-        return replicationFactor.getValue("ClusterArgs.replicationFactor");
+        if (!unknown_replicationFactor) return value_replicationFactor;
+        throw new UndeferrableValueException("Value 'ClusterArgs.replicationFactor' is not present");
     }
 
     /**
@@ -146,22 +157,24 @@ public final class ClusterArgs extends com.pulumi.resources.PolicyResourceInput 
      * with the cluster
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupIds;
-
+    @PolicyResourceProperty(name="securityGroupIds", flag="unknown_securityGroupIds")
+    private List<String> value_securityGroupIds;
+    private boolean unknown_securityGroupIds;
     public List<String> securityGroupIds() {
-        if (securityGroupIds == null) return null;
-        return securityGroupIds.getValue("ClusterArgs.securityGroupIds");
+        if (!unknown_securityGroupIds) return value_securityGroupIds;
+        throw new UndeferrableValueException("Value 'ClusterArgs.securityGroupIds' is not present");
     }
 
     /**
      * Encrypt at rest options
      * 
      */
-    private UndeferrableValue<ClusterServerSideEncryptionArgs> serverSideEncryption;
-
+    @PolicyResourceProperty(name="serverSideEncryption", flag="unknown_serverSideEncryption")
+    private ClusterServerSideEncryptionArgs value_serverSideEncryption;
+    private boolean unknown_serverSideEncryption;
     public ClusterServerSideEncryptionArgs serverSideEncryption() {
-        if (serverSideEncryption == null) return null;
-        return serverSideEncryption.getValue("ClusterArgs.serverSideEncryption");
+        if (!unknown_serverSideEncryption) return value_serverSideEncryption;
+        throw new UndeferrableValueException("Value 'ClusterArgs.serverSideEncryption' is not present");
     }
 
     /**
@@ -169,22 +182,24 @@ public final class ClusterArgs extends com.pulumi.resources.PolicyResourceInput 
      * cluster
      * 
      */
-    private UndeferrableValue<String> subnetGroupName;
-
+    @PolicyResourceProperty(name="subnetGroupName", flag="unknown_subnetGroupName")
+    private String value_subnetGroupName;
+    private boolean unknown_subnetGroupName;
     public String subnetGroupName() {
-        if (subnetGroupName == null) return null;
-        return subnetGroupName.getValue("ClusterArgs.subnetGroupName");
+        if (!unknown_subnetGroupName) return value_subnetGroupName;
+        throw new UndeferrableValueException("Value 'ClusterArgs.subnetGroupName' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ClusterArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ClusterArgs.tags' is not present");
     }
 
 }

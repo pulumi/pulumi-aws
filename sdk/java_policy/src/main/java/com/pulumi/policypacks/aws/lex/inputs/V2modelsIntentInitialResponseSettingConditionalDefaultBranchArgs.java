@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepArgs;
 import com.pulumi.policypacks.aws.lex.inputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class V2modelsIntentInitialResponseSettingConditionalDefaultBranchA
      * Configuration block for the next step in the conversation. See `next_step`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepArgs> nextStep;
-
+    @PolicyResourceProperty(name="nextStep", flag="unknown_nextStep")
+    private V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepArgs value_nextStep;
+    private boolean unknown_nextStep;
     public V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepArgs nextStep() {
-        if (nextStep == null) return null;
-        return nextStep.getValue("V2modelsIntentInitialResponseSettingConditionalDefaultBranchArgs.nextStep");
+        if (!unknown_nextStep) return value_nextStep;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingConditionalDefaultBranchArgs.nextStep' is not present");
     }
 
     /**
      * Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
      * 
      */
-    private UndeferrableValue<V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseArgs> response;
-
+    @PolicyResourceProperty(name="response", flag="unknown_response")
+    private V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseArgs value_response;
+    private boolean unknown_response;
     public V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseArgs response() {
-        if (response == null) return null;
-        return response.getValue("V2modelsIntentInitialResponseSettingConditionalDefaultBranchArgs.response");
+        if (!unknown_response) return value_response;
+        throw new UndeferrableValueException("Value 'V2modelsIntentInitialResponseSettingConditionalDefaultBranchArgs.response' is not present");
     }
 
 }

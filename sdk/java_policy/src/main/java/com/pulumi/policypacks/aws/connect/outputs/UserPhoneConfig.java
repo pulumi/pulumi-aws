@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -16,44 +17,48 @@ public final class UserPhoneConfig {
      * The After Call Work (ACW) timeout setting, in seconds. Minimum value of 0.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> afterContactWorkTimeLimit;
-
+    @PolicyResourceProperty(name="afterContactWorkTimeLimit", flag="unknown_afterContactWorkTimeLimit")
+    private @Nullable Integer value_afterContactWorkTimeLimit;
+    private boolean unknown_afterContactWorkTimeLimit;
     public @Nullable Integer afterContactWorkTimeLimit() {
-        if (afterContactWorkTimeLimit == null) return null;
-        return afterContactWorkTimeLimit.getValue("UserPhoneConfig.afterContactWorkTimeLimit");
+        if (!unknown_afterContactWorkTimeLimit) return value_afterContactWorkTimeLimit;
+        throw new UndeferrableValueException("Value 'UserPhoneConfig.afterContactWorkTimeLimit' is not present");
     }
 
     /**
      * When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> autoAccept;
-
+    @PolicyResourceProperty(name="autoAccept", flag="unknown_autoAccept")
+    private @Nullable Boolean value_autoAccept;
+    private boolean unknown_autoAccept;
     public @Nullable Boolean autoAccept() {
-        if (autoAccept == null) return null;
-        return autoAccept.getValue("UserPhoneConfig.autoAccept");
+        if (!unknown_autoAccept) return value_autoAccept;
+        throw new UndeferrableValueException("Value 'UserPhoneConfig.autoAccept' is not present");
     }
 
     /**
      * The phone number for the user&#39;s desk phone. Required if `phone_type` is set as `DESK_PHONE`.
      * 
      */
-    private @Nullable UndeferrableValue<String> deskPhoneNumber;
-
+    @PolicyResourceProperty(name="deskPhoneNumber", flag="unknown_deskPhoneNumber")
+    private @Nullable String value_deskPhoneNumber;
+    private boolean unknown_deskPhoneNumber;
     public @Nullable String deskPhoneNumber() {
-        if (deskPhoneNumber == null) return null;
-        return deskPhoneNumber.getValue("UserPhoneConfig.deskPhoneNumber");
+        if (!unknown_deskPhoneNumber) return value_deskPhoneNumber;
+        throw new UndeferrableValueException("Value 'UserPhoneConfig.deskPhoneNumber' is not present");
     }
 
     /**
      * The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
      * 
      */
-    private UndeferrableValue<String> phoneType;
-
+    @PolicyResourceProperty(name="phoneType", flag="unknown_phoneType")
+    private String value_phoneType;
+    private boolean unknown_phoneType;
     public String phoneType() {
-        if (phoneType == null) return null;
-        return phoneType.getValue("UserPhoneConfig.phoneType");
+        if (!unknown_phoneType) return value_phoneType;
+        throw new UndeferrableValueException("Value 'UserPhoneConfig.phoneType' is not present");
     }
 
 }

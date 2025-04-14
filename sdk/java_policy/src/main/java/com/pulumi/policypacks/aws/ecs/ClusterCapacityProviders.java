@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ecs.outputs.ClusterCapacityProvidersDefaultCapacityProviderStrategy;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class ClusterCapacityProviders extends com.pulumi.resources.PolicyR
      * Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> capacityProviders;
-
+    @PolicyResourceProperty(name="capacityProviders", flag="unknown_capacityProviders")
+    private @Nullable List<String> value_capacityProviders;
+    private boolean unknown_capacityProviders;
     public @Nullable List<String> capacityProviders() {
-        if (capacityProviders == null) return null;
-        return capacityProviders.getValue("ClusterCapacityProviders.capacityProviders");
+        if (!unknown_capacityProviders) return value_capacityProviders;
+        throw new UndeferrableValueException("Value 'ClusterCapacityProviders.capacityProviders' is not present");
     }
 
     /**
      * Name of the ECS cluster to manage capacity providers for.
      * 
      */
-    private UndeferrableValue<String> clusterName;
-
+    @PolicyResourceProperty(name="clusterName", flag="unknown_clusterName")
+    private String value_clusterName;
+    private boolean unknown_clusterName;
     public String clusterName() {
-        if (clusterName == null) return null;
-        return clusterName.getValue("ClusterCapacityProviders.clusterName");
+        if (!unknown_clusterName) return value_clusterName;
+        throw new UndeferrableValueException("Value 'ClusterCapacityProviders.clusterName' is not present");
     }
 
     /**
      * Set of capacity provider strategies to use by default for the cluster. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<List<ClusterCapacityProvidersDefaultCapacityProviderStrategy>> defaultCapacityProviderStrategies;
-
+    @PolicyResourceProperty(name="defaultCapacityProviderStrategies", flag="unknown_defaultCapacityProviderStrategies")
+    private @Nullable List<ClusterCapacityProvidersDefaultCapacityProviderStrategy> value_defaultCapacityProviderStrategies;
+    private boolean unknown_defaultCapacityProviderStrategies;
     public @Nullable List<ClusterCapacityProvidersDefaultCapacityProviderStrategy> defaultCapacityProviderStrategies() {
-        if (defaultCapacityProviderStrategies == null) return null;
-        return defaultCapacityProviderStrategies.getValue("ClusterCapacityProviders.defaultCapacityProviderStrategies");
+        if (!unknown_defaultCapacityProviderStrategies) return value_defaultCapacityProviderStrategies;
+        throw new UndeferrableValueException("Value 'ClusterCapacityProviders.defaultCapacityProviderStrategies' is not present");
     }
 
 }

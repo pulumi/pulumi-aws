@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedaccess.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,18 +12,20 @@ import javax.annotation.Nullable;
 
 public final class TrustProviderSseSpecificationArgs {
 
-    private UndeferrableValue<Boolean> customerManagedKeyEnabled;
-
+    @PolicyResourceProperty(name="customerManagedKeyEnabled", flag="unknown_customerManagedKeyEnabled")
+    private Boolean value_customerManagedKeyEnabled;
+    private boolean unknown_customerManagedKeyEnabled;
     public Boolean customerManagedKeyEnabled() {
-        if (customerManagedKeyEnabled == null) return null;
-        return customerManagedKeyEnabled.getValue("TrustProviderSseSpecificationArgs.customerManagedKeyEnabled");
+        if (!unknown_customerManagedKeyEnabled) return value_customerManagedKeyEnabled;
+        throw new UndeferrableValueException("Value 'TrustProviderSseSpecificationArgs.customerManagedKeyEnabled' is not present");
     }
 
-    private UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("TrustProviderSseSpecificationArgs.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'TrustProviderSseSpecificationArgs.kmsKeyArn' is not present");
     }
 
 }

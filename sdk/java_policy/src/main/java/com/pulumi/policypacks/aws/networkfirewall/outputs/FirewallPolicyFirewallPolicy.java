@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicyPolicyVariables;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicyStatefulEngineOptions;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReference;
@@ -20,55 +21,60 @@ public final class FirewallPolicyFirewallPolicy {
      * . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
      * 
      */
-    private @Nullable UndeferrableValue<FirewallPolicyFirewallPolicyPolicyVariables> policyVariables;
-
+    @PolicyResourceProperty(name="policyVariables", flag="unknown_policyVariables")
+    private @Nullable FirewallPolicyFirewallPolicyPolicyVariables value_policyVariables;
+    private boolean unknown_policyVariables;
     public @Nullable FirewallPolicyFirewallPolicyPolicyVariables policyVariables() {
-        if (policyVariables == null) return null;
-        return policyVariables.getValue("FirewallPolicyFirewallPolicy.policyVariables");
+        if (!unknown_policyVariables) return value_policyVariables;
+        throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicy.policyVariables' is not present");
     }
 
     /**
      * Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> statefulDefaultActions;
-
+    @PolicyResourceProperty(name="statefulDefaultActions", flag="unknown_statefulDefaultActions")
+    private @Nullable List<String> value_statefulDefaultActions;
+    private boolean unknown_statefulDefaultActions;
     public @Nullable List<String> statefulDefaultActions() {
-        if (statefulDefaultActions == null) return null;
-        return statefulDefaultActions.getValue("FirewallPolicyFirewallPolicy.statefulDefaultActions");
+        if (!unknown_statefulDefaultActions) return value_statefulDefaultActions;
+        throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicy.statefulDefaultActions' is not present");
     }
 
     /**
      * A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
      * 
      */
-    private @Nullable UndeferrableValue<FirewallPolicyFirewallPolicyStatefulEngineOptions> statefulEngineOptions;
-
+    @PolicyResourceProperty(name="statefulEngineOptions", flag="unknown_statefulEngineOptions")
+    private @Nullable FirewallPolicyFirewallPolicyStatefulEngineOptions value_statefulEngineOptions;
+    private boolean unknown_statefulEngineOptions;
     public @Nullable FirewallPolicyFirewallPolicyStatefulEngineOptions statefulEngineOptions() {
-        if (statefulEngineOptions == null) return null;
-        return statefulEngineOptions.getValue("FirewallPolicyFirewallPolicy.statefulEngineOptions");
+        if (!unknown_statefulEngineOptions) return value_statefulEngineOptions;
+        throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicy.statefulEngineOptions' is not present");
     }
 
     /**
      * Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<FirewallPolicyFirewallPolicyStatefulRuleGroupReference>> statefulRuleGroupReferences;
-
+    @PolicyResourceProperty(name="statefulRuleGroupReferences", flag="unknown_statefulRuleGroupReferences")
+    private @Nullable List<FirewallPolicyFirewallPolicyStatefulRuleGroupReference> value_statefulRuleGroupReferences;
+    private boolean unknown_statefulRuleGroupReferences;
     public @Nullable List<FirewallPolicyFirewallPolicyStatefulRuleGroupReference> statefulRuleGroupReferences() {
-        if (statefulRuleGroupReferences == null) return null;
-        return statefulRuleGroupReferences.getValue("FirewallPolicyFirewallPolicy.statefulRuleGroupReferences");
+        if (!unknown_statefulRuleGroupReferences) return value_statefulRuleGroupReferences;
+        throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicy.statefulRuleGroupReferences' is not present");
     }
 
     /**
      * Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy&#39;s `stateless_default_actions`. See Stateless Custom Action below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<FirewallPolicyFirewallPolicyStatelessCustomAction>> statelessCustomActions;
-
+    @PolicyResourceProperty(name="statelessCustomActions", flag="unknown_statelessCustomActions")
+    private @Nullable List<FirewallPolicyFirewallPolicyStatelessCustomAction> value_statelessCustomActions;
+    private boolean unknown_statelessCustomActions;
     public @Nullable List<FirewallPolicyFirewallPolicyStatelessCustomAction> statelessCustomActions() {
-        if (statelessCustomActions == null) return null;
-        return statelessCustomActions.getValue("FirewallPolicyFirewallPolicy.statelessCustomActions");
+        if (!unknown_statelessCustomActions) return value_statelessCustomActions;
+        throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicy.statelessCustomActions' is not present");
     }
 
     /**
@@ -76,11 +82,12 @@ public final class FirewallPolicyFirewallPolicy {
      * In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
      * 
      */
-    private UndeferrableValue<List<String>> statelessDefaultActions;
-
+    @PolicyResourceProperty(name="statelessDefaultActions", flag="unknown_statelessDefaultActions")
+    private List<String> value_statelessDefaultActions;
+    private boolean unknown_statelessDefaultActions;
     public List<String> statelessDefaultActions() {
-        if (statelessDefaultActions == null) return null;
-        return statelessDefaultActions.getValue("FirewallPolicyFirewallPolicy.statelessDefaultActions");
+        if (!unknown_statelessDefaultActions) return value_statelessDefaultActions;
+        throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicy.statelessDefaultActions' is not present");
     }
 
     /**
@@ -88,33 +95,36 @@ public final class FirewallPolicyFirewallPolicy {
      * In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
      * 
      */
-    private UndeferrableValue<List<String>> statelessFragmentDefaultActions;
-
+    @PolicyResourceProperty(name="statelessFragmentDefaultActions", flag="unknown_statelessFragmentDefaultActions")
+    private List<String> value_statelessFragmentDefaultActions;
+    private boolean unknown_statelessFragmentDefaultActions;
     public List<String> statelessFragmentDefaultActions() {
-        if (statelessFragmentDefaultActions == null) return null;
-        return statelessFragmentDefaultActions.getValue("FirewallPolicyFirewallPolicy.statelessFragmentDefaultActions");
+        if (!unknown_statelessFragmentDefaultActions) return value_statelessFragmentDefaultActions;
+        throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicy.statelessFragmentDefaultActions' is not present");
     }
 
     /**
      * Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<FirewallPolicyFirewallPolicyStatelessRuleGroupReference>> statelessRuleGroupReferences;
-
+    @PolicyResourceProperty(name="statelessRuleGroupReferences", flag="unknown_statelessRuleGroupReferences")
+    private @Nullable List<FirewallPolicyFirewallPolicyStatelessRuleGroupReference> value_statelessRuleGroupReferences;
+    private boolean unknown_statelessRuleGroupReferences;
     public @Nullable List<FirewallPolicyFirewallPolicyStatelessRuleGroupReference> statelessRuleGroupReferences() {
-        if (statelessRuleGroupReferences == null) return null;
-        return statelessRuleGroupReferences.getValue("FirewallPolicyFirewallPolicy.statelessRuleGroupReferences");
+        if (!unknown_statelessRuleGroupReferences) return value_statelessRuleGroupReferences;
+        throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicy.statelessRuleGroupReferences' is not present");
     }
 
     /**
      * The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. &#34;You can only add a TLS inspection configuration to a new policy, not to an existing policy.&#34;  This cannot be removed from a FW Policy.
      * 
      */
-    private @Nullable UndeferrableValue<String> tlsInspectionConfigurationArn;
-
+    @PolicyResourceProperty(name="tlsInspectionConfigurationArn", flag="unknown_tlsInspectionConfigurationArn")
+    private @Nullable String value_tlsInspectionConfigurationArn;
+    private boolean unknown_tlsInspectionConfigurationArn;
     public @Nullable String tlsInspectionConfigurationArn() {
-        if (tlsInspectionConfigurationArn == null) return null;
-        return tlsInspectionConfigurationArn.getValue("FirewallPolicyFirewallPolicy.tlsInspectionConfigurationArn");
+        if (!unknown_tlsInspectionConfigurationArn) return value_tlsInspectionConfigurationArn;
+        throw new UndeferrableValueException("Value 'FirewallPolicyFirewallPolicy.tlsInspectionConfigurationArn' is not present");
     }
 
 }

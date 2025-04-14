@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.medialive.inputs.ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -12,39 +13,44 @@ import javax.annotation.Nullable;
 
 public final class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs {
 
-    private UndeferrableValue<Integer> blackFrameMsec;
-
+    @PolicyResourceProperty(name="blackFrameMsec", flag="unknown_blackFrameMsec")
+    private Integer value_blackFrameMsec;
+    private boolean unknown_blackFrameMsec;
     public Integer blackFrameMsec() {
-        if (blackFrameMsec == null) return null;
-        return blackFrameMsec.getValue("ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs.blackFrameMsec");
+        if (!unknown_blackFrameMsec) return value_blackFrameMsec;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs.blackFrameMsec' is not present");
     }
 
-    private UndeferrableValue<String> inputLossImageColor;
-
+    @PolicyResourceProperty(name="inputLossImageColor", flag="unknown_inputLossImageColor")
+    private String value_inputLossImageColor;
+    private boolean unknown_inputLossImageColor;
     public String inputLossImageColor() {
-        if (inputLossImageColor == null) return null;
-        return inputLossImageColor.getValue("ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs.inputLossImageColor");
+        if (!unknown_inputLossImageColor) return value_inputLossImageColor;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs.inputLossImageColor' is not present");
     }
 
-    private UndeferrableValue<ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs> inputLossImageSlate;
-
+    @PolicyResourceProperty(name="inputLossImageSlate", flag="unknown_inputLossImageSlate")
+    private ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs value_inputLossImageSlate;
+    private boolean unknown_inputLossImageSlate;
     public ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs inputLossImageSlate() {
-        if (inputLossImageSlate == null) return null;
-        return inputLossImageSlate.getValue("ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs.inputLossImageSlate");
+        if (!unknown_inputLossImageSlate) return value_inputLossImageSlate;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs.inputLossImageSlate' is not present");
     }
 
-    private UndeferrableValue<String> inputLossImageType;
-
+    @PolicyResourceProperty(name="inputLossImageType", flag="unknown_inputLossImageType")
+    private String value_inputLossImageType;
+    private boolean unknown_inputLossImageType;
     public String inputLossImageType() {
-        if (inputLossImageType == null) return null;
-        return inputLossImageType.getValue("ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs.inputLossImageType");
+        if (!unknown_inputLossImageType) return value_inputLossImageType;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs.inputLossImageType' is not present");
     }
 
-    private UndeferrableValue<Integer> repeatFrameMsec;
-
+    @PolicyResourceProperty(name="repeatFrameMsec", flag="unknown_repeatFrameMsec")
+    private Integer value_repeatFrameMsec;
+    private boolean unknown_repeatFrameMsec;
     public Integer repeatFrameMsec() {
-        if (repeatFrameMsec == null) return null;
-        return repeatFrameMsec.getValue("ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs.repeatFrameMsec");
+        if (!unknown_repeatFrameMsec) return value_repeatFrameMsec;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs.repeatFrameMsec' is not present");
     }
 
 }

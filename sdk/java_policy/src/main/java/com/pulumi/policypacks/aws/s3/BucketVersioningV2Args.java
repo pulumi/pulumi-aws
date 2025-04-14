@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3.inputs.BucketVersioningV2VersioningConfigurationArgs;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class BucketVersioningV2Args extends com.pulumi.resources.PolicyRes
      * Name of the S3 bucket.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("BucketVersioningV2Args.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'BucketVersioningV2Args.bucket' is not present");
     }
 
     /**
      * Account ID of the expected bucket owner.
      * 
      */
-    private UndeferrableValue<String> expectedBucketOwner;
-
+    @PolicyResourceProperty(name="expectedBucketOwner", flag="unknown_expectedBucketOwner")
+    private String value_expectedBucketOwner;
+    private boolean unknown_expectedBucketOwner;
     public String expectedBucketOwner() {
-        if (expectedBucketOwner == null) return null;
-        return expectedBucketOwner.getValue("BucketVersioningV2Args.expectedBucketOwner");
+        if (!unknown_expectedBucketOwner) return value_expectedBucketOwner;
+        throw new UndeferrableValueException("Value 'BucketVersioningV2Args.expectedBucketOwner' is not present");
     }
 
     /**
      * Concatenation of the authentication device&#39;s serial number, a space, and the value that is displayed on your authentication device.
      * 
      */
-    private UndeferrableValue<String> mfa;
-
+    @PolicyResourceProperty(name="mfa", flag="unknown_mfa")
+    private String value_mfa;
+    private boolean unknown_mfa;
     public String mfa() {
-        if (mfa == null) return null;
-        return mfa.getValue("BucketVersioningV2Args.mfa");
+        if (!unknown_mfa) return value_mfa;
+        throw new UndeferrableValueException("Value 'BucketVersioningV2Args.mfa' is not present");
     }
 
     /**
      * Configuration block for the versioning parameters. See below.
      * 
      */
-    private UndeferrableValue<BucketVersioningV2VersioningConfigurationArgs> versioningConfiguration;
-
+    @PolicyResourceProperty(name="versioningConfiguration", flag="unknown_versioningConfiguration")
+    private BucketVersioningV2VersioningConfigurationArgs value_versioningConfiguration;
+    private boolean unknown_versioningConfiguration;
     public BucketVersioningV2VersioningConfigurationArgs versioningConfiguration() {
-        if (versioningConfiguration == null) return null;
-        return versioningConfiguration.getValue("BucketVersioningV2Args.versioningConfiguration");
+        if (!unknown_versioningConfiguration) return value_versioningConfiguration;
+        throw new UndeferrableValueException("Value 'BucketVersioningV2Args.versioningConfiguration' is not present");
     }
 
 }

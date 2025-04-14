@@ -3,18 +3,20 @@
 
 package com.pulumi.policypacks.aws.finspace.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
 
 public final class KxClusterTickerplantLogConfigurationArgs {
 
-    private UndeferrableValue<List<String>> tickerplantLogVolumes;
-
+    @PolicyResourceProperty(name="tickerplantLogVolumes", flag="unknown_tickerplantLogVolumes")
+    private List<String> value_tickerplantLogVolumes;
+    private boolean unknown_tickerplantLogVolumes;
     public List<String> tickerplantLogVolumes() {
-        if (tickerplantLogVolumes == null) return null;
-        return tickerplantLogVolumes.getValue("KxClusterTickerplantLogConfigurationArgs.tickerplantLogVolumes");
+        if (!unknown_tickerplantLogVolumes) return value_tickerplantLogVolumes;
+        throw new UndeferrableValueException("Value 'KxClusterTickerplantLogConfigurationArgs.tickerplantLogVolumes' is not present");
     }
 
 }

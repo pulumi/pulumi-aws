@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.globalaccelerator.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class CustomRoutingEndpointGroupEndpointConfiguration {
      * An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
      * 
      */
-    private @Nullable UndeferrableValue<String> endpointId;
-
+    @PolicyResourceProperty(name="endpointId", flag="unknown_endpointId")
+    private @Nullable String value_endpointId;
+    private boolean unknown_endpointId;
     public @Nullable String endpointId() {
-        if (endpointId == null) return null;
-        return endpointId.getValue("CustomRoutingEndpointGroupEndpointConfiguration.endpointId");
+        if (!unknown_endpointId) return value_endpointId;
+        throw new UndeferrableValueException("Value 'CustomRoutingEndpointGroupEndpointConfiguration.endpointId' is not present");
     }
 
 }

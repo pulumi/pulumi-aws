@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.evidently.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.evidently.outputs.LaunchMetricMonitorMetricDefinition;
 
 
@@ -13,11 +14,12 @@ public final class LaunchMetricMonitor {
      * A block that defines the metric. Detailed below.
      * 
      */
-    private UndeferrableValue<LaunchMetricMonitorMetricDefinition> metricDefinition;
-
+    @PolicyResourceProperty(name="metricDefinition", flag="unknown_metricDefinition")
+    private LaunchMetricMonitorMetricDefinition value_metricDefinition;
+    private boolean unknown_metricDefinition;
     public LaunchMetricMonitorMetricDefinition metricDefinition() {
-        if (metricDefinition == null) return null;
-        return metricDefinition.getValue("LaunchMetricMonitor.metricDefinition");
+        if (!unknown_metricDefinition) return value_metricDefinition;
+        throw new UndeferrableValueException("Value 'LaunchMetricMonitor.metricDefinition' is not present");
     }
 
 }

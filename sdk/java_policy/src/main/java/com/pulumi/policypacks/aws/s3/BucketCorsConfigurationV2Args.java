@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3.inputs.BucketCorsConfigurationV2CorsRuleArgs;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class BucketCorsConfigurationV2Args extends com.pulumi.resources.Po
      * Name of the bucket.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("BucketCorsConfigurationV2Args.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'BucketCorsConfigurationV2Args.bucket' is not present");
     }
 
     /**
      * Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
      * 
      */
-    private UndeferrableValue<List<BucketCorsConfigurationV2CorsRuleArgs>> corsRules;
-
+    @PolicyResourceProperty(name="corsRules", flag="unknown_corsRules")
+    private List<BucketCorsConfigurationV2CorsRuleArgs> value_corsRules;
+    private boolean unknown_corsRules;
     public List<BucketCorsConfigurationV2CorsRuleArgs> corsRules() {
-        if (corsRules == null) return null;
-        return corsRules.getValue("BucketCorsConfigurationV2Args.corsRules");
+        if (!unknown_corsRules) return value_corsRules;
+        throw new UndeferrableValueException("Value 'BucketCorsConfigurationV2Args.corsRules' is not present");
     }
 
     /**
      * Account ID of the expected bucket owner.
      * 
      */
-    private UndeferrableValue<String> expectedBucketOwner;
-
+    @PolicyResourceProperty(name="expectedBucketOwner", flag="unknown_expectedBucketOwner")
+    private String value_expectedBucketOwner;
+    private boolean unknown_expectedBucketOwner;
     public String expectedBucketOwner() {
-        if (expectedBucketOwner == null) return null;
-        return expectedBucketOwner.getValue("BucketCorsConfigurationV2Args.expectedBucketOwner");
+        if (!unknown_expectedBucketOwner) return value_expectedBucketOwner;
+        throw new UndeferrableValueException("Value 'BucketCorsConfigurationV2Args.expectedBucketOwner' is not present");
     }
 
 }

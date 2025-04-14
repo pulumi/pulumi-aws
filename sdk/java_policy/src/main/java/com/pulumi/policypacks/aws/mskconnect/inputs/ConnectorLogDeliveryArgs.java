@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mskconnect.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.mskconnect.inputs.ConnectorLogDeliveryWorkerLogDeliveryArgs;
 
 
@@ -13,11 +14,12 @@ public final class ConnectorLogDeliveryArgs {
      * The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See `worker_log_delivery` Block for details.
      * 
      */
-    private UndeferrableValue<ConnectorLogDeliveryWorkerLogDeliveryArgs> workerLogDelivery;
-
+    @PolicyResourceProperty(name="workerLogDelivery", flag="unknown_workerLogDelivery")
+    private ConnectorLogDeliveryWorkerLogDeliveryArgs value_workerLogDelivery;
+    private boolean unknown_workerLogDelivery;
     public ConnectorLogDeliveryWorkerLogDeliveryArgs workerLogDelivery() {
-        if (workerLogDelivery == null) return null;
-        return workerLogDelivery.getValue("ConnectorLogDeliveryArgs.workerLogDelivery");
+        if (!unknown_workerLogDelivery) return value_workerLogDelivery;
+        throw new UndeferrableValueException("Value 'ConnectorLogDeliveryArgs.workerLogDelivery' is not present");
     }
 
 }

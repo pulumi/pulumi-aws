@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,33 +14,36 @@ public final class InputSourceArgs {
      * The key used to extract the password from EC2 Parameter store.
      * 
      */
-    private UndeferrableValue<String> passwordParam;
-
+    @PolicyResourceProperty(name="passwordParam", flag="unknown_passwordParam")
+    private String value_passwordParam;
+    private boolean unknown_passwordParam;
     public String passwordParam() {
-        if (passwordParam == null) return null;
-        return passwordParam.getValue("InputSourceArgs.passwordParam");
+        if (!unknown_passwordParam) return value_passwordParam;
+        throw new UndeferrableValueException("Value 'InputSourceArgs.passwordParam' is not present");
     }
 
     /**
      * The URL where the stream is pulled from.
      * 
      */
-    private UndeferrableValue<String> url;
-
+    @PolicyResourceProperty(name="url", flag="unknown_url")
+    private String value_url;
+    private boolean unknown_url;
     public String url() {
-        if (url == null) return null;
-        return url.getValue("InputSourceArgs.url");
+        if (!unknown_url) return value_url;
+        throw new UndeferrableValueException("Value 'InputSourceArgs.url' is not present");
     }
 
     /**
      * The username for the input source.
      * 
      */
-    private UndeferrableValue<String> username;
-
+    @PolicyResourceProperty(name="username", flag="unknown_username")
+    private String value_username;
+    private boolean unknown_username;
     public String username() {
-        if (username == null) return null;
-        return username.getValue("InputSourceArgs.username");
+        if (!unknown_username) return value_username;
+        throw new UndeferrableValueException("Value 'InputSourceArgs.username' is not present");
     }
 
 }

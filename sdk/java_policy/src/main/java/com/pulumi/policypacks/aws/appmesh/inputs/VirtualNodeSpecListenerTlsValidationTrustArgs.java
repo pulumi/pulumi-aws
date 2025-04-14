@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecListenerTlsValidationTrustFileArgs;
 import com.pulumi.policypacks.aws.appmesh.inputs.VirtualNodeSpecListenerTlsValidationTrustSdsArgs;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class VirtualNodeSpecListenerTlsValidationTrustArgs {
      * TLS validation context trust for a local file certificate.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecListenerTlsValidationTrustFileArgs> file;
-
+    @PolicyResourceProperty(name="file", flag="unknown_file")
+    private VirtualNodeSpecListenerTlsValidationTrustFileArgs value_file;
+    private boolean unknown_file;
     public VirtualNodeSpecListenerTlsValidationTrustFileArgs file() {
-        if (file == null) return null;
-        return file.getValue("VirtualNodeSpecListenerTlsValidationTrustArgs.file");
+        if (!unknown_file) return value_file;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerTlsValidationTrustArgs.file' is not present");
     }
 
     /**
      * TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
      * 
      */
-    private UndeferrableValue<VirtualNodeSpecListenerTlsValidationTrustSdsArgs> sds;
-
+    @PolicyResourceProperty(name="sds", flag="unknown_sds")
+    private VirtualNodeSpecListenerTlsValidationTrustSdsArgs value_sds;
+    private boolean unknown_sds;
     public VirtualNodeSpecListenerTlsValidationTrustSdsArgs sds() {
-        if (sds == null) return null;
-        return sds.getValue("VirtualNodeSpecListenerTlsValidationTrustArgs.sds");
+        if (!unknown_sds) return value_sds;
+        throw new UndeferrableValueException("Value 'VirtualNodeSpecListenerTlsValidationTrustArgs.sds' is not present");
     }
 
 }

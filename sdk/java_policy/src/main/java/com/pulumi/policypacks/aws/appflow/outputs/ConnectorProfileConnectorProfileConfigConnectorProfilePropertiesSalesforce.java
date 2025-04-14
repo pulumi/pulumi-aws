@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,33 +12,36 @@ import javax.annotation.Nullable;
 
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce {
 
-    private @Nullable UndeferrableValue<String> instanceUrl;
-
+    @PolicyResourceProperty(name="instanceUrl", flag="unknown_instanceUrl")
+    private @Nullable String value_instanceUrl;
+    private boolean unknown_instanceUrl;
     public @Nullable String instanceUrl() {
-        if (instanceUrl == null) return null;
-        return instanceUrl.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce.instanceUrl");
+        if (!unknown_instanceUrl) return value_instanceUrl;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce.instanceUrl' is not present");
     }
 
     /**
      * Indicates whether the connector profile applies to a sandbox or production environment.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> isSandboxEnvironment;
-
+    @PolicyResourceProperty(name="isSandboxEnvironment", flag="unknown_isSandboxEnvironment")
+    private @Nullable Boolean value_isSandboxEnvironment;
+    private boolean unknown_isSandboxEnvironment;
     public @Nullable Boolean isSandboxEnvironment() {
-        if (isSandboxEnvironment == null) return null;
-        return isSandboxEnvironment.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce.isSandboxEnvironment");
+        if (!unknown_isSandboxEnvironment) return value_isSandboxEnvironment;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce.isSandboxEnvironment' is not present");
     }
 
     /**
      * Indicates whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> usePrivatelinkForMetadataAndAuthorization;
-
+    @PolicyResourceProperty(name="usePrivatelinkForMetadataAndAuthorization", flag="unknown_usePrivatelinkForMetadataAndAuthorization")
+    private @Nullable Boolean value_usePrivatelinkForMetadataAndAuthorization;
+    private boolean unknown_usePrivatelinkForMetadataAndAuthorization;
     public @Nullable Boolean usePrivatelinkForMetadataAndAuthorization() {
-        if (usePrivatelinkForMetadataAndAuthorization == null) return null;
-        return usePrivatelinkForMetadataAndAuthorization.getValue("ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce.usePrivatelinkForMetadataAndAuthorization");
+        if (!unknown_usePrivatelinkForMetadataAndAuthorization) return value_usePrivatelinkForMetadataAndAuthorization;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce.usePrivatelinkForMetadataAndAuthorization' is not present");
     }
 
 }

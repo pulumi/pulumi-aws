@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ClusterRemoteNetworkConfigRemoteNodeNetworksArgs {
      * List of network CIDRs that can contain hybrid nodes.
      * 
      */
-    private UndeferrableValue<List<String>> cidrs;
-
+    @PolicyResourceProperty(name="cidrs", flag="unknown_cidrs")
+    private List<String> value_cidrs;
+    private boolean unknown_cidrs;
     public List<String> cidrs() {
-        if (cidrs == null) return null;
-        return cidrs.getValue("ClusterRemoteNetworkConfigRemoteNodeNetworksArgs.cidrs");
+        if (!unknown_cidrs) return value_cidrs;
+        throw new UndeferrableValueException("Value 'ClusterRemoteNetworkConfigRemoteNodeNetworksArgs.cidrs' is not present");
     }
 
 }

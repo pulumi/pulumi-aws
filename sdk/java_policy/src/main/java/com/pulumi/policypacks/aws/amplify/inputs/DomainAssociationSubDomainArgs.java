@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.amplify.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class DomainAssociationSubDomainArgs {
      * Branch name setting for the subdomain.
      * 
      */
-    private UndeferrableValue<String> branchName;
-
+    @PolicyResourceProperty(name="branchName", flag="unknown_branchName")
+    private String value_branchName;
+    private boolean unknown_branchName;
     public String branchName() {
-        if (branchName == null) return null;
-        return branchName.getValue("DomainAssociationSubDomainArgs.branchName");
+        if (!unknown_branchName) return value_branchName;
+        throw new UndeferrableValueException("Value 'DomainAssociationSubDomainArgs.branchName' is not present");
     }
 
     /**
      * DNS record for the subdomain in a space-prefixed and space-delimited format (`  CNAME &lt;target&gt; `).
      * 
      */
-    private UndeferrableValue<String> dnsRecord;
-
+    @PolicyResourceProperty(name="dnsRecord", flag="unknown_dnsRecord")
+    private String value_dnsRecord;
+    private boolean unknown_dnsRecord;
     public String dnsRecord() {
-        if (dnsRecord == null) return null;
-        return dnsRecord.getValue("DomainAssociationSubDomainArgs.dnsRecord");
+        if (!unknown_dnsRecord) return value_dnsRecord;
+        throw new UndeferrableValueException("Value 'DomainAssociationSubDomainArgs.dnsRecord' is not present");
     }
 
     /**
      * Prefix setting for the subdomain.
      * 
      */
-    private UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private String value_prefix;
+    private boolean unknown_prefix;
     public String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("DomainAssociationSubDomainArgs.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'DomainAssociationSubDomainArgs.prefix' is not present");
     }
 
     /**
      * Verified status of the subdomain.
      * 
      */
-    private UndeferrableValue<Boolean> verified;
-
+    @PolicyResourceProperty(name="verified", flag="unknown_verified")
+    private Boolean value_verified;
+    private boolean unknown_verified;
     public Boolean verified() {
-        if (verified == null) return null;
-        return verified.getValue("DomainAssociationSubDomainArgs.verified");
+        if (!unknown_verified) return value_verified;
+        throw new UndeferrableValueException("Value 'DomainAssociationSubDomainArgs.verified' is not present");
     }
 
 }

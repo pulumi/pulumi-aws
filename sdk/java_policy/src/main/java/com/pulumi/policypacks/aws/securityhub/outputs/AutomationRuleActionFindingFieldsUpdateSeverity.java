@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class AutomationRuleActionFindingFieldsUpdateSeverity {
      * The severity value of the finding. The allowed values are the following `INFORMATIONAL`, `LOW`, `MEDIUM`, `HIGH` and `CRITICAL`.
      * 
      */
-    private @Nullable UndeferrableValue<String> label;
-
+    @PolicyResourceProperty(name="label", flag="unknown_label")
+    private @Nullable String value_label;
+    private boolean unknown_label;
     public @Nullable String label() {
-        if (label == null) return null;
-        return label.getValue("AutomationRuleActionFindingFieldsUpdateSeverity.label");
+        if (!unknown_label) return value_label;
+        throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdateSeverity.label' is not present");
     }
 
     /**
      * The native severity as defined by the AWS service or integrated partner product that generated the finding.
      * 
      */
-    private @Nullable UndeferrableValue<Double> product;
-
+    @PolicyResourceProperty(name="product", flag="unknown_product")
+    private @Nullable Double value_product;
+    private boolean unknown_product;
     public @Nullable Double product() {
-        if (product == null) return null;
-        return product.getValue("AutomationRuleActionFindingFieldsUpdateSeverity.product");
+        if (!unknown_product) return value_product;
+        throw new UndeferrableValueException("Value 'AutomationRuleActionFindingFieldsUpdateSeverity.product' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.transfer;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,66 +18,72 @@ public final class CertificateArgs extends com.pulumi.resources.PolicyResourceIn
      * The valid certificate file required for the transfer.
      * 
      */
-    private UndeferrableValue<String> certificate;
-
+    @PolicyResourceProperty(name="certificate", flag="unknown_certificate")
+    private String value_certificate;
+    private boolean unknown_certificate;
     public String certificate() {
-        if (certificate == null) return null;
-        return certificate.getValue("CertificateArgs.certificate");
+        if (!unknown_certificate) return value_certificate;
+        throw new UndeferrableValueException("Value 'CertificateArgs.certificate' is not present");
     }
 
     /**
      * The optional list of certificate that make up the chain for the certificate that is being imported.
      * 
      */
-    private UndeferrableValue<String> certificateChain;
-
+    @PolicyResourceProperty(name="certificateChain", flag="unknown_certificateChain")
+    private String value_certificateChain;
+    private boolean unknown_certificateChain;
     public String certificateChain() {
-        if (certificateChain == null) return null;
-        return certificateChain.getValue("CertificateArgs.certificateChain");
+        if (!unknown_certificateChain) return value_certificateChain;
+        throw new UndeferrableValueException("Value 'CertificateArgs.certificateChain' is not present");
     }
 
     /**
      * A short description that helps identify the certificate.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("CertificateArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'CertificateArgs.description' is not present");
     }
 
     /**
      * The private key associated with the certificate being imported.
      * 
      */
-    private UndeferrableValue<String> privateKey;
-
+    @PolicyResourceProperty(name="privateKey", flag="unknown_privateKey")
+    private String value_privateKey;
+    private boolean unknown_privateKey;
     public String privateKey() {
-        if (privateKey == null) return null;
-        return privateKey.getValue("CertificateArgs.privateKey");
+        if (!unknown_privateKey) return value_privateKey;
+        throw new UndeferrableValueException("Value 'CertificateArgs.privateKey' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CertificateArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CertificateArgs.tags' is not present");
     }
 
     /**
      * Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
      * 
      */
-    private UndeferrableValue<String> usage;
-
+    @PolicyResourceProperty(name="usage", flag="unknown_usage")
+    private String value_usage;
+    private boolean unknown_usage;
     public String usage() {
-        if (usage == null) return null;
-        return usage.getValue("CertificateArgs.usage");
+        if (!unknown_usage) return value_usage;
+        throw new UndeferrableValueException("Value 'CertificateArgs.usage' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.batch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,29 +12,32 @@ import javax.annotation.Nullable;
 
 public final class JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgs {
 
-    private UndeferrableValue<String> mountPath;
-
+    @PolicyResourceProperty(name="mountPath", flag="unknown_mountPath")
+    private String value_mountPath;
+    private boolean unknown_mountPath;
     public String mountPath() {
-        if (mountPath == null) return null;
-        return mountPath.getValue("JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgs.mountPath");
+        if (!unknown_mountPath) return value_mountPath;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgs.mountPath' is not present");
     }
 
     /**
      * Name of the job definition.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgs.name' is not present");
     }
 
-    private UndeferrableValue<Boolean> readOnly;
-
+    @PolicyResourceProperty(name="readOnly", flag="unknown_readOnly")
+    private Boolean value_readOnly;
+    private boolean unknown_readOnly;
     public Boolean readOnly() {
-        if (readOnly == null) return null;
-        return readOnly.getValue("JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgs.readOnly");
+        if (!unknown_readOnly) return value_readOnly;
+        throw new UndeferrableValueException("Value 'JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgs.readOnly' is not present");
     }
 
 }

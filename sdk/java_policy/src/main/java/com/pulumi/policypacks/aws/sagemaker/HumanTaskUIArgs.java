@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.inputs.HumanTaskUIUiTemplateArgs;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class HumanTaskUIArgs extends com.pulumi.resources.PolicyResourceIn
      * The name of the Human Task UI.
      * 
      */
-    private UndeferrableValue<String> humanTaskUiName;
-
+    @PolicyResourceProperty(name="humanTaskUiName", flag="unknown_humanTaskUiName")
+    private String value_humanTaskUiName;
+    private boolean unknown_humanTaskUiName;
     public String humanTaskUiName() {
-        if (humanTaskUiName == null) return null;
-        return humanTaskUiName.getValue("HumanTaskUIArgs.humanTaskUiName");
+        if (!unknown_humanTaskUiName) return value_humanTaskUiName;
+        throw new UndeferrableValueException("Value 'HumanTaskUIArgs.humanTaskUiName' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("HumanTaskUIArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'HumanTaskUIArgs.tags' is not present");
     }
 
     /**
      * The Liquid template for the worker user interface. See UI Template below.
      * 
      */
-    private UndeferrableValue<HumanTaskUIUiTemplateArgs> uiTemplate;
-
+    @PolicyResourceProperty(name="uiTemplate", flag="unknown_uiTemplate")
+    private HumanTaskUIUiTemplateArgs value_uiTemplate;
+    private boolean unknown_uiTemplate;
     public HumanTaskUIUiTemplateArgs uiTemplate() {
-        if (uiTemplate == null) return null;
-        return uiTemplate.getValue("HumanTaskUIArgs.uiTemplate");
+        if (!unknown_uiTemplate) return value_uiTemplate;
+        throw new UndeferrableValueException("Value 'HumanTaskUIArgs.uiTemplate' is not present");
     }
 
 }

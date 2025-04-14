@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.memorydb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.memorydb.outputs.MultiRegionClusterTimeouts;
 import java.lang.Boolean;
@@ -20,77 +21,84 @@ public final class MultiRegionCluster extends com.pulumi.resources.PolicyResourc
      * The ARN of the multi-region cluster.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("MultiRegionCluster.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'MultiRegionCluster.arn' is not present");
     }
 
     /**
      * description for the multi-region cluster.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("MultiRegionCluster.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'MultiRegionCluster.description' is not present");
     }
 
     /**
      * The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
      * 
      */
-    private UndeferrableValue<String> engine;
-
+    @PolicyResourceProperty(name="engine", flag="unknown_engine")
+    private String value_engine;
+    private boolean unknown_engine;
     public String engine() {
-        if (engine == null) return null;
-        return engine.getValue("MultiRegionCluster.engine");
+        if (!unknown_engine) return value_engine;
+        throw new UndeferrableValueException("Value 'MultiRegionCluster.engine' is not present");
     }
 
     /**
      * The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
      * 
      */
-    private UndeferrableValue<String> engineVersion;
-
+    @PolicyResourceProperty(name="engineVersion", flag="unknown_engineVersion")
+    private String value_engineVersion;
+    private boolean unknown_engineVersion;
     public String engineVersion() {
-        if (engineVersion == null) return null;
-        return engineVersion.getValue("MultiRegionCluster.engineVersion");
+        if (!unknown_engineVersion) return value_engineVersion;
+        throw new UndeferrableValueException("Value 'MultiRegionCluster.engineVersion' is not present");
     }
 
     /**
      * The name of the multi-region cluster.
      * 
      */
-    private UndeferrableValue<String> multiRegionClusterName;
-
+    @PolicyResourceProperty(name="multiRegionClusterName", flag="unknown_multiRegionClusterName")
+    private String value_multiRegionClusterName;
+    private boolean unknown_multiRegionClusterName;
     public String multiRegionClusterName() {
-        if (multiRegionClusterName == null) return null;
-        return multiRegionClusterName.getValue("MultiRegionCluster.multiRegionClusterName");
+        if (!unknown_multiRegionClusterName) return value_multiRegionClusterName;
+        throw new UndeferrableValueException("Value 'MultiRegionCluster.multiRegionClusterName' is not present");
     }
 
     /**
      * A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
      * 
      */
-    private UndeferrableValue<String> multiRegionClusterNameSuffix;
-
+    @PolicyResourceProperty(name="multiRegionClusterNameSuffix", flag="unknown_multiRegionClusterNameSuffix")
+    private String value_multiRegionClusterNameSuffix;
+    private boolean unknown_multiRegionClusterNameSuffix;
     public String multiRegionClusterNameSuffix() {
-        if (multiRegionClusterNameSuffix == null) return null;
-        return multiRegionClusterNameSuffix.getValue("MultiRegionCluster.multiRegionClusterNameSuffix");
+        if (!unknown_multiRegionClusterNameSuffix) return value_multiRegionClusterNameSuffix;
+        throw new UndeferrableValueException("Value 'MultiRegionCluster.multiRegionClusterNameSuffix' is not present");
     }
 
     /**
      * The name of the multi-region parameter group to be associated with the cluster.
      * 
      */
-    private UndeferrableValue<String> multiRegionParameterGroupName;
-
+    @PolicyResourceProperty(name="multiRegionParameterGroupName", flag="unknown_multiRegionParameterGroupName")
+    private String value_multiRegionParameterGroupName;
+    private boolean unknown_multiRegionParameterGroupName;
     public String multiRegionParameterGroupName() {
-        if (multiRegionParameterGroupName == null) return null;
-        return multiRegionParameterGroupName.getValue("MultiRegionCluster.multiRegionParameterGroupName");
+        if (!unknown_multiRegionParameterGroupName) return value_multiRegionParameterGroupName;
+        throw new UndeferrableValueException("Value 'MultiRegionCluster.multiRegionParameterGroupName' is not present");
     }
 
     /**
@@ -99,40 +107,44 @@ public final class MultiRegionCluster extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> nodeType;
-
+    @PolicyResourceProperty(name="nodeType", flag="unknown_nodeType")
+    private String value_nodeType;
+    private boolean unknown_nodeType;
     public String nodeType() {
-        if (nodeType == null) return null;
-        return nodeType.getValue("MultiRegionCluster.nodeType");
+        if (!unknown_nodeType) return value_nodeType;
+        throw new UndeferrableValueException("Value 'MultiRegionCluster.nodeType' is not present");
     }
 
     /**
      * The number of shards for the multi-region cluster.
      * 
      */
-    private UndeferrableValue<Integer> numShards;
-
+    @PolicyResourceProperty(name="numShards", flag="unknown_numShards")
+    private Integer value_numShards;
+    private boolean unknown_numShards;
     public Integer numShards() {
-        if (numShards == null) return null;
-        return numShards.getValue("MultiRegionCluster.numShards");
+        if (!unknown_numShards) return value_numShards;
+        throw new UndeferrableValueException("Value 'MultiRegionCluster.numShards' is not present");
     }
 
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("MultiRegionCluster.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'MultiRegionCluster.status' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("MultiRegionCluster.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'MultiRegionCluster.tags' is not present");
     }
 
     /**
@@ -143,36 +155,40 @@ public final class MultiRegionCluster extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("MultiRegionCluster.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'MultiRegionCluster.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<MultiRegionClusterTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable MultiRegionClusterTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable MultiRegionClusterTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("MultiRegionCluster.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'MultiRegionCluster.timeouts' is not present");
     }
 
     /**
      * A flag to enable in-transit encryption on the cluster.
      * 
      */
-    private UndeferrableValue<Boolean> tlsEnabled;
-
+    @PolicyResourceProperty(name="tlsEnabled", flag="unknown_tlsEnabled")
+    private Boolean value_tlsEnabled;
+    private boolean unknown_tlsEnabled;
     public Boolean tlsEnabled() {
-        if (tlsEnabled == null) return null;
-        return tlsEnabled.getValue("MultiRegionCluster.tlsEnabled");
+        if (!unknown_tlsEnabled) return value_tlsEnabled;
+        throw new UndeferrableValueException("Value 'MultiRegionCluster.tlsEnabled' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> updateStrategy;
-
+    @PolicyResourceProperty(name="updateStrategy", flag="unknown_updateStrategy")
+    private @Nullable String value_updateStrategy;
+    private boolean unknown_updateStrategy;
     public @Nullable String updateStrategy() {
-        if (updateStrategy == null) return null;
-        return updateStrategy.getValue("MultiRegionCluster.updateStrategy");
+        if (!unknown_updateStrategy) return value_updateStrategy;
+        throw new UndeferrableValueException("Value 'MultiRegionCluster.updateStrategy' is not present");
     }
 
 }

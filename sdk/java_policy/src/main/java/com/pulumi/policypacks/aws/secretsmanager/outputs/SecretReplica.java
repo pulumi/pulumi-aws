@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.secretsmanager.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,55 +15,60 @@ public final class SecretReplica {
      * ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account&#39;s default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private @Nullable String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public @Nullable String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("SecretReplica.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'SecretReplica.kmsKeyId' is not present");
     }
 
     /**
      * Date that you last accessed the secret in the Region.
      * 
      */
-    private @Nullable UndeferrableValue<String> lastAccessedDate;
-
+    @PolicyResourceProperty(name="lastAccessedDate", flag="unknown_lastAccessedDate")
+    private @Nullable String value_lastAccessedDate;
+    private boolean unknown_lastAccessedDate;
     public @Nullable String lastAccessedDate() {
-        if (lastAccessedDate == null) return null;
-        return lastAccessedDate.getValue("SecretReplica.lastAccessedDate");
+        if (!unknown_lastAccessedDate) return value_lastAccessedDate;
+        throw new UndeferrableValueException("Value 'SecretReplica.lastAccessedDate' is not present");
     }
 
     /**
      * Region for replicating the secret.
      * 
      */
-    private UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private String value_region;
+    private boolean unknown_region;
     public String region() {
-        if (region == null) return null;
-        return region.getValue("SecretReplica.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'SecretReplica.region' is not present");
     }
 
     /**
      * Status can be `InProgress`, `Failed`, or `InSync`.
      * 
      */
-    private @Nullable UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private @Nullable String value_status;
+    private boolean unknown_status;
     public @Nullable String status() {
-        if (status == null) return null;
-        return status.getValue("SecretReplica.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'SecretReplica.status' is not present");
     }
 
     /**
      * Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
      * 
      */
-    private @Nullable UndeferrableValue<String> statusMessage;
-
+    @PolicyResourceProperty(name="statusMessage", flag="unknown_statusMessage")
+    private @Nullable String value_statusMessage;
+    private boolean unknown_statusMessage;
     public @Nullable String statusMessage() {
-        if (statusMessage == null) return null;
-        return statusMessage.getValue("SecretReplica.statusMessage");
+        if (!unknown_statusMessage) return value_statusMessage;
+        throw new UndeferrableValueException("Value 'SecretReplica.statusMessage' is not present");
     }
 
 }

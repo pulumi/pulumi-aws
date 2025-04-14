@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,33 +14,36 @@ public final class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSo
      * KMS key required to decrypt the contents of the grammar, if any.
      * 
      */
-    private UndeferrableValue<String> kmsKeyArn;
-
+    @PolicyResourceProperty(name="kmsKeyArn", flag="unknown_kmsKeyArn")
+    private String value_kmsKeyArn;
+    private boolean unknown_kmsKeyArn;
     public String kmsKeyArn() {
-        if (kmsKeyArn == null) return null;
-        return kmsKeyArn.getValue("V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource.kmsKeyArn");
+        if (!unknown_kmsKeyArn) return value_kmsKeyArn;
+        throw new UndeferrableValueException("Value 'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource.kmsKeyArn' is not present");
     }
 
     /**
      * Name of the Amazon S3 bucket that contains the grammar source.
      * 
      */
-    private UndeferrableValue<String> s3BucketName;
-
+    @PolicyResourceProperty(name="s3BucketName", flag="unknown_s3BucketName")
+    private String value_s3BucketName;
+    private boolean unknown_s3BucketName;
     public String s3BucketName() {
-        if (s3BucketName == null) return null;
-        return s3BucketName.getValue("V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource.s3BucketName");
+        if (!unknown_s3BucketName) return value_s3BucketName;
+        throw new UndeferrableValueException("Value 'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource.s3BucketName' is not present");
     }
 
     /**
      * Path to the grammar in the Amazon S3 bucket.
      * 
      */
-    private UndeferrableValue<String> s3ObjectKey;
-
+    @PolicyResourceProperty(name="s3ObjectKey", flag="unknown_s3ObjectKey")
+    private String value_s3ObjectKey;
+    private boolean unknown_s3ObjectKey;
     public String s3ObjectKey() {
-        if (s3ObjectKey == null) return null;
-        return s3ObjectKey.getValue("V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource.s3ObjectKey");
+        if (!unknown_s3ObjectKey) return value_s3ObjectKey;
+        throw new UndeferrableValueException("Value 'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource.s3ObjectKey' is not present");
     }
 
 }

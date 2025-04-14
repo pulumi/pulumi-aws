@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,54 +12,60 @@ import javax.annotation.Nullable;
 
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce {
 
-    private @Nullable UndeferrableValue<String> accessToken;
-
+    @PolicyResourceProperty(name="accessToken", flag="unknown_accessToken")
+    private @Nullable String value_accessToken;
+    private boolean unknown_accessToken;
     public @Nullable String accessToken() {
-        if (accessToken == null) return null;
-        return accessToken.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce.accessToken");
+        if (!unknown_accessToken) return value_accessToken;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce.accessToken' is not present");
     }
 
     /**
      * The secret manager ARN, which contains the client ID and client secret of the connected app.
      * 
      */
-    private @Nullable UndeferrableValue<String> clientCredentialsArn;
-
+    @PolicyResourceProperty(name="clientCredentialsArn", flag="unknown_clientCredentialsArn")
+    private @Nullable String value_clientCredentialsArn;
+    private boolean unknown_clientCredentialsArn;
     public @Nullable String clientCredentialsArn() {
-        if (clientCredentialsArn == null) return null;
-        return clientCredentialsArn.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce.clientCredentialsArn");
+        if (!unknown_clientCredentialsArn) return value_clientCredentialsArn;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce.clientCredentialsArn' is not present");
     }
 
     /**
      * A JSON web token (JWT) that authorizes access to Salesforce records.
      * 
      */
-    private @Nullable UndeferrableValue<String> jwtToken;
-
+    @PolicyResourceProperty(name="jwtToken", flag="unknown_jwtToken")
+    private @Nullable String value_jwtToken;
+    private boolean unknown_jwtToken;
     public @Nullable String jwtToken() {
-        if (jwtToken == null) return null;
-        return jwtToken.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce.jwtToken");
+        if (!unknown_jwtToken) return value_jwtToken;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce.jwtToken' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> oauth2GrantType;
-
+    @PolicyResourceProperty(name="oauth2GrantType", flag="unknown_oauth2GrantType")
+    private @Nullable String value_oauth2GrantType;
+    private boolean unknown_oauth2GrantType;
     public @Nullable String oauth2GrantType() {
-        if (oauth2GrantType == null) return null;
-        return oauth2GrantType.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce.oauth2GrantType");
+        if (!unknown_oauth2GrantType) return value_oauth2GrantType;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce.oauth2GrantType' is not present");
     }
 
-    private @Nullable UndeferrableValue<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest> oauthRequest;
-
+    @PolicyResourceProperty(name="oauthRequest", flag="unknown_oauthRequest")
+    private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest value_oauthRequest;
+    private boolean unknown_oauthRequest;
     public @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest oauthRequest() {
-        if (oauthRequest == null) return null;
-        return oauthRequest.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce.oauthRequest");
+        if (!unknown_oauthRequest) return value_oauthRequest;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce.oauthRequest' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> refreshToken;
-
+    @PolicyResourceProperty(name="refreshToken", flag="unknown_refreshToken")
+    private @Nullable String value_refreshToken;
+    private boolean unknown_refreshToken;
     public @Nullable String refreshToken() {
-        if (refreshToken == null) return null;
-        return refreshToken.getValue("ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce.refreshToken");
+        if (!unknown_refreshToken) return value_refreshToken;
+        throw new UndeferrableValueException("Value 'ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce.refreshToken' is not present");
     }
 
 }

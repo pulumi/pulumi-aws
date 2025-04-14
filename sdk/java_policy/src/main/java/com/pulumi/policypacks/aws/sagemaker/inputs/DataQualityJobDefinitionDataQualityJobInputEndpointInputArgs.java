@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs 
      * An endpoint in customer&#39;s account which has `data_capture_config` enabled.
      * 
      */
-    private UndeferrableValue<String> endpointName;
-
+    @PolicyResourceProperty(name="endpointName", flag="unknown_endpointName")
+    private String value_endpointName;
+    private boolean unknown_endpointName;
     public String endpointName() {
-        if (endpointName == null) return null;
-        return endpointName.getValue("DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs.endpointName");
+        if (!unknown_endpointName) return value_endpointName;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs.endpointName' is not present");
     }
 
     /**
      * Path to the filesystem where the endpoint data is available to the container. Defaults to `/opt/ml/processing/input`.
      * 
      */
-    private UndeferrableValue<String> localPath;
-
+    @PolicyResourceProperty(name="localPath", flag="unknown_localPath")
+    private String value_localPath;
+    private boolean unknown_localPath;
     public String localPath() {
-        if (localPath == null) return null;
-        return localPath.getValue("DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs.localPath");
+        if (!unknown_localPath) return value_localPath;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs.localPath' is not present");
     }
 
     /**
      * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
      * 
      */
-    private UndeferrableValue<String> s3DataDistributionType;
-
+    @PolicyResourceProperty(name="s3DataDistributionType", flag="unknown_s3DataDistributionType")
+    private String value_s3DataDistributionType;
+    private boolean unknown_s3DataDistributionType;
     public String s3DataDistributionType() {
-        if (s3DataDistributionType == null) return null;
-        return s3DataDistributionType.getValue("DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs.s3DataDistributionType");
+        if (!unknown_s3DataDistributionType) return value_s3DataDistributionType;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs.s3DataDistributionType' is not present");
     }
 
     /**
      * Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
      * 
      */
-    private UndeferrableValue<String> s3InputMode;
-
+    @PolicyResourceProperty(name="s3InputMode", flag="unknown_s3InputMode")
+    private String value_s3InputMode;
+    private boolean unknown_s3InputMode;
     public String s3InputMode() {
-        if (s3InputMode == null) return null;
-        return s3InputMode.getValue("DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs.s3InputMode");
+        if (!unknown_s3InputMode) return value_s3InputMode;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs.s3InputMode' is not present");
     }
 
 }

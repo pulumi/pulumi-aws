@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthori
      * ARN of the `aws.acmpca.CertificateAuthority` used to create the TLS Certificates.
      * 
      */
-    private UndeferrableValue<String> awsPcaAuthorityArn;
-
+    @PolicyResourceProperty(name="awsPcaAuthorityArn", flag="unknown_awsPcaAuthorityArn")
+    private String value_awsPcaAuthorityArn;
+    private boolean unknown_awsPcaAuthorityArn;
     public String awsPcaAuthorityArn() {
-        if (awsPcaAuthorityArn == null) return null;
-        return awsPcaAuthorityArn.getValue("ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority.awsPcaAuthorityArn");
+        if (!unknown_awsPcaAuthorityArn) return value_awsPcaAuthorityArn;
+        throw new UndeferrableValueException("Value 'ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority.awsPcaAuthorityArn' is not present");
     }
 
 }

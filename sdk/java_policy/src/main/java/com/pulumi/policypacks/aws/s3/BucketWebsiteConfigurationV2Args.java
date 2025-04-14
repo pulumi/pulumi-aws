@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3.inputs.BucketWebsiteConfigurationV2ErrorDocumentArgs;
 import com.pulumi.policypacks.aws.s3.inputs.BucketWebsiteConfigurationV2IndexDocumentArgs;
@@ -21,55 +22,60 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
      * Name of the bucket.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("BucketWebsiteConfigurationV2Args.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2Args.bucket' is not present");
     }
 
     /**
      * Name of the error document for the website. See below.
      * 
      */
-    private UndeferrableValue<BucketWebsiteConfigurationV2ErrorDocumentArgs> errorDocument;
-
+    @PolicyResourceProperty(name="errorDocument", flag="unknown_errorDocument")
+    private BucketWebsiteConfigurationV2ErrorDocumentArgs value_errorDocument;
+    private boolean unknown_errorDocument;
     public BucketWebsiteConfigurationV2ErrorDocumentArgs errorDocument() {
-        if (errorDocument == null) return null;
-        return errorDocument.getValue("BucketWebsiteConfigurationV2Args.errorDocument");
+        if (!unknown_errorDocument) return value_errorDocument;
+        throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2Args.errorDocument' is not present");
     }
 
     /**
      * Account ID of the expected bucket owner.
      * 
      */
-    private UndeferrableValue<String> expectedBucketOwner;
-
+    @PolicyResourceProperty(name="expectedBucketOwner", flag="unknown_expectedBucketOwner")
+    private String value_expectedBucketOwner;
+    private boolean unknown_expectedBucketOwner;
     public String expectedBucketOwner() {
-        if (expectedBucketOwner == null) return null;
-        return expectedBucketOwner.getValue("BucketWebsiteConfigurationV2Args.expectedBucketOwner");
+        if (!unknown_expectedBucketOwner) return value_expectedBucketOwner;
+        throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2Args.expectedBucketOwner' is not present");
     }
 
     /**
      * Name of the index document for the website. See below.
      * 
      */
-    private UndeferrableValue<BucketWebsiteConfigurationV2IndexDocumentArgs> indexDocument;
-
+    @PolicyResourceProperty(name="indexDocument", flag="unknown_indexDocument")
+    private BucketWebsiteConfigurationV2IndexDocumentArgs value_indexDocument;
+    private boolean unknown_indexDocument;
     public BucketWebsiteConfigurationV2IndexDocumentArgs indexDocument() {
-        if (indexDocument == null) return null;
-        return indexDocument.getValue("BucketWebsiteConfigurationV2Args.indexDocument");
+        if (!unknown_indexDocument) return value_indexDocument;
+        throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2Args.indexDocument' is not present");
     }
 
     /**
      * Redirect behavior for every request to this bucket&#39;s website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
      * 
      */
-    private UndeferrableValue<BucketWebsiteConfigurationV2RedirectAllRequestsToArgs> redirectAllRequestsTo;
-
+    @PolicyResourceProperty(name="redirectAllRequestsTo", flag="unknown_redirectAllRequestsTo")
+    private BucketWebsiteConfigurationV2RedirectAllRequestsToArgs value_redirectAllRequestsTo;
+    private boolean unknown_redirectAllRequestsTo;
     public BucketWebsiteConfigurationV2RedirectAllRequestsToArgs redirectAllRequestsTo() {
-        if (redirectAllRequestsTo == null) return null;
-        return redirectAllRequestsTo.getValue("BucketWebsiteConfigurationV2Args.redirectAllRequestsTo");
+        if (!unknown_redirectAllRequestsTo) return value_redirectAllRequestsTo;
+        throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2Args.redirectAllRequestsTo' is not present");
     }
 
     /**
@@ -77,22 +83,24 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
      * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`&#34;&#34;`) as seen in the example above.
      * 
      */
-    private UndeferrableValue<String> routingRuleDetails;
-
+    @PolicyResourceProperty(name="routingRuleDetails", flag="unknown_routingRuleDetails")
+    private String value_routingRuleDetails;
+    private boolean unknown_routingRuleDetails;
     public String routingRuleDetails() {
-        if (routingRuleDetails == null) return null;
-        return routingRuleDetails.getValue("BucketWebsiteConfigurationV2Args.routingRuleDetails");
+        if (!unknown_routingRuleDetails) return value_routingRuleDetails;
+        throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2Args.routingRuleDetails' is not present");
     }
 
     /**
      * List of rules that define when a redirect is applied and the redirect behavior. See below.
      * 
      */
-    private UndeferrableValue<List<BucketWebsiteConfigurationV2RoutingRuleArgs>> routingRules;
-
+    @PolicyResourceProperty(name="routingRules", flag="unknown_routingRules")
+    private List<BucketWebsiteConfigurationV2RoutingRuleArgs> value_routingRules;
+    private boolean unknown_routingRules;
     public List<BucketWebsiteConfigurationV2RoutingRuleArgs> routingRules() {
-        if (routingRules == null) return null;
-        return routingRules.getValue("BucketWebsiteConfigurationV2Args.routingRules");
+        if (!unknown_routingRules) return value_routingRules;
+        throw new UndeferrableValueException("Value 'BucketWebsiteConfigurationV2Args.routingRules' is not present");
     }
 
 }

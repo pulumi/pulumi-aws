@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class GatewayRouteSpecHttpRouteMatchHostname {
      * Exact host name to match on.
      * 
      */
-    private @Nullable UndeferrableValue<String> exact;
-
+    @PolicyResourceProperty(name="exact", flag="unknown_exact")
+    private @Nullable String value_exact;
+    private boolean unknown_exact;
     public @Nullable String exact() {
-        if (exact == null) return null;
-        return exact.getValue("GatewayRouteSpecHttpRouteMatchHostname.exact");
+        if (!unknown_exact) return value_exact;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteMatchHostname.exact' is not present");
     }
 
     /**
      * Specified ending characters of the host name to match on.
      * 
      */
-    private @Nullable UndeferrableValue<String> suffix;
-
+    @PolicyResourceProperty(name="suffix", flag="unknown_suffix")
+    private @Nullable String value_suffix;
+    private boolean unknown_suffix;
     public @Nullable String suffix() {
-        if (suffix == null) return null;
-        return suffix.getValue("GatewayRouteSpecHttpRouteMatchHostname.suffix");
+        if (!unknown_suffix) return value_suffix;
+        throw new UndeferrableValueException("Value 'GatewayRouteSpecHttpRouteMatchHostname.suffix' is not present");
     }
 
 }

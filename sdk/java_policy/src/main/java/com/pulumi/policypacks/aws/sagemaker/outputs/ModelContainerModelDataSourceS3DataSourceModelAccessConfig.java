@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 
 
@@ -13,11 +14,12 @@ public final class ModelContainerModelDataSourceS3DataSourceModelAccessConfig {
      * Specifies agreement to the model end-user license agreement (EULA). The AcceptEula value must be explicitly defined as `true` in order to accept the EULA that this model requires. You are responsible for reviewing and complying with any applicable license terms and making sure they are acceptable for your use case before downloading or using a model.
      * 
      */
-    private UndeferrableValue<Boolean> acceptEula;
-
+    @PolicyResourceProperty(name="acceptEula", flag="unknown_acceptEula")
+    private Boolean value_acceptEula;
+    private boolean unknown_acceptEula;
     public Boolean acceptEula() {
-        if (acceptEula == null) return null;
-        return acceptEula.getValue("ModelContainerModelDataSourceS3DataSourceModelAccessConfig.acceptEula");
+        if (!unknown_acceptEula) return value_acceptEula;
+        throw new UndeferrableValueException("Value 'ModelContainerModelDataSourceS3DataSourceModelAccessConfig.acceptEula' is not present");
     }
 
 }

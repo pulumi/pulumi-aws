@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -16,11 +17,12 @@ public final class NotificationArgs extends com.pulumi.resources.PolicyResourceI
      * List of AutoScaling Group Names
      * 
      */
-    private UndeferrableValue<List<String>> groupNames;
-
+    @PolicyResourceProperty(name="groupNames", flag="unknown_groupNames")
+    private List<String> value_groupNames;
+    private boolean unknown_groupNames;
     public List<String> groupNames() {
-        if (groupNames == null) return null;
-        return groupNames.getValue("NotificationArgs.groupNames");
+        if (!unknown_groupNames) return value_groupNames;
+        throw new UndeferrableValueException("Value 'NotificationArgs.groupNames' is not present");
     }
 
     /**
@@ -28,22 +30,24 @@ public final class NotificationArgs extends com.pulumi.resources.PolicyResourceI
      * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      * 
      */
-    private UndeferrableValue<List<String>> notifications;
-
+    @PolicyResourceProperty(name="notifications", flag="unknown_notifications")
+    private List<String> value_notifications;
+    private boolean unknown_notifications;
     public List<String> notifications() {
-        if (notifications == null) return null;
-        return notifications.getValue("NotificationArgs.notifications");
+        if (!unknown_notifications) return value_notifications;
+        throw new UndeferrableValueException("Value 'NotificationArgs.notifications' is not present");
     }
 
     /**
      * Topic ARN for notifications to be sent through
      * 
      */
-    private UndeferrableValue<String> topicArn;
-
+    @PolicyResourceProperty(name="topicArn", flag="unknown_topicArn")
+    private String value_topicArn;
+    private boolean unknown_topicArn;
     public String topicArn() {
-        if (topicArn == null) return null;
-        return topicArn.getValue("NotificationArgs.topicArn");
+        if (!unknown_topicArn) return value_topicArn;
+        throw new UndeferrableValueException("Value 'NotificationArgs.topicArn' is not present");
     }
 
 }

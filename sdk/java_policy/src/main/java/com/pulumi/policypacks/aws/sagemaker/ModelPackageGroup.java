@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,44 +18,48 @@ public final class ModelPackageGroup extends com.pulumi.resources.PolicyResource
      * The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ModelPackageGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ModelPackageGroup.arn' is not present");
     }
 
     /**
      * A description for the model group.
      * 
      */
-    private @Nullable UndeferrableValue<String> modelPackageGroupDescription;
-
+    @PolicyResourceProperty(name="modelPackageGroupDescription", flag="unknown_modelPackageGroupDescription")
+    private @Nullable String value_modelPackageGroupDescription;
+    private boolean unknown_modelPackageGroupDescription;
     public @Nullable String modelPackageGroupDescription() {
-        if (modelPackageGroupDescription == null) return null;
-        return modelPackageGroupDescription.getValue("ModelPackageGroup.modelPackageGroupDescription");
+        if (!unknown_modelPackageGroupDescription) return value_modelPackageGroupDescription;
+        throw new UndeferrableValueException("Value 'ModelPackageGroup.modelPackageGroupDescription' is not present");
     }
 
     /**
      * The name of the model group.
      * 
      */
-    private UndeferrableValue<String> modelPackageGroupName;
-
+    @PolicyResourceProperty(name="modelPackageGroupName", flag="unknown_modelPackageGroupName")
+    private String value_modelPackageGroupName;
+    private boolean unknown_modelPackageGroupName;
     public String modelPackageGroupName() {
-        if (modelPackageGroupName == null) return null;
-        return modelPackageGroupName.getValue("ModelPackageGroup.modelPackageGroupName");
+        if (!unknown_modelPackageGroupName) return value_modelPackageGroupName;
+        throw new UndeferrableValueException("Value 'ModelPackageGroup.modelPackageGroupName' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ModelPackageGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ModelPackageGroup.tags' is not present");
     }
 
     /**
@@ -65,11 +70,12 @@ public final class ModelPackageGroup extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ModelPackageGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ModelPackageGroup.tagsAll' is not present");
     }
 
 }

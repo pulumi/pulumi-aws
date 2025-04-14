@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.verifiedpermissions.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.verifiedpermissions.outputs.IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class IdentitySourceConfigurationCognitoUserPoolConfiguration {
      * The unique application client IDs that are associated with the specified Amazon Cognito user pool.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> clientIds;
-
+    @PolicyResourceProperty(name="clientIds", flag="unknown_clientIds")
+    private @Nullable List<String> value_clientIds;
+    private boolean unknown_clientIds;
     public @Nullable List<String> clientIds() {
-        if (clientIds == null) return null;
-        return clientIds.getValue("IdentitySourceConfigurationCognitoUserPoolConfiguration.clientIds");
+        if (!unknown_clientIds) return value_clientIds;
+        throw new UndeferrableValueException("Value 'IdentitySourceConfigurationCognitoUserPoolConfiguration.clientIds' is not present");
     }
 
     /**
      * The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
      * 
      */
-    private @Nullable UndeferrableValue<IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration> groupConfiguration;
-
+    @PolicyResourceProperty(name="groupConfiguration", flag="unknown_groupConfiguration")
+    private @Nullable IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration value_groupConfiguration;
+    private boolean unknown_groupConfiguration;
     public @Nullable IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration groupConfiguration() {
-        if (groupConfiguration == null) return null;
-        return groupConfiguration.getValue("IdentitySourceConfigurationCognitoUserPoolConfiguration.groupConfiguration");
+        if (!unknown_groupConfiguration) return value_groupConfiguration;
+        throw new UndeferrableValueException("Value 'IdentitySourceConfigurationCognitoUserPoolConfiguration.groupConfiguration' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
      * 
      */
-    private UndeferrableValue<String> userPoolArn;
-
+    @PolicyResourceProperty(name="userPoolArn", flag="unknown_userPoolArn")
+    private String value_userPoolArn;
+    private boolean unknown_userPoolArn;
     public String userPoolArn() {
-        if (userPoolArn == null) return null;
-        return userPoolArn.getValue("IdentitySourceConfigurationCognitoUserPoolConfiguration.userPoolArn");
+        if (!unknown_userPoolArn) return value_userPoolArn;
+        throw new UndeferrableValueException("Value 'IdentitySourceConfigurationCognitoUserPoolConfiguration.userPoolArn' is not present");
     }
 
 }

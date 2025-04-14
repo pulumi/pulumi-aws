@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datasync;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,44 +19,48 @@ public final class LocationFsxLustreArgs extends com.pulumi.resources.PolicyReso
      * The Amazon Resource Name (ARN) for the FSx for Lustre file system.
      * 
      */
-    private UndeferrableValue<String> fsxFilesystemArn;
-
+    @PolicyResourceProperty(name="fsxFilesystemArn", flag="unknown_fsxFilesystemArn")
+    private String value_fsxFilesystemArn;
+    private boolean unknown_fsxFilesystemArn;
     public String fsxFilesystemArn() {
-        if (fsxFilesystemArn == null) return null;
-        return fsxFilesystemArn.getValue("LocationFsxLustreArgs.fsxFilesystemArn");
+        if (!unknown_fsxFilesystemArn) return value_fsxFilesystemArn;
+        throw new UndeferrableValueException("Value 'LocationFsxLustreArgs.fsxFilesystemArn' is not present");
     }
 
     /**
      * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroupArns;
-
+    @PolicyResourceProperty(name="securityGroupArns", flag="unknown_securityGroupArns")
+    private List<String> value_securityGroupArns;
+    private boolean unknown_securityGroupArns;
     public List<String> securityGroupArns() {
-        if (securityGroupArns == null) return null;
-        return securityGroupArns.getValue("LocationFsxLustreArgs.securityGroupArns");
+        if (!unknown_securityGroupArns) return value_securityGroupArns;
+        throw new UndeferrableValueException("Value 'LocationFsxLustreArgs.securityGroupArns' is not present");
     }
 
     /**
      * Subdirectory to perform actions as source or destination.
      * 
      */
-    private UndeferrableValue<String> subdirectory;
-
+    @PolicyResourceProperty(name="subdirectory", flag="unknown_subdirectory")
+    private String value_subdirectory;
+    private boolean unknown_subdirectory;
     public String subdirectory() {
-        if (subdirectory == null) return null;
-        return subdirectory.getValue("LocationFsxLustreArgs.subdirectory");
+        if (!unknown_subdirectory) return value_subdirectory;
+        throw new UndeferrableValueException("Value 'LocationFsxLustreArgs.subdirectory' is not present");
     }
 
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LocationFsxLustreArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LocationFsxLustreArgs.tags' is not present");
     }
 
 }

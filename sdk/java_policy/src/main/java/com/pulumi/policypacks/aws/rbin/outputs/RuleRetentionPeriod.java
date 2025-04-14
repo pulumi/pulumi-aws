@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rbin.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class RuleRetentionPeriod {
      * The unit of time in which the retention period is measured. Currently, only DAYS is supported.
      * 
      */
-    private UndeferrableValue<String> retentionPeriodUnit;
-
+    @PolicyResourceProperty(name="retentionPeriodUnit", flag="unknown_retentionPeriodUnit")
+    private String value_retentionPeriodUnit;
+    private boolean unknown_retentionPeriodUnit;
     public String retentionPeriodUnit() {
-        if (retentionPeriodUnit == null) return null;
-        return retentionPeriodUnit.getValue("RuleRetentionPeriod.retentionPeriodUnit");
+        if (!unknown_retentionPeriodUnit) return value_retentionPeriodUnit;
+        throw new UndeferrableValueException("Value 'RuleRetentionPeriod.retentionPeriodUnit' is not present");
     }
 
     /**
      * The period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
      * 
      */
-    private UndeferrableValue<Integer> retentionPeriodValue;
-
+    @PolicyResourceProperty(name="retentionPeriodValue", flag="unknown_retentionPeriodValue")
+    private Integer value_retentionPeriodValue;
+    private boolean unknown_retentionPeriodValue;
     public Integer retentionPeriodValue() {
-        if (retentionPeriodValue == null) return null;
-        return retentionPeriodValue.getValue("RuleRetentionPeriod.retentionPeriodValue");
+        if (!unknown_retentionPeriodValue) return value_retentionPeriodValue;
+        throw new UndeferrableValueException("Value 'RuleRetentionPeriod.retentionPeriodValue' is not present");
     }
 
 }

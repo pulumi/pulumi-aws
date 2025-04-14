@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -12,55 +13,60 @@ import javax.annotation.Nullable;
 @PolicyResourceType(type="aws:quicksight/groupMembership:GroupMembership")
 public final class GroupMembership extends com.pulumi.resources.PolicyResourceOutput {
 
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("GroupMembership.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'GroupMembership.arn' is not present");
     }
 
     /**
      * The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("GroupMembership.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'GroupMembership.awsAccountId' is not present");
     }
 
     /**
      * The name of the group in which the member will be added.
      * 
      */
-    private UndeferrableValue<String> groupName;
-
+    @PolicyResourceProperty(name="groupName", flag="unknown_groupName")
+    private String value_groupName;
+    private boolean unknown_groupName;
     public String groupName() {
-        if (groupName == null) return null;
-        return groupName.getValue("GroupMembership.groupName");
+        if (!unknown_groupName) return value_groupName;
+        throw new UndeferrableValueException("Value 'GroupMembership.groupName' is not present");
     }
 
     /**
      * The name of the member to add to the group.
      * 
      */
-    private UndeferrableValue<String> memberName;
-
+    @PolicyResourceProperty(name="memberName", flag="unknown_memberName")
+    private String value_memberName;
+    private boolean unknown_memberName;
     public String memberName() {
-        if (memberName == null) return null;
-        return memberName.getValue("GroupMembership.memberName");
+        if (!unknown_memberName) return value_memberName;
+        throw new UndeferrableValueException("Value 'GroupMembership.memberName' is not present");
     }
 
     /**
      * The namespace that you want the user to be a part of. Defaults to `default`.
      * 
      */
-    private @Nullable UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private @Nullable String value_namespace;
+    private boolean unknown_namespace;
     public @Nullable String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("GroupMembership.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'GroupMembership.namespace' is not present");
     }
 
 }

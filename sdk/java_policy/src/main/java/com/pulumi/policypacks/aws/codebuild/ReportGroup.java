@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.codebuild.outputs.ReportGroupExportConfig;
 import java.lang.Boolean;
@@ -19,66 +20,72 @@ public final class ReportGroup extends com.pulumi.resources.PolicyResourceOutput
      * The ARN of Report Group.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ReportGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ReportGroup.arn' is not present");
     }
 
     /**
      * The date and time this Report Group was created.
      * 
      */
-    private UndeferrableValue<String> created;
-
+    @PolicyResourceProperty(name="created", flag="unknown_created")
+    private String value_created;
+    private boolean unknown_created;
     public String created() {
-        if (created == null) return null;
-        return created.getValue("ReportGroup.created");
+        if (!unknown_created) return value_created;
+        throw new UndeferrableValueException("Value 'ReportGroup.created' is not present");
     }
 
     /**
      * If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> deleteReports;
-
+    @PolicyResourceProperty(name="deleteReports", flag="unknown_deleteReports")
+    private @Nullable Boolean value_deleteReports;
+    private boolean unknown_deleteReports;
     public @Nullable Boolean deleteReports() {
-        if (deleteReports == null) return null;
-        return deleteReports.getValue("ReportGroup.deleteReports");
+        if (!unknown_deleteReports) return value_deleteReports;
+        throw new UndeferrableValueException("Value 'ReportGroup.deleteReports' is not present");
     }
 
     /**
      * Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
      * 
      */
-    private UndeferrableValue<ReportGroupExportConfig> exportConfig;
-
+    @PolicyResourceProperty(name="exportConfig", flag="unknown_exportConfig")
+    private ReportGroupExportConfig value_exportConfig;
+    private boolean unknown_exportConfig;
     public ReportGroupExportConfig exportConfig() {
-        if (exportConfig == null) return null;
-        return exportConfig.getValue("ReportGroup.exportConfig");
+        if (!unknown_exportConfig) return value_exportConfig;
+        throw new UndeferrableValueException("Value 'ReportGroup.exportConfig' is not present");
     }
 
     /**
      * The name of a Report Group.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ReportGroup.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ReportGroup.name' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ReportGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ReportGroup.tags' is not present");
     }
 
     /**
@@ -89,22 +96,24 @@ public final class ReportGroup extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ReportGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ReportGroup.tagsAll' is not present");
     }
 
     /**
      * The type of the Report Group. Valid value are `TEST` and `CODE_COVERAGE`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ReportGroup.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ReportGroup.type' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.account;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,143 +17,156 @@ public final class PrimaryContact extends com.pulumi.resources.PolicyResourceOut
      * The ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
      * 
      */
-    private @Nullable UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private @Nullable String value_accountId;
+    private boolean unknown_accountId;
     public @Nullable String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("PrimaryContact.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'PrimaryContact.accountId' is not present");
     }
 
     /**
      * The first line of the primary contact address.
      * 
      */
-    private UndeferrableValue<String> addressLine1;
-
+    @PolicyResourceProperty(name="addressLine1", flag="unknown_addressLine1")
+    private String value_addressLine1;
+    private boolean unknown_addressLine1;
     public String addressLine1() {
-        if (addressLine1 == null) return null;
-        return addressLine1.getValue("PrimaryContact.addressLine1");
+        if (!unknown_addressLine1) return value_addressLine1;
+        throw new UndeferrableValueException("Value 'PrimaryContact.addressLine1' is not present");
     }
 
     /**
      * The second line of the primary contact address, if any.
      * 
      */
-    private @Nullable UndeferrableValue<String> addressLine2;
-
+    @PolicyResourceProperty(name="addressLine2", flag="unknown_addressLine2")
+    private @Nullable String value_addressLine2;
+    private boolean unknown_addressLine2;
     public @Nullable String addressLine2() {
-        if (addressLine2 == null) return null;
-        return addressLine2.getValue("PrimaryContact.addressLine2");
+        if (!unknown_addressLine2) return value_addressLine2;
+        throw new UndeferrableValueException("Value 'PrimaryContact.addressLine2' is not present");
     }
 
     /**
      * The third line of the primary contact address, if any.
      * 
      */
-    private @Nullable UndeferrableValue<String> addressLine3;
-
+    @PolicyResourceProperty(name="addressLine3", flag="unknown_addressLine3")
+    private @Nullable String value_addressLine3;
+    private boolean unknown_addressLine3;
     public @Nullable String addressLine3() {
-        if (addressLine3 == null) return null;
-        return addressLine3.getValue("PrimaryContact.addressLine3");
+        if (!unknown_addressLine3) return value_addressLine3;
+        throw new UndeferrableValueException("Value 'PrimaryContact.addressLine3' is not present");
     }
 
     /**
      * The city of the primary contact address.
      * 
      */
-    private UndeferrableValue<String> city;
-
+    @PolicyResourceProperty(name="city", flag="unknown_city")
+    private String value_city;
+    private boolean unknown_city;
     public String city() {
-        if (city == null) return null;
-        return city.getValue("PrimaryContact.city");
+        if (!unknown_city) return value_city;
+        throw new UndeferrableValueException("Value 'PrimaryContact.city' is not present");
     }
 
     /**
      * The name of the company associated with the primary contact information, if any.
      * 
      */
-    private @Nullable UndeferrableValue<String> companyName;
-
+    @PolicyResourceProperty(name="companyName", flag="unknown_companyName")
+    private @Nullable String value_companyName;
+    private boolean unknown_companyName;
     public @Nullable String companyName() {
-        if (companyName == null) return null;
-        return companyName.getValue("PrimaryContact.companyName");
+        if (!unknown_companyName) return value_companyName;
+        throw new UndeferrableValueException("Value 'PrimaryContact.companyName' is not present");
     }
 
     /**
      * The ISO-3166 two-letter country code for the primary contact address.
      * 
      */
-    private UndeferrableValue<String> countryCode;
-
+    @PolicyResourceProperty(name="countryCode", flag="unknown_countryCode")
+    private String value_countryCode;
+    private boolean unknown_countryCode;
     public String countryCode() {
-        if (countryCode == null) return null;
-        return countryCode.getValue("PrimaryContact.countryCode");
+        if (!unknown_countryCode) return value_countryCode;
+        throw new UndeferrableValueException("Value 'PrimaryContact.countryCode' is not present");
     }
 
     /**
      * The district or county of the primary contact address, if any.
      * 
      */
-    private @Nullable UndeferrableValue<String> districtOrCounty;
-
+    @PolicyResourceProperty(name="districtOrCounty", flag="unknown_districtOrCounty")
+    private @Nullable String value_districtOrCounty;
+    private boolean unknown_districtOrCounty;
     public @Nullable String districtOrCounty() {
-        if (districtOrCounty == null) return null;
-        return districtOrCounty.getValue("PrimaryContact.districtOrCounty");
+        if (!unknown_districtOrCounty) return value_districtOrCounty;
+        throw new UndeferrableValueException("Value 'PrimaryContact.districtOrCounty' is not present");
     }
 
     /**
      * The full name of the primary contact address.
      * 
      */
-    private UndeferrableValue<String> fullName;
-
+    @PolicyResourceProperty(name="fullName", flag="unknown_fullName")
+    private String value_fullName;
+    private boolean unknown_fullName;
     public String fullName() {
-        if (fullName == null) return null;
-        return fullName.getValue("PrimaryContact.fullName");
+        if (!unknown_fullName) return value_fullName;
+        throw new UndeferrableValueException("Value 'PrimaryContact.fullName' is not present");
     }
 
     /**
      * The phone number of the primary contact information. The number will be validated and, in some countries, checked for activation.
      * 
      */
-    private UndeferrableValue<String> phoneNumber;
-
+    @PolicyResourceProperty(name="phoneNumber", flag="unknown_phoneNumber")
+    private String value_phoneNumber;
+    private boolean unknown_phoneNumber;
     public String phoneNumber() {
-        if (phoneNumber == null) return null;
-        return phoneNumber.getValue("PrimaryContact.phoneNumber");
+        if (!unknown_phoneNumber) return value_phoneNumber;
+        throw new UndeferrableValueException("Value 'PrimaryContact.phoneNumber' is not present");
     }
 
     /**
      * The postal code of the primary contact address.
      * 
      */
-    private UndeferrableValue<String> postalCode;
-
+    @PolicyResourceProperty(name="postalCode", flag="unknown_postalCode")
+    private String value_postalCode;
+    private boolean unknown_postalCode;
     public String postalCode() {
-        if (postalCode == null) return null;
-        return postalCode.getValue("PrimaryContact.postalCode");
+        if (!unknown_postalCode) return value_postalCode;
+        throw new UndeferrableValueException("Value 'PrimaryContact.postalCode' is not present");
     }
 
     /**
      * The state or region of the primary contact address. This field is required in selected countries.
      * 
      */
-    private @Nullable UndeferrableValue<String> stateOrRegion;
-
+    @PolicyResourceProperty(name="stateOrRegion", flag="unknown_stateOrRegion")
+    private @Nullable String value_stateOrRegion;
+    private boolean unknown_stateOrRegion;
     public @Nullable String stateOrRegion() {
-        if (stateOrRegion == null) return null;
-        return stateOrRegion.getValue("PrimaryContact.stateOrRegion");
+        if (!unknown_stateOrRegion) return value_stateOrRegion;
+        throw new UndeferrableValueException("Value 'PrimaryContact.stateOrRegion' is not present");
     }
 
     /**
      * The URL of the website associated with the primary contact information, if any.
      * 
      */
-    private @Nullable UndeferrableValue<String> websiteUrl;
-
+    @PolicyResourceProperty(name="websiteUrl", flag="unknown_websiteUrl")
+    private @Nullable String value_websiteUrl;
+    private boolean unknown_websiteUrl;
     public @Nullable String websiteUrl() {
-        if (websiteUrl == null) return null;
-        return websiteUrl.getValue("PrimaryContact.websiteUrl");
+        if (!unknown_websiteUrl) return value_websiteUrl;
+        throw new UndeferrableValueException("Value 'PrimaryContact.websiteUrl' is not present");
     }
 
 }

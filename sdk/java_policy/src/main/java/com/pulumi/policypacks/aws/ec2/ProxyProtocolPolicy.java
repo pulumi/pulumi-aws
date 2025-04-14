@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,11 +18,12 @@ public final class ProxyProtocolPolicy extends com.pulumi.resources.PolicyResour
      * should be applied. This can be specified if the protocol is SSL or TCP.
      * 
      */
-    private UndeferrableValue<List<String>> instancePorts;
-
+    @PolicyResourceProperty(name="instancePorts", flag="unknown_instancePorts")
+    private List<String> value_instancePorts;
+    private boolean unknown_instancePorts;
     public List<String> instancePorts() {
-        if (instancePorts == null) return null;
-        return instancePorts.getValue("ProxyProtocolPolicy.instancePorts");
+        if (!unknown_instancePorts) return value_instancePorts;
+        throw new UndeferrableValueException("Value 'ProxyProtocolPolicy.instancePorts' is not present");
     }
 
     /**
@@ -29,11 +31,12 @@ public final class ProxyProtocolPolicy extends com.pulumi.resources.PolicyResour
      * should be attached.
      * 
      */
-    private UndeferrableValue<String> loadBalancer;
-
+    @PolicyResourceProperty(name="loadBalancer", flag="unknown_loadBalancer")
+    private String value_loadBalancer;
+    private boolean unknown_loadBalancer;
     public String loadBalancer() {
-        if (loadBalancer == null) return null;
-        return loadBalancer.getValue("ProxyProtocolPolicy.loadBalancer");
+        if (!unknown_loadBalancer) return value_loadBalancer;
+        throw new UndeferrableValueException("Value 'ProxyProtocolPolicy.loadBalancer' is not present");
     }
 
 }

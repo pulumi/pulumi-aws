@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,55 +16,60 @@ public final class UserPoolClientAnalyticsConfigurationArgs {
      * Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
      * 
      */
-    private UndeferrableValue<String> applicationArn;
-
+    @PolicyResourceProperty(name="applicationArn", flag="unknown_applicationArn")
+    private String value_applicationArn;
+    private boolean unknown_applicationArn;
     public String applicationArn() {
-        if (applicationArn == null) return null;
-        return applicationArn.getValue("UserPoolClientAnalyticsConfigurationArgs.applicationArn");
+        if (!unknown_applicationArn) return value_applicationArn;
+        throw new UndeferrableValueException("Value 'UserPoolClientAnalyticsConfigurationArgs.applicationArn' is not present");
     }
 
     /**
      * Application ID for an Amazon Pinpoint application.
      * 
      */
-    private UndeferrableValue<String> applicationId;
-
+    @PolicyResourceProperty(name="applicationId", flag="unknown_applicationId")
+    private String value_applicationId;
+    private boolean unknown_applicationId;
     public String applicationId() {
-        if (applicationId == null) return null;
-        return applicationId.getValue("UserPoolClientAnalyticsConfigurationArgs.applicationId");
+        if (!unknown_applicationId) return value_applicationId;
+        throw new UndeferrableValueException("Value 'UserPoolClientAnalyticsConfigurationArgs.applicationId' is not present");
     }
 
     /**
      * ID for the Analytics Configuration. Conflicts with `application_arn`.
      * 
      */
-    private UndeferrableValue<String> externalId;
-
+    @PolicyResourceProperty(name="externalId", flag="unknown_externalId")
+    private String value_externalId;
+    private boolean unknown_externalId;
     public String externalId() {
-        if (externalId == null) return null;
-        return externalId.getValue("UserPoolClientAnalyticsConfigurationArgs.externalId");
+        if (!unknown_externalId) return value_externalId;
+        throw new UndeferrableValueException("Value 'UserPoolClientAnalyticsConfigurationArgs.externalId' is not present");
     }
 
     /**
      * ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("UserPoolClientAnalyticsConfigurationArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'UserPoolClientAnalyticsConfigurationArgs.roleArn' is not present");
     }
 
     /**
      * If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
      * 
      */
-    private UndeferrableValue<Boolean> userDataShared;
-
+    @PolicyResourceProperty(name="userDataShared", flag="unknown_userDataShared")
+    private Boolean value_userDataShared;
+    private boolean unknown_userDataShared;
     public Boolean userDataShared() {
-        if (userDataShared == null) return null;
-        return userDataShared.getValue("UserPoolClientAnalyticsConfigurationArgs.userDataShared");
+        if (!unknown_userDataShared) return value_userDataShared;
+        throw new UndeferrableValueException("Value 'UserPoolClientAnalyticsConfigurationArgs.userDataShared' is not present");
     }
 
 }

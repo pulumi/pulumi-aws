@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lightsail;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class LbAttachmentArgs extends com.pulumi.resources.PolicyResourceI
      * The name of the instance to attach to the load balancer.
      * 
      */
-    private UndeferrableValue<String> instanceName;
-
+    @PolicyResourceProperty(name="instanceName", flag="unknown_instanceName")
+    private String value_instanceName;
+    private boolean unknown_instanceName;
     public String instanceName() {
-        if (instanceName == null) return null;
-        return instanceName.getValue("LbAttachmentArgs.instanceName");
+        if (!unknown_instanceName) return value_instanceName;
+        throw new UndeferrableValueException("Value 'LbAttachmentArgs.instanceName' is not present");
     }
 
     /**
      * The name of the Lightsail load balancer.
      * 
      */
-    private UndeferrableValue<String> lbName;
-
+    @PolicyResourceProperty(name="lbName", flag="unknown_lbName")
+    private String value_lbName;
+    private boolean unknown_lbName;
     public String lbName() {
-        if (lbName == null) return null;
-        return lbName.getValue("LbAttachmentArgs.lbName");
+        if (!unknown_lbName) return value_lbName;
+        throw new UndeferrableValueException("Value 'LbAttachmentArgs.lbName' is not present");
     }
 
 }

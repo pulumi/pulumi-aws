@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class EventTargetBatchTargetArgs {
      * The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
      * 
      */
-    private UndeferrableValue<Integer> arraySize;
-
+    @PolicyResourceProperty(name="arraySize", flag="unknown_arraySize")
+    private Integer value_arraySize;
+    private boolean unknown_arraySize;
     public Integer arraySize() {
-        if (arraySize == null) return null;
-        return arraySize.getValue("EventTargetBatchTargetArgs.arraySize");
+        if (!unknown_arraySize) return value_arraySize;
+        throw new UndeferrableValueException("Value 'EventTargetBatchTargetArgs.arraySize' is not present");
     }
 
     /**
      * The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
      * 
      */
-    private UndeferrableValue<Integer> jobAttempts;
-
+    @PolicyResourceProperty(name="jobAttempts", flag="unknown_jobAttempts")
+    private Integer value_jobAttempts;
+    private boolean unknown_jobAttempts;
     public Integer jobAttempts() {
-        if (jobAttempts == null) return null;
-        return jobAttempts.getValue("EventTargetBatchTargetArgs.jobAttempts");
+        if (!unknown_jobAttempts) return value_jobAttempts;
+        throw new UndeferrableValueException("Value 'EventTargetBatchTargetArgs.jobAttempts' is not present");
     }
 
     /**
      * The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
      * 
      */
-    private UndeferrableValue<String> jobDefinition;
-
+    @PolicyResourceProperty(name="jobDefinition", flag="unknown_jobDefinition")
+    private String value_jobDefinition;
+    private boolean unknown_jobDefinition;
     public String jobDefinition() {
-        if (jobDefinition == null) return null;
-        return jobDefinition.getValue("EventTargetBatchTargetArgs.jobDefinition");
+        if (!unknown_jobDefinition) return value_jobDefinition;
+        throw new UndeferrableValueException("Value 'EventTargetBatchTargetArgs.jobDefinition' is not present");
     }
 
     /**
      * The name to use for this execution of the job, if the target is an AWS Batch job.
      * 
      */
-    private UndeferrableValue<String> jobName;
-
+    @PolicyResourceProperty(name="jobName", flag="unknown_jobName")
+    private String value_jobName;
+    private boolean unknown_jobName;
     public String jobName() {
-        if (jobName == null) return null;
-        return jobName.getValue("EventTargetBatchTargetArgs.jobName");
+        if (!unknown_jobName) return value_jobName;
+        throw new UndeferrableValueException("Value 'EventTargetBatchTargetArgs.jobName' is not present");
     }
 
 }

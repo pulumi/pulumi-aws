@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssoadmin;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ssoadmin.outputs.TrustedTokenIssuerTrustedTokenIssuerConfiguration;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class TrustedTokenIssuer extends com.pulumi.resources.PolicyResourc
      * ARN of the trusted token issuer.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("TrustedTokenIssuer.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'TrustedTokenIssuer.arn' is not present");
     }
 
     /**
      * A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
      * 
      */
-    private @Nullable UndeferrableValue<String> clientToken;
-
+    @PolicyResourceProperty(name="clientToken", flag="unknown_clientToken")
+    private @Nullable String value_clientToken;
+    private boolean unknown_clientToken;
     public @Nullable String clientToken() {
-        if (clientToken == null) return null;
-        return clientToken.getValue("TrustedTokenIssuer.clientToken");
+        if (!unknown_clientToken) return value_clientToken;
+        throw new UndeferrableValueException("Value 'TrustedTokenIssuer.clientToken' is not present");
     }
 
     /**
      * ARN of the instance of IAM Identity Center.
      * 
      */
-    private UndeferrableValue<String> instanceArn;
-
+    @PolicyResourceProperty(name="instanceArn", flag="unknown_instanceArn")
+    private String value_instanceArn;
+    private boolean unknown_instanceArn;
     public String instanceArn() {
-        if (instanceArn == null) return null;
-        return instanceArn.getValue("TrustedTokenIssuer.instanceArn");
+        if (!unknown_instanceArn) return value_instanceArn;
+        throw new UndeferrableValueException("Value 'TrustedTokenIssuer.instanceArn' is not present");
     }
 
     /**
      * Name of the trusted token issuer.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("TrustedTokenIssuer.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'TrustedTokenIssuer.name' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TrustedTokenIssuer.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TrustedTokenIssuer.tags' is not present");
     }
 
     /**
@@ -77,22 +83,24 @@ public final class TrustedTokenIssuer extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("TrustedTokenIssuer.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'TrustedTokenIssuer.tagsAll' is not present");
     }
 
     /**
      * A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
      * 
      */
-    private @Nullable UndeferrableValue<TrustedTokenIssuerTrustedTokenIssuerConfiguration> trustedTokenIssuerConfiguration;
-
+    @PolicyResourceProperty(name="trustedTokenIssuerConfiguration", flag="unknown_trustedTokenIssuerConfiguration")
+    private @Nullable TrustedTokenIssuerTrustedTokenIssuerConfiguration value_trustedTokenIssuerConfiguration;
+    private boolean unknown_trustedTokenIssuerConfiguration;
     public @Nullable TrustedTokenIssuerTrustedTokenIssuerConfiguration trustedTokenIssuerConfiguration() {
-        if (trustedTokenIssuerConfiguration == null) return null;
-        return trustedTokenIssuerConfiguration.getValue("TrustedTokenIssuer.trustedTokenIssuerConfiguration");
+        if (!unknown_trustedTokenIssuerConfiguration) return value_trustedTokenIssuerConfiguration;
+        throw new UndeferrableValueException("Value 'TrustedTokenIssuer.trustedTokenIssuerConfiguration' is not present");
     }
 
     /**
@@ -101,11 +109,12 @@ public final class TrustedTokenIssuer extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> trustedTokenIssuerType;
-
+    @PolicyResourceProperty(name="trustedTokenIssuerType", flag="unknown_trustedTokenIssuerType")
+    private String value_trustedTokenIssuerType;
+    private boolean unknown_trustedTokenIssuerType;
     public String trustedTokenIssuerType() {
-        if (trustedTokenIssuerType == null) return null;
-        return trustedTokenIssuerType.getValue("TrustedTokenIssuer.trustedTokenIssuerType");
+        if (!unknown_trustedTokenIssuerType) return value_trustedTokenIssuerType;
+        throw new UndeferrableValueException("Value 'TrustedTokenIssuer.trustedTokenIssuerType' is not present");
     }
 
 }

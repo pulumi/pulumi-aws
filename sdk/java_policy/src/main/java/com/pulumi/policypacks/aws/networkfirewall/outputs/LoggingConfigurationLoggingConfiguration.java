@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.LoggingConfigurationLoggingConfigurationLogDestinationConfig;
 import java.util.List;
 
@@ -14,11 +15,12 @@ public final class LoggingConfigurationLoggingConfiguration {
      * Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only Three blocks can be specified; one for `FLOW` logs and one for `ALERT` logs and one for `TLS` logs.
      * 
      */
-    private UndeferrableValue<List<LoggingConfigurationLoggingConfigurationLogDestinationConfig>> logDestinationConfigs;
-
+    @PolicyResourceProperty(name="logDestinationConfigs", flag="unknown_logDestinationConfigs")
+    private List<LoggingConfigurationLoggingConfigurationLogDestinationConfig> value_logDestinationConfigs;
+    private boolean unknown_logDestinationConfigs;
     public List<LoggingConfigurationLoggingConfigurationLogDestinationConfig> logDestinationConfigs() {
-        if (logDestinationConfigs == null) return null;
-        return logDestinationConfigs.getValue("LoggingConfigurationLoggingConfiguration.logDestinationConfigs");
+        if (!unknown_logDestinationConfigs) return value_logDestinationConfigs;
+        throw new UndeferrableValueException("Value 'LoggingConfigurationLoggingConfiguration.logDestinationConfigs' is not present");
     }
 
 }

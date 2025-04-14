@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.apprunner.outputs.CustomDomainAssociationCertificateValidationRecord;
 import java.lang.Boolean;
@@ -19,66 +20,72 @@ public final class CustomDomainAssociation extends com.pulumi.resources.PolicyRe
      * A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
      * 
      */
-    private UndeferrableValue<List<CustomDomainAssociationCertificateValidationRecord>> certificateValidationRecords;
-
+    @PolicyResourceProperty(name="certificateValidationRecords", flag="unknown_certificateValidationRecords")
+    private List<CustomDomainAssociationCertificateValidationRecord> value_certificateValidationRecords;
+    private boolean unknown_certificateValidationRecords;
     public List<CustomDomainAssociationCertificateValidationRecord> certificateValidationRecords() {
-        if (certificateValidationRecords == null) return null;
-        return certificateValidationRecords.getValue("CustomDomainAssociation.certificateValidationRecords");
+        if (!unknown_certificateValidationRecords) return value_certificateValidationRecords;
+        throw new UndeferrableValueException("Value 'CustomDomainAssociation.certificateValidationRecords' is not present");
     }
 
     /**
      * App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
      * 
      */
-    private UndeferrableValue<String> dnsTarget;
-
+    @PolicyResourceProperty(name="dnsTarget", flag="unknown_dnsTarget")
+    private String value_dnsTarget;
+    private boolean unknown_dnsTarget;
     public String dnsTarget() {
-        if (dnsTarget == null) return null;
-        return dnsTarget.getValue("CustomDomainAssociation.dnsTarget");
+        if (!unknown_dnsTarget) return value_dnsTarget;
+        throw new UndeferrableValueException("Value 'CustomDomainAssociation.dnsTarget' is not present");
     }
 
     /**
      * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("CustomDomainAssociation.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'CustomDomainAssociation.domainName' is not present");
     }
 
     /**
      * Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> enableWwwSubdomain;
-
+    @PolicyResourceProperty(name="enableWwwSubdomain", flag="unknown_enableWwwSubdomain")
+    private @Nullable Boolean value_enableWwwSubdomain;
+    private boolean unknown_enableWwwSubdomain;
     public @Nullable Boolean enableWwwSubdomain() {
-        if (enableWwwSubdomain == null) return null;
-        return enableWwwSubdomain.getValue("CustomDomainAssociation.enableWwwSubdomain");
+        if (!unknown_enableWwwSubdomain) return value_enableWwwSubdomain;
+        throw new UndeferrableValueException("Value 'CustomDomainAssociation.enableWwwSubdomain' is not present");
     }
 
     /**
      * ARN of the App Runner service.
      * 
      */
-    private UndeferrableValue<String> serviceArn;
-
+    @PolicyResourceProperty(name="serviceArn", flag="unknown_serviceArn")
+    private String value_serviceArn;
+    private boolean unknown_serviceArn;
     public String serviceArn() {
-        if (serviceArn == null) return null;
-        return serviceArn.getValue("CustomDomainAssociation.serviceArn");
+        if (!unknown_serviceArn) return value_serviceArn;
+        throw new UndeferrableValueException("Value 'CustomDomainAssociation.serviceArn' is not present");
     }
 
     /**
      * Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("CustomDomainAssociation.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'CustomDomainAssociation.status' is not present");
     }
 
 }

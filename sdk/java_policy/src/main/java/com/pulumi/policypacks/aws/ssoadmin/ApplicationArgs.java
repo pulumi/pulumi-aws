@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssoadmin;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ssoadmin.inputs.ApplicationPortalOptionsArgs;
 import java.lang.String;
@@ -18,44 +19,48 @@ public final class ApplicationArgs extends com.pulumi.resources.PolicyResourceIn
      * ARN of the application provider.
      * 
      */
-    private UndeferrableValue<String> applicationProviderArn;
-
+    @PolicyResourceProperty(name="applicationProviderArn", flag="unknown_applicationProviderArn")
+    private String value_applicationProviderArn;
+    private boolean unknown_applicationProviderArn;
     public String applicationProviderArn() {
-        if (applicationProviderArn == null) return null;
-        return applicationProviderArn.getValue("ApplicationArgs.applicationProviderArn");
+        if (!unknown_applicationProviderArn) return value_applicationProviderArn;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.applicationProviderArn' is not present");
     }
 
     /**
      * A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
      * 
      */
-    private UndeferrableValue<String> clientToken;
-
+    @PolicyResourceProperty(name="clientToken", flag="unknown_clientToken")
+    private String value_clientToken;
+    private boolean unknown_clientToken;
     public String clientToken() {
-        if (clientToken == null) return null;
-        return clientToken.getValue("ApplicationArgs.clientToken");
+        if (!unknown_clientToken) return value_clientToken;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.clientToken' is not present");
     }
 
     /**
      * Description of the application.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ApplicationArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.description' is not present");
     }
 
     /**
      * ARN of the instance of IAM Identity Center.
      * 
      */
-    private UndeferrableValue<String> instanceArn;
-
+    @PolicyResourceProperty(name="instanceArn", flag="unknown_instanceArn")
+    private String value_instanceArn;
+    private boolean unknown_instanceArn;
     public String instanceArn() {
-        if (instanceArn == null) return null;
-        return instanceArn.getValue("ApplicationArgs.instanceArn");
+        if (!unknown_instanceArn) return value_instanceArn;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.instanceArn' is not present");
     }
 
     /**
@@ -64,44 +69,48 @@ public final class ApplicationArgs extends com.pulumi.resources.PolicyResourceIn
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ApplicationArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.name' is not present");
     }
 
     /**
      * Options for the portal associated with an application. See `portal_options` below.
      * 
      */
-    private UndeferrableValue<ApplicationPortalOptionsArgs> portalOptions;
-
+    @PolicyResourceProperty(name="portalOptions", flag="unknown_portalOptions")
+    private ApplicationPortalOptionsArgs value_portalOptions;
+    private boolean unknown_portalOptions;
     public ApplicationPortalOptionsArgs portalOptions() {
-        if (portalOptions == null) return null;
-        return portalOptions.getValue("ApplicationArgs.portalOptions");
+        if (!unknown_portalOptions) return value_portalOptions;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.portalOptions' is not present");
     }
 
     /**
      * Status of the application. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("ApplicationArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.status' is not present");
     }
 
     /**
      * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ApplicationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ApplicationArgs.tags' is not present");
     }
 
 }

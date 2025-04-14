@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class NetworkInsightsAnalysisAlternatePathHint {
      * The Amazon Resource Name (ARN) of the component.
      * 
      */
-    private @Nullable UndeferrableValue<String> componentArn;
-
+    @PolicyResourceProperty(name="componentArn", flag="unknown_componentArn")
+    private @Nullable String value_componentArn;
+    private boolean unknown_componentArn;
     public @Nullable String componentArn() {
-        if (componentArn == null) return null;
-        return componentArn.getValue("NetworkInsightsAnalysisAlternatePathHint.componentArn");
+        if (!unknown_componentArn) return value_componentArn;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisAlternatePathHint.componentArn' is not present");
     }
 
     /**
      * The ID of the component.
      * 
      */
-    private @Nullable UndeferrableValue<String> componentId;
-
+    @PolicyResourceProperty(name="componentId", flag="unknown_componentId")
+    private @Nullable String value_componentId;
+    private boolean unknown_componentId;
     public @Nullable String componentId() {
-        if (componentId == null) return null;
-        return componentId.getValue("NetworkInsightsAnalysisAlternatePathHint.componentId");
+        if (!unknown_componentId) return value_componentId;
+        throw new UndeferrableValueException("Value 'NetworkInsightsAnalysisAlternatePathHint.componentId' is not present");
     }
 
 }

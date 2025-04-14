@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class DataSetLogicalTableMapDataTransformRenameColumnOperation {
      * Column to be renamed.
      * 
      */
-    private UndeferrableValue<String> columnName;
-
+    @PolicyResourceProperty(name="columnName", flag="unknown_columnName")
+    private String value_columnName;
+    private boolean unknown_columnName;
     public String columnName() {
-        if (columnName == null) return null;
-        return columnName.getValue("DataSetLogicalTableMapDataTransformRenameColumnOperation.columnName");
+        if (!unknown_columnName) return value_columnName;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformRenameColumnOperation.columnName' is not present");
     }
 
     /**
      * New name for the column.
      * 
      */
-    private UndeferrableValue<String> newColumnName;
-
+    @PolicyResourceProperty(name="newColumnName", flag="unknown_newColumnName")
+    private String value_newColumnName;
+    private boolean unknown_newColumnName;
     public String newColumnName() {
-        if (newColumnName == null) return null;
-        return newColumnName.getValue("DataSetLogicalTableMapDataTransformRenameColumnOperation.newColumnName");
+        if (!unknown_newColumnName) return value_newColumnName;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapDataTransformRenameColumnOperation.newColumnName' is not present");
     }
 
 }

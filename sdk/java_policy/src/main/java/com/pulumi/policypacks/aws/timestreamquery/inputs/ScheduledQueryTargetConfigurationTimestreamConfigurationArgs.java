@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamquery.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.timestreamquery.inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs;
 import com.pulumi.policypacks.aws.timestreamquery.inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArgs;
 import com.pulumi.policypacks.aws.timestreamquery.inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs;
@@ -18,77 +19,84 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationArgs 
      * Name of Timestream database to which the query result will be written.
      * 
      */
-    private UndeferrableValue<String> databaseName;
-
+    @PolicyResourceProperty(name="databaseName", flag="unknown_databaseName")
+    private String value_databaseName;
+    private boolean unknown_databaseName;
     public String databaseName() {
-        if (databaseName == null) return null;
-        return databaseName.getValue("ScheduledQueryTargetConfigurationTimestreamConfigurationArgs.databaseName");
+        if (!unknown_databaseName) return value_databaseName;
+        throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfigurationArgs.databaseName' is not present");
     }
 
     /**
      * Configuration block for mapping of column(s) from the query result to the dimension in the destination table. See below.
      * 
      */
-    private UndeferrableValue<List<ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs>> dimensionMappings;
-
+    @PolicyResourceProperty(name="dimensionMappings", flag="unknown_dimensionMappings")
+    private List<ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs> value_dimensionMappings;
+    private boolean unknown_dimensionMappings;
     public List<ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs> dimensionMappings() {
-        if (dimensionMappings == null) return null;
-        return dimensionMappings.getValue("ScheduledQueryTargetConfigurationTimestreamConfigurationArgs.dimensionMappings");
+        if (!unknown_dimensionMappings) return value_dimensionMappings;
+        throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfigurationArgs.dimensionMappings' is not present");
     }
 
     /**
      * Name of the measure column.
      * 
      */
-    private UndeferrableValue<String> measureNameColumn;
-
+    @PolicyResourceProperty(name="measureNameColumn", flag="unknown_measureNameColumn")
+    private String value_measureNameColumn;
+    private boolean unknown_measureNameColumn;
     public String measureNameColumn() {
-        if (measureNameColumn == null) return null;
-        return measureNameColumn.getValue("ScheduledQueryTargetConfigurationTimestreamConfigurationArgs.measureNameColumn");
+        if (!unknown_measureNameColumn) return value_measureNameColumn;
+        throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfigurationArgs.measureNameColumn' is not present");
     }
 
     /**
      * Configuration block for how to map measures to multi-measure records. See below.
      * 
      */
-    private UndeferrableValue<List<ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArgs>> mixedMeasureMappings;
-
+    @PolicyResourceProperty(name="mixedMeasureMappings", flag="unknown_mixedMeasureMappings")
+    private List<ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArgs> value_mixedMeasureMappings;
+    private boolean unknown_mixedMeasureMappings;
     public List<ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArgs> mixedMeasureMappings() {
-        if (mixedMeasureMappings == null) return null;
-        return mixedMeasureMappings.getValue("ScheduledQueryTargetConfigurationTimestreamConfigurationArgs.mixedMeasureMappings");
+        if (!unknown_mixedMeasureMappings) return value_mixedMeasureMappings;
+        throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfigurationArgs.mixedMeasureMappings' is not present");
     }
 
     /**
      * Configuration block for multi-measure mappings. Only one of `mixed_measure_mappings` or `multi_measure_mappings` can be provided. `multi_measure_mappings` can be used to ingest data as multi measures in the derived table. See below.
      * 
      */
-    private UndeferrableValue<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs> multiMeasureMappings;
-
+    @PolicyResourceProperty(name="multiMeasureMappings", flag="unknown_multiMeasureMappings")
+    private ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs value_multiMeasureMappings;
+    private boolean unknown_multiMeasureMappings;
     public ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs multiMeasureMappings() {
-        if (multiMeasureMappings == null) return null;
-        return multiMeasureMappings.getValue("ScheduledQueryTargetConfigurationTimestreamConfigurationArgs.multiMeasureMappings");
+        if (!unknown_multiMeasureMappings) return value_multiMeasureMappings;
+        throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfigurationArgs.multiMeasureMappings' is not present");
     }
 
     /**
      * Name of Timestream table that the query result will be written to. The table should be within the same database that is provided in Timestream configuration.
      * 
      */
-    private UndeferrableValue<String> tableName;
-
+    @PolicyResourceProperty(name="tableName", flag="unknown_tableName")
+    private String value_tableName;
+    private boolean unknown_tableName;
     public String tableName() {
-        if (tableName == null) return null;
-        return tableName.getValue("ScheduledQueryTargetConfigurationTimestreamConfigurationArgs.tableName");
+        if (!unknown_tableName) return value_tableName;
+        throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfigurationArgs.tableName' is not present");
     }
 
     /**
      * Column from query result that should be used as the time column in destination table. Column type for this should be TIMESTAMP.
      * 
      */
-    private UndeferrableValue<String> timeColumn;
-
+    @PolicyResourceProperty(name="timeColumn", flag="unknown_timeColumn")
+    private String value_timeColumn;
+    private boolean unknown_timeColumn;
     public String timeColumn() {
-        if (timeColumn == null) return null;
-        return timeColumn.getValue("ScheduledQueryTargetConfigurationTimestreamConfigurationArgs.timeColumn");
+        if (!unknown_timeColumn) return value_timeColumn;
+        throw new UndeferrableValueException("Value 'ScheduledQueryTargetConfigurationTimestreamConfigurationArgs.timeColumn' is not present");
     }
 
 }

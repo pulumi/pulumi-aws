@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class AgentDataSourceVectorIngestionConfigurationCustomTransformati
      * The intermediate storage for custom transformation.
      * 
      */
-    private @Nullable UndeferrableValue<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage> intermediateStorage;
-
+    @PolicyResourceProperty(name="intermediateStorage", flag="unknown_intermediateStorage")
+    private @Nullable AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage value_intermediateStorage;
+    private boolean unknown_intermediateStorage;
     public @Nullable AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorage intermediateStorage() {
-        if (intermediateStorage == null) return null;
-        return intermediateStorage.getValue("AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration.intermediateStorage");
+        if (!unknown_intermediateStorage) return value_intermediateStorage;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration.intermediateStorage' is not present");
     }
 
     /**
      * A custom processing step for documents moving through the data source ingestion pipeline.
      * 
      */
-    private @Nullable UndeferrableValue<AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation> transformation;
-
+    @PolicyResourceProperty(name="transformation", flag="unknown_transformation")
+    private @Nullable AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation value_transformation;
+    private boolean unknown_transformation;
     public @Nullable AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformation transformation() {
-        if (transformation == null) return null;
-        return transformation.getValue("AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration.transformation");
+        if (!unknown_transformation) return value_transformation;
+        throw new UndeferrableValueException("Value 'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfiguration.transformation' is not present");
     }
 
 }

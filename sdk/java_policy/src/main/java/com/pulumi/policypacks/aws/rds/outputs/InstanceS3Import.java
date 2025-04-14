@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class InstanceS3Import {
      * The bucket name where your backup is stored
      * 
      */
-    private UndeferrableValue<String> bucketName;
-
+    @PolicyResourceProperty(name="bucketName", flag="unknown_bucketName")
+    private String value_bucketName;
+    private boolean unknown_bucketName;
     public String bucketName() {
-        if (bucketName == null) return null;
-        return bucketName.getValue("InstanceS3Import.bucketName");
+        if (!unknown_bucketName) return value_bucketName;
+        throw new UndeferrableValueException("Value 'InstanceS3Import.bucketName' is not present");
     }
 
     /**
      * Can be blank, but is the path to your backup
      * 
      */
-    private @Nullable UndeferrableValue<String> bucketPrefix;
-
+    @PolicyResourceProperty(name="bucketPrefix", flag="unknown_bucketPrefix")
+    private @Nullable String value_bucketPrefix;
+    private boolean unknown_bucketPrefix;
     public @Nullable String bucketPrefix() {
-        if (bucketPrefix == null) return null;
-        return bucketPrefix.getValue("InstanceS3Import.bucketPrefix");
+        if (!unknown_bucketPrefix) return value_bucketPrefix;
+        throw new UndeferrableValueException("Value 'InstanceS3Import.bucketPrefix' is not present");
     }
 
     /**
      * Role applied to load the data.
      * 
      */
-    private UndeferrableValue<String> ingestionRole;
-
+    @PolicyResourceProperty(name="ingestionRole", flag="unknown_ingestionRole")
+    private String value_ingestionRole;
+    private boolean unknown_ingestionRole;
     public String ingestionRole() {
-        if (ingestionRole == null) return null;
-        return ingestionRole.getValue("InstanceS3Import.ingestionRole");
+        if (!unknown_ingestionRole) return value_ingestionRole;
+        throw new UndeferrableValueException("Value 'InstanceS3Import.ingestionRole' is not present");
     }
 
     /**
      * Source engine for the backup
      * 
      */
-    private UndeferrableValue<String> sourceEngine;
-
+    @PolicyResourceProperty(name="sourceEngine", flag="unknown_sourceEngine")
+    private String value_sourceEngine;
+    private boolean unknown_sourceEngine;
     public String sourceEngine() {
-        if (sourceEngine == null) return null;
-        return sourceEngine.getValue("InstanceS3Import.sourceEngine");
+        if (!unknown_sourceEngine) return value_sourceEngine;
+        throw new UndeferrableValueException("Value 'InstanceS3Import.sourceEngine' is not present");
     }
 
     /**
@@ -60,11 +65,12 @@ public final class InstanceS3Import {
      * This will not recreate the resource if the S3 object changes in some way.  It&#39;s only used to initialize the database.
      * 
      */
-    private UndeferrableValue<String> sourceEngineVersion;
-
+    @PolicyResourceProperty(name="sourceEngineVersion", flag="unknown_sourceEngineVersion")
+    private String value_sourceEngineVersion;
+    private boolean unknown_sourceEngineVersion;
     public String sourceEngineVersion() {
-        if (sourceEngineVersion == null) return null;
-        return sourceEngineVersion.getValue("InstanceS3Import.sourceEngineVersion");
+        if (!unknown_sourceEngineVersion) return value_sourceEngineVersion;
+        throw new UndeferrableValueException("Value 'InstanceS3Import.sourceEngineVersion' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class ConfigurationAggregatorAccountAggregationSource {
      * List of 12-digit account IDs of the account(s) being aggregated.
      * 
      */
-    private UndeferrableValue<List<String>> accountIds;
-
+    @PolicyResourceProperty(name="accountIds", flag="unknown_accountIds")
+    private List<String> value_accountIds;
+    private boolean unknown_accountIds;
     public List<String> accountIds() {
-        if (accountIds == null) return null;
-        return accountIds.getValue("ConfigurationAggregatorAccountAggregationSource.accountIds");
+        if (!unknown_accountIds) return value_accountIds;
+        throw new UndeferrableValueException("Value 'ConfigurationAggregatorAccountAggregationSource.accountIds' is not present");
     }
 
     /**
      * If true, aggregate existing AWS Config regions and future regions.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> allRegions;
-
+    @PolicyResourceProperty(name="allRegions", flag="unknown_allRegions")
+    private @Nullable Boolean value_allRegions;
+    private boolean unknown_allRegions;
     public @Nullable Boolean allRegions() {
-        if (allRegions == null) return null;
-        return allRegions.getValue("ConfigurationAggregatorAccountAggregationSource.allRegions");
+        if (!unknown_allRegions) return value_allRegions;
+        throw new UndeferrableValueException("Value 'ConfigurationAggregatorAccountAggregationSource.allRegions' is not present");
     }
 
     /**
@@ -40,11 +43,12 @@ public final class ConfigurationAggregatorAccountAggregationSource {
      * Either `regions` or `all_regions` (as true) must be specified.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> regions;
-
+    @PolicyResourceProperty(name="regions", flag="unknown_regions")
+    private @Nullable List<String> value_regions;
+    private boolean unknown_regions;
     public @Nullable List<String> regions() {
-        if (regions == null) return null;
-        return regions.getValue("ConfigurationAggregatorAccountAggregationSource.regions");
+        if (!unknown_regions) return value_regions;
+        throw new UndeferrableValueException("Value 'ConfigurationAggregatorAccountAggregationSource.regions' is not present");
     }
 
 }

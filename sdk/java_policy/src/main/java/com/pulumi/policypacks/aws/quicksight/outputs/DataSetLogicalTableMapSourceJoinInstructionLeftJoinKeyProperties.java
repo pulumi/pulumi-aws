@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropert
      * A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> uniqueKey;
-
+    @PolicyResourceProperty(name="uniqueKey", flag="unknown_uniqueKey")
+    private @Nullable Boolean value_uniqueKey;
+    private boolean unknown_uniqueKey;
     public @Nullable Boolean uniqueKey() {
-        if (uniqueKey == null) return null;
-        return uniqueKey.getValue("DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties.uniqueKey");
+        if (!unknown_uniqueKey) return value_uniqueKey;
+        throw new UndeferrableValueException("Value 'DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties.uniqueKey' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.storagegateway;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -19,121 +20,132 @@ public final class CachesIscsiVolume extends com.pulumi.resources.PolicyResource
      * Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("CachesIscsiVolume.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'CachesIscsiVolume.arn' is not present");
     }
 
     /**
      * Whether mutual CHAP is enabled for the iSCSI target.
      * 
      */
-    private UndeferrableValue<Boolean> chapEnabled;
-
+    @PolicyResourceProperty(name="chapEnabled", flag="unknown_chapEnabled")
+    private Boolean value_chapEnabled;
+    private boolean unknown_chapEnabled;
     public Boolean chapEnabled() {
-        if (chapEnabled == null) return null;
-        return chapEnabled.getValue("CachesIscsiVolume.chapEnabled");
+        if (!unknown_chapEnabled) return value_chapEnabled;
+        throw new UndeferrableValueException("Value 'CachesIscsiVolume.chapEnabled' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      * 
      */
-    private UndeferrableValue<String> gatewayArn;
-
+    @PolicyResourceProperty(name="gatewayArn", flag="unknown_gatewayArn")
+    private String value_gatewayArn;
+    private boolean unknown_gatewayArn;
     public String gatewayArn() {
-        if (gatewayArn == null) return null;
-        return gatewayArn.getValue("CachesIscsiVolume.gatewayArn");
+        if (!unknown_gatewayArn) return value_gatewayArn;
+        throw new UndeferrableValueException("Value 'CachesIscsiVolume.gatewayArn' is not present");
     }
 
     /**
      * Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> kmsEncrypted;
-
+    @PolicyResourceProperty(name="kmsEncrypted", flag="unknown_kmsEncrypted")
+    private @Nullable Boolean value_kmsEncrypted;
+    private boolean unknown_kmsEncrypted;
     public @Nullable Boolean kmsEncrypted() {
-        if (kmsEncrypted == null) return null;
-        return kmsEncrypted.getValue("CachesIscsiVolume.kmsEncrypted");
+        if (!unknown_kmsEncrypted) return value_kmsEncrypted;
+        throw new UndeferrableValueException("Value 'CachesIscsiVolume.kmsEncrypted' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
      * 
      */
-    private @Nullable UndeferrableValue<String> kmsKey;
-
+    @PolicyResourceProperty(name="kmsKey", flag="unknown_kmsKey")
+    private @Nullable String value_kmsKey;
+    private boolean unknown_kmsKey;
     public @Nullable String kmsKey() {
-        if (kmsKey == null) return null;
-        return kmsKey.getValue("CachesIscsiVolume.kmsKey");
+        if (!unknown_kmsKey) return value_kmsKey;
+        throw new UndeferrableValueException("Value 'CachesIscsiVolume.kmsKey' is not present");
     }
 
     /**
      * Logical disk number.
      * 
      */
-    private UndeferrableValue<Integer> lunNumber;
-
+    @PolicyResourceProperty(name="lunNumber", flag="unknown_lunNumber")
+    private Integer value_lunNumber;
+    private boolean unknown_lunNumber;
     public Integer lunNumber() {
-        if (lunNumber == null) return null;
-        return lunNumber.getValue("CachesIscsiVolume.lunNumber");
+        if (!unknown_lunNumber) return value_lunNumber;
+        throw new UndeferrableValueException("Value 'CachesIscsiVolume.lunNumber' is not present");
     }
 
     /**
      * The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
      * 
      */
-    private UndeferrableValue<String> networkInterfaceId;
-
+    @PolicyResourceProperty(name="networkInterfaceId", flag="unknown_networkInterfaceId")
+    private String value_networkInterfaceId;
+    private boolean unknown_networkInterfaceId;
     public String networkInterfaceId() {
-        if (networkInterfaceId == null) return null;
-        return networkInterfaceId.getValue("CachesIscsiVolume.networkInterfaceId");
+        if (!unknown_networkInterfaceId) return value_networkInterfaceId;
+        throw new UndeferrableValueException("Value 'CachesIscsiVolume.networkInterfaceId' is not present");
     }
 
     /**
      * The port used to communicate with iSCSI targets.
      * 
      */
-    private UndeferrableValue<Integer> networkInterfacePort;
-
+    @PolicyResourceProperty(name="networkInterfacePort", flag="unknown_networkInterfacePort")
+    private Integer value_networkInterfacePort;
+    private boolean unknown_networkInterfacePort;
     public Integer networkInterfacePort() {
-        if (networkInterfacePort == null) return null;
-        return networkInterfacePort.getValue("CachesIscsiVolume.networkInterfacePort");
+        if (!unknown_networkInterfacePort) return value_networkInterfacePort;
+        throw new UndeferrableValueException("Value 'CachesIscsiVolume.networkInterfacePort' is not present");
     }
 
     /**
      * The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
      * 
      */
-    private @Nullable UndeferrableValue<String> snapshotId;
-
+    @PolicyResourceProperty(name="snapshotId", flag="unknown_snapshotId")
+    private @Nullable String value_snapshotId;
+    private boolean unknown_snapshotId;
     public @Nullable String snapshotId() {
-        if (snapshotId == null) return null;
-        return snapshotId.getValue("CachesIscsiVolume.snapshotId");
+        if (!unknown_snapshotId) return value_snapshotId;
+        throw new UndeferrableValueException("Value 'CachesIscsiVolume.snapshotId' is not present");
     }
 
     /**
      * The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume&#39;s latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
      * 
      */
-    private @Nullable UndeferrableValue<String> sourceVolumeArn;
-
+    @PolicyResourceProperty(name="sourceVolumeArn", flag="unknown_sourceVolumeArn")
+    private @Nullable String value_sourceVolumeArn;
+    private boolean unknown_sourceVolumeArn;
     public @Nullable String sourceVolumeArn() {
-        if (sourceVolumeArn == null) return null;
-        return sourceVolumeArn.getValue("CachesIscsiVolume.sourceVolumeArn");
+        if (!unknown_sourceVolumeArn) return value_sourceVolumeArn;
+        throw new UndeferrableValueException("Value 'CachesIscsiVolume.sourceVolumeArn' is not present");
     }
 
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CachesIscsiVolume.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CachesIscsiVolume.tags' is not present");
     }
 
     /**
@@ -144,66 +156,72 @@ public final class CachesIscsiVolume extends com.pulumi.resources.PolicyResource
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("CachesIscsiVolume.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'CachesIscsiVolume.tagsAll' is not present");
     }
 
     /**
      * Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      * 
      */
-    private UndeferrableValue<String> targetArn;
-
+    @PolicyResourceProperty(name="targetArn", flag="unknown_targetArn")
+    private String value_targetArn;
+    private boolean unknown_targetArn;
     public String targetArn() {
-        if (targetArn == null) return null;
-        return targetArn.getValue("CachesIscsiVolume.targetArn");
+        if (!unknown_targetArn) return value_targetArn;
+        throw new UndeferrableValueException("Value 'CachesIscsiVolume.targetArn' is not present");
     }
 
     /**
      * The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
      * 
      */
-    private UndeferrableValue<String> targetName;
-
+    @PolicyResourceProperty(name="targetName", flag="unknown_targetName")
+    private String value_targetName;
+    private boolean unknown_targetName;
     public String targetName() {
-        if (targetName == null) return null;
-        return targetName.getValue("CachesIscsiVolume.targetName");
+        if (!unknown_targetName) return value_targetName;
+        throw new UndeferrableValueException("Value 'CachesIscsiVolume.targetName' is not present");
     }
 
     /**
      * Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      * 
      */
-    private UndeferrableValue<String> volumeArn;
-
+    @PolicyResourceProperty(name="volumeArn", flag="unknown_volumeArn")
+    private String value_volumeArn;
+    private boolean unknown_volumeArn;
     public String volumeArn() {
-        if (volumeArn == null) return null;
-        return volumeArn.getValue("CachesIscsiVolume.volumeArn");
+        if (!unknown_volumeArn) return value_volumeArn;
+        throw new UndeferrableValueException("Value 'CachesIscsiVolume.volumeArn' is not present");
     }
 
     /**
      * Volume ID, e.g., `vol-12345678`.
      * 
      */
-    private UndeferrableValue<String> volumeId;
-
+    @PolicyResourceProperty(name="volumeId", flag="unknown_volumeId")
+    private String value_volumeId;
+    private boolean unknown_volumeId;
     public String volumeId() {
-        if (volumeId == null) return null;
-        return volumeId.getValue("CachesIscsiVolume.volumeId");
+        if (!unknown_volumeId) return value_volumeId;
+        throw new UndeferrableValueException("Value 'CachesIscsiVolume.volumeId' is not present");
     }
 
     /**
      * The size of the volume in bytes.
      * 
      */
-    private UndeferrableValue<Integer> volumeSizeInBytes;
-
+    @PolicyResourceProperty(name="volumeSizeInBytes", flag="unknown_volumeSizeInBytes")
+    private Integer value_volumeSizeInBytes;
+    private boolean unknown_volumeSizeInBytes;
     public Integer volumeSizeInBytes() {
-        if (volumeSizeInBytes == null) return null;
-        return volumeSizeInBytes.getValue("CachesIscsiVolume.volumeSizeInBytes");
+        if (!unknown_volumeSizeInBytes) return value_volumeSizeInBytes;
+        throw new UndeferrableValueException("Value 'CachesIscsiVolume.volumeSizeInBytes' is not present");
     }
 
 }

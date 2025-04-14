@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chime;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.chime.inputs.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs;
 import java.lang.String;
@@ -18,40 +19,44 @@ public final class SdkvoiceVoiceProfileDomainArgs extends com.pulumi.resources.P
      * Description of Voice Profile Domain.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("SdkvoiceVoiceProfileDomainArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'SdkvoiceVoiceProfileDomainArgs.description' is not present");
     }
 
     /**
      * Name of Voice Profile Domain.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("SdkvoiceVoiceProfileDomainArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'SdkvoiceVoiceProfileDomainArgs.name' is not present");
     }
 
     /**
      * Configuration for server side encryption.
      * 
      */
-    private UndeferrableValue<SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs> serverSideEncryptionConfiguration;
-
+    @PolicyResourceProperty(name="serverSideEncryptionConfiguration", flag="unknown_serverSideEncryptionConfiguration")
+    private SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs value_serverSideEncryptionConfiguration;
+    private boolean unknown_serverSideEncryptionConfiguration;
     public SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs serverSideEncryptionConfiguration() {
-        if (serverSideEncryptionConfiguration == null) return null;
-        return serverSideEncryptionConfiguration.getValue("SdkvoiceVoiceProfileDomainArgs.serverSideEncryptionConfiguration");
+        if (!unknown_serverSideEncryptionConfiguration) return value_serverSideEncryptionConfiguration;
+        throw new UndeferrableValueException("Value 'SdkvoiceVoiceProfileDomainArgs.serverSideEncryptionConfiguration' is not present");
     }
 
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("SdkvoiceVoiceProfileDomainArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'SdkvoiceVoiceProfileDomainArgs.tags' is not present");
     }
 
 }

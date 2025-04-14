@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elb;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -19,44 +20,48 @@ public final class ListenerPolicy extends com.pulumi.resources.PolicyResourceOut
      * The load balancer to attach the policy to.
      * 
      */
-    private UndeferrableValue<String> loadBalancerName;
-
+    @PolicyResourceProperty(name="loadBalancerName", flag="unknown_loadBalancerName")
+    private String value_loadBalancerName;
+    private boolean unknown_loadBalancerName;
     public String loadBalancerName() {
-        if (loadBalancerName == null) return null;
-        return loadBalancerName.getValue("ListenerPolicy.loadBalancerName");
+        if (!unknown_loadBalancerName) return value_loadBalancerName;
+        throw new UndeferrableValueException("Value 'ListenerPolicy.loadBalancerName' is not present");
     }
 
     /**
      * The load balancer listener port to apply the policy to.
      * 
      */
-    private UndeferrableValue<Integer> loadBalancerPort;
-
+    @PolicyResourceProperty(name="loadBalancerPort", flag="unknown_loadBalancerPort")
+    private Integer value_loadBalancerPort;
+    private boolean unknown_loadBalancerPort;
     public Integer loadBalancerPort() {
-        if (loadBalancerPort == null) return null;
-        return loadBalancerPort.getValue("ListenerPolicy.loadBalancerPort");
+        if (!unknown_loadBalancerPort) return value_loadBalancerPort;
+        throw new UndeferrableValueException("Value 'ListenerPolicy.loadBalancerPort' is not present");
     }
 
     /**
      * List of Policy Names to apply to the backend server.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> policyNames;
-
+    @PolicyResourceProperty(name="policyNames", flag="unknown_policyNames")
+    private @Nullable List<String> value_policyNames;
+    private boolean unknown_policyNames;
     public @Nullable List<String> policyNames() {
-        if (policyNames == null) return null;
-        return policyNames.getValue("ListenerPolicy.policyNames");
+        if (!unknown_policyNames) return value_policyNames;
+        throw new UndeferrableValueException("Value 'ListenerPolicy.policyNames' is not present");
     }
 
     /**
      * Map of arbitrary keys and values that, when changed, will trigger an update.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> triggers;
-
+    @PolicyResourceProperty(name="triggers", flag="unknown_triggers")
+    private @Nullable Map<String,String> value_triggers;
+    private boolean unknown_triggers;
     public @Nullable Map<String,String> triggers() {
-        if (triggers == null) return null;
-        return triggers.getValue("ListenerPolicy.triggers");
+        if (!unknown_triggers) return value_triggers;
+        throw new UndeferrableValueException("Value 'ListenerPolicy.triggers' is not present");
     }
 
 }

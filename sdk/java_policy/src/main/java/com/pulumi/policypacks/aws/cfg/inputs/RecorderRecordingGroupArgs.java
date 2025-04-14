@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cfg.inputs.RecorderRecordingGroupExclusionByResourceTypeArgs;
 import com.pulumi.policypacks.aws.cfg.inputs.RecorderRecordingGroupRecordingStrategyArgs;
 import java.lang.Boolean;
@@ -18,55 +19,60 @@ public final class RecorderRecordingGroupArgs {
      * Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resource_types`. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> allSupported;
-
+    @PolicyResourceProperty(name="allSupported", flag="unknown_allSupported")
+    private Boolean value_allSupported;
+    private boolean unknown_allSupported;
     public Boolean allSupported() {
-        if (allSupported == null) return null;
-        return allSupported.getValue("RecorderRecordingGroupArgs.allSupported");
+        if (!unknown_allSupported) return value_allSupported;
+        throw new UndeferrableValueException("Value 'RecorderRecordingGroupArgs.allSupported' is not present");
     }
 
     /**
      * An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `all_supported = false`. Conflicts with `resource_types`.
      * 
      */
-    private UndeferrableValue<List<RecorderRecordingGroupExclusionByResourceTypeArgs>> exclusionByResourceTypes;
-
+    @PolicyResourceProperty(name="exclusionByResourceTypes", flag="unknown_exclusionByResourceTypes")
+    private List<RecorderRecordingGroupExclusionByResourceTypeArgs> value_exclusionByResourceTypes;
+    private boolean unknown_exclusionByResourceTypes;
     public List<RecorderRecordingGroupExclusionByResourceTypeArgs> exclusionByResourceTypes() {
-        if (exclusionByResourceTypes == null) return null;
-        return exclusionByResourceTypes.getValue("RecorderRecordingGroupArgs.exclusionByResourceTypes");
+        if (!unknown_exclusionByResourceTypes) return value_exclusionByResourceTypes;
+        throw new UndeferrableValueException("Value 'RecorderRecordingGroupArgs.exclusionByResourceTypes' is not present");
     }
 
     /**
      * Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
      * 
      */
-    private UndeferrableValue<Boolean> includeGlobalResourceTypes;
-
+    @PolicyResourceProperty(name="includeGlobalResourceTypes", flag="unknown_includeGlobalResourceTypes")
+    private Boolean value_includeGlobalResourceTypes;
+    private boolean unknown_includeGlobalResourceTypes;
     public Boolean includeGlobalResourceTypes() {
-        if (includeGlobalResourceTypes == null) return null;
-        return includeGlobalResourceTypes.getValue("RecorderRecordingGroupArgs.includeGlobalResourceTypes");
+        if (!unknown_includeGlobalResourceTypes) return value_includeGlobalResourceTypes;
+        throw new UndeferrableValueException("Value 'RecorderRecordingGroupArgs.includeGlobalResourceTypes' is not present");
     }
 
     /**
      * Recording Strategy. Detailed below.
      * 
      */
-    private UndeferrableValue<List<RecorderRecordingGroupRecordingStrategyArgs>> recordingStrategies;
-
+    @PolicyResourceProperty(name="recordingStrategies", flag="unknown_recordingStrategies")
+    private List<RecorderRecordingGroupRecordingStrategyArgs> value_recordingStrategies;
+    private boolean unknown_recordingStrategies;
     public List<RecorderRecordingGroupRecordingStrategyArgs> recordingStrategies() {
-        if (recordingStrategies == null) return null;
-        return recordingStrategies.getValue("RecorderRecordingGroupArgs.recordingStrategies");
+        if (!unknown_recordingStrategies) return value_recordingStrategies;
+        throw new UndeferrableValueException("Value 'RecorderRecordingGroupArgs.recordingStrategies' is not present");
     }
 
     /**
      * A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `all_supported` must be set to false.
      * 
      */
-    private UndeferrableValue<List<String>> resourceTypes;
-
+    @PolicyResourceProperty(name="resourceTypes", flag="unknown_resourceTypes")
+    private List<String> value_resourceTypes;
+    private boolean unknown_resourceTypes;
     public List<String> resourceTypes() {
-        if (resourceTypes == null) return null;
-        return resourceTypes.getValue("RecorderRecordingGroupArgs.resourceTypes");
+        if (!unknown_resourceTypes) return value_resourceTypes;
+        throw new UndeferrableValueException("Value 'RecorderRecordingGroupArgs.resourceTypes' is not present");
     }
 
 }

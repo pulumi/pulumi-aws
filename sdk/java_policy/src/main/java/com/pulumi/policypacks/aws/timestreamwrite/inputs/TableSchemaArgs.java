@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.timestreamwrite.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.timestreamwrite.inputs.TableSchemaCompositePartitionKeyArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class TableSchemaArgs {
      * A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
      * 
      */
-    private UndeferrableValue<TableSchemaCompositePartitionKeyArgs> compositePartitionKey;
-
+    @PolicyResourceProperty(name="compositePartitionKey", flag="unknown_compositePartitionKey")
+    private TableSchemaCompositePartitionKeyArgs value_compositePartitionKey;
+    private boolean unknown_compositePartitionKey;
     public TableSchemaCompositePartitionKeyArgs compositePartitionKey() {
-        if (compositePartitionKey == null) return null;
-        return compositePartitionKey.getValue("TableSchemaArgs.compositePartitionKey");
+        if (!unknown_compositePartitionKey) return value_compositePartitionKey;
+        throw new UndeferrableValueException("Value 'TableSchemaArgs.compositePartitionKey' is not present");
     }
 
 }

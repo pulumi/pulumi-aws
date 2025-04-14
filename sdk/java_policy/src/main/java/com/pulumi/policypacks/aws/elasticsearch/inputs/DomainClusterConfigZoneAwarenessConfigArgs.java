@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticsearch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DomainClusterConfigZoneAwarenessConfigArgs {
      * Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
      * 
      */
-    private UndeferrableValue<Integer> availabilityZoneCount;
-
+    @PolicyResourceProperty(name="availabilityZoneCount", flag="unknown_availabilityZoneCount")
+    private Integer value_availabilityZoneCount;
+    private boolean unknown_availabilityZoneCount;
     public Integer availabilityZoneCount() {
-        if (availabilityZoneCount == null) return null;
-        return availabilityZoneCount.getValue("DomainClusterConfigZoneAwarenessConfigArgs.availabilityZoneCount");
+        if (!unknown_availabilityZoneCount) return value_availabilityZoneCount;
+        throw new UndeferrableValueException("Value 'DomainClusterConfigZoneAwarenessConfigArgs.availabilityZoneCount' is not present");
     }
 
 }

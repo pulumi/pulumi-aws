@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class RestoreTestingSelectionProtectedResourceConditionsStringEqual
      * The Tag name, must start with one of the following prefixes: [aws:ResourceTag/] with a Minimum length of 1. Maximum length of 128, and can contain characters that are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("RestoreTestingSelectionProtectedResourceConditionsStringEqual.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'RestoreTestingSelectionProtectedResourceConditionsStringEqual.key' is not present");
     }
 
     /**
      * The value of the Tag. Maximum length of 256.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("RestoreTestingSelectionProtectedResourceConditionsStringEqual.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'RestoreTestingSelectionProtectedResourceConditionsStringEqual.value' is not present");
     }
 
 }

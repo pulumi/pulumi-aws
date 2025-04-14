@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class DataSetDataSetUsageConfigurationArgs {
      * Controls whether a child dataset of a direct query can use this dataset as a source.
      * 
      */
-    private UndeferrableValue<Boolean> disableUseAsDirectQuerySource;
-
+    @PolicyResourceProperty(name="disableUseAsDirectQuerySource", flag="unknown_disableUseAsDirectQuerySource")
+    private Boolean value_disableUseAsDirectQuerySource;
+    private boolean unknown_disableUseAsDirectQuerySource;
     public Boolean disableUseAsDirectQuerySource() {
-        if (disableUseAsDirectQuerySource == null) return null;
-        return disableUseAsDirectQuerySource.getValue("DataSetDataSetUsageConfigurationArgs.disableUseAsDirectQuerySource");
+        if (!unknown_disableUseAsDirectQuerySource) return value_disableUseAsDirectQuerySource;
+        throw new UndeferrableValueException("Value 'DataSetDataSetUsageConfigurationArgs.disableUseAsDirectQuerySource' is not present");
     }
 
     /**
      * Controls whether a child dataset that&#39;s stored in QuickSight can use this dataset as a source.
      * 
      */
-    private UndeferrableValue<Boolean> disableUseAsImportedSource;
-
+    @PolicyResourceProperty(name="disableUseAsImportedSource", flag="unknown_disableUseAsImportedSource")
+    private Boolean value_disableUseAsImportedSource;
+    private boolean unknown_disableUseAsImportedSource;
     public Boolean disableUseAsImportedSource() {
-        if (disableUseAsImportedSource == null) return null;
-        return disableUseAsImportedSource.getValue("DataSetDataSetUsageConfigurationArgs.disableUseAsImportedSource");
+        if (!unknown_disableUseAsImportedSource) return value_disableUseAsImportedSource;
+        throw new UndeferrableValueException("Value 'DataSetDataSetUsageConfigurationArgs.disableUseAsImportedSource' is not present");
     }
 
 }

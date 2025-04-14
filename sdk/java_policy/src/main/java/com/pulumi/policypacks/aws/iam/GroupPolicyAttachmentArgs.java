@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.iam;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class GroupPolicyAttachmentArgs extends com.pulumi.resources.Policy
      * The group the policy should be applied to
      * 
      */
-    private UndeferrableValue<String> group;
-
+    @PolicyResourceProperty(name="group", flag="unknown_group")
+    private String value_group;
+    private boolean unknown_group;
     public String group() {
-        if (group == null) return null;
-        return group.getValue("GroupPolicyAttachmentArgs.group");
+        if (!unknown_group) return value_group;
+        throw new UndeferrableValueException("Value 'GroupPolicyAttachmentArgs.group' is not present");
     }
 
     /**
      * The ARN of the policy you want to apply
      * 
      */
-    private UndeferrableValue<String> policyArn;
-
+    @PolicyResourceProperty(name="policyArn", flag="unknown_policyArn")
+    private String value_policyArn;
+    private boolean unknown_policyArn;
     public String policyArn() {
-        if (policyArn == null) return null;
-        return policyArn.getValue("GroupPolicyAttachmentArgs.policyArn");
+        if (!unknown_policyArn) return value_policyArn;
+        throw new UndeferrableValueException("Value 'GroupPolicyAttachmentArgs.policyArn' is not present");
     }
 
 }

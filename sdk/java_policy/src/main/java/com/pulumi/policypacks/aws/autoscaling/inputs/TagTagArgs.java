@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 
@@ -14,33 +15,36 @@ public final class TagTagArgs {
      * Tag name.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("TagTagArgs.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'TagTagArgs.key' is not present");
     }
 
     /**
      * Whether to propagate the tags to instances launched by the ASG.
      * 
      */
-    private UndeferrableValue<Boolean> propagateAtLaunch;
-
+    @PolicyResourceProperty(name="propagateAtLaunch", flag="unknown_propagateAtLaunch")
+    private Boolean value_propagateAtLaunch;
+    private boolean unknown_propagateAtLaunch;
     public Boolean propagateAtLaunch() {
-        if (propagateAtLaunch == null) return null;
-        return propagateAtLaunch.getValue("TagTagArgs.propagateAtLaunch");
+        if (!unknown_propagateAtLaunch) return value_propagateAtLaunch;
+        throw new UndeferrableValueException("Value 'TagTagArgs.propagateAtLaunch' is not present");
     }
 
     /**
      * Tag value.
      * 
      */
-    private UndeferrableValue<String> value;
-
+    @PolicyResourceProperty(name="value", flag="unknown_value")
+    private String value_value;
+    private boolean unknown_value;
     public String value() {
-        if (value == null) return null;
-        return value.getValue("TagTagArgs.value");
+        if (!unknown_value) return value_value;
+        throw new UndeferrableValueException("Value 'TagTagArgs.value' is not present");
     }
 
 }

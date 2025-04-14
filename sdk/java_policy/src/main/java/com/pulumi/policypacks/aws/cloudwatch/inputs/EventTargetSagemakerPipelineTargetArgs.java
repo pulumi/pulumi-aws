@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.cloudwatch.inputs.EventTargetSagemakerPipelineTargetPipelineParameterListArgs;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class EventTargetSagemakerPipelineTargetArgs {
      * List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
      * 
      */
-    private UndeferrableValue<List<EventTargetSagemakerPipelineTargetPipelineParameterListArgs>> pipelineParameterLists;
-
+    @PolicyResourceProperty(name="pipelineParameterLists", flag="unknown_pipelineParameterLists")
+    private List<EventTargetSagemakerPipelineTargetPipelineParameterListArgs> value_pipelineParameterLists;
+    private boolean unknown_pipelineParameterLists;
     public List<EventTargetSagemakerPipelineTargetPipelineParameterListArgs> pipelineParameterLists() {
-        if (pipelineParameterLists == null) return null;
-        return pipelineParameterLists.getValue("EventTargetSagemakerPipelineTargetArgs.pipelineParameterLists");
+        if (!unknown_pipelineParameterLists) return value_pipelineParameterLists;
+        throw new UndeferrableValueException("Value 'EventTargetSagemakerPipelineTargetArgs.pipelineParameterLists' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -11,25 +12,28 @@ import javax.annotation.Nullable;
 
 public final class LaunchConfigurationEphemeralBlockDevice {
 
-    private UndeferrableValue<String> deviceName;
-
+    @PolicyResourceProperty(name="deviceName", flag="unknown_deviceName")
+    private String value_deviceName;
+    private boolean unknown_deviceName;
     public String deviceName() {
-        if (deviceName == null) return null;
-        return deviceName.getValue("LaunchConfigurationEphemeralBlockDevice.deviceName");
+        if (!unknown_deviceName) return value_deviceName;
+        throw new UndeferrableValueException("Value 'LaunchConfigurationEphemeralBlockDevice.deviceName' is not present");
     }
 
-    private @Nullable UndeferrableValue<Boolean> noDevice;
-
+    @PolicyResourceProperty(name="noDevice", flag="unknown_noDevice")
+    private @Nullable Boolean value_noDevice;
+    private boolean unknown_noDevice;
     public @Nullable Boolean noDevice() {
-        if (noDevice == null) return null;
-        return noDevice.getValue("LaunchConfigurationEphemeralBlockDevice.noDevice");
+        if (!unknown_noDevice) return value_noDevice;
+        throw new UndeferrableValueException("Value 'LaunchConfigurationEphemeralBlockDevice.noDevice' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> virtualName;
-
+    @PolicyResourceProperty(name="virtualName", flag="unknown_virtualName")
+    private @Nullable String value_virtualName;
+    private boolean unknown_virtualName;
     public @Nullable String virtualName() {
-        if (virtualName == null) return null;
-        return virtualName.getValue("LaunchConfigurationEphemeralBlockDevice.virtualName");
+        if (!unknown_virtualName) return value_virtualName;
+        throw new UndeferrableValueException("Value 'LaunchConfigurationEphemeralBlockDevice.virtualName' is not present");
     }
 
 }

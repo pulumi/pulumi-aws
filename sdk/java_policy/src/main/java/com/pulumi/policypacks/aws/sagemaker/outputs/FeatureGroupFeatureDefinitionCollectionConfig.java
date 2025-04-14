@@ -3,18 +3,20 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.outputs.FeatureGroupFeatureDefinitionCollectionConfigVectorConfig;
 import javax.annotation.Nullable;
 
 
 public final class FeatureGroupFeatureDefinitionCollectionConfig {
 
-    private @Nullable UndeferrableValue<FeatureGroupFeatureDefinitionCollectionConfigVectorConfig> vectorConfig;
-
+    @PolicyResourceProperty(name="vectorConfig", flag="unknown_vectorConfig")
+    private @Nullable FeatureGroupFeatureDefinitionCollectionConfigVectorConfig value_vectorConfig;
+    private boolean unknown_vectorConfig;
     public @Nullable FeatureGroupFeatureDefinitionCollectionConfigVectorConfig vectorConfig() {
-        if (vectorConfig == null) return null;
-        return vectorConfig.getValue("FeatureGroupFeatureDefinitionCollectionConfig.vectorConfig");
+        if (!unknown_vectorConfig) return value_vectorConfig;
+        throw new UndeferrableValueException("Value 'FeatureGroupFeatureDefinitionCollectionConfig.vectorConfig' is not present");
     }
 
 }

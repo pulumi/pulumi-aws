@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.sagemaker.outputs.EndpointDeploymentConfig;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class Endpoint extends com.pulumi.resources.PolicyResourceOutput {
      * The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Endpoint.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Endpoint.arn' is not present");
     }
 
     /**
      * The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
      * 
      */
-    private @Nullable UndeferrableValue<EndpointDeploymentConfig> deploymentConfig;
-
+    @PolicyResourceProperty(name="deploymentConfig", flag="unknown_deploymentConfig")
+    private @Nullable EndpointDeploymentConfig value_deploymentConfig;
+    private boolean unknown_deploymentConfig;
     public @Nullable EndpointDeploymentConfig deploymentConfig() {
-        if (deploymentConfig == null) return null;
-        return deploymentConfig.getValue("Endpoint.deploymentConfig");
+        if (!unknown_deploymentConfig) return value_deploymentConfig;
+        throw new UndeferrableValueException("Value 'Endpoint.deploymentConfig' is not present");
     }
 
     /**
      * The name of the endpoint configuration to use.
      * 
      */
-    private UndeferrableValue<String> endpointConfigName;
-
+    @PolicyResourceProperty(name="endpointConfigName", flag="unknown_endpointConfigName")
+    private String value_endpointConfigName;
+    private boolean unknown_endpointConfigName;
     public String endpointConfigName() {
-        if (endpointConfigName == null) return null;
-        return endpointConfigName.getValue("Endpoint.endpointConfigName");
+        if (!unknown_endpointConfigName) return value_endpointConfigName;
+        throw new UndeferrableValueException("Value 'Endpoint.endpointConfigName' is not present");
     }
 
     /**
      * The name of the endpoint. If omitted, the provider will assign a random, unique name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Endpoint.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Endpoint.name' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Endpoint.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Endpoint.tags' is not present");
     }
 
     /**
@@ -77,11 +83,12 @@ public final class Endpoint extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Endpoint.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Endpoint.tagsAll' is not present");
     }
 
 }

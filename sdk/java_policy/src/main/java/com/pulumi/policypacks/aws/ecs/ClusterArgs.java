@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ecs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ecs.inputs.ClusterConfigurationArgs;
 import com.pulumi.policypacks.aws.ecs.inputs.ClusterServiceConnectDefaultsArgs;
@@ -21,11 +22,12 @@ public final class ClusterArgs extends com.pulumi.resources.PolicyResourceInput 
      * Execute command configuration for the cluster. See `configuration` Block for details.
      * 
      */
-    private UndeferrableValue<ClusterConfigurationArgs> configuration;
-
+    @PolicyResourceProperty(name="configuration", flag="unknown_configuration")
+    private ClusterConfigurationArgs value_configuration;
+    private boolean unknown_configuration;
     public ClusterConfigurationArgs configuration() {
-        if (configuration == null) return null;
-        return configuration.getValue("ClusterArgs.configuration");
+        if (!unknown_configuration) return value_configuration;
+        throw new UndeferrableValueException("Value 'ClusterArgs.configuration' is not present");
     }
 
     /**
@@ -34,44 +36,48 @@ public final class ClusterArgs extends com.pulumi.resources.PolicyResourceInput 
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ClusterArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ClusterArgs.name' is not present");
     }
 
     /**
      * Default Service Connect namespace. See `service_connect_defaults` Block for details.
      * 
      */
-    private UndeferrableValue<ClusterServiceConnectDefaultsArgs> serviceConnectDefaults;
-
+    @PolicyResourceProperty(name="serviceConnectDefaults", flag="unknown_serviceConnectDefaults")
+    private ClusterServiceConnectDefaultsArgs value_serviceConnectDefaults;
+    private boolean unknown_serviceConnectDefaults;
     public ClusterServiceConnectDefaultsArgs serviceConnectDefaults() {
-        if (serviceConnectDefaults == null) return null;
-        return serviceConnectDefaults.getValue("ClusterArgs.serviceConnectDefaults");
+        if (!unknown_serviceConnectDefaults) return value_serviceConnectDefaults;
+        throw new UndeferrableValueException("Value 'ClusterArgs.serviceConnectDefaults' is not present");
     }
 
     /**
      * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
      * 
      */
-    private UndeferrableValue<List<ClusterSettingArgs>> settings;
-
+    @PolicyResourceProperty(name="settings", flag="unknown_settings")
+    private List<ClusterSettingArgs> value_settings;
+    private boolean unknown_settings;
     public List<ClusterSettingArgs> settings() {
-        if (settings == null) return null;
-        return settings.getValue("ClusterArgs.settings");
+        if (!unknown_settings) return value_settings;
+        throw new UndeferrableValueException("Value 'ClusterArgs.settings' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ClusterArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ClusterArgs.tags' is not present");
     }
 
 }

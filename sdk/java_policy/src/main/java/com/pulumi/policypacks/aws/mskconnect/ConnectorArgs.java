@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mskconnect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.mskconnect.inputs.ConnectorCapacityArgs;
 import com.pulumi.policypacks.aws.mskconnect.inputs.ConnectorKafkaClusterArgs;
@@ -25,110 +26,120 @@ public final class ConnectorArgs extends com.pulumi.resources.PolicyResourceInpu
      * Information about the capacity allocated to the connector. See `capacity` Block for details.
      * 
      */
-    private UndeferrableValue<ConnectorCapacityArgs> capacity;
-
+    @PolicyResourceProperty(name="capacity", flag="unknown_capacity")
+    private ConnectorCapacityArgs value_capacity;
+    private boolean unknown_capacity;
     public ConnectorCapacityArgs capacity() {
-        if (capacity == null) return null;
-        return capacity.getValue("ConnectorArgs.capacity");
+        if (!unknown_capacity) return value_capacity;
+        throw new UndeferrableValueException("Value 'ConnectorArgs.capacity' is not present");
     }
 
     /**
      * A map of keys to values that represent the configuration for the connector.
      * 
      */
-    private UndeferrableValue<Map<String,String>> connectorConfiguration;
-
+    @PolicyResourceProperty(name="connectorConfiguration", flag="unknown_connectorConfiguration")
+    private Map<String,String> value_connectorConfiguration;
+    private boolean unknown_connectorConfiguration;
     public Map<String,String> connectorConfiguration() {
-        if (connectorConfiguration == null) return null;
-        return connectorConfiguration.getValue("ConnectorArgs.connectorConfiguration");
+        if (!unknown_connectorConfiguration) return value_connectorConfiguration;
+        throw new UndeferrableValueException("Value 'ConnectorArgs.connectorConfiguration' is not present");
     }
 
     /**
      * A summary description of the connector.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ConnectorArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ConnectorArgs.description' is not present");
     }
 
     /**
      * Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
      * 
      */
-    private UndeferrableValue<ConnectorKafkaClusterArgs> kafkaCluster;
-
+    @PolicyResourceProperty(name="kafkaCluster", flag="unknown_kafkaCluster")
+    private ConnectorKafkaClusterArgs value_kafkaCluster;
+    private boolean unknown_kafkaCluster;
     public ConnectorKafkaClusterArgs kafkaCluster() {
-        if (kafkaCluster == null) return null;
-        return kafkaCluster.getValue("ConnectorArgs.kafkaCluster");
+        if (!unknown_kafkaCluster) return value_kafkaCluster;
+        throw new UndeferrableValueException("Value 'ConnectorArgs.kafkaCluster' is not present");
     }
 
     /**
      * Details of the client authentication used by the Apache Kafka cluster. See `kafka_cluster_client_authentication` Block for details.
      * 
      */
-    private UndeferrableValue<ConnectorKafkaClusterClientAuthenticationArgs> kafkaClusterClientAuthentication;
-
+    @PolicyResourceProperty(name="kafkaClusterClientAuthentication", flag="unknown_kafkaClusterClientAuthentication")
+    private ConnectorKafkaClusterClientAuthenticationArgs value_kafkaClusterClientAuthentication;
+    private boolean unknown_kafkaClusterClientAuthentication;
     public ConnectorKafkaClusterClientAuthenticationArgs kafkaClusterClientAuthentication() {
-        if (kafkaClusterClientAuthentication == null) return null;
-        return kafkaClusterClientAuthentication.getValue("ConnectorArgs.kafkaClusterClientAuthentication");
+        if (!unknown_kafkaClusterClientAuthentication) return value_kafkaClusterClientAuthentication;
+        throw new UndeferrableValueException("Value 'ConnectorArgs.kafkaClusterClientAuthentication' is not present");
     }
 
     /**
      * Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
      * 
      */
-    private UndeferrableValue<ConnectorKafkaClusterEncryptionInTransitArgs> kafkaClusterEncryptionInTransit;
-
+    @PolicyResourceProperty(name="kafkaClusterEncryptionInTransit", flag="unknown_kafkaClusterEncryptionInTransit")
+    private ConnectorKafkaClusterEncryptionInTransitArgs value_kafkaClusterEncryptionInTransit;
+    private boolean unknown_kafkaClusterEncryptionInTransit;
     public ConnectorKafkaClusterEncryptionInTransitArgs kafkaClusterEncryptionInTransit() {
-        if (kafkaClusterEncryptionInTransit == null) return null;
-        return kafkaClusterEncryptionInTransit.getValue("ConnectorArgs.kafkaClusterEncryptionInTransit");
+        if (!unknown_kafkaClusterEncryptionInTransit) return value_kafkaClusterEncryptionInTransit;
+        throw new UndeferrableValueException("Value 'ConnectorArgs.kafkaClusterEncryptionInTransit' is not present");
     }
 
     /**
      * The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster&#39;s version and the plugins.
      * 
      */
-    private UndeferrableValue<String> kafkaconnectVersion;
-
+    @PolicyResourceProperty(name="kafkaconnectVersion", flag="unknown_kafkaconnectVersion")
+    private String value_kafkaconnectVersion;
+    private boolean unknown_kafkaconnectVersion;
     public String kafkaconnectVersion() {
-        if (kafkaconnectVersion == null) return null;
-        return kafkaconnectVersion.getValue("ConnectorArgs.kafkaconnectVersion");
+        if (!unknown_kafkaconnectVersion) return value_kafkaconnectVersion;
+        throw new UndeferrableValueException("Value 'ConnectorArgs.kafkaconnectVersion' is not present");
     }
 
     /**
      * Details about log delivery. See `log_delivery` Block for details.
      * 
      */
-    private UndeferrableValue<ConnectorLogDeliveryArgs> logDelivery;
-
+    @PolicyResourceProperty(name="logDelivery", flag="unknown_logDelivery")
+    private ConnectorLogDeliveryArgs value_logDelivery;
+    private boolean unknown_logDelivery;
     public ConnectorLogDeliveryArgs logDelivery() {
-        if (logDelivery == null) return null;
-        return logDelivery.getValue("ConnectorArgs.logDelivery");
+        if (!unknown_logDelivery) return value_logDelivery;
+        throw new UndeferrableValueException("Value 'ConnectorArgs.logDelivery' is not present");
     }
 
     /**
      * The name of the connector.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ConnectorArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ConnectorArgs.name' is not present");
     }
 
     /**
      * Specifies which plugins to use for the connector. See `plugin` Block for details.
      * 
      */
-    private UndeferrableValue<List<ConnectorPluginArgs>> plugins;
-
+    @PolicyResourceProperty(name="plugins", flag="unknown_plugins")
+    private List<ConnectorPluginArgs> value_plugins;
+    private boolean unknown_plugins;
     public List<ConnectorPluginArgs> plugins() {
-        if (plugins == null) return null;
-        return plugins.getValue("ConnectorArgs.plugins");
+        if (!unknown_plugins) return value_plugins;
+        throw new UndeferrableValueException("Value 'ConnectorArgs.plugins' is not present");
     }
 
     /**
@@ -137,33 +148,36 @@ public final class ConnectorArgs extends com.pulumi.resources.PolicyResourceInpu
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> serviceExecutionRoleArn;
-
+    @PolicyResourceProperty(name="serviceExecutionRoleArn", flag="unknown_serviceExecutionRoleArn")
+    private String value_serviceExecutionRoleArn;
+    private boolean unknown_serviceExecutionRoleArn;
     public String serviceExecutionRoleArn() {
-        if (serviceExecutionRoleArn == null) return null;
-        return serviceExecutionRoleArn.getValue("ConnectorArgs.serviceExecutionRoleArn");
+        if (!unknown_serviceExecutionRoleArn) return value_serviceExecutionRoleArn;
+        throw new UndeferrableValueException("Value 'ConnectorArgs.serviceExecutionRoleArn' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ConnectorArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ConnectorArgs.tags' is not present");
     }
 
     /**
      * Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
      * 
      */
-    private UndeferrableValue<ConnectorWorkerConfigurationArgs> workerConfiguration;
-
+    @PolicyResourceProperty(name="workerConfiguration", flag="unknown_workerConfiguration")
+    private ConnectorWorkerConfigurationArgs value_workerConfiguration;
+    private boolean unknown_workerConfiguration;
     public ConnectorWorkerConfigurationArgs workerConfiguration() {
-        if (workerConfiguration == null) return null;
-        return workerConfiguration.getValue("ConnectorArgs.workerConfiguration");
+        if (!unknown_workerConfiguration) return value_workerConfiguration;
+        throw new UndeferrableValueException("Value 'ConnectorArgs.workerConfiguration' is not present");
     }
 
 }

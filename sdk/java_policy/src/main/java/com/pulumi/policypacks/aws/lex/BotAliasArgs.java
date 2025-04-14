@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lex.inputs.BotAliasConversationLogsArgs;
 import java.lang.String;
@@ -17,55 +18,60 @@ public final class BotAliasArgs extends com.pulumi.resources.PolicyResourceInput
      * The name of the bot.
      * 
      */
-    private UndeferrableValue<String> botName;
-
+    @PolicyResourceProperty(name="botName", flag="unknown_botName")
+    private String value_botName;
+    private boolean unknown_botName;
     public String botName() {
-        if (botName == null) return null;
-        return botName.getValue("BotAliasArgs.botName");
+        if (!unknown_botName) return value_botName;
+        throw new UndeferrableValueException("Value 'BotAliasArgs.botName' is not present");
     }
 
     /**
      * The version of the bot.
      * 
      */
-    private UndeferrableValue<String> botVersion;
-
+    @PolicyResourceProperty(name="botVersion", flag="unknown_botVersion")
+    private String value_botVersion;
+    private boolean unknown_botVersion;
     public String botVersion() {
-        if (botVersion == null) return null;
-        return botVersion.getValue("BotAliasArgs.botVersion");
+        if (!unknown_botVersion) return value_botVersion;
+        throw new UndeferrableValueException("Value 'BotAliasArgs.botVersion' is not present");
     }
 
     /**
      * The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
      * 
      */
-    private UndeferrableValue<BotAliasConversationLogsArgs> conversationLogs;
-
+    @PolicyResourceProperty(name="conversationLogs", flag="unknown_conversationLogs")
+    private BotAliasConversationLogsArgs value_conversationLogs;
+    private boolean unknown_conversationLogs;
     public BotAliasConversationLogsArgs conversationLogs() {
-        if (conversationLogs == null) return null;
-        return conversationLogs.getValue("BotAliasArgs.conversationLogs");
+        if (!unknown_conversationLogs) return value_conversationLogs;
+        throw new UndeferrableValueException("Value 'BotAliasArgs.conversationLogs' is not present");
     }
 
     /**
      * A description of the alias. Must be less than or equal to 200 characters in length.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("BotAliasArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'BotAliasArgs.description' is not present");
     }
 
     /**
      * The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("BotAliasArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'BotAliasArgs.name' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lex;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.lex.inputs.BotAbortStatementArgs;
 import com.pulumi.policypacks.aws.lex.inputs.BotClarificationPromptArgs;
@@ -23,154 +24,168 @@ public final class BotArgs extends com.pulumi.resources.PolicyResourceInput {
      * The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
      * 
      */
-    private UndeferrableValue<BotAbortStatementArgs> abortStatement;
-
+    @PolicyResourceProperty(name="abortStatement", flag="unknown_abortStatement")
+    private BotAbortStatementArgs value_abortStatement;
+    private boolean unknown_abortStatement;
     public BotAbortStatementArgs abortStatement() {
-        if (abortStatement == null) return null;
-        return abortStatement.getValue("BotArgs.abortStatement");
+        if (!unknown_abortStatement) return value_abortStatement;
+        throw new UndeferrableValueException("Value 'BotArgs.abortStatement' is not present");
     }
 
     /**
      * By specifying true, you confirm that your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. For more information see the [Amazon Lex FAQ](https://aws.amazon.com/lex/faqs#data-security) and the [Amazon Lex PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-childDirected).
      * 
      */
-    private UndeferrableValue<Boolean> childDirected;
-
+    @PolicyResourceProperty(name="childDirected", flag="unknown_childDirected")
+    private Boolean value_childDirected;
+    private boolean unknown_childDirected;
     public Boolean childDirected() {
-        if (childDirected == null) return null;
-        return childDirected.getValue("BotArgs.childDirected");
+        if (!unknown_childDirected) return value_childDirected;
+        throw new UndeferrableValueException("Value 'BotArgs.childDirected' is not present");
     }
 
     /**
      * The message that Amazon Lex uses when it doesn&#39;t understand the user&#39;s request. Attributes are documented under prompt.
      * 
      */
-    private UndeferrableValue<BotClarificationPromptArgs> clarificationPrompt;
-
+    @PolicyResourceProperty(name="clarificationPrompt", flag="unknown_clarificationPrompt")
+    private BotClarificationPromptArgs value_clarificationPrompt;
+    private boolean unknown_clarificationPrompt;
     public BotClarificationPromptArgs clarificationPrompt() {
-        if (clarificationPrompt == null) return null;
-        return clarificationPrompt.getValue("BotArgs.clarificationPrompt");
+        if (!unknown_clarificationPrompt) return value_clarificationPrompt;
+        throw new UndeferrableValueException("Value 'BotArgs.clarificationPrompt' is not present");
     }
 
     /**
      * Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
      * 
      */
-    private UndeferrableValue<Boolean> createVersion;
-
+    @PolicyResourceProperty(name="createVersion", flag="unknown_createVersion")
+    private Boolean value_createVersion;
+    private boolean unknown_createVersion;
     public Boolean createVersion() {
-        if (createVersion == null) return null;
-        return createVersion.getValue("BotArgs.createVersion");
+        if (!unknown_createVersion) return value_createVersion;
+        throw new UndeferrableValueException("Value 'BotArgs.createVersion' is not present");
     }
 
     /**
      * A description of the bot. Must be less than or equal to 200 characters in length.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("BotArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'BotArgs.description' is not present");
     }
 
     /**
      * When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don&#39;t specify detectSentiment, the default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> detectSentiment;
-
+    @PolicyResourceProperty(name="detectSentiment", flag="unknown_detectSentiment")
+    private Boolean value_detectSentiment;
+    private boolean unknown_detectSentiment;
     public Boolean detectSentiment() {
-        if (detectSentiment == null) return null;
-        return detectSentiment.getValue("BotArgs.detectSentiment");
+        if (!unknown_detectSentiment) return value_detectSentiment;
+        throw new UndeferrableValueException("Value 'BotArgs.detectSentiment' is not present");
     }
 
     /**
      * Set to `true` to enable access to natural language understanding improvements. When you set the `enable_model_improvements` parameter to true you can use the `nlu_intent_confidence_threshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enable_model_improvements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
      * 
      */
-    private UndeferrableValue<Boolean> enableModelImprovements;
-
+    @PolicyResourceProperty(name="enableModelImprovements", flag="unknown_enableModelImprovements")
+    private Boolean value_enableModelImprovements;
+    private boolean unknown_enableModelImprovements;
     public Boolean enableModelImprovements() {
-        if (enableModelImprovements == null) return null;
-        return enableModelImprovements.getValue("BotArgs.enableModelImprovements");
+        if (!unknown_enableModelImprovements) return value_enableModelImprovements;
+        throw new UndeferrableValueException("Value 'BotArgs.enableModelImprovements' is not present");
     }
 
     /**
      * The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
      * 
      */
-    private UndeferrableValue<Integer> idleSessionTtlInSeconds;
-
+    @PolicyResourceProperty(name="idleSessionTtlInSeconds", flag="unknown_idleSessionTtlInSeconds")
+    private Integer value_idleSessionTtlInSeconds;
+    private boolean unknown_idleSessionTtlInSeconds;
     public Integer idleSessionTtlInSeconds() {
-        if (idleSessionTtlInSeconds == null) return null;
-        return idleSessionTtlInSeconds.getValue("BotArgs.idleSessionTtlInSeconds");
+        if (!unknown_idleSessionTtlInSeconds) return value_idleSessionTtlInSeconds;
+        throw new UndeferrableValueException("Value 'BotArgs.idleSessionTtlInSeconds' is not present");
     }
 
     /**
      * A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
      * 
      */
-    private UndeferrableValue<List<BotIntentArgs>> intents;
-
+    @PolicyResourceProperty(name="intents", flag="unknown_intents")
+    private List<BotIntentArgs> value_intents;
+    private boolean unknown_intents;
     public List<BotIntentArgs> intents() {
-        if (intents == null) return null;
-        return intents.getValue("BotArgs.intents");
+        if (!unknown_intents) return value_intents;
+        throw new UndeferrableValueException("Value 'BotArgs.intents' is not present");
     }
 
     /**
      * Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
      * 
      */
-    private UndeferrableValue<String> locale;
-
+    @PolicyResourceProperty(name="locale", flag="unknown_locale")
+    private String value_locale;
+    private boolean unknown_locale;
     public String locale() {
-        if (locale == null) return null;
-        return locale.getValue("BotArgs.locale");
+        if (!unknown_locale) return value_locale;
+        throw new UndeferrableValueException("Value 'BotArgs.locale' is not present");
     }
 
     /**
      * The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("BotArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'BotArgs.name' is not present");
     }
 
     /**
      * Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enable_model_improvements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
      * 
      */
-    private UndeferrableValue<Double> nluIntentConfidenceThreshold;
-
+    @PolicyResourceProperty(name="nluIntentConfidenceThreshold", flag="unknown_nluIntentConfidenceThreshold")
+    private Double value_nluIntentConfidenceThreshold;
+    private boolean unknown_nluIntentConfidenceThreshold;
     public Double nluIntentConfidenceThreshold() {
-        if (nluIntentConfidenceThreshold == null) return null;
-        return nluIntentConfidenceThreshold.getValue("BotArgs.nluIntentConfidenceThreshold");
+        if (!unknown_nluIntentConfidenceThreshold) return value_nluIntentConfidenceThreshold;
+        throw new UndeferrableValueException("Value 'BotArgs.nluIntentConfidenceThreshold' is not present");
     }
 
     /**
      * If you set the `process_behavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn&#39;t build it. Default is `SAVE`.
      * 
      */
-    private UndeferrableValue<String> processBehavior;
-
+    @PolicyResourceProperty(name="processBehavior", flag="unknown_processBehavior")
+    private String value_processBehavior;
+    private boolean unknown_processBehavior;
     public String processBehavior() {
-        if (processBehavior == null) return null;
-        return processBehavior.getValue("BotArgs.processBehavior");
+        if (!unknown_processBehavior) return value_processBehavior;
+        throw new UndeferrableValueException("Value 'BotArgs.processBehavior' is not present");
     }
 
     /**
      * The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
      * 
      */
-    private UndeferrableValue<String> voiceId;
-
+    @PolicyResourceProperty(name="voiceId", flag="unknown_voiceId")
+    private String value_voiceId;
+    private boolean unknown_voiceId;
     public String voiceId() {
-        if (voiceId == null) return null;
-        return voiceId.getValue("BotArgs.voiceId");
+        if (!unknown_voiceId) return value_voiceId;
+        throw new UndeferrableValueException("Value 'BotArgs.voiceId' is not present");
     }
 
 }

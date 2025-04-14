@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,33 +17,36 @@ public final class MacsecKeyAssociationArgs extends com.pulumi.resources.PolicyR
      * The MAC Security (MACsec) CAK to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `ckn`.
      * 
      */
-    private UndeferrableValue<String> cak;
-
+    @PolicyResourceProperty(name="cak", flag="unknown_cak")
+    private String value_cak;
+    private boolean unknown_cak;
     public String cak() {
-        if (cak == null) return null;
-        return cak.getValue("MacsecKeyAssociationArgs.cak");
+        if (!unknown_cak) return value_cak;
+        throw new UndeferrableValueException("Value 'MacsecKeyAssociationArgs.cak' is not present");
     }
 
     /**
      * The MAC Security (MACsec) CKN to associate with the dedicated connection. The valid values are 64 hexadecimal characters (0-9, A-E). Required if using `cak`.
      * 
      */
-    private UndeferrableValue<String> ckn;
-
+    @PolicyResourceProperty(name="ckn", flag="unknown_ckn")
+    private String value_ckn;
+    private boolean unknown_ckn;
     public String ckn() {
-        if (ckn == null) return null;
-        return ckn.getValue("MacsecKeyAssociationArgs.ckn");
+        if (!unknown_ckn) return value_ckn;
+        throw new UndeferrableValueException("Value 'MacsecKeyAssociationArgs.ckn' is not present");
     }
 
     /**
      * The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
      * 
      */
-    private UndeferrableValue<String> connectionId;
-
+    @PolicyResourceProperty(name="connectionId", flag="unknown_connectionId")
+    private String value_connectionId;
+    private boolean unknown_connectionId;
     public String connectionId() {
-        if (connectionId == null) return null;
-        return connectionId.getValue("MacsecKeyAssociationArgs.connectionId");
+        if (!unknown_connectionId) return value_connectionId;
+        throw new UndeferrableValueException("Value 'MacsecKeyAssociationArgs.connectionId' is not present");
     }
 
     /**
@@ -51,11 +55,12 @@ public final class MacsecKeyAssociationArgs extends com.pulumi.resources.PolicyR
      * &gt; **Note:** `ckn` and `cak` are mutually exclusive with `secret_arn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secret_arn`. If you use the `secret_arn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
      * 
      */
-    private UndeferrableValue<String> secretArn;
-
+    @PolicyResourceProperty(name="secretArn", flag="unknown_secretArn")
+    private String value_secretArn;
+    private boolean unknown_secretArn;
     public String secretArn() {
-        if (secretArn == null) return null;
-        return secretArn.getValue("MacsecKeyAssociationArgs.secretArn");
+        if (!unknown_secretArn) return value_secretArn;
+        throw new UndeferrableValueException("Value 'MacsecKeyAssociationArgs.secretArn' is not present");
     }
 
 }

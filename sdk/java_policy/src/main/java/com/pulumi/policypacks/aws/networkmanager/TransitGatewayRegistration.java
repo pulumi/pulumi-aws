@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class TransitGatewayRegistration extends com.pulumi.resources.Polic
      * The ID of the Global Network to register to.
      * 
      */
-    private UndeferrableValue<String> globalNetworkId;
-
+    @PolicyResourceProperty(name="globalNetworkId", flag="unknown_globalNetworkId")
+    private String value_globalNetworkId;
+    private boolean unknown_globalNetworkId;
     public String globalNetworkId() {
-        if (globalNetworkId == null) return null;
-        return globalNetworkId.getValue("TransitGatewayRegistration.globalNetworkId");
+        if (!unknown_globalNetworkId) return value_globalNetworkId;
+        throw new UndeferrableValueException("Value 'TransitGatewayRegistration.globalNetworkId' is not present");
     }
 
     /**
      * The ARN of the Transit Gateway to register.
      * 
      */
-    private UndeferrableValue<String> transitGatewayArn;
-
+    @PolicyResourceProperty(name="transitGatewayArn", flag="unknown_transitGatewayArn")
+    private String value_transitGatewayArn;
+    private boolean unknown_transitGatewayArn;
     public String transitGatewayArn() {
-        if (transitGatewayArn == null) return null;
-        return transitGatewayArn.getValue("TransitGatewayRegistration.transitGatewayArn");
+        if (!unknown_transitGatewayArn) return value_transitGatewayArn;
+        throw new UndeferrableValueException("Value 'TransitGatewayRegistration.transitGatewayArn' is not present");
     }
 
 }

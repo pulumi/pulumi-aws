@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.accessanalyzer.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class AnalyzerConfigurationUnusedAccessArgs {
      * The specified access age in days for which to generate findings for unused access.
      * 
      */
-    private UndeferrableValue<Integer> unusedAccessAge;
-
+    @PolicyResourceProperty(name="unusedAccessAge", flag="unknown_unusedAccessAge")
+    private Integer value_unusedAccessAge;
+    private boolean unknown_unusedAccessAge;
     public Integer unusedAccessAge() {
-        if (unusedAccessAge == null) return null;
-        return unusedAccessAge.getValue("AnalyzerConfigurationUnusedAccessArgs.unusedAccessAge");
+        if (!unknown_unusedAccessAge) return value_unusedAccessAge;
+        throw new UndeferrableValueException("Value 'AnalyzerConfigurationUnusedAccessArgs.unusedAccessAge' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.alb.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.alb.inputs.ListenerRuleActionForwardStickinessArgs;
 import com.pulumi.policypacks.aws.alb.inputs.ListenerRuleActionForwardTargetGroupArgs;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class ListenerRuleActionForwardArgs {
      * The target group stickiness for the rule.
      * 
      */
-    private UndeferrableValue<ListenerRuleActionForwardStickinessArgs> stickiness;
-
+    @PolicyResourceProperty(name="stickiness", flag="unknown_stickiness")
+    private ListenerRuleActionForwardStickinessArgs value_stickiness;
+    private boolean unknown_stickiness;
     public ListenerRuleActionForwardStickinessArgs stickiness() {
-        if (stickiness == null) return null;
-        return stickiness.getValue("ListenerRuleActionForwardArgs.stickiness");
+        if (!unknown_stickiness) return value_stickiness;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionForwardArgs.stickiness' is not present");
     }
 
     /**
      * One or more target group blocks.
      * 
      */
-    private UndeferrableValue<List<ListenerRuleActionForwardTargetGroupArgs>> targetGroups;
-
+    @PolicyResourceProperty(name="targetGroups", flag="unknown_targetGroups")
+    private List<ListenerRuleActionForwardTargetGroupArgs> value_targetGroups;
+    private boolean unknown_targetGroups;
     public List<ListenerRuleActionForwardTargetGroupArgs> targetGroups() {
-        if (targetGroups == null) return null;
-        return targetGroups.getValue("ListenerRuleActionForwardArgs.targetGroups");
+        if (!unknown_targetGroups) return value_targetGroups;
+        throw new UndeferrableValueException("Value 'ListenerRuleActionForwardArgs.targetGroups' is not present");
     }
 
 }

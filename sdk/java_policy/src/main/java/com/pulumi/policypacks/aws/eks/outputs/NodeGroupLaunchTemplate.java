@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class NodeGroupLaunchTemplate {
      * Identifier of the EC2 Launch Template. Conflicts with `name`.
      * 
      */
-    private @Nullable UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private @Nullable String value_id;
+    private boolean unknown_id;
     public @Nullable String id() {
-        if (id == null) return null;
-        return id.getValue("NodeGroupLaunchTemplate.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'NodeGroupLaunchTemplate.id' is not present");
     }
 
     /**
      * Name of the EC2 Launch Template. Conflicts with `id`.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("NodeGroupLaunchTemplate.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'NodeGroupLaunchTemplate.name' is not present");
     }
 
     /**
      * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("NodeGroupLaunchTemplate.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'NodeGroupLaunchTemplate.version' is not present");
     }
 
 }

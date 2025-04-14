@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.inputs.WorkteamWorkerAccessConfigurationS3PresignArgs;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class WorkteamWorkerAccessConfigurationArgs {
      * Defines any Amazon S3 resource constraints. see S3 Presign details below.
      * 
      */
-    private UndeferrableValue<WorkteamWorkerAccessConfigurationS3PresignArgs> s3Presign;
-
+    @PolicyResourceProperty(name="s3Presign", flag="unknown_s3Presign")
+    private WorkteamWorkerAccessConfigurationS3PresignArgs value_s3Presign;
+    private boolean unknown_s3Presign;
     public WorkteamWorkerAccessConfigurationS3PresignArgs s3Presign() {
-        if (s3Presign == null) return null;
-        return s3Presign.getValue("WorkteamWorkerAccessConfigurationArgs.s3Presign");
+        if (!unknown_s3Presign) return value_s3Presign;
+        throw new UndeferrableValueException("Value 'WorkteamWorkerAccessConfigurationArgs.s3Presign' is not present");
     }
 
 }

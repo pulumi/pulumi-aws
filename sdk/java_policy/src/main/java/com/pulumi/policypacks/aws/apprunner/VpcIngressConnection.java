@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.apprunner.outputs.VpcIngressConnectionIngressVpcConfiguration;
 import java.lang.String;
@@ -18,77 +19,84 @@ public final class VpcIngressConnection extends com.pulumi.resources.PolicyResou
      * The Amazon Resource Name (ARN) of the VPC Ingress Connection.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("VpcIngressConnection.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'VpcIngressConnection.arn' is not present");
     }
 
     /**
      * The domain name associated with the VPC Ingress Connection resource.
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("VpcIngressConnection.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'VpcIngressConnection.domainName' is not present");
     }
 
     /**
      * Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
      * 
      */
-    private UndeferrableValue<VpcIngressConnectionIngressVpcConfiguration> ingressVpcConfiguration;
-
+    @PolicyResourceProperty(name="ingressVpcConfiguration", flag="unknown_ingressVpcConfiguration")
+    private VpcIngressConnectionIngressVpcConfiguration value_ingressVpcConfiguration;
+    private boolean unknown_ingressVpcConfiguration;
     public VpcIngressConnectionIngressVpcConfiguration ingressVpcConfiguration() {
-        if (ingressVpcConfiguration == null) return null;
-        return ingressVpcConfiguration.getValue("VpcIngressConnection.ingressVpcConfiguration");
+        if (!unknown_ingressVpcConfiguration) return value_ingressVpcConfiguration;
+        throw new UndeferrableValueException("Value 'VpcIngressConnection.ingressVpcConfiguration' is not present");
     }
 
     /**
      * A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("VpcIngressConnection.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'VpcIngressConnection.name' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
      * 
      */
-    private UndeferrableValue<String> serviceArn;
-
+    @PolicyResourceProperty(name="serviceArn", flag="unknown_serviceArn")
+    private String value_serviceArn;
+    private boolean unknown_serviceArn;
     public String serviceArn() {
-        if (serviceArn == null) return null;
-        return serviceArn.getValue("VpcIngressConnection.serviceArn");
+        if (!unknown_serviceArn) return value_serviceArn;
+        throw new UndeferrableValueException("Value 'VpcIngressConnection.serviceArn' is not present");
     }
 
     /**
      * The current status of the VPC Ingress Connection.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("VpcIngressConnection.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'VpcIngressConnection.status' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("VpcIngressConnection.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'VpcIngressConnection.tags' is not present");
     }
 
     /**
@@ -99,11 +107,12 @@ public final class VpcIngressConnection extends com.pulumi.resources.PolicyResou
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("VpcIngressConnection.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'VpcIngressConnection.tagsAll' is not present");
     }
 
 }

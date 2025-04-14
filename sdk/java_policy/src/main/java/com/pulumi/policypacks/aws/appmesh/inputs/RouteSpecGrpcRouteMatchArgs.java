@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appmesh.inputs.RouteSpecGrpcRouteMatchMetadataArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,51 +18,56 @@ public final class RouteSpecGrpcRouteMatchArgs {
      * Data to match from the gRPC request.
      * 
      */
-    private UndeferrableValue<List<RouteSpecGrpcRouteMatchMetadataArgs>> metadatas;
-
+    @PolicyResourceProperty(name="metadatas", flag="unknown_metadatas")
+    private List<RouteSpecGrpcRouteMatchMetadataArgs> value_metadatas;
+    private boolean unknown_metadatas;
     public List<RouteSpecGrpcRouteMatchMetadataArgs> metadatas() {
-        if (metadatas == null) return null;
-        return metadatas.getValue("RouteSpecGrpcRouteMatchArgs.metadatas");
+        if (!unknown_metadatas) return value_metadatas;
+        throw new UndeferrableValueException("Value 'RouteSpecGrpcRouteMatchArgs.metadatas' is not present");
     }
 
     /**
      * Method name to match from the request. If you specify a name, you must also specify a `service_name`.
      * 
      */
-    private UndeferrableValue<String> methodName;
-
+    @PolicyResourceProperty(name="methodName", flag="unknown_methodName")
+    private String value_methodName;
+    private boolean unknown_methodName;
     public String methodName() {
-        if (methodName == null) return null;
-        return methodName.getValue("RouteSpecGrpcRouteMatchArgs.methodName");
+        if (!unknown_methodName) return value_methodName;
+        throw new UndeferrableValueException("Value 'RouteSpecGrpcRouteMatchArgs.methodName' is not present");
     }
 
     /**
      * The port number to match from the request.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("RouteSpecGrpcRouteMatchArgs.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'RouteSpecGrpcRouteMatchArgs.port' is not present");
     }
 
-    private UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private String value_prefix;
+    private boolean unknown_prefix;
     public String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("RouteSpecGrpcRouteMatchArgs.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'RouteSpecGrpcRouteMatchArgs.prefix' is not present");
     }
 
     /**
      * Fully qualified domain name for the service to match from the request.
      * 
      */
-    private UndeferrableValue<String> serviceName;
-
+    @PolicyResourceProperty(name="serviceName", flag="unknown_serviceName")
+    private String value_serviceName;
+    private boolean unknown_serviceName;
     public String serviceName() {
-        if (serviceName == null) return null;
-        return serviceName.getValue("RouteSpecGrpcRouteMatchArgs.serviceName");
+        if (!unknown_serviceName) return value_serviceName;
+        throw new UndeferrableValueException("Value 'RouteSpecGrpcRouteMatchArgs.serviceName' is not present");
     }
 
 }

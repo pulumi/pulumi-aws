@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.waf.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.waf.outputs.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch;
 import java.lang.String;
 
@@ -14,11 +15,12 @@ public final class SqlInjectionMatchSetSqlInjectionMatchTuple {
      * Specifies where in a web request to look for snippets of malicious SQL code.
      * 
      */
-    private UndeferrableValue<SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch> fieldToMatch;
-
+    @PolicyResourceProperty(name="fieldToMatch", flag="unknown_fieldToMatch")
+    private SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch value_fieldToMatch;
+    private boolean unknown_fieldToMatch;
     public SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch fieldToMatch() {
-        if (fieldToMatch == null) return null;
-        return fieldToMatch.getValue("SqlInjectionMatchSetSqlInjectionMatchTuple.fieldToMatch");
+        if (!unknown_fieldToMatch) return value_fieldToMatch;
+        throw new UndeferrableValueException("Value 'SqlInjectionMatchSetSqlInjectionMatchTuple.fieldToMatch' is not present");
     }
 
     /**
@@ -29,11 +31,12 @@ public final class SqlInjectionMatchSetSqlInjectionMatchTuple {
      * for all supported values.
      * 
      */
-    private UndeferrableValue<String> textTransformation;
-
+    @PolicyResourceProperty(name="textTransformation", flag="unknown_textTransformation")
+    private String value_textTransformation;
+    private boolean unknown_textTransformation;
     public String textTransformation() {
-        if (textTransformation == null) return null;
-        return textTransformation.getValue("SqlInjectionMatchSetSqlInjectionMatchTuple.textTransformation");
+        if (!unknown_textTransformation) return value_textTransformation;
+        throw new UndeferrableValueException("Value 'SqlInjectionMatchSetSqlInjectionMatchTuple.textTransformation' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kendra.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.kendra.outputs.IndexUserTokenConfigurationsJsonTokenTypeConfiguration;
 import com.pulumi.policypacks.aws.kendra.outputs.IndexUserTokenConfigurationsJwtTokenTypeConfiguration;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class IndexUserTokenConfigurations {
      * A block that specifies the information about the JSON token type configuration. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<IndexUserTokenConfigurationsJsonTokenTypeConfiguration> jsonTokenTypeConfiguration;
-
+    @PolicyResourceProperty(name="jsonTokenTypeConfiguration", flag="unknown_jsonTokenTypeConfiguration")
+    private @Nullable IndexUserTokenConfigurationsJsonTokenTypeConfiguration value_jsonTokenTypeConfiguration;
+    private boolean unknown_jsonTokenTypeConfiguration;
     public @Nullable IndexUserTokenConfigurationsJsonTokenTypeConfiguration jsonTokenTypeConfiguration() {
-        if (jsonTokenTypeConfiguration == null) return null;
-        return jsonTokenTypeConfiguration.getValue("IndexUserTokenConfigurations.jsonTokenTypeConfiguration");
+        if (!unknown_jsonTokenTypeConfiguration) return value_jsonTokenTypeConfiguration;
+        throw new UndeferrableValueException("Value 'IndexUserTokenConfigurations.jsonTokenTypeConfiguration' is not present");
     }
 
     /**
      * A block that specifies the information about the JWT token type configuration. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<IndexUserTokenConfigurationsJwtTokenTypeConfiguration> jwtTokenTypeConfiguration;
-
+    @PolicyResourceProperty(name="jwtTokenTypeConfiguration", flag="unknown_jwtTokenTypeConfiguration")
+    private @Nullable IndexUserTokenConfigurationsJwtTokenTypeConfiguration value_jwtTokenTypeConfiguration;
+    private boolean unknown_jwtTokenTypeConfiguration;
     public @Nullable IndexUserTokenConfigurationsJwtTokenTypeConfiguration jwtTokenTypeConfiguration() {
-        if (jwtTokenTypeConfiguration == null) return null;
-        return jwtTokenTypeConfiguration.getValue("IndexUserTokenConfigurations.jwtTokenTypeConfiguration");
+        if (!unknown_jwtTokenTypeConfiguration) return value_jwtTokenTypeConfiguration;
+        throw new UndeferrableValueException("Value 'IndexUserTokenConfigurations.jwtTokenTypeConfiguration' is not present");
     }
 
 }

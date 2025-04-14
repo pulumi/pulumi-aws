@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.inputs.BucketReplicationConfigRuleDeleteMarkerReplicationArgs;
 import com.pulumi.policypacks.aws.s3.inputs.BucketReplicationConfigRuleDestinationArgs;
 import com.pulumi.policypacks.aws.s3.inputs.BucketReplicationConfigRuleExistingObjectReplicationArgs;
@@ -20,55 +21,60 @@ public final class BucketReplicationConfigRuleArgs {
      * Whether delete markers are replicated. This argument is only valid with V2 replication configurations (i.e., when `filter` is used)documented below.
      * 
      */
-    private UndeferrableValue<BucketReplicationConfigRuleDeleteMarkerReplicationArgs> deleteMarkerReplication;
-
+    @PolicyResourceProperty(name="deleteMarkerReplication", flag="unknown_deleteMarkerReplication")
+    private BucketReplicationConfigRuleDeleteMarkerReplicationArgs value_deleteMarkerReplication;
+    private boolean unknown_deleteMarkerReplication;
     public BucketReplicationConfigRuleDeleteMarkerReplicationArgs deleteMarkerReplication() {
-        if (deleteMarkerReplication == null) return null;
-        return deleteMarkerReplication.getValue("BucketReplicationConfigRuleArgs.deleteMarkerReplication");
+        if (!unknown_deleteMarkerReplication) return value_deleteMarkerReplication;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleArgs.deleteMarkerReplication' is not present");
     }
 
     /**
      * Specifies the destination for the rule. See below.
      * 
      */
-    private UndeferrableValue<BucketReplicationConfigRuleDestinationArgs> destination;
-
+    @PolicyResourceProperty(name="destination", flag="unknown_destination")
+    private BucketReplicationConfigRuleDestinationArgs value_destination;
+    private boolean unknown_destination;
     public BucketReplicationConfigRuleDestinationArgs destination() {
-        if (destination == null) return null;
-        return destination.getValue("BucketReplicationConfigRuleArgs.destination");
+        if (!unknown_destination) return value_destination;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleArgs.destination' is not present");
     }
 
     /**
      * Replicate existing objects in the source bucket according to the rule configurations. See below.
      * 
      */
-    private UndeferrableValue<BucketReplicationConfigRuleExistingObjectReplicationArgs> existingObjectReplication;
-
+    @PolicyResourceProperty(name="existingObjectReplication", flag="unknown_existingObjectReplication")
+    private BucketReplicationConfigRuleExistingObjectReplicationArgs value_existingObjectReplication;
+    private boolean unknown_existingObjectReplication;
     public BucketReplicationConfigRuleExistingObjectReplicationArgs existingObjectReplication() {
-        if (existingObjectReplication == null) return null;
-        return existingObjectReplication.getValue("BucketReplicationConfigRuleArgs.existingObjectReplication");
+        if (!unknown_existingObjectReplication) return value_existingObjectReplication;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleArgs.existingObjectReplication' is not present");
     }
 
     /**
      * Filter that identifies subset of objects to which the replication rule applies. See below. If not specified, the `rule` will default to using `prefix`.
      * 
      */
-    private UndeferrableValue<BucketReplicationConfigRuleFilterArgs> filter;
-
+    @PolicyResourceProperty(name="filter", flag="unknown_filter")
+    private BucketReplicationConfigRuleFilterArgs value_filter;
+    private boolean unknown_filter;
     public BucketReplicationConfigRuleFilterArgs filter() {
-        if (filter == null) return null;
-        return filter.getValue("BucketReplicationConfigRuleArgs.filter");
+        if (!unknown_filter) return value_filter;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleArgs.filter' is not present");
     }
 
     /**
      * Unique identifier for the rule. Must be less than or equal to 255 characters in length.
      * 
      */
-    private UndeferrableValue<String> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private String value_id;
+    private boolean unknown_id;
     public String id() {
-        if (id == null) return null;
-        return id.getValue("BucketReplicationConfigRuleArgs.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleArgs.id' is not present");
     }
 
     /**
@@ -79,44 +85,48 @@ public final class BucketReplicationConfigRuleArgs {
      * 
      */
     @Deprecated /* prefix is deprecated. Use filter instead. */
-    private UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private String value_prefix;
+    private boolean unknown_prefix;
     public String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("BucketReplicationConfigRuleArgs.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleArgs.prefix' is not present");
     }
 
     /**
      * Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
      * 
      */
-    private UndeferrableValue<Integer> priority;
-
+    @PolicyResourceProperty(name="priority", flag="unknown_priority")
+    private Integer value_priority;
+    private boolean unknown_priority;
     public Integer priority() {
-        if (priority == null) return null;
-        return priority.getValue("BucketReplicationConfigRuleArgs.priority");
+        if (!unknown_priority) return value_priority;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleArgs.priority' is not present");
     }
 
     /**
      * Specifies special object selection criteria. See below.
      * 
      */
-    private UndeferrableValue<BucketReplicationConfigRuleSourceSelectionCriteriaArgs> sourceSelectionCriteria;
-
+    @PolicyResourceProperty(name="sourceSelectionCriteria", flag="unknown_sourceSelectionCriteria")
+    private BucketReplicationConfigRuleSourceSelectionCriteriaArgs value_sourceSelectionCriteria;
+    private boolean unknown_sourceSelectionCriteria;
     public BucketReplicationConfigRuleSourceSelectionCriteriaArgs sourceSelectionCriteria() {
-        if (sourceSelectionCriteria == null) return null;
-        return sourceSelectionCriteria.getValue("BucketReplicationConfigRuleArgs.sourceSelectionCriteria");
+        if (!unknown_sourceSelectionCriteria) return value_sourceSelectionCriteria;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleArgs.sourceSelectionCriteria' is not present");
     }
 
     /**
      * Status of the rule. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`. The rule is ignored if status is not &#34;Enabled&#34;.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("BucketReplicationConfigRuleArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigRuleArgs.status' is not present");
     }
 
 }

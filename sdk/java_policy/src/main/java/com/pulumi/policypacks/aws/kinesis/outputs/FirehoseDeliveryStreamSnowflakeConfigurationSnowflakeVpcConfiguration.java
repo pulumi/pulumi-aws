@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kinesis.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfi
      * The VPCE ID for Firehose to privately connect with Snowflake.
      * 
      */
-    private UndeferrableValue<String> privateLinkVpceId;
-
+    @PolicyResourceProperty(name="privateLinkVpceId", flag="unknown_privateLinkVpceId")
+    private String value_privateLinkVpceId;
+    private boolean unknown_privateLinkVpceId;
     public String privateLinkVpceId() {
-        if (privateLinkVpceId == null) return null;
-        return privateLinkVpceId.getValue("FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration.privateLinkVpceId");
+        if (!unknown_privateLinkVpceId) return value_privateLinkVpceId;
+        throw new UndeferrableValueException("Value 'FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration.privateLinkVpceId' is not present");
     }
 
 }

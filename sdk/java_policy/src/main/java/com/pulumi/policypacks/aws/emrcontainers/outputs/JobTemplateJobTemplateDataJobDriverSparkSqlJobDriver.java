@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emrcontainers.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver {
      * The SQL file to be executed.
      * 
      */
-    private @Nullable UndeferrableValue<String> entryPoint;
-
+    @PolicyResourceProperty(name="entryPoint", flag="unknown_entryPoint")
+    private @Nullable String value_entryPoint;
+    private boolean unknown_entryPoint;
     public @Nullable String entryPoint() {
-        if (entryPoint == null) return null;
-        return entryPoint.getValue("JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver.entryPoint");
+        if (!unknown_entryPoint) return value_entryPoint;
+        throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver.entryPoint' is not present");
     }
 
     /**
      * The Spark parameters to be included in the Spark SQL command.
      * 
      */
-    private @Nullable UndeferrableValue<String> sparkSqlParameters;
-
+    @PolicyResourceProperty(name="sparkSqlParameters", flag="unknown_sparkSqlParameters")
+    private @Nullable String value_sparkSqlParameters;
+    private boolean unknown_sparkSqlParameters;
     public @Nullable String sparkSqlParameters() {
-        if (sparkSqlParameters == null) return null;
-        return sparkSqlParameters.getValue("JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver.sparkSqlParameters");
+        if (!unknown_sparkSqlParameters) return value_sparkSqlParameters;
+        throw new UndeferrableValueException("Value 'JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver.sparkSqlParameters' is not present");
     }
 
 }

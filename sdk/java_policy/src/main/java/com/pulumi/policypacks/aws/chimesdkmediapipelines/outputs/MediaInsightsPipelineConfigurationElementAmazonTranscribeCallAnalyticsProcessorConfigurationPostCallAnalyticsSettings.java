@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.chimesdkmediapipelines.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class MediaInsightsPipelineConfigurationElementAmazonTranscribeCall
      * Should output be redacted.
      * 
      */
-    private @Nullable UndeferrableValue<String> contentRedactionOutput;
-
+    @PolicyResourceProperty(name="contentRedactionOutput", flag="unknown_contentRedactionOutput")
+    private @Nullable String value_contentRedactionOutput;
+    private boolean unknown_contentRedactionOutput;
     public @Nullable String contentRedactionOutput() {
-        if (contentRedactionOutput == null) return null;
-        return contentRedactionOutput.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings.contentRedactionOutput");
+        if (!unknown_contentRedactionOutput) return value_contentRedactionOutput;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings.contentRedactionOutput' is not present");
     }
 
     /**
      * ARN of the role used by AWS Transcribe to upload your post call analysis.
      * 
      */
-    private UndeferrableValue<String> dataAccessRoleArn;
-
+    @PolicyResourceProperty(name="dataAccessRoleArn", flag="unknown_dataAccessRoleArn")
+    private String value_dataAccessRoleArn;
+    private boolean unknown_dataAccessRoleArn;
     public String dataAccessRoleArn() {
-        if (dataAccessRoleArn == null) return null;
-        return dataAccessRoleArn.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings.dataAccessRoleArn");
+        if (!unknown_dataAccessRoleArn) return value_dataAccessRoleArn;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings.dataAccessRoleArn' is not present");
     }
 
     /**
      * ID of the KMS key used to encrypt the output.
      * 
      */
-    private @Nullable UndeferrableValue<String> outputEncryptionKmsKeyId;
-
+    @PolicyResourceProperty(name="outputEncryptionKmsKeyId", flag="unknown_outputEncryptionKmsKeyId")
+    private @Nullable String value_outputEncryptionKmsKeyId;
+    private boolean unknown_outputEncryptionKmsKeyId;
     public @Nullable String outputEncryptionKmsKeyId() {
-        if (outputEncryptionKmsKeyId == null) return null;
-        return outputEncryptionKmsKeyId.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings.outputEncryptionKmsKeyId");
+        if (!unknown_outputEncryptionKmsKeyId) return value_outputEncryptionKmsKeyId;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings.outputEncryptionKmsKeyId' is not present");
     }
 
     /**
      * The Amazon S3 location where you want your Call Analytics post-call transcription output stored.
      * 
      */
-    private UndeferrableValue<String> outputLocation;
-
+    @PolicyResourceProperty(name="outputLocation", flag="unknown_outputLocation")
+    private String value_outputLocation;
+    private boolean unknown_outputLocation;
     public String outputLocation() {
-        if (outputLocation == null) return null;
-        return outputLocation.getValue("MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings.outputLocation");
+        if (!unknown_outputLocation) return value_outputLocation;
+        throw new UndeferrableValueException("Value 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings.outputLocation' is not present");
     }
 
 }

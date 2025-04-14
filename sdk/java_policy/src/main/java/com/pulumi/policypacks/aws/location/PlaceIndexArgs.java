@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.location;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.location.inputs.PlaceIndexDataSourceConfigurationArgs;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class PlaceIndexArgs extends com.pulumi.resources.PolicyResourceInp
      * Specifies the geospatial data provider for the new place index.
      * 
      */
-    private UndeferrableValue<String> dataSource;
-
+    @PolicyResourceProperty(name="dataSource", flag="unknown_dataSource")
+    private String value_dataSource;
+    private boolean unknown_dataSource;
     public String dataSource() {
-        if (dataSource == null) return null;
-        return dataSource.getValue("PlaceIndexArgs.dataSource");
+        if (!unknown_dataSource) return value_dataSource;
+        throw new UndeferrableValueException("Value 'PlaceIndexArgs.dataSource' is not present");
     }
 
     /**
      * Configuration block with the data storage option chosen for requesting Places. Detailed below.
      * 
      */
-    private UndeferrableValue<PlaceIndexDataSourceConfigurationArgs> dataSourceConfiguration;
-
+    @PolicyResourceProperty(name="dataSourceConfiguration", flag="unknown_dataSourceConfiguration")
+    private PlaceIndexDataSourceConfigurationArgs value_dataSourceConfiguration;
+    private boolean unknown_dataSourceConfiguration;
     public PlaceIndexDataSourceConfigurationArgs dataSourceConfiguration() {
-        if (dataSourceConfiguration == null) return null;
-        return dataSourceConfiguration.getValue("PlaceIndexArgs.dataSourceConfiguration");
+        if (!unknown_dataSourceConfiguration) return value_dataSourceConfiguration;
+        throw new UndeferrableValueException("Value 'PlaceIndexArgs.dataSourceConfiguration' is not present");
     }
 
     /**
      * The optional description for the place index resource.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("PlaceIndexArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'PlaceIndexArgs.description' is not present");
     }
 
     /**
@@ -53,22 +57,24 @@ public final class PlaceIndexArgs extends com.pulumi.resources.PolicyResourceInp
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> indexName;
-
+    @PolicyResourceProperty(name="indexName", flag="unknown_indexName")
+    private String value_indexName;
+    private boolean unknown_indexName;
     public String indexName() {
-        if (indexName == null) return null;
-        return indexName.getValue("PlaceIndexArgs.indexName");
+        if (!unknown_indexName) return value_indexName;
+        throw new UndeferrableValueException("Value 'PlaceIndexArgs.indexName' is not present");
     }
 
     /**
      * Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("PlaceIndexArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'PlaceIndexArgs.tags' is not present");
     }
 
 }

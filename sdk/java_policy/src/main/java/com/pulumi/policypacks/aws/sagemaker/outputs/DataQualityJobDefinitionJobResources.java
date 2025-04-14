@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.outputs.DataQualityJobDefinitionJobResourcesClusterConfig;
 
 
@@ -13,11 +14,12 @@ public final class DataQualityJobDefinitionJobResources {
      * The configuration for the cluster resources used to run the processing job. Fields are documented below.
      * 
      */
-    private UndeferrableValue<DataQualityJobDefinitionJobResourcesClusterConfig> clusterConfig;
-
+    @PolicyResourceProperty(name="clusterConfig", flag="unknown_clusterConfig")
+    private DataQualityJobDefinitionJobResourcesClusterConfig value_clusterConfig;
+    private boolean unknown_clusterConfig;
     public DataQualityJobDefinitionJobResourcesClusterConfig clusterConfig() {
-        if (clusterConfig == null) return null;
-        return clusterConfig.getValue("DataQualityJobDefinitionJobResources.clusterConfig");
+        if (!unknown_clusterConfig) return value_clusterConfig;
+        throw new UndeferrableValueException("Value 'DataQualityJobDefinitionJobResources.clusterConfig' is not present");
     }
 
 }

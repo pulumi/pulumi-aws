@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dlm.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,33 +15,36 @@ public final class LifecyclePolicyPolicyDetailsEventSourceParametersArgs {
      * The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
      * 
      */
-    private UndeferrableValue<String> descriptionRegex;
-
+    @PolicyResourceProperty(name="descriptionRegex", flag="unknown_descriptionRegex")
+    private String value_descriptionRegex;
+    private boolean unknown_descriptionRegex;
     public String descriptionRegex() {
-        if (descriptionRegex == null) return null;
-        return descriptionRegex.getValue("LifecyclePolicyPolicyDetailsEventSourceParametersArgs.descriptionRegex");
+        if (!unknown_descriptionRegex) return value_descriptionRegex;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsEventSourceParametersArgs.descriptionRegex' is not present");
     }
 
     /**
      * The type of event. Currently, only `shareSnapshot` events are supported.
      * 
      */
-    private UndeferrableValue<String> eventType;
-
+    @PolicyResourceProperty(name="eventType", flag="unknown_eventType")
+    private String value_eventType;
+    private boolean unknown_eventType;
     public String eventType() {
-        if (eventType == null) return null;
-        return eventType.getValue("LifecyclePolicyPolicyDetailsEventSourceParametersArgs.eventType");
+        if (!unknown_eventType) return value_eventType;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsEventSourceParametersArgs.eventType' is not present");
     }
 
     /**
      * The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
      * 
      */
-    private UndeferrableValue<List<String>> snapshotOwners;
-
+    @PolicyResourceProperty(name="snapshotOwners", flag="unknown_snapshotOwners")
+    private List<String> value_snapshotOwners;
+    private boolean unknown_snapshotOwners;
     public List<String> snapshotOwners() {
-        if (snapshotOwners == null) return null;
-        return snapshotOwners.getValue("LifecyclePolicyPolicyDetailsEventSourceParametersArgs.snapshotOwners");
+        if (!unknown_snapshotOwners) return value_snapshotOwners;
+        throw new UndeferrableValueException("Value 'LifecyclePolicyPolicyDetailsEventSourceParametersArgs.snapshotOwners' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticsearch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.elasticsearch.inputs.DomainSamlOptionsSamlOptionsArgs;
 import java.lang.String;
@@ -19,22 +20,24 @@ public final class DomainSamlOptionsArgs extends com.pulumi.resources.PolicyReso
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> domainName;
-
+    @PolicyResourceProperty(name="domainName", flag="unknown_domainName")
+    private String value_domainName;
+    private boolean unknown_domainName;
     public String domainName() {
-        if (domainName == null) return null;
-        return domainName.getValue("DomainSamlOptionsArgs.domainName");
+        if (!unknown_domainName) return value_domainName;
+        throw new UndeferrableValueException("Value 'DomainSamlOptionsArgs.domainName' is not present");
     }
 
     /**
      * The SAML authentication options for an AWS Elasticsearch Domain.
      * 
      */
-    private UndeferrableValue<DomainSamlOptionsSamlOptionsArgs> samlOptions;
-
+    @PolicyResourceProperty(name="samlOptions", flag="unknown_samlOptions")
+    private DomainSamlOptionsSamlOptionsArgs value_samlOptions;
+    private boolean unknown_samlOptions;
     public DomainSamlOptionsSamlOptionsArgs samlOptions() {
-        if (samlOptions == null) return null;
-        return samlOptions.getValue("DomainSamlOptionsArgs.samlOptions");
+        if (!unknown_samlOptions) return value_samlOptions;
+        throw new UndeferrableValueException("Value 'DomainSamlOptionsArgs.samlOptions' is not present");
     }
 
 }

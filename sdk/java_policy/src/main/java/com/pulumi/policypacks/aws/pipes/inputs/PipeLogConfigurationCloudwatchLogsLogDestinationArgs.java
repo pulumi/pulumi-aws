@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.pipes.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class PipeLogConfigurationCloudwatchLogsLogDestinationArgs {
      * Amazon Web Services Resource Name (ARN) for the CloudWatch log group to which EventBridge sends the log records.
      * 
      */
-    private UndeferrableValue<String> logGroupArn;
-
+    @PolicyResourceProperty(name="logGroupArn", flag="unknown_logGroupArn")
+    private String value_logGroupArn;
+    private boolean unknown_logGroupArn;
     public String logGroupArn() {
-        if (logGroupArn == null) return null;
-        return logGroupArn.getValue("PipeLogConfigurationCloudwatchLogsLogDestinationArgs.logGroupArn");
+        if (!unknown_logGroupArn) return value_logGroupArn;
+        throw new UndeferrableValueException("Value 'PipeLogConfigurationCloudwatchLogsLogDestinationArgs.logGroupArn' is not present");
     }
 
 }

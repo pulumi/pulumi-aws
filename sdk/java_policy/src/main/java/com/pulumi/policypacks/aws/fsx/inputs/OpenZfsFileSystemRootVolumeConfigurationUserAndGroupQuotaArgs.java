@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.fsx.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 
@@ -14,33 +15,36 @@ public final class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs
      * The ID of the user or group. Valid values between `0` and `2147483647`
      * 
      */
-    private UndeferrableValue<Integer> id;
-
+    @PolicyResourceProperty(name="id", flag="unknown_id")
+    private Integer value_id;
+    private boolean unknown_id;
     public Integer id() {
-        if (id == null) return null;
-        return id.getValue("OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs.id");
+        if (!unknown_id) return value_id;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs.id' is not present");
     }
 
     /**
      * The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
      * 
      */
-    private UndeferrableValue<Integer> storageCapacityQuotaGib;
-
+    @PolicyResourceProperty(name="storageCapacityQuotaGib", flag="unknown_storageCapacityQuotaGib")
+    private Integer value_storageCapacityQuotaGib;
+    private boolean unknown_storageCapacityQuotaGib;
     public Integer storageCapacityQuotaGib() {
-        if (storageCapacityQuotaGib == null) return null;
-        return storageCapacityQuotaGib.getValue("OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs.storageCapacityQuotaGib");
+        if (!unknown_storageCapacityQuotaGib) return value_storageCapacityQuotaGib;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs.storageCapacityQuotaGib' is not present");
     }
 
     /**
      * A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs.type' is not present");
     }
 
 }

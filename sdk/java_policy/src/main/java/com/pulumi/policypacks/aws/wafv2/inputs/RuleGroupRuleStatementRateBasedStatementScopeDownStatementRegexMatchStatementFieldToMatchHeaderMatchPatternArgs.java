@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.wafv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.wafv2.inputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllArgs;
 import java.lang.String;
 import java.util.List;
@@ -16,33 +17,36 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementReg
      * An empty configuration block that is used for inspecting all headers.
      * 
      */
-    private UndeferrableValue<RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllArgs> all;
-
+    @PolicyResourceProperty(name="all", flag="unknown_all")
+    private RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllArgs value_all;
+    private boolean unknown_all;
     public RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllArgs all() {
-        if (all == null) return null;
-        return all.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternArgs.all");
+        if (!unknown_all) return value_all;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternArgs.all' is not present");
     }
 
     /**
      * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
      * 
      */
-    private UndeferrableValue<List<String>> excludedHeaders;
-
+    @PolicyResourceProperty(name="excludedHeaders", flag="unknown_excludedHeaders")
+    private List<String> value_excludedHeaders;
+    private boolean unknown_excludedHeaders;
     public List<String> excludedHeaders() {
-        if (excludedHeaders == null) return null;
-        return excludedHeaders.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternArgs.excludedHeaders");
+        if (!unknown_excludedHeaders) return value_excludedHeaders;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternArgs.excludedHeaders' is not present");
     }
 
     /**
      * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
      * 
      */
-    private UndeferrableValue<List<String>> includedHeaders;
-
+    @PolicyResourceProperty(name="includedHeaders", flag="unknown_includedHeaders")
+    private List<String> value_includedHeaders;
+    private boolean unknown_includedHeaders;
     public List<String> includedHeaders() {
-        if (includedHeaders == null) return null;
-        return includedHeaders.getValue("RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternArgs.includedHeaders");
+        if (!unknown_includedHeaders) return value_includedHeaders;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternArgs.includedHeaders' is not present");
     }
 
 }

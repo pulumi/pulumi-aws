@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appmesh.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,77 +16,84 @@ public final class VirtualGatewaySpecListenerHealthCheck {
      * Number of consecutive successful health checks that must occur before declaring listener healthy.
      * 
      */
-    private UndeferrableValue<Integer> healthyThreshold;
-
+    @PolicyResourceProperty(name="healthyThreshold", flag="unknown_healthyThreshold")
+    private Integer value_healthyThreshold;
+    private boolean unknown_healthyThreshold;
     public Integer healthyThreshold() {
-        if (healthyThreshold == null) return null;
-        return healthyThreshold.getValue("VirtualGatewaySpecListenerHealthCheck.healthyThreshold");
+        if (!unknown_healthyThreshold) return value_healthyThreshold;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerHealthCheck.healthyThreshold' is not present");
     }
 
     /**
      * Time period in milliseconds between each health check execution.
      * 
      */
-    private UndeferrableValue<Integer> intervalMillis;
-
+    @PolicyResourceProperty(name="intervalMillis", flag="unknown_intervalMillis")
+    private Integer value_intervalMillis;
+    private boolean unknown_intervalMillis;
     public Integer intervalMillis() {
-        if (intervalMillis == null) return null;
-        return intervalMillis.getValue("VirtualGatewaySpecListenerHealthCheck.intervalMillis");
+        if (!unknown_intervalMillis) return value_intervalMillis;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerHealthCheck.intervalMillis' is not present");
     }
 
     /**
      * Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
      * 
      */
-    private @Nullable UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private @Nullable String value_path;
+    private boolean unknown_path;
     public @Nullable String path() {
-        if (path == null) return null;
-        return path.getValue("VirtualGatewaySpecListenerHealthCheck.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerHealthCheck.path' is not present");
     }
 
     /**
      * Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private @Nullable Integer value_port;
+    private boolean unknown_port;
     public @Nullable Integer port() {
-        if (port == null) return null;
-        return port.getValue("VirtualGatewaySpecListenerHealthCheck.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerHealthCheck.port' is not present");
     }
 
     /**
      * Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
      * 
      */
-    private UndeferrableValue<String> protocol;
-
+    @PolicyResourceProperty(name="protocol", flag="unknown_protocol")
+    private String value_protocol;
+    private boolean unknown_protocol;
     public String protocol() {
-        if (protocol == null) return null;
-        return protocol.getValue("VirtualGatewaySpecListenerHealthCheck.protocol");
+        if (!unknown_protocol) return value_protocol;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerHealthCheck.protocol' is not present");
     }
 
     /**
      * Amount of time to wait when receiving a response from the health check, in milliseconds.
      * 
      */
-    private UndeferrableValue<Integer> timeoutMillis;
-
+    @PolicyResourceProperty(name="timeoutMillis", flag="unknown_timeoutMillis")
+    private Integer value_timeoutMillis;
+    private boolean unknown_timeoutMillis;
     public Integer timeoutMillis() {
-        if (timeoutMillis == null) return null;
-        return timeoutMillis.getValue("VirtualGatewaySpecListenerHealthCheck.timeoutMillis");
+        if (!unknown_timeoutMillis) return value_timeoutMillis;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerHealthCheck.timeoutMillis' is not present");
     }
 
     /**
      * Number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
      * 
      */
-    private UndeferrableValue<Integer> unhealthyThreshold;
-
+    @PolicyResourceProperty(name="unhealthyThreshold", flag="unknown_unhealthyThreshold")
+    private Integer value_unhealthyThreshold;
+    private boolean unknown_unhealthyThreshold;
     public Integer unhealthyThreshold() {
-        if (unhealthyThreshold == null) return null;
-        return unhealthyThreshold.getValue("VirtualGatewaySpecListenerHealthCheck.unhealthyThreshold");
+        if (!unknown_unhealthyThreshold) return value_unhealthyThreshold;
+        throw new UndeferrableValueException("Value 'VirtualGatewaySpecListenerHealthCheck.unhealthyThreshold' is not present");
     }
 
 }

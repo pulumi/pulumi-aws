@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,33 +19,36 @@ public final class TrafficMirrorFilterArgs extends com.pulumi.resources.PolicyRe
      * A description of the filter.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("TrafficMirrorFilterArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'TrafficMirrorFilterArgs.description' is not present");
     }
 
     /**
      * List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
      * 
      */
-    private UndeferrableValue<List<String>> networkServices;
-
+    @PolicyResourceProperty(name="networkServices", flag="unknown_networkServices")
+    private List<String> value_networkServices;
+    private boolean unknown_networkServices;
     public List<String> networkServices() {
-        if (networkServices == null) return null;
-        return networkServices.getValue("TrafficMirrorFilterArgs.networkServices");
+        if (!unknown_networkServices) return value_networkServices;
+        throw new UndeferrableValueException("Value 'TrafficMirrorFilterArgs.networkServices' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TrafficMirrorFilterArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TrafficMirrorFilterArgs.tags' is not present");
     }
 
 }

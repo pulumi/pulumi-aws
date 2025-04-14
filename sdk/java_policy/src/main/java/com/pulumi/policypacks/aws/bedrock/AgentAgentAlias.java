@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentAgentAliasRoutingConfiguration;
 import com.pulumi.policypacks.aws.bedrock.outputs.AgentAgentAliasTimeouts;
@@ -20,33 +21,36 @@ public final class AgentAgentAlias extends com.pulumi.resources.PolicyResourceOu
      * ARN of the alias.
      * 
      */
-    private UndeferrableValue<String> agentAliasArn;
-
+    @PolicyResourceProperty(name="agentAliasArn", flag="unknown_agentAliasArn")
+    private String value_agentAliasArn;
+    private boolean unknown_agentAliasArn;
     public String agentAliasArn() {
-        if (agentAliasArn == null) return null;
-        return agentAliasArn.getValue("AgentAgentAlias.agentAliasArn");
+        if (!unknown_agentAliasArn) return value_agentAliasArn;
+        throw new UndeferrableValueException("Value 'AgentAgentAlias.agentAliasArn' is not present");
     }
 
     /**
      * Unique identifier of the alias.
      * 
      */
-    private UndeferrableValue<String> agentAliasId;
-
+    @PolicyResourceProperty(name="agentAliasId", flag="unknown_agentAliasId")
+    private String value_agentAliasId;
+    private boolean unknown_agentAliasId;
     public String agentAliasId() {
-        if (agentAliasId == null) return null;
-        return agentAliasId.getValue("AgentAgentAlias.agentAliasId");
+        if (!unknown_agentAliasId) return value_agentAliasId;
+        throw new UndeferrableValueException("Value 'AgentAgentAlias.agentAliasId' is not present");
     }
 
     /**
      * Name of the alias.
      * 
      */
-    private UndeferrableValue<String> agentAliasName;
-
+    @PolicyResourceProperty(name="agentAliasName", flag="unknown_agentAliasName")
+    private String value_agentAliasName;
+    private boolean unknown_agentAliasName;
     public String agentAliasName() {
-        if (agentAliasName == null) return null;
-        return agentAliasName.getValue("AgentAgentAlias.agentAliasName");
+        if (!unknown_agentAliasName) return value_agentAliasName;
+        throw new UndeferrableValueException("Value 'AgentAgentAlias.agentAliasName' is not present");
     }
 
     /**
@@ -55,44 +59,48 @@ public final class AgentAgentAlias extends com.pulumi.resources.PolicyResourceOu
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> agentId;
-
+    @PolicyResourceProperty(name="agentId", flag="unknown_agentId")
+    private String value_agentId;
+    private boolean unknown_agentId;
     public String agentId() {
-        if (agentId == null) return null;
-        return agentId.getValue("AgentAgentAlias.agentId");
+        if (!unknown_agentId) return value_agentId;
+        throw new UndeferrableValueException("Value 'AgentAgentAlias.agentId' is not present");
     }
 
     /**
      * Description of the alias.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("AgentAgentAlias.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AgentAgentAlias.description' is not present");
     }
 
     /**
      * Details about the routing configuration of the alias. See `routing_configuration` Block for details.
      * 
      */
-    private UndeferrableValue<List<AgentAgentAliasRoutingConfiguration>> routingConfigurations;
-
+    @PolicyResourceProperty(name="routingConfigurations", flag="unknown_routingConfigurations")
+    private List<AgentAgentAliasRoutingConfiguration> value_routingConfigurations;
+    private boolean unknown_routingConfigurations;
     public List<AgentAgentAliasRoutingConfiguration> routingConfigurations() {
-        if (routingConfigurations == null) return null;
-        return routingConfigurations.getValue("AgentAgentAlias.routingConfigurations");
+        if (!unknown_routingConfigurations) return value_routingConfigurations;
+        throw new UndeferrableValueException("Value 'AgentAgentAlias.routingConfigurations' is not present");
     }
 
     /**
      * Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AgentAgentAlias.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AgentAgentAlias.tags' is not present");
     }
 
     /**
@@ -103,18 +111,20 @@ public final class AgentAgentAlias extends com.pulumi.resources.PolicyResourceOu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("AgentAgentAlias.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'AgentAgentAlias.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<AgentAgentAliasTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable AgentAgentAliasTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable AgentAgentAliasTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("AgentAgentAlias.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'AgentAgentAlias.timeouts' is not present");
     }
 
 }

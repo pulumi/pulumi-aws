@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sesv2.inputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs;
 import com.pulumi.policypacks.aws.sesv2.inputs.ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs;
 import com.pulumi.policypacks.aws.sesv2.inputs.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs;
@@ -21,73 +22,80 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs {
      * An object that defines an Amazon CloudWatch destination for email events. See `cloud_watch_destination` Block for details.
      * 
      */
-    private UndeferrableValue<ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs> cloudWatchDestination;
-
+    @PolicyResourceProperty(name="cloudWatchDestination", flag="unknown_cloudWatchDestination")
+    private ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs value_cloudWatchDestination;
+    private boolean unknown_cloudWatchDestination;
     public ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs cloudWatchDestination() {
-        if (cloudWatchDestination == null) return null;
-        return cloudWatchDestination.getValue("ConfigurationSetEventDestinationEventDestinationArgs.cloudWatchDestination");
+        if (!unknown_cloudWatchDestination) return value_cloudWatchDestination;
+        throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestinationArgs.cloudWatchDestination' is not present");
     }
 
     /**
      * When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
      * 
      */
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("ConfigurationSetEventDestinationEventDestinationArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestinationArgs.enabled' is not present");
     }
 
-    private UndeferrableValue<ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs> eventBridgeDestination;
-
+    @PolicyResourceProperty(name="eventBridgeDestination", flag="unknown_eventBridgeDestination")
+    private ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs value_eventBridgeDestination;
+    private boolean unknown_eventBridgeDestination;
     public ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs eventBridgeDestination() {
-        if (eventBridgeDestination == null) return null;
-        return eventBridgeDestination.getValue("ConfigurationSetEventDestinationEventDestinationArgs.eventBridgeDestination");
+        if (!unknown_eventBridgeDestination) return value_eventBridgeDestination;
+        throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestinationArgs.eventBridgeDestination' is not present");
     }
 
     /**
      * An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesis_firehose_destination` Block for details.
      * 
      */
-    private UndeferrableValue<ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs> kinesisFirehoseDestination;
-
+    @PolicyResourceProperty(name="kinesisFirehoseDestination", flag="unknown_kinesisFirehoseDestination")
+    private ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs value_kinesisFirehoseDestination;
+    private boolean unknown_kinesisFirehoseDestination;
     public ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs kinesisFirehoseDestination() {
-        if (kinesisFirehoseDestination == null) return null;
-        return kinesisFirehoseDestination.getValue("ConfigurationSetEventDestinationEventDestinationArgs.kinesisFirehoseDestination");
+        if (!unknown_kinesisFirehoseDestination) return value_kinesisFirehoseDestination;
+        throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestinationArgs.kinesisFirehoseDestination' is not present");
     }
 
     /**
      * An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
      * 
      */
-    private UndeferrableValue<List<String>> matchingEventTypes;
-
+    @PolicyResourceProperty(name="matchingEventTypes", flag="unknown_matchingEventTypes")
+    private List<String> value_matchingEventTypes;
+    private boolean unknown_matchingEventTypes;
     public List<String> matchingEventTypes() {
-        if (matchingEventTypes == null) return null;
-        return matchingEventTypes.getValue("ConfigurationSetEventDestinationEventDestinationArgs.matchingEventTypes");
+        if (!unknown_matchingEventTypes) return value_matchingEventTypes;
+        throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestinationArgs.matchingEventTypes' is not present");
     }
 
     /**
      * An object that defines an Amazon Pinpoint project destination for email events. See `pinpoint_destination` Block for details.
      * 
      */
-    private UndeferrableValue<ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs> pinpointDestination;
-
+    @PolicyResourceProperty(name="pinpointDestination", flag="unknown_pinpointDestination")
+    private ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs value_pinpointDestination;
+    private boolean unknown_pinpointDestination;
     public ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs pinpointDestination() {
-        if (pinpointDestination == null) return null;
-        return pinpointDestination.getValue("ConfigurationSetEventDestinationEventDestinationArgs.pinpointDestination");
+        if (!unknown_pinpointDestination) return value_pinpointDestination;
+        throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestinationArgs.pinpointDestination' is not present");
     }
 
     /**
      * An object that defines an Amazon SNS destination for email events. See `sns_destination` Block for details.
      * 
      */
-    private UndeferrableValue<ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs> snsDestination;
-
+    @PolicyResourceProperty(name="snsDestination", flag="unknown_snsDestination")
+    private ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs value_snsDestination;
+    private boolean unknown_snsDestination;
     public ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs snsDestination() {
-        if (snsDestination == null) return null;
-        return snsDestination.getValue("ConfigurationSetEventDestinationEventDestinationArgs.snsDestination");
+        if (!unknown_snsDestination) return value_snsDestination;
+        throw new UndeferrableValueException("Value 'ConfigurationSetEventDestinationEventDestinationArgs.snsDestination' is not present");
     }
 
 }

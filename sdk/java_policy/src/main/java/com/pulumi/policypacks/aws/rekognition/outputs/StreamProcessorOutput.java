@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rekognition.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.rekognition.outputs.StreamProcessorOutputKinesisDataStream;
 import com.pulumi.policypacks.aws.rekognition.outputs.StreamProcessorOutputS3Destination;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class StreamProcessorOutput {
      * The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesis_data_stream`.
      * 
      */
-    private @Nullable UndeferrableValue<StreamProcessorOutputKinesisDataStream> kinesisDataStream;
-
+    @PolicyResourceProperty(name="kinesisDataStream", flag="unknown_kinesisDataStream")
+    private @Nullable StreamProcessorOutputKinesisDataStream value_kinesisDataStream;
+    private boolean unknown_kinesisDataStream;
     public @Nullable StreamProcessorOutputKinesisDataStream kinesisDataStream() {
-        if (kinesisDataStream == null) return null;
-        return kinesisDataStream.getValue("StreamProcessorOutput.kinesisDataStream");
+        if (!unknown_kinesisDataStream) return value_kinesisDataStream;
+        throw new UndeferrableValueException("Value 'StreamProcessorOutput.kinesisDataStream' is not present");
     }
 
     /**
      * The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3_destination`.
      * 
      */
-    private @Nullable UndeferrableValue<StreamProcessorOutputS3Destination> s3Destination;
-
+    @PolicyResourceProperty(name="s3Destination", flag="unknown_s3Destination")
+    private @Nullable StreamProcessorOutputS3Destination value_s3Destination;
+    private boolean unknown_s3Destination;
     public @Nullable StreamProcessorOutputS3Destination s3Destination() {
-        if (s3Destination == null) return null;
-        return s3Destination.getValue("StreamProcessorOutput.s3Destination");
+        if (!unknown_s3Destination) return value_s3Destination;
+        throw new UndeferrableValueException("Value 'StreamProcessorOutput.s3Destination' is not present");
     }
 
 }

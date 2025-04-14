@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,55 +16,60 @@ public final class DistributionViewerCertificate {
      * ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/) certificate that you wish to use with this distribution. Specify this, `cloudfront_default_certificate`, or `iam_certificate_id`.  The ACM certificate must be in  US-EAST-1.
      * 
      */
-    private @Nullable UndeferrableValue<String> acmCertificateArn;
-
+    @PolicyResourceProperty(name="acmCertificateArn", flag="unknown_acmCertificateArn")
+    private @Nullable String value_acmCertificateArn;
+    private boolean unknown_acmCertificateArn;
     public @Nullable String acmCertificateArn() {
-        if (acmCertificateArn == null) return null;
-        return acmCertificateArn.getValue("DistributionViewerCertificate.acmCertificateArn");
+        if (!unknown_acmCertificateArn) return value_acmCertificateArn;
+        throw new UndeferrableValueException("Value 'DistributionViewerCertificate.acmCertificateArn' is not present");
     }
 
     /**
      * `true` if you want viewers to use HTTPS to request your objects and you&#39;re using the CloudFront domain name for your distribution. Specify this, `acm_certificate_arn`, or `iam_certificate_id`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> cloudfrontDefaultCertificate;
-
+    @PolicyResourceProperty(name="cloudfrontDefaultCertificate", flag="unknown_cloudfrontDefaultCertificate")
+    private @Nullable Boolean value_cloudfrontDefaultCertificate;
+    private boolean unknown_cloudfrontDefaultCertificate;
     public @Nullable Boolean cloudfrontDefaultCertificate() {
-        if (cloudfrontDefaultCertificate == null) return null;
-        return cloudfrontDefaultCertificate.getValue("DistributionViewerCertificate.cloudfrontDefaultCertificate");
+        if (!unknown_cloudfrontDefaultCertificate) return value_cloudfrontDefaultCertificate;
+        throw new UndeferrableValueException("Value 'DistributionViewerCertificate.cloudfrontDefaultCertificate' is not present");
     }
 
     /**
      * IAM certificate identifier of the custom viewer certificate for this distribution if you are using a custom domain. Specify this, `acm_certificate_arn`, or `cloudfront_default_certificate`.
      * 
      */
-    private @Nullable UndeferrableValue<String> iamCertificateId;
-
+    @PolicyResourceProperty(name="iamCertificateId", flag="unknown_iamCertificateId")
+    private @Nullable String value_iamCertificateId;
+    private boolean unknown_iamCertificateId;
     public @Nullable String iamCertificateId() {
-        if (iamCertificateId == null) return null;
-        return iamCertificateId.getValue("DistributionViewerCertificate.iamCertificateId");
+        if (!unknown_iamCertificateId) return value_iamCertificateId;
+        throw new UndeferrableValueException("Value 'DistributionViewerCertificate.iamCertificateId' is not present");
     }
 
     /**
      * Minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections. Can only be set if `cloudfront_default_certificate = false`. See all possible values in [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html) table under &#34;Security policy.&#34; Some examples include: `TLSv1.2_2019` and `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**: If you are using a custom certificate (specified with `acm_certificate_arn` or `iam_certificate_id`), and have specified `sni-only` in `ssl_support_method`, `TLSv1` or later must be specified. If you have specified `vip` in `ssl_support_method`, only `SSLv3` or `TLSv1` can be specified. If you have specified `cloudfront_default_certificate`, `TLSv1` must be specified.
      * 
      */
-    private @Nullable UndeferrableValue<String> minimumProtocolVersion;
-
+    @PolicyResourceProperty(name="minimumProtocolVersion", flag="unknown_minimumProtocolVersion")
+    private @Nullable String value_minimumProtocolVersion;
+    private boolean unknown_minimumProtocolVersion;
     public @Nullable String minimumProtocolVersion() {
-        if (minimumProtocolVersion == null) return null;
-        return minimumProtocolVersion.getValue("DistributionViewerCertificate.minimumProtocolVersion");
+        if (!unknown_minimumProtocolVersion) return value_minimumProtocolVersion;
+        throw new UndeferrableValueException("Value 'DistributionViewerCertificate.minimumProtocolVersion' is not present");
     }
 
     /**
      * How you want CloudFront to serve HTTPS requests. One of `vip`, `sni-only`, or `static-ip`. Required if you specify `acm_certificate_arn` or `iam_certificate_id`. **NOTE:** `vip` causes CloudFront to use a dedicated IP address and may incur extra charges.
      * 
      */
-    private @Nullable UndeferrableValue<String> sslSupportMethod;
-
+    @PolicyResourceProperty(name="sslSupportMethod", flag="unknown_sslSupportMethod")
+    private @Nullable String value_sslSupportMethod;
+    private boolean unknown_sslSupportMethod;
     public @Nullable String sslSupportMethod() {
-        if (sslSupportMethod == null) return null;
-        return sslSupportMethod.getValue("DistributionViewerCertificate.sslSupportMethod");
+        if (!unknown_sslSupportMethod) return value_sslSupportMethod;
+        throw new UndeferrableValueException("Value 'DistributionViewerCertificate.sslSupportMethod' is not present");
     }
 
 }

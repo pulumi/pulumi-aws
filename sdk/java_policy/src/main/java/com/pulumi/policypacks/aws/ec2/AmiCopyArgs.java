@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.inputs.AmiCopyEbsBlockDeviceArgs;
 import com.pulumi.policypacks.aws.ec2.inputs.AmiCopyEphemeralBlockDeviceArgs;
@@ -21,22 +22,24 @@ public final class AmiCopyArgs extends com.pulumi.resources.PolicyResourceInput 
      * Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
-    private UndeferrableValue<String> deprecationTime;
-
+    @PolicyResourceProperty(name="deprecationTime", flag="unknown_deprecationTime")
+    private String value_deprecationTime;
+    private boolean unknown_deprecationTime;
     public String deprecationTime() {
-        if (deprecationTime == null) return null;
-        return deprecationTime.getValue("AmiCopyArgs.deprecationTime");
+        if (!unknown_deprecationTime) return value_deprecationTime;
+        throw new UndeferrableValueException("Value 'AmiCopyArgs.deprecationTime' is not present");
     }
 
     /**
      * Longer, human-readable description for the AMI.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("AmiCopyArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'AmiCopyArgs.description' is not present");
     }
 
     /**
@@ -44,11 +47,12 @@ public final class AmiCopyArgs extends com.pulumi.resources.PolicyResourceInput 
      * Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
      * 
      */
-    private UndeferrableValue<String> destinationOutpostArn;
-
+    @PolicyResourceProperty(name="destinationOutpostArn", flag="unknown_destinationOutpostArn")
+    private String value_destinationOutpostArn;
+    private boolean unknown_destinationOutpostArn;
     public String destinationOutpostArn() {
-        if (destinationOutpostArn == null) return null;
-        return destinationOutpostArn.getValue("AmiCopyArgs.destinationOutpostArn");
+        if (!unknown_destinationOutpostArn) return value_destinationOutpostArn;
+        throw new UndeferrableValueException("Value 'AmiCopyArgs.destinationOutpostArn' is not present");
     }
 
     /**
@@ -56,22 +60,24 @@ public final class AmiCopyArgs extends com.pulumi.resources.PolicyResourceInput 
      * attached to created instances. The structure of this block is described below.
      * 
      */
-    private UndeferrableValue<List<AmiCopyEbsBlockDeviceArgs>> ebsBlockDevices;
-
+    @PolicyResourceProperty(name="ebsBlockDevices", flag="unknown_ebsBlockDevices")
+    private List<AmiCopyEbsBlockDeviceArgs> value_ebsBlockDevices;
+    private boolean unknown_ebsBlockDevices;
     public List<AmiCopyEbsBlockDeviceArgs> ebsBlockDevices() {
-        if (ebsBlockDevices == null) return null;
-        return ebsBlockDevices.getValue("AmiCopyArgs.ebsBlockDevices");
+        if (!unknown_ebsBlockDevices) return value_ebsBlockDevices;
+        throw new UndeferrableValueException("Value 'AmiCopyArgs.ebsBlockDevices' is not present");
     }
 
     /**
      * Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
      * 
      */
-    private UndeferrableValue<Boolean> encrypted;
-
+    @PolicyResourceProperty(name="encrypted", flag="unknown_encrypted")
+    private Boolean value_encrypted;
+    private boolean unknown_encrypted;
     public Boolean encrypted() {
-        if (encrypted == null) return null;
-        return encrypted.getValue("AmiCopyArgs.encrypted");
+        if (!unknown_encrypted) return value_encrypted;
+        throw new UndeferrableValueException("Value 'AmiCopyArgs.encrypted' is not present");
     }
 
     /**
@@ -79,33 +85,36 @@ public final class AmiCopyArgs extends com.pulumi.resources.PolicyResourceInput 
      * should be attached to created instances. The structure of this block is described below.
      * 
      */
-    private UndeferrableValue<List<AmiCopyEphemeralBlockDeviceArgs>> ephemeralBlockDevices;
-
+    @PolicyResourceProperty(name="ephemeralBlockDevices", flag="unknown_ephemeralBlockDevices")
+    private List<AmiCopyEphemeralBlockDeviceArgs> value_ephemeralBlockDevices;
+    private boolean unknown_ephemeralBlockDevices;
     public List<AmiCopyEphemeralBlockDeviceArgs> ephemeralBlockDevices() {
-        if (ephemeralBlockDevices == null) return null;
-        return ephemeralBlockDevices.getValue("AmiCopyArgs.ephemeralBlockDevices");
+        if (!unknown_ephemeralBlockDevices) return value_ephemeralBlockDevices;
+        throw new UndeferrableValueException("Value 'AmiCopyArgs.ephemeralBlockDevices' is not present");
     }
 
     /**
      * Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("AmiCopyArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'AmiCopyArgs.kmsKeyId' is not present");
     }
 
     /**
      * Region-unique name for the AMI.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AmiCopyArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AmiCopyArgs.name' is not present");
     }
 
     /**
@@ -113,11 +122,12 @@ public final class AmiCopyArgs extends com.pulumi.resources.PolicyResourceInput 
      * given by `source_ami_region`.
      * 
      */
-    private UndeferrableValue<String> sourceAmiId;
-
+    @PolicyResourceProperty(name="sourceAmiId", flag="unknown_sourceAmiId")
+    private String value_sourceAmiId;
+    private boolean unknown_sourceAmiId;
     public String sourceAmiId() {
-        if (sourceAmiId == null) return null;
-        return sourceAmiId.getValue("AmiCopyArgs.sourceAmiId");
+        if (!unknown_sourceAmiId) return value_sourceAmiId;
+        throw new UndeferrableValueException("Value 'AmiCopyArgs.sourceAmiId' is not present");
     }
 
     /**
@@ -125,22 +135,24 @@ public final class AmiCopyArgs extends com.pulumi.resources.PolicyResourceInput 
      * same as the AWS provider region in order to create a copy within the same region.
      * 
      */
-    private UndeferrableValue<String> sourceAmiRegion;
-
+    @PolicyResourceProperty(name="sourceAmiRegion", flag="unknown_sourceAmiRegion")
+    private String value_sourceAmiRegion;
+    private boolean unknown_sourceAmiRegion;
     public String sourceAmiRegion() {
-        if (sourceAmiRegion == null) return null;
-        return sourceAmiRegion.getValue("AmiCopyArgs.sourceAmiRegion");
+        if (!unknown_sourceAmiRegion) return value_sourceAmiRegion;
+        throw new UndeferrableValueException("Value 'AmiCopyArgs.sourceAmiRegion' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("AmiCopyArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'AmiCopyArgs.tags' is not present");
     }
 
 }

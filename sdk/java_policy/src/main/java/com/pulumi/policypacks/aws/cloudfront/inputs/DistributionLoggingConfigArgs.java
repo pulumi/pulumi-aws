@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudfront.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class DistributionLoggingConfigArgs {
      * Amazon S3 bucket to store the access logs in, for example, `myawslogbucket.s3.amazonaws.com`. The bucket must have correct ACL attached with &#34;FULL_CONTROL&#34; permission for &#34;awslogsdelivery&#34; account (Canonical ID: &#34;c4c1ede66af53448b93c283ce9448c4ba468c9432aa01d700d3878632f77d2d0&#34;) for log transfer to work.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("DistributionLoggingConfigArgs.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'DistributionLoggingConfigArgs.bucket' is not present");
     }
 
     /**
      * Whether to include cookies in access logs (default: `false`).
      * 
      */
-    private UndeferrableValue<Boolean> includeCookies;
-
+    @PolicyResourceProperty(name="includeCookies", flag="unknown_includeCookies")
+    private Boolean value_includeCookies;
+    private boolean unknown_includeCookies;
     public Boolean includeCookies() {
-        if (includeCookies == null) return null;
-        return includeCookies.getValue("DistributionLoggingConfigArgs.includeCookies");
+        if (!unknown_includeCookies) return value_includeCookies;
+        throw new UndeferrableValueException("Value 'DistributionLoggingConfigArgs.includeCookies' is not present");
     }
 
     /**
      * Prefix to the access log filenames for this distribution, for example, `myprefix/`.
      * 
      */
-    private UndeferrableValue<String> prefix;
-
+    @PolicyResourceProperty(name="prefix", flag="unknown_prefix")
+    private String value_prefix;
+    private boolean unknown_prefix;
     public String prefix() {
-        if (prefix == null) return null;
-        return prefix.getValue("DistributionLoggingConfigArgs.prefix");
+        if (!unknown_prefix) return value_prefix;
+        throw new UndeferrableValueException("Value 'DistributionLoggingConfigArgs.prefix' is not present");
     }
 
 }

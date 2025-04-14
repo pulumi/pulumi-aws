@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.dms.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,99 +16,108 @@ public final class EndpointKinesisSettingsArgs {
      * Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> includeControlDetails;
-
+    @PolicyResourceProperty(name="includeControlDetails", flag="unknown_includeControlDetails")
+    private Boolean value_includeControlDetails;
+    private boolean unknown_includeControlDetails;
     public Boolean includeControlDetails() {
-        if (includeControlDetails == null) return null;
-        return includeControlDetails.getValue("EndpointKinesisSettingsArgs.includeControlDetails");
+        if (!unknown_includeControlDetails) return value_includeControlDetails;
+        throw new UndeferrableValueException("Value 'EndpointKinesisSettingsArgs.includeControlDetails' is not present");
     }
 
     /**
      * Include NULL and empty columns in the target. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> includeNullAndEmpty;
-
+    @PolicyResourceProperty(name="includeNullAndEmpty", flag="unknown_includeNullAndEmpty")
+    private Boolean value_includeNullAndEmpty;
+    private boolean unknown_includeNullAndEmpty;
     public Boolean includeNullAndEmpty() {
-        if (includeNullAndEmpty == null) return null;
-        return includeNullAndEmpty.getValue("EndpointKinesisSettingsArgs.includeNullAndEmpty");
+        if (!unknown_includeNullAndEmpty) return value_includeNullAndEmpty;
+        throw new UndeferrableValueException("Value 'EndpointKinesisSettingsArgs.includeNullAndEmpty' is not present");
     }
 
     /**
      * Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> includePartitionValue;
-
+    @PolicyResourceProperty(name="includePartitionValue", flag="unknown_includePartitionValue")
+    private Boolean value_includePartitionValue;
+    private boolean unknown_includePartitionValue;
     public Boolean includePartitionValue() {
-        if (includePartitionValue == null) return null;
-        return includePartitionValue.getValue("EndpointKinesisSettingsArgs.includePartitionValue");
+        if (!unknown_includePartitionValue) return value_includePartitionValue;
+        throw new UndeferrableValueException("Value 'EndpointKinesisSettingsArgs.includePartitionValue' is not present");
     }
 
     /**
      * Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> includeTableAlterOperations;
-
+    @PolicyResourceProperty(name="includeTableAlterOperations", flag="unknown_includeTableAlterOperations")
+    private Boolean value_includeTableAlterOperations;
+    private boolean unknown_includeTableAlterOperations;
     public Boolean includeTableAlterOperations() {
-        if (includeTableAlterOperations == null) return null;
-        return includeTableAlterOperations.getValue("EndpointKinesisSettingsArgs.includeTableAlterOperations");
+        if (!unknown_includeTableAlterOperations) return value_includeTableAlterOperations;
+        throw new UndeferrableValueException("Value 'EndpointKinesisSettingsArgs.includeTableAlterOperations' is not present");
     }
 
     /**
      * Provides detailed transaction information from the source database. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> includeTransactionDetails;
-
+    @PolicyResourceProperty(name="includeTransactionDetails", flag="unknown_includeTransactionDetails")
+    private Boolean value_includeTransactionDetails;
+    private boolean unknown_includeTransactionDetails;
     public Boolean includeTransactionDetails() {
-        if (includeTransactionDetails == null) return null;
-        return includeTransactionDetails.getValue("EndpointKinesisSettingsArgs.includeTransactionDetails");
+        if (!unknown_includeTransactionDetails) return value_includeTransactionDetails;
+        throw new UndeferrableValueException("Value 'EndpointKinesisSettingsArgs.includeTransactionDetails' is not present");
     }
 
     /**
      * Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
      * 
      */
-    private UndeferrableValue<String> messageFormat;
-
+    @PolicyResourceProperty(name="messageFormat", flag="unknown_messageFormat")
+    private String value_messageFormat;
+    private boolean unknown_messageFormat;
     public String messageFormat() {
-        if (messageFormat == null) return null;
-        return messageFormat.getValue("EndpointKinesisSettingsArgs.messageFormat");
+        if (!unknown_messageFormat) return value_messageFormat;
+        throw new UndeferrableValueException("Value 'EndpointKinesisSettingsArgs.messageFormat' is not present");
     }
 
     /**
      * Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> partitionIncludeSchemaTable;
-
+    @PolicyResourceProperty(name="partitionIncludeSchemaTable", flag="unknown_partitionIncludeSchemaTable")
+    private Boolean value_partitionIncludeSchemaTable;
+    private boolean unknown_partitionIncludeSchemaTable;
     public Boolean partitionIncludeSchemaTable() {
-        if (partitionIncludeSchemaTable == null) return null;
-        return partitionIncludeSchemaTable.getValue("EndpointKinesisSettingsArgs.partitionIncludeSchemaTable");
+        if (!unknown_partitionIncludeSchemaTable) return value_partitionIncludeSchemaTable;
+        throw new UndeferrableValueException("Value 'EndpointKinesisSettingsArgs.partitionIncludeSchemaTable' is not present");
     }
 
     /**
      * ARN of the IAM Role with permissions to write to the Kinesis data stream.
      * 
      */
-    private UndeferrableValue<String> serviceAccessRoleArn;
-
+    @PolicyResourceProperty(name="serviceAccessRoleArn", flag="unknown_serviceAccessRoleArn")
+    private String value_serviceAccessRoleArn;
+    private boolean unknown_serviceAccessRoleArn;
     public String serviceAccessRoleArn() {
-        if (serviceAccessRoleArn == null) return null;
-        return serviceAccessRoleArn.getValue("EndpointKinesisSettingsArgs.serviceAccessRoleArn");
+        if (!unknown_serviceAccessRoleArn) return value_serviceAccessRoleArn;
+        throw new UndeferrableValueException("Value 'EndpointKinesisSettingsArgs.serviceAccessRoleArn' is not present");
     }
 
     /**
      * ARN of the Kinesis data stream.
      * 
      */
-    private UndeferrableValue<String> streamArn;
-
+    @PolicyResourceProperty(name="streamArn", flag="unknown_streamArn")
+    private String value_streamArn;
+    private boolean unknown_streamArn;
     public String streamArn() {
-        if (streamArn == null) return null;
-        return streamArn.getValue("EndpointKinesisSettingsArgs.streamArn");
+        if (!unknown_streamArn) return value_streamArn;
+        throw new UndeferrableValueException("Value 'EndpointKinesisSettingsArgs.streamArn' is not present");
     }
 
 }

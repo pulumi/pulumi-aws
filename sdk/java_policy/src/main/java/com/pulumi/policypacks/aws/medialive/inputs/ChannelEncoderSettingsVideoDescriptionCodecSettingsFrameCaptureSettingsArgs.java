@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptu
      * The frequency at which to capture frames for inclusion in the output.
      * 
      */
-    private UndeferrableValue<Integer> captureInterval;
-
+    @PolicyResourceProperty(name="captureInterval", flag="unknown_captureInterval")
+    private Integer value_captureInterval;
+    private boolean unknown_captureInterval;
     public Integer captureInterval() {
-        if (captureInterval == null) return null;
-        return captureInterval.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs.captureInterval");
+        if (!unknown_captureInterval) return value_captureInterval;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs.captureInterval' is not present");
     }
 
     /**
      * Unit for the frame capture interval.
      * 
      */
-    private UndeferrableValue<String> captureIntervalUnits;
-
+    @PolicyResourceProperty(name="captureIntervalUnits", flag="unknown_captureIntervalUnits")
+    private String value_captureIntervalUnits;
+    private boolean unknown_captureIntervalUnits;
     public String captureIntervalUnits() {
-        if (captureIntervalUnits == null) return null;
-        return captureIntervalUnits.getValue("ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs.captureIntervalUnits");
+        if (!unknown_captureIntervalUnits) return value_captureIntervalUnits;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs.captureIntervalUnits' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3.inputs.BucketReplicationConfigRuleArgs;
 import java.lang.String;
@@ -18,22 +19,24 @@ public final class BucketReplicationConfigArgs extends com.pulumi.resources.Poli
      * Name of the source S3 bucket you want Amazon S3 to monitor.
      * 
      */
-    private UndeferrableValue<String> bucket;
-
+    @PolicyResourceProperty(name="bucket", flag="unknown_bucket")
+    private String value_bucket;
+    private boolean unknown_bucket;
     public String bucket() {
-        if (bucket == null) return null;
-        return bucket.getValue("BucketReplicationConfigArgs.bucket");
+        if (!unknown_bucket) return value_bucket;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigArgs.bucket' is not present");
     }
 
     /**
      * ARN of the IAM role for Amazon S3 to assume when replicating the objects.
      * 
      */
-    private UndeferrableValue<String> role;
-
+    @PolicyResourceProperty(name="role", flag="unknown_role")
+    private String value_role;
+    private boolean unknown_role;
     public String role() {
-        if (role == null) return null;
-        return role.getValue("BucketReplicationConfigArgs.role");
+        if (!unknown_role) return value_role;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigArgs.role' is not present");
     }
 
     /**
@@ -46,11 +49,12 @@ public final class BucketReplicationConfigArgs extends com.pulumi.resources.Poli
      * To replicate existing objects, please refer to the [Replicating existing objects with S3 Batch Replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) documentation in the Amazon S3 User Guide.
      * 
      */
-    private UndeferrableValue<List<BucketReplicationConfigRuleArgs>> rules;
-
+    @PolicyResourceProperty(name="rules", flag="unknown_rules")
+    private List<BucketReplicationConfigRuleArgs> value_rules;
+    private boolean unknown_rules;
     public List<BucketReplicationConfigRuleArgs> rules() {
-        if (rules == null) return null;
-        return rules.getValue("BucketReplicationConfigArgs.rules");
+        if (!unknown_rules) return value_rules;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigArgs.rules' is not present");
     }
 
     /**
@@ -58,11 +62,12 @@ public final class BucketReplicationConfigArgs extends com.pulumi.resources.Poli
      * For more details, see [Using S3 Object Lock with replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-managing-replication).
      * 
      */
-    private UndeferrableValue<String> token;
-
+    @PolicyResourceProperty(name="token", flag="unknown_token")
+    private String value_token;
+    private boolean unknown_token;
     public String token() {
-        if (token == null) return null;
-        return token.getValue("BucketReplicationConfigArgs.token");
+        if (!unknown_token) return value_token;
+        throw new UndeferrableValueException("Value 'BucketReplicationConfigArgs.token' is not present");
     }
 
 }

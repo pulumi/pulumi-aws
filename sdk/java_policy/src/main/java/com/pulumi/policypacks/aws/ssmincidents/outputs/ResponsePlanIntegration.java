@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssmincidents.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.ssmincidents.outputs.ResponsePlanIntegrationPagerduty;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,11 +16,12 @@ public final class ResponsePlanIntegration {
      * Details about the PagerDuty configuration for a response plan. The following values are supported:
      * 
      */
-    private @Nullable UndeferrableValue<List<ResponsePlanIntegrationPagerduty>> pagerduties;
-
+    @PolicyResourceProperty(name="pagerduties", flag="unknown_pagerduties")
+    private @Nullable List<ResponsePlanIntegrationPagerduty> value_pagerduties;
+    private boolean unknown_pagerduties;
     public @Nullable List<ResponsePlanIntegrationPagerduty> pagerduties() {
-        if (pagerduties == null) return null;
-        return pagerduties.getValue("ResponsePlanIntegration.pagerduties");
+        if (!unknown_pagerduties) return value_pagerduties;
+        throw new UndeferrableValueException("Value 'ResponsePlanIntegration.pagerduties' is not present");
     }
 
 }

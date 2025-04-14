@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cfg;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.cfg.outputs.DeliveryChannelSnapshotDeliveryProperties;
 import java.lang.String;
@@ -17,66 +18,72 @@ public final class DeliveryChannel extends com.pulumi.resources.PolicyResourceOu
      * The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DeliveryChannel.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DeliveryChannel.name' is not present");
     }
 
     /**
      * The name of the S3 bucket used to store the configuration history.
      * 
      */
-    private UndeferrableValue<String> s3BucketName;
-
+    @PolicyResourceProperty(name="s3BucketName", flag="unknown_s3BucketName")
+    private String value_s3BucketName;
+    private boolean unknown_s3BucketName;
     public String s3BucketName() {
-        if (s3BucketName == null) return null;
-        return s3BucketName.getValue("DeliveryChannel.s3BucketName");
+        if (!unknown_s3BucketName) return value_s3BucketName;
+        throw new UndeferrableValueException("Value 'DeliveryChannel.s3BucketName' is not present");
     }
 
     /**
      * The prefix for the specified S3 bucket.
      * 
      */
-    private @Nullable UndeferrableValue<String> s3KeyPrefix;
-
+    @PolicyResourceProperty(name="s3KeyPrefix", flag="unknown_s3KeyPrefix")
+    private @Nullable String value_s3KeyPrefix;
+    private boolean unknown_s3KeyPrefix;
     public @Nullable String s3KeyPrefix() {
-        if (s3KeyPrefix == null) return null;
-        return s3KeyPrefix.getValue("DeliveryChannel.s3KeyPrefix");
+        if (!unknown_s3KeyPrefix) return value_s3KeyPrefix;
+        throw new UndeferrableValueException("Value 'DeliveryChannel.s3KeyPrefix' is not present");
     }
 
     /**
      * The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
      * 
      */
-    private @Nullable UndeferrableValue<String> s3KmsKeyArn;
-
+    @PolicyResourceProperty(name="s3KmsKeyArn", flag="unknown_s3KmsKeyArn")
+    private @Nullable String value_s3KmsKeyArn;
+    private boolean unknown_s3KmsKeyArn;
     public @Nullable String s3KmsKeyArn() {
-        if (s3KmsKeyArn == null) return null;
-        return s3KmsKeyArn.getValue("DeliveryChannel.s3KmsKeyArn");
+        if (!unknown_s3KmsKeyArn) return value_s3KmsKeyArn;
+        throw new UndeferrableValueException("Value 'DeliveryChannel.s3KmsKeyArn' is not present");
     }
 
     /**
      * Options for how AWS Config delivers configuration snapshots. See below
      * 
      */
-    private @Nullable UndeferrableValue<DeliveryChannelSnapshotDeliveryProperties> snapshotDeliveryProperties;
-
+    @PolicyResourceProperty(name="snapshotDeliveryProperties", flag="unknown_snapshotDeliveryProperties")
+    private @Nullable DeliveryChannelSnapshotDeliveryProperties value_snapshotDeliveryProperties;
+    private boolean unknown_snapshotDeliveryProperties;
     public @Nullable DeliveryChannelSnapshotDeliveryProperties snapshotDeliveryProperties() {
-        if (snapshotDeliveryProperties == null) return null;
-        return snapshotDeliveryProperties.getValue("DeliveryChannel.snapshotDeliveryProperties");
+        if (!unknown_snapshotDeliveryProperties) return value_snapshotDeliveryProperties;
+        throw new UndeferrableValueException("Value 'DeliveryChannel.snapshotDeliveryProperties' is not present");
     }
 
     /**
      * The ARN of the SNS topic that AWS Config delivers notifications to.
      * 
      */
-    private @Nullable UndeferrableValue<String> snsTopicArn;
-
+    @PolicyResourceProperty(name="snsTopicArn", flag="unknown_snsTopicArn")
+    private @Nullable String value_snsTopicArn;
+    private boolean unknown_snsTopicArn;
     public @Nullable String snsTopicArn() {
-        if (snsTopicArn == null) return null;
-        return snsTopicArn.getValue("DeliveryChannel.snsTopicArn");
+        if (!unknown_snsTopicArn) return value_snsTopicArn;
+        throw new UndeferrableValueException("Value 'DeliveryChannel.snsTopicArn' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.glue.inputs.SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs;
 import com.pulumi.policypacks.aws.glue.inputs.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs;
 import com.pulumi.policypacks.aws.glue.inputs.SecurityConfigurationEncryptionConfigurationS3EncryptionArgs;
@@ -11,29 +12,32 @@ import com.pulumi.policypacks.aws.glue.inputs.SecurityConfigurationEncryptionCon
 
 public final class SecurityConfigurationEncryptionConfigurationArgs {
 
-    private UndeferrableValue<SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs> cloudwatchEncryption;
-
+    @PolicyResourceProperty(name="cloudwatchEncryption", flag="unknown_cloudwatchEncryption")
+    private SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs value_cloudwatchEncryption;
+    private boolean unknown_cloudwatchEncryption;
     public SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs cloudwatchEncryption() {
-        if (cloudwatchEncryption == null) return null;
-        return cloudwatchEncryption.getValue("SecurityConfigurationEncryptionConfigurationArgs.cloudwatchEncryption");
+        if (!unknown_cloudwatchEncryption) return value_cloudwatchEncryption;
+        throw new UndeferrableValueException("Value 'SecurityConfigurationEncryptionConfigurationArgs.cloudwatchEncryption' is not present");
     }
 
-    private UndeferrableValue<SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs> jobBookmarksEncryption;
-
+    @PolicyResourceProperty(name="jobBookmarksEncryption", flag="unknown_jobBookmarksEncryption")
+    private SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs value_jobBookmarksEncryption;
+    private boolean unknown_jobBookmarksEncryption;
     public SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs jobBookmarksEncryption() {
-        if (jobBookmarksEncryption == null) return null;
-        return jobBookmarksEncryption.getValue("SecurityConfigurationEncryptionConfigurationArgs.jobBookmarksEncryption");
+        if (!unknown_jobBookmarksEncryption) return value_jobBookmarksEncryption;
+        throw new UndeferrableValueException("Value 'SecurityConfigurationEncryptionConfigurationArgs.jobBookmarksEncryption' is not present");
     }
 
     /**
      * A ` s3_encryption  ` block as described below, which contains encryption configuration for S3 data.
      * 
      */
-    private UndeferrableValue<SecurityConfigurationEncryptionConfigurationS3EncryptionArgs> s3Encryption;
-
+    @PolicyResourceProperty(name="s3Encryption", flag="unknown_s3Encryption")
+    private SecurityConfigurationEncryptionConfigurationS3EncryptionArgs value_s3Encryption;
+    private boolean unknown_s3Encryption;
     public SecurityConfigurationEncryptionConfigurationS3EncryptionArgs s3Encryption() {
-        if (s3Encryption == null) return null;
-        return s3Encryption.getValue("SecurityConfigurationEncryptionConfigurationArgs.s3Encryption");
+        if (!unknown_s3Encryption) return value_s3Encryption;
+        throw new UndeferrableValueException("Value 'SecurityConfigurationEncryptionConfigurationArgs.s3Encryption' is not present");
     }
 
 }

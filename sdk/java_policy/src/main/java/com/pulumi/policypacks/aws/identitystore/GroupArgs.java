@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.identitystore;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,22 +17,24 @@ public final class GroupArgs extends com.pulumi.resources.PolicyResourceInput {
      * A string containing the description of the group.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("GroupArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'GroupArgs.description' is not present");
     }
 
     /**
      * A string containing the name of the group. This value is commonly displayed when the group is referenced.
      * 
      */
-    private UndeferrableValue<String> displayName;
-
+    @PolicyResourceProperty(name="displayName", flag="unknown_displayName")
+    private String value_displayName;
+    private boolean unknown_displayName;
     public String displayName() {
-        if (displayName == null) return null;
-        return displayName.getValue("GroupArgs.displayName");
+        if (!unknown_displayName) return value_displayName;
+        throw new UndeferrableValueException("Value 'GroupArgs.displayName' is not present");
     }
 
     /**
@@ -40,11 +43,12 @@ public final class GroupArgs extends com.pulumi.resources.PolicyResourceInput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> identityStoreId;
-
+    @PolicyResourceProperty(name="identityStoreId", flag="unknown_identityStoreId")
+    private String value_identityStoreId;
+    private boolean unknown_identityStoreId;
     public String identityStoreId() {
-        if (identityStoreId == null) return null;
-        return identityStoreId.getValue("GroupArgs.identityStoreId");
+        if (!unknown_identityStoreId) return value_identityStoreId;
+        throw new UndeferrableValueException("Value 'GroupArgs.identityStoreId' is not present");
     }
 
 }

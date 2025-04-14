@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.bedrock.outputs.ProvisionedModelThroughputTimeouts;
 import java.lang.Integer;
@@ -19,66 +20,72 @@ public final class ProvisionedModelThroughput extends com.pulumi.resources.Polic
      * Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
      * 
      */
-    private @Nullable UndeferrableValue<String> commitmentDuration;
-
+    @PolicyResourceProperty(name="commitmentDuration", flag="unknown_commitmentDuration")
+    private @Nullable String value_commitmentDuration;
+    private boolean unknown_commitmentDuration;
     public @Nullable String commitmentDuration() {
-        if (commitmentDuration == null) return null;
-        return commitmentDuration.getValue("ProvisionedModelThroughput.commitmentDuration");
+        if (!unknown_commitmentDuration) return value_commitmentDuration;
+        throw new UndeferrableValueException("Value 'ProvisionedModelThroughput.commitmentDuration' is not present");
     }
 
     /**
      * ARN of the model to associate with this Provisioned Throughput.
      * 
      */
-    private UndeferrableValue<String> modelArn;
-
+    @PolicyResourceProperty(name="modelArn", flag="unknown_modelArn")
+    private String value_modelArn;
+    private boolean unknown_modelArn;
     public String modelArn() {
-        if (modelArn == null) return null;
-        return modelArn.getValue("ProvisionedModelThroughput.modelArn");
+        if (!unknown_modelArn) return value_modelArn;
+        throw new UndeferrableValueException("Value 'ProvisionedModelThroughput.modelArn' is not present");
     }
 
     /**
      * Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
      * 
      */
-    private UndeferrableValue<Integer> modelUnits;
-
+    @PolicyResourceProperty(name="modelUnits", flag="unknown_modelUnits")
+    private Integer value_modelUnits;
+    private boolean unknown_modelUnits;
     public Integer modelUnits() {
-        if (modelUnits == null) return null;
-        return modelUnits.getValue("ProvisionedModelThroughput.modelUnits");
+        if (!unknown_modelUnits) return value_modelUnits;
+        throw new UndeferrableValueException("Value 'ProvisionedModelThroughput.modelUnits' is not present");
     }
 
     /**
      * The ARN of the Provisioned Throughput.
      * 
      */
-    private UndeferrableValue<String> provisionedModelArn;
-
+    @PolicyResourceProperty(name="provisionedModelArn", flag="unknown_provisionedModelArn")
+    private String value_provisionedModelArn;
+    private boolean unknown_provisionedModelArn;
     public String provisionedModelArn() {
-        if (provisionedModelArn == null) return null;
-        return provisionedModelArn.getValue("ProvisionedModelThroughput.provisionedModelArn");
+        if (!unknown_provisionedModelArn) return value_provisionedModelArn;
+        throw new UndeferrableValueException("Value 'ProvisionedModelThroughput.provisionedModelArn' is not present");
     }
 
     /**
      * Unique name for this Provisioned Throughput.
      * 
      */
-    private UndeferrableValue<String> provisionedModelName;
-
+    @PolicyResourceProperty(name="provisionedModelName", flag="unknown_provisionedModelName")
+    private String value_provisionedModelName;
+    private boolean unknown_provisionedModelName;
     public String provisionedModelName() {
-        if (provisionedModelName == null) return null;
-        return provisionedModelName.getValue("ProvisionedModelThroughput.provisionedModelName");
+        if (!unknown_provisionedModelName) return value_provisionedModelName;
+        throw new UndeferrableValueException("Value 'ProvisionedModelThroughput.provisionedModelName' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ProvisionedModelThroughput.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ProvisionedModelThroughput.tags' is not present");
     }
 
     /**
@@ -89,18 +96,20 @@ public final class ProvisionedModelThroughput extends com.pulumi.resources.Polic
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ProvisionedModelThroughput.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ProvisionedModelThroughput.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<ProvisionedModelThroughputTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable ProvisionedModelThroughputTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable ProvisionedModelThroughputTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ProvisionedModelThroughput.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ProvisionedModelThroughput.timeouts' is not present");
     }
 
 }

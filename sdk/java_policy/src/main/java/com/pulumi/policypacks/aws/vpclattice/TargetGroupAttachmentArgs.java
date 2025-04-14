@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpclattice;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.vpclattice.inputs.TargetGroupAttachmentTargetArgs;
 import java.lang.String;
@@ -16,22 +17,24 @@ public final class TargetGroupAttachmentArgs extends com.pulumi.resources.Policy
      * The target.
      * 
      */
-    private UndeferrableValue<TargetGroupAttachmentTargetArgs> target;
-
+    @PolicyResourceProperty(name="target", flag="unknown_target")
+    private TargetGroupAttachmentTargetArgs value_target;
+    private boolean unknown_target;
     public TargetGroupAttachmentTargetArgs target() {
-        if (target == null) return null;
-        return target.getValue("TargetGroupAttachmentArgs.target");
+        if (!unknown_target) return value_target;
+        throw new UndeferrableValueException("Value 'TargetGroupAttachmentArgs.target' is not present");
     }
 
     /**
      * The ID or Amazon Resource Name (ARN) of the target group.
      * 
      */
-    private UndeferrableValue<String> targetGroupIdentifier;
-
+    @PolicyResourceProperty(name="targetGroupIdentifier", flag="unknown_targetGroupIdentifier")
+    private String value_targetGroupIdentifier;
+    private boolean unknown_targetGroupIdentifier;
     public String targetGroupIdentifier() {
-        if (targetGroupIdentifier == null) return null;
-        return targetGroupIdentifier.getValue("TargetGroupAttachmentArgs.targetGroupIdentifier");
+        if (!unknown_targetGroupIdentifier) return value_targetGroupIdentifier;
+        throw new UndeferrableValueException("Value 'TargetGroupAttachmentArgs.targetGroupIdentifier' is not present");
     }
 
 }

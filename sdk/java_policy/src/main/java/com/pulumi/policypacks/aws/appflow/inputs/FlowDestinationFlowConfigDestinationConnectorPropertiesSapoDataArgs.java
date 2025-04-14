@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.appflow.inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgs;
 import com.pulumi.policypacks.aws.appflow.inputs.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs;
 import java.lang.String;
@@ -13,43 +14,48 @@ import javax.annotation.Nullable;
 
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs {
 
-    private UndeferrableValue<FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgs> errorHandlingConfig;
-
+    @PolicyResourceProperty(name="errorHandlingConfig", flag="unknown_errorHandlingConfig")
+    private FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgs value_errorHandlingConfig;
+    private boolean unknown_errorHandlingConfig;
     public FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgs errorHandlingConfig() {
-        if (errorHandlingConfig == null) return null;
-        return errorHandlingConfig.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs.errorHandlingConfig");
+        if (!unknown_errorHandlingConfig) return value_errorHandlingConfig;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs.errorHandlingConfig' is not present");
     }
 
-    private UndeferrableValue<List<String>> idFieldNames;
-
+    @PolicyResourceProperty(name="idFieldNames", flag="unknown_idFieldNames")
+    private List<String> value_idFieldNames;
+    private boolean unknown_idFieldNames;
     public List<String> idFieldNames() {
-        if (idFieldNames == null) return null;
-        return idFieldNames.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs.idFieldNames");
+        if (!unknown_idFieldNames) return value_idFieldNames;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs.idFieldNames' is not present");
     }
 
-    private UndeferrableValue<String> objectPath;
-
+    @PolicyResourceProperty(name="objectPath", flag="unknown_objectPath")
+    private String value_objectPath;
+    private boolean unknown_objectPath;
     public String objectPath() {
-        if (objectPath == null) return null;
-        return objectPath.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs.objectPath");
+        if (!unknown_objectPath) return value_objectPath;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs.objectPath' is not present");
     }
 
     /**
      * Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
      * 
      */
-    private UndeferrableValue<FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs> successResponseHandlingConfig;
-
+    @PolicyResourceProperty(name="successResponseHandlingConfig", flag="unknown_successResponseHandlingConfig")
+    private FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs value_successResponseHandlingConfig;
+    private boolean unknown_successResponseHandlingConfig;
     public FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs successResponseHandlingConfig() {
-        if (successResponseHandlingConfig == null) return null;
-        return successResponseHandlingConfig.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs.successResponseHandlingConfig");
+        if (!unknown_successResponseHandlingConfig) return value_successResponseHandlingConfig;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs.successResponseHandlingConfig' is not present");
     }
 
-    private UndeferrableValue<String> writeOperationType;
-
+    @PolicyResourceProperty(name="writeOperationType", flag="unknown_writeOperationType")
+    private String value_writeOperationType;
+    private boolean unknown_writeOperationType;
     public String writeOperationType() {
-        if (writeOperationType == null) return null;
-        return writeOperationType.getValue("FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs.writeOperationType");
+        if (!unknown_writeOperationType) return value_writeOperationType;
+        throw new UndeferrableValueException("Value 'FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs.writeOperationType' is not present");
     }
 
 }

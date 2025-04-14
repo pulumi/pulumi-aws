@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,99 +16,108 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
      * Average bitrate in bits/second.
      * 
      */
-    private UndeferrableValue<Double> bitrate;
-
+    @PolicyResourceProperty(name="bitrate", flag="unknown_bitrate")
+    private Double value_bitrate;
+    private boolean unknown_bitrate;
     public Double bitrate() {
-        if (bitrate == null) return null;
-        return bitrate.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs.bitrate");
+        if (!unknown_bitrate) return value_bitrate;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs.bitrate' is not present");
     }
 
     /**
      * Mono, Stereo, or 5.1 channel layout.
      * 
      */
-    private UndeferrableValue<String> codingMode;
-
+    @PolicyResourceProperty(name="codingMode", flag="unknown_codingMode")
+    private String value_codingMode;
+    private boolean unknown_codingMode;
     public String codingMode() {
-        if (codingMode == null) return null;
-        return codingMode.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs.codingMode");
+        if (!unknown_codingMode) return value_codingMode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs.codingMode' is not present");
     }
 
     /**
      * Set to &#34;broadcasterMixedAd&#34; when input contains pre-mixed main audio + AD (narration) as a stereo pair.
      * 
      */
-    private UndeferrableValue<String> inputType;
-
+    @PolicyResourceProperty(name="inputType", flag="unknown_inputType")
+    private String value_inputType;
+    private boolean unknown_inputType;
     public String inputType() {
-        if (inputType == null) return null;
-        return inputType.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs.inputType");
+        if (!unknown_inputType) return value_inputType;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs.inputType' is not present");
     }
 
     /**
      * AAC profile.
      * 
      */
-    private UndeferrableValue<String> profile;
-
+    @PolicyResourceProperty(name="profile", flag="unknown_profile")
+    private String value_profile;
+    private boolean unknown_profile;
     public String profile() {
-        if (profile == null) return null;
-        return profile.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs.profile");
+        if (!unknown_profile) return value_profile;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs.profile' is not present");
     }
 
     /**
      * The rate control mode.
      * 
      */
-    private UndeferrableValue<String> rateControlMode;
-
+    @PolicyResourceProperty(name="rateControlMode", flag="unknown_rateControlMode")
+    private String value_rateControlMode;
+    private boolean unknown_rateControlMode;
     public String rateControlMode() {
-        if (rateControlMode == null) return null;
-        return rateControlMode.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs.rateControlMode");
+        if (!unknown_rateControlMode) return value_rateControlMode;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs.rateControlMode' is not present");
     }
 
     /**
      * Sets LATM/LOAS AAC output for raw containers.
      * 
      */
-    private UndeferrableValue<String> rawFormat;
-
+    @PolicyResourceProperty(name="rawFormat", flag="unknown_rawFormat")
+    private String value_rawFormat;
+    private boolean unknown_rawFormat;
     public String rawFormat() {
-        if (rawFormat == null) return null;
-        return rawFormat.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs.rawFormat");
+        if (!unknown_rawFormat) return value_rawFormat;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs.rawFormat' is not present");
     }
 
     /**
      * Sample rate in Hz.
      * 
      */
-    private UndeferrableValue<Double> sampleRate;
-
+    @PolicyResourceProperty(name="sampleRate", flag="unknown_sampleRate")
+    private Double value_sampleRate;
+    private boolean unknown_sampleRate;
     public Double sampleRate() {
-        if (sampleRate == null) return null;
-        return sampleRate.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs.sampleRate");
+        if (!unknown_sampleRate) return value_sampleRate;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs.sampleRate' is not present");
     }
 
     /**
      * Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
      * 
      */
-    private UndeferrableValue<String> spec;
-
+    @PolicyResourceProperty(name="spec", flag="unknown_spec")
+    private String value_spec;
+    private boolean unknown_spec;
     public String spec() {
-        if (spec == null) return null;
-        return spec.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs.spec");
+        if (!unknown_spec) return value_spec;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs.spec' is not present");
     }
 
     /**
      * VBR Quality Level - Only used if rateControlMode is VBR.
      * 
      */
-    private UndeferrableValue<String> vbrQuality;
-
+    @PolicyResourceProperty(name="vbrQuality", flag="unknown_vbrQuality")
+    private String value_vbrQuality;
+    private boolean unknown_vbrQuality;
     public String vbrQuality() {
-        if (vbrQuality == null) return null;
-        return vbrQuality.getValue("ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs.vbrQuality");
+        if (!unknown_vbrQuality) return value_vbrQuality;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs.vbrQuality' is not present");
     }
 
 }

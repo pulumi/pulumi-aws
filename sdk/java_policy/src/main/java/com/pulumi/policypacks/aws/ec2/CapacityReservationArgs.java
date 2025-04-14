@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.ec2.enums.InstancePlatform;
 import com.pulumi.policypacks.aws.ec2.enums.InstanceType;
@@ -22,143 +23,156 @@ public final class CapacityReservationArgs extends com.pulumi.resources.PolicyRe
      * The Availability Zone in which to create the Capacity Reservation.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("CapacityReservationArgs.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'CapacityReservationArgs.availabilityZone' is not present");
     }
 
     /**
      * Indicates whether the Capacity Reservation supports EBS-optimized instances.
      * 
      */
-    private UndeferrableValue<Boolean> ebsOptimized;
-
+    @PolicyResourceProperty(name="ebsOptimized", flag="unknown_ebsOptimized")
+    private Boolean value_ebsOptimized;
+    private boolean unknown_ebsOptimized;
     public Boolean ebsOptimized() {
-        if (ebsOptimized == null) return null;
-        return ebsOptimized.getValue("CapacityReservationArgs.ebsOptimized");
+        if (!unknown_ebsOptimized) return value_ebsOptimized;
+        throw new UndeferrableValueException("Value 'CapacityReservationArgs.ebsOptimized' is not present");
     }
 
     /**
      * The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
-    private UndeferrableValue<String> endDate;
-
+    @PolicyResourceProperty(name="endDate", flag="unknown_endDate")
+    private String value_endDate;
+    private boolean unknown_endDate;
     public String endDate() {
-        if (endDate == null) return null;
-        return endDate.getValue("CapacityReservationArgs.endDate");
+        if (!unknown_endDate) return value_endDate;
+        throw new UndeferrableValueException("Value 'CapacityReservationArgs.endDate' is not present");
     }
 
     /**
      * Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
      * 
      */
-    private UndeferrableValue<String> endDateType;
-
+    @PolicyResourceProperty(name="endDateType", flag="unknown_endDateType")
+    private String value_endDateType;
+    private boolean unknown_endDateType;
     public String endDateType() {
-        if (endDateType == null) return null;
-        return endDateType.getValue("CapacityReservationArgs.endDateType");
+        if (!unknown_endDateType) return value_endDateType;
+        throw new UndeferrableValueException("Value 'CapacityReservationArgs.endDateType' is not present");
     }
 
     /**
      * Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
      * 
      */
-    private UndeferrableValue<Boolean> ephemeralStorage;
-
+    @PolicyResourceProperty(name="ephemeralStorage", flag="unknown_ephemeralStorage")
+    private Boolean value_ephemeralStorage;
+    private boolean unknown_ephemeralStorage;
     public Boolean ephemeralStorage() {
-        if (ephemeralStorage == null) return null;
-        return ephemeralStorage.getValue("CapacityReservationArgs.ephemeralStorage");
+        if (!unknown_ephemeralStorage) return value_ephemeralStorage;
+        throw new UndeferrableValueException("Value 'CapacityReservationArgs.ephemeralStorage' is not present");
     }
 
     /**
      * The number of instances for which to reserve capacity.
      * 
      */
-    private UndeferrableValue<Integer> instanceCount;
-
+    @PolicyResourceProperty(name="instanceCount", flag="unknown_instanceCount")
+    private Integer value_instanceCount;
+    private boolean unknown_instanceCount;
     public Integer instanceCount() {
-        if (instanceCount == null) return null;
-        return instanceCount.getValue("CapacityReservationArgs.instanceCount");
+        if (!unknown_instanceCount) return value_instanceCount;
+        throw new UndeferrableValueException("Value 'CapacityReservationArgs.instanceCount' is not present");
     }
 
     /**
      * Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
      * 
      */
-    private UndeferrableValue<String> instanceMatchCriteria;
-
+    @PolicyResourceProperty(name="instanceMatchCriteria", flag="unknown_instanceMatchCriteria")
+    private String value_instanceMatchCriteria;
+    private boolean unknown_instanceMatchCriteria;
     public String instanceMatchCriteria() {
-        if (instanceMatchCriteria == null) return null;
-        return instanceMatchCriteria.getValue("CapacityReservationArgs.instanceMatchCriteria");
+        if (!unknown_instanceMatchCriteria) return value_instanceMatchCriteria;
+        throw new UndeferrableValueException("Value 'CapacityReservationArgs.instanceMatchCriteria' is not present");
     }
 
     /**
      * The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
      * 
      */
-    private UndeferrableValue<String> instancePlatform;
-
+    @PolicyResourceProperty(name="instancePlatform", flag="unknown_instancePlatform")
+    private String value_instancePlatform;
+    private boolean unknown_instancePlatform;
     public String instancePlatform() {
-        if (instancePlatform == null) return null;
-        return instancePlatform.getValue("CapacityReservationArgs.instancePlatform");
+        if (!unknown_instancePlatform) return value_instancePlatform;
+        throw new UndeferrableValueException("Value 'CapacityReservationArgs.instancePlatform' is not present");
     }
 
     /**
      * The instance type for which to reserve capacity.
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("CapacityReservationArgs.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'CapacityReservationArgs.instanceType' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
      * 
      */
-    private UndeferrableValue<String> outpostArn;
-
+    @PolicyResourceProperty(name="outpostArn", flag="unknown_outpostArn")
+    private String value_outpostArn;
+    private boolean unknown_outpostArn;
     public String outpostArn() {
-        if (outpostArn == null) return null;
-        return outpostArn.getValue("CapacityReservationArgs.outpostArn");
+        if (!unknown_outpostArn) return value_outpostArn;
+        throw new UndeferrableValueException("Value 'CapacityReservationArgs.outpostArn' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
      * 
      */
-    private UndeferrableValue<String> placementGroupArn;
-
+    @PolicyResourceProperty(name="placementGroupArn", flag="unknown_placementGroupArn")
+    private String value_placementGroupArn;
+    private boolean unknown_placementGroupArn;
     public String placementGroupArn() {
-        if (placementGroupArn == null) return null;
-        return placementGroupArn.getValue("CapacityReservationArgs.placementGroupArn");
+        if (!unknown_placementGroupArn) return value_placementGroupArn;
+        throw new UndeferrableValueException("Value 'CapacityReservationArgs.placementGroupArn' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("CapacityReservationArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'CapacityReservationArgs.tags' is not present");
     }
 
     /**
      * Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
      * 
      */
-    private UndeferrableValue<String> tenancy;
-
+    @PolicyResourceProperty(name="tenancy", flag="unknown_tenancy")
+    private String value_tenancy;
+    private boolean unknown_tenancy;
     public String tenancy() {
-        if (tenancy == null) return null;
-        return tenancy.getValue("CapacityReservationArgs.tenancy");
+        if (!unknown_tenancy) return value_tenancy;
+        throw new UndeferrableValueException("Value 'CapacityReservationArgs.tenancy' is not present");
     }
 
 }

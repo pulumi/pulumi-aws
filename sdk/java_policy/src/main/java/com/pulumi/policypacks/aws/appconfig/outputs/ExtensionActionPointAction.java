@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appconfig.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,44 +15,48 @@ public final class ExtensionActionPointAction {
      * Information about the action.
      * 
      */
-    private @Nullable UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private @Nullable String value_description;
+    private boolean unknown_description;
     public @Nullable String description() {
-        if (description == null) return null;
-        return description.getValue("ExtensionActionPointAction.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ExtensionActionPointAction.description' is not present");
     }
 
     /**
      * The action name.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ExtensionActionPointAction.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ExtensionActionPointAction.name' is not present");
     }
 
     /**
      * An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
      * 
      */
-    private @Nullable UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private @Nullable String value_roleArn;
+    private boolean unknown_roleArn;
     public @Nullable String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("ExtensionActionPointAction.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'ExtensionActionPointAction.roleArn' is not present");
     }
 
     /**
      * The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
      * 
      */
-    private UndeferrableValue<String> uri;
-
+    @PolicyResourceProperty(name="uri", flag="unknown_uri")
+    private String value_uri;
+    private boolean unknown_uri;
     public String uri() {
-        if (uri == null) return null;
-        return uri.getValue("ExtensionActionPointAction.uri");
+        if (!unknown_uri) return value_uri;
+        throw new UndeferrableValueException("Value 'ExtensionActionPointAction.uri' is not present");
     }
 
 }

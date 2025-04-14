@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datapipeline.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class PipelineDefinitionPipelineObjectFieldArgs {
      * Field identifier.
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("PipelineDefinitionPipelineObjectFieldArgs.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'PipelineDefinitionPipelineObjectFieldArgs.key' is not present");
     }
 
     /**
      * Field value, expressed as the identifier of another object
      * 
      */
-    private UndeferrableValue<String> refValue;
-
+    @PolicyResourceProperty(name="refValue", flag="unknown_refValue")
+    private String value_refValue;
+    private boolean unknown_refValue;
     public String refValue() {
-        if (refValue == null) return null;
-        return refValue.getValue("PipelineDefinitionPipelineObjectFieldArgs.refValue");
+        if (!unknown_refValue) return value_refValue;
+        throw new UndeferrableValueException("Value 'PipelineDefinitionPipelineObjectFieldArgs.refValue' is not present");
     }
 
     /**
      * Field value, expressed as a String.
      * 
      */
-    private UndeferrableValue<String> stringValue;
-
+    @PolicyResourceProperty(name="stringValue", flag="unknown_stringValue")
+    private String value_stringValue;
+    private boolean unknown_stringValue;
     public String stringValue() {
-        if (stringValue == null) return null;
-        return stringValue.getValue("PipelineDefinitionPipelineObjectFieldArgs.stringValue");
+        if (!unknown_stringValue) return value_stringValue;
+        throw new UndeferrableValueException("Value 'PipelineDefinitionPipelineObjectFieldArgs.stringValue' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class IdentityPoolCognitoIdentityProviderArgs {
      * The client ID for the Amazon Cognito Identity User Pool.
      * 
      */
-    private UndeferrableValue<String> clientId;
-
+    @PolicyResourceProperty(name="clientId", flag="unknown_clientId")
+    private String value_clientId;
+    private boolean unknown_clientId;
     public String clientId() {
-        if (clientId == null) return null;
-        return clientId.getValue("IdentityPoolCognitoIdentityProviderArgs.clientId");
+        if (!unknown_clientId) return value_clientId;
+        throw new UndeferrableValueException("Value 'IdentityPoolCognitoIdentityProviderArgs.clientId' is not present");
     }
 
     /**
      * The provider name for an Amazon Cognito Identity User Pool.
      * 
      */
-    private UndeferrableValue<String> providerName;
-
+    @PolicyResourceProperty(name="providerName", flag="unknown_providerName")
+    private String value_providerName;
+    private boolean unknown_providerName;
     public String providerName() {
-        if (providerName == null) return null;
-        return providerName.getValue("IdentityPoolCognitoIdentityProviderArgs.providerName");
+        if (!unknown_providerName) return value_providerName;
+        throw new UndeferrableValueException("Value 'IdentityPoolCognitoIdentityProviderArgs.providerName' is not present");
     }
 
     /**
      * Whether server-side token validation is enabled for the identity provider’s token or not.
      * 
      */
-    private UndeferrableValue<Boolean> serverSideTokenCheck;
-
+    @PolicyResourceProperty(name="serverSideTokenCheck", flag="unknown_serverSideTokenCheck")
+    private Boolean value_serverSideTokenCheck;
+    private boolean unknown_serverSideTokenCheck;
     public Boolean serverSideTokenCheck() {
-        if (serverSideTokenCheck == null) return null;
-        return serverSideTokenCheck.getValue("IdentityPoolCognitoIdentityProviderArgs.serverSideTokenCheck");
+        if (!unknown_serverSideTokenCheck) return value_serverSideTokenCheck;
+        throw new UndeferrableValueException("Value 'IdentityPoolCognitoIdentityProviderArgs.serverSideTokenCheck' is not present");
     }
 
 }

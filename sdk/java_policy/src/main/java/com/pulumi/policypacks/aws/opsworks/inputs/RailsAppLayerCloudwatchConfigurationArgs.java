@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opsworks.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.opsworks.inputs.RailsAppLayerCloudwatchConfigurationLogStreamArgs;
 import java.lang.Boolean;
 import java.util.List;
@@ -12,18 +13,20 @@ import javax.annotation.Nullable;
 
 public final class RailsAppLayerCloudwatchConfigurationArgs {
 
-    private UndeferrableValue<Boolean> enabled;
-
+    @PolicyResourceProperty(name="enabled", flag="unknown_enabled")
+    private Boolean value_enabled;
+    private boolean unknown_enabled;
     public Boolean enabled() {
-        if (enabled == null) return null;
-        return enabled.getValue("RailsAppLayerCloudwatchConfigurationArgs.enabled");
+        if (!unknown_enabled) return value_enabled;
+        throw new UndeferrableValueException("Value 'RailsAppLayerCloudwatchConfigurationArgs.enabled' is not present");
     }
 
-    private UndeferrableValue<List<RailsAppLayerCloudwatchConfigurationLogStreamArgs>> logStreams;
-
+    @PolicyResourceProperty(name="logStreams", flag="unknown_logStreams")
+    private List<RailsAppLayerCloudwatchConfigurationLogStreamArgs> value_logStreams;
+    private boolean unknown_logStreams;
     public List<RailsAppLayerCloudwatchConfigurationLogStreamArgs> logStreams() {
-        if (logStreams == null) return null;
-        return logStreams.getValue("RailsAppLayerCloudwatchConfigurationArgs.logStreams");
+        if (!unknown_logStreams) return value_logStreams;
+        throw new UndeferrableValueException("Value 'RailsAppLayerCloudwatchConfigurationArgs.logStreams' is not present");
     }
 
 }

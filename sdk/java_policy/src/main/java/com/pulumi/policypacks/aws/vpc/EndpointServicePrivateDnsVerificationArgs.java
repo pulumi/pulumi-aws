@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.vpc;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.vpc.inputs.EndpointServicePrivateDnsVerificationTimeoutsArgs;
 import java.lang.Boolean;
@@ -20,29 +21,32 @@ public final class EndpointServicePrivateDnsVerificationArgs extends com.pulumi.
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> serviceId;
-
+    @PolicyResourceProperty(name="serviceId", flag="unknown_serviceId")
+    private String value_serviceId;
+    private boolean unknown_serviceId;
     public String serviceId() {
-        if (serviceId == null) return null;
-        return serviceId.getValue("EndpointServicePrivateDnsVerificationArgs.serviceId");
+        if (!unknown_serviceId) return value_serviceId;
+        throw new UndeferrableValueException("Value 'EndpointServicePrivateDnsVerificationArgs.serviceId' is not present");
     }
 
-    private UndeferrableValue<EndpointServicePrivateDnsVerificationTimeoutsArgs> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private EndpointServicePrivateDnsVerificationTimeoutsArgs value_timeouts;
+    private boolean unknown_timeouts;
     public EndpointServicePrivateDnsVerificationTimeoutsArgs timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("EndpointServicePrivateDnsVerificationArgs.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'EndpointServicePrivateDnsVerificationArgs.timeouts' is not present");
     }
 
     /**
      * Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
      * 
      */
-    private UndeferrableValue<Boolean> waitForVerification;
-
+    @PolicyResourceProperty(name="waitForVerification", flag="unknown_waitForVerification")
+    private Boolean value_waitForVerification;
+    private boolean unknown_waitForVerification;
     public Boolean waitForVerification() {
-        if (waitForVerification == null) return null;
-        return waitForVerification.getValue("EndpointServicePrivateDnsVerificationArgs.waitForVerification");
+        if (!unknown_waitForVerification) return value_waitForVerification;
+        throw new UndeferrableValueException("Value 'EndpointServicePrivateDnsVerificationArgs.waitForVerification' is not present");
     }
 
 }

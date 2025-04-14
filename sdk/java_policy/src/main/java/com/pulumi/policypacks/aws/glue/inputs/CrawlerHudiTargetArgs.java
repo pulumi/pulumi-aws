@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -16,44 +17,48 @@ public final class CrawlerHudiTargetArgs {
      * The name of the connection to use to connect to the Hudi target.
      * 
      */
-    private UndeferrableValue<String> connectionName;
-
+    @PolicyResourceProperty(name="connectionName", flag="unknown_connectionName")
+    private String value_connectionName;
+    private boolean unknown_connectionName;
     public String connectionName() {
-        if (connectionName == null) return null;
-        return connectionName.getValue("CrawlerHudiTargetArgs.connectionName");
+        if (!unknown_connectionName) return value_connectionName;
+        throw new UndeferrableValueException("Value 'CrawlerHudiTargetArgs.connectionName' is not present");
     }
 
     /**
      * A list of glob patterns used to exclude from the crawl.
      * 
      */
-    private UndeferrableValue<List<String>> exclusions;
-
+    @PolicyResourceProperty(name="exclusions", flag="unknown_exclusions")
+    private List<String> value_exclusions;
+    private boolean unknown_exclusions;
     public List<String> exclusions() {
-        if (exclusions == null) return null;
-        return exclusions.getValue("CrawlerHudiTargetArgs.exclusions");
+        if (!unknown_exclusions) return value_exclusions;
+        throw new UndeferrableValueException("Value 'CrawlerHudiTargetArgs.exclusions' is not present");
     }
 
     /**
      * The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
      * 
      */
-    private UndeferrableValue<Integer> maximumTraversalDepth;
-
+    @PolicyResourceProperty(name="maximumTraversalDepth", flag="unknown_maximumTraversalDepth")
+    private Integer value_maximumTraversalDepth;
+    private boolean unknown_maximumTraversalDepth;
     public Integer maximumTraversalDepth() {
-        if (maximumTraversalDepth == null) return null;
-        return maximumTraversalDepth.getValue("CrawlerHudiTargetArgs.maximumTraversalDepth");
+        if (!unknown_maximumTraversalDepth) return value_maximumTraversalDepth;
+        throw new UndeferrableValueException("Value 'CrawlerHudiTargetArgs.maximumTraversalDepth' is not present");
     }
 
     /**
      * One or more Amazon S3 paths that contains Hudi metadata folders as s3://bucket/prefix.
      * 
      */
-    private UndeferrableValue<List<String>> paths;
-
+    @PolicyResourceProperty(name="paths", flag="unknown_paths")
+    private List<String> value_paths;
+    private boolean unknown_paths;
     public List<String> paths() {
-        if (paths == null) return null;
-        return paths.getValue("CrawlerHudiTargetArgs.paths");
+        if (!unknown_paths) return value_paths;
+        throw new UndeferrableValueException("Value 'CrawlerHudiTargetArgs.paths' is not present");
     }
 
 }

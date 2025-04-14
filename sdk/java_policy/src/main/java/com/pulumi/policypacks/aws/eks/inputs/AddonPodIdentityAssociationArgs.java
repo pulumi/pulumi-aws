@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class AddonPodIdentityAssociationArgs {
      * The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
      * 
      */
-    private UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private String value_roleArn;
+    private boolean unknown_roleArn;
     public String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("AddonPodIdentityAssociationArgs.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'AddonPodIdentityAssociationArgs.roleArn' is not present");
     }
 
     /**
      * The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.
      * 
      */
-    private UndeferrableValue<String> serviceAccount;
-
+    @PolicyResourceProperty(name="serviceAccount", flag="unknown_serviceAccount")
+    private String value_serviceAccount;
+    private boolean unknown_serviceAccount;
     public String serviceAccount() {
-        if (serviceAccount == null) return null;
-        return serviceAccount.getValue("AddonPodIdentityAssociationArgs.serviceAccount");
+        if (!unknown_serviceAccount) return value_serviceAccount;
+        throw new UndeferrableValueException("Value 'AddonPodIdentityAssociationArgs.serviceAccount' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkfirewall.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.RuleGroupRuleGroupRuleVariablesIpSet;
 import com.pulumi.policypacks.aws.networkfirewall.outputs.RuleGroupRuleGroupRuleVariablesPortSet;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class RuleGroupRuleGroupRuleVariables {
      * Set of configuration blocks that define IP address information. See IP Sets below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<RuleGroupRuleGroupRuleVariablesIpSet>> ipSets;
-
+    @PolicyResourceProperty(name="ipSets", flag="unknown_ipSets")
+    private @Nullable List<RuleGroupRuleGroupRuleVariablesIpSet> value_ipSets;
+    private boolean unknown_ipSets;
     public @Nullable List<RuleGroupRuleGroupRuleVariablesIpSet> ipSets() {
-        if (ipSets == null) return null;
-        return ipSets.getValue("RuleGroupRuleGroupRuleVariables.ipSets");
+        if (!unknown_ipSets) return value_ipSets;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRuleVariables.ipSets' is not present");
     }
 
     /**
      * Set of configuration blocks that define port range information. See Port Sets below for details.
      * 
      */
-    private @Nullable UndeferrableValue<List<RuleGroupRuleGroupRuleVariablesPortSet>> portSets;
-
+    @PolicyResourceProperty(name="portSets", flag="unknown_portSets")
+    private @Nullable List<RuleGroupRuleGroupRuleVariablesPortSet> value_portSets;
+    private boolean unknown_portSets;
     public @Nullable List<RuleGroupRuleGroupRuleVariablesPortSet> portSets() {
-        if (portSets == null) return null;
-        return portSets.getValue("RuleGroupRuleGroupRuleVariables.portSets");
+        if (!unknown_portSets) return value_portSets;
+        throw new UndeferrableValueException("Value 'RuleGroupRuleGroupRuleVariables.portSets' is not present");
     }
 
 }

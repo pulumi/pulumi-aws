@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3tables;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.s3tables.outputs.TableMaintenanceConfiguration;
 import java.lang.String;
@@ -16,33 +17,36 @@ public final class Table extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the table.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Table.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Table.arn' is not present");
     }
 
     /**
      * Date and time when the namespace was created.
      * 
      */
-    private UndeferrableValue<String> createdAt;
-
+    @PolicyResourceProperty(name="createdAt", flag="unknown_createdAt")
+    private String value_createdAt;
+    private boolean unknown_createdAt;
     public String createdAt() {
-        if (createdAt == null) return null;
-        return createdAt.getValue("Table.createdAt");
+        if (!unknown_createdAt) return value_createdAt;
+        throw new UndeferrableValueException("Value 'Table.createdAt' is not present");
     }
 
     /**
      * Account ID of the account that created the namespace.
      * 
      */
-    private UndeferrableValue<String> createdBy;
-
+    @PolicyResourceProperty(name="createdBy", flag="unknown_createdBy")
+    private String value_createdBy;
+    private boolean unknown_createdBy;
     public String createdBy() {
-        if (createdBy == null) return null;
-        return createdBy.getValue("Table.createdBy");
+        if (!unknown_createdBy) return value_createdBy;
+        throw new UndeferrableValueException("Value 'Table.createdBy' is not present");
     }
 
     /**
@@ -50,11 +54,12 @@ public final class Table extends com.pulumi.resources.PolicyResourceOutput {
      * Must be `ICEBERG`.
      * 
      */
-    private UndeferrableValue<String> format;
-
+    @PolicyResourceProperty(name="format", flag="unknown_format")
+    private String value_format;
+    private boolean unknown_format;
     public String format() {
-        if (format == null) return null;
-        return format.getValue("Table.format");
+        if (!unknown_format) return value_format;
+        throw new UndeferrableValueException("Value 'Table.format' is not present");
     }
 
     /**
@@ -62,44 +67,48 @@ public final class Table extends com.pulumi.resources.PolicyResourceOutput {
      * See `maintenance_configuration` below.
      * 
      */
-    private UndeferrableValue<TableMaintenanceConfiguration> maintenanceConfiguration;
-
+    @PolicyResourceProperty(name="maintenanceConfiguration", flag="unknown_maintenanceConfiguration")
+    private TableMaintenanceConfiguration value_maintenanceConfiguration;
+    private boolean unknown_maintenanceConfiguration;
     public TableMaintenanceConfiguration maintenanceConfiguration() {
-        if (maintenanceConfiguration == null) return null;
-        return maintenanceConfiguration.getValue("Table.maintenanceConfiguration");
+        if (!unknown_maintenanceConfiguration) return value_maintenanceConfiguration;
+        throw new UndeferrableValueException("Value 'Table.maintenanceConfiguration' is not present");
     }
 
     /**
      * Location of table metadata.
      * 
      */
-    private UndeferrableValue<String> metadataLocation;
-
+    @PolicyResourceProperty(name="metadataLocation", flag="unknown_metadataLocation")
+    private String value_metadataLocation;
+    private boolean unknown_metadataLocation;
     public String metadataLocation() {
-        if (metadataLocation == null) return null;
-        return metadataLocation.getValue("Table.metadataLocation");
+        if (!unknown_metadataLocation) return value_metadataLocation;
+        throw new UndeferrableValueException("Value 'Table.metadataLocation' is not present");
     }
 
     /**
      * Date and time when the namespace was last modified.
      * 
      */
-    private UndeferrableValue<String> modifiedAt;
-
+    @PolicyResourceProperty(name="modifiedAt", flag="unknown_modifiedAt")
+    private String value_modifiedAt;
+    private boolean unknown_modifiedAt;
     public String modifiedAt() {
-        if (modifiedAt == null) return null;
-        return modifiedAt.getValue("Table.modifiedAt");
+        if (!unknown_modifiedAt) return value_modifiedAt;
+        throw new UndeferrableValueException("Value 'Table.modifiedAt' is not present");
     }
 
     /**
      * Account ID of the account that last modified the namespace.
      * 
      */
-    private UndeferrableValue<String> modifiedBy;
-
+    @PolicyResourceProperty(name="modifiedBy", flag="unknown_modifiedBy")
+    private String value_modifiedBy;
+    private boolean unknown_modifiedBy;
     public String modifiedBy() {
-        if (modifiedBy == null) return null;
-        return modifiedBy.getValue("Table.modifiedBy");
+        if (!unknown_modifiedBy) return value_modifiedBy;
+        throw new UndeferrableValueException("Value 'Table.modifiedBy' is not present");
     }
 
     /**
@@ -109,11 +118,12 @@ public final class Table extends com.pulumi.resources.PolicyResourceOutput {
      * A full list of table naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#naming-rules-table).
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Table.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Table.name' is not present");
     }
 
     /**
@@ -122,22 +132,24 @@ public final class Table extends com.pulumi.resources.PolicyResourceOutput {
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      * 
      */
-    private UndeferrableValue<String> namespace;
-
+    @PolicyResourceProperty(name="namespace", flag="unknown_namespace")
+    private String value_namespace;
+    private boolean unknown_namespace;
     public String namespace() {
-        if (namespace == null) return null;
-        return namespace.getValue("Table.namespace");
+        if (!unknown_namespace) return value_namespace;
+        throw new UndeferrableValueException("Value 'Table.namespace' is not present");
     }
 
     /**
      * Account ID of the account that owns the namespace.
      * 
      */
-    private UndeferrableValue<String> ownerAccountId;
-
+    @PolicyResourceProperty(name="ownerAccountId", flag="unknown_ownerAccountId")
+    private String value_ownerAccountId;
+    private boolean unknown_ownerAccountId;
     public String ownerAccountId() {
-        if (ownerAccountId == null) return null;
-        return ownerAccountId.getValue("Table.ownerAccountId");
+        if (!unknown_ownerAccountId) return value_ownerAccountId;
+        throw new UndeferrableValueException("Value 'Table.ownerAccountId' is not present");
     }
 
     /**
@@ -146,11 +158,12 @@ public final class Table extends com.pulumi.resources.PolicyResourceOutput {
      * The following argument is optional:
      * 
      */
-    private UndeferrableValue<String> tableBucketArn;
-
+    @PolicyResourceProperty(name="tableBucketArn", flag="unknown_tableBucketArn")
+    private String value_tableBucketArn;
+    private boolean unknown_tableBucketArn;
     public String tableBucketArn() {
-        if (tableBucketArn == null) return null;
-        return tableBucketArn.getValue("Table.tableBucketArn");
+        if (!unknown_tableBucketArn) return value_tableBucketArn;
+        throw new UndeferrableValueException("Value 'Table.tableBucketArn' is not present");
     }
 
     /**
@@ -158,33 +171,36 @@ public final class Table extends com.pulumi.resources.PolicyResourceOutput {
      * One of `customer` or `aws`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("Table.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'Table.type' is not present");
     }
 
     /**
      * Identifier for the current version of table data.
      * 
      */
-    private UndeferrableValue<String> versionToken;
-
+    @PolicyResourceProperty(name="versionToken", flag="unknown_versionToken")
+    private String value_versionToken;
+    private boolean unknown_versionToken;
     public String versionToken() {
-        if (versionToken == null) return null;
-        return versionToken.getValue("Table.versionToken");
+        if (!unknown_versionToken) return value_versionToken;
+        throw new UndeferrableValueException("Value 'Table.versionToken' is not present");
     }
 
     /**
      * S3 URI pointing to the S3 Bucket that contains the table data.
      * 
      */
-    private UndeferrableValue<String> warehouseLocation;
-
+    @PolicyResourceProperty(name="warehouseLocation", flag="unknown_warehouseLocation")
+    private String value_warehouseLocation;
+    private boolean unknown_warehouseLocation;
     public String warehouseLocation() {
-        if (warehouseLocation == null) return null;
-        return warehouseLocation.getValue("Table.warehouseLocation");
+        if (!unknown_warehouseLocation) return value_warehouseLocation;
+        throw new UndeferrableValueException("Value 'Table.warehouseLocation' is not present");
     }
 
 }

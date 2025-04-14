@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudwatch;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,22 +16,24 @@ public final class LogResourcePolicy extends com.pulumi.resources.PolicyResource
      * Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
      * 
      */
-    private UndeferrableValue<String> policyDocument;
-
+    @PolicyResourceProperty(name="policyDocument", flag="unknown_policyDocument")
+    private String value_policyDocument;
+    private boolean unknown_policyDocument;
     public String policyDocument() {
-        if (policyDocument == null) return null;
-        return policyDocument.getValue("LogResourcePolicy.policyDocument");
+        if (!unknown_policyDocument) return value_policyDocument;
+        throw new UndeferrableValueException("Value 'LogResourcePolicy.policyDocument' is not present");
     }
 
     /**
      * Name of the resource policy.
      * 
      */
-    private UndeferrableValue<String> policyName;
-
+    @PolicyResourceProperty(name="policyName", flag="unknown_policyName")
+    private String value_policyName;
+    private boolean unknown_policyName;
     public String policyName() {
-        if (policyName == null) return null;
-        return policyName.getValue("LogResourcePolicy.policyName");
+        if (!unknown_policyName) return value_policyName;
+        throw new UndeferrableValueException("Value 'LogResourcePolicy.policyName' is not present");
     }
 
 }

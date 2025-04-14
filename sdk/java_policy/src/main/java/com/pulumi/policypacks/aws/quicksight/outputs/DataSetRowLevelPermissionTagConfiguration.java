@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.quicksight.outputs.DataSetRowLevelPermissionTagConfigurationTagRule;
 import java.lang.String;
 import java.util.List;
@@ -16,22 +17,24 @@ public final class DataSetRowLevelPermissionTagConfiguration {
      * The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
      * 
      */
-    private @Nullable UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private @Nullable String value_status;
+    private boolean unknown_status;
     public @Nullable String status() {
-        if (status == null) return null;
-        return status.getValue("DataSetRowLevelPermissionTagConfiguration.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'DataSetRowLevelPermissionTagConfiguration.status' is not present");
     }
 
     /**
      * A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
      * 
      */
-    private UndeferrableValue<List<DataSetRowLevelPermissionTagConfigurationTagRule>> tagRules;
-
+    @PolicyResourceProperty(name="tagRules", flag="unknown_tagRules")
+    private List<DataSetRowLevelPermissionTagConfigurationTagRule> value_tagRules;
+    private boolean unknown_tagRules;
     public List<DataSetRowLevelPermissionTagConfigurationTagRule> tagRules() {
-        if (tagRules == null) return null;
-        return tagRules.getValue("DataSetRowLevelPermissionTagConfiguration.tagRules");
+        if (!unknown_tagRules) return value_tagRules;
+        throw new UndeferrableValueException("Value 'DataSetRowLevelPermissionTagConfiguration.tagRules' is not present");
     }
 
 }

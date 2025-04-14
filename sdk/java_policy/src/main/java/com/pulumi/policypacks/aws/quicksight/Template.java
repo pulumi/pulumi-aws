@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.quicksight.outputs.TemplatePermission;
 import com.pulumi.policypacks.aws.quicksight.outputs.TemplateSourceEntity;
@@ -21,110 +22,120 @@ public final class Template extends com.pulumi.resources.PolicyResourceOutput {
      * ARN of the template.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Template.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Template.arn' is not present");
     }
 
     /**
      * AWS account ID.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("Template.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'Template.awsAccountId' is not present");
     }
 
     /**
      * The time that the template was created.
      * 
      */
-    private UndeferrableValue<String> createdTime;
-
+    @PolicyResourceProperty(name="createdTime", flag="unknown_createdTime")
+    private String value_createdTime;
+    private boolean unknown_createdTime;
     public String createdTime() {
-        if (createdTime == null) return null;
-        return createdTime.getValue("Template.createdTime");
+        if (!unknown_createdTime) return value_createdTime;
+        throw new UndeferrableValueException("Value 'Template.createdTime' is not present");
     }
 
     /**
      * The time that the template was last updated.
      * 
      */
-    private UndeferrableValue<String> lastUpdatedTime;
-
+    @PolicyResourceProperty(name="lastUpdatedTime", flag="unknown_lastUpdatedTime")
+    private String value_lastUpdatedTime;
+    private boolean unknown_lastUpdatedTime;
     public String lastUpdatedTime() {
-        if (lastUpdatedTime == null) return null;
-        return lastUpdatedTime.getValue("Template.lastUpdatedTime");
+        if (!unknown_lastUpdatedTime) return value_lastUpdatedTime;
+        throw new UndeferrableValueException("Value 'Template.lastUpdatedTime' is not present");
     }
 
     /**
      * Display name for the template.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Template.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Template.name' is not present");
     }
 
     /**
      * A set of resource permissions on the template. Maximum of 64 items. See permissions.
      * 
      */
-    private @Nullable UndeferrableValue<List<TemplatePermission>> permissions;
-
+    @PolicyResourceProperty(name="permissions", flag="unknown_permissions")
+    private @Nullable List<TemplatePermission> value_permissions;
+    private boolean unknown_permissions;
     public @Nullable List<TemplatePermission> permissions() {
-        if (permissions == null) return null;
-        return permissions.getValue("Template.permissions");
+        if (!unknown_permissions) return value_permissions;
+        throw new UndeferrableValueException("Value 'Template.permissions' is not present");
     }
 
     /**
      * The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
      * 
      */
-    private @Nullable UndeferrableValue<TemplateSourceEntity> sourceEntity;
-
+    @PolicyResourceProperty(name="sourceEntity", flag="unknown_sourceEntity")
+    private @Nullable TemplateSourceEntity value_sourceEntity;
+    private boolean unknown_sourceEntity;
     public @Nullable TemplateSourceEntity sourceEntity() {
-        if (sourceEntity == null) return null;
-        return sourceEntity.getValue("Template.sourceEntity");
+        if (!unknown_sourceEntity) return value_sourceEntity;
+        throw new UndeferrableValueException("Value 'Template.sourceEntity' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
      * 
      */
-    private UndeferrableValue<String> sourceEntityArn;
-
+    @PolicyResourceProperty(name="sourceEntityArn", flag="unknown_sourceEntityArn")
+    private String value_sourceEntityArn;
+    private boolean unknown_sourceEntityArn;
     public String sourceEntityArn() {
-        if (sourceEntityArn == null) return null;
-        return sourceEntityArn.getValue("Template.sourceEntityArn");
+        if (!unknown_sourceEntityArn) return value_sourceEntityArn;
+        throw new UndeferrableValueException("Value 'Template.sourceEntityArn' is not present");
     }
 
     /**
      * The template creation status.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("Template.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'Template.status' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Template.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Template.tags' is not present");
     }
 
     /**
@@ -135,22 +146,24 @@ public final class Template extends com.pulumi.resources.PolicyResourceOutput {
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Template.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Template.tagsAll' is not present");
     }
 
     /**
      * Identifier for the template.
      * 
      */
-    private UndeferrableValue<String> templateId;
-
+    @PolicyResourceProperty(name="templateId", flag="unknown_templateId")
+    private String value_templateId;
+    private boolean unknown_templateId;
     public String templateId() {
-        if (templateId == null) return null;
-        return templateId.getValue("Template.templateId");
+        if (!unknown_templateId) return value_templateId;
+        throw new UndeferrableValueException("Value 'Template.templateId' is not present");
     }
 
     /**
@@ -159,22 +172,24 @@ public final class Template extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> versionDescription;
-
+    @PolicyResourceProperty(name="versionDescription", flag="unknown_versionDescription")
+    private String value_versionDescription;
+    private boolean unknown_versionDescription;
     public String versionDescription() {
-        if (versionDescription == null) return null;
-        return versionDescription.getValue("Template.versionDescription");
+        if (!unknown_versionDescription) return value_versionDescription;
+        throw new UndeferrableValueException("Value 'Template.versionDescription' is not present");
     }
 
     /**
      * The version number of the template version.
      * 
      */
-    private UndeferrableValue<Integer> versionNumber;
-
+    @PolicyResourceProperty(name="versionNumber", flag="unknown_versionNumber")
+    private Integer value_versionNumber;
+    private boolean unknown_versionNumber;
     public Integer versionNumber() {
-        if (versionNumber == null) return null;
-        return versionNumber.getValue("Template.versionNumber");
+        if (!unknown_versionNumber) return value_versionNumber;
+        throw new UndeferrableValueException("Value 'Template.versionNumber' is not present");
     }
 
 }

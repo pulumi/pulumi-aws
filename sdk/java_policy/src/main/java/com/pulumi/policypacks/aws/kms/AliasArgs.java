@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.kms;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class AliasArgs extends com.pulumi.resources.PolicyResourceInput {
      * The display name of the alias. The name must start with the word &#34;alias&#34; followed by a forward slash (alias/)
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("AliasArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'AliasArgs.name' is not present");
     }
 
     /**
@@ -28,22 +30,24 @@ public final class AliasArgs extends com.pulumi.resources.PolicyResourceInput {
      * The name must start with the word &#34;alias&#34; followed by a forward slash (alias/).  Conflicts with `name`.
      * 
      */
-    private UndeferrableValue<String> namePrefix;
-
+    @PolicyResourceProperty(name="namePrefix", flag="unknown_namePrefix")
+    private String value_namePrefix;
+    private boolean unknown_namePrefix;
     public String namePrefix() {
-        if (namePrefix == null) return null;
-        return namePrefix.getValue("AliasArgs.namePrefix");
+        if (!unknown_namePrefix) return value_namePrefix;
+        throw new UndeferrableValueException("Value 'AliasArgs.namePrefix' is not present");
     }
 
     /**
      * Identifier for the key for which the alias is for, can be either an ARN or key_id.
      * 
      */
-    private UndeferrableValue<String> targetKeyId;
-
+    @PolicyResourceProperty(name="targetKeyId", flag="unknown_targetKeyId")
+    private String value_targetKeyId;
+    private boolean unknown_targetKeyId;
     public String targetKeyId() {
-        if (targetKeyId == null) return null;
-        return targetKeyId.getValue("AliasArgs.targetKeyId");
+        if (!unknown_targetKeyId) return value_targetKeyId;
+        throw new UndeferrableValueException("Value 'AliasArgs.targetKeyId' is not present");
     }
 
 }

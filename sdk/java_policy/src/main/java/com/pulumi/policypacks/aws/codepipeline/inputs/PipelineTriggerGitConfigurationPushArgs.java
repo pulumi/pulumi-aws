@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codepipeline.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.codepipeline.inputs.PipelineTriggerGitConfigurationPushBranchesArgs;
 import com.pulumi.policypacks.aws.codepipeline.inputs.PipelineTriggerGitConfigurationPushFilePathsArgs;
 import com.pulumi.policypacks.aws.codepipeline.inputs.PipelineTriggerGitConfigurationPushTagsArgs;
@@ -16,33 +17,36 @@ public final class PipelineTriggerGitConfigurationPushArgs {
      * The field that specifies to filter on branches for the push trigger configuration. A `branches` block is documented below.
      * 
      */
-    private UndeferrableValue<PipelineTriggerGitConfigurationPushBranchesArgs> branches;
-
+    @PolicyResourceProperty(name="branches", flag="unknown_branches")
+    private PipelineTriggerGitConfigurationPushBranchesArgs value_branches;
+    private boolean unknown_branches;
     public PipelineTriggerGitConfigurationPushBranchesArgs branches() {
-        if (branches == null) return null;
-        return branches.getValue("PipelineTriggerGitConfigurationPushArgs.branches");
+        if (!unknown_branches) return value_branches;
+        throw new UndeferrableValueException("Value 'PipelineTriggerGitConfigurationPushArgs.branches' is not present");
     }
 
     /**
      * The field that specifies to filter on file paths for the push trigger configuration. A `file_paths` block is documented below.
      * 
      */
-    private UndeferrableValue<PipelineTriggerGitConfigurationPushFilePathsArgs> filePaths;
-
+    @PolicyResourceProperty(name="filePaths", flag="unknown_filePaths")
+    private PipelineTriggerGitConfigurationPushFilePathsArgs value_filePaths;
+    private boolean unknown_filePaths;
     public PipelineTriggerGitConfigurationPushFilePathsArgs filePaths() {
-        if (filePaths == null) return null;
-        return filePaths.getValue("PipelineTriggerGitConfigurationPushArgs.filePaths");
+        if (!unknown_filePaths) return value_filePaths;
+        throw new UndeferrableValueException("Value 'PipelineTriggerGitConfigurationPushArgs.filePaths' is not present");
     }
 
     /**
      * The field that contains the details for the Git tags trigger configuration. A `tags` block is documented below.
      * 
      */
-    private UndeferrableValue<PipelineTriggerGitConfigurationPushTagsArgs> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private PipelineTriggerGitConfigurationPushTagsArgs value_tags;
+    private boolean unknown_tags;
     public PipelineTriggerGitConfigurationPushTagsArgs tags() {
-        if (tags == null) return null;
-        return tags.getValue("PipelineTriggerGitConfigurationPushArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'PipelineTriggerGitConfigurationPushArgs.tags' is not present");
     }
 
 }

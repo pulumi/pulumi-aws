@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.msk.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.msk.inputs.ClusterBrokerNodeGroupInfoConnectivityInfoArgs;
 import com.pulumi.policypacks.aws.msk.inputs.ClusterBrokerNodeGroupInfoStorageInfoArgs;
 import java.lang.String;
@@ -17,66 +18,72 @@ public final class ClusterBrokerNodeGroupInfoArgs {
      * The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
      * 
      */
-    private UndeferrableValue<String> azDistribution;
-
+    @PolicyResourceProperty(name="azDistribution", flag="unknown_azDistribution")
+    private String value_azDistribution;
+    private boolean unknown_azDistribution;
     public String azDistribution() {
-        if (azDistribution == null) return null;
-        return azDistribution.getValue("ClusterBrokerNodeGroupInfoArgs.azDistribution");
+        if (!unknown_azDistribution) return value_azDistribution;
+        throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoArgs.azDistribution' is not present");
     }
 
     /**
      * A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
      * 
      */
-    private UndeferrableValue<List<String>> clientSubnets;
-
+    @PolicyResourceProperty(name="clientSubnets", flag="unknown_clientSubnets")
+    private List<String> value_clientSubnets;
+    private boolean unknown_clientSubnets;
     public List<String> clientSubnets() {
-        if (clientSubnets == null) return null;
-        return clientSubnets.getValue("ClusterBrokerNodeGroupInfoArgs.clientSubnets");
+        if (!unknown_clientSubnets) return value_clientSubnets;
+        throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoArgs.clientSubnets' is not present");
     }
 
     /**
      * Information about the cluster access configuration. See below. For security reasons, you can&#39;t turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
      * 
      */
-    private UndeferrableValue<ClusterBrokerNodeGroupInfoConnectivityInfoArgs> connectivityInfo;
-
+    @PolicyResourceProperty(name="connectivityInfo", flag="unknown_connectivityInfo")
+    private ClusterBrokerNodeGroupInfoConnectivityInfoArgs value_connectivityInfo;
+    private boolean unknown_connectivityInfo;
     public ClusterBrokerNodeGroupInfoConnectivityInfoArgs connectivityInfo() {
-        if (connectivityInfo == null) return null;
-        return connectivityInfo.getValue("ClusterBrokerNodeGroupInfoArgs.connectivityInfo");
+        if (!unknown_connectivityInfo) return value_connectivityInfo;
+        throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoArgs.connectivityInfo' is not present");
     }
 
     /**
      * Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
      * 
      */
-    private UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private String value_instanceType;
+    private boolean unknown_instanceType;
     public String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("ClusterBrokerNodeGroupInfoArgs.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoArgs.instanceType' is not present");
     }
 
     /**
      * A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
      * 
      */
-    private UndeferrableValue<List<String>> securityGroups;
-
+    @PolicyResourceProperty(name="securityGroups", flag="unknown_securityGroups")
+    private List<String> value_securityGroups;
+    private boolean unknown_securityGroups;
     public List<String> securityGroups() {
-        if (securityGroups == null) return null;
-        return securityGroups.getValue("ClusterBrokerNodeGroupInfoArgs.securityGroups");
+        if (!unknown_securityGroups) return value_securityGroups;
+        throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoArgs.securityGroups' is not present");
     }
 
     /**
      * A block that contains information about storage volumes attached to MSK broker nodes. See below.
      * 
      */
-    private UndeferrableValue<ClusterBrokerNodeGroupInfoStorageInfoArgs> storageInfo;
-
+    @PolicyResourceProperty(name="storageInfo", flag="unknown_storageInfo")
+    private ClusterBrokerNodeGroupInfoStorageInfoArgs value_storageInfo;
+    private boolean unknown_storageInfo;
     public ClusterBrokerNodeGroupInfoStorageInfoArgs storageInfo() {
-        if (storageInfo == null) return null;
-        return storageInfo.getValue("ClusterBrokerNodeGroupInfoArgs.storageInfo");
+        if (!unknown_storageInfo) return value_storageInfo;
+        throw new UndeferrableValueException("Value 'ClusterBrokerNodeGroupInfoArgs.storageInfo' is not present");
     }
 
 }

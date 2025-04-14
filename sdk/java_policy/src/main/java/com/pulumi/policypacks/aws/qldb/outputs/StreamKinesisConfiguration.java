@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.qldb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class StreamKinesisConfiguration {
      * Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> aggregationEnabled;
-
+    @PolicyResourceProperty(name="aggregationEnabled", flag="unknown_aggregationEnabled")
+    private @Nullable Boolean value_aggregationEnabled;
+    private boolean unknown_aggregationEnabled;
     public @Nullable Boolean aggregationEnabled() {
-        if (aggregationEnabled == null) return null;
-        return aggregationEnabled.getValue("StreamKinesisConfiguration.aggregationEnabled");
+        if (!unknown_aggregationEnabled) return value_aggregationEnabled;
+        throw new UndeferrableValueException("Value 'StreamKinesisConfiguration.aggregationEnabled' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
      * 
      */
-    private UndeferrableValue<String> streamArn;
-
+    @PolicyResourceProperty(name="streamArn", flag="unknown_streamArn")
+    private String value_streamArn;
+    private boolean unknown_streamArn;
     public String streamArn() {
-        if (streamArn == null) return null;
-        return streamArn.getValue("StreamKinesisConfiguration.streamArn");
+        if (!unknown_streamArn) return value_streamArn;
+        throw new UndeferrableValueException("Value 'StreamKinesisConfiguration.streamArn' is not present");
     }
 
 }

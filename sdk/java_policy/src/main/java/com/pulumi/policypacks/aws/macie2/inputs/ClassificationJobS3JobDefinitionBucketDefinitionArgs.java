@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.macie2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 
@@ -14,22 +15,24 @@ public final class ClassificationJobS3JobDefinitionBucketDefinitionArgs {
      * The unique identifier for the AWS account that owns the buckets.
      * 
      */
-    private UndeferrableValue<String> accountId;
-
+    @PolicyResourceProperty(name="accountId", flag="unknown_accountId")
+    private String value_accountId;
+    private boolean unknown_accountId;
     public String accountId() {
-        if (accountId == null) return null;
-        return accountId.getValue("ClassificationJobS3JobDefinitionBucketDefinitionArgs.accountId");
+        if (!unknown_accountId) return value_accountId;
+        throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionBucketDefinitionArgs.accountId' is not present");
     }
 
     /**
      * An array that lists the names of the buckets.
      * 
      */
-    private UndeferrableValue<List<String>> buckets;
-
+    @PolicyResourceProperty(name="buckets", flag="unknown_buckets")
+    private List<String> value_buckets;
+    private boolean unknown_buckets;
     public List<String> buckets() {
-        if (buckets == null) return null;
-        return buckets.getValue("ClassificationJobS3JobDefinitionBucketDefinitionArgs.buckets");
+        if (!unknown_buckets) return value_buckets;
+        throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionBucketDefinitionArgs.buckets' is not present");
     }
 
 }

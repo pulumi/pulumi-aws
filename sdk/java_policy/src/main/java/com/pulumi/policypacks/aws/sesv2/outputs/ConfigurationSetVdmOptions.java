@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sesv2.outputs.ConfigurationSetVdmOptionsDashboardOptions;
 import com.pulumi.policypacks.aws.sesv2.outputs.ConfigurationSetVdmOptionsGuardianOptions;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class ConfigurationSetVdmOptions {
      * Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboard_options` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<ConfigurationSetVdmOptionsDashboardOptions> dashboardOptions;
-
+    @PolicyResourceProperty(name="dashboardOptions", flag="unknown_dashboardOptions")
+    private @Nullable ConfigurationSetVdmOptionsDashboardOptions value_dashboardOptions;
+    private boolean unknown_dashboardOptions;
     public @Nullable ConfigurationSetVdmOptionsDashboardOptions dashboardOptions() {
-        if (dashboardOptions == null) return null;
-        return dashboardOptions.getValue("ConfigurationSetVdmOptions.dashboardOptions");
+        if (!unknown_dashboardOptions) return value_dashboardOptions;
+        throw new UndeferrableValueException("Value 'ConfigurationSetVdmOptions.dashboardOptions' is not present");
     }
 
     /**
      * Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardian_options` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<ConfigurationSetVdmOptionsGuardianOptions> guardianOptions;
-
+    @PolicyResourceProperty(name="guardianOptions", flag="unknown_guardianOptions")
+    private @Nullable ConfigurationSetVdmOptionsGuardianOptions value_guardianOptions;
+    private boolean unknown_guardianOptions;
     public @Nullable ConfigurationSetVdmOptionsGuardianOptions guardianOptions() {
-        if (guardianOptions == null) return null;
-        return guardianOptions.getValue("ConfigurationSetVdmOptions.guardianOptions");
+        if (!unknown_guardianOptions) return value_guardianOptions;
+        throw new UndeferrableValueException("Value 'ConfigurationSetVdmOptions.guardianOptions' is not present");
     }
 
 }

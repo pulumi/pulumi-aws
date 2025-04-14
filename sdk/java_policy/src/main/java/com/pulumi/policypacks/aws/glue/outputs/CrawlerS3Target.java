@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -16,66 +17,72 @@ public final class CrawlerS3Target {
      * The name of a connection which allows crawler to access data in S3 within a VPC.
      * 
      */
-    private @Nullable UndeferrableValue<String> connectionName;
-
+    @PolicyResourceProperty(name="connectionName", flag="unknown_connectionName")
+    private @Nullable String value_connectionName;
+    private boolean unknown_connectionName;
     public @Nullable String connectionName() {
-        if (connectionName == null) return null;
-        return connectionName.getValue("CrawlerS3Target.connectionName");
+        if (!unknown_connectionName) return value_connectionName;
+        throw new UndeferrableValueException("Value 'CrawlerS3Target.connectionName' is not present");
     }
 
     /**
      * The ARN of the dead-letter SQS queue.
      * 
      */
-    private @Nullable UndeferrableValue<String> dlqEventQueueArn;
-
+    @PolicyResourceProperty(name="dlqEventQueueArn", flag="unknown_dlqEventQueueArn")
+    private @Nullable String value_dlqEventQueueArn;
+    private boolean unknown_dlqEventQueueArn;
     public @Nullable String dlqEventQueueArn() {
-        if (dlqEventQueueArn == null) return null;
-        return dlqEventQueueArn.getValue("CrawlerS3Target.dlqEventQueueArn");
+        if (!unknown_dlqEventQueueArn) return value_dlqEventQueueArn;
+        throw new UndeferrableValueException("Value 'CrawlerS3Target.dlqEventQueueArn' is not present");
     }
 
     /**
      * The ARN of the SQS queue to receive S3 notifications from.
      * 
      */
-    private @Nullable UndeferrableValue<String> eventQueueArn;
-
+    @PolicyResourceProperty(name="eventQueueArn", flag="unknown_eventQueueArn")
+    private @Nullable String value_eventQueueArn;
+    private boolean unknown_eventQueueArn;
     public @Nullable String eventQueueArn() {
-        if (eventQueueArn == null) return null;
-        return eventQueueArn.getValue("CrawlerS3Target.eventQueueArn");
+        if (!unknown_eventQueueArn) return value_eventQueueArn;
+        throw new UndeferrableValueException("Value 'CrawlerS3Target.eventQueueArn' is not present");
     }
 
     /**
      * A list of glob patterns used to exclude from the crawl.
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> exclusions;
-
+    @PolicyResourceProperty(name="exclusions", flag="unknown_exclusions")
+    private @Nullable List<String> value_exclusions;
+    private boolean unknown_exclusions;
     public @Nullable List<String> exclusions() {
-        if (exclusions == null) return null;
-        return exclusions.getValue("CrawlerS3Target.exclusions");
+        if (!unknown_exclusions) return value_exclusions;
+        throw new UndeferrableValueException("Value 'CrawlerS3Target.exclusions' is not present");
     }
 
     /**
      * The path to the Amazon S3 target.
      * 
      */
-    private UndeferrableValue<String> path;
-
+    @PolicyResourceProperty(name="path", flag="unknown_path")
+    private String value_path;
+    private boolean unknown_path;
     public String path() {
-        if (path == null) return null;
-        return path.getValue("CrawlerS3Target.path");
+        if (!unknown_path) return value_path;
+        throw new UndeferrableValueException("Value 'CrawlerS3Target.path' is not present");
     }
 
     /**
      * Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> sampleSize;
-
+    @PolicyResourceProperty(name="sampleSize", flag="unknown_sampleSize")
+    private @Nullable Integer value_sampleSize;
+    private boolean unknown_sampleSize;
     public @Nullable Integer sampleSize() {
-        if (sampleSize == null) return null;
-        return sampleSize.getValue("CrawlerS3Target.sampleSize");
+        if (!unknown_sampleSize) return value_sampleSize;
+        throw new UndeferrableValueException("Value 'CrawlerS3Target.sampleSize' is not present");
     }
 
 }

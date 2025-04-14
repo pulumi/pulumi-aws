@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.opensearch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.opensearch.outputs.DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime;
 import javax.annotation.Nullable;
 
@@ -14,11 +15,12 @@ public final class DomainOffPeakWindowOptionsOffPeakWindow {
      * 10h window for updates
      * 
      */
-    private @Nullable UndeferrableValue<DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime> windowStartTime;
-
+    @PolicyResourceProperty(name="windowStartTime", flag="unknown_windowStartTime")
+    private @Nullable DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime value_windowStartTime;
+    private boolean unknown_windowStartTime;
     public @Nullable DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime windowStartTime() {
-        if (windowStartTime == null) return null;
-        return windowStartTime.getValue("DomainOffPeakWindowOptionsOffPeakWindow.windowStartTime");
+        if (!unknown_windowStartTime) return value_windowStartTime;
+        throw new UndeferrableValueException("Value 'DomainOffPeakWindowOptionsOffPeakWindow.windowStartTime' is not present");
     }
 
 }

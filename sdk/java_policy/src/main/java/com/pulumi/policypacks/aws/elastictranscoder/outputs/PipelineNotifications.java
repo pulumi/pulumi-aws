@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elastictranscoder.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class PipelineNotifications {
      * The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
      * 
      */
-    private @Nullable UndeferrableValue<String> completed;
-
+    @PolicyResourceProperty(name="completed", flag="unknown_completed")
+    private @Nullable String value_completed;
+    private boolean unknown_completed;
     public @Nullable String completed() {
-        if (completed == null) return null;
-        return completed.getValue("PipelineNotifications.completed");
+        if (!unknown_completed) return value_completed;
+        throw new UndeferrableValueException("Value 'PipelineNotifications.completed' is not present");
     }
 
     /**
      * The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition while processing a job in this pipeline.
      * 
      */
-    private @Nullable UndeferrableValue<String> error;
-
+    @PolicyResourceProperty(name="error", flag="unknown_error")
+    private @Nullable String value_error;
+    private boolean unknown_error;
     public @Nullable String error() {
-        if (error == null) return null;
-        return error.getValue("PipelineNotifications.error");
+        if (!unknown_error) return value_error;
+        throw new UndeferrableValueException("Value 'PipelineNotifications.error' is not present");
     }
 
     /**
      * The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process a job in this pipeline.
      * 
      */
-    private @Nullable UndeferrableValue<String> progressing;
-
+    @PolicyResourceProperty(name="progressing", flag="unknown_progressing")
+    private @Nullable String value_progressing;
+    private boolean unknown_progressing;
     public @Nullable String progressing() {
-        if (progressing == null) return null;
-        return progressing.getValue("PipelineNotifications.progressing");
+        if (!unknown_progressing) return value_progressing;
+        throw new UndeferrableValueException("Value 'PipelineNotifications.progressing' is not present");
     }
 
     /**
@@ -57,11 +61,12 @@ public final class PipelineNotifications {
      * `content_config` and `thumbnail_config`, omit the OutputBucket object.
      * 
      */
-    private @Nullable UndeferrableValue<String> warning;
-
+    @PolicyResourceProperty(name="warning", flag="unknown_warning")
+    private @Nullable String value_warning;
+    private boolean unknown_warning;
     public @Nullable String warning() {
-        if (warning == null) return null;
-        return warning.getValue("PipelineNotifications.warning");
+        if (!unknown_warning) return value_warning;
+        throw new UndeferrableValueException("Value 'PipelineNotifications.warning' is not present");
     }
 
 }

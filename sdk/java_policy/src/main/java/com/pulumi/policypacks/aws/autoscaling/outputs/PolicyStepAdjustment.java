@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.autoscaling.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -17,11 +18,12 @@ public final class PolicyStepAdjustment {
      * Without a value, AWS will treat this bound as negative infinity.
      * 
      */
-    private @Nullable UndeferrableValue<String> metricIntervalLowerBound;
-
+    @PolicyResourceProperty(name="metricIntervalLowerBound", flag="unknown_metricIntervalLowerBound")
+    private @Nullable String value_metricIntervalLowerBound;
+    private boolean unknown_metricIntervalLowerBound;
     public @Nullable String metricIntervalLowerBound() {
-        if (metricIntervalLowerBound == null) return null;
-        return metricIntervalLowerBound.getValue("PolicyStepAdjustment.metricIntervalLowerBound");
+        if (!unknown_metricIntervalLowerBound) return value_metricIntervalLowerBound;
+        throw new UndeferrableValueException("Value 'PolicyStepAdjustment.metricIntervalLowerBound' is not present");
     }
 
     /**
@@ -35,11 +37,12 @@ public final class PolicyStepAdjustment {
      * The following arguments are only available to &#34;TargetTrackingScaling&#34; type policies:
      * 
      */
-    private @Nullable UndeferrableValue<String> metricIntervalUpperBound;
-
+    @PolicyResourceProperty(name="metricIntervalUpperBound", flag="unknown_metricIntervalUpperBound")
+    private @Nullable String value_metricIntervalUpperBound;
+    private boolean unknown_metricIntervalUpperBound;
     public @Nullable String metricIntervalUpperBound() {
-        if (metricIntervalUpperBound == null) return null;
-        return metricIntervalUpperBound.getValue("PolicyStepAdjustment.metricIntervalUpperBound");
+        if (!unknown_metricIntervalUpperBound) return value_metricIntervalUpperBound;
+        throw new UndeferrableValueException("Value 'PolicyStepAdjustment.metricIntervalUpperBound' is not present");
     }
 
     /**
@@ -48,11 +51,12 @@ public final class PolicyStepAdjustment {
      * up. A negative value scales down.
      * 
      */
-    private UndeferrableValue<Integer> scalingAdjustment;
-
+    @PolicyResourceProperty(name="scalingAdjustment", flag="unknown_scalingAdjustment")
+    private Integer value_scalingAdjustment;
+    private boolean unknown_scalingAdjustment;
     public Integer scalingAdjustment() {
-        if (scalingAdjustment == null) return null;
-        return scalingAdjustment.getValue("PolicyStepAdjustment.scalingAdjustment");
+        if (!unknown_scalingAdjustment) return value_scalingAdjustment;
+        throw new UndeferrableValueException("Value 'PolicyStepAdjustment.scalingAdjustment' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -16,110 +17,120 @@ public final class StandardsControl extends com.pulumi.resources.PolicyResourceO
      * The identifier of the security standard control.
      * 
      */
-    private UndeferrableValue<String> controlId;
-
+    @PolicyResourceProperty(name="controlId", flag="unknown_controlId")
+    private String value_controlId;
+    private boolean unknown_controlId;
     public String controlId() {
-        if (controlId == null) return null;
-        return controlId.getValue("StandardsControl.controlId");
+        if (!unknown_controlId) return value_controlId;
+        throw new UndeferrableValueException("Value 'StandardsControl.controlId' is not present");
     }
 
     /**
      * The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
      * 
      */
-    private UndeferrableValue<String> controlStatus;
-
+    @PolicyResourceProperty(name="controlStatus", flag="unknown_controlStatus")
+    private String value_controlStatus;
+    private boolean unknown_controlStatus;
     public String controlStatus() {
-        if (controlStatus == null) return null;
-        return controlStatus.getValue("StandardsControl.controlStatus");
+        if (!unknown_controlStatus) return value_controlStatus;
+        throw new UndeferrableValueException("Value 'StandardsControl.controlStatus' is not present");
     }
 
     /**
      * The date and time that the status of the security standard control was most recently updated.
      * 
      */
-    private UndeferrableValue<String> controlStatusUpdatedAt;
-
+    @PolicyResourceProperty(name="controlStatusUpdatedAt", flag="unknown_controlStatusUpdatedAt")
+    private String value_controlStatusUpdatedAt;
+    private boolean unknown_controlStatusUpdatedAt;
     public String controlStatusUpdatedAt() {
-        if (controlStatusUpdatedAt == null) return null;
-        return controlStatusUpdatedAt.getValue("StandardsControl.controlStatusUpdatedAt");
+        if (!unknown_controlStatusUpdatedAt) return value_controlStatusUpdatedAt;
+        throw new UndeferrableValueException("Value 'StandardsControl.controlStatusUpdatedAt' is not present");
     }
 
     /**
      * The standard control longer description. Provides information about what the control is checking for.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("StandardsControl.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'StandardsControl.description' is not present");
     }
 
     /**
      * A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
      * 
      */
-    private UndeferrableValue<String> disabledReason;
-
+    @PolicyResourceProperty(name="disabledReason", flag="unknown_disabledReason")
+    private String value_disabledReason;
+    private boolean unknown_disabledReason;
     public String disabledReason() {
-        if (disabledReason == null) return null;
-        return disabledReason.getValue("StandardsControl.disabledReason");
+        if (!unknown_disabledReason) return value_disabledReason;
+        throw new UndeferrableValueException("Value 'StandardsControl.disabledReason' is not present");
     }
 
     /**
      * The list of requirements that are related to this control.
      * 
      */
-    private UndeferrableValue<List<String>> relatedRequirements;
-
+    @PolicyResourceProperty(name="relatedRequirements", flag="unknown_relatedRequirements")
+    private List<String> value_relatedRequirements;
+    private boolean unknown_relatedRequirements;
     public List<String> relatedRequirements() {
-        if (relatedRequirements == null) return null;
-        return relatedRequirements.getValue("StandardsControl.relatedRequirements");
+        if (!unknown_relatedRequirements) return value_relatedRequirements;
+        throw new UndeferrableValueException("Value 'StandardsControl.relatedRequirements' is not present");
     }
 
     /**
      * A link to remediation information for the control in the Security Hub user documentation.
      * 
      */
-    private UndeferrableValue<String> remediationUrl;
-
+    @PolicyResourceProperty(name="remediationUrl", flag="unknown_remediationUrl")
+    private String value_remediationUrl;
+    private boolean unknown_remediationUrl;
     public String remediationUrl() {
-        if (remediationUrl == null) return null;
-        return remediationUrl.getValue("StandardsControl.remediationUrl");
+        if (!unknown_remediationUrl) return value_remediationUrl;
+        throw new UndeferrableValueException("Value 'StandardsControl.remediationUrl' is not present");
     }
 
     /**
      * The severity of findings generated from this security standard control.
      * 
      */
-    private UndeferrableValue<String> severityRating;
-
+    @PolicyResourceProperty(name="severityRating", flag="unknown_severityRating")
+    private String value_severityRating;
+    private boolean unknown_severityRating;
     public String severityRating() {
-        if (severityRating == null) return null;
-        return severityRating.getValue("StandardsControl.severityRating");
+        if (!unknown_severityRating) return value_severityRating;
+        throw new UndeferrableValueException("Value 'StandardsControl.severityRating' is not present");
     }
 
     /**
      * The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
      * 
      */
-    private UndeferrableValue<String> standardsControlArn;
-
+    @PolicyResourceProperty(name="standardsControlArn", flag="unknown_standardsControlArn")
+    private String value_standardsControlArn;
+    private boolean unknown_standardsControlArn;
     public String standardsControlArn() {
-        if (standardsControlArn == null) return null;
-        return standardsControlArn.getValue("StandardsControl.standardsControlArn");
+        if (!unknown_standardsControlArn) return value_standardsControlArn;
+        throw new UndeferrableValueException("Value 'StandardsControl.standardsControlArn' is not present");
     }
 
     /**
      * The standard control title.
      * 
      */
-    private UndeferrableValue<String> title;
-
+    @PolicyResourceProperty(name="title", flag="unknown_title")
+    private String value_title;
+    private boolean unknown_title;
     public String title() {
-        if (title == null) return null;
-        return title.getValue("StandardsControl.title");
+        if (!unknown_title) return value_title;
+        throw new UndeferrableValueException("Value 'StandardsControl.title' is not present");
     }
 
 }

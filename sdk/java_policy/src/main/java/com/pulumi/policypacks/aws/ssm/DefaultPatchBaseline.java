@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ssm;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -17,11 +18,12 @@ public final class DefaultPatchBaseline extends com.pulumi.resources.PolicyResou
      * When specifying an AWS-provided patch baseline, must be the ARN.
      * 
      */
-    private UndeferrableValue<String> baselineId;
-
+    @PolicyResourceProperty(name="baselineId", flag="unknown_baselineId")
+    private String value_baselineId;
+    private boolean unknown_baselineId;
     public String baselineId() {
-        if (baselineId == null) return null;
-        return baselineId.getValue("DefaultPatchBaseline.baselineId");
+        if (!unknown_baselineId) return value_baselineId;
+        throw new UndeferrableValueException("Value 'DefaultPatchBaseline.baselineId' is not present");
     }
 
     /**
@@ -42,11 +44,12 @@ public final class DefaultPatchBaseline extends com.pulumi.resources.PolicyResou
      * `WINDOWS`.
      * 
      */
-    private UndeferrableValue<String> operatingSystem;
-
+    @PolicyResourceProperty(name="operatingSystem", flag="unknown_operatingSystem")
+    private String value_operatingSystem;
+    private boolean unknown_operatingSystem;
     public String operatingSystem() {
-        if (operatingSystem == null) return null;
-        return operatingSystem.getValue("DefaultPatchBaseline.operatingSystem");
+        if (!unknown_operatingSystem) return value_operatingSystem;
+        throw new UndeferrableValueException("Value 'DefaultPatchBaseline.operatingSystem' is not present");
     }
 
 }

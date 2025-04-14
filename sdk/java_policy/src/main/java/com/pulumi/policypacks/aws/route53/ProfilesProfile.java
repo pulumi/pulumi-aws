@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.route53;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.route53.outputs.ProfilesProfileTimeouts;
 import java.lang.String;
@@ -18,73 +19,80 @@ public final class ProfilesProfile extends com.pulumi.resources.PolicyResourceOu
      * ARN of the Profile.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ProfilesProfile.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ProfilesProfile.arn' is not present");
     }
 
     /**
      * Name of the Profile.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ProfilesProfile.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ProfilesProfile.name' is not present");
     }
 
-    private UndeferrableValue<String> ownerId;
-
+    @PolicyResourceProperty(name="ownerId", flag="unknown_ownerId")
+    private String value_ownerId;
+    private boolean unknown_ownerId;
     public String ownerId() {
-        if (ownerId == null) return null;
-        return ownerId.getValue("ProfilesProfile.ownerId");
+        if (!unknown_ownerId) return value_ownerId;
+        throw new UndeferrableValueException("Value 'ProfilesProfile.ownerId' is not present");
     }
 
     /**
      * Share status of the Profile.
      * 
      */
-    private UndeferrableValue<String> shareStatus;
-
+    @PolicyResourceProperty(name="shareStatus", flag="unknown_shareStatus")
+    private String value_shareStatus;
+    private boolean unknown_shareStatus;
     public String shareStatus() {
-        if (shareStatus == null) return null;
-        return shareStatus.getValue("ProfilesProfile.shareStatus");
+        if (!unknown_shareStatus) return value_shareStatus;
+        throw new UndeferrableValueException("Value 'ProfilesProfile.shareStatus' is not present");
     }
 
     /**
      * Status of the Profile.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("ProfilesProfile.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'ProfilesProfile.status' is not present");
     }
 
     /**
      * Status message of the Profile.
      * 
      */
-    private UndeferrableValue<String> statusMessage;
-
+    @PolicyResourceProperty(name="statusMessage", flag="unknown_statusMessage")
+    private String value_statusMessage;
+    private boolean unknown_statusMessage;
     public String statusMessage() {
-        if (statusMessage == null) return null;
-        return statusMessage.getValue("ProfilesProfile.statusMessage");
+        if (!unknown_statusMessage) return value_statusMessage;
+        throw new UndeferrableValueException("Value 'ProfilesProfile.statusMessage' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ProfilesProfile.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ProfilesProfile.tags' is not present");
     }
 
     /**
@@ -95,18 +103,20 @@ public final class ProfilesProfile extends com.pulumi.resources.PolicyResourceOu
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("ProfilesProfile.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'ProfilesProfile.tagsAll' is not present");
     }
 
-    private @Nullable UndeferrableValue<ProfilesProfileTimeouts> timeouts;
-
+    @PolicyResourceProperty(name="timeouts", flag="unknown_timeouts")
+    private @Nullable ProfilesProfileTimeouts value_timeouts;
+    private boolean unknown_timeouts;
     public @Nullable ProfilesProfileTimeouts timeouts() {
-        if (timeouts == null) return null;
-        return timeouts.getValue("ProfilesProfile.timeouts");
+        if (!unknown_timeouts) return value_timeouts;
+        throw new UndeferrableValueException("Value 'ProfilesProfile.timeouts' is not present");
     }
 
 }

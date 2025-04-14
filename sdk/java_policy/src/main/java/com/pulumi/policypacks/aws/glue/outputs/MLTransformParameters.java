@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.glue.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.glue.outputs.MLTransformParametersFindMatchesParameters;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class MLTransformParameters {
      * The parameters for the find matches algorithm. see Find Matches Parameters.
      * 
      */
-    private UndeferrableValue<MLTransformParametersFindMatchesParameters> findMatchesParameters;
-
+    @PolicyResourceProperty(name="findMatchesParameters", flag="unknown_findMatchesParameters")
+    private MLTransformParametersFindMatchesParameters value_findMatchesParameters;
+    private boolean unknown_findMatchesParameters;
     public MLTransformParametersFindMatchesParameters findMatchesParameters() {
-        if (findMatchesParameters == null) return null;
-        return findMatchesParameters.getValue("MLTransformParameters.findMatchesParameters");
+        if (!unknown_findMatchesParameters) return value_findMatchesParameters;
+        throw new UndeferrableValueException("Value 'MLTransformParameters.findMatchesParameters' is not present");
     }
 
     /**
      * The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
      * 
      */
-    private UndeferrableValue<String> transformType;
-
+    @PolicyResourceProperty(name="transformType", flag="unknown_transformType")
+    private String value_transformType;
+    private boolean unknown_transformType;
     public String transformType() {
-        if (transformType == null) return null;
-        return transformType.getValue("MLTransformParameters.transformType");
+        if (!unknown_transformType) return value_transformType;
+        throw new UndeferrableValueException("Value 'MLTransformParameters.transformType' is not present");
     }
 
 }

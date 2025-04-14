@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3.outputs.BucketV2ObjectLockConfigurationRule;
 import java.lang.String;
 import java.util.List;
@@ -20,11 +21,12 @@ public final class BucketV2ObjectLockConfiguration {
      * 
      */
     @Deprecated /* object_lock_enabled is deprecated. Use the top-level parameter object_lock_enabled instead. */
-    private @Nullable UndeferrableValue<String> objectLockEnabled;
-
+    @PolicyResourceProperty(name="objectLockEnabled", flag="unknown_objectLockEnabled")
+    private @Nullable String value_objectLockEnabled;
+    private boolean unknown_objectLockEnabled;
     public @Nullable String objectLockEnabled() {
-        if (objectLockEnabled == null) return null;
-        return objectLockEnabled.getValue("BucketV2ObjectLockConfiguration.objectLockEnabled");
+        if (!unknown_objectLockEnabled) return value_objectLockEnabled;
+        throw new UndeferrableValueException("Value 'BucketV2ObjectLockConfiguration.objectLockEnabled' is not present");
     }
 
     /**
@@ -35,11 +37,12 @@ public final class BucketV2ObjectLockConfiguration {
      * 
      */
     @Deprecated /* rule is deprecated. Use the aws.s3.BucketObjectLockConfigurationV2 resource instead. */
-    private @Nullable UndeferrableValue<List<BucketV2ObjectLockConfigurationRule>> rules;
-
+    @PolicyResourceProperty(name="rules", flag="unknown_rules")
+    private @Nullable List<BucketV2ObjectLockConfigurationRule> value_rules;
+    private boolean unknown_rules;
     public @Nullable List<BucketV2ObjectLockConfigurationRule> rules() {
-        if (rules == null) return null;
-        return rules.getValue("BucketV2ObjectLockConfiguration.rules");
+        if (!unknown_rules) return value_rules;
+        throw new UndeferrableValueException("Value 'BucketV2ObjectLockConfiguration.rules' is not present");
     }
 
 }

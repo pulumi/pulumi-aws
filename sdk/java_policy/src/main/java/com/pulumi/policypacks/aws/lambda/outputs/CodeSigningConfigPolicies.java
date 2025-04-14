@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.lambda.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,11 +14,12 @@ public final class CodeSigningConfigPolicies {
      * Code signing configuration policy for deployment validation failure. If you set the policy to Enforce, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to Warn, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
      * 
      */
-    private UndeferrableValue<String> untrustedArtifactOnDeployment;
-
+    @PolicyResourceProperty(name="untrustedArtifactOnDeployment", flag="unknown_untrustedArtifactOnDeployment")
+    private String value_untrustedArtifactOnDeployment;
+    private boolean unknown_untrustedArtifactOnDeployment;
     public String untrustedArtifactOnDeployment() {
-        if (untrustedArtifactOnDeployment == null) return null;
-        return untrustedArtifactOnDeployment.getValue("CodeSigningConfigPolicies.untrustedArtifactOnDeployment");
+        if (!unknown_untrustedArtifactOnDeployment) return value_untrustedArtifactOnDeployment;
+        throw new UndeferrableValueException("Value 'CodeSigningConfigPolicies.untrustedArtifactOnDeployment' is not present");
     }
 
 }

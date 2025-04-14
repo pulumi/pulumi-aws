@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.connect.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.connect.outputs.UserHierarchyGroupHierarchyPathLevelFife;
 import com.pulumi.policypacks.aws.connect.outputs.UserHierarchyGroupHierarchyPathLevelFour;
 import com.pulumi.policypacks.aws.connect.outputs.UserHierarchyGroupHierarchyPathLevelOne;
@@ -19,55 +20,60 @@ public final class UserHierarchyGroupHierarchyPath {
      * A block that defines the details of level five. The level block is documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<UserHierarchyGroupHierarchyPathLevelFife>> levelFives;
-
+    @PolicyResourceProperty(name="levelFives", flag="unknown_levelFives")
+    private @Nullable List<UserHierarchyGroupHierarchyPathLevelFife> value_levelFives;
+    private boolean unknown_levelFives;
     public @Nullable List<UserHierarchyGroupHierarchyPathLevelFife> levelFives() {
-        if (levelFives == null) return null;
-        return levelFives.getValue("UserHierarchyGroupHierarchyPath.levelFives");
+        if (!unknown_levelFives) return value_levelFives;
+        throw new UndeferrableValueException("Value 'UserHierarchyGroupHierarchyPath.levelFives' is not present");
     }
 
     /**
      * A block that defines the details of level four. The level block is documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<UserHierarchyGroupHierarchyPathLevelFour>> levelFours;
-
+    @PolicyResourceProperty(name="levelFours", flag="unknown_levelFours")
+    private @Nullable List<UserHierarchyGroupHierarchyPathLevelFour> value_levelFours;
+    private boolean unknown_levelFours;
     public @Nullable List<UserHierarchyGroupHierarchyPathLevelFour> levelFours() {
-        if (levelFours == null) return null;
-        return levelFours.getValue("UserHierarchyGroupHierarchyPath.levelFours");
+        if (!unknown_levelFours) return value_levelFours;
+        throw new UndeferrableValueException("Value 'UserHierarchyGroupHierarchyPath.levelFours' is not present");
     }
 
     /**
      * A block that defines the details of level one. The level block is documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<UserHierarchyGroupHierarchyPathLevelOne>> levelOnes;
-
+    @PolicyResourceProperty(name="levelOnes", flag="unknown_levelOnes")
+    private @Nullable List<UserHierarchyGroupHierarchyPathLevelOne> value_levelOnes;
+    private boolean unknown_levelOnes;
     public @Nullable List<UserHierarchyGroupHierarchyPathLevelOne> levelOnes() {
-        if (levelOnes == null) return null;
-        return levelOnes.getValue("UserHierarchyGroupHierarchyPath.levelOnes");
+        if (!unknown_levelOnes) return value_levelOnes;
+        throw new UndeferrableValueException("Value 'UserHierarchyGroupHierarchyPath.levelOnes' is not present");
     }
 
     /**
      * A block that defines the details of level three. The level block is documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<UserHierarchyGroupHierarchyPathLevelThree>> levelThrees;
-
+    @PolicyResourceProperty(name="levelThrees", flag="unknown_levelThrees")
+    private @Nullable List<UserHierarchyGroupHierarchyPathLevelThree> value_levelThrees;
+    private boolean unknown_levelThrees;
     public @Nullable List<UserHierarchyGroupHierarchyPathLevelThree> levelThrees() {
-        if (levelThrees == null) return null;
-        return levelThrees.getValue("UserHierarchyGroupHierarchyPath.levelThrees");
+        if (!unknown_levelThrees) return value_levelThrees;
+        throw new UndeferrableValueException("Value 'UserHierarchyGroupHierarchyPath.levelThrees' is not present");
     }
 
     /**
      * A block that defines the details of level two. The level block is documented below.
      * 
      */
-    private @Nullable UndeferrableValue<List<UserHierarchyGroupHierarchyPathLevelTwo>> levelTwos;
-
+    @PolicyResourceProperty(name="levelTwos", flag="unknown_levelTwos")
+    private @Nullable List<UserHierarchyGroupHierarchyPathLevelTwo> value_levelTwos;
+    private boolean unknown_levelTwos;
     public @Nullable List<UserHierarchyGroupHierarchyPathLevelTwo> levelTwos() {
-        if (levelTwos == null) return null;
-        return levelTwos.getValue("UserHierarchyGroupHierarchyPath.levelTwos");
+        if (!unknown_levelTwos) return value_levelTwos;
+        throw new UndeferrableValueException("Value 'UserHierarchyGroupHierarchyPath.levelTwos' is not present");
     }
 
 }

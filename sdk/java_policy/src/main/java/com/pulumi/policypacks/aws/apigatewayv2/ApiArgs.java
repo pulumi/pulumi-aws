@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apigatewayv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.apigatewayv2.inputs.ApiCorsConfigurationArgs;
 import java.lang.Boolean;
@@ -21,55 +22,60 @@ public final class ApiArgs extends com.pulumi.resources.PolicyResourceInput {
      * Applicable for WebSocket APIs.
      * 
      */
-    private UndeferrableValue<String> apiKeySelectionExpression;
-
+    @PolicyResourceProperty(name="apiKeySelectionExpression", flag="unknown_apiKeySelectionExpression")
+    private String value_apiKeySelectionExpression;
+    private boolean unknown_apiKeySelectionExpression;
     public String apiKeySelectionExpression() {
-        if (apiKeySelectionExpression == null) return null;
-        return apiKeySelectionExpression.getValue("ApiArgs.apiKeySelectionExpression");
+        if (!unknown_apiKeySelectionExpression) return value_apiKeySelectionExpression;
+        throw new UndeferrableValueException("Value 'ApiArgs.apiKeySelectionExpression' is not present");
     }
 
     /**
      * An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
      * 
      */
-    private UndeferrableValue<String> body;
-
+    @PolicyResourceProperty(name="body", flag="unknown_body")
+    private String value_body;
+    private boolean unknown_body;
     public String body() {
-        if (body == null) return null;
-        return body.getValue("ApiArgs.body");
+        if (!unknown_body) return value_body;
+        throw new UndeferrableValueException("Value 'ApiArgs.body' is not present");
     }
 
     /**
      * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
      * 
      */
-    private UndeferrableValue<ApiCorsConfigurationArgs> corsConfiguration;
-
+    @PolicyResourceProperty(name="corsConfiguration", flag="unknown_corsConfiguration")
+    private ApiCorsConfigurationArgs value_corsConfiguration;
+    private boolean unknown_corsConfiguration;
     public ApiCorsConfigurationArgs corsConfiguration() {
-        if (corsConfiguration == null) return null;
-        return corsConfiguration.getValue("ApiArgs.corsConfiguration");
+        if (!unknown_corsConfiguration) return value_corsConfiguration;
+        throw new UndeferrableValueException("Value 'ApiArgs.corsConfiguration' is not present");
     }
 
     /**
      * Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
      * 
      */
-    private UndeferrableValue<String> credentialsArn;
-
+    @PolicyResourceProperty(name="credentialsArn", flag="unknown_credentialsArn")
+    private String value_credentialsArn;
+    private boolean unknown_credentialsArn;
     public String credentialsArn() {
-        if (credentialsArn == null) return null;
-        return credentialsArn.getValue("ApiArgs.credentialsArn");
+        if (!unknown_credentialsArn) return value_credentialsArn;
+        throw new UndeferrableValueException("Value 'ApiArgs.credentialsArn' is not present");
     }
 
     /**
      * Description of the API. Must be less than or equal to 1024 characters in length.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ApiArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ApiArgs.description' is not present");
     }
 
     /**
@@ -78,55 +84,60 @@ public final class ApiArgs extends com.pulumi.resources.PolicyResourceInput {
      * To require that clients use a custom domain name to invoke the API, disable the default endpoint.
      * 
      */
-    private UndeferrableValue<Boolean> disableExecuteApiEndpoint;
-
+    @PolicyResourceProperty(name="disableExecuteApiEndpoint", flag="unknown_disableExecuteApiEndpoint")
+    private Boolean value_disableExecuteApiEndpoint;
+    private boolean unknown_disableExecuteApiEndpoint;
     public Boolean disableExecuteApiEndpoint() {
-        if (disableExecuteApiEndpoint == null) return null;
-        return disableExecuteApiEndpoint.getValue("ApiArgs.disableExecuteApiEndpoint");
+        if (!unknown_disableExecuteApiEndpoint) return value_disableExecuteApiEndpoint;
+        throw new UndeferrableValueException("Value 'ApiArgs.disableExecuteApiEndpoint' is not present");
     }
 
     /**
      * Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
      * 
      */
-    private UndeferrableValue<Boolean> failOnWarnings;
-
+    @PolicyResourceProperty(name="failOnWarnings", flag="unknown_failOnWarnings")
+    private Boolean value_failOnWarnings;
+    private boolean unknown_failOnWarnings;
     public Boolean failOnWarnings() {
-        if (failOnWarnings == null) return null;
-        return failOnWarnings.getValue("ApiArgs.failOnWarnings");
+        if (!unknown_failOnWarnings) return value_failOnWarnings;
+        throw new UndeferrableValueException("Value 'ApiArgs.failOnWarnings' is not present");
     }
 
     /**
      * Name of the API. Must be less than or equal to 128 characters in length.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ApiArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ApiArgs.name' is not present");
     }
 
     /**
      * API protocol. Valid values: `HTTP`, `WEBSOCKET`.
      * 
      */
-    private UndeferrableValue<String> protocolType;
-
+    @PolicyResourceProperty(name="protocolType", flag="unknown_protocolType")
+    private String value_protocolType;
+    private boolean unknown_protocolType;
     public String protocolType() {
-        if (protocolType == null) return null;
-        return protocolType.getValue("ApiArgs.protocolType");
+        if (!unknown_protocolType) return value_protocolType;
+        throw new UndeferrableValueException("Value 'ApiArgs.protocolType' is not present");
     }
 
     /**
      * Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
      * 
      */
-    private UndeferrableValue<String> routeKey;
-
+    @PolicyResourceProperty(name="routeKey", flag="unknown_routeKey")
+    private String value_routeKey;
+    private boolean unknown_routeKey;
     public String routeKey() {
-        if (routeKey == null) return null;
-        return routeKey.getValue("ApiArgs.routeKey");
+        if (!unknown_routeKey) return value_routeKey;
+        throw new UndeferrableValueException("Value 'ApiArgs.routeKey' is not present");
     }
 
     /**
@@ -134,22 +145,24 @@ public final class ApiArgs extends com.pulumi.resources.PolicyResourceInput {
      * Defaults to `$request.method $request.path`.
      * 
      */
-    private UndeferrableValue<String> routeSelectionExpression;
-
+    @PolicyResourceProperty(name="routeSelectionExpression", flag="unknown_routeSelectionExpression")
+    private String value_routeSelectionExpression;
+    private boolean unknown_routeSelectionExpression;
     public String routeSelectionExpression() {
-        if (routeSelectionExpression == null) return null;
-        return routeSelectionExpression.getValue("ApiArgs.routeSelectionExpression");
+        if (!unknown_routeSelectionExpression) return value_routeSelectionExpression;
+        throw new UndeferrableValueException("Value 'ApiArgs.routeSelectionExpression' is not present");
     }
 
     /**
      * Map of tags to assign to the API. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ApiArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ApiArgs.tags' is not present");
     }
 
     /**
@@ -158,22 +171,24 @@ public final class ApiArgs extends com.pulumi.resources.PolicyResourceInput {
      * The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
      * 
      */
-    private UndeferrableValue<String> target;
-
+    @PolicyResourceProperty(name="target", flag="unknown_target")
+    private String value_target;
+    private boolean unknown_target;
     public String target() {
-        if (target == null) return null;
-        return target.getValue("ApiArgs.target");
+        if (!unknown_target) return value_target;
+        throw new UndeferrableValueException("Value 'ApiArgs.target' is not present");
     }
 
     /**
      * Version identifier for the API. Must be between 1 and 64 characters in length.
      * 
      */
-    private UndeferrableValue<String> version;
-
+    @PolicyResourceProperty(name="version", flag="unknown_version")
+    private String value_version;
+    private boolean unknown_version;
     public String version() {
-        if (version == null) return null;
-        return version.getValue("ApiArgs.version");
+        if (!unknown_version) return value_version;
+        throw new UndeferrableValueException("Value 'ApiArgs.version' is not present");
     }
 
 }

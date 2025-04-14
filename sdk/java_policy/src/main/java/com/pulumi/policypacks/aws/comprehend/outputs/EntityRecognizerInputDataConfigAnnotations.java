@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.comprehend.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,18 +15,20 @@ public final class EntityRecognizerInputDataConfigAnnotations {
      * Location of training annotations.
      * 
      */
-    private UndeferrableValue<String> s3Uri;
-
+    @PolicyResourceProperty(name="s3Uri", flag="unknown_s3Uri")
+    private String value_s3Uri;
+    private boolean unknown_s3Uri;
     public String s3Uri() {
-        if (s3Uri == null) return null;
-        return s3Uri.getValue("EntityRecognizerInputDataConfigAnnotations.s3Uri");
+        if (!unknown_s3Uri) return value_s3Uri;
+        throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfigAnnotations.s3Uri' is not present");
     }
 
-    private @Nullable UndeferrableValue<String> testS3Uri;
-
+    @PolicyResourceProperty(name="testS3Uri", flag="unknown_testS3Uri")
+    private @Nullable String value_testS3Uri;
+    private boolean unknown_testS3Uri;
     public @Nullable String testS3Uri() {
-        if (testS3Uri == null) return null;
-        return testS3Uri.getValue("EntityRecognizerInputDataConfigAnnotations.testS3Uri");
+        if (!unknown_testS3Uri) return value_testS3Uri;
+        throw new UndeferrableValueException("Value 'EntityRecognizerInputDataConfigAnnotations.testS3Uri' is not present");
     }
 
 }

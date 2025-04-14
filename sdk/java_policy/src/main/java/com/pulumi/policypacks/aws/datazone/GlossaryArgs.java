@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.datazone;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,29 +17,32 @@ public final class GlossaryArgs extends com.pulumi.resources.PolicyResourceInput
      * Description of the glossary. Must have a length between 0 and 4096.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("GlossaryArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'GlossaryArgs.description' is not present");
     }
 
-    private UndeferrableValue<String> domainIdentifier;
-
+    @PolicyResourceProperty(name="domainIdentifier", flag="unknown_domainIdentifier")
+    private String value_domainIdentifier;
+    private boolean unknown_domainIdentifier;
     public String domainIdentifier() {
-        if (domainIdentifier == null) return null;
-        return domainIdentifier.getValue("GlossaryArgs.domainIdentifier");
+        if (!unknown_domainIdentifier) return value_domainIdentifier;
+        throw new UndeferrableValueException("Value 'GlossaryArgs.domainIdentifier' is not present");
     }
 
     /**
      * Name of the glossary. Must have length between 1 and 256.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("GlossaryArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'GlossaryArgs.name' is not present");
     }
 
     /**
@@ -47,22 +51,24 @@ public final class GlossaryArgs extends com.pulumi.resources.PolicyResourceInput
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> owningProjectIdentifier;
-
+    @PolicyResourceProperty(name="owningProjectIdentifier", flag="unknown_owningProjectIdentifier")
+    private String value_owningProjectIdentifier;
+    private boolean unknown_owningProjectIdentifier;
     public String owningProjectIdentifier() {
-        if (owningProjectIdentifier == null) return null;
-        return owningProjectIdentifier.getValue("GlossaryArgs.owningProjectIdentifier");
+        if (!unknown_owningProjectIdentifier) return value_owningProjectIdentifier;
+        throw new UndeferrableValueException("Value 'GlossaryArgs.owningProjectIdentifier' is not present");
     }
 
     /**
      * Status of business glossary. Valid values are DISABLED and ENABLED.
      * 
      */
-    private UndeferrableValue<String> status;
-
+    @PolicyResourceProperty(name="status", flag="unknown_status")
+    private String value_status;
+    private boolean unknown_status;
     public String status() {
-        if (status == null) return null;
-        return status.getValue("GlossaryArgs.status");
+        if (!unknown_status) return value_status;
+        throw new UndeferrableValueException("Value 'GlossaryArgs.status' is not present");
     }
 
 }

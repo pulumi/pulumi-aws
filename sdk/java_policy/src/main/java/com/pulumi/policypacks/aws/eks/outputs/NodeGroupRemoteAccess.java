@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.eks.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,22 +16,24 @@ public final class NodeGroupRemoteAccess {
      * EC2 Key Pair name that provides access for remote communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `source_security_group_ids` when you create an EKS Node Group, either port 3389 for Windows, or port 22 for all other operating systems is opened on the worker nodes to the Internet (0.0.0.0/0). For Windows nodes, this will allow you to use RDP, for all others this allows you to SSH into the worker nodes.
      * 
      */
-    private @Nullable UndeferrableValue<String> ec2SshKey;
-
+    @PolicyResourceProperty(name="ec2SshKey", flag="unknown_ec2SshKey")
+    private @Nullable String value_ec2SshKey;
+    private boolean unknown_ec2SshKey;
     public @Nullable String ec2SshKey() {
-        if (ec2SshKey == null) return null;
-        return ec2SshKey.getValue("NodeGroupRemoteAccess.ec2SshKey");
+        if (!unknown_ec2SshKey) return value_ec2SshKey;
+        throw new UndeferrableValueException("Value 'NodeGroupRemoteAccess.ec2SshKey' is not present");
     }
 
     /**
      * Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes. If you specify `ec2_ssh_key`, but do not specify this configuration when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
      * 
      */
-    private @Nullable UndeferrableValue<List<String>> sourceSecurityGroupIds;
-
+    @PolicyResourceProperty(name="sourceSecurityGroupIds", flag="unknown_sourceSecurityGroupIds")
+    private @Nullable List<String> value_sourceSecurityGroupIds;
+    private boolean unknown_sourceSecurityGroupIds;
     public @Nullable List<String> sourceSecurityGroupIds() {
-        if (sourceSecurityGroupIds == null) return null;
-        return sourceSecurityGroupIds.getValue("NodeGroupRemoteAccess.sourceSecurityGroupIds");
+        if (!unknown_sourceSecurityGroupIds) return value_sourceSecurityGroupIds;
+        throw new UndeferrableValueException("Value 'NodeGroupRemoteAccess.sourceSecurityGroupIds' is not present");
     }
 
 }

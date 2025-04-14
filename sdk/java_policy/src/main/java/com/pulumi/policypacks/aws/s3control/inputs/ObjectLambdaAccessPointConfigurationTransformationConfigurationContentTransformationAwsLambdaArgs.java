@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,22 +15,24 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
      * The Amazon Resource Name (ARN) of the AWS Lambda function.
      * 
      */
-    private UndeferrableValue<String> functionArn;
-
+    @PolicyResourceProperty(name="functionArn", flag="unknown_functionArn")
+    private String value_functionArn;
+    private boolean unknown_functionArn;
     public String functionArn() {
-        if (functionArn == null) return null;
-        return functionArn.getValue("ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs.functionArn");
+        if (!unknown_functionArn) return value_functionArn;
+        throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs.functionArn' is not present");
     }
 
     /**
      * Additional JSON that provides supplemental data to the Lambda function used to transform objects.
      * 
      */
-    private UndeferrableValue<String> functionPayload;
-
+    @PolicyResourceProperty(name="functionPayload", flag="unknown_functionPayload")
+    private String value_functionPayload;
+    private boolean unknown_functionPayload;
     public String functionPayload() {
-        if (functionPayload == null) return null;
-        return functionPayload.getValue("ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs.functionPayload");
+        if (!unknown_functionPayload) return value_functionPayload;
+        throw new UndeferrableValueException("Value 'ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs.functionPayload' is not present");
     }
 
 }

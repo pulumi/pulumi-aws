@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.codebuild.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -14,11 +15,12 @@ public final class ProjectSourceAuth {
      * an AWS CodeStar Connection. For type `SECRETS_MANAGER` this should be an AWS Secrets Manager secret.
      * 
      */
-    private UndeferrableValue<String> resource;
-
+    @PolicyResourceProperty(name="resource", flag="unknown_resource")
+    private String value_resource;
+    private boolean unknown_resource;
     public String resource() {
-        if (resource == null) return null;
-        return resource.getValue("ProjectSourceAuth.resource");
+        if (!unknown_resource) return value_resource;
+        throw new UndeferrableValueException("Value 'ProjectSourceAuth.resource' is not present");
     }
 
     /**
@@ -26,11 +28,12 @@ public final class ProjectSourceAuth {
      * `SECRETS_MANAGER`.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("ProjectSourceAuth.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'ProjectSourceAuth.type' is not present");
     }
 
 }

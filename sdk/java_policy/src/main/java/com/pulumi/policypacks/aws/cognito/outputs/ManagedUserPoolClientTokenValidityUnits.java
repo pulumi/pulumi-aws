@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cognito.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import javax.annotation.Nullable;
 
@@ -14,33 +15,36 @@ public final class ManagedUserPoolClientTokenValidityUnits {
      * Time unit for the value in `access_token_validity` and defaults to `hours`.
      * 
      */
-    private @Nullable UndeferrableValue<String> accessToken;
-
+    @PolicyResourceProperty(name="accessToken", flag="unknown_accessToken")
+    private @Nullable String value_accessToken;
+    private boolean unknown_accessToken;
     public @Nullable String accessToken() {
-        if (accessToken == null) return null;
-        return accessToken.getValue("ManagedUserPoolClientTokenValidityUnits.accessToken");
+        if (!unknown_accessToken) return value_accessToken;
+        throw new UndeferrableValueException("Value 'ManagedUserPoolClientTokenValidityUnits.accessToken' is not present");
     }
 
     /**
      * Time unit for the value in `id_token_validity`, and it defaults to `hours`.
      * 
      */
-    private @Nullable UndeferrableValue<String> idToken;
-
+    @PolicyResourceProperty(name="idToken", flag="unknown_idToken")
+    private @Nullable String value_idToken;
+    private boolean unknown_idToken;
     public @Nullable String idToken() {
-        if (idToken == null) return null;
-        return idToken.getValue("ManagedUserPoolClientTokenValidityUnits.idToken");
+        if (!unknown_idToken) return value_idToken;
+        throw new UndeferrableValueException("Value 'ManagedUserPoolClientTokenValidityUnits.idToken' is not present");
     }
 
     /**
      * Time unit for the value in `refresh_token_validity` and defaults to `days`.
      * 
      */
-    private @Nullable UndeferrableValue<String> refreshToken;
-
+    @PolicyResourceProperty(name="refreshToken", flag="unknown_refreshToken")
+    private @Nullable String value_refreshToken;
+    private boolean unknown_refreshToken;
     public @Nullable String refreshToken() {
-        if (refreshToken == null) return null;
-        return refreshToken.getValue("ManagedUserPoolClientTokenValidityUnits.refreshToken");
+        if (!unknown_refreshToken) return value_refreshToken;
+        throw new UndeferrableValueException("Value 'ManagedUserPoolClientTokenValidityUnits.refreshToken' is not present");
     }
 
 }

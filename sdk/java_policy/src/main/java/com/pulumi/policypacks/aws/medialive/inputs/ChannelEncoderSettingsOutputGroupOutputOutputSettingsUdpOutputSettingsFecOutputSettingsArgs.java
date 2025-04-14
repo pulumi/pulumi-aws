@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutpu
      * The height of the FEC protection matrix.
      * 
      */
-    private UndeferrableValue<Integer> columnDepth;
-
+    @PolicyResourceProperty(name="columnDepth", flag="unknown_columnDepth")
+    private Integer value_columnDepth;
+    private boolean unknown_columnDepth;
     public Integer columnDepth() {
-        if (columnDepth == null) return null;
-        return columnDepth.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs.columnDepth");
+        if (!unknown_columnDepth) return value_columnDepth;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs.columnDepth' is not present");
     }
 
     /**
      * Enables column only or column and row based FEC.
      * 
      */
-    private UndeferrableValue<String> includeFec;
-
+    @PolicyResourceProperty(name="includeFec", flag="unknown_includeFec")
+    private String value_includeFec;
+    private boolean unknown_includeFec;
     public String includeFec() {
-        if (includeFec == null) return null;
-        return includeFec.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs.includeFec");
+        if (!unknown_includeFec) return value_includeFec;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs.includeFec' is not present");
     }
 
     /**
      * The width of the FEC protection matrix.
      * 
      */
-    private UndeferrableValue<Integer> rowLength;
-
+    @PolicyResourceProperty(name="rowLength", flag="unknown_rowLength")
+    private Integer value_rowLength;
+    private boolean unknown_rowLength;
     public Integer rowLength() {
-        if (rowLength == null) return null;
-        return rowLength.getValue("ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs.rowLength");
+        if (!unknown_rowLength) return value_rowLength;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs.rowLength' is not present");
     }
 
 }

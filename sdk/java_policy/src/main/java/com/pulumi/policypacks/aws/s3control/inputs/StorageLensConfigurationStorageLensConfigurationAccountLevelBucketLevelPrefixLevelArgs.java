@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.s3control.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.s3control.inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs;
 
 
@@ -13,11 +14,12 @@ public final class StorageLensConfigurationStorageLensConfigurationAccountLevelB
      * Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
      * 
      */
-    private UndeferrableValue<StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs> storageMetrics;
-
+    @PolicyResourceProperty(name="storageMetrics", flag="unknown_storageMetrics")
+    private StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs value_storageMetrics;
+    private boolean unknown_storageMetrics;
     public StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs storageMetrics() {
-        if (storageMetrics == null) return null;
-        return storageMetrics.getValue("StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs.storageMetrics");
+        if (!unknown_storageMetrics) return value_storageMetrics;
+        throw new UndeferrableValueException("Value 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs.storageMetrics' is not present");
     }
 
 }

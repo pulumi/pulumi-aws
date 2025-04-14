@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.bedrock.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,33 +14,36 @@ public final class AgentDataSourceDataSourceConfigurationSalesforceConfiguration
      * The supported authentication type to authenticate and connect to your SharePoint site. Valid values: `OAUTH2_CLIENT_CREDENTIALS`, `OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS`.
      * 
      */
-    private UndeferrableValue<String> authType;
-
+    @PolicyResourceProperty(name="authType", flag="unknown_authType")
+    private String value_authType;
+    private boolean unknown_authType;
     public String authType() {
-        if (authType == null) return null;
-        return authType.getValue("AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration.authType");
+        if (!unknown_authType) return value_authType;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration.authType' is not present");
     }
 
     /**
      * The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.{@literal @}-]{1,512}$.
      * 
      */
-    private UndeferrableValue<String> credentialsSecretArn;
-
+    @PolicyResourceProperty(name="credentialsSecretArn", flag="unknown_credentialsSecretArn")
+    private String value_credentialsSecretArn;
+    private boolean unknown_credentialsSecretArn;
     public String credentialsSecretArn() {
-        if (credentialsSecretArn == null) return null;
-        return credentialsSecretArn.getValue("AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration.credentialsSecretArn");
+        if (!unknown_credentialsSecretArn) return value_credentialsSecretArn;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration.credentialsSecretArn' is not present");
     }
 
     /**
      * The Salesforce host URL or instance URL. Pattern: `^https://[A-Za-z0-9][^\s]*$`.
      * 
      */
-    private UndeferrableValue<String> hostUrl;
-
+    @PolicyResourceProperty(name="hostUrl", flag="unknown_hostUrl")
+    private String value_hostUrl;
+    private boolean unknown_hostUrl;
     public String hostUrl() {
-        if (hostUrl == null) return null;
-        return hostUrl.getValue("AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration.hostUrl");
+        if (!unknown_hostUrl) return value_hostUrl;
+        throw new UndeferrableValueException("Value 'AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfiguration.hostUrl' is not present");
     }
 
 }

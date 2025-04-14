@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sagemaker.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.sagemaker.outputs.ModelContainerImageConfig;
 import com.pulumi.policypacks.aws.sagemaker.outputs.ModelContainerModelDataSource;
 import com.pulumi.policypacks.aws.sagemaker.outputs.ModelContainerMultiModelConfig;
@@ -18,11 +19,12 @@ public final class ModelContainer {
      * The DNS host name for the container.
      * 
      */
-    private @Nullable UndeferrableValue<String> containerHostname;
-
+    @PolicyResourceProperty(name="containerHostname", flag="unknown_containerHostname")
+    private @Nullable String value_containerHostname;
+    private boolean unknown_containerHostname;
     public @Nullable String containerHostname() {
-        if (containerHostname == null) return null;
-        return containerHostname.getValue("ModelContainer.containerHostname");
+        if (!unknown_containerHostname) return value_containerHostname;
+        throw new UndeferrableValueException("Value 'ModelContainer.containerHostname' is not present");
     }
 
     /**
@@ -30,99 +32,108 @@ public final class ModelContainer {
      * A list of key value pairs.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> environment;
-
+    @PolicyResourceProperty(name="environment", flag="unknown_environment")
+    private @Nullable Map<String,String> value_environment;
+    private boolean unknown_environment;
     public @Nullable Map<String,String> environment() {
-        if (environment == null) return null;
-        return environment.getValue("ModelContainer.environment");
+        if (!unknown_environment) return value_environment;
+        throw new UndeferrableValueException("Value 'ModelContainer.environment' is not present");
     }
 
     /**
      * The registry path where the inference code image is stored in Amazon ECR.
      * 
      */
-    private @Nullable UndeferrableValue<String> image;
-
+    @PolicyResourceProperty(name="image", flag="unknown_image")
+    private @Nullable String value_image;
+    private boolean unknown_image;
     public @Nullable String image() {
-        if (image == null) return null;
-        return image.getValue("ModelContainer.image");
+        if (!unknown_image) return value_image;
+        throw new UndeferrableValueException("Value 'ModelContainer.image' is not present");
     }
 
     /**
      * Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
      * 
      */
-    private @Nullable UndeferrableValue<ModelContainerImageConfig> imageConfig;
-
+    @PolicyResourceProperty(name="imageConfig", flag="unknown_imageConfig")
+    private @Nullable ModelContainerImageConfig value_imageConfig;
+    private boolean unknown_imageConfig;
     public @Nullable ModelContainerImageConfig imageConfig() {
-        if (imageConfig == null) return null;
-        return imageConfig.getValue("ModelContainer.imageConfig");
+        if (!unknown_imageConfig) return value_imageConfig;
+        throw new UndeferrableValueException("Value 'ModelContainer.imageConfig' is not present");
     }
 
     /**
      * The inference specification name in the model package version.
      * 
      */
-    private @Nullable UndeferrableValue<String> inferenceSpecificationName;
-
+    @PolicyResourceProperty(name="inferenceSpecificationName", flag="unknown_inferenceSpecificationName")
+    private @Nullable String value_inferenceSpecificationName;
+    private boolean unknown_inferenceSpecificationName;
     public @Nullable String inferenceSpecificationName() {
-        if (inferenceSpecificationName == null) return null;
-        return inferenceSpecificationName.getValue("ModelContainer.inferenceSpecificationName");
+        if (!unknown_inferenceSpecificationName) return value_inferenceSpecificationName;
+        throw new UndeferrableValueException("Value 'ModelContainer.inferenceSpecificationName' is not present");
     }
 
     /**
      * The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
      * 
      */
-    private @Nullable UndeferrableValue<String> mode;
-
+    @PolicyResourceProperty(name="mode", flag="unknown_mode")
+    private @Nullable String value_mode;
+    private boolean unknown_mode;
     public @Nullable String mode() {
-        if (mode == null) return null;
-        return mode.getValue("ModelContainer.mode");
+        if (!unknown_mode) return value_mode;
+        throw new UndeferrableValueException("Value 'ModelContainer.mode' is not present");
     }
 
     /**
      * The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
      * 
      */
-    private @Nullable UndeferrableValue<ModelContainerModelDataSource> modelDataSource;
-
+    @PolicyResourceProperty(name="modelDataSource", flag="unknown_modelDataSource")
+    private @Nullable ModelContainerModelDataSource value_modelDataSource;
+    private boolean unknown_modelDataSource;
     public @Nullable ModelContainerModelDataSource modelDataSource() {
-        if (modelDataSource == null) return null;
-        return modelDataSource.getValue("ModelContainer.modelDataSource");
+        if (!unknown_modelDataSource) return value_modelDataSource;
+        throw new UndeferrableValueException("Value 'ModelContainer.modelDataSource' is not present");
     }
 
     /**
      * The URL for the S3 location where model artifacts are stored.
      * 
      */
-    private @Nullable UndeferrableValue<String> modelDataUrl;
-
+    @PolicyResourceProperty(name="modelDataUrl", flag="unknown_modelDataUrl")
+    private @Nullable String value_modelDataUrl;
+    private boolean unknown_modelDataUrl;
     public @Nullable String modelDataUrl() {
-        if (modelDataUrl == null) return null;
-        return modelDataUrl.getValue("ModelContainer.modelDataUrl");
+        if (!unknown_modelDataUrl) return value_modelDataUrl;
+        throw new UndeferrableValueException("Value 'ModelContainer.modelDataUrl' is not present");
     }
 
     /**
      * The Amazon Resource Name (ARN) of the model package to use to create the model.
      * 
      */
-    private @Nullable UndeferrableValue<String> modelPackageName;
-
+    @PolicyResourceProperty(name="modelPackageName", flag="unknown_modelPackageName")
+    private @Nullable String value_modelPackageName;
+    private boolean unknown_modelPackageName;
     public @Nullable String modelPackageName() {
-        if (modelPackageName == null) return null;
-        return modelPackageName.getValue("ModelContainer.modelPackageName");
+        if (!unknown_modelPackageName) return value_modelPackageName;
+        throw new UndeferrableValueException("Value 'ModelContainer.modelPackageName' is not present");
     }
 
     /**
      * Specifies additional configuration for multi-model endpoints. see Multi Model Config.
      * 
      */
-    private @Nullable UndeferrableValue<ModelContainerMultiModelConfig> multiModelConfig;
-
+    @PolicyResourceProperty(name="multiModelConfig", flag="unknown_multiModelConfig")
+    private @Nullable ModelContainerMultiModelConfig value_multiModelConfig;
+    private boolean unknown_multiModelConfig;
     public @Nullable ModelContainerMultiModelConfig multiModelConfig() {
-        if (multiModelConfig == null) return null;
-        return multiModelConfig.getValue("ModelContainer.multiModelConfig");
+        if (!unknown_multiModelConfig) return value_multiModelConfig;
+        throw new UndeferrableValueException("Value 'ModelContainer.multiModelConfig' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.elasticsearch.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.elasticsearch.outputs.DomainClusterConfigColdStorageOptions;
 import com.pulumi.policypacks.aws.elasticsearch.outputs.DomainClusterConfigZoneAwarenessConfig;
 import java.lang.Boolean;
@@ -18,121 +19,132 @@ public final class DomainClusterConfig {
      * Configuration block containing cold storage configuration. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<DomainClusterConfigColdStorageOptions> coldStorageOptions;
-
+    @PolicyResourceProperty(name="coldStorageOptions", flag="unknown_coldStorageOptions")
+    private @Nullable DomainClusterConfigColdStorageOptions value_coldStorageOptions;
+    private boolean unknown_coldStorageOptions;
     public @Nullable DomainClusterConfigColdStorageOptions coldStorageOptions() {
-        if (coldStorageOptions == null) return null;
-        return coldStorageOptions.getValue("DomainClusterConfig.coldStorageOptions");
+        if (!unknown_coldStorageOptions) return value_coldStorageOptions;
+        throw new UndeferrableValueException("Value 'DomainClusterConfig.coldStorageOptions' is not present");
     }
 
     /**
      * Number of dedicated main nodes in the cluster.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> dedicatedMasterCount;
-
+    @PolicyResourceProperty(name="dedicatedMasterCount", flag="unknown_dedicatedMasterCount")
+    private @Nullable Integer value_dedicatedMasterCount;
+    private boolean unknown_dedicatedMasterCount;
     public @Nullable Integer dedicatedMasterCount() {
-        if (dedicatedMasterCount == null) return null;
-        return dedicatedMasterCount.getValue("DomainClusterConfig.dedicatedMasterCount");
+        if (!unknown_dedicatedMasterCount) return value_dedicatedMasterCount;
+        throw new UndeferrableValueException("Value 'DomainClusterConfig.dedicatedMasterCount' is not present");
     }
 
     /**
      * Whether dedicated main nodes are enabled for the cluster.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> dedicatedMasterEnabled;
-
+    @PolicyResourceProperty(name="dedicatedMasterEnabled", flag="unknown_dedicatedMasterEnabled")
+    private @Nullable Boolean value_dedicatedMasterEnabled;
+    private boolean unknown_dedicatedMasterEnabled;
     public @Nullable Boolean dedicatedMasterEnabled() {
-        if (dedicatedMasterEnabled == null) return null;
-        return dedicatedMasterEnabled.getValue("DomainClusterConfig.dedicatedMasterEnabled");
+        if (!unknown_dedicatedMasterEnabled) return value_dedicatedMasterEnabled;
+        throw new UndeferrableValueException("Value 'DomainClusterConfig.dedicatedMasterEnabled' is not present");
     }
 
     /**
      * Instance type of the dedicated main nodes in the cluster.
      * 
      */
-    private @Nullable UndeferrableValue<String> dedicatedMasterType;
-
+    @PolicyResourceProperty(name="dedicatedMasterType", flag="unknown_dedicatedMasterType")
+    private @Nullable String value_dedicatedMasterType;
+    private boolean unknown_dedicatedMasterType;
     public @Nullable String dedicatedMasterType() {
-        if (dedicatedMasterType == null) return null;
-        return dedicatedMasterType.getValue("DomainClusterConfig.dedicatedMasterType");
+        if (!unknown_dedicatedMasterType) return value_dedicatedMasterType;
+        throw new UndeferrableValueException("Value 'DomainClusterConfig.dedicatedMasterType' is not present");
     }
 
     /**
      * Number of instances in the cluster.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> instanceCount;
-
+    @PolicyResourceProperty(name="instanceCount", flag="unknown_instanceCount")
+    private @Nullable Integer value_instanceCount;
+    private boolean unknown_instanceCount;
     public @Nullable Integer instanceCount() {
-        if (instanceCount == null) return null;
-        return instanceCount.getValue("DomainClusterConfig.instanceCount");
+        if (!unknown_instanceCount) return value_instanceCount;
+        throw new UndeferrableValueException("Value 'DomainClusterConfig.instanceCount' is not present");
     }
 
     /**
      * Instance type of data nodes in the cluster.
      * 
      */
-    private @Nullable UndeferrableValue<String> instanceType;
-
+    @PolicyResourceProperty(name="instanceType", flag="unknown_instanceType")
+    private @Nullable String value_instanceType;
+    private boolean unknown_instanceType;
     public @Nullable String instanceType() {
-        if (instanceType == null) return null;
-        return instanceType.getValue("DomainClusterConfig.instanceType");
+        if (!unknown_instanceType) return value_instanceType;
+        throw new UndeferrableValueException("Value 'DomainClusterConfig.instanceType' is not present");
     }
 
     /**
      * Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> warmCount;
-
+    @PolicyResourceProperty(name="warmCount", flag="unknown_warmCount")
+    private @Nullable Integer value_warmCount;
+    private boolean unknown_warmCount;
     public @Nullable Integer warmCount() {
-        if (warmCount == null) return null;
-        return warmCount.getValue("DomainClusterConfig.warmCount");
+        if (!unknown_warmCount) return value_warmCount;
+        throw new UndeferrableValueException("Value 'DomainClusterConfig.warmCount' is not present");
     }
 
     /**
      * Whether to enable warm storage.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> warmEnabled;
-
+    @PolicyResourceProperty(name="warmEnabled", flag="unknown_warmEnabled")
+    private @Nullable Boolean value_warmEnabled;
+    private boolean unknown_warmEnabled;
     public @Nullable Boolean warmEnabled() {
-        if (warmEnabled == null) return null;
-        return warmEnabled.getValue("DomainClusterConfig.warmEnabled");
+        if (!unknown_warmEnabled) return value_warmEnabled;
+        throw new UndeferrableValueException("Value 'DomainClusterConfig.warmEnabled' is not present");
     }
 
     /**
      * Instance type for the Elasticsearch cluster&#39;s warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
      * 
      */
-    private @Nullable UndeferrableValue<String> warmType;
-
+    @PolicyResourceProperty(name="warmType", flag="unknown_warmType")
+    private @Nullable String value_warmType;
+    private boolean unknown_warmType;
     public @Nullable String warmType() {
-        if (warmType == null) return null;
-        return warmType.getValue("DomainClusterConfig.warmType");
+        if (!unknown_warmType) return value_warmType;
+        throw new UndeferrableValueException("Value 'DomainClusterConfig.warmType' is not present");
     }
 
     /**
      * Configuration block containing zone awareness settings. Detailed below.
      * 
      */
-    private @Nullable UndeferrableValue<DomainClusterConfigZoneAwarenessConfig> zoneAwarenessConfig;
-
+    @PolicyResourceProperty(name="zoneAwarenessConfig", flag="unknown_zoneAwarenessConfig")
+    private @Nullable DomainClusterConfigZoneAwarenessConfig value_zoneAwarenessConfig;
+    private boolean unknown_zoneAwarenessConfig;
     public @Nullable DomainClusterConfigZoneAwarenessConfig zoneAwarenessConfig() {
-        if (zoneAwarenessConfig == null) return null;
-        return zoneAwarenessConfig.getValue("DomainClusterConfig.zoneAwarenessConfig");
+        if (!unknown_zoneAwarenessConfig) return value_zoneAwarenessConfig;
+        throw new UndeferrableValueException("Value 'DomainClusterConfig.zoneAwarenessConfig' is not present");
     }
 
     /**
      * Whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> zoneAwarenessEnabled;
-
+    @PolicyResourceProperty(name="zoneAwarenessEnabled", flag="unknown_zoneAwarenessEnabled")
+    private @Nullable Boolean value_zoneAwarenessEnabled;
+    private boolean unknown_zoneAwarenessEnabled;
     public @Nullable Boolean zoneAwarenessEnabled() {
-        if (zoneAwarenessEnabled == null) return null;
-        return zoneAwarenessEnabled.getValue("DomainClusterConfig.zoneAwarenessEnabled");
+        if (!unknown_zoneAwarenessEnabled) return value_zoneAwarenessEnabled;
+        throw new UndeferrableValueException("Value 'DomainClusterConfig.zoneAwarenessEnabled' is not present");
     }
 
 }

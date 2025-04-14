@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.memorydb.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.memorydb.outputs.ClusterShardNode;
 import java.lang.Integer;
 import java.lang.String;
@@ -17,44 +18,48 @@ public final class ClusterShard {
      * Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
-    private @Nullable UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private @Nullable String value_name;
+    private boolean unknown_name;
     public @Nullable String name() {
-        if (name == null) return null;
-        return name.getValue("ClusterShard.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ClusterShard.name' is not present");
     }
 
     /**
      * Set of nodes in this shard.
      * 
      */
-    private @Nullable UndeferrableValue<List<ClusterShardNode>> nodes;
-
+    @PolicyResourceProperty(name="nodes", flag="unknown_nodes")
+    private @Nullable List<ClusterShardNode> value_nodes;
+    private boolean unknown_nodes;
     public @Nullable List<ClusterShardNode> nodes() {
-        if (nodes == null) return null;
-        return nodes.getValue("ClusterShard.nodes");
+        if (!unknown_nodes) return value_nodes;
+        throw new UndeferrableValueException("Value 'ClusterShard.nodes' is not present");
     }
 
     /**
      * Number of individual nodes in this shard.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> numNodes;
-
+    @PolicyResourceProperty(name="numNodes", flag="unknown_numNodes")
+    private @Nullable Integer value_numNodes;
+    private boolean unknown_numNodes;
     public @Nullable Integer numNodes() {
-        if (numNodes == null) return null;
-        return numNodes.getValue("ClusterShard.numNodes");
+        if (!unknown_numNodes) return value_numNodes;
+        throw new UndeferrableValueException("Value 'ClusterShard.numNodes' is not present");
     }
 
     /**
      * Keyspace for this shard. Example: `0-16383`.
      * 
      */
-    private @Nullable UndeferrableValue<String> slots;
-
+    @PolicyResourceProperty(name="slots", flag="unknown_slots")
+    private @Nullable String value_slots;
+    private boolean unknown_slots;
     public @Nullable String slots() {
-        if (slots == null) return null;
-        return slots.getValue("ClusterShard.slots");
+        if (!unknown_slots) return value_slots;
+        throw new UndeferrableValueException("Value 'ClusterShard.slots' is not present");
     }
 
 }

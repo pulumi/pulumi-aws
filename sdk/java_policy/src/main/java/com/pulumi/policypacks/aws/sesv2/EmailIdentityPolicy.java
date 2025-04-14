@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.sesv2;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,33 +16,36 @@ public final class EmailIdentityPolicy extends com.pulumi.resources.PolicyResour
      * The email identity.
      * 
      */
-    private UndeferrableValue<String> emailIdentity;
-
+    @PolicyResourceProperty(name="emailIdentity", flag="unknown_emailIdentity")
+    private String value_emailIdentity;
+    private boolean unknown_emailIdentity;
     public String emailIdentity() {
-        if (emailIdentity == null) return null;
-        return emailIdentity.getValue("EmailIdentityPolicy.emailIdentity");
+        if (!unknown_emailIdentity) return value_emailIdentity;
+        throw new UndeferrableValueException("Value 'EmailIdentityPolicy.emailIdentity' is not present");
     }
 
     /**
      * The text of the policy in JSON format.
      * 
      */
-    private UndeferrableValue<String> policy;
-
+    @PolicyResourceProperty(name="policy", flag="unknown_policy")
+    private String value_policy;
+    private boolean unknown_policy;
     public String policy() {
-        if (policy == null) return null;
-        return policy.getValue("EmailIdentityPolicy.policy");
+        if (!unknown_policy) return value_policy;
+        throw new UndeferrableValueException("Value 'EmailIdentityPolicy.policy' is not present");
     }
 
     /**
      * The name of the policy.
      * 
      */
-    private UndeferrableValue<String> policyName;
-
+    @PolicyResourceProperty(name="policyName", flag="unknown_policyName")
+    private String value_policyName;
+    private boolean unknown_policyName;
     public String policyName() {
-        if (policyName == null) return null;
-        return policyName.getValue("EmailIdentityPolicy.policyName");
+        if (!unknown_policyName) return value_policyName;
+        throw new UndeferrableValueException("Value 'EmailIdentityPolicy.policyName' is not present");
     }
 
 }

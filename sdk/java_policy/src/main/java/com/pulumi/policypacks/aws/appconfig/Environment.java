@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appconfig;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.appconfig.outputs.EnvironmentMonitor;
 import java.lang.String;
@@ -19,66 +20,72 @@ public final class Environment extends com.pulumi.resources.PolicyResourceOutput
      * AppConfig application ID. Must be between 4 and 7 characters in length.
      * 
      */
-    private UndeferrableValue<String> applicationId;
-
+    @PolicyResourceProperty(name="applicationId", flag="unknown_applicationId")
+    private String value_applicationId;
+    private boolean unknown_applicationId;
     public String applicationId() {
-        if (applicationId == null) return null;
-        return applicationId.getValue("Environment.applicationId");
+        if (!unknown_applicationId) return value_applicationId;
+        throw new UndeferrableValueException("Value 'Environment.applicationId' is not present");
     }
 
     /**
      * ARN of the AppConfig Environment.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("Environment.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'Environment.arn' is not present");
     }
 
     /**
      * Description of the environment. Can be at most 1024 characters.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("Environment.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'Environment.description' is not present");
     }
 
     /**
      * AppConfig environment ID.
      * 
      */
-    private UndeferrableValue<String> environmentId;
-
+    @PolicyResourceProperty(name="environmentId", flag="unknown_environmentId")
+    private String value_environmentId;
+    private boolean unknown_environmentId;
     public String environmentId() {
-        if (environmentId == null) return null;
-        return environmentId.getValue("Environment.environmentId");
+        if (!unknown_environmentId) return value_environmentId;
+        throw new UndeferrableValueException("Value 'Environment.environmentId' is not present");
     }
 
     /**
      * Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
      * 
      */
-    private @Nullable UndeferrableValue<List<EnvironmentMonitor>> monitors;
-
+    @PolicyResourceProperty(name="monitors", flag="unknown_monitors")
+    private @Nullable List<EnvironmentMonitor> value_monitors;
+    private boolean unknown_monitors;
     public @Nullable List<EnvironmentMonitor> monitors() {
-        if (monitors == null) return null;
-        return monitors.getValue("Environment.monitors");
+        if (!unknown_monitors) return value_monitors;
+        throw new UndeferrableValueException("Value 'Environment.monitors' is not present");
     }
 
     /**
      * Name for the environment. Must be between 1 and 64 characters in length.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("Environment.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'Environment.name' is not present");
     }
 
     /**
@@ -86,22 +93,24 @@ public final class Environment extends com.pulumi.resources.PolicyResourceOutput
      * or `ROLLED_BACK`.
      * 
      */
-    private UndeferrableValue<String> state;
-
+    @PolicyResourceProperty(name="state", flag="unknown_state")
+    private String value_state;
+    private boolean unknown_state;
     public String state() {
-        if (state == null) return null;
-        return state.getValue("Environment.state");
+        if (!unknown_state) return value_state;
+        throw new UndeferrableValueException("Value 'Environment.state' is not present");
     }
 
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("Environment.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'Environment.tags' is not present");
     }
 
     /**
@@ -112,11 +121,12 @@ public final class Environment extends com.pulumi.resources.PolicyResourceOutput
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("Environment.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'Environment.tagsAll' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.evidently;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.evidently.inputs.LaunchGroupArgs;
 import com.pulumi.policypacks.aws.evidently.inputs.LaunchMetricMonitorArgs;
@@ -21,88 +22,96 @@ public final class LaunchArgs extends com.pulumi.resources.PolicyResourceInput {
      * Specifies the description of the launch.
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("LaunchArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'LaunchArgs.description' is not present");
     }
 
     /**
      * One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
      * 
      */
-    private UndeferrableValue<List<LaunchGroupArgs>> groups;
-
+    @PolicyResourceProperty(name="groups", flag="unknown_groups")
+    private List<LaunchGroupArgs> value_groups;
+    private boolean unknown_groups;
     public List<LaunchGroupArgs> groups() {
-        if (groups == null) return null;
-        return groups.getValue("LaunchArgs.groups");
+        if (!unknown_groups) return value_groups;
+        throw new UndeferrableValueException("Value 'LaunchArgs.groups' is not present");
     }
 
     /**
      * One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
      * 
      */
-    private UndeferrableValue<List<LaunchMetricMonitorArgs>> metricMonitors;
-
+    @PolicyResourceProperty(name="metricMonitors", flag="unknown_metricMonitors")
+    private List<LaunchMetricMonitorArgs> value_metricMonitors;
+    private boolean unknown_metricMonitors;
     public List<LaunchMetricMonitorArgs> metricMonitors() {
-        if (metricMonitors == null) return null;
-        return metricMonitors.getValue("LaunchArgs.metricMonitors");
+        if (!unknown_metricMonitors) return value_metricMonitors;
+        throw new UndeferrableValueException("Value 'LaunchArgs.metricMonitors' is not present");
     }
 
     /**
      * The name for the new launch. Minimum length of `1`. Maximum length of `127`.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("LaunchArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'LaunchArgs.name' is not present");
     }
 
     /**
      * The name or ARN of the project that is to contain the new launch.
      * 
      */
-    private UndeferrableValue<String> project;
-
+    @PolicyResourceProperty(name="project", flag="unknown_project")
+    private String value_project;
+    private boolean unknown_project;
     public String project() {
-        if (project == null) return null;
-        return project.getValue("LaunchArgs.project");
+        if (!unknown_project) return value_project;
+        throw new UndeferrableValueException("Value 'LaunchArgs.project' is not present");
     }
 
     /**
      * When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
      * 
      */
-    private UndeferrableValue<String> randomizationSalt;
-
+    @PolicyResourceProperty(name="randomizationSalt", flag="unknown_randomizationSalt")
+    private String value_randomizationSalt;
+    private boolean unknown_randomizationSalt;
     public String randomizationSalt() {
-        if (randomizationSalt == null) return null;
-        return randomizationSalt.getValue("LaunchArgs.randomizationSalt");
+        if (!unknown_randomizationSalt) return value_randomizationSalt;
+        throw new UndeferrableValueException("Value 'LaunchArgs.randomizationSalt' is not present");
     }
 
     /**
      * A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
      * 
      */
-    private UndeferrableValue<LaunchScheduledSplitsConfigArgs> scheduledSplitsConfig;
-
+    @PolicyResourceProperty(name="scheduledSplitsConfig", flag="unknown_scheduledSplitsConfig")
+    private LaunchScheduledSplitsConfigArgs value_scheduledSplitsConfig;
+    private boolean unknown_scheduledSplitsConfig;
     public LaunchScheduledSplitsConfigArgs scheduledSplitsConfig() {
-        if (scheduledSplitsConfig == null) return null;
-        return scheduledSplitsConfig.getValue("LaunchArgs.scheduledSplitsConfig");
+        if (!unknown_scheduledSplitsConfig) return value_scheduledSplitsConfig;
+        throw new UndeferrableValueException("Value 'LaunchArgs.scheduledSplitsConfig' is not present");
     }
 
     /**
      * Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("LaunchArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'LaunchArgs.tags' is not present");
     }
 
 }

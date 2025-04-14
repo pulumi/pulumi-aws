@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.directconnect;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -17,11 +18,12 @@ public final class GatewayAssociationArgs extends com.pulumi.resources.PolicyRes
      * VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
      * 
      */
-    private UndeferrableValue<List<String>> allowedPrefixes;
-
+    @PolicyResourceProperty(name="allowedPrefixes", flag="unknown_allowedPrefixes")
+    private List<String> value_allowedPrefixes;
+    private boolean unknown_allowedPrefixes;
     public List<String> allowedPrefixes() {
-        if (allowedPrefixes == null) return null;
-        return allowedPrefixes.getValue("GatewayAssociationArgs.allowedPrefixes");
+        if (!unknown_allowedPrefixes) return value_allowedPrefixes;
+        throw new UndeferrableValueException("Value 'GatewayAssociationArgs.allowedPrefixes' is not present");
     }
 
     /**
@@ -29,11 +31,12 @@ public final class GatewayAssociationArgs extends com.pulumi.resources.PolicyRes
      * Used for single account Direct Connect gateway associations.
      * 
      */
-    private UndeferrableValue<String> associatedGatewayId;
-
+    @PolicyResourceProperty(name="associatedGatewayId", flag="unknown_associatedGatewayId")
+    private String value_associatedGatewayId;
+    private boolean unknown_associatedGatewayId;
     public String associatedGatewayId() {
-        if (associatedGatewayId == null) return null;
-        return associatedGatewayId.getValue("GatewayAssociationArgs.associatedGatewayId");
+        if (!unknown_associatedGatewayId) return value_associatedGatewayId;
+        throw new UndeferrableValueException("Value 'GatewayAssociationArgs.associatedGatewayId' is not present");
     }
 
     /**
@@ -41,22 +44,24 @@ public final class GatewayAssociationArgs extends com.pulumi.resources.PolicyRes
      * Used for cross-account Direct Connect gateway associations.
      * 
      */
-    private UndeferrableValue<String> associatedGatewayOwnerAccountId;
-
+    @PolicyResourceProperty(name="associatedGatewayOwnerAccountId", flag="unknown_associatedGatewayOwnerAccountId")
+    private String value_associatedGatewayOwnerAccountId;
+    private boolean unknown_associatedGatewayOwnerAccountId;
     public String associatedGatewayOwnerAccountId() {
-        if (associatedGatewayOwnerAccountId == null) return null;
-        return associatedGatewayOwnerAccountId.getValue("GatewayAssociationArgs.associatedGatewayOwnerAccountId");
+        if (!unknown_associatedGatewayOwnerAccountId) return value_associatedGatewayOwnerAccountId;
+        throw new UndeferrableValueException("Value 'GatewayAssociationArgs.associatedGatewayOwnerAccountId' is not present");
     }
 
     /**
      * The ID of the Direct Connect gateway.
      * 
      */
-    private UndeferrableValue<String> dxGatewayId;
-
+    @PolicyResourceProperty(name="dxGatewayId", flag="unknown_dxGatewayId")
+    private String value_dxGatewayId;
+    private boolean unknown_dxGatewayId;
     public String dxGatewayId() {
-        if (dxGatewayId == null) return null;
-        return dxGatewayId.getValue("GatewayAssociationArgs.dxGatewayId");
+        if (!unknown_dxGatewayId) return value_dxGatewayId;
+        throw new UndeferrableValueException("Value 'GatewayAssociationArgs.dxGatewayId' is not present");
     }
 
     /**
@@ -64,11 +69,12 @@ public final class GatewayAssociationArgs extends com.pulumi.resources.PolicyRes
      * Used for cross-account Direct Connect gateway associations.
      * 
      */
-    private UndeferrableValue<String> proposalId;
-
+    @PolicyResourceProperty(name="proposalId", flag="unknown_proposalId")
+    private String value_proposalId;
+    private boolean unknown_proposalId;
     public String proposalId() {
-        if (proposalId == null) return null;
-        return proposalId.getValue("GatewayAssociationArgs.proposalId");
+        if (!unknown_proposalId) return value_proposalId;
+        throw new UndeferrableValueException("Value 'GatewayAssociationArgs.proposalId' is not present");
     }
 
     /**
@@ -77,11 +83,12 @@ public final class GatewayAssociationArgs extends com.pulumi.resources.PolicyRes
      * 
      */
     @Deprecated /* vpn_gateway_id is deprecated. Use associated_gateway_id instead. */
-    private UndeferrableValue<String> vpnGatewayId;
-
+    @PolicyResourceProperty(name="vpnGatewayId", flag="unknown_vpnGatewayId")
+    private String value_vpnGatewayId;
+    private boolean unknown_vpnGatewayId;
     public String vpnGatewayId() {
-        if (vpnGatewayId == null) return null;
-        return vpnGatewayId.getValue("GatewayAssociationArgs.vpnGatewayId");
+        if (!unknown_vpnGatewayId) return value_vpnGatewayId;
+        throw new UndeferrableValueException("Value 'GatewayAssociationArgs.vpnGatewayId' is not present");
     }
 
 }

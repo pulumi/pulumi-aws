@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.macie2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -15,33 +16,36 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimp
      * The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
      * 
      */
-    private UndeferrableValue<String> comparator;
-
+    @PolicyResourceProperty(name="comparator", flag="unknown_comparator")
+    private String value_comparator;
+    private boolean unknown_comparator;
     public String comparator() {
-        if (comparator == null) return null;
-        return comparator.getValue("ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgs.comparator");
+        if (!unknown_comparator) return value_comparator;
+        throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgs.comparator' is not present");
     }
 
     /**
      * The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
      * 
      */
-    private UndeferrableValue<String> key;
-
+    @PolicyResourceProperty(name="key", flag="unknown_key")
+    private String value_key;
+    private boolean unknown_key;
     public String key() {
-        if (key == null) return null;
-        return key.getValue("ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgs.key");
+        if (!unknown_key) return value_key;
+        throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgs.key' is not present");
     }
 
     /**
      * An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
      * 
      */
-    private UndeferrableValue<List<String>> values;
-
+    @PolicyResourceProperty(name="values", flag="unknown_values")
+    private List<String> value_values;
+    private boolean unknown_values;
     public List<String> values() {
-        if (values == null) return null;
-        return values.getValue("ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgs.values");
+        if (!unknown_values) return value_values;
+        throw new UndeferrableValueException("Value 'ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgs.values' is not present");
     }
 
 }

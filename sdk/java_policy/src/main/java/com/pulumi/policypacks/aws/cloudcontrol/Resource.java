@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.cloudcontrol;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,44 +17,48 @@ public final class Resource extends com.pulumi.resources.PolicyResourceOutput {
      * JSON string matching the CloudFormation resource type schema with desired configuration.
      * 
      */
-    private UndeferrableValue<String> desiredState;
-
+    @PolicyResourceProperty(name="desiredState", flag="unknown_desiredState")
+    private String value_desiredState;
+    private boolean unknown_desiredState;
     public String desiredState() {
-        if (desiredState == null) return null;
-        return desiredState.getValue("Resource.desiredState");
+        if (!unknown_desiredState) return value_desiredState;
+        throw new UndeferrableValueException("Value 'Resource.desiredState' is not present");
     }
 
     /**
      * JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)[&#34;example&#34;]`.
      * 
      */
-    private UndeferrableValue<String> properties;
-
+    @PolicyResourceProperty(name="properties", flag="unknown_properties")
+    private String value_properties;
+    private boolean unknown_properties;
     public String properties() {
-        if (properties == null) return null;
-        return properties.getValue("Resource.properties");
+        if (!unknown_properties) return value_properties;
+        throw new UndeferrableValueException("Value 'Resource.properties' is not present");
     }
 
     /**
      * Amazon Resource Name (ARN) of the IAM Role to assume for operations.
      * 
      */
-    private @Nullable UndeferrableValue<String> roleArn;
-
+    @PolicyResourceProperty(name="roleArn", flag="unknown_roleArn")
+    private @Nullable String value_roleArn;
+    private boolean unknown_roleArn;
     public @Nullable String roleArn() {
-        if (roleArn == null) return null;
-        return roleArn.getValue("Resource.roleArn");
+        if (!unknown_roleArn) return value_roleArn;
+        throw new UndeferrableValueException("Value 'Resource.roleArn' is not present");
     }
 
     /**
      * JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `aws.cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
      * 
      */
-    private UndeferrableValue<String> schema;
-
+    @PolicyResourceProperty(name="schema", flag="unknown_schema")
+    private String value_schema;
+    private boolean unknown_schema;
     public String schema() {
-        if (schema == null) return null;
-        return schema.getValue("Resource.schema");
+        if (!unknown_schema) return value_schema;
+        throw new UndeferrableValueException("Value 'Resource.schema' is not present");
     }
 
     /**
@@ -62,22 +67,24 @@ public final class Resource extends com.pulumi.resources.PolicyResourceOutput {
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> typeName;
-
+    @PolicyResourceProperty(name="typeName", flag="unknown_typeName")
+    private String value_typeName;
+    private boolean unknown_typeName;
     public String typeName() {
-        if (typeName == null) return null;
-        return typeName.getValue("Resource.typeName");
+        if (!unknown_typeName) return value_typeName;
+        throw new UndeferrableValueException("Value 'Resource.typeName' is not present");
     }
 
     /**
      * Identifier of the CloudFormation resource type version.
      * 
      */
-    private @Nullable UndeferrableValue<String> typeVersionId;
-
+    @PolicyResourceProperty(name="typeVersionId", flag="unknown_typeVersionId")
+    private @Nullable String value_typeVersionId;
+    private boolean unknown_typeVersionId;
     public @Nullable String typeVersionId() {
-        if (typeVersionId == null) return null;
-        return typeVersionId.getValue("Resource.typeVersionId");
+        if (!unknown_typeVersionId) return value_typeVersionId;
+        throw new UndeferrableValueException("Value 'Resource.typeVersionId' is not present");
     }
 
 }

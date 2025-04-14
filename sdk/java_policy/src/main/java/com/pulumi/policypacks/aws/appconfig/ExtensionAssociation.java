@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appconfig;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.Integer;
 import java.lang.String;
@@ -18,55 +19,60 @@ public final class ExtensionAssociation extends com.pulumi.resources.PolicyResou
      * ARN of the AppConfig Extension Association.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ExtensionAssociation.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ExtensionAssociation.arn' is not present");
     }
 
     /**
      * The ARN of the extension defined in the association.
      * 
      */
-    private UndeferrableValue<String> extensionArn;
-
+    @PolicyResourceProperty(name="extensionArn", flag="unknown_extensionArn")
+    private String value_extensionArn;
+    private boolean unknown_extensionArn;
     public String extensionArn() {
-        if (extensionArn == null) return null;
-        return extensionArn.getValue("ExtensionAssociation.extensionArn");
+        if (!unknown_extensionArn) return value_extensionArn;
+        throw new UndeferrableValueException("Value 'ExtensionAssociation.extensionArn' is not present");
     }
 
     /**
      * The version number for the extension defined in the association.
      * 
      */
-    private UndeferrableValue<Integer> extensionVersion;
-
+    @PolicyResourceProperty(name="extensionVersion", flag="unknown_extensionVersion")
+    private Integer value_extensionVersion;
+    private boolean unknown_extensionVersion;
     public Integer extensionVersion() {
-        if (extensionVersion == null) return null;
-        return extensionVersion.getValue("ExtensionAssociation.extensionVersion");
+        if (!unknown_extensionVersion) return value_extensionVersion;
+        throw new UndeferrableValueException("Value 'ExtensionAssociation.extensionVersion' is not present");
     }
 
     /**
      * The parameter names and values defined for the association.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private @Nullable Map<String,String> value_parameters;
+    private boolean unknown_parameters;
     public @Nullable Map<String,String> parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("ExtensionAssociation.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'ExtensionAssociation.parameters' is not present");
     }
 
     /**
      * The ARN of the application, configuration profile, or environment to associate with the extension.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("ExtensionAssociation.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'ExtensionAssociation.resourceArn' is not present");
     }
 
 }

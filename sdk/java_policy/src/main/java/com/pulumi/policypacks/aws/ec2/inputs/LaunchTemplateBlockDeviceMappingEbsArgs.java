@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.ec2.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -16,11 +17,12 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs {
      * See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/preserving-volumes-on-termination.html) for more information.
      * 
      */
-    private UndeferrableValue<String> deleteOnTermination;
-
+    @PolicyResourceProperty(name="deleteOnTermination", flag="unknown_deleteOnTermination")
+    private String value_deleteOnTermination;
+    private boolean unknown_deleteOnTermination;
     public String deleteOnTermination() {
-        if (deleteOnTermination == null) return null;
-        return deleteOnTermination.getValue("LaunchTemplateBlockDeviceMappingEbsArgs.deleteOnTermination");
+        if (!unknown_deleteOnTermination) return value_deleteOnTermination;
+        throw new UndeferrableValueException("Value 'LaunchTemplateBlockDeviceMappingEbsArgs.deleteOnTermination' is not present");
     }
 
     /**
@@ -28,11 +30,12 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs {
      * Cannot be used with `snapshot_id`.
      * 
      */
-    private UndeferrableValue<String> encrypted;
-
+    @PolicyResourceProperty(name="encrypted", flag="unknown_encrypted")
+    private String value_encrypted;
+    private boolean unknown_encrypted;
     public String encrypted() {
-        if (encrypted == null) return null;
-        return encrypted.getValue("LaunchTemplateBlockDeviceMappingEbsArgs.encrypted");
+        if (!unknown_encrypted) return value_encrypted;
+        throw new UndeferrableValueException("Value 'LaunchTemplateBlockDeviceMappingEbsArgs.encrypted' is not present");
     }
 
     /**
@@ -40,11 +43,12 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs {
      * This must be set with a `volume_type` of `&#34;io1/io2/gp3&#34;`.
      * 
      */
-    private UndeferrableValue<Integer> iops;
-
+    @PolicyResourceProperty(name="iops", flag="unknown_iops")
+    private Integer value_iops;
+    private boolean unknown_iops;
     public Integer iops() {
-        if (iops == null) return null;
-        return iops.getValue("LaunchTemplateBlockDeviceMappingEbsArgs.iops");
+        if (!unknown_iops) return value_iops;
+        throw new UndeferrableValueException("Value 'LaunchTemplateBlockDeviceMappingEbsArgs.iops' is not present");
     }
 
     /**
@@ -52,44 +56,48 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs {
      * `encrypted` must be set to `true` when this is set.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("LaunchTemplateBlockDeviceMappingEbsArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'LaunchTemplateBlockDeviceMappingEbsArgs.kmsKeyId' is not present");
     }
 
     /**
      * The Snapshot ID to mount.
      * 
      */
-    private UndeferrableValue<String> snapshotId;
-
+    @PolicyResourceProperty(name="snapshotId", flag="unknown_snapshotId")
+    private String value_snapshotId;
+    private boolean unknown_snapshotId;
     public String snapshotId() {
-        if (snapshotId == null) return null;
-        return snapshotId.getValue("LaunchTemplateBlockDeviceMappingEbsArgs.snapshotId");
+        if (!unknown_snapshotId) return value_snapshotId;
+        throw new UndeferrableValueException("Value 'LaunchTemplateBlockDeviceMappingEbsArgs.snapshotId' is not present");
     }
 
     /**
      * The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
      * 
      */
-    private UndeferrableValue<Integer> throughput;
-
+    @PolicyResourceProperty(name="throughput", flag="unknown_throughput")
+    private Integer value_throughput;
+    private boolean unknown_throughput;
     public Integer throughput() {
-        if (throughput == null) return null;
-        return throughput.getValue("LaunchTemplateBlockDeviceMappingEbsArgs.throughput");
+        if (!unknown_throughput) return value_throughput;
+        throw new UndeferrableValueException("Value 'LaunchTemplateBlockDeviceMappingEbsArgs.throughput' is not present");
     }
 
     /**
      * The size of the volume in gigabytes.
      * 
      */
-    private UndeferrableValue<Integer> volumeSize;
-
+    @PolicyResourceProperty(name="volumeSize", flag="unknown_volumeSize")
+    private Integer value_volumeSize;
+    private boolean unknown_volumeSize;
     public Integer volumeSize() {
-        if (volumeSize == null) return null;
-        return volumeSize.getValue("LaunchTemplateBlockDeviceMappingEbsArgs.volumeSize");
+        if (!unknown_volumeSize) return value_volumeSize;
+        throw new UndeferrableValueException("Value 'LaunchTemplateBlockDeviceMappingEbsArgs.volumeSize' is not present");
     }
 
     /**
@@ -97,11 +105,12 @@ public final class LaunchTemplateBlockDeviceMappingEbsArgs {
      * Can be one of `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1`.
      * 
      */
-    private UndeferrableValue<String> volumeType;
-
+    @PolicyResourceProperty(name="volumeType", flag="unknown_volumeType")
+    private String value_volumeType;
+    private boolean unknown_volumeType;
     public String volumeType() {
-        if (volumeType == null) return null;
-        return volumeType.getValue("LaunchTemplateBlockDeviceMappingEbsArgs.volumeType");
+        if (!unknown_volumeType) return value_volumeType;
+        throw new UndeferrableValueException("Value 'LaunchTemplateBlockDeviceMappingEbsArgs.volumeType' is not present");
     }
 
 }

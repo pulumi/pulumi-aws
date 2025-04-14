@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.rds.enums.InstanceType;
 import com.pulumi.policypacks.aws.rds.enums.StorageType;
@@ -25,11 +26,12 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
      * 
      */
-    private UndeferrableValue<Integer> allocatedStorage;
-
+    @PolicyResourceProperty(name="allocatedStorage", flag="unknown_allocatedStorage")
+    private Integer value_allocatedStorage;
+    private boolean unknown_allocatedStorage;
     public Integer allocatedStorage() {
-        if (allocatedStorage == null) return null;
-        return allocatedStorage.getValue("InstanceArgs.allocatedStorage");
+        if (!unknown_allocatedStorage) return value_allocatedStorage;
+        throw new UndeferrableValueException("Value 'InstanceArgs.allocatedStorage' is not present");
     }
 
     /**
@@ -38,11 +40,12 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * the change is asynchronously applied as soon as possible.
      * 
      */
-    private UndeferrableValue<Boolean> allowMajorVersionUpgrade;
-
+    @PolicyResourceProperty(name="allowMajorVersionUpgrade", flag="unknown_allowMajorVersionUpgrade")
+    private Boolean value_allowMajorVersionUpgrade;
+    private boolean unknown_allowMajorVersionUpgrade;
     public Boolean allowMajorVersionUpgrade() {
-        if (allowMajorVersionUpgrade == null) return null;
-        return allowMajorVersionUpgrade.getValue("InstanceArgs.allowMajorVersionUpgrade");
+        if (!unknown_allowMajorVersionUpgrade) return value_allowMajorVersionUpgrade;
+        throw new UndeferrableValueException("Value 'InstanceArgs.allowMajorVersionUpgrade' is not present");
     }
 
     /**
@@ -52,11 +55,12 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
      * 
      */
-    private UndeferrableValue<Boolean> applyImmediately;
-
+    @PolicyResourceProperty(name="applyImmediately", flag="unknown_applyImmediately")
+    private Boolean value_applyImmediately;
+    private boolean unknown_applyImmediately;
     public Boolean applyImmediately() {
-        if (applyImmediately == null) return null;
-        return applyImmediately.getValue("InstanceArgs.applyImmediately");
+        if (!unknown_applyImmediately) return value_applyImmediately;
+        throw new UndeferrableValueException("Value 'InstanceArgs.applyImmediately' is not present");
     }
 
     /**
@@ -65,22 +69,24 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * Defaults to true.
      * 
      */
-    private UndeferrableValue<Boolean> autoMinorVersionUpgrade;
-
+    @PolicyResourceProperty(name="autoMinorVersionUpgrade", flag="unknown_autoMinorVersionUpgrade")
+    private Boolean value_autoMinorVersionUpgrade;
+    private boolean unknown_autoMinorVersionUpgrade;
     public Boolean autoMinorVersionUpgrade() {
-        if (autoMinorVersionUpgrade == null) return null;
-        return autoMinorVersionUpgrade.getValue("InstanceArgs.autoMinorVersionUpgrade");
+        if (!unknown_autoMinorVersionUpgrade) return value_autoMinorVersionUpgrade;
+        throw new UndeferrableValueException("Value 'InstanceArgs.autoMinorVersionUpgrade' is not present");
     }
 
     /**
      * The AZ for the RDS instance.
      * 
      */
-    private UndeferrableValue<String> availabilityZone;
-
+    @PolicyResourceProperty(name="availabilityZone", flag="unknown_availabilityZone")
+    private String value_availabilityZone;
+    private boolean unknown_availabilityZone;
     public String availabilityZone() {
-        if (availabilityZone == null) return null;
-        return availabilityZone.getValue("InstanceArgs.availabilityZone");
+        if (!unknown_availabilityZone) return value_availabilityZone;
+        throw new UndeferrableValueException("Value 'InstanceArgs.availabilityZone' is not present");
     }
 
     /**
@@ -92,22 +98,24 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * or will use [RDS Blue/Green deployments][blue-green].
      * 
      */
-    private UndeferrableValue<Integer> backupRetentionPeriod;
-
+    @PolicyResourceProperty(name="backupRetentionPeriod", flag="unknown_backupRetentionPeriod")
+    private Integer value_backupRetentionPeriod;
+    private boolean unknown_backupRetentionPeriod;
     public Integer backupRetentionPeriod() {
-        if (backupRetentionPeriod == null) return null;
-        return backupRetentionPeriod.getValue("InstanceArgs.backupRetentionPeriod");
+        if (!unknown_backupRetentionPeriod) return value_backupRetentionPeriod;
+        throw new UndeferrableValueException("Value 'InstanceArgs.backupRetentionPeriod' is not present");
     }
 
     /**
      * Specifies where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
      * 
      */
-    private UndeferrableValue<String> backupTarget;
-
+    @PolicyResourceProperty(name="backupTarget", flag="unknown_backupTarget")
+    private String value_backupTarget;
+    private boolean unknown_backupTarget;
     public String backupTarget() {
-        if (backupTarget == null) return null;
-        return backupTarget.getValue("InstanceArgs.backupTarget");
+        if (!unknown_backupTarget) return value_backupTarget;
+        throw new UndeferrableValueException("Value 'InstanceArgs.backupTarget' is not present");
     }
 
     /**
@@ -115,11 +123,12 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * Example: &#34;09:46-10:16&#34;. Must not overlap with `maintenance_window`.
      * 
      */
-    private UndeferrableValue<String> backupWindow;
-
+    @PolicyResourceProperty(name="backupWindow", flag="unknown_backupWindow")
+    private String value_backupWindow;
+    private boolean unknown_backupWindow;
     public String backupWindow() {
-        if (backupWindow == null) return null;
-        return backupWindow.getValue("InstanceArgs.backupWindow");
+        if (!unknown_backupWindow) return value_backupWindow;
+        throw new UndeferrableValueException("Value 'InstanceArgs.backupWindow' is not present");
     }
 
     /**
@@ -127,22 +136,24 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * See `blue_green_update` below.
      * 
      */
-    private UndeferrableValue<InstanceBlueGreenUpdateArgs> blueGreenUpdate;
-
+    @PolicyResourceProperty(name="blueGreenUpdate", flag="unknown_blueGreenUpdate")
+    private InstanceBlueGreenUpdateArgs value_blueGreenUpdate;
+    private boolean unknown_blueGreenUpdate;
     public InstanceBlueGreenUpdateArgs blueGreenUpdate() {
-        if (blueGreenUpdate == null) return null;
-        return blueGreenUpdate.getValue("InstanceArgs.blueGreenUpdate");
+        if (!unknown_blueGreenUpdate) return value_blueGreenUpdate;
+        throw new UndeferrableValueException("Value 'InstanceArgs.blueGreenUpdate' is not present");
     }
 
     /**
      * The identifier of the CA certificate for the DB instance.
      * 
      */
-    private UndeferrableValue<String> caCertIdentifier;
-
+    @PolicyResourceProperty(name="caCertIdentifier", flag="unknown_caCertIdentifier")
+    private String value_caCertIdentifier;
+    private boolean unknown_caCertIdentifier;
     public String caCertIdentifier() {
-        if (caCertIdentifier == null) return null;
-        return caCertIdentifier.getValue("InstanceArgs.caCertIdentifier");
+        if (!unknown_caCertIdentifier) return value_caCertIdentifier;
+        throw new UndeferrableValueException("Value 'InstanceArgs.caCertIdentifier' is not present");
     }
 
     /**
@@ -153,33 +164,36 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * Cannot be set  with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
      * 
      */
-    private UndeferrableValue<String> characterSetName;
-
+    @PolicyResourceProperty(name="characterSetName", flag="unknown_characterSetName")
+    private String value_characterSetName;
+    private boolean unknown_characterSetName;
     public String characterSetName() {
-        if (characterSetName == null) return null;
-        return characterSetName.getValue("InstanceArgs.characterSetName");
+        if (!unknown_characterSetName) return value_characterSetName;
+        throw new UndeferrableValueException("Value 'InstanceArgs.characterSetName' is not present");
     }
 
     /**
      * Copy all Instance `tags` to snapshots. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> copyTagsToSnapshot;
-
+    @PolicyResourceProperty(name="copyTagsToSnapshot", flag="unknown_copyTagsToSnapshot")
+    private Boolean value_copyTagsToSnapshot;
+    private boolean unknown_copyTagsToSnapshot;
     public Boolean copyTagsToSnapshot() {
-        if (copyTagsToSnapshot == null) return null;
-        return copyTagsToSnapshot.getValue("InstanceArgs.copyTagsToSnapshot");
+        if (!unknown_copyTagsToSnapshot) return value_copyTagsToSnapshot;
+        throw new UndeferrableValueException("Value 'InstanceArgs.copyTagsToSnapshot' is not present");
     }
 
     /**
      * The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
      * 
      */
-    private UndeferrableValue<String> customIamInstanceProfile;
-
+    @PolicyResourceProperty(name="customIamInstanceProfile", flag="unknown_customIamInstanceProfile")
+    private String value_customIamInstanceProfile;
+    private boolean unknown_customIamInstanceProfile;
     public String customIamInstanceProfile() {
-        if (customIamInstanceProfile == null) return null;
-        return customIamInstanceProfile.getValue("InstanceArgs.customIamInstanceProfile");
+        if (!unknown_customIamInstanceProfile) return value_customIamInstanceProfile;
+        throw new UndeferrableValueException("Value 'InstanceArgs.customIamInstanceProfile' is not present");
     }
 
     /**
@@ -190,33 +204,36 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * standalone database.
      * 
      */
-    private UndeferrableValue<Boolean> customerOwnedIpEnabled;
-
+    @PolicyResourceProperty(name="customerOwnedIpEnabled", flag="unknown_customerOwnedIpEnabled")
+    private Boolean value_customerOwnedIpEnabled;
+    private boolean unknown_customerOwnedIpEnabled;
     public Boolean customerOwnedIpEnabled() {
-        if (customerOwnedIpEnabled == null) return null;
-        return customerOwnedIpEnabled.getValue("InstanceArgs.customerOwnedIpEnabled");
+        if (!unknown_customerOwnedIpEnabled) return value_customerOwnedIpEnabled;
+        throw new UndeferrableValueException("Value 'InstanceArgs.customerOwnedIpEnabled' is not present");
     }
 
     /**
      * The mode of Database Insights that is enabled for the instance. Valid values: `standard`, `advanced` .
      * 
      */
-    private UndeferrableValue<String> databaseInsightsMode;
-
+    @PolicyResourceProperty(name="databaseInsightsMode", flag="unknown_databaseInsightsMode")
+    private String value_databaseInsightsMode;
+    private boolean unknown_databaseInsightsMode;
     public String databaseInsightsMode() {
-        if (databaseInsightsMode == null) return null;
-        return databaseInsightsMode.getValue("InstanceArgs.databaseInsightsMode");
+        if (!unknown_databaseInsightsMode) return value_databaseInsightsMode;
+        throw new UndeferrableValueException("Value 'InstanceArgs.databaseInsightsMode' is not present");
     }
 
     /**
      * The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
      * 
      */
-    private UndeferrableValue<String> dbName;
-
+    @PolicyResourceProperty(name="dbName", flag="unknown_dbName")
+    private String value_dbName;
+    private boolean unknown_dbName;
     public String dbName() {
-        if (dbName == null) return null;
-        return dbName.getValue("InstanceArgs.dbName");
+        if (!unknown_dbName) return value_dbName;
+        throw new UndeferrableValueException("Value 'InstanceArgs.dbName' is not present");
     }
 
     /**
@@ -228,154 +245,168 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * See [DBSubnetGroupName in API action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html) for additional read replica constraints.
      * 
      */
-    private UndeferrableValue<String> dbSubnetGroupName;
-
+    @PolicyResourceProperty(name="dbSubnetGroupName", flag="unknown_dbSubnetGroupName")
+    private String value_dbSubnetGroupName;
+    private boolean unknown_dbSubnetGroupName;
     public String dbSubnetGroupName() {
-        if (dbSubnetGroupName == null) return null;
-        return dbSubnetGroupName.getValue("InstanceArgs.dbSubnetGroupName");
+        if (!unknown_dbSubnetGroupName) return value_dbSubnetGroupName;
+        throw new UndeferrableValueException("Value 'InstanceArgs.dbSubnetGroupName' is not present");
     }
 
     /**
      * Use a dedicated log volume (DLV) for the DB instance. Requires Provisioned IOPS. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.dlv) for more details.
      * 
      */
-    private UndeferrableValue<Boolean> dedicatedLogVolume;
-
+    @PolicyResourceProperty(name="dedicatedLogVolume", flag="unknown_dedicatedLogVolume")
+    private Boolean value_dedicatedLogVolume;
+    private boolean unknown_dedicatedLogVolume;
     public Boolean dedicatedLogVolume() {
-        if (dedicatedLogVolume == null) return null;
-        return dedicatedLogVolume.getValue("InstanceArgs.dedicatedLogVolume");
+        if (!unknown_dedicatedLogVolume) return value_dedicatedLogVolume;
+        throw new UndeferrableValueException("Value 'InstanceArgs.dedicatedLogVolume' is not present");
     }
 
     /**
      * Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
      * 
      */
-    private UndeferrableValue<Boolean> deleteAutomatedBackups;
-
+    @PolicyResourceProperty(name="deleteAutomatedBackups", flag="unknown_deleteAutomatedBackups")
+    private Boolean value_deleteAutomatedBackups;
+    private boolean unknown_deleteAutomatedBackups;
     public Boolean deleteAutomatedBackups() {
-        if (deleteAutomatedBackups == null) return null;
-        return deleteAutomatedBackups.getValue("InstanceArgs.deleteAutomatedBackups");
+        if (!unknown_deleteAutomatedBackups) return value_deleteAutomatedBackups;
+        throw new UndeferrableValueException("Value 'InstanceArgs.deleteAutomatedBackups' is not present");
     }
 
     /**
      * If the DB instance should have deletion protection enabled. The database can&#39;t be deleted when this value is set to `true`. The default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> deletionProtection;
-
+    @PolicyResourceProperty(name="deletionProtection", flag="unknown_deletionProtection")
+    private Boolean value_deletionProtection;
+    private boolean unknown_deletionProtection;
     public Boolean deletionProtection() {
-        if (deletionProtection == null) return null;
-        return deletionProtection.getValue("InstanceArgs.deletionProtection");
+        if (!unknown_deletionProtection) return value_deletionProtection;
+        throw new UndeferrableValueException("Value 'InstanceArgs.deletionProtection' is not present");
     }
 
     /**
      * The ID of the Directory Service Active Directory domain to create the instance in. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
      * 
      */
-    private UndeferrableValue<String> domain;
-
+    @PolicyResourceProperty(name="domain", flag="unknown_domain")
+    private String value_domain;
+    private boolean unknown_domain;
     public String domain() {
-        if (domain == null) return null;
-        return domain.getValue("InstanceArgs.domain");
+        if (!unknown_domain) return value_domain;
+        throw new UndeferrableValueException("Value 'InstanceArgs.domain' is not present");
     }
 
     /**
      * The ARN for the Secrets Manager secret with the self managed Active Directory credentials for the user joining the domain. Conflicts with `domain` and `domain_iam_role_name`.
      * 
      */
-    private UndeferrableValue<String> domainAuthSecretArn;
-
+    @PolicyResourceProperty(name="domainAuthSecretArn", flag="unknown_domainAuthSecretArn")
+    private String value_domainAuthSecretArn;
+    private boolean unknown_domainAuthSecretArn;
     public String domainAuthSecretArn() {
-        if (domainAuthSecretArn == null) return null;
-        return domainAuthSecretArn.getValue("InstanceArgs.domainAuthSecretArn");
+        if (!unknown_domainAuthSecretArn) return value_domainAuthSecretArn;
+        throw new UndeferrableValueException("Value 'InstanceArgs.domainAuthSecretArn' is not present");
     }
 
     /**
      * The IPv4 DNS IP addresses of your primary and secondary self managed Active Directory domain controllers. Two IP addresses must be provided. If there isn&#39;t a secondary domain controller, use the IP address of the primary domain controller for both entries in the list. Conflicts with `domain` and `domain_iam_role_name`.
      * 
      */
-    private UndeferrableValue<List<String>> domainDnsIps;
-
+    @PolicyResourceProperty(name="domainDnsIps", flag="unknown_domainDnsIps")
+    private List<String> value_domainDnsIps;
+    private boolean unknown_domainDnsIps;
     public List<String> domainDnsIps() {
-        if (domainDnsIps == null) return null;
-        return domainDnsIps.getValue("InstanceArgs.domainDnsIps");
+        if (!unknown_domainDnsIps) return value_domainDnsIps;
+        throw new UndeferrableValueException("Value 'InstanceArgs.domainDnsIps' is not present");
     }
 
     /**
      * The fully qualified domain name (FQDN) of the self managed Active Directory domain. Conflicts with `domain` and `domain_iam_role_name`.
      * 
      */
-    private UndeferrableValue<String> domainFqdn;
-
+    @PolicyResourceProperty(name="domainFqdn", flag="unknown_domainFqdn")
+    private String value_domainFqdn;
+    private boolean unknown_domainFqdn;
     public String domainFqdn() {
-        if (domainFqdn == null) return null;
-        return domainFqdn.getValue("InstanceArgs.domainFqdn");
+        if (!unknown_domainFqdn) return value_domainFqdn;
+        throw new UndeferrableValueException("Value 'InstanceArgs.domainFqdn' is not present");
     }
 
     /**
      * The name of the IAM role to be used when making API calls to the Directory Service. Conflicts with `domain_fqdn`, `domain_ou`, `domain_auth_secret_arn` and a `domain_dns_ips`.
      * 
      */
-    private UndeferrableValue<String> domainIamRoleName;
-
+    @PolicyResourceProperty(name="domainIamRoleName", flag="unknown_domainIamRoleName")
+    private String value_domainIamRoleName;
+    private boolean unknown_domainIamRoleName;
     public String domainIamRoleName() {
-        if (domainIamRoleName == null) return null;
-        return domainIamRoleName.getValue("InstanceArgs.domainIamRoleName");
+        if (!unknown_domainIamRoleName) return value_domainIamRoleName;
+        throw new UndeferrableValueException("Value 'InstanceArgs.domainIamRoleName' is not present");
     }
 
     /**
      * The self managed Active Directory organizational unit for your DB instance to join. Conflicts with `domain` and `domain_iam_role_name`.
      * 
      */
-    private UndeferrableValue<String> domainOu;
-
+    @PolicyResourceProperty(name="domainOu", flag="unknown_domainOu")
+    private String value_domainOu;
+    private boolean unknown_domainOu;
     public String domainOu() {
-        if (domainOu == null) return null;
-        return domainOu.getValue("InstanceArgs.domainOu");
+        if (!unknown_domainOu) return value_domainOu;
+        throw new UndeferrableValueException("Value 'InstanceArgs.domainOu' is not present");
     }
 
     /**
      * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. For supported values, see the EnableCloudwatchLogsExports.member.N parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      * 
      */
-    private UndeferrableValue<List<String>> enabledCloudwatchLogsExports;
-
+    @PolicyResourceProperty(name="enabledCloudwatchLogsExports", flag="unknown_enabledCloudwatchLogsExports")
+    private List<String> value_enabledCloudwatchLogsExports;
+    private boolean unknown_enabledCloudwatchLogsExports;
     public List<String> enabledCloudwatchLogsExports() {
-        if (enabledCloudwatchLogsExports == null) return null;
-        return enabledCloudwatchLogsExports.getValue("InstanceArgs.enabledCloudwatchLogsExports");
+        if (!unknown_enabledCloudwatchLogsExports) return value_enabledCloudwatchLogsExports;
+        throw new UndeferrableValueException("Value 'InstanceArgs.enabledCloudwatchLogsExports' is not present");
     }
 
     /**
      * The database engine to use. For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine must match the DB cluster&#39;s engine&#39;. For information on the difference between the available Aurora MySQL engines see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html) in the Amazon RDS User Guide.
      * 
      */
-    private UndeferrableValue<String> engine;
-
+    @PolicyResourceProperty(name="engine", flag="unknown_engine")
+    private String value_engine;
+    private boolean unknown_engine;
     public String engine() {
-        if (engine == null) return null;
-        return engine.getValue("InstanceArgs.engine");
+        if (!unknown_engine) return value_engine;
+        throw new UndeferrableValueException("Value 'InstanceArgs.engine' is not present");
     }
 
     /**
      * The life cycle type for this DB instance. This setting applies only to RDS for MySQL and RDS for PostgreSQL. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
      * 
      */
-    private UndeferrableValue<String> engineLifecycleSupport;
-
+    @PolicyResourceProperty(name="engineLifecycleSupport", flag="unknown_engineLifecycleSupport")
+    private String value_engineLifecycleSupport;
+    private boolean unknown_engineLifecycleSupport;
     public String engineLifecycleSupport() {
-        if (engineLifecycleSupport == null) return null;
-        return engineLifecycleSupport.getValue("InstanceArgs.engineLifecycleSupport");
+        if (!unknown_engineLifecycleSupport) return value_engineLifecycleSupport;
+        throw new UndeferrableValueException("Value 'InstanceArgs.engineLifecycleSupport' is not present");
     }
 
     /**
      * The engine version to use. If `auto_minor_version_upgrade` is enabled, you can provide a prefix of the version such as `8.0` (for `8.0.36`). The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;.
      * 
      */
-    private UndeferrableValue<String> engineVersion;
-
+    @PolicyResourceProperty(name="engineVersion", flag="unknown_engineVersion")
+    private String value_engineVersion;
+    private boolean unknown_engineVersion;
     public String engineVersion() {
-        if (engineVersion == null) return null;
-        return engineVersion.getValue("InstanceArgs.engineVersion");
+        if (!unknown_engineVersion) return value_engineVersion;
+        throw new UndeferrableValueException("Value 'InstanceArgs.engineVersion' is not present");
     }
 
     /**
@@ -384,11 +415,12 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
      * 
      */
-    private UndeferrableValue<String> finalSnapshotIdentifier;
-
+    @PolicyResourceProperty(name="finalSnapshotIdentifier", flag="unknown_finalSnapshotIdentifier")
+    private String value_finalSnapshotIdentifier;
+    private boolean unknown_finalSnapshotIdentifier;
     public String finalSnapshotIdentifier() {
-        if (finalSnapshotIdentifier == null) return null;
-        return finalSnapshotIdentifier.getValue("InstanceArgs.finalSnapshotIdentifier");
+        if (!unknown_finalSnapshotIdentifier) return value_finalSnapshotIdentifier;
+        throw new UndeferrableValueException("Value 'InstanceArgs.finalSnapshotIdentifier' is not present");
     }
 
     /**
@@ -396,44 +428,48 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * accounts is enabled.
      * 
      */
-    private UndeferrableValue<Boolean> iamDatabaseAuthenticationEnabled;
-
+    @PolicyResourceProperty(name="iamDatabaseAuthenticationEnabled", flag="unknown_iamDatabaseAuthenticationEnabled")
+    private Boolean value_iamDatabaseAuthenticationEnabled;
+    private boolean unknown_iamDatabaseAuthenticationEnabled;
     public Boolean iamDatabaseAuthenticationEnabled() {
-        if (iamDatabaseAuthenticationEnabled == null) return null;
-        return iamDatabaseAuthenticationEnabled.getValue("InstanceArgs.iamDatabaseAuthenticationEnabled");
+        if (!unknown_iamDatabaseAuthenticationEnabled) return value_iamDatabaseAuthenticationEnabled;
+        throw new UndeferrableValueException("Value 'InstanceArgs.iamDatabaseAuthenticationEnabled' is not present");
     }
 
     /**
      * The name of the RDS instance, if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
      * 
      */
-    private UndeferrableValue<String> identifier;
-
+    @PolicyResourceProperty(name="identifier", flag="unknown_identifier")
+    private String value_identifier;
+    private boolean unknown_identifier;
     public String identifier() {
-        if (identifier == null) return null;
-        return identifier.getValue("InstanceArgs.identifier");
+        if (!unknown_identifier) return value_identifier;
+        throw new UndeferrableValueException("Value 'InstanceArgs.identifier' is not present");
     }
 
     /**
      * Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
      * 
      */
-    private UndeferrableValue<String> identifierPrefix;
-
+    @PolicyResourceProperty(name="identifierPrefix", flag="unknown_identifierPrefix")
+    private String value_identifierPrefix;
+    private boolean unknown_identifierPrefix;
     public String identifierPrefix() {
-        if (identifierPrefix == null) return null;
-        return identifierPrefix.getValue("InstanceArgs.identifierPrefix");
+        if (!unknown_identifierPrefix) return value_identifierPrefix;
+        throw new UndeferrableValueException("Value 'InstanceArgs.identifierPrefix' is not present");
     }
 
     /**
      * The instance type of the RDS instance.
      * 
      */
-    private UndeferrableValue<String> instanceClass;
-
+    @PolicyResourceProperty(name="instanceClass", flag="unknown_instanceClass")
+    private String value_instanceClass;
+    private boolean unknown_instanceClass;
     public String instanceClass() {
-        if (instanceClass == null) return null;
-        return instanceClass.getValue("InstanceArgs.instanceClass");
+        if (!unknown_instanceClass) return value_instanceClass;
+        throw new UndeferrableValueException("Value 'InstanceArgs.instanceClass' is not present");
     }
 
     /**
@@ -443,11 +479,12 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      * 
      */
-    private UndeferrableValue<Integer> iops;
-
+    @PolicyResourceProperty(name="iops", flag="unknown_iops")
+    private Integer value_iops;
+    private boolean unknown_iops;
     public Integer iops() {
-        if (iops == null) return null;
-        return iops.getValue("InstanceArgs.iops");
+        if (!unknown_iops) return value_iops;
+        throw new UndeferrableValueException("Value 'InstanceArgs.iops' is not present");
     }
 
     /**
@@ -455,11 +492,12 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * encrypted replica, set this to the destination KMS ARN.
      * 
      */
-    private UndeferrableValue<String> kmsKeyId;
-
+    @PolicyResourceProperty(name="kmsKeyId", flag="unknown_kmsKeyId")
+    private String value_kmsKeyId;
+    private boolean unknown_kmsKeyId;
     public String kmsKeyId() {
-        if (kmsKeyId == null) return null;
-        return kmsKeyId.getValue("InstanceArgs.kmsKeyId");
+        if (!unknown_kmsKeyId) return value_kmsKeyId;
+        throw new UndeferrableValueException("Value 'InstanceArgs.kmsKeyId' is not present");
     }
 
     /**
@@ -471,11 +509,12 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * * RDS for PostgreSQL: `postgresql-license`
      * 
      */
-    private UndeferrableValue<String> licenseModel;
-
+    @PolicyResourceProperty(name="licenseModel", flag="unknown_licenseModel")
+    private String value_licenseModel;
+    private boolean unknown_licenseModel;
     public String licenseModel() {
-        if (licenseModel == null) return null;
-        return licenseModel.getValue("InstanceArgs.licenseModel");
+        if (!unknown_licenseModel) return value_licenseModel;
+        throw new UndeferrableValueException("Value 'InstanceArgs.licenseModel' is not present");
     }
 
     /**
@@ -486,44 +525,48 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * for more information.
      * 
      */
-    private UndeferrableValue<String> maintenanceWindow;
-
+    @PolicyResourceProperty(name="maintenanceWindow", flag="unknown_maintenanceWindow")
+    private String value_maintenanceWindow;
+    private boolean unknown_maintenanceWindow;
     public String maintenanceWindow() {
-        if (maintenanceWindow == null) return null;
-        return maintenanceWindow.getValue("InstanceArgs.maintenanceWindow");
+        if (!unknown_maintenanceWindow) return value_maintenanceWindow;
+        throw new UndeferrableValueException("Value 'InstanceArgs.maintenanceWindow' is not present");
     }
 
     /**
      * Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `password_wo` is provided.
      * 
      */
-    private UndeferrableValue<Boolean> manageMasterUserPassword;
-
+    @PolicyResourceProperty(name="manageMasterUserPassword", flag="unknown_manageMasterUserPassword")
+    private Boolean value_manageMasterUserPassword;
+    private boolean unknown_manageMasterUserPassword;
     public Boolean manageMasterUserPassword() {
-        if (manageMasterUserPassword == null) return null;
-        return manageMasterUserPassword.getValue("InstanceArgs.manageMasterUserPassword");
+        if (!unknown_manageMasterUserPassword) return value_manageMasterUserPassword;
+        throw new UndeferrableValueException("Value 'InstanceArgs.manageMasterUserPassword' is not present");
     }
 
     /**
      * The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
      * 
      */
-    private UndeferrableValue<String> masterUserSecretKmsKeyId;
-
+    @PolicyResourceProperty(name="masterUserSecretKmsKeyId", flag="unknown_masterUserSecretKmsKeyId")
+    private String value_masterUserSecretKmsKeyId;
+    private boolean unknown_masterUserSecretKmsKeyId;
     public String masterUserSecretKmsKeyId() {
-        if (masterUserSecretKmsKeyId == null) return null;
-        return masterUserSecretKmsKeyId.getValue("InstanceArgs.masterUserSecretKmsKeyId");
+        if (!unknown_masterUserSecretKmsKeyId) return value_masterUserSecretKmsKeyId;
+        throw new UndeferrableValueException("Value 'InstanceArgs.masterUserSecretKmsKeyId' is not present");
     }
 
     /**
      * Specifies the maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `max_allocated_storage` to **greater than or equal to** `allocated_storage`. Setting `max_allocated_storage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocated_storage` will be automatically ignored as the storage can dynamically scale.
      * 
      */
-    private UndeferrableValue<Integer> maxAllocatedStorage;
-
+    @PolicyResourceProperty(name="maxAllocatedStorage", flag="unknown_maxAllocatedStorage")
+    private Integer value_maxAllocatedStorage;
+    private boolean unknown_maxAllocatedStorage;
     public Integer maxAllocatedStorage() {
-        if (maxAllocatedStorage == null) return null;
-        return maxAllocatedStorage.getValue("InstanceArgs.maxAllocatedStorage");
+        if (!unknown_maxAllocatedStorage) return value_maxAllocatedStorage;
+        throw new UndeferrableValueException("Value 'InstanceArgs.maxAllocatedStorage' is not present");
     }
 
     /**
@@ -533,11 +576,12 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * Values: 0, 1, 5, 10, 15, 30, 60.
      * 
      */
-    private UndeferrableValue<Integer> monitoringInterval;
-
+    @PolicyResourceProperty(name="monitoringInterval", flag="unknown_monitoringInterval")
+    private Integer value_monitoringInterval;
+    private boolean unknown_monitoringInterval;
     public Integer monitoringInterval() {
-        if (monitoringInterval == null) return null;
-        return monitoringInterval.getValue("InstanceArgs.monitoringInterval");
+        if (!unknown_monitoringInterval) return value_monitoringInterval;
+        throw new UndeferrableValueException("Value 'InstanceArgs.monitoringInterval' is not present");
     }
 
     /**
@@ -548,22 +592,24 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
      * 
      */
-    private UndeferrableValue<String> monitoringRoleArn;
-
+    @PolicyResourceProperty(name="monitoringRoleArn", flag="unknown_monitoringRoleArn")
+    private String value_monitoringRoleArn;
+    private boolean unknown_monitoringRoleArn;
     public String monitoringRoleArn() {
-        if (monitoringRoleArn == null) return null;
-        return monitoringRoleArn.getValue("InstanceArgs.monitoringRoleArn");
+        if (!unknown_monitoringRoleArn) return value_monitoringRoleArn;
+        throw new UndeferrableValueException("Value 'InstanceArgs.monitoringRoleArn' is not present");
     }
 
     /**
      * Specifies if the RDS instance is multi-AZ
      * 
      */
-    private UndeferrableValue<Boolean> multiAz;
-
+    @PolicyResourceProperty(name="multiAz", flag="unknown_multiAz")
+    private Boolean value_multiAz;
+    private boolean unknown_multiAz;
     public Boolean multiAz() {
-        if (multiAz == null) return null;
-        return multiAz.getValue("InstanceArgs.multiAz");
+        if (!unknown_multiAz) return value_multiAz;
+        throw new UndeferrableValueException("Value 'InstanceArgs.multiAz' is not present");
     }
 
     /**
@@ -572,11 +618,12 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * 
      */
     @Deprecated /* This property has been deprecated. Please use 'dbName' instead. */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("InstanceArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'InstanceArgs.name' is not present");
     }
 
     /**
@@ -584,99 +631,108 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
      * 
      */
-    private UndeferrableValue<String> ncharCharacterSetName;
-
+    @PolicyResourceProperty(name="ncharCharacterSetName", flag="unknown_ncharCharacterSetName")
+    private String value_ncharCharacterSetName;
+    private boolean unknown_ncharCharacterSetName;
     public String ncharCharacterSetName() {
-        if (ncharCharacterSetName == null) return null;
-        return ncharCharacterSetName.getValue("InstanceArgs.ncharCharacterSetName");
+        if (!unknown_ncharCharacterSetName) return value_ncharCharacterSetName;
+        throw new UndeferrableValueException("Value 'InstanceArgs.ncharCharacterSetName' is not present");
     }
 
     /**
      * The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
      * 
      */
-    private UndeferrableValue<String> networkType;
-
+    @PolicyResourceProperty(name="networkType", flag="unknown_networkType")
+    private String value_networkType;
+    private boolean unknown_networkType;
     public String networkType() {
-        if (networkType == null) return null;
-        return networkType.getValue("InstanceArgs.networkType");
+        if (!unknown_networkType) return value_networkType;
+        throw new UndeferrableValueException("Value 'InstanceArgs.networkType' is not present");
     }
 
     /**
      * Name of the DB option group to associate.
      * 
      */
-    private UndeferrableValue<String> optionGroupName;
-
+    @PolicyResourceProperty(name="optionGroupName", flag="unknown_optionGroupName")
+    private String value_optionGroupName;
+    private boolean unknown_optionGroupName;
     public String optionGroupName() {
-        if (optionGroupName == null) return null;
-        return optionGroupName.getValue("InstanceArgs.optionGroupName");
+        if (!unknown_optionGroupName) return value_optionGroupName;
+        throw new UndeferrableValueException("Value 'InstanceArgs.optionGroupName' is not present");
     }
 
     /**
      * Name of the DB parameter group to associate.
      * 
      */
-    private UndeferrableValue<String> parameterGroupName;
-
+    @PolicyResourceProperty(name="parameterGroupName", flag="unknown_parameterGroupName")
+    private String value_parameterGroupName;
+    private boolean unknown_parameterGroupName;
     public String parameterGroupName() {
-        if (parameterGroupName == null) return null;
-        return parameterGroupName.getValue("InstanceArgs.parameterGroupName");
+        if (!unknown_parameterGroupName) return value_parameterGroupName;
+        throw new UndeferrableValueException("Value 'InstanceArgs.parameterGroupName' is not present");
     }
 
     /**
      * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Cannot be set if `manage_master_user_password` is set to `true`.
      * 
      */
-    private UndeferrableValue<String> password;
-
+    @PolicyResourceProperty(name="password", flag="unknown_password")
+    private String value_password;
+    private boolean unknown_password;
     public String password() {
-        if (password == null) return null;
-        return password.getValue("InstanceArgs.password");
+        if (!unknown_password) return value_password;
+        throw new UndeferrableValueException("Value 'InstanceArgs.password' is not present");
     }
 
     /**
      * Specifies whether Performance Insights are enabled. Defaults to false.
      * 
      */
-    private UndeferrableValue<Boolean> performanceInsightsEnabled;
-
+    @PolicyResourceProperty(name="performanceInsightsEnabled", flag="unknown_performanceInsightsEnabled")
+    private Boolean value_performanceInsightsEnabled;
+    private boolean unknown_performanceInsightsEnabled;
     public Boolean performanceInsightsEnabled() {
-        if (performanceInsightsEnabled == null) return null;
-        return performanceInsightsEnabled.getValue("InstanceArgs.performanceInsightsEnabled");
+        if (!unknown_performanceInsightsEnabled) return value_performanceInsightsEnabled;
+        throw new UndeferrableValueException("Value 'InstanceArgs.performanceInsightsEnabled' is not present");
     }
 
     /**
      * The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
      * 
      */
-    private UndeferrableValue<String> performanceInsightsKmsKeyId;
-
+    @PolicyResourceProperty(name="performanceInsightsKmsKeyId", flag="unknown_performanceInsightsKmsKeyId")
+    private String value_performanceInsightsKmsKeyId;
+    private boolean unknown_performanceInsightsKmsKeyId;
     public String performanceInsightsKmsKeyId() {
-        if (performanceInsightsKmsKeyId == null) return null;
-        return performanceInsightsKmsKeyId.getValue("InstanceArgs.performanceInsightsKmsKeyId");
+        if (!unknown_performanceInsightsKmsKeyId) return value_performanceInsightsKmsKeyId;
+        throw new UndeferrableValueException("Value 'InstanceArgs.performanceInsightsKmsKeyId' is not present");
     }
 
     /**
      * Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
      * 
      */
-    private UndeferrableValue<Integer> performanceInsightsRetentionPeriod;
-
+    @PolicyResourceProperty(name="performanceInsightsRetentionPeriod", flag="unknown_performanceInsightsRetentionPeriod")
+    private Integer value_performanceInsightsRetentionPeriod;
+    private boolean unknown_performanceInsightsRetentionPeriod;
     public Integer performanceInsightsRetentionPeriod() {
-        if (performanceInsightsRetentionPeriod == null) return null;
-        return performanceInsightsRetentionPeriod.getValue("InstanceArgs.performanceInsightsRetentionPeriod");
+        if (!unknown_performanceInsightsRetentionPeriod) return value_performanceInsightsRetentionPeriod;
+        throw new UndeferrableValueException("Value 'InstanceArgs.performanceInsightsRetentionPeriod' is not present");
     }
 
     /**
      * The port on which the DB accepts connections.
      * 
      */
-    private UndeferrableValue<Integer> port;
-
+    @PolicyResourceProperty(name="port", flag="unknown_port")
+    private Integer value_port;
+    private boolean unknown_port;
     public Integer port() {
-        if (port == null) return null;
-        return port.getValue("InstanceArgs.port");
+        if (!unknown_port) return value_port;
+        throw new UndeferrableValueException("Value 'InstanceArgs.port' is not present");
     }
 
     /**
@@ -684,11 +740,12 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * accessible. Default is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> publiclyAccessible;
-
+    @PolicyResourceProperty(name="publiclyAccessible", flag="unknown_publiclyAccessible")
+    private Boolean value_publiclyAccessible;
+    private boolean unknown_publiclyAccessible;
     public Boolean publiclyAccessible() {
-        if (publiclyAccessible == null) return null;
-        return publiclyAccessible.getValue("InstanceArgs.publiclyAccessible");
+        if (!unknown_publiclyAccessible) return value_publiclyAccessible;
+        throw new UndeferrableValueException("Value 'InstanceArgs.publiclyAccessible' is not present");
     }
 
     /**
@@ -696,11 +753,12 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
      * 
      */
-    private UndeferrableValue<String> replicaMode;
-
+    @PolicyResourceProperty(name="replicaMode", flag="unknown_replicaMode")
+    private String value_replicaMode;
+    private boolean unknown_replicaMode;
     public String replicaMode() {
-        if (replicaMode == null) return null;
-        return replicaMode.getValue("InstanceArgs.replicaMode");
+        if (!unknown_replicaMode) return value_replicaMode;
+        throw new UndeferrableValueException("Value 'InstanceArgs.replicaMode' is not present");
     }
 
     /**
@@ -712,11 +770,12 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * See [DB Instance Replication][instance-replication] and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
      * 
      */
-    private UndeferrableValue<String> replicateSourceDb;
-
+    @PolicyResourceProperty(name="replicateSourceDb", flag="unknown_replicateSourceDb")
+    private String value_replicateSourceDb;
+    private boolean unknown_replicateSourceDb;
     public String replicateSourceDb() {
-        if (replicateSourceDb == null) return null;
-        return replicateSourceDb.getValue("InstanceArgs.replicateSourceDb");
+        if (!unknown_replicateSourceDb) return value_replicateSourceDb;
+        throw new UndeferrableValueException("Value 'InstanceArgs.replicateSourceDb' is not present");
     }
 
     /**
@@ -725,22 +784,24 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * See Restore To Point In Time below for details.
      * 
      */
-    private UndeferrableValue<InstanceRestoreToPointInTimeArgs> restoreToPointInTime;
-
+    @PolicyResourceProperty(name="restoreToPointInTime", flag="unknown_restoreToPointInTime")
+    private InstanceRestoreToPointInTimeArgs value_restoreToPointInTime;
+    private boolean unknown_restoreToPointInTime;
     public InstanceRestoreToPointInTimeArgs restoreToPointInTime() {
-        if (restoreToPointInTime == null) return null;
-        return restoreToPointInTime.getValue("InstanceArgs.restoreToPointInTime");
+        if (!unknown_restoreToPointInTime) return value_restoreToPointInTime;
+        throw new UndeferrableValueException("Value 'InstanceArgs.restoreToPointInTime' is not present");
     }
 
     /**
      * Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
      * 
      */
-    private UndeferrableValue<InstanceS3ImportArgs> s3Import;
-
+    @PolicyResourceProperty(name="s3Import", flag="unknown_s3Import")
+    private InstanceS3ImportArgs value_s3Import;
+    private boolean unknown_s3Import;
     public InstanceS3ImportArgs s3Import() {
-        if (s3Import == null) return null;
-        return s3Import.getValue("InstanceArgs.s3Import");
+        if (!unknown_s3Import) return value_s3Import;
+        throw new UndeferrableValueException("Value 'InstanceArgs.s3Import' is not present");
     }
 
     /**
@@ -751,11 +812,12 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * is `false`.
      * 
      */
-    private UndeferrableValue<Boolean> skipFinalSnapshot;
-
+    @PolicyResourceProperty(name="skipFinalSnapshot", flag="unknown_skipFinalSnapshot")
+    private Boolean value_skipFinalSnapshot;
+    private boolean unknown_skipFinalSnapshot;
     public Boolean skipFinalSnapshot() {
-        if (skipFinalSnapshot == null) return null;
-        return skipFinalSnapshot.getValue("InstanceArgs.skipFinalSnapshot");
+        if (!unknown_skipFinalSnapshot) return value_skipFinalSnapshot;
+        throw new UndeferrableValueException("Value 'InstanceArgs.skipFinalSnapshot' is not present");
     }
 
     /**
@@ -763,11 +825,12 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * This corresponds to the snapshot ID you&#39;d find in the RDS console, e.g: rds:production-2015-06-26-06-05.
      * 
      */
-    private UndeferrableValue<String> snapshotIdentifier;
-
+    @PolicyResourceProperty(name="snapshotIdentifier", flag="unknown_snapshotIdentifier")
+    private String value_snapshotIdentifier;
+    private boolean unknown_snapshotIdentifier;
     public String snapshotIdentifier() {
-        if (snapshotIdentifier == null) return null;
-        return snapshotIdentifier.getValue("InstanceArgs.snapshotIdentifier");
+        if (!unknown_snapshotIdentifier) return value_snapshotIdentifier;
+        throw new UndeferrableValueException("Value 'InstanceArgs.snapshotIdentifier' is not present");
     }
 
     /**
@@ -777,22 +840,24 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * default is `false` if not specified.
      * 
      */
-    private UndeferrableValue<Boolean> storageEncrypted;
-
+    @PolicyResourceProperty(name="storageEncrypted", flag="unknown_storageEncrypted")
+    private Boolean value_storageEncrypted;
+    private boolean unknown_storageEncrypted;
     public Boolean storageEncrypted() {
-        if (storageEncrypted == null) return null;
-        return storageEncrypted.getValue("InstanceArgs.storageEncrypted");
+        if (!unknown_storageEncrypted) return value_storageEncrypted;
+        throw new UndeferrableValueException("Value 'InstanceArgs.storageEncrypted' is not present");
     }
 
     /**
      * The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
      * 
      */
-    private UndeferrableValue<Integer> storageThroughput;
-
+    @PolicyResourceProperty(name="storageThroughput", flag="unknown_storageThroughput")
+    private Integer value_storageThroughput;
+    private boolean unknown_storageThroughput;
     public Integer storageThroughput() {
-        if (storageThroughput == null) return null;
-        return storageThroughput.getValue("InstanceArgs.storageThroughput");
+        if (!unknown_storageThroughput) return value_storageThroughput;
+        throw new UndeferrableValueException("Value 'InstanceArgs.storageThroughput' is not present");
     }
 
     /**
@@ -802,22 +867,24 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * SSD). The default is &#34;io1&#34; if `iops` is specified, &#34;gp2&#34; if not.
      * 
      */
-    private UndeferrableValue<String> storageType;
-
+    @PolicyResourceProperty(name="storageType", flag="unknown_storageType")
+    private String value_storageType;
+    private boolean unknown_storageType;
     public String storageType() {
-        if (storageType == null) return null;
-        return storageType.getValue("InstanceArgs.storageType");
+        if (!unknown_storageType) return value_storageType;
+        throw new UndeferrableValueException("Value 'InstanceArgs.storageType' is not present");
     }
 
     /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("InstanceArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'InstanceArgs.tags' is not present");
     }
 
     /**
@@ -828,11 +895,12 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * for more information.
      * 
      */
-    private UndeferrableValue<String> timezone;
-
+    @PolicyResourceProperty(name="timezone", flag="unknown_timezone")
+    private String value_timezone;
+    private boolean unknown_timezone;
     public String timezone() {
-        if (timezone == null) return null;
-        return timezone.getValue("InstanceArgs.timezone");
+        if (!unknown_timezone) return value_timezone;
+        throw new UndeferrableValueException("Value 'InstanceArgs.timezone' is not present");
     }
 
     /**
@@ -840,11 +908,12 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * Can only be set with `replicate_source_db`.
      * 
      */
-    private UndeferrableValue<Boolean> upgradeStorageConfig;
-
+    @PolicyResourceProperty(name="upgradeStorageConfig", flag="unknown_upgradeStorageConfig")
+    private Boolean value_upgradeStorageConfig;
+    private boolean unknown_upgradeStorageConfig;
     public Boolean upgradeStorageConfig() {
-        if (upgradeStorageConfig == null) return null;
-        return upgradeStorageConfig.getValue("InstanceArgs.upgradeStorageConfig");
+        if (!unknown_upgradeStorageConfig) return value_upgradeStorageConfig;
+        throw new UndeferrableValueException("Value 'InstanceArgs.upgradeStorageConfig' is not present");
     }
 
     /**
@@ -852,11 +921,12 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * is provided) Username for the master DB user. Cannot be specified for a replica.
      * 
      */
-    private UndeferrableValue<String> username;
-
+    @PolicyResourceProperty(name="username", flag="unknown_username")
+    private String value_username;
+    private boolean unknown_username;
     public String username() {
-        if (username == null) return null;
-        return username.getValue("InstanceArgs.username");
+        if (!unknown_username) return value_username;
+        throw new UndeferrableValueException("Value 'InstanceArgs.username' is not present");
     }
 
     /**
@@ -864,11 +934,12 @@ public final class InstanceArgs extends com.pulumi.resources.PolicyResourceInput
      * associate.
      * 
      */
-    private UndeferrableValue<List<String>> vpcSecurityGroupIds;
-
+    @PolicyResourceProperty(name="vpcSecurityGroupIds", flag="unknown_vpcSecurityGroupIds")
+    private List<String> value_vpcSecurityGroupIds;
+    private boolean unknown_vpcSecurityGroupIds;
     public List<String> vpcSecurityGroupIds() {
-        if (vpcSecurityGroupIds == null) return null;
-        return vpcSecurityGroupIds.getValue("InstanceArgs.vpcSecurityGroupIds");
+        if (!unknown_vpcSecurityGroupIds) return value_vpcSecurityGroupIds;
+        throw new UndeferrableValueException("Value 'InstanceArgs.vpcSecurityGroupIds' is not present");
     }
 
 }

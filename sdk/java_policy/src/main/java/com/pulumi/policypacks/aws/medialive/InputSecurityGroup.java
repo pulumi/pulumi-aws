@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.medialive.outputs.InputSecurityGroupWhitelistRule;
 import java.lang.String;
@@ -19,33 +20,36 @@ public final class InputSecurityGroup extends com.pulumi.resources.PolicyResourc
      * ARN of the InputSecurityGroup.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("InputSecurityGroup.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'InputSecurityGroup.arn' is not present");
     }
 
     /**
      * The list of inputs currently using this InputSecurityGroup.
      * 
      */
-    private UndeferrableValue<List<String>> inputs;
-
+    @PolicyResourceProperty(name="inputs", flag="unknown_inputs")
+    private List<String> value_inputs;
+    private boolean unknown_inputs;
     public List<String> inputs() {
-        if (inputs == null) return null;
-        return inputs.getValue("InputSecurityGroup.inputs");
+        if (!unknown_inputs) return value_inputs;
+        throw new UndeferrableValueException("Value 'InputSecurityGroup.inputs' is not present");
     }
 
     /**
      * A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("InputSecurityGroup.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'InputSecurityGroup.tags' is not present");
     }
 
     /**
@@ -54,11 +58,12 @@ public final class InputSecurityGroup extends com.pulumi.resources.PolicyResourc
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("InputSecurityGroup.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'InputSecurityGroup.tagsAll' is not present");
     }
 
     /**
@@ -67,11 +72,12 @@ public final class InputSecurityGroup extends com.pulumi.resources.PolicyResourc
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<List<InputSecurityGroupWhitelistRule>> whitelistRules;
-
+    @PolicyResourceProperty(name="whitelistRules", flag="unknown_whitelistRules")
+    private List<InputSecurityGroupWhitelistRule> value_whitelistRules;
+    private boolean unknown_whitelistRules;
     public List<InputSecurityGroupWhitelistRule> whitelistRules() {
-        if (whitelistRules == null) return null;
-        return whitelistRules.getValue("InputSecurityGroup.whitelistRules");
+        if (!unknown_whitelistRules) return value_whitelistRules;
+        throw new UndeferrableValueException("Value 'InputSecurityGroup.whitelistRules' is not present");
     }
 
 }

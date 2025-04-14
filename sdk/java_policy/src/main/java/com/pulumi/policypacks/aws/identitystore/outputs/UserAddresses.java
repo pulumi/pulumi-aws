@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.identitystore.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,88 +16,96 @@ public final class UserAddresses {
      * The country that this address is in.
      * 
      */
-    private @Nullable UndeferrableValue<String> country;
-
+    @PolicyResourceProperty(name="country", flag="unknown_country")
+    private @Nullable String value_country;
+    private boolean unknown_country;
     public @Nullable String country() {
-        if (country == null) return null;
-        return country.getValue("UserAddresses.country");
+        if (!unknown_country) return value_country;
+        throw new UndeferrableValueException("Value 'UserAddresses.country' is not present");
     }
 
     /**
      * The name that is typically displayed when the address is shown for display.
      * 
      */
-    private @Nullable UndeferrableValue<String> formatted;
-
+    @PolicyResourceProperty(name="formatted", flag="unknown_formatted")
+    private @Nullable String value_formatted;
+    private boolean unknown_formatted;
     public @Nullable String formatted() {
-        if (formatted == null) return null;
-        return formatted.getValue("UserAddresses.formatted");
+        if (!unknown_formatted) return value_formatted;
+        throw new UndeferrableValueException("Value 'UserAddresses.formatted' is not present");
     }
 
     /**
      * The address locality.
      * 
      */
-    private @Nullable UndeferrableValue<String> locality;
-
+    @PolicyResourceProperty(name="locality", flag="unknown_locality")
+    private @Nullable String value_locality;
+    private boolean unknown_locality;
     public @Nullable String locality() {
-        if (locality == null) return null;
-        return locality.getValue("UserAddresses.locality");
+        if (!unknown_locality) return value_locality;
+        throw new UndeferrableValueException("Value 'UserAddresses.locality' is not present");
     }
 
     /**
      * The postal code of the address.
      * 
      */
-    private @Nullable UndeferrableValue<String> postalCode;
-
+    @PolicyResourceProperty(name="postalCode", flag="unknown_postalCode")
+    private @Nullable String value_postalCode;
+    private boolean unknown_postalCode;
     public @Nullable String postalCode() {
-        if (postalCode == null) return null;
-        return postalCode.getValue("UserAddresses.postalCode");
+        if (!unknown_postalCode) return value_postalCode;
+        throw new UndeferrableValueException("Value 'UserAddresses.postalCode' is not present");
     }
 
     /**
      * When `true`, this is the primary address associated with the user.
      * 
      */
-    private @Nullable UndeferrableValue<Boolean> primary;
-
+    @PolicyResourceProperty(name="primary", flag="unknown_primary")
+    private @Nullable Boolean value_primary;
+    private boolean unknown_primary;
     public @Nullable Boolean primary() {
-        if (primary == null) return null;
-        return primary.getValue("UserAddresses.primary");
+        if (!unknown_primary) return value_primary;
+        throw new UndeferrableValueException("Value 'UserAddresses.primary' is not present");
     }
 
     /**
      * The region of the address.
      * 
      */
-    private @Nullable UndeferrableValue<String> region;
-
+    @PolicyResourceProperty(name="region", flag="unknown_region")
+    private @Nullable String value_region;
+    private boolean unknown_region;
     public @Nullable String region() {
-        if (region == null) return null;
-        return region.getValue("UserAddresses.region");
+        if (!unknown_region) return value_region;
+        throw new UndeferrableValueException("Value 'UserAddresses.region' is not present");
     }
 
     /**
      * The street of the address.
      * 
      */
-    private @Nullable UndeferrableValue<String> streetAddress;
-
+    @PolicyResourceProperty(name="streetAddress", flag="unknown_streetAddress")
+    private @Nullable String value_streetAddress;
+    private boolean unknown_streetAddress;
     public @Nullable String streetAddress() {
-        if (streetAddress == null) return null;
-        return streetAddress.getValue("UserAddresses.streetAddress");
+        if (!unknown_streetAddress) return value_streetAddress;
+        throw new UndeferrableValueException("Value 'UserAddresses.streetAddress' is not present");
     }
 
     /**
      * The type of address.
      * 
      */
-    private @Nullable UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private @Nullable String value_type;
+    private boolean unknown_type;
     public @Nullable String type() {
-        if (type == null) return null;
-        return type.getValue("UserAddresses.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'UserAddresses.type' is not present");
     }
 
 }

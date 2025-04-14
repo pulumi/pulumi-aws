@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.alb.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 
 
@@ -13,22 +14,24 @@ public final class TargetGroupTargetFailoverArgs {
      * Indicates how the GWLB handles existing flows when a target is deregistered. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_unhealthy`. Default: `no_rebalance`.
      * 
      */
-    private UndeferrableValue<String> onDeregistration;
-
+    @PolicyResourceProperty(name="onDeregistration", flag="unknown_onDeregistration")
+    private String value_onDeregistration;
+    private boolean unknown_onDeregistration;
     public String onDeregistration() {
-        if (onDeregistration == null) return null;
-        return onDeregistration.getValue("TargetGroupTargetFailoverArgs.onDeregistration");
+        if (!unknown_onDeregistration) return value_onDeregistration;
+        throw new UndeferrableValueException("Value 'TargetGroupTargetFailoverArgs.onDeregistration' is not present");
     }
 
     /**
      * Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_deregistration`. Default: `no_rebalance`.
      * 
      */
-    private UndeferrableValue<String> onUnhealthy;
-
+    @PolicyResourceProperty(name="onUnhealthy", flag="unknown_onUnhealthy")
+    private String value_onUnhealthy;
+    private boolean unknown_onUnhealthy;
     public String onUnhealthy() {
-        if (onUnhealthy == null) return null;
-        return onUnhealthy.getValue("TargetGroupTargetFailoverArgs.onUnhealthy");
+        if (!unknown_onUnhealthy) return value_onUnhealthy;
+        throw new UndeferrableValueException("Value 'TargetGroupTargetFailoverArgs.onUnhealthy' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.backup.inputs.ReportPlanReportDeliveryChannelArgs;
 import com.pulumi.policypacks.aws.backup.inputs.ReportPlanReportSettingArgs;
@@ -19,55 +20,60 @@ public final class ReportPlanArgs extends com.pulumi.resources.PolicyResourceInp
      * The description of the report plan with a maximum of 1,024 characters
      * 
      */
-    private UndeferrableValue<String> description;
-
+    @PolicyResourceProperty(name="description", flag="unknown_description")
+    private String value_description;
+    private boolean unknown_description;
     public String description() {
-        if (description == null) return null;
-        return description.getValue("ReportPlanArgs.description");
+        if (!unknown_description) return value_description;
+        throw new UndeferrableValueException("Value 'ReportPlanArgs.description' is not present");
     }
 
     /**
      * The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("ReportPlanArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'ReportPlanArgs.name' is not present");
     }
 
     /**
      * An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
      * 
      */
-    private UndeferrableValue<ReportPlanReportDeliveryChannelArgs> reportDeliveryChannel;
-
+    @PolicyResourceProperty(name="reportDeliveryChannel", flag="unknown_reportDeliveryChannel")
+    private ReportPlanReportDeliveryChannelArgs value_reportDeliveryChannel;
+    private boolean unknown_reportDeliveryChannel;
     public ReportPlanReportDeliveryChannelArgs reportDeliveryChannel() {
-        if (reportDeliveryChannel == null) return null;
-        return reportDeliveryChannel.getValue("ReportPlanArgs.reportDeliveryChannel");
+        if (!unknown_reportDeliveryChannel) return value_reportDeliveryChannel;
+        throw new UndeferrableValueException("Value 'ReportPlanArgs.reportDeliveryChannel' is not present");
     }
 
     /**
      * An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
      * 
      */
-    private UndeferrableValue<ReportPlanReportSettingArgs> reportSetting;
-
+    @PolicyResourceProperty(name="reportSetting", flag="unknown_reportSetting")
+    private ReportPlanReportSettingArgs value_reportSetting;
+    private boolean unknown_reportSetting;
     public ReportPlanReportSettingArgs reportSetting() {
-        if (reportSetting == null) return null;
-        return reportSetting.getValue("ReportPlanArgs.reportSetting");
+        if (!unknown_reportSetting) return value_reportSetting;
+        throw new UndeferrableValueException("Value 'ReportPlanArgs.reportSetting' is not present");
     }
 
     /**
      * Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ReportPlanArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ReportPlanArgs.tags' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.finspace.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
@@ -15,66 +16,72 @@ public final class KxClusterAutoScalingConfiguration {
      * Metric your cluster will track in order to scale in and out. For example, CPU_UTILIZATION_PERCENTAGE is the average CPU usage across all nodes in a cluster.
      * 
      */
-    private UndeferrableValue<String> autoScalingMetric;
-
+    @PolicyResourceProperty(name="autoScalingMetric", flag="unknown_autoScalingMetric")
+    private String value_autoScalingMetric;
+    private boolean unknown_autoScalingMetric;
     public String autoScalingMetric() {
-        if (autoScalingMetric == null) return null;
-        return autoScalingMetric.getValue("KxClusterAutoScalingConfiguration.autoScalingMetric");
+        if (!unknown_autoScalingMetric) return value_autoScalingMetric;
+        throw new UndeferrableValueException("Value 'KxClusterAutoScalingConfiguration.autoScalingMetric' is not present");
     }
 
     /**
      * Highest number of nodes to scale. Cannot be greater than 5
      * 
      */
-    private UndeferrableValue<Integer> maxNodeCount;
-
+    @PolicyResourceProperty(name="maxNodeCount", flag="unknown_maxNodeCount")
+    private Integer value_maxNodeCount;
+    private boolean unknown_maxNodeCount;
     public Integer maxNodeCount() {
-        if (maxNodeCount == null) return null;
-        return maxNodeCount.getValue("KxClusterAutoScalingConfiguration.maxNodeCount");
+        if (!unknown_maxNodeCount) return value_maxNodeCount;
+        throw new UndeferrableValueException("Value 'KxClusterAutoScalingConfiguration.maxNodeCount' is not present");
     }
 
     /**
      * Desired value of chosen `auto_scaling_metric`. When metric drops below this value, cluster will scale in. When metric goes above this value, cluster will scale out. Can be set between 0 and 100 percent.
      * 
      */
-    private UndeferrableValue<Double> metricTarget;
-
+    @PolicyResourceProperty(name="metricTarget", flag="unknown_metricTarget")
+    private Double value_metricTarget;
+    private boolean unknown_metricTarget;
     public Double metricTarget() {
-        if (metricTarget == null) return null;
-        return metricTarget.getValue("KxClusterAutoScalingConfiguration.metricTarget");
+        if (!unknown_metricTarget) return value_metricTarget;
+        throw new UndeferrableValueException("Value 'KxClusterAutoScalingConfiguration.metricTarget' is not present");
     }
 
     /**
      * Lowest number of nodes to scale. Must be at least 1 and less than the `max_node_count`. If nodes in cluster belong to multiple availability zones, then `min_node_count` must be at least 3.
      * 
      */
-    private UndeferrableValue<Integer> minNodeCount;
-
+    @PolicyResourceProperty(name="minNodeCount", flag="unknown_minNodeCount")
+    private Integer value_minNodeCount;
+    private boolean unknown_minNodeCount;
     public Integer minNodeCount() {
-        if (minNodeCount == null) return null;
-        return minNodeCount.getValue("KxClusterAutoScalingConfiguration.minNodeCount");
+        if (!unknown_minNodeCount) return value_minNodeCount;
+        throw new UndeferrableValueException("Value 'KxClusterAutoScalingConfiguration.minNodeCount' is not present");
     }
 
     /**
      * Duration in seconds that FinSpace will wait after a scale in event before initiating another scaling event.
      * 
      */
-    private UndeferrableValue<Double> scaleInCooldownSeconds;
-
+    @PolicyResourceProperty(name="scaleInCooldownSeconds", flag="unknown_scaleInCooldownSeconds")
+    private Double value_scaleInCooldownSeconds;
+    private boolean unknown_scaleInCooldownSeconds;
     public Double scaleInCooldownSeconds() {
-        if (scaleInCooldownSeconds == null) return null;
-        return scaleInCooldownSeconds.getValue("KxClusterAutoScalingConfiguration.scaleInCooldownSeconds");
+        if (!unknown_scaleInCooldownSeconds) return value_scaleInCooldownSeconds;
+        throw new UndeferrableValueException("Value 'KxClusterAutoScalingConfiguration.scaleInCooldownSeconds' is not present");
     }
 
     /**
      * Duration in seconds that FinSpace will wait after a scale out event before initiating another scaling event.
      * 
      */
-    private UndeferrableValue<Double> scaleOutCooldownSeconds;
-
+    @PolicyResourceProperty(name="scaleOutCooldownSeconds", flag="unknown_scaleOutCooldownSeconds")
+    private Double value_scaleOutCooldownSeconds;
+    private boolean unknown_scaleOutCooldownSeconds;
     public Double scaleOutCooldownSeconds() {
-        if (scaleOutCooldownSeconds == null) return null;
-        return scaleOutCooldownSeconds.getValue("KxClusterAutoScalingConfiguration.scaleOutCooldownSeconds");
+        if (!unknown_scaleOutCooldownSeconds) return value_scaleOutCooldownSeconds;
+        throw new UndeferrableValueException("Value 'KxClusterAutoScalingConfiguration.scaleOutCooldownSeconds' is not present");
     }
 
 }

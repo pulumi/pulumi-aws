@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.waf;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.waf.outputs.GeoMatchSetGeoMatchConstraint;
 import java.lang.String;
@@ -18,33 +19,36 @@ public final class GeoMatchSet extends com.pulumi.resources.PolicyResourceOutput
      * Amazon Resource Name (ARN)
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("GeoMatchSet.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'GeoMatchSet.arn' is not present");
     }
 
     /**
      * The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
      * 
      */
-    private @Nullable UndeferrableValue<List<GeoMatchSetGeoMatchConstraint>> geoMatchConstraints;
-
+    @PolicyResourceProperty(name="geoMatchConstraints", flag="unknown_geoMatchConstraints")
+    private @Nullable List<GeoMatchSetGeoMatchConstraint> value_geoMatchConstraints;
+    private boolean unknown_geoMatchConstraints;
     public @Nullable List<GeoMatchSetGeoMatchConstraint> geoMatchConstraints() {
-        if (geoMatchConstraints == null) return null;
-        return geoMatchConstraints.getValue("GeoMatchSet.geoMatchConstraints");
+        if (!unknown_geoMatchConstraints) return value_geoMatchConstraints;
+        throw new UndeferrableValueException("Value 'GeoMatchSet.geoMatchConstraints' is not present");
     }
 
     /**
      * The name or description of the GeoMatchSet.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("GeoMatchSet.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'GeoMatchSet.name' is not present");
     }
 
 }

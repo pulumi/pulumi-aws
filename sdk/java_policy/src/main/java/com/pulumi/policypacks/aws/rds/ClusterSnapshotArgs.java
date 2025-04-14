@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.rds;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.List;
@@ -18,44 +19,48 @@ public final class ClusterSnapshotArgs extends com.pulumi.resources.PolicyResour
      * The DB Cluster Identifier from which to take the snapshot.
      * 
      */
-    private UndeferrableValue<String> dbClusterIdentifier;
-
+    @PolicyResourceProperty(name="dbClusterIdentifier", flag="unknown_dbClusterIdentifier")
+    private String value_dbClusterIdentifier;
+    private boolean unknown_dbClusterIdentifier;
     public String dbClusterIdentifier() {
-        if (dbClusterIdentifier == null) return null;
-        return dbClusterIdentifier.getValue("ClusterSnapshotArgs.dbClusterIdentifier");
+        if (!unknown_dbClusterIdentifier) return value_dbClusterIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotArgs.dbClusterIdentifier' is not present");
     }
 
     /**
      * The Identifier for the snapshot.
      * 
      */
-    private UndeferrableValue<String> dbClusterSnapshotIdentifier;
-
+    @PolicyResourceProperty(name="dbClusterSnapshotIdentifier", flag="unknown_dbClusterSnapshotIdentifier")
+    private String value_dbClusterSnapshotIdentifier;
+    private boolean unknown_dbClusterSnapshotIdentifier;
     public String dbClusterSnapshotIdentifier() {
-        if (dbClusterSnapshotIdentifier == null) return null;
-        return dbClusterSnapshotIdentifier.getValue("ClusterSnapshotArgs.dbClusterSnapshotIdentifier");
+        if (!unknown_dbClusterSnapshotIdentifier) return value_dbClusterSnapshotIdentifier;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotArgs.dbClusterSnapshotIdentifier' is not present");
     }
 
     /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      * 
      */
-    private UndeferrableValue<List<String>> sharedAccounts;
-
+    @PolicyResourceProperty(name="sharedAccounts", flag="unknown_sharedAccounts")
+    private List<String> value_sharedAccounts;
+    private boolean unknown_sharedAccounts;
     public List<String> sharedAccounts() {
-        if (sharedAccounts == null) return null;
-        return sharedAccounts.getValue("ClusterSnapshotArgs.sharedAccounts");
+        if (!unknown_sharedAccounts) return value_sharedAccounts;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotArgs.sharedAccounts' is not present");
     }
 
     /**
      * A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("ClusterSnapshotArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'ClusterSnapshotArgs.tags' is not present");
     }
 
 }

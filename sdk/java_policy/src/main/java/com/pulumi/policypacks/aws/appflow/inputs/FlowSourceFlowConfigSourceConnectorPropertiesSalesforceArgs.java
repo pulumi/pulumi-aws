@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.appflow.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,40 +16,44 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs {
      * Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
      * 
      */
-    private UndeferrableValue<String> dataTransferApi;
-
+    @PolicyResourceProperty(name="dataTransferApi", flag="unknown_dataTransferApi")
+    private String value_dataTransferApi;
+    private boolean unknown_dataTransferApi;
     public String dataTransferApi() {
-        if (dataTransferApi == null) return null;
-        return dataTransferApi.getValue("FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs.dataTransferApi");
+        if (!unknown_dataTransferApi) return value_dataTransferApi;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs.dataTransferApi' is not present");
     }
 
     /**
      * Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
      * 
      */
-    private UndeferrableValue<Boolean> enableDynamicFieldUpdate;
-
+    @PolicyResourceProperty(name="enableDynamicFieldUpdate", flag="unknown_enableDynamicFieldUpdate")
+    private Boolean value_enableDynamicFieldUpdate;
+    private boolean unknown_enableDynamicFieldUpdate;
     public Boolean enableDynamicFieldUpdate() {
-        if (enableDynamicFieldUpdate == null) return null;
-        return enableDynamicFieldUpdate.getValue("FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs.enableDynamicFieldUpdate");
+        if (!unknown_enableDynamicFieldUpdate) return value_enableDynamicFieldUpdate;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs.enableDynamicFieldUpdate' is not present");
     }
 
     /**
      * Whether Amazon AppFlow includes deleted files in the flow run.
      * 
      */
-    private UndeferrableValue<Boolean> includeDeletedRecords;
-
+    @PolicyResourceProperty(name="includeDeletedRecords", flag="unknown_includeDeletedRecords")
+    private Boolean value_includeDeletedRecords;
+    private boolean unknown_includeDeletedRecords;
     public Boolean includeDeletedRecords() {
-        if (includeDeletedRecords == null) return null;
-        return includeDeletedRecords.getValue("FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs.includeDeletedRecords");
+        if (!unknown_includeDeletedRecords) return value_includeDeletedRecords;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs.includeDeletedRecords' is not present");
     }
 
-    private UndeferrableValue<String> object;
-
+    @PolicyResourceProperty(name="object", flag="unknown_object")
+    private String value_object;
+    private boolean unknown_object;
     public String object() {
-        if (object == null) return null;
-        return object.getValue("FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs.object");
+        if (!unknown_object) return value_object;
+        throw new UndeferrableValueException("Value 'FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs.object' is not present");
     }
 
 }

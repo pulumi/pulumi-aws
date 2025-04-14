@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.apprunner.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.apprunner.inputs.ServiceSourceConfigurationAuthenticationConfigurationArgs;
 import com.pulumi.policypacks.aws.apprunner.inputs.ServiceSourceConfigurationCodeRepositoryArgs;
 import com.pulumi.policypacks.aws.apprunner.inputs.ServiceSourceConfigurationImageRepositoryArgs;
@@ -17,44 +18,48 @@ public final class ServiceSourceConfigurationArgs {
      * Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
      * 
      */
-    private UndeferrableValue<ServiceSourceConfigurationAuthenticationConfigurationArgs> authenticationConfiguration;
-
+    @PolicyResourceProperty(name="authenticationConfiguration", flag="unknown_authenticationConfiguration")
+    private ServiceSourceConfigurationAuthenticationConfigurationArgs value_authenticationConfiguration;
+    private boolean unknown_authenticationConfiguration;
     public ServiceSourceConfigurationAuthenticationConfigurationArgs authenticationConfiguration() {
-        if (authenticationConfiguration == null) return null;
-        return authenticationConfiguration.getValue("ServiceSourceConfigurationArgs.authenticationConfiguration");
+        if (!unknown_authenticationConfiguration) return value_authenticationConfiguration;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationArgs.authenticationConfiguration' is not present");
     }
 
     /**
      * Whether continuous integration from the source repository is enabled for the App Runner service. If set to `true`, each repository change (source code commit or new image version) starts a deployment. Defaults to `true`.
      * 
      */
-    private UndeferrableValue<Boolean> autoDeploymentsEnabled;
-
+    @PolicyResourceProperty(name="autoDeploymentsEnabled", flag="unknown_autoDeploymentsEnabled")
+    private Boolean value_autoDeploymentsEnabled;
+    private boolean unknown_autoDeploymentsEnabled;
     public Boolean autoDeploymentsEnabled() {
-        if (autoDeploymentsEnabled == null) return null;
-        return autoDeploymentsEnabled.getValue("ServiceSourceConfigurationArgs.autoDeploymentsEnabled");
+        if (!unknown_autoDeploymentsEnabled) return value_autoDeploymentsEnabled;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationArgs.autoDeploymentsEnabled' is not present");
     }
 
     /**
      * Description of a source code repository. See Code Repository below for more details.
      * 
      */
-    private UndeferrableValue<ServiceSourceConfigurationCodeRepositoryArgs> codeRepository;
-
+    @PolicyResourceProperty(name="codeRepository", flag="unknown_codeRepository")
+    private ServiceSourceConfigurationCodeRepositoryArgs value_codeRepository;
+    private boolean unknown_codeRepository;
     public ServiceSourceConfigurationCodeRepositoryArgs codeRepository() {
-        if (codeRepository == null) return null;
-        return codeRepository.getValue("ServiceSourceConfigurationArgs.codeRepository");
+        if (!unknown_codeRepository) return value_codeRepository;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationArgs.codeRepository' is not present");
     }
 
     /**
      * Description of a source image repository. See Image Repository below for more details.
      * 
      */
-    private UndeferrableValue<ServiceSourceConfigurationImageRepositoryArgs> imageRepository;
-
+    @PolicyResourceProperty(name="imageRepository", flag="unknown_imageRepository")
+    private ServiceSourceConfigurationImageRepositoryArgs value_imageRepository;
+    private boolean unknown_imageRepository;
     public ServiceSourceConfigurationImageRepositoryArgs imageRepository() {
-        if (imageRepository == null) return null;
-        return imageRepository.getValue("ServiceSourceConfigurationArgs.imageRepository");
+        if (!unknown_imageRepository) return value_imageRepository;
+        throw new UndeferrableValueException("Value 'ServiceSourceConfigurationArgs.imageRepository' is not present");
     }
 
 }

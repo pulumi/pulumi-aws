@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.quicksight;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import com.pulumi.policypacks.aws.quicksight.inputs.DataSourceCredentialsArgs;
 import com.pulumi.policypacks.aws.quicksight.inputs.DataSourceParametersArgs;
@@ -23,88 +24,96 @@ public final class DataSourceArgs extends com.pulumi.resources.PolicyResourceInp
      * The ID for the AWS account that the data source is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
      * 
      */
-    private UndeferrableValue<String> awsAccountId;
-
+    @PolicyResourceProperty(name="awsAccountId", flag="unknown_awsAccountId")
+    private String value_awsAccountId;
+    private boolean unknown_awsAccountId;
     public String awsAccountId() {
-        if (awsAccountId == null) return null;
-        return awsAccountId.getValue("DataSourceArgs.awsAccountId");
+        if (!unknown_awsAccountId) return value_awsAccountId;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.awsAccountId' is not present");
     }
 
     /**
      * The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
      * 
      */
-    private UndeferrableValue<DataSourceCredentialsArgs> credentials;
-
+    @PolicyResourceProperty(name="credentials", flag="unknown_credentials")
+    private DataSourceCredentialsArgs value_credentials;
+    private boolean unknown_credentials;
     public DataSourceCredentialsArgs credentials() {
-        if (credentials == null) return null;
-        return credentials.getValue("DataSourceArgs.credentials");
+        if (!unknown_credentials) return value_credentials;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.credentials' is not present");
     }
 
     /**
      * An identifier for the data source.
      * 
      */
-    private UndeferrableValue<String> dataSourceId;
-
+    @PolicyResourceProperty(name="dataSourceId", flag="unknown_dataSourceId")
+    private String value_dataSourceId;
+    private boolean unknown_dataSourceId;
     public String dataSourceId() {
-        if (dataSourceId == null) return null;
-        return dataSourceId.getValue("DataSourceArgs.dataSourceId");
+        if (!unknown_dataSourceId) return value_dataSourceId;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.dataSourceId' is not present");
     }
 
     /**
      * A name for the data source, maximum of 128 characters.
      * 
      */
-    private UndeferrableValue<String> name;
-
+    @PolicyResourceProperty(name="name", flag="unknown_name")
+    private String value_name;
+    private boolean unknown_name;
     public String name() {
-        if (name == null) return null;
-        return name.getValue("DataSourceArgs.name");
+        if (!unknown_name) return value_name;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.name' is not present");
     }
 
     /**
      * The parameters used to connect to this data source (exactly one).
      * 
      */
-    private UndeferrableValue<DataSourceParametersArgs> parameters;
-
+    @PolicyResourceProperty(name="parameters", flag="unknown_parameters")
+    private DataSourceParametersArgs value_parameters;
+    private boolean unknown_parameters;
     public DataSourceParametersArgs parameters() {
-        if (parameters == null) return null;
-        return parameters.getValue("DataSourceArgs.parameters");
+        if (!unknown_parameters) return value_parameters;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.parameters' is not present");
     }
 
     /**
      * A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
      * 
      */
-    private UndeferrableValue<List<DataSourcePermissionArgs>> permissions;
-
+    @PolicyResourceProperty(name="permissions", flag="unknown_permissions")
+    private List<DataSourcePermissionArgs> value_permissions;
+    private boolean unknown_permissions;
     public List<DataSourcePermissionArgs> permissions() {
-        if (permissions == null) return null;
-        return permissions.getValue("DataSourceArgs.permissions");
+        if (!unknown_permissions) return value_permissions;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.permissions' is not present");
     }
 
     /**
      * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
      * 
      */
-    private UndeferrableValue<DataSourceSslPropertiesArgs> sslProperties;
-
+    @PolicyResourceProperty(name="sslProperties", flag="unknown_sslProperties")
+    private DataSourceSslPropertiesArgs value_sslProperties;
+    private boolean unknown_sslProperties;
     public DataSourceSslPropertiesArgs sslProperties() {
-        if (sslProperties == null) return null;
-        return sslProperties.getValue("DataSourceArgs.sslProperties");
+        if (!unknown_sslProperties) return value_sslProperties;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.sslProperties' is not present");
     }
 
     /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private Map<String,String> value_tags;
+    private boolean unknown_tags;
     public Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("DataSourceArgs.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.tags' is not present");
     }
 
     /**
@@ -113,22 +122,24 @@ public final class DataSourceArgs extends com.pulumi.resources.PolicyResourceInp
      * The following arguments are optional:
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("DataSourceArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.type' is not present");
     }
 
     /**
      * Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
      * 
      */
-    private UndeferrableValue<DataSourceVpcConnectionPropertiesArgs> vpcConnectionProperties;
-
+    @PolicyResourceProperty(name="vpcConnectionProperties", flag="unknown_vpcConnectionProperties")
+    private DataSourceVpcConnectionPropertiesArgs value_vpcConnectionProperties;
+    private boolean unknown_vpcConnectionProperties;
     public DataSourceVpcConnectionPropertiesArgs vpcConnectionProperties() {
-        if (vpcConnectionProperties == null) return null;
-        return vpcConnectionProperties.getValue("DataSourceArgs.vpcConnectionProperties");
+        if (!unknown_vpcConnectionProperties) return value_vpcConnectionProperties;
+        throw new UndeferrableValueException("Value 'DataSourceArgs.vpcConnectionProperties' is not present");
     }
 
 }

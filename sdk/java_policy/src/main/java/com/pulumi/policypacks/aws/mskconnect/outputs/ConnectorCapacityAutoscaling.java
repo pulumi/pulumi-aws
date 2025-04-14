@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.mskconnect.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.mskconnect.outputs.ConnectorCapacityAutoscalingScaleInPolicy;
 import com.pulumi.policypacks.aws.mskconnect.outputs.ConnectorCapacityAutoscalingScaleOutPolicy;
 import java.lang.Integer;
@@ -16,55 +17,60 @@ public final class ConnectorCapacityAutoscaling {
      * The maximum number of workers allocated to the connector.
      * 
      */
-    private UndeferrableValue<Integer> maxWorkerCount;
-
+    @PolicyResourceProperty(name="maxWorkerCount", flag="unknown_maxWorkerCount")
+    private Integer value_maxWorkerCount;
+    private boolean unknown_maxWorkerCount;
     public Integer maxWorkerCount() {
-        if (maxWorkerCount == null) return null;
-        return maxWorkerCount.getValue("ConnectorCapacityAutoscaling.maxWorkerCount");
+        if (!unknown_maxWorkerCount) return value_maxWorkerCount;
+        throw new UndeferrableValueException("Value 'ConnectorCapacityAutoscaling.maxWorkerCount' is not present");
     }
 
     /**
      * The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
      * 
      */
-    private @Nullable UndeferrableValue<Integer> mcuCount;
-
+    @PolicyResourceProperty(name="mcuCount", flag="unknown_mcuCount")
+    private @Nullable Integer value_mcuCount;
+    private boolean unknown_mcuCount;
     public @Nullable Integer mcuCount() {
-        if (mcuCount == null) return null;
-        return mcuCount.getValue("ConnectorCapacityAutoscaling.mcuCount");
+        if (!unknown_mcuCount) return value_mcuCount;
+        throw new UndeferrableValueException("Value 'ConnectorCapacityAutoscaling.mcuCount' is not present");
     }
 
     /**
      * The minimum number of workers allocated to the connector.
      * 
      */
-    private UndeferrableValue<Integer> minWorkerCount;
-
+    @PolicyResourceProperty(name="minWorkerCount", flag="unknown_minWorkerCount")
+    private Integer value_minWorkerCount;
+    private boolean unknown_minWorkerCount;
     public Integer minWorkerCount() {
-        if (minWorkerCount == null) return null;
-        return minWorkerCount.getValue("ConnectorCapacityAutoscaling.minWorkerCount");
+        if (!unknown_minWorkerCount) return value_minWorkerCount;
+        throw new UndeferrableValueException("Value 'ConnectorCapacityAutoscaling.minWorkerCount' is not present");
     }
 
     /**
      * The scale-in policy for the connector. See `scale_in_policy` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorCapacityAutoscalingScaleInPolicy> scaleInPolicy;
-
+    @PolicyResourceProperty(name="scaleInPolicy", flag="unknown_scaleInPolicy")
+    private @Nullable ConnectorCapacityAutoscalingScaleInPolicy value_scaleInPolicy;
+    private boolean unknown_scaleInPolicy;
     public @Nullable ConnectorCapacityAutoscalingScaleInPolicy scaleInPolicy() {
-        if (scaleInPolicy == null) return null;
-        return scaleInPolicy.getValue("ConnectorCapacityAutoscaling.scaleInPolicy");
+        if (!unknown_scaleInPolicy) return value_scaleInPolicy;
+        throw new UndeferrableValueException("Value 'ConnectorCapacityAutoscaling.scaleInPolicy' is not present");
     }
 
     /**
      * The scale-out policy for the connector. See `scale_out_policy` Block for details.
      * 
      */
-    private @Nullable UndeferrableValue<ConnectorCapacityAutoscalingScaleOutPolicy> scaleOutPolicy;
-
+    @PolicyResourceProperty(name="scaleOutPolicy", flag="unknown_scaleOutPolicy")
+    private @Nullable ConnectorCapacityAutoscalingScaleOutPolicy value_scaleOutPolicy;
+    private boolean unknown_scaleOutPolicy;
     public @Nullable ConnectorCapacityAutoscalingScaleOutPolicy scaleOutPolicy() {
-        if (scaleOutPolicy == null) return null;
-        return scaleOutPolicy.getValue("ConnectorCapacityAutoscaling.scaleOutPolicy");
+        if (!unknown_scaleOutPolicy) return value_scaleOutPolicy;
+        throw new UndeferrableValueException("Value 'ConnectorCapacityAutoscaling.scaleOutPolicy' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.networkmanager;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 import java.util.Map;
@@ -17,88 +18,96 @@ public final class TransitGatewayPeering extends com.pulumi.resources.PolicyReso
      * Peering Amazon Resource Name (ARN).
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("TransitGatewayPeering.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'TransitGatewayPeering.arn' is not present");
     }
 
     /**
      * The ARN of the core network.
      * 
      */
-    private UndeferrableValue<String> coreNetworkArn;
-
+    @PolicyResourceProperty(name="coreNetworkArn", flag="unknown_coreNetworkArn")
+    private String value_coreNetworkArn;
+    private boolean unknown_coreNetworkArn;
     public String coreNetworkArn() {
-        if (coreNetworkArn == null) return null;
-        return coreNetworkArn.getValue("TransitGatewayPeering.coreNetworkArn");
+        if (!unknown_coreNetworkArn) return value_coreNetworkArn;
+        throw new UndeferrableValueException("Value 'TransitGatewayPeering.coreNetworkArn' is not present");
     }
 
     /**
      * The ID of a core network.
      * 
      */
-    private UndeferrableValue<String> coreNetworkId;
-
+    @PolicyResourceProperty(name="coreNetworkId", flag="unknown_coreNetworkId")
+    private String value_coreNetworkId;
+    private boolean unknown_coreNetworkId;
     public String coreNetworkId() {
-        if (coreNetworkId == null) return null;
-        return coreNetworkId.getValue("TransitGatewayPeering.coreNetworkId");
+        if (!unknown_coreNetworkId) return value_coreNetworkId;
+        throw new UndeferrableValueException("Value 'TransitGatewayPeering.coreNetworkId' is not present");
     }
 
     /**
      * The edge location for the peer.
      * 
      */
-    private UndeferrableValue<String> edgeLocation;
-
+    @PolicyResourceProperty(name="edgeLocation", flag="unknown_edgeLocation")
+    private String value_edgeLocation;
+    private boolean unknown_edgeLocation;
     public String edgeLocation() {
-        if (edgeLocation == null) return null;
-        return edgeLocation.getValue("TransitGatewayPeering.edgeLocation");
+        if (!unknown_edgeLocation) return value_edgeLocation;
+        throw new UndeferrableValueException("Value 'TransitGatewayPeering.edgeLocation' is not present");
     }
 
     /**
      * The ID of the account owner.
      * 
      */
-    private UndeferrableValue<String> ownerAccountId;
-
+    @PolicyResourceProperty(name="ownerAccountId", flag="unknown_ownerAccountId")
+    private String value_ownerAccountId;
+    private boolean unknown_ownerAccountId;
     public String ownerAccountId() {
-        if (ownerAccountId == null) return null;
-        return ownerAccountId.getValue("TransitGatewayPeering.ownerAccountId");
+        if (!unknown_ownerAccountId) return value_ownerAccountId;
+        throw new UndeferrableValueException("Value 'TransitGatewayPeering.ownerAccountId' is not present");
     }
 
     /**
      * The type of peering. This will be `TRANSIT_GATEWAY`.
      * 
      */
-    private UndeferrableValue<String> peeringType;
-
+    @PolicyResourceProperty(name="peeringType", flag="unknown_peeringType")
+    private String value_peeringType;
+    private boolean unknown_peeringType;
     public String peeringType() {
-        if (peeringType == null) return null;
-        return peeringType.getValue("TransitGatewayPeering.peeringType");
+        if (!unknown_peeringType) return value_peeringType;
+        throw new UndeferrableValueException("Value 'TransitGatewayPeering.peeringType' is not present");
     }
 
     /**
      * The resource ARN of the peer.
      * 
      */
-    private UndeferrableValue<String> resourceArn;
-
+    @PolicyResourceProperty(name="resourceArn", flag="unknown_resourceArn")
+    private String value_resourceArn;
+    private boolean unknown_resourceArn;
     public String resourceArn() {
-        if (resourceArn == null) return null;
-        return resourceArn.getValue("TransitGatewayPeering.resourceArn");
+        if (!unknown_resourceArn) return value_resourceArn;
+        throw new UndeferrableValueException("Value 'TransitGatewayPeering.resourceArn' is not present");
     }
 
     /**
      * Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable UndeferrableValue<Map<String,String>> tags;
-
+    @PolicyResourceProperty(name="tags", flag="unknown_tags")
+    private @Nullable Map<String,String> value_tags;
+    private boolean unknown_tags;
     public @Nullable Map<String,String> tags() {
-        if (tags == null) return null;
-        return tags.getValue("TransitGatewayPeering.tags");
+        if (!unknown_tags) return value_tags;
+        throw new UndeferrableValueException("Value 'TransitGatewayPeering.tags' is not present");
     }
 
     /**
@@ -109,33 +118,36 @@ public final class TransitGatewayPeering extends com.pulumi.resources.PolicyReso
      * 
      */
     @Deprecated /* Please use `tags` instead. */
-    private UndeferrableValue<Map<String,String>> tagsAll;
-
+    @PolicyResourceProperty(name="tagsAll", flag="unknown_tagsAll")
+    private Map<String,String> value_tagsAll;
+    private boolean unknown_tagsAll;
     public Map<String,String> tagsAll() {
-        if (tagsAll == null) return null;
-        return tagsAll.getValue("TransitGatewayPeering.tagsAll");
+        if (!unknown_tagsAll) return value_tagsAll;
+        throw new UndeferrableValueException("Value 'TransitGatewayPeering.tagsAll' is not present");
     }
 
     /**
      * The ARN of the transit gateway for the peering request.
      * 
      */
-    private UndeferrableValue<String> transitGatewayArn;
-
+    @PolicyResourceProperty(name="transitGatewayArn", flag="unknown_transitGatewayArn")
+    private String value_transitGatewayArn;
+    private boolean unknown_transitGatewayArn;
     public String transitGatewayArn() {
-        if (transitGatewayArn == null) return null;
-        return transitGatewayArn.getValue("TransitGatewayPeering.transitGatewayArn");
+        if (!unknown_transitGatewayArn) return value_transitGatewayArn;
+        throw new UndeferrableValueException("Value 'TransitGatewayPeering.transitGatewayArn' is not present");
     }
 
     /**
      * The ID of the transit gateway peering attachment.
      * 
      */
-    private UndeferrableValue<String> transitGatewayPeeringAttachmentId;
-
+    @PolicyResourceProperty(name="transitGatewayPeeringAttachmentId", flag="unknown_transitGatewayPeeringAttachmentId")
+    private String value_transitGatewayPeeringAttachmentId;
+    private boolean unknown_transitGatewayPeeringAttachmentId;
     public String transitGatewayPeeringAttachmentId() {
-        if (transitGatewayPeeringAttachmentId == null) return null;
-        return transitGatewayPeeringAttachmentId.getValue("TransitGatewayPeering.transitGatewayPeeringAttachmentId");
+        if (!unknown_transitGatewayPeeringAttachmentId) return value_transitGatewayPeeringAttachmentId;
+        throw new UndeferrableValueException("Value 'TransitGatewayPeering.transitGatewayPeeringAttachmentId' is not present");
     }
 
 }

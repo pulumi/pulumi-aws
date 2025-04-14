@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.backup.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.String;
 import java.util.Map;
 
@@ -14,22 +15,24 @@ public final class PlanAdvancedBackupSettingArgs {
      * Specifies the backup option for a selected resource. This option is only available for Windows VSS backup jobs. Set to `{ WindowsVSS = &#34;enabled&#34; }` to enable Windows VSS backup option and create a VSS Windows backup.
      * 
      */
-    private UndeferrableValue<Map<String,String>> backupOptions;
-
+    @PolicyResourceProperty(name="backupOptions", flag="unknown_backupOptions")
+    private Map<String,String> value_backupOptions;
+    private boolean unknown_backupOptions;
     public Map<String,String> backupOptions() {
-        if (backupOptions == null) return null;
-        return backupOptions.getValue("PlanAdvancedBackupSettingArgs.backupOptions");
+        if (!unknown_backupOptions) return value_backupOptions;
+        throw new UndeferrableValueException("Value 'PlanAdvancedBackupSettingArgs.backupOptions' is not present");
     }
 
     /**
      * The type of AWS resource to be backed up. For VSS Windows backups, the only supported resource type is Amazon EC2. Valid values: `EC2`.
      * 
      */
-    private UndeferrableValue<String> resourceType;
-
+    @PolicyResourceProperty(name="resourceType", flag="unknown_resourceType")
+    private String value_resourceType;
+    private boolean unknown_resourceType;
     public String resourceType() {
-        if (resourceType == null) return null;
-        return resourceType.getValue("PlanAdvancedBackupSettingArgs.resourceType");
+        if (!unknown_resourceType) return value_resourceType;
+        throw new UndeferrableValueException("Value 'PlanAdvancedBackupSettingArgs.resourceType' is not present");
     }
 
 }

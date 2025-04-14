@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.emr.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,44 +16,48 @@ public final class InstanceGroupEbsConfigArgs {
      * The number of I/O operations per second (IOPS) that the volume supports.
      * 
      */
-    private UndeferrableValue<Integer> iops;
-
+    @PolicyResourceProperty(name="iops", flag="unknown_iops")
+    private Integer value_iops;
+    private boolean unknown_iops;
     public Integer iops() {
-        if (iops == null) return null;
-        return iops.getValue("InstanceGroupEbsConfigArgs.iops");
+        if (!unknown_iops) return value_iops;
+        throw new UndeferrableValueException("Value 'InstanceGroupEbsConfigArgs.iops' is not present");
     }
 
     /**
      * The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
      * 
      */
-    private UndeferrableValue<Integer> size;
-
+    @PolicyResourceProperty(name="size", flag="unknown_size")
+    private Integer value_size;
+    private boolean unknown_size;
     public Integer size() {
-        if (size == null) return null;
-        return size.getValue("InstanceGroupEbsConfigArgs.size");
+        if (!unknown_size) return value_size;
+        throw new UndeferrableValueException("Value 'InstanceGroupEbsConfigArgs.size' is not present");
     }
 
     /**
      * The volume type. Valid options are &#39;gp2&#39;, &#39;io1&#39; and &#39;standard&#39;.
      * 
      */
-    private UndeferrableValue<String> type;
-
+    @PolicyResourceProperty(name="type", flag="unknown_type")
+    private String value_type;
+    private boolean unknown_type;
     public String type() {
-        if (type == null) return null;
-        return type.getValue("InstanceGroupEbsConfigArgs.type");
+        if (!unknown_type) return value_type;
+        throw new UndeferrableValueException("Value 'InstanceGroupEbsConfigArgs.type' is not present");
     }
 
     /**
      * The number of EBS Volumes to attach per instance.
      * 
      */
-    private UndeferrableValue<Integer> volumesPerInstance;
-
+    @PolicyResourceProperty(name="volumesPerInstance", flag="unknown_volumesPerInstance")
+    private Integer value_volumesPerInstance;
+    private boolean unknown_volumesPerInstance;
     public Integer volumesPerInstance() {
-        if (volumesPerInstance == null) return null;
-        return volumesPerInstance.getValue("InstanceGroupEbsConfigArgs.volumesPerInstance");
+        if (!unknown_volumesPerInstance) return value_volumesPerInstance;
+        throw new UndeferrableValueException("Value 'InstanceGroupEbsConfigArgs.volumesPerInstance' is not present");
     }
 
 }

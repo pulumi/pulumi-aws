@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.securityhub;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.core.annotations.PolicyResourceType;
 import java.lang.String;
 
@@ -15,11 +16,12 @@ public final class ProductSubscription extends com.pulumi.resources.PolicyResour
      * The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
      * 
      */
-    private UndeferrableValue<String> arn;
-
+    @PolicyResourceProperty(name="arn", flag="unknown_arn")
+    private String value_arn;
+    private boolean unknown_arn;
     public String arn() {
-        if (arn == null) return null;
-        return arn.getValue("ProductSubscription.arn");
+        if (!unknown_arn) return value_arn;
+        throw new UndeferrableValueException("Value 'ProductSubscription.arn' is not present");
     }
 
     /**
@@ -64,11 +66,12 @@ public final class ProductSubscription extends com.pulumi.resources.PolicyResour
      * * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
      * 
      */
-    private UndeferrableValue<String> productArn;
-
+    @PolicyResourceProperty(name="productArn", flag="unknown_productArn")
+    private String value_productArn;
+    private boolean unknown_productArn;
     public String productArn() {
-        if (productArn == null) return null;
-        return productArn.getValue("ProductSubscription.productArn");
+        if (!unknown_productArn) return value_productArn;
+        throw new UndeferrableValueException("Value 'ProductSubscription.productArn' is not present");
     }
 
 }

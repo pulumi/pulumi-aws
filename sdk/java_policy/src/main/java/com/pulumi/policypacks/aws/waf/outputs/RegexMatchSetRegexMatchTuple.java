@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.waf.outputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import com.pulumi.policypacks.aws.waf.outputs.RegexMatchSetRegexMatchTupleFieldToMatch;
 import java.lang.String;
 
@@ -14,22 +15,24 @@ public final class RegexMatchSetRegexMatchTuple {
      * The part of a web request that you want to search, such as a specified header or a query string.
      * 
      */
-    private UndeferrableValue<RegexMatchSetRegexMatchTupleFieldToMatch> fieldToMatch;
-
+    @PolicyResourceProperty(name="fieldToMatch", flag="unknown_fieldToMatch")
+    private RegexMatchSetRegexMatchTupleFieldToMatch value_fieldToMatch;
+    private boolean unknown_fieldToMatch;
     public RegexMatchSetRegexMatchTupleFieldToMatch fieldToMatch() {
-        if (fieldToMatch == null) return null;
-        return fieldToMatch.getValue("RegexMatchSetRegexMatchTuple.fieldToMatch");
+        if (!unknown_fieldToMatch) return value_fieldToMatch;
+        throw new UndeferrableValueException("Value 'RegexMatchSetRegexMatchTuple.fieldToMatch' is not present");
     }
 
     /**
      * The ID of a Regex Pattern Set.
      * 
      */
-    private UndeferrableValue<String> regexPatternSetId;
-
+    @PolicyResourceProperty(name="regexPatternSetId", flag="unknown_regexPatternSetId")
+    private String value_regexPatternSetId;
+    private boolean unknown_regexPatternSetId;
     public String regexPatternSetId() {
-        if (regexPatternSetId == null) return null;
-        return regexPatternSetId.getValue("RegexMatchSetRegexMatchTuple.regexPatternSetId");
+        if (!unknown_regexPatternSetId) return value_regexPatternSetId;
+        throw new UndeferrableValueException("Value 'RegexMatchSetRegexMatchTuple.regexPatternSetId' is not present");
     }
 
     /**
@@ -39,11 +42,12 @@ public final class RegexMatchSetRegexMatchTuple {
      * for all supported values.
      * 
      */
-    private UndeferrableValue<String> textTransformation;
-
+    @PolicyResourceProperty(name="textTransformation", flag="unknown_textTransformation")
+    private String value_textTransformation;
+    private boolean unknown_textTransformation;
     public String textTransformation() {
-        if (textTransformation == null) return null;
-        return textTransformation.getValue("RegexMatchSetRegexMatchTuple.textTransformation");
+        if (!unknown_textTransformation) return value_textTransformation;
+        throw new UndeferrableValueException("Value 'RegexMatchSetRegexMatchTuple.textTransformation' is not present");
     }
 
 }

@@ -3,7 +3,8 @@
 
 package com.pulumi.policypacks.aws.medialive.inputs;
 
-import com.pulumi.core.UndeferrableValue;
+import com.pulumi.core.UndeferrableValueException;
+import com.pulumi.core.annotations.PolicyResourceProperty;
 import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
@@ -15,29 +16,32 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupS
      * Specifies behavior of last resort when input video os lost.
      * 
      */
-    private UndeferrableValue<String> inputLossAction;
-
+    @PolicyResourceProperty(name="inputLossAction", flag="unknown_inputLossAction")
+    private String value_inputLossAction;
+    private boolean unknown_inputLossAction;
     public String inputLossAction() {
-        if (inputLossAction == null) return null;
-        return inputLossAction.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs.inputLossAction");
+        if (!unknown_inputLossAction) return value_inputLossAction;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs.inputLossAction' is not present");
     }
 
     /**
      * Indicates ID3 frame that has the timecode.
      * 
      */
-    private UndeferrableValue<String> timedMetadataId3Frame;
-
+    @PolicyResourceProperty(name="timedMetadataId3Frame", flag="unknown_timedMetadataId3Frame")
+    private String value_timedMetadataId3Frame;
+    private boolean unknown_timedMetadataId3Frame;
     public String timedMetadataId3Frame() {
-        if (timedMetadataId3Frame == null) return null;
-        return timedMetadataId3Frame.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs.timedMetadataId3Frame");
+        if (!unknown_timedMetadataId3Frame) return value_timedMetadataId3Frame;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs.timedMetadataId3Frame' is not present");
     }
 
-    private UndeferrableValue<Integer> timedMetadataId3Period;
-
+    @PolicyResourceProperty(name="timedMetadataId3Period", flag="unknown_timedMetadataId3Period")
+    private Integer value_timedMetadataId3Period;
+    private boolean unknown_timedMetadataId3Period;
     public Integer timedMetadataId3Period() {
-        if (timedMetadataId3Period == null) return null;
-        return timedMetadataId3Period.getValue("ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs.timedMetadataId3Period");
+        if (!unknown_timedMetadataId3Period) return value_timedMetadataId3Period;
+        throw new UndeferrableValueException("Value 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs.timedMetadataId3Period' is not present");
     }
 
 }
